@@ -20,7 +20,7 @@ Session discipline:
 - END (or when the user says they're stopping, or context runs long): update STATUS.md (phases, live tasks, next actions), append a LOG.md entry, update touched `directions/` files' "Current frontier", commit.
 - The persistent memory entry `rh-research-program` points here; keep it pointing here and nothing else — all content lives in these files, not in memory.
 
-**Started:** 2026-08-11. **Last updated:** 2026-08-11 ~15:10, Session 2 close (update this line on every edit).
+**Started:** 2026-08-11. **Last updated:** 2026-08-12 ~00:15, Session 3 close (update this line on every edit).
 
 **SPONSOR DIRECTIVE (2026-08-11):** The user's priority is WHOLLY NEW MACHINERY — potentially a new mathematical field, where "field" means a new BRANCH/DISCIPLINE of mathematics (as ergodic theory or arithmetic geometry are fields): new objects, axioms, and a master inequality/identity to organize them — NOT "field" in the algebraic sense of rings/fields (sponsor clarification, Session 3) — over extension of existing machinery. Their stated position: existing machinery has provable limitations (that is why RH stands); low trust that existing machinery can decide RH. Program response: Track C added (2 new-field designers, C1 requirements-first field construction, C2 rigidity/conservation-laws); in verification and synthesis, Track B/C directions are the headline and Track A is reframed as supporting infrastructure (instruments, specification-writing, proportion progress) — not a competing bet on proving RH with old tools.
 **This file is the resume point.** A fresh session should read this file top to bottom, then follow "How to resume" at the end.
@@ -32,7 +32,7 @@ Session discipline:
 1. ✅ **Understand** — map the paper + Lean repo: method, exact constants, formalized no-go theorems, extension hooks. (6-agent workflow, done.)
 2. ✅ **Literature** — verified state of the art on 12 fronts, Aug 2026. (web agent, done.)
 3. 🔶 **Design** — 9 of 10 DONE (A1-A3, B1-B4, C1-C2 in `results/design-proposals.json`; direction files under `directions/`). **A4:lindelof-lock was stopped mid-run at user pause (no result journaled) — must be RE-RUN on resume**: its full prompt is in `scripts/rh-design-wf_30287ea4-643.js` under label 'A4:lindelof-lock'; run it as a SINGLE agent (do NOT relaunch the whole 8-agent script — the other 7 are already harvested).
-4. 🔶 **Adversarial verify** — Session-2 relaunch got **12 of 18** killer/referee verdicts before the Session-2 pause (harvested to `results/verdicts-partial.json`). Missing: kill:A2, kill:B4, kill+ref:C1, kill+ref:C2, completeness critic — all covered by the reduced script `scripts/rh-verify-remaining.js` (launch on resume). A4's kill+ref are inside `scripts/rh-a4-design-verify.js`. NOTE for adjudication: killers say REFUTED on A1 (1.5) and B1 (1.5) while referees say survives-with-repairs (6.5 / 5) — resolve these conflicts in synthesis (possibly a tie-breaker agent reading both verdicts).
+4. 🔶 **Adversarial verify** — **18/18 killer/referee verdicts in** (`results/verdicts.json`). Adjudicated (binding): **A1 REFUTED (2)**, **B1 REFUTED (2)** — `results/adjudication-{A1,B1}.json`. No-conflict survivors: A3 (~6.75), B2 (~6.75), B3 (~5.75), A2 (killer 4 / referee 6.5), B4 (killer 5 / referee 7), C2 (killer 5 / referee 6.5). **OPEN: C1 conflict** (killer REFUTED 2 vs referee swr 5.5) — adjudicate on resume (input file + prompt template ready). **Still missing: completeness critic** (resume wf_c56fc2c4-de4 — 6 verdicts journal-cached, only critic re-runs) **and all of A4** (design+kill+ref; designer has now died mid-run 3x — pure relaunch). Direction files A1/B1/A3/B2/B3 already carry their verdict sections + flipped statuses; A2/B4/C1/C2 still pending write-up.
 5. ⬜ **Synthesize** — rank surviving directions, write the research prospectus, publish as artifact; optionally add numerics per direction (Wolfram) and Lean statement sketches.
 
 ## Key artifacts (all durable, in this directory)
@@ -75,20 +75,22 @@ Full prompts: in the workflow scripts (paths below).
 - S4 A new positivity GENERATOR, not just a bigger Weil-positivity cone (algebraic: Hodge index/ampleness; analytic: reflection positivity/complete monotonicity; combinatorial: Lorentzian polynomials; probabilistic: determinantal/negative association).
 - S5 Survive the named no-gos: AH world, Bombieri–Garrett 94%, parity, Conrey–Li, Λ ≥ 0, bandwidth/two-moment ceilings.
 
-## PAUSED 2026-08-11 ~15:10 (Session-2 close, user break). Nothing is running. Resume actions, in order:
+## PAUSED 2026-08-12 ~00:15 (Session-3 close, user break). Nothing is running. Resume actions, in order:
 
-1. Launch BOTH in parallel (self-contained, cross-session safe):
-   - `Workflow({scriptPath: "<rh-program>/scripts/rh-a4-design-verify.js"})` — A4:lindelof-lock designer → its killer+referee (3 agents; the Session-2 attempt died mid-designer with 0 results journaled).
-   - `Workflow({scriptPath: "<rh-program>/scripts/rh-verify-remaining.js"})` — the 6 missing verdicts (kill:A2, kill:B4, kill+ref:C1, kill+ref:C2) + completeness critic (7 agents). Do NOT relaunch the full `rh-verify-wf_eb8254d0-341.js` — 12/18 verdicts are already harvested in `results/verdicts-partial.json`.
-2. Merge `results/verdicts-partial.json` + both new runs → `results/verdicts.json` (delete the -partial file). A4 design → merge into `results/design-proposals.json`, create `directions/A4-lindelof-lock.md` (template: any sibling).
-3. Write each verdict pair into its directions/ file ("Verification verdicts" section); flip direction statuses. Adjudicate the killer-vs-referee conflicts (A1, B1 — see phase 4 note; consider a tie-breaker agent fed both verdicts + the direction file).
-4. Phase 5 synthesis: rank per sponsor directive (Track B/C headline; A = instruments), write prospectus, load artifact-design skill BEFORE writing the page, publish artifact, save source copy into rh-program/, append LOG.md entry.
-5. Git: commit after each harvest and at session end. Remote pending — sponsor will run `gh repo create riemann-rh-program --private --source . --remote origin --push` at a break; after that exists, push too.
+1. Launch ALL THREE in parallel:
+   - `Workflow({scriptPath: "<rh-program>/scripts/rh-verify-remaining.js", resumeFromRunId: "wf_c56fc2c4-de4"})` — the 6 verdicts are journal-cached; ONLY the completeness critic re-runs (~1 agent).
+   - `Workflow({scriptPath: "<rh-program>/scripts/rh-a4-design-verify.js", resumeFromRunId: "wf_696be498-405"})` — nothing cached (designer died mid-run for the 3rd time); full 3-agent chain re-runs.
+   - C1 adjudicator: single background `general-purpose` agent, prompt = `scripts/adjudicator-prompt-template.md` with {ID}=C1, {PROPOSAL}=C1:requirements-first-field, {DIRECTION_FILE}=C1-requirements-first-field.md, killer 2 / referee 5.5, TRACK B/C VARIANT paragraph. Input file `results/adjudication-input-C1.json` already exists.
+2. Save C1 adjudication → `results/adjudication-C1.json`; write verdict sections + flip statuses in directions/ for A2, B4, C1, C2 (pattern: see A1/A3/B1/B2/B3 files; full verdicts in `results/verdicts.json`).
+3. When A4 lands: merge design into `results/design-proposals.json`, create `directions/A4-lindelof-lock.md` (template: any sibling), write its verdict section; adjudicate if killer/referee conflict. Merge A4 kill/ref + completeness critic into `results/verdicts.json`.
+4. Phase 5 synthesis: rank per sponsor directive (Track B/C headline; A = instruments; refutation channels separate from proof channels), write prospectus, load artifact-design skill BEFORE writing the page, publish artifact, save source copy into rh-program/, append LOG.md entry. Include the B1/A1 salvage lists (adjudication files) — refutations are first-class results.
+5. Git: commit after each harvest and at session end; push to origin (live: github.com/x67ai/riemann-rh-program).
 
 ## Live/completed background tasks (session-specific paths — data persists on disk after session death)
 
-- Session 3 (2026-08-11): `rh-verify-remaining`: task w7hh2gsof, run wf_c56fc2c4-de4. **LAUNCHED at Session-3 open.** Journal: `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann/2f9ec499-d98d-42be-b056-6b2d82c08333/subagents/workflows/wf_c56fc2c4-de4/journal.jsonl`
-- Session 3 (2026-08-11): `rh-a4-design-verify`: task w329atjus, run wf_696be498-405. **LAUNCHED at Session-3 open.** Journal: `.../wf_696be498-405/journal.jsonl`
+- Session 3 (2026-08-11/12): `rh-verify-remaining`, run wf_c56fc2c4-de4 — first attempt orphaned by machine sleep (process died); relaunched with resume, **STOPPED at Session-3 close with 6/6 verdicts journaled (harvested to verdicts.json); completeness critic was mid-run**. Journal snapshot: `results/journals/wf_c56fc2c4-de4.session3.journal.jsonl`; live journal under `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann/8ec1ce13-3e65-43c8-94d0-4e8b3d797d80/subagents/workflows/wf_c56fc2c4-de4/`. RESUME with resumeFromRunId wf_c56fc2c4-de4.
+- Session 3 (2026-08-11/12): `rh-a4-design-verify`, run wf_696be498-405 — orphaned by sleep, relaunched, **STOPPED at Session-3 close, 0 results (designer mid-run; 3rd death)**. Journal snapshot: `results/journals/wf_696be498-405.session3.journal.jsonl`. RESUME with resumeFromRunId wf_696be498-405 (nothing cached — full re-run).
+- Session 3: A1 + B1 adjudicators (single agents): **DONE** → `results/adjudication-{A1,B1}.json`, both REFUTED (2). Prompt preserved in `scripts/adjudicator-prompt-template.md`.
 - Session 2: Phase-4 verify relaunch `rh-verify`: task w5nv06qz1, run wf_a2389ed4-3f1. **STOPPED at Session-2 close with 12/18 verdicts** — harvested to `results/verdicts-partial.json`; journal snapshot `results/journals/wf_a2389ed4-3f1.journal.jsonl`. Remaining 6+critic covered by `scripts/rh-verify-remaining.js`.
 - Session 2: A4 design+verify `rh-a4-design-verify`: task w5rp1heki, run wf_89b075e1-f64. **STOPPED at Session-2 close, 0 results** (designer died mid-run). Relaunched Session 3 (above).
 
