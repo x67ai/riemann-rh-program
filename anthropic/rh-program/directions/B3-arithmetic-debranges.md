@@ -1,6 +1,6 @@
 # B3:arithmetic-debranges: Arithmetic de Branges via tilt-jets: a prime-computable mixed xi.xi' certificate that sees multiplicity
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree; thesis to be restated)
 **Track:** B (new machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.8
@@ -61,13 +61,19 @@ M1 lands => a new unconditional theorem class (mixed correlations of xi with its
 - Literature recalled from memory needing verification: Farmer-Gonek-Lee's conditional pair correlation of xi'-zeros (arXiv id uncertain, ~1205.0040?), Lagarias 2005 on E_a Hermite-Biehler for a >= 1, Ki's work on zeros of xi' near the line, and the exact statement of Suzuki arXiv:2301.00421; none is load-bearing for the first theorem but they calibrate novelty claims and the GUE prediction of c_x.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 5. Majors: the Linked Joint Rank-Trace Lemma (first formalizable statement) is FALSE as stated — 2×2 counterexample; repaired version reduces to existing rank_trace_mult_k; the "arithmetic de Branges / tilt-jet" identity chain conflates ξ-zero data (the paper's ν_X) with the ξ′-zero data the certificate consumes; the R-test numeric measures the wrong null (GUE fluctuation vs worst-case joint law); the off-line-multiple excess claim is unsupported. Verdict: strip the de Branges dressing — what remains (M1: unconditional mixed (ξ,ξ′)-zero cross-correlation theorem, a de-conditionalization of the Farmer–Gonek–Lee mixed layer + joint-ceiling LP M4) is genuinely new, tractable, publishable.
+- **Referee:** survives-with-repairs, score 6.5. Majors: the mechanism displaces lemmaR_tight rather than breaking it — the degenerate configuration (on-line double vs off-line pair at depth → 0) is STILL not separated (the off-line pair forces a nearby ξ′-zero too); the "data-class escape" is really one new scalar constraint per window → expect a modestly moved ceiling, not room toward 1. Minors: First-Theorem statement (i) wrong off the line; Krein–Langer κ_a finiteness open globally for every a ∈ (1/2,1); missing anchors (Speiser 1934, Levinson–Montgomery 1974, Berndt 1970, Soundararajan 2000/Zhang 2001).
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~5.75 — but S3 (multiplicity-visibility) claim is DOWNGRADED: the enlarged invariant set still fails to separate the lemmaR_tight degenerate pair at depth 0.**
+
+**Mandatory repairs (merged):** (1) restate the thesis as the mixed cross-correlation + joint certificate (drop jet-compression-of-K_a claims; cite WeilEF/XiLogDeriv for the jet diagonal, not XiPrime); (2) fix the M2 lemma by charging every on-line ξ′-atom its k_c price, redo the LP arithmetic; (3) reorder gates — adversarial placement-LP (coarse M4) BEFORE M3; replace the GUE-null R-test with min-over-Rolle-admissible-placements; (4) rewrite First Theorem (i) with the exact signed off-line kernel; (5) window the Krein–Langer layer (motivation for M5, not load-bearing); (6) retarget claims to on-line multiple mass s₂₊ and on-line excess only; add classical anchors; elevate the R ≥ 2 gate to a formal program gate before M3.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-11 (Session 3): Phase-4 verdicts harvested (no conflict). Survives with repairs; S3 claim downgraded; thesis restatement mandatory.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+Survives (consensus ~5.75) but transformed by verification: the de Branges framing is dead; the surviving core is M1 — an unconditional mixed (ξ,ξ′)-zero cross-correlation theorem (de-conditionalizing Farmer–Gonek–Lee) — plus the joint-ceiling LP (M4) extending the 256-law obstruction technology to derivative layers. The S3 selling point is weakened: the mixed invariant does NOT separate the lemmaR_tight degenerate configuration; expected gain is value-fitting with small η. Cross-link: B1's refutation left a ζ′(ρ)-mass structural question that M1's mixed layer directly informs.
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_

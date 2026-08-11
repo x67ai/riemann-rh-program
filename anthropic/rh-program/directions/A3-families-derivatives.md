@@ -1,6 +1,6 @@
 # A3:families-derivatives: Direct-Sum Escape: Orthogonality as the Mean-Value Engine - the Family-Averaged Rank-Trace Certificate at Polylogarithmic Height
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** A (advance machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.8
@@ -78,13 +78,19 @@ M1 lands: a reusable, formalized near-optimal compact-support taper with strip b
 - Numerical falsification risk (which is also a feature): the Part-B end-to-end experiment at q = 997 could reveal that the averaged finite-size certificate converges more slowly than the t-aspect factor a^2(1+Lambda^2/3)/(b+Lambda^2 J) predicts; that would not kill the asymptotic theorem but would remove the 'numerically visible' selling point and might expose a missed error term.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 6.5. TIER 1 STANDS — the core mechanism audit passes end-to-end: certificate additivity over block-diagonal direct sums is genuine linear algebra; for X < q character orthogonality kills off-diagonal and μ–P cross terms identically; averaged κ reproduces 1/Λ+Λ/3; κ_fam(2)=13/12 gives exactly Özlük's 11/12; T₀ taper arithmetic closes; F1 credibly provable in the stated window. Major finding: Tier 2 / M5's "one classical missing lemma" framing is false — the needed q-averaged variance asymptotic at Q = x^{1/Λ}, Λ∈(1,2), is exactly where Özlük's GRH sits and beyond Montgomery–Hooley's unconditional range. Minor: GL(2) bandwidth claim depends on which average runs (plain Petersson gives Λ*=1/2, vacuous by dimension cap).
+- **Referee:** survives-with-repairs, score 7. Major: M5's arithmetic largely exists uncited (Chandee–Lee–Liu–Radziwiłł ~2014: asymptotic large sieve + GRH → 11/12 for primitive Dirichlet L) — re-scope M5 as "de-conditionalize CLLR"; a partial-range Λ=1+c theorem via BDH variance (κ_fam(1.5)=1.1481 certifies 0.8519 > 0.8453 two-moment cap!) is promotable to a nearer milestone. Minor: F1's "STATUS OF INPUTS" overstates (ThmE pipeline is fixed-q; all q-uniformity is new work); Lean tail-chain rework budget understated; novelty items (4),(5) inflated.
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~6.75.**
+
+**Mandatory repairs (merged):** (1) re-scope M5 as conditional on the named open hypothesis (q-averaged variance at Q = x^{1/Λ}) / de-conditionalizing CLLR — not "one missing lemma"; (2) promote the partial-range Λ=1+c BDH-variance milestone (first certified breach of the 0.8453 two-moment cap, in-family); (3) fix dual-term divisor-counting step + Ingham normalization; (4) reword F1 input status to fixed-q truth; (5) position novelty against CLLR, Drappeau–Pratt–Radziwiłł, Hughes–Rudnick, Hafner 1983, arXiv:2508.11108; (6) honest Lean budget (T₀-decay re-proof of ZeroSummability, sinc product), lead with the cheap direct-sum certificate lemma.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-11 (Session 3): Phase-4 verdicts harvested (no conflict). Survives with repairs; repairs merged above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+Strongest surviving Track-A direction (consensus ~6.75). Tier 1 (F1: family-averaged certificate over Dirichlet characters, fixed window) is audited clean by the killer and is the program's most provable first theorem. The BDH-variance partial-range milestone is the headline: an in-family certified value 0.8519 > 0.8453 would be the first concrete breach of the two-moment cap (in the family setting — does not touch zeta itself; scope honestly). Repairs are bookkeeping + citation positioning, not structural.
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_
