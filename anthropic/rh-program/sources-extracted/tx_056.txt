@@ -1,0 +1,48 @@
+The rank–trace lemma and two
+thirds
+Summary
+Earlier in this campaign a run (E2) compressed Weil’s explicit-formula Hermitian form
+W(f, g) = P
+ρ mρhf(γρ)hg(¯γρ) to the Gabor test space fk(u) = φ(u)e−iτku, τk = T + 2πk/L,
+L = λ log(T/2π), obtaining a d × d Gram matrix G whose zero side is a sum of rank-one
+positive pieces from on-line zeros and signature-(1, 1) blocks from hypothetical off-line pairs
+{ρ, 1 −¯ρ}, and whose traces tr G, tr G2 are computable from primes (PNT-strength sums
+and Montgomery–Vaughan, no RH). Counting positive eigenvalues by Cauchy–Schwarz and
+comparing with Riemann–von Mangoldt, it claimed ndist
+on ≥2n+ −N with n+ ≥3
+4N at λ →1−,
+hence at least one half of the zeros in [T, 2T] on the line as distinct points (“Theorem 4”);
+two referees checked the block structure and supplied coefficient coordinates and an exact
+Poisson identity P
+k ˆφ(z −τk) ˆφ(z′ −τk) = L Φ(z −z′). The orchestrator’s brief asked this run
+to verify its own quick algebra of a single pair block at depth δ (claimed vT v = L2a real and
+δ-independent, eigenvalues mL2a(1 ± A(δ)) with A(δ) ≥1), to decide whether the negative
+spectrum alone can raise 1/2 (forecast: no, since tight pairs δ →0 have vanishing negative
+eigenvalue), to analyse a spectral “integrality” analogue of Montgomery’s RH argument (which
+gives 2/3 simple, 5/6 distinct by the brief’s elementary arithmetic), and to pursue higher
+prime-side moments tr R3, tr R4 as the likely unconditional route to the target 2/3.
+The block facts were confirmed numerically to 10−14, including the Poisson identity at complex
+arguments; cross terms between blocks were found sign-indefinite, so termwise diagonal
+dominance of tr R2 is false. Extremal experiments over vector configurations showed that
+with normalised pair vectors (vT v = 1) the minimum of ∥M∥2
+F is exactly non + 4np, strictly
+above the Cauchy–Schwarz floor, while every per-pair quadratic pricing with free mass or
+free phase fails. This led the run to a claimed and proved inequality, linear in the masses:
+if M = Mon + Mp with Mon ⪰0 of rank ≤r and Mp having at most b positive eigenvalues,
+then r ≥2 tr Mon + 4 tr Mp −4b −∥M∥2
+F , by von Neumann’s trace inequality (recalled from
+memory) and Cauchy–Schwarz. Applied to the windowed zero side in units eR = G/(L2a),
+using only |ui|2 ≤1, inertia of blocks and the refereed tail bound, it yields the certificate
+ndist
+on ≥4 tr A−2N −∥A∥2
+F ≥(2−1/λ −λ/3−o(1))N →2
+3N, containing no pair data. Verdict,
+by the run’s account: unconditionally at least 2/3 of zeros are distinct and on the line, sharp
+for this information (extremal: 2N/3 lattice simples plus N/6 tight pairs); on true zeros at
+T = 1000 the certificate gives 0.61–0.63N against Theorem 4’s 0.38–0.40N.
+The negative spectrum alone was confirmed useless against tight pairs, as forecast; the brief’s
+forecast that higher moments are the real lever was contradicted: tr R3 is admissible for λ < 1
+but an odd moment cannot improve a count on [0, ∞) without a Lindelöf-strength bound on
+λmax, and tr R4 needs λ < 1/2 where d < N/2. The (m −1)(m −2) ≥0 integrality level is
+destroyed by interactions; simple on-line zeros come out only at 1/3; the coordinator’s requested
+55

@@ -1,0 +1,52 @@
+The negative-index route is empty;
+its dual gives one half
+Summary
+For a test function f with transform hf and zeros written ρ = 1
+2 + iγρ, the Weil Hermitian
+form W(f, g) = P
+ρ mρhf(γρ)hg(¯γρ) is computable, for supp f ⊂[−L/2, L/2], from the primes
+≤X = eL and the Gamma factor alone via the explicit formula, as
+R |hf|2νX with νX a signed
+prime-side “density of states”; its positivity on all tests is equivalent to RH. An earlier run in
+the campaign (R4) had found a warped-sine operator built from νX to be indefinite (33–153
+negative eigenvalues, νX < 0 on 21–38% of the line) and read the condition space as a Kre˘ın
+space. The orchestrator’s brief asked this run to develop Pontryagin-space theory for W: prove
+that its negative index κ equals the number of off-line zeros (via the hyperbolic-pair mechanism
+it sketched), define a prime-computable finite index κ(X, T) for X = 102, . . . , 106, bound it
+from sign changes of νX by Turán/Nazarov-type lemmas, and decide whether κ(X, T)/N(T)
+tends to 0, to a constant < 1 (a new route to positive proportion), or to 1 (empty, by Gibbs).
+The run proves, by its own account, Theorem 1: κ on C∞
+c
+equals the number of distinct zeros
+with Re ρ > 1
+2, multiplicity being invisible; κ(L) is finite, monotone, →κ, and RH ⇐⇒κ(L) =
+0 for all L. It then argues that R4’s operator is not a compression of W, and that the honest index
+– the inertia of the Gram matrix of W on a Gabor space of windowed exponentials of dimension
+∼(log X)T – is identically 0 for X = 102, . . . , 106 on [50, 1000] and [1400, 2400], computed from
+primes alone and matching the zero side to 10−6, while νX < 0 on 21–42% of the window and the
+pointwise Szegő/a-priori counts run to hundreds. A visibility Theorem 2 (isolated off-line zero
+of depth δ at height t visible once log X ≥C√log t/δ) is complemented by measured planting
+thresholds L∗
+ann ≈1.12 δ−0.07 log(t0/2π)0.89 and cluster/multiplicity experiments. The turning
+point is the dual: pullback inertia n+(A∗QA) ≤n+(Q), an off-line pair being a signature-(1, 1)
+block counted twice by Riemann–von Mangoldt, gives Ndist
+0
+(I′) ≥2nθ
++(W|V ) −N(I′), with
+n+ ≥(tr R)2/ tr R2 prime-computable; an evaluation in the Montgomery–Vaughan range
+(inequality recalled from memory) yields λN/(1 + λ2/3), whence the claimed Theorem 4:
+lim inf Ndist
+0
+([T, 2T])/N ≥1
+2 unconditionally, against the record 5/12 quoted from memory.
+Prime-only statistics give C/N = 0.766, 0.762, 0.757 at T = 104, 5 · 104, 106 versus 0.750;
+synthetic configurations never over-certify.
+The brief’s sign-change route is found empty for structural reasons, not Gibbs: κ(V ) ≤Ndist
+off
+is the wrong direction, visibility of all zeros needs dim V ≳N(T) where κ ≤dim V is trivial,
+interference prevents a configuration-free visibility theorem, and any pointwise bound is ∼0.2–
+0.4 dim V ; all three of the brief’s forecast regimes and R4’s Kre˘ın headline are contradicted.
+The run caught 33 spurious negatives from ill-conditioned mass-matrix reduction, an eL/4 loss
+in Theorem 2 requiring a strengthened hypothesis, and wavering in the Montgomery–Vaughan
+step at λ = 1; the de Branges δ-tilt is recorded but not developed. Verdict: PARTIAL –
+16

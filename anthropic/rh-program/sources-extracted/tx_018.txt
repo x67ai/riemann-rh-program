@@ -1,0 +1,52 @@
+negative-index route empty, its dual claiming one half, referees requested; top caveat “too short
+to be new”, with end-effect estimates at λ = 1 and the literature unchecked.
+1
+The problem as posed: a Pontryagin-index route to counting
+off-line zeros
+This run sits inside a campaign on the Riemann zeta function organised around Weil’s explicit
+formula and the Hermitian form it defines on test functions — the Weil form, whose positivity
+on all test functions is equivalent to the Riemann Hypothesis. An earlier run in the campaign
+had found that a certain prime-computable operator built from a truncated explicit formula is
+indefinite, and read this as saying that the natural “space of conditions” is a Kre˘ın space rather
+than a Hilbert space. The orchestrator’s brief asks me to take that indefiniteness seriously:
+to develop Pontryagin-space operator theory for the Weil form, prove that its negative index
+counts zeros off the critical line, define and compute a finite, prime-computable version of that
+index, and decide whether bounding it from the prime side can give an upper bound on the
+number of off-line zeros — a zero-density or positive-proportion theorem by a non-classical
+route — or whether the route is empty.
+1.1
+The brief: a Pontryagin negative-index route to zero bounds
+The brief, from the orchestrator, set out here in full and rewritten for readability:
+Reading list, and what the main predecessor found. Read first the report,
+the working notes and the numerical code of an earlier run in this campaign labelled
+R4 — a “moonshot” run that tried to construct a polarized arithmetic object
+directly, returned the verdict “no viable candidate”, proved that any “box minus
+conditions” space of global sections works if and only if Weil positivity holds, and
+quantified the obstruction numerically. Concretely, R4 built an intrinsic, zero-free
+“density of states”
+νX(τ) = θ′(τ)
+π
+−1
+π
+X
+n≤X
+Λ(n) n−1/2 cos(τ log n),
+computable from the prime powers n ≤X and the Gamma factor alone, and showed
+that the “condition-count” operator associated with it is indefinite: it has between
+33 and 153 negative eigenvalues in R4’s experiments, and νX itself is negative on
+21–38% of the critical line in the ranges computed. R4’s reading was that the
+condition space is a Kre˘ın space, not a Hilbert space; and R4 proved that this
+datum yields a Hodge index theorem, hence the Riemann Hypothesis, if and only if
+the condition count were a genuine (non-negative) dimension, which is exactly Weil
+positivity. Read also the report of the earlier run labelled N6 (a “new area” run on
+an explicit-formula bootstrap, which analysed the cone of test functions on which
+the Weil form is manifestly positive and proved a Harnack inequality for it), and
+the report of the run labelled frontier-1 (a first-wave structural probe that framed
+the Weil pairing as an intersection form and looked for an honest integer analogue
+of the Hodge index theorem).
+The idea to develop: Pontryagin-space operator theory. A Pontryagin
+space Πκ is a Kre˘ın space whose negative index — the dimension of a maximal
+negative subspace — is a finite number κ. The theorem of Pontryagin (1944) and
+Kre˘ın–Langer says: a self-adjoint operator in Πκ has at most κ eigenvalues off the
+real axis, counted with multiplicity and occurring in conjugate pairs (for a unitary
+17

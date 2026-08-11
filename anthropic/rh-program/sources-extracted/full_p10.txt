@@ -1,0 +1,89 @@
+10
+CLAUDE
+Equality holds if P = c
+2Π1, Q = c Π2 with orthogonal projections Π1 ⊥Π2 of ranks r and b.
+Proof. Write Q = Q+ −Q−with Q± ⪰0, Q+Q−= 0, rank Q+ ≤b. Then ∥P + Q∥2
+F =
+∥P∥2
+F + ∥Q+∥2
+F + ∥Q−∥2
+F + 2 tr(PQ+) −2 tr(PQ−), and tr(PQ+) ≥0. Let p1 ≥p2 ≥· · · ≥0
+and n1 ≥n2 ≥· · · ≥0 be the eigenvalues of P and Q−(so pi = 0 for i > r). By von Neumann’s
+trace inequality tr(PQ−) ≤P
+i pini, hence
+∥P∥2
+F −2 tr(PQ−) + ∥Q−∥2
+F ≥
+X
+i
+(pi −ni)2
+≥
+X
+i≤r
+
+c(pi −ni) −c2
+4
+
++
+X
+i>r
+n2
+i ≥c tr P −c2
+4 r −2c tr Q−,
+using x2 ≥cx −c2/4 for real x and −cni ≥−2cni, n2
+i ≥0 ≥−2cni. Finally Q+ has k ≤b
+nonzero eigenvalues qj > 0 and ∥Q+∥2
+F = P q2
+j ≥P(2cqj −c2) ≥2c tr Q+ −c2b. Adding, and
+using tr Q = tr Q+ −tr Q−, gives (3.1). The equality case is immediate.
+□
+With c = 2 the elementary inequality used is x2 ≥2x−1, i.e. (x−1)2 ≥0; applied to integer
+multiplicities it is the step P m2
+ρ ≥2N −Ns in Montgomery’s deduction of simple zeros from
+P m2
+ρ ≤4
+3N. Lemma 3.2 transplants this step to eigenvalues, von Neumann’s inequality paying
+for the interaction between P and the negative part of Q. Applied with the simple zeros alone
+on the rank side (Proposition 4.4(i)) it yields also the next level m2 ≥3m −2. Taking Q = 0
+and optimising c recovers rank P ≥(tr P)2/∥P∥2
+F .
+Lemma 3.3 (Thresholded Cauchy–Schwarz count). Let R be a Hermitian d × d matrix and
+θ ≥0 with tr R > θd. Then
+nθ
++(R) ≥(tr R −θd)2
+tr(R2)
+.
+Proof. Let λ1, . . . , λd be the eigenvalues and S := P
+λi>θ λi. Since P
+λi≤θ λi ≤θ #{i : λi ≤
+θ} ≤θd (negative eigenvalues only help), S ≥tr R −θd > 0. By Cauchy–Schwarz, S2 ≤
+nθ
++(R) P
+λi>θ λ2
+i ≤nθ
++(R) tr(R2).
+□
+Lemma 3.4 (Weyl). Let A, E be Hermitian d × d matrices and θ ≥∥E∥. Then nθ
++(A + E) ≤
+n+(A).
+Proof. With eigenvalues in decreasing order, λi(A + E) ≤λi(A) + ∥E∥for every i (Courant–
+Fischer). Hence λi(A + E) > θ ≥∥E∥forces λi(A) > 0, and the number of such i is at most
+n+(A).
+□
+4. The zero side: signature and rank
+Fix
+(4.1)
+D0 := T 1/2,
+I′ := (T −D0, 2T + D0],
+and split the sum (2.20) over distinct zeros according to whether the ordinate γ = Re γρ lies
+in I′:
+(4.2)
+G = A+E,
+Akl :=
+X
+ρ: γ∈I′
+mρbϕ(γρ−τk)bϕ(γρ−τl),
+E := G−A,
+eA := A/L, eE := E/L.
+Since ρ and 1 −¯ρ have the same ordinate, both index sets are invariant under ρ 7→1 −¯ρ, so A
+and E are real symmetric (same argument as for G).

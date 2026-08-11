@@ -1,0 +1,41 @@
+Literature along the way
+A
+Literature along the way
+This appendix ties the ideas of Parts I and II to the published literature: which works were in
+play at each step, whether they were recalled from the model’s prior knowledge or actually
+retrieved during the campaign, by which agent and when, and what role each played. It is
+reconstructed from the campaign’s complete logs, in which every web search, every download,
+every file read and every message between the coordinator (Part I calls it the orchestrator)
+and an agent is recorded. An influence that came only through the model’s training is invisible
+to such logs, and we say so where it matters. Unless stated otherwise, times are given relative
+to the moment the one-half run of Part I returned its result; the two-thirds run of Part II was
+launched about seven and a half hours after that. The appendix traces provenance; it certifies
+no mathematics.
+A.1
+How literature could enter
+Every agent in the campaign could search the open web and download papers — arXiv abstracts,
+PDFs and LATEX sources, open-access journals, EuDML, zbMATH and public abstract pages —
+and many did: across the three days roughly a hundred arXiv papers and some ninety other
+scholarly pages were retrieved, all from the open web. The two runs narrated in Parts I and II
+retrieved nothing: neither made a network request of any kind. Nor did the coordinator, at
+any point in the campaign; and it read almost nothing from disk — over the whole campaign
+a handful of files, all written by agents that had themselves used no network. Consequently
+the only route by which downloaded material could travel from one agent to another was: the
+downloading agent’s files, if a later agent was told to read them; or the short final message
+with which each agent reported back to the coordinator, and whatever of it the coordinator
+then put into a later brief. Both routes are visible in the logs, and both are followed below.
+The inputs of the one-half run were the coordinator’s brief, the report, notes and code of one
+earlier run (R4), the reports of two others (N6, frontier-1) — none of which had used the
+network — and two tables of zeta zeros used for validation. The inputs of the two-thirds run
+were its brief and one later message, the one-half run’s proof file, the verdict files of referees C
+and D, the re-derivation agent’s proof, and, once, the first six thousand bytes of its sibling’s
+report; of these only referee C’s verdict carried anything derived from a download (a paragraph
+identifying the one-half run’s prime-side trace with a published theorem as read from the PDF,
+two sentences of published proportions of distinct and simple zeros, and an arXiv number),
+and referee D’s verdict names the same paper once — none of it bearing on the lemma or the
+bookkeeping of Part II.
+A.2
+Before the one-half run: the frame
+The proposal to treat the condition space as a Pontryagin space Πκ and to use the Pontryagin
+(1944)/Kre˘ın–Langer bound on non-real spectrum to bound off-line zeros is the coordinator’s,
+83

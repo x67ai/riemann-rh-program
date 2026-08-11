@@ -1,0 +1,57 @@
+So across the brief’s whole range X = 102, . . . , 106 the compressed Weil form, computed from
+primes and Γ alone, has not one negative square, while its symbol νX is negative on 21–42%
+of the window and both the pointwise Szegő count and the sign-change a-priori count climb
+into the hundreds. The null space grows exactly as d outruns the ≈640 zeros in reach. The
+planting experiment, restarted with its two thresholds, has not yet reported a row.
+5
+The dual: positive eigenvalues certify on-line zeros
+5.1
+Pullback inertia and the double count
+The thought that has taken over is this. The negative index of a compression — the restriction
+of the Weil form W to a finite-dimensional space V of admissible test functions — is useless as
+an upper bound for off-line zeros, because pulling a Hermitian form back to a subspace can
+only lose negative squares. But the same monotonicity, read for the positive index, points the
+right way. This is potentially the main result of the line, and it will need to be red-teamed
+hard; let me write it down.
+The observation.
+Fix any subspace V of admissible test functions, and a “reach interval”
+I′: a height interval outside which the transforms hf, f ∈V , are negligibly small. Write the
+restricted Weil form as
+W|V = ev∗Q ev + Tail,
+where ev : V →CZ′ is evaluation of hf at the distinct zero-points γ with heights in I′ (Z′
+denoting that finite set), Tail is the contribution of all zeros with heights outside I′, and Q is a
+direct sum of blocks. Each distinct on-line zero, of any multiplicity m, gives a 1 × 1 block (m)
+— one positive square; each distinct off-line pair {γ, ¯γ} = {ρ, 1 −¯ρ} of multiplicity m gives the
+block
+ 
+0
+m
+m
+0
+!
+of signature (1, 1) — the hyperbolic pair of Theorem 1.
+Lemma 5.1 (inertia under pullback). For any linear map A and Hermitian form Q,
+n+(A∗QA) ≤n+(Q), where n+ denotes the positive index. [If A∗QA > 0 on a subspace U
+then A|U is injective and Q > 0 on A(U).]
+Put any Hilbert structure on V and let θ > ∥Tail|V ∥op. Define the robust positive index
+nθ
++(W|V ) := #{eigenvalues of W|V > θ}.
+By Weyl’s inequality and Lemma 5.1, writing Qreach for Q (the block form over the zero-points
+in reach),
+(P)
+nθ
++(W|V ) ≤n+(ev∗Q ev) ≤n+(Qreach)
+= ndist
+on (I′) + ndist
+pair(I′),
+where ndist
+on (I′) is the number of distinct on-line zeros with height in I′ and ndist
+pair(I′) the number
+of distinct off-line pairs there. On the other hand the Riemann–von Mangoldt count N(I′) is
+taken with multiplicity and counts both members ρ, 1 −¯ρ of an off-line pair, which share a
+height:
+(N)
+N(I′) ≥ndist
+on (I′) + 2 ndist
+pair(I′).
+35

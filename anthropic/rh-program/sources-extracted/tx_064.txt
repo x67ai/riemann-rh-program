@@ -1,0 +1,83 @@
+with a C2 taper φ equal to 1 on the middle (1 −η) fraction of [−L/2, L/2].
+Step 1 is the part the brief told me to exploit. The zero-side matrix is split into A, the
+contribution of zeros with ordinate in the slightly enlarged window I′ = [T −D0, 2T + D0],
+D0 = T 1/2, and a tail E. Grouping A by distinct points, an on-line zero of multiplicity
+m at height t gives the rank-one square m|lt|2 of its evaluation functional, while an off-line
+ρ = 1
+2 + δ + it together with ρ∗= 1 −¯ρ gives the Hermitian block
+ 0 m
+m 0
+, of signature (1, 1),
+in the two functionals lγ, l¯γ. Hence the abstract block form Q, of which A is a pullback, has
+n+(Q) = ndist
+on + ndist
+pair, while Riemann–von Mangoldt counting gives N(I′) ≥ndist
+on + 2ndist
+pair;
+with the tail bound ∥E∥≪T −1+o(1) =: θ0 this yields
+ndist
+on (I′) ≥2nθ
++(R) −N(I′).
+Step 2 is the prime-side claim
+tr R = LT⟨µ⟩I (1 + o(1)),
+tr R2 = 2πLT
+h
+⟨µ⟩2
+I + L2
+12π2
+i
+(1 + o(1)),
+with ⟨µ⟩I the mean over I = [T, 2T] of the digamma density, proved by Poisson/Shannon for
+the sinc kernel, the diagonal sum P
+n≤X Λ(n)2n−1(1 −log n/L), and Montgomery–Vaughan
+for the off-diagonal; it gives nθ
++(R) ≥[λ/(1 + λ2/3)] N(I)(1 + o(1)), consistent under RH with
+Montgomery’s pair-correlation evaluation. Step 3 concludes
+lim inf
+T
+Ndist
+0
+([T, 2T])
+N([T, 2T])
+≥
+2λ
+1 + λ2/3 −1 −→1
+2
+(λ →1−),
+nontrivial for λ > 3 −
+√
+6. E2’s comparison list at the end — Levinson 1/3, Conrey 0.4088,
+Bui–Conrey–Young 0.4105, Feng 0.4128, Pratt–Robles–Zaharescu–Zeindler 5/12, simple on
+the line ≥0.407N; under RH ≥2/3 simple (Montgomery), ≥3/4 distinct, “later ∼0.8467
+distinct?? (from memory)” — is E2’s own recollection, flagged as such in the file.
+1.3
+The two referee verdicts on Theorem 4
+Next referee C’s verdict — the blind hostile referee on the counting identity — headed
+“SURVIVES” for the linear-algebra and counting joints. What matters for me is the exact
+form of the zero-side matrix in E2’s one-sided complex Gabor space. Since ˆφ has real Taylor
+coefficients,
+Gkl = W(fk, fl) =
+X
+ρ
+mρ ˆφ(γρ −τk) ˆφ(γρ −τl)
+=
+X
+distinct ρ
+mρ (aρaT
+ρ )kl,
+each distinct zero contributing a complex-symmetric rank-one piece aaT , “NOT aa∗”. An
+on-line zero has a real, giving a positive semidefinite rank-one piece; an off-line ρ and its
+partner ρ∗have aρ∗= ¯aρ, and m(aaT + ¯a a∗) is the pullback of
+ 0 m
+m 0
+ under f 7→(lγf, lγ∗f):
+at most one positive square in all cases, linear dependence of the functionals included. The
+conjugate zeros at height −t sit in the tail, so there is no double-counting of quadruples. Also
+rank(GA) ≤ndist
+on + 2ndist
+pair, the inertia statement n+ ≤non + npair being the sharper one. The
+Riemann–von Mangoldt bookkeeping and the factor 2 are redone (“a pair costs two R-vM
+zeros but buys at most one positive square”).
+The verdict also carries a table from referee C’s synthetic-configuration test — true zeros on
+[600, 1200], all doubled, all turned into pairs at various depths, half the ordinates paired, mixed
+63

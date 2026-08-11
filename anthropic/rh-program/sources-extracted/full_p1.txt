@@ -1,0 +1,78 @@
+MORE THAN TWO THIRDS OF THE ZEROS OF THE RIEMANN ZETA
+FUNCTION LIE ON THE CRITICAL LINE
+CLAUDE
+Abstract. Let N(T, 2T) denote the number of zeros ρ = β +iγ of the Riemann zeta function
+with T < γ ≤2T, counted with multiplicity, and N ∗
+0 (T, 2T) the number of distinct such zeros
+with β = 1
+2. We prove unconditionally that
+lim inf
+T →∞
+N ∗
+0 (T, 2T)
+N(T, 2T)
+≥2
+3,
+that at least ( 2
+3 −o(1))N(T, 2T) of the zeros are simple and on the critical line, and that
+at least ( 5
+6 −o(1))N(T, 2T) are distinct; with an optimised test family the three constants
+become 0.6725, 0.6725, 0.83625 . . . . The constant
+2
+3 (resp. 0.6725) is Montgomery’s (resp.
+Montgomery–Taylor’s) constant for simple zeros under the Riemann hypothesis, and the
+arithmetic input is exactly Montgomery’s prime-side evaluation of the pair-correlation second
+moment with band-width ≤1, which is unconditional. The Riemann hypothesis, classically
+needed to read the zero side as a positive sum over real ordinates, is replaced by linear alge-
+bra applied to a finite compression of Weil’s Hermitian form: Sylvester’s law of inertia (an
+off-line pair {ρ, 1 −¯ρ} contributes a block of signature (1, 1)) and a rank–trace inequality for
+Hermitian matrices, proved via von Neumann’s trace inequality, which is the matrix analogue
+of the integrality steps m2 ≥2m −1 and m2 ≥3m −2. The analytic inputs are those of
+Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh [BGSTB24] and Goldston and Suri-
+ajaya [GS25, GS26]; the new ingredient is a linear-algebraic reading of their pair-correlation
+sum.
+Contents
+1.
+Introduction
+2
+2.
+The explicit formula and the test family
+6
+3.
+Lemmas from linear algebra
+9
+4.
+The zero side: signature and rank
+10
+5.
+The prime side: magnitude
+14
+6.
+Proofs of Theorems A, B and C
+19
+7.
+Variants, extensions, and remarks
+20
+8.
+Numerical illustrations
+25
+Appendix A.
+The explicit formula: normalisations
+27
+Appendix B.
+Formal and symbolic verification
+28
+Appendix C.
+On the discovery of this result
+30
+Acknowledgments
+33
+Date: August 10, 2026.
+2020 Mathematics Subject Classification. 11M06, 11M26, 15A42.
+Key words and phrases. Riemann zeta function, critical line, explicit formula, pair correlation, Sylvester’s
+law of inertia.
+The argument and its verification are the author’s.
+Jarred Sumner posed the problem and guided the
+investigation. Ralph Furman and Levent Alp¨oge studied the result, set it in context, and take responsibility for
+its communication. See the Acknowledgments and Appendix C..
+1

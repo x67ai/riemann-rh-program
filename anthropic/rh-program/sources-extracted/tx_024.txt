@@ -1,0 +1,75 @@
+equal to the grid step, sets the diagonal to νX, symmetrises and diagonalises, and tabulates
+#{eig > 1/2}, the trace, the minimum eigenvalue and #{eig < −0.01} on three windows,
+together with a twisted version h1/2SXh1/2 whose trace is compared with P
+γ h(γ). The
+staircase computation produces the negativity fractions, the dips, the envelope, and the Fejér
+minima with the kernel L sinc2((τ −τ0)L/2). The point I take away for later: the operator
+whose negative eigenvalues R4 counted is this warped-sine kernel on a height window, not a
+matrix of values of the Weil form on support-limited test functions.
+1.4
+N6’s normalisation and frontier-1’s intersection form
+Next the N6 report. Its verdict is a NO-GO of a different kind — saturation of the “bootstrap”
+cone of strip-positive test functions — but it carries the normalisation I will build on. The
+explicit formula is fixed there in the form of Iwaniec–Kowalski (5.12): for even real g with
+supp g ⊂[−L, L] and h(r) =
+R g(x)eirx dx,
+X
+ρ
+h(γρ) = h(i/2) + h(−i/2) −g(0) log π + Arch(g) −2
+X
+n
+Λ(n)n−1/2g(log n),
+γρ = (ρ −1
+2)/i,
+Arch(g) = 1
+2π
+Z
+h(r) Re ψ
+1
+4 + ir
+2
+
+dr
+= −γEg(0) +
+Z ∞
+0
+2
+g(0)e−2y −g(y)e−y/2
+1 −e−2y
+dy,
+reproduced by N6 to 30 digits against 120 zeros and a Gaussian (and the x-side archimedean
+term to 23 digits). On the zero side a zero 1
+2 + a + it with its symmetry partners contributes
+2 Re h(t+ia) if a = 0 and 4 Re h(t+ia) if a ̸= 0, where Re h(t+ia) =
+R g(x) cosh(ax) cos(tx) dx.
+N6’s Proposition 1 solves the strip-positive cone completely:
+{g : Re h(t + ia) ≥0 on |a| ≤1
+2} = {k(x) sech(x/2) : k positive-definite},
+by the maximum principle and the positive-definiteness of Wa(x) = sech(x/2) cosh(ax) for |a| ≤
+1
+2 — these are the “Wa weights” the brief mentioned. Theorem A is the sharp Harnack inequality
+Re h(t + ia) ≤h(t)/ cos(πa) on that cone, and Theorems B and C turn it into saturation: a
+point 1
+2 +δ +iγ0 is excludable by any strip-positive certificate only if cos(πδ) P
+k e−π|γk−γ0| < 2,
+so that even with RH and all primes nothing on the line above γ0 ∼2πe4π can be excluded, the
+finite-N reach being T ∼2πN2 (Riemann–Siegel scaling), with a certified speck at height 1013
+from N = 108 prime powers. What I will actually use from N6 is the validated normalisation
+and its table of 2000 zero ordinates; the saturation theorems are context — they say that
+sign-indefinite test functions are what is missing, which is at least the right neighbourhood for
+a signature question.
+Last on the list, frontier-1’s structural report, verdict “NO NEW GROUND”. The object of
+interest to me is its first construction: on real test functions f(u), with F(s) =
+R f(u)e(s−1/2)u du,
+the pairing
+f · g := F(0)G(1) + F(1)G(0) −
+X
+ρ
+F(ρ)G(1 −ρ)
+read as an intersection form, with radical {F(0) = F(1) = 0, F(ρ) = 0 ∀ρ}, an abstract
+Hodge-index theorem (their Theorem AC: a pointed closed convex cone containing the forward
+light cone forces Lorentzian signature), and the “collapse” remark that any such cone axiom is
+either vacuous under RH or false — their positive-measure cone being falsified quantitatively,
+the constant κN := sup P |c|2/(AB) satisfying κN ≥1.013, 1.08, 1.66, 2.98 for N = 1, 3, 8, 20
+zeros. The one line that is directly my business: “Lorentzian ⇔RH: standard (Weil; an
+23

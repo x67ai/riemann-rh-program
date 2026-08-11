@@ -1,0 +1,63 @@
+n+ ≥2N −tr G2/L4 = 2N −4
+3N = 2
+3N — only 2/3, below the Cauchy–Schwarz
+3/4, precisely because no integrality has been used: (λ −u)2 ≥0 is free. Genuine
+integrality would say λ ∈{u, 2u, 3u, . . . }, hence (λ −u)(λ −2u) ≥0, hence
+λ2 ≥3uλ −2u2, hence P λ2 ≥3u P λ −2u2n+, hence
+n+ ≥3u P λ −P λ2
+2u2
+= 3N −4
+3N
+2
+= 5
+6N.
+That is the inequality wanted; it requires “no eigenvalue of the zero-side form
+strictly between u and 2u, or below u” — and this is robustly false because of
+interactions: the eigenvalues of P
+ρ mρuρu∗
+ρ are the multiplicities only if the vectors
+uρ are orthogonal, whereas ⟨uρ, uρ′⟩= DL(γ −γ′) ̸= 0 for |γ −γ′| ≲1/L, so zeros
+closer than the mean spacing times l/L interact. Under RH Montgomery needs
+no eigenvalues — he reads P m2 directly off the diagonal of the pair correlation.
+Unconditionally we replaced P m2 by P λ2 and lost integrality. Can a robust
+integrality be recovered? Options: (i) work at slightly smaller bandwidth and
+use that DL(γ −γ′) is small unless |γ −γ′| < 2π/L ∼mean spacing/λ — but
+interactions affect a positive fraction of zeros; no. (ii) Use the determinant, or
+higher traces: tr R3, tr R4 from the prime side? tr R3 involves triple correlations of
+primes, P Λ(n1)Λ(n2)Λ(n3) with conditions of the type n1n2 = n3; the diagonal is
+computable, the off-diagonal needs GUE triple correlation, i.e. Hardy–Littlewood —
+not unconditional. But perhaps with support restrictions: are Rudnick–Sarnak’s
+n-level correlations with restricted Fourier support unconditional? Do they assume
+RH? They prove GUE statistics for test functions with P
+j |ξj| < 2 (or < 1?); I
+believe Rudnick–Sarnak 1996 is unconditional in the smoothed form for restricted
+support — check. If tr R3 is prime-computable for λ small enough (a condition like
+3λ/2 < 1?), then with three moments (P λ, P λ2, P λ3) one gets sharper counting
+inequalities — something like n+ ≥(P λ2)2/ P λ4, or the optimal three-moment
+Markov–Krein bound — so compute what the RH-predicted value of tr R3 gives
+for the on-line bound; this could beat 1/2 even without integrality. (iii) Accept
+Cauchy–Schwarz and attack the two-for-one cost through lever (a) for non-tight
+pairs together with a separate argument that tight pairs (δ < c/L) are rare — no;
+there is no unconditional tool for that, it is RH-hard. So (ii), higher prime-side
+moments with restricted support, is the promising unconditional lever.
+Do. Verify all the block and eigenvalue facts numerically. Settle whether lever (a) is
+provably useless against tight pairs (I expect yes). Then pursue (b)(ii): what is the
+largest k such that tr Rk is unconditionally computable from primes at bandwidth λ
+— a condition like kλ/2 < 1, or (k−1)λ < 2? Compute the RH/GUE-predicted main
+terms of tr R3, and of tr R4 if admissible, for the sinc system, as functions of λ. Then
+solve the moment problem: given (m1, m2, m3)(λ) = (P λi, P λ2
+i , P λ3
+i ) over the
+positive spectrum — careful, odd moments mix in the signs of negative eigenvalues;
+handle that via n−≤npair and worst-casing, or use even moments only — what is
+the best lower bound on n+, hence on 2n+ −N, optimised over admissible λ? Does
+it exceed 1/2? Does it reach 2/3? Report the numbers together with the exact
+admissibility condition and its literature status (Rudnick–Sarnak, Hughes–Rudnick
+restricted-support n-level results: which of them are unconditional).
+Deliverable.
+A report, with a final summary covering: are the block facts
+confirmed?; the verdict on lever (a); the integrality analysis (5/6 under RH via
+integers — known?); the higher-moment route: admissible k(λ), predicted moments,
+the resulting unconditional on-line constant; is 2/3 reached, and if not, exactly
+what input would reach it.
+60

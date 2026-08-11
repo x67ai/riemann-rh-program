@@ -1,0 +1,75 @@
+The pair block.
+For an off-line pair, v and w = ¯v are the coordinate vectors of the two
+evaluation functionals f 7→hf(γ), f 7→hf(¯γ) on the Gabor basis; A(δ) ≥1 is the φ2-weighted
+exponential moment defined in the brief, and p, −q are the two nonzero eigenvalues of the
+pair’s rank-two block. The inner-product kernel the brief writes as DL(γ −γ′) = ⟨uρ, uρ′⟩is
+the kernel governing overlaps of evaluation functionals at nearby spectral parameters — for the
+sinc system a Dirichlet/sinc-type kernel of width ∼1/L; the brief does not define it further,
+and in what follows its role is played by Φ = FT(φ2) from referee D’s Poisson identity. The
+quantum u = L2 is the eigenvalue of an isolated simple on-line zero in G-units.
+External results invoked.
+“RH plus Montgomery” is Montgomery’s 1973 theorem: under
+RH, the pair correlation of zeros with Fejér weight gives P m2
+ρ ≤(4
+3 + o(1))N, whence at least
+2/3 of zeros are simple; the brief’s “5/6 distinct under RH” is its own elementary deduction
+from the same inequality, flagged as surely known but unchecked. Rudnick–Sarnak (1996)
+and Hughes–Rudnick are results identifying n-level correlations of zeros with GUE predictions
+for test functions of restricted Fourier support; whether they are unconditional is left by the
+brief as a hedge to be checked. “Hardy–Littlewood” is the prime k-tuple conjecture. The
+“three-moment Markov–Krein bound” is the classical extremal problem of bounding the mass
+or number of atoms of a measure on [0, ∞) from finitely many moments.
+Provenance.
+Theorem 4 and its Steps 1–3 are E2’s; the block description of the zero side is
+referee C’s; coefficient coordinates and the exact Poisson identity are referee D’s; the prime-
+side traces were re-proved independently by the re-derivation run. The single-pair algebra
+(∥v∥2, ⟨v, w⟩, p, q, consequences (i)–(iii)), the inertia inequalities of lever (a), the extremal-
+configuration picture, the target 2/3, the integrality arithmetic and the higher-moment proposal
+are the orchestrator’s own, offered as quick derivations for me to verify. The optimisation of φ
+belongs to the sibling kernel run.
+So the target (2/3), the pair-block algebra, the inertia facts, the extremal picture and the
+integrality arithmetic are all handed to me; what the brief wants from me is verification, a
+crisp verdict on lever (a), and the higher-moment computation.
+1.2
+Theorem 4 as E2 wrote it
+I begin with the reading list, in the order given.
+First E2’s write-up of Theorem 4 (claimed): “at least one half of the nontrivial zeros of zeta
+are on the critical line (as distinct zeros)”. The objects I will be living with are fixed here.
+Zeros are ρ = β + it with multiplicity mρ, and γρ := (ρ −1
+2)/i = t −i(β −1
+2); the Weil form is
+W(f, g) :=
+X
+ρ
+mρ hf(γρ) hg(¯γρ),
+hf(z) =
+Z
+f(u)eizu du,
+Hermitian by the functional equation, and equal by the explicit formula to
+R hfhg νX
+with an explicit density νX — a digamma term, a pole term, and the prime sum
+−1
+π
+P
+n≤X Λ(n)n−1/2 cos(τ log n) — whenever supp f, g
+⊂
+[−L/2, L/2] with X
+=
+eL.
+Three linear-algebra lemmas are recorded:
+inertia does not increase under pullback,
+n+(A∗QA) ≤n+(Q), i.e. a Hermitian form transported to another space through any linear
+map acquires no new positive squares; the Cauchy–Schwarz count nθ
++(R) ≥(tr R −θd)2/ tr R2
+for the number nθ
++ of eigenvalues above a threshold θ; and Weyl’s perturbation inequality. The
+set-up: l = log(T/2π), L = λl, and the Gabor system
+fk(u) = φ(u)e−iτku,
+τk = T + 2πk
+L ,
+0 ≤k < d =
+jLT
+2π
+k
+,
+62

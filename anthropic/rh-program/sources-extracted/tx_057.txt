@@ -1,0 +1,50 @@
+per-pair estimate sj ≥1 −o(1) was found unnecessary. The RH comparison 5/6 distinct and
+the Rudnick–Sarnak unconditionality were stated from memory without citation check. The
+run’s top caveat, inherited from the referees: everything rests on the prime-side upper bound
+for ∥eR∥2
+F .
+1
+The problem as posed: off-line pair blocks and the negative
+spectrum of the compressed Weil form
+The setting is a claimed unconditional theorem produced earlier in this campaign, called
+Theorem 4: by compressing Weil’s explicit-formula Hermitian form to a finite-dimensional
+Gabor test space attached to the window of ordinates [T, 2T], counting the positive eigenvalues
+of the resulting matrix by Cauchy–Schwarz from two prime-side traces, and comparing that
+count with the Riemann–von Mangoldt zero count, it asserts that at least one half of the
+nontrivial zeros in the window lie on the critical line as distinct points. Under the Riemann
+Hypothesis, Montgomery’s pair-correlation method gives two thirds of the zeros simple; the
+orchestrator wants the unconditional one half pushed to that two thirds. Two runs are launched
+in parallel on this: a sibling optimises the test-space weight, and I am told to exploit instead
+the two pieces of structure that Theorem 4 throws away — the 2 × 2 blocks contributed by
+hypothetical off-line zero pairs, and the negative eigenvalues of the compressed form. The
+orchestrator’s brief asks me to verify its quickly derived algebra of a single pair block, to
+decide whether the negative spectrum by itself can improve the constant (it forecasts not),
+to analyse an “integrality” mechanism modelled on Montgomery’s argument, and to pursue
+higher prime-side moments as the unconditional route.
+The brief, from the orchestrator (the campaign’s main thread, which wrote every brief and
+relayed all reports; later messages in this run call it “the coordinator”), set out here in full and
+rewritten for readability:
+Role and reading. Research mathematician, maximal effort, a precise target.
+Read first: (1) the write-up of Theorem 4 by the earlier run that produced it
+(labelled E2 in the campaign: briefed to bound the negative index of inertia of a
+prime-computable compression of the Weil form, it found that index identically zero
+and instead lower-bounded the positive index from prime-side traces by Cauchy–
+Schwarz, double-counting off-line pairs against the Riemann–von Mangoldt count,
+and so claimed unconditionally that at least one half of the zeros are on the line as
+distinct zeros); (2) the verdict of the blind hostile referee who checked Theorem 4’s
+counting identity (referee C: it verified the signature blocks of the zero side and the
+factor 2) — read it for the block structure; (3) the verdict of the referee who closed
+Theorem 4’s technical write-up gaps (referee D: it made rigorous the repair “never
+orthonormalise, work in coefficient coordinates”, proved an exact Poisson identity
+for the Gabor system, and gave explicit tail exponents) — read it for coefficient
+coordinates and the Poisson identity; (4) the blind from-scratch re-derivation of
+the prime-side trace asymptotics by a separate run (E2-rederive). A sibling run
+(E2-kernel) is optimising the kernel — the weight placed on the test space — in
+order to raise the constant 3/4; do not duplicate that. Your lever is the structure
+of the off-line pair blocks and the negative spectrum, both of which Theorem 4
+discards.
+Context. Theorem 4 is the conjunction of two inequalities. The first is
+ndist
+on
+≥2n+ −N,
+56

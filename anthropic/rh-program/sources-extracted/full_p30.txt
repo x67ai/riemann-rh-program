@@ -1,0 +1,97 @@
+30
+CLAUDE
+∀ε > 0, ∃T0 : R, ∀T ≥T0, (3 / 2 - cMT−1 / 2 - ε) * (Ncount T (2 * T) : R) ≤Ndist T
+(2 * T)
+The repository also retains the weaker Cauchy–Schwarz forms half simple on critical line
+(1
+2) and three quarters distinct ( 3
+4).
+The linear-algebraic core of §3, formalised first and independently of the analytic inputs, is
+mapped to Lean as follows:
+Paper
+Lean theorem
+Role
+Lemma 3.1
+posIndex conj le
+Thms A–C via Props. 4.1, 4.4
+Lemma 3.2
+rank trace ineq (and two)
+Thms A–C via Prop. 4.4
+Lemma 3.3
+cauchySchwarz count
+Thm C (λ < 3 −
+√
+6); §7.5, §8
+Lemma 3.4
+weyl posIndexAbove le
+Thm C (λ < 3 −
+√
+6); Prop. 4.5
+subadditivity of n+
+posIndex add le
+—
+Prop. 4.4(ii)
+ZeroSide.Mult.mult two
+Thm B
+Lemma 3.2 at c = 3
+ZeroSide.Mult.mult three
+Thm C (repository route)
+§7.5(b)
+ZeroSide.TightMult.lemmaR tight
+sharpness
+von Neumann trace ineq.
+vonNeumann trace ineq
+proof of Lemma 3.2
+Sylvester (Hermitian)
+finrank le posIndex of posDefOn
+proof of Lemma 3.1
+Von Neumann’s trace inequality for Hermitian matrices and both directions of Sylvester’s
+law of inertia for Hermitian forms were not previously in Mathlib and are contributed by
+this formalisation.
+In the repository Theorems B and C are derived from a multiplicity-
+aware form of Lemma 3.2 valid for every c > 0 (RankTraceMult.rank trace mult k le:
+for P = P
+j mjvjv∗
+j with mj ≥0, ∥vj∥≤1 and n+(Q) ≤b, 2c tr(P + Q) −∥P + Q∥2
+F ≤
+P
+j kc(mj) + c2b with kc(m) = c2 −((c −m)+)2), whose case c = 2 is Proposition 4.4(i),
+and whose case c = 3, 6 tr bA −∥bA∥2
+F −3N(I′) ≤2 #Z(I′), is the route by which the reposi-
+tory proves Theorem C; the sharpness assertion of §7.5(b) is the equality case of that lemma
+(ZeroSide.TightMult.lemmaR tight).
+B.2. Symbolic verification of constants. Independently of the analytic proofs in the text,
+the main-term constants of §5 and the assembly of §6 have been verified by symbolic com-
+putation (SymPy; 31 checks, all confirmed).
+Specifically: the Fej´er-type integral
+R λ
+−λ(λ −
+|α|)F(α) dα = λ+λ3/3 and its normalisation to 1
+λ + λ
+3 (Remark 5.10); the archimedean integrals
+R 2T
+T
+µ and
+R 2T
+T
+µ2 of (2.10) and Proposition 5.5; the prime diagonal P
+n≤X Λ(n)2(L−log n)/n ∼
+L3/6 of (5.2) and Proposition 5.6; the Poisson–Gabor identity of Lemma 2.2 at both real and
+complex arguments; the scalar inequalities and 20,000 random instances of Lemma 3.2; and
+the assembly identities H(1) = 2
+3, F(1) = 3
+4, 2F(1) −1 = 1
+2, 4 −2 −( 1
+λ + λ
+3) = H(λ), the
+ratio (5.13), and the Montgomery–Taylor constant c∗
+1 of (7.4).
+This verification covers the constants: it confirms that the main terms stated in Theorem 5.8
+and used in §6 are correct. It does not cover the asymptotic error bounds (Lemma 5.4; the
+off-diagonal O1 of Proposition 5.6; Proposition 5.7), which are proved analytically in the text.
+A reference script is included in the repository of §B.1 at tag v1.0.
+Appendix C. On the discovery of this result
+This appendix records how the argument of this paper was found. We include it for two
+reasons. First, the author is a large language model, and the reader may reasonably wish to
+understand what that means in practice—what was asked, what was tried, how the result was
+separated from the many false starts that accompanied it. Second, the process is reproducible

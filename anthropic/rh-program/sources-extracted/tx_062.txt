@@ -1,0 +1,68 @@
+1.1
+The brief’s objects, notation and sources, spelled out
+For a reader meeting this corner cold, here is what every symbol and coined term in the brief
+denotes, in the sense the campaign uses them and consistently with the definitions fixed by the
+documents I read below; and, where the brief indicates it, who supplied what.
+The form and its two sides.
+The zeros are the nontrivial zeros ρ = β + it of ζ, each
+with multiplicity mρ; the spectral parameter of ρ is γρ := (ρ −1
+2)/i = t −i(β −1
+2), real
+exactly when ρ is on the critical line. For a test function f supported in [−L/2, L/2] put
+hf(z) = ˆf(z) =
+R f(u)eizu du, an entire function. The Weil form is the Hermitian form
+W(f, g) = P
+ρ mρ hf(γρ)hg(¯γρ); this expression is its zero side. Weil’s explicit formula rewrites
+W(f, g) as an integral of hfhg against an explicit density built from the digamma function,
+the pole of ζ, and the prime sum P
+n≤X Λ(n)n−1/2 cos(τ log n) with X = eL; that expression is
+the prime side, and “prime-computable” means evaluable from it without knowledge of zeros.
+Window, bandwidth, counts.
+The window is the ordinate range I = [T, 2T], with l :=
+log(T/2π); N = N(I) ∼Tl/2π is the number of zeros with ordinate in I, counted with
+multiplicity (Riemann–von Mangoldt). The bandwidth is λ ∈(0, 1) and L := λl is the length
+of the support interval of the test functions, so X = eL ≤(T/2π)λ; “λ →1−” is the limit in
+which the constants 3/4 and 1/2 appear. Ndist, Nsimple are the numbers of distinct, respectively
+simple, zeros in the window; ndist
+on (also written Ndist
+0
+) is the number of distinct zeros on the line
+β = 1
+2; an off-line pair is {ρ, 1 −¯ρ} with β ̸= 1
+2 (the two members share the ordinate t and the
+multiplicity m, by the functional equation), and ndist
+pair counts distinct such pairs. The depth of
+a pair is δ = β −1
+2; a tight pair has δ = o(1/L), a far pair δ ≫1/L. Since each distinct on-line
+point has multiplicity ≥1 and each pair contributes ≥2 to the count, N ≥ndist
+on + 2ndist
+pair; this
+is the “Riemann–von Mangoldt bookkeeping”.
+The Gabor system and the matrices G and R.
+The test space is spanned by the Gabor
+system fk(u) = φ(u)e−iτku, 0 ≤k < d, where τk = T + 2πk/L is a grid of frequencies filling
+the window, d = ⌊LT/2π⌋≈λN, and the taper φ is a real even C2 function on [−L/2, L/2]
+equal to 1 on the middle (1 −η) fraction of the interval, η being a small smoothing parameter
+eventually sent to 0; the sinc system is the untapered case φ = 1[−L/2,L/2], whose ˆφ is the
+sinc function. The compressed Weil form is the d × d Gram matrix Gkl = W(fk, fl); “G-units”
+refers to this raw matrix. The brief’s R is G divided by L (in Theorem 4’s write-up R was G
+orthonormalised by the mass matrix
+R fk ¯fl, which is approximately L · Id; referee D’s repair is
+to use G/L outright). In the brief’s units tr R = LN(1 + o(1)) and tr R2 ≈4
+3L2N at λ →1
+(more precisely λl2N(1 + λ2/3)); these are the prime-side evaluations the campaign calls Step 2.
+Later in this document I renormalise once more, to eR = G/(L2a), so that a simple isolated
+on-line zero has eigenvalue 1.
+Inertia and counting.
+n+ and n−are the positive and negative indices of inertia of R
+(numbers of positive and negative eigenvalues); nθ
++, nθ
+−count eigenvalues above a threshold
+θ (respectively below −θ), the threshold absorbing a small tail error. A “positive square” is
+a rank-one positive semidefinite summand m |l⟩⟨l| of the form; the Cauchy–Schwarz count is
+the elementary fact that a Hermitian matrix with positive trace has at least (tr R)2/ tr R2
+positive eigenvalues. The windowed form A is the part of the zero side coming from zeros with
+ordinate in a slightly enlarged window I′; the remainder E is the tail. Cauchy interlacing,
+Weyl’s inequalities and Ky Fan’s principle are the standard eigenvalue inequalities for sums
+and compressions of Hermitian matrices, as the brief states them.
+61

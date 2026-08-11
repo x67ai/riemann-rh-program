@@ -1,0 +1,53 @@
+operator: at most κ eigenvalues off the unit circle), and its spectral function is
+“positive up to κ squares”. Equivalently, a Hermitian kernel with κ negative squares
+— the class Pκ, or the generalized Nevanlinna class Nκ of Kre˘ın–Langer — admits
+an integral representation with at most κ poles of the “wrong sign”. In the definite
+case κ = 0, de Branges/Kre˘ın theory is the Hilbert–Pólya picture. The indefinite
+version one should aim for is this. Take the natural Hermitian form attached to Ξ
+— equivalently the Weil form, or the de Branges kernel
+E(z)E(w) −E∗(z)E∗(w)
+z −¯w
+with structure function E built from ξ, or R4’s “condition space” form — and
+restrict it to a natural family of finite-dimensional or band-limited subspaces indexed
+by a prime cutoff X and a height T. If the restricted form has negative index
+κ(X, T), then the number of non-real zeros of the corresponding structure function
+that are “visible” to that subspace should be at most κ(X, T). And if κ(X, T) can
+be bounded by something computable from the primes ≤X and the Gamma factor
+alone, that is an upper bound on the number of off-line zeros in a height window —
+a zero-density estimate by a totally non-classical route.
+Known related facts to get right. (i) Weil’s criterion: the Riemann Hypothesis
+is equivalent to the Weil form being non-negative on all test functions, i.e. to
+κ = 0. (ii) More precisely — and here the attribution is uncertain: Yoshida?
+Bombieri? a title of the shape “Weil’s explicit formula and the number of zeros off
+the line”? — the negative index of the Weil form on all test functions should equal
+the number of zeros off the critical line, counted with multiplicity and in pairs. I
+believe this is a theorem, for the following reason. On the zero side the Weil form
+is P
+ρ ˆh(ρ) ˆh(1 −¯ρ). For a zero ρ on the line, 1 −¯ρ = ρ and the term is |ˆh(ρ)|2, a
+positive square. An off-line zero comes as a quadruple ρ, ¯ρ, 1 −ρ, 1 −¯ρ, and the two
+terms pairing ρ with 1 −¯ρ and 1 −¯ρ with ρ together form a rank-two Hermitian
+form of the shape 2 Re(a¯b), a hyperbolic pair of signature (1, 1); so each off-line
+pair should contribute exactly one negative square. Verify or prove this cleanly,
+in the form: the negative index of W on C∞
+c (R∗
++) equals the number of off-line
+zero pairs (possibly infinite). So globally κ = Noff exactly. The finite-X, finite-T
+version: define κ(X, T) as the negative index of W restricted to test functions g
+with supp ˆg ⊂[−log X, log X] and “concentrated below height T” — this must be
+made precise, e.g. g a convolution of a kernel with a band-limiting function, or via
+R4’s prolate compression. Then one expects κ(X, T) ≤Noff(T ′) for an appropriate
+T ′; and conversely — with question marks — Noff in a window ≤κ(X, T) plus a
+count of “invisible” zeros? The useful direction is
+Noff(σ > 1
+2 + δ, T) ≤κδ(X, T),
+where κδ counts the negative squares of a δ-tilted form, Wδ(g) = W(g · cosh(δ ·))
+or similar, arranged so that zeros with | Re ρ −1
+2| > δ contribute strictly negatively
+while on-line zeros contribute positively. Compare the weights in N6’s analysis:
+an on-line zero is weighted by a sech-type factor, an off-line zero at depth a by
+cosh(ax), so a tilt by eδ|x| flips . . . (the sentence is left unfinished).
+Tasks. (1) Prove the global identity “negative index of W = Noff”, or find its
+correct statement in the literature; places to look are “Weil’s quadratic functional
+negative index”, Bombieri’s 2000 paper “Remarks on Weil’s quadratic functional in
+the theory of prime numbers”, Yoshida’s work in the 1990s, and Burnol.
+18

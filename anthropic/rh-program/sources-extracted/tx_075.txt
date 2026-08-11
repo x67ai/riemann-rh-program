@@ -1,0 +1,77 @@
+and in particular, at c = 2,
+r ≥2ton + 4t′ −4b −∥M∥2
+F .
+(3.2)
+The proof is five lines, and von Neumann’s trace inequality (which I invoke from memory) is
+the only tool. Expand
+∥M∥2 = ∥Mon∥2 + ∥Mp∥2 + 2 tr(MonMp).
+Let µ1 ≥· · · ≥µr ≥0 be the eigenvalues of Mon; let Mp = M+
+p −M−
+p
+be the Jordan
+decomposition, p1, . . . , pb′ > 0 (b′ ≤b) the positive eigenvalues of Mp, ν1 ≥ν2 ≥· · · ≥0 the
+eigenvalues of M−
+p , and y := P ν.
+(i) tr(MonM+
+p ) ≥0 (two positive semidefinite matrices), and tr(MonM−
+p ) ≤P
+k µkνk by von
+Neumann, both sequences sorted decreasing. Pointwise, for µ, ν ≥0,
+2µν ≤2cν + ν2 + (µ −c)2
++,
+trivially for µ ≤c, and for µ > c the difference of the two sides is (ν −µ + c)2. Hence
+2 tr(MonMp) ≥−2cy −
+X
+ν2 −
+X
+k
+(µk −c)2
++.
+(ii) By Cauchy–Schwarz on at most b positive eigenvalues, with P p = t′ + y,
+∥Mp∥2 =
+X
+p2 +
+X
+ν2 ≥(P p)2
+b
++
+X
+ν2 = (t′ + y)2
+b
++
+X
+ν2.
+(iii) ∥Mon∥2 −P
+k(µk −c)2
++ = P
+k gc(µk), where gc(µ) = µ2 for µ ≤c and 2cµ −c2 for µ ≥c;
+since gc(µ) ≥cµ −c2/4 for all µ ≥0,
+X
+k≤r
+gc(µk) ≥c ton −rc2
+4 .
+Summing,
+∥M∥2 ≥c ton −rc2
+4 + (t′ + y)2
+b
+−2cy
+≥c ton −rc2
+4 + min
+y
+h(t′ + y)2
+b
+−2cy
+i
+= c ton −rc2
+4 + 2c t′ −c2b.
+Three checks. (a) The minima non + 4np from the normalised experiment are exactly (3.2)
+with equality (ton = r = non, t′ = 2np, b = np). (b) The 400 random instances of the sharper
+intermediate form
+∥M∥2 ≥r gs(ton/r) + t′2
+b ,
+s = t′/b,
+gave most negative gap 0.0. (c) With b = t′ = 0, optimising over c returns ∥Mon∥2 ≥t2
+on/r, so
+the Cauchy–Schwarz count is a special case. The general optimisation over c I leave for the
+application; the case c = 2 is what matters at the extremal configuration.
+74

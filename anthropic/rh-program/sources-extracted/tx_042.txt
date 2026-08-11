@@ -1,0 +1,79 @@
+Prime and zero sides agree to the printed digit; the tail is negligible (θ = 10−8 of scale,
+eigenvalue discrepancy from 5 · 10−3 down to 10−4); the Montgomery–Vaughan diagonal
+prediction matches the measured tr R2
+P ′ to well under one percent; and positive certificates
+appear from λ = 0.8 on. But the algebraically decaying Kaiser atoms have reach r1 ≈80, so
+N(I′) = 598 against N(I) = 472. (Editorial: presumably it is this inflated N(I′), rather than
+the form, that depresses the certified proportions; the record does not say so in words.)
+So I loosen the reach criterion to the radius outside which less than 10−5 of the atom’s energy
+lies — legitimate now that the actual tail norm is computed and fed into θ — put the bump
+taper first (then Tukey 0.5, Tukey 0.25, Kaiser 12), and start again.
+6.2
+Bump-taper rows, cluster counts and synthetic controls
+The bump(0.5) rows on [600, 1200] (N(I) = 472) come back. The reach is now r1 = 25.8 falling
+to 13.7 as λ grows, so N(I′) runs from 512 down to 494; and with an essentially C∞
+c
+taper
+there is a genuine tail, θ ≈5 · 10−2 down to 2 · 10−2 of scale, so the prime-side Cθ sits visibly
+below the untruncated zero-side C:
+λ
+X
+d
+Cθ(prime) / C(zero) nθ
++(true)
+MV meas/pred
+propcert / asym
+0.60
+19
+276
+217.2 / 253.7
+276
+14.7 / 14.7
+−0.152 / +0.071
+0.80
+51
+367
+260.0 / 315.4
+366
+36.8 / 36.8
++0.036 / +0.319
+1.00 135 457
+315.5 / 362.1
+447
+73.7 / 74.0
++0.270 / +0.500
+1.15 282 525
+355.3 / 388.0
+477
+114.3 / 114.8
++0.439 / +0.596
+The prime/zero eigenvalue discrepancy stays at 10−4, three orders of magnitude below θ, and
+the Montgomery–Vaughan diagonal prediction for tr R2
+P ′ matches the measured value to well
+under one percent throughout.
+The index grid has meanwhile finished, ending exactly on the reading I fixed for it in advance:
+n−(GP ) = 0 throughout; d −rank ≈d −#zeros exact null directions whenever d > #zeros;
+the symbol νX negative on 20–45% of the window; the Szegő/pointwise prediction and the
+a-priori bound “off by everything”.
+The cluster/multiplicity experiment (zero side plus plants at t0 = 400, δ = 0.2) has also
+reported. At L = 10 (d = 573): a single quadruple gives n−= 1; a double zero (weight 2) at
+the same point gives n−= 1 — multiplicity invisible, as Theorem 1 says; two depths 0.2 and
+0.35 at one ordinate give 2; two quadruples at t0 ∓ε/2 give n−= 1 for ε = 0.01, 0.03 and 2 for
+ε ≥0.1 (the resolution scale being 2π/L = 0.63); five quadruples spaced ε apart give
+n−= 1, 2, 2, 2, 4, 5, 5, 5
+for ε = 0.01, 0.03, 0.1, 0.3, 0.6, 1.0, 2.0, 4.0.
+At L = 14 (d = 804, 2π/L = 0.45) two quadruples already separate at ε = 0.01, and five
+give 2, 2, 3, 4, 5, 5, 5, 5. This is the picture of the cluster analysis in the visibility section: tight
+clusters merge into fewer negative squares and split as L grows, and coincident zeros never add
+rank.
+The certificate needs no zeros, so I can go much higher than the zero table allows. I set
+up a prime-side-only evaluation at larger heights: windows [9000, 10000] and [48000, 50000],
+λ ∈{0.7, 0.85, 1.0, 1.1}, a Tukey(0.2) flat-top taper at the critical spacing 2π/L (oversampling
+q = 1.0), M-orthonormalised with tolerance 10−6. The statistic C = (tr R)2/ tr R2 is computed
+from the full prime-side density νfull
+X
+alone; I compare C/N(I) with the law λ/(1 + λ2/3) and
+with the continuum prediction, and report the certified proportion as 2C/N(I′) −1, taking
+N(·) to be the Riemann–von Mangoldt main term ϑ(T)/π + 1 (ignoring |S(T)| < 1, an O(1)),
+with no θ/tail correction at these heights.
+41

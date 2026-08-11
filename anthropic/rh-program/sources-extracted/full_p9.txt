@@ -1,0 +1,63 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ON THE CRITICAL LINE
+9
+Proof. Fix τ, τ ′ and let Υ(s) := bϕ(τ −s)bϕ(τ ′ −s). With ϕτ(u) := ϕ(u)eiτu and H := ϕτ ∗ϕτ ′ ∈
+Cc(R) one checks directly that Υ(s) = bH(−s); hence Υ is smooth, Υ(s) = O(|s|−4) by (2.17),
+and by Fourier inversion
+bΥ(ξ) =
+Z
+bH(−s)eiξs ds = 2πH(ξ) = 2π eiτ ′ξ
+Z
+ϕ(u)ϕ(ξ −u)ei(τ−τ ′)u du,
+which is continuous, bounded by 2π(L −|ξ|)+, and vanishes for |ξ| ≥L because supp ϕ =
+[−L
+2 , L
+2 ]. The Poisson summation formula P
+k∈Z Υ(T + kh) = h−1 P
+m∈Z bΥ(−2πm/h)e2πimT/h
+holds for such Υ (both Υ and bΥ are O((1 + | · |)−2)), and 2πm/h = mL, so only m = 0
+contributes: the sum equals h−1 bΥ(0) = L
+2π · 2π
+R
+ϕ(u)ϕ(−u)ei(τ−τ ′)u du = LΦ(τ −τ ′), ϕ being
+even.
+□
+Thus the Gabor system at the critical density h = 2π/L has a translation-invariant frame
+kernel with no aliasing error, for any window supported in an interval of length L; this replaces
+the Shannon sampling identity for the sinc system (ϕ = 1[−L/2,L/2], Φ(x) = sin(Lx/2)/(x/2)).
+Remark 2.3 (Why we do not orthonormalise; heuristic, not used). The Gram matrix Mkl :=
+⟨fk, fl⟩L2 =
+R
+ϕ2e−i(k−l)hu du is L times the d × d Toeplitz matrix with symbol ϕ2(Lt/2π), t ∈
+[−π, π). This symbol takes all values in [0, 1], so by Szeg˝o’s theorem about (2w/L)d eigenvalues
+of M/L lie well below 1 and the smallest are extremely small; M is not L(Id+o(1)) in operator
+norm, and the matrix M−1/2GM−1/2 of W|V in an orthonormal basis is badly conditioned.
+None of this matters: the positive index of a Hermitian form is independent of coordinates,
+and the other tools we use (the rank–trace inequality, Weyl’s inequality and Cauchy–Schwarz
+on eigenvalues) require only a Hermitian matrix. We therefore work throughout with eG = G/L
+in the coefficient coordinates c ∈Cd with the standard ℓ2 structure; M plays no role. Two
+alternatives leading to the same theorems are described in Remark 7.1.
+3. Lemmas from linear algebra
+For a Hermitian form Q on a finite-dimensional complex vector space U the positive index
+n+(Q) is the maximal dimension of a subspace on which Q is positive definite; by Sylvester’s
+law of inertia it equals the number of positive eigenvalues of any matrix representing Q, and
+for a Hermitian matrix R we have n+(R) = n+(c 7→c∗Rc).
+Lemma 3.1 (Inertia under pull-back). Let Q be a Hermitian form on Cm and A : U →Cm a
+linear map from a finite-dimensional complex vector space. Then n+(Q ◦A) ≤n+(Q), where
+(Q ◦A)(u) := Q(Au).
+Proof. If Q◦A is positive definite on a subspace U0 ⊂U, then A|U0 is injective (a kernel vector
+u ̸= 0 would give Q(Au) = 0) and Q is positive definite on A(U0), so dim U0 = dim A(U0) ≤
+n+(Q).
+□
+No injectivity of A, no independence assumption and no inner product on U is needed. We
+shall also use the subadditivity of the positive index: for Hermitian forms Q1, Q2 on the same
+space, n+(Q1 + Q2) ≤n+(Q1) + n+(Q2) (apply the lemma to the pull-back of Q1 ⊕Q2 under
+the diagonal map u 7→(u, u)).
+Lemma 3.2 (Rank–trace inequality). Let P, Q be Hermitian d × d matrices with P ⪰0,
+rank P ≤r, and n+(Q) ≤b. Then for every c > 0,
+(3.1)
+∥P + Q∥2
+F ≥c tr P −c2
+4 r + 2c tr Q −c2b ;
+in particular (c = 2)
+r ≥2 tr P + 4 tr Q −4b −∥P + Q∥2
+F .

@@ -1,0 +1,168 @@
+26
+CLAUDE
+(1) Prime side = zero side. With νX computed from primes and Γ′/Γ, and independently
+G computed from the first 2000–3700 zeros via the first expression in (2.20), three independent
+implementations (different tapers: Kaiser, Tukey, C3) found maxk,l |Gprime
+kl
+−Gzero
+kl |/ max |G|
+between 10−6 and 1.1 · 10−8 on windows [100, 300], [600, 1200], [1000, 2000] with X ∈[95, 106],
+the residual being attributable to the truncation of the zero sum. For instance (I = [600, 1200],
+Kaiser taper, L = log(600/2π) = 4.559, X = 95.5, d = 436): relative discrepancy 1.1 · 10−8;
+Cprime = 351.3, Czero = 351.4; N(I) = 472, C/N(I) = 0.744 (F(1) = 0.750); all 436 eigenvalues
+positive (minimum 0.205).
+(2) The ratio C/N from primes alone. Restricted/orthonormalised variant RS of Re-
+mark 7.1(ii), Tukey taper (η = 0.2), short windows I = [T1, T2], l = log(√T1T2/2π); “law” is
+F(λ); “cert” is (2C −N(I′))/N(I) with I′ the window enlarged by the numerical reach of the
+atoms.
+window
+λ
+L
+X
+d
+C/N(I)
+F(λ)
+cert
+[9000, 10000]
+0.70
+5.12
+168
+814
+0.613
+0.602
++0.18
+[9000, 10000]
+0.85
+6.22
+504
+988
+0.699
+0.685
++0.36
+[9000, 10000]
+1.00
+7.32
+1510
+1162
+0.766
+0.750
++0.50
+[48000, 50000]
+0.85
+7.62
+2033
+2417
+0.695
+0.685
++0.37
+[48000, 50000]
+1.00
+8.96
+7797
+2843
+0.762
+0.750
++0.51
+[998000, 106]
+0.85
+10.18
+26374
+3229
+0.691
+0.685
++0.37
+[998000, 106]
+1.00
+11.98
+158996
+3799
+0.757
+0.750
++0.50
+We stress that these numbers, in particular the certificates +0.50, +0.51 at λ = 1, refer to
+the orthonormalised variant RS and not to the matrix eG of the proof, whose certificate at
+comparable parameters is +0.40 to +0.42 (table (3)) and whose ratio C/N stays below F(λ)
+at all accessible heights when w = 1 (Remark 5.9); the limiting value 2F(1) −1 = 1
+2 of this
+certificate is not visible numerically.
+The excess of CRS/N over F(λ) here is the positive
+O(1/L) term in P
+n≤X Λ(n)2g(log n)/n, partly offset by the taper factor 1−κη and by λ1 < λ.
+(3) The matrix eG = G/L of the proof; taper dependence; trace-level check. T =
+2000, I = [2000, 4000], l = 5.763, ramps ϱ(x) = x −
+1
+2π sin 2πx of relative width η; G from
+3700 zeros (= prime side by (1)); N(I) = 1957, N(I′) = 2044 (D0 = 44.7). “RS” is the re-
+stricted variant with cut-off M ≥L/2; “full” is M−1/2GM−1/2 with numerically null directions
+removed.
+λ
+η
+λmin(M/L)
+#{eig(M/L) < 1
+2}/d
+tapered law
+C e
+G/N
+cert e
+G
+CRS/N
+Cfull/N
+0.9
+0.20
+2 · 10−12
+0.121
+0.665
+0.651
++0.26
+0.640
+0.699
+0.9
+0.10
+1 · 10−10
+0.061
+0.688
+0.676
++0.31
+0.670
+0.699
+0.9
+0.05
+7 · 10−9
+0.030
+0.699
+0.687
++0.33
+0.685
+0.699
+1.0
+0.10
+—
+—
+0.731
+0.723
++0.40
+0.718
+0.745
+1.0
+0.05
+—
+—
+0.741
+0.734
++0.42
+0.731
+0.745
+(Here d = 1650 resp. 1834, X = 179 resp. 318; “tapered law” is λa2/(b+λ2J(η)) with J(η) the
+limit of JT ; F(0.9) = 0.7087.) The ill-conditioning of M is real but never reaches C. Trace-
+level comparison of the prime-side prediction (main terms of Theorem 5.8 with the exact finite
+sums 2πa P
+k µ(τk) and T
+π
+P
+n
+Λ(n)2
+n
+g(log n), kernel LΦ) with the zero-side value: λ = 0.9,
+η = 0.1: Cpred = 1322.72 vs. Czero = 1322.28; λ = 1, η = 0.05: 1436.03 vs. 1436.41 (agreement
+3 · 10−4), confirming simultaneously Lemma 2.2, the taper constants, and the negligibility of
+end, off-diagonal, cross and Π terms at this height.

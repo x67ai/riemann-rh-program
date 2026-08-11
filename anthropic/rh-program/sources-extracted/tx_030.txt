@@ -1,0 +1,51 @@
+Alongside these: the Plancherel mass matrix M of the atoms; a signature routine that first
+passes to an M-orthonormal basis of the numerically nondegenerate part of V ; and two utilities
+for later — a rank-two Hermitian update representing a planted off-line quadruple 1
+2 ± δ ± it0
+(the γ, ¯γ pair; the copies at negative t are negligible), and removal of prescribed on-line zeros.
+First validation: L = log 1000, window [100, 300], β = 14, oversampling q = 1. The closed-form
+ˆφ matches direct quadrature to about 10−6 relative at r = 0, 1, 3, 5, 8 and at the complex point
+2 + 0.3i. The compression has d = 220 atoms, cutoff radius ≈22.5, and
+max |GP −GZ| = 1.03 × 10−6
+against
+max |GZ| = 9.69,
+so the prime side and the zero side of the explicit formula agree entrywise. But the signatures,
+read through the M-orthonormal reduction, disagree badly: the prime side reports “neg,pos,null
+33 145 42” with minimum eigenvalue −0.0129, the zero side 0/115/105, with 109 zeros in the
+window. Thirty-three negative squares from a matrix within 10−6 of a positive semidefinite
+one cannot be right.
+So I test the eigenvalue counting itself, over q ∈{1.0, 0.8} and quadrature step dτ ∈{0.02, 0.01},
+looking at the raw eigenvalues of GP rather than at the reduced form, and recording the
+condition number of M. The numbers: cond(M) = 7.6 × 109 at q = 1 (2.1 × 104 at q = 0.8),
+while ∥E∥2 = ∥GP −GZ∥2 ≈1.7–1.9 × 10−6 throughout. (Editorial: evidently the 33 negatives
+were numerical — the reduction through an ill-conditioned mass matrix amplifying quadrature
+noise into “negative squares”; the record contains the numbers and the decision that follows,
+not this diagnosis in words.) The raw spectrum of GP has lowest eigenvalue ≈−1.18 × 10−7
+(q = 1) and −9.6 × 10−8 (q = 0.8), “#< −1e-4: 0” in every case, with 109 near-null eigenvalues
+for d = 220 and 66 for d = 176, against 111 resp. 110 zero-side eigenvalues above 10−4. No
+genuine negative direction; the rank is approximately the number of zeros in reach (zeros in
+the height interval on which the atoms’ transforms are non-negligible), and the null space has
+dimension d minus that — exactly the picture I forecast. From here on I read signatures from
+raw eigenvalues of GP (basis-independent by Sylvester’s law of inertia, the atoms being linearly
+independent) and use q = 0.8.
+3.2
+The index grid and its forecast
+Now the grid the brief asked for in item (2), X = 102, 103, . . . , 106, carried out on the Gram-
+matrix compression of the Weil form (the brief’s second option, here with Kaiser–Gabor atoms)
+rather than on R4’s νX-operator: windows [50, 1000] and [1000, 2400], Kaiser β = 14, q = 0.8,
+signature from raw eigenvalues at threshold 10−5 max |ev|. For each X and window I want the
+inertia (n−, n0, n+) of GP — numbers of negative, null and positive eigenvalues — its minimum
+eigenvalue, the discrepancy ∥GP −GZ∥, the zero-side rank, and the number of zeros in the
+window. Against these I set the pointwise quantities that embody the brief’s sign-change route:
+the fraction of the window on which νX < 0; the “Szegő prediction” n−≈(that fraction)·d, i.e.
+what one would get if eigenvalues were symbol samples; and the a-priori count of Proposition 2.1
+restricted to the window,
+Lq
+2π (T1 −T0) meas{νX < 0.05}.
+I also add two prime-computable positivity certificates. Writing R for the matrix of W|V in
+M-orthonormal coordinates, trace and second moment alone give n+ ≥(tr R)2/ tr(R2), so I
+record the certified-positive fraction (tr R)2/(d tr R2), together with a Fejér-smoothed proxy
+⟨ν⟩2/⟨¯ν2⟩for it.
+I am confident enough of the outcome to write down the reading before a single row exists:
+n−(GP ) = 0 throughout, i.e. the compressed Weil form at level X is positive semidefinite
+29

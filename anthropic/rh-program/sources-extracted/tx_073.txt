@@ -1,0 +1,69 @@
+(b′) all tripled; (c) every ordinate turned into a pair at δ ∈{10−4, 0.05, 0.2, 0.45}, so that N
+doubles; (c2) every other ordinate paired and the rest deleted, preserving the Riemann–von
+Mangoldt count; (d) ordinates with index ≡0 mod 4 paired, ≡1, 2 on-line, ≡3 deleted (N
+preserved), at δ ∈{10−3, 0.1}; (e) an on-line zero and a pair at the same height; (f) two pairs
+at the same height at depths 0.05 and 0.3.
+4.3
+The pair block, the extremal problem, the theorem
+I set down in my report — the document the referees and coordinator will read — everything
+established so far: the verified block facts, the extremal experiments, and, now in a cleaner
+form than the gs claim and with a proof, the abstract theorem.
+The pair block.
+First referee D’s Poisson identity in the generality I actually used, for
+arbitrary complex arguments: for ϕ ∈L2 supported in [−L/2, L/2] and the full grid τk =
+T + 2πk/L, k ∈Z,
+(P)
+X
+k∈Z
+ˆϕ(z −τk) ˆϕ(z′ −τk) = L Φ(z −z′),
+Φ = FT(ϕ2),
+with Φ entire, real on R, and Φ(¯z) = Φ(z). The proof is one line: the Fourier transform in s of
+s 7→ˆϕ(z −s)ˆϕ(z′ −s) at frequency ξ is
+2π
+Z
+ϕ(u) ϕ(ξ −u) eizu+iz′(ξ−u) du,
+which vanishes for |ξ| ≥L, so only the ξ = 0 Poisson term survives; complex z changes nothing
+(and numerically the two sides agreed to 10−14). Then, for an off-line pair ρ = 1
+2 + δ + it,
+ρ∗= 1 −¯ρ, with spectral parameters γ = t −iδ, γ∗= ¯γ and functionals v := uρ, uρ∗= ¯v, the
+brief’s facts as verified in my units are
+vT v = L Φ(0) = L2a
+(real, positive, δ-independent; to 10−14),
+∥v∥2 = L Φ(−2iδ) = L2a A(δ),
+A(δ) =
+R ϕ2 cosh(2δu)
+R ϕ2
+≥1,
+the last equal to sinh(δL)/(δL) for the sharp window. The pair contributes the real symmetric
+block
+B = m (vvT + ¯v¯vT ) = 2m Re(vvT ) = m WσxW ∗,
+W = [v, ¯v],
+whose nonzero eigenvalues are those of
+m σxW ∗W = m
+"
+s
+A′
+A′
+¯s
+#
+,
+s = vT v = L2a,
+A′ = ∥v∥2,
+namely mL2a (1 ± A) — verified at five depths. In eR units the block has eigenvalues m(1 + A)
+and −m(A −1), trace 2m (δ-independent, the value for 2m on-line zeros), and tr B2 =
+2m2(1 + A2) ≥4m2. Writing v/
+√
+L2a = r + iq with r, q real, the normalisation vT v = 1 says
+r · q = 0 and |r|2 −|q|2 = 1, and
+B
+mL2a = 2 (rrT −qqT ),
+|r|2 = A + 1
+2
+,
+|q|2 = A −1
+2
+.
+As δ →0, A −1 ∼(2δ)2⟨u2⟩ϕ2 ∼δ2L2/3, and the pair becomes spectrally an on-line zero
+of multiplicity 2m — the true enemy, as the brief said. An on-line zero of multiplicity m
+contributes m uuT , positive semidefinite of rank one, eigenvalue m.
+72

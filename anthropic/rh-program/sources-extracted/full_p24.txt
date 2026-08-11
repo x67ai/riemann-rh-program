@@ -1,0 +1,73 @@
+24
+CLAUDE
+[GS26, Theorem 1]; for distinct zeros Theorem C gives 3−C
+2
+= 5
+6 unconditionally, which is the
+value of the average of the simple and critical proportions in [GS25, Theorem 3(ii)] and the
+RH-conditional constant of [CGG98, (1.2)].
+That the negative index of finite truncations of Weil’s form equals the number of off-line
+zero pairs seen by the truncation was observed by Bombieri [Bom00] (Introduction); see also
+Yoshida [Yos92] for the positivity of W on small support. We are not aware of a previous use
+of the positive index or of the rank in combination with a second-moment evaluation.
+7.5. Limits of the method. (a) Dimension. rank P, nθ
++( eG) ≤d = λ1N(1 + o(1)), so with
+band-width λ ≤1 the ceiling of any argument of the present kind is 100% at λ = 1 and
+nothing at λ ≤1
+2. The restriction λ ≤1 in turn comes from Proposition 5.6: for X ≫Tl the
+off-diagonal terms O1 are no longer dominated by the diagonal, and their evaluation would
+require information on prime pairs (the Hardy–Littlewood conjectures, or equivalently Mont-
+gomery’s pair correlation conjecture for α > 1 [Mon73, GM87]). In the extreme hypothetical
+configuration in which all zeros in [T, 2T] are off-line pairs, Proposition 4.1 gives rank P = 0,
+n+(Q) ≤N/2, while Lemma 3.2 would then force ∥bA∥2
+F ≥2N > 4
+3N; the contradiction shows
+only that at least two thirds of the zeros are not of this kind, which is what Theorem A says.
+Nothing in the method distinguishes between “two thirds” and “all”.
+(b) Sharpness of the three counts. Given only tr, ∥· ∥2
+F , the block structure and tr P1 ≤s1,
+Proposition 4.4 is sharp in all three parts: 2
+3N mutually orthogonal simple on-line zeros together
+with 1
+6N on-line doubles realise tr = N, ∥· ∥2
+F = 4
+3N, s1 = 2
+3N, Nd = 5
+6N—the same extremal
+configuration as in Montgomery’s RH argument. Replacing the doubles by off-line pairs of
+depth →0 (spectrally the same) gives the extremal for Theorem A, with s1 + s2 = 2
+3N; for
+that configuration Proposition 4.4(ii) certifies exactly Theorem A’s 2
+3 while (iii) is not sharp
+(Nd = N), consistent with §1.5.
+(c) The two levels of integrality.
+Lemma 3.2 with the decomposition (P, Q) of Proposi-
+tion 4.1(ii) recovers the level (m −1)2 ≥0; with the regrouping (P1, Q′) of Proposition 4.4
+it recovers also the level (m −1)(m −2) ≥0—interacting simple zeros, whose eigenvalues fill
+(0, 2), are harmless because they sit on the rank side, where only rank P1 ≤s1 and tr P1 ≤s1
+are used, while every multiple on-line point and every off-line pair sits on the index side at the
+flat charge 4. This is the device of [CGG98, (1.2)] made unconditional. The Cauchy–Schwarz
+route (Lemma 3.3, Proposition 4.5) stops at 2F(1) −1 = 1
+2 for simple zeros, since an off-line
+pair costs two zeros in N for one positive square; that route is retained only for the F(λ)
+branch of Theorem C at λ < 3 −
+√
+6.
+What can still be varied is the family V , i.e. the window ϕ2 (§7.1), and the number of
+moments used:
+Proposition 7.4 (Cap). For any choice of window and any θ ≥0, rank P1 ≤rank P ≤d and
+nθ
++( eG) ≤d = λ1N(T, 2T) + O(1) (P1 as in the proof of Proposition 4.4); hence no argument
+based on Proposition 4.1 with test functions supported in [−L
+2 , L
+2 ], L = λl, can certify more
+than λ1N(T, 2T) on-line points, simple or not; and, since ∥bA∥2
+F ≥(tr bA)2/d, the certificate of
+Proposition 4.4(ii) is at most (2 −1/λ1 + o(1))N(T, 2T) and hence non-positive for λ ≤1
+2.
+This is trivial but decisive in combination with the following observations, which we state
+informally. (d) Lemma 3.3 is the case m = 1 of the one-sided Chebyshev–Markov–Stieltjes
+bound: if the normalised moments d−1 tr( eG/ℓ1)k, k ≤2m, are known, the sharp lower bound
+for nθ
++( eG)/d is 1 −Λm(0), Λm the Christoffel function of the moment sequence at 0. (e) The
+prime-side evaluation of tr eGk by the diagonal method of Section 5 (multiplicative relations

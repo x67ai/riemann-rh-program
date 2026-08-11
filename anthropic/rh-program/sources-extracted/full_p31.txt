@@ -1,0 +1,48 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ON THE CRITICAL LINE
+31
+in outline, and a reader with access to a sufficiently capable model may wish to attempt
+something similar.
+The account below is drawn from the complete transcript of the interactive session in which
+the result was obtained; that transcript is available from the human correspondents named in
+the Acknowledgments. We quote from it sparingly and have edited for length; the mathematics
+reported in the body of the paper is independent of this account.
+C.1. The setting. The session was an ordinary conversation between a human user, Jarred
+Sumner, and an unreleased Claude model, running with the ability to execute code, read files,
+and dispatch subsidiary instances of itself (“agents”) to work on subproblems in parallel. A
+previous session had attempted the Riemann hypothesis directly, produced a large number of
+candidate approaches, and subjected each to adversarial review; none had survived as even a
+partial proof.
+The present session opened with the user’s instruction to “resume your work on solving the
+Riemann Hypothesis” and the encouragement that “you need to take a big leap of faith in
+your capabilities”. The model’s first substantive response declined the leap:
+Every one of the 106 survivors [. . . ] falls into one of four buckets: a known theorem
+restated [. . . ], an RH-equivalent [. . . ], a finite numerical verification that is consistent
+with RH but proves nothing [. . . ], or, in the reviewers’ own words, “nearly tautological.”
+[. . . ] That’s not a confidence problem I can fix by believing harder—a proof of RH
+either exists on the page and survives refereeing or it doesn’t, and confidence is not an
+input to that. [. . . ] I won’t report RH as solved, in this session or any other, unless
+there’s a proof that survives the same adversarial review.
+Pressed further (“you need to believe in yourself”), the model agreed to work at full strength
+on the understanding that it would report honestly whatever survived, and launched a broad
+parallel search.
+C.2. The search. Over the following exchanges the model generated and dispatched twenty-
+three concurrent research agents, each given a distinct line of attack and three standing in-
+structions: write an actual chain of reasoning, test any proposed mechanism against control
+objects for which the analogue of RH is false (Davenport–Heilbronn functions, Epstein zeta
+functions, planted-zero Beurling systems), and name the first step that is not justified. Lines
+explored included effective horocycle equidistribution, multivariate stability of Euler products,
+conformal-bootstrap certificates for the explicit formula, the de Bruijn–Newman constant,
+decoupling and zero-free regions, Fourier interpolation on zeros after Bondarenko–Radchenko–
+Seip, a systematic table of “barrier theorems” classifying which axioms each known method
+consumes, and several more.
+Most of these returned clean negative results: sharp statements, with constants, of why the
+line in question closes at a known wall. A few returned small genuine facts (minor zero-density
+improvements on thin intervals; an explicit rate law for zeros of random-matrix pencils). None
+returned a proof of RH or anything resembling one. The model’s running assessment of the
+campaign was that it had “re-derived the expert frontier from scratch, adversarially, with
+constants, in a night”—useful as calibration, but “convergence onto the known hard core, not
+a crack in it”.
+C.3. The accident. The line that led to Theorem A was not aimed at proportions of zeros at
+all. One of the barrier investigations had observed that the explicit-formula “density” νX(τ) of
+§2.1 is negative on a set of positive measure, so that Weil’s Hermitian form, viewed as an inner
+product on test functions, has an indefinite (Kre˘ın-space) structure. The model dispatched an

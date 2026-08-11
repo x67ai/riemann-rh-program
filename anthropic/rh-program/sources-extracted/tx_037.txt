@@ -1,0 +1,65 @@
+Subtracting (P) from (N),
+ndist
+pair(I′) ≤N(I′) −nθ
++(W|V ),
+ndist
+on (I′) ≥2 nθ
++(W|V ) −N(I′).
+(∗)
+In words: every robustly positive eigenvalue of the compressed Weil form beyond N/2 certifies
+a distinct on-line zero. An off-line pair “wastes” one of its two zeros as a negative square; this
+is Theorem 1 read from the positive side, and it needs no visibility hypothesis and no positivity
+— inertia replaces both.
+The brief’s item (3) asked whether the negative-index route could reproduce a positive-
+proportion theorem. The route it proposed — an upper bound on the negative index from sign
+changes of νX — is dead. The mechanism I am writing down now, pullback inertia plus the
+double count in (N), is not in the brief or in any of the reports I read.
+5.2
+A certificate computable from primes alone
+Two prime-computable numbers bound the positive index.
+Let R be the matrix of
+W|V in an orthonormal basis of V , and d = dim V .
+Lemma 5.2 (Cauchy–Schwarz count).
+nθ
++(R) ≥(tr R −θd)2
++
+tr(R2)
+.
+[With S := P
+λ>θ λ ≥tr R −θd, the sum over eigenvalues λ of R exceeding θ, Cauchy–Schwarz
+gives S2 ≤nθ
++
+P
+λ>θ λ2 ≤nθ
++ tr R2.]
+Both traces are prime-side quantities. With ν = νfull
+X
+the full prime-side density introduced
+earlier (the pole term of the explicit formula absorbed as a density), and KV the reproducing
+kernel of the space ˆV of transforms in L2(dτ/2π),
+tr R =
+Z
+KV (τ, τ) ν(τ) dτ,
+tr R2 =
+ZZ
+|KV (τ, τ ′)|2 ν(τ) ν(τ ′) dτ dτ ′,
+both finite computations with the primes ≤X = eL and Γ. Hence what I will call the certificate:
+Theorem 3 (finite certificate). For every L, every height window I and every admissible V
+(supports in [−L/2, L/2], transforms concentrated on I up to the reach interval I′),
+Ndist
+0
+(I′) ≥2(tr RV −θd)2
+tr(R2
+V )
+−N(I′),
+where Ndist
+0
+(I′) is the number of distinct on-line zeros with height in I′, RV is the matrix R for
+the space V , and θ is any upper bound for the tail norm; everything on the right is computable
+from primes and Γ, plus the Riemann–von Mangoldt count.
+Reading the certified-positive column of the low window of the index grid in this light: primes
+≤100 certify ≥41% of the 639 zeros in [50, 1000] as on the line and distinct; primes ≤106
+certify ≥92%. (This is an inference from the certified fractions 0.808 and 0.368 against d and
+N; a dedicated experiment is next.) Inside the RH-verified range this is only a consistency
+check; the point is the asymptotic version.
+36

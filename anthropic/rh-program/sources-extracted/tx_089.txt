@@ -1,0 +1,64 @@
+itself: its solver, written nineteen minutes after its launch, already contains the closed form
+c∗
+λ =
+√
+2 tan(λ/
+√
+2)/(1 + (λ/
+√
+2) tan(λ/
+√
+2)) with optimiser cos(
+√
+2λs); four minutes later it
+printed c∗= 0.7532961, 2c∗−1 = 0.50659, and three minutes after that its report identified
+2 −1/c∗= 0.6725007 as “exactly the Montgomery–Taylor constant”. Only then, thirty-one
+minutes after its launch (about eight hours after the one-half run returned), did it make its
+first network request: one arXiv API call for 1406.5462 and 1810.08843 — the second number,
+Chirre–Gonçalves–de Laat’s semidefinite-programming paper, supplied from its own memory —
+followed by both e-prints. From the Carneiro–Chandee–Littmann–Milinovich source it read
+Corollary 15 and the remark giving N∗(T) ≤(2−1/2 cot 2−1/2 + 1
+2 + o(1))N(T), checked that
+this equals its 1/c∗, and recorded that their extremal kernel lies inside its admissible class, so
+that the restriction ˆk ≥0 costs nothing; from Chirre–Gonçalves–de Laat it took only the bound
+1.3208, to estimate what signed weights could buy, and classified that as beyond the method.
+The downloads thus verified an identification already made and supplied the optimality remark
+and the cotangent closed form that later appear in the draft’s Theorem D; none of it bears
+on the two-thirds argument, and none of it reached the two-thirds run, whose one look at the
+sibling’s report took in only its first six thousand bytes, ending inside the statement of the
+extremal problem and before the literature section the sibling appended later.
+The interruption.
+Three and a quarter hours after its launch, immediately after the lemma
+and its proof had been written to its report, the two-thirds run was cut off by an infrastructure
+error; the coordinator, having read the partial report and checked the proof line by line,
+resumed it seven minutes later with the message reproduced in Part II, §5, which is where the
+consequence (2 −1/λ −λ/3)N →2
+3N was first written out. Nothing was fetched or read from
+outside the campaign in between. The two referees of the lemma that followed worked without
+network access.
+A.6
+What reached the paper draft from downloaded sources
+All of it is positioning or bibliography, apart from the one formulation already described, and
+all of it entered through the paper-writing agent and the cold referee rather than through either
+run: the bibliography’s journal data, mined from the reference lists inside the downloaded
+e-prints and completed by five bibliographic web searches the paper-writing agent made about
+eleven hours after the one-half run returned (journal data for Wu, Bui–Conrey–Young, Feng
+and Farmer, Montgomery–Vaughan’s 1974 Hilbert-inequality paper, Yoshida 1992); the records
+paragraph of the introduction, including Wu’s 66.04% distinct and Farmer’s bound; the remark
+relating tr G2 at λ = 1 to “Aryan’s lemma” as it appears in Goldston–Suriajaya’s narrow-
+box paper and to Theorem 1 of Baluyot–Goldston–Suriajaya–Turnage-Butterbaugh, and the
+courtesy that the prime-side input is used “in the form given to it” in those papers; the
+related-work subsections on the work of Goldston and his coauthors and on Goldston–Lee–
+Schettler–Suriajaya; Bombieri’s 2000 negative-index observation cited as prior art; Theorem D’s
+optimality sentence; two of the cold referee’s fourteen corrections that were sourced from
+downloaded text (quote Goldston–Suriajaya’s Theorem 2 exactly; attribute 5/6 to Montgomery
+plus integrality); and, when the main theorem became two thirds, the framing sentence about
+Montgomery’s constant and Goldston–Suriajaya’s open problem. On the whole chain from the
+brief of Part I to the two-thirds revision of the draft, no downloaded paper supplied a lemma,
+an inequality, a constant or a proof step: not the inertia identity, the double count, the Cauchy–
+Schwarz count, the coefficient-coordinate repair, the Poisson identity, the Montgomery–Vaughan
+reduction, the variational c∗, the rank–trace lemma or its bookkeeping. What the model knew
+from training — evidently including Weil’s criterion, Pontryagin–Kre˘ın theory, Montgomery’s,
+Montgomery–Vaughan’s and Montgomery–Taylor’s results, the Carneiro–Chandee–Littmann–
+Milinovich paper down to its arXiv number, and the existence of the 2023/24 unconditional
+88

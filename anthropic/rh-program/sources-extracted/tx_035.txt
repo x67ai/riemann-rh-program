@@ -1,0 +1,108 @@
+So the measured threshold is tiny, nearly independent of the depth δ, and sits far below both
+laws. The restarted grid has also reproduced its first row: X = 102 on [50, 1000], n−(GP ) = 0,
+n0 = 18, n+ = 540, min ev = −1.82 × 10−8, ∥E∥F = 8.9 × 10−6, certificates 0.808/0.785 as
+before.
+The reading of these tiny thresholds is the one R4 gave for its own planting thresholds: once
+dim V exceeds the number of zeros within reach of the atoms (the zeros in the height interval
+on which the atoms’ transforms are non-negligible), the on-line Gram matrix has a null space
+— the test space nearly annihilates the on-line zeros — and the planted rank-two term can
+push an eigenvalue below zero at an arbitrarily small level. Call this “annihilation” visibility:
+possible as soon as dim V > #{zeros in reach}, and silent about robust negativity. What I
+add is a second, robust threshold. Both are taken relative to the scale s := largest eigenvalue
+of the unplanted on-line Gram matrix G0:
+L∗
+ann := first L with an eigenvalue < −10−8s,
+L∗
+rob := first L with an eigenvalue < −10−3s,
+with L scanned from 0.5 to 14, min ev/s recorded at each threshold, and L∗
+ann, L∗
+rob fitted
+separately as a δp log(t0/2π)r in add mode.
+and a second attempt to clear the old runs fails the same way.
+On the third attempt the two-threshold version goes in cleanly — L from 0.5 to 14, L∗
+ann
+and L∗
+rob recorded with min ev/s, separate least-squares fits in add mode — and the planting
+experiment restarts from scratch. The index grid has been running undisturbed throughout.
+4.3
+Negative index zero across the whole prime range
+Back to the results. The low window of the grid is complete: window [50, 1000] (639 zeros),
+Kaiser β = 14, oversampling q = 0.8, signature read from raw eigenvalues at threshold
+10−5 max |ev|. The inertia of the prime-side Gram matrix, level by level:
+X
+L
+d
+n−
+n0
+n+
+min ev(GP )
+102
+4.61
+558
+0
+18
+540
+−1.82 · 10−8
+103
+6.91
+836
+0
+195
+641
+−1.18 · 10−7
+104
+9.21 1115
+0
+473
+642
+−4.65 · 10−7
+105
+11.51 1393
+0
+753
+640
+−6.74 · 10−7
+106
+13.82 1672
+0
+1031
+641
+−1.01 · 10−6
+and, against it, the pointwise predictions and the positivity certificate:
+X
+frac(νX < 0) Szegő pred. n−
+a-priori count
+cert. fraction
+102
+0.207
+115.5
+126.1
+0.808
+103
+0.330
+276.2
+294.6
+0.655
+104
+0.381
+425.2
+452.2
+0.526
+105
+0.407
+567.4
+599.2
+0.434
+106
+0.424
+708.5
+746.9
+0.368
+The discrepancy ∥E∥= ∥GP −GZ∥F rises from 8.9 × 10−6 to 8.3 × 10−5 down the table, so
+every “negative” minimum eigenvalue sits at leakage level; the zero side has n−= 0 and rank
+540, 642, 642, 642, 641, matching n+(GP ) to within one or two in every row; and the proxy
+certificate falls 0.785 →0.341 alongside the honest one. The first row of the high window,
+X = 102 on [1400, 2400] (907 zeros, d = 587 < 907), is strictly positive definite: n0 = 0,
+min ev = +6.27 × 10−4, with frac(νX < 0) = 0.111, Szegő prediction 65.1, a-priori count 72.5,
+certificates 0.896/0.881.
+34

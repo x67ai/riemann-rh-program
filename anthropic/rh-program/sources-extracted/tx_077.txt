@@ -1,0 +1,117 @@
+ndist
+on (I′) certified respectively by (3.2) and by Theorem 4’s Cauchy–Schwarz count:
+NEW := 2 tr A + 2t′ −4b −∥A∥2
+F
+(from (3.2)),
+OLD := 2(tr A)2
+∥A∥2
+F
+−N′
+(Theorem 4),
+both as multiples of N(I) = #{γ ∈(T, 2T]}, together with ndist
+on
+and whether NEW ≤ndist
+on
+holds. The zeros are the 100,000 ordinates located earlier.
+Besides the true zeros I feed in synthetic worlds symmetric under the functional equation, in
+the spirit of referee C’s synthetic-configuration test but chosen to probe the new inequality:
+all zeros doubled; every fourth ordinate turned into a pair at depth δ with the next ordinate
+deleted, so that the Riemann–von Mangoldt count is preserved; an adversarial lattice at the
+mean spacing 2π/l whose pattern, per six zeros, is four on-line sites plus one tight pair —
+on-line fraction 2/3 and T2/N = (4 + 4)/6 = 4/3, the configuration that should saturate the
+target; and “deep dephased pair-couples”, in which from each run of eight true zeros four are
+kept and the other four replaced by two pairs at depth δ offset from each other by π/l — the
+nearly cancelling quadrupoles found in the cross-term analysis.
+At T = 1000, with N(I) = 868, d = 806 at λ = 1 and 726 at λ = 0.9, and N′ = 921 true zeros
+in I′:
+configuration
+tr A
+∥A∥2
+F
+∥A∥2/ tr A (law)
+NEW
+OLD
+ndist
+on
+true, λ = 1, η = 0.1
+867.42
+1203.26
+1.387 (1.333)
++0.612N
++0.380N
+921
+true, λ = 0.9, η = 0.1
+868.13
+1288.83
+1.485 (1.411)
++0.515N
++0.286N
+921
+true, λ = 1, η = 0.05
+867.42
+1184.95
+1.366 (1.333)
++0.634N
++0.402N
+921
+all doubled (N ′ = 1842)
+1734.84
+4813.05
+2.774
+−1.548N
+−0.681N
+921
+every 4th →pair, δ = 0.001
+867.42
+1578.33
+1.820
++0.116N
++0.036N
+460
+every 4th →pair, δ = 0.4
+867.95
+2359.76
+2.719
+−0.782N
+−0.327N
+460
+adversary lattice, δ = 0.001
+805.99
+1116.56
+1.385 (1.333)
++0.534N
++0.356N
+571
+adversary lattice, δ = 0.1
+805.99
+1131.45
+1.404
++0.517N
++0.338N
+571
+Here “law” is the asymptotic value 1/λ + λ/3 of ∥A∥2
+F / tr A predicted by the prime side. The
+rows not shown: the every-fourth-pair world at δ = 0.05 gives NEW +0.107N against OLD
++0.031N, and at δ = 0.2 both go negative (−0.034N and −0.048N), all four depths having
+ton = 433.52, t′ ≈434, b = 231; the dephased deep couples at δ = 0.3 and 0.6 push ∥A∥2/ tr A
+up to 2.463 and 4.471 and the certificates down to −0.527N/−0.248N and −2.534N/−0.613N
+respectively — vacuous, as they should be for worlds carrying this much Frobenius mass.
+In the adversary lattice ton = 537.95, t′ = 268.04, b = 142, N′ = 855, and ndist
+on = 571, so the
+new certificate, 463.5, sits just under the truth, while the old one gives 308.6. In every row
+the check NEW ≤ndist
+on
+comes back true, as it must for a theorem about A. And on the true
+zeros the new certificate certifies 0.61–0.63N distinct zeros on the line where Theorem 4’s
+Cauchy–Schwarz certificate gives 0.38–0.40N — this with the observed ratio ∥A∥2/ tr A still
+somewhat above its asymptotic law 1/λ + λ/3 at this height.
+6
+Applying the inequality: two thirds distinct, unconditionally
+6.1
+Bookkeeping on the windowed form; no pair data needed
+Now the application of (3.2) to the windowed Weil form, following the coordinator’s checklist
+but simplifying it where I can.
+Objects.
+Everything is in referee D’s coefficient coordinates and my normalisation: eR :=
+G/(L2a) with Gkl = W(fk, fl), 0 ≤k, l < d. On the zero side eR = A + E, where A collects the
+76

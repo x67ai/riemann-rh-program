@@ -1,0 +1,71 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ON THE CRITICAL LINE
+13
+Proof. Regroup the decomposition of Proposition 4.1(ii) (notation uρ, A as in its proof) as
+bA = P1 + Q′, where P1 := (aL2)−1 P
+ρ∈S1 uρuT
+ρ collects the simple on-line zeros only and
+Q′ := bA −P1 the multiple on-line zeros together with the pairs. Then P1 is real symmetric,
+P1 ⪰0, rank P1 ≤s1, and tr P1 = (aL2)−1 P
+ρ∈S1
+P
+0≤k<d bϕ(γρ−τk)2 ≤s1 by Lemma 2.2 (each
+mρ = 1); and c 7→c∗Q′c is the pull-back under A of the direct sum of the s2 positive forms
+mρ|x|2 (ρ ∈S2) and the p hyperbolic blocks, so n+(Q′) ≤s2 + p by Lemma 3.1. Lemma 3.2
+with c = 2, r = s1, b = s2 + p and tr Q′ = tr bA −tr P1 gives
+∥bA∥2
+F ≥2 tr P1 −s1 + 4(tr bA −tr P1) −4(s2 + p) ≥4 tr bA −3s1 −4s2 −4p,
+which is (i). For (ii), 4s2 +4p = 2(s1 +2s2 +2p)−2s1 ≤2N(I′)−2s1; for (iii), 3s1 +4s2 +4p =
+2(s1 + s2 + p) + (s1 + 2s2 + 2p) ≤2(s1 + s2 + p) + N(I′). For (4.6): bA = bG −bE with | tr bE| ≤
+∥bE∥1 and ∥bA∥F ≤∥bG∥F + ∥bE∥F ≤∥bG∥F + ∥bE∥1, so Proposition 4.2 gives 4 tr bA −∥bA∥2
+F ≥
+4 tr bG −∥bG∥2
+F −O(θ0L−1(1 + ∥bG∥F )) (as θ0/L ≤1); finally s1 + s2 ≤N∗
+0 (T, 2T) + N(I′ \ I),
+s1 ≤Ns
+0(T, 2T)+N(I′ \I), #Z(I′) ≤Nd(T, 2T)+N(I′ \I), and N(I′) = N(T, 2T)+N(I′ \I)
+with N(I′ \ I) ≪D0l.
+□
+In (i) each simple on-line zero is charged 3 = 22 −(2 −1)2 and every other distinct on-line
+point or off-line pair 4 = 22: this is the eigenvalue form of the integrality step m2 ≥3m −2,
+i.e. (m −1)(m −2) ≥0, obtained from Lemma 3.2 by placing the simple zeros on the rank
+side (where x2 ≥2x −1 is sharp at x = 1) and the multiple ones on the index side (where
+the flat charge 4 is sharp at x = 2).
+The underlying matrix inequality is an equality for
+P1 + Q′ = diag(1, . . . , 1, 2, . . . , 2) (s1 ones, s2 + p twos). Note that Lemma 3.2 is not scale-
+invariant: it must be applied in the units (4.4), in which tr P1 ≤s1; and that nothing is assumed
+about the traces of the individual pair blocks in Q′ (which, after truncation to 0 ≤k < d, may
+be far from 2mρ for deep pairs near the ends of I): only tr Q′ = tr bA−tr P1 and n+(Q′) ≤s2+p
+enter.
+Proposition 4.5. For every θ ≥θ0,
+(4.7)
+s1 ≥2 nθ
++( eG) −N(I′)
+and
+#Z(I′) ≥nθ
++( eG).
+Consequently, with N(I′ \ I) := N(T −D0, T) + N(2T, 2T + D0) ≪D0 l,
+(4.8) Ns
+0(T, 2T) ≥2 nθ
++( eG) −N(T, 2T) −2N(I′ \ I),
+Nd(T, 2T) ≥nθ
++( eG) −N(I′ \ I).
+Proof. By Lemma 3.4 (with eG = eA + eE, ∥eE∥≤θ0 ≤θ) and Proposition 4.1, nθ
++( eG) ≤
+n+( eA) ≤s1 + s2 + p. By (4.3), s2 + p ≤1
+2(N(I′) −s1). Hence nθ
++( eG) ≤1
+2(s1 + N(I′)),
+which is the first inequality; the second is nθ
++( eG) ≤n+( eA) ≤rank eA ≤#Z(I′). For (4.8) note
+s1 ≤Ns
+0(T, 2T) + N(I′ \ I), N(I′) = N(T, 2T) + N(I′ \ I), #Z(I′) ≤Nd(T, 2T) + N(I′ \ I),
+and N(I′ \ I) ≪D0 l by N(t + 1) −N(t) ≤A0 log(t + 3).
+□
+Inequalities (4.7) hold for every locally finite multiset of points in the strip 0 < β < 1 that
+is invariant under ρ 7→1 −¯ρ and satisfies N(t + 1) −N(t) ≪log(t + 3); they contain no
+arithmetic. With the trace asymptotics of §5 they lead, for λ ≥3 −
+√
+6, to weaker constants
+than Proposition 4.4(ii),(iii); Proposition 4.5 carries the F(λ) branch of Theorem C for smaller
+λ and the n+-statements of §§7.5 and 8. All the arithmetic is in the trace asymptotics, to
+which we now turn.

@@ -1,0 +1,58 @@
+off-line quadruple contributes −4 Re F(ρ)2 for even f, indefinite)” — the same hyperbolic-pair
+mechanism the brief sketched, stated for even test functions. That completes the reading.
+2
+The global signature theorem and the honest finite index
+2.1
+Zero data in hand; the plan
+I check what zero data I have to validate against:
+R4’s table of ordinates (starting
+14.1347 . . . , 21.0220 . . . , 25.0108 . . .) and N6’s list of 2000 zeros running up to ≈2515.29. The
+latter will be my zero side throughout.
+The shape of the answer I am heading for, laid down before any of it exists: first the set-up
+and the global signature theorem; then the finite-level index — which I am calling κ(L) and
+κ(L, T), with L the support length of the test functions rather than the brief’s X = eL —
+treated under the heading of its correct definition and its relation to R4’s operator. So I do not
+intend simply to take R4’s warped-sine operator as “the compressed Weil form” (the restriction
+of the Weil Hermitian form to a finite-dimensional space of admissible test functions), which is
+one of the two objects the brief’s item (2) offered. After that: numerics; the visibility of an
+off-line zero at finite level; the question whether κ can be bounded from the prime side, which I
+expect to be an obstruction to be quantified rather than a bound to be found; and a red team.
+Now the theory: the signature theorem and the correct finite-level object.
+2.2
+Theorem 1: negative index counts distinct off-line zeros
+First the conventions I will use throughout. Test functions f live on the line with variable u
+(the logarithm of the idele norm), and are either of Schwartz type with e(1/2+ε)|u|f(j) ∈L1 for
+j ≤2, or in C∞
+c . The transform is
+hf(r) =
+Z
+f(u) eiru du,
+entire and rapidly decreasing on horizontal strips. Zeros are written ρ = 1
+2 + iγρ with γρ ∈C,
+| Im γρ| < 1
+2, multiplicity mρ; the multiset of γρ is invariant under γ 7→¯γ and γ 7→−γ. With
+the involution ˜f(u) = f(−u), for which h ˜f(r) = hf(¯r), the Weil Hermitian form is
+W(f, g) :=
+X
+ρ
+mρ hf(γρ) hg(¯γρ),
+absolutely convergent, and Hermitian because the γ-term maps to the ¯γ-term under swapping
+f, g and conjugating.
+On the diagonal, W(f, f) = P
+ρ mρhf∗˜f(γρ) is the explicit formula applied to k = f ∗˜f: pole
+term, minus P
+n Λ(n)n−1/2k(log n) + k(−log n)
+, plus the archimedean term, in the Iwaniec–
+Kowalski (5.12) normalisation that N6 validated. If supp f ⊂[−L/2, L/2] then supp k ⊂[−L, L]
+and only n ≤X := eL enter. So the restriction of W to C∞
+c (−L/2, L/2) is computable from
+the primes ≤X and Γ alone, and in R4’s spectral form it reads
+W(f, f) =
+Z
+|hf(τ)|2 d ˜NX(τ),
+d ˜NX = νX dτ + (pole measure).
+Weil’s criterion: RH holds iff W(f, f) ≥0 for all f.
+Now the brief’s item (1). Let κ be the negative index of W on S (or on C∞
+c (R)), i.e. the
+supremum of dim U over finite-dimensional subspaces U on which W is negative definite.
+24

@@ -1,0 +1,62 @@
+everything in units of N(I), NEW the certificate from (3.2), OLD Theorem 4’s): true zeros
+NEW +0.612 / OLD +0.380 with ∥A∥2/ tr A = 1.387 against the law 1.333; at λ = 0.9,
++0.515/ + 0.286; at η = 0.05, +0.634/ + 0.402; all doubled −1.548 (vacuous); every fourth
+ordinate a pair at δ = 0.001: +0.116/ + 0.036 with ndist
+on /N = 0.530, and NEW +0.107, −0.034,
+−0.782 at δ = 0.05, 0.2, 0.4; the adversary lattice +0.534/ + 0.356 with ndist
+on /N = 0.657 —
+near-extremal, the gap being the finite-l excess 0.385 versus 0.333 — and +0.517 at pair depth
+0.1; dephased deep couples −0.53, −2.53. On true zeros the new certificate is 0.61–0.63N (law:
+2 −1.387 = 0.613, tending to 2/3 as l →∞) versus 0.38–0.40N for Theorem 4, and (3.2) holds
+in every synthetic world, as it must, deep or dephased pairs only making ∥A∥2 larger.
+6.3
+The brief’s other levers and higher moments
+Lever (a) and lever (b).
+Lever (a), the negative spectrum alone — adding n−≤npair and
+tr R−to the Cauchy–Schwarz count: as the brief anticipated, it is useless against tight pairs,
+since the negative eigenvalue q = m(A−1) →0 as δ →0, and the Cauchy–Schwarz-plus-inertia
+extremal is not moved by it. What works is negative spectrum and rank jointly — that is the
+theorem: step (i) charges the negative part of Mp against the large eigenvalues of Mon via
+von Neumann, step (ii) charges the positive part via n+ ≤b. The tight pair is not beaten (it
+cannot be) but is correctly priced at the equivalent of 4m2, at least 2 per zero against 1 per
+simple on-line zero — integrality.
+On lever (b): under RH, P m2 ≤4N/3 with integer m gives Ndist ≥5N/6 (k doubles plus
+N −2k simples: N + 2k ≤4N/3) and Nsimple ≥2N/3, against 3/4 from Cauchy–Schwarz.
+Unconditionally the (m −1)2 ≥0 level is recoverable robustly — that is (3.1) — but the
+(m −1)(m −2) ≥0 level is not: eigenvalues of interacting simple zeros fill (0, 2), and “no
+eigenvalue in (1, 2)” is false already under RH+GUE, where the Gram spectrum has mean 1 and
+variance 1/3 at λ = 1. (Editorially: this confirms the brief’s forecast that the (λ−u)(λ−2u) ≥0
+level is robustly false; what the brief did not foresee is that the lower level, which it had found
+useless when aimed at n+, carries the whole result when aimed at rank.)
+Higher moments, (b)(ii).
+On the zero side
+tr eRk =
+X
+γ1,...,γk
+Y
+j
+eΦ(γj −γj+1),
+exact via (P) with complex γ allowed — a Rudnick–Sarnak-type smooth k-correlation statistic
+whose Fourier support, in Montgomery’s α-units, reaches P
+j |ξj| = kλ for k even and (k −1)λ
+for k odd. From memory — I did not fetch it — Rudnick–Sarnak 1996 (Duke 81) prove the
+n-level correlations are GUE for P |ξj| < 2 and state explicitly that RH is not assumed; on
+the prime side this is “only diagonal solutions contribute”, the off-diagonal being killed by
+Montgomery–Vaughan iff Xk/2 ≪T. So: k = 2 needs λ < 1 (used); k = 3 needs (k −1)λ < 2,
+i.e. λ < 1, admissible on the whole useful range (the ppp diagonal n3 = n1n2 forces prime
+powers of a single prime, lower order; main terms from µ3 and µ · PP); k = 4 needs 4λ < 2, i.e.
+λ < 1/2, inadmissible where useful, and for λ < 1/2 the dimension d = λN < N/2 kills any
+on-line certificate anyway, since n+ ≤d.
+But an odd moment cannot improve a lower bound for a count on [0, ∞): given (m1, m2),
+the infimum m2
+1/m2 of the number of positive eigenvalues is approached for any prescribed
+m3 ≥m2
+2/m1, by putting mass ε at height h →∞(which feeds m3 and nothing else);
+dually, an LP certificate p(µ) = c1µ + c2µ2 + c3µ3 ≤1 on (0, ∞) needs c3 ≤0 and is then
+dominated by its quadratic part, and with d known a constant term c0 must be ≤0 because
+p ≤0 on (−∞, 0].
+The third moment would help only together with an a-priori bound
+λmax( eR) = O(1), i.e. a pointwise bound for
+P
+n≤X Λ(n)n−1/2−iτ on windows of length 1/L —
+80

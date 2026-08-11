@@ -1,0 +1,75 @@
+then there is f ∈C∞
+c (−L/2, L/2) with W(f, f) < 0. More precisely, for a family ρj = 1
+2 +δj+itj
+with |ti −tj| ≥2, each isolated in this sense, L ≥maxj CB
+q
+n1(tj) + 1/δj gives n−≥#family.
+The proof, as I work it. Take a bump B ≥0, smooth, supp B ⊂[−1
+2, 1
+2],
+R B = 1, and rescale
+BL(u) = B(u/L)/L, so that ˆBL(x) = ˆB(Lx). Choose f with
+hf(r) = (r −t0) ˆBL(r −t0)
+(namely f
+= i(BL)′e−it0u; the sign is immaterial).
+The contributions to W(f, f) =
+P m h(γ)h(¯γ) are:
+(i) The pair γ0, ¯γ0: h(γ0) = (−iδ) ˆBL(−iδ), h(¯γ0) = (iδ) ˆBL(iδ), and
+ˆBL(±iδ) =
+Z
+BL(u) cosh(δu) du =: c(δL) ∈[1, cosh(δL/2)]
+is real; the pair contributes 2 Re[(−iδ)(−iδ)] c2 = −2δ2c2 ≤−2δ2 (times m0 ≥1).
+(ii) The reflected pair at −t0: |h(−t0 ∓iδ)| ≈2t0 | ˆBL(−2t0 ∓iδ)|, superpolynomially small in
+Lt0 — negligible.
+(iii) On-line zeros, x := γ−t0: |h|2 = x2 ˆB(Lx)2, with supremum L−2b1 where b1 = ∥y ˆB(y)∥2
+∞≤
+∥B′∥2
+1. For |x| ≤1 there are at most n1 zeros, total ≤n1b1/L2. For |x| > 1, | ˆB(y)| ≤
+∥B′′′∥1/|y|3 gives x2 ˆB(Lx)2 ≤∥B′′′∥2
+1/(L6x4), and P
+|γ−t0|>1(γ −t0)−4 ≤A′
+0 log(t0 + 3), so
+this tail is ≤b3A′
+0 log(t0 + 3)/L6 with b3 = ∥B′′′∥2
+1.
+(iv) Other off-line zeros: none within | Re γ −t0| ≤1 by hypothesis. For those farther, write
+γ = t0 + x −iy; then |h(x −iy)| = |x −iy| | ˆBL(x −iy)|, and ˆBL(x −iy) is the transform of
+the smooth compactly supported function BLeyu (|y| < 1
+2), bounded by
+∥(BLeyu)′′′∥1
+|x|3
+≤CeL/4(1 + L−3)
+|x|3
+.
+I first want to call the eL/4 loss harmless because it multiplies |x|−3-summable terms — no:
+eL/4/|x|3 with |x| ≥1 is not small. The honest fix is to strengthen the hypothesis: either
+to “no off-line zeros with | Re γ −t0| ≤RL := eL/12L”, or to global isolation (the orbit of
+ρ0 is the only off-line zero), or to
+(HR) : all zeros other than the γ0-orbit with | Re γ−t0| ≤R lie on the line,
+R = eL/8;
+then the far off-line sum is ≤C log t0/L6. Recorded honestly: interference from unknown
+off-line zeros is not controlled by this argument.
+In total,
+W(f, f) ≤−2δ2 + n1b1
+L2 + C log(t0 + 3)
+L6
+< 0
+as soon as L2 > (n1b1 + 1)/δ2 (for L ≥2, absorbing the C/L4). With B the normalised bump
+exp(−1/(1 −4u2)) the constant b1 is to be evaluated numerically. For the family: the hfj
+are 2-separated in centre, the cross terms W(fi, fj) decay like (L|x|)−3, the off-diagonal row
+sums are ≤C′ log T/L3, and Gershgorin’s theorem gives the full count once L ≥Lvis, which is
+≥C√log/δ ≫(log T)1/3. QED modulo constants.
+So: an isolated off-line zero at height t and depth δ is visible from primes ≤X once log X ≥
+C√log t/δ (worst case over positions of the on-line zeros), and jointly so for 2-separated isolated
+families. Under “average” spacing — zeros near t0 at distances ∼k · 2π/ log t0 — the sum in
+(iii) is instead
+≈log t0
+2π
+Z
+x2 ˆB(Lx)2 dx = log t0
+2π
+∥y ˆB∥2
+2
+L3
+,
+31

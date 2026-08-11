@@ -1,0 +1,50 @@
+The hedges once more, summarised. Everything “positive” in the numerics is RH being true
+below 2515 (resp. 3 · 1012), stated as such, and the finite certificates inside that range certify
+nothing new. Theorem 2’s constants are for a specific bump, and the measured laws are for a
+finite Gabor family (hence upper bounds on true thresholds). For Theorem 4 I have not written
+every end-effect estimate at λ = 1, where |νX| ∼
+√
+X pointwise, though the finite computations,
+which contain all such effects exactly, match the law to 2%; the Montgomery–Vaughan constant
+at λ = 1 is poor (OFF/DIAG ≲36/L, crude), so a clean statement takes λ < 1 fixed, then
+λ →1. The one thing I cannot exclude is that the result is already known, or that a step I
+consider trivial hides an error. The three-line heart is: [the pair block has one positive square]
++ [Riemann–von Mangoldt counts the pair twice] + [n+(A∗QA) ≤n+(Q)].
+The pending T ≈106 row at λ = 1 has also come in: L = 11.98, X = 158996, d = 3799,
+N(I) = 3812.3, N(I′) = 3841.3, C = 2885.7, so C/N(I) = 0.757 against the law’s 0.750,
+certified proportion +0.502 against the asymptotic +0.500.
+So the prime-only evidence at λ = 1 stands at C/N(I) = 0.766 (T = 104), 0.762 (T = 5 · 104),
+0.757 (T = 106) against 0.750, certified proportions +0.50/ + 0.51/ + 0.50; and at T ∼106
+for λ = 0.85/1.0: C/N(I) = 0.691/0.757 (law 0.685/0.750), certified +0.371/ + 0.502. These
+belong in the verdict.
+The certificate run with zero-side cross-check has also finished its Kaiser(β = 12) rows on
+[600, 1200]. The statistic C agrees between prime and zero side to every printed digit,
+C = 193.9, 248.5, 295.7, 326.4, 352.0, 390.3, 418.5
+(λ = 0.6, 0.8, 1.0, 1.15, 1.3, 1.6, 2.0),
+with the tail threshold θ at most 10−5 of scale and the prime-versus-zero eigenvalue discrepancy
+at most 6 · 10−5, the Montgomery–Vaughan diagonal exact (5.7/5.7, 14.2/14.2, 28.8/28.8,
+45.0/45.0), and certified proportions
+−0.197, +0.033, +0.232, +0.363, +0.476, +0.640, +0.758,
+lower than the Tukey family’s at each λ, the taper cutting the effective dimension (d =
+203, . . . , 673 against dfull = 281, . . . , 937). (Editorial remark: the rows with λ > 1 lie outside
+the λ ≤1 range of the asymptotic evaluation; nothing in the record comments on them.) The
+first rows on the larger window [1200, 2400], Tukey taper, N(I) = 1077: at λ = 0.6 (X ≈29,
+d = 624), C = 570.8/571.6 (prime/zero), certified +0.018 against the asymptotic +0.071; at
+λ = 0.8 (X ≈88, d = 832), C = 710.6/711.9, certified +0.279 against +0.319.
+8.2
+Final verdict and hand-off
+For anyone resuming this line I leave a pointer recording the outcome in my own framing:
+the negative-index route is empty for upper bounds (κ(X, T) = 0 from primes in all ranges;
+visibility needs dim V ≥#zeros); the dual gives the claimed Ndist
+0
+≥(1
+2 −o(1))N, which would
+beat the 5/12 record if correct and carries “too short to be new” as its top risk. The advice:
+start from the referee proof and the ranked risk list, and do not re-derive the κ(X, T) = 0 /
+warped-sinc diagnosis.
+My closing message to the orchestrator, verdict first:
+Verdict: PARTIAL — negative-index route EMPTY as an upper-bound machine;
+its DUAL (positive-index inertia) yields a claimed unconditional theorem: ≥1/2
+of the zeros are on the line (as distinct zeros). Referees requested.
+followed by the four findings.
+52

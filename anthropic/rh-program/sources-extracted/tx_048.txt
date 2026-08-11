@@ -1,0 +1,59 @@
+row already seen (Cθ = 361.3 on the prime side against C = 406.0 on the zero side, certified
+proportion +0.469 against the asymptotic +0.663).
+I decide to trim the certificate experiment and rerun it with a well-conditioned family: atom
+spacing 2π/L instead of 2π/(1.25L), mass-orthonormalisation tolerance 10−3 instead of 10−6,
+the tapers reduced to a Tukey window with ramp fraction 0.25 and a Kaiser window with
+β = 12, and the Montgomery–Vaughan diagonal prediction skipped for λ > 1.15. I also want
+the prime-only law C/N(I) →λ/(1 + λ2/3) tested a long way above the zero table, so I set
+up the same larger-height computation on the window [998000, 1000000] with λ ∈{0.85, 1.0}
+— again prime side only, N(·) taken from the Riemann–von Mangoldt main term, no tail
+correction.
+7.2
+The de Branges tilt, recorded from memory
+With those set going, two pieces of theory remain. The first is the brief’s de Branges/δ-tilt
+suggestion, which I record but do not develop; everything here is from memory, with no lookup.
+For a ∈(1
+2, 1) put Ea(z) := ξ(a −iz); a zero ρ = β + it of ξ gives a zero of Ea in the upper
+half-plane C+ exactly when β > a, and by the functional equation
+E#
+a (z) := Ea(¯z) = ξ(1 −a −iz).
+The kernel
+Ka(w, z) = Ea(z)Ea(w) −E#
+a (z)E#
+a (w)
+2πi( ¯w −z)
+has, by the Kre˘ın–Langer factorisation of the generalized Schur function E#
+a /Ea (unimodular
+on R by the functional equation), exactly κa negative squares, where κa is the number of zeros
+of Ea in C+ with multiplicity, i.e. N(β > a) over all heights. I recall, without being able to
+check it here, Lagarias 2005: Ea is Hermite–Biehler for a ≥1 unconditionally, and for all a > 1
+2
+iff RH. So the family {Ea} realises the brief’s δ-tilt with multiplicity counted, unlike the Weil
+form of Theorem 1.
+But the compressions of Ka to span{Ka(·, xj)} at real sample points xj have Gram matrices
+computable only from ξ on the two lines Re s = a and 1 −a — Riemann–Siegel, not a finite
+prime sum. Their negative index is ≤κa (the certificate direction only) and is bounded below
+only by the number of Blaschke phase windings the sampling resolves, an m-fold zero at
+depth y needing about m samples in a window of width y. So the count is again bounded
+only by the number of samples: the same wall that the Weil-form compressions hit as an
+upper-bound machine; and there is no analogue of the positive-index dual better than the
+dual itself, because the positive squares of Ka are not tied to a zero count. R4’s observation
+that
+d
+da log |ξ(a + it)/ξ(1 −a + it)| at a = 1
+2 is 2πνX identifies the diagonal K1/2,X(x, x) of the
+truncated kernel with νX — the same object as R4’s signed density.
+7.3
+Red team: empty for bounds, suspect as theorem
+The second piece is the red team. On the negative index as an upper bound for off-line zeros —
+Theorems 1 and 2 and the compression — my verdict is: empty, for structural reasons, not
+Gibbs. The inequality κ(V ) ≤Ndist
+off
+always holds, which is the wrong direction; the reverse
+needs visibility; visibility of everything below height T needs dim V ≳N(T) — the annihilation
+regime L ∼log(T/2π), with the measured threshold
+L∗
+ann = 1.12 log(t0/2π)0.89 δ−0.07
+— and there the only a-priori bound, κ ≤dim V , is trivial. In the sub-Landau regime L ∼
+√log T/δ of Theorem 2, visibility holds only for isolated deep zeros (the interference obstruction),
+47

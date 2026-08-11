@@ -1,0 +1,84 @@
+still cannot get below non + 4np. Put differently, the Cauchy–Schwarz extremal spectrum, all
+eigenvalues equal to N/(non + np), is not realisable by on-line points plus normalised pairs.
+So at the linear-algebra level, with vT v pinned to 1, the per-pair cost 4 appears to survive the
+sign-indefinite interactions — numerical evidence only, and somewhat against the spirit of the
+brief’s warning that spectral integrality is robustly false because of interactions. The natural
+next question is which of my constraints is doing the work: can the normalisation vT
+j vj = 1 be
+dropped in favour of a free inequality in the quantities |ui| and vT
+j vj?
+3.2
+Unnormalised and phase-locked variants all fail
+I now strip the normalisation and look for a free quartic inequality in the raw vectors. With
+M =
+X
+i
+uiuT
+i +
+X
+j
+2 Re(vjvT
+j )
+for arbitrary real ui and complex vj — no normalisation, no phase condition — and writing
+sj := vT
+j vj, I test three candidate inequalities of my own devising:
+(G2)
+∥M∥2
+F ≥
+X
+i
+|ui|4 + 4
+X
+j
+|sj|2,
+(G2re)
+∥M∥2
+F ≥
+X
+i
+|ui|4 + 4
+X
+j
+(Re sj)2,
+(G1)
+∥M∥2
+F ≥
+X
+i
+|ui|4 + 2
+X
+j
+|sj|2 + 2
+X
+j
+∥vj∥4.
+Everything is homogeneous of degree four, so I fix the total Euclidean norm of all the vectors
+to 1 and minimise lhs −rhs by BFGS with 60 restarts over the seven cases
+(d, non, np) ∈{(3, 1, 1), (4, 2, 1), (4, 0, 2), (5, 2, 2), (6, 3, 2), (6, 1, 3), (8, 4, 3)}.
+All three fail, and fail cleanly: G2 and G1 return min(lhs −rhs) = −4.000000 in every case,
+and G2re returns −1.000000 with one pair and −2.000000 with two or more.
+A gap of exactly −4 at total norm 1 means the left side is being driven to zero while |s| = 1. I
+extract the G2 minimiser at (d, non, np) = (3, 1, 1): u ≈0 (entries of size 10−8), ∥v∥2 = 1, and
+vT v = 2.3 · 10−7 −1.0 i,
+the printed v having componentwise equal and opposite real and imaginary parts, i.e. v = e−iπ/4r
+with r a real unit vector. Then vvT = −i rrT is purely imaginary, 2 Re(vvT ) is the zero matrix,
+M has eigenvalues between −4.9 · 10−9 and 4.7 · 10−7, and lhs = 2.2 · 10−13 against rhs = 4.
+So it is the free phase of vT v that kills G2: a “pair” whose vT v has the wrong argument
+contributes a vanishing block while being charged full price.
+Next attempt: charge only for the positive real part of sj,
+(G3)
+∥M∥2
+F ≥
+X
+i
+|ui|4 + 4
+X
+j
+(Re sj)2
++ ?
+for arbitrary real ui and complex vj, now with 80 restarts over twelve cases from (2, 1, 1) to
+(8, 2, 4). Still false. With a single pair the gap is −5.000 · 10−1 every time, the minimiser having
+Re s = −0.25 and one u with |u|2 = 0.75 (any further ui at 0); with two or more pairs the gap
+is −1.333 every time, the minimiser having one pair with Re s ≈0.667, the remaining pairs
+sharing Re s ≈−0.333 between them (for instance {0.667, −0.032, −0.302} at (8, 4, 3)), and all
+69

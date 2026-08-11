@@ -1,0 +1,57 @@
+32
+CLAUDE
+agent, labelled E2 in the transcript, to investigate whether the Pontryagin index of this form—
+the dimension of a maximal negative subspace—could be bounded, since in Kre˘ın–Langer
+theory a self-adjoint operator on a Πκ space has at most κ pairs of non-real eigenvalues.
+Agent E2 reported that the intended upper-bound route was empty: computed honestly from
+primes, the negative index of any finite compression is zero, which bounds nothing. But it ob-
+served that the dual of the same bookkeeping—counting positive rather than negative squares,
+via Sylvester’s law of inertia and Cauchy–Schwarz applied to the eigenvalues—appeared to cer-
+tify at least 1
+2 of the zeros on the critical line unconditionally. The model’s immediate reaction
+was disbelief:
+The current record is 5/12 ≈41.7% [. . . ] and Selberg →Levinson →Conrey →PRZZ
+took 80 years to get there. So this is an extraordinary claim and my prior is that it’s
+wrong. [. . . ] I am not telling you half the zeros are on the line. I’m telling you an agent
+produced an argument with that conclusion [. . . ] and that the headline inequality has
+at least two joints where I’d bet on failure.
+C.4. Adversarial review. The model dispatched three hostile reviewers, each blind to the
+others and each assigned a specific failure mode: (A) localisation—whether zeros far outside the
+height window leak positive squares into the compression; (B) the prime side—whether the con-
+stant 3
+4 for (tr R)2/ tr R2 secretly imported RH or required Hardy–Littlewood-strength input;
+(C) the linear algebra—whether the signature-(1, 1) block structure was correctly accounted for,
+together with a “proves-too-much” test running the identical pipeline on Davenport–Heilbronn
+and Epstein functions.
+All three survived.
+Reviewer C verified the block structure and re-implemented the ex-
+plicit formula from scratch; the Davenport–Heilbronn and Epstein controls under-certified
+rather than over-certified, because their Dirichlet coefficients grow too fast for the mean-value
+step. Reviewer B established that the prime double sum reduces exactly to the Montgomery–
+Vaughan mean-value theorem with a power-saving off-diagonal error, so that no sieve constant
+enters. Reviewer A found no localisation leak. A fourth reviewer (D), assigned only the tech-
+nical approximations—sampling end-effects, the compactly supported taper, the conditioning
+of the Gram matrix, the tail bound—repaired each with explicit error terms at no cost to the
+constant, and found the simplification (running the inertia argument in coefficient coordinates,
+where no mass matrix appears) that the present paper adopts.
+A separate agent searched the literature with network access and reported that the in-
+put (Montgomery’s second moment, unconditional) is [BGSTB24]; that Goldston and Suria-
+jaya [GS25, GS26] state in print that the removal of RH from Montgomery’s proof is open;
+that the negative-index observation is Bombieri’s [Bom00]; and that no prior use of the positive
+index against the second moment could be found. A blind re-derivation agent, given only the
+statement of the prime-side asymptotic and none of the earlier files, reproved it independently
+by two different routes.
+C.5. From one half to two thirds. At this point the certified proportion was 1
+2, obtained
+by Cauchy–Schwarz: n+( bG) ≥(tr bG)2/ tr bG2 →3
+4N, and each off-line pair costs two zeros in
+N for one positive square, giving 2 · 3
+4 −1 = 1
+2. The user asked whether the constant could
+be pushed further. The model identified two levers: optimise the test window (this recovers
+exactly the Montgomery–Taylor kernel [Mon75] and improves 1
+2 only to 0.5066); or exploit the
+structure of the off-line blocks beyond their mere count.
+A fresh agent found the second lever. It proved the rank–trace inequality of Lemma 3.2—an
+elementary consequence of von Neumann’s trace inequality, whose scalar shadow is Mont-
+gomery’s integrality step (m −1)2 ≥0—and observed that applied to the decomposition

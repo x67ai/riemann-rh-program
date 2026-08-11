@@ -1,0 +1,74 @@
+which the adversary minimises at x = (2 −t)N to the same value (2 −t)N, while at x = N (no
+off-line zeros) it equals N/t, the Cauchy–Schwarz 3N/4. So c = 2 is optimal at the extremal
+configuration and nothing is lost globally; and c = 8/3 would formally give 3N/4 minus terms
+involving b — circular, as the coordinator noted.
+On composition with the sibling’s kernel optimisation: the bound is 2−t∗(λ) for whatever t∗the
+optimal taper achieves. It is the exact analogue of Montgomery’s Nsimple ≥(2−F-functional)N,
+so — from memory, not pursued and not checked here — Montgomery–Taylor/Cheer–Goldston-
+type kernels (RH-simple 0.6725 . . .) would transfer verbatim if their prime-side evaluation were
+available for the Gabor realisation. The sibling’s report says the admissible pair-correlation
+kernels are exactly |FT w|2 with w ≥0, a restriction relative to Montgomery–Taylor, so on
+that route 2/3 improves to roughly 0.67 at best.
+Theorem 4′ (claimed).
+Unconditionally, with the same analytic input as Theorem 4 —
+Weil’s explicit formula, Riemann–von Mangoldt, PNT-strength P Λ2/n, Montgomery–Vaughan
+— plus von Neumann’s trace inequality:
+lim inf
+T
+Ndist
+0
+([T, 2T])
+N([T, 2T])
+≥2
+3,
+and for support parameter λ,
+≥2 −1
+λ −λ
+3 .
+The constant 2/3 is sharp for the information {tr eR, ∥eR∥2, block structure}: take 2N/3 simple
+on-line zeros on the lattice (2π/l)Z (mutually orthogonal for the sinc kernel at λ = 1) plus
+N/6 tight off-line pairs (δ →0) on the remaining sites; then
+tr eR = N,
+∥eR∥2 = 2N
+3 + 4N
+6
+= 4N
+3 ,
+ndist
+on = 2N
+3
+— the brief’s extremal picture, spectrally identical to Montgomery’s RH-extremal “2N/3 simples
+plus N/6 doubles”.
+The comparisons I record are all from memory, with no lookup: Montgomery 1973 under RH
+gives ≥2/3 simple; RH plus the integer inequality (m −1)(m −2) ≥0 gives ≥5/6 distinct
+(elementary — the brief’s own arithmetic; I believe it folklore or known but could not verify
+a citation offline; Bui–Heath-Brown-type papers quote 0.8466 distinct under RH via better
+kernels, consistent with 5/6 = 0.8333 being the Fejér-kernel value); Cauchy–Schwarz gives 3/4
+distinct. Theorem 4′ is the (m−1)2 ≥0 level of integrality, “P m2 ≥2N −Ndist”, transplanted
+off the line: 2/3 distinct on-line, no RH — the level the brief had itself written down for n+
+and set aside.
+Simple zeros: no.
+On the coordinator’s item (f), sharpening to simple on-line zeros, the
+answer is negative. Rank counts distinct points, so directly one gets only
+Nsimple
+0
+≥2ndist
+on −Non ≥(3 −2t)N = N
+3
+(λ = 1),
+below Bui–Conrey–Young’s 0.407 (again from memory). I tried to sharpen (3.1) using that
+on-line masses are integers: ∥Mon∥2 ≥P m2
+i ≥2Non −Nsimple
+on
+is true, but step (i) of the proof
+consumes the eigenvalue slack P
+k(µk −c)2
++ of Mon, which integer masses do not control —
+coincident or nearly coincident distinct simple zeros and a double zero are indistinguishable
+to the spectrum of Mon. So: distinct, not simple. Counting on-line zeros with multiplicity,
+Non(I′) ≥ndist
+on ≥2N/3 as well (against Pratt et al.’s 5/12, from memory).
+Numerics.
+For the record I collect the certificate computation on true zeros just run (zero side
+exact from the 100,000 cached ordinates, T = 1000, I′ = [970, 2030], N(I) = 868, N(I′) = 921,
+79

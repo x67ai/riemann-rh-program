@@ -1,0 +1,62 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ON THE CRITICAL LINE
+5
+tr P ≤Non and N ≥Non + 2p (§4). That the negative index of truncations of Weil’s
+form counts off-line zeros is due to Bombieri [Bom00]; we use rank and positive index.
+(P) Prime side: magnitude. By the explicit formula, tr eG and ∥eG∥2
+F = tr eG2 are integrals
+of explicit kernels against the density built from Γ′/Γ and the prime powers n ≤X;
+they are Montgomery’s first and second moments [Mon73, BGSTB24], and in the units
+of (Z) evaluate unconditionally to N and ( 1
+λ + λ
+3)N asymptotically (§5).
+(L) Linear algebra. For Hermitian P ⪰0 of rank ≤r and Hermitian Q with ≤b positive
+eigenvalues (Lemma 3.2, proved via von Neumann’s trace inequality),
+r ≥2 tr P + 4 tr Q −4b −∥P + Q∥2
+F .
+Here (2 tr P −r)+(4 tr Q−4b) plays the role that P
+ρ(2mρ −1) plays in Montgomery’s
+argument; the inequality is the matrix analogue of the integrality step m2 ≥2m −1.
+Alternatively, Cauchy–Schwarz on the eigenvalues (Lemma 3.3) gives n+(P + Q) ≥
+(tr)2/∥· ∥2
+F , whence s + p ≳F(λ)N.
+Combining (Z), (P), (L): s ≥4N −2N −( 1
+λ + λ
+3)N −o(N) = (H(λ) −o(1))N, which at λ = 1
+is Theorem A. No termwise positivity, no mollifier, no zero-density estimate, and no zero-free
+region is used.
+Applied instead with only the s1 simple on-line points on the rank side and the s2 multiple
+on-line points moved to the index side (r = s1, b = s2 + p, tr P1 ≤s1), the same inequality (L)
+reads 3s1+4s2+4p ≥4 tr −∥·∥2
+F , the analogue of m2 ≥3m−2; together with N ≥s1+2s2+2p
+this gives s1 ≥(H(λ) −o(1))N (Theorem B) and s1 + s2 + p ≥(1+H(λ)
+2
+−o(1))N, whence
+Theorem C since Nd ≥s1 + s2 + 2p ≥s1 + s2 + p. The Cauchy–Schwarz variant gives the
+weaker Nd ≳F(λ)N, which is what survives for λ < 3 −
+√
+6.
+Remark 1.2. In the language of time–frequency analysis the family V is a Gabor system at the
+critical density and eG is its Gram matrix against the explicit-formula kernel; we use only the
+associated sampling identity (Lemma 2.2). In the language of operator theory, eG is a finite
+compression of an operator whose full positivity is RH, and Theorems A–D extract what the
+first two trace moments of any such compression can certify unconditionally.
+1.5. What the results are not. It is perhaps as important to state clearly what these results
+do not say.
+They have no bearing on the Riemann hypothesis in either direction. The argument produces
+lower bounds only: it certifies that at least two thirds of the zeros are on the line, and says
+nothing about the remaining third, which are not shown to be off the line but simply not
+reached by the certificate.
+The inputs—the functional equation, the explicit formula, and
+mean values of Dirichlet polynomials of length ≤T—are insensitive to o(N) off-line zeros,
+and are satisfied by objects (Davenport–Heilbronn functions, Epstein zeta functions of class
+number > 1) for which the analogue of RH is false. Nor can the constants be improved by the
+present argument: given only tr eG, ∥eG∥2
+F and the block structure, the inequalities of §3 are
+sharp, and the restriction λ ≤1 is essential (for X ≫Tl the off-diagonal prime sums would
+require information on prime pairs of Hardy–Littlewood strength). Section 7.5 discusses these
+limitations in detail.
+1.6. Authorship and verification. The author of this paper is a large language model devel-
+oped by Anthropic. The mathematics is its own, obtained in the course of a single interactive
+session and its subsequent review by further instances of the model, and subjected throughout
+to repeated adversarial review by independent instances; Appendix C gives an account of that
+process. A Lean 4 formalisation of Theorems A–E accompanies the paper: the statements are

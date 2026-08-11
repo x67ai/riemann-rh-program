@@ -1,0 +1,72 @@
+Claim (abstract inequality).
+∥Mon + Mp∥2
+F ≥r gs
+ton
+r
+
++ t′2
+b ,
+gs(µ) =
+(
+µ2,
+µ ≤s,
+2sµ −s2,
+µ > s.
+Corollary (as I state it, for s ≥2 −o(1) and ton + t′ = N, writing M = Mon + Mp):
+r ≥2N −∥M∥2
+F .
+For provenance: the question — whether the pair-block and negative-spectrum structure can
+lift Theorem 4’s constant towards 2/3 — is the brief’s, and so are both ingredients of the
+claim. The bound n+(Mp) ≤b, one positive eigenvalue per pair block, is the inertia fact of
+the brief’s lever (a); and s ≥2 −o(1) is the brief’s consequence (i), p −q = 2mL2, i.e. trace
+2m ≥2 per block in eR units — the very fact the brief set aside as “consistent with tr R = LN
+carrying no information”. What is mine is coupling the rank of the on-line part with the
+inertia and trace of the pair part in a single inequality that is linear in the masses rather than
+quadratic. (Editorially: with ∥eR∥2
+F →N(1/λ + λ/3) →4
+3N from the earlier agents’ prime-side
+computation, the corollary would read r ≥2
+3N −o(N) — an inference; nothing to this effect is
+written down at this point. Note too that 2N −4
+3N = 2
+3N is the very arithmetic the brief had
+already done at its
+Before trying to prove the claim I try to break it. I draw 400 random instances with d ∈
+{2, . . . , 6} and with r, b and the rank of Q each uniform in {1, . . . , d}; I parametrise Mon = AAT ,
+P = BBT , Q = CCT by unconstrained real factors of those ranks and minimise lhs−rhs by
+BFGS, penalising t′ ≤0. The claim is homogeneous of degree four in the factors — µ2, sµ and
+s2 are all of degree four — so I also track the gap normalised by the fourth power of the factor
+norm. Printing each new record low, every value that appears is nonnegative,
++1.783 · 10−9,
++3.539 · 10−13,
++1.186 · 10−13,
++1.776 · 10−15,
++2.220 · 10−16,
++0.000,
+and the run ends with “overall most negative gap found: 0.0”. The optimiser reaches equality
+and never crosses it. Numerical support, not a proof — but this claim, unlike G1–G4, has
+resisted a serious attempt at falsification.
+4.2
+Locating cached zeta zeros for true-zero tests
+I will want to see the corollary’s right-hand side on actual zeta matrices, so I go looking for
+cached zeros in the campaign tree. E2’s tables hold only its experiment logs; referee C’s material
+consists of its verdict, the BGSTB paper, and its small test computations (the linear-algebra
+lemmas, the explicit-formula check, the synthetic-configuration test, a Deuring–Heilbronn test).
+The zero caches turn up elsewhere: an array of ordinates cached by referee B together with its
+outputs for the windows [600, 1200], [1000, 2000] at λ = 0.85, 1.0 and [9000, 10000]; a file of
+zeros produced by the D2 agent; and a large list of zeros at the root of the campaign tree.
+Inspecting them: referee B’s array holds 3700 ordinates, from 14.13472514 to 4218.23078863;
+the large list has 100,000 ordinates to nine decimals (14.134725142,
+21.022039639,
+25.010857580, . . . ); the D2 agent’s file has 700 zeros to about twenty digits.
+I also
+reread the set-up of referee C’s synthetic-configuration test, since it is the template for what I
+want to do. It takes the window [600, 1200] with a reach of 25 on either side (zeros within 25 of
+the window are included in the windowed matrix), builds the Gram matrix exactly on the zero
+side, and checks the certificate 2C −N — with C = (tr R)2/ tr R2 the Cauchy–Schwarz count,
+so that 2C −N is the lower bound for ndist
+on
+that Theorem 4 certifies — against ndist
+on , and
+n+ against non + npair, at λ ∈{1.0, 0.85}, over the scenarios: (a) true zeros; (b) all doubled;
+71

@@ -1,0 +1,74 @@
+t0 = 100, 3.75–4.50 at 400, 4.75–6.50 at 1000, 5.25–7.50 at 2200 (slightly lower in replace
+mode), with the offending eigenvalue at 10−8–10−4 of scale — growing with height roughly like
+log(t0/2π) = 2.77/4.15/5.07/5.86.
+The robust threshold L∗
+rob (an eigenvalue below −10−3 of scale) does feel the depth: at t0 = 100
+in add mode it is 12.75 (δ = 0.02), 8.50, 6.75, 5.50, 5.00, 4.50 (δ = 0.45); at t0 = 400 it runs
+from 13.75 down to 4.25; at t0 = 1000 and 2200 with δ ≤0.05 in add mode (and at 2200,
+δ = 0.02 in replace mode) it is not reached up to L = 14. The least-squares fits in add mode:
+L∗
+ann ≈1.123 δ−0.066 log(t0/2π)0.889,
+L∗
+rob ≈1.618 δ−0.336 log(t0/2π)0.599.
+Both lie far below the worst-case law √n1 + 1/δ of Theorem 2 printed alongside (50–100 at
+δ = 0.02), and the robust threshold sits somewhat above the cube-root average-spacing law
+(8.2–10.5 at δ = 0.02) that I had identified with R4’s planting law; the fitted δ-exponent −0.34
+is neither Theorem 2’s −1 nor the average law’s −2/3. The cluster experiment’s L = 6 block
+(d = 345) repeats: single quadruple 7→1, double zero 7→1. Nothing new from the other two
+runs.
+6.4
+The one-half claim written out for referees
+Now to write the claimed Theorem 4 out self-contained, for hostile refereeing — the statement
+being that at least one half of the nontrivial zeros of ζ are on the critical line, as distinct zeros.
+This goes into a separate proof file addressed to referees; here is its content.
+Notation and inputs.
+Zeros ρ = β + it with multiplicity mρ, and γρ := (ρ −1
+2)/i =
+t −i(β −1
+2); N(a, b) counts zeros with a < t ≤b with multiplicity (Riemann–von Mangoldt:
+N(0, T) = (T/2π) log(T/2πe) + O(log T)); Ndist
+0
+(a, b) is the number of distinct points 1
+2 + it,
+a < t ≤b, with ζ(1
+2 + it) = 0. Test functions are f ∈C2
+c (R), with hf(z) =
+R f(u)eizu du entire
+and |hf(z)| ≪∥f′′∥1e| Im z|L/2/|z|2, so that
+W(f, g) :=
+X
+ρ
+mρ hf(γρ) hg(¯γρ)
+converges absolutely; it is Hermitian by reindexing ρ →1 −¯ρ (γ →¯γ, multiplicities preserved).
+The explicit formula (Weil, unconditional), for supp f, g ⊂[−L/2, L/2], X = eL, s = 1
+2 + iτ:
+W(f, g) =
+Z
+R
+hf(τ) hg(τ) νX(τ) dτ,
+νX(τ) = ϑ′(τ)
+π
++
+1
+2π(1
+4 + τ 2) + 1
+π Re Xs −1
+s
+−1
+π
+X
+n≤X
+Λ(n)
+√n cos(τ log n),
+the pole term having been rewritten as a density exactly as in the pole-term derivation
+earlier, and “Verified numerically to 1e-6..1e-9 against Sum_gamma over 2000 zeros” by the
+compression computation.
+Lemmas.
+Lemma 1 (inertia under pullback): for a linear map A and Hermitian form Q,
+n+(A∗QA) ≤n+(Q) — if A∗QA > 0 on U then A|U is injective and Q > 0 on A(U). Lemma 2
+(Cauchy–Schwarz count): for Hermitian R of size d and θ ≥0, if tr R > θd then
+nθ
++(R) ≥(tr R −θd)2
+tr(R2)
+,
+43

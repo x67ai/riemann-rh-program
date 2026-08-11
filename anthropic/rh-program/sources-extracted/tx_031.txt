@@ -1,0 +1,80 @@
+by a prime-side computation using no zeros; d −rank ≈d −#zeros exact null directions
+whenever d exceeds the zero count; the symbol νX negative on 20–45% of the window; and “the
+Szego/pointwise prediction and the a-priori bound are off by everything.” The first attempt at
+the grid is cut off before producing a row,
+so I set it going again to run on its own and turn to the theory it is meant to illustrate.
+3.3
+The pole density, and Theorem 2 on visibility
+First the derivation I owe, so that the prime side really is a single integral against νfull
+X . For an
+even kernel k supported in [−L, L], X = eL, with transform ˆk, the pole term of the explicit
+formula is
+Pole(k) = ˆk(i/2) + ˆk(−i/2) =
+Z
+k(v) 2 cosh(v/2) dv,
+while
+Z X
+1
+u−1/2k(log u) + k(−log u)
+ du =
+Z L
+−L
+k(v) e|v|/2 dv.
+Since 2 cosh(v/2) = e|v|/2 + e−|v|/2,
+Pole(k) =
+Z X
+1
+u−1/2k(log u) + k(−log u)
+ du +
+Z
+k(v) e−|v|/2 dv
+=
+Z
+|h(τ)|2h 1
+π Re Xs −1
+s
++
+1
+2π(1
+4 + τ 2)
+i
+dτ,
+s = 1
+2 + iτ,
+by Parseval applied to k = f ∗˜f, |h|2 = ˆk, the transform of e−|v|/2 being 1/(1
+4 + τ 2). Hence,
+exactly, W(f, f) =
+R |hf|2νfull
+X
+for supp f ⊂[−L/2, L/2], with νfull
+X
+as defined above. R4’s
+“PNT mean from u = 2” is this up to the smooth O(1/τ) piece coming from
+R 2
+1 and the term
+1/(2π(1
+4 + τ 2)) — irrelevant for their sign statistics, relevant for exactness here. The check
+already in hand is the agreement of GP with GZ to 10−6 absolute (entries of size 1–10) at
+X = 103 on [100, 300]; the grid records ∥E∥in every row.
+A word on why the computed index is the true one. The basis is the Kaiser window with
+centres τk = T0 + k∆, ∆= 2π/(qL); the signature is read from raw eigenvalues at threshold
+10−5×scale and validated against the zero side, which is exactly positive semidefinite (it is
+A⊤A); the leakage of hfk outside [T0 −rcut, T1 + rcut] is below 10−9; and hypothetical off-line
+zeros above the RH-verified height 3 × 1012, if any, would contribute less than (10−9)2. So
+κ(X, T) as computed is the true signature of W on VL,T up to the threshold.
+Now the question that the brief’s phrase “off-line zeros visible to the subspace” presupposes,
+made quantitative. Fix a hypothetical off-line zero ρ0 = 1
+2 + δ + it0, δ > 0, so γ0 = t0 −iδ.
+“Level L” means test functions supported in [−L/2, L/2], i.e. primes ≤X = eL. What is the
+smallest L for which the restriction of W to C∞
+c (−L/2, L/2) has n−≥1 on account of ρ0?
+Theorem 2 (isolated zero, worst case over on-line configurations).
+Suppose all zeros
+with | Re γ −t0| ≤1 other than {γ0, ¯γ0} lie on the line, and let n1 := N(t0 + 1) −N(t0 −1);
+unconditionally n1 ≤A0 log t0 (from memory a Backlund/Trudgian bound, roughly 0.25 log T +2
+for T large; I keep it symbolic). If
+L ≥Lvis := CB
+√n1 + 1
+δ
+(CB absolute, depending on the bump B; CB ∼4),
+30

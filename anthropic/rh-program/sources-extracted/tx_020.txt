@@ -1,0 +1,49 @@
+(2) Define κ(X, T) concretely and computably from the prime side only — either via
+R4’s νX operator or via the Gram matrix of the Weil form in N6’s normalisation
+on a Paley–Wiener or prolate basis of dimension roughly (log X) · T — compute
+it numerically for X = 102, . . . , 106 and T = 102, . . . , 104, and fit its growth. Is
+κ(X, T) ≍c · (a fraction) · N(T)? ≍T/ log X? ≍T log T/ log X? R4 saw 21–38%
+negative density-of-states mass, which suggests κ(X, T) ∼c(X)N(T) — with c(X)
+decreasing in X, or increasing? R4’s fraction went from 21% to 38% as X grew
+from 100 to 104, increasing, which is a bad sign; but that was the fraction of the
+line on which νX < 0, not the negative index of the compressed operator. Compute
+the actual index.
+(3) The key theoretical question. Is there an a priori bound κ(X, T) ≤B(X, T)
+provable from primes and the Gamma factor alone? For example, by counting
+sign changes of νX, which is an explicit trigonometric-type sum: the number of
+negative excursions of νX on [0, T] is at most the number of zeros of νX there,
+which by a Turán- or Nazarov-type lemma for exponential sums with frequencies
+log n, n ≤X, should be at most C T log X/2π plus an X-dependent term. And is
+there a rigorous inequality Noff(window) ≤κ(X, T) + E(X, T) with a controlled
+error E? If both hold, one gets Noff(T) ≤C T log X + E; choose X to optimise,
+and compare with the trivial bound Noff(T) ≤N(T) ∼(T/2π) log T and with the
+classical zero-density theorems N(σ, T) ≪T A(1−σ)+ε. Does the Pontryagin route
+give anything non-trivial at all? Even an unconditional Noff(T) ≤(1 −c)N(T)
+would be new-ish in flavour, though weaker than Selberg’s positive-proportion
+theorem. Note that the Selberg/Levinson/Conrey results “at least 40% of the zeros
+are on the line” are exactly the statement Noff ≤0.6 N(T): can the negative-index
+route reproduce a positive-proportion result? That would be a genuinely new proof
+architecture for Selberg’s theorem even if the constant is worse — worth a lot.
+(4) Red-team. The danger is that the restricted forms see the on-line zeros as
+negative too: the finite-X truncation makes νX dip below zero near every zero (a
+Gibbs phenomenon), so that κ(X, T) ∼N(T) trivially and the bound is empty.
+Check R4’s numbers — 33 to 153 negative eigenvalues against how many zeros in
+the window? — and the ratio. If κ(X, T)/Nwindow →a constant < 1 as X →∞,
+that is the positive-proportion route; if it tends to 0, the density route; if it tends
+to 1, the route is empty. Determine which, numerically and then theoretically.
+Deliverable. A report with code; a final summary with the verdict first, in one
+of the forms “PONTRYAGIN ROUTE VIABLE: negative-index identity proven
+(global); κ(X, T)/N(T) →c = . . . ; unconditional consequence: . . . ” — in which
+case hostile referees follow if any theorem is claimed — or “EMPTY: κ(X, T) ∼N(T)
+because Gibbs . . . , proof”, or “PARTIAL: . . . ”.
+So the frame is all given to me: Kre˘ın/Pontryagin spaces, the identification of negative squares
+of the Weil form with off-line zeros, the hyperbolic-pair mechanism behind it, the δ-tilt, and
+the three-way forecast for the ratio κ/N. What is asked of me is a clean proof of the global
+identity, an honest and computable finite-level index, a prime-side bound on it, and a verdict
+on whether the route is empty.
+1.2
+The objects and vocabulary of the brief, explained
+For a reader outside this corner, here is what the brief’s terms mean, in the notation I will use
+below, and where each came from.
+The Weil form and the explicit formula. For a test function f on the line (variable u,
+19

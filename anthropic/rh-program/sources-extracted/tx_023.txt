@@ -1,0 +1,89 @@
+∼1/ log X (1123 of them at X = 104) and mass ≤0.50, “exactly at the uncertainty scale of
+admissible tests”.
+Two further items I register. In its red-team section R4 states that all positivity it found —
+“Fejer minima > 0, envelope = N” — is RH being true in the computed range. And its planting
+experiment, in which two consecutive zeros are replaced by an off-line pair 1
+2 ± η + iγ0, finds
+that the zero-side Weil form on test functions of support L first acquires a negative direction at
+L∗= 1.26, 2.09, 2.68, 3.44
+(γ0 = 28, 100, 399, 991; η = 0.49),
+L∗= 2.94, 4.78, 6.20, 7.08
+(same γ0; η = 0.02),
+i.e. L∗∼(0.65–0.85) log(γ0/2π), nearly independent of η. R4 explains this as the test space
+nearly annihilating the on-line zeros in a frequency window (Landau density), leaving the
+indefinite cosh(η(xj −xk)) term unopposed. R4 also checked that the negative index of its
+prolate operator is not a grid artefact: on [880, 930], negative index 55 at X = 103 and 77 at
+X = 104 against a true count of 40, identical across step sizes.
+Now R4’s working notes. They fix the dictionary inherited from D2 — classes (d1, d2; A),
+the vector Γg = (G(1), G(0); (G(ρ))ρ) with G(s) =
+R g est, and χ(D) = d′
+1d′
+2 −1
+2
+P
+ρ |G(ρ)|2
+— and record the explicit formula in the form I will need. With g(t) = e−t/2f(t) one has
+G(1
+2 + iτ) = ˆf(τ) and
+X
+ρ
+|G(ρ)|2 =
+X
+γ
+| ˆf(γ)|2 =
+Z
+| ˆf|2 dN
+= 2G(0)G(1) −
+X
+n
+Λ(n)n−1/2(f ∗˜f)(log n) + (f ∗˜f)(−log n)
+ + Arch(f ∗˜f),
+so that for supp(f∗˜f) ⊂[−log X, log X] only n ≤X enter and, integrating by parts,
+R | ˆf|2dN =
+R | ˆf|2dNX exactly, the measure dNX having density θ′/π −1
+π
+P
+n≤X Λ(n)n−1/2 cos(τ log n).
+The notes then explain the pointwise negativity.
+The supremum of the prime sum
+is
+1
+π
+P
+n≤X Λ(n)/√n
+∼
+2
+π
+√
+X, which exceeds
+1
+2π log(τ/2π) at resonance points once
+X ≳(log τ)2/16; so “dNX ≥0” fails pointwise for every X ≥2 somewhere in every
+long window, and positivity survives only after testing against admissible | ˆf|2, which cannot
+localise into dips of width ≪1/ log X — and that averaged positivity is semi-local Weil
+positivity at level X. The regime in which pointwise positivity is trivial is quantified by
+Ttriv(X) = 2π exp
+
+2
+X
+n≤X
+Λ(n)/√n
+
+= 17, 59, 500, 7300
+(X = 2, 3, 5, 10).
+Their numerical section records the staircase facts: RMS( ˜NX −N) falls 0.38 →0.15; the
+integer running-maximum envelope equals N(T) at all 646 zero midpoints for every X ≤104;
+the PNT mean must start at u = 2, not u = 1, or it fakes a +1/2. It records the Fejér-averaged
+density with supp f = [−L/2, L/2], L = log X, whose minimum over τ0 ∈[60, 940] is positive
+for all X and equals P
+γ h(γ) to 10−2–10−3, with ratio min/mean falling from 0.54 (X = 2) to
+0.013 (X = 103); the match between the Hermite–Biehler defect of the structure function EX
+and νX; the planting law again; and the statement I most need to confront: the untwisted SX
+“has negative eigenvalues iff νX dips (X ≥5): the ‘space of conditions’ is a Krein space, not a
+Hilbert space, at every finite X ≥5; its positive+negative index reproduces the height count.”
+Then R4’s code, to see exactly what was computed. The core routine implements νX and
+NX from a table of 700 zero ordinates and the von Mangoldt sum, with the mean correction
+1
+π Re (Xs −2s)/s, s = 1
+2 + iτ. The prolate computation builds SX by Nyström with weight
+22

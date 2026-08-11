@@ -1,0 +1,75 @@
+Then the dual: the inequalities (P) and (N) and the Cauchy–Schwarz count, giving the finite
+certificate (Theorem 3) — the prime-computable lower bound Ndist
+0
+(I′) ≥2(tr R−θd)2/ tr R2 −
+N(I′) — and the asymptotics
+tr R ∼LTl
+2π ,
+tr R2 ∼2πLT
+h l
+2π
+2
++ L2
+12π2
+i
+,
+the second from the µ-µ term plus the Montgomery–Vaughan diagonal
+TL
+π
+X
+n≤X
+Λ(n)2
+n
+
+1 −log n
+L
+
+= TL3
+6π ,
+the off-diagonal being O(L2X log X), hence negligible, by Montgomery–Vaughan, and the cross
+and pole-density terms o(·) — whose RH-consistency is Montgomery’s F(α)-evaluation of
+(P
+γ L)2/ P DL(γ −γ′)2, the classical 3/4.
+Theorem 4 (claimed). For each fixed λ ∈(0, 1],
+Ndist
+0
+([T, 2T]) ≥
+
+2λ
+1 + λ2/3 −1 −o(1)
+
+N([T, 2T]);
+at λ = 1, Ndist
+0
+([T, 2T]) ≥(1
+2 −o(1))N([T, 2T]).
+The evidence set against it: the prime-only law at T ∼104 and 5 · 104 already recorded;
+the [600, 1200] zero-side cross-check (prime side = zero side to four digits; at λ = 1 certified
++0.44 with finite-window margins, true n+ = 455 ≥C = 360); the synthetic controls (the
+inequality never over-certifies); and the limits of the method — n+ ≤dim V = λN with
+λ ≤1+o(1) forced by the diagonal evaluation, higher trace moments needing kλ < 2 — so that
+1/2 = 2 · 3
+4 −1 is the ceiling with pair-correlation-range input, and every extra certified-positive
+fraction η of level-(T/2π) Weil eigenvalues is worth +2η.
+My answers to the brief’s numbered items, one by one.
+(1) The global identity: proven, with the correction “distinct”; finite-level monotone conver-
+gence; the literature — Yoshida 1992, Bombieri 2000, Burnol — is from memory and
+unverified offline, and the multiplicity caveat is essential.
+(2) κ(X, T) concretely: defined and computed from primes, identically 0; nothing to fit,
+κ/N →0 trivially. The informative prime-side spectral statistic is instead the certified-
+positive count (tr R)2/ tr R2, a fraction 1/(1 + λ2/3) of dim V (0.81 →0.37 in the index
+grid as X grows past T; →3/4 of N at X = T/2π).
+(3) A-priori bounds on κ from sign changes of νX: of size (L/2π) |{νX < c}| ∼e4
+√
+X log X
+globally, ∼0.3 dim V in windows — useless, and provably so, since visibility holds iff
+dim V ≥#zeros; the Turán/Nazarov count of sign changes the brief proposed bounds the
+wrong operator. But the positive-index dual gives an unconditional positive-proportion
+theorem (claimed 1/2), i.e. the “new proof architecture for Selberg’s theorem” the brief
+asked for, with a better constant than Levinson–Conrey-type methods, from the explicit
+formula plus the Montgomery–Vaughan mean value theorem plus linear algebra.
+(4) The red team of the original danger: confirmed in the strong form — not “κ ∼N(T) by
+Gibbs” but “κ = 0 and unboundable below dim V ”; the ratio question is moot. For the red
+team of Theorem 4: checks (a)–(e) passed, residual risks ranked; the constant 1/2 cannot
+move, only the whole claim can fall.
+51

@@ -1,0 +1,93 @@
+7.4
+Retuned certificate rows and the first row at 106
+The retuned certificate run has produced its Tukey(0.25) rows on [600, 1200] (N(I) = 472).
+With spacing 2π/L the atom reach — the radius beyond which an atom’s transform carries
+less than 10−5 of its energy — drops from 28.8 to 9.0 as λ grows, the tail threshold θ is a few
+10−4 of scale, and Cθ on the prime side agrees with the zero-side C to about four digits:
+λ
+Cθ(prime) C(zero)
+MV meas/pred
+propcert
+asym
+0.60
+252.0
+252.4
+15.0/15.0
+−0.025
++0.071
+0.80
+312.6
+313.1
+37.1/37.1
++0.233
++0.319
+1.00
+359.5
+360.0
+74.8/74.8
++0.438
++0.500
+1.15
+385.1
+385.9
+116.6/116.7
++0.556
++0.596
+1.30
+403.0
+403.7
+—
++0.635
++0.663
+1.60
+425.0
+425.8
+—
++0.738
++0.727
+2.00
+441.4
+442.2
+—
++0.816
++0.714
+Here propcert = (2Cθ −N(I′))/N(I′) is the certified proportion of distinct on-line zeros on the
+reach interval I′, and the last column is the sharp-cutoff asymptotic 2λ/(1 + λ2/3) −1. The
+first Kaiser(β = 12) row, at λ = 0.6, gives C = 193.9 on both sides and certified proportion
+−0.197.
+And the first row at height 106 is in: λ = 0.85, L = 10.18, X = 26374, d = 3229, N(I) = 3812.3,
+C = 2636.0, so C/N(I) = 0.691 against the law’s 0.685, certified proportion +0.371 against
+the asymptotic +0.370.
+8
+Report and verdict: partial, with a claimed theorem
+8.1
+The verdict: negative route empty, its dual claims one half
+Time to fix the verdict. What I am prepared to defend is PARTIAL — with one claimed
+theorem that, if it survives refereeing, is the main output of this line. It rests on three points.
+First, the global identity the brief conjectured is proven (Theorem 1), with the correction
+the brief did not anticipate: the negative index of the Weil Hermitian form on C∞
+c
+equals
+the number of distinct zeros with Re ρ > 1
+2; an m-fold off-line zero is one negative square,
+multiplicity is invisible. At finite level, κ(L) — the negative index on test functions supported
+in [−L/2, L/2], i.e. of the form computable from primes ≤X = eL — is finite, nondecreasing,
+tends to κ, and RH ⇐⇒κ(L) = 0 for all L.
+Second, as an upper-bound machine for off-line zeros the negative index is empty, and not
+because of Gibbs. (i) The correctly defined compressed index κ(X, T) — the negative index of
+the Weil form restricted to admissible test functions of support length ≤log X with transforms
+concentrated below height T — is identically 0 in every computable range, X = 102, . . . , 106,
+T ≤2400, and it is computed from primes alone; R4’s 33–153 negatives belong to a warped-sinc
+operator that is not a compression of the Weil form. (ii) The inequality κ(V ) ≤Ndist
+off
+is
+the wrong direction, and the reverse needs visibility, which for all zeros below T requires
+dim V ≳N(T) — the annihilation regime L ∼log(T/2π), with the measured threshold
+L∗
+ann = 1.12 log(t0/2π)0.89 δ−0.07
+— and there the only prime-side bound, κ ≤dim V , is the trivial cluster count. Below that
+level, Theorem 2 makes an isolated zero of depth δ at height t visible once L ≥C√log t/δ, but
+interference from unknown neighbours is uncontrollable, clusters count once, multiplicity never.
+So to the brief’s ratio question: κ(X, T)/N(T) →0 in the data (it is 0), while any provable
+prime-side bound is ≥(L/2π) |{νX < 0}| ∼0.2–0.4 dim V . Empty.
+49

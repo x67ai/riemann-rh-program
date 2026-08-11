@@ -1,0 +1,63 @@
+the logarithm of the idele norm; the brief writes C∞
+c (R∗
++), the multiplicative picture), with
+transform hf(r) =
+R f(u)eiru du, and zeros written ρ = 1
+2 + iγρ with multiplicity mρ, the
+Weil Hermitian form is
+W(f, g) =
+X
+ρ
+mρ hf(γρ) hg(¯γρ).
+Weil’s explicit formula (unconditional) evaluates W(f, f) as a pole term plus an archimedean
+(Gamma-factor) term minus a sum over prime powers weighted by the von Mangoldt function
+Λ(n); if f is supported in an interval of length L, only n ≤X = eL enter. “Weil positivity”
+means W(f, f) ≥0; Weil’s criterion is that this holds for all f if and only if RH. “Semi-local
+Weil positivity at level X” is the campaign’s name (from R4’s report) for positivity on
+test functions of support length ≤log X. The normalisation I adopt is the one N6’s report
+validated, Iwaniec–Kowalski (5.12), recorded below.
+θ, νX, N(T). θ is the Riemann–Siegel theta function, so θ′(τ)/π ∼
+1
+2π log(τ/2π) is the smooth
+density of zeros; N(T) is the Riemann–von Mangoldt count of zeros with ordinate in (0, T],
+with multiplicity; N(σ, T) counts those with real part > σ, and Noff those off the critical
+line. R4’s νX is the smooth density minus the truncated prime sum: by the explicit formula,
+R |hf|2νX (plus a pole/mean correction) equals P
+γ |hf(γ)|2 exactly for f of support length
+≤log X, which is why R4 called it a zero-free “density of states”. It is a signed function;
+its negativity on 21–38% of the line is R4’s measurement.
+Kre˘ın and Pontryagin spaces; negative index; negative squares. A Kre˘ın space is a
+vector space with a non-degenerate indefinite Hermitian inner product admitting a decom-
+position into a Hilbert space minus a Hilbert space; it is a Pontryagin space Πκ when the
+negative part is finite-dimensional, of dimension κ. For a Hermitian form, the negative
+index is the supremum of the dimensions of subspaces on which it is negative definite;
+“κ negative squares” of a kernel means its Gram matrices have at most, and some have
+exactly, κ negative eigenvalues. “Hilbert–Pólya” is the hoped-for self-adjoint operator
+whose spectrum is the zeros; the brief’s point is that the κ = 0 case of the indefinite theory
+is that picture.
+De Branges kernel, structure function, Hermite–Biehler. A structure function E is
+an entire function with |E(z)| > |E∗(z)| on the upper half-plane, where E∗(z) = E(¯z)
+(the Hermite–Biehler condition); its kernel [E(z)E(w) −E∗(z)E∗(w)]/(2πi( ¯w −z)) is then
+positive definite and reproduces a Hilbert space of entire functions. When the condition
+fails at finitely many points the kernel has finitely many negative squares (Kre˘ın–Langer).
+“E from ξ” means building E out of the completed zeta function, as in Ea(z) = ξ(a −iz),
+which I return to late in the run; R4 built a truncated EX from an Euler product.
+R4’s “condition space”, “condition-count operator”, “prolate compression”. In
+R4’s dictionary (inherited from a still earlier run labelled D2, which tried to reverse-
+engineer the missing h0 of an arithmetic Riemann–Roch), a test function plays the
+role of a divisor and CX(g) = 1
+2
+R | ˆfg|2νX is “the number of conditions imposed”; the
+condition space is the space whose dimension this should be. R4’s condition-count operator,
+which I describe precisely below, is a warped sine kernel on L2 of a height window with
+diagonal νX, in the style of the Landau–Pollak–Slepian prolate (time- and band-limiting)
+operators; “compression” means restriction of a form or operator to a subspace, here a
+finite-dimensional or band-limited one. A “PW basis” is a Paley–Wiener (band-limited)
+basis; a “Gram matrix” is the matrix [W(fk, fl)] of the form on a chosen family.
+Hodge index, intersection form. The campaign’s geometric analogy: in the function-field
+proof of RH the intersection pairing on a surface has Lorentzian signature (Hodge index
+theorem, Castelnuovo–Severi), and frontier-1’s report reads W as such a pairing over Z;
+“Lorentzian ⇔RH” is the same statement as κ = 0 up to the pole directions.
+The δ-tilt and N6’s Wa weights. Multiplying a test function by cosh(δu) shifts the eval-
+uation points of its transform by ±iδ, so it reweights zeros according to their distance
+20
