@@ -14,9 +14,10 @@ Files and their roles:
 - `sources-extracted/` — plain-text pages of the three zeta PDFs; grep these, never re-parse the PDFs.
 
 Session discipline:
-- START: read STATUS.md fully; read the latest LOG.md entry; read any `directions/` file you are about to work on. Check "Live/completed background tasks" for orphaned runs and harvest their journals.
+- START: read STATUS.md fully; read the latest LOG.md entry; read any `directions/` file you are about to work on. Check "Live/completed background tasks" for orphaned runs and harvest their journals. Check `git log --oneline -5` for where history left off.
 - DURING: new durable results go under `results/` or the relevant `directions/` file immediately (session scratchpads in /tmp die with the session).
-- END (or when the user says they're stopping, or context runs long): update STATUS.md (phases, live tasks, next actions), append a LOG.md entry, update touched `directions/` files' "Current frontier".
+- GIT (sponsor directive, Session 2): the repo root is `/Users/jaytyagi/Documents/Work/2026/Math/riemann` (branch `main`). Commit after every phase harvest or meaningful state change (e.g. "Phase 4 verdicts harvested", "prospectus v1"), and ALWAYS at session end. Message style: what landed + program state. No remote yet — if one exists later, push at session end too.
+- END (or when the user says they're stopping, or context runs long): update STATUS.md (phases, live tasks, next actions), append a LOG.md entry, update touched `directions/` files' "Current frontier", commit.
 - The persistent memory entry `rh-research-program` points here; keep it pointing here and nothing else — all content lives in these files, not in memory.
 
 **Started:** 2026-08-11. **Last updated:** 2026-08-11 ~14:4x, Session 2 (update this line on every edit).
