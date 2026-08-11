@@ -1,6 +1,6 @@
 # A1:break-bandwidth: Sieve-Enclosed Smoothed Second Moments beyond Bandwidth One: a One-Sided Partial Evaluation of O1 that Breaks the 0.6818 Ceiling
 
-**Status:** proposed
+**Status:** REFUTED (Phase 4 adjudicated)
 **Track:** A (advance machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.55
@@ -63,13 +63,19 @@ M0: a computed ceiling surface v*(C_s, lambda) — the exact market price of eve
 - Uniformity of the sieve bound under the specific smooth weights: the h-weight has slowly decaying tails (1+T|theta|)^{-A} and samples S(h) at scale h ~ n/T including the sliver n/T = O(1) where only h in {2,4,6} matter and S(h) spikes to O(loglog); shown to affect only an o(1) alpha-sliver, but the epsilon-management must be done honestly.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** REFUTED, score 1.5. Fatal: Theorem part (c)'s sieve enclosure of the resonant block is X-sized (C_s·T^{1+η}), not second-order in η — the mean-zero resonant kernel's positive part carries half its absolute mass, so the sandwich admits adversarial profiles saturating the envelope. Proving (c) unconditionally would BE averaged Hardy–Littlewood at window T^η (below the Mikawa X^{1/3} threshold): M5 smuggled into M1. Secondary: A(ω) diverges like log log T at ramp width 1/log T; corrected gate C_eff ≤ 13.33 (claimed achievable point 14.6 fails it); M0 kill-switch miscalibrated in the unsafe direction; numerics live in the "deceptive dip" (T ≤ 10^6) where the divergent term is 1–6% of main.
+- **Referee:** survives-with-repairs, score 6.5. Accepted the resonant-block sandwich; repairs target Prop 5.4–5.7 strip errors, ramp conversion, and calibration — none touch the envelope size.
+- **ADJUDICATION (binding): REFUTED, final score 2.** (`results/adjudication-A1.json`) The adjudicator independently re-derived the killer's scaling (env/main = 0.057 at T=4000, min ~0.004 near 10^12, divergent after) and confirmed the referee never engages the load-bearing step — the lenses talk past each other exactly there. No killer finding overruled. Refutes even under Track-A proportion scope: the claimed gain is impossible from the stated inputs, and the first theorem is a known-hard problem in disguise.
+
+**Salvage (from adjudication):** (a) retarget to X = o(T log³T) — zero asymptotic gain, but check Goldston–Gonek 1998 for prior art; (b) restate as an explicit conditional price tag: "certificate value 2/3+δ requires averaged-HL at window T^{cδ}" — a sharp frontier marker on M5; (c) fixed-width ramps + corrected gate C_eff ≤ 13.33 with gain 2/(9(2+C_eff)) for any variant.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-11 (Session 3): Phase-4 verdicts + adjudication in. REFUTED. Salvage recorded above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+REFUTED (adjudicated 2026-08-11). Do not resume as stated. The direction's residual value: (i) the conditional-reduction reframing (price tag on averaged-HL window vs certificate value) is a legitimate specification-writing artifact for the program; (ii) the corrected gate algebra (C_eff ≤ 13.33) and the envelope-scaling computation are reusable instruments. Any resurrection must first meet mandatory repair 1 in `results/adjudication-A1.json`.
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_
