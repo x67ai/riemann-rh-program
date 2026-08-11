@@ -1,6 +1,6 @@
 # B2:refutation-program: The Wanted Poster: a depth-uniform, every-window localization of the two-thirds certificate, as the core of an honest RH-refutation program
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** B (new machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.72
@@ -84,13 +84,19 @@ M1: first depth-uniform every-window constraints on RH counterexamples; as a by-
 - Numerics risk: at T = 5·10^4 the certificate is strictly negative (Remark 5.9 — convergence 1−O(1/log T)), so Experiment 1 measures trends and depth-uniformity, not asymptotic constants; over-reading it would be wishful — the deliverable is the frontier's SHAPE, with the honest caveat that finite-T exclusion thresholds are far from κ(θ)−1.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 6.5. The first theorem itself needs no repair (window-free MV bound verified at PPOffDiag.lean:40; Prop 4.2 D₀-range verified in full-map). Majors: the headline "(b) kills the dense-carrier-wave scenario" is hollow — the theorem's minimum window is astronomically larger than any contemplated carrier-wave stretch (exp(c√log γ) scale), and isolated Lehmer-type pairs pass every poster constraint vacuously; the "no off-line cap of any kind exists" novelty claim is false as stated (Karatsuba/Selberg complement); Experiment 1's depth-blindness signature is mathematically wrong — the designated falsification channel would fire on a correct theorem.
+- **Referee:** survives-with-repairs, score 7. Independently confirmed Experiment 1's inversion (+~5x cost error). Minors: M2's rarity claim needs Selberg/Jutila-type density near σ=1/2, not Guth–Maynard (vacuous in that regime); (b) is the trivial complement of (a); M6's heat-flow bridge exponent is likely a known de Bruijn-type lemma; milestone graph hides that M4/M5 are independent of M1–M3.
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~6.75.**
+
+**Mandatory repairs (merged):** (1) re-scope the refutation rhetoric — (b) excludes only positive-density off-line ensembles at scales ≥ γ₀^0.5505; sell the first theorem as what it is: first short-interval simplicity proportion with explicit near-2/3 constants + first off-line local-density cap with constant < 1/2 (pending literature check vs arXiv:2603.28104 + Karatsuba school); (2) fix Experiment 1 (compare δ=10⁻³ vs 10⁻⁶ both in the e^{2Lδ}=1+o(1) regime, or subtract exact X^{2δ} self-terms; d≈20,600 at θ=0.9, T=5·10⁴); (3) M2: credit Selberg-type density for shallow regime; (4) M6: run de Bruijn/Ki–Kim–Lee/Rodgers–Tao literature check before writing; (5) restate M5 distributionally or demote to remark; (6) present milestones as two parallel tracks with M4 flagged as the sole ceiling-moving high-risk item.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-11 (Session 3): Phase-4 verdicts harvested (no conflict). Survives with repairs; repairs merged above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+Survives as the program's refutation channel (consensus ~6.75) with deflated rhetoric: the "wanted poster" constrains only Ω(N)-dense off-line configurations — it does NOT address isolated/Lehmer-type or carrier-wave failure modes, and must say so. The first theorem (short-interval simplicity + off-line local-density cap) is verified provable and publishable on its own. Λ-channel (M6) pending literature check. Repairs are scoping/honesty fixes, not structural.
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_
