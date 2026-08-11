@@ -1,6 +1,6 @@
 # B1:mult-positivity: Mollified Gram Certificates: Euler-Product Weights inside the Weil-Form Inertia Method
 
-**Status:** proposed
+**Status:** REFUTED (Phase 4 adjudicated)
 **Track:** B (new machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.6
@@ -86,13 +86,19 @@ M1 lands: a new unconditional certificate family with explicit value 2m1^2/m2 - 
 - The simple-zeros extension (M5) needs per-atom saturation control k_c(t*beta_rho) governed by fourth mollified discrete moments — potentially out of reach unconditionally, capping the program at distinct-zero improvements.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** REFUTED, score 1.5. Fatal: the central claim ⟨|B|⁴⟩/⟨|B|²⟩² = O(1) for the Möbius mollifier is false and inverted — m₂ diverges like (θ·log T)² (sign-coherence/4^ω(n) mechanism), Theorem parts (ii)–(iv) false as stated, certificate → −1 (vacuous). Regime II's binding off-diagonal is Λ×Λ on both long variables — genuine HL/PCC α>1 input, not the divisor-type shifted convolutions BCHB/BCR evaluate.
+- **Referee:** survives-with-repairs, score 5. Independently derived the SAME fourth-moment divergence; proposed bounded-variance repair yielding honest O(θ²) gain — but their own Finding 2 shows that gain is strictly dominated by window-widening throughout Regime I.
+- **ADJUDICATION (binding): REFUTED, final score 2.** (`results/adjudication-B1.json`) The critics agree on the load-bearing mathematics; the repair rescues nothing the direction was for (repaired M1/M2 beat no existing constant; M3 becomes an unproven conjecture). S4 failure: B1 reuses the identical inertia/rank-trace generator on a reweighted restriction of the same Weil cone. One killer claim overruled (the O(1/log T) supremum over ALL weights — a log-weighted prime resonator attains O(θ²)), but the kill survives via domination.
+
+**Salvage (from adjudication):** (i) theorem-level no-go — two-moment Weil–Gram certificates gain at most O(θ²) from any bounded-variance weight, plus the (θ log T)² fourth-moment divergence lemma; (ii) the weight-agnostic instruments (2×2 signature lemma, configuration-free weighted rank-trace certificate) → RHLinalg standalone; (iii) M4 reframed honestly as formalizing a known input-level separation, ordered first; (iv) the open structural question for successors: a Weil-form analogue whose atoms carry ζ′(ρ)-type mass (CGG-style damping) rather than reweighted flat-mass atoms.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-11 (Session 3): Phase-4 verdicts + adjudication in. REFUTED. Salvage recorded above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+REFUTED (adjudicated 2026-08-11). Do not resume as stated. Residual value is real and should be harvested into the program: the O(θ²) no-go theorem + divergence lemma (formalizable), the RHLinalg instruments, and the ζ′(ρ)-mass structural question — the latter feeds directly into any successor S4 attempt (cross-link: B3 tilt-jets, C1 ladder).
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_
