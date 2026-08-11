@@ -87,8 +87,10 @@ Full prompts: in the workflow scripts (paths below).
 
 ## Live/completed background tasks (session-specific paths — data persists on disk after session death)
 
+- Session 3 (2026-08-11): `rh-verify-remaining`: task w7hh2gsof, run wf_c56fc2c4-de4. **LAUNCHED at Session-3 open.** Journal: `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann/2f9ec499-d98d-42be-b056-6b2d82c08333/subagents/workflows/wf_c56fc2c4-de4/journal.jsonl`
+- Session 3 (2026-08-11): `rh-a4-design-verify`: task w329atjus, run wf_696be498-405. **LAUNCHED at Session-3 open.** Journal: `.../wf_696be498-405/journal.jsonl`
 - Session 2: Phase-4 verify relaunch `rh-verify`: task w5nv06qz1, run wf_a2389ed4-3f1. **STOPPED at Session-2 close with 12/18 verdicts** — harvested to `results/verdicts-partial.json`; journal snapshot `results/journals/wf_a2389ed4-3f1.journal.jsonl`. Remaining 6+critic covered by `scripts/rh-verify-remaining.js`.
-- Session 2: A4 design+verify `rh-a4-design-verify`: task w5rp1heki, run wf_89b075e1-f64. **STOPPED at Session-2 close, 0 results** (designer died mid-run). Relaunch whole script next session.
+- Session 2: A4 design+verify `rh-a4-design-verify`: task w5rp1heki, run wf_89b075e1-f64. **STOPPED at Session-2 close, 0 results** (designer died mid-run). Relaunched Session 3 (above).
 
 - Phase 1 workflow `rh-understand`: task wz8rup87t, run wf_2a6a86ee-92c. DONE. Results distilled into results/full-map.md.
   Journal (raw per-agent results): `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann-anthropic/e8c24f5f-4faf-41e1-962d-7ba16dbd457a/subagents/workflows/wf_2a6a86ee-92c/journal.jsonl`
