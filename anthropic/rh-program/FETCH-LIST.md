@@ -2,6 +2,8 @@
 
 **Updated:** 2026-08-13 (Session 4, after Grossmann sweep wave 1 + decisive tests). Maintained per standing orders 1 & 5: agents never substitute memory for an inaccessible source; unreachable items land here for the sponsor.
 
+> **DELIVERY ARRANGED (2026-08-13):** the sponsor will download these and place them in a directory under the work directory at the START OF THE NEXT SESSION. Next session: check for new PDFs first, ingest them (rename into `sources-extracted/`, extract text, check items off this list), and route each to the direction/decision it unblocks before resuming other work.
+
 **How to deliver:** drop files (PDF preferred, any readable format fine) into `anthropic/rh-program/sources-extracted/` — any filename is fine, I'll find and rename them. If a paywall gives you HTML only, "print to PDF" works. Priorities: **P1 = blocking a live design decision · P2 = load-bearing for a named direction · P3 = closure/exactness of the no-go library.**
 
 **Tip that already paid off:** several "botwalls" are just User-Agent checks — `curl -A "<Chrome UA string>"` defeated alainconnes.org. If a site 403s in your browser too, tell me which and I'll suggest a workaround before you give up on it.
