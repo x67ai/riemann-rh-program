@@ -160,6 +160,23 @@ def dh_coeffs(nmax):
     return [None] + [pat[n % 5] for n in range(1, nmax + 1)]
 
 
+def lambda_chi4(nmax):
+    """Lambda_chi(n) = chi_{-4}(p)^k log p for n = p^k: RH-true control, odd real
+    primitive character mod 4 (same gamma-factor shape a=3/4 as DH, Euler product intact)."""
+    chi = lambda m: 0 if m % 2 == 0 else (1 if m % 4 == 1 else -1)
+    out = {}
+    for p in range(2, nmax + 1):
+        if all(p % d for d in range(2, int(p**0.5) + 1)):
+            pk, k = p, 1
+            while pk <= nmax:
+                v = chi(p)**k
+                if v != 0:
+                    out[pk] = v*mp.log(p)
+                pk *= p
+                k += 1
+    return out
+
+
 def lambda_dh(nmax):
     """Lambda_DH(n) via a_n log n = sum_{d|n} Lambda_DH(d) a_{n/d}, Lambda(1)=0."""
     a = dh_coeffs(nmax)
@@ -254,6 +271,9 @@ def build_matrix(lam, N, kind='zeta', M=None, K=None):
     elif kind == 'dh':
         a, logqpi, lamdict, use02 = mp.mpf(3)/4, mp.log(5/mp.pi), \
             lambda_dh(nmax), False
+    elif kind == 'chi4':
+        a, logqpi, lamdict, use02 = mp.mpf(3)/4, mp.log(4/mp.pi), \
+            lambda_chi4(nmax), False
     else:
         raise ValueError(kind)
 
