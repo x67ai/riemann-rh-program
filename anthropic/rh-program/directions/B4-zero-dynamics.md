@@ -1,6 +1,6 @@
 # B4:zero-dynamics: Diffusive-Scale Certificates for the de Bruijn-Newman Flow: a Depth-Resolved Rank-Trace Program
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** B (new machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.65
@@ -62,13 +62,19 @@ M1 lands: first unconditional realness/simplicity proportions for the de Bruijn-
 - Novelty risk on the depth-resolved bound: Selberg-type critical-zone density bounds N(1/2 + a/log T, T) << N e^{-ca} (recalled, unverified constants) would beat J_+(a^2/2)/2 ~ 2N/a^4 for large a; the new content would then be confined to small/moderate a (where 1/6 -> continuous improvement lives), the pairing structure, and the joint simplicity statement. Requires a careful literature pass (Selberg 1946; Fujii; Goldston-Suriajaya narrow-box papers, incl. arXiv:2603.28104).
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 5 — but carries one FATAL-severity finding scoped to the headline: M2's "first depth-resolved UNCONDITIONAL constraints on off-line zeros" is not deliverable unconditionally (the per-pair survival lower bound needs local zero-density control at scale a/log T — Lindelöf-lock/visibility-wall territory). Major: even granting local density, the depth dictionary σ_death ~ a²/2 is wrong at leading order for a ≳ 1–2 (real-zero lattice attraction dominates; the true dictionary is asymptotically LINEAR in a; the quoted constants 0.0317N/0.0041N/~2N/a⁴ unobtainable); M3's Outcome A (breaking the 0.6818 ceiling for zeta) essentially foreclosed at the level of PROVEN transport rows — price as Outcome B (no-go extension) only; the backward branch (t<0) has no analytic support in the cited toolkit. CRUCIAL POSITIVE: the core multiplier engine VERIFIED — Polymath15's B_t coefficient exponent, taken relative to n=1, equals the proposed m_n = e^{(t/4)log n(log n−L′)} exactly; failure-mode #1 closes as confirmation.
+- **Referee:** survives-with-repairs, score 7. Independently verified the multiplier is latent in Polymath15's effective approximation (deflating "nobody has computed" to "nobody has used"); every numerical constant checks out; certificate algebra internally consistent. Major: M2's per-pair survival bound is the real miracle and in worst-case per-pair form (needed for M4(c)) likely unprovable — herding is one-signed and unconditionally unbounded; M3's "either outcome is a theorem" hides the row-provability gap (idealized Dyson transport vs proven transport facts). Minor: depth-resolved payoff constants are isolated-pair idealizations; the "explicit formula for H_t" is necessarily window-localized with T-dependent coefficients; the "nobody has computed H_t statistics at t≠0" headline rests on an unrun literature search.
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~6 (killer 5 / referee 7). The killer's fatal is a SCOPE kill (the unconditional-headline claim), not an engine kill — both critics verified the engine.**
+
+**Mandatory repairs (merged):** (1) FIRST, on paper: write out the Polymath15 multiplier reconciliation — converts the weakest self-assessment into a verified strength; (2) split and restate M2 as two tiers: (a) unconditional H_t complex-pair counts / realness-simplicity proportions (safe, new, no zeta content), (b) the zeta depth bound CONDITIONAL on an explicit no-clustering hypothesis, with the corrected (linear-in-a) mean-field dictionary and herding-degraded constant curve — never advertise (b) as unconditional; (3) reprice M3 as Outcome B (no-go/ceiling-extension) with Outcome A a stretch contingent on new transport rows; (4) drop or re-derive the backward (t<0) branch as new territory; (5) run the H_t-statistics literature search before the novelty headline (sponsor prior-art gate); (6) fix the first theorem's EF formulation (window-localized, T-dependent coefficients, non-multiplicativity correction absorbed).
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-13 (Session 4): Phase-4 verdicts written up (no conflict). Survives with repairs; repairs merged above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+Survives (consensus ~6) with its headline demoted: the honest near-term product is unconditional H_t statistics at diffusive scale (genuinely new, engine verified by both critics) plus a conditional, correctly-dictionaried zeta depth bound. Its RH-relevant value concentrates in the M3 no-go direction (extending the ceiling library to the flow) and in feeding B2's refutation channel (H_t machinery is exactly the Λ>0 search's instrument). Repairs are load-bearing but executable; the M2 survival lemma is the known miracle — do not spend against it until the flowed-form-factor numerics say otherwise.
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_

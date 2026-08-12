@@ -1,6 +1,6 @@
 # C2:rigidity-conservation: Defect-Cost Rigidity: a conservation-law calculus for the Weil sum-rule system with positive prime data
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** C (new field)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.55
@@ -66,13 +66,19 @@ Near term (1-2 years): the first machinery that provably separates the configura
 - The coupling milestone (M5) may show the first-order rules add zero binding constraints at the Montgomery extremal configuration, in which case the field improves nothing quantitative in the proportion regime and its value is confined to the single-defect regime.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 5. Major: Sector I (the cone sector) is permanently confined to a de-la-Vallée-Poussin-shaped boundary layer {1−σ ≤ C/log t} at EVERY bandwidth — asymptotically it can never certify a point outside the known Vinogradov–Korobov region, so the numerics deliverable "V > 1 outside the classical region" is unreachable as advertised; the path from the provable separation theorem to zeta itself is double-locked, the second lock (pointwise control of short Dirichlet polynomials at specific heights) plausibly provably impossible by almost-periodicity. Minor: internal inconsistency — the polynomial-edge cosh-gain law and the Gevrey taper cannot hold for the same test function (the "numerically verified growth law" supports the wrong lemma; repairable at a subexponential cost); the lemmaR_tight rhetoric overstates (separation degenerates precisely in the depth→0 regime; operates outside the no-go's data class — no formalized no-go is "moved"); Sector-I novelty thin against Heath-Brown/explicit-ZFR-optimization prior art.
+- **Referee:** survives-with-repairs, score 6.5. Major: the DH-evasion and the RH-directed horizon do not compose — the genuinely new unconditional theorems (Sector II separations) never consume axiom P, the sector that does (Sector I) is plausibly capped at the classical zero-free region, and composition funnels through the M6 detector behind the same wall; M5 (coupling) — on which all proportion-regime value depends — has no sketched mechanism for why first-order sum rules should bind at the Montgomery extremal (at bandwidth ≤ 1 they constrain essentially the smoothed one-level density, which the ceiling's adversarial laws already match). Minor: the mixed test classes (same finding as killer); tight-pair corollary marketing; the M5-deciding feasibility experiment is schedulable at M3 cost but scheduled nowhere. NOTE: referee finds the designer UNDER-confident on the first theorem (~0.8 within a year vs claimed 0.55) — the field's real risk concentrates in M5/M6.
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~5.75 (killer 5 / referee 6.5).**
+
+**Mandatory repairs (merged):** (1) state the Sector-I confinement bound as an up-front THEOREM of the field (its own PairCeiling analogue) and retarget Sector-I numerics at finite-height explicit constants vs Kadiri/MTY/Bellotti + the DMV abstract-datum calibration; (2) rewrite Sector II for a single Gevrey-α test class with the corrected edge law c(δL) ≍ e^{δL/2}exp(−C(δL)^{1/α}) and confirm the (1−c0)δL slack absorbs it; (3) execute the prior-art search (Mossinghoff–Trudgian 1410.3926, MTY 2212.06867, Kadiri, Heath-Brown smoothed-EF ZFR, Carneiro-school Guinand–Weil optimization 2022–25) BEFORE M1 (sponsor prior-art gate); (4) reprice the long game: strike "region-by-region exhaustion to RH", convert M6 into a two-sided milestone whose planned outcome may be an impossibility theorem (almost-periodicity lower bounds proving the pointwise detector unreachable); (5) schedule the M5-deciding feasibility experiment at M3 cost NOW; (6) name the Lindelöf lock as a wall SHARED with the campaign residue — claim only the single-defect regime as new territory.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-13 (Session 4): Phase-4 verdicts written up (no conflict). Survives with repairs; repairs merged above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+The surviving Track-C direction (consensus ~5.75) — now carrying the C-track flag alone after C1's refutation. Its honest shape post-verdicts: a conservation-law calculus whose near-term theorems (Sector II separations, first theorem at referee-estimated ~0.8 provability) are real but classical-adjacent, whose Sector I must first prove its own confinement theorem, and whose decisive uncertainty (M5 coupling at the Montgomery extremal) has a cheap early experiment that MUST be scheduled first. The single-defect exponential-visibility regime and the Λ(n) ≥ 0 axiom-P architecture remain the program's best-aligned S1/S2 assets (cross-link: C1 salvage — containment theorem + ghost-term EF — feeds directly into this direction's sum-rule system; B2's distinguishing-statistics program shares the M6 detector question).
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_

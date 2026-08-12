@@ -1,6 +1,6 @@
 # A2:richer-functionals: Breaking the pair ceiling from inside: unconditional mixed-window triple-correlation traces and a cubic rank-trace certificate
 
-**Status:** proposed
+**Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree; killer score notably low)
 **Track:** A (advance machinery)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.75
@@ -65,13 +65,19 @@ M1: exact price of the triple-correlation upgrade (a number, p0^(3)), the dual c
 - Bridge formality: the 'certificate valid at the law' bridge must be restated for multilinear certificates (a paper-level remark in the pair case); sloppy scoping here would invalidate the ceiling comparison, so M5 formalizes it.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** survives-with-repairs, score 4. Major: Lemma C's sign-indefinite cross term tr(P²Q) re-opens the λ_max/Lindelöf branch of the recorded odd-moment no-go (tx_081), unaddressed in the evasion table; the "mixed-window corner" novelty rests on the paper's crude equal-window accounting and is contradicted by the campaign's own sharper record (tx_081: odd-moment Fourier support reaches (k−1)λ, so k=3 is admissible on the whole useful range with EQUAL windows — never reconciled); M1's LP overstates the provable data class (uniform-tolerance rows vs product-kernel functionals each with its own o(1)) so the go/no-go readout is biased toward "go"; the "first unconditional triple correlation" headline rests on an unverified negative claim about Rudnick–Sarnak 1996 that tx_081 contradicts (RS n-level correlations recalled as unconditional for zeta). Minor: the 7.5(g) proof-of-concept uses the OPPOSITE certificate direction (convex/Schur–Horn, automatic) from the proposal's concave branch.
+- **Referee:** survives-with-repairs, score 6.5. Major: T1's "first" hinges entirely on the unverified RS96 reading; support bookkeeping conflates window-sum with kernel simplex support and the flagship (0.98, 0.5, 0.5) example is numerically wrong (reaches only |ξ| ≤ 0.74); Lemma C is substantially harder than "one new piece of linear algebra" (mixed triple trace is not an odd moment of a single Hermitian matrix; Schur–Jensen pillar doesn't cover it; 7.5(g) PSD assumption fails exactly when Q is nonempty). Minor: pair-only LP dual "free by-product" conflates LP value-optimality with certificate validity; M4's δ_s payoff least-supported; AH-refutation "first" needs a literature check. Verified-correct core: Diaconis–Shahshahani exactness, composite-frequency MV arithmetic, artifact constants.
+- **No conflict — no adjudication needed. Consensus: survives-with-repairs, ~5.25 (killer 4 / referee 6.5).**
+
+**Mandatory repairs (merged):** (1) MONTH-0 BLOCKER: resolve tx_081 vs σ<2 discrepancy on the equal-window k=3 range AND the unconditional status of Rudnick–Sarnak 1996 (and Hejhal 1994) against the originals before any M2 spend — if RS is unconditional, recast M2 as "Gram-trace packaging with explicit errors, mixed-window kernel cone" and delete "first unconditional triple correlation" from the payoff ledger (this is exactly the sponsor's prior-art gate: check the tier-1 source, not memory); (2) add the λ_max lock (tx_081 second branch) to the obstruction table with a real evasion or concede the intermediate-depth regime; (3) fix the support bookkeeping (σ_min = Σ|ξ_i|; correct the false example; LP prices the actual accessible u-space box products with edge-retreat study); (4) rebuild Lemma C honestly (the concave branch is the real new linear algebra — budget it as such); (5) reframe T1's novelty on the BGSTB precedent.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-13 (Session 4): Phase-4 verdicts written up (no conflict). Survives with repairs; repairs merged above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+Survives, but weakest of the Track-A survivors (consensus ~5.25) and gated: nothing should be spent before repair (1) — the RS96/tx_081 prior-art resolution — since both the headline novelty and the M2 payoff hang on it. If RS96 is unconditional for zeta, this direction largely collapses into packaging work whose value is the mixed-window kernel cone + cubic certificate algebra as instruments for other directions (cross-link: A3's family certificates, B4's LP rows).
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_

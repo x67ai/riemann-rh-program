@@ -1,6 +1,6 @@
 # C1:requirements-first-field: Tilted Reflection Positivity: the index ladder of the de Branges tilt, the negativity body of Re xi'/xi, and depth-direction complete monotonicity
 
-**Status:** proposed
+**Status:** REFUTED (Phase 4 adjudicated)
 **Track:** C (new field)
 **Last touched:** 2026-08-11
 **Designer confidence (first theorem provable ~2y):** 0.6
@@ -72,13 +72,19 @@ Near term (1-2 years): unconditional theorems publishable now — the anchoring/
 - The milestone-3 calibrator could reveal a genuine no-go: an RH-false zero-configuration matching ALL prime-computable tilted-EF data at every a-level (a depth-direction analogue of the 256-law). That would bound the field the way PairCeiling bounds bandwidth methods. Building the calibrator early is the honest stress test — and even that negative result would be a publishable, formalizable theorem delimiting exactly which depth data any future RH machinery must consume.
 
 ## Verification verdicts (Phase 4)
-_(pending)_
+
+- **Killer:** REFUTED, score 2. Fatal 1: the master tilted explicit formula is false as stated for any a below the depth of any in-window zero — its ghost-free validity at level a is EQUIVALENT to the very quasi-RH(a) it is meant to prove; the correction is a cosh ghost of envelope X^{β−a} (the visibility wall reinstated). Fatal 2: the claimed new data coordinate does not exist — every prime-computable tilted-EF observable lies inside the classical bandwidth-log X Weil-EF data class (multiplier (1/2)ĥ_w(u)e^{−(a−1/2)|u|} bounded below on the band), and the depth-CM generator G2 is information-free by analytic continuation from a single band: the S4 trap ("Weil positivity in disguise") verbatim. Major: κ_a possibly infinite for every a<1 (DH provably κ=∞ at rung one — M2's validation model is void); M4 margin propagation is Vinogradov–Korobov in disguise, and DMV Beurling worlds violate any inequality derivable from OS_κ+depth-CM alone. Minor: the 0.046(a−1/2) margin law is a low-t boundary artifact (= 2(a−1/2)Σγ⁻²); first-theorem constants fail until t₀ ~ 10¹³; prior art on the u>0 reformulation undercounted.
+- **Referee:** survives-with-repairs, score 5.5. Independently found the SAME master-formula falsity (silently assumes quasi-RH(a)) plus T2 false as stated (deep zeros invisible on a shallow segment), κ_a well-definedness open, and the ideal-vs-visible gap in the S2 evasion — but proposed carrying the correction as an O(1) sign-definite unknown in each LP and a σ-grid repair, judging the architecture intact.
+- **ADJUDICATION (binding): REFUTED, final score 2.5.** (`results/adjudication-C1.json`) Both fatal killer findings upheld, zero overruled. The adjudicator independently re-derived the correction term and found the KILLER quantitatively right and the referee's repair mathematically unsound: the true correction is w evaluated at complex points γ ± i(β−a) — oscillatory, exponentially large in the cutoff (envelope ~X^{β−a}), NOT a constant jump — so detection needs X ~ T^c, the canon's visibility wall exactly. The data-class containment argument was verified airtight; G2's multi-a constraints follow from single-band data by analytic continuation. The referee's "verified" counter addressed only the formal scope of the 0.6818 ceiling theorem — talking past the killer. With G1 instanceless (κ_a finiteness open everywhere, DH κ=∞) and G2 empty, both advertised positivity generators are gutted; the S4/S5 escape claims are false for everything the method can compute. The salvage is real but classical.
+
+**Salvage (from adjudication, mandatory for any successor):** (i) the honest deliverable is the CONTAINMENT THEOREM itself — the full (a,w)-family of prime-computable tilted-EF observables at cutoff X lies inside the classical bandwidth-log X Weil-EF data class: a depth-direction delimitation theorem, formalizable on existing Lean seams (the depth-analogue of the bandwidth ceiling); (ii) M1 anchoring/transfer survives as a standalone classical note (real constants: Trudgian/Hasanalizade–Shen–Wong; prior art: Sondow–Dumitrescu 2010, Matiyasevich–Šaidak–Zvengrowski, Suzuki canonical systems, Kaltenbäck–Woracek; σ-grid form of T2); (iii) any successor must state the tilted EF WITH the cosh ghost term and record ghost-free ⟺ quasi-RH(a) — and must NOT propagate the referee's O(1) correction formula, which is wrong; (iv) the Pontryagin/OS_κ layer is gated behind the open hypothesis κ_a < ∞; DH may serve only as the rung-one S1 separator; (v) no M4-type margin propagation from the OS+CM axioms alone — the axiom system must first add a quantitative input that DMV Beurling worlds violate; (vi) retract the margin-law numerics claim.
 
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
+- 2026-08-13 (Session 4): Phase-4 verdicts + adjudication in. REFUTED (killer upheld in full). Salvage recorded above.
 
 ## Current frontier
-Awaiting Phase-4 adversarial verification.
+REFUTED (adjudicated 2026-08-13). Do not resume as stated. Residual value to harvest: the containment/delimitation theorem (Lean-formalizable, delimits which depth data ANY future method must consume — feeds the program's no-go library), the anchoring/transfer note, and the corrected ghost-term form of the tilted EF as a reusable instrument. The requirements-first METHODOLOGY (S1–S5 as design spec) remains sound — the failure is C1's instantiation, whose two generators turned out to be Weil-cone reparametrization + empty index theory. Successor design must find a genuinely new positivity generator (cross-link: C2 conservation-laws, B3 tilt-jets ζ′(ρ)-mass question from B1 salvage).
 
 ## Dependencies / cross-links
 _(to be filled at synthesis)_
