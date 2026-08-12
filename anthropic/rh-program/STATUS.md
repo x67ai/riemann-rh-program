@@ -81,12 +81,9 @@ Full prompts: in the workflow scripts (paths below).
 - S4 A new positivity GENERATOR, not just a bigger Weil-positivity cone (algebraic: Hodge index/ampleness; analytic: reflection positivity/complete monotonicity; combinatorial: Lorentzian polynomials; probabilistic: determinantal/negative association).
 - S5 Survive the named no-gos: AH world, Bombieri–Garrett 94%, parity, Conrey–Li, Λ ≥ 0, bandwidth/two-moment ceilings.
 
-## PAUSED 2026-08-12 ~00:15 (Session-3 close, user break). Nothing is running. Resume actions, in order:
+## Session 4 ACTIVE (2026-08-13). Step 1 (three parallel launches) DONE — see Live tasks. Remaining actions, in order:
 
-1. Launch ALL THREE in parallel:
-   - `Workflow({scriptPath: "<rh-program>/scripts/rh-verify-remaining.js", resumeFromRunId: "wf_c56fc2c4-de4"})` — the 6 verdicts are journal-cached; ONLY the completeness critic re-runs (~1 agent).
-   - `Workflow({scriptPath: "<rh-program>/scripts/rh-a4-design-verify.js", resumeFromRunId: "wf_696be498-405"})` — nothing cached (designer died mid-run for the 3rd time); full 3-agent chain re-runs.
-   - C1 adjudicator: single background `general-purpose` agent, prompt = `scripts/adjudicator-prompt-template.md` with {ID}=C1, {PROPOSAL}=C1:requirements-first-field, {DIRECTION_FILE}=C1-requirements-first-field.md, killer 2 / referee 5.5, TRACK B/C VARIANT paragraph. Input file `results/adjudication-input-C1.json` already exists.
+1. ✅ Launched 2026-08-13: `rh-verify-remaining` resumed (run wf_c56fc2c4-de4, task wgor6l5ij — cross-session resume accepted; verify cached verdicts actually loaded at harvest); `rh-a4-design-verify` fresh launch (run wf_bd1987b4-86e, task w23cxecgi — nothing was cached from wf_696be498-405); C1 adjudicator single agent launched (template prompt, killer 2 / referee 5.5, Track-B/C variant).
 2. Save C1 adjudication → `results/adjudication-C1.json`; write verdict sections + flip statuses in directions/ for A2, B4, C1, C2 (pattern: see A1/A3/B1/B2/B3 files; full verdicts in `results/verdicts.json`).
 3. When A4 lands: merge design into `results/design-proposals.json`, create `directions/A4-lindelof-lock.md` (template: any sibling), write its verdict section; adjudicate if killer/referee conflict. Merge A4 kill/ref + completeness critic into `results/verdicts.json`.
 4. Phase 5 synthesis: rank per sponsor directive (Track B/C headline; A = instruments; refutation channels separate from proof channels), write prospectus, load artifact-design skill BEFORE writing the page, publish artifact, save source copy into rh-program/, append LOG.md entry. Include the B1/A1 salvage lists (adjudication files) — refutations are first-class results.
@@ -94,6 +91,9 @@ Full prompts: in the workflow scripts (paths below).
 
 ## Live/completed background tasks (session-specific paths — data persists on disk after session death)
 
+- Session 4 (2026-08-13): `rh-verify-remaining` RESUMED cross-session, run wf_c56fc2c4-de4, task wgor6l5ij — journal now under `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann/681e59d0-6fa3-4756-87a4-cfc6699560d3/subagents/workflows/wf_c56fc2c4-de4/`. **RUNNING at last update.** At harvest: confirm the 6 verdicts came from cache (they are already in `results/verdicts.json` regardless — only the completeness critic output is new information).
+- Session 4 (2026-08-13): `rh-a4-design-verify` FRESH launch (4th attempt), run wf_bd1987b4-86e, task w23cxecgi — journal under `.../681e59d0-6fa3-4756-87a4-cfc6699560d3/subagents/workflows/wf_bd1987b4-86e/`. **RUNNING at last update.**
+- Session 4 (2026-08-13): C1 adjudicator, single background general-purpose agent. **RUNNING at last update.** On completion: save JSON → `results/adjudication-C1.json`, write verdict section into `directions/C1-requirements-first-field.md`, flip status.
 - Session 3 (2026-08-11/12): `rh-verify-remaining`, run wf_c56fc2c4-de4 — first attempt orphaned by machine sleep (process died); relaunched with resume, **STOPPED at Session-3 close with 6/6 verdicts journaled (harvested to verdicts.json); completeness critic was mid-run**. Journal snapshot: `results/journals/wf_c56fc2c4-de4.session3.journal.jsonl`; live journal under `~/.claude/projects/-Users-jaytyagi-Documents-Work-2026-Math-riemann/8ec1ce13-3e65-43c8-94d0-4e8b3d797d80/subagents/workflows/wf_c56fc2c4-de4/`. RESUME with resumeFromRunId wf_c56fc2c4-de4.
 - Session 3 (2026-08-11/12): `rh-a4-design-verify`, run wf_696be498-405 — orphaned by sleep, relaunched, **STOPPED at Session-3 close, 0 results (designer mid-run; 3rd death)**. Journal snapshot: `results/journals/wf_696be498-405.session3.journal.jsonl`. RESUME with resumeFromRunId wf_696be498-405 (nothing cached — full re-run).
 - Session 3: A1 + B1 adjudicators (single agents): **DONE** → `results/adjudication-{A1,B1}.json`, both REFUTED (2). Prompt preserved in `scripts/adjudicator-prompt-template.md`.
