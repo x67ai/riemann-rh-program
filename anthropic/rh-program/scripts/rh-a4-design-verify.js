@@ -119,7 +119,9 @@ Findings must carry full technical arguments. Return via StructuredOutput with l
 ${proposalJson}`
 
 phase('Design')
-const design = await agent(A4_BRIEF, { label: 'A4:lindelof-lock', phase: 'Design', schema: SCHEMA })
+// effort pinned below the session's ultracode inherit: extended thinking counts toward the same
+// 64k per-response output cap that killed attempts 4 and 5 before the JSON was even emitted.
+const design = await agent(A4_BRIEF + '\n\nDELIVERY CONSTRAINT: produce the StructuredOutput call directly — do NOT write the design as a long plain-text message first and then re-emit it as JSON; every response you send must stay well under the output ceiling.', { label: 'A4:lindelof-lock', phase: 'Design', schema: SCHEMA, effort: 'high' })
 if (!design) return { design: null, kill: null, ref: null, error: 'designer returned null' }
 log('A4 design landed: ' + design.title)
 
