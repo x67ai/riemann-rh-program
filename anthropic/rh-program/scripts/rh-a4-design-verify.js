@@ -14,21 +14,21 @@ const SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['title', 'thesis', 'mechanism', 'novelty', 'evades_obstructions', 'first_theorem', 'milestones', 'lean_hook', 'numerics', 'payoff', 'failure_modes', 'confidence'],
   properties: {
-    title: { type: 'string' },
-    thesis: { type: 'string', description: 'one-sentence claim of the approach' },
-    mechanism: { type: 'string', description: 'the mathematical mechanism in full technical detail: objects, formulas, why it should work' },
-    novelty: { type: 'string', description: 'exactly what is new relative to the literature; cite specific papers it goes beyond' },
+    title: { type: 'string', maxLength: 200 },
+    thesis: { type: 'string', maxLength: 800, description: 'one-sentence claim of the approach' },
+    mechanism: { type: 'string', maxLength: 18000, description: 'the mathematical mechanism in dense technical prose: objects, formulas, why it should work — state results, do not transcribe derivations' },
+    novelty: { type: 'string', maxLength: 6000, description: 'exactly what is new relative to the literature; cite specific papers it goes beyond' },
     evades_obstructions: {
       type: 'array',
       items: { type: 'object', additionalProperties: false, required: ['obstruction', 'how'], properties: { obstruction: { type: 'string' }, how: { type: 'string' } } },
       description: 'for each relevant known no-go (DH/Epstein filter, AH, bandwidth-one ceiling, lemmaR_tight, dimension cap, kappa>=2/sqrt3, Bombieri small-support, Bombieri-Garrett 94%, parity, Conrey-Li, Lambda>=0), how the approach evades it or why it is out of scope',
     },
-    first_theorem: { type: 'string', description: 'the single well-posed first theorem to attempt: precise statement, current status of the needed inputs, sketch of attack' },
-    milestones: { type: 'array', items: { type: 'string' }, description: 'ordered ladder of 3-6 milestones from first theorem toward the horizon goal' },
-    lean_hook: { type: 'string', description: 'which Zeta23 components to reuse/extend, and what the first formalizable statement would be' },
-    numerics: { type: 'string', description: 'a concrete numerical experiment runnable now (Wolfram/Python scale) that would provide evidence for or against the mechanism' },
-    payoff: { type: 'string', description: 'what improves if each milestone lands: constants, statements, or refutation channels' },
-    failure_modes: { type: 'array', items: { type: 'string' } },
+    first_theorem: { type: 'string', maxLength: 12000, description: 'the single well-posed first theorem to attempt: precise statement, current status of the needed inputs, sketch of attack' },
+    milestones: { type: 'array', items: { type: 'string', maxLength: 1500 }, description: 'ordered ladder of 3-6 milestones from first theorem toward the horizon goal' },
+    lean_hook: { type: 'string', maxLength: 4000, description: 'which Zeta23 components to reuse/extend, and what the first formalizable statement would be' },
+    numerics: { type: 'string', maxLength: 5000, description: 'a concrete numerical experiment runnable now (Wolfram/Python scale) that would provide evidence for or against the mechanism' },
+    payoff: { type: 'string', maxLength: 5000, description: 'what improves if each milestone lands: constants, statements, or refutation channels' },
+    failure_modes: { type: 'array', items: { type: 'string', maxLength: 1500 } },
     confidence: { type: 'number', description: 'probability in [0,1] that first_theorem is provable within ~2 years by a strong group' },
   },
 }
@@ -47,7 +47,9 @@ HARD DESIGN CONSTRAINTS (your proposal MUST address these explicitly in evades_o
 - Literature no-gos: Bombieri small-support Weil positivity is unconditional (so small cones prove nothing); Bombieri-Garrett ~94% pseudo-Laplacian spectral cap; parity problem for sieve-only routes; Conrey-Li counterexamples to de Branges positivity conditions; Rodgers-Tao Lambda >= 0 (no sub-critical margin); Radziwill mollifier limitations.
 - Campaign residue: ~30 refuted routes in the transcript; per-pair quadratic integrality pricing is FALSE (G1-G4); the Pontryagin negative-index counting route is structurally empty; "every attempted route's first substantive step was Weil positivity in disguise" — if yours is too, say exactly what NEW leverage you add.
 
-QUALITY BAR: Be a designer, not a surveyor. Commit to ONE mechanism and develop it in depth with formulas and precise statements. The first_theorem must be genuinely well-posed (a statement a referee could evaluate), not a restatement of a famous conjecture. Prefer theorems whose INPUTS are already proven or provably within reach. It is acceptable — encouraged — for the horizon goal to be partial (better proportions, new equivalences, refutation channels) as long as the direction is novel and the first step is real. Do not fabricate literature; if you rely on a recalled result, flag it for verification. Return via StructuredOutput.`
+QUALITY BAR: Be a designer, not a surveyor. Commit to ONE mechanism and develop it in depth with formulas and precise statements. The first_theorem must be genuinely well-posed (a statement a referee could evaluate), not a restatement of a famous conjecture. Prefer theorems whose INPUTS are already proven or provably within reach. It is acceptable — encouraged — for the horizon goal to be partial (better proportions, new equivalences, refutation channels) as long as the direction is novel and the first step is real. Do not fabricate literature; if you rely on a recalled result, flag it for verification. Return via StructuredOutput.
+
+HARD OUTPUT BUDGET (previous designer attempts DIED exceeding the 64k output-token response ceiling — this is why you are being re-run): your ENTIRE StructuredOutput must total under 50,000 characters, and the schema enforces per-field maxLength caps. Write the densest technical prose you can: state the exponents and inequalities you derive and the method that yields them, but do NOT transcribe long derivations, tables, or exploratory dead ends into the output — derive in your head/scratch, report conclusions with enough detail for a referee to re-derive. If forced to choose, spend your budget on mechanism and first_theorem.`
 
 const A4_BRIEF = `${COMMON}
 
