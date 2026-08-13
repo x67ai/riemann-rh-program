@@ -121,3 +121,23 @@ Entry template:
 **New artifacts:** results/{adjudication-C1,adjudication-A2,adjudication-input-A2,verdicts-run2,completeness-critic,grossmann-sweep,grossmann-sweep2-partial}.json, results/decisive-tests/arxiv-2606-body-read.json, results/ccm-dh-test/ (code+outputs), FETCH-LIST.md, scripts/{rh-grossmann-sweep,rh-grossmann-sweep2}.js, 4 fetched/rescued PDFs + 2606 full text in sources-extracted/, journal snapshots, standing orders 1–6.
 
 **Open at close:** Nothing running. Session 5, in order: (1) ingest sponsor PDFs per FETCH-LIST.md; (2) launch A4 attempt 6 (fresh, script fixed); (3) CCM DH-filter finisher agent (interpret results/ccm-dh-test/, write results/decisive-tests/ccm-dh-filter.json); (4) wave-2 relaunch per handoff; (5) Phase 5: portfolio restructure (A2+A4 merge; commission geometric-substrate Track-C direction + computational Λ>0 arm) + prospectus.
+
+## Session 4.5 — 2026-08-13 (evening) — fetch-corpus verification ONLY (sponsor directive: no RH work; todos stay put)
+
+**Focus:** Independent verification of the sponsor's 174-PDF delivery (`fetched/` + `FETCH-LIST-RESPONSE.md`) against FETCH-LIST.md, under the corpus rules (R-1: Claude-vision only, zero third-party OCR — Tesseract banned after the w-07 audit showed it destroyed every displayed formula).
+
+**Done:**
+- **Mechanical sweep (pypdf, all 174 files):** 174/174 valid PDFs, §9 index matched 1:1, ZERO page-count mismatches, filename-vs-content confirmed wherever a text layer exists. Two cosmetic §9 header typos (P3 is 32 not 33; X is 25 not 24; they cancel).
+- **15-agent verification workflow** (7 vision-identity, 6 quote-fidelity, 2 spot-check; ~549k tokens; all effort-pinned 'high' per the 64k lesson — zero overflows): **CORPUS ACCEPTED.** Full report: `FETCH-VERIFICATION.md`; raw: `results/fetch-verification-{sweep,agents}-2026-08-13.json`.
+- **All three load-bearing response findings verified against sources:** Conrey–Li §4 read (12/12 checks, constants digit-for-digit, counterexamples unnumbered, no Weil/Li/Krein/Pontryagin content); Lagarias w-07 Theorem 1 transcription VERBATIM by vision (§3's B3-novelty identification stands); Haagerup w-21 booklet by vision (p. 3 abstract = expository Odlyzko survey — the §6 conversion from "silence" to "documented, expository" stands).
+- **§8 pending question ANSWERED: w-05 (Suzuki JFA 279) contains NO local/Borg–Marchenko uniqueness** (checked every theorem; bibliography lacks Langer–Woracek/Kaltenbäck–Woracek) → B3 gap 1 stands; the Langer–Woracek line is the ONE new load-bearing fetch item.
+- **Corrections recorded (none reverses a conclusion):** w-08 Cor 2/Thm 1 inequalities are NON-STRICT (response's "verbatim" quote wrote >/<); CGG assumes RH+GLH and BHB removes GLH (not GRH); §7's vision-needed list is 9 files not 5 (add w-21, x-16 glyph-soup; x-01a/b GDZ image-only); Zagier internal range 312–341 (+10 folio offset) and a y²-for-y^s typo in the volume's re-typeset layer; y-24 on disk is arXiv v1 (2023) with NO Acta Arith imprint (its "published error terms" claim unauditable from disk — y-23 routing already avoids it); y-23's 0.67250064/0.34500129 are the b=0.001 table row, not a literal b→0 limit.
+- **Sufficiency verdict: corpus SUFFICIENT for the whole Session-5 queue** (A4 attempt 6, CCM finisher, wave-2, merges, Phase 5). Remaining fetches: Langer–Woracek line (load-bearing, B3 only), MathSciNet (needs sponsor login; zbMATH hit LISTS not on disk, only counts), P3 optionals (published y-24, Hilberdink corrigendum, FGL JLMS 2014, Clausen videos).
+- **Environment change (disclosed):** a verification agent installed poppler 26.08.0 via Homebrew mid-run — the Read tool now renders PDF pages natively (benefits all future vision reads). Also recorded: w-05b's embedded TIFFs are stored top-bottom-flipped (transcription pipeline must flip).
+- **64k question re-confirmed for sponsor:** diagnosis + 3-layer fix in writing (LOG Session 4, STATUS lines 96/107); `.claude/settings.json` CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000 verified present and active this session.
+
+**Decisions:** fetched/ (~350 MB) stays untracked; git disposition is an ingest-time call (resume action 0). FETCH-LIST.md checkboxes left un-ticked — ingest (rename → sources-extracted, check-off, routing) remains Session-5 action 0 per sponsor's "todos stay put".
+
+**New artifacts:** FETCH-VERIFICATION.md, results/fetch-verification-sweep-2026-08-13.json, results/fetch-verification-agents-2026-08-13.json; FETCH-LIST-RESPONSE.md (sponsor's, now tracked).
+
+**Open at close:** unchanged from Session 4 — Session-5 resume actions 0–6 in STATUS.md, now with a verified corpus and one added fetch item.
