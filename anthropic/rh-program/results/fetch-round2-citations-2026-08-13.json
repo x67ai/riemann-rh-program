@@ -1,0 +1,424 @@
+{
+  "summary": "Pin exact citations + free-copy locations for every Round-2 fetch item (no recalled bibliography)",
+  "agentCount": 6,
+  "logs": [
+    "6/6 citation agents returned"
+  ],
+  "result": {
+    "returned": 6,
+    "groups": [
+      [
+        {
+          "key": "langer-woracek-2011-local-inverse",
+          "status": "verified",
+          "citation": "Matthias Langer, Harald Woracek, \"A local inverse spectral theorem for Hamiltonian systems\", Inverse Problems 27 (2011), no. 5, 055002, 17 pp.",
+          "doi": "10.1088/0266-5611/27/5/055002",
+          "freeUrl": "https://web.archive.org/web/20220925044752/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2011/lokinv.pdf",
+          "fetchUrl": "https://doi.org/10.1088/0266-5611/27/5/055002",
+          "notes": "This IS the local Borg-Marchenko-type theorem for 2x2 canonical/Hamiltonian systems: exponentially close Titchmarsh-Weyl coefficients imply Hamiltonians coincide up to reparameterization on an initial interval. No arXiv version exists. Woracek's old ASC/TU Wien homepage and preprint server are offline (all URLs now redirect to tuwien.at/mg/asc); preprint recovered via Wayback Machine — I downloaded it and verified title/authors on page 1. zbMATH 1220.34019."
+        },
+        {
+          "key": "langer-woracek-2023-two-singular-endpoints",
+          "status": "verified",
+          "citation": "Matthias Langer, Harald Woracek, \"Direct and inverse spectral theorems for a class of canonical systems with two singular endpoints\", in: Function Spaces, Theory and Applications (I. Binder et al., eds.), Fields Institute Communications 87, Springer, Cham, 2023, pp. 105-205.",
+          "doi": "10.1007/978-3-031-39270-2_5",
+          "arxiv": "1510.02635",
+          "freeUrl": "https://arxiv.org/abs/1510.02635",
+          "fetchUrl": "https://doi.org/10.1007/978-3-031-39270-2_5",
+          "notes": "The other Langer-Woracek local-uniqueness paper: abstract explicitly states both a global uniqueness theorem and a LOCAL uniqueness theorem, here for singular Weyl coefficients of canonical systems with two singular endpoints. arXiv v1 2015, v2 Sep 2023. zbMATH 1544.34153. No other Woracek paper carries 'Borg-Marchenko' in its title (checked zbMATH title search)."
+        },
+        {
+          "key": "romanov-woracek-2020-discrete-spectrum",
+          "status": "verified",
+          "citation": "Roman Romanov, Harald Woracek, \"Canonical systems with discrete spectrum\", Journal of Functional Analysis 278 (2020), no. 4, 108318, 44 pp.",
+          "doi": "10.1016/j.jfa.2019.108318",
+          "arxiv": "1904.03662",
+          "freeUrl": "https://arxiv.org/abs/1904.03662",
+          "fetchUrl": "https://doi.org/10.1016/j.jfa.2019.108318",
+          "notes": "Direct-spectral-side paper (discreteness criterion + eigenvalue distribution; depends only on diagonal entries of H), not an inverse-uniqueness paper. zbMATH 1464.37056. Wayback also has the journal-version preprint (romanov-woracek__ideal.pdf, 2020) from Woracek's defunct homepage. Companion announcement: Romanov-Woracek, \"Canonical systems in classes of compact operators\", Trends Math. Res. Perspect. CRM Barc. 12 (2021), 207-209, DOI 10.1007/978-3-030-74417-5_26."
+        },
+        {
+          "key": "romanov-2014-canonical-debranges-notes",
+          "status": "verified",
+          "citation": "Roman Romanov, \"Canonical systems and de Branges spaces\", arXiv:1408.6022 [math.SP] (2014), lecture notes; preprint only, no journal publication found (zbMATH lists it as Preprint, arXiv:1408.6022).",
+          "arxiv": "1408.6022",
+          "freeUrl": "https://arxiv.org/abs/1408.6022",
+          "notes": "Closest verified Romanov inverse-side reference: survey/lecture notes covering the de Branges inverse spectral theory (including the global uniqueness theorem) for canonical systems. I found no separate Romanov or Romanov-Woracek journal paper proving an inverse-side uniqueness theorem for canonical systems (zbMATH query au:Romanov,Roman & ti:canonical returns only this, the JFA 2020 paper, and the CRM abstract)."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-1",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions I\", Integral Equations and Operator Theory 33 (1999), no. 1, 34-97.",
+          "doi": "10.1007/BF01203081",
+          "freeUrl": "https://web.archive.org/web/20230127213408/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/1999/Db-IEOT.pdf",
+          "fetchUrl": "https://doi.org/10.1007/BF01203081",
+          "notes": "zbMATH 0928.46011. Wayback preprint downloaded and verified: title page reads 'PONTRYAGIN SPACES OF ENTIRE FUNCTIONS I, M.Kaltenbäck, H.Woracek' (file Db-IEOT.pdf on the defunct homepage)."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-2",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions II\", Integral Equations and Operator Theory 33 (1999), no. 3, 305-380.",
+          "doi": "10.1007/BF01230736",
+          "freeUrl": "https://web.archive.org/web/20220925045749/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/1999/p2db-IE.pdf",
+          "fetchUrl": "https://doi.org/10.1007/BF01230736",
+          "notes": "zbMATH 0928.46012. Wayback preprint downloaded and title page verified."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-3",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions III\", Acta Scientiarum Mathematicarum (Szeged) 69 (2003), no. 1-2, 241-310.",
+          "freeUrl": "https://web.archive.org/web/20220925043058/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2003/p3dbj.pdf",
+          "notes": "zbMATH 1027.46024; no DOI listed there (pre-Springer Acta Sci. Math. volume). Wayback preprint downloaded and title page verified. Acta Sci. Math. back issues are also freely served by the Szeged university library (acta.bibl.u-szeged.hu) — not individually verified for this article."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-4",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions IV\", Acta Scientiarum Mathematicarum (Szeged) 72 (2006), no. 3-4, 709-835.",
+          "freeUrl": "https://web.archive.org/web/20220925043141/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2006/p4db.pdf",
+          "notes": "zbMATH 1122.47039; no DOI listed. Wayback preprint downloaded and title page verified. This is the part defining indefinite canonical systems and their Pontryagin-space operator model."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-5",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions V\", Acta Scientiarum Mathematicarum (Szeged) 77 (2011), no. 1-2, 223-336.",
+          "doi": "10.1007/BF03651372",
+          "freeUrl": "https://web.archive.org/web/20220925050020/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2011/p5db.pdf",
+          "fetchUrl": "https://doi.org/10.1007/BF03651372",
+          "notes": "zbMATH 1262.47067. Wayback preprint downloaded and title page verified. Note the series' publication order: V (2011) appeared after VI (2010)."
+        },
+        {
+          "key": "kaltenbaeck-woracek-pontryagin-6",
+          "status": "verified",
+          "citation": "Michael Kaltenbäck, Harald Woracek, \"Pontryagin spaces of entire functions VI\", Acta Scientiarum Mathematicarum (Szeged) 76 (2010), no. 3-4, 511-560.",
+          "doi": "10.1007/BF03549841",
+          "freeUrl": "https://web.archive.org/web/20220925044437/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2010/p6db.pdf",
+          "fetchUrl": "https://doi.org/10.1007/BF03549841",
+          "notes": "zbMATH 1240.34041 gives pages 511-560 (a web-search snippet claiming '510-566' is wrong). Wayback preprint downloaded and title page verified: this part proves the indefinite analogue of de Branges' Inverse Spectral Theorem — the uniqueness/inverse result of the series."
+        }
+      ],
+      [
+        {
+          "key": "krein-langer-1977-fortsetzungsprobleme-I",
+          "status": "verified",
+          "citation": "M.G. Krein, H. Langer, \"Über einige Fortsetzungsprobleme, die eng mit der Theorie hermitescher Operatoren im Raume Πκ zusammenhängen. I. Einige Funktionenklassen und ihre Darstellungen\", Math. Nachr. 77 (1977), 187–236.",
+          "doi": "10.1002/mana.19770770116",
+          "fetchUrl": "https://doi.org/10.1002/mana.19770770116",
+          "notes": "Confirmed via Crossref (Crossref renders Πκ garbled as 'II_x'; correct reading is Raume Πκ). German. This is the foundational paper introducing the classes (incl. N_kappa) with Pontryagin-space operator representations. It heads a multi-part series; search results also cite Part II in J. Funct. Anal. 30 (1978) 390–447 and Part III in Beiträge Anal. 14 (1979) 25–40 (those two not independently verified). No free copy (Unpaywall: closed)."
+        },
+        {
+          "key": "krein-langer-1981-acta-szeged-matrix-functions",
+          "status": "verified",
+          "citation": "M.G. Krein, H. Langer, \"Some propositions on analytic matrix functions related to the theory of operators in the space Πκ\", Acta Sci. Math. (Szeged) 43 (1981), no. 1–2, 181–205.",
+          "freeUrl": "http://acta.bibl.u-szeged.hu/14808/1/math_043_fasc_001_002_181-205.pdf",
+          "notes": "Verified against the Szeged institutional repository (item acta.bibl.u-szeged.hu/14808), which hosts a free PDF; English-language. Companion paper carrying the matrix-function/factorization side of N_kappa theory (Krein–Langer factorization). No DOI exists (pre-DOI journal). The load-bearing scalar N_kappa theory is in the 1977 Math. Nachr. paper; this 1981 paper is the standard companion citation."
+        },
+        {
+          "key": "luger-2015-survey-generalized-nevanlinna",
+          "status": "verified",
+          "citation": "A. Luger, \"Generalized Nevanlinna Functions: Operator Representations, Asymptotic Behavior\", in: D. Alpay (ed.), Operator Theory, Springer, Basel, 2015, pp. 345–371.",
+          "doi": "10.1007/978-3-0348-0667-1_35",
+          "fetchUrl": "https://doi.org/10.1007/978-3-0348-0667-1_35",
+          "notes": "Standard modern English survey of N_kappa / Krein–Langer theory. Title, author, container 'Operator Theory' (Springer Basel, 2015, pp. 345–371) confirmed via Crossref; editor D. Alpay from Springer reference-work listing. Living-edition versions exist as chapters 978-3-0348-0692-3_35-1/-2. No free copy found (Unpaywall: closed; nothing on arXiv or Luger's pages located)."
+        },
+        {
+          "key": "langer-1982-definitizable-krein-spaces",
+          "status": "verified",
+          "citation": "H. Langer, \"Spectral functions of definitizable operators in Krein spaces\", in: Functional Analysis (Dubrovnik, 1981), Lecture Notes in Mathematics 948, Springer, Berlin–Heidelberg, 1982, pp. 1–46.",
+          "doi": "10.1007/BFb0069840",
+          "fetchUrl": "https://doi.org/10.1007/BFb0069840",
+          "notes": "Second (classic, heavily cited) English survey — covers the indefinite-inner-product operator-theory side (definitizable operators in Krein spaces) that underpins N_kappa representations, complementing Luger's function-theoretic survey. Author/title/series/pages confirmed via Crossref. No free copy located."
+        },
+        {
+          "key": "krein-langer-2014-continuation-hermitian-ieot",
+          "status": "verified",
+          "citation": "M.G. Krein, H. Langer, \"Continuation of Hermitian Positive Definite Functions and Related Questions\", Integral Equations Operator Theory 78 (2014), no. 1, 1–69.",
+          "doi": "10.1007/s00020-013-2091-z",
+          "fetchUrl": "https://doi.org/10.1007/s00020-013-2091-z",
+          "notes": "w-05 ref [16] confirmed: IEOT vol. 78, issue 1 (2014), pp. 1–69 (online 2013), per Crossref + Springer. Posthumous publication of a Krein–Langer manuscript (Krein d. 1989); Langer's memorial (IEOT 2024) confirms Langer's late translation/editorial program with A. Dijksma making untranslated Krein works available in English. No open-access copy (Unpaywall: closed)."
+        }
+      ],
+      [
+        {
+          "key": "griffiths-hurst-sherman-1970",
+          "status": "verified",
+          "citation": "Robert B. Griffiths, C. A. Hurst, and S. Sherman, \"Concavity of Magnetization of an Ising Ferromagnet in a Positive External Field\", Journal of Mathematical Physics 11, no. 3 (1970), 790-795.",
+          "doi": "10.1063/1.1665211",
+          "fetchUrl": "https://doi.org/10.1063/1.1665211",
+          "notes": "Original GHS inequality paper. Title, volume, issue, pages, and DOI confirmed via Crossref API record and NASA ADS (1970JMP....11..790G). No free copy found (AIP paywall; nothing on author pages or preprint servers)."
+        },
+        {
+          "key": "newman-1974-cpam",
+          "status": "verified",
+          "citation": "Charles M. Newman, \"Zeros of the partition function for generalized Ising systems\", Communications on Pure and Applied Mathematics 27, no. 2 (1974), 143-159.",
+          "doi": "10.1002/cpa.3160270203",
+          "fetchUrl": "https://doi.org/10.1002/cpa.3160270203",
+          "notes": "Title exactly as guessed. Volume 27 (2), pages 143-159, March 1974; DOI confirmed via Crossref API. Also listed as item [6] on Newman's NYU publication page (math.nyu.edu/faculty/newman/publications.html). No free PDF found (Wiley paywall)."
+        },
+        {
+          "key": "newman-1975-cmp-lee-yang-inequalities",
+          "status": "verified",
+          "citation": "Charles M. Newman, \"Inequalities for Ising models and field theories which obey the Lee-Yang Theorem\", Communications in Mathematical Physics 41, no. 1 (1975), 1-9.",
+          "doi": "10.1007/BF01608542",
+          "freeUrl": "https://projecteuclid.org/euclid.cmp/1103860582",
+          "fetchUrl": "https://doi.org/10.1007/BF01608542",
+          "notes": "The Newman original standardly cited alongside Proc. AMS 61 (1976): derives inequalities for partition/correlation/Ursell functions from the Lee-Yang theorem. DOI via Crossref; free on Project Euclid. Item [8] on Newman's NYU list. Nearby but not a class-L companion: \"Nondiscrete spins and the Lee-Yang Theorem\", Constructive QFT (Springer, 1973), 321-325."
+        }
+      ],
+      [
+        {
+          "key": "hoffstein-lockhart-1994",
+          "status": "verified",
+          "citation": "J. Hoffstein and P. Lockhart, \"Coefficients of Maass Forms and the Siegel Zero\", Annals of Mathematics (2) 140 (1994), no. 1, 161-176.",
+          "doi": "10.2307/2118543",
+          "freeUrl": "https://www.math.columbia.edu/~goldfeld/CoeffMaassForms.pdf",
+          "fetchUrl": "https://www.jstor.org/stable/2118543",
+          "notes": "Main paper pp. 161-176; the appendix (separate item) occupies pp. 177-181. Annals site lists the combined article as pp. 161-181 under title \"Coefficient of Maass forms and the Siegel zero (with an Appendix by Dorian Goldfeld, Jeffrey Hoffstein, and Daniel Lieman)\". Crossref confirms first page 161, vol 140 issue 1, July 1994. Free PDF on Goldfeld's Columbia page verified HTTP 200."
+        },
+        {
+          "key": "goldfeld-hoffstein-lieman-appendix-1994",
+          "status": "verified",
+          "citation": "D. Goldfeld, J. Hoffstein and D. Lieman, \"Appendix: An Effective Zero-Free Region\" (appendix to Hoffstein-Lockhart, \"Coefficients of Maass Forms and the Siegel Zero\"), Annals of Mathematics (2) 140 (1994), no. 1, 177-181.",
+          "doi": "10.2307/2118544",
+          "freeUrl": "https://www.math.columbia.edu/~goldfeld/EffectiveZeroFreeRegion.pdf",
+          "fetchUrl": "https://www.jstor.org/stable/2118544",
+          "notes": "Appendix has its own JSTOR record and DOI (10.2307/2118544), distinct from the main paper's 10.2307/2118543. Crossref title verbatim: \"Appendix: An Effective Zero-Free Region\", first page 177. Pages 177-181 corroborated by Humphries arXiv:1703.05450 bibliography entry [GHL94]. Free PDF on Goldfeld's page verified HTTP 200."
+        },
+        {
+          "key": "hoffstein-ramakrishnan-1995",
+          "status": "verified",
+          "citation": "J. Hoffstein and D. Ramakrishnan, \"Siegel zeros and cusp forms\", International Mathematics Research Notices 1995 (1995), no. 6, 279-308.",
+          "doi": "10.1155/S1073792895000225",
+          "fetchUrl": "https://academic.oup.com/imrn/article-abstract/1995/6/279/728504",
+          "notes": "Issue and pages confirmed directly from the Oxford Academic article page (Vol. 1995, Issue 6, pp. 279-308) and independently by Humphries arXiv:1703.05450 bibliography entry [HR95] with matching DOI. No free copy located (user already holds the PDF)."
+        }
+      ],
+      [
+        {
+          "key": "morishita-knots-primes-1ed",
+          "status": "verified",
+          "citation": "Masanori Morishita, \"Knots and Primes: An Introduction to Arithmetic Topology\", Universitext, Springer London, 2012. ISBN 978-1-4471-2157-2 (softcover), 978-1-4471-2158-9 (eBook).",
+          "doi": "10.1007/978-1-4471-2158-9",
+          "fetchUrl": "https://link.springer.com/book/10.1007/978-1-4471-2158-9",
+          "notes": "First edition. Verified via Crossref record for DOI 10.1007/978-1-4471-2158-9 (publisher Springer London, print ISBN 9781447121572, electronic ISBN 9781447121589, published 2012). No free copy found."
+        },
+        {
+          "key": "morishita-knots-primes-2ed",
+          "status": "verified",
+          "citation": "Masanori Morishita, \"Knots and Primes: An Introduction to Arithmetic Topology\", 2nd edition, Universitext, Springer Nature Singapore, 2024, 259 pp. ISBN 978-981-99-9254-6 (softcover), 978-981-99-9255-3 (eBook).",
+          "doi": "10.1007/978-981-99-9255-3",
+          "fetchUrl": "https://link.springer.com/book/10.1007/978-981-99-9255-3",
+          "notes": "Second (revised/expanded) edition, published May-June 2024. Verified via Crossref (Springer Nature Singapore, print ISBN 9789819992546, electronic 9789819992553, 2024) and Springer search results (Edition Number 2, 259 pages, softcover 978-981-99-9254-6). No free copy found."
+        },
+        {
+          "key": "morishita-survey-arxiv-0904.3399",
+          "status": "verified",
+          "citation": "Masanori Morishita, \"Analogies between Knots and Primes, 3-Manifolds and Number Rings\", expository article, arXiv:0904.3399 [math.GT] (also math.AT, math.NT), submitted 22 April 2009.",
+          "arxiv": "0904.3399",
+          "freeUrl": "https://arxiv.org/abs/0904.3399",
+          "notes": "Verified on the arXiv abstract page: single version v1 (22 Apr 2009), MSC 57M25, 11R32, 11R34, no journal-ref listed. This is Morishita's free survey precursor to the book; no other Morishita arXiv survey on knots/primes could be confirmed online (his arXiv author listing was not retrievable), so only this id is returned."
+        },
+        {
+          "key": "lapidus-vf-fractal-geometry-2ed",
+          "status": "verified",
+          "citation": "Michel L. Lapidus and Machiel van Frankenhuijsen, \"Fractal Geometry, Complex Dimensions and Zeta Functions: Geometry and Spectra of Fractal Strings\", 2nd (revised and enlarged) edition, Springer Monographs in Mathematics, Springer New York, 2013. ISBN 978-1-4614-2175-7 (hardcover), 978-1-4614-2176-4 (eBook).",
+          "doi": "10.1007/978-1-4614-2176-4",
+          "fetchUrl": "https://link.springer.com/book/10.1007/978-1-4614-2176-4",
+          "notes": "Verified via Crossref record for DOI 10.1007/978-1-4614-2176-4 (Springer New York, print ISBN 9781461421757, electronic 9781461421764, published 2013) and web search confirming it is the second revised and enlarged edition. No free copy found. (A distinct 1st-edition precursor book \"Fractal Geometry and Number Theory\", Birkhauser 2000, also exists but was not requested.)"
+        },
+        {
+          "key": "lapidus-overview-arxiv-1803.10399",
+          "status": "verified",
+          "citation": "Michel L. Lapidus, \"An Overview of Complex Fractal Dimensions: From Fractal Strings to Fractal Drums, and Back\", in: Horizons of Fractal Geometry and Complex Dimensions, Contemporary Mathematics, Amer. Math. Soc., 2019. arXiv:1803.10399 [math-ph], v1 28 Mar 2018, v2 26 Sep 2018.",
+          "arxiv": "1803.10399",
+          "doi": "10.48550/arXiv.1803.10399",
+          "freeUrl": "https://arxiv.org/abs/1803.10399",
+          "notes": "Best single free survey of the complex-dimensions machinery: covers geometric/fractal zeta functions for fractal strings (the book's subject) plus the higher-dimensional relative-fractal-drum extension, example-driven. Verified on the arXiv abstract page (comments: to appear in Horizons of Fractal Geometry and Complex Dimensions, Contemp. Math., AMS, 2019). Per-article journal DOI not listed on arXiv."
+        },
+        {
+          "key": "lapidus-vf-survey-math0401156",
+          "status": "verified",
+          "citation": "Michel L. Lapidus and Machiel van Frankenhuijsen, \"Fractality, Self-Similarity and Complex Dimensions\", in: Fractal Geometry and Applications: A Jubilee of Benoit Mandelbrot, Proc. Sympos. Pure Math., Amer. Math. Soc. arXiv:math/0401156 [math.NT], submitted 14 January 2004.",
+          "arxiv": "math/0401156",
+          "freeUrl": "https://arxiv.org/abs/math/0401156",
+          "notes": "Second free precursor, by both book authors: complex dimensions of self-similar fractal strings, comparison with varieties over finite fields, cohomological interpretation. Verified on the arXiv abstract page. Predates the 2013 2nd edition; combined with arXiv:1803.10399 it should suffice to postpone the book."
+        }
+      ],
+      [
+        {
+          "key": "baluyot-goldston-suriajaya-tb-2024",
+          "status": "verified",
+          "citation": "S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, \"An unconditional Montgomery theorem for pair correlation of zeros of the Riemann zeta-function\", Acta Arith. 214 (2024), 357-376.",
+          "doi": "10.4064/aa230612-20-3",
+          "arxiv": "2306.04799",
+          "freeUrl": "https://arxiv.org/abs/2306.04799",
+          "fetchUrl": "https://doi.org/10.4064/aa230612-20-3",
+          "notes": "Pages 357-376 and DOI confirmed directly on the Acta Arithmetica (IMPAN) article page. Published-version title hyphenates 'zeta-function' (arXiv v1 title uses 'Zeta Function'). Full author names: Siegfred Alan C. Baluyot, Daniel Alan Goldston, Ade Irma Suriajaya, Caroline L. Turnage-Butterbaugh. Published online 22 April 2024."
+        },
+        {
+          "key": "hilberdink-correction-2025",
+          "status": "verified",
+          "citation": "T. W. Hilberdink, \"Correction to: 'Ω-results for Beurling's zeta function and lower bounds for the generalised Dirichlet divisor problem' [J. Number Theory 130 (2010) 707-715]\", J. Number Theory 269 (2025), 460-464.",
+          "doi": "10.1016/j.jnt.2024.09.010",
+          "fetchUrl": "https://doi.org/10.1016/j.jnt.2024.09.010",
+          "notes": "The corrigendum EXISTS but is dated 2025 (April issue), not 2024 — it was accepted/DOI-registered in 2024 (10.1016/j.jnt.2024.09.010). Verified via Crossref API + ScienceDirect listing (PII S0022314X2400221X; direct page returns 403). Per abstract: proof flaw identified and rectified with a slightly weaker result in one part; Corollary 2 (generalised Dirichlet divisor problem) essentially unaffected. No free copy located (Elsevier paywall; no arXiv version found)."
+        },
+        {
+          "key": "farmer-gonek-lee-2014",
+          "status": "verified",
+          "citation": "D. W. Farmer, S. M. Gonek, Y. Lee, \"Pair correlation of the zeros of the derivative of the Riemann ξ-function\", J. London Math. Soc. (2) 90 (2014), no. 1, 241-269.",
+          "doi": "10.1112/jlms/jdu026",
+          "arxiv": "0803.0425",
+          "freeUrl": "https://arxiv.org/abs/0803.0425",
+          "fetchUrl": "https://academic.oup.com/jlms/article-abstract/90/1/241/2939424",
+          "notes": "Title, three-author list (David W. Farmer, Steven M. Gonek, Yoonbok Lee), vol. 90 issue 1 (2014) pp. 241-269, DOI 10.1112/jlms/jdu026 all confirmed on the OUP article page. Caveat: the arXiv 0803.0425 posting is the 2008 Farmer-Gonek version (Lee not listed on the abs page), so the free copy may differ from the published version."
+        },
+        {
+          "key": "clausen-scholze-analytic-stacks-videos",
+          "status": "verified",
+          "citation": "D. Clausen, P. Scholze, \"Analytic Stacks\", IHES/MPI Bonn joint lecture course, 24 lectures, first lecture 18 October 2023 (course runs 2023-24).",
+          "freeUrl": "https://www.youtube.com/playlist?list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO",
+          "fetchUrl": "https://www.youtube.com/watch?v=YxSZ1mTIpaA",
+          "notes": "Official playlist 'Dustin Clausen and Peter Scholze - Analytic Stacks' (IHES YouTube), linked from Scholze's course page people.mpim-bonn.mpg.de/scholze/AnalyticStacks.html. Lecture 1 title: 'Dustin Clausen - 1/24 Analytic Stacks' (youtube.com/watch?v=YxSZ1mTIpaA). Note the series starts Oct 2023, not 2024. Crowd-sourced notes: github.com/ysulyma/analytic-stacks."
+        },
+        {
+          "key": "clausen-weil-anima-videos",
+          "status": "verified",
+          "citation": "D. Clausen, \"Weil Anima\", IHES lecture series (4 lectures), 10-23 February 2026; companion arXiv preprint \"Weil-Moore anima\" (arXiv:2605.11950).",
+          "arxiv": "2605.11950",
+          "freeUrl": "https://www.carmin.tv/en/collections/dustin-clausen-weil-anima",
+          "fetchUrl": "https://www.youtube.com/watch?v=q5L8jeTuflU",
+          "notes": "Carmin.tv collection verified: Weil Anima 1/4 (Feb 10), 2/4 (Feb 13), 3/4 (Feb 17), 4/4 (Feb 23, 2026). YouTube (IHES): 1/4 watch?v=q5L8jeTuflU, 2/4 watch?v=7yN8HTOXL7c, 3/4 watch?v=fhFMT0BWVEM, 4/4 watch?v=Vk5Y-68TU2I. YouTube IDs corroborated by search-result titles only; carmin.tv collection page fetched directly."
+        }
+      ]
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "cite:woracek-line",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "aa2e6cc3f6985e267",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348309,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639935998,
+      "tokens": 72153,
+      "toolCalls": 43,
+      "durationMs": 587688,
+      "resultPreview": "{\"items\":[{\"key\":\"langer-woracek-2011-local-inverse\",\"status\":\"verified\",\"citation\":\"Matthias Langer, Harald Woracek, \\\"A local inverse spectral theorem for Hamiltonian systems\\\", Inverse Problems 27 (2011), no. 5, 055002, 17 pp.\",\"doi\":\"10.1088/0266-5611/27/5/055002\",\"freeUrl\":\"https://web.archive.org/web/20220925044752/https://www.asc.tuwien.ac.at/~woracek/homepage/downloads/JournalPapers/2011/l…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "cite:krein-langer",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "a82742967ddf2dcce",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348309,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639617619,
+      "tokens": 43161,
+      "toolCalls": 28,
+      "durationMs": 266831,
+      "resultPreview": "{\"items\":[{\"key\":\"krein-langer-1977-fortsetzungsprobleme-I\",\"status\":\"verified\",\"citation\":\"M.G. Krein, H. Langer, \\\"Über einige Fortsetzungsprobleme, die eng mit der Theorie hermitescher Operatoren im Raume Πκ zusammenhängen. I. Einige Funktionenklassen und ihre Darstellungen\\\", Math. Nachr. 77 (1977), 187–236.\",\"doi\":\"10.1002/mana.19770770116\",\"fetchUrl\":\"https://doi.org/10.1002/mana.19770770116…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "cite:leeyang-ghs",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "acd0be2c1ef5b7c86",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348310,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639462427,
+      "tokens": 28931,
+      "toolCalls": 13,
+      "durationMs": 111639,
+      "resultPreview": "{\"items\":[{\"key\":\"griffiths-hurst-sherman-1970\",\"status\":\"verified\",\"citation\":\"Robert B. Griffiths, C. A. Hurst, and S. Sherman, \\\"Concavity of Magnetization of an Ising Ferromagnet in a Positive External Field\\\", Journal of Mathematical Physics 11, no. 3 (1970), 790-795.\",\"doi\":\"10.1063/1.1665211\",\"fetchUrl\":\"https://doi.org/10.1063/1.1665211\",\"notes\":\"Original GHS inequality paper. Title, volum…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "cite:siegel-zero",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "a69e95cf13dd03df9",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348310,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639499513,
+      "tokens": 34409,
+      "toolCalls": 21,
+      "durationMs": 148724,
+      "resultPreview": "{\"items\":[{\"key\":\"hoffstein-lockhart-1994\",\"status\":\"verified\",\"citation\":\"J. Hoffstein and P. Lockhart, \\\"Coefficients of Maass Forms and the Siegel Zero\\\", Annals of Mathematics (2) 140 (1994), no. 1, 161-176.\",\"doi\":\"10.2307/2118543\",\"freeUrl\":\"https://www.math.columbia.edu/~goldfeld/CoeffMaassForms.pdf\",\"fetchUrl\":\"https://www.jstor.org/stable/2118543\",\"notes\":\"Main paper pp. 161-176; the appe…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "cite:books-morishita-lapidus",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "a543f8c52808a1d88",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348310,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639477684,
+      "tokens": 31334,
+      "toolCalls": 16,
+      "durationMs": 126895,
+      "resultPreview": "{\"items\":[{\"key\":\"morishita-knots-primes-1ed\",\"status\":\"verified\",\"citation\":\"Masanori Morishita, \\\"Knots and Primes: An Introduction to Arithmetic Topology\\\", Universitext, Springer London, 2012. ISBN 978-1-4471-2157-2 (softcover), 978-1-4471-2158-9 (eBook).\",\"doi\":\"10.1007/978-1-4471-2158-9\",\"fetchUrl\":\"https://link.springer.com/book/10.1007/978-1-4471-2158-9\",\"notes\":\"First edition. Verified vi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "cite:journal-versions",
+      "phaseIndex": 1,
+      "phaseTitle": "Verify",
+      "agentId": "abda28a9db1ea397b",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1786639348310,
+      "queuedAt": 1786639348303,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are pinning down EXACT bibliographic data for a literature fetch list. Use WebSearch and WebFetch (load via ToolSearch if needed) — NEVER answer from memory; every field you return must be corroborated by something you actually fetched/read online (arXiv, zbMATH, publisher page, author page, DOI resolver). For each item:\n- exact title VERBATIM, full author list, journal/venue, volume, year, pa…",
+      "lastProgressAt": 1786639472440,
+      "tokens": 30759,
+      "toolCalls": 17,
+      "durationMs": 121651,
+      "resultPreview": "{\"items\":[{\"key\":\"baluyot-goldston-suriajaya-tb-2024\",\"status\":\"verified\",\"citation\":\"S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, \\\"An unconditional Montgomery theorem for pair correlation of zeros of the Riemann zeta-function\\\", Acta Arith. 214 (2024), 357-376.\",\"doi\":\"10.4064/aa230612-20-3\",\"arxiv\":\"2306.04799\",\"freeUrl\":\"https://arxiv.org/abs/2306.04799\",\"fetch…"
+    }
+  ],
+  "totalTokens": 240747,
+  "totalToolCalls": 138
+}
