@@ -56,6 +56,8 @@ Low-value fetches for certified dead-end branches: Mazur–Tate–Teitelbaum / G
 
 # ROUND 2 — forward-looking list for ALL planned sessions (added Session 4.5, 2026-08-13, post-verification, at sponsor request)
 
+> **SUPERSEDED same evening → use `FETCH-LIST-ROUND2.md`** — every citation there was verified online (6 agents, raw evidence in `results/fetch-round2-citations-2026-08-13.json`); all [recalled] flags below are resolved there, several items turned out to have verified free copies (no sponsor action needed), and two corrections landed (Hilberdink corrigendum = JNT 269 (2025) 460–464; Langer–Woracek 2011 confirmed as the exact local Borg–Marchenko theorem). The section below is kept only as history.
+
 Everything in the original list above is delivered and verified except the two structurally unfetchable items (MathSciNet, Clausen videos) — see `FETCH-VERIFICATION.md`. This section is the anticipated needs of the ENTIRE planned arc (Session 5 queue → Phase 5 restructure → de-novo construction → direction execution), so the sponsor can batch-fetch at leisure. ⚠️ Citation-fidelity warning per standing order 5: items marked **[recalled]** have bibliographic details from model memory, NOT verified online — an agent must pin exact titles/venues before anyone relies on them (or fetch by author+topic and we sort it out).
 
 ## P1 — will block a named theorem (the only items needed soon)
