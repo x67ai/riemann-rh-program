@@ -51,3 +51,35 @@
 ## Deliberately omitted (recorded so the omission is explicit)
 
 Low-value fetches for certified dead-end branches: Mazur–Tate–Teitelbaum / Greenberg–Stevens originals, Soulé 2004, Haran, Berry–Keating SIAM Rev 1999 bibliographic details, Borcea–Brändén Invent. 2009 motivation statements, Fraczek LNM 2017. No program decision rests on them.
+
+---
+
+# ROUND 2 — forward-looking list for ALL planned sessions (added Session 4.5, 2026-08-13, post-verification, at sponsor request)
+
+Everything in the original list above is delivered and verified except the two structurally unfetchable items (MathSciNet, Clausen videos) — see `FETCH-VERIFICATION.md`. This section is the anticipated needs of the ENTIRE planned arc (Session 5 queue → Phase 5 restructure → de-novo construction → direction execution), so the sponsor can batch-fetch at leisure. ⚠️ Citation-fidelity warning per standing order 5: items marked **[recalled]** have bibliographic details from model memory, NOT verified online — an agent must pin exact titles/venues before anyone relies on them (or fetch by author+topic and we sort it out).
+
+## P1 — will block a named theorem (the only items needed soon)
+
+- [ ] **Langer–Woracek local inverse spectral theorem line** (canonical/Hamiltonian systems, local Borg–Marchenko / germ uniqueness) + **Kaltenbäck–Woracek** "Pontryagin spaces of entire functions" series + **Romanov–Woracek** inverse-side results. Verified missing from w-05 and its bibliography; B3's converse half (dichotomy gap 1) has no analytic support without it. **[recalled]** anchor: M. Langer & H. Woracek, "A local inverse spectral theorem for Hamiltonian systems", ~Inverse Problems 27 (2011). NOTE: Woracek posts most work on arXiv/TU-Wien ASC preprint server — agents should try there FIRST; sponsor fetches only the remainder.
+- [ ] **MathSciNet pass** (carried over — needs your login). Standing option: log into mathscinet.ams.org in Chrome during a session and Claude drives the queries via the browser extension; 10 minutes closes it. Also note: the zbMATH substitute searches exist only as hit COUNTS in FETCH-LIST-RESPONSE §2 — the hit lists are not on disk; agents can re-run zbMATH free if closure needs them.
+
+## P2 — contingent: fetch WHEN (not before) Phase 5 commissions the matching direction
+
+- [ ] **Krein–Langer generalized Nevanlinna (N_κ) originals + a Dijksma–Langer survey** — if the κ_a index-ladder work (B3 / C1 salvage) proceeds; old paywalled journals. **[recalled]** anchors: Krein–Langer, Math. Nachr. 77 (1977); Dijksma–Langer operator-theory surveys.
+- [ ] **GHS-inequality original + Newman's early Lee–Yang paper** — if the Lee–Yang ferromagnetic-realization feasibility brief is commissioned (complements p2-17, p1-03b). **[recalled]** anchors: Griffiths–Hurst–Sherman, J. Math. Phys. 11 (1970); Newman, CPAM 27 (1974).
+- [ ] **Hoffstein–Lockhart with Goldfeld–Hoffstein–Lieman appendix** — if the automorphic edge-cap adjudication theorem is written (effective Siegel-zero input; complements p2-09/p2-10). **[recalled]** anchor: Annals 140 (1994).
+- [ ] **Morishita, "Knots and Primes" (Springer book)** — if the geometric-substrate Track-C direction (arakelov×deninger via the Morishita bridge) is commissioned; his free arXiv surveys may suffice, try those first.
+- [ ] **Lapidus–van Frankenhuijsen, "Fractal Geometry, Complex Dimensions and Zeta Functions" (book)** — likely to be flagged by the wave-2 lapidus-complex-dimensions scout; wait for the flag.
+- [ ] **y-24 published version** (Acta Arith. 214 (2024) 357–376) — the one preprint/published pair where content may differ (error terms); on-disk copy is arXiv v1 (2023).
+
+## P3 — closure/exactness, cheap, no urgency
+
+- [ ] Hilberdink 2010 corrigendum (2024, J. Number Theory).
+- [ ] Farmer–Gonek–Lee published version, JLMS (2) 90 (2014) 241–269 (w-17 precursor suffices per response; only for exact published statements).
+- [ ] Clausen video lectures (human-watch, low value — already a four-way negative).
+
+## Watch-list (does not exist yet / not actionable)
+
+- Montgomery–Vaughan (to appear, per y-23). — Connes–Consani [CC7] "Absolute coefficients and their Galois theory" (forthcoming). — Any Λ < 0.2 or zero-verification-beyond-3·10¹² announcement (§10 of the response: none as of Aug 2026).
+
+**Bottom line for the sponsor:** nothing here blocks Sessions 5–6. Fetch P1 when convenient; treat P2 as a menu that Phase 5's commissioning decisions will activate; the program's normal mechanism (agents flag unreachables into this file) covers anything unanticipated.
