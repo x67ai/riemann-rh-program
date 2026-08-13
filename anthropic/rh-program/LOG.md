@@ -141,3 +141,5 @@ Entry template:
 **New artifacts:** FETCH-VERIFICATION.md, results/fetch-verification-sweep-2026-08-13.json, results/fetch-verification-agents-2026-08-13.json; FETCH-LIST-RESPONSE.md (sponsor's, now tracked).
 
 **Open at close:** unchanged from Session 4 — Session-5 resume actions 0–6 in STATUS.md, now with a verified corpus and one added fetch item.
+
+**Addendum (Session 4.5, same evening):** Sponsor confirmed the fetched corpus stays OFF GitHub — `anthropic/rh-program/fetched/` added to .gitignore (local-only; sponsor advised to keep own backup). Sponsor asked for the fetch outlook across ALL planned sessions, not just Session 5 → FETCH-LIST.md "ROUND 2" section written: P1 = Langer–Woracek local-uniqueness line + MathSciNet (the only near-term items); P2 = contingent menu keyed to Phase-5 commissioning decisions (Krein–Langer N_κ originals, GHS/Lee–Yang originals, Hoffstein–Lockhart+GHL, Morishita book, Lapidus–vF book, published y-24) with [recalled] citation-fidelity flags per standing order 5; P3 = closure items; watch-list. Bottom line recorded: nothing blocks Sessions 5–6.
