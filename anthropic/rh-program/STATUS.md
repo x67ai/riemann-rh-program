@@ -20,7 +20,7 @@ Session discipline:
 - END (or when the user says they're stopping, or context runs long): update STATUS.md (phases, live tasks, next actions), append a LOG.md entry, update touched `directions/` files' "Current frontier", commit.
 - The persistent memory entry `rh-research-program` points here; keep it pointing here and nothing else — all content lives in these files, not in memory.
 
-**Started:** 2026-08-11. **Last updated:** 2026-08-13 ~22:00, Session 4.5 (fetch-corpus verification only — no RH work; update this line on every edit).
+**Started:** 2026-08-11. **Last updated:** 2026-08-14, Session 4.5 close (session sequencing directive recorded: next session = Round-2 verification only; RH work resumes the session after; update this line on every edit).
 
 **SPONSOR STANDING ORDERS (2026-08-13 — HIGHEST PRIORITY, binding for the rest of the program):**
 1. **Prior-art gate.** Before committing effort to any path, verify against tier-1 online sources (arXiv, published literature, MathSciNet-visible work) that it has not already been pursued or refuted. Novelty checks are not optional and not from-memory: check online. If online access to any resource fails or is paywalled, DO NOT silently skip it — tell the sponsor, who will fetch it manually.
@@ -90,7 +90,13 @@ Full prompts: in the workflow scripts (paths below).
 - S4 A new positivity GENERATOR, not just a bigger Weil-positivity cone (algebraic: Hodge index/ampleness; analytic: reflection positivity/complete monotonicity; combinatorial: Lorentzian polynomials; probabilistic: determinantal/negative association).
 - S5 Survive the named no-gos: AH world, Bombieri–Garrett 94%, parity, Conrey–Li, Λ ≥ 0, bandwidth/two-moment ceilings.
 
-## PAUSED 2026-08-13 ~02:30 (Session-4 close, sponsor request). Nothing is running. SESSION 5 RESUME ACTIONS, in order:
+## PAUSED 2026-08-13 ~02:30 (Session-4 close, sponsor request). Nothing is running.
+
+**SESSION SEQUENCING — SPONSOR DIRECTIVE 2026-08-14, binding:**
+- **NEXT SESSION = Round-2 corpus verification ONLY. NO RH work.** The sponsor delivers the pending Round-2 items (`FETCH-LIST-ROUND2.md` §A: MathSciNet export and/or the r2-NN PDFs, dropped into `fetched/`). Verify them exactly as Session 4.5 did the Round-1 corpus (see `FETCH-VERIFICATION.md` for the method: mechanical pypdf sweep → vision/quote agents, Claude vision only, NO third-party OCR; effort:'high' pins on agents writing structured output): identity, completeness, citation match, free-copy-vs-published caveats. Also fetch the §B free items (Wayback/arXiv/author-page URLs, all verified working) since agents can pull those without the sponsor. Append findings to `FETCH-VERIFICATION.md`, check items off `FETCH-LIST-ROUND2.md`, commit, push. Then STOP — do not start RH work even if time remains.
+- **THE SESSION AFTER THAT = RH work resumes** at the resume actions below (0 → 6), with both corpora verified.
+
+SESSION RESUME ACTIONS for the RH-work session, in order:
 
 0. **Ingest sponsor PDFs FIRST** — delivered 2026-08-13: **174 PDFs in `fetched/` + `FETCH-LIST-RESPONSE.md` (read it in full — it carries major §3–§6 findings, not just fetch bookkeeping). Corpus already VERIFIED AND ACCEPTED in Session 4.5** (`FETCH-VERIFICATION.md` + `results/fetch-verification-{sweep,agents}-2026-08-13.json`): 174/174 identity-checked, all load-bearing quotes vision/text-verified; apply the recorded corrections during ledger propagation (esp. w-08 NON-STRICT inequalities, 9-not-5 vision-needed files, Zagier internal range 312–341, y-24 = arXiv v1 without Acta imprint). Still to do at ingest: rename into `sources-extracted/`, check off FETCH-LIST.md, route each item. Git disposition DECIDED (sponsor, Session 4.5): corpus stays LOCAL-ONLY, `fetched/` is gitignored — never push the PDFs to GitHub; sponsor should keep their own local backup since the remote will not have them. Forward fetch list for ALL future sessions: FETCH-LIST.md "ROUND 2" section. NEW load-bearing fetch item: **Langer–Woracek / Romanov–Woracek / Kaltenbäck–Woracek local Borg–Marchenko line** (w-05 verified to LACK local uniqueness — B3 gap 1 stands). Corpus is SUFFICIENT for all actions below.
 1. **Launch A4 attempt 6** ("A6", sponsor-approved): fresh `Workflow({scriptPath: "<rh-program>/scripts/rh-a4-design-verify.js"})` — script already carries ALL fixes (schema maxLength caps, output budget, effort:'high' pin, direct-delivery constraint) AND `.claude/settings.json` now sets CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000 (takes effect at session start — double protection). Nothing cached.
