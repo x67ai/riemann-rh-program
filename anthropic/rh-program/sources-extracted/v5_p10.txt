@@ -1,0 +1,182 @@
+10
+
+CLAUDE
+
+where D collects the terms n = m of the first inner integral, O1 the terms n ̸= m of the first
+inner integral, and O2 all terms of the second.
+P
+D. For n = m the first inner integral is T − |x|, so by (5.11) and n a2n ≪ L2 (Lemma 5.1),
+ T X
+Z
+1 X 2
+Φ(x)2 (|x| + T 1|x|>T ) dx =
+D= 2
+an T · 2πg(yn ) + O
+a2 g(yn ) + O(L2 log L),
+2π n
+π n n
+R
+R
+using |x|>T Φ2 ≤ Φ2 |x|/T .
+2
+R 2T −x+
+P
+′
+O2 . Here | T +x− (nm)iτ dτ ′ | ≤ 2/ log(nm) ≤ 2/ log 4 for all n, m, so |O2 | ≤ 2π1 2
+·
+n an
+2
+2πbL · log 4 ≪ XL by (5.5).
+
++
+O1 . For n ̸= m put ϑ := yn − ym ̸= 0. The first inner integral equals (n/m)i(2T −x ) −
+
+−
++
+(n/m)i(T +x ) /(iϑ), and nix (n/m)−ix equals mix for x > 0 and nix for x < 0, while
+−
+nix (n/m)ix equals nix for x > 0 and mix for x < 0. With
+Z T
+Z 0
+2 ix
+−
++
+Φ(x) n dx,
+αn :=
+Φ(x)2 nix dx,
+|αn± | ≤ πbL ≤ πL,
+αn :=
+−T
+
+0
+
+we therefore get
+O1 =
+
+ n iT
+i
+X
+an am h n 2iT +
+1
+−
++
+−
+Re
+(α
++
+α
+)
+−
+(α
++
+α
+)
+m
+n
+n
+m .
+2π 2
+i(yn − ym ) m
+m
+n̸=m
+
+P
+This is a combination of four sums of the shape n̸=m xn zm /(yn − ym ) with {|xn |, |zn |} =
+P
++
+{an , an |αn± |}; for instance the first is n̸=m (an n2iT )(am m2iT αm
+)/(yn − ym ). By Lemma 2.2
+P
+3π
+2
+2
+and (2.12) each of the four is at most 2 · πL · n an /δn ≪ L X. Hence |O1 | ≪ L2 X.
+Finally, by (5.2) and (5.6) (note a2n = Λ(n)2 /n),
+X
+X
+X
+(L − 2w)3
+L3
++ O(L2 ) =
+a2n (L − 2w − yn ) ≤
+a2n g(yn ) ≤
+a2n (L − yn ) =
++ O(L2 ),
+6
+6
+−2w
+n≤Xe
+
+n≤X
+
+n≤X
+
+and (L − 2w)3 = L3 − 6wL2 + O(w2 L) with 1 ≤ w ≤ L/8, which gives the second form.
+
+□
+
+Proposition
+5.5 (Cross terms). M[µ, PX ], M[µ, ΠX ], M[PX , ΠX ], M[ΠX , ΠX ] ≪χ
+√
+2
+L X.
+R
+Proof. Let m(τ ′ ) := I Φ(τ − τ ′ )2 µ(τ ) dτ for τ ′ ∈ R. Then 0 ≤ m ≤ l · 2πbL, m is C 1 , and
+differentiating under the integral and integrating by parts in τ ,
+Z
+Z
+
+
+′ ′
+′ 2
+′ 2
+′ 2
+m (τ ) = − µ(τ ) ∂τ Φ(τ −τ ) dτ = µ(T )Φ(T −τ ) −µ(2T )Φ(2T −τ ) + µ′ (τ )Φ(τ −τ ′ )2 dτ,
+I
+
+I
+
+R
+′ | ≤ 2l Φ2 + T · O(T −1 ) Φ2 ≪ lL. For y ≥ log 2, integrating by parts,
+so
+that
+|m
+I
+R
+R
+′
+′
+′
+′
+I m(τ ) cos(τ y) dτ ≤ (2 sup |m| + I |m |)/y ≪ lL/y. Therefore
+√
+Z
+X an
+√
+X
+1X
+′
+′
+′
+an m(τ ) cos(τ yn ) dτ ≪ lL
+≪ lL
+=l X
+|M[µ, PX ]| =
+π n
+log n
+L
+I
+R
+
+R
+
+n≤X
+
+√
+√
+by (5.5). RNext, on I we have |ΠX | ≤ 3 X/T , 0 < µ ≤ l, |PX | ≤ X (by (2.4), (5.5), T ≥ T0 ),
+and supτ I Φ(τ − τ ′ )2 dτ ′ ≤ 2πbL; the remaining three bounds follow by inserting these sup
+bounds into the definition of M[·, ·] (an integral over a region of τ ′ -length T ).
+□
+
+

@@ -1,0 +1,73 @@
+14
+
+CLAUDE
+
+on averaging over L—this one-line step is carried out here, not in Lean. For a band-limited
+window, r(±1) = 0, which zeroes the 0.824 |r(1)| term (theR signed
+variant requires only
+
+r(1) ≥ 0), and the resulting bound p0 + 2.55 · 10R−6 |r′ (1)| + |r′′ | is below 0.6819 for both
+windows (2.6) and for any window with |r′ (1)| + |r′′ | < 8.2.
+At the cited repository tag (v1.0), the enclosures EnclOK are certified by interval arithmetic
+and are not checked by the Lean kernel; what is kernel-checked, given EnclOK, is the 255 nearCUE row inequalities |256 S(j) − j| ≤ 3 · 10−40 , the edge bound |D(1)| ≤ 0.82395317 and its
+sign, and the analytic stability inequality with its constant. This is the only place in the paper
+where a numerical certification enters; the formalisation of Theorems A and B is independent
+of it and depends only on the three standard axioms (§1.5).
+e 3 is avail7.3. Conditional extensions. Under the Riemann hypothesis the third trace tr G
+able [Hej94, RS96], and the certificate of Theorem A(ii) can be run with the cubic weight
+1
+(2m2 − m3 ) + 49 1m=1 (tight at m = 1, 2, 3; Schur–Horn applied to the convex
+ω(m) = 21 m + 18
+1 2
+1 3
+19
+s
+minorant of − 9 x + 18
+x ): with the window cos( 8s
+5 )1|s|≤1/2 and [BHB13]’s N /N ≥ 27 on RH
+this gives lim inf Nd /N ≥ 0.85082 . . . (cf. 0.8477 on RH [CGdL20]). More generally, if Montgomery’s form factor were known on support (−λ0 , λ0 ) for all λ0 , the method would certify
+100% simple zeros on the line.
+Remark 7.1 (Zeros of ξ ′ ). Applied to the derivative ξ ′ of the completed zeta function in place
+of ξ, the argument of §§4–6 gives, unconditionally,
+s (T, 2T )
+N0,ξ
+′
+Nd,ξ′ (T, 2T )
+lim inf
+≥ 0.85838
+and
+lim inf
+≥ 0.92919
+T →∞ Nξ ′ (T, 2T )
+T →∞ Nξ ′ (T, 2T )
+51
+7
+(2s)2 − 200
+(2s)4 the constants become
+(flat window; with the quartic window v(s) = 1 − 100
+0.86864 and 0.93432), where Nξ′ (T1 , T2 ) counts zeros ρ1 = β1 + iγ1 of ξ ′ with T1 < γ1 ≤ T2
+1
+s
+with multiplicity, N0,ξ
+′ those that are simple with β1 = 2 , and Nd,ξ ′ the distinct ones. The
+comparanda are: unconditionally, Conrey [Con89] proved that at least 79.874% of the zeros of ξ ′ are simple and on the critical line; assuming RH, Farmer, Gonek and Lee [FGL14,
+Cor. 1.3] obtain > 85.84% simple by Montgomery’s method, and Chirre, Gonçalves and de
+Laat [CGdL20, Cor. 7] obtain 0.8825 simple, 0.9412 distinct. The flat-window constant 85.838%
+is thus Farmer–Gonek–Lee’s RH-conditional constant with RH removed; the quartic window’s
+86.864% exceeds it and remains below the RH-conditional 0.8825. Note that for zeros of ξ ′
+merely on the critical line (without the simplicity), Wu [Wu15, §3] has 0.86957 unconditionally, which neither our 0.85838 nor our 0.86864 exceeds; the new content is the simplicity.
+These are formalised in Lean at the cited tag as Zeta23.XiPrime.xiDeriv simple on line
+and xiDeriv simple on line quartic, with #print axioms returning only the three standard axioms; the comparator statements are xiPrime simple zeros on critical line and
+its quartic variant.
+
+Appendix A. Lean formalisation
+A Lean 4 formalisation of Theorems A and B, with the constants stated in this paper,
+accompanies the paper (toolchain v4.33.0-rc2; Mathlib revision 51e6992efd06; repository
+tag v1.0). The top-level declarations for Theorem A, in Zeta23/Unconditional.lean
+and Zeta23/FinalMult.lean, are reproduced below; their types carry no hypotheses.
+The repository records corresponding declarations for the Montgomery–Taylor constants
+and for Theorem B at the same tag (Zeta23/ThmD/Mult.lean, Zeta23/ThmE/Mult.lean,
+Zeta23/ThmDE/Mult.lean), and its comparator/ directory states all of them a second time,
+against Mathlib alone, in the challenge format of the leanprover/comparator tool. The
+
+

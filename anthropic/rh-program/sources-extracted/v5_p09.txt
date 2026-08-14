@@ -1,0 +1,142 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+9
+
+numbers |τ − αk |, 0 ≤ k < d, are ≥ ∆, ≥ ∆ + h, ≥ ∆ + 2h, . . . in increasing order, and ϑ is
+decreasing, so
+Z
+
+X
+Cχ 
+dCχ
+1 ∞
+L
+ϑ(∆+jh) ≤ ϑ(∆)+
+σ(τ ) ≤
+ϑ ≤ ϑ(∆)+
+min Θ0 ,
+,
+σ(τ ) ≤ d ϑ(∆) ≤ 2 .
+h ∆
+2π
+∆
+∆
+j≥0
+
+
+R
+L
+0
+On ∆ ≤ 2T (where |τ | ≤ 4T , |νX | ≤ B) this gives |νX |σ ≤ 2B Θ0 + 2π
+≤
+Cχ + Cχ log 2TCΘ
+χ
+2B(Θ
+R ∞ 0 + Cχ L log T ); on ∆ > 2T (where |τ | ≤ 2∆,
+R |νX (τ )| ≤ B + log(∆/T )) it gives ≤
+2 2T dCχ (B + log(∆/T ))∆−2 d∆ ≪ Cχ LB. Hence τ /∈I |νX |σ ≪ BLl and |E2 | ≪ L2 · Θ0 B ·
+BLl ≪ L3 B 2 l log L.
+□
+5.3. Evaluation of M. For functions u1 , u2 on I write
+ZZ
+Φ(τ − τ ′ )2 u1 (τ )u2 (τ ′ ) dτ dτ ′ ,
+M[u1 , u2 ] :=
+I×I
+
+a symmetric bilinear form (Φ2 is even), so that
+(5.10) M = M[µ, µ] + M[PX , PX ] + 2M[µ, PX ] + 2M[µ, ΠX ] + 2M[PX , ΠX ] + M[ΠX , ΠX ].
+R
+R
+Recall R Φ2 = 2πbL, R Φ(x)2 |x| dx ≪ log L (by (5.3), (5.4)) and, by Fourier inversion of
+Φ2 = gb (g even, continuous, compactly supported),
+Z
+(5.11)
+Φ(x)2 eixy dx = 2πg(y)
+(y ∈ R).
+R
+
+R 2T
+bLT ℓ21
+1+
+Proposition 5.3 (Archimedean term). M[µ, µ] = 2πbL T µ2 + O(l2 log L) =
+2π
+
+−2
+2
+O(l ) + O(l log L).
+Proof. For τ, τ ′ ∈ I, µ(τ ) = µ(τ ′ ) + O(|τ − τ ′ |/T ) by (2.3), and 0 < µ ≤ l on I. Hence
+Z
+
+Z
+
+l ZZ
+2
+′
+′ 2
+Φ(x) dx dτ + O
+Φ(x)2 |x| dx dτ ′ .
+M[µ, µ] = µ(τ )
+T I R
+I−τ ′
+I
+R
+R
+R
+The error is O(l log L). In the main term, I−τ ′ Φ2 = 2πbL − x<T −τ ′ Φ2 − x>2T −τ ′ Φ2 , and
+R
+R
+R
+′ 2
+2
+′
+2
+2
+2
+I µ(τ ) x<T −τ ′ Φ(x) dx dτ ≤ l x<0 Φ(x) min(|x|, T ) dx ≪ l log L, similarly for the other
+piece. The second form follows from (2.5).
+□
+Proposition 5.4 (Prime term).
+T X Λ(n)2
+M[PX , PX ] =
+g(log n) + Oχ (L2 X),
+π
+n
+
+g := ϕ2 ∗ ϕ2 .
+
+n≤X
+
+
+P
+′
+Proof. Write PX (τ ) = − 2π n an (niτ +n−iτ ). Then PX (τ )PX (τ ′ ) = 2π1 2 Re n,m an am niτ m−iτ +
+′
+niτ miτ . Substituting τ = τ ′ + x and noting that for fixed x the variable τ ′ ranges over
+I ∩ (I − x), which is empty for |x| ≥ T and equals [T + x− , 2T − x+ ] for |x| < T
+(x± := max(±x, 0)), we obtain
+1 P
+
+(5.12)
+Z T
+Z 2T −x+
+hZ 2T −x+  n iτ ′
+i
+X
+1
+′
+2 ix
+′
+M[PX , PX ] = 2 Re
+an am
+Φ(x) n
+dτ +
+(nm)iτ dτ ′ dx
+2π
+m
+−T
+T +x−
+T +x−
+n,m
+=: D + O1 + O2 ,
+
+

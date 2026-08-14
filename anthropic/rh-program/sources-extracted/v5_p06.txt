@@ -1,0 +1,111 @@
+6
+
+CLAUDE
+
+Proof. Write Q = Q+ −Q− with Q± ⪰ 0, Q+ Q− = 0, rank Q+ ≤ b. Then ∥P +Q∥2HS = ∥P ∥2HS +
+∥Q+ ∥2HS + ∥Q− ∥2HS + 2 tr(P Q+ ) − 2 tr(P Q− ) − 2 tr(Q+ Q− ) and tr(P Q+ ) ≥ 0, tr(Q+ Q− ) = 0.
+Let p1 ≥ · · · ≥ pd ≥ 0 and n1 ≥ · · · ≥
+Pnd ≥ 0 be the eigenvalues of P and Q− . By von
+Neumann’s trace inequality tr(P Q− ) ≤ i pi ni , so
+X
+X
+ X 2
+2(pi −ni )−1 +
+ni ≥ 2 tr P −r−4 tr Q− ,
+∥P ∥2HS −2 tr(P Q− )+∥Q− ∥2HS ≥
+(pi −ni )2 ≥
+i
+
+i>r
+
+i≤r
+
+using x2
+
+and n2i
+
+≥P2x − 1,Pthen −2ni ≥ −4ni for i ≤ r
+≥ 0 ≥ −4ni for i > r. And
+∥Q+ ∥2HS = j qj2 ≥ j (4qj − 4) ≥ 4 tr Q+ − 4b over the ≤ b positive eigenvalues. Adding, and
+tr Q = tr Q+ − tr Q− , gives (3.1).
+□
+
+Remark 3.3. Alternatively: the map U 7→ ∥P + U QU ∗ ∥2HS on the unitary group is continuous
+on a compact set, and at a minimum the first-order condition tr([P, U QU ∗ ]H) = 0 for all
+Hermitian H forces [P, U QU ∗ ] = 0; simultaneous diagonalisation then reduces (3.1) to the
+scalar inequalities (x − 1)2 ≥ 0, x2 ≥ 0, (x − 2)2 ≥ 0 in the three sign cases of (pi , bi ). Setting
+Q = 0 and optimising the coefficient 2 recovers rank P ≥ (tr P )2 /∥P ∥2HS .
+Lemma 3.4 (Weyl). If A, E are Hermitian with ∥E∥ ≤ θ, then n+ (A) ≥ #{i : λi (A+E) > θ}.
+Proof. λi (A + E) ≤ λi (A) + ∥E∥ (Courant–Fischer).
+
+□
+
+4. The zero side
+Throughout §§4–6 the implied constants depend only on χ and ψ, and we take T large.
+Proposition 4.1 (Block structure). P ⪰ 0 with rank P ≤ N0∗ (I ′ ) and tr P ≤ N0 (I ′ ); and
+n+ (Q) ≤ 21 #off.
+Proof. For ρ ∈ on, γρ ∈ R, so vρ ∈ Rd and mρ vρ vρT ⪰ 0 has rank ≤ 1; summing, P ⪰ 0
+with rank P ≤ #on = N0∗ (I ′ ). By Lemma 2.1 at z = z ′ = γρ and nonnegativity of the
+P
+b ρ − αk )2 ≤ L∥ϕ∥2 ; summing mρ ∥vρ ∥2 and dividing by L∥ϕ∥2
+summands, ∥vρ ∥2 = 0≤k<d ϕ(γ
+2
+2
+P
+gives tr P ≤ ρ∈on mρ = N0 (I ′ ).
+For the off-line bound: pair off as {ρ, 1 − ρ̄} and write vρ = a + ib with a, b ∈ Rd . Then
+0
+mρ (vρ vρT + vρ vρ T ) = 2mρ (aaT − bbT ) is the pull-back of mρ 10 −1
+under x 7→ (aT x, bT x).
+
+L
+1
+0
+Summing, Q is the pull-back of pairs mρ 0 −1 , whose positive index is the number of pairs;
+apply Lemma 3.1.
+□
+
+′
+1/2
+2
+e
+Proposition 4.2 (Trace). tr G = N (I ) + Oχ T L .
+Proof. By Lemma 2.1 at z = z ′ = γρ , for each zero with Re γρ ∈ I ′ ,
+X
+b ρ − αk )2 .
+tr(vρ vρT ) = aL2 −
+ϕ(γ
+k/
+∈[0,d)
+
+For k ∈
+/ [0, d) one has αk ∈
+/ [T, 2T ), hence | Re γρ − αk | ≥ Dρ := dist(Re γρ , {T, 2T }). By (2.8)
+1 b
+with | Im γρ | < 2 , |ϕ(γρ − αk )|2 ≤ eL/2 Cχ2 | Re γρ − αk |−4 , and the k-sum is bounded by integral
+comparison (step h = 2π/L):
+Z ∞
+
+
+X
+
+−4
+−4
+−1
+| Re γρ − αk |
+≤ 2 Dρ + h
+s−4 ds ≪ L min L3 , Dρ−3 .
+k/
+∈[0,d)
+
+Dρ
+
+Dividing by aL2 ≍ L2 and summing over zeros in I ′ (density ≪ L; O(L) zeros have Dρ < 1,
+P
+contributing ≪χ X 1/2 L2 ; the rest satisfy ρ Dρ−3 ≪ L, contributing ≪ X 1/2 · L−1 · L = X 1/2 ),
+e − N (I ′ ) ≪χ X 1/2 L2 ≪ T 1/2 L2 = o(N (I ′ )).
+tr G
+
+□
+
+

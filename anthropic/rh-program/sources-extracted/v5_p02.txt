@@ -1,0 +1,70 @@
+2
+
+CLAUDE
+
+certificates is approximately 0.682; see §7.2. A fortiori N0∗ (T, 2T ), N0 (T, 2T ), N s (T, 2T ) ≥
+( 32 − o(1))N (T, 2T ).
+The same holds for (0, T ) in place of (T, 2T ), with rate O(log log T / log T ) (Remark 6.1). The
+5
+previous unconditional records are 12
+for N0s /N [PRZZ20] and 0.6603 for Nd /N [Wu15]. The
+2 5
+constants 3 , 6 , 0.6725 are those of Montgomery [Mon73], Conrey–Ghosh–Gonek [CGG98,
+(1.2)], and Montgomery–Taylor [Mon75] under the Riemann hypothesis. Under RH, 0.6792 for
+N s /N is known via semidefinite programming using the positivity of the form factor outside
+[−1, 1] [CGdL20], a regime the present method does not enter.
+Theorem B. Theorem A holds verbatim for L(s, χ) in place of ζ(s), for any fixed primitive
+Dirichlet character χ.
+The arithmetic inputs are Weil’s explicit formula, the Riemann–von Mangoldt formula and
+′
+the
+(t, t +
+P bound N
+P1) ≪ log t,2 Stirling’s estimate for Γ /Γ, Chebyshev–Mertens estimates for
+2
+n≤X Λ(n) and
+n≤X Λ(n) /n, and the Montgomery–Vaughan inequality for the frequencies
+{log n : n ≤ X}, X ≤ T . No mollifier, zero-density estimate, or zero-free region is used.
+P
+1.2. The proof. Weil’s explicit formula defines a Hermitian form W (f, g) = ρ mρ fb(γρ ) gb(γρ )
+on compactly supported test functions, γρ = (ρ − 12 )/i; its positivity on all of Cc2 (R) is equivalent to the Riemann hypothesis [Wei52, Bom00]. We restrict W to a family of d ∼ N (T, 2T )
+e be the resulting
+modulated copies of a fixed window ψ, equispaced through [T, 2T ], and let G
+d × d real symmetric matrix, normalised so that an isolated simple on-line zero contributes 1
+e (§2).
+to tr G
+e = P + Q: each distinct on-line zero contributes a
+(Z) Up to a tail of trace norm o(1), G
+rank-one positive form to P , each off-line pair {ρ, 1 − ρ̄} a block of signature (1, 1) to
+Q. Writing s1 , s2 , p for the numbers of simple on-line zeros, multiple on-line points,
+and off-line pairs in the window, one has tr P ≤ N0 , n+ (Q) ≤ p, N ≥ s1 + 2s2 + 2p,
+e = (1 + o(1))N (Propositions 4.1–4.3).
+and tr G
+e 2 = (R(ψ) + o(1))N , where R(ψ) depends only on the window (Lemma 5.6):
+(P) ∥G∥
+HS
+R(ψ0 ) = 43 for the indicator, R(ψMT ) = c−1
+MT for Montgomery–Taylor. This is Montgomery’s unconditional prime-side second moment [Mon73, Ary22, BGSTB24] (Theorem 5.7).
+(L) For Hermitian P1 ⪰ 0 and Q′ with n+ (Q′ ) ≤ b (Lemma 3.2),
+(1.1)
+
+rank P1 ≥ 2 tr P1 + 4 tr Q′ − 4b − ∥P1 + Q′ ∥2HS .
+
+e − P1 , Theorem A is then the single
+Taking P1 to be the simple-on-line part of P and Q′ := G
+chain
+
+e − 2N − ∥G∥
+e 2 = 2 − R(ψ) − o(1) N :
+(1.2)
+N0s + o(N ) ≥ rank P1 ≥ 4 tr G
+HS
+the first inequality is Proposition 4.1; the second combines (L) with tr P1 + 2n+ (Q′ ) ≤ N
+from (Z); the equality is (Z) and (P). At ψ = ψ0 this is Theorem A(i), and at ψ = ψMT the first
+constant of the second sentence. For (ii), rearranging the second step gives 3s1 + 4(s2 + p) ≥
+(4 − R(ψ))N ; subtracting s1 + 2s2 + 2p ≤ N gives 2(s1 + s2 + p) ≥ (3 − R(ψ))N , whence
+Nd ≥ s1 +s2 +p ≥ 21 (3−R(ψ)−o(1))N . The inequality (1.1) is the matrix form of m2 ≥ 2m−1;
+with the simple zeros on the rank side and the multiple ones at the flat charge 4, it recovers
+m2 ≥ 3m − 2.
+
+

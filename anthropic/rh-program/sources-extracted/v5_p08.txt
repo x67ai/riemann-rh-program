@@ -1,0 +1,151 @@
+8
+
+CLAUDE
+
+P
+(Each follows from
+n≤x Λ(n)/n = log x + O(1) by partial summation; see [IK04,
+P
+2 −1 ≤
+Theorem 2.7].) In particular, writing an := Λ(n)n−1/2 , (2.12) gives
+n≤X an δn
+P
+2
+2 n≤X Λ(n) ≪ XL; and by (2.3), (2.4) and (5.5),
+(5.7)
+√
+|τ |
+|νX (τ )| ≤ B + log+ 4T
+(τ ∈ R), |νX (τ )| ≤ B (|τ | ≤ 4T ), B := l + 4 X, B 2 ≪ l2 + X.
+RR
+′ 2
+′
+′
+e E∥
+e 2 =
+5.2. Reduction to a double integral. By (2.11), (aL2 )2 ∥G+
+HS
+R2 K(τ, τ ) νX (τ )νX (τ ) dτ dτ ,
+where
+X
+b − αk )ϕ(τ
+b ′ − αk ) = L Φ(τ − τ ′ ) − Kout (τ, τ ′ ),
+(5.8)
+K(τ, τ ′ ) :=
+ϕ(τ
+0≤k<d
+
+Kout denoting the sum over k ∈
+/ [0, d); by Lemma 2.1 and (5.3),
+X
+(5.9)
+|K|, L|Φ| ≤ aL2 ,
+|Kout (τ, τ ′ )| ≤
+ϑ(τ − αk )ϑ(τ ′ − αk ).
+k/
+∈[0,d)
+
+Proposition 5.2 (Reduction to the double integral).
+ZZ
+
+
+1
+2
+c2 (τ − τ ′ )2 νX (τ )νX (τ ′ ) dτ dτ ′ + Oχ N log L .
+e
+e
+ϕ
+∥G + E∥HS = 2 2
+a L
+L2
+I×I
+RR
+2 νν ′ + E + E with ν := ν (τ ), ν ′ := ν (τ ′ ),
+e+ e
+Proof. Write (aL2 )2 ∥G
+E∥2HS as I×I K∞
+1
+2
+X
+X
+RR
+RR
+RR
+2 )νν ′ and E :=
+2 νν ′ ; note
+2 νν ′ = L2 M.
+E1 := I×I (K 2 − K∞
+K
+K
+c
+2
+∞
+(I×I)
+I×I
+2 | = |K
+2
+′
+Bound for E1 . By (5.9), |K 2 − K∞
+out | |K + K∞ | ≤ 2aL |Kout |, and |ν|, |ν | ≤ B on I
+by (5.7). Hence
+2
+X Z
+2 2
+|E1 | ≤ 2L B
+ϑ(τ − αk ) dτ .
+k/
+∈[0,d)
+
+I
+
+For k = −j (j ≥ 1) we have dist(αRk , I) = jh; for k = d + 1 + j (j ≥ 0) we have αk ≥ 2T + jh
+∞
+because T + (d + 1)h > 2T . Since ∆ ϑ ≤ min(Θ0 , Cχ /(w∆)) ≤ min(Θ0 , Cχ /∆) for ∆ > 0, we
+get
+2
+
+X Z
+X
+C χ 2
+6Cχ Θ0
+ϑ(τ − αk ) dτ ≤ 2(2Θ0 )2 + 2
+min Θ0 ,
+≤ 10Θ20 +
+≪ L log L,
+jh
+h
+I
+j≥1
+
+k/
+∈[0,d)
+
+R
+where the term 2(2Θ0 )2 accounts for k = d, d+1 (for which we only use R ϑ = 2Θ0 ), the points
+αd+1+j , j ≥ 1, being at distance ≥ jh to the right of I; the j-sum was split at j = Cχ /(hΘ0 ),
+and (5.4) was used. Thus |E1 | ≪ L3 B 2 log L. R
+R
+Bound for E2 . By symmetry |E2 | ≤ 2 τ /∈I τ ′ ∈R K 2 |νν ′ |. Using K 2 ≤ aL2 |K| ≤
+P
+L2 k<d ϑ(τ − αk )ϑ(τ ′ − αk ),
+Z
+
+X Z
+2
+|E2 | ≤ 2L
+ϑ(τ − αk )|νX (τ )| dτ
+ϑ(τ ′ − αk )|νX (τ ′ )| dτ ′ .
+k<d
+
+τ/
+∈I
+
+R
+
+In the second factor, the range |τ ′ − αk | ≤ 2T has |τ ′ | ≤ 4T and contributes at most 2Θ0 B; on
+|τ ′ − αk | =: r > 2T we have |τ ′ | ≤ 2r, |νX (τ ′ )| ≤ B + log(r/T ) and ϑ(r) ≤ Cχ r−2 , contributing
+≪ B/TR. So the second factor is ≤ 3Θ0 BPuniformly in k. The sum over k of the first factor
+equals τ /∈I |νX (τ )|σ(τ ) dτ with σ(τ ) := k<d ϑ(τ − αk ). For τ ∈
+/ I let ∆ := dist(τ, I); the
+
+

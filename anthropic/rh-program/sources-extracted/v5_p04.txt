@@ -1,0 +1,149 @@
+4
+
+CLAUDE
+
+if moreover supp F ⊂ [− log X, log X] then the pole terms Fb(± 2i ) are absorbed into
+and
+Z
+X
+b
+Fb(τ ) νX (τ ) dτ.
+mρ F (γρ ) =
+(2.2)
+ρ
+
+R
+
+Fb · ΠX
+
+R
+
+With ℓ1 := l + 2 log 2 − 1, the components of νX in (2.2) satisfy (see e.g. [IK04, §5.5])
+µ is even, smooth, increasing in |τ |,
+
+µ ≥ µ(0) > −1,
+
+|
+−2
+1
+µ(τ ) = 2π
+log |τ
+), µ′ (τ ) ≪ |τ |−1 (|τ | ≥ 1);
+2π + O(τ
+√
+√
+3 X
+1 X Λ(n)
+√ ≪ X;
+|ΠX (τ )| ≤
+;
+|PX (τ )| ≤
+1 + |τ |
+π
+n
+
+(2.3)
+(2.4)
+
+n≤X
+
+(2.5)
+Z 2T
+T
+
+1
+T ℓ1
+µ(τ ) dτ =
++O
+= N (T, 2T ) + O(l),
+2π
+T
+
+Z 2T
+T
+
+
+T ℓ21 
+−2
+µ(τ ) dτ =
+1+O l
+.
+4π 2
+2
+
+2.2. The window and the test family. This subsection fixes the window ψ, the test function
+e is defined in §2.3.
+ϕ, and the sample grid {αk }; the matrix G
+Fix an even window ψ ∈ C 2 ([− 12 , 12 ]) with ψ > 0 on [− 21 , 12 ]. The two choices we use are
+√
+(2.6)
+ψ0 := 1[−1/2,1/2] ,
+ψMT (s) := cos( 2 s) 1[−1/2,1/2] (s).
+Fix χ ∈ C ∞ (R) nondecreasing, χ|(−∞,0] = 0, χ|[1,∞) = 1. With L := l = log(T /2π) and
+X := eL = T /(2π), set
+
+
+(2.7)
+ϕ(u) := χ L2 + u χ L2 − u · ψ(u/L)1/2 .
+Then ϕ ∈ Cc2 (R) is even, 0 ≤ ϕ ≤ 1, supp ϕ = [− L2 , L2 ], and ϕ2 (u) = ψ(u/L) off two transition
+intervals of length Oχ (1); supp(ϕ ∗ ϕ) ⊂ [−L, L] = [− log X, log X], so (2.2) applies to F = any
+product of modulated copies of ϕ. By Paley–Wiener and j = 0, 1, 2 integrations by parts,
+
+L
+b
+(2.8)
+|ϕ(z)|
+≪χ e 2 | Im z| · min L, |z|−1 , |z|−2 ,
+z ∈ C,
+√
+since ∥ϕ∥1 ≤ L, ∥ϕ′ ∥1 ≪χ 1, ∥ϕ′′ ∥1 ≪χ 1 (the ( ψ)(j) (u/L) · L−j contribution being ≪ L1−j
+on the bulk).
+Here and below, Cχ := ∥(ϕ2 )′′ ∥1 ≪χ 1.
+Place αk := T + 2πk/L for k ∈ Z and d := ⌊LT /(2π)⌋, so α0 , . . . , αd−1 ∈ [T, 2T ) and
+d = N (T, 2T ) + O(L). For a zero ρ set
+
+(2.9)
+vρ := b
+ϕ(γρ − αk ) 0≤k<d ∈ Cd .
+√
+√
+2.3. The matrix e
+G. Let I := [T, 2T ), I ′ := [T − T , 2T + T ), and partition the zeros
+with Re γρ ∈ I ′ into on := {ρ : β = 12 }, off := {ρ : β ̸= 21 } (sets). Put a := ∥ϕ∥22 /L =
+R 1/2
+−1
+−1/2 ψ + Oχ (L ) and define the real symmetric d × d matrices
+(2.10)
+
+e := 1
+G
+aL2
+
+e := (aL2 )−1
+and E
+
+X
+Re γρ ∈I ′
+
+mρ vρ vρT ,
+
+P :=
+
+1 X
+mρ vρ vρT ,
+aL2 ρ∈on
+
+e − P,
+Q := G
+
+T
+Re γρ /
+∈I ′ mρ vρ vρ . Rank and inertia are basis-independent, so no orthonor-
+
+P
+
+e E
+e
+malisation is needed. The functional equation pairs off as {ρ, 1 − ρ̄} with v1−ρ̄ = vρ , so G,
+
+

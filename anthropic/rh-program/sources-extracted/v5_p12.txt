@@ -1,0 +1,70 @@
+12
+
+CLAUDE
+
+q
+Proof of Theorem B. Replace ζ by L(s, χ), χ primitive mod q: in (2.1), µ gains − log
+2π and
+1+aχ
+the Γ-factor shifts to 4 + iτ2 , Λ(n) becomes Λ(n)χ(n), and the pole terms are absent for
+χ ̸= χ0 . The functional equation still pairs ρ ↔ 1 − ρ̄. Propositions 4.1–5.5 and Theorem 5.7
+go through with Oq (·) errors (|χ| ≤ 1); the chain (1.2) is unchanged.
+□
+
+Remark 6.1 (Rate; the parameter λ). Tracking errors gives N0s (T, 2T ) ≥ (2 − R(ψ) −
+cψ logloglogT T )N (T, 2T ) for T ≥ T0 (ψ, χ), the log log T from Proposition 5.2. If instead L := λl for
+fixed 0 < λ < 1 (so X = (T /2π)λ ), the argument gives 2 − Rλ (ψ) with Rλ (ψ0 ) = λ1 + λ3 , i.e.
+H(λ) := 2 − λ1 − λ3 in place of 23 , and the log log T may be dropped. No λ < 1 improves the
+constants.
+7. Relation to prior work; sharpness
+7.1. Relation to prior work on the pair-correlation second moment. In the
+notation of [GS25, GS26], the unconditional “Fejér kernel sum over zero differences”
+P
+sin 2i (ρ−ρ′ ) log T 2
+T
+W (ρ − ρ′ ) = ( 43 + o(1)) 2π
+log T ([Ary22, Cor. 1.4]; [BGSTB24, Theoi
+ρ,ρ′
+(ρ−ρ′ ) log T
+2
+
+rem 1]; [GS26, Lemma 2]) is, up to the choice of smoothing, the zero-side reading of our ∥ e
+G∥2HS .
+Goldston and Suriajaya [GS25, Theorem 2] (seePalso [GLSS25] under the pair correlation
+conjecture) show that an unconditional bound
+ρ,ρ′ ∈Z(T ), γ=γ ′ 1 ≤ (C + o(1))N (T ) with
+C < 2 (zeros repeated according to multiplicity) would give proportions ≥ 2 − C of simple
+zeros and ≥ 2 − C of zeros on the line, and that C = 43 would follow if the terms γ ̸= γ ′
+of the Fejér sum could be discarded, which requires a positivity that fails for zeros far from
+the line; in [BGSTB25, GS26] this is achieved under the hypothesis that all zeros lie within
+o(1/ log T ) of the line (Aryan [Ary22, Cor. 1.5] had earlier obtained ≥ 23 simple zeros under
+a zero-density hypothesis). Theorem A is an unconditional substitute which reaches their
+number 2 − C = 23 both for zeros on the line (as distinct points) and for simple zeros on the
+line: instead of isolating the “horizontal diagonal” γ = γ ′ termwise, Lemma 3.2 bounds the
+rank of the on-line (resp. simple on-line) part of the whole Hermitian form from its trace,
+its Frobenius norm and the positive index of the rest. For simple zeros on the line we thus
+obtain 2 − C = 32 unconditionally; this is the constant that [GS25, Theorem 3(i)] gives under
+the hypothesis [GS25, (6.1)] on the diagonal and symmetric-diagonal terms, and hence under
+the box hypothesis [GS25, Theorem 4], [GS26, Theorem 1]; for distinct zeros Theorem A(ii)
+gives 3−C
+= 56 unconditionally, which is the value of the average of the simple and critical
+2
+proportions in [GS25, Theorem 3(ii)] and the RH-conditional constant of [CGG98, (1.2)].
+That the negative index of finite truncations of Weil’s form equals the number of off-line
+zero pairs seen by the truncation was observed by Bombieri [Bom00] (Introduction); see also
+Yoshida [Yos92] for the positivity of W on small support. We are not aware of a previous use
+of the positive index or of the rank in combination with a second-moment evaluation.
+e ≤ d = N (1 +
+7.2. Sharpness and limits of the method. (a) Dimension. rank P, n+ (G)
+o(1)), so the ceiling of any argument of the present kind is 100%. The restriction L ≍ log T
+(equivalently X ≤ T ) comes from Proposition 5.4: for X ≫ T the off-diagonal prime sum is no
+longer dominated by the diagonal, and its evaluation would require information on prime pairs
+(the Hardy–Littlewood conjectures, or equivalently Montgomery’s pair correlation conjecture
+for support > 1 [Mon73, GM87]). In the extreme hypothetical configuration in which all zeros
+in [T, 2T ] are off-line pairs, Proposition 4.1 gives rank P = 0, n+ (Q) ≤ N/2, while Lemma 3.2
+e 2 ≥ 2N > 4 N ; the contradiction shows only that at least two thirds
+would then force ∥G∥
+HS
+3
+
+

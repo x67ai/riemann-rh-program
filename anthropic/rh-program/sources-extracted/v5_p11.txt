@@ -1,0 +1,139 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+11
+
+5.4. The window constant.
+Lemma 5.6 (Window constant). For even ψ ∈ C([− 12 , 12 ]), ψ > 0, let
+R 1/2 2 R 1/2 R 1/2
+−1/2 ψ + −1/2 −1/2 |u − v| ψ(u)ψ(v) du dv
+(5.13)
+R(ψ) :=
+.
+R 1/2 2
+ψ
+−1/2
+Then R(ψ0 ) = 34 and R(ψMT ) = 12 + √12 cot √12 = c−1
+MT .
+Proof. For ψ0 :
+
+R
+
+ψ0 = 1,
+
+R
+
+ψ02 = 1,
+
+RR
+
+R1
+|u − v| = 2 0 w(1 − w) dw = 31 , so R = 34 . For ψMT : the
+
+R 1/2
+function G(u) := ψ(u) + −1/2 |u − v|ψ(v) dv has G′′ = ψ ′′ + 2ψ = 0 on (− 12 , 12 ), hence is affine
+√
+R 1/2
+there, hence (being even) constant; G(0) = 1 + 2 0 v cos( 2 v) dv = cos √12 + √12 sin √12 and
+√
+R
+R
+ψ = 2 sin √12 , so R(ψMT ) = G(0)/ ψ = 21 + √12 cot √12 after integrating G ≡ G(0) against
+ψ.
+□
+
+e 2 = R(ψ) + Oχ (L−1 ) N (T, 2T ).
+Theorem 5.7. ∥G∥
+HS
+√ 
+e + E∥
+e 2 = (a2 L2 )−1 M[µ, µ] + M[PX , PX ] + O(L2 X) +
+Proof. By Propositions 5.2–5.5, ∥G
+HS
+R
+O(N log L/L2 ). Rescaling ϕ2 (u) = ψ(u/L) + O(1|u|>L/2−1 ) gives ∥ϕ∥22 = L ψ + Oχ (1),
+R
+2
+P
+∥ϕ∥44 = L ψ 2 + Oχ (1), g(y) = L (ψ ∗ ψ)(y/L) + Oχ (1) uniformly; so n≤X Λ(n)
+n g(log n) =
+2
+P
+P
+log n
+2
+1
+2
+2
+L n Λ(n)
+n≤t Λ(n) /n = 2 log t +
+n (ψ ∗ ψ)( L R) + Oχ (L ), and by partial summation with
+1
+O(log t) this equals L3 0 w (ψ ∗ ψ)(w) dw + Oχ (L2 ). Thus
+
+R 2
+R1
+T L3 R 2
+L3
+M[µ, µ] + M[PX , PX ] =
+R(ψ) ψ + Oχ (T L2 )
+ψ + 2 0 w(ψ ∗ ψ) + Oχ (T L2 ) = T2π
+2π
+RR
+R
+R1
+|u − v|ψψ, ψ even). Dividing by a2 L2 = L2 ( ψ)2 +
+by Lemma 5.6 (since 2 0 w(ψ ∗ ψ) =
+Oχ (L):
+e + E∥
+e 2 = R(ψ) · T L + Oχ (T ) = R(ψ) N (T, 2T ) + Oχ (N/L).
+∥G
+HS
+2π
+√
+2
+2
+e+ e
+e+ e
+E∥HS ∥ e
+E∥HS + ∥ e
+E∥2HS ≪ N · T −1/2 by Proposition 4.3.
+G∥HS − ∥G
+E∥HS ≤ 2∥G
+Finally ∥ e
+□
+6. Proofs of Theorems A and B
+P
+Proof of Theorem A. Set P1 := (aL2 )−1 ρ∈on1 vρ vρT (the simple on-line zeros) and Q′ :=
+e − P1 . Then P1 ⪰ 0, rank P1 ≤ s1 , tr P1 ≤ s1 (Lemma 2.1, each mρ = 1); and Q′ is the
+G
+L
+L
+0 m 
+pull-back of ρ∈on≥2 mρ |x|2 ⊕ pairs mρ 0ρ , so n+ (Q′ ) ≤ s2 + p by Lemma 3.1. Lemma 3.2
+e − tr P1 gives
+with (P1 , Q′ ) and tr Q′ = tr G
+e − tr P1 ) − 4(s2 + p) − ∥G∥
+e 2 = 4 tr G
+e − 2 tr P1 − 4(s2 + p) − ∥G∥
+e 2 ,
+rank P1 ≥ 2 tr P1 + 4(tr G
+HS
+HS
+e − 2N (I ′ ) − ∥G∥
+e 2 . Now
+and since tr P1 + 2(s2 + p) ≤ s1 + 2s2 + 2p ≤ N (I ′ ) this is ≥ 4 tr G
+HS
+′
+2
+e = N (I ) + o(N ) (Proposition 4.2), ∥ e
+tr G
+G∥HS = (R(ψ) + o(1))N (Theorem 5.7), N (I ′ ) =
+N (I) + O(D0 L), and N0s (I) = s1 − O(D0 L) ≥ rank P1 − O(D0 L), giving (1.2).
+e − ∥e
+For (ii): rearranging the display above, 3s1 + 4(s2 + p) ≥ 4 tr G
+G∥2HS ; subtracting
+s1 + 2s2 + 2p ≤ N (I ′ ) gives 2(s1 + s2 + p) ≥ (3 − R(ψ) − o(1))N , and Nd (I ′ ) ≥ s1 + s2 + 2p ≥
+s1 + s2 + p. The cumulative form follows by summing over dyadic windows.
+□
+
+

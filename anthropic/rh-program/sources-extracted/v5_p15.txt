@@ -1,0 +1,58 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+15
+
+counting functions of §1.1 are defined directly against Mathlib’s riemannZeta, and the analytic
+inputs of §2 appear in the repository as theorems in their own right rather than as hypotheses
+of the main theorems; several are ported, with attribution, from the PrimeNumberTheoremAnd project [PNT+]. The repository’s audit documentation records that at the cited
+tag it contains no axiom declarations beyond Mathlib’s and that #print axioms on each of
+Zeta23.two thirds on critical line, Zeta23.thmB0 mult, Zeta23.thmC0 mult, and the
+corresponding declarations for the Montgomery–Taylor constants and for Theorem B, returns
+only the three standard axioms propext, Classical.choice, Quot.sound, with no sorry.
+The repository is available at https://github.com/anthropics/zeta-23-lean.
+For the reader’s convenience we reproduce below the counting-function definitions and the
+statements of Theorem A; the statement of Theorem B is analogous, and the full repository
+contains the proofs.
+-- Counting functions (Zeta23/Statement.lean), against Mathlib’s riemannZeta:
+import Mathlib.NumberTheory.LSeries.RiemannZeta
+import Mathlib.Analysis.Analytic.Order
+namespace Zeta23
+def IsNontrivialZero (ρ : C) : Prop := riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+def zeroMult (ρ : C) : N := (analyticOrderAt riemannZeta ρ).toNat
+def zerosIn (T1 T2 : R) : Set C := {ρ | IsNontrivialZero ρ ∧ T1 < ρ.im ∧ ρ.im ≤ T2 }
+Pf
+def Ncount (T1 T2 : R) : N :=
+ρ ∈ zerosIn T1 T2 , zeroMult ρ
+def Ndist (T1 T2 : R) : N := (zerosIn T1 T2 ).ncard
+Pf
+def N0 (T1 T2 : R) : N :=
+ρ ∈ zerosIn T1 T2 ∩ {ρ | ρ.re = 1 / 2}, zeroMult ρ
+def N0star (T1 T2 : R) : N := (zerosIn T1 T2 ∩ {ρ | ρ.re = 1 / 2}).ncard
+def N0simple (T1 T2 : R) : N := (zerosIn T1 T2 ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ =
+1}).ncard
+def Nsimple (T1 T2 : R) : N := (zerosIn T1 T2 ∩ {ρ | zeroMult ρ = 1}).ncard
+-- Main theorems (Zeta23/Unconditional.lean, Zeta23/FinalMult.lean); the types carry no
+hypotheses.
+theorem two_thirds_on_critical_line :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (2 / 3 - ε) * (Ncount T (2 * T) : R) ≤ N0star T (2 * T)
+theorem two_thirds_on_critical_line_cumulative :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (2 / 3 - ε) * (Ncount 0 T : R) ≤ N0star 0 T
+theorem thmB0 _mult :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (2 / 3 - ε) * (Ncount T (2 * T) : R) ≤ N0simple T (2 * T)
+theorem thmB0 _mult_cumulative :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (2 / 3 - ε) * (Ncount 0 T : R) ≤ N0simple 0 T
+theorem thmC0 _mult :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (5 / 6 - ε) * (Ncount T (2 * T) : R) ≤ Ndist T (2 * T)
+theorem thmC0 _mult_cumulative :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (5 / 6 - ε) * (Ncount 0 T : R) ≤ Ndist 0 T
+end Zeta23
+-- The same statements in the comparator challenge file comparator/Challenge/Multiplicity.lean
+-- (names two_thirds_simple_on_critical_line, five_sixths_distinct), and, with
+√
+√
+√
+√
+-- cMT := 2·tan(1/ 2) / (1 + (1/ 2)·tan(1/ 2)), the constant c1 * of Theorem D:
+theorem montgomery_taylor_simple_on_critical_line_mult :
+
+

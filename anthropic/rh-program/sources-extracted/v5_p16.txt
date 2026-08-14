@@ -1,0 +1,59 @@
+16
+
+CLAUDE
+
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (2 - 1 / cMT - ε) * (Ncount T (2 * T) : R) ≤ N0simple T (2
+* T)
+theorem montgomery_taylor_distinct_mult :
+∀ ε > 0, ∃ T0 : R, ∀ T ≥ T0 , (3 / 2 - cMT−1 / 2 - ε) * (Ncount T (2 * T) : R) ≤ Ndist T
+(2 * T)
+
+Von Neumann’s trace inequality for Hermitian matrices and both directions of Sylvester’s law
+of inertia for Hermitian forms were not previously in Mathlib and are contributed by this
+formalisation.
+Acknowledgments
+The author records its debt to the mathematicians cited in §1, on whose work everything
+here rests. We are especially indebted to S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya
+and C. L. Turnage-Butterbaugh, whose papers [BGSTB24, BGSTB25], together with [GS25,
+GS26], posed the question answered here; the unconditional second-moment identity underlying
+input (P) was first proved by F. Aryan [Ary22] and extended to the pointwise form factor
+in [BGSTB24]. We thank Brian Conrey and Daniel A. Goldston for carefully reading the
+manuscript and for their comments.
+The argument of this paper was found in the course of a conversation with Jarred Sumner,
+whose questions, encouragement, and insistence on a genuine attempt set the entire investigation in motion; he is in every meaningful sense the paper’s human co-author. Ralph Furman
+and Levent Alpöge studied the result in detail after the session, placed it in the context of
+the existing literature, checked the argument independently, and have taken charge of its communication; the paper would not exist in its present form without their work, and they take
+responsibility for any errors that remain. We are grateful to colleagues at Anthropic who
+carried out additional independent reviews. The Lean formalisation of Theorems A and B described in Appendix A was orchestrated by Eric Easley, building substantially on the Mathlib
+library and on Lean developments from the PrimeNumberTheoremAnd project [PNT+], whose
+contributors we gratefully acknowledge. The bandwidth-one ceiling of §7.2 was established by
+Easley and sharpened by Stephen McAleer.
+References
+[Ary22]
+[BCY11]
+
+F. Aryan, On an extension of the Landau–Gonek formula, J. Number Theory 233 (2022), 389–404.
+H. M. Bui, B. Conrey, M. P. Young, More than 41% of the zeros of the zeta function are on the
+critical line, Acta Arith. 150 (2011), 35–64.
+[BGSTB24] S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, An unconditional
+Montgomery theorem for pair correlation of zeros of the Riemann zeta-function, Acta Arith. 214
+(2024), 357–376.
+[BGSTB25] S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, Pair correlation of
+zeros of the Riemann zeta function I: proportions of simple zeros and critical zeros, arXiv:2501.14545
+(2025).
+[BHB13]
+H. M. Bui, D. R. Heath-Brown, On simple zeros of the Riemann zeta-function, Bull. Lond. Math.
+Soc. 45 (2013), 953–961.
+[Bom00]
+E. Bombieri, Remarks on Weil’s quadratic functional in the theory of prime numbers, I, Atti Accad.
+Naz. Lincei Rend. Lincei (9) Mat. Appl. 11 (2000), 183–233.
+[CCLM17] E. Carneiro, V. Chandee, F. Littmann, M. B. Milinovich, Hilbert spaces and the pair correlation
+of zeros of the Riemann zeta-function, J. Reine Angew. Math. 725 (2017), 143–182.
+[CG93]
+A. Y. Cheer, D. A. Goldston, Simple zeros of the Riemann zeta-function, Proc. Amer. Math. Soc.
+118 (1993), 365–372.
+[CGG98]
+J. B. Conrey, A. Ghosh, S. M. Gonek, Simple zeros of the Riemann zeta-function, Proc. London
+Math. Soc. (3) 76 (1998), 497–522.
+
+

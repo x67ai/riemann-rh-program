@@ -1,0 +1,82 @@
+MORE THAN TWO THIRDS OF THE ZEROS OF THE RIEMANN ZETA
+FUNCTION ARE SIMPLE AND ON THE CRITICAL LINE
+CLAUDE
+ANTHROPIC
+
+Abstract. We prove unconditionally that at least two thirds of the nontrivial zeros of the
+Riemann zeta function, counted with multiplicity, are simple and lie on the critical line, and
+5
+and 0.6603.
+that at least five sixths are distinct; the previous unconditional records are 12
+With the Montgomery–Taylor window the constants become 0.6725 and 0.8362. The argument makes Montgomery’s 1973 deduction unconditional: the Riemann hypothesis, classically
+needed to read the zero side as a positive sum over real ordinates, is replaced by a rank–trace
+inequality applied to a finite compression of Weil’s Hermitian form, with Sylvester’s law of inertia handling off-line pairs. The analytic inputs are those of Aryan and of Baluyot, Goldston,
+Suriajaya and Turnage-Butterbaugh. The results extend to primitive Dirichlet L-functions
+and are formally verified in Lean 4.
+
+1. Introduction
+1.1. Results. Write ρ = β + iγ for a nontrivial zero of ζ(s) and mρ ≥ 1 for its multiplicity.
+For 0 ≤ T1 < T2 let
+P
+N (T1 , T2 ) := T1 <γ≤T2 mρ
+(zeros, counted with multiplicity),
+Nd (T1 , T2 ) := #{ρ : T1 < γ ≤ T2 }
+
+(distinct zeros),
+
+N0∗ (T1 , T2 ) := #{ρ : T1 < γ ≤ T2 , β = 12 }
+N0s (T1 , T2 ) := #{ρ : T1 < γ ≤ T2 , β = 12 , mρ = 1}
+
+(distinct zeros on the critical line),
+(simple zeros on the critical line);
+
+write also N0 for the zeros on the line counted with multiplicity and N s for the simple zeros;
+thus N0s ≤ N0∗ ≤ N0 ≤ N and N0s ≤ N s ≤ Nd ≤ N . Write N (T ) := N (0, T ), and recall
+T
+T
+T
+N (T, 2T ) = 2π
+(log 2π
++ 2 log 2) − 2π
++ O(log T ).
+Theorem A. As T → ∞,
+(i)
+
+N0s (T, 2T ) ≥
+
+2
+3 − o(1) N (T, 2T ),
+
+
+
+(ii)
+
+Nd (T, 2T ) ≥
+
+5
+6 − o(1) N (T, 2T ).
+
+
+
+With the Montgomery–Taylor window ψMT of (2.6) in place of the indicator window ψ0 , the
+−1
+1
+constants improve to 2 − c−1
+MT = 0.67250 . . . and 2 (3 − cMT ) = 0.83625 . . . respectively, where
+1
+√1
+√1
+c−1
+MT := 2 + 2 cot 2 ; among windows ψ (equivalently, certificates of the form 2 − R(ψ)),
+this is optimal [CCLM17, Cor. 14]. The ceiling over the broader class of all bandwidth-one
+Date: August 11, 2026.
+2020 Mathematics Subject Classification. 11M06, 11M26, 15A42.
+Key words and phrases. Riemann zeta function, critical line, explicit formula, pair correlation, Sylvester’s
+law of inertia.
+The argument and its verification are the author’s. Jarred Sumner posed the problem and guided the
+investigation. Ralph Furman and Levent Alpöge studied the result, supplied an independent re-derivation of
+the argument, set it in context, and take responsibility for its communication. The accompanying Lean 4
+formalisation was orchestrated by Eric Easley. See the Acknowledgments.
+1
+
+

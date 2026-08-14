@@ -1,0 +1,119 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+5
+
+are real symmetric. By (2.2),
+(2.11)
+
+e+ e
+(G
+E)kk′ =
+
+1
+aL2
+
+Z
+b
+ϕ(τ − αk ) b
+ϕ(τ − αk′ ) νX (τ ) dτ.
+R
+
+Lemma 2.1 (Poisson–Gabor identity). For all z, z ′ ∈ C,
+X
+c2 (z − z ′ ),
+b − αk ) ϕ(z
+b ′ − αk ) = L ϕ
+ϕ(z
+in particular
+k∈Z
+
+X
+
+b − αk )2 = L∥ϕ∥2 = aL2 .
+ϕ(z
+2
+
+k∈Z
+
+For z = z ′ real, truncating to 0 ≤ k < d gives ∥vρ ∥22 ≤ aL2 for ρ ∈ on.
+b − s)ϕ(z
+b ′ − s). With ϕz (u) := ϕ(u)eizu and H := ϕz ∗ ϕz ′ ∈
+Proof. Fix z, z ′ and let Υ(s) := ϕ(z
+b
+Cc (R) one has Υ(s) = H(−s);
+hence Υ is smooth with Υ(s) = Oχ (|s|−4 ) by (2.8), and by
+Fourier inversion b
+Υ(ξ) = 2πH(ξ), which is continuous and vanishes for |ξ| ≥ L. Poisson
+P
+P
+−1
+2πimT /h holds; since h = 2π/L the
+b
+summation
+k∈Z Υ(T + kh) = h
+m∈Z Υ(−2πm/h)e
+R
+′
+L
+b
+· 2π ϕ(u)2 ei(z−z )u du =
+dual lattice is LZ, so only m = 0 contributes, giving h−1 Υ(0)
+= 2π
+c2 (z − z ′ ).
+Lϕ
+□
+Thus the Gabor system at the critical density h = 2π/L has a translation-invariant frame
+kernel with no aliasing error, for any window supported in an interval of length L.
+Lemma 2.2 (Montgomery–Vaughan, bilinear form). Let λ1 , . . . , λR ∈ R be distinct, δr :=
+mins̸=r |λr − λs |, and xr , zr ∈ C. Then
+X x r zs
+λr − λ s
+r̸=s
+
+≤
+
+3π X |xr |2 1/2 X |zr |2 1/2
+.
+2
+δr
+δr
+r
+r
+
+Proof. For z = x this is the weighted Hilbert inequality of [MV74, Theorem 2]; see also [Mon94,
+1/2
+Ch. 7]. In general, with Hrs := i/(λr −λs ) (r ̸= s), Hrr = 0, and ∆ := diag(δr ), the case z = x
+3π
+3π
+∗
+says ∥∆H∆∥ ≤ 2 (operator norm, ∆H∆ Hermitian); then |x Hz| ≤ 2 ∥∆−1 x∥ ∥∆−1 z∥. □
+We apply Lemma 2.2 with {λr } = {log n : n ≤ X prime power}; consecutive prime powers
+′
+1
+satisfy log nn ≥ 2n
+, so
+X
+X
+(2.12)
+δn−1 ≤ 2n,
+δn−1 |xn |2 ≤ 2
+n|xn |2 .
+n
+
+n
+
+3. Linear algebra
+Lemma 3.1 (Inertia under pull-back). Let Q0 be a Hermitian form on Cm and A : Cd → Cm
+linear. Then n+ (A∗ Q0 A) ≤ n+ (Q0 ).
+Proof. If Q0 ◦ A is positive definite on a subspace U ⊂ Cd , then A|U is injective and Q0 is
+positive definite on A(U ); hence dim U = dim A(U ) ≤ n+ (Q0 ).
+□
+Lemma 3.2 (Rank–trace inequality). Let P, Q be Hermitian d × d matrices with P ⪰ 0,
+rank P ≤ r, and n+ (Q) ≤ b. Then
+(3.1)
+
+r ≥ 2 tr P + 4 tr Q − 4b − ∥P + Q∥2HS .
+
+Equality holds if P = Π1 , Q = 2Π2 for orthogonal projections Π1 ⊥ Π2 of ranks r, b.
+
+

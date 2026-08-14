@@ -1,0 +1,71 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+13
+
+of the zeros are not of this kind, which is what Theorem A says. Nothing in the method
+distinguishes between “two thirds” and “all”.
+(b) Sharpness of the three counts. Given only tr, ∥ · ∥2HS , the block structure and tr P1 ≤ s1 ,
+the inequalities of §6 are sharp in all three parts: 23 N mutually orthogonal simple on-line zeros
+together with 16 N on-line doubles realise tr = N , ∥ · ∥2HS = 34 N , s1 = 23 N , Nd = 65 N —the same
+extremal configuration as in Montgomery’s RH argument. Replacing the doubles by off-line
+pairs of depth → 0 (spectrally the same) gives the extremal for Theorem A, with s1 + s2 = 23 N ;
+for that configuration the Theorem A(i) certificate gives exactly 23 while Theorem A(ii)’s is not
+sharp (Nd = N ), consistent with §1.4.
+(c) The two levels of integrality. Lemma 3.2 with the decomposition (P, Q) of Proposition 4.1
+recovers the level (m − 1)2 ≥ 0; with the regrouping (P1 , Q′ ) of the proof of Theorem A(i) it
+recovers also the level (m − 1)(m − 2) ≥ 0—interacting simple zeros, whose eigenvalues fill
+(0, 2), are harmless because they sit on the rank side, where only rank P1 ≤ s1 and tr P1 ≤ s1
+are used, while every multiple on-line point and every off-line pair sits on the index side at the
+flat charge 4. This is the device of [CGG98, (1.2)] made unconditional.
+What can still be varied is the window ψ (Lemma 5.6) and the number of moments used.
+The dimension bound rank P ≤ d = N (T, 2T ) + O(1) is the trivial ceiling referenced in (f);
+it is decisive in combination with the following observations, which we state informally. (d)
+Lemma 3.2 at c = 1 is the case m = 1 of the one-sided Chebyshev–Markov–Stieltjes bound: if
+e k , k ≤ 2m, are known, the sharp lower bound for n+ ( e
+the normalised moments d−1 tr G
+G)/d
+is 1 − Λm (0), Λm the Christoffel function of the moment sequence at 0. (e) The prime-side
+e k by the diagonal method of Section 5 (multiplicative relations among k
+evaluation of tr G
+prime powers, Montgomery–Vaughan for the rest) is available exactly in the Rudnick–Sarnak
+range [RS96] X k ≤ T 2−ε ; at X ≍ T this allows only k = 1. Thus, unconditionally, higher
+moments add nothing. (f) Conditionally, let HL∗ (k0 ) denote the hypothesis that for all
+e k = d mk (1)(1 + o(1)), where mk (1) is the k-th moment of the limiting speck ≤ k0 , tr G
+tral distribution of the sine-kernel Gram matrix over the sine process
+P (for k = 4 this encodes a
+Hardy–Littlewood-type asymptotic for the additive correlations m (Λ∗Λ)(m)(Λ∗Λ)(m + h),
+∗
+5
+|h| ≤ X 2 /T ). One computes mk (1) = 1, 34 , 2, 13
+4 for k ≤ 4, so Λ2 (0; 1) = 36 and HL (4) would
+13
+give lim inf N0s (T, 2T )/N (T, 2T ) ≥ 18
+, and HL∗ (k0 ) for all k0 would give proportion 1 (of simple zeros on the line), the ceiling of (a); RH itself is out of reach of the mechanism. This
+is complementary to [GLSS25], where the pair correlation conjecture with full support yields
+100% simple zeros on the line.
+The bandwidth-one ceiling. The 32 of Theorem A(i) is within 0.016 of the ceiling of its own
+method, as we now make precise. Call a bandwidth-one certificate any function p of a locally
+finite, ρ 7→ 1 − ρ̄–symmetric configuration that (a) depends on the configuration only through
+its first two trace moments against test functions of Fourier support in [−1, 1] and the partition
+into on-line points and off-line pairs, and (b) satisfies p ≤ N0s /N configuration by configuration.
+The certificate used for Theorem A(i) is of this kind. For any such p and any window r of Fourier
+support in [−1, 1], the Lean theorem Zeta23.PairCeiling.ceiling law256 establishes
+Z 1
+Z 1
+
+
+−6
+′
+c0 +
+r(x) x dx ≤ p + 0.824 |r(1)| + 2.55 · 10
+|r (1)| + |r′′ |
+0
+0
+P
+under two hypotheses: hvalid, asserting c0 + j≤256 (Sj /256) r(j/256) ≤ p for the sampled
+form factor (Sj ) of the explicit 256-periodic law recorded in Zeta23/PairCeiling/LawN256.lean
+(the optimum of the corresponding finite programme); and EnclOK, certifying the form-factor
+enclosures LawN256.encl. Here p0 := 1 − aN is the exact rational recorded there (rounded up,
+p0 ≤ 0.6818287): configuration-wise validity of the certificate gives EL [p] ≤ EL [N0s /N ] = 1−aN
+
+

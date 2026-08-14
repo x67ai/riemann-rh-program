@@ -1,0 +1,94 @@
+MORE THAN TWO THIRDS OF THE ZETA ZEROS ARE SIMPLE AND ON THE CRITICAL LINE
+
+3
+
+1.3. Context. That a positive proportion of the zeros lie on the critical line is due to Selberg [Sel42]; Levinson’s mollifier method [Lev74] gave 31 (simple, by [HB79]), Conrey [Con89]
+5
+> 52 , and [BCY11, Fen12, PRZZ20] the present record 12
+. Under RH, Montgomery [Mon73]
+2
+deduced 3 simple from the pair-correlation second moment; [Mon75, CG93, BHB13, CGdL20]
+improved further.
+Montgomery’s prime-side evaluation is a mean value of a Dirichlet polynomial of length
+T and is unconditional; RH entered only to read the zero side termwise as a positive sum
+over real ordinates. Aryan [Ary22] made this explicit for the Fejér-kernel second moment,
+and Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh [BGSTB24] then showed that
+Montgomery’s form factor itself holds for the sum over all complex zeros. Goldston and
+Suriajaya [GS25, GS26] (also [BGSTB25, GLSS25]) subsequently showed that 23 , 56 follow
+under the hypothesis that all zeros lie within o(1/ log T ) of the line, isolated the remaining
+obstacle as the termwise positivity that fails off the line, and asked what would follow if it
+could be removed. Theorem A removes it: the inertia bound (Z)+(L) replaces the positivity.
+Section 7.1 gives the comparison in detail.
+The observation that the negative index of truncations of W counts off-line pairs is
+Bombieri’s [Bom00]; we are not aware of a previous use of rank and positive index together
+with a second-moment evaluation.
+1.4. What the results are not. The theorems are lower bounds only: the remaining third of
+the zeros are not shown to be off the line, merely not reached by the certificate. The inputs are
+insensitive to o(N ) off-line zeros and hold for Davenport–Heilbronn and Epstein zeta functions,
+e ∥G∥
+e 2 and the block structure, the
+for which the analogue of RH is false. Given only tr G,
+HS
+2
+inequality (1.1) is sharp (§7.2); improving on 3 by this route would require pair-correlation
+information beyond Fourier support 1.
+1.5. Formal verification. The author of this paper is a large language model developed by
+Anthropic; the argument was found in a single interactive session and checked by repeated
+adversarial review by independent model instances. A Lean 4 formalisation of Theorems A
+and B accompanies the paper (Appendix A).
+e Section 3 proves (1.1).
+1.6. Plan. Section 2 fixes the explicit formula, the test family, and G.
+Section 4 carries out (Z); Section 5 carries out (P). Section 6 carries out the chain (1.2).
+Section 7 records the relation to [BGSTB24, GS25, GS26], the sharpness of the method, and
+conditional extensions. Appendix A records the formalisation.
+R
+1.7. Notation. fb(ξ) = R f (u)e−iuξ du. For a Hermitian matrix R, n+ (R) is the number of
+strictly positive eigenvalues and ∥R∥2HS = tr R2 . We write l := log(T /2π) and D0 := T 1/2 .
+2. The explicit formula and the test family
+2.1. The explicit formula. For τ ∈ R set
+1
+Γ′  1 iτ  log π
+1
+X 2 +iτ
+1
+µ(τ ) :=
+Re
++
+−
+,
+ΠX (τ ) := Re 1
+,
+2π
+Γ 4 2
+2π
+π
+2 + iτ
+
+PX (τ ) := −
+
+1 X Λ(n)
+√ cos(τ log n),
+π
+n
+n≤X
+
+and νX := µ + ΠX + PX . Weil’s explicit formula (e.g. [IK04, §5.5]; our normalisation agrees
+with [BGSTB24]) reads, for F ∈ Cc2 (R) even,
+Z
+X
+X Λ(n)
+i
+i
+b
+b
+b
+√ F (log n);
+(2.1)
+mρ F (γρ ) = F ( 2 ) + F (− 2 ) +
+Fb(τ )µ(τ ) dτ − 2
+n
+R
+ρ
+n≥1
+
+
