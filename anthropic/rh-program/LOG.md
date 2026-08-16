@@ -168,3 +168,21 @@ Entry template:
 **New artifacts:** FETCH-VERIFICATION.md Round-2 appendix; results/fetch-verification-r2-sweep-2026-08-14.json; results/fetch-verification-r2-agents-2026-08-14.json; results/paper-v5-assessment-2026-08-14.md; FETCH-RESPONSE-ROUND2.md (tracked copy); anthropic/zeta-two-thirds-v5.pdf; sources-extracted/v5_p01..17.txt; FETCH-LIST-ROUND2.md check-offs; .gitignore entry.
 
 **Open at close:** Nothing running. **Next session = RH work resumes at STATUS resume actions 0–6** with both corpora verified and the v5/Round-2 propagation items folded into actions 0/1/2/4/5.
+
+## Session 4.9 — 2026-08-16 — Infrastructure side-session (no RH work, sponsor-directed)
+
+**Focus:** Sponsor's three infrastructure questions ahead of the RH resume: (1) empirically test whether the CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000 fix (Session-4 FIX 3) actually reaches workflow subagents; (2) whether heavy computations can be handed off to the cloud so runs survive machine shutdown (Cowork vs alternatives); (3) whether Claude's tmp/session state can be moved into the repo for cross-machine (MacBook ↔ Mac Mini, iCloud) resume.
+
+**Done:**
+- **64k→128k fix VERIFIED (run wf_15eb682f-dd9, 3 probe iterations):** a single workflow subagent emitted a **97,505-output-token StructuredOutput response, stop_reason tool_use, clean completion** — 52% above the old 64k ceiling that killed A4 designer attempts 1–5. The A4 overflow blocker is cleared. Recorded in STATUS Session-4 task line. Probe lessons: attempt 1 killed by MacBook **sleep** mid-response (same orphaning mode as Session-3 runs); attempt 2 showed unbriefed subagents **self-ration to ~57k** (stopped at a round 700/1600 items just under the old cap) — briefs for very large single-response deliverables must state the 128k budget; chunked write-to-disk remains the safer architecture. Model ceiling confirmed against current API docs: claude-fable-5 max output = 128k, thinking counts toward the same cap (consistent with the Session-4 diagnosis).
+- **Cloud execution researched (docs-verified):** Claude Cowork = wrong vehicle (separate product, cloud-capable but NO documented interop/handoff with Claude Code projects). Right vehicle = **Claude Code cloud sessions (claude.ai/code)**: run on Anthropic infra, survive local shutdown, support full Workflow/ultracode tooling, account-scoped (reachable from both Macs + phone), repo handoff via GitHub App on x67ai/riemann-rh-program. Constraint: no local Wolfram MCP in cloud → numerics in Python, Mathematica-only items queued for local follow-up.
+- **Cross-machine state question answered:** cross-machine session resume is unsupported by design; syncing ~/.claude via iCloud is unsupported and risky (credentials, jsonl conflict-mangling); tmp scratchpad is ephemeral (~1MB) and not worth relocating. The program's existing repo-as-state pattern (STATUS.md + results/ + journal snapshots) IS the cross-machine resume mechanism, now complemented by cloud sessions.
+- **KICKSTART.md written** (operations guide, no program state): Part 1 = sponsor's plain-language runbook (one-time claude.ai/code setup; the universal one-line boot prompt; cloud-vs-local decision; don'ts; known-issues table). Part 2 = binding session bootstrap for Claude (git pull first → STATUS.md authority → cloud/local environment rules → 128k budget notes → push-at-close discipline, PR-merge fallback explained for a non-technical sponsor). STATUS resume pointer and Last-updated line wired to it.
+
+**Decisions:**
+- Next session = RH work at STATUS resume actions 0–6, run as a **cloud session** via the KICKSTART boot prompt (sponsor will paste one line at claude.ai/code). Wolfram-dependent verification stays local (Mac Mini preferred).
+- No relocation of ~/.claude or tmp state; no Cowork.
+
+**New artifacts:** KICKSTART.md; STATUS.md updates (FIX 3 verification note in the Session-4 task line, resume pointer, Last-updated); this LOG entry. Probe script/journal live under the side-session's transcript dir (synthetic test — not snapshotted to results/, nothing of mathematical value).
+
+**Open at close:** Nothing running. Untracked stray `anthropic/paper-v5 (12).pdf` (sponsor's original browser download; clean tracked copy exists as anthropic/zeta-two-thirds-v5.pdf) — left untracked, sponsor may delete. Next session = RH work, cloud, resume actions 0–6.
