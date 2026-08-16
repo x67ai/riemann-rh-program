@@ -186,3 +186,20 @@ Entry template:
 **New artifacts:** KICKSTART.md; STATUS.md updates (FIX 3 verification note in the Session-4 task line, resume pointer, Last-updated); this LOG entry. Probe script/journal live under the side-session's transcript dir (synthetic test — not snapshotted to results/, nothing of mathematical value).
 
 **Open at close:** Nothing running. Untracked stray `anthropic/paper-v5 (12).pdf` (sponsor's original browser download; clean tracked copy exists as anthropic/zeta-two-thirds-v5.pdf) — left untracked, sponsor may delete. Next session = RH work, cloud, resume actions 0–6.
+
+## Session 4.95 — 2026-08-16 — Ops revision: cloud path retired, local-only + thermal batching (no RH work, sponsor-directed)
+
+**Focus:** Sponsor question exposed a hole in the Session-4.9 cloud plan: cloud sessions clone from GitHub, and `fetched/`/`fetched-r2/` (336 corpus PDFs) are gitignored/local-only by the sponsor's own Session-4.5 decision — so a cloud session could never read the corpus, and STATUS resume action 0 (corpus ingest) would be blocked there. Sponsor directive in response: **forget the cloud, run everything locally on the M5 MacBook**, batched so the machine doesn't run hot, and explicitly **without undershooting** ("have as many computations as this M5 machine can handle").
+
+**Done:**
+- **KICKSTART.md rewritten local-only.** Part 1: sponsor runbook is now just Terminal → `claude` → the same one-line boot prompt; lid open + plugged in; cloud setup, claude.ai/code flow, and Mac Mini preference removed; "don'ts" now include starting sessions at claude.ai/code. Part 2 step 3: environment is always local (Wolfram MCP + full corpus available; sanity check STOPS a stray corpus-less cloud clone). Step 4: sessions start `caffeinate -is` in the background before long runs (sleep is the proven run-killer).
+- **Binding thermal & RAM batching policy added (KICKSTART Part 2 step 5), sized to the actual machine** (verified via sysctl/system_profiler: MacBook Pro, Apple M5, 4 P-cores + 6 E-cores, 24 GB): agent fan-out is API-bound, not a heat source — keep the full harness cap (min(16, cores−2) = 8 concurrent agents), never undershoot parallelism for thermals; heat comes from local CPU-heavy processes — cap those at 4 concurrent (= P-core count) and run big sweeps as back-to-back batches of ≤4 (pipeline()/bash-wait pacing) so scope is never reduced, only paced; Wolfram strictly serial single-kernel; 24 GB RAM → chunked write-to-disk, no multi-GB arrays across concurrent processes; escalation only on measured throttling (`pmset -g therm` CPU_Speed_Limit < 100 sustained → drop to 3, never lower, never less total work).
+- **STATUS.md aligned:** Last-updated line (next session = RH work at resume actions 0–6, LOCAL), resume-point ops pointer, and the Session-4 "prefer cloud sessions for long runs" lesson marked retired.
+
+**Decisions:**
+- Sponsor directive (2026-08-16, binding): all sessions local on the MacBook; cloud path retired. Upside banked: every session now sees the corpus AND Wolfram — the cloud/Wolfram-queue split disappears, and resume action 0 (corpus ingest) is unblocked.
+- Operating point in writing: 8-wide agents + 4-wide heavy local compute — a floor as much as a ceiling ("do not undershoot").
+
+**New artifacts:** KICKSTART.md (local-only revision); STATUS.md pointer edits; this LOG entry.
+
+**Open at close:** Nothing running. Untracked stray `anthropic/paper-v5 (12).pdf` unchanged (sponsor may delete). **Next session = RH work at STATUS resume actions 0–6, run locally via the unchanged one-line boot prompt.**
