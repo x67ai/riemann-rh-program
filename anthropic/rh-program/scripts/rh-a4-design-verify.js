@@ -3,7 +3,7 @@ export const meta = {
   description: 'Re-run the A4:lindelof-lock designer (lost at session pause), then its killer + referee critics',
   phases: [
     { title: 'Design', detail: 'A4:lindelof-lock designer (single agent)' },
-    { title: 'Verify', detail: 'killer + referee on the A4 proposal' },
+    { title: 'Verify', detail: 'duplicated killers + referee on the A4 proposal (Session-4 protocol: load-bearing directions get two independent killers)' },
   ],
 }
 
@@ -39,6 +39,7 @@ MANDATORY BACKGROUND (read all three first):
 1. ${PROG}/results/full-map.md — six-agent technical map of the paper + Lean repo (method, exact constants, formalized no-go theorems, extension hooks).
 2. ${PROG}/results/literature.md — verified state of the art on 12 fronts as of Aug 2026, including all known obstruction/no-go results.
 3. Raw sources available for grep/Read as needed: ${PROG}/sources-extracted/full_p*.txt (the 35-page paper, one file per page), ${PROG}/sources-extracted/condensed_p*.txt, ${PROG}/sources-extracted/tx_*.txt (the 95-page discovery-transcript volume, one file per page), and the Lean sources under ${LEAN}.
+4. ${PROG}/sources-extracted/v5_p01.txt .. v5_p17.txt — v5 of the parent paper (2026-08-11; THE PRIMARY CITATION for the parent paper from now on; assessment: ${PROG}/results/paper-v5-assessment-2026-08-14.md). Load-bearing for this brief: SS7.2(e) states tr G-tilde^k is evaluable exactly in the Rudnick-Sarnak range X^k <= T^{2-eps} (the short-window frontier, now paper-official), and SS7.3 gives a CONDITIONAL cubic-weight certificate omega(m) = m/2 + (1/18)(2m^2 - m^3) + (4/9)*1_{m=1}, tight at m=1,2,3 (Schur-Horn), whose unconditional input is exactly what this direction must supply.
 
 HARD DESIGN CONSTRAINTS (your proposal MUST address these explicitly in evades_obstructions):
 - DH/Epstein filter: Davenport-Heilbronn and Epstein zeta (class number > 1) satisfy functional equation + explicit formula + L2 mean values yet violate RH. Any route claiming to reach FULL RH must consume an input these objects violate (Euler product at every prime / multiplicativity beyond L2-means / Ramanujan). A route that only improves proportions need not pass this filter but must say so honestly.
@@ -54,7 +55,11 @@ HARD OUTPUT BUDGET (previous designer attempts DIED exceeding the 64k output-tok
 const A4_BRIEF = `${COMMON}
 
 TRACK A — ADVANCE THE EXISTING MACHINERY.
-YOUR BRIEF: The Lindelof lock. The campaign identified but never attacked: an a-priori bound lambda_max(G-tilde/l1) = O(1) — equivalently bounds for P_X(tau) = sum_{n <= X} Lambda(n) n^{-1/2 - i*tau} on windows of length ~ 1/log T — would (a) unlock the third moment tr R^3 as a usable constraint for lambda < 2/3, (b) permit orthonormalization of the Gabor frame (converting inertia counts into genuine eigenvalue counts), and (c) price deep off-line pairs via operator-norm penalties. This is a SHORT-WINDOW MEAN VALUE problem about Dirichlet polynomials — exactly the territory of Guth-Maynard large-value estimates (arXiv:2405.20552) and the Tao-Trudgian-Yang ANTEDB exponent machinery. Design the bridge: what is the weakest short-window/large-value statement with a nontrivial payoff in the certificate, is it within reach of current large-value technology, and what does the full chain yield? Work out the actual exponents: what does Guth-Maynard's large-value theorem give for the measure of tau where |P_X(tau)| > V on windows of length 1/L, and where is the gap to what is needed? Also design the fallback: partial lambda_max bounds (e.g. lambda_max << L^eps or << X^eps) and their quantitative payoffs through the k_c machinery.`
+YOUR BRIEF: The Lindelof lock. The campaign identified but never attacked: an a-priori bound lambda_max(G-tilde/l1) = O(1) — equivalently bounds for P_X(tau) = sum_{n <= X} Lambda(n) n^{-1/2 - i*tau} on windows of length ~ 1/log T — would (a) unlock the third moment tr R^3 as a usable constraint for lambda < 2/3, (b) permit orthonormalization of the Gabor frame (converting inertia counts into genuine eigenvalue counts), and (c) price deep off-line pairs via operator-norm penalties. This is a SHORT-WINDOW MEAN VALUE problem about Dirichlet polynomials — exactly the territory of Guth-Maynard large-value estimates (arXiv:2405.20552) and the Tao-Trudgian-Yang ANTEDB exponent machinery. Design the bridge: what is the weakest short-window/large-value statement with a nontrivial payoff in the certificate, is it within reach of current large-value technology, and what does the full chain yield? Work out the actual exponents: what does Guth-Maynard's large-value theorem give for the measure of tau where |P_X(tau)| > V on windows of length 1/L, and where is the gap to what is needed? Also design the fallback: partial lambda_max bounds (e.g. lambda_max << L^eps or << X^eps) and their quantitative payoffs through the k_c machinery.
+
+MANDATORY V5 FOLD-IN (2026-08-14 update to this brief): the parent paper's v5 (background item 4) makes your target paper-official. Cite and design against v5 SS7.2(e) (exact evaluation of tr G-tilde^k in the Rudnick-Sarnak range X^k <= T^{2-eps}) and SS7.3 (the conditional cubic-weight certificate omega(m)): present the Lindelof-lock chain as the SUPPLY LINE for the SS7.3 template's unconditional input — the paper has already built the certificate that consumes what you are asked to prove.
+
+CAUTIONARY — REFUTED SIBLING (do not rebuild on its claims): proposal A2 (richer functionals) was adjudicated REFUTED with both fatals computationally verified (${PROG}/results/adjudication-A2.json; ${PROG}/directions/A2-richer-functionals.md). Specifically: (i) the "mixed-window corner" does NOT exist — cross-window kernels are transforms of window PRODUCTS (support min(lambda_i, lambda_j), verified numerically to ~1e-11 across two parameter sets); equal windows at 2/3 (the parent paper's own boundary) is the true optimum; (ii) the rank_trace_cubic identity is FALSE by exact counterexample (violation ~mu^3 vs quadratic remainder). A2's salvage items will be folded into THIS direction at merge time (the merged cubic-certificate direction per the completeness critic), so avoid its errors and do not re-derive its refuted identities.`
 
 const VERDICT = {
   type: 'object', additionalProperties: false,
@@ -122,14 +127,18 @@ phase('Design')
 // effort pinned below the session's ultracode inherit: extended thinking counts toward the same
 // 64k per-response output cap that killed attempts 4 and 5 before the JSON was even emitted.
 const design = await agent(A4_BRIEF + '\n\nDELIVERY CONSTRAINT: produce the StructuredOutput call directly — do NOT write the design as a long plain-text message first and then re-emit it as JSON; every response you send must stay well under the output ceiling.', { label: 'A4:lindelof-lock', phase: 'Design', schema: SCHEMA, effort: 'high' })
-if (!design) return { design: null, kill: null, ref: null, error: 'designer returned null' }
+if (!design) return { design: null, kill: null, kill2: null, ref: null, error: 'designer returned null' }
 log('A4 design landed: ' + design.title)
 
 phase('Verify')
+// Session-4 process learning (binding): killer verdicts on load-bearing directions are DUPLICATED —
+// two independent killers, neither sees the other's verdict. A2's reversal after a passed run-1
+// verdict is the precedent.
 const proposalJson = JSON.stringify(design, null, 2)
-const [kill, ref] = await parallel([
+const [kill, kill2, ref] = await parallel([
   () => agent(killerPrompt(proposalJson), { label: 'kill:A4:lindelof-lock', phase: 'Verify', schema: VERDICT }),
+  () => agent(killerPrompt(proposalJson) + '\n\n(NOTE: you are the SECOND of two independent killers run under the program\'s duplicate-killer protocol for load-bearing directions. You cannot see the other killer\'s output. Attack fresh — re-derive the central identities yourself rather than auditing around them.)', { label: 'kill2:A4:lindelof-lock', phase: 'Verify', schema: VERDICT }),
   () => agent(refereePrompt(proposalJson), { label: 'ref:A4:lindelof-lock', phase: 'Verify', schema: VERDICT }),
 ])
 
-return { design, kill, ref }
+return { design, kill, kill2, ref }
