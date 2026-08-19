@@ -78,6 +78,7 @@ M1: exact price of the triple-correlation upgrade (a number, p0^(3)), the dual c
 - 2026-08-11: direction born (Phase 3 designer output).
 - 2026-08-13 (Session 4): Phase-4 run-1 verdicts written up (no conflict at the time). Survives-with-repairs ~5.25.
 - 2026-08-13 (Session 4, later): run-2 independent killer found two fatal math errors; cross-run adjudication with mandatory computational verification (standing order 5) CONFIRMED both. REFUTED (3). Run-1 section superseded; salvage recorded above.
+- 2026-08-19 (Session 5): **A2->A4 MERGE EXECUTED.** A4:lindelof-lock adjudicated SURVIVES-WITH-REPAIRS (5.5); directions/A4-lindelof-lock.md is now the merged cubic-certificate direction carrying this file's salvage items. Adjudicator's A2-reimport check: A4 re-imports NOTHING refuted here — it is the corrected response to fatal 2's escape channel (the all-V ladder caps the hyperbolic-pair cubic escape). This file is CLOSED (historical record only).
 
 ## Current frontier
 REFUTED (adjudicated 2026-08-13, both fatals computationally verified). Do not resume as stated — the central zero-side identity is wrongly derived and the cubic certificate lemma is false against its own hypothesis class. Residual value: the corrected T1 (gated on RS96 check), the even-degree currency idea, and the pair-only LP dual — all to be folded into the merged A2/A4 cubic-certificate direction when A4's verdict lands (cross-link: A4-lindelof-lock; completeness critic's merge recommendation now has a second, harder reason).
