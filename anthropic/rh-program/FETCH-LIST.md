@@ -87,3 +87,28 @@ Everything in the original list above is delivered and verified except the two s
 - ~~Montgomery–Vaughan (to appear, per y-23)~~ **APPEARED (CUP 2026, CSAM 218; author draft = `fetched-r2/u-13`)**. — Connes–Consani [CC7] "Absolute coefficients and their Galois theory" (**still unposted as of 14 Aug 2026; re-check no earlier than Nov 2026**). — ~~Any Λ < 0.2~~ **any improvement on the standing bracket 0 ≤ Λ ≤ 0.22** or zero-verification-beyond-3·10¹² announcement (none as of Aug 2026; Round-2 response §3.27–§3.28).
 
 **Bottom line for the sponsor:** nothing here blocks Sessions 5–6. Fetch P1 when convenient; treat P2 as a menu that Phase 5's commissioning decisions will activate; the program's normal mechanism (agents flag unreachables into this file) covers anything unanticipated.
+
+---
+
+## ROUND 3 — wave-2 sweep closure fetch items (2026-08-19, from `results/grossmann-sweep2.json` closure)
+
+**Instruction before surfacing to sponsor:** cross-check every item against `results/corpus-routing.md` + `fetched/` + `fetched-r2/` — some may already be on disk (the closure itself flags Deninger arXiv:2204.02714 as a check-first). Items are load-bearing for the named consumers; per standing order 1/5, none of their claims may be used decisively until the source is read.
+
+P1 (load-bearing for commissioned deliverables):
+- [ ] Langlands "Beyond Endoscopy" (2004, Shalika volume) essay + Sarnak 2001 letter "Comments on Endoscopy and Beyond" — publications.ias.edu 403 botwall (hit again in wave 2). Consumer: shortlist #4(a) monoid-exclusion closure clause ("information flows zeros→BE, never back").
+- [ ] Wiesbrock CMP 157 (1993) 83–92 + Borchers CMP 143 (1992) — exact hypotheses of half-sided-inclusion ⇔ positive-energy. Consumer: tomita-takesaki no-go certificate.
+- [ ] Bost–Connes Selecta Math. 1 (1995) 411–457 full text — source-verify the injective-III₁ factor claim (KMS_β GNS, β ∈ (0,1]). Consumer: vN-blindness argument.
+- [ ] Diaconu–Garrett–Goldfeld natural-boundaries chapter (Progr. Math. 300, 2012) + Diaconu–Goldfeld–Hoffstein Compositio 139 (2003) 297–360 — proven natural-boundary class + FE-group trichotomy. Consumer: weyl-mds ceiling certificate.
+- [ ] Lichtman–Pascadi positive-semi-definite automorphic-family paper (exact arXiv id uncaptured by the scout — pin it first). Consumer: shortlist #4 edge-cap adjudication (load-bearing input of Wattanawanichkul arXiv:2504.05606).
+- [ ] Herichi–Lapidus "Quantized Number Theory, Fractal Strings and the Riemann Hypothesis" (World Scientific 2021), quantized-Euler-product chapter — the single datum that could soften the lapidus dead-end.
+
+P2 (source-pins for no-go/ceiling formalizations):
+- [ ] Halász Acta Math. Acad. Sci. Hungar. 19 (1968) 365–403 + Koukoulopoulos GAFA venue pin + Granville JTNB 21 (2009) published text — pretentious-blindness no-go pins.
+- [ ] Wintner Duke 11 (1944) + Ng PLMS 89 (2004) + Good–Churchhouse Math. Comp. 22 (1968) — harper transfer-no-go fluctuation-scale chain. (Task, not fetch: check arXiv:2301.04390 §1 conditioning range before the Lindelöf-lock brief.)
+- [ ] Waldspurger Compositio 54 (1985) + Guo (Duke ~1996) + Ichino–Ikeda GAFA 19 (2010) + Sakellaridis–Venkatesh Astérisque 396 (2017) — central-value nonnegativity lineage for #4(b).
+- [ ] Ferdinand Wagner Bonn thesis (guests.mpim-bonn.mpg.de/ferdinand/q-Thesis.pdf, located unread) + Deninger arXiv:2204.02714 hypothesis list (CHECK fetched-r2/ first) — prismatic Stage-1 phrasing.
+- [ ] Ford PLMS 85 (2002) + Bourgain JAMS 30 (2017) published (13/84) + Graham–Kolesnik (Rankin ~0.1645) — decoupling-ceiling audit pins.
+- [ ] Fokas Trans. Math. Appl. 3 (2019) tnz006 published text — corroborating only; fetch only if load-bearing.
+
+P3 (optional/videos):
+- [ ] Drinfeld prismatization + Bhatt Eilenberg/IHES lecture spot-checks (oral "cohomology of Spec Z"/archimedean remarks); Chen–Moriwaki adelic-curves full read (free IMJ-PRG PDF) if shortlist #1 Part-A design proceeds; arXiv:2605.01412 body read (Klurman rigidity line).
