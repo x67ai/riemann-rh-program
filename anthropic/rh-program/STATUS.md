@@ -98,7 +98,7 @@ Full prompts: in the workflow scripts (paths below).
 3. **C3 M0 Epstein witness computation** (the one missing computation in the DH/Epstein polarized-Frobenius non-instantiability lemma) + first-draft lemma write-up.
 4. **D1 Certified Refutation Interface v1** (Lean witness checker + DH live-fire acceptance test at 0.808517+85.699348i).
 5. **Barrier-zoo formalization queue** (7 items listed at the end of BARRIER-ZOO.md) as Lean bandwidth allows.
-6. **Sponsor fetch, Round 3 (only 6 documents left):** DGH Compositio 139 (2003) 297–360; Halász Acta Math. Hungar. 19 (1968) 365–403; Wintner Duke 11 (1944); Guo Duke ~1996; Ichino–Ikeda GAFA 19 (2010); Graham–Kolesnik van der Corput book. Everything else on disk (fetched/ 174 + fetched-r2/ 162 + fetched-r3/ 21, all gitignored/local-only — sponsor should back up fetched-r3/ too).
+6. **Sponsor fetch, Round 3: see `FETCH-LIST-ROUND3.md` (standalone sponsor copy, written at Session-5 close)** — 6 documents + the fetched-r3/ backup reminder; nothing on it gates Session 6's first actions. Everything else on disk (fetched/ 174 + fetched-r2/ 162 + fetched-r3/ 21, all gitignored/local-only).
 7. Watch: [CC7] ≥ Nov 2026; prismatic Stage-1; Dong et al. 2509.09771; ingest flag (iii) w-05b vision pass (standing risk); B2 [0.9303, 1.3208] attribution check at next B2 revision.
 
 **SESSION SEQUENCING — SPONSOR DIRECTIVE 2026-08-14, binding:**
