@@ -1,0 +1,70 @@
+[chi3] lam=1.5 mu=2.25 N=36 dps=55: min_even=0.0714354502012314 min_odd=0.839533646899471 parity=even (3.8s)
+[chi3] lam=1.8 mu=3.24 N=40 dps=65: min_even=0.00461608799768229 min_odd=0.183090648239583 parity=even (5.5s)
+[chi3] lam=2.0 mu=4.0 N=40 dps=70: min_even=0.000251812226874356 min_odd=0.0361866892491024 parity=even (6.0s)
+[chi3] lam=2.2 mu=4.84 N=40 dps=75: min_even=1.36844032228269e-5 min_odd=0.00245260245957394 parity=even (6.7s)
+[chi3] lam=2.5 mu=6.25 N=44 dps=80: min_even=4.7696264414098e-8 min_odd=2.66278492561408e-5 parity=even (8.6s)
+[chi3] lam=2.8 mu=7.84 N=44 dps=85: min_even=1.13749434968623e-10 min_odd=1.02915680541818e-7 parity=even (9.7s)
+[chi3] lam=3.0 mu=9.0 N=48 dps=90: min_even=1.37685637708993e-12 min_odd=1.26314229698827e-9 parity=even (12.9s)
+[chi3] lam=3.2 mu=10.24 N=52 dps=100: min_even=7.69613724740706e-15 min_odd=1.20493191883974e-11 parity=even (17.0s)
+SATCHK lam=3.0 N=56: min_even=1.33193473505202e-12 min_odd=1.25116523134815e-9 (17.7s)
+scanning true L(s,chi3) zeros...
+chi3 zeros: ['8.0397372', '11.249206', '15.704619', '18.261997', '20.455771', '24.059415', '26.577869', '28.218165', '30.74504', '33.897389', '35.608413', '37.551797', '39.485207', '42.616379', '44.120573']
+[
+ {
+  "system": "zeta",
+  "q": 1,
+  "fitted_c": 12.5956,
+  "reference_4pi_over_q": 12.56637,
+  "deviation_pct": 0.23,
+  "fitted_b": 5.7245,
+  "fitted_a": 14.7354,
+  "rms_resid": 0.04278,
+  "npts_fit": 6
+ },
+ {
+  "system": "chi3",
+  "q": 3,
+  "fitted_c": 4.23966,
+  "reference_4pi_over_q": 4.18879,
+  "deviation_pct": 1.21,
+  "fitted_b": 2.4267,
+  "fitted_a": 5.3539,
+  "rms_resid": 0.11575,
+  "npts_fit": 6
+ },
+ {
+  "system": "chi4",
+  "q": 4,
+  "fitted_c": 2.99148,
+  "reference_4pi_over_q": 3.14159,
+  "deviation_pct": -4.78,
+  "fitted_b": 1.0856,
+  "fitted_a": 5.5491,
+  "rms_resid": 0.03601,
+  "npts_fit": 6
+ },
+ {
+  "system": "chi5",
+  "q": 5,
+  "fitted_c": 2.66909,
+  "reference_4pi_over_q": 2.51327,
+  "deviation_pct": 6.2,
+  "fitted_b": 2.0522,
+  "fitted_a": 2.6184,
+  "rms_resid": 0.13362,
+  "npts_fit": 6
+ },
+ {
+  "system": "dh",
+  "q": 5,
+  "fitted_c": 2.6043,
+  "reference_4pi_over_q": 2.51327,
+  "deviation_pct": 3.62,
+  "fitted_b": 2.7101,
+  "fitted_a": 3.5069,
+  "rms_resid": 0.07144,
+  "npts_fit": 8
+ }
+]
+chi3 fitted c = 4.23966  vs 4*pi/3 = 4.18879  (+1.21%)
+done chi3-conductor-point.json

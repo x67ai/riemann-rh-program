@@ -1,0 +1,776 @@
+{
+ "milestone": "D1 M0(ii): fifth conductor point chi3 for the conductor-Fuchs law",
+ "date": "2026-08-26",
+ "system": "L(s, chi3), chi3 = primitive odd real Dirichlet character mod 3 (Kronecker -3): chi3(n) = +1, -1, 0 for n = 1, 2, 0 (mod 3)",
+ "conductor": 3,
+ "parity_FE_convention": {
+  "character_parity": "ODD (chi3(-1) = chi3(2 mod 3) = -1)",
+  "gamma_shape_a": "3/4 (odd character), identical to kind=chi4 in weilform.build_matrix / finisher_weilext.params",
+  "conductor_term": "log(qcond/pi) = log(3/pi)",
+  "pole_term_W02": "absent (completed L entire), as chi4/chi5/dh",
+  "completed_FE": "xi(s) = (3/pi)^((s+1)/2) Gamma((s+1)/2) L(s,chi3), real on the critical line (root number +1); reality asserted numerically in the zero scan"
+ },
+ "coefficients": "Lambda_chi3(n) = chi3(p)^k log p on n = p^k (Euler product intact), pattern of weilform.lambda_chi4",
+ "mu_grid": {
+  "lambda": [
+   "1.5",
+   "1.8",
+   "2.0",
+   "2.2",
+   "2.5",
+   "2.8",
+   "3.0",
+   "3.2"
+  ],
+  "N": [
+   36,
+   40,
+   40,
+   40,
+   44,
+   44,
+   48,
+   52
+  ],
+  "dps": [
+   55,
+   65,
+   70,
+   75,
+   80,
+   85,
+   90,
+   100
+  ],
+  "mu": [
+   2.25,
+   3.24,
+   4.0,
+   4.84,
+   6.25,
+   7.84,
+   9.0,
+   10.24
+  ],
+  "source": "finisher_margin.py BATCHES[chi4] == BATCHES[chi5], reused verbatim",
+  "saturation_check": "lambda=3.0 N=56 dps=90 (excluded from fits)"
+ },
+ "margins_ladder": [
+  {
+   "kind": "chi3",
+   "lambda": "1.5",
+   "mu": "2.25",
+   "N": 36,
+   "dps": 55,
+   "min_even": "0.0714354502012314",
+   "min_odd": "0.839533646899471",
+   "even_low6": [
+    "0.0714354502",
+    "1.648869738",
+    "2.253862558",
+    "2.4243787",
+    "2.628740564",
+    "2.899436437"
+   ],
+   "odd_low6": [
+    "0.8395336469",
+    "1.692332239",
+    "2.252094865",
+    "2.626147645",
+    "2.881226729",
+    "3.040668864"
+   ],
+   "ln_min_even": "-2.63896103143",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 3.8
+  },
+  {
+   "kind": "chi3",
+   "lambda": "1.8",
+   "mu": "3.24",
+   "N": 40,
+   "dps": 65,
+   "min_even": "0.00461608799768229",
+   "min_odd": "0.183090648239583",
+   "even_low6": [
+    "0.004616087998",
+    "1.008554303",
+    "1.628353721",
+    "1.961889341",
+    "2.341272385",
+    "2.518899043"
+   ],
+   "odd_low6": [
+    "0.1830906482",
+    "1.514180126",
+    "1.908545232",
+    "2.129789676",
+    "2.398719094",
+    "2.571496822"
+   ],
+   "ln_min_even": "-5.37820768634",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 5.5
+  },
+  {
+   "kind": "chi3",
+   "lambda": "2.0",
+   "mu": "4.0",
+   "N": 40,
+   "dps": 70,
+   "min_even": "0.000251812226874356",
+   "min_odd": "0.0361866892491024",
+   "even_low6": [
+    "0.0002518122269",
+    "0.636247683",
+    "1.447910234",
+    "1.90842978",
+    "2.098684503",
+    "2.269742341"
+   ],
+   "odd_low6": [
+    "0.03618668925",
+    "1.269297708",
+    "1.770079562",
+    "1.910645347",
+    "2.192269349",
+    "2.442238424"
+   ],
+   "ln_min_even": "-8.28682687965",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 6.0
+  },
+  {
+   "kind": "chi3",
+   "lambda": "2.2",
+   "mu": "4.84",
+   "N": 40,
+   "dps": 75,
+   "min_even": "1.36844032228269e-5",
+   "min_odd": "0.00245260245957394",
+   "even_low6": [
+    "1.368440322e-5",
+    "0.1692393026",
+    "1.214174317",
+    "1.776613295",
+    "1.984051726",
+    "2.087323378"
+   ],
+   "odd_low6": [
+    "0.00245260246",
+    "1.238260082",
+    "1.530471973",
+    "1.760631588",
+    "2.064182698",
+    "2.212465813"
+   ],
+   "ln_min_even": "-11.1992538245",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 6.7
+  },
+  {
+   "kind": "chi3",
+   "lambda": "2.5",
+   "mu": "6.25",
+   "N": 44,
+   "dps": 80,
+   "min_even": "4.7696264414098e-8",
+   "min_odd": "2.66278492561408e-5",
+   "even_low6": [
+    "4.769626441e-8",
+    "0.005153358081",
+    "0.9092107587",
+    "1.620728319",
+    "1.822786303",
+    "1.956563845"
+   ],
+   "odd_low6": [
+    "2.662784926e-5",
+    "0.265735602",
+    "1.207840106",
+    "1.624016021",
+    "1.815165504",
+    "1.958604019"
+   ],
+   "ln_min_even": "-16.8584127563",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 8.6
+  },
+  {
+   "kind": "chi3",
+   "lambda": "2.8",
+   "mu": "7.84",
+   "N": 44,
+   "dps": 85,
+   "min_even": "1.13749434968623e-10",
+   "min_odd": "1.02915680541818e-7",
+   "even_low6": [
+    "1.13749435e-10",
+    "3.310798044e-5",
+    "0.214322538",
+    "1.156621863",
+    "1.676607336",
+    "1.719847412"
+   ],
+   "odd_low6": [
+    "1.029156805e-7",
+    "0.00574554939",
+    "0.8297493284",
+    "1.395288282",
+    "1.676428149",
+    "1.833439936"
+   ],
+   "ln_min_even": "-22.8970230254",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 9.7
+  },
+  {
+   "kind": "chi3",
+   "lambda": "3.0",
+   "mu": "9.0",
+   "N": 48,
+   "dps": 90,
+   "min_even": "1.37685637708993e-12",
+   "min_odd": "1.26314229698827e-9",
+   "even_low6": [
+    "1.376856377e-12",
+    "6.012379561e-7",
+    "0.01956712862",
+    "1.073041071",
+    "1.140500591",
+    "1.648545909"
+   ],
+   "odd_low6": [
+    "1.263142297e-9",
+    "0.0002160876813",
+    "0.2984662378",
+    "1.137986083",
+    "1.586223631",
+    "1.767856957"
+   ],
+   "ln_min_even": "-27.3112182029",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 12.9,
+   "dpp_spectrum_pos": [
+    "8.0397371560934",
+    "11.2492062156476",
+    "15.7046198133205",
+    "18.262009876094",
+    "20.4558219355057",
+    "24.0600552521575",
+    "30.7781405800983",
+    "34.0678794395973",
+    "36.2120054339562",
+    "38.6369403326295",
+    "41.0820085219059",
+    "43.5541801063836",
+    "46.544894053682",
+    "49.0377042821841",
+    "56.8944673104058",
+    "59.8393800290711",
+    "62.6628221290025",
+    "65.6389498041894",
+    "68.3061289720279",
+    "70.7368997860124",
+    "73.5926106919341",
+    "76.1275756712842",
+    "79.1441403128831",
+    "82.0950800714279",
+    "85.0207828913065",
+    "88.0345822715533",
+    "90.4420461335368",
+    "93.2210676282793",
+    "96.3560581319191",
+    "98.7681594868802",
+    "101.672239949466",
+    "105.107367131076",
+    "107.837482630565",
+    "110.396069556279",
+    "113.287848322122",
+    "116.184414151287",
+    "118.655157807985",
+    "121.298430588451",
+    "124.761689653912",
+    "127.701895773571",
+    "130.295570569138",
+    "133.523134493171",
+    "136.570983005523"
+   ]
+  },
+  {
+   "kind": "chi3",
+   "lambda": "3.2",
+   "mu": "10.24",
+   "N": 52,
+   "dps": 100,
+   "min_even": "7.69613724740706e-15",
+   "min_odd": "1.20493191883974e-11",
+   "even_low6": [
+    "7.696137247e-15",
+    "1.014977989e-8",
+    "0.0006168302994",
+    "0.428532889",
+    "1.112622089",
+    "1.415319741"
+   ],
+   "odd_low6": [
+    "1.204931919e-11",
+    "4.052635759e-6",
+    "0.03305850638",
+    "1.045863265",
+    "1.408664222",
+    "1.56775891"
+   ],
+   "ln_min_even": "-32.4980578481",
+   "positive": true,
+   "ground_parity": "even",
+   "even_simple": true,
+   "time_s": 17.0
+  },
+  {
+   "kind": "chi3",
+   "lambda": "3.0",
+   "mu": "9.0",
+   "N": 56,
+   "dps": 90,
+   "saturation_check": true,
+   "min_even": "1.33193473505202e-12",
+   "min_odd": "1.25116523134815e-9",
+   "time_s": 17.7
+  }
+ ],
+ "saturation_mu9": {
+  "N48": 1.37685637708993e-12,
+  "N56": 1.33193473505202e-12,
+  "rel_change": 0.0326
+ },
+ "ground_state": "even-simple at every grid point (see margins_ladder positive/even_simple flags)",
+ "dpp_spectrum_check": {
+  "true_chi3_online_zeros_to_46": [
+   "8.03973715568147",
+   "11.2492062077729",
+   "15.7046191767216",
+   "18.2619974956931",
+   "20.4557708077425",
+   "24.0594148564935",
+   "26.5778687357746",
+   "28.2181645062334",
+   "30.7450402613825",
+   "33.8973889272594",
+   "35.6084126539386",
+   "37.5517965563646",
+   "39.4852072609294",
+   "42.6163792261576",
+   "44.1205729120722"
+  ],
+  "match_lam3_N48": [
+   {
+    "dpp_root": "8.0397371560934",
+    "nearest_true_zero": "8.03973715568147",
+    "abs_err": "4.12e-10"
+   },
+   {
+    "dpp_root": "11.2492062156476",
+    "nearest_true_zero": "11.2492062077729",
+    "abs_err": "7.87e-9"
+   },
+   {
+    "dpp_root": "15.7046198133205",
+    "nearest_true_zero": "15.7046191767216",
+    "abs_err": "6.37e-7"
+   },
+   {
+    "dpp_root": "18.262009876094",
+    "nearest_true_zero": "18.2619974956931",
+    "abs_err": "1.24e-5"
+   },
+   {
+    "dpp_root": "20.4558219355057",
+    "nearest_true_zero": "20.4557708077425",
+    "abs_err": "5.11e-5"
+   },
+   {
+    "dpp_root": "24.0600552521575",
+    "nearest_true_zero": "24.0594148564935",
+    "abs_err": "0.00064"
+   },
+   {
+    "dpp_root": "30.7781405800983",
+    "nearest_true_zero": "30.7450402613825",
+    "abs_err": "0.0331"
+   },
+   {
+    "dpp_root": "34.0678794395973",
+    "nearest_true_zero": "33.8973889272594",
+    "abs_err": "0.17"
+   }
+  ],
+  "purpose": "validates the odd-parity/conductor conventions: a wrong a or qcond would destroy the D-prime-prime low-zero match"
+ },
+ "fit_definition": "ln eps = a - c*mu + b*ln(mu), least squares over mu >= 4.0 (finisher_fits.fit_c_b, reused verbatim)",
+ "chi3_fit": {
+  "a": 5.3539,
+  "c": 4.23966,
+  "b": 2.4267,
+  "rms_resid": 0.11575,
+  "npts": 6,
+  "mu_min": 4.0
+ },
+ "chi3_local_slopes": [
+  {
+   "mu_mid": 2.745,
+   "slope": -2.7669
+  },
+  {
+   "mu_mid": 3.62,
+   "slope": -3.8271
+  },
+  {
+   "mu_mid": 4.42,
+   "slope": -3.4672
+  },
+  {
+   "mu_mid": 5.545,
+   "slope": -4.0136
+  },
+  {
+   "mu_mid": 7.045,
+   "slope": -3.7979
+  },
+  {
+   "mu_mid": 8.42,
+   "slope": -3.8053
+  },
+  {
+   "mu_mid": 9.62,
+   "slope": -4.1829
+  }
+ ],
+ "chi3_points_mu_lneps_N_dps": [
+  [
+   2.25,
+   -2.639,
+   36,
+   55
+  ],
+  [
+   3.24,
+   -5.3782,
+   40,
+   65
+  ],
+  [
+   4.0,
+   -8.2868,
+   40,
+   70
+  ],
+  [
+   4.84,
+   -11.1993,
+   40,
+   75
+  ],
+  [
+   6.25,
+   -16.8584,
+   44,
+   80
+  ],
+  [
+   7.84,
+   -22.897,
+   44,
+   85
+  ],
+  [
+   9.0,
+   -27.3112,
+   48,
+   90
+  ],
+  [
+   10.24,
+   -32.4981,
+   52,
+   100
+  ]
+ ],
+ "predicted_c_4pi_over_3": 4.18879,
+ "deviation_pct": 1.21,
+ "five_point_table": [
+  {
+   "system": "zeta",
+   "q": 1,
+   "fitted_c": 12.5956,
+   "reference_4pi_over_q": 12.56637,
+   "deviation_pct": 0.23,
+   "fitted_b": 5.7245,
+   "fitted_a": 14.7354,
+   "rms_resid": 0.04278,
+   "npts_fit": 6
+  },
+  {
+   "system": "chi3",
+   "q": 3,
+   "fitted_c": 4.23966,
+   "reference_4pi_over_q": 4.18879,
+   "deviation_pct": 1.21,
+   "fitted_b": 2.4267,
+   "fitted_a": 5.3539,
+   "rms_resid": 0.11575,
+   "npts_fit": 6
+  },
+  {
+   "system": "chi4",
+   "q": 4,
+   "fitted_c": 2.99148,
+   "reference_4pi_over_q": 3.14159,
+   "deviation_pct": -4.78,
+   "fitted_b": 1.0856,
+   "fitted_a": 5.5491,
+   "rms_resid": 0.03601,
+   "npts_fit": 6
+  },
+  {
+   "system": "chi5",
+   "q": 5,
+   "fitted_c": 2.66909,
+   "reference_4pi_over_q": 2.51327,
+   "deviation_pct": 6.2,
+   "fitted_b": 2.0522,
+   "fitted_a": 2.6184,
+   "rms_resid": 0.13362,
+   "npts_fit": 6
+  },
+  {
+   "system": "dh",
+   "q": 5,
+   "fitted_c": 2.6043,
+   "reference_4pi_over_q": 2.51327,
+   "deviation_pct": 3.62,
+   "fitted_b": 2.7101,
+   "fitted_a": 3.5069,
+   "rms_resid": 0.07144,
+   "npts_fit": 8
+  }
+ ],
+ "methodology_identity_check": "the four archived systems were refit from their stored margin files with this script's own fit code and asserted equal to the Session-5 finisher_fits.json values (passed if this file exists)",
+ "prefactor_study": {
+  "definition": "fixed-rate deflation: ln eps + (4*pi/q)*mu = A + B*ln(mu) over the same mu >= 4 points; the deflated per-point values are listed so the prefactor shape is directly comparable across systems",
+  "fits": {
+   "zeta": {
+    "A": 14.895,
+    "B": 5.532,
+    "rms_resid": 0.04354,
+    "npts": 6,
+    "mu_min": 4.0,
+    "c_fixed": 12.56637,
+    "deflated_ln_prefactor_points": [
+     [
+      4.0,
+      22.516
+     ],
+     [
+      4.84,
+      23.6728
+     ],
+     [
+      6.25,
+      25.077
+     ],
+     [
+      7.84,
+      26.2248
+     ],
+     [
+      9.0,
+      27.0441
+     ],
+     [
+      10.24,
+      27.7817
+     ]
+    ]
+   },
+   "chi3": {
+    "A": 5.6316,
+    "B": 2.0917,
+    "rms_resid": 0.1166,
+    "npts": 6,
+    "mu_min": 4.0,
+    "c_fixed": 4.18879,
+    "deflated_ln_prefactor_points": [
+     [
+      4.0,
+      8.4683
+     ],
+     [
+      4.84,
+      9.0745
+     ],
+     [
+      6.25,
+      9.3215
+     ],
+     [
+      7.84,
+      9.9431
+     ],
+     [
+      9.0,
+      10.3879
+     ],
+     [
+      10.24,
+      10.3952
+     ]
+    ]
+   },
+   "chi4": {
+    "A": 4.7297,
+    "B": 2.074,
+    "rms_resid": 0.05492,
+    "npts": 6,
+    "mu_min": 4.0,
+    "c_fixed": 3.14159,
+    "deflated_ln_prefactor_points": [
+     [
+      4.0,
+      7.6744
+     ],
+     [
+      4.84,
+      7.9436
+     ],
+     [
+      6.25,
+      8.4995
+     ],
+     [
+      7.84,
+      8.9995
+     ],
+     [
+      9.0,
+      9.2295
+     ],
+     [
+      10.24,
+      9.6307
+     ]
+    ]
+   },
+   "chi5": {
+    "A": 3.4689,
+    "B": 1.0263,
+    "rms_resid": 0.14038,
+    "npts": 6,
+    "mu_min": 4.0,
+    "c_fixed": 2.51327,
+    "deflated_ln_prefactor_points": [
+     [
+      4.0,
+      4.8041
+     ],
+     [
+      4.84,
+      5.2454
+     ],
+     [
+      6.25,
+      5.1671
+     ],
+     [
+      7.84,
+      5.7405
+     ],
+     [
+      9.0,
+      5.8151
+     ],
+     [
+      10.24,
+      5.719
+     ]
+    ]
+   },
+   "dh": {
+    "A": 4.2223,
+    "B": 1.9857,
+    "rms_resid": 0.0912,
+    "npts": 8,
+    "mu_min": 4.0,
+    "c_fixed": 2.51327,
+    "deflated_ln_prefactor_points": [
+     [
+      4.0,
+      6.8597
+     ],
+     [
+      4.84,
+      7.3769
+     ],
+     [
+      6.25,
+      7.9938
+     ],
+     [
+      7.84,
+      8.2989
+     ],
+     [
+      9.0,
+      8.5243
+     ],
+     [
+      10.24,
+      8.9693
+     ],
+     [
+      12.25,
+      9.2224
+     ],
+     [
+      14.44,
+      9.4044
+     ]
+    ]
+   }
+  },
+  "free_fit_b_by_system": {
+   "zeta": 5.7245,
+   "chi3": 2.4267,
+   "chi4": 1.0856,
+   "chi5": 2.0522,
+   "dh": 2.7101
+  },
+  "prefactor_note": "Fixed-rate deflation ln eps + (4*pi/q)*mu = A + B*ln(mu): chi3 gives A=5.63, B=2.09 (rms 0.117). The ln-mu exponent B sits squarely in the band of the other four systems (chi4 2.07, dh 1.99, chi5 1.03, zeta 5.53), i.e. the chi3 prefactor is a slowly growing polynomial of the same prolate/Fuchs shape as the RH-true controls; zeta remains the sole outlier in B, attributable to its q=1 endpoint status and the W02 pole term, not to chi3-visible arithmetic. No arithmetically meaningful deviation: the five B values show no pattern correlated with Euler-product integrity or RH status (RH-false DH sits BETWEEN the RH-true chi4 and chi5), so at this resolution the arithmetic-hides-in-prefactors loophole gains no support from the fifth point -- though fully closing it still needs the dedicated higher-resolution prefactor study flagged in ccm-dh-filter.json (more lambda points, fixed N/dps schedule)."
+ },
+ "convention_citations": {
+  "matrix_engine": "results/ccm-dh-test/finisher_weilext.py::build_matrix_ext (called directly; params table extended with chi3 only)",
+  "odd_char_a_3_4": "results/ccm-dh-test/weilform.py::build_matrix kind=chi4 and finisher_weilext.py::params",
+  "lambda_dict": "results/ccm-dh-test/weilform.py::lambda_chi4 pattern",
+  "grid_and_dps": "results/ccm-dh-test/finisher_margin.py::BATCHES",
+  "parity_eig": "results/ccm-dh-test/weilform.py::parity_blocks, eig_sym",
+  "dpp_spectrum": "results/ccm-dh-test/finisher_margin.py SPEC_AT path + weilform.py::spectrum_from_xi",
+  "true_zero_scan": "results/ccm-dh-test/finisher_dh_zeros.py::online_zeros, xi_chi4 pattern",
+  "fit": "results/ccm-dh-test/finisher_fits.py::series, fit_c_b"
+ },
+ "total_runtime_s": 90.1,
+ "verdict": "CONFIRMED: the fifth conductor point lands on the law. chi3 (q=3, odd, Euler intact, RH-true) fits c = 4.23966 against the predicted 4*pi/3 = 4.18879, a deviation of +1.21% -- the tightest of the four Dirichlet/DH points (chi4 -4.8%, dh +3.6%, chi5 +6.2%) and second only to zeta (+0.2%). The five fitted rates now over-determine c = 4*pi/q across q = 1, 3, 4, 5 with both parities represented and the last local slope at mu=9.62 already at -4.183; the ground state stayed even-simple at every grid point, the N=56 saturation check moved the mu=9 margin by 3.3%, and the D-prime-prime spectrum reproduced the true first zero of L(s,chi3) (t = 8.03973716) to 4.1e-10, validating the odd-parity a=3/4 and log(3/pi) conventions. The prefactor is prolate/Fuchs-shaped with no arithmetic anomaly at fit resolution. The conductor-Fuchs baseline eps ~ poly(mu) * e^{-4*pi*mu/q} is hereby calibrated on five systems and stands as the D1 detection-statistic baseline."
+}
