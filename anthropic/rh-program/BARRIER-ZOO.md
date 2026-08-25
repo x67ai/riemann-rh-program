@@ -380,6 +380,14 @@ A designer submits a brief; a critic (or the designer, pre-submission) runs this
 - **SOURCE.** `results/decisive-tests/ccm-dh-filter.json` (interpretation, μ ≳ 120); adjudication-C1.json (fatal 1); adjudication-A1.json (finding 5); full-map.md (Part-I visibility analysis).
 - **STATUS.** program-adjudicated components; the synthesis is a program rule (this file). **BINDS: all routes.**
 
+### IV.10 Tate-curve products carry no correspondence calculus — NEW, Session 6 (C3 adjudication)
+
+- **STATEMENT.** The per-prime Tate curves of Connes–Consani's absolute geometry (arXiv:2606.06604: E_p = C^×/p^Z ≅ C/(Z ⊕ Z·i·log p/2π)) admit essentially NO cross-prime correspondences: Hom(E_p, E_q) ≠ 0 for p ≠ q iff log p·log q ∈ 4π²·Q (an unproven transcendence coincidence, four-exponentials territory) — and UNCONDITIONALLY, each prime p has at most ONE exceptional partner (two partners q, q′ would force log q/log q′ ∈ Q, impossible), so any composition-coherent correspondence family over all prime pairs is impossible; already over {2, 3, 5} at least one cross group provably vanishes. Consequences: off-diagonal NS(E_p × E_q) = Zξ₁ ⊕ Zξ₂ (rank 2 — Birkenhake–Lange Ch. 5) — no diagonal class, no graph classes, Castelnuovo–Severi VACUOUS (the fiber-classes' orthogonal complement is zero); the diagonal surfaces E_p × E_p (End(E_p) = Z barring (log p)² ∈ 4π²Q) carry only integer Lefschetz data deg([m]−1) = (m−1)² with no log p weight, so the explicit formula's transcendentally weighted linear prime terms Λ(n)f(log n)/√n can enter any assembled intersection calculus only by hand-inserting the answer key into the test-family coefficients (IV.1 re-entry); real-analytic flow conjugations between the E_p exist but are non-holomorphic — using smooth/characteristic-one correspondences forfeits the classical (1,1)-class positivity that was the seed's entire selling point.
+- **KILLS.** Any "assemble the arithmetic square from products of per-prime elliptic fibers" design (C3's M2b/N2 seed — casualty, Session 6). Generalizes: a (p,q)-graded family of classical surfaces is not merely "bandwidth data in geometric dress" (the feared failure) but EMPTY of prime-facing correspondence content.
+- **EXECUTABLE TEST.** For any per-prime-fiber assembly brief: compute Hom between two named fibers by the lattice criterion (one page); exhibit the diagonal/graph classes the correspondence calculus needs and check they exist on the actual NS group; check whether any intersection number in the design can carry a log p weight without hand-insertion.
+- **SOURCE.** `results/adjudication-C3.json` (computations a; both killers blind-replicated the construction, adjudicator re-derived in full); `results/verdicts-c3d1.json`. Open caveats logged: the two transcendence non-relations are unproven (not needed for the family-level kill). Publishable as a no-go note AFTER the extended R7(a) prior-art gate (CCM math/0703392; Banaszak–Uetake t-30b/t-43b/t-58a; Kurokawa/Koyama–Kurokawa/Akatsuka absolute tensor square — CNTP 3 (2009) 619–653, the published calibration for pair-supported data: tensor-square zeros are SUMS ρ₁+ρ₂; Scholze A_inf product picture).
+- **STATUS.** program-adjudicated (computationally re-derived, Session 6). **BINDS: all per-prime-fiber substrate designs.** Rider on I.1/III.21: the C3 "polarized Frobenius system" axiom class AS PRINTED is a POSITIVITY filter, not an Euler-product filter — its coefficient-level consequences (prime-power support + Λ_D ≥ 0) hold automatically in Beurling/DMV worlds (I.2) and EXCLUDE RH-true signed-coefficient L-functions (Λ_χ₄(3) = −log 3 < 0, verified); any future axiom-level S1 filter must add FE/duality + degree-one-rigidity clauses (I.7) and relocate RH content to the substrate + generator composite.
+
 ---
 
 ## GROUP V — PROCESS BARRIERS (how briefs die for non-mathematical reasons)
@@ -402,7 +410,8 @@ A designer submits a brief; a critic (or the designer, pre-submission) runs this
 
 - **STATEMENT.** Standing order 5: no decisive action on unverified recalled claims — load-bearing mathematics is re-derived or computed, contested claims adjudicated by computation (this caught A2's F1/F2 "decisively and cheaply, ~5 min of numerics"). Session-4 process learning: single-run critic verdicts have real variance — run-2's fresh killer flipped A2 from swr-consensus to refuted; run-1's referee had computed the SHADOW of the error (0.74) inside the false formula without recognizing it. Consequently: (a) killer verdicts on load-bearing directions are DUPLICATED (two independent killers); (b) a "survives" verdict is only as good as the deepest identity actually re-derived — critics re-derive the central identity, never audit around it; (c) adjudicators verify computationally.
 - **TEST.** Brief-time barrier evasion arguments are held to the same standard: an evasion resting on a recalled theorem is flagged and verified before the brief proceeds; every numeric barrier check in this file cites its reproducible computation path.
-- **SOURCE.** STATUS standing order 5 + findings log 2026-08-13; adjudication-A2.json (adjudication_type).
+- **Session-6 amendment (C3 adjudication, binding):** **[V:scout] tags on PROVABILITY assessments are [RU] until independently re-derived.** A scout's verification of what a source SAYS is not verification of what can be PROVED: both C3 fatals traced to scout-[V]-tagged claims ("Part B is provable today"; the seed's viability). Corollary from the same cycle: referee silence is not rebuttal — referee scores are weighted by examination coverage, and the correct synthesis of a split cycle is killers' fatals + referee's additions, never an average of scores. Second corollary: "corpus sufficient for X" claims must name the exact volume and be spot-checked at commissioning (the q-13a conflation — 2019 norms/heights LNM vs the 2021 intersection-theory Mémoire — would have sent Part-A design to a book without the needed theory). Third: self-instrumented briefs convert instead of dying (C3's Z5 rule/R8 pricing/kill-criteria turned two fatals into a reduced recommission where C1 got refutation) — Track-C briefs are REQUIRED to carry conversion machinery.
+- **SOURCE.** STATUS standing order 5 + findings log 2026-08-13; adjudication-A2.json (adjudication_type); adjudication-C3.json (process_findings).
 - **STATUS.** sponsor standing order + program protocol. **BINDS: all briefs and all critics.**
 
 ---
@@ -425,6 +434,7 @@ A designer submits a brief; a critic (or the designer, pre-submission) runs this
 | model-theory-ominimality | DEAD-END 0.85 | III.18 |
 | arithmetic-que-microlocal | DEAD-END 0.72 | III.19, III.3 |
 | campaign ~30 routes | refuted (transcript) | IV.1, I.1, IV.8 |
+| C3 geometric-substrate (as commissioned) | SWR (3) — reduced to C3-r | IV.10 (seed), R8-fork on Lemma B, I.2+I.7 (axiom class), V.1 (deferred Z5 gate), V.3 ([V:scout] provability tags) |
 
 ## Formalization queue (barriers worth turning into Lean/paper certificates, per the sweep)
 
@@ -433,7 +443,7 @@ A designer submits a brief; a critic (or the designer, pre-submission) runs this
 3. Sawin–Whitehead/DGG MDS agnosticism calibration (III.11).
 4. BZSV discrete-point ceiling (III.12).
 5. "Scalar divergent-cutoff cubic rows are unconditionally absorbed" (IV.7) — provable today; extends the PairCeiling library; publish with its positive complement (the all-V-ladder squeeze).
-6. DH/Epstein "no polarized Frobenius system" lemma (III.21 rider) — shortlist #1's first deliverable.
+6. DH/Epstein "no polarized Frobenius system" lemma (III.21 rider) — **[repriced Session 6, C3 adjudication: NOT a theorem** (definitional fork, both killers + adjudicator; see IV.10 rider) — the formalizable object is the AXIOM-FORMAT statement with effectivity + duality axioms and the exact witnesses (Λ_DH(3), Λ_DH(4), Λ_DH(6), Λ_DH(12); Epstein Λ_Q(6) = 2log6, Λ_Q(36) = −4log6); the witness arithmetic is kernel-checkable, the "lemma" framing is dead].
 7. Monoid-form DH-exclusion via Blomer–Leung (I.1 rider) — the S1 axiom in its sharpest formal home.
 
 *(File discipline: this suite is versioned with the program. Add a new entry the session any barrier is discovered — an adjudicated kill without a zoo entry is an unfinished adjudication. Do not delete entries; supersede them with a dated note, as STATUS does.)*
