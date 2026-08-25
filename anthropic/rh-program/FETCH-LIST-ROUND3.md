@@ -2,6 +2,17 @@
 
 **Written:** 2026-08-19, Session 5 close. **This is the complete list of what the sponsor needs to fetch.** It supersedes the working "ROUND 3" section inside FETCH-LIST.md (that section's annotations record how the original 13 items shrank to the 6 below: 21 sources were self-fetched into `fetched-r3/` — Wayback beat the IAS botwall — and 2 items were found already on disk).
 
+> **UPDATE 2026-08-26 (Session 6): the sponsor load is down from 6 documents to 3.** A fetch-hunt agent legitimately self-fetched items 1, 2, 5 into `fetched-r3/`, each identity-verified per standing order 5 (no recalled-citation errors found; all [recalled] titles/volumes/pages matched):
+> - **#1 DGH** → `r3s-01-…-arxiv-math0110092v1.pdf` — the arXiv **preprint** (math/0110092 v1, 59 pp) of Compositio 139 (2003) 297–360; title exact. (Published version is Kluwer/Springer DOI 10.1023/B:COMP.0000018137.38458.68 — NOT Cambridge; Compositio moved to CUP only in 2004.)
+> - **#2 Halász** → `r3s-02-…-realj-extract.pdf` — the **published journal pages themselves** (Acta Math. Acad. Sci. Hungar. Tomus 19 (3–4), 1968, pp. 365–403), extracted from the Hungarian Academy's REAL-J full-volume scan (real-j.mtak.hu/7416). Title exact; add fascicle detail 19(3–4).
+> - **#5 Ichino–Ikeda** → `r3s-05-…-ikeda-kyoto-preprint.pdf` — the **author preprint** (83 pp, Ikeda's Kyoto homepage) of GAFA 19 (2010) no. 5, 1378–1425 (DOI 10.1007/s00039-009-0040-4); title and cited pages confirmed.
+>
+> **Still sponsor-only (both confirmed closed-access everywhere legitimate; OpenAlex `is_oa: false`):**
+> - **#3 Wintner** — confirmed citation: "Random factorizations and Riemann's hypothesis", Duke Math. J. **11** (1944), no. 2, **267–275**; DOI 10.1215/S0012-7094-44-01122-1 (Project Euclid).
+> - **#4 Guo** — confirmed citation: "On the positivity of the central critical values of automorphic L-functions for GL(2)", Duke Math. J. **83** (1996), no. 1, **157–190**; DOI 10.1215/S0012-7094-96-08307-6 (Project Euclid).
+> - **#6 Graham–Kolesnik** (book) — unchanged; a copyrighted CUP monograph is not self-fetchable.
+> The fetched-r3/ backup reminder now covers 24 PDFs.
+
 **Delivery:** drop the PDFs into a new folder (e.g. `fetched-r3-sponsor/`) at the rh-program root, or into `fetched-r3/` alongside the self-fetched files — either works; the next session will verify and route them. Where only a scan is available, that is fine (the program reads scans by vision).
 
 ---
