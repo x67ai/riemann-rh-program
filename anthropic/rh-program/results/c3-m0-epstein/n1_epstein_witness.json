@@ -1,0 +1,136 @@
+{
+ "deliverable": "C3 M0 / N1 \u2014 Epstein witness for Lemma B (second one-line witness)",
+ "date": "2026-08-26",
+ "form": {
+  "Q": "x^2 + 5y^2",
+  "discriminant": -20,
+  "class_number": 2,
+  "non_principal_class": "2x^2 + 2xy + 3y^2",
+  "units_w": 2
+ },
+ "normalization": "F(s) = zeta_Q(s)/2, b_n = r_Q(n)/2, b_1 = 1; Lambda_Q from -F'/F (independent of the constant)",
+ "checks": {
+  "genus_identity_exact_to_n": 200,
+  "contrast_zetaK_prime_power_supported_nonnegative_to_n": 200
+ },
+ "support_off_prime_powers_n_le_100": [
+  6,
+  14,
+  21,
+  36,
+  46,
+  54,
+  69,
+  84,
+  86,
+  94
+ ],
+ "negative_n_le_100": [
+  36,
+  54,
+  84
+ ],
+ "witness_i": {
+  "n": 6,
+  "exact": "(2)*log(2) + (2)*log(3)",
+  "value_40_digits": "3.583518938456110001624954716761404545446",
+  "reading": "support off prime powers \u2014 the composition-law/primitivity axiom (Lemma B step 2 conclusion) fails for Epstein h=2"
+ },
+ "witness_ii": {
+  "n": 36,
+  "exact": "(-4)*log(2) + (-4)*log(3)",
+  "value_40_digits": "-7.167037876912220003249909433522809090892",
+  "reading": "Lambda_Q < 0 \u2014 the effectivity/nef-positivity conclusion (Lemma B step 3) fails for Epstein h=2"
+ },
+ "all_nonzero_lambda_n_le_100": {
+  "4": {
+   "exact": "(2)*log(2)",
+   "value": "1.386294361119890618834464242916353136151"
+  },
+  "5": {
+   "exact": "(1)*log(5)",
+   "value": "1.609437912434100374600759333226187639526"
+  },
+  "6": {
+   "exact": "(2)*log(2) + (2)*log(3)",
+   "value": "3.583518938456110001624954716761404545446"
+  },
+  "9": {
+   "exact": "(6)*log(3)",
+   "value": "6.591673732008658148371471421535154227885"
+  },
+  "14": {
+   "exact": "(2)*log(2) + (2)*log(7)",
+   "value": "5.278114659230517229045169729802712595425"
+  },
+  "16": {
+   "exact": "(2)*log(2)",
+   "value": "1.386294361119890618834464242916353136151"
+  },
+  "21": {
+   "exact": "(4)*log(3) + (4)*log(7)",
+   "value": "12.17808975089369198600239192146282173714"
+  },
+  "25": {
+   "exact": "(1)*log(5)",
+   "value": "1.609437912434100374600759333226187639526"
+  },
+  "29": {
+   "exact": "(2)*log(29)",
+   "value": "6.734591659972948054366544064723823210989"
+  },
+  "36": {
+   "exact": "(-4)*log(2) + (-4)*log(3)",
+   "value": "-7.167037876912220003249909433522809090892"
+  },
+  "41": {
+   "exact": "(2)*log(41)",
+   "value": "7.427144133408615607733526746074815176753"
+  },
+  "46": {
+   "exact": "(2)*log(2) + (2)*log(23)",
+   "value": "7.657282792978190000447969906536745373036"
+  },
+  "49": {
+   "exact": "(6)*log(7)",
+   "value": "11.67546089433187983063211646065907837782"
+  },
+  "54": {
+   "exact": "(-2)*log(2) + (-6)*log(3)",
+   "value": "-7.977968093128548767205935664451507364036"
+  },
+  "61": {
+   "exact": "(2)*log(61)",
+   "value": "8.221747728346622497502778206851229492631"
+  },
+  "64": {
+   "exact": "(2)*log(2)",
+   "value": "1.386294361119890618834464242916353136151"
+  },
+  "69": {
+   "exact": "(4)*log(3) + (4)*log(23)",
+   "value": "16.93642601838903752880799227493088729236"
+  },
+  "81": {
+   "exact": "(2)*log(3)",
+   "value": "2.197224577336219382790490473845051409295"
+  },
+  "84": {
+   "exact": "(-8)*log(2) + (-4)*log(3) + (-4)*log(7)",
+   "value": "-17.72326719537325446134024889312823428174"
+  },
+  "86": {
+   "exact": "(2)*log(2) + (2)*log(43)",
+   "value": "8.908694592507015465780149269608047207269"
+  },
+  "89": {
+   "exact": "(2)*log(89)",
+   "value": "8.977272739464279676635631081339698438809"
+  },
+  "94": {
+   "exact": "(2)*log(2) + (2)*log(47)",
+   "value": "9.086589564540007792476365582460700553943"
+  }
+ },
+ "precision": "exact rational log-combinations; numeric rendering mp.dps=50, printed to 40 digits"
+}
