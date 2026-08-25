@@ -1,0 +1,16 @@
+[04:16:36] tier2 N=64: loaded 4003 columns from dict_N64.json
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/anthropic/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+[04:19:50] [t2 N64 tau1 eps0.05] outer 0: full: P=0.8332900 min_rc=-1.29e-04 n_imp=7 base: P=0.8332887 min_rc=-1.82e-04 n_imp=13 cols=4215 [194s]
+[04:20:11] [t2 N64 tau1 eps0.05] outer 1: full: P=0.8332818 min_rc=-4.31e-05 n_imp=4 base: P=0.8332815 min_rc=-4.58e-05 n_imp=4 cols=4229 [215s]
+[04:21:06] [t2 N64 tau1 eps0.05] outer 2: full: P=0.8332734 min_rc=-6.57e-05 n_imp=3 base: P=0.8332722 min_rc=-8.51e-05 n_imp=6 cols=4263 [270s]
