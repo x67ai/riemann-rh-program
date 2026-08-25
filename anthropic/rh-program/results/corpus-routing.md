@@ -59,7 +59,7 @@
 |---|---|---|---|
 | y-12 | fetched/ | **THE paper B3 needs** (not the AIF paper): Thm 2.1 + p.7 remark, Thms 2.2–2.4, §7.2 (pp. 19–20), §8 remarks (3) p. 21 and (6); M5's goal = Suzuki's own open problem §8(3) | JFA 281 (2021) 109116 = arXiv:1606.05726**v3** (v1 = w-03, a different paper) |
 | w-05 | fetched/ | the inverse-problem ENGINE ((K1)–(K5) ⇒ Hamiltonian formula); y-12's Thms 2.1–2.2 are applications; **local uniqueness confirmed ABSENT** — gap 1 lives here | JFA 279 (2020) 108699 |
-| u-36a (+ r-08c) | fetched-r2/ | **gap 1 SUPPLIED**: Langer–Woracek Thm 1.2 = local Borg–Marchenko for canonical systems; Pontryagin analogue per Remark 1.3 | **det H > 0 caution**: ∫√(det H) degenerates when det H = 0 a.e. — the converse write-up must check det H > 0 on its class; cite u-36a (IOP typeset), not r-08c |
+| u-36a (+ r-08c) | fetched-r2/ | **gap 1 SUPPLIED**: Langer–Woracek Thm 1.2 = local Borg–Marchenko for canonical systems; Pontryagin analog per Remark 1.3 | **det H > 0 caution**: ∫√(det H) degenerates when det H = 0 a.e. — the converse write-up must check det H > 0 on its class; cite u-36a (IOP typeset), not r-08c |
 | r-13b, r-14b, r-15b | fetched-r2/ | Langer–Woracek two-singular-endpoints local uniqueness; Romanov–Woracek direct side; Romanov survey notes | — |
 | r-16c…r-21c | fetched-r2/ | Kaltenbäck–Woracek *Pontryagin spaces of entire functions* I–VI; **VI (`r-21c`) carries the indefinite de Branges inverse/uniqueness theorem** | VI (2010) published before V (2011) |
 | t-56a, r-01b, r-22a, r-02a | fetched-r2/ | Krein–Langer N_κ originals (I, II, Szeged 1981, IEOT 2014 translation) — the κ_a index-ladder foundations (shared with C1 salvage) | t-56a: read visually; = pp. 187–236 |

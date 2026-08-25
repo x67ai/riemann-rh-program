@@ -190,7 +190,7 @@ u = Re xi'/xi(1+282i) = +1.668 > 0. Conrey-Li therefore constrains TRP at no
 level, including a = 1/2.
 ```
 
-**Per-direction audit.** `C1` lines 29 & 39 — **NO, inverted**, replace as above. `B3` line 30 — **YES, and it is the correct argument** (hypothesis vs. identity); two fixes: `F(W)` is not a space of entire functions, and add "and ξ(·,χ₄)"; also add the a=1 inequivalence. `A2` line 30 — **YES as a Conrey–Li defence** but self-contradictory as written (its own bullet nine lines up says "All positivity used is finite-dimensional matrix positivity of compressions"); scope it to "no de Branges-type positivity **hypothesis**".
+**Per-direction audit.** `C1` lines 29 & 39 — **NO, inverted**, replace as above. `B3` line 30 — **YES, and it is the correct argument** (hypothesis vs. identity); two fixes: `F(W)` is not a space of entire functions, and add "and ξ(·,χ₄)"; also add the a=1 inequivalence. `A2` line 30 — **YES as a Conrey–Li defense** but self-contradictory as written (its own bullet nine lines up says "All positivity used is finite-dimensional matrix positivity of compressions"); scope it to "no de Branges-type positivity **hypothesis**".
 
 **Residual risk, the largest one.** The folklore rests on Theorems 1–2 faithfully rendering de Branges [2][3][4]; Conrey–Li write "*essentially* due to". All three are now on disk (`w-04`, `w-05a`, `w-05b`) — **but `w-05b` is image-only and needs a vision pass** (§7). Until that is done, whether the counterexamples hit de Branges' literal conditions or a Conrey–Li strengthening is unverified.
 
