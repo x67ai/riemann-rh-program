@@ -1,0 +1,10 @@
+producer_mp: function=zeta mode=exclusion rect=[21/40, 39/40]x[100, 101] prec=288 K=1e30 A=1e12
+  edge bottom:   9 segments (0.3s, 9 evals so far)
+  edge right :  20 segments (0.2s, 29 evals so far)
+  edge top   :   9 segments (0.1s, 38 evals so far)
+  edge left  :  20 segments (0.1s, 58 evals so far)
+  winding sum: S_lo=-28 S_hi=30 width=58 (A=1000000000000; C8 needs 2*width < A)
+  winding number m = 0 (unique by width < 1/2 turn)
+  modulus floor: |f| >= 355499887121540294312997953419 / 1e30 on dR
+  wrote acceptance/w1-mp-null-deep-t100.json (58 segments, 1.1s total)
+python3 producer_mp.py --function zeta --mode exclusion --rect 21/40 39/40 10  1.09s user 0.01s system 99% cpu 1.108 total

@@ -1,0 +1,117 @@
+== acceptance/w1-mp-null-t100.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 52 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -24, S_hi = 28, 2*width = 104 < A = 1000000000000
+   C9 pass: S_lo = -24 <= A*m = 0 <= S_hi = 28
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 355554664076502668908324848278/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-t1000.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 81 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -41, S_hi = 40, 2*width = 162 < A = 1000000000000
+   C9 pass: S_lo = -41 <= A*m = 0 <= S_hi = 40
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 15573147747628599694108305508/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-deep-t100.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 58 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -28, S_hi = 30, 2*width = 116 < A = 1000000000000
+   C9 pass: S_lo = -28 <= A*m = 0 <= S_hi = 30
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 355499887121540294312997953419/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-dh-livefire.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 40 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = 999999999980, S_hi = 1000000000020, 2*width = 80 < A = 1000000000000
+   C9 pass: S_lo = 999999999980 <= A*m = 1000000000000 <= S_hi = 1000000000020
+   C10 pass: mode refutation, m = 1
+   C11 pass: modulus floor 246720161844356978370552244/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t100.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 27 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -14, S_hi = 13, 2*width = 54 < A = 1000000
+   C9 pass: S_lo = -14 <= A*m = 0 <= S_hi = 13
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 83279470814228915473835202868/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t1000.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 65 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -29, S_hi = 36, 2*width = 130 < A = 1000000
+   C9 pass: S_lo = -29 <= A*m = 0 <= S_hi = 36
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 13827374068318355602774897092/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t10000.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 983 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -495, S_hi = 488, 2*width = 1966 < A = 1000000
+   C9 pass: S_lo = -495 <= A*m = 0 <= S_hi = 488
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 7637761775207501854796622/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-deep-t100.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 30 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -16, S_hi = 14, 2*width = 60 < A = 1000000
+   C9 pass: S_lo = -16 <= A*m = 0 <= S_hi = 14
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 30520933299389668081940760485/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-dh-livefire.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 50 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = 999973, S_hi = 1000023, 2*width = 100 < A = 1000000
+   C9 pass: S_lo = 999973 <= A*m = 1000000 <= S_hi = 1000023
+   C10 pass: mode refutation, m = 1
+   C11 pass: modulus floor 301881785757956470927016215/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)

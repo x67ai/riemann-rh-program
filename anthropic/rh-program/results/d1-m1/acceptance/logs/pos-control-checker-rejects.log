@@ -1,0 +1,11 @@
+== acceptance/w1-poscontrol-mp.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   VERDICT: REJECT at C2: sigma1 <= 1/2
+ref exit=1
+acceptance/w1-poscontrol-mp.json: REJECT at C2 (C2: sigma1 <= 1/2)
+acceptance/w1-poscontrol-arb.json: REJECT at C2 (C2: sigma1 <= 1/2)
+cr exit=1
+== acceptance/w1-poscontrol-arb.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   VERDICT: REJECT at C2: sigma1 <= 1/2
+ref-arb exit=1

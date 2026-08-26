@@ -1,0 +1,36 @@
+== acceptance/w1-mp-null-t100.json
+  [PASS] V1 sampled values inside integer boxes -- 260 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -1.256068788e-42, m = 0, S/A = [-24/1000000000000, 28/1000000000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.90491617, floor = 0.35555466
+== acceptance/w1-mp-null-t1000.json
+  [PASS] V1 sampled values inside integer boxes -- 405 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -8.221541155e-42, m = 0, S/A = [-41/1000000000000, 40/1000000000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.86068933, floor = 0.015573148
+== acceptance/w1-mp-null-deep-t100.json
+  [PASS] V1 sampled values inside integer boxes -- 290 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -5.70940358e-43, m = 0, S/A = [-28/1000000000000, 30/1000000000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.90491617, floor = 0.35549989
+== acceptance/w1-mp-dh-livefire.json
+  [PASS] V1 sampled values inside integer boxes -- 200 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = 1.0, m = 1, S/A = [999999999980/1000000000000, 1000000000020/1000000000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.010715803, floor = 0.00024672016
+== acceptance/w1-arb-null-t100.json
+  [PASS] V1 sampled values inside integer boxes -- 135 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -1.256068788e-42, m = 0, S/A = [-14/1000000, 13/1000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.90489162, floor = 0.083279471
+== acceptance/w1-arb-null-t1000.json
+  [PASS] V1 sampled values inside integer boxes -- 325 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = 1.096205487e-41, m = 0, S/A = [-29/1000000, 36/1000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.86068179, floor = 0.013827374
+== acceptance/w1-arb-null-deep-t100.json
+  [PASS] V1 sampled values inside integer boxes -- 150 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -5.70940358e-43, m = 0, S/A = [-16/1000000, 14/1000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.90489162, floor = 0.030520933
+== acceptance/w1-arb-dh-livefire.json
+  [PASS] V1 sampled values inside integer boxes -- 250 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = 1.0, m = 1, S/A = [999973/1000000, 1000023/1000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.010715803, floor = 0.00030188179
+
+RESULT: ALL CROSS-VALIDATION CHECKS PASS (evidence, not certificate -- see module docstring)
+python3 validate_arb_transcripts.py acceptance/w1-mp-null-t100.json         31.12s user 0.05s system 99% cpu 31.208 total
+exit=0

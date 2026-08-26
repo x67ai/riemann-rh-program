@@ -1,0 +1,25 @@
+== w1-mp-null-t100.json  vs  w1-arb-null-t100.json
+   overlap pairs checked: 83, all value boxes intersect
+   winding leg1 [-3/125000000000, 7/250000000000] vs leg2 [-7/500000, 13/1000000] turns, m = 0
+   floors (independent lower bounds): leg1 0.355555, leg2 0.0832795
+   VERDICT: CONSISTENT
+== w1-mp-null-t1000.json  vs  w1-arb-null-t1000.json
+   overlap pairs checked: 158, all value boxes intersect
+   winding leg1 [-41/1000000000000, 1/25000000000] vs leg2 [-29/1000000, 9/250000] turns, m = 0
+   floors (independent lower bounds): leg1 0.0155731, leg2 0.0138274
+   VERDICT: CONSISTENT
+== w1-mp-null-deep-t100.json  vs  w1-arb-null-deep-t100.json
+   overlap pairs checked: 90, all value boxes intersect
+   winding leg1 [-7/250000000000, 3/100000000000] vs leg2 [-1/62500, 7/500000] turns, m = 0
+   floors (independent lower bounds): leg1 0.3555, leg2 0.0305209
+   VERDICT: CONSISTENT
+== w1-mp-dh-livefire.json  vs  w1-arb-dh-livefire.json
+   overlap pairs checked: 122, all value boxes intersect
+   winding leg1 [49999999999/50000000000, 50000000001/50000000000] vs leg2 [999973/1000000, 1000023/1000000] turns, m = 1
+   floors (independent lower bounds): leg1 0.00024672, leg2 0.000301882
+   VERDICT: CONSISTENT
+== w1-poscontrol-mp.json  vs  w1-poscontrol-arb.json
+   overlap pairs checked: 295, all value boxes intersect
+   winding leg1 [499999999981/500000000000, 1000000000039/1000000000000] vs leg2 [999911/1000000, 500047/500000] turns, m = 1
+   floors: absent on at least one leg (optional row)
+   VERDICT: CONSISTENT

@@ -1,0 +1,15 @@
+== acceptance/w1-arb-dh-livefire.json.tmp
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 50 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = 999973, S_hi = 1000023, 2*width = 100 < A = 1000000
+   C9 pass: S_lo = 999973 <= A*m = 1000000 <= S_hi = 1000023
+   C10 pass: mode refutation, m = 1
+   C11 pass: modulus floor 301881785757956470927016215/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+WROTE acceptance/w1-arb-dh-livefire.json: mode=refutation function=f_DH m=1 segments=50 S=[999973, 1000023]/1000000 floor=301881785757956470927016215/1000000000000000000000000000000
+python3 producer_arb.py custom --function f_DH --mode refutation --sigma1 4/5  0.16s user 0.02s system 97% cpu 0.185 total
