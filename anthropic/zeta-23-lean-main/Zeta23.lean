@@ -20,3 +20,6 @@ import Zeta23.PairCeiling.GridParseval
 import Zeta23.PairCeiling.GridWitness
 import Zeta23.PairCeiling.GridCorner
 import Zeta23.DBN.Defs
+import Zeta23.W1.Format
+import Zeta23.W1.Checker
+import Zeta23.W1.Examples
