@@ -395,6 +395,57 @@ def witness_from(cols_rows, p, mode, sol, cr_true):
     return law, E
 
 
+def fmt(v, spec=".7f"):
+    return format(v, spec) if v is not None else "None"
+
+
+def bootstrap_t2(cols_rows, geom, p, rng, max_batches=8, batch=300):
+    """Feasibility bootstrap for the pinned system when the seed dictionary
+    does not span the near-CUE box (the N = 128 dictionary was never enriched
+    by Tier-2 colgen): add CUE all-simple draws and doubles-decorated CUE
+    draws until the full pinned LP is feasible. Anti-absorption-safe: adding
+    columns can only lower both P_full and P_base."""
+    from null_budgets import cue_angles
+    known = {cfg.key() for cfg, _ in cols_rows}
+    for b in range(max_batches):
+        cr = with_obj(filter_W(cols_rows, p.Wcap), "nd")
+        sol = solve_master(cr, p, include_cubic=True, include_Fp=True)
+        if sol["status"] == 0:
+            log(f"bootstrap: pinned LP feasible with {len(cols_rows)} cols")
+            return True
+        news = []
+        for i in range(batch // 2):
+            th = cue_angles(geom.N, rng)
+            news.append(make_config(geom.N, atoms=[(t, 1) for t in th],
+                                    tag=f"bs_null_{b}_{i}"))
+        for i in range(batch // 2):
+            k = int(rng.integers(6, 33))
+            npts = geom.N - k
+            th = cue_angles(npts, rng) * (geom.N / npts)
+            marks = np.ones(npts, dtype=int)
+            idx = rng.choice(npts, k, replace=False)
+            marks[idx] = 2
+            news.append(make_config(geom.N,
+                                    atoms=list(zip(th, marks)),
+                                    tag=f"bs_dbl_{b}_{i}"))
+        added = 0
+        for cfg in news:
+            if cfg.key() in known or cfg.mass() != geom.N:
+                continue
+            r, _ = rows_for(cfg, geom, tier2=True)
+            if r.eig_consistency > 1e-8 or r.nneg > cfg.npairs():
+                continue
+            cols_rows.append((cfg, r))
+            known.add(cfg.key())
+            added += 1
+        log(f"bootstrap batch {b}: +{added} cols -> {len(cols_rows)}")
+    cr = with_obj(filter_W(cols_rows, p.Wcap), "nd")
+    sol = solve_master(cr, p, include_cubic=True, include_Fp=True)
+    ok = sol["status"] == 0
+    log(f"bootstrap: final feasibility = {ok}")
+    return ok
+
+
 # ---------------------------------------------------------------- phases
 def phase_t2(N, cells, dict_in, dict_out, out_name, S_round, S_stop,
              max_rounds, max_outer, do_witness_cell=None):
@@ -408,11 +459,20 @@ def phase_t2(N, cells, dict_in, dict_out, out_name, S_round, S_stop,
     Ba, _ = budgets_for(N, variant="asymptotic")
     out = {"N": N, "budgets_matched": list(B), "budgets_asymptotic": list(Ba),
            "S_stop": S_stop, "cells": []}
+    out_path = os.path.join(RUNS, out_name)
+    rng_bs = np.random.default_rng(20260826)
     for (tau2, eps) in cells:
         p = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
                        C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
                        tier2_tau=tau2)
         label = f"t2 N{N} tau{tau2:g} eps{eps:g}"
+        if not bootstrap_t2(cols_rows, geom, p, rng_bs):
+            out["cells"].append(dict(tau2=tau2, eps=eps, variant="matched",
+                                     status="infeasible_after_bootstrap"))
+            log(f"[{label}] INFEASIBLE after bootstrap -- recorded, skipping")
+            with open(out_path, "w") as f:
+                json.dump(out, f, indent=1, default=str)
+            continue
         conv = converge_cell(cols_rows, geom, p, pool, "nd", S_round, S_stop,
                              max_rounds, max_outer, seed0=9_000_000
                              + int(tau2 * 1000) + int(eps * 10 ** 5), label=label)
@@ -422,10 +482,12 @@ def phase_t2(N, cells, dict_in, dict_out, out_name, S_round, S_stop,
                        outer_used=conv["outer_used"], secs=conv["secs"],
                        verify=conv["verify"]))
         out["cells"].append(rec)
-        log(f"[{label}] FINAL P_full={rec['P_full']:.7f} "
-            f"P_base={rec['P_base']:.7f} delta0'={rec['delta_0']:.3e} "
+        log(f"[{label}] FINAL P_full={fmt(rec['P_full'])} "
+            f"P_base={fmt(rec['P_base'])} delta0'={fmt(rec['delta_0'], '.3e')} "
             f"converged={rec['converged']}")
         save_dict(os.path.join(RUNS, dict_out), cols_rows)
+        with open(out_path, "w") as f:          # incremental checkpoint
+            json.dump(out, f, indent=1, default=str)
 
         if do_witness_cell == (tau2, eps):
             # decision-grade witness + rational verification (incl. T2 rows)
@@ -453,18 +515,219 @@ def phase_t2(N, cells, dict_in, dict_out, out_name, S_round, S_stop,
                             outer_used=conva["outer_used"], secs=conva["secs"],
                             verify=conva["verify"]))
             out["recenter_asymptotic"] = reca
-            log(f"[{label} asym] P_full={reca['P_full']:.7f} "
-                f"P_base={reca['P_base']:.7f} delta0'={reca['delta_0']:.3e}")
+            log(f"[{label} asym] P_full={fmt(reca['P_full'])} "
+                f"P_base={fmt(reca['P_base'])} delta0'={fmt(reca['delta_0'], '.3e')}")
             save_dict(os.path.join(RUNS, dict_out), cols_rows)
+            with open(out_path, "w") as f:
+                json.dump(out, f, indent=1, default=str)
 
-    with open(os.path.join(RUNS, out_name), "w") as f:
+    with open(out_path, "w") as f:
         json.dump(out, f, indent=1, default=str)
     pool.close(); pool.join()
     log(f"phase t2 N={N} done in {time.time()-t0:.0f}s -> {out_name}")
 
 
+def phase_t2_resume():
+    """Resume of the N = 64 Tier-2 phase after the first run's wrapper was
+    killed mid-cell-3. Cells (1, .05) and (1, .02) already ran 8 S=200
+    verification passes each (history in followup_t2n64.log; dictionary state
+    incl. all their columns + the asymptotic-recenter columns is
+    dict_N64_fu.json): here they get a re-certification pass on that final
+    dictionary + the witness/rational-verify/recenter records. Cells (4, .05)
+    and (4, .02) rerun with a SHORTENED budget (max_outer=2, max_rounds=8,
+    S_round=48, S_stop=200) -- recorded deviation from the plain SPEC stop
+    rule, per compute budget; residual pricing bounds reported."""
+    import multiprocessing as mp
+    pool = mp.get_context("spawn").Pool(2)
+    t0 = time.time()
+    N = 64
+    geom = Geometry(N, 1.0, 0.5, ("flat",), ("flat",))
+    cols_rows = load_dict(os.path.join(RUNS, "dict_N64_fu.json"), N)
+    log(f"t2 resume N=64: loaded {len(cols_rows)} columns from dict_N64_fu.json")
+    B, bars = budgets_for(N)
+    Ba, _ = budgets_for(N, variant="asymptotic")
+    out = {"N": N, "budgets_matched": list(B), "budgets_asymptotic": list(Ba),
+           "S_stop": 200, "cells": [],
+           "note": "resume after wrapper kill; tau2=1 cells previously ran 8 "
+                   "S=200 verification passes each (followup_t2n64.log), their "
+                   "columns are in the loaded dictionary; records below are the "
+                   "re-certification pass on that dictionary. tau2=4 cells run "
+                   "shortened (max_outer=2, max_rounds=8) -- recorded deviation."}
+    out_path = os.path.join(RUNS, "followup_tier2_N64.json")
+
+    def flush():
+        with open(out_path, "w") as f:
+            json.dump(out, f, indent=1, default=str)
+
+    # tau2 = 1 cells: re-certification (1 outer: short inner + S=200 verify)
+    for (tau2, eps) in [(1.0, 0.05), (1.0, 0.02)]:
+        p = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
+                       C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                       tier2_tau=tau2)
+        label = f"t2r N64 tau{tau2:g} eps{eps:g}"
+        conv = converge_cell(cols_rows, geom, p, pool, "nd", S_round=48,
+                             S_stop=200, max_rounds=2, max_outer=1,
+                             seed0=13_000_000 + int(tau2 * 1000)
+                             + int(eps * 10 ** 5), label=label)
+        rec, full, base, cal = cell_record(cols_rows, p, "nd")
+        rec.update(tau2=tau2, eps=eps, variant="matched",
+                   converged=conv["converged"],
+                   prior_run="8 S=200 passes, see followup_t2n64.log",
+                   colgen=dict(outer_used=conv["outer_used"], secs=conv["secs"],
+                               verify=conv["verify"]))
+        out["cells"].append(rec)
+        log(f"[{label}] FINAL P_full={rec['P_full']:.7f} "
+            f"P_base={rec['P_base']:.7f} delta0'={rec['delta_0']:.3e} "
+            f"recert_converged={rec['converged']}")
+        save_dict(os.path.join(RUNS, "dict_N64_fu.json"), cols_rows)
+        flush()
+
+        if (tau2, eps) == (1.0, 0.05):
+            cr_true, fullw, basew, calw = solve_targets(cols_rows, p, "nd")
+            law, E = witness_from(cols_rows, p, "nd", fullw, cr_true)
+            rv = rational_verify_t2(with_obj(cr_true, "nd"), p, fullw)
+            out["witness"] = dict(
+                cell=dict(tau2=tau2, eps=eps, variant="matched",
+                          fuzz="none", C_led=100.0, Wcap=8),
+                P=fullw["P"], law=law, E=E, rational_verify=rv,
+                active_rows={k: round(v, 8) for k, v in
+                             (fullw.get("active_rows") or {}).items()})
+            log(f"[{label}] witness: support={len(law)} "
+                f"rational all_ok={rv['all_ok']}")
+            pa = GateParams(N=N, budgets=Ba, eps1=eps, epsF=eps, eps3=eps,
+                            C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                            tier2_tau=tau2)
+            conva = converge_cell(cols_rows, geom, pa, pool, "nd",
+                                  S_round=64, S_stop=100, max_rounds=1,
+                                  max_outer=1, seed0=13_500_000,
+                                  label=label + " asym")
+            reca, _, _, _ = cell_record(cols_rows, pa, "nd")
+            reca.update(tau2=tau2, eps=eps, variant="asymptotic",
+                        converged=conva["converged"], colgen=dict(
+                            outer_used=conva["outer_used"], secs=conva["secs"],
+                            verify=conva["verify"]))
+            out["recenter_asymptotic"] = reca
+            log(f"[{label} asym] P_full={reca['P_full']:.7f} "
+                f"P_base={reca['P_base']:.7f} delta0'={reca['delta_0']:.3e}")
+            save_dict(os.path.join(RUNS, "dict_N64_fu.json"), cols_rows)
+            flush()
+
+    # tau2 = 4 cells: shortened convergence (recorded deviation)
+    for (tau2, eps) in [(4.0, 0.05), (4.0, 0.02)]:
+        p = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
+                       C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                       tier2_tau=tau2)
+        label = f"t2r N64 tau{tau2:g} eps{eps:g}"
+        conv = converge_cell(cols_rows, geom, p, pool, "nd", S_round=48,
+                             S_stop=200, max_rounds=8, max_outer=2,
+                             seed0=14_000_000 + int(tau2 * 1000)
+                             + int(eps * 10 ** 5), label=label)
+        rec, full, base, cal = cell_record(cols_rows, p, "nd")
+        rec.update(tau2=tau2, eps=eps, variant="matched",
+                   converged=conv["converged"],
+                   deviation="shortened: max_outer=2, max_rounds=8",
+                   colgen=dict(outer_used=conv["outer_used"], secs=conv["secs"],
+                               verify=conv["verify"]))
+        out["cells"].append(rec)
+        log(f"[{label}] FINAL P_full={rec['P_full']:.7f} "
+            f"P_base={rec['P_base']:.7f} delta0'={rec['delta_0']:.3e} "
+            f"converged={rec['converged']}")
+        save_dict(os.path.join(RUNS, "dict_N64_fu.json"), cols_rows)
+        flush()
+
+    pool.close(); pool.join()
+    log(f"phase t2_resume done in {time.time()-t0:.0f}s")
+
+
+def phase_t2n128b():
+    """N = 128 continuation: converge the matched (tau2=1, eps=0.05) cell on
+    the bootstrapped dictionary (dict_N128_fu.json), then extract the witness
+    with a 1e-5 interior shrink of the pinning box (so the law is strictly
+    feasible for the TRUE tau2 = 1 box under Fraction re-verification, clear
+    of the ~3e-6 HiGHS primal tolerance seen in the first pass), then the
+    asymptotic re-centering."""
+    import multiprocessing as mp
+    pool = mp.get_context("spawn").Pool(2)
+    t0 = time.time()
+    N = 128
+    tau2, eps = 1.0, 0.05
+    geom = Geometry(N, 1.0, 0.5, ("flat",), ("flat",))
+    cols_rows = load_dict(os.path.join(RUNS, "dict_N128_fu.json"), N)
+    log(f"t2n128b: loaded {len(cols_rows)} columns")
+    B, bars = budgets_for(N)
+    Ba, _ = budgets_for(N, variant="asymptotic")
+    with open(os.path.join(RUNS, "followup_tier2_N128.json")) as f:
+        out = json.load(f)
+    out["continuation"] = {}
+    out_path = os.path.join(RUNS, "followup_tier2_N128.json")
+
+    p = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
+                   C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                   tier2_tau=tau2)
+    label = f"t2b N128 tau{tau2:g} eps{eps:g}"
+    conv = converge_cell(cols_rows, geom, p, pool, "nd", S_round=48,
+                         S_stop=200, max_rounds=25, max_outer=10,
+                         seed0=16_000_000, label=label)
+    rec, full, base, cal = cell_record(cols_rows, p, "nd")
+    rec.update(tau2=tau2, eps=eps, variant="matched",
+               converged=conv["converged"],
+               colgen=dict(outer_used=conv["outer_used"], secs=conv["secs"],
+                           verify=conv["verify"]))
+    out["continuation"]["cell"] = rec
+    log(f"[{label}] FINAL P_full={fmt(rec['P_full'])} "
+        f"P_base={fmt(rec['P_base'])} delta0'={fmt(rec['delta_0'], '.3e')} "
+        f"converged={rec['converged']}")
+    save_dict(os.path.join(RUNS, "dict_N128_fu.json"), cols_rows)
+    with open(out_path, "w") as f:
+        json.dump(out, f, indent=1, default=str)
+
+    # witness at interior-shrunk pinning box (strict feasibility for tau2=1)
+    p_w = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
+                     C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                     tier2_tau=tau2 - 1e-5)
+    cr_true, fullw, basew, calw = solve_targets(cols_rows, p_w, "nd")
+    law, E = witness_from(cols_rows, p_w, "nd", fullw, cr_true)
+    p_true = GateParams(N=N, budgets=B, eps1=eps, epsF=eps, eps3=eps,
+                        C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                        tier2_tau=tau2)
+    rv = rational_verify_t2(with_obj(cr_true, "nd"), p_true, fullw)
+    out["continuation"]["witness"] = dict(
+        cell=dict(tau2=tau2, eps=eps, variant="matched", fuzz="none",
+                  C_led=100.0, Wcap=8,
+                  note="witness LP solved at tau2 - 1e-5 (interior shrink); "
+                       "rational verification against the TRUE tau2 = 1 box"),
+        P=fullw["P"], law=law, E=E, rational_verify=rv,
+        active_rows={k: round(v, 8) for k, v in
+                     (fullw.get("active_rows") or {}).items()})
+    log(f"[{label}] witness(interior): P={fmt(fullw.get('P'))} "
+        f"support={len(law)} rational all_ok={rv['all_ok']}")
+    with open(out_path, "w") as f:
+        json.dump(out, f, indent=1, default=str)
+
+    # asymptotic re-centering
+    pa = GateParams(N=N, budgets=Ba, eps1=eps, epsF=eps, eps3=eps,
+                    C_led=100.0, fuzz="none", Wcap=8, Vgrid=VGRID,
+                    tier2_tau=tau2)
+    conva = converge_cell(cols_rows, geom, pa, pool, "nd", S_round=48,
+                          S_stop=100, max_rounds=12, max_outer=5,
+                          seed0=16_500_000, label=label + " asym")
+    reca, _, _, _ = cell_record(cols_rows, pa, "nd")
+    reca.update(tau2=tau2, eps=eps, variant="asymptotic",
+                converged=conva["converged"], colgen=dict(
+                    outer_used=conva["outer_used"], secs=conva["secs"],
+                    verify=conva["verify"]))
+    out["continuation"]["recenter_asymptotic"] = reca
+    log(f"[{label} asym] P_full={fmt(reca['P_full'])} "
+        f"P_base={fmt(reca['P_base'])} delta0'={fmt(reca['delta_0'], '.3e')}")
+    save_dict(os.path.join(RUNS, "dict_N128_fu.json"), cols_rows)
+    with open(out_path, "w") as f:
+        json.dump(out, f, indent=1, default=str)
+    pool.close(); pool.join()
+    log(f"phase t2n128b done in {time.time()-t0:.0f}s")
+
+
 def phase_p1(N=64, dict_in="dict_N64_fu.json", dict_out="dict_N64_fu.json",
-             S_round=64, S_stop=200, max_rounds=40, max_outer=8):
+             S_round=48, S_stop=200, max_rounds=8, max_outer=3):
     import multiprocessing as mp
     pool = mp.get_context("spawn").Pool(2)
     t0 = time.time()
@@ -478,6 +741,7 @@ def phase_p1(N=64, dict_in="dict_N64_fu.json", dict_out="dict_N64_fu.json",
     Ba, _ = budgets_for(N, variant="asymptotic")
     out = {"N": N, "objective": "p1 simple-point fraction "
            "(mark-1 atoms + 2 x mult-1 pairs)", "S_stop": S_stop, "cells": []}
+    out_path = os.path.join(RUNS, f"followup_p1_N{N}.json")
     cells = [("matched", B, 0.05), ("asymptotic", Ba, 0.002)]
     for variant, Bv, eps in cells:
         p = GateParams(N=N, budgets=Bv, eps1=eps, epsF=eps, eps3=eps,
@@ -507,6 +771,8 @@ def phase_p1(N=64, dict_in="dict_N64_fu.json", dict_out="dict_N64_fu.json",
             f"delta={rec['delta_0']:.3e} corner={rec['corner_analytic']:.7f} "
             f"converged={rec['converged']}")
         save_dict(os.path.join(RUNS, dict_out), cols_rows)
+        with open(out_path, "w") as f:          # incremental checkpoint
+            json.dump(out, f, indent=1, default=str)
 
     # LP-only cross-checks over the final dictionary (no colgen; labeled):
     # (i) coupled-fuzz variant at the primary cell; (ii) W-scan; (iii) the
@@ -543,7 +809,7 @@ def phase_p1(N=64, dict_in="dict_N64_fu.json", dict_out="dict_N64_fu.json",
         note="labeled diagnostic: simple count restricted to on-line atoms; "
              "no colgen under this objective")
 
-    with open(os.path.join(RUNS, f"followup_p1_N{N}.json"), "w") as f:
+    with open(out_path, "w") as f:
         json.dump(out, f, indent=1, default=str)
     pool.close(); pool.join()
     log(f"phase p1 done in {time.time()-t0:.0f}s")
@@ -556,11 +822,15 @@ if __name__ == "__main__":
                  dict_in="dict_N64.json", dict_out="dict_N64_fu.json",
                  out_name="followup_tier2_N64.json", S_round=64, S_stop=200,
                  max_rounds=40, max_outer=8, do_witness_cell=(1.0, 0.05))
+    elif phase == "t2resume":
+        phase_t2_resume()
+    elif phase == "t2n128b":
+        phase_t2n128b()
     elif phase == "t2n128":
         phase_t2(128, cells=[(1.0, 0.05)],
                  dict_in="dict_N128.json", dict_out="dict_N128_fu.json",
-                 out_name="followup_tier2_N128.json", S_round=48, S_stop=200,
-                 max_rounds=40, max_outer=6, do_witness_cell=(1.0, 0.05))
+                 out_name="followup_tier2_N128.json", S_round=32, S_stop=200,
+                 max_rounds=8, max_outer=2, do_witness_cell=(1.0, 0.05))
     elif phase == "p1":
         phase_p1()
     else:
