@@ -53,13 +53,18 @@ STRUCTURE (all exact arithmetic; no analysis beyond `Complex.exp` at the ℂ spe
      marks with mass N — the doubles-corner inequality whose equality case (marks ⊆ {1,2}) the grid law
      realizes with F1 = Σ m² exact by the main identity (lemmaR_tight interface).
 
-NOT formalized here (documented TODO, in the queue's terms):
-  * Proposition 1.3 (the λ' = 1/2 half-band kernel remains position-sensitive on the same grid) — a
-    non-degeneracy statement about specific triangular weights; quantitative, certified numerically in
-    results/a4-no-go/verify/verify_t1.py;
-  * Theorem 2.3 (the ε-budget LP corner 5/6 − (2/3)ε and 2/3 − (4/3)ε) — the LP layer above this identity;
-  * the worked exact value F' = 4128/33 of the N = 64 vacancy lattice (witness_N64.json) as a
-    kernel-checked instance.
+Continued in GridWitness.lean (Session 8), discharging two of the three TODOs this header used to
+carry: the worked exact value F' = 4128/33 of the N = 64 vacancy lattice (witness_N64.json) is now a
+kernel-checked instance there (`vacancy_half_band_value`, with the exact spectrum proved algebraically
+for every vacancy position), and the finite/algebraic half of Proposition 1.3 is formalized (the
+triangular fold `half_band_fold`, weight positivity/non-constancy, the complete-residue window, and
+the "alive" witness `half_band_alive`: F' = 4128/33 ≠ 64 = Σ m² where the λ = 1 row collapses).
+
+NOT formalized (documented TODO, in the queue's terms):
+  * Proposition 1.3's closing strict position-sensitivity statement (two grid configurations of equal
+    mark multiset with different F') — needs a cyclotomic non-vanishing certificate; the precise
+    remaining gap is documented in GridWitness.lean's header;
+  * Theorem 2.3 (the ε-budget LP corner 5/6 − (2/3)ε and 2/3 − (4/3)ε) — the LP layer above this identity.
 
 Trust model: everything in this file is proved from Mathlib with no `sorry`, no `native_decide`, and no
 numeric certificates; the only transcendental object is `Complex.exp` in the ℂ specialization, entering
