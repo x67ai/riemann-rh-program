@@ -1,0 +1,60 @@
+{
+ "atom_ineq_Nd_all_m": true,
+ "atom_ineq_p1_all_m": true,
+ "random_stress_violations": 0,
+ "LP_Nd_eps0.1": {
+  "lp": 0.7666666666666666,
+  "closed_form": 0.7666666666666667,
+  "dev": 1.1102230246251565e-16
+ },
+ "LP_p1_eps0.1": {
+  "lp": 0.5333333333333334,
+  "closed_form": 0.5333333333333332,
+  "dev": 2.220446049250313e-16
+ },
+ "LP_Nd_eps0.05": {
+  "lp": 0.7999999999999997,
+  "closed_form": 0.8,
+  "dev": 3.3306690738754696e-16
+ },
+ "LP_p1_eps0.05": {
+  "lp": 0.6000000000000001,
+  "closed_form": 0.6000000000000001,
+  "dev": 0.0
+ },
+ "LP_Nd_eps0.02": {
+  "lp": 0.8200000000000001,
+  "closed_form": 0.8200000000000001,
+  "dev": 0.0
+ },
+ "LP_p1_eps0.02": {
+  "lp": 0.6399999999999999,
+  "closed_form": 0.6400000000000001,
+  "dev": 2.220446049250313e-16
+ },
+ "LP_Nd_eps0.002": {
+  "lp": 0.8319999999999997,
+  "closed_form": 0.8320000000000001,
+  "dev": 3.3306690738754696e-16
+ },
+ "LP_p1_eps0.002": {
+  "lp": 0.6639999999999999,
+  "closed_form": 0.6640000000000001,
+  "dev": 2.220446049250313e-16
+ },
+ "LP_Nd_twosided_eps0.05": 0.8,
+ "fraction_corner_check": "pass",
+ "witness_P": 0.8050956815846874,
+ "witness_EF1": 88.94775275723633,
+ "witness_P_pred_from_corner": 0.8050956815840912,
+ "followup_p1_keys": [
+  "title",
+  "contract",
+  "date",
+  "objective_definition",
+  "configuration",
+  "cells",
+  "cross_checks",
+  "delta_discipline"
+ ]
+}
