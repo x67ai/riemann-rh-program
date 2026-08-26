@@ -1,0 +1,8 @@
+== acceptance/w1-arb-null-t10000.json
+  [PASS] V1 sampled values inside integer boxes -- 4915 samples, 0 outside
+  [PASS] V2 unwrapped winding matches claimed_m and [S_lo, S_hi]/A -- winding = -1.388526951e-40, m = 0, S/A = [-495/1000000, 488/1000000]
+  [PASS] V3 sampled min |f| >= claimed floor Fn/Fd -- min sampled |f| = 0.12188546, floor = 7.6377618e-6
+
+RESULT: ALL CROSS-VALIDATION CHECKS PASS (evidence, not certificate -- see module docstring)
+python3 validate_arb_transcripts.py acceptance/w1-arb-null-t10000.json  416.07s user 0.46s system 99% cpu 6:56.77 total
+exit=0
