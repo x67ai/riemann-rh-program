@@ -1,0 +1,127 @@
+{
+ "R1_constants": {
+  "log2_series_matches_mpmath_1e-420": true,
+  "log3_series_matches_mpmath_1e-420": true,
+  "log5_series_matches_mpmath_1e-420": true,
+  "pi_chudnovsky_brackets_mpmath": true,
+  "err_bounds": {
+   "log2": 0.0,
+   "log3": 0.0,
+   "log5": 0.0
+  }
+ },
+ "R2_interval_cf": {
+  "log2*log3/(4pi^2)": {
+   "cf": {
+    "proved_no_denominator_below": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "terms": 201,
+    "max_partial_quotient": 4591,
+    "qN_digits": 100
+   },
+   "first_digits": "0.01928902059982156790073460399965086597553",
+   "matches_note_table": true
+  },
+  "log2*log5/(4pi^2)": {
+   "cf": {
+    "proved_no_denominator_below": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "terms": 201,
+    "max_partial_quotient": 1598,
+    "qN_digits": 100
+   },
+   "first_digits": "0.02825790441932122561669343883835767381835",
+   "matches_note_table": true
+  },
+  "log3*log5/(4pi^2)": {
+   "cf": {
+    "proved_no_denominator_below": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "terms": 179,
+    "max_partial_quotient": 284,
+    "qN_digits": 100
+   },
+   "first_digits": "0.04478771885358678050342090394221563479011",
+   "matches_note_table": true
+  },
+  "(log2)^2/(4pi^2)": {
+   "cf": {
+    "proved_no_denominator_below": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "terms": 160,
+    "max_partial_quotient": 226,
+    "qN_digits": 100
+   },
+   "first_digits": "0.01217001701368018795581722862872611092254",
+   "matches_note_table": true
+  },
+  "(log3)^2/(4pi^2)": {
+   "cf": {
+    "proved_no_denominator_below": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "terms": 191,
+    "max_partial_quotient": 1521,
+    "qN_digits": 100
+   },
+   "first_digits": "0.03057237432635508825361790081727330614887",
+   "matches_note_table": true
+  }
+ },
+ "R3_pslq": {
+  "log2*log3/(4pi^2)": {
+   "pslq_dps300_maxcoeff_1e25": null
+  },
+  "log2*log5/(4pi^2)": {
+   "pslq_dps300_maxcoeff_1e25": null
+  },
+  "log3*log5/(4pi^2)": {
+   "pslq_dps300_maxcoeff_1e25": null
+  },
+  "(log2)^2/(4pi^2)": {
+   "pslq_dps300_maxcoeff_1e25": null
+  },
+  "(log3)^2/(4pi^2)": {
+   "pslq_dps300_maxcoeff_1e25": null
+  },
+  "affine_3term_x_pi2_1_maxcoeff_1e15": {
+   "log2log3": null,
+   "log2log5": null,
+   "log3log5": null,
+   "log2sq": null,
+   "log3sq": null
+  },
+  "control_log9_log3": [
+   1,
+   -2
+  ]
+ },
+ "R4_isogeny_degree_exact": {
+  "claim": "index [Lambda_q : lambda0 Lambda_p] = |det[[0,-u],[v,0]]| = uv",
+  "cases": {
+   "u=3,v=7": true,
+   "u=1,v=1": true,
+   "u=2,v=5": true,
+   "u=10,v=9": true,
+   "u=1,v=4": true
+  }
+ },
+ "R5_no_lattice_maps_pq_23": {
+  "min_|a*y2-d*y3|_coeffs_le_300_nonzero": 0.00033233658921719427,
+  "argmin": [
+   -84,
+   -53
+  ],
+  "min_dist_b*y2y3_to_Z_b_le_300": 0.003029071190721531,
+  "tolerance_for_a_true_map": 1e-30,
+  "pass_no_map_found": true
+ },
+ "R6_kernel_points_distinct_and_valid_k_le_7": {
+  "pass": true
+ },
+ "R7_intersection_profile_exact": {
+  "all_Gamma_profiles_match_(1,m^2,(m-n)^2)": true,
+  "Delta_profile_(D.xi1,D.xi2,D^2)": [
+   1,
+   1,
+   0
+  ],
+  "(xi1+xi2)^2": 2,
+  "pass": true
+ },
+ "all_pass": true
+}
