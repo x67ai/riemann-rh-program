@@ -60,11 +60,17 @@ for every vacancy position), and the finite/algebraic half of Proposition 1.3 is
 triangular fold `half_band_fold`, weight positivity/non-constancy, the complete-residue window, and
 the "alive" witness `half_band_alive`: F' = 4128/33 ≠ 64 = Σ m² where the λ = 1 row collapses).
 
+The ε-budget LP corner (Theorem 2.3: 5/6 − (2/3)ε and 2/3 − (4/3)ε) is formalized on the grid class
+in GridCorner.lean (pointwise + law-form lower bounds via Lemma 2.2(a)/(b), and the exact marks-{1,2}
+attainment instance at N = 64, ε = 1/32 with kernel-checked column data) — on the grid the chain is
+finite algebra because `trace_sq_grid` makes Lemma 2.1 an equality.
+
 NOT formalized (documented TODO, in the queue's terms):
   * Proposition 1.3's closing strict position-sensitivity statement (two grid configurations of equal
     mark multiset with different F') — needs a cyclotomic non-vanishing certificate; the precise
     remaining gap is documented in GridWitness.lean's header;
-  * Theorem 2.3 (the ε-budget LP corner 5/6 − (2/3)ε and 2/3 − (4/3)ε) — the LP layer above this identity.
+  * Theorem 2.3 on the ATOM-ONLY class at arbitrary positions — needs Lemma 2.1 (F1 ≥ Σ m² off the
+    grid), i.e. the position-space form of the row with K = D² ≥ 0; see GridCorner.lean's header.
 
 Trust model: everything in this file is proved from Mathlib with no `sorry`, no `native_decide`, and no
 numeric certificates; the only transcendental object is `Complex.exp` in the ℂ specialization, entering
