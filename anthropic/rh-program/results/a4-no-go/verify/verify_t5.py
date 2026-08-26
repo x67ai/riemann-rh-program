@@ -42,6 +42,15 @@ for hmax in (100.0, 400.0, 2000.0):
     print(f"LP (hmax={hmax:6.0f}, 600 pts): value = {val:.6f}; + truncation tail 3C/hmax = "
           f"{val + tail:.6f}  vs 2 sqrt2 sqrt(C eps) = {pred:.6f}")
 
+# grid-and-truncation refinement (persisted 2026-08-26, referee-2 Major 4):
+# finer point grids and larger hmax, truncation tail 3C/hmax added throughout.
+for hmax, npts in ((2000.0, 2000), (2000.0, 4000), (8000.0, 4000)):
+    val, h, x = capacity_lp(hmax, npts)
+    tail = 3 * C / hmax
+    out[f"lp_hmax{int(hmax)}_npts{npts}"] = {"lp": val, "lp_plus_tail": val + tail, "pred": pred}
+    print(f"LP (hmax={hmax:6.0f}, {npts} pts): value = {val:.6f}; + truncation tail = "
+          f"{val + tail:.6f}  vs 2 sqrt2 sqrt(C eps) = {pred:.6f}")
+
 # optimal profile shape check: cumulative tail vs C min(a^-4, h^-4)
 val, h, x = capacity_lp(2000.0, 600)
 tails = np.cumsum(x[::-1])[::-1]

@@ -121,7 +121,10 @@ B3·(1−eps) = 304.555·0.95 = 289.327 [V: product recomputed]); E[N_d] = 51.52
 **E[N_d]/N = 0.8050956815846875** [V: ratio recomputed] <= 5/6 + 0.01 (SPEC 5.4 absorption bar).
 
 Active rows at the optimum: only F1_hi and Cp_lo (margins −7.8e-3·scale and 1.9e-15); every ladder
-row slack, nV = 0 vectors [V: `witness_N64.json: active_rows`, `law[].nV`]. Fraction-arithmetic
+row slack by orders of magnitude — law[1].nV = [16, 2, 0, ...], law[2].nV = [3, 2, 0, ...], the
+vacancy column's nV all zero; E[n(2)] = 3.50 and E[n(3)] = 0.94 against caps C_led·N·V^-4 = 400
+and 79.0 [V: `witness_N64.json: active_rows`, `law[].nV`; expectations recomputed 2026-08-26 —
+CORRECTED from the earlier "nV = 0 vectors", which was false against the shipped file]. Fraction-arithmetic
 re-verification: all 10 row checks true, objective_exact = 0.8050956815845, obj_dev 5e-13,
 all_ok = true [V: `witness_N64.json: rational_verify`]. Auditor independently recomputed all three
 columns through a position-space path: every row value reproduces to 1e-6 or better, feasibility
@@ -164,7 +167,8 @@ Asymptotic re-centering (stability): P_full = P_base = **0.8332332347490976**, d
 
 Aggregates [V: `witness_N64: E`]: E[N_d]/N = 53.32693798297409/64 = **0.8332334059839699**
 [V: ratio recomputed]; E[F1] = 87.24729; E[F'] = 136.08081; E[C'] = 311.35710;
-E|c_j|^2 = j + 1 for every j = 1..63 (S1 array = [2.000000, 3.000000, ..., 64] to 1e-13) — **all 63
+E|c_j|^2 = j + 1 for every j = 1..63 (S1 array = [2.000000, 3.000000, ..., 64] to 2e-12; max
+deviation 1.84e-12 at j = 62 — CORRECTED 2026-08-26 from "to 1e-13") — **all 63
 upper pinning rows active at exactly the +tau2 allowance**; max abs(E|c_j|^2 − j) = 1.0000 uniformly
 [V: `witness_N64: E.S1` opened and inspected; `active_rows` lists t2_hi_j1..j63 only].
 
