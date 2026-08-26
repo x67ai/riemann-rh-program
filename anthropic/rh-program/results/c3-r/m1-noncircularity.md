@@ -9,12 +9,23 @@ re-derived in the design phase").
 **Status (read before citing).** This is a **re-derivation of standard material for the program
 record; zero novelty is claimed.** Every statement below is graduate-textbook algebraic
 geometry. Its value to the program is precisely the audit trail: the Hodge-index/
-Castelnuovo–Severi inequality — the positivity engine of the only mechanism in history that has
-proved an RH — is proved from Riemann–Roch on the surface, Serre duality, and ampleness, **with
-no zeta-function, L-function, or RH input anywhere**. Both Session-6 killers re-derived this
-argument independently and verified the lineage at tier 1; the adjudication records it as
-"Verified in the brief's favor" (`results/verdicts-c3d1.json` kill:C3 minor finding item (4),
-kill2:C3 minor finding item (1); `results/adjudication-C3.json`).
+Castelnuovo–Severi inequality — the positivity engine of the only **positivity mechanism** that
+has ever proved an RH† — is proved from Riemann–Roch on the surface, Serre duality, and
+ampleness, **with no zeta-function, L-function, or RH input anywhere**. Both Session-6 killers
+re-derived this argument independently; the lineage was tier-1-verified (killer-2 and the
+adjudicator). The verification is recorded as "Verified in the brief's favor" in the direction
+file's Phase-4 verdicts (`directions/C3-geometric-substrate.md`); the adjudication's own
+wording is "the M1 gate is verified sound by both killers" (`results/adjudication-C3.json`;
+`results/verdicts-c3d1.json` kill:C3 minor finding item (4), kill2:C3 minor finding item (1)).
+
+† "Positivity mechanism" is the operative qualifier (restored per referee pass; it is the
+direction file's own phrasing): RH for curves over finite fields was ALSO proved by the
+elementary auxiliary-polynomial method of Stepanov (1969), streamlined and completed by
+Bombieri, "Counting points on curves over finite fields (d'après S. A. Stepanov)," Sém.
+Bourbaki Exp. 430 (1972/73), Springer LNM 383 (1974), 234–241 — a proof consuming only
+Riemann–Roch on the *curve*: no surface, no Hodge index, no positivity engine. Deligne's
+Weil I amplification is likewise a distinct engine. The claim above concerns the Hodge-index
+positivity route only.
 
 **Conventions.** X is a smooth projective (geometrically irreducible) surface over an
 algebraically closed field k of **arbitrary characteristic** (char p included; nothing below is
@@ -55,11 +66,24 @@ content about zeta or L-functions:
 - **(IN5) Trivial positivity.** h⁰, h¹, h² ≥ 0, hence h⁰(D) + h²(D) ≥ χ(D).
 - **(IN6) The intersection pairing on Num(X)** is a well-defined, nondegenerate symmetric
   bilinear form on a finitely generated group. [Hartshorne V.1; nondegeneracy is the definition
-  of numerical equivalence.]
+  of numerical equivalence. Finite generation of Num(X) is the Néron–Severi theorem — proved by
+  Picard-variety/finiteness arguments, no zeta input; it is consumed ONLY for ρ < ∞ in the
+  signature statement §5, which sits off the load-bearing chain to §§6–7.]
+- **(IN7) Nakai–Moishezon criterion (hard direction).** On a surface, if H² > 0 and H·C > 0 for
+  every irreducible curve C ⊂ X, then H is ample. [Hartshorne Thm. V.1.10; the proof is
+  cohomological (Riemann–Roch plus effectivity bootstrapping) — no zeta content. Consumed only
+  in §6, to certify H = ξ₁ + ξ₂ ample. An elementary route avoiding it exists —
+  m(ξ₁ + ξ₂) = p₁*(mP) + p₂*(mP′) is very ample for m ≫ 0 as the Segre-composed embedding of
+  very ample divisors on the factors, an (IN4)-grade fact — but the criterion is what §6's
+  printed verification uses, so it is listed as the input it is.]
 
 **Not inputs:** the zeta function of any curve or surface; point counts; the Weil conjectures
 in any form; positivity of any explicit-formula functional; any spectral or Hilbert-space
-statement; any characteristic-zero comparison. No step below mentions them.
+statement; any characteristic-zero comparison. No step of the proof (§§3–6) mentions them.
+§7's degeneration clause consumes rationality and the functional equation of Z(C, T) —
+Riemann–Roch-on-the-curve facts with no RH content — and produces point counts as OUTPUTS
+(N₁ = Γ·Δ), exactly as itemized in the §8 ledger; §10 mentions the explicit formula only
+inside the IV.10 fence, to state what the Tate-curve surfaces cannot host.
 
 ## 3. Lemma (effectivity criterion; Hartshorne V.1.8 lineage)
 
@@ -91,8 +115,8 @@ nD·H > 0, contradicting D·H = 0.
 
 **Case 2: D² = 0.** Since D is numerically nontrivial, pick E with D·E ≠ 0. Replace E by
 E′ := (H²)·E − (E·H)·H; then E′·H = (H²)(E·H) − (E·H)(H²) = 0 and
-D·E′ = (H²)(D·E) − (E·H)(D·H) = (H²)(D·E) ≠ 0 (H² > 0 by (IN3)/(IN1) standard, e.g. H ample ⟹
-H² = H·H > 0 since some multiple of H is effective and nonzero). For an integer n, set
+D·E′ = (H²)(D·E) − (E·H)(D·H) = (H²)(D·E) ≠ 0 (H² > 0 by (IN3): H ample ⟹ some multiple of H
+is effective and nonzero, and it meets H positively, so H² = H·H > 0). For an integer n, set
 D′ := nD + E′. Then D′·H = n·(D·H) + E′·H = 0 and
 D′² = n²·D² + 2n·(D·E′) + E′² = 2n·(D·E′) + E′². Choosing n large with the sign of n·(D·E′)
 positive gives D′² > 0 with D′·H = 0. If D′ is numerically nontrivial this contradicts Case 1;
@@ -118,8 +142,8 @@ trivial (write any w as λH + w^⊥), contradicting y ≠ 0 in Num(X) ⊗ Q. ∎
 ## 6. Corollary (Castelnuovo–Severi on C × C′)
 
 Let C, C′ be smooth projective curves over k, S = C × C′, ξ₁ = {pt} × C′, ξ₂ = C × {pt}. Then
-ξ₁² = ξ₂² = 0, ξ₁·ξ₂ = 1, and H := ξ₁ + ξ₂ is ample (Nakai–Moishezon: H² = 2 > 0, and every
-irreducible curve on S meets ξ₁ or ξ₂ positively and neither negatively). For a divisor D on S
+ξ₁² = ξ₂² = 0, ξ₁·ξ₂ = 1, and H := ξ₁ + ξ₂ is ample ((IN7) Nakai–Moishezon: H² = 2 > 0, and
+every irreducible curve on S meets ξ₁ or ξ₂ positively and neither negatively). For a divisor D on S
 write the **bidegree** (d₁, d₂) := (D·ξ₁, D·ξ₂) (for the graph Γ_f of a morphism f: C → C′,
 (d₁, d₂) = (1, deg f)).
 
@@ -167,7 +191,11 @@ homogeneity and density) for all real r, s; the discriminant condition gives
 Replacing F by F^k gives |N_k − (q^k + 1)| ≤ 2g·q^{k/2} for every k ≥ 1; by the standard
 power-sum/functional-equation bookkeeping (rationality of the zeta function of C and the α ↦ q/α
 pairing — both consequences of Riemann–Roch on the *curve*, again with no RH input) this is
-equivalent to |α_i| = √q for every Frobenius eigenvalue, i.e. RH for C. Every input in this
+equivalent to |α_i| = √q for every Frobenius eigenvalue, i.e. RH for C. (The ⟹ direction is
+the generating-function no-cancellation fact: the log-derivative generating function has
+residue −m_α at T = 1/α, so poles at distinct points of equal modulus cannot cancel; the
+uniform bound then forces radius of convergence ≥ q^{−1/2}, i.e. max_i |α_i| ≤ √q, and the
+α ↦ q/α pairing pins equality.) Every input in this
 chain is listed in §8; none is a zeta positivity.
 
 **Consistency note with the M0 note (`results/c3-r/m0-axiom-note.md` §3.5).** The bidegrees
@@ -186,7 +214,7 @@ adjudication on y² = x³ + x + 1 over F₇: bidegrees (1,7), (1,49), (1,343) ag
 | Theorem §4 Case 1 | Lemma + (IN4) D+mH ample + (IN3) | Hartshorne Ex. II.7.14(b) | none |
 | Theorem §4 Case 2 | (IN6) linear algebra in Num(X) | Hartshorne V.1 | none |
 | Corollary §5 | Theorem + Q-rationality of Num | linear algebra | none |
-| Corollary §6 (CS) | Theorem on C × C′ with H = ξ₁+ξ₂ | Nakai–Moishezon for H | none |
+| Corollary §6 (CS) | Theorem on C × C′ + (IN7) ampleness of H = ξ₁+ξ₂ | (IN7) Nakai–Moishezon, Hartshorne Thm. V.1.10 (cohomological proof) | none |
 | §7 (W1)–(W3) | bidegree/normal-bundle/transversality computations | standard; dF = 0 | none |
 | §7 discriminant step | §6 applied to rΔ + sΓ | quadratic forms | none |
 | §7 closing equivalence | rationality + FE of Z(C, T) from RR on the curve | Weil rationality (RR-based) | none (no RH input; RH is the OUTPUT) |
@@ -216,16 +244,26 @@ that substrate and must degenerate to the present statement over F_q.
   208–215 — simplification and generalization: the inequality as an instance of the index
   theorem on an arbitrary surface (page range verified via Crelle/EuDML records this cycle).
 - **R. Hartshorne**, *Algebraic Geometry*, GTM 52, Ch. V §1 — the textbook consolidation used
-  above: Thm. V.1.6 (Riemann–Roch), Thm. V.1.9 (Hodge index), Exercises V.1.9–V.1.10
-  (Castelnuovo–Severi on C × C′ and Weil's bound |N − (q+1)| ≤ 2g√q along exactly the route of
-  §7).
+  above: Thm. V.1.6 (Riemann–Roch), Thm. V.1.9 (Hodge index), Thm. V.1.10 (Nakai–Moishezon,
+  = (IN7)), Exercises V.1.9–V.1.10 (Castelnuovo–Severi on C × C′ and Weil's bound
+  |N − (q+1)| ≤ 2g√q along exactly the route of §7). N.B. Hartshorne's theorem and exercise
+  numbering are distinct series: "Thm. V.1.9" (the Hodge index theorem) and "Ex. V.1.9" (the
+  CS exercise) are different items that happen to share a number. Two sub-item pins in this
+  note — "Cor. V.1.8" for the effectivity criterion and the "(b)" of "Ex. II.7.14" — are
+  recalled at the letter level only (the statements themselves are re-proved in full above, so
+  nothing load-bearing depends on them); an online letter-check was attempted 2026-08-26
+  without a conclusive page image, and a 30-second check against a physical copy remains
+  worthwhile before print citation.
 
 Verification record: both killers independently re-derived the argument of §3–§4 and confirmed
 the lineage (`results/verdicts-c3d1.json` kill:C3 minor finding item (4); kill2:C3 minor
 finding item (1) and its literature flag "Mattuck–Tate … and Grothendieck … verified to exist
-with content as recalled — the brief's M1 [RU] is discharged"); the adjudication's summary
-records "M1's [RU] non-circularity fact TRUE (Hodge index from RR + ampleness re-derived;
-Mattuck–Tate Abh. Hamburg 22 (1958) + Grothendieck Crelle 200 (1958) 208–215 confirmed)".
+with content as recalled — the brief's M1 [RU] is discharged"); the direction file's Phase-4
+verdicts ("Verified in the brief's favor," `directions/C3-geometric-substrate.md`) record
+"M1's [RU] non-circularity fact TRUE (Hodge index from RR + ampleness re-derived;
+Mattuck–Tate Abh. Hamburg 22 (1958) + Grothendieck Crelle 200 (1958) 208–215 confirmed)";
+the adjudication file's own wording is "the M1 gate is verified sound by both killers"
+(`results/adjudication-C3.json`).
 
 ## 10. The E_p × E_p baseline remark (scoped by barrier zoo IV.10)
 
@@ -252,7 +290,7 @@ All paths relative to `anthropic/rh-program/`.
 | Item | Source |
 |---|---|
 | M1 mandate; "gates all S4 credit"; [RU] flag origin | `directions/C3-geometric-substrate.md` (Milestone ladder M1; S4 row; adjudication + recommission sections) |
-| Adjudicated verification of the argument and lineage | `results/adjudication-C3.json` ("Verified in the brief's favor"); `results/verdicts-c3d1.json` kill:C3 minor finding (4), kill2:C3 minor finding (1) + literature flags |
+| Adjudicated verification of the argument and lineage | `directions/C3-geometric-substrate.md` Phase-4 verdicts ("Verified in the brief's favor"); `results/adjudication-C3.json` ("the M1 gate is verified sound by both killers"); `results/verdicts-c3d1.json` kill:C3 minor finding (4), kill2:C3 minor finding (1) + literature flags |
 | Hodge-index proof skeleton as re-derived by the killers | `results/verdicts-c3d1.json` (both killers; reproduced here in full with the auxiliary-ample and D² = 0 steps made explicit — see the report note accompanying this deliverable) |
 | F₇ spot-check numbers (1,7)/(1,49)/(1,343) vs 5/55/380 | `results/adjudication-C3.json` computation b |
 | IV.10 scope of the E_p × E_p remark; (m−1)² Lefschetz data; NS ranks | `BARRIER-ZOO.md` IV.10; `results/adjudication-C3.json` computation a |
@@ -260,3 +298,56 @@ All paths relative to `anthropic/rh-program/`.
 
 *(C3-r M1 deliverable. Standard material re-derived for the record; zero novelty claimed.
 U.S. English. Written Session 6, 2026-08-26.)*
+
+---
+
+## Referee pass + repairs (2026-08-26)
+
+**Referee verdict** (`results/c3-r/referee-m1.md`, independent, same date): PASS WITH REPAIRS —
+no fatal, 3 major, 6 minor. Every proof re-derived line by line; the input ledger verified
+input-by-input with NO hidden zeta/L-function/RH content found anywhere; 13/13 numerical checks
+pass (`results/c3-r/referee_m1_checks.py`); classical bibliography pinned online at page level.
+All repairs below applied 2026-08-26.
+
+- **MAJOR 1 (Nakai–Moishezon missing from the input list) — FIXED.** (IN7) Nakai–Moishezon
+  criterion, hard direction [Hartshorne Thm. V.1.10; cohomological proof, no zeta content]
+  added to §2, with the elementary Segre-embedding alternative noted; §6's invocation now tagged
+  (IN7); the §8 ledger row for §6 updated to match. The listed-input route was chosen over
+  rewriting §6 because the printed verification sketch uses the criterion, and the ledger
+  already named it — §2, §6, and §8 now agree, and "exactly" in §2 is true.
+- **MAJOR 2 ("No step below mentions them" falsified by §7/§10) — FIXED.** Scope sentence
+  rewritten: no step of the PROOF (§§3–6) mentions the excluded items; §7 consumes rationality
+  + FE of Z(C, T) (RR-on-the-curve facts, no RH content) and produces point counts as outputs;
+  §10 mentions the explicit formula only inside the IV.10 fence.
+- **MAJOR 3 (historical overclaim) — FIXED.** The "only POSITIVITY mechanism" qualifier
+  restored in the status paragraph (the phrase's single occurrence in this note; a grep for
+  variants found no second one), with the Stepanov–Bombieri footnote added: Stepanov (1969) /
+  Bombieri, Sém. Bourbaki Exp. 430 (1972/73), LNM 383 (1974), 234–241 — an elementary RH-for-
+  curves proof from RR on the curve, no surface, no Hodge index; Deligne's amplification noted
+  as likewise distinct. Bombieri's exposé/volume/pages re-verified online this pass (numdam
+  record SB_1972-1973__15__234_0; Springer LNM 383, 1974).
+- Minor 1 (quote misattribution) — fixed in the status block, §9, AND the §11 row: "Verified
+  in the brief's favor" now attributed to the direction file's Phase-4 verdicts; the
+  adjudication cited for its own wording "the M1 gate is verified sound by both killers".
+- Minor 2 (killer-1 tier-1 overstatement) — fixed: "both killers re-derived the argument; the
+  lineage was tier-1-verified (killer-2 and the adjudicator)".
+- Minor 3 (spurious "(IN1)" in §4 Case 2) — fixed: H² > 0 now credited to (IN3) alone.
+- Minor 4 ((IN6) finite-generation provenance) — fixed: Néron–Severi theorem named inside
+  (IN6), with the scope note that it is consumed only for ρ < ∞ in §5, off the load-bearing
+  chain.
+- Minor 5 (silent lemma in §7's closing equivalence) — fixed: the generating-function
+  no-pole-cancellation clause added (residue −m_α at T = 1/α; radius ≥ q^{−1/2}; FE pairing
+  pins equality).
+- Minor 6 (numbering-coincidence guard + letter-checks) — fixed: §9 now states that
+  Hartshorne's theorem and exercise numbering are distinct series. The two letter-level pins
+  ("Cor. V.1.8", the "(b)" of Ex. II.7.14) remain recalled-only: an online letter-check was
+  attempted 2026-08-26 (three targeted searches; no conclusive page image) and both are flagged
+  in §9 as re-proved-in-full/non-load-bearing, pending a 30-second physical-copy check.
+
+**Rejected/deferred:** none rejected. One residue deferred, exactly as the referee left it: the
+two Hartshorne sub-item letter-checks above await a physical copy (non-load-bearing; both
+statements proved in full in this note).
+
+*(Repairs editor, Session 6+, 2026-08-26. With the three majors landed, this note is
+external-circulation ready per the referee's §8 assessment; program-internal S4-gate use was
+already sound.)*
