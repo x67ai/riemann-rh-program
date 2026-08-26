@@ -133,7 +133,22 @@ level. Final converged-state numbers, witness, and re-centering: Section 2.5.
 
 ### 2.5 N = 128 final numbers
 
-FILLED-AT-FINALIZATION
+| item | value |
+|---|---|
+| matched cell (tau2 = 1, eps = .05) | P_full = P_base = **0.8374219**, delta_0' = **0 (exact)**, 10 cumulative S = 200 passes, 6,457 columns |
+| final S = 200 residuals | full −6.1e-4, base −8.7e-4 (plateau; common-mode — the equality held at every pass while P fell 0.894 -> 0.8374) |
+| witness | 128 columns, marks {1, 2}, no pairs, E|c_j|^2 = j + 1 − 1e-5 at every j = 1..127 (interior-shrunk upper edge); only the 127 pinning rows active; Fraction re-verification against the TRUE tau2 = 1 box: **all rows pass**, worst pinning margin +1.0e-5 (strictly interior) |
+| witness aggregates | E[N_d]/N = 0.8374219, E[F1] = 172.60, E[F'] = 274.71, E[C'] = 632.56, E[n_simple]/N = 0.6749 |
+| asymptotic re-centering | P_full = P_base = **0.8373740**, delta_0' = **0 (exact)** (5 passes at S = 100, residuals ~1.0–1.4e-3) |
+
+The common level P^T2(N = 128) = 0.8374 vs 0.8332 at N = 64 (both ~5/6 − O(1e-3), the
+pinned-baseline finite-size trend); delta_0' = 0 exactly at both sizes, both budget
+centerings, with the same only-pinning-rows-active structure. The N = 128 confirmation
+required building the near-CUE dictionary from scratch (bootstrap + ~6,200 generated
+columns) — during the entire build-out, at every intermediate dictionary state, the
+full and base optima coincided (delta_0' <= 8e-16), which makes the absorption verdict
+independent of the build-out's convergence level: the cubic block never bound at any
+stage.
 
 ---
 
