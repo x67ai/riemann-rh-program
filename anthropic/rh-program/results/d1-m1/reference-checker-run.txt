@@ -1,0 +1,35 @@
+== w1-example-refutation.json
+   C1 pass: K=100 A=1000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 8 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = 925, S_hi = 1083, 2*width = 316 < A = 1000
+   C9 pass: S_lo = 925 <= A*m = 1000 <= S_hi = 1083
+   C10 pass: mode refutation, m = 1
+   C11 pass: modulus floor 1/4 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== w1-example-exclusion.json
+   C1 pass: K=100 A=1000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 8 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -92, S_hi = 148, 2*width = 480 < A = 1000
+   C9 pass: S_lo = -92 <= A*m = 0 <= S_hi = 148
+   C10 pass: mode exclusion, m = 0
+   C11 skipped: no modulus_floor field
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+exit=0
+== negative controls (mutations of w1-example-refutation.json)
+   control 'box contains 0': rejected at C6 [ok]  (C6: row 2: box contains 0 (no strict coordinate sign))
+   control 'over-wide argument rows': rejected at C8 [ok]  (C8: 2*(S_hi - S_lo) = 1256 >= A = 1000)
+   control 'claimed_m = 2': rejected at C9 [ok]  (C9: A*m = 2000 not in [925, 1083])
+   control 'mode exclusion with m = 1': rejected at C10 [ok]  (C10: mode exclusion requires m = 0)
+   control 'bottom[last] != sigma2': rejected at C3 [ok]  (C3: mesh.bottom[last] != edge end corner)
+   control 'sigma1 = 1/2': rejected at C2 [ok]  (C2: sigma1 <= 1/2)
+exit=0

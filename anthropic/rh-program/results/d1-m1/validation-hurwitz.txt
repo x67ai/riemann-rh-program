@@ -1,0 +1,5 @@
+hurwitz_encl validation: 200 random points, sigma in (0.501, 0.999), |t| <= 200, a in {j/5 (DH shifts), random p/q}, iv prec 288, reference mp.zeta(s, a) at dps 100
+  containment: 200/200 PASS
+  enclosure widths: median 7.522e-19, max 5.361e-17
+  a = 1 cross-check vs zeta_encl (25 points, overlap + containment): 0 failures
+  wide-box sampling: 15 boxes x 9 points, 0 failures

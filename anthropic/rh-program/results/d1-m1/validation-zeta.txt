@@ -1,0 +1,5 @@
+zeta_encl validation: 200 random points, sigma in (0.501, 0.999), |t| <= 200, iv prec 288 bits, reference mp.zeta at dps 100
+  containment: 200/200 PASS
+  enclosure widths: median 2.946e-19, max 5.579e-17
+  wide-box sampling: 20 boxes x 9 points, 0 failures
+  certified C_30 = 1.218048e+09 (lower bound 1.203150e+09; C_30 / |B_30| = 2.0247; classical comparison constant 2)
