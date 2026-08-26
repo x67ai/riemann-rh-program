@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rh-program/results/d1-m1/w1-schema.json",
+  "title": "W1 rectangle transcript (v1.0)",
+  "description": "Shape contract for W1 argument-principle rectangle transcripts. Normative semantics, checker checks C1-C11, and the two displayed hypotheses live in FORMAT.md (same directory). This schema enforces SHAPE only: a schema-valid file can still be checker-rejected. All integers are decimal strings (JSON native numbers are forbidden for checked data).",
+  "type": "object",
+  "required": ["format", "version", "mode", "function", "trust_label", "rect", "scales", "claimed_m", "mesh", "segments"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "W1-rect-transcript" },
+    "version": { "const": "1.0" },
+    "mode": { "enum": ["refutation", "exclusion"] },
+    "function": { "enum": ["zeta", "f_DH"] },
+    "trust_label": {
+      "type": "string",
+      "description": "Fixed honest label, enforced per function by the allOf/if blocks below."
+    },
+    "rect": {
+      "type": "object",
+      "description": "R = [sigma1, sigma2] x [T1, T2]; checker C2 verifies 1/2 < sigma1 <= sigma2 < 1 and T1 < T2 by integer cross-multiplication.",
+      "required": ["sigma1", "sigma2", "T1", "T2"],
+      "additionalProperties": false,
+      "properties": {
+        "sigma1": { "$ref": "#/$defs/rat" },
+        "sigma2": { "$ref": "#/$defs/rat" },
+        "T1": { "$ref": "#/$defs/rat" },
+        "T2": { "$ref": "#/$defs/rat" }
+      }
+    },
+    "scales": {
+      "type": "object",
+      "description": "K: value scale (lo <= K*Re f <= hi etc.); A: argument scale in TURN units (argLo <= A*(Delta/2pi) <= argHi).",
+      "required": ["K", "A"],
+      "additionalProperties": false,
+      "properties": {
+        "K": { "$ref": "#/$defs/posIntStr" },
+        "A": { "$ref": "#/$defs/posIntStr" }
+      }
+    },
+    "claimed_m": {
+      "$ref": "#/$defs/natStr",
+      "description": "Claimed winding number m >= 0; checker C9 pins it (S_lo <= A*m <= S_hi), C10 ties it to mode."
+    },
+    "mesh": {
+      "type": "object",
+      "description": "Boundary mesh, counterclockwise from the bottom-left corner. Each edge stores its VARYING coordinate only: bottom/top are Re-value lists, right/left are Im-value lists. Traversal: bottom increasing sigma1->sigma2, right increasing T1->T2, top DECREASING sigma2->sigma1, left DECREASING T2->T1. Endpoints included; corners appear as last-of-one-edge and first-of-the-next (checker C3).",
+      "required": ["bottom", "right", "top", "left"],
+      "additionalProperties": false,
+      "properties": {
+        "bottom": { "$ref": "#/$defs/ratList" },
+        "right": { "$ref": "#/$defs/ratList" },
+        "top": { "$ref": "#/$defs/ratList" },
+        "left": { "$ref": "#/$defs/ratList" }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "description": "One row per boundary segment, in global traversal order (bottom segments, then right, top, left). Count must equal sum over edges of (breakpoints - 1) (checker C4).",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/row" }
+    },
+    "modulus_floor": {
+      "type": "object",
+      "description": "OPTIONAL global boundary-modulus floor claim |f| >= Fn/Fd on all of dR; checker C11 verifies (mre^2+mim^2)*Fd^2 >= Fn^2*K^2 per segment.",
+      "required": ["Fn", "Fd"],
+      "additionalProperties": false,
+      "properties": {
+        "Fn": { "$ref": "#/$defs/natStr" },
+        "Fd": { "$ref": "#/$defs/posIntStr" }
+      }
+    },
+    "producer": {
+      "type": "object",
+      "description": "UNTRUSTED provenance metadata (implementation, version, precision, subdivision policy, timestamps). Required by the two-producer bookkeeping, never checked."
+    },
+    "comment": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "function": { "const": "zeta" } } },
+      "then": {
+        "properties": {
+          "trust_label": {
+            "const": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)"
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "function": { "const": "f_DH" } } },
+      "then": {
+        "properties": {
+          "trust_label": {
+            "const": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion"
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "mode": { "const": "exclusion" } } },
+      "then": {
+        "properties": { "claimed_m": { "const": "0" } }
+      }
+    }
+  ],
+  "$defs": {
+    "intStr": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$",
+      "description": "Arbitrary-precision integer as a decimal string."
+    },
+    "natStr": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "posIntStr": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "rat": {
+      "type": "object",
+      "description": "Exact rational n/d, d > 0 syntactically; need not be reduced.",
+      "required": ["n", "d"],
+      "additionalProperties": false,
+      "properties": {
+        "n": { "$ref": "#/$defs/intStr" },
+        "d": { "$ref": "#/$defs/posIntStr" }
+      }
+    },
+    "ratList": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/rat" }
+    },
+    "row": {
+      "type": "object",
+      "description": "Per-segment rows: value box (reLo<=K*Re f<=reHi, imLo<=K*Im f<=imHi, for ALL s on the closed segment) and argument-increment enclosure in turn units (argLo<=A*(Delta/2pi)<=argHi).",
+      "required": ["reLo", "reHi", "imLo", "imHi", "argLo", "argHi"],
+      "additionalProperties": false,
+      "properties": {
+        "reLo": { "$ref": "#/$defs/intStr" },
+        "reHi": { "$ref": "#/$defs/intStr" },
+        "imLo": { "$ref": "#/$defs/intStr" },
+        "imHi": { "$ref": "#/$defs/intStr" },
+        "argLo": { "$ref": "#/$defs/intStr" },
+        "argHi": { "$ref": "#/$defs/intStr" }
+      }
+    }
+  }
+}

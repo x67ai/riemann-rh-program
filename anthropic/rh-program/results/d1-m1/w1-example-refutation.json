@@ -1,0 +1,37 @@
+{
+  "format": "W1-rect-transcript",
+  "version": "1.0",
+  "mode": "refutation",
+  "function": "zeta",
+  "trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+  "comment": "ARTIFICIAL DATA - FORMAT.md section 11 worked micro-example. No producer certified H-ENCL; ACCEPT means only that checks C1-C11 pass. Not a mathematical claim about zeta.",
+  "rect": {
+    "sigma1": { "n": "3", "d": "5" },
+    "sigma2": { "n": "7", "d": "10" },
+    "T1": { "n": "10", "d": "1" },
+    "T2": { "n": "11", "d": "1" }
+  },
+  "scales": { "K": "100", "A": "1000" },
+  "claimed_m": "1",
+  "mesh": {
+    "bottom": [ { "n": "3", "d": "5" }, { "n": "13", "d": "20" }, { "n": "7", "d": "10" } ],
+    "right": [ { "n": "10", "d": "1" }, { "n": "21", "d": "2" }, { "n": "11", "d": "1" } ],
+    "top": [ { "n": "7", "d": "10" }, { "n": "13", "d": "20" }, { "n": "3", "d": "5" } ],
+    "left": [ { "n": "11", "d": "1" }, { "n": "21", "d": "2" }, { "n": "10", "d": "1" } ]
+  },
+  "segments": [
+    { "reLo": "50", "reHi": "90", "imLo": "-25", "imHi": "25", "argLo": "110", "argHi": "140" },
+    { "reLo": "20", "reHi": "70", "imLo": "20", "imHi": "70", "argLo": "120", "argHi": "130" },
+    { "reLo": "-25", "reHi": "25", "imLo": "50", "imHi": "90", "argLo": "115", "argHi": "135" },
+    { "reLo": "-70", "reHi": "-20", "imLo": "20", "imHi": "70", "argLo": "120", "argHi": "140" },
+    { "reLo": "-90", "reHi": "-50", "imLo": "-25", "imHi": "25", "argLo": "105", "argHi": "130" },
+    { "reLo": "-70", "reHi": "-20", "imLo": "-70", "imHi": "-20", "argLo": "125", "argHi": "145" },
+    { "reLo": "-25", "reHi": "25", "imLo": "-90", "imHi": "-50", "argLo": "110", "argHi": "125" },
+    { "reLo": "20", "reHi": "70", "imLo": "-70", "imHi": "-20", "argLo": "120", "argHi": "138" }
+  ],
+  "modulus_floor": { "Fn": "1", "Fd": "4" },
+  "producer": {
+    "name": "hand-authored artificial example",
+    "note": "see FORMAT.md section 11; validated by reference_checker.py"
+  }
+}

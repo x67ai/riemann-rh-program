@@ -1,0 +1,68 @@
+checker-ref-run.txt -- two-implementation checker cross-validation, D1 M1 mpmath leg
+date: 2026-08-26T17:37:00Z
+
+== [1] checker_ref.py (this leg, Fraction-based, independent) on all five transcripts ==
+w1-example-refutation.json: ACCEPT (zeta/refutation, m=1, 8 segments, S=[925, 1083], A=1000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-example-exclusion.json: ACCEPT (zeta/exclusion, m=0, 8 segments, S=[-92, 148], A=1000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10)
+w1-zeta-exclusion-t10.json: ACCEPT (zeta/exclusion, m=0, 44 segments, S=[-23, 21], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-zeta-exclusion-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-dh-refutation-live-fire.json: ACCEPT (f_DH/refutation, m=1, 57 segments, S=[999999999973, 1000000000030], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+exit: 0
+
+== [2] checker_ref.py negative controls (FORMAT.md sec. 11 six mutations) ==
+negative controls on w1-example-refutation.json (FORMAT.md sec. 11 list):
+  mutate-for-C6 -> C6 OK
+  mutate-for-C8 -> C8 OK
+  mutate-for-C9 -> C9 OK
+  mutate-for-C10 -> C10 OK
+  mutate-for-C3 -> C3 OK
+  mutate-for-C2 -> C2 OK
+exit: 0
+
+== [3] reference_checker.py (format author's implementation, int cross-multiplication) on the three transcripts PRODUCED BY THIS LEG ==
+== w1-zeta-exclusion-t10.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 44 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -23, S_hi = 21, 2*width = 88 < A = 1000000000000
+   C9 pass: S_lo = -23 <= A*m = 0 <= S_hi = 21
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 1234149999771974511852174904450/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== w1-zeta-exclusion-t100.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 52 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -24, S_hi = 28, 2*width = 104 < A = 1000000000000
+   C9 pass: S_lo = -24 <= A*m = 0 <= S_hi = 28
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 355554664076502668908324848278/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== w1-dh-refutation-live-fire.json
+   C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 57 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = 999999999973, S_hi = 1000000000030, 2*width = 114 < A = 1000000000000
+   C9 pass: S_lo = 999999999973 <= A*m = 1000000000000 <= S_hi = 1000000000030
+   C10 pass: mode refutation, m = 1
+   C11 pass: modulus floor 1557311715931178948413690410/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+exit: 0
+
+== agreement summary ==
+Both implementations ACCEPT all five transcripts; both reject each of the six
+sec.-11 negative controls at exactly the intended check (see [2] here and
+reference-checker-run.txt for the author's own control run). Winding sums
+agree digit for digit between the two implementations.

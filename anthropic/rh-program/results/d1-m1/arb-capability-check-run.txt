@@ -1,0 +1,50 @@
+python-flint: 0.6.0
+module file: /Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/flint/__init__.py
+[PASS] A1 version is 0.6.0 (recorded in arb-leg-notes.md) -- found 0.6.0
+[PASS] B1 ctx.prec controls enclosure width -- rad@64 = 2^-91-class, rad@256 = 2^-290-class
+[PASS] C1 acb.zeta returns an acb ball
+[PASS] C2 Hurwitz zeta via acb.zeta(a) returns an acb ball
+[PASS] C3 acb.dirichlet_l also exposed (bonus, recorded)
+[PASS] D1 exact interval of arb(1)/arb(3) contains 1/3 -- width = 6.223e-61
+[PASS] D2 mid() is exact
+[PASS] D3 rad() is exact
+[PASS] D4 man_exp on exact zero returns (0, 0) -- (0, 0)
+[PASS] D5 exact interval works for negatives
+[PASS] D6 arb(fmpq(1,3)) contains 1/3
+[PASS] D6 arb(fmpq(-7,11)) contains -7/11
+[PASS] D6 arb(fmpq(8569,100)) contains 8569/100
+[PASS] D6 arb(fmpq(123456789012345678901234567890,7)) contains 123456789012345678901234567890/7
+[PASS] E1 lower()/upper() of 1/3 ball are exact dyadics
+[PASS] E2 lower() <= 1/3 <= upper() -- lo-q = -7.58e-13, hi-q = 1.52e-13
+[PASS] E3 rounding actually occurred for 1/3 (strict on both sides)
+[PASS] E1 lower()/upper() of -1/3 ball are exact dyadics
+[PASS] E2 lower() <= -1/3 <= upper() -- lo-q = -1.52e-13, hi-q = 7.58e-13
+[PASS] E3 rounding actually occurred for -1/3 (strict on both sides)
+[PASS] E1 lower()/upper() of 2/3 ball are exact dyadics
+[PASS] E2 lower() <= 2/3 <= upper() -- lo-q = -1.52e-12, hi-q = 3.03e-13
+[PASS] E3 rounding actually occurred for 2/3 (strict on both sides)
+[PASS] E1 lower()/upper() of -2/3 ball are exact dyadics
+[PASS] E2 lower() <= -2/3 <= upper() -- lo-q = -3.03e-13, hi-q = 1.52e-12
+[PASS] E3 rounding actually occurred for -2/3 (strict on both sides)
+[PASS] E1 lower()/upper() of 10/7 ball are exact dyadics
+[PASS] E2 lower() <= 10/7 <= upper() -- lo-q = -2.60e-12, hi-q = 1.04e-12
+[PASS] E3 rounding actually occurred for 10/7 (strict on both sides)
+[PASS] E1 lower()/upper() of -10/7 ball are exact dyadics
+[PASS] E2 lower() <= -10/7 <= upper() -- lo-q = -1.04e-12, hi-q = 2.60e-12
+[PASS] E3 rounding actually occurred for -10/7 (strict on both sides)
+[PASS] E4 wide ball [2.5 +/- 0.75]: exact interval covers [1.75, 3.25] -- [1.7499999990686774, 3.2500000009313226]
+     hull zeta box: Re [0.869544, 2.123780], Im [-0.642978, 0.415484]
+     mpmath zeta(0.6000+10i) = 1.50991770-0.11533889j inside hull box: True
+     mpmath zeta(0.6250+10i) = 1.50151314-0.11523475j inside hull box: True
+     mpmath zeta(0.6500+10i) = 1.49324069-0.11509184j inside hull box: True
+     mpmath zeta(0.6750+10i) = 1.48509849-0.11491166j inside hull box: True
+     mpmath zeta(0.7000+10i) = 1.47708468-0.11469566j inside hull box: True
+[PASS] F1 hull ball contains independently computed interior values
+[PASS] F2 point ball (prec 300) agrees with mpmath dps-80 value within rad+1e-70 -- ball widths 1.58e-89/1.43e-89
+[PASS] G1 arb.atan2(1,1) encloses pi/4 (within decimal slack)
+[PASS] G2 arb.pi() encloses pi (within decimal slack)
+[PASS] G3 certified strict comparison (positive ball > 0)
+[PASS] G4 straddling ball: neither > 0 nor < 0 certified
+[PASS] H1 |f_DH(rho_DH)|^2 upper bound < 1e-24 (residual real, ball-certified) -- |f|^2 <= 2.810e-31
+
+RESULT: ALL CHECKS PASS

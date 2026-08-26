@@ -1,0 +1,36 @@
+{
+  "format": "W1-rect-transcript",
+  "version": "1.0",
+  "mode": "exclusion",
+  "function": "zeta",
+  "trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+  "comment": "ARTIFICIAL DATA - exclusion twin of the FORMAT.md section 11 micro-example (m = 0, the M3/null-test form). No producer certified H-ENCL.",
+  "rect": {
+    "sigma1": { "n": "3", "d": "5" },
+    "sigma2": { "n": "7", "d": "10" },
+    "T1": { "n": "10", "d": "1" },
+    "T2": { "n": "11", "d": "1" }
+  },
+  "scales": { "K": "100", "A": "1000" },
+  "claimed_m": "0",
+  "mesh": {
+    "bottom": [ { "n": "3", "d": "5" }, { "n": "13", "d": "20" }, { "n": "7", "d": "10" } ],
+    "right": [ { "n": "10", "d": "1" }, { "n": "21", "d": "2" }, { "n": "11", "d": "1" } ],
+    "top": [ { "n": "7", "d": "10" }, { "n": "13", "d": "20" }, { "n": "3", "d": "5" } ],
+    "left": [ { "n": "11", "d": "1" }, { "n": "21", "d": "2" }, { "n": "10", "d": "1" } ]
+  },
+  "segments": [
+    { "reLo": "60", "reHi": "95", "imLo": "-30", "imHi": "30", "argLo": "-15", "argHi": "20" },
+    { "reLo": "55", "reHi": "90", "imLo": "-25", "imHi": "35", "argLo": "-10", "argHi": "18" },
+    { "reLo": "62", "reHi": "98", "imLo": "-28", "imHi": "22", "argLo": "-12", "argHi": "15" },
+    { "reLo": "58", "reHi": "92", "imLo": "-35", "imHi": "25", "argLo": "-8", "argHi": "22" },
+    { "reLo": "61", "reHi": "99", "imLo": "-20", "imHi": "30", "argLo": "-14", "argHi": "16" },
+    { "reLo": "57", "reHi": "94", "imLo": "-30", "imHi": "28", "argLo": "-9", "argHi": "19" },
+    { "reLo": "63", "reHi": "97", "imLo": "-26", "imHi": "33", "argLo": "-11", "argHi": "17" },
+    { "reLo": "59", "reHi": "93", "imLo": "-31", "imHi": "24", "argLo": "-13", "argHi": "21" }
+  ],
+  "producer": {
+    "name": "hand-authored artificial example",
+    "note": "see FORMAT.md section 11; validated by reference_checker.py"
+  }
+}

@@ -1,0 +1,21 @@
+producer-negative-controls.txt -- the producer's HONEST-ABORT paths, exercised live
+date: 2026-08-26T17:37:11Z
+
+== [A] wrong-mode request: exclusion demanded on the DH live-fire rectangle (true winding 1) ==
+   expectation: full pipeline runs, then STOPS refusing to emit a false-mode transcript
+producer_mp: function=f_DH mode=exclusion rect=[31/40, 17/20]x[171/2, 429/5] prec=288 K=1e30 A=1e12
+  edge bottom:   2 segments (0.3s, 2 evals so far)
+  edge right :  21 segments (1.0s, 38 evals so far)
+  edge top   :   4 segments (0.2s, 44 evals so far)
+  edge left  :  30 segments (1.5s, 98 evals so far)
+  winding sum: S_lo=999999999973 S_hi=1000000000030 width=57 (A=1000000000000; C8 needs 2*width < A)
+  winding number m = 1 (unique by width < 1/2 turn)
+PRODUCER STOP: mode=exclusion requested but certified winding m=1 != 0.  Not emitting a false-mode transcript.
+exit: 1
+
+== [B] zero on the boundary: right edge sigma2 = 4042585912283/5000000000000 = 0.8085171824566 passes ~3e-14 from rho_DH ==
+   expectation: C6 mesh admissibility unattainable on that edge; STOP with the FORMAT.md sec. 6.2 move-the-rectangle message (maxdepth 8 to bound the demonstration)
+producer_mp: function=f_DH mode=refutation rect=[31/40, 4042585912283/5000000000000]x[171/2, 429/5] prec=288 K=1e30 A=1e12
+  edge bottom:   1 segments (0.2s, 1 evals so far)
+PRODUCER STOP (right edge, [438777/5120, 219389/2560], depth 8): cannot certify a 0-excluding value box -- a zero of f lies on or near the boundary. Per FORMAT.md sec. 6.2 the correct response is to MOVE the rectangle, never to weaken the criterion.
+exit: 1
