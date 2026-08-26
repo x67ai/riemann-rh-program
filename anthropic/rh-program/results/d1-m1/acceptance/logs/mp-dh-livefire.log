@@ -1,0 +1,10 @@
+producer_mp: function=f_DH mode=refutation rect=[4/5, 41/50]x[8569/100, 8571/100] prec=288 K=1e30 A=1e12
+  edge bottom:  11 segments (0.8s, 21 evals so far)
+  edge right :   8 segments (0.4s, 36 evals so far)
+  edge top   :   8 segments (0.4s, 51 evals so far)
+  edge left  :  13 segments (0.7s, 76 evals so far)
+  winding sum: S_lo=999999999980 S_hi=1000000000020 width=40 (A=1000000000000; C8 needs 2*width < A)
+  winding number m = 1 (unique by width < 1/2 turn)
+  modulus floor: |f| >= 246720161844356978370552244 / 1e30 on dR
+  wrote acceptance/w1-mp-dh-livefire.json (40 segments, 3.5s total)
+python3 producer_mp.py --function f_DH --mode refutation --rect 4/5 41/50      3.54s user 0.02s system 99% cpu 3.562 total

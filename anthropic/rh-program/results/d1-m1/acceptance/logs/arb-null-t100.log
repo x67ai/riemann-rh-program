@@ -1,0 +1,15 @@
+== acceptance/w1-arb-null-t100.json.tmp
+   C1 pass: K=1000000000000000000000000000000 A=1000000, all denominators >= 1
+   C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
+   C3 pass: CCW walk, corners pinned, strict monotonicity per edge
+   C4 pass: M = 27 segments
+   C5 pass: all value boxes nonempty
+   C6 pass: every segment box excludes 0
+   C7 pass: argument rows valid and clamped to [-A/2, A/2]
+   C8 pass: S_lo = -14, S_hi = 13, 2*width = 54 < A = 1000000
+   C9 pass: S_lo = -14 <= A*m = 0 <= S_hi = 13
+   C10 pass: mode exclusion, m = 0
+   C11 pass: modulus floor 83279470814228915473835202868/1000000000000000000000000000000 certified on all rows
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+WROTE acceptance/w1-arb-null-t100.json: mode=exclusion function=zeta m=0 segments=27 S=[-14, 13]/1000000 floor=83279470814228915473835202868/1000000000000000000000000000000
+python3 producer_arb.py custom --function zeta --mode exclusion --sigma1 3/5   0.07s user 0.02s system 91% cpu 0.092 total
