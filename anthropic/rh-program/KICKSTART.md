@@ -11,9 +11,11 @@ Written 2026-08-16 after the infrastructure side-session (64k→128k output-ceil
 ### Starting the next RH session
 
 1. Open **Terminal** in the `riemann` folder, type `claude`, press Enter.
-2. Paste exactly this:
+2. Paste exactly this (kept as a plain code block so it copies clean — no leading bars; sponsor formatting rule, 2026-08-26):
 
-   > Read anthropic/rh-program/KICKSTART.md and follow its "Part 2 — session bootstrap". Then proceed with the program.
+```
+Read anthropic/rh-program/KICKSTART.md and follow its "Part 2 — session bootstrap". Then proceed with the program.
+```
 
 3. Keep the laptop **plugged in with the lid open** for the entire run. That's the whole job. The session keeps the machine awake on its own (`caffeinate`), and it paces heavy computations so the laptop shouldn't run hot for long stretches — warm is normal, sustained roaring fans should now be rare.
 
