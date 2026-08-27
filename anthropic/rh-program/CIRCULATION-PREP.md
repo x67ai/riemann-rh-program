@@ -165,10 +165,58 @@ markdown.
 `probe-9.4-note.md`, `s2-feasibility-note.md` (referee debts owed — Session-9 queue item 3), and
 everything under `results/d1-*`/Lean (infrastructure, not papers).
 
-## STEP 4 — execute the citation actions (NEW, opened 2026-08-27)
+## STEP 4 — execute the citation actions (opened 2026-08-27)
 
-**STATUS: TODO — this is the next session's first task, and it is the only thing standing between
-the four packages and circulation.**
+**STATUS: DONE (2026-08-27, Session 11).** All four documents executed and committed, one commit
+per document, plus an adjudication sweep. Rebuilt from clean: **a4-no-go 44 pp, m0-axiom 14 pp,
+m1-noncirc 13 pp, seed-no-go 21 pp — ALL CHECKS PASSED.** The `a4-no-go` package was also missing
+its `abstract.txt` (the other three had one); created.
+
+**The verification discipline below was followed literally, and it was worth it.** A workflow of
+18 primary-source verification agents plus an adjudicator checked every MUST and SHOULD action
+before it touched a file: 92 items, 2.67 M subagent tokens, evidence written one file per cluster
+to `results/arxiv/citation-verification/` with `ADJUDICATION.md` settling the cross-cluster
+disagreements. **Twenty-one of the report's actions did not survive**, and each is now recorded in
+a dated block inside the paper it would have touched so that a later session cannot reintroduce
+it. The most dangerous four, because a sentence was to be written on their strength:
+
+* **Ito–Ito–Koshikawa Remark 1.3 is not "the published non-circularity audit"** — it says the
+  opposite, that they *did not attempt* to avoid the Weil conjecture. (That is a *stronger*
+  precedent for m1 and is now quoted as what it is.)
+* **Ancona makes no independence or non-circularity claim anywhere**, and his §1 does not publish
+  m1's §9 "verbatim". `grep circular` returns zero.
+* **The seed note's "first appears in January 2025" lineage** is off by nine years and five months
+  — and the correction needed a correction of its own: the July-2015 object is `C_p = R*₊/p^Z`, a
+  **real** circle in characteristic one, while the **complex** Tate curve is June 2026. Both halves
+  are now stated.
+* **The two Connes–Consani Riemann–Roch papers do not supply `h⁰_θ`** — they explicitly call the
+  log-theta number virtual, "for the obvious reason that it outputs real numbers rather than
+  integers". m0's §7 is softened, but the M4-level input genuinely does survive as unsupplied.
+
+Also caught and not executed: an **invented Milne quotation** ("avoid the Weil conjecture" — the
+string "avoid" occurs zero times in his paper); **Kleiman's Remark 3.10** pointing at the wrong
+remark (4.5 is the dependency-ledger one); **Montgomery–Vaughan §1.2** (it is §1.3); a **"§7"
+citation to a paper with six sections** (Winkelmann); **Waldschmidt's AWS Conjectures 5.34/5.35**
+described as four-exponentials statements (they are Bertrand's *modular* conjectures on `J`); and
+**Chirre–Gonçalves–de Laat's inequality (7)** called "the published convex-programming form" (it is
+elementary integer arithmetic, credited there to an argument of Ghosh, and at the *third*
+integrality level where A4's Lemma 4.2 is at the *second*). Two report claims that were already
+adjudicated in Session 10 were re-confirmed against the primary sources a second time: the parent's
+item (e) really is in §7.5 of the 35-page version, and "and the Fargues–Fontaine curve" really is
+part of the `[CC26]` title — though the *mechanism* recorded for the latter ("the API truncates at
+a TeX macro") was itself wrong and is now corrected in place: the clause is absent from every arXiv
+metadata surface and from zbMATH, and survives only on the typeset title page and in arXiv's HTML.
+
+**Two withdrawals now stand in `prior-art-r7a.md`**, both dated: the "and no one has" sentence
+(Session 10) and the January-2025 lineage clause (this session). `BARRIER-ZOO.md` I.1 no longer
+attributes the word "monoid" to Blomer and Leung — a case-insensitive count in both arXiv versions
+of their paper is zero, and their theorem is for GL(3) while Davenport–Heilbronn is degree 2, so
+they do not exclude it; what they supply is the *shape* of the exclusion.
+
+**What remains for the sponsor:** Session-9 item 5, the circulation decision itself. Nothing in
+this step touched a theorem, a proof, a number or a verdict in any of the four papers.
+
+Original brief follows.
 
 `results/arxiv/novelty-check.md` §§A–D specify, per document, ~40 MUST and ~19 SHOULD citation
 actions plus 13 textual repairs, each with its insertion point. Working loop, per document:
