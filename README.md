@@ -15,23 +15,23 @@ produced by **Claude (Anthropic)** working under the author's direction inside t
 author set the objectives, adjudicated the decisions, and is responsible for the content. Claude
 is a tool and is not an author. The same statement appears in a footnote on page 1 of every
 paper. Because the whole program record is here, that disclosure is checkable rather than
-merely asserted: `anthropic/rh-program/LOG.md` is the session-by-session history.
+merely asserted: `rh-program/LOG.md` is the session-by-session history.
 
 ---
 
 ## The papers
 
 All four are built and pass an automated submission check
-(`anthropic/rh-program/results/arxiv/check-submittable.sh`). **Two are recommended for
+(`rh-program/results/arxiv/check-submittable.sh`). **Two are recommended for
 circulation and two deliberately are not** — the reasoning is in
-`anthropic/rh-program/results/arxiv/README.md`.
+`rh-program/results/arxiv/README.md`.
 
 | Paper | PDF | Pages | Status |
 |---|---|---|---|
-| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](anthropic/rh-program/results/arxiv/a4-no-go/main.pdf) | 44 | **recommended for posting** |
-| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [`results/arxiv/seed-no-go/main.pdf`](anthropic/rh-program/results/arxiv/seed-no-go/main.pdf) | 21 | **recommended for posting** |
-| The polarized-Frobenius axiom class | [`results/arxiv/m0-axiom/main.pdf`](anthropic/rh-program/results/arxiv/m0-axiom/main.pdf) | 14 | internal record — not recommended for posting |
-| Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | [`results/arxiv/m1-noncirc/main.pdf`](anthropic/rh-program/results/arxiv/m1-noncirc/main.pdf) | 13 | internal record — claims zero novelty in its own abstract |
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](rh-program/results/arxiv/a4-no-go/main.pdf) | 44 | **recommended for posting** |
+| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [`results/arxiv/seed-no-go/main.pdf`](rh-program/results/arxiv/seed-no-go/main.pdf) | 21 | **recommended for posting** |
+| The polarized-Frobenius axiom class | [`results/arxiv/m0-axiom/main.pdf`](rh-program/results/arxiv/m0-axiom/main.pdf) | 14 | internal record — not recommended for posting |
+| Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | [`results/arxiv/m1-noncirc/main.pdf`](rh-program/results/arxiv/m1-noncirc/main.pdf) | 13 | internal record — claims zero novelty in its own abstract |
 
 **All four are negative results.** None claims to prove anything about the Riemann hypothesis.
 Each shows that a specific proposed route does not work, and says exactly how far the failure
@@ -42,24 +42,27 @@ tried this* — a negative result earns publication when it stops someone wastin
 
 The strongest evidence here does not require trusting anyone.
 
-* **`anthropic/rh-program/results/d1-*/` (Lean).** Twelve theorems of the A4 paper are
+* **`rh-program/lean/` (Lean).** Twelve theorems of the A4 paper are
   machine-checked in Lean 4 against a pinned Mathlib. `#print axioms` on all twelve returns
   `[propext, Classical.choice, Quot.sound]` — no `sorryAx`, no `Lean.ofReduceBool`. A whole-tree
-  scan finds zero real `sorry` or `admit` across the development. Build it yourself and the
-  claim stands or falls without reference to any prose.
-* **`anthropic/rh-program/results/arxiv/citation-verification/`.** Every citation in the four
+  scan finds zero real `sorry` or `admit` across the development. These files are *additions to*
+  the Zeta23 library of the parent paper, which is not redistributed here — see
+  `rh-program/lean/README.md` for the build. Build it yourself and the claim stands or falls
+  without reference to any prose.
+* **`rh-program/results/arxiv/citation-verification/`.** Every citation in the four
   papers was checked against a primary source before it was allowed into a file. Twenty-one
   proposed citations did **not** survive that check and were rejected; each rejection is recorded,
   dated, inside the paper it would have touched. `ADJUDICATION.md` settles the cases where two
   independent checks disagreed.
-* **`anthropic/rh-program/results/c3-r/prior-art-r7a.md`.** Carries two dated **withdrawals** of
+* **`rh-program/results/c3-r/prior-art-r7a.md`.** Carries two dated **withdrawals** of
   its own earlier conclusions. The seed-no-go paper's first three theorems turned out to be
   Winkelmann's, from 2002; the paper now says so in its abstract.
 
 ## Layout
 
 ```
-anthropic/rh-program/
+rh-program/
+  lean/                this program's own Lean 4 files (additions to the Zeta23 library)
   STATUS.md            the always-current dashboard: where the program is, what is next
   LOG.md               append-only session history — what was tried, and what was wrong
   BARRIER-ZOO.md       the taxonomy of obstructions the program has hit and banked
@@ -70,10 +73,18 @@ anthropic/rh-program/
   scripts/             the multi-agent workflow scripts used to run reviews and checks
 ```
 
-Not in the repository, deliberately: the program's PDF library of fetched literature
-(`fetched/`, `fetched-r2/`, `fetched-r3/`), which is third-party copyrighted material and is not
-redistributable. **Nothing in any paper depends on it** — every external claim is cited to its
-published source.
+**Not in the repository, deliberately.** Two things, both published at their own canonical homes
+rather than redistributed here:
+
+* The program's PDF library of fetched literature (`fetched/`, `fetched-r2/`, `fetched-r3/`) —
+  third-party copyrighted material. **Nothing in any paper depends on it**; every external claim is
+  cited to its published source.
+* **Anthropic's own material**, which the program read and built on but does not republish: the
+  **Zeta23** Lean formalization (Apache-2.0, Copyright 2026 Anthropic, PBC), whose home is
+  <https://github.com/anthropics/zeta-23-lean>, and the parent paper *More than two thirds of the
+  zeros of the Riemann zeta function lie on the critical line* (arXiv:2608.13637). The eight Lean
+  files in `rh-program/lean/` are this program's own additions to that library and are the only
+  Lean files here.
 
 ## Honest limitations
 

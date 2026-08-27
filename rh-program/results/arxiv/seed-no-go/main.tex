@@ -1,0 +1,1535 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\setcounter{lemma}{-1} % the note's single lemma is Lemma 0
+\newtheorem{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{propositionnum}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{remarkunnum}{Remark}
+
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Fun}{\mathbf{F}_1}
+\newcommand{\NS}{\mathrm{NS}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\Pic}{\mathrm{Pic}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\covol}{\mathrm{covol}}
+\newcommand{\trdeg}{\mathrm{trdeg}}
+\newcommand{\SpecZ}{\operatorname{Spec}\Z}
+
+\title{Products of the per-prime Tate curves of absolute geometry carry no
+correspondence calculus for the Weil explicit formula}
+\author{Kunal Tyagi\thanks{%
+\texttt{hello.jay.tyagi@gmail.com}. \textbf{Use of AI.} The mathematics in this
+paper --- the derivations, the computations, the verification suite, and the
+text --- was produced by Claude (Anthropic) working under the author's direction
+inside a structured research program; the author set the program's objectives,
+adjudicated its decisions, and is responsible for the content. Claude is a tool and
+is not an author. The complete program record, including every session log, review
+and correction, is public: \url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{August 26, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Connes and Consani's June-2026 absolute geometry of $\SpecZ$ produces, for
+every prime $p$, a complex elliptic curve: the Tate curve
+$E_p = \C^\times/p^{\Z}$, a rectangular torus with period lattice
+$\Z \oplus \Z\cdot i\log p/(2\pi)$. A natural proposal is to assemble a
+correspondence calculus for the Weil explicit formula --- the long-missing
+``square of $\SpecZ$'' --- from the $(p,q)$-graded family of classical abelian
+surfaces $E_p \times E_q$, importing Castelnuovo--Severi positivity fiber by
+fiber. We prove that the proposal is empty. The rigidity that does the first
+half of the work is not new and is not claimed here: for distinct primes,
+$\Hom(E_p, E_q) \neq 0$ if and only if $\log p \cdot \log q \in 4\pi^2\Q$
+(Theorem~1), a transcendence coincidence impossible under the
+four-exponentials conjecture; unconditionally, each prime has at most one
+exceptional partner prime (Theorem~2), so among $E_2\times E_3$,
+$E_2\times E_5$, $E_3\times E_5$ at most one surface carries a nonzero
+correspondence group (Theorem~3). \textbf{Theorems 1--3 are a specialization
+to primes of J.~Winkelmann's rigidity for the curves $\C^\times/\lambda^{\Z}$,
+from April 2002}; what is added here is the identification of the group
+$\Hom(E_p, E_q)$, its rank and the isogeny degree, none of which appears in his
+paper. The new results are the consequences. Off this conjecturally empty
+matching,
+$\NS(E_p \times E_q)$ has rank $2$: there are no graph classes and no diagonal
+class, every divisor class acts as zero on $H^1$, and the
+Castelnuovo--Severi inequality is vacuous (Theorem~4). On the diagonal,
+$\End(E_p) = \Z$ unconditionally --- the CM alternative
+$(\log p)^2 \in 4\pi^2\Q$ is refuted by Gelfond--Schneider --- and the
+complete intersection profile of the graphs $\Gamma_m$ consists of universal
+integers independent of $p$ (Theorem~5). No assignment of correspondence
+groups, composition data, and intersection pairings on the family realizes the
+commissioned calculus (Theorem~6): three independent obstructions, each
+individually fatal. The family-level kill is unconditional; the note carries a
+single open transcendence rider, whose negation is a published conjecture of
+D.~Bertrand --- the weak form of the four-exponentials conjecture --- and which
+is consumed by none of the theorems.
+\end{abstract}
+
+\bigskip
+
+\noindent\textbf{Priority and attribution (please read before citing).} An
+independent novelty check of this note, run before circulation, found that
+\textbf{Theorems 1, 2 and 3 below are anticipated}. They are J.~Winkelmann's,
+from 15 April 2002 \cite{Wi04}: studying $E_\lambda = \C^\times/\lambda^{\Z}$
+for eigenvalues $\lambda$ of elements of a discrete subgroup of
+$\mathrm{SL}_2(\C)$, he derives inside the proof of his Theorem~2 that isogeny
+of $E_i$ and $E_j$ forces $4\pi^2/(\log\lambda_i \log\lambda_j) \in \Q$,
+divides two such relations to obtain $\log\lambda_i/\log\lambda_k \in \Q$
+against multiplicative independence, runs the argument on three curves, and
+concludes that each curve in his family has at most one isogenous partner.
+Substituting $\lambda = p$ gives Theorems~1--3 here. His Lemma~7 is an
+equivalence, so the ``iff'' of Theorem~1 is his as well. What is genuinely new
+in \S\S\ref{sec:isogeny}--\ref{sec:familykill} is only the prime-indexed
+explication: the group $\Hom(E_p, E_q)$ identified, its rank, and the degree
+$uv$ of the minimal isogeny --- the words ``Hom'', ``rank'' and ``isogeny
+degree'' do not occur in his paper, and he never takes $\lambda$ prime. \textbf{The
+no-go itself --- Theorems 4, 5 and 6, and the conclusion that products of the
+per-prime Tate curves host no correspondence calculus --- is not anticipated and
+rests on no claim of priority over Theorems 1--3.} Two further corrections of
+record, both applied below: the per-prime elliptic-curve analogue in the
+Connes--Consani program dates from July 2015, not January 2025; and the rider
+(T1) is not, as an earlier draft said, unrecorded --- it is the specialization
+to primes of the conjecture printed as (C4E faible) in \cite[p.~231]{Dia97},
+due to D.~Bertrand.
+
+\setcounter{section}{-1}
+
+\section{Summary}
+\label{sec:summary}
+
+Connes--Consani's June-2026 absolute geometry of $\SpecZ$ \cite{CC26}
+produces, for every prime $p$, a complex elliptic curve --- the Tate curve
+$E_p = \C^\times/p^{\Z}$, a rectangular torus with period lattice
+$\Lambda_p = \Z \oplus \Z\cdot\tau_p$, $\tau_p = i\log p/(2\pi)$. For the
+first time, the absolute-geometry program yields per-prime genus-$1$ fibers
+carrying \emph{classical} intersection theory. The seed proposal examined
+here was to assemble the long-missing correspondence calculus for the Weil
+explicit formula --- the ``square of $\SpecZ$'' --- from the $(p,q)$-graded
+family of classical abelian surfaces $E_p \times E_q$, importing the
+Castelnuovo--Severi positivity fiber-by-fiber instead of waiting for the
+unbuilt characteristic-one square.
+
+\textbf{This note proves that the proposal is empty --- not approximately,
+not ``bandwidth data in geometric dress,'' but empty.} The results:
+
+\begin{enumerate}
+\item \textbf{Isogeny criterion (Theorem~\ref{thm:isogeny}, iff):} for
+distinct primes $p \neq q$, $\Hom(E_p, E_q) \neq 0$ \textbf{iff}
+$\log p \cdot \log q \in 4\pi^2\Q$ --- a transcendence coincidence expected
+never to occur (open unconditionally; impossible under the four-exponentials
+conjecture, \S\ref{sec:transcendence}). When nonzero, $\Hom$ has rank $1$
+and is computed exactly.
+\item \textbf{Two-partner rigidity (Theorem~\ref{thm:twopartner},
+unconditional):} each prime has at most \textbf{one} ``exceptional partner''
+prime with which it could share a nonzero $\Hom$ --- pure unique
+factorization, no transcendence input. The exceptional pairs, if any exist
+at all, form a partial matching on the primes.
+\item \textbf{The $\{2,3,5\}$ coherence kill (Theorem~\ref{thm:coherence},
+unconditional):} among the three surfaces $E_2\times E_3$, $E_2\times E_5$,
+$E_3\times E_5$, at most one carries a nonzero correspondence group; no two
+of them can simultaneously do so. Any composition-coherent correspondence
+family over all pairs of primes is unconditionally impossible.
+\item \textbf{N\'eron--Severi collapse (Theorem~\ref{thm:NS}):}
+$\NS(E_p \times E_q) = \Z\xi_1 \oplus \Z\xi_2 \oplus \Hom(E_p, E_q)$
+\cite[Ch.~5]{BL}; reproved here. Off the exceptional matching, $\NS$ has
+rank $2$ (the two fiber classes): there are \textbf{no graph classes, no
+diagonal class}, every divisor class acts as \textbf{zero} on $H^1$, and the
+Castelnuovo--Severi/Hodge-index inequality --- the positivity the seed was
+commissioned to harvest ``for free'' --- is \textbf{vacuous} (its primitive
+domain is the zero group).
+\item \textbf{Diagonal residue (Theorem~\ref{thm:diagonal}):} the surfaces
+$E_p \times E_p$ do carry a correspondence calculus ---
+$\End(E_p) = \Z$ \textbf{unconditionally}, the CM alternative
+$(\log p)^2 \in 4\pi^2\Q$ being impossible by Gelfond--Schneider
+(\S\ref{sec:transcendence}) --- but its complete intersection profile
+$(\Gamma_m\cdot\Gamma_n) = (m-n)^2$, $(\Gamma_m\cdot\Delta) = (m-1)^2$
+consists of \textbf{universal integers independent of $p$}. The explicit
+formula's transcendentally weighted prime terms $\Lambda(n) f(\log n)/\sqrt{n}$
+cannot arise from it except by hand-inserting the weights into the
+test-family coefficients --- re-entry into the known failure mode ``no new
+data coordinate.''
+\item \textbf{No-go (Theorem~\ref{thm:nogo}):} no assignment of
+correspondence groups, composition data, and intersection pairing on the
+family $\{E_p \times E_q\}$ realizes the commissioned calculus for the Weil
+explicit formula. Three independent obstructions --- no composition material
+(unconditional), no pairing target, prime-blind diagonal data --- each
+individually fatal.
+\end{enumerate}
+
+Of the two transcendence questions the construction raises, only one survives
+as a caveat: the diagonal coincidence $(\log p)^2 \in 4\pi^2\Q$ is
+\textbf{refuted unconditionally} (Gelfond--Schneider;
+\S\ref{sec:transcendence}, Proposition), and the off-diagonal coincidence
+$\log p\cdot\log q \in 4\pi^2\Q$ --- (T1), an instance of the
+four-exponentials conjecture --- is logged as the note's single open rider
+(\S\ref{sec:transcendence}) with numerical evidence; \textbf{the family-level
+kill is unconditional and consumes neither.}
+
+Scope (\S\ref{sec:scope}): this kills the \emph{substrate family}, not the
+direction. The Connes--Consani characteristic-one square (route~A) and the
+Deninger leg (route~C) are untouched; the note in fact sharpens why the
+square problem cannot be outflanked through the new complex fibers. Prior art
+(\S\ref{sec:priorart}): nothing anticipates either the construction or the
+obstruction; seven adjacent traditions are cited and distinguished.
+
+\section{Background: the curves and the proposal}
+\label{sec:background}
+
+\subsection{The missing square}
+\label{sec:missingsquare}
+
+The classical template for proving a Riemann hypothesis --- Weil's positivity
+argument on the square $C \times C$ of a curve over $\mathbf{F}_q$, with the
+Castelnuovo--Severi inequality supplied by Riemann--Roch and ampleness ---
+needs a doubled object. Over $\Q$ that object (``the square of $\SpecZ$,'' a
+surface-like host on which the Weil explicit formula becomes an
+intersection-number computation) exists in no branch of mathematics. Connes'
+own summary of the stall, in print since 2015 and still accurate:
+\emph{``[W]hat is missing is an intersection theory and a Riemann-Roch
+theorem on the square of the arithmetic site''} \cite[\S4.3.2]{CE15}. The
+square does exist in characteristic one --- Frobenius correspondences as
+congruences on the square of the arithmetic site \cite{CC16} --- but with no
+intersection theory and no Riemann--Roch, a decade on.
+
+\subsection{The per-prime Tate curves}
+\label{sec:tatecurves}
+
+The June-2026 paper \cite{CC26} (``On the Absolute Geometry of Spec $\Z$ and
+the Fargues--Fontaine curve'') changes the available raw material. Evaluating
+the points of $(\SpecZ)_{\Fun}$ over $\C$, the non-trivial points over a
+prime $p$ form a torsor under the Weil group $W_\infty = \C^\times$;
+quotienting by the discrete Frobenius symmetries $p^\Z \subset W_\infty$
+produces the \textbf{complex Tate curve}
+\[
+E_p := M_p^\infty / p^\Z \cong \C^\times / p^\Z ,
+\]
+\emph{``which canonically carries the structure of an elliptic curve over
+$C$''} \cite[eq.~(4) and \S4.1.2]{CC26}. Lifting through
+$w \mapsto \exp(2\pi i w)$ gives $E_p \cong \C/\Lambda_p$ with
+\[
+\Lambda_p = \Z \oplus \Z\cdot\tau_p , \qquad \tau_p = i\,\frac{\log p}{2\pi} ,
+\]
+a rectangular torus defined over $\R$ (the paper's own statement). Complex
+conjugation descends to a canonical real structure whose real locus is two
+copies of the adelic periodic orbit $C_p = \R^\times_{+}/p^\Z$. The paper's
+Geometric Decomposition theorem (stated as Theorem~4 in its introduction and
+Theorem~5 in \S4.3 of the full text) gives a canonical global splitting
+\[
+E_p \cong C_p \times \widetilde{X}_\infty ,
+\]
+where $C_p$ (length $\log p$) carries the entire dependence on $p$ and the
+phase circle $\widetilde{X}_\infty$ (length $2\pi$, an unramified double
+cover of the real Fargues--Fontaine analogue $X_\infty \cong \mathbf{P}^1(\R)$)
+is \textbf{totally independent of $p$}; the modular parameter $\tau_p$ is
+exactly the ratio of the two invariant $1$-forms' periods. We use three facts
+and only these: the lattice $\Lambda_p$; the reality/rectangularity; and the
+$p$-independence of the phase factor.
+
+\textbf{Lineage (first-appearance record).} The per-prime
+\emph{elliptic-analogue} idea appears in the Connes--Consani orbit on
+\textbf{21 July 2015}, in the Comptes Rendus note \emph{The scaling site}
+\cite{CC16b} and at length in \emph{Geometry of the scaling site} \cite{CC17}.
+The object there is $C_p = \R^\times_+/p^{\Z}$: a \emph{real} circle of
+circumference $\log p$ --- the periodic orbit of the scaling flow --- carrying a
+quasi-tropical structure sheaf of convex piecewise-affine functions with slopes
+in $\Z[1/p]$, with Jacobian $J(C_p) \cong \Z/(p-1)\Z$ and a \emph{real-valued}
+Riemann--Roch formula \cite[Lemma~6.3, Thm.~6.5, Thm.~6.7(ii)]{CC16b}. Its
+authors present it as an analogue and say so: ``a quasi-tropical structure which
+turns this orbit into a variant $C_p = \R^\times_+/p^{\Z}$ of the classical
+Jacobi description $\C^*/q^{\Z}$ of an elliptic curve''
+\cite[abstract]{CC17}.
+
+What is new in June 2026 is not the per-prime analogue but the \emph{complex}
+curve $E_p = \C^\times/p^{\Z}$, with a genuine complex structure, the lattice
+$\Lambda_p$, and classical intersection theory --- with $C_p$ reappearing inside
+it as the connected component of the real locus, $E_p \cong C_p \times
+\widetilde{X}_\infty$ \cite{CC26}. That is the object used here, and it is why
+the seed proposal became formulable at all. The intermediate paper \cite{CC25}
+(January 2025) contributes a functor from finite abelian extensions of $\Q$ to
+finite covers of $X_\Q$, under which the monodromy of the periodic orbit of
+length $\log p$ corresponds to the Galois action of Frobenius at $p$; it cites
+\cite{CC17} for the elliptic-curve analogue rather than introducing it. None of
+these papers raises products of the $E_p$, correspondences between different
+primes, or any isogeny question --- confirmed against the full texts (no
+isogeny/$\Hom$/product-of-Tate-curves content).
+
+\subsection{The seed proposal being killed}
+\label{sec:seed}
+
+The proposal under examination required, in the function-field template, a
+calculus with three components:
+
+\begin{itemize}
+\item \textbf{(R1) Doubled object $+$ correspondence monoid.} Correspondence
+groups containing the diagonal $\Delta$, the fiber classes $\xi_1, \xi_2$,
+and one Frobenius-type class $\Psi_p$ per prime; closed under composition and
+transpose; multiplicativity $\Psi_m \circ \Psi_n = \Psi_{mn}$ with $\Psi_p$
+primitive exactly at primes.
+\item \textbf{(R2) The pairing.} An intersection pairing with
+$(\Psi_f \cdot \Delta) = W(f)$ for test elements
+$\Psi_f = \int f(\lambda)\, \Psi_\lambda \, d^*\lambda$ --- the Weil explicit
+formula as an intersection number, prime terms, archimedean term, and pole
+term all accounted.
+\item \textbf{(R3) Positivity.} A Hodge-index/Castelnuovo--Severi inequality
+on the host, derived from Riemann--Roch plus effectivity (a non-circular
+derivation, with no zeta input, is re-derived in a companion note; see the
+Provenance remark).
+\end{itemize}
+
+The seed proposed to realize (R1)--(R3) on the $(p,q)$-graded family of
+classical abelian surfaces $E_p \times E_q$, with the multiplicativity axiom
+realized as a descent/compatibility datum \emph{across} the family, and the
+archimedean and pole terms hoped to live on the $\widetilde{X}_\infty$
+factor. The proposal's own stated fear was that the family might only
+express \emph{bilinear} data --- $\Lambda(p^a)\Lambda(q^b)$ cross-terms,
+bandwidth-style data in geometric dress. Theorems~\ref{thm:isogeny}--\ref{thm:nogo}
+below show the situation is worse: the family expresses \textbf{no}
+prime-facing correspondence data at all.
+
+For the structure of the target, recall the explicit formula in one standard
+normalization (Weil 1952 \cite{We52}; the exact archimedean shape is
+immaterial here): for suitable test functions $f$, with
+$\hat{f}(s) = \int_{\R} f(x)\, e^{(s-1/2)x}\, dx$,
+\[
+W(f) = \hat{f}(0) + \hat{f}(1)
+ - \sum_{n\geq 2} \frac{\Lambda(n)}{\sqrt{n}}\bigl(f(\log n) + f(-\log n)\bigr)
+ - W_\infty(f) ,
+\]
+$W_\infty$ an explicit archimedean integral. Only three structural features
+are load-bearing for this note:
+
+\begin{itemize}
+\item \textbf{(W-i)} the prime side is \textbf{linear} in $\Lambda(n)$, with
+transcendental weights $f(\pm\log n)/\sqrt{n}$ that vary with $n$ and with
+$f$;
+\item \textbf{(W-ii)} there is an archimedean term;
+\item \textbf{(W-iii)} there are pole terms.
+\end{itemize}
+
+\section{Notation and the lattice presentation}
+\label{sec:notation}
+
+Throughout, $p, q, \dots$ denote primes; set
+\[
+y_p := \frac{\log p}{2\pi} > 0 , \qquad
+\tau_p := i\, y_p , \qquad
+\Lambda_p := \Z \oplus \Z\cdot\tau_p , \qquad
+E_p := \C/\Lambda_p .
+\]
+
+\begin{lemma}[lattice presentation; {\cite[\S4.1.2]{CC26}}]
+\label{lem:lattice}
+$\exp_2\colon \C \to \C^\times$, $w \mapsto e^{2\pi i w}$, is a surjective
+homomorphism with kernel $\Z$, and
+\[
+\exp_2(w + \tau_p) = e^{2\pi i w}\cdot e^{2\pi i \cdot (i y_p)}
+ = e^{2\pi i w}\cdot e^{-\log p} = p^{-1}\cdot \exp_2(w) .
+\]
+Since $p^\Z = (p^{-1})^\Z$ as subgroups of $\C^\times$, $\exp_2$ induces an
+isomorphism $\C/\Lambda_p \cong \C^\times/p^\Z$. \qed
+\end{lemma}
+
+(Numerically confirmed to 55 digits --- check~A of the numerical suite; see
+the Provenance remark. The sign of $\tau_p$ is immaterial:
+$\Z \oplus \Z(-\tau_p) = \Lambda_p$.)
+
+Standard facts used without further comment: every homomorphism of complex
+tori $\C/\Lambda \to \C/\Lambda'$ is induced by a unique $\lambda \in \C$
+with $\lambda\Lambda \subseteq \Lambda'$ (lift to the universal cover); every
+holomorphic map between complex tori is a homomorphism followed by a
+translation (rigidity); $\Hom(E, E')$ denotes the group of holomorphic
+homomorphisms.
+
+\section{Theorem 1: the isogeny criterion (iff)}
+\label{sec:isogeny}
+
+\noindent\textbf{Attribution (read before \S\S\ref{sec:isogeny}--\ref{sec:familykill}).}
+The rigidity proved in these two sections is Winkelmann's, from 15 April 2002
+\cite{Wi04}, transported here to the per-prime Tate curves. It is not new and is
+not presented as new. Inside the proof of his Theorem~2 (v3, p.~16; v1,
+pp.~12--13) he proves exactly the three things proved below: the criterion, in
+the necessity direction --- ``Isogeny of $E_i$ and $E_j$ implies that there is a
+$\Q$-linear relation between $4\pi^2$, $\log\lambda_i \log\lambda_j$,
+$2\pi i \log\lambda_i$ and $2\pi i \log\lambda_j$ (see lemma 7). Now
+$4\pi^2 \in \R$ and $\log\lambda_i \log\lambda_j \in \R$, while
+$2\pi i \log\lambda_i$ and $2\pi i \log\lambda_j$ are $\Q$-linearly
+independent elements of $i\R$. Therefore a $\Q$-linear relation can only exists
+[sic] if $4\pi^2/(\log\lambda_i \log\lambda_j) \in \Q$'' --- with the converse
+one line from his Lemma~7, which is stated as an equivalence, so the ``iff'' is
+his too; the two-partner rigidity of Theorem~2, by dividing two such relations;
+and the three-curve run of Theorem~3, of which $\{2,3,5\}$ is the numerical
+instance. What is genuinely not in his paper, and is what these sections add, is
+the identification of the group $\Hom(E_p, E_q)$, its rank, and the degree $uv$
+of the minimal isogeny: the words ``Hom'' and ``rank'' do not occur there, no
+isogeny degree is computed, and $\lambda$ is never taken to be a prime. Proofs
+are given in full because the note must be self-contained and because the
+prime-indexed forms differ in presentation from his.
+
+\begin{theorem}
+\label{thm:isogeny}
+Let $p \neq q$ be distinct primes. Then
+\[
+\Hom(E_p, E_q) \neq 0
+\iff y_p\, y_q \in \Q
+\iff \log p \cdot \log q \in 4\pi^2\Q .
+\]
+Moreover, when the condition holds and $y_p y_q = u/v$ in lowest terms
+($u, v \in \Z_{>0}$), the full homomorphism group is
+\[
+\Hom(E_p, E_q) = \Z\cdot\lambda_0 , \qquad \lambda_0 = i\, v\, y_q ,
+\]
+of rank $1$, and the isogeny induced by $\lambda_0$ has degree $uv$.
+\end{theorem}
+
+\begin{proof}
+A nonzero homomorphism is multiplication by some $\lambda \in \C^\times$ with
+$\lambda\Lambda_p \subseteq \Lambda_q$. Two containment conditions:
+
+\begin{enumerate}
+\item $\lambda\cdot 1 \in \Lambda_q$: so
+$\lambda = a + b\cdot\tau_q = a + i\, b\, y_q$ for some $a, b \in \Z$.
+\item $\lambda\cdot\tau_p \in \Lambda_q$: compute
+$\lambda\cdot\tau_p = (a + i b y_q)\cdot(i y_p) = -b\, y_p y_q + i\, a\, y_p$.
+Writing this as $c + i\, d\, y_q$ with $c, d \in \Z$:
+\begin{itemize}
+\item real part: $-b\, y_p y_q = c \in \Z$;
+\item imaginary part: $a\, y_p = d\, y_q$.
+\end{itemize}
+\end{enumerate}
+
+\emph{Case $a \neq 0$.} Then $d \neq 0$ (as $y_p, y_q > 0$) and
+$y_p/y_q = d/a$, i.e.\ $\log p/\log q \in \Q$, i.e.\
+$a\cdot\log p = d\cdot\log q$ with $a, d$ nonzero integers, i.e.\
+$p^a = q^d$ (after clearing signs) --- impossible for distinct primes by
+unique factorization. So $a = 0$, hence $d = 0$.
+
+\emph{Case $a = 0$.} Then $\lambda = i\, b\, y_q$ with $b \neq 0$ (else
+$\lambda = 0$), and the surviving condition is $b\, y_p y_q \in \Z$, which
+forces $y_p y_q \in \Q$. This proves the forward direction, and identifies
+$\Hom = \{\, i\, b\, y_q : b \in \Z,\ b\, y_p y_q \in \Z \,\}$. With
+$y_p y_q = u/v$ in lowest terms, $b\, u/v \in \Z \iff v \mid b$, so
+$\Hom = \Z\cdot(i\, v\, y_q)$.
+
+\emph{Converse.} If $y_p y_q = u/v$, then $\lambda_0 = i\, v\, y_q$ satisfies
+$\lambda_0\cdot 1 = v\cdot\tau_q \in \Lambda_q$ and
+$\lambda_0\cdot\tau_p = (i v y_q)(i y_p) = -v\, y_p y_q = -u \in \Z \subseteq
+\Lambda_q$, so $\lambda_0\Lambda_p \subseteq \Lambda_q$ and
+$\lambda_0 \neq 0$ --- a genuine isogeny. (Numerically confirmed on a
+synthetic pair with $y\, y' = 3/7$ exactly --- check~B.)
+
+\emph{Degree.} $\covol(\Lambda_p) = y_p$ and
+$\covol(\lambda_0\Lambda_p) = |\lambda_0|^2\cdot y_p = v^2 y_q^2\cdot y_p$,
+so $\deg = [\Lambda_q : \lambda_0\Lambda_p] = v^2 y_q^2 y_p / y_q
+= v^2\cdot(y_p y_q) = v^2\cdot(u/v) = uv$.
+
+Finally $y_p y_q \in \Q \iff \log p \log q = 4\pi^2\cdot y_p y_q \in 4\pi^2\Q$.
+\end{proof}
+
+\begin{remark}[bookkeeping reconciliation]
+\label{rem:bookkeeping}
+The criterion may be stated as $\log p\cdot\log q \in 4\pi^2\Q$ or derived in
+the form $b\cdot\log p\cdot\log q = -4\pi^2 c$ and phrased as
+$\log p\cdot\log q \in \pi^2\Q$. These are the \textbf{same condition}:
+$4\pi^2\Q = \pi^2\Q$ as subsets of $\R$, because $4 \in \Q^\times$ --- a
+rational multiple of $\pi^2$ is a rational multiple of $4\pi^2$ and
+conversely. The normalization-free statement is $y_p\cdot y_q \in \Q$; we
+display the constant as $4\pi^2$ because
+$y_p y_q = \log p\cdot\log q/(4\pi^2)$ makes it the natural one.
+\end{remark}
+
+\begin{remark}[symmetry]
+\label{rem:symmetry}
+The criterion is symmetric in $p$ and $q$; hence
+$\Hom(E_p, E_q) \neq 0 \iff \Hom(E_q, E_p) \neq 0$ (as the general theory
+also guarantees via the dual isogeny). ``Exceptional partner'' is therefore
+a symmetric relation.
+\end{remark}
+
+\section{Theorems 2 and 3: the unconditional family-level kill}
+\label{sec:familykill}
+
+\begin{theorem}[two-partner rigidity]
+\label{thm:twopartner}
+For every prime $p$ there is \textbf{at most one} prime $q \neq p$ with
+$\Hom(E_p, E_q) \neq 0$. Consequently the set of ``exceptional pairs''
+$\{p, q\}$ (pairs with nonzero $\Hom$), if nonempty, forms a \textbf{partial
+matching} on the primes: no prime appears in two of them.
+\end{theorem}
+
+\begin{proof}
+Suppose $q \neq q'$ are two such primes. By Theorem~\ref{thm:isogeny},
+$y_p y_q \in \Q^\times$ and $y_p y_{q'} \in \Q^\times$. Dividing:
+$y_q / y_{q'} = (y_p y_q)/(y_p y_{q'}) \in \Q$, i.e.\
+$\log q / \log q' \in \Q$, i.e.\ $q^m = q'^n$ for some positive integers
+$m, n$ --- impossible for distinct primes by unique factorization.
+\end{proof}
+
+Nothing here consumes any transcendence input: the proof is unique
+factorization plus linear algebra over $\Q$ applied to the products
+$y_p y_q$, and it is agnostic about whether any exceptional pair exists.
+
+\begin{theorem}[the $\{2,3,5\}$ coherence kill]
+\label{thm:coherence}
+Among the three surfaces $E_2\times E_3$, $E_2\times E_5$, $E_3\times E_5$,
+at most one carries a nonzero correspondence group; in particular \textbf{no
+two of them --- a fortiori not all three --- can simultaneously carry
+nonzero correspondence groups.} (By Theorem~\ref{thm:NS} below,
+``correspondence group of $E_p\times E_q$'' $= \Hom(E_p, E_q)$.)
+\end{theorem}
+
+\begin{proof}
+Any two of the three pairs $\{2,3\}, \{2,5\}, \{3,5\}$ share a prime, so two
+simultaneously nonzero groups would give some prime two exceptional
+partners, contradicting Theorem~\ref{thm:twopartner}. Directly: if
+$y_2 y_3 = r_1 \in \Q^\times$ and $y_2 y_5 = r_2 \in \Q^\times$ then
+$y_3/y_5 = r_1/r_2 \in \Q$, i.e.\ $\log 3/\log 5 \in \Q$, i.e.\
+$3^m = 5^n$ --- impossible; the other two cases are identical.
+\end{proof}
+
+\begin{remark}[enlarging the family does not help]
+\label{rem:enlarge}
+Define $E_n := \C^\times/n^\Z$ for any integer $n \geq 2$ (modulus
+$y_n = \log n/(2\pi)$) --- the natural home for composite-index members
+$\Psi_{pq}$ of the commissioned monoid. The computation of
+Theorem~\ref{thm:isogeny} goes through verbatim, with one new phenomenon:
+the case $a \neq 0$ now requires $\log m/\log n \in \Q$, which for general
+integers means $m$ and $n$ are \textbf{multiplicatively dependent}
+($m = k^a$, $n = k^b$), and then $E_m$, $E_n$ are indeed isogenous (the
+subgroups $k^{a\Z}, k^{b\Z}$ of $\C^\times$ are commensurable). So the
+enlarged family admits exactly the isogenies of \textbf{one-generator
+towers} $\{E_{k^a}\}_a$ --- and across towers, by the two-partner argument
+applied to multiplicatively independent moduli, at most the same
+conjecturally-empty exceptional structure as in
+Theorem~\ref{thm:twopartner}, now a partial matching of \emph{towers} (two
+partners $n, n'$ of a fixed $m$ are forced into a single tower, and a
+cross-tower isogeny would need the same unproven rational-product
+coincidence as Theorem~\ref{thm:isogeny}). This is a structural echo of a
+parallel finding on the same commissioned axiom system: the printed
+polarized-Frobenius axioms are satisfiable precisely by one-generator
+(single-prime) monoids --- the characteristic-$p$ template is a one-prime
+template. The geometry says the same thing: per-prime towers exist; the
+cross-prime structure, which is where the arithmetic of $\zeta$ lives, is
+exactly what is absent.
+\end{remark}
+
+\begin{remark}[what a failure of the transcendence rider would and would not
+change]
+\label{rem:failure}
+If some pair of primes actually satisfied
+$\log p\cdot\log q \in 4\pi^2\Q$ --- spectacular transcendence news ---
+Theorem~\ref{thm:isogeny} would produce one isogeny of computable degree
+$uv$. It would not revive the seed: Theorems~\ref{thm:twopartner}
+and~\ref{thm:coherence} cap the total supply of cross-prime maps at a
+partial matching, and the obstructions O2 and O3 of Theorem~\ref{thm:nogo}
+are untouched.
+\end{remark}
+
+\section{Theorem 4: N\'eron--Severi collapse off the matching}
+\label{sec:NS}
+
+We first fix the classical dictionary. For elliptic curves $E, E'$ over
+$\C$, the group of \emph{divisorial correspondences} from $E$ to $E'$ is
+$\NS(E \times E')$ modulo the subgroup generated by the two fiber classes
+$\xi_1 = [\{0\}\times E']$, $\xi_2 = [E\times\{0\}]$ (Weil's ``trivial
+correspondences''):
+\[
+\Corr(E, E') := \NS(E \times E') / \langle \xi_1, \xi_2 \rangle .
+\]
+
+\begin{theorem}
+\label{thm:NS}
+Let $E, E'$ be elliptic curves over $\C$. Then there is a canonical
+isomorphism
+\[
+\NS(E \times E') \cong \Z\cdot\xi_1 \oplus \Z\cdot\xi_2 \oplus \Hom(E, E') ,
+\]
+hence $\Corr(E, E') \cong \Hom(E, E')$ (\cite[Ch.~5]{BL}; self-contained
+proof below). Consequently, for distinct primes $p \neq q$ with
+$\Hom(E_p, E_q) = 0$ (i.e., every pair outside the --- conjecturally
+empty --- exceptional matching of
+Theorems~\ref{thm:isogeny}--\ref{thm:twopartner}):
+\begin{itemize}
+\item[\textup{(a)}] \textbf{Rank collapse.}
+$\NS(E_p \times E_q) = \Z\xi_1 \oplus \Z\xi_2$ has rank $2$, with
+intersection form $\xi_1^2 = \xi_2^2 = 0$, $\xi_1\cdot\xi_2 = 1$: every
+divisor class is numerically $a\xi_1 + b\xi_2$, and $\Corr(E_p, E_q) = 0$.
+\item[\textup{(b)}] \textbf{$H^1$-inertness.} Every divisor class on
+$E_p \times E_q$ acts as \textbf{zero} on $H^1$ (in both directions,
+$H^1(E_p) \to H^1(E_q)$ and the transpose). The correspondence calculus is
+not merely small; as a calculus of operators it is the zero calculus.
+\item[\textup{(c)}] \textbf{No graphs, no diagonal.} The only holomorphic
+maps $E_p \to E_q$ are constants, so the only graph classes are fiber
+classes. There is no diagonal: not as a curve (a ``diagonal'' in a product
+of nonisomorphic curves means the graph of an isomorphism, and none exists),
+and not even as a numerical class --- no $D \in \NS$ satisfies the
+diagonal's numerical triple $(D\cdot\xi_1, D\cdot\xi_2, D^2) = (1, 1, 0)$,
+since $D\cdot\xi_1 = D\cdot\xi_2 = 1$ forces $D = \xi_1 + \xi_2$ and then
+$D^2 = 2 \neq 0$.
+\item[\textup{(d)}] \textbf{Castelnuovo--Severi vacuous.} The
+Hodge-index/Castelnuovo--Severi inequality on a product of curves is the
+statement that the intersection form is negative semidefinite on the
+\emph{primitive} part $\langle \xi_1, \xi_2 \rangle^\perp \subset \NS$. Here
+that primitive part is $0$: if $D = a\xi_1 + b\xi_2$ satisfies
+$D\cdot\xi_1 = b = 0$ and $D\cdot\xi_2 = a = 0$ then $D = 0$. Equivalently:
+every class of bidegree $(d_1, d_2)$ satisfies $D^2 = 2 d_1 d_2$ ---
+Castelnuovo--Severi holds \emph{with equality everywhere}, carrying zero
+information. The positivity the seed advertised as ``free fiber-by-fiber''
+is free because there is nothing left for it to constrain.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}[Proof of the decomposition]
+All inputs are standard abelian-variety theory (\cite[Ch.~2]{BL} for the
+Poincar\'e bundle, seesaw, and rigidity; Ch.~5 for the endomorphism context;
+the statement itself is the classical correspondence dictionary). Write
+$\hat{E}' = \Pic^0(E')$ for the dual, $P$ for the Poincar\'e bundle on
+$\hat{E}' \times E'$, normalized so that
+$P|_{\{\alpha\}\times E'} \cong \alpha$ for $\alpha \in \hat{E}'$ and
+$P|_{\hat{E}'\times\{0\}}$ is trivial.
+
+\emph{Step 1 (the homomorphism $\varphi_L$).} For $L \in \Pic(E\times E')$
+put $L_x := L|_{\{x\}\times E'}$; $\deg L_x$ is constant in $x$. Normalize:
+\[
+\widetilde{L} := L \otimes \pr_1^*\bigl(L|_{E\times\{0\}}\bigr)^{-1}
+ \otimes \pr_2^*(L_0)^{-1} ,
+\]
+so that $\widetilde{L}_x = L_x \otimes L_0^{-1} \in \Pic^0(E')$ for all $x$,
+$\widetilde{L}_0$ is trivial, and $\widetilde{L}|_{E\times\{0\}}$ is
+trivial. By the universal property of $(\hat{E}', P)$ there is a unique
+morphism $\varphi_L\colon E \to \hat{E}'$ with
+$(\varphi_L \times \mathrm{id}_{E'})^* P \cong \widetilde{L}$ (the a-priori
+ambiguity by $\pr_1$-pullbacks is killed by restricting to $E\times\{0\}$,
+where both sides are trivial). Since $\widetilde{L}_0$ is trivial,
+$\varphi_L(0) = 0$; a pointed morphism of abelian varieties is a
+homomorphism (rigidity). So $\varphi_L \in \Hom(E, \hat{E}')$.
+
+\emph{Step 2 (kernel; factorization through $\NS$).} $L \mapsto \varphi_L$
+is additive: normalization and restriction are additive in $L$, and
+uniqueness plus the biadditivity of the Poincar\'e bundle
+($((\mathrm{add})\times\mathrm{id})^* P \cong \pr_{13}^* P \otimes
+\pr_{23}^* P$ on $\hat{E}'\times\hat{E}'\times E'$, \cite[Ch.~2]{BL}) give
+$\varphi_{L\otimes L''} = \varphi_L + \varphi_{L''}$. If
+$L \in \Pic^0(E\times E')$ then, since the dual of a product is the product
+of the duals, $L = \pr_1^* M \otimes \pr_2^* M'$ with $M \in \Pic^0(E)$,
+$M' \in \Pic^0(E')$; the normalization annihilates it, so $\varphi_L = 0$
+and the map factors through $\NS(E\times E')$. Conversely if
+$\varphi_L = 0$ then $\widetilde{L}_x$ is trivial for every $x$ and
+$\widetilde{L}|_{E\times\{0\}}$ is trivial, so by the seesaw principle
+$\widetilde{L}$ is trivial; hence
+\[
+L \cong \pr_1^*\bigl(L|_{E\times\{0\}}\bigr) \otimes \pr_2^*(L_0) ,
+\]
+whose N\'eron--Severi class is
+$\deg\bigl(L|_{E\times\{0\}}\bigr)\cdot\xi_1 + \deg(L_0)\cdot\xi_2$ (the
+class of $\pr_1^*$ of a degree-$d$ bundle is
+$d\cdot[\{\mathrm{pt}\}\times E'] = d\cdot\xi_1$, and symmetrically). So the
+kernel of $\NS \to \Hom(E, \hat{E}')$ is exactly $\Z\xi_1 \oplus \Z\xi_2$ (a
+free rank-$2$ group: the intersection numbers against $\xi_2, \xi_1$ read
+off the coefficients).
+
+\emph{Step 3 (surjectivity and splitting).} For $\psi \in \Hom(E, \hat{E}')$
+set $L^\psi := (\psi \times \mathrm{id}_{E'})^* P$. Then
+$L^\psi_x = P|_{\{\psi(x)\}\times E'} = \psi(x) \in \Pic^0(E')$, $L^\psi_0$
+is trivial, and $L^\psi|_{E\times\{0\}} = \psi^*\bigl(P|_{\hat{E}'\times\{0\}}\bigr)$
+is trivial --- so $L^\psi$ is already normalized and
+$\varphi_{L^\psi} = \psi$ by uniqueness. Additivity of
+$\psi \mapsto [L^\psi]$ is the Poincar\'e biadditivity again. This splits
+the sequence:
+\[
+\NS(E\times E') \cong \Z\xi_1 \oplus \Z\xi_2 \oplus \Hom(E, \hat{E}') .
+\]
+
+\emph{Step 4 (eliminating the dual).} For an elliptic curve,
+$x \mapsto [\mathcal{O}_{E'}([x] - [0])]$ is a canonical isomorphism
+$E' \cong \hat{E}'$ (the degree-one principal polarization; Abel--Jacobi),
+so $\Hom(E, \hat{E}') \cong \Hom(E, E')$.
+\end{proof}
+
+\begin{proof}[Proof of \textup{(a)}--\textup{(d)}]
+(a) is immediate from the decomposition with $\Hom = 0$, plus
+$\xi_1^2 = \xi_2^2 = 0$ (disjoint parallel fibers) and
+$\xi_1\cdot\xi_2 = 1$ (one transverse point).
+
+(b) The action of a correspondence on cohomology,
+$\alpha \mapsto \pr_{2*}([D] \cup \pr_1^*\alpha)$, depends only on the class
+$[D] \in H^2(E\times E', \Z)$. K\"unneth:
+$H^2 = (H^2\otimes H^0) \oplus (H^1\otimes H^1) \oplus (H^0\otimes H^2)$. A
+class $\pr_1^*\beta$ ($\beta \in H^2(E)$) acts on $\alpha \in H^1(E)$ by
+$\pr_{2*}(\pr_1^*(\beta \cup \alpha)) = 0$ since
+$\beta \cup \alpha \in H^3(E) = 0$; a class $\pr_2^*\beta$ acts by
+$\beta \cup \pr_{2*}(\pr_1^*\alpha) = 0$ since fiber integration drops the
+degree of $\pr_1^*\alpha \in H^1$ below zero. Now $\xi_1 = \pr_1^*[\mathrm{pt}]$
+and $\xi_2 = \pr_2^*[\mathrm{pt}]$, so with $\NS = \Z\xi_1 \oplus \Z\xi_2$
+every \emph{algebraic} class in $H^2$ has vanishing
+$H^1\otimes H^1$-component and acts as zero on $H^1$. The transpose
+direction is identical using $\Hom(E_q, E_p) = 0$
+(Remark~\ref{rem:symmetry}).
+
+(c) Rigidity: every holomorphic map $E_p \to E_q$ is a homomorphism followed
+by a translation; $\Hom = 0$ leaves the constants, whose graphs are
+horizontal fibers $E_p \times \{c\} \equiv \xi_2$. The numerical computation
+is displayed in the statement.
+
+(d) Displayed in the statement; the classical Castelnuovo--Severi inequality
+itself (for products of curves with actual correspondences) is re-proved
+from Riemann--Roch $+$ ampleness, with no zeta input, in a companion note
+(see the Provenance remark) --- the engine is a real theorem whose domain of
+application is, on these surfaces, the zero group.
+\end{proof}
+
+\begin{remark}[what still exists on these surfaces]
+\label{rem:stillexists}
+Rank-$2$ $\NS$ does not mean the surfaces are curve-poor: $\xi_1 + \xi_2$ is
+ample (Nakai: positive square, positive on every effective class), and
+general members of $|3(\xi_1+\xi_2)|$ are irreducible curves dominating both
+factors. The point of (a)--(b) is that every such curve is \emph{numerically}
+a fiber combination and acts as zero on $H^1$: as a correspondence it is
+invisible. The collapse is a collapse of the correspondence calculus, not of
+the surface's geometry --- which is exactly what kills the seed, whose
+entire value proposition was the calculus.
+\end{remark}
+
+\section{Theorem 5: the diagonal residue is prime-blind --- and the no-go}
+\label{sec:diagonal}
+
+The one place the family genuinely has correspondences is the diagonal line
+$E_p \times E_p$.
+
+\begin{theorem}[diagonal residue]
+\label{thm:diagonal}
+Fix a prime $p$.
+\begin{enumerate}
+\item $\End(E_p) = \Z$, \textbf{unconditionally}. (The lattice computation
+below shows the only alternative would be $(\log p)^2 \in 4\pi^2\Q$ ---
+which would make $\tau_p$ imaginary quadratic and $E_p$ a CM curve --- and
+that coincidence is impossible: Gelfond--Schneider,
+\S\ref{sec:transcendence}, Proposition. No $E_p$ has complex
+multiplication.)
+\item By (1), $\NS(E_p \times E_p) = \Z\xi_1 \oplus \Z\xi_2 \oplus \Z\cdot[\Delta]$
+has rank $3$ and $\Corr(E_p, E_p) \cong \End(E_p) = \Z$, generated by the
+diagonal. The available correspondences are (combinations of fiber classes
+and) the graphs $\Gamma_m$ of multiplication by $m \in \Z$, with
+$\Gamma_1 = \Delta$, and their complete intersection profile is:
+\[
+\Gamma_m\cdot\xi_1 = 1 , \quad
+\Gamma_m\cdot\xi_2 = m^2 , \quad
+(\Gamma_m\cdot\Gamma_n) = (m-n)^2 \ \ (m \neq n) , \quad
+(\Gamma_m\cdot\Delta) = (m-1)^2
+\]
+(the last for all $m$: at $m = 1$ this is $\Delta^2 = 0$, by adjunction with
+$K = 0$ and $e(E_p) = 0$).
+\item \textbf{Every number in this profile is a universal integer,
+independent of $p$.} More precisely: under the real-affine identification
+$E_p \cong \R^2/\Z^2$ sending $(1, \tau_p)$ to the standard basis, the
+subtori $\Gamma_m, \xi_1, \xi_2$ correspond to the \emph{same} subtori for
+every $p$, and intersection numbers of divisor classes are topological (cup
+products of integral classes). The map
+$p \mapsto (\text{complete intersection profile of } E_p \times E_p)$ is
+constant. The prime enters the surface only through its complex structure
+$\tau_p$, and the complex structure enters the correspondence calculus only
+through $\Hom$/$\End$ --- which is the same ring $\Z$ for every $p$
+(part~1).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) $\lambda\Lambda_p \subseteq \Lambda_p$ with $\lambda = a + i b y_p$
+(from $\lambda\cdot 1 \in \Lambda_p$) requires
+$\lambda\cdot\tau_p = -b y_p^2 + i a y_p \in \Lambda_p$, i.e.\
+$-b y_p^2 \in \Z$ (and the $\tau_p$-coefficient $a \in \Z$, automatic). If
+$b \neq 0$ then $y_p^2 \in \Q$, i.e.\ $(\log p)^2 \in 4\pi^2\Q$ ---
+impossible by the \S\ref{sec:transcendence} Proposition
+(Gelfond--Schneider; a $b \neq 0$ endomorphism would make
+$\tau_p^2 = -y_p^2 \in \Q$, i.e.\ $\tau_p$ quadratic imaginary and $\End$ a
+CM order, and no $E_p$ admits this). So $b = 0$ and $\lambda = a \in \Z$:
+$\End(E_p) = \Z$ with no exceptional case.
+
+(2) Theorem~\ref{thm:NS} with $E = E' = E_p$ gives
+$\NS = \Z\xi_1 \oplus \Z\xi_2 \oplus \End(E_p)$, and the graph of
+$\mathrm{id}$ is $\Delta$. Intersection numbers: $\Gamma_m$ meets a vertical
+fiber $\{x\}\times E_p$ in the single transverse point $(x, mx)$, so
+$\Gamma_m\cdot\xi_1 = 1$. It meets a horizontal fiber $E_p\times\{c\}$ in
+the fiber $[m]^{-1}(c)$, which has $m^2$ points, all transverse ($[m]$ is
+unramified), so $\Gamma_m\cdot\xi_2 = m^2$; here
+$\#\ker([k]) = \#\bigl((\tfrac{1}{k}\Lambda_p)/\Lambda_p\bigr) = k^2$
+(representatives $(i + j\cdot\tau_p)/k$, $0 \leq i, j < k$; check~D of the
+numerical suite tabulates them for $k \leq 7$). For $m \neq n$,
+$\Gamma_m \cap \Gamma_n = \{(x, mx) : (m-n)x = 0\} = \ker([m-n])$, with
+$(m-n)^2$ points, each transverse (tangent directions $(1, m)$ and $(1, n)$
+are independent), so $(\Gamma_m\cdot\Gamma_n) = (m-n)^2$; $n = 1$ gives
+$(\Gamma_m\cdot\Delta) = (m-1)^2$ --- which is also the Lefschetz number
+$1 - 2m + m^2$ of $[m]$ (trace on $H^0 - H^1 + H^2$), the integer Lefschetz
+data of the family.
+
+(3) The subtori $\Gamma_m$ are the images of $x \mapsto (x, mx)$, defined by
+the \emph{integral} linear data $m$ alone; under the identification by the
+basis $(1, \tau_p)$ they are the same integral subtori of $\R^4/\Z^4$ for
+every $p$. Cup products of integral classes on a fixed topological manifold
+are $p$-independent.
+\end{proof}
+
+\begin{theorem}[the no-go]
+\label{thm:nogo}
+No assignment of correspondence groups, composition data, and intersection
+pairings on the family of classical surfaces $\{E_p \times E_q\}$ ($p, q$
+prime; optionally enlarged by composite moduli $E_n$ per
+Remark~\ref{rem:enlarge}) realizes the commissioned calculus
+\textup{(R1)}--\textup{(R3)} for the Weil explicit formula. Specifically:
+\begin{itemize}
+\item[\textup{(O1)}] \textbf{The composition material does not exist
+(unconditional at family level).} \textup{(R1)} needs one primitive $\Psi_p$
+per prime with composites $\Psi_p \circ \Psi_q$ supported across the
+family --- nonzero elements of cross-prime correspondence groups for
+essentially all pairs. By Theorem~\ref{thm:NS},
+$\Corr(E_p, E_q) \cong \Hom(E_p, E_q)$; by
+Theorems~\ref{thm:twopartner}--\ref{thm:coherence} these groups vanish
+outside at most a partial matching of exceptional pairs, and already over
+$\{2,3,5\}$ at most one of the three groups is nonzero. The correspondence
+category of the family (objects $E_p$, morphisms $\Corr$) is unconditionally
+too disconnected to carry a multiplicative monoid indexed by all primes: the
+multiplicativity axiom has no material to act on. (Whether even a single
+exceptional pair exists is the open transcendence question (T1) of
+\S\ref{sec:transcendence} --- unneeded for this conclusion.)
+\item[\textup{(O2)}] \textbf{The pairing target does not parse off the
+diagonal.} \textup{(R2)} pairs test correspondences against the diagonal. On
+every off-matching surface $E_p \times E_q$ there is no diagonal and no
+graph class --- not even a numerical class with the diagonal's profile
+(Theorem~\ref{thm:NS}c) --- and every class acts as zero on $H^1$
+(Theorem~\ref{thm:NS}b), so no trace-type functional is available; the
+Castelnuovo--Severi inequality \textup{(R3)} is vacuous there
+(Theorem~\ref{thm:NS}d). The positivity engine is a real theorem with an
+empty domain.
+\item[\textup{(O3)}] \textbf{The diagonal residue cannot host the prime
+terms.} On the surfaces $E_p \times E_p$ the calculus exists but its
+complete intersection profile is the universal integer data of
+Theorem~\ref{thm:diagonal}, identical for every $p$. A test element
+$\Psi_f = \sum_m c_m(p)\cdot\Gamma_m + a\cdot\xi_1 + b\cdot\xi_2$ has
+\[
+(\Psi_f \cdot \Delta) = \sum_m c_m(p)\cdot(m-1)^2 + a + b ,
+\]
+a fixed integer-coefficient linear functional of the coefficients. By
+\textup{(W-i)} the explicit formula's prime side is linear in $\Lambda(n)$
+with weights $f(\pm\log n)/\sqrt{n}$ --- transcendental, $n$-dependent,
+$f$-dependent, and non-constant in $p$. Since the geometric data is constant
+in $p$, \emph{any} dependence of $(\Psi_f\cdot\Delta)$ on $p$ must be
+written into the coefficients $c_m(p)$ by hand --- i.e., the designer
+inserts the answer key $\Lambda(p) f(\log p)/\sqrt{p}$ into the test family
+and the geometry contributes nothing. This is precisely the classical
+failure mode ``Weil positivity in disguise'' (no new data coordinate), the
+failure mode the proposal's own terms promised to avoid: the prime contact
+was to be ``the correspondence calculus itself or nothing.'' It is nothing.
+The archimedean term \textup{(W-ii)} fares no better: the candidate home
+named by the proposal --- the phase factor $\widetilde{X}_\infty$ --- is
+$p$-independent \emph{by the source paper's own decomposition theorem}
+(\cite[Thm.~5 and \S4.3]{CC26}: ``totally independent of $p$''), so it
+cannot source prime-dependent weights; and the pole terms \textup{(W-iii)}
+have no candidate home at all.
+\end{itemize}
+Each obstruction is individually fatal; they are logically independent
+(\textup{O1} concerns the cross-prime category, \textup{O2} the off-diagonal
+surfaces, \textup{O3} the diagonal ones). \qed
+\end{theorem}
+
+\begin{remarkunnum}[Rider: the escape routes forfeit the point]
+The $p$-flow and $q$-flow are conjugate through the real-analytic maps
+$\lambda e^{i\theta} \mapsto \lambda^{\log q/\log p}\cdot e^{i\theta}$ ---
+but these are not holomorphic, and a smooth (or characteristic-one)
+correspondence theory on the products gives up exactly the classical
+$(1,1)$-class positivity (Castelnuovo--Severi via Riemann--Roch $+$
+ampleness) that was the seed's entire selling point, landing back on the
+missing characteristic-one square with its absent intersection theory
+\cite[\S4.3.2]{CE15}. There is no version of the family that keeps both the
+cross-prime maps and the classical positivity.
+\end{remarkunnum}
+
+\section{The transcendence status: (T2) refuted (Gelfond--Schneider), (T1)
+the single open rider}
+\label{sec:transcendence}
+
+Two number-theoretic questions arise from Theorems~\ref{thm:isogeny}
+and~\ref{thm:diagonal} and are logged here. One of them turns out not to be
+open at all: classical transcendence theory refutes it, in this note's
+favor. The other is open --- but it is a \emph{named published conjecture},
+not an unrecorded question, and an earlier draft of this note said otherwise.
+
+\medskip
+
+\noindent\textbf{(T1) is published.} Its negation is printed as a displayed,
+labeled conjecture --- \textbf{(C4E faible)} --- on p.~231 of Diaz
+\cite{Dia97}, attributed there to D.~Bertrand (Madras Number Theory Symposium,
+January 1996; published as \cite[\S5]{Ber97}): for positive real algebraic
+$\alpha_1, \alpha_2 \neq 1$, the numbers $\pi^2$ and
+$(\log\alpha_1)(\log\alpha_2)$ are $\Q$-linearly independent. Substituting
+$\alpha_1 = p$, $\alpha_2 = q$ gives exactly
+$\log p \cdot \log q \notin \pi^2\Q = 4\pi^2\Q$, i.e.\ $\neg$(T1); and the
+sentence immediately following it in Diaz is the same four-exponentials
+reduction performed below. His paper also carries unconditional partial results
+bearing on the question --- his Th\'eor\`eme~1, the equivalence (C0)
+$\Leftrightarrow$ (C6), and his Propositions~1 and~3(1) --- which are not
+consumed here. Two riders. The English name ``Bertrand's weak four-exponentials
+conjecture'' is not a term of art: Diaz's label is (C4E faible), and Waldschmidt
+uses no such English phrase; call it the weak form of the four-exponentials
+conjecture, due to Bertrand. And the germ of the question is older still: Alaoglu
+and Erd\H{o}s asked in 1944, in print, ``If $p$ and $q$ are different primes, is
+it true that $p^x$ and $q^x$ are both rational only if $x$ is an integer?''
+\cite[p.~449]{AE44}, recording Siegel's three-prime theorem on their p.~455 ---
+the same four-versus-six-exponentials split rediscovered below.
+
+Winkelmann's own conjectural resolution is adjacent. His Conjecture~1
+\cite[\S3.2, p.~13]{Wi04} states that for algebraic $\alpha_1, \alpha_2$ with
+$|\alpha_i| > 1$ the quotients $\C^*/\alpha_i^{\Z}$ are isogenous \emph{iff}
+$\alpha_1, \alpha_2$ are multiplicatively dependent; applied to distinct primes
+it gives $\Hom(E_p, E_q) = 0$, hence $\neg$(T1) by the converse half of
+Theorem~\ref{thm:isogeny}. He does not draw that consequence and never mentions
+primes, so the implication is recorded here as a one-line deduction from his
+conjecture and his Lemma~7, not as a result of his. He proves Conjecture~1 under
+Schanuel's conjecture \cite[\S3.2, Prop.~3, p.~14]{Wi04} --- the same reduction
+performed below, seventeen years earlier.
+
+\begin{itemize}
+\item \textbf{(T1)} For distinct primes $p, q$: is
+$\log p \cdot \log q \in 4\pi^2\Q$ possible? (Equivalently: can $E_p$ and
+$E_q$ be isogenous?) --- \textbf{open unconditionally}; refuted under the
+four-exponentials conjecture (below).
+\item \textbf{(T2)} For a prime $p$: is $(\log p)^2 \in 4\pi^2\Q$ possible?
+(Equivalently: can $E_p$ have complex multiplication?) --- \textbf{no;
+refuted unconditionally:}
+\end{itemize}
+
+\begin{proposition}[no CM anywhere in the family]
+For every prime $p$, $(\log p)^2 \notin 4\pi^2\Q$. Hence no $E_p$ has
+complex multiplication, and $\End(E_p) = \Z$ for every prime,
+unconditionally (Theorem~\ref{thm:diagonal}(1)).
+\end{proposition}
+
+\begin{proof}[Proof (Gelfond--Schneider, 1934)]
+Suppose $(\log p)^2 = 4\pi^2\cdot r$ with $r \in \Q$. Both sides are
+positive, so $r > 0$, and taking positive square roots,
+$\log p = 2\pi\sqrt{r}$, i.e.\ $p = e^{2\pi\sqrt{r}}$. With the branch
+$\log(-1) = i\pi$,
+\[
+p = e^{2\pi\sqrt{r}} = e^{(-2i\sqrt{r})\cdot(i\pi)} = (-1)^{-2i\sqrt{r}} .
+\]
+The base $-1$ is algebraic, $\neq 0, 1$; the exponent
+$\beta = -2i\sqrt{r}$ is algebraic (a product of $i$ and the real algebraic
+number $\sqrt{r}$), nonzero, and purely imaginary --- hence irrational,
+whether or not $\sqrt{r}$ is itself rational. By the Gelfond--Schneider
+theorem, $(-1)^\beta$ is transcendental. But it equals the integer $p$ ---
+contradiction.
+\end{proof}
+
+(Equivalently, in the linear-forms language: (T2) says
+$\log p = (-2i\sqrt{r})\cdot(i\pi)$ --- a $\overline{\Q}$-linear relation
+between the two $\Q$-linearly independent logarithms $\log p$ and
+$\log(-1) = i\pi$, one real and one imaginary; their ratio would be the
+algebraic irrational $-2i\sqrt{r}$, exactly what Gelfond--Schneider forbids.
+The point is that this \emph{quadratic} relation among $\log p, \pi$
+\textbf{factors} into linear-forms territory because $\sqrt{r}$ is
+algebraic. It is the classical family ``$e^{\pi\sqrt{d}}$ is
+transcendental'' --- the circle of Gelfond's constant $e^\pi$ and the
+Ramanujan constant --- specialized to $d = 4r$.)
+
+\paragraph{Status of (T1).}
+Known unconditionally: $\log p/\log q \notin \Q$ (unique factorization ---
+this is all Theorems~\ref{thm:twopartner}, \ref{thm:coherence} consume), and
+the Proposition above on the diagonal. The genuinely quadratic
+\emph{cross-prime} relation does not factor the same way --- it involves two
+independent logarithms --- and no proven theorem currently excludes it. It
+is, however, an \textbf{instance of the four-exponentials conjecture}
+\cite{FourExp}, not merely adjacent to it:
+
+\textbf{(4EC $\Longrightarrow$ $\neg$(T1)).} Suppose
+$\log p\cdot\log q = 4\pi^2\cdot u/v$ ($u/v \in \Q$, necessarily positive).
+Take $x_1 = 2\pi i$, $x_2 = \log p$ --- $\Q$-linearly independent (compare
+real and imaginary parts) --- and $y_1 = 1$, $y_2 = \log q/(2\pi i)$ ---
+$\Q$-linearly independent ($y_2$ is purely imaginary and nonzero, hence
+irrational). The four exponentials are $e^{x_1 y_1} = 1$,
+$e^{x_1 y_2} = q$, $e^{x_2 y_1} = p$, and
+$e^{x_2 y_2} = e^{\log p\cdot\log q/(2\pi i)} = e^{-2\pi i\cdot u/v}$, a
+root of unity. All four are algebraic --- contradicting the
+four-exponentials conjecture. \qed
+
+The \textbf{proven} six-exponentials theorem does not obviously reach (T1),
+for an amusing reason: it needs a third row $x_3$ with both $e^{x_3 y_1}$,
+$e^{x_3 y_2}$ algebraic, and --- taking $x_3 = \log \ell$ for a third prime,
+the natural candidate --- the algebraicity of $e^{x_3 y_2}$ would itself
+require a \emph{second} rational-product coincidence
+$\log \ell\cdot\log q \in 4\pi^2\Q$, which this note's own
+Theorem~\ref{thm:twopartner} (two-partner rigidity) forbids alongside the
+first. The rigidity that makes the no-go unconditional is the same rigidity
+that keeps its one open rider out of the proven theorem's reach.
+
+\paragraph{Conditional resolution (Schanuel; retained as the stronger
+statement).}
+Schanuel's conjecture implies the full algebraic independence of
+$\log p, \log q, i\pi$ --- hence $\neg$(T1), and it re-proves the
+Proposition. Take $x_1 = \log p$, $x_2 = \log q$, $x_3 = i\pi$. These are
+$\Q$-linearly independent: in $a\cdot\log p + b\cdot\log q + c\cdot i\pi = 0$
+the imaginary part forces $c = 0$, and then unique factorization forces
+$a = b = 0$. Schanuel then gives
+\[
+\trdeg_{\Q} \Q\bigl(\log p, \log q, i\pi, e^{x_1}, e^{x_2}, e^{x_3}\bigr)
+= \trdeg_{\Q} \Q\bigl(\log p, \log q, i\pi, p, q, -1\bigr) \geq 3 ,
+\]
+and since $p, q, -1$ are algebraic, $\log p, \log q, i\pi$ are algebraically
+independent over $\Q$. In particular
+$\log p\cdot\log q + r\cdot(i\pi)^2 \neq 0$ for every rational $r$ --- i.e.\
+$\log p\cdot\log q \notin \pi^2\Q = 4\pi^2\Q$. \qed
+
+\paragraph{The status ladder for (T1).}
+Open unconditionally $\subset$ settled by the four-exponentials conjecture
+(as an instance) $\subset$ settled by Schanuel (with full algebraic
+independence). Nothing in Theorems~\ref{thm:twopartner}--\ref{thm:nogo}
+consumes any rung of it: the family-level kill needs only unique
+factorization, which is exactly why it was engineered to be independent of
+(T1) --- and (T2) is no longer a rider at all.
+
+\paragraph{Numerical evidence (honesty check).}
+Rows 1--3 of Table~\ref{tab:numerics} are evidence on the open question
+(T1); rows 4--5 concern (T2), which the Proposition settles, and are
+retained not as evidence but as \textbf{detector controls confirming a
+theorem} --- the instruments correctly find no rational value where
+Gelfond--Schneider says none exists. Working precision is 400 digits.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\begin{tabular}{@{}lllll@{}}
+\toprule
+target & value (first 37 digits) & \begin{tabular}[t]{@{}l@{}}PSLQ\\ (coeffs $\leq 10^{30}$)\end{tabular} & \begin{tabular}[t]{@{}l@{}}CF terms to\\ $q_N > 10^{100}$\end{tabular} & \begin{tabular}[t]{@{}l@{}}max partial\\ quotient\end{tabular} \\
+\midrule
+$\log 2\cdot\log 3/(4\pi^2)$ & $0.0192890205998215679007346039996508659\ldots$ & no relation & 201 & 4591 \\
+$\log 2\cdot\log 5/(4\pi^2)$ & $0.0282579044193212256166934388383576738\ldots$ & no relation & 201 & 1598 \\
+$\log 3\cdot\log 5/(4\pi^2)$ & $0.0447877188535867805034209039422156347\ldots$ & no relation & 179 & 284 \\
+$(\log 2)^2/(4\pi^2)$ & $0.0121700170136801879558172286287261109\ldots$ & no relation & 160 & 226 \\
+$(\log 3)^2/(4\pi^2)$ & $0.0305723743263550882536179008172733061\ldots$ & no relation & 191 & 1521 \\
+\bottomrule
+\end{tabular}
+\caption{PSLQ and continued-fraction scans of the five targets at 400-digit
+working precision. The values are reproduced to their full recorded
+precision; the generating suite is named in the Provenance remark.}
+\label{tab:numerics}
+\end{table}
+
+PSLQ finds no integer relation $m\cdot x + n = 0$ with coefficients up to
+$10^{30}$ for any target; the continued-fraction expansions, scanned until
+the convergent denominator exceeds $10^{100}$, do not terminate and show no
+anomalously large partial quotient --- so \textbf{any rational value of any
+target has denominator exceeding $10^{100}$} (if $x = a/b$ with
+$b \leq q_N$, its continued fraction terminates within the scanned,
+precision-guaranteed range). Detector control in the positive direction: the
+same PSLQ instance recovers $\log 8 = 3\cdot\log 2$ instantly (check~E).
+Status of this evidence: for (T1) it is evidence, not proof --- and nothing
+in Theorems~\ref{thm:twopartner}--\ref{thm:nogo} consumes it; for (T2) the
+proof is the Proposition, and the numerics merely confirm the detectors
+work. In the exceptional-coincidence direction, Remark~\ref{rem:failure}
+records that even a true (T1) coincidence would create only a single isogeny
+inside the matching bound and would leave obstructions O2 and O3 intact.
+
+\section{Scope: what dies, what does not}
+\label{sec:scope}
+
+\paragraph{What dies (this note is the publishable record).}
+\begin{itemize}
+\item The Tate-curve assembly seed, as commissioned: struck. The
+$(p,q)$-graded family cannot carry (R1) (no composition material ---
+unconditional), (R2) (no pairing target off-diagonal; prime-blind data
+on-diagonal), or a non-vacuous (R3).
+\item The planned ``first empirical data on the seed'' sandbox over
+$\{E_2\times E_3, E_2\times E_5, E_3\times E_5\}$: ill-posed twice over ---
+Theorem~\ref{thm:coherence} shows no coherent correspondence assignment over
+the three surfaces exists to be measured (unconditionally, at least two of
+the three carry no correspondence class at all), and off the conjecturally
+empty exceptional matching the surfaces contain no graph classes and no
+diagonal to enumerate against (Theorem~\ref{thm:NS}).
+\item The thesis that the family furnishes ``a genuinely new substrate
+option the literature has never raised'': the option is genuinely new
+(\S\ref{sec:priorart}) and genuinely empty.
+\end{itemize}
+
+\paragraph{What does not die.}
+\begin{itemize}
+\item \textbf{Route A (the Connes--Consani characteristic-one square).}
+Untouched --- and complemented: the stall there is a \emph{missing}
+intersection theory on an \emph{existing} square \cite{CC16}\cite[\S4.3.2]{CE15},
+whereas this note certifies that the classical-complex escape hatch out of
+characteristic one --- the one the June-2026 curves seemed to open --- is
+empty. The two results bracket the problem from opposite sides: the char-one
+square has correspondences (Frobenius congruences) but no positivity
+calculus; the complex surfaces have the full classical positivity calculus
+but no correspondences. What the explicit formula needs is \emph{both at
+once}, and neither habitat supplies the pair.
+\item \textbf{Route C (the Deninger leg).} Untouched (a conormal-current
+transplant to the Witt space, pursued separately).
+\item \textbf{Hodge index over adelic curves.} Untouched, instrument-track;
+this note if anything sharpens its honest framing (the positivity engine is
+real and RH-free, but an engine is only as good as its substrate).
+\item \textbf{The curves $E_p$ themselves.} Nothing here diminishes
+\cite{CC26}'s construction; the no-go concerns only the pairwise
+\emph{products} as a correspondence substrate --- a use the paper itself
+never proposes.
+\item \textbf{Pair-indexed data as such.} The Kurokawa
+absolute-tensor-product line (\S\ref{sec:priorart}, item 5) proves the
+\emph{analytic} ``square of $\SpecZ$'' exists at the zeta-function level,
+with genuine Euler products over pairs of primes. Jointly with this note,
+the failure is localized precisely: pair-of-primes data is realizable
+analytically; what is empty is the proposed \emph{classical-geometric host}
+built from per-prime fibers.
+\end{itemize}
+
+\paragraph{Taxonomy.}
+The result binds all per-prime-fiber substrate designs, with the following
+executable test for any future per-prime-fiber assembly proposal: (i)
+compute $\Hom$ between two named fibers by the one-page lattice criterion;
+(ii) exhibit the diagonal/graph classes the calculus needs on the actual
+$\NS$ group; (iii) check whether any intersection number can carry a
+$\log p$ weight without hand-insertion. The process lesson is that this
+gate --- exactly the one-page computation of \S\ref{sec:isogeny} --- costs
+one page of lattice algebra and should run at proposal time.
+
+\section{Prior art: citations and distinctions}
+\label{sec:priorart}
+
+An earlier literature search found no source anticipating either the
+construction or the obstruction. \textbf{The construction half of that verdict
+stands; the obstruction half is withdrawn.} The rigidity of
+Theorems~\ref{thm:isogeny}--\ref{thm:coherence} \emph{is} anticipated, by
+Winkelmann in April 2002 (item~8 below, and the attribution note at the head of
+\S\ref{sec:isogeny}). The earlier claim that the obstruction ``is elementary
+lattice arithmetic that could have been recorded about any family of tori with
+moduli $i \log p/(2\pi)$ and was not'' is false: it was recorded, in 2002, and
+the reason the search missed it is that the search was phrased in prime-indexed
+language while Winkelmann's is phrased in eigenvalue and geodesic-length
+language. What survives unanticipated is the construction --- unsurprising, since
+the $E_p$ are two months old with no citing literature --- and the no-go proper,
+Theorems~\ref{thm:NS}, \ref{thm:diagonal} and~\ref{thm:nogo}. \textbf{Eight}
+adjacent traditions must be cited and distinguished:
+
+\begin{enumerate}
+\item \textbf{Connes--Consani--Marcolli, ``The Weil Proof and the Geometry
+of the Adeles Class Space'' \cite{CCM07}.} The
+correspondence-calculus-for-the-explicit-formula tradition --- but on the
+square of the \emph{one} global adele class space, with correspondences
+built from graphs of the scaling action and analogs of degree/codegree
+(\S7.1 there). Its \S10.2 contains the germ of our objects: the tori
+$T_p \cong \R^\times_{+}/p^\Z$ as singular-fiber components in a
+vanishing-cycles analogy --- one-dimensional \emph{real} tori, no complex
+structure, no products, no intersection theory on products.
+\textbf{Distinction:} one global noncommutative space squared versus a
+$(p,q)$-family of classical surfaces; the no-go concerns only the latter.
+(The search also checked the distinct CCM paper ``Fun with $\mathbf{F}_1$,''
+arXiv:0806.2401 --- zero Tate/elliptic/product content.)
+\item \textbf{Connes--Consani, ``Geometry of the arithmetic site''
+\cite{CC16} $+$ the essay stall quote \cite[\S4.3.2]{CE15}.} The square
+\emph{exists} in characteristic one, with Frobenius correspondences as
+congruences --- and intersection theory/Riemann--Roch missing a decade on.
+\textbf{Distinction:} complementary result, as in \S\ref{sec:scope}: this
+note shows the classical-complex escape from that stall is empty, and the
+escape's price (smooth/char-one correspondences) is the classical positivity
+itself.
+\item \textbf{The lineage inside the Connes--Consani orbit
+[\cite{CC16b, CC17} $\to$ \cite{CC25} $\to$ \cite{CC26}].} First appearance of
+per-prime elliptic-analogue language: \textbf{July 2015} --- the periodic orbit
+$C_p = \R^\times_+/p^{\Z}$, a real circle of circumference $\log p$ with a
+characteristic-one structure sheaf, $J(C_p) \cong \Z/(p-1)\Z$ and a real-valued
+Riemann--Roch \cite{CC16b, CC17}, described by its authors as ``a variant
+\ldots\ of the classical Jacobi description $\C^*/q^{\Z}$ of an elliptic
+curve''. \cite{CC25} (January 2025) contributes the class-field-theory functor
+and cites \cite{CC17} for the analogue rather than introducing it. The
+\emph{complex} Tate curves are June 2026 \cite{CC26}, which never raises
+products, isogenies, or correspondences between primes (confirmed against the
+full text). \textbf{Distinction:} both the construction and the no-go of this
+note are additions to, not extractions from, that lineage --- the lineage
+supplies per-prime fibers, never a cross-prime structure.
+\item \textbf{Banaszak--Uetake \cite{BU1, BU2, BU3}.} Independent
+operator-theoretic axiomatization of a Weil-style intersection calculus
+(axioms INT1--INT3 on a Hilbert-space operator, modeled on Weil's
+$C \times C$), whose \emph{existence} is equivalent to RH ($+$
+semi-simplicity). \textbf{Distinction:} they posit the calculus abstractly
+and prove existence $\Longleftrightarrow$ RH; this note kills the one
+concrete classical-surface instantiation ever proposed from per-prime
+geometric data. Opposite poles: abstract axioms with RH-equivalent
+existence versus concrete surfaces with provably empty calculus.
+\item \textbf{The Kurokawa absolute tensor product line
+\cite{Ku92, Ak09, Ta20}.} Kurokawa's 1992 proposal and the proven Euler
+products \emph{over pairs of primes} for $\zeta \otimes \zeta$ and
+Dirichlet-$L$ tensor squares (Koyama--Kurokawa; Akatsuka;
+Kurokawa--Wakayama; Tanaka) --- ``the square of $\SpecZ$'' at the
+zeta-function level, zeros at sums $\rho_1 + \rho_2$. \textbf{Distinction
+and sharpening:} the pair-indexed \emph{analytic} object exists and
+factorizes; the proposed \emph{geometric} host from per-prime Tate curves is
+empty. Jointly the two localize the failure of the square at the geometric
+hosting step, not at pair-indexed data. (This line is also the published
+calibration for what a pairwise-product family \emph{would} express if it
+expressed anything: pair-supported data with summed zeros --- not $W(f)$.)
+\item \textbf{Haran's arithmetical-surface program \cite{Ha91}.} The closest
+non-Connes--Consani surrogate proposal:
+$\SpecZ \times_{\mathrm{alg}} \SpecZ$ reduces to the diagonal (Haran: ``the
+surface reduces to the diagonal!''), so Haran proposes \emph{defining}
+intersection numbers of ``Frobenius divisors'' on the nonexistent surface by
+analytic means, aiming at a two-dimensional Riemann--Roch. \textbf{Distinction:} no per-prime elliptic fibers, no
+products of classical curves, no obstruction statement; Haran's program
+postulates the calculus's output, ours tests a concrete candidate host and
+finds it empty.
+\item \textbf{Scholze $A_{\mathrm{inf}}$/Fargues--Fontaine adjacency.}
+Nothing in that school produces cross-prime products of per-prime objects as
+a correspondence substrate (shtuka legs and $X_S$-families are all
+single-$p$), and no such no-go is published there. The one genuine contact
+runs through \cite{CC26} itself: the phase factor $\widetilde{X}_\infty$ as
+a \emph{real analogue} of the Fargues--Fontaine curve --- a
+per-prime-to-archimedean bridge, not a cross-prime one.
+\textbf{Distinction:} disjoint mechanism; cited for completeness of the
+search record.
+\item \textbf{Winkelmann's rigidity \cite{Wi04}.} Inside the proof of his
+Theorem~2 he derives, as the necessary condition for isogeny of
+$\C^*/\lambda_i^{\Z}$ and $\C^*/\lambda_j^{\Z}$, that
+$4\pi^2/(\log\lambda_i\log\lambda_j) \in \Q$; he then divides two such
+relations to force
+$\log\lambda_i/\log\lambda_k \in \Q$, runs the argument on three curves, and
+concludes that each curve in his family has at most one isogenous partner. That
+is \S\S\ref{sec:isogeny}--\ref{sec:familykill} of this note, transported.
+\textbf{Distinction:} his context is the geometry of $\mathrm{SL}_2(\C)/\Gamma$
+and hyperbolic geodesic length spectra; he never takes $\lambda$ prime, never
+writes $\Hom$, never computes a rank or an isogeny degree, and raises no
+N\'eron--Severi group, no correspondence calculus and no explicit formula. This
+note adds the prime-indexed explication and the no-go; it claims no priority over
+the rigidity.
+\end{enumerate}
+
+\paragraph{Transcendence background (rider citations).}
+The Gelfond--Schneider theorem (1934) for the \textbf{unconditional
+refutation of (T2)} --- the diagonal coincidence factors into a
+$\overline{\Q}$-linear relation between $\log p$ and $i\pi$, squarely inside
+the classical theorem (\S\ref{sec:transcendence}, Proposition); Baker's
+theorem for the general linear-forms background; the four-exponentials
+conjecture \cite{FourExp}, of which \textbf{(T1) is an instance} (not merely
+an adjacent open problem), with the proven six-exponentials theorem kept out
+of reach by Theorem~\ref{thm:twopartner} itself
+(\S\ref{sec:transcendence}); Schanuel's conjecture for the stronger
+algebraic-independence resolution, and Winkelmann's Proposition~3
+\cite[\S3.2]{Wi04} for the same reduction seventeen years earlier. The
+unconditional refutation of (T2) has a second and stronger route as well:
+Barr\'e-Sirieix, Diaz, Gramain and Philibert's proof of the Mahler--Manin
+conjecture \cite{BDGP96} gives $j(E_p)$ transcendental --- the nome
+$q = p^{-1}$ is algebraic with $|q| < 1$ --- hence no complex multiplication,
+hence $\End(E_p) = \Z$. The published state of the art on (T1) is Roy
+\cite{Roy92} and Diaz \cite{Dia07}, and the citable reason the proven machinery
+misses it is that Diaz's Corollaire~1(1) needs
+$(\lambda_0, \lambda_2, \overline{\lambda_2})$ to be $\overline{\Q}$-linearly
+free, which fails here because $\lambda_2 = \log q$ is real.
+
+\medskip
+
+\noindent\textbf{Withdrawn.} An earlier draft of this section read: ``The
+question (T1) appears to be unrecorded in the literature in this form and is
+stated here as open.'' \textbf{That is false and is withdrawn.} $\neg$(T1) is
+the specialization to $\alpha_1 = p$, $\alpha_2 = q$ of the conjecture printed
+as (C4E faible) in \cite[p.~231]{Dia97}, due to D.~Bertrand
+\cite[\S5]{Ber97}, and the same paper carries unconditional partial results
+this note does not consume. The germ is older still: Alaoglu and Erd\H{o}s asked
+the two-prime question in print in 1944 \cite[pp.~449, 455]{AE44}. The
+mathematics is untouched: (T1) is open, the family-level kill does not consume
+it, and (T2) is refuted unconditionally.
+
+\paragraph{Novelty statement.}
+The construction --- the $E_p \times E_q$ assembly proposal, born and killed
+inside the program that produced this note --- is new.
+\textbf{Theorems~\ref{thm:isogeny}, \ref{thm:twopartner} and~\ref{thm:coherence}
+are not: they are Winkelmann's, from 15 April 2002, specialized here to primes}
+(item~8 above, and the attribution note at the head of \S\ref{sec:isogeny}).
+What is claimed as new is the prime-indexed explication of the rigidity --- the
+group $\Hom(E_p, E_q)$, its rank, and the isogeny degree $uv$, none of which
+appears in \cite{Wi04} --- together with Theorem~\ref{thm:NS} (N\'eron--Severi
+collapse and its four consequences), Theorem~\ref{thm:diagonal} (the prime-blind
+diagonal residue), Theorem~\ref{thm:nogo} (the no-go), and the identification of
+the seed proposal as empty. The eight citation-and-distinguish obligations above
+are discharged. The obstruction's ingredients are elementary ---
+Birkenhake--Lange-level lattice arithmetic plus unique factorization --- which is
+exactly why the rigidity half was available to be noticed in 2002, and was.
+
+\section*{Provenance}
+
+\begin{remarkunnum}[Provenance]
+This note is the publishable record of a result obtained on August 26, 2026
+inside a structured research program on the Riemann hypothesis (direction
+``C3: geometric substrate''); the seed proposal killed here
+(\S\ref{sec:seed}) originated inside the same program, where it is retained
+verbatim as an immutable record. The kill was constructed independently by
+two verifiers under a duplicate-blind protocol (identical mathematics, no
+shared text), re-derived in full by an independent adjudicator --- whose
+record documents the $4\pi^2\Q$ versus $\pi^2\Q$ reconciliation of
+Remark~\ref{rem:bookkeeping} --- and re-proved from scratch for this note.
+The numerical checks cited in the text (check~A: the 55-digit confirmation
+of Lemma~0; check~B: the synthetic isogeny pair with $y y' = 3/7$; check~C:
+the PSLQ/continued-fraction table of \S\ref{sec:transcendence}; check~D: the
+kernel tabulations for $k \leq 7$; check~E: the positive control
+$\log 8 = 3\log 2$) are implemented in the program files
+\texttt{seed-no-go-checks.py} and \texttt{seed-no-go-checks.json} at
+400-digit working precision; a referee suite reproduced them bit-for-bit and
+re-implemented them independently with rigorous interval-arithmetic
+continued fractions and instrument-independent constants, with a third
+instrument as cross-check. An independent referee pass dated August 26, 2026
+found one fatal defect, cutting in the note's own disfavor: the original
+version of \S\ref{sec:transcendence} claimed that no proven theorem excludes
+either coincidence (T1)/(T2), whereas (T2) has been excluded unconditionally
+since 1934 by Gelfond--Schneider, and (T1) is settled already by the
+four-exponentials conjecture, far short of Schanuel. The repair --- the
+Proposition of \S\ref{sec:transcendence}, the unconditional form of
+Theorem~\ref{thm:diagonal}(1), and the corrected status ladder --- is
+incorporated in this revision, along with nine mechanical referee repairs;
+the strengthening consequence is that $\End(E_p) = \Z$ for every prime with
+no hedge, leaving exactly one open rider, (T1). A dedicated prior-art gate
+completed August 26, 2026 (roughly ten search phrasings; three papers
+fetched and read; five corpus items read in full-text; unreachable
+resources logged) returned the verdict \emph{novel-with-citations},
+discharged in \S\ref{sec:priorart}; Akatsuka's paper \cite{Ak09} is
+characterized through Tanaka's introduction \cite{Ta20} and venue
+confirmations, its full text being paywalled --- nothing load-bearing rests
+on unread portions. Quotations from \cite{CC26}, \cite{CC25}, and
+\cite{CE15} were verified against full-text copies on file. The
+non-circular derivation of Castelnuovo--Severi from Riemann--Roch plus
+ampleness, cited in \S\ref{sec:seed} and \S\ref{sec:NS}, is a companion
+program note; the result itself is banked in the program's barrier taxonomy
+(entry IV.10) together with the executable test of \S\ref{sec:scope} and
+cross-links to neighboring entries.
+
+\medskip
+
+\noindent\textbf{Data and code availability.} The numerical checks above, the
+referee record, the prior-art gate and the internal correction notes referred to
+in this section are in the program repository,
+\url{https://github.com/x67ai/riemann-rh-program} (state as of commit
+\texttt{4e80356}); paths are relative to \texttt{rh-program/}. The
+program's PDF corpus of fetched literature is deliberately not redistributed, for
+copyright reasons; nothing here depends on it, and every external claim is cited
+to its published source.
+\end{remarkunnum}
+
+\begin{thebibliography}{BDGP96}
+
+\bibitem[CC26]{CC26} A. Connes, C. Consani, \emph{On the Absolute Geometry
+of Spec $\Z$ and the Fargues--Fontaine curve}, arXiv:2606.06604 (June
+2026). \textbf{Title note:} the clause ``and the Fargues--Fontaine curve'' is
+absent from every arXiv metadata surface --- the abs page's heading, the
+\texttt{citation\_title} meta tag, the API, and the PDF's own metadata --- and
+from zbMATH; it survives only on the typeset title page and in arXiv's HTML
+rendering of the \LaTeX{} title macro. It is part of the title and must be kept.
+
+\bibitem[CC25]{CC25} A. Connes, C. Consani, \emph{Knots, primes and class
+field theory}, arXiv:2501.06560 (January 2025); in \emph{Regulators V},
+Contemp. Math. 842, Amer. Math. Soc., Providence, RI, 2026, pp.~105--132.
+
+\bibitem[CC16]{CC16} A. Connes, C. Consani, \emph{Geometry of the
+arithmetic site}, Adv. Math. \textbf{291} (2016), 274--329;
+arXiv:1502.05580.
+
+\bibitem[CE15]{CE15} A. Connes, \emph{An essay on the Riemann Hypothesis},
+arXiv:1509.05576, \S4.3.2; in \emph{Open Problems in Mathematics}
+(J.~F.~Nash,~Jr.\ and M.~Th.~Rassias, eds.), Springer, Cham, 2016,
+pp.~225--257.
+
+\bibitem[CCM07]{CCM07} A. Connes, C. Consani, M. Marcolli, \emph{The Weil
+Proof and the Geometry of the Adeles Class Space}, arXiv:math/0703392;
+in \emph{Algebra, Arithmetic, and Geometry: In Honor of Yu.~I.~Manin},
+Vol.~I, Progr. Math. 269, Birkh\"auser Boston, Boston, MA, 2009,
+pp.~339--405.
+
+\bibitem[BU1]{BU1} G. Banaszak, Y. Uetake, \emph{Abstract intersection
+theory and operators in Hilbert space}, arXiv:0908.2909; Commun. Number
+Theory Phys. 5 (2011), no.~3, 699--712.
+
+\bibitem[BU2]{BU2} G. Banaszak, Y. Uetake, \emph{Standard models of
+abstract intersection theory for operators in Hilbert space},
+arXiv:1210.3526; Bull. Pol. Acad. Sci. Math. 63 (2015), no.~2, 149--175.
+
+\bibitem[BU3]{BU3} G. Banaszak, Y. Uetake, \emph{Abstract intersection
+theory for zeta-functions: geometric aspects}, Funct. Approx.
+Comment. Math. 64.2 (2021) 251--265.
+
+\bibitem[Ku92]{Ku92} N. Kurokawa, \emph{Multiple zeta functions: an
+example}, in \emph{Zeta Functions in Geometry} (Tokyo, 1990), Adv. Stud.
+Pure Math. 21, Kinokuniya, Tokyo, 1992, pp.~219--226 --- the absolute
+tensor product proposal. Proofs of the predicted Euler products:
+S. Koyama and N. Kurokawa, \emph{Multiple Euler products}, Amer. Math.
+Soc. Transl. Ser.~2 \textbf{218} (2006), 101--140 (the case
+$\zeta \otimes \zeta$); N. Kurokawa and M. Wakayama, \emph{Absolute
+tensor products}, Int. Math. Res. Not. \textbf{2004}, no.~5, 249--260.
+See also \cite{Ak09}, \cite{Ta20}.
+
+\bibitem[Ak09]{Ak09} H. Akatsuka, \emph{The double Riemann zeta function},
+Commun. Number Theory Phys. \textbf{3} (2009), no.~4, 619--653.
+
+\bibitem[Ta20]{Ta20} H. Tanaka, \emph{The Euler product expressions of the
+absolute tensor products of the Dirichlet $L$-functions},
+arXiv:2008.07752 (history of the Kurokawa absolute tensor product line
+and the Dirichlet-$L$ case).
+
+\bibitem[Ha91]{Ha91} S. Haran, \emph{Index theory, potential theory, and the
+Riemann hypothesis}, in \emph{L-functions and Arithmetic} (Durham, 1989),
+J.~Coates and M.~J.~Taylor (eds.), London Math. Soc. Lecture Note Ser.\ 153,
+Cambridge Univ. Press, Cambridge, 1991, pp.~257--270 (MR1110396; DOI
+10.1017/CBO9780511526053.010). The passage relied on here is p.~259:
+$\SpecZ \times \SpecZ \cong \SpecZ$, ``the surface reduces to the
+diagonal''; the analytic definition $\langle f,g \rangle := W(f * g^{*})$ of
+intersection numbers of ``Frobenius divisors'' on that nonexistent surface;
+and ``a two dimensional Riemann--Roch for $\SpecZ$ may very well exist''.
+Quoted verbatim and expanded in the survey K.~Thas, \emph{A taste of Weil
+theory in characteristic one}, in \emph{Absolute Arithmetic and
+$\Fun$-Geometry}, K.~Thas (ed.), European Mathematical Society Publishing
+House, Z\"urich, 2016, pp.~365--386; arXiv:1507.06480.
+
+\bibitem[BL]{BL} C. Birkenhake, H. Lange, \emph{Complex Abelian Varieties},
+2nd ed., Grundlehren der mathematischen Wissenschaften 302, Springer,
+Berlin, 2004, Ch.~2 and Ch.~5. (Citation at chapter level; every fact consumed
+from it is re-proved in \S\ref{sec:NS}, so nothing load-bearing rests on a
+recalled page number.)
+
+\bibitem[We52]{We52} A. Weil, \emph{Sur les ``formules explicites'' de la
+th\'eorie des nombres premiers}, Comm. S\'em. Math. Univ. Lund (1952),
+Tome Suppl\'ementaire, 252--265. Used only through the
+normalization-hedged structural display of \S\ref{sec:seed}; small-support
+calibration as in E. Bombieri (2000).
+
+\bibitem[4EC]{FourExp} The four-exponentials conjecture; see S. Lang,
+\emph{Introduction to Transcendental Numbers}, Addison-Wesley Series in
+Mathematics, Addison-Wesley, Reading, MA, 1966, and M. Waldschmidt,
+\emph{Diophantine Approximation on Linear Algebraic Groups: Transcendence
+Properties of the Exponential Function in Several Variables}, Grundlehren
+der mathematischen Wissenschaften 326, Springer, Berlin, 2000.
+
+\bibitem[AE44]{AE44} L. Alaoglu and P. Erd\H{o}s, \emph{On highly composite
+and similar numbers}, Trans. Amer. Math. Soc. \textbf{56} (1944), 448--469;
+doi:10.1090/S0002-9947-1944-0011087-2. The two-prime question is at p.~449 and
+again at p.~455, where Siegel's three-prime result is recorded.
+
+\bibitem[BDGP96]{BDGP96} K. Barr\'e-Sirieix, G. Diaz, F. Gramain and
+G. Philibert, \emph{Une preuve de la conjecture de Mahler--Manin},
+Invent. Math. \textbf{124} (1996), no.~1--3, 1--9; doi:10.1007/s002220050044.
+
+\bibitem[Ber97]{Ber97} D. Bertrand, \emph{Theta functions and transcendence},
+International Symposium on Number Theory (Madras, 1996), Ramanujan J.
+\textbf{1} (1997), no.~4, 339--350; doi:10.1023/A:1009749608672.
+(Paywalled and not read; the \S5 locator is on Diaz's word, \cite[p.~231 and
+bibliography item 2]{Dia97}.)
+
+\bibitem[CC16b]{CC16b} A. Connes and C. Consani, \emph{The scaling site},
+C. R. Math. Acad. Sci. Paris \textbf{354} (2016), no.~1, 1--6;
+doi:10.1016/j.crma.2015.09.027; arXiv:1507.05818 (v1, 21 Jul 2015).
+
+\bibitem[CC17]{CC17} A. Connes and C. Consani, \emph{Geometry of the scaling
+site}, Selecta Math. (N.S.) \textbf{23} (2017), no.~3, 1803--1850;
+doi:10.1007/s00029-017-0313-y; arXiv:1603.03191.
+
+\bibitem[CC19]{CC19} A. Connes and C. Consani, \emph{The Riemann--Roch
+strategy: complex lift of the Scaling Site}, in: \emph{Advances in
+Noncommutative Geometry} (A. Chamseddine, C. Consani, N. Higson, M. Khalkhali,
+H. Moscovici and G. Yu, eds.), Springer, Cham, 2019, 53--125;
+doi:10.1007/978-3-030-29597-4\_2; arXiv:1805.10501. Its \S\S6.4--6.6 carry the
+Connes--Consani moduli of triangular elliptic curves with the equivalence
+relation generated by isogenies.
+
+\bibitem[CC24a]{CC24a} A. Connes and C. Consani, \emph{Knots, primes and the
+adele class space}, arXiv:2401.08401 (January 2024). Its \S3 constructs
+$\Gamma \backslash (\Q_p \times \Q_q \times \R)$ with
+$\Gamma = \{\pm p^m q^n\}$ --- a genuine two-prime object inside the same
+program. \textbf{Distinction:} a knot/linking-number analogy, not a
+correspondence calculus.
+
+\bibitem[Dia97]{Dia97} G. Diaz, \emph{La conjecture des quatre exponentielles
+et les conjectures de D. Bertrand sur la fonction modulaire},
+J. Th\'eor. Nombres Bordeaux \textbf{9} (1997), no.~1, 229--245;
+\url{http://www.numdam.org/item?id=JTNB_1997__9_1_229_0}. (C4E faible) is
+displayed on p.~231.
+
+\bibitem[Dia07]{Dia07} G. Diaz, \emph{Produits et quotients de combinaisons
+lin\'eaires de logarithmes de nombres alg\'ebriques: conjectures et
+r\'esultats partiels}, J. Th\'eor. Nombres Bordeaux \textbf{19} (2007),
+no.~2, 373--391; doi:10.5802/jtnb.592.
+
+\bibitem[Lan66]{Lan66} S. Lang, \emph{Nombres transcendants}, S\'eminaire
+Bourbaki, 18e ann\'ee (1965/66), exp. no.~305, 407--414; and
+\emph{Algebraic values of meromorphic functions. II}, Topology \textbf{5}
+(1966), 363--370; doi:10.1016/0040-9383(66)90028-0.
+
+\bibitem[Mil16]{Mil16} J. S. Milne, \emph{The Riemann hypothesis over finite
+fields: from Weil to the present day}, in: \emph{The Legacy of Bernhard
+Riemann After One Hundred and Fifty Years}, Vol.~II (L. Ji, F. Oort and
+S.-T. Yau, eds.), Adv. Lect. Math. (ALM) \textbf{35}, part~2, International
+Press and Higher Education Press, 2016, 487--565; reprinted in ICCM Notices
+\textbf{4} (2016), no.~2, 14--52; doi:10.4310/ICCM.2016.v4.n2.a4;
+arXiv:1509.00797.
+
+\bibitem[Mor25]{Mor25} M. Morishita, \emph{On a relation between Deninger's
+foliated dynamical systems and Connes--Consani's adelic spaces},
+arXiv:2508.15971 (August 2025; revised through 21 Jan 2026).
+
+\bibitem[Nes96]{Nes96} Yu. V. Nesterenko, \emph{Modular functions and
+transcendence questions}, Mat. Sb. \textbf{187} (1996), no.~9, 65--96;
+English transl., Sb. Math. \textbf{187} (1996), no.~9, 1319--1348;
+doi:10.1070/SM1996v187n09ABEH000158. With Yu. V. Nesterenko and P. Philippon
+(eds.), \emph{Introduction to Algebraic Independence Theory}, Lecture Notes in
+Math. \textbf{1752}, Springer, Berlin, 2001; doi:10.1007/b76882.
+
+\bibitem[Ram68]{Ram68} K. Ramachandra, \emph{Contributions to the theory of
+transcendental numbers. I, II}, Acta Arith. \textbf{14} (1968), 65--72 and
+73--88; doi:10.4064/aa-14-1-65-72. The four-exponentials conjecture is
+formulated in part~II, \S4.
+
+\bibitem[Roy92]{Roy92} D. Roy, \emph{Matrices whose coefficients are linear
+forms in logarithms}, J. Number Theory \textbf{41} (1992), no.~1, 22--47;
+doi:10.1016/0022-314X(92)90081-Y.
+
+\bibitem[RS14]{RS14} J. Rosen and A. Shnidman, \emph{N\'eron--Severi groups of
+product abelian surfaces}, preprint, arXiv:1402.2233 (2014), Proposition~2.3.
+(They preface the decomposition ``is well-known''; cited as a locator, not as
+its origin.)
+
+\bibitem[Sch57]{Sch57} Th. Schneider, \emph{Einf\"uhrung in die transzendenten
+Zahlen}, Grundlehren der mathematischen Wissenschaften \textbf{81},
+Springer-Verlag, Berlin--G\"ottingen--Heidelberg, 1957; Ch.~V, end of \S4,
+Problem~1. French translation: \emph{Introduction aux nombres transcendants},
+Gauthier-Villars, Paris, 1959, p.~139. (Not held; locator per
+\cite[\S3]{Wal04}.)
+
+\bibitem[Wal04]{Wal04} M. Waldschmidt, \emph{Open Diophantine Problems},
+Mosc. Math. J. \textbf{4} (2004), no.~1, 245--305;
+doi:10.17323/1609-4514-2004-4-1-245-305; arXiv:math/0312440. Conjecture~3.7
+and the matrix restatement following it, p.~269.
+
+\bibitem[Wi04]{Wi04} J. Winkelmann, \emph{On elliptic curves in
+$\mathrm{SL}_2(\C)/\Gamma$, Schanuel's conjecture and geodesic lengths},
+Nagoya Math. J. \textbf{176} (2004), 159--180;
+doi:10.1017/S0027763000009016; arXiv:math/0204195 (v1, 15 Apr 2002; v2,
+6 Nov 2002; v3, 8 Apr 2003). Pin-cites used here: Lemma~7 (isogeny
+$\Leftrightarrow \dim_\Q \ker \Phi > 0$); the proof of Theorem~2, p.~16;
+Conjecture~1, \S3.2, p.~13; Proposition~3, \S3.2, p.~14. The paper has six
+sections; there is no \S7. Crossref and Cambridge Core render the title with a
+spurious ``$\Gamma$..''; the arXiv, zbMATH and title-page form is the one used
+here.
+
+\end{thebibliography}
+
+\end{document}

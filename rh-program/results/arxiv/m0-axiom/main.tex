@@ -1,0 +1,1018 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{provenance}{Provenance}
+
+\newcommand{\Lb}{\overline{L}}
+
+\title{The polarized-Frobenius axiom class: an axiom statement with
+Davenport--Heilbronn and Epstein witnesses (not a theorem)}
+\author{Kunal Tyagi\thanks{%
+\texttt{hello.jay.tyagi@gmail.com}. \textbf{Use of AI.} The mathematics in this
+paper --- the derivations, the computations, the verification suite, and the
+text --- was produced by Claude (Anthropic) working under the author's direction
+inside a structured research program; the author set the program's objectives,
+adjudicated its decisions, and is responsible for the content. Claude is a tool and
+is not an author. The complete program record, including every session log, review
+and correction, is public: \url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{August 26, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note records an axiom class together with a witness record; it establishes no
+theorem. A \emph{polarized Frobenius system} for a Dirichlet series $D(s)$ over a
+proper adelic curve (in the sense of Chen--Moriwaki, with nef adelic line bundles in
+the Yuan--Zhang calculus) consists of six axioms: a polarized square, a Frobenius
+family, a total composition law with primitivity exactly at the primes, effectivity,
+a transpose/Rosati-type functional-equation template, and a $D$-attachment clause.
+We show that the attachment clause cannot be formalized innocently: under a degree
+reading, an Euler product is forced by definition, and an explicit
+$\mathbb{P}^1 \times \mathbb{P}^1$ system satisfies axioms (PF1)--(PF4) while
+touching no coefficient of any $D$; under a trace reading, counting data does not
+factor through composition, and an organizing Lefschetz-tie axiom must be added. On
+every branch the exclusion of RH-false examples is definitional. With effectivity as
+an axiom, a cheap monoid computation shows that admissible series have von Mangoldt
+data supported on prime powers and nonnegative. Exact witnesses are recorded: the
+Davenport--Heilbronn series and the Epstein zeta function of $x^2 + 5y^2$ fail
+admissibility, with closed-form von Mangoldt values; but so does the RH-true
+Dirichlet $L$-function $L(s, \chi_4)$. The class is therefore a positivity filter,
+not an Euler-product filter and not an RH filter, and Beurling-type generalized
+number systems satisfy all of its operative coefficient-level consequences, so the
+class as printed cannot decide the Riemann hypothesis. All numerical witnesses carry
+exact closed forms.
+\end{abstract}
+
+\section{Introduction and status}\label{sec:intro}
+
+This document is an \textbf{axiom statement plus a witness record}. It is NOT a
+theorem, it is NOT ``provable today,'' and it does NOT establish that the
+Davenport--Heilbronn and Epstein zeta functions admit no
+$\mathbb{F}_1$-model (a claim that would require a formalized notion of
+$\mathbb{F}_1$-model and remains open). An earlier ``Lemma~B'' theorem framing of
+this material was refuted by two independent adversarial reviews (blind
+replication) and the refutation was upheld on independent re-derivation in an
+adjudication pass; the review record, and the meaning of the internal terms used
+below (``killers,'' ``adjudication,'' ``referee''), are summarized in the
+Provenance remark at the end of this note. What survives that process --- per the
+adjudication's partial overrule of one kill verdict, via a referee-verified minor
+finding --- is exactly this: \textbf{with effectivity added as an axiom, the
+step-2 monoid computation under the degree reading is a correct, cheap formal
+computation}, so the axiom-format note is a legitimate, nonzero item rather than
+pure re-dressing. The content remains quasi-definitional: it is a known
+positivity-barrier witness in a new dialect, whose sharper formal home is the
+Blomer--Leung beyond-endoscopy converse theorem \cite{BL}. (The word ``monoid''
+belongs to the Braverman--Kazhdan/Ng\^o circle, not to Blomer and Leung: a
+case-insensitive count of it in both arXiv versions of \cite{BL} is zero.)
+
+\medskip
+\noindent\textbf{Role.} This note is the \textbf{axiom citation} for any argument
+that wants to consume ``multiplicativity as geometry'' --- nothing more. It
+supersedes the earlier ``Lemma~B (target statement)'' framing, which is retained
+in the program record as the immutable historical version.
+
+\medskip
+\noindent\textbf{Binding constraints.} Every mathematical claim below was either
+(i) re-derived independently by both adversarial reviews and the adjudication, or
+(ii) computed and stored with exact closed forms (the Provenance remark traces
+every number to its source). Claims struck in adjudication (theorem status,
+``provable today,'' discharge of the $\mathbb{F}_1$-model question, any credit
+beyond the axiom-format role) do not appear here except in the negative.
+
+\section{Prior art, and what is new}\label{sec:priorart}
+
+Six lines of published work stand upstream of this note. Each is named here, with
+its differentiator, so that no part of \S\S\ref{sec:axioms}--\ref{sec:clauses} is
+mistaken for a discovery.
+
+\begin{itemize}
+\item \textbf{$\Lambda$-rings (Borger \cite{Borger}).} A commuting family of
+Frobenius endomorphisms indexed by the primes is, in $\Lambda$-algebraic geometry,
+a \emph{definition} rather than an axiom: for $X$ flat over $\mathbb{Z}$, a
+$\Lambda$-structure on $X$ \emph{is} ``a commuting family of endomorphisms
+$\psi_p : X \to X$, one for each prime $p$, such that $\psi_p$ agrees with the
+$p$-th power Frobenius map on $X \times_{\operatorname{Spec}\mathbb{Z}}
+\operatorname{Spec}\mathbb{F}_p$'' \cite[\S1.1]{Borger}, with the
+$\Lambda$-ideals ``ordered by divisibility on $m$'' \cite[\S6]{Borger}.
+(PF2)$+$(PF3) are that definition; nothing is claimed there.
+\item \textbf{The square, in characteristic one (Connes--Consani \cite{CC16};
+Connes \cite{CE15}).} The polarized square with fiber classes, the basic fact
+used in \S\ref{sec:admissibility} --- ``if $D$ is a strictly positive divisor then
+$D \cdot \xi_0 + D \cdot \xi_1 > 0$'' \cite[\S2.3]{CE15} --- the
+$\mathbb{N}^\times$ Frobenius monoid with its composition law
+\cite[\S4.3.1]{CE15}, and the diagnosis that ``what is missing is an intersection
+theory and a Riemann-Roch theorem on the square of the arithmetic site''
+\cite[\S4.3.2]{CE15}, are all in print; and Connes--Consani realize Frobenius
+correspondences as congruences in the square and prove
+$\Psi(\lambda) \circ \Psi(\lambda') = \Psi(\lambda\lambda')$
+\cite[Thm.~1.2, Thm.~7.7]{CC16}. \textbf{Four differentiators:} their index monoid
+$\mathbb{R}^\times_+$ is divisible, so ``primitivity at the primes'' --- the whole
+content of (PF3) --- has no analogue there; there is no nef-polarization degree
+calculus; there is no effectivity axiom; and the ambient object is a
+characteristic-one semi-ringed topos, not an adelic curve.
+\item \textbf{Absolute Descartes powers (Manin \cite{Manin}).}
+``$\operatorname{Spec}\mathbb{Z} \times \cdots \times \operatorname{Spec}
+\mathbb{Z}$'' as an absolute power, and ``a canonical absolute Frobenius'', are
+Manin's, from 1995.
+\item \textbf{The genre --- no-go theorems about an explicitly stated axiom class
+(Deninger \cite{Den22}).} Deninger states the expected properties of a
+real-coefficient ``Weil-''cohomology for an arithmetic curve as numbered items
+2.1--2.12 and then proves (Theorem~2.13) that no such theory exists. The method is
+the same --- state the axioms, then show what they cannot do --- and the
+differentiator is the conclusion's strength: his is an impossibility theorem, this
+note's is a \emph{vacuity} certificate at coefficient level. (The property his
+Theorem~2.13 refutes is 2.12, the Galois-equivariant order-of-vanishing property,
+not his spectral axiom 2.3 and not his positivity hypothesis 2.7.)
+\item \textbf{Taking an RH axiom framework seriously (Flach--Morin \cite{FM20}).}
+They conjecture a long exact sequence tying Deninger's conjectural cohomology to
+Weil--Arakelov cohomology, and prove it for smooth projective varieties over finite
+fields with finitely generated Weil-\'etale motivic cohomology --- the precedent for
+working out what such a framework does and does not give.
+\item \textbf{The closest prior work --- an axiomatized intersection calculus for
+zeta (Banaszak--Uetake \cite{BU1, BU2, BU3}).} They introduce axioms (INT1--INT3)
+for an abstract intersection theory attached to a Hilbert-space operator and prove
+them equivalent to RH for that operator: for the operator attached to $L(s, \chi)$
+--- for $\Gamma = \mathrm{SL}_2(\mathbb{Z})$, to $\zeta$ itself --- RH together
+with simplicity of all nontrivial zeros holds if and only if a standard model exists
+\cite[Thm.~5.4]{BU2}, and they say so themselves: ``The existence of this model is
+equivalent to the RH (plus the simple zero conjecture)'' \cite[\S1]{BU3}.
+\textbf{The differentiator is the polarity.} Theirs is an abstract axiom set whose
+\emph{existence} is RH-equivalent --- non-vacuous but circular, and it buys no
+exclusion. This note's is a concrete axiom set whose coefficient-level consequences
+are provably satisfied by RH-false objects (\S\ref{sec:clauses}) and provably
+violated by an RH-true one (\S\ref{sec:chi4}) --- vacuous as an RH filter, with the
+vacuity certified rather than conjectured.
+\end{itemize}
+
+\noindent\textbf{What is new here is exactly three things:} the \emph{conjunction}
+(PF1)--(PF6) as a printed axiom class over a Chen--Moriwaki adelic curve with a
+Yuan--Zhang nef polarization; the \textbf{definitional fork} of
+\S\ref{sec:fork}, which shows the $D$-attachment clause admits exactly two
+readings and that both make the Davenport--Heilbronn/Epstein exclusion definitional;
+and the \textbf{vacuity certificate} --- the
+$\mathbb{P}^1 \times \mathbb{P}^1$ system of \S\ref{sec:hornA} satisfying
+(PF1)--(PF4) while touching no coefficient of any $D$, together with the
+\S\ref{sec:witnesses} witnesses and the Beurling clause of \S\ref{sec:clauses}.
+Nothing else is claimed as new.
+
+\section{The axiom class (repaired definition)}\label{sec:axioms}
+
+Let $S = (K, (\Omega, \nu), (|\cdot|_\omega))$ be a \textbf{proper adelic curve}
+in the Chen--Moriwaki sense \cite{CM} (``proper'' $=$ the product formula holds).
+A \textbf{polarized Frobenius system} for a Dirichlet series $D(s)$ over $S$
+consists of:
+
+\begin{itemize}
+\item \textbf{(PF1) Polarized square.} A fibered square $X$ over $S$ carrying a
+nef adelic $\mathbb{Q}$-line bundle $\Lb$ in the Yuan--Zhang adelic-line-bundle
+calculus \cite{YZ}, with the two fiber classes $\xi_1, \xi_2$ and a
+correspondence composition $\circ$ and transpose $t$.
+\item \textbf{(PF2) Frobenius family.} A family of correspondences
+$\{\Psi_n\}_{n \ge 1}$ on $X$ with $\Psi_1 = \Delta$ (the identity
+correspondence).
+\item \textbf{(PF3) Composition law and primitivity.}
+$\Psi_m \circ \Psi_n = \Psi_{mn}$ for \textbf{all} $m, n \ge 1$, and $\Psi_p$ is
+primitive (not a composition of non-identity members) exactly at the primes $p$.
+\item \textbf{(PF4) Effectivity} \emph{(axiom added by the adjudicated repair;
+the original definition omitted it and its step~3 is false without it --- general
+correspondence classes are differences of effective ones and can have negative
+degrees)}. Every $\Psi_n$ is effective.
+\item \textbf{(PF5) FE/duality (transpose/Rosati-type)} \emph{(axiom added by the
+adjudicated repair; the original definition's ``closed under transpose'' was
+never tied to the $\Psi_n$ by any axiom)}. The family is stable under transpose,
+and a fixed Rosati-type identity ties $\Psi_n^t$ to $\Psi_n$ through the
+polarization $\Lb$, whose numerical shadow is the $s \mapsto 1-s$ (eigenvalue
+$\alpha \mapsto q/\alpha$) symmetry of the functional equation of $D$. Template:
+in characteristic $p$ the functional equation IS Rosati/Poincar\'e duality,
+relating $\Gamma_F^t$ to the dual ``$q/F$''
+($\Gamma_F^t \circ \Gamma_F = q \cdot \Delta$ for the purely inseparable
+Frobenius $F$ of degree $q$). Over an adelic curve this axiom is stated here at
+template level only: \textbf{no candidate substrate currently instantiates it for
+any $D$}, and this note makes no claim about how a sharpened transpose axiom
+would cut down the model class of \S\ref{sec:hornA} (unadjudicated).
+\item \textbf{(PF6) $D$-attachment.} The counting data of $D(s)$ is reproduced by
+the system. This clause is the definitional joint, and it cannot be formalized
+innocently: \S\ref{sec:fork} shows that every reading makes the
+Davenport--Heilbronn/Epstein exclusion \textbf{definitional}, which is why this
+document is an axiom statement and not a theorem.
+\end{itemize}
+
+\medskip
+\noindent\textbf{PF5 status (read together with \S\ref{sec:hornA} and
+\S\ref{sec:clauses}).} Two bookkeeping facts about (PF5), stated here so that no
+reader has to assemble them: \textbf{(a)} PF5's transpose-stability clause
+already fails for the model system of \S\ref{sec:hornA} ---
+$\Gamma_{z \mapsto z^n}^t$ has bidegree $(n, 1)$, which is not the bidegree
+$(1, m)$ of any $\Gamma_m$ --- so that exhibit certifies vacuity of the
+\textbf{(PF1)--(PF4) fragment}, and no transpose-stable instantiation of the full
+six-axiom class is currently known for any $D$. This is consistent with PF5's
+uninstantiated-template status and changes nothing in the fork of
+\S\ref{sec:fork}: Horn~A's steps 1 and 3 do not use the exhibit. \textbf{(b)} In
+the \S\ref{sec:clauses} accounting, PF5 is excluded from ``the axiom a DMV world
+violates'' because it is an uninstantiated template contributing no operative,
+checkable coefficient-level consequence. If its FE \textbf{shadow} were instead
+imposed directly on $D$ as an analytic requirement, FE-free Beurling systems
+would fail it --- but that would be an analytic condition inserted by hand, not
+an axiom any substrate enforces, and the class would still sit below the
+degree-one-rigidity bracket of \S\ref{sec:clauses} (no Ramanujan input, no
+degree-one-rigidity derivation). The positivity-filter classification and the
+relocation order of \S\ref{sec:clauses} are unchanged either way.
+
+\section{Why this is an axiom statement and not a theorem: the definitional
+fork}\label{sec:fork}
+
+\subsection{Preliminary: bidegrees multiply under composition; traces do
+not}\label{sec:bidegrees}
+
+For correspondences on a square, the bidegrees
+$(d_1, d_2) = (Z \cdot \xi_1,\, Z \cdot \xi_2)$ are multiplicative under
+composition: $d_i(\Psi' \circ \Psi) = d_i(\Psi') \cdot d_i(\Psi)$ (over a
+generic point the fibers compose; verified on graph models, four pairs, in the
+adjudication). Intersection numbers against the diagonal are NOT:
+$(\Psi' \circ \Psi \cdot \Delta)$ is not a function of $(\Psi' \cdot \Delta)$
+and $(\Psi \cdot \Delta)$. Concretely, on $\mathbb{P}^1 \times \mathbb{P}^1$
+with $\Gamma_n = \operatorname{graph}(z \mapsto z^n)$:
+$(\Gamma_n \cdot \Delta) = n + 1$, verified two ways (numerical classes:
+$\Gamma_n \equiv n\xi_1 + \xi_2$, $\Delta \equiv \xi_1 + \xi_2$, product
+$= n + 1$; fixed points of $z^n = z$: the $n - 1$ roots of $z^{n-1} = 1$ plus
+$0$ and $\infty$). And $n + 1$ is not multiplicative:
+$(\Gamma_6 \cdot \Delta) = 7 \ne 3 \cdot 4 =
+(\Gamma_2 \cdot \Delta)(\Gamma_3 \cdot \Delta)$.
+
+\subsection{Horn A --- the degree reading}\label{sec:hornA}
+
+Read (PF6) as: \emph{the degrees of the $\Psi_n$ against the two fibers
+reproduce the counting data of $D$} (the reading the original commission's own
+template sentence mandated). Then:
+
+\begin{enumerate}
+\item By \S\ref{sec:bidegrees} the attached degree data is \textbf{completely
+multiplicative by definition} --- an Euler product is forced by (PF3) before any
+geometry is consulted.
+\item \textbf{The class touches no coefficient of any $D$.} The system
+$X = \mathbb{P}^1 \times \mathbb{P}^1$ over the adelic curve of $\mathbb{Q}$
+with the standard nef bundle $\mathcal{O}(1,1)$ and
+$\Psi_n = \Gamma_{z \mapsto z^n}$ satisfies every axiom (PF1)--(PF4):
+$\Psi_m \circ \Psi_n = \Psi_{mn}$ exactly, $\Psi_p$ primitive exactly at
+primes, every $\Psi_n$ an effective irreducible curve, bidegrees $(1, n)$.
+Nothing in (PF1)--(PF4) references the coefficients of $D$, so the identical
+system would serve $D = \zeta$, $D = \mathrm{DH}$, or $D = \mathrm{Epstein}$
+indifferently. Nor is the family new as a \emph{Frobenius} family: on the
+roots-of-unity locus $z \mapsto z^n$ is precisely the Bost--Connes endomotive's
+endomorphism $\sigma_n : e(\gamma) \mapsto e(n\gamma)$, whose composition law
+$\sigma_{nm} = \sigma_n \sigma_m$ is (PF3), and Connes, Consani and Marcolli
+treat exactly these maps as Frobenius correspondences over $\mathbb{F}_1$ ---
+``the endomorphisms $\sigma_n$ describe the Frobenius correspondence, in the sense
+that on the algebra $\mathbb{Z}[\mathbb{Q}/\mathbb{Z}] \otimes_\mathbb{Z} K$,
+for $K$ a perfect field of characteristic $p > 0$, the endomorphisms $\sigma_n$,
+$n = p^\ell$ ($\ell \in \mathbb{N}$) coincide with the Frobenius
+correspondence'' \cite[Thm.~6.2(b)]{CCM09}; for general $n$ the weaker
+\cite[\S6.1]{CCM09} statement, that the $\sigma_n$ are the
+$\widehat{\mathbb{Z}}$-powers of the Frobenius of
+$\mathbb{F}_1^\infty/\mathbb{F}_1$. Citing this \emph{strengthens} the vacuity
+point: the graph packaging on $\mathbb{P}^1 \times \mathbb{P}^1$ is what this
+note adds, and it is what makes the degree bookkeeping computable --- and, as this
+section shows, worthless. (Both adversarial reviews constructed this counterexample
+independently; the adjudicator re-verified it. The printed (PF5) already
+excludes it --- its transpose-stability clause fails, $\Gamma_n^t$ having
+bidegree $(n, 1)$, not any $\Gamma_m$ --- so the exhibit certifies vacuity of
+the (PF1)--(PF4) fragment; see the PF5 status paragraph, \S\ref{sec:axioms}.
+Whether some sharpened transpose axiom would cut down the model class further is
+not adjudicated and not claimed.)
+\item Therefore, under Horn~A, ``reproduce the counting data of $D$'' must
+itself be an \textbf{axiom --- an admissibility condition on $D$}, not a
+property the geometry proves. Under that admissibility axiom, prime-power
+support and $\Lambda_D \ge 0$ follow by the correct, cheap monoid computation of
+\S\ref{sec:admissibility} --- \textbf{quasi-definitionally}: the only geometric
+ingredient consumed is that degrees of effective correspondences against a nef
+class are $\ge 0$, which is a basic property of the Yuan--Zhang calculus
+\cite{YZ}, not a theorem being put to work.
+\end{enumerate}
+
+\subsection{Horn B --- the trace reading}\label{sec:hornB}
+
+Read (PF6) as: \emph{the counting data of $D$ is reproduced by intersection
+against the diagonal, $(\Psi_n \cdot \Delta)$-type numbers} --- the only
+reading matching where counting data actually lives in the char-$p$ template
+(\S\ref{sec:charp}). Then the original step~2 (``composition law $+$
+primitivity $\Longrightarrow$ prime-power support; formal monoid algebra; no
+analysis'') is \textbf{false as a formal claim}: by \S\ref{sec:bidegrees} trace
+data does not factor through composition ($(\Gamma_6 \cdot \Delta) = 7 \ne 12$
+on $\mathbb{P}^1 \times \mathbb{P}^1$), and no formal argument forces
+$(\Psi_6 \cdot \Delta)$-type data to vanish. What is needed is a
+\textbf{Lefschetz-tie axiom} (``the counting data of $D$ is trace-organized by
+the monoid'') --- in characteristic $p$ that tie is a THEOREM about the
+existing cohomology (the Grothendieck--Lefschetz trace formula); over $\mathbb{Q}$
+it is exactly the missing substrate. Positing such a tie as an axiom rather than
+proving it is not new: Deninger \cite{Den98} put a conjectural Lefschetz-type trace
+formula of exactly this shape in print in 1998, tying the zeros of zeta and motivic
+$L$-functions, as eigenvalues of a flow generator on $H^1$, to the closed orbits of
+a foliated dynamical system, and noted that the formula ``does not seem to be
+established'' \cite[\S4]{Den98}. His setting (leafwise cohomology of a foliated
+dynamical system) is not this note's, so the two are the same \emph{move}, not the
+same statement; the precedence is what is cited.
+Adding it as an axiom makes the $D$-attachment Euler-organized by definition,
+so the Davenport--Heilbronn/Epstein exclusion again follows from the definition
+plus the one-line coefficient witnesses of \S\ref{sec:witnesses} ---
+definitional once more.
+
+\subsection{Exhaustiveness of the fork}\label{sec:exhaustive}
+
+The primary dichotomy is formal, not empirical: the counting functional
+attached by (PF6) either \textbf{factors through composition} --- through
+composition-multiplicative invariants (bidegrees and monomials in them;
+equivalently the induced action on $H^0/H^2$) --- which is Horn~A; or it
+\textbf{does not}. Any non-multiplicative reading whatsoever --- the $H^1$
+trace or any other --- breaks step~2's formal monoid algebra and therefore
+needs an organizing tie axiom, which makes the exclusion definitional: Horn~B's
+analysis applies verbatim to all of them. The $H^0/H^2$-versus-$H^1$ trichotomy
+is the template interpretation of this split (in every known template the zero
+side IS the $H^1$ trace), not the load-bearing case division. Under Horn~A the
+statement is an admissibility definition; under Horn~B it needs a
+Lefschetz-type axiom that makes it an admissibility definition. Hence: axiom
+statement, on every branch. (Both adversarial reviews, independently; upheld in
+adjudication.)
+
+\subsection{The char-\texorpdfstring{$p$}{p} accounting,
+corrected}\label{sec:charp}
+
+The commission's template sentence (``the char-$p$ model --- degrees of
+graph-of-Frobenius powers on $C \times C$ reproducing point counts --- is the
+template'') was \textbf{factually wrong} and is corrected here. On $C \times C$
+over $\mathbb{F}_q$, the bidegrees of $\Gamma_{\mathrm{Frob}^k}$ are
+$(1, q^k)$ --- these are only the \textbf{main terms} of
+$\#C(\mathbb{F}_{q^k}) = q^k + 1 - \sum_i \alpha_i^k$. The zero side
+$-\sum_i \alpha_i^k$ lives \textbf{exclusively in the $\Delta$-intersection}
+(Lefschetz: $N_k = (\Gamma_{F^k} \cdot \Delta)$); degrees never see it. A
+degree-based reading is therefore structurally blind to zeros. Numerically
+verified in the adjudication on $E \colon y^2 = x^3 + x + 1$ over
+$\mathbb{F}_7$: bidegrees $(1, 7)$, $(1, 49)$, $(1, 343)$ versus counts
+$N_1 = 5$, $N_2 = 55$, $N_3 = 380$ (Frobenius trace $a = 3$:
+$\alpha + \beta = 3$, $\alpha\beta = 7$).
+
+\section{The scope restriction: total multiplicativity pins degree-one Euler
+shape}\label{sec:scope}
+
+(PF3) demands $\Psi_m \circ \Psi_n = \Psi_{mn}$ for \textbf{all} $m, n$ --- not
+merely coprime pairs. Two consequences, both stated here as adjudicated
+obligations:
+
+\begin{itemize}
+\item \textbf{(a) Degree-one Euler shape.} Matched at the level of the
+Dirichlet coefficients $a_n$ of $D$, totally multiplicative coefficient data is
+exactly the Euler shape
+$D(s) = \prod_p (1 - a_p p^{-s})^{-1}$ --- \textbf{degree one}. (This
+equivalence is textbook: Apostol \cite[Ch.~11]{Apostol}, or Montgomery--Vaughan
+\cite[\S1.3, Thm.~1.9]{MV}, who say ``totally multiplicative'' where Apostol says
+``completely multiplicative''.) The axiom
+class as printed excludes every higher-degree Euler-intact $L$-function (e.g.\
+$\zeta_K$ for a quadratic field $K$ has degree-2 Euler factors and
+non-totally-multiplicative coefficients; it satisfies the coefficient-level
+consequence class of \S\ref{sec:admissibility} but not the printed degree-one
+shape). A relaxed composition law (e.g.\ coprime-only multiplicativity plus
+per-prime tower data) is NOT provided by the printed axioms; any future
+widening is new design, outside this note.
+\item \textbf{(b) Relation to the one-generator function-field monoid.} The
+char-$p$ template's Frobenius monoid is generated by ONE element:
+$\{\Gamma_{F^k} : k \ge 0\} \cong (\mathbb{N}, +)$, indexed by the exponent
+$k$ (the extension degree), with a single ``prime.'' The printed multi-prime
+monoid $\{\Psi_n\}$ over $(\mathbb{N}^\times, \cdot)$ --- free commutative on
+all rational primes --- is a different object (that multiplicative monoid acting on
+a half-line is itself a live object in this literature: the scaling site is the
+semidirect product of the half-line by it \cite{CC16b, CC17}, with a complex lift
+in \cite{CC19}): the commission's template was a
+one-prime template misread as a multi-prime one. Total multiplicativity across
+distinct primes is exactly the new, restrictive content: at coefficient level
+it pins the degree-one Euler shape (a); if instead the degree data were matched
+against $\Lambda$-type (prime-power-supported) counting data directly, complete
+multiplicativity would contradict vanishing at products of distinct primes
+($c_{pq} = c_p \cdot c_q \ne 0$ whenever two primes carry nonzero data) unless
+at most one prime carries data --- i.e.\ exactly the one-generator char-$p$
+monoid again. (Both adversarial reviews; referee minor finding; upheld.)
+\end{itemize}
+
+\section{The admissibility axiom and the exclusion computation (the correct
+cheap part)}\label{sec:admissibility}
+
+\begin{definition}[admissible $D$]\label{def:admissible}
+$D(s) = \sum_n a_n n^{-s}$ ($a_1 = 1$) is \emph{admissible} for the
+polarized-Frobenius axiom class if, writing
+$-D'/D(s) = \sum_n \Lambda_D(n)\, n^{-s}$, the counting data satisfies:
+\textbf{$\Lambda_D$ is supported on prime powers and $\Lambda_D(n) \ge 0$ for
+all $n$} (with the FE/duality clause (PF5) named as a further requirement whose
+substrate-level content is currently uninstantiated). In the strict printed
+(degree-one) shape, $\Lambda_D(p^k) = a_p^k \cdot \log p$ with $a_p \ge 0$.
+\end{definition}
+
+\noindent\textbf{The computation (correct, cheap, and quasi-definitional).}
+Under Horn~A plus the admissibility axiom, the attachment functional is fixed
+explicitly: \textbf{$a_n := d_2(\Psi_n) = (\Psi_n \cdot \xi_2)$, the
+second-fiber degree} --- the char-$p$ analog of $\deg F^k = q^k$. (This is the
+multiplicative choice: by \S\ref{sec:bidegrees} the individual bidegree
+components $d_i$, and monomials in them, are monoid homomorphisms under
+composition, whereas the degree against the polarization itself --- an
+$(\xi_1 + \xi_2)$-type pairing --- is NOT: on graphs,
+$(1+n)(1+m) \ne 1 + nm$. Everything below runs verbatim for any declared
+multiplicative monomial in the bidegrees; nothing below may be read against the
+non-multiplicative polarization pairing.) (PF3) then makes
+$n \mapsto a_n = d_2(\Psi_n)$ a monoid homomorphism, i.e.\ totally
+multiplicative, forcing the degree-one Euler shape (\S\ref{sec:scope}(a));
+primitivity places the generators exactly at the primes; hence $-D'/D$ has
+$\Lambda_D(p^k) = a_p^k \log p$ and $\Lambda_D(n) = 0$ off prime powers ---
+formal monoid algebra, no analysis. (PF4) effectivity plus (PF1) nefness gives
+$a_p = d_2(\Psi_p) = (\Psi_p \cdot \xi_2) \ge 0$, because $\xi_2$ is nef and
+$\Psi_p$ is effective, hence $\Lambda_D(n) \ge 0$. This is the step-2/step-3
+chain the referee verified by writing out the monoid computation, valid
+\textbf{once effectivity is an axiom} --- and it is an unpacking of the
+definition, not a theorem about $D$: the geometry contributes only ``nef
+against effective is $\ge 0$.''
+
+\medskip
+\noindent\textbf{What would restore theorem status.} Nothing currently
+available: a genuine exclusion theorem would require a substrate on which the
+Lefschetz tie of \S\ref{sec:hornB} is \emph{proved} rather than posited ---
+i.e.\ the missing substrate itself. Until then the correct citation form is:
+``$D$ is inadmissible for the polarized-Frobenius axiom class [this note,
+\S\S\ref{sec:admissibility}--\ref{sec:witnesses}],'' never ``$D$ admits no
+polarized Frobenius system [theorem].''
+
+\section{The witnesses (exact)}\label{sec:witnesses}
+
+All values below are stored with exact closed forms; sources are traced in the
+Provenance remark. ``Inadmissible'' always means: fails the
+\S\ref{sec:admissibility} admissibility condition, with the named witness.
+
+\subsection{Davenport--Heilbronn (RH-false, and inadmissible)}\label{sec:dh}
+
+\emph{Sources.} The function and its off-line zeros are \cite{DH1936a, DH1936};
+the standard modern survey is Bombieri--Ghosh \cite{BG11}. The reading that GRH
+needs the Euler product, with Davenport--Heilbronn as the standing counterexample,
+is also in print in physics vocabulary \cite{LM24, FL14}.
+
+Coefficient system: $a_n$ periodic mod $5$,
+$(a_1, \ldots, a_5) = (1, \kappa, -\kappa, -1, 0)$, with the Gauss-sum surd
+\begin{equation*}
+\kappa = \frac{\sqrt{10 - 2\sqrt{5}} - 2}{\sqrt{5} - 1}
+= 0.28407904384041229602829183239312616909109
+\end{equation*}
+($41$ digits; last digit rounded --- the true continuation is
+$\ldots 9091088\ldots$).
+
+DH is entire, satisfies a functional equation (verified to
+$5.6 \times 10^{-40}$), and has the verified off-line zero
+$\rho = 0.808517182456637 + 85.699348485377592\,i$ (Newton residual
+$7.6 \times 10^{-41}$). Its counting data violates BOTH halves of
+admissibility. The closed forms below follow from the von Mangoldt recursion
+$a_n \log n = \sum_{d \mid n} \Lambda_{\mathrm{DH}}(d)\, a_{n/d}$ on the
+periodic coefficient array and match the stored record digit-for-digit at the
+printed precision:
+
+\begin{center}
+\small
+\begin{tabular}{@{}c l l >{\raggedright\arraybackslash}p{4.1cm}@{}}
+\toprule
+$n$ & exact form & value & reading \\
+\midrule
+$3$ & $-\kappa \cdot \log 3$ & $\mathbf{-0.3120927\ldots}$ &
+negativity at a \textbf{prime} (cheapest witness) \\
+\addlinespace
+$4$ & $-(2 + \kappa^2) \cdot \log 2$ & $\mathbf{-1.44223196\ldots}$ &
+negativity at a \textbf{prime power} \\
+\addlinespace
+$6$ & $+(1 + \kappa^2) \cdot \log 6$ & $\mathbf{+1.93635607662\ldots}$ &
+support \textbf{off prime powers} ($6 = 2 \cdot 3$) \\
+\addlinespace
+$12$ & $-\kappa \cdot [\kappa^2 \log 6 + (2 + \kappa^2) \log 2 + \log 3]$ &
+$\mathbf{-0.762877471988\ldots}$ &
+negativity at a composite (the original one-line witness) \\
+& $\quad = -\kappa (1 + \kappa^2) \cdot \log 12$ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+$\Lambda_{\mathrm{DH}}(3) < 0$ and $\Lambda_{\mathrm{DH}}(4) < 0$ are the
+adjudication-adopted ``cheaper witnesses'': negativity is visible on prime
+powers alone, with no support-off-prime-powers preamble needed.
+
+\subsection{Epstein, \texorpdfstring{$Q = x^2 + 5y^2$ ($D = -20$, $h = 2$)}{Q
+= x\^{}2 + 5y\^{}2 (D = -20, h = 2)}; RH-false class, and
+inadmissible}\label{sec:epstein}
+
+``RH-false class'' is classical: for binary quadratic forms of class number
+$h(D) > 1$, the Epstein zeta function has infinitely many zeros in
+$\operatorname{Re} s > 1$ (Davenport--Heilbronn \cite{DH1936}) --- cited for
+the label only; nothing in the exclusion computation below depends on it.
+
+Normalization (as stored): $F(s) = \zeta_Q(s)/2$, $b_n = r_Q(n)/2$,
+$b_1 = 1$; $\Lambda_Q$ from $-F'/F$ (independent of the constant). Exact
+rational-log arithmetic, not floating point; numeric rendering at $40$ digits.
+The two witnesses:
+
+\begin{itemize}
+\item Support off prime powers ($6 = 2 \cdot 3$): the
+composition-law/primitivity conclusion fails ---
+\begin{align*}
+\Lambda_Q(6) &= 2 \log 2 + 2 \log 3 = 2 \log 6 \\
+&= \mathbf{+3.583518938456110001624954716761404545446}.
+\end{align*}
+\item $\Lambda_Q < 0$: the effectivity/nef-positivity conclusion fails ---
+\begin{align*}
+\Lambda_Q(36) &= -4 \log 2 - 4 \log 3 = -4 \log 6 \\
+&= \mathbf{-7.167037876912220003249909433522809090892}.
+\end{align*}
+\end{itemize}
+
+Support off prime powers for $n \le 100$ at
+$\{6, 14, 21, 36, 46, 54, 69, 84, 86, 94\}$; negative values at
+$\{36, 54, 84\}$.
+
+\medskip
+\noindent\textbf{The two structural checks} (both passed exactly for all
+$n \le 200$):
+
+\begin{enumerate}
+\item \textbf{Genus identity.}
+$(r_{Q_1}(n) + r_{Q_2}(n))/2 = \sum_{d \mid n} \chi_{-20}(d)$ exactly, where
+$Q_1 = x^2 + 5y^2$ (principal) and $Q_2 = 2x^2 + 2xy + 3y^2$ (non-principal)
+--- the coefficient machinery is verified against class-field theory, not
+merely enumerated.
+\item \textbf{Contrast object.} $\zeta_K = \zeta \cdot L(\chi_{-20})$ (the
+full class-group average, Euler product intact) has $\Lambda_K$ supported on
+prime powers and $\ge 0$ over the same range. What is \textbf{proved} is the
+pair: (a) $\zeta_Q$ fails admissibility (the exact witnesses above); (b) the
+class-group average $\zeta_K$ --- a theorem-level Euler product, being a
+Dedekind zeta --- satisfies it. The violation therefore \textbf{tracks exactly
+the class-orbit-breaking}: the orbit average passes, the single-class
+evaluation fails; evaluating a single CM point of the Eisenstein torus period
+instead of the full class-group orbit is exactly what destroys Euler
+factorization. That mechanism attribution is the interpretation of (a) $+$ (b)
+--- the mechanism claim of the original Lemma~B, surviving here at witness
+level.
+\end{enumerate}
+
+\subsection{The over-breadth witness: \texorpdfstring{$\chi_4$}{chi4}
+(RH-true, and inadmissible)}\label{sec:chi4}
+
+$\Lambda_{\chi_4}(3) = a_3 \cdot \log 3 = \mathbf{-\log 3 = -1.0986\ldots}
+< 0$ (computed in the adjudication to $50$ digits). An RH-true, degree-one,
+Euler-intact Dirichlet $L$-function fails the admissibility condition. The
+filter is therefore \textbf{over-broad in a revealing way}: it is a
+\emph{positivity} filter, not an Euler-product filter. Any $\mathrm{GL}(2)$
+object with some $a_p < 0$ is excluded alongside DH.
+
+\paragraph{The published exemplar of this move.} Conrey and Li \cite{CL00} give
+the same genre of result: a positivity condition sufficient for GRH, published as
+such, falsified by direct computation against the very $L$-functions it was meant to
+cover --- ``we shall give examples showing that de Branges' positivity conditions,
+which imply the generalized Riemann hypothesis, are not satisfied by defining
+functions of reproducing kernel Hilbert spaces associated with the Riemann zeta
+function $\zeta(s)$ and the Dirichlet $L$-function $L(s, \chi_4)$''
+\cite[introduction]{CL00}. Two precisions matter. The conditions are
+\textbf{de Branges'} positivity conditions on reproducing-kernel Hilbert spaces
+$H(E)$ and $F(W)$ --- not Li's own coefficient criterion $\lambda_n \ge 0$, which
+a reader will otherwise assume --- and their criterion fails for $\zeta$ itself as
+well as for $L(s, \chi_4)$, so the parallel here is one of genre and not of a
+filter separating $\zeta$ from $\chi_4$, which is what the filter above does.
+
+\section{The Beurling-instantiability and degree-one-rigidity
+clauses}\label{sec:clauses}
+
+\paragraph{Beurling/DMV instantiability.} The axiom class as printed does
+\textbf{NOT} exclude Beurling/DMV worlds. Beurling generalized number systems
+(DMV: Diamond--Montgomery--Vorhauer \cite{DMV}; the Broucke-school factories
+\cite{BDR, Br, BV}) carry a full Euler product, multiplicativity at every
+generalized prime, and $\Lambda_P(n) \ge 0$ pointwise \textbf{automatically}
+--- while violating RH maximally. Every \textbf{operative} coefficient-level
+consequence of the axiom class (prime-power support $+$ $\Lambda \ge 0$) holds
+in these worlds by construction; (PF5), an uninstantiated template, contributes
+no operative coefficient-level consequence to check --- its exclusion from this
+accounting, and why imposing its FE shadow by hand would change nothing, are
+stated in the PF5 status paragraph, \S\ref{sec:axioms}. \textbf{The axiom a
+DMV world violates: currently NONE.} The candidate DMV-violated input, named
+per the adjudicated repair, is the substrate-level theta-effectivity
+$h^0_\theta(D) \ge \deg D + O(1)$ (Bost \cite{Bost}; van der Geer--Schoof
+\cite{vdGS}).
+
+The general form of this conclusion is itself published: Diamond and Zhang
+\cite{DZ16} devote one chapter to an RH-\textbf{true} Beurling system
+\cite[Thm.~17.11]{DZ16} and an RH-\textbf{false} one \cite[Thm.~17.14]{DZ16}, and
+state at the outset that ``a proof of the Riemann hypothesis will require more than
+just the multiplicative structure of integers and smallness of $N(x) - x$''
+\cite[\S1.1]{DZ16}.
+
+An earlier version of this paragraph called the theta-effectivity input ``a
+substrate-level input no current object supplies''. As an absolute that is
+overstated, and it is corrected here: Connes and Consani have since proved a
+Riemann--Roch theorem for Arakelov divisors on
+$\overline{\operatorname{Spec}\mathbb{Z}}$ \cite{CC23}, strengthened for the ring
+$\mathbb{Z}$ in \cite{CC24}, whose two cohomologies are modules over the sphere
+spectrum carrying \emph{integer-valued} dimensions. What survives is the
+distinction: their $h^0$ is a different invariant from the real-valued theta
+invariant $h^0_\theta$ --- they describe the log-theta number as a dimension that
+``remains virtual $\ldots$ for the obvious reason that it outputs real numbers
+rather than integers'' --- and their result is an Euler-characteristic identity
+$\chi(D) = h^0(D) - h^1(D)$ for $\operatorname{Spec}\mathbb{Z}$ alone, yielding no
+lower bound on $h^0(D)$ without a separate $H^1$-vanishing or duality input. So the
+theta-effectivity input is still supplied by no current object; what is withdrawn is
+the stronger suggestion that no Riemann--Roch machinery over
+$\overline{\operatorname{Spec}\mathbb{Z}}$ exists at all. Until an axiom of that
+kind exists and is instantiated, the class cannot decide RH.
+
+\paragraph{What the filter is.} The polarized-Frobenius axiom class as printed
+is a \textbf{POSITIVITY filter separating $\{\mathrm{DH}, \mathrm{Epstein}\}$
+from $\{\zeta\} \cup \{\text{all Beurling worlds}\}$}, and it additionally
+\textbf{excludes RH-true signed-coefficient $L$-functions}
+($\Lambda_{\chi_4}(3) = -\log 3 < 0$, \S\ref{sec:chi4}). At the coefficient
+level the substrate could only ever attach to nonnegative-$\Lambda$ objects
+($\zeta$, $\zeta_K$, Rankin--Selberg squares). It is not an Euler-product
+filter and not an RH filter.
+
+\paragraph{Degree-one rigidity: the closing bracket.} The two-sided
+calibration any de-novo axiom set must clear: below $\{$FE $+$ Euler product
+$+$ Ramanujan$\}$ at degree one, counterexamples are mass-produced (the
+Beurling factory above); at them, rigidity --- Selberg class degree $1$ $=$
+$\zeta$ $+$ shifted Dirichlet $L$-functions only, no elements of degree
+$1 < d < 2$ (\textbf{Kaczorowski--Perelli} \cite{KP1, KP7}). The printed
+axioms do not derive this classification; it is hereby cited as the
+\textbf{closing-bracket target} the axiom class must eventually contain. The
+gap between Beurling-factory death and Kaczorowski--Perelli rigidity is where
+a sufficient axiom set must sit; the present class sits below it.
+
+\paragraph{Relocation of RH content.} Consequently, \textbf{all RH content
+must sit in the substrate $+$ Hodge-index composite} (the
+substrate-and-positivity chain of the surrounding program; see the Provenance
+remark for its internal names). This note carries credit ONLY in the axiom-format role: it
+names the axioms a future substrate must instantiate and records which objects
+provably cannot satisfy their coefficient-level consequences. Arguments
+consuming ``multiplicativity as geometry'' should cite this note for the axiom
+statement and the \textbf{Blomer--Leung beyond-endoscopy monoid converse}
+\cite{BL} as the sharper formal home of the same exclusion --- one axiom, two
+dialects.
+
+\paragraph{Consistency rider.} This section implements, in writing, the
+standing rider on the underlying barrier records: any future axiom-level
+filter of this kind must add FE/duality $+$ degree-one-rigidity clauses and
+relocate RH content to the substrate $+$ generator composite.
+
+\section{What this note may NOT be cited for (adjudicated
+exclusions)}\label{sec:notcite}
+
+\begin{enumerate}
+\item \textbf{Not ``provable today.''} Struck by the adjudication; the phrase
+may not be revived for any part of this material beyond the
+\S\ref{sec:admissibility} monoid unpacking, which is quasi-definitional.
+\item \textbf{Not a theorem.} ``DH/Epstein admit no polarized Frobenius
+system'' is not a theorem under either reading of the definition
+(\S\ref{sec:fork}); the citable statement is inadmissibility
+(\S\S\ref{sec:admissibility}--\ref{sec:witnesses}).
+\item \sloppy \textbf{Not a discharge of the $\mathbb{F}_1$-model question.}
+The question asks for a proof that DH/Epstein have no \emph{model} over
+$\mathbb{F}_1$; that requires a formalized notion of $\mathbb{F}_1$-model and
+remains open.
+\item \textbf{No credit beyond the axiom-format role.} In particular: no claim
+that the axiom class excludes Beurling/DMV worlds (\S\ref{sec:clauses} states
+the opposite); no vacuous ``zeta instantiates the axioms'' credit (the
+$\mathbb{P}^1 \times \mathbb{P}^1$ system of \S\ref{sec:hornA} shows
+axiom-level instantiation can be worthless); no full credit while no zeta
+instantiation of the axioms exists at any rank.
+\item \textbf{Not a revival of per-prime-fiber assemblies.} Nothing here bears
+on per-prime-fiber assemblies (products of elliptic curves attached to
+distinct primes); those constructions are excluded on independent grounds
+recorded in the surrounding program and remain excluded.
+\end{enumerate}
+
+\begin{provenance}
+\sloppy
+This note originated as deliverable M0 (axiom-format note) of the C3-r
+direction of an internal research program on the Riemann hypothesis, written in
+Session~6, 2026-08-26, per a binding adjudication of 2026-08-26. In the
+program's terminology: the ``killers'' are two independent adversarial
+reviewers who refuted the original Lemma~B theorem framing by blind
+replication (\texttt{results/verdicts-c3d1.json}, kill:C3 fatal~2, kill2:C3
+fatal~1); the ``adjudication'' is the binding third pass that re-derived the
+findings and ordered the repairs (\texttt{results/adjudication-C3.json}, the
+mandatory repair beginning ``Reprice M0 \ldots''; adjudication entries are
+cited by quoted opening phrase, never by array index); the recommission order
+``C3-r'' is in \texttt{directions/}\allowbreak
+\texttt{C3-geometric-substrate.md}. The consistency
+obligations engaged in the body correspond to the program's barrier-catalog
+entries I.1 (the Blomer--Leung monoid converse as the sharper formal home),
+I.2 (the Beurling/DMV factory), I.7 (degree-one rigidity), III.21, and IV.10
+(the rider implemented by \S\ref{sec:clauses}; the same entry records the
+exclusion of the per-prime-fiber assemblies of \S\ref{sec:notcite},
+item~5) in \texttt{BARRIER-ZOO.md}. The ``missing substrate'' of
+\S\ref{sec:hornB} and \S\ref{sec:admissibility} is the program's item M2; the
+``substrate $+$ Hodge-index composite'' of \S\ref{sec:clauses} is its M1 gate
+$\to$ M2c substrate $\to$ M3/M4 positivity chain, and the theta-effectivity
+axiom named there is its M4-level input.
+
+Numeric traceability (paths relative to the program root
+\texttt{rh-program/}): the fork, the
+$\mathbb{P}^1 \times \mathbb{P}^1$ counterexample, bidegree multiplicativity,
+$(\Gamma_n \cdot \Delta) = n+1$, the non-multiplicativity $7 \ne 12$, the
+char-$p$ correction, and the $\mathbb{F}_7$ verification are in
+\texttt{results/verdicts-c3d1.json} and \texttt{results/adjudication-C3.json}
+(computation~b); $\kappa$ (41 digits) and
+$\Lambda_{\mathrm{DH}}(3), (4), (6), (12)$ in adjudication computation~d and
+three independent computations, digit-for-digit, with the underlying DH
+machinery in \texttt{results/decisive-tests/ccm-dh-filter.json} and
+\texttt{results/ccm-dh-test/}; the Epstein exact pair, 40-digit values,
+support/negativity lists, genus identity, and $\zeta_K$ contrast in
+\texttt{results/c3-m0-epstein/}\allowbreak
+\texttt{n1\_epstein\_witness.json} (with its generating
+script); $\Lambda_{\chi_4}(3) = -\log 3$ in adjudication computation~c. The
+exact expressions $-\kappa \log 3$, $-(2+\kappa^2)\log 2$,
+$+(1+\kappa^2)\log 6$, and
+$-\kappa[\kappa^2 \log 6 + (2+\kappa^2)\log 2 + \log 3]$ were unpacked from
+the standard von Mangoldt recursion on the periodic DH coefficient array; each
+was checked against the stored decimal record and agrees to all printed
+digits. The Epstein closed forms are stored verbatim. An independent referee
+pass of 2026-08-26 (\texttt{results/c3-r/referee-m0.md}) returned PASS WITH
+REPAIRS --- $0$ fatal, $3$ major, $7$ minor; no mathematical error; all six
+witnesses, both closed-form families, the $\mathbb{F}_7$ accounting, and the
+$\mathbb{P}^1 \times \mathbb{P}^1$ counterexample were replicated from
+scratch, and the DH functional equation and off-line zero were independently
+re-verified to residuals $\le 10^{-60}$; all repairs were applied the same
+day, none rejected or deferred.
+\end{provenance}
+
+\begin{thebibliography}{99}
+
+\bibitem{BL}
+V.~Blomer and W.~H.~Leung,
+\emph{A GL(3) converse theorem via a ``beyond endoscopy'' approach},
+Adv. Math. \textbf{485} (2026), Art.\ 110716;
+doi:10.1016/j.aim.2025.110716;
+arXiv:2401.04037 (v1, 8 Jan 2024; v2, 11 Jul 2026).
+
+\bibitem{Bost}
+J.-B.~Bost,
+\emph{Theta invariants of Euclidean lattices and infinite-dimensional
+Hermitian vector bundles over arithmetic curves},
+Progress in Mathematics 334, Birkh\"auser, Cham, 2020;
+arXiv:1512.08946.
+
+\bibitem{Br}
+F.~Broucke,
+\emph{On the connection between zero-free regions and the error term in the
+Prime Number Theorem},
+arXiv:2507.13780.
+(Cited for its construction of Beurling zeta functions with infinitely many
+zeros on a prescribed contour and none to the right of it.)
+
+\bibitem{BDR}
+F.~Broucke, G.~Debruyne, and Sz.~Gy.~R\'ev\'esz,
+\emph{Some examples of well-behaved Beurling number systems},
+Trans. Amer. Math. Soc. \textbf{378} (2025), 477--501;
+arXiv:2309.01567.
+(Cited for its $[\alpha, \beta]$-systems of Beurling generalized primes.)
+
+\bibitem{BV}
+F.~Broucke and J.~Vindas,
+\emph{A new generalized prime random approximation procedure and some of its
+applications},
+Math. Z. \textbf{307} (2024), Art. 62;
+arXiv:2102.08478.
+(Cited for its discretization of continuous Beurling systems preserving
+$\Lambda_P \ge 0$.)
+
+\bibitem{CM}
+H.~Chen and A.~Moriwaki,
+\emph{Arakelov Geometry over Adelic Curves},
+Lecture Notes in Mathematics 2258, Springer, 2020;
+arXiv:1903.10798.
+
+\bibitem{DH1936a}
+H.~Davenport and H.~Heilbronn,
+\emph{On the zeros of certain Dirichlet series},
+J. London Math. Soc. \textbf{11} (1936), no.~3, 181--185;
+doi:10.1112/jlms/s1-11.3.181.
+
+\bibitem{DH1936}
+H.~Davenport and H.~Heilbronn,
+\emph{On the zeros of certain Dirichlet series (Second paper)},
+J. London Math. Soc. \textbf{11} (1936), no.~4, 307--312;
+doi:10.1112/jlms/s1-11.4.307.
+
+\bibitem{DMV}
+H.~G.~Diamond, H.~L.~Montgomery, and U.~M.~A.~Vorhauer,
+\emph{Beurling primes with large oscillation},
+Math. Ann. \textbf{334} (2006), 1--36;
+doi:10.1007/s00208-005-0638-2.
+
+\bibitem{vdGS}
+G.~van der Geer and R.~Schoof,
+\emph{Effectivity of Arakelov divisors and the theta divisor of a number
+field},
+Selecta Math. (N.S.) \textbf{6} (2000), no.~4, 377--398;
+arXiv:math/9802121.
+
+\bibitem{KP1}
+J.~Kaczorowski and A.~Perelli,
+\emph{On the structure of the Selberg class, I: $0 \le d \le 1$},
+Acta Math. \textbf{182} (1999), 207--241.
+
+\bibitem{LM24}
+A.~LeClair and G.~Mussardo,
+\emph{Riemann zeros as quantized energies of scattering with impurities},
+J. High Energy Phys. \textbf{2024} (2024), no.~4, paper 062, 20 pp.;
+doi:10.1007/JHEP04(2024)062;
+arXiv:2307.01254.
+
+\bibitem{Manin}
+Yu.~I.~Manin,
+\emph{Lectures on zeta functions and motives (according to Deninger and
+Kurokawa)},
+in: Columbia University Number Theory Seminar (New York, 1992),
+Ast\'erisque \textbf{228} (1995), 121--163.
+
+\bibitem{MV}
+H.~L.~Montgomery and R.~C.~Vaughan,
+\emph{Multiplicative Number Theory I: Classical Theory},
+Cambridge Studies in Advanced Mathematics \textbf{97},
+Cambridge University Press, Cambridge, 2007.
+
+\bibitem{KP7}
+J.~Kaczorowski and A.~Perelli,
+\emph{On the structure of the Selberg class, VII: $1 < d < 2$},
+Ann. of Math. (2) \textbf{173} (2011), 1397--1441.
+
+\bibitem{YZ}
+X.~Yuan and S.-W.~Zhang,
+\emph{Adelic line bundles on quasi-projective varieties},
+Annals of Mathematics Studies 221, Princeton University Press, 2026;
+arXiv:2105.13587.
+
+\bibitem{Apostol}
+T.~M.~Apostol,
+\emph{Introduction to Analytic Number Theory},
+Undergraduate Texts in Mathematics, Springer-Verlag, New York, 1976;
+doi:10.1007/978-1-4757-5579-4.
+
+\bibitem{BG11}
+E.~Bombieri and A.~Ghosh,
+\emph{Around the Davenport--Heilbronn function},
+Russian Math. Surveys \textbf{66} (2011), no.~2, 221--270;
+doi:10.1070/RM2011v066n02ABEH004740;
+Russian original, Uspekhi Mat. Nauk \textbf{66} (2011), no.~2, 15--66;
+doi:10.4213/rm9410.
+
+\bibitem{Borger}
+J.~Borger,
+\emph{Lambda-rings and the field with one element},
+preprint (2009), 31 pp., arXiv:0906.3146.
+
+\bibitem{BU1}
+G.~Banaszak and Y.~Uetake,
+\emph{Abstract intersection theory and operators in Hilbert space},
+Commun. Number Theory Phys. \textbf{5} (2011), no.~3, 699--712;
+doi:10.4310/CNTP.2011.v5.n3.a4;
+arXiv:0908.2909.
+
+\bibitem{BU2}
+G.~Banaszak and Y.~Uetake,
+\emph{Standard models of abstract intersection theory for operators in Hilbert
+space},
+Bull. Pol. Acad. Sci. Math. \textbf{63} (2015), no.~2, 149--175;
+doi:10.4064/ba63-2-5;
+arXiv:1210.3526.
+
+\bibitem{BU3}
+G.~Banaszak and Y.~Uetake,
+\emph{Abstract intersection theory for zeta-functions: geometric aspects},
+Funct. Approx. Comment. Math. \textbf{64} (2021), no.~2, 251--265;
+doi:10.7169/facm/1916.
+
+\bibitem{CC16}
+A.~Connes and C.~Consani,
+\emph{Geometry of the arithmetic site},
+Adv. Math. \textbf{291} (2016), 274--329;
+doi:10.1016/j.aim.2015.11.045;
+arXiv:1502.05580.
+
+\bibitem{CC16b}
+A.~Connes and C.~Consani,
+\emph{The scaling site},
+C. R. Math. Acad. Sci. Paris \textbf{354} (2016), no.~1, 1--6;
+doi:10.1016/j.crma.2015.09.027;
+arXiv:1507.05818.
+
+\bibitem{CC17}
+A.~Connes and C.~Consani,
+\emph{Geometry of the scaling site},
+Selecta Math. (N.S.) \textbf{23} (2017), no.~3, 1803--1850;
+doi:10.1007/s00029-017-0313-y;
+arXiv:1603.03191.
+
+\bibitem{CC19}
+A.~Connes and C.~Consani,
+\emph{The Riemann--Roch strategy: Complex lift of the Scaling Site},
+in: A.~Chamseddine, C.~Consani, N.~Higson, M.~Khalkhali, H.~Moscovici and G.~Yu
+(eds.), \emph{Advances in Noncommutative Geometry: On the Occasion of Alain
+Connes' 70th Birthday}, Springer, Cham, 2019, pp.~53--125;
+doi:10.1007/978-3-030-29597-4\_2;
+arXiv:1805.10501.
+
+\bibitem{CC23}
+A.~Connes and C.~Consani,
+\emph{Riemann--Roch for $\overline{\operatorname{Spec}\mathbb{Z}}$},
+Bull. Sci. Math. \textbf{187} (2023), Art.\ 103293;
+doi:10.1016/j.bulsci.2023.103293;
+arXiv:2205.01391.
+
+\bibitem{CC24}
+A.~Connes and C.~Consani,
+\emph{Riemann--Roch for the ring $\mathbb{Z}$},
+C. R. Math. Acad. Sci. Paris \textbf{362} (2024), 229--235;
+doi:10.5802/crmath.543;
+arXiv:2306.00456.
+
+\bibitem{CCM09}
+A.~Connes, C.~Consani and M.~Marcolli,
+\emph{Fun with $\mathbb{F}_1$},
+J. Number Theory \textbf{129} (2009), no.~6, 1532--1561;
+doi:10.1016/j.jnt.2008.08.007;
+arXiv:0806.2401.
+
+\bibitem{CE15}
+A.~Connes,
+\emph{An essay on the Riemann Hypothesis},
+in: \emph{Open Problems in Mathematics} (J.~F.~Nash Jr.\ and M.~Th.~Rassias,
+eds.), Springer, Cham, 2016, pp.~225--257;
+doi:10.1007/978-3-319-32162-2\_5;
+arXiv:1509.05576.
+
+\bibitem{CL00}
+J.~B.~Conrey and X.-J.~Li,
+\emph{A note on some positivity conditions related to zeta and $L$-functions},
+Internat. Math. Res. Notices \textbf{2000}, no.~18, 929--940;
+doi:10.1155/S1073792800000489;
+arXiv:math/9812166.
+
+\bibitem{Den98}
+C.~Deninger,
+\emph{Some analogies between number theory and dynamical systems on foliated
+spaces},
+in: Proceedings of the International Congress of Mathematicians (Berlin, 1998),
+Vol.~I, Doc. Math. Extra Vol.\ ICM I (1998), 163--186;
+doi:10.4171/dms/1-1/2.
+
+\bibitem{Den22}
+C.~Deninger,
+\emph{There is no ``Weil-''cohomology theory with real coefficients for
+arithmetic curves},
+Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) \textbf{25} (2024), no.~3, 1717--1725;
+doi:10.2422/2036-2145.202204\_005;
+arXiv:2204.02714.
+
+\bibitem{DZ16}
+H.~G.~Diamond and W.-B.~Zhang,
+\emph{Beurling Generalized Numbers},
+Mathematical Surveys and Monographs \textbf{213},
+Amer. Math. Soc., Providence, RI, 2016;
+doi:10.1090/surv/213.
+
+\bibitem{FL14}
+G.~Fran\c{c}a and A.~LeClair,
+\emph{A theory for the zeros of Riemann $\zeta$ and other $L$-functions
+(updated)},
+preprint, arXiv:1407.4358 (v1, Jul 2014; v2, Aug 2024).
+
+\bibitem{FM20}
+M.~Flach and B.~Morin,
+\emph{Deninger's conjectures and Weil--Arakelov cohomology},
+M\"unster J. Math. \textbf{13} (2020), no.~2, 519--540;
+doi:10.17879/90169642993 (a Universit\"at M\"unster repository DOI, not
+Crossref-registered); open-access preprint HAL hal-02407608. No arXiv version
+exists.
+
+\bibitem{Zh07}
+W.-B.~Zhang,
+\emph{Beurling primes with RH and Beurling primes with large oscillation},
+Math. Ann. \textbf{337} (2007), 671--704;
+doi:10.1007/s00208-006-0051-5.
+
+\end{thebibliography}
+
+\end{document}
