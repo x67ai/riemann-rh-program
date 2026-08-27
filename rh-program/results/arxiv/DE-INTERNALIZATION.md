@@ -120,7 +120,50 @@ A4's still said "Direction A4 proposed" and "the gate's R5 depth family"; the
 seed's still said "commissioned". That file is what arXiv renders on the listing
 page — the one artifact a reader sees before the paper.
 
+## Closed 2026-08-28, after the sponsor asked for both open items
+
+**Every bibliography entry in both papers is now actually cited.** 8 of A4's 16
+and 10 of the seed paper's 34 were not, several carrying annotations stating
+where they were cited. In every case the annotation was right and the citation
+was simply missing, so each was added at the place it belonged. Two of them earn
+their keep on their own: Cohn–de Laat–Salmon, because in the sphere-packing
+analog the three-point bound *does* improve on the two-point bound, which makes
+this paper's zero a substantive negative rather than a foregone one; and
+Karlin–Studden, because cubic blindness is the exact form of the classical fact
+that an odd moment cannot improve a one-sided bound in a Chebyshev system. A4's
+citation style is also unified — the hard-coded `[P]`, `[BHB13]`, `[LR20]` and
+seven `[BGSTB24]` are now `\cite`, so the bibliography is machine-checkable. The
+one hard-coded `[RS96]` left alone sits inside the verbatim quotation from the
+parent paper.
+
+**The four companion documents have had the same pass as the papers** (223
+edits, four proposers and four adversarial verifiers). What the verifiers caught
+by going and checking rather than reasoning is the part worth recording: the
+formalization record's claim that the Lean files were "byte-identical" to the
+build tree was false (they differ in the relicensing header); its axiom block
+listed nine theorems under a sentence promising twelve, and a verifier ran Lean
+to produce the three missing lines rather than inferring them; its reproduction
+recipe began by entering a private local directory; its file sizes described a
+tree that is not public. A proposed edit asserting that a repository-wide search
+for "Magma" returns nothing was dropped because a verifier ran the search and it
+returns four files. No pointer into `fetched*/` survives in any of the four —
+those directories are deliberately not redistributed, so every one of them was
+dead for a reader.
+
+**One broken pointer found while preparing the PDFs**: the seed paper named its
+two numerical-check files with no path while its availability statement declares
+paths relative to `rh-program/`. They are at `results/c3-r/`. Every other file
+pointer in both papers was checked against `git ls-files` and resolves.
+
+**The post drafts were rewritten.** They had been in markdown blockquotes, so
+copying one brought a `>` on every line — against the standing rule that
+anything handed over to be copied goes in a fenced block. And they were written
+in AI register: rhetorical question then answer, em-dash antitheses, fragments
+used for drama. Rewritten as plain declarative sentences, re-measured, and all
+six now fit 280 characters *with* a link rather than without one.
+
 ## Left for the sponsor
+
 
 1. **The ~40 `\texttt{}` script pointers in the body.** Untouched, as the work
    order said: this is the sponsor's call, not the program's.
@@ -132,14 +175,15 @@ page — the one artifact a reader sees before the paper.
 3. **`θ` carries three unrelated meanings** (the ladder parameter in "θ < 1
    strict", grid positions θ_i, and the bandwidth offset). Fixing it means
    renaming a variable throughout, which is a mathematics edit, not a wording one.
-4. **`pair-channel.md`, `theorems.md` and `data-tables.md` are themselves full of
-   internal narration** ("Program: RH program, direction A4", "standing order 5",
+4. ~~The companion documents were full of internal narration.~~ **Done above.**
+   The original note read: ("Program: RH program, direction A4", "standing order 5",
    "AUDIT finding MINOR-4", pointers into `sources-extracted/` and `fetched-r3/`).
    The paper now cites them by repository path, which is honest. But if they are
    ever to ship as arXiv ancillary files — and `pair-channel.md` carries proofs
    the paper defers to — they need the same pass this paper just had.
 
 ---
+
 
 ## Original work order (retained for the record)
 
