@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refresh the served PDFs from the built papers. Run from the repository root.
+# Refresh the served PDFs from the built papers. Run from anywhere.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 cp rh-program/results/arxiv/a4-no-go/main.pdf   public/cubic-augmentation-no-go.pdf
