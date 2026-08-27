@@ -43,7 +43,7 @@ Dirichlet series D(s) over S consists of:
 
 - **(PF1) Polarized square.** A fibered square X over S carrying a nef adelic Q-line bundle L̄
   in the Yuan–Zhang adelic-line-bundle calculus (arXiv:2105.13587 v9; Annals of Mathematics
-  Studies 223), with the two fiber classes ξ₁, ξ₂ and a correspondence composition ∘ and
+  Studies 221, 2026 — corrected 2026-08-27 from “223”, which is a different volume), with the two fiber classes ξ₁, ξ₂ and a correspondence composition ∘ and
   transpose t.
 - **(PF2) Frobenius family.** A family of correspondences {Ψ_n}_{n≥1} on X with Ψ₁ = Δ (the
   identity correspondence).
