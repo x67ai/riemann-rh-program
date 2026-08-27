@@ -435,10 +435,10 @@ $\sum m_i + 2 \sum m_p = N$ per period. A \textbf{law} is a probability mixture
 $w_c \ge 0$, $\sum_c w_c = 1$ over columns; every row is $E_w[\mathrm{row}(c)]$.
 The two objectives:
 \begin{align*}
-  \Nd(c) &= \#\mathrm{atoms} + 2\,\#\mathrm{pairs}
+  \Nd(c) &= \#\mathrm{atoms} + 2\#\mathrm{pairs}
     && \text{(distinct zeros; only on-line multiples reduce it)},\\
   p_1(c) &= \bigl( \#\text{mark-}1\ \mathrm{atoms}
-      + 2\,\#\text{mult-}1\ \mathrm{pairs} \bigr)/N
+      + 2\#\text{mult-}1\ \mathrm{pairs} \bigr)/N
     && \text{(simple fraction)}.
 \end{align*}
 
@@ -1355,6 +1355,7 @@ unconditional $8/9$ backstop applies.
 \end{theorem}
 
 \begin{proof}[Proof architecture (full details in the companion note)]
+\renewcommand{\qedsymbol}{QED (architecture)}
 Partition the circle into $65$ kernel-zero cells; per cell, the exploitable dip
 mass $\kappa_k(y) = \sup_{\mathrm{cell}} [-R_y]_+$ sums to the capacity curve
 $\nu(y)$, with the exact curvature identity
@@ -1374,7 +1375,6 @@ sides interval-certified: $2 \max \nu_{\mathrm{joint}} \le 0.60910 < \Phi_0 \ge
 $w \le 0.98$; beyond $w = 0.98$ the ledger fails (certified) and the closure
 defers to numerics plus the backstop. Deep single pairs ($d \ge 1$) fall to the
 crude bound $\bar{a}(2d)/\bar{a}(d) \ge 12.158$ nondecreasing.
-\ \textsc{qed} (architecture)
 \end{proof}
 
 \begin{theorem}[equal-depth pair-only configurations, exact, all depths]
@@ -1548,10 +1548,10 @@ fuzz $=$ none). Three columns, all supported on the $65$-site $\psi_1$-zero grid
 \begin{table}[h]
 \centering
 \footnotesize
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.5cm}
-                  >{\raggedright\arraybackslash}p{3.5cm} l
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.1cm}
+                  >{\raggedright\arraybackslash}p{3.0cm} l
                   >{\raggedright\arraybackslash}p{1.9cm}
-                  >{\raggedright\arraybackslash}p{2.6cm} l@{}}
+                  >{\raggedright\arraybackslash}p{2.7cm} l@{}}
 \toprule
 weight & column & $\Nd$ & $F_1$ ($= \sum m^2$, exact) & $F'$ & $C'$ \\
 \midrule
@@ -1804,12 +1804,12 @@ to both systems:
 \begin{table}[h]
 \centering
 \footnotesize
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.0cm}
-                  >{\raggedright\arraybackslash}p{2.5cm}
-                  >{\raggedright\arraybackslash}p{2.5cm}
-                  >{\raggedright\arraybackslash}p{1.5cm}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.7cm}
                   >{\raggedright\arraybackslash}p{2.9cm}
-                  >{\raggedright\arraybackslash}p{3.0cm}@{}}
+                  >{\raggedright\arraybackslash}p{2.9cm}
+                  >{\raggedright\arraybackslash}p{1.4cm}
+                  >{\raggedright\arraybackslash}p{3.2cm}
+                  >{\raggedright\arraybackslash}p{2.2cm}@{}}
 \toprule
 cell & $p_{1,\mathrm{full}}$ & $p_{1,\mathrm{base}}$ & $\delta_{p_1}$ &
 analytic corner $2 - (B_1/N)(1 + \varepsilon)$ & converged \\
@@ -1914,7 +1914,10 @@ meeting the bound.
 
 \begin{remk}[the squeeze, made exact]
 The optimal dual split is
-$[a \times \text{Frobenius}] + [\text{ladder integral above } a]$: bounded
+\[
+  [a \times \text{Frobenius}] + [\text{ladder integral above } a] :
+\]
+bounded
 heights are blocked by the Frobenius cost (mass at height $h$ buys $h^3$ of cubic
 but pays $h^2$ of Frobenius, ratio $h \le a$), divergent heights by the ladder
 cap. The absolute floor $C_{\mathrm{abs}}$ (normalized to $1$) appears NOWHERE in
@@ -2688,8 +2691,8 @@ R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
   columns at the matched cell, $6{,}739$ after the asymptotic re-centering
   (verified in \texttt{followup-near-cue.json} N128 block).
 \item R2-m5 $\to$ ledger verification constant corrected to
-  $2.2 \times 10^{-11}$ (stored \texttt{pairchan\_verify\_out.json}
-  \texttt{I\_identity\_maxerr} $= 2.18 \times 10^{-11}$); also corrected at source
+  $2.2 \times 10^{-11}$ (stored \texttt{pairchan\_}\allowbreak\texttt{verify\_out.json}
+  \texttt{I\_identity\_}\allowbreak\texttt{maxerr} $= 2.18 \times 10^{-11}$); also corrected at source
   in \texttt{pair-channel.md}.
 \item R2-m6 $\to$ the $N = 128$ ``$S = 100$'' pricing claim is now labeled
   RUN-REPORT-recorded with no stored verify block.
