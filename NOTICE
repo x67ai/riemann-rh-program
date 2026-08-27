@@ -1,0 +1,35 @@
+A structured research program on the Riemann hypothesis
+Copyright 2026 Kunal Tyagi
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The prose in this repository — the papers, the notes, the logs and the program record —
+is additionally offered under the Creative Commons Attribution 4.0 International licence
+(CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), so that it may be quoted and
+reused as text with attribution. Where the two overlap, the recipient may rely on either.
+
+ATTRIBUTION AND TOOLS
+
+The mathematics in this repository was produced by Claude (Anthropic) working under the
+author's direction; the author set the objectives, adjudicated the decisions, and is
+responsible for the content. Claude is a tool and is not an author.
+
+DEPENDENCIES NOT INCLUDED HERE
+
+The eight Lean files under rh-program/lean/ are additions to, and import from, the Zeta23
+library, which is Copyright 2026 Anthropic, PBC, released under the Apache License 2.0,
+and published at https://github.com/anthropics/zeta-23-lean. Those files contain no code
+from that library and are not part of its release. Zeta23 is not redistributed here.
+
+Zeta23 in turn depends on Lean 4 and mathlib4 with its standard dependency set, fetched by
+the build tool from their public repositories at the revisions Zeta23 pins. None of those
+is included here either.
+
+The parent paper this program builds on, "More than two thirds of the zeros of the Riemann
+zeta function lie on the critical line" (Anthropic, 2026), is arXiv:2608.13637 and is not
+redistributed here.
+
+The program's working library of fetched third-party literature (rh-program/fetched*/) is
+copyrighted material belonging to its respective publishers and is deliberately excluded
+from this repository. Nothing in any paper here depends on it; every external claim is
+cited to its published source.

@@ -96,8 +96,14 @@ rather than redistributed here:
 
 ## License
 
-**Not yet chosen.** Until the author selects one, default copyright applies and the material is
-readable and checkable but not licensed for reuse. Suggested, if and when he wants one: **CC BY
-4.0** for the papers, notes and data, and **MIT** or **Apache-2.0** for the code and the Lean
-development — the usual split for a repository of this shape. Adding a `LICENSE` file is the
-author's decision to make, not the program's.
+**Apache License 2.0** for everything in this repository (see [`LICENSE`](LICENSE) and
+[`NOTICE`](NOTICE)), Copyright 2026 Kunal Tyagi.
+
+The prose — the papers, notes, logs and program record — is additionally offered under
+**CC BY 4.0**, so it can be quoted and reused as text with attribution. Where the two overlap,
+take whichever you prefer.
+
+Apache-2.0 was chosen rather than something more restrictive for two reasons: it is what the Lean
+and mathlib ecosystem uses, so the Lean files compose with it without a compatibility question;
+and a repository whose entire purpose is to let people check the work should not put obstacles in
+front of them.

@@ -46,18 +46,19 @@ commit `51e6992efd06126df61a496bebf8f49482a4e129`. The recorded result is
 theorem-by-theorem map to the A4 paper's numbering, the `#print axioms` output, and the
 reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`.
 
-## One unresolved item, for the author
+## Licensing (settled 2026-08-27)
 
-Each of these eight files opens with the header convention inherited from upstream:
+These eight files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
+(see the repository's [`LICENSE`](../../LICENSE) and [`NOTICE`](../../NOTICE)).
 
-```
-Copyright (c) 2026 Anthropic, PBC. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-```
+They previously carried `Copyright (c) 2026 Anthropic, PBC` — copied from the surrounding library's
+header convention when they were written inside it, and pointing at a `LICENSE` file that is no
+longer in this repository. That attribution was wrong: these are this program's own work, not part
+of Anthropic's Zeta23 release. Each header now says so explicitly, and records that the file
+contains no code from Zeta23 but imports it. Apache-2.0 is kept rather than swapped for something
+else, so that there is no compatibility question with the library these files extend or with
+mathlib, both of which are Apache-2.0.
 
-That line was copied from the surrounding library when the files were written inside it. **These
-eight files are this program's own work, not part of Anthropic's Zeta23 release**, so the
-attribution on them is very likely wrong — and the `LICENSE` file it refers to is no longer in
-this repository. Correcting a copyright line is a legal assertion and is the author's to make,
-not the program's, so the headers are left exactly as they were rather than quietly rewritten.
-It should be settled before anyone relies on these files.
+Verified before relicensing: none of the eight carries an upstream-derivation notice, and none
+sits under `Zeta23/FromPNTPlus/`, which is where Zeta23's own NOTICE records its derived files.
+They are original.
