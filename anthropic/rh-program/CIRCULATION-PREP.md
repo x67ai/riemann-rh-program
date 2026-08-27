@@ -179,8 +179,7 @@ actions plus 13 textual repairs, each with its insertion point. Working loop, pe
 4. `bash results/arxiv/check-submittable.sh results/arxiv/<paper>` must print ALL CHECKS PASSED.
 5. Commit per document.
 
-**Two items in that report must NOT be executed** (both adjudicated false this session; see STEP 2):
-the `[CC26]` title truncation, and "there is no §7.5 in the parent."
+**VERIFY EACH ACTION BEFORE EXECUTING IT — this is not a checklist to apply blind.** Session 10 independently checked roughly six of the report's claims against primary sources and **two were wrong**: it asked for the `[CC26]` title to be truncated (the arXiv API truncates that title at the TeX macro — the on-disk full-text extraction is authoritative, and executing the "fix" would replace a correct citation with a wrong one), and it asserted "there is no §7.5 in the parent" (item (e) *is* inside §7.5 of the 35-page parent version; it moved to §7.2(e) only in the 17-page v5). Neither is a criticism of the report — it also found the Winkelmann anticipation, which is real and which the 2026-08-26 gate missed entirely. It means the error rate is high enough that **every MUST action must be confirmed against a primary source before it touches a file**: the arXiv API or abs page, Crossref, zbMATH, or the on-disk corpus in `fetched*/` and `sources-extracted/`. Where the report and a primary source disagree, the primary source wins and the disagreement gets a dated note so it cannot be reintroduced.
 
 **The seed no-go needs more than citations.** Its framing must be rewritten so Theorems 1–3 are
 presented as Winkelmann's rigidity transported to the June-2026 Connes–Consani Tate curves, with
