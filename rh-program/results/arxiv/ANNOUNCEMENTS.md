@@ -66,9 +66,15 @@ it. Say it yourself rather than waiting to be asked:
 Written with Claude (Anthropic) under my direction. The full program record, including every review and correction, is in the repo.
 ```
 
-The link. https://github.com/x67ai/riemann-rh-program — send people to the README section
-on what a skeptical reader should check first. It points at the Lean development, which
-they can verify without taking your word for anything.
+The links.
+
+    https://x67.ai/cubic-augmentation-no-go.pdf
+    https://x67.ai/tate-products-no-go.pdf
+    https://github.com/x67ai/riemann-rh-program
+
+Lead a post with the paper it is about. Put the repository in the thread and send people
+to its README section on what a skeptical reader should check first, which points at the
+Lean development. They can verify that without taking your word for anything.
 
 ## What not to claim
 
