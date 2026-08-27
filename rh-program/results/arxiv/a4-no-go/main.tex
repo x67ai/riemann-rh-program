@@ -24,7 +24,6 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remk}{Remark}
-\newtheorem*{datedrev}{Dated revision (2026-08-27)}
 
 \newcommand{\Z}{\mathbf{Z}}
 \newcommand{\R}{\mathbf{R}}
@@ -65,8 +64,7 @@ Weil--Gabor compression, read against block structure and integrality --- and
 that certificate is provably exhausted: within the data
 class (tr, Frobenius, positive-index count, integer atoms) an on-line double and
 a shallow off-line pair are indistinguishable, pinning the distinct-zeros
-optimum at $\Nd/N = 5/6$ and the simple fraction at $2/3$. Direction A4 proposed
-to break this degeneracy by adjoining, at a second bandwidth
+optimum at $\Nd/N = 5/6$ and the simple fraction at $2/3$. A natural proposal to break this degeneracy is to adjoin, at a second bandwidth
 $\lambda' = 1/2 + o(1)$ inside the Rudnick--Sarnak range, the unconditionally
 computable signed third trace together with repaired spectral-capacity rows (an
 all-$V$ eigenvalue-count ladder and a garnish-capacity fuzz row). This paper
@@ -90,8 +88,8 @@ budget is met by arrangement at zero cost; and spectral escape is capped sharply
 at $2\sqrt{2}\sqrt{\Cled \varepsilon_g}\,N = o(N)$, while a scalar cubic tail row
 with any divergent cutoff is unconditionally vacuous. The pair-interference
 channel --- the one gap in the atom-only model theorem --- is closed by an
-integrality theorem throughout the gate's R5 depth family: proved
-unconditionally for single-pair columns at every gate depth and for multi-pair
+integrality theorem throughout the pair-depth family: proved
+unconditionally for single-pair columns at every depth in the family and for multi-pair
 columns at $w \le 0.82$ ($w \le 0.98$ modulo one crowding cap whose ledger
 constant is interval-certified; on the deepest sliver $w \in (0.98, 1]$ the
 coverage is adversarial-numerical with the unconditional $8/9$ backstop), with
@@ -143,12 +141,12 @@ trace $\tr \Gh^3$ is available (Hejhal, Rudnick--Sarnak) and the certificate can
 be run with the cubic weight
 $\omega(m) = m/2 + (2m^2 - m^3)/18 + (4/9)\one_{m = 1}$, giving
 $\Nd/N \ge 0.85082$ with the window $\cos(8s/5)$ (consuming also [BHB13]'s
-$N^s/N \ge 19/27$ on RH). Direction A4's thesis was that a slice of this becomes
+$N^s/N \ge 19/27$ on RH). The proposal examined here is that a slice of this becomes
 unconditional: at bandwidth
 $\lambda' = 1/2 + \theta \log\log T/\log T$ (strictly inside the $k = 3$
 Rudnick--Sarnak range $X^3 \le T^{2 - \varepsilon}$), the signed cubic trace is
 computable by the parent's Section~5 diagonal method, and a Schatten-$3$
-spectral-tail theorem (Theorem~1(ii)-repaired: an all-$V$ eigenvalue-count ladder
+spectral-tail theorem (in its repaired form: an all-$V$ eigenvalue-count ladder
 $n(V) \le \Cled N V^{-4}$, $\theta < 1$ strict) would cap the spectral escape that
 the parent's own odd-moment no-go (Section~7.5(e) of the 35-page version; the
 same item is \S7.2(e) of v5 --- see the version pin in the References)
@@ -186,7 +184,9 @@ parent's own words, stated informally.
 The question this paper answers is a different one, and the parent's remark does
 not settle it: \textbf{keep the bandwidth-one Frobenius baseline and adjoin a
 second-bandwidth block at $\lambda' = 1/2$} --- the $\lambda'$-Frobenius budget,
-the signed cubic equality, the all-$V$ count ladder, and the capacity fuzz row.
+the signed cubic equality, the all-$V$ count ladder, and the capacity fuzz row
+(the widening of the cubic equality that Frobenius slack can purchase; rows
+(R-6) and (R-5$'$) of Section~\ref{sec:rowsystem}).
 Rows that are useless alone can bind when adjoined to a strong baseline, which is
 exactly why a marginal-value computation is required rather than a restatement;
 and the parent's remark addresses neither the distinct-zeros benchmark, nor the
@@ -224,36 +224,40 @@ about problem \emph{formulation}, not about the information content of a higher
 correlation level, and it is cited here as a precedent for publishing such a negative
 rather than as evidence for this paper's claim.
 
-The adjudication ordered seven repairs (R1--R7) and
-made the corrected M2 gate the direction's action one: a decision LP over an
+The marginal-value question is settled here by a decision linear program over an
 honest adversary class --- marks up to a divergent alphabet $W$,
 depth-parametrized shallow pairs, clustered sine-process null budgets, full
 positional freedom, and an explicit garnish-capacity fuzz row derived from the
-repaired ladder --- with the pre-registered semantics that either branch is a
-deliverable: a bite funds the analytic bridge; an absorption is published as the
-sharpened no-go. This paper is the absorption branch, executed.
+repaired ladder --- whose objective, rows and decision rule were fixed in
+writing before any computation was run, so that neither outcome could be chosen
+after the fact: a strictly positive marginal value (a \emph{bite}) would fund
+further analytic work; a marginal value of zero (an \emph{absorption}) would be
+published as the sharpened no-go. The value is zero, and this paper reports it.
 
-\subsection{The corrected gate question and its answer}
+\subsection{The marginal-value question and its answer}
 \label{sec:gatequestion}
 
-The gate asks: over laws (probability mixtures) of explicit $N$-periodic marked
-configurations satisfying the two-moment data --- mass $N$, integrality, pair
-structure, bandwidth-one Frobenius budget $(4/3) N (1 \mp \varepsilon)$ --- does
-adjoining the entire $\lambda' = 1/2$ cubic block (the $\lambda'$-Frobenius
-budget $\kappa(1/2) N = (13/6) N$, the signed cubic equality $c_3(1/2) N = 5N$,
-the all-$V$ count ladder, and the capacity fuzz row) raise the minimum of
-$E[\Nd]/N$ above the \texttt{lemmaR\_tight} corner by any $\delta_0 > 0$?
+Write $P_{\mathrm{base}}$ for the minimum of $E_w[\Nd]/N$ over laws $w$
+(probability mixtures) of explicit $N$-periodic marked configurations satisfying
+the two-moment data --- mass $N$, integrality, pair structure, bandwidth-one
+Frobenius budget $(4/3) N (1 \mp \varepsilon)$ --- and $P_{\mathrm{full}}$ for
+the same minimum after the entire $\lambda' = 1/2$ cubic block is adjoined (the
+$\lambda'$-Frobenius budget $\kappa(1/2) N = (13/6) N$, the signed cubic
+equality $c_3(1/2) N = 5N$, the all-$V$ count ladder, and the capacity fuzz
+row). Both are linear programs, and Section~\ref{sec:model} fixes every term.
+The question is whether the cubic block has strictly positive marginal value,
+$\delta_0 := P_{\mathrm{full}} - P_{\mathrm{base}} > 0$.
 
 Throughout, ``Rudnick--Sarnak-range cubic augmentation with capacity control''
-(the title phrase, pre-registered in the gate specification) means exactly this
-$\lambda' = 1/2 + o(1)$ system fixed by the adjudication (R4: $\theta < 1$
-strict) --- the only point in the RS range where both the signed cubic row and
+(the title phrase, fixed in the pre-registered specification) means exactly this
+$\lambda' = 1/2 + o(1)$ system, with $\theta < 1$ strict --- the only point in the RS range where both the signed cubic row and
 the capacity ladder are unconditionally licensed; the behavior of the cubic row
 at $\lambda' \ge 0.6$, inside the RS range but outside the proven ladder regime,
-is the quarantined payoff curve of Section~\ref{sec:payoff}, not part of any
+is the exploratory payoff curve of Section~\ref{sec:payoff}, not part of any
 claim.
 
-The answer, decided and audited: \textbf{no --- $\delta_0 = 0$ identically}, not
+The answer, proved at the model level and certified computationally:
+\textbf{no --- $\delta_0 = 0$ identically}, not
 merely within error bars: the base-optimal law itself satisfies the entire cubic
 block. This paper assembles the complete result: the structure theorems that
 explain the absorption (Section~\ref{sec:structure}), the model-level corner
@@ -301,8 +305,7 @@ rows are strictly interior.
 the signed cubic row equals $3F - 2$ per zero on every multiplicity-$1$ pair at
 every depth and on every mark-$\{1, 2\}$ atom:
 $C - 3F + 2\,\mathrm{Mass} = \sum m(m-1)(m-2) + 6 \sum m_p^2 (m_p - 1) A_p^2$
-exactly. The ``$+8$ vs $0$'' separating premise of the proposal (and the
-adjudication's phase model) is false: a pair's cubic charge is
+exactly. The ``$+8$ vs $0$'' separating premise of the proposal is false: a pair's cubic charge is
 $2m^3(1 + 3A^2) \ge 8m^3$ at every depth. All discriminating power of the cubic
 row lives in marks $\ge 3$ and in clustering cross-terms --- and the cross-terms
 are a free resource for the adversary (Theorem~\ref{thm:parseval}).
@@ -318,21 +321,22 @@ second-moment budget IS the unconditional budget, on the whole band.
 all-$V$ ladder and a Frobenius slack $\varepsilon_g$, the maximal cubic charge
 purchasable by spectral escape is exactly
 $2\sqrt{2}\sqrt{\Cled \varepsilon_g}\,N = o(N)$ --- sharp, with the extremal
-profile exhibited; both the earlier constants
-($2\sqrt{C\varepsilon}$, $(5/\sqrt{3})\sqrt{C\varepsilon}$) are superseded, with
-three independent confirmations.
+profile exhibited and the constant confirmed by three independent
+computations.
 
 \item \textbf{Divergent-cutoff vacuity (Theorem~\ref{thm:garnish}).} A scalar
 Schatten-$3$ tail row with ANY divergent cutoff is unconditionally absorbed by an
-explicit garnish construction that lowers both objectives --- the ``provable
-today, no LP needed'' half of the no-go.
+explicit ``garnish'' construction --- isolated on-line atoms placed below the
+tail row's cutoff --- that lowers both objectives; this half of the no-go needs
+no linear program at all.
 
 \item \textbf{Pair-interference closure
 (Sections~\ref{sec:fractional}--\ref{sec:pairchannel}).} The one channel outside
 the atom-only sandwich --- off-line pairs pushing the bandwidth-one Frobenius
-below the mark-accounting floor --- is closed for the gate's pair class
-throughout the R5 depth family: proved unconditionally for all single-pair
-configurations to depth $w \le 2.8$ (covering all gate depths, including both
+below the mark-accounting floor --- is closed for the admissible pair class
+(Section~\ref{sec:adversary}) throughout its depth family: proved
+unconditionally for all single-pair configurations to depth $w \le 2.8$
+(covering every admissible depth, including both
 deep probes, with $\ge 34\%$ margin), for all multi-pair configurations to
 $w \le 0.82$ ($w \le 0.98$ modulo the crowding cap, ledger constant
 interval-certified at $0.98465$; on $w \in (0.98, 1]$ the ledger fails ---
@@ -340,20 +344,20 @@ certified --- and coverage is adversarial numerics plus the $8/9$ backstop), and
 for equal-depth pair-only configurations at every depth. Multi-pair
 configurations at mixed depths involving the deep probes $w \in \{1.5, 2\}$ ---
 admissible under Section~\ref{sec:adversary} but beyond the theorems' range ---
-are covered by adversarial numerics plus the unconditional $8/9$ backstop (O2,
+are covered by adversarial numerics plus the unconditional $8/9$ backstop (residue item~O2,
 Section~\ref{sec:flags}). An explicit fractional-mark counterexample proves the
 closure is intrinsically an integrality theorem.
 \end{enumerate}
 
-\subsection{Honest framing (adjudication repair R6, binding)}
+\subsection{Honest framing: what the cubic row is, and what is not claimed}
 
 The cubic row is \textbf{a nonlinear spectral reading of bandwidth-one
 pair-correlation data with quantitative high-spectrum capacity control} ---
 nothing more. The third trace at bandwidth $\lambda'$ carries total Fourier
 support $(k - 1)\lambda' = 1 + o(1)$, not $3\lambda'$; its genuinely cubic prime
 resonance is the absolute constant
-$\sum_p (\log p)^3/(p - 1)^2 = 2.315762$ (re-sieved to $3 \times 10^6$ in this
-program, three independent confirmations), contributing $O(1)$ to $\tr \Gh^3$,
+$\sum_p (\log p)^3/(p - 1)^2 = 2.315762$ (re-sieved to $3 \times 10^6$ for this
+paper, three independent confirmations), contributing $O(1)$ to $\tr \Gh^3$,
 i.e.\ $O(1/N)$ per zero. No claim is made anywhere in this paper that the cubic
 block evades the Alternative Hypothesis or consumes data beyond the bandwidth-one
 class plus $o(1)$ --- for what the currently known band-limited $n$-level data
@@ -366,9 +370,8 @@ the content of this paper is that leaving the class buys nothing.)
 
 \subsection{Scope discipline (read before citing)}
 
-Every theorem in this paper is a statement about the model --- the gate's
-explicit configuration classes, kernels, and row systems
-(Section~\ref{sec:model}) --- not about the zeros of zeta. The bridge from the
+Every theorem in this paper is a statement about the model --- the explicit
+configuration classes, kernels, and row systems of Section~\ref{sec:model} --- not about the zeros of zeta. The bridge from the
 model rows to unconditional statements about zeta is the parent paper's sampling
 bookkeeping plus the [BGSTB24] licensing riders, cited (with the riders stated in
 full) in Section~\ref{sec:license}. The exact zero $\delta_0 = 0$ is proved and
@@ -387,7 +390,7 @@ regime (Section~\ref{sec:payoff}).
 
 This section fixes the model in which every theorem of Sections~3--7 lives: the
 master trace formula, its finite-circle discretization, the adversary class, and
-the row system. It condenses the gate specification (SPEC Sections~1--4);
+the row system. It condenses the pre-registered specification;
 everything here was re-derived in the accompanying verification suite.
 
 \subsection{Window and kernel}
@@ -437,7 +440,7 @@ $F = \tr G^2$ (Frobenius row) and $C = \tr G^3$ (signed cubic row); $F_1$ at
 bandwidth $1$, $F'$ and $C'$ at bandwidth $\lambda'$. This single formula
 generates every trace row on both sides --- null budgets and configuration
 demands --- including all clustering cross-terms and all depth effects; no
-isolated-block idealization enters the gate anywhere.
+isolated-block idealization enters the row system anywhere.
 
 \subsection{Finite-circle model (the LP's discretization)}
 \label{sec:finitecircle}
@@ -485,8 +488,7 @@ The two objectives:
     && \text{(simple fraction)}.
 \end{align*}
 
-\paragraph{Realizability --- what is imposed and why it is exactly right (SPEC
-3.2, in brief).}
+\paragraph{Realizability --- what is imposed and why it is exactly right.}
 Imposed: explicit finite marked multisets (never bare correlation data); integer
 marks; conjugate-pair structure; mass $N$; mixtures. \emph{Necessity:} an
 adversary allowed to post aggregated moment data directly could claim values
@@ -501,11 +503,12 @@ Section~\ref{sec:fractional} exhibits the subtler pair-channel form of the same
 failure). \emph{Sufficiency:} nothing further may be imposed, because every row of
 the system is a theorem valid for arbitrary configurations with these properties
 --- trace identities are linear algebra plus the sampling identity, the budgets
-are the unconditional prime-side equalities, the ladder is Theorem~1(ii)-repaired,
+are the unconditional prime-side equalities, the ladder is the repaired
+spectral-tail statement,
 inertia is Sylvester; imposing anything more (e.g.\ pointwise GUE $3$-level
 correlations) would smuggle in precisely the unproven correlation knowledge whose
-absence the gate respects. Periodicity and the finite depth/mark grids are
-discretizations, refined under the verdict-stability requirement
+absence the row system respects. Periodicity and the finite depth/mark grids are
+discretizations, checked for stability
 ($N = 64 \to 128$, $W$-scan, depth-grid halving), not constraints.
 
 \subsection{The row system}
@@ -529,7 +532,7 @@ $\lambda' = 1/2$ adds:
 \item[(R-8)] inertia $n_-(c) \le p(c)$ per column (automatic on explicit
   spectra; asserted);
 \item[(R-9)] Frobenius split, power-mean, H\"older-with-$o(N)$: automatically
-  satisfied by explicit spectra (the R7 fallback system made primary --- on
+  satisfied by explicit spectra (on
   explicit configurations the linear-algebra-true rows cannot be violated, so
   their entire content is enforced leak-free by construction).
 \end{itemize}
@@ -555,7 +558,7 @@ compute the null budgets in closed form, obtaining the identities that organize
 the entire margin structure, and finally prove the grid-decoupling theorem that
 hands the adversary the cross-term channel for free. Every proof in this section
 is complete; the numerical confirmations (all re-run for this paper,
-\texttt{verify/verify\_t1.py}--\texttt{verify\_t4\_mc.py}) are summarized at the
+\texttt{results/a4-no-go/}\allowbreak\texttt{verify/verify\_t1.py}--\texttt{verify\_t4\_mc.py}) are summarized at the
 point of use.
 
 \subsection{The exact pair block}
@@ -665,8 +668,8 @@ the eigenvalues depend only on $|p|^2, |q|^2$, which depend only on $\delta$.
 $m^2(1 + A)^2 + m^2(1 - A)^2 = 2m^2(1 + A^2)$; cubic
 $m^3(1 + A)^3 + m^3(1 - A)^3 = 2m^3(1 + 3A^2)$. Flat-taper $A$:
 $A(w) = \int_{-1/2}^{1/2} \cosh(2w\sigma)\, d\sigma = \sinh(w)/w$; the listed
-values are its evaluations (they reproduce the gate specification's table to its
-displayed precision, $\le 4 \times 10^{-6}$).
+values are its evaluations (they reproduce the tabulated values used in the
+computation to their displayed precision, $\le 4 \times 10^{-6}$).
 \end{proof}
 
 \paragraph{Consistency and inertia.}
@@ -683,9 +686,8 @@ to $8m^3$: a shallow pair is row-indistinguishable from an on-line double in
 EVERY row, continuously. And --- this is the correction of record --- the cubic
 charge $2m^3(1 + 3A^2) \ge 8m^3$ at EVERY depth ($A \ge 1$), increasing with
 depth: a deep pair never loses cubic charge. The ``$+8$ vs $0$'' separation
-premise (the proposal's Step-4 narrative; the adjudication's computation-8 phase
-model) is false under the true block law; the campaign transcript's recorded
-block facts (pair eigenvalues $m L^2 a (1 \pm A)$) were correct throughout.
+premise is false under the true block law; the pair eigenvalues
+themselves ($m L^2 a (1 \pm A)$) are correct as stated.
 
 Numerical confirmation (\texttt{verify\_t3.py}): evaluation-vector
 route with a $\cos$ taper, $L = 40$, $120001$ windows:
@@ -693,8 +695,8 @@ $|x^{\mathsf{T}} x / L^2 a - 1| \le 6.7 \times 10^{-16}$,
 $|\langle p, q\rangle|/L^2 a \le 1.7 \times 10^{-14}$, block eigenvalues vs
 $m(1 \pm A)$ to $7.8 \times 10^{-14}$, position-independent at machine precision
 at every depth $w \in \{1/64, 1/8, 1/4, 1/2, 3/4, 1, 2\}$; shallow-pair cubic
-charge $8.0005$ at $w = 1/64$ and $8.0313$ at $w = 1/8$, matching the audit's
-independent $8.0005 / 8.033$ --- never $0$ at any depth.
+charge $8.0005$ at $w = 1/64$ and $8.0313$ at $w = 1/8$, matching an
+independent recomputation's $8.0005 / 8.033$ --- never $0$ at any depth.
 
 \subsection{The affine-plane identity and cubic blindness}
 
@@ -779,7 +781,7 @@ Consequences:
   $\tr G^3$ while a double contributes $+8$'' is FALSE under the true block law:
   the pair's signed cubic is $2m^3(1 + 3A^2) \ge 8m^3$ at every depth. The
   sign-split ``different corners of the constraint polytope'' picture is
-  superseded, as already recorded in the direction file.
+  superseded.
 \end{enumerate}
 \end{theorem}
 
@@ -798,11 +800,12 @@ multiplicity-weighted depth term. On marks $\{1,2\}$ and mult-$1$ pairs every
 term vanishes. Consequence 3 is Proposition~\ref{prop:pairblock} ($A \ge 1$).
 \end{proof}
 
-\begin{remk}[why the gate had to be clustered]
-By consequence~1, an isolated-block gate over the doubles-vs-pairs class returns
-a tautological answer along the plane $c = 3F - 2$. The corrected gate's
-clustered null and positional freedom were therefore not conservatism but
-necessity --- and the decided outcome is that the clustering cross-terms, the
+\begin{remk}[why the decision program had to be clustered]
+By consequence~1, a decision program built on isolated blocks over the
+doubles-vs-pairs class returns a tautological answer along the plane
+$c = 3F - 2$. The clustered null budgets and positional freedom of
+Section~\ref{sec:rowsystem} were therefore not conservatism but
+necessity --- and the outcome is that the clustering cross-terms, the
 only live channel, are a free resource for the adversary rather than a signal for
 the certificate.
 \end{remk}
@@ -815,7 +818,7 @@ $2 \times 2$ kernel route reproduces all three charges.
 \subsection{Sine-process closed forms and the doubles-plane diagnostic}
 \label{sec:sine}
 
-The gate's null budgets are the per-zero moments of the flat-window Gram over the
+The null budgets are the per-zero moments of the flat-window Gram over the
 determinantal sine process --- the process with kernel
 $S(x) = \sin(\pi x)/(\pi x)$, intensity $1$, and correlation functions (taken as
 the null's definition)
@@ -937,12 +940,13 @@ load-bearing for the no-go:
 \item \textbf{$G(1/2) = +1/2 > 0$.} At the operating bandwidth the null budget
   sits strictly ABOVE the doubles plane: a doubles-saturated adversary must
   supply $+1/2$ per zero of cubic through positional cross-terms --- which
-  Theorem~\ref{thm:parseval}'s grid freedom supplies at zero cost (the gate's
-  witness does exactly this, sitting at the LOWER cubic budget edge).
+  Theorem~\ref{thm:parseval}'s grid freedom supplies at zero cost (the
+  witness of Section~\ref{sec:certification} does exactly this, sitting at the
+  LOWER cubic budget edge).
 \item \textbf{$\Marg(1/2) = -2/3 < 0$.} The $\omega(m)$-moment route's margin is
   negative at the proven operating point: a bite could never have come from the
   Section-7.3 mechanism there, only from joint positional pricing. The sign change
-  at $\lambda_0 = 0.6105$ is precisely where the gate's exploratory scan saw
+  at $\lambda_0 = 0.6105$ is precisely where the exploratory scan saw
   $\delta_0$ turn positive (between $\lambda' = 0.55$ and $0.60$;
   Section~\ref{sec:payoff}), outside the proven ladder regime.
 \end{enumerate}
@@ -980,7 +984,7 @@ flat-window pair kernel:
 \]
 The sine-process null's second-moment budget IS the parent paper's unconditional
 prime-side $\kappa(\lambda)$, exactly, on the whole band $\lambda \le 1$ --- the
-strongest possible identity check at second order, and the reason the gate's $F'$
+strongest possible identity check at second order, and the reason the $F'$
 budget row is unconditional-data-backed. (Provenance: the prime-side member ---
 $\tr \Gh^2 \leftrightarrow \int (\lambda - |\alpha|) F(\alpha)\, d\alpha$ with
 $F$ unconditional and pointwise on the closed band $0 \le \alpha \le 1$ --- is the
@@ -997,10 +1001,10 @@ Numerical confirmation (\texttt{verify\_t4.py}, \texttt{verify\_t4\_mc.py}):
 Fourier-side quadrature matches both closed forms at $7$ bandwidths to
 $\le 1.7 \times 10^{-5}$; an independent real-space determinantal quadrature gives
 $m_3(1/2) = 4.9924$ (truncation $X = 40$) $\to 4.9960$ ($X = 80$), trending to
-$5$ as the audit's independent quadrature did ($4.9896 \to 4.9932$); a fresh CUE
+$5$ as a second independent quadrature did ($4.9896 \to 4.9932$); a fresh CUE
 Monte Carlo (third independent sampler) extrapolates $m_2(1/2) \to 2.1668$ and
 $m_3(1/2) \to 5.0014$ against $13/6$ and $5$, each within ${\sim}1\sigma$ of both
-the gate's and the auditor's samplers (full tables: Appendix~\ref{app:mc}). The
+both earlier samplers (full tables: Appendix~\ref{app:mc}). The
 values $m_2(1) = 4/3$, $m_3(1) = 2$ also discharge, for $k \le 3$, the parent's
 recalled sine moments $m_k(1) = 1, 4/3, 2$.
 
@@ -1069,7 +1073,7 @@ Lemma~\ref{lem:flatband} is critical-sampling Parseval for a flat band --- the
 discrete orthogonality of $M$ consecutive characters on an $M$-site uniform grid ---
 and Proposition~\ref{prop:lattice} is its Shannon--Whittaker continuum form on the
 integer lattice. Both are classical; they are proved here in the exact finite-circle
-normalization the gate uses, and the Lean development machine-checks
+normalization of Section~\ref{sec:finitecircle}, and the Lean development machine-checks
 Lemma~\ref{lem:flatband} over an arbitrary integral domain (Section~10).
 
 \begin{remk}[why this grid]
@@ -1114,9 +1118,9 @@ sites. Then $c_0 = 64$ and $|c_s|^2 = 1$ for $s \not\equiv 0 \bmod 65$, so
     = \frac{4128}{33} = 125.0909\ldots \,,
 \end{align*}
 using $\sum_{|s| \le 32} (33 - |s|) = 33^2$ and subtracting the $s = 0$ term.
-This reproduces the shipped witness column exactly
-(\texttt{witness\_N64.json}: $F_1 = 64$, $F' = 125.09090\ldots$; independently
-hand-derived in the audit). The two-bandwidth decoupling is thereby explicit:
+This reproduces the certified witness column exactly
+(\texttt{witness\_N64.json}: $F_1 = 64$, $F' = 125.09090\ldots$; also derived
+independently by hand). The two-bandwidth decoupling is thereby explicit:
 $F_1$ is blind to the vacancy's position, $F'$ is not.
 
 \begin{proposition}[continuum analog: the adversary lattice]
@@ -1127,8 +1131,7 @@ the half-band kernel is alive on the lattice:
 $\psi_{1/2}(k) = \sinc(\pi k/2) = (2/(\pi k))(-1)^{(k-1)/2}$ for odd $k$ ($0$ for
 even $k \ne 0$). For the finite-$T$ Weil--Gabor matrix itself the identity holds
 as $\tr \Gh^2 = (\sum m^2)(1 + o(1))$, the $o(1)$ being the parent's
-finite-window corrections (quoted; the campaign's recorded ``adversary
-lattice'').
+finite-window corrections (quoted).
 \end{proposition}
 
 \begin{proof}[Proof (model part)]
@@ -1143,15 +1146,15 @@ $\sin(\pi k/2)/(\pi k/2)$ with $\sin(\pi k/2) = (-1)^{(k-1)/2}$ for odd $k$.
 Theorem~\ref{thm:parseval} is the exact periodization of
 Proposition~\ref{prop:lattice}: spacing $N/(N+1)$ instead of $1$ makes the
 identity exact rather than asymptotic --- which is precisely why the finite-$N$
-gate could exhibit $\delta_0 = 0$ as an exact LP equality rather than a numerical
+computation could exhibit $\delta_0 = 0$ as an exact LP equality rather than a numerical
 near-zero. The absorption is not a finite-$N$ artifact.
 \end{remk}
 
 Numerical confirmation (\texttt{verify\_t1.py}): grid exactness on $40$ random
 site-subsets with random marks at $N = 64$ and $N = 128$, two independent
 evaluation routes (Fourier double sum; eigenvalues of $H$):
-$\max |F_1 - \sum m^2| = 9.1 \times 10^{-13} / 4.1 \times 10^{-12}$, matching the
-audit's independent $4.5 \times 10^{-13}$; general flat-band lemma on $20$ random
+$\max |F_1 - \sum m^2| = 9.1 \times 10^{-13} / 4.1 \times 10^{-12}$, matching an
+independent recomputation's $4.5 \times 10^{-13}$; general flat-band lemma on $20$ random
 $(N, M, j_0)$ draws including asymmetric bands: $3.2 \times 10^{-12}$; controls ---
 off-grid configurations give
 $|F_1 - \sum m^2| \in [1.3 \times 10^{-2},\ 62.5]$ and on-grid half-band
@@ -1162,7 +1165,7 @@ machine precision.
 \section{The absorption theorem}
 \label{sec:absorption}
 
-This section states and proves the model-level theorem the gate pins --- the
+This section states and proves the model-level theorem the LP pins --- the
 two-moment data force exactly the \texttt{lemmaR\_tight} corner, for both
 benchmarks, over the honest configuration classes --- and then presents the
 computational certification that the entire cubic block is absorbed at that
@@ -1277,12 +1280,12 @@ alphabet): the $W$-independence is inclusion, not extrapolation.
 \label{cor:matched}
 As $\varepsilon \to 0$ the two optima tend to $5/6$ and $2/3$ --- the model's
 bandwidth-one analogs of the Montgomery extremal values for distinct zeros and
-simple fraction. With the gate's matched-geometry budget $B_1$ replacing
+simple fraction. With the matched-geometry budget $B_1$ replacing
 $(4/3)N$, the same proof gives
 $\min E[\Nd]/N = (3N - B_1(1 + \varepsilon))/(2N)$ and
-$\min E[p_1] = 2 - (B_1/N)(1 + \varepsilon)$; at the shipped matched values
+$\min E[p_1] = 2 - (B_1/N)(1 + \varepsilon)$; at the matched values used here
 ($N = 64$, $\varepsilon = 0.05$, $B_1 = 84.71214548308222$) these are
-$0.8050957$ and $0.6101914$ --- the run's and follow-up's reported optima to LP
+$0.8050957$ and $0.6101914$ --- the computed optima to LP
 precision.
 \end{corollary}
 
@@ -1301,14 +1304,14 @@ Numerical confirmation (\texttt{verify\_t2.py}): per-atom inequalities exhaustiv
 to $m = 50$ plus $20{,}000$ random draws ($0$ violations); grid-column LP matches
 the closed forms at $\varepsilon \in \{0.10, 0.05, 0.02, 0.002\}$ to
 $\le 3.3 \times 10^{-16}$ for both objectives; exact rational identities verified
-in \texttt{Fraction} arithmetic; the shipped witness reproduces
+in \texttt{Fraction} arithmetic; the certified witness reproduces
 $P = (3N - E[F_1])/(2N) = 0.8050957$ to $6 \times 10^{-13}$.
 
 \subsection{Integrality is necessary: the exact fractional counterexample}
 \label{sec:fractional}
 
 The extension of Theorem~\ref{thm:corner} beyond atoms must consume integrality
---- provably. Work in the gate's primary geometry ($N = 64$, flat window,
+--- provably. Work in the primary geometry ($N = 64$, flat window,
 $\lambda = 1$; kernel $\psi(z) = \sum_j u_j e^{-2\pi i j z/N}$, grid
 $g_k = k\,64/65$) and define
 $\bar{a}(x) := \psi(ix) = \sum_j u_j \cosh(2\pi j x/N) \ge 1$. Write $M(c)$ for
@@ -1366,23 +1369,27 @@ invisible to every convexified or soft-positivity analysis. (This is the textboo
 marked-configuration program has a strictly smaller optimum than the integer program,
 so a bound proved for the relaxation is simply not a bound for the problem.) This
 also explains
-the gate's LP phenomenology: the LP's columns are explicit integer configurations
+the LP's phenomenology: its columns are explicit integer configurations
 (nothing about marks is relaxed), which is why its converged pricing found no
 pair column. And it is the sharp form of the realizability discussion of
 Section~\ref{sec:adversary}: with fractional marks even the $5/6$ baseline is
 false.
 
-\subsection[The pair-interference channel: closed on the R5 family (multi-pair
-to w <= 0.98), backstopped everywhere]{The pair-interference channel: closed on
-the R5 family (multi-pair to $w \le 0.98$), backstopped everywhere}
+\subsection[The pair-interference channel: closed on the pair-depth family
+(multi-pair to w <= 0.98), backstopped everywhere]{The pair-interference channel:
+closed on the pair-depth family (multi-pair to $w \le 0.98$), backstopped
+everywhere}
 \label{sec:pairchannel}
 
 The full closure argument, with its capacity machinery and certified constants,
-is the companion note (\emph{supplementary material},
-\texttt{pair-}\allowbreak\texttt{channel.md}); we state the results, the exact ledger they rest on,
-and the proofs that are short enough to give in full. Everything is at the gate's
-decision geometry ($N = 64$, flat window, $\lambda = 1$); depths $d$ are in
-circle units, $w = 2\pi d$ dimensionless (the gate's pair family is
+is long; it is given in full in the companion note
+\texttt{results/a4-no-go/}\allowbreak\texttt{pair-}\allowbreak\texttt{channel.md}
+of the program repository (see \emph{Provenance, data and code} at the end of
+this paper). Here we state the results, the exact ledger they rest on,
+and the proofs that are short enough to give in full. Everything is at the
+primary geometry ($N = 64$, flat window, $\lambda = 1$); depths $d$ are in
+circle units, $w = 2\pi d$ dimensionless (the admissible pair family of
+Section~\ref{sec:adversary} is
 $w \in (0, 1]$ plus deep probes $w \in \{1.5, 2\}$, i.e.\ $d \le 0.3183$).
 
 \paragraph{The exact interference ledger.}
@@ -1413,7 +1420,7 @@ the worst depth:
 \label{thm:singlepair}
 Every configuration with exactly one pair (arbitrary atoms, arbitrary integer
 marks, arbitrary positions) satisfies (MI) whenever the pair depth is
-$d \le 0.45$ --- i.e.\ $w \le 2.8$, covering the gate's ENTIRE pair-depth family
+$d \le 0.45$ --- i.e.\ $w \le 2.8$, covering the ENTIRE admissible pair-depth family
 including both deep probes, with $\ge 34\%$ capacity margin on the family itself
 (certified stacking-corrected capacity ratio $\le 0.66$ on the family,
 $\le 0.921$ out to $d = 0.45$). For mass $\le N$ configurations (the LP class)
@@ -1427,8 +1434,7 @@ searches reach at most $74\%$ of the pair budget).
 (MI) holds for every configuration all of whose pair depths satisfy
 $w \le 0.82$, unconditionally; and for all depths $w \le 0.98$ modulo one
 isolated cell-crowding cap whose ledger constant is interval-certified
-($\sup \Sgen \le 0.98465 < 1$ on $(0, 0.156]^2$, per-cell rigorous enclosures;
-2026-08-27). On the deepest sliver $w \in (0.98, 1]$ the ledger inequality fails
+($\sup \Sgen \le 0.98465 < 1$ on $(0, 0.156]^2$, per-cell rigorous enclosures). On the deepest sliver $w \in (0.98, 1]$ the ledger inequality fails
 (interval-certified $\Sgen \ge 1.01405 > 1$ at $d = d' = 0.159$); there the
 targeted crowd-plus-sea attacks --- $8$ to $65$ pairs, one per cell tranche, plus
 greedy mark-$2$ seas up to $130$ atoms, re-run at $d = 0.158$ and $0.159$ ---
@@ -1446,7 +1452,7 @@ the shallow regime ($\nu(y) = \alpha y^2 (1 + o(1))$). Integer atoms harvesting 
 cell's dip pay in-cell atom-atom crosses ($\ge \psi(\text{dip-zone diameter})^2$
 each) and their own integrality slack, capping the harvest at
 $8 m_p \kappa_k$ per cell for marks $\le 2$ (with a certified stacking correction
-beyond); on the R5 family the closing inequality
+beyond); on the pair-depth family the closing inequality
 $8\nu(y) \le 2\bar{a}(2y)^2$ follows in closed form from one harmonic-Taylor
 bound with the exact $\alpha$ and one certified finite constant ($1.2\%$ closing
 margin at the endpoint). Pair-pair couplings are priced through the joint kernel
@@ -1534,12 +1540,12 @@ target (MI), with its floor headroom of $2$ per pair, instead.
 
 \paragraph{Consequence.}
 The model-level corner theorem extends from the atom-only class to the bulk of
-the gate's admissible class: single-pair columns at every gate depth
-($w \le 2.8$), multi-pair columns at $w \le 0.82$ unconditionally and
+the admissible class of Section~\ref{sec:adversary}: single-pair columns at
+every admissible depth ($w \le 2.8$), multi-pair columns at $w \le 0.82$ unconditionally and
 $w \le 0.98$ modulo the crowding cap (constant interval-certified), equal-depth
 pair-only columns at every depth --- for both benchmarks, via (MI). The remaining
 admissible regimes --- multi-pair columns at the deep-probe depths
-$w \in \{1.5, 2\}$ (inside the gate class but beyond the theorems' range),
+$w \in \{1.5, 2\}$ (inside the admissible class but beyond the theorems' range),
 multi-pair columns with a depth in $w \in (0.98, 1]$ (ledger failure certified
 there; coverage is the re-run attacks plus the backstop), and mass-unbounded
 crowds (not LP-relevant, since columns have mass $N$ and deeper objects are
@@ -1549,20 +1555,19 @@ $(0.98, 1]$ sliver's coverage is the re-run attacks under (O1) plus the backstop
 Class-level exactness of $\delta_0 = 0$ is therefore proved on the closure's
 regimes and heuristic (pricing-backed, backstopped at $20/27$) on that residue.
 The channel could only ever have produced a bite (a pair-assisted violation would
-be cut by pricing, not absorption), and it produces none; the audit's minor
-finding~4 is discharged for the closure's regimes, with the honest residue stated
-in Section~\ref{sec:flags}.
+be cut by pricing, not absorption), and it produces none, with the honest
+residue stated in Section~\ref{sec:flags}.
 
 \subsection[The computational certification: 940 records, the epsilon law, and
 the witness]{The computational certification: 940 records, the $\varepsilon$
 law, and the witness}
 \label{sec:certification}
 
-The gate LP (column generation over explicit configurations, analytic-gradient
+The decision LP (column generation over explicit configurations, analytic-gradient
 multi-start pricing, exact-LP equality on the accumulated dictionary, final
 solutions re-verified in \texttt{Fraction} arithmetic on $10^{-12}$
-rationalizations) was run over the full pre-registered decision grid. Verdict,
-machine-readable: ABSORPTION.
+rationalizations) was run over the full pre-registered decision grid. The
+outcome is absorption.
 
 \paragraph{The grid.}
 $N = 64$: $\{$matched, asymptotic$\}$ budgets $\times$
@@ -1671,7 +1676,7 @@ magnitude --- $E[n(2)] = 3.50$ and $E[n(3)] = 0.94$ against caps
 $\Cled N V^{-4} = 400$ and $79.0$, all higher rows zero, and the vacancy column's
 $n(V)$ vector identically zero. Every row was re-verified in exact
 \texttt{Fraction} arithmetic (all $10$ checks pass, objective deviation
-$5 \times 10^{-13}$), and the audit independently recomputed all three columns
+$5 \times 10^{-13}$), and all three columns were independently recomputed
 through a position-space path (reproduction to $10^{-6}$ or better, feasibility
 re-confirmed at $\Cled = 100$ and $\Cled = 10$).
 
@@ -1688,27 +1693,27 @@ arrangement alone.
 
 \paragraph{Pricing and its honest role.}
 No improving column (reduced cost $< -10^{-6}$) was found in $S = 200$ pricing
-restarts at the primary and tightest-asymptotic points ($S = 100$ at $N = 128$ ---
-RUN-REPORT-recorded, with no stored verify block; $S = 40$ at $W$-scan
+restarts at the primary and tightest-asymptotic points ($S = 100$ at $N = 128$,
+recorded but with no stored verification block; $S = 40$ at $W$-scan
 re-checks; $\min_{\mathrm{rc}} = 0.0$, $0$ improving columns at every stored
-verification). The ABSORPTION verdict does not rest on pricing optimality --- the
+verification). The absorption conclusion does not rest on pricing optimality --- the
 witness is exhibited and verified, and
 $P_{\mathrm{full}} = P_{\mathrm{base}}$ is an exact LP equality on the
 accumulated dictionary regardless; pricing convergence supports only the claim
 that no undiscovered configuration class outside the dictionary would create a
 bite (and more columns can only lower both optima together --- the
-anti-absorption direction). The audit's eight break attempts (independent witness
-recomputation; a per-column ladder at $\Cled = 4$, barely above the null floor
-$3.82$; a missing-row hunt; near-CUE pinning; window-degeneracy probes; the
-pair-channel attack; budget-center stress across $\varepsilon$ in
-$0.002$--$0.10$ and $\Gamma$ to $0.25$; seed and scale stability) all failed to
-flip the verdict; the two that produced findings (near-CUE promotion; $p_1$
-scoping) are executed in Sections~\ref{sec:nearcue} and~\ref{sec:p1}.
+anti-absorption direction). Eight independent attempts to break the result
+(recomputing the witness; a per-column ladder at $\Cled = 4$, barely above the
+null floor $3.82$; a missing-row hunt; near-CUE pinning; window-degeneracy
+probes; the pair-channel attack; budget-center stress across $\varepsilon$ in
+$0.002$--$0.10$ and $\Gamma$ to $0.25$; seed and scale stability) all left the
+conclusion standing; the two that produced findings (the near-CUE class; the
+$p_1$ objective) are carried out in Sections~\ref{sec:nearcue} and~\ref{sec:p1}.
 
 \section{The near-CUE class: absorption inside the unconditional data class}
 \label{sec:nearcue}
 
-The Tier-1 adversary of Section~\ref{sec:absorption} is free to hold
+The adversary of Section~\ref{sec:absorption} is free to hold
 anti-correlated (non-CUE) bandwidth-one data. The strongest form of the no-go
 pins the adversary inside the near-CUE class --- the data class of the
 PairCeiling formalization --- and asks whether the cubic block bites there. It
@@ -1731,15 +1736,14 @@ $0 \le \alpha \le 1$:
 \]
 for the form factor defined with zeros counted with multiplicity and off-line
 zeros entering with the depth weight $x^{\delta + \delta'}$ --- exactly the
-$\cosh$ depth-weighting the gate's form factor $c_j$ applies. With
+$\cosh$ depth-weighting the model's form factor $c_j$ applies. With
 $\alpha = j/N$, each open-band row is licensed pointwise per row,
 unconditionally, in the depth-weighted multiplicity-counted form (directly, or
 through the paper's Lemma~5 admissible kernel class: even, $L^1$, supported in
 $[-1, 1]$, Lipschitz at $0$ --- the bandwidth-one class); the diagonal spike is
-confined to the edge rows the gate leaves free, and the Poisson factor acts below
-the model's $1/N$ bin resolution whenever $N \ll \log T$. Two citation
-corrections for the program's literature file, read off the fetched paper: the
-uniform range is the closed band $0 \le \alpha \le 1$, not $|\alpha| < 1$
+confined to the edge rows left free above, and the Poisson factor acts below
+the model's $1/N$ bin resolution whenever $N \ll \log T$. Two points read from the
+published paper: the uniform range is the closed band $0 \le \alpha \le 1$, not $|\alpha| < 1$
 (Theorem~1 includes the [GM87, Lemma~8] improvement ``up to $\alpha = 1$ with
 explicit error terms''); and the published venue is Acta Arithmetica 2024.
 
@@ -1759,7 +1763,7 @@ results):}
 \item \textbf{Finite-$T$ slack $O(N/\sqrt{\log T})$.} The licensed per-row slack
   at finite $T$ is $O(N/\sqrt{\log T})$ grid units (plus the edge spike), so
   $\tau_2 \in \{1, 4\}$ is the fixed-$N$, $T \to \infty$ asymptotic reading ---
-  legitimate for the gate's asymptotic semantics, but at honest finite $T$ the
+  legitimate for the model's asymptotic semantics, but at honest finite $T$ the
   $O(1)$-unit pinning overstates the theorem until $\log T \gg N^2$, and this
   no-go says so.
 \item \textbf{Second-moment scope.} [BGSTB24] stops at the second moment --- pair
@@ -1768,8 +1772,9 @@ results):}
   exactly as before.
 \end{enumerate}
 
-Net: the Tier-2 rows are an unconditional asymptotic data class, pointwise on the
-open band in the depth-weighted form; the Tier-2 verdict's \emph{strength}
+Net: the pinning rows are an unconditional asymptotic data class, pointwise on
+the open band in the depth-weighted form; the \emph{strength} of the near-CUE
+conclusion
 (``absorption inside the parent ceiling's own data class'') inherits riders 1--3
 verbatim.
 
@@ -1778,7 +1783,7 @@ centerings]{The decision-grade result: $\delta_0' = 0$ exactly, both $N$, both
 centerings}
 \label{sec:t2result}
 
-Row class: all Tier-1 rows (fuzz $=$ none --- the harsher variant for absorption)
+Row class: all the rows of Section~\ref{sec:rowsystem} (fuzz $=$ none --- the harsher variant for absorption)
 plus the pinning rows at $\tau_2$. Four cells at $N = 64$ (matched budgets,
 $\Cled = 100$, $W \le 8$):
 
@@ -1819,7 +1824,7 @@ $P_{\mathrm{full}} = P_{\mathrm{base}} = 0.8332332347490976$,
 $\delta_0' = 0.0$ exact.
 
 \paragraph{$N = 128$ confirmation.}
-The pinned LP was infeasible on the raw gate dictionary and was bootstrapped with
+The pinned LP was infeasible on the raw dictionary and was bootstrapped with
 $300$ CUE and doubles-decorated-CUE columns (anti-absorption-safe), then built
 out over $10$ cumulative $S = 200$ passes to $6{,}457$ columns at the matched
 cell ($6{,}739$ after the asymptotic re-centering):
@@ -1851,7 +1856,7 @@ solver-tolerance overshoot; the \texttt{Fraction} re-verification against the TR
 $\tau_2 = 1$ box passes with margin $+1.0 \times 10^{-5}$ strictly interior),
 $E[n_{\mathrm{simple}}]/N = 0.6748$.
 
-This is a stronger statement than Tier-1 absorption: inside the near-CUE class
+This is a stronger statement than absorption in the unpinned class: inside the near-CUE class
 the cubic row is not absorbed by an adversary straining against it --- it is
 slack at the optimum. There is no ceiling-class escape and no bite even inside
 the parent ceiling's own data class, at both lattice sizes, at both budget
@@ -1865,12 +1870,12 @@ $\delta_0' = 1.30 \times 10^{-3} / 1.43 \times 10^{-3}$
 ($[0.9 \times 10^{-3}, 1.5 \times 10^{-3}]$) and were still declining under
 enrichment ($1.28 \times 10^{-3} \to 1.17 \times 10^{-3}$ over five passes): they
 are \textbf{unconverged upper bounds at loose pinning, an order of magnitude
-below the M4 decision scale (the $10^{-2}$--$3 \times 10^{-2}$ $\delta_0$ the
+below the decision scale (the $10^{-2}$--$3 \times 10^{-2}$ $\delta_0$ the
 proposal projected)}, obtained from deliberately shortened runs and recorded as
 such. They are diagnostic annotations, not certificate claims --- and they
 sharpen the scoping: whatever residual cubic signal exists at this scale lives
 strictly between the near-CUE class ($\tau_2 = 1$: exact zero by slack) and the
-free Tier-1 class (exact zero by witness), i.e.\ in loosely pinned intermediate
+free unpinned class (exact zero by witness), i.e.\ in loosely pinned intermediate
 worlds, at sub-decision magnitude.
 
 \section{The simple-fraction benchmark}
@@ -1878,8 +1883,8 @@ worlds, at sub-decision magnitude.
 
 The parent certificate's headline is the simple-zero fraction ($2/3$ at flat
 window; $0.6725$ window-optimized; ceiling $0.6818287$), so a no-go scoped only
-to $\Nd$ would be incomplete --- this was the audit's third major finding. The
-gate was therefore re-run with the objective $\min E_w[p_1]$,
+to $\Nd$ would be incomplete. The
+computation was therefore re-run with the objective $\min E_w[p_1]$,
 $p_1(c) = (\#\text{mark-}1\ \mathrm{atoms}
  + 2 \times \#\text{mult-}1\ \mathrm{pairs})/N$, on the follow-up-enriched
 dictionary ($5{,}134$ columns), with the literal pre-registered stop rule applied
@@ -1910,7 +1915,7 @@ yes: $S = 200$ clean, both systems \\
 \end{tabular}
 \end{table}
 
-These were the campaign's only fully clean-stop runs: zero improving columns at
+These were the only fully clean-stop runs: zero improving columns at
 $S = 200$ for full AND base systems. Cross-checks on the final dictionary:
 coupled fuzz at the primary cell $\delta_{p_1} = 2.9 \times 10^{-13}$; $W$-scan
 over $\{2, 3, 4, 6, 8\}$ max $|\delta_{p_1}| = 1.3 \times 10^{-12}$ (at $W = 8$;
@@ -1921,11 +1926,11 @@ simple points at $\ge$ twice the two-simples Frobenius cost; a mult-$2$ pair is
 dominated by two doubles) --- and the $\varepsilon \to 0$ value is
 $2 - 4/3 = \mathbf{2/3}$, the model's bandwidth-one analog of Montgomery's
 simple-zeros corner. The witness laws are the same $\psi_1$-grid family as the
-Tier-1 witness, reweighted per cell, rational verification passing.
+witness of Section~\ref{sec:certification}, reweighted per cell, rational verification passing.
 
 Two scoping notes. (i) The cited \textbf{$0.6818287$} ceiling belongs to the
 \emph{window-optimized} certificate class (the Theorem-D effect), which the
-flat/flat gate deliberately does not consume; the flat-window model corner is
+flat/flat row system used here deliberately does not consume; the flat-window model corner is
 $2/3$, and no statement in this paper re-decides the $0.6818287$ ceiling --- what
 is proved is that the cubic block does not move the flat/flat optimum for either
 objective. (ii) With this section, the no-go headline covers BOTH benchmarks: the
@@ -1936,10 +1941,9 @@ $\delta = 0$ at convergence.
 \label{sec:capacity}
 
 Two theorems close the spectral-escape routes from opposite ends, and together
-with the gate they complete the pricing: a scalar cubic tail row with any
+with the decision program they complete the pricing: a scalar cubic tail row with any
 divergent cutoff is unconditionally vacuous (Theorem~\ref{thm:garnish} --- the
-``provable today, no LP needed'' half of the no-go, mandated by the merge
-guidance); and under the repaired all-$V$ ladder the same channel is capped at
+``provable today, no LP needed'' half of the no-go); and under the repaired all-$V$ ladder the same channel is capped at
 $o(N)$ with a sharp constant (Theorem~\ref{thm:capacity}). What remains is
 position/interference freedom --- which is exactly the channel the witness of
 Section~\ref{sec:certification} uses.
@@ -1996,7 +2000,7 @@ its cubic charge is $C/a + 3C/a = 4C/a = 2\sqrt{2}\sqrt{C \varepsilon_g}$,
 meeting the bound.
 \end{proof}
 
-\begin{remk}[the squeeze, made exact]
+\begin{remk}[the two-sided squeeze, made exact]
 The optimal dual split is
 \[
   [a \times \text{Frobenius}] + [\text{ladder integral above } a] :
@@ -2006,8 +2010,8 @@ heights are blocked by the Frobenius cost (mass at height $h$ buys $h^3$ of cubi
 but pays $h^2$ of Frobenius, ratio $h \le a$), divergent heights by the ladder
 cap. The absolute floor $C_{\mathrm{abs}}$ (normalized to $1$) appears NOWHERE in
 the upper bound --- only in the attainability condition $a \ge 1$ --- which is
-the precise form of the adjudication's overruling of the ``bite iff
-$2\Cled/C_{\mathrm{abs}} < 4/3$'' claim: sharp constants at the floor are
+why the ``bite iff
+$2\Cled/C_{\mathrm{abs}} < 4/3$'' criterion does not decide the question: sharp constants at the floor are
 irrelevant against this adversary class.
 \end{remk}
 
@@ -2022,13 +2026,13 @@ $5C/b = (5/\sqrt{3})\sqrt{C \varepsilon_g} = 2.8868\sqrt{C \varepsilon_g}$ ---
 but it violates the CUMULATIVE ladder on the open interval $(2^{-1/4} b, b)$,
 where its count $2 C b^{-4}$ exceeds the cap $C h^{-4}$. The true optimum is
 Theorem~\ref{thm:capacity}'s $2\sqrt{2} = 2.8284271247\ldots < 5/\sqrt{3}$; both
-earlier bookkeepings --- the first-pass $5/\sqrt{3}$ and the adjudicator's
+earlier estimates of this constant --- the first-pass $5/\sqrt{3}$ and the
 two-term dyadic $2\sqrt{C\varepsilon}$ --- are superseded by the min-profile
 constant (same order; conclusions unchanged). The constant has three independent
-confirmations on record: the specification's min-profile derivation, the
-implementer's analytic re-derivation plus LP ($2.8244$ at
-$h_{\max} = 400$, gap $=$ the predicted truncation tail $3/h_{\max}$), and the
-audit's own optimum.
+confirmations on record: the min-profile derivation above, an independent
+analytic re-derivation plus LP ($2.8244$ at
+$h_{\max} = 400$, gap $=$ the predicted truncation tail $3/h_{\max}$), and a
+third, independently computed optimum.
 \end{proposition}
 
 \begin{proof}
@@ -2041,7 +2045,7 @@ the cap is $C h^{-4} < 2 C b^{-4}$ throughout the open interval.
 
 \begin{corollary}[capacity is $o(N)$: the positive complement of the no-go]
 \label{cor:oN}
-In the gate's units, the maximal cubic shift purchasable by spectral escape under
+In the model's normalized units, the maximal cubic shift purchasable by spectral escape under
 the repaired row system is
 \[
   |\Delta \text{cubic}| \le 2\sqrt{2}\,\sqrt{\Cled \varepsilon_g}\, N = o(N)
@@ -2051,13 +2055,13 @@ the repaired row system is
 doubles-vs-pairs-scale swing ($\Theta(N)$, e.g.\ $(4/3)N$) can NEVER be produced
 by spectral escape once the all-$V$ ladder is consumed: any absorption of the
 cubic block must run through position/interference freedom --- the channel
-Theorem~\ref{thm:parseval} exhibits and the witness uses. (In the gate's LP this
+Theorem~\ref{thm:parseval} exhibits and the witness uses. (In the decision LP this
 theorem enters as the coupled fuzz rows, tangent-cut on the concave $\sqrt{\ }$;
 the run found the fuzz row not even load-bearing for the absorption.)
 \end{corollary}
 
-Numerical confirmation (\texttt{verify\_t5.py}, refinement runs re-executed and
-persisted to \texttt{verify\_t5\_}\allowbreak\texttt{out.json} this session): attainment profile exact
+Numerical confirmation (\texttt{verify\_t5.py}, with results in
+\texttt{verify\_t5\_}\allowbreak\texttt{out.json}): attainment profile exact
 to $4 \times 10^{-11} / 9 \times 10^{-13}$; an independent discretized LP over
 point masses converges to $0.4000$ from below under joint grid-and-truncation
 refinement --- tail-corrected values $0.3950 / 0.3985 / 0.3991$ at
@@ -2153,7 +2157,7 @@ Theorem~\ref{thm:corner} have marks in $\{1, 2\}$ (spectra bounded by $2$, simpl
 fraction $2/3$ in the limit) and undershoot the cubic budget
 (Corollary~\ref{cor:anchors}: $G(1/2) = +1/2 > 0$ --- the null budget sits
 strictly above the doubles plane, so doubles-saturated configurations are
-cubic-short; the shipped witness accordingly sits at the LOWER cubic edge).
+cubic-short; the witness accordingly sits at the LOWER cubic edge).
 Whatever cubic demand the row was hoped to impose on the two-moment-degenerate
 corner --- up to any fixed $\Delta_{\max}$, including the full ``$(4/3)N$
 doubles-vs-pairs swing'' of the proposal's narrative --- the garnish supplies it
@@ -2168,39 +2172,40 @@ $V \ge V_0$ count rows identically zero for large $T$, so they satisfy (W1),
 family is admissible for the whole system at a weakly smaller objective.
 \end{proof}
 
-\begin{remark}[what this does and does not say --- the repair structure]
+\begin{remark}[what this does and does not say]
 \label{rem:repairstructure}
 \begin{enumerate}
 \item \textbf{It kills the scalar row, not the direction.} The vacuity is about
   the AS-WRITTEN system, whose count/tail information starts only at $V_0$. The
   proposal's own Chebyshev proof in fact yields the all-$V$ ladder
   $n(V) \le \Cled N V^{-4}$ for every $V \ge C$ at $\theta < 1$ (the theorem
-  underclaimed its proof --- the adjudication's central overruling); under THAT
+  underclaimed its proof); under THAT
   system the garnish channel is not free but capped, and the cap is exactly
   Theorem~\ref{thm:capacity}'s $2\sqrt{2}\sqrt{\Cled \varepsilon_g}\, N = o(N)$.
-  Repair R1 (``claim what the proof proves'') is precisely the difference between
+  Claiming exactly what that proof yields is precisely the difference between
   Corollary~\ref{cor:vacuity} and Theorem~\ref{thm:capacity}.
 \item \textbf{The garnish needs unbounded marks}
   ($h_0 = \lfloor V_0/2 \rfloor \to \infty$): it lives outside every fixed-$W$
-  alphabet --- which is why the repairs mandated the divergent-$W$ adversary
-  class and why ``a break at marks $\{1, 2\}$ is not evidence.'' (A pair-based
+  alphabet --- which is why the adversary class here carries a divergent mark
+  alphabet $W$, and why a violation found only at marks $\{1, 2\}$ would not
+  settle the question. (A pair-based
   garnish with slowly divergent pair multiplicity reaches the same conclusion
   through Proposition~\ref{prop:pairblock}'s deep-pair blocks.)
 \item \textbf{The three-part structure of the no-go.}
   Theorem~\ref{thm:garnish}/Corollary~\ref{cor:vacuity} dispose of spectral
   escape as written; Theorem~\ref{thm:capacity} caps it as repaired; and the
-  gate's decided content (Sections~\ref{sec:absorption}--\ref{sec:p1}) is that
+  computational content (Sections~\ref{sec:absorption}--\ref{sec:p1}) is that
   the remaining channel --- position/interference freedom --- absorbs the cubic
   block too, at $\delta_0 = 0$ exactly. Together these ARE the sharpened no-go.
 \end{enumerate}
 \end{remark}
 
 Numerical confirmation (\texttt{verify\_t6.py}): the shift table at
-$\Delta = 4/3$, $V_0 = (\log\log T)^3$ over the adjudication's $\log T$ grid
+$\Delta = 4/3$, $V_0 = (\log\log T)^3$ over a $\log T$ grid
 extended to $10^6$ --- Frobenius shift $4/(3 h_0) = 0.0992$ down to
 $0.0010 \to 0$, $\Nd$ shift negative throughout, cubic shift $+4/3$ exactly, tail
-and count rows $0$ --- reproducing the adjudication's computation-(b) audit and
-the gate's Tier-A regression; an abstract LP demonstration in which the cubic
+and count rows $0$ --- reproducing two independent earlier computations of the
+same table; an abstract LP demonstration in which the cubic
 equality is INFEASIBLE without the garnish variable (the fake bite) and returns to
 the two-moment corner $5/6 - O(\mathrm{tol})$ with it; and an exact-rational
 instance with all shifts exact.
@@ -2230,7 +2235,7 @@ degeneracy breaks by a microscopic but nonzero amount. The complete residual map
 \toprule
 configuration & residual $\delta_0$ & status \\
 \midrule
-flat/flat, entire $940$-record Tier-1 grid & $0$ ($< 10^{-12}$) &
+flat/flat, entire $940$-record decision grid & $0$ ($< 10^{-12}$) &
 exact; witness-backed \\
 \addlinespace
 flat at $\lambda = 1$ / $\cos(1.6 s)$ at $\lambda'$ &
@@ -2256,10 +2261,10 @@ absorption by slack (Section~\ref{sec:slack}) \\
 near-CUE $\tau_2 = 4$ (loose box, diagnostic) &
 $1.30 \times 10^{-3} / 1.43 \times 10^{-3}$, pricing bands
 $[0.9 \times 10^{-3}, 1.5 \times 10^{-3}]$ &
-unconverged upper bounds, an order below the M4 decision scale
+unconverged upper bounds, an order below the decision scale
 ($10^{-2}$--$3 \times 10^{-2}$); the cubic row is active here \\
 \addlinespace
-audit's tight-$\varepsilon$ Tier-2 probes (dictionary-limited, no column
+independent tight-$\varepsilon$ near-CUE probes (dictionary-limited, no column
 generation) & $\le 5 \times 10^{-4}$, non-monotone in $\varepsilon$ &
 upper bounds, same order as the documented ${\sim}3 \times 10^{-4}$ pricing
 uncertainty --- ``where any residual signal concentrates'' \\
@@ -2268,13 +2273,12 @@ uncertainty --- ``where any residual signal concentrates'' \\
 \end{table}
 
 Every nonzero entry is an unconverged UPPER bound on the converged marginal
-value, and every one sits at least an order of magnitude below the M4 decision
-scale. The audit's binding wording bar is respected verbatim: $\delta_0 = 0$
+value, and every one sits at least an order of magnitude below the decision
+scale. The claim is worded accordingly: $\delta_0 = 0$
 exactly at the primary flat/flat configuration; $\le O(10^{-4})$ across the
 window family and $\le O(5 \times 10^{-4})$ under near-CUE pinning at that scale,
-within pricing-convergence uncertainty --- now strengthened by the
-decision-grade $\tau_2 = 1$ exact zeros of Section~\ref{sec:nearcue}, which
-post-date that wording.
+within pricing-convergence uncertainty --- and strengthened further by the
+$\tau_2 = 1$ exact zeros of Section~\ref{sec:nearcue}.
 
 \subsection{Finite scale}
 
@@ -2288,11 +2292,11 @@ structural reason to persist at every scale, and the model-level theorems of
 Sections~\ref{sec:structure},
 \ref{sec:atomonly}--\ref{sec:pairchannel}, and~\ref{sec:capacity} are
 $N$-generic (the pair-channel capacity constants were certified at $N = 64$, the
-decision geometry; the mechanical $N = 128$ re-run, executed 2026-08-27,
+decision geometry; the mechanical $N = 128$ re-run
 reproduces every identity and inequality --- see O4 below). No claim about $N$
 beyond $128$ rests on computation.
 
-\subsection{Flags and honest residue (carried, not discharged)}
+\subsection{Open flags and honest residue}
 \label{sec:flags}
 
 \begin{itemize}
@@ -2304,22 +2308,21 @@ beyond $128$ rests on computation.
   The absorption verdict is insensitive to this flag: $\delta_0 = 0$ across
   $\varepsilon$ in $0.002$--$0.10$ and $\Gamma$ to $0.25$, and across budget
   centers differing by $5\%$ --- an $O(1)$-per-zero error in $c_3$ cannot flip it
-  (the audit's break attempt~7). [BGSTB24] licenses nothing at third order (rider
+  (one of the break attempts recorded in Section~\ref{sec:certification}). [BGSTB24] licenses nothing at third order (rider
   3).
 \item \textbf{F4 --- the ladder's provenance.} The all-$V$ ladder consumed by
-  Theorem~\ref{thm:capacity}'s system rests on Theorem~1(ii)-repaired, whose
-  $V$-dependent bridge (repair R2) is unproven. Per the gate's semantics the
-  absorption branch is STRENGTHENED by assuming the ladder (absorption even with
+  Theorem~\ref{thm:capacity}'s system rests on the repaired spectral-tail
+  statement, whose $V$-dependent bridge is unproven. Assuming the ladder only
+  STRENGTHENS the no-go (absorption holds even with
   the ladder in force), and Theorem~\ref{thm:garnish} needs no ladder at all;
-  nothing in this paper depends on R2.
+  nothing in this paper depends on that bridge.
 \item \textbf{Heuristic pricing.} For classes without an exhibited witness (the
   nonzero rows of the residual table; the claim that no undiscovered
   configuration class bites), the evidence is converged column-generation pricing
   ($S = 200$ restart protocol), which is heuristic adversary-optimality --- stated
   as such wherever used, and never load-bearing for the exact-zero claims, which
   are witness-backed LP equalities.
-\item \textbf{Pair-channel residue} (from the companion note): (O1) [updated
-  2026-08-27] The per-cell interval hardening was executed: the crowding cap's
+\item \textbf{Pair-channel residue} (from the companion note): (O1) The per-cell interval hardening has been carried out: the crowding cap's
   ledger constant is interval-certified to $w \le 0.98$ ($0.98465 < 1$); the
   earlier full-family ratio $0.9775$ was a grid artifact --- on
   $w \in (0.98, 1]$ the ledger fails (certified $> 1$) and coverage is the
@@ -2328,10 +2331,10 @@ beyond $128$ rests on computation.
   self-consistency is now interval-certified on both sides). (O2) Single-pair
   depths in $(0.45, 1.0)$ at unrestricted mass, and multi-pair beyond the family,
   are covered by numerics plus the $8/9$ backstop only --- not needed for any
-  gate/LP statement. (O3) The sharp conjecture
+  LP statement. (O3) The sharp conjecture
   (Section~\ref{sec:pairchannel}) is open; near-tight configurations ($+0.03$)
   mean the constant-chasing is genuinely hard. (O4) The certified capacity
-  constants are at $N = 64$; the mechanical $N = 128$ re-run (2026-08-27)
+  constants are at $N = 64$; the mechanical $N = 128$ re-run
   reproduces every identity and inequality with $\le {\sim}2.5\%$ drift in the
   headline certified constants (deep-tail table values, $y \ge 1.5$, drift up to
   ${\sim}8\%$), moves Theorem~A(ii)'s deep threshold to $d \ge 1.1$, and shows the
@@ -2342,7 +2345,7 @@ beyond $128$ rests on computation.
 \item \textbf{The formalized ceilings are not re-decided.} The $0.6818287$
   bandwidth-one ceiling belongs to the window-optimized certificate class; the
   $0.8453$ trace/Frobenius cap stands on $\kappa \ge 2/\sqrt{3}$. The flat/flat
-  gate consumes neither; this paper's claim is that cubic augmentation moves
+  row system used here consumes neither; this paper's claim is that cubic augmentation moves
   nothing at the flat/flat operating point and produces only the bounded residuals
   above elsewhere.
 \end{itemize}
@@ -2352,10 +2355,9 @@ ladder)]{Outlook: the exploratory $\lambda'$ payoff curve (outside the proven
 ladder)}
 \label{sec:payoff}
 
-Labeled per repair R4 and merge-guidance item (4) (the
-$\mathrm{MD}(\lambda, \delta)$ community-target quarantine):
+A caution before the numbers.
 $\lambda' > 1/2 + o(1)$ is OUTSIDE the proven $\theta < 1$ ladder regime; these
-are M5 payoff-curve data for the moderate-deviation community target
+are payoff-curve data for the moderate-deviation target
 $\mathrm{MD}(\lambda, \delta)$, NOT certificate claims; column generation ran at
 reduced budget, so positive values are heuristic and upper-anchored.
 
@@ -2387,7 +2389,7 @@ $\lambda_0 = 0.610511$) --- and grows toward the Rudnick--Sarnak endpoint
 $\lambda' = 2/3$. The first possible bite therefore sits at
 $\lambda' \gtrsim 0.6$; consuming it would require extending the proven
 large-value ladder into exactly the moderate-deviation regime
-$\mathrm{MD}(\lambda, \delta)$ that the program has quarantined as a community
+$\mathrm{MD}(\lambda, \delta)$, which is left open here as a community
 target. At the proven operating point $\lambda' = 1/2 + o(1)$, the value is
 exactly zero --- that is this paper's theorem-grade content; the payoff curve is
 its honestly labeled boundary.
@@ -2401,17 +2403,18 @@ its honestly labeled boundary.
   two-bandwidth flat-window augmentation --- $\lambda'$-Frobenius, signed cubic,
   all-$V$ ladder, capacity fuzz, at $\lambda' = 1/2$ --- adds exactly zero to the
   two-moment optimum at $N = 64/128$ scale, for both benchmarks, including inside
-  the near-CUE class (by slack). The program's map entry is updated from
-  ``exhausted'' to ``exhausted, and robust under RS-range cubic augmentation with
-  capacity control.''
-\item \textbf{The R2 bridge is not to be funded for the cubic payoff.} The gate
-  was built to price the bridge investment; the payoff is $\delta_0 = 0$.
-  Theorem~1(ii)-repaired retains its standalone value (the first spectral-tail
-  statement for the Weil--Gabor matrix) and its other consumers.
-\item \textbf{What remains live in A4:} (i) Theorem~1(ii)-repaired as the
-  standalone analytic deliverable of record (all-$V$ count ladder with explicit
-  $\Cled$, $\theta < 1$ strict, $C^3$ taper); separately, per repair R3,
-  Theorem~1(i)'s fixed-$\lambda$ divergent cutoff
+  the near-CUE class (by slack). This upgrades the standing conclusion from
+  ``the two-moment certificate is exhausted'' to ``exhausted, and robust under
+  Rudnick--Sarnak-range cubic augmentation with capacity control.''
+\item \textbf{The $V$-dependent bridge is not worth proving for the cubic
+  payoff.} The computation was set up to measure what that bridge would buy; the
+  answer is $\delta_0 = 0$. The repaired spectral-tail statement keeps its
+  standalone value as the first such statement for the Weil--Gabor matrix.
+\item \textbf{What remains open along this line:} (i) the repaired
+  spectral-tail statement as a standalone analytic result (all-$V$ count ladder
+  with explicit
+  $\Cled$, $\theta < 1$ strict, $C^3$ taper); separately,
+  the fixed-$\lambda$ divergent cutoff
   $V_0 = T^{2\lambda - 1 + \varepsilon}$ extends to all
   $\lambda \in (1/2, 2/3)$ via the MVT-4 branch alone --- a divergent-cutoff
   statement, subject to Theorem~\ref{thm:garnish}'s vacuity, not an all-$V$
@@ -2424,13 +2427,13 @@ its honestly labeled boundary.
   Goldston--Montgomery/Montgomery--Soundararajan results; (iv)
   $\mathrm{MD}(\lambda, \delta)$ as a community target, now carrying the
   quantified payoff curve of Section~\ref{sec:payoff}.
-\item \textbf{Methodological consequence.} The gate architecture itself ---
+\item \textbf{Methodological consequence.} The decision-program architecture itself ---
   explicit-configuration LP with realizability by construction, clustered null
   budgets, pre-registered decision semantics, witness-or-nothing absorption
-  claims, adversarial audit with break attempts --- is the reusable instrument
-  this paper certifies. In particular the correction of record
-  (Theorem~\ref{thm:blind} superseding the ``$+8$ vs $0$'' premise and the phase
-  model) was produced by the gate's own verification discipline before any LP ran.
+  claims, independent adversarial review --- is the reusable instrument
+  this paper certifies. In particular Theorem~\ref{thm:blind}, which supersedes
+  the ``$+8$ vs $0$'' premise, came out of that verification discipline before
+  any LP was run.
 \end{enumerate}
 
 \section{Formalization: what is machine-checked, and what remains}
@@ -2456,7 +2459,7 @@ successfully''):
   vacancy lattice has $F_1 = \sum m^2 = 64$ for \emph{every} vacancy position;
   \texttt{vacancy\_half\_band\_value} --- its $\lambda' = 1/2$ half-band row is
   exactly \textbf{$F' = 4128/33$}, again for every vacancy position, the
-  hand-checkable worked value of Section~\ref{sec:decoupling} and the shipped
+  hand-checkable worked value of Section~\ref{sec:decoupling} and the
   witness column, its integer core $136224$ checked by \texttt{decide +kernel}
   (kernel-checked, not \texttt{native\_decide}); and \texttt{half\_band\_alive}
   --- $F' = 4128/33 \ne 64 = \sum m^2$, which is \textbf{the ``alive'' half of
@@ -2482,8 +2485,9 @@ else --- the three axioms of Lean's classical foundation. In particular there is
 no \texttt{sorryAx}, which any admitted step would introduce, and no
 \texttt{Lean.ofReduceBool}, which \texttt{native\_decide} would introduce and
 which would put the compiler's evaluator into the trusted base. Full record,
-with the environment and the reproduction recipe: \emph{supplementary material},
-\texttt{formalization-status.md}.
+with the environment and the reproduction recipe:
+\texttt{results/a4-no-go/}\allowbreak\texttt{formalization-status.md} in the
+program repository (see \emph{Provenance, data and code}).
 
 The reason this much closes is structural: on the $\psi_1$-zero grid every datum
 is algebraic, and Theorem~\ref{thm:parseval} turns the first step of the corner
@@ -2535,7 +2539,7 @@ after which the two integrality levels finish in finite arithmetic.
 \section{The witness data}
 \label{app:witness}
 
-\paragraph{Tier-1 witness}
+\paragraph{The primary witness}
 (\texttt{results/a4-m2-gate/}\allowbreak\texttt{witness\_N64.json}; cell: $N = 64$, matched budgets
 $B_1, B_2, B_3 = 84.71214548308222$, $135.09544203420174$,
 $304.5549106659001$, $\varepsilon = 0.05$, fuzz $=$ none). All three columns live
@@ -2595,7 +2599,7 @@ active-row lists, and the rational-verification records.
 Closed-form anchors (Theorem~\ref{thm:closedforms}): $m_2(1) = 4/3$,
 $m_2(1/2) = 13/6 = 2.166667$, $m_3(1/2) = 5$.
 
-\paragraph{Gate sampler}
+\paragraph{Primary sampler}
 (CUE eigenangles via QR-with-phase-fix of complex Ginibre, unfolded to
 circumference $n$; $R$ adaptive to $\mathrm{SE}(m_3) \le 0.5\%$; batch-means SE
 with jackknife check):
@@ -2619,10 +2623,9 @@ closed form & & $1.33333$ & $2.16667$ & $5$ \\
 \end{tabular}
 \end{table}
 
-All three extrapolations anchor-consistent (\texttt{anchor\_ok} true; halt flags
-empty).
+All three extrapolations are consistent with the closed-form anchors.
 
-\paragraph{Audit sampler}
+\paragraph{Independent sampler}
 (independent QR sampler, fresh seeds), side by side at the two shared sizes ---
 agreement within ${\sim}1$ combined $\sigma$ per entry:
 
@@ -2630,8 +2633,8 @@ agreement within ${\sim}1$ combined $\sigma$ per entry:
 \centering
 \begin{tabular}{@{}llll@{}}
 \toprule
-$n$ & $m_2(1)$ audit / gate & $m_2(1/2)$ audit / gate &
-$m_3(1/2)$ audit / gate \\
+$n$ & $m_2(1)$ indep. / primary & $m_2(1/2)$ indep. / primary &
+$m_3(1/2)$ indep. / primary \\
 \midrule
 $64$ & $1.32317(105) / 1.32363(74)$ & $2.11120(84) / 2.11087(63)$ &
 $4.76099(491) / 4.75867(362)$ \\
@@ -2641,13 +2644,13 @@ $4.94059(616) / 4.93758(373)$ \\
 \end{tabular}
 \end{table}
 
-A third independent sampler (this session, own seeds, alias-free
+A third independent sampler (own seeds, alias-free
 frequency-matrix assembly) gave $m_2(1/2) = 2.11063(135)$ at $n = 64$ and
 $2.15273(100)$ at $n = 256$, $m_3(1/2) = 4.7589(79)$ and $4.9408(59)$ --- each
 within ${\sim}1\sigma$ of both prior samplers --- with two-point $1/n$
-extrapolation $m_2 \to 2.1668$, $m_3 \to 5.0014$. The audit's third route for
+extrapolation $m_2 \to 2.1668$, $m_3 \to 5.0014$. A third route for
 $m_3(1/2) = 5$ (real-space 2D determinantal quadrature) gave
-$4.9896 \to 4.9932$ under truncation refinement; this session's independent
+$4.9896 \to 4.9932$ under truncation refinement; a further independent
 quadrature gave $4.9924 \to 4.9960$.
 
 \paragraph{Ladder and occupancy side data}
@@ -2662,27 +2665,25 @@ and the three-point term $T_3$ the remaining $0.5$).
 \section*{Provenance, data and code}
 \addcontentsline{toc}{section}{Provenance, data and code}
 
-\paragraph{What kind of document this is, and what the internal terms mean.}
-This paper is the publishable output of a structured research program on the
-Riemann hypothesis, and a few of its terms are that program's rather than the
-field's. They are used below and are defined here once. A \emph{gate} is a
-pre-registered decision procedure: its specification --- objective, adversary
-class, constraint rows, decision rule and stopping criterion --- is fixed and
-recorded \emph{before} any computation is run, so that neither branch of the
-outcome can be chosen after the fact. An \emph{adjudication} is an independent
-adversarial review of a proposal by parties who did not write it, returning a
-verdict and a list of mandatory repairs; the one referred to here returned
-\emph{survives with repairs} and prescribed the corrected gate that this paper
-executes, together with seven numbered repairs (R1--R7). The finished document was
-also reviewed independently twice before release.
+\paragraph{How this result was produced.}
+The specification of the decision computation --- objective, adversary class,
+constraint rows, decision rule and stopping criterion --- was written down and
+recorded \emph{before} any of it was run, so that neither outcome could be
+selected after the fact. The proposal it tests was itself reviewed
+adversarially beforehand, by parties who did not write it; that review returned
+\emph{survives with repairs} and mandated seven changes to the system, recorded
+as R1--R7. The result was then audited independently by a party who had not run
+the computation, and the finished paper was reviewed twice more before release.
+The specification, the run record, the audit and the review are all in the
+repository cited below.
 
 \paragraph{Data and code availability.}
 Every number in this paper comes from one of three places: the pre-registered
-gate record, the verification suite written for this paper, or the Lean
-development. All three are version-controlled and are available in the program
-repository, \url{https://github.com/x67ai/riemann-rh-program} (state as of commit
+decision record, the verification suite written for this paper, or the Lean
+development. All three are version-controlled and are available in the accompanying
+repository \url{https://github.com/x67ai/riemann-rh-program} (state as of commit
 \texttt{4e80356}). Paths below are relative to \texttt{rh-program/} in that
-repository. One deliberate exception: the program's PDF corpus of fetched
+repository. One deliberate exception: the working PDF corpus of fetched
 literature is not redistributed, for copyright reasons, and nothing in this paper
 depends on it --- every external claim is cited to its published source. The
 components are:
@@ -2694,10 +2695,11 @@ components are:
   the theorem-by-theorem map to this paper's numbering, the
   \texttt{\#print axioms} output for all twelve machine-checked theorems, and the
   reproduction recipe.
-\item \emph{The adjudication record} (\texttt{results/adjudication-A4.json}): the verdict, repairs R1--R7, the
-  garnish and squeeze computations, and the prescription of the corrected gate.
-  This is the contract the gate was run against.
-\item \emph{The pre-registered gate specification} (\texttt{results/a4-m2-gate/SPEC.md}): kernels and units, null
+\item \emph{The independent review record} (\texttt{results/adjudication-A4.json}): the verdict, the seven
+  mandated repairs R1--R7, the garnish and squeeze computations, and the
+  prescription of the corrected system. This is the contract the computation was
+  run against.
+\item \emph{The pre-registered specification} (\texttt{results/a4-m2-gate/SPEC.md}): kernels and units, null
   budgets and their closed forms with derivations, the adversary class and its
   realizability argument, the row system and capacity constant, the decision
   rules, and the flags. Fixed before any run.
@@ -2705,46 +2707,53 @@ components are:
   sanity checks, every run and number produced, the witness, and every deviation
   from the specification.
 \item \emph{The independent adversarial audit} (\texttt{results/a4-m2-gate/AUDIT.md}), by a party who did not run
-  the gate: an independent Monte-Carlo check of the null budgets, independent
+  the computation: an independent Monte-Carlo check of the null budgets, independent
   re-derivation of the budget identities and the block law, recomputation of the
   witness, LP re-solves over all $4003$ columns, and eight recorded attempts to
   break the result.
 \item \emph{The follow-up report} (\texttt{results/a4-m2-gate/FOLLOWUP-REPORT.md}): the near-CUE runs at $\tau_2 = 1$ for both
   $N$, the $p_1$ objective, and the riders attached to the use
   of~\cite{BGSTB24}.
-\item \emph{The raw data} (\texttt{results/a4-m2-gate/*.json}, \texttt{runs/*.json}): the gate result, the witness law at $N = 64$, the
+\item \emph{The raw data} (\texttt{results/a4-m2-gate/*.json},
+\texttt{results/a4-m2-gate/}\allowbreak\texttt{runs/*.json}): the decision-LP result, the witness law at $N = 64$, the
   near-CUE and $p_1$ follow-up outputs, and the full scan records at $N = 64$ and
-  $N = 128$ (including the tight-$\varepsilon$, Tier-2, window and
+  $N = 128$ (including the tight-$\varepsilon$, near-CUE, window and
   $\lambda'$-exploration runs, and the $\lambda' = 1/2$ budget derivations), all
   as JSON.
-\item \emph{Supplementary material}: the six proof units incorporated as
+\item \emph{The proof-unit note} (\texttt{results/a4-no-go/theorems.md}): the
+  six proof units incorporated as
   Sections~\ref{sec:structure}, \ref{sec:atomonly} and~\ref{sec:capacity},
-  with their verification scripts and JSON outputs.
-\item \emph{Supplementary material}, \texttt{pair-}\allowbreak\texttt{channel.md}
+  with their verification scripts and JSON outputs
+  (\texttt{results/a4-no-go/verify/}).
+\item \emph{The pair-channel note}
+  (\texttt{results/a4-no-go/}\allowbreak\texttt{pair-}\allowbreak\texttt{channel.md})
   --- the pair-interference closure
-  (Sections~\ref{sec:fractional}--\ref{sec:pairchannel}), with its independent
-  verification suite \texttt{verify/}\allowbreak\texttt{pairchan\_*.py}
+  (Sections~\ref{sec:fractional}--\ref{sec:pairchannel}), including the proofs
+  of Theorems~\ref{thm:singlepair} and~\ref{thm:multipair}, for which only the
+  proof architecture is given here, with its independent
+  verification suite \texttt{results/a4-no-go/verify/}\allowbreak\texttt{pairchan\_*.py}
   and \texttt{pairchan\_}\allowbreak\texttt{verify\_}\allowbreak\texttt{out.json}.
-\item \emph{Supplementary material}, \texttt{data-tables.md} --- the
-  provenance-tagged data digest from which every number in this paper is cited;
+\item \emph{The data digest} (\texttt{results/a4-no-go/data-tables.md}) --- the
+  digest from which every number in this paper is cited, each row carrying its
+  on-disk source (file plus JSON key or report section);
   its Section~10 records the two cite-safety notes honored here (the $940$-record
-  maximum is the $N = 128$ value $8.94 \times 10^{-13}$; the Tier-2 level
+  maximum is the $N = 128$ value $8.94 \times 10^{-13}$; the near-CUE level
   $0.833377 / 0.8333622 / 0.8332334$ drift across dictionary snapshots is
   common-mode, the equality $\delta_0' = 0$ being snapshot-independent).
-\item \emph{The direction record} (\texttt{directions/A4-lindelof-lock.md}): the original proposal retained verbatim,
-  the review verdicts, the adjudication, and the decided-gate section this paper
-  executes.
+\item \emph{The proposal record} (\texttt{directions/A4-lindelof-lock.md}): the original proposal retained
+  verbatim, the review verdicts, the independent review, and the specification of
+  the computation this paper reports.
 \end{itemize}
 
 \textbf{Correction of record.} The ``$+8$ vs $0$'' doubles-vs-pairs cubic
-separation premise of the original proposal, and the adjudication's own phase
+separation premise of the original proposal, and the review's own phase
 model ($(+1, -1)$ at $uL = 1$ with cubic ${\sim}0$), are
 false under the true block law: Proposition~\ref{prop:pairblock} gives pair cubic
 charge $2m^3(1 + 3A^2) \ge 8m^3$ at every depth, and Theorem~\ref{thm:blind}
-places pairs and doubles on the same affine plane $c = 3F - 2$. The campaign
-transcript's recorded block facts (pair eigenvalues $m L^2 a (1 \pm A)$) were
-correct throughout. This correction was executed in the direction file at gate
-time and is re-proven here from scratch.
+places pairs and doubles on the same affine plane $c = 3F - 2$. The block facts
+on record (pair eigenvalues $m L^2 a (1 \pm A)$) were
+correct throughout. The correction was made in the working record at the time of
+the decision computation, and is re-proven here from scratch.
 
 \begin{thebibliography}{99}
 
@@ -2753,10 +2762,9 @@ zeros are simple and on the critical line}, arXiv:2608.13637 (v1, 13~Aug~2026;
 v2, 19~Aug~2026) --- the parent paper, with its sorry-free Lean~4 formalization
 (Theorems A--E; \texttt{lemmaR\_tight} in
 \texttt{Zeta23/ZeroSide/TightMult.lean}; the PairCeiling library,
-LawN256/CeilingLaw256; Theorem~5.8/Remark~5.10 prime-side moments). Program
-digest: \texttt{results/full-map.md}.
-\textbf{Version pin (this matters for the section numbers below).} The program
-worked from two on-disk versions, whose sectioning differs and which this paper
+LawN256/CeilingLaw256; Theorem~5.8/Remark~5.10 prime-side moments).
+\textbf{Version pin (this matters for the section numbers below).} The parent exists in two
+versions, whose sectioning differs and which this paper
 cites separately:
 (i) the 35-page version, \emph{More than two thirds of the zeros of the Riemann
 zeta function lie on the critical line}
@@ -2764,9 +2772,7 @@ zeta function lie on the critical line}
 \textbf{\S7.5 ``Limits of the method''} carries the item \textbf{(e)} quoted in
 Section~1.2 below; and
 (ii) the 17-page v5, \emph{\ldots are simple and on the critical line}
-(arXiv:2608.13637, the 17-page revision; text extracts
-used verbatim: \texttt{sources-extracted/v5\_p13.txt},
-\texttt{v5\_p14.txt}), in which the same material appears, in a shorter form, as
+(arXiv:2608.13637, the 17-page revision), in which the same material appears, in a shorter form, as
 \textbf{\S7.2(e)}, \S7.2 there being titled ``Sharpness and limits of the
 method''. Where this paper writes \S7.5(e) it means (i); where it writes
 \S7.2(e) it means (ii). Both readings are given in Section~1.2 so that neither
@@ -2783,11 +2789,7 @@ Lemma~5 kernel class, and the Remark after Theorem~2 (rider~1). See also the sam
 authors' sequel on the horizontal distribution of zeros, \emph{Pair correlation of
 zeros of the Riemann zeta function I: proportions of simple zeros and critical
 zeros}, arXiv:2501.14545 (v1, 24~Jan~2025; v2, 21~Nov~2025; unpublished as of
-August~2026) --- surfaced by the evidence referee's logged prior-art sweep,
-2026-08-26. (\textbf{Dated correction, 2026-08-27:} this entry previously called it
-a ``second-moment sequel''; the paper is about the horizontal distribution of zeros
-under a narrow-vertical-box hypothesis, not about second moments. Corrected against
-its own arXiv record.)
+August~2026), studied there under a narrow-vertical-box hypothesis.
 
 \bibitem[LR20]{LR20} J.~C. Lagarias and B. Rodgers, \emph{Higher correlations
 and the Alternative Hypothesis}, Q.~J. Math. \textbf{71} (2020), no.~1,
