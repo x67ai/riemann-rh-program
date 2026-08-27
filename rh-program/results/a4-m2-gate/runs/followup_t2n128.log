@@ -1,0 +1,89 @@
+[05:29:04] tier2 N=128: loaded 527 columns from dict_N128.json
+[05:29:04] [t2 N128 tau1 eps0.05] outer 0:  cols=527 [0s]
+[05:29:04] [t2 N128 tau1 eps0.05] outer 1:  cols=527 [0s]
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/followup_run.py", line 682, in <module>
+    phase_t2(128, cells=[(1.0, 0.05)],
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/followup_run.py", line 426, in phase_t2
+    log(f"[{label}] FINAL P_full={rec['P_full']:.7f} "
+TypeError: unsupported format string passed to NoneType.__format__
+[05:31:16] tier2 N=128: loaded 527 columns from dict_N128.json
+[05:31:19] bootstrap batch 0: +300 cols -> 827
+[05:31:19] bootstrap: pinned LP feasible with 827 cols
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: divide by zero encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: overflow encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: invalid value encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: divide by zero encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: overflow encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: invalid value encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+[05:32:37] [t2 N128 tau1 eps0.05] outer 0: full: P=0.9106047 min_rc=-6.39e+01 n_imp=193 base: P=0.9094447 min_rc=-8.13e+01 n_imp=194 cols=1324 [78s]
+[05:34:01] [t2 N128 tau1 eps0.05] outer 1: full: P=0.8959043 min_rc=-7.63e+01 n_imp=163 base: P=0.8944763 min_rc=-3.28e+01 n_imp=192 cols=1842 [162s]
+[05:34:02] [t2 N128 tau1 eps0.05] FINAL P_full=0.8941704 P_base=0.8941704 delta0'=7.772e-16 converged=False
+[05:34:04] [t2 N128 tau1 eps0.05] witness: support=121 rational all_ok=False
+[05:36:19] [t2 N128 tau1 eps0.05 asym] outer 0: full: P=0.8883708 min_rc=-2.07e+01 n_imp=159 base: P=0.8854217 min_rc=-3.22e+01 n_imp=197 cols=2022 [135s]
+[05:38:31] [t2 N128 tau1 eps0.05 asym] outer 1: full: P=0.8771190 min_rc=-1.23e+01 n_imp=189 base: P=0.8738474 min_rc=-1.02e+01 n_imp=197 cols=2202 [267s]
+[05:40:45] [t2 N128 tau1 eps0.05 asym] outer 2: full: P=0.8683944 min_rc=-4.92e+00 n_imp=188 base: P=0.8676727 min_rc=-5.98e+00 n_imp=180 cols=2382 [402s]
+[05:40:47] [t2 N128 tau1 eps0.05 asym] P_full=0.8668651 P_base=0.8668651 delta0'=0.000e+00
+[05:40:47] phase t2 N=128 done in 572s -> followup_tier2_N128.json
+[05:42:41] t2n128b: loaded 2382 columns
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: divide by zero encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: overflow encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:153: RuntimeWarning: invalid value encountered in matmul
+  grad[:na] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: divide by zero encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: overflow encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: invalid value encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: divide by zero encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: overflow encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/a4-m2-gate/code/column_gen.py:158: RuntimeWarning: invalid value encountered in matmul
+  grad[na:] = 2 * np.real((K[1:] * fac) @ ph)
+[05:47:55] [t2b N128 tau1 eps0.05] outer 0: full: P=0.8393950 min_rc=-2.36e-02 n_imp=63 base: P=0.8392958 min_rc=-1.70e-02 n_imp=54 cols=3600 [314s]
+[05:54:01] [t2b N128 tau1 eps0.05] outer 1: full: P=0.8380842 min_rc=-7.12e-03 n_imp=56 base: P=0.8380673 min_rc=-4.70e-03 n_imp=55 cols=4268 [680s]
+[06:00:36] [t2b N128 tau1 eps0.05] outer 2: full: P=0.8378338 min_rc=-2.05e-03 n_imp=28 base: P=0.8378290 min_rc=-2.33e-03 n_imp=27 cols=4814 [1075s]
+[06:07:50] [t2b N128 tau1 eps0.05] outer 3: full: P=0.8376818 min_rc=-1.69e-03 n_imp=27 base: P=0.8376779 min_rc=-2.12e-03 n_imp=23 cols=5222 [1509s]
+[06:15:20] [t2b N128 tau1 eps0.05] outer 4: full: P=0.8376159 min_rc=-5.93e-04 n_imp=8 base: P=0.8376143 min_rc=-1.47e-03 n_imp=16 cols=5485 [1959s]
+[06:22:48] [t2b N128 tau1 eps0.05] outer 5: full: P=0.8375747 min_rc=-1.01e-03 n_imp=9 base: P=0.8375742 min_rc=-7.72e-04 n_imp=18 cols=5690 [2407s]
+[06:30:32] [t2b N128 tau1 eps0.05] outer 6: full: P=0.8375265 min_rc=-1.08e-03 n_imp=20 base: P=0.8375251 min_rc=-6.80e-04 n_imp=18 cols=5896 [2871s]
+[06:38:35] [t2b N128 tau1 eps0.05] outer 7: full: P=0.8374894 min_rc=-6.83e-04 n_imp=12 base: P=0.8374885 min_rc=-4.89e-04 n_imp=13 cols=6106 [3354s]
+[06:46:42] [t2b N128 tau1 eps0.05] outer 8: full: P=0.8374484 min_rc=-5.69e-04 n_imp=15 base: P=0.8374475 min_rc=-1.12e-03 n_imp=13 cols=6285 [3841s]
+[06:55:24] [t2b N128 tau1 eps0.05] outer 9: full: P=0.8374256 min_rc=-6.10e-04 n_imp=10 base: P=0.8374231 min_rc=-8.73e-04 n_imp=16 cols=6457 [4363s]
+[06:55:36] [t2b N128 tau1 eps0.05] FINAL P_full=0.8374219 P_base=0.8374219 delta0'=0.000e+00 converged=False
+[06:55:49] [t2b N128 tau1 eps0.05] witness(interior): P=0.8374219 support=128 rational all_ok=True
+[07:00:03] [t2b N128 tau1 eps0.05 asym] outer 0: full: P=0.8374143 min_rc=-1.20e-04 n_imp=4 base: P=0.8374142 min_rc=-1.44e-04 n_imp=2 cols=6521 [254s]
+[07:04:20] [t2b N128 tau1 eps0.05 asym] outer 1: full: P=0.8374057 min_rc=-6.48e-04 n_imp=4 base: P=0.8374055 min_rc=-2.86e-04 n_imp=3 cols=6584 [510s]
+[07:08:33] [t2b N128 tau1 eps0.05 asym] outer 2: full: P=0.8373928 min_rc=-6.43e-04 n_imp=8 base: P=0.8373904 min_rc=-4.81e-04 n_imp=4 cols=6651 [763s]
+[07:10:57] [t2b N128 tau1 eps0.05 asym] outer 3: full: P=0.8373873 min_rc=-1.62e-04 n_imp=4 base: P=0.8373870 min_rc=-1.77e-04 n_imp=6 cols=6683 [908s]
+[07:15:13] [t2b N128 tau1 eps0.05 asym] outer 4: full: P=0.8373767 min_rc=-1.38e-03 n_imp=5 base: P=0.8373753 min_rc=-9.85e-04 n_imp=8 cols=6739 [1164s]
+[07:15:26] [t2b N128 tau1 eps0.05 asym] P_full=0.8373740 P_base=0.8373740 delta0'=0.000e+00
+[07:15:27] phase t2n128b done in 5566s
