@@ -65,6 +65,29 @@ rigorous, and the overreach is withdrawn. Complete edit list:
 \emph{supplementary material}, \texttt{o1-n128-report.md}, Section~5.
 \end{datedrev}
 
+\begin{datedrev}
+\textbf{Citation pass, 2026-08-27.} An independent novelty re-check was run before
+circulation; its verdict for this paper is \emph{novel with citations}, and every
+citation action it requested was re-verified against a primary source before being
+applied (Crossref, zbMATH Open, the arXiv abstract pages, the publishers' own
+records, and the program's on-disk corpus). The changes are citation- and
+provenance-level only: no theorem, proof, number, or verdict is affected. Added:
+[GdLL25], with a reconciliation paragraph in Section~1.2 and a provenance note at
+Proposition~\ref{prop:affine}; [KLS11]; and [FGL14], solely to disambiguate the
+numerical coincidence noted at Corollary~\ref{cor:matched}. Completed or corrected:
+publication coordinates for [BGSTB24], [KLS07], [KS66], [CGdL20], [CdLS22], and DOIs
+for [LR20], [LR21], [Hej94], [RS96], [CGG98], [BHB13]. Three of the re-check's own
+claims did \textbf{not} survive primary-source verification and were not executed:
+its request to renumber both ``Section~7.5(e)'' pointers (item~(e) \emph{is} in
+\S7.5 of the 35-page parent version, and in \S7.2(e) only in the 17-page revision
+--- both pointers are correct, and the [P] entry disambiguates them); its description
+of [CGdL20]'s inequality~(7) as a ``convex-programming form'' (it is elementary
+integer arithmetic, credited there to an argument of Ghosh); and its reading of
+[GdLL25]'s $N_n$ remark as ``a higher level adds nothing'' (it is a negative about
+problem formulation at a fixed level). Each is recorded here so that it cannot be
+reintroduced.
+\end{datedrev}
+
 \bigskip
 
 \noindent\textbf{Program:} RH program, direction A4 (merged A2$+$A4
@@ -222,6 +245,32 @@ class --- together with the structural identities
 (Sections~\ref{sec:structure}--\ref{sec:absorption}) and the capacity theorem
 (Section~\ref{sec:capacity}) that explain it. The parent's single-bandwidth
 no-go is the parent's; the two-bandwidth marginal value is this paper's.
+
+\paragraph{The published third-party comparandum, and why it does not settle this
+question either.}
+Gon\c{c}alves, de~Laat and Leijenhorst~\cite{GdLL25} run the
+higher-level-correlation program against multiplicity directly, by semidefinite
+programming over an auxiliary-function class: on GRH they obtain, from $3$-level
+correlations, that at least $96.14\%$ of the zeros of a primitive $L$-function have
+multiplicity at most $2$, and their $n = 3$ row pays where their $n = 2$ row does
+not. That is not in tension with the result here, and the two must not be conflated.
+Theirs is a \textbf{single-bandwidth, conditional} statement bounding
+\emph{multiplicity} at their support parameter; this paper's is an
+\textbf{unconditional} statement about the \emph{marginal value of adjoining a
+second bandwidth} to a fixed bandwidth-one Frobenius baseline, at effective support
+$1$ (their $m = 2$ row), measured against a fixed pre-registered objective. The
+combinatorial half of their apparatus and of this paper's is literally the same
+identity --- their equation~(5) is the Stirling change of basis between the power
+sums $N_n = \sum_{\text{zeros}} m^n$ and the falling-factorial counts
+$M_k = \sum_{\text{zeros}} m(m-1)\cdots(m-k+1)$, whose $n = 3$ case is the atom half
+of Theorem~\ref{thm:blind} below --- which is exactly why the atom half is labeled
+here as classical and only the pair term $6\sum_p m_p^2 (m_p - 1) A_p^2$ is claimed
+as this paper's. Their paper also carries a published negative of a related species:
+the remark following their~(6) records that adapting their optimization to bound
+$N_n$ directly did not improve on the bounds obtained through~(5). That is a negative
+about problem \emph{formulation}, not about the information content of a higher
+correlation level, and it is cited here as a precedent for publishing such a negative
+rather than as evidence for this paper's claim.
 
 The binding adjudication (survives-with-repairs, 5.5) ordered seven repairs and
 made the corrected M2 gate the direction's action one: a decision LP over an
@@ -722,6 +771,21 @@ every depth --- lies on the same affine plane $c = 3F - 2$ in the per-zero
 $(F, c)$ plane.
 \end{proposition}
 
+\paragraph{Provenance of the atom half (stated so the novelty claim is not misread).}
+For atoms the identity $c - 3F + 2 = (m-1)(m-2)$, and its summed form in
+Theorem~\ref{thm:blind}, is the third-order \textbf{Stirling change of basis}
+between power sums and falling factorials: $m(m-1)(m-2) = m^3 - 3m^2 + 2m$, the
+coefficients being the signed Stirling numbers of the first kind $s(3,3) = 1$,
+$s(3,2) = -3$, $s(3,1) = 2$. The inverse conversion,
+$\sum m^n = \sum_k S(n,k) M_k$ with Stirling numbers of the second kind, is
+equation~(5) of~\cite{GdLL25}, where it plays the same role --- including the same
+consequence, that the falling-factorial term vanishes identically once every
+multiplicity is at most $n-1$. Nothing in the atom half is new, and it is not claimed
+to be. What is new in Theorem~\ref{thm:blind} is the \textbf{pair} term
+$6\sum_{\text{pairs}} m_p^2 (m_p - 1) A_p^2$, a statement about the finite-circle
+block law of Proposition~\ref{prop:pairblock} with no counterpart in the
+multiplicity-statistics literature.
+
 \begin{proof}
 Atom: $3F - 2 + (m-1)(m-2) = 3m - 2 + m^2 - 3m + 2 = m^2 = c$. Pair:
 $c - 3F + 2 = m^2(1 + 3A^2) - 3m(1 + A^2) + 2
@@ -1048,6 +1112,14 @@ Lemma~\ref{lem:flatband} with $M = N + 1$, $B = \{-N/2, \ldots, N/2\}$ ($N + 1$
 consecutive integers since $N$ is even), grid spacing $N/M = N/(N+1)$.
 \end{proof}
 
+\paragraph{Nomenclature.}
+Lemma~\ref{lem:flatband} is critical-sampling Parseval for a flat band --- the
+discrete orthogonality of $M$ consecutive characters on an $M$-site uniform grid ---
+and Proposition~\ref{prop:lattice} is its Shannon--Whittaker continuum form on the
+integer lattice. Both are classical; they are proved here in the exact finite-circle
+normalization the gate uses, and the Lean development machine-checks
+Lemma~\ref{lem:flatband} over an arbitrary integral domain (Section~10).
+
 \begin{remk}[why this grid]
 Equivalently: all pairwise site differences are nonzero multiples of $N/(N+1)$,
 the zero set of the discrete bandwidth-one kernel $D$. The Fourier proof is the
@@ -1262,6 +1334,17 @@ $0.8050957$ and $0.6101914$ --- the run's and follow-up's reported optima to LP
 precision.
 \end{corollary}
 
+\begin{remk}[a numerical coincidence, disambiguated]
+The corner value $0.8050957$ rounds to $0.8051$ at four decimals, and the string
+$0.8051$ also occurs in the zeta literature as Farmer--Gonek--Lee's RH-conditional
+pair-correlation lower bound for the proportion of \textbf{distinct} zeros of zeta,
+$\Nd(T) > 0.8051\,N(T)$ \cite[Cor.~1.4]{FGL14} (since superseded by $0.84665$
+in~\cite{BHB13} and by $0.8477$ on RH / $0.8486$ on GRH
+in~\cite[Cor.~3]{CGdL20}). The two are unrelated: the value here is a finite-$N$ LP
+corner of the bandwidth-one model at $N = 64$, $\varepsilon = 0.05$,
+$B_1 = 84.71214548308222$, and carries no information about zeta.
+\end{remk}
+
 Numerical confirmation (\texttt{verify\_t2.py}): per-atom inequalities exhaustive
 to $m = 50$ plus $20{,}000$ random draws ($0$ violations); grid-column LP matches
 the closed forms at $\varepsilon \in \{0.10, 0.05, 0.02, 0.002\}$ to
@@ -1326,7 +1409,11 @@ $\bar{a}(d)^2 \le (1 + \bar{a}(2d))/2$).
 An adversary with fractional marks takes $\mu \to 0$ and wins at any depth;
 integer marks force $\mu \ge 1$, where the quadratic cost dominates. Any closure
 of the pair channel must therefore consume integrality --- the channel is
-invisible to every convexified or soft-positivity analysis. This also explains
+invisible to every convexified or soft-positivity analysis. (This is the textbook
+\textbf{integrality gap} in its usual form: the fractional relaxation of the
+marked-configuration program has a strictly smaller optimum than the integer program,
+so a bound proved for the relaxation is simply not a bound for the problem.) This
+also explains
 the gate's LP phenomenology: the LP's columns are explicit integer configurations
 (nothing about marks is relaxed), which is why its converged pricing found no
 pair column. And it is the sharp form of the realizability discussion of
@@ -2871,18 +2958,26 @@ pointer can be misread.
 \bibitem[BGSTB24]{BGSTB24} S.~A.~C. Baluyot, D.~A. Goldston, A.~I. Suriajaya,
 C.~L. Turnage-Butterbaugh, \emph{An unconditional Montgomery theorem for pair
 correlation of zeros of the Riemann zeta function}, arXiv:2306.04799 (v1, arXiv
-stamp 7~Jun~2023); Acta Arithmetica (2024). On-disk copy:
+stamp 7~Jun~2023); Acta Arith. \textbf{214} (2024), 357--376;
+doi:10.4064/aa230612-20-3. On-disk copy:
 \texttt{fetched-r3/r3s-06-bgstb-2306.04799.pdf} ($210{,}602$ bytes; fetch
 provenance in FOLLOWUP-REPORT Section~4; the v1 stamp read off the PDF's first
 page this session). Cited for: Theorem~1 (unconditional pointwise $F(\alpha)$ on
 the closed band $0 \le \alpha \le 1$, depth-weighted, multiplicity-counted), the
 Lemma~5 kernel class, and the Remark after Theorem~2 (rider~1). See also the same
-authors' second-moment sequel, arXiv:2501.14545 (per the evidence referee's
-logged prior-art sweep, 2026-08-26).
+authors' sequel on the horizontal distribution of zeros, \emph{Pair correlation of
+zeros of the Riemann zeta function I: proportions of simple zeros and critical
+zeros}, arXiv:2501.14545 (v1, 24~Jan~2025; v2, 21~Nov~2025; unpublished as of
+August~2026) --- surfaced by the evidence referee's logged prior-art sweep,
+2026-08-26. (\textbf{Dated correction, 2026-08-27:} this entry previously called it
+a ``second-moment sequel''; the paper is about the horizontal distribution of zeros
+under a narrow-vertical-box hypothesis, not about second moments. Corrected against
+its own arXiv record.)
 
 \bibitem[LR20]{LR20} J.~C. Lagarias and B. Rodgers, \emph{Higher correlations
 and the Alternative Hypothesis}, Q.~J. Math. \textbf{71} (2020), no.~1,
-257--280; arXiv:1905.12123. On disk: \texttt{fetched/w-09}. Cited in
+257--280; doi:10.1093/qmathj/haz043; arXiv:1905.12123. On disk:
+\texttt{fetched/w-09}. Cited in
 Section~1.5: they prove that the currently known band-limited $n$-level
 correlation data for zeta zeros --- Montgomery ($n = 2$), Hejhal ($n = 3$),
 Rudnick--Sarnak ($n \ge 4$) --- does \textbf{not} rule out the Alternative
@@ -2892,7 +2987,8 @@ by different methods (cited there).
 
 \bibitem[LR21]{LR21} J.~C. Lagarias and B. Rodgers, \emph{Band-limited mimicry
 of point processes by point processes supported on a lattice}, Ann. Appl.
-Probab. \textbf{31} (2021), no.~1, 351--376; arXiv:1907.03391. Cited in
+Probab. \textbf{31} (2021), no.~1, 351--376; doi:10.1214/20-AAP1592;
+arXiv:1907.03391. Cited in
 Section~\ref{sec:decoupling}: their Theorem~1.4 and Proposition~3.4 show that
 above the Nyquist bandwidth the mimicking correlations are unique, while
 \textbf{at} critical sampling they are not --- the same degeneracy this paper's
@@ -2910,11 +3006,13 @@ Theorem~\ref{thm:corner} and Corollary~\ref{cor:matched}.
 
 \bibitem[Hej94]{Hej94} D.~A. Hejhal, \emph{On the triple correlation of zeros of
 the zeta function}, Internat. Math. Res. Notices \textbf{1994}, no.~7,
-293--302. The $n = 3$ correlation input named in Section~1.2.
+293--302; doi:10.1155/S1073792894000334. The $n = 3$ correlation input named in
+Section~1.2.
 
 \bibitem[RS96]{RS96} Z. Rudnick and P. Sarnak, \emph{Zeros of principal
 $L$-functions and random matrix theory}, Duke Math. J. \textbf{81} (1996),
-269--322. On disk: \texttt{fetched/w-16}. The $n$-level range that names this
+no.~2, 269--322; doi:10.1215/S0012-7094-96-08115-6. On disk:
+\texttt{fetched/w-16}. The $n$-level range that names this
 paper's operating window. \textbf{Scope, relevant to flag F2
 (Section~\ref{sec:flags}):} their unconditional $n$-level theorem is for smooth
 test functions; taking a characteristic function requires RH.
@@ -2923,35 +3021,82 @@ identification invoke the smooth statement.
 
 \bibitem[CGG98]{CGG98} J.~B. Conrey, A. Ghosh and S.~M. Gonek, \emph{Simple
 zeros of the Riemann zeta-function}, Proc. London Math. Soc. (3) \textbf{76}
-(1998), 497--522. The origin of the second integrality level that
+(1998), 497--522; doi:10.1112/S0024611598000306. The origin of the second
+integrality level that
 Lemma~\ref{lem:cornerineq} and Theorem~\ref{thm:corner} consume, made
 unconditional in the parent's \S7.2(c).
 
 \bibitem[BHB13]{BHB13} H.~M. Bui and D.~R. Heath-Brown, \emph{On simple zeros of
 the Riemann zeta-function}, Bull. London Math. Soc. \textbf{45} (2013),
-953--961. On disk: \texttt{fetched/w-11}. The conditional simple-zero input
-quoted in Section~1.2.
+no.~5, 953--961; doi:10.1112/blms/bdt026; arXiv:1302.5018. On disk:
+\texttt{fetched/w-11} (the preprint). The conditional simple-zero input
+quoted in Section~1.2; their unconditional-on-RH distinct-zeros constant is
+$0.84665$.
 
 \bibitem[CGdL20]{CGdL20} A. Chirre, F. Gon\c{c}alves and D. de Laat, \emph{Pair
 correlation estimates for the zeros of the zeta function via semidefinite
-programming}, Adv. Math. \textbf{361} (2020), 106926. The
+programming}, Adv. Math. \textbf{361} (2020), 106926;
+doi:10.1016/j.aim.2019.106926; arXiv:1810.08843. The
 semidefinite-programming line for pair-correlation extremal problems, of which
-this paper's LP is the bandwidth-one marked-configuration analog.
+this paper's LP is the bandwidth-one marked-configuration analog. Two specific
+contacts. (i) Their inequality~(7),
+$2 N_s(T) \le \sum_\rho (m_\rho - 2)(m_\rho - 3)/m_\rho
+ = N^{*}(T) - 5N(T) + 6\Nd(T)$, credited there to an argument of Ghosh, is the
+published instance of the same per-multiplicity integrality device
+Lemma~\ref{lem:cornerineq} uses, at the \textbf{reciprocal-weighted third} level
+$(m-2)(m-3) \ge 0$; Lemma~\ref{lem:cornerineq}(a) is the \textbf{unweighted
+second} level $(m-1)(m-2) \ge 0$. (Their semidefinite programming is applied to the
+auxiliary-function class of their Section~3, not to~(7); (7) is elementary integer
+arithmetic.) (ii) Their Corollary~3 is the corresponding published record for
+distinct zeros: $\Nd(T) \ge (0.8477 + o(1))N(T)$ on RH and
+$(0.8486 + o(1))N(T)$ on GRH. Both read from arXiv:1810.08843v2 (18~Nov~2019), the
+final arXiv version; the typeset Elsevier pagination was not consulted.
+
+\bibitem[GdLL25]{GdLL25} F. Gon\c{c}alves, D. de Laat and N. Leijenhorst,
+\emph{Multiplicity of nontrivial zeros of primitive $L$-functions via higher-level
+correlations}, Math. Comp. \textbf{94} (2025), no.~354, 2041--2058;
+doi:10.1090/mcom/4005; arXiv:2303.01095. The closest published third-party work to
+this paper: the same higher-level-correlation-versus-multiplicity question, attacked
+by semidefinite programming rather than by a marked-configuration LP. Cited in
+Sections~1.2 and~3.2. Their equation~(5),
+$N_n(T) = \sum_k S(n,k) M_k(T)$ with $S(n,k)$ the Stirling numbers of the second
+kind, is the change of basis whose $n = 3$ case is the atom half of
+Theorem~\ref{thm:blind} here.
+
+\bibitem[FGL14]{FGL14} D.~W. Farmer, S.~M. Gonek and Y. Lee, \emph{Pair correlation
+of the zeros of the derivative of the Riemann $\xi$-function}, J. London Math.
+Soc.~(2) \textbf{90} (2014), no.~1, 241--269; doi:10.1112/jlms/jdu026. Cited only in
+Corollary~\ref{cor:matched}, to disambiguate a numerical coincidence: their published
+RH-conditional lower bound for the proportion of distinct zeros is
+$\Nd(T) > 0.8051\,N(T)$ (their Corollary~1.4). The two-author 2008 preprint
+arXiv:0803.0425 is an earlier version whose Corollary~1.4 gives $0.6544$; the constant
+$0.8051$ is the published version's.
 
 \bibitem[KLS07]{KLS07} T. Kuna, J.~L. Lebowitz and E.~R. Speer,
-\emph{Realizability of point processes}, J. Stat. Phys. (2007);
+\emph{Realizability of point processes}, J. Stat. Phys. \textbf{129} (2007),
+no.~3, 417--439; doi:10.1007/s10955-007-9393-y;
 arXiv:math-ph/0612075. The truncated-moment/realizability problem that
 Section~\ref{sec:adversary}'s adversary-realizability argument re-derives in the
 finite-circle setting.
 
+\bibitem[KLS11]{KLS11} T. Kuna, J.~L. Lebowitz and E.~R. Speer,
+\emph{Necessary and sufficient conditions for realizability of point processes},
+Ann. Appl. Probab. \textbf{21} (2011), no.~4, 1253--1281; doi:10.1214/10-AAP703;
+arXiv:0910.1710. The sequel, which settles the general finite-order truncated-moment
+realizability question; Section~\ref{sec:adversary}'s finite-circle argument is a
+special case in their setting rather than a new problem.
+
 \bibitem[CdLS22]{CdLS22} H. Cohn, D. de Laat and A. Salmon, \emph{Three-point
-bounds for sphere packing}, arXiv:2206.15373. The comparandum: in the
+bounds for sphere packing}, arXiv:2206.15373 (v1, 30~Jun~2022; unpublished as of
+August~2026 --- checked against arXiv, Crossref, zbMATH and the first author's own
+publication list). The comparandum: in the
 sphere-packing analog the third-order augmentation \textbf{does} pay, improving
 on the two-point Cohn--Elkies bound in several dimensions. That it is worth
 exactly nothing here is therefore a substantive negative, not a foregone one.
 
 \bibitem[KS66]{KS66} S. Karlin and W.~J. Studden, \emph{Tchebycheff Systems:
-With Applications in Analysis and Statistics}, Interscience, New York, 1966. The
+With Applications in Analysis and Statistics}, Pure and Applied Mathematics,
+Vol.~XV, Interscience Publishers (John Wiley \& Sons), New York, 1966. The
 classical Chebyshev--Markov--Stieltjes/Christoffel background for the fact that
 odd moments do not improve one-sided bounds --- the general form of the cubic
 blindness of Theorem~\ref{thm:blind}.
