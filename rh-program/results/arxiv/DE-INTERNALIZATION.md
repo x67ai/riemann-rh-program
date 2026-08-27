@@ -99,6 +99,27 @@ the (O1)–(O5) residue, the three [BGSTB24] riders, the pricing-is-heuristic
 caveat, the audit's binding wording bar, and the "only fully clean-stop runs"
 note. `bash results/arxiv/check-submittable.sh` prints ALL CHECKS PASSED, 41 pp.
 
+## The seed no-go — swept again, and finished (commit `c29b5a5`)
+
+The A4 sweep showed the work order's term list was not exhaustive, so the same
+lens was run over the seed paper. It was far cleaner, and its `(R1)`–`(R3)` are
+genuine — the paper's own names for the three requirements of the Weil-positivity
+calculus, defined in §2. Twelve real hits remained and are fixed: **"the
+commissioned calculus" was still in the abstract**, the priority note opened with
+"an independent novelty check … run before circulation", the prior-art retraction
+was phrased as a verdict with halves, the construction was "born and killed
+inside the program", Provenance named "direction ``C3: geometric substrate''" and
+"an independent adjudicator", and four "the note" self-references survived. Every
+integrity claim in that section is untouched: the duplicate-blind protocol, the
+independent re-derivation, the referee pass that found a fatal defect cutting in
+the paper's own disfavor, and the two recorded limitations of the literature
+search.
+
+**Both `abstract.txt` files are now generated from their papers' TeX abstracts.**
+A4's still said "Direction A4 proposed" and "the gate's R5 depth family"; the
+seed's still said "commissioned". That file is what arXiv renders on the listing
+page — the one artifact a reader sees before the paper.
+
 ## Left for the sponsor
 
 1. **The ~40 `\texttt{}` script pointers in the body.** Untouched, as the work
