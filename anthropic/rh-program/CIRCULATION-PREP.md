@@ -44,8 +44,11 @@ remaining `0.9775` mentions only as the historical grid value. VERIFIED (sweep c
 
 ## STEP 1c — referee-check the revision wording
 
-**STATUS: IN PROGRESS (2026-08-27, workflow wf_029660e9-d56, 2 referee agents; if this session
-died mid-run, treat as TODO and re-run).** Adversarial wording check of the revised package: every revised sentence in
+**STATUS: DONE (2026-08-27).** Verdict PASS-WITH-REPAIRS, zero fatals; 3 majors (mis-rounded
+`+17.47` sliver lower bound — true minimum +17.4663, now quoted `>= +17.46` everywhere incl. the
+report's own edit list; unrevised B(ii) proof-sketch tail; stale Section 8.2 "was not run") +
+8 minors, ALL executed. Full record: `results/a4-no-go/referee-revision.md`. The A4 package is
+wording-final. Adversarial wording check of the revised package: every revised sentence in
 `paper.md`/`pair-channel.md` must (a) match the certificates in
 `verify/o1_crowding_interval_out.json` + `verify/n128_rerun_out.json` + `o1-n128-report.md`
 (numbers, inequality directions, rounding direction), (b) claim nothing on w in (0.98, 1] beyond

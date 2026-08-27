@@ -1,0 +1,490 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\emergencystretch=1.5em
+
+\newcommand{\Num}{\operatorname{Num}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\OX}{\mathcal{O}_X}
+
+\title{The Castelnuovo--Severi/Hodge Index Inequality on a Surface from Riemann--Roch and Ampleness: A Non-Circularity Re-derivation}
+\author{Jay Tyagi}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note is a re-derivation of standard material for the record; zero novelty is claimed.
+Every statement is graduate-textbook algebraic geometry. Its value is the audit trail: the
+Hodge-index/Castelnuovo--Severi inequality on a smooth projective surface --- the positivity
+engine of the only \emph{positivity mechanism} that has ever proved a Riemann hypothesis,
+namely Weil's proof of RH for curves over finite fields --- is proved here in full from
+Riemann--Roch on the surface, Serre duality, and ampleness, with no zeta-function,
+$L$-function, or RH input anywhere. The proof is valid over an algebraically closed field of
+arbitrary characteristic. We itemize the provenance of every input in a step-by-step ledger,
+verifying that no zeta function, point count, explicit-formula positivity, or statement
+equivalent to any Riemann hypothesis appears among the inputs. We then state the
+$\Fq$-degeneration clause: the inequality proved here is exactly the inequality Weil's proof
+of RH for curves consumes, and it is proved before, and independently of, that application ---
+the short discriminant computation recovering $|N_1 - (q+1)| \le 2g\sqrt{q}$ is included. In
+particular, in the function-field template the positivity engine is demonstrably not Weil
+positivity in disguise: it exists prior to, and is consumed by, the RH proof, not conversely.
+The historical lineage (Mattuck--Tate, Grothendieck, Hartshorne) is recorded, together with a
+scoped remark on the diagonal Tate-curve surfaces $E_p \times E_p$ of Connes--Consani's
+absolute geometry, where the inequality holds classically but the available correspondence
+data is prime-blind.
+\end{abstract}
+
+\section*{Introduction and conventions}
+
+\textbf{Status (read before citing).} This is a \textbf{re-derivation of standard material
+for the record; zero novelty is claimed.} Every statement below is graduate-textbook
+algebraic geometry. Its value is precisely the audit trail: the
+Hodge-index/Castelnuovo--Severi inequality --- the positivity engine of the only
+\textbf{positivity mechanism} that has ever proved an RH\footnote{``Positivity mechanism''
+is the operative qualifier: RH for curves over finite fields was \emph{also} proved by the
+elementary auxiliary-polynomial method of Stepanov (1969) \cite{Stepanov}, streamlined and
+completed by Bombieri \cite{Bombieri} --- a proof consuming only Riemann--Roch on the
+\emph{curve}: no surface, no Hodge index, no positivity engine. Deligne's Weil~I
+amplification is likewise a distinct engine. The claim above concerns the Hodge-index
+positivity route only.} --- is proved from Riemann--Roch on the surface, Serre duality, and
+ampleness, \textbf{with no zeta-function, $L$-function, or RH input anywhere}.
+
+\medskip
+
+\noindent\textbf{Conventions.} $X$ is a smooth projective (geometrically irreducible)
+surface over an algebraically closed field $k$ of \textbf{arbitrary characteristic}
+(char~$p$ included; nothing below is characteristic-zero). Divisors are considered up to
+numerical equivalence where stated; $K = K_X$ is the canonical divisor; $D \cdot E$ is the
+intersection number; $h^i(D) = \dim_k H^i(X, \OX(D))$;
+$\chi(D) = h^0 - h^1 + h^2$. ``$D$ numerically nontrivial'' means $D \cdot E \ne 0$ for some
+divisor $E$. For a non-closed base field, all quantities below are stable under base change
+to the algebraic closure, so the inequalities descend; we work over $k = \bar{k}$
+throughout.
+
+\section{What is being certified and why}
+\label{sec:certified}
+
+The function-field mechanism template for a Riemann hypothesis loads \emph{all} of its
+Riemann-hypothesis content on a Hodge-index-type inequality. The known trap is a positivity
+step that is Weil positivity in disguise, i.e.\ an inequality whose proof secretly consumes
+the statement to be proved. The function-field template is the existence proof that the trap
+is avoidable: there, the master inequality has a proof whose inputs are
+\textbf{Riemann--Roch on the surface, Serre duality, and ampleness} --- nothing else. This
+note re-derives that proof in full, itemizes the provenance of every input
+(\S\ref{sec:ledger}), and states the $\Fq$-degeneration clause (\S\ref{sec:degeneration}):
+the inequality proved here is exactly the inequality Weil's proof of RH for curves consumes,
+and it is proved before and independently of that application. That is the non-circularity
+claim, now on paper rather than recalled.
+
+\section{Inputs, with provenance (and what is not an input)}
+\label{sec:inputs}
+
+The proof uses exactly the following, each a standard theorem with no analytic or arithmetic
+content about zeta or $L$-functions:
+
+\begin{itemize}
+\item \textbf{(IN1) Riemann--Roch on a surface.}
+  $\chi(D) = \chi(\OX) + \tfrac{1}{2} D \cdot (D - K)$.
+  [Hartshorne \cite{Hartshorne}, Thm.~V.1.6; valid over any algebraically closed field.]
+\item \textbf{(IN2) Serre duality.} $h^2(D) = h^0(K - D)$.
+  [Hartshorne \cite{Hartshorne}, III.7.6.]
+\item \textbf{(IN3) Ample meets effective positively.} If $H$ is ample and $E$ is a nonzero
+  effective divisor, then $E \cdot H > 0$. [Degree of a nonzero curve in a projective
+  embedding is positive; equivalently the easy direction of Nakai--Moishezon.]
+\item \textbf{(IN4) Ampleness absorbs any divisor.} For $H$ ample and $D$ arbitrary,
+  $D + nH$ is ample for all $n \gg 0$. [Hartshorne \cite{Hartshorne}, Exercise~II.7.14(b);
+  standard.]
+\item \textbf{(IN5) Trivial positivity.} $h^0, h^1, h^2 \ge 0$, hence
+  $h^0(D) + h^2(D) \ge \chi(D)$.
+\item \textbf{(IN6) The intersection pairing on $\Num(X)$} is a well-defined, nondegenerate
+  symmetric bilinear form on a finitely generated group. [Hartshorne \cite{Hartshorne}, V.1;
+  nondegeneracy is the definition of numerical equivalence. Finite generation of $\Num(X)$
+  is the N\'eron--Severi theorem --- proved by Picard-variety/finiteness arguments, no zeta
+  input; it is consumed \emph{only} for $\rho < \infty$ in the signature statement
+  \S\ref{sec:signature}, which sits off the load-bearing chain to
+  \S\S\ref{sec:cs}--\ref{sec:degeneration}.]
+\item \textbf{(IN7) Nakai--Moishezon criterion (hard direction).} On a surface, if
+  $H^2 > 0$ and $H \cdot C > 0$ for every irreducible curve $C \subset X$, then $H$ is
+  ample. [Hartshorne \cite{Hartshorne}, Thm.~V.1.10; the proof is cohomological
+  (Riemann--Roch plus effectivity bootstrapping) --- no zeta content. Consumed only in
+  \S\ref{sec:cs}, to certify $H = \xi_1 + \xi_2$ ample. An elementary route avoiding it
+  exists --- $m(\xi_1 + \xi_2) = p_1^*(mP) + p_2^*(mP')$ is very ample for $m \gg 0$ as the
+  Segre-composed embedding of very ample divisors on the factors, an (IN4)-grade fact ---
+  but the criterion is what \S\ref{sec:cs}'s printed verification uses, so it is listed as
+  the input it is.]
+\end{itemize}
+
+\textbf{Not inputs:} the zeta function of any curve or surface; point counts; the Weil
+conjectures in any form; positivity of any explicit-formula functional; any spectral or
+Hilbert-space statement; any characteristic-zero comparison. No step of the proof
+(\S\S\ref{sec:lemma}--\ref{sec:cs}) mentions them. \S\ref{sec:degeneration}'s degeneration
+clause consumes rationality and the functional equation of $Z(C, T)$ ---
+Riemann--Roch-on-the-curve facts with no RH content --- and produces point counts as
+\emph{outputs} ($N_1 = \Gamma \cdot \Delta$), exactly as itemized in the
+\S\ref{sec:ledger} ledger; \S\ref{sec:baseline} mentions the explicit formula only inside a
+strictly scoped fence, to state what the Tate-curve surfaces cannot host.
+
+\section{Lemma (effectivity criterion; Hartshorne V.1.8 lineage)}
+\label{sec:lemma}
+
+\begin{lemma}
+\label{lem:effectivity}
+Let $H$ be ample on $X$ and let $D$ be a divisor with $D^2 > 0$ and $D \cdot H > 0$. Then
+$nD$ is effective ($h^0(nD) > 0$) for all sufficiently large $n$.
+\end{lemma}
+
+\begin{proof}
+By (IN1),
+$\chi(nD) = \chi(\OX) + \tfrac{1}{2}\, nD \cdot (nD - K)
+= \tfrac{n^2}{2} D^2 - \tfrac{n}{2}\, D \cdot K + \chi(\OX) \to \infty$
+as $n \to \infty$, since $D^2 > 0$. By (IN2), $h^2(nD) = h^0(K - nD)$. Since
+$D \cdot H > 0$, $(K - nD) \cdot H = K \cdot H - n (D \cdot H) < 0$ for all $n \gg 0$; but
+$h^0(K - nD) > 0$ would make $K - nD$ linearly equivalent to an effective divisor $E \ge 0$
+with $(K - nD) \cdot H = E \cdot H \ge 0$ (zero only for $E = 0$, positive otherwise by
+(IN3)) --- impossible. So $h^0(K - nD) = 0$ for all $n \gg 0$, and by (IN5),
+$h^0(nD) \ge \chi(nD) - h^2(nD) = \chi(nD) \to \infty$.
+\end{proof}
+
+\noindent\emph{(This is the exact locus where the hypothesis $D \cdot H > 0$ is consumed:
+it kills the $h^2$ term. The compressed sketch ``$\chi(nD) \to \infty$ forces $\pm nD$
+effective'' silently routes through this Lemma applied to an auxiliary ample divisor; the
+full route is Theorem~\ref{thm:hodge}.)}
+
+\section{Theorem (Hodge index; Hartshorne Thm.~V.1.9 lineage)}
+\label{sec:hodge}
+
+\begin{theorem}
+\label{thm:hodge}
+Let $H$ be ample on $X$ and let $D$ be a divisor with $D \cdot H = 0$ and $D$ numerically
+nontrivial. Then $D^2 < 0$.
+\end{theorem}
+
+\begin{proof}
+Suppose for contradiction $D^2 \ge 0$.
+
+\textbf{Case 1: $D^2 > 0$.} By (IN4) choose $m \gg 0$ with $H' := D + mH$ ample. Then
+$D \cdot H' = D^2 + m (D \cdot H) = D^2 > 0$, so Lemma~\ref{lem:effectivity} applies to $D$
+with the ample divisor $H'$: $nD$ is effective and nonzero ($D$ is numerically nontrivial,
+so $nD \not\equiv 0$) for some large $n$. By (IN3), $nD \cdot H > 0$, contradicting
+$D \cdot H = 0$.
+
+\textbf{Case 2: $D^2 = 0$.} Since $D$ is numerically nontrivial, pick $E$ with
+$D \cdot E \ne 0$. Replace $E$ by $E' := (H^2) E - (E \cdot H) H$; then
+$E' \cdot H = (H^2)(E \cdot H) - (E \cdot H)(H^2) = 0$ and
+$D \cdot E' = (H^2)(D \cdot E) - (E \cdot H)(D \cdot H) = (H^2)(D \cdot E) \ne 0$
+($H^2 > 0$ by (IN3): $H$ ample $\Rightarrow$ some multiple of $H$ is effective and nonzero,
+and it meets $H$ positively, so $H^2 = H \cdot H > 0$). For an integer $n$, set
+$D' := nD + E'$. Then $D' \cdot H = n (D \cdot H) + E' \cdot H = 0$ and
+$D'^2 = n^2 D^2 + 2n (D \cdot E') + E'^2 = 2n (D \cdot E') + E'^2$. Choosing $n$ large with
+the sign of $n (D \cdot E')$ positive gives $D'^2 > 0$ with $D' \cdot H = 0$. If $D'$ is
+numerically nontrivial this contradicts Case~1; and $D'$ numerically trivial is impossible
+since $D'^2 > 0$. Contradiction either way.
+
+Hence $D^2 < 0$.
+\end{proof}
+
+\section{Corollary (the signature statement)}
+\label{sec:signature}
+
+\begin{corollary}
+\label{cor:signature}
+On $\Num(X) \otimes \mathbb{R}$ (rank $\rho$), the intersection form has signature
+$(1, \rho - 1)$: it is positive definite on the line $\mathbb{R} \cdot H$ and negative
+definite on $H^{\perp}$.
+\end{corollary}
+
+\begin{proof}
+$H^2 > 0$ gives the positive line. For the negative-definiteness of $H^{\perp}$:
+Theorem~\ref{thm:hodge} gives $x^2 < 0$ for every nonzero \textbf{rational} class
+$x \in H^{\perp}$ (clear denominators and apply the Theorem to the resulting integral
+divisor class; numerical nontriviality is exactly nonvanishing in $\Num$). Negative
+\emph{semi}definiteness on the real span follows by density and continuity of the quadratic
+form. If some nonzero real $x \in H^{\perp}$ had $x^2 = 0$, then $x$ would lie in the
+radical of the semidefinite form restricted to $H^{\perp}$ (an isotropic vector of a
+semidefinite form is radical); the radical is a rational subspace (the form and $H^{\perp}$
+are defined over $\mathbb{Q}$), so it would contain a nonzero rational class
+$y \in H^{\perp}$ with $y \cdot z = 0$ for all $z \in H^{\perp}$ and $y \cdot H = 0$ ---
+i.e.\ $y$ numerically trivial (write any $w$ as $\lambda H + w^{\perp}$), contradicting
+$y \ne 0$ in $\Num(X) \otimes \mathbb{Q}$.
+\end{proof}
+
+\section{Corollary (Castelnuovo--Severi on \texorpdfstring{$C \times C'$}{C x C'})}
+\label{sec:cs}
+
+Let $C, C'$ be smooth projective curves over $k$, $S = C \times C'$,
+$\xi_1 = \{\mathrm{pt}\} \times C'$, $\xi_2 = C \times \{\mathrm{pt}\}$. Then
+$\xi_1^2 = \xi_2^2 = 0$, $\xi_1 \cdot \xi_2 = 1$, and $H := \xi_1 + \xi_2$ is ample ((IN7)
+Nakai--Moishezon: $H^2 = 2 > 0$, and every irreducible curve on $S$ meets $\xi_1$ or
+$\xi_2$ positively and neither negatively). For a divisor $D$ on $S$ write the
+\textbf{bidegree} $(d_1, d_2) := (D \cdot \xi_1, D \cdot \xi_2)$ (for the graph $\Gamma_f$
+of a morphism $f\colon C \to C'$, $(d_1, d_2) = (1, \deg f)$).
+
+\begin{corollary}[Castelnuovo--Severi inequality]
+\label{cor:cs}
+$D^2 \le 2 d_1 d_2$, with equality only if $D$ is numerically equivalent to
+$d_2 \xi_1 + d_1 \xi_2$.
+\end{corollary}
+
+\begin{proof}
+Set $D' := D - d_1 \xi_2 - d_2 \xi_1$. Then $D' \cdot \xi_1 = d_1 - d_1 = 0$ and
+$D' \cdot \xi_2 = d_2 - d_2 = 0$, hence $D' \cdot H = 0$. By Theorem~\ref{thm:hodge} (and
+its trivial extension: $D'^2 \le 0$, with $< 0$ unless $D' \equiv 0$),
+\[
+0 \ge D'^2
+= D^2 - 2\bigl(d_1 (D \cdot \xi_2) + d_2 (D \cdot \xi_1)\bigr)
+  + (d_1 \xi_2 + d_2 \xi_1)^2
+= D^2 - 4 d_1 d_2 + 2 d_1 d_2
+= D^2 - 2 d_1 d_2. \qedhere
+\]
+\end{proof}
+
+The classical ``equivalence defect'' formulation and the positivity of Weil's trace form on
+correspondences are algebraic reformulations of this inequality; the historical order
+(\S\ref{sec:lineage}) ran through exactly this statement.
+
+\section{The \texorpdfstring{$\mathbb{F}_q$}{Fq} degeneration clause: this is the
+inequality Weil's proof consumes}
+\label{sec:degeneration}
+
+This section states, with the short computation, that the inequality of \S\ref{sec:cs} ---
+proved above from (IN1)--(IN6) only --- is the entire positivity input of Weil's proof of RH
+for curves over finite fields. \textbf{That is the point of this note:} the same inequality
+that an arithmetic analogue of the mechanism would have to produce is, in its home
+territory, proved with no RH input, so demanding a Riemann--Roch + ampleness derivation
+(rather than a posited positivity) is a coherent, historically grounded non-circularity
+contract.
+
+Let $C$ be a smooth projective geometrically irreducible curve of genus $g$ over $\Fq$,
+$S = C \times C$ (base-changed to $\overline{\mathbb{F}}_q$ for the intersection theory),
+$F\colon C \to C$ the $q$-power Frobenius, $\Gamma = \Gamma_F$ its graph, $\Delta$ the
+diagonal, $N_1 = \#C(\Fq)$. The three standard geometric facts consumed --- each an
+intersection-theoretic computation with no zeta input:
+
+\begin{itemize}
+\item \textbf{(W1)} $\Gamma$ has bidegree $(1, q)$; $\Delta$ has bidegree $(1, 1)$.
+\item \textbf{(W2)} $\Delta^2 = 2 - 2g$ (self-intersection $=$ degree of the normal bundle
+  $N_{\Delta} \cong T_C$) and $\Gamma^2 = q(2 - 2g)$: via the embedding
+  $(\mathrm{id}, F)\colon C \cong \Gamma \subset S$ one has
+  $T_S|_{\Gamma} \cong T_C \oplus F^* T_C$, so
+  $\deg N_{\Gamma/S} = \deg(T_S|_{\Gamma}) - \deg T_{\Gamma} = \deg F^* T_C
+  = q \deg T_C = q(2 - 2g)$.
+\item \textbf{(W3)} $N_1 = \Gamma \cdot \Delta$: $\Gamma$ and $\Delta$ meet transversally
+  because $dF = 0$, so $1$ is never an eigenvalue of the tangent map; the intersection
+  points are exactly the $\Fq$-rational points.
+\end{itemize}
+
+Apply \S\ref{sec:cs} to $D = r\Delta + s\Gamma$ for integers $r, s$: bidegree
+$(r + s,\, r + sq)$, and with $t := \Gamma \cdot \Delta$,
+\[
+D^2 = r^2 (2 - 2g) + 2rst + s^2 q (2 - 2g) \le 2 (r + s)(r + sq).
+\]
+Expanding and simplifying: $g r^2 - rs\,(t - 1 - q) + g q s^2 \ge 0$ for all integers
+$r, s$, hence (by homogeneity and density) for all real $r, s$; the discriminant condition
+gives
+\[
+\bigl(t - (q + 1)\bigr)^2 \le 4 g^2 q,
+\qquad \text{i.e.} \qquad
+\boxed{\,|N_1 - (q + 1)| \le 2g \sqrt{q}\,.}
+\]
+
+Replacing $F$ by $F^k$ gives $|N_k - (q^k + 1)| \le 2g\, q^{k/2}$ for every $k \ge 1$; by
+the standard power-sum/functional-equation bookkeeping (rationality of the zeta function of
+$C$ and the $\alpha \mapsto q/\alpha$ pairing --- both consequences of Riemann--Roch on the
+\emph{curve}, again with no RH input) this is equivalent to $|\alpha_i| = \sqrt{q}$ for
+every Frobenius eigenvalue, i.e.\ RH for $C$. (The $\Longrightarrow$ direction is the
+generating-function no-cancellation fact: the log-derivative generating function has residue
+$-m_{\alpha}$ at $T = 1/\alpha$, so poles at distinct points of equal modulus cannot cancel;
+the uniform bound then forces radius of convergence $\ge q^{-1/2}$, i.e.\
+$\max_i |\alpha_i| \le \sqrt{q}$, and the $\alpha \mapsto q/\alpha$ pairing pins equality.)
+Every input in this chain is listed in \S\ref{sec:ledger}; none is a zeta positivity.
+
+\medskip
+
+\noindent\textbf{Consistency note.} The bidegrees $(1, q^k)$ of $\Gamma_{F^k}$ are only the
+\emph{main} terms $q^k + 1$ of $N_k$; the zero side $-\sum_i \alpha_i^k$ lives exclusively
+in the $\Delta$-intersection (W3). The positivity engine acts on the trace side through
+\S\ref{sec:cs}'s inequality --- degrees alone never see a zero. (Numerically spot-verified
+on $y^2 = x^3 + x + 1$ over $\mathbb{F}_7$: bidegrees $(1, 7)$, $(1, 49)$, $(1, 343)$
+against counts $5$, $55$, $380$.)
+
+\section{Non-circularity audit (step-by-step input ledger)}
+\label{sec:ledger}
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{2.5cm}@{}}
+\toprule
+\textbf{Step} & \textbf{Uses} & \textbf{Provenance} & \textbf{Zeta/RH content} \\
+\midrule
+Lemma \S\ref{sec:lemma}, growth of $\chi(nD)$ & (IN1) RR on surfaces &
+  Hartshorne V.1.6 & none \\
+Lemma \S\ref{sec:lemma}, killing $h^2$ & (IN2) Serre duality $+$ (IN3) &
+  Hartshorne III.7.6; projective degree & none \\
+Theorem \S\ref{sec:hodge}, Case 1 & Lemma $+$ (IN4) $D + mH$ ample $+$ (IN3) &
+  Hartshorne Ex.~II.7.14(b) & none \\
+Theorem \S\ref{sec:hodge}, Case 2 & (IN6) linear algebra in $\Num(X)$ &
+  Hartshorne V.1 & none \\
+Corollary \S\ref{sec:signature} & Theorem $+$ $\mathbb{Q}$-rationality of $\Num$ &
+  linear algebra & none \\
+Corollary \S\ref{sec:cs} (CS) & Theorem on $C \times C'$ $+$ (IN7) ampleness of
+  $H = \xi_1 + \xi_2$ & (IN7) Nakai--Moishezon, Hartshorne Thm.~V.1.10 (cohomological
+  proof) & none \\
+\S\ref{sec:degeneration} (W1)--(W3) & bidegree/normal-bundle/transversality computations &
+  standard; $dF = 0$ & none \\
+\S\ref{sec:degeneration}, discriminant step & \S\ref{sec:cs} applied to
+  $r\Delta + s\Gamma$ & quadratic forms & none \\
+\S\ref{sec:degeneration}, closing equivalence & rationality $+$ FE of $Z(C, T)$ from RR on
+  the curve & Weil rationality (RR-based) & none (no RH input; RH is the \emph{output}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+
+\noindent\textbf{Statement of the non-circularity claim.} The
+Hodge-index/Castelnuovo--Severi inequality on a surface, in any characteristic, is proved
+from Riemann--Roch on the surface, Serre duality, and ampleness alone. No zeta function, no
+$L$-function, no point count, no explicit-formula positivity, and no statement equivalent to
+or implied by any Riemann hypothesis appears among its inputs. In particular, in the
+function-field template the positivity engine is demonstrably \textbf{not Weil positivity in
+disguise}: it exists prior to, and is consumed by, the RH proof --- not conversely.
+
+\medskip
+
+\noindent\textbf{Scope of the claim.} This certifies non-circularity of the
+\emph{function-field template's} engine. It does \emph{not} assert that any arithmetic
+substrate exists on which the analogous inequality can be derived, and it confers no credit
+by itself on any substrate proposal --- it is the gate such proposals must pass through, in
+the form: an index inequality claimed on a substrate must be \emph{derived} from
+Riemann--Roch plus effectivity/theta input on that substrate and must degenerate to the
+present statement over $\Fq$.
+
+\section{Lineage}
+\label{sec:lineage}
+
+\begin{itemize}
+\item \textbf{A.~Mattuck, J.~Tate}, Abh.\ Math.\ Sem.\ Univ.\ Hamburg 22 (1958)
+  \cite{MattuckTate} --- the Castelnuovo--Severi inequality derived from Riemann--Roch on
+  the surface (the first modern non-circular derivation).
+\item \textbf{A.~Grothendieck}, ``Sur une note de Mattuck--Tate,'' J.\ reine angew.\ Math.\
+  200 (1958) 208--215 \cite{Grothendieck} --- simplification and generalization: the
+  inequality as an instance of the index theorem on an arbitrary surface.
+\item \textbf{R.~Hartshorne}, \emph{Algebraic Geometry}, GTM 52, Ch.~V \S1
+  \cite{Hartshorne} --- the textbook consolidation used above: Thm.~V.1.6 (Riemann--Roch),
+  Thm.~V.1.9 (Hodge index), Thm.~V.1.10 (Nakai--Moishezon, $=$ (IN7)), Exercises
+  V.1.9--V.1.10 (Castelnuovo--Severi on $C \times C'$ and Weil's bound
+  $|N - (q + 1)| \le 2g\sqrt{q}$ along exactly the route of \S\ref{sec:degeneration}).
+  N.B.\ Hartshorne's theorem and exercise numbering are distinct series: ``Thm.~V.1.9''
+  (the Hodge index theorem) and ``Ex.~V.1.9'' (the CS exercise) are different items that
+  happen to share a number. Two sub-item pins in this note --- ``Cor.~V.1.8'' for the
+  effectivity criterion and the ``(b)'' of ``Ex.~II.7.14'' --- are recalled at the letter
+  level only; the statements themselves are re-proved in full above, so nothing
+  load-bearing depends on them.
+\end{itemize}
+
+\section{The \texorpdfstring{$E_p \times E_p$}{Ep x Ep} baseline remark}
+\label{sec:baseline}
+
+The following remark is strictly scoped: it concerns only what the classical index
+inequality does and does not provide on the per-prime Tate-curve surfaces of
+Connes--Consani's absolute geometry \cite{ConnesConsani}. On the \textbf{diagonal} surfaces
+$E_p \times E_p$ (with $E_p = \mathbb{C} / (\mathbb{Z} \oplus \mathbb{Z} \cdot i \log p /
+2\pi)$ the per-prime Tate curve of \cite{ConnesConsani}; $\End(E_p) = \mathbb{Z}$ barring
+the unproven coincidence $(\log p)^2 \in 4\pi^2 \mathbb{Q}$), the N\'eron--Severi group is
+generically $\mathbb{Z}\xi_1 \oplus \mathbb{Z}\xi_2 \oplus \mathbb{Z}\Delta$, and the index
+inequality of \S\S\ref{sec:hodge}--\ref{sec:cs} \textbf{holds classically} --- these are
+classical complex abelian surfaces and nothing in
+\S\S\ref{sec:lemma}--\ref{sec:cs} is special to them. But the available correspondence data
+on them is \textbf{prime-blind}: the graphs of multiplication-by-$m$ carry Lefschetz data
+$\deg([m] - 1) = (m - 1)^2$ --- integer polynomials in $m$ with no $\log p$ weight --- so no
+intersection number on these surfaces can host the explicit formula's transcendentally
+weighted prime terms without hand-inserting the answer key. The cross-prime surfaces
+$E_p \times E_q$ are dead as substrate (off-diagonal N\'eron--Severi rank 2: no diagonal, no
+graphs) and nothing in this note revives them. The baseline therefore contributes exactly
+one sentence: the index inequality is available on the diagonal Tate-curve surfaces for
+whatever classical purpose a future argument can state --- with zero prime-facing content.
+
+\section*{Provenance}
+
+\begin{remark*}
+This note originated as a milestone deliverable (``M1, the non-circularity gate'') of an
+internal research program on positivity mechanisms for the Riemann hypothesis, written
+2026-08-26; the program's internal rules required this re-derivation to exist in writing
+before any substrate proposal could claim credit for a Hodge-index-type step. The argument
+of \S\S\ref{sec:lemma}--\ref{sec:hodge} was independently re-derived by two internal
+reviewers, and the Mattuck--Tate and Grothendieck lineage items were verified to exist with
+content as recalled (page range for \cite{Grothendieck} checked against Crelle/EuDML
+records; the Bombieri expos\'e/volume/pages checked against the numdam record
+SB\_1972-1973\_\_15\_\_234\_0 and Springer LNM 383). A subsequent independent referee pass
+(same date) returned ``pass with repairs'' --- no fatal findings, three major and six minor,
+all applied --- after re-deriving every proof line by line, verifying the input ledger of
+\S\ref{sec:ledger} input-by-input with no hidden zeta/$L$-function/RH content found, and
+passing 13 of 13 numerical checks (including the $\mathbb{F}_7$ spot check of
+\S\ref{sec:degeneration}). The original note carries a traceability table mapping each
+claim to internal program records (direction files, adjudication and verdict files, and a
+catalogue of known barriers); those internal references, and the referee's itemized repair
+log, are omitted here as program bookkeeping. Two Hartshorne sub-item pins
+(``Cor.~V.1.8''; the ``(b)'' of ``Ex.~II.7.14'') remain recalled at the letter level only,
+pending a physical-copy check; both statements are re-proved in full above. Standard
+material re-derived for the record; zero novelty claimed.
+\end{remark*}
+
+\begin{thebibliography}{9}
+
+\bibitem{Hartshorne}
+R.~Hartshorne,
+\emph{Algebraic Geometry},
+Graduate Texts in Mathematics 52, Springer-Verlag, New York, 1977.
+
+\bibitem{MattuckTate}
+A.~Mattuck and J.~Tate,
+On the inequality of Castelnuovo--Severi,
+\emph{Abh.\ Math.\ Sem.\ Univ.\ Hamburg} \textbf{22} (1958), 295--299.
+
+\bibitem{Grothendieck}
+A.~Grothendieck,
+Sur une note de Mattuck--Tate,
+\emph{J.\ reine angew.\ Math.} \textbf{200} (1958), 208--215.
+
+\bibitem{Stepanov}
+S.~A.~Stepanov,
+The number of points of a hyperelliptic curve over a finite prime field,
+\emph{Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.} \textbf{33} (1969), 1171--1181.
+
+\bibitem{Bombieri}
+E.~Bombieri,
+Counting points on curves over finite fields (d'apr\`es S.~A.~Stepanov),
+\emph{S\'eminaire Bourbaki} 1972/73, Expos\'e 430,
+Springer Lecture Notes in Mathematics 383 (1974), 234--241.
+
+\bibitem{ConnesConsani}
+A.~Connes and C.~Consani,
+On the absolute geometry of $\mathrm{Spec}\,\mathbb{Z}$,
+arXiv:2606.06604 (2026).
+
+\end{thebibliography}
+
+\end{document}
