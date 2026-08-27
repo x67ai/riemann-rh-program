@@ -44,7 +44,8 @@ remaining `0.9775` mentions only as the historical grid value. VERIFIED (sweep c
 
 ## STEP 1c — referee-check the revision wording
 
-**STATUS: TODO.** Adversarial wording check of the revised package: every revised sentence in
+**STATUS: IN PROGRESS (2026-08-27, workflow wf_029660e9-d56, 2 referee agents; if this session
+died mid-run, treat as TODO and re-run).** Adversarial wording check of the revised package: every revised sentence in
 `paper.md`/`pair-channel.md` must (a) match the certificates in
 `verify/o1_crowding_interval_out.json` + `verify/n128_rerun_out.json` + `o1-n128-report.md`
 (numbers, inequality directions, rounding direction), (b) claim nothing on w in (0.98, 1] beyond
@@ -54,7 +55,8 @@ report. Record the pass as `results/a4-no-go/referee-revision.md` (verdict + any
 
 ## STEP 2 — independent novelty check (all four documents)
 
-**STATUS: TODO.** Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
+**STATUS: IN PROGRESS (2026-08-27, workflow wf_4501be8c-d24, 4 hunters + 1 reference verifier;
+if this session died mid-run, treat as TODO and re-run).** Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
 R7(a) gate, verdict NOVEL-WITH-CITATIONS, 7 obligations — covers the three C3-r notes) and the
 A4 prior-art gate recorded in `LOG.md` Session 7. Verify independently with a fresh literature
 sweep (arXiv, MathSciNet-visible metadata, Semantic Scholar) per document: does any prior work
@@ -65,7 +67,10 @@ anticipated-by), citations to add, and the searches run.
 
 ## STEP 3 — LaTeX conversion + arXiv-submittable PDFs
 
-**STATUS: TODO.** TeX Live 2026 is installed and verified working:
+**STATUS: IN PROGRESS for the three C3-r notes (2026-08-27, workflow wf_6fb7779d-f10, one
+converter per note, output under results/arxiv/); the A4 paper conversion WAITS for step 1c's
+verdict, then runs with the same rules. If this session died mid-run: check results/arxiv/ for
+committed main.tex/main.pdf per note; anything missing is TODO.** TeX Live 2026 is installed and verified working:
 `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"` (pdflatex 1.40.29; `tlmgr`
 available; the "no TeX on this machine" notes in STATUS.md/LOG.md are stale — install nothing).
 One subdirectory per paper under `results/arxiv/` (`a4-no-go/`, `m0-axiom/`, `m1-noncirc/`,
