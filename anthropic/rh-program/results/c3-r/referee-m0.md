@@ -112,7 +112,7 @@ online: arXiv:2309.01567 (Broucke–Debruyne–Révész, [α,β]-systems; publis
 arXiv:2102.08478 (Broucke–Vindas discretization; Math. Z. 307 (2024), art. 62). Bost
 arXiv:1512.08946 (theta invariants h⁰_θ) confirmed online. NOT independently re-confirmed this
 pass (program-verified upstream; flagged per standing order 5): van der Geer–Schoof math/9802121;
-Yuan–Zhang arXiv:2105.13587 v9 = Annals of Mathematics Studies 223; Chen–Moriwaki arXiv:1903.10798
+Yuan–Zhang arXiv:2105.13587 v9 = Annals of Mathematics Studies 221 [dated correction 2026-08-27: this report wrote “223”, which is a different volume; zbMATH gives Ann. Math. Stud. 221]; Chen–Moriwaki arXiv:1903.10798
 (the volume identity q-13a WAS verified by the adjudication's direct PDF inspection, computation
 f). Blomer–Leung: see MAJOR 2.
 
