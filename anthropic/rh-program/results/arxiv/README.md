@@ -1,17 +1,57 @@
 # `results/arxiv/` — the submission packages
 
-**Written 2026-08-27** as part of CIRCULATION-PREP step 3. One self-contained directory per paper.
-Nothing here is submitted; **whether, where and when to circulate is the sponsor's decision**
-(STATUS.md Session-9 queue item 5). This directory only makes the decision cheap to act on.
+**Written 2026-08-27** as part of CIRCULATION-PREP step 3; **recommendation added the same day,
+after step 4.** One self-contained directory per paper. Nothing here is submitted, and nothing
+should be: posting is outward-facing, permanent, and goes out under the sponsor's name, so it stays
+the sponsor's act.
+
+## RECOMMENDATION — post two, keep two (2026-08-27)
+
+The four documents are **not** of equal standing, and treating them as one batch would be a
+mistake. Three of the four are, in substantial part, standard mathematics, and two of them say so
+themselves. So "is it novel?" is the wrong question to sort them by — all four are negatives, and a
+negative result is worth publishing when it **stops someone else wasting time**, not when it is
+new. That test separates them cleanly:
+
+| Directory | Would anyone otherwise have tried this? | Recommendation |
+|---|---|---|
+| `a4-no-go/` | **Yes.** The parent paper's own §7.5(e)/§7.2(e) raises exactly this question and leaves the two-bandwidth case open. Gonçalves–de Laat–Leijenhorst's 3-level row *does* pay for their target, so "it pays nothing here" is a substantive, non-obvious negative. | **POST.** The strongest of the four by a distance. |
+| `seed-no-go/` | **Yes, and urgently.** The Connes–Consani per-prime Tate curves are two months old and products are the first thing anyone will try. | **POST**, now that Theorems 1–3 are correctly attributed to Winkelmann. Timeliness is most of its value. |
+| `m0-axiom/` | **No.** Nobody has proposed this axiom class in print. The note kills a proposal made inside this program. | **Do not post.** Keep as the internal record it says it is. |
+| `m1-noncirc/` | **No.** It is graduate-textbook algebraic geometry, and Milne's survey §1 publishes it end to end. | **Do not post.** It claims zero novelty in its own abstract, and it is right. |
+
+**On `a4-no-go`.** It answers a question the literature actually poses, with an exact result
+(δ₀ = 0, not "small"), an explicit hand-checkable witness law, twelve machine-checked theorems with
+a clean axiom footprint, and a published third-party comparandum it reconciles with rather than
+ignores. The audience is small — people working on pair-correlation LP/SDP methods for the
+distinct-zeros and simple-zeros problems — but it is a real audience with a real question.
+
+**On `seed-no-go`.** Its mathematical content is an assembly: Winkelmann's rigidity (2002), the
+well-known Néron–Severi decomposition for a product of elliptic curves, the classical
+$(\Gamma_m \cdot \Gamma_n) = (m-n)^2$ profile, and Gelfond–Schneider (1934) — applied to a
+June-2026 object, yielding a clean zero. That is a **note**, not a research paper, and it should be
+posted as one. Its value is that it forecloses an obvious route on a new object before people spend
+a year on it, and that it does so with the attribution scrupulously right, which it now is.
+
+**On the two that stay in.** Neither is worthless; both are premature. `m0-axiom` becomes postable
+the day someone proposes such an axiom class in print — at that point it is a short, sharp reply.
+`m1-noncirc` is a genuine audit trail that the seed note and the program both consume, and it
+belongs in the repository, cited as supplementary material exactly as the A4 companions are. What
+neither belongs on is arXiv, where the first would read as an answer with no question and the
+second as a homework exercise a moderator would query.
+
+**If the sponsor disagrees and wants all four out**, the packages are built and pass every check;
+nothing further is required. The recommendation is a judgment about audience and standing, not
+about readiness.
 
 ## What is here
 
-| Directory | Paper | Source of truth | Pages |
-|---|---|---|---|
-| `a4-no-go/` | The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | `results/a4-no-go/paper.md` | see the directory |
-| `m0-axiom/` | The polarized-Frobenius axiom class | `results/c3-r/m0-axiom-note.md` | 14 |
-| `m1-noncirc/` | Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | `results/c3-r/m1-noncircularity.md` | 13 |
-| `seed-no-go/` | Products of the per-prime Tate curves carry no correspondence calculus | `results/c3-r/seed-no-go-note.md` | 21 |
+| Directory | Paper | Source of truth | Pages | Recommendation |
+|---|---|---|---|---|
+| `a4-no-go/` | The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | `results/a4-no-go/paper.md` | 44 | **post** |
+| `m0-axiom/` | The polarized-Frobenius axiom class | `results/c3-r/m0-axiom-note.md` | 14 | keep internal |
+| `m1-noncirc/` | Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | `results/c3-r/m1-noncircularity.md` | 13 | keep internal |
+| `seed-no-go/` | Products of the per-prime Tate curves carry no correspondence calculus | `results/c3-r/seed-no-go-note.md` | 21 | **post** |
 
 (Page counts as of the 2026-08-27 citation pass; `a4-no-go` is 44 pp. All four grew when the citations, prior-art sections and reference lists were added.)
 
@@ -72,11 +112,13 @@ re-classify freely, and a wrong primary category delays announcement rather than
 | `m1-noncirc` | math.AG | math.NT | 14C17 (intersection theory), 14J99 (surfaces), 11G20 (curves over finite/local fields) |
 | `seed-no-go` | math.NT | math.AG | 11M26, 14K02 (isogenies), 11J81 (transcendence) |
 
-`m1-noncirc` is the one to think about before posting: **it claims zero novelty in its own
-abstract** ("Every statement is graduate-textbook algebraic geometry") and its value is the audit
-trail. That is an honest and useful thing to have on record, but it is not the usual shape of an
-arXiv posting, and a moderator may query it. Posting it as a companion to `seed-no-go`, which
-consumes it, is the framing that makes sense of it.
+`m1-noncirc` was previously listed here as postable "as a companion to `seed-no-go`". **That advice
+is withdrawn** (2026-08-27): it claims zero novelty in its own abstract ("Every statement is
+graduate-textbook algebraic geometry"), the step-4 citation pass confirmed that Milne's survey §1
+publishes §§3–7 of it end to end, and Bombieri's Clay problem description states the same thing
+about the same theorem. The recommendation above is to keep it in the repository as supplementary
+material and cite it from `seed-no-go` by filename, which is what the A4 companions already do.
+The categories and classes are kept below in case the sponsor decides otherwise.
 
 ## The novelty record
 
