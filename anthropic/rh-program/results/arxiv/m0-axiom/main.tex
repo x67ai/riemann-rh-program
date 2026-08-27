@@ -74,7 +74,9 @@ step-2 monoid computation under the degree reading is a correct, cheap formal
 computation}, so the axiom-format note is a legitimate, nonzero item rather than
 pure re-dressing. The content remains quasi-definitional: it is a known
 positivity-barrier witness in a new dialect, whose sharper formal home is the
-Blomer--Leung monoid converse \cite{BL}.
+Blomer--Leung beyond-endoscopy converse theorem \cite{BL}. (The word ``monoid''
+belongs to the Braverman--Kazhdan/Ng\^o circle, not to Blomer and Leung: a
+case-insensitive count of it in both arXiv versions of \cite{BL} is zero.)
 
 \medskip
 \noindent\textbf{Role.} This note is the \textbf{axiom citation} for any argument
@@ -89,6 +91,82 @@ in the program record as the immutable historical version.
 every number to its source). Claims struck in adjudication (theorem status,
 ``provable today,'' discharge of the $\mathbb{F}_1$-model question, any credit
 beyond the axiom-format role) do not appear here except in the negative.
+
+\section{Prior art, and what is new}\label{sec:priorart}
+
+Six lines of published work stand upstream of this note. Each is named here, with
+its differentiator, so that no part of \S\S\ref{sec:axioms}--\ref{sec:clauses} is
+mistaken for a discovery.
+
+\begin{itemize}
+\item \textbf{$\Lambda$-rings (Borger \cite{Borger}).} A commuting family of
+Frobenius endomorphisms indexed by the primes is, in $\Lambda$-algebraic geometry,
+a \emph{definition} rather than an axiom: for $X$ flat over $\mathbb{Z}$, a
+$\Lambda$-structure on $X$ \emph{is} ``a commuting family of endomorphisms
+$\psi_p : X \to X$, one for each prime $p$, such that $\psi_p$ agrees with the
+$p$-th power Frobenius map on $X \times_{\operatorname{Spec}\mathbb{Z}}
+\operatorname{Spec}\mathbb{F}_p$'' \cite[\S1.1]{Borger}, with the
+$\Lambda$-ideals ``ordered by divisibility on $m$'' \cite[\S6]{Borger}.
+(PF2)$+$(PF3) are that definition; nothing is claimed there.
+\item \textbf{The square, in characteristic one (Connes--Consani \cite{CC16};
+Connes \cite{CE15}).} The polarized square with fiber classes, the basic fact
+used in \S\ref{sec:admissibility} --- ``if $D$ is a strictly positive divisor then
+$D \cdot \xi_0 + D \cdot \xi_1 > 0$'' \cite[\S2.3]{CE15} --- the
+$\mathbb{N}^\times$ Frobenius monoid with its composition law
+\cite[\S4.3.1]{CE15}, and the diagnosis that ``what is missing is an intersection
+theory and a Riemann-Roch theorem on the square of the arithmetic site''
+\cite[\S4.3.2]{CE15}, are all in print; and Connes--Consani realize Frobenius
+correspondences as congruences in the square and prove
+$\Psi(\lambda) \circ \Psi(\lambda') = \Psi(\lambda\lambda')$
+\cite[Thm.~1.2, Thm.~7.7]{CC16}. \textbf{Four differentiators:} their index monoid
+$\mathbb{R}^\times_+$ is divisible, so ``primitivity at the primes'' --- the whole
+content of (PF3) --- has no analogue there; there is no nef-polarization degree
+calculus; there is no effectivity axiom; and the ambient object is a
+characteristic-one semi-ringed topos, not an adelic curve.
+\item \textbf{Absolute Descartes powers (Manin \cite{Manin}).}
+``$\operatorname{Spec}\mathbb{Z} \times \cdots \times \operatorname{Spec}
+\mathbb{Z}$'' as an absolute power, and ``a canonical absolute Frobenius'', are
+Manin's, from 1995.
+\item \textbf{The genre --- no-go theorems about an explicitly stated axiom class
+(Deninger \cite{Den22}).} Deninger states the expected properties of a
+real-coefficient ``Weil-''cohomology for an arithmetic curve as numbered items
+2.1--2.12 and then proves (Theorem~2.13) that no such theory exists. The method is
+the same --- state the axioms, then show what they cannot do --- and the
+differentiator is the conclusion's strength: his is an impossibility theorem, this
+note's is a \emph{vacuity} certificate at coefficient level. (The property his
+Theorem~2.13 refutes is 2.12, the Galois-equivariant order-of-vanishing property,
+not his spectral axiom 2.3 and not his positivity hypothesis 2.7.)
+\item \textbf{Taking an RH axiom framework seriously (Flach--Morin \cite{FM20}).}
+They conjecture a long exact sequence tying Deninger's conjectural cohomology to
+Weil--Arakelov cohomology, and prove it for smooth projective varieties over finite
+fields with finitely generated Weil-\'etale motivic cohomology --- the precedent for
+working out what such a framework does and does not give.
+\item \textbf{The closest prior work --- an axiomatized intersection calculus for
+zeta (Banaszak--Uetake \cite{BU1, BU2, BU3}).} They introduce axioms (INT1--INT3)
+for an abstract intersection theory attached to a Hilbert-space operator and prove
+them equivalent to RH for that operator: for the operator attached to $L(s, \chi)$
+--- for $\Gamma = \mathrm{SL}_2(\mathbb{Z})$, to $\zeta$ itself --- RH together
+with simplicity of all nontrivial zeros holds if and only if a standard model exists
+\cite[Thm.~5.4]{BU2}, and they say so themselves: ``The existence of this model is
+equivalent to the RH (plus the simple zero conjecture)'' \cite[\S1]{BU3}.
+\textbf{The differentiator is the polarity.} Theirs is an abstract axiom set whose
+\emph{existence} is RH-equivalent --- non-vacuous but circular, and it buys no
+exclusion. This note's is a concrete axiom set whose coefficient-level consequences
+are provably satisfied by RH-false objects (\S\ref{sec:clauses}) and provably
+violated by an RH-true one (\S\ref{sec:chi4}) --- vacuous as an RH filter, with the
+vacuity certified rather than conjectured.
+\end{itemize}
+
+\noindent\textbf{What is new here is exactly three things:} the \emph{conjunction}
+(PF1)--(PF6) as a printed axiom class over a Chen--Moriwaki adelic curve with a
+Yuan--Zhang nef polarization; the \textbf{definitional fork} of
+\S\ref{sec:fork}, which shows the $D$-attachment clause admits exactly two
+readings and that both make the Davenport--Heilbronn/Epstein exclusion definitional;
+and the \textbf{vacuity certificate} --- the
+$\mathbb{P}^1 \times \mathbb{P}^1$ system of \S\ref{sec:hornA} satisfying
+(PF1)--(PF4) while touching no coefficient of any $D$, together with the
+\S\ref{sec:witnesses} witnesses and the Beurling clause of \S\ref{sec:clauses}.
+Nothing else is claimed as new.
 
 \section{The axiom class (repaired definition)}\label{sec:axioms}
 
@@ -192,7 +270,22 @@ $\Psi_m \circ \Psi_n = \Psi_{mn}$ exactly, $\Psi_p$ primitive exactly at
 primes, every $\Psi_n$ an effective irreducible curve, bidegrees $(1, n)$.
 Nothing in (PF1)--(PF4) references the coefficients of $D$, so the identical
 system would serve $D = \zeta$, $D = \mathrm{DH}$, or $D = \mathrm{Epstein}$
-indifferently. (Both adversarial reviews constructed this counterexample
+indifferently. Nor is the family new as a \emph{Frobenius} family: on the
+roots-of-unity locus $z \mapsto z^n$ is precisely the Bost--Connes endomotive's
+endomorphism $\sigma_n : e(\gamma) \mapsto e(n\gamma)$, whose composition law
+$\sigma_{nm} = \sigma_n \sigma_m$ is (PF3), and Connes, Consani and Marcolli
+treat exactly these maps as Frobenius correspondences over $\mathbb{F}_1$ ---
+``the endomorphisms $\sigma_n$ describe the Frobenius correspondence, in the sense
+that on the algebra $\mathbb{Z}[\mathbb{Q}/\mathbb{Z}] \otimes_\mathbb{Z} K$,
+for $K$ a perfect field of characteristic $p > 0$, the endomorphisms $\sigma_n$,
+$n = p^\ell$ ($\ell \in \mathbb{N}$) coincide with the Frobenius
+correspondence'' \cite[Thm.~6.2(b)]{CCM09}; for general $n$ the weaker
+\cite[\S6.1]{CCM09} statement, that the $\sigma_n$ are the
+$\widehat{\mathbb{Z}}$-powers of the Frobenius of
+$\mathbb{F}_1^\infty/\mathbb{F}_1$. Citing this \emph{strengthens} the vacuity
+point: the graph packaging on $\mathbb{P}^1 \times \mathbb{P}^1$ is what this
+note adds, and it is what makes the degree bookkeeping computable --- and, as this
+section shows, worthless. (Both adversarial reviews constructed this counterexample
 independently; the adjudicator re-verified it. The printed (PF5) already
 excludes it --- its transpose-stability clause fails, $\Gamma_n^t$ having
 bidegree $(n, 1)$, not any $\Gamma_m$ --- so the exhibit certifies vacuity of
@@ -222,7 +315,15 @@ on $\mathbb{P}^1 \times \mathbb{P}^1$), and no formal argument forces
 $(\Psi_6 \cdot \Delta)$-type data to vanish. What is needed is a
 \textbf{Lefschetz-tie axiom} (``the counting data of $D$ is trace-organized by
 the monoid'') --- in characteristic $p$ that tie is a THEOREM about the
-existing cohomology; over $\mathbb{Q}$ it is exactly the missing substrate.
+existing cohomology (the Grothendieck--Lefschetz trace formula); over $\mathbb{Q}$
+it is exactly the missing substrate. Positing such a tie as an axiom rather than
+proving it is not new: Deninger \cite{Den98} put a conjectural Lefschetz-type trace
+formula of exactly this shape in print in 1998, tying the zeros of zeta and motivic
+$L$-functions, as eigenvalues of a flow generator on $H^1$, to the closed orbits of
+a foliated dynamical system, and noted that the formula ``does not seem to be
+established'' \cite[\S4]{Den98}. His setting (leafwise cohomology of a foliated
+dynamical system) is not this note's, so the two are the same \emph{move}, not the
+same statement; the precedence is what is cited.
 Adding it as an axiom makes the $D$-attachment Euler-organized by definition,
 so the Davenport--Heilbronn/Epstein exclusion again follows from the definition
 plus the one-line coefficient witnesses of \S\ref{sec:witnesses} ---
@@ -273,7 +374,10 @@ obligations:
 \item \textbf{(a) Degree-one Euler shape.} Matched at the level of the
 Dirichlet coefficients $a_n$ of $D$, totally multiplicative coefficient data is
 exactly the Euler shape
-$D(s) = \prod_p (1 - a_p p^{-s})^{-1}$ --- \textbf{degree one}. The axiom
+$D(s) = \prod_p (1 - a_p p^{-s})^{-1}$ --- \textbf{degree one}. (This
+equivalence is textbook: Apostol \cite[Ch.~11]{Apostol}, or Montgomery--Vaughan
+\cite[\S1.3, Thm.~1.9]{MV}, who say ``totally multiplicative'' where Apostol says
+``completely multiplicative''.) The axiom
 class as printed excludes every higher-degree Euler-intact $L$-function (e.g.\
 $\zeta_K$ for a quadratic field $K$ has degree-2 Euler factors and
 non-totally-multiplicative coefficients; it satisfies the coefficient-level
@@ -286,7 +390,10 @@ char-$p$ template's Frobenius monoid is generated by ONE element:
 $\{\Gamma_{F^k} : k \ge 0\} \cong (\mathbb{N}, +)$, indexed by the exponent
 $k$ (the extension degree), with a single ``prime.'' The printed multi-prime
 monoid $\{\Psi_n\}$ over $(\mathbb{N}^\times, \cdot)$ --- free commutative on
-all rational primes --- is a different object: the commission's template was a
+all rational primes --- is a different object (that multiplicative monoid acting on
+a half-line is itself a live object in this literature: the scaling site is the
+semidirect product of the half-line by it \cite{CC16b, CC17}, with a complex lift
+in \cite{CC19}): the commission's template was a
 one-prime template misread as a multi-prime one. Total multiplicativity across
 distinct primes is exactly the new, restrictive content: at coefficient level
 it pins the degree-one Euler shape (a); if instead the degree data were matched
@@ -349,6 +456,11 @@ Provenance remark. ``Inadmissible'' always means: fails the
 \S\ref{sec:admissibility} admissibility condition, with the named witness.
 
 \subsection{Davenport--Heilbronn (RH-false, and inadmissible)}\label{sec:dh}
+
+\emph{Sources.} The function and its off-line zeros are \cite{DH1936a, DH1936};
+the standard modern survey is Bombieri--Ghosh \cite{BG11}. The reading that GRH
+needs the Euler product, with Davenport--Heilbronn as the standing counterexample,
+is also in print in physics vocabulary \cite{LM24, FL14}.
 
 Coefficient system: $a_n$ periodic mod $5$,
 $(a_1, \ldots, a_5) = (1, \kappa, -\kappa, -1, 0)$, with the Gauss-sum surd
@@ -462,6 +574,20 @@ filter is therefore \textbf{over-broad in a revealing way}: it is a
 \emph{positivity} filter, not an Euler-product filter. Any $\mathrm{GL}(2)$
 object with some $a_p < 0$ is excluded alongside DH.
 
+\paragraph{The published exemplar of this move.} Conrey and Li \cite{CL00} give
+the same genre of result: a positivity condition sufficient for GRH, published as
+such, falsified by direct computation against the very $L$-functions it was meant to
+cover --- ``we shall give examples showing that de Branges' positivity conditions,
+which imply the generalized Riemann hypothesis, are not satisfied by defining
+functions of reproducing kernel Hilbert spaces associated with the Riemann zeta
+function $\zeta(s)$ and the Dirichlet $L$-function $L(s, \chi_4)$''
+\cite[introduction]{CL00}. Two precisions matter. The conditions are
+\textbf{de Branges'} positivity conditions on reproducing-kernel Hilbert spaces
+$H(E)$ and $F(W)$ --- not Li's own coefficient criterion $\lambda_n \ge 0$, which
+a reader will otherwise assume --- and their criterion fails for $\zeta$ itself as
+well as for $L(s, \chi_4)$, so the parallel here is one of genre and not of a
+filter separating $\zeta$ from $\chi_4$, which is what the filter above does.
+
 \section{The Beurling-instantiability and degree-one-rigidity
 clauses}\label{sec:clauses}
 
@@ -479,8 +605,32 @@ stated in the PF5 status paragraph, \S\ref{sec:axioms}. \textbf{The axiom a
 DMV world violates: currently NONE.} The candidate DMV-violated input, named
 per the adjudicated repair, is the substrate-level theta-effectivity
 $h^0_\theta(D) \ge \deg D + O(1)$ (Bost \cite{Bost}; van der Geer--Schoof
-\cite{vdGS}) --- a substrate-level input no current object supplies. Until
-such an axiom exists and is instantiated, the class cannot decide RH.
+\cite{vdGS}).
+
+The general form of this conclusion is itself published: Diamond and Zhang
+\cite{DZ16} devote one chapter to an RH-\textbf{true} Beurling system
+\cite[Thm.~17.11]{DZ16} and an RH-\textbf{false} one \cite[Thm.~17.14]{DZ16}, and
+state at the outset that ``a proof of the Riemann hypothesis will require more than
+just the multiplicative structure of integers and smallness of $N(x) - x$''
+\cite[\S1.1]{DZ16}.
+
+An earlier version of this paragraph called the theta-effectivity input ``a
+substrate-level input no current object supplies''. As an absolute that is
+overstated, and it is corrected here: Connes and Consani have since proved a
+Riemann--Roch theorem for Arakelov divisors on
+$\overline{\operatorname{Spec}\mathbb{Z}}$ \cite{CC23}, strengthened for the ring
+$\mathbb{Z}$ in \cite{CC24}, whose two cohomologies are modules over the sphere
+spectrum carrying \emph{integer-valued} dimensions. What survives is the
+distinction: their $h^0$ is a different invariant from the real-valued theta
+invariant $h^0_\theta$ --- they describe the log-theta number as a dimension that
+``remains virtual $\ldots$ for the obvious reason that it outputs real numbers
+rather than integers'' --- and their result is an Euler-characteristic identity
+$\chi(D) = h^0(D) - h^1(D)$ for $\operatorname{Spec}\mathbb{Z}$ alone, yielding no
+lower bound on $h^0(D)$ without a separate $H^1$-vanishing or duality input. So the
+theta-effectivity input is still supplied by no current object; what is withdrawn is
+the stronger suggestion that no Riemann--Roch machinery over
+$\overline{\operatorname{Spec}\mathbb{Z}}$ exists at all. Until an axiom of that
+kind exists and is instantiated, the class cannot decide RH.
 
 \paragraph{What the filter is.} The polarized-Frobenius axiom class as printed
 is a \textbf{POSITIVITY filter separating $\{\mathrm{DH}, \mathrm{Epstein}\}$
@@ -605,8 +755,9 @@ day, none rejected or deferred.
 \bibitem{BL}
 V.~Blomer and W.~H.~Leung,
 \emph{A GL(3) converse theorem via a ``beyond endoscopy'' approach},
-Adv. Math. \textbf{485} (2026), Art. 110716;
-arXiv:2401.04037.
+Adv. Math. \textbf{485} (2026), Art.\ 110716;
+doi:10.1016/j.aim.2025.110716;
+arXiv:2401.04037 (v1, 8 Jan 2024; v2, 11 Jul 2026).
 
 \bibitem{Bost}
 J.-B.~Bost,
@@ -645,27 +796,55 @@ H.~Chen and A.~Moriwaki,
 Lecture Notes in Mathematics 2258, Springer, 2020;
 arXiv:1903.10798.
 
+\bibitem{DH1936a}
+H.~Davenport and H.~Heilbronn,
+\emph{On the zeros of certain Dirichlet series},
+J. London Math. Soc. \textbf{11} (1936), no.~3, 181--185;
+doi:10.1112/jlms/s1-11.3.181.
+
 \bibitem{DH1936}
 H.~Davenport and H.~Heilbronn,
-\emph{On the zeros of certain Dirichlet series (Second paper)},
-J. London Math. Soc. \textbf{11} (1936), 307--312.
+\emph{On the zeros of certain Dirichlet series (second paper)},
+J. London Math. Soc. \textbf{11} (1936), no.~4, 307--312;
+doi:10.1112/jlms/s1-11.4.307.
 
 \bibitem{DMV}
 H.~G.~Diamond, H.~L.~Montgomery, and U.~M.~A.~Vorhauer,
 \emph{Beurling primes with large oscillation},
-Math. Ann. \textbf{334} (2006), 1--36.
+Math. Ann. \textbf{334} (2006), 1--36;
+doi:10.1007/s00208-005-0638-2.
 
 \bibitem{vdGS}
 G.~van der Geer and R.~Schoof,
 \emph{Effectivity of Arakelov divisors and the theta divisor of a number
 field},
-Selecta Math. (N.S.) \textbf{6} (2000), 377--398;
+Selecta Math. (N.S.) \textbf{6} (2000), no.~4, 377--398;
 arXiv:math/9802121.
 
 \bibitem{KP1}
 J.~Kaczorowski and A.~Perelli,
 \emph{On the structure of the Selberg class, I: $0 \le d \le 1$},
 Acta Math. \textbf{182} (1999), 207--241.
+
+\bibitem{LM24}
+A.~LeClair and G.~Mussardo,
+\emph{Riemann zeros as quantized energies of scattering with impurities},
+J. High Energy Phys. \textbf{2024} (2024), no.~4, paper 062, 20 pp.;
+doi:10.1007/JHEP04(2024)062;
+arXiv:2307.01254.
+
+\bibitem{Manin}
+Yu.~I.~Manin,
+\emph{Lectures on zeta functions and motives (according to Deninger and
+Kurokawa)},
+in: Columbia University Number Theory Seminar (New York, 1992),
+Ast\'erisque \textbf{228} (1995), 121--163.
+
+\bibitem{MV}
+H.~L.~Montgomery and R.~C.~Vaughan,
+\emph{Multiplicative Number Theory I: Classical Theory},
+Cambridge Studies in Advanced Mathematics \textbf{97},
+Cambridge University Press, Cambridge, 2007.
 
 \bibitem{KP7}
 J.~Kaczorowski and A.~Perelli,
@@ -677,6 +856,153 @@ X.~Yuan and S.-W.~Zhang,
 \emph{Adelic line bundles on quasi-projective varieties},
 Annals of Mathematics Studies 221, Princeton University Press, 2026;
 arXiv:2105.13587.
+
+\bibitem{Apostol}
+T.~M.~Apostol,
+\emph{Introduction to Analytic Number Theory},
+Undergraduate Texts in Mathematics, Springer-Verlag, New York, 1976;
+doi:10.1007/978-1-4757-5579-4.
+
+\bibitem{BG11}
+E.~Bombieri and A.~Ghosh,
+\emph{Around the Davenport--Heilbronn function},
+Russian Math. Surveys \textbf{66} (2011), no.~2, 221--270;
+doi:10.1070/RM2011v066n02ABEH004740;
+Russian original, Uspekhi Mat. Nauk \textbf{66} (2011), no.~2, 15--66;
+doi:10.4213/rm9410.
+
+\bibitem{Borger}
+J.~Borger,
+\emph{Lambda-rings and the field with one element},
+preprint (2009), 31 pp., arXiv:0906.3146.
+
+\bibitem{BU1}
+G.~Banaszak and Y.~Uetake,
+\emph{Abstract intersection theory and operators in Hilbert space},
+Commun. Number Theory Phys. \textbf{5} (2011), no.~3, 699--712;
+doi:10.4310/CNTP.2011.v5.n3.a4;
+arXiv:0908.2909.
+
+\bibitem{BU2}
+G.~Banaszak and Y.~Uetake,
+\emph{Standard models of abstract intersection theory for operators in Hilbert
+space},
+Bull. Pol. Acad. Sci. Math. \textbf{63} (2015), no.~2, 149--175;
+doi:10.4064/ba63-2-5;
+arXiv:1210.3526.
+
+\bibitem{BU3}
+G.~Banaszak and Y.~Uetake,
+\emph{Abstract intersection theory for zeta-functions: geometric aspects},
+Funct. Approx. Comment. Math. \textbf{64} (2021), no.~2, 251--265;
+doi:10.7169/facm/1916.
+
+\bibitem{CC16}
+A.~Connes and C.~Consani,
+\emph{Geometry of the arithmetic site},
+Adv. Math. \textbf{291} (2016), 274--329;
+doi:10.1016/j.aim.2015.11.045;
+arXiv:1502.05580.
+
+\bibitem{CC16b}
+A.~Connes and C.~Consani,
+\emph{The scaling site},
+C. R. Math. Acad. Sci. Paris \textbf{354} (2016), no.~1, 1--6;
+doi:10.1016/j.crma.2015.09.027;
+arXiv:1507.05818.
+
+\bibitem{CC17}
+A.~Connes and C.~Consani,
+\emph{Geometry of the scaling site},
+Selecta Math. (N.S.) \textbf{23} (2017), no.~3, 1803--1850;
+doi:10.1007/s00029-017-0313-y;
+arXiv:1603.03191.
+
+\bibitem{CC19}
+A.~Connes and C.~Consani,
+\emph{The Riemann--Roch strategy. Complex lift of the scaling site},
+in: A.~Chamseddine, C.~Consani, N.~Higson, M.~Khalkhali, H.~Moscovici and G.~Yu
+(eds.), \emph{Advances in Noncommutative Geometry: On the Occasion of Alain
+Connes' 70th Birthday}, Springer, Cham, 2019, pp.~53--125;
+doi:10.1007/978-3-030-29597-4\_2;
+arXiv:1805.10501.
+
+\bibitem{CC23}
+A.~Connes and C.~Consani,
+\emph{Riemann--Roch for $\overline{\operatorname{Spec}\mathbb{Z}}$},
+Bull. Sci. Math. \textbf{187} (2023), Art.\ 103293;
+doi:10.1016/j.bulsci.2023.103293;
+arXiv:2205.01391.
+
+\bibitem{CC24}
+A.~Connes and C.~Consani,
+\emph{Riemann--Roch for the ring $\mathbb{Z}$},
+C. R. Math. Acad. Sci. Paris \textbf{362} (2024), 229--235;
+doi:10.5802/crmath.543;
+arXiv:2306.00456.
+
+\bibitem{CCM09}
+A.~Connes, C.~Consani and M.~Marcolli,
+\emph{Fun with $\mathbb{F}_1$},
+J. Number Theory \textbf{129} (2009), no.~6, 1532--1561;
+doi:10.1016/j.jnt.2008.08.007;
+arXiv:0806.2401.
+
+\bibitem{CE15}
+A.~Connes,
+\emph{An essay on the Riemann Hypothesis},
+in: \emph{Open Problems in Mathematics} (J.~F.~Nash Jr.\ and M.~Th.~Rassias,
+eds.), Springer, Cham, 2016, pp.~225--257;
+doi:10.1007/978-3-319-32162-2\_5;
+arXiv:1509.05576.
+
+\bibitem{CL00}
+J.~B.~Conrey and X.-J.~Li,
+\emph{A note on some positivity conditions related to zeta and $L$-functions},
+Internat. Math. Res. Notices \textbf{2000}, no.~18, 929--940;
+doi:10.1155/S1073792800000489;
+arXiv:math/9812166.
+
+\bibitem{Den98}
+C.~Deninger,
+\emph{Some analogies between number theory and dynamical systems on foliated
+spaces},
+in: Proceedings of the International Congress of Mathematicians (Berlin, 1998),
+Vol.~I, Doc. Math. Extra Vol.\ ICM I (1998), 163--186;
+doi:10.4171/dms/1-1/2.
+
+\bibitem{Den22}
+C.~Deninger,
+\emph{There is no ``Weil-''cohomology theory with real coefficients for
+arithmetic curves},
+Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) \textbf{25} (2024), no.~3, 1717--1725;
+doi:10.2422/2036-2145.202204\_005;
+arXiv:2204.02714.
+
+\bibitem{DZ16}
+H.~G.~Diamond and W.-B.~Zhang,
+\emph{Beurling Generalized Numbers},
+Mathematical Surveys and Monographs \textbf{213},
+Amer. Math. Soc., Providence, RI, 2016;
+doi:10.1090/surv/213.
+
+\bibitem{FL14}
+G.~Fran\c{c}a and A.~LeClair,
+\emph{A theory for the zeros of Riemann $\zeta$ and other $L$-functions
+(updated)},
+preprint, arXiv:1407.4358 (v1, Jul 2014; v2, Aug 2024).
+
+\bibitem{FM20}
+M.~Flach and B.~Morin,
+\emph{Deninger's conjectures and Weil--Arakelov cohomology},
+M\"unster J. Math. \textbf{13} (2020), no.~2, 519--540;
+doi:10.17879/90169642993.
+
+\bibitem{Zh07}
+W.-B.~Zhang,
+\emph{Beurling primes with RH and Beurling primes with large oscillation},
+Math. Ann. \textbf{337} (2007), 671--704;
+doi:10.1007/s00208-006-0051-5.
 
 \end{thebibliography}
 
