@@ -6,6 +6,29 @@ before this document exists**; it is the discharge, in writing, of the load-bear
 raised by the wave-1 arakelov scout ("the load-bearing non-circularity claim … should be
 re-derived in the design phase").
 
+> **DATED CITATION PASS (2026-08-27). Read before citing.** An independent novelty re-check
+> (`results/arxiv/novelty-check.md`) returned **ANTICIPATED-BY** for this note — correctly, and the
+> note says so itself in the next paragraph. Its ~14 citation obligations were re-verified against
+> primary sources before being applied (Crossref, zbMATH Open, the arXiv abstract pages, Numdam,
+> the Clay Mathematics Institute's own PDF, and a publisher-grade scan of Grothendieck 1958);
+> per-source evidence in `results/arxiv/citation-verification/`. The note now carries §12, a
+> reference list of 22 verified entries, and the §9 lineage has been rewritten against them. Six of
+> the re-check's own claims did **not** survive verification and were **not** executed as written:
+> (i) "Milne says *avoid the Weil conjecture*" — the string "avoid" occurs **zero** times in his
+> paper; (ii) the Bombieri passage is on **p. 9 alone**, not pp. 9–10, and the live CMI URL is under
+> `/2022/05/`, not `/2022/06/`; (iii) Kleiman's **Remark 3.10** is a characteristic-zero remark
+> about homological versus numerical equivalence and cannot carry the sentence it was cited for —
+> his **Remark 4.5** is the dependency-ledger remark, and it is the one used here; (iv) Ito–Ito–
+> Koshikawa's Remark 1.3 is not a "non-circularity audit" whose verdict was clean — it is a
+> published disclosure that they *did not* attempt to avoid the Weil conjecture, which is a
+> stronger precedent, quoted here as what it is; (v) Ancona's §1 does not publish this note's §9
+> "verbatim" and makes no independence claim at all; (vi) "Grothendieck's Prop. 2.1 needs no
+> positivity hypothesis on D" overstates — it assumes `D² > 0`, which *is* a positivity hypothesis,
+> just a much weaker one than this note's Lemma. Two further corrections of record: the
+> "G. Bronowski / (1958)" bibliographic corruption is in **Grothendieck's own 1958 printed
+> bibliography**, not in a later retranscription (and his Segre start page, 167, is also wrong —
+> the true range is 157–163); and Segre 1937 predates Weil 1948 by **eleven** years, not ten.
+
 **Status (read before citing).** This is a **re-derivation of standard material for the program
 record; zero novelty is claimed.** Every statement below is graduate-textbook algebraic
 geometry. Its value to the program is precisely the audit trail: the Hodge-index/
@@ -50,6 +73,42 @@ F_q-degeneration clause (§7): the inequality proved here is exactly the inequal
 of RH for curves consumes, and it is proved before and independently of that application. That
 is the non-circularity claim the direction leans on, now on paper rather than recalled.
 
+**The published record, named here rather than left implicit (2026-08-27).** None of §§3–7 is new,
+and the note has always said so; what the 2026-08-27 citation pass adds is the specific published
+loci, so that a reader can check the claim without taking this document's word for anything.
+Milne's survey [Mil16] publishes §§3–7 end to end and in the same order — Riemann–Roch on a
+surface, Serre duality and adjunction (§1, p. 7); the ample-meets-effective lemma (Lemma 1.1,
+p. 8); the Hodge index theorem proved from Riemann–Roch (Theorem 1.2, p. 8); the signature
+corollaries (1.3–1.4, p. 9); the Castelnuovo–Severi inequality on `C₁ × C₂` (Theorem 1.5, p. 9);
+and the deduction of `|N − q − 1| ≤ 2g√q` (p. 10) — closing with the observation this note's §7
+clause restates: *"Note that, except for the last few lines, the proof is purely geometric and
+takes place over an algebraically closed field. This is typical: study of the Riemann hypothesis
+over finite fields suggests questions in algebraic geometry whose resolution proves the
+hypothesis"* [Mil16, Aside 1.8, p. 10].
+
+Independently, and with a **different** Weil-free input list, Bombieri's official Clay problem
+description states the same thing about the same theorem [Bom00, p. 9]: *"The algebraic index
+theorem for surfaces is essentially due to Severi in 1906 [Sev, §2, Teo. I]. The proof uses the
+Riemann–Roch theorem on X and the finiteness of families of curves on X of a given degree; no
+other proof by algebraic methods is known up to now, although much later several authors
+independently rediscovered Severi's argument."* His inputs are Riemann–Roch **plus finiteness of
+families of curves of given degree**; this note's are Riemann–Roch **plus ampleness** (with Serre
+duality and Nakai–Moishezon). Neither list contains the Weil conjectures. Note also, because the
+note must not have it both ways: on Bombieri's reading Segre 1937, Bronowski 1938, Mattuck–Tate
+1958 and Grothendieck 1958 are *rediscoveries of Severi's argument*, not methodologically
+independent routes. What the record supports is that several **published, Weil-free** derivations
+exist — not that they are independent of one another.
+
+Finally, the certification is not academic: the leading contemporary RH program adopts exactly
+this route and states the same logical requirement in its own words. Connes and Consani [CC19]
+describe the "Riemann–Roch strategy" as trading the location of the zeros for the non-positivity
+of a quadratic form `s(f, f)`, note that in the function-field case *"the most conceptual proof was
+obtained by applying the Riemann–Roch formula on the square of the curve defining the function
+field … if one assumes the positivity of s(f, f) > 0 for some f, it is the existence part of the
+Riemann–Roch theorem which yields a contradiction"* [CC19, §3], and identify what is missing as
+*"the implementation of a Riemann–Roch formula whose topological side is ½ D · D"* [CC19, §3.1].
+That is this note's (IN1)-upstream-of-RH claim, made by the program that needs it.
+
 ## 2. Inputs, with provenance (and what is NOT an input)
 
 The proof uses exactly the following, each a standard theorem with no analytic or arithmetic
@@ -68,14 +127,26 @@ content about zeta or L-functions:
   bilinear form on a finitely generated group. [Hartshorne V.1; nondegeneracy is the definition
   of numerical equivalence. Finite generation of Num(X) is the Néron–Severi theorem — proved by
   Picard-variety/finiteness arguments, no zeta input; it is consumed ONLY for ρ < ∞ in the
-  signature statement §5, which sits off the load-bearing chain to §§6–7.]
+  signature statement §5, which sits off the load-bearing chain to §§6–7.] **This scoping is
+  Grothendieck's own**, in one sentence, in the paragraph immediately following his Théorème 1.1:
+  *"Ce théorème semble utiliser, dans son énoncé, le théorème de Néron [5] impliquant que E est de
+  dimension finie. Il serait évident comment formuler le théorème 1 si on voulait ignorer le
+  théorème de Néron."* [Gro58, p. 208] — the finiteness input enters the *statement*, not the
+  *proof*, and the statement can be reformulated without it.]
 - **(IN7) Nakai–Moishezon criterion (hard direction).** On a surface, if H² > 0 and H·C > 0 for
   every irreducible curve C ⊂ X, then H is ample. [Hartshorne Thm. V.1.10; the proof is
   cohomological (Riemann–Roch plus effectivity bootstrapping) — no zeta content. Consumed only
   in §6, to certify H = ξ₁ + ξ₂ ample. An elementary route avoiding it exists —
   m(ξ₁ + ξ₂) = p₁*(mP) + p₂*(mP′) is very ample for m ≫ 0 as the Segre-composed embedding of
   very ample divisors on the factors, an (IN4)-grade fact — but the criterion is what §6's
-  printed verification uses, so it is listed as the input it is.]
+  printed verification uses, so it is listed as the input it is. **Ledger note (2026-08-27).**
+  Grothendieck's own route to the index theorem [Gro58, §2] uses neither (IN4) nor (IN7): his
+  auxiliary Proposition 2.1 assumes **only** `D² > 0` — no ampleness, no hyperplane section, no
+  effectivity, and no sign condition on `D` itself (he replaces `D` by `−D` if need be) — and he
+  gets the single positive square directly from a hyperplane section `H`, since `l(H) > 1` gives
+  `H² > 0` by his (2.4). Adopting that route would shorten this ledger, but §6 would still need
+  `m(ξ₁ + ξ₂)` very ample, so the honest accounting is that **(IN7) can be replaced by the
+  Segre-embedding fact already named here**, not that two inputs disappear.]
 
 **Not inputs:** the zeta function of any curve or surface; point counts; the Weil conjectures
 in any form; positivity of any explicit-formula functional; any spectral or Hilbert-space
@@ -220,8 +291,13 @@ adjudication on y² = x³ + x + 1 over F₇: bidegrees (1,7), (1,49), (1,343) ag
 | §7 closing equivalence | rationality + FE of Z(C, T) from RR on the curve | Weil rationality (RR-based) | none (no RH input; RH is the OUTPUT) |
 
 **Statement of the non-circularity claim (the deliverable).** The Hodge-index/
-Castelnuovo–Severi inequality on a surface, in any characteristic, is proved from Riemann–Roch
-on the surface, Serre duality, and ampleness alone. No zeta function, no L-function, no point
+Castelnuovo–Severi inequality on a surface, in any characteristic, **has a proof** from
+Riemann–Roch on the surface, Serre duality, and ampleness alone — **a** proof, not **the** proof:
+Bombieri's Clay description records a different Weil-free route through Riemann–Roch plus
+finiteness of families of curves of given degree, attributed to Severi 1906 [Bom00, p. 9; Sev06],
+and Segre 1937 and Bronowski 1938 are two more, which Grothendieck credits by name in the very
+statement of his theorem — *"Théorème 1.1 (Hodge–Segre–Bronowski)"* [Gro58, p. 208], alongside
+Hodge's analytic proof of the same year [Hod37]. No zeta function, no L-function, no point
 count, no explicit-formula positivity, and no statement equivalent to or implied by any Riemann
 hypothesis appears among its inputs. In particular, in the function-field template the
 positivity engine is demonstrably **not Weil positivity in disguise**: it exists prior to, and
@@ -235,14 +311,118 @@ on any substrate proposal — it is the gate such proposals must pass through, i
 index inequality claimed on a substrate must be DERIVED from RR + effectivity/theta input on
 that substrate and must degenerate to the present statement over F_q.
 
+**Why the arithmetic Hodge index theorem is not the missing piece (rewritten 2026-08-27).** The
+one-line objection to the paragraph above is that an arithmetic analogue of the Hodge index
+theorem is already a theorem, so the substrate problem must be solved. It is not, and the reason
+is a matter of codimension, in the published record. The arithmetic Hodge index theorem is a
+statement about **codimension-one** arithmetic cycles: on a regular arithmetic variety
+`X → Spec O_K` of relative dimension `n`, if `M̄` is a Hermitian line bundle whose generic-fiber
+class is primitive against an ample `L̄` (`M_K · L_K^{n−1} = 0`), then `M̄² · L̄^{n−1} ≤ 0`, with
+equality exactly when `M̄` is pulled back from the base — Faltings [Fal84] and Hriljac [Hri85] for
+arithmetic surfaces, Moriwaki [Mor96] for all `n`, and in the adelic-line-bundle setting
+Yuan–Zhang [YZ17]. Three things follow, each with a source.
+
+1. It is an inequality of **one sign, in codimension one** — Moriwaki's Theorem A(2) is
+   `deg̑(x · L^{d−1}(x)) < 0`, the `p = 1` instance of the Gillet–Soulé sign
+   `(−1)^p deg̑(x · L^{d+1−2p}(x)) > 0` [GS94]. It is the Arakelov shadow of the classical index
+   theorem **for divisors**, not a positivity statement about a pairing in the middle dimension.
+2. Everything above codimension one — which is exactly where a Weil-positivity argument on a
+   *surface-like* arithmetic object would have to live — is open: *"the high-codimensional case of
+   the Gillet–Soulé conjecture is still wide open"* [YZ17, arXiv:1304.3538v1, p. 2], and
+   Künnemann's survey confirms only `p = 0`, arithmetic surfaces, and Moriwaki's codimension-one
+   part [Kün95, p. 115].
+3. Faltings–Hriljac **is** the arithmetic-surface case — *"when X is an arithmetic surface … the
+   conjecture is a consequence of the Hodge index theorem of Faltings and Hriljac"* [Kün95, p. 115]
+   — so it cannot supply more on a surface than the codimension-one inequality already gives.
+
+The gate above therefore stands as written: what a substrate must supply is not a codimension-one
+negativity statement, which exists, but a middle-dimensional positivity calculus on a doubled
+object, which does not.
+
+**The reading §8 must answer, and its answer.** Deninger reads the Néron–Tate positivity in the
+opposite direction — as *support* for a positivity route to RH: with the height pairing on
+`CH¹(E)₀ = E(**Q**) ⊗ **Q**` negative definite by Néron and Tate, *"the restriction of the Hodge
+inner product to the 1-eigenspace of θ would be identified with the negative of the
+(negative-definite) Néron–Tate height pairing"*, and *"hence our remark may be interpreted as
+support for the Hilbert–Pólya strategy of proving the Riemann hypotheses via positivity"*
+[Den10, §1]. Two features of his own wording contain the answer and are worth preserving. His
+formalism is **conjectural** throughout — "would imply", "would also help" — so the identification
+is an expectation about a cohomology theory that does not yet exist; and the *support* runs from a
+known positivity in codimension one **back** to the plausibility of that formalism, not forward
+from any substrate to the inequality this note certifies. Read that way his remark and this note
+agree: the positivity engine is real, RH-free, and upstream — and it is still waiting for a
+substrate to run on.
+
+**Two published precedents for this exact bookkeeping, so the exercise is not mistaken for an
+idiosyncrasy.** Kleiman's 1968 exposé keeps the same ledger explicitly, separating what is proved
+outright from what is conditional: *"By the Lefschetz fixed-point formula, χ = (Δ²) … Hence, the
+functional equation, derived with the aid of a Weil cohomology, is independent of cohomology.
+Furthermore, this derivation does not depend on any unproved conjectures"* [Kle68, Rmk. 4.5,
+p. 385], while his Theorem 4.7 is the template in which Hodge-type positivity sits logically
+upstream of RH. And Ito, Ito and Koshikawa raise the identical dependency question about their own
+proof of a Hodge-type positivity statement — and answer it in the negative, in print:
+*"Let us recall again that if X is defined over a finite field, the Hodge standard conjecture for
+X² and the Lefschetz standard conjecture for X imply the Weil conjecture for X, and Theorem 1.2
+justifies the assumption. However, we did not attempt to avoid the Weil conjecture in our proof of
+Theorem 1.2"* [IIK25, Rmk. 1.3]. That is the stronger precedent, because it establishes both that
+the question is a recognized one *and* that answering it affirmatively is not automatic. Ancona's
+Lemma 7.10 is the matching case where the proof *does* consume the Weil conjectures — its first
+step invokes the functional-equation relation `ᾱ = q/α` on Frobenius eigenvalues — which is
+entirely legitimate for him, since Deligne proved them, and is precisely the contrast this section
+draws [Anc21, Lem. 7.10]. Milne keeps the same ledger twice more, in the abstract of [Mil22] and at
+[Mil07, footnote 4 and Aside 9.4].
+
 ## 9. Lineage (as verified in the Session-6 adjudication cycle)
 
-- **A. Mattuck, J. Tate**, Abh. Math. Sem. Univ. Hamburg 22 (1958) — the Castelnuovo–Severi
-  inequality derived from Riemann–Roch on the surface (the first modern non-circular
-  derivation; existence and content tier-1-verified this cycle).
-- **A. Grothendieck**, "Sur une note de Mattuck–Tate," J. reine angew. Math. 200 (1958)
-  208–215 — simplification and generalization: the inequality as an instance of the index
-  theorem on an arbitrary surface (page range verified via Crelle/EuDML records this cycle).
+**(Rewritten 2026-08-27 against primary sources; the previous version's phrase "the first modern
+non-circular derivation" for Mattuck–Tate 1958 was wrong by twenty-one years and is withdrawn.)**
+
+- **F. Severi**, *Sulla totalità delle curve algebriche tracciate sopra una superficie algebrica*,
+  Math. Ann. 62 (1906), 194–225 — on Bombieri's reading [Bom00, p. 9] the algebraic index theorem
+  is "essentially due to Severi in 1906 [Sev, §2, Teo. I]", proved from Riemann–Roch on X plus
+  finiteness of families of curves of a given degree. Milne's genealogy runs Severi 1903
+  (the bi-additive form and its non-degeneracy conjecture) → Castelnuovo 1906 (σ(D, D) ≥ 0) →
+  Zariski 1952 (Riemann–Roch for normal surfaces in characteristic p) [Mil16, pp. 12–13].
+- **W. V. D. Hodge** (analytic, 1937), **B. Segre** (algebraic, 1937) and **J. Bronowski**
+  (algebraic, 1938) — the index theorem itself, more than two decades before Mattuck–Tate and
+  eleven years before Weil 1948. Grothendieck names his own theorem *"Théorème 1.1
+  (Hodge–Segre–Bronowski)"* [Gro58, p. 208] and says of the positive-square half that
+  Segre and Bronowski *"en donnent des démonstrations assez simples, valables en toute
+  caractéristique"* — the characteristic-free claim is **Grothendieck's**, and is cited as his,
+  not asserted as the two papers' own. Milne records the same in footnote 16: *"The Hodge index
+  theorem was first proved by analytic methods in Hodge 1937, and by algebraic methods in Segre
+  1937 and in Bronowski 1938."* (**Bibliographic warning.** Grothendieck's own 1958 printed
+  bibliography carries the corruption "G. Bronowski … (1958)" and gives Segre's start page as 167.
+  The correct entries are B. Segre, Ann. Mat. Pura Appl. (4) **16** (1937), **157**–163, and
+  J. Bronowski, J. London Math. Soc. **13** (**1938**), 86–90. The error is in the 1958 original,
+  not in any later retranscription.)
+- **A. Mattuck, J. Tate**, *On the inequality of Castelnuovo–Severi*, Abh. Math. Sem. Univ. Hamburg
+  22 (1958), 295–299 — the Castelnuovo–Severi inequality from Riemann–Roch on the product surface.
+  Milne, footnote 15: in their introduction they ask "whether it does not follow from the general
+  theory of surfaces", "apparently … forgotten that Weil had answered this question in 1941".
+- **A. Grothendieck**, *Sur une note de Mattuck–Tate*, J. reine angew. Math. 200 (1958), 208–215;
+  doi:10.1515/crll.1958.200.208 — the generalization to an arbitrary surface, with the numbered
+  input list of §2 that this note's §2 parallels: (2.1) the Riemann–Roch inequality (which he
+  derives from the RR *equality* plus Serre duality — i.e. it already folds in this note's (IN1),
+  (IN2) and (IN5)), (2.2) Serre duality, (2.3) `l(D + D′) ≥ l(D′) if l(D) > 0`, and (2.4)
+  `l(D) > 1 ⟹ D·H > 0` for a hyperplane section (this note's (IN3)). Milne's summary of what he
+  did: *"In trying to understand the exact scope of the method of Mattuck and Tate, Grothendieck
+  (1958a) stumbled on the Hodge index theorem. In particular, he showed that the
+  Castelnuovo–Severi–Weil inequality follows from a general statement, valid for all surfaces,
+  which itself is a simple consequence of the Riemann–Roch theorem for surfaces"* [Mil16, p. 13].
+  (Grothendieck's (2.3) has **no** counterpart in this note's (IN1)–(IN7) list; anyone mapping the
+  two ledgers should note that rather than force a match.)
+- **E. Kani**, *On Castelnuovo's equivalence defect*, J. reine angew. Math. 352 (1984), 24–70;
+  doi:10.1515/crll.1984.352.24 — an independent route to the defect inequality in characteristic
+  p, extending Castelnuovo's more precise result (Milne, footnote 14).
+- **I. Vainsencher, J. F. Voloch**, *On the Castelnuovo–Severi inequality*, J. reine angew. Math.
+  390 (1988), 114–116; doi:10.1515/crll.1988.390.114 — a further short published treatment,
+  sharpening Kani. *(Not read: De Gruyter paywall. Characterized from the zbMATH review only, and
+  therefore described as a sharpening rather than as an independent proof.)*
+- **E. Hallouin, M. Perret**, *From Hodge Index Theorem to the number of points of curves over
+  finite fields*, arXiv:1409.2357 — the modern continuation, and an independent confirmation of
+  this section's Hartshorne pins: they cite "[Har77, exercice 1.9, 1.10 p. 368]" for exactly the
+  exercises named below. *(Unpublished preprint as of 2026-08; do not add a journal reference.)*
 - **R. Hartshorne**, *Algebraic Geometry*, GTM 52, Ch. V §1 — the textbook consolidation used
   above: Thm. V.1.6 (Riemann–Roch), Thm. V.1.9 (Hodge index), Thm. V.1.10 (Nakai–Moishezon,
   = (IN7)), Exercises V.1.9–V.1.10 (Castelnuovo–Severi on C × C′ and Weil's bound
@@ -298,6 +478,107 @@ All paths relative to `anthropic/rh-program/`.
 
 *(C3-r M1 deliverable. Standard material re-derived for the record; zero novelty claimed.
 U.S. English. Written Session 6, 2026-08-26.)*
+
+---
+
+## 12. References (added 2026-08-27)
+
+Every field below was verified against a primary source in the 2026-08-27 citation pass —
+Crossref, zbMATH Open, Numdam, the arXiv abstract pages, the Clay Mathematics Institute's own
+PDF, and the Göttingen (GDZ) publisher-grade scan of Grothendieck 1958. Per-source evidence:
+`results/arxiv/citation-verification/`. Items not obtained in full text are marked.
+
+- **[Anc21]** G. Ancona, *Standard conjectures for abelian fourfolds*, Invent. Math. **223**
+  (2021), no. 1, 149–212; doi:10.1007/s00222-020-00990-7; arXiv:1806.03216. §1 ("Brief historical
+  panorama") and Lemma 7.10; numbering as in arXiv:1806.03216v3.
+- **[Bom00]** E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, official problem
+  description, Clay Mathematics Institute, 2000, 11 pp.;
+  https://www.claymath.org/wp-content/uploads/2022/05/riemann.pdf. The passage used here is on
+  **p. 9**. Reprinted as *The Riemann hypothesis*, in *The Millennium Prize Problems* (J. Carlson,
+  A. Jaffe and A. Wiles, eds.), Amer. Math. Soc. and Clay Mathematics Institute, 2006, 107–124.
+  *(The reprint's internal pagination for this passage was not independently verified; cite the CMI
+  PDF's p. 9.)*
+- **[Bro38]** J. Bronowski, *Curves whose grade is not positive in the theory of the base*,
+  J. London Math. Soc. **13** (1938), 86–90; doi:10.1112/jlms/s1-13.2.86. *(Not read; fields from
+  Crossref and zbMATH.)*
+- **[CC19]** A. Connes and C. Consani, *The Riemann–Roch strategy: Complex lift of the Scaling
+  Site*, in: *Advances in Noncommutative Geometry: On the Occasion of Alain Connes' 70th Birthday*
+  (A. Chamseddine, C. Consani, N. Higson, M. Khalkhali, H. Moscovici and G. Yu, eds.), Springer,
+  Cham, 2019, 53–125; doi:10.1007/978-3-030-29597-4_2; arXiv:1805.10501, §3 and §3.1.
+- **[Den10]** C. Deninger, *The Hilbert–Polya strategy and height pairings*, in: *Casimir Force,
+  Casimir Operators and the Riemann Hypothesis: Mathematics for Innovation in Industry and
+  Science* (G. van Dijk and M. Wakayama, eds.), de Gruyter, Berlin, 2010, 275–284;
+  doi:10.1515/9783110226133.275; arXiv:1001.1621, §1. (zbMATH Zbl 1225.14018 prints 275–283; the
+  title is set "Polya", without the accent, in both the arXiv and De Gruyter records.)
+- **[Fal84]** G. Faltings, *Calculus on arithmetic surfaces*, Ann. of Math. (2) **119** (1984),
+  no. 2, 387–424; doi:10.2307/2007043.
+- **[Gro58]** A. Grothendieck, *Sur une note de Mattuck–Tate*, J. reine angew. Math. **200**
+  (1958), 208–215; doi:10.1515/crll.1958.200.208. Open-access scan:
+  http://resolver.sub.uni-goettingen.de/purl?GDZPPN002178125.
+- **[GS94]** H. Gillet and C. Soulé, *Arithmetic analogs of the standard conjectures*, in:
+  *Motives* (Seattle, WA, 1991), Proc. Sympos. Pure Math. **55**, Part 1, Amer. Math. Soc.,
+  Providence, RI, 1994, 129–140; doi:10.1090/pspum/055.1/1265527.
+- **[Har77]** R. Hartshorne, *Algebraic Geometry*, Graduate Texts in Mathematics **52**,
+  Springer-Verlag, New York, 1977. Ch. V §1: Thm. V.1.6 (Riemann–Roch), Thm. V.1.9 (Hodge index),
+  Thm. V.1.10 (Nakai–Moishezon), Exercises V.1.9–V.1.10 (Castelnuovo–Severi on `C × C′` and Weil's
+  bound), p. 368.
+- **[Hod37]** W. V. D. Hodge, *The base for algebraic varieties of given dimension*,
+  J. London Math. Soc. **12** (1937), 58–63; doi:10.1112/jlms/s1-12.45.58 — the analytic proof of
+  the index theorem, named alongside Segre and Bronowski by Grothendieck and by Milne. *(Not read;
+  fields from Crossref.)*
+- **[Hri85]** P. Hriljac, *Heights and Arakelov's intersection theory*, Amer. J. Math. **107**
+  (1985), no. 1, 23–38; doi:10.2307/2374455.
+- **[IIK25]** K. Ito, T. Ito and T. Koshikawa, *The Hodge standard conjecture for self-products of
+  K3 surfaces*, J. Algebraic Geom. **34** (2025), no. 2, 299–330; doi:10.1090/jag/840;
+  arXiv:2206.10086. Remark 1.3; numbering as in arXiv:2206.10086v1 (the published version is
+  paywalled and was not read).
+- **[Kan84]** E. Kani, *On Castelnuovo's equivalence defect*, J. reine angew. Math. **352** (1984),
+  24–70; doi:10.1515/crll.1984.352.24; Zbl 0536.14016. *(Not read; content from the zbMATH
+  review.)*
+- **[Kle68]** S. L. Kleiman, *Algebraic cycles and the Weil conjectures*, in: *Dix exposés sur la
+  cohomologie des schémas*, Advanced Studies in Pure Mathematics **3**, North-Holland, Amsterdam,
+  and Masson & Cie, Paris, 1968, 359–386. Theorem 4.7 and **Remark 4.5** (p. 385). (His Remark
+  3.10 is a characteristic-zero remark about homological versus numerical equivalence and is not
+  what this note cites.)
+- **[Kün95]** K. Künnemann, *Some remarks on the arithmetic Hodge index conjecture*, Compositio
+  Math. **99** (1995), no. 2, 109–128; http://www.numdam.org/item?id=CM_1995__99_2_109_0.
+- **[Mil07]** J. S. Milne, *The Tate conjecture over finite fields (AIM talk)*, preprint,
+  arXiv:0709.3040 (2007), v2, 24 pp.; footnote 4 (p. 6) and Aside 9.4 (pp. 19–20).
+- **[Mil16]** J. S. Milne, *The Riemann hypothesis over finite fields: from Weil to the present
+  day*, in: *The Legacy of Bernhard Riemann After One Hundred and Fifty Years*, Vol. II (L. Ji,
+  F. Oort and S.-T. Yau, eds.), Adv. Lect. Math. (ALM) **35**, part 2, International Press,
+  Somerville, MA, and Higher Education Press, Beijing, 2016, 487–565; reprinted in ICCM Notices
+  **4** (2016), no. 2, 14–52; doi:10.4310/ICCM.2016.v4.n2.a4; arXiv:1509.00797. Page pins above
+  are to §1 of the arXiv version.
+- **[Mil22]** J. S. Milne, *Grothendieck's standard conjecture of Lefschetz type over finite
+  fields*, preprint, arXiv:2011.06563 (2020); revised version v1.1, 14 July 2022, at
+  https://www.jmilne.org/math/articles/LFF.pdf. (arXiv carries v1 only; "v1.1" is the author's own
+  revision, not an arXiv version.)
+- **[Mor96]** A. Moriwaki, *Hodge index theorem for arithmetic cycles of codimension one*,
+  Math. Res. Lett. **3** (1996), no. 2, 173–183; doi:10.4310/MRL.1996.v3.n2.a4;
+  arXiv:alg-geom/9403011.
+- **[MT58]** A. Mattuck and J. Tate, *On the inequality of Castelnuovo–Severi*, Abh. Math. Sem.
+  Univ. Hamburg **22** (1958), 295–299.
+- **[Seg37]** B. Segre, *Intorno ad un teorema di Hodge sulla teoria della base per le curve di una
+  superficie algebrica*, Ann. Mat. Pura Appl. (4) **16** (1937), 157–163; doi:10.1007/BF02414291.
+  *(Not read; fields from Crossref and zbMATH. Note that Grothendieck's own 1958 bibliography
+  prints the start page as 167; 157 is correct.)*
+- **[Sev06]** F. Severi, *Sulla totalità delle curve algebriche tracciate sopra una superficie
+  algebrica*, Math. Ann. **62** (1906), 194–225; doi:10.1007/BF01449978. *(Not read; fields from
+  Crossref and the JFM review, JFM 37.0647.02.)*
+- **[Ste72]** E. Bombieri, *Counting points on curves over finite fields (d'après S. A. Stepanov)*,
+  Sém. Bourbaki Exp. 430 (1972/73), Springer Lecture Notes in Math. **383** (1974), 234–241 — the
+  elementary auxiliary-polynomial route named in the footnote to the Status paragraph above.
+- **[VV88]** I. Vainsencher and J. F. Voloch, *On the Castelnuovo–Severi inequality*, J. reine
+  angew. Math. **390** (1988), 114–116; doi:10.1515/crll.1988.390.114; Zbl 0646.14003. *(Not read;
+  De Gruyter paywall.)*
+- **[YZ17]** X. Yuan and S.-W. Zhang, *The arithmetic Hodge index theorem for adelic line
+  bundles*, Math. Ann. **367** (2017), no. 3–4, 1123–1171; doi:10.1007/s00208-016-1414-1;
+  arXiv:1304.3538 (there titled "… for adelic line bundles I: number fields"). The sequel,
+  *… II: finitely generated fields*, arXiv:1304.3539 (2013; v2, 2021), remains unpublished.
+- **[HP14]** E. Hallouin and M. Perret, *From Hodge Index Theorem to the number of points of curves
+  over finite fields*, arXiv:1409.2357 (2014). Unpublished preprint as of August 2026.
+
 
 ---
 
