@@ -27,7 +27,15 @@ Two formalized results delimit this method exactly. First, `lemmaR_tight` (Lean,
 
 ### 1.2 The cubic proposal
 
-The parent's Section 7.3 records the conditional template: under RH the third trace tr G-hat^3 is available (Hejhal, Rudnick–Sarnak) and the certificate can be run with the cubic weight omega(m) = m/2 + (2 m^2 - m^3)/18 + (4/9) 1_{m=1}, giving N_d/N >= 0.85082 with the window cos(8s/5) (consuming also [BHB13]'s N^s/N >= 19/27 on RH). Direction A4's thesis was that a slice of this becomes unconditional: at bandwidth lambda' = 1/2 + theta loglog T / log T (strictly inside the k = 3 Rudnick–Sarnak range X^3 <= T^{2-eps}), the signed cubic trace is computable by the parent's Section 5 diagonal method, and a Schatten-3 spectral-tail theorem (Theorem 1(ii)-repaired: an all-V eigenvalue-count ladder n(V) <= C_led N V^{-4}, theta < 1 strict) would cap the spectral escape that the parent's own odd-moment no-go (Section 7.5(e)) identifies, making the cubic row a usable sign-sensitive constraint. The original proposal's separating premise was that a hyperbolic pair block contributes (+a)^3 + (-a)^3 = 0 to the cubic while a double contributes +8, so the two-moment-degenerate configurations would sit at different corners of the augmented polytope.
+The parent's Section 7.3 records the conditional template: under RH the third trace tr G-hat^3 is available (Hejhal, Rudnick–Sarnak) and the certificate can be run with the cubic weight omega(m) = m/2 + (2 m^2 - m^3)/18 + (4/9) 1_{m=1}, giving N_d/N >= 0.85082 with the window cos(8s/5) (consuming also [BHB13]'s N^s/N >= 19/27 on RH). Direction A4's thesis was that a slice of this becomes unconditional: at bandwidth lambda' = 1/2 + theta loglog T / log T (strictly inside the k = 3 Rudnick–Sarnak range X^3 <= T^{2-eps}), the signed cubic trace is computable by the parent's Section 5 diagonal method, and a Schatten-3 spectral-tail theorem (Theorem 1(ii)-repaired: an all-V eigenvalue-count ladder n(V) <= C_led N V^{-4}, theta < 1 strict) would cap the spectral escape that the parent's own odd-moment no-go (Section 7.5(e) of the 35-page version; the same item is §7.2(e) of v5 — see the version pin in the References) identifies, making the cubic row a usable sign-sensitive constraint. The original proposal's separating premise was that a hyperbolic pair block contributes (+a)^3 + (-a)^3 = 0 to the cubic while a double contributes +8, so the two-moment-degenerate configurations would sit at different corners of the augmented polytope.
+
+**What the parent already says, and what it leaves open (stated here so the contribution is not mistaken for it).** The parent's item (e) is not silent on higher moments. In the 35-page version it reads, verbatim:
+
+> "(e) The prime-side evaluation of tr G̃^k by the diagonal method of Section 5 (multiplicative relations among k prime powers, Montgomery–Vaughan for the rest) is available exactly in the Rudnick–Sarnak range k lambda < 2 [RS96]; for lambda in (1/2, 1) this allows at most k = 3 (and only for lambda < 2/3), and an odd moment does not lower Lambda_1(0). Thus, unconditionally, higher moments add nothing to the n_+ -bound on (1/2, 1) (and Proposition 4.4 uses only the first two in any case), while for lambda <= 1/2, where many moments are available, Proposition 7.4 makes them useless."
+
+(In v5 the same item is compressed to "…at X ≍ T this allows only k = 1. Thus, unconditionally, higher moments add nothing.") That remark is a **single-bandwidth** statement, and it disposes of the single-bandwidth question twice over, for two disjoint reasons: at bandwidth lambda in (1/2, 1) an odd moment does not move the Christoffel bound, and at lambda <= 1/2, where moments are plentiful, the certificate is worthless on its own (its Proposition 7.4 cap is non-positive there). It is also, in the parent's own words, stated informally.
+
+The question this paper answers is a different one, and the parent's remark does not settle it: **keep the bandwidth-one Frobenius baseline and adjoin a second-bandwidth block at lambda' = 1/2** — the lambda'-Frobenius budget, the signed cubic equality, the all-V count ladder, and the capacity fuzz row. Rows that are useless alone can bind when adjoined to a strong baseline, which is exactly why a marginal-value computation is required rather than a restatement; and the parent's remark addresses neither the distinct-zeros benchmark, nor the pair-block structure, nor the near-CUE data class, and produces no witness. What is new here is the answer — delta_0 = 0 as an exact LP equality, witness-backed, on both benchmarks, and by strict slack inside the near-CUE class — together with the structural identities (Sections 3–4) and the capacity theorem (Section 7) that explain it. The parent's single-bandwidth no-go is the parent's; the two-bandwidth marginal value is this paper's.
 
 The binding adjudication (survives-with-repairs, 5.5) ordered seven repairs and made the corrected M2 gate the direction's action one: a decision LP over an honest adversary class — marks up to a divergent alphabet W, depth-parametrized shallow pairs, clustered sine-process null budgets, full positional freedom, and an explicit garnish-capacity fuzz row derived from the repaired ladder — with the pre-registered semantics that either branch is a deliverable: a bite funds the analytic bridge; an absorption is published as the sharpened no-go. This paper is the absorption branch, executed.
 
@@ -52,7 +60,7 @@ The answer, decided and audited: **no — delta_0 = 0 identically**, not merely 
 
 ### 1.5 Honest framing (adjudication repair R6, binding)
 
-The cubic row is **a nonlinear spectral reading of bandwidth-one pair-correlation data with quantitative high-spectrum capacity control** — nothing more. The third trace at bandwidth lambda' carries total Fourier support (k - 1) lambda' = 1 + o(1), not 3 lambda'; its genuinely cubic prime resonance is the absolute constant sum_p (log p)^3/(p - 1)^2 = 2.315762 (re-sieved to 3e6 in this program, three independent confirmations), contributing O(1) to tr G-hat^3, i.e. O(1/N) per zero. No claim is made anywhere in this paper that the cubic block evades the Alternative Hypothesis or consumes data beyond the bandwidth-one class plus o(1): the no-go proved here is precisely that this nonlinear reading, with the full capacity apparatus attached, adds nothing to the linear reading at the proven operating point. (The formal scope point survives unchanged: a cubic row is outside the PairCeiling certificate class as defined; the content of this paper is that leaving the class buys nothing.)
+The cubic row is **a nonlinear spectral reading of bandwidth-one pair-correlation data with quantitative high-spectrum capacity control** — nothing more. The third trace at bandwidth lambda' carries total Fourier support (k - 1) lambda' = 1 + o(1), not 3 lambda'; its genuinely cubic prime resonance is the absolute constant sum_p (log p)^3/(p - 1)^2 = 2.315762 (re-sieved to 3e6 in this program, three independent confirmations), contributing O(1) to tr G-hat^3, i.e. O(1/N) per zero. No claim is made anywhere in this paper that the cubic block evades the Alternative Hypothesis or consumes data beyond the bandwidth-one class plus o(1) — for what the currently known band-limited n-level data provably cannot do against AH, see Lagarias–Rodgers [LR20], and Tao's independent treatment cited there: the no-go proved here is precisely that this nonlinear reading, with the full capacity apparatus attached, adds nothing to the linear reading at the proven operating point. (The formal scope point survives unchanged: a cubic row is outside the PairCeiling certificate class as defined; the content of this paper is that leaving the class buys nothing.)
 
 ### 1.6 Scope discipline (read before citing)
 
@@ -652,14 +660,72 @@ The cubic row's marginal value turns positive between lambda' = 0.55 and 0.60 �
 
 ---
 
-## 10. Formalization plan
+## 10. Formalization: what is machine-checked, and what remains
 
-The exact-zero certificate is formalizable in the PairCeiling pattern (exact-rational LP over marked configurations + kernel-checked row inequalities + interval-arithmetic enclosures), because on the psi_1-zero grid all data become algebraic:
+The core of Sections 3 and 4 is **not a plan — it is formalized, compiled, and machine-checked**
+in Lean 4 against Mathlib, with no `sorry`, no `native_decide`, and no numeric certificates. Three
+files under `Zeta23/PairCeiling/` carry it (Lean 4.33.0-rc2; Mathlib rev `51e6992`; last rebuilt
+2026-08-27, "Build completed successfully"):
 
-* **The grid Parseval identity** (Lemma 3.8 / Theorem 3.9) is pure finite Fourier algebra on Z_M — assembly weights constant on residue classes plus DFT Parseval; `decide`-adjacent at fixed N.
-* **The witness law** is three columns with rational weights, integer site subsets, and marks in {1, 2}; every row value is rational (F1 = 64, 96, 128; F' and C' rational combinations of the triangular weights — e.g. 4128/33 — with the lambda' kernel evaluated at grid multiples), so the full feasibility-plus-optimality check is an exact-rational LP with a dual certificate, exactly the LawN256/CeilingLaw256 architecture with one added row family.
-* **Dependency order for the queue:** Lemma 3.8; Theorem 3.9; Lemma 4.2 (per-atom integer inequalities); Theorem 4.3 (exact-rational LP witness + row inequalities); Proposition 3.3/Theorem 3.4 (polynomial identities); Theorem 7.1 (one page of real analysis); Theorem 7.4 (bookkeeping). Theorem 3.5 needs only piecewise-polynomial integration. From the pair channel, Theorem 4.9 is formalization-friendly (finite Hermitian matrix, inertia subadditivity, a scalar inequality), and the closed-form shallow route of the capacity machinery (one Taylor bound + the exact alpha + one certified finite constant) is the recommended path for the R5-family statement; the capacity curves are where interval arithmetic enters.
-* The near-CUE witnesses extend the same format: the pinning rows are rational box constraints on the stored form factors, and both witnesses already pass exact Fraction re-verification against the true tau2 = 1 box.
+* **`GridParseval.lean`.** `flat_band_trace_sq` — **Lemma 3.8**, proved over any integral domain
+  carrying a primitive M-th root of unity, for any band of M consecutive harmonics; and
+  `trace_sq_grid` — **Theorem 3.9**, the literal tr G-hat^2 = Sum_k m_k^2 collapse on the grid.
+  Supporting: character orthogonality on Z/M, DFT Parseval in the integer-mark pairing, the band
+  reindexing, and the triangular-weight telescoping.
+* **`GridWitness.lean`.** `vacancy_F1` — the N = 64 vacancy lattice has F1 = Sum m^2 = 64 for
+  *every* vacancy position; `vacancy_half_band_value` — its lambda' = 1/2 half-band row is exactly
+  **F' = 4128/33**, again for every vacancy position, the hand-checkable worked value of
+  Section 3.4 and the shipped witness column, its integer core 136224 checked by `decide +kernel`
+  (kernel-checked, not `native_decide`); and `half_band_alive` — F' = 4128/33 != 64 = Sum m^2,
+  which is **the "alive" half of Proposition 3.10**, i.e. the two-bandwidth decoupling itself, in
+  witness form. The finite/algebraic half of Proposition 3.10's display is formalized as
+  `sum_band_pair_tri` / `half_band_fold`, together with `sum_window_residues` — that the s-window
+  is a complete residue system mod 65, so no residue-class telescoping can occur, unlike the
+  lambda = 1 band.
+* **`GridCorner.lean`.** `mark_one_count_ge` — **Lemma 4.2** at the simple-fraction level;
+  `grid_corner_pointwise` — **Theorem 4.3** pointwise on the grid class; `grid_corner_law` — the
+  same in law form, i.e. the LP lower bound with no discretization; and `grid_corner_attained` —
+  exact attainment at N = 64, eps = 1/32 by a marks-{1, 2} column (12 doubles, 40 simples), meeting
+  **both** corners with equality simultaneously.
+
+**Axiom footprint.** `#print axioms` on each of the nine theorems named above returns
+`[propext, Classical.choice, Quot.sound]` and nothing else — the three axioms of Lean's classical
+foundation. In particular there is no `sorryAx`, which any admitted step would introduce, and no
+`Lean.ofReduceBool`, which `native_decide` would introduce and which would put the compiler's
+evaluator into the trusted base. Full record, with the environment and the reproduction recipe:
+supplementary material, `formalization-status.md`.
+
+The reason this much closes is structural: on the psi_1-zero grid every datum is algebraic, and
+Theorem 3.9 turns the first step of the corner chain from an inequality into an **equality**
+(F1 = Sum m^2 exactly), after which the two integrality levels finish in finite arithmetic.
+
+**What is not formalized, and what each would take.**
+
+* **Proposition 3.10's general position-sensitivity statement** — two grid configurations with the
+  same mark multiset but different F'. Finite algebra at fixed N, but it needs a cyclotomic
+  non-vanishing certificate; the precise gap is documented in `GridWitness.lean`'s header. The
+  witness form is proved; the general form is not.
+* **Theorem 4.3 off the grid** (atom-only, arbitrary positions) — needs the position-space form of
+  Lemma 4.1, i.e. F1 >= Sum m^2 with the kernel K = D^2 psd. This is the one step the grid case
+  gets for free.
+* **Proposition 3.3 and Theorem 3.4** — polynomial identities; `ring`-adjacent, and the cheapest
+  remaining items.
+* **Theorem 3.5** — piecewise-polynomial integration against Mathlib's integral.
+* **Theorem 4.9** — a finite Hermitian matrix, inertia subadditivity, one scalar inequality;
+  formalization-friendly, and the natural next unit from the pair channel.
+* **Theorem 7.1 and Theorem 7.4** — one page of real analysis (Tonelli plus a one-variable
+  optimization) and a bookkeeping argument respectively.
+* **The pair-channel capacity results of Section 4.3** — Python-certified, with interval
+  arithmetic. Formalizing the certified curves is a genuinely larger undertaking than the rest
+  combined, and is not claimed here.
+* **The full LP witness with its dual certificate** — the exact-rational route is available: the
+  witness law is three columns with rational weights, integer site subsets and marks in {1, 2},
+  every row value rational (F1 = 64, 96, 128; F' and C' rational combinations of the triangular
+  weights, e.g. 4128/33), so feasibility-plus-optimality is an exact-rational check in the
+  LawN256/CeilingLaw256 architecture with one added row family. The near-CUE witnesses extend the
+  same format — the pinning rows are rational box constraints on the stored form factors, and both
+  witnesses already pass exact Fraction re-verification against the true tau2 = 1 box.
+
 
 ---
 
@@ -713,10 +779,26 @@ A third independent sampler (this session, own seeds, alias-free frequency-matri
 
 **External references.**
 
-* [P] *More than two thirds of the zeros of the Riemann zeta function lie on the critical line* (the parent paper, v5), with its sorry-free Lean 4 formalization (Theorems A–E; `lemmaR_tight` in Zeta23/ZeroSide/TightMult.lean; the PairCeiling library, LawN256/CeilingLaw256; Theorem 5.8/Remark 5.10 prime-side moments; Sections 7.2(e), 7.3, 7.5). Program digest: `results/full-map.md`. Text extracts used verbatim: `sources-extracted/v5_p13.txt`, `v5_p14.txt`.
+* [P] L. Alpöge and R. Furman, *More than two thirds of the zeta zeros are simple and on the critical line*, arXiv:2608.13637 (v1, 13 Aug 2026; v2, 19 Aug 2026) — the parent paper, with its sorry-free Lean 4 formalization (Theorems A–E; `lemmaR_tight` in Zeta23/ZeroSide/TightMult.lean; the PairCeiling library, LawN256/CeilingLaw256; Theorem 5.8/Remark 5.10 prime-side moments). Program digest: `results/full-map.md`.
+  **Version pin (this matters for the section numbers below).** The program worked from two on-disk versions, whose sectioning differs and which this paper cites separately:
+  (i) the 35-page version, *More than two thirds of the zeros of the Riemann zeta function lie on the critical line* (`anthropic/zeta-two-thirds.pdf`), whose **§7.5 "Limits of the method"** carries the item **(e)** quoted in Section 1.2 below; and
+  (ii) the 17-page v5, *…are simple and on the critical line* (`anthropic/zeta-two-thirds-v5.pdf`; text extracts used verbatim: `sources-extracted/v5_p13.txt`, `v5_p14.txt`), in which the same material appears, in a shorter form, as **§7.2(e)**, §7.2 there being titled "Sharpness and limits of the method". Where this paper writes §7.5(e) it means (i); where it writes §7.2(e) it means (ii). Both readings are given in Section 1.2 so that neither pointer can be misread.
 * [BGSTB24] S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, *An unconditional Montgomery theorem for pair correlation of zeros of the Riemann zeta function*, arXiv:2306.04799 (v1, arXiv stamp 7 Jun 2023); Acta Arithmetica (2024). On-disk copy: `fetched-r3/r3s-06-bgstb-2306.04799.pdf` (210,602 bytes; fetch provenance in FOLLOWUP-REPORT Section 4; the v1 stamp read off the PDF's first page this session). Cited for: Theorem 1 (unconditional pointwise F(alpha) on the closed band 0 <= alpha <= 1, depth-weighted, multiplicity-counted), the Lemma 5 kernel class, and the Remark after Theorem 2 (rider 1). See also the same authors' second-moment sequel, arXiv:2501.14545 (per the evidence referee's logged prior-art sweep, 2026-08-26).
+* [LR20] J. C. Lagarias and B. Rodgers, *Higher correlations and the Alternative Hypothesis*, Q. J. Math. **71** (2020), no. 1, 257–280; arXiv:1905.12123. On disk: `fetched/w-09`. Cited in Section 1.5: they prove that the currently known band-limited n-level correlation data for zeta zeros — Montgomery (n = 2), Hejhal (n = 3), Rudnick–Sarnak (n >= 4) — does **not** rule out the Alternative Hypothesis, by exhibiting a point process on (1/2)Z matching the sine process against all such test functions. Tao obtained the same conclusion independently, by different methods (cited there).
+* [LR21] J. C. Lagarias and B. Rodgers, *Band-limited mimicry of point processes by point processes supported on a lattice*, Ann. Appl. Probab. **31** (2021), no. 1, 351–376; arXiv:1907.03391. Cited in Section 3.4: their Theorem 1.4 and Proposition 3.4 show that above the Nyquist bandwidth the mimicking correlations are unique, while **at** critical sampling they are not — the same degeneracy this paper's Theorem 3.9 exploits, in the same place. The grid used here (spacing a = N/(N+1), band B = 1/2) falls in the region their Theorem 1.8 leaves undetermined; the witness here matches finitely many trace rows, not all correlations, so there is no conflict, and their negative results explain why the absorption cannot be upgraded to full n-level mimicry.
+* [Mon73] H. L. Montgomery, *The pair correlation of zeros of the zeta function*, in Analytic Number Theory (St. Louis, 1972), Proc. Sympos. Pure Math. 24, Amer. Math. Soc., 1973, 181–193. The source of the extremal values 5/6 and 2/3 whose bandwidth-one analogs appear in Theorem 4.3 and Corollary 4.4.
+* [Hej94] D. A. Hejhal, *On the triple correlation of zeros of the zeta function*, Internat. Math. Res. Notices **1994**, no. 7, 293–302. The n = 3 correlation input named in Section 1.2.
+* [RS96] Z. Rudnick and P. Sarnak, *Zeros of principal L-functions and random matrix theory*, Duke Math. J. **81** (1996), 269–322. On disk: `fetched/w-16`. The n-level range that names this paper's operating window. **Scope, relevant to flag F2 (Section 8.3):** their unconditional n-level theorem is for smooth test functions; taking a characteristic function requires RH. Section 3.3's determinantal rho_3 and the c3(lambda') identification invoke the smooth statement.
+* [CGG98] J. B. Conrey, A. Ghosh and S. M. Gonek, *Simple zeros of the Riemann zeta-function*, Proc. London Math. Soc. (3) **76** (1998), 497–522. The origin of the second integrality level that Lemma 4.2 and Theorem 4.3 consume, made unconditional in the parent's §7.2(c).
+* [BHB13] H. M. Bui and D. R. Heath-Brown, *On simple zeros of the Riemann zeta-function*, Bull. London Math. Soc. **45** (2013), 953–961. On disk: `fetched/w-11`. The conditional simple-zero input quoted in Section 1.2.
+* [CGdL20] A. Chirre, F. Gonçalves and D. de Laat, *Pair correlation estimates for the zeros of the zeta function via semidefinite programming*, Adv. Math. **361** (2020), 106926. The semidefinite-programming line for pair-correlation extremal problems, of which this paper's LP is the bandwidth-one marked-configuration analog.
+* [KLS07] T. Kuna, J. L. Lebowitz and E. R. Speer, *Realizability of point processes*, J. Stat. Phys. (2007); arXiv:math-ph/0612075. The truncated-moment/realizability problem that Section 2.4's adversary-realizability argument re-derives in the finite-circle setting.
+* [CdLS22] H. Cohn, D. de Laat and A. Salmon, *Three-point bounds for sphere packing*, arXiv:2206.15373. The comparandum: in the sphere-packing analogue the third-order augmentation **does** pay, improving on the two-point Cohn–Elkies bound in several dimensions. That it is worth exactly nothing here is therefore a substantive negative, not a foregone one.
+* [KS66] S. Karlin and W. J. Studden, *Tchebycheff Systems: With Applications in Analysis and Statistics*, Interscience, New York, 1966. The classical Chebyshev–Markov–Stieltjes/Christoffel background for the fact that odd moments do not improve one-sided bounds — the general form of the cubic blindness of Theorem 3.4.
 
 **Internal evidence chain (the paper's data authorities, all under `anthropic/rh-program/`).**
+
+* `results/a4-no-go/formalization-status.md` — the formalization record behind Section 10: the environment (Lean 4.33.0-rc2, Mathlib rev `51e6992`), the build result, the theorem-by-theorem map to this paper's numbering, the `#print axioms` output for all nine machine-checked theorems, and the reproduction recipe.
 
 * `results/adjudication-A4.json` — the binding adjudication: verdict survives-with-repairs 5.5, repairs R1–R7, the garnish/squeeze computations, merge guidance. The gate contract.
 * `results/a4-m2-gate/SPEC.md` — the pre-registered gate specification: kernels and units (Sec 1), null budgets and closed forms (Sec 2, derivations Sec 9), adversary class and realizability (Sec 3), row system and capacity constant (Sec 4), decision rules (Sec 5), flags (Sec 10).
