@@ -58,8 +58,10 @@ report. Record the pass as `results/a4-no-go/referee-revision.md` (verdict + any
 
 ## STEP 2 — independent novelty check (all four documents)
 
-**STATUS: IN PROGRESS (2026-08-27, workflow wf_4501be8c-d24, 4 hunters + 1 reference verifier;
-if this session died mid-run, treat as TODO and re-run).** Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
+**STATUS: IN PROGRESS (2026-08-27, session 2 re-run: workflow `wf_b791f90e-5da`, 4 document
+sweeps + 4 adversarial refutation agents + 1 synthesizer. The first attempt, `wf_4501be8c-d24`,
+died with the session and left no deliverable on disk. If THIS session died mid-run, treat as
+TODO and re-run; `results/arxiv/novelty-check.md` existing is the acceptance test.)** Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
 R7(a) gate, verdict NOVEL-WITH-CITATIONS, 7 obligations — covers the three C3-r notes) and the
 A4 prior-art gate recorded in `LOG.md` Session 7. Verify independently with a fresh literature
 sweep (arXiv, MathSciNet-visible metadata, Semantic Scholar) per document: does any prior work
@@ -74,13 +76,34 @@ anticipated-by), citations to add, and the searches run.
 each with main.tex + main.pdf, compiled clean (10/8/16 pp), first pages visually checked.
 Converter caveats logged in the workflow output; a web spot-check of all bibliography entries the
 converters completed from outside the source notes (Blomer–Leung initials, Broucke-school titles,
-Mattuck–Tate/Stepanov, arXiv:2606.06604, [4EC] Lang/Waldschmidt, Weil 1952) is running — apply
-its FIX items to the .tex files and rebuild. Content amendment made: m1's stale
+Mattuck–Tate/Stepanov, arXiv:2606.06604, [4EC] Lang/Waldschmidt, Weil 1952) died with the first
+session and was RE-LAUNCHED 2026-08-27 as workflow `wf_50c80dfa-1b1` (3 per-note bibliography
+agents + 1 dedicated agent on a misattribution found this session, below) — apply its FIX items
+to the .tex files AND, where the error is also in the source note, to the .md, then rebuild.
+
+**Bibliography errors already confirmed this session (before the workflow), from the arXiv API:**
+(i) **[Ha15] is misattributed.** arXiv:1507.06480 “A taste of Weil theory in characteristic one”
+is by **Koen Thas**, not M. J. Shai Haran. The error originates in `results/c3-r/prior-art-r7a.md`
+§5/§6 item 6 and propagated into `seed-no-go-note.md` (§9 item 6 + References) and
+`results/arxiv/seed-no-go/main.tex`. The load-bearing prior-art distinction is about Haran’s own
+arithmetical-surface program — lead reference arXiv:2209.08536, “Non-Additive Geometry and
+Frobenius Correspondences”. All three files need a dated correction.
+(ii) **Three m0 Broucke-school entries carry invented descriptive “titles”** in place of the real
+ones (arXiv:2309.01567 = “Some examples of well-behaved Beurling number systems”, TAMS 378 (2025)
+477–501; arXiv:2102.08478 = “A new generalized prime random approximation procedure and some of
+its applications”, Math. Z. 307 (2024) Art. 62; arXiv:2507.13780 comes back as “On the connection
+between zero-free regions and the error term in the Prime Number Theorem”, which does not match
+the parenthetical the .tex gives it — adjudicate handle-vs-description).
+(iii) Confirmed CORRECT: the [CC26] title “On the Absolute Geometry of Spec Z **and the
+Fargues–Fontaine curve**” (the arXiv API truncates it at the TeX; the on-disk full-text
+extraction carries the full title). m1’s .tex gives the truncated form and should be completed. Content amendment made: m1's stale
 "End(E_p) = Z barring the unproven coincidence" hedge amended (dated 2026-08-27) in
 m1-noncircularity.md + main.tex to cite the seed note's unconditional Gelfond–Schneider
-refutation; PDF rebuilt. The A4 paper conversion (wording-final after step 1c) is IN PROGRESS
-(single agent, output results/arxiv/a4-no-go/); if dead, treat as TODO with the same conversion
-rules as the notes.** TeX Live 2026 is installed and verified working:
+refutation; PDF rebuilt. The A4 paper conversion (wording-final after step 1c) is RE-LAUNCHED
+2026-08-27 inside the same workflow `wf_50c80dfa-1b1` as a convert → adversarial-fidelity-audit →
+repair pipeline (the first attempt died with the session; `results/arxiv/a4-no-go/` was left
+empty). Acceptance: `results/arxiv/a4-no-go/main.{tex,pdf}` exist, pdflatex clean, statement
+numbers 3.1–3.11 / 4.1–4.9 / 7.1–7.5 match paper.md exactly.** TeX Live 2026 is installed and verified working:
 `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"` (pdflatex 1.40.29; `tlmgr`
 available; the "no TeX on this machine" notes in STATUS.md/LOG.md are stale — install nothing).
 One subdirectory per paper under `results/arxiv/` (`a4-no-go/`, `m0-axiom/`, `m1-noncirc/`,
