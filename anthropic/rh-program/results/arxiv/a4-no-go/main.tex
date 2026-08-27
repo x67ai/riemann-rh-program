@@ -25,7 +25,6 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remk}{Remark}
 \newtheorem*{datedrev}{Dated revision (2026-08-27)}
-\newtheorem*{provenance}{Provenance}
 
 \newcommand{\Z}{\mathbf{Z}}
 \newcommand{\R}{\mathbf{R}}
@@ -82,7 +81,7 @@ digest (\emph{supplementary material}, \texttt{data-tables.md}), or from
 re-derivations executed this session in \texttt{results/a4-no-go/verify/};
 every theorem is proved in full in Sections~3--7 or in the companion note
 (\emph{supplementary material}, \texttt{pair-channel.md}). Provenance for each
-class of claim is collected in the Provenance section.
+class of claim is collected in the References and Provenance sections.
 
 \begin{abstract}
 The parent paper's unconditional two-thirds theorem rests on a two-moment
@@ -1291,13 +1290,14 @@ pair column. And it is the sharp form of the realizability discussion of
 Section~\ref{sec:adversary}: with fractional marks even the $5/6$ baseline is
 false.
 
-\subsection{The pair-interference channel: closed on the R5 family (multi-pair
-to $w \le 0.98$), backstopped everywhere}
+\subsection[The pair-interference channel: closed on the R5 family (multi-pair
+to w <= 0.98), backstopped everywhere]{The pair-interference channel: closed on
+the R5 family (multi-pair to $w \le 0.98$), backstopped everywhere}
 \label{sec:pairchannel}
 
 The full closure argument, with its capacity machinery and certified constants,
 is the companion note (\emph{supplementary material},
-\texttt{pair-channel.md}); we state the results, the exact ledger they rest on,
+\texttt{pair-}\allowbreak\texttt{channel.md}); we state the results, the exact ledger they rest on,
 and the proofs that are short enough to give in full. Everything is at the gate's
 decision geometry ($N = 64$, flat window, $\lambda = 1$); depths $d$ are in
 circle units, $w = 2\pi d$ dimensionless (the gate's pair family is
@@ -1471,8 +1471,9 @@ be cut by pricing, not absorption), and it produces none; the audit's minor
 finding~4 is discharged for the closure's regimes, with the honest residue stated
 in Section~\ref{sec:flags}.
 
-\subsection{The computational certification: 940 records, the $\varepsilon$ law,
-and the witness}
+\subsection[The computational certification: 940 records, the epsilon law, and
+the witness]{The computational certification: 940 records, the $\varepsilon$
+law, and the witness}
 \label{sec:certification}
 
 The gate LP (column generation over explicit configurations, analytic-gradient
@@ -1690,7 +1691,8 @@ open band in the depth-weighted form; the Tier-2 verdict's \emph{strength}
 (``absorption inside the parent ceiling's own data class'') inherits riders 1--3
 verbatim.
 
-\subsection{The decision-grade result: $\delta_0' = 0$ exactly, both $N$, both
+\subsection[The decision-grade result: delta\_0' = 0 exactly, both N, both
+centerings]{The decision-grade result: $\delta_0' = 0$ exactly, both $N$, both
 centerings}
 \label{sec:t2result}
 
@@ -1773,7 +1775,7 @@ slack at the optimum. There is no ceiling-class escape and no bite even inside
 the parent ceiling's own data class, at both lattice sizes, at both budget
 centerings, subject to riders 1--3 of Section~\ref{sec:license}.
 
-\subsection{The $\tau_2 = 4$ annotation}
+\subsection[The tau\_2 = 4 annotation]{The $\tau_2 = 4$ annotation}
 
 At loose pinning ($\tau_2 = 4$) the cubic row is active and the residuals
 $\delta_0' = 1.30 \times 10^{-3} / 1.43 \times 10^{-3}$
@@ -2263,7 +2265,8 @@ beyond $128$ rests on computation.
   above elsewhere.
 \end{itemize}
 
-\subsection{Outlook: the exploratory $\lambda'$ payoff curve (outside the proven
+\subsection[Outlook: the exploratory lambda' payoff curve (outside the proven
+ladder)]{Outlook: the exploratory $\lambda'$ payoff curve (outside the proven
 ladder)}
 \label{sec:payoff}
 
@@ -2518,56 +2521,61 @@ and the three-point term $T_3$ the remaining $0.5$).
 \section*{Provenance}
 \addcontentsline{toc}{section}{Provenance}
 
-\begin{provenance}
-\sloppy
 \textbf{Internal evidence chain (the paper's data authorities, all under
-\texttt{anthropic/rh-program/}).}
+\texttt{anthropic/}\allowbreak\texttt{rh-program/}).}
 
 \begin{itemize}
-\item \texttt{results/adjudication-A4.json} --- the binding adjudication: verdict
+\item \texttt{results/}\allowbreak\texttt{adjudication-A4.json} --- the binding adjudication: verdict
   survives-with-repairs 5.5, repairs R1--R7, the garnish/squeeze computations,
   merge guidance. The gate contract.
-\item \texttt{results/a4-m2-gate/SPEC.md} --- the pre-registered gate
+\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{SPEC.md} --- the pre-registered gate
   specification: kernels and units (Sec.~1), null budgets and closed forms
   (Sec.~2, derivations Sec.~9), adversary class and realizability (Sec.~3), row
   system and capacity constant (Sec.~4), decision rules (Sec.~5), flags
   (Sec.~10).
-\item \texttt{results/a4-m2-gate/RUN-REPORT.md} --- the implementer's run report:
+\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{RUN-REPORT.md} --- the implementer's run report:
   verdict (Sec.~1), grid-decoupling mechanism (Sec.~2), sanity gates (Sec.~3),
   all runs and numbers (Sec.~4), the witness (Sec.~5), deviations (Sec.~6), flags
   (Sec.~7), upstream consequences (Sec.~8).
-\item \texttt{results/a4-m2-gate/AUDIT.md} --- the independent adversarial audit:
+\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{AUDIT.md} --- the independent adversarial audit:
   grid-Parseval proof sketch (3.1), independent MC (3.2), budget identities
   (3.3), block law (3.4), witness recomputation (3.5), LP re-solves over all
   $4003$ columns (3.6), eight break attempts (Sec.~4), findings register
   (Sec.~5).
-\item \texttt{results/a4-m2-gate/FOLLOWUP-REPORT.md} --- the decision-grade
+\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{FOLLOWUP-REPORT.md} --- the decision-grade
   follow-up: near-CUE at $\tau_2 = 1$ both $N$ (Secs.~1--2), $p_1$ objective
   (Sec.~3), [BGSTB24] fetch, riders, citation corrections (Sec.~4), deviations
   (Sec.~5).
-\item Raw data: \texttt{results/a4-m2-gate/gate-result.json},
-  \texttt{witness\_N64.json}, \texttt{followup-near-cue.json},
-  \texttt{followup-p1.json}, \texttt{runs/*.json} (in particular
-  \texttt{scans\_N64.json}, \texttt{scans\_N128.json},
-  \texttt{tighteps\_N64.json}, \texttt{tier2\_N64.json},
-  \texttt{windows\_N64.json}, \texttt{explore\_lamp.json},
-  \texttt{budgets\_lam0p5.json}).
-\item \emph{Supplementary material}, \texttt{theorems.md} --- the six proof units
+\item Raw data: \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak
+  \texttt{gate-}\allowbreak\texttt{result.json},
+  \texttt{witness\_}\allowbreak\texttt{N64.json},
+  \texttt{followup-}\allowbreak\texttt{near-cue.json},
+  \texttt{followup-}\allowbreak\texttt{p1.json}, \texttt{runs/*.json}
+  (in particular \texttt{scans\_}\allowbreak\texttt{N64.json},
+  \texttt{scans\_}\allowbreak\texttt{N128.json},
+  \texttt{tighteps\_}\allowbreak\texttt{N64.json},
+  \texttt{tier2\_}\allowbreak\texttt{N64.json},
+  \texttt{windows\_}\allowbreak\texttt{N64.json},
+  \texttt{explore\_}\allowbreak\texttt{lamp.json},
+  \texttt{budgets\_}\allowbreak\texttt{lam0p5.json}).
+\item \emph{Supplementary material}, \texttt{theorems.md} --- the six proof
+  units
   (T1--T6) incorporated as Sections~\ref{sec:structure},
   \ref{sec:atomonly}, and~\ref{sec:capacity}, with their verification suite
-  \texttt{results/a4-no-go/verify/verify\_t*.py} and JSON outputs.
-\item \emph{Supplementary material}, \texttt{pair-channel.md} --- the
-  pair-interference closure
+  \texttt{results/}\allowbreak\texttt{a4-no-go/}\allowbreak\texttt{verify/}\allowbreak
+  \texttt{verify\_t*.py} and JSON outputs.
+\item \emph{Supplementary material}, \texttt{pair-}\allowbreak\texttt{channel.md}
+  --- the pair-interference closure
   (Sections~\ref{sec:fractional}--\ref{sec:pairchannel}), with its independent
-  verification suite \texttt{verify/pairchan\_*.py} and
-  \texttt{pairchan\_verify\_out.json}.
+  verification suite \texttt{verify/}\allowbreak\texttt{pairchan\_*.py}
+  and \texttt{pairchan\_}\allowbreak\texttt{verify\_}\allowbreak\texttt{out.json}.
 \item \emph{Supplementary material}, \texttt{data-tables.md} --- the
   provenance-tagged data digest from which every number in this paper is cited;
   its Section~10 records the two cite-safety notes honored here (the $940$-record
   maximum is the $N = 128$ value $8.94 \times 10^{-13}$; the Tier-2 level
   $0.833377 / 0.8333622 / 0.8332334$ drift across dictionary snapshots is
   common-mode, the equality $\delta_0' = 0$ being snapshot-independent).
-\item \texttt{directions/A4-lindelof-lock.md} --- the merged direction file: the
+\item \texttt{directions/}\allowbreak\texttt{A4-lindelof-lock.md} --- the merged direction file: the
   immutable proposal, the Phase-4 verdicts, the binding adjudication and merge
   guidance, and the decided-gate section this paper executes.
 \end{itemize}
@@ -2581,7 +2589,6 @@ places pairs and doubles on the same affine plane $c = 3F - 2$. The campaign
 transcript's recorded block facts (pair eigenvalues $m L^2 a (1 \pm A)$) were
 correct throughout. This correction was executed in the direction file at gate
 time and is re-proven here from scratch.
-\end{provenance}
 
 \section*{Revision record (2026-08-26)}
 \addcontentsline{toc}{section}{Revision record (2026-08-26)}
