@@ -48,10 +48,12 @@ independently (fresh literature sweep), do not merely re-read the files. Note: a
 launch, arxiv.org and github.com were unreachable directly and were fetched via a GCS mirror —
 have retry loops ready (network rules in `~/.claude/CLAUDE.md`).
 
-**Step 3 — LaTeX conversion and arXiv-submittable PDFs, one per document.** No TeX is installed
-on this machine (decision was deferred until a venue existed — that constraint is now lifted by
-the sponsor's request): install BasicTeX (`brew install --cask basictex`, then `tlmgr` packages
-as needed) or MacTeX if disk allows. Keep the LaTeX sources in a new `results/arxiv/` directory,
+**Step 3 — LaTeX conversion and arXiv-submittable PDFs, one per document.** TeX Live 2026 is
+installed at `~/texlive` (sponsor confirmed; verified working 2026-08-27 — pdfTeX 1.40.29
+compiled an amsmath/amssymb/amsthm test document). Put the binaries on PATH:
+`export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"`; `tlmgr` is available for any
+missing packages. (The "no TeX on this machine" notes in STATUS.md/LOG.md predate this and are
+stale — do not install anything.) Keep the LaTeX sources in a new `results/arxiv/` directory,
 one subdirectory per paper, and commit sources + PDFs. arXiv wants the .tex (+ .bbl) as the
 submission unit — the PDF is for the sponsor's review.
 
