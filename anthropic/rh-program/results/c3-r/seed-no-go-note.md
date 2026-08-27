@@ -1,5 +1,52 @@
 # Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula
 
+> **DATED REVISION — PRIORITY CORRECTION (2026-08-27). Read before citing or circulating.**
+> The independent novelty check of 2026-08-27 (`results/arxiv/novelty-check.md`) found, and this
+> session verified from the primary sources, that **Theorems 1, 2 and 3 of this note are
+> anticipated**, and that two of the note's own novelty/lineage statements are false. The no-go
+> itself — Theorems 4, 5 and 6, and the conclusion that products of the per-prime Tate curves host
+> no correspondence calculus — is **not** anticipated and stands.
+>
+> 1. **Theorems 1–3 are Winkelmann's, from 2002.** J. Winkelmann, *On elliptic curves in
+>    SL₂(ℂ)/Γ, Schanuel's conjecture and geodesic lengths*, Nagoya Math. J. **176** (2004),
+>    159–180; arXiv:math/0204195 (v1, 15 Apr 2002; v3, 8 Apr 2003). Studying `E_λ = ℂ*/λ^ℤ =
+>    ℂ/⟨2πi, log λ⟩` for real algebraic `λ > 1`, his proof of Theorem 2 reads, verbatim (v3,
+>    p. 14): *"Isogeny of E_i and E_j implies that there is a Q-linear relation between 4π²,
+>    log λ_i log λ_j, 2πi log λ_i and 2πi log λ_j (see lemma 7). Now 4π² ∈ R and log λ_i log λ_j
+>    ∈ R, while 2πi log λ_i and 2πi log λ_j are Q-linearly independent elements of iR. Therefore a
+>    Q-linear relation can only exist if **4π²/(log λ_i log λ_j) ∈ Q**"*, then divides two such
+>    relations to force `log λ_i / log λ_k ∈ Q` against multiplicative independence, on **three**
+>    curves `E_i, E_j, E_k`, and concludes *"for each of these curves there is at most one other
+>    curve in this family to which it is isogenous"*. Substituting `λ = p` (primes are real
+>    algebraic > 1 and pairwise multiplicatively independent by unique factorization) gives this
+>    note's Theorem 1 criterion, Theorem 2's one-exceptional-partner bound, and Theorem 3, of which
+>    `{2,3,5}` is the numerical instance. **Verified by this session against the arXiv v3 PDF
+>    itself, not through a secondary source.**
+> 2. **The (T1) rider is a named published conjecture.** §9's *"The question (T1) appears to be
+>    unrecorded in the literature in this form and is stated here as open"* is **false**. (T1) is
+>    D. Bertrand's **weak four-exponentials conjecture** (Madras Number Theory Symposium, January
+>    1996), stated verbatim in G. Diaz, *J. Théor. Nombres Bordeaux* (1997) §I, whose Théorème 1
+>    proves the equivalence this note re-derives and whose Propositions 1 and 3(1) give
+>    unconditional partial results the note does not know about. The four-exponentials conjecture
+>    itself is Schneider 1957, Problem 1.
+> 3. **The lineage claim is off by nine and a half years.** §1.2 and §9 item 3 say the per-prime
+>    elliptic-analogue idea first appears in the Connes–Consani orbit in **January 2025** [CC25].
+>    It appears in **July 2015**: Connes–Consani, *The Scaling Site*, arXiv:1507.05818 (21 Jul
+>    2015), abstract — *"The restriction of this structure to the periodic orbits of the scaling
+>    flow gives, for each prime p, an analogue of an elliptic curve whose Jacobian is a cyclic
+>    group of order p−1"* — published as *Geometry of the Scaling Site*, Selecta Math. **23**
+>    (2017), which [CC26] itself cites for exactly this. **Verified against the arXiv abstract.**
+>
+> **Consequence for the framing.** This note may no longer present Theorems 1–3 as new. The honest
+> framing is: Winkelmann's rigidity, transported to the Connes–Consani per-prime Tate curves of
+> June 2026 and combined with the Néron–Severi collapse (Theorem 4), the prime-blind diagonal
+> residue (Theorem 5, unconditional via Gelfond–Schneider) and Theorem 6, yields a no-go for the
+> correspondence calculus that is new. `results/c3-r/prior-art-r7a.md` §5's sentence — "the
+> obstruction is elementary lattice arithmetic that could in principle have been noted about ANY
+> pair of complex tori … and no one has" — is **withdrawn**; it was noted, in 2002. The full
+> citation list and the required textual repairs are in `results/arxiv/novelty-check.md` §D.
+
+
 **A no-go note (barrier-zoo entry IV.10, publishable form).**
 **Program:** RH program, direction C3 (geometric substrate), reduced recommission C3-r.
 **Date:** 2026-08-26 (Session 6).
