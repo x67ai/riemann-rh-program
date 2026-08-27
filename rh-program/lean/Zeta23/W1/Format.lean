@@ -1,7 +1,12 @@
 /-
-Copyright (c) 2026 Anthropic, PBC. All rights reserved.
+Copyright (c) 2026 Kunal Tyagi. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 SPDX-License-Identifier: Apache-2.0
+
+This file is an addition to the Zeta23 library and is not part of it. Zeta23 is
+Copyright 2026 Anthropic, PBC, released under the Apache License 2.0, and its
+canonical home is https://github.com/anthropics/zeta-23-lean. This file contains
+no code from that library; it imports it.
 -/
 /-
 Zeta23/W1/Format.lean — the TRANSCRIPT DATA TYPES of the M1 v1 W1 rectangle-transcript checker
