@@ -109,7 +109,7 @@ augmentation with capacity control.
 
 \subsection{The parent certificate and its exhaustion}
 
-The parent paper [P] proves unconditionally that more than two thirds of the
+The parent paper~\cite{P} proves unconditionally that more than two thirds of the
 zeros of the Riemann zeta function are simple and on the critical line, that
 $\Nd(T, 2T) \ge (5/6 - o(1)) N(T, 2T)$ zeros are distinct, and (Theorem~D,
 window-optimized) that the simple-on-line proportion reaches
@@ -143,10 +143,11 @@ Dirichlet-polynomial length, since $\kappa(\lambda) = 1/\lambda + \lambda/3 \ge
 \subsection{The cubic proposal}
 
 The parent's Section~7.3 records the conditional template: under RH the third
-trace $\tr \Gh^3$ is available (Hejhal, Rudnick--Sarnak) and the certificate can
+trace $\tr \Gh^3$ is available (Hejhal~\cite{Hej94}, Rudnick--Sarnak~\cite{RS96})
+and the certificate can
 be run with the cubic weight
 $\omega(m) = m/2 + (2m^2 - m^3)/18 + (4/9)\one_{m = 1}$, giving
-$\Nd/N \ge 0.85082$ with the window $\cos(8s/5)$ (consuming also [BHB13]'s
+$\Nd/N \ge 0.85082$ with the window $\cos(8s/5)$ (consuming also~\cite{BHB13}'s
 $N^s/N \ge 19/27$ on RH). The proposal examined here is that a slice of this
 becomes
 unconditional: at bandwidth
@@ -236,7 +237,11 @@ negative
 about problem \emph{formulation}, not about the information content of a higher
 correlation level, and it is cited here as a precedent for publishing such a
 negative
-rather than as evidence for this paper's claim.
+rather than as evidence for this paper's claim. A closer structural comparandum
+is sphere packing, where the three-point bound of Cohn, de~Laat and
+Salmon~\cite{CdLS22} \textbf{does} improve on the two-point Cohn--Elkies bound in
+several dimensions: third-order augmentation buying exactly nothing here is
+therefore a substantive negative, not a foregone one.
 
 The marginal-value question is settled here by a decision linear program over an
 honest adversary class --- marks up to a divergent alphabet $W$,
@@ -316,7 +321,7 @@ $2 - (4/3)(1 + \varepsilon) \to 2/3$ (Section~\ref{sec:p1}).
 \item \textbf{Near-CUE decision grade --- absorption by slack
 (Section~\ref{sec:nearcue}).} Inside the pinned data class
 $\bigl| E_w |c_j|^2 - j \bigr| \le 1$ (licensed unconditionally, with three
-stated riders, by [BGSTB24]), the marginal value of the cubic block in that
+stated riders, by~\cite{BGSTB24}), the marginal value of the cubic block in that
 pinned class is $\delta_0' = 0$, an exact LP equality at
 $N = 64$ and $N = 128$, at both budget centerings --- and at the pinned optimum
 only the pinning rows bind: the cubic row, the ladder, and even both Frobenius
@@ -385,7 +390,7 @@ paper, three independent confirmations), contributing $O(1)$ to $\tr \Gh^3$,
 i.e.\ $O(1/N)$ per zero. No claim is made anywhere in this paper that the cubic
 block evades the Alternative Hypothesis or consumes data beyond the bandwidth-one
 class plus $o(1)$ --- for what the currently known band-limited $n$-level data
-provably cannot do against AH, see Lagarias--Rodgers [LR20], and Tao's
+provably cannot do against AH, see Lagarias--Rodgers~\cite{LR20}, and Tao's
 independent treatment cited there: the no-go proved here is precisely that this
 nonlinear reading, with the full capacity apparatus attached, adds nothing to
 the linear reading at the proven operating point. (The formal scope point survives
@@ -398,7 +403,8 @@ Every theorem in this paper is a statement about the model --- the explicit
 configuration classes, kernels, and row systems of Section~\ref{sec:model} ---
 not about the zeros of zeta. The bridge from the
 model rows to unconditional statements about zeta is the parent paper's sampling
-bookkeeping plus the [BGSTB24] licensing riders, cited (with the riders stated in
+bookkeeping plus the licensing riders of~\cite{BGSTB24}, cited (with the riders
+stated in
 full) in Section~\ref{sec:license}. The exact zero $\delta_0 = 0$ is proved and
 certified at the flat/flat window configuration and is
 \textbf{flat/flat-specific}: with the Montgomery--Taylor cosine window at
@@ -519,7 +525,10 @@ Imposed: explicit finite marked multisets (never bare correlation data); integer
 marks; conjugate-pair structure; mass $N$; mixtures. \emph{Necessity:} an
 adversary allowed to post aggregated moment data directly could claim values
 realized by no point configuration (unconstrained cross-term variables can leave
-the convex hull of realizable moment pairs), making an ``absorption'' vacuous;
+the convex hull of realizable moment pairs), making an ``absorption'' vacuous ---
+this is the truncated-moment realizability problem of Kuna, Lebowitz and
+Speer~\cite{KLS07,KLS11}, of which the finite-circle argument here is a special
+case rather than a new problem;
 and integrality, pair symmetry, and density are properties the true zero multiset
 provably has --- dropping any of them hands the adversary provably impossible
 worlds (with fractional marks even the $5/6$ baseline is false: mass $N$ of
@@ -835,6 +844,11 @@ multiplicity-weighted depth term. On marks $\{1,2\}$ and mult-$1$ pairs every
 term vanishes. Consequence 3 is Proposition~\ref{prop:pairblock} ($A \ge 1$).
 \end{proof}
 
+In classical language this is the Chebyshev--Markov--Stieltjes phenomenon that an
+odd moment does not improve a one-sided bound in a Chebyshev system (Karlin and
+Studden~\cite{KS66}); Theorem~\ref{thm:blind} is its exact form for the block
+class at issue here.
+
 \begin{remk}[why the decision program had to be clustered]
 By consequence~1, a decision program built on isolated blocks over the
 doubles-vs-pairs class returns a tautological answer along the plane
@@ -1007,7 +1021,7 @@ $\lambda = 1$.
 \label{cor:m2kappa}
 The closed form $m_2(\lambda) = 1/\lambda + \lambda/3$ coincides, at every
 $\lambda \le 1$, with the value obtained by integrating the unconditional
-Montgomery/[BGSTB24] pair-correlation form factor
+unconditional Montgomery pair-correlation form factor of~\cite{BGSTB24},
 $F(\alpha) = \delta_0(\alpha) + |\alpha|$ (on $|\alpha| \le 1$) against the
 flat-window pair kernel:
 \[
@@ -1023,8 +1037,8 @@ strongest possible identity check at second order, and the reason the $F'$
 budget row is unconditional-data-backed. (Provenance: the prime-side member ---
 $\tr \Gh^2 \leftrightarrow \int (\lambda - |\alpha|) F(\alpha)\, d\alpha$ with
 $F$ unconditional and pointwise on the closed band $0 \le \alpha \le 1$ --- is the
-parent paper's Theorem~5.8 / Remark~5.10 bookkeeping together with [BGSTB24]
-Theorem~1, quoted, not re-derived; the displayed arithmetic identity is the
+parent paper's Theorem~5.8 / Remark~5.10 bookkeeping together with
+Theorem~1 of~\cite{BGSTB24}, quoted, not re-derived; the displayed arithmetic identity is the
 elementary integral $\int_0^\lambda (\lambda - a) a\, da = \lambda^3/6$, doubled,
 plus the delta term $\lambda$.) \textbf{No third-order analog is claimed:} the
 identification $c_3(\lambda') = m_3(\lambda')$ rests on Rudnick--Sarnak-range GUE
@@ -1112,7 +1126,15 @@ integer lattice. Both are classical; they are proved here in the exact
 finite-circle
 normalization of Section~\ref{sec:finitecircle}, and the Lean development
 machine-checks
-Lemma~\ref{lem:flatband} over an arbitrary integral domain (Section~10).
+Lemma~\ref{lem:flatband} over an arbitrary integral domain (Section~10). The
+degeneracy they create at critical sampling is the one Lagarias and Rodgers
+study in~\cite{LR21}: above the Nyquist bandwidth the mimicking correlations are
+unique, at critical sampling they are not. The grid used here (spacing
+$a = N/(N+1)$, band $B = 1/2$) falls in the region their Theorem~1.8 leaves
+undetermined, and the witness of Section~\ref{sec:certification} matches finitely
+many trace rows rather than all correlations, so there is no conflict --- but
+their negative results are why the absorption cannot be upgraded to full
+$n$-level mimicry.
 
 \begin{remk}[why this grid]
 Equivalently: all pairwise site differences are nonzero multiples of $N/(N+1)$,
@@ -1262,7 +1284,9 @@ at $m \ge 3$ the right side is negative; sum.
 (a) is the second integrality level $(m-1)(m-2) \ge 0$ --- exactly the level
 \texttt{lemmaR\_tight} proves exhausted by the two-moment certificate, and, by
 Theorem~\ref{thm:blind}, exactly the level the cubic row re-measures on isolated
-blocks; (b) is its simple-fraction sibling. In the parent's terms, (a) is the
+blocks; (b) is its simple-fraction sibling. The device is Conrey, Ghosh and
+Gonek's~\cite{CGG98}, made unconditional in the parent's \S7.2(c). In the
+parent's terms, (a) is the
 doubles-optimal corner arithmetic: an atom of mark $m$ spends $m(m-1)$ of
 Frobenius excess to save $m - 1$ units of $\Nd$, so doubles are the efficient
 coin.
@@ -1320,8 +1344,8 @@ alphabet): the $W$-independence is inclusion, not extrapolation.
 \begin{corollary}[asymptotic and matched corners]
 \label{cor:matched}
 As $\varepsilon \to 0$ the two optima tend to $5/6$ and $2/3$ --- the model's
-bandwidth-one analogs of the Montgomery extremal values for distinct zeros and
-simple fraction. With the matched-geometry budget $B_1$ replacing
+bandwidth-one analogs of Montgomery's extremal values~\cite{Mon73} for distinct
+zeros and simple fraction. With the matched-geometry budget $B_1$ replacing
 $(4/3)N$, the same proof gives
 $\min E[\Nd]/N = (3N - B_1(1 + \varepsilon))/(2N)$ and
 $\min E[p_1] = 2 - (B_1/N)(1 + \varepsilon)$; at the matched values used here
@@ -1778,7 +1802,7 @@ pins the adversary inside the near-CUE class --- the data class of the
 PairCeiling formalization --- and asks whether the cubic block bites there. It
 does not; and the way it fails is the paper's sharpest structural finding.
 
-\subsection{The license: [BGSTB24], with three riders}
+\subsection{The licensing theorem, and its three riders}
 \label{sec:license}
 
 The pinning rows $\bigl| E_w |c_j|^2 - j \bigr| \le \tau_2$ for
@@ -1826,7 +1850,8 @@ results):}
   legitimate for the model's asymptotic semantics, but at honest finite $T$ the
   $O(1)$-unit pinning overstates the theorem until $\log T \gg N^2$, and this
   no-go says so.
-\item \textbf{Second-moment scope.} [BGSTB24] stops at the second moment --- pair
+\item \textbf{Second-moment scope.} The licensing theorem~\cite{BGSTB24} stops at
+  the second moment --- pair
   correlation only; nothing in it licenses the cubic budget column, whose
   $c_3(\lambda')$ identification stays on flag F2 (Section~\ref{sec:flags})
   exactly as before.
@@ -2381,8 +2406,7 @@ beyond $128$ rests on computation.
   $\varepsilon$ in $0.002$--$0.10$ and $\Gamma$ to $0.25$, and across budget
   centers differing by $5\%$ --- an $O(1)$-per-zero error in $c_3$ cannot flip it
   (one of the break attempts recorded in Section~\ref{sec:certification}).
-  [BGSTB24] licenses nothing at third order (rider
-  3).
+  Nothing in~\cite{BGSTB24} licenses anything at third order (rider~3).
 \item \textbf{F4 --- the ladder's provenance.} The all-$V$ ladder consumed by
   Theorem~\ref{thm:capacity}'s system rests on the repaired spectral-tail
   statement, whose step from a bound above one fixed cutoff to a bound valid at
@@ -2892,15 +2916,12 @@ by different methods (cited there).
 \bibitem[LR21]{LR21} J.~C. Lagarias and B. Rodgers, \emph{Band-limited mimicry
 of point processes by point processes supported on a lattice}, Ann. Appl.
 Probab. \textbf{31} (2021), no.~1, 351--376; doi:10.1214/20-AAP1592;
-arXiv:1907.03391. Cited in
-Section~\ref{sec:decoupling}: their Theorem~1.4 and Proposition~3.4 show that
-above the Nyquist bandwidth the mimicking correlations are unique, while
-\textbf{at} critical sampling they are not --- the same degeneracy this paper's
-Theorem~\ref{thm:parseval} exploits, in the same place. The grid used here
-(spacing $a = N/(N+1)$, band $B = 1/2$) falls in the region their Theorem~1.8
-leaves undetermined; the witness here matches finitely many trace rows, not all
-correlations, so there is no conflict, and their negative results explain why the
-absorption cannot be upgraded to full $n$-level mimicry.
+arXiv:1907.03391. Their Theorem~1.4 and Proposition~3.4 show that above the
+Nyquist bandwidth the mimicking correlations are unique, while \textbf{at}
+critical sampling they are not --- the same degeneracy this paper's
+Theorem~\ref{thm:parseval} exploits, in the same place; the consequences for the
+scope of the absorption are discussed at the point of citation in
+Section~\ref{sec:decoupling}.
 
 \bibitem[Mon73]{Mon73} H.~L. Montgomery, \emph{The pair correlation of zeros of
 the zeta function}, in Analytic Number Theory (St.~Louis, 1972), Proc. Sympos.
