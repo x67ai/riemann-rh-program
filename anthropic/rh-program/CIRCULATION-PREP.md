@@ -240,6 +240,57 @@ body has not yet been rewritten to match.
 **A4's remaining textual repairs** are the three named in `novelty-check.md` §A; note that its
 first two — the Haran/Thas citation and the parent-paper `[P]` entry — are already **done**.
 
+## STEP 5 — the circulation recommendation (NEW, 2026-08-27)
+
+**STATUS: RECOMMENDATION MADE. The act itself is still the sponsor's** — posting is outward-facing,
+permanent, and goes out under his name, so nothing has been submitted and nothing will be without
+his say-so. Full reasoning in `results/arxiv/README.md`, top section.
+
+**The sponsor's question, in his words:** *"it's pointless if the paper carries nothing novel and
+doesn't contribute to the field, right?"*
+
+**He is right about two of the four and wrong about the other two, and the reason is that "novel"
+is the wrong sorting criterion here.** All four documents are negative results. A negative result
+earns publication when it **stops someone else wasting time**, not when it is new — Gonçalves–de
+Laat–Leijenhorst publish exactly such a negative (the remark after their (6)), and so does
+Deninger's whole "there is no 'Weil-'cohomology" paper. Applying that test:
+
+| Document | Would anyone otherwise have tried this? | Call |
+|---|---|---|
+| A4 no-go | **Yes** — the parent's own §7.5(e) raises the question and leaves the two-bandwidth case open; and GdLL's 3-level row *does* pay for their target, so "nothing here" is substantive | **POST** |
+| Seed no-go | **Yes, and urgently** — the CC Tate curves are two months old and products are the obvious first move | **POST** |
+| m0 axiom note | **No** — nobody proposed this axiom class in print; the note kills a proposal made inside this program | **KEEP INTERNAL** |
+| m1 non-circularity | **No** — it is textbook, and Milne §1 publishes it end to end; the note says so itself | **KEEP INTERNAL** |
+
+**Why A4 survives the test cleanly.** Exact result (δ₀ = 0, not "small"), explicit hand-checkable
+witness, twelve machine-checked theorems with a clean axiom footprint, a published third-party
+comparandum it reconciles with rather than ignores, and a question the literature actually asks.
+Small audience; real audience.
+
+**Why the seed note survives it, and what it is.** Its content is an assembly of known facts —
+Winkelmann 2002, the well-known NS decomposition, the classical `(Γ_m·Γ_n) = (m−n)²` profile,
+Gelfond–Schneider 1934 — applied to a June-2026 object and yielding a clean zero. That makes it a
+**note**, not a research paper, and it should go out as one. Its value is timeliness plus correct
+attribution, and after step 4 the attribution is right.
+
+**Why the other two stay in, and what would change that.** Neither is worthless; both are
+premature. `m0-axiom` becomes postable the day someone proposes such an axiom class in print — it
+is then a short, sharp reply. `m1-noncirc` is a real audit trail that the seed note and the program
+both consume, and it belongs in the repository as supplementary material, cited by filename exactly
+as the A4 companions are. On arXiv the first would read as an answer with no question and the
+second as a homework exercise a moderator would query. The earlier README advice to post
+`m1-noncirc` "as a companion to seed-no-go" is withdrawn.
+
+**Cost of being wrong in each direction.** Posting all four risks the two weak ones dragging the two
+good ones down — a reader who opens `m1-noncirc` first and finds "zero novelty is claimed" will
+discount the other three. Posting only two risks nothing except that two internal documents stay
+internal, which is what they were written to be. The asymmetry is why the recommendation is two,
+not four.
+
+**If the sponsor decides otherwise, no work is required:** all four packages are built and pass
+`check-submittable.sh`, and the suggested categories and MSC classes for all four are in
+`results/arxiv/README.md`.
+
 ## Housekeeping
 
 Per `~/.claude/CLAUDE.md`: `caffeinate` + push watchdog at session top; commit small and often;
