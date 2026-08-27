@@ -1,13 +1,13 @@
 # `rh-program/lean` — this program's own Lean 4 files
 
-Eight files, ~2,970 lines. They are **additions to the `Zeta23` library**, not a standalone
+8 files, ~3,010 lines. They are **additions to the `Zeta23` library**, not a standalone
 project, and they are the only Lean files in this repository.
 
 | File | Lines | What it carries |
 |---|---|---|
-| `Zeta23/PairCeiling/GridParseval.lean` | 578 | The grid-Parseval decoupling identity — the algebraic core of the A4 absorption result (Lemma 3.8 and Theorem 3.9 of the A4 paper) |
-| `Zeta23/PairCeiling/GridWitness.lean` | 397 | The 4128/33 witness, for every vacancy position |
-| `Zeta23/PairCeiling/GridCorner.lean` | 258 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
+| `Zeta23/PairCeiling/GridParseval.lean` | 583 | The grid-Parseval decoupling identity — the algebraic core of the A4 absorption result (Lemma 3.8 and Theorem 3.9 of the A4 paper) |
+| `Zeta23/PairCeiling/GridWitness.lean` | 402 | The 4128/33 witness, for every vacancy position |
+| `Zeta23/PairCeiling/GridCorner.lean` | 263 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
 | `Zeta23/W1/Soundness.lean` | 1257 | W1 checker soundness |
 | `Zeta23/W1/{Checker,Examples,Format}.lean` | 370 | The W1 checker, its examples and its output format |
 | `Zeta23/DBN/Defs.lean` | 112 | De Bruijn–Newman definitions |
