@@ -688,7 +688,7 @@ files under `Zeta23/PairCeiling/` carry it (Lean 4.33.0-rc2; Mathlib rev `51e699
   exact attainment at N = 64, eps = 1/32 by a marks-{1, 2} column (12 doubles, 40 simples), meeting
   **both** corners with equality simultaneously.
 
-**Axiom footprint.** `#print axioms` on each of the nine theorems named above returns
+**Axiom footprint.** `#print axioms` on each of the twelve theorems named above returns
 `[propext, Classical.choice, Quot.sound]` and nothing else — the three axioms of Lean's classical
 foundation. In particular there is no `sorryAx`, which any admitted step would introduce, and no
 `Lean.ofReduceBool`, which `native_decide` would introduce and which would put the compiler's
@@ -793,12 +793,12 @@ A third independent sampler (this session, own seeds, alias-free frequency-matri
 * [BHB13] H. M. Bui and D. R. Heath-Brown, *On simple zeros of the Riemann zeta-function*, Bull. London Math. Soc. **45** (2013), 953–961. On disk: `fetched/w-11`. The conditional simple-zero input quoted in Section 1.2.
 * [CGdL20] A. Chirre, F. Gonçalves and D. de Laat, *Pair correlation estimates for the zeros of the zeta function via semidefinite programming*, Adv. Math. **361** (2020), 106926. The semidefinite-programming line for pair-correlation extremal problems, of which this paper's LP is the bandwidth-one marked-configuration analog.
 * [KLS07] T. Kuna, J. L. Lebowitz and E. R. Speer, *Realizability of point processes*, J. Stat. Phys. (2007); arXiv:math-ph/0612075. The truncated-moment/realizability problem that Section 2.4's adversary-realizability argument re-derives in the finite-circle setting.
-* [CdLS22] H. Cohn, D. de Laat and A. Salmon, *Three-point bounds for sphere packing*, arXiv:2206.15373. The comparandum: in the sphere-packing analogue the third-order augmentation **does** pay, improving on the two-point Cohn–Elkies bound in several dimensions. That it is worth exactly nothing here is therefore a substantive negative, not a foregone one.
+* [CdLS22] H. Cohn, D. de Laat and A. Salmon, *Three-point bounds for sphere packing*, arXiv:2206.15373. The comparandum: in the sphere-packing analog the third-order augmentation **does** pay, improving on the two-point Cohn–Elkies bound in several dimensions. That it is worth exactly nothing here is therefore a substantive negative, not a foregone one.
 * [KS66] S. Karlin and W. J. Studden, *Tchebycheff Systems: With Applications in Analysis and Statistics*, Interscience, New York, 1966. The classical Chebyshev–Markov–Stieltjes/Christoffel background for the fact that odd moments do not improve one-sided bounds — the general form of the cubic blindness of Theorem 3.4.
 
 **Internal evidence chain (the paper's data authorities, all under `anthropic/rh-program/`).**
 
-* `results/a4-no-go/formalization-status.md` — the formalization record behind Section 10: the environment (Lean 4.33.0-rc2, Mathlib rev `51e6992`), the build result, the theorem-by-theorem map to this paper's numbering, the `#print axioms` output for all nine machine-checked theorems, and the reproduction recipe.
+* `results/a4-no-go/formalization-status.md` — the formalization record behind Section 10: the environment (Lean 4.33.0-rc2, Mathlib rev `51e6992`), the build result, the theorem-by-theorem map to this paper's numbering, the `#print axioms` output for all twelve machine-checked theorems, and the reproduction recipe.
 
 * `results/adjudication-A4.json` — the binding adjudication: verdict survives-with-repairs 5.5, repairs R1–R7, the garnish/squeeze computations, merge guidance. The gate contract.
 * `results/a4-m2-gate/SPEC.md` — the pre-registered gate specification: kernels and units (Sec 1), null budgets and closed forms (Sec 2, derivations Sec 9), adversary class and realizability (Sec 3), row system and capacity constant (Sec 4), decision rules (Sec 5), flags (Sec 10).
