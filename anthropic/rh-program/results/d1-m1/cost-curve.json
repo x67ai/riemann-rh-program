@@ -1,6 +1,6 @@
 {
  "role": "M1 v1 acceptance test (iii) \u2014 first M3 search-economics calibration points (cost vs height T and depth delta0)",
- "generated_utc": "2026-08-26T18:01:43.110651+00:00",
+ "generated_utc": "2026-08-26T18:16:31.176583+00:00",
  "machine": "Darwin arm64, Python 3.9.6",
  "measurement": "single-run wall times (zsh time / producer metadata); not statistics",
  "reading": [
@@ -48,6 +48,26 @@
    "A": "1000000000000",
    "segment_evals": 110,
    "endpoint_evals": 81
+  },
+  {
+   "transcript": "acceptance/w1-mp-null-t10000.json",
+   "leg": "mpmath-ball",
+   "kind": "null",
+   "function": "zeta",
+   "mode": "exclusion",
+   "rect": "[3/5, 9/10] x [10000, 10001]",
+   "height_T": 10000.0,
+   "depth_delta0": 0.1,
+   "box_sigma_width": 0.3,
+   "box_T_height": 1.0,
+   "segments": 1294,
+   "wall_seconds": 1564.7,
+   "winding_width_turns": 1.316e-09,
+   "claimed_m": 0,
+   "K": "1000000000000000000000000000000",
+   "A": "1000000000000",
+   "segment_evals": 2536,
+   "endpoint_evals": 1294
   },
   {
    "transcript": "acceptance/w1-mp-null-deep-t100.json",
