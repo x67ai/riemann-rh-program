@@ -270,7 +270,7 @@ the adjudication file's own wording is "the M1 gate is verified sound by both ki
 The only surviving contact between this gate and the former Tate-curve material is the
 following remark, scoped strictly by `BARRIER-ZOO.md` IV.10. On the **diagonal** surfaces
 E_p × E_p (E_p = C/(Z ⊕ Z·i·log p/2π) the per-prime Tate curve of arXiv:2606.06604;
-End(E_p) = Z barring the unproven coincidence (log p)² ∈ 4π²Q), the Néron–Severi group is
+End(E_p) = Z — the coincidence (log p)² ∈ 4π²Q is refuted unconditionally via Gelfond–Schneider, Theorem 5 of the companion note "Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula"; dated amendment 2026-08-27, this line previously hedged), the Néron–Severi group is
 generically Zξ₁ ⊕ Zξ₂ ⊕ ZΔ, and the index inequality of §4–§6 **holds classically** — these
 are classical complex abelian surfaces and nothing in §3–§6 is special to them. But per IV.10
 the available correspondence data on them is **prime-blind**: the graphs of multiplication-by-m
