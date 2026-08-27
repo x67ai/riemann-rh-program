@@ -22,6 +22,29 @@
 >    note's Theorem 1 criterion, Theorem 2's one-exceptional-partner bound, and Theorem 3, of which
 >    `{2,3,5}` is the numerical instance. **Verified by this session against the arXiv v3 PDF
 >    itself, not through a secondary source.**
+>
+>    **Amended 2026-08-27 (second pass, against v1 *and* v3 and the publisher records).** Five
+>    corrections to the paragraph above, all in the direction of precision, none affecting the
+>    finding. (i) **There is no §7 in Winkelmann** — the paper has six sections, and the Schanuel
+>    argument is **§3.2, Proposition 3, p. 14** ("Conjecture 1 holds, if Schanuels conjecture is
+>    true"). (ii) His Theorem 2 assumes `Γ ∩ SL₂(R)` **Zariski-dense**, not cocompact;
+>    cocompactness is his §5. (iii) The quoted sentence *"for each of these curves there is at
+>    most one other curve in this family to which it is isogenous"* is the **v3 (2003)** wording;
+>    v1 (15 April 2002) says "at most two of these `E_i` can be isogenous" — the mathematics is
+>    2002, the phrasing is 2003, and the priority date is **15 April 2002**. (iv) He proves **one
+>    direction only** of the criterion, necessity: *"a Q-linear relation can only exists if
+>    4π²/(log λ_i log λ_j) ∈ Q"*. The converse is one line from his own Lemma 7, which is stated
+>    as an equivalence — so the equivalence must be attributed to him too and **cannot** be claimed
+>    here as an addition. (v) The word "Hom" does not occur in his paper; neither does "rank"; and
+>    no occurrence of "degree" there is an isogeny degree. Nor does he ever take `λ` to be a prime
+>    or index the family by primes (his three occurrences of "prime" are prime *ideals* in the §5
+>    construction of Γ). What this note adds over him is therefore an **explication in the
+>    prime-indexed case** — the group `Hom(E_p, E_q)` identified, its rank, and the degree of the
+>    minimal isogeny — not a sharpening of a theorem, and no priority over Theorems 1–3 is
+>    available. Bibliographic riders: his given name is **Jörg** (arXiv's metadata ASCII-izes it);
+>    there is also a **v2**, 6 Nov 2002; the DOI is 10.1017/S0027763000009016 (Cambridge, not
+>    Project Euclid); and both Crossref and Cambridge Core render the title with a spurious `Γ..`,
+>    so the arXiv/zbMATH/title-page form is the one to copy.
 > 2. **The (T1) rider is a named published conjecture.** §9's *"The question (T1) appears to be
 >    unrecorded in the literature in this form and is stated here as open"* is **false**. (T1) is
 >    D. Bertrand's **weak four-exponentials conjecture** (Madras Number Theory Symposium, January
@@ -36,6 +59,29 @@
 >    flow gives, for each prime p, an analogue of an elliptic curve whose Jacobian is a cyclic
 >    group of order p−1"* — published as *Geometry of the Scaling Site*, Selecta Math. **23**
 >    (2017), which [CC26] itself cites for exactly this. **Verified against the arXiv abstract.**
+>
+>    **Amended 2026-08-27 (second pass).** The 2015 object must be described correctly or the
+>    correction over-corrects. It is **`C_p = R^×_+/p^Z`**: a **real** circle of circumference
+>    `log p` — the periodic orbit of the scaling flow — carrying a characteristic-one structure
+>    sheaf of convex piecewise-affine functions with slopes in `Z[1/p]`, with `J(C_p) ≅ Z/(p−1)Z`
+>    and a **real-valued** Riemann–Roch formula. Connes and Consani present it themselves as an
+>    analogue: *"a quasi-tropical structure which turns this orbit into a variant `C_p = R^×_+/p^Z`
+>    of the classical Jacobi description `C^*/q^Z` of an elliptic curve"* [CC17, abstract]. So the
+>    **idea** of a per-prime elliptic-curve analogue is July 2015 and the note's "January 2025" is
+>    off by nine years and five months; but the **complex Tate curve `E_p = C^×/p^Z`** — the object
+>    this note actually works with, with its genuine complex structure, its lattice `Λ_p` and its
+>    classical intersection theory — enters the Connes–Consani program in **June 2026** [CC26],
+>    where `C_p` reappears as the connected component of `E_p`'s real locus and `E_p ≅ C_p × X̃_∞`.
+>    Both statements are true and the note must carry both.
+>
+> 4. **Correction to a correction: the `[CC26]` title.** The clause "and the Fargues–Fontaine
+>    curve" **is** part of the title — it is on the paper's own title page and in arXiv's HTML
+>    full text — and the novelty report's request to drop it must **not** be executed. But the
+>    mechanism recorded earlier in this program ("the arXiv API truncates the title at a TeX
+>    macro") is **not** the right diagnosis and is withdrawn: the clause is absent from arXiv's
+>    *metadata* generally — the abs page's `<h1>`, the `citation_title` meta tag, the API, the
+>    PDF's own metadata dictionary, and zbMATH — while present in the rendered document. The
+>    conclusion stands; the explanation was wrong.
 >
 > **Consequence for the framing.** This note may no longer present Theorems 1–3 as new. The honest
 > framing is: Winkelmann's rigidity, transported to the Connes–Consani per-prime Tate curves of
@@ -60,16 +106,24 @@ Connes–Consani's June-2026 absolute geometry of Spec **Z** [CC26] produces, fo
 
 **This note proves that the proposal is empty — not approximately, not "bandwidth data in geometric dress," but empty.** The results:
 
-1. **Isogeny criterion (Theorem 1, iff):** for distinct primes `p ≠ q`, `Hom(E_p, E_q) ≠ 0` **iff** `log p · log q ∈ 4π²·Q` — a transcendence coincidence expected never to occur (open unconditionally; impossible under the four-exponentials conjecture, §7). When nonzero, `Hom` has rank 1 and is computed exactly.
-2. **Two-partner rigidity (Theorem 2, unconditional):** each prime has at most **one** "exceptional partner" prime with which it could share a nonzero `Hom` — pure unique factorization, no transcendence input. The exceptional pairs, if any exist at all, form a partial matching on the primes.
-3. **The {2,3,5} coherence kill (Theorem 3, unconditional):** among the three surfaces `E_2×E_3`, `E_2×E_5`, `E_3×E_5`, at most one carries a nonzero correspondence group; no two of them can simultaneously do so. Any composition-coherent correspondence family over all pairs of primes is unconditionally impossible.
+**Attribution, stated at the top so nothing below is misread (2026-08-27).** Items 1–3 of the
+list that follows — the isogeny criterion, the two-partner rigidity and the three-curve kill —
+are **not new**: they are Winkelmann's, from 15 April 2002 [Wi04], transported here to the
+per-prime Tate curves and specialized to primes. Items 4, 5 and 6 — the Néron–Severi collapse,
+the prime-blind diagonal residue, and the no-go — are this note's, and are not anticipated. The
+attribution is set out in full in the dated block at the head of this note and in the banner at
+the top of §3; the citation-and-distinguish record is §9, item 8.
+
+1. **Isogeny criterion (Theorem 1, iff; Winkelmann's, specialized):** for distinct primes `p ≠ q`, `Hom(E_p, E_q) ≠ 0` **iff** `log p · log q ∈ 4π²·Q` — a transcendence coincidence expected never to occur (open unconditionally; impossible under the four-exponentials conjecture, §7). When nonzero, `Hom` has rank 1 and is computed exactly.
+2. **Two-partner rigidity (Theorem 2, unconditional; Winkelmann's, specialized):** each prime has at most **one** "exceptional partner" prime with which it could share a nonzero `Hom` — pure unique factorization, no transcendence input. The exceptional pairs, if any exist at all, form a partial matching on the primes.
+3. **The {2,3,5} coherence kill (Theorem 3, unconditional; Winkelmann's three-curve run, specialized):** among the three surfaces `E_2×E_3`, `E_2×E_5`, `E_3×E_5`, at most one carries a nonzero correspondence group; no two of them can simultaneously do so. Any composition-coherent correspondence family over all pairs of primes is unconditionally impossible.
 4. **Néron–Severi collapse (Theorem 4):** `NS(E_p × E_q) = Zξ₁ ⊕ Zξ₂ ⊕ Hom(E_p, E_q)` [BL, Ch. 5; reproved here]. Off the exceptional matching, NS has rank 2 (the two fiber classes): there are **no graph classes, no diagonal class**, every divisor class acts as **zero** on `H¹`, and the Castelnuovo–Severi/Hodge-index inequality — the positivity the seed was commissioned to harvest "for free" — is **vacuous** (its primitive domain is the zero group).
 5. **Diagonal residue (Theorem 5):** the surfaces `E_p × E_p` do carry a correspondence calculus — `End(E_p) = Z` **unconditionally**, the CM alternative `(log p)² ∈ 4π²·Q` being impossible by Gelfond–Schneider (§7) — but its complete intersection profile `(Γ_m·Γ_n) = (m−n)²`, `(Γ_m·Δ) = (m−1)²` consists of **universal integers independent of `p`**. The explicit formula's transcendentally weighted prime terms `Λ(n) f(log n)/√n` cannot arise from it except by hand-inserting the weights into the test-family coefficients — barrier IV.1 re-entry ("no new data coordinate").
 6. **No-go (Theorem 6):** no assignment of correspondence groups, composition data, and intersection pairing on the family `{E_p × E_q}` realizes the commissioned calculus for the Weil explicit formula. Three independent obstructions — no composition material (unconditional), no pairing target, prime-blind diagonal data — each individually fatal.
 
 Of the two transcendence questions the construction raises, only one survives as a caveat: the diagonal coincidence `(log p)² ∈ 4π²Q` is **refuted unconditionally** (Gelfond–Schneider; §7, Proposition), and the off-diagonal coincidence `log p·log q ∈ 4π²Q` — (T1), an instance of the four-exponentials conjecture — is logged as the note's single open rider (§7) with numerical evidence; **the family-level kill is unconditional and consumes neither.**
 
-Scope (§8): this kills the *substrate family*, not the direction. The Connes–Consani characteristic-one square (route A) and the Deninger leg (route C/M2c) are untouched; the note in fact sharpens why the square problem cannot be outflanked through the new complex fibers. Prior art (§9): nothing anticipates either the construction or the obstruction; seven adjacent traditions are cited and distinguished per the extended R7(a) gate.
+Scope (§8): this kills the *substrate family*, not the direction. The Connes–Consani characteristic-one square (route A) and the Deninger leg (route C/M2c) are untouched; the note in fact sharpens why the square problem cannot be outflanked through the new complex fibers. Prior art (§9): the construction and the no-go (Theorems 4–6) are unanticipated; the rigidity (Theorems 1–3) is Winkelmann's, 2002; eight adjacent traditions are cited and distinguished.
 
 ---
 
@@ -101,7 +155,11 @@ E_p ≅ C_p × X̃_∞ ,
 
 where `C_p` (length `log p`) carries the entire dependence on `p` and the phase circle `X̃_∞` (length `2π`, an unramified double cover of the real Fargues–Fontaine analogue `X_∞ ≅ P¹(R)`) is **totally independent of `p`**; the modular parameter `τ_p` is exactly the ratio of the two invariant 1-forms' periods. We use three facts and only these: the lattice `Λ_p`; the reality/rectangularity; and the `p`-independence of the phase factor.
 
-**Lineage (first-appearance record, mandated by the prior-art gate):** the per-prime *elliptic-analogue* idea first appears in the Connes–Consani orbit in January 2025 — *"each C_p, when equipped with the restriction of the scaling topos's structure sheaf, becomes an analogue of an elliptic curve within the framework of characteristic one"* [CC25, introduction; on-disk u-18b, read verbatim] — a characteristic-one (tropical) analogue of a single curve per prime: no complex structure, no lattice, no products. [CC26] complexifies it seventeen months later. Neither paper raises products of the `E_p`, correspondences between different primes, or any isogeny question — re-confirmed by grep of the on-disk full text (no isogeny/Hom/product-of-Tate-curves content) [prior-art report §5].
+**Lineage (first-appearance record; rewritten 2026-08-27 against the primary sources — the previous version of this paragraph dated the idea to January 2025 and was wrong by nine years and five months).** The per-prime *elliptic-analogue* idea appears in the Connes–Consani orbit on **21 July 2015**, in the Comptes Rendus note *The scaling site* [CC16b] and at length in *Geometry of the scaling site* [CC17]. The object there is **`C_p = R^×_+/p^Z`**: the periodic orbit of the scaling flow, a **real** circle of circumference `log p`, given a quasi-tropical structure sheaf `O_p` of convex piecewise-affine functions with slopes in `Z[1/p]`, with Jacobian `J(C_p) ≅ Z/(p−1)Z` and a **real-valued** Riemann–Roch formula `Dim_R H⁰(D) − Dim_R H⁰(−D) = deg(D)` [CC16b, Lemma 6.3, Thm. 6.5, Thm. 6.7(ii)]. Its authors present it as an analogue and say so: *"a quasi-tropical structure which turns this orbit into a variant `C_p = R^×_+/p^Z` of the classical Jacobi description `C^*/q^Z` of an elliptic curve"* [CC17, abstract], and later, *"`C_p = R^×_+/p^Z` appears as an elliptic curve in characteristic one, similar to the Jacobi elliptic curve `C^*/q^Z`. The Riemann–Roch formula for `C_p` involves real valued dimensions"* [CC24a, §1].
+
+What is **new in June 2026** is not the per-prime analogue but the **complex** curve: `E_p = C^×/p^Z` with a genuine complex structure, the lattice `Λ_p`, and classical intersection theory — with `C_p` reappearing inside it as the connected component of the real locus, `E_p ≅ C_p × X̃_∞` [CC26]. That is the object this note works with, and it is the reason the seed proposal became formulable at all. The intermediate paper [CC25] (*Knots, primes and class field theory*, January 2025), which the earlier version of this paragraph named as the first appearance, contributes something else again — a functor from finite abelian extensions of **Q** to finite covers of `X_Q`, under which the monodromy of the periodic orbit of length `log p` corresponds to the Galois action of Frobenius at `p` — and it cites [CC17] for the elliptic-curve analogue rather than introducing it.
+
+Unchanged, and independently re-confirmed: **none** of these papers raises products of the `E_p`, correspondences between different primes, or any isogeny question — grep of the on-disk full text of [CC26] returns no isogeny/Hom/product-of-Tate-curves content, and [CC25]'s full text returns no hits for "isogen" or "Tate" [prior-art report §5; re-run 2026-08-27].
 
 ### 1.3 The seed proposal being killed
 
@@ -151,6 +209,42 @@ Standard facts used without further comment: every homomorphism of complex tori 
 
 ## 3. Theorem 1: the isogeny criterion (iff)
 
+> **ATTRIBUTION (added 2026-08-27; read before §§3–4).** **The rigidity proved in §§3–4 is
+> Winkelmann's, from 15 April 2002** [Wi04], transported here to the Connes–Consani per-prime Tate
+> curves of June 2026. It is not new, and it is not presented as new. Studying `E_λ = C^*/λ^Z`
+> for eigenvalues `λ` of elements of a discrete subgroup of `SL₂(C)`, Winkelmann proves, inside the
+> proof of his Theorem 2 (v3, p. 16; v1, pp. 12–13), exactly the three things §§3–4 prove:
+>
+> * **the criterion**, in the necessity direction — *"Isogeny of `E_i` and `E_j` implies that there
+>   is a Q-linear relation between `4π²`, `log λ_i log λ_j`, `2πi log λ_i` and `2πi log λ_j` (see
+>   lemma 7). Now `4π² ∈ R` and `log λ_i log λ_j ∈ R`, while `2πi log λ_i` and `2πi log λ_j` are
+>   Q-linearly independent elements of `iR`. Therefore a Q-linear relation can only exists [sic] if
+>   `4π²/(log λ_i log λ_j) ∈ Q`"* — which is Theorem 1's forward direction, by the same
+>   real/imaginary separation used below. **The converse is not stated by him, but it is one line
+>   from his own Lemma 7, which is an equivalence** (`C/Λ` and `C/Γ` are isogenous *iff*
+>   `dim_Q ker Φ > 0`), so the "iff" of Theorem 1 is his too and is not claimed here.
+> * **the two-partner rigidity of Theorem 2** — he divides two such relations to get
+>   `log λ_i/log λ_k ∈ Q`, contradicting multiplicative independence, and concludes *"for each of
+>   these curves there is at most one other curve in this family to which it is isogenous"* (v3
+>   wording; v1: "at most two of these `E_i` can be isogenous");
+> * **the three-curve run of Theorem 3** — his argument is stated on three curves `E_i, E_j, E_k`;
+>   `{2,3,5}` is the numerical instance.
+>
+> **What is genuinely not in Winkelmann**, and is what §§3–4 add: the word "Hom" does not occur in
+> his paper, nor does "rank", nor any isogeny degree; and he never takes `λ` to be a prime or
+> indexes the family by primes. So the additions here are the **identification of the group
+> `Hom(E_p, E_q)` and its rank, the degree `uv` of the minimal isogeny, and the specialization to
+> primes** — an explication in the prime-indexed case, not a strengthening of his theorem. That
+> the specialization was available to anyone since 2002 is precisely why the program's earlier
+> prior-art sweeps missed it: they searched prime-indexed phrasing, and Winkelmann's is
+> eigenvalue-and-geodesic-length phrasing.
+>
+> **The no-go itself — Theorems 4, 5 and 6 — is not anticipated and does not rest on any claim of
+> priority over §§3–4.** Winkelmann's context is the geometry of `SL₂(C)/Γ` and hyperbolic geodesic
+> length spectra; he raises no Néron–Severi group, no correspondence calculus, and no explicit
+> formula. Proofs are given below in full because the note must be self-contained and because the
+> prime-indexed forms differ in presentation from his.
+
 **Theorem 1.** Let `p ≠ q` be distinct primes. Then
 
 ```
@@ -182,6 +276,11 @@ of rank 1, and the isogeny induced by `λ₀` has degree `uv`.
 
 Finally `y_p y_q ∈ Q ⟺ log p log q = 4π²·y_p y_q ∈ 4π²Q`. ∎
 
+*(Attribution, per the banner above: the forward direction is Winkelmann's argument [Wi04, proof
+of Thm. 2, p. 16], and the converse is immediate from his Lemma 7. What is added here is the
+computation of `Hom(E_p, E_q) = Z·λ₀` with `λ₀ = i·v·y_q`, its rank, and the isogeny degree `uv` —
+none of which appears in his paper.)*
+
 **Remark 1 (bookkeeping reconciliation, per the adjudication).** In the verification cycle one killer stated the criterion as `log p·log q ∈ 4π²·Q` and the other derived `b·log p·log q = −4π²c`, phrasing it as `log p·log q ∈ π²·Q`. These are the **same condition**: `4π²·Q = π²·Q` as subsets of **R**, because `4 ∈ Q^×` — a rational multiple of `π²` is a rational multiple of `4π²` and conversely. The normalization-free statement is `y_p·y_q ∈ Q`; we display the constant as `4π²` because `y_p y_q = log p·log q/(4π²)` makes it the natural one. The adjudication (computation (a)) records exactly this reconciliation.
 
 **Remark 2 (symmetry).** The criterion is symmetric in `p` and `q`; hence `Hom(E_p,E_q) ≠ 0 ⟺ Hom(E_q,E_p) ≠ 0` (as the general theory also guarantees via the dual isogeny). "Exceptional partner" is therefore a symmetric relation.
@@ -193,6 +292,9 @@ Finally `y_p y_q ∈ Q ⟺ log p log q = 4π²·y_p y_q ∈ 4π²Q`. ∎
 **Theorem 2 (two-partner rigidity).** For every prime `p` there is **at most one** prime `q ≠ p` with `Hom(E_p, E_q) ≠ 0`. Consequently the set of "exceptional pairs" `{p, q}` (pairs with nonzero Hom), if nonempty, forms a **partial matching** on the primes: no prime appears in two of them.
 
 **Proof.** Suppose `q ≠ q′` are two such primes. By Theorem 1, `y_p y_q ∈ Q^×` and `y_p y_{q′} ∈ Q^×`. Dividing: `y_q / y_{q′} = (y_p y_q)/(y_p y_{q′}) ∈ Q`, i.e. `log q / log q′ ∈ Q`, i.e. `q^m = q′^n` for some positive integers `m, n` — impossible for distinct primes by unique factorization. ∎
+
+*(This is Winkelmann's division step verbatim, with multiplicative independence of `λ_i` and `λ_k`
+replaced by unique factorization for `q` and `q′` [Wi04, proof of Thm. 2, p. 16].)*
 
 Nothing here consumes any transcendence input: the proof is unique factorization plus linear algebra over **Q** applied to the products `y_p y_q`, and it is agnostic about whether any exceptional pair exists.
 
@@ -220,7 +322,9 @@ Corr(E, E′) := NS(E × E′) / ⟨ξ₁, ξ₂⟩ .
 NS(E × E′) ≅ Z·ξ₁ ⊕ Z·ξ₂ ⊕ Hom(E, E′) ,
 ```
 
-hence `Corr(E, E′) ≅ Hom(E, E′)` [BL, Ch. 5; self-contained proof below]. Consequently, for distinct primes `p ≠ q` with `Hom(E_p, E_q) = 0` (i.e., every pair outside the — conjecturally empty — exceptional matching of Theorems 1–2):
+hence `Corr(E, E′) ≅ Hom(E, E′)` [BL, Ch. 5; self-contained proof below; for a precise modern
+statement of the decomposition see also Rosen–Shnidman [RS14, Prop. 2.3], who preface it "is
+well-known" — it is cited here as a locator, not as its origin]. Consequently, for distinct primes `p ≠ q` with `Hom(E_p, E_q) = 0` (i.e., every pair outside the — conjecturally empty — exceptional matching of Theorems 1–2):
 
 - **(a) Rank collapse.** `NS(E_p × E_q) = Zξ₁ ⊕ Zξ₂` has rank 2, with intersection form `ξ₁² = ξ₂² = 0`, `ξ₁·ξ₂ = 1`: every divisor class is numerically `aξ₁ + bξ₂`, and `Corr(E_p, E_q) = 0`.
 - **(b) `H¹`-inertness.** Every divisor class on `E_p × E_q` acts as **zero** on `H¹` (in both directions, `H¹(E_p) → H¹(E_q)` and the transpose). The correspondence calculus is not merely small; as a calculus of operators it is the zero calculus.
@@ -259,7 +363,7 @@ NS(E×E′) ≅ Zξ₁ ⊕ Zξ₂ ⊕ Hom(E, Ê′) .
 
 (c) Rigidity: every holomorphic map `E_p → E_q` is a homomorphism followed by a translation; `Hom = 0` leaves the constants, whose graphs are horizontal fibers `E_p × {c} ≡ ξ₂`. The numerical computation is displayed in the statement.
 
-(d) Displayed in the statement; the classical Castelnuovo–Severi inequality itself (for products of curves with actual correspondences) is re-proved from RR + ampleness, with no zeta input, in `results/c3-r/m1-noncircularity.md` — the engine is a real theorem whose domain of application is, on these surfaces, the zero group. ∎
+(d) Displayed in the statement; the classical Castelnuovo–Severi inequality itself (for products of curves with actual correspondences) is re-proved from RR + ampleness, with no zeta input, in `results/c3-r/m1-noncircularity.md`, and is in the published literature at Milne [Mil16, Thm. 1.5, §1] so that a referee need not follow a program-internal file path — the engine is a real theorem whose domain of application is, on these surfaces, the zero group. ∎
 
 **Remark 5 (what still exists on these surfaces).** Rank-2 NS does not mean the surfaces are curve-poor: `ξ₁ + ξ₂` is ample (Nakai: positive square, positive on every effective class), and general members of `|3(ξ₁+ξ₂)|` are irreducible curves dominating both factors. The point of (a)–(b) is that every such curve is *numerically* a fiber combination and acts as zero on `H¹`: as a correspondence it is invisible. The collapse is a collapse of the correspondence calculus, not of the surface's geometry — which is exactly what kills the seed, whose entire value proposition was the calculus.
 
@@ -308,10 +412,46 @@ Each obstruction is individually fatal; they are logically independent (O1 conce
 
 Two number-theoretic questions arise from Theorems 1 and 5 and are logged here per the adjudication's mandatory repair 1. One of them turns out not to be open at all: classical transcendence theory refutes it, in this note's favor.
 
-- **(T1)** For distinct primes `p, q`: is `log p · log q ∈ 4π²·Q` possible? (Equivalently: can `E_p` and `E_q` be isogenous?) — **open unconditionally**; refuted under the four-exponentials conjecture (below).
+- **(T1)** For distinct primes `p, q`: is `log p · log q ∈ 4π²·Q` possible? (Equivalently: can `E_p` and `E_q` be isogenous?) — **open unconditionally**; refuted under the four-exponentials conjecture (below), and refuted under the sharper statement identified in the next paragraph.
+
+**(T1) is a named published conjecture, not an unrecorded question (corrected 2026-08-27).** Its
+negation is printed as a displayed, labeled conjecture — **(C4E faible)** — on p. 231 of Diaz
+[Dia97], attributed there to D. Bertrand (Madras Number Theory Symposium, January 1996; published
+as [Ber97, §5]): for positive real algebraic `α₁, α₂ ≠ 1`, the numbers `π²` and
+`(log α₁)(log α₂)` are **Q**-linearly independent. Substituting `α₁ = p`, `α₂ = q` gives exactly
+`log p · log q ∉ π²·Q = 4π²·Q`, i.e. ¬(T1); and the sentence immediately following it in Diaz is
+the same four-exponentials reduction this note performs below. Two riders, both from the
+2026-08-27 verification and both binding on how this is cited. First, the English name "Bertrand's
+weak four-exponentials conjecture" is **not a term of art**: Diaz's label is `(C4E faible)`, and
+Waldschmidt uses no such English phrase in *Open Diophantine Problems*, in the AWS Lecture 5 notes,
+or in *Linear Independence of Logarithms of Algebraic Numbers*. Call it "the weak form of the
+four-exponentials conjecture, due to Bertrand" and cite Diaz's label. Second, Diaz's paper also
+carries **unconditional partial results** bearing on this question — his Théorème 1 (the
+equivalence (C0) ⟺ (C6)) and his Propositions 1 and 3(1) — which this note did not know about and
+does not consume.
+
+Winkelmann's own conjectural resolution is adjacent and worth recording: his **Conjecture 1**
+[Wi04, §3.2, p. 13] states that for algebraic `α₁, α₂` with `|α_i| > 1`, the quotients
+`C^*/α_i^Z` are isogenous **iff** `α₁, α₂` are multiplicatively dependent. Applied to `α₁ = p`,
+`α₂ = q` — algebraic, `> 1`, and multiplicatively independent by unique factorization — it gives
+`Hom(E_p, E_q) = 0`, hence ¬(T1) by the converse half of Theorem 1. He does not draw that
+consequence and never mentions primes, so the implication is recorded here as a one-line deduction
+from his conjecture and his Lemma 7, not as a result of his. He proves Conjecture 1 under
+Schanuel's conjecture [Wi04, §3.2, Prop. 3, p. 14] — the same reduction §7 performs below,
+seventeen years earlier.
 - **(T2)** For a prime `p`: is `(log p)² ∈ 4π²·Q` possible? (Equivalently: can `E_p` have complex multiplication?) — **no; refuted unconditionally:**
 
 **Proposition (no CM anywhere in the family).** For every prime `p`, `(log p)² ∉ 4π²·Q`. Hence no `E_p` has complex multiplication, and `End(E_p) = Z` for every prime, unconditionally (Theorem 5(1)).
+
+*(A second, stronger unconditional route to the same conclusion, added 2026-08-27.)*
+Barré-Sirieix, Diaz, Gramain and Philibert [BDGP96] proved the Mahler–Manin conjecture: for `q`
+algebraic with `0 < |q| < 1`, the modular invariant `J(q)` is transcendental. The Tate curve
+`E_p = C^×/p^Z` has nome `q = p^{−1}`, which is algebraic with `|q| < 1`, so `j(E_p)` is
+transcendental — and a curve with transcendental `j` has no complex multiplication, since CM
+forces `j` to be an algebraic integer. That gives `End(E_p) = Z` unconditionally, with more
+information than the Gelfond–Schneider route below, which is retained because it is elementary,
+self-contained, and settles the exact coincidence `(log p)² ∈ 4π²Q` rather than a consequence of
+it.
 
 **Proof (Gelfond–Schneider, 1934).** Suppose `(log p)² = 4π²·r` with `r ∈ Q`. Both sides are positive, so `r > 0`, and taking positive square roots, `log p = 2π√r`, i.e. `p = e^{2π√r}`. With the branch `log(−1) = iπ`,
 
@@ -323,9 +463,13 @@ The base `−1` is algebraic, `≠ 0, 1`; the exponent `β = −2i√r` is algeb
 
 (Equivalently, in the linear-forms language: (T2) says `log p = (−2i√r)·(iπ)` — a **Q̄**-linear relation between the two **Q**-linearly independent logarithms `log p` and `log(−1) = iπ`, one real and one imaginary; their ratio would be the algebraic irrational `−2i√r`, exactly what Gelfond–Schneider forbids. The point is that this *quadratic* relation among `log p, π` **factors** into linear-forms territory because `√r` is algebraic. It is the classical family "`e^{π√d}` is transcendental" — the circle of Gelfond's constant `e^π` and the Ramanujan constant — specialized to `d = 4r`.)
 
-**Status of (T1).** Known unconditionally: `log p/log q ∉ Q` (unique factorization — this is all Theorems 2, 3 consume), and the Proposition above on the diagonal. The genuinely quadratic *cross-prime* relation does not factor the same way — it involves two independent logarithms — and no proven theorem currently excludes it. It is, however, an **instance of the four-exponentials conjecture** [4EC], not merely adjacent to it:
+**Status of (T1).** Known unconditionally: `log p/log q ∉ Q` (unique factorization — this is all Theorems 2, 3 consume), and the Proposition above on the diagonal. The genuinely quadratic *cross-prime* relation does not factor the same way — it involves two independent logarithms — and no proven theorem currently excludes it. It is, however, an **instance of the four-exponentials conjecture** [4EC] — and, more sharply, the
+negation of the weak form of that conjecture due to Bertrand, printed as (C4E faible) in
+[Dia97, p. 231] — not merely adjacent to either:
 
 **(4EC ⟹ ¬(T1)).** Suppose `log p·log q = 4π²·u/v` (`u/v ∈ Q`, necessarily positive). Take `x₁ = 2πi`, `x₂ = log p` — **Q**-linearly independent (compare real and imaginary parts) — and `y₁ = 1`, `y₂ = log q/(2πi)` — **Q**-linearly independent (`y₂` is purely imaginary and nonzero, hence irrational). The four exponentials are `e^{x₁y₁} = 1`, `e^{x₁y₂} = q`, `e^{x₂y₁} = p`, and `e^{x₂y₂} = e^{log p·log q/(2πi)} = e^{−2πi·u/v}`, a root of unity. All four are algebraic — contradicting the four-exponentials conjecture. ∎
+
+**The published state of the art on (T1), and why the proven machinery misses it.** The four-exponentials conjecture is Schneider's Problem 1 [Sch57, Ch. V, end of §4], formulated explicitly later by Lang [Lan66a, Lan66b] and Ramachandra [Ram68, part II, §4]; Waldschmidt's matrix form is Conjecture 3.7 of *Open Diophantine Problems*, with the matrix restatement on its p. 269 [Wal04]. The proven results closest to (T1) are Roy's [Roy92] and Diaz's [Dia07]. Diaz's Corollaire 1(1) [Dia07] is the natural instrument, and it does not reach: it requires the triple `(λ₀, λ₂, λ̄₂)` to be **Q̄**-linearly free, which fails here because `λ₂ = log q` is real, so `λ̄₂ = λ₂`. That is the citable reason (T1) is not settled by the available theorems, rather than merely "not settled".
 
 The **proven** six-exponentials theorem does not obviously reach (T1), for an amusing reason: it needs a third row `x₃` with both `e^{x₃y₁}`, `e^{x₃y₂}` algebraic, and — taking `x₃ = log ℓ` for a third prime, the natural candidate — the algebraicity of `e^{x₃y₂}` would itself require a *second* rational-product coincidence `log ℓ·log q ∈ 4π²Q`, which this note's own Theorem 2 (two-partner rigidity) forbids alongside the first. The rigidity that makes the no-go unconditional is the same rigidity that keeps its one open rider out of the proven theorem's reach.
 
@@ -375,19 +519,34 @@ PSLQ finds no integer relation `m·x + n = 0` with coefficients up to `10³⁰` 
 
 ## 9. Prior art: citations and distinctions (extended R7(a) gate, verdict novel-with-citations)
 
-The gate (`results/c3-r/prior-art-r7a.md`, 2026-08-26; ~10 search phrasings, three PDFs fetched and read, five corpus items read on disk, unreachables logged) found **no source anticipating either the construction** (products of per-prime complex Tate curves as an arithmetic-surface surrogate) **or the obstruction** (the rigidity of Theorems 1–5) — unsurprising for the construction, since the `E_p` are two months old with no citing literature; notable for the obstruction, which is elementary lattice arithmetic that could have been recorded about any family of tori with moduli `i·log p/(2π)` and was not. Seven adjacent traditions must be cited and distinguished:
+The 2026-08-26 gate (`results/c3-r/prior-art-r7a.md`; ~10 search phrasings, three PDFs fetched and
+read, five corpus items read on disk, unreachables logged) found no source anticipating either the
+construction or the obstruction. **The construction half of that verdict stands; the obstruction
+half is WITHDRAWN (2026-08-27).** The rigidity of Theorems 1–3 *is* anticipated — by Winkelmann,
+15 April 2002 (item 8 below, and the attribution banner at §3) — and the gate's own sentence,
+"elementary lattice arithmetic that could in principle have been noted about ANY pair of complex
+tori … and no one has", is formally withdrawn at its source with the reason: the gate searched
+prime-indexed phrasing and Winkelmann's is eigenvalue-and-geodesic-length phrasing. What survives
+unanticipated is the construction (products of per-prime complex Tate curves as an
+arithmetic-surface surrogate — unsurprising, since the `E_p` are two months old with no citing
+literature) and the no-go proper, Theorems 4, 5 and 6. **Eight** adjacent traditions must be cited
+and distinguished:
 
 1. **Connes–Consani–Marcolli, "The Weil Proof and the Geometry of the Adeles Class Space" [CCM07].** The correspondence-calculus-for-the-explicit-formula tradition — but on the square of the *one* global adele class space, with correspondences built from graphs of the scaling action and analogs of degree/codegree (§7.1 there). Its §10.2 contains the germ of our objects: the tori `T_p ≅ R⁺^×/p^Z` as singular-fiber components in a vanishing-cycles analogy — one-dimensional *real* tori, no complex structure, no products, no intersection theory on products. **Distinction:** one global noncommutative space squared versus a `(p,q)`-family of classical surfaces; the no-go concerns only the latter. (The gate also checked the distinct CCM paper "Fun with F₁," arXiv:0806.2401 — zero Tate/elliptic/product content.)
 2. **Connes–Consani, "Geometry of the arithmetic site" [CC16] + the Essay stall quote [CE15 §4.3.2].** The square *exists* in characteristic one, with Frobenius correspondences as congruences — and intersection theory/RR missing a decade on. **Distinction:** complementary result, as in §8: this note shows the classical-complex escape from that stall is empty, and the escape's price (smooth/char-one correspondences) is the classical positivity itself.
-3. **The lineage inside the CC orbit [CC25 → CC26].** First appearance of per-prime elliptic-analogue language: January 2025, characteristic one, single curve per prime [CC25]; complex Tate curves: June 2026 [CC26], which never raises products, isogenies, or correspondences between primes (grep-confirmed on the on-disk full text). **Distinction:** both construction and obstruction of this note are additions to, not extractions from, that lineage.
+3. **The lineage inside the CC orbit [CC16b/CC17 → CC25 → CC26]** *(corrected 2026-08-27; the previous version dated the first appearance to January 2025 and was wrong by nine years and five months)*. First appearance of per-prime elliptic-analogue language: **July 2015** — the periodic orbit `C_p = R^×_+/p^Z`, a real circle of circumference `log p` with a characteristic-one structure sheaf, `J(C_p) ≅ Z/(p−1)Z`, and a real-valued Riemann–Roch [CC16b; CC17], described by its authors as "a variant … of the classical Jacobi description `C^*/q^Z` of an elliptic curve". [CC25] (January 2025) contributes the class-field-theory functor and cites [CC17] for the analogue rather than introducing it. The **complex** Tate curves are June 2026 [CC26], which never raises products, isogenies, or correspondences between primes (grep-confirmed on the on-disk full text). **Distinction:** both the construction and the obstruction of this note are additions to, not extractions from, that lineage — the lineage supplies per-prime fibers, never a cross-prime structure.
+
+8. **Winkelmann's rigidity [Wi04]** *(added 2026-08-27; see the attribution banner at §3 and the dated block at the head)*. J. Winkelmann, *On elliptic curves in `SL₂(C)/Γ`, Schanuel's conjecture and geodesic lengths*, arXiv:math/0204195 (v1, 15 April 2002), Nagoya Math. J. **176** (2004), 159–180. Inside the proof of his Theorem 2 he derives `4π²/(log λ_i log λ_j) ∈ Q` as the necessary condition for isogeny of `C^*/λ_i^Z` and `C^*/λ_j^Z`, divides two such relations to force `log λ_i/log λ_k ∈ Q`, runs the argument on three curves and concludes that each curve in his family has at most one isogenous partner. **That is §§3–4 of this note, transported.** **Distinction:** his context is the geometry of `SL₂(C)/Γ` and hyperbolic geodesic length spectra; he never takes `λ` prime, never writes `Hom`, never computes a rank or an isogeny degree, and raises no Néron–Severi group, no correspondence calculus and no explicit formula. This note adds the prime-indexed explication (§§3–4) and the no-go (§§5–6); it claims no priority over the rigidity. Recording why the earlier gate missed it: it searched prime-indexed phrasing, and his is eigenvalue-and-geodesic-length phrasing.
 4. **Banaszak–Uetake [BU1, BU2, BU3].** Independent operator-theoretic axiomatization of a Weil-style intersection calculus (axioms INT1–INT3 on a Hilbert-space operator, modeled on Weil's `C × C`), whose *existence* is equivalent to RH (+ semi-simplicity). **Distinction:** they posit the calculus abstractly and prove existence ⟺ RH; this note kills the one concrete classical-surface instantiation ever proposed from per-prime geometric data. Opposite poles: abstract axioms with RH-equivalent existence versus concrete surfaces with provably empty calculus.
 5. **The Kurokawa absolute tensor product line [Ku92-line; Ak09; Ta20].** Kurokawa's 1992 proposal and the proven Euler products *over pairs of primes* for `ζ ⊗ ζ` and Dirichlet-L tensor squares (Koyama–Kurokawa; Akatsuka; Kurokawa–Wakayama; Tanaka) — "the square of Spec **Z**" at the zeta-function level, zeros at sums `ρ₁ + ρ₂`. **Distinction and sharpening:** the pair-indexed *analytic* object exists and factorizes; the proposed *geometric* host from per-prime Tate curves is empty. Jointly the two localize the failure of the square at the geometric hosting step, not at pair-indexed data. (This line is also the published calibration for what a pairwise-product family *would* express if it expressed anything: pair-supported data with summed zeros — not `W(f)`.)
 6. **Haran's arithmetical-surface program [Ha91].** The closest non-CC surrogate proposal: `Spec Z ×_{alg} Spec Z` reduces to the diagonal (Haran: "the surface reduces to the diagonal!"), so Haran proposes *defining* intersection numbers of "Frobenius divisors" on the nonexistent surface by analytic means, aiming at a two-dimensional Riemann–Roch. **Distinction:** no per-prime elliptic fibers, no products of classical curves, no obstruction statement; Haran's program postulates the calculus's output, ours tests a concrete candidate host and finds it empty.
 7. **Scholze `A_inf`/Fargues–Fontaine adjacency.** Nothing in that school produces cross-prime products of per-prime objects as a correspondence substrate (shtuka legs and `X_S`-families are all single-`p`), and no such no-go is published there. The one genuine contact runs through [CC26] itself: the phase factor `X̃_∞` as a *real analogue* of the Fargues–Fontaine curve — a per-prime-to-archimedean bridge, not a cross-prime one. **Distinction:** disjoint mechanism; cited for completeness of the search record.
 
-**Transcendence background (rider citations):** the Gelfond–Schneider theorem (1934) for the **unconditional refutation of (T2)** — the diagonal coincidence factors into a **Q̄**-linear relation between `log p` and `iπ`, squarely inside the classical theorem (§7, Proposition); Baker's theorem for the general linear-forms background; the four-exponentials conjecture, of which **(T1) is an instance** (not merely an adjacent open problem), with the proven six-exponentials theorem kept out of reach by Theorem 2 itself (§7); Schanuel's conjecture for the stronger algebraic-independence resolution. The question (T1) appears to be unrecorded in the literature in this form and is stated here as open; the *question* (T2) may be equally unrecorded, but its resolution is a two-line specialization of a classical theorem and is claimed here only as such.
+**Transcendence background (rider citations; corrected 2026-08-27).** The Gelfond–Schneider theorem (1934) for the **unconditional refutation of (T2)** — the diagonal coincidence factors into a **Q̄**-linear relation between `log p` and `iπ`, squarely inside the classical theorem (§7, Proposition) — together with Barré-Sirieix–Diaz–Gramain–Philibert [BDGP96], whose proof of the Mahler–Manin conjecture gives the same conclusion by a different and stronger route (`j(E_p)` transcendental); Baker's theorem for the general linear-forms background; the four-exponentials conjecture [Sch57; Lan66a, Lan66b; Ram68; Wal04, Conj. 3.7], of which **(T1) is an instance** (not merely an adjacent open problem), with the proven six-exponentials theorem kept out of reach by Theorem 2 itself (§7), and the published state of the art on it in Roy [Roy92] and Diaz [Dia07]; Schanuel's conjecture for the stronger algebraic-independence resolution, and Winkelmann's Proposition 3 [Wi04, §3.2] for the same reduction seventeen years earlier.
 
-**Novelty statement (as licensed by the gate):** both the construction (the `E_p × E_q` assembly proposal, born and killed inside this program) and the obstruction (Theorems 1–6) are claimed as new, with the seven citation-and-distinguish obligations above discharged. The obstruction's ingredients are elementary — Birkenhake–Lange-level lattice arithmetic plus unique factorization — and the gate confirmed the assembled statements appear nowhere.
+**Withdrawn, 2026-08-27.** This section previously read: *"The question (T1) appears to be unrecorded in the literature in this form and is stated here as open; the question (T2) may be equally unrecorded …"*. **That is false and is withdrawn.** ¬(T1) is a displayed, labeled published conjecture — **(C4E faible)**, Diaz [Dia97, p. 231], attributed there to D. Bertrand (Madras, January 1996; [Ber97, §5]) — whose specialization to `α₁ = p, α₂ = q` is exactly (T1), and the same paper carries unconditional partial results this note did not know about (Diaz's Théorème 1 and Propositions 1 and 3(1)). The germ of the question is older still: Alaoglu and Erdős asked in 1944, in print, *"If `p` and `q` are different primes, is it true that `p^x` and `q^x` are both rational only if `x` is an integer?"* [AE44, p. 449], and recorded Siegel's three-prime theorem on their p. 455 — the exact four-versus-six-exponentials split this note rediscovers in §7. The one thing the withdrawal does **not** touch is the mathematics: (T1) is open, the family-level kill does not consume it, and (T2) is refuted unconditionally.
+
+**Novelty statement (rewritten 2026-08-27; the previous version claimed Theorems 1–6 as new and was wrong about Theorems 1–3).** The construction — the `E_p × E_q` assembly proposal, born and killed inside this program — is new. **Theorems 1, 2 and 3 are not: they are Winkelmann's, from 15 April 2002, specialized here to primes** (item 8 above, and the attribution banner at §3). What is claimed as new is: the prime-indexed explication of the rigidity (the group `Hom(E_p, E_q)`, its rank, and the isogeny degree `uv`, none of which is in [Wi04]); **Theorem 4** (Néron–Severi collapse off the matching, with its four consequences — no graph classes, no diagonal, zero action on `H¹`, vacuous Castelnuovo–Severi); **Theorem 5** (the diagonal residue is prime-blind, unconditional via Gelfond–Schneider and via [BDGP96]); **Theorem 6** (the no-go, from three independent obstructions); and the identification of the seed proposal as empty. The eight citation-and-distinguish obligations above are discharged. The obstruction's ingredients are elementary — Birkenhake–Lange-level lattice arithmetic plus unique factorization — which is exactly why the rigidity half was available to be noticed in 2002, and was.
 
 ---
 
@@ -398,16 +557,16 @@ The gate (`results/c3-r/prior-art-r7a.md`, 2026-08-26; ~10 search phrasings, thr
 | claim | status |
 |---|---|
 | `E_p ≅ C/(Z ⊕ Z·i·log p/2π)`, rectangular, real; `E_p ≅ C_p × X̃_∞` with `X̃_∞` `p`-independent | read from the on-disk full-text extraction of [CC26] (lines 240–300, 1518–1600); lattice presentation re-derived (Lemma 0) and numerically confirmed (check A) |
-| Theorem 1 (iff criterion, `Hom` rank 1, degree `uv`) | proved §3; both directions; converse numerically confirmed (check B); matches adjudication computation (a) and both killers' blind replications |
+| Theorem 1 (iff criterion, `Hom` rank 1, degree `uv`) | proved §3; both directions; converse numerically confirmed (check B); matches adjudication computation (a) and both killers' blind replications. **Priority:** the criterion (necessity) and its "iff" completion are Winkelmann's [Wi04, proof of Thm. 2 and Lemma 7]; the `Hom` group, its rank and the degree `uv` are this note's — see §3's attribution banner |
 | `4π²Q` vs `π²Q` bookkeeping | reconciled in Remark 1 (`4π²Q = π²Q` as sets; normalized invariant `y_p y_q ∈ Q`); per adjudication computation (a) |
-| Theorems 2, 3 (two-partner rigidity; {2,3,5} kill) | proved §4, unconditional; unique factorization + linear algebra over **Q** only |
+| Theorems 2, 3 (two-partner rigidity; {2,3,5} kill) | proved §4, unconditional; unique factorization + linear algebra over **Q** only. **Priority: Winkelmann's** [Wi04, proof of Thm. 2, p. 16], with multiplicative independence replaced by unique factorization |
 | Theorem 4 (NS decomposition and collapse) | proved §5 from seesaw + Poincaré-bundle universal property + rigidity ([BL] Ch. 2, 5 for the standard inputs; decomposition classical) |
-| Theorem 5 (diagonal residue; `p`-blind integer profile) | proved §6; part (1) unconditional via the §7 Proposition (Gelfond–Schneider); kernel counts tabulated (check D) and genuinely verified (referee suite R6) |
+| Theorem 5 (diagonal residue; `p`-blind integer profile) | proved §6; part (1) unconditional via the §7 Proposition (Gelfond–Schneider), and independently via the Mahler–Manin theorem [BDGP96] (`j(E_p)` transcendental ⟹ no CM); kernel counts tabulated (check D) and genuinely verified (referee suite R6) |
 | Theorem 6 (no-go O1–O3) | proved §6 from Theorems 1–5 + the structural features (W-i)–(W-iii) of the explicit formula |
-| (T1) off-diagonal non-coincidence `log p·log q ∉ 4π²Q` | **OPEN unconditionally** (settled under the four-exponentials conjecture, of which it is an instance; Schanuel gives full algebraic independence — §7); unneeded for the family-level kill; numerical evidence checks C, E (PSLQ null to `10³⁰`, rational denominators `> 10¹⁰⁰`) |
+| (T1) off-diagonal non-coincidence `log p·log q ∉ 4π²Q` | **OPEN unconditionally**, and **published as a named conjecture**: it is the specialization to `α₁ = p, α₂ = q` of (C4E faible) [Dia97, p. 231], due to D. Bertrand [Ber97, §5]; an instance of the four-exponentials conjecture; settled by Schanuel with full algebraic independence, and by Winkelmann's Conjecture 1 [Wi04, §3.2] via the converse of Theorem 1 (§7). Unneeded for the family-level kill; numerical evidence checks C, E (PSLQ null to `10³⁰`, rational denominators `> 10¹⁰⁰`). *(The earlier "appears to be unrecorded" claim is withdrawn — §9.)* |
 | (T2) diagonal non-coincidence `(log p)² ∉ 4π²Q` | **REFUTED unconditionally** — proved, Gelfond–Schneider 1934 (§7, Proposition); hence `End(E_p) = Z` for every prime and Theorem 5(1) carries no exception clause; numerics rows 4–5 of §7 retained as detector controls |
 | explicit-formula display in §1.3 | schematic, normalization-hedged; only the tagged structural features (W-i)–(W-iii) are consumed |
-| prior-art verdict and the seven distinctions | `results/c3-r/prior-art-r7a.md` (2026-08-26; fetched PDFs + on-disk corpus + logged unreachables; Akatsuka's CNTP paper characterized via Tanaka's introduction and venue confirmations, full text paywalled — flagged there, nothing load-bearing rests on unread portions) |
+| prior-art verdict and the eight distinctions | **partially withdrawn 2026-08-27** — the obstruction half of the verdict is false (Winkelmann 2002; §9 item 8); the construction half stands. `results/c3-r/prior-art-r7a.md` (2026-08-26; fetched PDFs + on-disk corpus + logged unreachables; Akatsuka's CNTP paper characterized via Tanaka's introduction and venue confirmations, full text paywalled — flagged there, nothing load-bearing rests on unread portions) |
 
 Process provenance: the seed kill was constructed independently by two killer agents under the duplicate-killer protocol (identical mathematics, no shared text), re-derived in full by the adjudicator (`results/adjudication-C3.json`, computation (a)), and re-proved from scratch for this note. The commission file (`directions/C3-geometric-substrate.md`) retains the original seed proposal verbatim as the immutable record, with the adjudication and reduced recommission C3-r appended.
 
@@ -416,17 +575,122 @@ Process provenance: the seed kill was constructed independently by two killer ag
 ### References
 
 - **[CC26]** A. Connes, C. Consani, *On the Absolute Geometry of Spec Z and the Fargues–Fontaine curve*, arXiv:2606.06604 (June 2026). On disk: corpus u-15b; full-text extraction `sources-extracted/arxiv-2606.06604-absolute-geometry-specZ-fulltext.txt`.
-- **[CC25]** A. Connes, C. Consani, *Knots, primes and class field theory*, arXiv:2501.06560 (January 2025). On disk: corpus u-18b.
-- **[CC16]** A. Connes, C. Consani, *Geometry of the arithmetic site*, Adv. Math. (2016). (Surfaced by the prior-art gate's search layer; cited for the char-one square + Frobenius correspondences.)
-- **[CE15]** A. Connes, *An essay on the Riemann Hypothesis*, arXiv:1509.05576, §4.3.2. On disk: corpus t-20b (stall quote program-verified).
+- **[CC25]** A. Connes, C. Consani, *Knots, primes and class field theory*, arXiv:2501.06560 (January 2025). On disk: corpus u-18b. (**Dated correction, 2026-08-27:** this note previously named [CC25] as the first appearance of the per-prime elliptic-curve analogue. It is not — it cites [CC17] for that. Its own contribution is a functor from finite abelian extensions of **Q** to finite covers of `X_Q`, under which the monodromy of the periodic orbit of length `log p` corresponds to the Galois action of Frobenius at `p`. Its full text contains no occurrence of “isogen” or “Tate”.)
+- **[CC16]** A. Connes, C. Consani, *Geometry of the arithmetic site*, Adv. Math. **291** (2016), 274–329; doi:10.1016/j.aim.2015.11.045; arXiv:1502.05580. (Cited for the char-one square + Frobenius correspondences; fields completed 2026-08-27.)
+- **[CE15]** A. Connes, *An essay on the Riemann Hypothesis*, in: *Open Problems in Mathematics* (J. F. Nash Jr. and M. Th. Rassias, eds.), Springer, Cham, 2016, pp. 225–257; doi:10.1007/978-3-319-32162-2_5; arXiv:1509.05576, §4.3.2. On disk: corpus t-20b (stall quote program-verified; pin-cite by section, since the arXiv and book folios differ by about +224).
 - **[CCM07]** A. Connes, C. Consani, M. Marcolli, *The Weil Proof and the Geometry of the Adeles Class Space*, arXiv:math/0703392 (Manin Festschrift, Birkhäuser). Fetched and read at gate time (title verified from the PDF).
 - **[BU1]** G. Banaszak, Y. Uetake, *Abstract intersection theory and operators in Hilbert space*, arXiv:0908.2909 (publ. CNTP 5 (2011) per the on-disk filename). On disk: t-43b.
 - **[BU2]** G. Banaszak, Y. Uetake, *Standard models of abstract intersection theory…*, arXiv:1210.3526. On disk: t-30b.
 - **[BU3]** G. Banaszak, Y. Uetake, *Abstract intersection theory for zeta-functions: geometric aspects*, Funct. Approx. Comment. Math. 64.2 (2021) 251–265. On disk: t-58a. (**Dated correction 2026-08-27:** the title was previously elided to "*…: geometric aspects*", whose antecedent in the preceding bullet is BU2's stem — the wrong one. Verified from page 1 and the p. 265 running head of the on-disk published PDF t-58a, and from Crossref DOI 10.7169/facm/1916.)
 - **[Ku92-line]** N. Kurokawa's absolute tensor product proposal (1992) and its proofs: Koyama–Kurokawa (`ζ ⊗ ζ`); H. Akatsuka, *The double Riemann zeta function*, Commun. Number Theory Phys. 3 (2009) 619–653 **[Ak09]**; Kurokawa–Wakayama; history and Dirichlet-L case in H. Tanaka, arXiv:2008.07752 **[Ta20]** (fetched and read at gate time — the line's history is cited through Tanaka's introduction; Akatsuka's full text is paywalled, flagged in the gate report).
-- **[Ha91]** S. Haran, *Index theory, potential theory, and the Riemann hypothesis*, in *L-functions and Arithmetic* (Durham, 1989), J. Coates and M. J. Taylor (eds.), London Math. Soc. Lecture Note Ser. 153, Cambridge Univ. Press, Cambridge, 1991, pp. 257–270 (MR1110396; DOI 10.1017/CBO9780511526053.010). The passage relied on is p. 259: `Spec Z × Spec Z ≅ Spec Z`, "the surface reduces to the diagonal!"; `⟨f, g⟩ := W(f * g*)` as the analytic intersection number of "Frobenius divisors" on the nonexisting surface; and "a two dimensional Riemann–Roch for Spec(Z) may very well exist!". Quoted verbatim and expanded in the survey K. Thas, *A taste of Weil theory in characteristic one*, in *Absolute Arithmetic and F₁-Geometry*, K. Thas (ed.), EMS Publishing House, Zürich, 2016, pp. 365–386 (DOI 10.4171/157-1/8); arXiv:1507.06480. **Dated correction, 2026-08-27:** the prior-art gate recorded arXiv:1507.06480 as Haran's own paper and this note inherited that; it is by **Koen Thas** (verified against the arXiv abstract page's `citation_author` metadata, the PDF title page, and the EMS volume contents). The content the gate extracted is Haran's, quoted by Thas from the 1991 chapter above; only the bibliographic pointer was wrong. **On disk (sponsor-fetched 2026-08-27): `fetched-r3/haran1991.pdf`, 14 pp, printed pages 257–270.** Every claim the §9 item-6 distinction makes is now **page-verified against Haran's own text**, not merely against Thas's survey. The three quotations are all on PDF page 3 = printed **p. 259**: “from the point of view of algebraic geometry, spec Z × spec Z = spec Z, i.e., the surface reduces to the diagonal!”; “for functions f, g : R⁺ → R smooth and compactly supported, to be thought of as representing ‘Frobenius divisors’ on the non-existing surface, we can define their intersection number: ⟨f, g⟩ = W(f * g*)”; and “Ergo our main point is: a two dimensional Riemann-Roch for spec Z may very well exist!”. The negative half of the distinction is confirmed by exhaustive search of the full text: zero occurrences of Tate curve, per-prime, isogeny or abelian variety; the only product of classical curves is `C × C` for a **single** curve over a **single** finite field F_p (p. 257, the Frobenius correspondences A_n = {(x, x^{pⁿ})} with A_0 = Diag), not a cross-prime product; and zero occurrences of any obstruction, impossibility or no-go claim — Haran's posture is existence-optimistic (“may very well exist!”). The five occurrences of “elliptic” are all in the bibliography and all denote **elliptic operators** (Atiyah, Bismut, Kasparov, Seeley — index theory), never elliptic curves.
-- **[BL]** C. Birkenhake, H. Lange, *Complex Abelian Varieties*, Springer, Ch. 2 and Ch. 5. (Citation at chapter level per the adjudicated record; every fact consumed from it is re-proved in §5 so nothing load-bearing rests on a recalled page number.)
+- **[Ha91]** S. Haran, *Index theory, potential theory, and the Riemann hypothesis*, in *L-functions and Arithmetic* (Durham, 1989), J. Coates and M. J. Taylor (eds.), London Math. Soc. Lecture Note Ser. 153, Cambridge Univ. Press, Cambridge, 1991, pp. 257–270; doi:10.1017/CBO9780511526053.010; Zbl 0744.11042. (MR1110396 is reported by secondary listings but was not verified against MathSciNet, which is unreachable from this machine; prefer the Zbl number and the DOI.) The passage relied on is p. 259: `Spec Z × Spec Z ≅ Spec Z`, "the surface reduces to the diagonal!"; `⟨f, g⟩ := W(f * g*)` as the analytic intersection number of "Frobenius divisors" on the nonexisting surface; and "a two dimensional Riemann–Roch for Spec(Z) may very well exist!". Quoted verbatim and expanded in the survey K. Thas, *A taste of Weil theory in characteristic one*, in *Absolute Arithmetic and F₁-Geometry*, EMS Press, 2016, pp. 365–386; doi:10.4171/157-1/8; arXiv:1507.06480 (v1, 23 Jul 2015). (Editor and place of publication are uncorroborated by Crossref and are dropped here; the DOI and page range are verified.) **Dated correction, 2026-08-27:** the prior-art gate recorded arXiv:1507.06480 as Haran's own paper and this note inherited that; it is by **Koen Thas** (verified against the arXiv abstract page's `citation_author` metadata, the PDF title page, and the EMS volume contents). The content the gate extracted is Haran's, quoted by Thas from the 1991 chapter above; only the bibliographic pointer was wrong. **On disk (sponsor-fetched 2026-08-27): `fetched-r3/haran1991.pdf`, 14 pp, printed pages 257–270.** Every claim the §9 item-6 distinction makes is now **page-verified against Haran's own text**, not merely against Thas's survey. The three quotations are all on PDF page 3 = printed **p. 259**: “from the point of view of algebraic geometry, spec Z × spec Z = spec Z, i.e., the surface reduces to the diagonal!”; “for functions f, g : R⁺ → R smooth and compactly supported, to be thought of as representing ‘Frobenius divisors’ on the non-existing surface, we can define their intersection number: ⟨f, g⟩ = W(f * g*)”; and “Ergo our main point is: a two dimensional Riemann-Roch for spec Z may very well exist!”. The negative half of the distinction is confirmed by exhaustive search of the full text: zero occurrences of Tate curve, per-prime, isogeny or abelian variety; the only product of classical curves is `C × C` for a **single** curve over a **single** finite field F_p (p. 257, the Frobenius correspondences A_n = {(x, x^{pⁿ})} with A_0 = Diag), not a cross-prime product; and zero occurrences of any obstruction, impossibility or no-go claim — Haran's posture is existence-optimistic (“may very well exist!”). The five occurrences of “elliptic” are all in the bibliography and all denote **elliptic operators** (Atiyah, Bismut, Kasparov, Seeley — index theory), never elliptic curves.
+- **[BL]** C. Birkenhake, H. Lange, *Complex Abelian Varieties*, 2nd augmented ed., Grundlehren der mathematischen Wissenschaften **302**, Springer, Berlin, 2004; doi:10.1007/978-3-662-06307-1; Ch. 2 (“Line Bundles on Complex Tori”) and Ch. 5 (“Endomorphisms of Abelian Varieties”). (Citation at chapter level per the adjudicated record; every fact consumed from it is re-proved in §5 so nothing load-bearing rests on a recalled page number.)
 - **[We52]** A. Weil's explicit formula (1952); used only through the normalization-hedged structural display of §1.3. Program-internal small-support calibration copy on disk: corpus u-23a (Bombieri 2000).
+
+**Added in the 2026-08-27 citation pass.** Every field below was verified against a primary source
+this session (arXiv abstract pages and PDFs, Crossref, zbMATH Open, Numdam, the Comptes Rendus
+publisher page, or the on-disk corpus); per-source evidence in
+`results/arxiv/citation-verification/`. Items not obtained in full text are marked.
+
+- **[Wi04]** J. Winkelmann, *On elliptic curves in `SL₂(C)/Γ`, Schanuel's conjecture and geodesic
+  lengths*, Nagoya Math. J. **176** (2004), 159–180; doi:10.1017/S0027763000009016;
+  arXiv:math/0204195 (v1, 15 Apr 2002; v2, 6 Nov 2002; v3, 8 Apr 2003). The author prints his
+  given name **Jörg**; arXiv's metadata ASCII-izes it. **Cite the arXiv/zbMATH/title-page form of
+  the title**: Crossref and Cambridge Core both render it with a spurious `Γ..`, a publisher-side
+  artifact. Pin-cites used here: Lemma 7 (the isogeny ⟺ `dim_Q ker Φ > 0` equivalence); the proof
+  of Theorem 2, p. 16 (the `4π²` criterion, the division step, and the one-partner conclusion);
+  Conjecture 1, §3.2, p. 13; Proposition 3, §3.2, p. 14 (Conjecture 1 under Schanuel). **The paper
+  has six sections; there is no §7.**
+- **[Dia97]** G. Diaz, *La conjecture des quatre exponentielles et les conjectures de D. Bertrand
+  sur la fonction modulaire*, J. Théor. Nombres Bordeaux **9** (1997), no. 1, 229–245;
+  http://www.numdam.org/item?id=JTNB_1997__9_1_229_0. (C4E faible) is displayed on **p. 231**,
+  attributed there to D. Bertrand; his Théorème 1 gives (C0) ⟺ (C6), and Propositions 1 and 3(1)
+  are unconditional partial results. JTNB volumes of that era carry no DOI; the Numdam item id is
+  the stable handle. Local copy:
+  `results/arxiv/citation-verification/assets/diaz-1997-jtnb9-quatre-exponentielles-numdam.pdf`.
+- **[Ber97]** D. Bertrand, *Theta functions and transcendence*, International Symposium on Number
+  Theory (Madras, 1996), Ramanujan J. **1** (1997), no. 4, 339–350; doi:10.1023/A:1009749608672;
+  Zbl 0916.11043. *(Paywalled and not read. The §5 locator is on Diaz's word — [Dia97, p. 231] and
+  its bibliography entry [2] — and on the zbMATH review, which is itself written by Diaz and is
+  therefore labeled here as non-independent.)*
+- **[Sch57]** Th. Schneider, *Einführung in die transzendenten Zahlen*, Grundlehren der
+  mathematischen Wissenschaften **81**, Springer-Verlag, Berlin–Göttingen–Heidelberg, 1957,
+  150 pp.; Ch. V, end of §4, Problem 1. French translation: *Introduction aux nombres
+  transcendants*, trans. P. Eymard, Gauthier-Villars, Paris, 1959, viii+151 pp., p. 139.
+  *(Not held. Chapter and problem locator per Waldschmidt [Wal04, §3]; catalog fields from
+  zbMATH.)*
+- **[Lan66a]** S. Lang, *Nombres transcendants*, Séminaire Bourbaki, 18e année (1965/66),
+  exp. no. 305, Feb. 1966, 407–414; http://www.numdam.org/item?id=SB_1964-1966__9__407_0. Local
+  copy: `results/arxiv/citation-verification/assets/lang-1966-seminaire-bourbaki-305-nombres-transcendants-numdam.pdf`.
+- **[Lan66b]** S. Lang, *Algebraic values of meromorphic functions. II*, Topology **5** (1966),
+  363–370; doi:10.1016/0040-9383(66)90028-0. *(Not read; its explicit formulation of the
+  four-exponentials conjecture is reported by Waldschmidt, LIL, Ch. 1.)* Waldschmidt's own Lang
+  locator is instead the book, S. Lang, *Introduction to Transcendental Numbers*, Addison-Wesley,
+  Reading, MA, 1966, Ch. II §1, and *Transcendental numbers and Diophantine approximations*,
+  Bull. Amer. Math. Soc. **77** (1971), 635–677, at p. 638.
+- **[Ram68]** K. Ramachandra, *Contributions to the theory of transcendental numbers. I, II*,
+  Acta Arith. **14** (1968), 65–72 and 73–88; doi:10.4064/aa-14-1-65-72. The four-exponentials
+  conjecture is formulated in part II, §4.
+- **[Wal04]** M. Waldschmidt, *Open Diophantine Problems*, Mosc. Math. J. **4** (2004), no. 1,
+  245–305; doi:10.17323/1609-4514-2004-4-1-245-305; arXiv:math/0312440. Conjecture 3.7 and the
+  matrix restatement immediately following it, p. 269. **Do not cite the AWS Lecture 5 notes for
+  the weak four-exponentials conjecture**: verified 2026-08-27, their Conjectures 5.34 and 5.35
+  are D. Bertrand's conjectures on the modular function `J`, the four-exponentials conjecture
+  there is Conjecture 5.11 and the strong form Conjecture 5.8, and the weak form does not appear
+  in that document at all.
+- **[BDGP96]** K. Barré-Sirieix, G. Diaz, F. Gramain and G. Philibert, *Une preuve de la conjecture
+  de Mahler–Manin*, Invent. Math. **124** (1996), no. 1–3, 1–9; doi:10.1007/s002220050044.
+- **[Roy92]** D. Roy, *Matrices whose coefficients are linear forms in logarithms*, J. Number
+  Theory **41** (1992), no. 1, 22–47; doi:10.1016/0022-314X(92)90081-Y. *(Not read; content via
+  Diaz. Note that Waldschmidt's "[Ro 1992]" in* Open Diophantine Problems *is a different Roy 1992
+  paper.)*
+- **[Dia07]** G. Diaz, *Produits et quotients de combinaisons linéaires de logarithmes de nombres
+  algébriques : conjectures et résultats partiels*, J. Théor. Nombres Bordeaux **19** (2007),
+  no. 2, 373–391; doi:10.5802/jtnb.592. Corollaire 1(1) is the instrument that does not reach
+  (T1), because it needs `(λ₀, λ₂, λ̄₂)` **Q̄**-linearly free and `λ₂ = log q` is real.
+  (Crossref's 2008 date is a deposit date; the cover page says 2007.)
+- **[AE44]** L. Alaoglu and P. Erdős, *On highly composite and similar numbers*, Trans. Amer.
+  Math. Soc. **56** (1944), 448–469; doi:10.1090/S0002-9947-1944-0011087-2. The two-prime question
+  is stated at **p. 449** — *"If `p` and `q` are different primes, is it true that `p^x` and `q^x`
+  are both rational only if `x` is an integer?"* — and again at p. 455, where Siegel's three-prime
+  result is recorded.
+- **[CC16b]** A. Connes and C. Consani, *The scaling site*, C. R. Math. Acad. Sci. Paris **354**
+  (2016), no. 1, 1–6; doi:10.1016/j.crma.2015.09.027; arXiv:1507.05818 (v1, 21 Jul 2015).
+- **[CC17]** A. Connes and C. Consani, *Geometry of the scaling site*, Selecta Math. (N.S.) **23**
+  (2017), no. 3, 1803–1850; doi:10.1007/s00029-017-0313-y; arXiv:1603.03191.
+- **[CC19]** A. Connes and C. Consani, *The Riemann–Roch strategy: Complex lift of the Scaling
+  Site*, in: *Advances in Noncommutative Geometry* (A. Chamseddine, C. Consani, N. Higson,
+  M. Khalkhali, H. Moscovici and G. Yu, eds.), Springer, Cham, **2019**, 53–125;
+  doi:10.1007/978-3-030-29597-4_2; arXiv:1805.10501. Its §§6.4–6.6 carry the CC program's own
+  moduli of triangular elliptic curves with the equivalence relation generated by isogenies —
+  adjacent to the construction here and previously uncited. (CC's own bibliographies date the
+  chapter 2020; that is the online-first date.)
+- **[CC24a]** A. Connes and C. Consani, *Knots, primes and the adele class space*,
+  arXiv:2401.08401 (January 2024). Its §3 constructs `Γ \ (Q_p × Q_q × R)` with
+  `Γ = {± p^m q^n}` — a genuine two-prime object inside the CC program, predating the lineage
+  this note claimed. **Distinction:** a knot/linking-number analogy, not a correspondence calculus:
+  no Néron–Severi group, no intersection pairing on a product of curves, no explicit formula.
+- **[Mor25]** M. Morishita, *On a relation between Deninger's foliated dynamical systems and
+  Connes–Consani's adelic spaces*, arXiv:2508.15971 (August 2025; revised through 21 Jan 2026);
+  to appear in Münster J. Math. *(announced by the author; not independently verified)*. Single
+  author. The current bridge between the two traditions this note keeps alive (§8).
+- **[RS14]** J. Rosen and A. Shnidman, *Néron–Severi groups of product abelian surfaces*,
+  arXiv:1402.2233 (2014); Proposition 2.3. Unpublished preprint as of August 2026; add no journal
+  reference. They preface the decomposition "is well-known", so cite as a locator ("see e.g."),
+  never as its origin.
+- **[Nes96]** Yu. V. Nesterenko, *Modular functions and transcendence questions*, Mat. Sb. **187**
+  (1996), no. 9, 65–96; doi:10.4213/sm158; English transl., Sb. Math. **187** (1996), no. 9,
+  1319–1348; doi:10.1070/SM1996v187n09ABEH000158. With Yu. V. Nesterenko and P. Philippon (eds.),
+  *Introduction to Algebraic Independence Theory*, Lecture Notes in Math. **1752**, Springer,
+  Berlin, 2001; doi:10.1007/b76882.
+- **[Mil16]** J. S. Milne, *The Riemann hypothesis over finite fields: from Weil to the present
+  day*, in: *The Legacy of Bernhard Riemann After One Hundred and Fifty Years*, Vol. II (L. Ji,
+  F. Oort and S.-T. Yau, eds.), Adv. Lect. Math. (ALM) **35**, part 2, International Press and
+  Higher Education Press, 2016, 487–565; reprinted in ICCM Notices **4** (2016), no. 2, 14–52;
+  doi:10.4310/ICCM.2016.v4.n2.a4; arXiv:1509.00797. Cited in §5(d) as a published locus for the
+  classical Castelnuovo–Severi inequality (his Theorem 1.5, §1), so a referee need not follow a
+  program-internal file path.
+
 - **Program files:** `directions/C3-geometric-substrate.md` (commission + adjudication + C3-r); `results/adjudication-C3.json`; `results/verdicts-c3d1.json`; `results/c3-r/prior-art-r7a.md`; `results/c3-r/m1-noncircularity.md`; `BARRIER-ZOO.md` (entry IV.10); `results/c3-r/seed-no-go-checks.{py,json}` (this note's numerics).
 
 ---
