@@ -301,7 +301,7 @@ zeros of Section 4, which post-date and strengthen that wording).
 
 ## 8. Exploratory lambda' scan (OUTSIDE THE PROVEN LADDER; payoff-curve data only)
 
-**Labeling (binding):** lambda' > 1/2 + o(1) is OUTSIDE the proven theta < 1 ladder regime, and
+**Labeling (binding):** lambda' > 1/2 + o(1) is OUTSIDE the proven ladder regime (offset exponent below 1), and
 values there are quarantined from every certificate claim; these are payoff-curve data, NOT
 certificate claims; column generation ran at reduced budget, so positive values are heuristic
 upper-anchored [R: RUN 4.4 label; the quarantine is recorded in

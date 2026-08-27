@@ -151,11 +151,12 @@ $\Nd/N \ge 0.85082$ with the window $\cos(8s/5)$ (consuming also~\cite{BHB13}'s
 $N^s/N \ge 19/27$ on RH). The proposal examined here is that a slice of this
 becomes
 unconditional: at bandwidth
-$\lambda' = 1/2 + \theta \log\log T/\log T$ (strictly inside the $k = 3$
+$\lambda' = 1/2 + \vartheta \log\log T/\log T$, for a fixed offset exponent
+$\vartheta > 0$ (strictly inside the $k = 3$
 Rudnick--Sarnak range $X^3 \le T^{2 - \varepsilon}$), the signed cubic trace is
 computable by the parent's Section~5 diagonal method, and a Schatten-$3$
 spectral-tail theorem (in its repaired form: an all-$V$ eigenvalue-count ladder
-$n(V) \le \Cled N V^{-4}$, $\theta < 1$ strict) would cap the spectral escape that
+$n(V) \le \Cled N V^{-4}$, $\vartheta < 1$ strict) would cap the spectral escape that
 the parent's own odd-moment no-go (Section~7.5(e) of the 35-page version; the
 same item is \S7.2(e) of v5 --- see the version pin in the References)
 identifies, making the cubic row a usable sign-sensitive constraint. The
@@ -270,7 +271,7 @@ $\delta_0 := P_{\mathrm{full}} - P_{\mathrm{base}} > 0$.
 Throughout, ``Rudnick--Sarnak-range cubic augmentation with capacity control''
 (the title phrase, fixed in the pre-registered specification recorded with the
 data and code; see \emph{Provenance, data and code}) means exactly this
-$\lambda' = 1/2 + o(1)$ system, with $\theta < 1$ strict --- the only point in
+$\lambda' = 1/2 + o(1)$ system, with $\vartheta < 1$ strict --- the only point in
 the RS range where both the signed cubic row and
 the capacity ladder are unconditionally licensed; the behavior of the cubic row
 at $\lambda' \ge 0.6$, inside the RS range but outside the proven ladder regime,
@@ -506,7 +507,9 @@ analog of the continuum $\tr G^2 = \sum m\, m'\, \psi_\lambda^2$.
 
 A \textbf{column}, also called an \textbf{admissible} configuration below, is an
 explicit $N$-periodic marked configuration: on-line atoms
-(positions $\theta_i \in [0, N)$, integer marks $1 \le m_i \le W$) and off-line
+(positions $\theta_i \in [0, N)$ --- positions are written $\theta$ throughout,
+never to be confused with the offset exponent $\vartheta$ of
+Section~\ref{sec:intro} --- integer marks $1 \le m_i \le W$) and off-line
 pairs (position, dimensionless depth $w$ in the family $(0, 1]$ plus deep probes
 $\{1.5, 2\}$, pair multiplicity $m$), with mass
 $\sum m_i + 2 \sum m_p = N$ per period. A \textbf{law} is a probability mixture
@@ -2273,7 +2276,7 @@ family is admissible for the whole system at a weakly smaller objective.
 \item \textbf{It kills the scalar row, not the underlying idea.} The vacuity is about
   the AS-WRITTEN system, whose count/tail information starts only at $V_0$. The
   proposal's own Chebyshev proof in fact yields the all-$V$ ladder
-  $n(V) \le \Cled N V^{-4}$ for every $V \ge C$ at $\theta < 1$ --- more than the
+  $n(V) \le \Cled N V^{-4}$ for every $V \ge C$ at $\vartheta < 1$ --- more than the
   divergent-cutoff form in which it was stated; under THAT
   system the garnish channel is not free but capped, and the cap is exactly
   Theorem~\ref{thm:capacity}'s $2\sqrt{2}\sqrt{\Cled \varepsilon_g}\, N = o(N)$.
@@ -2456,7 +2459,7 @@ ladder)}
 \label{sec:payoff}
 
 One caution before the numbers: $\lambda' > 1/2 + o(1)$ is OUTSIDE the proven
-$\theta < 1$ ladder regime; these
+$\vartheta < 1$ ladder regime; these
 are payoff-curve data for the moderate-deviation target
 $\mathrm{MD}(\lambda, \delta)$, NOT certificate claims; column generation ran at
 reduced budget, so positive values are heuristic and upper-anchored.
@@ -2514,7 +2517,7 @@ its honestly labeled boundary.
 \item \textbf{What is left standing, and what remains open, along this line:}
   (i) the repaired spectral-tail statement as a standalone analytic result
   (all-$V$ count ladder with explicit
-  $\Cled$, $\theta < 1$ strict, $C^3$ taper); separately, its fixed-$\lambda$
+  $\Cled$, $\vartheta < 1$ strict, $C^3$ taper); separately, its fixed-$\lambda$
   divergent-cutoff form,
   $V_0 = T^{2\lambda - 1 + \varepsilon}$, extends to all
   $\lambda \in (1/2, 2/3)$ via the fourth-moment Montgomery--Vaughan branch alone
@@ -2523,7 +2526,7 @@ its honestly labeled boundary.
   ladder; (ii) partial orthonormalization off the $o(N)$-dimensional exceptional
   subspace, where a divergent cutoff SUFFICES (unlike the cubic LP) ---
   rank-perturbation bookkeeping already in the formalized linear-algebra library;
-  (iii) the near-critical observation $X^2/T = (\log T)^{2\theta} = $ polylog,
+  (iii) the near-critical observation $X^2/T = (\log T)^{2\vartheta} = $ polylog,
   shrinking the shift range needed by quartic Hardy--Littlewood-type input for
   shifted prime pairs to logarithmic --- a possible route via averaged
   Goldston--Montgomery / Montgomery--Soundararajan results; (iv)
