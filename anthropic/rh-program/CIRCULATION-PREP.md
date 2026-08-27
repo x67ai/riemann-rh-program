@@ -70,10 +70,17 @@ anticipated-by), citations to add, and the searches run.
 
 ## STEP 3 — LaTeX conversion + arXiv-submittable PDFs
 
-**STATUS: IN PROGRESS for the three C3-r notes (2026-08-27, workflow wf_6fb7779d-f10, one
-converter per note, output under results/arxiv/); the A4 paper conversion WAITS for step 1c's
-verdict, then runs with the same rules. If this session died mid-run: check results/arxiv/ for
-committed main.tex/main.pdf per note; anything missing is TODO.** TeX Live 2026 is installed and verified working:
+**STATUS: three C3-r notes DONE (2026-08-27) — `results/arxiv/{m0-axiom,m1-noncirc,seed-no-go}/`
+each with main.tex + main.pdf, compiled clean (10/8/16 pp), first pages visually checked.
+Converter caveats logged in the workflow output; a web spot-check of all bibliography entries the
+converters completed from outside the source notes (Blomer–Leung initials, Broucke-school titles,
+Mattuck–Tate/Stepanov, arXiv:2606.06604, [4EC] Lang/Waldschmidt, Weil 1952) is running — apply
+its FIX items to the .tex files and rebuild. Content amendment made: m1's stale
+"End(E_p) = Z barring the unproven coincidence" hedge amended (dated 2026-08-27) in
+m1-noncircularity.md + main.tex to cite the seed note's unconditional Gelfond–Schneider
+refutation; PDF rebuilt. The A4 paper conversion (wording-final after step 1c) is IN PROGRESS
+(single agent, output results/arxiv/a4-no-go/); if dead, treat as TODO with the same conversion
+rules as the notes.** TeX Live 2026 is installed and verified working:
 `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"` (pdflatex 1.40.29; `tlmgr`
 available; the "no TeX on this machine" notes in STATUS.md/LOG.md are stale — install nothing).
 One subdirectory per paper under `results/arxiv/` (`a4-no-go/`, `m0-axiom/`, `m1-noncirc/`,
