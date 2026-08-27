@@ -291,6 +291,38 @@ not four.
 `check-submittable.sh`, and the suggested categories and MSC classes for all four are in
 `results/arxiv/README.md`.
 
+## STEP 6 — pre-posting blockers (opened and mostly closed, 2026-08-27)
+
+Answering the sponsor's "can they be published?" turned up one real blocker beyond the citation
+work, and raised two questions that were his to settle. Status:
+
+1. **The A4 paper's evidence base was unreachable — FIXED.** Its Provenance section cited thirteen
+   file paths inside a repository that returned HTTP 404, and its body referred to "Session 8",
+   "this session" and "the binding adjudication, survives-with-repairs 5.5" as if those were
+   citable authorities. Thirty edits to `results/arxiv/a4-no-go/main.tex`: the internal vocabulary
+   is now *defined* before use, every session reference is a date or neutral phrasing, and the
+   evidence list is a proper "Data and code availability" statement. The seed note was already
+   externalized and gained the matching statement. **The source `.md` files are unchanged** — they
+   are the internal record, where the internal words are the right ones.
+2. **Repository visibility — CLOSED by the sponsor.** The repo is public and is to stay public
+   (verified: HTTP 200, `private: false`). Both outgoing papers cite it.
+3. **Authorship and AI disclosure — CLOSED by the sponsor.** Author is **Kunal Tyagi**, email
+   `hello.jay.tyagi@gmail.com`, and Claude is disclosed openly and *specifically* in a title-page
+   footnote on all four papers — what it did, that it is a tool and not an author, and that the
+   author is responsible. See `results/arxiv/README.md` for the exact wording and for a plain
+   statement of what opening the repository publishes.
+4. **arXiv endorsement — OPEN, and only the sponsor can clear it.** A first-time `math.NT`
+   submitter needs an endorsement from an established author. This is a hard gate and nothing in
+   the repository removes it.
+
+**A distinction that was blurred earlier and should not be again:** *posting to arXiv* (a preprint
+server, no peer review) and *journal publication* (peer review) are different bars. The
+recommendation in STEP 5 is for arXiv. For a journal, neither paper is ready as it stands: the A4
+paper builds on a parent that is itself weeks old and unrefereed and is long for a negative result,
+and the seed note — with the attribution now correct — is a short note whose content is an assembly
+of known results applied to a new object, which a referee may reasonably call a remark rather than a
+paper. Post first; treat journal submission as a later, separate decision.
+
 ## Housekeeping
 
 Per `~/.claude/CLAUDE.md`: `caffeinate` + push watchdog at session top; commit small and often;

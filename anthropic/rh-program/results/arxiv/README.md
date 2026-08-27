@@ -95,10 +95,44 @@ upload `main.aux`/`main.log`/`main.out`.
 | Field | What to enter |
 |---|---|
 | Title / Abstract | Paste from the paper's `abstract.txt` (line 1 is the title, the rest is the abstract). Inline `$…$` is accepted in arXiv abstracts. |
-| Authors | Jay Tyagi |
-| Comments | Page count, and — where it applies — a pointer to the companion material, e.g. "Companion notes are cited as supplementary material and are not part of this submission." |
+| Authors | Kunal Tyagi (`hello.jay.tyagi@gmail.com`) — set on all four title pages 2026-08-27, with the AI-use footnote below it. |
+| Comments | Page count; a pointer to the companion material where it applies ("Companion notes are cited as supplementary material and are not part of this submission"); and the repository, `Code and data: https://github.com/x67ai/riemann-rh-program`. |
 | License | The sponsor's choice. arXiv's default (`arXiv.org perpetual, non-exclusive license`) is the least restrictive to the author. |
 | Journal-ref / DOI / Report-no | Leave blank. |
+
+### Settled 2026-08-27 — authorship, disclosure, and the repository
+
+Three things that were open when the packages were built are now closed, at the sponsor's
+direction. They are recorded here because each is visible on the title page and a later session
+must not undo them.
+
+* **Author.** All four title pages read **Kunal Tyagi**, with `hello.jay.tyagi@gmail.com` in the
+  author footnote. (They previously read "Jay Tyagi".)
+* **Use of AI, disclosed openly and specifically.** The author footnote on every title page reads:
+  *"The mathematics in this paper — the derivations, the computations, the verification suite, and
+  the text — was produced by Claude (Anthropic) working under the author's direction inside a
+  structured research program; the author set the program's objectives, adjudicated its decisions,
+  and is responsible for the content. Claude is a tool and is not an author."* This is deliberately
+  specific rather than a vague "AI-assisted": a reader who wants to know what the tool did is told,
+  on page 1, without having to infer it. It also matches what arXiv and most journals require —
+  a generative system cannot be an author, a human takes responsibility, and the use is declared.
+* **The repository is public and is to stay public** (verified 2026-08-27: HTTP 200,
+  `private: false`). Both outgoing papers cite it by URL in a "Data and code availability"
+  statement, with a commit pin and the note that the fetched PDF corpus is deliberately not
+  redistributed for copyright reasons. **Nothing in either paper depends on the corpus**; every
+  external claim is cited to its published source.
+
+**What opening the repository actually publishes**, stated plainly so it is a knowing choice: not
+only the papers' evidence, but the whole program record — `LOG.md`, `STATUS.md`, `BARRIER-ZOO.md`,
+every referee report and adjudication, the probe notes that carry unpaid referee debts, and the
+session-by-session history of what was tried, what was wrong, and what was corrected. On balance
+that is an asset rather than a liability: it is a fuller audit trail than almost any paper ships
+with, and it makes the disclosure above unfalsifiable. But it does mean a reader can find the
+program's mistakes, including the ones this session fixed.
+
+**Still outstanding, and only the sponsor can do it: arXiv endorsement.** A first-time submitter to
+`math.NT` needs an endorsement from an established author before anything can be posted. Nothing in
+this directory removes that gate.
 
 ### Suggested categories and MSC classes
 
