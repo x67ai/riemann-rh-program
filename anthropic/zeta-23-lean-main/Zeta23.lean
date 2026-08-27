@@ -23,3 +23,4 @@ import Zeta23.DBN.Defs
 import Zeta23.W1.Format
 import Zeta23.W1.Checker
 import Zeta23.W1.Examples
+import Zeta23.W1.Soundness

@@ -14,7 +14,7 @@ Nothing here is "fully machine-checked".
 
 | suite item | result |
 |---|---|
-| 1. Null tests (4 rectangles × 2 legs, m = 0) | **PASS** — all produced transcripts ACCEPTED by both checkers (mp t10000 leg: see §1 note) |
+| 1. Null tests (4 rectangles × 2 legs, m = 0) | **PASS** — all 8 transcripts ACCEPTED by both checkers |
 | 2. Positive control (straddling box, machinery test) | **PASS** — both legs' machinery certify m = 1; both checkers REJECT the transcript at exactly C2, as the format requires |
 | 3. DH live fire (checker-level true positive, D-R8) | **PASS** — both legs, identical rectangle around ρ_DH, m = 1, ACCEPTED by both checkers |
 | 4. Two-producer cross-check | **CONSISTENT** — every pair cell-wise consistent on the common mesh refinement; zero stop-the-line events |
@@ -33,7 +33,7 @@ Four rectangles strictly right of the critical line, both producer legs each, mo
 | [3/5, 9/10] × [100, 101] | 1/10 | arb | 27 | 0.09 | [−14, 13]·10⁻⁶ | 0.08328 |
 | [3/5, 9/10] × [1000, 1001] | 1/10 | mp | 81 | 8.6 | [−41, 40]·10⁻¹² | 0.015573 |
 | [3/5, 9/10] × [1000, 1001] | 1/10 | arb | 65 | 0.14 | [−29, 36]·10⁻⁶ | 0.013827 |
-| [3/5, 9/10] × [10000, 10001] | 1/10 | mp | [PENDING-MP-T10000-SEGS] | [PENDING-MP-T10000-WALL] | [PENDING-MP-T10000-S] | [PENDING-MP-T10000-FLOOR] |
+| [3/5, 9/10] × [10000, 10001] | 1/10 | mp | 1294 | 1564.7 | [−679, 637]·10⁻¹² | 8.13·10⁻⁵ |
 | [3/5, 9/10] × [10000, 10001] | 1/10 | arb | 983 | 2.6 | [−495, 488]·10⁻⁶ | 7.64·10⁻⁶ |
 | [21/40, 39/40] × [100, 101] | 1/40 | mp | 58 | 1.1 | [−28, 30]·10⁻¹² | 0.35550 |
 | [21/40, 39/40] × [100, 101] | 1/40 | arb | 30 | 0.09 | [−16, 14]·10⁻⁶ | 0.03052 |
@@ -138,7 +138,7 @@ Record (`acceptance/logs/crosscheck.log`):
 |---|---|---|
 | null t100 | 83 | CONSISTENT |
 | null t1000 | 158 | CONSISTENT |
-| null t10000 | [PENDING-MP-T10000-XCHECK] | [PENDING-MP-T10000-XVERDICT] |
+| null t10000 | 2547 | CONSISTENT |
 | null deep-t100 | 90 | CONSISTENT |
 | DH live fire | 122 | CONSISTENT |
 | positive control | 295 | CONSISTENT |
@@ -152,8 +152,8 @@ Independent high-precision spot validation (binding cross-validation rule):
 certificate; a failure would be stop-the-line) run over the acceptance transcripts of
 BOTH legs: V1 five boundary samples per segment inside every value box, V2 dense
 principal-argument unwrapping reproduces every claimed m, V3 sampled boundary minima
-respect every claimed floor — **all checks pass on all transcripts tested**
-(`acceptance/logs/independent-validation.log`, `…-t10000.log`).
+respect every claimed floor — **all checks pass on all 10 transcripts**
+(`acceptance/logs/independent-validation.log`, `…-t10000.log`, `…-mp-t10000.log`).
 
 ## 5. Cost curve (M3 search-economics calibration, first data points)
 
@@ -168,7 +168,7 @@ first points:
   count (0.09 → 0.14 → 2.6 s). The mp leg pays additionally per evaluation for the
   Euler–Maclaurin term count N ≈ T/2 (measured ~0.7 s per segment evaluation at
   T = 10⁴ vs ~0.02 s at T = 10²), so its wall time grows faster
-  (1.0 → 8.6 → [PENDING-MP-T10000-WALL] s).
+  (1.0 → 8.6 → 1565 s; mp segments 52 → 81 → 1294).
 * **Depth axis (T = 100):** δ₀ = 1/40 vs 1/10 cost essentially the same on both legs
   (30 vs 27 arb segments; 1.1 vs 1.0 mp s). At T ~ 100 the depth is not yet the
   binding cost driver; the D-R6 caveat (δ₀ → 1/log γ boxes must be priced before M3
@@ -196,7 +196,8 @@ cost curve's T ≤ 10⁴ points are calibration seeds, not that regime).
 
 ## 7. Honest notes (no failures; residual gaps recorded)
 
-1. **The mp t10000 null test is the slow point of the suite** ([PENDING-MP-T10000-NOTE]).
+1. **The mp t10000 null test is the slow point of the suite** (26.1 min wall, 1294
+   segments, vs 2.6 s for the arb leg on the same box — a ~600× leg gap at T = 10⁴).
    The mp leg's per-evaluation Euler–Maclaurin cost N ≈ T/2 is the driver; per-edge
    parallelism and a Riemann–Siegel-class evaluator are the known (uncommissioned)
    remedies for M3-scale heights.
