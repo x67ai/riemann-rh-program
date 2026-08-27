@@ -574,7 +574,7 @@ Process provenance: the seed kill was constructed independently by two killer ag
 
 ### References
 
-- **[CC26]** A. Connes, C. Consani, *On the Absolute Geometry of Spec Z and the Fargues–Fontaine curve*, arXiv:2606.06604 (June 2026). On disk: corpus u-15b; full-text extraction `sources-extracted/arxiv-2606.06604-absolute-geometry-specZ-fulltext.txt`.
+- **[CC26]** A. Connes, C. Consani, *On the Absolute Geometry of Spec Z and the Fargues–Fontaine curve*, arXiv:2606.06604 (June 2026). **Title note, 2026-08-27 (read before "correcting" this entry):** the clause "and the Fargues–Fontaine curve" is absent from **every** arXiv metadata surface — the abs page's `<h1>`, the `citation_title` meta tag, the API, the PDF's own metadata dictionary — and from zbMATH; it survives only on the typeset title page and in arXiv's HTML rendering of the LaTeX `\title{}`. It is part of the title and must be kept. (This supersedes an earlier note in this program which diagnosed the omission as an API truncation at a TeX macro; the conclusion was right, the mechanism was not.) On disk: corpus u-15b; full-text extraction `sources-extracted/arxiv-2606.06604-absolute-geometry-specZ-fulltext.txt`.
 - **[CC25]** A. Connes, C. Consani, *Knots, primes and class field theory*, arXiv:2501.06560 (January 2025). On disk: corpus u-18b. (**Dated correction, 2026-08-27:** this note previously named [CC25] as the first appearance of the per-prime elliptic-curve analogue. It is not — it cites [CC17] for that. Its own contribution is a functor from finite abelian extensions of **Q** to finite covers of `X_Q`, under which the monodromy of the periodic orbit of length `log p` corresponds to the Galois action of Frobenius at `p`. Its full text contains no occurrence of “isogen” or “Tate”.)
 - **[CC16]** A. Connes, C. Consani, *Geometry of the arithmetic site*, Adv. Math. **291** (2016), 274–329; doi:10.1016/j.aim.2015.11.045; arXiv:1502.05580. (Cited for the char-one square + Frobenius correspondences; fields completed 2026-08-27.)
 - **[CE15]** A. Connes, *An essay on the Riemann Hypothesis*, in: *Open Problems in Mathematics* (J. F. Nash Jr. and M. Th. Rassias, eds.), Springer, Cham, 2016, pp. 225–257; doi:10.1007/978-3-319-32162-2_5; arXiv:1509.05576, §4.3.2. On disk: corpus t-20b (stall quote program-verified; pin-cite by section, since the arXiv and book folios differ by about +224).
@@ -610,9 +610,12 @@ publisher page, or the on-disk corpus); per-source evidence in
   `results/arxiv/citation-verification/assets/diaz-1997-jtnb9-quatre-exponentielles-numdam.pdf`.
 - **[Ber97]** D. Bertrand, *Theta functions and transcendence*, International Symposium on Number
   Theory (Madras, 1996), Ramanujan J. **1** (1997), no. 4, 339–350; doi:10.1023/A:1009749608672;
-  Zbl 0916.11043. *(Paywalled and not read. The §5 locator is on Diaz's word — [Dia97, p. 231] and
-  its bibliography entry [2] — and on the zbMATH review, which is itself written by Diaz and is
-  therefore labeled here as non-independent.)*
+  Zbl 0916.11043. *(Paywalled and not read; the bibliographic fields are verified against Crossref
+  and zbMATH. The §5 locator is on Diaz's word — [Dia97, p. 231] and its bibliography entry [2] —
+  and on the zbMATH review, which is itself written by Diaz and is therefore non-independent. Cite
+  it as "Bertrand, Ramanujan J. **1** (1997), §5, as reported by Diaz". Note also that
+  "January 1996" is Diaz's prose; the printed conference designation is "International Symposium on
+  Number Theory (Madras, 1996)".)*
 - **[Sch57]** Th. Schneider, *Einführung in die transzendenten Zahlen*, Grundlehren der
   mathematischen Wissenschaften **81**, Springer-Verlag, Berlin–Göttingen–Heidelberg, 1957,
   150 pp.; Ch. V, end of §4, Problem 1. French translation: *Introduction aux nombres
@@ -622,6 +625,10 @@ publisher page, or the on-disk corpus); per-source evidence in
 - **[Lan66a]** S. Lang, *Nombres transcendants*, Séminaire Bourbaki, 18e année (1965/66),
   exp. no. 305, Feb. 1966, 407–414; http://www.numdam.org/item?id=SB_1964-1966__9__407_0. Local
   copy: `results/arxiv/citation-verification/assets/lang-1966-seminaire-bourbaki-305-nombres-transcendants-numdam.pdf`.
+  *(Exposé number, title, date and page range verified from the Numdam item page. Calling this "a
+  later explicit formulation" of the four-exponentials conjecture is Waldschmidt's characterization,
+  not the page's: on the page itself the statement appears as one sentence of wishing — "On voudrait
+  bien réduire d'une unité le nombre 3…" — not as a numbered conjecture.)*
 - **[Lan66b]** S. Lang, *Algebraic values of meromorphic functions. II*, Topology **5** (1966),
   363–370; doi:10.1016/0040-9383(66)90028-0. *(Not read; its explicit formulation of the
   four-exponentials conjecture is reported by Waldschmidt, LIL, Ch. 1.)* Waldschmidt's own Lang
@@ -629,8 +636,9 @@ publisher page, or the on-disk corpus); per-source evidence in
   Reading, MA, 1966, Ch. II §1, and *Transcendental numbers and Diophantine approximations*,
   Bull. Amer. Math. Soc. **77** (1971), 635–677, at p. 638.
 - **[Ram68]** K. Ramachandra, *Contributions to the theory of transcendental numbers. I, II*,
-  Acta Arith. **14** (1968), 65–72 and 73–88; doi:10.4064/aa-14-1-65-72. The four-exponentials
-  conjecture is formulated in part II, §4.
+  Acta Arith. **14** (1968), 65–72 and 73–88. These are **two** papers; the DOI
+  doi:10.4064/aa-14-1-65-72 covers **part I only**, and part II's has not been verified, so none is
+  attached to it. The four-exponentials conjecture is formulated in **part II, §4**.
 - **[Wal04]** M. Waldschmidt, *Open Diophantine Problems*, Mosc. Math. J. **4** (2004), no. 1,
   245–305; doi:10.17323/1609-4514-2004-4-1-245-305; arXiv:math/0312440. Conjecture 3.7 and the
   matrix restatement immediately following it, p. 269. **Do not cite the AWS Lecture 5 notes for
@@ -640,6 +648,11 @@ publisher page, or the on-disk corpus); per-source evidence in
   in that document at all.
 - **[BDGP96]** K. Barré-Sirieix, G. Diaz, F. Gramain and G. Philibert, *Une preuve de la conjecture
   de Mahler–Manin*, Invent. Math. **124** (1996), no. 1–3, 1–9; doi:10.1007/s002220050044.
+  *(Bibliographic fields verified against Crossref and zbMATH. The theorem statement used here —
+  for `q` algebraic with `0 < |q| < 1`, `J(q)` is transcendental — was read at one remove, from
+  Waldschmidt's Séminaire Bourbaki exposé 824, Astérisque **245** (1997), p. 108, and from the
+  zbMATH review, which agree verbatim; Springer is paywalled and the paper's own first page was not
+  read.)*
 - **[Roy92]** D. Roy, *Matrices whose coefficients are linear forms in logarithms*, J. Number
   Theory **41** (1992), no. 1, 22–47; doi:10.1016/0022-314X(92)90081-Y. *(Not read; content via
   Diaz. Note that Waldschmidt's "[Ro 1992]" in* Open Diophantine Problems *is a different Roy 1992

@@ -490,7 +490,9 @@ PDF, and the Göttingen (GDZ) publisher-grade scan of Grothendieck 1958. Per-sou
 
 - **[Anc21]** G. Ancona, *Standard conjectures for abelian fourfolds*, Invent. Math. **223**
   (2021), no. 1, 149–212; doi:10.1007/s00222-020-00990-7; arXiv:1806.03216. §1 ("Brief historical
-  panorama") and Lemma 7.10; numbering as in arXiv:1806.03216v3.
+  panorama") and Lemma 7.10; numbering as in arXiv:1806.03216v3. *(v3 post-dates Springer's
+  online publication by four days and is very likely the published text, but that is an inference,
+  not a verification.)*
 - **[Bom00]** E. Bombieri, *Problems of the Millennium: the Riemann Hypothesis*, official problem
   description, Clay Mathematics Institute, 2000, 11 pp.;
   https://www.claymath.org/wp-content/uploads/2022/05/riemann.pdf. The passage used here is on
@@ -571,11 +573,16 @@ PDF, and the Göttingen (GDZ) publisher-grade scan of Grothendieck 1958. Per-sou
   elementary auxiliary-polynomial route named in the footnote to the Status paragraph above.
 - **[VV88]** I. Vainsencher and J. F. Voloch, *On the Castelnuovo–Severi inequality*, J. reine
   angew. Math. **390** (1988), 114–116; doi:10.1515/crll.1988.390.114; Zbl 0646.14003. *(Not read;
-  De Gruyter paywall.)*
+  De Gruyter paywall, EuDML 403, GDZ a JavaScript shell. The zbMATH review reports a sharpened
+  inequality improving Kani rather than a re-proof of the bare Castelnuovo–Severi bound, and that
+  is how it is described here.)*
 - **[YZ17]** X. Yuan and S.-W. Zhang, *The arithmetic Hodge index theorem for adelic line
   bundles*, Math. Ann. **367** (2017), no. 3–4, 1123–1171; doi:10.1007/s00208-016-1414-1;
-  arXiv:1304.3538 (there titled "… for adelic line bundles I: number fields"). The sequel,
-  *… II: finitely generated fields*, arXiv:1304.3539 (2013; v2, 2021), remains unpublished.
+  arXiv:1304.3538 (there titled "… for adelic line bundles I: number fields"). The published
+  title carries **no** roman numeral.
+- **[YZ-II]** X. Yuan and S.-W. Zhang, *The arithmetic Hodge index theorem for adelic line bundles
+  II: finitely generated fields*, preprint, arXiv:1304.3539 (2013; v2, 2021). Unpublished as of
+  August 2026 — a separate paper, not part of [YZ17].
 - **[HP14]** E. Hallouin and M. Perret, *From Hodge Index Theorem to the number of points of curves
   over finite fields*, arXiv:1409.2357 (2014). Unpublished preprint as of August 2026.
 

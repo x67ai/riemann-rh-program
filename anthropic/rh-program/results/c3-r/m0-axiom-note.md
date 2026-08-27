@@ -626,10 +626,10 @@ program's on-disk corpus); the per-source evidence is in
 - **[DH36a]** H. Davenport and H. Heilbronn, *On the zeros of certain Dirichlet series*,
   J. London Math. Soc. **11** (1936), no. 3, 181–185; doi:10.1112/jlms/s1-11.3.181. On disk:
   `fetched-r3/davenport1936.pdf`.
-- **[DH36b]** H. Davenport and H. Heilbronn, *On the zeros of certain Dirichlet series (second
+- **[DH36b]** H. Davenport and H. Heilbronn, *On the zeros of certain Dirichlet series (Second
   paper)*, J. London Math. Soc. **11** (1936), no. 4, 307–312; doi:10.1112/jlms/s1-11.4.307. On
-  disk: `fetched-r3/davenport1936-2.pdf`. (Crossref drops "(second paper)" from the title; the
-  printed page carries it and is primary.)
+  disk: `fetched-r3/davenport1936-2.pdf`. (The printed page carries "(Second paper)", capitalized
+  as here, and is primary; Crossref drops the clause entirely.)
 - **[DMV06]** H. G. Diamond, H. L. Montgomery and U. M. A. Vorhauer, *Beurling primes with large
   oscillation*, Math. Ann. **334** (2006), 1–36; doi:10.1007/s00208-005-0638-2. On disk:
   `fetched/p1-02`.
@@ -642,7 +642,10 @@ program's on-disk corpus); the per-source evidence is in
 - **[FL14]** G. França and A. LeClair, *A theory for the zeros of Riemann ζ and other L-functions
   (updated)*, preprint, arXiv:1407.4358 (v1, Jul 2014; v2, Aug 2024).
 - **[FM20]** M. Flach and B. Morin, *Deninger's conjectures and Weil–Arakelov cohomology*, Münster
-  J. Math. **13** (2020), no. 2, 519–540; doi:10.17879/90169642993.
+  J. Math. **13** (2020), no. 2, 519–540; doi:10.17879/90169642993 *(a Universität Münster
+  repository DOI, not Crossref-registered; attested independently by zbMATH and HAL, but not
+  watched to resolve end to end)*; open-access preprint HAL hal-02407608. There is **no** arXiv
+  version — two searches returned nothing; do not manufacture an id.
 - **[KP1]** J. Kaczorowski and A. Perelli, *On the structure of the Selberg class, I: 0 ≤ d ≤ 1*,
   Acta Math. **182** (1999), 207–241.
 - **[KP7]** J. Kaczorowski and A. Perelli, *On the structure of the Selberg class, VII:
