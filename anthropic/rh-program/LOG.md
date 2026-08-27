@@ -293,3 +293,69 @@ Entry template:
 **Open at close:** D1 audit stage + Lean W1/Soundness.lean stage + A4 report finalization possibly unfinished (harvest from journals + disk next session; any uncommitted tail is snapshot-committed). Sponsor to-dos unchanged: circulation decision; back up fetched-r3/ (now 42+ files). Session 9 = the SESSION 9 QUEUE in STATUS.md.
 
 **Addendum (post-close, same night — the usage-limit cut and the recovery):** the sponsor's usage limit killed four agents mid-flight (reset 3:10am IST); final accounting after the limit partially restored: (1) **D1 `d1-m1-v1`: the acceptance agent died AFTER finishing its work** — the final `acceptance-report.md` (verdict table: ALL PASS — 8/8 null transcripts ×2 checkers, positive control with correct C2 rejection, DH live fire both legs, cross-check CONSISTENT zero stop-the-line, cost curve written, t10000 completed) was on disk and is committed (51d1e00); **only the adversarial AUDIT stage never ran** — Session 9 item 1a (brief in the workflow script). (2) **Lean `lean-s8`: RECOVERED TO FULLY COMPLETE** — the w1 agent died after writing `Zeta23/W1/Soundness.lean` (1257 lines, sorry-free: W1EnclOK + RectArgPrinciple-in-consequence-form as the two displayed Props, `cert_of_checkW1` proved through the full FORMAT §6.3 chain incl. the L1 additivity obligation, plus `floor_of_checkW1Floor`) but before its verification build; the orchestrator ran the build (9018 jobs, zero errors), audited axioms (both theorems: propext/Classical.choice/Quot.sound only), synced to the iCloud tree and committed (51d1e00). **The M1 v1 Lean architecture is COMPLETE** — Format + Checker + Examples + Soundness; v1.1 (discharging H-AP) is the remaining named milestone, unchanged. (3) **A4 polish: killed mid report-finalization** — the corrected-run outputs are committed; the report's 26 template slots and the paper repair go to Session 9 (items 1b + 2). Grid stage, DBN stage, format stage, both producer legs, and all C3-r probe work were fully complete and committed before the cut.
+
+## Session 10 — 2026-08-27 (arXiv preparation: CIRCULATION-PREP steps 2 and 3)
+
+**Focus:** finish the arXiv-preparation register — the independent novelty check (step 2) and the
+LaTeX conversion (step 3) — both of which had died with the previous session leaving no deliverable.
+
+**Done:**
+- **STEP 2 CLOSED.** `results/arxiv/novelty-check.md` (97 KB; 4 document sweeps + 4 adversarial
+  refutation agents + synthesis). Verdicts: A4 NOVEL-WITH-CITATIONS; m0 NOVEL-WITH-CITATIONS;
+  m1 ANTICIPATED-BY (standard mathematics, as the note itself says); seed no-go ANTICIPATED-BY on
+  the rigidity, no-go survives.
+- **THE PRIORITY FINDING, verified here against the primary PDFs rather than on the agents' word:**
+  seed-no-go Theorems 1–3 are **Winkelmann 2002** (arXiv:math/0204195; Nagoya Math. J. 176 (2004)
+  159–180). Read verbatim from the v3 PDF: isogeny of `E_i, E_j` forces
+  `4π²/(log λ_i log λ_j) ∈ Q`, division of two such relations forces `log λ_i/log λ_k ∈ Q`, the
+  argument runs on three curves, and the conclusion is "for each of these curves there is at most
+  one other curve in this family to which it is isogenous". With `λ = p` that is Theorems 1, 2 and
+  3. Also verified: (T1) is **Bertrand's weak four-exponentials conjecture** (Madras 1996; verbatim
+  in Diaz, JTNB 1997), not "unrecorded"; and the per-prime elliptic-analogue lineage is **July 2015**
+  (*The Scaling Site*, arXiv:1507.05818), not January 2025.
+- **STEP 3 CLOSED.** Four arXiv packages built and passing a new checker: a4-no-go 41 pp,
+  m0-axiom 10 pp, m1-noncirc 8 pp, seed-no-go 17 pp. A4's fidelity audit returned FAITHFUL
+  (numeric-multiset diff clean, all 26 statement numbers exact, all 8 tables, inequality census
+  exact).
+- **Bibliography check of the three C3-r notes:** 33 entries audited; **five substantive errors**,
+  four converter-manufactured and one inherited from the prior-art gate — the `[Ha15]`
+  Haran/Thas misattribution (repointed to Haran's 1991 Durham chapter, page-verified once the
+  sponsor fetched it), `[BU3]`'s wrong title ("for operators in Hilbert space" → "for
+  zeta-functions"), `[YZ]`'s wrong series volume (Annals Studies **221**, not 223 — repo-wide),
+  `[vdGS]`'s invented first page (377, not 379), and Stepanov's missing leading "On". Plus 15
+  completeness/staleness fixes. All applied and rebuilt.
+- **FORMALIZATION AUDIT (new; sponsor question).** Twelve theorems in
+  `Zeta23/PairCeiling/{GridParseval,GridWitness,GridCorner}.lean` machine-check A4's Lemma 3.8,
+  Theorem 3.9, the 4128/33 witness, the "alive" half of Proposition 3.10, Lemma 4.2 and
+  Theorem 4.3 (pointwise, law-form, exact attainment). Rebuilt: 2081 jobs, clean.
+  `#print axioms` on all twelve → `[propext, Classical.choice, Quot.sound]`; zero real
+  `sorry`/`admit` across 34 files. Section 10 had been titled "Formalization plan" and listed four
+  of these as queue items — retitled and corrected. No Magma anywhere in the program.
+
+**Decisions:**
+- Applied the citation and accuracy repairs to `paper.md` (source of truth) and mirrored into the
+  `.tex`, rather than re-converting — the conversion had already passed an adversarial audit and
+  re-running it would have discarded that evidence.
+- Corrected two agent errors instead of executing them: the `[CC26]` title is **not** truncated
+  (the arXiv API truncates at the TeX macro; the on-disk extraction is authoritative), and §7.5
+  **does** exist in the 35-page parent version — item (e) is inside it, and moved to §7.2(e) only
+  in v5. Both parent pointers are now explicitly disambiguated by a version pin.
+- Did **not** start the formalization expansion. It is new scope beyond the register and the
+  costing (`results/FORMALIZATION-ROADMAP.md`) recommends not blocking circulation on it.
+
+**New artifacts:** `results/arxiv/{novelty-check.md, README.md, check-submittable.sh}`;
+`results/arxiv/{a4-no-go,m0-axiom,m1-noncirc,seed-no-go}/{main.tex,main.pdf,abstract.txt}`;
+`results/a4-no-go/formalization-status.md`; `results/FORMALIZATION-ROADMAP.md`; dated corrections
+in `results/c3-r/{seed-no-go-note.md, prior-art-r7a.md, referee-m0.md, referee-seed-no-go.md,
+m0-axiom-note.md}`, `BARRIER-ZOO.md`, `directions/C3-geometric-substrate.md`, and
+`results/corpus-routing.md` caveats 17–20.
+
+**Sponsor fetches this session** (all local-only in `fetched-r3/`): `haran1991.pdf`,
+`The double Riemann zeta function.pdf`, `davenport1936.pdf`, `davenport1936-2.pdf`. Each closed a
+standing caveat — the Haran attribution, the Akatsuka paywall, and the "(Second paper)" title line
+(genuine, lowercase p, so Crossref must **not** be used to "correct" it).
+
+**Open at close:** **CIRCULATION-PREP STEP 4** — execute ~40 MUST + ~19 SHOULD citation actions
+and 13 textual repairs from `results/arxiv/novelty-check.md` §§A–D across the four documents, and
+**rewrite the seed no-go's framing** so Theorems 1–3 are Winkelmann's transported, not new. Then
+Session-9 queue item 5 (the circulation decision itself) is the sponsor's.
