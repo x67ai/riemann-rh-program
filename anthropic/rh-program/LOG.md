@@ -359,3 +359,153 @@ standing caveat — the Haran attribution, the Akatsuka paywall, and the "(Secon
 and 13 textual repairs from `results/arxiv/novelty-check.md` §§A–D across the four documents, and
 **rewrite the seed no-go's framing** so Theorems 1–3 are Winkelmann's transported, not new. Then
 Session-9 queue item 5 (the circulation decision itself) is the sponsor's.
+
+---
+
+## Session 11 — 2026-08-27 (~17:05 onward)
+
+**Task.** CIRCULATION-PREP **STEP 4**: execute the ~40 MUST + ~19 SHOULD citation actions and 13
+textual repairs specified file-by-file in `results/arxiv/novelty-check.md` §§A–D, across the four
+circulation-ready documents, and rewrite the seed no-go note's framing so Theorems 1–3 are
+presented as Winkelmann's. **Done, committed one commit per document, plus an adjudication sweep.**
+
+### The discipline, and what it caught
+
+STEP 4's binding instruction was that **every action be confirmed against a primary source before
+it touched a file** — because Session 10 spot-checked roughly six of the report's claims and two
+were wrong. That was run as a workflow of **18 verification agents plus an adjudicator**: 92
+items, 2.67 M subagent tokens, 866 tool calls, ~54 minutes. Evidence is on disk, one markdown file
+per cluster, in `results/arxiv/citation-verification/`, with `ADJUDICATION.md` (716 lines)
+settling the cross-cluster disagreements. Nothing was taken on the report's word.
+
+**Twenty-one of the report's actions did not survive.** Each is now recorded in a dated block
+inside the paper it would have touched, so a later session cannot reintroduce it. The four that
+would have done real damage, because a *sentence* was to be written on their strength:
+
+1. **Ito–Ito–Koshikawa Remark 1.3 is not "the published non-circularity audit."** It says the
+   opposite: *"we did not attempt to avoid the Weil conjecture in our proof of Theorem 1.2."* That
+   is a **stronger** precedent for m1 — it shows the question is recognized *and* that answering it
+   affirmatively is not automatic — and it is now quoted as what it is.
+2. **Ancona makes no independence or non-circularity claim anywhere**, and his §1 does not publish
+   m1's §9 "verbatim". `grep circular` returns zero. Only Lemma 7.10 is cited, for the contrast.
+3. **The seed note's "first appears in January 2025" lineage** is off by 9 years 5.7 months — and
+   the correction needed a correction: the July-2015 object is `C_p = R*₊/p^Z`, a **real** circle of
+   circumference `log p` in characteristic one with a real-valued Riemann–Roch, which CC themselves
+   call "a variant of the classical Jacobi description `C*/q^Z`". The **complex** Tate curve is
+   June 2026. Both halves are now stated.
+4. **The two Connes–Consani Riemann–Roch papers do not supply `h⁰_θ`.** They explicitly call the
+   log-theta number virtual, *"for the obvious reason that it outputs real numbers rather than
+   integers"*, and their result is an Euler-characteristic identity that gives no lower bound on
+   `h⁰` alone. m0 §7's absolute is softened; the M4-level input genuinely survives as unsupplied.
+
+Also caught and not executed: an **invented Milne quotation** ("avoid the Weil conjecture" — the
+string "avoid" occurs **zero** times in his paper, in either extraction); **Kleiman's Remark 3.10**
+pointing at the wrong remark (3.10 is a characteristic-zero remark about homological vs numerical
+equivalence; **4.5** is the dependency-ledger remark, and it is a far better pin); **Montgomery–
+Vaughan §1.2** (the Euler-product material is **§1.3**, Thm 1.9, p. 20); a **"§7" citation to a
+paper with six sections** (Winkelmann's Schanuel argument is §3.2, Prop. 3, p. 14); **Waldschmidt's
+AWS Conjectures 5.34/5.35** described as four-exponentials statements (they are Bertrand's
+**modular** conjectures on `J`; 4EC there is Conj. 5.11); and **Chirre–Gonçalves–de Laat's
+inequality (7)** called "the published convex-programming form" of A4's Lemma 4.2 (it is elementary
+integer arithmetic, credited there to an argument of Ghosh, and sits at the **third**, reciprocal-
+weighted integrality level where Lemma 4.2 is at the **unweighted second**).
+
+Two Session-10 adjudications were re-confirmed a second time against the primary sources: the
+parent's item (e) **is** in §7.5 of the 35-page version, and "and the Fargues–Fontaine curve" **is**
+part of the `[CC26]` title. But the *mechanism* recorded for the second ("the arXiv API truncates
+the title at a TeX macro") was itself wrong and is corrected in place: the clause is absent from
+**every** arXiv metadata surface — abs-page heading, `citation_title`, the API, the PDF's own
+metadata — and from zbMATH, surviving only on the typeset title page and in arXiv's HTML rendering.
+
+Two real cross-cluster conflicts arose and were settled by the adjudicator against a re-fetched
+primary source: the Bombieri passage is on **p. 9 alone** (the Clay PDF is 11 pp; p. 10 has moved
+on), and the Diaz p. 231 line is `x₂ = (log α₁)/2iπ` — one cluster's Numdam OCR had silently eaten
+the `/2iπ`, which is exactly the failure mode the other cluster had warned about by name.
+
+### Per document
+
+**A4 no-go (44 pp).** New: `[GdLL25]` Gonçalves–de Laat–Leijenhorst, Math. Comp. **94** (2025),
+no. 354, 2041–2058 — the report said 2024 and flagged the volume unverified; Crossref, zbMATH and
+the AMS issue index all say 2025 — cited in §1.2 with a full reconciliation paragraph and at
+Proposition 3.3; `[KLS11]`; and `[FGL14]`, solely to disambiguate the numerical coincidence at
+Corollary 4.4 (their published 0.8051 for distinct zeros vs this paper's LP corner 0.8050957 —
+verified by reading the *published* JLMS paper on disk, since the 2008 two-author preprint gives
+0.6544 and citing it would have been a factual error). Completed: coordinates for `[BGSTB24]`,
+`[KLS07]`, `[KS66]`, `[CGdL20]`, `[CdLS22]`, and DOIs for six more. Textual: Proposition 3.3 now
+names the atom half as the third-order **Stirling change of basis** between power sums and falling
+factorials and confines the novelty claim to the pair term; Lemma 3.8 / Prop. 3.11 labeled
+critical-sampling Parseval and Shannon–Whittaker; the "convexified analyses are unsound" moral
+labeled as the textbook **integrality gap**. The package was also missing `abstract.txt`; created.
+
+**m0 axiom note (14 pp).** Had no reference list at all. Now carries a new **§1.5 "Prior art and
+what is new"** — six upstream lines, each with its differentiator, ending in an explicit statement
+of the three things that *are* new — and **§10**, 32 verified entries, plus in-place citations at
+(PF1), (PF3), §3.2, §3.3, §4(a), §4(b), §6.1, §6.2, §6.3 and §7. Blomer–Leung: the word **"monoid"
+is withdrawn as an attribution** (case-insensitive count in **both** arXiv versions: zero,
+split-hyphenation checked), their Theorem 1.1 restated verbatim in their own terms, the
+converse-hosts-an-exclusion logic spelled out, and the binding caveat added that their theorem is
+for **GL(3)** while Davenport–Heilbronn is degree 2 — so they do not exclude it. Propagated to
+`BARRIER-ZOO.md` I.1 and its item-7 rider. Deninger's axiom numbering corrected: **2.3 is spectral,
+2.4 is the trace isomorphism, and Theorem 2.13 refutes 2.12**; his paper has also now appeared
+(Annali SNS Pisa (5) **25** (2024), 1717–1725). Conrey–Li corrected: those are **de Branges'**
+positivity conditions, not Li's λ_n ≥ 0 criterion, and they fail for **ζ itself**, so the parallel
+is one of genre. The Kaczorowski–Perelli cross-check the report asked for is an author's
+computation, not a search result, and is logged as an explicit open item rather than guessed at.
+
+**m1 non-circularity note (13 pp).** Also had no external references. Now §12, 22 verified entries.
+**§9's lineage rewritten**: "the first modern non-circular derivation" for Mattuck–Tate 1958 was
+wrong by twenty-one years and is withdrawn; the record runs Severi 1903/1906 and Castelnuovo 1906,
+**Hodge/Segre 1937 and Bronowski 1938**, Zariski 1952, Mattuck–Tate 1958, Grothendieck 1958, Kani
+1984, Vainsencher–Voloch 1988, Hallouin–Perret. §8's headline is now "**a** proof, not **the**
+proof", with Bombieri's own caveat carried — he regards the alternatives as *rediscoveries of
+Severi's argument*, not independent routes. **§8's "Scope of the claim" rewritten** against the
+arithmetic Hodge index theorem, which was the one-line refutation the old paragraph invited: that
+theorem is codimension-one and one-signed (Faltings/Hriljac/Moriwaki/Yuan–Zhang), everything above
+codimension one is open (Gillet–Soulé; Künnemann p. 115; Yuan–Zhang p. 2), and Faltings–Hriljac
+**is** the arithmetic-surface case, so it cannot give more there. §8 now also answers Deninger's
+opposite reading of Néron–Tate positivity as *support* for a positivity route to RH, using his own
+conditional wording. From the publisher-grade GDZ scan of Grothendieck 1958: the "G. Bronowski /
+(1958)" corruption is in **Grothendieck's own printed bibliography**, not in a later
+retranscription, and his Segre start page (167) is wrong too — both flagged in §9.
+
+**Seed no-go note (21 pp) — the framing rewrite.** Theorems 1–3 are now presented as Winkelmann's
+in four places a reader cannot miss: **the abstract**, a **"Priority and attribution" note directly
+under it**, an **attribution banner at the head of §3**, and the **novelty statement** in §9, with a
+new §9 item 8 citing and distinguishing him. Nine refinements from the primary sources, all
+applied: no §7 in his paper; Theorem 2 assumes **Zariski-dense**, not cocompact; the "at most one
+other curve" wording is v3 (2003) while the mathematics is v1 (15 April 2002); he proves **one
+direction only** and the converse is one line from his own Lemma 7, which *is* an equivalence — so
+the "iff" is his too and cannot be claimed here; **"Hom", "rank" and any isogeny degree are absent
+from his paper**, and he never takes λ prime, so the note's addition is an **explication in the
+prime-indexed case**, not a sharpening of a theorem, and no priority over Theorems 1–3 is available.
+**§9's "(T1) appears to be unrecorded" is deleted and formally withdrawn**: its negation is
+displayed as **(C4E faible)** on p. 231 of Diaz, JTNB **9** (1997), attributed there to D. Bertrand
+(Madras 1996), and the same paper carries unconditional partial results the note did not know
+about. The germ is older still — **Alaoglu–Erdős 1944, p. 449**, ask the two-prime question in
+print and record Siegel's three-prime theorem on p. 455, which is the exact four-versus-six-
+exponentials split the note rediscovers. A second, stronger unconditional route to `End(E_p) = Z`
+was added: Barré-Sirieix–Diaz–Gramain–Philibert's Mahler–Manin theorem gives `j(E_p)` transcendental.
+`prior-art-r7a.md` now carries a **second dated withdrawal**, for the lineage clause.
+
+### Process lessons
+
+* **The verify-before-executing rule paid for itself many times over.** 21 of ~59 actions were
+  wrong in a way that would have put a false sentence into a paper. A referee opening Ito–Ito–
+  Koshikawa's Remark 1.3 or Kleiman's Remark 3.10 catches those in one line each.
+* **A secondary bibliography is not primary evidence, and neither is an OCR layer.** Grothendieck's
+  own 1958 bibliography carries a wrong initial and a wrong page; Numdam's OCR of Diaz silently ate
+  a `/2iπ`; Crossref and Cambridge Core both render Winkelmann's title with a spurious `Γ..`. Every
+  one of those would have propagated.
+* **Corpus before network, still.** The published Farmer–Gonek–Lee paper — the one that actually
+  carries the constant 0.8051 — is not on arXiv and *was already in `fetched-r2/`*. The obvious
+  arXiv preprint has two authors and the number 0.6544, and stopping there would have produced a
+  confident REFUTED.
+
+### State at close
+
+All four packages rebuilt from clean and passing `results/arxiv/check-submittable.sh`:
+**a4-no-go 44 pp, m0-axiom 14 pp, m1-noncirc 13 pp, seed-no-go 21 pp — ALL CHECKS PASSED.**
+CIRCULATION-PREP steps 1a/1b/1c/2/3/4 are all **DONE**. `results/arxiv/README.md` updated with the
+new page counts and a "citation pass" section. **Everything in CIRCULATION-PREP is now closed. The
+only open item is Session-9 item 5 — whether to circulate — which is the sponsor's decision, not
+the program's.** Nothing in this session touched a theorem, a proof, a number, or a verdict.

@@ -9,9 +9,11 @@ Nothing here is submitted; **whether, where and when to circulate is the sponsor
 | Directory | Paper | Source of truth | Pages |
 |---|---|---|---|
 | `a4-no-go/` | The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | `results/a4-no-go/paper.md` | see the directory |
-| `m0-axiom/` | The polarized-Frobenius axiom class | `results/c3-r/m0-axiom-note.md` | 10 |
-| `m1-noncirc/` | Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | `results/c3-r/m1-noncircularity.md` | 8 |
-| `seed-no-go/` | Products of the per-prime Tate curves carry no correspondence calculus | `results/c3-r/seed-no-go-note.md` | 17 |
+| `m0-axiom/` | The polarized-Frobenius axiom class | `results/c3-r/m0-axiom-note.md` | 14 |
+| `m1-noncirc/` | Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | `results/c3-r/m1-noncircularity.md` | 13 |
+| `seed-no-go/` | Products of the per-prime Tate curves carry no correspondence calculus | `results/c3-r/seed-no-go-note.md` | 21 |
+
+(Page counts as of the 2026-08-27 citation pass; `a4-no-go` is 44 pp. All four grew when the citations, prior-art sections and reference lists were added.)
 
 Each directory holds `main.tex` (the submission), `main.pdf` (the compiled paper), `abstract.txt`
 (title + abstract as plain text, for pasting into arXiv's metadata form), and the build products
@@ -90,3 +92,25 @@ substantive errors were found and fixed; the full record, including what was che
 *correct*, is in `CIRCULATION-PREP.md` under "Bibliography check". Two of those corrections are
 also standing caveats — `results/corpus-routing.md` caveats 17 and 18 — because the wrong data had
 propagated into program files beyond these papers.
+
+**The citation pass (2026-08-27, CIRCULATION-PREP step 4).** Every MUST and SHOULD action in
+`novelty-check.md` §§A–D was confirmed against a primary source **before** it was allowed to touch
+a file — the report's own error rate made that non-negotiable. The evidence is on disk, one file
+per source cluster, in `results/arxiv/citation-verification/`, with
+`ADJUDICATION.md` settling the cross-cluster disagreements. **Twenty-one of the report's actions
+did not survive and were not executed**; each is recorded in a dated block inside the paper it
+would have touched, so that a later session cannot reintroduce it. The four that would have done
+real damage, because a sentence was to be written on their strength: Ito–Ito–Koshikawa's Remark 1.3
+says the *opposite* of "a clean non-circularity audit"; Ancona makes no independence claim at all;
+the seed note's "January 2025" lineage is off by nine years and five months; and the two
+Connes–Consani Riemann–Roch papers do **not** supply the θ-effectivity input, since they
+explicitly call the log-theta number virtual. Also caught: an invented Milne quotation ("avoid the
+Weil conjecture" — the string "avoid" occurs zero times in his paper), a Kleiman remark number
+pointing at the wrong remark, a Montgomery–Vaughan section number off by one, and a "§7" citation
+to a paper with six sections.
+
+**What that pass cost the papers, honestly.** The seed no-go's Theorems 1–3 are now presented as
+Winkelmann's (2002), transported — in its abstract, in a priority note directly under the abstract,
+in a banner at the head of §3, and in its novelty statement. `prior-art-r7a.md` carries two dated
+withdrawals. Nothing else changed: no theorem, proof, number or verdict in any of the four papers
+was affected.
