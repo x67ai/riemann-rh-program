@@ -58,10 +58,45 @@ report. Record the pass as `results/a4-no-go/referee-revision.md` (verdict + any
 
 ## STEP 2 — independent novelty check (all four documents)
 
-**STATUS: IN PROGRESS (2026-08-27, session 2 re-run: workflow `wf_b791f90e-5da`, 4 document
-sweeps + 4 adversarial refutation agents + 1 synthesizer. The first attempt, `wf_4501be8c-d24`,
-died with the session and left no deliverable on disk. If THIS session died mid-run, treat as
-TODO and re-run; `results/arxiv/novelty-check.md` existing is the acceptance test.)** Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
+**STATUS: DONE (2026-08-27).** Deliverable on disk: `results/arxiv/novelty-check.md` (97 KB;
+workflow `wf_b791f90e-5da`, 4 document sweeps + 4 adversarial refutation agents + 1 synthesizer,
+1.79 M subagent tokens). **Verdicts:** A4 **NOVEL-WITH-CITATIONS**; m0 **NOVEL-WITH-CITATIONS**;
+m1 **ANTICIPATED-BY** (standard mathematics — the note says so itself and is right); seed no-go
+**ANTICIPATED-BY on the rigidity, no-go survives**.
+
+**The headline finding, independently verified this session against the primary sources (not taken
+on the agents' word):** *Theorems 1, 2 and 3 of the seed no-go are Winkelmann's, from 2002* —
+J. Winkelmann, *On elliptic curves in SL₂(ℂ)/Γ, Schanuel's conjecture and geodesic lengths*,
+arXiv:math/0204195 (v1 15 Apr 2002; v3 8 Apr 2003), Nagoya Math. J. **176** (2004), 159–180. His
+proof of Theorem 2 derives `4π²/(log λ_i log λ_j) ∈ Q` as the isogeny criterion for
+`E_λ = ℂ*/λ^ℤ` by the same real/imaginary separation, divides two such relations to force
+`log λ_i/log λ_k ∈ Q`, runs the argument on three curves, and concludes *"for each of these curves
+there is at most one other curve in this family to which it is isogenous"*. With `λ = p` that is
+the note's Theorems 1–3. Two further verified corrections: **(T1) is Bertrand's weak
+four-exponentials conjecture** (Madras 1996; verbatim in Diaz, JTNB 1997), not "unrecorded" as §9
+claims; and the **per-prime elliptic-analogue lineage is July 2015** (Connes–Consani, *The Scaling
+Site*, arXiv:1507.05818, abstract read), not January 2025 — off by 9½ years. A dated
+priority-correction block now heads `results/c3-r/seed-no-go-note.md`, and `prior-art-r7a.md`'s
+"and no one has" sentence is formally **withdrawn** with the reason its sweeps missed it
+(prime-indexed phrasing vs Winkelmann's eigenvalue/geodesic-length phrasing).
+
+**Two agent errors in the report itself, both caught and adjudicated — do NOT execute them:**
+(i) its request to drop "and the Fargues–Fontaine curve" from `[CC26]` is **false** (the arXiv API
+truncates that title at the TeX macro; the on-disk full-text extraction is authoritative);
+(ii) its claim that "there is no §7.5 in the parent" is **false** — item (e) *is* inside §7.5
+"Limits of the method" of the 35-page parent version, and moved to §7.2(e) only in the 17-page v5.
+Both pointers are correct and are now explicitly disambiguated in `paper.md`'s `[P]` entry.
+
+**REMAINING WORK — the citation execution, ~40 MUST + ~19 SHOULD actions across the four
+documents, is the next session's first task.** It is specified file-by-file, with the exact
+insertion points, in `results/arxiv/novelty-check.md` §§A–D. Executing it means editing each source
+`.md` **and** mirroring into the matching `results/arxiv/*/main.tex`, then rebuilding and re-running
+`results/arxiv/check-submittable.sh`. The seed note additionally needs its **framing rewritten** so
+Theorems 1–3 are presented as Winkelmann's, transported — not as new.
+
+Original brief follows.
+
+Start from the homework on disk: `results/c3-r/prior-art-r7a.md` (extended
 R7(a) gate, verdict NOVEL-WITH-CITATIONS, 7 obligations — covers the three C3-r notes) and the
 A4 prior-art gate recorded in `LOG.md` Session 7. Verify independently with a fresh literature
 sweep (arXiv, MathSciNet-visible metadata, Semantic Scholar) per document: does any prior work
@@ -72,86 +107,46 @@ anticipated-by), citations to add, and the searches run.
 
 ## STEP 3 — LaTeX conversion + arXiv-submittable PDFs
 
-**STATUS: three C3-r notes DONE (2026-08-27) — `results/arxiv/{m0-axiom,m1-noncirc,seed-no-go}/`
-each with main.tex + main.pdf, compiled clean (10/8/16 pp), first pages visually checked.
-Converter caveats logged in the workflow output; a web spot-check of all bibliography entries the
-converters completed from outside the source notes (Blomer–Leung initials, Broucke-school titles,
-Mattuck–Tate/Stepanov, arXiv:2606.06604, [4EC] Lang/Waldschmidt, Weil 1952) died with the first
-session and was RE-LAUNCHED 2026-08-27 as workflow `wf_50c80dfa-1b1` (3 per-note bibliography
-agents + 1 dedicated agent on a misattribution found this session, below) — apply its FIX items
-to the .tex files AND, where the error is also in the source note, to the .md, then rebuild.
+**STATUS: DONE (2026-08-27).** All four packages built and passing
+`results/arxiv/check-submittable.sh`: **a4-no-go 41 pp**, **m0-axiom 10 pp**, **m1-noncirc 8 pp**,
+**seed-no-go 17 pp**. Each directory holds `main.tex`, `main.pdf` and `abstract.txt` (title +
+abstract as plain text for arXiv's metadata form); `results/arxiv/README.md` is the submission
+guide (build/check commands, what arXiv's upload form asks for, suggested categories and MSC 2020
+classes, and the flag that m1 claims zero novelty in its own abstract so its natural framing is as
+a companion to the seed note). `results/arxiv/check-submittable.sh` rebuilds from clean and fails
+on a TeX error, an undefined reference or citation, a `??` reaching the PDF text, an overfull box
+over 20 pt, `\write18`, a missing title/author/abstract, or a British spelling.
 
-### Bibliography check — DONE (2026-08-27)
+**A4 conversion (workflow `wf_50c80dfa-1b1`).** Adversarial fidelity audit verdict **FAITHFUL** —
+mechanical numeric-multiset diff against `paper.md` with zero unexplained differences; all 26
+numbered statements at exactly the source numbers; all 8 tables; inequality census exact. Five
+typographic minors, four applied. **Then five substantive repairs** from the novelty gate and the
+formalization audit were applied to `paper.md` and mirrored into `main.tex`: Section 10 rewritten,
+the `[P]` parent citation replaced (arXiv:2608.13637, Alpöge–Furman) with the version pin, the
+parent's item (e) quoted and distinguished in §1.2, the Lagarias–Rodgers clause in §1.5, and the
+bibliography grown from 2 entries to 13.
 
-All four agents returned; **every FIX applied, every .tex rebuilt clean, all three notes pass
-`results/arxiv/check-submittable.sh`** (m0-axiom 10 pp, m1-noncirc 8 pp, seed-no-go 17 pp).
-Thirty-three entries audited across the three notes; **five substantive errors** found, four of
-them manufactured by the converters and one inherited from the program record:
+**Bibliography check of the three C3-r notes — DONE**, see the block below: 33 entries audited,
+five substantive errors (four converter-manufactured, one inherited from the prior-art gate) and
+15 completeness/staleness fixes, all applied and rebuilt.
 
-1. **[Ha15] misattribution** — arXiv:1507.06480 “A taste of Weil theory in characteristic one” is
-   by **Koen Thas**, not M. J. Shai Haran. The *content* is genuinely Haran’s: Thas’s chapter is a
-   survey of Haran’s program quoting him verbatim, so the fix repoints to the primary source,
-   S. Haran, *Index theory, potential theory, and the Riemann hypothesis*, LMS Lecture Note Ser.
-   153, CUP 1991, pp. 257–270, p. 259 (MR1110396). All four content claims of §9 item 6 were
-   re-verified verbatim against it; “degenerates to the diagonal” corrected to Haran’s own
-   “reduces to the diagonal”. Key `Ha15` → `Ha91`. Fixed in `results/arxiv/seed-no-go/main.tex`,
-   `results/c3-r/seed-no-go-note.md`, and — dated corrections — in
-   `results/c3-r/prior-art-r7a.md` §§5–6, which is where the error originated.
-2. **[BU3] wrong title** — the published title is *Abstract intersection theory for
-   **zeta-functions**: geometric aspects*, not “…for operators in Hilbert space: …”. The source
-   note hid the same defect behind an ellipsis whose antecedent was BU2’s stem. Verified from
-   p. 1 and the p. 265 running head of the on-disk `fetched-r2/t-58a`.
-3. **[YZ] wrong series volume, repo-wide** — Yuan–Zhang is **Annals of Mathematics Studies 221**,
-   not 223 (zbMATH book record; AMS 223 is a different book), and the entry asserted a book with
-   no year. Corrected in `BARRIER-ZOO.md`, `directions/C3-geometric-substrate.md` (×3),
-   `results/c3-r/m0-axiom-note.md`, `results/c3-r/referee-m0.md` and the .tex. Three **dated JSON
-   records keep “223” by immutability** — covered by new `results/corpus-routing.md` caveat 17.
-4. **[vdGS] invented first page** — Selecta Math. (N.S.) 6 (2000) begins at **377**, not 379
-   (Crossref DOI 10.1007/PL00001393, zbMATH). Absent from the source note; converter-manufactured.
-5. **[Stepanov] title missing its leading word** — “**On** the number of points of a hyperelliptic
-   curve over a finite prime field” (mathnet.ru, the Izvestiya archive of record); the
-   Math. USSR-Izv. 3 (1969) 1103–1114 translation added.
+**FORMALIZATION AUDIT — new, and it changed the A4 paper.** `results/a4-no-go/formalization-status.md`
+records it. Twelve theorems across `Zeta23/PairCeiling/{GridParseval,GridWitness,GridCorner}.lean`
+machine-check the paper's Lemma 3.8, Theorem 3.9, the 4128/33 witness for every vacancy position,
+the "alive" half of Proposition 3.10, Lemma 4.2, and Theorem 4.3 pointwise + law-form + with exact
+attainment. Rebuilt this session: *Build completed successfully (2081 jobs)*, Lean 4.33.0-rc2 /
+Mathlib `51e6992`. `#print axioms` on all twelve returns `[propext, Classical.choice, Quot.sound]`
+— no `sorryAx`, no `Lean.ofReduceBool`. Whole-tree scan with comments stripped: **zero** real
+`sorry`/`admit` across 34 `.lean` files. Section 10 had been titled "Formalization plan" and listed
+four of these as queue items; it is now retitled and states the true position, with an honest list
+of what is *not* formalized. **No Magma anywhere in this program.**
+`results/FORMALIZATION-ROADMAP.md` costs the remaining work and answers the sponsor's "can't we
+formalize all this?" — verified against the pinned Mathlib: Gelfond–Schneider, Baker and
+six-exponentials are absent; Riemann–Roch, intersection theory and algebraic surfaces are absent;
+matrix inertia is absent. A4's headline is reachable end-to-end at tier-1+2 effort; the three C3-r
+notes are blocked on Mathlib coverage, not effort.
 
-Also applied: the three m0 **Broucke-school entries** carried descriptive parentheticals where a
-title belongs — real titles supplied, the descriptions kept as explicit annotations, and the
-disputed handle arXiv:2507.13780 **adjudicated CORRECT** (its abstract constructs Beurling zeta
-functions with zeros on a prescribed contour and none to the right, exactly as cited; Broucke’s
-whole 60-record arXiv listing was swept for an alternative and there is none). m1’s [CC26] title
-completed. Eleven staleness/completeness fixes in the seed note’s bibliography (BU1, BU2, CC16,
-CC25, CE15, CCM07, Ku92, Ta20, BL, 4EC, Ak09). The seed note’s five PSLQ/CF constants restored to
-their full 37-digit recorded precision (the converter had truncated them to 26 and pushed the rest
-into a caption pointer).
-
-**Confirmed CORRECT and deliberately left alone:** Blomer–Leung (Adv. Math. 485, art. 110716),
-Chen–Moriwaki, Davenport–Heilbronn (second paper, 307–312), Diamond–Montgomery–Vorhauer (checked
-against the on-disk PDF), Kaczorowski–Perelli I and VII, Hartshorne, Mattuck–Tate (295–299),
-Grothendieck (208–215), Bombieri (Bourbaki 430, LNM 383, 234–241), Akatsuka, Weil 1952, and —
-importantly — **[CC26]’s full title including “and the Fargues–Fontaine curve”**: the arXiv API
-and abs-page metadata truncate it at the TeX, so it is *not* an error to “fix”.
-
-**The five errors as first surfaced (kept for the record), from the arXiv API:**
-(i) **[Ha15] is misattributed.** arXiv:1507.06480 “A taste of Weil theory in characteristic one”
-is by **Koen Thas**, not M. J. Shai Haran. The error originates in `results/c3-r/prior-art-r7a.md`
-§5/§6 item 6 and propagated into `seed-no-go-note.md` (§9 item 6 + References) and
-`results/arxiv/seed-no-go/main.tex`. The load-bearing prior-art distinction is about Haran’s own
-arithmetical-surface program — lead reference arXiv:2209.08536, “Non-Additive Geometry and
-Frobenius Correspondences”. All three files need a dated correction.
-(ii) **Three m0 Broucke-school entries carry invented descriptive “titles”** in place of the real
-ones (arXiv:2309.01567 = “Some examples of well-behaved Beurling number systems”, TAMS 378 (2025)
-477–501; arXiv:2102.08478 = “A new generalized prime random approximation procedure and some of
-its applications”, Math. Z. 307 (2024) Art. 62; arXiv:2507.13780 comes back as “On the connection
-between zero-free regions and the error term in the Prime Number Theorem”, which does not match
-the parenthetical the .tex gives it — adjudicate handle-vs-description).
-(iii) Confirmed CORRECT: the [CC26] title “On the Absolute Geometry of Spec Z **and the
-Fargues–Fontaine curve**” (the arXiv API truncates it at the TeX; the on-disk full-text
-extraction carries the full title). m1’s .tex gives the truncated form and should be completed. Content amendment made: m1's stale
-"End(E_p) = Z barring the unproven coincidence" hedge amended (dated 2026-08-27) in
-m1-noncircularity.md + main.tex to cite the seed note's unconditional Gelfond–Schneider
-refutation; PDF rebuilt. The A4 paper conversion (wording-final after step 1c) is RE-LAUNCHED
-2026-08-27 inside the same workflow `wf_50c80dfa-1b1` as a convert → adversarial-fidelity-audit →
-repair pipeline (the first attempt died with the session; `results/arxiv/a4-no-go/` was left
-empty). Acceptance: `results/arxiv/a4-no-go/main.{tex,pdf}` exist, pdflatex clean, statement
-numbers 3.1–3.11 / 4.1–4.9 / 7.1–7.5 match paper.md exactly.** TeX Live 2026 is installed and verified working:
+TeX Live 2026 is installed and verified working:
 `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"` (pdflatex 1.40.29; `tlmgr`
 available; the "no TeX on this machine" notes in STATUS.md/LOG.md are stale — install nothing).
 One subdirectory per paper under `results/arxiv/` (`a4-no-go/`, `m0-axiom/`, `m1-noncirc/`,
@@ -169,6 +164,34 @@ markdown.
 `results/c3-r/m2c-feasibility-ledger.md` (OPEN-WITH-LEDGER), `probe-9.3-a.md`, `probe-9.3-b.md`,
 `probe-9.4-note.md`, `s2-feasibility-note.md` (referee debts owed — Session-9 queue item 3), and
 everything under `results/d1-*`/Lean (infrastructure, not papers).
+
+## STEP 4 — execute the citation actions (NEW, opened 2026-08-27)
+
+**STATUS: TODO — this is the next session's first task, and it is the only thing standing between
+the four packages and circulation.**
+
+`results/arxiv/novelty-check.md` §§A–D specify, per document, ~40 MUST and ~19 SHOULD citation
+actions plus 13 textual repairs, each with its insertion point. Working loop, per document:
+
+1. Apply the MUST items to the source `.md` (the source of truth), then the SHOULD items.
+2. Mirror every change into the matching `results/arxiv/<paper>/main.tex` — do **not** re-convert.
+3. Rebuild: `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"` then two `pdflatex` passes.
+4. `bash results/arxiv/check-submittable.sh results/arxiv/<paper>` must print ALL CHECKS PASSED.
+5. Commit per document.
+
+**Two items in that report must NOT be executed** (both adjudicated false this session; see STEP 2):
+the `[CC26]` title truncation, and "there is no §7.5 in the parent."
+
+**The seed no-go needs more than citations.** Its framing must be rewritten so Theorems 1–3 are
+presented as Winkelmann's rigidity transported to the June-2026 Connes–Consani Tate curves, with
+the note's own contribution located where it actually is — Theorem 4 (Néron–Severi collapse),
+Theorem 5 (prime-blind diagonal residue, unconditional via Gelfond–Schneider), Theorem 6, and the
+no-go conclusion. §9's "(T1) appears to be unrecorded" must go, and the §1.2/§9 lineage must move
+from January 2025 to July 2015. The dated block at the head of the note states all of this; the
+body has not yet been rewritten to match.
+
+**A4's remaining textual repairs** are the three named in `novelty-check.md` §A; note that its
+first two — the Haran/Thas citation and the parent-paper `[P]` entry — are already **done**.
 
 ## Housekeeping
 
