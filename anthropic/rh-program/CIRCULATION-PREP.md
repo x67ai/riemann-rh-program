@@ -81,7 +81,55 @@ session and was RE-LAUNCHED 2026-08-27 as workflow `wf_50c80dfa-1b1` (3 per-note
 agents + 1 dedicated agent on a misattribution found this session, below) — apply its FIX items
 to the .tex files AND, where the error is also in the source note, to the .md, then rebuild.
 
-**Bibliography errors already confirmed this session (before the workflow), from the arXiv API:**
+### Bibliography check — DONE (2026-08-27)
+
+All four agents returned; **every FIX applied, every .tex rebuilt clean, all three notes pass
+`results/arxiv/check-submittable.sh`** (m0-axiom 10 pp, m1-noncirc 8 pp, seed-no-go 17 pp).
+Thirty-three entries audited across the three notes; **five substantive errors** found, four of
+them manufactured by the converters and one inherited from the program record:
+
+1. **[Ha15] misattribution** — arXiv:1507.06480 “A taste of Weil theory in characteristic one” is
+   by **Koen Thas**, not M. J. Shai Haran. The *content* is genuinely Haran’s: Thas’s chapter is a
+   survey of Haran’s program quoting him verbatim, so the fix repoints to the primary source,
+   S. Haran, *Index theory, potential theory, and the Riemann hypothesis*, LMS Lecture Note Ser.
+   153, CUP 1991, pp. 257–270, p. 259 (MR1110396). All four content claims of §9 item 6 were
+   re-verified verbatim against it; “degenerates to the diagonal” corrected to Haran’s own
+   “reduces to the diagonal”. Key `Ha15` → `Ha91`. Fixed in `results/arxiv/seed-no-go/main.tex`,
+   `results/c3-r/seed-no-go-note.md`, and — dated corrections — in
+   `results/c3-r/prior-art-r7a.md` §§5–6, which is where the error originated.
+2. **[BU3] wrong title** — the published title is *Abstract intersection theory for
+   **zeta-functions**: geometric aspects*, not “…for operators in Hilbert space: …”. The source
+   note hid the same defect behind an ellipsis whose antecedent was BU2’s stem. Verified from
+   p. 1 and the p. 265 running head of the on-disk `fetched-r2/t-58a`.
+3. **[YZ] wrong series volume, repo-wide** — Yuan–Zhang is **Annals of Mathematics Studies 221**,
+   not 223 (zbMATH book record; AMS 223 is a different book), and the entry asserted a book with
+   no year. Corrected in `BARRIER-ZOO.md`, `directions/C3-geometric-substrate.md` (×3),
+   `results/c3-r/m0-axiom-note.md`, `results/c3-r/referee-m0.md` and the .tex. Three **dated JSON
+   records keep “223” by immutability** — covered by new `results/corpus-routing.md` caveat 17.
+4. **[vdGS] invented first page** — Selecta Math. (N.S.) 6 (2000) begins at **377**, not 379
+   (Crossref DOI 10.1007/PL00001393, zbMATH). Absent from the source note; converter-manufactured.
+5. **[Stepanov] title missing its leading word** — “**On** the number of points of a hyperelliptic
+   curve over a finite prime field” (mathnet.ru, the Izvestiya archive of record); the
+   Math. USSR-Izv. 3 (1969) 1103–1114 translation added.
+
+Also applied: the three m0 **Broucke-school entries** carried descriptive parentheticals where a
+title belongs — real titles supplied, the descriptions kept as explicit annotations, and the
+disputed handle arXiv:2507.13780 **adjudicated CORRECT** (its abstract constructs Beurling zeta
+functions with zeros on a prescribed contour and none to the right, exactly as cited; Broucke’s
+whole 60-record arXiv listing was swept for an alternative and there is none). m1’s [CC26] title
+completed. Eleven staleness/completeness fixes in the seed note’s bibliography (BU1, BU2, CC16,
+CC25, CE15, CCM07, Ku92, Ta20, BL, 4EC, Ak09). The seed note’s five PSLQ/CF constants restored to
+their full 37-digit recorded precision (the converter had truncated them to 26 and pushed the rest
+into a caption pointer).
+
+**Confirmed CORRECT and deliberately left alone:** Blomer–Leung (Adv. Math. 485, art. 110716),
+Chen–Moriwaki, Davenport–Heilbronn (second paper, 307–312), Diamond–Montgomery–Vorhauer (checked
+against the on-disk PDF), Kaczorowski–Perelli I and VII, Hartshorne, Mattuck–Tate (295–299),
+Grothendieck (208–215), Bombieri (Bourbaki 430, LNM 383, 234–241), Akatsuka, Weil 1952, and —
+importantly — **[CC26]’s full title including “and the Fargues–Fontaine curve”**: the arXiv API
+and abs-page metadata truncate it at the TeX, so it is *not* an error to “fix”.
+
+**The five errors as first surfaced (kept for the record), from the arXiv API:**
 (i) **[Ha15] is misattributed.** arXiv:1507.06480 “A taste of Weil theory in characteristic one”
 is by **Koen Thas**, not M. J. Shai Haran. The error originates in `results/c3-r/prior-art-r7a.md`
 §5/§6 item 6 and propagated into `seed-no-go-note.md` (§9 item 6 + References) and
