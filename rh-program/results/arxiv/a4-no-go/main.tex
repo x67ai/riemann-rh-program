@@ -57,69 +57,12 @@ and correction, is public: \url{https://github.com/x67ai/riemann-rh-program}.}}
 
 \maketitle
 
-\begin{datedrev}
-The interval hardening of 2026-08-27
-(\texttt{verify/}\allowbreak\texttt{o1\_}\allowbreak\texttt{crowding\_}\allowbreak\texttt{interval.py};
-report: \emph{supplementary material}, \texttt{o1-n128-report.md}) found the
-earlier full-family crowding ratio $0.9775$ to be a $0.004$-grid artifact.
-This revision re-scopes the multi-pair closure: ledger constant
-interval-certified $C^{*} \le 0.98465 < 1$ on pair depths $\le 0.156$
-($w \le 0.98$); certified ledger FAILURE ($\Sgen \ge 1.01405 > 1$ at
-$d = d' = 0.159$) on $w \in (0.98, 1]$, where coverage is the re-run crowd
-attacks ($\min F_1 - T \ge +17.46$) plus the unconditional $8/9$ backstop ---
-(MI) itself is numerically unrefuted there. The $N = 128$ re-run reproduces all
-identities. A strengthening-by-honesty: the certified region's constant is now
-rigorous, and the overreach is withdrawn. Complete edit list:
-\emph{supplementary material}, \texttt{o1-n128-report.md}, Section~5.
-\end{datedrev}
-
-\begin{datedrev}
-\textbf{Citation pass, 2026-08-27.} An independent novelty re-check was run before
-circulation; its verdict for this paper is \emph{novel with citations}, and every
-citation action it requested was re-verified against a primary source before being
-applied (Crossref, zbMATH Open, the arXiv abstract pages, the publishers' own
-records, and the program's on-disk corpus). The changes are citation- and
-provenance-level only: no theorem, proof, number, or verdict is affected. Added:
-[GdLL25], with a reconciliation paragraph in Section~1.2 and a provenance note at
-Proposition~\ref{prop:affine}; [KLS11]; and [FGL14], solely to disambiguate the
-numerical coincidence noted at Corollary~\ref{cor:matched}. Completed or corrected:
-publication coordinates for [BGSTB24], [KLS07], [KS66], [CGdL20], [CdLS22], and DOIs
-for [LR20], [LR21], [Hej94], [RS96], [CGG98], [BHB13]. Three of the re-check's own
-claims did \textbf{not} survive primary-source verification and were not executed:
-its request to renumber both ``Section~7.5(e)'' pointers (item~(e) \emph{is} in
-\S7.5 of the 35-page parent version, and in \S7.2(e) only in the 17-page revision
---- both pointers are correct, and the [P] entry disambiguates them); its description
-of [CGdL20]'s inequality~(7) as a ``convex-programming form'' (it is elementary
-integer arithmetic, credited there to an argument of Ghosh); and its reading of
-[GdLL25]'s $N_n$ remark as ``a higher level adds nothing'' (it is a negative about
-problem formulation at a fixed level). Each is recorded here so that it cannot be
-reintroduced.
-\end{datedrev}
-
-\bigskip
-
-\noindent\textbf{Program:} RH program, direction A4 (merged A2$+$A4
-cubic-certificate direction). An independent adversarial review of the proposal
-returned \emph{survives with repairs} and prescribed the corrected decision gate
-executed here; this paper is that gate's absorption branch, decided 2026-08-26 and
-independently audited. The internal terms \emph{gate}, \emph{adjudication} and
-\emph{referee pass} are defined in the Provenance section.
-
-\noindent\textbf{Date:} 2026-08-26.
-
-\noindent\textbf{Evidence discipline:} every number in this paper is taken from
-the on-disk gate record (\texttt{results/}\allowbreak\texttt{a4-m2-gate/}), from the audited data
-digest (\emph{supplementary material}, \texttt{data-tables.md}), or from
-re-derivations executed in the accompanying verification suite;
-every theorem is proved in full in Sections~3--7 or in the companion note
-(\emph{supplementary material}, \texttt{pair-channel.md}). Provenance for each
-class of claim is collected in the References and Provenance sections.
-
 \begin{abstract}
-The parent paper's unconditional two-thirds theorem rests on a two-moment
-certificate --- trace and Frobenius norm of the Weil--Gabor compression, read
-against block structure and integrality --- and that certificate is provably
-exhausted: the Lean-formalized \texttt{lemmaR\_tight} shows that within the data
+Alp\"oge and Furman's unconditional theorem that more than two thirds of the
+zeros of the Riemann zeta function are simple and lie on the critical line
+\cite{P} rests on a two-moment certificate --- trace and Frobenius norm of the
+Weil--Gabor compression, read against block structure and integrality --- and
+that certificate is provably exhausted: within the data
 class (tr, Frobenius, positive-index count, integer atoms) an on-line double and
 a shallow off-line pair are indistinguishable, pinning the distinct-zeros
 optimum at $\Nd/N = 5/6$ and the simple fraction at $2/3$. Direction A4 proposed
@@ -2730,10 +2673,8 @@ outcome can be chosen after the fact. An \emph{adjudication} is an independent
 adversarial review of a proposal by parties who did not write it, returning a
 verdict and a list of mandatory repairs; the one referred to here returned
 \emph{survives with repairs} and prescribed the corrected gate that this paper
-executes, together with seven numbered repairs (R1--R7). A \emph{referee pass}
-is a further independent review of the finished document; two were run on this
-one and their outcome is the Revision record below. Dates are given in place of
-the program's internal session numbering.
+executes, together with seven numbered repairs (R1--R7). The finished document was
+also reviewed independently twice before release.
 
 \paragraph{Data and code availability.}
 Every number in this paper comes from one of three places: the pre-registered
@@ -2804,150 +2745,6 @@ places pairs and doubles on the same affine plane $c = 3F - 2$. The campaign
 transcript's recorded block facts (pair eigenvalues $m L^2 a (1 \pm A)$) were
 correct throughout. This correction was executed in the direction file at gate
 time and is re-proven here from scratch.
-
-\section*{Revision record (2026-08-26)}
-\addcontentsline{toc}{section}{Revision record (2026-08-26)}
-
-Both referee reports (\emph{supplementary material}, \texttt{referee-1.md},
-mathematics; \texttt{referee-2.md}, evidence and scope) returned PASS WITH
-REPAIRS. Every repair below was applied only after re-verifying the underlying
-fact against the recorded evidence (or re-deriving it); the two
-digest-level errors were also corrected at their source files. Notation:
-R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
-
-\paragraph{Applied (majors).}
-
-\begin{itemize}
-\item R1-M1 $=$ R2-M1 (pair-channel closure overclaimed as ``the gate's entire
-  admissible class'') $\to$ abstract sentence, headline
-  \ref{sec:headline}(8), Section~\ref{sec:pairchannel} title, and the
-  \ref{sec:pairchannel} Consequence paragraph rewritten to the proved coverage
-  (single-pair to $w \le 2.8$; multi-pair to $w \le 0.82$ unconditionally,
-  $w \le 1$ modulo the certified crowding constant [that clause re-scoped to
-  $w \le 0.98$ by the 2026-08-27 dated revision --- see the revision note at the
-  top]; equal-depth pair-only at every depth), with mixed-depth deep-probe
-  multi-pair columns explicitly assigned to numerics plus the $8/9$ backstop, and
-  an added sentence stating that class-level exactness of $\delta_0 = 0$ is
-  proved on the closure's regimes and heuristic (pricing-backed, backstopped at
-  $20/27$) on that residue.
-\item R1-M2.1 $=$ R2-m3 (near-CUE pinning precision) $\to$
-  Section~\ref{sec:slack} ``to $10^{-13}$'' corrected to ``to
-  $2 \times 10^{-12}$ (maximum deviation $1.84 \times 10^{-12}$, at $j = 62$)'';
-  re-verified from \texttt{followup-near-cue.json} ($15$ of $63$ rows exceed
-  $10^{-13}$). Source corrected in \texttt{data-tables.md} Section~4.2 with a
-  correction tag.
-\item R1-M2.2 $=$ R2-m2 (\texttt{clean\_checks} misdescribed) $\to$
-  Appendix~\ref{app:witness} now describes \texttt{max\_dev} as the maximum
-  row-value deviation between clean-grid and optimizer values, all three columns
-  quoted ($3.4 \times 10^{-6} / 1.6 \times 10^{-5} / 4.1 \times 10^{-5}$); the
-  omitted third value restored. (R2-m2(c)'s rigid-rotation observation was NOT
-  added: not re-verified for this paper.)
-\item R1-M2.3 $=$ R2-m1 (witness table column~3 mixed provenance) $\to$
-  Section~\ref{sec:certification} table and Appendix~\ref{app:witness} column~3
-  now display the clean-grid $C' = 301.3541285$ consistently with columns~1--2,
-  with an explicit provenance note: table rows are clean-grid values, aggregates
-  are the stored law rows (which saturate the budget edges exactly; re-verified
-  $E[C'] = B_3(1 - \varepsilon)$ to $10^{-13}$ from \texttt{witness\_N64.json}).
-\item R1-M3.1 (operating-point scope) $\to$ one-sentence definition of the title
-  phrase (``the $\lambda' = 1/2 + o(1)$ system fixed by the adjudication, R4
-  $\theta < 1$ strict; $\lambda' \ge 0.6$ is the quarantined
-  Section~\ref{sec:payoff} payoff curve'') added at the end of
-  Section~\ref{sec:gatequestion}.
-\item R1-M3.2 (MVT-4 parenthetical misattached) $\to$
-  Section~\ref{sec:consequences}(3)(i) restated: the MVT-4 extension to
-  $\lambda \in (1/2, 2/3)$ is Theorem~1(i)'s fixed-$\lambda$ divergent cutoff per
-  repair R3 (re-verified in \texttt{adjudication-A4.json}), a divergent-cutoff
-  statement subject to Theorem~\ref{thm:garnish}'s vacuity, not the all-$V$
-  ladder.
-\item R2-M2 $=$ R1-m1 (headline~1 $\varepsilon$ axes) $\to$ corrected to
-  $\varepsilon \in \{0.02, 0.05, 0.10\}$ with the tight-$\varepsilon$ runs
-  labeled as separate (verified against \texttt{runs/scans\_N64.json} /
-  \texttt{runs/tighteps\_N64.json}).
-\item R2-M3 (``all $n(V)$ vectors zero'' false) $\to$
-  Section~\ref{sec:certification} now states the true ladder slack:
-  $E[n(2)] = 3.50$, $E[n(3)] = 0.94$ against caps $400$ and $79.0$, higher rows
-  zero, vacancy column's $n(V)$ identically zero (recomputed from
-  \texttt{witness\_N64.json} law weights and \texttt{nV} vectors). Source
-  corrected in \texttt{data-tables.md} Section~3 with a correction tag.
-\item R2-M4 (unsourced LP refinement values $0.3985/0.3991$) $\to$ the refinement
-  runs were re-executed and persisted: \texttt{verify\_t5.py}
-  extended with the ($2000$ pts, $h_{\max}$ $2000$), ($4000$ pts, $h_{\max}$
-  $2000$), ($4000$ pts, $h_{\max}$ $8000$) cells and re-run, regenerating
-  \texttt{verify\_t5\_out.json}; the persisted tail-corrected values
-  $0.398498 / 0.399105$ reproduce the prose $0.3985 / 0.3991$ exactly, and
-  Section~\ref{sec:sharpcap} now cites the sequence with its grid parameters.
-\end{itemize}
-
-\paragraph{Applied (minors).}
-
-\begin{itemize}
-\item R1-m2 $\to$ remark added after Theorem~\ref{thm:garnish}'s proof: capping
-  the garnish height at
-  $h_0 = \min(\lfloor V_0/2 \rfloor, \lfloor N^{1/4} \rfloor)$ removes the
-  $V_0 = o(N^{1/3})$ hypothesis (re-derived: $h_0 \to \infty$,
-  $h_0^3 \le N^{3/4} = o(N)$, $h_0 < V_0$), licensing the ``any divergent
-  cutoff'' headline as stated.
-\item R1-m3 $\to$ Appendix~\ref{app:witness} notes the $N = 128$ near-CUE witness
-  objective sits $4.0 \times 10^{-8}$ above the Section~\ref{sec:t2result} LP
-  optimum (interior-shrunk box; recomputed from
-  \texttt{followup-near-cue.json}).
-\item R1-m4 $\to$ Theorem~\ref{thm:backstop}'s proof now derives the
-  finite-circle pair block $B_p = m(p q^{\dagger} + q p^{\dagger})$ and its
-  $n_+ \le 1$ via Cauchy--Schwarz (re-derived), instead of citing
-  Proposition~\ref{prop:pairblock} across models.
-\item R1-m5 $\to$ (W2) now fixes $\kappa = \kappa(1) = 4/3$.
-\item R1-m6 $\to$ Theorem~\ref{thm:garnish}'s simple-atom fraction renamed
-  $\delta_0' \to s_0$ (collision with the near-CUE marginal removed).
-\item R1-m7 $\to$ Section~\ref{sec:adversary} now exhibits the fractional-mark
-  failure of the $5/6$ baseline itself (mark-$4/3$ atoms on the grid:
-  $F_1 = (4/3)N$, $\Nd = (3/4)N$; verified) and scopes the
-  Section~\ref{sec:fractional} pointer to the pair-channel form.
-\item R1-m8 $\to$ ``occupancy-$2$ cross-terms'' corrected to ``cross-terms
-  (occupancy $\ge 2$)'' in Section~\ref{sec:rowsystem} and Appendix~\ref{app:mc}
-  (with the $3.5 + 0.5$ two-point/three-point split of the cubic share noted).
-\item R1-m9 $\to$ $\Marg$'s unique sign change scoped to $(0, 1]$, the interval
-  on which the closed forms are proved.
-\item R1-m10 $\to$ Section~\ref{sec:payoff} label corrected to ``per repair R4
-  and merge-guidance item (4)''.
-\item R2-m4 $\to$ Section~\ref{sec:t2result} build-out wording: $6{,}457$
-  columns at the matched cell, $6{,}739$ after the asymptotic re-centering
-  (verified in \texttt{followup-near-cue.json} N128 block).
-\item R2-m5 $\to$ ledger verification constant corrected to
-  $2.2 \times 10^{-11}$ (stored \texttt{pairchan\_}\allowbreak\texttt{verify\_out.json}
-  \texttt{I\_identity\_}\allowbreak\texttt{maxerr} $= 2.18 \times 10^{-11}$); also corrected at source
-  in \texttt{pair-channel.md}.
-\item R2-m6 $\to$ the $N = 128$ ``$S = 100$'' pricing claim is now labeled
-  RUN-REPORT-recorded with no stored verify block.
-\item R2-m7 $\to$ [BGSTB24] v1 date corrected to the arXiv stamp 7~Jun~2023
-  (read off the PDF's first page).
-\item R2-m8 $\to$ abstract now separates the two benchmarks' evidence bases
-  ($940$-record grid for $\Nd$; two converged cells plus cross-checks for $p_1$).
-\item R2-m9 $\to$ subtitle changed to ``for the two-moment system at bandwidth
-  one'' (drops the audit-flagged ``bandwidth-one ceiling'' phrase).
-\item R2-m10 $\to$ Section~8.2 specifies the centering difference (cubic centers
-  $5\%$, $F_1$ $0.7\%$, $F'$ $2.6\%$).
-\item R2-m11 $\to$ ``every intermediate dictionary state'' corrected to ``every
-  recorded dictionary re-solve ($1{,}842 / 6{,}457 / 6{,}739$ columns)''
-  (verified: three recorded re-solves, deltas
-  $7.8 \times 10^{-16} / 0.0 / 0.0$).
-\item R2-m12 $\to$ the $0.85082$ citation now notes the [BHB13] input (verified
-  verbatim in \texttt{v5\_p14.txt}).
-\item R2 courtesy (prior-art sweep) $\to$ ``see also arXiv:2501.14545'' added to
-  the [BGSTB24] entry, attributed to the evidence referee's logged sweep.
-\end{itemize}
-
-\paragraph{Rejected or partially rejected.}
-
-\begin{itemize}
-\item R2-m2(c) (stored float positions differ from the grid by a common rigid
-  rotation): omitted rather than asserted --- the claim was not re-verified in
-  for this paper, and nothing load-bearing needs it; the corrected row-value
-  description suffices.
-\end{itemize}
-
-No other finding was rejected. No FATAL findings were reported by either referee;
-every repair above is wording, citation, or provenance level, and none changes
-any theorem, proof, number, or the verdict $\delta_0 = 0$.
 
 \begin{thebibliography}{99}
 
