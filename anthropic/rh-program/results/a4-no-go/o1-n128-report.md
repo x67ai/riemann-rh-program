@@ -52,20 +52,20 @@ Self-test: iv enclosures contain independent cmath values at 4 points (PASS).
 
 * **(C1) REPAIR — certified.** For ALL d, d' in (0, 39/250] (39/250 = 0.156 exactly; w <= 0.98018):
 
-      Sgen2(d, d')  <=  C* = {{C1_CSTAR}}   ( < 1, margin {{C1_MARGIN}} )
+      Sgen2(d, d')  <=  C* = 0.9846470880   ( < 1, margin 0.0153529 )
 
   via a 17-box rational partition of (0, 0.156] (coarse 0.02 boxes to 0.12, refining to 0.001 at
   the corner), per-box certified nu and nu_joint upper bounds (153 unordered box pairs) and the
-  termwise-monotone lower bound abar(2 d_left). Binding d-box: {{C1_BINDING}}. Per-cell enclosures
+  termwise-monotone lower bound abar(2 d_left). Binding d-box: (31/200, 39/250] = (0.155, 0.156], equal-depth corner pair. Per-cell enclosures
   at the corner box pair (0.155, 0.156]^2 are printed in the run log and stored in the JSON
-  (dominant cells: {{C1_CELLS}}).
+  (dominant cells: cell 1 <= 0.15080, cell 2 <= 0.03544, cell 3 <= 0.01563, cells 4..32 tail <= 0.00880 each).
 * **(C2) DISPROOF — certified.** Rigorous LOWER bounds at equal-depth points inside the family
   (witness x per cell from float hints, re-evaluated in iv; numerator lower ends over denominator
   upper end):
 
-      Sgen2(0.158, 0.158)  >=  {{C2_158}}   > 1
-      Sgen2(0.159, 0.159)  >=  {{C2_159}}   > 1
-      Sgen2(0.1591, 0.1591) >= {{C2_1591}}  > 1
+      Sgen2(0.158, 0.158)  >=  1.001823   > 1
+      Sgen2(0.159, 0.159)  >=  1.014053   > 1
+      Sgen2(0.1591, 0.1591) >= 1.015279  > 1
 
   (float reference values 1.00182 / 1.01405 / 1.01527). Hence the both-capped ledger condition
   fails for every cap Y >= 0.158, and the crossing sits in the certified bracket
@@ -74,12 +74,12 @@ Self-test: iv enclosures contain independent cmath values at 4 points (PASS).
 * **(C3) BYPRODUCT — Theorem B(i)'s stream-3 self-consistency at Y = 0.13, BOTH sides now
   interval-certified** (previously float):
 
-      max nu_joint over (0, 0.13]^2  <=  C13 = {{C3_C13}}     (float record 0.3003)
+      max nu_joint over (0, 0.13]^2  <=  C13 = 0.304542     (float record 0.3003)
       Phi_0 = inf { R_s(x) + R_t(x) : |x| <= 32/65, s <= 5093/16000, t <= 5093/32000 }
-                                     >=  {{C3_PHI0}}          (note's float floor "0.6665")
-      2 * C13 = {{C3_2C13}}  <  Phi_0   =>  one-pair-per-cell cap SELF-CONSISTENT at Y = 0.13.
+                                     >=  0.643710          (note's float floor "0.6665")
+      2 * C13 = 0.609084  <  Phi_0   =>  one-pair-per-cell cap SELF-CONSISTENT at Y = 0.13.
 
-  Also certified from the same tables: sup Sgen2 over (0, 0.13]^2 <= {{C3_S13}} (float record
+  Also certified from the same tables: sup Sgen2 over (0, 0.13]^2 <= 0.704577 (float record
   0.6852). Note: the note's Phi_0 line contains an addition slip — "0.2863 + 0.3812 = 0.6665"
   should read 0.6675; the slip is conservative (the smaller floor was used) and harmless.
 
@@ -150,8 +150,8 @@ its LEDGER status changed (from "certified 0.9775 < 1" to "certified > 1").
 
 Per the dated-revision process, these edits are NOT applied here; the paper package is refereed
 and the orchestrator applies them with a revision record. Certified constants below use
-C* = {{C1_CSTAR_SHORT}}, L159 = {{C2_159_SHORT}} (the certified corner lower bound at 0.159),
-C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
+C* = 0.98465, L159 = 1.01405 (the certified corner lower bound at 0.159),
+C13 = 0.30455, PHI0 = 0.64371.
 
 ### 5.1 `pair-channel.md`
 
@@ -159,7 +159,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
    > "and on the full R5 family d <= 1/(2 pi) (w <= 1) modulo one isolated, numerically certified cell-crowding capacity constant (ledger ratio 0.9775 at the binding depth; the residual is bookkeeping slack, not truth — the targeted crowd attacks of Section 7 stay >= +17 above the (MI) floor there)."
 
    Replacement:
-   > "and for all pair depths <= 0.156 (w <= 0.98) modulo one isolated cell-crowding cap whose ledger constant is interval-certified (Session 8): sup_{d,d' <= 0.156} Sgen2 <= {{C1_CSTAR_SHORT}} < 1 by per-cell rigorous enclosures (`verify/o1_crowding_interval.py`). On the deepest sliver d in (0.156, 1/(2 pi)] (w in (0.98, 1]) the ledger inequality itself fails — interval-certified Sgen2(0.159, 0.159) >= {{C2_159_SHORT}} > 1 — so the ledger route claims nothing there; coverage on the sliver is the Section-7 attacks (re-run at d = 0.158/0.159, min F1 - T >= +17.47) plus the unconditional 8/9 backstop of Theorem D. The Session-7 ratio 0.9775 was the 0.004-grid maximum, i.e. the constant of the family capped at d <= 0.156, not the full-family sup."
+   > "and for all pair depths <= 0.156 (w <= 0.98) modulo one isolated cell-crowding cap whose ledger constant is interval-certified (Session 8): sup_{d,d' <= 0.156} Sgen2 <= 0.98465 < 1 by per-cell rigorous enclosures (`verify/o1_crowding_interval.py`). On the deepest sliver d in (0.156, 1/(2 pi)] (w in (0.98, 1]) the ledger inequality itself fails — interval-certified Sgen2(0.159, 0.159) >= 1.01405 > 1 — so the ledger route claims nothing there; coverage on the sliver is the Section-7 attacks (re-run at d = 0.158/0.159, min F1 - T >= +17.47) plus the unconditional 8/9 backstop of Theorem D. The Session-7 ratio 0.9775 was the 0.004-grid maximum, i.e. the constant of the family capped at d <= 0.156, not the full-family sup."
 
 2. **Section 0, item "Consequence for the no-go paper" (the line-28 paragraph)** — current fragment:
    > "and multi-pair columns with all depths w <= 0.82 (unconditional) or w <= 1 (modulo the certified crowding constant)"
@@ -171,13 +171,13 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
    > "(ii) If every pair depth is <= 1/(2 pi) (w <= 1, the full R5 family): (MI) holds modulo the cell-crowding refinement (below), whose content is certified numerically with ratio 0.9775."
 
    Replacement:
-   > "(ii) If every pair depth is <= 0.156 (w <= 0.98): (MI) holds modulo the cell-crowding refinement (below); its ledger constant is interval-certified, sup_{d,d' <= 0.156} Sgen2 <= {{C1_CSTAR_SHORT}} < 1 (Session 8, `verify/o1_crowding_interval.py`). On (0.156, 1/(2 pi)] the ledger inequality fails (interval-certified Sgen2(0.159, 0.159) >= {{C2_159_SHORT}} > 1): no ledger-grade statement is made there, and coverage is Section 7's attacks plus Theorem D."
+   > "(ii) If every pair depth is <= 0.156 (w <= 0.98): (MI) holds modulo the cell-crowding refinement (below); its ledger constant is interval-certified, sup_{d,d' <= 0.156} Sgen2 <= 0.98465 < 1 (Session 8, `verify/o1_crowding_interval.py`). On (0.156, 1/(2 pi)] the ledger inequality fails (interval-certified Sgen2(0.159, 0.159) >= 1.01405 > 1): no ledger-grade statement is made there, and coverage is Section 7's attacks plus Theorem D."
 
 4. **Proof sketch of (ii), first sentence** — current:
    > "The identical ledger at Y = 1/(2 pi) gives sup_d Sgen2 = 0.9775 (binding at equal depths d = 0.156), PROVIDED the one-pair-per-cell perturber cap is granted there;"
 
    Replacement:
-   > "The identical ledger at Y = 0.156 gives sup_d Sgen2 <= {{C1_CSTAR_SHORT}} < 1 (interval-certified; binding at the corner d = d' = 0.156), PROVIDED the one-pair-per-cell perturber cap is granted there; at Y = 1/(2 pi) the ledger fails outright (interval-certified Sgen2 >= {{C2_159_SHORT}} > 1 at d = d' = 0.159, crossing bracket (0.156, 0.158)), so the deepest sliver carries no ledger statement and rests on the attacks plus Theorem D;"
+   > "The identical ledger at Y = 0.156 gives sup_d Sgen2 <= 0.98465 < 1 (interval-certified; binding at the corner d = d' = 0.156), PROVIDED the one-pair-per-cell perturber cap is granted there; at Y = 1/(2 pi) the ledger fails outright (interval-certified Sgen2 >= 1.01405 > 1 at d = d' = 0.159, crossing bracket (0.156, 0.158)), so the deepest sliver carries no ledger statement and rests on the attacks plus Theorem D;"
 
 5. **B(i) proof, stream 3** — current:
    > "with the floor Phi_0 = R_{<=0.318}(0.4923) + R_{<=0.159}(0.4923) >= 0.2863 + 0.3812 = 0.6665 (verified values)"
@@ -185,9 +185,9 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
    > "At Y = 0.13: max nu_joint = 0.3003 (at equal depths d = d' = 0.13), and 2 * 0.3003 = 0.6006 <= 0.6665 — the one-pair-per-cell cap is SELF-CONSISTENT."
 
    Replacement:
-   > "with the floor Phi_0 >= {{C3_PHI0_SHORT}} (interval-certified over the full family box, Session 8; the float components 0.2863 + 0.3812 sum to 0.6675, correcting a 0.6665 slip — conservative, so nothing downstream moves)"
+   > "with the floor Phi_0 >= 0.64371 (interval-certified over the full family box, Session 8; the float components 0.2863 + 0.3812 sum to 0.6675, correcting a 0.6665 slip — conservative, so nothing downstream moves)"
    and
-   > "At Y = 0.13: max nu_joint <= {{C3_C13_SHORT}} (interval-certified; float 0.3003 at equal depths d = d' = 0.13), and 2 * {{C3_C13_SHORT}} = {{C3_2C13_SHORT}} < Phi_0 — the one-pair-per-cell cap is SELF-CONSISTENT, now with both sides interval-certified."
+   > "At Y = 0.13: max nu_joint <= 0.30455 (interval-certified; float 0.3003 at equal depths d = d' = 0.13), and 2 * 0.30455 = 0.60910 < Phi_0 — the one-pair-per-cell cap is SELF-CONSISTENT, now with both sides interval-certified."
 
 6. **Section 8 item 1** — current fragment:
    > "(b) all multi-pair columns with depths w <= 0.82 unconditionally, and w <= 1 (the full R5 family) modulo one certified crowding constant;"
@@ -205,7 +205,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
    > "(O1) Theorem B(ii)'s cell-crowding refinement on (0.13, 0.159]: one finite-dimensional capacity statement, certified numerically (ledger 0.9775; crowd attacks +17), not chain-proved. Hardening route: per-cell joint optimization over the two-parameter kernel family with interval arithmetic."
 
    Replacement:
-   > "(O1) [EXECUTED WITH CORRECTION, Session 8 2026-08-26 — `verify/o1_crowding_interval.py`] The stated hardening route was run. Outcome: (a) the ledger constant is interval-certified on (0, 0.156]^2: sup Sgen2 <= {{C1_CSTAR_SHORT}} < 1; (b) the Session-7 full-family ratio 0.9775 was a 0.004-grid artifact — on (0.156, 1/(2 pi)] the ledger inequality FAILS (interval-certified Sgen2 >= {{C2_159_SHORT}} > 1 at d = d' = 0.159; crossing bracket (0.156, 0.158)); coverage there is the attacks (re-run at 0.158/0.159: >= +17.47) plus Theorem D. (c) Still open on (0.13, 0.156]: the one-pair-per-cell cap itself (granted, not chain-proved; its Y = 0.13 self-consistency is now interval-certified on both sides)."
+   > "(O1) [EXECUTED WITH CORRECTION, Session 8 2026-08-26 — `verify/o1_crowding_interval.py`] The stated hardening route was run. Outcome: (a) the ledger constant is interval-certified on (0, 0.156]^2: sup Sgen2 <= 0.98465 < 1; (b) the Session-7 full-family ratio 0.9775 was a 0.004-grid artifact — on (0.156, 1/(2 pi)] the ledger inequality FAILS (interval-certified Sgen2 >= 1.01405 > 1 at d = d' = 0.159; crossing bracket (0.156, 0.158)); coverage there is the attacks (re-run at 0.158/0.159: >= +17.47) plus Theorem D. (c) Still open on (0.13, 0.156]: the one-pair-per-cell cap itself (granted, not chain-proved; its Y = 0.13 self-consistency is now interval-certified on both sides)."
 
 8. **Section 9, O4** — append after the current text:
    > "[EXECUTED, Session 8 — `verify/n128_rerun.py`. All identities and inequalities reproduce at N = 128 (control leg reproduces the stored N = 64 record to <= 2e-15). Constant drifts <= ~2.5% toward continuum values (alpha 3.3927 -> 3.3413; capped-0.156 ledger constant 0.97746 -> 0.96329). Two honest N-dependences: Theorem A(ii)'s deep threshold is d >= 1.1 at N = 128 (ratio target sqrt(2(N-2))); the near-endpoint ledger failure exists at N = 128 too, on a smaller sliver (crossing in (0.159, 0.1591)).]"
@@ -214,7 +214,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
    > "Sgen2 sup = 0.6852 at Y = 0.13 and 0.9775 at Y = 1/(2 pi);"
 
    Replacement fragment:
-   > "Sgen2 sup = 0.6852 at Y = 0.13 (interval-certified <= {{C3_S13_SHORT}}) and 0.97746 at Y = 0.156 (grid; interval-certified <= {{C1_CSTAR_SHORT}} on the continuum); at Y = 1/(2 pi) the sup exceeds 1 (interval-certified >= {{C2_159_SHORT}} at d = 0.159);"
+   > "Sgen2 sup = 0.6852 at Y = 0.13 (interval-certified <= 0.70458) and 0.97746 at Y = 0.156 (grid; interval-certified <= 0.98465 on the continuum); at Y = 1/(2 pi) the sup exceeds 1 (interval-certified >= 1.01405 at d = 0.159);"
 
 ### 5.2 `paper.md`
 
@@ -228,19 +228,19 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
     > "for all multi-pair configurations to w <= 0.82 (w <= 1 modulo one certified crowding constant, ratio 0.9775)"
 
     Replacement fragment:
-    > "for all multi-pair configurations to w <= 0.82 (w <= 0.98 modulo the crowding cap, ledger constant interval-certified at {{C1_CSTAR_SHORT}}; on w in (0.98, 1] the ledger fails — certified — and coverage is adversarial numerics plus the 8/9 backstop)"
+    > "for all multi-pair configurations to w <= 0.82 (w <= 0.98 modulo the crowding cap, ledger constant interval-certified at 0.98465; on w in (0.98, 1] the ledger fails — certified — and coverage is adversarial numerics plus the 8/9 backstop)"
 
 12. **Theorem 4.7** — current:
     > "**Theorem 4.7 (multi-pair closure).** (MI) holds for every configuration all of whose pair depths satisfy w <= 0.82, unconditionally; and on the full R5 depth family w <= 1 modulo one isolated, numerically certified cell-crowding capacity constant (ledger ratio 0.9775 at the binding depth d = 0.156; the targeted crowd-plus-sea attacks at that depth — 8 to 65 pairs, one per cell tranche, plus greedy mark-2 seas up to 130 atoms, mass-free and mass-64 — never bring F1 - T below +17.4, against a floor requirement of 0)."
 
     Replacement:
-    > "**Theorem 4.7 (multi-pair closure).** (MI) holds for every configuration all of whose pair depths satisfy w <= 0.82, unconditionally; and for all depths w <= 0.98 modulo one isolated cell-crowding cap whose ledger constant is interval-certified (sup Sgen2 <= {{C1_CSTAR_SHORT}} < 1 on (0, 0.156]^2, per-cell rigorous enclosures; Session 8). On the deepest sliver w in (0.98, 1] the ledger inequality fails (interval-certified Sgen2 >= {{C2_159_SHORT}} > 1 at d = d' = 0.159); there the targeted crowd-plus-sea attacks — 8 to 65 pairs, one per cell tranche, plus greedy mark-2 seas up to 130 atoms, re-run at d = 0.158 and 0.159 — never bring F1 - T below +17.47, against a floor requirement of 0, and the unconditional 8/9 backstop applies."
+    > "**Theorem 4.7 (multi-pair closure).** (MI) holds for every configuration all of whose pair depths satisfy w <= 0.82, unconditionally; and for all depths w <= 0.98 modulo one isolated cell-crowding cap whose ledger constant is interval-certified (sup Sgen2 <= 0.98465 < 1 on (0, 0.156]^2, per-cell rigorous enclosures; Session 8). On the deepest sliver w in (0.98, 1] the ledger inequality fails (interval-certified Sgen2 >= 1.01405 > 1 at d = d' = 0.159); there the targeted crowd-plus-sea attacks — 8 to 65 pairs, one per cell tranche, plus greedy mark-2 seas up to 130 atoms, re-run at d = 0.158 and 0.159 — never bring F1 - T below +17.47, against a floor requirement of 0, and the unconditional 8/9 backstop applies."
 
 13. **Theorem 4.7 proof architecture** — current fragment:
     > "with a one-pair-per-cell crowding cap that is self-consistent for w <= 0.82 and is the single numerically certified constant beyond it"
 
     Replacement fragment:
-    > "with a one-pair-per-cell crowding cap that is self-consistent for w <= 0.82 (both sides interval-certified: 2 max nu_joint <= {{C3_2C13_SHORT}} < Phi_0 >= {{C3_PHI0_SHORT}}) and whose ledger constant beyond it is interval-certified to w <= 0.98; beyond w = 0.98 the ledger fails (certified) and the closure defers to numerics plus the backstop"
+    > "with a one-pair-per-cell crowding cap that is self-consistent for w <= 0.82 (both sides interval-certified: 2 max nu_joint <= 0.60910 < Phi_0 >= 0.64371) and whose ledger constant beyond it is interval-certified to w <= 0.98; beyond w = 0.98 the ledger fails (certified) and the closure defers to numerics plus the backstop"
 
 14. **Section 4.3 Consequence** — current fragment:
     > "multi-pair columns at w <= 0.82 unconditionally and w <= 1 modulo the certified crowding constant"
@@ -256,7 +256,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
     > "(O1) Theorem 4.7's crowding refinement on the deepest ~20% of the R5 family is certified numerically (ratio 0.9775; attacks +17.4 above the floor), not chain-proved; the hardening route is a finite per-cell joint optimization with interval arithmetic."
 
     Replacement:
-    > "(O1) [updated Session 8] The per-cell interval hardening was executed: the crowding cap's ledger constant is interval-certified to w <= 0.98 ({{C1_CSTAR_SHORT}} < 1); the Session-7 full-family ratio 0.9775 was a grid artifact — on w in (0.98, 1] the ledger fails (certified > 1) and coverage is the attacks (+17.5, re-run at the sliver) plus the 8/9 backstop; the cap itself on w in (0.82, 0.98] remains granted-not-proved (its w <= 0.82 self-consistency is now interval-certified on both sides)."
+    > "(O1) [updated Session 8] The per-cell interval hardening was executed: the crowding cap's ledger constant is interval-certified to w <= 0.98 (0.98465 < 1); the Session-7 full-family ratio 0.9775 was a grid artifact — on w in (0.98, 1] the ledger fails (certified > 1) and coverage is the attacks (+17.5, re-run at the sliver) plus the 8/9 backstop; the cap itself on w in (0.82, 0.98] remains granted-not-proved (its w <= 0.82 self-consistency is now interval-certified on both sides)."
 
     Current O4:
     > "(O4) The certified capacity constants are at N = 64."
@@ -268,7 +268,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
 
 16. `directions/A4-lindelof-lock.md` line 178 — "(to w <= 1 modulo one float-certified crowding
     constant 0.9775)" -> "(to w <= 0.98 modulo one crowding cap, ledger constant interval-certified
-    {{C1_CSTAR_SHORT}}; on w in (0.98, 1] the ledger fails — certified — and coverage is attacks +
+    0.98465; on w in (0.98, 1] the ledger fails — certified — and coverage is attacks +
     8/9 backstop)". STATUS.md line 99 is the queue item itself (no correction needed; mark done).
     `theorems.md` needs NO change (its model theorem is stated atom-only; Remark 2.6's caveat
     stands and is unaffected). The referee reports are dated records and stay as they are.
@@ -277,7 +277,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
 
 * `verify/o1_crowding_interval.py` -> `verify/o1_crowding_interval_out.json` +
   `verify/o1_crowding_interval_run.log` (per-box tables, per-cell corner enclosures, C2/C3
-  certificates; elapsed {{ELAPSED}} s). mpmath 1.3.0, iv context, dps 15.
+  certificates; elapsed 3209 s). mpmath 1.3.0, iv context, dps 15.
 * `verify/n128_rerun.py` -> `verify/n128_rerun_out.json` + `verify/n128_rerun_run.log`
   (both-N suites, control diff vs stored, comparison tables; 4 s).
 * Sliver crowd attacks: `verify/crowd_at_sliver.py` -> `verify/crowd_at_sliver_out.txt` (float
@@ -294,7 +294,7 @@ C13 = {{C3_C13_SHORT}}, PHI0 = {{C3_PHI0_SHORT}}.
 
 O1: executed; outcome = **certified-with-correction**. The multi-pair theorem's "w <= 1 mod one
 certified constant" clause must be re-scoped to "w <= 0.98 mod the cap (constant now
-interval-certified {{C1_CSTAR_SHORT}} < 1)"; the sliver w in (0.98, 1] moves to the
+interval-certified 0.98465 < 1)"; the sliver w in (0.98, 1] moves to the
 numerics-plus-backstop column (attacks re-run there: >= +17.47). O4: executed; N = 128 agrees
 everywhere up to honest constant drift; two N-dependences recorded (A(ii) threshold d >= 1.1;
 sliver present at both N). No edits applied to the refereed package; Section 5 above is the
