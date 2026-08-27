@@ -51,9 +51,10 @@ one, with a hand-checkable witness}
 \maketitle
 
 \begin{datedrev}
-Session~8's interval hardening (\texttt{verify/o1\_crowding\_interval.py};
+The interval hardening of 2026-08-27
+(\texttt{verify/}\allowbreak\texttt{o1\_}\allowbreak\texttt{crowding\_}\allowbreak\texttt{interval.py};
 report: \emph{supplementary material}, \texttt{o1-n128-report.md}) found the
-Session-7 full-family crowding ratio $0.9775$ to be a $0.004$-grid artifact.
+earlier full-family crowding ratio $0.9775$ to be a $0.004$-grid artifact.
 This revision re-scopes the multi-pair closure: ledger constant
 interval-certified $C^{*} \le 0.98465 < 1$ on pair depths $\le 0.156$
 ($w \le 0.98$); certified ledger FAILURE ($\Sgen \ge 1.01405 > 1$ at
@@ -91,17 +92,18 @@ reintroduced.
 \bigskip
 
 \noindent\textbf{Program:} RH program, direction A4 (merged A2$+$A4
-cubic-certificate direction; adjudicated survives-with-repairs 5.5, binding).
-This paper is the sharpened no-go deliverable mandated by the adjudication's
-merge guidance, item~(3), on the absorption branch of the corrected M2 decision
-gate (decided Session~6, 2026-08-26, audited).
+cubic-certificate direction). An independent adversarial review of the proposal
+returned \emph{survives with repairs} and prescribed the corrected decision gate
+executed here; this paper is that gate's absorption branch, decided 2026-08-26 and
+independently audited. The internal terms \emph{gate}, \emph{adjudication} and
+\emph{referee pass} are defined in the Provenance section.
 
 \noindent\textbf{Date:} 2026-08-26.
 
 \noindent\textbf{Evidence discipline:} every number in this paper is taken from
 the on-disk gate record (\texttt{results/}\allowbreak\texttt{a4-m2-gate/}), from the audited data
 digest (\emph{supplementary material}, \texttt{data-tables.md}), or from
-re-derivations executed this session in \texttt{results/a4-no-go/verify/};
+re-derivations executed in the accompanying verification suite;
 every theorem is proved in full in Sections~3--7 or in the companion note
 (\emph{supplementary material}, \texttt{pair-channel.md}). Provenance for each
 class of claim is collected in the References and Provenance sections.
@@ -272,7 +274,7 @@ about problem \emph{formulation}, not about the information content of a higher
 correlation level, and it is cited here as a precedent for publishing such a negative
 rather than as evidence for this paper's claim.
 
-The binding adjudication (survives-with-repairs, 5.5) ordered seven repairs and
+The adjudication ordered seven repairs (R1--R7) and
 made the corrected M2 gate the direction's action one: a decision LP over an
 honest adversary class --- marks up to a divergent alphabet $W$,
 depth-parametrized shallow pairs, clustered sine-process null budgets, full
@@ -436,7 +438,7 @@ regime (Section~\ref{sec:payoff}).
 This section fixes the model in which every theorem of Sections~3--7 lives: the
 master trace formula, its finite-circle discretization, the adversary class, and
 the row system. It condenses the gate specification (SPEC Sections~1--4);
-everything here was re-derived in this session's verification suite.
+everything here was re-derived in the accompanying verification suite.
 
 \subsection{Window and kernel}
 
@@ -602,7 +604,7 @@ integrality level --- it cannot see doubles-versus-pairs at any depth. We then
 compute the null budgets in closed form, obtaining the identities that organize
 the entire margin structure, and finally prove the grid-decoupling theorem that
 hands the adversary the cross-term channel for free. Every proof in this section
-is complete; the numerical confirmations (all re-run this session,
+is complete; the numerical confirmations (all re-run for this paper,
 \texttt{verify/verify\_t1.py}--\texttt{verify\_t4\_mc.py}) are summarized at the
 point of use.
 
@@ -735,7 +737,7 @@ premise (the proposal's Step-4 narrative; the adjudication's computation-8 phase
 model) is false under the true block law; the campaign transcript's recorded
 block facts (pair eigenvalues $m L^2 a (1 \pm A)$) were correct throughout.
 
-Numerical confirmation (this session, \texttt{verify\_t3.py}): evaluation-vector
+Numerical confirmation (\texttt{verify\_t3.py}): evaluation-vector
 route with a $\cos$ taper, $L = 40$, $120001$ windows:
 $|x^{\mathsf{T}} x / L^2 a - 1| \le 6.7 \times 10^{-16}$,
 $|\langle p, q\rangle|/L^2 a \le 1.7 \times 10^{-14}$, block eigenvalues vs
@@ -1476,7 +1478,7 @@ searches reach at most $74\%$ of the pair budget).
 $w \le 0.82$, unconditionally; and for all depths $w \le 0.98$ modulo one
 isolated cell-crowding cap whose ledger constant is interval-certified
 ($\sup \Sgen \le 0.98465 < 1$ on $(0, 0.156]^2$, per-cell rigorous enclosures;
-Session~8). On the deepest sliver $w \in (0.98, 1]$ the ledger inequality fails
+2026-08-27). On the deepest sliver $w \in (0.98, 1]$ the ledger inequality fails
 (interval-certified $\Sgen \ge 1.01405 > 1$ at $d = d' = 0.159$); there the
 targeted crowd-plus-sea attacks --- $8$ to $65$ pairs, one per cell tranche, plus
 greedy mark-$2$ seas up to $130$ atoms, re-run at $d = 0.158$ and $0.159$ ---
@@ -2336,7 +2338,7 @@ structural reason to persist at every scale, and the model-level theorems of
 Sections~\ref{sec:structure},
 \ref{sec:atomonly}--\ref{sec:pairchannel}, and~\ref{sec:capacity} are
 $N$-generic (the pair-channel capacity constants were certified at $N = 64$, the
-decision geometry; the mechanical $N = 128$ re-run, executed Session~8,
+decision geometry; the mechanical $N = 128$ re-run, executed 2026-08-27,
 reproduces every identity and inequality --- see O4 below). No claim about $N$
 beyond $128$ rests on computation.
 
@@ -2367,9 +2369,9 @@ beyond $128$ rests on computation.
   as such wherever used, and never load-bearing for the exact-zero claims, which
   are witness-backed LP equalities.
 \item \textbf{Pair-channel residue} (from the companion note): (O1) [updated
-  Session~8] The per-cell interval hardening was executed: the crowding cap's
+  2026-08-27] The per-cell interval hardening was executed: the crowding cap's
   ledger constant is interval-certified to $w \le 0.98$ ($0.98465 < 1$); the
-  Session-7 full-family ratio $0.9775$ was a grid artifact --- on
+  earlier full-family ratio $0.9775$ was a grid artifact --- on
   $w \in (0.98, 1]$ the ledger fails (certified $> 1$) and coverage is the
   attacks ($+17.46$, re-run at the sliver) plus the $8/9$ backstop; the cap itself
   on $w \in (0.82, 0.98]$ remains granted-not-proved (its $w \le 0.82$
@@ -2379,7 +2381,7 @@ beyond $128$ rests on computation.
   gate/LP statement. (O3) The sharp conjecture
   (Section~\ref{sec:pairchannel}) is open; near-tight configurations ($+0.03$)
   mean the constant-chasing is genuinely hard. (O4) The certified capacity
-  constants are at $N = 64$; the mechanical $N = 128$ re-run (Session~8)
+  constants are at $N = 64$; the mechanical $N = 128$ re-run (2026-08-27)
   reproduces every identity and inequality with $\le {\sim}2.5\%$ drift in the
   headline certified constants (deep-tail table values, $y \ge 1.5$, drift up to
   ${\sim}8\%$), moves Theorem~A(ii)'s deep threshold to $d \ge 1.1$, and shows the
@@ -2707,58 +2709,69 @@ shares: Frobenius $0.52626$, cubic $0.78986$, against the analytic $54\%$ ($7/6$
 of $13/6$) and $80\%$ ($4$ of $5$; of which the strictly two-point share is $3.5$
 and the three-point term $T_3$ the remaining $0.5$).
 
-\section*{Provenance}
-\addcontentsline{toc}{section}{Provenance}
+\section*{Provenance, data and code}
+\addcontentsline{toc}{section}{Provenance, data and code}
 
-\textbf{Internal evidence chain (the paper's data authorities, all under
-\texttt{anthropic/}\allowbreak\texttt{rh-program/}).}
+\paragraph{What kind of document this is, and what the internal terms mean.}
+This paper is the publishable output of a structured research program on the
+Riemann hypothesis, and a few of its terms are that program's rather than the
+field's. They are used below and are defined here once. A \emph{gate} is a
+pre-registered decision procedure: its specification --- objective, adversary
+class, constraint rows, decision rule and stopping criterion --- is fixed and
+recorded \emph{before} any computation is run, so that neither branch of the
+outcome can be chosen after the fact. An \emph{adjudication} is an independent
+adversarial review of a proposal by parties who did not write it, returning a
+verdict and a list of mandatory repairs; the one referred to here returned
+\emph{survives with repairs} and prescribed the corrected gate that this paper
+executes, together with seven numbered repairs (R1--R7). A \emph{referee pass}
+is a further independent review of the finished document; two were run on this
+one and their outcome is the Revision record below. Dates are given in place of
+the program's internal session numbering.
+
+\paragraph{Data and code availability.}
+Every number in this paper comes from one of three places: the pre-registered
+gate record, the verification suite written for this paper, or the Lean
+development. All three are version-controlled and are available in the program
+repository, \url{https://github.com/x67ai/riemann-rh-program} (state as of commit
+\texttt{a5ccf63}). Paths below are relative to \texttt{anthropic/rh-program/} in that
+repository. One deliberate exception: the program's PDF corpus of fetched
+literature is not redistributed, for copyright reasons, and nothing in this paper
+depends on it --- every external claim is cited to its published source. The
+components are:
 
 \begin{itemize}
-\item \texttt{results/}\allowbreak\texttt{a4-no-go/}\allowbreak\texttt{formalization-status.md}
-  --- the formalization record behind Section~\ref{sec:formalization}: the
+\item \emph{The formalization record} (\texttt{results/a4-no-go/formalization-status.md})
+  behind Section~\ref{sec:formalization}: the
   environment (Lean 4.33.0-rc2, Mathlib rev \texttt{51e6992}), the build result,
   the theorem-by-theorem map to this paper's numbering, the
   \texttt{\#print axioms} output for all twelve machine-checked theorems, and the
   reproduction recipe.
-\item \texttt{results/}\allowbreak\texttt{adjudication-A4.json} --- the binding adjudication: verdict
-  survives-with-repairs 5.5, repairs R1--R7, the garnish/squeeze computations,
-  merge guidance. The gate contract.
-\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{SPEC.md} --- the pre-registered gate
-  specification: kernels and units (Sec.~1), null budgets and closed forms
-  (Sec.~2, derivations Sec.~9), adversary class and realizability (Sec.~3), row
-  system and capacity constant (Sec.~4), decision rules (Sec.~5), flags
-  (Sec.~10).
-\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{RUN-REPORT.md} --- the implementer's run report:
-  verdict (Sec.~1), grid-decoupling mechanism (Sec.~2), sanity gates (Sec.~3),
-  all runs and numbers (Sec.~4), the witness (Sec.~5), deviations (Sec.~6), flags
-  (Sec.~7), upstream consequences (Sec.~8).
-\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{AUDIT.md} --- the independent adversarial audit:
-  grid-Parseval proof sketch (3.1), independent MC (3.2), budget identities
-  (3.3), block law (3.4), witness recomputation (3.5), LP re-solves over all
-  $4003$ columns (3.6), eight break attempts (Sec.~4), findings register
-  (Sec.~5).
-\item \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak\texttt{FOLLOWUP-REPORT.md} --- the decision-grade
-  follow-up: near-CUE at $\tau_2 = 1$ both $N$ (Secs.~1--2), $p_1$ objective
-  (Sec.~3), [BGSTB24] fetch, riders, citation corrections (Sec.~4), deviations
-  (Sec.~5).
-\item Raw data: \texttt{results/}\allowbreak\texttt{a4-m2-gate/}\allowbreak
-  \texttt{gate-}\allowbreak\texttt{result.json},
-  \texttt{witness\_}\allowbreak\texttt{N64.json},
-  \texttt{followup-}\allowbreak\texttt{near-cue.json},
-  \texttt{followup-}\allowbreak\texttt{p1.json}, \texttt{runs/*.json}
-  (in particular \texttt{scans\_}\allowbreak\texttt{N64.json},
-  \texttt{scans\_}\allowbreak\texttt{N128.json},
-  \texttt{tighteps\_}\allowbreak\texttt{N64.json},
-  \texttt{tier2\_}\allowbreak\texttt{N64.json},
-  \texttt{windows\_}\allowbreak\texttt{N64.json},
-  \texttt{explore\_}\allowbreak\texttt{lamp.json},
-  \texttt{budgets\_}\allowbreak\texttt{lam0p5.json}).
-\item \emph{Supplementary material}, \texttt{theorems.md} --- the six proof
-  units
-  (T1--T6) incorporated as Sections~\ref{sec:structure},
-  \ref{sec:atomonly}, and~\ref{sec:capacity}, with their verification suite
-  \texttt{results/}\allowbreak\texttt{a4-no-go/}\allowbreak\texttt{verify/}\allowbreak
-  \texttt{verify\_t*.py} and JSON outputs.
+\item \emph{The adjudication record} (\texttt{results/adjudication-A4.json}): the verdict, repairs R1--R7, the
+  garnish and squeeze computations, and the prescription of the corrected gate.
+  This is the contract the gate was run against.
+\item \emph{The pre-registered gate specification} (\texttt{results/a4-m2-gate/SPEC.md}): kernels and units, null
+  budgets and their closed forms with derivations, the adversary class and its
+  realizability argument, the row system and capacity constant, the decision
+  rules, and the flags. Fixed before any run.
+\item \emph{The run report} (\texttt{results/a4-m2-gate/RUN-REPORT.md}): the verdict, the grid-decoupling mechanism, the
+  sanity checks, every run and number produced, the witness, and every deviation
+  from the specification.
+\item \emph{The independent adversarial audit} (\texttt{results/a4-m2-gate/AUDIT.md}), by a party who did not run
+  the gate: an independent Monte-Carlo check of the null budgets, independent
+  re-derivation of the budget identities and the block law, recomputation of the
+  witness, LP re-solves over all $4003$ columns, and eight recorded attempts to
+  break the result.
+\item \emph{The follow-up report} (\texttt{results/a4-m2-gate/FOLLOWUP-REPORT.md}): the near-CUE runs at $\tau_2 = 1$ for both
+  $N$, the $p_1$ objective, and the riders attached to the use
+  of~\cite{BGSTB24}.
+\item \emph{The raw data} (\texttt{results/a4-m2-gate/*.json}, \texttt{runs/*.json}): the gate result, the witness law at $N = 64$, the
+  near-CUE and $p_1$ follow-up outputs, and the full scan records at $N = 64$ and
+  $N = 128$ (including the tight-$\varepsilon$, Tier-2, window and
+  $\lambda'$-exploration runs, and the $\lambda' = 1/2$ budget derivations), all
+  as JSON.
+\item \emph{Supplementary material}: the six proof units incorporated as
+  Sections~\ref{sec:structure}, \ref{sec:atomonly} and~\ref{sec:capacity},
+  with their verification scripts and JSON outputs.
 \item \emph{Supplementary material}, \texttt{pair-}\allowbreak\texttt{channel.md}
   --- the pair-interference closure
   (Sections~\ref{sec:fractional}--\ref{sec:pairchannel}), with its independent
@@ -2770,14 +2783,14 @@ and the three-point term $T_3$ the remaining $0.5$).
   maximum is the $N = 128$ value $8.94 \times 10^{-13}$; the Tier-2 level
   $0.833377 / 0.8333622 / 0.8332334$ drift across dictionary snapshots is
   common-mode, the equality $\delta_0' = 0$ being snapshot-independent).
-\item \texttt{directions/}\allowbreak\texttt{A4-lindelof-lock.md} --- the merged direction file: the
-  immutable proposal, the Phase-4 verdicts, the binding adjudication and merge
-  guidance, and the decided-gate section this paper executes.
+\item \emph{The direction record} (\texttt{directions/A4-lindelof-lock.md}): the original proposal retained verbatim,
+  the review verdicts, the adjudication, and the decided-gate section this paper
+  executes.
 \end{itemize}
 
 \textbf{Correction of record.} The ``$+8$ vs $0$'' doubles-vs-pairs cubic
-separation premise of the original proposal, and the adjudication's
-computation-8 phase model ($(+1, -1)$ at $uL = 1$ with cubic ${\sim}0$), are
+separation premise of the original proposal, and the adjudication's own phase
+model ($(+1, -1)$ at $uL = 1$ with cubic ${\sim}0$), are
 false under the true block law: Proposition~\ref{prop:pairblock} gives pair cubic
 charge $2m^3(1 + 3A^2) \ge 8m^3$ at every depth, and Theorem~\ref{thm:blind}
 places pairs and doubles on the same affine plane $c = 3F - 2$. The campaign
@@ -2791,7 +2804,7 @@ time and is re-proven here from scratch.
 Both referee reports (\emph{supplementary material}, \texttt{referee-1.md},
 mathematics; \texttt{referee-2.md}, evidence and scope) returned PASS WITH
 REPAIRS. Every repair below was applied only after re-verifying the underlying
-fact against the on-disk evidence (or re-deriving it) in this session; the two
+fact against the recorded evidence (or re-deriving it); the two
 digest-level errors were also corrected at their source files. Notation:
 R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
 
@@ -2821,7 +2834,7 @@ R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
   row-value deviation between clean-grid and optimizer values, all three columns
   quoted ($3.4 \times 10^{-6} / 1.6 \times 10^{-5} / 4.1 \times 10^{-5}$); the
   omitted third value restored. (R2-m2(c)'s rigid-rotation observation was NOT
-  added: not re-verified this session.)
+  added: not re-verified for this paper.)
 \item R1-M2.3 $=$ R2-m1 (witness table column~3 mixed provenance) $\to$
   Section~\ref{sec:certification} table and Appendix~\ref{app:witness} column~3
   now display the clean-grid $C' = 301.3541285$ consistently with columns~1--2,
@@ -2850,7 +2863,7 @@ R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
   \texttt{witness\_N64.json} law weights and \texttt{nV} vectors). Source
   corrected in \texttt{data-tables.md} Section~3 with a correction tag.
 \item R2-M4 (unsourced LP refinement values $0.3985/0.3991$) $\to$ the refinement
-  runs were re-executed this session and persisted: \texttt{verify\_t5.py}
+  runs were re-executed and persisted: \texttt{verify\_t5.py}
   extended with the ($2000$ pts, $h_{\max}$ $2000$), ($4000$ pts, $h_{\max}$
   $2000$), ($4000$ pts, $h_{\max}$ $8000$) cells and re-run, regenerating
   \texttt{verify\_t5\_out.json}; the persisted tail-corrected values
@@ -2899,7 +2912,7 @@ R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
 \item R2-m6 $\to$ the $N = 128$ ``$S = 100$'' pricing claim is now labeled
   RUN-REPORT-recorded with no stored verify block.
 \item R2-m7 $\to$ [BGSTB24] v1 date corrected to the arXiv stamp 7~Jun~2023
-  (read off the fetched PDF's first page this session).
+  (read off the PDF's first page).
 \item R2-m8 $\to$ abstract now separates the two benchmarks' evidence bases
   ($940$-record grid for $\Nd$; two converged cells plus cross-checks for $p_1$).
 \item R2-m9 $\to$ subtitle changed to ``for the two-moment system at bandwidth
@@ -2921,7 +2934,7 @@ R1-M/m $=$ referee~1 major/minor, R2-M/m $=$ referee~2 major/minor.
 \begin{itemize}
 \item R2-m2(c) (stored float positions differ from the grid by a common rigid
   rotation): omitted rather than asserted --- the claim was not re-verified in
-  this session, and nothing load-bearing needs it; the corrected row-value
+  for this paper, and nothing load-bearing needs it; the corrected row-value
   description suffices.
 \end{itemize}
 
@@ -2962,7 +2975,7 @@ stamp 7~Jun~2023); Acta Arith. \textbf{214} (2024), 357--376;
 doi:10.4064/aa230612-20-3. On-disk copy:
 \texttt{fetched-r3/r3s-06-bgstb-2306.04799.pdf} ($210{,}602$ bytes; fetch
 provenance in FOLLOWUP-REPORT Section~4; the v1 stamp read off the PDF's first
-page this session). Cited for: Theorem~1 (unconditional pointwise $F(\alpha)$ on
+page). Cited for: Theorem~1 (unconditional pointwise $F(\alpha)$ on
 the closed band $0 \le \alpha \le 1$, depth-weighted, multiplicity-counted), the
 Lemma~5 kernel class, and the Remark after Theorem~2 (rider~1). See also the same
 authors' sequel on the horizontal distribution of zeros, \emph{Pair correlation of
