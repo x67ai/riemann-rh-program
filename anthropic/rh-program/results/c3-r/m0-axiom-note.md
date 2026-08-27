@@ -597,8 +597,8 @@ program's on-disk corpus); the per-source evidence is in
   (2017), no. 3, 1803–1850; doi:10.1007/s00029-017-0313-y; arXiv:1603.03191. (**Note,
   2026-08-27:** arXiv:1507.05818 is the preprint of [CC16b], *not* of this article; the novelty
   report paired them wrongly and the pairing is corrected here.)
-- **[CC19]** A. Connes and C. Consani, *The Riemann–Roch strategy. Complex lift of the scaling
-  site*, in: A. Chamseddine, C. Consani, N. Higson, M. Khalkhali, H. Moscovici and G. Yu (eds.),
+- **[CC19]** A. Connes and C. Consani, *The Riemann–Roch strategy: Complex lift of the Scaling
+  Site*, in: A. Chamseddine, C. Consani, N. Higson, M. Khalkhali, H. Moscovici and G. Yu (eds.),
   *Advances in Noncommutative Geometry: On the Occasion of Alain Connes' 70th Birthday*, Springer,
   Cham, 2019, pp. 53–125; doi:10.1007/978-3-030-29597-4_2; arXiv:1805.10501.
 - **[CC23]** A. Connes and C. Consani, *Riemann–Roch for Spec Z-bar* (the overline spans
