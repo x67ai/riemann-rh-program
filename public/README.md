@@ -30,13 +30,36 @@ either one:
 
     bash public/sync.sh && git add -A public && git commit -m "sync served PDFs"
 
-## Taking over the apex — two things that will bite
+## How it is actually deployed (done 2026-08-28)
 
-1. There is an existing redirect sending `x67.ai` to `www.x67.ai`. A Cloudflare
-   Redirect Rule or Page Rule fires *before* Pages, so until it is deleted the
-   PDF URLs will keep bouncing to www. Delete it.
-2. The apex currently has DNS records pointing at the old Notion host. Adding
-   `x67.ai` as a Pages custom domain will ask to replace them; let it.
+Not Cloudflare Pages. The dashboard now routes git-connected projects through
+Workers, so this is an assets-only Worker configured by `wrangler.toml` at the
+repository root: `[assets] directory = "./public"`, no `main`, no script. The
+build runs `npx wrangler deploy` in Cloudflare's container, so nothing needs
+installing locally.
 
-`www.x67.ai` can be added to the same Pages project as a second custom domain if
-you want both to work.
+    Worker            riemann-rh-program
+    workers.dev       riemann-rh-program.jay7yagi.workers.dev
+    Custom domain     x67.ai  (root, Production)
+    Build command     None
+    Deploy command    npx wrangler deploy
+    Root directory    /
+
+`.assetsignore` keeps this README and `sync.sh` from being served.
+
+## The apex redirect, and why it mattered
+
+The zone had three redirect rules. `Redirect from root to WWW [Template]`
+matched `https://x67.ai/*` and fired *before* the Worker, so every paper URL
+301'd to www even though the Worker was correctly bound. It is now **Disabled**
+rather than deleted, so it is one toggle to restore under
+Rules -> Overview -> Redirect Rules.
+
+The other two rules, both `Redirect from HTTP to HTTPS`, are still Active and
+should stay: `http://x67.ai/` still upgrades to HTTPS correctly.
+
+## Still outstanding
+
+`www.x67.ai` continues to point at the Notion host and will break when that
+lapses. To keep it working, add `www.x67.ai` as a second custom domain on the
+same Worker.
