@@ -1,0 +1,15 @@
+# Static-assets Worker: serves the two papers at x67.ai.
+# There is no Worker script — `[assets]` with no `main` is an assets-only
+# deployment, so every request is answered straight from ./public.
+#
+# Deployed by Cloudflare's build container with `npx wrangler deploy`, so
+# nothing needs installing locally.
+
+name = "riemann-rh-program"
+compatibility_date = "2026-08-28"
+
+[assets]
+directory = "./public"
+
+# public/_headers  sets cache control on the PDFs
+# public/_redirects sends / to the GitHub repository
