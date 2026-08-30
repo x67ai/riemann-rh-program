@@ -185,6 +185,71 @@ six now fit 280 characters *with* a link rather than without one.
 ---
 
 
+## Second pass, 2026-08-30 --- the sponsor read the posted PDFs
+
+He asked why the A4 paper says "the parent paper [P]" instead of citing Alpoge and Furman the way
+papers cite papers; why both papers still carry the program's internal process; why the Tate paper
+leans so hard on Winkelmann; and why either paper labors the point that a negative result is
+negative. **The standard he set: the papers must be standalone and read the way published papers
+read.** The first pass had removed the vocabulary; this one removed the apparatus.
+
+**Method.** Both papers were cut into disjoint line ranges (ten for A4, seven for the seed), each
+rewritten by its own agent against a shared work order and a pinned decisions file, each rewrite
+adversarially verified, then reassembled and gated: every math span, numeric literal and theorem
+body diffed against the pre-pass baseline. Each finished paper then went through five independent
+audit lenses (cold reader, scholarly-loss, cross-range consistency, LaTeX, scope), every finding
+adversarially verified before it was allowed to become an edit.
+
+**A4** (41 pp, unchanged). `[P]` is now `[AF26]`; "the parent"/"the parent's" is gone from all ~50
+sites in favor of naming Alpoge and Furman or citing `\cite[\S5]{AF26}`. "Repaired" (11x) and
+"as-written" (9x) were relational adjectives whose referent the paper never showed -- the two forms
+of the spectral-tail theorem are now stated once in the paper's own voice and named descriptively
+thereafter. `P_cal` (used once, defined nowhere) restated. `MD(lambda, delta)` defined, and its
+second argument renamed to `eta` to stop it colliding with the pair depth. The two defensive
+subsections merged into one that states the scope without protesting. The bibliography's audit
+trail (which PDF was opened, which databases were searched) removed, every bibliographic fact kept.
+~60 ALL-CAPS emphasis words and the bold in running prose removed. Provenance is a one-sentence
+method note plus the availability list, each artifact described by its contents rather than its
+role in the program's governance.
+
+**Seed** (21 pp -> 19 pp). The front-matter priority block, the block-quoted attribution note, the
+"Novelty statement" and the "Withdrawn" paragraph are all gone; Winkelmann is credited in exactly
+three places, plainly, plus the two places his Conjecture 1 and Lemma 7 carry mathematics. The
+paper had been quoting "the proposal" as though it were a published document -- including
+``the correspondence calculus itself or nothing.'', a quotation with no source anywhere, because
+the paper puts the proposal forward itself. Removed, along with "the designer" and "the answer
+key". The bibliography's arXiv-metadata forensics and "The paper has six sections; there is no
+\S7" removed. The prior-art list said "Eight adjacent traditions" over nine items. "E. Bombieri
+(2000)" was cited with no entry; it now carries a full reference. Section 0 stopped repeating the
+abstract and became Section 1.
+
+**Two mathematical corrections, made on the sponsor's instruction to fix the mathematics too.**
+
+1. *The Cauchy--Schwarz step in the fractional-marks proposition.* The paper asserted
+   `abar(d)^2 <= (1 + abar(2d))/2` and attributed it to `abar((x+y)/2)^2 <= abar(x)abar(y)` at
+   `(0, 2d)`. That application yields only `abar(d)^2 <= abar(2d)`, which is strictly weaker: at
+   `N = 64, d = 1` the asserted bound is 23.61 against 46.21. **The asserted bound is nonetheless
+   true**, by Cauchy--Schwarz on the weights `u_j` (which sum to 1) together with
+   `cosh^2 t = (1 + cosh 2t)/2`; verified numerically to machine precision. Only the justification
+   changed -- the displayed conclusion and everything downstream stand.
+2. *A notation collision on the paper's headline symbol.* `delta_0` denoted both the marginal value
+   `P_full - P_base` (about 30 uses) and the Dirac mass in Montgomery's form factor, twenty lines
+   apart, while bare `delta` is the pair depth. The Dirac mass is now `delta_D`, glossed at use.
+
+**What was deliberately NOT done.** Both papers' scope lenses wanted a sentence added saying the
+paper claims nothing about the Riemann hypothesis. The sponsor's instruction was the opposite --
+readers are mathematically literate and neither paper ever made such a claim -- so it was excluded.
+The "not held" / "paywalled and not read" notes on Bertrand, Schneider and Rosen--Shnidman were
+kept: those are scholarly caveats about what was verified at first hand, not process narration.
+
+**A caution for whoever runs this next.** The fix agents faithfully applied audit-proposed wording
+that was mathematically wrong -- one edit rewrote "both earlier estimates are superseded" as "it
+improves on the two-term dyadic bound `2 sqrt(C eps)`", which is false, since the sharp constant is
+`2 sqrt 2 > 2` and so that estimate was never a valid upper bound. The verify pass caught it. Do
+not skip the verify pass on the fixes, only on the findings.
+
+---
+
 ## Original work order (retained for the record)
 
 ## Remaining — the A4 body pass
