@@ -12,7 +12,8 @@ citation you cannot follow is not a citation.
 **Use of AI, stated plainly.** The mathematics in this repository — the derivations, the
 computations, the verification suites, the Lean formalization, and the text of the papers — was
 produced by **Claude (Anthropic)** working under the author's direction inside this program. The
-author set the objectives, adjudicated the decisions, and is responsible for the content. Claude
+author set the objectives, made the technical and editorial decisions, and is responsible for
+the content. Claude
 is a tool and is not an author. The same statement appears in a footnote on page 1 of every
 paper. Because the whole program record is here, that disclosure is checkable rather than
 merely asserted: `rh-program/LOG.md` is the session-by-session history.
@@ -28,7 +29,7 @@ circulation and two deliberately are not** — the reasoning is in
 
 | Paper | PDF | Pages | Status |
 |---|---|---|---|
-| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](rh-program/results/arxiv/a4-no-go/main.pdf) | 44 | **recommended for posting** |
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control | [`results/arxiv/a4-no-go/main.pdf`](rh-program/results/arxiv/a4-no-go/main.pdf) | 41 | **recommended for posting** |
 | Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula | [`results/arxiv/seed-no-go/main.pdf`](rh-program/results/arxiv/seed-no-go/main.pdf) | 21 | **recommended for posting** |
 | The polarized-Frobenius axiom class | [`results/arxiv/m0-axiom/main.pdf`](rh-program/results/arxiv/m0-axiom/main.pdf) | 14 | internal record — not recommended for posting |
 | Castelnuovo–Severi/Hodge index from Riemann–Roch and ampleness | [`results/arxiv/m1-noncirc/main.pdf`](rh-program/results/arxiv/m1-noncirc/main.pdf) | 13 | internal record — claims zero novelty in its own abstract |
@@ -46,7 +47,7 @@ The strongest evidence here does not require trusting anyone.
   machine-checked in Lean 4 against a pinned Mathlib. `#print axioms` on all twelve returns
   `[propext, Classical.choice, Quot.sound]` — no `sorryAx`, no `Lean.ofReduceBool`. A whole-tree
   scan finds zero real `sorry` or `admit` across the development. These files are *additions to*
-  the Zeta23 library of the parent paper, which is not redistributed here — see
+  the Zeta23 library accompanying Alpoge and Furman's paper, which is not redistributed here — see
   `rh-program/lean/README.md` for the build. Build it yourself and the claim stands or falls
   without reference to any prose.
 * **`rh-program/results/arxiv/citation-verification/`.** Every citation in the four
@@ -81,7 +82,7 @@ rather than redistributed here:
   cited to its published source.
 * **Anthropic's own material**, which the program read and built on but does not republish: the
   **Zeta23** Lean formalization (Apache-2.0, Copyright 2026 Anthropic, PBC), whose home is
-  <https://github.com/anthropics/zeta-23-lean>, and the parent paper *More than two thirds of the
+  <https://github.com/anthropics/zeta-23-lean>, and Alpoge and Furman's *More than two thirds of the
   zeros of the Riemann zeta function lie on the critical line* (arXiv:2608.13637). The eight Lean
   files in `rh-program/lean/` are this program's own additions to that library and are the only
   Lean files here.
