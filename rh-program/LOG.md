@@ -651,3 +651,17 @@ usage runs out; make this a top rule in standing instructions."** Done: RULE ONE
 standing order 0 in STATUS.md, KICKSTART.md steps 4 and 7 amended; `~/.claude/autocommit-watchdog.sh`
 written and started (commits agents' interim outputs every 10 minutes; the push watchdog pushes them).
 All three watchdog processes verified running (caffeinate, push, autocommit).
+
+**~03:10 IST — watch-list sweep HARVESTED** (single agent, 116 tool calls; `results/watch-sweep-2026-09-02.md`).
+No change on the load-bearing fronts ([CC7] blank; Morishita v5; ALKL/ALKM; Kucharczyk–Scholze; Dong;
+prismatic). Landed: **[Lut25] found** — Lutz, *p-adic points of rational Witt spaces* (Münster 2025,
+CC BY 4.0, referee Deninger), installed as **r3s-23** (image-only PDF; OCR before use); **Hua–Yang
+2608.16034v2** installed as **r3s-24**; Prüzelius Zenodo draft (AI-assisted, "we outline a proof",
+2/3 for Dirichlet L-functions on average at polylog height) listed, not fetched (Zenodo 403s here);
+**Gomila** main unchanged at a74738d but a new branch claims an Aristotle-formalized rectangle
+argument principle in Lean (61 theorems) — a D1 v1.1 lead, to be rebuilt and audited, never trusted.
+Two flags from the sweep judged: (i) "parent paper is arXiv v2, not v5" — the program's "v5" is the
+17-page manuscript label and the A4 paper's References define it that way; nothing to correct in the
+frozen papers; caveat 14 added to `results/corpus-routing.md`. (ii) "[Lut25] title is *spaces*, not
+*schemes*" — correct; the 9.4 note's wording is left as written (results notes get dated blocks, not
+edits) and the routing index carries the right title. Watch line in STATUS updated.
