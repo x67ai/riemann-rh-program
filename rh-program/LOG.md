@@ -561,3 +561,86 @@ in the same session whose whole subject was not asserting unverified things. It 
 `rh-program/lean/` and states plainly what is excluded and why.
 
 All four packages rebuilt from clean after the move: 44 / 14 / 13 / 21 pp, ALL CHECKS PASSED.
+
+---
+
+## Sessions 12–13 — 2026-08-28 and 2026-08-30 — reconstructed from git on 2026-09-02 (no entry was written at the time)
+
+These two sessions ran on Claude Opus 5 and left no LOG entry; the record below is taken from
+their commit messages (`git log ff061d3 023451a 01f41b6 9621703 f62b044 e1c255e 9fa08d0 26779c4`),
+which are detailed, and from the files on disk. Nothing in either session touched a theorem, a
+number, or a verdict, with the two exceptions listed under Session 13.
+
+**Late 2026-08-27 (after the Session-11 addendum, same day):** page-1 narration stripped from both
+outgoing papers; post drafts written (`results/arxiv/ANNOUNCEMENTS.md`); the A4 body
+de-internalized in 161 judged edits, then audited and fixed (`e8c9ff5`, `2db51b4`, `6938d57`); the
+seed no-go de-internalized; every bibliography entry checked to be actually cited; the four
+companion documents the papers cite de-internalized. Work order: `results/arxiv/DE-INTERNALIZATION.md`.
+
+**Session 12, 2026-08-28.** (1) A4: the symbol theta carried two meanings (the bandwidth-offset
+exponent and a position on the circle); the exponent is now vartheta, defined at first use
+(`26779c4`). (2) Both papers pin their repository citation to the tag `paper-2026-08-28` instead of
+a stale commit hash (`9fa08d0`). (3) Deployment: the two papers are served flat at the apex of
+x67.ai as a Cloudflare assets-only Worker driven by `wrangler.toml` from `public/`
+(`e1c255e`, `f62b044`, `01f41b6`, `023451a`): `https://x67.ai/cubic-augmentation-no-go.pdf` and
+`https://x67.ai/tate-products-no-go.pdf`, verified SHA-256-identical to the local builds; the
+zone's root-to-www redirect was disabled (not deleted) because it fired before the Worker.
+Post text updated with the final URLs (`9621703`).
+
+**Session 13, 2026-08-30 (`ff061d3`).** Both papers made fully standalone: Alpöge–Furman cited as
+`[AF26]` with pin-cites instead of the program's private name "the parent paper"; program-internal
+vocabulary removed ("repaired", "as-written", "decision grade", "bite", flag labels, ALL-CAPS
+emphasis); the Tate paper no longer quotes "the proposal" as if it were on the record; Winkelmann
+credited in exactly three plain places; bibliographies stripped of audit-trail narration with every
+bibliographic fact kept. **Two mathematical corrections, both in A4:** (i) the fractional-marks
+proposition's stated reason for abar(d)^2 ≤ (1 + abar(2d))/2 was wrong (log-convexity at (0, 2d)
+gives only abar(d)^2 ≤ abar(2d)); the bound is true and now follows from Cauchy–Schwarz on the
+weights with cosh² t = (1 + cosh 2t)/2, verified numerically; nothing downstream changes. (ii) δ₀
+denoted both the marginal value and the Dirac mass in Montgomery's form factor; the Dirac mass is
+now δ_D. Every math span, numeric literal and theorem body was diffed against the pre-pass baseline.
+A4 41 pp; seed paper 21 → 19 pp; `check-submittable.sh` ALL CHECKS PASSED.
+
+**Posting (sponsor, reported 2026-09-02).** Both papers are posted at x67.ai and on Zenodo:
+DOI `10.5281/zenodo.22171688` and DOI `10.5281/zenodo.22171136`. (Which DOI is which paper could
+not be confirmed from this network on 2026-09-02 — Zenodo returned HTTP 403 "unusual traffic" to
+every request; to be resolved and recorded in `results/arxiv/README.md` when it lifts.) **Session-9
+queue item 5 — whether to circulate — is therefore CLOSED by the sponsor's act.** From this point the
+two papers are FROZEN records: any later change is a public revision (a new Zenodo version), never a
+silent edit. Neither paper is on arXiv (endorsement gate, CIRCULATION-PREP STEP 6 item 4).
+
+---
+
+## Session 14 — 2026-09-02 (opened ~01:20 IST; LOCAL; sponsor napping — autonomous run)
+
+**Sponsor directives at open (verbatim in substance, now STATUS.md standing order 7):** earlier
+novelty claims made by one model were later refuted by another (Winkelmann 2002 for the seed note's
+Theorems 1–3; Bertrand 1997 for "(T1) unrecorded"), so **every novelty/priority claim is verified
+twice, independently, by Fable 5.1 and by Opus 5**, each against primary sources, disagreements
+settled by re-derivation; no corner is cut; the program should expect to build a new branch of
+mathematics if the existing ones prove insufficient. Scope confirmed: resume the research program at
+its recorded frontier, both tracks in parallel; no paper or circulation work.
+
+**Housekeeping at open:** `caffeinate` and the push watchdog running; `git pull` up to date; the
+eight relicensed Lean headers (`rh-program/lean/`, 2026-08-27) synced into the hot working tree
+`~/rh-lean-work/zeta-23-lean-main` and the eight modules rebuilt clean (3151 jobs, 01:52 IST);
+python-flint 0.6.0 confirmed; corpus present (174 / 162 / 46 files).
+
+**Launched (three workflows, ~30 agents, each math agent at effort xhigh; every duplicated check has
+one Fable 5.1 and one Opus 5 instance):**
+1. `c3r-referee-debts-s14` — run **wf_df1bc5b4-95d**: the three Session-8 referee debts (probe A
+   Thm B(b) n-cell construction; probe B Cor. A.1 converse inclusion; the 9.4 note's Lemmas A–D and
+   Prop. 1), each by two independent referees then a re-deriving adjudicator who applies dated repair
+   blocks; plus the first standing-order-7 dual-model novelty sweep on the five Session-8 claims
+   (Theorem A packet-closure law; non-Hausdorff/infinite-dimensional closed half; the
+   coker(Aut_ring → Aut_group) identity and the Aut(C) no-go; the Haar-average road and DQ-M;
+   Theorem C cuts). Deliverables: `results/c3-r/referee-s14/`.
+2. `d1-audit-m2a-s14` — run **wf_135a6ecf-327**: the M1 v1 adversarial audit Session 8 never ran
+   (two independent auditors) → reconcile (AUDIT.md, RUN-REPORT.md) → gate → M2a: SPEC.md
+   (barrier-certificate contract) → `Zeta23/DBN/BarrierCert.lean` ∥ Arb f_t producer ∥ mpmath-ball
+   f_t producer → Instance02 at the Polymath15 row-2 / Platt–Trudgian pairing + Gomila screen steps
+   3–4 → final audit. Deliverables: `results/d1-m1/AUDIT*.md`, `results/d1-m2a/`, `lean/Zeta23/DBN/`.
+3. `c3r-qstar-dqm-w3-s14` — run **wf_625784e0-944**: Q* face (a) kill + build, face (b) kill +
+   build; DQ-M two independent probes; W3 two independent probes; one re-deriving adjudicator per
+   question with a novelty ledger for the follow-up dual-model sweep. Deliverables: `results/c3-r/s14/`.
+
+(Results are appended below as they are harvested.)

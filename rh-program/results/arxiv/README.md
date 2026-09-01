@@ -44,6 +44,22 @@ second as a homework exercise a moderator would query.
 nothing further is required. The recommendation is a judgment about audience and standing, not
 about readiness.
 
+## POSTED (recorded 2026-09-02)
+
+Both recommended papers are public, by the sponsor's act, and are now **frozen records**:
+
+| Paper | Where |
+|---|---|
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control (`a4-no-go/`, 41 pp) | `https://x67.ai/cubic-augmentation-no-go.pdf`; Zenodo DOI — see below |
+| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula (`seed-no-go/`, 19 pp) | `https://x67.ai/tate-products-no-go.pdf`; Zenodo DOI — see below |
+
+Zenodo DOIs, as reported by the sponsor on 2026-09-02: **10.5281/zenodo.22171688** and
+**10.5281/zenodo.22171136**. Which DOI belongs to which paper could not be confirmed from this network
+that day (Zenodo answered HTTP 403 "unusual traffic" to every request, API and HTML alike); record the
+mapping here when it can be read. Any later change to either paper is a **public revision** (a new
+Zenodo version, with the change stated), never a silent edit of the `.md`/`.tex`. Neither paper is on
+arXiv (endorsement gate, CIRCULATION-PREP STEP 6 item 4). `m0-axiom/` and `m1-noncirc/` remain internal.
+
 ## What is here
 
 | Directory | Paper | Source of truth | Pages | Recommendation |
