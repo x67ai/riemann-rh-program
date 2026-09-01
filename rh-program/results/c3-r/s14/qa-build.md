@@ -216,3 +216,53 @@ Hence (P^a, w)·r_k → (P^b, u) in the product X̌₀(ℂ)_E × ℝ^{>0}. The q
 **Corollary 1.4 (the closed half of S4 dies again, and more cheaply).** No flow-invariant subset of X₀ containing a periodic orbit — closed or not, compact or not — is a compact metrizable lamination, since none is even T₀. This subsumes the banked "closed half of S4 is dead" (adjudication §4 item 2) without using Thm. 8.2, Claim 8.1/[Per11], the uncountability of B_p, or any dimension theory. Those routes remain correct and remain the right citation for the *orbit-count* statement (uncountably many closed orbits per prime); Theorem 1 adds an independent and more elementary route to the *topological* half.
 
 **Corollary 1.5 (Deninger's own question, subspace alternative).** [x-03] p. 40 asks: "*Is there a sub-dynamical system Y₀ ⊂ X₀ = X̌₀(ℂ) ×_{ℚ^{>0}} ℝ^{>0} … such that dim Y₀ = 2d+1 … and such that Y₀ contains at least one periodic orbit in Γ_{x₀} for every closed point x₀ of X₀? If d = 1, is there such a Y₀ which is a Riemann surface lamination in the sense of [Ghy99]?*" Read with "sub-dynamical system" = flow-invariant **subspace** (with no closedness assumed) and "Riemann surface lamination" entailing (as it does) a Hausdorff, indeed metrizable, topology, the answer is **NO**, unconditionally: any such Y₀ contains a periodic orbit, which is an indiscrete subspace. The remaining alternative in Deninger's sentence — "*or at least one which maps to X₀*" — is untouched.
+
+---
+
+## 6. Interlude: the model description of a packet is not a topological description
+
+Theorem 1 is not in conflict with anything [x-03] states, and the reason is worth recording because the program has stumbled over it once already (ledger row W11).
+
+* Deninger's packet description is stated as a **bijection**, never a homeomorphism: "*The ℚ^{>0}_0-**bijection** (39) induces an ℝ^{>0}-**bijection** (Ẑ^×_{(p)}/Nx₀^Ẑ) ×_{p^ℤ/deg x₀} ℝ^{>0}/Nx₀^ℤ ≅ Γ_{x₀}*" ([x-03] p. 38). Theorem 7.10's Remark 2 (p. 47) warns in general: "*The continuous bijections in Theorem 7.10 are not homeomorphisms in general.*"
+* §10 p. 63 states the failure for the transverse direction explicitly: "*Note that in general the continuous bijection π|_{M×{u}} : M×{u} → π(M×{u}) will not be a homeomorphism if π(M×{u}) is equipped with the subspace topology of X*", and adds that when the ℚ^{>0}-action is not properly discontinuous "*the partition of X … will not be locally trivial*". §7 p. 49 records that the action **is** not properly discontinuous — "*and in section 10, we will see that this works to our advantage*". Theorem 1 is the same phenomenon in the **flow** direction, taken to its extreme: the model circle ℝ^{>0}/p^ℤ maps continuously and bijectively onto γ_p ⊂ X₀, but γ_p's own topology is indiscrete.
+* The character space is *not* to blame. X̌₀(ℂ) is Hausdorff (Cor. 7.9, p. 45, applicable since spec ℤ is affine), and the injective part of C_{x₀} is, with its subspace topology, the compact Hausdorff group B_p (pointwise convergence of χ^{c_k} at the finite-order elements of F̄_p^× is exactly convergence c_k → c in Ẑ_{(p)}). **All of the pathology is created by the suspension quotient**, i.e. by the ℚ^{>0}-action, precisely as Deninger's non-proper-discontinuity remark predicts.
+* The contrast with Deninger's own T₁ statement is instructive. His Prop. 10.3 Remark (p. 64) says that on the idelic model the ℚ^{>0}-orbits on ℚ^{>0}Ẑ^× × ℝ^{>0} are **closed**, so that Y = ℚ^{>0}_0Ẑ^× ×_{ℚ^{>0}_0} ℝ^{>0} is T₁ (though irreducible, hence still non-Hausdorff). On the packet the orbits are **not** closed, and the single structural reason is the isotropy p^ℤ of Thm. 5.2: it makes the character coordinate blind to the p-part of q ∈ ℚ^{>0} while the ℝ-coordinate still sees it. Theorem 1's Lemma 5.2 is exactly the resulting "strong approximation with the infinite place put back in".
+
+---
+
+## 7. The four charter questions, answered for X₀^{E(a)}
+
+Throughout, a = (a₀(p))_p is an arbitrary choice of base classes, E(a) the minimal cut (empty in characteristic 0) and E(a)′ the enlarged cut of §4.1, and γ_p := Γ^{E(a)}_{(p)} the unique periodic orbit over p (Prop. 4.1).
+
+### 7.1 Structure of the minimal cut suspension
+
+**Proposition 7.1.** X₀^{E(a)} = ⨆_p γ_p, and each γ_p is **open and closed** in X₀^{E(a)}. Hence X₀^{E(a)} is the topological coproduct of countably infinitely many indiscrete circles: its open sets are exactly the unions of the γ_p, so as a topological space it is (countable discrete set) with an indiscrete continuum sitting over each point.
+
+*Proof.* Since E(a) has empty characteristic-0 part, every point of X̌₀(ℂ)_{E(a)} lies over a closed point of X = spec ℤ̄, so X₀^{E(a)} = ⋃_p Γ^{E(a)}_{(p)} = ⋃_p γ_p (Prop. 4.1), and the union is disjoint ([x-03] Thm. 6.1, p. 39: distinct closed points give disjoint packets). By Lemma 3.3 there is an open V_p ⊆ X₀^{E_max} with V_p ∩ Γ_{(q)} = ∅ for q ≠ p and V_p ⊇ Γ_{(p)}; by Lemma 3.2, V_p ∩ X₀^{E(a)} = γ_p is open in X₀^{E(a)}. Its complement ⋃_{q≠p} γ_q is open by the same argument, so γ_p is also closed. Finally, each γ_p is indiscrete (Cor. 1.1), so a set is open in X₀^{E(a)} iff it meets each γ_p in ∅ or γ_p. ∎
+
+### 7.2 (2) Hausdorffness — **NO**, and this is the decisive failure
+
+By Corollary 1.1, each γ_p ⊂ X₀^{E(a)} is indiscrete with continuum many points. So X₀^{E(a)} is not T₀, not T₁, not Hausdorff, not metrizable, not a foliated space, not a lamination, and does not embed in any Hausdorff space. The same holds for X₀^{E(a)′}, for X₀ itself, and for the unitary system. **This closes the adjudication §7 item "Hausdorffness of the CUT suspensions X₀^{E(a)} (the only Hausdorff question left with any S4 relevance)" with the answer NO**, and it removes the scope exception under which row W12 was recorded (adjudication §3, scope note).
+
+### 7.3 (1) Compactness
+
+**Corollary 7.2.** X₀^{E(a)} is **not compact** (and not connected, and not quasi-compact in any weaker sense): {γ_p}_p is an open cover with no finite subcover, by Prop. 7.1.
+
+**Proposition 7.3 (three positive compactness facts, for the record).**
+(a) *Every packet is compact.* Γ^E_{(p)} ⊂ X₀ is indiscrete (Cor. 1.1), hence compact. So Deninger's description of the packets as "compact" ([x-03] intro p. 2 "The compact packets Γ_{x₀}…"; [x-06] Thm. 4.2) is, in the subspace topology, **topologically vacuous** — it conveys no information whatever, and in particular it must not be read as evidence that packets are compact *Hausdorff*.
+(b) *X̊(S¹) is compact Hausdorff, and so is X̊₀(S¹).* Indeed, by Remark 3.4 (p. 23), X̊(S¹) is the set of P ∈ T := ∏_{r∈ℤ̄}(S¹∪{0}) satisfying: P(0)=0, P(1)=1; P(rs)=P(r)P(s); P^{-1}(0) additively closed; and P(r)=P(r′) whenever P(r−r′)=0. In T (compact Hausdorff by Tychonov) each set {P : P(r)=0} is **clopen**, because {0} and S¹ are both closed in S¹∪{0}. Hence: the multiplicativity and normalization conditions are closed; the complement of the third condition is {P(r)=0}∩{P(s)=0}∩{P(r+s)≠0}, an intersection of clopen sets, so the condition is closed; the complement of the fourth is {P(r−r′)=0}∩{P(r)≠P(r′)}, clopen ∩ open, so that condition is closed too. Thus X̊(S¹) is closed in T, hence compact; it is Hausdorff by Cor. 7.9 (p. 45). X̊₀(S¹) = X̊(S¹)/G is then compact, and Hausdorff by Cor. 7.8 (p. 45).
+(c) *X̌(S¹) and X̌₀(S¹) are **not** compact.* They are the increasing unions ⋃_ν F_ν^{-1}X̊(S¹) resp. ⋃_ν F_ν^{-1}X̊₀(S¹) of subsets which are open and closed (Prop. 7.4a, p. 43, together with F_ν a homeomorphism; downstairs because X̊(ℂ) is G-invariant and π̌ is open). The union is strictly increasing: for ν > 1 choose a prime p ∤ ν and a unitary character ψ of F̄_p^× injective on μ_ν(F̄_p); then ψ(μ_ν(K)) ≠ 1, so by (51) (p. 42) (x,ψ) ∉ F_ν(X̊(ℂ)), i.e. F_ν^{-1}(x,ψ) ∈ F_ν^{-1}X̊(S¹) ∖ X̊(S¹). A compact space covered by a directed family of open sets equals one of them; contradiction.
+
+**What is NOT determined here (honesty).** Compactness of X₀^{E(a)′}, of X₀ = X₀^{E_max}, and of Y₀^Den = X̌₀(S¹) ×_{ℚ^{>0}} ℝ^{>0} is **left open**. Two remarks bound the question. (i) **[x-03] asserts none of them.** The only compactness statements in the paper are for the packets Γ_{x₀} (intro p. 2), for the group Ẑ^×_{(p)}/p^Ẑ (p. 33), and for the group G; §8 (p. 49) says only that X₀ and Y₀ are "infinite dimensional", and that phrase is used informally — no covering-dimension theorem for the suspension appears anywhere in [x-03]. (ii) The obvious routes both stall: X̌₀(ℂ)_E is not compact (it is not even bounded in ℂ^{ℤ̄} once characteristic-0 points are present), but X₀^E is a quotient of it and quotients of non-compact spaces may be compact; and the ℚ^{>0}-saturation of any chart-bounded open set is everything, so the chart exhaustion of Prop. 7.3(c) does not descend to the suspension. **This is moot for Q-a**: Corollary 1.2 kills face (a) with no compactness input whatever.
+
+### 7.4 (3) Topological dimension
+
+**Corollary 7.4.** (a) For every admissible E and every prime p, the packet Γ^E_{(p)} ⊂ X₀ has covering dimension 0, and small and large inductive dimension 0. (b) dim X₀^{E(a)} = 0 (in all three senses), **not** 3.
+
+*Proof.* (a) A nonempty indiscrete space X has {X} as its only open cover, which refines itself with order 1, so dim X ≤ 0; and dim X ≥ 0 as X ≠ ∅. The base {X} consists of sets with empty boundary (∂X = cl X ∖ int X = ∅), so ind X = Ind X = 0. (b) Let {U_1,…,U_n} be a finite open cover of X₀^{E(a)}. By Prop. 7.1 each γ_p is contained in some U_{i(p)}; put V_i := ⋃_{p : i(p)=i} γ_p. The V_i are open, pairwise disjoint, refine the cover, and have order 1. Hence dim = 0; the inductive dimensions are 0 because {γ_p} is a base of clopen sets. ∎
+
+**Comment.** The number 3 that S4 asks for is a property of the *model* (Cantor set) × (circle) × (leaf direction), and Theorem 1 shows the subspace topology retains none of it: the covering dimension of the actual subspace is 0, and the "1-dimensional Cantor-bundle-of-circles" picture of Γ_p is a picture of the bijection (39), not of the topology. Note that this also removes the *only* rigorous route the program had to "infinite-dimensionality of a subsystem": probe A's Theorem B(b) derived dim ≥ n for closed invariant S **assuming S Hausdorff in its subspace topology** — a hypothesis now provably unsatisfiable whenever S contains a periodic orbit (§8).
+
+### 7.5 (4) One orbit per packet — **YES**, for every a
+
+Proposition 4.1: for every choice a and both cut classes, Γ^{E}_{(p)} is a single circle of length log p for every prime p, and [x-03] Thm. 6.1 (p. 39) says these are all the periodic orbits. The choice-content and the theory-forfeiture are as the adjudication already priced them (Remark 4.2).
