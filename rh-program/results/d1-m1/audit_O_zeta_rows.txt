@@ -1,0 +1,39 @@
+AUDIT O -- independent H-ENCL spot check of the zeta null transcripts
+method: mp.zeta at dps 50 + dense principal-arg unwrapping; no producer code.
+  w1-mp-null-t100.json
+    rows=52  K=1e30 A=1e12  claimed m=0
+    recomputed winding = -7.975944662489053748840453e-53 turns (unwrapping, 12 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [-2.4e-11, 2.8e-11]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 7.976e-53
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.057473914 ; min sampled |f| = 0.90489341 (floor 0.35555466)
+  w1-arb-null-t100.json
+    rows=27  K=1e30 A=1e6  claimed m=0
+    recomputed winding = -5.317296441659369165893636e-53 turns (unwrapping, 12 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [-0.000014, 0.000013]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 5.317e-53
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.0089940872 ; min sampled |f| = 0.90489162 (floor 0.083279471)
+  w1-mp-null-deep-t100.json
+    rows=58  K=1e30 A=1e12  claimed m=0
+    recomputed winding = 1.861053754580779208062772e-52 turns (unwrapping, 12 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [-2.8e-11, 3.0e-11]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 1.861e-52
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.020271992 ; min sampled |f| = 0.90489341 (floor 0.35549989)
+  w1-arb-null-deep-t100.json
+    rows=30  K=1e30 A=1e6  claimed m=0
+    recomputed winding = 2.126918576663747666357454e-52 turns (unwrapping, 12 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [-0.000016, 0.000014]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 2.127e-52
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.0020604437 ; min sampled |f| = 0.90489162 (floor 0.030520933)
+  w1-arb-null-t1000.json
+    rows=65  K=1e30 A=1e6  claimed m=0
+    recomputed winding = -3.190377864995621499536181e-52 turns (unwrapping, 12 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [-0.000029, 0.000036]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 3.190e-52
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.010666717 ; min sampled |f| = 0.86068179 (floor 0.013827374)
+
+TOTAL problems: 0

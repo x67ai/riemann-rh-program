@@ -1,0 +1,82 @@
+{
+ "C1_CRT_density": {
+  "M": 462,
+  "all_residues_hit": true
+ },
+ "C2_kernel_sizes_truncated": {
+  "ells": [
+   2,
+   3,
+   7,
+   11,
+   13,
+   17,
+   19,
+   23,
+   29,
+   31,
+   37
+  ],
+  "k": 3,
+  "class_i_b=7": 7,
+  "class_ii_b3=0": 27,
+  "class_iii_bl=l": 1484147626962,
+  "note": "class (i) kernel is bounded (=7) independent of the number of primes; class (ii) grows as 3^k with the truncation depth; class (iii) grows as prod(ells) with the number of primes while every component is nonzero"
+ },
+ "C2_class_iii_growth": [
+  2,
+  6,
+  42,
+  462,
+  6006,
+  102102,
+  1939938,
+  44618574,
+  1293938646,
+  40112098026,
+  1484147626962
+ ],
+ "C3_base_orbit_count_level_M": {
+  "M": 231,
+  "phi(M)": 120,
+  "order_of_p_mod_M": 30,
+  "number_of_orbits_at_level_M": 4,
+  "equals_phi/ord": true
+ },
+ "C3_growth": [
+  {
+   "T": [
+    3,
+    7
+   ],
+   "orbits": 2
+  },
+  {
+   "T": [
+    3,
+    7,
+    11
+   ],
+   "orbits": 4
+  },
+  {
+   "T": [
+    3,
+    7,
+    11,
+    13
+   ],
+   "orbits": 24
+  },
+  {
+   "T": [
+    3,
+    7,
+    11,
+    13,
+    17
+   ],
+   "orbits": 96
+  }
+ ]
+}
