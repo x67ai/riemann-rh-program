@@ -1,0 +1,56 @@
+== AUDIT F: re-run both producers on two acceptance targets, then cross-check (2026-09-01T20:40:17Z)
+WROTE /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-null-t100.json: mode=exclusion function=zeta m=0 segments=27 S=[-14, 13]/1000000 floor=83279470814228915473835202868/1000000000000000000000000000000
+WROTE /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-dh-livefire.json: mode=refutation function=f_DH m=1 segments=50 S=[999973, 1000023]/1000000 floor=301881785757956470927016215/1000000000000000000000000000000
+  modulus floor: |f| >= 355554664076502668908324848278 / 1e30 on dR
+  wrote /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-null-t100.json (52 segments, 0.9s total)
+  modulus floor: |f| >= 246720161844356978370552244 / 1e30 on dR
+  wrote /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-dh-livefire.json (40 segments, 3.4s total)
+
+-- fresh-vs-fresh cross-check
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-null-t100.json  vs  /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-null-t100.json
+   overlap pairs checked: 83, all value boxes intersect
+   winding leg1 [-3/125000000000, 7/250000000000] vs leg2 [-7/500000, 13/1000000] turns, m = 0
+   floors (independent lower bounds): leg1 0.355555, leg2 0.0832795
+   VERDICT: CONSISTENT
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-dh-livefire.json  vs  /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-dh-livefire.json
+   overlap pairs checked: 122, all value boxes intersect
+   winding leg1 [49999999999/50000000000, 50000000001/50000000000] vs leg2 [999973/1000000, 1000023/1000000] turns, m = 1
+   floors (independent lower bounds): leg1 0.00024672, leg2 0.000301882
+   VERDICT: CONSISTENT
+
+-- fresh-vs-on-disk cross-check (mp fresh vs arb disk, arb fresh vs mp disk)
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-null-t100.json  vs  acceptance/w1-arb-null-t100.json
+   overlap pairs checked: 83, all value boxes intersect
+   winding leg1 [-3/125000000000, 7/250000000000] vs leg2 [-7/500000, 13/1000000] turns, m = 0
+   floors (independent lower bounds): leg1 0.355555, leg2 0.0832795
+   VERDICT: CONSISTENT
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-null-t100.json  vs  acceptance/w1-mp-null-t100.json
+   overlap pairs checked: 83, all value boxes intersect
+   winding leg1 [-7/500000, 13/1000000] vs leg2 [-3/125000000000, 7/250000000000] turns, m = 0
+   floors (independent lower bounds): leg1 0.0832795, leg2 0.355555
+   VERDICT: CONSISTENT
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-mp-dh-livefire.json  vs  acceptance/w1-arb-dh-livefire.json
+   overlap pairs checked: 122, all value boxes intersect
+   winding leg1 [49999999999/50000000000, 50000000001/50000000000] vs leg2 [999973/1000000, 1000023/1000000] turns, m = 1
+   floors (independent lower bounds): leg1 0.00024672, leg2 0.000301882
+   VERDICT: CONSISTENT
+== /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/rerun/w1-arb-dh-livefire.json  vs  acceptance/w1-mp-dh-livefire.json
+   overlap pairs checked: 122, all value boxes intersect
+   winding leg1 [999973/1000000, 1000023/1000000] vs leg2 [49999999999/50000000000, 50000000001/50000000000] turns, m = 1
+   floors (independent lower bounds): leg1 0.000301882, leg2 0.00024672
+   VERDICT: CONSISTENT
+
+-- determinism: fresh vs on-disk numeric content identical (ignoring producer metadata)?
+  w1-arb-null-t100.json        identical: True
+  w1-mp-null-t100.json         identical: True
+  w1-arb-dh-livefire.json      identical: True
+  w1-mp-dh-livefire.json       identical: True
+-- both checkers on the fresh files
+w1-arb-null-t100.json: ACCEPT (zeta/exclusion, m=0, 27 segments, S=[-14, 13], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-mp-null-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)

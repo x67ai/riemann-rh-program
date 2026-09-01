@@ -1,0 +1,78 @@
+== lake build Zeta23.W1.Soundness Zeta23.W1.Examples (targeted; 2026-09-01T20:40:04Z)
+Build completed successfully (3143 jobs).
+
+== AuditF_axioms.lean via lake env lean
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.floor_of_checkW1Floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.exampleRefutation_accepted' does not depend on any axioms
+'Zeta23.W1.exampleRefutation_floor_accepted' depends on axioms: [propext]
+'Zeta23.W1.exampleExclusion_accepted' does not depend on any axioms
+'Zeta23.W1.exampleRefutation_C6_control' does not depend on any axioms
+'Zeta23.W1.exampleRefutation_C9_control' does not depend on any axioms
+'Zeta23.W1.RectArgPrinciple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.W1EnclOK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Polymath15Bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+def Zeta23.W1.RectArgPrinciple : (ℂ → ℂ) → Prop :=
+fun f =>
+  ∀ (s₁ s₂ t₁ t₂ : ℝ),
+    1 / 2 < s₁ →
+      s₁ ≤ s₂ →
+        s₂ < 1 →
+          t₁ < t₂ →
+            ∀ (U : Set ℂ),
+              IsOpen U →
+                Zeta23.W1.rectClosed s₁ s₂ t₁ t₂ ⊆ U →
+                  DifferentiableOn ℂ f U →
+                    (∀ s ∈ Zeta23.W1.rectBdry s₁ s₂ t₁ t₂, f s ≠ 0) →
+                      ∃ Z,
+                        2 * Real.pi * ↑Z =
+                            Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₁ t₁) (Zeta23.W1.cpt s₂ t₁) +
+                                  Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₂ t₁) (Zeta23.W1.cpt s₂ t₂) +
+                                Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₂ t₂) (Zeta23.W1.cpt s₁ t₂) +
+                              Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₁ t₂) (Zeta23.W1.cpt s₁ t₁) ∧
+                          (Z = 0 → ∀ s ∈ Zeta23.W1.rectOpen s₁ s₂ t₁ t₂, f s ≠ 0) ∧
+                            (1 ≤ Z → ∃ ρ ∈ Zeta23.W1.rectOpen s₁ s₂ t₁ t₂, f ρ = 0)
+def Zeta23.W1.RowEnclOK : (ℂ → ℂ) → ℤ → ℤ → Zeta23.W1.W1Row → ℂ × ℂ → Prop :=
+fun f K A row zw =>
+  (∀ (t : ℝ),
+      0 ≤ t →
+        t ≤ 1 →
+          (↑row.reLo ≤ ↑K * (f (Zeta23.W1.segPt zw.1 zw.2 t)).re ∧
+              ↑K * (f (Zeta23.W1.segPt zw.1 zw.2 t)).re ≤ ↑row.reHi) ∧
+            ↑row.imLo ≤ ↑K * (f (Zeta23.W1.segPt zw.1 zw.2 t)).im ∧
+              ↑K * (f (Zeta23.W1.segPt zw.1 zw.2 t)).im ≤ ↑row.imHi) ∧
+    ↑row.argLo ≤ ↑A * (Zeta23.W1.argIncrement f zw.1 zw.2 / (2 * Real.pi)) ∧
+      ↑A * (Zeta23.W1.argIncrement f zw.1 zw.2 / (2 * Real.pi)) ≤ ↑row.argHi
+lake env lean "$SCR/lean/AuditF_axioms.lean" 2>&1  1.12s user 1.47s system 31% cpu 8.180 total
+exit: 0
+
+== AuditF_real.lean (8 acceptance transcripts, expect checkW1 = true, decide +kernel)
+lake env lean "$SCR/lean/AuditF_real.lean" 2>&1  2.05s user 0.70s system 126% cpu 2.173 total
+exit: 0
+
+== AuditF_corrupt.lean (30 corrupted transcripts, expect checkW1 = false, decide +kernel)
+lake env lean "$SCR/lean/AuditF_corrupt.lean" 2>&1  2.96s user 0.70s system 151% cpu 2.416 total
+head -40  0.00s user 0.00s system 0% cpu 2.416 total
+exit: 0
+
+== AuditF_big.lean (t10000 transcripts: arb 983 rows, mp 1294 rows; expect true)
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/lean/AuditF_big.lean:10:4: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/lean/AuditF_big.lean:1014:4: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+lake env lean "$SCR/lean/AuditF_big.lean" 2>&1  9.67s user 0.71s system 125% cpu 8.274 total
+head -20  0.00s user 0.00s system 0% cpu 8.274 total
+exit: 0
+
+== AuditF_big2.lean = big with set_option maxRecDepth 100000, maxHeartbeats 4000000
+lake env lean "$SCR/lean/AuditF_big2.lean" 2>&1  13.78s user 0.76s system 124% cpu 11.710 total
+head -20  0.00s user 0.00s system 0% cpu 11.709 total
+exit: 0
