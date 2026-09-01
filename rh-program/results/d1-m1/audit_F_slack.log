@@ -1,0 +1,3 @@
+zeta  (Fraction(3, 5), Fraction(9, 10), Fraction(100, 1), Fraction(101, 1)): 52 segments; min value-row rounding slack = 7.551e-03 (units of 1/K); min argument-row slack = 5.747e-02 (units of 1/A)
+f_DH  (Fraction(4, 5), Fraction(41, 50), Fraction(8569, 100), Fraction(8571, 100)): 40 segments; min value-row rounding slack = 4.232e-03 (units of 1/K); min argument-row slack = 2.585e-02 (units of 1/A)
+Interpretation: an endpoint error e changes an emitted integer bound only if K*e (resp. A*e) exceeds the slack; F-1's per-evaluation budget is < 1e-80 absolute on these values (K*e < 1e-50, A*e < 1e-68).

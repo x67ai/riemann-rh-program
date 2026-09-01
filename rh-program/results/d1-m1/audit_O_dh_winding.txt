@@ -1,0 +1,24 @@
+AUDIT O -- independent DH live-fire winding recomputation (task item 6)
+method: mp.zeta(s,a) float pipeline at dps 60 + dense principal-arg unwrapping;
+        shares NO code with either producer leg.
+  W5 Newton-refined DH zero (dps 80, from scratch):
+     rho = (0.808517182456637385553351960607 + 85.6993484853775921719292677089j)
+     |f_DH(rho)| = 4.776e-80
+  rectangle [4/5, 41/50] x [8569/100, 8571/100]; refined zero strictly inside: True
+  w1-mp-dh-livefire.json
+    rows=40  K=1e30 A=1e12  claimed m=1
+    recomputed winding = 1.0 turns (unwrapping, 24 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [0.99999999998, 1.00000000002]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 3.112e-61
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.025848179 ; min sampled |f| = 0.010715803 (floor 0.00024672016)
+  rectangle [4/5, 41/50] x [8569/100, 8571/100]; refined zero strictly inside: True
+  w1-arb-dh-livefire.json
+    rows=50  K=1e30 A=1e6  claimed m=1
+    recomputed winding = 1.0 turns (unwrapping, 24 subpoints/segment)
+    transcript enclosure [S_lo/A, S_hi/A] = [0.999973, 1.000023]
+    recomputed value inside transcript enclosure: True ; |turns - m| = 1.556e-61
+    W1 value-box violations: 0 ; W2 arg-row violations: 0 ; W4 floor violations: 0
+    worst arg-row slack (integer units at scale A): 0.021310431 ; min sampled |f| = 0.010715803 (floor 0.00030188179)
+
+TOTAL problems: 0

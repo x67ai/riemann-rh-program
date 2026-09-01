@@ -1,0 +1,11 @@
+AUDIT F: DH live-fire winding recomputed from scratch, R = [4/5, 41/50] x [85.69, 85.71], dps 50
+  refined zero rho_DH = (0.808517182456637385553351960607 + 85.6993484853775921719292677089j), |f(rho)| = 4.5469e-53, inside R: True
+  Way 1 (contour integral of f'/f / 2 pi i): (1.0 - 2.6586482208296845829468177507e-53j)
+  Way 2 (adaptive argument unwrapping):      1.0 turns
+  acceptance/w1-mp-dh-livefire.json: 40 segments, unwrapped total = 1.0 turns; transcript S/A = [999999999980, 1000000000020]/1000000000000 = [0.99999999998, 1.00000000002]; m = 1
+     total in transcript enclosure: True; arg-row violations: 0; value-box violations: 0 (200 sample points)
+     tightest arg-row margin (scale-A units): 0.0258482; sampled boundary min|f| = 0.01071580295; certified floor 246720161844356978370552244/1000000000000000000000000000000 = 0.0002467201618 -> floor respected: True
+  acceptance/w1-arb-dh-livefire.json: 50 segments, unwrapped total = 1.0 turns; transcript S/A = [999973, 1000023]/1000000 = [0.999973, 1.000023]; m = 1
+     total in transcript enclosure: True; arg-row violations: 0; value-box violations: 0 (250 sample points)
+     tightest arg-row margin (scale-A units): 0.0213104; sampled boundary min|f| = 0.01071580295; certified floor 301881785757956470927016215/1000000000000000000000000000000 = 0.0003018817858 -> floor respected: True
+VERDICT: all consistent, winding = 1

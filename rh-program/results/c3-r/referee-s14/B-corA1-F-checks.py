@@ -102,9 +102,17 @@ for e in (1, 2, 3, 4):
 out["C3_kernel_growth_with_truncation"] = growth
 out["C3_class_i_bounded"] = len(set(g["i"] for g in growth.values())) == 1
 out["C3_class_ii_unbounded"] = growth[4]["ii"] > growth[1]["ii"]
-out["C3_class_iii_unbounded_with_all_components_nonzero"] = growth[4]["iii"] == reduce(lambda a, b: a * b, primes, 1) and all(b_mod(lambda l, e: l) % l != 0 or True for l in primes)
-# explicit: every component of b_iii is nonzero (it is l), yet the kernel is infinite in the limit
-out["C3_note_criterion_misses_class_iii"] = True  # b_iii has no zero component; documented above
+# class (iii) grows with the NUMBER of primes in the truncation (each new l adds mu_l to the kernel),
+# not with the exponent e; every component b_l = l is nonzero, so the note's "some component = 0" test does not see it.
+iii_by_truncation = {}
+for t in range(1, len(primes) + 1):
+    ps = primes[:t]
+    Mt = reduce(lambda a, b: a * b, ps, 1)
+    bt = crt([l % l for l in ps], ps) % Mt if t > 0 else 0   # b_l = l  ==>  b = 0 mod l for each l in ps
+    iii_by_truncation[t] = math.gcd(bt, Mt)
+out["C3_class_iii_kernel_by_number_of_primes"] = iii_by_truncation
+out["C3_class_iii_unbounded_with_all_components_nonzero"] = all(iii_by_truncation[t] == reduce(lambda a, b: a * b, primes[:t], 1) for t in iii_by_truncation)
+out["C3_note_criterion_misses_class_iii"] = True  # b_iii has no zero component (b_l = l != 0 in Z_l), yet ker is infinite
 
 ok = all(v for k, v in out.items() if isinstance(v, bool))
 out["ALL_CHECKS_PASS"] = ok

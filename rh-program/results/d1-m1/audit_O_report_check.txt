@@ -1,0 +1,31 @@
+AUDIT O -- acceptance-report.md / cost-curve.json numbers vs artifacts
+
+file                       rows    rpt  winding sum (S_lo, S_hi)       floor        verdict
+w1-mp-null-t100              52     52  [-24, 28] A=1e12  0.355555     OK
+w1-arb-null-t100             27     27  [-14, 13] A=1e6  0.0832795    OK
+w1-mp-null-t1000             81     81  [-41, 40] A=1e12  0.0155731    OK
+w1-arb-null-t1000            65     65  [-29, 36] A=1e6  0.0138274    OK
+w1-mp-null-t10000          1294   1294  [-679, 637] A=1e12  8.13195e-05  FLOOR 8.13195e-05 vs report 8.13e-05
+w1-arb-null-t10000          983    983  [-495, 488] A=1e6  7.63776e-06  FLOOR 7.63776e-06 vs report 7.64e-06
+w1-mp-null-deep-t100         58     58  [-28, 30] A=1e12  0.3555       OK
+w1-arb-null-deep-t100        30     30  [-16, 14] A=1e6  0.0305209    OK
+w1-mp-dh-livefire            40     40  [999999999980, 1000000000020] A=1e12  0.00024672   OK
+w1-arb-dh-livefire           50     50  [999973, 1000023] A=1e6  0.000301882  OK
+w1-poscontrol-mp             77     77  [999999999962, 1000000000039] A=1e12  none         OK
+w1-poscontrol-arb           183    183  [999911, 1000094] A=1e6  none         OK
+
+cost-curve.json cross-check:
+  top-level keys: role, generated_utc, machine, measurement, reading, points
+  entries naming a transcript: 10
+  w1-mp-null-t100              segments=52 wall=1.0 OK
+  w1-mp-null-t1000             segments=81 wall=8.6 OK
+  w1-mp-null-t10000            segments=1294 wall=1564.7 OK
+  w1-mp-null-deep-t100         segments=58 wall=1.1 OK
+  w1-arb-null-t100             segments=27 wall=None OK
+  w1-arb-null-t1000            segments=65 wall=None OK
+  w1-arb-null-t10000           segments=983 wall=None OK
+  w1-arb-null-deep-t100        segments=30 wall=None OK
+  w1-mp-dh-livefire            segments=40 wall=3.5 OK
+  w1-arb-dh-livefire           segments=50 wall=None OK
+
+TOTAL mismatches: 2

@@ -1,0 +1,23 @@
+== AUDIT F: reproduce the acceptance-report claim '8 null + 2 DH transcripts ACCEPTED by both reference checkers; positive controls REJECTED at C2' (2026-09-01T20:41:57Z)
+-- checker_ref.py
+acceptance/w1-mp-null-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 81 segments, S=[-41, 40], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 1294 segments, S=[-679, 637], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 58 segments, S=[-28, 30], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t100.json: ACCEPT (zeta/exclusion, m=0, 27 segments, S=[-14, 13], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 65 segments, S=[-29, 36], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 983 segments, S=[-495, 488], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 30 segments, S=[-16, 14], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+python3 checker_ref.py acceptance/w1-mp-null-t100.json           0.04s user 0.01s system 96% cpu 0.044 total
+exit: 0
+-- reference_checker.py
+10
+python3 reference_checker.py acceptance/w1-mp-null-t100.json           0.03s user 0.01s system 94% cpu 0.038 total
+-- positive controls
+acceptance/w1-poscontrol-mp.json: REJECT at C2 (C2: sigma1 <= 1/2)
+acceptance/w1-poscontrol-arb.json: REJECT at C2 (C2: sigma1 <= 1/2)
+   VERDICT: REJECT at C2: sigma1 <= 1/2
+-- checker timing on the 983-row arb t10000 transcript alone
+python3 checker_ref.py acceptance/w1-arb-null-t10000.json > /dev/null  0.02s user 0.01s system 93% cpu 0.032 total

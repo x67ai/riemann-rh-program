@@ -1,0 +1,23 @@
+== AUDIT F rerun of the Session-8 self-tests (2026-09-01T20:44:22Z)
+ball.py selftest: 5068 checks, 0 failures (trials=300, seed=20260826, prec=288)
+python3 ball.py --selftest  0.41s user 0.01s system 99% cpu 0.425 total
+exit 0
+zeta_encl validation: 100 random points, sigma in (0.501, 0.999), |t| <= 200, iv prec 288 bits, reference mp.zeta at dps 100
+  containment: 100/100 PASS
+  enclosure widths: median 2.572e-19, max 4.236e-17
+  wide-box sampling: 20 boxes x 9 points, 0 failures
+  certified C_30 = 1.218048e+09 (lower bound 1.203150e+09; C_30 / |B_30| = 2.0247; classical comparison constant 2)
+python3 zeta_encl.py --validate --points=100  1.80s user 0.01s system 99% cpu 1.812 total
+exit 0
+hurwitz_encl validation: 60 random points, sigma in (0.501, 0.999), |t| <= 200, a in {j/5 (DH shifts), random p/q}, iv prec 288, reference mp.zeta(s, a) at dps 100
+  containment: 60/60 PASS
+  enclosure widths: median 7.522e-19, max 4.494e-17
+  a = 1 cross-check vs zeta_encl (25 points, overlap + containment): 0 failures
+  wide-box sampling: 15 boxes x 9 points, 0 failures
+python3 hurwitz_encl.py --validate --points=60  2.13s user 0.01s system 99% cpu 2.139 total
+exit 0
+f_DH ball cross-validation vs on-disk dh.py (/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/ccm-dh-test/dh.py) at dps 100, 24 points
+  containment: 24/24 PASS
+  |f_DH(rho_DH ~15 digits)| <= 5.302e-16 (expect ~1e-13-class: the quoted rho is a 15-digit rounding of the true zero)
+python3 producer_mp.py --selftest-dh  1.31s user 0.01s system 99% cpu 1.324 total
+exit 0
