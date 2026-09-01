@@ -601,9 +601,10 @@ now δ_D. Every math span, numeric literal and theorem body was diffed against t
 A4 41 pp; seed paper 21 → 19 pp; `check-submittable.sh` ALL CHECKS PASSED.
 
 **Posting (sponsor, reported 2026-09-02).** Both papers are posted at x67.ai and on Zenodo:
-DOI `10.5281/zenodo.22171688` and DOI `10.5281/zenodo.22171136`. (Which DOI is which paper could
-not be confirmed from this network on 2026-09-02 — Zenodo returned HTTP 403 "unusual traffic" to
-every request; to be resolved and recorded in `results/arxiv/README.md` when it lifts.) **Session-9
+DOI `10.5281/zenodo.22171688` and DOI `10.5281/zenodo.22171136`. (Confirmed later the same session through a server-side
+fetch — direct requests from this network got HTTP 403: 22171688 is the cubic-augmentation paper and
+22171136 the Tate-products paper; both are concept DOIs whose v1 records are one higher; CC BY 4.0;
+details in `results/arxiv/README.md`.) **Session-9
 queue item 5 — whether to circulate — is therefore CLOSED by the sponsor's act.** From this point the
 two papers are FROZEN records: any later change is a public revision (a new Zenodo version), never a
 silent edit. Neither paper is on arXiv (endorsement gate, CIRCULATION-PREP STEP 6 item 4).
