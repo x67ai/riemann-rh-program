@@ -645,3 +645,9 @@ one Fable 5.1 and one Opus 5 instance):**
    question with a novelty ledger for the follow-up dual-model sweep. Deliverables: `results/c3-r/s14/`.
 
 (Results are appended below as they are harvested.)
+
+**~02:45 IST — sponsor directive before napping: "keep documenting the work as you go, in case my
+usage runs out; make this a top rule in standing instructions."** Done: RULE ONE in `~/.claude/CLAUDE.md`,
+standing order 0 in STATUS.md, KICKSTART.md steps 4 and 7 amended; `~/.claude/autocommit-watchdog.sh`
+written and started (commits agents' interim outputs every 10 minutes; the push watchdog pushes them).
+All three watchdog processes verified running (caffeinate, push, autocommit).
