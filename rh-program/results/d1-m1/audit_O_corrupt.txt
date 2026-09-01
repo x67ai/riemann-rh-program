@@ -1,0 +1,98 @@
+AUDIT O -- corruption of ACCEPTED transcripts (task item 3)
+checkers: checker_ref.py (Fraction) | reference_checker.py (int cross-mult)
+
+== base mp-null-t100         w1-mp-null-t100.json         -> ACCEPT | ACCEPT  (52 rows, m=0, exclusion)
+   C6 shift enclosure so 0 enters a cell                -> C6         C6         OK
+   C8 break sum-width < 1/2 turn                        -> C8         C8         OK
+   C9 change integer m (m+1)                            -> C9         C9         OK
+   C9 fabricate m=1 on an exclusion box + relabel mode  -> C9         C9         OK
+   C3 break contour ordering (swap breakpoints)         -> C3         C3         OK
+   C3 reverse the top edge (CCW convention broken)      -> C3         C3         OK
+   C2 move sigma1 onto the critical line                -> C2         C2         OK
+   C4 drop one row                                      -> C4         C4         OK
+   C4 drop one mesh breakpoint                          -> C4         C4         OK
+   C11 inflate the modulus floor                        -> C11        C11        OK
+   C5 emit an empty value box                           -> C5         C5         OK
+   C7 exceed the D3 half-turn clamp                     -> C7         C7         OK
+   scale-K shrink by 1e6 (values not rescaled)          -> ACCEPT     ACCEPT     ACCEPT|ACCEPT
+   scale-A shrink by 1e3 (arg rows not rescaled)        -> C7         C7         C7|C7
+   permute rows by one (row<->segment misalignment)     -> ACCEPT     ACCEPT     as-designed
+   negate every value box (f -> -f)                     -> ACCEPT     ACCEPT     as-designed
+
+== base arb-null-t100        w1-arb-null-t100.json        -> ACCEPT | ACCEPT  (27 rows, m=0, exclusion)
+   C6 shift enclosure so 0 enters a cell                -> C6         C6         OK
+   C8 break sum-width < 1/2 turn                        -> C8         C8         OK
+   C9 change integer m (m+1)                            -> C9         C9         OK
+   C9 fabricate m=1 on an exclusion box + relabel mode  -> C9         C9         OK
+   C3 break contour ordering (swap breakpoints)         -> C3         C3         OK
+   C3 reverse the top edge (CCW convention broken)      -> C3         C3         OK
+   C2 move sigma1 onto the critical line                -> C2         C2         OK
+   C4 drop one row                                      -> C4         C4         OK
+   C4 drop one mesh breakpoint                          -> C4         C4         OK
+   C11 inflate the modulus floor                        -> C11        C11        OK
+   C5 emit an empty value box                           -> C5         C5         OK
+   C7 exceed the D3 half-turn clamp                     -> C7         C7         OK
+   scale-K shrink by 1e6 (values not rescaled)          -> ACCEPT     ACCEPT     ACCEPT|ACCEPT
+   scale-A shrink by 1e3 (arg rows not rescaled)        -> C7         C7         C7|C7
+   permute rows by one (row<->segment misalignment)     -> ACCEPT     ACCEPT     as-designed
+   negate every value box (f -> -f)                     -> ACCEPT     ACCEPT     as-designed
+
+== base mp-null-deep-t100    w1-mp-null-deep-t100.json    -> ACCEPT | ACCEPT  (58 rows, m=0, exclusion)
+   C6 shift enclosure so 0 enters a cell                -> C6         C6         OK
+   C8 break sum-width < 1/2 turn                        -> C8         C8         OK
+   C9 change integer m (m+1)                            -> C9         C9         OK
+   C9 fabricate m=1 on an exclusion box + relabel mode  -> C9         C9         OK
+   C3 break contour ordering (swap breakpoints)         -> C3         C3         OK
+   C3 reverse the top edge (CCW convention broken)      -> C3         C3         OK
+   C2 move sigma1 onto the critical line                -> C2         C2         OK
+   C4 drop one row                                      -> C4         C4         OK
+   C4 drop one mesh breakpoint                          -> C4         C4         OK
+   C11 inflate the modulus floor                        -> C11        C11        OK
+   C5 emit an empty value box                           -> C5         C5         OK
+   C7 exceed the D3 half-turn clamp                     -> C7         C7         OK
+   scale-K shrink by 1e6 (values not rescaled)          -> ACCEPT     ACCEPT     ACCEPT|ACCEPT
+   scale-A shrink by 1e3 (arg rows not rescaled)        -> C7         C7         C7|C7
+   permute rows by one (row<->segment misalignment)     -> ACCEPT     ACCEPT     as-designed
+   negate every value box (f -> -f)                     -> ACCEPT     ACCEPT     as-designed
+
+== base mp-dh-livefire       w1-mp-dh-livefire.json       -> ACCEPT | ACCEPT  (40 rows, m=1, refutation)
+   C6 shift enclosure so 0 enters a cell                -> C6         C6         OK
+   C8 break sum-width < 1/2 turn                        -> C8         C8         OK
+   C9 change integer m (m+1)                            -> C9         C9         OK
+   C9 fabricate m=1 on an exclusion box + relabel mode  -> ACCEPT     ACCEPT     MISMATCH exp=C9 got=ACCEPT|ACCEPT
+   C3 break contour ordering (swap breakpoints)         -> C3         C3         OK
+   C3 reverse the top edge (CCW convention broken)      -> C3         C3         OK
+   C2 move sigma1 onto the critical line                -> C2         C2         OK
+   C4 drop one row                                      -> C4         C4         OK
+   C4 drop one mesh breakpoint                          -> C4         C4         OK
+   C11 inflate the modulus floor                        -> C11        C11        OK
+   C5 emit an empty value box                           -> C5         C5         OK
+   C7 exceed the D3 half-turn clamp                     -> C7         C7         OK
+   scale-K shrink by 1e6 (values not rescaled)          -> ACCEPT     ACCEPT     ACCEPT|ACCEPT
+   scale-A shrink by 1e3 (arg rows not rescaled)        -> C7         C7         C7|C7
+   permute rows by one (row<->segment misalignment)     -> ACCEPT     ACCEPT     as-designed
+   negate every value box (f -> -f)                     -> ACCEPT     ACCEPT     as-designed
+   f_DH transcript wearing the zeta trust label         -> SHAPE      SHAPE      OK
+   f_DH transcript relabeled function=zeta              -> ACCEPT     ACCEPT     as-designed
+
+== base arb-dh-livefire      w1-arb-dh-livefire.json      -> ACCEPT | ACCEPT  (50 rows, m=1, refutation)
+   C6 shift enclosure so 0 enters a cell                -> C6         C6         OK
+   C8 break sum-width < 1/2 turn                        -> C8         C8         OK
+   C9 change integer m (m+1)                            -> C9         C9         OK
+   C9 fabricate m=1 on an exclusion box + relabel mode  -> ACCEPT     ACCEPT     MISMATCH exp=C9 got=ACCEPT|ACCEPT
+   C3 break contour ordering (swap breakpoints)         -> C3         C3         OK
+   C3 reverse the top edge (CCW convention broken)      -> C3         C3         OK
+   C2 move sigma1 onto the critical line                -> C2         C2         OK
+   C4 drop one row                                      -> C4         C4         OK
+   C4 drop one mesh breakpoint                          -> C4         C4         OK
+   C11 inflate the modulus floor                        -> C11        C11        OK
+   C5 emit an empty value box                           -> C5         C5         OK
+   C7 exceed the D3 half-turn clamp                     -> C7         C7         OK
+   scale-K shrink by 1e6 (values not rescaled)          -> ACCEPT     ACCEPT     ACCEPT|ACCEPT
+   scale-A shrink by 1e3 (arg rows not rescaled)        -> C7         C7         C7|C7
+   permute rows by one (row<->segment misalignment)     -> ACCEPT     ACCEPT     as-designed
+   negate every value box (f -> -f)                     -> ACCEPT     ACCEPT     as-designed
+   f_DH transcript wearing the zeta trust label         -> SHAPE      SHAPE      OK
+   f_DH transcript relabeled function=zeta              -> ACCEPT     ACCEPT     as-designed
+
+BASES x MUTATIONS run; unexpected results: 2

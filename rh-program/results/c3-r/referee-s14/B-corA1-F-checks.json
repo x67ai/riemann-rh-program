@@ -1,0 +1,58 @@
+{
+  "C1_every_residue_mod_M_has_positive_representative": true,
+  "C2_unit_target_exponents_mod_42": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "C2_unit_target_stabilizes_to_b_mod_42": true,
+  "C2_zero_at_2_exponents_mod_42": [
+    22,
+    22,
+    22,
+    22,
+    22,
+    22,
+    22,
+    22
+  ],
+  "C2_zero_at_2_kills_mu_2infty": true,
+  "C2_nonconvergent_exponents_do_not_stabilize_on_order_3": true,
+  "C3_kernel_sizes_e4": {
+    "b=6 (n*u, in packet)": 6,
+    "b_2=0 (note's case, leaves (Tors))": 16,
+    "b_l=l all l (missed by the note, leaves (Tors))": 6006
+  },
+  "C3_kernel_growth_with_truncation": {
+    "1": {
+      "i": 6,
+      "ii": 2,
+      "iii": 6006
+    },
+    "2": {
+      "i": 6,
+      "ii": 4,
+      "iii": 6006
+    },
+    "3": {
+      "i": 6,
+      "ii": 8,
+      "iii": 6006
+    },
+    "4": {
+      "i": 6,
+      "ii": 16,
+      "iii": 6006
+    }
+  },
+  "C3_class_i_bounded": true,
+  "C3_class_ii_unbounded": true,
+  "C3_class_iii_unbounded_with_all_components_nonzero": true,
+  "C3_note_criterion_misses_class_iii": true,
+  "ALL_CHECKS_PASS": true
+}
