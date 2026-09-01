@@ -88,7 +88,7 @@ This is the finding of the sweep that most needs to reach the adjudicator. **Den
 
 ### 2.2 N2b — "every closed flow-invariant subset meeting every packet is infinite-dimensional". Verdict: **PARTIAL (derivative)**.
 
-Given N1, this is an immediate consequence of Deninger's own §8: a closed invariant set meeting every packet contains every packet (N1), hence contains the union of all periodic orbits, hence contains its closure Y₀ = X̌₀(S¹) ×_{Q>0} R^{>0} ([x-03] Thm 8.2, p. 50, unconditional for one-dimensional X₀ flat over spec Z via [Per11, Theorem 1] — read at p. 49: *"If spec A is a non-empty open subscheme of spec o_κ for some number field κ, then the set M in Claim 8.1 is always infinite, and it even has a positive Dirichlet density. This follows from [Per11, Theorem 1]."*), which [x-03] p. 49 says is "still infinite-dimensional". So the only content beyond [x-03] §8 is N1 itself plus a dimension argument.
+Given N1, this is an immediate consequence of Deninger's own §8: a closed invariant set meeting every packet contains every packet (N1), hence contains the union of all periodic orbits, hence contains its closure Y₀ = X̌₀(S¹) ×_{Q>0} R^{>0} ([x-03] Thm 8.2, p. 50, unconditional for one-dimensional X₀ flat over spec Z via [Per11, Theorem 1] — read at p. 49: *"If spec A is a non-empty open subscheme of spec o_κ for some number field κ, then the set M in Claim 8.1 is always infinite, and it even has a positive Dirichlet density. This follows from [Per11, Theorem 1]."*), which [x-03] p. 49 says is "still infinite-dimensional". [x-06] **p. 12** repeats the point in the author's own words (vision-verified): *"The space X_{0E} is infinite dimensional if dim X₀ ≥ 1 and one could hope that the sub-dynamical system obtained as the closure of the union of all its compact orbits might be significantly smaller. **However, this is not the case** as follows from [Den22a, Theorem 8.2]."* So the only content beyond [x-03] §8 / [x-06] p. 12 is N1 itself plus a dimension argument.
 
 **Observation for the adjudicator (not a novelty finding; MINOR, but it should be checked).** The string "infinite dimensional"/"infinite-dimensional" occurs exactly **three** times in [x-03] (intro p. 5-area line "The resulting dynamical system is still infinite dimensional"; §8 opening p. 49 twice), always in prose. I found **no dimension-theoretic theorem** in [x-03] establishing dim X̌₀(S¹) ×_{Q>0} R^{>0} = ∞. If that is right, then probe A's n-cell construction (Theorem B(b)) is not decoration: it supplies a step [x-03] only asserts — which makes it *more* load-bearing than the adjudication's §4 item 6 treats it ("checked at proof-sketch level … its (a)-part and probe B's Cor. B, which carry the whole S4-closed kill, do not need it"). If Cor. B's route consumes "[x-03] §8's still-infinite-dimensional line" as an input, it is consuming an assertion, not a theorem. Recommend the adjudicator re-examine which of the two routes to N2b is actually theorem-backed.
 
@@ -114,8 +114,8 @@ This is a **verbatim displayed formula in the introduction of the primary source
 `Aut(F̄_p^×)` is the group of automorphisms of the multiplicative group; `Aut(F̄_p)` is the group of automorphisms of the field, i.e. of the *ring*; the quotient of an abelian group by the image of a homomorphism **is** its cokernel. So Deninger's displayed formula and the 9.4 note's "structural identity" are the same statement, in the same notation, with the single word "cokernel" substituted for the solidus.
 
 Three further occurrences of the same formula, all read this session:
-* [x-03] **§6, p. 38**: "Γ_{x₀} fibres over Ẑ^×_{(p)}/p^Ẑ = Aut(F̄_p^×)/Aut(F̄_p) with fibres the R^{>0}-orbits in Γ_{x₀}."
-* [x-06] §4 (the paragraph after Theorem 4.2): "Γ_{x₀} is a fibre space over the compact group Aut(F̄_p^×)/Aut(F̄_p) where p = char κ(x) with fibres the compact orbits in Γ_{x₀}."
+* [x-03] **§6, p. 38**: "…Γ_{x₀} fibres over Ẑ^×_{(p)}/p^Ẑ = Aut(F̄_p^×)/Aut(F̄_p) with fibres the R^{>0}-orbits in Γ_{x₀}." (the tail of the sentence beginning "Thus all R^{>0}-orbits in Γ_{x₀} are circles R^{>0}/N x₀^Z and…")
+* [x-06] **p. 12** (the italicised statement of Theorem 4.2), **vision-verified off the rendered page** because the text layer drops the × superscript: "In fact Γ_{x₀} is a fibre space over the compact group Aut(F̄_p^×)/Aut(F̄_p) where p = char κ(x) with fibres the compact orbits in Γ_{x₀}."
 * [z-19] (published), same sentence in the introduction.
 
 And the "= coker(lk_p)" half is [r3s-08]'s verbatim identification (§1.4 above).
@@ -146,6 +146,10 @@ Three separable questions. I answer them separately because they get different v
 
 > "The set of H-orbits in a single packet is a principal homogeneous space for the Picard group of the associated order, see [ELMV09, Corollary 4.4]. …
 > **Each packet supports a canonical H-invariant probability measure. It is defined as the uniform average over the H-invariant probability measures supported on the individual periodic orbits in the packet.** … When n = 2 the convergence of periodic measures on H-invariant packets to the Haar measure is again a theorem of Duke [Duk88], cf. [ELMV12, Sku62]."
+
+The same is in the founding paper of that literature, fetched and read this session: **Einsiedler–Lindenstrauss–Michel–Venkatesh, *The distribution of periodic torus orbits on homogeneous spaces*, arXiv:math/0607815v1 (= Duke Math. J. 148 (2009)), printed p. 3**, verbatim:
+
+> "The periodic H orbits naturally come in **packets**, with all orbits in a packet sharing the same discriminant, regulator, and even shape. These packets can be understood as projections to Γ\G of orbits of adelic Q-tori on G(Q)\G(A). **The compact orbits belonging to a single packet are therefore parameterized by a finite abelian group – a suitable class group.**"
 
 Structurally this is the 9.4 note's Road 2, one dictionary entry away: Deninger's Γ_p is a torsor under the compact group B_p exactly as the homogeneous-dynamics packet is a torsor under a Picard group, and "uniform average over the orbits of the packet" is Haar average over the torsor group. The finite-group case is the uniform average; the profinite case is Haar. The *transplant to Deninger's system* is not in print; the *idea* is a fifteen-year-old standard tool with its own equidistribution literature (Duke; Einsiedler–Lindenstrauss–Michel–Venkatesh).
 
@@ -188,3 +192,175 @@ Two further published constructions in the same direction, both by Connes–Cons
 
 **Required change — MAJOR.** The 9.4 note's §7 Road 3 dismisses the Morishita bridge in one clause ("transports no usable structure … do not cite for topology"), which is right about *topology* but wrong as a summary: on the specific question Road 2 exists to answer — *how does one canonically get one orbit per prime out of a packet* — [r3s-08] Thm 3.6(2) is a published answer, and the note's framing of Road 2 as the only Aut(C)-natural exit is not sustainable without addressing it.
 
+---
+
+## 5. N5 — Theorem C: one-orbit-per-prime admissible cuts exist, are non-canonical, and forfeit the certified theory. Verdict: **NOVEL** (theorem); the conclusion is Deninger's own stated position.
+
+### 5.1 What is new
+The **exponent-reachability computation** — that the minimal admissible class of a chosen injective character χ^{a₀} reaches exactly the base classes a₀·p^Ẑ, so the bare letter of [x-03] Def. 4.1 permits a class whose packet locus is a single orbit per prime — is not in the literature. Nothing resembling it was found in any source. Log entries S-17, S-18, S-23.
+
+### 5.2 What is not new: the conclusion
+Every qualitative component of Theorem C's *verdict* is Deninger's own, in print, in his own words. All four read this session from the on-disk PDFs, footer-verified pages:
+
+* **[x-03] p. 5** (introduction): *"There is a minimal condition E for which our theorems hold but **it does not look natural**. So this aspect is unsatisfactory."*
+* **[x-03] p. 27** (§4, immediately before Definition 4.1): *"**The best condition on the characters P^× is not clear to me.** However the following two minimal conditions play an important role…"*
+* **[x-03] p. 29** (§4, Remark): *"Incidentally, in the p-adic case where we will deal with multiplicative maps P into a p-adic valuation ring and N₀ = p^Z, the right condition E is the following: **P is additive mod p**. This can be rephrased in terms of absolute values and translated to the case where C is the complex number field. **However the resulting class E is not N-invariant.**"*
+* **[x-03] p. 99** (§14, Remark after Def. 14.12): *"**I do not know how to transport such conditions to the points of X̌(C)**, where X is a scheme of finite type over spec Z and C is the complex number field."*
+* **[x-06] p. 11**: *"In general, the dynamical system (X₀, φᵗ) has **too many periodic orbits**, since the N-space W_rat(X₀)(C) does not know enough about the addition in O_{X₀}. In the local p-adic situation below, we know the right modification to make. **However in the global case presently we can only impose an 'admissible' condition E** on the characters P^× …"*
+
+Positive half likewise published: [x-03] **Theorem 5.2** (p. 34) already gives that packets are *full* whenever E ⊇ E_f, i.e. that no designated system cuts a packet.
+
+**Required change — MINOR.** Theorem C should be stated as *supplying the theorem behind Deninger's stated intuition*, with the four quotations above cited at the point where the note says the cuts are "precisely Deninger's 'does not look natural'". The programme documents already gesture at this; the citation should be page-anchored rather than paraphrased, because the paraphrase currently reads as though the programme discovered the unnaturalness.
+
+**One further note.** [x-06] p. 13 supplies a published *diagnosis* of the same defect that the programme should cite alongside Theorem C, since it is the author's own account of why no character-level condition can fix it: *"The absence of the Steinberg relations in rational cohomology is an indication that the space X_F(C) and hence also our space W_rat(X)(C) do not encode enough information about the additive structure of F resp. O_X."*
+
+---
+
+## 6. COMPLETE SEARCH LOG
+
+All network queries were run 2026-09-01T20:2x–21:2x UTC = 2026-09-02 local. "no hit" means: no source stating or containing the claim under test; incidental hits on the primary sources themselves are not counted as hits.
+
+### 6.1 Citing-literature enumeration (the backbone of the NOVEL verdicts)
+
+| id | engine / endpoint | query | result |
+|---|---|---|---|
+| S-01 | Semantic Scholar Graph API, `paper/arXiv:1807.06400/citations` | citations of the preprint | **4 citing works**: Deninger *Primes, knots and periodic orbits* (2301.11643); Haran, *Non-Additive Geometry and Frobenius Correspondences* (2209.08536); Deninger, *There is no Weil-cohomology…* (2204.02714); *Knots and Primes: On the arithmetic of Toda flows* (2023, no arXiv id) |
+| S-02 | Semantic Scholar Graph API, `paper/DOI:10.1016/j.indag.2024.05.007/citations` | citations of the published version | same 4 |
+| S-03 | OpenAlex, `works?search=…` then `works?filter=cites:W2884984338` | citations of the published version | 2: Deninger 2204.02714 (Ann. SNS Pisa) and the *Introduction* chapter of the ÁLKL Springer LNM volume |
+| S-04 | Crossref, `works/10.1007/978-3-032-15413-2_1` | identify that chapter | Álvarez López–Kordyukov–Leichtnam, *A Trace Formula for Foliated Flows*, Lecture Notes in Mathematics, Springer Nature Switzerland, 2026 — i.e. the book form of [r3s-17] |
+| S-05 | zbMATH REST API, `/document/8143081` | the paper's zbMATH record + review | Indag. Math., New Ser. **37**, No. 1, 25–136 (2026); full reviewer text retrieved and read — **no mention of orbit closures, packet minimality, minimal sets, or Hausdorffness** |
+| S-06 | zbMATH REST API, `/document/_search` | "Deninger dynamical systems arithmetic schemes" | 6 records, all already known to the programme |
+| S-07 | Google Scholar (WebFetch) | `"Dynamical systems for arithmetic schemes" Deninger` | **BLOCKED** — 302 to `google.com/sorry` captcha. Cited-by list not obtained. |
+| S-08 | zbMATH Open web (WebFetch) `zbmath.org/?q=an:8143081` | citation list | **BLOCKED** — HTTP 403 |
+| S-09 | arXiv Atom API | `all:"Deninger"`, 60 most recent | 60 records; every one with dynamical/foliation content identified and triaged (see §7 open items) |
+| S-10 | arXiv Atom API | `abs:"foliated dynamical"` | 9 records: 2508.15971, 2410.20758, 1912.02159, 1906.02424, math/0605724, 1308.3535, 1104.4852 + 2 unrelated |
+| S-11 | arXiv Atom API | `abs:"foliated flow" AND abs:"trace formula"` | 4: 2402.06671, 2304.00798, 2112.03191, 1308.0637 |
+| S-12 | arXiv Atom API | `abs:"arithmetic topology" AND abs:"dynamical"` | 3, all known |
+| S-13 | arXiv Atom API | `abs:"rational Witt"` | 9; the only relevant are 1807.06400 and Kucharczyk–Scholze 1609.04717 |
+| S-14 | arXiv Atom API | `abs:"Deninger's"` | 40; triaged, nothing new |
+| S-15 | arXiv Atom API | `abs:"packets of periodic orbits"` | **1 record on all of arXiv**, and it is nlin/0307025 (semiclassical wave packets, Lorentz gas) — the phrase is unused in mathematics outside this programme |
+| S-16 | arXiv Atom API | `abs:"scaling site"` | 11; the Connes–Consani cluster, all opened (§6.4) |
+
+### 6.2 Web searches (deliberately varied vocabulary, per the charter)
+
+| id | engine | phrasing | result |
+|---|---|---|---|
+| S-17 | WebSearch | `Deninger "dynamical systems for arithmetic schemes" packet periodic orbit closure minimal set` | no hit |
+| S-18 | WebSearch | `arXiv 1807.06400 Deninger cited by orbit closure non-Hausdorff suspension packets` | no hit |
+| S-19 | WebSearch | `"rational Witt vectors" Deninger dynamical system "periodic orbits" closure "Cantor" profinite Frobenius density` | no hit |
+| S-20 | WebSearch | `"1807.06400" OR "Deninger" "packets of periodic orbits" arithmetic scheme lamination one orbit per prime` | no hit |
+| S-21 | WebSearch | `Deninger packets periodic orbits average Haar measure "one orbit" prime selection condition E admissible` | **HIT** → Khayutin arXiv:1510.08481 (homogeneous-dynamics packet average; §4.1); followed to its source, ELMV arXiv:math/0607815 (fetched and read; §4.1) |
+| S-22 | WebSearch | `trace formula flow "continuum of closed orbits" transverse measure lamination foliated Lefschetz degenerate family` | **HIT (context)** → Leichtnam math/0603576, ÁLKL 2402.06671, ÁLKM 2410.20758, Kim 1912.02159; none states the claim |
+| S-23 | WebSearch | `"Kucharczyk" "Scholze" topological realisation absolute Galois group space non-Hausdorff orbit closure profinite` | no hit (their X_F is compact **Hausdorff**, so the phenomenon cannot occur there) |
+| S-24 | WebSearch | `Connes Consani "Knots, primes and class field theory" arXiv Regulators V Pisa` | **HIT** → arXiv:2501.06560, Contemp. Math. (Regulators V) |
+| S-25 | WebSearch | `Judith Lutz Münster thesis "rational Witt" p-adic points Fargues-Fontaine Deninger dissertation` | partial — project title located ("Rational Witt Spaces and their Relation to the Fargues–Fontaine Curve", Ada Lovelace Fellow, Deninger's group, uni-muenster.de news item 2022); **no thesis document located** → UNDETERMINED, §7 |
+| S-26 | WebSearch | `Lefschetz trace formula flow "manifold of closed orbits" clean intersection Duistermaat Guillemin integral over family periodic orbits` | **HIT** → Zelditch, arXiv:math/0402356 (clean / Bott–Morse case; §4.2(iii)) |
+| S-27 | WebSearch | `suspension solenoid "Cantor set" family of periodic orbits same length non-Hausdorff quotient "orbit closure" dense Frobenius profinite arithmetic` | no hit |
+| S-28 | WebSearch | `Deninger foliated space "one closed orbit for each prime" obstruction packets too many orbits problem` | no hit |
+| S-29 | WebSearch | `"closure of a periodic orbit" OR "orbit closures" Deninger arithmetic scheme "packet" suspension "Q>0" Witt` | no hit |
+| S-30 | WebSearch | `"is not Hausdorff" Deninger dynamical system arithmetic scheme suspension periodic orbits not closed` | no hit |
+| S-31 | WebSearch | `Deninger packets "uncountably many" periodic orbits per prime Cantor group circles arithmetic dynamical system defect` | no hit |
+| S-32 | WebSearch | `Deninger "admissible" class of characters condition E choose one character per prime dynamical system subsystem "not natural" selection` | no hit |
+| S-33 | WebSearch | `Deninger Singhof "dynamical trace formulas" transverse measure suspension foliated Lefschetz note` | context only (Deninger–Singhof counterexample to smooth leafwise Hodge decomposition; ÁLKL *Simple foliated flows*) |
+
+### 6.3 Consensus (MCP paper search, 220M-paper index)
+
+| id | query | result |
+|---|---|---|
+| S-34 | `Deninger dynamical system arithmetic scheme packet periodic orbits closure Hausdorff foliated` | 10 results; the relevant ones are all already on disk (2508.15971, 1906.02424, 1807.06400/Indag., 2410.20758, 1912.02159, math/0603576, Deninger's surveys) **plus one new item**: B. Morin, *Sur l'analogie entre le système dynamique de Deninger et le topos Weil-étale* (2010) — about the **conjectural** system, eight years before the W_rat construction; cannot contain the claims |
+| S-35 | `trace formula foliated flow continuum of closed orbits transverse measure on family of periodic orbits` | 10 results; nothing with a continuum on the orbital side. Notable near-misses recorded for the file: Álvarez López, *A trace formula for foliated flows via adiabatic limits* (2007, no periodic orbits at all in the stated case); Miyanishi, *Circle Foliations Revisited: Periods of Flows whose Orbits are all Closed* (2024/2025) — flows all of whose orbits are closed, Wadsley/Besse circle-foliation theory; **that is the smooth analogue of a packet, and it carries no trace formula of the required type** |
+
+### 6.4 On-disk corpus searches (grep over `pdftotext` extractions made by me this session)
+
+Corpora searched: all of `fetched/x-01…x-24` (the Deninger/Weil-étale cluster) + `fetched/z-19` (the **published** Indagationes version) + all of `fetched-r3/r3s-01…r3s-22` + `fetched-r2/r-09` (Morishita, *Knots and Primes*, 2nd ed.) + `fetched-r2/r-26b` (Morishita 2009 survey) + `sources-extracted/connes-consani-jacobian-specZ-JNcG2026.pdf` + `sources-extracted/connes-zeta-spectral-triples-2026.pdf`, plus the four papers I fetched fresh (1510.08481, math/0607815, 1912.02159, 1906.02424, 2501.06560, 2401.08401, math/0402356, 1906.06753).
+
+| id | term(s) | files containing it | outcome |
+|---|---|---|---|
+| S-36 | `packet` | x-03 (5×), x-06 (1×), z-19 (5×), r3s-08 (7×) — plus Ichino–Ikeda (unrelated sense: Vogan/L-packets) | every occurrence read; none is a closure, minimality or measure statement |
+| S-37 | `orbit closure`, `minimal set`, `dense orbit` | **zero occurrences in the whole Deninger/Morishita cluster** | — |
+| S-38 | `non-Hausdorff` / `Hausdorff` | r3s-17 (14×), r3s-18 (11×), x-03 (14×), z-19 (13×), x-06 (3×), r3s-19 (1×) | all read; [x-03]/[z-19] prove Hausdorffness for X̊(C), X̊₀(C), X̌(C), X̌₀(C) (Cor. 7.8/7.9) and **never** discuss the suspension; see §2.1 |
+| S-39 | `continuum of periodic orbits`, `one closed orbit`, `one periodic orbit` | zero, zero, one (z-19, unrelated) | — |
+| S-40 | `transverse measure` | r3s-17 (3×), r3s-20 (1×), r3s-21 (9×), x-20 (5×), x-21 (5×) | all read; the type-II/Ruelle–Sullivan machinery is present, the orbital side is always a discrete sum (§4.2) |
+| S-41 | `Haar` | x-03 (1×), z-19 (1×), r3s-21 (4×), CC-Jacobian (1×), x-22/x-23 (2× each) | none is a measure on a packet or on a family of closed orbits |
+| S-42 | `linking number` | r-09, r-26b, r3s-08, x-06 | Morishita's lk_p line only; no orbit-closure statement |
+| S-43 | `coker`, `cokernel` | **zero occurrences in r3s-08**; the same group appears as a quotient in [x-03] p. 2 / p. 38 and [x-06] §4 | the "cokernel" phrasing is new, the object is not (§3.1) |
+| S-44 | `irreducible`, `properly discontinuous` | x-03 pp. 49, 63, 64, 76 | the decisive N2a anchors (§2.1) |
+| S-45 | `infinite dimensional` / `infinite-dimensional` | x-03: exactly 3 occurrences, all prose | no dimension theorem — observation in §2.2 |
+
+### 6.5 Individual documents opened to test a specific hypothesis
+
+* **arXiv:2510.19456** — probe B's own residual watch item ("surfaced by query (iii), content unexamined", `probe-9.3-b.md` line 141). **DISCHARGED:** it is J. M. Fraser and Yunlong Xu, *Dimensions of orbital sets in complex dynamics* (22 Oct 2025) — backwards orbits of compact sets under rational maps on the Riemann sphere; no arithmetic, no foliations, no Deninger. Probe B's residual obligation on that item can be closed.
+* **arXiv:1912.02159** (J. Kim) and **arXiv:1906.02424** (Kim–Morishita–Noda–Terashima, Münster J. Math. 14(2) 2021) — fetched and searched; both work inside smooth 3-dimensional foliated dynamical systems with the usual simplicity hypotheses; neither touches W_rat(X)(C), packets, orbit closures or Hausdorffness.
+* **arXiv:2501.06560** ([CC3]) and **arXiv:2401.08401** — fetched and searched: the string `packet` occurs **zero** times in each; `Hausdorff` occurs once in each, both times asserting that a *quotient of theirs is* Hausdorff (properness argument). Their C_p is one orbit per prime by construction.
+* **ICMS abstract, `icms.ac.uk/.../Christopher-Deninger.pdf`** — fetched by curl and extracted; it is the talk abstract for the same paper, 1016 characters, no additional mathematical content.
+* **Kucharczyk–Scholze** was tested only through S-23 and through [x-03]/[x-06]'s descriptions of it; their space is compact Hausdorff with no flow, so it is not a candidate host for N1/N2.
+
+---
+
+## 7. UNDETERMINED items and coverage gaps (for the sponsor, standing order 1)
+
+Named so a later session can see exactly what was and was not covered.
+
+1. **Google Scholar "cited by" for arXiv:1807.06400 / Indag. Math. 37 (2026) 25–136 — NOT OBTAINED.** WebFetch on `scholar.google.com` returns 302 → `google.com/sorry` captcha (S-07). Scholar's index is materially broader than Semantic Scholar's or OpenAlex's for this paper (both of which returned only 2–4 citing works). **This is the single largest gap in the sweep.** Recommend the sponsor pull the Scholar cited-by list by hand and hand it back; until then the NOVEL verdicts on N1, N2c, N3(ii), N5 rest on the S2/OpenAlex/arXiv-metadata enumeration, which is consistent but thin.
+2. **zbMATH Open citation list — NOT OBTAINED.** `zbmath.org/?q=an:8143081` returns HTTP 403 to WebFetch (S-08); the free REST API exposes the record and the review but no "cited in" endpoint. The review itself was retrieved and is negative evidence (S-05).
+3. **J. Lutz, PhD thesis, Universität Münster** — project title located ("Rational Witt Spaces and their Relation to the Fargues–Fontaine Curve", Ada Lovelace Fellowship in Deninger's group; uni-muenster.de news item of 18 May 2022), **no document located** (S-25). Cited as [Lut25] in [D25] = arXiv:2508.05329, and [x-06] p. 12 credits her with proving the A_inf representation faithful. Scope is the **local p-adic** side, so it is not a plausible host for N1, N2 or N5; it could bear on N3's local half and on Road 1. Fetch it (miami.uni-muenster.de is the Münster repository) and re-scan for: (a) any global E-condition, (b) any descent condition beyond Galois, (c) any packet or orbit-closure statement.
+4. **ÁLKL, *A Trace Formula for Foliated Flows*, published Springer LNM volume (2026), DOI 10.1007/978-3-032-15413-2** — I read only the on-disk arXiv **v1** (`r3s-17`, arXiv:2402.06671v1). The book could carry an added remark on non-simple or non-isolated closed orbits that the v1 does not. Narrow risk, affects only N4(b)'s "no published foliated formula" clause. Fetch and re-check that one clause.
+5. **[CC3] Connes–Consani, *Knots, primes and class field theory*** — I read arXiv:2501.06560v1. The **published** version is Contemp. Math. (Regulators V), AMS; I did not obtain it. The arXiv version contains no packet or orbit-closure content, so the risk is small.
+6. **`sources-extracted/arxiv-2606.06604-…-fulltext.txt`** is a bare text file with **no PDF on disk**; its provenance cannot be verified from a title page. The arXiv abstract page was fetched this session and matches (Connes–Consani, *On the Absolute Geometry of Spec Z*, 4 June 2026), but the file is treated as **non-load-bearing** and nothing in §§1–5 depends on it. Recommend promoting the actual PDF to `fetched-r3/` if the programme wants to cite it.
+7. **Not searched, and deliberately so:** paywalled review databases other than zbMATH (MathSciNet is permanently closed and discharged per `corpus-routing.md` caveat 13); non-English literature beyond what the indices surfaced; seminar-talk video (a Deninger talk recording surfaced in S-17 and was not viewed — talks are not citable prior art under standing order 5, but if the sponsor wants the belt-and-braces version it is `youtube.com/watch?v=T13Bha0hs7I`, "Dynamical systems for arithmetic schemes, Christopher Deninger, 10/03/2023").
+
+---
+
+## 8. EVERY DOCUMENT OPENED IN THIS SWEEP
+
+**Programme documents (read in full or to the extent needed).**
+`results/c3-r/probe-9.3-adjudication.md` (full); `results/c3-r/probe-9.4-note.md` (full); `results/c3-r/probe-9.3-a.md` (§§0–2 in full, plus the novelty-claim lines 67, 117, 155); `results/c3-r/probe-9.3-b.md` (the prior-art paragraph, line 141); `results/corpus-routing.md` (header caveats 1–20, as required before citing any corpus file).
+
+**On-disk primary sources (own `pdftotext` extractions made this session; page anchors as stated).**
+* `fetched/x-03-deninger-dynamical-systems-for-arithmetic-schemes-arxiv-v4.pdf` — pp. 2 (by vision), 5, 27, 29, 38–40, 49–50, 63–64, 76, 99, 101, 103.
+* `fetched/z-19-deninger-2026-dynamical-systems-arithmetic-schemes-INDAG-published.pdf` — title page, introduction, §6, §7, §8 (the published Indag. Math. 37 (2026) 25–136 version; **confirmed to agree with arXiv v4 on every point at issue**).
+* `fetched/x-06-deninger-2024-primes-knots-and-periodic-orbits.pdf` — §§3–4, pp. 10–13.
+* `fetched/x-05-deninger-2025-bsd-for-dedekind-zeta-functions.pdf` — searched; no packet/orbit content.
+* `fetched/x-01a, x-01b, x-02, x-04, x-07…x-24` — text-searched as a block (S-36…S-45); the Deninger surveys x-17…x-24 were searched for `transverse measure`, `packet`, `Hausdorff`, `dense`.
+* `fetched-r3/r3s-08-morishita-deninger-cc-bridge-2508.15971.pdf` — §§1.2, 2.2, 2.3, 3 (pp. 2, 6–7, 16, 24, 25).
+* `fetched-r3/r3s-17-…2402.06671v1….pdf` — chapter 1 and chapter 4 (the simplicity definitions).
+* `fetched-r3/r3s-18-…2304.00798v1….pdf`, `fetched-r3/r3s-19-…2410.20758v1….pdf` (Introduction, (A1), Lemma 2.2), `fetched-r3/r3s-20-…1307.3851v1….pdf`, `fetched-r3/r3s-21-…math0603576v2….pdf` (transverse-measure construction, Lemma 6, Theorem 2), `fetched-r3/r3s-22-…2508.05329v1….pdf` (searched; no dynamical content).
+* `fetched-r2/r-09-morishita-2024-knots-and-primes-2nd-ed-BOOK.pdf`, `fetched-r2/r-26b-morishita-2009-analogies-between-knots-and-primes-arxiv-0904.3399v1.pdf` — searched.
+* `sources-extracted/connes-consani-jacobian-specZ-JNcG2026.pdf` (title page + searched), `sources-extracted/connes-zeta-spectral-triples-2026.pdf` (searched), `sources-extracted/arxiv-2606.06604-…-fulltext.txt` (searched; **provenance-flagged**, §7 item 6).
+
+**Fetched fresh this session (into the session scratchpad; none promoted to the corpus — that is the sponsor's call).**
+* arXiv:1510.08481 — Khayutin, *Arithmetic of Double Torus Quotients and the Distribution of Periodic Torus Orbits* (PDF; p. 5 quoted).
+* arXiv:math/0607815 — ELMV, *The distribution of periodic torus orbits on homogeneous spaces* (PDF; p. 3 quoted).
+* arXiv:math/0402356 — Zelditch, *Survey of the inverse spectral problem* (PDF; §8.1, PDF p. 78, and p. 21 quoted).
+* arXiv:2501.06560 — Connes–Consani, *Knots, primes and class field theory* (PDF; searched).
+* arXiv:2401.08401 — Connes–Consani, *Knots, Primes and the adele class space* (PDF; searched).
+* arXiv:1912.02159 — J. Kim (PDF; searched). arXiv:1906.02424 — Kim–Morishita–Noda–Terashima (PDF; searched).
+* arXiv:1906.06753 — ÁLKL, *Simple foliated flows* (PDF; abstract and contents read).
+* `icms.ac.uk/.../Christopher-Deninger.pdf` (talk abstract).
+* arXiv abs pages fetched: 2510.19456, 1510.08481, 1912.02159, 1906.02424, 2606.06604.
+
+---
+
+## 9. CONSOLIDATED FINDINGS, WITH SEVERITY
+
+**MAJOR — the note must change.**
+1. **N3(i) is ANTICIPATED verbatim.** The "structural identity" B_p = coker(Aut_ring → Aut_group) is Deninger's own displayed formula in the introduction of [x-03] (p. 2), repeated at p. 38 and in [x-06] §4 and in the published version. Replacement text supplied in §3.1. The mathematics is untouched; the novelty framing ("derived", "hereby explained", "design constraint") must be rewritten around the citation.
+2. **N4(a): "Haar-average the packet (new in this note)" is not sustainable.** The identically-named object with the identically-defined canonical average measure is standard in homogeneous dynamics (ELMV, math/0607815 p. 3; Khayutin, 1510.08481 p. 5). Only the transplant is new. Replacement text supplied in §4.1.
+3. **N2(a): non-Hausdorffness is not itself the discovery.** Deninger states the cause twice ([x-03] pp. 49, 76), warns that the leaf bijections are not homeomorphisms (p. 63), and proves an irreducible T₁ — hence non-Hausdorff — quotient of the same shape (Prop. 10.3, p. 64), and uses it. The increment is the *location* (inside one packet), the *consequence* (no periodic orbit is closed), and the witness. Also: the claim **contradicts** [r3s-08] Thms 2.2.8/2.2.9's "homeomorphism" wording, and the record should say "in conflict with", not only "not in the literature". §2.1.
+4. **N4(c): a rival canonical packet-collapse is in print.** [r3s-08] Theorem 3.6(2), p. 25: every orbit of Γ_p maps onto the single Connes–Consani circle C_p under a canonical, Galois-equivariant, flow-anti-equivariant continuous Ψ_Q. Road 2 cannot be presented as the only Aut(C)-natural way to absorb the packet without addressing it. §4.3.
+
+**MINOR — citation and scope repairs.**
+5. N1: credit [x-03] p. 2 and [r3s-08] §2.2 for the packet base and lk_p; "the forcing group is coker(lk_p)" is a relabelling of published data. §1.3.
+6. N4(b): add the scope sentence supplied in §4.2 — the "no published trace formula" clause is defensible only inside the foliated/laminated frameworks, and the two ancestors (Leichtnam's measured type-II formula; the clean/Bott–Morse case) must be named. Deninger's own "reminiscient of invariant tori" ([x-03] p. 2) points at the clean case and should be quoted where DQ-M is posed.
+7. N5: page-anchor Deninger's four remarks ([x-03] pp. 5, 27, 29, 99; [x-06] p. 11) at the point where the note says the cuts are "precisely Deninger's 'does not look natural'". §5.2.
+8. N3(ii): cite the classical inputs (cyclotomic + Steinitz surjectivity of Aut(C) → Ẑ^×; discontinuity of wild automorphisms) and present Prop. 1 as explaining [x-03] Thm 5.2 rather than as an independent obstruction. §3.2.
+
+**Observation for the adjudicator (not a novelty finding, but it bears on which half of N2b is new).**
+9. [x-03] never proves the infinite-dimensionality it asserts: the phrase occurs three times, all in prose, and there is no dimension theorem. If probe B's Corollary B consumes "[x-03] §8's still-infinite-dimensional line" as an input, it is consuming an assertion. Probe A's n-cell construction (Theorem B(b)) may therefore be the only theorem-backed route to N2b — which raises, not lowers, the priority of the dedicated referee pass the adjudication already owes it (§4 item 6 there). §2.2.
+
+**Closure of an outstanding programme obligation.**
+10. Probe B's residual watch item, arXiv:2510.19456 ("surfaced by query (iii), content unexamined"), is **discharged**: it is Fraser–Xu, *Dimensions of orbital sets in complex dynamics*, and is irrelevant. §6.5.
+
+---
+
+*— end of novelty sweep, check O —*
