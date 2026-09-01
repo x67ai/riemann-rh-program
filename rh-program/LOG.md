@@ -611,7 +611,7 @@ silent edit. Neither paper is on arXiv (endorsement gate, CIRCULATION-PREP STEP 
 
 ---
 
-## Session 14 — 2026-09-02 (opened ~01:20 IST; LOCAL; sponsor napping — autonomous run)
+## Session 14 — 2026-09-02 (opened ~01:30 IST; LOCAL; sponsor napping — autonomous run)
 
 **Sponsor directives at open (verbatim in substance, now STATUS.md standing order 7):** earlier
 novelty claims made by one model were later refuted by another (Winkelmann 2002 for the seed note's
@@ -646,13 +646,13 @@ one Fable 5.1 and one Opus 5 instance):**
 
 (Results are appended below as they are harvested.)
 
-**~02:45 IST — sponsor directive before napping: "keep documenting the work as you go, in case my
+**~02:15 IST — sponsor directive before napping: "keep documenting the work as you go, in case my
 usage runs out; make this a top rule in standing instructions."** Done: RULE ONE in `~/.claude/CLAUDE.md`,
 standing order 0 in STATUS.md, KICKSTART.md steps 4 and 7 amended; `~/.claude/autocommit-watchdog.sh`
 written and started (commits agents' interim outputs every 10 minutes; the push watchdog pushes them).
 All three watchdog processes verified running (caffeinate, push, autocommit).
 
-**~03:10 IST — watch-list sweep HARVESTED** (single agent, 116 tool calls; `results/watch-sweep-2026-09-02.md`).
+**~02:20 IST — watch-list sweep HARVESTED** (single agent, 116 tool calls; `results/watch-sweep-2026-09-02.md`).
 No change on the load-bearing fronts ([CC7] blank; Morishita v5; ALKL/ALKM; Kucharczyk–Scholze; Dong;
 prismatic). Landed: **[Lut25] found** — Lutz, *p-adic points of rational Witt spaces* (Münster 2025,
 CC BY 4.0, referee Deninger), installed as **r3s-23** (image-only PDF; OCR before use); **Hua–Yang
