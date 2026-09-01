@@ -1,0 +1,17 @@
+AUDIT O -- enclosure honesty, seed 902202614, iv prec 288 bits, eps 1e-90
+Z1 zeta base    : 60 pts, widths med 3.852e-19 max 4.808e-17, fails 0
+Z2 sigma~1/2    : 30 pts, widths med 1.568e-18 max 3.959e-17, fails 0
+Z3 sigma~1      : 30 pts, widths med 7.439e-19 max 6.287e-18, fails 0
+Z4 |t|~1e4      : 12 pts, widths med 1.490e-15 max 8.827e-15, fails 0
+Z5 wide boxes   : 12 boxes x 9 pts, fails 0
+H1 hurwitz      : 60 pts, widths med 1.150e-18 max 4.582e-17, fails 0
+H2 a=1 identity : 15 pts, overlap failures 0, containment fails 0
+KAPPA           : iv=[0.284079043840412270860440457909, 0.284079043840412270860440457909] surd-ref 0.284079043840412270860440457909 in? True ; tan(theta)=0.284079043840412270860440457909  |diff|=2.624e-141
+D1 f_DH random  : 60 pts, widths med 4.144e-20 max 3.165e-18, fails 0
+   D2 rho+(0,0): |f| in [5.301e-16, 5.302e-16], |ref|=5.301e-16
+   D2 rho+(1/1000000,0): |f| in [1.256e-06, 1.256e-06], |ref|=1.256e-06
+   D2 rho+(0,1/1000000): |f| in [1.256e-06, 1.256e-06], |ref|=1.256e-06
+   D2 rho+(-1/10000,1/10000): |f| in [1.776e-04, 1.776e-04], |ref|=1.776e-04
+   D2 rho+(1/100,-1/100): |f| in [1.775e-02, 1.775e-02], |ref|=1.775e-02
+D2 at rho_DH    : 5 pts, fails 0
+TOTAL: 395 membership checks, 0 FAILURES, 10.9 s

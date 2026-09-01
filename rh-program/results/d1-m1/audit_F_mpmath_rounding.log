@@ -1,0 +1,9 @@
+AUDIT F: directed-rounding rigor of mpmath 1.3.0 primitives at prec 288 vs prec-1200 reference
+  exp    samples  20000  floor>truth:     0  ceiling<truth:     7  worst rel excess 6.648e-91 (2^-288 = 2.011e-87)
+  exp<1  samples  20000  floor>truth:     0  ceiling<truth:     4  worst rel excess 5.642e-91 (2^-288 = 2.011e-87)
+  log    samples  20000  floor>truth:     0  ceiling<truth:     0  worst rel excess 0.000e+00 (2^-288 = 2.011e-87)
+  atan   samples  20000  floor>truth:     0  ceiling<truth:     0  worst rel excess 0.000e+00 (2^-288 = 2.011e-87)
+  sqrt   samples  20000  floor>truth:     0  ceiling<truth:     0  worst rel excess 0.000e+00 (2^-288 = 2.011e-87)
+  pi     floor<=truth: True  ceiling>=truth: True
+TOTAL directed-rounding violations found: 11
+(sqrt is correctly rounded by construction and serves as the control: it must be 0)

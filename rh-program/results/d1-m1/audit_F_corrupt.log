@@ -1,0 +1,96 @@
+== base acceptance/w1-mp-null-t100.json: ACCEPT by both checkers (m=0, 52 rows)
+   M1 box straddles 0                                                     checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M2 wide arg row                                                        checker_ref=C8     reference_checker=C8     expected=C8     OK
+   M3 claimed_m+1                                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M4 swap bottom breakpoints                                             checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M5 right edge reversed                                                 checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M6 drop interior breakpoint, keep rows                                 checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M7 drop a segment row                                                  checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M8 duplicated breakpoint (zero-length seg) + row                       checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M9 sigma1 = 1/2                                                        checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M10 T1 = T2                                                            checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M11 empty value box                                                    checker_ref=C5     reference_checker=C5     expected=C5     OK
+   M12 arg row beyond clamp                                               checker_ref=C7     reference_checker=C7     expected=C7     OK
+   M13 denominator 0                                                      checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M14 negative denominator                                               checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M15 mode flipped                                                       checker_ref=C10    reference_checker=C10    expected=C10    OK
+   M16 bottom[0] != sigma1                                                checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M17 top edge listed increasing                                         checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M18 box touches 0 (reLo = 0)                                           checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M19 K = 0                                                              checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M20 floor Fn doubled                                                   checker_ref=C11    reference_checker=C11    expected=C11    OK
+   M21 all arg rows negated (orientation flip)                            checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+   M22 rows cyclically shifted (misaligned; H-ENCL false, format-accepted by design) checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+== base acceptance/w1-arb-null-t100.json: ACCEPT by both checkers (m=0, 27 rows)
+   M1 box straddles 0                                                     checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M2 wide arg row                                                        checker_ref=C8     reference_checker=C8     expected=C8     OK
+   M3 claimed_m+1                                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M4 swap bottom breakpoints                                             checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M5 right edge reversed                                                 checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M6 drop interior breakpoint, keep rows                                 checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M7 drop a segment row                                                  checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M8 duplicated breakpoint (zero-length seg) + row                       checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M9 sigma1 = 1/2                                                        checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M10 T1 = T2                                                            checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M11 empty value box                                                    checker_ref=C5     reference_checker=C5     expected=C5     OK
+   M12 arg row beyond clamp                                               checker_ref=C7     reference_checker=C7     expected=C7     OK
+   M13 denominator 0                                                      checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M14 negative denominator                                               checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M15 mode flipped                                                       checker_ref=C10    reference_checker=C10    expected=C10    OK
+   M16 bottom[0] != sigma1                                                checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M17 top edge listed increasing                                         checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M18 box touches 0 (reLo = 0)                                           checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M19 K = 0                                                              checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M20 floor Fn doubled                                                   checker_ref=C11    reference_checker=C11    expected=C11    OK
+   M21 all arg rows negated (orientation flip)                            checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+   M22 rows cyclically shifted (misaligned; H-ENCL false, format-accepted by design) checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+== base acceptance/w1-mp-dh-livefire.json: ACCEPT by both checkers (m=1, 40 rows)
+   M1 box straddles 0                                                     checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M2 wide arg row                                                        checker_ref=C8     reference_checker=C8     expected=C8     OK
+   M3 claimed_m+1                                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M3b claimed_m:=0 on refutation                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M4 swap bottom breakpoints                                             checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M5 right edge reversed                                                 checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M6 drop interior breakpoint, keep rows                                 checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M7 drop a segment row                                                  checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M8 duplicated breakpoint (zero-length seg) + row                       checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M9 sigma1 = 1/2                                                        checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M10 T1 = T2                                                            checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M11 empty value box                                                    checker_ref=C5     reference_checker=C5     expected=C5     OK
+   M12 arg row beyond clamp                                               checker_ref=C7     reference_checker=C7     expected=C7     OK
+   M13 denominator 0                                                      checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M14 negative denominator                                               checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M15 mode flipped                                                       checker_ref=C10    reference_checker=C10    expected=C10    OK
+   M16 bottom[0] != sigma1                                                checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M17 top edge listed increasing                                         checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M18 box touches 0 (reLo = 0)                                           checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M19 K = 0                                                              checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M20 floor Fn doubled                                                   checker_ref=C11    reference_checker=C11    expected=C11    OK
+   M21 all arg rows negated (orientation flip)                            checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M22 rows cyclically shifted (misaligned; H-ENCL false, format-accepted by design) checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+== base acceptance/w1-arb-dh-livefire.json: ACCEPT by both checkers (m=1, 50 rows)
+   M1 box straddles 0                                                     checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M2 wide arg row                                                        checker_ref=C8     reference_checker=C8     expected=C8     OK
+   M3 claimed_m+1                                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M3b claimed_m:=0 on refutation                                         checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M4 swap bottom breakpoints                                             checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M5 right edge reversed                                                 checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M6 drop interior breakpoint, keep rows                                 checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M7 drop a segment row                                                  checker_ref=C4     reference_checker=C4     expected=C4     OK
+   M8 duplicated breakpoint (zero-length seg) + row                       checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M9 sigma1 = 1/2                                                        checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M10 T1 = T2                                                            checker_ref=C2     reference_checker=C2     expected=C2     OK
+   M11 empty value box                                                    checker_ref=C5     reference_checker=C5     expected=C5     OK
+   M12 arg row beyond clamp                                               checker_ref=C7     reference_checker=C7     expected=C7     OK
+   M13 denominator 0                                                      checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M14 negative denominator                                               checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M15 mode flipped                                                       checker_ref=C10    reference_checker=C10    expected=C10    OK
+   M16 bottom[0] != sigma1                                                checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M17 top edge listed increasing                                         checker_ref=C3     reference_checker=C3     expected=C3     OK
+   M18 box touches 0 (reLo = 0)                                           checker_ref=C6     reference_checker=C6     expected=C6     OK
+   M19 K = 0                                                              checker_ref=SHAPE  reference_checker=SHAPE  expected=SHAPE  OK
+   M20 floor Fn doubled                                                   checker_ref=C11    reference_checker=C11    expected=C11    OK
+   M21 all arg rows negated (orientation flip)                            checker_ref=C9     reference_checker=C9     expected=C9     OK
+   M22 rows cyclically shifted (misaligned; H-ENCL false, format-accepted by design) checker_ref=ACCEPT reference_checker=ACCEPT expected=ACCEPT OK
+
+90 mutations run; 0 unexpected outcomes

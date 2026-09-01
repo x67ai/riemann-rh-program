@@ -1,0 +1,31 @@
+AUDIT F: acceptance-report.md / cost-curve.json numerical claims vs artifacts
+  w1-mp-null-t100.json         segs   52/  52  S=[-24,28]/1000000000000 vs report [-24,28]e-12  floor 0.35555 vs 0.35555  mode/m True/True  wall meta 1.0
+  w1-arb-null-t100.json        segs   27/  27  S=[-14,13]/1000000 vs report [-14,13]e-6  floor 0.083279 vs 0.08328  mode/m True/True  wall log: no wall figure in log
+  w1-mp-null-t1000.json        segs   81/  81  S=[-41,40]/1000000000000 vs report [-41,40]e-12  floor 0.015573 vs 0.015573  mode/m True/True  wall meta 8.6
+  w1-arb-null-t1000.json       segs   65/  65  S=[-29,36]/1000000 vs report [-29,36]e-6  floor 0.013827 vs 0.013827  mode/m True/True  wall log: no wall figure in log
+  w1-mp-null-t10000.json       segs 1294/1294  S=[-679,637]/1000000000000 vs report [-679,637]e-12  floor 8.132e-05 vs 8.13e-05  mode/m True/True  wall meta 1564.7
+  w1-arb-null-t10000.json      segs  983/ 983  S=[-495,488]/1000000 vs report [-495,488]e-6  floor 7.6378e-06 vs 7.64e-06  mode/m True/True  wall log: no wall figure in log
+  w1-mp-null-deep-t100.json    segs   58/  58  S=[-28,30]/1000000000000 vs report [-28,30]e-12  floor 0.3555 vs 0.3555  mode/m True/True  wall meta 1.1
+  w1-arb-null-deep-t100.json   segs   30/  30  S=[-16,14]/1000000 vs report [-16,14]e-6  floor 0.030521 vs 0.03052  mode/m True/True  wall log: no wall figure in log
+  w1-mp-dh-livefire.json       segs   40/  40  S=[999999999980,1000000000020]/1000000000000 vs report [999999999980,1000000000020]e-12  floor 0.00024672 vs 0.0002467  mode/m True/True  wall meta 3.5
+  w1-arb-dh-livefire.json      segs   50/  50  S=[999973,1000023]/1000000 vs report [999973,1000023]e-6  floor 0.00030188 vs 0.0003019  mode/m True/True  wall log: no wall figure in log
+  w1-poscontrol-mp.json        segs   77/  77  S=[999999999962,1000000000039]/1000000000000 vs [999999999962,1000000000039]e-12  sigma1=2/5 (<=1/2: True)
+  w1-poscontrol-arb.json       segs  183/ 183  S=[999911,1000094]/1000000 vs [999911,1000094]e-6  sigma1=2/5 (<=1/2: True)
+  cost-curve.json: 10 points
+    acceptance/w1-mp-null-t100.json      segs   52 width 5.200e-11 m=0 wall 1.0  -> ok
+    acceptance/w1-mp-null-t1000.json     segs   81 width 8.100e-11 m=0 wall 8.6  -> ok
+    acceptance/w1-mp-null-t10000.json    segs 1294 width 1.316e-09 m=0 wall 1564.7  -> ok
+    acceptance/w1-mp-null-deep-t100.json segs   58 width 5.800e-11 m=0 wall 1.1  -> ok
+    acceptance/w1-arb-null-t100.json     segs   27 width 2.700e-05 m=0 wall 0.092  -> ok
+    acceptance/w1-arb-null-t1000.json    segs   65 width 6.500e-05 m=0 wall 0.135  -> ok
+    acceptance/w1-arb-null-t10000.json   segs  983 width 9.830e-04 m=0 wall 2.608  -> ok
+    acceptance/w1-arb-null-deep-t100.json segs   30 width 3.000e-05 m=0 wall 0.089  -> ok
+    acceptance/w1-mp-dh-livefire.json    segs   40 width 4.000e-11 m=1 wall 3.5  -> ok
+    acceptance/w1-arb-dh-livefire.json   segs   50 width 5.000e-05 m=1 wall 0.185  -> ok
+  crosscheck.log claims t100           83 overlap pairs: present
+  crosscheck.log claims t1000         158 overlap pairs: present
+  crosscheck.log claims t10000       2547 overlap pairs: present
+  crosscheck.log claims deep-t100      90 overlap pairs: present
+  crosscheck.log claims dh-livefire   122 overlap pairs: present
+  crosscheck.log claims poscontrol    295 overlap pairs: present
+MISMATCHES: 0 []
