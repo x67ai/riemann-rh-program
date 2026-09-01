@@ -55,3 +55,10 @@ Citation-fidelity note (standing order 5 discipline): journal/volume/page data a
 **Bottom line: 6 documents + 1 backup, and Sessions 6–7 are fully unblocked.** None of the six gates Session 6's first actions (the C3/D1 adversarial cycles and A4's M2 gate need nothing from this list); they gate the barrier-zoo formalization and edge-cap work later in the queue.
 
 **As of 2026-08-26 evening: the Round-3 list is FULLY CLOSED — no items remain.** All six documents (plus the Hiary bonus) are on disk and verified (see the dated update blocks above); the backup reminder now covers 35 PDFs (+1 in `duplicates/`).
+
+## Session 14 (2026-09-02) — watch-list sweep self-fetches (list stays at zero sponsor items)
+
+- ✅ **r3s-23** Lutz 2025 Münster dissertation (the [Lut25] watch item): found open-access (CC BY 4.0) at repositorium.uni-muenster.de, verified visually, installed. Needs OCR (image-only).
+- ✅ **r3s-24** Hua–Yang arXiv:2608.16034v2 (24 Aug 2026), installed from arXiv, title verified from the PDF text.
+- ⏳ Prüzelius Zenodo draft 10.5281/zenodo.21980224 — free (CC BY 4.0) but Zenodo blocks this network (HTTP 403); fetch when the block lifts. Not load-bearing.
+- Recorded, not fetched: Nikzad–Deninger arXiv:2608.11943 (p-adic Corona II — off-road); Springer LNM *A Trace Formula for Foliated Flows* (Álvarez López–Kordyukov–Leichtnam, 2026, ISBN 978-3-032-15413-2, paywalled; the memoir r3s-17 is the arXiv version).
