@@ -50,13 +50,15 @@ Both recommended papers are public, by the sponsor's act, and are now **frozen r
 
 | Paper | Where |
 |---|---|
-| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control (`a4-no-go/`, 41 pp) | `https://x67.ai/cubic-augmentation-no-go.pdf`; Zenodo DOI — see below |
-| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula (`seed-no-go/`, 19 pp) | `https://x67.ai/tate-products-no-go.pdf`; Zenodo DOI — see below |
+| The two-moment certificate is robust under Rudnick–Sarnak-range cubic augmentation with capacity control (`a4-no-go/`, 41 pp) | `https://x67.ai/cubic-augmentation-no-go.pdf`; Zenodo concept DOI **10.5281/zenodo.22171688** (v1 record DOI 10.5281/zenodo.22171689; file `cubic-augmentation-no-go.pdf`, 631.4 kB; CC BY 4.0; record date 2026-08-26) |
+| Products of the per-prime Tate curves of absolute geometry carry no correspondence calculus for the Weil explicit formula (`seed-no-go/`, 19 pp) | `https://x67.ai/tate-products-no-go.pdf`; Zenodo concept DOI **10.5281/zenodo.22171136** (v1 record DOI 10.5281/zenodo.22171137; file `tate-products-no-go.pdf`, 472.8 kB; CC BY 4.0; record date 2026-08-26) |
 
-Zenodo DOIs, as reported by the sponsor on 2026-09-02: **10.5281/zenodo.22171688** and
-**10.5281/zenodo.22171136**. Which DOI belongs to which paper could not be confirmed from this network
-that day (Zenodo answered HTTP 403 "unusual traffic" to every request, API and HTML alike); record the
-mapping here when it can be read. Any later change to either paper is a **public revision** (a new
+The two DOIs the sponsor reported (10.5281/zenodo.22171688 and 10.5281/zenodo.22171136) are Zenodo
+**concept DOIs** (resolve to the latest version); each currently points at a v1 record whose DOI is one
+higher, as tabulated. Mapping read from the Zenodo record pages on 2026-09-02 (through a server-side
+fetch; direct requests from this network were answered HTTP 403 "unusual traffic"); the file sizes
+match the served PDFs in `public/` byte for byte (631,405 and 472,779 bytes). Cite the concept DOI.
+Any later change to either paper is a **public revision** (a new
 Zenodo version, with the change stated), never a silent edit of the `.md`/`.tex`. Neither paper is on
 arXiv (endorsement gate, CIRCULATION-PREP STEP 6 item 4). `m0-axiom/` and `m1-noncirc/` remain internal.
 
