@@ -84,4 +84,4 @@ claims to.
 The Tate-products paper is not novel without qualification. Theorems 1 to 3 are
 Winkelmann's, from 2002, and the abstract says so. Say it in the post as well.
 
-Neither paper has a journal or an arXiv number yet. Do not imply one.
+Neither paper has a journal or an arXiv number. Do not imply one. Both have Zenodo DOIs (recorded 2026-09-02): 10.5281/zenodo.22171688 and 10.5281/zenodo.22171136 — cite those; the title-to-DOI mapping is recorded in `results/arxiv/README.md` once confirmed.
