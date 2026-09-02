@@ -676,12 +676,20 @@ class FtEvaluator(object):
 
 # ---------------------------------------------------------------- reference (float) evaluation for validation
 
+
+def _mpf_fr(v):
+    """mp.mpf from an int / Fraction / str exactly (mp.mpf does not accept Fraction)."""
+    from mpmath import mp
+    v = Fraction(v)
+    return mp.mpf(v.numerator) / v.denominator
+
+
 def ft_mp_reference(x, y, t, N, dps=60):
     """f_t(x+iy) by (14)/(D-F1) in plain mp floating point at the given dps (an INDEPENDENT float
     pipeline, used only to test containment; never inside the producer)."""
     from mpmath import mp
     with mp.workdps(dps):
-        x, y, t = mp.mpf(x), mp.mpf(y), mp.mpf(t)
+        x, y, t = _mpf_fr(x), _mpf_fr(y), _mpf_fr(t)
 
         def alpha(s):
             return 1 / (2 * s) + 1 / (s - 1) + mp.log(s / (2 * mp.pi)) / 2
@@ -714,7 +722,7 @@ def Ht_over_Bt_reference(x, y, t, dps=120, pieces=None, umax=None):
     consistency estimate.  Independent float pipeline; validation only."""
     from mpmath import mp
     with mp.workdps(dps):
-        x, y, t = mp.mpf(x), mp.mpf(y), mp.mpf(t)
+        x, y, t = _mpf_fr(x), _mpf_fr(y), _mpf_fr(t)
         z = mp.mpc(x, y)
         if umax is None:
             umax = mp.mpf(3) / 2
@@ -768,5 +776,36 @@ def point_in_ball_dist(b, zr, zi):
     return Fraction(num, d2.denominator)
 
 
-if __name__ == "__main__":
+def _cli(argv):
+    import argparse
+    ap = argparse.ArgumentParser(description="ft_mp.py -- stored-moment computation (see module docstring)")
+    sub = ap.add_subparsers(dest="cmd")
+    m = sub.add_parser("moments", help="compute the stored moments of one series (resumable)")
+    m.add_argument("--series", choices=("plus", "minus"), required=True)
+    m.add_argument("--N", type=int, required=True)
+    m.add_argument("--zc-re", required=True, help="box center x_c as an exact rational n/d")
+    m.add_argument("--zc-im", required=True, help="box center y_c as an exact rational n/d")
+    m.add_argument("--R", type=int, default=48)
+    m.add_argument("--prec", type=int, default=PREC_DEFAULT)
+    m.add_argument("--out", required=True)
+    args = ap.parse_args(argv)
+    if args.cmd == "moments":
+        xc, yc = Fraction(args.zc_re), Fraction(args.zc_im)
+        u_re, u_im = (1 + yc) / 2, -xc / 2
+        if args.series == "plus":
+            c_re, c_im = u_re, u_im
+        else:
+            c_re, c_im = 1 - u_re, -u_im
+        t0 = time.time()
+        print("ft_mp moments: series=%s N=%d c=%s + i(%s) R=%d prec=%d -> %s"
+              % (args.series, args.N, c_re, c_im, args.R, args.prec, args.out), flush=True)
+        compute_moments(args.series, c_re, c_im, args.N, args.R, args.out, prec=args.prec,
+                        log=lambda s: print(s, flush=True))
+        print("done in %.1fs" % (time.time() - t0), flush=True)
+        return 0
     print(__doc__)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(_cli(sys.argv[1:]))

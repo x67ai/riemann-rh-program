@@ -1,0 +1,15 @@
+==============================================================================
+BLOCK-TAYLOR EVALUATOR (row 2 N0=630783) vs direct summation and the float reference  (2026-09-02T13:53:50.751279+00:00 UTC; mpmath 1.3.0; prec 288)
+==============================================================================
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 348, in <module>
+    sys.exit(main(sys.argv[1:]))
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 340, in main
+    fails += test_taylor("moments/row2-plus.json", "moments/row2-minus.json", Fraction(10000000389717, 2), Fraction(116733, 200000),
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 221, in test_taylor
+    ev = FtEvaluator(pd, md, xc, yc)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp.py", line 645, in __init__
+    self.plus = Series(plus_doc, +1)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp.py", line 528, in __init__
+    assert len(self.blocks) == len(make_blocks(self.N))
+AssertionError

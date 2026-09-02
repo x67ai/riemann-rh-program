@@ -1,0 +1,103 @@
+{
+ "format": "M2a-barrier-transcript",
+ "version": "1.0",
+ "kind": "manifest",
+ "lane": "barrier",
+ "trust_label": "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL) and H3 (producers untrusted)",
+ "rect": {
+  "x1": {
+   "n": "314159300",
+   "d": "1"
+  },
+  "x2": {
+   "n": "314159301",
+   "d": "1"
+  },
+  "y1": {
+   "n": "16733",
+   "d": "100000"
+  },
+  "y2": {
+   "n": "1",
+   "d": "1"
+  }
+ },
+ "t0": {
+  "n": "719",
+  "d": "100000"
+ },
+ "prisms": [
+  {
+   "index": "0",
+   "file": "prism-0000.json",
+   "seam": {
+    "n": "0",
+    "d": "1"
+   }
+  },
+  {
+   "index": "1",
+   "file": "prism-0001.json",
+   "seam": {
+    "n": "173",
+    "d": "100000"
+   }
+  },
+  {
+   "index": "2",
+   "file": "prism-0002.json",
+   "seam": {
+    "n": "411",
+    "d": "100000"
+   }
+  }
+ ],
+ "producer": {
+  "implementation": "producer_mp.py + ft_mp.py (mpmath-ball leg)",
+  "instance": "P15 Table 1 row 2: X = 314159300, t0 = 93/500, y0 = 16733/100000, N0 = 5000",
+  "status": "PARTIAL: chain covers [0, 719/100000] only (0.038656 of t0 = 93/500); t0 above is the LAST CERTIFIED TIME, not the instance's t0 -- a valid barrier certificate for that shorter time range",
+  "prism_summary": [
+   {
+    "index": 0,
+    "file": "prism-0000.json",
+    "seam": "0",
+    "next": "173/100000",
+    "rows": 184,
+    "floor": 0.0550610090719782,
+    "E": 0.006941829047375649,
+    "D": 0.037194170114523084,
+    "DT": 13.47427991575406,
+    "delta_t": 0.00173,
+    "seconds": 17.0
+   },
+   {
+    "index": 1,
+    "file": "prism-0001.json",
+    "seam": "173/100000",
+    "next": "411/100000",
+    "rows": 184,
+    "floor": 0.06812733659420933,
+    "E": 0.006727415355263398,
+    "D": 0.045770179779824616,
+    "DT": 13.577873323343887,
+    "delta_t": 0.00238,
+    "seconds": 19.4
+   },
+   {
+    "index": 2,
+    "file": "prism-0002.json",
+    "seam": "411/100000",
+    "next": "719/100000",
+    "rows": 184,
+    "floor": 0.08021656590740425,
+    "E": 0.006443222190160803,
+    "D": 0.05460356176044169,
+    "DT": 13.544514270078702,
+    "delta_t": 0.00308,
+    "seconds": 19.6
+   }
+  ],
+  "written_utc": "2026-09-02T13:54:57.591337+00:00"
+ },
+ "comment": "UNTRUSTED producer output (mpmath-ball leg). PARTIAL barrier chain: certifies (modulo H2-B, H3) nonvanishing of H_t on R only for 0 <= t <= 719/100000."
+}
