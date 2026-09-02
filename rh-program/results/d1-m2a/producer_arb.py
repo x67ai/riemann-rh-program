@@ -1061,6 +1061,7 @@ def produce_prism(box, tau, t_end, K, A, r_frac, max_depth, n_init, log=print, n
     s_target = slack * Fraction(9, 10)
     Delta = Fraction(max(1, math.floor(float(s_target / Mt0) * GRID)), GRID)
     trials = []
+    Delta_bad = None; Delta_ok = None; best = None; bisect_left = 0
     while True:
         Delta = min(Delta, t_end - tau)
         tau_next = tau + Delta
@@ -1087,6 +1088,22 @@ def produce_prism(box, tau, t_end, K, A, r_frac, max_depth, n_init, log=print, n
         log(f"    try dt={float(Delta):.3e}: Mt_int={float(Mt_int):.4e} (seg {worst[0]}: mid+Dzt*h {worst[1]:.3e}, hull {worst[2]:.3e}, "
             f"seam+dt*ftt {worst[3]:.3e}; wins {wins}) Mt_alt={float(Mt_alt):.4e} D/K={float(D_val):.4e} gate={'OK' if ok else 'FAIL'} ({time.time()-t_d:.1f}s)")
         if ok:
+            if Delta_bad is None or bisect_left >= 2:
+                break                       # first try passed (or the bisection budget is spent): accept
+            # refine between the last failing and this passing length (two bisection steps at most)
+            Delta_ok = Delta
+            Delta = Fraction(max(1, math.floor(float((Delta_ok + Delta_bad) / 2) * GRID)), GRID)
+            bisect_left += 1
+            if Delta <= Delta_ok:
+                Delta = Delta_ok; break
+            best = (D_int, Mt, Mt_int, Mt_alt, D_val, tau_next)
+            continue
+        if Delta_bad is None or Delta < Delta_bad:
+            Delta_bad = Delta
+        if best is not None:
+            # a bisection trial failed: fall back to the recorded passing length
+            Delta = Delta_ok; tau_next = tau + Delta
+            D_int, Mt, Mt_int, Mt_alt, D_val, tau_next = best
             break
         Delta = Fraction(max(1, math.floor(float(Delta) * 0.7 * GRID)), GRID)
         if Delta < Fraction(1, 10 ** 8):
