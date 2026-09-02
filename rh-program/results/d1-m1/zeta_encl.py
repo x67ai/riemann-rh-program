@@ -145,6 +145,8 @@ from fractions import Fraction
 
 from mpmath import iv
 
+from ball import iv_exp, iv_log   # outward-inflated transcendental endpoints (AUDIT F-1, repair R1)
+
 from ball import (Ball, iv_from_fraction, iv_from_fraction_pair, iv_from_int,
                   ivmpf_bounds, set_prec)
 
@@ -256,7 +258,7 @@ _LOG_CACHE = {}
 def _log_int(n):
     key = (n, iv.prec)
     if key not in _LOG_CACHE:
-        _LOG_CACHE[key] = iv.log(iv_from_int(n))
+        _LOG_CACHE[key] = iv_log(iv_from_int(n))
     return _LOG_CACHE[key]
 
 
@@ -325,7 +327,7 @@ def zeta_ball(s_ball, N=None, m=None):
     denom = Fraction(math.factorial(2 * m + 1)) * (2 * m + 2) * (slo + 2 * m + 1)
     # N^{-(sigma_lo + 2m + 1)} upper bound, via interval exp of an exact exponent
     expo = iv_from_fraction(-(slo + 2 * m + 1)) * lnN
-    _, npow_hi = ivmpf_bounds(iv.exp(expo))
+    _, npow_hi = ivmpf_bounds(iv_exp(expo))
     r = prod_ub_hi * s2m1_hi * c_ub * npow_hi / denom
     pad = iv_from_fraction_pair(-r, r)
     return total + Ball(pad, pad)

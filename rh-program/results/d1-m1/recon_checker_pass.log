@@ -1,0 +1,47 @@
+== RECONCILER: both UNTRUSTED Python reference checkers on the 12 acceptance transcripts AFTER repairs (checker_ref.py unchanged; reference_checker.py banner fix O MINOR-1) -- 2026-09-02T02:54:16Z
+
+-- checker_ref.py
+acceptance/w1-mp-null-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t100.json: ACCEPT (zeta/exclusion, m=0, 27 segments, S=[-14, 13], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 81 segments, S=[-41, 40], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 65 segments, S=[-29, 36], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 1294 segments, S=[-679, 637], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 983 segments, S=[-495, 488], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 58 segments, S=[-28, 30], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 30 segments, S=[-16, 14], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-poscontrol-mp.json: REJECT at C2 (C2: sigma1 <= 1/2)
+acceptance/w1-poscontrol-arb.json: REJECT at C2 (C2: sigma1 <= 1/2)
+exit: 1 (nonzero expected: the two positive controls are REJECTED at C2 by design)
+
+-- reference_checker.py (VERDICT lines)
+== acceptance/w1-mp-null-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-t1000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t1000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-t10000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t10000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-deep-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-deep-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-dh-livefire.json
+   VERDICT: ACCEPT (all checks pass; checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion)
+== acceptance/w1-arb-dh-livefire.json
+   VERDICT: ACCEPT (all checks pass; checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion)
+== acceptance/w1-poscontrol-mp.json
+   VERDICT: REJECT at C2: sigma1 <= 1/2
+exit: 1
+
+-- reference_checker.py on the two example files + its negative controls (--selftest style run as recorded in reference-checker-run.txt)
+== w1-example-refutation.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== w1-example-exclusion.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)

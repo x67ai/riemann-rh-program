@@ -226,7 +226,7 @@ with the conventions ν^{-1}·∞ = ∞ and q·∞ = ∞ for q ∈ Q^{>0}.
 
 **Lemma 5.1.** (i) ρ̂ is well defined on X̌(C). (ii) ρ̂(F_q(P̌)) = q · ρ̂(P̌) for all q ∈ Q^{>0} and P̌ ∈ X̌(C). (iii) ρ̂ is G-invariant, hence descends to ρ̂_0 on X̌_0(C). (iv) ρ̂(P̌) = ∞ if and only if either char P̌ > 0, or char P̌ = 0 and P̌^×'s restriction to μ has infinite kernel; under (Tors) — i.e. on X̌(C)_E for E admissible — the second alternative is empty, so **{ρ̂_0 = ∞} = pr_{X_0}^{-1}({closed points})**. (v) On the characteristic-zero part of X̌(C)_{E_tors}, ρ̂ coincides with Deninger's ρ of [x-03] (41)/(45).
 
-*Proof.* (i) If F_ν^{-1}P = F_{ν′}^{-1}P′ then F_{ν′}P = F_ν P′ in X̊(C). If char P = 0 then char P′ = 0 (the characteristic is F-invariant, p. 22: F_ν(x,P^×) = (x, P^×∘( )^ν)); (42)/(43) of [x-03] p. 33 with ν_x = ν give ν′ ρ̂(P) = ν ρ̂(P′) when the values are finite, so ν^{-1}ρ̂(P) = ν′^{-1}ρ̂(P′). When ρ̂(P) = ∞ we must check ρ̂(P′) = ∞: by (51) of [x-03] p. 42, F_{ν′}P = F_ν P′ means P∘( )^{ν′} = P′∘( )^{ν}; a root of unity ζ lies in ker(F_{ν′}P)^× iff ζ^{ν′} ∈ ker P^×, and the map μ_∞ → μ_∞, ζ ↦ ζ^{ν′}, is surjective with finite fibres, so ker(F_{ν′}P)^× ∩ μ_∞ is infinite iff ker P^× ∩ μ_∞ is; the same for the other side. If char P > 0 both sides are ∞ by definition. (ii) For q = ν/ν′ this is (i) together with (43) (char 0) and the convention (char > 0). (iii) ker((P^×∘σ)|_μ) = σ^{-1}(ker(P^×|_μ)) has the same cardinality, and σ preserves the characteristic. (iv) is (3.0) and Def. 4.1. (v) is (41)/(45) of p. 33 read off. ∎
+*Proof.* (i) If F_ν^{-1}P = F_{ν′}^{-1}P′ then F_{ν′}P = F_ν P′ in X̊(C). If char P = 0 then char P′ = 0 (the characteristic is F-invariant, p. 22: F_ν(x,P^×) = (x, P^×∘( )^ν)); (42)/(43) of [x-03] p. 33 with ν_x = ν give ν′ ρ̂(P) = ν ρ̂(P′) when the values are finite, so ν^{-1}ρ̂(P) = ν′^{-1}ρ̂(P′). When ρ̂(P) = ∞ we must check ρ̂(P′) = ∞: by the definition of F_ν ([x-03] p. 22, verbatim: F_ν(x,P^×) = (x, P^×∘( )^ν)), the equality F_{ν′}P = F_ν P′ reads P^×∘( )^{ν′} = P′^×∘( )^{ν}. A root of unity ζ lies in ker(F_{ν′}P)^× iff ζ^{ν′} ∈ ker P^×, and ζ ↦ ζ^{ν′} maps μ_∞ onto μ_∞ with fibres of size ν′; hence ker(F_{ν′}P)^× ∩ μ_∞ is infinite iff ker P^× ∩ μ_∞ is, and likewise on the other side, so the two infiniteness conditions agree. If char P > 0 both sides are ∞ by definition. (ii) For q = ν/ν′ this is (i) together with (43) (char 0) and the convention (char > 0). (iii) ker((P^×∘σ)|_μ) = σ^{-1}(ker(P^×|_μ)) has the same cardinality, and σ preserves the characteristic. (iv) is (3.0) and Def. 4.1. (v) is (41)/(45) of p. 33 read off. ∎
 
 **Definition 5.2 (the weight).** Define **W : X_0 → (0, ∞]** by
 
@@ -244,7 +244,7 @@ the ratio of the archimedean suspension coordinate to the finite-adelic module. 
 
 ### 5.2 The two structural properties
 
-**Theorem 5.4 (the weight).** For every arithmetic scheme in the sense of [x-03] §7 with X_0 = spec Z and every admissible class E, the function W : X_0 → (0, ∞] of Definition 5.2 satisfies:
+**Theorem 5.4 (the weight).** For X_0 = spec Z, C = ℂ, N_0 = N and every admissible class E, the function W : X_0 → (0, ∞] of Definition 5.2 satisfies:
 
 1. **Positivity:** W > 0 everywhere.
 2. **Conformality of exponent one:** W(φ^t z) = e^t W(z) for all t ∈ R, z ∈ X_0 (with e^t·∞ = ∞).
@@ -428,3 +428,142 @@ with the flow acting by rotation on the second factor and **trivially on B_p**; 
 **(iii) What f does to γ_p.** Let γ ⊂ Y be a closed orbit of length log p and f(γ) ⊂ Γ^E_p. Parametrize γ = R/(log p)Z by the flow. Equivariance forces f(γ) to be a single R-orbit of X_0 (the image of an orbit is an orbit), lying in Γ^E_p, hence by Thm. 6.1 periodic with isotropy exactly (log p)Z. The induced map R/(log p)Z → f(γ) is therefore a continuous equivariant **bijection**. Whether it is a homeomorphism onto its image is *undetermined by the present tools*, because the subspace topology on a single orbit of Γ^E_p is delicate (by Theorem A its closure is the whole packet, and adjudication §4 item 3 records that no periodic orbit is closed as a subset). We record this as **not decided** and flag that nothing below depends on it: the Main Theorem uses only that f(γ_p) meets Γ^E_p.
 
 **(iv) What f does to a 2-dimensional transversal in Y.** Let τ ⊂ Y be a 2-dimensional transversal at a point y ∈ γ_p with first-return map h : τ ⊇ τ′ → τ. Equivariance gives no commuting square with any "return map on the X_0 side", precisely by (ii). What *is* forced: f(τ) is a compact-in-Y-image subset of X_0 meeting Γ^E_p, and by Theorem 7.1 applied to the invariant saturation ⋃_t φ^t(cl τ) — if that saturation is compact and invariant, which it need not be — one gets finiteness of the packets it meets. We do **not** use this: no transversal argument is needed, and none is claimed. **Conclusion of line (3): the local structure at a closed orbit imposes no obstruction, and cannot, for the two structural reasons in (ii). The obstruction is global and is the accumulation p → ∞.**
+
+---
+
+## 10. Sharpness: exactly which hypotheses carry the theorem
+
+### 10.1 Admissibility, i.e. (Tors), is necessary — and it is not a technicality
+
+Theorem 5.4(1)–(3) and Theorems 5.5, 6.1, and hence the *first* half of Theorem 7.1's proof, hold for the E-free system
+
+  **X_0^{full} := X̌_0(C) ×_{Q^{>0}} R^{>0}**
+
+with no change: nothing in §§3–6 uses **(Tors)**. (Admissibility enters §4 only through the F-bi-invariance (A3) of the E-locus, which for the E-free system — E = all characters — is trivially true; and it enters §3 only through "the restriction of an l.s.c. function to a subspace is l.s.c.") What genuinely needs (Tors) is Theorem 5.4(**4**), the identification {W < ∞} = X_0^{(0)}. Without it the conclusion is only
+
+  **K ⊆ ⨆_p Π^{-1}((p)) ∪ { z over the generic point with ρ̂_0(z) = ∞ },**
+
+and the second set is not empty. It is exactly the locus where Deninger's ρ is undefined. **The Main Theorem's conclusion is false there**, by the following explicit example.
+
+**Proposition 10.1.** In X_0^{full} put, for each prime p, x_p := any closed point of X = spec Z̄ over (p) and P^{(p)} := (x_p, 1) ∈ X̊(C), the **trivial** character of κ(x_p)^× = F̄_p^×; and P^{(0)} := (η, 1), the trivial character of Q̄^×. Let O_p, O_∞ ⊆ X_0^{full} be the R-orbits of [π(P^{(p)}), 1] and [π(P^{(0)}), 1]. Then
+
+  **D := O_∞ ∪ ⋃_p O_p**
+
+is a **nonempty, quasi-compact, flow-invariant** subset of X_0^{full} meeting Π^{-1}(x) for **every** point x of spec Z (generic and closed alike).
+
+*Proof.* (a) Each of these points is fixed by every F_ν: F_ν(x, 1) = (x, 1 ∘ ( )^ν) = (x, 1). Hence for q ∈ Q^{>0}, [P, u] = [F_q P, q^{-1}u] = [P, q^{-1}u], so O_p = { [π(P^{(p)}), u] : u ∈ R^{>0} } is the image of R^{>0} under a map that identifies u with q^{-1}u for every q ∈ Q^{>0}. Since Q^{>0} is dense in R^{>0}, the only Q^{>0}-saturated open subsets of R^{>0} are ∅ and R^{>0}; the map R^{>0} → O_p ⊂ X_0^{full} is continuous and surjective, so the subspace topology on O_p is coarser than that indiscrete quotient topology, hence **indiscrete**; in particular O_p is quasi-compact. Same for O_∞. Each is flow-invariant by construction, and Π(O_p) = (p), Π(O_∞) = (0).
+
+(b) P^{(p)} → P^{(0)} in X̊(C) as p → ∞. Indeed for r ∈ Z̄ ∖ {0}, r ∈ p_{P^{(p)}} forces p | N_{Q(r)/Q}(r) ≠ 0, so for all but finitely many p one has P^{(p)}(r) = 1 = P^{(0)}(r); and P^{(p)}(0) = 0 = P^{(0)}(0). So convergence holds pointwise on Z̄.
+
+(c) D is quasi-compact. Let 𝒰 be an open cover of D and pick U ∈ 𝒰 with O_∞ ∩ U ≠ ∅; since O_∞ is indiscrete in its subspace topology, O_∞ ⊆ U. Now Q^{-1}(U) is open in X̌_0(C) × R^{>0} and contains (π̌(P^{(0)}), 1), so it contains a basic open V × (a,b) with π̌(P^{(0)}) ∈ V and 1 ∈ (a,b). By (b) and continuity of π̌ ∘ (X̊(C) ⊂ X̌(C)), π̌(P^{(p)}) ∈ V for all p ≥ some p_0. For such p and every u ∈ (a,b) we get [P^{(p)}, u] ∈ U; and since every point of O_p equals [P^{(p)}, q^{-1}u] for suitable q ∈ Q^{>0} with q^{-1}u ∈ (a,b) (density), **O_p ⊆ U**. So U covers all but finitely many O_p, and finitely many further members of 𝒰 cover the rest. ∎
+
+**Why this does not weaken the Main Theorem, and why it strengthens the scope claim.**
+
+1. The points of D over (p) are **not periodic**: their R^{>0}-isotropy is all of Q^{>0}, not p^Z, so their "orbits" are indiscrete copies of R^{>0}/Q^{>0} rather than circles of length log p. They violate (Tors) at the closed points (the trivial character of F̄_p^× has infinite kernel), so **they are not in any packet Γ^E_p** in the sense of [x-03] §6 and Thm. 6.1 — indeed Thm. 6.1 itself requires E ⊆ E_max, and Thm. 5.5 of [x-03] (p. 37, read verbatim) is precisely the observation that without a strong enough E the isotropy classification breaks.
+2. Therefore Proposition 10.1 shows that the E-free system is *degenerate*, not that Q-b has an escape: an S4 substrate whose "closed orbits of length log p" are these indiscrete blobs has no closed orbits of length log p at all.
+3. And Route 2 has no licence to use the E-free system: [x-06] printed p. 11 states verbatim, of the admissibility condition, "**What we know for certain is that the restrictions of P^× to μ(κ(x)) must have finite kernels (condition E_tors)**". (Tors) is a known *requirement* on any global admissible condition, not a convenience.
+
+**Conclusion.** The Main Theorem is exactly co-extensive with Deninger's standing hypothesis. It holds for every admissible E — E_tors = E_max (by (A2)), E_f, every class in the certified window E ⊇ E_f, and every cut class E(a_0) of probe A's Theorem C(b) — and it fails, for the reason just displayed, exactly where the theory itself fails.
+
+### 10.2 Quasi-compactness is necessary, and finite-stage escapes exist
+
+For any **finite** set S of primes and any choice of one periodic orbit γ_{p} ⊂ Γ^E_p per p ∈ S, the compact 1-manifold Y_S := ⨆_{p ∈ S} R/(log p)Z with the translation flow maps continuously and equivariantly onto ⋃_{p ∈ S} γ_p by the orbit parametrizations (probe B §6.3, re-derived: the orbit map R/(log p)Z → γ_p is continuous and equivariant because the isotropy is exactly (log p)Z, Thm. 6.1). So Theorem 7.1's finiteness of S is **sharp**: every finite S occurs.
+
+Dropping compactness, the σ-compact locally compact space Y_∞ := ⨆_{all p} R/(log p)Z with the same maps is a continuous equivariant source hitting **every** packet in exactly one orbit. So the compactness hypothesis is not removable either, and the whole content of Theorem 7.1 is the passage from "each p separately" to "all p at once inside one compact object". This is precisely the "pure p → ∞ accumulation inside compact Y" that the adjudication §5 identified as the residual content of Q*.
+
+### 10.3 The Arakelov escape, stated exactly
+
+[x-03] p. 39 predicts a compactification X̄_0 whose R-fixed points are X_0(C)/F_∞, with "two orbits tending to the fixed point [z,0] … for u → 0+" (p. 40, verbatim). In the language of §5 those are exactly the orbits along which W → 0: the weight is the coordinate that detects the missing end. Theorem 5.5 says the escape cannot be caught **inside X_0**; it says nothing about X̄_0, where the escaping orbits acquire limits and quasi-compact invariant sets containing characteristic-zero points may well exist. **This is the one residual escape from the present kill**, and it is not a gap: X̄_0 is not constructed anywhere in [x-03] or [x-06] (Deninger writes "It should extend to an R^{>0}-immersion", p. 40 — a conjecture), and the program's own ledger already routes the archimedean structure to S3 / rows R12–R13. A future positive S4 would have to be built against X̄_0, and would then owe: (a) a construction of X̄_0, (b) a version of Thm. 6.1 there, and (c) a check that the added fixed points do not over-supply (ledger row W5 already records that they do).
+
+### 10.4 What a referee should attack first
+
+In decreasing order of leverage: (1) Lemma 5.1(i), the well-definedness of ρ̂ on the colimit in the case ρ̂ = ∞ (the only place where an argument beyond (43) is needed); (2) Lemma 4.2(a), the openness chain — in particular that the E-locus inherits the openness of the strata (this is [x-03] p. 47 verbatim, but it is the load-bearing topological input); (3) Corollary 4.4 and Lemma 4.1, the two "transport" lemmas — both are standard but both are used at full strength and neither is in the sources; (4) the claim that packets are the fibres of Π (P1) — already referee-discharged this session, so this is a consistency check rather than a new debt; (5) Theorem 5.5 Step 1, the l.s.c.-attains-its-infimum argument on a merely quasi-compact (non-Hausdorff) space.
+
+---
+
+## 11. Scope and honesty
+
+**11.1 What was re-derived here, in full, from the sources.** Lemmas 3.1, 3.2, 3.3, 3.5; Lemmas 4.1, 4.2, Corollary 4.4; Lemma 5.1; Theorems 5.4, 5.5, 6.1, 7.1; Corollaries 8.1, 8.2, 8.4, 8.5; Proposition 10.1; §9.2(i)'s unitarity statement; §10.2's escapes. Every source input used by these is listed in §1 with a printed page and was read verbatim this session.
+
+**11.2 What was NOT re-derived, and how it is used.**
+
+* **[x-03] Prop. 5.1, Thm. 5.2, Thm. 6.1, Thm. 5.5, Cor. 4.4, Lemma 7.3, Prop. 7.4, Cor. 7.8/7.9, Thm. 7.10, Thm. 8.2, Lemma 8.3, Claim 8.1.** *Statements* read verbatim; *proofs* not re-derived. Load-bearing among these: Prop. 7.4b (F_q are homeomorphisms), the openness of π̌ and of the strata (p. 43, p. 47), the continuity and Q^{>0}-equivariance of pr_{X_0} (pp. 27, 43), and the topology statements of §7 — these are used as published theorems. Thm. 5.2/6.1 are used **only** in interpretation (§8.1, §8.5, §9.1, §9.3, §10.2), never in the proof of Theorem 7.1. Thm. 8.2, Lemma 8.3 and Claim 8.1 are used **nowhere** in any proof; the Main Theorem is unconditional and independent of [Per11].
+* **Banked program results used as cited, not re-derived:** Theorem A (packet closure law) — used only in §8.5 and §9.3(ii); uncountability of B_p — used only in §9.3(i); non-Hausdorffness of X_0 — used only in commentary; the Session-14 referee discharge of "Γ^E_p is closed" — independently re-derived here as (P1), so this note does not depend on it.
+* **[x-06] Thm. 4.2's compactness of Γ_{x_0}** — read verbatim, used only in Remarks 5.7(i) and 8.5's consistency check, never in a proof.
+* **The robustness claim in §7.2** (general arithmetic schemes flat over spec Z) is **NOT verified**; it is a plausibility remark and is labeled as such.
+
+**11.3 [RU] items.** None. No recalled result is load-bearing anywhere in this note. Two pieces of standard general topology are used without citation and are re-provable in a line each: "a space is quasi-compact iff every net has a convergent subnet" (used in Theorem 7.1 step (2)) and "a decreasing family of nonempty closed subsets of a quasi-compact space has nonempty intersection" (used in §9.2(ii)). Both are the standard finite-intersection-property characterizations and neither needs a separation axiom. If a referee prefers, Theorem 7.1 step (2) can be run with the finite-intersection property directly on the sets cl_Y(⋃_{p ≥ N} f^{-1}(Γ^E_p)).
+
+**11.4 Judgment-grade readings, flagged.**
+
+* **(J1)** [x-06] p. 12's sentence identifying the closure of the compact orbits with "the subsystem obtained by replacing X̊(C)_E … with the subspace of pairs (x,P^×) with P^× unitary" is read as describing a subsystem **of X_0^E**, hence one satisfying (Tors). This is the natural reading and it is also *not load-bearing*: Corollary 8.2 needs only that Y_0, being a closure taken inside X_0, is a subspace of X_0 — which is automatic.
+* **(J2)** The adjudication's Q-b names "the unitary system X̌_0(S^1) ×_{Q^{>0}} R^{>0}". This note treats it as a flow-invariant subspace of X_0 = X̌_0(C)_E ×_{Q^{>0}} R^{>0} for admissible E (§2.5). The literal E-free reading is treated separately and completely in §10.1, where it is shown to be degenerate and to fall outside the theory's own stated requirements ([x-06] p. 11, verbatim).
+* **(J3)** §9.3(iii) leaves undecided whether f|_{γ_p} is a homeomorphism onto its image. Flagged as **not decided**; nothing depends on it.
+* **(J4)** §10.1(1)'s statement that D's points over (p) "are not in any packet" uses Def. 4.1's (Tors) and Thm. 6.1's hypothesis E ⊆ E_max; it is a definitional reading of [x-03] §6, not a new theorem.
+
+**11.5 What this note does NOT claim.**
+
+* It does **not** claim that X_0 has no compact invariant subsets — it has them (the packets, and finite unions thereof) and they are exactly characterized in Corollary 8.5.
+* It does **not** claim anything about non-compact substrates, about the conjectural X̄_0 (§10.3), about the p-adic systems of [x-03] §15, or about C3's other directions.
+* It does **not** touch Route 2's S1, S2, S3, S5 as *instrument* results; those stand exactly as the ledger records them. What dies is S4, the arithmetic object, and hence the chain.
+* It does **not** claim to settle whether a compact 3-dimensional lamination with one closed orbit of length log p per prime **exists** as an abstract dynamical system. That question is untouched; what is settled is that no such object maps equivariantly into X_0 over the packets. (This matters for bookkeeping: Route 2 dies at the *mapping/embedding* step, not at the existence of laminations in the abstract.)
+* It does **not** re-open or contradict Theorem A, Corollary B, or any banked result; §8.5 records the compatibility explicitly.
+
+---
+
+## 12. Novelty ledger
+
+Every item below is believed new to this program and, to this agent's reading of [x-03] and [x-06], not stated in those sources. Each is tagged **[novelty: single-check]** and awaits the dual-model sweep. Items are listed with their exact location and their exact dependencies, so that a sweep can attack them individually.
+
+| # | Statement | Where | Depends on | Tag |
+|---|---|---|---|---|
+| N1 | **ρ̂ (Deninger's ρ over characteristic zero, extended by +∞ over positive characteristic) is lower semicontinuous on X̊(C)** for the topology of pointwise convergence, and is *not* continuous. | Lemma 3.3, Remark 3.4 | [x-03] pp. 23, 27, 40 only | [novelty: single-check] |
+| N2 | **p-adic inflation:** if characteristic-zero points converge to a point over characteristic p, then p^k divides the torsion-kernel order of the approximants, eventually, for every k; so ρ → ∞. Quantitative form of "the packets are approached from characteristic zero only adelically". | Lemma 3.2 | as N1 | [novelty: single-check] |
+| N3 | **Modulus-one rigidity / packet separation at infinity:** a net of points of packets Γ^E_{p_i} with p_i unbounded can converge only over the generic point. | Lemma 3.5, Theorem 6.1 | [x-03] pp. 22–23, 40, 43, 47 | [novelty: single-check] |
+| N4 | **X_0 carries a strictly positive, lower semicontinuous, flow-conformal weight of exponent one**, W([P_0,u]) = ρ̂_0(P_0)·u = u/‖r(P_0)‖, finite exactly on the characteristic-zero locus. | Definition 5.2, Theorem 5.4, Remark 5.3 | N1, [x-03] (43) p. 33, Def. 4.1 p. 27, §6 p. 38 | [novelty: single-check] |
+| N5 | **Dissipation theorem:** no nonempty quasi-compact flow-invariant subset of X_0 meets the characteristic-zero locus; equivalently every such subset lies in ⨆_p Γ^E_p. | Theorem 5.5 | N4 | [novelty: single-check] |
+| N6 | **Main Theorem:** every continuous flow-equivariant map from a nonempty quasi-compact flow space into X_0 has image in finitely many packets, and partitions the source into finitely many clopen invariant pieces. | Theorem 7.1 | N3, N5 | [novelty: single-check] |
+| N7 | **Q-b = NO** for every admissible E, with the lamination hypotheses unused. | Corollary 8.1 | N6 | [novelty: single-check] |
+| N8 | **Q-a = NO** for every admissible E, with "Hausdorff in itself" and "dimension 3" unused; and the first alternative of [x-03] p. 40 dies for compact (not only closed) Y_0, by a route independent of Theorem A. | Corollary 8.4 | N6 | [novelty: single-check] |
+| N9 | **The closure of the union of the periodic orbits (Deninger's Y_0 = the unitary system) is not quasi-compact** — unconditionally, independently of Claim 8.1 and [Per11], and independently of the dimension statement of [x-03] §8. | Corollary 8.2 | N6, [x-03] Thm. 6.1 | [novelty: single-check] |
+| N10 | **Classification of compact minimal sets:** a nonempty compact, closed, invariant, minimal subset of X_0 is exactly a packet Γ^E_p; and the characteristic-zero locus carries no minimal set, no compact orbit closure, and no compactly supported invariant measure. | Corollary 8.5, §9.1(iii) | N5, N6, banked Theorem A | [novelty: single-check] |
+| N11 | **(Tors) is necessary:** in the E-free suspension there is an explicit nonempty quasi-compact invariant set meeting the fibre over every point of spec Z, built from the trivial characters; its points over (p) are not periodic, so it is not a counterexample to S4 but a degeneracy of the E-free reading. | Proposition 10.1 | [x-03] pp. 22–23, 38, 43; [x-06] p. 11 | [novelty: single-check] |
+| N12 | **S4 is dead and Route 2 with it** (both faces of Q* answered NO; both alternatives of [x-03] p. 40 answered NO under compactness). | §8.4 | N7, N8, banked Cor. B | [novelty: single-check] |
+
+**Not claimed as new:** the map ρ and its equivariance (43)–(46), the r-map (59)–(61), the non-proper-discontinuity remark (68), the packet model bijections (38)/(39), Thm. 5.2/6.1/8.2, Lemma 8.3 — all Deninger's; Theorem A, Corollary B, Theorem C, the non-Hausdorffness of X_0, the uncountability of B_p, the closedness of packets and Q-c — all banked program results.
+
+**Priority for the dual-model sweep:** N1 → N2 → N3 → N4 → N5 → N6. If N1 and N3 stand, the rest is bookkeeping; if either falls, everything downstream falls with it. N11 should be swept independently, since it is the sharpness claim and a failure there would only *strengthen* N6's scope, not weaken it.
+
+---
+
+## 13. Bookkeeping — what this result touches (no file edited)
+
+Per the charter, **no existing note or direction file was edited**. The following records should be updated by whoever holds the pen.
+
+**Q* clauses (adjudication `results/c3-r/probe-9.3-adjudication.md` §5):**
+* **Q-b — ANSWERED NO** (Corollary 8.1). The charter's own reduction is confirmed on its factual side (the content is p → ∞ accumulation) and refuted on its methodological side (no minimal-set/mean-dimension/entropy comparison is needed or possible; §9.1(iii)).
+* **Q-a — ANSWERED NO** (Corollary 8.4(a)), as a corollary of the same theorem with f = inclusion. This was not this probe's charter; the Session-14 Q-a probe should be adjudicated against it rather than merged blindly.
+* **Q* as a whole — CLOSED in the negative.** Per adjudication §5's own disposition rule, this **fires the C3 kill-criterion input** for Route 2.
+* **Q-c** — unchanged (already YES; §8.5 corrects only the partial draft's mis-argument, not the verdict).
+
+**Ledger rows (`results/c3-r/m2c-feasibility-ledger.md`):**
+* **§8 Route 2, step S4** — status changes from **UNKNOWN (open existence problem)** to **DEAD (theorem)**. The chain verdict "unobstructed but incomplete at S4" becomes "obstructed at S4".
+* **§8 Route 2 chain verdict** — Route 2 is no longer "the only live route"; it is dead. S1 (published), S2 (TRANSFERS-WITH-WORK, residual risk W3), S3, S5 remain valid as *instrument* results with no arithmetic object along this route.
+* **Rows W1, W4, W5, W6, W7, W9, R4, R6, R15** — each recorded evidence *against* X_0 or its subsystems being the substrate; they are now subsumed by a theorem and should be annotated "superseded by the dissipation theorem (s14/qb-kill.md §5.5, §7.1)" rather than rewritten.
+* **W7** (periodic-orbit closure still infinite-dimensional) — gains a strictly stronger companion: that closure is not even quasi-compact (Corollary 8.2), unconditionally.
+* **New rows suggested:** **W13** — "X_0 carries a positive l.s.c. flow-conformal weight of exponent one; its characteristic-zero locus admits no nonempty quasi-compact invariant set" (Theorem 5.5); **W14** — "packet points of unbounded characteristic converge only over the generic point" (Theorem 6.1); **R16** — "compact equivariant sources meet only finitely many packets" (Theorem 7.1).
+* **§9.3** — the row whose question was replaced by Q* is now fully decided; mark EXECUTED-AND-DECIDED.
+* **§12 addendum** — should record that the kill-criterion input fires.
+
+**Probe 9.4 (`results/c3-r/probe-9.4-note.md`):**
+* **DQ-M (measured trace formula for orbit continua), Road 2** — its motivation was to convert S4's selection demand into a Haar-measured demand. Since S4 dies for reasons orthogonal to selection (nothing here is about choosing one orbit per packet; the theorem holds however the orbits are chosen, and even if the packets were single orbits — see the cut classes E(a_0), covered by Theorem 7.1 since they are admissible), **DQ-M no longer serves Route 2.** It may retain independent instrument value; that is a separate judgment and this note does not make it.
+* **Roads 1–3 / the W9 repair program** — same disposition: they were repairs to the *selection* problem, which is not the obstruction.
+
+**Direction file (`directions/C3-geometric-substrate.md`), "Current frontier":**
+* The frontier item "Route 2's unique blocker is S4, in the sharpened form Q*" should be retired and replaced by the record that Q* is closed NO and Route 2 is dead, with the pointer to this note.
+* The kill-criterion `failed-ledger-exhausted` for the Deninger leg of C3-r should be evaluated: with Route 1 dead, Route 2 dead, and Route 3 not well-posed, the ledger's route list is exhausted. **That determination is not made in this note** — it belongs to the direction-level adjudication — but the input it needs is now supplied.
+* Any future S4-positive attempt must target the conjectural Arakelov compactification X̄_0 (§10.3), and owes the three items listed there.
+
+**Referee debt created by this note:** items N1–N6 of §12 (the chain that carries everything), plus the two transport lemmas 4.1 and 4.2 flagged in §10.4. Nothing here should be circulated externally before that sweep.
+
+— end of note —

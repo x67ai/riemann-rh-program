@@ -46,7 +46,8 @@ critical strip, a target function (zeta | f_DH) and a mode
     (both enclose the same point value, so the intersection does; it is
     nonempty or the producer stops the line), the branch interval is
     evaluated on those, divided by 2*pi (interval pi), scaled by A, OUTWARD
-    rounded to integers, and clamped to [-A/2, A/2] (sound by D3);
+    rounded to integers, and clamped to [-A/2, A/2] (sound by D3 for EVEN A, which
+    the producer now requires -- AUDIT F finding F-2, repair R2);
  4. sums the argument rows, extracts the UNIQUE integer m with
     S_lo <= A*m <= S_hi (uniqueness forced by the producer-side width check
     mirroring C8), verifies the mode<->m consistency (C10) HONESTLY -- a
@@ -108,7 +109,8 @@ from fractions import Fraction
 import mpmath
 from mpmath import iv
 
-from ball import (Ball, iv_from_fraction, iv_from_int, ivmpf_bounds, set_prec)
+from ball import (Ball, iv_from_fraction, iv_from_int, ivmpf_bounds, set_prec,
+                  iv_pi)   # iv_pi: outward-inflated (AUDIT F-1, repair R1)
 from zeta_encl import zeta_ball, pow_int_neg
 from hurwitz_encl import hurwitz_ball
 
@@ -248,6 +250,24 @@ def build_mesh(fball, rect, h0, K, maxdepth, stats, log):
 
 # ---------------------------------------------------------------- argument rows
 
+def require_even_A(A):
+    """AUDIT F finding F-2 (repair R2): the D3 clamp below is an INTEGER clamp to
+    [-A//2, A//2].  For EVEN A that is exactly the sound interval [-A/2, A/2] (D3: the true
+    increment satisfies |A*Delta/2pi| < A/2).  For ODD A the integer clamp cuts strictly
+    INSIDE the sound interval, so a true increment in ((A-1)/2, A/2) is clipped and the
+    emitted row can be FALSE -- with A = 1 every row collapses to [0, 0] and the producer
+    emitted a checker-accepted m = 0 'exclusion' transcript for a rectangle that contains a
+    zero (audit_F_oddA_probe.log; reproduced in recon_F2_before.log).  producer_arb.py has
+    always guarded this; producer_mp.py now does too.  FORMAT.md sec. 1 records 'A even'
+    as a producer requirement."""
+    if A < 2 or A % 2 != 0:
+        raise SystemExit(
+            "PRODUCER STOP: A must be EVEN and >= 2 (got A = %d) -- the D3 clamp to "
+            "[-A/2, A/2] is an integer clamp; for odd A it cuts strictly inside the sound "
+            "interval and can emit a false argument row (AUDIT F finding F-2).  "
+            "Use --A k with k >= 1 (A = 10^k)." % A)
+
+
 def argument_rows(fball, segments, rect, A, stats, log):
     """Per-segment [argLo, argHi] integer rows in turn units at scale A."""
     cache = {}
@@ -258,8 +278,9 @@ def argument_rows(fball, segments, rect, A, stats, log):
             stats["point_evals"] += 1
         return cache[pt]
 
+    require_even_A(A)
     rows = []
-    two_pi = 2 * iv.pi
+    two_pi = 2 * iv_pi()
     Aiv = iv_from_int(A)
     for k, sg in enumerate(segments):
         p_start, p_end = seg_endpoints(sg.edge, sg.a, sg.b, rect)
@@ -294,6 +315,7 @@ def produce(function, mode, rect, out_path, h0=Fraction(1, 20), maxdepth=14,
     t0 = time.time()
     started = datetime.datetime.now(datetime.timezone.utc).isoformat()
     set_prec(prec)
+    require_even_A(A)   # AUDIT F-2 repair R2: refuse odd A before any evaluation
     s1, s2, t1, t2 = rect
     # producer-side rectangle sanity (the checker re-verifies as C2)
     if not (Fraction(1, 2) < s1 <= s2 < 1 and t1 < t2):
@@ -474,7 +496,8 @@ def main(argv):
     ap.add_argument("--maxdepth", type=int, default=14)
     ap.add_argument("--prec", type=int, default=288)
     ap.add_argument("--K", type=int, default=30, help="K = 10^this")
-    ap.add_argument("--A", type=int, default=12, help="A = 10^this")
+    ap.add_argument("--A", type=int, default=12,
+                    help="A = 10^this; this >= 1 (A must be EVEN: AUDIT F finding F-2)")
     ap.add_argument("--no-floor", action="store_true")
     ap.add_argument("--selftest-dh", action="store_true")
     args = ap.parse_args(argv)
