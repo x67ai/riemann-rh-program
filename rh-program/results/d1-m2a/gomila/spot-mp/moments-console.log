@@ -17,3 +17,26 @@ ft_mp moments: series=plus N=690988 c=31809/40000 + i(-12000000371655/4) R=48 pr
   plus block 15 [  32768,   65535]: 21.4s  |m_0| ~ 1.070e-01
   plus block 16 [  65536,  131071]: 42.9s  |m_0| ~ 6.621e-02
   plus block 17 [ 131072,  262143]: 86.0s  |m_0| ~ 3.832e-02
+  plus block 18 [ 262144,  524287]: 171.7s  |m_0| ~ 2.593e-02
+  plus block 19 [ 524288,  690988]: 109.4s  |m_0| ~ 6.887e-03
+done in 452.9s
+ft_mp moments: series=minus N=690988 c=8191/40000 + i(12000000371655/4) R=48 prec=288 -> moments/gomila-minus.json
+  minus block  0 [      1,       1]: 0.0s  |m_0| ~ 1.000e+00
+  minus block  1 [      2,       3]: 0.0s  |m_0| ~ 1.666e+00
+  minus block  2 [      4,       7]: 0.0s  |m_0| ~ 2.833e+00
+  minus block  3 [      8,      15]: 0.0s  |m_0| ~ 4.352e+00
+  minus block  4 [     16,      31]: 0.0s  |m_0| ~ 6.483e+00
+  minus block  5 [     32,      63]: 0.0s  |m_0| ~ 9.273e+00
+  minus block  6 [     64,     127]: 0.0s  |m_0| ~ 1.293e+01
+  minus block  7 [    128,     255]: 0.1s  |m_0| ~ 1.697e+01
+  minus block  8 [    256,     511]: 0.2s  |m_0| ~ 2.041e+01
+  minus block  9 [    512,    1023]: 0.3s  |m_0| ~ 2.367e+01
+  minus block 10 [   1024,    2047]: 0.7s  |m_0| ~ 2.989e+01
+  minus block 11 [   2048,    4095]: 1.3s  |m_0| ~ 3.817e+01
+  minus block 12 [   4096,    8191]: 2.7s  |m_0| ~ 4.005e+01
+  minus block 13 [   8192,   16383]: 5.3s  |m_0| ~ 4.482e+01
+  minus block 14 [  16384,   32767]: 10.7s  |m_0| ~ 4.773e+01
+  minus block 15 [  32768,   65535]: 21.4s  |m_0| ~ 5.980e+01
+  minus block 16 [  65536,  131071]: 42.8s  |m_0| ~ 5.612e+01
+  minus block 17 [ 131072,  262143]: 85.5s  |m_0| ~ 5.008e+01
+  minus block 18 [ 262144,  524287]: 170.9s  |m_0| ~ 5.011e+01
