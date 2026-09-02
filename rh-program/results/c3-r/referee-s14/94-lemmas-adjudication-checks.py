@@ -67,9 +67,12 @@ for p in (2, 3, 5, 7):
         if is_zero_poly(nu, p) != ispow: ok5 = False
 out["freshman_sharp_iff_p_power"] = ok5
 
-# (6) Concrete field-level check in F_{p^2} = F_p[x]/(x^2 - r), r a non-square: x -> x^l is
-#     additive on F_{p^2} iff l is a power of p (this is F_l(P) failing mod-p additivity at
-#     specific r, s in kappa = F-bar_p).
+# (6) Concrete field-level check in F_{p^2} = F_p[x]/(x^2 - r), r a non-square: for 2 <= l <= p^2,
+#     x -> x^l is additive on F_{p^2} iff l is a power of p.  (On the FINITE field the map is also
+#     additive whenever l = p^k mod (p^2 - 1), e.g. x^25 = x on F_9 -- which is exactly why the
+#     argument in the adjudication is run on the INFINITE field F-bar_p, where a nonzero
+#     polynomial (a+b)^l - a^l - b^l takes a nonzero value; the finite model is only probed for
+#     l <= p^2.)
 def fp2_elems(p, r):
     return [(a, b) for a in range(p) for b in range(p)]
 def fp2_mul(u, v, p, r):
@@ -87,7 +90,7 @@ ok6 = True
 for p in (3, 5, 7):
     r = nonsquare(p)
     E = fp2_elems(p, r)
-    for l in (2, 3, 4, 5, 6, 7, 9, 25, 49, p, p*p):
+    for l in range(2, p*p + 1):
         additive = all(fp2_pow(fp2_add(u, v, p), l, p, r) == fp2_add(fp2_pow(u, l, p, r), fp2_pow(v, l, p, r), p)
                        for u in E for v in E)
         m = l
