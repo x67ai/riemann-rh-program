@@ -819,3 +819,17 @@ Q-b is NO and both alternatives of Deninger's p. 40 question are NO for compact 
 adjudication and an adversarial pass it fires the M2c kill-criterion (S4 and Route 2 dead). Eleven
 [novelty: single-check] items; the note itself names the steps a sceptic should press first (Lemma
 3.3's colimit-equality step; Theorem 2's bound; the net-lifting lemmas). NOTHING BANKED YET.
+
+**13:05 IST — Gomila Lean branch VERIFIED: BUILDS-CLEAN** (`results/d1-m1/gomila-lean-branch-verify.md`,
+439 lines, every command verbatim). Both Aristotle projects build on their pinned Lean v4.28.0 +
+Mathlib 8f9d9cff (cache from the community server, 8010 files; `lake build` exit 0 in ~30 s each);
+`#print axioms` on all 61 theorems/lemmas and 12 definitions: `[propext, Classical.choice, Quot.sound]`
+only; source grep for sorry/admit/native_decide/axiom/unsafe/opaque/implemented_by/extern: none. Two
+lemmas (`windingRect_factored`, `_div`) carry unused rectangle-order hypotheses (linter warnings —
+recorded, not interpreted). So there is now a MACHINE-CHECKED rectangle argument principle for entire
+functions in the world, MIT-licensed, that Mathlib itself lacks. Not yet established: faithfulness of
+the statement to what D1 needs (scout gaps G1–G6), and compilation on the program's toolchain.
+**Decision: launch D1 v1.1 now** — port to v4.33.0-rc2 / the program's Mathlib in an APFS-cloned copy
+of the working tree, bridge to W1's `RectArgPrinciple`, discharge H-AP for ζ (via the entire surrogate
+(s−1)ζ(s) or by generalizing to `DifferentiableOn`), Opus audit of statement faithfulness; merge into
+the main tree only after run 2's Lean stage is finished.
