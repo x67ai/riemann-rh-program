@@ -715,3 +715,14 @@ Euler–Maclaurin remainder re-derived and matched; 1,088 fresh containment chec
 winding recomputed three ways; axioms clean. **Gomila steps 3–4: NOT cleared by M1 v1** — W1's
 rectangle is hard-wired to the strip, no t-slices, no f_t evaluator; M2a must add BarrierCert, the f_t
 evaluator on both legs, a converter, and FIRST the R1/R2/R5 repairs.
+
+**08:10 IST — Lutz thesis novelty check, Fable half, returned** (`results/c3-r/referee-s14/novelty-lutz-F.md`;
+31 page images read). All five Session-8 claims NOVEL with respect to the thesis: it is a local,
+p-adic study of Deninger's rational Witt spaces (Thms A–E: injection of the p-adic points into the
+diamond, A_inf-density, the map to Cartier divisors on the relative Fargues–Fontaine curve, a
+Hom(T,S)/G ≅ Hom(T^G,S) descent statement, a metric on the quotient); zero hits for packet, Hausdorff,
+Haar, trace, transverse, foliation, descent; Deninger's §6 question not cited. One sentence to cite in
+the Road-1 text as the printed status of the C-side transport problem, thesis p. 2: "It would be very
+valuable to find an analogous modifications of W_rat(X)(C) but currently this is not known." Trap
+recorded: the thesis's "C" is the p-adic completed algebraic closure, not the complex numbers. DQ-L
+(the 9.4 note's locate-only item) closes with no change to any verdict. Opus half still running.
