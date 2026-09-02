@@ -527,7 +527,11 @@ Future function tags (e.g. H_t slices for M2a) enter only by a version bump of t
 * Producers fill `producer` metadata: implementation, version, precision, subdivision policy,
   timestamps. Untrusted, unchecked, required by the two-producer bookkeeping.
 * The JSON→Lean literal emitter is producer-side and untrusted; the kernel re-checks
-  everything that matters from the literals.
+  everything that matters from the literals. (Since 2026-09-02 it exists: `emit_lean.py`, this
+  directory; it writes the `maxRecDepth` option of §7.1. Whether an emitted literal IS the
+  transcript is checked by an independent back-parse, `audit_O_leancases_verify.py` /
+  `recon_instances_verify.py`, never assumed.)
+* A MUST be even (§1); clamping is producer-side (§6.1). See §8.1 for what no checker can see.
 
 ---
 
@@ -641,6 +645,10 @@ mode exclusion with m = 1 → C10 fails; bottom[last] ≠ σ₂ → C3 fails; σ
 | `w1-example-exclusion.json` | §11 exclusion twin | artificial data |
 | `reference_checker.py` | reference implementation of C1–C11 + shape checks | UNTRUSTED (producer-side prevalidation; the trusted checker is the Lean one) |
 | `reference-checker-run.txt` | run transcript: both examples ACCEPT; six negative controls each fail at the intended check | evidence, rerunnable |
+| `checker_ref.py` | second, independently written reference checker (Fraction-based) | UNTRUSTED |
+| `emit_lean.py` (2026-09-02) | JSON transcript → Lean `W1Data` literal (mechanical); writes `set_option maxRecDepth` | UNTRUSTED (producer-side; the kernel re-checks from the literals; fidelity by back-parse) |
+| `../../lean/Zeta23/W1/Instances.lean` (2026-09-02) | the 10 acceptance transcripts + 2 positive controls as kernel-checked checker instances | kernel-checked integer facts; nothing analytic (H-ENCL not certified in Lean) |
+| `AUDIT.md`, `RUN-REPORT.md` (2026-09-02) | the reconciled audit of M1 v1 and the honest statement of what it now is | binding |
 
 Cross-validation performed at write time (recorded in `reference-checker-run.txt`): the §11
 arithmetic (sums 925/1083, width 316, floor products) was computed independently by the

@@ -1,7 +1,8 @@
 # `rh-program/lean` — this program's own Lean 4 files
 
-8 files, ~3,010 lines. They are **additions to the `Zeta23` library**, not a standalone
-project, and they are the only Lean files in this repository.
+9 files, ~6,280 lines (3,265 of them the data literals of `W1/Instances.lean`, added
+2026-09-02). They are **additions to the `Zeta23` library**, not a standalone project, and
+they are the only Lean files in this repository.
 
 | File | Lines | What it carries |
 |---|---|---|
@@ -10,11 +11,18 @@ project, and they are the only Lean files in this repository.
 | `Zeta23/PairCeiling/GridCorner.lean` | 263 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
 | `Zeta23/W1/Soundness.lean` | 1257 | W1 checker soundness |
 | `Zeta23/W1/{Checker,Examples,Format}.lean` | 370 | The W1 checker, its examples and its output format |
+| `Zeta23/W1/Instances.lean` | 3265 | The ten M1 v1 acceptance transcripts and the two positive controls as kernel-checked checker instances (`checkW1Floor … = true` ×10, `checkW1 … = false` ×2 by `decide +kernel`); mechanically emitted by `results/d1-m1/emit_lean.py` and back-parse-verified against the JSON; needs `set_option maxRecDepth 100000` (written by the emitter) for the 983/1294-row literals — added at the reconciled audit of 2026-09-02, `results/d1-m1/AUDIT.md` |
 | `Zeta23/DBN/Defs.lean` | 112 | De Bruijn–Newman definitions |
 
 `#print axioms` on all twelve machine-checked theorems reports only Lean's three standard
 axioms — `propext`, `Classical.choice`, `Quot.sound`. No `sorryAx`, no `Lean.ofReduceBool`, and
-no real `sorry` or `admit` anywhere in the development.
+no real `sorry` or `admit` anywhere in the development. The twelve `_check` theorems of
+`W1/Instances.lean` report `[propext]` (the ten `checkW1Floor` instances) or no axioms at all
+(the two rejections) — they are integer facts about literals; the ζ conclusion for the eight ζ
+transcripts is `cert_of_checkW1` modulo the displayed hypotheses H-ENCL and H-AP, and the two
+f_DH instances carry no theorem about f_DH (D-R8). Build record for `Instances.lean`:
+`lake build Zeta23.W1.Instances` — *Build completed successfully (656 jobs)*, 13.9 s, Lean
+`v4.33.0-rc2`, Mathlib `51e6992e` (`results/d1-m1/recon_lean_instances.log`).
 
 ## What these build against, and why it is not here
 
@@ -48,8 +56,10 @@ reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`
 
 ## Licensing (settled 2026-08-27)
 
-These eight files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
+These nine files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
 (see the repository's [`LICENSE`](../../LICENSE) and [`NOTICE`](../../NOTICE)).
+(`W1/Instances.lean`, added 2026-09-02, was written under this header from the start; the
+relicensing record below concerns the original eight.)
 
 They previously carried `Copyright (c) 2026 Anthropic, PBC` — copied from the surrounding library's
 header convention when they were written inside it, and pointing at a `LICENSE` file that is no

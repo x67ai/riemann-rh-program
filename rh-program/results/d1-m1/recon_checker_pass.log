@@ -45,3 +45,8 @@ exit: 1
    VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
 == w1-example-exclusion.json
    VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+
+-- LEAN KERNEL CHECKER (the trusted one), added by the reconciler 2026-09-02T07:27:43Z: lean/Zeta23/W1/Instances.lean (emit_lean.py, back-parse-verified 12 instances / 2940 rows / 0 mismatches) -- lake build Zeta23.W1.Instances: 'Build completed successfully (656 jobs)', 13.9 s
+   checkW1Floor = true by decide +kernel: mpNullT100 arbNullT100 mpNullT1000 arbNullT1000 mpNullT10000 arbNullT10000 mpNullDeepT100 arbNullDeepT100 mpDH arbDH   (10/10; axioms [propext])
+   checkW1 = false by decide +kernel: posMP_rej posARB_rej   (2/2 positive controls rejected; no axioms)
+   full record: recon_lean_instances.log.  Three-checker verdicts agree on all 12 transcripts.
