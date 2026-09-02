@@ -1,0 +1,25 @@
+== RECONCILER: Zeta23/W1/Instances.lean -- the 10 acceptance transcripts + 2 positive controls kernel-checked (O MAJOR-1 repair 2 / F-6) -- 2026-09-02T07:24:46Z
+-- emit
+emit_lean: wrote /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/lean/Instances.lean (12 instances, maxRecDepth 100000)
+    3265 /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/W1/Instances.lean
+12
+-- lake build Zeta23.W1.Instances (one lake process)
+Build completed successfully (656 jobs).
+lake build Zeta23.W1.Instances  16.69s user 1.19s system 128% cpu 13.878 total
+build exit: 
+-- #print axioms on all 12 instance theorems (scratch module via lake env lean)
+'Zeta23.W1.mpNullT100_check' depends on axioms: [propext]
+'Zeta23.W1.arbNullT100_check' depends on axioms: [propext]
+'Zeta23.W1.mpNullT1000_check' depends on axioms: [propext]
+'Zeta23.W1.arbNullT1000_check' depends on axioms: [propext]
+'Zeta23.W1.mpNullT10000_check' depends on axioms: [propext]
+'Zeta23.W1.arbNullT10000_check' depends on axioms: [propext]
+'Zeta23.W1.mpNullDeepT100_check' depends on axioms: [propext]
+'Zeta23.W1.arbNullDeepT100_check' depends on axioms: [propext]
+'Zeta23.W1.mpDH_check' depends on axioms: [propext]
+'Zeta23.W1.arbDH_check' depends on axioms: [propext]
+'Zeta23.W1.posMP_rej_check' does not depend on any axioms
+'Zeta23.W1.posARB_rej_check' does not depend on any axioms
+axioms exit: 0
+-- grep: no sorry / native_decide / admit / ofReduceBool outside comments
+(grep exit 1 ; 1 = nothing found outside the docstring)

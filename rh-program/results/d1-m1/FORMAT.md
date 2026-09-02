@@ -1,6 +1,10 @@
 # W1 rectangle-transcript format — the M1 v1 producer/checker contract
 
-**Status:** v1.0, 2026-08-26 (Session 8, D1 M1 first work item).
+**Status:** v1.0, 2026-08-26 (Session 8, D1 M1 first work item). **Errata and clarifications
+2026-09-02** (the reconciled audit, `AUDIT.md`): no check and no hypothesis changed, so the
+contract stays v1.0; the dated notes in §1 (A even — a producer requirement), §6.1, §6.3 step 5
+(v1 scope of the Lean conclusion), §7 (C10 in Lean; the floor variant), §7.1 (`maxRecDepth`),
+§8.1 (what the checker cannot see), §10 and §13 are clarifications of what was already true.
 **This file is the contract.** The Lean stream building the M1 v1 checker (`Zeta23/…` in
 `anthropic/zeta-23-lean-main`) reads THIS file as the normative specification of the transcript
 data, the checker's integer checks, and the two displayed hypotheses; the untrusted producers
@@ -79,6 +83,13 @@ format carries the Davenport–Heilbronn live-fire variant (§9.2, checker-level
   pairs. `A ≥ 1` (argument scale, turn units): an argument row `(argLo, argHi)` asserts
   argLo ≤ A·(Δγ/2π) ≤ argHi, where Δγ is the argument increment along γ (§6.1). K and A are
   independent; producers choose them.
+  **Producer requirement, added 2026-09-02 (AUDIT F-2 / F-5): A MUST be EVEN and ≥ 2.** The D3
+  clamp of §6.1 is an integer clamp to [−A/2, A/2]; for odd A it is not expressible in integers,
+  and a true increment in ((A−1)/2, A/2) has no C7-legal row — with A = 1 the mp producer once
+  emitted an all-[0, 0] row set that both Python checkers accepted for a rectangle containing a
+  zero (`recon_F2_before.log`; a false H-ENCL(b), never a checker fault). The checker itself is
+  sound for every A ≥ 1 (only producers clamp), so C1 is unchanged; both producers now refuse
+  odd A (`producer_arb.py` always did; `producer_mp.py` since the repair R2).
 * **No floats, no division, no transcendental constants anywhere in checked data or checks.**
   π and 2π never appear in the transcript: argument rows are in TURN units (the increment
   divided by 2π), so the winding number is pinned by pure integer containment (C8/C9).
@@ -250,7 +261,9 @@ in ONE interval; therefore |Δ_k| = |θ(1) − θ(0)| < π. ∎
 
 D3 justifies the clamp check C7 (below): a row with 2·|argLo_k| > A or 2·argHi_k > A could
 never be a clamped enclosure of a true increment. Producers MUST clamp their computed
-enclosures to [−A/2, A/2] before writing (sound: the true value lies in the intersection).
+enclosures to [−A/2, A/2] before writing (sound: the true value lies in the intersection) —
+**with A even** (§1, 2026-09-02): the clamp bounds are integers only for even A, and an integer
+clamp to ±⌊A/2⌋ with A odd cuts strictly inside the sound interval.
 
 ### 6.2 The checks (C7–C10)
 
@@ -289,6 +302,11 @@ and H-AP (§8.2), for f the function named by `function` (Lean v1: f = ζ only, 
    zero of ζ in the open critical strip off the critical line. RH asserts every zero of ζ with
    0 < Re s < 1 has Re s = ½ (the trivial zeros −2, −4, … all have Re s < 0 ≤ ½ < Re ρ, so ρ
    is not one of them). Hence ¬RH. ∎
+   *(v1 scope, recorded 2026-09-02 — AUDIT O MINOR-6: the Lean theorem `cert_of_checkW1`
+   delivers the EXISTENTIAL form — some ρ ∈ R° with ζ(ρ) = 0 and ½ < Re ρ < 1 — because H-AP is
+   formalized in consequence form (§8.2 note); the "at least m zeros with multiplicity" reading
+   above is the mathematical content of H-AP and is formalized at v1.1. `Soundness.lean`'s header
+   records the same deferral.)*
 6. **Exclusion conclusion (m = 0).** Z = 0 (no zeros in R°) and step 1 (none on ∂R): no zeros
    of f in the closed rectangle R.
 
@@ -325,8 +343,19 @@ reporting, and short-circuiting does not affect the accepted set.
 * **C7** argument rows: argLo_k ≤ argHi_k ∧ −A ≤ 2·argLo_k ∧ 2·argHi_k ≤ A, every k.
 * **C8** sum width: 2·(S_hi − S_lo) < A.
 * **C9** containment: S_lo ≤ A·m ≤ S_hi.
-* **C10** mode: refutation ⟹ m ≥ 1; exclusion ⟹ m = 0.
+* **C10** mode: in the JSON checkers, refutation ⟹ m ≥ 1 and exclusion ⟹ m = 0. The Lean
+  `W1Data` has no `mode` field (§12.5), so `checkW1` carries instead the clause **0 ≤ m**, and the
+  refutation/exclusion split happens in the theorem (`1 ≤ m` vs `m = 0`). Read mode-free the two
+  predicates coincide: a transcript is Lean-accepted iff it would be JSON-accepted under some mode
+  (verified by a 1 300-case differential fuzz, `audit_O_lean_vs_py.py`; clarified 2026-09-02,
+  AUDIT O MINOR-4 / F-7).
 * **C11** (only if `modulus_floor` present): (mre_k² + mim_k²)·Fd² ≥ Fn²·K², every k (§5.2).
+  **Floor variant (clarified 2026-09-02, AUDIT O MINOR-3).** C11 is not part of `check`; it is part
+  of `checkFloor`. In Lean this is the `checkW1` / `checkW1Floor` split (§7.1). The reference
+  checkers fold C11 into a single verdict, so for a transcript carrying `modulus_floor` their
+  ACCEPT corresponds to `checkW1Floor`, not `checkW1`; a transcript whose floor row fails C11 is
+  rejected by them and accepted by `checkW1`. "Accepted by the Lean checker" for a floor-bearing
+  transcript means `checkW1Floor = true` (as in `lean/Zeta23/W1/Instances.lean`).
 
 Every check is an integer comparison over transcript data (+, ·, |·|, min, max on ℤ only) —
 `decide +kernel`-expressible, mirroring `NumericCert.check`'s discipline (only +, ·, max, |·|
@@ -367,6 +396,18 @@ rectangle membership and the m-fold zero count with multiplicity are phrased) is
 stream's to settle; the DATA fields, the CHECKS, and the HYPOTHESIS boundaries above are
 normative.
 
+**Instance-file build note (added 2026-09-02; AUDIT F-3 and O MAJOR-2, settled by computation at
+reconciliation).** A `W1Data` literal of more than a few hundred rows does not compile at Lean's
+default `maxRecDepth` (measured: the 1 294-row t = 10⁴ transcript fails at the default 512 and at
+8 000, passes at 40 000 and 100 000). The limit is hit by the **definition compiler on the list
+literal** — a file holding only the `def` and no theorem fails at the `def` line — and NOT by
+`decide +kernel`: with the data imported from a built module, `checkW1` on the same 1 294 rows
+kernel-evaluates in about 2 s at the default limit (`recon_lean_instances.log`, experiments A/B).
+Instance files therefore carry `set_option maxRecDepth 100000` before the data, which
+`emit_lean.py` writes. A single Lean list literal at M3/Gomila scale (10⁶ rows) is not viable at
+any limit; bulk data must be chunked across several `def`s (or decoded from a compact encoding),
+a decision that belongs in `BarrierCertData`'s shape from the start (M2a).
+
 ---
 
 ## 8. The two displayed hypotheses (per D-R3 — exactly two, displayed, never hidden)
@@ -388,6 +429,16 @@ values): if f vanished somewhere on γ_k, (a) + C6 would be contradictory — so
 integral in (b) can never silently be the junk value of a non-integrable integrand under the
 hypotheses actually used; integrability is forced on the soundness side, where it belongs
 (same pattern as the M2a design note §1.2 anti-cheat remark).
+
+**What the checker cannot see (by design; stated 2026-09-02 — AUDIT F-8 / O MINOR-5).** H-ENCL is
+INDEXED: row k is the claim about segment k. C1–C11 constrain only the integers in the file; they
+do not constrain K or A against the values they scale, nor the row↔segment correspondence. A
+transcript with a mis-scaled K or A (m adjusted to match), with correct rows written in the wrong
+order (the `segments` array rotated), or with every value box negated is ACCEPTED by all three
+checkers — each such file asserts a FALSE H-ENCL, so the certified conclusion is vacuous rather
+than wrong. The only detectors are the cell-wise two-producer cross-check
+(`acceptance/crosscheck.py`) and the producers' own discipline, never the checker — one more
+reason the two-producer rule is mandatory.
 
 ### 8.2 H-AP (the rectangle argument principle; v1's analytic debt, discharged by v1.1)
 

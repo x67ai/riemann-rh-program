@@ -1,6 +1,13 @@
 # M1 v1 acceptance suite — report
 
-**Status:** run 2026-08-26 (Session 8, D1 first-deliverable component 3).
+**Status:** run 2026-08-26 (Session 8, D1 first-deliverable component 3). **Audited 2026-09-02**
+(two independent audits, reconciled in `AUDIT.md`; state of the deliverable in `RUN-REPORT.md`):
+every number in this report re-derived from the artifacts by both auditors — one wrong ratio
+(§4, corrected in place); the "both checkers" of this report are the two UNTRUSTED Python
+checkers, and the Lean kernel checker has since been run on every transcript here
+(`lean/Zeta23/W1/Instances.lean`; dated notes in §0, §6, §7). The mp-leg producer was repaired
+(outward ulp inflation, A-even guard) and every mp transcript re-produced byte-identically in
+numeric content (`recon_mp_reproduce.log`, `recon_mp_reproduce_t10000.log`).
 **Directory:** `results/d1-m1/acceptance/` (all transcripts, harnesses, and logs; every
 number below is rerunnable from the commands in §8).
 **Trust language (binding, D-R3/D-R8):** every accepted ζ transcript is
@@ -14,9 +21,9 @@ Nothing here is "fully machine-checked".
 
 | suite item | result |
 |---|---|
-| 1. Null tests (4 rectangles × 2 legs, m = 0) | **PASS** — all 8 transcripts ACCEPTED by both checkers |
-| 2. Positive control (straddling box, machinery test) | **PASS** — both legs' machinery certify m = 1; both checkers REJECT the transcript at exactly C2, as the format requires |
-| 3. DH live fire (checker-level true positive, D-R8) | **PASS** — both legs, identical rectangle around ρ_DH, m = 1, ACCEPTED by both checkers |
+| 1. Null tests (4 rectangles × 2 legs, m = 0) | **PASS** — all 8 transcripts ACCEPTED by both UNTRUSTED Python reference checkers (`reference_checker.py`, `checker_ref.py`); **and, since the reconciled audit of 2026-09-02, by the Lean kernel checker** (`lean/Zeta23/W1/Instances.lean`: `checkW1Floor … = true` by `decide +kernel` for all 8) |
+| 2. Positive control (straddling box, machinery test) | **PASS** — both legs' machinery certify m = 1; both Python checkers REJECT the transcript at exactly C2, as the format requires; the Lean kernel rejects both (`checkW1 … = false`, `Instances.lean`) |
+| 3. DH live fire (checker-level true positive, D-R8) | **PASS** — both legs, identical rectangle around ρ_DH, m = 1, ACCEPTED by both Python checkers and (2026-09-02) kernel-accepted as checker instances in `Instances.lean` — checker-level only, no theorem about f_DH |
 | 4. Two-producer cross-check | **CONSISTENT** — every pair cell-wise consistent on the common mesh refinement; zero stop-the-line events |
 | 5. Cost curve | **WRITTEN** — `results/d1-m1/cost-curve.json` |
 
@@ -144,8 +151,10 @@ Record (`acceptance/logs/crosscheck.log`):
 | positive control | 295 | CONSISTENT |
 
 **Zero disagreements; zero stop-the-line events.** Winding enclosures intersect on
-every pair (the mp enclosures, at A = 10¹², are ~10³–10⁴× tighter than the arb ones at
-A = 10⁶; each contains the common integer m).
+every pair (the mp enclosures, at A = 10¹², are ~5·10⁵–10⁶× tighter than the arb ones at
+A = 10⁶ — integer widths of the same order at scales 10⁶ apart: 5.2·10⁻¹¹ vs 2.7·10⁻⁵ turns
+at T = 100, 1.3·10⁻⁹ vs 9.8·10⁻⁴ at T = 10⁴, 4·10⁻¹¹ vs 5·10⁻⁵ on the DH box; corrected
+2026-09-02 from the Session-8 "~10³–10⁴×", AUDIT F-4; each contains the common integer m).
 
 Independent high-precision spot validation (binding cross-validation rule):
 `validate_arb_transcripts.py` (mpmath dps 40, heuristic floats — evidence, not
@@ -188,8 +197,12 @@ straddling box at C2; (iii) fires end-to-end on the one known true positive in r
 (f_DH at ρ_DH) at checker level; (iv) produces mutually consistent enclosures under
 an adversarial cell-wise comparison.
 
-Does NOT establish: any Lean-kernel-checked statement (the Lean checker is the Lean
-stream's item; both checkers here are untrusted reference implementations); any
+Does NOT establish: any Lean-kernel-checked statement *about ζ or f_DH* (as run in
+Session 8 both checkers here were untrusted reference implementations; since 2026-09-02
+the ten transcripts and both positive controls are also kernel-evaluated in
+`lean/Zeta23/W1/Instances.lean` — `checkW1Floor = true` ×10, `checkW1 = false` ×2 by
+`decide +kernel` — which is a checker-level fact: H-ENCL is not certified in Lean, and the
+ζ conclusion is `cert_of_checkW1` modulo the displayed H-ENCL and H-AP); any
 statement about ζ beyond the four exclusion boxes' ledger sentences; anything about
 f_DH beyond checker level (D-R8); any claim at M3 production heights (~10¹²⁺ — the
 cost curve's T ≤ 10⁴ points are calibration seeds, not that regime).
@@ -205,7 +218,11 @@ cost curve's T ≤ 10⁴ points are calibration seeds, not that regime).
    H-ENCL, H-AP" for f_DH files too; for f_DH the binding scope is the transcript's
    own `trust_label` (checker-level only, no H-AP claim — D-R8). Cosmetic stdout
    wording of an untrusted tool; the transcript content is correct. Recorded, not
-   repaired, to keep the format author's checker byte-identical this session.
+   repaired in Session 8, to keep the format author's checker byte-identical that
+   session. **Repaired 2026-09-02** (AUDIT O MINOR-1, applied at reconciliation): the
+   banner now prints the function's own trust label — for f_DH, "checker-level only
+   (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion"
+   (`recon_checker_pass.log`).
 3. The positive-control transcripts carry the schema-fixed ζ `trust_label` verbatim
    (required so the checker reaches C2 rather than failing at shape); the honest
    machinery-test label lives in their `comment` field and file names. A reader of
