@@ -922,3 +922,27 @@ PROVED and transplant-transparent, the manifold trace-formula package re-secured
 Written into the C3 direction file (work log + a Session-14 frontier paragraph with the sequential
 next-stream list) and the M2c ledger (§13 addendum carrying the adjudicators' proposed annotations
 verbatim, status PENDING). Novelty ledgers: 11 + 18 + 18 single-check items for the next sweep.
+
+- 2026-09-02 (Session 14, D1 M2a contract agent, wf `d1-audit-m2a-s14`): **M2a barrier-certificate
+  contract WRITTEN — `results/d1-m2a/SPEC.md` (v1.0, 1 170 lines) + `barrier-schema.json` + micro-examples
+  + untrusted reference checker + Lean-shape scratch type-checked against the working tree.** Two lanes:
+  B (barrier: per-prism seam W1-exclusion transcript + floor + approximation defect E + displacement D,
+  gate (E+D)·Fd < Fn·K; soundness reduced to the fixed-t argument principle twice plus one half-plane
+  FTC lemma — no Rouché) and A (final-time window rows E < T + a derived tail lemma, Lemma T, with the
+  reduction displayed as H-TAIL). DECISION on the asymptotic component: a second CHECKED lane, because
+  P15 p66 records hypothesis (ii) for the Table-1 rows as "expect to be able to verify" (barrier runs
+  recorded, asymptotic argued from the N₀ lower bound). **Two blocking findings for Instance02:**
+  (1) `Defs.lean`'s merged canopy hypothesis in `Polymath15Bridge` quantifies (ii) over ALL t ∈ [0,t₀];
+  at t = 0 for x ≥ X it is RH above PT's height — true Prop, not dischargeable; amended `Polymath15Bridge'`
+  (ii at t₀ only, rational boundaries) type-checked and shown implied by Theorem 1.2 (D-H3). (2) The
+  design note's σ₀ = 58367/100000 is a round-UP of (1+y₀)/2 = 0.583665 (unsafe direction); H1 must be
+  `ZeroVerification (116733/200000) 2500000097429` exactly (PT margin 500 175 235 371). Corpus finding:
+  `fetched/p3-22a5` labeled "published Polymath15 (Forum Math. Pi)" is the published Rodgers–Tao paper;
+  no published Polymath15 is on disk. Packaging (D-1) settled: per-prism JSON files and per-prism Lean
+  modules with ≤1000-row chunk defs and per-module `decide +kernel`; `checkPrism` takes a `RectData` so
+  prism modules assemble; a measured experiment with a decision rule for a Nat-packed alternative.
+  Row 2 exact: X = 5 000 000 194 858, t₀ = 93/500, y₀ = 16733/100000, t₀ + y₀²/2 = 3999993289/2·10¹⁰ ≤ 1/5,
+  N₀ = 630783 interval-verified. Indicative (heuristic): barrier e_C0 ≲ 4.1e-4 at (X, y₀, t=0); crude tail
+  needs N₁ ≈ 6–8·10⁶. No program Lean file changed (scratch only). Gomila map: finite lane converts
+  directly; the 883-prism logs hold per-prism summaries only (no per-point data) — conversion = re-run
+  with an emitter or D1's own legs; tail lemma differs.
