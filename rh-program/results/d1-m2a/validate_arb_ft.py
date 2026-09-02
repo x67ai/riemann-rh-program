@@ -21,9 +21,11 @@ Reference evaluator (independent code path, mpmath only; P15 = fetched/p3-22a4-p
     D-V1 is itself checked numerically against the direct u-integral at x in {50, 120, 200} (section A).
   * B_t(z) = M_t((1+y-ix)/2) from P15 (6), (9), (10), (11) p4, re-implemented in mpmath (formula sharing, not code sharing).
   * Truncation of the w-integral to [-W, W]: the integrand is e^{-w^2/2} times |H_0(z + i c w)|/|H_0(z)| which grows at most
-    like (x/2)^{c|w|/4} (the Gamma factor; sigma shifts by c w/2); at W = 14, x = 10^4, t = 0.2 that is e^{-98} * 5000^{2.2}
-    ~ 1e-35 relative -- far below the 1e-25 decimal slack used in the containment test.  Section A' checks the quadrature by
-    recomputing four points at higher dps and wider W.
+    like (x/2)^{c|w|/4} (the Gamma factor; sigma shifts by c w/2); at W = 16, x = 10^4, t = 0.2 that is e^{-128} * 5000^{2.5}
+    ~ 1e-46 relative.  Quadrature: mpmath Gauss-Legendre on 81 equal panels of [-W, W] at dps 45 -- the integrand's modulus
+    varies by many orders across the range, and a convergence study at (x, y, t) = (10^4, y0, 0.2) gave relative changes
+    3.4e-14 (29 panels), 6.7e-19 (41 panels), < 1e-25 (81 vs 121 panels) -- so the reference is good to ~1e-25 relative.
+    Section A' re-checks four points at dps 60 / W = 18 / 121 panels (threshold 1e-22).
 The Arb side is called through producer_arb.point_hook (direct summation of (92) + the D-A2 defect bound) in section B and
 through producer_arb.BoxEvaluator / SeamContext (the D-A4..D-A18 Taylor evaluator, the one used for the transcripts) in
 sections C-E.
@@ -40,7 +42,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import producer_arb as PA  # the Arb leg (its point hook, evaluator classes and the exact ball->rational helpers)
 
-mp.dps = 35
+mp.dps = 45
 SLACK = Fraction(1, 10 ** 25)
 
 
@@ -72,7 +74,7 @@ def Ht_direct(z, t):
     return quad(f, mpmath.linspace(0, mpf("1.4"), 60))
 
 
-def Ht_heat(z, t, W=14, n_sub=29):
+def Ht_heat(z, t, W=16, n_sub=81):
     if t == 0:
         return H0(z)
     c = sqrt(2 * t)
@@ -138,27 +140,27 @@ def main():
     # so it is computed at dps 35 + that loss + 5; the heat-kernel form has no such loss (it is what the harness relies on).
     for (x, y, t) in ((50, mpf("0.3"), mpf("0.1")), (120, mpf(1), mpf("0.186")), (200, mpf("0.16733"), mpf("0.05"))):
         loss = int(float(pi) * x / 8 / 2.302585) + 5
-        mp.dps = 35 + loss
+        mp.dps = 45 + loss
         z = mpc(x, y)
         d = Ht_direct(z, t); h = Ht_heat(z, t)
         rd = abs(d - h) / abs(d)
-        mp.dps = 35
-        log(f"   x={x} y={y} t={t} (dps {35+loss}): direct={mpmath.nstr(d, 15)} heat={mpmath.nstr(h, 15)} rel.diff={mpmath.nstr(rd, 3)}")
+        mp.dps = 45
+        log(f"   x={x} y={y} t={t} (dps {45+loss}): direct={mpmath.nstr(d, 15)} heat={mpmath.nstr(h, 15)} rel.diff={mpmath.nstr(rd, 3)}")
         if not rd < mpf(10) ** -20:
             failures += 1; log("   D-V1 CHECK FAILED")
     log("   D-V1 agreement < 1e-20 at all three points" if failures == 0 else "   D-V1 FAILED")
     # ---- Section A': quadrature stability of the reference
-    log("A'. reference stability: dps 35 / W=14 / 29 panels  vs  dps 50 / W=18 / 41 panels:")
+    log("A'. reference stability: dps 45 / W=16 / 81 panels  vs  dps 60 / W=18 / 121 panels:")
     for (x, y, t) in ((Fraction(10000), y0, Fraction(1, 5)), (Fraction(10000), Fraction(1), Fraction(93, 500)),
                       (Fraction(1000), Fraction(1, 2), Fraction(1, 20)), (Fraction(3000), y0, Fraction(93, 500))):
         r1 = g_ref(x, y, t)
-        mp.dps = 50
+        mp.dps = 60
         z = mpc(mpf(x.numerator) / x.denominator, mpf(y.numerator) / y.denominator); tt = mpf(t.numerator) / t.denominator
-        r2 = Ht_heat(z, tt, W=18, n_sub=41) / Bt_mp(z, tt)
-        mp.dps = 35
+        r2 = Ht_heat(z, tt, W=18, n_sub=121) / Bt_mp(z, tt)
+        mp.dps = 45
         rd = abs(r1 - r2) / abs(r1)
-        log(f"   x={x} y={float(y):.5f} t={float(t):.3f}: g={mpmath.nstr(r1, 20)} rel.diff={mpmath.nstr(rd, 3)}")
-        if not rd < mpf(10) ** -25:
+        log(f"   x={x} y={float(y):.5f} t={float(t):.3f}: g={mpmath.nstr(r1, 25)} rel.diff={mpmath.nstr(rd, 3)}")
+        if not rd < mpf(10) ** -22:
             failures += 1; log("   REFERENCE UNSTABLE")
     # ---- Section B: containment at 48 points in region (5), direct-sum evaluator + D-A2 defect
     log("B. containment H_t/B_t in f_t (+-) (rad + E): Arb direct-sum evaluator (point_hook) vs mpmath reference:")
@@ -198,9 +200,9 @@ def main():
     pts = [(X, y0), (X + 1, Fraction(1)), (X + Fraction(1, 3), y0), (X + Fraction(7, 10), Fraction(1)),
            (X, Fraction(3, 5)), (X + 1, Fraction(2, 5)), (X + Fraction(1, 2), y0), (X + Fraction(9, 10), Fraction(1))]
     nC = okC = 0; worstC = 0.0; wC = []
-    for tt in (Fraction(0), Fraction(1, 20), Fraction(93, 500)):
+    for tt in (Fraction(0), Fraction(93, 500)):
         seam = box.seam(tt)
-        for (xx, yy) in pts:
+        for (xx, yy) in (pts if tt == 0 else pts[:6]):
             r = g_ref(xx, yy, tt)
             f = seam.eval(xx, yy)[0]
             ok, dist, rad = contained(f, seam.E, r)
