@@ -1,0 +1,15 @@
+Producer-side negative controls on the REAL row-2 Arb transcript (each mutation applied to prism 0 in a scratch copy, then reverted; 2026-09-02).
+A weakened-but-still-valid enclosure (a wider box or argument row) MUST still be accepted; only violations of the integer checks reject.
+prism 0: floor Fn/Fd = 4.382537, E/K = 4.1192e-04, D/K = 3.900348; gate margin floor - (E+D)/K = 0.481776
+unmodified: ACCEPT -- ACCEPT (barrier lane, 72 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified state  [expected ACCEPT: ok]
+D + margin - 1/K (just inside the gate): ACCEPT -- ACCEPT (barrier lane, 72 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified state  [expected ACCEPT: ok]
+D + margin (gate equality (E+D)*Fd = Fn*K): REJECT -- REJECT at instance02-prism-0000.json: C-B12 (E+D)*Fd=4382536801521000000000000 >= Fn*K=4382536801521  [expected REJECT: ok]
+row 100 box widened to contain 0: REJECT -- REJECT at instance02-prism-0000.json: C-B6 box contains 0, row 100  [expected REJECT: ok]
+row 100 box widened by 0.1 each side (still off 0; floor row 232 unaffected): ACCEPT -- ACCEPT (barrier lane, 72 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified state  [expected ACCEPT: ok]
+row 5 argument row widened by 0.6 turn (C-B7: > A/2): REJECT -- REJECT at instance02-prism-0000.json: C-B7 argument row, row 5  [expected REJECT: ok]
+row 5 argument row widened by 0.4 turn (C-B7 holds; total width 0.4 + tiny < 1/2 turn): ACCEPT -- ACCEPT (barrier lane, 72 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified state  [expected ACCEPT: ok]
+rows 5 and 6 each widened by 0.3 turn (C-B7 holds; C-B8 total width >= 1/2 turn): REJECT -- REJECT at instance02-prism-0000.json: C-B8 winding width 2*(600147--142) >= A=1000000  [expected REJECT: ok]
+floor Fn + 1 (the rows support exactly Fn): REJECT -- REJECT at instance02-prism-0000.json: C-B11 floor fails, row 232  [expected REJECT: ok]
+last row deleted: REJECT -- REJECT at instance02-prism-0000.json: C-B4 |segments| = 288 != M = 289  [expected REJECT: ok]
+prism 0 seam moved off 0 (manifest/prism mismatch): REJECT -- REJECT at instance02-prism-0000.json: manifest/prism seam mismatch  [expected REJECT: ok]
+bottom[last] set to x1 (mesh walk broken): REJECT -- REJECT at instance02-prism-0000.json: C-B3 last breakpoint != edge stop  [expected REJECT: ok]

@@ -12,7 +12,7 @@ checker of the M2a Lean stream consumes it; today's acceptances are by the untru
 
 | component | file | status |
 |---|---|---|
-| the Arb-leg barrier producer: P15 f_t evaluator (two-variable Taylor/moment evaluator with derived remainders), Theorem 1.3 defect E, displacement D, mesh, rows, chain, manifest | `producer_arb.py` (1 384 lines; every transcribed formula at PDF page and derivations D-A1…D-A18 in the module docstring) | DONE |
+| the Arb-leg barrier producer: P15 f_t evaluator (two-variable Taylor/moment evaluator with derived remainders), Theorem 1.3 defect E, displacement D, mesh, rows, chain, manifest | `producer_arb.py` (1 408 lines; every transcribed formula at PDF page and derivations D-A1…D-A18 in the module docstring) | DONE |
 | moment cache (lossless dyadic mid/rad, D-A14) | `arb-cache/moments-b6e2fae75cbdb737e271.json` (85 KB; row-2 box, N₀ = 630783, K = 36, J = 40, 320 bits; 61.4 s to compute) | DONE |
 | **the row-2 barrier transcript (Lane B)** | `transcripts/row2-arb/instance02-barrier-manifest.json` + `instance02-prism-0000…0071.json` (72 prisms, 10 771 rows, 2.9 MB) + `producer.log`, `producer-console.log`, `instance02-progress.json` | **COMPLETE chain 0 → t₀ = 93/500; reference checker ACCEPT** |
 | the N = 5000 test instance shared with the mpmath leg (rectangle [314159300, 314159301] × [y₀, 1], same t₀) | `transcripts/mini-arb/` (3 prisms, cut at 15558943/10⁹; a test, NOT a certificate instance) | ACCEPT (chain segment [0, 0.0156]) |
