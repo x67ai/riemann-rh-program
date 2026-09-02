@@ -679,3 +679,39 @@ eight completed agents replayed from cache and the four adjudicators told about 
 run 2 replays audit-F from cache, re-runs audit-O with a resume brief (read AUDIT-O.md, confirm, return
 a short summary) and a relaxed schema, then reconcile → M2a; run 3 re-runs all eleven agents with each
 probe told to continue from its partial draft rather than restart.
+
+**07:55 IST — interim harvest of what the killed runs returned (binding verdicts follow from the
+resumed adjudicators; nothing below is banked yet).**
+
+*Run 1, referee debts — all six reports PASS-WITH-REPAIRS, ZERO FATALS:* probe A Thm B(b) — F: 3 major /
+4 minor, O: 4 major / 7 minor, both "every step of the cell construction re-derived; the mathematics is
+correct"; probe B Cor. A.1 converse — F: 2/4, O: 2/3, both: **the converse inclusion is TRUE and holds in a
+form stronger than the note claims, but the note's argument for it is not a proof and is replaced**;
+9.4 Lemmas A–D + Prop. 1 — F: 1 major / 9 minor, O: 3 major / 15 minor (Lemma A 2 major; Lemma B
+PASS-strengthened; Lemma C, D, Prop. 1 PASS). *Novelty sweep (dual-model):* N1 packet-closure law
+NOVEL (both); N2 non-Hausdorff / infinite-dimensional closed half NOVEL (F) vs PARTIAL (O — the
+"first alternative of Deninger's question answered NO" part NOVEL); **N3 the coker(Aut_ring→Aut_group)
+identity: PARTIAL (F) vs ANTICIPATED (O) — a genuine disagreement for the adjudicator**; N3ii the Aut(C)
+no-go NOVEL; N4 Haar road / DQ-M PARTIAL (both; "Haar-averaging Deninger's packets" itself NOVEL);
+N5 Theorem C cuts NOVEL (both). Novelty-O listed the Lutz thesis as UNDETERMINED coverage — it is now
+on disk (r3s-23 + OCR) and a follow-up check against it is owed after the adjudication.
+
+*Run 2, AUDIT-F of M1 v1 (returned; AUDIT-O on disk, not yet returned):* 0 FATAL, 2 MAJOR, 6 MINOR.
+**MAJOR F-1:** mpmath 1.3.0's interval transcendental primitives (exp/log/atan/pi) directed-round a
+guard-bit approximation, not the true value — demonstrated (11 of 40,000 samples, ~6e-91 relative); so
+`ball.py`'s "every endpoint directed-rounded" premise is false as stated and every mp-leg enclosure is
+rigorous only modulo ~1 ulp per operation. Not fatal: the emitted transcripts have rounding slack ≥
+4.2e-3/K against an error budget < 1e-50/K, the Arb leg is rigorous by construction and independent;
+repair R1 = outward 2^16-ulp inflation of those primitives (mpmath's own mpi_cos_sin recipe).
+**MAJOR F-2:** `producer_mp.py`'s clamp is unsound for odd A — with `--A 0 --mode exclusion` on the DH
+live-fire rectangle it EMITS a transcript both Python checkers ACCEPT although the box contains a zero
+(a false certificate; the checker and format stay sound, the producer's H-ENCL(b) is false); the Arb
+producer guards A even, the mpmath one did not; repair R2/R5 = require A even, say so in FORMAT.
+Minor: Lean `checkW1` needs `maxRecDepth 100000` on the ~1000-row transcripts; "10³–10⁴× tighter" in
+the acceptance report is really 5e5–1.25e6×; "accepted by both checkers" meant the two PYTHON checkers
+— the Lean checker had never been run on producer data, and now has been: 10/10 real transcripts
+accepted and 30/30 hand-corrupted ones rejected by `decide +kernel`. Everything else verified: the
+Euler–Maclaurin remainder re-derived and matched; 1,088 fresh containment checks, 0 failures; DH
+winding recomputed three ways; axioms clean. **Gomila steps 3–4: NOT cleared by M1 v1** — W1's
+rectangle is hard-wired to the strip, no t-slices, no f_t evaluator; M2a must add BarrierCert, the f_t
+evaluator on both legs, a converter, and FIRST the R1/R2/R5 repairs.
