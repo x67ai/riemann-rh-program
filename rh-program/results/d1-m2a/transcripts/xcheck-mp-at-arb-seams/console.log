@@ -305,3 +305,115 @@
 [00:55:31]     edge right :   42 segments (1.0s, 92 evals so far)
 [00:55:32]     edge top   :   50 segments (1.1s, 142 evals so far)
 [00:55:33]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:55:37]     winding sum: S_lo=-98 S_hi=108 (A=1000000000000, max row width 2)
+[00:55:37]     floor |f_tau| >= 3187373475844524515728424/K = 3.187373 on dR (max |f| box <= 21.2757); 184 segments
+[00:55:37]     E(tau) <= 9.6425e-05 (eAB 5.32e-11, eC0 9.64e-05, sigma_lo 0.8011, F 1.955e+02) -> E = 96425355720503693893
+[00:55:48]     |d/dt f| at the seam <= 626.4 (worst segment 14, 11.1s)
+[00:56:00]     try tau' = 35106991/1000000000 (dt 2.540e-03): DT <= 641.5 (seg 14), E_prism <= 9.643e-05, D/K = 1.6297e+00 -> gate OK (11.3s)
+[00:56:00]     wrote prism-0025.json: 184 rows, E=96425355720503693893, D=1629662948391861591494395, floor 3187373475844524515728424/K, next seam 35106991/1000000000 (32.8s)
+[00:56:00] prism 26: seam tau = 3421023/100000000 (0.034210)
+[00:56:01]     prepare(seam) 1.93s; orders plus [(16, 8), (17, 8), (18, 8)]
+[00:56:03]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:56:04]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:56:05]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:56:06]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:56:10]     winding sum: S_lo=-107 S_hi=103 (A=1000000000000, max row width 2)
+[00:56:10]     floor |f_tau| >= 3137118722892392051526405/K = 3.137119 on dR (max |f| box <= 20.3093); 184 segments
+[00:56:10]     E(tau) <= 8.9613e-05 (eAB 5.06e-11, eC0 8.96e-05, sigma_lo 0.8121, F 1.848e+02) -> E = 89613135735745629499
+[00:56:21]     |d/dt f| at the seam <= 591.7 (worst segment 14, 11.0s)
+[00:56:32]     try tau' = 3686023/100000000 (dt 2.650e-03): DT <= 606.4 (seg 14), E_prism <= 8.961e-05, D/K = 1.6071e+00 -> gate OK (11.2s)
+[00:56:32]     wrote prism-0026.json: 184 rows, E=89613135735745629499, D=1607135318144178738015210, floor 3137118722892392051526405/K, next seam 3686023/100000000 (32.6s)
+[00:56:32] prism 27: seam tau = 17897419/500000000 (0.035795)
+[00:56:34]     prepare(seam) 1.95s; orders plus [(16, 8), (17, 8), (18, 8)]
+[00:56:35]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:56:36]     edge right :   42 segments (0.9s, 92 evals so far)
+[00:56:37]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:56:38]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:56:42]     winding sum: S_lo=-110 S_hi=103 (A=1000000000000, max row width 2)
+[00:56:42]     floor |f_tau| >= 3090145792965562056736781/K = 3.090146 on dR (max |f| box <= 19.4279); 184 segments
+[00:56:42]     E(tau) <= 8.3500e-05 (eAB 4.83e-11, eC0 8.35e-05, sigma_lo 0.8227, F 1.751e+02) -> E = 83500182810595261606
+[00:56:53]     |d/dt f| at the seam <= 560.1 (worst segment 14, 10.9s)
+[00:57:04]     try tau' = 19272419/500000000 (dt 2.750e-03): DT <= 574.4 (seg 14), E_prism <= 8.350e-05, D/K = 1.5798e+00 -> gate OK (11.1s)
+[00:57:04]     wrote prism-0027.json: 184 rows, E=83500182810595261606, D=1579816647002717314905113, floor 3090145792965562056736781/K, next seam 19272419/500000000 (32.2s)
+[00:57:04] prism 28: seam tau = 37444307/1000000000 (0.037444)
+[00:57:06]     prepare(seam) 1.92s; orders plus [(16, 8), (17, 8), (18, 8)]
+[00:57:07]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:57:08]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:57:09]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:57:10]     edge left  :   42 segments (0.9s, 184 evals so far)
+[00:57:15]     winding sum: S_lo=-102 S_hi=110 (A=1000000000000, max row width 2)
+[00:57:15]     floor |f_tau| >= 3042743172305136006767368/K = 3.042743 on dR (max |f| box <= 18.5599); 184 segments
+[00:57:15]     E(tau) <= 7.7580e-05 (eAB 4.61e-11, eC0 7.76e-05, sigma_lo 0.8337, F 1.655e+02) -> E = 77579542516189995263
+[00:57:26]     |d/dt f| at the seam <= 529.1 (worst segment 14, 11.0s)
+[00:57:37]     try tau' = 40314307/1000000000 (dt 2.870e-03): DT <= 543.1 (seg 14), E_prism <= 7.758e-05, D/K = 1.5588e+00 -> gate OK (11.1s)
+[00:57:37]     wrote prism-0028.json: 184 rows, E=77579542516189995263, D=1558834707208325780844322, floor 3042743172305136006767368/K, next seam 40314307/1000000000 (32.3s)
+[00:57:37] prism 29: seam tau = 39164019/1000000000 (0.039164)
+[00:57:39]     prepare(seam) 1.95s; orders plus [(16, 8), (17, 8), (18, 8)]
+[00:57:40]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:57:41]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:57:42]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:57:43]     edge left  :   42 segments (0.9s, 184 evals so far)
+[00:57:47]     winding sum: S_lo=-104 S_hi=106 (A=1000000000000, max row width 2)
+[00:57:47]     floor |f_tau| >= 2994881077530447336793396/K = 2.994881 on dR (max |f| box <= 17.7056); 184 segments
+[00:57:47]     E(tau) <= 7.1853e-05 (eAB 4.38e-11, eC0 7.19e-05, sigma_lo 0.8452, F 1.562e+02) -> E = 71853317016138337148
+[00:57:58]     |d/dt f| at the seam <= 498.8 (worst segment 14, 11.0s)
+[00:58:09]     try tau' = 42164019/1000000000 (dt 3.000e-03): DT <= 512.4 (seg 14), E_prism <= 7.185e-05, D/K = 1.5373e+00 -> gate OK (11.2s)
+[00:58:09]     wrote prism-0029.json: 184 rows, E=71853317016138337148, D=1537277862556096711372858, floor 2994881077530447336793396/K, next seam 42164019/1000000000 (32.5s)
+[00:58:09] prism 30: seam tau = 20480007/500000000 (0.040960)
+[00:58:11]     prepare(seam) 1.95s; orders plus [(16, 8), (17, 8), (18, 8)]
+[00:58:12]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:58:13]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:58:14]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:58:15]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:58:19]     winding sum: S_lo=-111 S_hi=106 (A=1000000000000, max row width 2)
+[00:58:20]     floor |f_tau| >= 2946527116859306879969812/K = 2.946527 on dR (max |f| box <= 16.8653); 184 segments
+[00:58:20]     E(tau) <= 6.6324e-05 (eAB 4.16e-11, eC0 6.63e-05, sigma_lo 0.8572, F 1.471e+02) -> E = 66323783073753321111
+[00:58:31]     |d/dt f| at the seam <= 469.1 (worst segment 14, 11.0s)
+[00:58:42]     try tau' = 22050007/500000000 (dt 3.140e-03): DT <= 482.3 (seg 14), E_prism <= 6.632e-05, D/K = 1.5145e+00 -> gate OK (11.2s)
+[00:58:42]     wrote prism-0030.json: 184 rows, E=66323783073753321111, D=1514484917114683025084915, floor 2946527116859306879969812/K, next seam 22050007/500000000 (32.5s)
+[00:58:42] prism 31: seam tau = 42686817/1000000000 (0.042687)
+[00:58:44]     prepare(seam) 1.97s; orders plus [(16, 8), (18, 8), (18, 8)]
+[00:58:45]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:58:46]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:58:47]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:58:48]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:58:52]     winding sum: S_lo=-102 S_hi=107 (A=1000000000000, max row width 2)
+[00:58:52]     floor |f_tau| >= 2901544186880930628396732/K = 2.901544 on dR (max |f| box <= 16.1042); 184 segments
+[00:58:52]     E(tau) <= 6.1409e-05 (eAB 3.97e-11, eC0 6.14e-05, sigma_lo 0.8687, F 1.388e+02) -> E = 61408938252653960837
+[00:59:03]     |d/dt f| at the seam <= 442.3 (worst segment 14, 11.1s)
+[00:59:14]     try tau' = 45966817/1000000000 (dt 3.280e-03): DT <= 455.1 (seg 14), E_prism <= 6.141e-05, D/K = 1.4929e+00 -> gate OK (11.2s)
+[00:59:14]     wrote prism-0031.json: 184 rows, E=61408938252653960837, D=1492936973573024887269202, floor 2901544186880930628396732/K, next seam 45966817/1000000000 (32.6s)
+[00:59:14] prism 32: seam tau = 11122581/250000000 (0.044490)
+[00:59:16]     prepare(seam) 1.94s; orders plus [(17, 8), (18, 8), (18, 8)]
+[00:59:17]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:59:18]     edge right :   42 segments (0.9s, 92 evals so far)
+[00:59:19]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:59:20]     edge left  :   42 segments (0.9s, 184 evals so far)
+[00:59:25]     winding sum: S_lo=-103 S_hi=110 (A=1000000000000, max row width 2)
+[00:59:25]     floor |f_tau| >= 2856077428590805266380866/K = 2.856077 on dR (max |f| box <= 15.3552); 184 segments
+[00:59:25]     E(tau) <= 5.6664e-05 (eAB 3.77e-11, eC0 5.67e-05, sigma_lo 0.8807, F 1.307e+02) -> E = 56664178402242694366
+[00:59:35]     |d/dt f| at the seam <= 416.2 (worst segment 13, 10.9s)
+[00:59:47]     try tau' = 11980081/250000000 (dt 3.430e-03): DT <= 428.9 (seg 13), E_prism <= 5.666e-05, D/K = 1.4711e+00 -> gate OK (11.9s)
+[00:59:47]     wrote prism-0032.json: 184 rows, E=56664178402242694366, D=1471120105800355514123863, floor 2856077428590805266380866/K, next seam 11980081/250000000 (32.9s)
+[00:59:47] prism 33: seam tau = 46007899/1000000000 (0.046008)
+[00:59:49]     prepare(seam) 1.96s; orders plus [(17, 8), (18, 8), (19, 8)]
+[00:59:50]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[00:59:51]     edge right :   42 segments (1.0s, 92 evals so far)
+[00:59:52]     edge top   :   50 segments (1.1s, 142 evals so far)
+[00:59:53]     edge left  :   42 segments (1.0s, 184 evals so far)
+[00:59:58]     winding sum: S_lo=-109 S_hi=107 (A=1000000000000, max row width 2)
+[00:59:58]     floor |f_tau| >= 2818971847487709710273078/K = 2.818972 on dR (max |f| box <= 14.7592); 184 segments
+[00:59:58]     E(tau) <= 5.2957e-05 (eAB 3.62e-11, eC0 5.30e-05, sigma_lo 0.8909, F 1.243e+02) -> E = 52956877848753497134
+[01:00:09]     |d/dt f| at the seam <= 395.7 (worst segment 13, 11.0s)
+[01:00:20]     try tau' = 49567899/1000000000 (dt 3.560e-03): DT <= 408.1 (seg 13), E_prism <= 5.296e-05, D/K = 1.4529e+00 -> gate OK (11.0s)
+[01:00:20]     wrote prism-0033.json: 184 rows, E=52956877848753497134, D=1452877900761163672945898, floor 2818971847487709710273078/K, next seam 49567899/1000000000 (32.4s)
+[01:00:20] prism 34: seam tau = 47562969/1000000000 (0.047563)
+[01:00:22]     prepare(seam) 1.93s; orders plus [(17, 8), (18, 8), (18, 9)]
+[01:00:23]     edge bottom:   50 segments (1.1s, 50 evals so far)
+[01:00:24]     edge right :   42 segments (0.9s, 92 evals so far)
+[01:00:25]     edge top   :   50 segments (1.1s, 142 evals so far)
+[01:00:26]     edge left  :   42 segments (0.9s, 184 evals so far)
+[01:00:30]     winding sum: S_lo=-104 S_hi=114 (A=1000000000000, max row width 2)
+[01:00:30]     floor |f_tau| >= 2782002148980039476841764/K = 2.782002 on dR (max |f| box <= 14.1834); 184 segments
+[01:00:30]     E(tau) <= 4.9409e-05 (eAB 3.47e-11, eC0 4.94e-05, sigma_lo 0.9013, F 1.181e+02) -> E = 49409459025165790976
+[01:00:41]     |d/dt f| at the seam <= 375.8 (worst segment 13, 10.9s)
