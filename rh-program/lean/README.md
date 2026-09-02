@@ -1,6 +1,6 @@
 # `rh-program/lean` — this program's own Lean 4 files
 
-9 files, ~6,280 lines (3,265 of them the data literals of `W1/Instances.lean`, added
+12 files, ~7,480 lines (3,265 of them the data literals of `W1/Instances.lean`, added
 2026-09-02). They are **additions to the `Zeta23` library**, not a standalone project, and
 they are the only Lean files in this repository.
 
@@ -9,20 +9,68 @@ they are the only Lean files in this repository.
 | `Zeta23/PairCeiling/GridParseval.lean` | 583 | The grid-Parseval decoupling identity — the algebraic core of the A4 absorption result (Lemma 3.8 and Theorem 3.9 of the A4 paper) |
 | `Zeta23/PairCeiling/GridWitness.lean` | 402 | The 4128/33 witness, for every vacancy position |
 | `Zeta23/PairCeiling/GridCorner.lean` | 263 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
-| `Zeta23/W1/Soundness.lean` | 1257 | W1 checker soundness |
-| `Zeta23/W1/{Checker,Examples,Format}.lean` | 370 | The W1 checker, its examples and its output format |
+| `Zeta23/W1/Soundness.lean` | 1262 | W1 checker soundness |
+| `Zeta23/W1/{Checker,Examples,Format}.lean` | 385 | The W1 checker, its examples and its output format |
 | `Zeta23/W1/Instances.lean` | 3265 | The ten M1 v1 acceptance transcripts and the two positive controls as kernel-checked checker instances (`checkW1Floor … = true` ×10, `checkW1 … = false` ×2 by `decide +kernel`); mechanically emitted by `results/d1-m1/emit_lean.py` and back-parse-verified against the JSON; needs `set_option maxRecDepth 100000` (written by the emitter) for the 983/1294-row literals — added at the reconciled audit of 2026-09-02, `results/d1-m1/AUDIT.md` |
-| `Zeta23/DBN/Defs.lean` | 112 | De Bruijn–Newman definitions |
+| `Zeta23/W1/ArgPrinciple/Rect.lean` | 492 | The rectangle-integral machinery of the argument principle: `Rect`, `RectFrontier`, the four-edge `rectIntegral` in Mathlib's boundary convention, `windingRect`, the rectangle residue integral `rectIntegral_inv_sub` (∮ (ζ−a)⁻¹ dζ = 2πi — the piece Mathlib lacks), and the factored forms for entire cofactors. **Ported** (see the v1.1 note below) |
+| `Zeta23/W1/ArgPrinciple/General.lean` | 249 | The general argument principle on rectangles for entire functions: zero factorization, finiteness of the zero set, `windingRect_eq_sum_analyticOrder`. **Ported** |
+| `Zeta23/W1/ArgPrincipleBridge.lean` | 459 | **v1.1, D-R3: H-AP discharged.** Generalizes the ported theorem from entire functions to `DifferentiableOn ℂ f U` on an open `U ⊇ R`, bridges the two rectangle/winding vocabularies, handles the degenerate rectangle σ₁ = σ₂, and proves `rectArgPrinciple_of_local : ∀ f, RectArgPrinciple f`, `rectArgPrinciple_riemannZeta`, and `cert_of_checkW1_ap` — checker soundness with H-AP removed |
+| `Zeta23/DBN/Defs.lean` | 117 | De Bruijn–Newman definitions |
 
-`#print axioms` on all twelve machine-checked theorems reports only Lean's three standard
-axioms — `propext`, `Classical.choice`, `Quot.sound`. No `sorryAx`, no `Lean.ofReduceBool`, and
+`#print axioms` on every machine-checked theorem here reports only Lean's three standard
+axioms — `propext`, `Classical.choice`, `Quot.sound`. This now covers, besides the twelve
+theorems recorded before, all 45 declarations of `W1/ArgPrinciple/{Rect,General}.lean` and all 18
+of `W1/ArgPrincipleBridge.lean`, `cert_of_checkW1_ap` included
+(`results/d1-m1/v11/audit/audit-print-axioms.log`). No `sorryAx`, no `Lean.ofReduceBool`, and
 no real `sorry` or `admit` anywhere in the development. The twelve `_check` theorems of
 `W1/Instances.lean` report `[propext]` (the ten `checkW1Floor` instances) or no axioms at all
-(the two rejections) — they are integer facts about literals; the ζ conclusion for the eight ζ
-transcripts is `cert_of_checkW1` modulo the displayed hypotheses H-ENCL and H-AP, and the two
-f_DH instances carry no theorem about f_DH (D-R8). Build record for `Instances.lean`:
-`lake build Zeta23.W1.Instances` — *Build completed successfully (656 jobs)*, 13.9 s, Lean
-`v4.33.0-rc2`, Mathlib `51e6992e` (`results/d1-m1/recon_lean_instances.log`).
+(the two rejections) — they are integer facts about literals; **since 2026-09-02 the ζ conclusion
+for the eight ζ transcripts is `cert_of_checkW1_ap` modulo the single displayed hypothesis
+H-ENCL** (H-AP is a theorem; see the v1.1 note below), and the two f_DH instances carry no
+theorem about f_DH (D-R8). Build record for `Instances.lean`: `lake build Zeta23.W1.Instances` —
+*Build completed successfully (656 jobs)*, 13.9 s, Lean `v4.33.0-rc2`, Mathlib `51e6992e`
+(`results/d1-m1/recon_lean_instances.log`).
+
+## v1.1 (2026-09-02): H-AP is discharged; H-ENCL is the only displayed hypothesis left
+
+`W1/Soundness.lean` proves W1 checker soundness (`cert_of_checkW1`) modulo two displayed
+hypotheses, H-ENCL (`W1EnclOK riemannZeta d`) and H-AP (`RectArgPrinciple riemannZeta`, the
+rectangle argument principle for the exact counterclockwise traversal of FORMAT.md §4).
+**H-AP is now a theorem**: `Zeta23.W1.rectArgPrinciple_of_local : ∀ f : ℂ → ℂ,
+RectArgPrinciple f` in `W1/ArgPrincipleBridge.lean`, with `rectArgPrinciple_riemannZeta` its ζ
+instance and
+
+    Zeta23.W1.cert_of_checkW1_ap (d : W1Data) (hc : checkW1 d = true)
+        (hEncl : W1EnclOK riemannZeta d) : <the conclusion of cert_of_checkW1, unchanged>
+
+the restatement of soundness without it. `Soundness.lean` is imported, not rewritten. How: the
+ported theorem `windingRect_eq_sum_analyticOrder` is generalized from `Differentiable ℂ H`
+(entire) to `DifferentiableOn ℂ H U` for an open `U` containing the closed rectangle — the
+identity theorem is applied on the preconnected closed rectangle, so `U` itself need not be
+connected — the two rectangle/winding vocabularies are bridged by unconditional (junk-value-safe)
+change-of-variables lemmas, and the degenerate rectangle σ₁ = σ₂ that clause C2b admits is proved
+directly with `Z = 0`. No ζ-specific analytic input is consumed anywhere.
+
+Build: `lake build Zeta23.W1.ArgPrincipleBridge` — *Build completed successfully (3145 jobs)*,
+6 s from deleted oleans, no warnings, Lean `v4.33.0-rc2`, Mathlib `51e6992e`. These three modules
+are not imported by `Zeta23.lean` (the same convention as `W1/Instances.lean`), so build them by
+name. Adversarial audit, by a different model: `results/d1-m1/v11/AUDIT.md` — verdict CLEAN.
+
+**Honest label, binding.** An accepted ζ transcript is *"kernel-checked modulo the displayed
+hypothesis H-ENCL (producers untrusted)"*. Never "fully machine-checked": H-ENCL is where the
+untrusted producers' interval arithmetic enters the trusted statement, and it stays.
+
+**Attribution for the two ported files.** `W1/ArgPrinciple/Rect.lean` and
+`W1/ArgPrinciple/General.lean` are ported, statement-for-statement unchanged, from the Lean
+development in `github.com/judegomila/dbn-lambda-01787854-candidate-audit` (branch
+`lean/certificate-and-argument-principle`, commit `ea09b2f`), **Copyright (c) 2026 Jude Gomila,
+MIT License**, generated with Harmonic Aristotle; ported and adapted here (imports narrowed,
+proofs repaired for a newer Mathlib, namespace changed). `W1/ArgPrincipleBridge.lean` adapts
+seven of those lemmas and carries the same notice. The MIT license text is reproduced verbatim in
+the repository's [`NOTICE`](../NOTICE), in dated sections; the port record is
+`results/d1-m1/v11/port-notes.md`, the discharge record `results/d1-m1/v11/discharge-notes.md`,
+and the independent build/axiom verification of the source branch
+`results/d1-m1/gomila-lean-branch-verify.md`.
 
 ## What these build against, and why it is not here
 
@@ -56,10 +104,12 @@ reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`
 
 ## Licensing (settled 2026-08-27)
 
-These nine files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
+These twelve files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
 (see the repository's [`LICENSE`](../../LICENSE) and [`NOTICE`](../../NOTICE)).
-(`W1/Instances.lean`, added 2026-09-02, was written under this header from the start; the
-relicensing record below concerns the original eight.)
+(`W1/Instances.lean`, added 2026-09-02, was written under this header from the start; so were the
+three argument-principle files of the same day, which carry in addition the MIT notice for the
+portions ported from the Gomila/Aristotle development — see the v1.1 section above and the dated
+sections of [`NOTICE`](../../NOTICE). The relicensing record below concerns the original eight.)
 
 They previously carried `Copyright (c) 2026 Anthropic, PBC` — copied from the surrounding library's
 header convention when they were written inside it, and pointing at a `LICENSE` file that is no
