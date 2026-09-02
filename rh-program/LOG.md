@@ -1041,3 +1041,36 @@ digits (4.1192·10⁻⁴ both legs), seam sup|∂_t f| 1793 (Arb) vs the mp leg'
 disjoint: CONSISTENT. Negative controls on the real transcript 12/12. Record: `results/d1-m2a/arb-leg-notes.md`. Not done
 (cut lines): lane A, the seam-aligned per-prism cross-check beyond t = 0, Lean emission (the Lean stream's item). Trust
 label unchanged: kernel-checked modulo the displayed hypotheses once the Lean checker consumes the rows; producers untrusted.
+
+- 2026-09-03 ~01:05 IST (Session 14, D1 M2a item (e) + Gomila steps 3–4; implementation/verification agent, workflow
+`d1-audit-m2a-s14`). LANDED so far (all on disk, commit abe5c7e pushed): (1) `results/d1-m2a/checker_ref.py` — an
+independent exact-`Fraction` reference checker mirroring `Zeta23.DBN.checkBarrier` clause by clause; ACCEPT on both row-2
+chains (mp 39 prisms/7 176 rows; Arb 72/10 771), both mini chains and the SPEC §12 example; 21/21 controls on real data
+(three of my first control DATA were wrong, the checker was right each time — recorded). (2) The two-producer cross-check
+at EVERY seam of the mp chain: the Arb leg re-run for one prism at each of the 39 mp seams (104 s), then cell-wise boxes on
+the common refinement + edge-argument intervals in exact arithmetic (`crosscheck_instance02.py`): 13 729 overlapping pairs,
+0 disjoint, E identical to all printed digits at every seam — CONSISTENT, no stop-the-line. The reverse direction (mp leg at
+the 72 Arb seams, ≈ 30 s/prism) is RUNNING (40/72 at 01:05). (3) The Lean instance: `Zeta23/DBN/Instance02.lean` +
+`Instance02/` (116 modules, 23 965 lines; emitted by `emit_lean_m2a.py`, back-parse-verified by `verify_lean_m2a.py`,
+0 mismatches on 17 947 rows): every prism of BOTH legs `checkPrism row2Rect p = true` by `decide +kernel`, both chains
+`checkBarrierChain = true` by `decide +kernel`, both `checkBarrier … = true` assembled; `row2_barrier_{mp,arb}[_xy]`
+instantiate `cert_of_checkBarrier[_xy]` (generic in G — `Bt` not yet in Defs). Serial builds 157 s (mp) + 217 s (arb);
+the monolithic `decide +kernel` on both full transcripts: 28 s together (≈ 1.4 ms/row) — the literal is NOT too large.
+Axioms: chain facts none; prism/split facts [propext]; monolithic [propext, Quot.sound]; instantiated theorems the three
+standard ones. Root `lake build Zeta23` OK (9138 jobs). Program tree copies + `lean/README.md` updated. HONEST CUT LINE:
+`lambda_le_point2` NOT proved — Lane A, Defs v1.1 (`Polymath15Bridge'`, `Bt`, `HtEntire`) and L-B3 do not exist; item (e)
+is PARTIAL (Lane B complete twice). One breach recorded: two serial Arb build loops overlapped ≈ 4 min (a killed parent's
+child survived) — three heavy processes; a CLEAN rebuild of the subtree from deleted oleans is running. (4) Gomila steps
+3–4: main @ a74738d fetched (retry loop, attempt 1); the sealed 883-prism log (sha256 2d010f70…, identical to ea09b2f)
+converted EXACTLY (`gomila/convert_gomila_log.py`): it carries NO per-segment rows (only summaries), so `checkPrism` on their
+data is impossible; the chain + scalars convert and their gate (1) REPLAYS exactly on all 883 prisms (min margin 0.519850 at
+prism 882 = their figure), their gate = C-B12 with the mesh term in the floor; the 883-seam chain is kernel-checked
+(`checkBarrierChain`, scratch). Spot sample = 10 thinnest + 19 evenly spaced = 29 prisms; Arb leg run on all 29 (same box,
+same seam): 29/29 checkPrism ACCEPT (checker_ref + kernel, 8.7 s), 0 contradictions vs their printed scalars (our hull
+floors 4–5 % below their point floors, min|f| reproduced to 4 digits, E = their 3.565e-4 at t = 0, our sup|∂_t f| =
+0.02–0.03 × their D_t, our gate passes at their Δt). mp leg on the 29: QUEUED after the driver (moments N = 690988 first).
+Verdict so far: screen-open, not screen-pass, NOT a record (0 ≤ Λ ≤ 0.2 stands). Report: `results/d1-m2a/INSTANCE-REPORT.md`
+(PENDING marks to be filled when the mp runs land). Resume point if this agent dies: run `crosscheck_instance02.py
+transcripts/row2-arb/instance02-barrier-manifest.json transcripts/xcheck-mp-at-arb-seams --layout mpflat --labels arb,mp`,
+then `gomila/spot_compare.py`, `gomila/emit_gomila_scratch.py gomila/gomila-scratch-mp.lean --mp` + `lake env lean` on it,
+fill the PENDING marks in INSTANCE-REPORT.md, append the dated addendum to `results/d1-m0/gomila-screen.md`, commit.
