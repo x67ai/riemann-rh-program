@@ -173,6 +173,37 @@ D-A16 (adaptive mesh).  Each edge is first cut into n_init equal exact-rational 
   D-A10 hull radius r exceeds r_frac * (pre-scan min |f|) or its integer box fails C6.  The mesh therefore adapts to the
   local |f'| of each edge (the bottom edge y = y1 has |f'| an order of magnitude above the top edge).  The floor Fn/Fd is
   then >= (1 - sqrt(2) r_frac) * min|f| up to the pre-scan resolution -- checked, not assumed (C-B11 by construction, D-P7).
+D-A17 (second derivatives; the same calculus as D-A5/D-A6 one order up).  Write the true plus-term T_n = X_n e^{w},
+  X_n := c_n e^{a+b} the expanded term (D-A4) and w := -(t/2) d(z) L (D-A6), so that T_n' = T_n (iL/2 + w') and
+  T_n'' = T_n((iL/2 + w')^2 + w''), with w' = (it/4) L alpha'(s_+(z)) and w'' = (t/8) L alpha''(s_+(z)) (chain rule with
+  ds_+/dz = -i/2); |w'| <= L om1, |w''| <= L om2, om1 := (t0/4) A1', om2 := (t0/8) A2''.  In t: d/dt log T_n = q_n(z) =
+  q_n^+ - d L/2 is t-independent, so d^2 T_n/dt^2 = T_n q_n(z)^2, d^2 T_n/dz dt = T_n[(iL/2 + w') q_n(z) + (iL/4) alpha'(s_+)].
+  Subtracting the expanded derivatives X_n'' = X_n (iL/2)^2, d^2 X_n/dt^2 = X_n (q_n^+)^2, d^2 X_n/dz dt = X_n (iL/2) q_n^+,
+  bounding |X_n|(e^w - 1) by eta |X_n| and |T_n| by the D-A3 majorant termwise, and summing:
+     |S_1,zz - P_zz| <= Rem_zz + eta R_2/4 + (om1 + om1^2) R_2 + om2 R_1,
+     |S_1,zt - P_zt| <= Rem_zt + eta Q R_1/2 + om1 Q R_1 + (dA/4)(1 + 2 om1) R_2 + A1' R_1/4,
+     |S_1,tt - P_tt| <= Rem_tt + eta Q^2 R_0 + Q dA R_1 + dA^2 R_2/4,
+  where the truncation remainders follow D-A5 with the derivative weights (L/2)^2, (L/2)Q, Q^2 and truncation orders
+  (K-2, J), (K-1, J-1), (K, J-2):  Rem_zz <= C (L_N/2)^2 e^{U+V}(U^{K-1}/(K-1)! + V^{J+1}/(J+1)!),
+  Rem_zt <= C (L_N/2) Q e^{U+V}(U^K/K! + V^J/J!),  Rem_tt <= C Q^2 e^{U+V}(U^{K+1}/(K+1)! + V^{J-1}/(J-1)!).
+  The minus sum is treated identically with its own data.  For gamma S_2, Leibniz with l := d/dz log gamma, w := d/dt log gamma
+  (t-independent), l_z, w_z (D-A7 balls):  (gamma S_2)_zz = gamma((l^2 + l_z) S_2 + 2 l S_2,z + S_2,zz),
+  (gamma S_2)_zt = gamma(l(w S_2 + S_2,t) + w_z S_2 + w S_2,z + S_2,zt),  (gamma S_2)_tt = gamma(w^2 S_2 + 2 w S_2,t + S_2,tt).
+D-A18 (the minus-sum corrections enter AFTER the gamma multiplication, with the Leibniz factors).  The D-A6/D-A17 minus
+  corrections c_0..c_5 bound |gamma eps|, |gamma eps_z|, ... where eps := S_2 - X (X the polynomial + truncation ball).
+  In the Leibniz formulas above the true S_2 = X + eps appears with coefficients, so the correction radius of f_z is
+  |l| c_0 + c_1, of f_t is |w| c_0 + c_2, of f_zz is (|l|^2 + |l_z|) c_0 + 2|l| c_1 + c_3, of f_zt is (|l||w| + |w_z|) c_0 +
+  |l| c_2 + |w| c_1 + c_4, of f_tt is |w|^2 c_0 + 2|w| c_2 + c_5 (|.| = ball upper bounds).  [The pre-2026-09-02-23:30
+  draft of this file omitted the |l| c_0 and |w| c_0 terms in f_z, f_t -- numerically ~1e-9 at row 2, but a gap; fixed.]
+D-A10' (the hull radius, sharp form).  For z on the segment of half-length h and midpoint z_m, Taylor with the integral
+  remainder gives |f(z) - f(z_m)| <= |f'(z_m)| h + (h^2/2) sup_seg |f''|, with f'(z_m) a thin ball and sup_seg|f''| the upper
+  bound of the D-A17 ball f_zz evaluated on the segment's hull box (D-P4 + D-P0).  The producer takes the smaller of this
+  and D-A10's radius (both rigorous) -- D-A10' wins whenever D_zz h^2 is not negligible (e.g. the top edge, N = 5000 test).
+D-A15' (the displacement, sharp form).  For z on segment k and t' in [tau, tau']:
+     |f_t(z, t')| <= |f_t(z_m, tau)| + h sup_seg |f_zt(., tau)| + (t' - tau) sup_{seg x prism} |f_tt|
+  (mean value along z_m -> z at time tau, then along tau -> t' at fixed z), with the two sups from hull evaluations
+  (seam context for f_zt, prism context of D-A15 for f_tt).  The producer takes per segment the smallest of this, the D-A15
+  prism hull of f_t, and the prism midpoint value + D_zt h; Mt := max over segments; D/K := 2 E_p + Delta * Mt (D-A11).
 D-A13 (N constant on the box, SPEC P-3).  N(x,t) = floor(sqrt(x/4pi + t/16)) is non-decreasing in x and in t; the producer
   certifies sqrt(x/4pi + t/16) in (N0, N0+1) at the two extreme corners (x1, 0) and (x2, t0) by ball arithmetic, hence
   N = N0 on the closed box for all 0 <= t <= t0 and f_t is the same finite sum (holomorphic, p6) throughout.
@@ -218,6 +249,9 @@ X_INST = 5000000194858
 T0_INST = Fraction(93, 500)
 Y0_INST = Fraction(16733, 100000)
 N0_INST = 630783
+# "mini": the N = 5000 test instance shared with the mpmath leg's transcripts/mini (same rectangle and times, so the
+# two legs' prisms can be compared cell-wise, SPEC P-11); NOT the certificate instance.
+INSTANCES = {"row2": (X_INST, T0_INST, Y0_INST, N0_INST), "mini": (314159300, Fraction(93, 500), Fraction(16733, 100000), 5000)}
 
 
 class ProducerError(Exception):
@@ -675,7 +709,8 @@ class BoxEvaluator:
 
 
 class SeamContext:
-    """Everything needed to evaluate f, f', f_t at points of the box at the fixed time t = tau (D-A4..D-A8)."""
+    """Everything needed to evaluate f and its derivatives f_z, f_t, f_zz, f_zt, f_tt at points (or hull boxes) of the box
+    at the fixed time t = tau (D-A4..D-A8, D-A17), or -- with t_hi > t -- as prism-uniform balls (D-A15)."""
 
     def __init__(self, box, t, t_hi=None):
         """t_hi = None: the seam context at the single time t.  t_hi > t: the PRISM context (D-A15) -- every tau-sum is
@@ -688,48 +723,68 @@ class SeamContext:
         tau = hull_ball(t - box.tc, self.t_hi - box.tc)
         tb = hull_ball(t, self.t_hi)
         self.tb = tb
-        # collapse the tau-sums: A_k = sum_j tau^j/j! M_{k,j};  Adot_k = sum_{j>=1} tau^{j-1}/(j-1)! M_{k,j}
+        # collapse the tau-sums: A_k = sum_j tau^j/j! M_{k,j};  Ad_k = sum_{j>=1} tau^{j-1}/(j-1)! M_{k,j};
+        # Add_k = sum_{j>=2} tau^{j-2}/(j-2)! M_{k,j}
         def collapse(T):
-            A = []; Ad = []
+            A = []; Ad = []; Add = []
             for k in range(K + 1):
-                s = acb(0); sd = acb(0); tp = arb(1)
+                sv = acb(0); sd = acb(0); sdd = acb(0)
+                tp = arb(1)          # tau^j
+                tpm = None; tpmm = None
                 for j in range(J + 1):
-                    s += tp / box.fact[j] * T[k][j]
+                    sv += tp / box.fact[j] * T[k][j]
                     if j >= 1:
                         sd += tpm / box.fact[j - 1] * T[k][j]
-                    tpm = tp
+                    if j >= 2:
+                        sdd += tpmm / box.fact[j - 2] * T[k][j]
+                    tpmm = tpm; tpm = tp
                     tp = tp * tau
-                A.append(s); Ad.append(sd)
-            return A, Ad
-        self.Ap, self.Adp = collapse(box.Tp)
-        self.Am, self.Adm = collapse(box.Tm)
+                A.append(sv); Ad.append(sd); Add.append(sdd)
+            return A, Ad, Add
+        self.Ap, self.Adp, self.Addp = collapse(box.Tp)
+        self.Am, self.Adm, self.Addm = collapse(box.Tm)
         # real sums at this seam (valid as sups for all t' in [t, t0], D-A9)
         R = box.R_sums(t)
         self.Rp = [upper(v) for v in R["+"]]; self.Rm = [upper(v) for v in R["-"]]
-        # D-A5 remainder constants
+        # D-A5 / D-A17 remainder constants (|tau| := the upper bound over the interval)
         U = rat_ball(box.rho) * box.L_N / 2
-        Vp = abs(tau) * rat_ball(box.Qp); Vm = abs(tau) * rat_ball(box.Qm)
+        atau = abs(tau)
+        Vp = atau * rat_ball(box.Qp); Vm = atau * rat_ball(box.Qm)
+        LN2 = box.L_N / 2
         def rems(C, V, Q):
             E = (U + V).exp()
             base = C * E
-            r_f = base * (U ** (K + 1) / box.fact[K + 1] + V ** (J + 1) / box.fact[J + 1])
-            r_dz = base * (box.L_N / 2) * (U ** K / box.fact[K] + V ** (J + 1) / box.fact[J + 1])
-            r_dt = base * Q * (U ** (K + 1) / box.fact[K + 1] + V ** J / box.fact[J])
-            return upper(r_f), upper(r_dz), upper(r_dt)
+            fK = box.fact
+            def UK(m): return U ** m / fK[m]
+            def VJ(m): return V ** m / fK[m]
+            r_f = base * (UK(K + 1) + VJ(J + 1))
+            r_dz = base * LN2 * (UK(K) + VJ(J + 1))
+            r_dt = base * Q * (UK(K + 1) + VJ(J))
+            r_dzz = base * LN2 * LN2 * (UK(K - 1) + VJ(J + 1))
+            r_dzt = base * LN2 * Q * (UK(K) + VJ(J))
+            r_dtt = base * Q * Q * (UK(K + 1) + VJ(J - 1))
+            return tuple(upper(v) for v in (r_f, r_dz, r_dt, r_dzz, r_dzt, r_dtt))
         self.rem_p = rems(rat_ball(box.Cp), Vp, rat_ball(box.Qp))
         self.rem_m = rems(rat_ball(box.Cm), Vm, rat_ball(box.Qm))
-        # D-A6 corrections
+        # D-A6 / D-A17 alpha-freezing corrections
         def eta(dA):
             wmax = rat_ball(box.t0) / 2 * rat_ball(dA) * box.L_N
             return upper(wmax * wmax.exp())
         self.eta_p, self.eta_m = eta(box.dA_p), eta(box.dA_m)
-        LN = upper(box.L_N)
-        self.corr_f_p = self.eta_p * self.Rp[0];  self.corr_f_m = self.eta_m * self.Rm[0]
-        self.corr_dz_p = (self.eta_p + box.t0 / 2 * box.A1p_p) * self.Rp[1] / 2
-        self.corr_dz_m = (self.eta_m + box.t0 / 2 * box.A1p_m) * self.Rm[1] / 2
-        self.corr_dt_p = self.eta_p * box.Qp * self.Rp[0] + box.dA_p * self.Rp[1] / 2
-        self.corr_dt_m = self.eta_m * box.Qm * self.Rm[0] + box.dA_m * self.Rm[1] / 2
-        # D-A8 box-uniform second derivatives (valid on B x [t, t0])
+        t0 = box.t0
+        def corrs(eta_, R, dA, A1p, A2p, Q):
+            om1 = t0 / 4 * A1p            # |w'| <= L om1  (w' = (i t/4) L alpha'(s_+(z)))
+            om2 = t0 / 8 * A2p            # |w''| <= L om2 (w'' = (t/8) L alpha''(s_+(z)))
+            c_f = eta_ * R[0]
+            c_z = eta_ * R[1] / 2 + om1 * R[1]
+            c_t = eta_ * Q * R[0] + dA * R[1] / 2
+            c_zz = eta_ * R[2] / 4 + (om1 + om1 * om1) * R[2] + om2 * R[1]
+            c_zt = eta_ * Q * R[1] / 2 + om1 * Q * R[1] + dA / 4 * (1 + 2 * om1) * R[2] + A1p * R[1] / 4
+            c_tt = eta_ * Q * Q * R[0] + Q * dA * R[1] + dA * dA * R[2] / 4
+            return (c_f, c_z, c_t, c_zz, c_zt, c_tt)
+        self.corr_p = corrs(self.eta_p, self.Rp, box.dA_p, box.A1p_p, box.A2p_p, box.Qp)
+        self.corr_m = corrs(self.eta_m, self.Rm, box.dA_m, box.A1p_m, box.A2p_m, box.Qm)
+        # D-A8 box-uniform second derivatives (valid on B x [t, t0]); kept as the crude alternative
         Rp, Rm = self.Rp, self.Rm
         al_p, al_m = box.abs_al_p, box.abs_al_m
         A1p, A1m, A2p, A2m = box.A1_p, box.A1_m, box.A2_p, box.A2_m
@@ -746,12 +801,11 @@ class SeamContext:
         xb = hull_ball(box.x1, box.x2); yb = hull_ball(box.y1, box.y2)
         tb_prism = hull_ball(t, box.t0)
         self.E, self.E_C0, self.E_AB = E_bound(xb, yb, tb_prism, box.N, rat_ball(Rp[0]), rat_ball(Rm[0]))
-        # the e_{C,0} factor exp(-(t/16) log^2) is decreasing in t: E_bound with the interval t already takes the sup
-        # (the ball's upper bound); F_sup, G_sup at t (D-A9).
         self.cache = {}
 
     def gamma_data(self, dz):
-        """gamma, dlog gamma/dz, dlog gamma/dt as balls at z = z_c + dz (D-A7)."""
+        """gamma, dlog gamma/dz (=: l), dlog gamma/dt (=: w), d^2 log gamma/dz^2 (=: l_z), dw/dz (=: w_z) as balls at
+        z = z_c + dz (D-A7); the two second-order ones are crude zero-centred balls."""
         box = self.box
         ad = abs(dz)
         lam = box.Lam_c + box.Lam1_c * dz + self.tb * box.w_c
@@ -762,10 +816,14 @@ class SeamContext:
         lg_z = box.Lam1_c + acb(arb(0).union(r1).union(-r1), arb(0).union(r1).union(-r1))
         r2 = rat_ball(box.sup_w1) * ad
         lg_t = box.w_c + acb(arb(0).union(r2).union(-r2), arb(0).union(r2).union(-r2))
-        return gam, lg_z, lg_t
+        r3 = rat_ball(box.sup_lz)
+        lg_zz = acb(arb(0).union(r3).union(-r3), arb(0).union(r3).union(-r3))
+        r4 = rat_ball(box.sup_w1)
+        w_z = acb(arb(0).union(r4).union(-r4), arb(0).union(r4).union(-r4))
+        return gam, lg_z, lg_t, lg_zz, w_z
 
     def eval(self, x, y):
-        """f, df/dz, df/dt at the exact rational point (x, y), as acb balls containing the true values."""
+        """(f, f_z, f_t, f_zz, f_zt, f_tt) at the exact rational point (x, y), as acb balls containing the true values."""
         key = (Fraction(x), Fraction(y))
         if key in self.cache:
             return self.cache[key]
@@ -776,50 +834,69 @@ class SeamContext:
         return out
 
     def eval_seg(self, seg):
-        """f, df/dz, df/dt as balls valid for EVERY point of the closed segment seg (dz = the segment's hull box,
-        D-P4 + D-P0); used for the D-A15 displacement bound."""
+        """The same six balls, valid for EVERY point of the closed segment seg (dz = the segment's hull box,
+        D-P4 + D-P0); used for the second-order terms of D-A10' and D-A15'."""
         kind, a, b, c = seg
+        key = ("seg", kind, Fraction(a), Fraction(b), Fraction(c))
+        if key in self.cache:
+            return self.cache[key]
         box = self.box
         if kind == "h":
             dz = acb(hull_ball(Fraction(a) - box.zc[0], Fraction(b) - box.zc[0]), rat_ball(Fraction(c) - box.zc[1]))
         else:
             dz = acb(rat_ball(Fraction(c) - box.zc[0]), hull_ball(Fraction(a) - box.zc[1], Fraction(b) - box.zc[1]))
-        return self._eval_dz(dz)
+        out = self._eval_dz(dz)
+        self.cache[key] = out
+        return out
 
     def _eval_dz(self, dz):
         box = self.box
         u_p = acb(0, 1) * dz / 2      # i delta/2
         u_m = -u_p
         def horner(A, u):
-            # sum_k A_k u^k / k!  and  its u-derivative sum_k A_{k+1} u^k / k!
+            # sum_k A_k u^k/k!,  its u-derivative sum_{k>=1} A_k u^{k-1}/(k-1)!,  and the second sum_{k>=2} A_k u^{k-2}/(k-2)!
             K = len(A) - 1
-            s = acb(0); sd = acb(0)
+            sv = acb(0); sd = acb(0); sdd = acb(0)
             for k in range(K, -1, -1):
-                s = s * u / (k + 1) + A[k]          # builds sum_k A_k u^k/k!  (Horner with the 1/(k+1) factors)
+                sv = sv * u / (k + 1) + A[k]
                 if k >= 1:
-                    sd = sd * u / k + A[k]           # sum_{k>=1} A_k u^{k-1}/(k-1)!
-            return s, sd
-        P_p, dP_p = horner(self.Ap, u_p)
-        Pd_p, _ = horner(self.Adp, u_p)
-        P_m, dP_m = horner(self.Am, u_m)
-        Pd_m, _ = horner(self.Adm, u_m)
-        # derivatives w.r.t. delta: d/d delta of sum A_k u^k/k! with u = +- i delta/2 is (+- i/2) * sd
-        dS1 = dP_p * (acb(0, 1) / 2)
-        dS2 = dP_m * (-acb(0, 1) / 2)
-        gam, lg_z, lg_t = self.gamma_data(dz)
+                    sd = sd * u / k + A[k]
+                if k >= 2:
+                    sdd = sdd * u / (k - 1) + A[k]
+            return sv, sd, sdd
+        I2 = acb(0, 1) / 2
+        P_p, dP_p, ddP_p = horner(self.Ap, u_p)
+        Pd_p, dPd_p, _ = horner(self.Adp, u_p)
+        Pdd_p, _, _ = horner(self.Addp, u_p)
+        P_m, dP_m, ddP_m = horner(self.Am, u_m)
+        Pd_m, dPd_m, _ = horner(self.Adm, u_m)
+        Pdd_m, _, _ = horner(self.Addm, u_m)
+        # delta-derivatives: u = +- i delta/2  =>  d/d delta = (+- i/2) d/du,  d^2/d delta^2 = -(1/4) d^2/du^2
         def infl(z, r):
             r = rat_ball(r)
             return z + acb(arb(0).union(r).union(-r), arb(0).union(r).union(-r))
-        S1 = infl(P_p, self.rem_p[0] + self.corr_f_p)
-        S2 = infl(P_m, self.rem_m[0])                    # its d-correction is added below with |gamma| folded in (R^- carries |gamma|)
-        f = infl(S1 + gam * S2, self.corr_f_m)
-        S1z = infl(dS1, self.rem_p[1] + self.corr_dz_p)
-        S2z = infl(dS2, self.rem_m[1])
-        fz = infl(S1z + gam * (lg_z * S2 + S2z), self.corr_dz_m)
-        S1t = infl(Pd_p, self.rem_p[2] + self.corr_dt_p)
-        S2t = infl(Pd_m, self.rem_m[2])
-        ft = infl(S1t + gam * (lg_t * S2 + S2t), self.corr_dt_m)
-        return f, fz, ft
+        rp, rm, cp, cm = self.rem_p, self.rem_m, self.corr_p, self.corr_m
+        # plus sum: polynomial + truncation remainder (D-A5/D-A17) + alpha-freezing correction (D-A6/D-A17)
+        S1 = infl(P_p, rp[0] + cp[0])
+        S1z = infl(dP_p * I2, rp[1] + cp[1])
+        S1t = infl(Pd_p, rp[2] + cp[2])
+        S1zz = infl(-ddP_p / 4, rp[3] + cp[3])
+        S1zt = infl(dPd_p * I2, rp[4] + cp[4])
+        S1tt = infl(Pdd_p, rp[5] + cp[5])
+        # minus sum: X := polynomial + truncation remainder; the true S_2 = X + eps with |gamma eps| <= cm[0], and likewise
+        # for the derivatives (|gamma eps_z| <= cm[1], ..., |gamma eps_tt| <= cm[5]); R^- carries |gamma| (D-A3), so the
+        # corrections are added AFTER multiplying by gamma, with the Leibniz factors |l|, |w|, |l_z|, |w_z| (D-A18).
+        X = infl(P_m, rm[0]); Xz = infl(dP_m * (-I2), rm[1]); Xt = infl(Pd_m, rm[2])
+        Xzz = infl(-ddP_m / 4, rm[3]); Xzt = infl(dPd_m * (-I2), rm[4]); Xtt = infl(Pdd_m, rm[5])
+        gam, l, w, lz, wz = self.gamma_data(dz)
+        al, aw, alz, awz = absup(l), absup(w), absup(lz), absup(wz)
+        f = infl(S1 + gam * X, cm[0])
+        fz = infl(S1z + gam * (l * X + Xz), al * cm[0] + cm[1])
+        ft = infl(S1t + gam * (w * X + Xt), aw * cm[0] + cm[2])
+        fzz = infl(S1zz + gam * ((l * l + lz) * X + 2 * l * Xz + Xzz), (al * al + alz) * cm[0] + 2 * al * cm[1] + cm[3])
+        fzt = infl(S1zt + gam * (l * (w * X + Xt) + wz * X + w * Xz + Xzt), (al * aw + awz) * cm[0] + al * cm[2] + aw * cm[1] + cm[4])
+        ftt = infl(S1tt + gam * (w * w * X + 2 * w * Xt + Xtt), aw * aw * cm[0] + 2 * aw * cm[2] + cm[5])
+        return f, fz, ft, fzz, fzt, ftt
 
 
 # ---------------------------------------------------------------- rows (D-A10, D-P5, D-P7)
@@ -863,12 +940,15 @@ def seg_box(seam, seg, K):
     h = abs(b - a) / 2
     mid = (a + b) / 2
     xm, ym = (mid, c) if kind == "h" else (c, mid)
-    f, fz, ft = seam.eval(xm, ym)
-    r = absup(fz) * h + seam.Dzz * h * h / 2
+    f, fz, ft = seam.eval(xm, ym)[:3]
+    fzz_seg = seam.eval_seg(seg)[3]
+    r1 = absup(fz) * h + seam.Dzz * h * h / 2                 # D-A10 (crude second-order constant)
+    r2 = absup(fz) * h + absup(fzz_seg) * h * h / 2           # D-A10' (hull-evaluated second derivative)
+    r = min(r1, r2)
     re_lo, re_hi = ball_interval(f.real); im_lo, im_hi = ball_interval(f.imag)
     reLo, reHi = out_int_bounds_frac(re_lo - r, re_hi + r, K)
     imLo, imHi = out_int_bounds_frac(im_lo - r, im_hi + r, K)
-    return (reLo, reHi, imLo, imHi), (xm, ym, h, f, fz, ft, r)
+    return (reLo, reHi, imLo, imHi), (xm, ym, h, f, fz, ft, r, r1, r2)
 
 
 def seg_endpoints(seg):
@@ -877,7 +957,7 @@ def seg_endpoints(seg):
 
 
 def theta(seam, point, rot_idx):
-    f, _, _ = seam.eval(*point)
+    f = seam.eval(*point)[0]
     rot_re, rot_im = ROTATIONS[rot_idx](f)
     if not bool(rot_re > arb(0)):
         raise ProducerError(f"endpoint {point}: rotated value not certified positive (rotation {rot_idx}); refine")
@@ -899,8 +979,9 @@ def argument_row(seam, seg, box, A):
     return argLo, argHi
 
 
-def refine_edge(seam, seg, K, n_init, max_depth):
-    """Split the edge into n_init equal exact-rational pieces, then bisect any piece whose box fails C6."""
+def refine_edge(seam, seg, K, n_init, max_depth, r_max):
+    """D-A16: split the edge into n_init equal exact-rational pieces, then bisect any piece whose hull radius r (D-A10)
+    exceeds r_max or whose integer box fails C6."""
     kind, a, b, c = seg
     pieces = []
     for i in range(n_init):
@@ -911,11 +992,11 @@ def refine_edge(seam, seg, K, n_init, max_depth):
     while stack:
         sg, depth = stack.pop()
         box, info = seg_box(seam, sg, K)
-        if c6_holds(box):
+        if c6_holds(box) and info[6] <= r_max:
             out.append((sg, box, info))
             continue
         if depth >= max_depth:
-            raise ProducerError(f"C6 unreachable at depth {depth} on {sg}: |f| too small near this boundary piece")
+            raise ProducerError(f"refinement unreachable at depth {depth} on {sg}: |f| too small near this boundary piece")
         k2, a2, b2, c2 = sg
         m = (a2 + b2) / 2
         stack.append(((k2, m, b2, c2), depth + 1))
@@ -923,43 +1004,38 @@ def refine_edge(seam, seg, K, n_init, max_depth):
     return out
 
 
-# ---------------------------------------------------------------- the prism chain (D-A11)
+GRID = 10 ** 9   # prism ends are rounded DOWN to this exact-rational grid (choice only; the gate is re-verified exactly)
 
-def produce_prism(box, tau, K, A, r_frac, max_depth, log=print):
-    """One seam + prism at tau; returns (prism_dict, tau_next, stats)."""
+
+def produce_prism(box, tau, t_end, K, A, r_frac, max_depth, n_init, log=print, n_scan=40):
+    """One seam + prism at tau, ending at tau_next <= t_end; returns (prism_dict, tau_next, stats)."""
     t_s = time.time()
     seam = box.seam(tau)
-    # pre-scan: |f| and |f'| on a coarse grid to size the mesh
     x1, x2, y1, y2 = box.x1, box.x2, box.y1, box.y2
     edges = {"bottom": ("h", x1, x2, y1), "right": ("v", y1, y2, x2), "top": ("h", x2, x1, y2), "left": ("v", y2, y1, x1)}
-    m_est = None; fp_max = Fraction(0)
+    # pre-scan: min |f| on a coarse grid (sizes the hull radius; no checked number depends on it)
+    m_est = None; fp_max = Fraction(0); ft_max = Fraction(0)
     for name, (kind, a, b, c) in edges.items():
-        for i in range(41):
-            p = a + (b - a) * Fraction(i, 40)
-            pt = (p, c) if kind == "h" else (c, p)
-            f, fz, ft = seam.eval(*pt)
+        for i in range(n_scan + 1):
+            pnt = a + (b - a) * Fraction(i, n_scan)
+            pt = (pnt, c) if kind == "h" else (c, pnt)
+            f, fz, ft = seam.eval(*pt)[:3]
             m = lower(abs(f))
             m_est = m if m_est is None else min(m_est, m)
-            fp_max = max(fp_max, absup(fz))
+            fp_max = max(fp_max, absup(fz)); ft_max = max(ft_max, absup(ft))
     if m_est <= 0:
         raise ProducerError(f"pre-scan found |f| not certified positive at seam {tau}")
-    # target hull radius r_target = r_frac * m_est: solve fp_max*h + Dzz*h^2/2 = r_target for h (positive root)
-    r_target = m_est * r_frac
-    Dzz = seam.Dzz
-    # floats pick the mesh size h; no checked number depends on this choice
-    fpm = float(fp_max); dzz = float(Dzz); rt = float(r_target)
-    hf = (-fpm + math.sqrt(fpm * fpm + 2 * dzz * rt)) / dzz if dzz > 0 else rt / max(fpm, 1e-30)
-    ell = 2 * hf
-    mesh = {}; rows = []; infos = []
+    r_max = m_est * r_frac
+    t_scan = time.time() - t_s
+    mesh = {}; rows = []; infos = []; segs = []
     for name in ("bottom", "right", "top", "left"):
-        kind, a, b, c = edges[name]
-        n_init = max(2, int(math.ceil(float(abs(b - a)) / ell)))
-        pieces = refine_edge(seam, edges[name], K, n_init, max_depth)
+        pieces = refine_edge(seam, edges[name], K, n_init, max_depth, r_max)
         mesh[name] = [pieces[0][0][1]] + [sg[2] for sg, _, _ in pieces]
         for sg, bx, info in pieces:
             argLo, argHi = argument_row(seam, sg, bx, A)
             rows.append(bx + (argLo, argHi))
-            infos.append((sg, info))
+            infos.append(info); segs.append(sg)
+    t_mesh = time.time() - t_s - t_scan
     S_lo = sum(r[4] for r in rows); S_hi = sum(r[5] for r in rows)
     if 2 * (S_hi - S_lo) >= A or not (S_lo <= 0 <= S_hi):
         raise ProducerError(f"winding enclosure [{S_lo},{S_hi}]/{A} does not pin m = 0 at seam {tau}")
@@ -968,31 +1044,53 @@ def produce_prism(box, tau, K, A, r_frac, max_depth, log=print):
     m2_min = min(mcoord(r[0], r[1]) ** 2 + mcoord(r[2], r[3]) ** 2 for r in rows)
     Fn = math.isqrt(m2_min); Fd = K
     floor = Fraction(Fn, Fd)
-    # displacement (D-A11)
+    # ---- displacement (D-A11 + D-A15)
     E_p = seam.E
-    Mt = max(absup(info[5]) + seam.Dzt * info[2] for _, info in infos)   # |f_t(z_m)| + D_zt * h
+    E_int = ceil_frac(K * E_p)
+    Dzt, Dtt = seam.Dzt, seam.Dtt
+    # seam-time per-segment bounds of sup_z |df/dt(z, tau)|: crude (D-A8) and sharp (D-A15': |f_t(z_m)| + h sup_seg|f_zt|)
+    seam_bounds = []
+    for sg, info in zip(segs, infos):
+        b_crude = absup(info[5]) + Dzt * info[2]
+        b_sharp = absup(info[5]) + info[2] * absup(seam.eval_seg(sg)[4])
+        seam_bounds.append(min(b_crude, b_sharp))
+    Mt0 = max(seam_bounds)                                            # sup |df/dt| at the seam over dR
     slack = floor - 3 * E_p
     if slack <= 0:
         raise ProducerError(f"gate impossible at seam {tau}: floor {float(floor):.4e} <= 3E = {float(3*E_p):.4e}")
     s_target = slack * Fraction(9, 10)
-    Dtt = seam.Dtt
-    # solve Delta*(Mt + Dtt*Delta) = s_target  (float pick, exact verify)
-    mt = float(Mt); dtt = float(Dtt); st = float(s_target)
-    d_f = (-mt + math.sqrt(mt * mt + 4 * dtt * st)) / (2 * dtt) if dtt > 0 else st / mt
-    grid = 10 ** 9
-    Delta = Fraction(max(1, int(math.floor(d_f * grid))), grid)
-    tau_next = min(tau + Delta, box.t0)
-    Delta = tau_next - tau
-    E_int = ceil_frac(K * E_p)
+    Delta = Fraction(max(1, math.floor(float(s_target / Mt0) * GRID)), GRID)
+    trials = []
     while True:
-        D_val = 2 * E_p + Delta * (Mt + Dtt * Delta)
-        D_int = ceil_frac(K * D_val)
-        if (E_int + D_int) * Fd < Fn * K:
-            break
-        Delta = Delta / 2
-        if Delta < Fraction(1, 10 ** 12):
-            raise ProducerError("cannot satisfy the gate C-B12 even with a tiny prism")
+        Delta = min(Delta, t_end - tau)
         tau_next = tau + Delta
+        t_d = time.time()
+        pctx = box.seam(tau, tau_next)
+        Mt_int = Fraction(0); worst = None; wins = [0, 0, 0]
+        for k, (sg, info) in enumerate(zip(segs, infos)):
+            xm, ym, h = info[0], info[1], info[2]
+            pseg = pctx.eval_seg(sg)
+            b_seg = absup(pseg[2])                                           # D-A15: prism-uniform hull of f_t
+            b_tt = seam_bounds[k] + Delta * absup(pseg[5])                   # D-A15': seam bound + Delta * sup |f_tt|
+            b_mid = absup(pctx.eval(xm, ym)[2]) + Dzt * h if b_seg > b_tt else b_seg   # prism mid + D_zt h (cheap skip)
+            b = min(b_mid, b_seg, b_tt)
+            wins[(b_mid, b_seg, b_tt).index(b)] += 1
+            if b > Mt_int:
+                Mt_int = b; worst = (k, float(b_mid), float(b_seg), float(b_tt))
+        Mt_alt = Mt0 + Dtt * Delta
+        Mt = min(Mt_int, Mt_alt)
+        D_val = 2 * E_p + Delta * Mt
+        D_int = ceil_frac(K * D_val)
+        ok = (E_int + D_int) * Fd < Fn * K
+        trials.append({"delta_t": str(Delta), "Mt_interval": str(Mt_int), "Mt_alt_Dtt": str(Mt_alt), "gate": ok,
+                       "worst_segment": worst, "wins(mid+Dzt h, hull, seam+Delta*ftt)": wins, "seconds": round(time.time() - t_d, 2)})
+        log(f"    try dt={float(Delta):.3e}: Mt_int={float(Mt_int):.4e} (seg {worst[0]}: mid+Dzt*h {worst[1]:.3e}, hull {worst[2]:.3e}, "
+            f"seam+dt*ftt {worst[3]:.3e}; wins {wins}) Mt_alt={float(Mt_alt):.4e} D/K={float(D_val):.4e} gate={'OK' if ok else 'FAIL'} ({time.time()-t_d:.1f}s)")
+        if ok:
+            break
+        Delta = Fraction(max(1, math.floor(float(Delta) * 0.7 * GRID)), GRID)
+        if Delta < Fraction(1, 10 ** 8):
+            raise ProducerError("cannot satisfy the gate C-B12 even with a tiny prism")
     prism = {
         "format": "M2a-barrier-transcript", "version": "1.0", "kind": "prism",
         "index": None, "seam": frac_json(tau), "scales": {"K": str(K), "A": str(A)},
@@ -1005,18 +1103,26 @@ def produce_prism(box, tau, K, A, r_frac, max_depth, log=print):
         "producer": {
             "leg": "arb",
             "implementation": "producer_arb.py (results/d1-m2a/), python-flint " + flint.__version__ + f", prec {PREC} bits",
-            "evaluator": "D-A4 two-variable Taylor/moment evaluator (K=%d, J=%d) of (92) with D-A5/D-A6 remainders; gamma by D-A7" % (box.K, box.J),
+            "evaluator": "D-A4 two-variable Taylor/moment evaluator (K=%d, J=%d) of (92) with D-A5/D-A6 remainders; gamma by D-A7; prism-uniform balls by D-A15" % (box.K, box.J),
             "seam_time": str(tau), "prism_end": str(tau_next), "delta_t": str(Delta),
-            "E_seam": {"total": str(E_p), "e_C0": str(seam.E_C0), "e_A_plus_e_B": str(seam.E_AB)},
-            "D_parts": {"two_E": str(2 * E_p), "Mt_sup_dfdt": str(Mt), "D_tt": str(Dtt), "D_zt": str(seam.Dzt), "D_zz": str(seam.Dzz)},
+            "E_seam": {"total": str(E_p), "e_C0": str(seam.E_C0), "e_A_plus_e_B": str(seam.E_AB),
+                       "inputs": {"N": box.N, "x_box": [str(x1), str(x2)], "y_box": [str(y1), str(y2)], "t_box": [str(tau), str(box.t0)],
+                                  "F_sup_R0_plus": str(seam.Rp[0]), "G_sup_R0_minus": str(seam.Rm[0]), "form": "D-A2: 10.50 weld (SPEC D-2.4) + 6.6(iv),(v) with delta_1 and N^{2|kappa|}"}},
+            "D_parts": {"two_E": str(2 * E_p), "Mt_used": str(Mt), "Mt_interval_D-A15": str(Mt_int), "Mt_alt_D-A11": str(Mt_alt),
+                        "Mt_seam_sup_dfdt": str(Mt0), "D_tt": str(Dtt), "D_zt": str(Dzt), "D_zz": str(seam.Dzz), "trials": trials},
             "R_sums_at_seam": {"plus": [str(v) for v in seam.Rp], "minus": [str(v) for v in seam.Rm]},
             "remainders": {"plus(f,dz,dt)": [str(v) for v in seam.rem_p], "minus(f,dz,dt)": [str(v) for v in seam.rem_m],
                            "eta_plus": str(seam.eta_p), "eta_minus": str(seam.eta_m)},
-            "mesh_policy": f"uniform exact-rational pieces sized by |f'|h + D_zz h^2/2 = {r_frac} * min|f| (pre-scan), bisection on C6 failure",
-            "prescan": {"min_abs_f": str(m_est), "max_abs_fz": str(fp_max)},
-            "segments": len(rows), "winding_sum": {"S_lo": str(S_lo), "S_hi": str(S_hi)},
+            "mesh_policy": f"D-A16: {n_init} equal pieces per edge, bisection while hull radius |f'(z_m)|h + D_zz h^2/2 > {r_frac} * min|f| (pre-scan {n_scan+1} points/edge) or C6 fails",
+            "prescan": {"min_abs_f": str(m_est), "max_abs_fz": str(fp_max), "max_abs_ft": str(ft_max)},
+            "hull_radius_policy": "r = min(D-A10 |f'(z_m)|h + D_zz h^2/2, D-A10' |f'(z_m)|h + h^2/2 sup_seg|f''|); counts: " +
+                                  f"{sum(1 for info in infos if info[8] < info[7])} of {len(infos)} rows used D-A10'",
+            "Mt_seam_sup": str(Mt0),
+            "segments": len(rows), "segments_per_edge": {name: len(mesh[name]) - 1 for name in mesh},
+            "winding_sum": {"S_lo": str(S_lo), "S_hi": str(S_hi)},
             "floor_rational": str(floor),
-            "seconds": round(time.time() - t_s, 2),
+            "max_row_halfwidth_over_K": str(max(max(r[1] - r[0], r[3] - r[2]) for r in rows) / (2 * K)),
+            "seconds": {"total": round(time.time() - t_s, 2), "prescan": round(t_scan, 2), "mesh_rows": round(t_mesh, 2)},
             "timestamp_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "trust": "UNTRUSTED producer; output enters the trusted statement only via H2-B",
         },
@@ -1024,8 +1130,8 @@ def produce_prism(box, tau, K, A, r_frac, max_depth, log=print):
     if tau == 0:
         prism["producer"]["comment"] = ("t = 0 seam: Theorem 1.3 at t = 0 by the limit argument D-A12 (dominated convergence for H_t, "
                                         "continuity of B_t, f_t and of the D-A2 majorant in t); this is the Arb leg's discharge of SPEC P-7.")
-    stats = dict(tau=tau, tau_next=tau_next, Delta=Delta, segments=len(rows), floor=floor, E=E_p, Mt=Mt, Dtt=Dtt,
-                 Dzz=seam.Dzz, Dzt=seam.Dzt, m_est=m_est, fp_max=fp_max, seconds=time.time() - t_s)
+    stats = dict(tau=tau, tau_next=tau_next, Delta=Delta, segments=len(rows), floor=floor, E=E_p, Mt=Mt, Mt_int=Mt_int, Mt_alt=Mt_alt,
+                 Dtt=Dtt, Dzz=seam.Dzz, Dzt=Dzt, m_est=m_est, fp_max=fp_max, seconds=time.time() - t_s)
     return prism, tau_next, stats
 
 
@@ -1036,10 +1142,14 @@ def check_prism_locally(rect, p):
     return brc.check_prism(rect, p, p.get("index", "?"))
 
 
-def run_instance(out_dir, max_seconds, max_prisms, resume, K, A, r_frac, max_depth, KK, JJ, log=print):
+def run_instance(out_dir, max_seconds, max_prisms, resume, K, A, r_frac, max_depth, KK, JJ, t_start, t_end, n_init, instance="row2", log=print):
+    """Produce the chain of prisms with seams from t_start up to t_end (a CHAIN SEGMENT when t_start > 0 or t_end < t0;
+    segments are concatenated by `merge`).  Files: instance02-prism-NNNN.json, instance02-barrier-manifest.json,
+    instance02-progress.json (resumable)."""
     os.makedirs(out_dir, exist_ok=True)
-    X, t0, y0, N = X_INST, T0_INST, Y0_INST, N0_INST
+    X, t0, y0, N = INSTANCES[instance]
     x1, x2, y1, y2 = Fraction(X), Fraction(X + 1), y0, Fraction(1)
+    t_start = Fraction(t_start); t_end = t0 if t_end is None else min(Fraction(t_end), t0)
     # D-A13
     for (xx, tt) in ((x1, Fraction(0)), (x2, t0)):
         if N_of(xx, tt) != N:
@@ -1048,20 +1158,21 @@ def run_instance(out_dir, max_seconds, max_prisms, resume, K, A, r_frac, max_dep
     box = BoxEvaluator(x1, x2, y1, y2, t0, N, K=KK, J=JJ, log=log)
     manifest_path = os.path.join(out_dir, "instance02-barrier-manifest.json")
     state_path = os.path.join(out_dir, "instance02-progress.json")
-    prisms = []; tau = Fraction(0)
+    prisms = []; tau = t_start
     if resume and os.path.exists(state_path):
         with open(state_path) as fh:
             st = json.load(fh)
         prisms = st["prisms"]; tau = Fraction(st["next_seam"])
         log(f"[resume] {len(prisms)} prisms on disk; next seam {tau}")
-    t_start = time.time(); j = len(prisms)
+    t_run = time.time(); j = len(prisms)
     rect = ((X, 1), (X + 1, 1), (y0.numerator, y0.denominator), (1, 1))
-    while tau < t0:
+    while tau < t_end:
         if max_prisms and j >= max_prisms:
             log("[stop] max prisms reached"); break
-        if max_seconds and time.time() - t_start > max_seconds:
+        if max_seconds and time.time() - t_run > max_seconds:
             log("[stop] time budget reached"); break
-        prism, tau_next, stats = produce_prism(box, tau, K, A, r_frac, max_depth, log=log)
+        log(f"[prism {j}] seam {tau} = {float(tau):.9f}")
+        prism, tau_next, stats = produce_prism(box, tau, t_end, K, A, r_frac, max_depth, n_init, log=log)
         prism["index"] = str(j)
         check_prism_locally(rect, prism)
         fname = f"instance02-prism-{j:04d}.json"
@@ -1072,41 +1183,85 @@ def run_instance(out_dir, max_seconds, max_prisms, resume, K, A, r_frac, max_dep
         prisms.append({"index": str(j), "file": fname, "seam": frac_json(tau)})
         log(f"[prism {j}] seam={float(tau):.9f} -> {float(tau_next):.9f} (dt={float(stats['Delta']):.3e}) segs={stats['segments']} "
             f"floor={float(stats['floor']):.4f} min|f|~{float(stats['m_est']):.4f} max|f'|~{float(stats['fp_max']):.1f} "
-            f"E={float(stats['E']):.3e} Mt={float(stats['Mt']):.3e} Dtt={float(stats['Dtt']):.3e} Dzz={float(stats['Dzz']):.3e} "
-            f"{stats['seconds']:.1f}s")
+            f"E={float(stats['E']):.3e} Mt={float(stats['Mt']):.3e} (int {float(stats['Mt_int']):.3e}, alt {float(stats['Mt_alt']):.3e}) "
+            f"Dtt={float(stats['Dtt']):.3e} Dzz={float(stats['Dzz']):.3e} {stats['seconds']:.1f}s  [chain {float(tau_next/t0)*100:.2f}% of t0]")
         tau = tau_next; j += 1
         with open(state_path + ".tmp", "w") as fh:
-            json.dump({"prisms": prisms, "next_seam": str(tau)}, fh, indent=1)
+            json.dump({"prisms": prisms, "next_seam": str(tau), "t_start": str(t_start), "t_end": str(t_end)}, fh, indent=1)
         os.replace(state_path + ".tmp", state_path)
-        write_manifest(manifest_path, prisms, x1, x2, y1, y2, tau if tau < t0 else t0, complete=(tau >= t0), log=log)
-    complete = tau >= t0
-    write_manifest(manifest_path, prisms, x1, x2, y1, y2, tau if not complete else t0, complete=complete, log=log)
-    log(f"[done] {len(prisms)} prisms; certified t-range [0, {tau}] {'COMPLETE' if complete else 'PARTIAL (cut line = last prism end)'}")
+        write_manifest(manifest_path, prisms, x1, x2, y1, y2, t_start, tau, t_end, instance=instance, log=log)
+    complete = tau >= t_end
+    write_manifest(manifest_path, prisms, x1, x2, y1, y2, t_start, tau, t_end, instance=instance, log=log)
+    log(f"[done] {len(prisms)} prisms; seams from {t_start} certified up to t = {tau} "
+        f"{'(reached t_end = ' + str(t_end) + ')' if complete else '(PARTIAL: cut line = last prism end)'}; "
+        f"{'full chain [0, t0]' if (t_start == 0 and complete and t_end == t0) else 'CHAIN SEGMENT -- merge needed'}")
     return manifest_path, complete, tau
 
 
-def write_manifest(path, prisms, x1, x2, y1, y2, t_end, complete, log=print):
+def write_manifest(path, prisms, x1, x2, y1, y2, t_start, t_reached, t_end, instance="row2", log=print):
+    X, t0, y0, N = INSTANCES[instance]
+    full = (t_start == 0 and t_reached >= t_end and t_end == t0)
+    if t_start == 0:
+        status = ("COMPLETE chain to t0 = 93/500" if full else
+                  f"PARTIAL chain: the manifest's t0 field is the last certified prism end {t_reached} (< 93/500); "
+                  "the certificate covers the barrier for 0 <= t <= this value only (cut line stated honestly)")
+    else:
+        status = (f"CHAIN SEGMENT [{t_start}, {t_reached}] -- NOT a certificate by itself (C-B13 needs the first seam at 0); "
+                  "to be concatenated with the segment ending at its start time by `producer_arb.py merge`")
     man = {
         "format": "M2a-barrier-transcript", "version": "1.0", "kind": "manifest", "lane": "barrier",
         "trust_label": TRUST_LABEL,
         "rect": {"x1": frac_json(x1), "x2": frac_json(x2), "y1": frac_json(y1), "y2": frac_json(y2)},
-        "t0": frac_json(t_end),
+        "t0": frac_json(t_reached),
         "prisms": prisms,
         "producer": {
             "leg": "arb", "implementation": "producer_arb.py (results/d1-m2a/), python-flint " + flint.__version__,
-            "instance": "Polymath15 Table 1 row 2: X = 5000000194858, t0 = 93/500, y0 = 16733/100000, N0 = 630783 (SPEC section 9)",
-            "status": "COMPLETE chain to t0 = 93/500" if complete else
-                      f"PARTIAL chain: the manifest's t0 field is the last certified prism end {t_end} (< 93/500); "
-                      "the certificate covers the barrier for 0 <= t <= this value only (cut line stated honestly)",
+            "instance": ("Polymath15 Table 1 row 2: X = 5000000194858, t0 = 93/500, y0 = 16733/100000, N0 = 630783 (SPEC section 9)"
+                         if instance == "row2" else f"TEST instance 'mini' (NOT the certificate instance): X = {X}, t0 = {t0}, y0 = {y0}, N0 = {N}"),
+            "chain_segment": {"t_start": str(t_start), "t_reached": str(t_reached), "t_end": str(t_end)},
+            "status": status,
             "trust": "UNTRUSTED producer; output enters the trusted statement only via H2-B",
+            "written_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         },
         "comment": ("Lane B barrier certificate for the row-2 instance, Arb/FLINT leg. Each prism's rows enclose the seam "
-                    "approximant f = f_tau of (92) at N = 630783; E and D per SPEC sections 4.4-4.5 (derivations D-A2, D-A11 in producer_arb.py)."),
+                    "approximant f = f_tau of (92) at N = 630783; E and D per SPEC sections 4.4-4.5 (derivations D-A2, D-A11, D-A15 in producer_arb.py)."),
     }
     with open(path + ".tmp", "w") as fh:
         json.dump(man, fh, indent=1)
         fh.write("\n")
     os.replace(path + ".tmp", path)
+
+
+def merge_chains(out_dir, chain_dirs, log=print):
+    """Concatenate consecutive chain segments (each with its own manifest) into one manifest in out_dir: prism files are
+    copied and renumbered; the segments must abut exactly (segment i's t_reached == segment i+1's t_start) and the first
+    must start at 0.  The final t0 is the last segment's t_reached (= 93/500 iff complete)."""
+    import shutil
+    os.makedirs(out_dir, exist_ok=True)
+    X, t0, y0 = X_INST, T0_INST, Y0_INST
+    x1, x2, y1, y2 = Fraction(X), Fraction(X + 1), y0, Fraction(1)
+    prisms = []; j = 0; expect = Fraction(0); t_reached = None
+    for d in chain_dirs:
+        with open(os.path.join(d, "instance02-barrier-manifest.json")) as fh:
+            man = json.load(fh)
+        cs = man["producer"]["chain_segment"]
+        ts, tr = Fraction(cs["t_start"]), Fraction(cs["t_reached"])
+        if ts != expect:
+            raise ProducerError(f"chain segment {d} starts at {ts}, expected {expect}")
+        for ent in man["prisms"]:
+            src = os.path.join(d, ent["file"]); fname = f"instance02-prism-{j:04d}.json"
+            with open(src) as fh:
+                p = json.load(fh)
+            p["index"] = str(j)
+            with open(os.path.join(out_dir, fname), "w") as fh:
+                json.dump(p, fh, separators=(",", ":")); fh.write("\n")
+            prisms.append({"index": str(j), "file": fname, "seam": ent["seam"]}); j += 1
+        expect = tr; t_reached = tr
+        log(f"[merge] {d}: {len(man['prisms'])} prisms, [{ts}, {tr}]")
+    path = os.path.join(out_dir, "instance02-barrier-manifest.json")
+    write_manifest(path, prisms, x1, x2, y1, y2, Fraction(0), t_reached, t0, log=log)
+    log(f"[merge] wrote {path}: {len(prisms)} prisms, t0 field = {t_reached} ({'COMPLETE' if t_reached >= t0 else 'PARTIAL'})")
+    return path
 
 
 # ---------------------------------------------------------------- self tests and cross-checks
@@ -1124,7 +1279,7 @@ def selftest(log=print):
     for tt in (Fraction(0), Fraction(7, 100), t0):
         seam = box.seam(tt)
         for (xx, yy) in ((Xs, y0), (Xs + 1, Fraction(1)), (Xs + Fraction(1, 3), Fraction(1, 2)), (Xs + Fraction(9, 10), y0)):
-            f, fz, ft = seam.eval(xx, yy)
+            f, fz, ft = seam.eval(xx, yy)[:3]
             fd, gam, S1, S2, F, G = ft_direct(cpoint(xx, yy), tt, Ns)
             # containment: the direct ball must intersect the Taylor ball (both enclose the true value); report widths
             dlo, dhi = ball_interval(fd.real); tlo, thi = ball_interval(f.real)
@@ -1156,7 +1311,7 @@ def crosscheck(points, log=print):
         pts.append((tt, pt))
     for tt, (xx, yy) in pts:
         seam = box.seam(tt)
-        t_a = time.time(); f, fz, ft = seam.eval(xx, yy); t_a = time.time() - t_a
+        t_a = time.time(); f, fz, ft = seam.eval(xx, yy)[:3]; t_a = time.time() - t_a
         t_b = time.time(); fd, gam, S1, S2, F, G = ft_direct(cpoint(xx, yy), tt, N); t_b = time.time() - t_b
         dlo, dhi = ball_interval(fd.real); tlo, thi = ball_interval(f.real)
         dlo2, dhi2 = ball_interval(fd.imag); tlo2, thi2 = ball_interval(f.imag)
@@ -1186,16 +1341,22 @@ def main():
     sub.add_parser("selftest")
     cc = sub.add_parser("crosscheck"); cc.add_argument("--points", type=int, default=8)
     ins = sub.add_parser("instance")
-    ins.add_argument("--out-dir", default=os.path.join(HERE, "transcripts"))
+    ins.add_argument("--out-dir", default=os.path.join(HERE, "transcripts", "row2-arb"))
     ins.add_argument("--max-seconds", type=float, default=0)
     ins.add_argument("--max-prisms", type=int, default=0)
     ins.add_argument("--resume", action="store_true")
-    ins.add_argument("--K", type=int, default=10 ** 20)
+    ins.add_argument("--K", type=int, default=10 ** 12)
     ins.add_argument("--A", type=int, default=10 ** 6)
     ins.add_argument("--r-frac", type=Fraction, default=Fraction(1, 6))
     ins.add_argument("--max-depth", type=int, default=30)
+    ins.add_argument("--n-init", type=int, default=16)
     ins.add_argument("--KK", type=int, default=36)
     ins.add_argument("--JJ", type=int, default=40)
+    ins.add_argument("--t-start", type=Fraction, default=Fraction(0))
+    ins.add_argument("--t-end", type=Fraction, default=None)
+    ins.add_argument("--no-check", action="store_true", help="skip the final reference-checker run (chain segments)")
+    ins.add_argument("--instance", choices=list(INSTANCES), default="row2")
+    mg = sub.add_parser("merge"); mg.add_argument("--out-dir", required=True); mg.add_argument("--chains", nargs="+", required=True)
     pt = sub.add_parser("point")
     for fld in ("x", "y", "t"):
         pt.add_argument("--" + fld, type=Fraction, required=True)
@@ -1207,11 +1368,20 @@ def main():
     elif args.cmd == "instance":
         if args.A % 2:
             raise SystemExit("A must be even")
+        logf = open(os.path.join(args.out_dir, "producer.log"), "a") if os.path.isdir(args.out_dir) or os.makedirs(args.out_dir) or True else None
+        def log(msg):
+            line = f"[{datetime.datetime.now().strftime('%H:%M:%S')}] {msg}"
+            print(line); sys.stdout.flush(); logf.write(line + "\n"); logf.flush()
         path, complete, tau = run_instance(args.out_dir, args.max_seconds, args.max_prisms, args.resume, args.K, args.A,
-                                           args.r_frac, args.max_depth, args.KK, args.JJ)
+                                           args.r_frac, args.max_depth, args.KK, args.JJ, args.t_start, args.t_end, args.n_init,
+                                           instance=args.instance, log=log)
+        if not args.no_check and args.t_start == 0:
+            r = subprocess.run([sys.executable, os.path.join(HERE, "barrier_ref_checker.py"), path], capture_output=True, text=True)
+            log(r.stdout[-3000:] + r.stderr[-2000:]); log(f"REF CHECKER EXIT {r.returncode}")
+    elif args.cmd == "merge":
+        path = merge_chains(args.out_dir, args.chains)
         r = subprocess.run([sys.executable, os.path.join(HERE, "barrier_ref_checker.py"), path], capture_output=True, text=True)
-        print(r.stdout[-2000:]); print(r.stderr[-2000:])
-        print("REF CHECKER EXIT", r.returncode)
+        print(r.stdout[-3000:]); print(r.stderr[-2000:]); print("REF CHECKER EXIT", r.returncode)
     elif args.cmd == "point":
         d = point_hook(args.x, args.y, args.t)
         print(json.dumps({k: (str(v) if not isinstance(v, int) else v) for k, v in d.items()}, indent=1))

@@ -1,0 +1,30 @@
+[23:24:48] [D-A13] N = 5000 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[23:24:48] [box] a+=8.517193 a-=8.517193 |alpha+|<=8.5533 dA+=1.532e-09 dA-=1.036e-09 A1'+=3.183e-09 A2''+=2.026e-17 rho=0.6506 sup|l|=8.5172 sup|w|=6.6894 sup|w'|=1.250e-09
+[23:24:49] [moments] done in 0.5s: C+=7.3615e+00 C-=2.1651e+02 Q+=18.441 Q-=18.441 r+max=18.136 r-max=18.136
+[23:24:49] [prism 0] seam 0 = 0.000000000
+[23:24:49]     try dt=1.446e-02: Mt_int=1.6304e+02 (seg 0: mid+Dzt*h 1.049e+03, hull 4.167e+02, seam+dt*ftt 1.630e+02; wins [0, 0, 85]) Mt_alt=4.0742e+03 D/K=2.3711e+00 gate=FAIL (0.1s)
+[23:24:50]     try dt=1.012e-02: Mt_int=9.0768e+01 (seg 0: mid+Dzt*h 9.553e+02, hull 3.080e+02, seam+dt*ftt 9.077e+01; wins [0, 0, 85]) Mt_alt=2.8560e+03 D/K=9.3251e-01 gate=FAIL (0.1s)
+[23:24:50]     try dt=7.084e-03: Mt_int=5.3803e+01 (seg 0: mid+Dzt*h 8.885e+02, hull 2.299e+02, seam+dt*ftt 5.380e+01; wins [0, 0, 85]) Mt_alt=2.0033e+03 D/K=3.9505e-01 gate=FAIL (0.1s)
+[23:24:50]     try dt=4.959e-03: Mt_int=3.4836e+01 (seg 0: mid+Dzt*h 8.410e+02, hull 1.743e+02, seam+dt*ftt 3.484e+01; wins [0, 0, 85]) Mt_alt=1.4063e+03 D/K=1.8664e-01 gate=OK (0.1s)
+[23:24:50] [prism 0] seam=0.000000000 -> 0.004959131 (dt=4.959e-03) segs=85 floor=0.2373 min|f|~0.2762 max|f'|~1.1 E=6.942e-03 Mt=3.484e+01 (int 3.484e+01, alt 1.406e+03) Dtt=2.809e+05 Dzz=9.532e+03 0.9s  [chain 2.67% of t0]
+[23:24:50] [prism 1] seam 4959131/1000000000 = 0.004959131
+[23:24:50]     try dt=1.685e-02: Mt_int=1.9156e+02 (seg 0: mid+Dzt*h 1.002e+03, hull 4.282e+02, seam+dt*ftt 1.916e+02; wins [0, 0, 84]) Mt_alt=4.3504e+03 D/K=3.2403e+00 gate=FAIL (0.1s)
+[23:24:51]     try dt=1.179e-02: Mt_int=1.0469e+02 (seg 0: mid+Dzt*h 9.054e+02, hull 3.159e+02, seam+dt*ftt 1.047e+02; wins [0, 0, 84]) Mt_alt=3.0489e+03 D/K=1.2475e+00 gate=FAIL (0.1s)
+[23:24:51]     try dt=8.256e-03: Mt_int=6.0210e+01 (seg 0: mid+Dzt*h 8.358e+02, hull 2.348e+02, seam+dt*ftt 6.021e+01; wins [0, 0, 84]) Mt_alt=2.1379e+03 D/K=5.0979e-01 gate=FAIL (0.1s)
+[23:24:51]     try dt=5.779e-03: Mt_int=3.7417e+01 (seg 0: mid+Dzt*h 7.862e+02, hull 1.767e+02, seam+dt*ftt 3.742e+01; wins [0, 0, 84]) Mt_alt=1.5001e+03 D/K=2.2893e-01 gate=OK (0.1s)
+[23:24:51] [prism 1] seam=0.004959131 -> 0.010738382 (dt=5.779e-03) segs=84 floor=0.2457 min|f|~0.2839 max|f'|~1.1 E=6.345e-03 Mt=3.742e+01 (int 3.742e+01, alt 1.500e+03) Dtt=2.575e+05 Dzz=8.756e+03 0.9s  [chain 5.77% of t0]
+[23:24:51] [prism 2] seam 5369191/500000000 = 0.010738382
+[23:24:51]     try dt=2.008e-02: Mt_int=2.3075e+02 (seg 0: mid+Dzt*h 9.526e+02, hull 4.396e+02, seam+dt*ftt 2.308e+02; wins [0, 0, 83]) Mt_alt=4.6822e+03 D/K=4.6443e+00 gate=FAIL (0.1s)
+[23:24:51]     try dt=1.405e-02: Mt_int=1.2420e+02 (seg 0: mid+Dzt*h 8.526e+02, hull 3.243e+02, seam+dt*ftt 1.242e+02; wins [0, 0, 83]) Mt_alt=3.2807e+03 D/K=1.7570e+00 gate=FAIL (0.1s)
+[23:24:51]     try dt=9.838e-03: Mt_int=6.9459e+01 (seg 0: mid+Dzt*h 7.801e+02, hull 2.401e+02, seam+dt*ftt 6.946e+01; wins [0, 0, 83]) Mt_alt=2.2997e+03 D/K=6.9476e-01 gate=FAIL (0.1s)
+[23:24:52]     try dt=6.887e-03: Mt_int=4.1407e+01 (seg 0: mid+Dzt*h 7.283e+02, hull 1.795e+02, seam+dt*ftt 4.141e+01; wins [0, 0, 83]) Mt_alt=1.6130e+03 D/K=2.9658e-01 gate=FAIL (0.1s)
+[23:24:52]     try dt=4.821e-03: Mt_int=2.6988e+01 (seg 0: mid+Dzt*h 6.914e+02, hull 1.363e+02, seam+dt*ftt 2.699e+01; wins [0, 0, 83]) Mt_alt=1.1323e+03 D/K=1.4152e-01 gate=OK (0.1s)
+[23:24:52] [prism 2] seam=0.010738382 -> 0.015558943 (dt=4.821e-03) segs=83 floor=0.2551 min|f|~0.2924 max|f'|~1.1 E=5.714e-03 Mt=2.699e+01 (int 2.699e+01, alt 1.132e+03) Dtt=2.327e+05 Dzz=7.933e+03 1.0s  [chain 8.37% of t0]
+[23:24:52] [stop] max prisms reached
+[23:24:52] [done] 3 prisms; seams from 0 certified up to t = 15558943/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[23:24:52]   prism instance02-prism-0000.json: M=85 S_lo=-57 S_hi=51 K=1000000000000 A=1000000
+  prism instance02-prism-0001.json: M=84 S_lo=-54 S_hi=58 K=1000000000000 A=1000000
+  prism instance02-prism-0002.json: M=83 S_lo=-53 S_hi=55 K=1000000000000 A=1000000
+ACCEPT (barrier lane, 3 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified statement holds modulo the displayed hypotheses H2-B and the holomorphy input (SPEC.md section 6)
+
+[23:24:52] REF CHECKER EXIT 0
