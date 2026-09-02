@@ -45,10 +45,21 @@ TASK — the standing-order-5 ADVERSARIAL AUDIT of everything Session 8 built in
 Write '${RH}/results/d1-m1/AUDIT-${tag}.md' (findings with severities and exact locations; the derivations; the scripts you used saved alongside as 'audit_${tag}_*.py'; repairs PROPOSED as replacement code/text — do NOT modify the Session-8 files; the reconciler applies repairs). In the 'gomila_unblock' field state exactly which of Gomila screen steps 3–4 ('results/d1-m0/gomila-screen.md' §4) M1 v1 as built now clears, and what M2a must add. Return the schema.`
 }
 
+const AUDIT_SCHEMA_O = {
+  type: 'object', required: ['verdict', 'fatals', 'majors', 'summary', 'file'],
+  properties: { verdict: { enum: ['clean', 'repairs-proposed', 'defects', 'fatal'] }, fatals: { type: 'integer' }, majors: { type: 'integer' },
+    summary: { type: 'string', maxLength: 9000 }, file: { type: 'string' }, gomila_unblock: { type: 'string', maxLength: 3000 } },
+}
+function auditBriefO() {
+  return `RESUMED RUN. A previous run of this exact audit (brief below) was cut off by a usage limit AFTER writing '${RH}/results/d1-m1/AUDIT-O.md' (49 KB, 02:25 IST) and the 'audit_O_*' scripts/logs alongside, but BEFORE returning its structured summary (the structured-output call failed five times — most likely the summary was too long). Do NOT redo the audit from scratch: read AUDIT-O.md first, re-run the audit_O_* scripts and confirm their outputs match their logs, complete any of steps 1–7 below that the report does not cover, fix the report where the re-run disagrees, and then RETURN the schema with a summary UNDER 3000 CHARACTERS (verdict, counts, the majors in one line each, and the gomila_unblock statement under 1500 characters).
+
+` + auditBrief('O')
+}
+
 phase('Audit')
 const audits = await parallel([
   () => agent(auditBrief('F'), { label: 'audit-F', phase: 'Audit', effort: 'xhigh', schema: AUDIT_SCHEMA }),
-  () => agent(auditBrief('O'), { label: 'audit-O', phase: 'Audit', effort: 'xhigh', model: 'opus', schema: AUDIT_SCHEMA }),
+  () => agent(auditBriefO(), { label: 'audit-O', phase: 'Audit', effort: 'xhigh', model: 'opus', schema: AUDIT_SCHEMA_O }),
 ])
 const auditsOk = audits.filter(Boolean)
 log(`audits: ${auditsOk.map(a => a.verdict + ' (fatals ' + a.fatals + ')').join(' / ')}`)
@@ -57,7 +68,7 @@ phase('Reconcile')
 const rec = await agent(`${COMMON}
 
 TASK — RECONCILE the two independent audits of M1 v1: 'results/d1-m1/AUDIT-F.md' (Fable 5.1) and 'results/d1-m1/AUDIT-O.md' (Opus 5). Returned summaries: ${JSON.stringify(auditsOk.map(a => ({ verdict: a.verdict, fatals: a.fatals, majors: a.majors, summary: a.summary.slice(0, 3000), gomila: a.gomila_unblock })))}.
-Protocol: every FATAL/MAJOR finding from either auditor is RE-VERIFIED by you (rerun their script, or your own) before it is accepted; disagreements are settled by computation, not by vote. Then: (1) APPLY the repairs that are small and verified (fix the code, re-run the affected validation, record before/after), and list large defects as demanded repairs with a cost; (2) re-run the full acceptance suite's checker pass on all transcripts after repairs; (3) write 'results/d1-m1/AUDIT.md' (the merged, binding audit: per-finding table with auditor, severity, your verification, status APPLIED/DEMANDED/OVERRULED) and 'results/d1-m1/RUN-REPORT.md' (the honest statement of what M1 v1 now IS, with trust vocabulary; what remains for v1.1 per D-R3 — the argument principle in Lean; the f_t evaluator status; and 'Gomila steps 3–4: what is cleared, what M2a must add'). (4) Verdict for the gate: 'clean' or 'repaired-clean' lets M2a proceed; 'defects-remain' lets it proceed with the defects listed as constraints; 'fatal' stops the build. Return the schema.`,
+Protocol: every FATAL/MAJOR finding from either auditor is RE-VERIFIED by you (rerun their script, or your own) before it is accepted; disagreements are settled by computation, not by vote. Then: (1) APPLY the repairs that are small and verified (fix the code, re-run the affected validation, record before/after), and list large defects as demanded repairs with a cost; (2) re-run the full acceptance suite's checker pass on all transcripts after repairs; (3) write 'results/d1-m1/AUDIT.md' (the merged, binding audit: per-finding table with auditor, severity, your verification, status APPLIED/DEMANDED/OVERRULED) and 'results/d1-m1/RUN-REPORT.md' (the honest statement of what M1 v1 now IS, with trust vocabulary; what remains for v1.1 per D-R3 — the argument principle in Lean; the f_t evaluator status; and 'Gomila steps 3–4: what is cleared, what M2a must add'). (4) Verdict for the gate: 'clean' or 'repaired-clean' lets M2a proceed; 'defects-remain' lets it proceed with the defects listed as constraints; 'fatal' stops the build. Return the schema; keep 'summary' under 4000 characters.`,
   { label: 'reconcile', phase: 'Reconcile', effort: 'xhigh', schema: {
     type: 'object', required: ['verdict', 'summary', 'constraints'],
     properties: { verdict: { enum: ['clean', 'repaired-clean', 'defects-remain', 'fatal'] }, summary: { type: 'string', maxLength: 6000 },
