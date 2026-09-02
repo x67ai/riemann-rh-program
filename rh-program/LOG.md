@@ -726,3 +726,19 @@ the Road-1 text as the printed status of the C-side transport problem, thesis p.
 valuable to find an analogous modifications of W_rat(X)(C) but currently this is not known." Trap
 recorded: the thesis's "C" is the p-adic completed algebraic closure, not the complex numbers. DQ-L
 (the 9.4 note's locate-only item) closes with no change to any verdict. Opus half still running.
+
+**08:20 IST — Lutz thesis novelty check, Opus half, returned** (`novelty-lutz-O.md`; 13 page images
+read, OCR sparse-page audit done). **Both models concur: all five claims NOVEL with respect to the
+thesis**, with one MINOR framing obligation Opus adds for N3(c): the thesis is the fullest printed
+exposition of the mod-p-additivity principle (§4.5, pp. 36–38) and names the C-transport as an
+explicit open desideratum of Deninger's group (p. 2, the sentence quoted above; also p. 1: "Presently,
+there is no satisfactory answer for what these more general spaces of C-valued points … should be"),
+so the 9.4 note may not present the transport as an idea nobody has had — the *no-go result* stands,
+the framing must cite her. Structural reason the negatives are strong: her only Deninger citation is
+1807.06400, used on ~40 of 92 pages, every use in its Chapters 1–3 and 14–15 (Witt spaces, X⁺(V),
+Fargues–Fontaine) and none in §§4–13 where the flow, packets and the §6 question live. One adjacency
+disclosed, not conceded (Def. 8.2/Ex. 8.3, p. 86: convergence in a group quotient vs quotient
+topology — finite Galois orbits, a different space, not a separation statement). DQ-L CLOSED,
+negative: no global E-condition, no descent beyond Galois, no packet or orbit-closure statement.
+Action at harvest: append a dated "Lutz supplement" block to `novelty-adjudication.md` and the N3(c)
+citation obligation to the 9.4 note's dated block.
