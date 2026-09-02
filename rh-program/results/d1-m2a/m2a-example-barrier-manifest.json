@@ -1,0 +1,17 @@
+{
+  "format": "M2a-barrier-transcript",
+  "version": "1.0",
+  "kind": "manifest",
+  "lane": "barrier",
+  "trust_label": "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL) and H3 (producers untrusted)",
+  "rect": {
+    "x1": {"n": "10", "d": "1"}, "x2": {"n": "11", "d": "1"},
+    "y1": {"n": "1", "d": "5"},  "y2": {"n": "1", "d": "1"}
+  },
+  "t0": {"n": "1", "d": "10"},
+  "prisms": [
+    {"index": "0", "file": "m2a-example-barrier-prism-0.json", "seam": {"n": "0", "d": "1"}},
+    {"index": "1", "file": "m2a-example-barrier-prism-1.json", "seam": {"n": "1", "d": "20"}}
+  ],
+  "comment": "ARTIFICIAL micro-example (SPEC.md section 12): tiny rectangle, two prisms, invented integers chosen to exercise every check. No producer certified H2 for these numbers."
+}

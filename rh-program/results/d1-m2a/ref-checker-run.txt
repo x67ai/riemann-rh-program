@@ -1,0 +1,25 @@
+=== barrier micro-example
+  prism m2a-example-barrier-prism-0.json: M=8 S_lo=-96 S_hi=108 K=100 A=1000
+  prism m2a-example-barrier-prism-1.json: M=7 S_lo=-55 S_hi=57 K=100 A=1000
+ACCEPT (barrier lane, 2 prisms): checks C-B0..C-B13 pass -- integer facts only; the certified statement holds modulo the displayed hypotheses H2-B and the holomorphy input (SPEC.md section 6)
+exit=0
+=== asymptotic micro-example
+  rows=3 first Nlo=5 last Nhi=20 tail N1=21 tail sum=1675 2K=2000
+ACCEPT (asymptotic lane): checks C-A1..C-A6 pass -- integer facts only; modulo H2-A and H-TAIL (SPEC.md section 6)
+exit=0
+=== negative controls (mutations of the micro-examples; each must REJECT at the named check)
+[box contains 0 -> C-B6] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B6 box contains 0, row 2
+[wide argument rows -> C-B8] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B8 winding width 2*(1600--96) >= A=1000
+[argument sum excludes 0 -> C-B9] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B9 0 not in [40,108]
+[floor too large -> C-B11] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B11 floor fails, row 0
+[displacement too large -> C-B12] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B12 (E+D)*Fd=840 >= Fn*K=500
+[bottom[last] != x2 -> C-B3] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B3 last breakpoint != edge stop
+[row count -> C-B4] rc=1 REJECT at m2a-example-barrier-prism-0.json: C-B4 |segments| = 7 != M = 8
+[seam of prism 1 moved to 0 -> C-B13] rc=1 REJECT at m2a-example-barrier-prism-1.json: manifest/prism seam mismatch
+[t0 below last seam -> C-B13] rc=1 REJECT at C-B13 last seam not < t0
+[degenerate rectangle -> C-B2'] rc=1 REJECT at C-B2' x1 < x2
+[E >= T -> C-A3] rc=1 REJECT at C-A3 E < T fails, row 1 (T=350, E=350)
+[gap in windows -> C-A4] rc=1 REJECT at C-A4 rows not consecutive at row 2
+[tail N1 mismatch -> C-A5] rc=1 REJECT at C-A5 tail N1 != last Nhi + 1
+[tail sum >= 2K -> C-A6] rc=1 REJECT at C-A6 tail sum 2075 >= 2K = 2000
+[yA too small -> C-A1] rc=1 REJECT at C-A1 yA^2 >= 1 - 2*t0 fails
