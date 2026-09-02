@@ -79,7 +79,7 @@ interval-t overestimate is small for the prism lengths used (≈ 1%).
 | **Theorem 1.3 end-to-end (the task's ≥ 30 points):** H_t/B_t by `mp.quad` of the defining integral (dps 130, piecewise Gauss–Legendre, two cuts as a consistency check ≈ 10⁻¹⁰⁰) vs the enclosure f_t-box + E·disk, x ∈ [200, 330], y ∈ [0, 1], t ∈ (0, 0.5] | `validation-ft-mp-integral.txt` | **32/32 contained**, 0 failures; actual \|g − f_t\|/E ∈ [0.170, 0.478] (max 0.478); f-box widths ≤ 7.7·10⁻⁷⁹; quadrature self-consistency 10⁻⁸⁶–10⁻¹⁰⁶; 1536 s |
 | block-Taylor evaluator vs direct summation and the reference on the N = 5000 mini-instance (thin points at 4 times, segment boxes h ∈ {10⁻², 10⁻³}, ∂_t f vs central difference, an interval-t box) | `validation-ft-mp.txt` | 93/93 |
 | the same at row 2 (N₀ = 630783; direct sums ≈ 100 s each) | `validation-ft-mp-instance.txt` | 69 checks, **68 pass, 1 harness artifact** (explained and re-checked below): every f-box contains the direct sum and the reference (Taylor widths 10⁻²⁷ at t = 0, 10⁻¹²–10⁻¹⁴ at t > 0; direct widths 10⁻⁶⁶–10⁻⁷⁰; direct sums 138–155 s each); the one flagged line is the d/dt f check at (x₁, y₁), t = 0 |
-| **d/dt f at t = 0 re-check** (`dt0_recheck.py` → `validation-ft-mp-dt0.txt`): the harness clamps the lower finite-difference point to t = 0, so at t = 0 its "central difference" is a ONE-SIDED forward difference with step 10⁻¹², truncation h·\|∂²_t f\|/2 ≈ 10⁻¹²·45²·33/2 ≈ 3·10⁻⁸ against a derivative ball 10⁻⁹ wide (observed discrepancy 2.0·10⁻⁸; the mini instance passed only because its ball was 1.4·10⁻⁶ wide). Replaced by (R1) the analytic D-F6 derivative in an independent mp float pipeline and (R2) a genuine two-sided central difference (f_t is a finite sum, defined for t < 0), exact-Fraction membership, at the failing point and three others | RESULT-DT0 |
+| **d/dt f at t = 0 re-check** (`dt0_recheck.py` → `validation-ft-mp-dt0.txt`): the harness clamps the lower finite-difference point to t = 0, so at t = 0 its "central difference" is a ONE-SIDED forward difference with step 10⁻¹², truncation h·\|∂²_t f\|/2 ≈ 10⁻¹²·45²·33/2 ≈ 3·10⁻⁸ against a derivative ball 10⁻⁹ wide (observed discrepancy 2.0·10⁻⁸; the mini instance passed only because its ball was 1.4·10⁻⁶ wide). Replaced by (R1) the analytic D-F6 derivative in an independent mp float pipeline and (R2) a genuine two-sided central difference (f_t is a finite sum, defined for t < 0), exact-Fraction membership, at the failing point and three others | **12/12, 0 failures**: at all four points the derivative ball CONTAINS R1, and R1 = R2 to \|R1 − R2\| ≤ 3.5·10⁻¹⁹ (at the failing point: ball [864.6401330051, 864.6401330061] + i[985.7084483854, 985.7084483865] ∋ R1 = 864.640133005614 + 985.708448385932i); f-value balls contain R1's f at 10⁻³⁰. **The evaluator's derivative is right; the harness line is the artifact.** (The script's first run mis-reported the three t = 0 f-value checks through a helper that re-rounded the dps-60 reference to 53 bits; kept as `validation-ft-mp-dt0-run1-helperbug.txt`, fixed, rerun.) |
 | mini-instance end-to-end transcript (3 prisms) through the reference checker | `transcripts/mini/` | ACCEPT (C-B0..C-B13) |
 
 Why the integral test cannot be sharper than it is: H_t(x+iy) ≈ e^{−πx/8} against an O(1) integrand, so the
@@ -91,15 +91,36 @@ pieces test and to 10⁻⁷⁰ (direct) / 10⁻²⁷ (Taylor, t = 0) by the inst
 
 ## 5. Run record — the row-2 barrier transcript
 
-**RUNNING (launched 23:06 IST 2026-09-02, second agent after the 19:40 usage death; PID in `transcripts/row2/stdout.txt`).**
-Command: `python3 producer_mp.py --instance row2 --out transcripts/row2 --max-seconds 10800` (K = 10²⁴, A = 10¹²,
-h₀ = 1/50, θ = 1/2, prec 288). Outputs land per prism in `transcripts/row2/` (prism-NNNN.json, manifest.json rewritten
-after every prism, progress.json). **To resume after a death:** the same command with `--resume` (continues from the
-last seam in progress.json). On completion: `python3 barrier_ref_checker.py transcripts/row2/manifest.json`,
-`python3 schema_shape_check.py barrier-schema.json transcripts/row2/manifest.json`, `python3 row2_summary.py transcripts/row2`,
-then replace this paragraph by the run record.
+**COMPLETE.** Run 23:06:27–23:27:00 IST 2026-09-02 (second agent, after the 19:40 usage death; the first agent had
+built and validated the leg and died before this run). Command:
+`python3 producer_mp.py --instance row2 --out transcripts/row2 --max-seconds 10800` — K = 10²⁴, A = 10¹², h₀ = 1/50,
+maxdepth 12, θ = 1/2, prec 288, one process (the second allowed process ran `dt0_recheck.py` alongside).
 
-RESULT-RUN
+| quantity | value |
+|---|---|
+| instance | P15 Table 1 row 2 (SPEC §9): R = [5000000194858, 5000000194859] × [16733/100000, 1], t₀ = 93/500, N₀ = 630783 (P-3 re-verified by directed rounding, and N₀² ≤ x₁/4π) |
+| chain | **39 prisms, seams 0 = τ₀ < … < τ₃₈ = 3719/20000 < t₀; τ₃₉ = t₀ — COMPLETE (0 → t₀)** |
+| rows | 184 per prism (50 + 42 + 50 + 42 uniform h₀ = 1/50 segments; **no bisection was needed at any seam**), 7176 rows total |
+| wall | 1233 s = 20.6 min; 26–36 s per prism (rising slowly with t as the Taylor orders in t grow) |
+| per-prism cost (prism 0 log) | prepare 0.8 s; 184 segment boxes 3.7 s; 184 thin endpoints 4 s; 184 derivative boxes at the seam 8.4 s; interval-t prepare + 184 derivative boxes for the gate 9.9 s; JSON write < 0.1 s |
+| prism lengths Δt | 1.14·10⁻³ (t = 0) growing ≈ 3–4 %/prism to 3.1·10⁻² (prism 37); prism 38 is a 5·10⁻⁵ sliver (the 3-significant-digit `nice_floor` remainder before t₀ — cosmetic) |
+| gate | **every prism length passed C-B12 at the FIRST try** (39 tries, 0 halvings); (E + D)/floor ∈ [0.477, 0.540] (θ = 1/2 plus the interval-t growth of DT), max 0.540 |
+| floors Fn/K | 4.629 (t = 0) decreasing to 1.445 (τ₃₈); max \|f\| box on ∂R 58.5 (t = 0) → 2.2 |
+| E/K | 4.119·10⁻⁴ at t = 0 (e_{C,0}-dominated; e_A + e_B = 1.6·10⁻¹⁰) → 1.03·10⁻⁷ at τ₃₈ — matches SPEC §9's indicative 4.12·10⁻⁴ / 1.0·10⁻⁷ |
+| D/K | 2.34 (prism 0) → 0.75 (prism 37); DT = sup\|∂_t f\| 2053 → 13.9 |
+| argument rows | max row width 2 (turn units at A = 10¹²); winding sums S ∈ [−104, 103] ∋ 0, width ≤ 2·10⁻¹⁰ turn |
+| reference checker | `barrier_ref_checker.py transcripts/row2/manifest.json` → **ACCEPT (barrier lane, 39 prisms): C-B0..C-B13** (`ref-checker-row2-run.txt`) |
+| shape | all 40 files valid against `barrier-schema.json` (`schema_shape_check.py`, a hand-rolled 2020-12-subset validator with four negative controls, since `jsonschema` is not installed; `shape-check-row2-run.txt`) |
+| size | 2.0 MB JSON (39 prism files + manifest + progress + log); per-prism table `row2-summary.md` |
+| extrapolation vs. outcome | from the first 9 prisms (Δt growth 3.5 %/prism) the estimate was 40–55 prisms / ≈ 25 min; actual 39 / 20.6 min — the full mesh was feasible, no sub-box cut was needed |
+
+What the transcript asserts (SPEC §4, modulo H2-B and H3, checker-verified integer facts only): for every t ∈ [0, t₀]
+and z ∈ R, H_t(z) ≠ 0 — the barrier lane of Instance02. It is the mpmath leg's transcript ONLY; the P-11 two-producer
+cross-check against the Arb leg (cell-wise rows on the common refinement, Fn/Fd, E, D as intervals) is still owed:
+**no Arb row-2 transcript existed in this directory at 23:35 IST** (the Arb producer agent was running side by side).
+
+Reproduction: the moments (`moments/row2-{plus,minus}.json`, 421 s each) then the command above; resume after a death
+with `--resume`.
 
 ## 6. Cut lines and what is NOT in this leg (honest)
 
@@ -114,3 +135,23 @@ RESULT-RUN
 5. **The mesh is not minimal**: h₀ = 1/50 uniform then bisection; segment boxes are plain interval evaluations
    (a midpoint-Taylor box would be ≈ 3× tighter). Row counts are what they are (§5).
 6. **Theorem 1.3 at t = 0** is by the limit argument D-F9 (producer obligation P-7), flagged for M2b as in SPEC §13.2.
+7. **The P-11 cross-check is owed to the instance stage** (§5): this leg's row-2 transcript has not been compared with
+   the Arb leg's. Until it is, a mis-scaled or rotated transcript is undetectable by the checker (SPEC P-11).
+8. **The harness's derivative check is one-sided at t = 0** (`ft_mp_validate.py` clamps t − h to 0); its FAIL line in
+   `validation-ft-mp-instance.txt` stands in the log as written and is superseded by `validation-ft-mp-dt0.txt` (§4).
+   The harness itself was not edited (its other 68 checks are the record); a future run should use a two-sided
+   difference at t = 0 or the analytic pipeline of `dt0_recheck.py`.
+9. **Independent re-verification by the second agent (this session):** D-F8's block-Taylor derivation (remainder split
+   S_J R_K + R_J S_K + R_J R_K, the Q_c/p_c expansion, the modulus σ_fr, the derivative bookkeeping and the freezing
+   corrections) re-derived line by line against the code; Prop. 6.6(iv)–(vi) re-read on PDF p31 (constants 0.626,
+   6.66, 3.58, 8.52, 1.24, 0.125, 6.92, the n^y and N^{|κ|} factors) — the docstring transcription is exact; the
+   overline on s_* in (14) re-read from a 200-dpi render of PDF p6 (`n^{\overline{s_*}+κ}` is on the page) — D-F1's
+   reading is the paper's, and SPEC.md §2.3's quotation of (14) (from pdftotext) should be annotated (wording only).
+10. **The last prism is a 5·10⁻⁵ sliver** (τ₃₈ = 0.18595 → t₀ = 0.186), an artifact of the 3-significant-digit
+    step rounding; harmless (one extra prism), fixable by snapping the step to t₀ when within one step of it.
+
+## 7. Files added by the second agent
+
+`dt0_recheck.py` + `validation-ft-mp-dt0.txt` (and the kept first-run log `validation-ft-mp-dt0-run1-helperbug.txt`);
+`schema_shape_check.py` + `shape-check-row2-run.txt`; `row2_summary.py` + `row2-summary.md`; `ref-checker-row2-run.txt`;
+`transcripts/row2/` (39 prisms, manifest, progress, producer.log, stdout.txt). No program Lean file was touched.
