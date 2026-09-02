@@ -1,0 +1,57 @@
+SIMULTANEOUS APPROXIMATION  m = c mod M  AND  m*p^-j -> t   (eps = 1e-12)
+
+ p=2, c=-1, t=1/2
+   k=3: M=27  j=45  m=17592186044429
+        m mod M = 26  == c mod M = 26  -> True
+        m/2^45 - t = 3.695e-13   (m is a POSITIVE integer: True)
+   k=4: M=81  j=47  m=70368744177719
+        m mod M = 80  == c mod M = 80  -> True
+        m/2^47 - t = 3.908e-13   (m is a POSITIVE integer: True)
+   k=5: M=759375  j=60  m=576460752304162499
+        m mod M = 759374  == c mod M = 759374  -> True
+        m/2^60 - t = 6.410e-13   (m is a POSITIVE integer: True)
+   k=6: M=11390625  j=64  m=9223372036863562499
+        m mod M = 11390624  == c mod M = 11390624  -> True
+        m/2^64 - t = 4.763e-13   (m is a POSITIVE integer: True)
+
+ p=2, c=7, t=3
+   k=3: M=27  j=45  m=105553116266506
+        m mod M = 7  == c mod M = 7  -> True
+        m/2^45 - t = 2.842e-13   (m is a POSITIVE integer: True)
+   k=4: M=81  j=47  m=422212465066003
+        m mod M = 7  == c mod M = 7  -> True
+        m/2^47 - t = 1.350e-13   (m is a POSITIVE integer: True)
+   k=5: M=759375  j=60  m=3458764513821178132
+        m mod M = 7  == c mod M = 7  -> True
+        m/2^60 - t = 5.527e-13   (m is a POSITIVE integer: True)
+   k=6: M=11390625  j=64  m=55340232221135812507
+        m mod M = 7  == c mod M = 7  -> True
+        m/2^64 - t = 3.880e-13   (m is a POSITIVE integer: True)
+
+ p=3, c=-1, t=1/5
+   k=3: M=8  j=28  m=4575358490999
+        m mod M = 7  == c mod M = 7  -> True
+        m/3^28 - t = 2.972e-13   (m is a POSITIVE integer: True)
+   k=4: M=16  j=28  m=4575358491007
+        m mod M = 15  == c mod M = 15  -> True
+        m/3^28 - t = 6.469e-13   (m is a POSITIVE integer: True)
+   k=5: M=100000  j=36  m=30018927059399999
+        m mod M = 99999  == c mod M = 99999  -> True
+        m/3^36 - t = 1.165e-15   (m is a POSITIVE integer: True)
+   k=6: M=1000000  j=38  m=270170343534999999
+        m mod M = 999999  == c mod M = 999999  -> True
+        m/3^38 - t = 2.973e-13   (m is a POSITIVE integer: True)
+
+ p=5, c=2, t=7/11
+   k=3: M=216  j=21  m=303441827947562
+        m mod M = 2  == c mod M = 2  -> True
+        m/5^21 - t = 2.492e-13   (m is a POSITIVE integer: True)
+   k=4: M=1296  j=22  m=1517209139738450
+        m mod M = 2  == c mod M = 2  -> True
+        m/5^22 - t = 5.176e-13   (m is a POSITIVE integer: True)
+   k=5: M=7776  j=23  m=7586045698693538
+        m mod M = 2  == c mod M = 2  -> True
+        m/5^23 - t = 6.257e-13   (m is a POSITIVE integer: True)
+   k=6: M=46656  j=24  m=37930228493459906
+        m mod M = 2  == c mod M = 2  -> True
+        m/5^24 - t = 4.951e-13   (m is a POSITIVE integer: True)
