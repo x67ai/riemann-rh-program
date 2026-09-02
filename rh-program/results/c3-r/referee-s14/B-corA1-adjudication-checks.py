@@ -195,3 +195,38 @@ out["C8_nonwandering_witness_qk_to_1"] = {"rows": rows[:6], "all_qk_ne_1_and_to_
 print(json.dumps({k: out[k] for k in ["C6_chart_membership", "C7_N2_witnesses_kernel_growth", "C8_nonwandering_witness_qk_to_1"]}, indent=1))
 with open("B-corA1-adjudication-checks.json", "w") as fh:
     json.dump(out, fh, indent=1)
+
+# ---- Added 2026-09-02 (run 4, verification run) ----
+# C9: the construction behind adjudication §10 (uncertified observation): for a residue b (here b = 1 and
+# b = 7, standing for a unit exponent) and ANY s > 0, choose M_k = prod_{l<=k, l!=p} l^k, j_k with
+# p^{j_k} > k M_k / s, and an integer n_k = b (mod M_k) inside (s p^{j_k}(1-1/k), s p^{j_k}(1+1/k)).
+# Then n_k -> b in Z_(p)-hat and n_k / p^{j_k} -> s. Exhibited for k <= 10. (Proves nothing; pins the
+# existence of the sequence used in Claims O-1 and O-2.)
+def build_nk(b, s, p, kmax=10):
+    rows = []
+    ok = True
+    for k in range(2, kmax + 1):
+        M = 1
+        for l in primes_upto(k):
+            if l != p: M *= l**k
+        j = 1
+        while p**j <= k * M / s: j += 1
+        lo = s * p**j * (1 - Fraction(1, k)); hi = s * p**j * (1 + Fraction(1, k))
+        # smallest integer >= lo congruent to b mod M
+        start = int(lo) + 1
+        n = start + ((b - start) % M)
+        inside = (n > lo) and (n < hi) and (n > 0)
+        conv = abs(Fraction(n, p**j) - s) < s * Fraction(1, k)
+        ok = ok and inside and conv and (n % M == b % M)
+        rows.append({"k": k, "M_k": M, "j_k": j, "n_k": n, "n_k mod M_k == b": n % M == b % M,
+                     "|n_k/p^j - s| < s/k": conv})
+    return rows, ok
+res = {}
+for b in [1, 7]:
+    for s in [Fraction(1, 1), Fraction(3, 2), Fraction(1, 3)]:
+        rows, ok = build_nk(b, s, 5)
+        res[f"b={b}, s={s}"] = {"all_ok_k_le_10": ok, "first_rows": rows[:3]}
+out["C9_indiscrete_packet_sequence"] = res
+print(json.dumps({"C9": {k: v["all_ok_k_le_10"] for k, v in res.items()}}, indent=1))
+with open("B-corA1-adjudication-checks.json", "w") as fh:
+    json.dump(out, fh, indent=1)
