@@ -94,6 +94,8 @@ One sequence, two distinct limits: **X₀ is not Hausdorff**, and since the sequ
 
 ## 5. The merged residual question Q* (the union of the gaps, sharper than ledger §9.3)
 
+**[ADJUDICATOR OBSERVATION 2026-09-02 — Session 14, run 4 of the Cor. A.1 adjudication — UNCERTIFIED pointer]** *Q\* below is unchanged at certified grade.* An uncertified observation, derived in `results/c3-r/referee-s14/B-corA1-adjudication.md` §10 and recorded at probe B §7, would — if it survives its own dual referee pass — answer the subspace face Q-a with NO: every packet, and every periodic orbit, carries the **indiscrete** subspace topology in X₀ (cl{z} = Γ^E_p for every packet point z: run-1 referee O's Cor. O.7, re-derived twice, never refereed), so a subspace that is Hausdorff, or merely T₀, in its subspace topology meets each packet in at most one point, and no lamination sitting in X₀ as a subspace contains a periodic orbit. The mapping face Q-b is untouched by it. Until refereed, Q\* stands as written; the next two-referee item should be this observation, with the Q-a consequence as its headline.
+
 Per protocol item 3: the union of the two probes' gap-statements is strictly sharper than the ledger's §9.3, because the mechanism question 9.3 posed is now settled both ways (TRUE for closed subsystems; provably non-extending to maps), G1 is settled (NO), and the finite-stage escapes are settled (trivial — probe B §6.3). What remains decidable:
 
 > **Q* (the S4 residue, two equivalent faces).**
