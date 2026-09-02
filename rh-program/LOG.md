@@ -974,3 +974,30 @@ disk (r3s-25 Schultz 2012 notes, Thm 7(i)/(iii), read from page images; r3s-26 K
 covering theorem); Hurewicz–Wallman 1941 was read from a scan, its statements transcribed with pages,
 and the file DELETED because the Copyright Office catalog shows the 1969 renewal. The ready-to-install
 (b2) replacement text sits in the record §4 — queued for the single wording-repair pass.
+
+**19:15 IST — M2a item (b) DONE: `Zeta23/DBN/BarrierCert.lean` BUILT, sorry-free, soundness PROVED.**
+The Lane-B module of the M2a contract (`results/d1-m2a/SPEC.md`): transcript data (`PrismData`,
+`RectData`, `BarrierData`, `toW1`), the checker (`checkPrism` = W1's C1/C3–C9 with the strip-free C2′,
+m = 0, C11, the gate C-B12; `checkBarrierChain` = C-B13; `checkBarrier`), H2-B (`PrismEnclOK`,
+`BarrierEnclOK`, SPEC §8.1 verbatim) and `cert_of_checkBarrier` in the SPEC §8.3 shape (split
+`hchain`/`hprisms`). **The analytic content is a theorem, not a displayed hypothesis:** L-B0
+(`rectArgPrincipleGen`, the v1.1 argument principle on a general rectangle + the strip-free W1 mesh
+chain), D-B1 (`exclusion_of_checkPrismW1`: f ≠ 0 on R and its four-edge winding = 0), D-B2 (floor),
+D-B3 (‖g−f‖ < ‖f‖ ⟹ Re(g/f) > 0), L-B2 (log-derivative additivity on a segment), **L-B1 — the one
+new lemma, `logDerivSegIntegral_eq_log_sub`: ∫ h′/h = Log h(w) − Log h(z) when Re h > 0 on the
+segment** (`HasDerivAt.clog_real` + FTC), D-B7 telescoping over the four edges, D-B8
+(`prism_nonvanishing`), D-B9 (`cover_prisms`, list induction — only "first seam = 0" is a
+soundness input; C-B13's monotonicity is reject-more). Also `cert_of_checkBarrier_xy`, the
+coordinate form `Polymath15Bridge`'s (iii) consumes for H = G·B (no B ≠ 0 needed for that
+direction). No Rouché, no zero-continuity in t. Displayed: H2-B and `hHol` (G t holomorphic near
+R; instance: from `HtEntire` + L-B3). Build `lake build Zeta23.DBN.BarrierCert`: *Build completed
+successfully (3147 jobs)*, 3.2 s, 0 warnings (first build: 4 errors, fixed). `#print axioms` on all
+28 theorems/lemmas: propext/Classical.choice/Quot.sound only (`barriercert-axioms.log`). The SPEC
+§12 micro-example checks by `decide +kernel` with 4 negative controls
+(`barriercert-example-scratch.lean`; one negative control was initially mis-specified — a box with
+Im clear of 0 IS accepted by C-B6, as it should be — corrected, recorded in `lean-notes.md` §4).
+Root `Zeta23.lean` now imports `DBN.BarrierCert` (root builds, 9023 jobs). Copied to
+`lean/Zeta23/DBN/BarrierCert.lean` (1 092 lines, program header); `lean/README.md` table updated;
+record `results/d1-m2a/lean-notes.md` (build log, axioms, the exact displayed hypotheses, the
+two recorded deviations from SPEC §4.6's proof text: whole-edge D-B5–D-B7, no `cover_chain`).
+Not touched: `Defs.lean` v1.1, the asymptotic lane, `Instance02.lean` (next items).
