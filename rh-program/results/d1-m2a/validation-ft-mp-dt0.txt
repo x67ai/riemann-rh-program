@@ -1,3 +1,29 @@
 ==============================================================================
 d/dt f RE-CHECK at t = 0 (row 2, N0 = 630783): evaluator derivative ball vs (R1) analytic D-F6 float pipeline and (R2) two-sided central difference h = 1e-12  (2026-09-02T17:54:55.272880+00:00 UTC; mpmath 1.3.0; prec 288)
 ==============================================================================
+  x=5000000194858 y=16733/100000 t=0
+    f ball re ('-13.521827273803032', '-13.521827273803032')
+    f ref (R1)     (-13.5218272738030319 - 31.2048107515701833j)   PASS
+    df/dt ball re [864.6401330051043, 864.6401330061236] im [985.708448385433, 985.7084483864522]  width 1.02e-09
+    df/dt (R1 analytic) (864.640133005614182 + 985.708448385932106j)   PASS  (40s)
+    df/dt (R2 central)  (864.640133005614182 + 985.708448385932106j)   PASS  (57s)   |R1-R2| = 3.47e-19
+  x=5000000194859 y=1 t=0
+    f ball re ('3.6675295090061275', '3.6675295090061275')
+    f ref (R1)     (3.6675295090061273 + 2.91223613945467283j)   PASS
+    df/dt ball re [-33.24486366892131, -33.24486361196022] im [-59.8702027101949, -59.87020265323381]  width 5.70e-08
+    df/dt (R1 analytic) (-33.2448636404406361 - 59.8702026817147199j)   PASS  (36s)
+    df/dt (R2 central)  (-33.2448636404406361 - 59.8702026817147199j)   PASS  (56s)   |R1-R2| = 7.17e-21
+  x=5000000194858373/1000 y=59282437/100000000 t=0
+    f ball re ('11.65838432652845', '11.65838432652845')
+    f ref (R1)     (11.6583843265284505 - 2.33335435818603424j)   PASS
+    df/dt ball re [-256.8669151304429, -256.8669151304276] im [90.28340660147618, 90.28340660149145]  width 1.53e-11
+    df/dt (R1 analytic) (-256.866915130434892 + 90.283406601483706j)   PASS  (41s)
+    df/dt (R2 central)  (-256.866915130434892 + 90.283406601483706j)   PASS  (58s)   |R1-R2| = 4.75e-20
+  x=5000000194858 y=16733/100000 t=1/1000
+    f ball re ('-12.677483425144906', '-12.677483425143928')
+    f ref (R1)     (-12.6774834251444165 - 30.2345923933278527j)   PASS
+    df/dt ball re [824.3485507782291, 824.3485507792581] im [954.887168893553, 954.887168894582]  width 1.03e-09
+    df/dt (R1 analytic) (824.348550778743951 + 954.887168894057816j)   PASS  (44s)
+    df/dt (R2 central)  (824.348550778743951 + 954.887168894057816j)   PASS  (59s)   |R1-R2| = 3.34e-19
+dt0 recheck: 12 checks, 0 failures (0 of them derivative checks)
+VERDICT: the harness FAIL at (x1, y1, t=0) was a one-sided-difference artifact of the harness (step 1e-12 forward difference, truncation h|f''|/2 ~ 3e-8 > ball width 1e-9); at all 4 points the evaluator's derivative ball CONTAINS the analytic derivative (R1), and R1 agrees with the genuine central difference (R2) to the printed |R1-R2|.
