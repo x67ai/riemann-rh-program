@@ -155,3 +155,14 @@ with `--resume`.
 `dt0_recheck.py` + `validation-ft-mp-dt0.txt` (and the kept first-run log `validation-ft-mp-dt0-run1-helperbug.txt`);
 `schema_shape_check.py` + `shape-check-row2-run.txt`; `row2_summary.py` + `row2-summary.md`; `ref-checker-row2-run.txt`;
 `transcripts/row2/` (39 prisms, manifest, progress, producer.log, stdout.txt). No program Lean file was touched.
+
+
+## 8. Erratum (final audit, 2026-09-03; `results/d1-m2a/AUDIT.md` F-1)
+
+Item 9 of §6 above says the `ft_mp.py` docstring transcription of Prop. 6.6(iv)–(vi) "is exact". It was not, in one
+place: the docstring wrote the exponent of (iv)/(v) with `log^2(x/(4 pi n))`; the page (PDF p31, image re-read by the
+auditor) has `log^2(x/(4 pi n^2))`. The code never evaluates the n-dependent exponent — D-F4 majorizes it by δ₁ using
+0 ≤ log(x/(4πn²)) ≤ log(x/4π) for n ≤ N, N² ≤ x/(4π), which is exactly the printed reading — so every emitted E is
+unchanged and remains a valid upper bound of the paper's majorant (the auditor recomputed the paper's pointwise
+majorant at six box corners with independent code: every leg value is ≥ the corner value, slack ≤ 4·10⁻¹¹). The
+docstring has been corrected in place with a dated note; nothing else in this file changes.

@@ -1,0 +1,19 @@
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/audit/audit-corrupt-scratch.lean:64:79: error: (kernel) application type mismatch
+  id (Eq.refl true)
+argument has type
+  true = true
+but function has type
+  decide (checkPrism row2Rect audit_bad_E = true) = true → decide (checkPrism row2Rect audit_bad_E = true) = true
+'Zeta23.DBN.Instance02.audit_bad_box_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_E_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_mesh_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_floor_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_arg_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_count_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_bad_t0_rejected' does not depend on any axioms
+'Zeta23.DBN.Instance02.audit_bad_first_rejected' does not depend on any axioms
+'Zeta23.DBN.Instance02.audit_bad_order_rejected' does not depend on any axioms
+'Zeta23.DBN.Instance02.audit_bad_rect_rejected' does not depend on any axioms
+'Zeta23.DBN.Instance02.audit_bad_rect_prism_rejected' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.audit_mp0017_ok' depends on axioms: [propext]
+lake env lean "$S/audit/audit-corrupt-scratch.lean"  1.96s user 1.18s system 106% cpu 2.936 total

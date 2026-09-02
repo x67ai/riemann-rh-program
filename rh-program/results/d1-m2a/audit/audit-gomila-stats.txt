@@ -1,0 +1,9 @@
+eps field example: ['312499999999999999999999/250000000000000000000000000', '312500000000000000000001/250000000000000000000000000']  spatial_printed example: ['50005208875924575476611/100000000000000000000000', '50005208875924575477389/100000000000000000000000']  margin_printed: ['188853000082945649121/100000000000000000000', '188853000082945649339/100000000000000000000']
+my replayed margin vs record's gate_replay_margin: 0 prisms differ by > 1e-9
+my M-spatial vs record's cb12_floor: 0 differ
+min replayed margin: prism 882 0.519850  | min C-B12 floor M-spatial: prism 883 1.011949
+relative margins: min 0.3317 max 0.4414 median 0.4255; all below 2*median: True
+10 thinnest relative: [873, 874, 875, 876, 877, 878, 879, 880, 881, 882]
+prism 1 margin 1.888530 (printed ['188853000082945649121/100000000000000000000', '188853000082945649339/100000000000000000000']); prism 883 t_hi contains 129/800: True
+chain: first seam 0: True | strictly increasing: True | last < t0: True | continuity: True
+all gate margins > 0: True | all winding balls inside (-1/4,1/4): True
