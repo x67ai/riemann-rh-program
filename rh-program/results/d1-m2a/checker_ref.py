@@ -22,6 +22,9 @@ the emitted literals (`decide +kernel`, Zeta23/DBN/Instance02*.lean).  Acceptanc
 integer/rational relations C-B0..C-B13 hold -- nothing analytic (H2-B, hHol stay displayed).
 
 usage: checker_ref.py <manifest.json> [--quiet]        exit 0 ACCEPT, 1 REJECT (first failing clause named), 2 shape
+       checker_ref.py <manifest.json> --chain-only        checkBarrierChain only (the manifest's rect, t0, seams; prism
+                                                          files not read -- for chain-only objects such as the Gomila
+                                                          conversion, whose per-prism rows do not exist)
        checker_ref.py --prism <prism.json> --rect x1n/x1d x2n/x2d y1n/y1d y2n/y2d     (one prism, checkPrism only)
 """
 import json, os, re, sys
@@ -200,8 +203,21 @@ def load_barrier(manifest_path):
         prisms.append(p)
     return {"rect": rect, "t0": t0, "prisms": prisms}
 
+def load_chain_only(manifest_path):
+    m = json.load(open(manifest_path))
+    rect = tuple(as_pair(m["rect"][k], k) for k in ("x1", "x2", "y1", "y2")); t0 = as_pair(m["t0"], "t0")
+    prisms = []
+    for e in m["prisms"]:
+        s = as_pair(e["seam"], "seam")
+        prisms.append({"tn": s[0], "td": s[1], "K": 1, "A": 1, "mesh": {k: [] for k in ("bottom", "right", "top", "left")}, "rows": [], "Fn": 0, "Fd": 1, "E": 0, "D": 0})
+    return {"rect": rect, "t0": t0, "prisms": prisms}
+
 def main(argv):
-    quiet = "--quiet" in argv; argv = [a for a in argv if a != "--quiet"]
+    quiet = "--quiet" in argv; chain_only = "--chain-only" in argv; argv = [a for a in argv if a not in ("--quiet", "--chain-only")]
+    if chain_only:
+        b = load_chain_only(argv[0]); msg = check_barrier_chain(b)
+        print(f"{'ACCEPT checkBarrierChain' if msg is None else 'REJECT at ' + msg} ({len(b['prisms'])} seams; chain-only: NO per-prism check was made)")
+        return 0 if msg is None else 1
     try:
         if argv and argv[0] == "--prism":
             p = load_prism(argv[1]); assert argv[2] == "--rect"

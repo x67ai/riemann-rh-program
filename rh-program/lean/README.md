@@ -1,8 +1,10 @@
 # `rh-program/lean` — this program's own Lean 4 files
 
-13 files, ~8,570 lines (3,265 of them the data literals of `W1/Instances.lean`, added
-2026-09-02; 1,092 of them `DBN/BarrierCert.lean`, added the same day). They are **additions to the `Zeta23` library**, not a standalone project, and
-they are the only Lean files in this repository.
+13 hand-written files, ~8,570 lines (3,265 of them the data literals of `W1/Instances.lean`, added
+2026-09-02; 1,092 of them `DBN/BarrierCert.lean`, added the same day), plus the 116 mechanically emitted
+modules of `DBN/Instance02.lean` + `DBN/Instance02/` (23,965 lines of transcript literals, added 2026-09-03).
+They are **additions to the `Zeta23` library**, not a standalone project, and they are the only Lean files
+in this repository.
 
 | File | Lines | What it carries |
 |---|---|---|
@@ -17,6 +19,7 @@ they are the only Lean files in this repository.
 | `Zeta23/W1/ArgPrincipleBridge.lean` | 459 | **v1.1, D-R3: H-AP discharged.** Generalizes the ported theorem from entire functions to `DifferentiableOn ℂ f U` on an open `U ⊇ R`, bridges the two rectangle/winding vocabularies, handles the degenerate rectangle σ₁ = σ₂, and proves `rectArgPrinciple_of_local : ∀ f, RectArgPrinciple f`, `rectArgPrinciple_riemannZeta`, and `cert_of_checkW1_ap` — checker soundness with H-AP removed |
 | `Zeta23/DBN/Defs.lean` | 117 | De Bruijn–Newman definitions |
 | `Zeta23/DBN/BarrierCert.lean` | 1092 | **M2a Lane B (added 2026-09-02).** The barrier-certificate transcript data (`PrismData`, `RectData`, `BarrierData`), the integer checker `checkBarrier` (per-prism `checkPrism` = W1's C1, C3–C9 with the strip-free C2′, m = 0, the C11 floor and the gate C-B12 (E+D)·Fd < Fn·K; global `checkBarrierChain` = C-B13), the displayed hypothesis H2-B (`BarrierEnclOK`), and the soundness theorem `cert_of_checkBarrier` — PROVED, not displayed: the rectangle argument principle on a general rectangle (`rectArgPrincipleGen`, from the v1.1 bridge), the strip-free W1 mesh chain, and the one new analytic lemma `logDerivSegIntegral_eq_log_sub` (∫ h′/h = Log h(w) − Log h(z) when Re h > 0 on the segment) with log-derivative additivity; no Rouché, no zero-continuity in t. Plus `cert_of_checkBarrier_xy`, the coordinate form `Polymath15Bridge`'s (iii) consumes. Contract: `results/d1-m2a/SPEC.md`; record: `results/d1-m2a/lean-notes.md` |
+| `Zeta23/DBN/Instance02.lean` + `Zeta23/DBN/Instance02/` (116 modules) | 23965 | **M2a item (e), Lane B instance (added 2026-09-03).** The Polymath15 Table-1 row-2 barrier transcripts of BOTH untrusted producers as kernel-checked checker instances: `Instance02/Rect.lean` (`row2Rect`), `Instance02/mp_0000…mp_0038.lean` (mpmath-ball leg, 39 prisms, 7 176 rows, K = 10²⁴) and `Instance02/arb_0000…arb_0071.lean` (Arb/FLINT leg, 72 prisms, 10 771 rows, K = 10¹²), each proving `checkPrism row2Rect <prism> = true` by `decide +kernel`; `Instance02/{mp,arb}_Barrier.lean` (`row2Barrier{MP,ARB} : BarrierData`, the chain fact by `decide +kernel`, the split per-prism fact, the monolithic `checkBarrier … = true`); `Instance02.lean` instantiates `cert_of_checkBarrier` / `cert_of_checkBarrier_xy` on both (`row2_barrier_{mp,arb}`, `_xy`), generic in G. Emitted by `results/d1-m2a/emit_lean_m2a.py` (untrusted), back-parse-verified by `verify_lean_m2a.py` (0 mismatches); record `results/d1-m2a/INSTANCE-REPORT.md`. **PARTIAL by design:** Lane A, `Defs.lean` v1.1 and the glue theorem `lambda_le_point2` are NOT here (cut line stated in the module header) |
 
 `#print axioms` on every machine-checked theorem here reports only Lean's three standard
 axioms — `propext`, `Classical.choice`, `Quot.sound`. This now covers, besides the twelve
@@ -92,8 +95,23 @@ modules). Build: `lake build Zeta23.DBN.BarrierCert` — *Build completed succes
 3.2 s from a deleted olean, no warnings (`results/d1-m2a/barriercert-build.log`). The SPEC §12
 micro-example checks by `decide +kernel` against the built module, with four negative controls
 (`results/d1-m2a/barriercert-example-scratch.lean`, `.log`). `Defs.lean` is unchanged (v1.0); its
-v1.1 additions (`Polymath15Bridge'`, `Bt`, `HtEntire`), the asymptotic lane and `Instance02.lean`
-are the next items of the Lean stream.
+v1.1 additions (`Polymath15Bridge'`, `Bt`, `HtEntire`) and the asymptotic lane are the next items of the
+Lean stream.
+
+## M2a Lane B instance (2026-09-03): `DBN/Instance02.lean` + `DBN/Instance02/`
+
+Both producers' row-2 barrier transcripts are kernel-checked, one module per prism (SPEC §7.6):
+`checkPrism row2Rect <prism> = true` by `decide +kernel` for all 39 + 72 prisms, `checkBarrierChain … = true`
+by `decide +kernel` for both chains, and `checkBarrier row2Barrier{MP,ARB} = true` assembled from them
+(`List.all_eq_true`). Serial build (one `lake` process at a time): 157 s for the mp modules, 217 s for the
+arb modules, ≈ 3.1–3.8 s per 100–300-row module, most of it import loading; the monolithic `decide +kernel`
+on the full 7 176-row and 10 771-row literals also runs — 28 s for both together (≈ 1.4 ms/row), measured in
+`results/d1-m2a/kernel-time.log`. `#print axioms`: the chain facts use no axioms, the per-prism and split facts
+`[propext]`, the monolithic facts `[propext, Quot.sound]`, the instantiated barrier theorems the three standard
+axioms (`results/d1-m2a/instance02-axioms.log`). Honest label: *"kernel-checked modulo the displayed hypotheses
+H2-B and hHol (producers untrusted)"* — and the theorem `lambda_le_point2` (Λ ≤ 0.2 in ray form) is NOT
+proved: Lane A and the Defs v1.1 glue do not exist yet (the cut line is in the module header). The root
+`Zeta23.lean` imports `DBN.Instance02`; `lake build Zeta23` — *Build completed successfully (9138 jobs)*.
 
 ## What these build against, and why it is not here
 

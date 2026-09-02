@@ -44,15 +44,19 @@ def main():
         k = s["k"]; j = k - 1
         pa = os.path.join(here, "spot-arb", f"seam-{j:04d}", "instance02-prism-0000.json")
         pm = os.path.join(here, "spot-mp", f"prism-{j:04d}.json")
-        if not (os.path.exists(pa) and os.path.exists(pm)):
-            missing += 1; print(f"{k:4d} | (missing: arb {os.path.exists(pa)}, mp {os.path.exists(pm)})"); continue
-        A = X.load(pa); M = X.load(pm)
-        ja = json.load(open(pa)); jm = json.load(open(pm))
+        if not os.path.exists(pa):
+            missing += 1; print(f"{k:4d} | (missing: arb)"); continue
+        A = X.load(pa); ja = json.load(open(pa))
+        if os.path.exists(pm):
+            M = X.load(pm); jm = json.load(open(pm))
+        else:
+            missing += 1; M = A; jm = ja   # mp leg not yet produced: report the arb leg alone (columns duplicated, marked)
         if A["seam"] != M["seam"] or A["seam"] != Fr(s["seam"]):
             print(f"{k:4d} SEAM MISMATCH"); bad += 1; continue
-        db, pairs, ab, det = X.compare(A, M); n += 1; bad += db + ab
+        db, pairs, ab, det = X.compare(A, M) if os.path.exists(pm) else (0, 0, 0, [])
+        n += 1; bad += db + ab
         Mk = Fr(scal[k]["min_mesh"][0]); DtG = Fr(scal[k]["Dt"]); Dplus = Fr(s["Delta_plus"])
-        DT_arb = Fr(ja["producer"]["Mt_seam_sup"]); DT_mp = Fr(jm["producer"]["DT_sup_dt_f"])
+        DT_arb = Fr(ja["producer"]["Mt_seam_sup"]); DT_mp = Fr(jm["producer"]["DT_sup_dt_f"]) if "DT_sup_dt_f" in jm["producer"] else DT_arb
         fl_a, fl_m = A["floor"], M["floor"]
         c = []
         if fl_a > Fr(scal[k]["min_mesh"][1]): c.append("arb floor > M_k"); 
@@ -65,7 +69,7 @@ def main():
         contra += len(c)
         print(f"{k:4d} | {float(A['seam']):.9f} | {len(A['rows'])}/{len(M['rows'])} | {pairs} | {db} | {ab} | {float(Mk):.6f} | {float(fl_a):.6f} / {float(fl_m):.6f} | "
               f"{float(A['E']):.3e} / {float(M['E']):.3e} | {DtG} | {float(DT_arb):.1f} / {float(DT_mp):.1f} | {float(DT_arb / DtG):.3f},{float(DT_mp / DtG):.3f} | {'ok' if ga else 'FAIL'},{'ok' if gm else 'FAIL'}"
-              + (("  CONTRADICTION: " + "; ".join(c)) if c else ""))
+              + (("  CONTRADICTION: " + "; ".join(c)) if c else "") + ("" if os.path.exists(pm) else "   [mp leg pending: mp columns = arb]"))
         for d in det: print("      " + d)
     print(f"\ncompared {n} prisms: {bad} disjoint pairs/edges between D1's legs; {contra} contradictions vs Gomila's printed scalars; "
           f"our-gate-at-their-length failures: {gate_fail}; missing: {missing}")
