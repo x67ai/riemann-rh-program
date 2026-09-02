@@ -39,6 +39,7 @@ phase('Probe')
 const results = await parallel(PROBES.map(p => () => agent(`${COMMON}
 
 YOUR PROBE: ${p.title}.
+RESUMED RUN: a previous run of this probe was killed by a usage limit part-way. If '${OUT}/${p.key}.md' already exists, it is that run's PARTIAL DRAFT (some drafts reached 40–80 KB): read it first, keep whatever you can re-derive and verify, correct whatever you cannot, and COMPLETE it in place — do not restart from zero and do not trust it blindly. If no file exists, start fresh. Keep the returned 'summary' under 4000 characters.
 ${p.brief}
 
 DELIVERABLE: a dated (2026-09-02) referee-grade note at '${OUT}/${p.key}.md' with: §0 VERDICT stated first (one of: THEOREM (NO) / CONSTRUCTION (YES) / PARTIAL — with the exact statement of what is established; never round up); §1 sources read with pages; the mathematics in full (definitions written out, every step derived, every source anchor quoted); a scope-and-honesty section (what was NOT re-derived; [RU] items; judgment-grade readings flagged); a 'novelty ledger' listing every result you believe is new, each tagged [novelty: single-check]; and a 'bookkeeping' section naming which ledger rows / Q* clauses / direction-file entries your result touches (you do not edit them). Return the schema: 'verdict' is a short label, 'summary' the essential mathematics and its scope, 'file' the path, 'new_results' one line per claimed-new theorem or construction.`,
@@ -61,6 +62,7 @@ function adjBrief(question, keys, extra) {
 
 YOUR TASK: BINDING ADJUDICATION of ${question}. Probe notes and their returned summaries:
 ${inputs}
+NOTE: keep the returned 'summary' under 4500 characters; the full content belongs in the file.
 Protocol (standing order 5; the Session-4 process learning: adjudicators re-derive, never weigh testimony): (1) read every probe note in full and the sources they cite at the cited pages; (2) RE-DERIVE every theorem, construction, and obstruction the probes claim — in your own words, in full, in the adjudication note — and mark each CONFIRMED / REFUTED / NOT-RE-DERIVED (with the reason); where two probes conflict, the source and your derivation decide; where they agree you still check; (3) state the BINDING result of the question: ${extra} (4) list the 'next decidable' sub-questions, strictly sharper than the input question, with what a YES/NO on each would mean; (5) a 'novelty ledger' of every result banked as new, tagged [novelty: single-check] (a dual-model sweep follows); (6) write '${OUT}/${keys[0].split('-')[0]}-adjudication.md' — for Q* name it 'qstar-adjudication.md' — with all of the above and a 'ledger/frontier annotations' section proposing (not applying) the exact text for the M2c ledger addendum and the C3 'Current frontier'. Do not edit any existing file. Return the schema.`
 }
 

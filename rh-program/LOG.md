@@ -665,3 +665,17 @@ Two flags from the sweep judged: (i) "parent paper is arXiv v2, not v5" — the 
 frozen papers; caveat 14 added to `results/corpus-routing.md`. (ii) "[Lut25] title is *spaces*, not
 *schemes*" — correct; the 9.4 note's wording is left as written (results notes get dated blocks, not
 edits) and the routing index carries the right title. Watch line in STATUS updated.
+
+**~02:35 IST — USAGE LIMIT HIT (resets 06:30 IST). All three workflows died at their adjudication /
+reconcile stages.** What survived on disk (auto-committed at 02:18/02:28/02:38 by the watchdog — the
+new rule paid for itself within the hour): run 1 — all six referee reports and both novelty sweeps
+COMPLETE (`results/c3-r/referee-s14/`, 8 files, 50–110 KB each); run 2 — `AUDIT-F.md` complete and
+returned (0 FATAL, 2 MAJOR, 6 MINOR; see the harvest below) and `AUDIT-O.md` complete on disk but its
+structured return failed (five times), so the reconcile never started; run 3 — four of eight probe
+drafts on disk (`qa-build`, `qb-kill`, `w3-F`, `w3-O`), no adjudication. Nothing lost that was written.
+
+**07:50 IST — RESUMED after the reset.** Scripts edited (copies in `scripts/`): run 1 resumes with the
+eight completed agents replayed from cache and the four adjudicators told about partial artifacts;
+run 2 replays audit-F from cache, re-runs audit-O with a resume brief (read AUDIT-O.md, confirm, return
+a short summary) and a relaxed schema, then reconcile → M2a; run 3 re-runs all eleven agents with each
+probe told to continue from its partial draft rather than restart.
