@@ -196,6 +196,8 @@ Every result in this item that is, or could be, claimed new, with its current st
 | N-8 | Corollary (ii): NO to the closed alternative of [x-03] p. 40's question. | note §3 | note | NOVEL-DUAL-CHECKED already (Session 14); attribution now (a) + Cor. A.2, independently (b1)+(b2). |
 | N-9 | Vacuity: no closed invariant S meeting every packet is Hausdorff. | F2/J2 | referees | Immediate corollary of (a) + Cor. A.2; not a free-standing claim. |
 
+**[NOVELTY — dual-model check 2026-09-03]** **N-2, N-3, N-5 (the closed embedded n-cubes and the extension to every closed invariant S): NOVEL-DUAL-CHECKED** (`results/c3-r/s14/novelty/adjudication.md` §2 C8). Neither sweep nor the adjudicator found closed cubes in the quotient topology of 𝕏₀, nor the statement for every closed flow-invariant S meeting every packet; O verified that [x-03] §8 (pp. 49–50, Thm 8.2 + Lemma 8.3) is an identification/density statement with no dimension argument, so this pass's proof remains the only theorem-grade route to Deninger's assertion (N-1, PARTIAL as recorded). Classical input to cite at B9 (F's find): "For a compact group G of positive dimension, dim(G) = rk(ℚ ⊗ G^∨), [3, Theorem 8.22]" — Lewis–Mader, arXiv:1809.04627 p. 2, [3] = Hofmann–Morris, *The Structure of Compact Groups* (book not opened) — an ingredient, not a statement covering any part of N-2/N-3; the [RU] on dim[0,1]ⁿ = n is discharged by the on-disk dimension-theory sources (r3s-25, r3s-27, r3s-28). N-7 (non-Hausdorff at the cell points): same status as Session-8 N2a — phenomenon Deninger's ([x-03] pp. 49, 63, 64, 76; and p. 61's coarse quotient), localization new.
+
 ---
 
 ## 8. Action items and artifacts

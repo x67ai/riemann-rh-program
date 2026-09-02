@@ -457,6 +457,8 @@ unitary system Y₀ … the first positive S4-shaped object". Y₀ is not an S4-
 it is not T1. What exists is a compact **source** with the right orbit data and an inert map into
 Y₀. R-ii must be rewritten accordingly.
 
+**[NOVELTY — dual-model check 2026-09-03]** **Theorem T (C2): PARTIAL.** The criterion "T₁ ⟺ orbits closed" is definition-level and printed (Yokoyama arXiv:2012.00849 Lemma 7.2 proof: a point of the orbit space "is S₁ if and only if O(x) is closed with respect to the quotient topology"; Akin–Auslander arXiv:1004.0323 Thm 6.3, closed orbit relation ⟹ Hausdorff quotient). The same question is on Deninger's page with the **opposite** answer for the adelic base: [x-03] p. 64 Remark "By [LR00, Lemma 3.1], the orbits of the ℚ^{>0}-action on ℚ^{>0}Ẑ^× × ℝ^{>0} are closed … Y is a T₁-space" — Laca–Raeburn, Math. Ann. 318 (2000) = arXiv:math/9911134 Lemma 3.1 "If u is an invertible adele, then the orbit ℚ*u is closed in 𝔸" (proof uses the non-compact adelic base: "(r_n − r_m)u ∈ ∏_p ℤ_p implies r_n − r_m ∈ ℤ"). Also printed: [x-03] p. 49 "not properly discontinuous", p. 61 coarse quotient, p. 63 non-homeomorphism. New: the uniform relatively-compact-orbit statement for any ℚ^{>0}-space Z, and Y₀ not T₁ / not metrizable / not a foliated space; no source states either. Say explicitly that Theorem T and the p. 64 Remark do not conflict (compact profinite base versus adelic base). Record: `results/c3-r/s14/novelty/adjudication.md` §2 C2.
+
 ### 4.4 The map is inert — Theorems O-3 and C ratified
 
 - **verify-O Theorem O-3:** *any* function g : Y → X₀^full with g(N_p) ⊂ γ̃_p and g(T²×{0}) ⊂ Ω is
@@ -600,6 +602,8 @@ question exactly; the source is not on disk ([RU]).
    verify-O's Lemma O-2a, Lemma O-5, Theorem O-3 and Corollary O-3a, §7.5's Euler-characteristic
    design constraint, and the §3.7 α = 1 repair. Each was re-derived by me except where §8 says
    otherwise.
+
+**[NOVELTY — dual-model check 2026-09-03]** **Re-grading of items 1–9** (`results/c3-r/s14/novelty/adjudication.md`, binding). Item 1 (Theorem T): **PARTIAL** — criterion printed (Yokoyama Lemma 7.2; Akin–Auslander 6.3); printed opposite answer for the adelic base ([x-03] p. 64 via Laca–Raeburn Lemma 3.1); statement new. Item 2 (cyclic length group of §7.7 suspensions): **ANTICIPATED** — Deninger [x-18] = *Groups and Analysis*, LMS LNS 354 (2008), p. 3: "Its image Λ ⊂ ℝ is called the group of periods of (X, F, φ^t). It is known that F is a fibration if and only if rank Λ = 1"; Kim–Morishita–Noda–Terashima, Münster J. Math. 14 (2021) = arXiv:1906.02424 Prop. 2.2.5 ("If S is of type I or of type III-1, then the period group Λ_S = ℤ. Conversely …"), which they grade folklore ("Although this may be known (cf. [CCI; 9.3], [Fa; 2.1])"). Item 4 (α = 1 / p^{1/2}·O): ANTICIPATED verbatim, [Den05] pp. 32–33 "Fact … T_xφ^{kl(γ)} = e^{(k/2)l(γ)}·O_k for O_k ∈ SO(T_xF)"; "absolute value Np^{1/2}" — as this item already says; `verify-O.md` §9 item 2's single-check tag must be re-attributed to Den05. Item 6 (Theorem B by leaf dimension), item 9's Theorem C, Theorem O-3, and the construction itself: **NOVEL-DUAL-CHECKED** — no realization of {log p} and no such decomposition theorem found (nearest print: KMNT Thm 2.2.2/Cor. 2.2.4, Lemma 3.2 — the surgery shape of the witness, to be credited; Yokoyama 2020 Ex. 2; Wilson/Kuperberg plugs). [x-18] p. 3's "If one wants an infinitely generated Λ, one must allow the flow to have fixed points" is the printed structural constraint on S4′ and must be cited in §15 of the ledger.
 
 ---
 

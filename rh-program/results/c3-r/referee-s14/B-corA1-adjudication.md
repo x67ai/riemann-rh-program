@@ -165,6 +165,8 @@ The installed Cor. A.1 block (run 1) says "Finding 1 … referee F's F1 = refere
 | N-10 | Single-orbit packets are closed orbits; scope of "no periodic orbit is closed" | New bookkeeping consequence of N-1; not in the sources. |
 | N-11 | The non-wandering witness (P₀,u)·q_k → (P₀,u), q_k → 1, q_k ≠ 1; non-proper-discontinuity of the Q-action on X̌₀(C)_E × R^{>0} | Consonant with Deninger's adelic statement (p. 49) and his §10 remarks (p. 63); not claimed new. |
 
+**[NOVELTY — dual-model check 2026-09-03]** **N-2/N-3 (cl(γ) = Γ^E_p exactly; packets minimal): NOVEL-DUAL-CHECKED; N-1 (packet = fiber of the continuous descended projection, hence closed): PARTIAL exactly as graded above** (`results/c3-r/s14/novelty/adjudication.md` §2 C7). Both sweeps found nothing against the closure equality; the anchors of N-1 ([x-03] p. 31, Lemma 7.1; [r3s-08] p. 14) stand. Source currency (check O, accepted): arXiv:2508.15971 has five versions, v5 = 21 Jan 2026, "to appear in Münster Journal of Mathematics"; the on-disk r3s-08 is v5 and its text is line-for-line identical to a fresh fetch, so N-9 (the (2.2.7) defect) stands against the final accepted text; no erratum. Note that §10's observation (indiscreteness of packets and orbits) is now the certified Face-(a) theorem of `s14/qstar-adjudication.md`, graded PARTIAL there against [x-03] p. 61 (Deninger's coarse-topology proof by strong approximation for the sibling quotient of the generic-fiber base).
+
 ---
 
 ## 9. Machine checks and residue
