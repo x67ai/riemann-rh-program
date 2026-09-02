@@ -56,3 +56,30 @@ B. containment H_t/B_t in f_t (+-) (rad + E): Arb direct-sum evaluator (point_ho
    x=10000 t=0.186 y=0.50000 N= 28 |g|=0.56871 |f|=0.55674 rad_f=9.9e-92 E=5.425e-02 (eC0=5.38e-02 eAB=4.45e-04) |g-f|=2.653e-02 |g-f|/E=0.489 contained=True relB=1.0 60.9s
    x=10000 t=0.186 y=1.00000 N= 28 |g|=0.66937 |f|=0.66580 rad_f=4.6e-92 E=2.457e-02 (eC0=2.43e-02 eAB=2.63e-04) |g-f|=1.153e-02 |g-f|/E=0.469 contained=True relB=1.0 61.0s
    x=10000 t=0.200 y=0.16733 N= 28 |g|=0.43990 |f|=0.40509 rad_f=1.7e-91 E=8.987e-02 (eC0=8.92e-02 eAB=7.00e-04) |g-f|=4.446e-02 |g-f|/E=0.495 contained=True relB=1.0 60.6s
+   x=10000 t=0.200 y=0.50000 N= 28 |g|=0.56773 |f|=0.55692 rad_f=9.5e-92 E=5.218e-02 (eC0=5.17e-02 eAB=4.43e-04) |g-f|=2.552e-02 |g-f|/E=0.489 contained=True relB=1.0 60.9s
+   x=10000 t=0.200 y=1.00000 N= 28 |g|=0.67253 |f|=0.66934 rad_f=4.4e-92 E=2.364e-02 (eC0=2.34e-02 eAB=2.63e-04) |g-f|=1.109e-02 |g-f|/E=0.469 contained=True relB=1.0 61.0s
+   containment: 48/48 points; worst |g-f|/E = 0.5465 (must be <= 1)
+   widths: rad_f (ball half-width of the Arb f_t) in [4.29e-94, 2.38e-91]; E in [2.36e-02, 9.45e-01]; the enclosure of H_t/B_t has radius rad_f + E
+C. Taylor/moment evaluator (BoxEvaluator) on [10000, 10001] x [16733/100000, 1] x [0, 93/500], N = 28: seam balls f (+-) E vs reference:
+   [box] a+=3.339658 a-=3.339658 |alpha+|<=3.4307 dA+=3.256e-05 dA-=3.256e-05 A1'+=1.000e-04 A2''+=2.000e-08 rho=0.6506 sup|l|=3.3397 sup|w|=2.6219 sup|w'|=3.938e-05
+   [moments] done in 0.0s: C+=4.5992e+00 C-=1.3914e+01 Q+=3.080 Q-=3.080 r+max=2.788 r-max=2.788
+   t=0.000 z=(0.000+X, 0.16733) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=7.764e-02 ratio=0.462 contained=True
+   t=0.000 z=(1.000+X, 1.00000) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=1.927e-02 ratio=0.115 contained=True
+   t=0.000 z=(0.333+X, 0.16733) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=7.757e-02 ratio=0.461 contained=True
+   t=0.000 z=(0.700+X, 1.00000) rad_f=1.4e-04 E_box=1.682e-01 |g-f|=1.930e-02 ratio=0.115 contained=True
+   t=0.000 z=(0.000+X, 0.60000) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=3.770e-02 ratio=0.224 contained=True
+   t=0.000 z=(1.000+X, 0.40000) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=5.247e-02 ratio=0.312 contained=True
+   t=0.000 z=(0.500+X, 0.16733) rad_f=1.5e-04 E_box=1.682e-01 |g-f|=7.753e-02 ratio=0.461 contained=True
+   t=0.000 z=(0.900+X, 1.00000) rad_f=1.4e-04 E_box=1.682e-01 |g-f|=1.928e-02 ratio=0.115 contained=True
+   t=0.186 z=(0.000+X, 0.16733) rad_f=1.1e-04 E_box=1.002e-01 |g-f|=4.623e-02 ratio=0.461 contained=True
+   t=0.186 z=(1.000+X, 1.00000) rad_f=1.0e-04 E_box=1.002e-01 |g-f|=1.146e-02 ratio=0.114 contained=True
+   t=0.186 z=(0.333+X, 0.16733) rad_f=1.1e-04 E_box=1.002e-01 |g-f|=4.618e-02 ratio=0.461 contained=True
+   t=0.186 z=(0.700+X, 1.00000) rad_f=1.0e-04 E_box=1.002e-01 |g-f|=1.149e-02 ratio=0.115 contained=True
+   t=0.186 z=(0.000+X, 0.60000) rad_f=1.0e-04 E_box=1.002e-01 |g-f|=2.246e-02 ratio=0.224 contained=True
+   t=0.186 z=(1.000+X, 0.40000) rad_f=1.0e-04 E_box=1.002e-01 |g-f|=3.122e-02 ratio=0.311 contained=True
+   Taylor evaluator containment: 14/14; worst ratio 0.4616; rad_f in [1.0e-04, 1.5e-04]
+D. derivative balls (f_z, f_t, f_zz, f_zt, f_tt) vs central differences of the direct sum (Arb, ft_direct), and D-A15 prism balls:
+   t=0.050 z=(0.000+X,0.16733): f_z=-0.985163-0.587539j (fd -0.98515-0.587516j, rel 2.3e-05, w 4.8e-04) MISMATCH f_t=-0.619062-0.618952j (fd -0.619056-0.618934j, rel 2.2e-05, w 9.9e-04) MISMATCH f_zz=1.80788-3.13241j (fd 1.80778-3.13238j, rel 3.0e-05, w 2.2e-03) f_zt=1.16719-3.35611j (fd 1.16708-3.35609j, rel 3.0e-05, w 4.1e-03) f_tt=0.706583-2.71906j (fd 0.706546-2.71899j, rel 2.7e-05, w 6.2e-03)
+   t=0.050 z=(1.000+X,1.00000): f_z=0.0143568-0.154304j (fd 0.0143582-0.154302j, rel 1.6e-05, w 4.4e-04) MISMATCH f_t=0.542725-0.0895483j (fd 0.542728-0.0895452j, rel 7.3e-06, w 9.6e-04) MISMATCH f_zz=-0.0161271+0.0163637j (fd -0.0162093+0.0163758j, rel 3.6e-03, w 1.9e-03) f_zt=0.0901746+0.378731j (fd 0.0901779+0.378732j, rel 8.8e-06, w 3.9e-03) f_tt=-0.599412+0.624104j (fd -0.599409+0.624112j, rel 9.2e-06, w 6.1e-03)
+   t=0.050 z=(0.333+X,0.16733): f_z=-0.00120324-1.07852j (fd -0.0012201-1.07851j, rel 1.6e-05, w 4.6e-04) MISMATCH f_t=0.254673-1.32614j (fd 0.254655-1.32614j, rel 1.3e-05, w 9.8e-04) MISMATCH f_zz=3.34629+0.475462j (fd 3.34627+0.475349j, rel 3.4e-05, w 2.0e-03) f_zt=3.49814-0.47494j (fd 3.49814-0.475037j, rel 2.8e-05, w 4.0e-03) f_tt=3.05951+0.0486876j (fd 3.0595+0.0486208j, rel 2.3e-05, w 6.1e-03)
+   t=0.050 z=(0.700+X,1.00000): f_z=0.00536152-0.172322j (fd 0.00536289-0.172321j, rel 9.4e-06, w 4.4e-04) MISMATCH f_t=0.488002-0.196532j (fd 0.488004-0.19653j, rel 6.1e-06, w 9.6e-04) MISMATCH f_zz=0.091709+0.079162j (fd 0.0917044+0.0791728j, rel 9.7e-05, w 1.9e-03) f_zt=0.270857+0.307531j (fd 0.270839+0.307535j, rel 4.6e-05, w 3.9e-03) f_tt=-0.297116+0.642226j (fd -0.296985+0.642236j, rel 1.9e-04, w 6.1e-03)
