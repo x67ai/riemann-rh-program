@@ -1,3 +1,11 @@
 validate_arb_ft.py -- mpmath 1.3.0 dps 45; python-flint 0.6.0 prec 320; 2026-09-03T00:35:16 local
 sections: ['A', "A'", 'B', 'C', 'D', 'E']
 A. D-V1 heat-kernel representation vs direct u-quadrature (moderate x):
+   x=50 y=0.3 t=0.1 (dps 58): direct=(-5.06224054763726e-9 - 2.36534117667221e-8j) heat=(-5.06224054763726e-9 - 2.36534117667221e-8j) rel.diff=6.11e-56
+   x=120 y=1.0 t=0.186 (dps 70): direct=(-5.9686654708738e-19 + 1.74797853066556e-19j) heat=(-5.9686654708738e-19 + 1.74797853066556e-19j) rel.diff=3.68e-55
+   x=200 y=0.16733 t=0.05 (dps 84): direct=(-9.43278753141501e-32 + 5.67506301752972e-33j) heat=(-9.43278753141501e-32 + 5.67506301752972e-33j) rel.diff=6.1e-57
+   D-V1 agreement < 1e-20 at all three points
+A'. reference stability: dps 45 / W=16 / 81 panels  vs  dps 60 / W=18 / 121 panels:
+   x=10000 y=0.16733 t=0.200: g=(0.3467614240861914391160005 + 0.2706872741089319944380439j) rel.diff=9.6e-43
+   x=10000 y=1.00000 t=0.186: g=(0.6689749149656300395670373 + 0.02303760526281204852637854j) rel.diff=1.99e-42
+   x=1000 y=0.50000 t=0.050: g=(0.4761302444067964623957939 + 0.956956375885809602369047j) rel.diff=1.09e-43
