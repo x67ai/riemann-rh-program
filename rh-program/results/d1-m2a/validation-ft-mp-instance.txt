@@ -26,3 +26,7 @@ N = 630783, blocks = 20, R = 48; box [5000000194858, 5000000194859] x [16733/100
     x=5000000194858.000000 y=0.16733  f=(-12.677483425144 - 30.234592393328j)  Taylor width 9.79e-13 (0.05s)  direct width 5.55e-66 (149.1s)  |dt f|~1.26e+03 width 1.0e-09
     x=5000000194859.000000 y=1.00000  f=(3.6345222239302 + 2.8531073650094j)  Taylor width 1.34e-14 (0.05s)  direct width 4.40e-68 (145.1s)  |dt f|~67 width 1.4e-11
     box bottom h=1/100: f-box width 3.677e+00  |f| in [47.127, 52.287]  |dt f| <= 1.78e+03
+    box bottom h=1/1000: f-box width 3.525e-01  |f| in [14.802, 15.185]  |dt f| <= 449
+    box right h=1/100: f-box width 5.686e-01  |f| in [9.374, 10.060]  |dt f| <= 230
+row 2 N0=630783: 69 checks, 1 failures
+TOTAL FAILURES: 1
