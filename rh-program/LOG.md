@@ -903,3 +903,22 @@ most two agents side by side, next stream after harvest) so that a usage-limit w
 rather than a dozen. Recorded as the amendment to standing order 3 in STATUS.md and in KICKSTART.md
 Part 2 step 5. Applies from the next launch; the runs already in flight (three C3 adjudicators, one
 debt adjudicator, the M2a chain, the citation fetch) are left to finish.
+
+**18:35 IST — HARVEST 3: the three Track C adjudications (run 3 COMPLETE, 11/11; files in
+`results/c3-r/s14/`, 37–89 KB each, every probe claim re-derived from the PDFs).** **Q* = DECIDED-NO on
+both faces (theorem; every admissible E; X₀ and Y₀) — the M2c kill-criterion INPUT FIRES**, single-
+check, enactment held for the adversarial dual-model pass. Face (a): packets are indiscrete subspaces
+(any two packet points topologically indistinguishable — CRT window + p^Z-isotropy + pointwise
+convergence); X₀ not T₀; cut suspensions non-T₀. Face (b): a flow-conformal l.s.c. weight W with
+W∘φ^t = e^t W, +∞ on packets, makes every nonempty quasi-compact invariant set avoid the generic locus,
+and packets are clopen in the periodic locus, so any equivariant image of a quasi-compact space meets
+finitely many packets; COMPACTNESS is the exact obstruction (the non-compact Y_∞ maps in). Four probes
+converged, both build probes proved NO. **DQ-M = NO** (theorem in the model world): a continuum of
+closed orbits contributes the fixed-point INDEX, never the Haar mass; packet-symmetric continua have
+index 0; Road 2 closed. **W3 = PARTIAL:** the literal coincidence statements of [ÁLKL23] (Prop. 3.2,
+Cor. 3.4, Cor. 4.5, Prop. 6.10, Cor. 6.12/6.19/7.11) are FALSE at source as stated (explicit witness;
+both probes + adjudicator; one probe conflict on Cor. 6.24/7.20 decided TRUE), the acyclicity core is
+PROVED and transplant-transparent, the manifold trace-formula package re-secured, S2 NOT reopened.
+Written into the C3 direction file (work log + a Session-14 frontier paragraph with the sequential
+next-stream list) and the M2c ledger (§13 addendum carrying the adjudicators' proposed annotations
+verbatim, status PENDING). Novelty ledgers: 11 + 18 + 18 single-check items for the next sweep.
