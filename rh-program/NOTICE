@@ -55,3 +55,20 @@ SOFTWARE.
 (The source LICENSE file continues with a "Scope" trailer stating that the MIT license covers
 the source code original to that repository, including lean/; it is quoted in
 results/d1-m1/gomila-lean-branch-scout.md §1.3.)
+
+------------------------------------------------------------------------------------------------
+2026-09-02 (addendum) — H-AP discharge module adapting the ported argument principle
+------------------------------------------------------------------------------------------------
+
+File:   lean/Zeta23/W1/ArgPrincipleBridge.lean (staged first at
+        ~/rh-lean-work/zeta-23-v11/Zeta23/W1/ArgPrincipleBridge.lean, SHA-256
+        b8392aad5f3438458038bdf4c9b71a660cab2ddd1d63f9a5e7a05771cf503a0e; recorded in
+        results/d1-m1/v11/discharge-notes.md).
+Source: the same Gomila/Aristotle development named in the section above (commit ea09b2f).
+Use:    ADAPTED — section 1 of the file restates seven of the ported lemmas
+        (analyticOrderAt_ne_top, exists_factor_pow_sub, exists_factor_prod,
+        finite_zeros_of_isCompact, continuousOn_logDeriv, rectIntegral_logDeriv_eq_zero,
+        windingRect_eq_sum_analyticOrder) with the entire-function hypothesis weakened to
+        differentiability on an open set containing the rectangle; the proofs are the ported ones
+        with local edits.  The file carries the same notice block as the two ported files.  The
+        MIT license text reproduced above applies to these adapted portions as well.
