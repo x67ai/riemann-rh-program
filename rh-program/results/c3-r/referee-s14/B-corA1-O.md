@@ -631,10 +631,13 @@ a continuous invariant and one via an explicit closure computation, give the sam
    since it is the kind of line that gets quoted alone. (Bookkeeping, adjacent to my item.)
 3. **Packets are compact for E ⊇ E_f**, which [x-03] p. 2 and [x-06] p. 12 assert without proof
    ("the closed points x₀ of X₀ correspond bijectively to **compact** packets Γ_{x₀}";
-   "The **compact** subsets Γ_{x₀} ⊂ X₀ …"). Proof: by (38)/(39) (p. 32–33) and Thm. 5.2
-   (E ⊇ E_f ⟹ C^E_{x₀} = C_{x₀}), every point of Γ_{x₀} is [F_r π(x, χ^a), w] = [π(x, χ^a), rw]
-   with a ∈ Ẑ×_{(p)}; and [P, pu] = [F_p P, u] = [P, u] on C_{x₀}; hence
-   Γ_{x₀} = q( π(β(Ẑ×_{(p)})) × [1, p] ), a continuous image of a compact set. Combined with
+   "The **compact** subsets Γ_{x₀} ⊂ X₀ …"). Proof: write N x₀ = |κ(x₀)|. By (38)/(39)
+   (pp. 32–33) and Thm. 5.2 (E ⊇ E_f ⟹ C^E_{x₀} = C_{x₀}), every point of Γ_{x₀} is
+   [F_q π(x, χ^a), w] = [π(x, χ^a), qw] with a ∈ Ẑ×_{(p)} and q ∈ Q^{>0}₀; and
+   [P, (N x₀)u] = [F_{N x₀} P, u] = [P, u] on C_{x₀} because the isotropy is exactly N x₀^Z
+   (Thm. 5.2, p. 34). Hence Γ_{x₀} = q( π(β(Ẑ×_{(p)})) × [1, N x₀] ), a continuous image of a
+   compact set (Ẑ×_{(p)} is a closed subgroup of the profinite Ẑ_{(p)}, hence compact; β is
+   continuous by Lemma O.1′). Combined with
    Theorem O.5(a), packets are **compact and closed** — so the failure of Hausdorffness in X₀
    (adjudication §3) is *not* the familiar "compact but not closed" pathology at the level of
    packets; it is entirely internal to each packet. That is a sharper statement than the note's,

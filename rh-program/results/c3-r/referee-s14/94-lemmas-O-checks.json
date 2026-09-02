@@ -1,0 +1,95 @@
+{
+  "B_min_defect": 1.0,
+  "B_max_defect": 3.0,
+  "B_ge_1": true,
+  "B_le_3": true,
+  "B_p2_defect": 2.0,
+  "binom_pn_divisible_by_p": true,
+  "binom_counterexamples": [],
+  "freshman_rows_all_consistent": true,
+  "freshman_rows_checked": 152,
+  "freshman_inconsistent": [],
+  "C_nu_1_nonzero_when_p_nmid_nu": true,
+  "Bp_quotient_orders_grow": true,
+  "Bp_sample": [
+    {
+      "p": 2,
+      "|T|": 2,
+      "image_of_p": [
+        1,
+        1
+      ],
+      "lower_bound_on_|B_p| quotient": 2
+    },
+    {
+      "p": 2,
+      "|T|": 4,
+      "image_of_p": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "lower_bound_on_|B_p| quotient": 8
+    },
+    {
+      "p": 2,
+      "|T|": 6,
+      "image_of_p": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "lower_bound_on_|B_p| quotient": 32
+    },
+    {
+      "p": 2,
+      "|T|": 8,
+      "image_of_p": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "lower_bound_on_|B_p| quotient": 128
+    },
+    {
+      "p": 2,
+      "|T|": 10,
+      "image_of_p": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "lower_bound_on_|B_p| quotient": 512
+    },
+    {
+      "p": 3,
+      "|T|": 2,
+      "image_of_p": [
+        1,
+        1
+      ],
+      "lower_bound_on_|B_p| quotient": 2
+    }
+  ],
+  "prime_to_p_order_is_unit": true,
+  "power_commutes_with_hom": true,
+  "power_commutes_counterexamples": [],
+  "teichmuller_estimate_converges": true,
+  "ALL_PASS": true
+}

@@ -26,7 +26,7 @@
 | **§7 Haar formal count** | **PASS-WITH-REPAIRS** (arithmetic right, justification a non sequitur) | 0 | 0 | 1 (F9) |
 | Citation hygiene | — | 0 | 0 | 2 (F5, F6) |
 
-**Overall: PASS-WITH-REPAIRS. 0 FATAL, 4 MAJOR, 9 MINOR.**
+**Overall: PASS-WITH-REPAIRS. 0 FATAL, 4 MAJOR, 9 MINOR.** (Finite steps additionally machine-checked: `94-lemmas-O-checks.py` / `.json`, ALL_PASS = true; see §12b.)
 
 The mathematical core of DQ-T survives intact. **Proposition 1 is a correct theorem** and I re-derived it end to end; so are Lemmas B, C and D. **Lemma A is true but is stated in a generality its proof does not reach**, and the repair is routine (I give two). The four MAJOR findings are all against *claims the note makes around* the lemmas — the identification of the transported class with E(a₀), the advertised reach of the no-go corollary, and the word "closed" in "closed trichotomy" — not against any lemma statement. Nothing here reopens the 9.3 adjudication.
 
@@ -474,3 +474,55 @@ and in §8 item 1, replace "DQ-T (the transplant trichotomy) — DECIDED in this
 **F13 (MINOR) — §4, the consistency check.** Replace "and Hom(κ₀, k) is a single F_p-orbit of size r = deg(κ₀/F_p)" by "and after dividing by G one gets Y⋄_{0 s₀} ≅ Hom(κ₀, k) ([x-03] (224), p. 114), a single F_p-orbit of size r = deg(κ₀/F_p)".
 
 **F14 (MINOR, bookkeeping) — §4 and §5.** For "distinct base classes lie on distinct orbits" cite, in addition to [x-03] p. 33 (which states it for Q^{>0}-orbits in C_{x₀}), the two places where it is stated directly for periodic orbits of the flow: [x-03] p. 2 ("with fibres the periodic orbits in Γ_{x₀}. Each periodic orbit of X₀ lies in exactly one packet Γ_{x₀}") and [x-06] Thm 4.2, p. 12 ("with fibres the compact orbits in Γ_{x₀}"). This removes the one suspension step the current citation leaves to the reader.
+
+---
+
+## 12. WHAT IS NOW ESTABLISHED AT REFEREE GRADE, AND ITS PRECISE SCOPE
+
+At referee grade, from this pass: **Proposition 1 is a theorem.** For X₀ = Spec Z, for every class E of characters that is stable under post-composition by field automorphisms of C — which includes all six of Deninger's named classes E_tors, E_max, E_f, E_fg, E_fd, E_fd0, each verified stable one condition at a time against the verbatim definitions on [x-03] pp. 27–28, the (Image) condition of E_max included and easily so — and for every subset S ⊆ X₀^E that is flow-invariant and stable under the same post-composition, the following dichotomy holds at every prime p: either S contains no periodic point over p, or S contains a periodic orbit of length log p in every one of the uncountably many base classes of B_p = Ẑ×_(p)/p^Ẑ = Aut(F̄_p^×)/Aut(F̄_p). Hence no such S has exactly one closed orbit per prime. The proof consumes exactly four verified inputs — the coordinate surjection (35) and its fibre relation ([x-03] p. 32), the fibration of C_{x₀} over B_p with fibres the Q^{>0}-orbits ([x-03] p. 33, and directly for periodic orbits at [x-03] p. 2 and [x-06] Thm 4.2 p. 12), Theorem 6.1's assignment of every periodic orbit to a unique packet ([x-03] p. 39), and the isotropy computation of Theorem 5.2 ([x-03] p. 34) — together with Lemma C (surjectivity of Aut(C) → Ẑ×, a ZFC statement with non-measurable witnesses) and Lemma D (commutation, class stability, and the coordinate formula (a,ν) ↦ (u_σ a, ν)), all three parts of which I re-derived and none of which needs continuity of the Aut(C)-action. As an independent check, Proposition 1 reproves [x-03] Theorem 5.2's full-packet conclusion for all six named classes. Also at referee grade: **Lemma B**, in the strengthened form 1 ≤ |P(2̄) − 2| ≤ 3 at every point of every packet, from which the archimedean-threshold reading selects the empty set on the periodic locus for every ε < 1, for every normalization of the bound, and from which no larger threshold can restore the A_inf-analogue action; and **Lemma A**, in the corrected statement of §11 F1 (κ = F̄_p, k perfect with F̄_p ⊆ k), including the converse, for which I supply an elementary proof that replaces the note's Witt-vector one-liner.
+
+The scope is narrower than the note's headline in three respects, all recorded as MAJOR findings. (1) The no-go binds **coefficient-natural** selections — those defined compatibly across coefficient fields — and *not* selections that consume the absolute value on C, which [x-03] §7 p. 40 puts into the definition of the space itself; the note's "uniformly from the abstract field C" clause cites §5, where the topology has not yet been introduced. (2) Consequently D1 and D2 are complements, not independent obstacles, and the trichotomy is **not closed**: the note's own §6 leaves non-threshold archimedean defect-profile conditions untouched, and that residue is exactly the |·|-consuming selections D1 cannot reach. (3) The transport reading (D3) yields a class that is *not* admissible and therefore is *not* the Theorem-C cut E(a₀); what is true, and enough, is that its char-p members are the injective members of E(a₀), that it selects the same single base class per prime, and that its admissible closure is E(a₀) — so the transport still buys nothing beyond the already-adjudicated non-canonical cut. None of these three corrections touches the note's operational verdict for the program: the transplant-as-selection route is closed for every canonical selection the sources make available, the surviving habitat is empty of candidates, and the charter's decidable sub-question DQ-M is unaffected. Nothing in this pass reopens `probe-9.3-adjudication.md`; its Theorem A, its G1 = NO, and its Theorem C stand untouched, and its §4 item 5b's description of the cuts as *admissible* is the record that F2 corrects the 9.4 note against.
+
+---
+
+## 12b. MACHINE CHECKS (finite verifications of the steps above)
+
+Script `results/c3-r/referee-s14/94-lemmas-O-checks.py`, output `94-lemmas-O-checks.json`, run this session; **ALL_PASS = true**. These are finite checks of steps I asserted by hand, not substitutes for the derivations.
+
+| check | what it verifies | result |
+|---|---|---|
+| B_min_defect / B_max_defect | modulus of (e^{iθ} − 2) over 10⁵ angles: minimum 1.0 (at θ = 0), maximum 3.0 (at θ = π) — Lemma B's sharp two-sided bound 1 ≤ abs(P(2̄) − 2) ≤ 3 | 1.0 / 3.0 ✓ |
+| binom_pn_divisible_by_p | p divides C(p^n, i) for 0 < i < p^n, all p ∈ {2,3,5,7,11}, n ≤ 3 — the first bracket of Lemma A's converse (Step 4) | true ✓ |
+| freshman_rows_all_consistent | for p ∈ {2,3,5,7} and 2 ≤ ν < 40 (152 pairs): (a+b)^ν − a^ν − b^ν has a nonzero coefficient mod p **iff ν is not a power of p** — the sharp form F_ν(Y̌) ⊆ Y̌ ⟺ ν ∈ p^{N₀} of F8 | true ✓ |
+| C_nu_1_nonzero_when_p_nmid_nu | C(ν,1) = ν ≢ 0 mod p whenever p ∤ ν — the specific coefficient named in F8's replacement text | true ✓ |
+| Bp_quotient_orders_grow | for p ∈ {2,3,5,7,13} and #T up to 10, the image of p in ∏_{ℓ∈T}(Z/ℓ)^×/squares leaves a quotient of order ≥ 2^{#T−1} ≥ 2^9 — B_p has arbitrarily large finite quotients, hence is infinite, hence uncountable | true ✓ |
+| power_commutes_with_hom | f(a^u) = f(a)^u for every quotient map Z/d ↠ Z/e (with e dividing d) and every u coprime to d, d < 60 — the order-divisibility step in Lemma D(iii) | true ✓ |
+| teichmuller_estimate_converges | the iteration δ ↦ max(δ^p, δ/p) drives every δ₀ < 1 below 1/p — the convergence used in Lemma A Steps 3b and 4 | true ✓ |
+| prime_to_p_order_is_unit | d prime to p ⟹ d ≢ 0 mod p — the unit used to prove reduction injective on μ^{(p)}(o) | true ✓ |
+
+---
+
+## 13. SOURCES — every page read this session
+
+**[x-03]** C. Deninger, *Dynamical systems for arithmetic schemes*, arXiv:1807.06400v4, `fetched/x-03-deninger-dynamical-systems-for-arithmetic-schemes-arxiv-v4.pdf`, 119 pp. PDF page = printed page (verified). Read this session, in the fresh `pdftotext -layout` extraction unless marked:
+* pp. 2–3 (introduction: packets, the fibration over Aut(F̄_p^×)/Aut(F̄_p), "Each periodic orbit of X₀ lies in exactly one packet"). **p. 2 also read on a 150-dpi page render.**
+* pp. 5–6 (the "minimal condition E … does not look natural" line, p. 5; the "does not give more points" line and "the process of 'completion' … was necessary", both p. 6; "The answer is simple, Y⋄ consists of all the diagrams … mod p also additive", p. 6).
+* p. 24 (definition of N₀ and the constraint char N₀ ⊃ char X₀).
+* pp. 26–29 (the (Tors)/(Image) conditions; Def. 4.1; Prop. 4.2; Lemma 4.3; the conditions before Cor. 4.4; Cor. 4.4; the six example classes; the Remark "P is additive mod p … However the resulting class E is not N-invariant"; stable/functorial classes; Prop. 4.5).
+* pp. 31–35 (§5: ι, χ_x = ι ∘ i_x^{−1}, (32)–(35), (36)–(37), (38)–(39), the isotropy computation, the fibration over Ẑ×_(p)/p^Ẑ and "the fibres are the Q₀^{>0}-orbits", the choice-dependence sentence, (40)–(46), Prop. 5.1, Thm 5.2 and its proof opening). **p. 33 read on a 150-dpi page render** (this is where F6 was caught).
+* p. 39 (Thm 6.1 and the paragraph after it), p. 40 (the S4 question, and §7's opening: "C is an algebraically closed field with a valuation | | and the corresponding topology"; the pointwise-convergence topology; Lemma 7.1), pp. 41–42 (Lemma 7.2 and the topology on non-affine X, the quotient topology on X̊₀(C)).
+* pp. 88–95 (§14 opening and its standing hypotheses on o; Defs. 14.1, 14.2; Props. 14.3, 14.4; (163)–(171); the [CD14] presentation of W_p(R) and the generators of I; Def. 14.5; Remark 14.6; (172)–(174); Prop. 14.7 and both of its proofs).
+* pp. 96–101 (Prop. 14.8; Def. 14.9; Supplement 14.10; Prop. 14.11; Def. 14.12 = (183) and the Remark "I do not know how to transport such conditions to the points of X̌(C) …"; (184)–(185); Prop. 14.13; Prop. 14.14 and its proof).
+* p. 104 (Remark 14.17: "automorphisms of o are p-adically continuous"; §15 opening and the Lubin–Tate setup).
+* pp. 112–117 (Cor. 15.5 and the K₀ = Q_p example; p. 113's determination of the two (x,y) pairs and "the ring homomorphisms P̂_y : κ ↪ k ⊂ o^♭"; Thm 15.6 parts 1)–6) with (221)–(226) and the Remark; the proof of 6); Prop. 15.7; Prop. 15.8 and its proof).
+
+**[x-06]** C. Deninger, *Primes, knots and periodic orbits*, arXiv:2301.11643, `fetched/x-06-deninger-2024-primes-knots-and-periodic-orbits.pdf`. Read this session:
+* pp. 10–13 (§4: the multiplicative map (11); Thm 4.1 with the G- and N-actions; the "too many periodic orbits … we can only impose an 'admissible' condition E" paragraph; **Thm 4.2 and the paragraph after it, pp. 11–12** — orbit lengths log N x₀, pairwise disjointness, the fibre space over Aut(F̄_p^×)/Aut(F̄_p) with fibres the compact orbits; Thm 4.3; the infinite-dimensionality/unitary-closure paragraph; Thm 4.4 and "not a homeomorphism"; the Kucharczyk–Scholze discussion and the Steinberg-relations sentence).
+
+**Program-internal, read in full this session:** `results/c3-r/probe-9.3-adjudication.md`; `results/c3-r/probe-9.4-note.md`; `results/c3-r/probe-9.3-a.md` §4 (Theorem C and its reachability computation, §§4.1–4.3) — consulted to check finding F2 against probe A's actual definition of E(χ^{a₀}).
+
+**Read for the corpus caveats, as instructed, before citing anything:** `results/corpus-routing.md`, header §"Standing corpus-wide caveats" (items 1–20). Neither [x-03] nor [x-06] appears on any vision-needed, page-mapping or text-layer-corruption list; the `pdftotext` accent/superscript loss documented above is a property of this particular file's font encoding and is the reason every load-bearing display in this report was re-read on a page render.
+
+**Not consulted, and nothing here depends on them:** [r3s-08] (Morishita) and [D25] (rational Witt vectors) — neither is cited by the lemmas under review; the 9.3 adjudication's own W11 flag ("do not cite [r3s-08] for topology") is respected by omission.
+
+— end of referee report O —

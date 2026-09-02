@@ -4,6 +4,8 @@
 **Item under review:** `results/c3-r/probe-9.4-note.md` (dated 2026-08-26, Session 8), §§3–7: Lemma A (§4), Lemma B (§6), Lemmas C, D and Proposition 1 (§5), the freshman's-dream N-invariance argument (§3), the Haar formal count (§7). The note's §8 item 1 records the debt: "Referee pass owed before any external use."
 **Method:** the adjudication `results/c3-r/probe-9.3-adjudication.md` was read in full first, then the whole 9.4 note; every source location the note cites for these items was opened on disk and quoted verbatim below (page numbers are the printed ones; for all four PDFs the printed page equals the PDF page — verified by the running page numbers in the text layer); every step was re-derived in my own words in full; at every gap I tried to fill it (replacement text supplied) and to break it (counterexample attempted). Nothing load-bearing is from memory; the few textbook facts I use are labeled [RU-classical] and are never the point at issue (standing order 5). Text extraction: `pdftotext -layout` into the session scratchpad only (arXiv PDFs with native text layers; no OCR; no derived artifacts in the corpora).
 
+**Bookkeeping (2026-09-02, this run).** A 340-line file at this same path, written by an earlier run of the referee-F item and auto-committed at 08:28 (commit 1bc4609), was overwritten by this report when the orchestrator re-issued the item to this path. That earlier version has been restored verbatim to `results/c3-r/referee-s14/94-lemmas-F-prior-run-0828.md` so nothing is lost; it was NOT read beyond its title line, so the findings below are independent of it. The adjudicator may compare the two.
+
 ---
 
 ## 0. VERDICT (stated first)
