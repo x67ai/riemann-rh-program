@@ -1,0 +1,13 @@
+manifest t0 = {'n': '93', 'd': '500'} | status: COMPLETE chain to t0 = 93/500 | prisms: 72
+total rows 10771; rows/prism min 64 max 289; total producer seconds 144
+delta_t: first 1.077e-03 min 1.077e-03 max 1.052e-02
+floor Fn/Fd: min 1.4679 (prism 71) max 4.3825
+E/K: max 4.119e-04 (prism 0) min 1.648e-07;  D/K: max 4.049e+00 min 1.096e+00
+Mt (sup|df/dt| over prism, used): first 3.6195e+03 last 1.0412e+02
+max row half-width/K: max 7.701e-01 min 1.991e-01
+  prism  0: seam 0.000000 -> 0.001077 rows 289 (b/r/t/l {'bottom': 200, 'right': 32, 'top': 16, 'left': 41}) floor 4.3825 E 4.119e-04 D 3.900e+00 Mt_used 3.620e+03 Mt_seam 1.793e+03 Dtt 1.43e+07 2.85s
+  prism  1: seam 0.001077 -> 0.002184 rows 287 (b/r/t/l {'bottom': 198, 'right': 32, 'top': 16, 'left': 41}) floor 4.3255 E 3.926e-04 D 3.933e+00 Mt_used 3.554e+03 Mt_seam 1.723e+03 Dtt 1.37e+07 2.82s
+  prism 10: seam 0.011790 -> 0.013127 rows 237 (b/r/t/l {'bottom': 155, 'right': 30, 'top': 16, 'left': 36}) floor 3.8214 E 2.435e-04 D 3.801e+00 Mt_used 2.843e+03 Mt_seam 1.166e+03 Dtt 8.56e+06 3.14s
+  prism 30: seam 0.040960 -> 0.042687 rows 158 (b/r/t/l {'bottom': 93, 'right': 24, 'top': 16, 'left': 25}) floor 2.8754 E 6.632e-05 D 2.545e+00 Mt_used 1.474e+03 Mt_seam 4.369e+02 Dtt 2.40e+06 2.37s
+  prism 50: seam 0.082687 -> 0.085342 rows 104 (b/r/t/l {'bottom': 51, 'right': 18, 'top': 16, 'left': 19}) floor 2.1377 E 1.032e-05 D 1.609e+00 Mt_used 6.060e+02 Mt_seam 1.740e+02 Dtt 3.93e+05 1.41s
+  prism 71: seam 0.175476 -> 0.186000 rows 64 (b/r/t/l {'bottom': 16, 'right': 16, 'top': 16, 'left': 16}) floor 1.4679 E 1.648e-07 D 1.096e+00 Mt_used 1.041e+02 Mt_seam 2.373e+01 Dtt 7.64e+03 0.38s

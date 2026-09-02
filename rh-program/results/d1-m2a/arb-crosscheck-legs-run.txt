@@ -1,0 +1,16 @@
+=== crosscheck seam 0 (row 2, arb vs mp) ===
+seam 0: 289 rows (A) vs 184 rows (B); overlapping pairs 465; disjoint pairs 0
+  floor A = 4.382537 (rows support 4.382537);  floor B = 4.629434 (rows support 4.629434)
+  E: A = 4.1192e-04  B = 4.1192e-04  ratio A/B = 1.0000
+  D: A = 3.9003e+00  B = 2.3411e+00  (different prism lengths are allowed; compare D/K per unit time in the notes)
+  winding A: [-142, 147]/1000000 (width 578 < A: True, contains 0: True)
+  winding B: [-91, 93]/1000000000000 (width 368 < A: True, contains 0: True)
+CONSISTENT
+=== crosscheck seam 0 (mini, arb vs mp) ===
+seam 0: 85 rows (A) vs 184 rows (B); overlapping pairs 261; disjoint pairs 0
+  floor A = 0.237331 (rows support 0.237331);  floor B = 0.055061 (rows support 0.055061)
+  E: A = 6.9421e-03  B = 6.9418e-03  ratio A/B = 1.0000
+  D: A = 1.8664e-01  B = 3.7194e-02  (different prism lengths are allowed; compare D/K per unit time in the notes)
+  winding A: [-57, 51]/1000000 (width 216 < A: True, contains 0: True)
+  winding B: [-94, 90]/1000000000000 (width 368 < A: True, contains 0: True)
+CONSISTENT
