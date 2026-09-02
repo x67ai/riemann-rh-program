@@ -762,3 +762,14 @@ next touch. **Decision (orchestrator): verify the branch as-is now, in an isolat
 directory with its own toolchain and Mathlib cache (network-heavy, ~1–2 h wall), `#print axioms` on the
 four main theorems, one lake process, pausing on thermal throttling; nothing cited until the axioms
 output is on disk.**
+
+**~08:30 IST — SECOND USAGE-LIMIT DEATH (reset 12:40 IST).** Survived on disk (auto-committed 08:28):
+run 1 — `novelty-adjudication.md` COMPLETE and RETURNED (binding; dated `[NOVELTY — dual-model check]`
+blocks inserted in all four probe notes; see the harvest below), `B-corA1-adjudication.md` written
+(35 KB) but not returned, the other two debt adjudications not started; run 2 — `AUDIT-O.md` RETURNED
+(repairs-proposed, 0 fatal, 2 major; concurs with F), reconcile not started; run 3 — five probes
+RETURNED (`qa-kill`, `qa-build`, `qb-kill`, `qb-build`, `w3-O`), `dqm-O.md` and `w3-F.md` written but not
+returned, `dqm-F` not started, no adjudication; Gomila verify — Mathlib cache downloaded (7.1 GB), build
+not started. **12:45 IST — RESUMED** (sponsor: finish everything running, then a break). Both watchdogs
+had died with the limit (caffeinate survived); restarted. All three runs relaunched from cache; the
+verify agent resumed.
