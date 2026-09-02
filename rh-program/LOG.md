@@ -1104,3 +1104,39 @@ log²(x/(4πn²)); no number affected; docstring corrected, erratum in mp-leg-no
 (append-only); F-4 minor wording in INSTANCE-REPORT (115 modules not 116; 1.57 ms/row wall); F-5 MEDIUM = the cut line
 (`lambda_le_point2` unproved; Defs v1.1, L-B3, Lane A, glue absent — ordered next steps in RUN-REPORT §6); F-6 Arb gate
 ratios up to 0.995 (sound, observation). Λ bracket of record unchanged: 0 ≤ Λ ≤ 0.2. No program Lean file touched.
+
+---
+
+## Session 14 (continued into 2026-09-03) — 02:20 IST — HARVEST 5: run 2 COMPLETE (9/9) — M2a BUILT, INSTANCE02 KERNEL-CHECKED ON BOTH LEGS, FINAL AUDIT REPAIRED-CLEAN
+
+**SPEC** (`results/d1-m2a/SPEC.md`, 1,175 lines, every Polymath15/PT quote at PDF page; `barrier-schema.json`):
+the barrier lane = a chain of prisms in t from 0 to t₀ = 93/500, each a seam transcript in W1 format
+(strip-free C2′, m = 0) for the Polymath15 Thm 1.3 approximant f_t at N₀ = 630783, with a modulus floor,
+an approximation defect E and a t-displacement D, and the gate (E + D)·Fd < Fn·K; the asymptotic
+component (Thm 1.2(ii) at t₀) is a SECOND CHECKED LANE (consecutive window rows + a tail), not a bare
+hypothesis. **BarrierCert.lean** (1,092 lines): `checkPrism`, `checkBarrierChain`, `checkBarrier` in the
+W1 architecture; displayed hypothesis H2-B (`PrismEnclOK`: an open U ⊇ the rectangle, f differentiable
+on U, W1 row enclosures true) and `cert_of_checkBarrier` proved; build clean, axioms standard.
+**Producers:** mpmath-ball leg (ft_mp.py/producer_mp.py; row-2 chain 39 prisms, 7,176 rows, 20.6 min,
+one process, K = 10²⁴) and Arb leg (producer_arb.py, 1,408 lines; two-variable Taylor/moment evaluator
+of Polymath15 (92) with derived truncation remainders — a rigor gap in an inherited draft found and
+fixed; row-2 chain 72 prisms) — both ACCEPTED by the untrusted reference checker, both validated at
+fresh reference points (48/48 and 62 contained). **Two-producer cross-check:** each leg re-run at every
+seam of the other (111 seams, 37,172 overlapping segment pairs): 0 disjoint boxes, 0 disjoint
+argument intervals, E identical to all printed digits — CONSISTENT. **Instance02 (Lean):** 116 modules,
+23,965 lines emitted from both legs, back-parse 0 mismatches on 17,947 rows; every prism of BOTH legs
+`checkPrism = true` and both chains `checkBarrierChain = true` by `decide +kernel`; `row2_barrier_{mp,
+arb}` instantiate `cert_of_checkBarrier` — **generic in the evaluated function G; the H_t-specific
+tie to `Defs.lean` and the Lane-A asymptotic rows are NOT yet assembled, so the ray-form Λ ≤ 0.2
+theorem itself is UNPROVED: M2a item (e) is PARTIAL.** Gomila steps 3–4: executed to the limit of the
+sealed artifacts, PARTIAL; verdict stays screen-open, NOT a record; 0 ≤ Λ ≤ 0.2 stands. **Final audit
+(standing order 5): REPAIRED-CLEAN, 0 fatal** — Thm 1.3 bound re-derived from the paper (only range
+condition = region (5) p. 3; t = 0 by a dominated-convergence limit, re-derived valid), both legs'
+constants verified, the paper's pointwise majorant recomputed at 6 corners (every producer E ≥ it,
+slack ≤ 5e-11), 36 fresh boundary points + 12 argument rows all contained, 8 JSON corruptions and 11
+corrupted Lean literals rejected (one documented checker-blind rotation caught by the cross-check as
+designed), Lean ↔ two Python checkers ↔ SPEC identical clause by clause. **What M2a now IS:** a
+kernel-checked barrier certificate for the row-2 box on two independent producer legs, modulo H2-B;
+what remains: the Defs.lean tie (G := the Thm 1.3 approximant, H_t/B_t), Lane A, and the assembly of
+Polymath15Bridge into the Λ ≤ 0.2 ray statement (items e′/f). Committed by the agents (8fe8009,
+3f710cf, 1590379) and here.
