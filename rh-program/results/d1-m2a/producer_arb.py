@@ -274,6 +274,11 @@ def cpoint(x, y):
     return acb(rat_ball(x), rat_ball(y))
 
 
+def to_arb(t):
+    """Exact rational (or arb) -> arb ball."""
+    return t if isinstance(t, arb) else rat_ball(Fraction(t))
+
+
 def frac_json(q):
     q = Fraction(q)
     return {"n": str(q.numerator), "d": str(q.denominator)}
@@ -326,7 +331,7 @@ def M0(s):
 
 def Mt(t, s):
     """(10)."""
-    return (arb(t) / 4 * alpha(s) ** 2).exp() * M0(s)
+    return (to_arb(t) / 4 * alpha(s) ** 2).exp() * M0(s)
 
 
 def s_plus(z):
@@ -345,7 +350,7 @@ def Bt_point(z, t):
 def log_gamma(z, t):
     """log gamma = Lambda(z) + t w(z)  (D-A7)."""
     sp, sm = s_plus(z), s_minus(z)
-    return logM0(sm) - logM0(sp) + (arb(t) / 4) * (alpha(sm) ** 2 - alpha(sp) ** 2)
+    return logM0(sm) - logM0(sp) + (to_arb(t) / 4) * (alpha(sm) ** 2 - alpha(sp) ** 2)
 
 
 def N_of(x, t):
@@ -363,7 +368,7 @@ def N_of(x, t):
 def ft_direct(z, t, N, want_sums=False):
     """f_t(z) by direct summation of (92) with s_* = s_+ + (t/2) alpha(s_+), s_** = s_- + (t/2) alpha(s_-).
     Returns (f, gamma, S1, S2, F, G) where F = sum b_n n^{-Re s_*}, G = |gamma| sum b_n n^{-Re s_**} (for D-A2)."""
-    t = arb(t)
+    t = to_arb(t)
     sp, sm = s_plus(z), s_minus(z)
     sstar = sp + (t / 2) * alpha(sp)
     sstar2 = sm + (t / 2) * alpha(sm)
@@ -518,7 +523,7 @@ class BoxEvaluator:
                 for j in range(J + 1):
                     s = acb(0) if isinstance(coef, acb) else arb(0)
                     for i in range(j + 1):
-                        s += (math.comb(j, i) * Fraction(1, 4 ** i)) * pw[j - i] * M[k + j + i]
+                        s += rat_ball(Fraction(math.comb(j, i), 4 ** i)) * pw[j - i] * M[k + j + i]
                     row.append(s)
                 T.append(row)
             return T
@@ -536,7 +541,7 @@ class BoxEvaluator:
                 for j in range(J + 1):
                     s = arb(0)
                     for i in range(j + 1):
-                        s += (math.comb(j, i) * Fraction(1, 4 ** i)) * pw[j - i] * W[k + j + i]
+                        s += rat_ball(Fraction(math.comb(j, i), 4 ** i)) * pw[j - i] * W[k + j + i]
                     row.append(s)
                 T.append(row)
             return T
@@ -818,10 +823,8 @@ def produce_prism(box, tau, K, A, r_frac, max_depth, log=print):
         raise ProducerError(f"pre-scan found |f| not certified positive at seam {tau}")
     # target hull radius r_target = r_frac * m_est: solve fp_max*h + Dzz*h^2/2 = r_target for h (positive root)
     r_target = m_est * r_frac
-    Dzz = box_D = seam.Dzz
-    if Dzz > 0:
-        h = (-fp_max + (fp_max * fp_max + 2 * Dzz * r_target) ** Fraction(1, 2) if False else None)
-    # exact-rational safe solve: use floats to pick h, correctness does not depend on it
+    Dzz = seam.Dzz
+    # floats pick the mesh size h; no checked number depends on this choice
     fpm = float(fp_max); dzz = float(Dzz); rt = float(r_target)
     hf = (-fpm + math.sqrt(fpm * fpm + 2 * dzz * rt)) / dzz if dzz > 0 else rt / max(fpm, 1e-30)
     ell = 2 * hf

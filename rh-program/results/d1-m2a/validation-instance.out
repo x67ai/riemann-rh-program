@@ -1,15 +1,9 @@
 ==============================================================================
-BLOCK-TAYLOR EVALUATOR (row 2 N0=630783) vs direct summation and the float reference  (2026-09-02T13:53:50.751279+00:00 UTC; mpmath 1.3.0; prec 288)
+BLOCK-TAYLOR EVALUATOR (row 2 N0=630783) vs direct summation and the float reference  (2026-09-02T13:55:36.409871+00:00 UTC; mpmath 1.3.0; prec 288)
 ==============================================================================
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 348, in <module>
-    sys.exit(main(sys.argv[1:]))
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 340, in main
-    fails += test_taylor("moments/row2-plus.json", "moments/row2-minus.json", Fraction(10000000389717, 2), Fraction(116733, 200000),
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp_validate.py", line 221, in test_taylor
-    ev = FtEvaluator(pd, md, xc, yc)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp.py", line 645, in __init__
-    self.plus = Series(plus_doc, +1)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/ft_mp.py", line 528, in __init__
-    assert len(self.blocks) == len(make_blocks(self.N))
-AssertionError
+N = 630783, blocks = 20, R = 48; box [5000000194858, 5000000194859] x [16733/100000, 1], center (10000000389717/2, 116733/200000)
+  t = 0: prepare 0.85s; orders (J,K) plus: [(1, 1), (15, 1), (16, 1), (16, 1), (16, 1), (16, 1)]
+  FAIL d/dt f at x=5000000194858 y=16733/100000 t=0: ball Ball([864.6401330051043025288660767027622086118934774221532605345782381910233786177151259583742731, 864.6401330061235829887268750236742719084241861837056408359197759047312088168398705032938078], [985.7084483854329691039570384035691267166603296179414862677487225312038928233250492812891357, 985.7084483864522495638178367244811900131910383794938665690902602449119488757810191285930246]) vs fd (864.640132985014 + 985.708448370282j)
+    x=5000000194858.000000 y=0.16733  f=(-13.521827273803 - 31.20481075157j)  Taylor width 1.51e-27 (0.04s)  direct width 5.81e-66 (141.8s)  |dt f|~1.31e+03 width 1.0e-09
+    x=5000000194859.000000 y=1.00000  f=(3.6675295090061 + 2.9122361394547j)  Taylor width 1.68e-28 (0.04s)  direct width 4.57e-68 (138.2s)  |dt f|~68.5 width 5.7e-08
+    box bottom h=1/100: f-box width 4.112e+00  |f| in [25.654, 30.981]  |dt f| <= 1.19e+03
