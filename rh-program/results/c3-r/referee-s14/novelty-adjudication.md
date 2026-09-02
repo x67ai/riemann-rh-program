@@ -180,3 +180,22 @@ Also add to §0's third paragraph: "(Road 2) renounce selection; the canonical p
 Under standing order 7 the two checks were run by different models and neither softened; the adjudicator re-read every anchor either check relied on, and every quotation above was taken from the page named. The result: the five Session-8 theorems (packet-closure law, non-closedness/non-Hausdorffness along packets as statements about X₀, the NO to the closed alternative of Deninger's question, the Aut(C) no-go, the one-orbit-per-prime cuts) are not in the literature reached, and the literature reached is the complete citing set of the primary paper on two independent indices plus the full on-disk corpus and 60-odd varied-vocabulary searches. Two identities and one device inside the notes are Deninger's, Morishita's, and homogeneous dynamics' respectively, and must be cited as such; one road has a published rival. The coverage caveat is Google Scholar and zbMATH's citing lists, listed above for the sponsor.
 
 — end of novelty adjudication —
+
+---
+
+## 8. Supplement (orchestrator, 2026-09-02 ~12:50 IST) — the Lutz thesis, read by both models
+
+The UNDETERMINED coverage item "[Lut25]" of §4 was closed the same day by two independent reads of
+the thesis (now `fetched-r3/r3s-23-…`, image-only, with an OCR locator text alongside):
+`novelty-lutz-F.md` (Fable 5.1; 31 page images) and `novelty-lutz-O.md` (Opus 5; 13 page images + an
+OCR sparse-page audit). **Both concur: N1, N2, N3(a), N3(b), N4, N5 are NOVEL with respect to the
+thesis; N3(c) is PARTIAL in framing only** — the thesis is the fullest printed exposition of the
+mod-p-additivity principle (§4.5, pp. 36–38) and states the C-transport as an open desideratum of
+Deninger's group (p. 2: "It would be very valuable to find an analogous modifications of W_rat(X)(C)
+but currently this is not known"; p. 1: "Presently, there is no satisfactory answer for what these
+more general spaces of C-valued points … should be"), so the 9.4 note's D3 result stands but its
+framing must cite her. Structural reason the negatives are strong: her only Deninger citation is
+1807.06400, used on ~40 of 92 pages, every use in its Chapters 1–3 and 14–15; none in §§4–13. No
+packet, Hausdorff, Haar, trace, transverse, foliation, or descent content (grep counts in both files).
+This supplement adds one citation obligation to R7 (cite Lutz 2025 p. 2 in the 9.4 note's Road-1/D3
+text) and changes no verdict above.

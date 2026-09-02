@@ -773,3 +773,49 @@ returned, `dqm-F` not started, no adjudication; Gomila verify — Mathlib cache 
 not started. **12:45 IST — RESUMED** (sponsor: finish everything running, then a break). Both watchdogs
 had died with the limit (caffeinate survived); restarted. All three runs relaunched from cache; the
 verify agent resumed.
+
+**12:50 IST — HARVEST 1: the dual-model NOVELTY ADJUDICATION (binding; `referee-s14/novelty-adjudication.md`,
+44.7 KB; dated `[NOVELTY — dual-model check 2026-09-02]` blocks now sit at the claim points of all four
+probe notes — 5/5/4/6 blocks).** Every anchor either sweep relied on was re-read from the PDFs by the
+adjudicator; disagreements decided by statement comparison. Verdicts: **N1 packet-closure law
+NOVEL-DUAL-CHECKED** (the packet-base identity inside it is Deninger's displayed formula, [x-03] p. 2,
+pp. 33, 38, [x-06] p. 12, and "coker(lk_p)" relabels Morishita p. 16 — cite, do not claim); **N2a
+non-Hausdorff along packets PARTIAL** (Deninger prints the cause, pp. 49, 76, the non-homeomorphism,
+p. 63, and proves the adelic model T1-irreducible, Prop. 10.3 — new: X₀ itself, one packet, orbits
+not closed, the witness; MAJOR for the record wording); **N2b infinite-dimensionality PARTIAL** ([x-03]
+asserts it in prose only, no dimension theorem exists — probe A's n-cell theorem is the only theorem-
+grade route found anywhere); **N2c NO to the closed alternative of Deninger's p. 40 question
+NOVEL-DUAL-CHECKED**; **N3i the coker(Aut_ring→Aut_group) identity ANTICIPATED verbatim** ([x-03] p. 2;
+MAJOR: the 9.4 note's "derived" / "design constraint" wording must be rebuilt around the citation, R1);
+**N3ii the Aut(C) no-go and trichotomy NOVEL-DUAL-CHECKED** (citations owed: [x-03] p. 33; Kucharczyk–
+Scholze pp. 6, 71 as the germ of Lemma D(iii)); **N4a Haar-average road PARTIAL** (the packet-average
+measure is standard under the same word — ELMV, Khayutin; Deninger's Fuller-index remark is the
+printed predecessor; only the transplant is new; MAJOR: drop "new in this note", R2); **N4b DQ-M PARTIAL**
+(measured-fixed-set lineage: Heitsch–Lazarov 1990, ALK Thm 1.3; Leichtnam's Haar transverse measure;
+the clean/Bott–Morse case must be named, R3); **N4c NOVEL-DUAL-CHECKED for Haar-averaging Deninger's
+packets, but a published rival packet-collapse exists — Morishita [r3s-08] Thm 3.6(2) p. 25 (MAJOR,
+R4)**; **N5 Theorem C NOVEL-DUAL-CHECKED** (its conclusion is Deninger's own, pp. 5, 27, 29, 99; page-
+anchor, R8). Ten repairs R1–R10 with replacement text are in the report §3 — TO BE APPLIED as dated
+blocks once the running debt adjudicators finish editing the same notes (avoid concurrent edits).
+Still unreachable (sponsor-fetch block §4): Google Scholar cited-by (captcha), zbMATH citing list,
+Springer LNM 2026 ALKL introduction, Heitsch–Lazarov 1990 text, the CC3 published version. The Lutz
+thesis reads by both models are appended as §8 of the adjudication (no verdict changed; one citation
+obligation added to R7).
+
+**Also returned before the second death:** AUDIT-O (Opus) — repairs-proposed, 0 FATAL, 2 MAJOR;
+concurs with AUDIT-F on every verified item; its MAJOR-1 (coverage: the Lean checker had never been
+run on producer-emitted transcripts) it closed itself by writing the JSON→Lean emitter and kernel-
+checking 10 acceptance transcripts + 2 controls + 8 corruptions, plus an independent back-parse
+proving the Lean literals carry the JSON faithfully (21 instances, 4,217 rows, 0 mismatches).
+Reconcile pending. **qa-kill (Fable) RETURNED — UNADJUDICATED, single-check, recorded here as a claim
+only:** Q-a is NO unconditionally and the same lemmas give NO on Q-b, for X₀ = Spec Z and every
+admissible E with the quotient topology of record: (Theorem 1) every periodic orbit of X₀ is an
+INDISCRETE subspace — every open set meeting it contains it — so X₀ is not even T₀ and no T₀ subspace
+contains two points of one periodic orbit (the Frobenius-return sequence of Theorem A aimed at the
+starting orbit itself); (Theorem 2) every generic point has empty α-limit set (backward escape,
+making Deninger's u → 0⁺ expectation a theorem); (Theorem 3) any continuous flow-equivariant map from
+a compact R-space into X₀ or Y₀ has image in the periodic locus meeting finitely many packets, so
+Q-b is NO and both alternatives of Deninger's p. 40 question are NO for compact Y₀. If this survives
+adjudication and an adversarial pass it fires the M2c kill-criterion (S4 and Route 2 dead). Eleven
+[novelty: single-check] items; the note itself names the steps a sceptic should press first (Lemma
+3.3's colimit-equality step; Theorem 2's bound; the net-lifting lemmas). NOTHING BANKED YET.
