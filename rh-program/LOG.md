@@ -833,3 +833,67 @@ the statement to what D1 needs (scout gaps G1–G6), and compilation on the prog
 of the working tree, bridge to W1's `RectArgPrinciple`, discharge H-AP for ζ (via the entire surrogate
 (s−1)ζ(s) or by generalizing to `DifferentiableOn`), Opus audit of statement faithfulness; merge into
 the main tree only after run 2's Lean stage is finished.
+
+**~13:15 IST — THIRD USAGE DEATH (a Fable-specific limit this time); 18:05 IST — RESUMED.** Between the two,
+four runs reported. **HARVEST 2 (binding results):**
+
+*Run 1, referee debts (two of three adjudicated; `referee-s14/A-thmB-adjudication.md` 51 KB,
+`B-corA1-adjudication.md` 55 KB, each with a checks script ALL PASS).* **Probe A Theorem B(b): PASS-WITH-
+REPAIRS, 0 fatal, 3 majors upheld.** (M-1) the note asserted a homeomorphic n-cube unconditionally while
+its proof used compact-to-Hausdorff; repaired AND strengthened — Lemma K ([x-03] (51) p. 42 + Lemma 4.6 +
+the equality rule p. 25) plus the open quotient map and Cor. 7.8 make Θ a topological embedding with
+closed image, no separation property of S or X₀ used; (M-2) the hypothesis "S Hausdorff" is unsatisfiable
+(S contains a packet; packets are non-Hausdorff), so that sentence was vacuous and Corollary (ii) is
+re-attributed to part (a) + Cor. A.2; (M-3) "Y₀ is infinite-dimensional" is Deninger's own assertion
+(pp. 5, 49; [x-06] p. 12) with no dimension argument anywhere in [x-03]; (M-4) after the repair exactly
+one recalled input remains — dim [0,1]ⁿ = n (Lebesgue), no source on disk — so (b2) carries [RU] until
+Hurewicz–Wallman or Engelking is fetched. Scope now at referee grade: for E_fd ⊆ E ⊆ E_max and the
+unitary system, every closed flow-invariant S meeting every packet contains a closed embedded n-cube
+for every n; S is never Hausdorff. Dated blocks in probe-9.3-a.md §0/§3/§9 and the 9.3 adjudication
+§4. **Probe B Cor. A.1: PASS-WITH-REPAIRS, 0 fatal, 2 majors, 14 minors (2 overruled).** The converse
+is TRUE and stronger than claimed — cl(γ) = Γ^E_p EXACTLY, chartwise and globally, so **Q-c is YES**;
+the note's argument was not a proof (the (Tors) criterion was incomplete — witness b = (ℓ)_ℓ — and the
+instrument computed one sequence in one chart upstairs with three reductions missing) and is replaced:
+Route I — the projection to X₀ descends continuously through the suspension, the packet is the fiber
+over a closed point, hence closed and flow-invariant for EVERY arithmetic scheme and admissible E; Route
+II (Spec Z) — open quotient, chart-local closure, the chart criterion, Galois step by a compact-group
+lemma, the full limit set. One earlier warrant withdrawn: the "p. 49 / infinite isotropy" wording was
+wrong (the product action is free) — replaced by a non-wandering witness q_k → 1. Source defect
+recorded: Morishita's (2.2.7) is not surjective un-cut; his C_𝔭/Γ_𝔭 are un-cut fibers, not Deninger's
+packets. The third debt (9.4 Lemmas A–D/Prop. 1) is being adjudicated now.
+
+*Run 2, D1 reconcile:* **M1 v1 audit RECONCILED — REPAIRED-CLEAN** (`results/d1-m1/AUDIT.md` binding +
+`RUN-REPORT.md`): 0 fatal; 4 majors re-verified by computation and APPLIED (mpmath transcendental
+endpoints now go through outward-inflated wrappers, 0/92,000 violations at prec 1200; the odd-A clamp
+removed — the producer refuses odd A, the false-certificate reproduction is on record before/after;
+the Lean checker now runs on producer data via a promoted emitter, `lean/Zeta23/W1/Instances.lean`,
+3,265 lines, 10 acceptance transcripts + 2 controls, kernel-checked; the maxRecDepth disagreement
+settled by experiment — the limit is the definition compiler's, not the kernel's). Constraints for
+M2a: settle bulk-data packaging before BarrierCert (a single list literal is not viable at Gomila's
+3.1 M rows); the mp leg's platform assumption is now the stated weak one (each endpoint within 2⁻²⁷²
+relative of the truth, tested not proved); A even. M2a build resumed 18:07.
+
+*Run 4, D1 v1.1: COMPLETE and AUDITED CLEAN — H-AP IS DISCHARGED.* Port: the two Aristotle files became
+`Zeta23/W1/ArgPrinciple/{Rect,General}.lean` (specific Mathlib imports, 8 proof-level edits for API
+drift, 0 statement differences — the Opus auditor compared all 45 ELABORATED types across both
+toolchains, 45/45 identical). Discharge (route B): `RectArgPrinciple` in Soundness.lean quantifies over
+the open U with `DifferentiableOn`, so the ported theorem, generalized from entire to `DifferentiableOn`
+on an open U ⊇ the closed rectangle (via `DifferentiableOn.analyticAt` and the preconnected-rectangle
+lemmas), proves it for EVERY f — no ζ fact consumed; the four-edge bridge and the degenerate σ₁ = σ₂
+case (Z = 0) are proved; **`cert_of_checkW1_ap : checkW1 d = true → W1EnclOK riemannZeta d → (1 ≤ d.m →
+∃ ρ, ζ(ρ) = 0 ∧ ½ < Re ρ < 1 ∧ T₁ < Im ρ < T₂) ∧ (d.m = 0 → ∀ s ∈ W1Rect d, ζ(s) ≠ 0)`, axioms
+`[propext, Classical.choice, Quot.sound]`.** Only H-ENCL remains displayed: the W1 certificate is now
+"kernel-checked modulo the enclosure hypothesis" alone (D-R3 discharged). MIT attribution to Gomila in
+every ported file and in NOTICE. **Merged into the main tree 18:10** (three modules + root imports;
+`lake build` clean; axioms re-printed there — identical). D1 v1.1 = DONE.
+
+*Run 3, all eight probes RETURNED (adjudication running; NOTHING BANKED):* **all four Q* probes — two
+kill, two build, two on each model — independently conclude NO on both faces** (qa-kill: Theorem 1
+indiscrete orbits, X₀ not T₀; qa-build: "Q-a dead unconditionally"; qb-build: "compactness is the
+exact obstruction"; qb-kill: "Q-b dead, and Q-a with it"); **both DQ-M probes: NO in the model world —
+Road 2 closed** (dqm-O THEOREM NO; dqm-F: NO for the leafwise trace, the measured trace exists but is
+the wrong object); **W3 PARTIAL on both:** the core acyclicity is PROVED with a corrected mechanism and
+is transversal-transparent, but BOTH probes report that [ÁLKL23]'s coincidence lemmas as literally
+stated are FALSE at source (a claim against a published paper — to be re-derived by the adjudicator
+and, if it stands, dual-model-checked before it is repeated anywhere). If the Q* verdict survives
+adjudication and the adversarial pass, the M2c kill-criterion fires: S4 and Route 2 dead.
