@@ -99,7 +99,8 @@ kernel-evaluates in seconds at the default once the data is imported).
   remainder ≤ 0.467 × the pad at 120 points). Self-tests after the repairs: 18 469 / 0 (ball),
   100/100 (ζ), 60/60 (Hurwitz), 24/24 (DH cross-validation). Every mp acceptance transcript was
   re-produced after the repairs with numeric content byte-identical to Session 8's
-  (`recon_mp_reproduce.log`; t = 10⁴ in `recon_mp_reproduce_t10000.log`).
+  (`recon_mp_reproduce.log`; t = 10⁴: IDENTICAL, 1 294 segments, 1 713.9 s,
+  `recon_mp_reproduce_t10000.log`).
 * **Independence:** no shared module in either direction (verified by both auditors from the
   import lists); different mathematics (hand-derived Euler–Maclaurin with certified constants
   vs Arb's own `acb.zeta`; half-plane branch endpoint differences vs rotated-`atan2` balls);
