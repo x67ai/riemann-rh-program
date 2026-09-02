@@ -81,6 +81,15 @@ INSTANCES = {
         "zc_re": Fraction(10000000389717, 2), "zc_im": Fraction(116733, 200000),
         "plus": "moments/row2-plus.json", "minus": "moments/row2-minus.json",
     },
+    "gomila": {   # the Gomila claim's barrier box (results/d1-m0/gomila-screen.md section 2; CANDIDATE_PARAMETERS.md @ a74738d):
+                  # X = 6 000 000 185 827, box [X, X+1] x [1809/10000, 1], t0 = 129/800, N = 690988 -- for the screen's
+                  # step-4 two-producer SPOT CHECK only (M2a item (e)); NOT a certificate instance of this program
+        "x1": Fraction(6000000185827), "x2": Fraction(6000000185828),
+        "y1": Fraction(1809, 10000), "y2": Fraction(1),
+        "t0": Fraction(129, 800), "N": 690988,
+        "zc_re": Fraction(12000000371655, 2), "zc_im": Fraction(11809, 20000),
+        "plus": "moments/gomila-plus.json", "minus": "moments/gomila-minus.json",
+    },
     "mini": {   # test instance: N = 5000, x_N = 4 pi 5000^2 = 314159265.36.., X = 314159300
         "x1": Fraction(314159300), "x2": Fraction(314159301),
         "y1": Fraction(16733, 100000), "y2": Fraction(1),

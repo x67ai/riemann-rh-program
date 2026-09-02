@@ -251,7 +251,11 @@ Y0_INST = Fraction(16733, 100000)
 N0_INST = 630783
 # "mini": the N = 5000 test instance shared with the mpmath leg's transcripts/mini (same rectangle and times, so the
 # two legs' prisms can be compared cell-wise, SPEC P-11); NOT the certificate instance.
-INSTANCES = {"row2": (X_INST, T0_INST, Y0_INST, N0_INST), "mini": (314159300, Fraction(93, 500), Fraction(16733, 100000), 5000)}
+INSTANCES = {"row2": (X_INST, T0_INST, Y0_INST, N0_INST), "mini": (314159300, Fraction(93, 500), Fraction(16733, 100000), 5000),
+             # "gomila": the Gomila claim's barrier box (results/d1-m0/gomila-screen.md section 2): X = 6 000 000 185 827,
+             # [X, X+1] x [1809/10000, 1], t0 = 129/800, N = 690988 -- the screen's step-4 spot check only (M2a item (e)),
+             # NOT a certificate instance of this program
+             "gomila": (6000000185827, Fraction(129, 800), Fraction(1809, 10000), 690988)}
 
 
 class ProducerError(Exception):
@@ -1234,7 +1238,7 @@ def write_manifest(path, prisms, x1, x2, y1, y2, t_start, t_reached, t_end, inst
         "producer": {
             "leg": "arb", "implementation": "producer_arb.py (results/d1-m2a/), python-flint " + flint.__version__,
             "instance": ("Polymath15 Table 1 row 2: X = 5000000194858, t0 = 93/500, y0 = 16733/100000, N0 = 630783 (SPEC section 9)"
-                         if instance == "row2" else f"TEST instance 'mini' (NOT the certificate instance): X = {X}, t0 = {t0}, y0 = {y0}, N0 = {N}"),
+                         if instance == "row2" else f"instance '{instance}' (NOT the certificate instance of this program): X = {X}, t0 = {t0}, y0 = {y0}, N0 = {N}"),
             "chain_segment": {"t_start": str(t_start), "t_reached": str(t_reached), "t_end": str(t_end)},
             "status": status,
             "trust": "UNTRUSTED producer; output enters the trusted statement only via H2-B",
