@@ -1,0 +1,5 @@
+# lake env lean lean-shapes-scratch.lean  (run 2026-09-02 18:41 IST in ~/rh-lean-work/zeta-23-lean-main, Lean v4.33.0-rc2, Mathlib as pinned by the working tree)
+# expected: exactly three 'declaration uses sorry' warnings (the two soundness statements cert_of_checkBarrier / cert_of_checkAsym and the instance-shape statement lambda_le_point2_shape); every 'decide +kernel' instance, the assembled exBarrier_check', and the four norm_num glue examples pass without output.
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/m2a-lean/M2aScratch.lean:167:8: warning: declaration uses `sorry`
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/m2a-lean/M2aScratch.lean:248:8: warning: declaration uses `sorry`
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/m2a-lean/M2aScratch.lean:267:8: warning: declaration uses `sorry`
