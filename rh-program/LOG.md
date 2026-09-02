@@ -967,3 +967,10 @@ independent derivation of the Q* face-(a) mechanism, all three on Fable; the adv
 Opus-led. STATE OF THE PROBE NOTES: every Session-8 result now carries referee-pass and dual-model
 novelty blocks; external use remains gated on the queued wording repairs (R1–R10 + the referee
 replacement texts) being applied in one pass.
+
+**19:10 IST — dim-cube citation fetch DONE** (`referee-s14/dim-cube-source.md`, 312 lines). The one [RU]
+input of probe A's Theorem B(b) — dim [0,1]ⁿ = n — now has two legitimately free primary sources on
+disk (r3s-25 Schultz 2012 notes, Thm 7(i)/(iii), read from page images; r3s-26 Karasev 2014, Lebesgue
+covering theorem); Hurewicz–Wallman 1941 was read from a scan, its statements transcribed with pages,
+and the file DELETED because the Copyright Office catalog shows the 1969 renewal. The ready-to-install
+(b2) replacement text sits in the record §4 — queued for the single wording-repair pass.
