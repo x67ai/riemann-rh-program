@@ -1179,3 +1179,29 @@ the S1 requirement that arithmetic enter through the object itself. Next decidab
 is that length spectrum realizable at all — to be answered by a literature mini-sweep before any
 construction. Corrections to §14 wording ("lamination", "first positive S4-shaped object") are binding
 and queued for the repair pass.
+
+**05:20 IST — HARVEST 8: the Session-14 dual-model NOVELTY SWEEP (3/3; `results/c3-r/s14/novelty/`; dated
+blocks inserted at every claim point, additions only).** Binding verdicts: **C1 packet indiscreteness
+PARTIAL** — the statement about X₀ is new, but [x-03] p. 61 proves by strong approximation that the
+sibling generic-fiber quotient "carries the coarse topology" and pp. 63–64 print the subspace warning
+and the T₁ answer for the adelic base (Laca–Raeburn Lemma 3.1) — MAJOR wording change owed in the Q*
+adjudication §9; **C2 Theorem T PARTIAL** ("T₁ iff orbits closed" is printed — Yokoyama, Akin–Auslander;
+the compact-base non-closedness and "Y₀ not T₁" are not found); **C3 the weight W PARTIAL** (a classical
+parallelizing/Lyapunov datum — Akin–Auslander Thm 6.3, Antosiewicz–Dugundji 1961; the framework does
+not cover X₀; the l.s.c. weight with packet ∞-locus is new); **C4 PARTIAL** by inheritance (also a one-line
+corollary of C3); **C5 DQ-M PARTIAL** — a find both sweeps missed: J. Kim arXiv:1712.04181 prints the
+non-degeneracy-free leafwise cohomology and generator spectrum of the mapping torus (the trace identity
+itself is not printed); the index form is Fuller 1966 verbatim; the profinite-measure lemma is folklore;
+**C6 the [ÁLKL23] falsity NOVEL-DUAL-CHECKED, no erratum anywhere** (arXiv v3 latest, Crossref/zbMATH/
+Unpaywall negative; the published journal text unreachable — sponsor fetch, CC BY), the model-spectra
+acyclicity PARTIAL ([ÁLKL23] p. 4 prints "compact ⟹ clearly acyclic" via Komatsu 1967), the C(T)-
+transparency folklore-grade; source-integrity correction: the W3 adjudication mixes v1 and v3 section
+numbering — MAJOR, a "(v1) = (v3 = published)" map is owed; **C7 closure equality NOVEL-DUAL-CHECKED**
+(the fiber-closed clause PARTIAL, as graded); **C8 the closed n-cube NOVEL-DUAL-CHECKED** (Hofmann–Morris
+Thm 8.22 supplies the dimension anchor); **C9 PARTIAL** — construction, inert map and Theorem C new,
+the surgery shape credits KMNT Lemma 3.2, and the p^{1/2}·O return-derivative clause is ANTICIPATED
+verbatim by [Den05] pp. 32–33 (re-attribute); **C10 S4′ ANTICIPATED as a posed problem** — Deninger
+2002/2005 ("it would be very desirable to find a system … which actually realizes this correspondence"),
+Leichtnam 2007 Open Question 2, Berry–Keating 1999 — and studied by no one as a realizability problem:
+S4′ is Deninger's desideratum re-scoped with the p^{1/2} weights and the archimedean-leaf clause. All
+re-attributions are queued for the wording-repair pass (next stream).
