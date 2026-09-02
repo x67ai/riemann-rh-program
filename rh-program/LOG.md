@@ -946,3 +946,24 @@ verbatim, status PENDING). Novelty ledgers: 11 + 18 + 18 single-check items for 
   needs N₁ ≈ 6–8·10⁶. No program Lean file changed (scratch only). Gomila map: finite lane converts
   directly; the 883-prism logs hold per-prism summaries only (no per-point data) — conversion = re-run
   with an emitter or D1's own legs; tail lemma differs.
+
+**19:00 IST — HARVEST 4: run 1 COMPLETE (12/12) — ALL THREE SESSION-8 REFEREE DEBTS PAID.** The third,
+9.4 Lemmas A–D + Prop. 1 (`referee-s14/94-lemmas-adjudication.md`, 64 KB, 17 checks ALL PASS): PASS-
+WITH-REPAIRS, 0 fatal, 4 majors upheld, 16 minors; no lemma or proposition false AS APPLIED. Majors:
+(1) Lemma A's general-κ form WITHDRAWN — false for κ ≠ F̄_p (independent counterexample from Deninger
+Prop. 14.14 + p. 106: two ring homomorphisms κ → o♭ lifting κ ⊂ k give distinct mod-p-additive P with
+the same reduction); Lemma A for κ = F̄_p re-derived both ways, the elementary Teichmüller-limit
+converse adopted (machine-checked in Z/p¹²), the Witt argument kept as [RU]; (2) the D3 sentence
+attributed non-N-invariance to the cut class E(a₀), contradicting the banked Theorem C(b) — the non-
+admissible set T_j is what fails, E(a_j) is its admissible hull; (3) §6's closing inference
+WITHDRAWN (the threshold class is nonempty at characteristic-0 points and not N-invariant; Lemma B's
+content is exactly: empty on the periodic locus); (4) the Haar-constancy count is superseded by the
+DQ-M NO (weight = ℓ·index = 0 for translation-homogeneous packets). Sharpening banked: for Spec Z the
+periodic locus is the characteristic-p locus for every E ⊆ E_tors via the (Tors)-only step (p. 35).
+Dated blocks in every section of the 9.4 note. The B-corA1 adjudicator also re-ran (the cache missed)
+and CONFIRMED its verdict unchanged, adding — not certified, outside its item — the §10 observation
+that every packet and every periodic orbit carries the indiscrete subspace topology: a third
+independent derivation of the Q* face-(a) mechanism, all three on Fable; the adversarial pass must be
+Opus-led. STATE OF THE PROBE NOTES: every Session-8 result now carries referee-pass and dual-model
+novelty blocks; external use remains gated on the queued wording repairs (R1–R10 + the referee
+replacement texts) being applied in one pass.
