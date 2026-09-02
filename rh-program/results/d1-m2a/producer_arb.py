@@ -41,7 +41,9 @@ TRANSCRIBED FORMULAS (page-exact)
      DERIVATION D-A1 (the form implemented).  (92) is the form used here.  Check against (14):
           conj(s_*) + kappa - y = conj(s_+) + (t/2) alpha(conj s_+) + (t/2)(alpha(s_-) - alpha(conj s_+)) - y
           = (conj(s_+) - y) + (t/2) alpha(s_-) = s_- + (t/2) alpha(s_-)  since conj(s_+) - y = (1+y+ix)/2 - y = s_-.
-          [alpha(conj s) = conj(alpha(s)) was NOT needed.]  So n^y / n^{conj(s_*)+kappa} = 1/n^{s_**} and (14) = (92).
+          [This uses conj(alpha(s_+)) = alpha(conj s_+): alpha has real coefficients and Log(conj w) = conj Log(w) off the
+          cut, and s_+/(2 pi) is off the cut since Im s_+ = -x/2 =/= 0; P15 p46 states the identity s_** = conj(s_*) - y + kappa.]
+          So n^y / n^{conj(s_*)+kappa} = 1/n^{s_**} and (14) = (92).
           (92) is also exactly (A_{t,N} + B_{t,N})/B_t of Corollary 6.5 (p30) divided by M_t(s_+), which is what
           Theorem 1.3's proof (p30, (69)-(70)) bounds.  f_t is holomorphic in z for fixed N (p6, p46).
 (20) p6   |gamma| <= e^{0.02 y} (x/(4 pi))^{-y/2}.
@@ -152,6 +154,25 @@ D-A12 (Theorem 1.3 at t = 0, SPEC P-7).  Theorem 1.3 is stated for 0 < t <= 1/2.
   in t); the majorant e_A + e_B + e_{C,0} of D-A2 is continuous in t at 0 (with delta_1 taken at t0 it is even constant).
   Passing to the limit in the closed inequality |H_t/B_t - f_t| <= majorant gives it at t = 0.  Recorded in prism 0's
   producer.comment as this leg's discharge of P-7.
+D-A14 (the moment cache).  The moments M_m, W_m and the constants C, Q, r_max of D-A4/D-A5 depend only on the box, t0,
+  N, K, J and PREC.  They are stored on disk as exact dyadic (mid, rad) pairs (arf/mag mantissa-exponent pairs, lossless)
+  and reloaded as hull_ball(mid - rad, mid + rad) (D-P4): the reloaded ball CONTAINS the stored ball, which contains the
+  true moment, so every downstream enclosure remains valid.  The cache key is the sha256 of the parameter tuple; a
+  reloaded file is re-verified (every reloaded ball is checked to contain the exact rational [mid - rad, mid + rad]).
+D-A15 (prism-uniform evaluation; the displacement without D_tt).  The seam evaluator of D-A4 is a polynomial in
+  (delta, tau) plus remainders whose bounds are monotone in |tau|.  Collapsing the tau-sums with tau := the INTERVAL
+  [tau_j - t_c, tau_{j+1} - t_c] (a ball containing it, D-P4) and gamma with t := [tau_j, tau_{j+1}] gives, by inclusion
+  isotonicity (D-P0), balls that contain f, df/dz, df/dt at (z, t') for EVERY t' in the prism; the remainder constants
+  are computed with |tau| := the upper bound of |[tau_j - t_c, tau_{j+1} - t_c]| (the D-A5 bounds are increasing in |tau|),
+  the D-A6 corrections and D-A8 constants use R_k(tau_j) (sups on [tau_j, t0] by D-A9), and E uses [tau_j, t0].  Hence
+     Mt := max_k min( sup|ball df/dt (z_{m,k}, prism)| + D_zt h_k ,  sup|ball df/dt (segment_k hull, prism)| )
+  is an upper bound of sup_{z in dR, t' in prism} |df/dt|, and (mean value in t) |f_{t}(z) - f_{tau}(z)| <= (t - tau) Mt.
+  The D-A11 alternative Mt_alt := max_k(|f_t(z_{m,k}, tau)| + D_zt h_k) + D_tt Delta is also computed; the smaller of the
+  two rigorous bounds is used and both are recorded.  D/K := 2 E_p + Delta * Mt as in D-A11.
+D-A16 (adaptive mesh).  Each edge is first cut into n_init equal exact-rational pieces; a piece is bisected while its
+  D-A10 hull radius r exceeds r_frac * (pre-scan min |f|) or its integer box fails C6.  The mesh therefore adapts to the
+  local |f'| of each edge (the bottom edge y = y1 has |f'| an order of magnitude above the top edge).  The floor Fn/Fd is
+  then >= (1 - sqrt(2) r_frac) * min|f| up to the pre-scan resolution -- checked, not assumed (C-B11 by construction, D-P7).
 D-A13 (N constant on the box, SPEC P-3).  N(x,t) = floor(sqrt(x/4pi + t/16)) is non-decreasing in x and in t; the producer
   certifies sqrt(x/4pi + t/16) in (N0, N0+1) at the two extreme corners (x1, 0) and (x2, t0) by ball arithmetic, hence
   N = N0 on the closed box for all 0 <= t <= t0 and f_t is the same finite sum (holomorphic, p6) throughout.
@@ -163,12 +184,15 @@ a redundant bracketing assert.  No float enters any checked number.
 USAGE
   python3 producer_arb.py selftest                       # alpha/box constants, N-constancy (D-A13), moment self-consistency
   python3 producer_arb.py crosscheck --points 8          # Taylor evaluator vs direct summation at the instance (D-A4 check)
-  python3 producer_arb.py instance --out-dir transcripts [--max-seconds S] [--max-prisms J] [--resume]
+  python3 producer_arb.py instance --out-dir transcripts/row2-arb [--t-start a/b --t-end c/d] [--max-seconds S]
+                                   [--max-prisms J] [--resume] [--K 10^12 --A 10^6 --r-frac 1/6 --n-init 16]
+  python3 producer_arb.py merge --out-dir DIR --chains DIR1 DIR2 ...   # concatenate consecutive chain segments
   python3 producer_arb.py point --x N/D --y N/D --t N/D  # direct f_t ball + E at one point (validation hook)
 """
 
 import argparse
 import datetime
+import hashlib
 import json
 import math
 import os
@@ -181,6 +205,7 @@ import flint
 from flint import acb, arb, ctx, fmpq
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+CACHE_DIR = os.path.join(HERE, "arb-cache")
 PREC = 320          # bits; the moment sums lose ~45 bits to the phase x/2 * log n ~ 3e13 and ~60 bits to the
                     # alternating (q_n)^j expansion (D-A4); 320 leaves > 200 bits, far beyond the 1e-12 targets.
 ctx.prec = PREC
@@ -292,6 +317,36 @@ def absup(z):
 def certified_lt(a, b):
     """True only if a < b is certain (Arb's certified comparison)."""
     return bool(a < b)
+
+
+def arb_dump(x):
+    """arb -> lossless (mid_man, mid_exp, rad_man, rad_exp) decimal strings (D-A14)."""
+    m, r = x.mid(), x.rad()
+    if not (m.is_exact() and r.is_exact()):
+        raise ProducerError("non-finite ball cannot be cached")
+    mm, me = m.man_exp(); rm, re_ = r.man_exp()
+    return [str(int(mm)), str(int(me)), str(int(rm)), str(int(re_))]
+
+
+def arb_load(rec):
+    """Inverse of arb_dump: a ball CONTAINING [mid - rad, mid + rad] (D-A14), containment re-verified."""
+    mm, me, rm, re_ = (int(v) for v in rec)
+    mid = _dyadic((mm, me)); rad = _dyadic((rm, re_))
+    if rad < 0:
+        raise ProducerError("negative cached radius")
+    b = hull_ball(mid - rad, mid + rad)
+    lo, hi = ball_interval(b)
+    if not (lo <= mid - rad and mid + rad <= hi):
+        raise ProducerError("cache reload containment failed")
+    return b
+
+
+def acb_dump(z):
+    return [arb_dump(z.real), arb_dump(z.imag)]
+
+
+def acb_load(rec):
+    return acb(arb_load(rec[0]), arb_load(rec[1]))
 
 
 # ---------------------------------------------------------------- Polymath15 building blocks (6)-(11)
@@ -462,8 +517,52 @@ class BoxEvaluator:
         self._moments()
         self._tables()
 
+    def _cache_key(self):
+        tup = (str(self.x1), str(self.x2), str(self.y1), str(self.y2), str(self.t0), self.N, self.K, self.J, PREC, "v2")
+        return hashlib.sha256(repr(tup).encode()).hexdigest()[:20]
+
+    def _cache_path(self):
+        return os.path.join(CACHE_DIR, f"moments-{self._cache_key()}.json")
+
+    def _load_moments(self):
+        path = self._cache_path()
+        if not os.path.exists(path):
+            return False
+        with open(path) as fh:
+            d = json.load(fh)
+        if d.get("N") != self.N or d.get("K") != self.K or d.get("J") != self.J or d.get("prec") != PREC:
+            return False
+        t0 = time.time()
+        self.Mp = [acb_load(r) for r in d["Mp"]]; self.Mm = [acb_load(r) for r in d["Mm"]]
+        self.Wp = [arb_load(r) for r in d["Wp"]]; self.Wm = [arb_load(r) for r in d["Wm"]]
+        self.Cp, self.Cm = Fraction(d["Cp"]), Fraction(d["Cm"])
+        self.Qp, self.Qm = Fraction(d["Qp"]), Fraction(d["Qm"])
+        self.Rp_max, self.Rm_max = Fraction(d["Rp_max"]), Fraction(d["Rm_max"])
+        self.log(f"[moments] reloaded {len(self.Mp)}+{len(self.Mm)} complex and {len(self.Wp)}+{len(self.Wm)} real moments "
+                 f"from {os.path.basename(path)} (computed {d.get('written_utc')}, {d.get('seconds')} s) in {time.time()-t0:.1f}s; "
+                 f"every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)")
+        return True
+
+    def _save_moments(self, seconds):
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        d = {"N": self.N, "K": self.K, "J": self.J, "prec": PREC, "box": [str(self.x1), str(self.x2), str(self.y1), str(self.y2)],
+             "t0": str(self.t0), "tc": str(self.tc), "seconds": round(seconds, 1),
+             "written_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+             "Mp": [acb_dump(z) for z in self.Mp], "Mm": [acb_dump(z) for z in self.Mm],
+             "Wp": [arb_dump(x) for x in self.Wp], "Wm": [arb_dump(x) for x in self.Wm],
+             "Cp": str(self.Cp), "Cm": str(self.Cm), "Qp": str(self.Qp), "Qm": str(self.Qm),
+             "Rp_max": str(self.Rp_max), "Rm_max": str(self.Rm_max),
+             "comment": "D-A14 moment cache of producer_arb.py (UNTRUSTED producer-internal data; lossless dyadic mid/rad)"}
+        path = self._cache_path()
+        with open(path + ".tmp", "w") as fh:
+            json.dump(d, fh)
+        os.replace(path + ".tmp", path)
+        self.log(f"[moments] cached to {path}")
+
     # ---- the one pass over n (D-A4, D-A3)
     def _moments(self):
+        if self._load_moments():
+            return
         K, J, N = self.K, self.J, self.N
         Mmax = K + 2 * J
         Wmax = 4 + 2 * J
@@ -508,6 +607,8 @@ class BoxEvaluator:
         self.Rp_max, self.Rm_max = upper(Rp), upper(Rm)  # max_n |r_n^+-|
         self.log(f"[moments] done in {time.time()-t_start:.1f}s: C+={float(self.Cp):.4e} C-={float(self.Cm):.4e} "
                  f"Q+={float(self.Qp):.3f} Q-={float(self.Qm):.3f} r+max={float(self.Rp_max):.3f} r-max={float(self.Rm_max):.3f}")
+        if N >= 20000:
+            self._save_moments(time.time() - t_start)
 
     def _tables(self):
         """M_{k,j} = sum_i C(j,i) 4^{-i} (-alpha_c/2)^{j-i} M_{k+j+i}  (D-A4), and the real analogue with a_+-."""
@@ -569,18 +670,23 @@ class BoxEvaluator:
             out[sign] = vals
         return out
 
-    def seam(self, t):
-        return SeamContext(self, Fraction(t))
+    def seam(self, t, t_hi=None):
+        return SeamContext(self, Fraction(t), None if t_hi is None else Fraction(t_hi))
 
 
 class SeamContext:
     """Everything needed to evaluate f, f', f_t at points of the box at the fixed time t = tau (D-A4..D-A8)."""
 
-    def __init__(self, box, t):
-        self.box = box; self.t = t
+    def __init__(self, box, t, t_hi=None):
+        """t_hi = None: the seam context at the single time t.  t_hi > t: the PRISM context (D-A15) -- every tau-sum is
+        collapsed with tau = the interval [t - tc, t_hi - tc] and gamma with t = [t, t_hi], so by inclusion isotonicity
+        (D-P0) each ball returned by eval() encloses the value at EVERY t' in [t, t_hi]."""
+        self.box = box; self.t = t; self.t_hi = t if t_hi is None else t_hi
+        if self.t_hi < t:
+            raise ProducerError("prism context with t_hi < t")
         K, J = box.K, box.J
-        tau = rat_ball(t - box.tc)
-        tb = rat_ball(t)
+        tau = hull_ball(t - box.tc, self.t_hi - box.tc)
+        tb = hull_ball(t, self.t_hi)
         self.tb = tb
         # collapse the tau-sums: A_k = sum_j tau^j/j! M_{k,j};  Adot_k = sum_{j>=1} tau^{j-1}/(j-1)! M_{k,j}
         def collapse(T):
@@ -660,11 +766,28 @@ class SeamContext:
 
     def eval(self, x, y):
         """f, df/dz, df/dt at the exact rational point (x, y), as acb balls containing the true values."""
-        key = (x, y)
+        key = (Fraction(x), Fraction(y))
         if key in self.cache:
             return self.cache[key]
         box = self.box
-        dz = cpoint(Fraction(x) - box.zc[0], Fraction(y) - box.zc[1])
+        dz = cpoint(key[0] - box.zc[0], key[1] - box.zc[1])
+        out = self._eval_dz(dz)
+        self.cache[key] = out
+        return out
+
+    def eval_seg(self, seg):
+        """f, df/dz, df/dt as balls valid for EVERY point of the closed segment seg (dz = the segment's hull box,
+        D-P4 + D-P0); used for the D-A15 displacement bound."""
+        kind, a, b, c = seg
+        box = self.box
+        if kind == "h":
+            dz = acb(hull_ball(Fraction(a) - box.zc[0], Fraction(b) - box.zc[0]), rat_ball(Fraction(c) - box.zc[1]))
+        else:
+            dz = acb(rat_ball(Fraction(c) - box.zc[0]), hull_ball(Fraction(a) - box.zc[1], Fraction(b) - box.zc[1]))
+        return self._eval_dz(dz)
+
+    def _eval_dz(self, dz):
+        box = self.box
         u_p = acb(0, 1) * dz / 2      # i delta/2
         u_m = -u_p
         def horner(A, u):
@@ -696,7 +819,6 @@ class SeamContext:
         S1t = infl(Pd_p, self.rem_p[2] + self.corr_dt_p)
         S2t = infl(Pd_m, self.rem_m[2])
         ft = infl(S1t + gam * (lg_t * S2 + S2t), self.corr_dt_m)
-        self.cache[key] = (f, fz, ft)
         return f, fz, ft
 
 

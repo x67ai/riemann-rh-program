@@ -76,9 +76,10 @@ interval-t overestimate is small for the prism lengths used (≈ 1%).
 |---|---|---|
 | Ball.exp at imaginary parts up to 10¹⁴ (the γ regime at X ≈ 5·10¹²: Im(log M₀ difference) ≈ 7·10¹³) vs dps-150 reference, 200 thin + 40 wide boxes × 5 interior points | `validation-ft-mp.txt` | 400/400 contained, thin relative widths < 10⁻⁶⁰ |
 | α, log M₀, γ, f_t (direct) vs the independent mp float pipeline (dps 60), 40 random (x, y, t) with x ∈ [200, 10¹³], plus f_t at true N for x ≤ 2·10⁴ | `validation-ft-mp.txt` | 209/209 contained |
-| **Theorem 1.3 end-to-end (the task's ≥ 30 points):** H_t/B_t by `mp.quad` of the defining integral (dps 130, piecewise Gauss–Legendre, two cuts as a consistency check ≈ 10⁻¹⁰⁰) vs the enclosure f_t-box + E·disk, x ∈ [200, 330], y ∈ [0, 1], t ∈ (0, 0.5] | `validation-ft-mp-integral.txt` | RESULT-INTEGRAL |
+| **Theorem 1.3 end-to-end (the task's ≥ 30 points):** H_t/B_t by `mp.quad` of the defining integral (dps 130, piecewise Gauss–Legendre, two cuts as a consistency check ≈ 10⁻¹⁰⁰) vs the enclosure f_t-box + E·disk, x ∈ [200, 330], y ∈ [0, 1], t ∈ (0, 0.5] | `validation-ft-mp-integral.txt` | **32/32 contained**, 0 failures; actual \|g − f_t\|/E ∈ [0.170, 0.478] (max 0.478); f-box widths ≤ 7.7·10⁻⁷⁹; quadrature self-consistency 10⁻⁸⁶–10⁻¹⁰⁶; 1536 s |
 | block-Taylor evaluator vs direct summation and the reference on the N = 5000 mini-instance (thin points at 4 times, segment boxes h ∈ {10⁻², 10⁻³}, ∂_t f vs central difference, an interval-t box) | `validation-ft-mp.txt` | 93/93 |
-| the same at row 2 (N₀ = 630783; direct sums ≈ 100 s each) | `validation-ft-mp-instance.txt` | RESULT-INSTANCE |
+| the same at row 2 (N₀ = 630783; direct sums ≈ 100 s each) | `validation-ft-mp-instance.txt` | 69 checks, **68 pass, 1 harness artifact** (explained and re-checked below): every f-box contains the direct sum and the reference (Taylor widths 10⁻²⁷ at t = 0, 10⁻¹²–10⁻¹⁴ at t > 0; direct widths 10⁻⁶⁶–10⁻⁷⁰; direct sums 138–155 s each); the one flagged line is the d/dt f check at (x₁, y₁), t = 0 |
+| **d/dt f at t = 0 re-check** (`dt0_recheck.py` → `validation-ft-mp-dt0.txt`): the harness clamps the lower finite-difference point to t = 0, so at t = 0 its "central difference" is a ONE-SIDED forward difference with step 10⁻¹², truncation h·\|∂²_t f\|/2 ≈ 10⁻¹²·45²·33/2 ≈ 3·10⁻⁸ against a derivative ball 10⁻⁹ wide (observed discrepancy 2.0·10⁻⁸; the mini instance passed only because its ball was 1.4·10⁻⁶ wide). Replaced by (R1) the analytic D-F6 derivative in an independent mp float pipeline and (R2) a genuine two-sided central difference (f_t is a finite sum, defined for t < 0), exact-Fraction membership, at the failing point and three others | RESULT-DT0 |
 | mini-instance end-to-end transcript (3 prisms) through the reference checker | `transcripts/mini/` | ACCEPT (C-B0..C-B13) |
 
 Why the integral test cannot be sharper than it is: H_t(x+iy) ≈ e^{−πx/8} against an O(1) integrand, so the
@@ -89,6 +90,14 @@ enclosure, and it does with |g − f_t|/E ≈ 0.25–0.45 — while the evaluato
 pieces test and to 10⁻⁷⁰ (direct) / 10⁻²⁷ (Taylor, t = 0) by the instance tests.
 
 ## 5. Run record — the row-2 barrier transcript
+
+**RUNNING (launched 23:06 IST 2026-09-02, second agent after the 19:40 usage death; PID in `transcripts/row2/stdout.txt`).**
+Command: `python3 producer_mp.py --instance row2 --out transcripts/row2 --max-seconds 10800` (K = 10²⁴, A = 10¹²,
+h₀ = 1/50, θ = 1/2, prec 288). Outputs land per prism in `transcripts/row2/` (prism-NNNN.json, manifest.json rewritten
+after every prism, progress.json). **To resume after a death:** the same command with `--resume` (continues from the
+last seam in progress.json). On completion: `python3 barrier_ref_checker.py transcripts/row2/manifest.json`,
+`python3 schema_shape_check.py barrier-schema.json transcripts/row2/manifest.json`, `python3 row2_summary.py transcripts/row2`,
+then replace this paragraph by the run record.
 
 RESULT-RUN
 
