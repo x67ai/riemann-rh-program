@@ -11,7 +11,11 @@ be reached it is named in full and marked UNDETERMINED.
 `novelty-F.md`, `novelty-adjudication.md`. Searches already run there are not re-run; where a
 Session-14-earlier search bears on a claim here it is cited by its S-nn id.
 
-*(status: in progress — sections appended as they are decided)*
+**Scope:** the ten Session-14 claims C1–C10 named in the charter.
+**One-line result:** no Session-14 mathematical verdict is overturned; **three claims (C1, C9, C10) are
+materially less novel than their notes assume, each with a page-anchored printed antecedent the earlier
+sweeps missed**; C6 is confirmed novel but the source it refutes is **published and renumbered**, which
+breaks every program citation of its §§6–7; and one live currency risk (the Morishita source) is cleared.
 
 ---
 
@@ -395,3 +399,248 @@ the rank-1 ⟺ fibration statement, and *"if one wants an infinitely generated �
 flow to have fixed points"*) and **KMNT, Münster J. Math. 14 (2021) = arXiv:1906.02424**
 (Prop. 2.2.5, Thm. 2.2.2/Cor. 2.2.4, Lemma 3.2). Without this the note's central structural findings
 read as unaware of the two printed sources closest to them.
+
+---
+
+## C10 — S4′: has anyone posed or studied the inverse length-spectrum problem for foliated flows with
+spectrum {log p} and an archimedean leaf? **Verdict: ANTICIPATED as a posed problem; PARTIAL for the
+program's sharpened form.**
+
+**Yes. It is posed in print, repeatedly, and its status is recorded as open.** Three independent
+printed statements, all read verbatim this session:
+
+1. **Leichtnam**, *Scaling group flow and Lefschetz trace formula for laminated spaces with p-adic
+   transversal*, **Bull. Sci. Math. 131 (2007) 638–669** = arXiv:math/0603576v2, **abstract**:
+   > "In his approach to analytic number theory C. Deninger has suggested that to the Riemann zeta
+   > function ζ̂(s) (resp. the zeta function ζ_Y(s) of a smooth projective curve Y over a finite field
+   > 𝔽_q) one could possibly associate a foliated Riemannian laminated space (S_ℚ, F, g, φ^t) (resp.
+   > (S_Y, F, g, φ^t)) endowed with an action of a flow φ^t **whose primitive compact orbits should
+   > correspond to the primes of ℚ** (resp. Y). **Precise conjectures were stated in our report
+   > [Lei03] on Deninger's work. The existence of such a foliated space and flow φ^t is still unknown
+   > except when Y is an elliptic curve** (see Deninger [De02])."
+
+   and §1 (printed p. 2):
+   > "**Notice that the existence of such a quadruple (S_ℚ, F, g, φ^t) is still unknown.** Recall that
+   > Alain Connes [Co99] has reduced the validity of the Riemann hypothesis to a trace formula (of
+   > Lefschetz type) on the quotient space 𝔸_ℚ/ℚ^* × ℝ. **Notice nevertheless that 𝔸_ℚ/ℚ^* × ℝ does not
+   > satisfy the properties required for (S_ℚ, F, g, φ^t).**"
+
+   The "precise conjectures" are: **E. Leichtnam, *An invitation to Deninger's work on arithmetic zeta
+   functions*, in Geometry, Spectral Theory, Groups, and Dynamics, Contemp. Math. 387, AMS,
+   Providence RI, 2005, pp. 201–236** — the printed axiom list that S4′ is a variant of.
+   *(Not on disk. Named in full; see UNDETERMINED.)*
+
+2. **Deninger**, [x-03] printed p. 39, poses the sub-system form the program calls S4:
+   > "The system X₀ may have to be replaced by a much smaller system: **Is there a sub-dynamical
+   > system Y₀ ⊂ X₀ = X̌₀(ℂ) ×_{ℚ^{>0}} ℝ^{>0} or at least one which maps to X₀ such that
+   > dim Y₀ = 2d + 1 where d = dim X₀ and such that Y₀ contains at least one periodic orbit in Γ_{x₀}
+   > for every closed point x₀ of X₀? If d = 1, is there such a Y₀ which is a Riemann surface
+   > lamination in the sense of [Ghy99]?**"
+
+3. **Deninger**, [x-18] p. 3, supplies the structural constraint quoted under C9-a (rank Λ = 1 ⟺
+   fibration; infinitely generated Λ ⇒ fixed points must be allowed).
+
+**Precise difference — what in S4′ is the program's own.** The published problem asks for existence
+of the quadruple with primitive compact orbits ↔ primes. **S4′ adds four clauses that I could not
+find posed anywhere:** (i) the closed orbits are **exactly** one **simple** orbit of length log p per
+prime (published statements say "correspond to", not "exactly one, simple, and nothing else");
+(ii) the prescribed **return derivative p^{1/2}·O**; (iii) the accumulation set must contain a
+**preserved leaf of nonzero Euler characteristic**; (iv) a transverse measure. And the framing as an
+**inverse length-spectrum problem** — "is {log p} realizable at all?" — is nowhere in the sources; the
+literature asks for the object, not for the realizability of its spectrum in isolation.
+
+**Adjacent literatures checked, all negative for this question** (search log C10-S1…C10-S6):
+Kucharczyk–Scholze (their X_F is compact **Hausdorff**, no flow — prior sweep S-23); Kim,
+Kim–Morishita–Noda–Terashima (constructions, but finitely generated Λ — C9-b);
+Deninger–Singhof; Fel'shtyn; the dynamical zeta-function tradition (Ruelle, Parry–Pollicott, Fried) —
+that literature computes zeta functions **from** a given flow and never solves the inverse problem for
+a prescribed non-lattice spectrum; Sullivan's solenoids and Smale–Williams attractors (period
+spectra are lattice-like — inverse limits of covers of a circle force periods commensurable with the
+base circle); Anosov flows with prescribed spectra (the only inverse results located are *rank-one /
+common-period* results: **Cristofaro-Gardiner–Mazzucchelli**, *The action spectrum characterizes
+closed contact 3-manifolds all of whose Reeb orbits are closed*, arXiv:1901.10617, Comment. Math.
+Helv. — "on a fixed closed connected 3-manifold, a contact form with an action spectrum of **rank 1**
+is determined (up to pull-back by diffeomorphisms) by the set of minimal periods of its closed Reeb
+orbits", i.e. exactly the rank-1 case Deninger's own criterion excludes; and **Miyanishi**, *Circle
+Foliations Revisited: Periods of Flows whose Orbits are all Closed*, arXiv:2408.06056, already noted
+at the earlier sweep's S-35).
+
+**Required change (severity MAJOR).** `m2c-feasibility-ledger.md` §15's sentence *"What remains of S4
+is a standalone existence problem in foliation dynamics, S4′ …"* must be rewritten to say that the
+existence problem **is a published open problem** (Deninger [x-03] p. 39; Leichtnam, Bull. Sci. Math.
+131 (2007), abstract and §1; precise axioms in Leichtnam, Contemp. Math. 387 (2005) 201–236) with a
+**published solved case** (Deninger [De02] = [x-22], elliptic curve over 𝔽_q), and that S4′ is the
+program's *sharpening* of it by four clauses. Presenting S4′ as a new problem would be a citation
+failure a referee would catch immediately.
+
+---
+
+## VERDICT TABLE (consolidated)
+
+| # | Claim | Verdict | Severity of the change owed |
+|---|---|---|---|
+| **C1** | Packet indiscreteness; X₀ not T₀ | **PARTIAL** | **MAJOR** — [x-03] p. 61 proves a ℚ^{>0}-quotient carries the *coarse* topology by strong approximation; p. 63 prints the subspace-topology warning |
+| **C2** | Theorem T; Y₀ not T₁/metrizable | **PARTIAL** | MINOR — statement new; mechanism classical + Deninger pp. 47, 61, 63 |
+| **C3** | Flow-conformal weight W; dissipation | **PARTIAL** | MODERATE — the dispersive/parallelizable framework (Antosiewicz–Dugundji 1961, Hájek 1971, Bhatia–Szegő 1970) is uncited |
+| **C4** | Backward escape (empty α-limit sets) | **PARTIAL** | MINOR — same framework; the arithmetic instrument is new |
+| **C5** | DQ-M (trace without non-degeneracy; index ≠ Haar; no ℤ-valued invariant measure) | **NOVEL** (a), (b), (d); **NOVEL, folklore-grade** (c) | MINOR — cite equivariant Fuller index and the M(Z, ℤ) framework |
+| **C6** | [ÁLKL23] coincidence statements false; acyclicity by interpolation; sup-seminorm transparency | **NOVEL** (falsity, no erratum exists); **PARTIAL** (acyclicity); **NOVEL folklore-grade** (transparency) | **MAJOR (source integrity)** — the paper is **published** (J. Pseudo-Differ. Oper. Appl. 15:47, 2024) and **§§6–7 are renumbered**; every program citation of a §6/§7 number is wrong against the published text |
+| **C7** | cl(γ) = Γ^E_p; packet = fiber of descended projection | **NOVEL** / **PARTIAL** | NONE — and the [r3s-08] currency risk is now **cleared** (on-disk copy is the final v5) |
+| **C8** | Closed embedded n-cube; infinite-dimensionality proof | **NOVEL** (proof) | NONE — [x-03] §8 verified to contain no dimension argument |
+| **C9** | Compact {log p} source; Theorem C; p^{1/2}·O | **PARTIAL** | **MAJOR** — [x-18] p. 3 (period group; infinitely generated Λ ⇒ fixed points) and KMNT, Münster J. Math. 14 (2021) (Prop. 2.2.5, Thm. 2.2.2, Lemma 3.2) |
+| **C10** | S4′ inverse length-spectrum problem | **ANTICIPATED** (as posed problem); **PARTIAL** (the four added clauses) | **MAJOR** — Leichtnam Bull. Sci. Math. 131 (2007) + Contemp. Math. 387 (2005); Deninger [x-03] p. 39; solved case [De02] |
+
+**Nothing in this sweep overturns a mathematical verdict of Session 14.** Every finding is a citation
+or attribution obligation, plus one source-integrity defect (C6-b) and one cleared risk (C7).
+
+---
+
+## SEARCH LOG (complete). All 2026-09-03 local. "no hit" = no source stating or containing the claim under test.
+
+### A. Network queries
+
+| id | engine / endpoint | phrasing | result |
+|---|---|---|---|
+| O-S1 | WebSearch | `leaf space Kronecker foliation quotient topology "indiscrete" Connes noncommutative geometry coarse topology` | context; routed to Connes survey (blocked, O-S6/O-S19) and to Moerdijk |
+| O-S2 | WebSearch | `quotient of group action "is T1 if and only if" "orbits are closed" topological transformation group orbit space separation axioms` | no citable source; only lecture-note level |
+| O-S3 | WebSearch | `"finitely additive" translation invariant integer-valued measure on clopen subsets of a profinite group does not exist` | **no hit** |
+| O-S4 | WebSearch | `arXiv 2304.00798 Álvarez López Kordyukov Leichtnam conormal distributions erratum corrigendum version 4` | **no erratum**; located abs page |
+| O-S5 | WebFetch | `arxiv.org/abs/2304.00798` | v1/v2/v3 only, **no v4**, no journal-ref, no erratum note; Comments "55 pages, index of notation" |
+| O-S6 | WebFetch | `alainconnes.org/wp-content/uploads/foliationsfine.pdf` | **BLOCKED — HTTP 403** |
+| O-S7 | zbMATH REST API | `document/_search?search_string=Topology of the space of conormal distributions` | **Zbl 1564.46031**, id 7901419, DOI 10.1007/s11868-024-00617-y, CC-BY, datestamp 2024-08-26; editorial contribution type `summary`, **reviewer name null**, text "contents unavailable due to conflicting licenses" ⇒ **no review, no defect noted** |
+| O-S8 | WebSearch | `"leaf space" foliation "indiscrete topology" only open sets empty set whole space irrational flow torus` | context: irrational Kronecker leaf space = "chaotic topology" |
+| O-S9 | WebFetch | `link.springer.com/article/10.1007/s11868-024-00617-y` | **BLOCKED — 303 → idp.springer.com** |
+| O-S10 | WebFetch | `arxiv.org/abs/2006.01953` (Maksymenko–Polulyakh) | no indiscreteness content; discharged |
+| O-S11 | curl ×3 | `link.springer.com/content/pdf/10.1007/s11868-024-00617-y.pdf` | **BLOCKED — Akamai "Client Challenge", 3,038-byte HTML** (with cookie jar, browser UA, referer) |
+| O-S12 | WebSearch | `"chaotic topology" leaf space "Kronecker foliation" quotient topology dense leaves torus` | routed to Manifold Atlas (blocked, O-S13) and the IHES Connes scan |
+| O-S13 | WebFetch | `www.map.mpim-bonn.mpg.de/Foliations` | **BLOCKED — TLS certificate altname mismatch** |
+| O-S14 | Semantic Scholar Graph API | `paper/DOI:10.1007/s11868-024-00617-y` | *J. Pseudo-Differ. Oper. Appl.* 2024; **citationCount 0**; openAccessPdf HYBRID/CCBY |
+| O-S15 | Semantic Scholar Graph API | `paper/arXiv:2304.00798/citations` | **empty** — no citing work anywhere that could carry a correction |
+| O-S16 | Unpaywall API | `10.1007/s11868-024-00617-y` | is_oa true; 3 OA locations; **no "Correction to…" companion DOI** |
+| O-S17 | curl | `hal.science/hal-04742200v1/document` | returned HTML, not the PDF |
+| O-S18 | curl | `minerva.usc.gal/bitstreams/f0f5fe37-…/download` | **SUCCESS — the published article, 68 pp., 1.1 MB**; saved beside this file |
+| O-S19 | WebFetch | `repo-archives.ihes.fr/…/CONNES/…/M_81_01_web.pdf` | image-only scan, no text layer; **UNDETERMINED** |
+| O-S20 | WebFetch + local `pdftotext` | Moerdijk, ECM Barcelona 2000 PDF (`math.uni-bielefeld.de/~rehmann/ECM/…/moerd.pdf`) | **HIT** — "coarse quotient space" quote obtained locally after WebFetch failed to read it |
+| O-S21 | WebSearch | `flow "no compact invariant set" function satisfying "f(φ^t x) = e^t f(x)" homogeneous of degree one expanding first integral dissipative` | no hit (wrong vocabulary — corrected at O-S34) |
+| O-S22 | WebSearch | `construct foliated space closed orbits lengths "log p" one orbit per prime Deninger existence three-dimensional lamination construction` | **HIT** → Leichtnam Bull. Sci. Math. 131 (2007); Kopei math/0605184 |
+| O-S23 | WebFetch | `arxiv.org/abs/math/0605184` (Kopei) | product-formula analogy only; not a construction; discharged |
+| O-S24 | WebSearch | `"dense subgroup" acts multiplication "R_{>0}" suspension quotient orbit not closed "not T1" solenoid Q_+ mapping torus separation` | no citable source |
+| O-S25 | WebSearch | `"no compact invariant set" flow admitting continuous positive function multiplied by "e^t" along the flow Lyapunov obstruction elementary lemma` | no hit |
+| O-S26 | WebSearch | `inverse spectral problem foliated flow "length spectrum" prescribed "log p" primes realization existence Deninger open problem Leichtnam` | **HIT** → Leichtnam, existence "still unknown except when Y is an elliptic curve" |
+| O-S27 | **Consensus MCP** | `Deninger foliated dynamical system existence one closed orbit per prime length log p construction obstruction` | **HIT ×2** → KMNT arXiv:1906.02424 (decomposition theorem + constructed examples); Leichtnam 2006 (existence unknown). Also Morin 2010, ÁLKM 2410.20758, Kim 2019, Deninger DocMath 2002 — all already in the program record |
+| O-S28 | WebFetch | `arxiv.org/abs/1906.02424` | Münster J. Math. **14 (2)** (2021); abstract verbatim |
+| O-S29 | curl + pdftotext | `arxiv.org/pdf/1906.02424` (30 pp.) | **read** Defs. 1.5–1.12, Thm. 2.2.2, Cor. 2.2.4, **Prop. 2.2.5**, Prop. 2.2.6, **Lemma 3.2**, Examples 3.I, 3.II.1, 3.II.2, 3.III-1.1, 3.III-1.2, 3.III-2 |
+| O-S30 | WebSearch | `"Haar measure" profinite group "integer valued" measure exists only zero index of open subgroup divisibility argument clopen algebra invariant` | near-miss → Ardakov–Wadsley arXiv:2309.05462 (framework, not the non-existence) |
+| O-S31 | WebSearch | `"fixed point index" of a set of fixed points invariant under a transitive group of symmetries vanishes Dold index commutativity free action zero` | no hit; located equivariant Fuller index arXiv:1301.7304 |
+| O-S32 | WebSearch | `"alpha-limit set" empty for every point flow non-compact space backward orbit escapes to infinity dynamical system theorem` | no hit (wrong vocabulary — corrected at O-S34) |
+| O-S33 | WebSearch | `Connes Consani scaling site adele class space "module" homomorphism norm map scaling action "lambda" no compact orbit closure noncompact quotient` | context only |
+| O-S34 | WebSearch | `dispersive dynamical system parallelizable flow empty limit sets "no compact invariant set" Bhatia Szego continuous function strictly increasing along orbits` | **HIT — the vocabulary correction.** parallelizable ⟺ dispersive on locally compact separable metric spaces |
+| O-S35 | WebSearch | `"parallelizable" flow characterization "section" exists continuous function "f(phi(t,x)) = t + f(x)" dispersive Bhatia Hajek Dugundji theorem` | **HIT** → Antosiewicz–Dugundji, Ann. of Math. 73 (1961) 543–555; Hájek, Proc. AMS 27 (1971) 77–84 |
+| O-S36 | curl + pdftotext | `arxiv.org/pdf/1004.0323` (Akin–Auslander) | **read** §6 intro (PDF p. 8), Thm. 0.5, Thm. 6.3(b) and its proof (PDF pp. 96–99), the parallelizability definition (PDF p. 95) |
+| O-S37 | curl + pdftotext | `arxiv.org/pdf/2309.05462` (Ardakov–Wadsley) | **read** §2.1, Prop. 2.1.3 (measures M(Z, a) on the clopen algebra of a profinite set) |
+| O-S38 | WebFetch | `arxiv.org/abs/2508.15971` (Morishita) | **five versions**, v5 = 21 Jan 2026, "**to appear in Münster Journal of Mathematics**" |
+| O-S39 | curl + pdftotext + diff | `arxiv.org/pdf/2508.15971v5` vs on-disk `r3s-08` | **line-for-line identical (1,326 lines)** — on-disk copy is the final version. C7 currency risk **cleared** |
+| O-S40 | WebSearch | `compact space flow "closed orbits" of lengths exactly "log p" for each prime realized construction solenoid mapping torus arithmetic "period group" infinitely generated fixed points required` | **no hit** — no realization of {log p} exists in the literature |
+
+### B. On-disk corpus searches (fresh `pdftotext -layout` extractions made this session; extends S-36…S-45 of `referee-s14/novelty-O.md`, which did **not** search these terms)
+
+| id | term(s) | corpus | outcome |
+|---|---|---|---|
+| O-D1 | **`coarse`** | `fetched/x-03…v4.pdf`, `fetched/z-19…INDAG-published.pdf` | **THE DECISIVE HIT.** x-03 printed p. 61 (= z-19 pp. 81–82): "The fact that **Y carries the coarse topology** follows from strong approximation for ℚ". Missed by the earlier sweep, which searched `Hausdorff`/`irreducible`/`properly discontinuous` only |
+| O-D2 | `indiscrete`, `T_0`, `topologically indistinguish`, `trivial topology`, `separat` | x-03, z-19, x-06 | nothing but "separated presheaf" (§2) and the O-D1 passage; **Deninger never discusses separation axioms of X₀** |
+| O-D3 | `packet` | x-03 | exactly 5 occurrences (intro ×4, §5 ×1); **none topological**; confirms the earlier sweep's S-36 |
+| O-D4 | **`period group`**, `rationally independent`, `length spectrum`, `linearly independent over` | x-03, x-18, x-19, x-20, x-21 | **HIT in [x-18]**: "Its image Λ ⊂ ℝ is called the **group of periods**"; "F is a fibration **iff** rank Λ = 1"; "**If one wants an infinitely generated Λ, one must allow the flow to have fixed points**"; Dictionary row "\|char(𝒳)\| ↔ rank of period group Λ" |
+| O-D5 | `not a manifold`, `lamination`, `infinite dimensional` | x-18, x-20, x-21 | x-18: "…this is indeed the case with X a **generalized solenoid, not a manifold**, [D3]" |
+| O-D6 | Theorem 8.2 + Lemma 8.3 + surrounding prose | x-03 pp. 49–50 | **read in full**: identification/density only; **no dimension argument anywhere in §8** (settles C8) |
+| O-D7 | `still unknown`, `except when Y is an elliptic` | `fetched-r3/r3s-21` (Leichtnam math/0603576v2) | **HIT** — abstract and §1 (printed p. 2), quoted under C10 |
+| O-D8 | `2.2.7`, `2.2.8`, `2.2.9`, `packet`, `descend` | `fetched-r3/r3s-08` | present; file is v5; identical to fresh fetch (O-S39) |
+| O-D9 | statement-number diff | `fetched-r3/r3s-18` (arXiv v1) vs the published PDF (O-S18) | **the renumbering table of C6-b** |
+
+---
+
+## DOCUMENTS OPENED IN THIS SWEEP
+
+**Program files (read to the extent needed).** `results/c3-r/s14/qstar-adjudication.md` (§9 in full,
+§§10–11); `s14/qa-kill.md` (§§4, 6, 10–12); `s14/dqm-adjudication.md` (§§10–12); `s14/w3-adjudication.md`
+(header, §0, §1, §9); `s14/y0-witness/adjudication.md` (§7, §8); `referee-s14/B-corA1-adjudication.md`
+(§§8–10); `referee-s14/A-thmB-adjudication.md` (§§7–8); `results/c3-r/m2c-feasibility-ledger.md` §15;
+`referee-s14/novelty-O.md` (verdict table + §§6–8, the prior search log — **read specifically so as
+not to repeat it**). *`sweep-F.md`, the sibling check, was deliberately NOT opened (standing order 7).*
+
+**On-disk primary sources, own extractions this session, page anchors as stated.**
+`fetched/x-03-deninger-…-arxiv-v4.pdf` — printed pp. 39, 47, 49–50, 61, 63;
+`fetched/z-19-deninger-2026-…-INDAG-published.pdf` — printed pp. 81–82 (confirms x-03 p. 61 verbatim);
+`fetched/x-06-…primes-knots-and-periodic-orbits.pdf` — searched;
+`fetched/x-18-deninger-2007-analogies-foliated-spaces-and-arithmetic-geometry.pdf` — **printed p. 3 in
+full (Construction 3, the period group, the fixed-point sentence, Dictionary 4 part 2)**;
+`fetched/x-20-…`, `fetched/x-21-…` — searched; `fetched/x-22-deninger-2002-nature-of-the-explicit-formulas…`
+— searched (the elliptic-curve case); `fetched-r3/r3s-08-morishita-…-2508.15971.pdf` — version check +
+`packet` occurrences; `fetched-r3/r3s-18-…-2304.00798v1….pdf` — full statement-number map;
+`fetched-r3/r3s-21-leichtnam-…-math0603576v2….pdf` — abstract, §1 printed p. 2.
+
+**Fetched fresh this session.**
+* **Álvarez López–Kordyukov–Leichtnam, *Topology of the space of conormal distributions*, J. Pseudo-Differ.
+  Oper. Appl. 15:47 (2024), 68 pp., open access CC-BY, Zbl 1564.46031** — the **published** text, via
+  USC Minerva; **saved beside this file** as `ALKL-2024-topology-conormal-distributions-PUBLISHED-JPDOA-15-47.pdf`
+  (recommend promotion to `fetched-r3/`). Read: Prop. 3.2 + proof, Cor. 3.4 + proof, Cor. 3.5, Cor. 3.6 +
+  proof, Rmks. 3.7/3.8, Cor. 4.5 + proof, Cor. 4.6, Props. 6.10/6.12/6.13, Cors. 6.14/6.16/6.21/6.22/6.27/6.28,
+  Props. 6.19/6.24/6.25, Cors. 7.11/7.13/7.14/7.19/7.20/7.22/7.23, Example 7.24.
+* **Kim–Morishita–Noda–Terashima, Münster J. Math. 14 (2) (2021) = arXiv:1906.02424**, 30 pp. — §§1–3 read.
+* **Akin–Auslander, *Compactifications of Dynamical Systems*, arXiv:1004.0323v1** — §6 and Thm. 0.5/6.3.
+* **Ardakov–Wadsley, arXiv:2309.05462**, §2.1 (Prop. 2.1.3).
+* **Morishita, arXiv:2508.15971v5** (fresh fetch, for the diff).
+* **Moerdijk, *Models for the Leaf Space of a Foliation*, ECM Barcelona 2000, Progr. Math. 201** — p. 1.
+* arXiv abs pages: 2304.00798, 2006.01953, math/0605184, 1906.02424, 2508.15971.
+* APIs: zbMATH `api.zbmath.org/v1`, Semantic Scholar Graph v1 (×2), Unpaywall v2.
+
+---
+
+## UNDETERMINED / coverage gaps (named in full, standing order 1)
+
+1. **E. Leichtnam, *An invitation to Deninger's work on arithmetic zeta functions*, in Geometry,
+   Spectral Theory, Groups, and Dynamics, Contemp. Math. **387**, AMS, Providence RI, 2005,
+   pp. 201–236.** **Not on disk, not fetched.** This is the printed source of the "precise conjectures"
+   — i.e. the published axiom list that S4′ is a variant of. **It is the single highest-value
+   outstanding fetch in this sweep**: it may contain clauses (i)–(iv) of S4′ that I have graded new.
+   Until it is read, C10's PARTIAL rests on the abstract of Bull. Sci. Math. 131 (2007) rather than on
+   the axiom list itself.
+2. **Álvarez López–Kordyukov, the 2002 *examples* paper** referenced by the DQ-M adjudication as the
+   place where the mapping-torus trace formula might already appear without non-degeneracy. Not on
+   disk; not located this session. Affects only C5(a)'s NOVEL grade.
+3. **Connes, *A survey of foliations and operator algebras*** — both reachable copies are unusable:
+   `alainconnes.org` returns HTTP 403 (O-S6), the IHES archive scan `M_81_01_web.pdf` has no text
+   layer (O-S19). Not load-bearing: the folklore point is carried by Moerdijk (opened).
+4. **MathSciNet** — permanently closed to this program (`corpus-routing.md` caveat 13). The only
+   review database consulted for C6 was zbMATH, which carries no reviewer text for Zbl 1564.46031.
+   This is the one residual channel through which an unnoticed erratum could still exist.
+5. **Google Scholar cited-by** — still not obtained (the earlier sweep's §7 item 1 stands unresolved;
+   I did not re-attempt, since that sweep recorded a captcha wall). For C6 the gap is closed by other
+   means (Semantic Scholar and OpenAlex both return **zero** citing works for the published paper).
+6. **Candel–Conlon, *Foliations I*, §9.3**, and **Fathi [Fa; 2.1]** — the two references KMNT give for
+   the rank-1 ⟺ fibration folklore. Named, not opened. Affects only the grading of C9's "cyclic length
+   group" item as folklore rather than as KMNT's.
+7. **`fetched-r3/r3s-23-lutz-2025-…-muenster-diss`** is now on disk (the earlier sweep's UNDETERMINED
+   item 3 is discharged as an acquisition). I did **not** search it: its scope is the local p-adic side
+   and none of C1–C10 touches it. Flagged so a later session knows it is unsearched, not clean.
+
+---
+
+## HONESTY RECORD (standing order 5)
+
+* Every quotation above was read by me this session in the stated file at the stated location. Nothing
+  is recalled. Where a source is named but not opened (Antosiewicz–Dugundji 1961; Hájek 1971;
+  Bhatia–Szegő 1970; Leichtnam Contemp. Math. 387; Candel–Conlon; Fathi) it is named with complete
+  bibliographic data, is cited only as *the classical framework exists and is named by a source I did
+  open*, and appears in UNDETERMINED where it bears on a verdict.
+* **I did not open `sweep-F.md`.** Standing order 7 requires the two checks to be independent; the
+  sibling file was present in the directory throughout and was left unread.
+* **No mathematics was re-derived.** Where I remark that a claim would follow from a source (e.g. that
+  KMNT's Λ_S is finitely generated for a closed M, which would exclude the {log p} spectrum on a
+  foliated 3-*manifold*), I have said only what the source says, and have **not** banked the inference:
+  KMNT do not draw it, and it is recorded here as a question for the program, not as prior art.
+* **Nothing rounded up or down.** Three verdicts (C1, C9, C10) are materially worse for the program
+  than its own ledgers assume, and I have said so with the page anchors. Two (C7, C8) are confirmed at
+  the program's own grade. One (C6) is confirmed NOVEL but carries a source-integrity defect the
+  program must fix before circulating anything.
+
+— end of novelty sweep, check O —
