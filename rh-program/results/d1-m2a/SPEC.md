@@ -1173,3 +1173,27 @@ published Polymath15 page numbers (not on disk).
 | `lean-shapes-scratch.lean`, `lean-shapes-typecheck.log` | the Lean shapes of §3/§8 type-checked against the working tree; the micro-example kernel-checked | scratch (contains `sorry` in three statements; not a program file) |
 | `row2_arith.py`, `row2_arith.log` | exact row-2 arithmetic (§9) | exact (Fractions) + mpmath intervals for N₀ |
 | `row2_errbudget_indicative.py/.log`, `row2_tail_indicative.py/.log` | indicative magnitudes (§4.4, §5.4, §9) | heuristic floats — NOT certificates |
+
+
+---
+
+## 14. Errata and audit notes (final audit, 2026-09-03; `results/d1-m2a/AUDIT.md`) — append-only; v1.0 text above unchanged
+
+1. **§2.3, the quotation of (14).** The PDF carries an overline on s_* in the second sum — `n^y b_n^t / n^{\overline{s_*} + κ}`
+   (page image of PDF p6 re-read by both producer agents and by the auditor); `pdftotext` drops it, so the quotation
+   above reads `n^{s*+κ}`. The overline reading is the only one consistent with (69)–(70) and (92) (`ft_mp.py` D-F1,
+   `producer_arb.py` D-A1), and it is what both producers implement and what the auditor's independent direct evaluator
+   (`audit/audit_direct.py`) uses. Wording only; no check or hypothesis changes.
+2. **§2.3, (21) versus Proposition 6.6(ii).** The paper's (21) has `4y(1+y)/x²` inside the positive part where Prop. 6.6(ii)
+   (p31) has `8y(1−y)/x²`. Neither producer uses either display (both enclose Re s_* from (17) directly); the
+   difference is ≈ 10⁻²⁵ at the instance. Recorded for the corpus, immaterial for the certificate.
+3. **§2.4 / P-6, the exponent of 6.6(iv)–(v).** It is `log²(x/(4πn²))` (p31). `ft_mp.py`'s docstring had `x/(4πn)`;
+   corrected 2026-09-03 with a dated note (AUDIT.md F-1). Both legs majorize it by δ₁ of (84), valid for n ≤ N, N² ≤ x/(4π).
+4. **§7.1, `trust_label`.** The schema's constant is the label of the FULL certificate (H1, H2 = H2-B ∧ H2-A ∧ H-TAIL, H3).
+   A barrier-lane transcript on its own is "kernel-checked modulo H2-B and `hHol`" (`lean-notes.md` §1); the manifest
+   string is not wrong (it names what the transcript is a component of) but a v1.1 of this contract should carry a
+   per-lane label. Wording only.
+5. **§7.6 item 3, the cost projection.** The projection was for 5·10⁶ rows; the actual row-2 transcripts are 7 176 and
+   10 771 rows (mp, Arb), the per-prism modules build in 3–4 s each (import-dominated), and the monolithic
+   `decide +kernel` on both full literals takes 28 s (`kernel-time.log`). The per-prism packaging stands as the program's
+   choice; the "serial hours" concern does not arise at this scale.

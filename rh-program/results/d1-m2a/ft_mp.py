@@ -39,8 +39,12 @@ p6, Theorem 1.3, on the region (5) (p3: 0 < t <= 1/2, 0 <= y <= 1, x >= 200):
    (22) |kappa| <= t y / (2 (x - 6))                                          [= Prop 6.6(iii), p31]
    p6: "f_t(x+iy) is a holomorphic function of x+iy in the region (5) as long as N is constant".
 p31, Proposition 6.6 (iv), (v), (vi) (the explicit majorants of e_A, e_B, e_{C,0} of (71)-(74)):
-   (iv) e_A <= |gamma| N^{|kappa|} sum_{n<=N} n^y b_n^t n^{-Re s_*} (exp(((t^2/16) log^2(x/(4 pi n)) + 0.626)/(x - 6.66)) - 1)
-   (v)  e_B <= sum_{n<=N} b_n^t n^{-Re s_*} (exp(((t^2/16) log^2(x/(4 pi n)) + 0.626)/(x - 6.66)) - 1)
+   (iv) e_A <= |gamma| N^{|kappa|} sum_{n<=N} n^y b_n^t n^{-Re s_*} (exp(((t^2/16) log^2(x/(4 pi n^2)) + 0.626)/(x - 6.66)) - 1)
+   (v)  e_B <= sum_{n<=N} b_n^t n^{-Re s_*} (exp(((t^2/16) log^2(x/(4 pi n^2)) + 0.626)/(x - 6.66)) - 1)
+   [AUDIT CORRECTION 2026-09-03 (results/d1-m2a/AUDIT.md F-1): the argument of log^2 in (iv)/(v) is x/(4 pi n^2), as
+    printed on PDF p31 (page image re-read); the previous text of this docstring had x/(4 pi n).  The code never used the
+    n-dependent exponent -- D-F4 majorizes it by delta_1, which is valid under either reading (see D-F4 below) -- so no
+    emitted number changes.]
    (vi) e_{C,0} <= (x/(4 pi))^{-(1+y)/4} exp(-(t/16) log^2(x/(4 pi)) + (3|log(x/(4 pi)) + i pi/2| + 3.58)/(x - 8.52))
                    * (1 + 1.24 (3^y + 3^{-y})/(N - 0.125) + 6.92/(x - 12))
    [(vi) is used AS PRINTED -- SPEC.md D-2.4 permits "the 10.50 form (or 6.6(vi) itself)"; the
@@ -74,7 +78,8 @@ D-F3 (N constant on the barrier box).  N(x,t) = floor(sqrt(x/(4pi) + t/16)) is n
   and in t; so N = N_0 on [x_1,x_2] x [0,t_0] iff N(x_1,0) = N(x_2,t_0) = N_0, checked by directed
   rounding (``check_N_constant``).  Also N_0^2 <= x_1/(4pi) (needed by D-F4) is checked the same way.
 D-F4 (uniform bound for e_A + e_B on a box, from (iv), (v), (20), (22)).  For 1 <= n <= N and
-  N^2 <= x/(4pi):  1 <= x/(4 pi N) <= x/(4 pi n) <= x/(4pi), so 0 <= log(x/(4 pi n)) <= log(x/(4pi)),
+  N^2 <= x/(4pi):  1 <= x/(4 pi N^2) <= x/(4 pi n^2) <= x/(4pi), so 0 <= log(x/(4 pi n^2)) <= log(x/(4pi)),
+  [AUDIT CORRECTION 2026-09-03: written with n^2 as printed in (iv)/(v); the same chain holds verbatim]
   and the n-dependent exponent in (iv)/(v) is <= delta_1 := ((t^2/16) log^2(x/(4pi)) + 0.626)/(x - 6.66).
   Next |gamma| n^y <= e^{0.02y} (x/4pi)^{-y/2} N^y <= e^{0.02 y} by (20) and N <= sqrt(x/4pi).  With
   (22), N^{|kappa|} <= N^{t y/(2(x-6))}.  Hence
