@@ -1,0 +1,57 @@
+NOTICE — third-party notices for the RH research program (rh-program)
+
+This file records the license notices for third-party material ported into or adapted for
+the program's own files. The program's Lean additions under lean/Zeta23/W1/ (and their
+staging copies under ~/rh-lean-work/) are released under the Apache License, Version 2.0, as
+stated in each file's header; Zeta23 itself is Copyright 2026 Anthropic, PBC, Apache-2.0,
+canonical home https://github.com/anthropics/zeta-23-lean, and is imported, not included.
+Sections are appended by date; nothing here is ever edited after the fact.
+
+------------------------------------------------------------------------------------------------
+2026-09-02 — Rectangle argument principle (Lean), ported from the Gomila audit repository
+------------------------------------------------------------------------------------------------
+
+Files:  lean/Zeta23/W1/ArgPrinciple/Rect.lean and lean/Zeta23/W1/ArgPrinciple/General.lean
+        (staged first at ~/rh-lean-work/zeta-23-v11/Zeta23/W1/ArgPrinciple/; recorded in
+        results/d1-m1/v11/port-notes.md).
+Source: the Lean development under lean/aristotle/argument_principle/RequestProject/ in
+        github.com/judegomila/dbn-lambda-01787854-candidate-audit, branch
+        lean/certificate-and-argument-principle, commit ea09b2f6aa7afe60706b67c87b202126f3149e8c
+        (files ArgumentPrinciple.lean, SHA-256 b1162a0c…, and ArgumentPrincipleGeneral.lean,
+        SHA-256 ee382242…; full hashes in results/d1-m1/gomila-lean-branch-verify.md).
+        Generated with Harmonic Aristotle (per the repository's lean/aristotle/README.md and
+        ARISTOTLE_SUMMARY.md); the commit is co-authored "Aristotle (Harmonic)".
+Use:    ported and adapted (imports narrowed, proofs repaired for a newer Mathlib, namespace
+        changed; every theorem statement kept byte-for-byte). Each ported file carries the notice
+        "Portions ported from the Lean development in
+        github.com/judegomila/dbn-lambda-01787854-candidate-audit (branch
+        lean/certificate-and-argument-principle, commit ea09b2f), Copyright (c) 2026 Jude Gomila,
+        MIT License, generated with Harmonic Aristotle; ported and adapted here."
+License of the source (the repository's LICENSE file, SHA-256
+cf3cef645439d98d6a4e153699e52842adcf294e5074225770d46044e8cf77f4, reproduced verbatim):
+
+MIT License
+
+Copyright (c) 2026 Jude Gomila
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+(The source LICENSE file continues with a "Scope" trailer stating that the MIT license covers
+the source code original to that repository, including lean/; it is quoted in
+results/d1-m1/gomila-lean-branch-scout.md §1.3.)

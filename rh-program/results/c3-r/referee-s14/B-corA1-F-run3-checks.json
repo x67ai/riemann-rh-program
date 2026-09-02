@@ -1,0 +1,117 @@
+{
+ "C1_CRT_density_positive_integers": {
+  "p": 5,
+  "moduli": [
+   2,
+   3,
+   6,
+   12,
+   36,
+   72,
+   144,
+   1008
+  ],
+  "ok": true
+ },
+ "C2_Tors_criterion_kernel_orders": {
+  "p": 5,
+  "kernel_orders_by_truncation": {
+   "unit": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "24unit": [
+    6,
+    12,
+    24,
+    24
+   ],
+   "zero7": [
+    7,
+    49,
+    343,
+    2401
+   ],
+   "prod_ell": [
+    384552070030842527814,
+    384552070030842527814,
+    384552070030842527814,
+    384552070030842527814
+   ]
+  },
+  "note": "zero component -> kernel grows with k (mu_{7^infty}); b=(ell)_ell -> kernel grows with the prime cutoff; both infinite. Only unit*integer exponents have bounded kernel.",
+  "ok": true
+ },
+ "C3_chart_membership_denominator_criterion": {
+  "p": 5,
+  "ok": true,
+  "witness_p_power_denominator": [
+   {
+    "m": 1,
+    "m'": 5,
+    "note": "p-power denominator allowed"
+   }
+  ]
+ },
+ "C4_uncut_limit_n_k_to_zero": {
+  "p": 5,
+  "ok": true,
+  "n_3": 216,
+  "n_4": 1296
+ },
+ "C5_exact_eventual_agreement": {
+  "ok": true
+ },
+ "C6_open_map_closure_identity": {
+  "trials": 29,
+  "ok": true
+ },
+ "C8_closure_local_on_open_cover": {
+  "ok": true
+ },
+ "C9_p_infinite_order_in_Z_ell_units": {
+  "p": 5,
+  "orders_of_p_mod_ell^k": {
+   "2": [
+    1,
+    1,
+    2,
+    4,
+    8,
+    16
+   ],
+   "3": [
+    2,
+    6,
+    18,
+    54,
+    162,
+    486
+   ],
+   "7": [
+    6,
+    42,
+    294,
+    2058,
+    14406,
+    100842
+   ],
+   "11": [
+    5,
+    55,
+    605,
+    6655,
+    73205,
+    805255
+   ]
+  },
+  "ok": true
+ },
+ "C10_positive_integer_unit_iff_p_power": {
+  "p": 5,
+  "ok": true
+ },
+ "ALL_OK": true
+}
