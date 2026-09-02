@@ -12,3 +12,8 @@ N = 630783, blocks = 20, R = 48; box [5000000194858, 5000000194859] x [16733/100
     t in [0, 0.01], box bottom h=0.01: f-box width 1.778e+01, |dt f| <= 1598
   t = 1/20: prepare 2.10s; orders (J,K) plus: [(1, 1), (17, 8), (18, 8), (18, 9), (18, 9), (18, 9)]
     x=5000000194858.000000 y=0.16733  f=(2.2640010892114 - 6.6063803329887j)  Taylor width 8.27e-12 (0.05s)  direct width 6.85e-67 (153.7s)  |dt f|~206 width 5.8e-10
+    x=5000000194859.000000 y=1.00000  f=(2.4825552701236 + 1.160101281061j)  Taylor width 2.83e-13 (0.05s)  direct width 7.53e-69 (155.0s)  |dt f|~25 width 1.9e-11
+    box bottom h=1/100: f-box width 5.970e-01  |f| in [6.143, 6.933]  |dt f| <= 123
+    box bottom h=1/1000: f-box width 6.952e-02  |f| in [8.906, 8.984]  |dt f| <= 246
+    box right h=1/100: f-box width 3.694e-02  |f| in [3.311, 3.357]  |dt f| <= 39
+  t = 93/500: prepare 2.29s; orders (J,K) plus: [(1, 1), (20, 9), (22, 10), (22, 10), (22, 10), (22, 10)]
