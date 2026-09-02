@@ -1001,3 +1001,15 @@ Root `Zeta23.lean` now imports `DBN.BarrierCert` (root builds, 9023 jobs). Copie
 record `results/d1-m2a/lean-notes.md` (build log, axioms, the exact displayed hypotheses, the
 two recorded deviations from SPEC §4.6's proof text: whole-edge D-B5–D-B7, no `cover_chain`).
 Not touched: `Defs.lean` v1.1, the asymptotic lane, `Instance02.lean` (next items).
+
+**~19:40 IST — FOURTH USAGE DEATH (reset 23:00).** Run 2 (M2a) had completed spec and `BarrierCert.lean`
+(5 of 9 agents); the two f_t producers, the instance/Gomila stage and the final audit died. Sponsor
+messages in the gap: (i) the [ÁLKL23] finding concerns SOMEONE ELSE's paper (Álvarez López–Kordyukov–
+Leichtnam, arXiv:2304.00798), not the sponsor's two — answered; the sponsor asks for the substance as a
+PDF, once confirmed, to email the authors — QUEUED as a stream after the source-integrity dual-model
+check. (ii) The sponsor BOUGHT the two dimension-theory books: Hurewicz–Wallman 1941 installed as
+**r3s-27** (text layer; the n-cube Corollary verified at printed p. 42 = PDF p. 50, Thm III 1 at printed
+p. 26) and Engelking 1995 *Theory of Dimensions, Finite and Infinite* as **r3s-28** (image-only; OCR
+running). **23:02 IST — RESUMED:** run 2 relaunched from cache (the two producers side by side, as the
+sequential rule allows for the independent pair, then instance, then final audit). The Workflow tool
+refused its own script path this time; the copy in `scripts/` was used.
