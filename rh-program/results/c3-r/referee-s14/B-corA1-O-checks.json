@@ -1,0 +1,151 @@
+{
+  "referee": "O (Claude Opus 5)",
+  "session": 14,
+  "date": "2026-09-02",
+  "item": "probe B Corollary A.1, converse inclusion cl(gamma) subset Gamma^E_p",
+  "report": "results/c3-r/referee-s14/B-corA1-O.md",
+  "scope": "elementary/arithmetic claims only; the topological derivation is not machine-checkable",
+  "check1_CRT_density_of_N_in_Zhat_p": {
+    "pass": true,
+    "detail": [
+      {
+        "note": "for every M prime to p and residue r, n = r or M is a positive rep"
+      }
+    ]
+  },
+  "check2_Tors_criterion_and_F2_counterexample": {
+    "pass": true,
+    "detail": {
+      "b_with_zero_component": {
+        "kernel_order": "inf",
+        "note_criterion_flags_it": true,
+        "violates_Tors": true
+      },
+      "b_equals_ell_componentwise": {
+        "kernel_order_on_first_10_primes": 100280245065,
+        "note_criterion_flags_it": false,
+        "violates_Tors_in_the_limit": true,
+        "growth": [
+          3,
+          15,
+          105,
+          1155,
+          15015,
+          255255,
+          4849845,
+          111546435,
+          3234846615,
+          100280245065
+        ]
+      },
+      "b_in_N_times_units": {
+        "m": 15,
+        "kernel_order": 15,
+        "finite": true,
+        "satisfies_Tors": true
+      }
+    }
+  },
+  "check3_CorO7_approximation_construction": {
+    "pass": true,
+    "rows": [
+      {
+        "k": 1,
+        "M_k": 1,
+        "j_k": 1,
+        "m_k_mod_M": 0,
+        "abs_err": 0.41421356237309515,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 2,
+        "M_k": 2,
+        "j_k": 3,
+        "m_k_mod_M": 1,
+        "abs_err": 0.039213562373095145,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 3,
+        "M_k": 6,
+        "j_k": 5,
+        "m_k_mod_M": 1,
+        "abs_err": 0.07046356237309515,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 4,
+        "M_k": 24,
+        "j_k": 7,
+        "m_k_mod_M": 1,
+        "abs_err": 0.09390106237309515,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 5,
+        "M_k": 120,
+        "j_k": 10,
+        "m_k_mod_M": 1,
+        "abs_err": 0.0069869998730951455,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 6,
+        "M_k": 720,
+        "j_k": 13,
+        "m_k_mod_M": 1,
+        "abs_err": 0.007841492060595145,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 7,
+        "M_k": 5040,
+        "j_k": 16,
+        "m_k_mod_M": 1,
+        "abs_err": 0.029920959834032645,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 8,
+        "M_k": 40320,
+        "j_k": 19,
+        "m_k_mod_M": 1,
+        "abs_err": 0.029934311274462333,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 9,
+        "M_k": 362880,
+        "j_k": 22,
+        "m_k_mod_M": 1,
+        "abs_err": 0.029935980204516044,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 10,
+        "M_k": 3628800,
+        "j_k": 26,
+        "m_k_mod_M": 1,
+        "abs_err": 0.008306870225840202,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 11,
+        "M_k": 39916800,
+        "j_k": 29,
+        "m_k_mod_M": 1,
+        "abs_err": 0.0015477165468269494,
+        "err_lt_1_over_k": true
+      },
+      {
+        "k": 12,
+        "M_k": 479001600,
+        "j_k": 33,
+        "m_k_mod_M": 1,
+        "abs_err": 0.020135426766262343,
+        "err_lt_1_over_k": true
+      }
+    ]
+  },
+  "all_pass": true
+}
