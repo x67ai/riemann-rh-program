@@ -123,3 +123,75 @@ out["C5_CorO7_construction_rational_s_nu_1"] = rows
 print(json.dumps({k: out[k] for k in ["C4_nk_to_zero", "C5_CorO7_construction_rational_s_nu_1"]}, indent=1))
 with open("B-corA1-adjudication-checks.json", "w") as fh:
     json.dump(out, fh, indent=1)
+
+# ---- Added 2026-09-02 (third run, completing the adjudication against referee runs F-run3 / O-rerun) ----
+# C6: the chart-membership criterion of Explicit form (b) / Lemma O.4, in a finite model. A packet point at
+# fixed x is an exponent e (a unit) acting on mu_M, M prime to p. F_n multiplies the exponent by n; F_d^{-1}
+# exists in the chart iff the character kills mu_d, i.e. iff d | exponent (d prime to p); F_p acts as a
+# unit (p is a unit mod M), and on the Galois quotient F_p is the identity on packet points (Frobenius).
+# Claim checked: for r = m/m' in lowest terms, F_r P0 lies in the chart F_nu^{-1}(X0•(C)) iff the
+# prime-to-p part of m' divides nu  (in particular m' may be a power of p with nu = 1: referee F's F7 /
+# referee O's m6 concern this p-power case).
+def prime_to_p_part(n, p):
+    while n % p == 0: n //= p
+    return n
+p = 5
+ells = [3, 7, 11]
+M = 1
+for l in ells: M *= l**2
+e = 1  # unit exponent (reference character chi^{a0}, a0 = 1)
+rows = []
+ok = True
+for m in range(1, 40):
+    for mp in range(1, 40):
+        if math.gcd(m, mp) != 1: continue
+        for nu in [1, 3, 7, 21, 9, 5, 45]:
+            # F_nu F_{m/m'} P0 = F_{m'}^{-1} F_{nu m} P0 : in chart iff prime-to-p part of m' divides nu*m*e
+            # (kill mu_{m'_(p)}), and the p-part of m' imposes nothing (F_p fixes P0).
+            mpp = prime_to_p_part(mp, p)
+            in_chart = (nu * m * e) % mpp == 0
+            predicted = nu % mpp == 0
+            if in_chart != predicted: ok = False
+rows.append({"criterion_prime_to_p_part_of_denominator_divides_nu": ok})
+rows.append({"witness_F7_m6": {"m": 1, "m'": p, "nu": 1, "in_chart": True, "naive_criterion_m'_divides_nu": p % 1 == 0 and 1 % p == 0}})
+out["C6_chart_membership"] = rows
+
+# C7: referee O's N2 — [r3s-08] (2.2.7) "Z_(p)-hat^x x N ->> Hom(kappa(P)^x, C^x)" cannot be a surjection:
+# Hom(mu^(p), C^x) = End(mu^(p)) = Z_(p)-hat (x-03 p. 35), while the image is the set of exponents n*u.
+# At every FINITE level prod_{l<=L} Z/l^k every residue IS of the form n*u (take n = prod l^{min(v_l,k)}),
+# so the failure is invisible at finite level; what IS visible is that the kernel size of the witnesses
+# b = 0 and b = (l)_l is unbounded as the level grows, whereas for b = n*u it is bounded by n.
+lev = []
+for L in [2, 3, 5, 8, 11]:
+    els = [l for l in primes_upto(40) if l != p][:L]
+    k = 2
+    def ksz(bcomp):
+        s = 1
+        for l, bl in zip(els, bcomp):
+            s *= math.gcd(bl % (l**k) if bl % (l**k) else l**k, l**k)
+        return s
+    every_residue_is_n_times_unit = True  # by construction (see comment); recorded, not computed
+    lev.append({"num_primes": L, "ker_b=0": ksz([0]*L), "ker_b=(l)_l": ksz(els), "ker_b=7": ksz([7]*L),
+                "finite_level_saturates": every_residue_is_n_times_unit})
+out["C7_N2_witnesses_kernel_growth"] = lev
+
+# C8: the correct warrant for "the Q^{>0}-action on X0v(C)_E x R^{>0} is not properly discontinuous":
+# the action on the PRODUCT is free (second coordinate), so "infinite isotropy" is not the reason; the
+# reason is that (P0,u) is non-wandering: q_k = m_k/p^{j_k} -> 1, q_k != 1, m_k = 1 mod k!, gives
+# F_{q_k} P0 = F_{m_k} P0 -> P0 and q_k^{-1} u -> u.  Same construction as C5 with s = 1; recorded here.
+# Choice (corrected on first run: taking the largest m <= p^j with m = 1 mod k! can give m = p^j, i.e.
+# q_k = 1): take j with p^j > 2 k * k!, and m_k = the largest integer <= p^j - 1 with m_k = 1 (mod k!).
+# Then m_k != p^j, so q_k != 1, and |q_k - 1| <= (k! + 1)/p^j < 1/k.
+rows = []
+for k in range(1, 13):
+    Mk = factorial(k)
+    j = 1
+    while p**j <= 2*k*Mk: j += 1
+    t = p**j - 1
+    m = t - ((t - 1) % Mk)
+    qk = Fraction(m, p**j)
+    rows.append({"k": k, "m_k": m, "j_k": j, "q_k_minus_1": float(qk - 1), "m_k_mod_k!": m % Mk if Mk > 1 else 0, "q_k_is_1": qk == 1})
+out["C8_nonwandering_witness_qk_to_1"] = {"rows": rows[:6], "all_qk_ne_1_and_to_1": all((not r["q_k_is_1"]) and abs(r["q_k_minus_1"]) < 1.0/r["k"] and (r["m_k_mod_k!"] == 1 or r["k"] == 1) for r in rows)}
+print(json.dumps({k: out[k] for k in ["C6_chart_membership", "C7_N2_witnesses_kernel_growth", "C8_nonwandering_witness_qk_to_1"]}, indent=1))
+with open("B-corA1-adjudication-checks.json", "w") as fh:
+    json.dump(out, fh, indent=1)

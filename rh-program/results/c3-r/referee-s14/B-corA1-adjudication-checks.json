@@ -110,5 +110,109 @@
    "s": "7/3",
    "all_k_le_12_within_1/k_and_m_k=1_mod_k!": true
   }
- ]
+ ],
+ "C6_chart_membership": [
+  {
+   "criterion_prime_to_p_part_of_denominator_divides_nu": true
+  },
+  {
+   "witness_F7_m6": {
+    "m": 1,
+    "m'": 5,
+    "nu": 1,
+    "in_chart": true,
+    "naive_criterion_m'_divides_nu": false
+   }
+  }
+ ],
+ "C7_N2_witnesses_kernel_growth": [
+  {
+   "num_primes": 2,
+   "ker_b=0": 36,
+   "ker_b=(l)_l": 6,
+   "ker_b=7": 1,
+   "finite_level_saturates": true
+  },
+  {
+   "num_primes": 3,
+   "ker_b=0": 1764,
+   "ker_b=(l)_l": 42,
+   "ker_b=7": 7,
+   "finite_level_saturates": true
+  },
+  {
+   "num_primes": 5,
+   "ker_b=0": 36072036,
+   "ker_b=(l)_l": 6006,
+   "ker_b=7": 7,
+   "finite_level_saturates": true
+  },
+  {
+   "num_primes": 8,
+   "ker_b=0": 1990817145793476,
+   "ker_b=(l)_l": 44618574,
+   "ker_b=7": 7,
+   "finite_level_saturates": true
+  },
+  {
+   "num_primes": 11,
+   "ker_b=0": 2202694178616935909349444,
+   "ker_b=(l)_l": 1484147626962,
+   "ker_b=7": 7,
+   "finite_level_saturates": true
+  }
+ ],
+ "C8_nonwandering_witness_qk_to_1": {
+  "rows": [
+   {
+    "k": 1,
+    "m_k": 4,
+    "j_k": 1,
+    "q_k_minus_1": -0.2,
+    "m_k_mod_k!": 0,
+    "q_k_is_1": false
+   },
+   {
+    "k": 2,
+    "m_k": 23,
+    "j_k": 2,
+    "q_k_minus_1": -0.08,
+    "m_k_mod_k!": 1,
+    "q_k_is_1": false
+   },
+   {
+    "k": 3,
+    "m_k": 121,
+    "j_k": 3,
+    "q_k_minus_1": -0.032,
+    "m_k_mod_k!": 1,
+    "q_k_is_1": false
+   },
+   {
+    "k": 4,
+    "m_k": 601,
+    "j_k": 4,
+    "q_k_minus_1": -0.0384,
+    "m_k_mod_k!": 1,
+    "q_k_is_1": false
+   },
+   {
+    "k": 5,
+    "m_k": 3121,
+    "j_k": 5,
+    "q_k_minus_1": -0.00128,
+    "m_k_mod_k!": 1,
+    "q_k_is_1": false
+   },
+   {
+    "k": 6,
+    "m_k": 15121,
+    "j_k": 6,
+    "q_k_minus_1": -0.032256,
+    "m_k_mod_k!": 1,
+    "q_k_is_1": false
+   }
+  ],
+  "all_qk_ne_1_and_to_1": true
+ }
 }
