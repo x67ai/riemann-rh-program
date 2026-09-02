@@ -1,0 +1,201 @@
+{
+ "C1_kernel_lemma_bijection": {
+  "n_range": [
+   1,
+   80
+  ],
+  "bijection_failures": [],
+  "pass": true
+ },
+ "C2_injectivity_range": {
+  "half_side_violations": [],
+  "side_one_collision": true,
+  "pass": true
+ },
+ "C3_N2_sequence": {
+  "delta": "3/10",
+  "rows": [
+   {
+    "k": 2,
+    "L_k": 2,
+    "p_k": 59,
+    "c_k": 4,
+    "d_k": 8,
+    "r_k_minus_1": 0.13559322033898305,
+    "e_k_delta_minus_L_k": 0.2125,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": null
+   },
+   {
+    "k": 3,
+    "L_k": 6,
+    "p_k": 2161,
+    "c_k": 18,
+    "d_k": 108,
+    "r_k_minus_1": 0.04997686256362795,
+    "e_k_delta_minus_L_k": 0.002777777777777778,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 0.0023148148148148147
+   },
+   {
+    "k": 4,
+    "L_k": 12,
+    "p_k": 23041,
+    "c_k": 48,
+    "d_k": 576,
+    "r_k_minus_1": 0.02499891497764854,
+    "e_k_delta_minus_L_k": 0.0005208333333333333,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 0.00043402777777777775
+   },
+   {
+    "k": 5,
+    "L_k": 60,
+    "p_k": 3600001,
+    "c_k": 300,
+    "d_k": 18000,
+    "r_k_minus_1": 0.004999998611111497,
+    "e_k_delta_minus_L_k": 1.6666666666666667e-05,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 1.388888888888889e-05
+   },
+   {
+    "k": 6,
+    "L_k": 60,
+    "p_k": 4320059,
+    "c_k": 360,
+    "d_k": 21600,
+    "r_k_minus_1": 0.004999931713895574,
+    "e_k_delta_minus_L_k": 0.0008194444444444445,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 0.0006828703703703704
+   },
+   {
+    "k": 7,
+    "L_k": 420,
+    "p_k": 1728720011,
+    "c_k": 2940,
+    "d_k": 1234800,
+    "r_k_minus_1": 0.0007142857097406504,
+    "e_k_delta_minus_L_k": 2.672497570456754e-06,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 2.2270813087139617e-06
+   },
+   {
+    "k": 8,
+    "L_k": 840,
+    "p_k": 15805440011,
+    "c_k": 6720,
+    "d_k": 5644800,
+    "r_k_minus_1": 0.00035714285689429897,
+    "e_k_delta_minus_L_k": 5.84608843537415e-07,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 4.871740362811792e-07
+   },
+   {
+    "k": 9,
+    "L_k": 2520,
+    "p_k": 480090240017,
+    "c_k": 22680,
+    "d_k": 57153600,
+    "r_k_minus_1": 0.00011904761904340357,
+    "e_k_delta_minus_L_k": 8.923322415385907e-08,
+    "gcd_ok": true,
+    "L_divides_d": true,
+    "e_bound_ok": true,
+    "congruences_ok": true,
+    "Vpart_dist_to_Z": 7.43610201282159e-08
+   }
+  ],
+  "pass": true,
+  "note": "r_k -> 1, |e_k delta - L_k| < 1/k, a_k == 1 and r_k a_k == 1 mod every M | L_k, V-part -> 0 mod 1"
+ },
+ "C4_CRT_density_packet_sequence": {
+  "p": 2,
+  "a0": 1,
+  "c": -1,
+  "powers_of_2_mod_7": [
+   1,
+   2,
+   4
+  ],
+  "classes_distinct_in_B_2": true,
+  "rows_checked": 30,
+  "pass": true,
+  "sample": [
+   {
+    "d": 1,
+    "n": 1,
+    "n_a0_eq_c_mod_d": true
+   },
+   {
+    "d": 3,
+    "n": 2,
+    "n_a0_eq_c_mod_d": true
+   },
+   {
+    "d": 5,
+    "n": 4,
+    "n_a0_eq_c_mod_d": true
+   },
+   {
+    "d": 7,
+    "n": 6,
+    "n_a0_eq_c_mod_d": true
+   },
+   {
+    "d": 9,
+    "n": 8,
+    "n_a0_eq_c_mod_d": true
+   },
+   {
+    "d": 11,
+    "n": 10,
+    "n_a0_eq_c_mod_d": true
+   }
+  ]
+ },
+ "C5_UF_independence": {
+  "primes": [
+   2,
+   3,
+   5,
+   7
+  ],
+  "exponent_box": [
+   -4,
+   4
+  ],
+  "solutions_of_prod_eq_pm1": [
+   [
+    0,
+    0,
+    0,
+    0
+   ]
+  ],
+  "pass": true
+ },
+ "ALL_PASS": true
+}
