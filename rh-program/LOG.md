@@ -1074,3 +1074,13 @@ Verdict so far: screen-open, not screen-pass, NOT a record (0 ≤ Λ ≤ 0.2 sta
 transcripts/row2-arb/instance02-barrier-manifest.json transcripts/xcheck-mp-at-arb-seams --layout mpflat --labels arb,mp`,
 then `gomila/spot_compare.py`, `gomila/emit_gomila_scratch.py gomila/gomila-scratch-mp.lean --mp` + `lake env lean` on it,
 fill the PENDING marks in INSTANCE-REPORT.md, append the dated addendum to `results/d1-m0/gomila-screen.md`, commit.
+- 2026-09-03 ~01:55 IST (Session 14, D1 M2a item (e) + Gomila 3–4 — CLOSE-OUT of the 01:05 entry). All PENDING items landed:
+reverse cross-check mp-at-72-Arb-seams 23 443 pairs / 0 disjoint (both directions: 111 seams, 37 172 pairs, 0 disagreements);
+clean serial rebuild of the whole Instance02 subtree from deleted oleans OK (137 s + 237 s + 2.9 s; axioms identical); Gomila
+mp spot sample 29/29 checkPrism ACCEPT (checker_ref + kernel 13 s); leg-vs-leg on Gomila's box 8 198 pairs / 0 disjoint;
+0 contradictions vs Gomila's printed scalars; our gate passes at their Δt on all 29 with both legs. `INSTANCE-REPORT.md`
+final (no PENDING marks); `results/d1-m0/gomila-screen.md` §9 addendum appended (append-only): VERDICT screen-open — steps
+3 (chain half) and 4 (29-prism sample) PASS, step 3's row half NON-EXECUTABLE on the sealed artifacts, NOT screen-pass, NOT a
+record; 0 ≤ Λ ≤ 0.2 stands. STATUS for the orchestrator: M2a item (e) = PARTIAL (Lane B kernel-checked on both legs;
+`lambda_le_point2` unproved — needs Defs v1.1 + Lane A + L-B3); Gomila = screen-open, M2a′ candidate only if D1 produces
+its own full 883-prism transcript (≈ 1 h Arb / ≈ 10 h mp, measured) plus the tail decision.
