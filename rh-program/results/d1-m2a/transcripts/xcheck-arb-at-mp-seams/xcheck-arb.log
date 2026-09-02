@@ -1,0 +1,541 @@
+[00:42:29] xcheck_arb_at_seams: 39 seams from transcripts/row2/manifest.json; instance row2
+[00:42:29] seam 0 = 0 (0.000000000)
+[00:42:29] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:29] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:29] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:30] [prism 0] seam 0 = 0.000000000
+[00:42:31]     try dt=2.199e-03: Mt_int=1.0282e+04 (seg 199: mid+Dzt*h 7.805e+04, hull 8.227e+04, seam+dt*ftt 1.028e+04; wins [0, 0, 289]) Mt_alt=3.3296e+04 D/K=2.2608e+01 gate=FAIL (0.5s)
+[00:42:32]     try dt=1.539e-03: Mt_int=5.6814e+03 (seg 288: mid+Dzt*h 5.060e+04, hull 5.163e+04, seam+dt*ftt 5.681e+03; wins [0, 0, 289]) Mt_alt=2.3846e+04 D/K=8.7451e+00 gate=FAIL (0.5s)
+[00:42:32]     try dt=1.077e-03: Mt_int=3.6195e+03 (seg 288: mid+Dzt*h 3.735e+04, hull 3.754e+04, seam+dt*ftt 3.620e+03; wins [0, 0, 289]) Mt_alt=1.7230e+04 D/K=3.9003e+00 gate=OK (0.5s)
+[00:42:33]     try dt=1.308e-03: Mt_int=4.5651e+03 (seg 288: mid+Dzt*h 4.399e+04, hull 4.460e+04, seam+dt*ftt 4.565e+03; wins [0, 0, 289]) Mt_alt=2.0538e+04 D/K=5.9730e+00 gate=FAIL (0.5s)
+[00:42:33] [prism 0] seam=0.000000000 -> 0.001077362 (dt=1.077e-03) segs=289 floor=4.3825 min|f|~4.6831 max|f'|~266.5 E=4.119e-04 Mt=3.620e+03 (int 3.620e+03, alt 1.723e+04) Dtt=1.433e+07 Dzz=1.869e+05 2.8s  [chain 0.58% of t0]
+[00:42:33] [stop] max prisms reached
+[00:42:33] [done] 1 prisms; seams from 0 certified up to t = 538681/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:33] seam 1 = 57/50000 (0.001140000)
+[00:42:33] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:33] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:33] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:33] [prism 0] seam 57/50000 = 0.001140000
+[00:42:35]     try dt=2.262e-03: Mt_int=1.0349e+04 (seg 197: mid+Dzt*h 7.656e+04, hull 8.075e+04, seam+dt*ftt 1.035e+04; wins [0, 0, 287]) Mt_alt=3.2551e+04 D/K=2.3406e+01 gate=FAIL (0.4s)
+[00:42:35]     try dt=1.583e-03: Mt_int=5.6107e+03 (seg 286: mid+Dzt*h 4.910e+04, hull 5.012e+04, seam+dt*ftt 5.611e+03; wins [0, 0, 287]) Mt_alt=2.3302e+04 D/K=8.8835e+00 gate=FAIL (0.5s)
+[00:42:36]     try dt=1.108e-03: Mt_int=3.5499e+03 (seg 286: mid+Dzt*h 3.621e+04, hull 3.642e+04, seam+dt*ftt 3.550e+03; wins [0, 0, 287]) Mt_alt=1.6827e+04 D/K=3.9348e+00 gate=OK (0.4s)
+[00:42:36]     try dt=1.346e-03: Mt_int=4.4949e+03 (seg 286: mid+Dzt*h 4.267e+04, hull 4.329e+04, seam+dt*ftt 4.495e+03; wins [0, 0, 287]) Mt_alt=2.0064e+04 D/K=6.0496e+00 gate=FAIL (0.4s)
+[00:42:36] [prism 0] seam=0.001140000 -> 0.002248221 (dt=1.108e-03) segs=287 floor=4.3223 min|f|~4.6120 max|f'|~255.7 E=3.915e-04 Mt=3.550e+03 (int 3.550e+03, alt 1.683e+04) Dtt=1.363e+07 Dzz=1.779e+05 2.8s  [chain 1.21% of t0]
+[00:42:36] [stop] max prisms reached
+[00:42:36] [done] 1 prisms; seams from 57/50000 certified up to t = 2248221/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:36] seam 2 = 231/100000 (0.002310000)
+[00:42:36] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:36] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:36] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:36] [prism 0] seam 231/100000 = 0.002310000
+[00:42:38]     try dt=2.328e-03: Mt_int=1.0418e+04 (seg 195: mid+Dzt*h 7.505e+04, hull 7.921e+04, seam+dt*ftt 1.042e+04; wins [0, 0, 283]) Mt_alt=3.1805e+04 D/K=2.4258e+01 gate=FAIL (0.4s)
+[00:42:38]     try dt=1.630e-03: Mt_int=5.5537e+03 (seg 195: mid+Dzt*h 5.430e+04, hull 5.697e+04, seam+dt*ftt 5.554e+03; wins [0, 0, 283]) Mt_alt=2.2758e+04 D/K=9.0521e+00 gate=FAIL (0.4s)
+[00:42:39]     try dt=1.141e-03: Mt_int=3.4813e+03 (seg 282: mid+Dzt*h 3.508e+04, hull 3.531e+04, seam+dt*ftt 3.481e+03; wins [0, 0, 283]) Mt_alt=1.6425e+04 D/K=3.9724e+00 gate=OK (0.4s)
+[00:42:39]     try dt=1.385e-03: Mt_int=4.4257e+03 (seg 282: mid+Dzt*h 4.136e+04, hull 4.198e+04, seam+dt*ftt 4.426e+03; wins [0, 0, 283]) Mt_alt=1.9591e+04 D/K=6.1318e+00 gate=FAIL (0.4s)
+[00:42:39] [prism 0] seam=0.002310000 -> 0.003450851 (dt=1.141e-03) segs=283 floor=4.2618 min|f|~4.5408 max|f'|~245.1 E=3.716e-04 Mt=3.481e+03 (int 3.481e+03, alt 1.642e+04) Dtt=1.295e+07 Dzz=1.691e+05 2.8s  [chain 1.86% of t0]
+[00:42:39] [stop] max prisms reached
+[00:42:39] [done] 1 prisms; seams from 231/100000 certified up to t = 3450851/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:39] seam 3 = 351/100000 (0.003510000)
+[00:42:39] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:39] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:39] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:40] [prism 0] seam 351/100000 = 0.003510000
+[00:42:41]     try dt=2.399e-03: Mt_int=1.0492e+04 (seg 193: mid+Dzt*h 7.354e+04, hull 7.766e+04, seam+dt*ftt 1.049e+04; wins [0, 0, 280]) Mt_alt=3.1061e+04 D/K=2.5169e+01 gate=FAIL (0.4s)
+[00:42:42]     try dt=1.679e-03: Mt_int=5.5754e+03 (seg 193: mid+Dzt*h 5.316e+04, hull 5.583e+04, seam+dt*ftt 5.575e+03; wins [0, 0, 280]) Mt_alt=2.2215e+04 D/K=9.3623e+00 gate=FAIL (0.4s)
+[00:42:42]     try dt=1.175e-03: Mt_int=3.4141e+03 (seg 279: mid+Dzt*h 3.396e+04, hull 3.420e+04, seam+dt*ftt 3.414e+03; wins [0, 0, 280]) Mt_alt=1.6024e+04 D/K=4.0136e+00 gate=OK (0.4s)
+[00:42:42]     try dt=1.427e-03: Mt_int=4.3578e+03 (seg 279: mid+Dzt*h 4.004e+04, hull 4.068e+04, seam+dt*ftt 4.358e+03; wins [0, 0, 280]) Mt_alt=1.9119e+04 D/K=6.2203e+00 gate=FAIL (0.4s)
+[00:42:42] [prism 0] seam=0.003510000 -> 0.004685370 (dt=1.175e-03) segs=280 floor=4.2013 min|f|~4.4697 max|f'|~234.7 E=3.522e-04 Mt=3.414e+03 (int 3.414e+03, alt 1.602e+04) Dtt=1.229e+07 Dzz=1.605e+05 2.7s  [chain 2.52% of t0]
+[00:42:42] [stop] max prisms reached
+[00:42:42] [done] 1 prisms; seams from 351/100000 certified up to t = 468537/100000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:42] seam 4 = 19/4000 (0.004750000)
+[00:42:42] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:42] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:42] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:43] [prism 0] seam 19/4000 = 0.004750000
+[00:42:44]     try dt=2.474e-03: Mt_int=1.0571e+04 (seg 191: mid+Dzt*h 7.199e+04, hull 7.607e+04, seam+dt*ftt 1.057e+04; wins [0, 0, 277]) Mt_alt=3.0312e+04 D/K=2.6151e+01 gate=FAIL (0.4s)
+[00:42:45]     try dt=1.732e-03: Mt_int=5.5996e+03 (seg 191: mid+Dzt*h 5.200e+04, hull 5.466e+04, seam+dt*ftt 5.600e+03; wins [0, 0, 277]) Mt_alt=2.1670e+04 D/K=9.6976e+00 gate=FAIL (0.4s)
+[00:42:45]     try dt=1.212e-03: Mt_int=3.3478e+03 (seg 276: mid+Dzt*h 3.283e+04, hull 3.309e+04, seam+dt*ftt 3.348e+03; wins [0, 0, 277]) Mt_alt=1.5621e+04 D/K=4.0589e+00 gate=OK (0.4s)
+[00:42:46]     try dt=1.472e-03: Mt_int=4.2906e+03 (seg 276: mid+Dzt*h 3.873e+04, hull 3.936e+04, seam+dt*ftt 4.291e+03; wins [0, 0, 277]) Mt_alt=1.8646e+04 D/K=6.3162e+00 gate=FAIL (0.4s)
+[00:42:46] [prism 0] seam=0.004750000 -> 0.005962196 (dt=1.212e-03) segs=277 floor=4.1404 min|f|~4.3983 max|f'|~224.5 E=3.333e-04 Mt=3.348e+03 (int 3.348e+03, alt 1.562e+04) Dtt=1.164e+07 Dzz=1.521e+05 2.7s  [chain 3.21% of t0]
+[00:42:46] [stop] max prisms reached
+[00:42:46] [done] 1 prisms; seams from 19/4000 certified up to t = 1490549/250000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:46] seam 5 = 301/50000 (0.006020000)
+[00:42:46] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:46] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:46] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:46] [prism 0] seam 301/50000 = 0.006020000
+[00:42:47]     try dt=2.553e-03: Mt_int=1.0653e+04 (seg 188: mid+Dzt*h 7.044e+04, hull 7.447e+04, seam+dt*ftt 1.065e+04; wins [0, 0, 273]) Mt_alt=2.9566e+04 D/K=2.7202e+01 gate=FAIL (0.4s)
+[00:42:48]     try dt=1.787e-03: Mt_int=5.6262e+03 (seg 188: mid+Dzt*h 5.084e+04, hull 5.348e+04, seam+dt*ftt 5.626e+03; wins [0, 0, 273]) Mt_alt=2.1128e+04 D/K=1.0057e+01 gate=FAIL (0.4s)
+[00:42:48]     try dt=1.251e-03: Mt_int=3.2828e+03 (seg 272: mid+Dzt*h 3.170e+04, hull 3.198e+04, seam+dt*ftt 3.283e+03; wins [0, 0, 273]) Mt_alt=1.5221e+04 D/K=4.1080e+00 gate=FAIL (0.4s)
+[00:42:49]     try dt=8.758e-04: Mt_int=2.2531e+03 (seg 272: mid+Dzt*h 2.365e+04, hull 2.342e+04, seam+dt*ftt 2.253e+03; wins [0, 0, 273]) Mt_alt=1.1086e+04 D/K=1.9739e+00 gate=OK (0.4s)
+[00:42:49]     try dt=1.063e-03: Mt_int=2.7257e+03 (seg 272: mid+Dzt*h 2.769e+04, hull 2.771e+04, seam+dt*ftt 2.726e+03; wins [0, 0, 273]) Mt_alt=1.3153e+04 D/K=2.8994e+00 gate=OK (0.4s)
+[00:42:50]     try dt=1.157e-03: Mt_int=2.9937e+03 (seg 272: mid+Dzt*h 2.970e+04, hull 2.985e+04, seam+dt*ftt 2.994e+03; wins [0, 0, 273]) Mt_alt=1.4187e+04 D/K=3.4653e+00 gate=OK (0.4s)
+[00:42:50] [prism 0] seam=0.006020000 -> 0.007177328 (dt=1.157e-03) segs=273 floor=4.0795 min|f|~4.3272 max|f'|~214.5 E=3.150e-04 Mt=2.994e+03 (int 2.994e+03, alt 1.419e+04) Dtt=1.102e+07 Dzz=1.440e+05 3.5s  [chain 3.86% of t0]
+[00:42:50] [stop] max prisms reached
+[00:42:50] [done] 1 prisms; seams from 301/50000 certified up to t = 448583/62500000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:50] seam 6 = 367/50000 (0.007340000)
+[00:42:50] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:50] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:50] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:50] [prism 0] seam 367/50000 = 0.007340000
+[00:42:51]     try dt=2.639e-03: Mt_int=1.0740e+04 (seg 182: mid+Dzt*h 6.886e+04, hull 7.284e+04, seam+dt*ftt 1.074e+04; wins [0, 0, 266]) Mt_alt=2.8813e+04 D/K=2.8343e+01 gate=FAIL (0.4s)
+[00:42:52]     try dt=1.847e-03: Mt_int=5.6557e+03 (seg 182: mid+Dzt*h 4.966e+04, hull 5.228e+04, seam+dt*ftt 5.656e+03; wins [0, 0, 266]) Mt_alt=2.0580e+04 D/K=1.0448e+01 gate=FAIL (0.4s)
+[00:42:52]     try dt=1.293e-03: Mt_int=3.3597e+03 (seg 0: mid+Dzt*h 3.135e+04, hull 3.165e+04, seam+dt*ftt 3.360e+03; wins [0, 0, 266]) Mt_alt=1.4817e+04 D/K=4.3449e+00 gate=FAIL (0.4s)
+[00:42:53]     try dt=9.051e-04: Mt_int=2.3112e+03 (seg 0: mid+Dzt*h 2.355e+04, hull 2.328e+04, seam+dt*ftt 2.311e+03; wins [0, 0, 266]) Mt_alt=1.0783e+04 D/K=2.0926e+00 gate=OK (0.4s)
+[00:42:53]     try dt=1.099e-03: Mt_int=2.7928e+03 (seg 0: mid+Dzt*h 2.746e+04, hull 2.748e+04, seam+dt*ftt 2.793e+03; wins [0, 0, 266]) Mt_alt=1.2800e+04 D/K=3.0702e+00 gate=OK (0.4s)
+[00:42:53]     try dt=1.196e-03: Mt_int=3.0656e+03 (seg 0: mid+Dzt*h 2.941e+04, hull 2.956e+04, seam+dt*ftt 3.066e+03; wins [0, 0, 266]) Mt_alt=1.3808e+04 D/K=3.6673e+00 gate=OK (0.4s)
+[00:42:53] [prism 0] seam=0.007340000 -> 0.008536078 (dt=1.196e-03) segs=266 floor=4.0178 min|f|~4.2554 max|f'|~204.7 E=2.970e-04 Mt=3.066e+03 (int 3.066e+03, alt 1.381e+04) Dtt=1.040e+07 Dzz=1.360e+05 3.4s  [chain 4.59% of t0]
+[00:42:53] [stop] max prisms reached
+[00:42:53] [done] 1 prisms; seams from 367/50000 certified up to t = 4268039/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:53] seam 7 = 87/10000 (0.008700000)
+[00:42:53] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:53] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:54] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:54] [prism 0] seam 87/10000 = 0.008700000
+[00:42:55]     try dt=2.730e-03: Mt_int=1.0832e+04 (seg 178: mid+Dzt*h 6.726e+04, hull 7.118e+04, seam+dt*ftt 1.083e+04; wins [0, 0, 262]) Mt_alt=2.8059e+04 D/K=2.9574e+01 gate=FAIL (0.4s)
+[00:42:56]     try dt=1.911e-03: Mt_int=5.6878e+03 (seg 178: mid+Dzt*h 4.847e+04, hull 5.106e+04, seam+dt*ftt 5.688e+03; wins [0, 0, 262]) Mt_alt=2.0032e+04 D/K=1.0870e+01 gate=FAIL (0.4s)
+[00:42:56]     try dt=1.338e-03: Mt_int=3.2872e+03 (seg 0: mid+Dzt*h 3.015e+04, hull 3.046e+04, seam+dt*ftt 3.287e+03; wins [0, 0, 262]) Mt_alt=1.4414e+04 D/K=4.3980e+00 gate=FAIL (0.4s)
+[00:42:57]     try dt=9.364e-04: Mt_int=2.2420e+03 (seg 0: mid+Dzt*h 2.262e+04, hull 2.239e+04, seam+dt*ftt 2.242e+03; wins [0, 0, 262]) Mt_alt=1.0481e+04 D/K=2.1000e+00 gate=OK (0.4s)
+[00:42:57]     try dt=1.137e-03: Mt_int=2.7221e+03 (seg 0: mid+Dzt*h 2.639e+04, hull 2.643e+04, seam+dt*ftt 2.722e+03; wins [0, 0, 262]) Mt_alt=1.2447e+04 D/K=3.0958e+00 gate=OK (0.4s)
+[00:42:57]     try dt=1.237e-03: Mt_int=2.9940e+03 (seg 0: mid+Dzt*h 2.828e+04, hull 2.845e+04, seam+dt*ftt 2.994e+03; wins [0, 0, 262]) Mt_alt=1.3431e+04 D/K=3.7054e+00 gate=OK (0.4s)
+[00:42:57] [prism 0] seam=0.008700000 -> 0.009937419 (dt=1.237e-03) segs=262 floor=3.9559 min|f|~4.1835 max|f'|~195.0 E=2.795e-04 Mt=2.994e+03 (int 2.994e+03, alt 1.343e+04) Dtt=9.800e+06 Dzz=1.282e+05 3.4s  [chain 5.34% of t0]
+[00:42:57] [stop] max prisms reached
+[00:42:57] [done] 1 prisms; seams from 87/10000 certified up to t = 9937419/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:42:57] seam 8 = 101/10000 (0.010100000)
+[00:42:57] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:42:57] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:42:57] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:42:58] [prism 0] seam 101/10000 = 0.010100000
+[00:42:59]     try dt=2.827e-03: Mt_int=1.0929e+04 (seg 172: mid+Dzt*h 6.564e+04, hull 6.950e+04, seam+dt*ftt 1.093e+04; wins [0, 0, 256]) Mt_alt=2.7306e+04 D/K=3.0900e+01 gate=FAIL (0.4s)
+[00:42:59]     try dt=1.979e-03: Mt_int=5.7227e+03 (seg 172: mid+Dzt*h 4.727e+04, hull 4.984e+04, seam+dt*ftt 5.723e+03; wins [0, 0, 256]) Mt_alt=1.9486e+04 D/K=1.1327e+01 gate=FAIL (0.4s)
+[00:43:00]     try dt=1.385e-03: Mt_int=3.2158e+03 (seg 0: mid+Dzt*h 2.896e+04, hull 2.927e+04, seam+dt*ftt 3.216e+03; wins [0, 0, 256]) Mt_alt=1.4012e+04 D/K=4.4558e+00 gate=FAIL (0.4s)
+[00:43:00]     try dt=9.698e-04: Mt_int=2.1766e+03 (seg 6: mid+Dzt*h 2.039e+04, hull 2.001e+04, seam+dt*ftt 2.177e+03; wins [0, 0, 256]) Mt_alt=1.0180e+04 D/K=2.1114e+00 gate=OK (0.4s)
+[00:43:01]     try dt=1.178e-03: Mt_int=2.6526e+03 (seg 0: mid+Dzt*h 2.534e+04, hull 2.539e+04, seam+dt*ftt 2.653e+03; wins [0, 0, 256]) Mt_alt=1.2096e+04 D/K=3.1242e+00 gate=OK (0.4s)
+[00:43:01]     try dt=1.282e-03: Mt_int=2.9236e+03 (seg 0: mid+Dzt*h 2.715e+04, hull 2.733e+04, seam+dt*ftt 2.924e+03; wins [0, 0, 256]) Mt_alt=1.3054e+04 D/K=3.7472e+00 gate=OK (0.4s)
+[00:43:01] [prism 0] seam=0.010100000 -> 0.011381527 (dt=1.282e-03) segs=256 floor=3.8940 min|f|~4.1118 max|f'|~185.6 E=2.626e-04 Mt=2.924e+03 (int 2.924e+03, alt 1.305e+04) Dtt=9.219e+06 Dzz=1.207e+05 3.3s  [chain 6.12% of t0]
+[00:43:01] [stop] max prisms reached
+[00:43:01] [done] 1 prisms; seams from 101/10000 certified up to t = 11381527/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:01] seam 9 = 231/20000 (0.011550000)
+[00:43:01] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:01] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:01] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:02] [prism 0] seam 231/20000 = 0.011550000
+[00:43:03]     try dt=2.932e-03: Mt_int=1.1030e+04 (seg 162: mid+Dzt*h 6.400e+04, hull 6.780e+04, seam+dt*ftt 1.103e+04; wins [0, 0, 245]) Mt_alt=2.6549e+04 D/K=3.2341e+01 gate=FAIL (0.4s)
+[00:43:03]     try dt=2.052e-03: Mt_int=5.7603e+03 (seg 162: mid+Dzt*h 4.606e+04, hull 4.859e+04, seam+dt*ftt 5.760e+03; wins [0, 0, 245]) Mt_alt=1.8937e+04 D/K=1.1823e+01 gate=FAIL (0.4s)
+[00:43:04]     try dt=1.437e-03: Mt_int=3.1450e+03 (seg 0: mid+Dzt*h 2.777e+04, hull 2.808e+04, seam+dt*ftt 3.145e+03; wins [0, 0, 245]) Mt_alt=1.3609e+04 D/K=4.5189e+00 gate=FAIL (0.4s)
+[00:43:04]     try dt=1.006e-03: Mt_int=2.1263e+03 (seg 5: mid+Dzt*h 1.999e+04, hull 1.973e+04, seam+dt*ftt 2.126e+03; wins [0, 0, 245]) Mt_alt=9.8790e+03 D/K=2.1389e+00 gate=OK (0.4s)
+[00:43:04]     try dt=1.221e-03: Mt_int=2.5839e+03 (seg 0: mid+Dzt*h 2.429e+04, hull 2.435e+04, seam+dt*ftt 2.584e+03; wins [0, 0, 245]) Mt_alt=1.1744e+04 D/K=3.1559e+00 gate=OK (0.4s)
+[00:43:05]     try dt=1.329e-03: Mt_int=2.8539e+03 (seg 0: mid+Dzt*h 2.603e+04, hull 2.622e+04, seam+dt*ftt 2.854e+03; wins [0, 0, 245]) Mt_alt=1.2676e+04 D/K=3.7931e+00 gate=OK (0.4s)
+[00:43:05] [prism 0] seam=0.011550000 -> 0.012878926 (dt=1.329e-03) segs=245 floor=3.8316 min|f|~4.0398 max|f'|~176.3 E=2.461e-04 Mt=2.854e+03 (int 2.854e+03, alt 1.268e+04) Dtt=8.654e+06 Dzz=1.133e+05 3.2s  [chain 6.92% of t0]
+[00:43:05] [stop] max prisms reached
+[00:43:05] [done] 1 prisms; seams from 231/20000 certified up to t = 6439463/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:05] seam 10 = 653/50000 (0.013060000)
+[00:43:05] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:05] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:05] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:05] [prism 0] seam 653/50000 = 0.013060000
+[00:43:06]     try dt=3.025e-03: Mt_int=1.0999e+04 (seg 143: mid+Dzt*h 6.193e+04, hull 6.563e+04, seam+dt*ftt 1.100e+04; wins [0, 0, 225]) Mt_alt=2.5629e+04 D/K=3.3270e+01 gate=FAIL (0.4s)
+[00:43:07]     try dt=2.117e-03: Mt_int=5.7321e+03 (seg 143: mid+Dzt*h 4.455e+04, hull 4.702e+04, seam+dt*ftt 5.732e+03; wins [0, 0, 225]) Mt_alt=1.8277e+04 D/K=1.2138e+01 gate=FAIL (0.4s)
+[00:43:07]     try dt=1.482e-03: Mt_int=3.1069e+03 (seg 143: mid+Dzt*h 3.229e+04, hull 3.389e+04, seam+dt*ftt 3.107e+03; wins [0, 0, 225]) Mt_alt=1.3130e+04 D/K=4.6053e+00 gate=FAIL (0.4s)
+[00:43:07]     try dt=1.038e-03: Mt_int=2.0664e+03 (seg 5: mid+Dzt*h 1.930e+04, hull 1.911e+04, seam+dt*ftt 2.066e+03; wins [0, 0, 225]) Mt_alt=9.5273e+03 D/K=2.1443e+00 gate=OK (0.4s)
+[00:43:08]     try dt=1.260e-03: Mt_int=2.5235e+03 (seg 5: mid+Dzt*h 2.255e+04, hull 2.260e+04, seam+dt*ftt 2.524e+03; wins [0, 0, 225]) Mt_alt=1.1329e+04 D/K=3.1797e+00 gate=OK (0.4s)
+[00:43:08]     try dt=1.371e-03: Mt_int=2.7829e+03 (seg 5: mid+Dzt*h 2.418e+04, hull 2.434e+04, seam+dt*ftt 2.783e+03; wins [0, 0, 225]) Mt_alt=1.2229e+04 D/K=3.8158e+00 gate=FAIL (0.4s)
+[00:43:08] [prism 0] seam=0.013060000 -> 0.014319839 (dt=1.260e-03) segs=225 floor=3.7685 min|f|~3.9672 max|f'|~167.2 E=2.301e-04 Mt=2.524e+03 (int 2.524e+03, alt 1.133e+04) Dtt=8.102e+06 Dzz=1.062e+05 2.9s  [chain 7.70% of t0]
+[00:43:08] [stop] max prisms reached
+[00:43:08] [done] 1 prisms; seams from 653/50000 certified up to t = 14319839/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:08] seam 11 = 731/50000 (0.014620000)
+[00:43:08] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:08] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:08] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:09] [prism 0] seam 731/50000 = 0.014620000
+[00:43:10]     try dt=3.067e-03: Mt_int=1.0593e+04 (seg 133: mid+Dzt*h 5.883e+04, hull 6.236e+04, seam+dt*ftt 1.059e+04; wins [0, 0, 214]) Mt_alt=2.4299e+04 D/K=3.2486e+01 gate=FAIL (0.3s)
+[00:43:10]     try dt=2.147e-03: Mt_int=5.5181e+03 (seg 133: mid+Dzt*h 4.231e+04, hull 4.467e+04, seam+dt*ftt 5.518e+03; wins [0, 0, 214]) Mt_alt=1.7335e+04 D/K=1.1846e+01 gate=FAIL (0.3s)
+[00:43:10]     try dt=1.503e-03: Mt_int=2.9882e+03 (seg 133: mid+Dzt*h 3.065e+04, hull 3.218e+04, seam+dt*ftt 2.988e+03; wins [0, 0, 214]) Mt_alt=1.2461e+04 D/K=4.4906e+00 gate=FAIL (0.3s)
+[00:43:11]     try dt=1.052e-03: Mt_int=1.9724e+03 (seg 5: mid+Dzt*h 1.833e+04, hull 1.819e+04, seam+dt*ftt 1.972e+03; wins [0, 0, 214]) Mt_alt=9.0489e+03 D/K=2.0751e+00 gate=OK (0.3s)
+[00:43:11]     try dt=1.277e-03: Mt_int=2.4142e+03 (seg 5: mid+Dzt*h 2.144e+04, hull 2.152e+04, seam+dt*ftt 2.414e+03; wins [0, 0, 214]) Mt_alt=1.0755e+04 D/K=3.0839e+00 gate=OK (0.4s)
+[00:43:11]     try dt=1.390e-03: Mt_int=2.6649e+03 (seg 5: mid+Dzt*h 2.299e+04, hull 2.319e+04, seam+dt*ftt 2.665e+03; wins [0, 0, 214]) Mt_alt=1.1608e+04 D/K=3.7044e+00 gate=OK (0.3s)
+[00:43:11] [prism 0] seam=0.014620000 -> 0.016009933 (dt=1.390e-03) segs=214 floor=3.7052 min|f|~3.8946 max|f'|~158.4 E=2.146e-04 Mt=2.665e+03 (int 2.665e+03, alt 1.161e+04) Dtt=7.569e+06 Dzz=9.923e+04 2.8s  [chain 8.61% of t0]
+[00:43:11] [stop] max prisms reached
+[00:43:11] [done] 1 prisms; seams from 731/50000 certified up to t = 16009933/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:11] seam 12 = 203/12500 (0.016240000)
+[00:43:11] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:11] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:11] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:12] [prism 0] seam 203/12500 = 0.016240000
+[00:43:13]     try dt=3.168e-03: Mt_int=1.0540e+04 (seg 115: mid+Dzt*h 5.672e+04, hull 6.014e+04, seam+dt*ftt 1.054e+04; wins [0, 0, 193]) Mt_alt=2.3379e+04 D/K=3.3392e+01 gate=FAIL (0.3s)
+[00:43:13]     try dt=2.218e-03: Mt_int=5.4798e+03 (seg 115: mid+Dzt*h 4.077e+04, hull 4.306e+04, seam+dt*ftt 5.480e+03; wins [0, 0, 193]) Mt_alt=1.6675e+04 D/K=1.2153e+01 gate=FAIL (0.3s)
+[00:43:13]     try dt=1.552e-03: Mt_int=2.9576e+03 (seg 115: mid+Dzt*h 2.951e+04, hull 3.101e+04, seam+dt*ftt 2.958e+03; wins [0, 0, 193]) Mt_alt=1.1983e+04 D/K=4.5916e+00 gate=FAIL (0.3s)
+[00:43:14]     try dt=1.087e-03: Mt_int=1.9132e+03 (seg 5: mid+Dzt*h 1.763e+04, hull 1.755e+04, seam+dt*ftt 1.913e+03; wins [0, 0, 193]) Mt_alt=8.6984e+03 D/K=2.0794e+00 gate=OK (0.3s)
+[00:43:14]     try dt=1.320e-03: Mt_int=2.3548e+03 (seg 5: mid+Dzt*h 2.064e+04, hull 2.078e+04, seam+dt*ftt 2.355e+03; wins [0, 0, 193]) Mt_alt=1.0341e+04 D/K=3.1077e+00 gate=OK (0.3s)
+[00:43:14]     try dt=1.436e-03: Mt_int=2.6058e+03 (seg 4: mid+Dzt*h 2.229e+04, hull 2.255e+04, seam+dt*ftt 2.606e+03; wins [0, 0, 193]) Mt_alt=1.1162e+04 D/K=3.7422e+00 gate=FAIL (0.3s)
+[00:43:14] [prism 0] seam=0.016240000 -> 0.017559521 (dt=1.320e-03) segs=193 floor=3.6415 min|f|~3.8217 max|f'|~149.7 E=1.997e-04 Mt=2.355e+03 (int 2.355e+03, alt 1.034e+04) Dtt=7.053e+06 Dzz=9.251e+04 2.5s  [chain 9.44% of t0]
+[00:43:14] [stop] max prisms reached
+[00:43:14] [done] 1 prisms; seams from 203/12500 certified up to t = 17559521/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:14] seam 13 = 1793/100000 (0.017930000)
+[00:43:14] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:14] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:14] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:15] [prism 0] seam 1793/100000 = 0.017930000
+[00:43:16]     try dt=3.306e-03: Mt_int=1.0655e+04 (seg 114: mid+Dzt*h 5.502e+04, hull 5.837e+04, seam+dt*ftt 1.066e+04; wins [0, 0, 192]) Mt_alt=2.2636e+04 D/K=3.5230e+01 gate=FAIL (0.3s)
+[00:43:16]     try dt=2.314e-03: Mt_int=5.5258e+03 (seg 114: mid+Dzt*h 3.952e+04, hull 4.178e+04, seam+dt*ftt 5.526e+03; wins [0, 0, 192]) Mt_alt=1.6137e+04 D/K=1.2789e+01 gate=FAIL (0.3s)
+[00:43:16]     try dt=1.620e-03: Mt_int=2.9692e+03 (seg 114: mid+Dzt*h 2.858e+04, hull 3.006e+04, seam+dt*ftt 2.969e+03; wins [0, 0, 192]) Mt_alt=1.1588e+04 D/K=4.8107e+00 gate=FAIL (0.3s)
+[00:43:17]     try dt=1.134e-03: Mt_int=1.8714e+03 (seg 5: mid+Dzt*h 1.705e+04, hull 1.704e+04, seam+dt*ftt 1.871e+03; wins [0, 0, 192]) Mt_alt=8.4036e+03 D/K=2.1226e+00 gate=OK (0.3s)
+[00:43:17]     try dt=1.377e-03: Mt_int=2.3227e+03 (seg 4: mid+Dzt*h 2.015e+04, hull 2.037e+04, seam+dt*ftt 2.323e+03; wins [0, 0, 192]) Mt_alt=9.9958e+03 D/K=3.1988e+00 gate=OK (0.3s)
+[00:43:17]     try dt=1.499e-03: Mt_int=2.6102e+03 (seg 114: mid+Dzt*h 2.666e+04, hull 2.800e+04, seam+dt*ftt 2.610e+03; wins [0, 0, 192]) Mt_alt=1.0792e+04 D/K=3.9119e+00 gate=FAIL (0.3s)
+[00:43:17] [prism 0] seam=0.017930000 -> 0.019307071 (dt=1.377e-03) segs=192 floor=3.5771 min|f|~3.7484 max|f'|~141.2 E=1.852e-04 Mt=2.323e+03 (int 2.323e+03, alt 9.996e+03) Dtt=6.552e+06 Dzz=8.599e+04 2.5s  [chain 10.38% of t0]
+[00:43:17] [stop] max prisms reached
+[00:43:17] [done] 1 prisms; seams from 1793/100000 certified up to t = 19307071/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:17] seam 14 = 1969/100000 (0.019690000)
+[00:43:17] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:17] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:17] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:18] [prism 0] seam 1969/100000 = 0.019690000
+[00:43:19]     try dt=3.457e-03: Mt_int=1.0776e+04 (seg 113: mid+Dzt*h 5.330e+04, hull 5.656e+04, seam+dt*ftt 1.078e+04; wins [0, 0, 189]) Mt_alt=2.1889e+04 D/K=3.7250e+01 gate=FAIL (0.3s)
+[00:43:19]     try dt=2.420e-03: Mt_int=5.5749e+03 (seg 113: mid+Dzt*h 3.826e+04, hull 4.047e+04, seam+dt*ftt 5.575e+03; wins [0, 0, 189]) Mt_alt=1.5597e+04 D/K=1.3490e+01 gate=FAIL (0.3s)
+[00:43:19]     try dt=1.694e-03: Mt_int=2.9826e+03 (seg 113: mid+Dzt*h 2.764e+04, hull 2.909e+04, seam+dt*ftt 2.983e+03; wins [0, 0, 189]) Mt_alt=1.1192e+04 D/K=5.0523e+00 gate=FAIL (0.3s)
+[00:43:20]     try dt=1.186e-03: Mt_int=1.8329e+03 (seg 4: mid+Dzt*h 1.662e+04, hull 1.669e+04, seam+dt*ftt 1.833e+03; wins [0, 0, 189]) Mt_alt=8.1087e+03 D/K=2.1736e+00 gate=OK (0.3s)
+[00:43:20]     try dt=1.440e-03: Mt_int=2.2947e+03 (seg 4: mid+Dzt*h 1.952e+04, hull 1.980e+04, seam+dt*ftt 2.295e+03; wins [0, 0, 189]) Mt_alt=9.6504e+03 D/K=3.3041e+00 gate=OK (0.3s)
+[00:43:20]     try dt=1.567e-03: Mt_int=2.6186e+03 (seg 113: mid+Dzt*h 2.578e+04, hull 2.709e+04, seam+dt*ftt 2.619e+03; wins [0, 0, 189]) Mt_alt=1.0421e+04 D/K=4.1031e+00 gate=FAIL (0.3s)
+[00:43:20] [prism 0] seam=0.019690000 -> 0.021129746 (dt=1.440e-03) segs=189 floor=3.5122 min|f|~3.6747 max|f'|~132.9 E=1.712e-04 Mt=2.295e+03 (int 2.295e+03, alt 9.650e+03) Dtt=6.068e+06 Dzz=7.969e+04 2.5s  [chain 11.36% of t0]
+[00:43:20] [stop] max prisms reached
+[00:43:20] [done] 1 prisms; seams from 1969/100000 certified up to t = 10564873/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:20] seam 15 = 2153/100000 (0.021530000)
+[00:43:20] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:20] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:20] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:21] [prism 0] seam 2153/100000 = 0.021530000
+[00:43:22]     try dt=3.622e-03: Mt_int=1.0902e+04 (seg 110: mid+Dzt*h 5.154e+04, hull 5.471e+04, seam+dt*ftt 1.090e+04; wins [0, 0, 185]) Mt_alt=2.1138e+04 D/K=3.9484e+01 gate=FAIL (0.3s)
+[00:43:22]     try dt=2.535e-03: Mt_int=5.6271e+03 (seg 110: mid+Dzt*h 3.698e+04, hull 3.913e+04, seam+dt*ftt 5.627e+03; wins [0, 0, 185]) Mt_alt=1.5053e+04 D/K=1.4266e+01 gate=FAIL (0.3s)
+[00:43:22]     try dt=1.775e-03: Mt_int=2.9978e+03 (seg 110: mid+Dzt*h 2.669e+04, hull 2.811e+04, seam+dt*ftt 2.998e+03; wins [0, 0, 185]) Mt_alt=1.0794e+04 D/K=5.3201e+00 gate=FAIL (0.3s)
+[00:43:23]     try dt=1.242e-03: Mt_int=1.7985e+03 (seg 4: mid+Dzt*h 1.606e+04, hull 1.619e+04, seam+dt*ftt 1.799e+03; wins [0, 0, 185]) Mt_alt=7.8129e+03 D/K=2.2345e+00 gate=OK (0.3s)
+[00:43:23]     try dt=1.508e-03: Mt_int=2.2869e+03 (seg 110: mid+Dzt*h 2.307e+04, hull 2.423e+04, seam+dt*ftt 2.287e+03; wins [0, 0, 185]) Mt_alt=9.3035e+03 D/K=3.4498e+00 gate=FAIL (0.3s)
+[00:43:23] [prism 0] seam=0.021530000 -> 0.022772205 (dt=1.242e-03) segs=185 floor=3.4467 min|f|~3.6005 max|f'|~124.8 E=1.577e-04 Mt=1.799e+03 (int 1.799e+03, alt 7.813e+03) Dtt=5.600e+06 Dzz=7.360e+04 2.1s  [chain 12.24% of t0]
+[00:43:23] [stop] max prisms reached
+[00:43:23] [done] 1 prisms; seams from 2153/100000 certified up to t = 4554441/200000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:23] seam 16 = 1173/50000 (0.023460000)
+[00:43:23] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:23] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:23] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:23] [prism 0] seam 1173/50000 = 0.023460000
+[00:43:24]     try dt=3.803e-03: Mt_int=1.1034e+04 (seg 109: mid+Dzt*h 4.975e+04, hull 5.282e+04, seam+dt*ftt 1.103e+04; wins [0, 0, 182]) Mt_alt=2.0379e+04 D/K=4.1965e+01 gate=FAIL (0.3s)
+[00:43:25]     try dt=2.662e-03: Mt_int=5.8128e+03 (seg 110: mid+Dzt*h 3.385e+04, hull 3.714e+04, seam+dt*ftt 5.813e+03; wins [0, 0, 182]) Mt_alt=1.4505e+04 D/K=1.5475e+01 gate=FAIL (0.3s)
+[00:43:25]     try dt=1.863e-03: Mt_int=3.2186e+03 (seg 110: mid+Dzt*h 2.485e+04, hull 2.697e+04, seam+dt*ftt 3.219e+03; wins [0, 0, 182]) Mt_alt=1.0394e+04 D/K=5.9981e+00 gate=FAIL (0.3s)
+[00:43:25]     try dt=1.304e-03: Mt_int=1.9144e+03 (seg 110: mid+Dzt*h 1.851e+04, hull 1.980e+04, seam+dt*ftt 1.914e+03; wins [0, 0, 182]) Mt_alt=7.5155e+03 D/K=2.4975e+00 gate=OK (0.3s)
+[00:43:25]     try dt=1.584e-03: Mt_int=2.5135e+03 (seg 110: mid+Dzt*h 2.168e+04, hull 2.339e+04, seam+dt*ftt 2.514e+03; wins [0, 0, 182]) Mt_alt=8.9546e+03 D/K=3.9816e+00 gate=FAIL (0.3s)
+[00:43:25] [prism 0] seam=0.023460000 -> 0.024764450 (dt=1.304e-03) segs=182 floor=3.3804 min|f|~3.5257 max|f'|~116.8 E=1.447e-04 Mt=1.914e+03 (int 1.914e+03, alt 7.516e+03) Dtt=5.148e+06 Dzz=6.772e+04 2.1s  [chain 13.31% of t0]
+[00:43:25] [stop] max prisms reached
+[00:43:25] [done] 1 prisms; seams from 1173/50000 certified up to t = 495289/20000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:25] seam 17 = 637/25000 (0.025480000)
+[00:43:25] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:25] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:25] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:26] [prism 0] seam 637/25000 = 0.025480000
+[00:43:27]     try dt=4.003e-03: Mt_int=1.1172e+04 (seg 106: mid+Dzt*h 4.791e+04, hull 5.089e+04, seam+dt*ftt 1.117e+04; wins [0, 0, 179]) Mt_alt=1.9616e+04 D/K=4.4719e+01 gate=FAIL (0.3s)
+[00:43:27]     try dt=2.802e-03: Mt_int=5.8373e+03 (seg 107: mid+Dzt*h 3.249e+04, hull 3.569e+04, seam+dt*ftt 5.837e+03; wins [0, 0, 179]) Mt_alt=1.3955e+04 D/K=1.6356e+01 gate=FAIL (0.3s)
+[00:43:27]     try dt=1.961e-03: Mt_int=3.2098e+03 (seg 107: mid+Dzt*h 2.381e+04, hull 2.589e+04, seam+dt*ftt 3.210e+03; wins [0, 0, 179]) Mt_alt=9.9918e+03 D/K=6.2960e+00 gate=FAIL (0.3s)
+[00:43:28]     try dt=1.373e-03: Mt_int=1.8897e+03 (seg 107: mid+Dzt*h 1.769e+04, hull 1.897e+04, seam+dt*ftt 1.890e+03; wins [0, 0, 179]) Mt_alt=7.2177e+03 D/K=2.5947e+00 gate=OK (0.3s)
+[00:43:28]     try dt=1.667e-03: Mt_int=2.4960e+03 (seg 107: mid+Dzt*h 2.076e+04, hull 2.244e+04, seam+dt*ftt 2.496e+03; wins [0, 0, 179]) Mt_alt=8.6048e+03 D/K=4.1615e+00 gate=FAIL (0.3s)
+[00:43:28] [prism 0] seam=0.025480000 -> 0.026852981 (dt=1.373e-03) segs=179 floor=3.3135 min|f|~3.4504 max|f'|~109.1 E=1.323e-04 Mt=1.890e+03 (int 1.890e+03, alt 7.218e+03) Dtt=4.714e+06 Dzz=6.206e+04 2.1s  [chain 14.44% of t0]
+[00:43:28] [stop] max prisms reached
+[00:43:28] [done] 1 prisms; seams from 637/25000 certified up to t = 26852981/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:28] seam 18 = 2761/100000 (0.027610000)
+[00:43:28] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:28] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:28] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:28] [prism 0] seam 2761/100000 = 0.027610000
+[00:43:29]     try dt=4.225e-03: Mt_int=1.1314e+04 (seg 102: mid+Dzt*h 4.603e+04, hull 4.890e+04, seam+dt*ftt 1.131e+04; wins [0, 0, 173]) Mt_alt=1.8844e+04 D/K=4.7804e+01 gate=FAIL (0.3s)
+[00:43:30]     try dt=2.958e-03: Mt_int=5.8649e+03 (seg 103: mid+Dzt*h 3.110e+04, hull 3.420e+04, seam+dt*ftt 5.865e+03; wins [0, 0, 173]) Mt_alt=1.3399e+04 D/K=1.7346e+01 gate=FAIL (0.3s)
+[00:43:30]     try dt=2.070e-03: Mt_int=3.2031e+03 (seg 103: mid+Dzt*h 2.276e+04, hull 2.478e+04, seam+dt*ftt 3.203e+03; wins [0, 0, 173]) Mt_alt=9.5864e+03 D/K=6.6314e+00 gate=FAIL (0.3s)
+[00:43:30]     try dt=1.449e-03: Mt_int=1.8664e+03 (seg 103: mid+Dzt*h 1.688e+04, hull 1.813e+04, seam+dt*ftt 1.866e+03; wins [0, 0, 173]) Mt_alt=6.9178e+03 D/K=2.7050e+00 gate=OK (0.3s)
+[00:43:30]     try dt=1.760e-03: Mt_int=2.4801e+03 (seg 103: mid+Dzt*h 1.983e+04, hull 2.146e+04, seam+dt*ftt 2.480e+03; wins [0, 0, 173]) Mt_alt=8.2521e+03 D/K=4.3646e+00 gate=FAIL (0.3s)
+[00:43:30] [prism 0] seam=0.027610000 -> 0.029059175 (dt=1.449e-03) segs=173 floor=3.2456 min|f|~3.3744 max|f'|~101.6 E=1.203e-04 Mt=1.866e+03 (int 1.866e+03, alt 6.918e+03) Dtt=4.297e+06 Dzz=5.661e+04 2.0s  [chain 15.62% of t0]
+[00:43:30] [stop] max prisms reached
+[00:43:30] [done] 1 prisms; seams from 2761/100000 certified up to t = 1162367/40000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:30] seam 19 = 597/20000 (0.029850000)
+[00:43:30] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:30] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:30] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:31] [prism 0] seam 597/20000 = 0.029850000
+[00:43:32]     try dt=4.472e-03: Mt_int=1.1461e+04 (seg 101: mid+Dzt*h 4.411e+04, hull 4.686e+04, seam+dt*ftt 1.146e+04; wins [0, 0, 170]) Mt_alt=1.8067e+04 D/K=5.1255e+01 gate=FAIL (0.3s)
+[00:43:32]     try dt=3.130e-03: Mt_int=5.8952e+03 (seg 102: mid+Dzt*h 2.969e+04, hull 3.268e+04, seam+dt*ftt 5.895e+03; wins [0, 0, 170]) Mt_alt=1.2839e+04 D/K=1.8454e+01 gate=FAIL (0.3s)
+[00:43:32]     try dt=2.191e-03: Mt_int=3.1983e+03 (seg 102: mid+Dzt*h 2.170e+04, hull 2.366e+04, seam+dt*ftt 3.198e+03; wins [0, 0, 170]) Mt_alt=9.1790e+03 D/K=7.0085e+00 gate=FAIL (0.3s)
+[00:43:33]     try dt=1.534e-03: Mt_int=1.8447e+03 (seg 102: mid+Dzt*h 1.606e+04, hull 1.728e+04, seam+dt*ftt 1.845e+03; wins [0, 0, 170]) Mt_alt=6.6171e+03 D/K=2.8297e+00 gate=OK (0.3s)
+[00:43:33]     try dt=1.863e-03: Mt_int=2.4661e+03 (seg 102: mid+Dzt*h 1.888e+04, hull 2.047e+04, seam+dt*ftt 2.466e+03; wins [0, 0, 170]) Mt_alt=7.8981e+03 D/K=4.5935e+00 gate=FAIL (0.3s)
+[00:43:33] [prism 0] seam=0.029850000 -> 0.031383872 (dt=1.534e-03) segs=170 floor=3.1771 min|f|~3.2979 max|f'|~94.3 E=1.088e-04 Mt=1.845e+03 (int 1.845e+03, alt 6.617e+03) Dtt=3.897e+06 Dzz=5.140e+04 2.0s  [chain 16.87% of t0]
+[00:43:33] [stop] max prisms reached
+[00:43:33] [done] 1 prisms; seams from 597/20000 certified up to t = 490373/15625000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:33] seam 20 = 1611/50000 (0.032220000)
+[00:43:33] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:33] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:33] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:33] [prism 0] seam 1611/50000 = 0.032220000
+[00:43:34]     try dt=4.749e-03: Mt_int=1.1612e+04 (seg 99: mid+Dzt*h 4.212e+04, hull 4.477e+04, seam+dt*ftt 1.161e+04; wins [0, 0, 168]) Mt_alt=1.7281e+04 D/K=5.5145e+01 gate=FAIL (0.3s)
+[00:43:34]     try dt=3.324e-03: Mt_int=5.9343e+03 (seg 99: mid+Dzt*h 3.018e+04, hull 3.200e+04, seam+dt*ftt 5.934e+03; wins [0, 0, 168]) Mt_alt=1.2273e+04 D/K=1.9727e+01 gate=FAIL (0.3s)
+[00:43:35]     try dt=2.327e-03: Mt_int=3.1954e+03 (seg 100: mid+Dzt*h 2.063e+04, hull 2.252e+04, seam+dt*ftt 3.195e+03; wins [0, 0, 168]) Mt_alt=8.7681e+03 D/K=7.4357e+00 gate=FAIL (0.3s)
+[00:43:35]     try dt=1.629e-03: Mt_int=1.8243e+03 (seg 100: mid+Dzt*h 1.523e+04, hull 1.642e+04, seam+dt*ftt 1.824e+03; wins [0, 0, 168]) Mt_alt=6.3143e+03 D/K=2.9718e+00 gate=OK (0.3s)
+[00:43:35]     try dt=1.978e-03: Mt_int=2.4536e+03 (seg 100: mid+Dzt*h 1.793e+04, hull 1.947e+04, seam+dt*ftt 2.454e+03; wins [0, 0, 168]) Mt_alt=7.5412e+03 D/K=4.8532e+00 gate=FAIL (0.3s)
+[00:43:35] [prism 0] seam=0.032220000 -> 0.033848853 (dt=1.629e-03) segs=168 floor=3.1076 min|f|~3.2205 max|f'|~87.2 E=9.793e-05 Mt=1.824e+03 (int 1.824e+03, alt 6.314e+03) Dtt=3.515e+06 Dzz=4.641e+04 1.9s  [chain 18.20% of t0]
+[00:43:35] [stop] max prisms reached
+[00:43:35] [done] 1 prisms; seams from 1611/50000 certified up to t = 33848853/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:35] seam 21 = 1737/50000 (0.034740000)
+[00:43:35] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:35] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:35] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:36] [prism 0] seam 1737/50000 = 0.034740000
+[00:43:37]     try dt=5.062e-03: Mt_int=1.1766e+04 (seg 97: mid+Dzt*h 4.008e+04, hull 4.260e+04, seam+dt*ftt 1.177e+04; wins [0, 0, 165]) Mt_alt=1.6484e+04 D/K=5.9557e+01 gate=FAIL (0.3s)
+[00:43:37]     try dt=3.543e-03: Mt_int=6.0034e+03 (seg 97: mid+Dzt*h 2.871e+04, hull 3.046e+04, seam+dt*ftt 6.003e+03; wins [0, 0, 165]) Mt_alt=1.1701e+04 D/K=2.1272e+01 gate=FAIL (0.3s)
+[00:43:37]     try dt=2.480e-03: Mt_int=3.1941e+03 (seg 98: mid+Dzt*h 1.953e+04, hull 2.135e+04, seam+dt*ftt 3.194e+03; wins [0, 0, 165]) Mt_alt=8.3524e+03 D/K=7.9225e+00 gate=FAIL (0.3s)
+[00:43:37]     try dt=1.736e-03: Mt_int=1.8053e+03 (seg 98: mid+Dzt*h 1.439e+04, hull 1.554e+04, seam+dt*ftt 1.805e+03; wins [0, 0, 165]) Mt_alt=6.0086e+03 D/K=3.1346e+00 gate=FAIL (0.3s)
+[00:43:38]     try dt=1.215e-03: Mt_int=1.1063e+03 (seg 98: mid+Dzt*h 1.076e+04, hull 1.144e+04, seam+dt*ftt 1.106e+03; wins [0, 0, 165]) Mt_alt=4.3680e+03 D/K=1.3447e+00 gate=OK (0.3s)
+[00:43:38]     try dt=1.476e-03: Mt_int=1.4275e+03 (seg 98: mid+Dzt*h 1.258e+04, hull 1.350e+04, seam+dt*ftt 1.428e+03; wins [0, 0, 165]) Mt_alt=5.1883e+03 D/K=2.1069e+00 gate=OK (0.3s)
+[00:43:38]     try dt=1.606e-03: Mt_int=1.6094e+03 (seg 98: mid+Dzt*h 1.349e+04, hull 1.452e+04, seam+dt*ftt 1.609e+03; wins [0, 0, 165]) Mt_alt=5.5985e+03 D/K=2.5848e+00 gate=OK (0.3s)
+[00:43:38] [prism 0] seam=0.034740000 -> 0.036346009 (dt=1.606e-03) segs=165 floor=3.0369 min|f|~3.1422 max|f'|~80.3 E=8.752e-05 Mt=1.609e+03 (int 1.609e+03, alt 5.598e+03) Dtt=3.150e+06 Dzz=4.163e+04 2.4s  [chain 19.54% of t0]
+[00:43:38] [stop] max prisms reached
+[00:43:38] [done] 1 prisms; seams from 1737/50000 certified up to t = 36346009/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:38] seam 22 = 1871/50000 (0.037420000)
+[00:43:38] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:38] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:38] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:39] [prism 0] seam 1871/50000 = 0.037420000
+[00:43:39]     try dt=5.417e-03: Mt_int=1.1919e+04 (seg 95: mid+Dzt*h 3.797e+04, hull 4.036e+04, seam+dt*ftt 1.192e+04; wins [0, 0, 162]) Mt_alt=1.5676e+04 D/K=6.4566e+01 gate=FAIL (0.3s)
+[00:43:40]     try dt=3.792e-03: Mt_int=6.0735e+03 (seg 95: mid+Dzt*h 2.721e+04, hull 2.887e+04, seam+dt*ftt 6.074e+03; wins [0, 0, 162]) Mt_alt=1.1121e+04 D/K=2.3030e+01 gate=FAIL (0.3s)
+[00:43:40]     try dt=2.654e-03: Mt_int=3.1939e+03 (seg 96: mid+Dzt*h 1.842e+04, hull 2.016e+04, seam+dt*ftt 3.194e+03; wins [0, 0, 162]) Mt_alt=7.9326e+03 D/K=8.4777e+00 gate=FAIL (0.3s)
+[00:43:40]     try dt=1.858e-03: Mt_int=1.7874e+03 (seg 96: mid+Dzt*h 1.354e+04, hull 1.465e+04, seam+dt*ftt 1.787e+03; wins [0, 0, 162]) Mt_alt=5.7006e+03 D/K=3.3212e+00 gate=FAIL (0.3s)
+[00:43:40]     try dt=1.301e-03: Mt_int=1.0801e+03 (seg 96: mid+Dzt*h 1.010e+04, hull 1.076e+04, seam+dt*ftt 1.080e+03; wins [0, 0, 162]) Mt_alt=4.1382e+03 D/K=1.4049e+00 gate=OK (0.3s)
+[00:43:41]     try dt=1.579e-03: Mt_int=1.4050e+03 (seg 96: mid+Dzt*h 1.183e+04, hull 1.271e+04, seam+dt*ftt 1.405e+03; wins [0, 0, 162]) Mt_alt=4.9194e+03 D/K=2.2191e+00 gate=OK (0.3s)
+[00:43:41]     try dt=1.719e-03: Mt_int=1.5891e+03 (seg 96: mid+Dzt*h 1.269e+04, hull 1.368e+04, seam+dt*ftt 1.589e+03; wins [0, 0, 162]) Mt_alt=5.3100e+03 D/K=2.7312e+00 gate=OK (0.3s)
+[00:43:41] [prism 0] seam=0.037420000 -> 0.039138657 (dt=1.719e-03) segs=162 floor=2.9651 min|f|~3.0629 max|f'|~73.7 E=7.766e-05 Mt=1.589e+03 (int 1.589e+03, alt 5.310e+03) Dtt=2.803e+06 Dzz=3.710e+04 2.4s  [chain 21.04% of t0]
+[00:43:41] [stop] max prisms reached
+[00:43:41] [done] 1 prisms; seams from 1871/50000 certified up to t = 39138657/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:41] seam 23 = 4029/100000 (0.040290000)
+[00:43:41] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:41] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:41] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:41] [prism 0] seam 4029/100000 = 0.040290000
+[00:43:42]     try dt=5.824e-03: Mt_int=1.2069e+04 (seg 93: mid+Dzt*h 3.579e+04, hull 3.805e+04, seam+dt*ftt 1.207e+04; wins [0, 0, 159]) Mt_alt=1.4854e+04 D/K=7.0289e+01 gate=FAIL (0.3s)
+[00:43:43]     try dt=4.077e-03: Mt_int=6.1430e+03 (seg 93: mid+Dzt*h 2.565e+04, hull 2.722e+04, seam+dt*ftt 6.143e+03; wins [0, 0, 159]) Mt_alt=1.0532e+04 D/K=2.5043e+01 gate=FAIL (0.3s)
+[00:43:43]     try dt=2.854e-03: Mt_int=3.1941e+03 (seg 94: mid+Dzt*h 1.728e+04, hull 1.894e+04, seam+dt*ftt 3.194e+03; wins [0, 0, 159]) Mt_alt=7.5066e+03 D/K=9.1148e+00 gate=FAIL (0.3s)
+[00:43:43]     try dt=1.998e-03: Mt_int=1.7703e+03 (seg 94: mid+Dzt*h 1.269e+04, hull 1.375e+04, seam+dt*ftt 1.770e+03; wins [0, 0, 159]) Mt_alt=5.3887e+03 D/K=3.5363e+00 gate=FAIL (0.3s)
+[00:43:43]     try dt=1.398e-03: Mt_int=1.0547e+03 (seg 94: mid+Dzt*h 9.438e+03, hull 1.007e+04, seam+dt*ftt 1.055e+03; wins [0, 0, 159]) Mt_alt=3.9061e+03 D/K=1.4749e+00 gate=OK (0.3s)
+[00:43:44]     try dt=1.698e-03: Mt_int=1.3834e+03 (seg 94: mid+Dzt*h 1.107e+04, hull 1.191e+04, seam+dt*ftt 1.383e+03; wins [0, 0, 159]) Mt_alt=4.6474e+03 D/K=2.3489e+00 gate=OK (0.3s)
+[00:43:44]     try dt=1.848e-03: Mt_int=1.5696e+03 (seg 94: mid+Dzt*h 1.188e+04, hull 1.283e+04, seam+dt*ftt 1.570e+03; wins [0, 0, 159]) Mt_alt=5.0180e+03 D/K=2.9002e+00 gate=FAIL (0.3s)
+[00:43:44] [prism 0] seam=0.040290000 -> 0.041987898 (dt=1.698e-03) segs=159 floor=2.8919 min|f|~2.9825 max|f'|~67.2 E=6.834e-05 Mt=1.383e+03 (int 1.383e+03, alt 4.647e+03) Dtt=2.474e+06 Dzz=3.279e+04 2.4s  [chain 22.57% of t0]
+[00:43:44] [stop] max prisms reached
+[00:43:44] [done] 1 prisms; seams from 4029/100000 certified up to t = 20993949/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:44] seam 24 = 4337/100000 (0.043370000)
+[00:43:44] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:44] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:44] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:44] [prism 0] seam 4337/100000 = 0.043370000
+[00:43:45]     try dt=6.264e-03: Mt_int=1.3094e+04 (seg 89: mid+Dzt*h 3.372e+04, hull 3.791e+04, seam+dt*ftt 1.309e+04; wins [0, 0, 154]) Mt_alt=1.3958e+04 D/K=8.2017e+01 gate=FAIL (0.2s)
+[00:43:45]     try dt=4.385e-03: Mt_int=6.7897e+03 (seg 89: mid+Dzt*h 2.442e+04, hull 2.736e+04, seam+dt*ftt 6.790e+03; wins [0, 0, 154]) Mt_alt=9.8919e+03 D/K=2.9770e+01 gate=FAIL (0.2s)
+[00:43:46]     try dt=3.069e-03: Mt_int=3.6148e+03 (seg 89: mid+Dzt*h 1.777e+04, hull 1.980e+04, seam+dt*ftt 3.615e+03; wins [0, 0, 154]) Mt_alt=7.0457e+03 D/K=1.1095e+01 gate=FAIL (0.2s)
+[00:43:46]     try dt=2.148e-03: Mt_int=2.0178e+03 (seg 89: mid+Dzt*h 1.306e+04, hull 1.442e+04, seam+dt*ftt 2.018e+03; wins [0, 0, 154]) Mt_alt=5.0535e+03 D/K=4.3351e+00 gate=FAIL (0.2s)
+[00:43:46]     try dt=1.504e-03: Mt_int=1.2127e+03 (seg 89: mid+Dzt*h 9.722e+03, hull 1.062e+04, seam+dt*ftt 1.213e+03; wins [0, 0, 154]) Mt_alt=3.6589e+03 D/K=1.8239e+00 gate=OK (0.2s)
+[00:43:46]     try dt=1.826e-03: Mt_int=1.5827e+03 (seg 89: mid+Dzt*h 1.139e+04, hull 1.252e+04, seam+dt*ftt 1.583e+03; wins [0, 0, 154]) Mt_alt=4.3562e+03 D/K=2.8904e+00 gate=FAIL (0.2s)
+[00:43:46] [prism 0] seam=0.043370000 -> 0.044873886 (dt=1.504e-03) segs=154 floor=2.8174 min|f|~2.9008 max|f'|~61.0 E=5.957e-05 Mt=1.213e+03 (int 1.213e+03, alt 3.659e+03) Dtt=2.164e+06 Dzz=2.873e+04 2.0s  [chain 24.13% of t0]
+[00:43:46] [stop] max prisms reached
+[00:43:46] [done] 1 prisms; seams from 4337/100000 certified up to t = 22436943/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:46] seam 25 = 467/10000 (0.046700000)
+[00:43:46] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:46] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:46] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:47] [prism 0] seam 467/10000 = 0.046700000
+[00:43:48]     try dt=6.499e-03: Mt_int=1.2110e+04 (seg 85: mid+Dzt*h 3.007e+04, hull 3.380e+04, seam+dt*ftt 1.211e+04; wins [0, 0, 149]) Mt_alt=1.2546e+04 D/K=7.8702e+01 gate=FAIL (0.2s)
+[00:43:48]     try dt=4.549e-03: Mt_int=6.2749e+03 (seg 85: mid+Dzt*h 2.178e+04, hull 2.440e+04, seam+dt*ftt 6.275e+03; wins [0, 0, 149]) Mt_alt=8.8961e+03 D/K=2.8545e+01 gate=FAIL (0.2s)
+[00:43:48]     try dt=3.184e-03: Mt_int=3.3339e+03 (seg 85: mid+Dzt*h 1.585e+04, hull 1.766e+04, seam+dt*ftt 3.334e+03; wins [0, 0, 149]) Mt_alt=6.3411e+03 D/K=1.0616e+01 gate=FAIL (0.2s)
+[00:43:48]     try dt=2.229e-03: Mt_int=1.8541e+03 (seg 85: mid+Dzt*h 1.164e+04, hull 1.285e+04, seam+dt*ftt 1.854e+03; wins [0, 0, 149]) Mt_alt=4.5527e+03 D/K=4.1331e+00 gate=FAIL (0.2s)
+[00:43:49]     try dt=1.560e-03: Mt_int=1.1084e+03 (seg 85: mid+Dzt*h 8.657e+03, hull 9.451e+03, seam+dt*ftt 1.108e+03; wins [0, 0, 149]) Mt_alt=3.3008e+03 D/K=1.7296e+00 gate=OK (0.2s)
+[00:43:49]     try dt=1.895e-03: Mt_int=1.4511e+03 (seg 85: mid+Dzt*h 1.015e+04, hull 1.116e+04, seam+dt*ftt 1.451e+03; wins [0, 0, 149]) Mt_alt=3.9267e+03 D/K=2.7496e+00 gate=FAIL (0.2s)
+[00:43:49] [prism 0] seam=0.046700000 -> 0.048260341 (dt=1.560e-03) segs=149 floor=2.7413 min|f|~2.8177 max|f'|~55.0 E=5.135e-05 Mt=1.108e+03 (int 1.108e+03, alt 3.301e+03) Dtt=1.872e+06 Dzz=2.490e+04 2.0s  [chain 25.95% of t0]
+[00:43:49] [stop] max prisms reached
+[00:43:49] [done] 1 prisms; seams from 467/10000 certified up to t = 48260341/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:49] seam 26 = 629/12500 (0.050320000)
+[00:43:49] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:49] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:49] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:49] [prism 0] seam 629/12500 = 0.050320000
+[00:43:50]     try dt=6.460e-03: Mt_int=1.0194e+04 (seg 72: mid+Dzt*h 2.543e+04, hull 2.856e+04, seam+dt*ftt 1.019e+04; wins [0, 0, 135]) Mt_alt=1.0705e+04 D/K=6.5856e+01 gate=FAIL (0.2s)
+[00:43:50]     try dt=4.522e-03: Mt_int=5.2901e+03 (seg 72: mid+Dzt*h 1.843e+04, hull 2.063e+04, seam+dt*ftt 5.290e+03; wins [0, 0, 135]) Mt_alt=7.6045e+03 D/K=2.3922e+01 gate=FAIL (0.2s)
+[00:43:50]     try dt=3.165e-03: Mt_int=2.8175e+03 (seg 72: mid+Dzt*h 1.342e+04, hull 1.493e+04, seam+dt*ftt 2.818e+03; wins [0, 0, 135]) Mt_alt=5.4344e+03 D/K=8.9188e+00 gate=FAIL (0.2s)
+[00:43:51]     try dt=2.216e-03: Mt_int=1.5731e+03 (seg 72: mid+Dzt*h 9.863e+03, hull 1.088e+04, seam+dt*ftt 1.573e+03; wins [0, 0, 135]) Mt_alt=3.9154e+03 D/K=3.4857e+00 gate=FAIL (0.2s)
+[00:43:51]     try dt=1.551e-03: Mt_int=9.8056e+02 (seg 0: mid+Dzt*h 6.956e+03, hull 7.466e+03, seam+dt*ftt 9.806e+02; wins [0, 0, 135]) Mt_alt=2.8521e+03 D/K=1.5210e+00 gate=OK (0.2s)
+[00:43:51]     try dt=1.883e-03: Mt_int=1.2485e+03 (seg 0: mid+Dzt*h 8.128e+03, hull 8.805e+03, seam+dt*ftt 1.249e+03; wins [0, 0, 135]) Mt_alt=3.3837e+03 D/K=2.3516e+00 gate=OK (0.2s)
+[00:43:51]     try dt=2.050e-03: Mt_int=1.4003e+03 (seg 0: mid+Dzt*h 8.713e+03, hull 9.474e+03, seam+dt*ftt 1.400e+03; wins [0, 0, 135]) Mt_alt=3.6496e+03 D/K=2.8702e+00 gate=FAIL (0.2s)
+[00:43:51] [prism 0] seam=0.050320000 -> 0.052203423 (dt=1.883e-03) segs=135 floor=2.6633 min|f|~2.7330 max|f'|~49.3 E=4.369e-05 Mt=1.249e+03 (int 1.249e+03, alt 3.384e+03) Dtt=1.600e+06 Dzz=2.132e+04 2.0s  [chain 28.07% of t0]
+[00:43:51] [stop] max prisms reached
+[00:43:51] [done] 1 prisms; seams from 629/12500 certified up to t = 52203423/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:51] seam 27 = 1357/25000 (0.054280000)
+[00:43:51] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:51] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:51] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:52] [prism 0] seam 1357/25000 = 0.054280000
+[00:43:52]     try dt=7.242e-03: Mt_int=1.0553e+04 (seg 61: mid+Dzt*h 2.356e+04, hull 2.646e+04, seam+dt*ftt 1.055e+04; wins [0, 0, 124]) Mt_alt=1.0074e+04 D/K=7.2952e+01 gate=FAIL (0.2s)
+[00:43:53]     try dt=5.069e-03: Mt_int=5.4571e+03 (seg 61: mid+Dzt*h 1.708e+04, hull 1.913e+04, seam+dt*ftt 5.457e+03; wins [0, 0, 124]) Mt_alt=7.1482e+03 D/K=2.7662e+01 gate=FAIL (0.2s)
+[00:43:53]     try dt=3.548e-03: Mt_int=2.8824e+03 (seg 61: mid+Dzt*h 1.243e+04, hull 1.384e+04, seam+dt*ftt 2.882e+03; wins [0, 0, 124]) Mt_alt=5.1001e+03 D/K=1.0228e+01 gate=FAIL (0.2s)
+[00:43:53]     try dt=2.484e-03: Mt_int=1.5936e+03 (seg 0: mid+Dzt*h 8.753e+03, hull 9.613e+03, seam+dt*ftt 1.594e+03; wins [0, 0, 124]) Mt_alt=3.6663e+03 D/K=3.9583e+00 gate=FAIL (0.2s)
+[00:43:53]     try dt=1.739e-03: Mt_int=9.7005e+02 (seg 0: mid+Dzt*h 6.509e+03, hull 7.050e+03, seam+dt*ftt 9.701e+02; wins [0, 0, 124]) Mt_alt=2.6628e+03 D/K=1.6867e+00 gate=OK (0.2s)
+[00:43:53]     try dt=2.111e-03: Mt_int=1.2563e+03 (seg 0: mid+Dzt*h 7.633e+03, hull 8.334e+03, seam+dt*ftt 1.256e+03; wins [0, 0, 124]) Mt_alt=3.1646e+03 D/K=2.6526e+00 gate=FAIL (0.2s)
+[00:43:53] [prism 0] seam=0.054280000 -> 0.056018694 (dt=1.739e-03) segs=124 floor=2.5832 min|f|~2.6464 max|f'|~43.7 E=3.662e-05 Mt=9.701e+02 (int 9.701e+02, alt 2.663e+03) Dtt=1.347e+06 Dzz=1.800e+04 1.7s  [chain 30.12% of t0]
+[00:43:53] [stop] max prisms reached
+[00:43:53] [done] 1 prisms; seams from 1357/25000 certified up to t = 28009347/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:53] seam 28 = 733/12500 (0.058640000)
+[00:43:53] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:53] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:53] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:54] [prism 0] seam 733/12500 = 0.058640000
+[00:43:54]     try dt=8.211e-03: Mt_int=1.0937e+04 (seg 0: mid+Dzt*h 2.147e+04, hull 2.412e+04, seam+dt*ftt 1.094e+04; wins [0, 0, 120]) Mt_alt=9.4257e+03 D/K=7.7393e+01 gate=FAIL (0.2s)
+[00:43:55]     try dt=5.748e-03: Mt_int=5.6406e+03 (seg 59: mid+Dzt*h 1.567e+04, hull 1.755e+04, seam+dt*ftt 5.641e+03; wins [0, 0, 120]) Mt_alt=6.6803e+03 D/K=3.2419e+01 gate=FAIL (0.2s)
+[00:43:55]     try dt=4.023e-03: Mt_int=2.9707e+03 (seg 0: mid+Dzt*h 1.121e+04, hull 1.249e+04, seam+dt*ftt 2.971e+03; wins [0, 0, 120]) Mt_alt=4.7584e+03 D/K=1.1952e+01 gate=FAIL (0.2s)
+[00:43:55]     try dt=2.816e-03: Mt_int=1.6368e+03 (seg 0: mid+Dzt*h 8.188e+03, hull 9.047e+03, seam+dt*ftt 1.637e+03; wins [0, 0, 120]) Mt_alt=3.4131e+03 D/K=4.6097e+00 gate=FAIL (0.2s)
+[00:43:55]     try dt=1.971e-03: Mt_int=9.6753e+02 (seg 0: mid+Dzt*h 6.054e+03, hull 6.611e+03, seam+dt*ftt 9.675e+02; wins [0, 0, 120]) Mt_alt=2.4714e+03 D/K=1.9074e+00 gate=OK (0.2s)
+[00:43:55]     try dt=2.394e-03: Mt_int=1.2747e+03 (seg 0: mid+Dzt*h 7.122e+03, hull 7.831e+03, seam+dt*ftt 1.275e+03; wins [0, 0, 120]) Mt_alt=2.9423e+03 D/K=3.0515e+00 gate=FAIL (0.2s)
+[00:43:55] [prism 0] seam=0.058640000 -> 0.060611405 (dt=1.971e-03) segs=120 floor=2.5010 min|f|~2.5578 max|f'|~38.5 E=3.015e-05 Mt=9.675e+02 (int 9.675e+02, alt 2.471e+03) Dtt=1.115e+06 Dzz=1.494e+04 1.6s  [chain 32.59% of t0]
+[00:43:55] [stop] max prisms reached
+[00:43:55] [done] 1 prisms; seams from 733/12500 certified up to t = 12122281/200000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:55] seam 29 = 127/2000 (0.063500000)
+[00:43:55] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:55] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:55] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:56] [prism 0] seam 127/2000 = 0.063500000
+[00:43:57]     try dt=9.287e-03: Mt_int=1.1343e+04 (seg 0: mid+Dzt*h 1.973e+04, hull 2.218e+04, seam+dt*ftt 1.134e+04; wins [0, 0, 117]) Mt_alt=8.6177e+03 D/K=8.0033e+01 gate=FAIL (0.2s)
+[00:43:57]     try dt=6.501e-03: Mt_int=5.8216e+03 (seg 0: mid+Dzt*h 1.422e+04, hull 1.596e+04, seam+dt*ftt 5.822e+03; wins [0, 0, 117]) Mt_alt=6.1026e+03 D/K=3.7846e+01 gate=FAIL (0.2s)
+[00:43:57]     try dt=4.551e-03: Mt_int=3.0438e+03 (seg 0: mid+Dzt*h 1.028e+04, hull 1.150e+04, seam+dt*ftt 3.044e+03; wins [0, 0, 117]) Mt_alt=4.3421e+03 D/K=1.3851e+01 gate=FAIL (0.2s)
+[00:43:57]     try dt=3.185e-03: Mt_int=1.6504e+03 (seg 0: mid+Dzt*h 7.484e+03, hull 8.311e+03, seam+dt*ftt 1.650e+03; wins [0, 0, 117]) Mt_alt=3.1097e+03 D/K=5.2573e+00 gate=FAIL (0.2s)
+[00:43:57]     try dt=2.230e-03: Mt_int=9.5138e+02 (seg 0: mid+Dzt*h 5.506e+03, hull 6.054e+03, seam+dt*ftt 9.514e+02; wins [0, 0, 117]) Mt_alt=2.2470e+03 D/K=2.1215e+00 gate=OK (0.2s)
+[00:43:57]     try dt=2.708e-03: Mt_int=1.2722e+03 (seg 0: mid+Dzt*h 6.497e+03, hull 7.185e+03, seam+dt*ftt 1.272e+03; wins [0, 0, 117]) Mt_alt=2.6784e+03 D/K=3.4446e+00 gate=FAIL (0.2s)
+[00:43:57] [prism 0] seam=0.063500000 -> 0.065729814 (dt=2.230e-03) segs=117 floor=2.4161 min|f|~2.4667 max|f'|~33.5 E=2.428e-05 Mt=9.514e+02 (int 9.514e+02, alt 2.247e+03) Dtt=9.027e+05 Dzz=1.214e+04 1.6s  [chain 35.34% of t0]
+[00:43:57] [stop] max prisms reached
+[00:43:57] [done] 1 prisms; seams from 127/2000 certified up to t = 32864907/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:43:57] seam 30 = 6897/100000 (0.068970000)
+[00:43:57] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:43:57] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:43:57] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:43:58] [prism 0] seam 6897/100000 = 0.068970000
+[00:43:59]     try dt=1.065e-02: Mt_int=1.1744e+04 (seg 0: mid+Dzt*h 1.783e+04, hull 2.006e+04, seam+dt*ftt 1.174e+04; wins [0, 0, 113]) Mt_alt=7.7847e+03 D/K=8.2946e+01 gate=FAIL (0.2s)
+[00:43:59]     try dt=7.458e-03: Mt_int=6.0148e+03 (seg 0: mid+Dzt*h 1.287e+04, hull 1.446e+04, seam+dt*ftt 6.015e+03; wins [0, 0, 113]) Mt_alt=5.5083e+03 D/K=4.1083e+01 gate=FAIL (0.2s)
+[00:43:59]     try dt=5.221e-03: Mt_int=3.1221e+03 (seg 0: mid+Dzt*h 9.292e+03, hull 1.042e+04, seam+dt*ftt 3.122e+03; wins [0, 0, 113]) Mt_alt=3.9148e+03 D/K=1.6300e+01 gate=FAIL (0.2s)
+[00:43:59]     try dt=3.655e-03: Mt_int=1.6685e+03 (seg 0: mid+Dzt*h 6.744e+03, hull 7.521e+03, seam+dt*ftt 1.668e+03; wins [0, 0, 113]) Mt_alt=2.7994e+03 D/K=6.0978e+00 gate=FAIL (0.2s)
+[00:43:59]     try dt=2.558e-03: Mt_int=9.3899e+02 (seg 0: mid+Dzt*h 4.938e+03, hull 5.463e+03, seam+dt*ftt 9.390e+02; wins [0, 0, 113]) Mt_alt=2.0185e+03 D/K=2.4022e+00 gate=FAIL (0.2s)
+[00:43:59]     try dt=1.791e-03: Mt_int=5.7225e+02 (seg 0: mid+Dzt*h 3.663e+03, hull 4.008e+03, seam+dt*ftt 5.723e+02; wins [0, 0, 113]) Mt_alt=1.4720e+03 D/K=1.0248e+00 gate=OK (0.2s)
+[00:44:00]     try dt=2.174e-03: Mt_int=7.4068e+02 (seg 0: mid+Dzt*h 4.302e+03, hull 4.737e+03, seam+dt*ftt 7.407e+02; wins [0, 0, 113]) Mt_alt=1.7453e+03 D/K=1.6107e+00 gate=OK (0.2s)
+[00:44:00]     try dt=2.366e-03: Mt_int=8.3611e+02 (seg 0: mid+Dzt*h 4.620e+03, hull 5.101e+03, seam+dt*ftt 8.361e+02; wins [0, 0, 113]) Mt_alt=1.8819e+03 D/K=1.9786e+00 gate=OK (0.2s)
+[00:44:00] [prism 0] seam=0.068970000 -> 0.071336368 (dt=2.366e-03) segs=113 floor=2.3280 min|f|~2.3727 max|f'|~28.8 E=1.902e-05 Mt=8.361e+02 (int 8.361e+02, alt 1.882e+03) Dtt=7.122e+05 Dzz=9.620e+03 1.9s  [chain 38.35% of t0]
+[00:44:00] [stop] max prisms reached
+[00:44:00] [done] 1 prisms; seams from 6897/100000 certified up to t = 4458523/62500000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:00] seam 31 = 7521/100000 (0.075210000)
+[00:44:00] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:00] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:00] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:00] [prism 0] seam 7521/100000 = 0.075210000
+[00:44:01]     try dt=1.186e-02: Mt_int=1.1067e+04 (seg 0: mid+Dzt*h 1.511e+04, hull 1.700e+04, seam+dt*ftt 1.107e+04; wins [0, 0, 108]) Mt_alt=6.6165e+03 D/K=7.8474e+01 gate=FAIL (0.2s)
+[00:44:01]     try dt=8.302e-03: Mt_int=5.6693e+03 (seg 0: mid+Dzt*h 1.092e+04, hull 1.229e+04, seam+dt*ftt 5.669e+03; wins [0, 0, 108]) Mt_alt=4.6824e+03 D/K=3.8875e+01 gate=FAIL (0.2s)
+[00:44:01]     try dt=5.812e-03: Mt_int=2.9328e+03 (seg 0: mid+Dzt*h 7.889e+03, hull 8.859e+03, seam+dt*ftt 2.933e+03; wins [0, 0, 108]) Mt_alt=3.3286e+03 D/K=1.7044e+01 gate=FAIL (0.2s)
+[00:44:01]     try dt=4.068e-03: Mt_int=1.5544e+03 (seg 0: mid+Dzt*h 5.719e+03, hull 6.396e+03, seam+dt*ftt 1.554e+03; wins [0, 0, 108]) Mt_alt=2.3809e+03 D/K=6.3235e+00 gate=FAIL (0.2s)
+[00:44:02]     try dt=2.848e-03: Mt_int=8.6195e+02 (seg 0: mid+Dzt*h 4.177e+03, hull 4.640e+03, seam+dt*ftt 8.619e+02; wins [0, 0, 108]) Mt_alt=1.7176e+03 D/K=2.4546e+00 gate=FAIL (0.2s)
+[00:44:02]     try dt=1.993e-03: Mt_int=5.1388e+02 (seg 0: mid+Dzt*h 3.086e+03, hull 3.395e+03, seam+dt*ftt 5.139e+02; wins [0, 0, 108]) Mt_alt=1.2532e+03 D/K=1.0244e+00 gate=OK (0.2s)
+[00:44:02]     try dt=2.421e-03: Mt_int=6.7371e+02 (seg 0: mid+Dzt*h 3.632e+03, hull 4.019e+03, seam+dt*ftt 6.737e+02; wins [0, 0, 108]) Mt_alt=1.4854e+03 D/K=1.6308e+00 gate=OK (0.2s)
+[00:44:02]     try dt=2.634e-03: Mt_int=7.6429e+02 (seg 0: mid+Dzt*h 3.905e+03, hull 4.330e+03, seam+dt*ftt 7.643e+02; wins [0, 0, 108]) Mt_alt=1.6015e+03 D/K=2.0133e+00 gate=OK (0.2s)
+[00:44:02] [prism 0] seam=0.075210000 -> 0.077844116 (dt=2.634e-03) segs=108 floor=2.2365 min|f|~2.2754 max|f'|~24.4 E=1.440e-05 Mt=7.643e+02 (int 7.643e+02, alt 1.601e+03) Dtt=5.435e+05 Dzz=7.384e+03 1.8s  [chain 41.85% of t0]
+[00:44:02] [stop] max prisms reached
+[00:44:02] [done] 1 prisms; seams from 7521/100000 certified up to t = 19461029/250000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:02] seam 32 = 4123/50000 (0.082460000)
+[00:44:02] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:02] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:02] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:03] [prism 0] seam 4123/50000 = 0.082460000
+[00:44:03]     try dt=1.098e-02: Mt_int=7.0285e+03 (seg 0: mid+Dzt*h 1.032e+04, hull 1.161e+04, seam+dt*ftt 7.029e+03; wins [0, 0, 104]) Mt_alt=4.5376e+03 D/K=4.9826e+01 gate=FAIL (0.2s)
+[00:44:03]     try dt=7.686e-03: Mt_int=3.6131e+03 (seg 0: mid+Dzt*h 7.466e+03, hull 8.399e+03, seam+dt*ftt 3.613e+03; wins [0, 0, 104]) Mt_alt=3.2289e+03 D/K=2.4819e+01 gate=FAIL (0.2s)
+[00:44:03]     try dt=5.381e-03: Mt_int=1.8814e+03 (seg 0: mid+Dzt*h 5.403e+03, hull 6.065e+03, seam+dt*ftt 1.881e+03; wins [0, 0, 104]) Mt_alt=2.3129e+03 D/K=1.0123e+01 gate=FAIL (0.2s)
+[00:44:04]     try dt=3.766e-03: Mt_int=1.0116e+03 (seg 103: mid+Dzt*h 3.445e+03, hull 4.119e+03, seam+dt*ftt 1.012e+03; wins [0, 0, 104]) Mt_alt=1.6717e+03 D/K=3.8100e+00 gate=FAIL (0.2s)
+[00:44:04]     try dt=2.636e-03: Mt_int=6.0600e+02 (seg 103: mid+Dzt*h 2.598e+03, hull 3.039e+03, seam+dt*ftt 6.060e+02; wins [0, 0, 104]) Mt_alt=1.2228e+03 D/K=1.5977e+00 gate=OK (0.2s)
+[00:44:04]     try dt=3.201e-03: Mt_int=7.9247e+02 (seg 103: mid+Dzt*h 3.023e+03, hull 3.581e+03, seam+dt*ftt 7.925e+02; wins [0, 0, 104]) Mt_alt=1.4472e+03 D/K=2.5370e+00 gate=FAIL (0.2s)
+[00:44:04] [prism 0] seam=0.082460000 -> 0.085096451 (dt=2.636e-03) segs=104 floor=2.1406 min|f|~2.1740 max|f'|~20.3 E=1.042e-05 Mt=6.060e+02 (int 6.060e+02, alt 1.223e+03) Dtt=3.973e+05 Dzz=5.437e+03 1.4s  [chain 45.75% of t0]
+[00:44:04] [stop] max prisms reached
+[00:44:04] [done] 1 prisms; seams from 4123/50000 certified up to t = 85096451/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:04] seam 33 = 1821/20000 (0.091050000)
+[00:44:04] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:04] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:04] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:04] [prism 0] seam 1821/20000 = 0.091050000
+[00:44:05]     try dt=1.426e-02: Mt_int=1.2240e+04 (seg 0: mid+Dzt*h 1.393e+04, hull 1.571e+04, seam+dt*ftt 1.224e+04; wins [0, 0, 96]) Mt_alt=4.0378e+03 D/K=5.7574e+01 gate=FAIL (0.2s)
+[00:44:05]     try dt=9.981e-03: Mt_int=5.2219e+03 (seg 0: mid+Dzt*h 8.406e+03, hull 9.485e+03, seam+dt*ftt 5.222e+03; wins [0, 0, 96]) Mt_alt=2.8651e+03 D/K=2.8597e+01 gate=FAIL (0.2s)
+[00:44:05]     try dt=6.987e-03: Mt_int=2.3701e+03 (seg 0: mid+Dzt*h 5.354e+03, hull 6.030e+03, seam+dt*ftt 2.370e+03; wins [0, 0, 96]) Mt_alt=2.0442e+03 D/K=1.4282e+01 gate=FAIL (0.2s)
+[00:44:05]     try dt=4.891e-03: Mt_int=1.1422e+03 (seg 0: mid+Dzt*h 3.556e+03, hull 3.989e+03, seam+dt*ftt 1.142e+03; wins [0, 0, 96]) Mt_alt=1.4696e+03 D/K=5.5864e+00 gate=FAIL (0.2s)
+[00:44:06]     try dt=3.423e-03: Mt_int=6.1571e+02 (seg 95: mid+Dzt*h 2.220e+03, hull 2.642e+03, seam+dt*ftt 6.157e+02; wins [0, 0, 96]) Mt_alt=1.0673e+03 D/K=2.1079e+00 gate=FAIL (0.2s)
+[00:44:06]     try dt=2.396e-03: Mt_int=3.8059e+02 (seg 95: mid+Dzt*h 1.685e+03, hull 1.960e+03, seam+dt*ftt 3.806e+02; wins [0, 0, 96]) Mt_alt=7.8574e+02 D/K=9.1207e-01 gate=OK (0.2s)
+[00:44:06]     try dt=2.910e-03: Mt_int=4.8876e+02 (seg 95: mid+Dzt*h 1.953e+03, hull 2.302e+03, seam+dt*ftt 4.888e+02; wins [0, 0, 96]) Mt_alt=9.2653e+02 D/K=1.4223e+00 gate=OK (0.2s)
+[00:44:06]     try dt=3.167e-03: Mt_int=5.4990e+02 (seg 95: mid+Dzt*h 2.086e+03, hull 2.473e+03, seam+dt*ftt 5.499e+02; wins [0, 0, 96]) Mt_alt=9.9692e+02 D/K=1.7414e+00 gate=OK (0.2s)
+[00:44:06] [prism 0] seam=0.091050000 -> 0.094216714 (dt=3.167e-03) segs=96 floor=2.0396 min|f|~2.0677 max|f'|~16.5 E=7.108e-06 Mt=5.499e+02 (int 5.499e+02, alt 9.969e+02) Dtt=2.742e+05 Dzz=3.792e+03 1.6s  [chain 50.65% of t0]
+[00:44:06] [stop] max prisms reached
+[00:44:06] [done] 1 prisms; seams from 1821/20000 certified up to t = 47108357/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:06] seam 34 = 2029/20000 (0.101450000)
+[00:44:06] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:06] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:06] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:06] [prism 0] seam 2029/20000 = 0.101450000
+[00:44:07]     try dt=1.413e-02: Mt_int=1.9272e+04 (seg 0: mid+Dzt*h 1.986e+04, hull 2.503e+04, seam+dt*ftt 1.927e+04; wins [2, 0, 81]) Mt_alt=2.5985e+03 D/K=3.6722e+01 gate=FAIL (0.1s)
+[00:44:07]     try dt=9.893e-03: Mt_int=8.2801e+03 (seg 0: mid+Dzt*h 1.204e+04, hull 1.523e+04, seam+dt*ftt 8.280e+03; wins [0, 0, 83]) Mt_alt=1.8559e+03 D/K=1.8359e+01 gate=FAIL (0.1s)
+[00:44:07]     try dt=6.925e-03: Mt_int=3.7649e+03 (seg 0: mid+Dzt*h 7.679e+03, hull 9.718e+03, seam+dt*ftt 3.765e+03; wins [0, 0, 83]) Mt_alt=1.3360e+03 D/K=9.2518e+00 gate=FAIL (0.1s)
+[00:44:07]     try dt=4.847e-03: Mt_int=1.8076e+03 (seg 0: mid+Dzt*h 5.094e+03, hull 6.428e+03, seam+dt*ftt 1.808e+03; wins [0, 0, 83]) Mt_alt=9.7215e+02 D/K=4.7124e+00 gate=FAIL (0.1s)
+[00:44:07]     try dt=3.393e-03: Mt_int=9.2427e+02 (seg 0: mid+Dzt*h 3.488e+03, hull 4.376e+03, seam+dt*ftt 9.243e+02; wins [0, 0, 83]) Mt_alt=7.1744e+02 D/K=2.4344e+00 gate=FAIL (0.1s)
+[00:44:08]     try dt=2.375e-03: Mt_int=5.1329e+02 (seg 0: mid+Dzt*h 2.457e+03, hull 3.053e+03, seam+dt*ftt 5.133e+02; wins [0, 0, 83]) Mt_alt=5.3914e+02 D/K=1.2192e+00 gate=OK (0.1s)
+[00:44:08]     try dt=2.884e-03: Mt_int=6.9874e+02 (seg 0: mid+Dzt*h 2.963e+03, hull 3.703e+03, seam+dt*ftt 6.987e+02; wins [0, 0, 83]) Mt_alt=6.2829e+02 D/K=1.8121e+00 gate=OK (0.1s)
+[00:44:08]     try dt=3.139e-03: Mt_int=8.0637e+02 (seg 0: mid+Dzt*h 3.223e+03, hull 4.036e+03, seam+dt*ftt 8.064e+02; wins [0, 0, 83]) Mt_alt=6.7286e+02 D/K=2.1119e+00 gate=FAIL (0.1s)
+[00:44:08] [prism 0] seam=0.101450000 -> 0.104334182 (dt=2.884e-03) segs=83 floor=1.9330 min|f|~1.9561 max|f'|~13.1 E=4.470e-06 Mt=6.283e+02 (int 6.987e+02, alt 6.283e+02) Dtt=1.752e+05 Dzz=2.462e+03 1.4s  [chain 56.09% of t0]
+[00:44:08] [stop] max prisms reached
+[00:44:08] [done] 1 prisms; seams from 2029/20000 certified up to t = 52167091/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:08] seam 35 = 2291/20000 (0.114550000)
+[00:44:08] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:08] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:08] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:08] [prism 0] seam 2291/20000 = 0.114550000
+[00:44:09]     try dt=2.193e-02: Mt_int=8.4343e+04 (seg 0: mid+Dzt*h 8.434e+04, hull 8.434e+04, seam+dt*ftt 9.965e+04; wins [48, 0, 33]) Mt_alt=2.2631e+03 D/K=4.9625e+01 gate=FAIL (0.1s)
+[00:44:09]     try dt=1.535e-02: Mt_int=3.7498e+04 (seg 0: mid+Dzt*h 3.750e+04, hull 4.741e+04, seam+dt*ftt 3.931e+04; wins [36, 0, 45]) Mt_alt=1.6066e+03 D/K=2.4660e+01 gate=FAIL (0.1s)
+[00:44:09]     try dt=1.074e-02: Mt_int=1.6583e+04 (seg 0: mid+Dzt*h 2.238e+04, hull 2.847e+04, seam+dt*ftt 1.658e+04; wins [0, 0, 81]) Mt_alt=1.1470e+03 D/K=1.2324e+01 gate=FAIL (0.1s)
+[00:44:09]     try dt=7.521e-03: Mt_int=7.3532e+03 (seg 0: mid+Dzt*h 1.404e+04, hull 1.793e+04, seam+dt*ftt 7.353e+03; wins [0, 0, 81]) Mt_alt=8.2529e+02 D/K=6.2072e+00 gate=FAIL (0.1s)
+[00:44:09]     try dt=5.265e-03: Mt_int=3.3941e+03 (seg 0: mid+Dzt*h 9.133e+03, hull 1.168e+04, seam+dt*ftt 3.394e+03; wins [0, 0, 81]) Mt_alt=6.0010e+02 D/K=3.1594e+00 gate=FAIL (0.1s)
+[00:44:09]     try dt=3.685e-03: Mt_int=1.6265e+03 (seg 0: mid+Dzt*h 6.106e+03, hull 7.805e+03, seam+dt*ftt 1.626e+03; wins [0, 0, 81]) Mt_alt=4.4247e+02 D/K=1.6307e+00 gate=OK (0.1s)
+[00:44:10]     try dt=4.475e-03: Mt_int=2.4159e+03 (seg 0: mid+Dzt*h 7.580e+03, hull 9.694e+03, seam+dt*ftt 2.416e+03; wins [0, 0, 81]) Mt_alt=5.2128e+02 D/K=2.3328e+00 gate=FAIL (0.1s)
+[00:44:10] [prism 0] seam=0.114550000 -> 0.118235371 (dt=3.685e-03) segs=81 floor=1.8188 min|f|~1.8371 max|f'|~10.2 E=2.493e-06 Mt=4.425e+02 (int 1.626e+03, alt 4.425e+02) Dtt=9.980e+04 Dzz=1.441e+03 1.2s  [chain 63.57% of t0]
+[00:44:10] [stop] max prisms reached
+[00:44:10] [done] 1 prisms; seams from 2291/20000 certified up to t = 118235371/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:10] seam 36 = 2633/20000 (0.131650000)
+[00:44:10] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:10] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:10] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:10] [prism 0] seam 2633/20000 = 0.131650000
+[00:44:10]     try dt=2.579e-02: Mt_int=2.2917e+05 (seg 26: mid+Dzt*h 2.292e+05, hull 2.292e+05, seam+dt*ftt 3.162e+05; wins [66, 0, 10]) Mt_alt=1.2990e+03 D/K=3.3497e+01 gate=FAIL (0.1s)
+[00:44:11]     try dt=1.805e-02: Mt_int=9.3754e+04 (seg 26: mid+Dzt*h 9.375e+04, hull 1.186e+05, seam+dt*ftt 1.148e+05; wins [40, 0, 36]) Mt_alt=9.2707e+02 D/K=1.6734e+01 gate=FAIL (0.1s)
+[00:44:11]     try dt=1.264e-02: Mt_int=4.6037e+04 (seg 0: mid+Dzt*h 5.321e+04, hull 6.784e+04, seam+dt*ftt 4.604e+04; wins [10, 0, 66]) Mt_alt=6.6671e+02 D/K=8.4241e+00 gate=FAIL (0.1s)
+[00:44:11]     try dt=8.845e-03: Mt_int=1.9969e+04 (seg 0: mid+Dzt*h 3.277e+04, hull 4.196e+04, seam+dt*ftt 1.997e+04; wins [0, 0, 76]) Mt_alt=4.8446e+02 D/K=4.2849e+00 gate=FAIL (0.1s)
+[00:44:11]     try dt=6.191e-03: Mt_int=9.0058e+03 (seg 0: mid+Dzt*h 2.098e+04, hull 2.695e+04, seam+dt*ftt 9.006e+03; wins [0, 0, 76]) Mt_alt=3.5689e+02 D/K=2.2096e+00 gate=FAIL (0.1s)
+[00:44:11]     try dt=4.334e-03: Mt_int=4.1816e+03 (seg 0: mid+Dzt*h 1.381e+04, hull 1.778e+04, seam+dt*ftt 4.182e+03; wins [0, 0, 76]) Mt_alt=2.6759e+02 D/K=1.1597e+00 gate=OK (0.1s)
+[00:44:11]     try dt=5.263e-03: Mt_int=6.3287e+03 (seg 0: mid+Dzt*h 1.729e+04, hull 2.224e+04, seam+dt*ftt 6.329e+03; wins [0, 0, 76]) Mt_alt=3.1224e+02 D/K=1.6432e+00 gate=OK (0.1s)
+[00:44:11]     try dt=5.727e-03: Mt_int=7.5984e+03 (seg 0: mid+Dzt*h 1.911e+04, hull 2.456e+04, seam+dt*ftt 7.598e+03; wins [0, 0, 76]) Mt_alt=3.3456e+02 D/K=1.9160e+00 gate=FAIL (0.1s)
+[00:44:11] [prism 0] seam=0.131650000 -> 0.136912571 (dt=5.263e-03) segs=76 floor=1.6965 min|f|~1.7105 max|f'|~7.6 E=1.163e-06 Mt=3.122e+02 (int 6.329e+03, alt 3.122e+02) Dtt=4.808e+04 Dzz=7.309e+02 1.3s  [chain 73.61% of t0]
+[00:44:11] [stop] max prisms reached
+[00:44:11] [done] 1 prisms; seams from 2633/20000 certified up to t = 136912571/1000000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:11] seam 37 = 621/4000 (0.155250000)
+[00:44:11] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:11] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:11] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:12] [prism 0] seam 621/4000 = 0.155250000
+[00:44:12]     try dt=3.075e-02: Mt_int=1.0271e+06 (seg 0: mid+Dzt*h 1.027e+06, hull 1.027e+06, seam+dt*ftt 1.679e+06; wins [67, 0, 0]) Mt_alt=5.8791e+02 D/K=1.8078e+01 gate=FAIL (0.1s)
+[00:44:12]     try dt=2.152e-02: Mt_int=5.1227e+05 (seg 0: mid+Dzt*h 5.123e+05, hull 5.123e+05, seam+dt*ftt 5.869e+05; wins [37, 0, 30]) Mt_alt=4.2441e+02 D/K=9.1354e+00 gate=FAIL (0.1s)
+[00:44:12]     try dt=1.507e-02: Mt_int=1.8304e+05 (seg 0: mid+Dzt*h 1.830e+05, hull 2.824e+05, seam+dt*ftt 2.267e+05; wins [31, 0, 36]) Mt_alt=3.0996e+02 D/K=4.6703e+00 gate=FAIL (0.1s)
+[00:44:12]     try dt=1.055e-02: Mt_int=9.4026e+04 (seg 0: mid+Dzt*h 1.069e+05, hull 1.671e+05, seam+dt*ftt 9.403e+04; wins [0, 0, 67]) Mt_alt=2.2985e+02 D/K=2.4243e+00 gate=FAIL (0.1s)
+[00:44:13]     try dt=7.383e-03: Mt_int=4.0998e+04 (seg 0: mid+Dzt*h 6.588e+04, hull 1.040e+05, seam+dt*ftt 4.100e+04; wins [0, 0, 67]) Mt_alt=1.7377e+02 D/K=1.2829e+00 gate=OK (0.1s)
+[00:44:13]     try dt=8.965e-03: Mt_int=6.4080e+04 (seg 0: mid+Dzt*h 8.526e+04, hull 1.339e+05, seam+dt*ftt 6.408e+04; wins [0, 0, 67]) Mt_alt=2.0181e+02 D/K=1.8092e+00 gate=FAIL (0.1s)
+[00:44:13] [prism 0] seam=0.155250000 -> 0.162633074 (dt=7.383e-03) segs=67 floor=1.5651 min|f|~1.5750 max|f'|~5.5 E=4.060e-07 Mt=1.738e+02 (int 4.100e+04, alt 1.738e+02) Dtt=1.772e+04 Dzz=3.045e+02 0.9s  [chain 87.44% of t0]
+[00:44:13] [stop] max prisms reached
+[00:44:13] [done] 1 prisms; seams from 621/4000 certified up to t = 81316537/500000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed
+[00:44:13] seam 38 = 3719/20000 (0.185950000)
+[00:44:13] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[00:44:13] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[00:44:13] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[00:44:13] [prism 0] seam 3719/20000 = 0.185950000
+[00:44:13]     try dt=5.000e-05: Mt_int=2.4515e+01 (seg 15: mid+Dzt*h 1.433e+03, hull 2.262e+03, seam+dt*ftt 2.452e+01; wins [0, 0, 64]) Mt_alt=1.8780e+01 D/K=9.3919e-04 gate=OK (0.1s)
+[00:44:13] [prism 0] seam=0.185950000 -> 0.186000000 (dt=5.000e-05) segs=64 floor=1.4208 min|f|~1.4460 max|f'|~4.0 E=1.033e-07 Mt=1.878e+01 (int 2.452e+01, alt 1.878e+01) Dtt=4.975e+03 Dzz=1.167e+02 0.4s  [chain 100.00% of t0]
+[00:44:13] [done] 1 prisms; seams from 3719/20000 certified up to t = 93/500 (reached t_end = 93/500); CHAIN SEGMENT -- merge needed
+[00:44:13] done in 104s
