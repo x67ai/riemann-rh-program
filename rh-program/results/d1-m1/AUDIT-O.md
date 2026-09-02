@@ -35,14 +35,24 @@ intended check by both Python checkers, and eight of them again by the Lean kern
 soundness theorem builds, is `sorry`-free, uses no `native_decide`, and `#print axioms` shows only
 `propext`, `Classical.choice`, `Quot.sound`.
 
-The two MAJORs are **coverage/scaling defects in the shipped Lean layer, not soundness holes**:
+The two MAJORs are **coverage/packaging defects in the shipped Lean layer, not soundness holes**:
 (M-1) the Lean checker had never been run on a single producer-emitted transcript — the acceptance
 suite's "two checkers" are both Python — because the JSON→Lean literal emitter that `FORMAT.md` §10
-names was never written; and (M-2) `decide +kernel` on the production-scale transcripts exceeds
-Lean's default `maxRecDepth`, which the shipped 8-row artificial examples could not reveal. This
+names was never written; and (M-2) a Lean data module carrying ≳ 10³ transcript rows does not build
+at Lean's default `maxRecDepth`, which the shipped 8-row artificial examples could not reveal. This
 audit closes (M-1) by writing the emitter and kernel-checking all ten acceptance transcripts plus
-both positive controls plus eight corruptions, and it quantifies (M-2) (fails at 8 000, passes at
-40 000, for 1 294 rows).
+both positive controls plus eight corruptions, and it localizes (M-2) to the **`def`'s list literal**
+(fails at 8 000, passes at 40 000, for 1 294 rows) — `decide +kernel` itself needs no raised limit.
+
+**Correction made on the resumed run (2026-09-02).** This report was written in one pass that was
+cut off before it returned; the resumed pass re-ran every `audit_O_*` script and re-checked every
+Lean claim (§10). All numerical results reproduced **exactly**. One finding did not survive
+re-examination as written: **MAJOR-2's diagnosis was wrong** and has been rewritten — the
+recursion-depth wall is hit by the *data literal in the emitted `def`*, not by `decide +kernel`
+evaluation of `checkW1`, and the tail-recursion rewrite of `Checker.lean` that the first draft
+proposed is **withdrawn**. Two small numbers were corrected (§3.3 line count, §4 import list), and
+one new verification was added that the first pass had left open (§3.3: the Lean literals are
+faithful to the JSON — without which every kernel verdict here would be vacuous).
 
 ---
 
@@ -262,7 +272,7 @@ statement". I re-ran both Python checkers on all twelve acceptance transcripts: 
 report is honest.
 
 **What I added.** I wrote the missing emitter (`audit_O_lean_emit.py`), generated
-`Zeta23/W1/AuditOCases.lean` (4 657 lines of literal data) and kernel-evaluated `checkW1` /
+`Zeta23/W1/AuditOCases.lean` (4 665 lines of literal data) and kernel-evaluated `checkW1` /
 `checkW1Floor` with `decide +kernel`:
 
 | Lean instance | rows | `checkW1` | note |
@@ -279,6 +289,16 @@ report is honest.
 `#print axioms` on these instance theorems: *"does not depend on any axioms"* (the floor variants:
 `[propext]`). **The Lean checker agrees with both Python checkers on every real transcript and on
 every corruption.** This is new evidence that did not exist before this audit.
+
+**Are the Lean literals actually the acceptance transcripts?** (Gap the first pass left open;
+closed on the resumed run.) The emitter is untrusted by construction, so its output must be
+checked rather than believed: had it silently altered a row, every kernel verdict above would be
+evidence about nothing. `audit_O_leancases_verify.py` (output `audit_O_leancases_verify.txt`)
+**parses `AuditOCases.lean` back** with an independent tokenizer that shares no code with the
+emitter, re-applies each declared mutation from its own re-implementation, and compares field by
+field against `acceptance/*.json`: all 21 instances, all 11 scalar fields, all four mesh edges, and
+all **4 217 rows** (6 integers each) — **0 mismatches**. The kernel verdicts are therefore genuinely
+about the shipped transcripts.
 
 ### 3.4 Differential test: is the Lean check the SAME predicate? (task item 7)
 
@@ -345,7 +365,8 @@ Python checkers and in Lean is by cross-multiplication (D7, machine-checked at
 `Soundness.lean:186–208`). No division and no float anywhere in checked code. ✓
 
 **Checker/producer code independence.** `checker_ref.py` imports exactly `json, re, sys,
-fractions`; `reference_checker.py` imports exactly `copy, json, re, sys`. **Neither imports
+fractions`; `reference_checker.py` imports exactly `copy, json, os, re, sys` (all stdlib).
+**Neither imports
 `ball`, `zeta_encl`, `hurwitz_encl`, `producer_mp`, `producer_arb`, `mpmath` or `flint`** — so no
 evaluation code is shared with any producer. Verified by grep over all import statements. ✓
 
@@ -495,42 +516,67 @@ kernel-evaluates to the verdict both Python checkers give (§3.3).
    "**PASS** — all 8 transcripts ACCEPTED by both Python reference checkers **and by the Lean kernel
    checker (`decide +kernel`)**" only *after* (2) lands; until then leave the honest wording.
 
-### MAJOR-2 — `decide +kernel` on production-scale transcripts exceeds Lean's default `maxRecDepth`
+### MAJOR-2 — a Lean data module carrying ≳ 10³ transcript rows does not build at the default `maxRecDepth`: the **list literal in the emitted `def`** is what exceeds it, not `decide +kernel`
 
-**Where:** `Zeta23/W1/Checker.lean` — `densPos`, `chainLt`, `chainGt`, `lastOK`, `rowsOK`,
-`sumArgLo`, `sumArgHi`, `floorRowsOK` are all non-tail-recursive `List` recursions; neither
-`Checker.lean` nor `Examples.lean` sets `maxRecDepth`.
+> **Correction notice (resumed run, 2026-09-02).** The first draft of this finding attributed the
+> recursion-depth wall to `decide +kernel` evaluation of `checkW1`, and proposed a tail-recursive
+> rewrite of `Checker.lean`'s folds. **That diagnosis was wrong, and the repair it implied would
+> not have fixed anything.** The isolation experiments below were run on the resumed pass and
+> overturn it. The *measured thresholds* in the first draft were right; the *cause* was not.
 
-**Measured.** Kernel-checking the 983-row and 1 294-row `t10000` transcripts fails with
-`maximum recursion depth has been reached` at the default (512) and still at **8 000**; it succeeds
-at **40 000**. With `set_option maxRecDepth 100000` the whole 21-instance file (4 657 lines,
-~2 900 rows total) builds in 15 s.
+**Where:** the emitted data module (`Zeta23/W1/AuditOCases.lean`, and any `Zeta23/W1/Instances.lean`
+that MAJOR-1's repair would add) — the ~1 000-element `rows := [⟨…⟩, …]` literal inside
+`def mpNullT10000 : W1Data where`. `audit_O_lean_emit.py` **does not emit a `set_option maxRecDepth`
+line**; the one at `AuditOCases.lean:13` was added by hand after generation, so the emitter as
+shipped produces a file that does not build.
 
-**Why it matters.** The 8-row `Examples.lean` could never surface this. The milestone that
-immediately follows — M2a / the Gomila screen step 3 — is 883 barrier prisms each with a boundary
-mesh, and the claim's finite lane is 3 149 013 rows. A checker whose kernel evaluation blows the
-recursion limit at ~10³ rows is a hard blocker there, and the fix is cheap **now** and expensive
-after `BarrierCert.lean` is written against the same idiom.
+**Measured (three isolation experiments, resumed run).**
+
+| experiment | file contents | `maxRecDepth` | result |
+|---|---|---|---|
+| A. **`decide +kernel` alone** | `import Zeta23.W1.AuditOCases` + `theorem : checkW1 mpNullT10000 = true := by decide +kernel` (1 294 rows, data **imported** from the `.olean`) | **default (512)** | **succeeds, 1.86 s**, `#print axioms` → no axioms |
+| B. **`def` alone** | the `mpNullT10000` def literal only, **no `decide` anywhere in the file** | default (512) | **`maximum recursion depth has been reached` at the `def` line** |
+| C. full 21-instance file | `AuditOCases.lean` with the option varied | 512 / 8 000 | 3 errors, at lines 444, 1757, 3623 — exactly the three `def`s with ≥ 983 rows (`mpNullT10000`, `arbNullT10000`, `arbNullT10000_c3`), and at **no** theorem |
+| | | 40 000 / 100 000 | 0 errors, 13.9 s wall for ~2 900 rows |
+
+Experiment A alone refutes the original claim: kernel evaluation of `checkW1` at 1 294 rows costs
+under two seconds and needs **no** raised limit. Experiment B alone isolates the cause. The failure
+is in the **definition compiler**, not the elaborator or the kernel: at the default limit Lean
+records `mpNullT10000` as `noncomputable` (a later `#eval` fails with
+`error(lean.dependsOnNoncomputable) … depends on 'mpNullT10000', which is 'noncomputable'`) while
+`decide +kernel` on it still reduces correctly and `#print axioms` still reports no axioms. So the
+proof terms produced at the default limit are *sound*; the module merely fails to **build**.
+
+**Why it still matters (MAJOR, at reduced scope).**
+1. It blocks MAJOR-1's own repair: the `Zeta23/W1/Instances.lean` proposed there will not build
+   without the option, and the emitter that generates it does not write one.
+2. It is a **data-packaging** question for M2a, not a checker question. The Gomila screen step 3
+   lane is 3 149 013 rows; a single Lean list literal at that size is not viable at any
+   `maxRecDepth` (experiment C already needs 40 000 for 1 294), and the answer will be chunking the
+   data across several `def`s joined by `++`, or a compact byte/`ByteArray` encoding decoded inside
+   the checker — a decision that must be made **before** `BarrierCert.lean` is written, because it
+   changes `BarrierCertData`'s shape.
+3. `Checker.lean`'s fold style is **not** implicated. No change to `densPos`, `chainLt`, `chainGt`,
+   `lastOK`, `rowsOK`, `sumArgLo`, `sumArgHi` or `floorRowsOK` is warranted by this evidence, and
+   the first draft's proposed rewrite of ~60 lines of `Soundness.lean` is **withdrawn** — it would
+   have cost real work and fixed nothing.
 
 **Proposed repair (not applied):**
-1. Immediate: put `set_option maxRecDepth 100000 in` above each `decide +kernel` instance theorem
-   (or once per instance file), and record the requirement in `FORMAT.md` §7.1 with a sentence:
-   *"Kernel evaluation of `checkW1` on a transcript of R rows needs `maxRecDepth ≳ 30·R`; the
-   default 512 suffices only for the §11 micro-examples."*
-2. Structural (recommended before M2a): restate the list folds tail-recursively, e.g.
+1. Make the emitter write the option it needs. In `audit_O_lean_emit.py`'s header block (and in the
+   `emit_lean.py` that MAJOR-1 promotes into the deliverable), after the `namespace W1` line, emit
 
-   ```lean
-   def densPos (l : List (ℤ × ℤ)) : Bool := l.all (fun r => decide (1 ≤ r.2))
-   def rowsOK (A : ℤ) (l : List W1Row) : Bool := l.all (rowOK A)
-   def floorRowsOK (K Fn Fd : ℤ) (l : List W1Row) : Bool := l.all (floorRowOK K Fn Fd)
-   def sumArgLo (l : List W1Row) : ℤ := l.foldl (fun acc r => acc + r.argLo) 0
-   def sumArgHi (l : List W1Row) : ℤ := l.foldl (fun acc r => acc + r.argHi) 0
-   def chainLt (l : List (ℤ × ℤ)) : Bool :=
-     (l.zip l.tail).all (fun p => decide (p.1.1 * p.2.2 < p.2.1 * p.1.2))
    ```
-   with the corresponding `_spec` lemmas in `Soundness.lean` re-proved by `List.all_eq_true` /
-   `List.foldl` induction. This is a mechanical rewrite of ~60 lines of `Soundness.lean` and should
-   be done while the file is small.
+   set_option maxRecDepth 100000
+   ```
+
+   and add to `FORMAT.md` §7.1:
+   *"Compiling a Lean `W1Data` literal of R rows needs `maxRecDepth ≳ 30·R` (measured: R = 1 294
+   fails at 8 000, passes at 40 000); the default 512 suffices only for the §11 micro-examples.
+   The requirement is on elaborating/compiling the **data literal**, not on kernel evaluation of
+   `checkW1`, which at R = 1 294 runs in under 2 s at the default limit once the data is imported."*
+2. Before M2a: settle the bulk-data representation for `BarrierCertData` (chunked `def`s, or a
+   decoded compact encoding), and record the choice in `m2a-m2b-design.md` §4. Do **not** spend
+   effort on tail-recursion in `Checker.lean` for this reason.
 
 ### MINOR-1 — `reference_checker.py` prints the ζ trust sentence on `f_DH` files
 
@@ -651,7 +697,10 @@ neither is load-bearing. No repair.
 `Zeta23/W1/AuditO.lean` (the `#print axioms` scratch), `Zeta23/W1/AuditOCases.lean` (the ten
 acceptance transcripts + two positive controls + eight corruptions as literals) and
 `Zeta23/W1/AuditOFuzz.lean` (the 800-case differential batch) are **audit scratch**, not program
-files, and were deliberately NOT copied into `rh-program/lean/Zeta23/`. If the reconciler adopts
+files, and were deliberately NOT copied into `rh-program/lean/Zeta23/`. The four throwaway modules
+the resumed run used for the MAJOR-2 isolation experiments (`AuditORecDepth`, `AuditOCasesNoDepth`,
+`AuditOCasesTmp`, `AuditODefOnly` — several contain deliberate errors) were **deleted** from the
+working tree afterwards; no `.olean` of them remains. If the reconciler adopts
 MAJOR-1's repair, `AuditOCases.lean` is the seed for `Zeta23/W1/Instances.lean`.
 
 ---
@@ -661,20 +710,51 @@ MAJOR-1's repair, `AuditOCases.lean` is the seed for `Zeta23/W1/Instances.lean`.
 | file | what it does | result |
 |---|---|---|
 | `audit_O_encl_honesty.py` / `.txt` | 395 fresh membership checks, 9 regimes, my own seed; κ identity | 0 failures |
-| `audit_O_ball_largearg.py` | 1 640 checks of `Ball.exp`/`iv.cos`/`iv.sin`/`pow_int_neg` at \|Im\| ≤ 2·10⁵ | 0 failures |
+| `audit_O_ball_largearg.py` / `.log` | 1 640 checks of `Ball.exp`/`iv.cos`/`iv.sin`/`pow_int_neg` at \|Im\| ≤ 2·10⁵ | 0 failures |
 | `audit_O_corrupt.py` / `.txt` | 18 corruption classes × 5 accepted transcripts × 2 checkers | every intended corruption rejected at the intended check |
 | `audit_O_lean_emit.py` | JSON transcript → Lean `W1Data` literal (the missing emitter) | generates `AuditOCases.lean` |
 | `audit_O_lean_vs_py.py` / `.expect.json` | differential fuzz: Lean kernel `checkW1`/`checkW1Floor` vs `checker_ref.py` | 1 300 cases + 379 floor cases, full agreement |
 | `audit_O_dh_winding.py` / `.txt` | from-scratch DH winding + H-ENCL spot test, unwrapping method | winding = 1.0 turns; 0 row violations |
 | `audit_O_zeta_rows.py` / `.txt` | the same test for five ζ null transcripts | winding = 0; 0 row violations |
 | `audit_O_report_check.py` / `.txt` | every printed figure in `acceptance-report.md` + `cost-curve.json` vs artifacts | all match |
+| `audit_O_leancases_verify.py` / `.txt` | **(resumed run)** independent back-parse of `AuditOCases.lean` vs the JSON: 21 instances, 4 217 rows | 0 mismatches |
 
 **No Session-8 file was modified.** (`git status` under `rh-program/results/d1-m1/` shows only
 `audit_O_*` additions.)
 
 ---
 
-## 10. Gomila screen steps 3–4: what M1 v1 as built now clears
+## 10. Reproduction log (resumed run, 2026-09-02)
+
+The first pass of this audit was killed by a usage limit after writing this report but before it
+returned. The resumed pass re-executed everything and compared against the shipped logs.
+
+| re-run | result |
+|---|---|
+| `audit_O_encl_honesty.py` | **byte-identical** to `audit_O_encl_honesty.log` except the wall-time line (10.9 s → 11.0 s); 395 checks, 0 failures |
+| `audit_O_ball_largearg.py` / `.log` | 1 640 checks, 0 failures — reproduces §2 |
+| `audit_O_corrupt.py` | **byte-identical** to `audit_O_corrupt.txt`. Exit status 1 is expected: the 2 flagged "MISMATCH" lines are a harness artifact — `mut_c9_m_big` sets `claimed_m := "1"` and `mode := "refutation"`, which on the two DH transcripts (already `m = 1`, refutation) is the **identity**, so ACCEPT is the correct verdict. Independently re-read the mutation source and confirmed. |
+| `audit_O_report_check.py` | **byte-identical**. Exit 1 is expected: the 2 "mismatches" are the 3-significant-figure roundings 8.13195e−05 → "8.13e−05" and 7.63776e−06 → "7.64e−06" (INFO, §6) |
+| `audit_O_dh_winding.py` | **byte-identical**; winding 1.0 turns, 0 row violations |
+| `audit_O_zeta_rows.py` | **byte-identical**; winding 0, 0 row violations |
+| both Python checkers × 12 acceptance transcripts | 8/8 null ACCEPT, 2/2 DH ACCEPT, 2/2 positive controls REJECT at C2 — reproduces `acceptance-report.md` §0/§1 exactly |
+| `acceptance/crosscheck.py`, 4 pairs | overlaps 83 / 158 / 90 / 122, all CONSISTENT — reproduces §5 |
+| `lake build Zeta23.W1.Soundness` | **exit 0, 3 142 jobs** |
+| `lake env lean Zeta23/W1/AuditO.lean` | `#print axioms` block reproduced **line for line** (`propext, Classical.choice, Quot.sound`; no `sorryAx`) |
+| `lake env lean Zeta23/W1/AuditOCases.lean` | 0 errors, 13.9 s — all 32 `decide +kernel` verdicts stand |
+| `lake env lean Zeta23/W1/AuditOFuzz.lean` | 0 errors, 14.6 s — all 800 `checkW1` + 379 `checkW1Floor` differential cases stand; and the file's asserted verdicts were re-checked against `audit_O_lean_vs_py.expect.json` (800 + 379 assertions, **0 mismatches**), so the agreement is not self-referential |
+| `audit_O_leancases_verify.py` | **new**: 21 instances, 4 217 rows, 0 literal mismatches (§3.3) |
+| `c_sup` independent check | **new**: for n = 4, 10, 30, 42 the certified upper bound exceeds a 20 001-point dense sample of `sup\|B_n(x) − B_n\|` in every case (margin ≈ 1.2 %); `C_30 = 1.218048e9`, `\|B_30\| = 6.0158e8`, ratio 2.0247 — reproduces §1.2 |
+| `maxRecDepth` isolation, experiments A/B/C | **overturned MAJOR-2's original diagnosis** — see the rewritten MAJOR-2 |
+
+**Net effect on the verdict:** unchanged — 0 FATAL, 2 MAJOR. MAJOR-2's text, cause and proposed
+repair are rewritten; its severity is retained because it blocks MAJOR-1's repair and forces an
+M2a data-packaging decision, but its scope is narrower than first written and the `Checker.lean`
+rewrite it proposed is withdrawn.
+
+---
+
+## 11. Gomila screen steps 3–4: what M1 v1 as built now clears
 
 Reference: `results/d1-m0/gomila-screen.md` §4, steps 3 and 4; the screen's verdict is
 **screen-open**, blocked on D1-side infrastructure. (Vocabulary, binding: the claim is unrefereed
@@ -688,11 +768,14 @@ modulus-excludes-0 scheme that `m2a-m2b-design.md` §4 left open is fixed and Le
 t-slice *is* exists and is Lean-proved (`cert_of_checkW1`, `m = 0` branch); the integer-squares
 modulus floor the t-interpolation gate consumes exists and is Lean-proved
 (`floor_of_checkW1Floor`); and, from this audit, a working JSON→Lean literal emitter plus evidence
-that kernel checking scales to ~1 300 rows. What is still missing is exactly:
-`Zeta23/W1/BarrierCert.lean` (`BarrierCertData`, `checkBarrier`, `cert_of_check`) — design-note
-item (b), **not started, no file on disk**; the t-slice Lipschitz/interpolation row and its
-soundness lemma; and a converter from the claim's printed decimal balls to `BarrierCertData`.
-Add MAJOR-2's fix before writing `checkBarrier`, or 883 prisms will not kernel-evaluate.
+that kernel checking scales to ~1 300 rows (1.86 s, no raised `maxRecDepth`). What is still
+missing is exactly: `Zeta23/W1/BarrierCert.lean` (`BarrierCertData`, `checkBarrier`,
+`cert_of_check`) — design-note item (b), **not started, no file on disk**; the t-slice
+Lipschitz/interpolation row and its soundness lemma; and a converter from the claim's printed
+decimal balls to `BarrierCertData`. Settle MAJOR-2's **bulk-data representation** question before
+writing `BarrierCertData`: kernel evaluation is not the bottleneck, but a single Lean list literal
+of the claim's 3 149 013 rows is not viable, so the chunking/encoding choice belongs in the
+structure's shape from the start.
 
 **Step 4 — "Two-producer spot check (D1's own runs)": PARTIALLY CLEARED.** The *architecture* the
 step needs is built, validated end-to-end, and re-run by me: two genuinely independent legs (no
@@ -707,6 +790,7 @@ design-note items (c) ~3–4 wk Arb-side and (d) ~2 wk mpmath-side on top of the
 
 **Net:** the screen stays **screen-open**, and the block remains D1-side, exactly as
 `gomila-screen.md` §6 states. M2a must add, in order: the `f_t` evaluator on both legs (items c, d)
-→ `BarrierCert.lean` + `checkBarrier` + soundness (item b, with the MAJOR-2 tail-recursion fix)
+→ `BarrierCert.lean` + `checkBarrier` + soundness (item b, with MAJOR-2's data-packaging choice
+   settled first)
 → the claim-format converter → `Instance02.lean` glue (item e) → comparator packaging (item f).
 `Zeta23/DBN/Defs.lean` (item a) is done and clean.
