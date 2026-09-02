@@ -1,0 +1,102 @@
+{
+  "crt_density_N_in_Zhat_p": {
+    "pass": true,
+    "detail": {
+      "p": 7,
+      "Mmax": 200,
+      "failures": []
+    }
+  },
+  "tors_criterion_counterexample": {
+    "pass": true,
+    "detail": {
+      "rows": [
+        {
+          "b": "b = unit",
+          "valuations": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "note_criterion_says_leaves_space": false,
+          "true_criterion_says_leaves_space": false,
+          "agree": true
+        },
+        {
+          "b": "b = 6 (=2.3)",
+          "valuations": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "note_criterion_says_leaves_space": false,
+          "true_criterion_says_leaves_space": false,
+          "agree": true
+        },
+        {
+          "b": "b has a zero comp",
+          "valuations": [
+            "inf",
+            0,
+            0,
+            0,
+            0
+          ],
+          "note_criterion_says_leaves_space": true,
+          "true_criterion_says_leaves_space": true,
+          "agree": true
+        },
+        {
+          "b": "b = (l)_{l != p}",
+          "valuations": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "note_criterion_says_leaves_space": false,
+          "true_criterion_says_leaves_space": true,
+          "agree": false
+        }
+      ]
+    }
+  },
+  "hom_mu_p_is_Zhat_p": {
+    "pass": true,
+    "detail": {
+      "mmax": 60,
+      "failures": []
+    }
+  },
+  "r3s08_2_2_7_not_surjective": {
+    "pass": true,
+    "detail": {
+      "witnesses": {
+        "0": "every component 0 -> kernel is all of mu^{(p)}, infinite",
+        "(l)_{l != p}": "no component 0, but infinitely many non-unit components -> kernel infinite"
+      },
+      "conclusion": "Hom_Gr(F_p-bar^x, C^x) = Zhat_(p) strictly contains N.Zhat_(p)^x"
+    }
+  },
+  "orbit_equals_p_power_coset": {
+    "pass": true,
+    "detail": {
+      "p": 7,
+      "M": 715,
+      "num_units": 480,
+      "order_of_p": 60,
+      "num_base_classes": 8
+    }
+  },
+  "_meta": {
+    "referee": "O (Claude Opus 5)",
+    "date": "2026-09-02",
+    "item": "probe-9.3-b.md Corollary A.1, converse inclusion",
+    "all_pass": true
+  }
+}
