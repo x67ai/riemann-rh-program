@@ -1,0 +1,15 @@
+[23:25:06] [D-A13] N = 630783 at both extreme corners; N constant on [X, X+1] x [0, t0]
+[23:25:06] [box] a+=13.354717 a-=13.354717 |alpha+|<=13.3778 dA+=9.628e-14 dA-=6.506e-14 A1'+=2.000e-13 A2''+=8.000e-26 rho=0.6506 sup|l|=13.3547 sup|w|=10.4888 sup|w'|=7.854e-14
+[23:25:06] [moments] reloaded 117+117 complex and 85+85 real moments from moments-b6e2fae75cbdb737e271.json (computed 2026-09-02T17:48:21Z, 61.4 s) in 0.0s; every reloaded ball re-verified to contain its stored [mid-rad, mid+rad] (D-A14)
+[23:25:07] [prism 0] seam 0 = 0.000000000
+[23:25:08]     try dt=2.199e-03: Mt_int=1.0282e+04 (seg 199: mid+Dzt*h 7.805e+04, hull 8.227e+04, seam+dt*ftt 1.028e+04; wins [0, 0, 289]) Mt_alt=3.3296e+04 D/K=2.2608e+01 gate=FAIL (0.5s)
+[23:25:08]     try dt=1.539e-03: Mt_int=5.6814e+03 (seg 288: mid+Dzt*h 5.060e+04, hull 5.163e+04, seam+dt*ftt 5.681e+03; wins [0, 0, 289]) Mt_alt=2.3846e+04 D/K=8.7451e+00 gate=FAIL (0.5s)
+[23:25:09]     try dt=1.077e-03: Mt_int=3.6195e+03 (seg 288: mid+Dzt*h 3.735e+04, hull 3.754e+04, seam+dt*ftt 3.620e+03; wins [0, 0, 289]) Mt_alt=1.7230e+04 D/K=3.9003e+00 gate=OK (0.5s)
+[23:25:09] [prism 0] seam=0.000000000 -> 0.001077362 (dt=1.077e-03) segs=289 floor=4.3825 min|f|~4.6831 max|f'|~266.5 E=4.119e-04 Mt=3.620e+03 (int 3.620e+03, alt 1.723e+04) Dtt=1.433e+07 Dzz=1.869e+05 2.4s  [chain 0.58% of t0]
+[23:25:09] [prism 1] seam 538681/500000000 = 0.001077362
+[23:25:10]     try dt=2.258e-03: Mt_int=1.0345e+04 (seg 197: mid+Dzt*h 7.664e+04, hull 8.083e+04, seam+dt*ftt 1.034e+04; wins [0, 0, 287]) Mt_alt=3.2592e+04 D/K=2.3361e+01 gate=FAIL (0.4s)
+[23:25:11]     try dt=1.581e-03: Mt_int=5.6145e+03 (seg 286: mid+Dzt*h 4.918e+04, hull 5.021e+04, seam+dt*ftt 5.615e+03; wins [0, 0, 287]) Mt_alt=2.3331e+04 D/K=8.8758e+00 gate=FAIL (0.4s)
+[23:25:11]     try dt=1.107e-03: Mt_int=3.5536e+03 (seg 286: mid+Dzt*h 3.627e+04, hull 3.648e+04, seam+dt*ftt 3.554e+03; wins [0, 0, 287]) Mt_alt=1.6849e+04 D/K=3.9329e+00 gate=OK (0.5s)
+[23:25:11] [prism 1] seam=0.001077362 -> 0.002183864 (dt=1.107e-03) segs=287 floor=4.3255 min|f|~4.6158 max|f'|~256.3 E=3.926e-04 Mt=3.554e+03 (int 3.554e+03, alt 1.685e+04) Dtt=1.367e+07 Dzz=1.784e+05 2.4s  [chain 1.17% of t0]
+[23:25:11] [stop] max prisms reached
+[23:25:11] [done] 2 prisms; seams from 0 certified up to t = 272983/125000000 (PARTIAL: cut line = last prism end); CHAIN SEGMENT -- merge needed

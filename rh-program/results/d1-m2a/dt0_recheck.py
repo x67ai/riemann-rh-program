@@ -47,8 +47,11 @@ def out(s=""):
 
 
 def m2f(v):
-    """Exact Fraction of an mp.mpf (lossless, via its binary mantissa/exponent)."""
-    return mpf_tuple_to_fraction(mp.mpf(v)._mpf_)
+    """Exact Fraction of an mp.mpf (lossless, via its binary mantissa/exponent).  NOTE: never go through
+    mp.mpf(v) here -- outside the workdps(60) block that would re-round the value to the global 53-bit
+    precision (a 1e-14 error, which made the first run of this script mis-report the three t = 0
+    f-value checks, whose balls are 1e-27 wide, as FAIL; the derivative checks were unaffected)."""
+    return mpf_tuple_to_fraction(v._mpf_)
 
 
 def contains_close(ball, w, eps):
@@ -110,6 +113,7 @@ def main():
     out("=" * 78)
     EPS = Fraction(1, 10 ** 30)
     fails = checks = 0
+    dfails = 0
     points = [(inst["x1"], inst["y1"], Fraction(0)),          # the failing point
               (inst["x2"], inst["y2"], Fraction(0)),
               (inst["x1"] + Fraction(373, 1000), inst["y1"] + (inst["y2"] - inst["y1"]) * Fraction(511, 1000), Fraction(0)),
@@ -134,6 +138,7 @@ def main():
         ok_d2 = contains_close(fdt, dcd, Fraction(1, 10 ** 15))     # cd truncation ~ 1e-19 plus rounding
         checks += 3
         fails += (not ok_f) + (not ok_d1) + (not ok_d2)
+        dfails += (not ok_d1) + (not ok_d2)
         with mp.workdps(20):
             out("  x=%s y=%s t=%s" % (x, y, t))
             out("    f ball re %s" % (tuple(str(float(v)) for v in f.re_bounds()),))
@@ -145,10 +150,15 @@ def main():
             out("    df/dt (R1 analytic) %s   %s  (%.0fs)" % (mp.nstr(dref, 18), "PASS" if ok_d1 else "FAIL", t1))
             out("    df/dt (R2 central)  %s   %s  (%.0fs)   |R1-R2| = %.2e" % (
                 mp.nstr(dcd, 18), "PASS" if ok_d2 else "FAIL", t2, float(abs(dref - dcd))))
-    out("dt0 recheck: %d checks, %d failures" % (checks, fails))
-    out("VERDICT: the harness FAIL at (x1, y1, t=0) was a one-sided-difference artifact of the harness "
-        "(step 1e-12 forward difference, truncation h|f''|/2 ~ 3e-8 > ball width 1e-9); "
-        "the evaluator's derivative ball %s the analytic derivative." % ("CONTAINS" if fails == 0 else "DOES NOT CONTAIN"))
+    out("dt0 recheck: %d checks, %d failures (%d of them derivative checks)" % (checks, fails, dfails))
+    if dfails == 0:
+        out("VERDICT: the harness FAIL at (x1, y1, t=0) was a one-sided-difference artifact of the harness "
+            "(step 1e-12 forward difference, truncation h|f''|/2 ~ 3e-8 > ball width 1e-9); "
+            "at all %d points the evaluator's derivative ball CONTAINS the analytic derivative (R1), and R1 agrees "
+            "with the genuine central difference (R2) to the printed |R1-R2|." % len(points))
+    else:
+        out("VERDICT: %d derivative checks FAILED -- the evaluator's derivative ball does NOT contain the reference "
+            "at some point; this is a producer defect (stop-the-line), not a harness artifact." % dfails)
     return fails
 
 
