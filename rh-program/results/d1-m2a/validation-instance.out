@@ -22,3 +22,7 @@ N = 630783, blocks = 20, R = 48; box [5000000194858, 5000000194859] x [16733/100
     box bottom h=1/100: f-box width 4.361e-02  |f| in [1.694, 1.741]  |dt f| <= 12.5
     box bottom h=1/1000: f-box width 4.149e-03  |f| in [1.785, 1.788]  |dt f| <= 11.5
     box right h=1/100: f-box width 4.931e-03  |f| in [1.607, 1.613]  |dt f| <= 6.11
+  t = 1/1000: prepare 1.82s; orders (J,K) plus: [(1, 1), (15, 6), (16, 6), (16, 6), (16, 6), (16, 6)]
+    x=5000000194858.000000 y=0.16733  f=(-12.677483425144 - 30.234592393328j)  Taylor width 9.79e-13 (0.05s)  direct width 5.55e-66 (149.1s)  |dt f|~1.26e+03 width 1.0e-09
+    x=5000000194859.000000 y=1.00000  f=(3.6345222239302 + 2.8531073650094j)  Taylor width 1.34e-14 (0.05s)  direct width 4.40e-68 (145.1s)  |dt f|~67 width 1.4e-11
+    box bottom h=1/100: f-box width 3.677e+00  |f| in [47.127, 52.287]  |dt f| <= 1.78e+03
