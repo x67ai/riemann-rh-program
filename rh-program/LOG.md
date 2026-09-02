@@ -1084,3 +1084,23 @@ final (no PENDING marks); `results/d1-m0/gomila-screen.md` §9 addendum appended
 record; 0 ≤ Λ ≤ 0.2 stands. STATUS for the orchestrator: M2a item (e) = PARTIAL (Lane B kernel-checked on both legs;
 `lambda_le_point2` unproved — needs Defs v1.1 + Lane A + L-B3); Gomila = screen-open, M2a′ candidate only if D1 produces
 its own full 883-prism transcript (≈ 1 h Arb / ≈ 10 h mp, measured) plus the tail decision.
+- 2026-09-03 ~02:20 IST (Session 14, D1 M2a FINAL AUDIT, standing order 5; adversarial audit agent, workflow
+`d1-audit-m2a-s14`). **Verdict: REPAIRED-CLEAN, 0 fatals; the milestone stays PARTIAL by its own honest statement.**
+Written: `results/d1-m2a/AUDIT.md`, `results/d1-m2a/RUN-REPORT.md`, `results/d1-m2a/audit/` (scripts + run records).
+(1) Theorem 1.3's error majorant re-derived from the on-disk P15 (pages 6, 31 read as page images): region (5) is the only
+range condition; the instance box is inside it except t = 0, handled by a valid recorded limit argument (re-derived);
+both legs' E code transcribes every constant correctly; the paper's pointwise majorant recomputed with independent code
+at six box corners — every producer E is ≥ it (slack ≤ 5·10⁻¹¹). (2) Independent direct evaluation of f_τ (python-flint,
+630 783 terms, 256 bits, no producer code) at 36 FRESH boundary points + 12 argument rows across 6 prisms of both legs:
+ALL CONTAINED. (3) 8 JSON corruptions: 6 rejected by both reference checkers at the named clause, 1 shape-rejected, 1 the
+documented checker-blind rotation (caught only by the cross-check, which ran); 11 corrupted Lean literals `= false` by
+`decide +kernel` (harness control: a false claim is refused). (4) Lean predicate ↔ checker_ref ↔ barrier_ref_checker ↔ SPEC
+§7.3 clause by clause: identical; H2-B and the theorem statements verbatim the SPEC shapes. (5) Every INSTANCE-REPORT and
+Gomila-addendum claim checked against artifacts; Gomila's 883-prism gate re-replayed exactly; PT pairing arithmetic
+recomputed exactly (all values identical). (6) `#print axioms` on all 119 Instance02 declarations (111 per-prism
+`[propext]`; theorems the three standard axioms); grep: no `sorry`/`admit`/`native_decide` outside comments; program tree
+byte-identical to the working tree. Findings: F-1 LOW repaired (ft_mp.py docstring had log²(x/(4πn)) for the printed
+log²(x/(4πn²)); no number affected; docstring corrected, erratum in mp-leg-notes §8); F-2/F-3/F-7 wording → SPEC §14 errata
+(append-only); F-4 minor wording in INSTANCE-REPORT (115 modules not 116; 1.57 ms/row wall); F-5 MEDIUM = the cut line
+(`lambda_le_point2` unproved; Defs v1.1, L-B3, Lane A, glue absent — ordered next steps in RUN-REPORT §6); F-6 Arb gate
+ratios up to 0.995 (sound, observation). Λ bracket of record unchanged: 0 ≤ Λ ≤ 0.2. No program Lean file touched.
