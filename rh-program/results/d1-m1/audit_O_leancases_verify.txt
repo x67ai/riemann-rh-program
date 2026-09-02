@@ -1,0 +1,25 @@
+AUDIT O -- AuditOCases.lean literals vs acceptance/*.json (independent back-parse)
+instance               rows  field/row comparison
+  mpNullT100               52  OK
+  arbNullT100              27  OK
+  mpNullDeepT100           58  OK
+  arbNullDeepT100          30  OK
+  mpNullT1000              81  OK
+  arbNullT1000             65  OK
+  mpNullT10000           1294  OK
+  arbNullT10000           983  OK
+  mpDH                     40  OK
+  arbDH                    50  OK
+  posMP_rej                77  OK
+  posARB_rej              183  OK
+  mpDH_c6                  40  OK
+  mpDH_c8                  40  OK
+  mpDH_c9                  40  OK
+  mpDH_c3                  40  OK
+  mpDH_c2                  40  OK
+  mpDH_ahalf               40  OK
+  arbNullT100_c6           27  OK
+  arbNullT100_c9           27  OK
+  arbNullT10000_c3        983  OK
+
+TOTAL literal mismatches: 0

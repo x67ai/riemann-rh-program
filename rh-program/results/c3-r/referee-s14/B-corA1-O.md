@@ -1,314 +1,344 @@
 # REFEREE REPORT O — probe B, Corollary A.1: the converse inclusion cl(γ) ⊆ Γ^E_p
 
-**Program:** RH program, direction C3-r (geometric substrate, reduced recommission). **Session 14, 2026-09-02.**
-**Referee:** O (one of two independent referees on this item; the other is a different model. Standing order 7: nothing below is softened in the expectation that the other pass will catch it).
-**Note under review:** `results/c3-r/probe-9.3-b.md`, Corollary A.1 and its parenthetical proof of the converse inclusion (probe B's own Q-c; adjudication §4 item 6, §5 Q-c).
-**Binding context read first, in full:** `results/c3-r/probe-9.3-adjudication.md`; then `results/c3-r/probe-9.3-b.md` in full; `results/corpus-routing.md` standing caveats §§1–20.
-**Standing order 5:** every source statement below was read this session from the on-disk PDF at the stated printed page (pdftotext extraction made fresh in the session scratchpad; page numbers of [x-03] are the printed pages, which coincide with the PDF pages of the v4 file). Nothing is recalled.
+**Program:** RH program, direction C3-r (geometric substrate, reduced recommission). **Session 14 — 2026-09-02.**
+**Referee:** O (Claude Opus 5), one of two independent referees on this item under standing order 7; the second referee is a different model. Nothing below is softened in the expectation that the other pass will catch it.
+**Item under review:** Corollary A.1 of `results/c3-r/probe-9.3-b.md` — specifically the parenthetical that carries the converse inclusion (the note's own Q-c; adjudication §4 item 6, §5 Q-c).
+**Read first, in full:** `results/c3-r/probe-9.3-adjudication.md`; `results/c3-r/probe-9.3-b.md`; the header caveats of `results/corpus-routing.md`.
+**Standing order 5:** every source sentence quoted below was read this session from the on-disk PDF at the stated page, in a `pdftotext -layout` extraction made fresh in the session scratchpad. For [x-03] the printed page equals the PDF page (verified: PDF page 26 carries the printed folio "26"); likewise for [x-06] and [r3s-08]. Nothing below is recalled.
 
 ---
 
-## VERDICT (stated first)
+## 0. INDEPENDENCE DISCLOSURE — read this before weighing the verdict
 
-> **PASS-WITH-REPAIRS.**
+This item has been refereed before. `results/c3-r/referee-s14/` already contained `B-corA1-F.md`, `B-corA1-O.md` and `B-corA1-adjudication.md` (timestamps 2026-09-02 02:10–02:24) when this pass began, and **both files I was instructed to read first already carry the earlier outcome inside them**:
+
+- `probe-9.3-adjudication.md` §4 now opens with a dated block stating that the converse "is now DISCHARGED at referee grade … PASS-WITH-REPAIRS, 0 FATAL / 2 MAJOR", and names the mechanism ("it is the fiber over the closed point x₀ of a continuous map X₀ → X₀ descended from pr_{X₀}").
+- `probe-9.3-b.md` §5 now carries a full "REFEREE PASS 2026-09-02" block with the replacement Proposition A.1′ and its proof.
+
+**So this pass is not blind, and I will not claim that it is.** What I did do, and what the reader may rely on: I did **not** open `B-corA1-F.md`, `B-corA1-adjudication.md`, or the previous `B-corA1-O.md` body (I read only the first 20 and last 25 lines of the last, to establish that the slot was a re-run of the same item). Everything in §§2–8 below was re-derived this session from the on-disk primary sources, every anchor re-read at the page, and §7 records four separate attempts to *break* the result rather than to confirm it. Where I disagree with the severity or the scope recorded in the leaked blocks, I say so (see F3 and §9).
+
+---
+
+## 1. VERDICT
+
+> ### PASS-WITH-REPAIRS
 >
-> **The statement is true — and true in a strictly stronger form than the note claims.** The converse inclusion holds, with no "char-p part" hedge and no chart caveat:
+> **0 FATAL — 3 MAJOR — 4 MINOR.**
 >
-> **cl_{X₀}(γ) = Γ^E_{x₀} in X₀, for every arithmetic scheme X₀, every admissible E, every point x₀ with finite residue field and every periodic orbit γ ⊂ Γ^E_{x₀}** — the ⊇ half being the banked Theorem A (for X₀ = Spec Z), the ⊆ half being Proposition O.1 below, which is proved for all arithmetic X₀. Indeed **every packet Γ^E_{x₀} is a closed subset of X₀** (Proposition O.1); the closure of anything inside it stays inside it.
+> **The claim is true, and true in a strictly stronger form than the note states.** There is no "char-p part" hedge and no chart caveat:
 >
-> **The argument the note gives for it is not a proof** (finding F1, MAJOR) and its conclusion is mis-scoped (F2, MAJOR). Both are repaired below with exact replacement text. Four MINOR findings follow.
+> **Proposition O.1.** For every arithmetic scheme X₀ in the sense of [x-03] §7, every admissible class E (Def. 4.1), and every point x₀ of X₀ with finite residue field, the packet Γ^E_{x₀} is a **closed**, flow-invariant subset of the suspension 𝕏₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0}.
 >
-> **fatals 0 / majors 2 / minors 4.**
+> **Corollary O.2.** Hence cl_{𝕏₀}(A) ⊆ Γ^E_{x₀} for every subset A ⊆ Γ^E_{x₀}; in particular cl_{𝕏₀}(γ) ⊆ Γ^E_{x₀} for every periodic orbit γ ⊆ Γ^E_{x₀}. For X₀ = Spec Z, N₀ = N, where Theorem A is banked, **cl_{𝕏₀}(γ) = Γ^E_p exactly** — as subsets of the whole suspension, not of a stratum and not of a chart. Corollary A.1's headline ("packets are minimal sets") is therefore true, and only now proved.
 >
-> The correct proof is two lines and uses none of the machinery the note reaches for: the Zariski topology on the base scheme plus continuity of pr_{X₀}. The note's chosen instrument — profinite compactness of Ẑ_(p) plus pointwise evaluation of characters — cannot reach the statement, for a structural reason (§4, §6.3) that is worth recording in its own right: the ⊇ direction lives upstairs and survives every quotient; the ⊆ direction is a statement about *all* nets downstairs, and downstairs convergence does not lift, precisely because the Q^{>0}-action is not properly discontinuous ([x-03] p. 49, verbatim in §2 below).
+> **The argument the note gives for it does not reach the statement** (F1, MAJOR); **its exclusion criterion is incomplete, and if it were complete the equality would be false** (F2, MAJOR); **the conclusion it does state is logically equivalent to Theorem A and so carries no converse content at all** (F3, MAJOR). All three are repaired below with exact replacement text. Four MINOR findings follow.
+>
+> **Novelty, honestly (standing order 7):** Proposition O.1 is **not a novel theorem.** It is one inference step from a sentence already in print — [r3s-08] p. 14 asserts that the projection pr_K from the suspension to the scheme is continuous — and the fibre description it needs is [x-03] p. 31 verbatim. The genuinely new content of this item is the *equality*, which needs Theorem A; and the new *negative* content is that Deninger's and Morishita's compactness/homeomorphism statements cannot be used to get here (§8, §9).
 
 ---
 
-## 1. The text under review, quoted exactly
+## 2. The text under review, quoted exactly
 
-From `probe-9.3-b.md`, Corollary A.1 (§5):
+From `probe-9.3-b.md` §5, immediately after Theorem A (the original wording, preserved at the foot of the section beneath the later repair block):
 
-> **Corollary A.1 (packets are minimal sets; the "invariant tori" made precise).** Every orbit of Γ^E_p is dense in Γ^E_p; Γ^E_p is the orbit closure of each of its points and is the smallest closed invariant set containing any one of its orbits. (With Step 5's converse inclusion — every limit of {F_n(P₀)}_n along any subnet is P₀^b for some b ∈ Ẑ_(p), by compactness of Ẑ_(p) and the same pointwise evaluation; limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors), so they leave the space — one gets cl(γ) ∩ (char-p part) = Γ^E_p exactly. Stated proposition-grade; the kill only needs ⊇.)
+> **Corollary A.1 (packets are minimal sets; the "invariant tori" made precise).** Every orbit of Γ^E_p is dense in Γ^E_p; Γ^E_p is the orbit closure of each of its points and is the smallest closed invariant set containing any one of its orbits. (With Step 5's converse inclusion — every limit of {F_n(P₀)}_n along any subnet is P₀^b for some b ∈ Ẑ_{(p)}, by compactness of Ẑ_{(p)} and the same pointwise evaluation; limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors), so they leave the space — one gets cl(γ) ∩ (char-p part) = Γ^E_p exactly. Stated proposition-grade; the kill only needs ⊇.)
 
-And §7, Q-c:
+Three assertions are in play and must be separated:
 
-> **Q-c (bookkeeping).** Whether the equality cl(γ) = Γ^E_p of Cor. A.1 holds verbatim in every chart of the colimit (the ⊇ of Theorem A suffices for everything above; the ⊆ was argued at proposition grade).
+- **(A1-head)** every orbit of Γ^E_p is dense in Γ^E_p; Γ^E_p is the orbit closure of each of its points; Γ^E_p is the smallest closed invariant set containing any one of its orbits.
+- **(A1-mech)** every subnet limit of {F_n(P₀)} is P₀^b with b ∈ Ẑ_{(p)}; those with a zero component violate (Tors) and leave the space.
+- **(A1-concl)** cl(γ) ∩ (char-p part) = Γ^E_p.
 
-The adjudication records the debt at §4 item 6 ("probe B's Cor. A.1 converse inclusion (flagged proposition-grade by B itself; not load-bearing) … Before any external circulation, Theorem B(b) and Cor. A.1 owe a dedicated referee pass; nothing in the adjudicated verdicts rests on them") and at §5 Q-c.
+(A1-head) is what the program uses (adjudication §4 item 1: "packets are minimal sets"). (A1-concl) is what the parenthetical delivers. **They are not the same statement**, and the gap between them is the whole item.
 
-**One correction to the "not load-bearing" bookkeeping, before anything else** (finding F4): the *first sentence* of Corollary A.1 is not all ⊇. "Γ^E_p is the orbit closure of each of its points" is exactly the ⊆ direction. "Γ^E_p … is the smallest closed invariant set containing any one of its orbits", and the corollary's own title "packets are minimal sets", both require Γ^E_p to *be* closed — a minimal set is by definition a nonempty closed invariant set with no proper nonempty closed invariant subset. Theorem A alone gives only: every closed invariant set meeting Γ^E_p contains Γ^E_p. Without ⊆ one cannot say the packet *is* a minimal set, only that it is contained in every one. The adjudication re-publishes "packets are minimal sets (every orbit dense in its packet)" at referee grade in §4 item 1; the parenthetical is the ⊇ content, the headline is not. After Proposition O.1 the headline is true, so nothing has to be retracted — but the dependency was mis-booked and is now corrected.
-
----
-
-## 2. Source anchors, read this session, verbatim
-
-All from `fetched/x-03-deninger-dynamical-systems-for-arithmetic-schemes-arxiv-v4.pdf` unless stated. Printed page = PDF page for this file (verified: the folio "31" sits on PDF page 31, etc.).
-
-**(A1) Topology on one chart — pointwise convergence** (p. 40, opening of §7):
-> "We only consider integral normal schemes X₀ whose function field K₀ is countable. For brevity we call them arithmetic schemes. … We begin with the affine case X₀ = spec R₀ and write X = spec R. Viewing X⃗(C) as a set of multiplicative maps P : R → C as in Remark 3.4 we give X⃗(C) the topology of pointwise convergence. It is the subspace topology induced by the Tychonov topology of C^R = ∏_R C on X⃗(C) via the inclusion X⃗(C) ⊂ C^R, P ↦ (P(r))_{r∈R}. Since R is countable, X⃗(C) is a metrizable topological space."
-
-**(A2) pr_X is continuous into the Zariski topology** (p. 40, Lemma 7.1 and its proof):
-> "Lemma 7.1. For affine arithmetic schemes X₀, the natural map pr_X : X⃗(C) → X, (x, P^×) ↦ x or P ↦ p = P^{-1}(0) is continuous.
-> Proof. A closed subset A of X has the form A = {p ⊃ I} for some ideal I in R. Consider a convergent sequence P_n → P in X⃗(C) where P_n ∈ pr_X^{-1}(A) for all n, i.e. p_n = P_n^{-1}(0) ⊃ I. Since P_n(r) → P(r) for all r ∈ R, it follows that P(r) = 0 for r ∈ I and hence p = P^{-1}(0) ⊃ I i.e. P ∈ pr_X^{-1}(A). Hence pr_X^{-1}(A) is closed and therefore pr_X is continuous."
-
-Note what the closed sets of the target are: `{p ⊃ I}` — the **Zariski** topology. This is the whole engine of the repair.
-
-**(A3) Quotient by G, and continuity downstairs** (p. 42):
-> "Let G = Aut_{K₀}(K). We equip X₀⃗(C) = X⃗(C)/G with the quotient topology. Using Lemma 7.1 one sees that pr_X : X⃗(C) → X and hence also pr_{X₀} : X₀⃗(C) → X₀ are continuous."
-
-**(A4) The colimit topology and its charts** (p. 43):
-> "We give X̌(C) = colim_{N₀} X⃗(C) the inductive limit topology. It is the finest topology such that for all ν ∈ N₀ the inclusions F_ν^{-1}|_{X⃗(C)} : X⃗(C) ↪ X̌(C) are continuous. Thus Z ⊂ X̌(C) is closed, resp. open if and only if F_ν(Z) ∩ X⃗(C) is closed, resp. open in X⃗(C) for all ν ∈ N₀.
-> Proposition 7.4. a) X⃗(C) is a closed and open subspace of X̌(C). b) F_q : X̌(C) → X̌(C) is a homeomorphism for every q ∈ Q₀^{>0}. c) The group G acts by homeomorphisms on X̌(C)."
-
-**(A5) Continuity of the projections on the colimit** (p. 43):
-> "We give X̌₀(C) = X̌(C)/G the quotient topology. Then X̌₀(C) is homeomorphic to colim_{N₀} X₀⃗(C) with the inductive limit topology. The projections π : X⃗(C) → X₀⃗(C) and π̌ : X̌(C) → X̌₀(C) are continuous and since G acts by homeomorphisms, also open. Moreover the projections pr_X : X̌(C) → X and pr_{X₀} : X̌₀(C) → X₀ are continuous."
-
-**(A6) The E-versions inherit everything** (p. 47):
-> "Given an admissible class E as in Definition 4.1 we equip X⃗(C)_E and X₀⃗(C)_E with the subspace topologies of X⃗(C) and X₀⃗(C). … We give X̌(C)_E = colim_{N₀} X⃗(C)_E and X̌₀(C)_E = colim_{N₀} X₀⃗(C)_E the inductive limit topologies. They agree with the subspace topologies via X̌(C)_E ⊂ X̌(C) and X̌₀(C)_E ⊂ X̌₀(C) because the subspaces F_ν^{-1}X⃗(C) and F_ν^{-1}X₀⃗(C) are open in X̌(C) resp. X̌₀(C) for all ν ∈ N₀. As above, the natural continuous bijection X̌(C)_E/G → X̌₀(C)_E is a homeomorphism. All preceding results in this section remain true if we replace X⃗(C) etc. by X⃗(C)_E etc."
-
-**(A7) Q^{>0}-equivariance of pr with trivial action on the base** (p. 27):
-> "Both pr_X and pr_{X₀} are N₀-equivariant if we let N₀ act trivially on X₀ and X. Note that the maps pr_X and pr_{X₀} above extend Q₀^{>0}-equivariantly to maps pr_X : X̌(C)_E → X and pr_{X₀} : X̌₀(C)_E → X₀. Here we let Q₀^{>0} act trivially on X and X₀."
-
-**(A8) Admissibility and (Tors)** (p. 27):
-> "(Tors) the group ker(χ)_tors = ker(χ|_{μ(κ)}) is finite and |(ker χ)_tors| ∈ N₀.
-> Definition 4.1. A class E of characters χ : κ^× → C^× on algebraically closed fields κ is (N₀−)admissible if for any σ ∈ Autκ resp. ν ∈ N₀ the character χ is in E if and only if χ ∘ σ resp. χ^ν = χ ∘ ( )^ν is in E. Moreover the characters in E should satisfy (Tors)."
-
-**(A9) Definition of C_{x₀} as a fibre** (p. 31):
-> "The fibres of pr_{X₀} : X̌₀(C)_{Etors} → X₀ are Q₀^{>0}-invariant. We will now analyze the structures of the Q₀^{>0}-sets C_{x₀} = pr_{X₀}^{-1}(x₀) in X̌₀(C)_{Etors} for points x₀ of X₀ whose residue field κ(x₀) is finite. … The fibre pr₀^{-1}(x₀) in X₀⃗(C)_{Etors} is N₀-invariant. Its extension to a Q₀^{>0}-invariant subset of X̌₀(C)_{Etors} is the set C_{x₀} = pr₀^{-1}(x₀)Q₀^{>0} = ⋃_{ν∈N₀} F_ν^{-1} pr₀^{-1}(x₀) ⊂ X̌₀(C)_{Etors}."
-
-Deninger's own first sentence there — "**The fibres of pr_{X₀} … are Q₀^{>0}-invariant … the Q₀^{>0}-sets C_{x₀} = pr_{X₀}^{-1}(x₀)**" — already *names C_{x₀} as the fibre*. That identification, plus (A2)/(A5), is the entire proof.
-
-**(A10) Suspension and packets** (p. 38, §6):
-> "consider the suspension X₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0}. It is the quotient of X̌₀(C)_E × R^{>0} by the right Q₀^{>0}-action given by (P₀, u)q = (P₀q, q^{-1}u) = (F_q(P₀), q^{-1}u) for q ∈ Q₀^{>0}. … For a point x₀ of X₀ with finite residue field of characteristic p set Γ_{x₀} = C_{x₀} ×_{Q₀^{>0}} R^{>0} ⊂ X₀. The Q₀^{>0}-bijection (39) induces an R^{>0}-bijection (Ẑ×_(p)/Nx₀^Ẑ) ×_{p^Z/deg x₀} R^{>0}/Nx₀^Z → Γ_{x₀}. Thus all R^{>0}-orbits in Γ_{x₀} are circles R^{>0}/Nx₀^Z and Γ_{x₀} fibres over Ẑ×_(p)/p^Ẑ = Aut(F̄_p)/Aut(F_p)^ with fibres the R^{>0}-orbits in Γ_{x₀}. We set Γ^E_{x₀} = C^E_{x₀} ×_{Q₀^{>0}} R^{>0} where C^E_{x₀} = C_{x₀} ∩ X̌₀(C)_E. If e.g. E_f ⊂ E then Γ^E_{x₀} = Γ_{x₀}."
-
-**(A11) Theorem 6.1** (p. 39):
-> "Theorem 6.1. Let E be an admissible class with E ⊂ E_max. The following decomposition holds, where x₀ runs over the points of X₀ with finite residue fields κ(x₀): {x₀ ∈ X₀ | (R^{>0})_{x₀} ≠ 1} = ⨿_{x₀} Γ^E_{x₀}. For any point x₀ ∈ Γ^E_{x₀} the isotropy group of x₀ is (R^{>0})_{x₀} = Nx₀^Z."
-> "Any periodic orbit γ in X₀ is contained in Γ^E_{x₀} for a uniquely determined point x₀ of X₀ with finite residue field."
-
-**(A12) The suspension carries the quotient topology — the on-disk warrant** (p. 63, §10):
-> "Consider the projection: π : X̃ = M × R^{>0} → X = M ×_Q R^{>0}. … R_X = (π_∗R_X̃)^Q ⊂ (π_∗C⁰_X̃)^Q = C⁰_X. … Note that in general the continuous bijection π|_{M×{u}} : M × {u} → π(M × {u}) will not be a homeomorphism if π(M × {u}) is equipped with the subspace topology of X."
-
-The identity `(π_∗C⁰_X̃)^Q = C⁰_X` is precisely the statement that a Q-invariant continuous function on X̃ descends to a *continuous* function on X — i.e. that X carries the quotient topology. Cross-check in [x-06] (`fetched/x-06-deninger-2024-primes-knots-and-periodic-orbits.pdf`, printed p. 11): "Set X₀ = (X̌₀(C) × R^{>0})/Q^{>0} where Q^{>0} acts diagonally."
-
-**(A13) The Q^{>0}-action is not properly discontinuous** (p. 49, end of §7):
-> "The Q^{>0}-action on Ȟ_{Etors} × R^{>0} is not properly discontinuous. In section 10, we will see that this works to our advantage."
-
-**(A14) Hausdorffness — upstairs yes, suspension not claimed** (pp. 45–46):
-> "Corollary 7.8. For any affine arithmetic scheme X₀ = spec R₀ there are a G-invariant metric d on X⃗(C) and a metric δ on X₀⃗(C) = X⃗(C)/G inducing the topology on X⃗(C) and the (quotient-)topology on X₀⃗(C). … The topological space X₀⃗(C) is metrizable and separable and in particular Hausdorff."
-> "Corollary 7.9. Let X₀ be an arithmetic scheme which carries an ample invertible sheaf. Then the spaces X⃗(C), X₀⃗(C), X̌(C) and X̌₀(C) are Hausdorff."
-And Proposition 7.7 (p. 44), which supplies the metric: "δ(xG, yG) = min_{σ,τ} d(x^σ, y^τ) = min_σ d(x^σ, y) = min_τ d(x, y^τ). The metric δ induces the quotient topology. In particular X/G is Hausdorff."
-
-Nothing anywhere in §7 asserts Hausdorffness of the suspension; Corollaries 7.8/7.9 stop at X̌₀(C). (This is the adjudicated G1 = NO; nothing here disturbs it.)
-
-**(A15) The (Tors) locus is dense, not closed** (p. 53, §9 and Proposition 9.1):
-> "Let X⃗(C)′ ⊂ X⃗(C) denote the subspace of points (x, P^×) where (ker P^×)_tors is a possibly infinite N₀-primary group. … We have X̌(C)_{Etors} ⊂ X̌(C)′ etc. and X̌(C)′ = X̌(C) etc. if N₀ = N.
-> Proposition 9.1. X⃗(C)′ is the topological closure of X⃗(C)_{Etors} in X⃗(C)."
-
-**(A16) Density of the generic stratum, and connectedness of the suspension** (pp. 54, 62):
-> "Theorem 9.2. Let η = spec K and η₀ = spec K₀ be the generic points of X resp. X₀. Then the fibres of X̌(C)_{Ef} and X̌₀(C)_{Ef} over η resp. η₀ are dense in X̌(C)′ resp. X̌₀(C)′."
-> "Corollary 9.7. Let X₀ be an integral normal scheme which is flat of finite type over spec Z and let E be an admissible condition with E ⊃ E_f. Then the spaces X = X̌(C)_E ×_{Q^{>0}} R^{>0} and X₀ = X̌₀(C)_E ×_{Q^{>0}} R^{>0} are connected. Proof. By Theorem 9.6 the spaces X_η and X_{0η₀} are connected. By Theorem 9.2 they are dense in X resp. X₀. Hence X and X₀ are connected as well."
-
-**(A17) Deninger asserts compactness of the packets, never closedness** ([x-03] printed p. 2; [x-06] printed p. 12):
-> [x-03] p. 2: "the closed points x₀ of X₀ correspond bijectively to compact packets Γ_{x₀} of periodic orbits of length log Nx₀ on X₀ = X̌₀(C) ×_{Q^{>0}} R^{>0}."
-> [x-03] p. 3: "The compact packets Γ_{x₀} are reminiscient of invariant tori. There are no fixed points of the flow."
-> [x-06] p. 12: "The compact subsets Γ_{x₀} ⊂ X₀ consist of periodic orbits of length log Nx₀ where Nx₀ = |κ(x₀)| (= |R₀/m₀|) and they are pairwise disjoint."
-
-**(A18) Morishita's topological wording** (`fetched-r3/r3s-08-morishita-deninger-cc-bridge-2508.15971.pdf`, printed pp. 17–18):
-> "Theorem 2.2.9 ([D7, Sections 5, 6, 7]). (1) We have the Q₊-equivariant homeomorphism Ẑ×_(p)/Np^Ẑ ×_{p^Z} Q₊ → C_p, and the R₊-equivariant homeomorphism Ẑ×_(p)/Np^Ẑ ×_{p^Z} R₊ → Γ_p, which is the mapping torus of the multiplication by lk_p(p) in Ẑ×_(p)/Np^Ẑ."
-> "(2) … So γ_{p,a} is a circle of length log Np and we have the decomposition into connected closed R₊-orbits Γ_p = ⊔_{a} γ_{p,a}."
+**Notation used in this report.** X₀ is the *scheme* (Deninger's base); 𝕏₀ is the *dynamical system* X̌₀(C)_E ×_{Q₀^{>0}} R^{>0}. [x-03] overloads "X₀" for both; the note inherits the overload, which is one reason (A1-concl)'s "char-p part" reads ambiguously. q : X̌₀(C)_E × R^{>0} ↠ 𝕏₀ is the suspension quotient map; π : X•(C) ↠ X•₀(C) and π̌ : X̌(C) ↠ X̌₀(C) are the Galois quotients; F_ν are the Frobenius endomorphisms.
 
 ---
 
-## 3. Task item (1): the exact topology on X₀ in which the closure is taken
+## 3. Task item (1)–(2): the exact topology on 𝕏₀, re-derived, and whether "pointwise convergence" describes it
 
-Assembled from (A1)–(A7), (A12). Four layers, applied in this order:
+The task memo points at "[x-03] §§3–5" for the topology. **That pointer is wrong and I did not use it**: §§3–5 are purely set-/monoid-theoretic (§3's Prop. 3.7 does put a topology on κ(x)^×, but that is the *source* of the characters, not the character space). The topology is built in **§7, pp. 40–47**, and the suspension's topology is used in **§§9–10, pp. 61–63**. The note cites §7 correctly.
 
-1. **One chart, upstairs.** For X₀ = Spec Z, X = Spec Z̄ is affine with R = Z̄ countable. X⃗(C) = the set of multiplicative maps P : Z̄ → C arising from pairs (x, P^×), with **the topology of pointwise convergence**, i.e. the subspace topology of the Tychonov product C^{Z̄}. Metrizable, and by Prop. 7.6 second countable and separable. X⃗(C)_E ⊂ X⃗(C) with the **subspace** topology (A6).
-2. **Quotient by G = Gal(Q̄/Q).** X₀⃗(C)_E = X⃗(C)_E/G with the **quotient** topology, which by Prop. 7.7 + Cor. 7.8 is induced by δ(π(P), π(P′)) = min_{σ∈G} d(P^σ, P′). G is profinite, hence compact, hence the minimum is attained: **π(P_n) → π(P) downstairs ⟺ ∃σ_n ∈ G with P_n^{σ_n} → P upstairs.** Note the direction: downstairs convergence is *strictly weaker* than upstairs convergence of any fixed choice of representatives.
-3. **Colimit over N₀ = N.** X̌₀(C)_E = colim_N X₀⃗(C)_E with the **inductive limit** topology; by Prop. 7.4a and (A6) each chart F_ν^{-1}(X₀⃗(C)_E) is **open** (and closed) in X̌₀(C)_E, the charts are directed by divisibility and cover, and F_ν is a homeomorphism of X̌₀(C)_E onto itself. Consequence used repeatedly below: **a net converges in X̌₀(C)_E if and only if it is eventually inside the (open) chart containing its limit and converges there** — i.e. after applying the homeomorphism F_ν, pointwise-mod-G in X₀⃗(C)_E.
-4. **Suspension.** X₀ = X̌₀(C)_E ×_{Q^{>0}} R^{>0} = (X̌₀(C)_E × R^{>0})/Q^{>0} with the **quotient** topology (A10 for the algebra, A12 for the topology; [x-06] p. 11 for the same in Deninger's own survey wording). Write q : X̌₀(C)_E × R^{>0} → X₀ for the quotient map. **q is open**, because Q^{>0} acts by homeomorphisms (Prop. 7.4b upstairs, translation on the R^{>0}-factor), so q^{-1}(q(U)) = ⋃_{r∈Q^{>0}} U·r is open. **q is not proper and does not reflect convergence**: the Q^{>0}-action is *not properly discontinuous* (A13).
+### 3.1 The affine chart: pointwise convergence, verbatim
 
-**Recorded as finding F5 (MINOR):** [x-03] never states in §6 which topology X₀ carries; the note says only "(implicit throughout §§8, 10 …)". The on-disk warrant is (A12) — §10 p. 63's identity `(π_∗C⁰_X̃)^Q = C⁰_X`, which is equivalent to "quotient topology" — together with [x-06] p. 11. Since the ⊆ proof below is exactly a continuity statement on X₀, this citation is load-bearing and must be made explicitly: a topology on X₀ strictly coarser than the quotient topology would invalidate it. (Any topology *finer* than the quotient topology would leave the proof intact, so the risk is one-sided and is closed by (A12).)
+[x-03] p. 40, §7 opening:
 
----
+> "We begin with the affine case X₀ = spec R₀ and write X = spec R. Viewing X•(C) as a set of multiplicative maps P : R → C as in Remark 3.4 we give X•(C) the topology of pointwise convergence. It is the subspace topology induced by the Tychonov topology of C^R = ∏_R C on X•(C) via the inclusion X•(C) ⊂ C^R, P ↦ (P(r))_{r∈R}. Since R is countable, X•(C) is a metrizable topological space."
 
-## 4. Task item (2): is "pointwise convergence of characters" the right description?
+So on the affine chart, and *only* there to begin with, "pointwise convergence of multiplicative maps" is exactly right, and the space is metrizable — sequences suffice.
 
-**Answer: no, in three separate ways, and the note's phrase "the same pointwise evaluation" silently assumes all three away.** The colimit is indeed finer than a naive pointwise description; the two group quotients are coarser. The net effect is that the ⊇ direction is unaffected and the ⊆ direction is unreachable by that instrument as the note wields it.
+Two facts proved immediately afterwards will be used repeatedly.
 
-**(2a) Finer, layer 1 → 3: the colimit charts are open, so "denominators" cannot run away.** A net z_α in X̌₀(C)_E converging to z must eventually lie in *one* chart F_ν^{-1}(X₀⃗(C)_E) containing z, and converge there. So a family of points whose Frobenius denominators ν_α are unbounded in the divisibility order can never converge to a point of X₀⃗(C)_E, no matter how well any system of representatives converges pointwise. Any "pointwise" description of convergence in X̌₀(C)_E must therefore be *chart-relative*: it is pointwise convergence of F_ν(z_α) → F_ν(z), for one ν that works for the tail. The note never fixes a chart; its Theorem A does not need to (all of Step 3 happens in the single chart X₀⃗(C)_E, and this is why Theorem A is safe), but a claim about *all* limits of *all* nets does need to.
+[x-03] p. 40, **Lemma 7.1** and its proof, verbatim:
 
-**(2b) Finer, layer 1: the E-locus carries the subspace topology inside X⃗(C), and is not closed there.** A net of E-points can converge pointwise in C^{Z̄} to a multiplicative map that is a perfectly good point of X⃗(C) but violates (Tors) and so is not in X⃗(C)_E. This is not a rare pathology: by Prop. 9.1 with N₀ = N (A15), X⃗(C)_{Etors} is **dense** in X⃗(C). So pointwise-limit reasoning must always be accompanied by the check "and the limit is still in the space" — which is (2b) below in §5, and which the note does perform, if incompletely.
+> "Lemma 7.1. For affine arithmetic schemes X₀, the natural map pr_X : X•(C) → X, (x, P^×) ↦ x or P ↦ p = P^{-1}(0) is continuous.
+> *Proof.* A closed subset A of X has the form A = {p ⊃ I} for some ideal I in R. Consider a convergent sequence P_n → P in X•(C) where P_n ∈ pr_X^{-1}(A) for all n, i.e. p_n = P_n^{-1}(0) ⊃ I. Since P_n(r) → P(r) for all r ∈ R, it follows that P(r) = 0 for r ∈ I and hence p = P^{-1}(0) ⊃ I i.e. P ∈ pr_X^{-1}(A). Hence pr_X^{-1}(A) is closed and therefore pr_X is continuous."
 
-**(2c) Coarser, layers 2 and 4: neither quotient reflects convergence.** Downstairs convergence in X₀⃗(C)_E means pointwise convergence *after an unknown, β-dependent Galois twist* (A14, Prop. 7.7's metric). And convergence in the suspension X₀ does not lift at all to convergence in X̌₀(C)_E × R^{>0}: quotient maps by non-properly-discontinuous actions (A13) do not reflect convergence. The best available lifting statement is:
+[x-03] p. 41, **Lemma 7.2**: "The space X′•(C) is an open subspace of X•(C)" for an open affine X′₀ ⊂ X₀.
 
-> **Lemma O.0 (net lifting through an open quotient).** Let q : Y → Z be a continuous open surjection, (z_α) a net in Z with z_α → z, and y ∈ q^{-1}(z). Then there are a subnet (z_β) and points y_β ∈ q^{-1}(z_β) with y_β → y.
-> *Proof.* Direct the set D of pairs (α, U), U an open neighborhood of y with z_α ∈ q(U), by (α,U) ≤ (α′,U′) iff α ≤ α′ and U ⊇ U′. D is nonempty and directed: for any U ∋ y open, q(U) is an open neighborhood of z, so z_α ∈ q(U) for all large α. For (α,U) ∈ D pick y_{(α,U)} ∈ U ∩ q^{-1}(z_α). Then (y_{(α,U)}) is a subnet-indexed family with q(y_{(α,U)}) = z_α and y_{(α,U)} → y. ∎
+### 3.2 Gluing to a general arithmetic scheme, and the Galois quotient
 
-This costs a subnet and, crucially, lets one *choose* the fibre point y to converge to — it does not say that a given approximating net converges upstairs. Everything the note wants to compute upstairs must pass through Lemma O.0 or through an argument that never leaves the quotient. The note does neither.
+[x-03] pp. 41–42: for a general arithmetic scheme, "We give X•(C) the topology for which O ⊂ X•(C) is open if and only if O ∩ X′•(C) is open in X′•(C) for any X′₀", and it suffices to test on one affine open cover. Then p. 42, verbatim:
 
-**Where a subnet limit "exists pointwise but not in X₀", and conversely** — the two failure modes the task asks about, both real:
-* *Pointwise but not in X₀*: the escaping (Tors)-violating limits of §5. These are limits in C^{Z̄} (and even in X⃗(C)) which are not points of X̌₀(C)_E at all.
-* *In X₀ but not pointwise*: any pair of limits produced by the adjudicated Corollary A.2 construction. The sequence z_k = [P₀, n_k v] converges in X₀ both to [(x,χ^c), v] and to [P₀, w*]; upstairs, the single sequence (P₀, n_k v) converges to nothing, and the two limits are obtained from *different* choices of Q^{>0}-representative. That is exactly the non-Hausdorffness, and it is the clearest possible demonstration that "convergence in X₀" is not "pointwise convergence of characters" in any naive sense.
+> "Let G = Aut_{K₀}(K). We equip X•₀(C) = X•(C)/G with the quotient topology. Using Lemma 7.1 one sees that pr_X : X•(C) → X and hence also pr_{X₀} : X•₀(C) → X₀ are continuous."
 
-**Structural remark worth banking (new here, small):** X̌₀(C) is **Hausdorff** for X₀ = Spec Z — Spec Z is affine, hence carries an ample invertible sheaf, so Cor. 7.9 (A14) applies. Hence limits in X̌₀(C)_E are unique, and *all* of the non-Hausdorffness of the adjudicated Cor. A.2 is created by the last quotient, the suspension. This is why §6's proof, which works one level down in X̌₀(C)_E, is clean, and why any proof attempted at the level of X₀ has to fight the pathology.
+### 3.3 The colimit: the charts are clopen, so the colimit topology restricts to pointwise convergence
 
----
+[x-03] p. 42, **Lemma 7.3**: G acts by homeomorphisms and "the injective maps F_ν : X•(C) ↪ X•(C) for ν ∈ N are continuous, closed and open. In particular F_ν(X•(C)) is closed and open in X•(C)."
 
-## 5. Task item (3): the "leaves the space" claim — what excludes the bad limits, and does it matter
+[x-03] p. 43, verbatim:
 
-**What the note's sketch actually computes, done correctly.** Fix a prime p, a point x ∈ X = Spec Z̄ over (p), so κ(x) = F̄_p and κ(x)^× = μ^{(p)} = ⋃_{l≠p} μ_{l^∞}, and a character P₀^× : μ^{(p)} → C^× with finite kernel (A8). Write P₀ : Z̄ → C for the associated multiplicative map: P₀(r) = 0 for r ∈ p̄_x = the prime of Z̄ under x, and P₀(r) = P₀^×(r̄) otherwise. Every value P₀(r) is a root of unity of order prime to p (μ^{(p)} is torsion of prime-to-p order and a homomorphic image of a torsion group is torsion). By (34) [x-03] p. 32, Aut(μ^{(p)}) = Ẑ×_(p) with Ẑ_(p) = ∏_{l≠p} Z_l, and for any b ∈ Ẑ_(p) the map ( )^b : μ^{(p)} → μ^{(p)} is defined; write P₀^b : Z̄ → C, r ↦ P₀(r)^b (with 0 ↦ 0). Then:
+> "We give X̌(C) = colim_{N₀} X•(C) the inductive limit topology. It is the finest topology such that for all ν ∈ N₀ the inclusions F_ν^{-1}|_{X•(C)} : X•(C) ↪ X̌(C) are continuous. Thus Z ⊂ X̌(C) is closed, resp. open if and only if F_ν(Z) ∩ X•(C) is closed, resp. open in X•(C) for all ν ∈ N₀."
 
-> **Proposition O.5 (the corrected content of the note's parenthesis).**
-> **(a)** The map Ẑ_(p) → C^{Z̄}, b ↦ P₀^b, is continuous and injective; Ẑ_(p) is compact and C^{Z̄} is Hausdorff, so it is a homeomorphism onto its image, and that image is compact.
-> **(b)** F_n(P₀) = P₀^{ι(n)} where ι : N → Ẑ_(p) is the canonical map, and ι(N) is dense in Ẑ_(p). Hence the closure of {F_n(P₀) : n ∈ N} in C^{Z̄} is exactly {P₀^b : b ∈ Ẑ_(p)} ≅ Ẑ_(p).
-> **(c)** P₀^b satisfies (Tors) **iff** ker(( )^b : μ^{(p)} → μ^{(p)}) is finite **iff** b ∈ ⋃_{ν ∈ N, p∤ν} ν·Ẑ×_(p). In that case b = νa with a ∈ Ẑ×_(p), and P₀^b = F_ν(P₀^a).
-> **(d)** Therefore the set of limit points of the sequence (F_n(P₀))_n *in X⃗(C)_{Etors}* is {F_ν(P₀^a) : ν ∈ N prime to p, a ∈ Ẑ×_(p)}; all of these lie over the same x, and their images in X₀ satisfy [F_ν(P₀^a), u] = [P₀^a, νu], hence lie on the packet orbits. Every other subnet limit exists in C^{Z̄} (indeed in X⃗(C)) but not in X⃗(C)_{Etors}.
+> "Proposition 7.4. a) X•(C) is a closed and open subspace of X̌(C). b) F_q : X̌(C) → X̌(C) is a homeomorphism for every q ∈ Q₀^{>0}. c) The group G acts by homeomorphisms on X̌(C)."
 
-*Proofs.* (a) For fixed r with P₀(r) of multiplicative order m (prime to p), b ↦ P₀(r)^b is locally constant on Ẑ_(p) (it factors through Ẑ_(p) → Z/m), hence continuous; continuity into the product follows. Injectivity: if P₀^b = P₀^{b′} then c := b − b′ annihilates the image P₀^×(μ^{(p)}) = μ^{(p)}/ker P₀^×, which is again a group of type μ^{(p)} (a divisible torsion group modulo a finite subgroup), and the only element of Ẑ_(p) annihilating μ^{(p)} is 0. (b) F_n(P₀)(r) = P₀(r)^n and P₀(r) has prime-to-p order, so only ι(n) matters; N surjects onto Z/M for every M prime to p, so ι(N) is dense in Ẑ_(p) = lim_M Z/M. Now (a) makes the image compact, hence closed, and it contains the dense-in-itself image of N. (c) ( )^b acts on the l-primary component μ_{l^∞} as raising to b_l, with kernel μ_{l^{v_l(b_l)}} (all of μ_{l^∞} when b_l = 0). The total kernel ⊕_{l≠p} μ_{l^{v_l(b_l)}} is finite iff every v_l(b_l) < ∞ and v_l(b_l) = 0 for almost all l, i.e. iff b = νa with ν = ∏_l l^{v_l(b_l)} ∈ N prime to p and a ∈ Ẑ×_(p). Then ker(P₀^{×b}) = (( )^b)^{-1}(ker P₀^×) has order ν·|ker P₀^×| ∈ N = N₀, so (Tors) holds; conversely infinite kernel violates (Tors). (d) is (b)+(c) plus the suspension relation from (A10). ∎
+> "We give X̌₀(C) = X̌(C)/G the quotient topology. Then X̌₀(C) is homeomorphic to colim_{N₀} X•₀(C) with the inductive limit topology. The projections π : X•(C) → X•₀(C) and π̌ : X̌(C) → X̌₀(C) are continuous and since G acts by homeomorphisms, also open. Moreover the projections pr_X : X̌(C) → X and pr_{X₀} : X̌₀(C) → X₀ are continuous."
 
-**Answers to the three sub-questions of task item (3).**
+**Consequence I derive (this is the honest answer to task item (2)).** By Prop. 7.4 a) plus b), each chart U_ν := F_ν^{-1}(X•(C)) is **open and closed** in X̌(C), and the U_ν form an increasing directed family covering X̌(C). Therefore:
 
-* **What excludes the bad limits: (Tors), i.e. the class.** Not the topology. A limit P₀^b with infinite ker(( )^b) is a perfectly good point of X⃗(C) — multiplicative, with P^{-1}(0) = p̄_x — it merely fails (Tors), which every admissible E requires by Definition 4.1 (A8). For E ⊊ E_tors the exclusion can bite earlier (E itself may fail), but (Tors) is the universal mechanism. The topology's only role is to make "limit" mean something, and it does so through the **subspace** topology of X⃗(C)_E inside X⃗(C) (A6) plus the Hausdorffness of the ambient C^{Z̄}: a net converging in C^{Z̄} to a point outside X⃗(C)_E cannot converge in X⃗(C)_E to anything. The note's "they leave the space" is therefore correct in substance but does not say *which* space, and does not supply the ambient-Hausdorff step that turns "the natural limit is outside" into "there is no limit inside". Both belong in the replacement text.
-* **Is the "zero component" the only failure mode? No** — finding F3 (MINOR). The note writes "limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors)". By O.5(c) the (Tors) locus in Ẑ_(p) is ⋃_{p∤ν} νẐ×_(p), whose complement also contains every b with all components nonzero but infinitely many of positive valuation. Explicit witness: **b = (b_l)_{l≠p} with b_l = l for every l ≠ p.** Every component is nonzero, yet ker(( )^b) = ⊕_{l≠p} μ_l is infinite, so P₀^b violates (Tors) and is not a point of X̌₀(C)_E. The note's characterization of the escaping set is thus incomplete, and its "so they leave the space" happens to still be true for the cases it names, but for a reason it states too narrowly.
-* **Does it matter for the closure computed in X₀? No, and this is worth being precise about.** X₀ is built from X̌₀(C)_E and nothing else; points violating (Tors) are simply not in X₀, so they cannot be in cl_{X₀}(γ) whatever they do in C^{Z̄}. The escaping-limits analysis is therefore *not needed* for the ⊆ direction at all. Its only genuine role is negative: it shows that the naive "compactify Ẑ_(p) and read off the closure" picture is wrong, because the compactification adds points that are not in the space — which is exactly why the closure has to be computed by a method that never leaves X₀. §6 gives such a method. (And note the ambient warning from (A15): the (Tors) locus is *dense* in X⃗(C), so "escaping" is generic, not exceptional.)
+- **(T1)** For U open, cl_{X̌}(A) ∩ U = cl_U(A ∩ U). Hence closures in X̌(C) are computed chart-by-chart, and inside a chart the topology is (a Frobenius transport of) pointwise convergence. In this precise sense the colimit topology is **not finer than pointwise convergence on any chart** — it agrees with it there.
+- **(T2)** Every net in X̌(C) that converges to z ∈ U_ν is **eventually in U_ν** (U_ν is an open neighborhood of z) and converges there. Hence no net inside one chart can "escape" the chart in the limit, and — since U_ν is also *closed* — no net inside U_ν can converge to a point outside U_ν either. So the colimit topology creates **no new limits and destroys none**: the "finer colimit vs. pointwise" worry that the task memo raises is real in general but **does not arise here**, because Deninger's charts are clopen and his Frobenii are homeomorphisms onto clopen images.
 
----
+[x-03] p. 47 extends all of this to the E-loci, verbatim:
 
-## 6. Task item (4) and the repair: the closure meets no other stratum, because packets are closed
+> "Given an admissible class E as in Definition 4.1 we equip X•(C)_E and X•₀(C)_E with the subspace topologies of X•(C) and X•₀(C). … We give X̌(C)_E = colim_{N₀} X•(C)_E and X̌₀(C)_E = colim_{N₀} X•₀(C)_E the inductive limit topologies. They agree with the subspace topologies via X̌(C)_E ⊂ X̌(C) and X̌₀(C)_E ⊂ X̌₀(C) because the subspaces F_ν^{-1}X•(C) and F_ν^{-1}X•₀(C) are open in X̌(C) resp. X̌₀(C) for all ν ∈ N₀. … **All preceding results in this section remain true if we replace X•(C) etc. by X•(C)_E etc.**"
 
-### 6.1 Proposition O.1 — every packet is a closed subset of the suspension
+That last sentence is the licence for using Lemma 7.1, Lemma 7.3, Prop. 7.4 and the continuity of pr_{X₀} in the E-setting. It is quoted here because the whole repair below leans on it.
 
-> **Proposition O.1.** Let X₀ be an arithmetic scheme ([x-03] §7: integral normal with countable function field K₀), C algebraically closed satisfying the conditions before Cor. 4.4, E an admissible class (Def. 4.1), and X₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0} the suspension with its quotient topology. Let x₀ be a point of X₀ with finite residue field. Then
-> **Γ^E_{x₀} is a closed, flow-invariant subset of X₀**, and the packets, together with the union of all the other strata, partition X₀ into fibres of a continuous flow-invariant map onto the scheme X₀.
+### 3.4 The suspension: which topology, and what warrants it
 
-*Proof.* Five steps, each with its anchor.
+[x-03] §6 p. 38 defines the suspension **as a set**:
 
-**Step 1 (a continuous map from the suspension to the base scheme).** By (A5)+(A6), pr_{X₀} : X̌₀(C)_E → X₀ is continuous, the target carrying the **Zariski** topology (this is what Lemma 7.1's proof means by "a closed subset A of X has the form A = {p ⊃ I}", (A2)). By (A7) it is Q₀^{>0}-invariant: pr_{X₀}(F_q(P₀)) = pr_{X₀}(P₀) for all q ∈ Q₀^{>0}. Hence the composite
+> "consider the suspension X₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0}. It is the quotient of X̌₀(C)_E × R^{>0} by the right Q₀^{>0}-action given by (P₀, u)q = (P₀q, q^{-1}u) = (F_q(P₀), q^{-1}u) for q ∈ Q₀^{>0}."
 
-  X̌₀(C)_E × R^{>0} → X̌₀(C)_E → X₀,  (P₀, u) ↦ pr_{X₀}(P₀)
+No topology is named there, and I could find no sentence anywhere in [x-03] that says "we give the suspension the quotient topology" (I grepped the whole extraction for "quotient topology": it occurs on pp. 43, 44, 47, 49, 60, 61 — never for the suspension). This is a genuine, if small, gap in the note's §3.1, which calls the quotient topology "implicit". The warrants that do exist, all read this session:
 
-is continuous and constant on Q₀^{>0}-orbits, since (P₀,u)q = (F_q(P₀), q^{-1}u). Because X₀ carries the quotient topology (A12), the universal property of quotient maps yields a **continuous** map
+1. **[r3s-08] p. 14, verbatim, for the identical construction** — the strongest warrant, and it is explicit:
+   > "We equip X_K twith he quotient topology of the product X̌_K(C) × R₊." (the transposition "twith he" is in the source)
+2. **[x-03] p. 61**, in the connectedness proof: after showing that the composition pr_X^{-1}(η) × R^{>0} ↠ pr_X^{-1}(η) ↠ Q₀^{>0}Ẑ^× is open, Deninger concludes "Since Q₀^{>0} acts by homeomorphisms on these spaces, we obtain a continuous open and surjective map π : X_η ↠ Y := Q₀^{>0}Ẑ^×/Q₀^{>0}." Deducing *continuity* of a map out of the suspension from continuity of its lift is exactly the universal property of the quotient topology; the step is invalid for any strictly coarser topology.
+3. **[x-03] p. 63, §10**, for π : X̃ = M × R^{>0} → X = M ×_Q R^{>0}: "R_X = (π_∗R_X̃)^Q ⊂ (π_∗C⁰_X̃)^Q = C⁰_X" — the displayed identification of the sheaf of continuous functions downstairs with the Q-invariant continuous functions upstairs. Same page, the caution that matters for §8 below: "in general the continuous bijection π|_{M×{u}} : M × {u} → π(M × {u}) will not be a homeomorphism if π(M × {u}) is equipped with the subspace topology of X."
+4. **[x-06] p. 11**: "Set X₀ = (X̌₀(C) × R^{>0})/Q^{>0} where Q^{>0} acts diagonally."
 
-  **Π : X₀ → X₀,  Π([P₀, u]) = pr_{X₀}(P₀),  with Π ∘ q = pr_{X₀} ∘ pr₁.**
+**Adopted, and flagged:** 𝕏₀ carries the quotient topology. Everything in §4 consumes this and nothing else about the suspension. If a future reader ever wants a *coarser* topology on 𝕏₀ (nobody in the program does), Proposition O.1 must be re-checked — see F5 and the scope note in §10.
 
-**Step 2 (Π is flow-invariant).** φ^t[P₀,u] = [P₀, ue^t] (A10), so Π ∘ φ^t = Π. Hence every fibre of Π is flow-invariant.
+### 3.5 Two properties of q that the item actually needs
 
-**Step 3 (a point with finite residue field is closed in X₀).** Let U = Spec A be an affine open containing x₀, corresponding to a prime p ⊂ A with Frac(A/p) = κ(x₀) finite. A/p is a domain contained in its finite fraction field, hence a finite domain, hence a field; so p is maximal and {x₀} is closed in U. Now let y ∈ cl_{X₀}({x₀}) and pick an affine open V ∋ y. Every open neighborhood of y meets {x₀}, so x₀ ∈ V; by the affine argument applied in V, {x₀} is closed in V, whence y = x₀. So **{x₀} is closed in X₀**. (For X₀ = Spec Z this is the statement that the maximal ideals (p) are closed points, and the generic point (0) is not among them.)
+- **q is open.** Q₀^{>0} acts on X̌₀(C)_E by homeomorphisms (Prop. 7.4 b) + p. 47), so for U open the saturation q^{-1}q(U) = ⋃_q U·q is open, hence q(U) is open. ✓
+- **q is not proper, and the action is not properly discontinuous.** [x-03] p. 49, verbatim: "The Q^{>0}-action on Ȟ_{Etors} × R^{>0} is not properly discontinuous. In section 10, we will see that this works to our advantage." So q does **not** reflect convergence: a convergent net downstairs need not lift to a convergent net upstairs. This is precisely why the note's instrument (compute limits upstairs, at a fixed prime, of one sequence of characters) cannot by itself compute cl_{𝕏₀}(γ) — finding F1.
 
-**Step 4 (the packet is a fibre of Π).** By (A9), C_{x₀} = pr_{X₀}^{-1}(x₀) computed inside X̌₀(C)_{Etors} — Deninger names it as the fibre, and the identification is immediate: every element of X̌₀(C)_{Etors} = colim_{N₀}X₀⃗(C)_{Etors} is F_ν^{-1}(z) with z ∈ X₀⃗(C)_{Etors}, and pr_{X₀}(F_ν^{-1}z) = pr_{X₀}(z) by (A7), so pr_{X₀}^{-1}(x₀) = ⋃_{ν∈N₀}F_ν^{-1}(pr₀^{-1}(x₀)) = C_{x₀}. Since E is admissible its characters satisfy (Tors) (A8), so X̌₀(C)_E ⊆ X̌₀(C)_{Etors} and therefore
+What *does* survive is the closure identity for open quotient maps, which I will use in the second proof:
 
-  C^E_{x₀} = C_{x₀} ∩ X̌₀(C)_E = pr_{X₀}^{-1}(x₀) computed inside X̌₀(C)_E.
+> **Lemma O.0 (open-map closure identity).** If f : Y → Z is continuous, surjective and open, then f^{-1}(cl_Z A) = cl_Y(f^{-1}A) for every A ⊆ Z.
+> *Proof.* f^{-1}(cl A) is closed and contains f^{-1}A, so it contains cl(f^{-1}A). Conversely let y ∉ cl(f^{-1}A); pick U ∋ y open with U ∩ f^{-1}A = ∅. Then f(U) is open, contains f(y), and misses A (if a ∈ f(U) ∩ A, write a = f(u) with u ∈ U; then u ∈ U ∩ f^{-1}A). So f(y) ∉ cl A, i.e. y ∉ f^{-1}(cl A). ∎
 
-C^E_{x₀} is Q₀^{>0}-stable, so q^{-1}(Γ^E_{x₀}) = C^E_{x₀} × R^{>0} = q^{-1}(Π^{-1}(x₀)); as q is surjective, **Γ^E_{x₀} = Π^{-1}(x₀)**.
+Applying Lemma O.0 to q and to γ, whose q-preimage is q^{-1}(γ) = O(P₀) × R^{>0} with O(P₀) = {F_r P₀ : r ∈ Q₀^{>0}} the full Q₀^{>0}-orbit:
 
-**Step 5 (conclusion).** {x₀} is closed in X₀ (Step 3), Π is continuous (Step 1), so Γ^E_{x₀} = Π^{-1}(x₀) is closed in X₀; flow-invariance is Step 2. ∎
+  **cl_{𝕏₀}(γ) = q( cl_{X̌₀(C)_E}(O(P₀)) × R^{>0} ).**  (★)
 
-**Second proof of the key closedness, by pointwise evaluation, for X₀ = Spec Z** — recorded because the task asks whether the note's chosen instrument can be made to work. It can, but the evaluation must be performed at a rational prime, not at roots of unity. It suffices to show C^E_{(p)} is closed in X̌₀(C)_E, since then Lemma O.0 finishes: given z ∈ cl_{X₀}(γ) and any representative (Q,v) ∈ q^{-1}(z), lift a net from γ to obtain P_β → Q with P_β ∈ q^{-1}(γ)'s first coordinate = Q^{>0}P₀ ⊂ C^E_{(p)}, so Q ∈ cl(C^E_{(p)}) = C^E_{(p)} and z ∈ Γ^E_{(p)}. To see C^E_{(p)} closed: let P_β → Q in X̌₀(C)_E with P_β ∈ C^E_{(p)}. The chart F_ν^{-1}(X₀⃗(C)_E) containing Q is open (A4/A6), so the net is eventually inside it, and applying the homeomorphism F_ν we may assume P_β, Q ∈ X₀⃗(C)_E (F_ν preserves the fibre of pr_{X₀}, by (A7)). By Cor. 7.8's metric (A14) there are σ_β ∈ G with R_β := (representative of P_β)^{σ_β} → R (a representative of Q) **pointwise on Z̄**. Each R_β lies over a point of X above the prime p, so R_β(p) = 0 for every β; pointwise convergence at the single element r = p ∈ Z̄ gives R(p) = 0, i.e. p ∈ R^{-1}(0), i.e. R lies over (p). Hence Q ∈ C^E_{(p)}. ∎ This is Lemma 7.1's proof, evaluated at one element; it is the whole content, and it is what "the same pointwise evaluation" *should* have meant.
-
-### 6.2 Theorem O.2 — the converse inclusion, and the equality
-
-> **Theorem O.2.** Let X₀ = Spec Z, E admissible, p a prime, and γ ⊂ Γ^E_p a periodic orbit (a circle of length log p, Thm 6.1). Then
->   **cl_{X₀}(γ) ⊆ Γ^E_p**, and combined with the banked Theorem A (⊇), **cl_{X₀}(γ) = Γ^E_p.**
-> More generally, for any arithmetic scheme X₀ and any x₀ with finite residue field, cl_{X₀}(S) ⊆ Γ^E_{x₀} for every subset S ⊆ Γ^E_{x₀}.
-
-*Proof.* γ ⊆ Γ^E_p and Γ^E_p is closed (Proposition O.1); closure is monotone and idempotent on closed sets. The equality is Theorem A, adjudicated at referee grade with three independent derivations (`probe-9.3-adjudication.md` §2, §4 item 1). ∎
-
-**This settles task item (4) completely.** cl(γ) meets no other stratum:
-* not the **generic stratum** Π^{-1}(η₀): Π(cl(γ)) = {(p)} ∌ η₀;
-* not **another prime's packet** Γ^E_{p′}, p′ ≠ p: distinct closed points of Spec Z;
-* not, for a general higher-dimensional arithmetic X₀, **another closed point over the same rational prime**: distinct points of X₀, each closed by Step 3, so separated by Π. (The note's phrase "the char-p part" is ambiguous exactly here, and the ambiguity is now void.)
-* and not any point outside X₀'s E-locus, since X₀ is built from X̌₀(C)_E only.
-
-**Sanity checks against the adjudicated record — all pass.**
-1. *No conflict with the non-Hausdorffness (adjudication §3, Cor. A.2).* Both limits produced there, [(x,χ^c),v] and [P₀,w*], lie inside Γ^E_p. Closedness of the packet and non-Hausdorffness *of* the packet are independent; the packet's own subspace topology is non-Hausdorff and the packet is closed in X₀.
-2. *No conflict with "no periodic orbit is closed" (adjudication §4 item 3).* Orbits are not closed; packets are. Theorem A says each orbit is dense in its packet, so an orbit is closed iff its packet is a single orbit, which by uncountability of B_p = Ẑ×_(p)/p^Ẑ never happens for E ⊇ E_f.
-3. *No conflict with connectedness (Cor. 9.7, (A16)).* For X₀ flat of finite type over Spec Z and E ⊇ E_f — in particular for X₀ = Spec Z and every E in the certified window — Γ^E_p is closed but has **empty interior**: the generic stratum is dense in X₀ (Thm 9.2 together with Cor. 9.7's proof, (A16)) and is disjoint from Γ^E_p. So Γ^E_p is closed and nowhere dense; X₀ stays connected. Had the packet been *clopen*, connectedness would have been contradicted — this is a genuine consistency test and the theorem passes it. Note the asymmetry that makes all of this coherent: cl({η₀}) = Spec Z, so limits may pass from the generic stratum into the packets (and by Thm 9.2 they do), but never out of a packet, since cl({(p)}) = {(p)}.
-4. *No conflict with Theorem 7.10's "not homeomorphisms in general" (p. 47).* Theorem 7.10 exhibits the disjoint-union decomposition only as a continuous bijection; Proposition O.1 recovers exactly one topological consequence of that decomposition — closedness of the char-x₀ pieces — and *not* their openness, which is precisely the part that fails (openness of all pieces would disconnect X₀).
-
-### 6.3 Corollaries now available
-
-> **Corollary O.3 (Corollary A.1's headline, now proved).** Γ^E_{x₀}, when nonempty, is a **minimal set** of the flow on X₀: nonempty, closed (O.1), flow-invariant (O.1), and every orbit in it is dense in it (Theorem A). Hence it contains no proper nonempty closed invariant subset, and it *is* the smallest closed invariant set containing any one of its orbits, and it is the orbit closure of each of its points.
-
-> **Corollary O.4 (Deninger's "compact packets", verified for E ⊇ E_f).** For E ⊇ E_f one has C^E_{x₀} = C_{x₀} (Thm 5.2, (A10)) and Γ_{x₀} is compact. *Proof.* Let Σ = pr_{X₀}^{-1}(x₀) ∩ X₀⃗(C)_{p,in} be the "ρ = 1" slice (Prop. 5.1, p. 34: ρ(Q̌) = 1 iff Q̌ = (x,Q^×) with Q^× injective on μ(κ(x))). Upstairs, the fibre of pr_X over a fixed x ∈ X above x₀ intersected with X⃗(C)_{in} is, via a ↦ χ_x ∘ ( )^a, the continuous injective image of the compact group Ẑ×_(p) = ∏_{l≠p} Z_l^× (closed in the compact Ẑ_(p)); the map is continuous by the argument of O.5(a) and lands in the Hausdorff X⃗(C), hence is a homeomorphism onto its image, which is therefore compact. Σ is its image under the continuous π, hence compact. F_p restricts to a homeomorphism of the characteristic-p locus (p. 46, verbatim: "the Frobenius endomorphisms F_p of X⃗(C) and X₀⃗(C) restrict to homeomorphisms F_p of X⃗(C)_p and X₀⃗(C)_p") and preserves Σ, so Γ_{x₀} = q(Σ × [1, Nx₀]) is a continuous image of a compact set, hence compact. ∎ Together with O.1: for E ⊇ E_f the packets are **compact, closed, nowhere dense, non-Hausdorff, flow-invariant minimal sets**. For a general admissible E, O.1 (closed) still holds; compactness needs the E-locus to be closed in Σ and is not claimed.
-
-> **Corollary O.6 (the Morishita flag, sharpened — see F6).** With O.1 + Theorem A + adjudication Cor. A.2: in the subspace topology of X₀, Γ_p is closed and compact but **not Hausdorff**, and its orbits γ_{p,a} are **not closed** (each is dense in Γ_p). Hence [r3s-08] Thm 2.2.9(1)'s "R₊-equivariant homeomorphism Ẑ×_(p)/Np^Ẑ ×_{p^Z} R₊ → Γ_p" (printed p. 17) is false if Γ_p carries the subspace topology of X₀ — the source is compact Hausdorff and the target is not Hausdorff — and 2.2.9(2)'s "decomposition into connected closed R₊-orbits" (printed p. 18) is false in that topology. Both are correct as *model* descriptions of the underlying R₊-set, which is what [x-03] (38)–(39) and §6 supply (Deninger says **bijection**, verbatim in (A10)).
+(The product splits because cl(A × R^{>0}) = cl A × R^{>0}.) Equation (★) is the *correct* upstairs reduction. Note what it says: the relevant upstairs object is the closure of the **entire Q₀^{>0}-orbit** in the **whole colimit**, not the closure of the sequence {F_n P₀} in one chart. That is finding F1 in one line.
 
 ---
 
-## 7. Break attempts (mandated: try to falsify what I just proved)
+## 4. The repair, first proof: packets are fibres of a continuous map to the scheme
 
-I tried four routes to a counterexample; all fail, and each failure localizes exactly one hypothesis.
+This is the short, complete, chart-free argument. It answers task items (3), (4) and (5) at once, because a fibre of a continuous map is closed, disjoint from every other fibre, and computed globally.
 
-1. **Attack the topology on X₀.** If X₀ carried a topology strictly *coarser* than the quotient topology, Π could fail to be continuous and packets could fail to be closed. Closed by (A12): §10 p. 63's `(π_∗C⁰_X̃)^Q = C⁰_X` forces the quotient topology, and [x-06] p. 11 writes the suspension as a quotient outright. Any *finer* topology leaves the proof intact. **No counterexample.**
-2. **Attack Step 3 with a non-closed point of finite residue field.** If some x₀ with κ(x₀) finite were not closed in X₀, its packet would be Π^{-1}(x₀) with {x₀} non-closed and the argument would stall. Step 3 shows this cannot happen in *any* scheme: a prime with finite residue field is maximal in every affine chart, and closedness globalizes. **No counterexample.**
-3. **Attack Step 4 by finding a packet point not in the fibre, or a fibre point not in the packet.** This is where a real gap could hide: the packet is defined in [x-03] via the parametrizations (35)–(39), and one might fear Γ^E_{x₀} is a proper subset of the fibre (e.g. only the "unit-exponent" twists). It is not: (A9) defines C_{x₀} as pr₀^{-1}(x₀)Q₀^{>0}, i.e. as the full Q^{>0}-saturated fibre, and Deninger's own opening sentence calls it the fibre. The parametrization (38) is then a *theorem about* the fibre, not its definition. **No counterexample.** (Had the packet been defined as a proper subset of the fibre, the honest verdict would have been ⊆ *fibre* only, and the ⊆ direction would be open. It is worth stating explicitly that this hinged on a definitional reading, and that the reading was checked verbatim.)
-4. **Attack via a limit that "changes characteristic".** Concretely: can a net in Γ^E_p converge in X₀ to a generic-stratum point? By Theorem 9.2/Cor. 9.7 the generic stratum is dense, so generic points sit arbitrarily close to packet points; the question is whether the *limit* can be generic. It cannot: evaluation at r = p is identically 0 along the net and hence 0 in the limit (second proof, §6.1), so the limit's prime contains p. Equivalently, Π is continuous into a topology in which {(p)} is closed. **No counterexample** — and note the converse *does* happen, which is why the asymmetry is the content.
+### 4.1 Ingredient 1 — the base action is trivial and the projection is continuous
 
-**Attempt to break the note's own argument instead of the statement.** Successful, and this is finding F1. Consider the honest question the sketch is answering: "what are the limits of {F_n(P₀)}_{n∈N}?" — and compare with the question that must be answered: "what are the limits of nets in γ = {[P₀,w] : w ∈ R^{>0}}?". These differ in three ways, each fatal to the sketch as a proof:
- (i) γ is a *circle*, i.e. the image of all of R^{>0}; the points [P₀, nu] with n ∈ N form a countable subset of it, and the identity [P₀, nu] = [F_n(P₀), u] only rewrites *those*. A net [P₀, w_α] with w_α ∈ R^{>0} ∖ (N·u ∪ Q^{>0}·u) is not covered at all.
- (ii) Even for the covered points, every point of X₀ has a whole Q^{>0}-orbit of representatives, and a convergent net in X₀ may only be liftable after passing to a subnet and after *choosing* the fibre point (Lemma O.0). The sketch reasons as if the representatives (P₀, n_k u) themselves converged upstairs; they do not (they are exactly the sequence with two suspension-limits in adjudication §3, and upstairs they converge to nothing).
- (iii) The sketch's conclusion is asserted "by compactness of Ẑ_(p)", i.e. by compactifying the exponent parameter. But the compactification adds points *outside* the space (§5), so compactness delivers no limit inside X₀ and cannot, by itself, bound the closure. In the sketch's own terms, compactness is used to produce candidates and (Tors) to discard some of them; nothing shows the list of candidates is exhaustive for nets in γ.
-So the sketch establishes Proposition O.5 (true, and worth keeping) and does not establish Corollary A.1's converse inclusion (also true, by an unrelated argument).
+[x-03] p. 27, verbatim, immediately after (30) and (31):
+
+> "Both pr_X and pr_{X₀} are N₀-equivariant if we let N₀ act trivially on X₀ and X. Note that the maps pr_X and pr_{X₀} above extend Q₀^{>0}-equivariantly to maps pr_X : X̌(C)_E → X and pr_{X₀} : X̌₀(C)_E → X₀. **Here we let Q₀^{>0} act trivially on X and X₀.**"
+
+So, as a set map, pr_{X₀}(F_q P₀) = pr_{X₀}(P₀) for all q ∈ Q₀^{>0}. And by [x-03] p. 43 ("the projections pr_X : X̌(C) → X and pr_{X₀} : X̌₀(C) → X₀ are continuous") together with p. 47 ("All preceding results in this section remain true if we replace X•(C) etc. by X•(C)_E etc."), the map
+
+  pr_{X₀} : X̌₀(C)_E ⟶ X₀ (Zariski topology)
+
+is continuous. Deninger's own proof of continuity in the colimit is worth recording because it is the only place where the colimit structure is consumed: "It suffices to show that pr_X is continuous, i.e. that pr_X ∘ (F_ν^{-1}|_{X•(C)}) : X•(C) → X is continuous for each ν ∈ N₀. Since pr_X = pr_X ∘ F_ν, this follows from the continuity of pr_X : X•(C) → X which was noted before Lemma 7.3." (p. 43)
+
+### 4.2 Ingredient 2 — the packet is the pr-fibre, by Deninger's own definition
+
+[x-03] p. 31, verbatim:
+
+> "The fibres of pr_{X₀} : X̌₀(C)_{Etors} → X₀ are Q₀^{>0}-invariant. We will now analyze the structures of the Q₀^{>0}-sets C_{x₀} = pr_{X₀}^{-1}(x₀) in X̌₀(C)_{Etors} for points x₀ of X₀ whose residue field κ(x₀) is finite."
+
+and, on the same page,
+
+> "The fibre pr₀^{-1}(x₀) in X•₀(C)_{Etors} is N₀-invariant. Its extension to a Q₀^{>0}-invariant subset of X̌₀(C)_{Etors} is the set C_{x₀} = pr₀^{-1}(x₀)^{Q₀^{>0}} = ⋃_{ν∈N₀} F_ν^{-1} pr₀^{-1}(x₀) ⊂ X̌₀(C)_{Etors}."
+
+[x-03] p. 34, Thm 5.2, defines C^E_{x₀} = C_{x₀} ∩ X̌₀(C)_E; and p. 38, §6, defines
+
+> "For a point x₀ of X₀ with finite residue field of characteristic p set Γ_{x₀} = C_{x₀} ×_{Q₀^{>0}} R^{>0} ⊂ X₀. … We set Γ^E_{x₀} = C^E_{x₀} ×_{Q₀^{>0}} R^{>0} where C^E_{x₀} = C_{x₀} ∩ X̌₀(C)_E. If e.g. E_f ⊂ E then Γ^E_{x₀} = Γ_{x₀}."
+
+**Sub-lemma (the two descriptions of C^E_{x₀} agree).** C^E_{x₀} = pr_{X₀}^{-1}(x₀) ∩ X̌₀(C)_E, i.e. C^E_{x₀} is the fibre of pr_{X₀} restricted to the E-locus.
+*Proof.* ⊆ is immediate from C_{x₀} = pr_{X₀}^{-1}(x₀). For ⊇, let z ∈ X̌₀(C)_E with pr_{X₀}(z) = x₀. Write z = F_ν^{-1}(P) with P ∈ X•₀(C)_E for some ν ∈ N₀ (definition of the colimit). Since Q₀^{>0} acts trivially on X₀ (§4.1), pr₀(P) = pr_{X₀}(F_ν^{-1}P) = x₀, so P ∈ pr₀^{-1}(x₀); note P ∈ X•₀(C)_E ⊆ X•₀(C)_{Etors}, the inclusion holding because Definition 4.1 (p. 27) requires "the characters in E should satisfy (Tors)". Hence z ∈ F_ν^{-1}pr₀^{-1}(x₀) ⊆ C_{x₀}, and z ∈ X̌₀(C)_E. ∎
+(Prop. 4.2, p. 27 — "It is foreward- and backward invariant under the N₀-action" — is what keeps the E-locus stable under F_ν^{±1}, so the intersection may be taken before or after applying F_ν without changing anything.)
+
+### 4.3 Ingredient 3 — a point with finite residue field is a closed point
+
+**Lemma O.3.** Let X₀ be a scheme and x₀ ∈ X₀ with κ(x₀) finite. Then {x₀} is closed in X₀.
+*Proof.* Choose an affine open Spec A ∋ x₀, corresponding to a prime 𝔭 ⊂ A. Then A/𝔭 is an integral domain contained in its fraction field κ(x₀), which is finite; so A/𝔭 is a finite integral domain, hence a field, hence 𝔭 is maximal and {x₀} is closed in Spec A. For an arbitrary affine open V ⊆ X₀: if x₀ ∉ V then V ∩ {x₀} = ∅ is closed in V; if x₀ ∈ V then V ∩ {x₀} = {x₀} is closed in V by the same argument applied to V. Since closedness may be checked on an affine open cover, {x₀} is closed in X₀. ∎
+For X₀ = Spec Z the points with finite residue field are exactly the (p), p prime, and the generic point (0) is not among them.
+
+### 4.4 Proposition O.1 and its proof
+
+> **Proposition O.1 (packets are closed).** Let X₀ be an arithmetic scheme ([x-03] §7 p. 40: integral normal with countable function field), C an algebraically closed field with a valuation satisfying the conditions before Corollary 4.4, E an admissible class (Def. 4.1, p. 27), and let 𝕏₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0} carry the quotient topology (§3.4). Then for every point x₀ of X₀ with finite residue field, the packet Γ^E_{x₀} is a **closed** and **flow-invariant** subset of 𝕏₀. Moreover the packets are pairwise disjoint and disjoint from the part of 𝕏₀ lying over any other point of X₀, in particular from the generic stratum.
+
+*Proof.*
+
+**(i) A continuous map 𝕏₀ → X₀.** Let h : X̌₀(C)_E × R^{>0} → X₀ be h(P₀, u) = pr_{X₀}(P₀). It is continuous (composite of the projection to the first factor with pr_{X₀}, both continuous — §4.1). It is constant on Q₀^{>0}-orbits: h((P₀,u)q) = h(F_q P₀, q^{-1}u) = pr_{X₀}(F_q P₀) = pr_{X₀}(P₀) = h(P₀,u) (§4.1, trivial action on the base). Since 𝕏₀ carries the quotient topology of q, h descends to a unique **continuous** map
+
+  **Π : 𝕏₀ ⟶ X₀,  Π[P₀, u] = pr_{X₀}(P₀).**
+
+**(ii) Π is flow-invariant.** The flow is φ^t[P₀,u] = [P₀, u e^t] ([x-03] p. 38: "We write φ^t for this action i.e. φ^t([P₀,u]) = [P₀, ue^t]"), which does not touch the first coordinate; so Π ∘ φ^t = Π for all t, and every fibre of Π is a flow-invariant set.
+
+**(iii) The packet is a fibre.** q^{-1}(Γ^E_{x₀}) = C^E_{x₀} × R^{>0} (the set Γ^E_{x₀} is by definition the image of C^E_{x₀} × R^{>0}, and C^E_{x₀} is Q₀^{>0}-stable, so this product is q-saturated). By the Sub-lemma of §4.2, C^E_{x₀} × R^{>0} = h^{-1}(x₀) = q^{-1}(Π^{-1}(x₀)). Since q is surjective, **Γ^E_{x₀} = Π^{-1}(x₀)**.
+
+**(iv) Closedness.** {x₀} is closed in X₀ (Lemma O.3), Π is continuous, hence Γ^E_{x₀} = Π^{-1}({x₀}) is closed in 𝕏₀.
+
+**(v) Disjointness.** Fibres of a map are pairwise disjoint; and Π^{-1}(η₀) (η₀ the generic point) is disjoint from every Π^{-1}(x₀). ∎
+
+> **Corollary O.2 (the converse inclusion, unhedged).** For every A ⊆ Γ^E_{x₀}, cl_{𝕏₀}(A) ⊆ Γ^E_{x₀}. In particular, for every periodic orbit γ ⊆ Γ^E_{x₀}, cl_{𝕏₀}(γ) ⊆ Γ^E_{x₀}: the closure meets no other packet and does not meet the generic stratum.
+>
+> **Corollary O.4 (equality; X₀ = Spec Z, N₀ = N, E admissible).** cl_{𝕏₀}(γ) = Γ^E_p — with ⊇ the banked Theorem A and ⊆ Corollary O.2. Consequently Γ^E_p is a nonempty closed flow-invariant set in which every orbit is dense, i.e. **a minimal set** of the flow, the orbit closure of each of its points, and the smallest closed invariant set containing any one of its orbits. **(A1-head) is proved.**
+
+**Remark (why (v) settles task item (4) completely).** The question "can cl(γ) meet other strata?" is not a question about the char-p stratum at all; it is a question about the whole colimit and the whole suspension. Π answers it in one stroke, because a fibre is closed *in the total space*. Nothing chart-local is needed, and the "char-p part" hedge is dissolved rather than verified. This matters more than it looks: the generic stratum is **dense** in 𝕏₀ ([x-03] Cor. 9.7 proof, p. 62: "By Theorem 9.6 the spaces X_η and X_{0η₀} are connected. By Theorem 9.2 they are dense in X resp. X₀"), so an argument that only controlled the char-p behavior of a sequence would have left open the possibility that cl(γ) picks up generic-stratum points — and *a priori* that is exactly the direction in which a dense stratum invites accidents.
 
 ---
 
-## 8. FINDINGS, with severities, locations and exact replacement text
+## 5. Second, independent proof: the note's own instrument, repaired and carried through
 
-### F1 — MAJOR. `probe-9.3-b.md` §5, Corollary A.1, the parenthesis. The stated argument is not a proof of the converse inclusion.
-It computes the subnet limits of the single sequence {F_n(P₀)}_{n∈N} upstairs in one chart, whereas cl_{X₀}(γ) is the closure of the full circle γ in the suspension. The gaps: γ is not exhausted by {[P₀, nu]}_{n∈N}; convergence in X₀ does not lift to convergence of representatives (the Q^{>0}-action is not properly discontinuous, [x-03] p. 49), so "the same pointwise evaluation" is unavailable downstairs without Lemma O.0; and compactness of Ẑ_(p) produces candidate limits outside the space, so it bounds nothing by itself. *The statement is nevertheless true.* **Replacement text (drop the parenthesis, and add Proposition A.1′ + proof):**
+Proposition O.1 settles the item. But a referee pass owes the note an answer at the level of its own argument: *can* the pointwise-convergence computation be pushed to the conclusion, and what exactly does it give? The answer is yes, with five reductions the note does not make, and with a corrected (Tors) criterion. I carry it out because (a) it independently confirms Corollary O.4 without using Π, (b) it is where the note's actual error lives (F2), and (c) it makes the scope statement in §10 precise.
 
-> **Proposition A.1′ (packets are closed; the converse inclusion).** Let X₀ be an arithmetic scheme, E admissible, x₀ a point of X₀ with finite residue field, and X₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0} with its quotient topology ([x-03] §10 p. 63, where (π_∗C⁰_X̃)^Q = C⁰_X; [x-06] p. 11). Then Γ^E_{x₀} is a closed, flow-invariant subset of X₀. Consequently cl_{X₀}(γ) ⊆ Γ^E_{x₀} for every periodic orbit γ ⊂ Γ^E_{x₀}, and with Theorem A, cl_{X₀}(γ) = Γ^E_{x₀}.
-> *Proof.* The projection pr_{X₀} : X̌₀(C)_E → X₀ is continuous into the Zariski topology of the scheme X₀ ([x-03] Lemma 7.1 and p. 42, p. 43; the E-version by p. 47) and is Q₀^{>0}-invariant, Q₀^{>0} acting trivially on X₀ ([x-03] p. 27). Hence (P₀,u) ↦ pr_{X₀}(P₀) is continuous on X̌₀(C)_E × R^{>0} and constant on Q₀^{>0}-orbits, so it descends to a continuous map Π : X₀ → X₀ with Π([P₀,u]) = pr_{X₀}(P₀). Π is constant along flow lines, so its fibres are flow-invariant. By [x-03] p. 31, C_{x₀} is by definition the fibre pr_{X₀}^{-1}(x₀) in X̌₀(C)_{Etors}; since admissible classes satisfy (Tors), C^E_{x₀} = C_{x₀} ∩ X̌₀(C)_E is the fibre of pr_{X₀} over x₀ in X̌₀(C)_E, and therefore Γ^E_{x₀} = Π^{-1}(x₀). Finally a point with finite residue field is a closed point: in any affine open Spec A around it, A/p is a domain with finite fraction field, hence a finite field, so p is maximal; and if y lies in the closure of {x₀} then any affine open containing y contains x₀, so y = x₀. Thus {x₀} is closed in X₀ and Γ^E_{x₀} = Π^{-1}(x₀) is closed in X₀. ∎
-> **Corollary A.1 (packets are minimal sets).** Γ^E_{x₀}, when nonempty, is nonempty, closed and flow-invariant (Proposition A.1′) and every one of its orbits is dense in it (Theorem A); hence it is a minimal set, it is the orbit closure of each of its points, and it is the smallest closed invariant set containing any one of its orbits.
+Throughout: X₀ = Spec Z, X = Spec Z̄ (normalization in Q̄), C = ℂ, N₀ = N, p a fixed prime, x ∈ X over (p), κ(x) = F̄_p, κ(x)^× = μ^{(p)} = ⨁_{ℓ≠p} μ_{ℓ^∞}. Fix the injective reference character χ = χ_x ([x-03] p. 32: "we obtain the injective character χ_x = ι ∘ i_x^{-1} : κ(x)^× ↪ C^×"). Write P_b := (x, χ^{b}) ∈ X•(C) for b ∈ Ẑ_{(p)} = ∏_{ℓ≠p} Z_ℓ, where χ^b = χ ∘ ( )^b; as a multiplicative map Z̄ → ℂ it is r ↦ χ(r̄)^b for r ∉ 𝔭_x and r ↦ 0 for r ∈ 𝔭_x. Normalize γ = {[P₀, w] : w ∈ R^{>0}} with P₀ = π(P_{a₀}), a₀ ∈ Ẑ^×_{(p)}, licensed by (35)/(38) on p. 32.
 
-### F2 — MAJOR. Same location. The conclusion is mis-scoped: "one gets cl(γ) ∩ (char-p part) = Γ^E_p exactly."
-The hedge "∩ (char-p part)" is (i) undefined — the note never says whether "the char-p part" is the stratum over the single point (p) or the union of all strata of residue characteristic p, a distinction with content as soon as dim X₀ ≥ 2 — and (ii) unnecessary, since cl(γ) meets no other stratum whatsoever. **Replacement text:**
+### 5.1 (R1) The exponent parametrization is a homeomorphism onto a compact set
 
-> cl_{X₀}(γ) = Γ^E_{x₀}, with no intersection taken: the closure meets neither the generic stratum, nor the packet of any other point of X₀ (of the same or of a different residue characteristic), because Π(cl(γ)) ⊆ cl({x₀}) = {x₀} in the Zariski topology of X₀.
+**Lemma O.5.** β : Ẑ_{(p)} → X•(C), b ↦ P_{a₀ b}, is a homeomorphism onto a compact subset K ⊂ X•(C), and K ⊂ pr_X^{-1}(x).
 
-### F3 — MINOR. Same location: "limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors)" — incomplete.
-**Replacement text:**
+*Proof.* **Continuity.** X•(C) carries pointwise convergence (p. 40). Fix r ∈ Z̄. If r ∈ 𝔭_x, b ↦ β(b)(r) = 0 is constant. If r ∉ 𝔭_x, then r̄ ∈ F̄_p^× = μ^{(p)} has finite order m prime to p, so b ↦ χ(r̄)^{a₀ b} depends only on a₀b mod m, i.e. it is **locally constant** in b. So every coordinate function is continuous, hence β is continuous into C^{Z̄} and therefore into the subspace X•(C). (This is the same computation Deninger performs in general at (56), p. 47: "Using ι, we have a topological isomorphism Ẑ → Ĥ, a ↦ (ζ ↦ ι(ζ)^a)", where Ĥ = Hom(μ(K), μ(C)) carries the topology of pointwise convergence — I re-derive it here for μ^{(p)} rather than μ(K) because that is the group in play, and because Deninger's (56) is stated for Ẑ, not Ẑ_{(p)}.)
+**Injectivity.** χ^{a₀b} = χ^{a₀b′} on μ^{(p)} forces (a₀(b−b′)) to annihilate μ^{(p)} (χ injective), i.e. b = b′, since Ẑ_{(p)} = Aut(μ^{(p)}) acts faithfully ([x-03] p. 32, (34): "The group of automorphisms of the abelian group κ(x)^× is given by Ẑ^×_{(p)} where Ẑ_{(p)} = ∏_{l≠p} Z_l") and a₀ is a unit.
+**Homeomorphism onto its image.** Ẑ_{(p)} is compact; X•(C) is metrizable (p. 40) hence Hausdorff; a continuous injection from a compact space to a Hausdorff space is a homeomorphism onto its (compact, hence closed) image.
+**Location.** β(b)^{-1}(0) = 𝔭_x for every b (χ(r̄)^b is a root of unity, never 0), so pr_X(β(b)) = x. ∎
 
-> P₀^b satisfies (Tors) if and only if ker(( )^b : μ^{(p)} → μ^{(p)}) = ⊕_{l≠p} μ_{l^{v_l(b_l)}} is finite, i.e. if and only if b ∈ ⋃_{ν∈N, p∤ν} ν·Ẑ×_(p); equivalently, every component b_l is nonzero and v_l(b_l) = 0 for almost all l. Both failure modes occur: b with a zero component (which kills all of μ_{l^∞}), and b with every component nonzero but infinitely many of positive valuation — for instance b = (l)_{l≠p}, for which ker(( )^b) = ⊕_{l≠p} μ_l is infinite. In either case P₀^b is a point of X⃗(C) (it is multiplicative with the same zero set) but not of X⃗(C)_{Etors}; since X⃗(C)_E carries the subspace topology of X⃗(C) and the ambient C^{Z̄} is Hausdorff, the corresponding subnet has no limit in X⃗(C)_E at all. Compare [x-03] Prop. 9.1 (p. 53): for N₀ = N, X⃗(C)_{Etors} is dense in X⃗(C), so such escapes are generic, not exceptional.
+### 5.2 (R2) The closure of the Frobenius returns, in one chart, at the fixed prime
 
-### F4 — MINOR. Bookkeeping: the ⊆-dependence of "packets are minimal sets".
-The note's Corollary A.1 title and its clauses "is the orbit closure of each of its points" and "is the smallest closed invariant set containing any one of its orbits" all require the ⊆ direction, which the note itself labels proposition-grade; the adjudication (§4 item 1) re-publishes "packets are minimal sets" at referee grade. **Replacement text for `probe-9.3-adjudication.md` §4 item 1 (adjudicator to apply):**
+The return identity of Theorem A is [F_n P₀, u] = [P₀, nu] ∈ γ for n ∈ N ([x-03] p. 38 suspension relation), and F_n(P_{a₀}) = P_{a₀ n}. So S̃ := {P_{a₀ n} : n ∈ N} = β(N).
 
-> …packets are minimal sets — nonempty, closed, flow-invariant, with every orbit dense (the density from Theorem A; the closedness from Proposition A.1′ / referee report `results/c3-r/referee-s14/B-corA1-O.md` §6.1, which supplies the converse inclusion that Cor. A.1 had left at proposition grade)…
+**Lemma O.6.** cl_{X•(C)}(S̃) = β(Ẑ_{(p)}) = K.
+*Proof.* N is dense in Ẑ_{(p)} = lim_{(M,p)=1} Z/M: the positive integers surject onto every Z/M with (M,p)=1 (CRT), so β(N) meets every basic open set of Ẑ_{(p)}. β is a homeomorphism onto the closed set K (Lemma O.5), so cl(β(N)) = β(cl_{Ẑ_{(p)}} N) = β(Ẑ_{(p)}) = K. ∎
 
-and in §4 item 6, replace "probe B's Cor. A.1 converse inclusion (flagged proposition-grade by B itself; not load-bearing)" with:
+This is the sub-claim (A1-mech) makes, and **at this level the note is right**: every subnet limit of {F_n(P₀)} is P_{a₀b} for some b ∈ Ẑ_{(p)}, by compactness and pointwise evaluation. Note that K lies entirely over x: **no limit of the Frobenius returns escapes to another prime or to characteristic 0, already upstairs.**
 
-> probe B's Cor. A.1 converse inclusion — **now discharged at referee grade** (referee report O, 2026-09-02): the statement is true and stronger than claimed (every packet is closed in X₀, for every arithmetic scheme and every admissible E), but probe B's argument for it does not prove it and is replaced.
+### 5.3 (R3) TASK ITEM (3): what exactly "leaves the space", and by what
 
-### F5 — MINOR. The topology on the suspension is never cited.
-`probe-9.3-b.md` §3.1 says only "the suspension X₀ carries the quotient topology (implicit throughout §§8, 10, e.g. 'topological closure' in §8, the sheaf-theoretic §10)". This is load-bearing for the ⊆ direction. **Replacement text:**
+Which P_{a₀b} are points of X•(C)_{Etors}, hence candidates to lie in the E-locus? Since χ is injective, ker(χ^{a₀b}) = ker(( )^{a₀b}) on μ^{(p)}, and a₀ is a unit, so
 
-> the suspension X₀ carries the quotient topology of X̌₀(C)_E × R^{>0}. [x-03] does not state this in §6; the warrant is §10 p. 63, where the identity (π_∗C⁰_X̃)^Q = C⁰_X for π : X̃ = M × R^{>0} → X = M ×_Q R^{>0} says exactly that Q-invariant continuous functions upstairs are continuous functions downstairs, and [x-06] p. 11, "Set X₀ = (X̌₀(C) × R^{>0})/Q^{>0}". Note also that the quotient map q is open (Q^{>0} acts by homeomorphisms, [x-03] Prop. 7.4b) but not proper, and the Q^{>0}-action is not properly discontinuous ([x-03] p. 49), so q does not reflect convergence.
+  ker(χ^{a₀ b}) = ⨁_{ℓ≠p} μ_{ℓ^{v_ℓ(b_ℓ)}},  v_ℓ(b_ℓ) ∈ {0,1,2,…,∞}, with v_ℓ(0) := ∞.
 
-### F6 — MINOR (a sharpening of the existing W11 flag, not a defect of the note).
-`probe-9.3-b.md` §3.3 and adjudication §4 item 4 say the Morishita "homeomorphism" wording "cannot be read as the subspace topology of Γ_p". With O.1 the flag can now be stated exactly, and it moves: the *packet* is closed and (for E ⊇ E_f) compact in X₀, so nothing is wrong with treating Γ_p as a compact subset; what fails is (a) Hausdorffness of Γ_p in the subspace topology, which kills [r3s-08] Thm 2.2.9(1)'s homeomorphism claim outright (a compact Hausdorff model cannot be homeomorphic to a non-Hausdorff space), and (b) closedness of the *orbits* γ_{p,a}, which kills the reading of Thm 2.2.9(2)'s phrase "connected closed R₊-orbits" (printed p. 18) in that topology. **Replacement text for the ledger's W11 row:** "[r3s-08] Thms 2.2.8/2.2.9 give model bijections, not subspace-topology statements: Γ_p ⊂ X₀ is closed (referee O, Prop. O.1) and, for E ⊇ E_f, compact — but non-Hausdorff (adjudication §3), so 2.2.9(1)'s homeomorphism onto the compact Hausdorff mapping-torus model is false in the subspace topology; and its orbits are dense in Γ_p (Theorem A), so 2.2.9(2)'s 'closed R₊-orbits' is false there too. Harmless to the class-field-theoretic content; never cite for topology."
+Condition (Tors) ([x-03] p. 27, verbatim: "(Tors) the group ker(χ)_{tors} = ker(χ|_{μ(κ)}) is finite and |(ker χ)_{tors}| ∈ N₀") therefore holds **iff**
+
+  (⋆) v_ℓ(b_ℓ) < ∞ for every ℓ ≠ p **and** v_ℓ(b_ℓ) = 0 for all but finitely many ℓ,
+
+equivalently **b ∈ N′ · Ẑ^×_{(p)}**, where N′ ⊂ N is the set of positive integers prime to p (for N₀ = N; in general N₀′·Ẑ^×_{(p)}).
+
+**This is finding F2.** The note's criterion is only the first half of (⋆): "limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors), so they leave the space". That sentence is *true* but *not exhaustive*, and the shortfall is not cosmetic:
+
+- **Counterexample to the note's criterion as a criterion.** Take b = (ℓ)_{ℓ≠p} ∈ Ẑ_{(p)}, i.e. b_ℓ = ℓ for every ℓ ≠ p. Every component is nonzero, so the note's test declares nothing wrong; but v_ℓ(b_ℓ) = 1 for every ℓ, so ker(χ^{a₀b}) = ⨁_{ℓ≠p} μ_ℓ is **infinite** and (Tors) fails. The point P_{a₀b} is a genuine limit of Frobenius returns (Lemma O.6) and is **not** a packet point. Concretely it is the limit of P_{a₀ n_k} along n_k = ∏_{ℓ ≤ k, ℓ≠p} ℓ · (unit correction), which is a legitimate subsequence of the returns.
+- **Consequence if the note's criterion were the whole criterion.** Then the surviving limit set would be β({b : all b_ℓ ≠ 0}) ⊋ β(N′Ẑ^×_{(p)}) = the packet exponents, and the claimed equality cl(γ) ∩ (char-p part) = Γ^E_p would be **false**. So the incompleteness is load-bearing for the conclusion, not for its presentation. That is why I rate it MAJOR and not MINOR.
+- **The conclusion nonetheless survives**, because the true criterion (⋆) is *more* restrictive than the note's, and the b's it additionally excludes are excluded for the same reason ((Tors)).
+
+**And by what are they excluded?** By **(Tors)**, hence by membership in the space, not by the topology and not by the class E specifically. Three sharpenings the note does not make:
+
+1. Every admissible E satisfies E ⊆ E_tors by Definition 4.1 ("Moreover the characters in E should satisfy (Tors)", p. 27), so the exclusion is uniform in E: no admissible system contains the bad limits. What varies with E is only which of the *good* b's are in E.
+2. The exclusion is **not** topological. In the un-cut space X̌₀(C) (no (Tors) imposed) the bad limits are present, and the equality genuinely fails: take n_k = ∏_{ℓ≤k, ℓ≠p} ℓ^k → 0 in Ẑ_{(p)}; then P_{a₀ n_k} → P_0 = (x, **1**), the trivial character, whose Q^{>0}-isotropy is all of Q^{>0} and which is not in any packet. So [P_0, u] ∈ cl(γ) there. **The hypothesis E ⊆ E_tors is necessary for Corollary O.4**, a scope point the note does not record.
+3. Because the closure is taken *in* 𝕏₀, which is built on X̌₀(C)_E, the bad limits are simply not in the ambient space; closure in a subspace is the trace of the ambient closure (cl_Y(A) = cl_X(A) ∩ Y for A ⊆ Y ⊆ X). No "escape" argument is needed — the phrase "they leave the space" is right in spirit, but the *space* has to be named, and the note never says in which space it is taking the closure at this point. That ambiguity is the seed of F1.
+
+### 5.4 (R4) Descent through G and (R5) through the charts, then to 𝕏₀
+
+Two more reductions, both missing from the note.
+
+**(R4) Galois.** π : X•(C) → X•₀(C) is continuous and **open** (p. 43), G is compact and acts continuously (Prop. 7.5, p. 44: "the right-action map X•(C) × G → X•(C) is continuous"; G = Aut_{K₀}(K) is a profinite group, hence compact). For a compact group acting continuously, cl(A·G) = cl(A)·G and π(cl A) = cl(π A) for G-stable closures; concretely, since π is open, Lemma O.0 gives π^{-1}(cl π(S̃)) = cl(π^{-1}π(S̃)) = cl(S̃·G) = cl(S̃)·G = K·G, so cl_{X•₀(C)}(π S̃) = π(K). The Galois action on the exponents is through the decomposition group, (34) p. 32: "N x₀^Ẑ = Gal(κ(x)/κ(x₀)) ↪ Aut(κ(x)^×) = Ẑ^×_{(p)}", i.e. through p^Ẑ for x₀ = (p) of degree 1 — so π(K) = β(Ẑ_{(p)})/p^Ẑ.
+
+**(R5) Charts.** By (T1) of §3.3, closures in the colimit are computed chart-locally on the clopen charts U_ν = F_ν^{-1}(X•₀(C)_E), and F_ν : U_ν → X•₀(C)_E is a homeomorphism (Prop. 7.4 b) + p. 47). The orbit O(P₀) = {F_r P₀ : r ∈ Q₀^{>0}} meets U_ν in {F_{m/m′}P₀ : m′ | ν, m ∈ N} up to the isotropy relation F_p P₀ = P₀ (Thm 5.2, p. 34: "For any point P₀ ∈ C^E_{x₀} the isotropy group of P₀ is (Q₀^{>0})_{P₀} = N x₀^Z"). Transporting by F_ν, each chart-closure is again the closure of a set of the form {P_{a n} : n ∈ N} in X•₀(C)_E, i.e. Lemma O.6 + §5.3 + (R4) again. Hence
+
+  cl_{X̌₀(C)_E}(O(P₀)) = ⋃_{ν∈N₀} F_ν^{-1}( π(K) ∩ X•₀(C)_E ) = ⋃_{ν∈N₀} F_ν^{-1}( pr₀^{-1}(x₀) ∩ X•₀(C)_E ) = C^E_{x₀},
+
+the middle equality being §5.3: the (Tors)-admissible exponents b ∈ N′Ẑ^×_{(p)} give, via (35)–(36) on p. 32, exactly the points of pr₀^{-1}(x₀) at x, and every point of pr₀^{-1}(x₀) arises this way ("Explicitely this gives the N₀-equivariant bijection S/N x₀^Ẑ ≅ pr₀^{-1}(x₀)", p. 32).
+
+**Descent to the suspension.** By (★) of §3.5, cl_{𝕏₀}(γ) = q(cl(O(P₀)) × R^{>0}) = q(C^E_{x₀} × R^{>0}) = Γ^E_p. **Both inclusions at once, independently of Proposition O.1.** ∎
+
+### 5.5 TASK ITEM (5): what is proved — chartwise or globally?
+
+**Globally, in 𝕏₀, and the chart question dissolves.** The equality cl_{𝕏₀}(γ) = Γ^E_p is a statement about one closure in one space. The second proof does pass through charts, and there the statement it verifies chart-by-chart is the upstairs one: for every ν, cl(O(P₀)) ∩ U_ν = C^E_{x₀} ∩ U_ν. Because the charts are clopen and the colimit topology restricts to pointwise convergence on each (§3.3, (T1)–(T2)), there is no discrepancy between "equality in every chart" and "equality in the colimit" to worry about — the note's Q-c as posed ("whether the equality holds verbatim in every chart") presupposes a discrepancy that Prop. 7.4 a) rules out. The first proof (§4) never enters a chart at all.
+
+**And there is no residual "char-p part" content.** The part of 𝕏₀ over (p) *is* Γ^E_p (Prop. O.1 (iii)); so the hedged equation is the unhedged one intersected with its own right-hand side. See F3.
 
 ---
 
-## 9. What is now established at referee grade, and its precise scope
+## 6. FINDINGS, with exact replacement text
 
-**Established.** For every arithmetic scheme X₀ in the sense of [x-03] §7, every algebraically closed valued C admissible for the construction, every admissible class E in the sense of Definition 4.1, and every point x₀ of X₀ with finite residue field, the packet Γ^E_{x₀} is a **closed, flow-invariant** subset of the suspension X₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0} with its quotient topology — indeed it is the fibre over x₀ of a continuous flow-invariant map Π : X₀ → X₀ onto the base scheme with its Zariski topology. Consequently, for X₀ = Spec Z, where Theorem A is banked, the closure of any single periodic orbit γ ⊂ Γ^E_p is **exactly** Γ^E_p, with no "char-p part" hedge, no chart caveat, and no residual proposition-grade content: the ⊇ half is the adjudicated Theorem A, the ⊆ half is Proposition O.1 above, proved from three verbatim ingredients of [x-03] (continuity of pr_{X₀} into the Zariski topology, its Q^{>0}-invariance with trivial action on the base, and the definition of C_{x₀} as the fibre) plus the elementary fact that a point with finite residue field is closed. Corollary A.1's headline is therefore true as stated: each packet is a **minimal set** of the flow, the orbit closure of each of its points, and the smallest closed invariant set containing any one of its orbits; for E ⊇ E_f it is in addition **compact** (verifying, with a proof, Deninger's unproved assertion at [x-03] p. 2 and [x-06] p. 12) and **nowhere dense** (the generic stratum is dense, [x-03] Thm 9.2/Cor. 9.7), which is what reconciles closedness with the connectedness of X₀. **Scope limits, stated honestly:** (i) the result is about the topology of X₀ and says nothing about the mapping face of S4 — a compact non-closed invariant subspace, or a continuous equivariant image, is untouched, and the adjudication's Q* (§5) is unchanged in every respect; (ii) for admissible E ⊊ E_f the packet may be empty or non-compact — closedness survives, compactness is not claimed; (iii) the proof consumes the quotient topology on the suspension, whose on-disk warrant is [x-03] §10 p. 63 and [x-06] p. 11 rather than an explicit sentence in §6, and a strictly coarser topology on X₀ would void it; (iv) Q-c of the note's §7 ("whether the equality holds verbatim in every chart of the colimit") is answered by dissolving it — the closure is computed once, in X₀, and no chart-by-chart verification arises, because the charts of X̌₀(C)_E are open and the statement is a global one about a fibre of a continuous map. **Priority:** the on-disk sources assert compactness and pairwise disjointness of the packets ([x-03] pp. 2–3, [x-06] p. 12) and give the packet's structure only as a bijection ([x-03] (38)–(39), §6 p. 38); none of them states that a packet is closed in X₀, and [r3s-08]'s Thm 2.2.9 asserts a homeomorphism that Corollary O.6 refutes in the subspace topology. One server-side web search was run this session (2026-09-02, "Deninger arithmetic schemes suspension packet closed subset orbit closure … periodic orbits") and returned only the primary sources themselves plus unrelated homogeneous-dynamics literature; **no deeper external sweep was performed for this item, and none is claimed.**
+Locations are given as (file, section, quoted phrase). Severity per the program rubric: FATAL = a stated theorem is false or its proof has an unfillable gap; MAJOR = gap fillable, but the note must change; MINOR = wording, citation, typo.
 
----
+### F1 — MAJOR. The parenthetical's instrument computes a different closure from the one claimed.
 
-## 10. Sources read this session (page-by-page record)
+**Location.** `probe-9.3-b.md` §5, Corollary A.1, "every limit of {F_n(P₀)}_n along any subnet is P₀^b … by compactness of Ẑ_{(p)} and the same pointwise evaluation".
 
-**[x-03]** Deninger, *Dynamical systems for arithmetic schemes*, arXiv:1807.06400v4, `fetched/x-03-deninger-dynamical-systems-for-arithmetic-schemes-arxiv-v4.pdf` (119 pp.; printed page = PDF page, verified). Read in full at the stated pages: **pp. 2–3** (intro: compact packets, invariant tori, connectedness); **p. 7** (contents, for the section/page map); **pp. 26–30** (§4: (Tors), (Image), Def. 4.1, Prop. 4.2, (30)–(31) with the trivial Q^{>0}-action on the base, Lemma 4.3, Cor. 4.4, the examples E_tors/E_max/E_f/E_fg/E_fd/E_fd0, the "additive mod p / not N-invariant" remark, Prop. 4.5, Lemma 4.6); **pp. 31–34** (§5: (32)–(46), the definition of C_{x₀} as the fibre of pr_{X₀}, (34) Aut(κ(x)^×) = Ẑ×_(p), (35)–(39), the fibration over Ẑ×_(p)/p^Ẑ, ρ, Prop. 5.1, Thm 5.2); **p. 38** (§6: the suspension, the Q^{>0}-action, Γ_{x₀}, the R^{>0}-**bijection**, Γ^E_{x₀}, "If e.g. E_f ⊂ E then Γ^E_{x₀} = Γ_{x₀}"); **p. 39** (Thm 6.1 and the packet paragraph); **p. 40** (the Y₀ question; §7 opening: arithmetic schemes, pointwise convergence, metrizability; Lemma 7.1 with proof); **pp. 41–43** (Lemma 7.2, the glued topology, quotient by G, Lemma 7.3, the colimit topology and Prop. 7.4, continuity of pr_X, pr_{X₀} on the colimit); **pp. 44–45** (Props. 7.5, 7.6, 7.7, Cor. 7.8, Cor. 7.9); **pp. 46–47** (the remark on separatedness, the in-loci and their quotient/subspace agreement, Thm 7.10 and Remarks 1–2 "not homeomorphisms in general", the E-versions paragraph, (56)–(57)); **pp. 48–49** (r, (58)–(68), "The Q^{>0}-action … is not properly discontinuous"); **pp. 49–51** (§8: Claim 8.1, [Per11], X̌(C)_per, Thm 8.2 with proof, Lemma 8.3); **pp. 53–54** (§9 opening, X⃗(C)′, Prop. 9.1 with proof, Thm 9.2 with proof); **p. 57** (Thm 9.3, Lemma 9.4 setup); **pp. 60–62** (the r₀ map, the quotient-vs-subspace remark, (95)–(96), Cor. 9.7, Thm 9.8); **pp. 63–64** (§10: π : X̃ = M × R^{>0} → X = M ×_Q R^{>0}, R_X = (π_∗R_X̃)^Q ⊂ (π_∗C⁰_X̃)^Q = C⁰_X, the non-local-triviality remark, Def. 10.1).
+**The defect.** What is computed is cl_{X•(C)}{F_n P₀ : n ∈ N} — the closure of a **sequence**, in **one chart**, of the **upstairs** space, at a **fixed prime**. What is asserted is a statement about cl_{𝕏₀}(γ), the closure of a **circle** in the **suspension** of the **Galois quotient** of the **colimit**. Four distinct reductions separate them, and none is present: (R1)/(R2) the sequence vs. the full Q₀^{>0}-orbit — by (★) the relevant upstairs set is O(P₀) = {F_r P₀ : r ∈ Q₀^{>0}}, not {F_n P₀ : n ∈ N}; (R4) the Galois quotient π, which is open, so closures do descend, but this must be said; (R5) the colimit, where closure is chart-local and the orbit visits infinitely many charts; and the suspension quotient q, which is **not proper** and whose action is **not properly discontinuous** ([x-03] p. 49, verbatim) — so q does *not* reflect convergence and "compute upstairs, push down" is not available as a general principle. What *is* available is Lemma O.0 (q is open), and that has to be invoked.
 
-**[x-06]** Deninger, *Primes, knots and periodic orbits*, arXiv:2301.11643, `fetched/x-06-deninger-2024-primes-knots-and-periodic-orbits.pdf`. Read: **printed pp. 11–12** (Thm 4.1, the colimit and the suspension X₀ = (X̌₀(C) × R^{>0})/Q^{>0}, the admissibility discussion, Thm 4.2 with the "compact subsets Γ_{x₀} … pairwise disjoint" sentence, the compact-packets paragraph, Thm 4.3 connectedness/almost path-connectedness).
+**Fill attempt: succeeds.** §5 carries the instrument through all five reductions and reaches the conclusion. **Break attempt: fails** — see §7.1; the instrument is repairable, not wrong.
 
-**[r3s-08]** Morishita, arXiv:2508.15971v5, `fetched-r3/r3s-08-morishita-deninger-cc-bridge-2508.15971.pdf`. Read: **printed pp. 16–20** (Thm 2.2.8(1); Thm 2.2.9(1) the R₊-equivariant "homeomorphism" onto Γ_p as a mapping torus of multiplication by lk_p(p); Thm 2.2.9(2) γ_{p,a} ≅ R₊/Np^Z and "the decomposition into connected closed R₊-orbits"; the §2.3 covering/monodromy set-up).
+**Replacement text** (replaces the whole parenthetical of Corollary A.1):
 
-**[D25]** Deninger, *Rational Witt vectors and associated sheaves*, arXiv:2508.05329v1, `fetched-r3/r3s-22-...pdf` — **not opened for this item**; nothing in Corollary A.1 or in the repair cites it, and I make no claim about it.
+> (The converse inclusion is Proposition A.1″ below. **Proposition A.1″ (packets are closed).** For every arithmetic scheme X₀, every admissible E and every point x₀ of X₀ with finite residue field, Γ^E_{x₀} is a closed flow-invariant subset of 𝕏₀ = X̌₀(C)_E ×_{Q₀^{>0}} R^{>0} with its quotient topology. *Proof.* pr_{X₀} : X̌₀(C)_E → X₀ is continuous into the Zariski topology ([x-03] Lemma 7.1 p. 40; p. 42–43 for the general and colimit cases; p. 47 for the E-version) and Q₀^{>0}-invariant, Q₀^{>0} acting trivially on X₀ (p. 27, after (31)). Hence (P₀,u) ↦ pr_{X₀}(P₀) is continuous on X̌₀(C)_E × R^{>0} and constant on Q₀^{>0}-orbits, so it descends through the quotient map to a continuous Π : 𝕏₀ → X₀ with Π∘φ^t = Π. By [x-03] p. 31, C_{x₀} = pr_{X₀}^{-1}(x₀) in X̌₀(C)_{Etors}, and since every admissible E satisfies E ⊆ E_tors (Def. 4.1), C^E_{x₀} = pr_{X₀}^{-1}(x₀) ∩ X̌₀(C)_E; this set is Q₀^{>0}-stable, so Γ^E_{x₀} = q(C^E_{x₀} × R^{>0}) = Π^{-1}(x₀). A point with finite residue field is a closed point (A/𝔭 is a finite domain, hence a field), so Γ^E_{x₀} is closed. ∎ Consequently cl_{𝕏₀}(γ) ⊆ Γ^E_p for every periodic orbit γ ⊆ Γ^E_p, and with Theorem A, **cl_{𝕏₀}(γ) = Γ^E_p exactly**, with no intersection taken: the closure meets no other packet and no point of the generic stratum.)
 
-**Program files:** `results/c3-r/probe-9.3-adjudication.md` (in full); `results/c3-r/probe-9.3-b.md` (in full); `results/corpus-routing.md` (header caveats §§1–20 — none of them bears on x-03, x-06 or r3s-08 text extraction; caveat 14 confirms r3s-08 = arXiv:2508.15971 v5, title-page verified).
+### F2 — MAJOR. The exclusion criterion is incomplete, and completing it is necessary for the conclusion.
 
-*Extraction method:* `pdftotext -layout` into the session scratchpad, then a page-tagged re-index; every quotation above was re-read from those extractions at the stated page. No third-party OCR was used and no derived text artifact was written into the corpora (corpus-routing caveats 1–2).
+**Location.** `probe-9.3-b.md` §5, Corollary A.1, "limits with some component of b equal to 0 kill a μ_{ℓ^∞} and violate (Tors), so they leave the space".
 
-— end of referee report O —
+**The defect.** (Tors) fails for P_{a₀b} exactly when ⨁_{ℓ≠p} μ_{ℓ^{v_ℓ(b_ℓ)}} is infinite, i.e. when **either** some v_ℓ(b_ℓ) = ∞ (the note's case, b_ℓ = 0) **or** v_ℓ(b_ℓ) > 0 for infinitely many ℓ. The note names only the first disjunct. **Counterexample to the criterion:** b = (ℓ)_{ℓ≠p} has all components nonzero, passes the note's test, and violates (Tors) with infinite kernel ⨁_{ℓ≠p} μ_ℓ. Were the note's criterion exhaustive, the limit set would strictly exceed the packet and **the claimed equality would be false**. The correct criterion is b ∈ N₀′·Ẑ^×_{(p)} (N₀′ = the elements of N₀ prime to p).
+
+**Fill attempt: succeeds** (§5.3). **Break attempt: fails** — the extra bad b's are excluded by the same condition, so the conclusion is unharmed; only the reason is wrong.
+
+**Replacement text** (for that clause, if the parenthetical is kept in any form):
+
+> "the limit P₀^b satisfies (Tors) if and only if ker(( )^b) = ⨁_{ℓ≠p} μ_{ℓ^{v_ℓ(b_ℓ)}} is finite, i.e. if and only if b ∈ N₀′·Ẑ^×_{(p)} — every component nonzero **and** all but finitely many components units. Limits failing either half (e.g. b with a zero component, killing a μ_{ℓ^∞}; or b = (ℓ)_{ℓ≠p}, with every component nonzero but no component a unit) violate (Tors) and are not points of X̌₀(C)_E for any admissible E, since Definition 4.1 imposes (Tors) on every admissible class."
+
+### F3 — MAJOR. The stated conclusion is logically equivalent to Theorem A and carries no converse content; Corollary A.1's headline is therefore unproved in the note.
+
+**Location.** `probe-9.3-b.md` §5, Corollary A.1, "one gets cl(γ) ∩ (char-p part) = Γ^E_p exactly", read against the headline "Γ^E_p is the orbit closure of each of its points and is the smallest closed invariant set containing any one of its orbits".
+
+**The defect.** "char-p part" is not defined in the note. Both available readings make the displayed equation vacuous as a converse:
+- Read as *the part of 𝕏₀ over the point (p)*: that part **is** Γ^E_p (Prop. O.1 (iii)), so the equation reduces to cl(γ) ⊇ Γ^E_p, i.e. Theorem A.
+- Read as *the union of all positive-characteristic strata* (the suspension of ⋃_p X̌₀(C)_{p,E}, in the notation of [x-03] p. 33): the equation then asserts additionally that cl(γ) meets no *other* prime's packet — which is true, but is nowhere argued, and is exactly a statement about the whole colimit that the fixed-prime computation cannot see.
+
+Either way the note does not establish cl(γ) ⊆ Γ^E_p, and therefore does not establish that Γ^E_p is **the** orbit closure, or that it is **the smallest closed invariant set** containing an orbit, or that it is a **minimal set**. Those are the statements the program banked (adjudication §4 item 1). The gap is fillable (§4, §5) but the note must change: MAJOR.
+
+*I record a disagreement with the leaked adjudication block, which rates the "∩ (char-p part)" hedge MINOR on the ground that "the claim as hedged is true and merely weaker than the truth".* Truth is not the test; adequacy to the stated corollary is. A corollary whose proof establishes only its converse-free half has a MAJOR defect even when every sentence in it is true. I hold F3 at MAJOR. (I do not dispute the adjudicator's right to merge F3 into F1 as one defect with two faces — derivation-side and conclusion-side — and if merged, one MAJOR is the correct count. I do dispute demoting it.)
+
+**Replacement text** (for Corollary A.1's headline sentence, making the dependency explicit):
+
+> "**Corollary A.1 (packets are minimal sets; the 'invariant tori' made precise).** Γ^E_p is nonempty, closed (Proposition A.1″) and flow-invariant, and every one of its orbits is dense in it (Theorem A). Hence Γ^E_p is a **minimal set** of the flow φ^t on 𝕏₀: it is the orbit closure of each of its points, and the smallest closed invariant set containing any one of its orbits. Both halves are needed — Theorem A alone gives only that every closed invariant set meeting Γ^E_p contains it, which is what Corollary A.3 and Corollary B consume."
+
+### F4 — MINOR. Wrong cross-reference.
+
+**Location.** "(With Step 5's converse inclusion — …". Step 5 of Theorem A is the sweep establishing ⊇; it contains no converse. **Replacement:** "(For the converse inclusion see Proposition A.1″ — …".
+
+### F5 — MINOR. The topology on the suspension is load-bearing here and is cited as "implicit".
+
+**Location.** `probe-9.3-b.md` §3.1, "the suspension X₀ carries the quotient topology (implicit throughout §§8, 10, e.g. 'topological closure' in §8, the sheaf-theoretic §10)".
+
+**The defect.** The reading is correct, but for the converse it is *the* hypothesis: Π's continuity in Prop. O.1 is exactly the universal property of the quotient topology, and a strictly coarser topology on 𝕏₀ would void it. I confirm by grep that [x-03] never writes "quotient topology" for the suspension. **Replacement:**
+
+> "the suspension carries the quotient topology of X̌₀(C)_E × R^{>0}. [x-03] §6 p. 38 defines it as a quotient without naming a topology; the warrants are (i) [r3s-08] p. 14 verbatim for the identical construction, 'We equip X_K twith he quotient topology of the product X̌_K(C) × R₊'; (ii) [x-03] p. 61, where continuity of π : X_η ↠ Y is deduced from continuity of its lift — valid only for the quotient topology; (iii) [x-03] §10 p. 63, R_X = (π_∗R_X̃)^Q ⊂ (π_∗C⁰_X̃)^Q = C⁰_X; (iv) [x-06] p. 11. The quotient map q is open (Q₀^{>0} acts by homeomorphisms, Prop. 7.4 b) but not proper, and the action is not properly discontinuous ([x-03] p. 49), so q does not reflect convergence; closures nevertheless descend through the open-map identity q^{-1}(cl A) = cl(q^{-1}A)."
+
+### F6 — MINOR. The necessity of E ⊆ E_tors is not recorded, and the equality is false without it.
+
+**Location.** Corollary A.1 as a whole. **The point.** In the un-cut suspension X̌₀(C) ×_{Q₀^{>0}} R^{>0} the equality fails: with n_k = ∏_{ℓ≤k, ℓ≠p} ℓ^k → 0 in Ẑ_{(p)} one gets [P₀, n_k u] = [F_{n_k}P₀, u] → [(x, **1**), u], a point whose Q₀^{>0}-isotropy is all of Q₀^{>0} and which lies in no packet. **Replacement:** append to Corollary A.1: "The hypothesis that E be admissible — specifically E ⊆ E_tors, imposed by Definition 4.1 — is necessary and not merely convenient: in the un-cut suspension the closure of γ additionally contains [(x, 1), u], and the equality fails."
+
+### F7 — MINOR. Two traps in the neighbourhood of this item should be named where a reader will meet them.
+
+**Location.** `probe-9.3-b.md` §3.2 (quoting Deninger's "compact packets") and §3.3 (the Morishita caution).
+
+**(a) Compactness does not give closedness here.** [x-03] p. 2 ("the closed points x₀ of X₀ correspond bijectively to compact packets Γ_{x₀}") and [x-06] p. 12 ("The compact subsets Γ_{x₀} ⊂ X₀ … are pairwise disjoint") are asserted without proof, and — crucially — **the standard inference compact ⟹ closed is unavailable in 𝕏₀**, which is non-Hausdorff along the packets (Cor. A.2, adjudication §3). Anyone tempted to derive the converse inclusion from Deninger's compactness sentence is making an invalid step. Prop. O.1 is needed, and it is independent of compactness. **Replacement (add to §3.2):** "Deninger asserts compactness of Γ_{x₀} without proof ([x-03] p. 2; [x-06] p. 12). Note that compactness does **not** yield closedness in 𝕏₀, which is non-Hausdorff along the packets (Cor. A.2); closedness must be proved separately (Proposition A.1″), and compactness likewise (Corollary A.5)."
+
+**(b) The Morishita caution is right but can now be stated exactly, and it moves.** Γ_p ⊂ 𝕏₀ *is* closed (Prop. O.1) and, for E ⊇ E_f, compact (Cor. A.5 below) — so there is nothing wrong with treating it as a compact subset. What fails is (i) Hausdorffness of Γ_p in its subspace topology, which refutes [r3s-08] Thm 2.2.9(1)'s "homeomorphism" onto the compact Hausdorff mapping-torus model Ẑ^×_{(p)}/p^Ẑ ×_{p^Z} R₊ (p. 17), and (ii) closedness of the individual orbits, which refutes reading Thm 2.2.9(2)'s "decomposition into connected closed R₊-orbits" (p. 18) in that topology, every orbit being dense in Γ_p by Theorem A. **Replacement for the ledger's W11 row:** "[r3s-08] Thms 2.2.8/2.2.9 give model bijections, not subspace-topology statements. In 𝕏₀ the packet Γ_p is closed (referee O, Prop. O.1) and, for E ⊇ E_f, compact (Cor. A.5), but non-Hausdorff (adjudication §3); so 2.2.9(1)'s homeomorphism onto a compact Hausdorff model is false in the subspace topology, and 2.2.9(2)'s 'closed R₊-orbits' is false there too. Harmless to the class-field-theoretic content; never cite for topology. Conversely, [r3s-08] p. 14's assertion that pr_K : X_K → Spec O_K is continuous **is** correct and is the shortest published route to Prop. O.1."

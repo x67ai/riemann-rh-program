@@ -1,0 +1,26 @@
+{
+ "C1_CRT_density_positive_reps": true,
+ "C2_kernel_sizes_b=6_(finite,stabilises)": [
+  6,
+  6,
+  6,
+  6
+ ],
+ "C2_kernel_sizes_b_with_zero_2_component_(unbounded)": [
+  8,
+  32,
+  128,
+  2048
+ ],
+ "C2_kernel_sizes_b=prod_all_primes_(unbounded_though_no_component_zero)": [
+  6,
+  6,
+  42,
+  462
+ ],
+ "C2_verdict": true,
+ "C3_chart1_membership_iff_prime_to_p_part_of_denominator_is_1": true,
+ "C4_nk_to_zero_example_divisible_by_l^4_once_k>=max(l,4)": true,
+ "C4_limit_point_is_trivial_character_kernel_size_at_M": "gcd(0, M) = M -> infinite kernel: not (Tors)",
+ "C5_rotation_values_max_gap_in_[0,1)_over_2000_terms": 0.0015
+}
