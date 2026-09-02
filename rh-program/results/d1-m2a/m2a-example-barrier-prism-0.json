@@ -1,0 +1,28 @@
+{
+  "format": "M2a-barrier-transcript",
+  "version": "1.0",
+  "kind": "prism",
+  "index": "0",
+  "seam": {"n": "0", "d": "1"},
+  "scales": {"K": "100", "A": "1000"},
+  "mesh": {
+    "bottom": [{"n":"10","d":"1"}, {"n":"21","d":"2"}, {"n":"11","d":"1"}],
+    "right":  [{"n":"1","d":"5"},  {"n":"3","d":"5"},  {"n":"1","d":"1"}],
+    "top":    [{"n":"11","d":"1"}, {"n":"21","d":"2"}, {"n":"10","d":"1"}],
+    "left":   [{"n":"1","d":"1"},  {"n":"3","d":"5"},  {"n":"1","d":"5"}]
+  },
+  "segments": [
+    {"reLo":"300","reHi":"420","imLo":"-60","imHi":"60","argLo":"-12","argHi":"15"},
+    {"reLo":"310","reHi":"430","imLo":"-50","imHi":"70","argLo":"-10","argHi":"14"},
+    {"reLo":"320","reHi":"440","imLo":"-40","imHi":"80","argLo":"-11","argHi":"13"},
+    {"reLo":"330","reHi":"450","imLo":"-30","imHi":"90","argLo":"-13","argHi":"12"},
+    {"reLo":"340","reHi":"460","imLo":"-20","imHi":"100","argLo":"-14","argHi":"11"},
+    {"reLo":"330","reHi":"450","imLo":"-30","imHi":"90","argLo":"-12","argHi":"16"},
+    {"reLo":"320","reHi":"440","imLo":"-40","imHi":"80","argLo":"-15","argHi":"10"},
+    {"reLo":"310","reHi":"430","imLo":"-50","imHi":"70","argLo":"-9","argHi":"17"}
+  ],
+  "modulus_floor": {"Fn": "5", "Fd": "2"},
+  "approx_defect": "20",
+  "displacement": "100",
+  "producer": {"note": "artificial data; f-boxes and E, D_t are not from any evaluator"}
+}

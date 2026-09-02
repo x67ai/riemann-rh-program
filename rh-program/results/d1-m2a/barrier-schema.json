@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rh-program/results/d1-m2a/barrier-schema.json",
+  "title": "M2a barrier-certificate transcript (v1.0)",
+  "description": "Shape contract for the M2a de Bruijn-Newman barrier certificate: three document kinds -- 'manifest' (the barrier lane's rectangle, final time t0 and prism list), 'prism' (one time prism: the seam exclusion transcript in the W1 row vocabulary plus the floor, the approximation defect E and the displacement D), and 'asymptotic' (the final-time window rows and the Lemma-T tail row). Normative semantics, the checker clauses C-B0..C-B13 and C-A1..C-A6, and the displayed hypotheses live in SPEC.md (same directory). This schema enforces SHAPE only: a schema-valid file can still be checker-rejected. All integers are decimal strings (JSON native numbers are forbidden for checked data, as in w1-schema.json).",
+  "type": "object",
+  "required": ["format", "version", "kind"],
+  "properties": {
+    "format": { "const": "M2a-barrier-transcript" },
+    "version": { "const": "1.0" },
+    "kind": { "enum": ["manifest", "prism", "asymptotic"] }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/manifest" },
+    { "$ref": "#/$defs/prism" },
+    { "$ref": "#/$defs/asymptotic" }
+  ],
+  "$defs": {
+    "intStr": { "type": "string", "pattern": "^-?(0|[1-9][0-9]*)$", "description": "arbitrary-precision integer as a decimal string" },
+    "natStr": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$" },
+    "posIntStr": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+    "rat": {
+      "type": "object",
+      "description": "exact rational n/d, d > 0 syntactically; need not be reduced; compared by cross-multiplication",
+      "required": ["n", "d"], "additionalProperties": false,
+      "properties": { "n": { "$ref": "#/$defs/intStr" }, "d": { "$ref": "#/$defs/posIntStr" } }
+    },
+    "ratList": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/rat" } },
+    "row": {
+      "type": "object",
+      "description": "W1 row (FORMAT.md section 5-6, verbatim): value box reLo<=K*Re f<=reHi, imLo<=K*Im f<=imHi for ALL points of the closed segment, and the argument-increment enclosure argLo<=A*(Delta/2pi)<=argHi in TURN units -- here for the seam approximant f (SPEC.md section 4.2).",
+      "required": ["reLo", "reHi", "imLo", "imHi", "argLo", "argHi"], "additionalProperties": false,
+      "properties": {
+        "reLo": { "$ref": "#/$defs/intStr" }, "reHi": { "$ref": "#/$defs/intStr" },
+        "imLo": { "$ref": "#/$defs/intStr" }, "imHi": { "$ref": "#/$defs/intStr" },
+        "argLo": { "$ref": "#/$defs/intStr" }, "argHi": { "$ref": "#/$defs/intStr" }
+      }
+    },
+    "trustLabel": {
+      "const": "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL) and H3 (producers untrusted)"
+    },
+    "manifest": {
+      "type": "object",
+      "required": ["format", "version", "kind", "lane", "trust_label", "rect", "t0", "prisms"],
+      "additionalProperties": false,
+      "properties": {
+        "format": { "const": "M2a-barrier-transcript" },
+        "version": { "const": "1.0" },
+        "kind": { "const": "manifest" },
+        "lane": { "const": "barrier" },
+        "trust_label": { "$ref": "#/$defs/trustLabel" },
+        "rect": {
+          "type": "object",
+          "description": "the common barrier rectangle R = [x1,x2] x [y1,y2] in the z = x+iy plane (checker C-B2': x1 < x2, 0 < y1 < y2; the instance glue checks x1 = X, x2 = X+1, y1 <= y0, y2 >= 1)",
+          "required": ["x1", "x2", "y1", "y2"], "additionalProperties": false,
+          "properties": { "x1": { "$ref": "#/$defs/rat" }, "x2": { "$ref": "#/$defs/rat" }, "y1": { "$ref": "#/$defs/rat" }, "y2": { "$ref": "#/$defs/rat" } }
+        },
+        "t0": { "$ref": "#/$defs/rat", "description": "final time t0 > 0; the last prism is [last seam, t0]" },
+        "prisms": {
+          "type": "array", "minItems": 1,
+          "description": "prism list in time order; checker C-B13: first seam = 0, seams strictly increasing, last seam < t0. Each entry names the prism file; the file's own 'seam' must equal the entry's.",
+          "items": {
+            "type": "object", "required": ["index", "file", "seam"], "additionalProperties": false,
+            "properties": { "index": { "$ref": "#/$defs/natStr" }, "file": { "type": "string" }, "seam": { "$ref": "#/$defs/rat" } }
+          }
+        },
+        "producer": { "type": "object", "description": "UNTRUSTED provenance metadata (both legs record implementation, version, precision, the f_t evaluator's identity, the E and D derivations' inputs)" },
+        "comment": { "type": "string" }
+      }
+    },
+    "prism": {
+      "type": "object",
+      "required": ["format", "version", "kind", "index", "seam", "scales", "mesh", "segments", "modulus_floor", "approx_defect", "displacement"],
+      "additionalProperties": false,
+      "properties": {
+        "format": { "const": "M2a-barrier-transcript" },
+        "version": { "const": "1.0" },
+        "kind": { "const": "prism" },
+        "index": { "$ref": "#/$defs/natStr" },
+        "seam": { "$ref": "#/$defs/rat", "description": "the seam time tau_j = left endpoint of the prism [tau_j, tau_{j+1}] (tau_J := t0)" },
+        "scales": {
+          "type": "object", "required": ["K", "A"], "additionalProperties": false,
+          "description": "K: value scale of this prism's rows, floor, E and D; A: argument scale in turn units (producer requirement: A even, >= 2)",
+          "properties": { "K": { "$ref": "#/$defs/posIntStr" }, "A": { "$ref": "#/$defs/posIntStr" } }
+        },
+        "mesh": {
+          "type": "object", "required": ["bottom", "right", "top", "left"], "additionalProperties": false,
+          "description": "boundary mesh of R, FORMAT.md section 4 conventions verbatim: bottom (Re: x1->x2 increasing), right (Im: y1->y2 increasing), top (Re: x2->x1 DEcreasing), left (Im: y2->y1 DEcreasing); endpoints included; checker C-B3",
+          "properties": { "bottom": { "$ref": "#/$defs/ratList" }, "right": { "$ref": "#/$defs/ratList" }, "top": { "$ref": "#/$defs/ratList" }, "left": { "$ref": "#/$defs/ratList" } }
+        },
+        "segments": { "type": "array", "minItems": 4, "items": { "$ref": "#/$defs/row" }, "description": "one row per boundary segment, global traversal order; count = sum over edges of (breakpoints-1) (C-B4); rows enclose the seam approximant f_{tau_j}" },
+        "modulus_floor": {
+          "type": "object", "required": ["Fn", "Fd"], "additionalProperties": false,
+          "description": "the floor |f| >= Fn/Fd on all of dR at the seam (checker C-B11, FORMAT.md section 5.2 integer-squares scheme)",
+          "properties": { "Fn": { "$ref": "#/$defs/natStr" }, "Fd": { "$ref": "#/$defs/posIntStr" } }
+        },
+        "approx_defect": { "$ref": "#/$defs/natStr", "description": "E: |g_{tau_j} - f| <= E/K on dR, g = H_t/B_t (Theorem 1.3 defect e_A+e_B+e_C0, uniform on dR at the seam; SPEC.md section 4.4)" },
+        "displacement": { "$ref": "#/$defs/natStr", "description": "D: |g_t - g_{tau_j}| <= D/K on dR for tau_j <= t <= tau_{j+1} (SPEC.md section 4.5); checker C-B12: (E + D)*Fd < Fn*K" },
+        "producer": { "type": "object", "description": "UNTRUSTED: per-prism diagnostics for the two-producer cross-check -- f boxes before E-inflation, the E bound's inputs, D_t and delta t, mesh policy, timings" },
+        "comment": { "type": "string" }
+      }
+    },
+    "asymptotic": {
+      "type": "object",
+      "required": ["format", "version", "kind", "lane", "trust_label", "scales", "t0", "y0", "yA", "rows", "tail"],
+      "additionalProperties": false,
+      "properties": {
+        "format": { "const": "M2a-barrier-transcript" },
+        "version": { "const": "1.0" },
+        "kind": { "const": "asymptotic" },
+        "lane": { "const": "asymptotic" },
+        "trust_label": { "$ref": "#/$defs/trustLabel" },
+        "scales": { "type": "object", "required": ["K"], "additionalProperties": false, "properties": { "K": { "$ref": "#/$defs/posIntStr" } } },
+        "t0": { "$ref": "#/$defs/rat" },
+        "y0": { "$ref": "#/$defs/rat" },
+        "yA": { "$ref": "#/$defs/rat", "description": "top of the y-range; checker C-A1: yA^2 >= 1 - 2*t0 (so [y0,yA] covers Theorem 1.2(ii)'s y0 <= y <= sqrt(1-2t0))" },
+        "rows": {
+          "type": "array", "minItems": 1,
+          "description": "window rows in increasing N, consecutive (C-A4: next Nlo = Nhi + 1); each certifies |g_{t0}(x+iy)| >= (T-E)/K for N(x) in [Nlo,Nhi], y in [y0,yA] (SPEC.md section 5.2); C-A3: 0 <= E < T",
+          "items": {
+            "type": "object", "required": ["Nlo", "Nhi", "T", "E"], "additionalProperties": false,
+            "properties": { "Nlo": { "$ref": "#/$defs/natStr" }, "Nhi": { "$ref": "#/$defs/natStr" }, "T": { "$ref": "#/$defs/natStr" }, "E": { "$ref": "#/$defs/natStr" } }
+          }
+        },
+        "tail": {
+          "type": "object", "required": ["N1", "Q1", "Q2", "Q3", "Q4", "E1"], "additionalProperties": false,
+          "description": "the Lemma-T tail row (SPEC.md section 5.4): N1 = last Nhi + 1 (C-A5); Q1..Q4, E1 = integer upper bounds at scale K of the five finite quantities; C-A6: Q1+Q2+Q3+Q4+E1 < 2K",
+          "properties": { "N1": { "$ref": "#/$defs/natStr" }, "Q1": { "$ref": "#/$defs/natStr" }, "Q2": { "$ref": "#/$defs/natStr" }, "Q3": { "$ref": "#/$defs/natStr" }, "Q4": { "$ref": "#/$defs/natStr" }, "E1": { "$ref": "#/$defs/natStr" } }
+        },
+        "producer": { "type": "object", "description": "UNTRUSTED: per-row diagnostics (the mollifier set, sigma lower bounds, the E derivation inputs) and the tail row's constants (sigma_1, epsilon, k_1, kappa_T, psi values)" },
+        "comment": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format": "M2a-barrier-transcript",
+  "version": "1.0",
+  "kind": "asymptotic",
+  "lane": "asymptotic",
+  "trust_label": "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL) and H3 (producers untrusted)",
+  "scales": {"K": "1000"},
+  "t0": {"n": "1", "d": "10"},
+  "y0": {"n": "1", "d": "5"},
+  "yA": {"n": "9", "d": "10"},
+  "rows": [
+    {"Nlo": "5",  "Nhi": "5",  "T": "400", "E": "30"},
+    {"Nlo": "6",  "Nhi": "9",  "T": "350", "E": "25"},
+    {"Nlo": "10", "Nhi": "20", "T": "300", "E": "20"}
+  ],
+  "tail": {"N1": "21", "Q1": "1500", "Q2": "100", "Q3": "50", "Q4": "20", "E1": "5"},
+  "producer": {"note": "artificial data (SPEC.md section 12)"}
+}
