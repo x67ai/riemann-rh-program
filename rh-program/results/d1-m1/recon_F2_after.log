@@ -1,0 +1,12 @@
+== RECONCILER: F-2 AFTER repair R2 -- producer_mp.py --A 0 (A = 1, odd) must now refuse -- 2026-09-02T02:52:24Z
+PRODUCER STOP: A must be EVEN and >= 2 (got A = 1) -- the D3 clamp to [-A/2, A/2] is an integer clamp; for odd A it cuts strictly inside the sound interval and can emit a false argument row (AUDIT F finding F-2).  Use --A k with k >= 1 (A = 10^k).
+exit: 1
+ls: /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/after/should-not-exist.json: No such file or directory
+
+== even A passes the guard: A = 10^2 = 100 on the DH live-fire rectangle (refutation)
+  winding number m = 1 (unique by width < 1/2 turn)
+  modulus floor: |f| >= 246720161844356978370552244 / 1e30 on dR
+  wrote /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/after/w1-mp-dh-A100.json (40 segments, 3.5s total)
+exit: 0
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/after/w1-mp-dh-A100.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[82, 122], A=100; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+exit: 0

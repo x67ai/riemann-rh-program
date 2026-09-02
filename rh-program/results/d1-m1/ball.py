@@ -12,8 +12,14 @@ A complex number z is enclosed as a rectangle ("box")
     z in [reLo, reHi] x [imLo, imHi]  (Re and Im each an mpmath ``iv`` real interval),
 
 with all real-interval arithmetic delegated to mpmath 1.3.0's interval context
-(``mpmath.iv``, backed by ``mpmath.libmp.libmpi``), which computes every endpoint
-with directed rounding at the context precision ``iv.prec``.  Every complex
+(``mpmath.iv``, backed by ``mpmath.libmp.libmpi``).  Its ring primitives (+, -, *, /,
+**2, sqrt) are correctly directed-rounded (integer algorithms); its TRANSCENDENTAL
+primitives (exp, log, atan, pi -- and cos, sin, which mpmath itself perturbs) directed-
+round a guard-bit APPROXIMATION and are therefore NOT enclosures by themselves (AUDIT F
+finding F-1, 2026-09-02).  This file wraps every transcendental primitive in an OUTWARD
+inflation (``_inflate`` below, mpmath's own ``mpi_cos_sin`` recipe with a far larger
+margin) so that the platform assumption becomes the weak, tested one stated at
+``_inflate``.  Every complex
 operation below is built so that it is INCLUSION-MONOTONE: if z is in box B and
 w is in box C then op(z, w) is in op(B, C).  That is the whole soundness
 contract of this file, and it reduces, operation by operation, to
@@ -24,8 +30,12 @@ contract of this file, and it reduces, operation by operation, to
 
 TRUST SURFACE (recorded per standing order 5, honest-labels rule)
 =================================================================
-(ii) is PLATFORM TRUST in mpmath's directed rounding, exactly parallel to the
-Arb leg's trust in Arb.  It is not proved here; it is cross-validated:
+(ii) is PLATFORM TRUST in mpmath, exactly parallel to the Arb leg's trust in Arb --
+stated precisely: correct directed rounding of the ring primitives, and, for the
+transcendental primitives, that the returned endpoint lies within relative distance
+2^-(prec-16) of the truth (see ``_inflate``; the raw claim "every endpoint is
+correctly directed-rounded" is FALSE for exp/log/atan/pi and was retracted by the
+AUDIT F-1 repair).  It is not proved here; it is cross-validated:
 ``python3 ball.py --selftest`` runs randomized containment tests of every
 primitive and every composite operation against independent high-precision
 mp-context evaluation (dps 80), with membership decided in EXACT rational
@@ -80,7 +90,8 @@ The interval evaluation of each formula over a box in its half-plane encloses
 {that branch value : z in box}: the quotient interval Y/X contains every y/x
 (iv division; denominator interval excludes 0 by the half-plane hypothesis),
 atan is applied by the monotone interval atan (libmpi.mpi_atan), and pi by the
-interval iv.pi -- inclusion-monotone throughout.
+interval iv_pi() -- inclusion-monotone throughout (all four transcendental
+endpoints outward-inflated, see ``_inflate``).
 
 Nothing in this file computes derivatives; the producer's winding tracking is
 zeta'/zeta-free by construction (FORMAT.md sec. 10).
@@ -93,12 +104,14 @@ from fractions import Fraction
 
 import mpmath
 from mpmath import iv
-from mpmath.libmp import mpf_lt
+from mpmath.libmp import (mpf_lt, mpf_mul, from_man_exp, round_floor, round_ceiling,
+                          MPZ_ONE)
 import mpmath.libmp.libmpi as _libmpi
 
 __all__ = [
     "set_prec", "iv_from_fraction", "iv_from_int", "ivmpf_bounds",
     "mpf_tuple_to_fraction", "iv_atan", "iv_intersect", "iv_hull",
+    "iv_exp", "iv_log", "iv_cos", "iv_sin", "iv_pi",
     "Ball", "TAGS",
 ]
 
@@ -171,9 +184,90 @@ def iv_intersect(x, y):
     return iv.make_mpf((lo, hi))
 
 
+# ---------------------------------------------------------------- transcendental primitives,
+# OUTWARD-INFLATED (AUDIT F finding F-1, repair R1, applied at reconciliation 2026-09-02)
+
+_INFL_BITS = 16   # each transcendental endpoint is widened outward by 2^-(prec-16) relative
+
+
+def _inflate(x):
+    """Widen the iv real interval x OUTWARD by the relative factor (1 -+ 2^-(p-16)), p = iv.prec:
+      lo -> lo*(1 - 2^-(p-16)) if lo >= 0, lo*(1 + 2^-(p-16)) if lo < 0, rounded toward -inf;
+      hi -> hi*(1 + 2^-(p-16)) if hi >= 0, hi*(1 - 2^-(p-16)) if hi < 0, rounded toward +inf.
+    Each case moves the endpoint away from the interior, and ``mpf_mul`` with a directed mode
+    is correctly rounded, so the result contains x and every point within relative distance
+    2^-(p-16) of x's endpoints.  An endpoint that is exactly 0 stays 0 -- the primitives return
+    an exact 0 only where the truth is 0 (log 1, atan 0, sin 0: libelefun.py special cases).
+
+    WHY THIS EXISTS (AUDIT F finding F-1, re-verified by the reconciler).  libmpi computes
+    mpi_exp / mpi_log / mpi_atan / mpi_pi as ``mpf_exp(x, prec, round_floor)`` etc.
+    (libmpi.py lines 273-303).  Those mpf primitives compute an APPROXIMATION at a working
+    precision wp = prec + guard bits (exp: 14, plus mag bits for |x| >= 2; log: 20, plus the
+    cancellation bits near 1; atan: 30 + |mag|; libelefun.py ``mpf_exp``/``mpf_log``/
+    ``mpf_atan``) and then directed-round THAT approximation (``from_man_exp(man, ..., prec,
+    rnd)``).  Directed rounding of an approximation is not an enclosure: when the truth lies
+    just below a prec-representable number and the approximation just above it, the ceiling
+    lands BELOW the truth.  Demonstrated: ``mpf_exp(x, 288, round_ceiling)`` fell below a
+    1200-bit reference in 11 of 40,000 samples (audit_F_mpmath_rounding.log, reproduced in
+    recon_rounding.log; worst excess 6.6e-91 relative = 3.3e-4 ulp at 288 bits).  mpmath's
+    own ``mpi_cos_sin`` multiplies its endpoints by (1 -+ 2^(10-wp)) "to force interval
+    rounding" (libmpi.py line 405); exp/log/atan/pi have no such step.  This function
+    supplies it, uniformly, with a much larger margin: the guard-bit analysis bounds the
+    approximation error by a few units of 2^-wp relative, i.e. below 2^-10 ulp at prec
+    (consistent with the 3.3e-4-ulp excess observed), while the widening here is 2^-(p-16)
+    relative, i.e. at least 2^15 ulps -- a margin of 2^25 or more over the modeled error.
+    cos/sin are widened too (one rule for every transcendental endpoint), although mpmath's
+    own perturbation tested exact in 50,000 samples including the cancellation regimes
+    x ~ (k+1/2)pi and x ~ k pi (recon_rounding.log; the mod_pi2 reduction escalates its
+    precision until the reduced argument keeps wp-10 relative bits).
+
+    THE PLATFORM ASSUMPTION AFTER THIS REPAIR, stated honestly: for each transcendental
+    primitive P in {exp, log, atan, pi, cos, sin} and each prec-bit dyadic argument, the
+    endpoint mpmath returns lies within relative distance 2^-(prec-16) of the true value
+    (i.e. the guard-bit approximation is good to better than 2^15 ulps).  That is what the
+    self-test's exact-reference block and the two-producer cross-check corroborate; the
+    earlier claim "every endpoint is correctly directed-rounded" is false and is retracted.
+    Cost: 2^-272 relative at prec 288 -- about 50 orders below the emission scale K = 10^30
+    and ~60 orders below the Euler-Maclaurin remainder pad; the acceptance transcripts
+    re-emitted after this repair are byte-identical in numeric content (recon-mp-reproduce.log).
+    """
+    lo, hi = x._mpi_
+    p = iv.prec
+    more = from_man_exp((MPZ_ONE << p) + (MPZ_ONE << _INFL_BITS), -p)   # exactly 1 + 2^-(p-16)
+    less = from_man_exp((MPZ_ONE << p) - (MPZ_ONE << _INFL_BITS), -p)   # exactly 1 - 2^-(p-16)
+    lo = mpf_mul(lo, more if lo[0] else less, p, round_floor)    # lo < 0: more negative; lo >= 0: smaller
+    hi = mpf_mul(hi, less if hi[0] else more, p, round_ceiling)  # hi < 0: closer to 0; hi >= 0: larger
+    return iv.make_mpf((lo, hi))
+
+
+def iv_exp(x):
+    """Interval exp, endpoints outward-inflated (see ``_inflate``)."""
+    return _inflate(iv.exp(x))
+
+
+def iv_log(x):
+    """Interval log (argument interval must be positive), endpoints outward-inflated."""
+    return _inflate(iv.log(x))
+
+
+def iv_cos(x):
+    """Interval cos, endpoints outward-inflated (on top of mpmath's own perturbation)."""
+    return _inflate(iv.cos(x))
+
+
+def iv_sin(x):
+    """Interval sin, endpoints outward-inflated (on top of mpmath's own perturbation)."""
+    return _inflate(iv.sin(x))
+
+
+def iv_pi():
+    """Interval pi at the current precision, endpoints outward-inflated."""
+    return _inflate(iv.pi)
+
+
 def iv_atan(x):
-    """Interval arctangent (monotone; mpmath libmpi primitive, directed rounding)."""
-    return iv.make_mpf(_libmpi.mpi_atan(x._mpi_, iv.prec))
+    """Interval arctangent (monotone; mpmath libmpi primitive), endpoints outward-inflated."""
+    return _inflate(iv.make_mpf(_libmpi.mpi_atan(x._mpi_, iv.prec)))
 
 
 # ---------------------------------------------------------------- the complex ball
@@ -278,8 +372,8 @@ class Ball(object):
     def exp(self):
         """exp(a+bi) = e^a cos b + i e^a sin b (Euler; exact identity), each factor
         by the corresponding iv primitive -- inclusion-monotone composition."""
-        ea = iv.exp(self.re)
-        return Ball(ea * iv.cos(self.im), ea * iv.sin(self.im))
+        ea = iv_exp(self.re)
+        return Ball(ea * iv_cos(self.im), ea * iv_sin(self.im))
 
     # ---- half-plane certificate and argument branch
     def halfplane(self):
@@ -301,7 +395,7 @@ class Ball(object):
         """Interval enclosing {theta_tag(z) : z in box}, theta_tag the continuous
         branch of arg on the tag's half-plane (derivations in the module
         docstring).  The box MUST lie in that half-plane; verified here."""
-        pi = iv.pi
+        pi = iv_pi()
         if tag == "RE+":
             if not (self.re > 0):
                 raise ValueError("box not certified in RE+ half-plane")
@@ -327,7 +421,7 @@ class Ball(object):
         tag = self.halfplane()
         if tag is None:
             raise ZeroDivisionError("Ball.log: box does not exclude 0")
-        return Ball(iv.log(self.abs2()) / 2, self.arg_branch(tag))
+        return Ball(iv_log(self.abs2()) / 2, self.arg_branch(tag))
 
     def intersect(self, other):
         """Componentwise intersection; None if provably empty."""
@@ -482,9 +576,127 @@ def _selftest(trials=300, seed=20260826, prec=288, verbose=True):
                 zz = mp.mpc(mp.mpf(pr.numerator) / pr.denominator,
                             mp.mpf(pi_.numerator) / pi_.denominator)
                 check(contains_close(box.exp(), mp.exp(zz)), "exp wide-sample @%d" % k)
+    # ---- AUDIT F-1 regression block (reconciliation 2026-09-02): the inflated wrappers
+    # must enclose a prec-1200 nearest-rounded reference EXACTLY (no tolerance; the
+    # reference's own error is 2^-1199 relative, ~10^-270 below one prec-288 ulp), and
+    # _inflate must strictly widen every nonzero endpoint.  The raw primitives fail this
+    # test (audit_F_mpmath_rounding.log: 11 exp ceilings below the truth in 40,000).
+    f2, c2 = _rounding_regression(rng, prec)
+    failures += f2
+    checks += c2
+    # ---- AUDIT O MINOR-2 block: the pow_int_neg regime -- Ball.exp at imaginary parts up to
+    # 2e5 (T = 1e4 boxes reach |Im| ~ 8.5e4), incl. wide multi-period imaginary intervals.
+    f3, c3 = _large_argument_block(rng, prec)
+    failures += f3
+    checks += c3
     if verbose:
         print("ball.py selftest: %d checks, %d failures (trials=%d, seed=%d, prec=%d)"
               % (checks, failures, trials, seed, prec))
+    return failures, checks
+
+
+def _rounding_regression(rng, prec, samples=2000):
+    """Exact enclosure test of iv_exp/iv_log/iv_atan/iv_cos/iv_sin/iv_pi against prec-1200
+    references, plus the strict-widening property of _inflate.  Returns (failures, checks)."""
+    import math
+    from mpmath.libmp import (mpf_exp, mpf_log, mpf_atan, mpf_cos, mpf_sin, mpf_pi,
+                              round_nearest)
+    hp = 1200
+    failures = 0
+    checks = 0
+
+    def rnd_mpf(lo, hi):
+        x = rng.uniform(lo, hi)
+        man = rng.getrandbits(prec) | (1 << (prec - 1))
+        e = math.frexp(abs(x))[1] - prec
+        return from_man_exp(man if x >= 0 else -man, e, prec, round_nearest)
+
+    def run(name, wrapper, ref_fn, argrange, n):
+        nonlocal failures, checks
+        bad = 0
+        for _ in range(n):
+            xt = rnd_mpf(*argrange)
+            ref = mpf_tuple_to_fraction(ref_fn(xt, hp, round_nearest))
+            lo, hi = ivmpf_bounds(wrapper(iv.make_mpf((xt, xt))))
+            checks += 1
+            if not (lo <= ref <= hi):
+                bad += 1
+        if bad:
+            failures += bad
+            print("  FAIL: %s: %d of %d exact-reference enclosures violated" % (name, bad, n))
+
+    run("iv_exp [-30,30]", iv_exp, mpf_exp, (-30.0, 30.0), samples)
+    run("iv_exp [-1,1]", iv_exp, mpf_exp, (-1.0, 1.0), samples)
+    run("iv_log [1e-3,1e4]", iv_log, mpf_log, (1e-3, 1e4), samples)
+    run("iv_log near 1", iv_log, mpf_log, (0.999, 1.001), samples // 2)
+    run("iv_atan [-50,50]", iv_atan, mpf_atan, (-50.0, 50.0), samples)
+    run("iv_cos [-1e5,1e5]", iv_cos, mpf_cos, (-1e5, 1e5), samples)
+    run("iv_sin [-1e5,1e5]", iv_sin, mpf_sin, (-1e5, 1e5), samples)
+    lo, hi = ivmpf_bounds(iv_pi())
+    ref = mpf_tuple_to_fraction(mpf_pi(hp, round_nearest))
+    checks += 1
+    if not (lo <= ref <= hi):
+        failures += 1
+        print("  FAIL: iv_pi does not enclose the 1200-bit pi")
+    # strict widening of nonzero endpoints, both signs, both magnitudes
+    for _ in range(200):
+        xt = rnd_mpf(-1e3, 1e3)
+        yt = rnd_mpf(-1e3, 1e3)
+        a, b = (xt, yt) if mpf_lt(xt, yt) else (yt, xt)
+        x = iv.make_mpf((a, b))
+        (lo, hi), (lo2, hi2) = ivmpf_bounds(x), ivmpf_bounds(_inflate(x))
+        checks += 1
+        if not (lo2 < lo and hi < hi2):
+            failures += 1
+            print("  FAIL: _inflate did not strictly widen", lo, hi, lo2, hi2)
+    return failures, checks
+
+
+def _large_argument_block(rng, prec):
+    """Ball.exp at |Im| up to 2e5 against a dps-140 reference (exact-Fraction membership with
+    a 1e-100 inflation that only absorbs the reference's rounding), and wide imaginary
+    intervals spanning several periods.  Returns (failures, checks)."""
+    from mpmath import mp
+    failures = 0
+    checks = 0
+    saved = mp.dps
+    mp.dps = 140
+    EPS = Fraction(1, 10 ** 100)
+    try:
+        for _ in range(100):
+            a = Fraction(rng.randint(-5 * 10 ** 9, 5 * 10 ** 9), 10 ** 9)
+            b = Fraction(rng.randint(-2 * 10 ** 14, 2 * 10 ** 14), 10 ** 9)   # |Im| <= 2e5
+            thin = Ball.from_fractions(a, b)
+            w = mp.exp(mp.mpc(mp.mpf(a.numerator) / a.denominator,
+                              mp.mpf(b.numerator) / b.denominator))
+            rlo, rhi = thin.exp().re_bounds()
+            ilo, ihi = thin.exp().im_bounds()
+            zr = mpf_tuple_to_fraction(w.real._mpf_)
+            zi = mpf_tuple_to_fraction(w.imag._mpf_)
+            checks += 1
+            if not ((rlo - EPS <= zr <= rhi + EPS) and (ilo - EPS <= zi <= ihi + EPS)):
+                failures += 1
+                print("  FAIL: large-argument exp thin at", a, b)
+        for _ in range(20):
+            a = Fraction(rng.randint(-5 * 10 ** 9, 5 * 10 ** 9), 10 ** 9)
+            b0 = Fraction(rng.randint(-2 * 10 ** 14, 2 * 10 ** 14), 10 ** 9)
+            wd = Fraction(rng.randint(1, 20 * 10 ** 9), 10 ** 9)   # width up to 20 (> 3 periods)
+            box = Ball.from_fraction_boxes((a, a), (b0, b0 + wd))
+            ex = box.exp()
+            rlo, rhi = ex.re_bounds()
+            ilo, ihi = ex.im_bounds()
+            for u in (Fraction(0), Fraction(1, 7), Fraction(1, 2), Fraction(5, 6), Fraction(1)):
+                bb = b0 + wd * u
+                w = mp.exp(mp.mpc(mp.mpf(a.numerator) / a.denominator,
+                                  mp.mpf(bb.numerator) / bb.denominator))
+                zr = mpf_tuple_to_fraction(w.real._mpf_)
+                zi = mpf_tuple_to_fraction(w.imag._mpf_)
+                checks += 1
+                if not ((rlo - EPS <= zr <= rhi + EPS) and (ilo - EPS <= zi <= ihi + EPS)):
+                    failures += 1
+                    print("  FAIL: large-argument exp wide box at", a, bb)
+    finally:
+        mp.dps = saved
     return failures, checks
 
 

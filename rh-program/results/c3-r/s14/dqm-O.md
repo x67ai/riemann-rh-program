@@ -224,7 +224,7 @@ Take Haar `μ` on B and `|ds|/`(nothing) on the circle; on `L²(Y, μ ⊗ ds)` w
 > ```
 > diverges. Equivalently, the generator `Θ` has spectrum `{2πin/ℓ : n ∈ Z}` with **infinite** multiplicity at each point, so the sum `Σ_{λ ∈ Sp_0(Θ)} e^{tλ}` of [Den05] p. 35 has no meaning. **The distributional trace does not exist.**
 
-*Proof.* Direct: `L²(B,μ)` is infinite-dimensional because `B` is an infinite compact group (its dual `B̂` is infinite); `1 ⊗ C_f` has the eigenvalues of `C_f` each with multiplicity `dim L²(B)`. `C_f ≠ 0` for suitable `f`. ∎
+*Proof.* `L²(B,μ)` is infinite-dimensional: `B` is an infinite profinite group, so it has open subgroups of unbounded index (Lemma 9.2, step (b)), hence for every `n` a partition into `n` clopen sets of positive Haar measure, whose indicator functions are linearly independent in `L²(B,μ)`. Therefore `1 ⊗ C_f` carries each eigenvalue of `C_f` with multiplicity `dim L²(B,μ) = ∞`, and `C_f ≠ 0` for suitable `f`. ∎
 
 **Consistency with §4.2.** Proposition 4.3 is Theorem 4.1 with `χ(B)` replaced by *"the number of points of B"* — which is what the Euler characteristic of a 0-dimensional space is, and which is `∞`. Same law, same failure mode: the trace **counts** the continuum; Haar **weighs** it.
 
@@ -369,7 +369,7 @@ This realizes DQ-M's hypothesis on the *topology* of B (every infinite metrizabl
 Now let `Σ = S²`, `Y = Σ ×_Λ R` the mapping torus of `h` (Setup 6.0). Then:
 * the periodic set of `φ` is `K × S¹_ℓ` — **a Cantor continuum `B ≅ K` of closed orbits, all of common length ℓ**;
 * the ambient flow is **aperiodic off the continuum**: by Lemma 7.4.2 there are no other closed orbits of any period;
-* every orbit in the continuum is maximally degenerate: `h` is the time-1 flow of a vector field vanishing on `K`, so `dh_p = id` at each `p ∈ K` that is an accumulation point of `K` — i.e. at every point of `K` (`K` is perfect) — hence `det(id − φ^{kℓ}_*|T_pF) = 0` and `ε_c(k)` is undefined, exactly as diagnosed in §2.3;
+* every orbit in the continuum is maximally degenerate. At `p ∈ K` the linearization of `V = ρW` is `∇V_p = ρ(p)·∇W_p + W_p ⊗ dρ_p = 0`, because `ρ(p) = 0` and because `ρ ≥ 0` attains its minimum at `p`, so `dρ_p = 0`. Hence `d(h^k)_p = exp(k·∇V_p) = id` for every `p ∈ K` and every `k ∈ Z`, so `det(id − φ^{kℓ}_*|T_pF) = det(id − id) = 0` and `ε_c(k)` is **undefined at every orbit of the continuum** — exactly as diagnosed in §2.3;
 * `h ≃ id`, so `L(h^k) = χ(S²) = 2`, and Theorem A gives
 ```
         orbital side  =  2ℓ Σ_{k∈Z^×} δ_{kℓ}        vs.      DQ-M's  ±ℓ Σ_{k∈Z^×} δ_{kℓ}.
@@ -438,7 +438,7 @@ For a Cantor continuum one wants the contribution of a *piece*. Recall the class
 Corollary C3 is the honest replacement statement: **the measured formula for orbit continua is true, with the fixed-point-index measure `ι` in place of the transverse measure; and `ι` is Z-valued, so it is never a probability measure on an infinite `B`.** Indeed:
 
 > **Lemma C4.** If `B` is an infinite profinite group and `ι = c·μ` for `μ` the Haar probability measure and some `c ∈ R`, then `c = 0`.
-> *Proof.* For every open subgroup `H ≤ B` of index `n`, `H` is clopen and `μ(H) = 1/n`, so `ι(H) = c/n` must lie in `Z`. Since `B` is infinite profinite, `n` is unbounded over open subgroups, forcing `c = 0`. ∎
+> *Proof.* For every open subgroup `H ≤ B` of index `n`, `H` is clopen and `μ(H) = 1/n`, so `ι(H) = c/n` must lie in `Z`. By Lemma 9.2, step (b), the index `n` is unbounded over the open subgroups of an infinite profinite group, forcing `c = 0`. ∎
 
 ---
 
@@ -459,7 +459,7 @@ Combined with §4.2 (`B = G`, `h = id`): a positive-dimensional compact connecte
 
 *Proof.* (a) *Clopen sets are finite unions of cosets of open subgroups.* Let `U ∈ Clop(B)`. For each `u ∈ U`, openness gives an open normal subgroup `H_u ⊴ B` with `uH_u ⊆ U`. By compactness of `U`, finitely many `u_1H_{u_1}, …, u_rH_{u_r}` cover `U`; put `H := H_{u_1} ∩ … ∩ H_{u_r}`, an open normal subgroup. Then `U` is a union of `H`-cosets, and it is a **finite** union since `[B:H] < ∞`.
 
-(b) *Every coset of an open subgroup has index value 0.* Fix an open subgroup `H ≤ B`, `n := [B:H] < ∞`. Translation invariance gives `ι(bH) = ι(H) =: m` for every `b`, and finite additivity over the partition `B = ⊔_{i=1}^n b_iH` gives `ι(B) = n·m`. Hence `n | ι(B)` **for every** open subgroup `H`. Because `B` is infinite profinite, the set of indices `[B:H]` of open subgroups is unbounded (if it were bounded by `N`, the intersection of all open subgroups of index `≤ N` would be an open subgroup — a finite intersection, as there are finitely many such by compactness/openness — contained in every open subgroup, hence equal to `⋂` of a neighborhood basis of `1`, i.e. `{1}`, forcing `B` finite). So `ι(B)` is divisible by arbitrarily large integers, whence `ι(B) = 0`, and then `m = ι(B)/n = 0` for every open `H`.
+(b) *Every coset of an open subgroup has index value 0.* Fix an open subgroup `H ≤ B`, `n := [B:H] < ∞`. Translation invariance gives `ι(bH) = ι(H) =: m` for every `b`, and finite additivity over the partition `B = ⊔_{i=1}^n b_iH` gives `ι(B) = n·m`. Hence `n | ι(B)` **for every** open subgroup `H`. *The indices are unbounded.* Suppose, for contradiction, that `[B:N] ≤ M` for every open **normal** subgroup `N ⊴ B`. Enumerate the open normal subgroups `N_1, N_2, …` and form the descending chain `N_1 ⊇ N_1∩N_2 ⊇ N_1∩N_2∩N_3 ⊇ …`; each term is open normal, hence of index `≤ M`, and a strictly descending chain of subgroups has strictly increasing index, so the chain stabilizes at some open normal `N^*`. For any open normal `N`, `N^*∩N` is open normal of index `≤ M` and contained in `N^*`, hence equals `N^*` by stabilization, i.e. `N^* ⊆ N`. Since `B` is profinite, the open normal subgroups intersect in `{1}`, so `N^* = {1}` is open and `B` is compact and discrete, i.e. finite — contradiction. Hence the indices `[B:N]` over open normal `N` are unbounded, so `ι(B)` is divisible by arbitrarily large integers, whence `ι(B) = 0`; and then `m = ι(B)/n = 0` for every open subgroup `H` (first for open normal `N`, and then for any open `H`, which contains an open normal `N` with `[B:N] = [B:H]·[H:N]`, so that finite additivity over the `[H:N]` cosets of `N` inside `H` gives `ι(H) = [H:N]·ι(N) = 0`).
 
 (c) By (a) and (b) and finite additivity, `ι(U) = 0` for every clopen `U`. ∎
 
@@ -476,3 +476,203 @@ Combined with §4.2 (`B = G`, `h = id`): a positive-dimensional compact connecte
 **What Theorem D says in words.** Road 2's argument was: *selections are non-canonical, but Haar measure is canonical, therefore average.* Theorem D says: *the canonicity is real, and it is fatal.* An orbit continuum on which a symmetry group acts transitively by translations is exactly a continuum whose fixed-point index must be spread evenly over arbitrarily fine clopen partitions; an integer spread evenly over `n` parts for every `n` is `0`. The naturality test Haar passes is the same test that forces the answer to be `0` rather than `1`.
 
 **The same statement for the connected case**, without index theory: a nontrivial compact connected group `B` has `χ(B) = 0` (Lemma 9.1), and by §4.2 the weight is `χ(B)`. So *both* kinds of compact group — connected and profinite — give weight `0`. The only compact group whose orbit continuum weighs `1` is the trivial group: a single closed orbit.
+
+---
+
+## §10. Program item (2), part two: the genuine solenoid — a Cantor extension of an expanding map
+
+The models of §7 are §7.7 suspensions but with `Γ̄` a point, so `X` is a manifold. This section runs the same test on a **genuinely solenoidal** model whose transversal has an infinite profinite (Cantor) factor — the structure of the arithmetic target — and whose base map is hyperbolic (expanding) in one direction. By (E-b) this forces `M = T²`.
+
+### 10.1 Model S: `M = T²`, `f(x,y) = (2x, y)`
+
+`f` is an unramified self-covering of `T²` of degree 2. Then
+```
+        Γ = Z² ,  Γ_i = 2^iZ × Z ,  Γ̄ = lim Z²/Γ_i = Z_2   (an infinite profinite group: a Cantor transversal),
+        M̄ = lim(T² ←f— T² ← …) = Sol_2 × S¹   (Sol_2 = dyadic solenoid),
+        X = M̄ ×_Λ R ,  Λ = ℓZ ,  dim X = 3 ,  dim F = 2 ,  leaves ≅ R² (dense in X).
+```
+By (E1), closed orbits ↔ finite `f`-orbits on `T²`: `Fix(f^k) = {x : 2^k x ≡ x} × S¹` = `(2^k − 1)` circles. In particular
+
+> the periodic set of least period ℓ is **`B × S¹` with `B = {0} × S¹ ≅ S¹`, a compact connected group with Haar probability measure**, exactly DQ-M's shape; the flow is expanding in the `x`-direction (a Cantor extension of a hyperbolic map) and its generic orbit is non-closed.
+
+Every orbit in `B × S¹` is degenerate: `df` has eigenvalue `1` along the `y`-direction.
+
+### 10.2 The evaluation
+
+`M̄ = Sol_2 × S¹` and `f̄ = (shift) × id`, hence
+```
+        X = X' × S¹ ,      X' := Sol_2 ×_Λ R ,      F = F' ⊞ T S¹ ,      φ = φ' × id ,
+```
+where `X'` is the §7.7 suspension of `(S¹, doubling)`, a 2-dimensional solenoid with `dim F' = 1`.
+
+> **Lemma 10.1 (product decomposition) [flagged: elementary, not fully detailed].** For `X = X' × N` with `N` a closed manifold and `F = F' ⊞ TN`, the leafwise complex is the (completed) tensor product of the leafwise complex of `(X',F')` with the de Rham complex of `N`. Since `Ω^•(N)` splits topologically as `H^•(N) ⊕ (acyclic split)` by Hodge theory, taking reduced cohomology gives `H̄^n(F) ≅ ⊕_{a+b=n} H̄^a(F') ⊗ H^b(N)`, with `φ^{s*}` acting as `φ'^{s*} ⊗ id`.
+
+> **Proposition 10.2.** In Model S, `Σ_n(−1)^n Tr(φ*|H̄^n(F)) = 0`, and `χ_Co(F,μ) = χ(T²)·ℓ = 0` ([Den05] p. 35). Hence the **orbital side vanishes identically**, and in particular the continuum `B ≅ S¹` of closed orbits of common length ℓ contributes `0`, against DQ-M's prediction `±ℓ Σ_{k∈Z^×}δ_{kℓ} ≠ 0`.
+
+*Proof.* By Lemma 10.1 and multiplicativity of the alternating sum,
+```
+  Σ_n(−1)^n Tr(φ*|H̄^n(F)) = ( Σ_a(−1)^a Tr(φ'*|H̄^a(F')) ) · ( Σ_b(−1)^b dim H^b(S¹) ) = ( … ) · χ(S¹) = 0,
+```
+the first factor being a well-defined distribution by [Den05] Theorem 7.8 (p. 35), whose hypotheses hold for `X'`: `M = S¹` is a compact connected orientable 1-manifold, `f` = doubling is an unramified covering, and every periodic orbit is non-degenerate since `T_xφ^{kℓ}|T_xF' = 2^k ≠ 1`. ∎
+
+**Remark.** All three of LHS, `χ_Co`, and the true orbital side vanish here; the information is that the *predicted* orbital side does not. The prediction's own sign is `ε = sign(1 − 2^k) = −1` in the transverse (`x`) direction, so DQ-M would give `−ℓ Σ_k δ_{kℓ}`.
+
+### 10.3 Model S-Cantor: the same solenoid with a Cantor continuum
+
+Perturb `f` inside its homotopy class so that the continuum becomes a Cantor set, keeping the covering property:
+```
+        f(x,y) = ( 2x , y + ψ(x,y) )  mod 1 ,        ∂_y(y + ψ) > 0 ,
+```
+so `f` is again an unramified covering of degree 2 of `T²` (fiberwise an orientation-preserving circle diffeomorphism over the doubling in `x`). Choose `ψ` with `ψ(0,·) : S¹ → (−1,1)` vanishing exactly on a Cantor set `K ⊂ S¹`. Then
+```
+        Fix(f) = {0} × K ,
+```
+so the periodic set of least period ℓ is `B × S¹` with **`B ≅ K` a Cantor set** inside a genuinely solenoidal `X` whose transversal contains `Γ̄ = Z_2`. This is the closest model on offer to the arithmetic target: 3-dimensional, `dim F = 2`, Cantor transversal, Cantor continuum of closed orbits of common length ℓ, hyperbolic ambient direction.
+
+> **Proposition 10.3 [proposition grade].** The weight of `B` in Model S-Cantor is `L(f) = 1 − tr(A) + det(A) = 1 − 3 + 2 = 0`, where `A = diag(2,1)` is the matrix of `f_*` on `H_1(T²)` (`f` is homotopic to the linear map). Hence the Cantor continuum contributes `0`, not `±ℓΣ_kδ_{kℓ}`.
+> *Grade:* this uses the **uniform §7.7 law** of §10.4, hence Proposition C2 and Lefschetz–Hopf; it is not an independent re-derivation. The rigorous counterexamples remain those of §7 and §10.2.
+
+### 10.4 The uniform §7.7 law (recorded for the record)
+
+Every computation in this note is an instance of one formula. For a [Den05] §7.7 suspension `X = M̄ ×_Λ R` of `f : M → M`,
+```
+   (§7.7-law)      Σ_n (−1)^n Tr(φ*|H̄^n(X,F))  "="  ℓ · Σ_{k ∈ Z} L(f^k) · δ_{kℓ} ,
+```
+with `L(f^0) = χ(M)`, so that the `k = 0` term is `χ(M)·ℓ·δ_0 = χ_Co(F,μ)·δ_0` — matching [Den05] p. 35 identically — and the `k ≠ 0` terms are `ℓ Σ_{p ∈ Fix(f^k)} ind_p = ℓ L(f^k)` by Lefschetz–Hopf, matching Theorem 7.8's orbital side identically whenever `f` is non-degenerate.
+
+* **Proved here** (Theorem A) for `f` a diffeomorphism, i.e. `Γ̄ = pt`, `X` a mapping torus — with no non-degeneracy assumption.
+* **Verified against [Den05] Theorem 7.8** in the non-degenerate solenoidal cases (`M = S¹`, `f` = doubling: `L(f^k) = 1 − 2^k`, `Fix(f^k)` = `2^k−1` points with `ε = −1`, product `ℓ(1−2^k)` ✓).
+* **Not proved in general.** Flagged in §13. The verdict does not use it.
+
+The law says in one line what this probe found: **the trace formula's orbital side is the Lefschetz number of the return map — a count with signs — and a continuum enters it through its index, never through its measure.**
+
+---
+
+## §11. Does the replacement "sum over orbits ↦ integral against a transverse measure" survive [ALKL]'s proof?
+
+Collecting §3 and §8:
+
+| step in [ALKL] | with H4 | with a continuum `B` |
+|---|---|---|
+| §4.1.1, p. 99: `C_I(φ)` finite, `P(φ)` discrete | the RHS is a locally finite sum | **fails**; repaired by replacing `Σ_{c}` with a sum over a **clopen decomposition** of `B` — a genuine "measured" reformulation, and the only part of DQ-M's proposal that survives |
+| Prop. 7.3.2(ii), p. 155, list `{c_1,…,c_m}` + isolating `W_j` | finite, isolated | **fails**; repaired by isolating neighborhoods of clopen pieces of `B` |
+| Prop. 2.9.6, p. 71: `lim_{u↓0}∫_{W_j} str(…) = ε_{y_j}` | the ±1 | **the ±1 does not exist** (`det(id − φ_*^{kℓ}|T_pF) = 0`); it is replaced by `ind(h^k, U) ∈ Z`, the local Lefschetz index of the clopen piece — **not** by `μ(U)` |
+| the prefactor `ℓ(c)` (p. 156, the `∫_0^{ℓ(c_j)}|dx|`) | a transverse-measure factor | survives unchanged — it measures the orbit's own circle |
+| Prop. 7.3.2(i) and (iii) | as stated | survive: they concern intervals containing no period, resp. `t = 0`; nothing there needs simplicity of the orbits, only that the closed orbits stay away from `I` |
+
+> **Answer to program item (2).** The replacement of the sum over orbits by an integral over the continuum **does survive** [ALKL]'s proof — as an integral against the **fixed-point-index measure** `ι_k` on the clopen algebra of `B` (Proposition C2), whose total mass is the Lefschetz number of the return map. It does **not** survive as an integral against a transverse measure, and specifically not against Haar: the local step that would have to produce `dμ` (Proposition 2.9.6, p. 71) is a local **index** computation, not a volume computation, and no other step in the proof produces a measure on `B` (Theorem E: `B` is leafwise, and the only transverse measure in sight is one-dimensional and already used by `ℓ(c)`).
+
+**The `0/0` made precise.** [Lei06] p. 4's Guillemin–Sternberg expression for the contribution of `±kγ` has numerator `det(id − Dφ^{±kℓ(γ)}|T_yF)` and denominator its absolute value. Both vanish along a continuum. Resolving such a quotient is exactly the passage from the isolated-fixed-point Lefschetz formula to the *clean* (Bott) one, whose local answer is a characteristic number of the fixed-point set — for the de Rham complex, an Euler characteristic. That is the mechanism of Theorem B, visible already in the sources.
+
+---
+
+## §12. Program item (3): consequences for Q*, Road 2, and the ledger
+
+### 12.1 Road 2 is closed in the model world
+
+`probe-9.4-note.md` §7 Road 2 reads, verbatim: *"Proposition 1 kills selections but not measures … At the formal level the T1 count then comes out right: the packet's aggregate orbit contribution is `∫_{B_p}(single-orbit term) dHaar` = the single-orbit term, since the integrand is constant"*, and it named its own first obstacle: *"no published trace formula admits a continuum of periodic orbits with a transverse measure on the continuum; building one is an S2-adjacent analysis question, well-posed in the model world (DQ-M, §8)."*
+
+That obstacle is now decided, and the decision is worse than "unbuilt":
+
+* **The formal count is wrong, not merely unjustified.** Theorem B: in the model world the aggregate contribution is `ι_k(B)` times the single-orbit term, and `ι_k(B) ∈ {2, 0, 2−2g, …}` in explicit models — never `1` for a homogeneous `B`.
+* **Haar's canonicity is the reason it fails.** Theorem D: translation-invariance of the weight under a transitive symmetry forces the weight to be `0`. The one property that made Haar the natural candidate over a selection is the property that annihilates it.
+* **The phrase "transverse measure on the continuum" has no referent.** Theorem E: in a §7.7 suspension the orbit continuum is a leafwise object; the transverse measure is one-dimensional and is already consumed by the factor `ℓ(γ)`.
+
+Hence, in the language of `probe-9.4-note.md` §8 item 2: **DQ-M = NO, and Road 2 is closed.** By that note's own accounting, *"a NO closes Road 2 and, with this note's D1–D3, would leave Road 1 (function-ring enrichment) as the only surviving W9 repair on any current road map"* — Road 1 being the [D25] "stronger descent conditions" experiment, plus Road 3 (per-place coefficients) with its two named obstacles.
+
+### 12.2 Q*: the Road-2 re-scoping must NOT be adopted; a different one is now available
+
+`probe-9.3-adjudication.md` §5 states Q* with the clause, in both faces, *"meeting each packet in exactly one orbit"* (Q-a) / *"with exactly one closed orbit `γ_p` of length `log p` per prime"* (Q-b). `probe-9.4-note.md` §7 proposed, conditionally on a DQ-M YES, to re-scope this to *"meeting each packet in a Haar-measured orbit family"*.
+
+* **That re-scoping is void.** DQ-M is NO. Q*'s clause stands as adjudicated. No edit to `probe-9.3-adjudication.md` §5 is warranted by this probe, and none is made.
+* **A different, licensed re-scoping exists [novelty: single-check].** Corollary C3 shows that what the trace formula demands per prime is not *one orbit* but **index one**. So Q*'s clause may be honestly relaxed to
+  > **(Q*-idx)** … meeting each packet in a compact family `B_p` of closed orbits of length `log p` whose leafwise return-map fixed-point index is `+1` for every `k ∈ Z^×`.
+  This is a strictly weaker requirement than "exactly one orbit" (a single simple orbit with `ε = +1` has index `+1`), it is *not* the Haar relaxation, and it is not vacuous: index-1 continua exist (any `B` with `χ(B) = 1`, e.g. a closed disk of fixed points).
+* **But (Q*-idx) is unavailable for Deninger's packets, and this is a theorem, not an intuition.** An index-1 continuum can never be a nontrivial compact group (Lemma 9.1 and Lemma 9.2 give index 0 in both the connected and profinite cases), and Deninger's `B_p = Ẑ^×_{(p)}/p^Ẑ` is an infinite profinite group on which `Aut(C)` acts transitively by translations (9.4 Lemma D, **cited as referee-pending**). So the packets are exactly the continua that (Q*-idx) excludes.
+* **Net effect on Q*.** Q-a and Q-b are unchanged; the relaxation (Q*-idx) is recorded as available in principle and closed in fact for `X_0`'s packets; the "measured" escape from the packet-count obstruction is removed from the road map.
+
+### 12.3 Ledger rows touched (annotations only — this note edits nothing)
+
+* **R4** (*"Simple (isolated, nondegenerate) closed orbits; `N_pφ ≅ T_pF` finite-dim (H4)"*, status OBSTRUCTED, *"repair = pass to a one-orbit-per-packet subsystem, whose existence is open (→ S4)"*). Annotation: a **second** candidate repair — "pass to a Haar-measured orbit family" — is now **closed** (this note, Theorem B/D). A **third** — "pass to an index-1 orbit family" — is now identified, is strictly weaker than the first, and is **unavailable for homogeneous packets** (Lemmas 9.1–9.2). H4's failure mode is now understood precisely: what H4 supplies is the local Lefschetz index `ε_c(k)`, and on a continuum that index survives as a Z-valued measure on clopen pieces which vanishes under packet symmetry.
+* **R15** (*"Counting measure: each `(p,k)` contributes once, sign +1"*, status OBSTRUCTED, *"in a solenoid route this becomes a design constraint (ε ≡ +1 achieved in the [Den05] §7.7 examples)"*). Annotation: the design constraint is **sharper than ε ≡ +1**. Per-orbit `ε ≡ +1` is neither necessary nor sufficient once orbits come in families; the constraint is `ind(return map, B_p) ≡ +1`. In particular a §7.7 model with `ε ≡ +1` on every orbit of a continuum can still have total weight `0` (§7.5) or `2` (§7.4).
+* **W9** (per 9.4 §10: *"9.4 trichotomy: transplant-as-selection closed (D1–D3); surviving roads: descent enrichment [D25], Haar measure (DQ-M), per-place gluing"*). Annotation: the **Haar-measure road is now closed**; the surviving roads are descent enrichment ([D25]/[Lut25]) and per-place gluing, each with the obstacles 9.4 §7 already named.
+* **New row candidate W13** [novelty: single-check]: *"Index–measure dichotomy. In any Deninger/ÁLK02/ALKL-type dynamical Lefschetz trace formula, an orbit continuum's multiplicity is a fixed-point index (Z-valued, leafwise), never a transverse measure; and a continuum carrying a transitive translation symmetry has index 0. Consequence: no canonical measure-theoretic repair of the packet count exists in the model world."* Sources: this note §§4–9; anchors [Den05] pp. 21–22, 35; [ALKL] pp. 3, 71, 99, 100, 155; [Lei06] p. 4.
+* **Kill-criterion:** does **not** fire. Route 2's unique blocker S4 is untouched: Q-a and Q-b are about one orbit per packet, not about measured families, and neither face is decided here.
+
+### 12.4 A caution the program should carry forward
+
+The `dim F = 0` computation of §4.4 shows that the Haar answer *does* come out right for the **measured (von Neumann) trace**. That is a real fact and a real temptation. It is an artifact of the leaves being points: for `dim F > 0` the operator `A_f = ∫f(t)φ^{t*}dt` is not a leafwise operator and admits no `Λ`-trace, and the framework's only measured slot (`ℓ(γ)`, `χ_Co(F,μ_⊥)`) is transverse and already occupied. Any future proposal to "measure the packet" must therefore say **which trace**, on **which space**, against **which transverse measure** — and, per Theorem E, must explain how a leafwise family acquires a transverse measure. The present note holds that it cannot, in the model world.
+
+---
+
+## §13. Scope and honesty
+
+**What was proved here, in full, from first principles plus on-disk anchors.**
+* Theorem A (§6): the exact distributional trace, per degree, for every mapping-torus ([Den05] §7.7 with `Γ̄ = pt`) system, **with no non-degeneracy hypothesis**. Uses [ALKL] (1.2.2)–(1.2.3) (p. 2) for leafwise Hodge on a Riemannian foliation of a closed manifold, and elementary kernel calculus. Independently checked against [Den05] Theorem 7.8 / [ALKL] Theorem 1.3.10 in the non-degenerate case, including the `δ_0` coefficient `χ_Co(F,μ) = χ(M)·l`.
+* Theorem B (§7): the counterexamples, including Construction 7.4.1 (a diffeomorphism of `S²`, isotopic to the identity, with Cantor fixed set and no other periodic points) proved in Lemma 7.4.2.
+* Theorem E (§5): the category theorem, from [Den05] p. 35's bijection read verbatim and [ALKL] p. 100's `Nφ ≅ TF`.
+* Proposition 4.3 and §4.4 (the trivial model in both traces).
+* Lemma 9.1 (`χ` of a compact connected Lie group) and Lemma 9.2 (no nonzero invariant Z-valued finitely additive measure on an infinite profinite group) — both proved in full.
+* Lemma C4 (`ι` cannot be a multiple of Haar).
+* Proposition 10.2 (Model S), modulo Lemma 10.1 (below).
+
+**What was NOT re-derived, and is flagged.**
+1. **Proposition C2 (the clopen-local index form).** The identification of the local contribution of a clopen piece with its fixed-point index uses classical Atiyah–Bott local index theory and the Lefschetz–Hopf theorem; neither was re-derived, and neither is on disk in this session's reading. Theorem D inherits this grade. **The verdict (Theorem B) does not use it.**
+2. **Lemma 10.1 (product decomposition of leafwise reduced cohomology).** Stated with a Hodge-splitting argument; the completed-tensor-product / nuclearity details were not written out. Proposition 10.2 inherits this grade. Proposition 10.3 additionally inherits (1) and the §10.4 law.
+3. **The uniform §7.7 law (§10.4).** Proved for `Γ̄ = pt`; verified against [Den05] Theorem 7.8 in non-degenerate solenoidal cases; **not proved in general**.
+4. **[x-03] was not re-extracted this session.** Every fact about `X_0` used in §12 (packets, `B_p` an infinite profinite group, `Aut(C)` transitive by translations, Theorem A the packet-closure law, Q*'s wording) is taken from `probe-9.3-adjudication.md` and `probe-9.4-note.md`, which re-derived them from [x-03]. `Aut(C)` transitivity on `B_p` is 9.4 Lemma D and is **cited as referee-pending**, exactly as the charter directs. If Lemma D fell, Theorem D's *application* to `X_0` would fall with it — Theorem D itself, being conditional on a translation symmetry, would not.
+5. **[Den05] Theorem 7.8's negative-time normalization** disagrees with [Den05] Theorem 5.3 and [ALKL] Theorem 1.3.10 (Remark 6.4). Flagged, not adjudicated; nothing here depends on `k < 0`.
+6. **The passage from the model world to `X_0` is not made and is not claimed.** `X_0` is infinite-dimensional ([x-03] §8, per the adjudication §2 anchor (viii)), non-Hausdorff along its packets (adjudication §4 item 3), and is not known to be a foliated space; no trace formula, of any of the kinds discussed, exists for it. Every theorem in this note is a theorem about compact three-dimensional model systems.
+7. **No claim is made about positivity, Hodge-index, or clause (ii) of any Weil-positivity argument** (Z2 quarantine), nor about whether a repaired count would yield a trace formula (W1/W6/W12, R7–R13 stand).
+
+**[RU] items.** None load-bearing. The classical facts invoked by name and not re-derived — Poincaré–Hopf (Lemma 9.1), Lefschetz–Hopf and the fixed-point index axioms (Theorem C1's second sentence, Proposition C2), Whitney's theorem that a closed subset of a manifold is a smooth function's zero set (Construction 7.4.1), Brouwer's characterization of the Cantor set (§7.4) — are standard textbook results, are marked where used, and only items (1)–(3) above carry any weight in the note's structure.
+
+**Judgment-grade readings.** (a) The claim in §4.4 that the `dim F = 0` success of the measured trace is "an artifact" is a judgment about the framework, supported by the observation that `A_f` is not leafwise for `dim F > 0` — that observation is a fact, the word "artifact" is the judgment. (b) The reading of [ALKL] §7.3 as a *local* argument (used to motivate Proposition C2) is a reading of the proof's shape, not a quotation; the quoted material (pp. 155–156) supports it but does not state it. (c) §12.4's caution is advice, not a theorem.
+
+---
+
+## §14. Novelty ledger
+
+Every item is tagged `[novelty: single-check]`; a separate dual-model sweep is to check them. "New" here means: not found in the on-disk sources read this session, and not present in the program's own notes as read.
+
+1. **Theorem A (§6) — the exact leafwise-cohomology trace of a mapping-torus foliated flow, with no non-degeneracy hypothesis.** `Tr(φ*|H̄^n(F)) = ℓ Σ_k tr((h^*)^k|H^n(Σ;C)) δ_{kℓ}`, hence the supertrace `= ℓ Σ_k L(h^k) δ_{kℓ}`. `[novelty: single-check]` — the *non-degenerate* case is [Den05] Thm 7.8 / [ALKL] Thm 1.3.10; the point is that the left-hand side is computable, and finite, with H4 deleted. (The computation itself is elementary; the claim to novelty is its use as a probe of H4.)
+2. **Theorem B (§7) — DQ-M is FALSE.** Explicit [Den05] §7.7 suspensions with `dim F = 2` and a continuum of closed orbits of common length ℓ (continuum a surface, a compact connected group with Haar, or a Cantor set) whose orbital side is `ℓ·L(h^k)·δ_{kℓ}` with `L(h^k) ∈ {2, 0, 2−2g}`, never `ℓ·1·δ_{kℓ}`. `[novelty: single-check]`
+3. **The Euler-characteristic law in the trivial model (§4.2, Cor. 4.2):** in `Y = B × (R/ℓZ)` the weight of the orbit continuum `B` is `χ(B)`, and DQ-M holds iff `χ(B) = 1`. `[novelty: single-check]`
+4. **Theorem C1/Cor. C3 (§8) — the correct measured formula is the index form**, and the exact criterion `ind(return map, B) = 1`. `[novelty: single-check]`
+5. **Proposition C2 (§8.2) — the fixed-point-index measure `ι_k` on the clopen algebra of an orbit continuum** as the object replacing `ε_c(k)`. `[novelty: single-check]`, proposition grade (see §13 item 1).
+6. **Lemma 9.2 (§9.2) — an infinite profinite group carries no nonzero translation-invariant `Z`-valued finitely additive measure on its clopen algebra.** `[novelty: single-check]`; elementary and quite possibly folklore, flagged as such.
+7. **Theorem D (§9.2) — the equivariance no-go**: a packet-symmetric orbit continuum has weight `0`, so the canonicity that recommends Haar measure is precisely what annihilates the contribution. `[novelty: single-check]`
+8. **Theorem E (§5) — the category theorem**: in a [Den05] §7.7 suspension the closed orbits are parametrized by the *base manifold*, so an orbit continuum is a leafwise object and admits no transverse measure; the profinite direction of the solenoid carries no closed orbits. With corollaries (E-a) (the "put the packet in the Cantor direction" escape is closed) and (E-b) (`dim F = 2` forces either a mapping torus or `M = T²`, hence `χ_Co = 0`). `[novelty: single-check]`
+9. **Construction 7.4.1 / Lemma 7.4.2 — a diffeomorphism of `S²` isotopic to the identity whose fixed-point set is a prescribed Cantor set and which has no other periodic points**, used to produce a Cantor orbit continuum with total weight `+2` inside an otherwise aperiodic flow. `[novelty: single-check]`; the ingredients are standard, the assembly for this purpose is not.
+10. **Model S / S-Cantor (§10) — a 3-dimensional [Den05] §7.7 solenoid with an infinite profinite transversal `Γ̄ = Z_2`, an expanding base direction, and a Haar-measured (resp. Cantor) continuum of closed orbits of common length ℓ, of total weight 0.** `[novelty: single-check]`
+11. **The uniform §7.7 law (§10.4)** `Σ_n(−1)^n Tr = ℓ Σ_k L(f^k) δ_{kℓ}`, reproducing `χ_Co(F,μ) = χ(M)·l` as its `k = 0` term. `[novelty: single-check]`, proved only for `Γ̄ = pt`.
+12. **The re-scoped clause (Q*-idx) (§12.2)** — "index one per packet" in place of "exactly one orbit per packet" — together with the theorem that it is unavailable for homogeneous packets. `[novelty: single-check]`
+13. **The diagnosis of DQ-M as a conflation of two traces (§2.2, §4.4)**, with the `dim F = 0` computation showing the Haar answer is correct for the measured trace and the reason that success does not extend. `[novelty: single-check]`
+
+---
+
+## §15. Bookkeeping
+
+**What this note is.** A referee-grade decision of DQ-M in the model world, with a THEOREM (NO), the exact replacement statement, and two structural theorems (the equivariance no-go and the category theorem). Deliverable file: `results/c3-r/s14/dqm-O.md`.
+
+**Ledger rows / Q* clauses / direction-file entries touched** (annotations proposed for the orchestrator; **this note edits nothing**):
+
+| object | file | proposed annotation |
+|---|---|---|
+| `§9 item 4` → DQ-M sub-question | `results/c3-r/probe-9.4-note.md` §8 item 2 | **EXECUTED, verdict NO** (pointer here). Road 2 closed. |
+| Road 2 | `probe-9.4-note.md` §7 | **CLOSED**: the named first obstacle is not a gap but a theorem against; the Haar count is wrong in the model world and vanishes under packet symmetry |
+| W9 | `m2c-feasibility-ledger.md` | surviving roads reduce to descent enrichment ([D25]/[Lut25]) and per-place gluing |
+| R4 | `m2c-feasibility-ledger.md` line 111 | H4's content identified as the local Lefschetz index; "Haar-measured family" repair closed; "index-1 family" repair identified and shown unavailable for homogeneous packets |
+| R15 | `m2c-feasibility-ledger.md` line 122 | the design constraint is `ind(return map, B_p) ≡ +1`, strictly sharper than per-orbit `ε ≡ +1` |
+| new row **W13** | `m2c-feasibility-ledger.md` | index–measure dichotomy (text in §12.3) |
+| Q* clauses Q-a / Q-b | `probe-9.3-adjudication.md` §5 | **unchanged**; the Road-2 re-scoping ("Haar-measured orbit family") is void; the alternative (Q*-idx) is recorded but closed for `X_0`'s packets |
+| Current frontier, rung (3) "DQ-M" | `directions/C3-geometric-substrate.md` | rung (3) **DONE, NO**; rungs (1), (2) Q*, (4) S2/W3 unaffected |
+| kill-criterion | — | **does NOT fire**; S4 undecided; Route 2 not exhausted |
+
+**This note may NOT be cited for:** (1) any claim about `X_0` itself — every theorem here is about compact 3-dimensional model systems (§13 item 6); (2) any positivity/Hodge/clause-(ii) statement (Z2 quarantine); (3) any claim that the packet count *can* be repaired — the note closes one repair and identifies a second that is itself closed for homogeneous packets, and says nothing about repairs outside the trace-formula framework; (4) topology of `Γ_p` from [r3s-08] (adjudication §4 item 4 stands); (5) Proposition C2 / Theorem D / Propositions 10.2–10.3 at theorem grade — they are flagged in §13; (6) `Aut(C)` transitivity on `B_p` as settled — it is 9.4 Lemma D, referee-pending.
+
+**Standing-order 5 record.** Read verbatim from disk this session: every anchor listed in §1 from [Den05] (pp. 20, 21, 22, 33, 34, 35), [ALKL] (pp. v, 1–8, 71, 99, 100, 101, 153–156), [Lei06] (pp. 4, 17). Derived in full here: Theorem A, Theorem B and its models, Theorem E, Lemmas 6.1–6.3, 7.4.2, 9.1, 9.2, C4, Proposition 4.3, Corollary 4.2, Corollary C3. Taken from referee-passed program documents without re-derivation: Theorem A of the adjudication (packet-closure law), `B_p` uncountable/profinite, non-Hausdorffness of `X_0`, Q*'s wording, 9.4's Road-2 text and Lemma D (referee-pending). Nothing rests on recalled literature; the four classical results named in §13 are marked at each use.
+
+**Standing-order 7 record.** Thirteen items, all tagged `[novelty: single-check]`, listed in §14.
+
+— end of DQ-M probe O note —

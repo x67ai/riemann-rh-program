@@ -74,6 +74,8 @@ from fractions import Fraction
 
 from mpmath import iv
 
+from ball import iv_exp   # outward-inflated transcendental endpoints (AUDIT F-1, repair R1)
+
 from ball import (Ball, iv_from_fraction, iv_from_fraction_pair, iv_from_int,
                   ivmpf_bounds, set_prec)
 from zeta_encl import bern_exact, c_sup, _log_int, _auto_params
@@ -132,7 +134,7 @@ def hurwitz_ball(s_ball, a, N=None, m=None):
     c_ub, _ = c_sup(2 * m + 2)
     denom = Fraction(math.factorial(2 * m + 1)) * (2 * m + 2) * (slo + 2 * m + 1)
     expo = iv_from_fraction(-(slo + 2 * m + 1)) * lnNa
-    _, napow_hi = ivmpf_bounds(iv.exp(expo))
+    _, napow_hi = ivmpf_bounds(iv_exp(expo))
     r = prod_ub_hi * s2m1_hi * c_ub * napow_hi / denom
     pad = iv_from_fraction_pair(-r, r)
     return total + Ball(pad, pad)

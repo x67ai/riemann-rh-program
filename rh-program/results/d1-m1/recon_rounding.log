@@ -1,0 +1,28 @@
+RECONCILER (2026-09-02): exact directed-rounding tests at prec 288 vs prec-1200 reference
+(1) RAW mpmath primitives as libmpi calls them (AUDIT F-1 as filed; seed 20260902):
+  exp [-30,30]                       samples  20000  violations     7  worst rel excess 6.648e-91   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  exp [-1,1]                         samples  20000  violations     4  worst rel excess 5.642e-91   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  log [1e-3,1e4]                     samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  atan [-50,50]                      samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  sqrt [1e-3,1e4] (control)          samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  pi: floor <= truth: True, ceiling >= truth: True
+  RAW total violations: 11  (F-1 REPRODUCED iff > 0 for exp and 0 for sqrt)
+(2) mpmath's OWN interval cos/sin (mpi_cos_sin, perturbed endpoints), exact:
+  cos/sin |x|<=1e5                   samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  cos/sin |x|<=10                    samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  cos/sin x~(k+1/2)pi (cos tiny)     samples   5000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  cos/sin x~k pi (sin tiny)          samples   5000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  mpi_cos_sin total violations: 0
+(3) REPAIRED wrappers (ball.py R1: outward inflation 2^-(prec-16) relative), exact:
+  iv_exp [-30,30]                    samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_exp [-1,1]                      samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_log [1e-3,1e4]                  samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_atan [-50,50]                   samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_cos |x|<=1e5                    samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_sin |x|<=1e5                    samples  20000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_cos x~(k+1/2)pi                 samples   5000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_sin x~k pi                      samples   5000  violations     0  worst rel excess 0.000e+00   (1 ulp at 288 bits = 2^-288 = 2.011e-87)
+  iv_pi: floor <= truth: True, ceiling >= truth: True
+  REPAIRED total violations: 0  (must be 0)
+SUMMARY: raw=11  mpi_cos_sin=0  repaired=0
+python3 recon_rounding.py  21.93s user 0.03s system 99% cpu 21.955 total

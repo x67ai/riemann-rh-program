@@ -243,7 +243,15 @@ def run_file(path):
     try:
         d = parse(doc)
         check(d, lambda s: print('   ' + s))
-        print('   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)')
+        # AUDIT O MINOR-1 (applied at reconciliation 2026-09-02): the banner names the
+        # function's own trust label (FORMAT.md sec. 9.2, D-R8) -- an f_DH acceptance is
+        # checker-level only and carries no H-AP-backed conclusion.
+        if doc.get('function') == 'zeta':
+            label = 'conclusion holds modulo the displayed hypotheses H-ENCL, H-AP'
+        else:
+            label = ('checker-level only (D-R8): format-checked modulo H-ENCL for '
+                     + str(doc.get('function')) + '; no Lean-backed conclusion')
+        print(f'   VERDICT: ACCEPT (all checks pass; {label})')
         return True
     except Fail as e:
         print(f'   VERDICT: REJECT at {e}')

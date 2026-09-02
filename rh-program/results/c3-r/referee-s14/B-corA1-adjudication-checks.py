@@ -79,3 +79,47 @@ for T in [[3,7],[3,7,11],[3,7,11,13],[3,7,11,13,17]]:
     out["C3_growth"].append({"T": T, "orbits": len(units)//len(pg)})
 
 print(json.dumps(out, indent=1))
+
+# ---- Added on completion of the adjudication (the earlier run was killed after C1-C3) ----
+# C4: the (Tors)-necessity witness. n_k = prod_{l<=k, l!=p} l^k tends to 0 in Z_(p)-hat: for each
+# fixed l, v_l(n_k) = k once k >= l. The limit character chi^0 = 1 has kernel all of mu^(p): not (Tors).
+def nk(k, p):
+    n = 1
+    for l in primes_upto(k):
+        if l != p: n *= l**k
+    return n
+def vl(n, l):
+    v = 0
+    while n % l == 0: n //= l; v += 1
+    return v
+out["C4_nk_to_zero"] = {"p": p, "v_3(n_k) for k=3..8": [vl(nk(k,p),3) for k in range(3,9)],
+                        "v_7(n_k) for k=7..10": [vl(nk(k,p),7) for k in range(7,11)],
+                        "verdict_valuations_grow_with_k": all(vl(nk(k,p),3)==k for k in range(3,9))}
+
+# C5: the adjudicator's simplification of referee O's Cor. O.7 construction: nu = 1, ANY real s > 0
+# (rational allowed), m_k = 1 mod k!, |m_k / p^{j_k} - s| < 1/k. Shows irrationality of s and the
+# Z-hat subsequence are unnecessary; the Q^{>0}-orbit of (P0, w) accumulates at (P0, w/s).
+from fractions import Fraction
+def factorial(k):
+    f = 1
+    for i in range(2, k+1): f *= i
+    return f
+rows = []
+for s in [Fraction(3,2), Fraction(1,1), Fraction(7,3)]:
+    ok = True
+    for k in range(1, 13):
+        M = factorial(k)
+        j = 1
+        while p**j <= k*M: j += 1
+        target = s * p**j
+        # largest integer <= target that is = 1 mod M
+        t = int(target)  # floor for positive rationals
+        m = t - ((t - 1) % M)
+        if m <= 0: m += M
+        err = abs(Fraction(m, p**j) - s)
+        ok = ok and (err < Fraction(1, k)) and (m % M == 1 % M or M == 1)
+    rows.append({"s": str(s), "all_k_le_12_within_1/k_and_m_k=1_mod_k!": ok})
+out["C5_CorO7_construction_rational_s_nu_1"] = rows
+print(json.dumps({k: out[k] for k in ["C4_nk_to_zero", "C5_CorO7_construction_rational_s_nu_1"]}, indent=1))
+with open("B-corA1-adjudication-checks.json", "w") as fh:
+    json.dump(out, fh, indent=1)
