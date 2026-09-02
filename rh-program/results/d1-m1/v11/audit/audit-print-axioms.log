@@ -1,0 +1,100 @@
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.rectArgPrinciple_of_local : ∀ (f : ℂ → ℂ), Zeta23.W1.RectArgPrinciple f
+Zeta23.W1.rectArgPrinciple_riemannZeta : Zeta23.W1.RectArgPrinciple riemannZeta
+def Zeta23.W1.RectArgPrinciple : (ℂ → ℂ) → Prop :=
+fun f =>
+  ∀ (s₁ s₂ t₁ t₂ : ℝ),
+    1 / 2 < s₁ →
+      s₁ ≤ s₂ →
+        s₂ < 1 →
+          t₁ < t₂ →
+            ∀ (U : Set ℂ),
+              IsOpen U →
+                Zeta23.W1.rectClosed s₁ s₂ t₁ t₂ ⊆ U →
+                  DifferentiableOn ℂ f U →
+                    (∀ s ∈ Zeta23.W1.rectBdry s₁ s₂ t₁ t₂, f s ≠ 0) →
+                      ∃ Z,
+                        2 * Real.pi * ↑Z =
+                            Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₁ t₁) (Zeta23.W1.cpt s₂ t₁) +
+                                  Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₂ t₁) (Zeta23.W1.cpt s₂ t₂) +
+                                Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₂ t₂) (Zeta23.W1.cpt s₁ t₂) +
+                              Zeta23.W1.argIncrement f (Zeta23.W1.cpt s₁ t₂) (Zeta23.W1.cpt s₁ t₁) ∧
+                          (Z = 0 → ∀ s ∈ Zeta23.W1.rectOpen s₁ s₂ t₁ t₂, f s ≠ 0) ∧
+                            (1 ≤ Z → ∃ ρ ∈ Zeta23.W1.rectOpen s₁ s₂ t₁ t₂, f ρ = 0)
+'Zeta23.W1.ArgPrinciple.isPreconnected_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.analyticOrderAt_ne_top_of_analyticOnNhd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Zeta23.W1.ArgPrinciple.exists_factor_pow_sub_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.exists_factor_prod_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.finite_zeros_of_isCompact_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.finite_zeros_Rect_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_logDeriv_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_logDeriv_eq_zero_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_eq_sum_analyticOrder_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cpt_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.Rect_cpt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.RectFrontier_cpt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.logDerivSegIntegral_horiz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.logDerivSegIntegral_vert' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.edge_sum_eq_rectIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.rectArgPrinciple_of_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.rectArgPrinciple_riemannZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.checkW1' does not depend on any axioms
+'Zeta23.W1.ArgPrinciple.Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.RectFrontier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.RectFrontier_subset_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_RectFrontier_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_RectFrontier_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_RectFrontier_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_RectFrontier_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_edge_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_edge_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_edge_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_edge_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_eq_zero_of_differentiableOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Zeta23.W1.ArgPrinciple.arctan_add_arctan_inv_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.arctan_add_arctan_inv_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.ofReal_add_const_mul_I_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.hasDerivAt_edge_antiderivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.integral_inv_ofReal_add_const_mul_I' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.integral_inv_const_add_ofReal_mul_I' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.arctan_rect_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_inv_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.continuousOn_logDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.rectIntegral_logDeriv_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.sub_ne_zero_of_mem_RectFrontier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_prod_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_factored' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_factored_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.analyticOrderAt_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.exists_factor_pow_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.exists_factor_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.isCompact_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.finite_zeros_of_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.finite_zeros_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_RectFrontier_left_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.mem_Ioo_of_zero_mem_Rect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_eq_sum_analyticOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.ArgPrinciple.windingRect_eq_finsum_analyticOrder' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -456,6 +456,34 @@ milestone: build on `Zeta23/WeilEF/Contour.lean` + the Mathlib divisor layer) di
 Success-criterion wording, fixed by D-R3: "converts into a kernel-checked disproof modulo the
 two displayed hypotheses; fully kernel-checked after v1.1."
 
+**DATED ADDENDUM, 2026-09-02 — H-AP IS NOW A THEOREM; THE PARAGRAPH ABOVE IS THE v1 RECORD AND IS
+LEFT AS WRITTEN.** Milestone v1.1 (D-R3) is done, by a route the paragraph above did not
+anticipate: not by building on `Zeta23/WeilEF/Contour.lean`, but by porting the rectangle
+argument principle from the Gomila/Aristotle development (MIT, commit `ea09b2f`; see
+`lean/README.md` and the repository `NOTICE` for the attribution) and generalizing it. The Lean
+`Prop` `Zeta23.W1.RectArgPrinciple` of `lean/Zeta23/W1/Soundness.lean` — the consequence form
+described in that file's dated formulation note of 2026-08-26 — is proved in module
+**`Zeta23.W1.ArgPrincipleBridge`** (`lean/Zeta23/W1/ArgPrincipleBridge.lean`) as
+
+    theorem rectArgPrinciple_of_local (f : ℂ → ℂ) : RectArgPrinciple f
+    theorem rectArgPrinciple_riemannZeta : RectArgPrinciple riemannZeta
+
+for **every** `f`, with no hypothesis beyond those the `Prop` already displays, for exactly the
+rectangles clause C2 admits (½ < σ₁ ≤ σ₂ < 1 — the degenerate σ₁ = σ₂ included and proved
+directly — and T₁ < T₂), and on Lean's three standard axioms only. The soundness theorem is
+restated without it as `Zeta23.W1.cert_of_checkW1_ap`, same conclusion as `cert_of_checkW1`, one
+displayed hypothesis fewer; `Soundness.lean` itself is imported, not rewritten. Supporting
+modules `Zeta23.W1.ArgPrinciple.Rect` and `Zeta23.W1.ArgPrinciple.General` (the ported files).
+Records: `results/d1-m1/v11/port-notes.md`, `results/d1-m1/v11/discharge-notes.md`, and the
+adversarial audit `results/d1-m1/v11/AUDIT.md` (verdict CLEAN, by a different model).
+
+**One correction to the older text, for anyone quoting it.** The success-criterion sentence above
+ends "fully kernel-checked after v1.1". That is now inaccurate and must not be used: **H-ENCL
+(§8.1) survives v1.1**, and it is where the untrusted producers enter. The correct sentence, and
+the only one to use in public D1 text from 2026-09-02 on, is: *"kernel-checked modulo the
+displayed hypothesis H-ENCL (producers untrusted)"* — never "fully machine-checked". §8.1's
+"what the checker cannot see" note stands unchanged.
+
 ### 8.3 Lean-side proof obligations that are NOT hypotheses
 
 * **L1 (additivity):** Σ over an edge's sub-segments of the §6.1 integrals = the edge's

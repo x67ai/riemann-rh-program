@@ -1,0 +1,161 @@
+ArgumentPrinciple.Rect : ℂ → ℂ → Set ℂ
+ArgumentPrinciple.rectIntegral : (ℂ → ℂ) → ℂ → ℂ → ℂ
+ArgumentPrinciple.windingRect : (ℂ → ℂ) → ℂ → ℂ → ℂ
+ArgumentPrinciple.RectFrontier : ℂ → ℂ → Set ℂ
+@ArgumentPrinciple.mem_Rect : ∀ {z w c : ℂ},
+  c ∈ ArgumentPrinciple.Rect z w ↔ c.re ∈ Set.uIcc z.re w.re ∧ c.im ∈ Set.uIcc z.im w.im
+ArgumentPrinciple.RectFrontier_subset_Rect : ∀ (z w : ℂ),
+  ArgumentPrinciple.RectFrontier z w ⊆ ArgumentPrinciple.Rect z w
+@ArgumentPrinciple.mem_RectFrontier_bot : ∀ {z w : ℂ} {x : ℝ},
+  x ∈ Set.uIcc z.re w.re → ↑x + ↑z.im * Complex.I ∈ ArgumentPrinciple.RectFrontier z w
+@ArgumentPrinciple.mem_RectFrontier_top : ∀ {z w : ℂ} {x : ℝ},
+  x ∈ Set.uIcc z.re w.re → ↑x + ↑w.im * Complex.I ∈ ArgumentPrinciple.RectFrontier z w
+@ArgumentPrinciple.mem_RectFrontier_right : ∀ {z w : ℂ} {y : ℝ},
+  y ∈ Set.uIcc z.im w.im → ↑w.re + ↑y * Complex.I ∈ ArgumentPrinciple.RectFrontier z w
+@ArgumentPrinciple.mem_RectFrontier_left : ∀ {z w : ℂ} {y : ℝ},
+  y ∈ Set.uIcc z.im w.im → ↑z.re + ↑y * Complex.I ∈ ArgumentPrinciple.RectFrontier z w
+@ArgumentPrinciple.continuousOn_edge_bot : ∀ {f : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn (fun x => f (↑x + ↑z.im * Complex.I)) (Set.uIcc z.re w.re)
+@ArgumentPrinciple.continuousOn_edge_top : ∀ {f : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn (fun x => f (↑x + ↑w.im * Complex.I)) (Set.uIcc z.re w.re)
+@ArgumentPrinciple.continuousOn_edge_right : ∀ {f : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn (fun y => f (↑w.re + ↑y * Complex.I)) (Set.uIcc z.im w.im)
+@ArgumentPrinciple.continuousOn_edge_left : ∀ {f : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn (fun y => f (↑z.re + ↑y * Complex.I)) (Set.uIcc z.im w.im)
+@ArgumentPrinciple.rectIntegral_congr : ∀ {f g : ℂ → ℂ} {z w : ℂ},
+  (∀ c ∈ ArgumentPrinciple.RectFrontier z w, f c = g c) →
+    ArgumentPrinciple.rectIntegral f z w = ArgumentPrinciple.rectIntegral g z w
+@ArgumentPrinciple.rectIntegral_add : ∀ {f g : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn g (ArgumentPrinciple.RectFrontier z w) →
+      ArgumentPrinciple.rectIntegral (fun c => f c + g c) z w =
+        ArgumentPrinciple.rectIntegral f z w + ArgumentPrinciple.rectIntegral g z w
+@ArgumentPrinciple.rectIntegral_sub : ∀ {f g : ℂ → ℂ} {z w : ℂ},
+  ContinuousOn f (ArgumentPrinciple.RectFrontier z w) →
+    ContinuousOn g (ArgumentPrinciple.RectFrontier z w) →
+      ArgumentPrinciple.rectIntegral (fun c => f c - g c) z w =
+        ArgumentPrinciple.rectIntegral f z w - ArgumentPrinciple.rectIntegral g z w
+ArgumentPrinciple.rectIntegral_const_mul : ∀ (f : ℂ → ℂ) (z w r : ℂ),
+  ArgumentPrinciple.rectIntegral (fun c => r * f c) z w = r * ArgumentPrinciple.rectIntegral f z w
+@ArgumentPrinciple.rectIntegral_sum : ∀ {ι : Type u_1} {s : Finset ι} {F : ι → ℂ → ℂ} {z w : ℂ},
+  (∀ i ∈ s, ContinuousOn (F i) (ArgumentPrinciple.RectFrontier z w)) →
+    ArgumentPrinciple.rectIntegral (fun c => ∑ i ∈ s, F i c) z w = ∑ i ∈ s, ArgumentPrinciple.rectIntegral (F i) z w
+@ArgumentPrinciple.rectIntegral_eq_zero_of_differentiableOn : ∀ {f : ℂ → ℂ} {z w : ℂ},
+  DifferentiableOn ℂ f (ArgumentPrinciple.Rect z w) → ArgumentPrinciple.rectIntegral f z w = 0
+@ArgumentPrinciple.arctan_add_arctan_inv_of_pos : ∀ {t : ℝ}, 0 < t → Real.arctan t + Real.arctan t⁻¹ = Real.pi / 2
+@ArgumentPrinciple.arctan_add_arctan_inv_of_neg : ∀ {t : ℝ}, t < 0 → Real.arctan t + Real.arctan t⁻¹ = -(Real.pi / 2)
+@ArgumentPrinciple.ofReal_add_const_mul_I_ne_zero : ∀ {α : ℝ} (x : ℝ), α ≠ 0 → ↑x + ↑α * Complex.I ≠ 0
+ArgumentPrinciple.hasDerivAt_edge_antiderivative : ∀ (α x : ℝ),
+  α ≠ 0 →
+    HasDerivAt (fun t => ↑(1 / 2 * Real.log (t ^ 2 + α ^ 2)) - Complex.I * ↑(Real.arctan (t / α)))
+      (↑x + ↑α * Complex.I)⁻¹ x
+ArgumentPrinciple.integral_inv_ofReal_add_const_mul_I : ∀ (α u v : ℝ),
+  α ≠ 0 →
+    ∫ (x : ℝ) in u..v, (↑x + ↑α * Complex.I)⁻¹ =
+      ↑(1 / 2 * (Real.log (v ^ 2 + α ^ 2) - Real.log (u ^ 2 + α ^ 2))) -
+        Complex.I * ↑(Real.arctan (v / α) - Real.arctan (u / α))
+ArgumentPrinciple.integral_inv_const_add_ofReal_mul_I : ∀ (β u v : ℝ),
+  β ≠ 0 →
+    ∫ (y : ℝ) in u..v, (↑β + ↑y * Complex.I)⁻¹ =
+      ↑(Real.arctan (v / β) - Real.arctan (u / β)) -
+        Complex.I * ↑(1 / 2 * (Real.log (β ^ 2 + v ^ 2) - Real.log (β ^ 2 + u ^ 2)))
+@ArgumentPrinciple.arctan_rect_sum : ∀ {A B C D : ℝ},
+  A < 0 →
+    0 < B →
+      C < 0 →
+        0 < D →
+          -(Real.arctan (B / C) - Real.arctan (A / C)) + (Real.arctan (B / D) - Real.arctan (A / D)) +
+                (Real.arctan (D / B) - Real.arctan (C / B)) -
+              (Real.arctan (D / A) - Real.arctan (C / A)) =
+            2 * Real.pi
+@ArgumentPrinciple.rectIntegral_inv_sub : ∀ {z w a : ℂ},
+  z.re < a.re →
+    a.re < w.re →
+      z.im < a.im → a.im < w.im → ArgumentPrinciple.rectIntegral (fun c => (c - a)⁻¹) z w = 2 * ↑Real.pi * Complex.I
+@ArgumentPrinciple.continuousOn_logDeriv : ∀ {z w : ℂ} {F : ℂ → ℂ},
+  Differentiable ℂ F →
+    (∀ c ∈ ArgumentPrinciple.Rect z w, F c ≠ 0) → ContinuousOn (logDeriv F) (ArgumentPrinciple.RectFrontier z w)
+@ArgumentPrinciple.rectIntegral_logDeriv_eq_zero : ∀ {z w : ℂ} {F : ℂ → ℂ},
+  Differentiable ℂ F → (∀ c ∈ ArgumentPrinciple.Rect z w, F c ≠ 0) → ArgumentPrinciple.rectIntegral (logDeriv F) z w = 0
+@ArgumentPrinciple.sub_ne_zero_of_mem_RectFrontier : ∀ {z w : ℂ} {ι : Type u_1} {s : Finset ι} {a : ι → ℂ},
+  (∀ j ∈ s, (a j).re ∈ Set.Ioo z.re w.re ∧ (a j).im ∈ Set.Ioo z.im w.im) →
+    ∀ c ∈ ArgumentPrinciple.RectFrontier z w, ∀ j ∈ s, c - a j ≠ 0
+@ArgumentPrinciple.windingRect_prod_mul : ∀ {z w : ℂ} {V : ℂ → ℂ},
+  ContinuousOn (logDeriv V) (ArgumentPrinciple.RectFrontier z w) →
+    ArgumentPrinciple.rectIntegral (logDeriv V) z w = 0 →
+      (∀ c ∈ ArgumentPrinciple.RectFrontier z w, V c ≠ 0) →
+        (∀ c ∈ ArgumentPrinciple.RectFrontier z w, DifferentiableAt ℂ V c) →
+          ∀ {ι : Type u_1} {s : Finset ι} {a : ι → ℂ} {m : ι → ℕ},
+            (∀ j ∈ s, (a j).re ∈ Set.Ioo z.re w.re ∧ (a j).im ∈ Set.Ioo z.im w.im) →
+              ArgumentPrinciple.windingRect (fun c => (∏ j ∈ s, (c - a j) ^ m j) * V c) z w = ∑ j ∈ s, ↑(m j)
+@ArgumentPrinciple.windingRect_factored : ∀ {z w : ℂ},
+  z.re < w.re →
+    z.im < w.im →
+      ∀ {U : ℂ → ℂ},
+        Differentiable ℂ U →
+          (∀ c ∈ ArgumentPrinciple.Rect z w, U c ≠ 0) →
+            ∀ {k : ℕ} (a : Fin k → ℂ) (m : Fin k → ℕ),
+              (∀ (j : Fin k), 1 ≤ m j) →
+                (∀ (j : Fin k), (a j).re ∈ Set.Ioo z.re w.re ∧ (a j).im ∈ Set.Ioo z.im w.im) →
+                  (∀ c ∈ ArgumentPrinciple.RectFrontier z w, (∏ j, (c - a j) ^ m j) * U c ≠ 0) ∧
+                    ArgumentPrinciple.windingRect (fun c => (∏ j, (c - a j) ^ m j) * U c) z w = ∑ j, ↑(m j)
+@ArgumentPrinciple.windingRect_factored_div : ∀ {z w : ℂ},
+  z.re < w.re →
+    z.im < w.im →
+      ∀ {U : ℂ → ℂ},
+        Differentiable ℂ U →
+          (∀ c ∈ ArgumentPrinciple.Rect z w, U c ≠ 0) →
+            ∀ {B : ℂ → ℂ},
+              Differentiable ℂ B →
+                (∀ c ∈ ArgumentPrinciple.Rect z w, B c ≠ 0) →
+                  ∀ {k : ℕ} (a : Fin k → ℂ) (m : Fin k → ℕ),
+                    (∀ (j : Fin k), 1 ≤ m j) →
+                      (∀ (j : Fin k), (a j).re ∈ Set.Ioo z.re w.re ∧ (a j).im ∈ Set.Ioo z.im w.im) →
+                        ArgumentPrinciple.windingRect (fun c => (∏ j, (c - a j) ^ m j) * U c / B c) z w = ∑ j, ↑(m j)
+@ArgumentPrinciple.analyticOrderAt_ne_top : ∀ {H : ℂ → ℂ},
+  Differentiable ℂ H → (∃ x, H x ≠ 0) → ∀ (p : ℂ), analyticOrderAt H p ≠ ⊤
+@ArgumentPrinciple.exists_factor_pow_sub : ∀ {H : ℂ → ℂ},
+  Differentiable ℂ H →
+    ∀ (p : ℂ),
+      analyticOrderAt H p ≠ ⊤ →
+        ∃ G, Differentiable ℂ G ∧ G p ≠ 0 ∧ ∀ (ζ : ℂ), H ζ = (ζ - p) ^ analyticOrderNatAt H p * G ζ
+@ArgumentPrinciple.exists_factor_prod : ∀ {H : ℂ → ℂ},
+  Differentiable ℂ H →
+    (∃ x, H x ≠ 0) →
+      ∀ (S : Finset ℂ),
+        ∃ G,
+          Differentiable ℂ G ∧ (∀ p ∈ S, G p ≠ 0) ∧ ∀ (ζ : ℂ), H ζ = (∏ p ∈ S, (ζ - p) ^ analyticOrderNatAt H p) * G ζ
+ArgumentPrinciple.isCompact_Rect : ∀ (z w : ℂ), IsCompact (ArgumentPrinciple.Rect z w)
+@ArgumentPrinciple.finite_zeros_of_isCompact : ∀ {H : ℂ → ℂ},
+  Differentiable ℂ H → (∃ x, H x ≠ 0) → ∀ {K : Set ℂ}, IsCompact K → {p | p ∈ K ∧ H p = 0}.Finite
+@ArgumentPrinciple.finite_zeros_Rect : ∀ {z w : ℂ} {H : ℂ → ℂ},
+  Differentiable ℂ H → (∃ x, H x ≠ 0) → {p | p ∈ ArgumentPrinciple.Rect z w ∧ H p = 0}.Finite
+ArgumentPrinciple.mem_RectFrontier_left_corner : ∀ (z w : ℂ), z ∈ ArgumentPrinciple.RectFrontier z w
+@ArgumentPrinciple.mem_Ioo_of_zero_mem_Rect : ∀ {z w : ℂ},
+  z.re < w.re →
+    z.im < w.im →
+      ∀ {H : ℂ → ℂ},
+        (∀ c ∈ ArgumentPrinciple.RectFrontier z w, H c ≠ 0) →
+          ∀ {p : ℂ}, p ∈ ArgumentPrinciple.Rect z w → H p = 0 → p.re ∈ Set.Ioo z.re w.re ∧ p.im ∈ Set.Ioo z.im w.im
+@ArgumentPrinciple.windingRect_eq_sum_analyticOrder : ∀ {z w : ℂ},
+  z.re < w.re →
+    z.im < w.im →
+      ∀ {H : ℂ → ℂ},
+        Differentiable ℂ H →
+          (∀ c ∈ ArgumentPrinciple.RectFrontier z w, H c ≠ 0) →
+            ∀ (S : Finset ℂ),
+              (∀ (p : ℂ), p ∈ S ↔ p ∈ ArgumentPrinciple.Rect z w ∧ H p = 0) →
+                ArgumentPrinciple.windingRect H z w = ∑ p ∈ S, ↑(analyticOrderNatAt H p)
+@ArgumentPrinciple.windingRect_eq_finsum_analyticOrder : ∀ {z w : ℂ},
+  z.re < w.re →
+    z.im < w.im →
+      ∀ {H : ℂ → ℂ},
+        Differentiable ℂ H →
+          (∀ c ∈ ArgumentPrinciple.RectFrontier z w, H c ≠ 0) →
+            ArgumentPrinciple.windingRect H z w =
+              ∑ᶠ (p : ℂ) (_ : p ∈ {p | p ∈ ArgumentPrinciple.Rect z w ∧ H p = 0}), ↑(analyticOrderNatAt H p)
+ArgumentPrinciple.windingRect_id_eq_one : ArgumentPrinciple.windingRect id (-1 - Complex.I) (1 + Complex.I) = 1
