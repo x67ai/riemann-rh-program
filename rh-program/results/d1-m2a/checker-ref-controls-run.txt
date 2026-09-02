@@ -1,0 +1,22 @@
+[as expected] box straddles 0 (row 0 value box := [-1,1] x [-1,1]): REJECT at C-B6 row 0 = (-1, 1, -1, 1, 15210123385, 15210123386)
+[as expected] empty box (reLo > reHi on row 3): REJECT at C-B5 row 3 = (804958404635894328647164, 804958404635894328647163, -4401745834194
+[as expected] argument row inverted (argLo > argHi): REJECT at C-B7 row 5 = (1366274487838828729660762, 9823369778913268779637916, -46151082607
+[as expected] argument row too wide (argHi := A): REJECT at C-B7 row 7 = (11066426161325712032354643, 19475564165942808544237133, -469197737
+[as expected] argument sum excludes 0 (every argument row shifted by +1: S = [93, 277]): REJECT at C-B9 S_lo = 93 > 0
+[as expected] argument sum too wide (row 0 argHi := A/2, all others -A/2..A/2): REJECT at C-B8 2*(92000000000000 - -92000000000000) >= A = 1000000000000
+[as expected] row removed: REJECT at C-B4 row count 183 + 4 != 188
+[as expected] mesh bottom[last] != x2: REJECT at C-B3 bottom edge walk
+[as expected] mesh right not monotone (swap two interior breakpoints): REJECT at C-B3 right edge walk
+[as expected] floor too large (Fn := 10*Fn): REJECT at C-B11 floor row 0: (mre^2+mim^2)*Fd^2 < Fn^2*K^2
+[as expected] gate: D := Fn*K/Fd (E + D >= floor): REJECT at C-B12 (E + D)*Fd = 4629845919446206851226390000000000000000000000000 >= Fn*K = 4
+[as expected] negative E: REJECT at C-B0 E >= 0
+[as expected] seam denominator 0: REJECT at C-B0 seam denominator >= 1
+[as expected] mesh denominator 0 (bottom[1].d := 0): REJECT at C-B0 mesh denominator (bottom)
+[as expected] WEAKENED (valid): every box widened by 1 at K, floor x 10/11: ACCEPT
+[as expected] WEAKENED (valid): every argument row widened by 1 on each side: ACCEPT
+[as expected] chain: C-B13 first seam != 0 (or no prisms)
+[as expected] chain: C-B13 seams not strictly increasing / last seam not < t0
+[as expected] chain: C-B13 seams not strictly increasing / last seam not < t0
+[as expected] chain: C-B2' x1 < x2
+[as expected] chain: C-B2' y1 > 0
+21/21 controls behaved as expected

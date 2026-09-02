@@ -1,0 +1,53 @@
+{
+ "format": "M2a-barrier-transcript",
+ "version": "1.0",
+ "kind": "manifest",
+ "lane": "barrier",
+ "trust_label": "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL) and H3 (producers untrusted)",
+ "rect": {
+  "x1": {
+   "n": "6000000185827",
+   "d": "1"
+  },
+  "x2": {
+   "n": "6000000185828",
+   "d": "1"
+  },
+  "y1": {
+   "n": "1809",
+   "d": "10000"
+  },
+  "y2": {
+   "n": "1",
+   "d": "1"
+  }
+ },
+ "t0": {
+  "n": "139262715931634962911768046419",
+  "d": "1000000000000000000000000000000"
+ },
+ "prisms": [
+  {
+   "index": "0",
+   "file": "instance02-prism-0000.json",
+   "seam": {
+    "n": "133624835931634962911768046419",
+    "d": "1000000000000000000000000000000"
+   }
+  }
+ ],
+ "producer": {
+  "leg": "arb",
+  "implementation": "producer_arb.py (results/d1-m2a/), python-flint 0.6.0",
+  "instance": "instance 'gomila' (NOT the certificate instance of this program): X = 6000000185827, t0 = 129/800, y0 = 1809/10000, N0 = 690988",
+  "chain_segment": {
+   "t_start": "133624835931634962911768046419/1000000000000000000000000000000",
+   "t_reached": "139262715931634962911768046419/1000000000000000000000000000000",
+   "t_end": "129/800"
+  },
+  "status": "CHAIN SEGMENT [133624835931634962911768046419/1000000000000000000000000000000, 139262715931634962911768046419/1000000000000000000000000000000] -- NOT a certificate by itself (C-B13 needs the first seam at 0); to be concatenated with the segment ending at its start time by `producer_arb.py merge`",
+  "trust": "UNTRUSTED producer; output enters the trusted statement only via H2-B",
+  "written_utc": "2026-09-02T19:24:01Z"
+ },
+ "comment": "Lane B barrier certificate for the row-2 instance, Arb/FLINT leg. Each prism's rows enclose the seam approximant f = f_tau of (92) at N = 630783; E and D per SPEC sections 4.4-4.5 (derivations D-A2, D-A11, D-A15 in producer_arb.py)."
+}
