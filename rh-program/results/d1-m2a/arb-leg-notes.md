@@ -122,7 +122,8 @@ reference's exact binary value with a declared 10⁻²⁵ decimal slack (the M1 
 
 **Results (`arb-validation-run.txt` = sections A, A′, B, C of the 23:37 run; `arb-validation-run-DE.txt` = sections D, E
 re-run at 00:34 after two harness fixes recorded in the first file's postscript; `arb-validation-run-full.txt` = a clean
-full re-run with the fixed harness, launched 00:36, for a single record):**
+full re-run with the fixed harness, launched 00:36 in the background (≈ 45 min), for a single record — complete iff its
+last line is a `VERDICT` line; if the session ended first it is a partial duplicate and the two files above are the record):**
 
 | section | test | result |
 |---|---|---|
