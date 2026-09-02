@@ -1013,3 +1013,15 @@ p. 26) and Engelking 1995 *Theory of Dimensions, Finite and Infinite* as **r3s-2
 running). **23:02 IST — RESUMED:** run 2 relaunched from cache (the two producers side by side, as the
 sequential rule allows for the independent pair, then instance, then final audit). The Workflow tool
 refused its own script path this time; the copy in `scripts/` was used.
+
+**23:36 IST — M2a item (d), mpmath-ball f_t/H_t producer leg: HARVESTED (second agent after the 19:40 death; the
+first agent had built and validated the leg but died before the row-2 run).** Row-2 barrier transcript COMPLETE:
+39 prisms, 7176 rows, 20.6 min single process, chain 0 → t₀ = 93/500; `barrier_ref_checker.py` ACCEPT (C-B0..C-B13);
+all 40 files shape-valid against `barrier-schema.json` (new hand-rolled validator `schema_shape_check.py`, jsonschema
+not installed); worst prism gate (E+D)/floor = 0.540; floors 4.63 → 1.45, E 4.1·10⁻⁴ → 1.0·10⁻⁷ →
+`results/d1-m2a/transcripts/row2/`. The one FAIL in `validation-ft-mp-instance.txt` settled by computation as a
+harness artifact (one-sided difference at t = 0; `dt0_recheck.py` 12/12, analytic-derivative pipeline + true central
+difference agree to 10⁻¹⁹ and lie in the ball). The overline on s_* in P15 (14) verified from the page image (the
+SPEC's pdftotext quotation drops it — wording fix owed). No Arb row-2 transcript existed at harvest time, so the
+P-11 cross-check is still owed to the instance stage. Notes: `results/d1-m2a/mp-leg-notes.md`. Λ bracket unchanged:
+0 ≤ Λ ≤ 0.2; trust label: untrusted producer output, kernel-checked modulo H2-B only once the Lean checker lands.
