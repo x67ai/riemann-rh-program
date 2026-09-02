@@ -1,7 +1,7 @@
 # `rh-program/lean` — this program's own Lean 4 files
 
-12 files, ~7,480 lines (3,265 of them the data literals of `W1/Instances.lean`, added
-2026-09-02). They are **additions to the `Zeta23` library**, not a standalone project, and
+13 files, ~8,570 lines (3,265 of them the data literals of `W1/Instances.lean`, added
+2026-09-02; 1,092 of them `DBN/BarrierCert.lean`, added the same day). They are **additions to the `Zeta23` library**, not a standalone project, and
 they are the only Lean files in this repository.
 
 | File | Lines | What it carries |
@@ -16,12 +16,14 @@ they are the only Lean files in this repository.
 | `Zeta23/W1/ArgPrinciple/General.lean` | 249 | The general argument principle on rectangles for entire functions: zero factorization, finiteness of the zero set, `windingRect_eq_sum_analyticOrder`. **Ported** |
 | `Zeta23/W1/ArgPrincipleBridge.lean` | 459 | **v1.1, D-R3: H-AP discharged.** Generalizes the ported theorem from entire functions to `DifferentiableOn ℂ f U` on an open `U ⊇ R`, bridges the two rectangle/winding vocabularies, handles the degenerate rectangle σ₁ = σ₂, and proves `rectArgPrinciple_of_local : ∀ f, RectArgPrinciple f`, `rectArgPrinciple_riemannZeta`, and `cert_of_checkW1_ap` — checker soundness with H-AP removed |
 | `Zeta23/DBN/Defs.lean` | 117 | De Bruijn–Newman definitions |
+| `Zeta23/DBN/BarrierCert.lean` | 1092 | **M2a Lane B (added 2026-09-02).** The barrier-certificate transcript data (`PrismData`, `RectData`, `BarrierData`), the integer checker `checkBarrier` (per-prism `checkPrism` = W1's C1, C3–C9 with the strip-free C2′, m = 0, the C11 floor and the gate C-B12 (E+D)·Fd < Fn·K; global `checkBarrierChain` = C-B13), the displayed hypothesis H2-B (`BarrierEnclOK`), and the soundness theorem `cert_of_checkBarrier` — PROVED, not displayed: the rectangle argument principle on a general rectangle (`rectArgPrincipleGen`, from the v1.1 bridge), the strip-free W1 mesh chain, and the one new analytic lemma `logDerivSegIntegral_eq_log_sub` (∫ h′/h = Log h(w) − Log h(z) when Re h > 0 on the segment) with log-derivative additivity; no Rouché, no zero-continuity in t. Plus `cert_of_checkBarrier_xy`, the coordinate form `Polymath15Bridge`'s (iii) consumes. Contract: `results/d1-m2a/SPEC.md`; record: `results/d1-m2a/lean-notes.md` |
 
 `#print axioms` on every machine-checked theorem here reports only Lean's three standard
 axioms — `propext`, `Classical.choice`, `Quot.sound`. This now covers, besides the twelve
 theorems recorded before, all 45 declarations of `W1/ArgPrinciple/{Rect,General}.lean` and all 18
 of `W1/ArgPrincipleBridge.lean`, `cert_of_checkW1_ap` included
-(`results/d1-m1/v11/audit/audit-print-axioms.log`). No `sorryAx`, no `Lean.ofReduceBool`, and
+(`results/d1-m1/v11/audit/audit-print-axioms.log`), and all 28 theorems and lemmas of
+`DBN/BarrierCert.lean`, `cert_of_checkBarrier` included (`results/d1-m2a/barriercert-axioms.log`). No `sorryAx`, no `Lean.ofReduceBool`, and
 no real `sorry` or `admit` anywhere in the development. The twelve `_check` theorems of
 `W1/Instances.lean` report `[propext]` (the ten `checkW1Floor` instances) or no axioms at all
 (the two rejections) — they are integer facts about literals; **since 2026-09-02 the ζ conclusion
@@ -52,9 +54,9 @@ change-of-variables lemmas, and the degenerate rectangle σ₁ = σ₂ that clau
 directly with `Z = 0`. No ζ-specific analytic input is consumed anywhere.
 
 Build: `lake build Zeta23.W1.ArgPrincipleBridge` — *Build completed successfully (3145 jobs)*,
-6 s from deleted oleans, no warnings, Lean `v4.33.0-rc2`, Mathlib `51e6992e`. These three modules
-are not imported by `Zeta23.lean` (the same convention as `W1/Instances.lean`), so build them by
-name. Adversarial audit, by a different model: `results/d1-m1/v11/AUDIT.md` — verdict CLEAN.
+6 s from deleted oleans, no warnings, Lean `v4.33.0-rc2`, Mathlib `51e6992e`. (Since 2026-09-02
+evening the root `Zeta23.lean` imports every program module, `DBN/BarrierCert` and `W1/Instances`
+included; `lake build Zeta23` — *Build completed successfully (9023 jobs)*.) Adversarial audit, by a different model: `results/d1-m1/v11/AUDIT.md` — verdict CLEAN.
 
 **Honest label, binding.** An accepted ζ transcript is *"kernel-checked modulo the displayed
 hypothesis H-ENCL (producers untrusted)"*. Never "fully machine-checked": H-ENCL is where the
@@ -71,6 +73,27 @@ the repository's [`NOTICE`](../NOTICE), in dated sections; the port record is
 `results/d1-m1/v11/port-notes.md`, the discharge record `results/d1-m1/v11/discharge-notes.md`,
 and the independent build/axiom verification of the source branch
 `results/d1-m1/gomila-lean-branch-verify.md`.
+
+## M2a Lane B (2026-09-02): `DBN/BarrierCert.lean`
+
+The barrier-certificate layer of the Λ ≤ 0.2 instance, implementing `results/d1-m2a/SPEC.md`
+v1.0. Honest label for an accepted barrier transcript: *"kernel-checked modulo the displayed
+hypotheses H2-B (`BarrierEnclOK G d`) and `hHol` (G t holomorphic near the rectangle), producers
+untrusted"*. The theorem
+
+    Zeta23.DBN.cert_of_checkBarrier (G : ℝ → ℂ → ℂ) (d : BarrierData)
+        (hchain : checkBarrierChain d = true) (hprisms : ∀ p ∈ d.prisms, checkPrism d.rect p = true)
+        (hHol : ∀ t, 0 ≤ t → t ≤ t0 d → ∃ U, IsOpen U ∧ BarrierRect d ⊆ U ∧ DifferentiableOn ℂ (G t) U)
+        (hEncl : BarrierEnclOK G d) :
+        ∀ t, 0 ≤ t → t ≤ t0 d → ∀ z ∈ BarrierRect d, G t z ≠ 0
+
+takes the checker facts in the split form of SPEC §7.6 (per-prism kernel facts in per-prism
+modules). Build: `lake build Zeta23.DBN.BarrierCert` — *Build completed successfully (3147 jobs)*,
+3.2 s from a deleted olean, no warnings (`results/d1-m2a/barriercert-build.log`). The SPEC §12
+micro-example checks by `decide +kernel` against the built module, with four negative controls
+(`results/d1-m2a/barriercert-example-scratch.lean`, `.log`). `Defs.lean` is unchanged (v1.0); its
+v1.1 additions (`Polymath15Bridge'`, `Bt`, `HtEntire`), the asymptotic lane and `Instance02.lean`
+are the next items of the Lean stream.
 
 ## What these build against, and why it is not here
 
@@ -104,10 +127,10 @@ reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`
 
 ## Licensing (settled 2026-08-27)
 
-These twelve files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
+These thirteen files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
 (see the repository's [`LICENSE`](../../LICENSE) and [`NOTICE`](../../NOTICE)).
 (`W1/Instances.lean`, added 2026-09-02, was written under this header from the start; so were the
-three argument-principle files of the same day, which carry in addition the MIT notice for the
+three argument-principle files of the same day and `DBN/BarrierCert.lean`, which carry in addition the MIT notice for the
 portions ported from the Gomila/Aristotle development — see the v1.1 section above and the dated
 sections of [`NOTICE`](../../NOTICE). The relicensing record below concerns the original eight.)
 
