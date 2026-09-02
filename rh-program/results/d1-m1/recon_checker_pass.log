@@ -50,3 +50,14 @@ exit: 1
    checkW1Floor = true by decide +kernel: mpNullT100 arbNullT100 mpNullT1000 arbNullT1000 mpNullT10000 arbNullT10000 mpNullDeepT100 arbNullDeepT100 mpDH arbDH   (10/10; axioms [propext])
    checkW1 = false by decide +kernel: posMP_rej posARB_rej   (2/2 positive controls rejected; no axioms)
    full record: recon_lean_instances.log.  Three-checker verdicts agree on all 12 transcripts.
+
+-- two-producer cross-check re-run by the reconciler after repairs (transcripts byte-identical in numeric content, so the pre-repair figures must reproduce) -- 2026-09-02T07:32:25Z
+   overlap pairs checked: 83, all value boxes intersect
+   VERDICT: CONSISTENT
+   overlap pairs checked: 158, all value boxes intersect
+   VERDICT: CONSISTENT
+   overlap pairs checked: 90, all value boxes intersect
+   VERDICT: CONSISTENT
+   overlap pairs checked: 122, all value boxes intersect
+   VERDICT: CONSISTENT
+crosscheck exit: 0
