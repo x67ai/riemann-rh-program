@@ -897,3 +897,9 @@ is transversal-transparent, but BOTH probes report that [ÁLKL23]'s coincidence 
 stated are FALSE at source (a claim against a published paper — to be re-derived by the adjudicator
 and, if it stands, dual-model-checked before it is repeated anywhere). If the Q* verdict survives
 adjudication and the adversarial pass, the M2c kill-criterion fires: S4 and Route 2 dead.
+
+**18:30 IST — sponsor directive: run streams SEQUENTIALLY, not in parallel** (one workflow at a time, at
+most two agents side by side, next stream after harvest) so that a usage-limit wall costs one agent
+rather than a dozen. Recorded as the amendment to standing order 3 in STATUS.md and in KICKSTART.md
+Part 2 step 5. Applies from the next launch; the runs already in flight (three C3 adjudicators, one
+debt adjudicator, the M2a chain, the citation fetch) are left to finish.
