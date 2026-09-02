@@ -12,11 +12,12 @@ checker of the M2a Lean stream consumes it; today's acceptances are by the untru
 
 | component | file | status |
 |---|---|---|
+| producer-side negative controls of the reference checker on the real transcript (12 mutations of prism 0: gate equality, boxes, argument rows, floor, row count, seam, mesh walk) | `arb-negative-controls.txt` | 12/12 as expected (weakened-but-valid enclosures accepted; every check violation rejected at the named check) |
 | the Arb-leg barrier producer: P15 f_t evaluator (two-variable Taylor/moment evaluator with derived remainders), Theorem 1.3 defect E, displacement D, mesh, rows, chain, manifest | `producer_arb.py` (1 408 lines; every transcribed formula at PDF page and derivations D-A1…D-A18 in the module docstring) | DONE |
 | moment cache (lossless dyadic mid/rad, D-A14) | `arb-cache/moments-b6e2fae75cbdb737e271.json` (85 KB; row-2 box, N₀ = 630783, K = 36, J = 40, 320 bits; 61.4 s to compute) | DONE |
 | **the row-2 barrier transcript (Lane B)** | `transcripts/row2-arb/instance02-barrier-manifest.json` + `instance02-prism-0000…0071.json` (72 prisms, 10 771 rows, 2.9 MB) + `producer.log`, `producer-console.log`, `instance02-progress.json` | **COMPLETE chain 0 → t₀ = 93/500; reference checker ACCEPT** |
 | the N = 5000 test instance shared with the mpmath leg (rectangle [314159300, 314159301] × [y₀, 1], same t₀) | `transcripts/mini-arb/` (3 prisms, cut at 15558943/10⁹; a test, NOT a certificate instance) | ACCEPT (chain segment [0, 0.0156]) |
-| validation harness (mpmath reference, independent code path) | `validate_arb_ft.py` → `arb-validation-run.txt` | see §4 |
+| validation harness (mpmath reference, independent code path) | `validate_arb_ft.py` → `arb-validation-run.txt` (A–C), `arb-validation-run-DE.txt` (D–E), `arb-validation-run-full.txt` (clean re-run) | see §4 — ALL PASS |
 | SPEC P-11 cell-wise cross-check tool (Arb vs mpmath prism files at a common seam) | `crosscheck_legs.py` → `arb-crosscheck-legs-run.txt` | see §5 |
 | chain statistics | `arb-row2-chain-stats.txt` | see §3 |
 
@@ -119,7 +120,31 @@ Gauss–Legendre panels on [−16, 16] — the convergence study is quoted in th
 41: 6.7·10⁻¹⁹; 81 vs 121: < 10⁻²⁵). Containment is decided in exact rational arithmetic on the ball's mid/rad against the
 reference's exact binary value with a declared 10⁻²⁵ decimal slack (the M1 harness lesson).
 
-RESULT-VALIDATION
+**Results (`arb-validation-run.txt` = sections A, A′, B, C of the 23:37 run; `arb-validation-run-DE.txt` = sections D, E
+re-run at 00:34 after two harness fixes recorded in the first file's postscript; `arb-validation-run-full.txt` = a clean
+full re-run with the fixed harness, launched 00:36, for a single record):**
+
+| section | test | result |
+|---|---|---|
+| A | D-V1 heat-kernel form vs the direct u-integral (4) at x ∈ {50, 120, 200}, at cancellation-adjusted dps 58/70/84 | relative differences 6·10⁻⁵⁶, 4·10⁻⁵⁵, 6·10⁻⁵⁷ |
+| A′ | reference stability, dps 45 / 81 panels vs dps 60 / 121 panels at four (x, y, t) incl. (10⁴, y₀, 0.2) | relative differences 1–2·10⁻⁴² (reference good to ~40 digits) |
+| **B** | **containment of g = H_t/B_t in the Arb enclosure f_t ± (rad_f + E) at 48 points**: x ∈ {200, 1000, 3000, 10⁴} × t ∈ {0, 1/20, 93/500, 1/5} × y ∈ {y₀, 1/2, 1} (direct-sum evaluator + D-A2 defect, N = 3…28) | **48/48 contained; worst \|g − f\|/E = 0.5465**; rad_f ∈ [4.3·10⁻⁹⁴, 2.4·10⁻⁹¹]; E ∈ [2.36·10⁻², 0.945] (e_{C,0}-dominated; e_A + e_B ≤ 1.3·10⁻²) |
+| **C** | the Taylor/moment evaluator (the transcript evaluator, `BoxEvaluator`/`SeamContext`) on the box [10⁴, 10⁴+1] × [y₀, 1] × [0, t₀], N = 28: seam balls f ± E_box vs the reference at 14 boundary points (t = 0: 8 points; t = 93/500: 6) | **14/14 contained; worst ratio 0.4616**; rad_f = 1.0–1.5·10⁻⁴ (the D-A6 α-freezing term at x = 10⁴, as computed: η R₀ with dA = 3.3·10⁻⁵; at row 2 the same term is 10⁻¹⁰) |
+| D | the six derivative balls f_z, f_t, f_zz, f_zt, f_tt vs central differences (h = 10⁻⁶) of the direct sum at 8 (z, t); D-A15 prism-context balls (Δ = 1/200) contain the direct values at 4 times in the prism at 6 (z, prism) | 46/46 (every finite difference inside its ball's half-width + the FD truncation tolerance; prism balls 10⁻²…5·10⁻² wide contain all direct values) |
+| E | hull boxes (`seg_box`, D-A10/D-A10′) on four boundary segments of length 1/50 contain 9 interior direct-sum values each | 36/36; D-A10′ wins on all four (r = 8·10⁻⁴ … 1.2·10⁻² against D-A10's 7·10⁻³ … 1.7·10⁻²) |
+
+So 62 reference points in region (5) at x ≤ 10⁴, all contained, with Theorem 1.3's margin used to at most 55 %; the
+widths of the f_t balls themselves are 10⁻⁹⁴…10⁻⁹¹ (direct) and 10⁻⁴ (Taylor at x = 10⁴; 10⁻¹⁰ at row 2). What the test
+proves and does not: it verifies the transcription of Theorem 1.3 (f_t, γ, α, M₀, the majorant) as a theorem at moderate
+x, and the evaluator's arithmetic against an independent library; it cannot reach x ≈ 5·10¹² (no reference exists there),
+where the Taylor evaluator is instead checked against the direct 630783-term sum at 6 random boundary points and times
+(`producer_arb.py crosscheck`: all overlapping, Taylor widths 7·10⁻¹³…1.2·10⁻¹⁰ against direct widths 10⁻⁸⁴…10⁻⁸⁰) and,
+at the seam t = 0, cell-wise against the mpmath leg (§5).
+
+**Harness lessons (recorded):** (i) the direct u-integral needs dps ≈ 35 + πx/(8 ln 10) — at x = 200 that is 84 digits, and
+a 1e-20 agreement threshold at dps 35 fails for the harness's reason, not the evaluator's; (ii) mpmath's `quad` with 29
+panels was only 3·10⁻¹⁴ accurate on this integrand (81 panels: < 10⁻²⁵); (iii) a midpoint comparison is the wrong test for a
+ball whose width is the quantity of interest — test containment; (iv) `float()` of |B_t| ≈ 10⁻¹⁷⁰⁰ underflows.
 
 ## 5. Two-producer cross-check (SPEC P-11; `crosscheck_legs.py`, `arb-crosscheck-legs-run.txt`)
 

@@ -1025,3 +1025,19 @@ difference agree to 10⁻¹⁹ and lie in the ball). The overline on s_* in P15 
 SPEC's pdftotext quotation drops it — wording fix owed). No Arb row-2 transcript existed at harvest time, so the
 P-11 cross-check is still owed to the instance stage. Notes: `results/d1-m2a/mp-leg-notes.md`. Λ bracket unchanged:
 0 ≤ Λ ≤ 0.2; trust label: untrusted producer output, kernel-checked modulo H2-B only once the Lean checker lands.
+
+**2026-09-03 ~00:40 IST — D1 M2a item (c), the Arb/FLINT f_t / H_t producer leg (subagent of `d1-audit-m2a-s14`): DONE.**
+`results/d1-m2a/producer_arb.py` (1 408 lines; P15 formulas at PDF page, derivations D-A1…D-A18 in the docstring: the
+two-variable Taylor/moment evaluator with derived truncation remainders and α-freezing corrections up to second
+derivatives, the D-A2 defect with the 10.50 weld, the mean-value hull boxes D-A10′ and displacement D-A15′, the D-A14
+moment cache, the D-A12 limit argument at t = 0). **Row-2 barrier transcript COMPLETE: `transcripts/row2-arb/`, 72 prisms,
+10 771 rows, chain 0 → t₀ = 93/500, reference checker ACCEPT (C-B0…C-B13), 2.4 min of producer time** (moments 61 s once,
+0.3 ms per evaluation); floors 4.38 → 1.47, E = 4.119·10⁻⁴ → 1.6·10⁻⁷, Δt 1.1·10⁻³ → 1.1·10⁻²; K = 10¹², A = 10⁶.
+Validation (`validate_arb_ft.py`, mpmath reference via the derived heat-kernel form D-V1 of H_t, checked to 10⁻⁵⁵ against
+the defining integral): 62/62 reference points contained (48 direct-sum + 14 Taylor-evaluator points, x ≤ 10⁴, t ∈ [0, 0.2],
+y ∈ {y₀, ½, 1}), worst |g − f|/E = 0.55; derivative and prism-uniform balls 46/46; hull boxes 36/36. Two-producer cross-check
+(SPEC P-11, `crosscheck_legs.py`) at the common seam t = 0: row 2 — 465 overlapping cell pairs, 0 disjoint, E equal to 5
+digits (4.1192·10⁻⁴ both legs), seam sup|∂_t f| 1793 (Arb) vs the mp leg's interval bound 2053; mini instance — 261 pairs, 0
+disjoint: CONSISTENT. Negative controls on the real transcript 12/12. Record: `results/d1-m2a/arb-leg-notes.md`. Not done
+(cut lines): lane A, the seam-aligned per-prism cross-check beyond t = 0, Lean emission (the Lean stream's item). Trust
+label unchanged: kernel-checked modulo the displayed hypotheses once the Lean checker consumes the rows; producers untrusted.
