@@ -1161,3 +1161,21 @@ specified = `failed-ledger-exhausted`**, with four binding corrections. The resi
 and one is not unbuilt: Deninger's own E-free Y₀, where the first positive S4-shaped object in the
 program's record may exist — treated as a LEAD (Q-b″) and made the next stream. Novelty ledger: 10 items,
 six already dual-checked by construction of the pass.
+
+**04:25 IST — HARVEST 7: Q-b″ stage 1 (`results/c3-r/s14/y0-witness/`, 3/3).** The compact 3-dimensional
+witness is REAL after four repairs (both verifiers found the same four; the adjudicator ratified) and
+realizes the orbit spectrum {log p} exactly once, simple, with — after verifier O's repelling-core
+repair, confirmed at source — return derivative p^{1/2}·O, so that a [Den05] §7.5-type formula on its
+pieces returns T1 + T2 exactly. But: it admits NO foliated-space structure with 2-dimensional leaves
+(verifier F's Theorem B, ratified and sharpened), has no archimedean leaf (the limit torus has χ = 0,
+no fixed points), and its map into Y₀ is INERT (any map with those images is continuous; the target's
+Kolmogorov quotient is the convergent sequence {0} ∪ {1/p}). The adjudicator's own Theorem T settles the
+target side: no Q>0-suspension of a compact base is T₁, so Y₀ is not metrizable and not a lamination —
+"residue (R-ii)" was misframed at the target, not only at the map. **Consequence, recorded in ledger
+§15 and the C3 frontier: the Deninger leg is exhausted for the substrate; S4 is reformulated as the
+standalone existence problem S4′** (compact foliated 3-space, closed orbits exactly {log p} simple with
+derivative p^{1/2}·O, an archimedean leaf with χ ≠ 0 in the accumulation set, a transverse measure) plus
+the S1 requirement that arithmetic enter through the object itself. Next decidable question Q-S4′:
+is that length spectrum realizable at all — to be answered by a literature mini-sweep before any
+construction. Corrections to §14 wording ("lamination", "first positive S4-shaped object") are binding
+and queued for the repair pass.
