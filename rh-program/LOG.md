@@ -1140,3 +1140,24 @@ kernel-checked barrier certificate for the row-2 box on two independent producer
 what remains: the Defs.lean tie (G := the Thm 1.3 approximant, H_t/B_t), Lane A, and the assembly of
 Polymath15Bridge into the Λ ≤ 0.2 ray statement (items e′/f). Committed by the agents (8fe8009,
 3f710cf, 1590379) and here.
+
+**03:40 IST — HARVEST 6: the ADVERSARIAL DUAL-MODEL PASS on the Q* kill (5/5; `results/c3-r/s14/adversarial/`).**
+Face (a): STANDS (both refuters, Opus adjudicator) — every step re-derives; the strongest attack
+(Deninger's Prop. 10.3 Remark: his adelic model is T₁) inverts into corroboration: with all places present
+Q is discrete, with the place p deleted Q is dense (strong approximation), so a packet is not even T₀ —
+his own p. 62 argument with p in place of ∞. Decisive record correction in the theorem's favor: **the
+quotient topology is a printed definition, [x-03] p. 59** — the program had it as a flagged reading.
+Caveat: the theorem is FALSE in the coproduct topology of Thm 7.10, where a packet is the compact
+Hausdorff torus B_p × S¹; face (a) kills subspaces of X₀, not "Deninger's packet" as a space. Face (b):
+STANDS-NARROWED — the W-mechanism is a theorem for X₀^E (admissible E) only; **the "or into Y₀" clause is
+FALSE**: X̊(S¹) is defined by unitarity alone (p. 49), the trivial generic character's orbit Ω is
+indiscrete with isotropy all of Q>0, and K = Ω ∪ ⋃_p γ_p is quasi-compact in Y₀ with one orbit per packet
+(refuter O; the Opus adjudicator re-derived it before reading either refuter); **refuter F strengthens
+the source to a compact metrizable 3-dimensional lamination (torus + cabled solid tori)** — checked by the
+adjudicator, not yet dual-model-verified. Two further narrowings: two-sided R-invariance is load-bearing
+(with a semiflow a compact forward-invariant set meeting every packet exists), and "coarser topology
+preserves (b)" was inverted. **KILL-CRITERION FIRES for S4 into X₀^E, ENACTED (ledger §14): Route 2 as
+specified = `failed-ledger-exhausted`**, with four binding corrections. The residue now has TWO escapes,
+and one is not unbuilt: Deninger's own E-free Y₀, where the first positive S4-shaped object in the
+program's record may exist — treated as a LEAD (Q-b″) and made the next stream. Novelty ledger: 10 items,
+six already dual-checked by construction of the pass.
