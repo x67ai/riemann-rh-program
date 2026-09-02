@@ -1,0 +1,22 @@
+== RECONCILER: F-2 BEFORE repair -- the Session-8 producer_mp.py (git 5a7a32f, pre-repair ball/zeta/hurwitz alongside, extracted to scratch) run with --A 0 (A = 1, odd) in exclusion mode on the DH live-fire rectangle (true winding 1); the emitted transcript is then fed to both UNTRUSTED Python checkers -- 2026-09-02T07:19:39Z
+(re-verification of AUDIT F finding F-2 by the reconciler; command from audit_F_oddA_probe.log)
+producer_mp: function=f_DH mode=exclusion rect=[4/5, 41/50]x[8569/100, 8571/100] prec=288 K=1e30 A=1e0
+  edge bottom:  11 segments (0.8s, 21 evals so far)
+  edge right :   8 segments (0.4s, 36 evals so far)
+  edge top   :   8 segments (0.4s, 51 evals so far)
+  edge left  :  13 segments (0.7s, 76 evals so far)
+  winding sum: S_lo=0 S_hi=0 width=0 (A=1; C8 needs 2*width < A)
+  winding number m = 0 (unique by width < 1/2 turn)
+  modulus floor: |f| >= 246720161844356978370552244 / 1e30 on dR
+  wrote /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/before/w1-mp-dh-A1-exclusion.json (40 segments, 3.4s total)
+producer exit: 0
+--- checker_ref.py (current) on the emitted file:
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/71316f10-7ae8-4b36-ac7e-3a4e2696ed72/scratchpad/recon/before/w1-mp-dh-A1-exclusion.json: ACCEPT (f_DH/exclusion, m=0, 40 segments, S=[0, 0], A=1; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+exit: 0
+--- reference_checker.py (current, banner-fixed) VERDICT:
+   VERDICT: ACCEPT (all checks pass; checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion)
+--- argument rows of the emitted file (all must read [0,0] for the false certificate):
+rows: 40
+distinct argument rows: [('0', '0')]
+claimed_m: 0 mode: exclusion A: None
+VERDICT OF THE RE-VERIFICATION: F-2 REPRODUCED -- a checker-ACCEPTED m = 0 exclusion transcript for a rectangle that contains a zero (false H-ENCL(b); the checker and the format stay sound).

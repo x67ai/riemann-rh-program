@@ -1,0 +1,44 @@
+Zeta23/W1/Instances.lean — the M1 v1 ACCEPTANCE TRANSCRIPTS as kernel-checked checker instances:
+the "third checker column" of results/d1-m1/acceptance-report.md, added by the reconciled audit of
+2026-09-02 (results/d1-m1/AUDIT.md, findings O MAJOR-1 / F-6: until that audit the Lean checker had
+never been run on a producer-emitted transcript; Examples.lean holds only the artificial §11 data).
+
+Ten producer-emitted transcripts — results/d1-m1/acceptance/w1-{mp,arb}-{null-t100, null-t1000,
+null-t10000, null-deep-t100, dh-livefire}.json — and the two positive controls
+(w1-poscontrol-{mp,arb}.json) as `W1Data` literals, mechanically emitted by the UNTRUSTED
+results/d1-m1/emit_lean.py (FORMAT.md §10, last bullet) and verified against the JSON, field by
+field and row by row, by the independent back-parse results/d1-m1/recon_instances_verify.py
+(12 instances, 2 940 rows, 0 mismatches — results/d1-m1/recon_lean_instances.log).
+
+WHAT THE THEOREMS SAY, and what they do not (binding trust vocabulary, D-R3 / D-R8):
+  * `<name>_check : checkW1Floor <name> <name>_floor = true := by decide +kernel` — the kernel
+    evaluated the integer checks C1–C11 (Checker.lean) on the literal and found them true.  That is
+    a statement about integers.  For the eight ζ transcripts the ζ conclusion is `cert_of_checkW1`
+    (Soundness.lean) MODULO the two displayed hypotheses H-ENCL (the producers' enclosures are true)
+    and H-AP (the rectangle argument principle for ζ) — neither is certified here.  The ledger
+    sentence for each (D-R6) is "no zeros of ζ in R, kernel-checked modulo H-ENCL and H-AP
+    (producers untrusted)" — never "RH verified in R".
+  * For the two f_DH live-fire transcripts (`mpDH`, `arbDH`) there is NO theorem about f_DH at all:
+    they are checker-level true-positive firing tests (D-R8); the kernel verdict says only that the
+    checker's arithmetic accepts their rows.
+  * `posMP_rej_check`, `posARB_rej_check : checkW1 … = false` — the positive controls (a box
+    STRADDLING the critical line around ρ₁ ≈ ½ + 14.13i, deliberately violating C2) are rejected by
+    the kernel, exactly as by both Python checkers (acceptance-report.md §2).
+  * Nothing here is "fully machine-checked".  No `native_decide` anywhere.  `#print axioms` on every
+    `_check` theorem: `[propext]` for the ten `checkW1Floor` instances, no axioms for the two
+    `checkW1` rejections (results/d1-m1/recon_lean_instances.log).
+
+BUILD NOTE.  The t = 10⁴ literals (1 294 and 983 rows) do not compile at Lean's default recursion
+limit; the emitter writes `set_option maxRecDepth 100000`.  The limit is hit by the DEFINITION
+COMPILER on the list literal, not by `decide +kernel` (which evaluates `checkW1` on the 1 294-row
+literal in ~2 s at the default limit once the data is imported) — FORMAT.md §7.1, AUDIT.md O MAJOR-2.
+`lake build Zeta23.W1.Instances` takes about 15 s on the recorded machine.
+
+Regenerate (from results/d1-m1/):
+  python3 emit_lean.py Instances.lean --program-header --module-doc instances-doc.txt \
+    mpNullT100=acceptance/w1-mp-null-t100.json arbNullT100=acceptance/w1-arb-null-t100.json \
+    mpNullT1000=acceptance/w1-mp-null-t1000.json arbNullT1000=acceptance/w1-arb-null-t1000.json \
+    mpNullT10000=acceptance/w1-mp-null-t10000.json arbNullT10000=acceptance/w1-arb-null-t10000.json \
+    mpNullDeepT100=acceptance/w1-mp-null-deep-t100.json arbNullDeepT100=acceptance/w1-arb-null-deep-t100.json \
+    mpDH=acceptance/w1-mp-dh-livefire.json arbDH=acceptance/w1-arb-dh-livefire.json \
+    posMP_rej=acceptance/w1-poscontrol-mp.json posARB_rej=acceptance/w1-poscontrol-arb.json

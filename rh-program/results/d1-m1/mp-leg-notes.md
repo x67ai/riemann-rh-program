@@ -50,10 +50,21 @@ lands; today's acceptances are by the two untrusted reference checkers only. Not
 
 ## 3. The trust surface, stated plainly
 
-The single trusted-by-the-leg ingredient is **mpmath 1.3.0's directed-rounding interval core**
+The single trusted-by-the-leg ingredient is **mpmath 1.3.0's interval core**
 (`libmp.libmpi`: +, −, ×, /, **2, sqrt, exp, log, cos, sin, atan, pi). This is platform trust,
 exactly parallel to the Arb leg's trust in Arb, and it is why the two-producer rule exists
 (FORMAT.md §10; m2a-m2b-design §4: disagreement beyond stated radii is a stop-the-line event).
+
+**Corrected 2026-09-02 (AUDIT F finding F-1, re-verified at reconciliation — `AUDIT.md`).** The
+Session-8 wording "directed-rounding interval core" overstated the platform: the ring primitives
+(+, −, ×, /, **2, sqrt) are correctly directed-rounded, but `mpf_exp`/`mpf_log`/`mpf_atan`/`mpf_pi`
+directed-round a guard-bit *approximation* (`libelefun.py`), so a ceiling can land below the truth
+(demonstrated: 11 of 40 000 `mpf_exp` ceilings at prec 288, ~6.6·10⁻⁹¹ relative; `recon_rounding.log`).
+`ball.py` now widens every transcendental endpoint outward by 2⁻⁽ᵖʳᵉᶜ⁻¹⁶⁾ relative (`_inflate`,
+mpmath's own `mpi_cos_sin` recipe with a 2¹⁵-ulp margin), so the platform assumption actually
+relied on is the weak one: each transcendental endpoint lies within relative distance 2⁻²⁷² of the
+truth. The emitted acceptance transcripts are unchanged by the repair (numeric content byte-identical,
+`recon_mp_reproduce*.log`).
 Mitigation shipped here: every primitive and composite is containment-tested against mpmath's
 independent float pipeline at reference precision ABOVE the interval precision (400 vs 288
 bits), with membership decided in exact rational arithmetic — `validation-ball.txt`,

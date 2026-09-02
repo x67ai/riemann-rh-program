@@ -229,7 +229,8 @@ def _inflate(x):
     earlier claim "every endpoint is correctly directed-rounded" is false and is retracted.
     Cost: 2^-272 relative at prec 288 -- about 50 orders below the emission scale K = 10^30
     and ~60 orders below the Euler-Maclaurin remainder pad; the acceptance transcripts
-    re-emitted after this repair are byte-identical in numeric content (recon-mp-reproduce.log).
+    re-emitted after this repair are byte-identical in numeric content (recon_mp_reproduce.log,
+    recon_mp_reproduce_t10000.log).
     """
     lo, hi = x._mpi_
     p = iv.prec
