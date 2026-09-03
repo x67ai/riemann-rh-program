@@ -1216,3 +1216,45 @@ usage-limit deaths, none lost more than the agents in flight, because every agen
 went and the auto-commit watchdog committed every ten minutes; the sequential-streams rule (sponsor,
 18:30) then held the exposure to two agents. Total subagent spend this session ≈ 25 M tokens across
 ~70 agents. Watchdogs and caffeinate left running (they cost nothing).
+
+## Session 15 — 2026-09-03 (opened ~15:30 IST; LOCAL; FYI-ONLY — the RH program is NOT resumed this session)
+
+Sponsor's ask, in substance: *not continuing the RH program; just an FYI — check
+https://github.com/AxiomMath/ZetaZeros and `lamzouri/2609.02882v1.pdf` to see whether they have something
+useful for us; the program continues in a future session.* Scope therefore: an assessment, written to
+`results/watch-lamzouri-2609.02882/`, plus whatever dated pointers the assessment obliges (STATUS watch
+line, zoo/direction cross-references). No queue item is worked.
+
+Housekeeping at open: caffeinate already running; push and auto-commit watchdogs started
+(`Session 15 auto-commit`). The sponsor's PDF copy is gitignored (`lamzouri/`, same policy as
+`fetched/`); its text is tracked at `sources-extracted/lamzouri-2609.02882v1.txt`.
+
+First read (15:40 IST, orchestrator, from the text and the repo files):
+- **Lamzouri, arXiv:2609.02882v1 (2 Sep 2026).** Theorem 1.1 = the Claude/Alpöge–Furman constants
+  (simple-on-line ≥ C₀ = 3/2 − (1/√2)cot(1/√2) = 0.67250…, distinct ≥ (C₀+1)/2 = 0.83625…) by a different
+  route. Proposition 2.1 is a zeta-free inequality on finite conjugation-invariant multisets:
+  #{simple real} ≥ 2Σ1 − Σ_{z,s} K(z−s)², K = η̂², η even, real, supp ⊂ (−λ,λ), η̂²(0) = 1 — proved by
+  writing Σ K(z−s)² = ‖F‖² for F(u,v) = Σ_z f_z(u)f_z(v), f_z = η(u)e^{−2πiuz}, then Gram–Schmidt on the
+  nested spans U ⊂ V ⊂ W of the f_x (real x), g_z, h_z and Bessel's inequality ‖F‖² ≥ Σ_j α_j², with
+  a² + 1 ≥ 2a / a² + 4 ≥ 4a per basis direction and Σ_j α_j = Σ_z 1. Section 3 feeds it BGSTB24 Lemma 5
+  (unconditional pair correlation) after removing the weight w(ρ−ρ′) = 4/(4−(ρ−ρ′)²) by the device
+  r_{δ,T} = Q_δ − Q_δ″/(4 log²T) (Lemma 3.2). Remark 3.3 restates AF's second-moment formula (their Thm
+  5.7). Remark 3.4: C_MT is optimal for the method (Carneiro–Chandee–Littmann–Milinovich 2017, Cor. 14).
+  Appendix A: AxiomProver formal certificates. The paper itself says both proofs "reduce the relevant
+  information to the estimation of a certain quadratic form over the zeros … variants of a second-moment
+  argument".
+- **AxiomMath/ZetaZeros, commit 4bcaf70.** Lean v4.34.0-rc2 + Mathlib v4.34.0-rc2; 7,245 lines in 32
+  modules. `Challenge/Basic.lean` states six theorems with `sorry`; `Solution/Basic.lean` discharges them
+  from the development; `Comparator/comparator.json` whitelists propext/Quot.sound/Classical.choice. The
+  zeta theorems take `RiemannVonMangoldt` and `PairCorrelation` (BGSTB24 Lemma 5) as **Prop hypotheses** —
+  the two analytic inputs are assumed, not proved; Proposition 2.1 is formalized unconditionally.
+
+Launched (15:45 IST):
+- Background build of ZetaZeros in `~/rh-lean-work/zetazeros` (script `~/rh-lean-work/build-zetazeros.sh`,
+  log `~/rh-lean-work/zetazeros-build.log`): toolchain → `lake exe cache get` → `lake build ZetaZeros`,
+  `Challenge`, `Solution` → `#print axioms` on the six challenge theorems → sorry/native_decide scan.
+  Harvest → `results/watch-lamzouri-2609.02882/lean-build-record.md`.
+- Workflow `lamzouri-zetazeros-fyi-s15` (sequential streams, ≤ 2 agents in flight per standing order
+  3-amended): paper read + program-side read → structural mapping + opportunity scan → adversarial checks
+  by Fable 5.1 and Opus 5 → synthesis. Reports land in `results/watch-lamzouri-2609.02882/reports/` as
+  each agent finishes; run id in STATUS "Live/completed background tasks".
