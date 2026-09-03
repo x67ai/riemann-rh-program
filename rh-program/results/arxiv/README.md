@@ -208,3 +208,5 @@ Winkelmann's (2002), transported — in its abstract, in a priority note directl
 in a banner at the head of §3, and in its novelty statement. `prior-art-r7a.md` carries two dated
 withdrawals. Nothing else changed: no theorem, proof, number or verdict in any of the four papers
 was affected.
+
+**Dated note (2026-09-03, Session 15).** Lamzouri, arXiv:2609.02882 (2 Sep 2026), reproves the Alpöge–Furman theorem without the matrix framework (Hilbert-space Bessel inequality, same constants). On a single-check reading it lies inside the certificate class of the cubic-augmentation paper; nothing in either frozen paper becomes wrong. Any public revision of the cubic-augmentation paper should cite it in one sentence once the dual-model check is done. Record: `../watch-lamzouri-2609.02882/ASSESSMENT.md`.

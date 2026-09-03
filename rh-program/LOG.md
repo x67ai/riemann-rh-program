@@ -1258,3 +1258,32 @@ Launched (15:45 IST):
   3-amended): paper read + program-side read → structural mapping + opportunity scan → adversarial checks
   by Fable 5.1 and Opus 5 → synthesis. Reports land in `results/watch-lamzouri-2609.02882/reports/` as
   each agent finishes; run id in STATUS "Live/completed background tasks".
+
+### Session 15 — 15:50–16:05 IST — SCALED DOWN at the sponsor's word; assessment written; CLOSED
+
+The sponsor, seeing the planned eight-agent stream (readers → structural map → two refuters → Lean audit + synthesis),
+asked whether all of it was needed for an FYI. It was not: verifying Lamzouri's proof was never the ask. The workflow's
+script had failed to parse and never launched; no subagent was spawned this session. The orchestrator's own read is the
+deliverable.
+
+Landed:
+- `results/watch-lamzouri-2609.02882/ASSESSMENT.md` — verdict: modestly useful as a record/instrument item; no new route,
+  no new positivity generator, no constant changes; on a single-check reading the matrix-free proof consumes exactly the
+  two moments (trace Σ_j α_j = Σ m_z, Hilbert–Schmidt ‖F‖² = Σ K(z−s)², integer atoms / pair bookkeeping), exhibits
+  lemmaR_tight's double ≡ shallow-pair degeneracy verbatim (double: (Σm, ΣK²) = (2, 4); pair x ± iε: (2, 2 + 2K(2iε)²),
+  K(2iε) = ∫η² cosh(4πεu) ≥ 1 → 1; mpmath check on the Montgomery–Taylor f₀: K² = 1.00122 / 1.1286 / 11.93 at ε = 0.01 /
+  0.1 / 0.5), and is bound by the II.1 ceiling as a Theorem-B-type certificate with c₀ = 2, r = −(η²∗η²) — a subclass,
+  hence 0.6725 rather than 0.6818 (his Remark 3.4 says C_MT is optimal for the method). A4's near-CUE section uses BGSTB24
+  in its depth-weighted form under riders 1–3, so Lamzouri's weight-removal device (Lemma 3.2) is not needed there.
+- `lean-build-record.md` — ZetaZeros (commit 4bcaf70) built here from cold in six minutes: `lake build ZetaZeros` and
+  `lake build Challenge Solution` both "Build completed successfully"; `#print axioms` on the six challenge theorems as
+  discharged by Solution: `[propext, Classical.choice, Quot.sound]` each; no sorry outside the statement-only challenge
+  file. Honest label: kernel-checked, Prop. 2.1 unconditional, the zeta theorems modulo the two assumed Props
+  RiemannVonMangoldt and PairCorrelation; statement faithfulness not audited.
+- Dated single-check notes: BARRIER-ZOO II.1 and II.4; `directions/A4-lindelof-lock.md`; `results/arxiv/README.md`;
+  STATUS hard-constraints line; SESSION 15 QUEUE items 8–10 (dual-model check of the single-check line before any external
+  use; optional Comparator pattern; three references with no corpus hit — Aryan 2022, Ki–Lee 2012, Conrey–Ghosh–Gonek 1998).
+- Nothing else touched. No theorem, verdict or number in the program's record changed.
+
+Session 15 CLOSED 16:05 IST. Nothing running. Watchdogs and caffeinate left up. The RH program resumes at the SESSION 15
+QUEUE in STATUS.md, item 2 onward.
