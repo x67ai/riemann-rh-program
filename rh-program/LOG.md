@@ -1205,3 +1205,5 @@ verbatim by [Den05] pp. 32–33 (re-attribute); **C10 S4′ ANTICIPATED as a pos
 Leichtnam 2007 Open Question 2, Berry–Keating 1999 — and studied by no one as a realizability problem:
 S4′ is Deninger's desideratum re-scoped with the p^{1/2} weights and the archimedean-leaf clause. All
 re-attributions are queued for the wording-repair pass (next stream).
+
+**2026-09-03, Session 14 — wording-repair pass LANDED.** All queued repairs applied as dated `[REPAIR 2026-09-03 — Session 14 repair pass]` blocks: novelty R1–R10 + the Lutz p. 2 obligation (probe 9.4 note, 9.3 a/b/adjudication), the (b2) dimension citation from the purchased Hurewicz–Wallman (r3s-27, pp. 26/42/67 verified; [RU] on M-4 discharged), the four adversarial corrections (p. 59 definition; Y₀ clause re-scoped to Y₀^E; coarser-topology rationale inverted; "S4 is DEAD" restated), the §14 strikes and D1–D4, and the Session-14 re-attributions C1/C3/C4/C5/C6/C9/C10 — the [ÁLKL23] v1→v3 map derived from both PDFs. 49 blocks, 14 files, 0 deletions. Report: `results/c3-r/s14/repairs/REPAIR-PASS.md` (one deferral: the C3 direction-file frontier clause).
