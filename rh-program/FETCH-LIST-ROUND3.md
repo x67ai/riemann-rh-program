@@ -62,3 +62,8 @@ Citation-fidelity note (standing order 5 discipline): journal/volume/page data a
 - ✅ **r3s-24** Hua–Yang arXiv:2608.16034v2 (24 Aug 2026), installed from arXiv, title verified from the PDF text.
 - ⏳ Prüzelius Zenodo draft 10.5281/zenodo.21980224 — free (CC BY 4.0) but Zenodo blocks this network (HTTP 403); fetch when the block lifts. Not load-bearing.
 - Recorded, not fetched: Nikzad–Deninger arXiv:2608.11943 (p-adic Corona II — off-road); Springer LNM *A Trace Formula for Foliated Flows* (Álvarez López–Kordyukov–Leichtnam, 2026, ISBN 978-3-032-15413-2, paywalled; the memoir r3s-17 is the arXiv version).
+
+## Session 16 update (2026-09-05)
+
+- Self-fetched: r3s-29 Hurder problem set; r3s-30 ÁLKL *Simple foliated flows* arXiv:1906.06753 (v1). The Leichtnam 2008 Rend. Mat. Appl. author copy (Wayback) sits in `results/c3-r/s16/qs4prime/` (tracked; CC status unknown — journal version is a SPONSOR item).
+- SPONSOR FETCH (load-bearing for the Q-S4⁗ gate): Cantwell–Conlon 2002 (Duminy's theorem, World Scientific Warsaw-2000 volume); Ghys, Ann. of Math. 141 (1995) 387–422; Ghys, Panoramas et Synthèses 8 (1999) 49–95; Leichtnam, Contemp. Math. 387 (2005) 201–236 (standing); Leichtnam, Rend. Mat. Appl. (7) 28 (2008) 163–188 (journal version). Full list with reasons: STATUS queue item 3 and `results/c3-r/s16/qs4prime/adjudication.md` §4.
