@@ -246,3 +246,9 @@
 ### Session 16 additions (2026-09-05)
 | r3s-29 | fetched-r3/ | S. Hurder, *Foliation geometry/topology problem set* (homepages.math.uic.edu/~hurder/papers/58manuscript.pdf; 583 KB) | consumer: C3-r Q-S4⁗ (Duminy's theorem quoted §5; Problem 5.4); cite as a problem set, not as a theorem source — read Cantwell–Conlon 2002 for Duminy |
 | r3s-30 | fetched-r3/ | Álvarez López–Kordyukov–Leichtnam, *Simple foliated flows*, arXiv:1906.06753 v1 (16 Jun 2019; 425 KB; check for later versions before citing numbers) | consumer: C3-r (definition of simple foliated flow, transverse simplicity, preserved leaves) |
+| r3s-31 | fetched-r3/ | Candel, *Uniformization of surface laminations*, Ann. Sci. ENS (4) 26 (1993) 489–516 (NUMDAM) | consumer: C3-r Theorem A (C) (Thm 4.1, Cor. 4.2 p. 497, Thm 4.3 p. 498; regularity class §1.1–1.2 pp. 491–493) |
+| r3s-32 | fetched-r3/ | Cantwell–Conlon, *Tischler fibrations of open foliated sets*, Ann. Inst. Fourier 31 (1981) 113–135 (NUMDAM) | consumer: B1′ prior art — proof of (3.11) p. 127 |
+| r3s-33 | fetched-r3/ | Deninger–Singhof, *A counterexample for smooth leafwise Hodge decomposition …*, Ann. Inst. Fourier 51 (2001) 209–219 | opened for N-A; contains nothing bearing (novelty adjudication §1 N-A item 5) |
+| r3s-34 | fetched-r3/ | Epstein, *Foliations with all leaves compact*, Ann. Inst. Fourier 26 (1976) 265–282 (NUMDAM) | consumer: the closed-leaf ⇒ compact-leaf lemma — §§2.3–2.4 printed p. 268; CITE, never claim |
+| r3s-35 | fetched-r3/ | Ghys, *Laminations par surfaces de Riemann*, Panoramas et Synthèses 8 (1999) 49–95 (author copy) | consumer: Q-S4⁗ (was SPONSOR FETCH (3); journal pagination to be confirmed against the SMF volume) |
+| r3s-36 | fetched-r3/ | Kim–Morishita–Noda–Terashima, Münster J. Math. 14 (2021) 323–348 (published) | consumer: IV.13 / B1′ — published numbering: Lemma 1.9 (= arXiv 1.10), Def. 1.10 (= 1.11), Cor. 2.9 (= 2.2.4), Prop. 2.10 (= 2.2.5), Remark 2.8 |
