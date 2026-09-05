@@ -1,0 +1,26 @@
+def Zeta23.DBN.alpha : ℂ → ℂ :=
+fun s => 1 / (2 * s) + 1 / (s - 1) + 1 / 2 * Complex.log (s / (2 * ↑Real.pi))
+def Zeta23.DBN.M0 : ℂ → ℂ :=
+fun s =>
+  1 / 8 * (s * (s - 1) / 2) * ↑Real.pi ^ (-s / 2) * ↑√(2 * Real.pi) *
+    Complex.exp ((s / 2 - 1 / 2) * Complex.log (s / 2) - s / 2)
+def Zeta23.DBN.Mt : ℝ → ℂ → ℂ :=
+fun t s => Complex.exp (↑t / 4 * alpha s ^ 2) * M0 s
+def Zeta23.DBN.Bt : ℝ → ℂ → ℂ :=
+fun t z => Mt t ((1 - Complex.I * z) / 2)
+def Zeta23.DBN.HtEntire : Prop :=
+∀ (t : ℝ), Differentiable ℂ (Ht t)
+def Zeta23.DBN.Polymath15Bridge' : Prop :=
+∀ (t₀ X y₀ : ℝ),
+  0 < t₀ →
+    0 < X →
+      0 < y₀ →
+        y₀ ≤ 1 →
+          ZeroVerification ((1 + y₀) / 2) (X / 2) →
+            (∀ (x y : ℝ), X + 1 ≤ x → y₀ ≤ y → y ^ 2 ≤ 1 - 2 * t₀ → Ht t₀ (↑x + ↑y * Complex.I) ≠ 0) →
+              (∀ (x y : ℝ),
+                  X ≤ x → x ≤ X + 1 → y₀ ≤ y → y ≤ 1 → ∀ (t : ℝ), 0 ≤ t → t ≤ t₀ → Ht t (↑x + ↑y * Complex.I) ≠ 0) →
+                ∀ (t : ℝ), t₀ + y₀ ^ 2 / 2 ≤ t → ∀ (z : ℂ), Ht t z = 0 → z.im = 0
+'Zeta23.DBN.Polymath15Bridge'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Bt' depends on axioms: [propext, Classical.choice, Quot.sound]
+/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/59ecbf7d-661c-4ac8-b521-c036ba5a0218/scratchpad/defs-print.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Zeta23.DBN.Polymath15Bridge`

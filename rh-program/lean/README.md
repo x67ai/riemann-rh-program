@@ -113,6 +113,37 @@ H2-B and hHol (producers untrusted)"* — and the theorem `lambda_le_point2` (Λ
 proved: Lane A and the Defs v1.1 glue do not exist yet (the cut line is in the module header). The root
 `Zeta23.lean` imports `DBN.Instance02`; `lake build Zeta23` — *Build completed successfully (9138 jobs)*.
 
+## M2a glue (2026-09-06): `DBN/Defs.lean` v1.1, `DBN/BtFacts.lean`, `lambda_le_point2` in `DBN/Instance02.lean`
+
+**`Defs.lean` v1.1.** The v1.0 `Polymath15Bridge` (merged "canopy" form) is REMOVED — its t = 0 slice was RH in a
+half-strip above the verified height, not dischargeable by any finite certificate (SPEC §3.2, D-3.2) — and replaced
+by `Polymath15Bridge'` exactly as SPEC §3.3 prints it ((ii′) at the final time only; (iii′) on the box
+X ≤ x ≤ X + 1, y₀ ≤ y ≤ 1, 0 ≤ t ≤ t₀). Added: `alpha`, `M0`, `Mt`, `Bt` (the concrete P15 normalizer, SPEC §3.4)
+and `HtEntire` (SPEC §3.5). Nine definitions, no theorems; dated deviation record in the file header and in the
+design note §7.1; `#print` record in `results/d1-m2a/v11/DEFS-V11-NOTES.md`. All 116 downstream modules rebuilt
+clean with no adaptation.
+
+**`BtFacts.lean` (L-B3, PROVED).** `Bt_ne_zero` and `differentiableAt_Bt` for every z with Re z ≠ 0 (the point
+s = (1 − iz)/2 has Im s = −Re z/2, so both principal logs are off the cut, s ≠ 0, s ≠ 1), and the packaged
+`differentiableOn_Ht_div_Bt : HtEntire → ∀ t, DifferentiableOn ℂ (fun z => Ht t z / Bt t z) {z | 0 < z.re}`.
+Nothing displayed; no `hBt` anywhere.
+
+**`lambda_le_point2` (and `lambda_le_point2_arb`, the Arb/FLINT leg — two theorems, never merged).** The SPEC §1.1
+target, ∀ t ≥ 1/5, every zero of H_t is real, from FOUR displayed hypotheses, each a named argument:
+`hH1 : ZeroVerification (116733/200000) 2500000097429` (H1, exact; Platt–Trudgian Theorem 1 in prose);
+`hEncl : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2BarrierMP` (H2-B, the kernel-checked mp transcript);
+`hLaneA : ∀ x y, 5000000194858 + 1 ≤ x → 16733/100000 ≤ y → y² ≤ 1 − 2·(93/500) → Ht (93/500) (x + y·I) ≠ 0`
+(H2-A **in conclusion form** — the Lane A producers and `checkAsym` are a separate compute stream not yet run, so
+this is displayed as the lane's conclusion with nothing kernel-checked behind it, which is STRONGER than the SPEC
+§3.7 form); `hH3 : Polymath15Bridge' ∧ HtEntire` (H3). `hHol` is discharged (`hHol_of_entire`) from `hH3.2` and
+L-B3; the arithmetic glue L-G (t₀ + y₀²/2 = 3999993289/20000000000 ≤ 1/5; the H1 parameter identities) is
+`norm_num`. `#print axioms Zeta23.DBN.Instance02.lambda_le_point2` = `[propext, Classical.choice, Quot.sound]`
+(the same for `_arb`, `row2_ray_mp/_arb`, `hHol_of_entire`; `results/d1-m2a/v11/GLUE-NOTES.md`, verbatim).
+Honest label: *"kernel-checked modulo the displayed hypotheses H1, H2-B, H2-A (in conclusion form, pending the
+Lane A checker) and H3 (producers untrusted)"* — never "fully machine-checked"; the public sentence "Λ ≤ 0.2 in
+ray form, kernel-checked modulo H1, H2, H3" is licensed only with the H2-A gloss until Lane A lands. What Lane A
+changes when it lands: `hLaneA` is replaced by `cert_of_checkAsym` on the Lane A literal, nothing else moves.
+
 ## What these build against, and why it is not here
 
 They extend **Zeta23**, the Lean 4 formalization released as the companion artifact to
@@ -145,7 +176,7 @@ reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`
 
 ## Licensing (settled 2026-08-27)
 
-These thirteen files are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
+These thirteen files (fourteen with `DBN/BtFacts.lean`, added 2026-09-06 under this header from the start) are **Copyright 2026 Kunal Tyagi**, released under the **Apache License 2.0**
 (see the repository's [`LICENSE`](../../LICENSE) and [`NOTICE`](../../NOTICE)).
 (`W1/Instances.lean`, added 2026-09-02, was written under this header from the start; so were the
 three argument-principle files of the same day and `DBN/BarrierCert.lean`, which carry in addition the MIT notice for the

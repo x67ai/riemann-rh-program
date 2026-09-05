@@ -1,0 +1,8 @@
+'Zeta23.DBN.Bt_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.differentiableAt_Bt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.isOpen_rightHalfPlane' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.differentiableOn_Ht_div_Bt' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.DBN.Bt_ne_zero : ∀ (t : ℝ) {z : ℂ}, z.re ≠ 0 → Zeta23.DBN.Bt t z ≠ 0
+Zeta23.DBN.differentiableAt_Bt : ∀ (t : ℝ) {z : ℂ}, z.re ≠ 0 → DifferentiableAt ℂ (Zeta23.DBN.Bt t) z
+Zeta23.DBN.differentiableOn_Ht_div_Bt : Zeta23.DBN.HtEntire →
+  ∀ (t : ℝ), DifferentiableOn ℂ (fun z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) {z | 0 < z.re}
