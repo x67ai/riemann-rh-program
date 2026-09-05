@@ -275,3 +275,5 @@ per-prism rows (they do not exist); the published Polymath15 page numbers (not o
 
 Files written by this audit: `AUDIT.md`, `RUN-REPORT.md`, `audit/` (8 scripts/scratch + 8 run records + the full axioms
 log), the F-1 docstring correction in `ft_mp.py`, `mp-leg-notes.md` §8, `SPEC.md` §14. No program Lean file was touched.
+
+**[DATED NOTE 2026-09-06, Session 16 (orchestrator).]** F-5 PARTIALLY DISCHARGED: `Defs.lean` v1.1, L-B3 and the glue `lambda_le_point2` exist and are kernel-checked with standard axioms (`results/d1-m2a/v11/AUDIT.md`, Opus, CLEAN after repairs); Lane A (`checkAsym`, `cert_of_checkAsym`, the asymptotic transcript) still does not exist — H2-A is displayed in conclusion form. Nothing about Λ changes: bracket of record 0 ≤ Λ ≤ 0.2.
