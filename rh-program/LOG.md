@@ -1306,3 +1306,7 @@ One Opus 5 checker (standing order 7's second model), briefed to re-derive rathe
 - **A4/riders:** confirmed, with the precision that A4 cites BGSTB24 Theorem 1 (pointwise) first and never forms the kernel sum Lamzouri's Lemma 3.2 converts.
 - **Side item raised by the checker (its honesty §5 item 3) and CLOSED by the orchestrator:** the checker could not reconcile |D(1)| ≤ 0.82395317 with S(j) = j/256. Reconciled: D(1) = C(1) − 1/2 includes the free edge row j = N = 256, which carries S(256) ≈ 211.43, i.e. an atom of mass ≈ 0.826 (full-map.md line 216); Σ_{j<256} j/256² = 255/512 = 0.49805, plus 0.826 gives C(1) ≈ 1.324, so D(1) ≈ 0.824 ≈ 0.82395. Not a defect; nothing to queue.
 - **Applied (dated blocks, additions only):** BARRIER-ZOO.md II.1 and II.4; `directions/A4-lindelof-lock.md`; `results/arxiv/README.md`; ASSESSMENT.md header block and the watch README; STATUS hard-constraints line edited in place (dashboard). No theorem, verdict or number elsewhere changed. Next: stream (b), the [ÁLKL23] courtesy note.
+
+### 21:50 IST — stream (b) launched: `alkl23-courtesy-note-s16` (queue item 2)
+
+Writer → published-text verification → PDF → Opus second read → repair round. Note for the record: the published JPDOA text of [ÁLKL23] is on disk (fetched by the Session-14 novelty adjudicator), so the note is written against the published numbering directly and the queue's sponsor-fetch line for it is discharged.
