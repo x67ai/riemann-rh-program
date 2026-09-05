@@ -198,7 +198,6 @@ Kill-criteria (per direction lifecycle): if M2 fails on all three sub-routes whi
 
 - 2026-09-06 (Session 16, 02:53): **novelty sweep on the Session-16 theorems DONE** (wf_e77765ff-28f; sweeps F/O + Opus adjudicator, 943k tokens): N-C, N-F NOVEL; N-A/B/D/G PARTIAL; N-E ANTICIPATED (Epstein 1976); eight wording changes enacted as dated blocks; six PDFs into fetched-r3 (r3s-31…36); new sponsor items (Deninger–Singhof CM 290; Kopei 2011; Farber/Calegari). Ledger §16-quater.
 
-- 2026-09-06 (Session 16, 02:53): **novelty sweep on the Session-16 theorems DONE** (wf_e77765ff-28f; sweeps F/O + Opus adjudicator, 943k tokens): N-C, N-F NOVEL; N-A/B/D/G PARTIAL; N-E ANTICIPATED (Epstein 1976); eight wording changes enacted as dated blocks; six PDFs into fetched-r3 (r3s-31…36); new sponsor items (Deninger–Singhof CM 290; Kopei 2011; Farber/Calegari). Ledger §16-quater.
 
 ## Current frontier
 
