@@ -111,3 +111,10 @@ When it lands: replace `hLaneA` in `lambda_le_point2` by `cert_of_checkAsym` on 
 (ii′) is consumed exactly where `hLaneA` is passed.
 
 STATUS: DONE (STEP 3).
+
+### Whole-library check: `lake build Zeta23` (root module imports DBN.Defs, DBN.BarrierCert, DBN.Instance02)
+
+    Build completed successfully (9139 jobs).
+    lake build Zeta23  4.22s user 6.73s system 42% cpu 25.842 total
+
+The replayed warnings in that log are pre-existing deprecation notices in Zeta23's own upstream files (Statement, ZetaReflect, Assembly, Tail, ZeroSide, GammaFacts/Mu); none is in a DBN file.
