@@ -1320,3 +1320,7 @@ Writer → published-text verification → PDF → Opus second read → repair r
 - **Published-numbering notes for the record:** partial extension maps are Prop. 6.29 / Cor. 7.31 in the published text (v1: 6.26/7.28); Prop. 6.45 (v1 6.42); the compact-spectrum sentence is on p. 5, the bundle extension on p. 18. The brief carried the v1 numbers for these; the note carries the published ones.
 - **Frozen papers:** the reader noticed the AI-use footnote wording differs between a4-no-go/seed-no-go (older) and m0/m1/README (newer). No action: the two posted papers are frozen records.
 - **Sponsor action:** email `alkl23-note.pdf` to the three authors if desired; nothing else is owed.
+
+### 23:15 IST — stream (c) launched: `qs4prime-sweep-s16` (queue item 3, the Q-S4′ Grossmann mini-sweep)
+
+Two scouts (Opus 5, Fable 5.1) in parallel over the on-disk Deninger/Leichtnam/ALKL corpus and the online literature (citing sets, inverse-spectrum and prescribed-period results, Lyapunov/periodic-data rigidity, prime orbit theorems, Ruelle zeta at zero, Fried), then an Opus adjudicator. Outputs in `results/c3-r/s16/qs4prime/`.
