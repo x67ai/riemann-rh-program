@@ -1287,3 +1287,13 @@ Landed:
 
 Session 15 CLOSED 16:05 IST. Nothing running. Watchdogs and caffeinate left up. The RH program resumes at the SESSION 15
 QUEUE in STATUS.md, item 2 onward.
+
+## Session 16 — 2026-09-05 (opened 21:13 IST; LOCAL; THE RH PROGRAM RESUMED at the Session 15 queue)
+
+Sponsor's ask, verbatim: *let's resume RH program.* Bootstrap per KICKSTART Part 2: `git pull` (up to date at 4e3feb5); STATUS.md read top to bottom; Session-15 LOG entry read; ledger §15, the W3 adjudication §0–§3/§7, the Lamzouri assessment, zoo II.1/II.4 and the C3 frontier read for the first three briefs. Housekeeping: `caffeinate -dimsu` started (a stray `caffeinate -i -t 300` from another process was also present), push watchdog and auto-commit watchdog (`Session 16`) started and verified with `pgrep`. Corpus present (`fetched/` 174, `fetched-r2/` 162, `fetched-r3/` 56 entries). TeX Live 2026 present at `~/texlive/2026`. Context meter at open: 11.6% of 1M.
+
+Plan (sequential streams, ≤ 2 agents in flight, harvest-then-launch): (a) queue item 8 — Opus 5 dual-model check of the Session-15 Lamzouri line (cheap; gates prospectus v5); (b) item 2 — the [ÁLKL23] courtesy note as TeX/PDF with a second-model read; note that the PUBLISHED JPDOA text IS on disk (`results/c3-r/s14/novelty/ALKL-2024-…-PUBLISHED-JPDOA-15-47.pdf`, text layer present — the queue's "unreachable here" is stale), so the note can be written against the published numbering directly; (c) item 3 — the Q-S4′ Grossmann mini-sweep; (d) item 5 — zoo entries; (e) item 4 — D1 M2a e′/f; (f) item 6 — prospectus v5. Items 9 (Comparator pattern) and 10 (three references) are folded into (e) and (c) respectively where they arise.
+
+### 21:13 IST — stream (a) launched: `lamzouri-dual-check-s16`
+
+One Opus 5 checker (standing order 7's second model), briefed to re-derive rather than read the Session-15 claim first; adjudicator only if it dissents. Live-task entry written in STATUS at launch.
