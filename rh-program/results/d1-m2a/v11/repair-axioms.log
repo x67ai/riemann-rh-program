@@ -1,0 +1,28 @@
+== 2026-09-06 03:24:40 IST lake env lean repair-axioms-scratch.lean (post-R-2 rebuild) ==
+'Zeta23.DBN.Instance02.lambda_le_point2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.lambda_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.hHol_of_entire' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.DBN.Instance02.lambda_le_point2 : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
+    (∀ (x y : ℝ),
+        5000000194858 + 1 ≤ x →
+          16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0) →
+      Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+        ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.lambda_le_point2_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierARB →
+    (∀ (x y : ℝ),
+        5000000194858 + 1 ≤ x →
+          16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0) →
+      Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+        ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.row2_ray_mp : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
+    (∀ (x y : ℝ),
+        5000000194858 + 1 ≤ x →
+          16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0) →
+      Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+        ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+exit=0
