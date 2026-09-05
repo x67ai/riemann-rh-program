@@ -53,7 +53,7 @@ WHAT IS PROVED HERE (all sorry-free; `#print axioms` = propext, Classical.choice
   * `cert_of_checkBarrier` — Lane B soundness, exactly the SPEC §8.3 shape (checker facts in the
           split form `hchain`/`hprisms` so that per-prism kernel facts live in per-prism modules,
           SPEC §7.6); and `cert_of_checkBarrier_xy`, the same conclusion in the coordinate form
-          that `Polymath15Bridge`'s hypothesis (iii) consumes, for H = G·B.
+          that hypothesis (iii′) of `Polymath15Bridge'` consumes, for H = G·B.
 
 WHAT IS DISPLAYED (not proved here; D-R3 vocabulary):
   * H2-B `BarrierEnclOK G d` — the producers' claims: per prism, SOME f holomorphic on an open
@@ -1062,7 +1062,7 @@ theorem cert_of_checkBarrier (G : ℝ → ℂ → ℂ) (d : BarrierData)
         _ = ((q.E : ℝ) + q.D) / q.K := by ring
     exact prism_nonvanishing d.rect q hcq hrows hU hRU hf hV hRV hg hpert
 
-/-- **The conclusion in the coordinate form `Polymath15Bridge`'s hypothesis (iii) consumes.**
+/-- **The conclusion in the coordinate form hypothesis (iii′) of `Polymath15Bridge'` consumes.**
 For H = G·B (instance: H = Ht, B = Bt, G = Ht/Bt): if the checker accepts and the displayed
 hypotheses hold for G = H/B, then H t (x + iy) ≠ 0 for x₁ ≤ x ≤ x₂, y₁ ≤ y ≤ y₂, 0 ≤ t ≤ t₀.
 (No nonvanishing of B is needed for THIS direction: H = 0 forces H/B = 0.  B ≠ 0 near R is what
