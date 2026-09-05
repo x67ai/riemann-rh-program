@@ -210,3 +210,5 @@ withdrawals. Nothing else changed: no theorem, proof, number or verdict in any o
 was affected.
 
 **Dated note (2026-09-03, Session 15).** Lamzouri, arXiv:2609.02882 (2 Sep 2026), reproves the Alpöge–Furman theorem without the matrix framework (Hilbert-space Bessel inequality, same constants). On a single-check reading it lies inside the certificate class of the cubic-augmentation paper; nothing in either frozen paper becomes wrong. Any public revision of the cubic-augmentation paper should cite it in one sentence once the dual-model check is done. Record: `../watch-lamzouri-2609.02882/ASSESSMENT.md`.
+
+**Dated note (2026-09-05, Session 16).** Dual-model check done (Opus 5 re-derivation `../watch-lamzouri-2609.02882/dual-check-O.md`, orchestrator re-check): Lamzouri's Prop. 2.1 lies inside the two-moment, bandwidth-one certificate class whose ceiling the cubic-augmentation paper's no-go is about, as the certificate (c₀, r) = (2 − Q(0), −2Q restricted to [0,1]) with Q = η²∗η², of value 0.672500703679 against a ceiling of 0.681837145932 for that r. The line may now be cited externally; a public revision of the cubic-augmentation paper may add the one sentence.

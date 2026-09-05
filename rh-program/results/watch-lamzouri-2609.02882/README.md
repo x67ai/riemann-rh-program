@@ -22,3 +22,5 @@ third-party PDFs) "to see if this has something useful for us."
   amend, and what (if anything) goes on the Session-15+ queue.
 
 **Status:** OPEN (launched 2026-09-03 ~15:45 IST). See STATUS.md "Live/completed background tasks".
+
+- `dual-check-O.md` (+ `dual-check-O-K2ieps.py`, `.out`) — Session 16, 2026-09-05: the standing-order-7 second-model (Opus 5) re-derivation of ASSESSMENT.md §2–§3. Verdict AGREES-WITH-CORRECTIONS; the corrected certificate pair is (2 − Q(0), −2Q|[0,1]). Orchestrator's independent mpmath check of the corrected value recorded in LOG.md (Session 16).
