@@ -98,9 +98,11 @@ Instance02/Rect.lean, Instance02/mp_Barrier.lean, Instance02/arb_Barrier.lean: z
 > hypotheses.  L-B3 (the normalizer B_t holomorphic and nonvanishing near R) and `hHol` are PROVED, not displayed;
 > `#print axioms` = propext, Classical.choice, Quot.sound.
 
-Never "fully machine-checked".  The public sentence RUN-REPORT §6 item 4 licenses ("Λ ≤ 0.2 in ray form,
-kernel-checked modulo H1, H2, H3") is licensed ONLY with the gloss that H2-A is displayed in conclusion form until
-Lane A lands; without that gloss the sentence overstates.
+Never "fully machine-checked".  The shorter sentence RUN-REPORT §6 item 4 speaks of ("Λ ≤ 0.2 in ray form,
+kernel-checked modulo H1, H2, H3") is NOT licensed today, with or without a gloss: item 4's "only then" is gated
+on item 3 (Lane A) as well, and "H2" is SPEC §6's conjunction H2-B ∧ H2-A ∧ H-TAIL behind a kernel-checked
+checker, of which only H2-B exists in the Lean tree.  The licensed wording is the four-hypothesis label above,
+with H2-A named as displayed in conclusion form.  (Auditor's ruling, v11/AUDIT.md §3, 2026-09-06.)
 
 ### Left for the Lane A stream (RUN-REPORT §6 item 3)
 
