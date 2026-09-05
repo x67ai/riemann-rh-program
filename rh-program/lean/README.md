@@ -140,9 +140,12 @@ L-B3; the arithmetic glue L-G (t₀ + y₀²/2 = 3999993289/20000000000 ≤ 1/5;
 `norm_num`. `#print axioms Zeta23.DBN.Instance02.lambda_le_point2` = `[propext, Classical.choice, Quot.sound]`
 (the same for `_arb`, `row2_ray_mp/_arb`, `hHol_of_entire`; `results/d1-m2a/v11/GLUE-NOTES.md`, verbatim).
 Honest label: *"kernel-checked modulo the displayed hypotheses H1, H2-B, H2-A (in conclusion form, pending the
-Lane A checker) and H3 (producers untrusted)"* — never "fully machine-checked"; the public sentence "Λ ≤ 0.2 in
-ray form, kernel-checked modulo H1, H2, H3" is licensed only with the H2-A gloss until Lane A lands. What Lane A
-changes when it lands: `hLaneA` is replaced by `cert_of_checkAsym` on the Lane A literal, nothing else moves.
+Lane A checker) and H3 (producers untrusted)"* — never "fully machine-checked". The shorter sentence "Λ ≤ 0.2 in
+ray form, kernel-checked modulo H1, H2, H3" is NOT licensed yet, with or without a gloss: RUN-REPORT §6 item 4
+gates it on Lane A (item 3) landing as well, and "H2" is SPEC §6's conjunction H2-B ∧ H2-A ∧ H-TAIL behind a
+kernel-checked checker, of which only H2-B exists today. Until Lane A lands, the four-hypothesis label above is
+the only licensed wording. What Lane A changes when it lands: `hLaneA` is replaced by `cert_of_checkAsym` on the
+Lane A literal, nothing else moves.
 
 ## What these build against, and why it is not here
 

@@ -1197,3 +1197,11 @@ published Polymath15 page numbers (not on disk).
    10 771 rows (mp, Arb), the per-prism modules build in 3–4 s each (import-dominated), and the monolithic
    `decide +kernel` on both full literals takes 28 s (`kernel-time.log`). The per-prism packaging stands as the program's
    choice; the "serial hours" concern does not arise at this scale.
+6. **§3.4, L-B3's hypothesis and its file.** The sentence "for t ∈ ℝ and z with Im z ≠ 0 … more precisely on an
+   open neighborhood of any rectangle with y₁ > 0 and x₁ > 1" states the wrong coordinate: the mechanism in the
+   same parenthetical ("s = (1 − iz)/2 has Im s = −x/2 ≠ 0") needs **Re z ≠ 0**, x being Re z. L-B3 as landed
+   (2026-09-06, Session 16) proves the correct form — `Bt_ne_zero` and `differentiableAt_Bt` for every z with
+   Re z ≠ 0, packaged as `differentiableOn_Ht_div_Bt` on the open right half-plane {z | 0 < Re z} ⊇ R — which is
+   stronger than either reading of the §3.4 sentence, so nothing downstream changes. §3.4 and §8.3 also place
+   L-B3 in `BarrierCert.lean`; it landed in the new `Zeta23/DBN/BtFacts.lean`. Wording and file placement only;
+   no check, hypothesis or theorem shape changes. (Auditor, `results/d1-m2a/v11/AUDIT.md` §1.2.)
