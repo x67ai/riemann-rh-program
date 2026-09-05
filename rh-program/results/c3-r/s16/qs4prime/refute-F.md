@@ -207,3 +207,411 @@ leaf is a torus without fixed points and clause (iii)'s leaf is non-compact (A-I
 carrying (0-coh), there is no compact preserved leaf at all, and every preserved leaf — clause (iii)'s included — is a
 hyperbolic Riemann surface; a euclidean or spherical preserved leaf is impossible (Theorem F-1). For S4′ as posed (four
 clauses, no clause (0)), neither conclusion is derivable (§1.1).* The clause "conformal to C with χ = +1" FALLS.
+
+---
+
+## §2. T2 = A-III
+
+### 2.1 Does Candel's theorem apply to S4′ objects?
+
+Candel, *Uniformization of surface laminations*, Ann. Sci. ENS (4) 26 (1993) 489–516 (NUMDAM scan, `candel.txt` in the
+session scratchpad; OCR-degraded but the quoted sentences legible). p. 490, first theorem, verbatim: "Let M be a compact
+oriented surface lamination with a riemannian metric g. Then χ(M, µ) < 0 for every positive invariant transverse measure
+if and only if g is conformal to a metric of curvature −1. In particular, this holds true if M has no invariant measure."
+p. 491, §1.1: "Let M be a separable, locally compact, metrizable space. We say that M is a p-dimensional lamination if
+there is a cover of M by open sets U_i … and homeomorphisms φ_i : U_i → D_i × T_i with D_i open in R^p, and such that the
+overlap maps … are of the form (z, t) ↦ (ψ_{ij}(z, t), τ_{ij}(t)) where each map ψ_{ij} is of class C^∞ in the first
+variable with all partial derivatives continuous in all variables." p. 493: "A riemannian metric on the lamination M is a
+smooth and positive definite section of S²T*M" (smooth = leafwise smooth, transversally continuous). p. 489–490: a Riemann
+surface lamination is the same as an oriented surface lamination with a conformal class of such metrics (Ahlfors–Bers).
+**An S4′ object — compact metrizable foliated 3-space with Riemann-surface leaves — is exactly a compact Riemann surface
+lamination in Candel's sense** ([Den05] p. 28–29's definition of foliated space, read, is the same local model). The
+theorem applies verbatim. **Yes.**
+
+### 2.2 Does the conclusion need a parabolic leaf?
+
+The adjudicator's inference is the contrapositive of the "in particular" clause: no invariant measure ⇒ g conformal to
+curvature −1 ⇒ every leaf hyperbolic; so a non-hyperbolic leaf ⇒ an invariant measure exists. Candel's Theorem 4.3 (p. 498,
+read) is the sharp form: "If χ(M, µ) < 0 for every positive invariant transverse measure µ, then all leaves are hyperbolic
+Riemann surfaces. In fact, if L is a euclidean leaf, then there exists µ with support in L̄ and χ(M, µ) = 0", and p. 498
+above it: the compact cases (sphere, torus) are handled by the Dirac measure. So the conclusion **needs a non-hyperbolic
+leaf** — plane, cylinder, sphere or torus — and A-III supplies it **only through A-II(c)**, i.e. through T1(e), which
+falls (§1.5). **Yes, and yes.**
+
+### 2.3 If the archimedean leaf could be hyperbolic, does A-III fall? — It does, and more
+
+(1) Under S4′ as posed plus (0-fix) only, nothing constrains the conformal type of the archimedean leaf, so no
+non-hyperbolic leaf is available and Candel gives nothing. (2) Under (0-coh), Theorem F-1 (§1.5) shows the archimedean
+leaf and every other preserved leaf **is** hyperbolic, and that the archimedean lamination N carries **no** invariant
+transverse measure. So A-III's intended witness (a euclidean preserved leaf) is not merely undetermined; it is excluded.
+(3) Could an invariant transverse measure still exist for some other reason? Only if some **non-preserved** leaf is
+non-hyperbolic (Candel 4.3 then gives µ supported in its closure), or if the object is arranged so (Leichtnam 5] posits
+one). Neither is derivable from S4′ + clause (0). Under Deninger's expectation-level Remark 7 for K = Q (χ_Co(F, ν) = 0
+for the preferred ν), the euclidean leaf it produces must therefore be a *non-preserved* leaf whose closure carries µ,
+while N stays measure-free and hyperbolic; for K ≠ Q Remark 7 wants all leaves hyperbolic and gives no measure at all.
+I record this as a consistency remark, not a ruling (it rests on an expectation).
+
+### 2.4 Verdict on T2
+
+**FALLS.** The derivation's only non-trivial input (a euclidean archimedean leaf) is not derived from the printed
+hypotheses and is contradicted under the α = 1 clause. The proposition "an invariant transverse measure exists" is
+**undetermined** as a consequence of S4′ + clause (0); it remains what Leichtnam printed it as — an assumption (2013 5],
+2008 5], read). What *is* a theorem (F-1(B)): whatever invariant transverse measure clause (iv) posits, **it is not
+supported in N**.
+
+---
+
+## §3. T3 = A-IV
+
+### 3.1 (a) Closed leaf ⇒ compact leaf, for compact foliated spaces (laminations) — PROVED
+
+**Claim.** Let X be a compact metrizable foliated space with a finite atlas of charts U_i ≅ D_i × T_i (D_i an open disk in
+R², T_i a locally compact metrizable space; transition maps of the form (x, y) ↦ (f_{ij}(x, y), g_{ij}(y)) with g_{ij} a
+local homeomorphism between open subsets of transversals). If a leaf L is closed as a subset of X, then L is compact in
+its leaf topology; conversely a compact leaf is closed (compact subset of a Hausdorff space).
+
+**Proof.** *Step 0: each leaf is a countable union of plaques.* A plaque P of U_i is a connected open subset of R²; P ∩ U_j
+is open in P, hence has countably many components, and each component maps into a single plaque of U_j (the transition
+map preserves the transverse coordinate). Starting from one plaque and iterating over plaque chains, L is a countable
+union of plaques; in particular L ∩ T_i is countable for every i. *Step 1: shrink the plaques.* Choose closed disks
+D̄'_i ⊂ D_i such that the sets D'_i × T_i still cover X (compactness of X and a Lebesgue-number argument on a finite atlas
+with a compatible metric). Then every closed plaque D̄'_i × {y} is compact, hence closed in X, and L is the countable union
+of the closed plaques D̄'_i × {y}, y ∈ L ∩ T_i. *Step 2: Baire.* L is closed in the compact metrizable X, so L with the
+subspace topology is a compact metric space, hence a Baire space. A countable union of closed sets covering a Baire space
+has one member with nonempty interior: there are i, y₀ ∈ L ∩ T_i and an open W ⊂ X with ∅ ≠ W ∩ L ⊂ D̄'_i × {y₀}. Pick
+(x₀, y₀) ∈ W ∩ L with x₀ ∈ D'_i; W contains a product neighborhood D'' × V of (x₀, y₀). For z ∈ V ∩ L, (x₀, z) ∈ W ∩ L ⊂
+D̄'_i × {y₀}, so z = y₀: **L ∩ V = {y₀}**, i.e. y₀ is isolated in L ∩ T_i. *Step 3: holonomy propagates isolation.* Let
+y₁ ∈ L ∩ T_j be arbitrary. A plaque chain in L from the plaque of y₀ to that of y₁ defines a holonomy map h: V₀ → T_j, a
+homeomorphism from an open neighborhood V₀ ⊂ V of y₀ onto an open neighborhood of y₁, with h(y₀) = y₁. Holonomy along a
+leafwise path maps points of L to points of L and its inverse does too, so h(V₀ ∩ L) = h(V₀) ∩ L; since V₀ ∩ L = {y₀},
+h(V₀) ∩ L = {y₁}: every point of L ∩ T_j is isolated in L ∩ T_j. *Step 4: the topologies agree.* In every chart, L ∩ U_j
+is a disjoint union of plaques D_j × {y}, y ∈ L ∩ T_j, each of which is open in L ∩ U_j for the subspace topology (product
+of D_j with the open set {y} of L ∩ T_j). So the subspace topology on L is the leaf topology, and L, compact in the
+former, is a compact surface. ∎
+
+**Remarks.** (i) The adjudicator's parenthetical "(a closed leaf is proper …)" asserts Step 4 without Steps 2–3; the
+argument is standard for foliations of manifolds and, as shown, needs only Baire and holonomy, so it holds for
+laminations. (ii) The same proof works with X replaced by any locally compact metrizable open saturated subset W (used in
+§3.4): a leaf closed in W is proper in W. **(a) STANDS.**
+
+### 3.2 (b) N is closed, saturated, flow-invariant, and consists exactly of the preserved leaves — PROVED
+
+On a foliated space TX does not exist, so "Y_φ(x) ∈ T_xF" must be replaced. **Definition.** A foliated flow is a continuous
+R-action by homeomorphisms that in charts has the form φ^t(x, y) = (f_t(x, y), g_t(y)) for small t (leafwise smooth f,
+continuous g); this is the local form under which the phrases "maps leaves to leaves" and "smooth along leaves" ([Den05]
+7.3, p. 30, read) make sense, and it is what KMNT Lemma 1.10's proof uses on manifolds (`kmnt.txt`, read). Set
+**N := {x ∈ X : φ^t(x) ∈ L_x for all t ∈ R}.**
+
+*Local characterization.* x = (x₀, y) ∈ N iff g_t(y) = y for all small t (the induced local transverse flow is stationary
+at y). (⇐) If g_t(y) = y for |t| < ε, the orbit of x stays in the plaque of x for |t| < ε, hence in L_x. Let A = {t :
+φ^t(L_x) = L_x}; it is a subgroup of R (φ^t maps leaves to leaves, so φ^t(L_x) is a leaf, equal to L_x iff φ^t(x) ∈ L_x)
+and contains (−ε, ε), hence A = R. (⇒) If the orbit lies in L_x, the path t ↦ φ^t(x) is continuous into X with values in
+L_x; in a chart its transverse coordinate is a continuous map from an interval into the countable set L_x ∩ T (Step 0 of
+§3.1), hence constant (a connected subset of a countable metric space is a point). So g_t(y) = y for small t.
+
+*Saturation.* If x ∈ N and x' lies in the same plaque, x' ∈ N (same y). If x'' lies in an adjacent plaque of the same
+leaf, pick z in the overlap: z ∈ N by the plaque step; in the chart of x'', z's transverse coordinate is stationary because
+the orbit of z stays in the plaque of z, which meets the chart of x'' inside the plaque of x''. Induct along plaque
+chains: L_x ⊂ N. Conversely a preserved leaf lies in N by definition. So **N is the union of the preserved leaves.**
+
+*Closedness.* X ∖ N is open: if x ∉ N, some small t has g_t(y) ≠ y; by continuity of g_t and Hausdorffness of T, g_t(y') ≠
+y' for y' near y, so a neighborhood of x misses N. **N is closed.** Flow-invariance is immediate from the definition.
+
+*Answer to the orchestrator's sub-questions.* "Is the transverse component leafwise constant?" — in the only sense
+available on a foliated space, yes: stationarity of the induced transverse local flow is a property of the plaque and
+propagates along plaque chains, as shown. "Is N closed when the transverse structure is only topological?" — yes, by the
+open-complement argument, which uses only continuity of g_t. **(b) STANDS.**
+
+### 3.3 The structural conclusion, and consequences (α), (β), (γ)
+
+*Steps 2–3 of A-IV.* Given a non-compact preserved leaf L: L is not closed (§3.1), so L̄ ⊋ L; L ⊂ N and N closed give
+L̄ ⊂ N; the closure of a leaf is saturated (if z ∈ L̄ and z' is in z's plaque, every product neighborhood of z' meets L
+because L ∩ U is a union of full plaques), so L̄ ∖ L is a nonempty union of leaves, each in N, each preserved by §3.2.
+**Verified.** The input "L non-compact" comes from T1: under (0-fix) via A-II; under (0-coh) via Theorem F-1(C1) with no
+fixed-point analysis. Under S4′ as posed it is not available (§1.1). So the conclusion "N is a compact saturated
+lamination of preserved leaves, never one leaf, never a finite union of compact leaves" **STANDS for S4′ + clause (0)**,
+and under (0-coh) it strengthens to: *N contains no compact leaf at all and every leaf of N is hyperbolic.*
+
+*(α) ALKL.* `r3s-17` Abstract (memoir p. v, read): "Assume the closed orbits of φ are simple and its preserved leaves are
+transversely simple. In this case, there are finitely many preserved leaves, which are compact." §1.1 (p. 1): "If these
+fixed points of φ̄ are simple, then the leaves preserved by φ are called transversely simple." §4.1.2 (p. 100, read):
+"The leaves preserved by φ that correspond to simple fixed points of φ̄ are said to be transversely simple. If all leaves
+preserved by φ are transversely simple, then φ (or Z) is called transversely simple … Suppose φ is transversely simple
+unless otherwise stated. Then M⁰ is a finite union of compact leaves because every fixed point of φ̄ is isolated."
+Remark 4.1.1 (p. 101): "Only the completeness of Z and compactness of M⁰ are needed to extend the indicated notions."
+`r3s-30` p. 2 (read): "A preserved leaf L is called transversely simple if the corresponding fixed points p̄ of φ̄ are
+simple. In this case, φ̄^t_* = e^{κt} on T_{p̄}Σ ≡ R for some κ = κ_L ∈ R^×." So: the finiteness and compactness of the
+preserved leaves are **consequences of the hypothesis "transversely simple" (a nonzero transverse exponent at each
+preserved leaf), which ALKL REQUIRE** for Theorem 1.3.10 — they do not merely treat that case. A non-compact preserved leaf
+violates the consequence, hence the hypothesis. **(α) STANDS** for S4′ + clause (0). (The memoir's own words for the
+missing case: p. 1, "more generality is needed to draw arithmetic consequences".)
+
+*(β) B1 vacuous.* True as stated for S4′ + clause (0), since N is not a finite union of compact leaves. **But see §3.4:
+the mechanism of B1 reaches further than its printed hypothesis, and "the closed-3-manifold case is OPEN" is overstated.**
+
+*(γ) Leichtnam's Assumption 2].* The inconsistency argument is: compactness of S_K + Leichtnam's own axioms ((13) = (0-fix),
+or 4] (15) = (0-coh)) ⇒ the archimedean leaf is non-compact ⇒ its closure adds preserved leaves ⇒ 2]'s "transverse to all
+the leaves different from the ones containing the r₁ + r₂ fixed points" fails. Valid **given compactness.** Does Leichtnam
+assume S_K compact? I searched the extracted text: in `r3s-20` §4 (pp. 13–22) the string "compact" occurs only inside
+"C_compact" (test functions) and in §3.4's unrelated example; in the 2008 author copy §5.1 likewise only "C_compact".
+Leichtnam 2013 1] says "the path connected components of S_K are three dimensional" and nothing about compactness;
+Comment 7 (p. 16) wants transversals "of the type ]0,1[×Z_p". Leichtnam 2007 (`r3s-21` p. 2, read): L is "σ-compact" and
+"The quotient L/Q^{+*} allows to **compactify** the space L × R^{+*}/Q^{+*}" — so the 2007 S_Q is presented as a
+compactification, i.e. compact, and its archimedean part L/Q^{+*} is a whole sublamination with "a fixed point in
+L/Q^{+*}", not a single leaf. The adjudicator's "compactness is required by his own Assumption 6] (trace-class)" is an
+inference, not print. **(γ) must be restated:** *"Leichtnam's Assumption 2] (2008, 2013) is inconsistent with compactness
+of S_K; Leichtnam does not print compactness in either axiom list, so the lists are not self-contradictory as printed;
+but every compact realization — including the 2007 compactified shape S_Q — must weaken 2]."* Not a defect of the axioms
+as printed; a defect of any compact model of them.
+
+### 3.4 B1′ — the length-group kill extends to finitely many finite-type leaves [F, single-check]
+
+**Statement.** Let M be a closed 3-manifold, F a C¹ codimension-one foliation, φ a C¹ foliated flow, N its non-transverse
+set, M₀ = M ∖ N. If N is a finite union of leaves L₁, …, L_m each with rank_Z H₁(L_a) < ∞ (finite type), then the group Λ
+generated by the lengths of the closed orbits of φ is finitely generated. Hence no such (M, F, φ) satisfies S4′ (i)+(ii).
+
+**Proof.** (1) On M₀ the flow is transverse to F and foliated, so KMNT's 1-form ω (ω|TF = 0, ω(φ̇) = 1) is defined and
+closed (`kmnt.txt` Lemma 1.10 and its proof, read: closedness ⇔ the flow maps leaves to leaves, proved in flow-box
+coordinates, which exist on any open set where the flow is transverse). For a closed orbit c ⊂ M₀ of least period ℓ(c),
+∫_c ω = ℓ(c). Every γ_p lies in M₀ (§1.3). So Λ ⊂ [ω](H₁(M₀; Z)), and it suffices to show rank H₁(M₀) < ∞. (2) Pass to the
+orientation double cover of M if M is non-orientable; the lifted flow's closed orbits have lengths in {ℓ, 2ℓ}, N lifts to
+a finite union of finite-type leaves, and finite generation descends. So assume M orientable; then a properly embedded
+orientable surface is two-sided. (3) Remove the leaves of N one at a time. Given the open manifold W_k = M ∖ (L₁ ∪ … ∪
+L_k) and N_k = N ∩ W_k, closed in W_k and a finite union of leaves: among them there is one closed in W_k. [Order the
+leaves of N_k by L_a ≼ L_b iff L_a ⊂ cl_{W_k}(L_b) and take a ≼-minimal L_a. If cl(L_a) ⊋ L_a then some L_b ⊂ cl(L_a) with
+b ≠ a, so by minimality L_a ⊂ cl(L_b), and K := cl(L_a) = cl(L_b) is a closed set in which both L_a and L_b are dense. K is
+locally compact and a countable union of compact plaques belonging to finitely many leaves, so by Baire some leaf L_c ⊂ K
+has a plaque with interior in K; §3.1 Step 3 then makes L_c open in K; an open subset of K meets the dense L_a, so c = a;
+but L_b is also dense in K and disjoint from the open L_a — contradiction. Hence cl(L_a) = L_a.] By §3.1 Remark (ii), that
+leaf L is properly embedded in W_k, two-sided, with a product tubular neighborhood ν ≅ L × (−1, 1). (4) Mayer–Vietoris
+for W_k = (W_k ∖ L) ∪ ν, with (W_k ∖ L) ∩ ν ≃ L ⊔ L:
+H₁(L) ⊕ H₁(L) → H₁(W_k ∖ L) ⊕ H₁(L) → H₁(W_k), so rank H₁(W_k ∖ L) ≤ rank H₁(W_k) + rank H₁(L). (5) Iterating,
+rank H₁(M₀) ≤ rank H₁(M) + Σ_a rank H₁(L_a) < ∞. So Λ is finitely generated, while ⟨log p⟩ has infinite rank (unique
+factorization). ∎
+
+**Consequences.** (i) The adjudicator's picture "one plane leaf (χ = +1) whose closure adds a few compact leaves" is dead
+on a closed 3-manifold by the *same* period-group mechanism as B1: a plane has H₁ = 0. (ii) The exact necessary condition
+for S4′ (i)+(ii) on a closed 3-manifold is **rank_Z H₁(M ∖ N; Z) = ∞** (equivalently: the period group of ω on M ∖ N has
+infinite rank). (iii) Therefore N must have infinitely many leaves, or a leaf of infinite type (infinite genus or
+infinitely many ends). This matches, rather than contradicts, the route the adjudicator names in §5 (Duminy: semiproper
+leaves of an exceptional minimal set have a Cantor set of ends — `r3s-29` §5, read — such leaves have infinitely generated
+H₁), and under (0-coh) it is forced in a stronger form (§4).
+
+### 3.5 Verdict on T3
+
+**STANDS-NARROWED.** (a), (b), (α) STAND as written, with proofs supplied. The structural conclusion and (β) STAND for S4′
+amended by clause (0) (either form), and are sharpened: under (0-coh) N has no compact leaf and is hyperbolic; B1′ closes
+the finitely-many-finite-type-leaves case. (γ) STANDS-NARROWED with the compactness qualification stated verbatim in §3.3.
+
+---
+
+## §4. T4 = the vacuity ruling
+
+### 4.1 Status given T1 and T3
+
+The ruling is "no S4′ object has a non-transverse set that is a finite union of compact leaves, so the KMNT/ALKL
+length-group kill does not bear on S4′ and the closed-3-manifold case is OPEN." It is T1 (non-compact archimedean leaf)
+plus T3 steps 2–3. Given my verdicts:
+
+- **For S4′ as posed (no clause (0)):** not derivable. A compact S² archimedean leaf with a source–sink flow (§1.1) is
+  compatible with (i)–(iv); if all preserved leaves are compact and finitely many, B1 applies and kills the object on a
+  closed 3-manifold. So without clause (0) the ruling's first sentence is false as a universal statement, and B1 does
+  bear on the subclass it was written for.
+- **For S4′ + clause (0) (either form):** the first sentence STANDS (T1 non-compactness + T3). B1 as printed (hypothesis:
+  finite union of compact leaves) indeed does not bear.
+- **"The closed-3-manifold case is OPEN" is overstated in both cases**, because B1's mechanism is not exhausted by its
+  printed hypothesis (B1′, §3.4), and because under (0-coh) Theorem F-1 pins N further.
+
+### 4.2 What the binding manifold statement should be
+
+**Case A — S4′ + clause (0), the case the program will actually work in.** *Let (M, F, φ) be a closed 3-manifold with a C¹
+codimension-one foliation by Riemann surfaces and a C¹ foliated flow satisfying S4′ (i)–(iv) and clause (0) (in the form
+(0-fix) + (0-coh)). Then: (1) the non-transverse set N is a compact saturated set containing no compact leaf; every leaf
+of N is preserved and hyperbolic, and N carries no holonomy-invariant transverse measure (Theorem F-1); (2) N contains a
+minimal set K which is neither a compact leaf nor M (the γ_p are off N), i.e. an exceptional minimal set in Hurder's sense
+(`r3s-29` §5, read: "a minimal set K is exceptional if K is not a compact leaf, and not an open set"); (3) rank_Z H₁(M ∖
+N; Z) = ∞ (B1′); in particular N is not a finite union of finite-type leaves; (4) the printed obstructions — [Den05] p. 24
+Rem. 2–3 (everywhere transverse), KMNT Def. 1.5 / ALKL transverse simplicity (finitely many compact preserved leaves), and
+B1 — all have hypotheses that S4′ + clause (0) objects violate, and none of them decides this class. The class is OPEN in
+print; the decisive instruments are Duminy's theorem and Hurder's Problem 5.4 for the leaves of K, and Sacksteder-type
+results for measure-free exceptional minimal sets, all for C² foliations.*
+
+**Case B — S4′ as posed.** *If N is a finite union of compact leaves (KMNT/ALKL class), or more generally a finite union
+of finite-type leaves, the object does not exist (B1, B1′). If N contains a non-compact leaf of infinite type or infinitely
+many leaves, the case is OPEN in print. Which of these an S4′ object without clause (0) falls into is not determined by
+(i)–(iv).*
+
+### 4.3 Verdict on T4
+
+**STANDS-NARROWED**, to Case A above. The enacted S16-3 sentence "[ADJ-A-IV] no S4′ object has a non-transverse set of that
+form, so the result does not bear on S4′. The closed-3-manifold case for S4′ is OPEN" should read: "For S4′ objects
+carrying clause (0), the non-transverse set is never a finite union of compact leaves — nor of finite-type leaves (B1′) —
+so N1 does not bear; the closed-3-manifold case is OPEN only in the class where M ∖ N has infinitely generated H₁, N
+contains an exceptional minimal set of hyperbolic preserved leaves, and N carries no invariant transverse measure."
+
+---
+
+## §5. T5 = the clause-(iv) restatement
+
+### 5.1 A-I re-derived from [Den05] (20)/(31) and [x-18] Construction 3
+
+*Inputs read.* [Den05] p. 23 Cor. 5.5 hypothesis "conformal as in (20)"; p. 27 (31): g(T_xφ^t(v), T_xφ^t(w)) = e^t g(v, w)
+for v, w ∈ T_xF, i.e. (20) with α = 1; [x-18] p. 3 Construction 3: "ω_φ|TF = 0 and ⟨ω_φ, Y_φ⟩ = 1. One checks that dω_φ = 0
+and that ω_φ is φ^t-invariant"; its scope is the dictionary triple with the flow transverse to F.
+
+*Derivation.* Let X be compact, g a continuous leafwise metric with (20): leafwise areas scale by e^{αt} under φ^t. Let µ be
+a positive holonomy-invariant transverse measure, finite on transversals, with µ(φ^t(B)) = e^{−βt}µ(B) for transverse
+Borel sets B (this is the eigen-measure hypothesis; sign convention: β = 1 means the flow contracts the measure by e^{−t},
+and the return map at a closed orbit of length ℓ multiplies it by e^{−ℓ}). Put m = vol_g ⊗ µ, 0 < m(X) < ∞ (finitely many
+charts, bounded plaque areas, µ ≠ 0). For a Borel set A in a chart, small enough that φ^t(A) sits in a chart,
+m(φ^t A) = ∫ area_g(φ^t(A) ∩ P'_{y'}) dµ(y'); substituting y' = φ̄^t(y) (the induced transverse map, a countable-to-one local
+homeomorphism, holonomy-equivalent on overlaps) and using dµ(φ̄^t y) = e^{−βt} dµ(y) and area_g(φ^t(A ∩ P_y)) = e^{αt}
+area_g(A ∩ P_y), m(φ^t A) = e^{(α−β)t} m(A). Summing over a finite partition and taking A = X: m(X) = e^{(α−β)t}m(X), so
+**α = β**. ∎ Special case (Deninger's Remark 2, p. 24): closed 3-manifold, flow everywhere transverse; µ = |ω_φ| is
+holonomy-invariant (ω_φ closed, ker ω_φ = TF) and flow-invariant (φ^{t*}ω_φ = ω_φ), so β = 0 and α = 0. General case with
+α = 1: β = 1, µ(φ^t B) = e^{−t}µ(B), and the return map along γ_p scales µ by 1/p — exactly Leichtnam 2007 Lemma 6.1
+(`r3s-21` p. 14, read: "µ_L(q·T) = (1/q)µ_L is a consequence of Assumption (i) (Jac M_q = 1/q)") and Prop. 2.4] (p. 15,
+read: "W(S, F) ⋊ R is a type III_{1/q}-factor"). **A-I STANDS under its printed hypotheses.**
+
+*Where the hypotheses come from.* A-I needs (20) globally, or — see 5.2 — the cohomological (15), plus the eigen-measure
+hypothesis. **S4′ as posed supplies neither.** And clause (ii) alone does not exclude a finite flow-invariant measure: with
+β = 0, m(X) = m(φ^t X) = ∫_X j_t dm where j_t is the leafwise g-Jacobian of φ^t, so only the m-average of j_t is pinned to
+1, and (ii) constrains j_{log p} = p only on the m-null set ∪_p γ_p. So "never flow-invariant with finite mass" is a
+statement about S4′ + clause (0), not about S4′.
+
+### 5.2 The cohomological form, which is what the program should carry [F]
+
+Leichtnam 2007 p. 11 (read): "Deninger pointed out to us that the condition (4) (φ^t)^*g = e^t g was probably too strong
+for being generalized. That is why in Proposition 2.2] we shall replace it by (φ^t)^*[λ_g] = e^t[λ_g]" — i.e. (0-coh),
+already in 2007. Under (0-coh) the modulus follows without global conformality: if φ^t_*µ = c(t)µ for a holonomy-invariant
+µ ≠ 0 (automatic when H̄²_F(X) ≅ R, since its dual is the space of invariant transverse measures, so µ is unique up to
+scale), then ⟨C_µ, φ^{t*}λ_g⟩ = e^t⟨C_µ, λ_g⟩ by (15) and = ⟨C_{φ^t_*µ}, λ_g⟩ = c(t)⟨C_µ, λ_g⟩, so c(t) = e^t, i.e.
+µ(φ^t B) = e^{−t}µ(B). **Same modulus, weaker hypothesis.** Corollary (Theorem F-1(B)): µ is not supported in N, and every
+invariant measure supported in N is excluded — so the archimedean lamination is measure-free.
+
+### 5.3 The two halves of the restatement
+
+- **"the holonomy-invariant transverse measure that necessarily exists"** — FALLS (T2). Existence is Leichtnam 5]'s
+  axiom; nothing in S4′ + clause (0) produces it, and the adjudicator's route to it (a euclidean preserved leaf) is
+  excluded under (0-coh).
+- **"is scaled by the flow with modulus exactly e^{−t}"** — STANDS under (0-coh) [or (0-glob)] together with "H̄²_F(X) ≅ R"
+  or "µ is a flow eigen-measure". Without the eigen hypothesis the flow may permute extremal invariant measures and no
+  modulus is defined; with H̄²_F one-dimensional (Deninger p. 27 and Rem. 7 both assume it; Leichtnam 4]) it is automatic.
+- **"its ALKL justification must be deleted"** — half right. ALKL's *theorem* does not apply to S4′ + clause (0)
+  objects (§3.3 (α)). But the *reason* for clause (iv) survives: Deninger's trace formula carries χ_Co(F, µ)δ₀ ([Den05]
+  (24) p. 23; Rem. 6 p. 33) and Leichtnam 5] needs µ for the L² scalar product on H̄¹_F. Replace the citation, keep the
+  rationale.
+
+### 5.4 Verdict on T5 and the exact text I would enact
+
+**STANDS-NARROWED.** Clause (iv) should read:
+
+> **(iv)** there is a positive holonomy-invariant transverse measure µ, finite on transversals, needed for the leafwise
+> trace-formula side (the χ_Co(F, µ)δ₀ term and the L² structure on H̄¹_F; Leichtnam 2013 5]). Its existence is an axiom,
+> not a consequence of (i)–(iii). Under clause (0) [φ^{t*} = e^t on the one-dimensional H̄²_F], µ is unique up to scale and
+> the flow scales it with modulus exactly e^{−t} (return map at γ_p: factor 1/p; Leichtnam 2007 Lemma 6.1, Prop. 2.4); in
+> particular µ is never flow-invariant and is never supported in the non-transverse set N. The theorem of Álvarez
+> López–Kordyukov–Leichtnam (arXiv:2402.06671) does not apply to such objects (its transverse-simplicity hypothesis forces
+> compact preserved leaves); no trace formula in print covers them.
+
+---
+
+## §6. T6 = N10
+
+### 6.1 The two pages, read
+
+[Den05] p. 23–24: Corollary 5.5's hypotheses include "everywhere transversal to F" and "conformal as in (20)"; Remark 2
+(p. 24): "Actually the conditions of the corollary force α = 0 i.e. the flow must be isometric with respect to g." So the
+printed *theorem* is under everywhere-transversality. ✓ as the adjudicator says.
+
+[x-06] p. 6 (read) sets the scene: "triples (X̄, F, φ) where X̄ is a closed smooth 3-manifold with a 1-codimensional foliation
+F by Riemann surfaces … The fixed points of φ should lie in finitely many compact leaves. All other leaves should be
+non-compact and the flow should be transversal to them." p. 8: "If dim X̄ = 3 and there are not compact leaves, so that
+X̄ = X and the flow is everywhere transverse to the leaves, then the following formula holds … (9) … Formula (9) does not
+contain a term corresponding to (1 − e^{−2t})^{−1} in (8) because we assumed that φ^t had no fixed points. If we allow
+fixed points, then the distributional trace defined above may no longer exist. … One can show that the conformal factor
+e^{αt} for a metric g_F as above necessarily has to be 1, i.e. α = 0 …" The "as above" metric is the one introduced at the
+top of p. 8 for the general triple, and the α = 0 sentence is a separate paragraph from the (9) discussion. Its scope is
+ambiguous on the page; mathematically it is **true in the whole p. 6 class**, fixed points or not:
+
+### 6.2 α = 0 is forced by any compact preserved leaf [F]
+
+Under global conformality (20): a compact preserved leaf T has area_g(T) = area_g(φ^t T) = e^{αt} area_g(T), so α = 0.
+Under the cohomological α (15): δ_T is a holonomy-invariant transverse measure supported in N, hence flow-invariant
+(Theorem F-1(A)), and the pairing gives e^{αt} = 1. Either way the **entire KMNT/ALKL class (finitely many compact preserved
+leaves, fixed points inside them) has α = 0** — consistent with ALKL Theorem 1.3.10's ±1 coefficients (memoir p. 8, read).
+So "with preserved leaves the manifold question is open" is wrong for compact preserved leaves; it is open only when no
+preserved leaf is compact, which by §3.3 and Theorem F-1 is the S4′ + clause (0) situation anyway.
+
+### 6.3 Verdict on T6
+
+**STANDS-NARROWED.** Corrected statement: *Print's theorem ([Den05] Rem. 2) forces α = 0 under "everywhere transversal";
+in addition α = 0 is forced, trivially, by any compact preserved leaf. [x-06] p. 8's sentence is therefore correct in its
+own p. 6 setting. The closed-3-manifold question for α = 1 is open exactly for foliated flows none of whose preserved
+leaves is compact — the class every S4′ + clause (0) object lies in.*
+
+---
+
+## §7. BINDING FRONTIER STATEMENT (ready to paste)
+
+FRONTIER (Session 16, after the adversarial pass; verifier F). S4′ is Leichtnam's printed axiom list (2008 §5.1; 2013 §4.1),
+unrealized in every class except Deninger's rank-1 elliptic-curve solenoid, and it must be amended by a clause (0) that the
+explicit formula requires and the four clauses omit: a fixed point per archimedean place in clause (iii)'s leaf with
+e^{−t/2}T_{x_∞}φ^t|TF ∈ SO(2) (Leichtnam (13)), and φ^{t*} = e^t on the one-dimensional H̄²_F (Deninger p. 27 = Leichtnam
+(15)); Deninger's global conformality (31) must NOT be added, since with a fixed point on a compact lamination it is
+inconsistent (Schwarz–Pick + Candel). For S4′ + clause (0) the archimedean lamination N — the closure of the χ ≠ 0 leaf,
+always strictly larger than that leaf — contains no compact leaf, carries no holonomy-invariant transverse measure, and
+consists entirely of hyperbolic preserved leaves; clause (iv)'s measure lives off N and is scaled with modulus e^{−t}; the
+adjudication's "leaf conformal to C, χ = +1" is struck. On a closed 3-manifold the printed length-group kill (KMNT/ALKL
+class) does not bear, but its mechanism extends to every N that is a finite union of finite-type leaves, so the manifold
+case is open only where rank H₁(M ∖ N) = ∞ and N contains an exceptional minimal set of hyperbolic leaves; Duminy's theorem
+and Hurder's Problem 5.4 remain the instruments. Nothing in print constructs or kills the resulting class; no construction
+attempt is licensed until Q-S4⁗ is re-posed for a *hyperbolic, measure-free* archimedean lamination.
+
+---
+
+## §8. HONESTY
+
+**Read by me this session, at the page cited (pdftotext -layout of the files named).** `x-20` [Den05]: pp. 23–24 (Cor. 5.5,
+Remarks 1–3), 25–27 (formula (28), dictionary, desideratum, Fact 6.1, the α = 1 definition and (31)), 28–31 (foliated
+spaces 7.1–7.3, working hypothesis 7.5, Remarks 7.6(0)–(4)), 32–34 (the fixed-point determinant, Remark 5, the Fact,
+Remarks 6–7, the unramified sentence — Remark 7 runs onto p. 34). `x-18`: pp. 1–5 (Dictionary 1, Construction 3, the
+fibration/rank sentences, the product formula, Dictionary 4, §3's standing "no fixed points"). `x-06`: pp. 6–11. `r3s-20`
+(Leichtnam 2013): pp. 13–17 (§4 intro, (12), Assumptions 1]–8], Comments 6–7, Lemma 1, Prop. 2–3) and a full-text search
+for "compact" in §4. Leichtnam 2008 author copy: §5.1–5.3 (Assumptions 1]–7], Comments 8–10, Lemma 7, Prop. 2) and a
+full-text search for "compact". `r3s-21` (Leichtnam 2007): pp. 2–3, 11, 13–15 (Definition 1, the "too strong" remark,
+Lemma 6, Prop. 2). `r3s-17` (ALKL memoir): Abstract, §1.1–1.3 (pp. 1–3), §4.1.2 and Remark 4.1.1 (pp. 99–101), the opening
+of §5.1 (p. 117). `r3s-30`: pp. 1–4 (definitions of simple, transversely simple, Theorem 1.1). `r3s-29` (Hurder): §5
+lines on exceptional minimal sets, Problems 5.1–5.5, Duminy's theorem as quoted there. Candel 1993 (NUMDAM scan already in
+the session scratchpad as `candel.txt`): pp. 489–493 (abstract, both introduction theorems, §1.1–1.2 definitions, the
+metric definition), pp. 497–498 (Theorem 4.1, Corollary 4.2, §4.1, Theorem 4.3 and the four non-hyperbolic cases). KMNT
+(`kmnt.txt`): Lemma 1.10 with proof, Definition 1.11. Program files: `adjudication.md` in full; `scout-O.md` D-II, D-III;
+`scout-F.md` §0, R1 and the tables; ledger §15–§16 and the enactment note.
+
+**Recalled, not read, and where it bears.** The Poincaré–Hopf theorem and the Poincaré–Bendixson theorem on S² (used in
+§1.3–1.4, as the adjudicator used them; standard); the uniformization theorem and the automorphism groups of Ĉ, C, C^*
+and tori (used in Theorem F-1(D); standard); the Schwarz–Pick lemma (F-1(D)); the fact that Ruelle–Sullivan currents of
+holonomy-invariant transverse measures are closed, continuous, and exhaust the continuous dual of the reduced H̄²_F
+(used in F-1(B) and §5.2; Candel p. 490 states the isomorphism in one direction, and Deninger p. 33 uses the
+one-dimensionality of H̄²_F to conclude all ν are proportional — I rely on the standard duality); the Baire category
+theorem; the Mayer–Vietoris sequence and the existence of product tubular neighborhoods for two-sided properly embedded
+C¹ surfaces (B1′); the trichotomy for minimal sets of codimension-one foliations of closed manifolds (compact leaf / whole
+manifold / exceptional), used only to name the minimal set in §4.2 with Hurder's definition read; Minkowski's bound
+|d_K| > 1 for K ≠ Q (§1.5 point 3, which needs only that ramified fields exist, which Deninger states); unique
+factorization. **None of the six verdicts changes if any of these is replaced by its textbook statement; each is used in
+its textbook form.**
+
+**Not read, not relied on.** Cantwell–Conlon's Duminy paper; Ghys 1995/1999; KMNT beyond Lemma 1.10/Def. 1.11 (Def. 1.5 is
+taken from the adjudicator's verbatim quotation, marked as such, and bears only on the wording of B1's hypothesis, which
+B1′ supersedes); Leichtnam 2005; the published ALKL LNM volume.
+
+**My own derivations, all single-check, all flagged [F] in place:** the S² source–sink counter-configuration (§1.1); the
+sink-versus-source analysis of ε_x (§1.1); Theorem F-1 (A)–(D) (§1.5), which is the load-bearing new result of this pass;
+the lamination proofs of "closed ⇒ compact" and of the closedness/saturation of N (§3.1–3.2); B1′ (§3.4); the reading
+of [x-06] p. 8's scope (§6); the cohomological form of A-I (§5.2); the clause texts in §1.1, §5.4 and §7. **Defects found in
+the target file, beyond the verdicts:** (1) S16-4 drops A-II's own hypothesis "(ii∞)" when it says "in any S4′ object";
+(2) A-II(c) is stated for K = Q in the proof and "uniform in the number field" in the conclusion; (3) A-III is circular
+with Remark 7 (which presupposes the measure); (4) A-IV(γ) treats an inference (compactness from 6]) as if printed;
+(5) the α = 1 clause is used throughout (A-I, A-II(c), A-III, table rows A1–A3) without being part of the S4′ statement
+the adjudication claims to be about — the orchestrator's framing of this pass already noted the omission, and it is
+where every single-check derivation either narrows or falls.
