@@ -372,3 +372,79 @@ compact saturated non-compact-leaf set of a C² codimension-one foliation of a c
 case)? Duminy's theorem (semiproper leaves of an exceptional minimal set have a Cantor set of ends — Hurder,
 Foliation geometry/topology problem set §5, read) may already answer the manifold case NO; the remaining case
 is Hurder's open PROBLEM 5.4. Standing order 6 licenses the literature decision, not a construction.
+
+---
+
+## §16-bis. ENACTMENT after the adversarial dual-model pass (2026-09-06 00:54 IST, Session 16; refuters `results/c3-r/s16/qs4prime/refute-{F,O}.md`, binding adjudication `refute-adjudication.md`; run wf_f13af8e3-658)
+
+Rulings: A-II STANDS-NARROWED; A-III FALLS; A-IV STANDS-NARROWED; the vacuity ruling STANDS-NARROWED; the clause-(iv) restatement STANDS-NARROWED; N10 STANDS-NARROWED. Root cause common to all six: S4′'s four clauses do not imply the fixed-point conformality; S4′ is amended by **clause (0) = (0-fix) + (0-coh)** (below), and Deninger's global (31) is NOT added.
+
+**Verification labels for this block (orchestrator, standing order 7):** the adjudicator writes "dual-checked" for Theorem A = refuter F's F-1 (A)–(D), Corollary A.1 and B1′; those were derived by Fable 5.1 (refuter F) and re-derived by Fable 5.1 (the adjudicator) — two passes on ONE model. They are enacted PROVISIONALLY here and become binding only after the Opus 5 check launched as stream (c″) (`results/c3-r/s16/qs4prime/f1-check-O.md`). Everything else in this block (clause (0) required — three independent proofs, F + O + adjudicator; A-II steps 1–5 narrowed; A-IV (a)/(b) proofs; the vacuity narrowing; N10 narrowed; α = β; O-2 "a compact preserved leaf forces α = 0"; O-6 Markov–Kakutani; the A-III fall; the striking of "conformal to C, χ = +1") is dual-model (Fable + Opus) and BINDING now.
+
+**S16-3, vacuity sentence — NARROW.** Replace "But [ADJ-A-IV] no S4′ object has a non-transverse set of that form, so the
+result does not bear on S4′. The closed-3-manifold case for S4′ is OPEN." by:
+
+> [NARROWED 2026-09-06, `refute-adjudication.md` §4 — binding.] For S4′ objects carrying clause (0) [(0-fix) + (0-coh),
+> S16-4 as narrowed] the non-transverse set N is never a finite union of compact leaves — nor of finite-type leaves
+> (B1′: on a closed 3-manifold the period group is finitely generated whenever N is a finite union of leaves with
+> finite-rank H₁; dual-checked, refuter F + binding adjudicator) — so the length-group result does not bear on them;
+> the necessary condition on a closed 3-manifold is rank H₁(M ∖ N) = ∞. The closed-3-manifold case for such objects is
+> OPEN only in the class where N is a measure-free lamination of hyperbolic preserved leaves containing an exceptional
+> minimal set. For S4′ as posed (no clause (0)) the vacuity claim is not derivable and B1 bears on the subclass it was
+> written for. The α = 0 note is extended: α = 0 is also forced by any compact preserved leaf, so Deninger's printed
+> manifold class ([x-06] p. 6) has α = 0; under global (31) with a fixed point on a compact space no object exists.
+
+**S16-4 — NARROW (strike "conformal to C, χ = +1"; strike the unconditional "In any S4′ object").** Replace by:
+
+> S16-4 [NARROWED 2026-09-06]. CLAUSE (0) REQUIRED; THE OBSTRUCTION AT CLAUSE (iii). S4′'s four clauses do not imply the
+> fixed-point source property: [Den05] p. 33's Fact is a corollary of the global conformality (31) (pp. 31–33, "in the
+> situation of the preceeding remark"), and Leichtnam prints it as the separate axiom 3]a (13) [2008: 3] (12)]. S4′ is
+> amended by clause (0) = (0-fix) [a fixed point per archimedean place lying in clause (iii)'s leaf, with
+> e^{−t/2}T_xφ^t|T_xF ∈ SO(2) at every fixed point] + (0-coh) [H̄²_F ≅ R[λ_g] and φ^{t*}[λ_g] = e^t[λ_g] — Deninger's
+> definition of α = 1, p. 27 = Leichtnam 4] (15)]. Deninger's global (31) is NOT added: on a compact space, (31) along
+> the fixed point's leaf together with α = 1 is inconsistent (Theorem A(D), dual-checked); Leichtnam's 2007 replacement
+> of (31) by (15) on Deninger's advice (r3s-21 p. 11) is thereby made necessary. For S4′ + (0-fix): every compact
+> preserved leaf is a torus without fixed points and clause (iii)'s leaf is non-compact (A-II steps 1–5, dual-checked;
+> uses clause (i) in its "exactly" form). For S4′ + (0-coh): no compact preserved leaf exists, every preserved leaf is a
+> hyperbolic Riemann surface, clause (iii)'s leaf is the hyperbolic disk if χ = +1, and the flow is not conformal along
+> it for any t ≠ 0 (Theorem A, Corollary A.1, dual-checked). STRUCK: "conformal to C, χ = +1" — it rested on [Den05]
+> p. 33 Rem. 7, an expectation that presupposes a transverse measure, names no particular leaf, and for K ≠ Q predicts
+> hyperbolic leaves. Retained: no closed manifold with a transversely simple foliated flow realizes S4′ + clause (0).
+
+**S16-5 — NARROW.** Replace by:
+
+> S16-5 [NARROWED 2026-09-06]. STRUCTURAL FORCING, for S4′ + clause (0). The archimedean leaf is non-compact, hence not
+> closed (closed leaf ⇒ compact leaf, proved for compact laminations by Baire plus holonomy); its closure lies in
+> N := the union of the preserved leaves, which is closed, saturated and flow-invariant (proved with this definition —
+> the tangency definition {Y_φ ∈ TF} is unavailable on a foliated space and fails for merely continuous transverse
+> flows). So the archimedean part is a compact saturated LAMINATION of preserved leaves, never one leaf and never
+> finitely many compact ones; under (0-coh) it contains no compact leaf, every leaf of it is hyperbolic, and it has
+> invariant-transverse-measure zero. (α) stands: ALKL's transverse simplicity is a hypothesis forcing finitely many
+> compact preserved leaves on a closed manifold (memoir Abstract; §4.1.2 p. 100; r3s-30 Thm. 1.1), so their trace
+> formula never applies. (β) stands and is superseded by B1′ (S16-3). (γ) RESTATED: Leichtnam's Assumption 2] is
+> inconsistent with compactness of S_K given his own (13) or (15); he prints no compactness in 2008 §5.1 or 2013 §4.1;
+> his 2007 S_Q is declared a compactification (r3s-21 p. 2) and its archimedean part is already a whole quotient, not
+> a leaf; any compact model must weaken 2]. Not derivable for S4′ as posed.
+
+**S16-6 — STRIKE the existence half; ENACT the modulus; REPLACE the deletion.** Replace by:
+
+> S16-6 [NARROWED 2026-09-06]. CLAUSE (iv). STRUCK: "A holonomy-invariant transverse measure NECESSARILY EXISTS" and its
+> Candel justification — the derivation needed a euclidean archimedean leaf, which is not derived and is impossible
+> under (0-coh) (Theorem A(C2)); existence remains an axiom (Leichtnam 2008 5], 2013 5]). ENACTED: under clause (0) the
+> measure — unique up to scale when H̄²_F ≅ R; an e^{−t}-eigen-measure exists whenever any invariant transverse measure
+> exists (Markov–Kakutani on the normalized weak-* compact base; refuter O's Theorem O-6, re-derived) — is scaled by the
+> flow with modulus exactly e^{−t}, the return map at γ_p scales it by 1/p (Leichtnam 2007 Lemma 6, Prop. 2), it is
+> never flow-invariant, and it gives the non-transverse set N measure zero. REPLACED: the ALKL parenthetical is void as
+> a justification (ALKL's theorem does not apply, S16-5 (α)), but the rationale for clause (iv) — the χ_Co(F, µ)δ₀ term
+> of Deninger's trace formula ([Den05] (24) p. 23, Rem. 6 p. 33) and the L² structure of Leichtnam 5] — stands. Clause
+> (iv) now reads as in `refute-adjudication.md` §5.5.
+
+**S16-8 — consequential RE-POSING (recommended).** Q-S4⁗ as written asks for a compact lamination with a leaf conformal
+to C; under (0-coh) that leaf is impossible, so the gate must ask instead: does there exist a compact foliated space X
+with Riemann-surface leaves and a foliated flow whose non-transverse set N is a compact saturated sub-lamination with
+no invariant transverse measure, all of whose leaves are hyperbolic, containing an exceptional minimal set, with a
+hyperbolic-disk leaf on which the flow is a non-conformal source of rate 1/2 — and (manifold case) can such an N sit in
+a closed 3-manifold with rank H₁(M ∖ N) = ∞? Duminy's theorem (semiproper leaves of an exceptional minimal set have a
+Cantor set of ends; the disk has one) and Hurder's Problem 5.4 remain the instruments.
+
+---
