@@ -67,3 +67,24 @@ elaborated `Polymath15Bridge'` matches the SPEC §3.3 display with `I` = `Comple
 coercions on x, y — the same coercions v1.0's `Polymath15Bridge` carried (SPEC §3.1).
 
 Axioms of the definitions: `propext`, `Classical.choice`, `Quot.sound` (no theorems in this file, by design).
+
+## Build 2: `lake build Zeta23.DBN.BarrierCert Zeta23.DBN.Instance02` against Defs v1.1 (2026-09-06)
+
+Every module downstream of Defs rebuilt (BarrierCert, Instance02/Rect, the 39 mp prism modules, the 72 Arb
+prism modules, both `_Barrier` assemblies, Instance02): 116 `Built` lines, zero errors, zero warnings, no
+`sorry`.  NO adaptation was needed in BarrierCert.lean or Instance02.lean: the old name `Polymath15Bridge`
+occurred there only inside docstrings/comments (BarrierCert.lean lines 56 and 1065; Instance02.lean header),
+never in code.  Log tail (verbatim):
+
+    ✔ [3258/3262] Built Zeta23.DBN.Instance02.mp_0002 (4.4s)
+    ✔ [3259/3262] Built Zeta23.DBN.Instance02.mp_0000 (2.9s)
+    ✔ [3260/3262] Built Zeta23.DBN.Instance02.arb_Barrier (3.4s)
+    ✔ [3261/3262] Built Zeta23.DBN.Instance02.mp_Barrier (1.5s)
+    ✔ [3262/3262] Built Zeta23.DBN.Instance02 (1.5s)
+    Build completed successfully (3262 jobs).
+    lake build Zeta23.DBN.BarrierCert Zeta23.DBN.Instance02  309.01s user 163.76s system 773% cpu 1:01.12 total
+    exit=0
+
+Wall time 1:01 (773 % CPU, the per-prism `decide +kernel` modules in parallel).
+
+STATUS: DONE (STEP 1).  Program-tree copy of Defs.lean happens in STEP 4 (rsync of the DBN directory).
