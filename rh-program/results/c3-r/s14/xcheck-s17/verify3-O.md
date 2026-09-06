@@ -151,3 +151,110 @@ b-model constants were added in the `.tex` with absolute values would be consist
 
 Nothing in `alkl23-note.tex` needs changing: the note may go as it stands once the companion is
 rebuilt.
+
+---
+
+# Round 2 — re-check of the single round-2 fix (2026-09-06)
+
+Reader: fresh reader (Opus 5), 2026-09-06, second pass. Scope as instructed: **only the line fixed
+in this round** — `results/c3-r/s14/alkl23-derivations.tex` line 252 (companion §9.6), the two
+b-model sup constants. Everything else in the note and the companion was passed in round 1 above and
+was not re-read.
+
+**Verdict: SEND.**
+
+## What actually changed
+
+`git diff` against HEAD (3216c20) touches one file, one line, one hunk (`@@ -249,7 +249,7 @@`,
+1 insertion / 1 deletion). A word-level diff shows the whole change is six inserted characters:
+
+    e^k       →  e^{|k|}          (braces + two bars)
+    e^{k''}   →  e^{|k''|}        (two bars)
+
+`grep -F` now finds `e^kw^k` **0** times and `e^{|k|}` / `e^{|k''|}` once each, both on line 252.
+Nothing else in the file matches `e^k`. `alkl23-note.tex` and the internal
+`alkl23-note-derivations.md` are byte-identical to HEAD (`git diff --stat` empty for both).
+
+## The three checks
+
+**(i) Against the adjudication.** The only adjudication item bearing on §9.6 is **C6**
+(`adjudication.md` line 81), which requires §9.6 to say explicitly that `c := (k'−k)/(2|γ|) > 0` and
+`N > |γ| + (k''−k')/c`, "not with m = −k etc. substituted literally". That sentence is on the same
+line 252 and is untouched — I re-read it in the source and in a 400 dpi render of p. 9. The
+adjudication says nothing about the two sup constants, so the fix neither implements nor contradicts
+any listed item; it is my own round-1 finding, and C6 remains satisfied verbatim after the edit.
+
+**(ii) Against the published text (opened, not quoted from a report).**
+`novelty/ALKL-2024-published.txt` line 2049 (§6.10, between the "Page 38 of 68" marker at line 2030
+and "Page 39 of 68" at line 2080): "**For every m ∈ R, let** A^m(M) = { u ∈ C^{−∞}(M) | Diff_b(M) u
+⊂ x^m L^∞(M) }"; line 2060: "(6.38) A^m(M) ⊂ A^{m'}(M) (m' < m)". So the modeled order m = −k runs
+over all of **R** and k < 0 is a real case (m > 0). The premise of the fix holds at source.
+
+Recomputed independently, again: on Q one has ϱ' ∈ [ϱ, ϱ+Nh] with Nh = N w^{−c} ≤ 1 once
+w ≥ N^{1/c} (the condition the line already states), so w' := e^{ϱ'} ∈ [w, ew]; and
+N^b_{−k}(v;0) = sup w^{−k}|v| gives |v| ≤ (w')^k N^b_{−k}(v;0) on Q. For k ≥ 0, (w')^k ≤ e^k w^k;
+for k < 0, (w')^k ≤ w^k = e^0 w^k. Both are ≤ **e^{|k|} w^k**, so the new constant is valid for every
+real k, and identically for k''. The two exponent identities, the w ≤ R regime and the concluding
+b-model inequality are unaffected (C absorbs the constant). The new form also matches §9.4's own
+convention — rendered p. 8 of the companion reads "≤ 2^{|m|} w^m N_m(a;0)" and
+"≤ 2^{|m''|+Nl} w^{m''−N|S_ξ|} N_{m''}(a;Nχ_S)", i.e. absolute values in exactly the same two places.
+
+**(iii) In the rendered PDF.** `alkl23-derivations.pdf`, 11 pp., 513802 bytes, CreationDate
+2026-09-06 15:41 IST. `pdftotext` of p. 9 gives "no gain from ϱ-derivatives: supQ |v| ≤ e|k| wk N−k
+… sup |∂ N χS v| ≤ e|k′′ | w k′′ N b (v; N χS)"; `e|k|` occurs exactly once in the whole document.
+The line was located by `pdftotext -bbox` and rendered at 400 dpi and read:
+
+    sup_Q|v| ≤ e^{|k|} w^k N^b_{−k}(v;0),  sup_Q|∂^{Nχ_S}v| ≤ e^{|k''|} w^{k''} N^b_{−k''}(v;Nχ_S)
+
+Bars around both k and k''; the double primes survive in both the exponent and the subscript −k'';
+w^k, w^{k''} and the b-superscripts intact; the surrounding clause unchanged. **No introduced glyph
+error.**
+
+**Fourth check (stronger than asked).** I extracted the pre-fix PDF from HEAD
+(`git cat-file -p HEAD:…/alkl23-derivations.pdf`, 513755 bytes, created 15:11 IST) and diffed
+`pdftotext` of the whole 11-page document against the new one. The diff is **exactly two lines**,
+both the intended exponents (`ek wk` → `e|k| wk`, `ek′′ w k′′` → `e|k′′ | w k′′`). Nothing else in
+the document moved: no reflow, no repagination, no other character changed. The rebuilt
+`alkl23-note.pdf` is text-identical to the pre-fix one (4 pp.), as it must be — its source was not
+touched.
+
+**The internal `.md` needs no matching edit**, confirmed at source: `alkl23-note-derivations.md`
+line 188 (§9.6) writes "…and no gain from ϱ-derivatives: S = ∅ exponent c|γ| + k − k′ = −(k′−k)/2;
+S ≠ ∅ exponent −c(N|S|−|γ|) + k″ − k′ < 0" — it never carries the two sup bounds, so there is nothing
+there to correct. (`grep` for `e^k`/`e|k|` in the `.md` returns nothing.)
+
+## Correction to my own round-1 record, and the box question
+
+The repairer is right and I was wrong: my round-1 line "Build: `pdflatex` twice, exit 0, 0 errors,
+**0 Overfull/Underfull boxes**" is false **for the companion**. With `grep -a` the companion log
+carries **5 Overfull and 16 Underfull \hbox** lines. I reproduced the cause: `alkl23-derivations.log`
+is ISO-8859, not valid UTF-8, so BSD `grep -c` treats it as binary and prints nothing while exiting 1
+— a silent zero. `alkl23-note.log` is ASCII and genuinely has 0 of each, so the round-1 statement
+about the **note** stands.
+
+None of the boxes is at line 252 and all five pre-exist the round-2 edit (identical counts and
+identical line numbers in the pre-fix log at 7d6eefd). What they are, and what they look like:
+
+- 2 × 8.18 pt "in alignment at lines 41--45 / 45--89" and all 16 underfull — the §0 longtable. The
+  underfull ones are interword stretch inside table cells; invisible in the render.
+- 36.59 pt at line 145 — the display at lines 143–145 (the §7 item-5 seminorm computation), p. 5.
+- 9.71 pt at lines 186--187 — a §8 item, p. 6.
+- 26.48 pt at lines 235--237 — the §9.4(ii) box-geometry line, p. 8.
+
+Measured rather than inferred: the text block ends at 612 − 43.2 = **568.8 pt** (`hmargin=0.6in`),
+and the rightmost ink per page is 605.25 pt (p. 5), 596.70 (p. 8), 580.59 (p. 6), ≤ 570.9 elsewhere.
+So the worst case stops **6.75 pt (2.4 mm) short of the paper edge**: nothing is clipped, and the two
+worst lines, rendered full-width at 200 dpi and read, are complete and legible to the final comma.
+
+**Judgment: cosmetic, not blocking.** The mathematics, the page anchors and the glyphs are right;
+three lines and one table simply run into the margin. Whoever wants them gone can widen `hmargin` to
+0.9in, or wrap the p. 5 display in `\resizebox`/`\small`, or break the §9.4(ii) line at a comma —
+none of which touches a word of content. I would send as it stands.
+
+## Conclusion
+
+The one round-2 fix is applied exactly as specified, is correct at source, and introduced nothing
+else anywhere in either document. The note was ruled clean in round 1 and is byte-identical. Both
+PDFs build clean (exit 0, 0 errors, 0 warnings, 0 undefined references, no "??"; 4 pp. and 11 pp.).
+
+**SEND.**
