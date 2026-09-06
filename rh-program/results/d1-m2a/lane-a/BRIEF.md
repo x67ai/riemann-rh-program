@@ -1,0 +1,14 @@
+# D1 M2a Lane A — stream brief (Session 17, queue item 2; RUN-REPORT §6 item 3)
+
+**Goal.** Replace the displayed hypothesis `hLaneA` (H2-A in conclusion form, `Zeta23/DBN/Instance02.lean`) by `cert_of_checkAsym` on a kernel-checked Lane A literal, so that `lambda_le_point2` reads "modulo H1, H2-B, H3" with H2-A discharged by a `decide +kernel` checker fact. Nothing else in the Lean tree changes.
+
+**Authorities (read in this order; all paths relative to `rh-program/` unless absolute).**
+1. `results/d1-m2a/SPEC.md` — §5 (Lane A: windows, Lemma T, P-9 window rows, P-10 tail row, C-A1…C-A6, L-A1/L-A2), §7.4 (`checkAsym`), §8.3 (`cert_of_checkAsym`, trust table), §11 (tail decision), the producer list at ~line 1016, the Lean-name checks at ~line 1128.
+2. `results/d1-m2a/v11/GLUE-NOTES.md` — the exact `hLaneA` statement (line ~37) and "Left for the Lane A stream" (§ at line ~107): what must be produced and where (ii′) is consumed.
+3. `results/d1-m2a/RUN-REPORT.md` §6 item 3 and §5 (measured cost curve); `results/d1-m2a/{mp-leg-notes,arb-leg-notes,lean-notes}.md` — how the Lane B producers were run and cross-checked (same conventions apply).
+4. Existing producer code: `results/d1-m2a/ft_mp.py`, `ft_mp_validate.py`, `crosscheck_legs.py`, `checker_ref.py`, `emit_lean_m2a.py`, the `arb-cache/` conventions.
+5. Lean tree: `~/rh-lean-work/zeta-23-lean-main` (Lean v4.33.0-rc2, Mathlib pinned; `lake build` clean at Session 16 close; `Zeta23/DBN/{Defs,BarrierCert,BtFacts,Instance02}.lean`). Build with `lake build -j2` only (thermal cap).
+
+**Thermal policy (binding).** At most 4 heavy jobs on the machine at once (producers + lake build count); `lake build -j2`. Check `pgrep -fl "python|arb|lake"` before starting anything heavy. The machine is a laptop on iCloud; write outputs under `results/d1-m2a/lane-a/`, never under `~/Library/...` paths other than the repo.
+
+**Standing rules.** Price first, batch, never shrink: measure a small batch of windows with both producers before committing to the full run; report windows/hour and the projected total; the full run proceeds only under a written GO with the projection. Every result to disk the moment it exists (per-batch files, a `STATUS.json` the orchestrator can poll: {phase, windows_done, windows_total, started, updated, eta_hours, errors}). Producers run detached (`nohup … &`) with per-batch checkpointing and a resume switch, so a killed session loses one batch at most. mpmath and Arb are cross-checked per row (directed rounding on the Arb leg; disagreement = stop and record). Lean: `#print axioms` on every new theorem; no `sorry`; no change outside `Zeta23/DBN/` and the one replacement in `Instance02.lean`. U.S. English. Stamp files with the machine clock. Return values: verdict + paths + ≤ 8000-char summary; reports live on disk.
