@@ -1,0 +1,27 @@
+Sun Sep  6 16:30:18 IST 2026
+arrays up to n = 12,000,000 built in 0.1 s
+  crude N=  630783 y=0.1673300  A=2.2789 B=4.1834e-01  2-A-B=-0.6972
+  crude N=  630783 y=0.7924646  A=1.6196 B=1.4268e-03  2-A-B=+0.3790
+  crude N= 1500000 y=0.1673300  A=2.0216 B=2.8436e-01  2-A-B=-0.3060
+  crude N= 1500000 y=0.7924646  A=1.5458 B=5.2582e-04  2-A-B=+0.4537
+  crude N= 3000000 y=0.1673300  A=1.8720 B=2.1448e-01  2-A-B=-0.0864
+  crude N= 3000000 y=0.7924646  A=1.4966 B=2.2662e-04  2-A-B=+0.5032
+  crude N= 6000000 y=0.1673300  A=1.7578 B=1.6641e-01  2-A-B=+0.0758
+  crude N= 6000000 y=0.7924646  A=1.4540 B=9.4378e-05  2-A-B=+0.5459
+  singleton N0 piece [0.16733,0.16733]: T=+0.02837  LA=0.3558 UC=0.3193 beta=0.2885 Zbar=1.74e-14
+  singleton N0 piece [0.16733,0.18000]: T=+0.02756  LA=0.3558 UC=0.3203 beta=0.2885 Zbar=1.87e-14
+  singleton N0 piece [0.18000,0.20000]: T=+0.07279  LA=0.3746 UC=0.2810 beta=0.2872 Zbar=1.81e-14
+  singleton N0 piece [0.20000,0.23000]: T=+0.13513  LA=0.4025 UC=0.2288 beta=0.2852 Zbar=1.68e-14
+  singleton N0 piece [0.30000,0.32000]: T=+0.33690  LA=0.5138 UC=0.0841 beta=0.2755 Zbar=8.27e-15
+  singleton N0 piece [0.55000,0.79246]: T=+0.53017  LA=0.6735 UC=0.0094 beta=0.2527 Zbar=2.02e-15
+  singleton N=700000 piece [y0,0.18]: T=+0.05746
+  singleton N=1000000 piece [y0,0.18]: T=+0.14975
+  singleton N=2000000 piece [y0,0.18]: T=+0.29094
+  singleton N=5000000 piece [y0,0.18]: T=+0.42064
+  Lemma T sum: N=1000000: 2.6526   N=6000000: 1.9591
+  N1 (least, margin 0.003) = 5,140,982; rounded up N1 = 5,141,000: sum = 1.99700  parts = Q1=1.7807, Q2=0.17861, Q3=0.018638, Q4=0.019015, E1=1.8229e-09  side {'S1': True, 'S2': True, 'S3': True, 'S4': True}
+  ROW   0: [  630783,   746495] width  115713  T_min=0.01202 (piece 0.01202 .. 0.52888)  E=1.031e-07  [3s]
+  ROW   1: [  746496,  1469440] width  722945  T_min=0.01202 (piece 0.01202 .. 0.53752)  E=7.569e-08  [6s]
+  ROW   2: [ 1469441,  5140999] width 3671559  T_min=0.15443 (piece 0.15443 .. 0.58039)  E=2.129e-08  [9s]
+plan written: rows-plan.json: 3 rows covering 4,510,217 windows [630783, 5140999], N1 = 5,141,000; 9 s total
+Sun Sep  6 16:30:26 IST 2026
