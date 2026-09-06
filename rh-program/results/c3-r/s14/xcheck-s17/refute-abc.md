@@ -6,7 +6,7 @@ Stance: every step below was re-derived from the printed definitions; nothing is
 
 ## Verdict
 
-(filled at the end of the file — see the final section "Verdict (final)")
+**HOLDS.** Witnesses (a), (b), (c) of `alkl23-note.tex` §3 are correct as written, every inequality re-derived from the printed (3.1)/(3.4)/(3.5), every quoted page and sentence verified verbatim against the published text (and against arXiv v3). Prop. 3.2 FALLS for every m ∈ R, every nonempty U, every l ≥ 1 (Item 1). "Hence S′^m(U × R^l) is complete" (p. 17) FALLS: (b_j) is Cauchy in S′^m with no limit there, and the first false step is the identity ‖φ(a)‖′_{K,α,β,m} = ‖a‖′_{K,α,β,m} < ∞ in lines 1–2 of p. 17, where for the class a of (b_j) the left side is ∞ and the right side is 0 (Item 2). Both assertions of Cor. 3.4 FALL, the second for every m, by a 0-neighborhood of S^∞ built from the definition of the inductive-limit topology alone — no regularity of S^∞ is used (Item 3). The external assessment describes (a) and (b) accurately and is silent (not wrong) on (c) (Item 4). No repair is needed; three cosmetic remarks are recorded at the end of Item 3.
 
 ## Item 0. The printed definitions, verbatim, with sign conventions
 
@@ -64,3 +64,76 @@ Attempted rescues that fail. (α) "Prop. 3.2 means (3.4)+(3.5) together with (3.
 
 Ruling on witness (a): HOLDS. (Prop. 3.2 FALLS; first assertion of Cor. 3.4 FALLS.)
 
+## Item 2. Witness (b): the Cauchy sequence b_j in S′^m; completeness of S′^m; the failing sentence
+
+Setting as in Item 1; R > 2r; c_i = (1+iR)^{m+1}; b_j = Σ_{i=1}^{j} c_i θ(ξ − iRe_1), x-independent. Supports: supp θ(·−iRe_1) ⊂ B(iRe_1, r); for i ≠ k the centers are |i−k|R ≥ R > 2r apart, so the open balls are pairwise disjoint. Each b_j is a finite sum of x-independent smooth functions with compact ξ-support, so b_j ∈ S^{−∞} ⊂ S^m by (1a).
+
+(2a) (b_j) is Cauchy in S′^m — every seminorm checked. Take i < j. b_j − b_i = Σ_{k=i+1}^{j} c_k θ(ξ − kRe_1); its ξ-support lies in ⋃_{k=i+1}^{j} B(kRe_1, r), on which |ξ| > kR − r ≥ (i+1)R − r; it is compact, contained in B̄(0, jR + r).
+  – (3.5) seminorms: for fixed x and any α, β, ∂_x^α∂_ξ^β(b_j − b_i)(x,ξ) = 0 for |ξ| > jR + r, so limsup_{|ξ|→∞}(…)/|ξ|^{m−|β|} = 0 for every x, and ‖b_j − b_i‖′_{K,α,β,m} = 0 for ALL i < j (and every K).
+  – (3.4) seminorms over EVERY compact Q ⊂ U × R^l: Q ⊂ K × B̄(0,ρ) with ρ = max_Q |ξ| (Item 1b). If (i+1)R − r > ρ, every point of supp(b_j − b_i) has |ξ| > ρ, so b_j − b_i and all its derivatives vanish on Q and ‖b_j − b_i‖_{Q,C^k} = 0 for all k. So for each Q there is i_0(Q) = ⌈(ρ + r)/R⌉ with ‖b_j − b_i‖_{Q,C^k} = 0 whenever j > i ≥ i_0(Q).
+  S′^m is defined by the family of all (3.4) and (3.5) seminorms (a countable subfamily suffices, p. 16); a sequence is Cauchy iff it is Cauchy for each seminorm of the family; here each seminorm of b_j − b_i is 0 for j > i ≥ i_0. Cauchy. HOLDS.
+
+(2b) The C^∞-limit. b := Σ_{i≥1} c_i θ(ξ − iRe_1) is locally finite in ξ (on B̄(0,ρ) only the terms with iR − r ≤ ρ are nonzero), hence smooth on U × R^l; on K × B̄(0,ρ) one has b_j = b for j ≥ i_0(Q), so ‖b_j − b‖_{Q,C^k} = 0 eventually: b_j → b in C^∞(U × R^l). HOLDS.
+
+(2c) b ∉ S^m for the stated c_i. At ξ = iRe_1 only the i-th term is nonzero (disjoint supports) and θ(0) = 1, so |b(x, iRe_1)| = c_i = (1+iR)^{m+1} and, by (3.1) with α = β = 0,
+    ‖b‖_{K,0,0,m} ≥ sup_i |b(x, iRe_1)| (1+|iRe_1|)^{−m} = sup_i (1+iR)^{m+1−m} = sup_i (1+iR) = ∞
+for every real m and every nonempty K. So b ∉ S^m. HOLDS.
+
+(2d) No other limit is possible — "S′^m is not complete" is established. Suppose b_j → b̃ in S′^m for some b̃ ∈ S^m. The (3.4) seminorms are among the defining seminorms of S′^m and are exactly the seminorms (2.1) of C^∞(U × R^l), so S′^m → C^∞(U × R^l) is continuous and b_j → b̃ in C^∞. But b_j → b in C^∞ by (2b), and C^∞(U × R^l) is Hausdorff, so b̃ = b ∉ S^m — contradiction. Hence (b_j) is a Cauchy sequence of the metrizable space S′^m without limit in S′^m: S′^m is NOT complete, contrary to the printed "Hence S′^m(U × R^l) is complete, and therefore it is a Fréchet space" (p. 17; quoted verbatim, also identical in arXiv v3). Consequently the open-mapping step that follows has no basis. HOLDS.
+
+(2e) The failing sentence, located and quoted. Published p. 17, lines 1–2 (the first two printed lines of the page; checked on the page image): "C^∞(U × R^l) is complete. For any a ∈ Ŝ′^m(U × R^l), and K, α and β like in (3.5), since ‖φ(a)‖′_{K,α,β,m} = ‖a‖′_{K,α,β,m} < ∞, there are C, R > 0 so that, if x ∈ K and |ξ| ≥ R, then …". The note's quotation "‖φ(a)‖′_{K,α,β,m} = ‖a‖′_{K,α,β,m} < ∞ (at the top of p. 17)" is verbatim and correctly placed.
+  The concrete falsification: let a ∈ Ŝ′^m be the class of the Cauchy sequence (b_j). The paper's "continuous extension" of ‖·‖′_{K,0,0,m} to the completion is continuous on Ŝ′^m and b_j → a there, so ‖a‖′_{K,0,0,m} = lim_j ‖b_j‖′_{K,0,0,m} = 0 (each b_j has compact ξ-support, (2a)). The extended map φ is continuous and agrees with the inclusion on S′^m, so φ(a) = lim_j φ(b_j) = lim_j b_j = b in C^∞ (Hausdorff). Then, along ξ_i = iRe_1,
+    ‖φ(a)‖′_{K,0,0,m} = ‖b‖′_{K,0,0,m} = sup_{x∈K} limsup_{|ξ|→∞} |b(x,ξ)|/|ξ|^m ≥ limsup_i (1+iR)^{m+1}/(iR)^m = limsup_i (1+iR)·((1+iR)/(iR))^m = ∞
+  (the second factor → 1, the first → ∞; checked numerically for m ∈ {−3, −1, 0, 2.5}). So ‖φ(a)‖′ = ∞ ≠ 0 = ‖a‖′: the printed identity is false at this a, and not even the inequality ‖φ(a)‖′ ≤ ‖a‖′ survives. The (3.5) functional is not continuous (nor upper semicontinuous) for the C^∞-topology, which is why the extension to the completion cannot be computed on φ(a). The earlier steps of the printed proof (metrizability; existence of the completion with extended seminorms; extension of the inclusion to φ) are all correct, so this is the first false step. HOLDS.
+
+(Side remark, not needed by the note: the same sentence also infers a threshold R uniform in x ∈ K from finiteness of sup_{x∈K} limsup_{|ξ|→∞}; this too is unjustified in general, but for x-independent symbols it is moot.)
+
+Ruling on witness (b): HOLDS. ("Hence S′^m is complete" FALLS; the identity at the top of p. 17 is the correct location of the break.)
+
+## Item 3. Witness (c): the second assertion of Cor. 3.4
+
+Setting: c_j = e^j θ(ξ − je_1), j ∈ N; x_0 ∈ U, K = {x_0} (a compact subset of U, so ‖·‖_{K,0,0,k} is one of the defining seminorms (3.1) of S^k); ε_k = ½ inf_{j≥1} e^j (1+j)^{−k}; W_k = {a ∈ S^k : ‖a‖_{K,0,0,k} < ε_k}; W = absolutely convex hull of ⋃_{k∈N} W_k.
+
+(3a) c_j ∈ S^m for every m, and c_j → 0 in C^∞: as in (1a), (1b) with θ replaced by e^jθ (the C^∞ seminorms over Q ⊂ K′ × B̄(0,ρ) vanish for j > ρ + r regardless of the factor e^j). HOLDS.
+
+(3b) ε_k > 0: e^j(1+j)^{−k} > 0 for all j ≥ 1 and → ∞ as j → ∞, so the infimum is a minimum over finitely many j and is positive. HOLDS.
+
+(3c) W_k is an open 0-neighborhood of S^k: it is the open ε_k-ball of a continuous seminorm of the Fréchet space S^k. W ∩ S^k ⊇ W_k since W ⊇ W_k ⊂ S^k. HOLDS.
+
+(3d) The absolutely convex hull. For A ⊂ S^∞, Γ(A) := {Σ_{i=1}^{N} λ_i w_i : N ∈ N, w_i ∈ A, Σ|λ_i| ≤ 1}. This set contains A (N = 1, λ_1 = 1), is absolutely convex (if u = Σλ_i w_i, v = Σμ_j w′_j and |s| + |t| ≤ 1 then su + tv = Σ sλ_i w_i + Σ tμ_j w′_j with Σ|sλ_i| + Σ|tμ_j| ≤ |s| + |t| ≤ 1), and is contained in every absolutely convex set containing A (induction on N). So it is the absolutely convex hull, and a general element of W is a FINITE combination Σλ_i w_i, Σ|λ_i| ≤ 1, w_i ∈ W_{k_i}, exactly as the note uses. HOLDS.
+
+(3e) W is a 0-neighborhood of S^∞ — from the paper's definition of S^∞. By p. 16 and pp. 4–5 (quoted in Item 0), S^∞ = ⋃_{m∈R} S^m carries the locally convex inductive limit topology T, i.e. the finest locally convex topology making every inclusion S^m → S^∞ continuous; by cofinality (Item 0) T is also the finest locally convex topology making every S^k → S^∞, k ∈ N, continuous. Let B be the family of absolutely convex V ⊂ S^∞ such that V ∩ S^k is a 0-neighborhood of S^k for every k ∈ N. Each V ∈ B is absorbing in S^∞ (a ∈ S^∞ lies in some S^k, and V ∩ S^k absorbs a in S^k), B is closed under finite intersections and under multiplication by nonzero scalars, so B is the 0-neighborhood base of a locally convex topology T_B on S^∞; every inclusion S^k → (S^∞, T_B) is continuous because V ∩ S^k is a 0-neighborhood of S^k for every V ∈ B. Hence T_B ≤ T (T is the finest such topology), i.e. every member of B is a T-neighborhood of 0. W ∈ B by (3c)–(3d). So W is a 0-neighborhood of S^∞. (This is the standard description of the inductive-limit 0-basis, e.g. Schaefer, TVS, II.6; Meise–Vogt §24; Köthe §19.1; re-derived here so as not to rely on it as a citation.) For the R-indexed spectrum directly: W ∩ S^m ⊇ W_k ∩ S^m for k ≥ max(1,m), which is a 0-neighborhood of S^m because S^m → S^k is continuous by (3.2). HOLDS.
+
+(3f) The evaluation bound, with the exponent sign checked against (3.1). For w ∈ W_k: ‖w‖_{K,0,0,k} = sup_{ξ} |w(x_0,ξ)| / (1+|ξ|)^{k−0} < ε_k, hence |w(x_0,ξ)| < ε_k (1+|ξ|)^{k} for every ξ (division by (1+|ξ|)^{m−|β|} with m = k, β = 0 — the weight is (1+|ξ|)^{k} in the denominator, so it multiplies back with the POSITIVE exponent k). At ξ = je_1: |w(x_0, je_1)| < ε_k (1+j)^k. And by the definition of ε_k as ½ times an infimum over all j′ ≥ 1, in particular j′ = j: ε_k (1+j)^k ≤ ½ e^j (1+j)^{−k}(1+j)^k = ½ e^j. (Checked numerically for k ≤ 15, j < 400: no violation beyond a 1.8e−16 rounding at the minimizing j, where equality holds.) HOLDS.
+
+(3g) The contradiction. Suppose c_j ∈ W: c_j = Σ_{i=1}^{N} λ_i w_i, Σ|λ_i| ≤ 1, w_i ∈ W_{k_i}. Since c_j ≠ 0, some λ_i ≠ 0. Evaluating at (x_0, je_1), where c_j(x_0, je_1) = e^j θ(0) = e^j:
+    e^j = |Σ λ_i w_i(x_0, je_1)| ≤ Σ |λ_i| |w_i(x_0, je_1)| < Σ |λ_i| · ε_{k_i}(1+j)^{k_i} ≤ Σ|λ_i| · ½ e^j ≤ ½ e^j,
+a contradiction. So c_j ∉ W for every j ∈ N. HOLDS.
+
+(3h) The refutation, for every m. W is a 0-neighborhood of S^∞ containing no c_j, so c_j ↛ 0 in S^∞. For any m ∈ R, c_j ∈ S^{−∞} ⊂ S^m, and W ∩ S^m is a 0-neighborhood of S^m for the topology induced by S^∞ (that is what "the topology of S^∞ on S^m" means, and (3e) shows W ∩ S^m is a 0-neighborhood there); no c_j lies in it, so c_j ↛ 0 in (S^m, S^∞-topology), whereas c_j → 0 in (S^m, C^∞-topology) by (3a). The two topologies differ on S^m for EVERY m ∈ R (and every nonempty U, every l ≥ 1): the second assertion of Cor. 3.4 is FALSE for every m. Since S^∞ ⊂ C^∞ is continuous by (3.3), the S^∞-topology on S^m is in fact strictly finer than the C^∞-topology. HOLDS.
+
+(3i) "No regularity of S^∞ is used" — correct. Steps (3a)–(3h) use only: the definition of S^∞ as the locally convex inductive limit (p. 16, pp. 4–5), the definition (3.1) of one seminorm of each S^k, and the definition of the absolutely convex hull. No regularity, bounded/sequential retractivity, Hausdorffness, or acyclicity of S^∞ is invoked. (Contrast Remark 3.8, p. 18, whose argument that a_m ↛ 0 in S^∞ does rely on "S^∞(U × R^l) is sequentially retractive (Corollary 3.6)".) HOLDS.
+
+Minor presentational points (not errors, no repair needed): the note writes S^∞ = ind_k S^k over k ∈ N where the paper's union is over m ∈ R — justified by cofinality and by the paper's own p. 5 remark, and made explicit in the companion §4.1; the strict inequality in (3g) tacitly uses c_j ≠ 0; the bound in (1d) needs N ≥ r, which is implicit in "N → ∞".
+
+Ruling on witness (c): HOLDS. (Second assertion of Cor. 3.4 FALLS, for every m.)
+
+## Item 4. Does the external assessment describe witnesses (a), (b), (c) accurately?
+
+Checked sentence by sentence against the note and the published/v3 text (the external reader had arXiv v3; lines 715–812 of a fresh pdftotext extraction of `fetched-r3/r3s-38-…v3….pdf` show (3.1), (3.4), (3.5), Prop. 3.2 with its proof including the failing sentence, Prop. 3.3 and Cor. 3.4 with its proof verbatim identical to the published pp. 15–17, so the reader's copy carried the same statements).
+
+– "The paper defines the full symbol topology using the seminorms (3.1), then introduces the weaker-looking seminorms (3.4) and (3.5), and claims that those latter seminorms still describe the topology." Accurate (Item 0).
+– (a): "Your translated bump g_N(x,ξ)=θ(ξ−Ne_1) is exactly the right kind of witness. It goes to zero for the local C^∞-type seminorms and for the tail seminorms (3.5), while a sufficiently high ξ-derivative makes the genuine symbol seminorm blow up. Thus g_N→0 in the proposed weaker topology but is unbounded in S^m. That directly contradicts Proposition 3.2 and the first assertion of Corollary 3.4." Accurate in every clause (Item 1), and correctly limited to the FIRST assertion of Cor. 3.4.
+– "The paper's actual statement is that (3.4) and (3.5) describe the topology, followed by the claim that S^{m'} and C^∞ have the same topology on S^m." Accurate (p. 16, p. 17).
+– (b): "The finite sums b_j=Σ_{i=1}^j (1+iR)^{m+1}θ(ξ−iRe_1) are Cauchy for the weaker topology, but their C^∞-limit is not in S^m. The paper's proof of completeness explicitly extends the proposed seminorms to the completion and then asserts that the image remains in S^m. Your construction attacks exactly that step." Accurate (Item 2). Its localization is one sentence coarser than the note's: the first false step is the seminorm identity ‖φ(a)‖′ = ‖a‖′ (p. 17, line 2), from which "a ≡ φ(a) ∈ S^m" is then drawn; the assessment names the conclusion rather than the identity. Not an inaccuracy. The assessment does not address whether (b_j) could have some other limit in S′^m; that gap in its reasoning is closed by Item 2d (Hausdorffness of C^∞), so its endorsement is right.
+– (c): the assessment nowhere mentions the sequence c_j = e^jθ(ξ − je_1), the hull neighborhood W, or the second assertion of Cor. 3.4 by name; its bottom line lists "Corollary 3.4" among the "substantially convincing" witnesses without distinguishing the two assertions. So on (c) the assessment is silent rather than wrong: it implicitly endorses a refutation whose mechanism it did not describe or check. Item 3 shows that refutation is correct, so the endorsement is right, but a reader should not take the assessment as an independent verification of (c).
+– "The paper really does make those topology-coincidence claims." Accurate for Prop. 3.2 and Cor. 3.4 (both assertions), verbatim quotations in Item 0.
+
+Ruling on Item 4: HOLDS (accurate on (a) and (b); silent, not wrong, on (c)).
+
+## Verdict (final)
+
+HOLDS — for all three witnesses and for the external assessment's description of them.
+
+Machine clock at close: see the line below.
+Sun Sep  6 12:32:06 IST 2026
