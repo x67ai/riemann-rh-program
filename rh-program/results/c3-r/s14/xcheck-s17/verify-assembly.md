@@ -9,6 +9,15 @@ Default ruling FALLS/UNDECIDED.
 
 (Report appended item by item as the work proceeds.)
 
+## Verdict
+
+**HOLDS-WITH-REPAIR.** Items 1, 3, 4, 5, 6, 7 HOLD; Item 2 (assembly) HOLDS-WITH-REPAIR — the "steps are
+Fréchet" assertion is unsupported for A^m(M) (p. 38 calls it only an "LCS") and must be filled, cheapest by
+citing Cor. 6.38 + Remark 6.41. No counterexample to any step of §9.6–9.7 or §10 was found. I AGREE with
+every ruling of `refute-assembly.md`; I DISAGREE with its implicit clean bill for two sentences (the
+companion's c-sign in §9.6 and the note's dangling "on which" in the Claim-6.46 clause), and I add four
+findings it missed. Full statement in the closing "## Verdict" section.
+
 ## Item 1 — companion §9.6, the b-collar model
 
 ### 1a. Change of variable (recomputed from scratch)
@@ -322,3 +331,161 @@ wish to acknowledge Remark 3.7, since the authors will notice that their own rem
 
 **Ruling for Item 5: HOLDS. AGREE with referee 1.**
 
+## Item 6 — companion §10.4, Cor. 6.27 (p. 41) and Cor. 7.22 (p. 58)
+
+**Statements and printed proofs, verbatim.** p. 41: "Now the following analogs of Corollaries 6.21 and 6.22
+hold true with formally the same proofs, using Corollaries 6.21, 6.22 and 6.26. **Corollary 6.27** For
+m < m′, m″, the topologies of K^{m′}(M) and K^{m″}(M) coincide on K^m(M)." p. 58: "Thus we get the
+following consequences of Propositions 6.24 and 6.25 and Corollaries 6.26 to 6.28. … **Corollary 7.22** For
+m < m′, m″, the topologies of K^{m′}(M,L) and K^{m″}(M,L) coincide on K^m(M,L)." So both printed proofs
+do route through Cor. 6.21 (hence Cor. 4.5, hence Cor. 3.4), as the note says. ✓
+p. 59: "**Proposition 7.26** The map (7.36) is a TVS-isomorphism, which induces TVS-isomorphisms
+⊕_{m<−s−1/2} C^1_m → K^{(s)}(M,L) (s < −1/2)", where (7.36) is "⊕_{m=0}^∞ C^1_m → K(M,L), where
+C^1_m = C^∞(L; Ω^{−1}NL) for all m ∈ N_0", the restriction of (7.24) built from (7.22)–(7.23) (u ↦ ∂_x^mδ^v_L).
+I read its whole proof (pp. 59–60): Prop. 7.7, (4.17), (7.1), (2.19), Lemma 7.25, elliptic regularity, and the
+open mapping theorem with Cor. 7.21. **No coincidence statement.** ✓ So every element of K(M,L) is a
+*finite* sum Σ_k ∂_x^kδ_L ⊗ v_k with v_k ∈ C^∞(L; Ω^{−1}NL). ✓
+
+**Local symbol (recomputed).** Codimension one (§7), adapted chart (x,y), L = {x = 0}, (4.8)
+a(y,ξ) = ∫e^{−ixξ}u(x,y)dx. For u = ∂_x^kδ(x)v(y): a(y,ξ) = (−1)^k∂_x^k(e^{−ixξ})|_{x=0}v(y) = (−1)^k(−iξ)^kv(y)
+= (iξ)^k v(y) — a polynomial in ξ of degree **exactly** k. ✓
+Cut-off: ⟨f∂_x^kδ, φ⟩ = (−1)^k(fφ)^{(k)}(0) = Σ_{i≤k}C(k,i)(−1)^{k−i}f^{(k−i)}(0)·(−1)^iφ^{(i)}(0), so
+f·∂_x^kδ = Σ_{i≤k}C(k,i)(−1)^{k−i}(∂_x^{k−i}f)|_{x=0}∂_x^iδ. ✓ (companion's formula verified). Hence the
+symbol of f_j u is Σ_{i≤k_0}(iξ)^i w_{j,i}(y), w_{j,i} = Σ_{k≥i}C(k,i)(−1)^{k−i}(∂_x^{k−i}f_j)(0,y)v_k(y) ∈ C_c^∞,
+**top coefficient w_{j,k_0} = f_j(0,y)v_{k_0}(y)**.
+
+**Threshold — is "k > m̄" exactly right?** Σ_{k≤k_0}(iξ)^kw_k ∈ S^{m̄} ⟺ w_k = 0 for k > m̄:
+(⇐) |∂_y^α∂_ξ^β[(iξ)^kw_k]| ≤ C‖∂^αw_k‖_∞|ξ|^{k−β} (zero for β > k), times (1+|ξ|)^{β−m̄} gives
+≤ C(1+|ξ|)^{k−m̄} ≤ C. (⇒) with k_1 > m̄ maximal and w_{k_1}(y_0) ≠ 0, |a(y_0,ξ)|(1+|ξ|)^{−m̄} ∼
+|w_{k_1}(y_0)||ξ|^{k_1−m̄} → ∞. Globally: supp h ⊂ M∖L (p. 22, verified) ⟹ h ≡ 0 on a neighborhood of L ⟹
+hu = 0 and Σ_jf_j = 1 on L, so some f_j(0,y_0) ≠ 0 and w_{j,k_1} ≢ 0. Hence
+**K^m(M,L) = {Σ_{k≤m̄} ∂_x^kδ_L⊗v_k} exactly**, with m̄ = m + n/4 − 1/2 by (4.9) with n′ = 1.
+Two independent cross-checks that the threshold is not off by a constant:
+ (i) (7.37) says ∂_x^kδ_L ∈ K^{(s)} ⟺ k < −s − 1/2; combined with (4.12) K^{(−m−n/4+ε)} ⊂ K^m ⊂
+     K^{(−m−n/4−ε)} this pins the threshold into (m̄−ε, m̄+ε] for every ε > 0, i.e. exactly m̄ (the direct
+     symbol computation settles the boundary case k = m̄, which (4.12) cannot).
+ (ii) a = 1 ∈ S^0 for δ_L gives δ_L ∈ I^m ⟺ m ≥ 1/2 − n/4, the standard order of the delta of a
+     codimension-one submanifold under the convention m̄ = m + n/4 − n′/2 of (4.9).
+**Not off by a constant. The note's "iff v_k = 0 for k > m̄" is exactly right.** ✓
+
+**Coefficient topology on polynomials — proved both ways.** P_{k_0}(K) := {Σ_{k≤k_0}(iξ)^kw_k : w_k ∈ C_c^∞(K)},
+m̄_1 ≥ k_0, ξ ∈ R.
+ (≤) N_{m̄_1}(a;(α,β)) ≤ Σ_{k≥β}(k!/(k−β)!)‖∂^αw_k‖_∞ sup_ξ|ξ|^{k−β}(1+|ξ|)^{β−m̄_1} ≤ CΣ_k‖∂^αw_k‖_∞,
+     because (1+|ξ|)^{k−m̄_1} ≤ 1 for k ≤ k_0 ≤ m̄_1.
+ (≥) ∂_ξ^{k_0}a = i^{k_0}k_0!w_{k_0}(y) identically, so evaluating at ξ = 0 (weight (1+0)^{k_0−m̄_1} = 1)
+     ‖∂^αw_{k_0}‖_∞ ≤ N_{m̄_1}(a;(α,k_0))/k_0!; then a − (iξ)^{k_0}w_{k_0} ∈ P_{k_0−1} has
+     N_{m̄_1}-seminorms ≤ N_{m̄_1}(a;(α,β)) + C‖∂^αw_{k_0}‖_∞, and downward induction gives
+     ‖∂^αw_k‖_∞ ≤ C max_{β≤k_0}N_{m̄_1}(a;(α,β)) for all k ≤ k_0.
+So on P_{k_0} the S^{m̄_1}-seminorms are equivalent to the C^∞(K)-seminorms of the coefficient tuple, for
+**every** m̄_1 ≥ k_0. ✓ **PROVED, not merely plausible.**
+
+**Conclusion.** For u ∈ K^m(M,L): hu = 0 and every a_j ∈ P^{(j)}_{k_0} with the *same* k_0 = ⌊m̄⌋ ≤ m̄ < m̄′, m̄″.
+The I^{m′}- and I^{m″}-topologies on K^m(M,L) are the initial topologies of the same map (4.10) into
+C^∞(M∖L) ⊕ ⊕_jS^{m̄′}_{K_j} and ⊕_jS^{m̄″}_{K_j}, and both restrict on the image to the coefficient topology.
+Hence they coincide: **Cor. 7.22 holds.** (If m̄ < 0 then K^m = 0 and it is vacuous.) ✓
+
+**Addition referee 1 missed — Cor. 6.27 need not go through (6.49).** The note and companion derive
+Cor. 6.27 from Cor. 7.22 "via (6.49)". (6.49) is printed as a consequence of **Corollary 6.20**, which is proved
+from Prop. 6.19, which is proved "using Proposition 6.18 and **Corollary 6.16**" — i.e. via one of the very
+statements the note is repairing. There is no circularity (9.7's proof of Cor. 6.16 uses none of this), but the
+dependency is avoidable and the note reads better without it: by (6.47) Ȧ^m(M) **is defined** as
+I^m_M(M̆,∂M) ⊂ I^m(M̆,∂M), and K^m(M) := Ȧ^m_{∂M}(M) is then literally I^m_{∂M}(M̆,∂M) = K^m(M̆,∂M),
+with the same subspace topology — no appeal to Cor. 6.20 needed at the level of the symbol filtration.
+Recommended: cite **(6.45)/(6.47)** rather than (6.49) in that clause of the note.
+
+**Cosmetic, confirming referee 1:** "polynomials in ξ with the v_k as coefficients" is literally true only before
+the cut-off f_j; afterwards the coefficients are the w_{j,i} above. Degree and leading coefficient are
+unchanged, so nothing in the argument depends on it.
+
+**Ruling for Item 6: HOLDS. AGREE with referee 1**, plus the (6.49) → (6.47) simplification.
+
+## Item 7 — the note's §1 sentence, and the external reader's proposed softening
+
+**The sentence:** "The main package of the paper (acyclicity and retractivity of I, A, Ȧ, 𝒦, J, K for compact
+M, and the exact sequences) stands once this is done."
+
+**What §9–§10 actually deliver (on my items).** (M*) for the six symbol-order spectra ⟹ acyclicity ⟹
+(Fréchet steps, p. 5, [39, Prop. 6.4]/[39, Cor. 6.5]) complete, regular, boundedly/compactly/sequentially
+retractive; plus the Montel clauses (Item 2f); plus the two non-acyclicity consumers, Claim 6.46/Prop. 6.45
+and Prop. 8.8 (Items 3–4); plus Cors. 6.27/7.22 (Item 6); plus Cor. 3.5 and thence Cor. 4.6 (Item 5).
+The remaining exact sequences are Cor. 6.23 ("Proposition 6.8 has the following direct consequence", p. 41)
+and Cor. 7.30 (from Prop. 7.29): both rest on open-mapping arguments (Props. 6.2, 6.8, 7.4, 7.29 — read;
+Prop. 7.4's proof, quoted in Item 4, is a chase in (7.21) plus the open mapping theorem for
+webbed/ultrabornological spaces), with no coincidence input. So the parenthetical list is covered.
+All of this is **conditional on** (i) the interpolation inequality of §9.4 (another agent's item; I re-verified
+the identical exponent bookkeeping in its b-version, Item 1c) and (ii) the Fréchet fill of Item 2e.
+
+**Consumers I checked by exhaustive grep** (every internal citation of Prop. 3.2, Cor. 3.4, Cor. 4.5,
+Prop. 6.12, Cor. 6.14, Cor. 6.21, Cor. 7.13 in the whole paper): pp. 17 (Cor. 3.5), 18 (Cor. 3.6, Rem. 3.8),
+23 (Cor. 4.5, Cor. 4.7), 39 (Rem. 6.17), 40 (Cors. 6.21, 6.22), 41 (Cors. 6.27, 6.28), 48–49 (Claim 6.46),
+56–58 (Cors. 7.13–7.15, 7.22, 7.23), 64 (Prop. 8.8). Nothing outside the note's §2 list and §4 re-routing.
+**One observation the note does not record** (outside my item, flagged for the sponsor): Cor. 4.7's printed
+proof (p. 23) is "Like in Corollary 3.6, by Corollaries 4.2 and 4.5 … I(M,L) is semi-Montel because
+C^∞(M∖L) and S^∞(N*L_j; ΩN*L_j) are Montel spaces (Corollary 3.6)" — i.e. it invokes not only the false
+Cor. 4.5 but also the **Montel clause of Cor. 3.6 over the generally non-compact base L_j**, whose status the
+note's §2 leaves open (§2 lists only the acyclicity and bounded-retractivity clauses of Cor. 3.6 as false).
+This does no harm — §9.7's Montel argument goes through the compactly based S^{m̄}_{K_j} and bounded
+retractivity and needs neither — but the note's §4 sentence "and then of their Montel clauses" is doing more
+work than a reader will realize. A half-clause would help.
+
+**Verdict on the sentence.** As a claim about the mathematics it is **justified**, conditional on (i) and (ii).
+As a claim about what the *note* demonstrates, the external reader is right: on the note's face (interp) is
+asserted with a one-line justification and the Fréchet property of the steps is asserted with none. The
+proposed softening ("The principal conclusions appear recoverable after replacing the false
+topology-coincidence statements by bounded-set or compact-base estimates") is therefore an accurate
+description of the note-as-shipped, but it understates what has been derived and checked. **The softening is
+not mathematically warranted; it is a presentational choice.** Cheapest honest fixes, in order:
+ 1. send the companion alongside the note (with the Item 2e fill and the Item 3e wording fix);
+ 2. or append "(derivations available on request)" to the §1 sentence, not only to §5;
+ 3. or, if the sentence must stand alone, add "for compact M and compact L" and a clause excluding the
+    non-compact-base clauses of Cor. 3.6 and of the p. 18 bundle extension — §2 already excludes them, but
+    the §1 sentence is what a busy author will read.
+
+**Ruling for Item 7: HOLDS** (sentence justified by §9–§10, conditional on 9.4 and the Fréchet fill);
+softening optional. **AGREE with referee 1**, with the Cor. 4.7 observation added.
+
+## Verdict
+
+**HOLDS-WITH-REPAIR.** Items 1, 3, 4, 5, 6, 7 HOLD; Item 2 (assembly) HOLDS-WITH-REPAIR. I re-derived
+every inequality and re-checked every quoted page against the published text (and, for pp. 48–49, against
+the rendered PDF, because pdftotext destroys the primes). **I found no counterexample to any step of
+§9.6, §9.7 or §10, and I confirm referee 1's six HOLDs and its one repair.**
+
+Agreements and disagreements with `refute-assembly.md`, item by item:
+- Item 1: **AGREE (HOLDS).** Same exponents. **Added:** the companion's "the inequality of 9.4 holds with
+  w := e^ϱ" is false on a literal reading (c would be negative); the substitution is m_{9.4} ↦ k. One
+  sentence of the companion should say so.
+- Item 2: **AGREE (HOLDS-WITH-REPAIR).** The Fréchet gap is real — p. 38 calls A^m(M) only an "LCS", and
+  p. 5 conditions [39, Prop. 6.4] and the "property of the LF-space" statement on Fréchet steps.
+  **Narrowed:** the fill is needed only for A^m(M) (hence J^m); B^m_K and S^m_K need none, since the
+  transfer rule uses only (M*) of the target. **Cheapest fill:** cite Cor. 6.38 + Remark 6.41 (A^m(M) ≡
+  x^mH_b^∞(M), Fréchet, independent of g) — a citation instead of a proof; I verified by grep that
+  §§6.19–6.21 are free of the broken statements. A second route (mutual cofinality with (A^{(s)}), Fréchet
+  by Prop. 6.6, plus a two-line transfer of the p.-4 criterion along cofinality) is given in 2e(c).
+- Item 3: **AGREE on the ruling (HOLDS); DISAGREE that the note's sentence is clean.** Referee 1 could not
+  have verified the index bookkeeping from the .txt at all (pdftotext prints A^m and A^{m′} identically —
+  even (6.38) comes out as "A^m ⊂ A^m"); I confirmed the printed "For any m′ > m" and "W ⊂ A^{m′}(M)" and
+  "E_{m′}: A^m(M) → Ȧ^{(s)}(M)" from the rendered page. The note's index remark is correct. **But** the
+  note's own replacement sentence has a dangling relative clause — "bounded in some A^m(M), on which the
+  topologies … coincide" — whose nearest antecedent makes the note assert exactly the false Cor. 6.14.
+  One-word fix given in 3e. Also noted: p. 48's "By Corollary 6.8" is a slip for Proposition 6.8.
+- Item 4: **AGREE (HOLDS).** Added: §10.2 should repeat the m′ < m index correction explicitly.
+- Item 5: **AGREE (HOLDS).** Leibniz bound re-derived and independently re-run numerically (my own script,
+  two genuine S^1 symbols, β up to 3, edge artifacts removed). **Added:** the paper's own Remark 3.7, p. 18
+  ("Another proof of Corollary 3.5 could be given like in Proposition 6.10") already anticipates the repair;
+  the note should acknowledge it.
+- Item 6: **AGREE (HOLDS).** Threshold k ≤ m̄ confirmed exact by two independent cross-checks ((7.37)+(4.12);
+  the standard order of δ_L). Coefficient-topology lemma proved in both directions. **Added:** Cor. 6.27 is
+  better derived from **(6.45)/(6.47)** than from (6.49) — (6.49) rests on Cor. 6.20 ← Prop. 6.19 ←
+  **Cor. 6.16**, i.e. on one of the statements being repaired (no circularity, but an avoidable dependency).
+- Item 7: **AGREE.** Added the Cor. 4.7 observation (its printed Montel proof also invokes Cor. 3.6 over a
+  non-compact base).
+
+Net recommendation to the sponsor: the companion's §§9.6, 9.7, 10 survive hostile re-derivation. Before
+sending, make four edits — (a) the A^m-Fréchet citation in §9.7; (b) the c-sign sentence in §9.6; (c) the
+"on which" wording in the note's §4 Claim-6.46 clause; (d) swap (6.49) for (6.45)/(6.47) in the Cor. 6.27
+clause. (a) is mathematically necessary; (b)–(d) are correctness-of-reading matters that a hostile author
+would seize on.
+
+Finished: machine clock below.
+Sun Sep  6 13:34:08 IST 2026
