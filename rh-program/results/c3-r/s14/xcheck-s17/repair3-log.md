@@ -184,3 +184,35 @@ The internal .md keeps its apparatus and received C1–C9 with dated "[corrected
   5. Item 1: companion-attached variant, verbatim. Items 2, 4, 6, 7, 8, 9 (both optional clauses), 11 (bibliography and the two other relabelings): verbatim.
 - Dates: \date and §5 already read September 6, 2026 (today); unchanged.
 - Nothing committed by this agent; the auto-commit watchdog committed the note at 15:00 IST (75c1148) and the .tex/.pdf files at 15:10 IST (711dbfd); the .md and this log await the next auto-commit.
+
+## Round 2 — repair after `verify3-O.md` (verdict FIX-FIRST; exactly one fix, in the companion §9.6)
+
+Repairer: Session 17 repair agent, round 2 (Fable 5.1). Started 2026-09-06 15:40 IST.
+Input: `verify3-O.md` — its single fix, line 252 of `alkl23-derivations.tex`: the two b-model sup constants `e^k`, `e^{k''}` → `e^{|k|}`, `e^{|k''|}`. The note was ruled clean and is not touched.
+
+### Verification before the edit (published text and recomputation, not the report's word)
+- Published text p. 38, §6.10 (`novelty/ALKL-2024-published.txt`, lines 2046–2060, opened): "For every m ∈ R, let A^m(M) = { u ∈ C^{−∞}(M) | Diff_b(M) u ⊂ x^m L^∞(M) }" and "(6.38) A^m(M) ⊂ A^{m'}(M) (m' < m)". So the b-model B^{−k}_K models A^{−k} with k ∈ R, and k < 0 (the m > 0 part of the filtration) does occur — the reader's premise holds.
+- Recomputation: N^b_{−k}(v;0) = sup e^{−kϱ}|v| = sup w^{−k}|v|, so on the box Q, |v| ≤ (w′)^k N^b_{−k}(v;0) with w′ = e^{ϱ′} ∈ [w, ew] (Nh = Nw^{−c} ≤ 1 once w ≥ N^{1/c}, as the text says). For k ≥ 0, (w′)^k ≤ e^k w^k — the printed bound. For k < 0, (w′)^k ≤ w^k while e^k w^k < w^k, so the printed inequality can fail (a v whose weighted sup sits at the corner ϱ′ = ϱ). e^{|k|} ≥ max(e^k, 1) covers both signs; identically for k″. The two exponents, the R-regime bound and the b-model inequality are unaffected (the constant is absorbed in C); §9.4's analogues already read 2^{|m|} and 2^{|m″|+Nl}. The fix is correct; applied.
+- Occurrences: `grep -F` for `e^k` and `e^{k` in `alkl23-derivations.tex` hits only line 252 (the target string; the line's other hit is the definition's `e^{m\varrho}`). The internal `alkl23-note-derivations.md` (§9.6, line 188) carries neither sup bound, so it needs no matching edit — as the reader said.
+
+### Edit
+- R2-1: `alkl23-derivations.tex` line 252; old string present exactly once (Python `str.count` = 1 and `grep -cF` = 1) before the edit; replaced by the reader's new string verbatim. `git diff`: one line changed; the two fragments are exactly `e^kw^k` → `e^{|k|}w^k` and `e^{k''}w^{k''}` → `e^{|k''|}w^{k''}`.
+
+### Builds (pdflatex twice each, TeX Live 2026, `-interaction=nonstopmode -halt-on-error`)
+- `alkl23-derivations.pdf`: both passes exit 0; 0 errors (`^!`), 0 "Warning" lines, 0 undefined references or citations, 0 "??" in pdftotext; 11 pages (unchanged); 513802 bytes.
+- `alkl23-note.pdf`: rebuilt from the unchanged `alkl23-note.tex`; both passes exit 0; 0 errors, 0 Overfull/Underfull boxes, 0 warnings, 0 "??"; 4 pages (unchanged).
+- Correction to the record on box warnings in the companion log: the log carries 5 Overfull and 16 Underfull `\hbox` lines — two overfull of 8.2 pt "in alignment at lines 41--45" and "45--89" (the §0 longtable) and all 16 underfull (badness 5050–10000, table cells, source lines 47–87) inside that table; plus overfull boxes of 36.6 pt (display "detected at line 145", §7 item 5), 9.7 pt (lines 186–187, §8) and 26.5 pt (lines 235–237, §9.4(ii)). The committed pre-fix log (HEAD 7d6eefd) carries the identical 5 + 16, so none was introduced by this edit and none is at line 252. The "0 Overfull/Underfull boxes" statements in Task 4 above and in `verify3-O.md` were miscounts: this log is not valid UTF-8, and BSD `grep -c` prints nothing on it unless given `-a` (reproduced here on the first attempt). Not repaired — outside the listed fixes; flagged in the return summary for the next round to decide.
+
+### pdftotext and render checks of the fixed line
+- §9.6 falls on p. 9 of the companion. pdftotext (raw) of that page: "no gain from ϱ-derivatives: supQ |v| ≤ e|k| wk N−k …" — the |k| is present (one hit for "e|k|" in the whole PDF).
+- p. 9 rendered at 300 dpi (pdftoppm), the line located by `pdftotext -bbox`, cropped and read: "sup_Q |v| ≤ e^{|k|} w^k N^b_{−k}(v;0), sup_Q |∂^{Nχ_S} v| ≤ e^{|k″|} w^{k″} N^b_{−k″}(v;Nχ_S)" — absolute-value bars around k and k″ in both exponents, double primes on k″, subscripts −k and −k″ intact; the surrounding exponent sentence and the b-model inequality unchanged. No introduced glyph error.
+
+### Working tree
+- Modified relative to HEAD: `alkl23-derivations.tex`/`.pdf`/`.log`, `alkl23-note.pdf`/`.log` (rebuild only — `alkl23-note.tex` and `alkl23-note-derivations.md` are byte-identical to HEAD). Nothing committed by this agent; the watchdogs commit.
+- The reader's two cosmetics (the note's §4 "d" vs §3(f)'s "n"; the companion footnote's "this note") left alone, as instructed ("no action needed").
+- Old (HEAD) vs new companion log, pdfTeX banner and timestamps stripped, LC_ALL=C diff (raw):
+      646c646
+      < Output written on alkl23-derivations.pdf (11 pages, 513755 bytes).
+      ---
+      > Output written on alkl23-derivations.pdf (11 pages, 513802 bytes).
+- Finished: 2026-09-06 15:44 IST.
