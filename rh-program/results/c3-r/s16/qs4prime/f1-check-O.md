@@ -764,6 +764,17 @@ Reading (iii)′, so the gate should say "a leaf of finite type with χ = +1, i.
   it rather than hide it; every construction of leafwise Fréchet topologies in the literature (Deninger's
   own Theorem 5.4 estimates included) uses uniform convergence of leafwise derivatives, which contains
   the sup-norm.
+  **[Session 17, 2026-09-06: reliance closed — as printed for foliated manifolds; narrowed to one named source
+  for foliated spaces.** Report: `f1-check-C0-seminorm-s17.md` (same directory). Replacement sentence:
+  "That the Fréchet topology on A^n_F(X) has the C⁰ sup-norm among its seminorms — PRINTED for foliated
+  manifolds: Deninger's 'natural Fréchet topology' is the C^∞ topology of C^∞(M; ΛF) (ÁLKL memoir
+  arXiv:2402.06671v2 §1.1 p. 1, §2.1.4 p. 11 with the seminorms (2.1.2) p. 10, §3.2.1 p. 82; ÁLKL
+  arXiv:1905.12912v3 §2.1 p. 4, §4.10.1 p. 23), and on compact M its defining seminorms ‖·‖_{C^m}
+  (= ‖·‖_{C^m_ub}) begin with the sup-norm ‖·‖_{C^0} = sup_M |u| (arXiv:1905.12912v3 §3.2 p. 11: 'if M is
+  compact, then the C^m_ub topology is just the C^m topology'; memoir §2.4.3 p. 28). For foliated spaces
+  (Deninger p. 29) the same family with leafwise derivatives only is Moore–Schochet 1988 Ch. II (Deninger's
+  [33]), not on disk — that half remains recalled, now with a named printed source." Nothing in §2.1(a)
+  changes.]
 
 **Not checked, and out of scope:** Leichtnam 2008 §5.1 (the adjudicator's reading is not among my
 targets); ALKL's memoir; the claim that Leichtnam prints no compactness for S_K; Duminy and Hurder
