@@ -1408,3 +1408,9 @@ Sponsor, verbatim in substance: *always put things that I need to fetch in FETCH
 ### 12:07 IST (2026-09-06) — sponsor's pre-send check: `misc/1905.12912v3.pdf`
 
 The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian foliations of bounded geometry*, arXiv:1905.12912v3 (2020, tribute to Deninger). Orchestrator's read (text extraction; Introduction pp. 1–4; term scan): it is the analytic prerequisite of the memoir (leafwise Hodge decomposition, smoothing operators of simple foliated flows) and announces the conormal complex I(M, M⁰; ΛF) and its exact sequences as results of the then-forthcoming [7]; it contains no coincidence, acyclicity, Montel or Wengenroth statement (zero hits) and neither the note nor 2304.00798's affected statements depend on it; the exact sequences it relies on are the ones the W3 adjudication left untouched (Prop. 7.4/7.27). **Verdict: nothing in it bears on the courtesy note; the email can go as written.** Installed as r3s-40 (local-only) and routed; program-side use recorded as Session 17 queue item 5 (the C⁰-seminorm reliance in Theorem A(B)).
+
+## Session 17 — 2026-09-06 (opened 2026-09-06 12:19 IST)
+
+**Focus:** Cross-check of an external (ChatGPT) assessment of `alkl23-note.pdf` relayed by the sponsor; the note's email gate (Session 17 queue item 4) depends on the outcome.
+
+- **2026-09-06 12:19 IST — `alkl23-xcheck-s17` LAUNCHED.** External assessment saved at `results/c3-r/s14/xcheck-s17/external-assessment.md`; brief at `xcheck-s17/BRIEF.md`. Observation before launch: the external reader had only the 3-page PDF; the full proof of the §4 inequality it calls "only sketched" is on disk in `alkl23-note-derivations.md` §9.2–9.5, so the decisive check is whether that companion proof holds. Six refuters (Fable 5.1) in two lanes, each followed by an Opus 5 verify, then a Fable adjudicator; outputs `xcheck-s17/refute-*.md`, `verify-*.md`, `adjudication.md`.
