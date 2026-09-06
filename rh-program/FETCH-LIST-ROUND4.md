@@ -1,0 +1,48 @@
+# FETCH LIST — ROUND 4 (sponsor copy)
+
+**Written:** 2026-09-06 10:16 IST, Session 16 close. **This is the complete, standalone list of what the sponsor needs to fetch** as of Session 16. It consolidates the items that had accumulated in agent reports and trackers during Sessions 14–16 (`results/c3-r/s14/novelty/adjudication.md` §4, `results/c3-r/referee-s14/novelty-adjudication.md` §4, `results/c3-r/s16/qs4prime/adjudication.md` §4, `results/c3-r/s16/novelty/adjudication.md` §4). Rounds 1–3 are closed (`FETCH-LIST-ROUND3.md`).
+
+**Sponsor rule (2026-09-06, binding for every future session):** anything the sponsor needs to fetch is listed ONLY in a `FETCH-LIST-ROUND<n>.md` file like this one — never inside STATUS.md, LOG.md, direction files or other session trackers, which carry at most a one-line pointer here. Agents' reports may still name a SPONSOR-FETCH item where they hit it; the orchestrator moves it into this file at the next harvest.
+
+**Delivery:** drop PDFs (or scans; scans are read by vision) into `fetched-r3/` or a new folder at the rh-program root; the next session verifies each file against its citation (standing order 5) and routes it in `results/corpus-routing.md`. Nothing in this list should be bought before checking the "why" column: only the P1 items block current work.
+
+## Already self-fetched in Session 16 — do NOT fetch
+
+| id | Document |
+|---|---|
+| r3s-29 | S. Hurder, *Foliation geometry/topology problem set* (author's manuscript) |
+| r3s-30 | Álvarez López–Kordyukov–Leichtnam, *Simple foliated flows*, arXiv:1906.06753 v1 |
+| r3s-31 | A. Candel, *Uniformization of surface laminations*, Ann. Sci. ENS (4) 26 (1993) 489–516 |
+| r3s-32 | J. Cantwell, L. Conlon, *Tischler fibrations of open foliated sets*, Ann. Inst. Fourier 31 (1981) 113–135 |
+| r3s-33 | C. Deninger, W. Singhof, *A counterexample for smooth leafwise Hodge decomposition …*, Ann. Inst. Fourier 51 (2001) 209–219 |
+| r3s-34 | D. B. A. Epstein, *Foliations with all leaves compact*, Ann. Inst. Fourier 26 (1976) 265–282 |
+| r3s-35 | É. Ghys, *Laminations par surfaces de Riemann*, Panoramas et Synthèses 8 (1999) 49–95 — **author copy**; journal pagination still to be confirmed (see item 7) |
+| r3s-36 | Kim–Morishita–Noda–Terashima, Münster J. Math. 14 (2021) 323–348 (published) |
+| (results/c3-r/s14/novelty/) | Álvarez López–Kordyukov–Leichtnam, *Topology of the space of conormal distributions*, J. Pseudo-Differ. Oper. Appl. 15 (2024) art. 47 — the PUBLISHED text (CC BY) |
+| (results/c3-r/s16/qs4prime/) | E. Leichtnam, *On the analogy between arithmetic geometry and foliated spaces*, Rend. Mat. Appl. (7) 28 (2008) 163–188 — **author copy via the Wayback Machine**; identification with the journal version unverified (item 8) |
+
+## The list (P1 = blocks current work; P2 = would sharpen a verdict or a citation; P3 = completeness only)
+
+| # | P | Document (exact citation) | Why the program needs it | Where it was flagged |
+|---|---|---|---|---|
+| 1 | **P1** | J. Cantwell, L. Conlon, *Endsets of exceptional leaves; a theorem of G. Duminy*, in *Foliations: Geometry and Dynamics* (Warsaw, 2000), World Scientific, 2002. (Same volume as item 12 — one purchase covers both.) | The next C3-r gate Q-S4⁗ turns on Duminy's theorem (semiproper leaves of an exceptional minimal set have a Cantor set of ends); the program has it only as quoted in Hurder's problem set (r3s-29 §5) and needs the exact statement, its regularity hypothesis and its definition of "semiproper". | Q-S4′ adjudication §4 item 4; STATUS Session 17 queue item 3 |
+| 2 | **P1** | É. Ghys, *Topologie des feuilles génériques*, Ann. of Math. (2) 141 (1995) 387–422 (JSTOR). | Which surfaces occur as leaves of a minimal set — decides the manifold half of Q-S4⁗ alongside Duminy. | Q-S4′ adjudication §5 step 2 |
+| 3 | **P2** | F. Kopei, *A foliated analogue of one- and two-dimensional Arakelov theory*, Abh. Math. Semin. Univ. Hambg. 81 (2011) 141–189, DOI 10.1007/s12188-011-0061-4 (Springer; no arXiv version — the 2006 precursor math/0605184 was read and does not contain the needed material). | The only extended treatment of Deninger's manifold class with compact non-transverse leaves carrying fixed points; bears on Theorem A's printed relatives (N-A, N-D, N-F, N-G). | novelty adjudication §4 item 2 (rated HIGH there) |
+| 4 | **P2** | E. Leichtnam, *An invitation to Deninger's work on arithmetic zeta functions*, in *Geometry, Spectral Theory, Groups, and Dynamics*, Contemp. Math. 387, AMS 2005, pp. 201–236. | Leichtnam's printed axiom list; the one place he might print a REASON for Deninger's caution that (31) "might be too strong" (bears on the novelty of Theorem A(D)). Standing since Session 14. | s14 novelty §4 item 1; s16 novelty §4 item 6 |
+| 5 | **P2** | C. Deninger, W. Singhof, *A note on dynamical trace formulas*, in *Dynamical, Spectral, and Arithmetic Zeta Functions* (San Antonio 1999), Contemp. Math. 290, AMS 2001, pp. 41–55 (MR1868467). | The likeliest printed home of a proof of Deninger's α = 0 remark; would settle whether Theorem A(B)'s mechanism is printed anywhere in the manifold case. | s16 novelty §4 item 1 |
+| 6 | **P2** | M. Farber, *Topology of Closed One-Forms*, Math. Surveys and Monographs 108, AMS 2004, §2.1; and D. Calegari, *Foliations and the Geometry of 3-Manifolds*, Oxford Math. Monographs, OUP 2007, §9.3 (published numbering — the online draft's §9.3 is a different section). | KMNT's own two citations for the rank-one / fibration characterization of a period group; would sharpen the credit line of the length-group kill (IV.13). | s16 novelty §4 item 4 |
+| 7 | P3 | The SMF volume for É. Ghys, *Laminations par surfaces de Riemann*, Panoramas et Synthèses 8 (1999) 49–95 — only to confirm the journal pagination of the author copy r3s-35. | Citation integrity. | this round |
+| 8 | P3 | E. Leichtnam, Rend. Mat. Appl. (7) 28 (2008) 163–188 — the journal version, to confirm the recovered author copy is the published text. | Citation integrity (the program cites §5.1 Assumptions 1]–7] from the author copy). | Q-S4′ adjudication §4 item 2 |
+| 9 | P3 | J. A. Álvarez López, Y. A. Kordyukov, E. Leichtnam, *A Trace Formula for Foliated Flows*, Lecture Notes in Math. 2387, Springer 2026 (the published memoir; the program works from arXiv:2402.06671v1). | Every memoir page number in the record is to the arXiv version and must be re-located before any publication. | s14 referee novelty Cov-3; s16 novelty §4 item 5 |
+| 10 | P3 | H. Komatsu, *Projective and injective limits of weakly compact sequences of locally convex spaces*, J. Math. Soc. Japan 19 (1967) 366–383 (Project Euclid, open access — the API returned an HTML stub to the program's fetcher; a browser download should work). | The cited authority for "compact spectrum ⟹ complete bornological DF Montel" ([ÁLKL23] p. 5); classification only. | s14 novelty §4 item 2 |
+| 11 | P3 | J. Wengenroth, *Acyclic inductive spectra of Fréchet spaces*, Studia Math. 120 (1996) 247–258 (EUDML 216335). | Background for the acyclicity criterion used in the [ÁLKL23] repairs. | s14 novelty §4 item 3 |
+| 12 | P3 | J. A. Álvarez López, Y. A. Kordyukov, *Distributional Betti numbers of transitive foliations of codimension one*, in *Foliations: Geometry and Dynamics* (Warsaw 2000), World Scientific 2002. (Same volume as item 1.) | Residual for the Session-14 claim C5(a). | s14 novelty §4 item 6 |
+| 13 | P3 | H. A. Antosiewicz, J. Dugundji, *Parallelizable flows and Lyapunov's second method*, Ann. of Math. 73 (1961) 543–555; O. Hájek, *Parallelizability revisited*, Proc. AMS 27 (1971) 77–84. | Exact "time function / section" wording behind a citation sentence in the Session-14 record. | s14 novelty §4 item 4 |
+| 14 | P3 | E. M. Mangino, Math. Nachr. 185 (1997) 149–162. | Session-14 claim C6(iii) neighbor. | s14 novelty §4 item 5 |
+| 15 | P3 | A second textbook citation for Epstein's closed-leaf lemma: A. Candel, L. Conlon, *Foliations I*, GSM 23, AMS 2000; C. C. Moore, C. Schochet, *Global Analysis on Foliated Spaces*, 2nd ed., MSRI 9, CUP 2006; G. Hector, U. Hirsch, *Introduction to the Geometry of Foliations*, Part A, Vieweg 1981. | Optional: Epstein 1976 (r3s-34) already settles the point; no proposition number is to be guessed without the book. | s16 novelty §4 item 3 |
+| 16 | P3 | D. Sullivan, *Cycles for the dynamical study of foliated manifolds and complex manifolds*, Invent. Math. 36 (1976) 225–255; J. Plante, *Foliations with measure preserving holonomy*, Ann. of Math. 102 (1975) 327–361. | Background for Ruelle–Sullivan currents / invariant transverse measures (Theorem A); no verdict rests on them. | s16 novelty §4 item 7 |
+| 17 | P3 | zbMATH / MathSciNet reviews of Epstein 1976, Cantwell–Conlon 1981 and KMNT 2021 (if the sponsor has access; MathSciNet itself is permanently closed to the program). | In case a reviewer recorded a statement the papers do not print. | s16 novelty §4 item 8 |
+
+**Closed items carried for the record:** the published JPDOA text of [ÁLKL23] (on disk since Session 14); Ghys 1999 (author copy r3s-35); Hurder's problem set (r3s-29); ÁLKL *Simple foliated flows* (r3s-30). The 2026-09-05 STATUS list is superseded by this file.
+
+**Backup reminder:** `fetched-r3/` now holds 62 files, local-only and gitignored — please keep your own copy.
