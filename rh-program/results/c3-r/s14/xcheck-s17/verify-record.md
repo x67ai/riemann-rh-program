@@ -432,3 +432,353 @@ statement at all, and it is uncited); the v1 equation-label shift (v1 (6.41)/(6.
 (6.42)/(6.43)), which the first referee did not record and which strengthens the case for the
 note's v2/v3 restriction; and the §2.6.7 p.-52-vs-53 point, which I rule harmless.
 Sun Sep  6 14:19:03 IST 2026
+
+---
+
+## ITEM 4 — the public record, re-checked live and independently (2026-09-06, 14:19-14:36 IST)
+
+Every query below I ran myself; I did not reuse the first referee's transcript. Machine clock at
+the start of this item: `Sun Sep  6 14:19:16 IST 2026`.
+
+**1. arXiv 2304.00798.**
+- API (`export.arxiv.org/api/query?id_list=2304.00798`): latest id `http://arxiv.org/abs/2304.00798v3`,
+  `<updated>2024-06-01T07:46:00Z</updated>`, `<published>2023-04-03T08:39:19Z</published>`,
+  `<arxiv:comment>55 pages, index of notation</arxiv:comment>`. **No `journal_ref`, no `doi`.**
+- Abs page submission history, verbatim: "[v1] Mon, 3 Apr 2023 08:39:19 UTC (56 KB) [v2] Sat,
+  29 Jul 2023 06:48:15 UTC (56 KB) [v3] Sat, 1 Jun 2024 07:46:00 UTC (56 KB)". String "withdrawn"
+  occurs 0 times; "Journal ref" occurs 0 times.
+- `https://arxiv.org/abs/2304.00798v4` -> **HTTP 404**; `.../v3` -> HTTP 200.
+
+**2. Crossref REST, `works/10.1007/s11868-024-00617-y`.** The key list returned is
+`['DOI','ISSN','URL','abstract','alternative-id','article-number','assertion','author',
+'container-title','content-domain','created','deposited','funder','indexed',
+'is-referenced-by-count','issn-type','issue','issued','journal-issue','language','license','link',
+'member','original-title','prefix','published','published-online','published-print','publisher',
+'reference','reference-count','references-count','relation','resource','score',
+'short-container-title','short-title','source','subject','subtitle','title','type',
+'update-policy','volume']`. **`update-to` and `updated-by` are absent from the record entirely**;
+`relation` = `{}`; `is-referenced-by-count` = **0**; `update-policy` =
+`https://doi.org/10.1007/springer_crossmark_policy` (the boilerplate Springer policy, present on
+every Springer article, not a correction). `published-online` = 2024-06-09, `published-print` =
+2024-09, `volume` = 15, `article-number` = 47, `deposited` 2024-09-29, `indexed` 2025-02-21.
+
+**3. Crossref reverse direction.** `works?filter=updates:10.1007/s11868-024-00617-y` ->
+`total-results = 0`. Nothing in Crossref claims to update this DOI.
+
+**4. Crossref raw deposit XML** (`transform/application/vnd.crossref.unixsd+xml`) — a channel the
+first referee did not use. The `<crossmark>` block contains only `<crossmark_version>1`,
+`<crossmark_policy>10.1007/springer_crossmark_policy`, the domain `link.springer.com`, and the
+article-history assertions "Received 28 July 2023 / Revised 28 July 2023 / Accepted 7 May 2024 /
+First Online 9 June 2024" plus the CC-BY licence refs. **There is no `<updates>` element and no
+`update_type` anywhere in the deposit.** This is the authoritative record and it is clean.
+
+**5. Crossmark dialog** (`crossmark.crossref.org/dialog?doi=10.1007%2Fs11868-024-00617-y`,
+HTTP 200, 11 240 bytes). Verbatim: `<span class="document-status__title__text">Document is
+current</span>` and `<span class="document-status__subtitle__text">Any future updates will be
+listed below</span>`, inside `<section class="document-status document-status--current">`.
+No update is listed.
+
+**6. Springer landing page** (reached through the idp cookie bounce). Correction / erratum /
+corrigendum / retraction / addendum / "has been updated" banner: **ABSENT**. "Change history"
+section: **ABSENT**. Published: **09 June 2024**. Volume 15, Article number 47 (2024).
+Metrics: **Accesses 2545, Citations 4**.
+
+**7. zbMATH** (`api.zbmath.org/v1/document/7901419`). `id` 7901419, `identifier` **1564.46031**,
+journal article, "J. Pseudo-Differ. Oper. Appl., Paper No. 47, 68 p.", vol. 15 issue 3,
+datestamp 2024-08-26. `editorial_contributions` = one entry with
+`contribution_type: "summary"`, `reviewer: {name: null, sign: null, reviewer_id: null}`, text
+"zbMATH Open Web Interface contents unavailable due to conflicting licenses." -> **no signed
+review**. `links` = DOI + arXiv only -> **no corrigendum link**. `states` =
+`[["o","has open version"],["o","has open version"],["r","item has references"]]` — note the
+absence of the `"c"` ("is cited") state that zbMATH does attach to other records returned by the
+same query, so zbMATH itself records no citing item.
+
+**8. Semantic Scholar** (`graph/v1/paper/DOI:...`): `citationCount` = **0**, `referenceCount` 8,
+`openAccessPdf` HYBRID/CCBY.
+
+**9. OpenAlex** (`W4399476425`): `cited_by_count` = **0**, `is_retracted` = **false**,
+`is_paratext` = false, `publication_date` 2024-06-09, record `updated_date` 2026-09-03.
+
+**10. Unpaywall.** Full key list: `['best_oa_location','data_standard','doi','doi_url',
+'first_oa_location','genre','has_repository_copy','is_oa','is_paratext','journal_is_in_doaj',
+'journal_is_oa','journal_issn_l','journal_issns','journal_name','oa_locations',
+'oa_locations_embargoed','oa_status','published_date','publisher','title','updated','year',
+'z_authors']`. **There is no correction, update-to, updated-by or erratum field in the Unpaywall
+schema at all**; the single `updated` key is the record's own refresh timestamp
+(`2026-09-03T13:36:02Z`). `is_oa` true, `oa_status` "hybrid".
+
+**11. Google Scholar.** The arXiv record shows "Cited by **3**"; the cluster
+(`scholar?cites=8651142310570742795`) lists: (a) "A trace formula for foliated flows", Álvarez
+López / Kordyukov / Leichtnam (ecommons.udayton.edu talk record); (b) "**Analytic Tools**",
+Álvarez López / Kordyukov / Leichtnam, Springer 2026 — chapter 2 of their own book; (c)
+Gilsdorf, "Locally Convex Spaces: Banach Space Theory, Mathematical Physics, and Distribution
+Theory Applications", 2026. **None is an erratum, corrigendum, correction, comment or
+retraction.**
+
+**12. Two further channels neither referee had used, both negative.** (a) arXiv full-text search
+`all:"conormal distributions" AND au:"Alvarez Lopez"` sorted by date descending returns exactly
+**one** entry, 2304.00798v3 — there is no separate correction preprint. (b) A web search for
+`erratum OR corrigendum "Topology of the space of conormal distributions"` returns the article
+and unrelated papers, no correction.
+
+**13. The memoir is now published — independently confirmed.** Crossref
+`works/10.1007/978-3-032-15413-2`: type `book`, title "A Trace Formula for Foliated Flows",
+authors Álvarez López / Kordyukov / Leichtnam, publisher "Springer Nature Switzerland",
+`container-title` ["Lecture Notes in Mathematics"], `created` 2026-05-03, ISBNs 9783032154125 /
+9783032154132. Springer book page: **Lecture Notes in Mathematics volume 2387**, eBook
+**03 May 2026**, softcover 05 May 2026, XI + 228 pages.
+Chapter records: `..._2` = "Analytic Tools", pages **13-99**; `..._5` = "Conormal Leafwise
+Reduced Cohomology", pages **159-176**. Chapter 2's reference `2_CR11` is, verbatim,
+"J.A. Álvarez López, Y.A. Kordyukov, E. Leichtnam, The topology of the space of conormal
+distributions. J. Pseudo-Differ. Oper. Appl. 15-47, 1-68 (2024)" — **the authors' own book cites
+the paper**, with no DOI in the reference string, which is exactly why Crossref's
+`is-referenced-by-count` sits at 0. The arXiv record for 2402.06671 still carries no
+`journal_ref` (latest v2, 2024-02-13).
+
+### Rulings
+
+**The note's §5, sentence by sentence.**
+- "arXiv lists versions v1 to v3 only" — **HOLDS** (submission history + v4 = 404 + API).
+- "the Crossref record of the DOI carries no correction" — **HOLDS**, on four independent
+  channels (REST record, reverse `updates:` filter, raw deposit XML, Crossmark dialog).
+- "zbMATH 7901419 carries no review or corrigendum" — **HOLDS**. (The identifier is right as
+  written: 7901419 is the zbMATH *document id* and `zbmath.org/7901419` resolves. The note does
+  **not** write "Zbl 7901419", so there is nothing to correct there; adding the Zbl number
+  **1564.46031** would nonetheless help a reader.)
+- "Semantic Scholar lists no citing work" — **literally true today (citationCount 0) but
+  misleading. HOLDS-WITH-REPAIR.** Springer's own page says "Citations 4" and Google Scholar
+  lists 3, one of which is the authors' own Springer book chapter. Sending the authors a
+  sentence that implies nobody cites the paper, when their own 2026 book does, is an avoidable
+  embarrassment. Replace with something like: "the DOI-based indexes (Crossref, Semantic
+  Scholar, OpenAlex) record no citing work; Google Scholar lists three, none of them a
+  correction."
+- "Unpaywall listed no correction DOI on September 3, 2026" — **VACUOUS. HOLDS-WITH-REPAIR.**
+  Unpaywall has no correction/update field, so the observation carries no evidence. Delete it,
+  or put in its place the Crossmark line, which does carry evidence: "the Crossmark record reads
+  'Document is current' and lists no update."
+
+**The external assessment's public-record sentence** — "The Springer page still lists the paper
+as the June 9, 2024 version of record, and the arXiv record still points to v3. I did not find a
+published erratum in the searches I ran." — **HOLDS in all three parts**, verified above.
+
+### Ruling on ITEM 4: HOLDS-WITH-REPAIR (two repairs, both in §5, both cosmetic-to-bibliographic).
+AGREE with the first referee on every one of its rulings and on both repairs. I add: the raw
+Crossref deposit XML and the arXiv author search as two further negative channels; the exact
+Unpaywall key list, which is what makes the vacuity claim demonstrable rather than asserted;
+and the LNM 2387 chapter page ranges (13-99, 159-176), which show concretely that the note's
+arXiv page numbers 15 / 38 / 53 / 119 / 122 do not transfer to the book.
+Sun Sep  6 14:25:37 IST 2026
+
+---
+
+## ITEM 5 — everything the external assessment misstates about the NOTE
+
+I read the assessment against `alkl23-note.tex` clause by clause. Ordered by how much each one
+matters.
+
+**The two the task spec suspected are NOT discrepancies. I confirm the first referee here.**
+- "Your u_j = j^{−m′}χ(jx)g(y) is a direct witness against that claim." The note's witness (e) —
+  the *boundary* witness, for Prop. 6.12 / Cor. 6.14 / Cor. 7.13 — is verbatim
+  `u_j=j^{-m'}\chi(jx)g(y)`. The assessment quotes it in the paragraph about Prop. 6.12 and
+  Cor. 6.14, which is the right place. **No error.** (The Cor.-4.5 witness is (d),
+  u_j = j^{n′+m̄′} g(x″)ψ_*(jx′); the assessment simply never quotes it — see D5 below.)
+- Calling the compact-base estimate "(1)". `grep -n 'begin{equation}' alkl23-note.tex` returns
+  exactly one hit (line 64, `\label{interp}`); the other three displays are `\[ … \]`; and
+  `pdftotext alkl23-note.pdf` prints the label as "(1)". **No error.**
+
+**D1 (the most consequential). "your observation that some downstream statements *may remain
+true*".** The note does not hedge. §2: "Cor. 6.27 (p. 41) and Cor. 7.22 (p. 58) **are true**, but
+their printed proofs pass through Cor. 6.21, hence through Cor. 4.5." §4: "Finally, Cor. 6.27 and
+Cor. 7.22 **are true**: by Prop. 7.26 every element of K(M,L) is a finite sum of Dirac layers
+∂_x^k δ_L ⊗ v_k, whose local symbols are polynomials in ξ with the v_k as coefficients, so it
+lies in K^m(M,L) iff v_k = 0 for k > m̄; on polynomial symbols of bounded degree k_0 every
+S^{m̄_1}-topology with m̄_1 ≥ k_0 is the C^∞-topology of the coefficients; Cor. 6.27 is the case
+(M̆, ∂M) via (6.49)." That is an assertion **with a proof attached**, and the proof uses none of
+§4's inequality (1). The assessment converts a proved claim into a conjecture. This is not a
+matter of tone: it is the single place where the assessment's summary of the note is wrong about
+what the note contains.
+
+**D2. "the much stronger assertion that the whole step topology coincides with a C^∞ topology".**
+The paper's false coincidence statements come in two shapes, and this phrase covers only one:
+(A) *symbol-vs-C^∞* — Cor. 3.4, Cor. 6.14, Cor. 7.13 ("the topologies of S^{m′} and C^∞ coincide
+on S^m", etc.); (B) *symbol-vs-symbol* — Cor. 4.5, Cor. 6.21, Cor. 6.27, Cor. 7.22 ("the
+topologies of I^{m′}(M,L) and I^{m″}(M,L) coincide on I^m(M,L)"), where no C^∞ topology appears
+at all. Shape (B) matters more than (A) for the note's argument, because Wengenroth's criterion
+(published p. 4) is literally about shape (B) — "the topologies of X_{k′} and X_{k″} coincide on
+some 0-neighborhood of X_k" — and it is shape (B) that §4's inequality (1) is designed to supply
+on a neighborhood rather than on a whole step. The assessment's framing therefore blurs exactly
+the distinction it is praising the note for drawing.
+
+**D3. The (6.41) / Prop. 6.12 attribution.** See ITEM 2, A2.5. (6.41) is defined on p. 38 as the
+family describing the defining projective topology of 𝒜^m(M); Prop. 6.12 (p. 39) names (6.42) and
+(6.43). Substance unaffected.
+
+**D4. "1. the precise choice of boxes in x and ξ" listed as a gap.** The note *does* give the
+scaling: "on boxes of side ∼(1+|ξ|)^{−c} in x and (1+|ξ|)^{1−c} in ξ in the region 1+|ξ| > R".
+What is absent is the value of c and the proof, not the choice of boxes. Likewise item 4, "the
+dependence of C, R_0": the note's (1) does quantify the structure ("for m<m′<m″ and every γ there
+are a finite set Γ … and constants C, R_0 > 0 such that … (a ∈ S^{m″}_K, R ≥ R_0)"), so what is
+missing is their size, not their dependence. Items 2, 3 and 5 of the assessment's list are fair
+as written. Net: the criticism of §4 is right in substance and overstated by about one item and
+a half.
+
+**D5. "your §4 currently has a credible repair strategy" under-describes §4.** Four of the note's
+§4 repairs are complete arguments that do not use (1) at all, and the assessment does not
+register any of them:
+  (i) Cor. 3.5 proved directly — "for a ∈ S^m and m < m′, ‖a − ρ(ξ/R)a‖_{K,α,β,m′} ≤ C R^{m−m′}
+      … by the Leibniz rule, and a cut-off in x finishes";
+  (ii) Remark 3.8's conclusion obtained from witness (c) without sequential retractivity;
+  (iii) the density Cors. 6.15 and 7.14 re-routed through the paper's own Prop. 6.10 / Cors. 6.39
+      and 7.17 (a route Remark 6.17 and Remark 6.41 already point at);
+  (iv) Cors. 6.27 and 7.22 proved true via Prop. 7.26 (D1 above).
+  Only the acyclicity/retractivity half — and, through it, the Claim 6.46 and Prop. 8.8
+  re-routes and the semi-Montel step of Cor. 3.6 — rests on (1). A reader of the assessment
+  alone would think all of §4 is contingent on the unproved estimate. It is not.
+  The note also carries, in §4, a **freestanding correction to the paper that has nothing to do
+  with the coincidence statements at all** — the index in the printed proof of Claim 6.46
+  ("whose domain is A^{m′}(M) ⊃ A^m(M), so m′ < m rather than m′ > m is the index needed"), which
+  I verified on the rendered p. 48 (ITEM 1). The assessment does not mention it.
+
+**D6. Silence on four of the note's ten §2 items, and on two of its six witnesses.** The
+assessment's bottom line endorses "Proposition 3.2, Corollary 3.4, Corollary 4.5, Corollary 6.14,
+Corollary 6.21, and Corollary 7.13". The note's §2 lists, as false: Prop. 3.2; Cor. 3.4 both
+assertions; the acyclicity and bounded-retractivity clauses of Cor. 3.6 for every non-compact U
+and every l ≥ 1; the p.-18 sentence extending Prop. 3.2 / Cor. 3.4 to bundles and Cor. 3.6 over a
+non-compact base; Cor. 4.5; Prop. 6.12; Cor. 6.14 both assertions; Cor. 6.21; Cor. 7.13 both
+assertions. Never addressed by the assessment:
+  - **witness (f)** — Cor. 3.6 for non-compact U, the boundedness of {b_j} in S^∞ with no step
+    containing it. This is the note's only *non-local* witness, the only one that produces a
+    statement §4 does **not** repair (the note is explicit: compact base support is "exactly what
+    fails in (f)"), and the one that also hits the memoir's §2.1.8 (p. 15), which restates
+    Cors. 3.4–3.6 for arbitrary open U ⊂ R^n.
+  - **witness (c)** — the *second* assertions of Cor. 3.4 and of Cor. 6.14 (the S^∞-vs-C^∞ and
+    A(M)-vs-C^∞ statements), which need a different argument (the absolutely convex hull of
+    ∪_k W_k) than the first assertions.
+  - the **p.-18 bundle-extension sentence**.
+  - the **memoir** restatements (§2.1.8 p. 15, §2.5.10 p. 38, §2.6.7 p. 53).
+Two of the six statements it *does* endorse — Cor. 4.5 and Cor. 6.21 — rest on witness (d),
+which the assessment never quotes or examines. Its endorsement of those two is therefore
+unsupported by anything in its own text.
+
+**D7. A limitation, not an error: it read arXiv v3, so it cannot certify the note's page
+anchors.** "The reader had the note PDF and arXiv:2304.00798v3." Every statement *number* the
+note cites is identical in v3 and in the published article (ITEM 3), so its verifications of the
+statements are sound. But the note cites by **published page**, and the arXiv v3 pagination is
+different (55 pages against 68). The assessment's "The paper really does make those
+topology-coincidence claims" is true, and I verified it against the published text; the
+assessment itself could not have.
+
+**D8 (smallest). "…and then asserts that the image remains in S^m. Your construction attacks
+exactly that step."** The note locates the break one step earlier and more sharply: at the
+identity "‖φ(a)‖′_{K,α,β,m} = ‖a‖′_{K,α,β,m} < ∞" at the top of p. 17, which for its class a
+reads 0 = ∞. Both descriptions point at the same argument; the note's is the precise one.
+
+**One thing the assessment gets right that is worth recording**, because it is the sort of thing
+a hostile reader would try to break and it does not break: every formula it quotes from the note
+— g_N, b_j with c_i = (1+iR)^{m+1}, u_j, and the whole of inequality (1) with its exponents
+−(m′−m)/2 and m″−m′ — is transcribed **exactly**, and its quotation of the note's §1 sentence
+("The main package of the paper … stands once this is done.") is exact.
+
+### Ruling on ITEM 5: HOLDS-WITH-REPAIR (repairs are to the assessment, not to the note).
+Eight discrepancies, none of them fatal to the assessment's overall reading. D1 is a real
+misstatement of the note's content; D2, D5 and D6 are omissions that together make the note look
+thinner and more speculative than it is; D3, D4, D8 are imprecisions; D7 is a limitation the
+assessment itself flags. AGREE with the first referee on the two non-discrepancies and on the
+substance of its list; I add D1's sharpened form (the note *proves* 6.27/7.22, it does not
+conjecture them), the observation that Cors. 4.5 and 6.21 are endorsed without witness (d) ever
+being examined, and D8.
+Sun Sep  6 14:28:01 IST 2026
+
+---
+
+## EXTRA — three glyph checks I ran that the first referee's report does not evidence, all confirming
+
+I rendered published p. 56 at 400 dpi. The paragraph reads, verbatim:
+
+> According to Sects. 6.8 and 7.3, there is a LCHS J(M, L), continuously included in
+> C^{−∞}(M, L), so that (7.10) restricts to a TVS-isomorphism
+>     **π_* : 𝒜(𝑴) ≅→ J(M, L)** ,     (7.26)
+> where 𝒜(𝑴) is defined in (6.29). By (6.33), there is a continuous inclusion
+>     J(M, L) ⊂ C^∞(M\L).
+> We also get spaces J^{(s)}(M, L) and J^m(M, L) (s, m ∈ R) **corresponding to 𝒜^{(s)}(𝑴) and
+> 𝒜^m(𝑴) via (7.26)**. Extend |x| to a function **𝒙** on **M** that is positive and smooth on
+> M\L. Its lift **π^*𝒙** is a boundary defining function of **𝑴**, also denoted by **𝒙**. …
+>     J^{(s)}(M, L) = { u ∈ C^{−∞}(M, L) | Diff(M, L) u ⊂ H′^s(M, L) } ,     (7.27)
+>     J^m(M, L) = { u ∈ C^{−∞}(M, L) | Diff(M, L) u ⊂ **𝒙^m L^∞(M)** } ,
+
+1. **"J^m(M,L) ≅ A^m(𝑴) by (7.26)"** (note, §4) — the paper's own words are "J^m(M,L) …
+   corresponding to … 𝒜^m(𝑴) via (7.26)", with **bold M**. The note's bold 𝑴 is right.
+2. **"(7.27) with Diff(M,L) and 𝒙^m L^∞(M)"** (note, §3(e)) — the second line of (7.27) is
+   exactly `Diff(M,L) u ⊂ 𝒙^m L^∞(M)`: **bold x, ordinary M** inside L^∞. The note matches
+   both weights.
+3. **"𝒙 the extension of |x| to M whose lift is a boundary defining function of the manifold
+   with boundary 𝑴"** (note, §3(e)) — the paper: "Extend |x| to a function **𝒙** on **M** …
+   Its lift π^*𝒙 is a boundary defining function of **𝑴**." Ordinary M for the domain, bold 𝑴
+   for the manifold with boundary. The note matches.
+
+I also confirmed by render that **(6.41) is the last display on p. 38** — "Let {P_j | j ∈ N_0} be
+a countable C^∞(M)-spanning set of Diff_b(M). The topology of 𝒜^m(M) can be described by the
+semi-norms ‖·‖_{k,m} (k ∈ N_0) given by  ‖u‖_{k,m} = ‖P_k u‖_{x^m L^∞} = ess sup_M |x^{−m}P_k u|
+= sup_{M̊} |x^{−m}P_k u| ,  (6.41)" — so the note's "(6.41) … p. 38" is right even though (6.41)
+sits two lines from the page break, and (6.42)/(6.43) are correctly placed on p. 39.
+The note's use of "(6.41) with P = 1" is licensed not by the countable spanning set {P_j} but by
+the sentence the note actually cites — "the projective topology given by the maps
+P : 𝒜^m(M) → x^m L^∞(M) (P ∈ Diff_b(M))", p. 38 — which quantifies over all P ∈ Diff_b(M),
+and 1 ∈ Diff_b(M). The citation is the right one.
+
+Finally, the note's Wengenroth entry ("J. Wengenroth, *Derived Functors in Functional Analysis*,
+Lecture Notes in Mathematics, vol. 1810, Springer, Berlin (2003)") is field-for-field the paper's
+own reference [39] ("Wengenroth, J.: Derived Functors in Functional Analysis. Lecture Notes in
+Mathematics, vol. 1810. Springer, Berlin (2003)").
+
+---
+
+## Verdict
+
+**HOLDS-WITH-REPAIR.** I re-derived all five items independently — a fresh page map of the
+published `.txt`, fresh 400-dpi renders of six pages, fresh `pdftotext` extractions and diffs of
+arXiv v1/v2/v3 and memoir v1/v2, and fresh live queries on eleven public-record channels — and I
+**AGREE with every ruling in `refute-record.md`**. Nothing in the note or in the external
+assessment falls. The repairs are bibliographic and confined to the note's §5 and its memoir
+bibliography entry, plus a short list of imprecisions in the external assessment.
+
+Per item: ITEM 1 **HOLDS** (no citation mismatch anywhere). ITEM 2 **HOLDS-WITH-REPAIR** (the
+assessment's (6.41)/Prop. 6.12 attribution; its two-of-three corollary list for Cor. 6.27).
+ITEM 3 **HOLDS** for the version claim, **HOLDS-WITH-REPAIR** for the memoir entry (now Springer
+LNM 2387). ITEM 4 **HOLDS-WITH-REPAIR** (the Semantic-Scholar sentence is misleading; the
+Unpaywall clause is vacuous). ITEM 5 **HOLDS-WITH-REPAIR**, repairs to the assessment.
+
+**The three repairs that should actually be made to the note**, in priority order:
+1. §5: replace "Semantic Scholar lists no citing work" with "the DOI-based indexes (Crossref,
+   Semantic Scholar, OpenAlex) record no citing work; Google Scholar lists three, none of them a
+   correction" — the authors' own LNM 2387, ch. 2, ref. 2_CR11, cites this paper, and Springer's
+   page shows "Citations 4".
+2. §5: delete "Unpaywall listed no correction DOI on September 3, 2026" (Unpaywall has no such
+   field) and put the Crossmark record in its place: "the Crossmark record reads 'Document is
+   current' and lists no update". Optionally add "Zbl 1564.46031" beside "zbMATH 7901419".
+3. Bibliography: [ALKL24m] is now published — *A Trace Formula for Foliated Flows*, Lecture Notes
+   in Mathematics **2387**, Springer (2026), DOI 10.1007/978-3-032-15413-2, eBook 3 May 2026,
+   XI+228 pp.; ch. 2 "Analytic Tools" pp. 13-99, ch. 5 pp. 159-176. The note's arXiv page numbers
+   (15, 38, 53, 119, 122) do not transfer; cite the book and anchor by section number (§2.1.8,
+   §2.5.10, §2.6.7, §5.2.1, §§5.5.3-5.5.4, all stable), or say explicitly that the pages given
+   are arXiv v2 pages.
+
+**What I add beyond the first referee** (all recorded above with the evidence):
+- the full evidence for the note's Claim-6.46 index remark, verified on the rendered p. 48
+  ("For any **m′ > m**, let E_{m′} : 𝒜^m(M) → 𝒜̇^{(s)}(M)" against (6.38) "𝒜^m(M) ⊂ 𝒜^{m′}(M)
+  (m′ < m)") — a genuine defect of the paper, independent of the topology-coincidence issue;
+- the v1 **equation-label** shift (v1's (6.41)/(6.42) are the published (6.42)/(6.43); v1's
+  (6.60) is the published (6.59)), which strengthens the case for the note's v2/v3 restriction
+  and which the first referee did not record;
+- the complete five-item list of v1-vs-v3 differences in §§3-4, showing that the only *statement*
+  affected is Remark 3.7, which the note does not cite;
+- two further negative public-record channels — the raw Crossref deposit XML (`<crossmark>` with
+  no `<updates>` element) and an arXiv author/title search returning no correction preprint;
+- the exact Unpaywall key list, which turns "the clause is vacuous" from an assertion into a
+  demonstration;
+- the LNM 2387 chapter page ranges, which show concretely that the note's memoir page numbers do
+  not carry over;
+- in ITEM 5: the sharpened form of D1 (the note **proves** Cors. 6.27 and 7.22 true, it does not
+  conjecture them), the observation that the assessment endorses Cors. 4.5 and 6.21 without ever
+  examining witness (d), and D8.
+Sun Sep  6 14:30:12 IST 2026
