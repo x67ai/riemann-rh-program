@@ -12,6 +12,20 @@ copy of the first referee's.
 
 Sun Sep  6 14:01:43 IST 2026
 
+
+## Verdict
+
+**HOLDS-WITH-REPAIR.** Re-derived independently; I AGREE with every ruling in `refute-record.md`.
+Nothing in the note or in the external assessment falls. Per item —
+ITEM 1 (note's citations vs the published text): **HOLDS**, no mismatch anywhere.
+ITEM 2 (assessment's claims about the paper): **HOLDS-WITH-REPAIR**, two imprecisions.
+ITEM 3 (version claims; memoir entry): **HOLDS** for the paper, **HOLDS-WITH-REPAIR** for the
+memoir (now Springer LNM 2387).
+ITEM 4 (public record, live today): **HOLDS-WITH-REPAIR**, two §5 repairs.
+ITEM 5 (assessment vs the note): **HOLDS-WITH-REPAIR**, eight discrepancies listed.
+The full statement of the verdict, the three repairs the note should take, and what this report
+adds beyond the first referee, are at the END of this file under "## Verdict (full)".
+
 ---
 
 ## ITEM 1 — every statement number, page and gist the NOTE cites, checked verbatim
@@ -36,7 +50,7 @@ drops primes, hats and bold — three of the note's quotations turn on exactly t
 | bundle-extension sentence | 993-994 | 18 | 18 | OK |
 | Cor. 4.5 | 1217 | 23 | 23 | OK |
 | Cor. 4.7 | 1238 | 23 | (none) | OK |
-| Sect. 4.3.3 acyclicity exception | 1266-1267 | 23 | 23 | OK |
+| Sect. 4.3.3 acyclicity exception | 1263-1264 | 23 | 23 | OK |
 | Prop. 6.10 | 2016 | 37 | (none) | OK |
 | Prop. 6.12 | 2097 | 39 | 39 | OK |
 | Cor. 6.14 | 2101 | 39 | 39 | OK |
@@ -55,30 +69,30 @@ drops primes, hats and bold — three of the note's quotations turn on exactly t
 | Cor. 7.14 | 3177 | 56 | (none) | OK |
 | Cor. 7.15 | 3183 | 57 | (none) | OK |
 | Cor. 7.17 | 3197 | 57 | (none) | OK |
-| "analog of Remark 6.17/6.41" sentences | 3185, 3201 | 57, 57 | 57 | OK |
+| "analog of Remark 6.17/6.41" sentences | 3186, 3202 | 57, 57 | 57 | OK |
 | Cor. 7.22 | 3270 | 58 | 58 | OK |
 | Cor. 7.23 | 3273 | 58 | (none) | OK |
 | Prop. 7.26 | 3330 | 59 | (none) | OK |
 | Cor. 7.31 | 3388 | 60 | (none) | OK |
 | Prop. 8.8 | 3579 | 64 | 64 | OK |
-| Wengenroth Thm 6.1 quote | ~199 | 4 | 4 | OK |
-| Wengenroth Cor. 6.5 quote | ~217 | 5 | 5 | OK |
-| compact-spectrum remark | ~233 | 5 | 5 | OK |
-| adapted-chart definition | 1025-1032 | 19 | 19 | OK |
+| Wengenroth Thm 6.1 quote | 201 | 4 | 4 | OK |
+| Wengenroth Cor. 6.5 quote | 217 | 5 | 5 | OK |
+| compact-spectrum remark | 221 | 5 | 5 | OK |
+| adapted-chart definition | 1024-1032 | 19 | 19 | OK |
 | (3.1) | 830 | 15 | (none) | OK |
 | (3.4)/(3.5) | 870 / 878 | 16 / 16 | (none) | OK |
 | (4.8) | 1142 | 21 | (none) | OK |
 | (4.9) | 1177 | 22 | (none) | OK |
 | (4.10) | 1186 | 22 | (none) | OK |
 | (6.33) | 1971 | 36 | (none) | OK |
-| (6.41) + projective-topology sentence | 2078 / 2049 | 38 / 38 | 38 | OK |
+| (6.41) + projective-topology sentence | 2078 / 2053 | 38 / 38 | 38 | OK |
 | (6.42)/(6.43) | 2086 / 2091 | 39 / 39 | (none) | OK |
 | (6.47) | 2154 | 40 | (none, "pp. 41, 58" is for the K-cases) | OK |
 | (6.49) | 2231 | 41 | (none) | OK |
 | (7.26) | 3139 | 56 | (none) | OK |
 | (7.27) + bold-x sentence | 3151 / 3146 | 56 / 56 | 56 | OK |
-| K-closed-subspace sentence | 3244-3245 | 58 | 58 | OK |
-| K(M) closed in Ȧ | 2180 | 41 | 41 | OK |
+| K-closed-subspace sentence | 3247 | 58 | 58 | OK |
+| K(M) closed in Ȧ | 2182 | 41 | 41 | OK |
 
 **(4.12) is never cited by the note** (`grep -c '4\.12' alkl23-note.tex` = 0), so the task-spec
 entry for it is vacuous. I record its location anyway: (4.12) is at L1202, p. 22.
@@ -435,7 +449,7 @@ Sun Sep  6 14:19:03 IST 2026
 
 ---
 
-## ITEM 4 — the public record, re-checked live and independently (2026-09-06, 14:19-14:36 IST)
+## ITEM 4 — the public record, re-checked live and independently (2026-09-06, 14:19-14:30 IST)
 
 Every query below I ran myself; I did not reuse the first referee's transcript. Machine clock at
 the start of this item: `Sun Sep  6 14:19:16 IST 2026`.
@@ -733,7 +747,7 @@ Mathematics, vol. 1810. Springer, Berlin (2003)").
 
 ---
 
-## Verdict
+## Verdict (full)
 
 **HOLDS-WITH-REPAIR.** I re-derived all five items independently — a fresh page map of the
 published `.txt`, fresh 400-dpi renders of six pages, fresh `pdftotext` extractions and diffs of
@@ -782,3 +796,6 @@ Unpaywall clause is vacuous). ITEM 5 **HOLDS-WITH-REPAIR**, repairs to the asses
   conjecture them), the observation that the assessment endorses Cors. 4.5 and 6.21 without ever
   examining witness (d), and D8.
 Sun Sep  6 14:30:12 IST 2026
+
+---
+Report complete. Machine clock: Sun Sep  6 14:31:51 IST 2026
