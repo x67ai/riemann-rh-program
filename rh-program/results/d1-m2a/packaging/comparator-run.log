@@ -1,0 +1,52 @@
+=== [DBN] start 2026-09-10 02:12:45 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/zeta-23-lean-main
+config=comparator/config-dbn.json
+{
+  "challenge_module": "Challenge.DBN",
+  "solution_module": "Solution.DBN",
+  "theorem_names": [
+    "dbn_ray_le_point2_of_certificates",
+    "dbn_ray_le_point2_mp",
+    "dbn_ray_le_point2_arb",
+    "dbn_row2BarrierMP_checked",
+    "dbn_row2BarrierARB_checked",
+    "dbn_row2AsymMP_checked",
+    "dbn_row2AsymARB_checked"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.DBN
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.DBN
+✔ [8697/8699] Built ChallengeDeps.DBN (2.0s)
+✔ [8698/8699] Built ChallengeDeps.DBN.Instance02 (35s)
+⚠ [8699/8699] Built Challenge.DBN (2.7s)
+warning: comparator/Challenge/DBN.lean:71:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:96:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:109:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:120:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:124:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:129:8: declaration uses `sorry`
+warning: comparator/Challenge/DBN.lean:133:8: declaration uses `sorry`
+Build completed successfully (8699 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.DBN -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind dbn_ray_le_point2_of_certificates dbn_ray_le_point2_mp dbn_ray_le_point2_arb dbn_row2BarrierMP_checked dbn_row2BarrierARB_checked dbn_row2AsymMP_checked dbn_row2AsymARB_checked propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, dbn_ray_le_point2_of_certificates, dbn_ray_le_point2_mp, dbn_ray_le_point2_arb, dbn_row2BarrierMP_checked, dbn_row2BarrierARB_checked, dbn_row2AsymMP_checked, dbn_row2AsymARB_checked, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.DBN
+Building Solution.DBN
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.DBN
+✔ [8826/8826] Built Solution.DBN (12s)
+Build completed successfully (8826 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.DBN -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind dbn_ray_le_point2_of_certificates dbn_ray_le_point2_mp dbn_ray_le_point2_arb dbn_row2BarrierMP_checked dbn_row2BarrierARB_checked dbn_row2AsymMP_checked dbn_row2AsymARB_checked propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.dRktNkmU
