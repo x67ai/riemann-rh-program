@@ -171,6 +171,10 @@ y² ≤ 157/250". After the replacement:
   `hLaneA`; it is a vastly smaller x-region with a hair-wider y-band. Both directions are covered — the glue lemma
   derives y ≤ yA from y² ≤ 157/250 — but the label should say "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of
   what `hLaneA` said".
+  [DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) audit (AUDIT-3d.md A-1).] "1.5·10⁻⁷ wider" above is the gap in the
+  SQUARES (yA² − 157/250 = 3556329/(25·10¹²) = 1.4225·10⁻⁷). The gap in y itself is yA − √(157/250) = 8.975·10⁻⁸ ≈
+  9.0·10⁻⁸. The bullet's point — that `TailOK`'s y-band is a hair WIDER than the conclusion's, so `TailOK` is not
+  literally a sub-statement of `hLaneA` — is unaffected.
 * C-A6 (the tail row's Σ < 2K) is kernel-checked but **not consumed** by `cert_of_checkAsym` (§1, A9). It is
   recorded evidence for Lemma T's prose discharge, exactly as SPEC §5.1 designs it. The label must not imply the
   kernel checked the tail *reduction*.

@@ -52,7 +52,7 @@ replacement script, every pattern asserted once per theorem block), `bookkeeping
 2026-09-09" clause), a LANE A transcript block after the Lane B one, the §2 hypothesis list (`hAsym`, `hTail` in place of
 `hLaneA`, with (ii′) = `row2_laneA_* hAsym hTail`), the "WHAT IS DISPLAYED" block rewritten to the SPEC §3.7 label with
 PLAN-REVIEW §6's three facts stated (window range = floor enclosure + kernel-checked coverage; `TailOK` the only displayed
-nonvanishing conclusion, y-band 1.5·10⁻⁷ wider; C-A6 kernel-checked, not consumed) and the 2026-09-06 `hLaneA` state kept
+nonvanishing conclusion, y-band 9.0·10⁻⁸ wider [figure corrected in the fix pass, §9; the first pass wrote "1.5·10⁻⁷", the squares gap]; C-A6 kernel-checked, not consumed) and the 2026-09-06 `hLaneA` state kept
 as a DATED RECORD (superseded, not deleted); the four theorem docstrings updated to name `hAsym`/`hTail`. Rationale: a
 trusted file whose header said "`hLaneA` … not yet run" next to theorems that no longer have `hLaneA` would be a false
 label (D-R3/D-R8); the header itself foresaw "the theorem statement changes accordingly".
@@ -65,7 +65,8 @@ gloss). Never "fully machine-checked". RUN-REPORT §6 item 4's shorter sentence 
 condition — item 3 landing — is met; R-1 is discharged, not reversed). Stated, not glossed, in every file touched:
 (i) the window range N ∈ [630 783, 5 140 999] is a displayed floor-enclosure hypothesis plus kernel-checked coverage, no
 longer a displayed nonvanishing claim; (ii) the displayed nonvanishing conclusion that remains is `TailOK` on N ≥ 5 141 000
-with the y-band [y₀, yA], yA = 0.7924646 being 1.5·10⁻⁷ wider than √(157/250) = 0.79246451… (the glue derives y ≤ yA from
+with the y-band [y₀, yA], yA = 0.7924646 being 9.0·10⁻⁸ wider than √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸;
+in the squares yA² − 157/250 = 1.42·10⁻⁷ — corrected in the fix pass, §9; the glue derives y ≤ yA from
 y² ≤ 157/250; `TailOK` is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said"); (iii) C-A6 is
 kernel-checked on both literals but not consumed by any proof (F-6) — the tail reduction is prose. Λ ≤ 0.2 is not proved;
 the bracket of record stays 0 ≤ Λ ≤ 0.2.

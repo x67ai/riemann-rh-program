@@ -139,6 +139,6 @@ displayed hypotheses" only with that gloss; R-1's condition is met, so R-1 is di
 "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".  What the replacement bought, stated not glossed (PLAN-REVIEW §6): the window range
 N ∈ [630 783, 5 140 999] is now a displayed floor-enclosure hypothesis plus kernel-checked coverage, no longer a displayed
 nonvanishing claim; the displayed nonvanishing conclusion that remains is only `TailOK` on N ≥ 5 141 000 with the y-band
-[y₀, yA], yA 1.5·10⁻⁷ wider than √(157/250); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
+[y₀, yA], yA 9.0·10⁻⁸ wider than √(157/250) (1.42·10⁻⁷ in the squares); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
 **The cut line moves to item 5 (packaging).**  Λ ≤ 0.2 is still not proved: H1, the four enclosure Props of H2 and H3 are
-displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.
+displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.  [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]

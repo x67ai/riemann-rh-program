@@ -1,0 +1,28 @@
+# trust greps over Zeta23/DBN/ (KICKSTART Part 2 item 10(j)) — Session 19 emitter, FIX PASS r2, Wed Sep  9 22:28:10 IST 2026
+# tree: /Users/jaytyagi/rh-lean-work/zeta-23-lean-main; files: 121 .lean files (Zeta23/DBN/*.lean + Instance02/*.lean)
+# rule: a hit is a defect unless it is inside a comment/docstring (the header prose says 'no native_decide', 'sorry-free', 'axiom').
+
+== axiom  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
+== native_decide  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 116
+== unsafe  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
+== implemented_by  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
+== extern  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
+== opaque  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
+== sorry  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 3
+== hLaneA  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 12
+
+== CODE-ONLY check (block comments incl. nested and -- line comments stripped per file, via python /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/f886756a-2f1f-4ab1-9052-f280afaa3f16/scratchpad/strip_lean.py; eleven patterns):
+files: 121
+== sorry: code hits 0
+== native_decide: code hits 0
+== axiom: code hits 0
+== unsafe: code hits 0
+== implemented_by: code hits 0
+== extern: code hits 0
+== opaque: code hits 0
+== hLaneA: code hits 0
+== ofReduceBool: code hits 0
+== trust_me: code hits 0
+== lean_evalConst: code hits 0
+TOTAL code hits: 0
+# Wed Sep  9 22:28:14 IST 2026

@@ -145,3 +145,10 @@ checklist: judge "heavy" by CPU (`ps -axo pcpu=,command= | awk '$1 > 50'`), not 
   - Python pre-check C-A1…C-A6 on the mp literal (UNTRUSTED; the kernel re-does it): [True, True, True, True, True, True].
 * `STATUS.json` top level: phase = "arb:tail-done mp:tail-done", windows_done/total = 4510217/4510217, started 2026-09-09 21:36:29 IST, updated 2026-09-09 21:43:55 IST, eta_hours = 0.0, errors = []; per leg: mp tail-done (rows 3/3), arb tail-done (rows 3/3).
 * Both legs' transcripts are on disk (`asym-mp.json`, `asym-arb.json`) with every per-row/tail record under `batches/`. Next (orchestrator, PLAN §4 phase 3 (c)–(d)): `python3 crosscheck_lane_a.py .` (expect the F-2 E-ratio trip on the wide rows — see above — then `--etol` above the observed maximum), emit the two literal modules, back-parse, `lake build`, replace `hLaneA` per PLAN §1.5, `#print axioms`, F-5 bookkeeping, Opus audit.
+
+**[DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) fix pass (AUDIT-3d.md A-2).]** The line "cross-leg E1 (hull bounds): Arb/mp = 1.000000"
+in the final-verification block above does not describe the E₁ bounds as written: E₁ = 1823 at K = 10¹² (Arb) against
+1822923348119831 at K = 10²⁴ (mp) gives Arb/mp = 1.0000420 (`crosscheck-full.txt`: rel 4.3·10⁻⁸, larger: arb; `backparse.log`:
+1.000042). 1.000000 would be right only for the two ceilings taken at the same K = 10¹² (⌈1822.92…⌉ = 1823 = 1823). The
+emitter's module headers had copied the figure; they were corrected in the same pass (`EMIT-NOTES.md` §9). Nothing else in
+this file is affected. The line above is kept as the record.
