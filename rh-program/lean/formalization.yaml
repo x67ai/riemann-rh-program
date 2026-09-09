@@ -1,0 +1,386 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+
+# formalization.yaml (v0.4): repo-root metadata for formalization projects.
+# Scope: the RH program's OWN Lean 4 additions under rh-program/lean/ (the Zeta23/DBN, Zeta23/W1, Zeta23/PairCeiling
+# subtrees and the comparator topic `DBN`), which build against Anthropic's Zeta23 library (the parent; it ships no
+# formalization.yaml).  Written 2026-09-10 (Session 20, D1 M2a packaging, KICKSTART 10(j)); field names checked against
+# schema/v0.4.schema.json fetched from the URL above on 2026-09-10 (the dispatcher's $ref).  `fidelity` is a schema key
+# (v0.4 has `fidelity.divergences`), so the ledger below is not an extension.
+version: "v0.4"
+
+project:
+  name: "rh-program Lean additions (de Bruijn–Newman M2a, W1 checker, A4 grid theorems)"
+  description: >-
+    The Lean 4 / Mathlib files this program adds on top of the Zeta23 library.  Headline unit: the de Bruijn–Newman
+    milestone M2a — the ray form of Λ ≤ 0.2 at Polymath15 Table 1 row 2, "kernel-checked modulo H1, H2 (H2-B, H2-A,
+    H-TAIL), H3" (never "fully machine-checked"): two independent producers' barrier and asymptotic transcripts are
+    kernel-checked integer certificates (`decide +kernel`, no `native_decide`), the soundness theorems and the glue are
+    Lean proofs, and the five hypotheses named in the label are DISPLAYED, never discharged.  Λ ≤ 0.2 is not proved;
+    the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.  Earlier units: the W1 rectangle-exclusion checker with
+    the argument principle discharged (`cert_of_checkW1_ap`), and the grid-Parseval / corner theorems of the A4 no-go
+    paper.  Packaged in the Comparator challenge/solution layout as the topic `DBN` (comparator/config-dbn.json).
+  authors:
+    - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
+    - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
+  responsible_maintainers:
+    - "Kunal Tyagi"
+  license: "Apache-2.0"
+
+repository:
+  role: "substantive-development"
+
+sources:
+  - title: "D1 M2a contract: SPEC.md — the certificate, the two lanes, the Lean contract (§1.1 target theorem; §3.7 label; §8 shapes)"
+    authors:
+      - "rh-program (Claude under Kunal Tyagi's direction)"
+    id: "rh-program/results/d1-m2a/SPEC.md"
+    type: "other"
+    location: "§1.1 (the ray theorem), §3.3–§3.7 (the amended bridge, Bt, HtEntire, H1, the honest label), §5 (Lane A), §6 (what is displayed), §8.3 (soundness theorems)"
+    relationship: "formalizes"
+    author_endorsement: "n/a"
+  - title: "M2a/M2b design note (m2a-m2b-design.md, the D-R2 repair note): ray form §1.2, trust model, work breakdown"
+    authors:
+      - "rh-program (Claude under Kunal Tyagi's direction)"
+    id: "rh-program/results/d1-m0/m2a-m2b-design.md"
+    type: "other"
+    location: "§1.2 (ray form; Λ never defined), §1.3, §5, §7"
+    relationship: "formalizes"
+    author_endorsement: "n/a"
+  - title: "Effective approximation of heat flow evolution of the Riemann ξ function, and a new upper bound for the de Bruijn–Newman constant"
+    authors:
+      - "D. H. J. Polymath"
+    id: "https://doi.org/10.1007/s40687-019-0193-1"
+    type: "article"
+    location: "Theorem 1.2 (upper bound criterion) — the displayed analytic package H3 (`Polymath15Bridge'`, in the amended form of SPEC §3.3); eqs. (2), (6), (9)–(11) (Φ, H_t, B_t); (19) (the window index); Table 1 row 2 (the instance); §5.4's Lemma T for the tail (prose)"
+    relationship: "formalizes"
+    note: "Theorem 1.2 is NOT proved in Lean: it enters as the displayed hypothesis H3, together with the entirety of H_t.  The barrier and asymptotic computations follow the paper's method with two independent producers; their enclosure claims enter as the displayed hypotheses H2-B, H2-A, H-TAIL."
+    author_endorsement: "not-contacted"
+  - title: "The Riemann hypothesis is true up to 3·10¹²"
+    authors:
+      - "Dave Platt"
+      - "Tim Trudgian"
+    id: "https://doi.org/10.1112/blms.12460"
+    type: "article"
+    location: "Theorem 1 (RH verified to height 3 000 175 332 800) discharges, in prose, the displayed hypothesis H1 = `ZeroVerification (116733/200000) 2500000097429`"
+    relationship: "background"
+    author_endorsement: "not-contacted"
+  - title: "A4 no-go paper: grid-Parseval decoupling and the corner theorem (rh-program/results/a4-no-go/paper.md)"
+    authors:
+      - "rh-program (Claude under Kunal Tyagi's direction)"
+    id: "rh-program/results/a4-no-go/paper.md"
+    type: "other"
+    location: "Lemma 3.8, Theorem 3.9, Lemma 4.2, Theorem 4.3"
+    relationship: "formalizes"
+    author_endorsement: "n/a"
+  - title: "D1 M1 v1 W1 transcript format and checker (FORMAT.md; the v1.1 discharge of the argument principle)"
+    authors:
+      - "rh-program (Claude under Kunal Tyagi's direction)"
+    id: "rh-program/results/d1-m1/FORMAT.md"
+    type: "other"
+    location: "§7 (the checker C1–C11), §8 (H-ENCL; H-AP, discharged in v1.1)"
+    relationship: "formalizes"
+    author_endorsement: "n/a"
+
+related_formalizations:
+  - id: "https://github.com/anthropics/zeta-23-lean"
+    relationship: "builds-on"
+    note: >-
+      The parent library (Copyright 2026 Anthropic, PBC, Apache-2.0; Lean v4.33.0-rc2, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129).
+      These files are additions to it and are not part of it; its Comparator layout (comparator/README.md, "one topic per
+      file") is the pattern the topic `DBN` follows.
+  - id: "https://github.com/judegomila/dbn-lambda-01787854-candidate-audit"
+    relationship: "adapts"
+    note: >-
+      Zeta23/W1/ArgPrinciple/{Rect,General}.lean are ported, statement for statement, from that repository's branch
+      lean/certificate-and-argument-principle (commit ea09b2f; Copyright 2026 Jude Gomila, MIT; generated with Harmonic
+      Aristotle); Zeta23/W1/ArgPrincipleBridge.lean adapts seven of its lemmas.  Record: rh-program/results/d1-m1/v11/port-notes.md, NOTICE.
+
+classification:
+  arxiv:
+    - "math.NT"
+  msc2020:
+    - "11M26"
+    - "11Y35"
+    - "68V20"
+
+status:
+  scope: >-
+    Complete for the stated units: the M2a ray theorem modulo its five displayed hypotheses (both producer legs), the
+    W1 checker soundness modulo H-ENCL, the A4 grid theorems.  Nothing under Zeta23/DBN, Zeta23/W1 or Zeta23/PairCeiling
+    contains a `sorry`.  The only `sorry`s in the program's files are the seven deliberate placeholders of
+    comparator/Challenge/DBN.lean — the Comparator CHALLENGE side, which states the theorems with `sorry` by design (as the
+    parent's Challenge files do); comparator/Solution/DBN.lean proves them.  Not formalized, and displayed as hypotheses:
+    H1 (Platt–Trudgian), H2-B / H2-A / H-TAIL (the untrusted producers' enclosure claims), H3 (Polymath15 Theorem 1.2 in
+    the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - description: >-
+        (I) Λ ≤ 0.2 in ray form, mpmath-ball leg — the referee's statement: from the five displayed hypotheses H1, H2-B
+        (`row2BarrierMP`), H2-A and H-TAIL (`row2AsymMP`), H3, every H_t with t ≥ 1/5 has only real zeros.
+        Kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3.
+      declaration: "dbn_ray_le_point2_mp"
+      file: "comparator/Solution/DBN.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator/config-dbn.json"
+      literature_dependencies:
+        - statement: "H1: no zero of ζ with 116733/200000 ≤ Re s ≤ 1, 0 ≤ Im s ≤ 2 500 000 097 429 (displayed hypothesis)"
+          source: "Platt–Trudgian, Theorem 1"
+        - statement: "H3: Polymath15 Theorem 1.2 in the form `Polymath15Bridge'` (SPEC §3.3, derivation D-H3), and the entirety of H_t (displayed hypotheses)"
+          source: "Polymath15, Theorem 1.2, p2–3, Proposition 3.3, Theorem 3.2"
+        - statement: "H2-B, H2-A, H-TAIL: the producers' enclosure claims for the kernel-checked transcripts (displayed hypotheses; Lemma T's tail reduction in prose)"
+          source: "SPEC §4–§5; results/d1-m2a/{INSTANCE-REPORT.md, lane-a/}"
+    - description: "(I) Λ ≤ 0.2 in ray form, Arb/FLINT leg — the same from the independent producer's transcripts `row2BarrierARB`, `row2AsymARB` (the legs are never merged)."
+      declaration: "dbn_ray_le_point2_arb"
+      file: "comparator/Solution/DBN.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator/config-dbn.json"
+    - description: >-
+        (G) Generic soundness, literal-free: for ANY barrier data on the instance rectangle/final time that `checkBarrier`
+        accepts and ANY asymptotic data with the instance's t₀, y₀, yA and a row at or below N_start = 630783 that
+        `checkAsym` accepts, the five displayed hypotheses imply the ray conclusion.  Derived on the solution side
+        (Zeta23 proves only the instance form; fidelity item (f)).
+      declaration: "dbn_ray_le_point2_of_certificates"
+      file: "comparator/Solution/DBN.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator/config-dbn.json"
+    - description: "(K) The trusted copies of the two barrier transcripts pass the integer checker `checkBarrier` (39 + 72 prisms, 17 947 rows); integer facts on literals, nothing analytic."
+      declaration: "dbn_row2BarrierMP_checked, dbn_row2BarrierARB_checked"
+      file: "comparator/Solution/DBN.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Quot.sound"
+      comparator_config: "comparator/config-dbn.json"
+    - description: "(K) The trusted copies of the two Lane A transcripts pass the integer checker `checkAsym` (C-A1…C-A6; C-A6 checked, consumed by no proof)."
+      declaration: "dbn_row2AsymMP_checked, dbn_row2AsymARB_checked"
+      file: "comparator/Solution/DBN.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+      comparator_config: "comparator/config-dbn.json"
+    - description: "The Zeta23-side originals of (I): the ray theorem at row 2 with the five displayed hypotheses, one theorem per producer leg (results/d1-m2a/lane-a/final-axioms.log)."
+      declaration: "Zeta23.DBN.Instance02.lambda_le_point2, Zeta23.DBN.Instance02.lambda_le_point2_arb"
+      file: "Zeta23/DBN/Instance02.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: "Lane B soundness: an accepted barrier certificate (chain + per-prism checker facts) with H2-B and the holomorphy of G t near R gives G t ≠ 0 on the closed rectangle for every t ∈ [0, t₀] — the argument principle on rectangles is a theorem here, no Rouché, no zero-continuity in t (results/d1-m2a/barriercert-axioms.log)."
+      declaration: "Zeta23.DBN.cert_of_checkBarrier"
+      file: "Zeta23/DBN/BarrierCert.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: "Lane A soundness: an accepted asymptotic certificate with H2-A and H-TAIL gives g ≠ 0 for N(x) at or beyond some row's Nlo and y ∈ [y₀, yA] (coverage kernel-checked; results/d1-m2a/lane-a/asym-axioms.log)."
+      declaration: "Zeta23.DBN.cert_of_checkAsym"
+      file: "Zeta23/DBN/Asym.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: "W1 checker soundness with the argument principle DISCHARGED (v1.1): an accepted ζ transcript gives the exclusion conclusion modulo the single displayed hypothesis H-ENCL (results/d1-m1/v11/audit/audit-print-axioms.log)."
+      declaration: "Zeta23.W1.cert_of_checkW1_ap"
+      file: "Zeta23/W1/ArgPrincipleBridge.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
+      declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
+      file: "Zeta23/PairCeiling/GridParseval.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: "A4 corner theorem: the paper's Lemma 4.2 (`mark_one_count_ge`), Theorem 4.3 pointwise (`grid_corner_pointwise`), in law form (`grid_corner_law`) and with exact attainment (`grid_corner_attained`) (results/a4-no-go/formalization-status.md)."
+      declaration: "Zeta23.PairCeiling.GridCorner.mark_one_count_ge, Zeta23.PairCeiling.GridCorner.grid_corner_pointwise, Zeta23.PairCeiling.GridCorner.grid_corner_law, Zeta23.PairCeiling.GridCorner.grid_corner_attained"
+      file: "Zeta23/PairCeiling/GridCorner.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "Claude Fable 5.1"
+        - "Claude Opus 5"
+      framework: "Claude Code (Workflow/Agent)"
+      tool_setup: >-
+        Lean v4.33.0-rc2, Lake 5.0.0, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129, on the sponsor's MacBook Pro (Apple
+        M5, 24 GB); one `lake` process at a time.  Every Lean file was written by Claude agents under the sponsor's direction
+        (the sponsor writes and reads no Lean).  The numerical producers (mpmath ball arithmetic / python-flint Arb) are
+        untrusted Python written the same way; their transcripts are emitted into Lean literals by untrusted emitters and
+        back-parsed against the JSON by independent scripts (0 mismatches), then kernel-checked.
+      prompting_notes: >-
+        Builder / independent-checker pairs (a second model audits from a clean clone with its own probes); briefs carry the
+        binding label and forbid "fully machine-checked".
+  notes: >-
+    Independent checks of the packaging: an Opus 5 clean-clone check (results/d1-m2a/packaging/CHECK-O.md) and the
+    Comparator run with the nanoda kernel (results/d1-m2a/packaging/COMPARATOR-RUN.md) are the next two jobs of the same
+    queue item; their outcomes are to be appended to `review.notes` verbatim.
+
+fidelity:
+  divergences: >-
+    Where the formal statements differ from the prose one ("Λ ≤ 0.2 from Polymath15 Theorem 1.2 at Table 1 row 2 with
+    the numerical hypotheses verified") and from what Zeta23 proves; full ledger with source pointers in
+    results/d1-m2a/packaging/FIDELITY.md.
+    (a) y-band asymmetry: the Lane A hypotheses `AsymEnclOK`/`TailOK` quantify y over [y₀, yA] with yA = 3962323/5000000 =
+    0.7924646, which is yA − √(157/250) = 8.975·10⁻⁸ ≈ 9.0·10⁻⁸ wider than the range y² ≤ 1 − 2t₀ = 157/250 that (ii′)
+    needs (1.42·10⁻⁷ in the squares); so `TailOK` is "the tail region N ≥ N₁, y ∈ [y₀, yA]", a hair stronger than the prose
+    (ii), not literally a sub-statement of it (EMIT-NOTES §4/§9; PLAN-REVIEW §6).
+    (b) C-A6 (the tail row's Q₁ + Q₂ + Q₃ + Q₄ + E₁ < 2K) is kernel-checked on both literals but consumed by no proof;
+    `cert_of_checkAsym` uses only K ≥ 1, C-A3 (only E < T per row), C-A4, C-A5; Lemma T's reduction "Σ < 2 ⟹ nonvanishing
+    for N ≥ N₁" (SPEC §5.4) is prose and H-TAIL is displayed in conclusion form — "C-A6 is kernel-checked" must not be read
+    as "the tail reduction is kernel-checked".
+    (c) The producers are untrusted and five hypotheses are displayed — H1, H2-B (the seam rows enclose SOME holomorphic
+    approximant f, which is not defined in Lean, plus the E/D bounds), H2-A (the window floors), H-TAIL, H3; the kernel
+    checks integer relations on the literals and the coverage / argument-principle / glue proofs; the two-producer
+    cross-checks are producer-side evidence, not formalized.  The exact label (SPEC §3.7): "kernel-checked modulo H1, H2
+    (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".
+    (d) Ray form, not Λ: every statement concludes ∀ t ≥ 1/5, ∀ z, Ht t z = 0 → z.im = 0; Λ is never defined in Lean
+    (design note §1.2), and the equivalence with Λ ≤ 0.2 rests on the ray structure {t : H_t real-zeroed} = [Λ, ∞)
+    (de Bruijn monotonicity), which is prose.
+    (e) `Polymath15Bridge'` is not Theorem 1.2 verbatim: (ii) restricted to x ≥ X + 1 ((ii′); the strip up to X + 1 is
+    covered by (iii′) at t = t₀), the y-range written y² ≤ 1 − 2t₀ (no square root in the trusted layer), and (iii)
+    replaced by the paper's own larger box X ≤ x ≤ X + 1, y₀ ≤ y ≤ 1, 0 ≤ t ≤ t₀ (p3); that Theorem 1.2 implies it is
+    derivation D-H3 (SPEC §3.3), prose; H3 also carries `HtEntire` (M2b-class analysis), displayed (Defs.lean deviation
+    record 2).
+    (f) The generic statement (G) `dbn_ray_le_point2_of_certificates` is NOT a Zeta23 theorem: Zeta23 proves only the
+    instance form (`lambda_le_point2`, `_arb`); (G) is derived in comparator/Solution/DBN.lean by the new lemma
+    `DBNBridge.ray_of_certificates` (the instance proof with the data generic), and its side conditions — the rectangle's
+    four reals, t₀ = 93/500, `At0`/`Ay0`/`AyA` exactly the instance's, ∃ r ∈ a.rows with r.Nlo ≤ 630783, the MONOLITHIC
+    `checkBarrier` rather than SPEC §7.6's split form — are the builder's rendering of "what the glue actually uses", not a
+    statement of record.  Also: the challenge's structures are re-declared types, bridged by field-wise transports and
+    commutation lemmas (proved, not assumed) with the literal identities decided in the kernel; and the four (K)
+    statements are an addition beyond the brief's (G)/(I).
+    (g) Reductions by the builder: none — the trusted literal copy (20 157 lines, 227 defs, byte-identical to the Zeta23
+    modules block for block) elaborated in 38 s; nothing was shrunk or sampled.  Deliberately not on the trusted side:
+    `row2T0n`/`row2T0d` and the `_check` theorems (data only; the (K) statements restate them).
+    (h) H1 is the exact box form on Mathlib's `riemannZeta` ((1 + y₀)/2 = 116733/200000, X/2 = 2 500 000 097 429; SPEC §3.6
+    corrected the design note's rounding direction); its discharge by Platt–Trudgian Theorem 1 (height 3 000 175 332 800,
+    margin 500 175 235 371) is prose.
+    (i) Two producer legs are two theorems per kind, each pairing its own Lane B and Lane A literal, never merged (D-R3);
+    no formal statement combines the legs or states their agreement.
+    (j) Proved rather than displayed, with recorded modeling choices: `hHol` from `HtEntire` and L-B3 (`Bt` ≠ 0, differentiable
+    off the imaginary axis; `Bt` transcribed with Mathlib's principal `Complex.log` and `cpow` with real base π, SPEC §3.4);
+    the argument principle (L-B0); coverage in t and in N.  `Ht` is a Bochner integral with junk value 0 if the integrand
+    is not integrable — the anti-cheat direction: junk makes the target FALSE, not vacuous; integrability is not proved
+    in M2a.
+
+review:
+  status: "self-assessed"
+  reviewers: []
+  notes: >-
+    No human has read comparator/Challenge/DBN.lean (or any trusted file) against the prose statement: the sponsor does not
+    review Lean, and no third party has been asked.  What stands behind "self-assessed": the statement-identity check
+    (results/d1-m2a/packaging/statement-identity.log), `#print axioms` on all seven statements (print-axioms.log), the trust
+    greps with comments stripped (trust-greps-packaging.log), the byte-for-byte comparison of the trusted literal copy with
+    the Zeta23 modules (cmp-literal-blocks.log), and the earlier second-model audits of the underlying Zeta23 files
+    (results/d1-m2a/lane-a/AUDIT-3d.md, results/d1-m2a/v11/AUDIT.md, results/d1-m1/v11/AUDIT.md).  Pending, same queue item:
+    the Opus 5 clean-clone check (CHECK-O.md) and the Comparator run with nanoda (COMPARATOR-RUN.md); their verdicts are to
+    be appended here verbatim.
+
+alignment:
+  namespaces:
+    - "DBN"
+    - "DBN.W1"
+    - "Zeta23.DBN"
+    - "Zeta23.DBN.Instance02"
+    - "Zeta23.W1"
+    - "Zeta23.PairCeiling"
+  statements:
+    - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
+      lean: "dbn_ray_le_point2_mp"
+      module: "Challenge.DBN / Solution.DBN"
+      status: "proved modulo the five displayed hypotheses H1, H2-B, H2-A, H-TAIL, H3 (label: kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3)"
+    - source: "SPEC §1.1 — the same, Arb/FLINT leg"
+      lean: "dbn_ray_le_point2_arb"
+      module: "Challenge.DBN / Solution.DBN"
+      status: "proved modulo the five displayed hypotheses"
+    - source: "SPEC §8.3 soundness + the glue (SPEC §5.6, PLAN §1.5), generic in the accepted data"
+      lean: "dbn_ray_le_point2_of_certificates"
+      module: "Challenge.DBN / Solution.DBN"
+      status: "proved modulo the five displayed hypotheses (derived on the solution side; fidelity (f))"
+    - source: "SPEC §7.3 / §7.6 — the barrier checker accepts the row-2 transcripts (both legs)"
+      lean: "dbn_row2BarrierMP_checked, dbn_row2BarrierARB_checked"
+      module: "Challenge.DBN / Solution.DBN"
+      status: "proved (kernel-decided integer facts)"
+    - source: "SPEC §7.4 — the asymptotic checker accepts the row-2 Lane A transcripts (both legs)"
+      lean: "dbn_row2AsymMP_checked, dbn_row2AsymARB_checked"
+      module: "Challenge.DBN / Solution.DBN"
+      status: "proved (kernel-decided integer facts)"
+    - source: "SPEC §1.1 / §8.3 — the instance theorem on the Zeta23 side"
+      lean: "Zeta23.DBN.Instance02.lambda_le_point2, Zeta23.DBN.Instance02.lambda_le_point2_arb"
+      module: "Zeta23.DBN.Instance02"
+      status: "proved modulo the five displayed hypotheses"
+    - source: "SPEC §8.3 — Lane B soundness `cert_of_checkBarrier` (proof plan §4.6 D-B1…D-B9)"
+      lean: "Zeta23.DBN.cert_of_checkBarrier, Zeta23.DBN.cert_of_checkBarrier_xy"
+      module: "Zeta23.DBN.BarrierCert"
+      status: "proved"
+    - source: "SPEC §8.3 — Lane A soundness `cert_of_checkAsym` (proof SPEC §5.6)"
+      lean: "Zeta23.DBN.cert_of_checkAsym"
+      module: "Zeta23.DBN.Asym"
+      status: "proved"
+    - source: "SPEC §5.3 — L-A1 (N(X + 1) ≥ N_start from π < 3.141593) and L-A2 (monotonicity of the window index)"
+      lean: "Zeta23.DBN.row2_windowIdx_ge, Zeta23.DBN.windowIdx_mono"
+      module: "Zeta23.DBN.Asym"
+      status: "proved"
+    - source: "SPEC §3.4 / §6 — L-B3: B_t holomorphic and nonvanishing near the rectangle"
+      lean: "Zeta23.DBN.differentiableOn_Ht_div_Bt, Zeta23.DBN.Bt_ne_zero"
+      module: "Zeta23.DBN.BtFacts"
+      status: "proved (for Re z ≠ 0; the instance rectangle lies in Re z > 0)"
+    - source: "SPEC §3.3 — (H3) Polymath15 Theorem 1.2 in the amended instantiable form; SPEC §3.5 — the entirety of H_t"
+      lean: "Zeta23.DBN.Polymath15Bridge', Zeta23.DBN.HtEntire (copies: DBN.Polymath15Bridge', DBN.HtEntire)"
+      module: "Zeta23.DBN.Defs / ChallengeDeps.DBN"
+      status: "stated as definitions; DISPLAYED hypothesis H3, not proved (M2b, not scheduled)"
+    - source: "SPEC §3.6 — (H1) the exact zero verification at row 2"
+      lean: "Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 (copy: DBN.ZeroVerification)"
+      module: "Zeta23.DBN.Defs / ChallengeDeps.DBN"
+      status: "stated; DISPLAYED hypothesis H1, discharged in prose by Platt–Trudgian Theorem 1"
+    - source: "SPEC §8.1 — (H2-B) `BarrierEnclOK`, (H2-A) `AsymEnclOK`, (H-TAIL) `TailOK`"
+      lean: "Zeta23.DBN.BarrierEnclOK, Zeta23.DBN.AsymEnclOK, Zeta23.DBN.TailOK (copies under DBN.*)"
+      module: "Zeta23.DBN.BarrierCert, Zeta23.DBN.Asym / ChallengeDeps.DBN"
+      status: "stated; DISPLAYED hypotheses (the untrusted producers' enclosure claims)"
+    - source: "M1 FORMAT.md §7–§8 — W1 checker soundness with H-AP discharged (v1.1)"
+      lean: "Zeta23.W1.cert_of_checkW1_ap, Zeta23.W1.rectArgPrinciple_of_local"
+      module: "Zeta23.W1.ArgPrincipleBridge"
+      status: "proved (modulo the displayed H-ENCL)"
+    - source: "A4 paper Lemma 3.8, Theorem 3.9"
+      lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
+      module: "Zeta23.PairCeiling.GridParseval"
+      status: "proved"
+    - source: "A4 paper Lemma 4.2, Theorem 4.3 (pointwise, law form, exact attainment)"
+      lean: "Zeta23.PairCeiling.GridCorner.mark_one_count_ge, grid_corner_pointwise, grid_corner_law, grid_corner_attained"
+      module: "Zeta23.PairCeiling.GridCorner"
+      status: "proved"
+
+acknowledgements: >-
+  Built on Anthropic's Zeta23 library and on Lean 4, Mathlib, Lake, Comparator, lean4export and nanoda; the two ported
+  argument-principle files come from Jude Gomila's dbn-lambda development (MIT; see NOTICE).  The Polymath15 project's
+  paper and the Platt–Trudgian verification are the mathematics behind the displayed hypotheses H3 and H1.
