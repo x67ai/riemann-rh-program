@@ -1,6 +1,6 @@
 # M2a barrier-certificate contract — the producer/checker specification for the formal Λ ≤ 0.2 instance
 
-**Status:** v1.0, 2026-09-02 (Session 14, D1 M2a contract agent; workflow `d1-audit-m2a-s14`).
+**Status:** v1.1, 2026-09-10 (Session 20; the §14 errata folded in as dated blocks at §2.3, §2.4/P-6, §3.4, §7.1 — insertion-only, v1.0 text unchanged; RUN-REPORT §6 item 5). Previously v1.0, 2026-09-02 (Session 14, D1 M2a contract agent; workflow `d1-audit-m2a-s14`).
 **This file is the contract.** The Lean stream building `Zeta23/DBN/BarrierCert.lean` and
 `Zeta23/DBN/Instance02.lean` reads THIS file as the normative specification of the transcript data,
 the checker's integer checks, the displayed hypotheses and the theorem shapes; the two untrusted
@@ -174,6 +174,8 @@ Proposition 6.6(iv)–(v) directly, §10]; (24) e_{C,0} ≤ (x/4π)^{−(1+y)/4}
 that f_t(x+iy) is a holomorphic function of x+iy in the region (5) as long as N is constant, but has
 jump discontinuities when N is incremented."*
 
+**[v1.1 dated block, 2026-09-10 — §14 item 1.]** The PDF carries an overline on s* in the second sum of (14): `n^y b_n^t / n^{\overline{s*} + κ}`; `pdftotext` drops it, so the quotation above reads `n^{s*+κ}`. The overline reading is the only one consistent with (69)–(70) and (92) and is what both producers implement and what the auditor's direct evaluator uses. Wording only; no check or hypothesis changes. (§14 item 2, also §2.3: the paper's (21) has `4y(1+y)/x²` where Prop. 6.6(ii) has `8y(1−y)/x²`; neither producer uses either display; difference ≈ 10⁻²⁵ at the instance.)
+
 **2.4 The exact error quantities (p30–31).** *"(70) H_t(x+iy)/B_t(x+iy) = f_t(x+iy) + O_≤(e_A + e_B +
 e_{C,0}) where (71) e_A := |γ| Σ_{n=1}^{N} n^y b_n^t/n^{Re s* + Re κ} ε_{t,n}(s_−), (72) e_B :=
 Σ_{n=1}^{N} b_n^t/n^{Re s*} ε_{t,n}(s_+), (73) e_C := exp(tπ²/64)|M₀′(iT′)|/|M_t(s_+)| ·
@@ -336,6 +338,8 @@ and x₁ > 1: `Bt t` is differentiable and nonvanishing (s = (1 − iz)/2 has Im
 (−∞, 1], both logs are off the cut, exp ≠ 0, cpow of a positive base ≠ 0, s ≠ 0, s − 1 ≠ 0). If
 that proof turned out costly it may be displayed instead (fallback recorded in §13.2); the
 statement shapes do not change.
+
+**[v1.1 dated block, 2026-09-10 — §14 item 6.]** The sentence above states the wrong coordinate: the mechanism ("s = (1 − iz)/2 has Im s = −x/2 ≠ 0") needs **Re z ≠ 0**, x being Re z. L-B3 as landed (Session 16) proves the correct and stronger form — `Bt_ne_zero` and `differentiableAt_Bt` for every z with Re z ≠ 0, packaged as `differentiableOn_Ht_div_Bt` on the open right half-plane — and it lives in `Zeta23/DBN/BtFacts.lean`, not `BarrierCert.lean`. Nothing downstream changes.
 
 ### 3.5 The entirety of H_t (Defs.lean v1.1; type-checked)
 
@@ -715,6 +719,8 @@ Three document kinds share `format: "M2a-barrier-transcript"`, `version: "1.0"`,
 | `prisms` | array of `{index, file, seam}` | the prism files in time order; each file's own `seam` must equal the entry's (consistency check of the reference checker; the Lean data has one copy) |
 | `producer`, `comment` | optional | untrusted |
 
+**[v1.1 dated block, 2026-09-10 — §14 item 4: per-lane trust label.]** The schema's `trust_label` constant names the label of the FULL certificate (H1, H2 = H2-B ∧ H2-A ∧ H-TAIL, H3; §3.7). A barrier-lane transcript on its own is "kernel-checked modulo H2-B and `hHol`", an asymptotic-lane transcript on its own "kernel-checked modulo H2-A and H-TAIL" (`lean-notes.md` §1); v1.1 therefore reads the manifest string as naming what the transcript is a COMPONENT of, and any per-lane citation must use the per-lane wording. The full-certificate label as shipped (2026-09-10, `lean/formalization.yaml`, `FIDELITY.md`): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3". Wording only; the schema constant is unchanged.
+
 **`prism`** (one file per prism; the bulk data):
 
 | field | type | meaning |
@@ -1008,6 +1014,7 @@ e_{C,0} ≈ 10⁻⁷.
   (D-2.4), every factor at its worst corner of the box × y-range (§5.2 monotonicities; for e_A + e_B
   the (82)–(86) chain of p39–41 re-instantiated with x ≥ X, t ≤ t₀, y ∈ [y₀, 1]); recorded with
   its inputs in `producer`.
+  **[v1.1 dated block, 2026-09-10 — §14 item 3.]** The exponent in 6.6(iv)–(v) is `log²(x/(4πn²))` (p31), not `x/(4πn)`; `ft_mp.py`'s docstring was corrected 2026-09-03 (AUDIT.md F-1); both legs majorize it by δ₁ of (84), valid for n ≤ N, N² ≤ x/(4π). (§14 item 5, §7.6: the actual row-2 transcripts are 7 176 / 10 771 rows; per-prism modules build in 3–4 s; the monolithic `decide +kernel` on both full literals takes 28 s — the "serial hours" concern does not arise.)
 * **P-7 The seam at t = 0:** Theorem 1.3 at t = 0 by the limit argument (§4.4); the argument is
   recorded in the transcript's `producer.comment` of prism 0 and is part of H2-B's discharge.
 * **P-8 D:** from Lemma 8.4's |∂f_t/∂t| (p46) UNIFORMIZED over ∂R × [τ_j, τ_{j+1}] (evaluate each
