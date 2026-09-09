@@ -73,16 +73,26 @@ the bracket of record stays 0 ≤ Λ ≤ 0.2.
 
 ## 5. SHA-256 (KICKSTART 10(i); tree = mirror, verified)
 
-    128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05  Zeta23/DBN/Instance02/Asym_mp.lean
-    767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987  Zeta23/DBN/Instance02/Asym_arb.lean
-    bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850  Zeta23/DBN/Instance02.lean
-    c970ac26254c6ec22b690543395e172db1e75e272d07ab4421b711fae26b2f63  Zeta23/DBN/Asym.lean          (builder's, unchanged)
+**Pass 1 (21:51–22:05 IST) — SUPERSEDED at 22:27 IST by the fix pass (§9); kept as the record. These are the hashes the
+auditor verified in AUDIT-3d.md check 10.**
+
+    128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05  Zeta23/DBN/Instance02/Asym_mp.lean     (pass 1)
+    767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987  Zeta23/DBN/Instance02/Asym_arb.lean    (pass 1)
+    bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850  Zeta23/DBN/Instance02.lean             (pass 1)
+    de67acf7bc7e9653837f811f4df56f363da7151e1995a958a1e87494eb136ff2  lane-a/emit_lean_lane_a.py             (pass 1)
+
+**Current (fix pass r2, 22:27 IST; tree = mirror, `cmp`-verified):**
+
+    609e55f223331e4c99554853792a7e7fa97b752f6c2872481de68b289449512a  Zeta23/DBN/Instance02/Asym_mp.lean     (8339 bytes, 120 lines)
+    d669fc31b1908b8db1688f1d0b87d7118541fef4a3806644c835212af6a44740  Zeta23/DBN/Instance02/Asym_arb.lean    (8202 bytes, 120 lines)
+    810ee7d8d9c73c2cc320b7147bf5ecbc9aae3821884076a06cc65092aa1ca4de  Zeta23/DBN/Instance02.lean             (267 lines)
+    c970ac26254c6ec22b690543395e172db1e75e272d07ab4421b711fae26b2f63  Zeta23/DBN/Asym.lean          (builder's, unchanged in both passes)
     7a99eedb4f09cdc4d992238ca16fe51be6a33e27ab05a0369faf9182bc573b85  lane-a/asym-mp.json           (input, untouched)
     b7d1a7824bb996c007cefeba48af53816bfaa14ff5271563f749538d3ce2819e  lane-a/asym-arb.json          (input, untouched)
-    de67acf7bc7e9653837f811f4df56f363da7151e1995a958a1e87494eb136ff2  lane-a/emit_lean_lane_a.py
-    645a82ec9b54e6882eb79d926ef24d4b65368e19656cb64a6b349befdae9ca51  lane-a/backparse_lane_a.py
+    96bca54ae90180ea6eb437bfcd0c5523ce3ac852073bf57e29801f44501271d6  lane-a/emit_lean_lane_a.py    (template corrected, §9)
+    645a82ec9b54e6882eb79d926ef24d4b65368e19656cb64a6b349befdae9ca51  lane-a/backparse_lane_a.py    (unchanged)
 
-(The emitter is deterministic: re-running it on the same JSON reproduces the two module hashes.)
+(The emitter is deterministic: re-running it on the same JSON reproduces the two current module hashes.)
 
 ## 6. Wall times, collected
 
@@ -116,3 +126,50 @@ Nothing is owed from Job 1: every proof closed (no proof left out, no `sorry`), 
 Not in this job's scope, for the orchestrator: the Opus audit (Job 2, `AUDIT-3d.md`), the commit/LOG.md hash entry (the
 autocommit watchdog will pick the files up; the SHA-256s above are for LOG.md), STATUS.md, and RUN-REPORT §6 item 5
 (packaging) which is now the cut line.
+
+## 9. FIX PASS (r2) after AUDIT-3d.md — dated block, 2026-09-09 22:20–22:30 IST, machine clock
+
+**Trigger.** The auditor (Job 2) returned FIX-FIRST: everything trust-critical OK and reproduced; two documentation-accuracy
+defects, both numeric, both in trusted files. I verified each independently before editing anything (exact arithmetic,
+Python `decimal` at 60 digits and `fractions`), then applied them. Nothing was rejected.
+
+| item | verification | decision |
+|---|---|---|
+| **A-1** — the y-band figure | yA − √(157/250) = 0.7924646 − 0.79246451024635797… = **8.975364·10⁻⁸ ≈ 9.0·10⁻⁸**; the squares gap yA² − 157/250 = 3556329/(25·10¹²) = 1.4225316·10⁻⁷; ratio 1.585. Pass 1 wrote the squares gap as the y gap, contradicting the two decimals printed beside it. | **APPLIED.** The sentence now gives the y gap (9.0·10⁻⁸) and, in a parenthesis, the exact squares gap, in every place in the corpus's own voice (the auditor's list of eight, plus the emitter template it came from). |
+| **A-2** — E₁ Arb/mp | 1823/(1822923348119831/10¹²) = **1.0000420488…**; `crosscheck-full.txt` rel 4.3·10⁻⁸ (larger: arb), `backparse.log` 1.000042. Pass 1's headers said 1.000000, copied from BUILD-NOTES' final-verification line. | **APPLIED** in both module headers (via the template), in `lean/README.md` line 195 (an occurrence the audit did not list), and a dated correction appended to `BUILD-NOTES.md` (the builder's line kept). |
+| AUDIT §4 — F-6 note "understates how little is consumed" | Read in `Asym.lean` 189–197: the single `obtain` names `hK`, `hrows`, `hcons`, `hN1`; per row `obtain ⟨⟨-, -⟩, hET⟩` keeps only `E < T`; `cover_of_consecutive d.rows r hr hcons …` takes C-A4. Confirmed. | Not a fix request; **applied anyway as one clause** in the modules' "WHAT THE KERNEL DOES NOT USE" paragraph ("and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses C-A4 through `cover_of_consecutive` and C-A5)"), so the honesty note is exact rather than merely safe. Comment only; `Asym.lean`'s own paragraph is the builder's, not wrong, and was left alone. |
+
+**What changed — text only. No code, no integer, no theorem statement, no proof, no import moved.**
+
+* `emit_lean_lane_a.py`: three template edits (the F-6 clause, the A-1 sentence, the A-2 figure); both modules **regenerated
+  from it** (not hand-edited), so the emitter still reproduces the module hashes. `diff` pass 1 → r2 per module: exactly the
+  three header hunks; 117 → 120 lines; 8093 → 8339 bytes (mp), 7956 → 8202 (Arb). Record: `fixes-3d-r2.diff`.
+* `Instance02.lean` header lines 72–73 (A-1); 266 → 267 lines. `instance02-replacement-r2.diff` (git `5a4b06b` → r2, 198 lines)
+  supersedes `instance02-replacement.diff` (pass 1, kept); the code hunks are identical.
+* `PLAN-REVIEW.md` §6: a dated correction appended under the third bullet; the bullet itself untouched (the source of the quote).
+* `lean/README.md`: the verbatim block quote of §6 now carries the source's dated correction (so it still follows its source);
+  E₁ 1.000000 → 1.000042; the "what the kernel does not use" paragraph's figure + a bracketed dated note; line counts 117 → 120
+  (two places); the three SHA-256s (pass-1 values pointed to §5 here).
+* `v11/GLUE-NOTES.md`, `RUN-REPORT.md` §6: the figure, plus a bracketed dated correction note at the end of the same paragraph.
+* This file: §1 item-6 and §4 figures corrected with bracketed notes; §5 restructured (pass 1 kept as superseded); this §9.
+* `BUILD-NOTES.md`: a dated correction appended (A-2's origin); nothing of the builder's removed.
+* **Not edited:** `AUDIT-3d.md` (the auditor's), `BRIEF-3d.md` (the orchestrator's; it inherits the figure from PLAN-REVIEW §6,
+  now corrected at the source), `instance02-replacement.diff` (pass-1 record), `Asym.lean`, the two JSON inputs, `Zeta23.lean`.
+
+**Re-verification after the edits (all on disk).**
+
+| check | result | record |
+|---|---|---|
+| back-parse, re-run on the regenerated modules | 50 integers exact, 0 mismatches, cross-leg 0, exit 0; identical to `backparse.log` except the stamps and the two byte counts | `backparse-r2.log` |
+| `lake build Zeta23` (root; one lake process, no producers, heavy jobs 0 before and after) | `Built …Asym_mp (1.6s)`, `…Asym_arb (1.6s)`, `…Instance02 (1.5s)`, `Built Zeta23 (10s)`, **Build completed successfully (9142 jobs)**, 16.04 s wall, RSS 5.9 GB, no warning or error in any DBN file | `asym-literal-build-r2.log` |
+| `#print axioms` on the eight names + the six `#check`s (the same scratch) | **identical to `final-axioms.log`** line for line (only the timing lines differ): six theorems `[propext, Classical.choice, Quot.sound]`, two kernel facts `[propext]`; the four instance theorems still display exactly H1, H2-B, `hAsym`, `hTail`, H3; 2.45 s wall | `final-axioms-r2.log` |
+| trust greps, raw and CODE-ONLY (comments stripped, nested blocks handled; eleven patterns incl. `hLaneA`, `ofReduceBool`, `trust_me`, `lean_evalConst`; 121 files) | raw prose counts unchanged (axiom 0, native_decide 116, sorry 3, hLaneA 12); **code hits 0** for every pattern | `trust-greps-r2.log` |
+| mirror | the three files re-copied to `rh-program/lean/Zeta23/DBN/`, `cmp`-identical; `Asym.lean` untouched and identical | §5 |
+| leftover figures | `1.5·10⁻⁷` survives only inside quotations of the old wording and in correction notes (README 179 = the quoted bullet, followed by its correction; PLAN-REVIEW 170 = the bullet; the pass-1 diff; AUDIT-3d.md; BRIEF-3d.md); `1.000000` only in BUILD-NOTES' kept line, its correction, and AUDIT-3d.md | `grep -rn` at the end of the pass |
+
+**Wall times:** emit < 0.1 s (both legs); back-parse < 0.1 s; root build 16.04 s; axioms scratch 2.45 s; whole pass ≈ 13 min.
+Thermal: `caffeinate` and both watchdogs running throughout; one `lake` at a time; no producer ran.
+
+**Owed:** nothing from the emitter. For the orchestrator: the commit / LOG.md hash entry (the autocommit watchdog picks the
+files up; the current hashes are in §5), STATUS.md, and — if wanted — an Opus re-check of this pass, which needs only
+`fixes-3d-r2.diff`, `final-axioms-r2.log` against `final-axioms.log`, and the §5 hashes.

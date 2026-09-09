@@ -1,0 +1,975 @@
+# fixes-3d-r2.diff — every tracked file the phase-3(d) FIX PASS (r2) touched, git 2920a54 (= the pass-1 state the auditor saw, tree == mirror == HEAD) -> after the fix pass; Wed Sep  9 22:30:34 IST 2026
+# The Lean tree's three files appear here via their byte-identical mirror copies under rh-program/lean/Zeta23/DBN/ (cmp-verified).
+# New (untracked at diff time) records of this pass, not shown below: backparse-r2.log, asym-literal-build-r2.log, final-axioms-r2.log, trust-greps-r2.log, instance02-replacement-r2.diff, fixes-3d-r2.diff (this).
+# Excluded on purpose: nothing — AUDIT-3d.md and BRIEF-3d.md were not edited and so do not appear.
+ rh-program/lean/README.md                          |  23 +-
+ rh-program/lean/Zeta23/DBN/Instance02.lean         |   3 +-
+ .../lean/Zeta23/DBN/Instance02/Asym_arb.lean       |  13 +-
+ rh-program/lean/Zeta23/DBN/Instance02/Asym_mp.lean |  13 +-
+ rh-program/results/d1-m2a/RUN-REPORT.md            |   4 +-
+ rh-program/results/d1-m2a/lane-a/BUILD-NOTES.md    |   7 +
+ rh-program/results/d1-m2a/lane-a/EMIT-NOTES.md     |  76 +++++-
+ rh-program/results/d1-m2a/lane-a/PLAN-REVIEW.md    |   4 +
+ .../d1-m2a/lane-a/asym-literal-build-r2.log        | 262 +++++++++++++++++++++
+ rh-program/results/d1-m2a/lane-a/backparse-r2.log  |  18 ++
+ .../results/d1-m2a/lane-a/emit_lean_lane_a.py      |  13 +-
+ .../results/d1-m2a/lane-a/final-axioms-r2.log      |  59 +++++
+ .../d1-m2a/lane-a/instance02-replacement-r2.diff   | 198 ++++++++++++++++
+ .../results/d1-m2a/lane-a/trust-greps-r2.log       |  28 +++
+ rh-program/results/d1-m2a/v11/GLUE-NOTES.md        |   5 +-
+ 15 files changed, 688 insertions(+), 38 deletions(-)
+
+diff --git a/rh-program/lean/README.md b/rh-program/lean/README.md
+index aa8aa25..1371af4 100644
+--- a/rh-program/lean/README.md
++++ b/rh-program/lean/README.md
+@@ -6,7 +6,7 @@ modules of `DBN/Instance02.lean` + `DBN/Instance02/` (23,965 lines of transcript
+ They are **additions to the `Zeta23` library**, not a standalone project, and they are the only Lean files
+ in this repository.
+ Since 2026-09-09 (Session 19, M2a Lane A) also the hand-written `DBN/Asym.lean` (246 lines) and the two mechanically
+-emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (117) and `Asym_arb.lean` (117) — see the
++emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (120) and `Asym_arb.lean` (120) — see the
+ "M2a Lane A (2026-09-09)" section below.
+ 
+ | File | Lines | What it carries |
+@@ -23,7 +23,7 @@ emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (117) and `Asym_arb
+ | `Zeta23/DBN/Defs.lean` | 117 | De Bruijn–Newman definitions |
+ | `Zeta23/DBN/BarrierCert.lean` | 1092 | **M2a Lane B (added 2026-09-02).** The barrier-certificate transcript data (`PrismData`, `RectData`, `BarrierData`), the integer checker `checkBarrier` (per-prism `checkPrism` = W1's C1, C3–C9 with the strip-free C2′, m = 0, the C11 floor and the gate C-B12 (E+D)·Fd < Fn·K; global `checkBarrierChain` = C-B13), the displayed hypothesis H2-B (`BarrierEnclOK`), and the soundness theorem `cert_of_checkBarrier` — PROVED, not displayed: the rectangle argument principle on a general rectangle (`rectArgPrincipleGen`, from the v1.1 bridge), the strip-free W1 mesh chain, and the one new analytic lemma `logDerivSegIntegral_eq_log_sub` (∫ h′/h = Log h(w) − Log h(z) when Re h > 0 on the segment) with log-derivative additivity; no Rouché, no zero-continuity in t. Plus `cert_of_checkBarrier_xy`, the coordinate form `Polymath15Bridge`'s (iii) consumes. Contract: `results/d1-m2a/SPEC.md`; record: `results/d1-m2a/lean-notes.md` |
+ | `Zeta23/DBN/Instance02.lean` + `Zeta23/DBN/Instance02/` (116 modules) | 23965 | **M2a item (e), Lane B instance (added 2026-09-03).** The Polymath15 Table-1 row-2 barrier transcripts of BOTH untrusted producers as kernel-checked checker instances: `Instance02/Rect.lean` (`row2Rect`), `Instance02/mp_0000…mp_0038.lean` (mpmath-ball leg, 39 prisms, 7 176 rows, K = 10²⁴) and `Instance02/arb_0000…arb_0071.lean` (Arb/FLINT leg, 72 prisms, 10 771 rows, K = 10¹²), each proving `checkPrism row2Rect <prism> = true` by `decide +kernel`; `Instance02/{mp,arb}_Barrier.lean` (`row2Barrier{MP,ARB} : BarrierData`, the chain fact by `decide +kernel`, the split per-prism fact, the monolithic `checkBarrier … = true`); `Instance02.lean` instantiates `cert_of_checkBarrier` / `cert_of_checkBarrier_xy` on both (`row2_barrier_{mp,arb}`, `_xy`), generic in G. Emitted by `results/d1-m2a/emit_lean_m2a.py` (untrusted), back-parse-verified by `verify_lean_m2a.py` (0 mismatches); record `results/d1-m2a/INSTANCE-REPORT.md`. **PARTIAL by design:** Lane A, `Defs.lean` v1.1 and the glue theorem `lambda_le_point2` are NOT here (cut line stated in the module header) |
+-| `Zeta23/DBN/Asym.lean` + `Zeta23/DBN/Instance02/Asym_{mp,arb}.lean` | 246 + 117 + 117 | **M2a Lane A (added 2026-09-09).** `Asym.lean` (hand-written, Session 19 builder): the asymptotic-lane transcript data (`AsymRow`, `TailRow`, `AsymData`), the integer checker `checkAsym` (C-A1 … C-A6, SPEC §7.4), the window index `windowIdx`, the displayed hypotheses H2-A (`AsymEnclOK`) and H-TAIL (`TailOK`), the soundness theorem `cert_of_checkAsym` (SPEC §8.3, proof = SPEC §5.6 via `cover_of_consecutive`) — PROVED — and L-A2 `windowIdx_mono`, L-A1 `row2_windowIdx_ge` (from `Real.pi_lt_d6`). `Instance02/Asym_mp.lean`, `Asym_arb.lean` (mechanically emitted by `results/d1-m2a/lane-a/emit_lean_lane_a.py`, untrusted; back-parse-verified integer by integer by `backparse_lane_a.py`, 0 mismatches): the two producers' Lane A literals `row2AsymMP` (mpmath-ball leg, K = 10²⁴) and `row2AsymARB` (Arb/FLINT leg, K = 10¹²) — 3 window rows covering N ∈ [630783, 5140999] consecutively plus the tail row at N₁ = 5 141 000 — each with its kernel fact `checkAsym … = true` by `decide +kernel` (`[propext]`) and the glue lemma `row2_laneA_{mp,arb}` (PLAN §1.5) that hands `cert_of_checkAsym` on the literal to `Polymath15Bridge'` as (ii′). `Instance02.lean`'s four theorems now display `hAsym`/`hTail` instead of `hLaneA`. Records: `results/d1-m2a/lane-a/{PLAN,PLAN-REVIEW,BUILD-NOTES,EMIT-NOTES}.md`, `final-axioms.log`, `trust-greps.log` |
++| `Zeta23/DBN/Asym.lean` + `Zeta23/DBN/Instance02/Asym_{mp,arb}.lean` | 246 + 120 + 120 | **M2a Lane A (added 2026-09-09).** `Asym.lean` (hand-written, Session 19 builder): the asymptotic-lane transcript data (`AsymRow`, `TailRow`, `AsymData`), the integer checker `checkAsym` (C-A1 … C-A6, SPEC §7.4), the window index `windowIdx`, the displayed hypotheses H2-A (`AsymEnclOK`) and H-TAIL (`TailOK`), the soundness theorem `cert_of_checkAsym` (SPEC §8.3, proof = SPEC §5.6 via `cover_of_consecutive`) — PROVED — and L-A2 `windowIdx_mono`, L-A1 `row2_windowIdx_ge` (from `Real.pi_lt_d6`). `Instance02/Asym_mp.lean`, `Asym_arb.lean` (mechanically emitted by `results/d1-m2a/lane-a/emit_lean_lane_a.py`, untrusted; back-parse-verified integer by integer by `backparse_lane_a.py`, 0 mismatches): the two producers' Lane A literals `row2AsymMP` (mpmath-ball leg, K = 10²⁴) and `row2AsymARB` (Arb/FLINT leg, K = 10¹²) — 3 window rows covering N ∈ [630783, 5140999] consecutively plus the tail row at N₁ = 5 141 000 — each with its kernel fact `checkAsym … = true` by `decide +kernel` (`[propext]`) and the glue lemma `row2_laneA_{mp,arb}` (PLAN §1.5) that hands `cert_of_checkAsym` on the literal to `Polymath15Bridge'` as (ii′). `Instance02.lean`'s four theorems now display `hAsym`/`hTail` instead of `hLaneA`. Records: `results/d1-m2a/lane-a/{PLAN,PLAN-REVIEW,BUILD-NOTES,EMIT-NOTES}.md`, `final-axioms.log`, `trust-greps.log` |
+ 
+ `#print axioms` on every machine-checked theorem here reports only Lean's three standard
+ axioms — `propext`, `Classical.choice`, `Quot.sound`. This now covers, besides the twelve
+@@ -180,6 +180,10 @@ PLAN-REVIEW §6 verbatim:
+ >   `hLaneA`; it is a vastly smaller x-region with a hair-wider y-band. Both directions are covered — the glue lemma
+ >   derives y ≤ yA from y² ≤ 157/250 — but the label should say "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of
+ >   what `hLaneA` said".
++>   [DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) audit (AUDIT-3d.md A-1).] "1.5·10⁻⁷ wider" above is the gap in the
++>   SQUARES (yA² − 157/250 = 3556329/(25·10¹²) = 1.4225·10⁻⁷). The gap in y itself is yA − √(157/250) = 8.975·10⁻⁸ ≈
++>   9.0·10⁻⁸. The bullet's point — that `TailOK`'s y-band is a hair WIDER than the conclusion's, so `TailOK` is not
++>   literally a sub-statement of `hLaneA` — is unaffected.
+ > * C-A6 (the tail row's Σ < 2K) is kernel-checked but **not consumed** by `cert_of_checkAsym` (§1, A9). It is
+ >   recorded evidence for Lemma T's prose discharge, exactly as SPEC §5.1 designs it. The label must not imply the
+ >   kernel checked the tail *reduction*.
+@@ -192,7 +196,7 @@ formulas (`p9_mp.py`, mpmath `iv` prec 288; `p9_arb.py`, python-flint `arb` prec
+ E/K ≤ 1.06·10⁻⁷, E/T ≤ 9·10⁻⁶) and the tail row at N₁ = 5 141 000 (Q₁ + Q₂ + Q₃ + Q₄ + E₁ = 1.99699937… < 2, margin
+ 3.0·10⁻³; side conditions (S1)–(S4) true; `--direct` term-by-term validation contained on both legs). Cross-check
+ (`crosscheck-full.txt`, CONSISTENT): T and Q₁ … Q₄ agree across the legs to ≤ 5·10⁻⁷⁹ relative; the E upper bounds are
+-hull bounds — Arb's the larger on every row (Arb/mp = 1.027, 1.124, 1.261; E₁ 1.000000) — recorded, not gated (etol 0.3;
++hull bounds — Arb's the larger on every row (Arb/mp = 1.027, 1.124, 1.261; E₁ 1.000042) — recorded, not gated (etol 0.3;
+ PLAN-REVIEW F-2). Each leg keeps its own E in its own literal and its own theorem.
+ 
+ **Lean.** `DBN/Asym.lean` (builder, `lane-a/BUILD-NOTES.md`): `checkAsym`, `AsymEnclOK`, `TailOK`, `cert_of_checkAsym`
+@@ -205,16 +209,17 @@ mismatches; cross-leg window ranges and N₁ identical, T/K and Q/K to ≤ 5·10
+ *Build completed successfully (9142 jobs)*, `Built Zeta23.DBN.Instance02 (1.7s)`, `Built Zeta23 (11s)`, no warning in any
+ DBN file (`lane-a/asym-literal-build.log`). Trust greps over `Zeta23/DBN/` (`axiom`, `native_decide`, `unsafe`,
+ `implemented_by`, `extern`, `opaque`, `sorry`): 0 hits in code, every hit in header prose (`lane-a/trust-greps.log`).
+-SHA-256 (10(i)): `Asym_mp.lean` 128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05, `Asym_arb.lean`
+-767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987, `Instance02.lean`
+-bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850.
++SHA-256 (10(i)), after the phase-3(d) fix pass (22:27 IST; header-only edits, AUDIT-3d.md A-1/A-2 — the pass-1 hashes are in
++`lane-a/EMIT-NOTES.md` §5): `Asym_mp.lean` 609e55f223331e4c99554853792a7e7fa97b752f6c2872481de68b289449512a, `Asym_arb.lean`
++d669fc31b1908b8db1688f1d0b87d7118541fef4a3806644c835212af6a44740, `Instance02.lean`
++810ee7d8d9c73c2cc320b7147bf5ecbc9aae3821884076a06cc65092aa1ca4de.
+ 
+ **What the kernel does not use (PLAN-REVIEW F-6; SPEC §5.1).** `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
+ and C-A5. C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on both literals but never
+ consumed by a proof: recorded evidence for the prose discharge of Lemma T (SPEC §5.4). "C-A6 is kernel-checked" must
+-not be read as "the tail reduction is kernel-checked". And `TailOK`'s y-band [y₀, yA] is 1.5·10⁻⁷ wider than the
+-former `hLaneA`'s y ≤ √(157/250): the tail hypothesis is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what
+-`hLaneA` said".
++not be read as "the tail reduction is kernel-checked". And `TailOK`'s y-band [y₀, yA] is 9.0·10⁻⁸ wider than the
++former `hLaneA`'s y ≤ √(157/250) (yA − √(157/250) = 8.975·10⁻⁸; in the squares yA² − 157/250 = 1.42·10⁻⁷): the tail
++hypothesis is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said". [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
+ 
+ **Honest label (SPEC §3.7, verbatim): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3"** — never "fully machine-checked". The Λ bracket of record stays
+ 0 ≤ Λ ≤ 0.2 (Rodgers–Tao; Platt–Trudgian): nothing here proves Λ ≤ 0.2; what is new is that the whole chain from two
+diff --git a/rh-program/lean/Zeta23/DBN/Instance02.lean b/rh-program/lean/Zeta23/DBN/Instance02.lean
+index 858ddcd..91f29b7 100644
+--- a/rh-program/lean/Zeta23/DBN/Instance02.lean
++++ b/rh-program/lean/Zeta23/DBN/Instance02.lean
+@@ -69,7 +69,8 @@ WHAT IS DISPLAYED (since 2026-09-09: exactly the SPEC §3.7 label, as written):
+     a displayed FLOOR ENCLOSURE (‖g‖ ≥ (T − E)/K per window row) plus the kernel-checked coverage argument (C-A3, C-A4,
+     C-A5 + L-A1 + L-A2 inside `cert_of_checkAsym`); the displayed nonvanishing CONCLUSION that remains is `TailOK`
+     only — N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  Asymmetry recorded: yA = 3962323/5000000 =
+-    0.7924646 is 1.5·10⁻⁷ WIDER than the former `hLaneA`'s y ≤ √(157/250) = 0.79246451…, so `TailOK` is "the tail region
++    0.7924646 is 9.0·10⁻⁸ WIDER than the former `hLaneA`'s y ≤ √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸;
++    in the squares yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷), so `TailOK` is "the tail region
+     N ≥ N₁, y ∈ [y₀, yA]", not literally a sub-statement of `hLaneA` (the glue derives y ≤ yA from y² ≤ 157/250).
+     C-A6 (the tail row's Q₁ + Q₂ + Q₃ + Q₄ + E₁ < 2K) is kernel-checked on each literal but NOT consumed by any proof:
+     recorded evidence for Lemma T's prose discharge (SPEC §5.1, §5.4) — the tail REDUCTION is not kernel-checked.
+diff --git a/rh-program/lean/Zeta23/DBN/Instance02/Asym_arb.lean b/rh-program/lean/Zeta23/DBN/Instance02/Asym_arb.lean
+index b8b9d9f..2b9f85f 100644
+--- a/rh-program/lean/Zeta23/DBN/Instance02/Asym_arb.lean
++++ b/rh-program/lean/Zeta23/DBN/Instance02/Asym_arb.lean
+@@ -36,9 +36,11 @@ analytic is asserted here: H2-A (`AsymEnclOK`, the window-row floors ‖g(x + iy
+ y ∈ [y₀, yA]) and H-TAIL (`TailOK`, g(x + iy) ≠ 0 for N(x) ≥ N₁, y ∈ [y₀, yA]) stay DISPLAYED (SPEC.md §6, §8.1).
+ 
+ WHAT THE KERNEL DOES NOT USE (PLAN-REVIEW.md F-6; SPEC §5.1).  `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
+-and C-A5.  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on this literal but
+-never consumed by any proof: they are recorded evidence for the prose discharge of Lemma T (SPEC §5.4) and of the
+-y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail reduction is kernel-checked".
++and C-A5 — and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses
++C-A4 through `cover_of_consecutive` and C-A5).  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are
++kernel-checked on this literal but never consumed by any proof: they are recorded evidence for the prose discharge
++of Lemma T (SPEC §5.4) and of the y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail
++reduction is kernel-checked".
+ 
+ THE GLUE (PLAN.md §1.5) AND WHAT IT BUYS (PLAN-REVIEW.md §6).  `row2_laneA_arb hAsym hTail` has the conclusion
+ ∀ x y, X + 1 ≤ x → y₀ ≤ y → y² ≤ 1 − 2t₀ → Ht t₀ (x + y·I) ≠ 0 — character for character the former `hLaneA`
+@@ -48,14 +50,15 @@ Before the replacement the whole region x ≥ X + 1 was a DISPLAYED nonvanishing
+ N ∈ [630783, 5140999] (x from ≈ 5.0·10¹² up to x_{N₁} ≈ 3.32·10¹⁴) is a displayed FLOOR ENCLOSURE (`AsymEnclOK`)
+ plus the kernel-checked coverage argument (C-A3, C-A4, C-A5 + L-A1 + L-A2), and the displayed nonvanishing
+ CONCLUSION that remains is `TailOK` only: N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  One
+-asymmetry, stated not glossed: yA = 0.7924646 is 1.5·10⁻⁷ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…,
++asymmetry, stated not glossed: yA = 0.7924646 is 9.0·10⁻⁸ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…
++(yA − √(157/250) = 8.975·10⁻⁸; in the squares, yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷),
+ so `TailOK` (and `AsymEnclOK`) are hypotheses on the y-band [y₀, yA], a hair wider than the conclusion's y-range —
+ "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said".
+ 
+ The two producer legs are never merged (D-R3): this module is the Arb/FLINT leg's; Asym_mp.lean is the mpmath-ball leg's (K = 10²⁴), and each
+ leg pairs its own Lane A literal with its own Lane B literal in Instance02.lean.  The two-producer cross-check
+ (results/d1-m2a/lane-a/crosscheck-full.txt, CONSISTENT: T_lo and Q₁ … Q₄ agree to ≤ 5·10⁻⁷⁹ relative; the E upper
+-bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000000 on E₁,
++bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000042 on E₁,
+ recorded not gated, etol 0.3) is producer-side evidence, not a proof.
+ Trust label (SPEC.md §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".
+ -/
+diff --git a/rh-program/lean/Zeta23/DBN/Instance02/Asym_mp.lean b/rh-program/lean/Zeta23/DBN/Instance02/Asym_mp.lean
+index 7c642d3..ea3344c 100644
+--- a/rh-program/lean/Zeta23/DBN/Instance02/Asym_mp.lean
++++ b/rh-program/lean/Zeta23/DBN/Instance02/Asym_mp.lean
+@@ -36,9 +36,11 @@ analytic is asserted here: H2-A (`AsymEnclOK`, the window-row floors ‖g(x + iy
+ y ∈ [y₀, yA]) and H-TAIL (`TailOK`, g(x + iy) ≠ 0 for N(x) ≥ N₁, y ∈ [y₀, yA]) stay DISPLAYED (SPEC.md §6, §8.1).
+ 
+ WHAT THE KERNEL DOES NOT USE (PLAN-REVIEW.md F-6; SPEC §5.1).  `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
+-and C-A5.  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on this literal but
+-never consumed by any proof: they are recorded evidence for the prose discharge of Lemma T (SPEC §5.4) and of the
+-y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail reduction is kernel-checked".
++and C-A5 — and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses
++C-A4 through `cover_of_consecutive` and C-A5).  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are
++kernel-checked on this literal but never consumed by any proof: they are recorded evidence for the prose discharge
++of Lemma T (SPEC §5.4) and of the y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail
++reduction is kernel-checked".
+ 
+ THE GLUE (PLAN.md §1.5) AND WHAT IT BUYS (PLAN-REVIEW.md §6).  `row2_laneA_mp hAsym hTail` has the conclusion
+ ∀ x y, X + 1 ≤ x → y₀ ≤ y → y² ≤ 1 − 2t₀ → Ht t₀ (x + y·I) ≠ 0 — character for character the former `hLaneA`
+@@ -48,14 +50,15 @@ Before the replacement the whole region x ≥ X + 1 was a DISPLAYED nonvanishing
+ N ∈ [630783, 5140999] (x from ≈ 5.0·10¹² up to x_{N₁} ≈ 3.32·10¹⁴) is a displayed FLOOR ENCLOSURE (`AsymEnclOK`)
+ plus the kernel-checked coverage argument (C-A3, C-A4, C-A5 + L-A1 + L-A2), and the displayed nonvanishing
+ CONCLUSION that remains is `TailOK` only: N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  One
+-asymmetry, stated not glossed: yA = 0.7924646 is 1.5·10⁻⁷ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…,
++asymmetry, stated not glossed: yA = 0.7924646 is 9.0·10⁻⁸ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…
++(yA − √(157/250) = 8.975·10⁻⁸; in the squares, yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷),
+ so `TailOK` (and `AsymEnclOK`) are hypotheses on the y-band [y₀, yA], a hair wider than the conclusion's y-range —
+ "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said".
+ 
+ The two producer legs are never merged (D-R3): this module is the mpmath-ball leg's; Asym_arb.lean is the Arb/FLINT leg's (K = 10¹²), and each
+ leg pairs its own Lane A literal with its own Lane B literal in Instance02.lean.  The two-producer cross-check
+ (results/d1-m2a/lane-a/crosscheck-full.txt, CONSISTENT: T_lo and Q₁ … Q₄ agree to ≤ 5·10⁻⁷⁹ relative; the E upper
+-bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000000 on E₁,
++bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000042 on E₁,
+ recorded not gated, etol 0.3) is producer-side evidence, not a proof.
+ Trust label (SPEC.md §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".
+ -/
+diff --git a/rh-program/results/d1-m2a/RUN-REPORT.md b/rh-program/results/d1-m2a/RUN-REPORT.md
+index 6b25788..5721032 100644
+--- a/rh-program/results/d1-m2a/RUN-REPORT.md
++++ b/rh-program/results/d1-m2a/RUN-REPORT.md
+@@ -139,6 +139,6 @@ displayed hypotheses" only with that gloss; R-1's condition is met, so R-1 is di
+ "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".  What the replacement bought, stated not glossed (PLAN-REVIEW §6): the window range
+ N ∈ [630 783, 5 140 999] is now a displayed floor-enclosure hypothesis plus kernel-checked coverage, no longer a displayed
+ nonvanishing claim; the displayed nonvanishing conclusion that remains is only `TailOK` on N ≥ 5 141 000 with the y-band
+-[y₀, yA], yA 1.5·10⁻⁷ wider than √(157/250); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
++[y₀, yA], yA 9.0·10⁻⁸ wider than √(157/250) (1.42·10⁻⁷ in the squares); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
+ **The cut line moves to item 5 (packaging).**  Λ ≤ 0.2 is still not proved: H1, the four enclosure Props of H2 and H3 are
+-displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.
++displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.  [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
+diff --git a/rh-program/results/d1-m2a/lane-a/BUILD-NOTES.md b/rh-program/results/d1-m2a/lane-a/BUILD-NOTES.md
+index 0db2683..eed7ffa 100644
+--- a/rh-program/results/d1-m2a/lane-a/BUILD-NOTES.md
++++ b/rh-program/results/d1-m2a/lane-a/BUILD-NOTES.md
+@@ -145,3 +145,10 @@ checklist: judge "heavy" by CPU (`ps -axo pcpu=,command= | awk '$1 > 50'`), not
+   - Python pre-check C-A1…C-A6 on the mp literal (UNTRUSTED; the kernel re-does it): [True, True, True, True, True, True].
+ * `STATUS.json` top level: phase = "arb:tail-done mp:tail-done", windows_done/total = 4510217/4510217, started 2026-09-09 21:36:29 IST, updated 2026-09-09 21:43:55 IST, eta_hours = 0.0, errors = []; per leg: mp tail-done (rows 3/3), arb tail-done (rows 3/3).
+ * Both legs' transcripts are on disk (`asym-mp.json`, `asym-arb.json`) with every per-row/tail record under `batches/`. Next (orchestrator, PLAN §4 phase 3 (c)–(d)): `python3 crosscheck_lane_a.py .` (expect the F-2 E-ratio trip on the wide rows — see above — then `--etol` above the observed maximum), emit the two literal modules, back-parse, `lake build`, replace `hLaneA` per PLAN §1.5, `#print axioms`, F-5 bookkeeping, Opus audit.
++
++**[DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) fix pass (AUDIT-3d.md A-2).]** The line "cross-leg E1 (hull bounds): Arb/mp = 1.000000"
++in the final-verification block above does not describe the E₁ bounds as written: E₁ = 1823 at K = 10¹² (Arb) against
++1822923348119831 at K = 10²⁴ (mp) gives Arb/mp = 1.0000420 (`crosscheck-full.txt`: rel 4.3·10⁻⁸, larger: arb; `backparse.log`:
++1.000042). 1.000000 would be right only for the two ceilings taken at the same K = 10¹² (⌈1822.92…⌉ = 1823 = 1823). The
++emitter's module headers had copied the figure; they were corrected in the same pass (`EMIT-NOTES.md` §9). Nothing else in
++this file is affected. The line above is kept as the record.
+diff --git a/rh-program/results/d1-m2a/lane-a/EMIT-NOTES.md b/rh-program/results/d1-m2a/lane-a/EMIT-NOTES.md
+index 6c88183..6c8305f 100644
+--- a/rh-program/results/d1-m2a/lane-a/EMIT-NOTES.md
++++ b/rh-program/results/d1-m2a/lane-a/EMIT-NOTES.md
+@@ -52,7 +52,7 @@ replacement script, every pattern asserted once per theorem block), `bookkeeping
+ 2026-09-09" clause), a LANE A transcript block after the Lane B one, the §2 hypothesis list (`hAsym`, `hTail` in place of
+ `hLaneA`, with (ii′) = `row2_laneA_* hAsym hTail`), the "WHAT IS DISPLAYED" block rewritten to the SPEC §3.7 label with
+ PLAN-REVIEW §6's three facts stated (window range = floor enclosure + kernel-checked coverage; `TailOK` the only displayed
+-nonvanishing conclusion, y-band 1.5·10⁻⁷ wider; C-A6 kernel-checked, not consumed) and the 2026-09-06 `hLaneA` state kept
++nonvanishing conclusion, y-band 9.0·10⁻⁸ wider [figure corrected in the fix pass, §9; the first pass wrote "1.5·10⁻⁷", the squares gap]; C-A6 kernel-checked, not consumed) and the 2026-09-06 `hLaneA` state kept
+ as a DATED RECORD (superseded, not deleted); the four theorem docstrings updated to name `hAsym`/`hTail`. Rationale: a
+ trusted file whose header said "`hLaneA` … not yet run" next to theorems that no longer have `hLaneA` would be a false
+ label (D-R3/D-R8); the header itself foresaw "the theorem statement changes accordingly".
+@@ -65,23 +65,34 @@ gloss). Never "fully machine-checked". RUN-REPORT §6 item 4's shorter sentence
+ condition — item 3 landing — is met; R-1 is discharged, not reversed). Stated, not glossed, in every file touched:
+ (i) the window range N ∈ [630 783, 5 140 999] is a displayed floor-enclosure hypothesis plus kernel-checked coverage, no
+ longer a displayed nonvanishing claim; (ii) the displayed nonvanishing conclusion that remains is `TailOK` on N ≥ 5 141 000
+-with the y-band [y₀, yA], yA = 0.7924646 being 1.5·10⁻⁷ wider than √(157/250) = 0.79246451… (the glue derives y ≤ yA from
++with the y-band [y₀, yA], yA = 0.7924646 being 9.0·10⁻⁸ wider than √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸;
++in the squares yA² − 157/250 = 1.42·10⁻⁷ — corrected in the fix pass, §9; the glue derives y ≤ yA from
+ y² ≤ 157/250; `TailOK` is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said"); (iii) C-A6 is
+ kernel-checked on both literals but not consumed by any proof (F-6) — the tail reduction is prose. Λ ≤ 0.2 is not proved;
+ the bracket of record stays 0 ≤ Λ ≤ 0.2.
+ 
+ ## 5. SHA-256 (KICKSTART 10(i); tree = mirror, verified)
+ 
+-    128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05  Zeta23/DBN/Instance02/Asym_mp.lean
+-    767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987  Zeta23/DBN/Instance02/Asym_arb.lean
+-    bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850  Zeta23/DBN/Instance02.lean
+-    c970ac26254c6ec22b690543395e172db1e75e272d07ab4421b711fae26b2f63  Zeta23/DBN/Asym.lean          (builder's, unchanged)
++**Pass 1 (21:51–22:05 IST) — SUPERSEDED at 22:27 IST by the fix pass (§9); kept as the record. These are the hashes the
++auditor verified in AUDIT-3d.md check 10.**
++
++    128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05  Zeta23/DBN/Instance02/Asym_mp.lean     (pass 1)
++    767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987  Zeta23/DBN/Instance02/Asym_arb.lean    (pass 1)
++    bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850  Zeta23/DBN/Instance02.lean             (pass 1)
++    de67acf7bc7e9653837f811f4df56f363da7151e1995a958a1e87494eb136ff2  lane-a/emit_lean_lane_a.py             (pass 1)
++
++**Current (fix pass r2, 22:27 IST; tree = mirror, `cmp`-verified):**
++
++    609e55f223331e4c99554853792a7e7fa97b752f6c2872481de68b289449512a  Zeta23/DBN/Instance02/Asym_mp.lean     (8339 bytes, 120 lines)
++    d669fc31b1908b8db1688f1d0b87d7118541fef4a3806644c835212af6a44740  Zeta23/DBN/Instance02/Asym_arb.lean    (8202 bytes, 120 lines)
++    810ee7d8d9c73c2cc320b7147bf5ecbc9aae3821884076a06cc65092aa1ca4de  Zeta23/DBN/Instance02.lean             (267 lines)
++    c970ac26254c6ec22b690543395e172db1e75e272d07ab4421b711fae26b2f63  Zeta23/DBN/Asym.lean          (builder's, unchanged in both passes)
+     7a99eedb4f09cdc4d992238ca16fe51be6a33e27ab05a0369faf9182bc573b85  lane-a/asym-mp.json           (input, untouched)
+     b7d1a7824bb996c007cefeba48af53816bfaa14ff5271563f749538d3ce2819e  lane-a/asym-arb.json          (input, untouched)
+-    de67acf7bc7e9653837f811f4df56f363da7151e1995a958a1e87494eb136ff2  lane-a/emit_lean_lane_a.py
+-    645a82ec9b54e6882eb79d926ef24d4b65368e19656cb64a6b349befdae9ca51  lane-a/backparse_lane_a.py
++    96bca54ae90180ea6eb437bfcd0c5523ce3ac852073bf57e29801f44501271d6  lane-a/emit_lean_lane_a.py    (template corrected, §9)
++    645a82ec9b54e6882eb79d926ef24d4b65368e19656cb64a6b349befdae9ca51  lane-a/backparse_lane_a.py    (unchanged)
+ 
+-(The emitter is deterministic: re-running it on the same JSON reproduces the two module hashes.)
++(The emitter is deterministic: re-running it on the same JSON reproduces the two current module hashes.)
+ 
+ ## 6. Wall times, collected
+ 
+@@ -115,3 +126,50 @@ Nothing is owed from Job 1: every proof closed (no proof left out, no `sorry`),
+ Not in this job's scope, for the orchestrator: the Opus audit (Job 2, `AUDIT-3d.md`), the commit/LOG.md hash entry (the
+ autocommit watchdog will pick the files up; the SHA-256s above are for LOG.md), STATUS.md, and RUN-REPORT §6 item 5
+ (packaging) which is now the cut line.
++
++## 9. FIX PASS (r2) after AUDIT-3d.md — dated block, 2026-09-09 22:20–22:30 IST, machine clock
++
++**Trigger.** The auditor (Job 2) returned FIX-FIRST: everything trust-critical OK and reproduced; two documentation-accuracy
++defects, both numeric, both in trusted files. I verified each independently before editing anything (exact arithmetic,
++Python `decimal` at 60 digits and `fractions`), then applied them. Nothing was rejected.
++
++| item | verification | decision |
++|---|---|---|
++| **A-1** — the y-band figure | yA − √(157/250) = 0.7924646 − 0.79246451024635797… = **8.975364·10⁻⁸ ≈ 9.0·10⁻⁸**; the squares gap yA² − 157/250 = 3556329/(25·10¹²) = 1.4225316·10⁻⁷; ratio 1.585. Pass 1 wrote the squares gap as the y gap, contradicting the two decimals printed beside it. | **APPLIED.** The sentence now gives the y gap (9.0·10⁻⁸) and, in a parenthesis, the exact squares gap, in every place in the corpus's own voice (the auditor's list of eight, plus the emitter template it came from). |
++| **A-2** — E₁ Arb/mp | 1823/(1822923348119831/10¹²) = **1.0000420488…**; `crosscheck-full.txt` rel 4.3·10⁻⁸ (larger: arb), `backparse.log` 1.000042. Pass 1's headers said 1.000000, copied from BUILD-NOTES' final-verification line. | **APPLIED** in both module headers (via the template), in `lean/README.md` line 195 (an occurrence the audit did not list), and a dated correction appended to `BUILD-NOTES.md` (the builder's line kept). |
++| AUDIT §4 — F-6 note "understates how little is consumed" | Read in `Asym.lean` 189–197: the single `obtain` names `hK`, `hrows`, `hcons`, `hN1`; per row `obtain ⟨⟨-, -⟩, hET⟩` keeps only `E < T`; `cover_of_consecutive d.rows r hr hcons …` takes C-A4. Confirmed. | Not a fix request; **applied anyway as one clause** in the modules' "WHAT THE KERNEL DOES NOT USE" paragraph ("and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses C-A4 through `cover_of_consecutive` and C-A5)"), so the honesty note is exact rather than merely safe. Comment only; `Asym.lean`'s own paragraph is the builder's, not wrong, and was left alone. |
++
++**What changed — text only. No code, no integer, no theorem statement, no proof, no import moved.**
++
++* `emit_lean_lane_a.py`: three template edits (the F-6 clause, the A-1 sentence, the A-2 figure); both modules **regenerated
++  from it** (not hand-edited), so the emitter still reproduces the module hashes. `diff` pass 1 → r2 per module: exactly the
++  three header hunks; 117 → 120 lines; 8093 → 8339 bytes (mp), 7956 → 8202 (Arb). Record: `fixes-3d-r2.diff`.
++* `Instance02.lean` header lines 72–73 (A-1); 266 → 267 lines. `instance02-replacement-r2.diff` (git `5a4b06b` → r2, 198 lines)
++  supersedes `instance02-replacement.diff` (pass 1, kept); the code hunks are identical.
++* `PLAN-REVIEW.md` §6: a dated correction appended under the third bullet; the bullet itself untouched (the source of the quote).
++* `lean/README.md`: the verbatim block quote of §6 now carries the source's dated correction (so it still follows its source);
++  E₁ 1.000000 → 1.000042; the "what the kernel does not use" paragraph's figure + a bracketed dated note; line counts 117 → 120
++  (two places); the three SHA-256s (pass-1 values pointed to §5 here).
++* `v11/GLUE-NOTES.md`, `RUN-REPORT.md` §6: the figure, plus a bracketed dated correction note at the end of the same paragraph.
++* This file: §1 item-6 and §4 figures corrected with bracketed notes; §5 restructured (pass 1 kept as superseded); this §9.
++* `BUILD-NOTES.md`: a dated correction appended (A-2's origin); nothing of the builder's removed.
++* **Not edited:** `AUDIT-3d.md` (the auditor's), `BRIEF-3d.md` (the orchestrator's; it inherits the figure from PLAN-REVIEW §6,
++  now corrected at the source), `instance02-replacement.diff` (pass-1 record), `Asym.lean`, the two JSON inputs, `Zeta23.lean`.
++
++**Re-verification after the edits (all on disk).**
++
++| check | result | record |
++|---|---|---|
++| back-parse, re-run on the regenerated modules | 50 integers exact, 0 mismatches, cross-leg 0, exit 0; identical to `backparse.log` except the stamps and the two byte counts | `backparse-r2.log` |
++| `lake build Zeta23` (root; one lake process, no producers, heavy jobs 0 before and after) | `Built …Asym_mp (1.6s)`, `…Asym_arb (1.6s)`, `…Instance02 (1.5s)`, `Built Zeta23 (10s)`, **Build completed successfully (9142 jobs)**, 16.04 s wall, RSS 5.9 GB, no warning or error in any DBN file | `asym-literal-build-r2.log` |
++| `#print axioms` on the eight names + the six `#check`s (the same scratch) | **identical to `final-axioms.log`** line for line (only the timing lines differ): six theorems `[propext, Classical.choice, Quot.sound]`, two kernel facts `[propext]`; the four instance theorems still display exactly H1, H2-B, `hAsym`, `hTail`, H3; 2.45 s wall | `final-axioms-r2.log` |
++| trust greps, raw and CODE-ONLY (comments stripped, nested blocks handled; eleven patterns incl. `hLaneA`, `ofReduceBool`, `trust_me`, `lean_evalConst`; 121 files) | raw prose counts unchanged (axiom 0, native_decide 116, sorry 3, hLaneA 12); **code hits 0** for every pattern | `trust-greps-r2.log` |
++| mirror | the three files re-copied to `rh-program/lean/Zeta23/DBN/`, `cmp`-identical; `Asym.lean` untouched and identical | §5 |
++| leftover figures | `1.5·10⁻⁷` survives only inside quotations of the old wording and in correction notes (README 179 = the quoted bullet, followed by its correction; PLAN-REVIEW 170 = the bullet; the pass-1 diff; AUDIT-3d.md; BRIEF-3d.md); `1.000000` only in BUILD-NOTES' kept line, its correction, and AUDIT-3d.md | `grep -rn` at the end of the pass |
++
++**Wall times:** emit < 0.1 s (both legs); back-parse < 0.1 s; root build 16.04 s; axioms scratch 2.45 s; whole pass ≈ 13 min.
++Thermal: `caffeinate` and both watchdogs running throughout; one `lake` at a time; no producer ran.
++
++**Owed:** nothing from the emitter. For the orchestrator: the commit / LOG.md hash entry (the autocommit watchdog picks the
++files up; the current hashes are in §5), STATUS.md, and — if wanted — an Opus re-check of this pass, which needs only
++`fixes-3d-r2.diff`, `final-axioms-r2.log` against `final-axioms.log`, and the §5 hashes.
+diff --git a/rh-program/results/d1-m2a/lane-a/PLAN-REVIEW.md b/rh-program/results/d1-m2a/lane-a/PLAN-REVIEW.md
+index d86b150..7530989 100644
+--- a/rh-program/results/d1-m2a/lane-a/PLAN-REVIEW.md
++++ b/rh-program/results/d1-m2a/lane-a/PLAN-REVIEW.md
+@@ -171,6 +171,10 @@ y² ≤ 157/250". After the replacement:
+   `hLaneA`; it is a vastly smaller x-region with a hair-wider y-band. Both directions are covered — the glue lemma
+   derives y ≤ yA from y² ≤ 157/250 — but the label should say "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of
+   what `hLaneA` said".
++  [DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) audit (AUDIT-3d.md A-1).] "1.5·10⁻⁷ wider" above is the gap in the
++  SQUARES (yA² − 157/250 = 3556329/(25·10¹²) = 1.4225·10⁻⁷). The gap in y itself is yA − √(157/250) = 8.975·10⁻⁸ ≈
++  9.0·10⁻⁸. The bullet's point — that `TailOK`'s y-band is a hair WIDER than the conclusion's, so `TailOK` is not
++  literally a sub-statement of `hLaneA` — is unaffected.
+ * C-A6 (the tail row's Σ < 2K) is kernel-checked but **not consumed** by `cert_of_checkAsym` (§1, A9). It is
+   recorded evidence for Lemma T's prose discharge, exactly as SPEC §5.1 designs it. The label must not imply the
+   kernel checked the tail *reduction*.
+diff --git a/rh-program/results/d1-m2a/lane-a/asym-literal-build-r2.log b/rh-program/results/d1-m2a/lane-a/asym-literal-build-r2.log
+new file mode 100644
+index 0000000..34903f0
+--- /dev/null
++++ b/rh-program/results/d1-m2a/lane-a/asym-literal-build-r2.log
+@@ -0,0 +1,262 @@
++# lake build Zeta23 (root) after the phase-3(d) FIX PASS (r2: header-only edits in Asym_mp.lean, Asym_arb.lean, Instance02.lean; AUDIT-3d.md A-1/A-2/§4) — Session 19 emitter, Wed Sep  9 22:26:56 IST 2026
++# tree: /Users/jaytyagi/rh-lean-work/zeta-23-lean-main; lean: Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release); one lake process at a time, no producers (thermal policy)
++# heavy jobs (>50% CPU) before: 0; lake/lean processes: 0/0
++
++== lake build Zeta23  start Wed Sep  9 22:26:56 IST 2026
++ℹ [8739/9142] Replayed Zeta23.GammaFacts.Mu
++info: Zeta23/GammaFacts/Mu.lean:137:2: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++ℹ [8741/9142] Replayed Zeta23.GammaFacts.StirlingVert
++info: Zeta23/GammaFacts/StirlingVert.lean:452:6: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++ℹ [8779/9142] Replayed Zeta23.WeilEF.Main
++info: Zeta23/WeilEF/Main.lean:38:2: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++ℹ [8795/9142] Replayed Zeta23.ThmE.GammaFactsChiProof
++info: Zeta23/ThmE/GammaFactsChiProof.lean:208:47: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++info: Zeta23/ThmE/GammaFactsChiProof.lean:272:17: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _ht0
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hx
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hc
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hx
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hp
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hc
++  Matrix.mul_assoc
++Hint: Omit it from the simp argument list.
++  [apply] simp
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hc
++  [DecidableEq n]
++consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
++  omit [DecidableEq n] in theorem ...
++  Pi.single_apply
++Hint: Omit it from the simp argument list.
++  [apply] simp [ha]
++  Pi.single_apply
++Hint: Omit it from the simp argument list.
++  [apply] simp [Sum.inl_injective.eq_iff, Ne.symm hk]
++  Pi.single_apply
++Hint: Omit it from the simp argument list.
++  [apply] simp [Sum.inl_injective.eq_iff, Ne.symm this]
++  Pi.single_apply
++Hint: Omit it from the simp argument list.
++  [apply] simp
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hc
++ℹ [8825/9142] Replayed Zeta23.XiPrime.Coeff.ReexpansionGen
++info: Zeta23/XiPrime/Coeff/ReexpansionGen.lean:223:73: Try this:
++  [apply] ring_nf
++  
++  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
++    
++  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
++  Complex.div_re
++Hint: Omit it from the simp argument list.
++  [apply] simp [Complex.neg_re]
++  Complex.norm_ofNat
++Hint: Omit it from the simp argument list.
++  [apply] simp
++| assumption
++| positivity' tactic does nothing
++| assumption
++| positivity' tactic does nothing
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hb
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hk
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hkc
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hT
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _ha
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hb
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hcs
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hk
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hkc
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hT
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _ha
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hb
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hcs
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1'
++Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
++Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _x
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hk
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hkc
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hT
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _ha
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hb
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hW'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw1'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hw2'
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hcs
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hC1'
++Note: The updated constant has a different type:
++  ∀ {α : Type u_1} {x : α} [inst : PartialOrder α] [inst_1 : AddMonoidWithOne α] [NeZero 1] [SuccAddOrder α]
++    [IsBotZeroClass α], 1 ≤ x ↔ x ≠ 0
++instead of
++  ∀ {n : ℕ∞}, 1 ≤ n ↔ n ≠ 0
++Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_le_iff_ne_zero` to `Order.one_le_iff_ne_zero x`).
++ℹ [9053/9142] Replayed Zeta23.PrimeSideA
++info: Zeta23/PrimeSideA.lean:372:0: lem_ends : ∀ (cϱ lam : ℝ),
++  GammaFacts →
++    ChebyshevMertens →
++      0 < lam ∧ lam ≤ 1 →
++        ∃ C, EventuallyAtCore cϱ lam fun p F ↦ |trGt2A p F - MtotalA p F| ≤ C * (p.L * p.l * log p.l * (p.l ^ 2 + p.X))
++info: Zeta23/PrimeSideA.lean:398:0: prop_mumu : ∀ (cϱ lam : ℝ),
++  GammaFacts →
++    ChebyshevMertens →
++      0 < lam ∧ lam ≤ 1 →
++        ∃ C,
++          EventuallyAtCore cϱ lam fun p F ↦
++info: Zeta23/PrimeSideA.lean:404:0: prop_cross_muP : ∀ (cϱ lam : ℝ),
++  GammaFacts →
++    ChebyshevMertens →
++      0 < lam ∧ lam ≤ 1 → ∃ C, EventuallyAtCore cϱ lam fun p F ↦ |Mform F.Phi p.T mu (PX p.X)| ≤ C * (p.l * √p.X)
++  [Fintype ι]
++  [DecidableEq ι]
++consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
++  omit [Fintype ι] [DecidableEq ι] in theorem ...
++  [Fintype ι]
++  [DecidableEq ι]
++consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
++  omit [Fintype ι] [DecidableEq ι] in theorem ...
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _u
++  [NeZero q]
++consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
++  omit [NeZero q] in theorem ...
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _q
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hlam
++  Set.mem_setOf_eq
++Hint: Omit it from the simp argument list.
++  [apply] simp only [Set.mem_compl_iff, Set.mem_singleton_iff, ne_eq]
++  Matrix.diag_apply
++Hint: Omit it from the simp argument list.
++  [apply] simp only [Matrix.trace, map_sum, RCLike.re_to_complex, Complex.ofReal_re]
++  Complex.ofReal_re
++Hint: Omit it from the simp argument list.
++  [apply] simp only [Matrix.trace, Matrix.diag_apply, map_sum, RCLike.re_to_complex]
++Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
++  [apply] _hlam
++  Rp
++Hint: Omit it from the simp argument list.
++  [apply] simp
++  Rm
++Hint: Omit it from the simp argument list.
++  [apply] simp
++✔ [9138/9142] Built Zeta23.DBN.Instance02.Asym_mp (1.6s)
++✔ [9139/9142] Built Zeta23.DBN.Instance02.Asym_arb (1.6s)
++✔ [9140/9142] Built Zeta23.DBN.Instance02 (1.5s)
++✔ [9141/9142] Built Zeta23 (10s)
++Build completed successfully (9142 jobs).
++       16.04 real         6.66 user         7.39 sys
++          5898682368  maximum resident set size
++                   0  average shared memory size
++                   0  average unshared data size
++                   0  average unshared stack size
++             1184695  page reclaims
++               76676  page faults
++                   0  swaps
++                   0  block input operations
++                   0  block output operations
++                   0  messages sent
++                   0  messages received
++                   0  signals received
++               17679  voluntary context switches
++              178175  involuntary context switches
++         57634452876  instructions retired
++         20207896168  cycles elapsed
++           337666440  peak memory footprint
++== exit   end Wed Sep  9 22:27:12 IST 2026
++# heavy jobs (>50% CPU) after: 0
++# note: the "== exit" field above is empty (zsh names the pipe-status array `pipestatus`); the result is the build's own line "Build completed successfully (9142 jobs)" and the four Built lines for Asym_mp / Asym_arb / Instance02 / Zeta23.
+diff --git a/rh-program/results/d1-m2a/lane-a/backparse-r2.log b/rh-program/results/d1-m2a/lane-a/backparse-r2.log
+new file mode 100644
+index 0000000..0e8ad4a
+--- /dev/null
++++ b/rh-program/results/d1-m2a/lane-a/backparse-r2.log
+@@ -0,0 +1,18 @@
++# backparse_lane_a.py — Session 19 phase 3(d) FIX PASS (r2) emitter, Wed Sep  9 22:26:27 IST 2026
++# command: python3 backparse_lane_a.py ~/rh-lean-work/zeta-23-lean-main asym-mp.json asym-arb.json  (after re-emitting from the corrected template; AUDIT-3d.md A-1/A-2)
++[mp] /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/DBN/Instance02/Asym_mp.lean (8339 bytes) vs asym-mp.json
++  25 integers compared, 0 mismatches/problems; K = 1000000000000000000000000, rows 3, N ∈ [630783, 5140999], N1 = 5141000
++[arb] /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/DBN/Instance02/Asym_arb.lean (8202 bytes) vs asym-arb.json
++  25 integers compared, 0 mismatches/problems; K = 1000000000000, rows 3, N ∈ [630783, 5140999], N1 = 5141000
++[cross-leg] mp vs arb, on the back-parsed literals:
++  row 0 [630783, 746495]: T/K rel diff 2.26e-11 (OK ≤ 1e-9); E/K mp 1.0307e-07 arb 1.0589e-07, Arb/mp = 1.0274 (hull bound, recorded, not gated)
++  row 1 [746496, 1469440]: T/K rel diff 8.97e-13 (OK ≤ 1e-9); E/K mp 7.5689e-08 arb 8.5041e-08, Arb/mp = 1.1236 (hull bound, recorded, not gated)
++  row 2 [1469441, 5140999]: T/K rel diff 2.92e-12 (OK ≤ 1e-9); E/K mp 2.1291e-08 arb 2.6856e-08, Arb/mp = 1.2614 (hull bound, recorded, not gated)
++  tail Q1/K rel diff 2.57e-14 (OK ≤ 1e-9)
++  tail Q2/K rel diff 2.06e-12 (OK ≤ 1e-9)
++  tail Q3/K rel diff 4.78e-11 (OK ≤ 1e-9)
++  tail Q4/K rel diff 2.65e-11 (OK ≤ 1e-9)
++  tail E1/K mp 1.822923e-09 arb 1.823000e-09, Arb/mp = 1.000042 (hull bound, recorded, not gated)
++  tail Σ/K: mp 1.996999372832, arb 1.996999372834 (each < 2 is C-A6, kernel-checked per leg, not consumed)
++backparse_lane_a: 50 integers compared exactly (both legs), cross-leg 0 mismatches; TOTAL 0 mismatches/problems -> OK
++# exit 0  Wed Sep  9 22:26:27 IST 2026
+diff --git a/rh-program/results/d1-m2a/lane-a/emit_lean_lane_a.py b/rh-program/results/d1-m2a/lane-a/emit_lean_lane_a.py
+index 44f481e..b656d57 100644
+--- a/rh-program/results/d1-m2a/lane-a/emit_lean_lane_a.py
++++ b/rh-program/results/d1-m2a/lane-a/emit_lean_lane_a.py
+@@ -141,9 +141,11 @@ analytic is asserted here: H2-A (`AsymEnclOK`, the window-row floors ‖g(x + iy
+ y ∈ [y₀, yA]) and H-TAIL (`TailOK`, g(x + iy) ≠ 0 for N(x) ≥ N₁, y ∈ [y₀, yA]) stay DISPLAYED (SPEC.md §6, §8.1).
+ 
+ WHAT THE KERNEL DOES NOT USE (PLAN-REVIEW.md F-6; SPEC §5.1).  `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
+-and C-A5.  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on this literal but
+-never consumed by any proof: they are recorded evidence for the prose discharge of Lemma T (SPEC §5.4) and of the
+-y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail reduction is kernel-checked".
++and C-A5 — and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses
++C-A4 through `cover_of_consecutive` and C-A5).  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are
++kernel-checked on this literal but never consumed by any proof: they are recorded evidence for the prose discharge
++of Lemma T (SPEC §5.4) and of the y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail
++reduction is kernel-checked".
+ 
+ THE GLUE (PLAN.md §1.5) AND WHAT IT BUYS (PLAN-REVIEW.md §6).  `{glue} hAsym hTail` has the conclusion
+ ∀ x y, X + 1 ≤ x → y₀ ≤ y → y² ≤ 1 − 2t₀ → Ht t₀ (x + y·I) ≠ 0 — character for character the former `hLaneA`
+@@ -153,14 +155,15 @@ Before the replacement the whole region x ≥ X + 1 was a DISPLAYED nonvanishing
+ N ∈ [630783, 5140999] (x from ≈ 5.0·10¹² up to x_{{N₁}} ≈ 3.32·10¹⁴) is a displayed FLOOR ENCLOSURE (`AsymEnclOK`)
+ plus the kernel-checked coverage argument (C-A3, C-A4, C-A5 + L-A1 + L-A2), and the displayed nonvanishing
+ CONCLUSION that remains is `TailOK` only: N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  One
+-asymmetry, stated not glossed: yA = 0.7924646 is 1.5·10⁻⁷ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…,
++asymmetry, stated not glossed: yA = 0.7924646 is 9.0·10⁻⁸ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…
++(yA − √(157/250) = 8.975·10⁻⁸; in the squares, yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷),
+ so `TailOK` (and `AsymEnclOK`) are hypotheses on the y-band [y₀, yA], a hair wider than the conclusion's y-range —
+ "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said".
+ 
+ The two producer legs are never merged (D-R3): this module is the {leg_desc}'s; {other[1]} is the {other[2]}, and each
+ leg pairs its own Lane A literal with its own Lane B literal in Instance02.lean.  The two-producer cross-check
+ (results/d1-m2a/lane-a/crosscheck-full.txt, CONSISTENT: T_lo and Q₁ … Q₄ agree to ≤ 5·10⁻⁷⁹ relative; the E upper
+-bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000000 on E₁,
++bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000042 on E₁,
+ recorded not gated, etol 0.3) is producer-side evidence, not a proof.
+ Trust label (SPEC.md §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".
+ -/
+diff --git a/rh-program/results/d1-m2a/lane-a/final-axioms-r2.log b/rh-program/results/d1-m2a/lane-a/final-axioms-r2.log
+new file mode 100644
+index 0000000..bef9d97
+--- /dev/null
++++ b/rh-program/results/d1-m2a/lane-a/final-axioms-r2.log
+@@ -0,0 +1,59 @@
++# #print axioms after the fix pass (r2) — same scratch as final-axioms.log; Wed Sep  9 22:27:12 IST 2026
++'Zeta23.DBN.Instance02.lambda_le_point2' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.lambda_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.row2_ray_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.row2_ray_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.row2_laneA_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.row2_laneA_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
++'Zeta23.DBN.Instance02.row2AsymMP_check' depends on axioms: [propext]
++'Zeta23.DBN.Instance02.row2AsymARB_check' depends on axioms: [propext]
++Zeta23.DBN.Instance02.lambda_le_point2 : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
++  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
++    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++        Zeta23.DBN.Instance02.row2AsymMP →
++      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++          Zeta23.DBN.Instance02.row2AsymMP →
++        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
++          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
++Zeta23.DBN.Instance02.lambda_le_point2_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
++  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierARB →
++    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++        Zeta23.DBN.Instance02.row2AsymARB →
++      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++          Zeta23.DBN.Instance02.row2AsymARB →
++        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
++          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
++Zeta23.DBN.Instance02.row2_ray_mp : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
++  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
++    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++        Zeta23.DBN.Instance02.row2AsymMP →
++      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++          Zeta23.DBN.Instance02.row2AsymMP →
++        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
++          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
++Zeta23.DBN.Instance02.row2_ray_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
++  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierARB →
++    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++        Zeta23.DBN.Instance02.row2AsymARB →
++      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++          Zeta23.DBN.Instance02.row2AsymARB →
++        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
++          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
++Zeta23.DBN.Instance02.row2_laneA_mp : Zeta23.DBN.AsymEnclOK
++    (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) Zeta23.DBN.Instance02.row2AsymMP →
++  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++      Zeta23.DBN.Instance02.row2AsymMP →
++    ∀ (x y : ℝ),
++      5000000194858 + 1 ≤ x →
++        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
++Zeta23.DBN.Instance02.row2_laneA_arb : Zeta23.DBN.AsymEnclOK
++    (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) Zeta23.DBN.Instance02.row2AsymARB →
++  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
++      Zeta23.DBN.Instance02.row2AsymARB →
++    ∀ (x y : ℝ),
++      5000000194858 + 1 ≤ x →
++        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
++real 2.45
++user 1.03
++sys 1.14
++# exit 0  Wed Sep  9 22:27:15 IST 2026
+diff --git a/rh-program/results/d1-m2a/lane-a/instance02-replacement-r2.diff b/rh-program/results/d1-m2a/lane-a/instance02-replacement-r2.diff
+new file mode 100644
+index 0000000..26c7343
+--- /dev/null
++++ b/rh-program/results/d1-m2a/lane-a/instance02-replacement-r2.diff
+@@ -0,0 +1,198 @@
++# instance02-replacement-r2.diff — Zeta23/DBN/Instance02.lean, pre-change (git 5a4b06b, the 2026-09-06 hLaneA state = the mirror before phase 3(d)) -> the tree after the phase-3(d) FIX PASS (r2), Wed Sep  9 22:28:22 IST 2026
++# Supersedes instance02-replacement.diff (pass 1, kept as the record) only by the A-1 figure in the header (AUDIT-3d.md §2); the code hunks are identical: 2 imports, 4 binder pairs, 2 consumption tokens, 2 pass-throughs (PLAN §1.5).
++--- a/Zeta23/DBN/Instance02.lean (5a4b06b)
+++++ b/Zeta23/DBN/Instance02.lean (r2)
++@@ -12,7 +12,8 @@
++ Zeta23/DBN/Instance02.lean — M2a item (e), the INSTANCE of the barrier certificate (Lane B of
++ rh-program/results/d1-m2a/SPEC.md v1.0) for Polymath15 Table 1 row 2: X = 5 000 000 194 858,
++ R = [X, X+1] × [16733/100000, 1], t₀ = 93/500 (SPEC §9) — and, since 2026-09-06 (Session 16), the GLUE
++-`lambda_le_point2` (SPEC §8.3; RUN-REPORT §6 item 4).
+++`lambda_le_point2` (SPEC §8.3; RUN-REPORT §6 item 4); since 2026-09-09 (Session 19) the glue consumes the
+++kernel-checked LANE A literals (RUN-REPORT §6 item 3; results/d1-m2a/lane-a/).
++ 
++ TWO INDEPENDENT PRODUCER TRANSCRIPTS, BOTH KERNEL-CHECKED (SPEC P-1, D-R3):
++   * `row2BarrierMP`  — the mpmath-ball leg (results/d1-m2a/transcripts/row2, 39 prisms, 7 176 rows,
++@@ -26,6 +27,18 @@
++ The literals were emitted by the UNTRUSTED results/d1-m2a/emit_lean_m2a.py and back-parse-verified against
++ the JSON, field by field and row by row, by verify_lean_m2a.py (0 mismatches, both legs).
++ 
+++LANE A (the asymptotic region at the final time t₀; since 2026-09-09, Session 19; results/d1-m2a/lane-a/), likewise
+++TWO INDEPENDENT PRODUCER TRANSCRIPTS, BOTH KERNEL-CHECKED:
+++  * `row2AsymMP`  — the mpmath-ball leg (lane-a/asym-mp.json: 3 window rows covering N ∈ [630783, 5140999]
+++    consecutively, the tail row at N₁ = 5 141 000, K = 10²⁴), module Instance02/Asym_mp with the kernel fact
+++    `row2AsymMP_check : checkAsym row2AsymMP = true` (C-A1 … C-A6, `decide +kernel`) and the glue lemma `row2_laneA_mp`;
+++  * `row2AsymARB` — the Arb/FLINT leg (lane-a/asym-arb.json: the same rows and tail, K = 10¹²), module
+++    Instance02/Asym_arb with `row2AsymARB_check` and `row2_laneA_arb`.
+++Emitted by the UNTRUSTED lane-a/emit_lean_lane_a.py and back-parse-verified against the JSON, integer by integer, by
+++lane-a/backparse_lane_a.py (0 mismatches, both legs); the two transcripts cross-checked per row (lane-a/crosscheck-full.txt:
+++T and Q₁ … Q₄ agree to ≤ 5·10⁻⁷⁹, the E hull bounds recorded, Arb's larger).  Each leg pairs its own Lane A literal with
+++its own Lane B literal — the legs are never merged (D-R3).
+++
++ WHAT IS PROVED HERE (kernel-checked modulo the displayed hypotheses — never "fully machine-checked"):
++   §1  `row2_barrier_mp`, `row2_barrier_arb` : for a normalized family G : ℝ → ℂ → ℂ, IF (hHol) G t is
++       holomorphic on an open neighborhood of R for every t ∈ [0, t₀] and IF (hEncl) H2-B holds for the
++@@ -37,32 +50,49 @@
++       SPEC §1.1 in ray form, ∀ t ≥ 1/5, every zero of H_t is real — from the DISPLAYED hypotheses
++         hH1    : ZeroVerification (116733 / 200000) 2500000097429                 (H1, exact; SPEC §3.6)
++         hEncl  : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2Barrier*          (H2-B, one leg)
++-        hLaneA : ∀ x y, X + 1 ≤ x → y₀ ≤ y → y² ≤ 1 − 2t₀ → Ht t₀ (x + y·I) ≠ 0   (H2-A, see below)
+++        hAsym  : AsymEnclOK (fun z => Ht t₀ z / Bt t₀ z) row2Asym*                (H2-A, one leg: the window-row floors)
+++        hTail  : TailOK (fun z => Ht t₀ z / Bt t₀ z) row2Asym*                    (H-TAIL, one leg: N(x) ≥ N₁)
++         hH3    : Polymath15Bridge' ∧ HtEntire                                      (H3; Defs.lean v1.1)
++-      via `row2_ray_mp` / `row2_ray_arb` (the same, with the row's own conclusion t ≥ t₀ + y₀²/2).  The
+++      via `row2_ray_mp` / `row2_ray_arb` (the same, with the row's own conclusion t ≥ t₀ + y₀²/2), where
+++      hypothesis (ii′) of `Polymath15Bridge'` is `row2_laneA_* hAsym hTail` (Instance02/Asym_*.lean:
+++      `cert_of_checkAsym` on the kernel-checked literal, L-A1 `row2_windowIdx_ge`, L-A2; Asym.lean).  The
++       `hHol` of the `_xy` legs is DISCHARGED (`hHol_of_entire`) from `hH3.2` and L-B3 (BtFacts.lean: `Bt`
++       holomorphic and nonvanishing on the open right half-plane, which contains R).  The two legs are kept
++       as two theorems — the legs are never merged (D-R3).
++       `#print axioms`: propext, Classical.choice, Quot.sound (recorded in results/d1-m2a/v11/GLUE-NOTES.md).
++ 
++-WHAT IS DISPLAYED, AND HOW THIS DIFFERS FROM THE SPEC §3.7 LABEL (stated honestly):
++-  * H2-A enters as `hLaneA` IN CONCLUSION FORM — the final-time asymptotic nonvanishing (ii′) itself, on
++-    x ≥ X + 1, y ≥ y₀, y² ≤ 1 − 2t₀.  SPEC §3.7 foresees H2-A as producer-certified window rows plus the tail
++-    H-TAIL, with a kernel-checked `checkAsym`/`cert_of_checkAsym` between them and (ii′); the Lane A producers
++-    (SPEC P-9/P-10) and that checker are a SEPARATE COMPUTE STREAM not run at 2026-09-06.  Until it lands,
++-    `hLaneA` is a displayed hypothesis STRONGER than the SPEC's H2-A (it is the lane's conclusion, with nothing
++-    kernel-checked behind it); when Lane A lands, `hLaneA` is replaced by `cert_of_checkAsym` on the Lane A
++-    literal with H2-A's rows and H-TAIL displayed, and the theorem statement changes accordingly.
++-  * H2-B, H1, H3 are displayed exactly as SPEC §3.7 says.
++-  * The two producers' cross-check (results/d1-m2a/INSTANCE-REPORT.md) is producer-side evidence for H2-B,
++-    not a proof.
++-Trust vocabulary (D-R3/D-R8, binding): "kernel-checked modulo the displayed hypotheses H1, H2-B, H2-A (in
++-conclusion form, pending the Lane A checker) and H3 (producers untrusted)".  The Λ bracket of record stays
+++WHAT IS DISPLAYED (since 2026-09-09: exactly the SPEC §3.7 label, as written):
+++  * H1 (`hH1`), H2-B (`hEncl`), H2-A (`hAsym`, the window-row floors), H-TAIL (`hTail`), H3 (`hH3`) — SPEC §3.7's
+++    named hypotheses and nothing else; `#print axioms` = propext, Classical.choice, Quot.sound (lane-a/final-axioms.log).
+++  * What the 2026-09-09 replacement of `hLaneA` bought (PLAN-REVIEW.md §6, stated not glossed): the window range
+++    N ∈ [630783, 5140999] (x from ≈ 5.0·10¹² up to x_{N₁} ≈ 3.32·10¹⁴) is no longer a displayed nonvanishing claim but
+++    a displayed FLOOR ENCLOSURE (‖g‖ ≥ (T − E)/K per window row) plus the kernel-checked coverage argument (C-A3, C-A4,
+++    C-A5 + L-A1 + L-A2 inside `cert_of_checkAsym`); the displayed nonvanishing CONCLUSION that remains is `TailOK`
+++    only — N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  Asymmetry recorded: yA = 3962323/5000000 =
+++    0.7924646 is 9.0·10⁻⁸ WIDER than the former `hLaneA`'s y ≤ √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸;
+++    in the squares yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷), so `TailOK` is "the tail region
+++    N ≥ N₁, y ∈ [y₀, yA]", not literally a sub-statement of `hLaneA` (the glue derives y ≤ yA from y² ≤ 157/250).
+++    C-A6 (the tail row's Q₁ + Q₂ + Q₃ + Q₄ + E₁ < 2K) is kernel-checked on each literal but NOT consumed by any proof:
+++    recorded evidence for Lemma T's prose discharge (SPEC §5.1, §5.4) — the tail REDUCTION is not kernel-checked.
+++  * The two producers' cross-checks (results/d1-m2a/INSTANCE-REPORT.md for Lane B; lane-a/crosscheck-full.txt for
+++    Lane A) are producer-side evidence for H2-B / H2-A, not proofs.
+++  * DATED RECORD, 2026-09-06 (Session 16) to 2026-09-09 (superseded, kept): in that interval H2-A entered as `hLaneA`
+++    IN CONCLUSION FORM — the final-time asymptotic nonvanishing (ii′) itself, on x ≥ X + 1, y ≥ y₀, y² ≤ 1 − 2t₀ —
+++    because the Lane A producers (SPEC P-9/P-10) and the `checkAsym` checker were a SEPARATE COMPUTE STREAM not yet
+++    run; that binder was a displayed hypothesis STRONGER than SPEC §3.7's H2-A (the lane's conclusion, with nothing
+++    kernel-checked behind it), and the label then read "H1, H2-B, H2-A (in conclusion form, pending the Lane A
+++    checker), H3".  On 2026-09-09 (Session 19; results/d1-m2a/lane-a/EMIT-NOTES.md, instance02-replacement.diff) the
+++    binder became the pair `hAsym`, `hTail` in the four theorems and the token `hLaneA` at the one consumption point
+++    per leg became `(row2_laneA_* hAsym hTail)`; nothing else in the proofs moved (PLAN.md §1.5).
+++Trust vocabulary (D-R3/D-R8, binding): "kernel-checked modulo the displayed hypotheses H1, H2 (H2-B, H2-A, H-TAIL)
+++and H3 (producers untrusted)" — SPEC §3.7's label; never "fully machine-checked".  The Λ bracket of record stays
++ 0 ≤ Λ ≤ 0.2 (Rodgers–Tao; Platt–Trudgian Cor. 2).
++ -/
++ import Zeta23.DBN.Instance02.mp_Barrier
++ import Zeta23.DBN.Instance02.arb_Barrier
++ import Zeta23.DBN.BtFacts
+++import Zeta23.DBN.Instance02.Asym_mp
+++import Zeta23.DBN.Instance02.Asym_arb
++ 
++ open Complex (I)
++ 
++@@ -154,19 +184,21 @@
++ theorem row2_bound_le_point2 : (93 / 500 : ℝ) + (16733 / 100000) ^ 2 / 2 ≤ 1 / 5 := by norm_num
++ 
++ /-- **The bridge applied at row 2, mpmath-ball leg** — the conclusion at the row's own bound
++-t₀ + y₀²/2.  Kernel-checked modulo the displayed hypotheses `hH1` (H1), `hEncl` (H2-B), `hLaneA`
++-(H2-A in conclusion form — the Lane A producers and `checkAsym` are a separate compute stream not yet run;
++-see the file header) and `hH3` (H3). -/
+++t₀ + y₀²/2.  Kernel-checked modulo the displayed hypotheses `hH1` (H1), `hEncl` (H2-B), `hAsym` (H2-A: the
+++window-row floors of the kernel-checked Lane A literal `row2AsymMP`, N ∈ [630783, 5140999]), `hTail` (H-TAIL:
+++nonvanishing for N(x) ≥ N₁ = 5 141 000 on the y-band [y₀, yA]) and `hH3` (H3).  Hypothesis (ii′) of the bridge is
+++`row2_laneA_mp hAsym hTail` (Instance02/Asym_mp.lean: `cert_of_checkAsym` on `row2AsymMP_check` + L-A1/L-A2), which
+++since 2026-09-09 (Session 19) replaces the former conclusion-form binder `hLaneA` — see the file header. -/
++ theorem row2_ray_mp
++     (hH1 : ZeroVerification (116733 / 200000) 2500000097429)
++     (hEncl : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2BarrierMP)
++-    (hLaneA : ∀ x y : ℝ, 5000000194858 + 1 ≤ x → 16733 / 100000 ≤ y →
++-      y ^ 2 ≤ 1 - 2 * (93 / 500) → Ht (93 / 500) (x + y * I) ≠ 0)
+++    (hAsym : AsymEnclOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymMP)
+++    (hTail : TailOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymMP)
++     (hH3 : Polymath15Bridge' ∧ HtEntire) :
++     ∀ t : ℝ, 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ z : ℂ, Ht t z = 0 → z.im = 0 := by
++   have hiii := row2_barrier_mp_xy Ht Bt (hHol_of_entire row2BarrierMP rfl hH3.2) hEncl
++   refine hH3.1 (93 / 500) 5000000194858 (16733 / 100000) (by norm_num) (by norm_num) (by norm_num)
++-    (by norm_num) (hH1_row2 hH1) hLaneA ?_
+++    (by norm_num) (hH1_row2 hH1) (row2_laneA_mp hAsym hTail) ?_
++   intro x y hx1 hx2 hy1 hy2 t ht0 ht1
++   exact hiii x y
++     (by change row2Rect.x1 ≤ x; rw [row2Rect_x1]; exact hx1)
++@@ -175,17 +207,18 @@
++     (by change y ≤ row2Rect.y2; rw [row2Rect_y2]; exact hy2)
++     t ht0 (by rw [row2BarrierMP_t0]; exact ht1)
++ 
++-/-- **The bridge applied at row 2, Arb/FLINT leg** — the same from the independent transcript. -/
+++/-- **The bridge applied at row 2, Arb/FLINT leg** — the same from the independent transcripts (Lane B
+++`row2BarrierARB`, Lane A `row2AsymARB` via `row2_laneA_arb`; the legs are never merged, D-R3). -/
++ theorem row2_ray_arb
++     (hH1 : ZeroVerification (116733 / 200000) 2500000097429)
++     (hEncl : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2BarrierARB)
++-    (hLaneA : ∀ x y : ℝ, 5000000194858 + 1 ≤ x → 16733 / 100000 ≤ y →
++-      y ^ 2 ≤ 1 - 2 * (93 / 500) → Ht (93 / 500) (x + y * I) ≠ 0)
+++    (hAsym : AsymEnclOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymARB)
+++    (hTail : TailOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymARB)
++     (hH3 : Polymath15Bridge' ∧ HtEntire) :
++     ∀ t : ℝ, 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ z : ℂ, Ht t z = 0 → z.im = 0 := by
++   have hiii := row2_barrier_arb_xy Ht Bt (hHol_of_entire row2BarrierARB rfl hH3.2) hEncl
++   refine hH3.1 (93 / 500) 5000000194858 (16733 / 100000) (by norm_num) (by norm_num) (by norm_num)
++-    (by norm_num) (hH1_row2 hH1) hLaneA ?_
+++    (by norm_num) (hH1_row2 hH1) (row2_laneA_arb hAsym hTail) ?_
++   intro x y hx1 hx2 hy1 hy2 t ht0 ht1
++   exact hiii x y
++     (by change row2Rect.x1 ≤ x; rw [row2Rect_x1]; exact hx1)
++@@ -198,31 +231,36 @@
++ kernel-checked modulo the displayed hypotheses: (H1) `hH1`, the producer-certified zero verification
++ `ZeroVerification (116733/200000) 2500000097429` (discharged in prose by Platt–Trudgian Theorem 1);
++ (H2-B) `hEncl`, the producer-certified barrier enclosures for the kernel-checked mpmath-ball transcript;
++-(H2-A) `hLaneA`, the final-time asymptotic nonvanishing (ii′) IN CONCLUSION FORM — the Lane A producers and
++-the `checkAsym` checker are a separate compute stream not yet run, so this is displayed as the lane's
++-conclusion, not as checked rows; (H3) `hH3`, the Polymath15 analytic package `Polymath15Bridge' ∧ HtEntire`.
++-L-B3 and `hHol` are proved, not displayed.  The word Λ appears in prose only (design note §1.2). -/
+++(H2-A) `hAsym`, the producer-certified final-time window-row floors `AsymEnclOK (Ht t₀ / Bt t₀) row2AsymMP` for the
+++kernel-checked mpmath-ball Lane A transcript (N ∈ [630783, 5140999]; the step from the floors to nonvanishing on
+++that range is the kernel-checked coverage argument inside `cert_of_checkAsym`); (H-TAIL) `hTail`, the tail
+++`TailOK (Ht t₀ / Bt t₀) row2AsymMP` — nonvanishing for N(x) ≥ N₁ = 5 141 000 on y ∈ [y₀, yA], the one displayed
+++nonvanishing CONCLUSION that remains (Lemma T's reduction is prose; C-A6 is kernel-checked evidence for it, never
+++consumed by a proof); (H3) `hH3`, the Polymath15 analytic package `Polymath15Bridge' ∧ HtEntire`.
+++L-B3 and `hHol` are proved, not displayed.  Label (SPEC §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL),
+++H3" — never "fully machine-checked".  The word Λ appears in prose only (design note §1.2). -/
++ theorem lambda_le_point2
++     (hH1 : ZeroVerification (116733 / 200000) 2500000097429)
++     (hEncl : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2BarrierMP)
++-    (hLaneA : ∀ x y : ℝ, 5000000194858 + 1 ≤ x → 16733 / 100000 ≤ y →
++-      y ^ 2 ≤ 1 - 2 * (93 / 500) → Ht (93 / 500) (x + y * I) ≠ 0)
+++    (hAsym : AsymEnclOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymMP)
+++    (hTail : TailOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymMP)
++     (hH3 : Polymath15Bridge' ∧ HtEntire) :
++     ∀ t : ℝ, (1 / 5 : ℝ) ≤ t → ∀ z : ℂ, Ht t z = 0 → z.im = 0 := by
++   intro t ht
++-  exact row2_ray_mp hH1 hEncl hLaneA hH3 t (le_trans row2_bound_le_point2 ht)
+++  exact row2_ray_mp hH1 hEncl hAsym hTail hH3 t (le_trans row2_bound_le_point2 ht)
++ 
++-/-- **Λ ≤ 0.2 in ray form, Arb/FLINT leg.**  The same statement from the independent transcript
++-(same displayed hypotheses, with H2-B for `row2BarrierARB`). -/
+++/-- **Λ ≤ 0.2 in ray form, Arb/FLINT leg.**  The same statement from the independent transcripts
+++(same displayed hypotheses, with H2-B for `row2BarrierARB` and H2-A, H-TAIL for `row2AsymARB`; the legs are never
+++merged). -/
++ theorem lambda_le_point2_arb
++     (hH1 : ZeroVerification (116733 / 200000) 2500000097429)
++     (hEncl : BarrierEnclOK (fun t z => Ht t z / Bt t z) row2BarrierARB)
++-    (hLaneA : ∀ x y : ℝ, 5000000194858 + 1 ≤ x → 16733 / 100000 ≤ y →
++-      y ^ 2 ≤ 1 - 2 * (93 / 500) → Ht (93 / 500) (x + y * I) ≠ 0)
+++    (hAsym : AsymEnclOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymARB)
+++    (hTail : TailOK (fun z => Ht (93 / 500) z / Bt (93 / 500) z) row2AsymARB)
++     (hH3 : Polymath15Bridge' ∧ HtEntire) :
++     ∀ t : ℝ, (1 / 5 : ℝ) ≤ t → ∀ z : ℂ, Ht t z = 0 → z.im = 0 := by
++   intro t ht
++-  exact row2_ray_arb hH1 hEncl hLaneA hH3 t (le_trans row2_bound_le_point2 ht)
+++  exact row2_ray_arb hH1 hEncl hAsym hTail hH3 t (le_trans row2_bound_le_point2 ht)
++ 
++ end Instance02
++ end DBN
+diff --git a/rh-program/results/d1-m2a/lane-a/trust-greps-r2.log b/rh-program/results/d1-m2a/lane-a/trust-greps-r2.log
+new file mode 100644
+index 0000000..056bc88
+--- /dev/null
++++ b/rh-program/results/d1-m2a/lane-a/trust-greps-r2.log
+@@ -0,0 +1,28 @@
++# trust greps over Zeta23/DBN/ (KICKSTART Part 2 item 10(j)) — Session 19 emitter, FIX PASS r2, Wed Sep  9 22:28:10 IST 2026
++# tree: /Users/jaytyagi/rh-lean-work/zeta-23-lean-main; files: 121 .lean files (Zeta23/DBN/*.lean + Instance02/*.lean)
++# rule: a hit is a defect unless it is inside a comment/docstring (the header prose says 'no native_decide', 'sorry-free', 'axiom').
++
++== axiom  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
++== native_decide  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 116
++== unsafe  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
++== implemented_by  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
++== extern  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
++== opaque  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 0
++== sorry  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 3
++== hLaneA  (word-boundary grep -rnw, all files, raw incl. prose): total hits: 12
++
++== CODE-ONLY check (block comments incl. nested and -- line comments stripped per file, via python /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/f886756a-2f1f-4ab1-9052-f280afaa3f16/scratchpad/strip_lean.py; eleven patterns):
++files: 121
++== sorry: code hits 0
++== native_decide: code hits 0
++== axiom: code hits 0
++== unsafe: code hits 0
++== implemented_by: code hits 0
++== extern: code hits 0
++== opaque: code hits 0
++== hLaneA: code hits 0
++== ofReduceBool: code hits 0
++== trust_me: code hits 0
++== lean_evalConst: code hits 0
++TOTAL code hits: 0
++# Wed Sep  9 22:28:14 IST 2026
+diff --git a/rh-program/results/d1-m2a/v11/GLUE-NOTES.md b/rh-program/results/d1-m2a/v11/GLUE-NOTES.md
+index d72b623..3401140 100644
+--- a/rh-program/results/d1-m2a/v11/GLUE-NOTES.md
++++ b/rh-program/results/d1-m2a/v11/GLUE-NOTES.md
+@@ -130,10 +130,11 @@ hypotheses" only with that gloss: R-1's condition (item 3 landing) is met, so R-
+ not glossed (PLAN-REVIEW §6): the window range N ∈ [630 783, 5 140 999] (x from 5.0·10¹² to ≈ 3.32·10¹⁴) is no longer a
+ displayed nonvanishing claim but a displayed floor enclosure plus the kernel-checked coverage argument; the displayed
+ nonvanishing conclusion that remains is `TailOK` on N(x) ≥ 5 141 000 with the y-band [y₀, yA], yA = 0.7924646 being
+-1.5·10⁻⁷ wider than `hLaneA`'s √(157/250) = 0.79246451… (the glue derives y ≤ yA from y² ≤ 157/250), so `TailOK` is "the
++9.0·10⁻⁸ wider than `hLaneA`'s √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸; in the squares yA² − 157/250 =
++1.42·10⁻⁷; the glue derives y ≤ yA from y² ≤ 157/250), so `TailOK` is "the
+ tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said"; and C-A6 (the tail row's Σ < 2K) is kernel-checked
+ but NOT consumed by `cert_of_checkAsym` — recorded evidence for Lemma T's prose discharge, never "the tail reduction is
+-kernel-checked".
++kernel-checked".  [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
+ 
+ ### Left for the Lane A stream (RUN-REPORT §6 item 3)
+ 
