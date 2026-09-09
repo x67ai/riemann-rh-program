@@ -446,6 +446,7 @@ clause-(iii) route above does not.)
 **Binding manifold statements.**
 
 *Case A — S4′ + clause (0) = (0-fix) + (0-coh), the case the program will work in.* Let (M, F, φ) be a closed
+**[Q-S4⁗ DECIDED 2026-09-09 — Session 19 enactment of `results/c3-r/s19/qs4quad/adjudication.md`]** Regularity reconciled (S19-6): the contract's manifold case (digest §I, binding) is C², M oriented, 𝓕 transversely oriented — the hypotheses of every instrument on disk (Duminy, the theory of levels, Sacksteder). The "C¹" wording of this Case describes the wider class, in which no instrument applies and (S) is not even refuted; nothing here is withdrawn.
 3-manifold with a C¹ codimension-one foliation by Riemann surfaces and a C¹ foliated flow satisfying (i)–(iv) and
 clause (0). Then: (1) the non-transverse set N is a compact saturated set of non-compact hyperbolic preserved leaves,
 of invariant-transverse-measure zero (Theorem A); (2) N contains an exceptional minimal set K ⊂ L̄ (O-5 corrected);

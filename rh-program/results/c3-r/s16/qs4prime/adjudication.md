@@ -739,6 +739,7 @@ ends.**" So (b) reduces to two checkable sub-questions:
 1. Must the archimedean leaf L, being non-compact and lying in the compact saturated set N whose leaves are all
    preserved, be a leaf of a *minimal* set — and if so, of an *exceptional* one?
 2. Is L semiproper? If yes, Duminy applies and (b) is answered NO. If no, the case is exactly Hurder's open
+   **[Q-S4⁗ DECIDED 2026-09-09 — Session 19 enactment of `results/c3-r/s19/qs4quad/adjudication.md`]** Answered: **NO, in print** — L is never semiproper (Duminy's Theorem 1.1 against L's single end; ledger §16-sexies S19-1). "The case is exactly Hurder's open Problem 5.4" holds for L ⊂ K; for L in an exceptional local minimal set at level ≥ 1 it is the Warsaw p. 226 conjecture in its printed (LMS) form; at infinite level it is unconjectured. Duminy therefore cannot close face (b).
    Problem 5.4, and the program should record that S4′'s manifold case is **equivalent to a named open problem
    in foliation theory** — a far more useful position than "probably impossible".
 
