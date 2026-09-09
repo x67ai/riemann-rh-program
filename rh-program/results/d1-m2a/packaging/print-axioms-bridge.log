@@ -1,0 +1,39 @@
+'DBNBridge.ray_of_certificates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DBNBridge.row2BarrierMP_toZ' does not depend on any axioms
+'DBNBridge.row2BarrierARB_toZ' does not depend on any axioms
+'DBNBridge.row2AsymMP_toZ' does not depend on any axioms
+'DBNBridge.row2AsymARB_toZ' does not depend on any axioms
+'DBNBridge.checkBarrier_eq' depends on axioms: [propext, Quot.sound]
+'DBNBridge.checkAsym_eq' depends on axioms: [propext]
+'DBNBridge.BarrierEnclOK_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DBNBridge.AsymEnclOK_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DBNBridge.TailOK_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DBNBridge.Ht_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.lambda_le_point2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.lambda_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2BarrierMP_check' depends on axioms: [propext, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_check' depends on axioms: [propext]
+dbn_ray_le_point2_mp : DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  DBN.BarrierEnclOK (fun t z => DBN.Ht t z / DBN.Bt t z) DBN.row2BarrierMP →
+    DBN.AsymEnclOK (fun z => DBN.Ht (93 / 500) z / DBN.Bt (93 / 500) z) DBN.row2AsymMP →
+      DBN.TailOK (fun z => DBN.Ht (93 / 500) z / DBN.Bt (93 / 500) z) DBN.row2AsymMP →
+        DBN.Polymath15Bridge' ∧ DBN.HtEntire → ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), DBN.Ht t z = 0 → z.im = 0
+dbn_ray_le_point2_of_certificates : ∀ (d : DBN.BarrierData),
+  d.rect.x1 = 5000000194858 →
+    d.rect.x2 = 5000000194858 + 1 →
+      d.rect.y1 = 16733 / 100000 →
+        d.rect.y2 = 1 →
+          DBN.t0 d = 93 / 500 →
+            DBN.checkBarrier d = true →
+              ∀ (a : DBN.AsymData),
+                DBN.At0 a = 93 / 500 →
+                  DBN.Ay0 a = 16733 / 100000 →
+                    DBN.AyA a = 3962323 / 5000000 →
+                      (∃ r ∈ a.rows, r.Nlo ≤ 630783) →
+                        DBN.checkAsym a = true →
+                          DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+                            DBN.BarrierEnclOK (fun t z => DBN.Ht t z / DBN.Bt t z) d →
+                              DBN.AsymEnclOK (fun z => DBN.Ht (93 / 500) z / DBN.Bt (93 / 500) z) a →
+                                DBN.TailOK (fun z => DBN.Ht (93 / 500) z / DBN.Bt (93 / 500) z) a →
+                                  DBN.Polymath15Bridge' ∧ DBN.HtEntire →
+                                    ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), DBN.Ht t z = 0 → z.im = 0
