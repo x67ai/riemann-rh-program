@@ -4,7 +4,7 @@ One dated line per row, appended when the row lands; never edited afterwards (a 
 
 **Label, per row (binding):** no zeros of ζ in the closed box — kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted). Never "RH verified in [T₁, T₂]". No aggregate: this file carries no "height covered" line and never will (D-R6: isolated boxes extend no contiguous record).
 
-| added | tag | row_id | box R = [σ₁, σ₂] × [T₁, T₂] | δ₀ | status | sentence (closed box; label per README) | leg hashes (SHA-256 prefix) | provenance |
+| added (UTC date) | tag | row_id | box R = [σ₁, σ₂] × [T₁, T₂] | δ₀ | status | sentence (closed box; label per README) | leg hashes (SHA-256 prefix) | provenance |
 |---|---|---|---|---|---|---|---|---|
 | 2026-09-09 | R1 | `zeta_3-5_9-10_100_101` | [3/5, 9/10] x [100, 101] | 1/10 | accepted | no zeros of zeta in the closed box [3/5, 9/10] x [100, 101] | mp `17f06458036b6df1…` / arb `3248f7ca4a0160d5…` | acceptance |
 | 2026-09-09 | R2 | `zeta_3-5_9-10_1000_1001` | [3/5, 9/10] x [1000, 1001] | 1/10 | accepted | no zeros of zeta in the closed box [3/5, 9/10] x [1000, 1001] | mp `a18a7bf713b802ae…` / arb `36b7685a5ae464c6…` | acceptance |

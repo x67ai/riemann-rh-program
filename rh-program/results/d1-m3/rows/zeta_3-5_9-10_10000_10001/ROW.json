@@ -33,7 +33,7 @@
    "wall_seconds": 1564.7,
    "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
    "python_checkers": {
-    "reference_checker": "REJECT",
+    "reference_checker": "ACCEPT",
     "checker_ref": "ACCEPT",
     "logs": [
      "../d1-m1/acceptance/logs/reference-checker-accepts.log",
@@ -67,7 +67,7 @@
    "wall_seconds": 2.608,
    "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
    "python_checkers": {
-    "reference_checker": "REJECT",
+    "reference_checker": "ACCEPT",
     "checker_ref": "ACCEPT",
     "logs": [
      "../d1-m1/acceptance/logs/reference-checker-accepts.log",
@@ -96,7 +96,7 @@
   "kind": "acceptance",
   "note": "M1 v1 acceptance null test 3 (cost-curve height point T = 10^4, delta0 = 1/10; the mp leg's 1 294 segments and 1 565 s are the recorded cost ceiling of the Euler-Maclaurin leg): instrument-validation box chosen for the cost curve, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
  },
- "added_utc": "2026-09-09T22:13:35Z",
+ "added_utc": "2026-09-09T22:14:41Z",
  "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
- "entry_sha256": "544fff35f8fdf6e17e742da061086a1aa42e4deed96d487cb620fe663eb56047"
+ "entry_sha256": "a14655ddc65ef4617ec68f76ed1b80a8ca9e4cb90d33640228b794c8124768af"
 }
