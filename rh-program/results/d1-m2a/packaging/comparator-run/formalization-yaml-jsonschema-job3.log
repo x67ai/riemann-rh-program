@@ -1,0 +1,9 @@
+  print("jsonschema", jsonschema.__version__, "errors:", len(errs))
+formalization.schema.dispatcher.json sha256 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3
+v0.4.schema.json sha256 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+document version: v0.4 ; review.status: self-assessed ; review.notes chars: 2897
+jsonschema 4.25.1 errors: 0
+schema 'formalization.yaml (v0.4)': required ['project', 'sources', 'automation', 'review']; top-level keys in document: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
+keys not in the schema's properties: none
+main_results: 11 ; alignment.statements: 16 ; sources: 6 ; fidelity.divergences: 5234 chars
+validation errors: 0

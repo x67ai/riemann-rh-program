@@ -1,0 +1,31 @@
+=== nanoda re-run with print_axioms + pp_to_stdout, 2026-09-10 02:19:26 IST
+{"export_file_path": "/Users/jaytyagi/rh-lean-work/comparator-evidence-dbn/solution.export", "permitted_axioms": ["propext","Quot.sound","Classical.choice"],
+ "unpermitted_axiom_hard_error": true, "nat_extension": true, "string_extension": true, "print_success_message": true,
+ "print_axioms": true, "pp_to_stdout": true}
+axiom propext {a b : Prop} : Iff a b → Eq a b
+
+axiom Quot.sound.{u} {α : Sort u} {r : α → α → Prop} {a b : α} : r a b → Eq (Quot.mk r a) (Quot.mk r b)
+
+axiom Classical.choice.{u} {α : Sort u} : Nonempty α → α
+
+Checked 56428 declarations with no errors
+       42.80 real        41.47 user         1.31 sys
+          2868527104  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              960417  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 191  involuntary context switches
+        495001058209  instructions retired
+        186729995835  cycles elapsed
+          2867431800  peak memory footprint
+nanoda exit=
+nanoda_bin exit code on nanoda-config-pp.json: 0 (02:21:34)
