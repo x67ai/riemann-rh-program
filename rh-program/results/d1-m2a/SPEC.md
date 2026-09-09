@@ -1056,6 +1056,8 @@ Read at commit `ea09b2f` (§0). The claim's row: X = 6 000 000 185 827, t₀ = 1
 | D_t, D_z per prism from `DERIVATIVE_BOX_LEMMA.md` (box-uniformized Lemma 8.4) | D row = D_t·Δt (+ E terms if routed through f), P-8 | direct from the log's `Dt` and the prism's Δt | fits |
 | trust: their fail-closed C/Python verifiers, sealed logs | untrusted producers + `decide +kernel` on the rows | n/a | their verifiers are producer-side by our vocabulary |
 
+**[v1.1 dated block, 2026-09-10 03:03 IST — from `results/d1-m2a/dr8/DECISION-gomila-m2a-prime.md` §1.3 and Appendix A (float planning model, NOT a certificate).]** The tail row's "N₁ then ≈ 7–9·10⁶ by the crude method" is corrected: the crude Lemma T closes at N₁ ≈ 2.3·10⁷ at their tuple (t₀ = 129/800, y₀ ≈ 0.187); rows are width-independent, so the cost is unchanged. The finite-lane row's "direct" conversion is direct in FORMAT only: D1's v1.0 Euler-2 floor is NEGATIVE on their windows N ≤ 2·10⁶ near y₀ (−0.40 at N_start = 690 988), so their lane's semantics are not D1's and an M2a′ instance would need a new floor lemma first (decision §1.2, §5: NO now, GO later on triggers T1–T4).
+
 Bottom line for the screen: steps 3–4 remain D1-side. The finite lane converts by a script; the
 barrier needs regenerated per-point data (their code or ours); the tail needs a decision. Nothing
 about the claim is a record (bracket of record 0 ≤ Λ ≤ 0.2); their Lean branch is cited here only
