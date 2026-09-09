@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge.DBN",
+  "solution_module": "Solution.DBN",
+  "theorem_names": [
+    "dbn_ray_le_point2_of_certificates",
+    "dbn_ray_le_point2_mp",
+    "dbn_ray_le_point2_arb",
+    "dbn_row2BarrierMP_checked",
+    "dbn_row2BarrierARB_checked",
+    "dbn_row2AsymMP_checked",
+    "dbn_row2AsymARB_checked"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

@@ -90,3 +90,104 @@ Build: `lake build ChallengeDeps.DBN.Instance02` — `Built ChallengeDeps.DBN.In
 generic statements as the trusted surface, record the reduction as a fidelity divergence") was NOT needed; nothing was shrunk or
 sampled. Heavy jobs before: 0; one `lake` at a time.
 
+### 1.3 `comparator/Challenge/DBN.lean` (module `Challenge.DBN`) — LANDED, builds (7 `sorry` warnings, deliberate)
+
+Imports `ChallengeDeps.DBN`, `ChallengeDeps.DBN.Instance02`; `open DBN`; root-namespace names; every proof `:= by sorry`. Seven
+statements, three kinds:
+* **(G)** `dbn_ray_le_point2_of_certificates` — literal-free: for ANY `d : BarrierData` with `checkBarrier d = true` on the instance
+  rectangle and final time (binders `d.rect.x1 = 5000000194858`, `d.rect.x2 = 5000000194858 + 1`, `d.rect.y1 = 16733/100000`,
+  `d.rect.y2 = 1`, `t0 d = 93/500` — exactly the constraints `row2_ray_mp`'s proof uses through `row2Rect_x1…y2`, `row2BarrierMP_t0`
+  and `hHol_of_entire`) and ANY `a : AsymData` with `checkAsym a = true`, `At0 a = 93/500`, `Ay0 a = 16733/100000`,
+  `AyA a = 3962323/5000000` and `∃ r ∈ a.rows, r.Nlo ≤ 630783` (what `row2_laneA_mp` uses through `row2AsymMP_t0/_y0/_yA` and L-A1
+  at the first row), the five displayed hypotheses (H1 with the two literal rationals; H2-B on `d`; H2-A and H-TAIL on `a` at
+  t = 93/500; H3) imply the ray conclusion. **Zeta23 proves only the instance form**; (G) is derived on the solution side as a
+  genuine consequence (§1.4; fidelity divergence (f)).
+* **(I)** `dbn_ray_le_point2_mp`, `dbn_ray_le_point2_arb` — the referee's statements: the five hypotheses of
+  `Zeta23.DBN.Instance02.lambda_le_point2` / `_arb` verbatim (`#check` in `print-axioms-bridge.log` shows exactly H1, H2-B, H2-A,
+  H-TAIL, H3 → the ray conclusion, nothing else), over the trusted copies `row2BarrierMP`/`row2AsymMP` (mp) and `row2BarrierARB`/
+  `row2AsymARB` (Arb); two theorems, never merged.
+* **(K)** `dbn_row2BarrierMP_checked`, `dbn_row2BarrierARB_checked`, `dbn_row2AsymMP_checked`, `dbn_row2AsymARB_checked` — the copied
+  literals pass the copied integer checkers (`checkBarrier … = true`, `checkAsym … = true`). An ADDITION beyond the brief's (G)/(I)
+  minimum: it puts on the trusted surface exactly what the kernel checks about the data, and costs nothing (delegates to the emitted
+  kernel facts through the transport).
+Every docstring carries the label sentence verbatim and the module header carries the window-range gloss (PLAN-REVIEW §6 / EMIT-NOTES §4).
+Build: `lake build Challenge.DBN` — `Replayed Challenge.DBN`, 7 × "declaration uses `sorry`" (lines 71, 96, 109, 120, 124, 129, 133 —
+the seven statements), no error.
+
+### 1.4 `comparator/Solution/DBN.lean` (module `Solution.DBN`) — LANDED, builds in 11 s; the plan of §0 as executed
+
+Imports `ChallengeDeps.DBN`, `ChallengeDeps.DBN.Instance02`, `Zeta23.DBN.Instance02` — never `Challenge.DBN`. All helpers in
+`namespace DBNBridge`; the root namespace carries only the seven challenge statements, byte-identical (§1.6).
+* §1 `rfl` bridges for the copied `def`s: `Phi_eq`, `Ht_eq`, `ZeroVerification_eq`, `alpha_eq`, `M0_eq`, `Mt_eq`, `Bt_eq`, `HtEntire_eq`,
+  `Polymath15Bridge'_eq`, `windowIdx_eq` (each `DBN.X = Zeta23.DBN.X := rfl` — elaborated with `import Mathlib` on the trusted side and
+  the granular imports on the Zeta23 side, and still definitionally equal, as the parent's XiPrime topic relies on).
+* §2 field-wise transports `toZRow`, `toZPrism`, `toZRect`, `toZBarrier`, `toZARow`, `toZTail`, `toZAsym` (the re-declared structures
+  are distinct types — the one place `rfl` cannot bridge).
+* §3 the checkers and enclosure Props commute with the transport: `densPos_eq`, `chainLt_eq`, `chainGt_eq`, `firstOK_eq`, `lastOK_eq`,
+  `edgeOK_eq`, `rowOK_eq` (rfl), `rowsOK_eq`, `sumArgLo_eq`, `sumArgHi_eq`, `mdist_eq` (rfl), `floorRowOK_eq` (rfl), `floorRowsOK_eq`,
+  `consecPairs_eq`, `segs_eq`, `checkPrismW1_eq`, `checkPrism_eq`, `seams_eq`, `checkBarrierChain_eq`, `checkBarrier_eq`,
+  `consecutive_eq`, `lastNhi_eq`, `checkAsymRow_eq` (rfl), `checkAsym_eq`, the `rfl` accessor bridges (`BarrierRect_eq`, `BarrierBdry_eq`,
+  `seamTime_eq`, `t0_eq`, `At0_eq`, `Ay0_eq`, `AyA_eq`), `nextSeams_eq`, `PrismEnclOK_iff`, `BarrierEnclOK_iff`, `AsymEnclOK_iff`,
+  `TailOK_iff` — inductions on the row/mesh lists, `List.forall₂_map_left_iff`, `List.forall_mem_map`, `List.all_map`, `Iff.rfl` where
+  definitional.
+* §4 the literal identities `row2Rect_toZ` (rfl), `row2BarrierMP_toZ`, `row2BarrierARB_toZ`, `row2AsymMP_toZ`, `row2AsymARB_toZ`
+  (`decide +kernel` on the two copies, with `DecidableEq` instances derived for Zeta23's structures — `deriving instance` lines in the
+  solution file; no `native_decide`, no `Lean.ofReduceBool`): the kernel decided all four inside the module's 11 s build; `#print axioms`
+  on each: "does not depend on any axioms".
+* §5 `ray_of_certificates` — the NEW generic lemma in Zeta23 vocabulary: `row2_ray_mp` + `lambda_le_point2`'s proof with `d`, `a` generic
+  (`hHol` re-derived inline from `isOpen_rightHalfPlane`, `differentiableOn_Ht_div_Bt hH3.2` and `hx1`; `cert_of_checkBarrier_xy` on the
+  split checker facts obtained from the monolithic `checkBarrier` by `simp only [checkBarrier, Bool.and_eq_true, List.all_eq_true]`;
+  the (ii′) argument via `cert_of_checkAsym` at the given row with `row2_windowIdx_ge` and `y ≤ yA` from `y² ≤ 157/250`;
+  `hH1_row2`, `row2_bound_le_point2` reused).
+* the seven root theorems: (G) → `ray_of_certificates` through the transports; (I) → `Zeta23.DBN.Instance02.lambda_le_point2` / `_arb`
+  after `rw` with the §1 bridges, the `_iff` transports and the literal identities; (K) → the emitted kernel facts
+  `row2BarrierMP_check`, `row2BarrierARB_check`, `row2AsymMP_check`, `row2AsymARB_check`.
+Debugging record (three build rounds, 16 s + 11 s + 14 s wall): round 1 — `rw [List.forall₂_map_left_iff]` cannot rewrite under the
+`∃ U f` binders (→ `simp only`), `congr 1; funext` on a `List.all` equality (→ an explicit `funext` equation and `rw`), a missing
+`List.length_map` in `checkAsym_eq`; round 2 — `checkPrismW1_eq`'s two sides printed identically after `simp only` but differed in a
+`decide True` instance (→ a closing `rfl`); round 3 — clean.
+Build: `lake build Challenge.DBN Solution.DBN` — `Built Solution.DBN (11s)`, **Build completed successfully (8827 jobs)**, 14 s wall.
+Heavy jobs before each build: 0; one `lake` at a time; no producer ran.
+
+### 1.5 `comparator/config-dbn.json`, `comparator/PrintAxioms/DBN.lean` — LANDED; the `#print axioms` verdict
+
+`config-dbn.json`: `challenge_module` `Challenge.DBN`, `solution_module` `Solution.DBN`, the seven `theorem_names` in the challenge's
+order, `permitted_axioms` `propext`, `Quot.sound`, `Classical.choice`, `enable_nanoda: true`.
+`PrintAxioms/DBN.lean`: `import Solution.DBN` + one `#print axioms` per statement.
+
+**`lake env lean comparator/PrintAxioms/DBN.lean` → `packaging/print-axioms.log` (4 s):**
+
+    'dbn_ray_le_point2_of_certificates' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'dbn_ray_le_point2_mp'              depends on axioms: [propext, Classical.choice, Quot.sound]
+    'dbn_ray_le_point2_arb'             depends on axioms: [propext, Classical.choice, Quot.sound]
+    'dbn_row2BarrierMP_checked'         depends on axioms: [propext, Quot.sound]
+    'dbn_row2BarrierARB_checked'        depends on axioms: [propext, Quot.sound]
+    'dbn_row2AsymMP_checked'            depends on axioms: [propext]
+    'dbn_row2AsymARB_checked'           depends on axioms: [propext]
+
+No `sorryAx`, no `Lean.ofReduceBool`, no other axiom. The (K) facts match the Zeta23 originals exactly (`row2Barrier*_check`
+`[propext, Quot.sound]`, `row2Asym*_check` `[propext]`; `lane-a/final-axioms.log`, `instance02-axioms.log`). Second probe
+`packaging/print-axioms-bridge.lean` → `print-axioms-bridge.log` (4 s): `DBNBridge.ray_of_certificates` and the `_iff` transports the
+three standard axioms; `checkBarrier_eq` `[propext, Quot.sound]`; `checkAsym_eq` `[propext]`; the four literal identities no axioms;
+the delegated Zeta23 theorems unchanged; and the `#check` of `dbn_ray_le_point2_mp` displays exactly H1 → H2-B → H2-A → H-TAIL → H3 →
+the ray conclusion.
+
+### 1.6 Statement identity (the parent's quick check) — IDENTICAL
+
+`packaging/statement_identity.py` (comments stripped with nested-block handling; `namespace DBNBridge … end DBNBridge` excluded on the
+solution side; each `theorem NAME … :=` whitespace-normalized) → `statement-identity.log`: **7 challenge statements, 7 solution
+statements, all 7 IDENTICAL** (716 / 370 / 373 / 35 / 36 / 29 / 30 characters); `config-dbn.json`'s names = the challenge's, same order;
+imports checked — `ChallengeDeps/DBN.lean` imports `Mathlib` only, `ChallengeDeps/DBN/Instance02.lean` imports `ChallengeDeps.DBN` only,
+`Challenge/DBN.lean` imports the two `ChallengeDeps` modules only (no `Zeta23…` anywhere on the trusted side), `Solution/DBN.lean` does
+not import `Challenge.DBN`; all seven challenge proofs are `sorry`. Exit 0.
+
+## 2. Trust greps on merge (10(j)) — CLEAN
+
+`packaging/trust_greps.py` → `trust-greps-packaging.log`: 127 files (the 6 comparator DBN files incl. `config-dbn.json`, and all
+121 modules under `Zeta23/DBN/`), comments stripped first (nested block comments, line comments), eight whole-word patterns.
+Raw counts (prose included, for the record): `axiom` 2, `native_decide` 119, `unsafe` 0, `implemented_by` 0, `extern` 0, `opaque` 0,
+`sorry` 11, `ofReduceBool` 1 — every raw hit outside the seven below is header prose ("no `native_decide`", "no `sorryAx`", "no
+`Lean.ofReduceBool`", "axioms"). **Code-only: 0 for every pattern except `sorry` = 7, and the seven are exactly the challenge file's
+placeholders:** `comparator/Challenge/DBN.lean` lines 84, 103, 116, 121, 125, 130, 134 (one per statement, in order: (G), (I) mp,
+(I) arb, (K) ×4). Other code hits: 0. Exit 0.
+

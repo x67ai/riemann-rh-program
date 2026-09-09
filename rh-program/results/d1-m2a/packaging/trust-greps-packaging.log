@@ -1,0 +1,20 @@
+files: 127 (6 comparator DBN files, 121 Zeta23/DBN modules)
+pattern           raw(all text)  code-only
+  axiom                   2          0
+  native_decide         119          0
+  unsafe                  0          0
+  implemented_by          0          0
+  extern                  0          0
+  opaque                  0          0
+  sorry                  11          7
+  ofReduceBool            1          0
+code-only hits, by line:
+  sorry: comparator/Challenge/DBN.lean:84: sorry
+  sorry: comparator/Challenge/DBN.lean:103: sorry
+  sorry: comparator/Challenge/DBN.lean:116: sorry
+  sorry: comparator/Challenge/DBN.lean:121: sorry
+  sorry: comparator/Challenge/DBN.lean:125: sorry
+  sorry: comparator/Challenge/DBN.lean:130: sorry
+  sorry: comparator/Challenge/DBN.lean:134: sorry
+permitted (challenge placeholders): 7; other code hits: 0
+RESULT: CLEAN

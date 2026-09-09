@@ -1,0 +1,15 @@
+challenge statements: 7; solution statements: 7; config theorem_names: 7
+  dbn_ray_le_point2_arb: IDENTICAL (373 chars, comments stripped, whitespace-normalized)
+  dbn_ray_le_point2_mp: IDENTICAL (370 chars, comments stripped, whitespace-normalized)
+  dbn_ray_le_point2_of_certificates: IDENTICAL (716 chars, comments stripped, whitespace-normalized)
+  dbn_row2AsymARB_checked: IDENTICAL (30 chars, comments stripped, whitespace-normalized)
+  dbn_row2AsymMP_checked: IDENTICAL (29 chars, comments stripped, whitespace-normalized)
+  dbn_row2BarrierARB_checked: IDENTICAL (36 chars, comments stripped, whitespace-normalized)
+  dbn_row2BarrierMP_checked: IDENTICAL (35 chars, comments stripped, whitespace-normalized)
+  config-dbn.json theorem_names = the challenge's 7 names, in order: True
+  comparator/ChallengeDeps/DBN.lean: imports ['Mathlib']; forbidden `Zeta23…`: none
+  comparator/ChallengeDeps/DBN/Instance02.lean: imports ['ChallengeDeps.DBN']; forbidden `Zeta23…`: none
+  comparator/Challenge/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02']; forbidden `Zeta23…`: none
+  comparator/Solution/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02', 'Zeta23.DBN.Instance02']; forbidden `Challenge.DBN…`: none
+  challenge proofs: ['sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry'] -> all sorry: True
+RESULT: IDENTICAL
