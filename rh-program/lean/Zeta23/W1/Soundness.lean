@@ -54,6 +54,13 @@ does not use them; C7 stays an unexplained sound reject-more check.
 
 The v1 statement is ζ-SPECIFIC (D-R8): `cert_of_checkW1` mentions `riemannZeta` only; an
 accepted f_DH transcript is checker-level only and carries no theorem from this file.
+  * Dated note (2026-09-10, D-R8 build, Session 20): the two sentences above describe v1.  Since
+    this date the soundness theorem is GENERIC in the function — `cert_of_checkW1_of_diffOn`
+    (§10) for any f differentiable on {Re s < 1}, with §9's edge continuity generic
+    (`continuousOn_logDeriv_seg_of_diffOn`) — and `cert_of_checkW1` is its ζ instance with the
+    v1 statement character-for-character.  The f_DH instance lives in `Zeta23/W1/FDH.lean`
+    (`cert_of_checkW1_fDH`); its honest label is that file's, never "RH-for-DH disproved".
+    Route G of `results/d1-m2a/dr8/PRICING-fDH.md` §2.2; record `dr8/BUILD-NOTES-fDH.md`.
 -/
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Analysis.Complex.CauchyIntegral
@@ -874,31 +881,49 @@ lemma edge_sum_eq {f : ℂ → ℂ} {z w : ℂ} (v : List ℝ) (g : ℝ → ℝ)
         rw [segPt_zero, segPt_one] at h01
         exact h01.symm
 
-/-! ## 9. The ζ edge integrand is continuous (analyticity off s = 1 + boundary nonvanishing) -/
+/-! ## 9. The edge integrand is continuous (analyticity on an open set ⊇ the segment + boundary
+nonvanishing) — generic in f since D-R8 (2026-09-10); the ζ form is the instance at U = {Re s < 1} -/
 
+/-- **Generic edge continuity** (D-R8, 2026-09-10; PRICING-fDH.md §2.1, Appendix B): for any `f`
+differentiable on an open set `U` containing the closed segment, and nonvanishing on it, the
+log-derivative edge integrand is continuous on [0,1].  Replaces the ζ-only §9 lemma of v1
+(which is now its instance below); nothing about ζ is consumed here. -/
+lemma continuousOn_logDeriv_seg_of_diffOn {f : ℂ → ℂ} {U : Set ℂ} (hU : IsOpen U)
+    (hf : DifferentiableOn ℂ f U) {z w : ℂ}
+    (hin : ∀ t : ℝ, 0 ≤ t → t ≤ 1 → segPt z w t ∈ U)
+    (hnz : ∀ t : ℝ, 0 ≤ t → t ≤ 1 → f (segPt z w t) ≠ 0) :
+    ContinuousOn (fun t : ℝ => (deriv f (segPt z w t) / f (segPt z w t)) * (w - z)) (Set.Icc 0 1) := by
+  have hA : AnalyticOnNhd ℂ f U := hf.analyticOnNhd hU
+  have hdC : ContinuousOn (deriv f) U := hA.deriv.continuousOn
+  have hzC : ContinuousOn f U := hA.continuousOn
+  have hseg : Continuous fun t : ℝ => segPt z w t := by
+    unfold segPt
+    exact continuous_const.add (Complex.continuous_ofReal.mul continuous_const)
+  have hmaps : Set.MapsTo (fun t : ℝ => segPt z w t) (Set.Icc 0 1) U :=
+    fun t ht => hin t ht.1 ht.2
+  exact ((hdC.comp hseg.continuousOn hmaps).div (hzC.comp hseg.continuousOn hmaps)
+    fun t ht => hnz t ht.1 ht.2).mul continuousOn_const
+
+/-- ζ is differentiable on the open half-plane {Re s < 1} (the pole at s = 1 lies outside);
+the analytic input of the ζ instances below.  Was the inline `hdiff` block of v1. -/
+lemma differentiableOn_riemannZeta_re_lt_one :
+    DifferentiableOn ℂ riemannZeta {s : ℂ | s.re < 1} := by
+  intro s hs
+  refine (differentiableAt_riemannZeta ?_).differentiableWithinAt
+  intro h1
+  rw [h1] at hs
+  simp at hs
+
+/-- the v1 ζ lemma, kept with its original name and statement: the instance of
+`continuousOn_logDeriv_seg_of_diffOn` at U = {Re s < 1}. -/
 lemma continuousOn_zeta_logDeriv_seg {z w : ℂ}
     (hre : ∀ t : ℝ, 0 ≤ t → t ≤ 1 → (segPt z w t).re < 1)
     (hnz : ∀ t : ℝ, 0 ≤ t → t ≤ 1 → riemannZeta (segPt z w t) ≠ 0) :
     ContinuousOn
       (fun t : ℝ => (deriv riemannZeta (segPt z w t) / riemannZeta (segPt z w t)) * (w - z))
-      (Set.Icc 0 1) := by
-  have hUopen : IsOpen {s : ℂ | s.re < 1} := isOpen_lt Complex.continuous_re continuous_const
-  have hdiff : DifferentiableOn ℂ riemannZeta {s : ℂ | s.re < 1} := by
-    intro s hs
-    refine (differentiableAt_riemannZeta ?_).differentiableWithinAt
-    intro h1
-    rw [h1] at hs
-    simp at hs
-  have hζ : AnalyticOnNhd ℂ riemannZeta {s : ℂ | s.re < 1} := hdiff.analyticOnNhd hUopen
-  have hdC : ContinuousOn (deriv riemannZeta) {s : ℂ | s.re < 1} := hζ.deriv.continuousOn
-  have hzC : ContinuousOn riemannZeta {s : ℂ | s.re < 1} := hζ.continuousOn
-  have hseg : Continuous fun t : ℝ => segPt z w t := by
-    unfold segPt
-    exact continuous_const.add (Complex.continuous_ofReal.mul continuous_const)
-  have hmaps : Set.MapsTo (fun t : ℝ => segPt z w t) (Set.Icc 0 1) {s : ℂ | s.re < 1} :=
-    fun t ht => hre t ht.1 ht.2
-  exact ((hdC.comp hseg.continuousOn hmaps).div (hzC.comp hseg.continuousOn hmaps)
-    fun t ht => hnz t ht.1 ht.2).mul continuousOn_const
+      (Set.Icc 0 1) :=
+  continuousOn_logDeriv_seg_of_diffOn (isOpen_lt Complex.continuous_re continuous_const)
+    differentiableOn_riemannZeta_re_lt_one hre hnz
 
 /-! ## 10. Winding pinning (FORMAT.md derivation D4) and the soundness theorem -/
 
@@ -919,17 +944,21 @@ lemma pin_m {A m z Slo Shi : ℤ} (hA : 1 ≤ A) (h8 : 2 * (Shi - Slo) < A)
     rw [mul_add, mul_one] at h2
     linarith
 
-/-- **W1 checker soundness** (FORMAT.md §6.3, the L3 obligation; theorem shape per §7.1).
-Modulo the two displayed hypotheses H-ENCL (`W1EnclOK riemannZeta d`) and H-AP
-(`RectArgPrinciple riemannZeta`), an accepted transcript certifies: for m ≥ 1, a zero ρ of ζ
-with 1/2 < Re ρ < 1 and T₁ < Im ρ < T₂ (for f = ζ this is ¬RH, derivation D5); for m = 0, no
-zeros of ζ in the closed rectangle R (the exclusion/M3 form; ledger language per D-R6).
-Here `T1 d`/`T2 d` are literally the transcript rationals a1/b1, a2/b2 as reals. -/
-theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
-    (hEncl : W1EnclOK riemannZeta d) (hAP : RectArgPrinciple riemannZeta) :
-    (1 ≤ d.m → ∃ ρ : ℂ, riemannZeta ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1
+/-- **W1 checker soundness, generic in the function** (D-R8, 2026-09-10; PRICING-fDH.md §2.2,
+Route G): for ANY `f : ℂ → ℂ` differentiable on the open half-plane {Re s < 1} (which contains
+every W1 rectangle, clause C2c), modulo the two displayed hypotheses H-ENCL (`W1EnclOK f d`) and
+H-AP (`RectArgPrinciple f` — a theorem for every `f` since v1.1, `ArgPrincipleBridge.lean`), an
+accepted transcript certifies: for m ≥ 1, a zero ρ of f with 1/2 < Re ρ < 1 and T₁ < Im ρ < T₂;
+for m = 0, no zeros of f in the closed rectangle R.  The proof is v1's `cert_of_checkW1` body
+with `riemannZeta` replaced by `f`, the four edge-continuity facts taken from the generic §9
+lemma, and the analytic input `hf` passed to H-AP in place of the inline ζ block.  The ζ
+theorem `cert_of_checkW1` below is its instance, statement unchanged. -/
+theorem cert_of_checkW1_of_diffOn (f : ℂ → ℂ) (hf : DifferentiableOn ℂ f {s : ℂ | s.re < 1})
+    (d : W1Data) (hc : checkW1 d = true)
+    (hEncl : W1EnclOK f d) (hAP : RectArgPrinciple f) :
+    (1 ≤ d.m → ∃ ρ : ℂ, f ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1
         ∧ T1 d < ρ.im ∧ ρ.im < T2 d)
-    ∧ (d.m = 0 → ∀ s ∈ W1Rect d, riemannZeta s ≠ 0) := by
+    ∧ (d.m = 0 → ∀ s ∈ W1Rect d, f s ≠ 0) := by
   have hchk := checksOK_of_checkW1 hc
   -- rectangle facts (D7 conversions of C2)
   have hhalf : 1 / 2 < sigma1 d := by
@@ -999,12 +1028,13 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     exact congrArg some hvlb
   have hpairsl : ∀ p ∈ consecPairs (d.left.map ratVal), p.2 < p.1 :=
     consec_map_forall fun q hq => chainGt_spec hchk.hdl hclf q hq
-  -- the four edge continuity facts
-  have hcontB := continuousOn_zeta_logDeriv_seg
+  -- the four edge continuity facts (generic §9 lemma at U = {Re s < 1})
+  have hUopen : IsOpen {s : ℂ | s.re < 1} := isOpen_lt Complex.continuous_re continuous_const
+  have hcontB := continuousOn_logDeriv_seg_of_diffOn hUopen hf
     (z := cpt (sigma1 d) (T1 d)) (w := cpt (sigma2 d) (T1 d))
     (fun t ht0 ht1 => by
       rw [segPt_mk_horiz]
-      simp only [cpt_re]
+      simp only [Set.mem_ofPred_eq, cpt_re]
       nlinarith)
     (fun t ht0 ht1 => by
       apply hbnz
@@ -1014,11 +1044,11 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
       refine ⟨⟨by nlinarith, by nlinarith, le_rfl, hT12.le⟩, ?_⟩
       rintro ⟨-, -, hlt, -⟩
       exact lt_irrefl _ hlt)
-  have hcontR := continuousOn_zeta_logDeriv_seg
+  have hcontR := continuousOn_logDeriv_seg_of_diffOn hUopen hf
     (z := cpt (sigma2 d) (T1 d)) (w := cpt (sigma2 d) (T2 d))
     (fun t ht0 ht1 => by
       rw [segPt_mk_vert]
-      simp only [cpt_re]
+      simp only [Set.mem_ofPred_eq, cpt_re]
       exact hs2lt1)
     (fun t ht0 ht1 => by
       apply hbnz
@@ -1028,11 +1058,11 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
       refine ⟨⟨hs12le, le_rfl, by nlinarith, by nlinarith⟩, ?_⟩
       rintro ⟨-, hlt, -, -⟩
       exact lt_irrefl _ hlt)
-  have hcontT := continuousOn_zeta_logDeriv_seg
+  have hcontT := continuousOn_logDeriv_seg_of_diffOn hUopen hf
     (z := cpt (sigma2 d) (T2 d)) (w := cpt (sigma1 d) (T2 d))
     (fun t ht0 ht1 => by
       rw [segPt_mk_horiz]
-      simp only [cpt_re]
+      simp only [Set.mem_ofPred_eq, cpt_re]
       nlinarith)
     (fun t ht0 ht1 => by
       apply hbnz
@@ -1042,11 +1072,11 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
       refine ⟨⟨by nlinarith, by nlinarith, hT12.le, le_rfl⟩, ?_⟩
       rintro ⟨-, -, -, hlt⟩
       exact lt_irrefl _ hlt)
-  have hcontL := continuousOn_zeta_logDeriv_seg
+  have hcontL := continuousOn_logDeriv_seg_of_diffOn hUopen hf
     (z := cpt (sigma1 d) (T2 d)) (w := cpt (sigma1 d) (T1 d))
     (fun t ht0 ht1 => by
       rw [segPt_mk_vert]
-      simp only [cpt_re]
+      simp only [Set.mem_ofPred_eq, cpt_re]
       exact lt_of_le_of_lt hs12le hs2lt1)
     (fun t ht0 ht1 => by
       apply hbnz
@@ -1058,8 +1088,8 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
       exact lt_irrefl _ hlt)
   -- the four edge sums (L1 per edge)
   have hsumB : ((consecPairs (bottomPts d)).map
-      fun p => logDerivSegIntegral riemannZeta p.1 p.2).sum
-      = logDerivSegIntegral riemannZeta (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d)) := by
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d)) := by
     obtain ⟨hgh, hgl, hgle⟩ := tau_facts_inc hs12 hheadb hlastb hpairsb
     have hbp : bottomPts d = (d.bottom.map ratVal).map
         fun y => segPt (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d))
@@ -1070,8 +1100,8 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     rw [hbp]
     exact edge_sum_eq _ _ hgh hgl hgle hcontB
   have hsumR : ((consecPairs (rightPts d)).map
-      fun p => logDerivSegIntegral riemannZeta p.1 p.2).sum
-      = logDerivSegIntegral riemannZeta (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d)) := by
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d)) := by
     obtain ⟨hgh, hgl, hgle⟩ := tau_facts_inc hT12 hheadr hlastr hpairsr
     have hbp : rightPts d = (d.right.map ratVal).map
         fun y => segPt (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d))
@@ -1082,8 +1112,8 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     rw [hbp]
     exact edge_sum_eq _ _ hgh hgl hgle hcontR
   have hsumT : ((consecPairs (topPts d)).map
-      fun p => logDerivSegIntegral riemannZeta p.1 p.2).sum
-      = logDerivSegIntegral riemannZeta (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d)) := by
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d)) := by
     obtain ⟨hgh, hgl, hgle⟩ := tau_facts_dec hs12 hheadt hlastt hpairst
     have hbp : topPts d = (d.top.map ratVal).map
         fun y => segPt (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d))
@@ -1094,8 +1124,8 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     rw [hbp]
     exact edge_sum_eq _ _ hgh hgl hgle hcontT
   have hsumL : ((consecPairs (leftPts d)).map
-      fun p => logDerivSegIntegral riemannZeta p.1 p.2).sum
-      = logDerivSegIntegral riemannZeta (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
     obtain ⟨hgh, hgl, hgle⟩ := tau_facts_dec hT12 hheadl hlastl hpairsl
     have hbp : leftPts d = (d.left.map ratVal).map
         fun y => segPt (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d))
@@ -1106,30 +1136,23 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     rw [hbp]
     exact edge_sum_eq _ _ hgh hgl hgle hcontL
   -- apply H-AP
-  have hUopen : IsOpen {s : ℂ | s.re < 1} := isOpen_lt Complex.continuous_re continuous_const
   have hUsub : rectClosed (sigma1 d) (sigma2 d) (T1 d) (T2 d) ⊆ {s : ℂ | s.re < 1} := by
     intro s hs
     exact lt_of_le_of_lt hs.2.1 hs2lt1
-  have hdiff : DifferentiableOn ℂ riemannZeta {s : ℂ | s.re < 1} := by
-    intro s hs
-    refine (differentiableAt_riemannZeta ?_).differentiableWithinAt
-    intro h1
-    rw [h1] at hs
-    simp at hs
   obtain ⟨Z, hZeq, hZ0, hZ1⟩ := hAP (sigma1 d) (sigma2 d) (T1 d) (T2 d) hhalf hs12le hs2lt1
-    hT12 _ hUopen hUsub hdiff hbnz
+    hT12 _ hUopen hUsub hf hbnz
   -- total winding: the segment sum equals 2πZ
-  have hsegsum : ((segs d).map fun p => logDerivSegIntegral riemannZeta p.1 p.2).sum
-      = logDerivSegIntegral riemannZeta (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d))
-        + logDerivSegIntegral riemannZeta (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d))
-        + logDerivSegIntegral riemannZeta (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d))
-        + logDerivSegIntegral riemannZeta (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
+  have hsegsum : ((segs d).map fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d))
+        + logDerivSegIntegral f (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d))
+        + logDerivSegIntegral f (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d))
+        + logDerivSegIntegral f (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
     unfold segs
     rw [List.map_append, List.map_append, List.map_append, List.sum_append, List.sum_append,
       List.sum_append, hsumB, hsumR, hsumT, hsumL]
-  have htot : ((segs d).map fun p => argIncrement riemannZeta p.1 p.2).sum = 2 * π * Z := by
-    have h1 : ((segs d).map fun p => argIncrement riemannZeta p.1 p.2)
-        = ((segs d).map fun p => logDerivSegIntegral riemannZeta p.1 p.2).map Complex.im := by
+  have htot : ((segs d).map fun p => argIncrement f p.1 p.2).sum = 2 * π * Z := by
+    have h1 : ((segs d).map fun p => argIncrement f p.1 p.2)
+        = ((segs d).map fun p => logDerivSegIntegral f p.1 p.2).map Complex.im := by
       rw [List.map_map]
       rfl
     rw [h1, ← im_list_sum, hsegsum]
@@ -1156,6 +1179,21 @@ theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
     by_cases hop : s ∈ rectOpen (sigma1 d) (sigma2 d) (T1 d) (T2 d)
     · exact hZ0 hZ0' s hop
     · exact hbnz s ⟨hsmem, hop⟩
+
+/-- **W1 checker soundness** (FORMAT.md §6.3, the L3 obligation; theorem shape per §7.1).
+Modulo the two displayed hypotheses H-ENCL (`W1EnclOK riemannZeta d`) and H-AP
+(`RectArgPrinciple riemannZeta`), an accepted transcript certifies: for m ≥ 1, a zero ρ of ζ
+with 1/2 < Re ρ < 1 and T₁ < Im ρ < T₂ (for f = ζ this is ¬RH, derivation D5); for m = 0, no
+zeros of ζ in the closed rectangle R (the exclusion/M3 form; ledger language per D-R6).
+Here `T1 d`/`T2 d` are literally the transcript rationals a1/b1, a2/b2 as reals.
+Since D-R8 (2026-09-10) this is the ζ instance of `cert_of_checkW1_of_diffOn`; the statement is
+character-for-character v1's. -/
+theorem cert_of_checkW1 (d : W1Data) (hc : checkW1 d = true)
+    (hEncl : W1EnclOK riemannZeta d) (hAP : RectArgPrinciple riemannZeta) :
+    (1 ≤ d.m → ∃ ρ : ℂ, riemannZeta ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1
+        ∧ T1 d < ρ.im ∧ ρ.im < T2 d)
+    ∧ (d.m = 0 → ∀ s ∈ W1Rect d, riemannZeta s ≠ 0) :=
+  cert_of_checkW1_of_diffOn riemannZeta differentiableOn_riemannZeta_re_lt_one d hc hEncl hAP
 
 /-! ## 11. The C11 modulus-floor by-product (FORMAT.md §5.2, derivation D6) -/
 
