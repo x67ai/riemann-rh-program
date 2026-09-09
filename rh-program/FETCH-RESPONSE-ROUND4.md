@@ -14,8 +14,8 @@
 | 4 | P2 | Leichtnam, *Invitation*, Contemp. Math. 387 | delivered (whole volume, image-only) — verification pending | `r4-04` | `a04-leichtnam-cm387.md` |
 | 5 | P2 | Deninger–Singhof, Contemp. Math. 290, pp. 41–55 | **NOT DELIVERED — still open** | — | — |
 | 6 | P2 | Farber SMM 108 §2.1 / Calegari OUP 2007 §9.3 | Farber delivered (image-only); **Calegari NOT DELIVERED — still open** | `r4-06a` | `a05-…md` |
-| 7 | P3 | Ghys 1999, SMF journal version | re-delivered as the AUTHOR COPY again — pagination check pending | `r4-07` | `a09-…md` |
-| 8 | P3 | Leichtnam 2008, Rend. Mat. Appl. journal version | re-delivered as an author copy (dated 27 Nov 2008) — edition check pending | `r4-08` | `a09-…md` |
+| 7 | P3 | Ghys 1999, SMF journal version | **byte-identical to r3s-35 (author preprint, Oct 1997) — journal pagination STILL OPEN**; published range confirmed via zbMATH (49–95) | `r4-07` | `a09-…md` |
+| 8 | P3 | Leichtnam 2008, Rend. Mat. Appl. journal version | **byte-identical to the s16 Wayback author copy — journal text STILL OPEN**; §5.1 Assumptions 1]–7] stable; published range confirmed via zbMATH (163–188) | `r4-08` | `a09-…md` |
 | 9 | P3 | ÁLKL memoir, LNM 2387 (published) | delivered — page map pending | `r4-09` | `a06-memoir-pagemap.md` |
 | 10 | P3 | Komatsu 1967, JMSJ 19 | delivered — pending | `r4-10` | `a05-…md` |
 | 11 | P3 | Wengenroth 1996, Studia 120 | delivered (2-up scan, image-only) — pending | `r4-11` | `a05-…md` |
@@ -24,9 +24,9 @@
 | 14 | P3 | Mangino 1997, Math. Nachr. | delivered — **file header says vol. 186, list says 185**; pending | `r4-14` | `a05-…md` |
 | 15 | P3 | Candel–Conlon I; Moore–Schochet; Hector–Hirsch A | delivered — Candel–Conlon I image-only; **Moore–Schochet is the 1988 FIRST edition, not CUP 2006**; Hector–Hirsch A is the 1986 2nd ed.; pending. Bonus: Candel–Conlon II (GSM 60), Hector–Hirsch B | `r4-15a`, `r4-15b`, `r4-15c` (+ `r4-15a2`, `r4-15c2`) | `a08-…md` |
 | 16 | P3 | Sullivan 1976; Plante 1975 | delivered — pending | `r4-16a`, `r4-16b` | `a07-…md` |
-| 17 | P3 | zbMATH reviews (Epstein 1976, Cantwell–Conlon 1981, KMNT 2021) | not delivered by the sponsor; agent attempting zbMATH Open directly — pending | — | `a09-…md` |
-| — | — | Bonus: Edwards–Millett–Sullivan 1977, Topology 16, 13–32 | delivered, not requested | `r4-x1` | `a09-…md` |
-| — | — | Re-deliveries of r3s-32 (Cantwell–Conlon 1981) and r3s-34 (Epstein 1976) | parked, not needed | `duplicates-of-r3/` | `a09-…md` |
+| 17 | P3 | zbMATH reviews (Epstein 1976, Cantwell–Conlon 1981, KMNT 2021) | **CLOSED via zbMATH Open API** — Epstein and Cantwell–Conlon carry NO review text; KMNT carries the authors' summary only. Nothing to fetch. | — | `a09-…md` |
+| — | — | Bonus: Edwards–Millett–Sullivan 1977, Topology 16, 13–32 | delivered, not requested; verified, printed = PDF − 12 | `r4-x1` | `a09-…md` |
+| — | — | Re-deliveries of r3s-32 (Cantwell–Conlon 1981) and r3s-34 (Epstein 1976) | byte-identical duplicates; parked | `duplicates-of-r3/` | `a09-…md` |
 | — | — | Stray: arXiv:1703.03827v16 (Blinovsky, math.GM "Proof of Riemann hypothesis") | not requested; parked unread | `not-on-list/` | — |
 
 ## Findings by item (filled at harvest; each entry cites its report)
@@ -62,8 +62,16 @@
 - **Verdict on N-A, N-D, N-F, N-G: nothing moves.** No printed finite-generation/rank statement, no transverse-measure theorem, no compact-leaf/fixed-point analysis. **Two corrections for the next program session (NOT enacted):** (1) the list's and the adjudication's description "compact non-transverse leaves *carrying fixed points*" is wrong for Kopei — the class is defined without fixed points; the N-F contrast sentence must be weakened to "fixed points, if any, lie in compact leaves". (2) Agent's inference: Kopei's own Reeb example (Lemma 4.2) has a compact torus leaf with a fixed-point-free flow for α+β ≠ 0 (an instance of N-F's arrangement) and length group (1/α)ℤ (consistent with N-G) — unremarked by Kopei.
 - Kopei's 2011 sentence on trace formulas being "known only in the transverse case" is a printed confirmation that no trace formula for the compact-leaf class was known to him — consistent with the adjudication's finding that the α = 0 mechanism is printed nowhere in that class.
 
+### Items 7, 8, 17 and the bonus/duplicate/stray files (report `a09-identity-p3-bonus.md`, COMPLETE)
+- **Item 7 — STILL OPEN.** `r4-07` is byte-identical (MD5) to `fetched-r3/r3s-35`: the author's preprint dated "Octobre 1997", folios 1–50, no SMF imprint. zbMATH Open (Zbl 1018.37028, read 2026-09-09) confirms the published citation: Cerveau et al., *Dynamique et géométrie complexes*, Panor. Synth. 8, SMF 1999, pp. 49–95. 50 A4 preprint pages vs 47 journal pages — no usable folio offset; **cite by section**. The zbMATH review (Vâjâitu) is recorded verbatim in the report.
+- **Item 8 — STILL OPEN for the journal text; content confirmed stable.** `r4-08` is byte-identical to the Session-16 Wayback copy: preprint dated 27 Nov 2008, running head "TALK", no Rendiconti imprint. §5.1 Assumptions 1]–7] and Comment 8 (p. 17) are transcribed verbatim (vision-verified: the text layer garbles the Hodge star and overlines) and are identical in both copies. zbMATH (Zbl 1173.14015) confirms Rend. Mat. Appl. (7) 28, no. 2 (2008) 163–188. Hygiene note: Leichtnam's "might be too strong" remark appears in TWO papers (Rend. Mat. 2008 preprint p. 17; arXiv:math/0603576v2 p. 12) — keep the citations apart.
+- **Item 17 — CLOSED, nothing to fetch.** zbmath.org blocks the fetcher (Cloudflare), but the zbMATH Open API answered in full: Epstein 1976 (Zbl 0313.57017) and Cantwell–Conlon 1981 (Zbl 0442.57007) have NO review or summary text (records complete, empty editorial contributions — a holdings fact, not a network failure); KMNT (Zbl 1492.37034) carries only the authors' summary, recorded verbatim, confirming Münster J. Math. 14, no. 2, 323–348 (2021), DOI 10.17879/06089649100. The "a reviewer recorded a statement the papers do not print" hope is exhausted on zbMATH.
+- **Bonus `r4-x1` (Edwards–Millett–Sullivan 1977):** genuine Pergamon scan, exact match, PDF page = printed + 12; OCR garbles ω as "to". Theorem 1 (volume bound under the homological half-space hypothesis), Theorem 2 (unconditional in codimension 2, extending Epstein's 1972 Annals paper, their [3] — the 1976 AIF paper is their [4]) and Sullivan's 5-manifold counterexample (pp. 13–14) recorded verbatim. It does NOT restate the point-set lemma the program takes from Epstein 1976 §2, so it is no second citation for it.
+- **Duplicates:** byte-identical to r3s-32 and r3s-34. **Stray:** Blinovsky, arXiv math.GM — not on the list, not read.
+
 ## Caveats for `results/corpus-routing.md` (collected; copied there at harvest)
 
 - `r4-01+12` (Warsaw volume): printed page = PDF page − 9; PDF pp. 1–3, 7, 10 are title/blank pages. The Contents OCR reads "Endests … G. Dummy" — grep "Dummy|Duminy" or go by PDF page. Script letters are lost in the text layer (𝓕 → "J"/"3"/"7"/"?"; ℰ^X(F) → "£ X ( F )"/"EX(F)"; the bar on H̄ is invisible, so reduced vs. unreduced cohomology cannot be told apart by text) — vision-verify every statement where that matters. ALK Thm 1.3 printed/proof mismatch as above.
 - `r4-02` (Ghys 1995): PDF page = printed − 385. Text layer garbled (accents stripped, words run together, math lost) — quote only from vision. Theorems are named by LETTER (A, A′, B, C, D). "Generic" means harmonic-measure-a.e., never every leaf. No Duminy / semiproper / exceptional-minimal-set content — do not cite it for those.
 - `r4-03` (Kopei 2011): printed = PDF + 140. Clean text layer. Do NOT describe Kopei's class as having fixed points on compact leaves — it is defined without them (Rem. 2.5).
+- `r4-07` = `r3s-35` byte-for-byte (author preprint, Oct 1997, 50 pp.): cite Ghys 1999 by SECTION, never by page; published range 49–95 (zbMATH). `r4-08` = the s16 Wayback copy byte-for-byte (preprint, 27 Nov 2008): text layer garbles the Hodge star and overlines in §5.1 — quote Assumptions 1]–7] from vision or from `results/fetch-r4/a09-identity-p3-bonus.md`. `r4-x1`: PDF page = printed + 12; OCR reads ω as "to".
