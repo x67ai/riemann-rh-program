@@ -1,0 +1,80 @@
+==============================================================================
+(A) STATEMENT FIDELITY vs PRICING-fDH.md 3.1 (character by character)
+==============================================================================
+
+--- fDH ---
+  IDENTICAL (247 chars, whitespace-normalized)
+  def fDH (s : ℂ) : ℂ := (5 : ℂ) ^ (-s) * (hurwitzZeta ((1/5 : ℝ) : UnitAddCircle) s + (kappaDH : ℂ) * hurwitzZeta ((2/5 : ℝ) : UnitAddCircle) s - (kappaDH : ℂ) * hurwitzZeta ((3/5 : ℝ) : UnitAddCircle) s - hurwitzZeta ((4/5 : ℝ) : UnitAddCircle) s)
+
+--- cert_of_checkW1_fDH ---
+  IDENTICAL (214 chars, whitespace-normalized)
+  theorem cert_of_checkW1_fDH (d : W1Data) (hc : checkW1 d = true) (hEncl : W1EnclOK fDH d) : (1 ≤ d.m → ∃ ρ : ℂ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ T1 d < ρ.im ∧ ρ.im < T2 d) ∧ (d.m = 0 → ∀ s ∈ W1Rect d, fDH s ≠ 0)
+
+--- mpDH_zero ---
+  IDENTICAL (132 chars, whitespace-normalized)
+  theorem mpDH_zero (hEncl : W1EnclOK fDH mpDH) : ∃ ρ : ℂ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ (8569/100 : ℝ) < ρ.im ∧ ρ.im < 8571/100
+
+--- kappaDH ---
+  IDENTICAL (77 chars, whitespace-normalized)
+  def kappaDH : ℝ := (Real.sqrt (10 - 2 * Real.sqrt 5) - 2) / (Real.sqrt 5 - 1)
+
+--- arbDH_zero (pricing: "and `arbDH_zero` likewise") ---
+  arbDH_zero is mpDH_zero with mpDH -> arbDH and nothing else. OK
+
+==============================================================================
+(B) THE NUMERIC BOX: mpDH_zero / arbDH_zero  vs  W1Data literal  vs  transcript rect
+==============================================================================
+
+--- mpDH / mpDH_zero / w1-mp-dh-livefire.json ---
+  transcript rect : sigma1 4/5  sigma2 41/50  T1 8569/100  T2 8571/100  claimed_m 1  function f_DH  mode refutation
+  Lean W1Data lit : p1/q1 4/5  p2/q2 41/50  a1/b1 8569/100  a2/b2 8571/100  m 1
+  corollary box   : 8569/100 < Im rho < 8571/100 ;  1/2 < Re rho < 1
+    literal sigma1 == transcript sigma1           OK
+    literal sigma2 == transcript sigma2           OK
+    literal T1     == transcript T1               OK
+    literal T2     == transcript T2               OK
+    literal m      == transcript claimed_m        OK
+    corollary Im-lower == T1 (8569/100)           OK
+    corollary Im-upper == T2 (8571/100)           OK
+    corollary Re-lower is 1/2                     OK
+    corollary Re-upper is 1                       OK
+    transcript function is f_DH                   OK
+    transcript mode is refutation                 OK
+    m >= 1 (the witness branch)                   OK
+
+--- arbDH / arbDH_zero / w1-arb-dh-livefire.json ---
+  transcript rect : sigma1 4/5  sigma2 41/50  T1 8569/100  T2 8571/100  claimed_m 1  function f_DH  mode refutation
+  Lean W1Data lit : p1/q1 4/5  p2/q2 41/50  a1/b1 8569/100  a2/b2 8571/100  m 1
+  corollary box   : 8569/100 < Im rho < 8571/100 ;  1/2 < Re rho < 1
+    literal sigma1 == transcript sigma1           OK
+    literal sigma2 == transcript sigma2           OK
+    literal T1     == transcript T1               OK
+    literal T2     == transcript T2               OK
+    literal m      == transcript claimed_m        OK
+    corollary Im-lower == T1 (8569/100)           OK
+    corollary Im-upper == T2 (8571/100)           OK
+    corollary Re-lower is 1/2                     OK
+    corollary Re-upper is 1                       OK
+    transcript function is f_DH                   OK
+    transcript mode is refutation                 OK
+    m >= 1 (the witness branch)                   OK
+
+==============================================================================
+(C) THE 3.2 LABEL, character by character, everywhere it is now printed
+==============================================================================
+  PRICING 3.2 (215 chars): f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).
+    results/d1-m1/w1-schema.json                         occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/producer_mp.py                         occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/producer_arb.py                        occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/checker_ref.py                         occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/reference_checker.py                   occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/acceptance/w1-mp-dh-livefire.json      occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/acceptance/w1-arb-dh-livefire.json     occurrences of the verbatim sentence: 1 OK
+    lean/Zeta23/W1/FDH.lean                              occurrences of the verbatim sentence: 1 OK
+    lean/formalization.yaml                              occurrences of the verbatim sentence: 1 OK
+    results/d1-m1/FORMAT.md                              occurrences of the verbatim sentence: 1 OK
+    lean/README.md                                       occurrences of the verbatim sentence: 1 OK
+    directions/D1-certified-refutation-arm.md            occurrences of the verbatim sentence: 1 OK
+
+==============================================================================
+VERDICT: PASS (no divergences)
