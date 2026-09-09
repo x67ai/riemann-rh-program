@@ -311,3 +311,74 @@ website returned HTTP 403 to the fetcher; the API answered 200 on the first try)
   The reviewer's description of Section 5 ("several axioms for a laminated foliated space") matches
   §5.1 of the preprint; nothing in the review records a statement the preprint does not print.
 
+## ITEM 17 — zbMATH Open records for Epstein 1976, Cantwell–Conlon 1981, KMNT 2021 (read 2026-09-09)
+
+Method: zbMATH Open API, `https://api.zbmath.org/v1/document/_search?search_string=…` and
+`https://api.zbmath.org/v1/document/<Zbl id>`; every call answered HTTP 200 on the first attempt.
+The zbmath.org *website* was not usable from this session (HTTP 403 to the fetcher; curl got a 5.8 KB
+bot-check page rather than the record). The API returns the complete document record including the
+`editorial_contributions` array, which is where zbMATH Open keeps review and summary texts; an empty
+array means zbMATH Open has no review/summary text on file for that item. Read-date 2026-09-09.
+
+1. **Epstein 1976.** Zbl 0313.57017 (zbMATH internal id 3490112, `https://zbmath.org/3490112`).
+   Source line: "Ann. Inst. Fourier 26, No. 1, 265-282 (1976)". DOI 10.5802/aif.607; NUMDAM
+   AIF_1976__26_1_265_0; EuDML 74269. MSC 57R30. `editorial_contributions: []` — **zbMATH Open carries
+   NO review text and no summary for this paper.** Keywords: none. (The record does carry the paper's
+   reference list, e.g. [1] Ehresmann 1950 Bruxelles 29–55, [2] Epstein, Periodic flows on 3-manifolds,
+   Ann. Math. 95 (1972) 68–82, [3] Haefliger 1962, [4] Haefliger 1958, [5] Montgomery–Zippin 1955,
+   [6] Palais 1970.) So a reviewer's restatement of "closed leaf ⇒ compact leaf" cannot be obtained
+   from zbMATH; the adjudication's §4 item 8 hope ("in case a reviewer recorded a statement the papers
+   do not print") is closed on the zbMATH side for this paper — nothing there beyond the paper itself.
+   MathSciNet (closed) remains the only other review venue and was not consulted (brief §6).
+
+2. **Cantwell–Conlon 1981.** Zbl 0442.57007 (internal id 3690294, `https://zbmath.org/3690294`).
+   Source line: "Ann. Inst. Fourier 31, No. 2, 113-135 (1981)". DOI 10.5802/aif.831; NUMDAM
+   AIF_1981__31_2_113_0; EuDML 74492. MSC 57R30. `editorial_contributions: []` — **zbMATH Open carries
+   NO review text and no summary for this paper.** Keywords: none. (Reference list present in the
+   record: [1] Cantwell–Conlon, Nonexponential leaves at finite level (to appear, 1982); [2] Poincaré–
+   Bendixson theory for leaves of codimension one, TAMS (to appear); [3] Growth of leaves, CMH 53 (1978)
+   93–111; [4] Conlon, Transversally complete e-foliations of codimension two, TAMS 194 (1974) 79–102;
+   [5] Dippolito, Ann. Math. 107 (1978) 403–453; [7] Fuchs, Infinite Abelian Groups I.) Same
+   conclusion: no reviewer statement exists on zbMATH to supplement the paper.
+
+3. **KMNT 2021.** Zbl 1492.37034 (internal id 7481094, `https://zbmath.org/7481094`). Title as indexed:
+   "On 3-dimensional foliated dynamical systems and Hilbert type reciprocity law". Authors: Kim,
+   Junhyeong; Morishita, Masanori; Noda, Takeo; Terashima, Yuji. Source line: "Münster J. Math. 14,
+   No. 2, 323-348 (2021)". DOI 10.17879/06089649100. **Confirms the program's citation Münster J. Math.
+   14 (2021) 323–348, adding issue No. 2.** The record carries an author SUMMARY (contribution_type
+   "summary", no reviewer), not a third-party review. Verbatim:
+   "Summary: We introduce a geometric analog of the Hilbert symbol and show a Hilbert type reciprocity
+   law for a 3-dimensional foliated dynamical system (FDS\(^3\) for short). This answers the question
+   posed by \textit{C. Deninger} [Doc. Math. Extra Vol., 163--186 (1998; Zbl 0899.14001); Prog. Math.
+   171, 29--87 (2000; Zbl 1159.11310); Jahresber. Dtsch. Math.-Ver. 103, No. 3, 79--100 (2001;
+   Zbl 1003.11029); Contemp. Math. 300, 99--114 (2002; Zbl 1077.14022); Lond. Math. Soc. Lect. Note
+   Ser. 354, 174--190 (2008; Zbl 1163.37006)]. For this, we employ the theory of smooth Deligne
+   cohomology and the integration theory of Deligne cohomology classes. We also present a structure
+   theorem for an FDS\(^3\), which yields a classification of FDS\(^3\)'s, and we construct concrete
+   examples of FDS\(^3\)'s for each type of the classification."
+   Nothing in the summary bears on Lemma 1.9 / Def. 1.10 / Remark 2.8 / Cor. 2.9 / Prop. 2.10 beyond
+   what the paper prints; it does confirm the "structure theorem … classification of FDS³'s" that the
+   program's N-G discussion relies on exists as the authors describe it.
+
+**Item 17 outcome:** reachable, answered. Two of the three have no zbMATH review text at all (this is a
+fact about zbMATH's holdings, not a network failure — the records were retrieved in full); the third has
+only the authors' summary. The "reviewer recorded a statement the papers do not print" possibility is
+therefore exhausted on zbMATH for all three. Not consulted: MathSciNet (closed, per brief §6).
+
+## SUMMARY OF VERDICTS
+
+| Item | File | Same as on disk? | Journal imprint? | Verdict |
+|---|---|---|---|---|
+| 7 (P3) | r4-07 Ghys 1999 | byte-identical to r3s-35 (MD5 a5e5…9436) | none; author copy, folios 1–50, dated Oct 1997 | **STILL OPEN** for journal folios; page range 49–95 confirmed via Zbl 1018.37028 (Panor. Synth. 8) — cite by section |
+| 8 (P3) | r4-08 Leichtnam 2008 | byte-identical to the s16/qs4prime Wayback copy (MD5 59aa…4514) | none; preprint dated 2008-11-27, running head "TALK" | **STILL OPEN** for journal folios; §5.1 Assumptions 1]–7] identical and vision-verified; range 163–188 confirmed via Zbl 1173.14015 (Rend. Mat. Appl. VII. Ser. 28, No. 2) |
+| bonus | r4-x1 EMS 1977 | new | Topology 16 (1977) 13–32, Pergamon — exact match | identity confirmed; Theorems 1, 2 and the Sullivan counterexample recorded verbatim; no bearing on N-E |
+| dup | cantwell-conlon DUP | byte-identical to r3s-32 | NUMDAM | ignore |
+| dup | epstein DUP | byte-identical to r3s-34 | NUMDAM | ignore |
+| stray | blinovsky | — | arXiv math.GM | not on list; not read |
+| 17 | zbMATH reviews | — | — | delivered: Epstein and Cantwell–Conlon have NO review text on zbMATH Open; KMNT has the authors' summary (recorded) |
+
+Nothing found contradicts the program's record. One page-citation hygiene note: Leichtnam's "might be too
+strong" remark exists in TWO papers — Rend. Mat. 2008 preprint p. 17 (Comment 8, this file) and
+arXiv:math/0603576v2 p. 12 (the one the adjudication corrected) — keep them apart.
+
+*Agent a09-identity-p3-bonus, Session 18, 2026-09-09.*
