@@ -1,8 +1,20 @@
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 360, in <module>
-    main()
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 357, in main
-    {"rows": run_rows, "tail": run_tail, "assemble": assemble, "selftest": selftest}[args.mode](args)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 309, in run_tail
-    rec = dict(leg="arb", N1=str(N1), K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
-TypeError: dict() got multiple values for keyword argument 'N1'
+tail: {"N1": "5141000", "ints": {"Q1": "1780738683686", "Q2": "178607231320", "Q3": "18638466998", "Q4": "19014989007", "E1": "1823"}, "sum_int": "1996999372834", "lt_2K": true, "sum_float": 1.9969993728321158, "side": {"S1": true, "S2": true, "S3": true, "S4": true}, "ok": true, "seconds": 12.187895059585571}
+direct: {"contained": true, "Q1sum_float": [1.7807384675573077, 1.7807384675573077], "Q2sum_float": [2.323659824979233, 2.323659824979233], "seconds": 12.163347959518433}
+       12.26 real        12.22 user         0.03 sys
+            24920064  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3767  page reclaims
+                  24  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+                 236  involuntary context switches
+        260391807314  instructions retired
+         49203426204  cycles elapsed
+            16335184  peak memory footprint

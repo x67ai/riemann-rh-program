@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 360, in <module>
+    main()
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 357, in main
+    {"rows": run_rows, "tail": run_tail, "assemble": assemble, "selftest": selftest}[args.mode](args)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/p9_arb.py", line 309, in run_tail
+    rec = dict(leg="arb", N1=str(N1), K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
+TypeError: dict() got multiple values for keyword argument 'N1'
