@@ -525,7 +525,7 @@ Quot.sound]` (`dr8/fdh-axioms.log`). The soundness theorem itself is now generic
 character-for-character (`dr8/no-regression.log`). **The f_DH trust label is now, verbatim and
 everywhere it is printed (this file, `w1-schema.json`, `producer_mp.py`, `producer_arb.py`,
 `checker_ref.py`, `reference_checker.py`, the two live-fire JSONs):**
-*"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+*"f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
 It is box-specific by design: the only f_DH transcripts are the two live-fire ones on that box,
 and any further f_DH transcript enters only by a version bump (last sentence of this section).
 What it does NOT say: nothing about ζ, RH or Λ; not "RH-for-DH machine-checked disproof" (one
