@@ -29,7 +29,7 @@ POS_RE = re.compile(r'^[1-9][0-9]*$')
 
 TRUST_LABELS = {
     'zeta': 'kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)',
-    'f_DH': 'checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion',
+    'f_DH': 'f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).'  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
 }
 ROW_KEYS = ('reLo', 'reHi', 'imLo', 'imHi', 'argLo', 'argHi')
 TOP_REQUIRED = ('format', 'version', 'mode', 'function', 'trust_label',
@@ -249,8 +249,8 @@ def run_file(path):
         if doc.get('function') == 'zeta':
             label = 'conclusion holds modulo the displayed hypotheses H-ENCL, H-AP'
         else:
-            label = ('checker-level only (D-R8): format-checked modulo H-ENCL for '
-                     + str(doc.get('function')) + '; no Lean-backed conclusion')
+            # amended 2026-09-10 (D-R8 build): the f_DH banner is the schema constant itself
+            label = TRUST_LABELS.get(str(doc.get('function')), 'unknown function')
         print(f'   VERDICT: ACCEPT (all checks pass; {label})')
         return True
     except Fail as e:

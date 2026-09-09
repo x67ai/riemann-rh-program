@@ -1,4 +1,5 @@
 {
+  "$comment": "2026-09-10 (Session 20, D-R8 build): the f_DH trust_label const is the honest label of the Lean theorem cert_of_checkW1_fDH (PRICING-fDH.md sec. 3.2, verbatim; box-specific because the only f_DH transcripts are the two live-fire ones on that box, and any further f_DH transcript enters only by a version bump of FORMAT.md, sec. 9.2 last sentence). The zeta const is the v1.0 string, superseded for zeta by v1.1 (H-AP discharged) -- see results/d1-m3/README.md, label note.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "rh-program/results/d1-m1/w1-schema.json",
   "title": "W1 rectangle transcript (v1.0)",
@@ -91,7 +92,7 @@
       "then": {
         "properties": {
           "trust_label": {
-            "const": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion"
+            "const": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
           }
         }
       }
