@@ -10,7 +10,7 @@ Arithmetic Zeta Functions* (San Antonio 1999), Contemp. Math. 290, AMS 2001, pp.
 `FETCH-LIST-ROUND4.md` item 5. Cross-reference: `results/fetch-r4/a01-12-warsaw.md` (ALK 2002 cites this note as
 "[11] manuscript, 2000" and says the Deninger ICM-98 conjecture "under some additional assumptions … was proved in [11, 18]").
 
-Status: IN PROGRESS — sections appended as finished.
+Status: COMPLETE (see §6).
 
 ## §1. Identity verification (read by vision, PDF pp. 1–12)
 
@@ -294,3 +294,240 @@ sum does not only converge in the distributional sense but even in the smooth to
 have ‖ω_ν ⊗ ω̄_ν‖_{2,k} = (1 − α_ν² − ᾱ_ν²)^{k/2} = (1 + 2|α_ν|²)^{k/2}. On the other hand partial integration shows
 that for any N ≥ 1 we have ∫_R e^{ty} φ(t) dt = O(y^{−N})"
 
+p. 54 (verbatim, end of proof of 2.6): "as y → ∞. Hence up to finitely many terms the sum in (2.10) is majorised by a
+constant times Σ_{α_ν≠0} |α_ν|^{−N}(1 + 2|α_ν|²)^{k/2}. Ths [sic] sum converges for large enough N = N(k) since the
+numbers |α_ν|² are among the eigenvalues λ of the ordinary Laplacian ∆ on V-valued forms on X and since the sum
+Σ_{λ≠0} λ^{−m} converges for m ≫ 0. We have therefore seen that the series (2.10) converge for all k ≥ 1.
+A straightforeward [sic] argument using the definition of the pullback of distributions in [H] Theorem 8.2.4 shows
+that if ∆ : X → X × X denotes the diagonal: ⟨π_* ∆̃* tr_V K_{(P_∆⊗̂id)∘ψ*∘P_∆}, φ⟩ = ⟨∆̃* tr_V K_{(P_∆⊗̂id)∘ψ*∘P_∆},
+φ∘π⟩ = ⟨∆* tr_V K_φ, 1_X⟩. Since K_φ is a smooth section we have ⟨∆* tr_V K_φ, 1_X⟩ = ∫_X tr_V K_φ(x, x) dx. Using
+(2.6) and equation (2.9) with its convergence in the smooth topology we find: ⟨Tr(ψ* | ker ∆^i_F), φ⟩ = Σ_ν ∫_R
+e^{tα_ν} φ(t) dt, as desired. □"
+
+**References of the note, pp. 54–55 (verbatim, all eleven):**
+[AK1] J.A. Alvárez López, Y. Kordyukov, Long time behaviour of leafwise heat flow for Riemannian foliations.
+Preprint dg-ga/9612010, 1996. To appear in Compositio Math.
+[AK2] J.A. Alvárez López, Y. Kordyukov, Distributional Betti numbers of transitive foliations of codimension one.
+Preprint 2000.
+[BGV] N. Berline, E. Getzler, M. Vergne, Heat kernels and Dirac operators. Springer 1992
+[D] C. Deninger, Some analogies between number theory and dynamical systems on foliated spaces. Doc. Math. J. DMV
+Extra volume ICM I (1998), 23–46
+[DS] C. Deninger, W. Singhof, A counterexample to smooth leafwise Hodge decomposition for general foliations and to
+a type of dynamical trace formula. To appear in Ann. Inst. Fourier 2001
+[G] V. Guillemin, Lectures on spectral theory of elliptic operators. Duke Math. J. 44 (1977), 485–517
+[GS] V. Guillemin, S. Sternberg, Geometric asymptotics, Math. Surveys 14, Amer. Math. Soc., Providence, R.I. 1977
+[H] L. Hörmander, The analysis of linear partial differential operators I. Springer 1983
+[L] C. Lazarov, Transverse index and periodic orbits. GAFA 10 (2000), 124–159
+[NZ] A. Neske, F. Zickermann, The index of transversally elliptic complexes. Proceedings of the 13th winter school
+on abstract analysis (Srni, 1985). Rend. Circ. Mat. Palermo (2) Suppl. No. 9 (1986), 165–175
+[S] I.M. Singer, Index theory for elliptic operators, Proc. Symp. Pure Math. 28 (1973), 11–31
+Addresses p. 55: Deninger, Mathematisches Institut, WWU Münster, Einsteinstr. 62, 48149 Münster; Singhof,
+Mathematisches Institut, Universitätsstr. 1, 40225 Düsseldorf. p. 56 (PDF 67) is blank; Fan–Jorgenson begins p. 57.
+
+### §3.4 Inventory — every numbered statement and displayed formula in the note
+
+| item | page | content (one line) |
+|---|---|---|
+| Thm 1.1 | 43 | Leafwise Hodge decomposition A• = ker ∆_F ⊕ cl(im d_F) ⊕ cl(im δ_F), Riemannian foliation, closed X — quoted from [AK1] Cor. 1.3, not proved here |
+| (1.1) | 43 | ⟨K_P, α ⊗ β⟩ = (P(β), α) — definition of the Schwartz kernel of a projector |
+| Prop 1.2 | 43 | WF(K_{P_∆}) ⊂ (N*F × N*F) ∖ 0; WF(K_{P_d}), WF(K_{P_δ}) ⊂ (N*F × N*F) ∖ 0 ∪ Ñ*∆ |
+| (1.2) | 44 | the one-sided estimates proved in the proof of 1.2 |
+| Prop 1.3 | 45 | supp K_{P_∆} ⊂ R_F̄ (leaf-closure equivalence relation) |
+| 1.4 | 45 | STANDING HYPOTHESES (see §3.5) |
+| Cor 1.5 | 46 | WF of K_{ψ*∘P} etc. disjoint from N*∆̃; the pulled-back traces are defined |
+| Prop 2.1 | 48 | Guillemin–Sternberg trace formula in D′(R*) with V-coefficients (quoted from [GS] p. 311) |
+| (2.1) | 48 | alternating sum over A^i(F, V), primed orbit sum, ε_γ(k), det on T_xX/(T_xF ⊕ T^0_x) |
+| (2.2) | 49 | definition of Tr(ψ* | ker ∆_F), Tr(ψ* | cl im d_F), Tr(ψ* | cl im δ_F) |
+| (2.3), (2.4) | 49 | the cancellation condition on cl(im d)/cl(im δ) traces (alternating / termwise) |
+| (2.5) | 50 | Σ(−1)^i Tr(ψ*|A^i) = Σ(−1)^i Tr(ψ*|ker ∆^i_F) — follows from (2.3) |
+| (2.6) | 50 | the three definitions of Tr(ψ*|ker ∆^i_F) agree ("somewhat lengthy calculation", not printed) |
+| 2.2 | 50 | Special case: leafwise cohomologies Hausdorff ⇒ (2.4) |
+| 2.3 | 50 | Special case: φ^t, ψ^t isometric and dim X even ⇒ (2.3) via *_F |
+| **Thm 2.4** | 51 | **Σ_i(−1)^i Tr(ψ*|ker ∆^i_F) = Σ_γ l(γ) Σ_{k∈Z∖0} ε_γ(k) Tr(ψ_x^{kl(γ)}|V_x) δ_{kl(γ)} in D′(R*), under 1.4 and (2.2 or 2.3)** |
+| Remark | 51 | [AK2] proves it "in the setting of 1.4 without any restrictions" and in D′(R) with χ_Co(F, V)·δ_0; isometric case also from Lazarov [L] Thm 2.10 + [AK1] |
+| 2.5 / (2.7) | 51 | isometric φ^t, ψ^t; E_α ⊂ H^i(F, V) the e^{αt}-eigenspace; E_α = 0 unless α ∈ iR |
+| **Thm 2.6** | 51 | **dim E_α finite, non-zero for countably many α; Tr(ψ*|ker ∆^i_F) = Σ_α dim E_α · e^{αt} in D′(R*)** |
+| (2.8) | 52 | −Θ² = ∆^i|_{ker ∆^i_F} (isometric flow; Θ = generator of ψ^{t*} on ker ∆^i_F) — proved pp. 52–53 |
+| (2.9), (2.10) | 53 | K_φ = Σ_ν(∫ e^{tα_ν}φ dt) ω_ν ⊗ ω̄_ν and its Sobolev-norm convergence |
+
+There are no lemmas, no definitions numbered as such, and no theorem labeled "A" or "B" in the note. The only
+"dynamical trace formulas" are Prop. 2.1 (Guillemin–Sternberg, quoted), (2.1), Thm 2.4 and Thm 2.6.
+
+### §3.5 Standing hypotheses, answered item by item (the source says, with page)
+
+- **Manifold?** Yes — "closed manifold X" (p. 42, p. 45), "smooth compact manifold X" (p. 47). No laminations, no
+  foliated spaces, no solenoids anywhere in the note.
+- **Compact?** Yes, closed (= compact without boundary) throughout.
+- **Foliation regularity?** Smooth foliation F; **Riemannian** with a fixed **bundle-like metric** (p. 42–43, p. 45).
+  Codimension one for §1.4 onward ("everywhere transversal to a one-codimensional foliation F", p. 45); §1 (Prop.
+  1.2, 1.3) and Prop. 2.1/(2.1) are stated for arbitrary codimension. Leaves need not be dense (p. 44 treats the
+  dense case as "the interesting case" where nothing better is known). Coefficients: a Riemannian bundle V with a
+  flat leafwise Riemannian connection d_F and a compatible action ψ^t (p. 45).
+- **Flow transverse?** Yes, **everywhere transversal** (p. 45: "a flow φ : X × R → X which is everywhere transversal
+  to a one-codimensional foliation F and such that φ^t maps leaves to leaves for all t"). The note asserts, with no
+  proof or citation, "Then F is Riemannian and we fix a bundle-like metric" (p. 45) — i.e. it takes for granted that
+  a codimension-one foliation with a transverse leaf-preserving flow is Riemannian. Transversality is used
+  explicitly at p. 47 (last step of the proof of Cor. 1.5: "η_{φ^t(x)} would have to vanish since the flow is
+  transversal to the foliation") and at p. 49 (the primed sum; orbits inside leaves would give det = 0).
+- **Fixed points allowed?** **No.** "The flow doesn't have fixed points." (p. 45); "a flow φ^t without fixed points"
+  (p. 47). All trace formulas are in D′(R*), i.e. with the origin removed; the δ_0 term is explicitly left to [AK2].
+- **Closed orbits simple?** Yes, "non-degenerate in the following sense: If x lies on a periodic orbit γ of length
+  l(γ) then for all integers k ≥ 1 (equivalently: for all nonzero integers k) the 1-eigenspace of T_x φ^{kl(γ)} is
+  one-dimensional." (p. 45). [I infer: under transversality T_xX = T_xF ⊕ R·Y_φ with Y_φ the fixed eigenline, so this
+  is equivalent to det(1 − T_xφ^{kl(γ)}|T_xF) ≠ 0 for all k ≠ 0, which is ALK 2002's "simple" (a01-12-warsaw.md,
+  ALK p. 162) applied at every iterate.]
+- **Isometry?** NOT a standing hypothesis of the paper; it is the hypothesis of special case 2.3 (with dim X even),
+  of 2.5 and of Thm 2.6 ("We now assume that φ^t and ψ^t are isometric", p. 51), and of the whole proof of (2.8).
+- **Conformality / α?** The note contains no conformal hypothesis of any kind. The symbol α occurs only in 2.5–2.6
+  as the exponent in ψ^{t*} = e^{αt} on the eigenspace E_α ⊂ H^i(F, V) — a spectral parameter of Θ, not Deninger's
+  conformal factor. The words "conformal", "transverse measure", "holonomy", "Ruelle", "Sullivan", "current",
+  "cycle", "λ_g", "dense leaf" (as a hypothesis) do not occur anywhere in pp. 41–55 (checked by reading every page).
+
+### §3.6 THE KEY QUESTION — is the α = 0 mechanism, or Theorem A(B)'s mechanism, printed here?
+
+**Plain answer: NO. Neither is stated, and neither is proved, in any form.**
+
+*The source says.* The only statement in the note that has "the flow is isometric" as a **conclusion** rather than a
+hypothesis is nothing — there is none. Isometry enters exclusively as a hypothesis (2.3, 2.5, Thm 2.6, (2.8)). The
+note never considers a conformal flow φ^{t*}g_F = e^{αt}g_F, never asks when a transverse flow can be made isometric,
+never mentions a transverse measure, a foliated cycle, or a cohomology class such as [λ_g]. The one thing the note
+proves about "Re ρ = 0" is the trivial direction: **isometry ⇒ ψ^{t*} unitary on L²(ker ∆_F) ⇒ E_α = 0 unless α is
+purely imaginary** (p. 51, (2.7)). That is the consequence Deninger draws *after* α = 0, not the mechanism that
+forces α = 0.
+
+*Resolution of Deninger's citation "[21] proof of 2.6".* It resolves exactly: the proof of Thm 2.6, p. 52, displays
+(2.8) −Θ² = ∆^i|_{ker ∆^i_F} and proves it on pp. 52–53 under the hypothesis "By isometry of the flow" (used three
+times: constancy of ‖Y_φ‖, skew-symmetry of Θ, and Θ commuting with *_F). So the adjudicator's reading at
+`s16/novelty/adjudication.md` §1 N-A item 2 — that [21] is cited for the isometric relation "used after assuming
+α = 0, not to derive it" — is **confirmed at the page**. The note is not the printed home of a proof of the α = 0
+remark; that proof remains **unprinted** in every Deninger/Deninger–Singhof source the program has opened.
+
+*What the note DOES prove instead (for the record).* (i) A wave-front-set estimate for the leafwise Hodge projectors
+of a Riemannian foliation (Prop. 1.2), via propagation of singularities. (ii) That for a codimension-one foliation
+with an everywhere-transverse, fixed-point-free, non-degenerate leaf-preserving flow, the Guillemin–Sternberg
+distributional traces restricted to ker ∆_F, cl(im d_F), cl(im δ_F) are well defined on R* (Cor. 1.5). (iii) The
+Lefschetz trace formula Thm 2.4 on R* (no δ_0 term) under the extra assumption that the leafwise cohomology is
+Hausdorff (2.2) or that the flow is isometric and dim X is even (2.3). (iv) Thm 2.6: for isometric flows, the
+distributional trace on ker ∆^i_F equals Σ_α dim E_α e^{αt} — the "spectral side" is a genuine eigenvalue sum on
+reduced leafwise cohomology, with (2.8) as the tool that gives finite multiplicities and the Sobolev convergence.
+
+*I infer (not printed).* Two devices in the note are adjacent to Theorem A(B)'s mechanism without touching it:
+(a) p. 52 introduces "ω_φ the 1-form on X which is zero on TF and such that ⟨ω_φ, Y_φ⟩ = 1" — the same canonical
+1-form as KMNT Lemma 1.9 (the object the adjudicator identifies as the *supply* of the flow-invariant holonomy-
+invariant transverse measure in the transverse manifold case). The note does not say ω_φ is closed and does not use
+it as a measure; it uses it only to write d^0 α = Θα ∧ ω_φ. (b) p. 45's unproved assertion "Then F is Riemannian"
+for a codimension-one foliation with a transverse leaf-preserving flow is, in substance, the closedness of ω_φ (a
+closed nonsingular 1-form defines a Riemannian foliation, p. 42). Neither device is turned toward the conformal
+class or toward transverse measures. **Nothing here narrows the NOVEL/PARTIAL grading of Theorem A(B) recorded in
+`s16/novelty/adjudication.md` §1 N-A; the note adds no printed relative of (B) and no printed relative of (A).**
+
+### §3.7 Relation to ALK 2002 (Warsaw) Theorems 1.1/1.3 and to Deninger's ICM-98 conjecture
+
+*The source says.* The note cites [D] = Deninger, Doc. Math. ICM 1998 extra vol. I, 23–46, and credits it only for
+the observation (p. 41) that "in [D] §4 the first author pointed out that the resulting formula for codimension one
+foliations were similar to the 'explicit formulas' of analytic number theory." It does not use the word
+"conjecture" and does not display the ICM-98 formula. It cites [AK2] = "Distributional Betti numbers of transitive
+foliations of codimension one. Preprint 2000" — i.e. the paper published in the Warsaw volume (r4-01+12, World
+Scientific 2002, pp. 159–183) — and says twice that [AK2] supersedes it: p. 42 "complete results have been obtained
+in the meantime by Alvárez López and Kordyukov [AK2]"; p. 51 Remark "In [AK2] Alvárez López and Kordyukov prove the
+trace formula in the setting of 1.4 without any restrictions. Moreover they can prove a version in D′(R): Quite
+beautifully there appears the contribution χ_Co(F, V)·δ_0 from the origin".
+
+*Matching statements (the source says, both sides read this session or by a01-12).* ALK 2002 Thm 1.3 (a01-12, p. 162):
+χ_dis(F) = Σ_c l(c) Σ_{k≥1} sign det(id − X*_{l(c)} : T_xF* → T_xF*) δ_{kl(c)} on R_+, under "all closed orbits of
+the flow X_t on (M, F) are simple", for transitive codimension-one foliations of closed manifolds, in D′(R) with
+Thm 1.1/5.1 handling the origin. DS Thm 2.4 (p. 51): Σ_i(−1)^i Tr(ψ*|ker ∆^i_F) = Σ_γ l(γ) Σ_{k∈Z∖0} ε_γ(k)
+Tr(ψ_x^{kl(γ)}|V_x) δ_{kl(γ)} in D′(R*), with ε_γ(k) = sign det(1 − T_xφ^{kl(γ)}|T_xX/T^0_x) (p. 49), under 1.4
+plus (2.2 Hausdorff leafwise cohomology) or (2.3 isometric + dim X even). So ALK's "Under some additional
+assumptions, it was proved in [11, 18]" (a01-12 quoting ALK p. 162) is accurate and the additional assumptions are
+exactly **2.2 or 2.3** (plus the absence of the δ_0 term, since DS work on R*). Differences: DS carry a flat
+coefficient bundle V and sum over k ∈ Z ∖ 0 (both time directions); ALK 2002 has trivial coefficients, R_+ only,
+and the transitivity hypothesis (DS require no dense leaf). DS's non-degeneracy ("1-eigenspace of T_xφ^{kl(γ)}
+one-dimensional for all k ≥ 1") matches ALK's "simple" (see §3.5). DS do not assert that Thm 2.4 proves an ICM-98
+conjecture; that framing is ALK's.
+
+*Bearing on the a01-12 vision note about X*_{l(c)} vs X*_{kl(c)}.* DS print the sign **with the k-th iterate**:
+ε_γ(k) is "the sign of the determinant det(1 − T_xφ^{kl(γ)}|T_xX/T^0_x)" (p. 49, verbatim), and Thm 2.4 carries
+ε_γ(k) inside the k-sum. This is consistent with the ALK proof (p. 181, per a01-12) and with the k-dependent
+reading, and supports the a01-12 suspicion that ALK's printed X*_{l(c)} in Thm 1.3 is a typographical slip — but
+that is my inference across two sources; neither source comments on the other's typesetting.
+
+*What is new in the note by its own account (p. 41–42):* "The aim of the present note is to show that in the case of
+a codimension one foliation which is everywhere transversal to the flow the heuristic argument can be made to work
+in certain cases" — i.e. Prop. 1.2 (wave front estimate; the authors credit the simple proof to Kordyukov), Cor.
+1.5, Thm 2.4 under 2.2/2.3, and Thm 2.6 with (2.8). The status as "an earlier partial proof" (ALK's "[11] manuscript
+2000") is therefore correct: the manuscript predates [AK2]'s "Preprint 2000" only in the sense that both circulated
+in 2000; the printed note already defers to [AK2] as complete.
+
+## §4. Anything else in the source a future session should know exists
+
+**Full table of contents of Contemp. Math. 290 (printed p. vii = PDF p. 8; PDF page = printed + 11):**
+- Preface — ix (PDF 10–11; dated July 2001; "eleven papers, seven of which were presented at the meeting")
+- Cheng-Hung Chang and Dieter H. Mayer, *Eigenfunctions of the transfer operators and the period functions for
+  modular groups* — 1 (PDF 12)
+- Christopher Deninger and Wilhelm Singhof, *A note on dynamical trace formulas* — 41 (PDF 52–66)
+- Carol E. Fan and Jay Jorgenson, *Small eigenvalues and Hausdorff dimension of sequences of hyperbolic
+  three-manifolds* — 57 (PDF 68)
+- Alexander Fel'shtyn, *Dynamical zeta functions and asymptotic expansions in Nielsen theory* — 67 (PDF 78)
+- William F. Galway, *Computing the Riemann zeta function by numerical quadrature* — 81 (PDF 92)
+- Shai Haran, *On Riemann's zeta function* — 93 (PDF 104)
+- Michel L. Lapidus and Machiel van Frankenhuysen, *A prime orbit theorem for self-similar flows and Diophantine
+  approximation* — 113 (PDF 124)
+- A. M. Odlyzko, *The 10^22-nd zero of the Riemann zeta function* — 139 (PDF 150)
+- Peter Perry, *Spectral theory, dynamics, and Selberg's zeta function for Kleinian groups* — 145 (PDF 156)
+- C. Soulé, *On zeroes of automorphic L-functions* — 167 (PDF 178)
+- H. M. Stark and A. A. Terras, *Artin L-functions of graph coverings* — 181 (PDF 192; ends by PDF 210 ≈ p. 199)
+**There is no article by Connes in the volume**, and none by Kordyukov or Álvarez López.
+
+One-line notes on the articles that touch the program (first pages read by vision):
+- Haran, p. 93 (PDF 104): "We describe in §1 the Riemann Zeta function, the explicit sums, and the equivalence of
+  Weil's positivity with the Riemann hypothesis. In §2 we reformulate the explicit sum in a suggestive form
+  involving the trace of the action of the multiplicative group on the additive group. In §3 we describe the
+  results of Landau–Pollack–Slepian. In §4 we describe the recent reformulation by Alain Connes. In §5 we describe
+  the q-analogue interpolating between the p-adic numbers and the reals. In §6 we give a heuristic proof of the
+  Riemann hypothesis." — MSC 11M26. Relevant to any Connes-side comparison; **"heuristic proof" is his own label**.
+- Soulé, p. 167 (PDF 178): extends Connes' [C] operator D_χ to Jacquet–Godement L(s, π) of simple algebras;
+  "we define a Hilbert space H_π and a natural operator D_π on H_π, the spectrum of which is the set of imaginary
+  parts of the critical zeroes of L(s, π) (Theorem 2)"; he notes multiplicities "need not coincide" and that trace
+  formulas analogous to [C] Th. 3–5 look "mysterious". MSC 11M26 11F55 11F70.
+- Lapidus–van Frankenhuysen, p. 113 (PDF 124): explicit formula with error term for the prime orbit counting
+  function of a suspended flow; self-similar flows; lattice vs. nonlattice; MSC 11N05, 28A80, 58F03, 58F20.
+  (Suspended-flow prime orbit theorem — adjacent to the program's mapping-torus material, C5(a), but analytic
+  number theory of fractal strings, not foliations.)
+- Perry, p. 145 (PDF 156): survey of Selberg zeta for infinite co-volume Kleinian groups; Patterson–Sullivan;
+  scattering resonances. Not bearing.
+- Fel'shtyn, p. 67: dynamical zeta functions in Nielsen fixed-point theory — possible relative of the Fuller-index
+  reading in C5(a) (not read beyond the TOC).
+- The note's own p. 42 sentence "any one-codimensional foliation given by a closed one-form without singularities is
+  Riemannian" and p. 45 "Then F is Riemannian" are printed **without proof or citation** — a future session wanting
+  a citation for "transverse flow ⇒ Riemannian foliation (closed ω_φ)" should use KMNT Lemma 1.9, not this note.
+- The note's [AK1] = Álvarez López–Kordyukov, *Long time behaviour of leafwise heat flow for Riemannian foliations*,
+  cited as "Preprint dg-ga/9612010, 1996. To appear in Compositio Math." — Thm 1.1 (leafwise Hodge decomposition
+  for Riemannian foliations) is attributed to its Cor. 1.3. The counterexample paper [DS] (= r3s-33) is cited as
+  "To appear in Ann. Inst. Fourier 2001" and is the source for "in general for codimension ≥ 2 this passage is not
+  possible" (p. 41; "[DS] §2", p. 49).
+
+## §5. Caveats for `corpus-routing.md`
+
+- `r4-05` — the whole 210-page volume, IMAGE-ONLY (tiff2pdf, no text layer); `pdftotext` returns nothing; grep
+  cannot be used. Fix: render with `pdftoppm -r 110..130 -f N -l M -png` and read by vision; PDF page = printed
+  page + 11; Deninger–Singhof = PDF 52–66.
+- `r4-05` — the symbol α in the note (§2.5, Thm 2.6, E_α, e^{αt}) is the eigenvalue of the flow generator Θ on
+  reduced leafwise cohomology, NOT Deninger's conformal exponent α of φ^{t*}g_F = e^{αt}g_F. A grep-style search for
+  "α = 0" in this note would hit the wrong object. Fix: cite the note only for (2.8) −Θ² = ∆|ker under ISOMETRY and
+  for Thm 2.4/2.6; never for the "α = 0 remark".
+- `r4-05` — the note's non-degeneracy (p. 45) and ALK 2002's "simple" (Warsaw p. 162) are equivalent under
+  transversality but worded differently; the note's ε_γ(k) is the sign at the k-th iterate. Fix: when comparing with
+  ALK Thm 1.3, read the sign as k-dependent (see a01-12 vision note).
+- `r4-05` — Deninger's later bibliographies cite this note as "[21]" ([Den05] = math/0505354) and ALK 2002 as "[11]
+  manuscript 2000"; both resolve to these printed pages 41–55, no discrepancy in title or authors.
+
+## §6. Honesty
+
+Every page of the article (printed 41–55, PDF 52–66) plus PDF 1–12 and 67 was rendered and read by vision this
+session; no text layer exists, no OCR was used, nothing was fetched from the network. Quotations are my
+transcriptions of the renders; formula typography (bars, tildes, hats) was checked at 130 dpi and I found nothing
+illegible. The four "other article" notes in §4 rest on first pages only (PDF 104, 124, 156, 178). The equivalence
+"non-degenerate ⇔ simple" and the identification of ω_φ with KMNT's canonical 1-form are marked as my inferences.
+
+Status: COMPLETE.
