@@ -95,3 +95,55 @@ No tooling fix was needed for the control run.
 ## 4. DBN run — `comparator/config-dbn.json` (the seven DBN theorems)
 
 (appended below as it lands; log `results/d1-m2a/packaging/comparator-run.log`)
+Launched 02:12:45 IST as `nohup run.sh comparator/config-dbn.json DBN`, immediately after the control run; heavy processes before launch:
+none; one `lake` at a time (the control run had exited). Config unchanged (`enable_nanoda: true`, the seven names, the three axioms).
+
+**Result: PASS — `Your solution is okay!`, comparator exit code 0.** Start 02:12:45 IST, end 02:16:04 IST; `/usr/bin/time -l`:
+`199.09 real  209.73 user  17.43 sys`, maximum resident set size 9 575 104 512 B (≈ 8.9 GiB, the comparator process; the machine has
+24 GiB — no swapping: `0 swaps`). Not "tens of minutes and gigabytes of export": lean4export exports only the closure of the requested
+constants, not the whole Mathlib environment, so the export is minutes and hundreds of megabytes (measured independently in §5).
+
+Steps, in the comparator's own order, with the child output verbatim:
+
+    Building Challenge.DBN
+    WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.DBN
+    ✔ [8697/8699] Built ChallengeDeps.DBN (2.0s)
+    ✔ [8698/8699] Built ChallengeDeps.DBN.Instance02 (35s)
+    ⚠ [8699/8699] Built Challenge.DBN (2.7s)
+    warning: comparator/Challenge/DBN.lean:71:8: declaration uses `sorry`      (and :96, :109, :120, :124, :129, :133 — the seven statements, deliberate)
+    Build completed successfully (8699 jobs).
+    Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, dbn_ray_le_point2_of_certificates, dbn_ray_le_point2_mp,
+      dbn_ray_le_point2_arb, dbn_row2BarrierMP_checked, dbn_row2BarrierARB_checked, dbn_row2AsymMP_checked, dbn_row2AsymARB_checked,
+      propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land,
+      Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.DBN
+    Building Solution.DBN
+    WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.DBN
+    ✔ [8826/8826] Built Solution.DBN (12s)
+    Build completed successfully (8826 jobs).
+    Exporting #[… the same 43 targets …] from Solution.DBN
+    Running nanoda kernel on solution
+    Nanoda kernel accepts the solution
+    Running Lean default kernel on solution.
+    Lean default kernel accepts the solution
+    Your solution is okay!
+
+Seven theorems compared (config-dbn.json order): `dbn_ray_le_point2_of_certificates` (G), `dbn_ray_le_point2_mp`, `dbn_ray_le_point2_arb`
+(I — the referee's statements, five displayed hypotheses each), `dbn_row2BarrierMP_checked`, `dbn_row2BarrierARB_checked`,
+`dbn_row2AsymMP_checked`, `dbn_row2AsymARB_checked` (K). What comparator established for each (its README, "Internals" 4–6, and
+`Main.lean` `verifyMatch`): `Comparator.compareAt` — every constant reachable from the statement in `Challenge.DBN`'s export coincides
+with the same-named constant in `Solution.DBN`'s export (this covers the 79 copied `ChallengeDeps.DBN` definitions and the 227 literal
+`def`s of `ChallengeDeps.DBN.Instance02` that the statements mention — the trusted copy is what was compared, never `Zeta23`);
+`Comparator.checkAxioms` — the solution proofs use no axiom outside `propext`, `Quot.sound`, `Classical.choice`; then nanoda re-checked the
+whole solution export (§5 for the evidence) and Lean's kernel replayed it (`Environment.replay` in the comparator's own process).
+Sandbox: NOT sandboxed (§2) — five shim WARNING lines, one per sandboxed step. No tooling fix was needed for the DBN run either.
+
+## 5. nanoda evidence — did the external kernel actually re-check the proofs?
+
+In the comparator's log the evidence is the pair `Running nanoda kernel on solution` / `Nanoda kernel accepts the solution` (Main.lean
+`runNanoda`: nanoda_bin is spawned on the SOLUTION export piped to its stdin with config `{"use_stdin": true, "permitted_axioms": [the
+three], "unpermitted_axiom_hard_error": true, "nat_extension": true, "string_extension": true}`; the "accepts" line is printed only when
+the process exits 0, and a non-zero exit prints "Nanoda kernel rejected the solution" and fails the run). The shim line
+`… UNSAFELY RUNNING exec …/nanoda_bin /var/folders/…` is the spawn itself. nanoda with that config prints nothing on success
+(`print_success_message` unset, `main.rs`), so to see *how much* it checked, the export was reproduced outside comparator and fed to
+nanoda with `print_success_message: true` (`comparator-run/nanoda-evidence.sh`, identical target list, identical config otherwise):
+
