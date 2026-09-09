@@ -102,3 +102,107 @@ working tree reports exactly three lines — the three `AuditO*` scratch modules
 So the clean tree used for every build and every check below is, byte for byte,
 **upstream v1.0 + the committed mirror + fifteen import lines**, with nothing else borrowed.
 
+## 4. Independent literal check (brief §3 step 4) — 145 533 integers, 0 mismatches
+
+Script: `check-o/check_literals.py`, written from scratch for this job. It imports, calls and
+re-uses **nothing** from `packaging/emit_challengedeps_instance02.py`, `emit_lean_m2a.py`,
+`lane-a/emit_lean_lane_a.py`, `lane-a/backparse_lane_a.py` or `packaging/cmp_literal_blocks.py`.
+It strips the Lean comments with its own nesting-aware stripper, splits the file into `def`
+blocks, tokenizes each literal into Python integers, and compares them with the JSON.
+
+**This is a different check from Job 1's.** `cmp-literal-blocks.log` compares the trusted copy
+against the **Zeta23 copy** (text ↔ text); if both had been emitted from a corrupted source they
+would agree. This check goes trusted copy ↔ **JSON source**, so it closes that hole.
+
+Sources: `transcripts/row2/manifest.json` + 39 `prism-NNNN.json`;
+`transcripts/row2-arb/instance02-barrier-manifest.json` + 72 `instance02-prism-NNNN.json`;
+`lane-a/asym-mp.json`, `lane-a/asym-arb.json`.
+
+    def blocks parsed: 227
+    Lane B mp : 39 prisms, 7176 segment rows
+    Lane B arb: 72 prisms, 10771 segment rows
+    Lane A    : 3 + 3 window rows + 2 tail rows
+    integers compared: 145533
+    mismatches: 0
+    RESULT: IDENTICAL
+
+Full log `check-o/check-literals.log`. What was compared, field by field: `row2Rect`'s eight
+integers against both manifests' `rect`; `t0n`/`t0d` against `t0`; the prism list's **names and
+order** against the manifest's `prisms` array and each prism's `index`; per prism `tn`/`td` ↔
+`seam`, `K`/`A` ↔ `scales`, all four mesh sides ↔ `mesh.{bottom,right,top,left}` as (n, d) pairs,
+every `W1Row` ↔ `segments[k].{reLo,reHi,imLo,imHi,argLo,argHi}` (including following the
+`rows := <chunk def>` indirection), `Fn`/`Fd` ↔ `modulus_floor`, `E` ↔ `approx_defect`,
+`D` ↔ `displacement`; per Lane A leg `K`, `t0n/d`, `y0n/d`, `yAn/d`, the three window rows
+(`Nlo`, `Nhi`, `T`, `E`) and the tail row (`N1`, `Q1…Q4`, `E1`) — 25 integers per leg.
+17 947 `W1Row`s (7 176 + 10 771) confirm Job 1's count. **Nothing was sampled**; every integer in
+the trusted file that has a JSON counterpart was compared.
+
+## 5. Trust greps re-run strictly (brief §3 step 5) — CLEAN
+
+Script: `check-o/trust_greps_o.py`, this job's own (no code shared with `packaging/trust_greps.py`).
+Comments and docstrings stripped FIRST, with a nesting-aware stripper that preserves line numbers
+(so `/- … /- … -/ … -/`, `/-- … -/`, `/-! … -/` and `--` are all removed before the search);
+then whole-word search over the remaining code. 127 files: the six comparator DBN files and all
+121 modules under `Zeta23/DBN/`. Twelve patterns — KICKSTART 10(j)'s eight plus `sorryAx`,
+`trust_me`, `lean_evalConst`, `#eval`:
+
+    pattern           raw(text)  code-only
+    axiom                     2          0
+    native_decide           119          0
+    unsafe                    0          0
+    implemented_by            0          0
+    extern                    0          0
+    opaque                    0          0
+    sorry                    12          7
+    ofReduceBool              1          0
+    sorryAx                   1          0
+    trust_me                  0          0
+    lean_evalConst            0          0
+    #eval                     0          0
+
+The seven code-only `sorry` hits are exactly the challenge placeholders,
+`comparator/Challenge/DBN.lean` lines 84, 103, 116, 121, 125, 130, 134 — one per statement.
+**Other code hits: 0. RESULT: CLEAN.** Log `check-o/trust-greps-o.log`. (My raw `sorry` count is
+12 where Job 1's log says 11; the difference is a prose occurrence counted per-occurrence rather
+than per-line. Code-only agrees exactly: 7, same seven lines.)
+
+## 6. Label check and import discipline (brief §3 step 6) — CLEAN
+
+Script `check-o/label_check_o.py`, log `check-o/label-check-o.log`. The search normalizes
+whitespace first, so a label wrapped across a line still counts (`ChallengeDeps/DBN.lean` wraps it
+mid-sentence; a naive exact-substring test reports a false absence there — noted so a later reader
+does not repeat the mistake).
+
+| file | exact §3.7 short label | "fully machine-checked" |
+|---|---|---|
+| `comparator/ChallengeDeps/DBN.lean` | 1 | 1 (prohibition) |
+| `comparator/ChallengeDeps/DBN/Instance02.lean` | 1 | 1 (prohibition) |
+| `comparator/Challenge/DBN.lean` | 4 | 3 (prohibitions) |
+| `comparator/Solution/DBN.lean` | 4 | 4 (prohibitions) |
+| `comparator/PrintAxioms/DBN.lean` | 1 | 1 (prohibition) |
+| `comparator/config-dbn.json` | 0 — no label text at all | 0 |
+| `lean/README.md` | 3 | 5 (prohibitions) |
+| `lean/formalization.yaml` | 3 | 3 (prohibitions) |
+| `packaging/FIDELITY.md` | 2 | 1 (prohibition) |
+
+**The exact sentence "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" is present in every
+file where a label appears.** `config-dbn.json` is a machine config (challenge module, solution
+module, theorem names, permitted axioms, `enable_nanoda`) with no prose at all — the parent's own
+`config.json` and `config-xiprime.json` are the same — so the requirement is vacuous there, not
+violated. **All 19 occurrences of "fully machine-checked" are prohibitions** ("— never …",
+"forbid …"), each classified by reading the 60 characters before the phrase; **zero uses as a
+label**. `ChallengeDeps/DBN.lean` also carries SPEC §3.7's long form verbatim.
+
+**Import discipline** (comments stripped before reading the `import` lines — the header prose of
+`ChallengeDeps/DBN.lean` contains the word "import" mid-sentence and trips a naive grep):
+
+* `comparator/Challenge/DBN.lean` → `ChallengeDeps.DBN`, `ChallengeDeps.DBN.Instance02`. **No
+  `import Zeta23…`, anywhere in the file, in code or in a comment line position.**
+* `comparator/ChallengeDeps/DBN.lean` → `Mathlib` only. No `Zeta23`.
+* `comparator/ChallengeDeps/DBN/Instance02.lean` → `ChallengeDeps.DBN` only. No `Zeta23`.
+* `comparator/Solution/DBN.lean` → `ChallengeDeps.DBN`, `ChallengeDeps.DBN.Instance02`,
+  `Zeta23.DBN.Instance02`. **It never imports `Challenge.DBN`** — required, since importing the
+  challenge would let the solution inherit the `sorry`s.
+
+RESULT: **CLEAN**.
+
