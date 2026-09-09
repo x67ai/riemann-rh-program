@@ -306,7 +306,8 @@ def run_tail(args):
     ints = {k: str(ceil_frac(K * Fraction(tr[k]))) for k in ("Q1", "Q2", "Q3", "Q4", "E1")}
     ssum = sum(int(v) for v in ints.values())
     ok = tr["sum_lt_2"] and all(tr["side"].values()) and ssum < 2 * K and (tr["direct"]["contained"] if args.direct else True)
-    rec = dict(leg="arb", N1=str(N1), K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
+    tr["N1"] = str(tr["N1"])  # 2026-09-09 (Session 19): the tail record carries N1 once, as a decimal string (the s17 line passed N1 twice -> TypeError)
+    rec = dict(leg="arb", K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
     atomic_json(os.path.join(args.out, "batches", "arb-tail.json"), rec)
     update_status(args.out, "arb", dict(phase="tail-done", leg="arb", N1=N1, ok=ok, seconds=rec["seconds"], updated=now(), errors=[] if ok else ["tail row failed"]))
     print("tail:", json.dumps({k: rec[k] for k in ("N1", "ints", "sum_int", "lt_2K", "sum_float", "side", "ok", "seconds")}), flush=True)

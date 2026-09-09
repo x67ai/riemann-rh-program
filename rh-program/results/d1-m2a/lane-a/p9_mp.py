@@ -75,7 +75,7 @@ error terms, computed on exact Fractions from the iv endpoints; no float touches
 
 usage:
   p9_mp.py rows --plan PLAN.json --out DIR [--resume] [--rows i,j,...] [--K 1000000000000000000000000] [--Nc 10000] [--m 2000] [--prec 288]
-  p9_mp.py tail --plan PLAN.json --out DIR [--K ...]
+  p9_mp.py tail --plan PLAN.json --out DIR [--K ...] [--direct]     (--direct: also sum Q1/Q2 term by term and check containment)
   p9_mp.py assemble --plan PLAN.json --out DIR --name asym-mp.json
   p9_mp.py selftest
 U.S. English throughout.
@@ -249,7 +249,7 @@ class Leg:
         return iv_hi(tot), dict(eAB_hi=float(iv_hi(eAB)), eC0_hi=float(iv_hi(eC0)), delta1_hi=float(iv_hi(delta1)), F_hi=float(iv_hi(F)), sigma_lo=frac_str(sig))
 
     # ---- M-T: the tail row
-    def tail_row(self, N1):
+    def tail_row(self, N1, direct=False):
         one = iv_from_int(1); t = self.t; pi = self.pi
         u1 = iv_log(iv_from_int(N1))
         eps = self.epsN(N1); eps_hi = iv_hi(eps)
@@ -265,9 +265,9 @@ class Leg:
         psi1 = a * u1 - (t / 4) * u1 * u1
         psi2 = a2 * u1 - (t / 4) * u1 * u1
         N1_y0 = iv_exp(-ivf(Y0) * u1)
-        Q1 = self.G(sig1, 0, N1)[1]
+        g1 = self.G(sig1, 0, N1); Q1 = g1[1]
         sig2 = sig1 - Y0 - k1
-        Q2 = iv_hi(cg * N1_y0) * self.G(sig2, 0, N1)[1]
+        g2 = self.G(sig2, 0, N1); Q2 = iv_hi(cg * N1_y0) * g2[1]
         Q3 = iv_hi(iv_exp(psi1)) * kT_hi
         Q4 = iv_hi(cg * N1_y0 * iv_exp(psi2)) * kT_hi
         # E1 (M-T)
@@ -289,12 +289,20 @@ class Leg:
         side = dict(S1=bool(eps_hi < (1 + Y0) / 2), S2=bool(iv_lo(u1) >= iv_hi(2 * a / t)),
                     S3=bool((1 - Y0) / 2 > eps_hi + k1), S4=bool(iv_lo(u1) >= iv_hi(2 * a2 / t)))
         S = Q1 + Q2 + Q3 + Q4 + E1
-        return dict(N1=N1, Q1=frac_str(Q1), Q2=frac_str(Q2), Q3=frac_str(Q3), Q4=frac_str(Q4), E1=frac_str(E1),
+        rec = dict(N1=N1, Q1=frac_str(Q1), Q2=frac_str(Q2), Q3=frac_str(Q3), Q4=frac_str(Q4), E1=frac_str(E1),
                     sum_float=float(S), sum_lt_2=bool(S < 2), side=side,
                     consts=dict(sigma1=frac_str(sig1), sigma2=frac_str(sig2), eps_hi=frac_str(eps_hi), k1=frac_str(k1), rho1=frac_str(rho1),
                                 a_hi=frac_str(iv_hi(a)), a2_hi=frac_str(iv_hi(a2)), kappaT_hi=frac_str(kT_hi), rhoF_lo=frac_str(iv_lo(rhoF)),
                                 u1=[frac_str(iv_lo(u1)), frac_str(iv_hi(u1))]),
-                    floats=dict(Q1=float(Q1), Q2=float(Q2), Q3=float(Q3), Q4=float(Q4), E1=float(E1)))
+                    floats=dict(Q1=float(Q1), Q2=float(Q2), Q3=float(Q3), Q4=float(Q4), E1=float(E1)),
+                    G_encl=dict(Q1=[float(g1[0]), float(g1[1])], Q2sum=[float(g2[0]), float(g2[1])]))
+        if direct:   # 2026-09-09 (Session 19): validation of the M-8 enclosure at N1 by plain ball summation (as the Arb leg's --direct)
+            t0 = time.time()
+            d1 = self.G_direct(sig1, 0, N1); d2 = self.G_direct(sig2, 0, N1)
+            rec["direct"] = dict(Q1sum=[frac_str(d1[0]), frac_str(d1[1])], Q2sum=[frac_str(d2[0]), frac_str(d2[1])],
+                                 contained=bool(g1[0] <= d1[0] and d1[1] <= g1[1] and g2[0] <= d2[0] and d2[1] <= g2[1]),
+                                 Q1sum_float=[float(d1[0]), float(d1[1])], Q2sum_float=[float(d2[0]), float(d2[1])], seconds=time.time() - t0)
+        return rec
 
 # ---------------------------------------------------------------- driver: batches, STATUS, resume, assemble
 
@@ -381,14 +389,17 @@ def run_tail(args):
     leg = Leg(Nc=args.Nc, m=args.m, prec=args.prec)
     N1 = int(plan["N1"])
     t0 = time.time()
-    tr = leg.tail_row(N1)
+    tr = leg.tail_row(N1, direct=args.direct)
     ints = {k: str(ceil_frac(K * Fraction(tr[k]))) for k in ("Q1", "Q2", "Q3", "Q4", "E1")}
     ssum = sum(int(v) for v in ints.values())
-    ok = tr["sum_lt_2"] and all(tr["side"].values()) and ssum < 2 * K
-    rec = dict(leg="mp", N1=str(N1), K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
+    ok = tr["sum_lt_2"] and all(tr["side"].values()) and ssum < 2 * K and (tr["direct"]["contained"] if args.direct else True)
+    tr["N1"] = str(tr["N1"])  # 2026-09-09 (Session 19): the tail record carries N1 once, as a decimal string (the s17 line passed N1 twice -> TypeError)
+    rec = dict(leg="mp", K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
     atomic_json(os.path.join(args.out, "batches", "mp-tail.json"), rec)
     update_status(args.out, "mp", dict(phase="tail-done", leg="mp", N1=N1, ok=ok, seconds=rec["seconds"], updated=now(), errors=[] if ok else ["tail row failed"]))
     print("tail:", json.dumps({k: rec[k] for k in ("N1", "ints", "sum_int", "lt_2K", "sum_float", "side", "ok", "seconds")}), flush=True)
+    if args.direct:
+        print("direct:", json.dumps({k: rec["direct"][k] for k in ("contained", "Q1sum_float", "Q2sum_float", "seconds")}), flush=True)
 
 def assemble(args):
     plan, rows = load_plan(args.plan)
@@ -429,7 +440,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("mode", choices=["rows", "tail", "assemble", "selftest"])
     ap.add_argument("--plan"); ap.add_argument("--out", default=".")
-    ap.add_argument("--resume", action="store_true"); ap.add_argument("--rows", default="")
+    ap.add_argument("--resume", action="store_true"); ap.add_argument("--rows", default=""); ap.add_argument("--direct", action="store_true")
     ap.add_argument("--K", default=str(10 ** 24)); ap.add_argument("--Nc", type=int, default=10000); ap.add_argument("--m", type=int, default=2000)
     ap.add_argument("--prec", type=int, default=288); ap.add_argument("--name", default="asym-mp.json")
     args = ap.parse_args()
