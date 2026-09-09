@@ -286,19 +286,27 @@ permits redistribution — nothing improper was done — but a dependency is bet
 
 ## Building
 
+**[Recipe replaced 2026-09-10 (Session 20) after the independent checker's FIX-FIRST 1 (`results/d1-m2a/packaging/CHECK-O.md` §8): the old recipe cloned upstream HEAD, which moved the library into a `zeta23/` subdirectory on 2026-08-27, never copied `comparator/`, and this mirror lacked the root `Zeta23.lean`.]** These files overlay the parent library at its tag **v1.0** (commit `3635e74826a4c1fcece7d1cd2b6fa75e43a00510`); the working tree differs from that commit only by the program additions mirrored here and by fifteen `import` lines added to the root `Zeta23.lean` (now mirrored as `lean/Zeta23.lean`). The scratch probes `Zeta23/W1/AuditO*.lean` of the working tree are deliberately not mirrored (nothing imports them).
+
 ```sh
 git clone https://github.com/anthropics/zeta-23-lean
 cd zeta-23-lean
-# copy this directory's Zeta23/ subtree over the checkout, preserving paths:
+git checkout v1.0        # 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 — the base these files overlay;
+                         # main has since moved the library into a zeta23/ subdirectory
 cp -R /path/to/this/repo/rh-program/lean/Zeta23/. Zeta23/
-lake exe cache get && lake build
+cp -R /path/to/this/repo/rh-program/lean/comparator/. comparator/
+cp    /path/to/this/repo/rh-program/lean/Zeta23.lean Zeta23.lean
+lake exe cache get && lake build Zeta23 && lake build Solution.DBN
 ```
 
-Toolchain, as pinned by upstream and used for the recorded build: Lean `v4.33.0-rc2`, Mathlib
-commit `51e6992efd06126df61a496bebf8f49482a4e129`. The recorded result is
-*Build completed successfully (2081 jobs)*. The full formalization record — the environment, the
-theorem-by-theorem map to the A4 paper's numbering, the `#print axioms` output, and the
-reproduction recipe — is `rh-program/results/a4-no-go/formalization-status.md`.
+Toolchain, as pinned by upstream and used for every recorded build: Lean `v4.33.0-rc2`, Mathlib
+commit `51e6992efd06126df61a496bebf8f49482a4e129`. Measured on a cold clean clone by the independent
+checker (2026-09-10, `CHECK-O.md` §1): `lake build Zeta23` — *Build completed successfully (9142 jobs)*, 397 s,
+0 errors, no warnings from any program module; `lake build Solution.DBN` — 8826 jobs, 54 s;
+`lake build Challenge.DBN` — 8699 jobs with exactly the seven deliberate `sorry` warnings. (The earlier
+"2081 jobs" figure was the A4-era partial build.) The A4 formalization record — the environment, the
+theorem-by-theorem map to the A4 paper's numbering, the `#print axioms` output — is
+`rh-program/results/a4-no-go/formalization-status.md`.
 
 ## Licensing (settled 2026-08-27)
 
