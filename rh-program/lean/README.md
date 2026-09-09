@@ -6,7 +6,7 @@ modules of `DBN/Instance02.lean` + `DBN/Instance02/` (23,965 lines of transcript
 They are **additions to the `Zeta23` library**, not a standalone project, and they are the only Lean files
 in this repository.
 Since 2026-09-09 (Session 19, M2a Lane A) also the hand-written `DBN/Asym.lean` (246 lines) and the two mechanically
-emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (117) and `Asym_arb.lean` (117) — see the
+emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (120) and `Asym_arb.lean` (120) — see the
 "M2a Lane A (2026-09-09)" section below.
 
 | File | Lines | What it carries |
@@ -23,7 +23,7 @@ emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (117) and `Asym_arb
 | `Zeta23/DBN/Defs.lean` | 117 | De Bruijn–Newman definitions |
 | `Zeta23/DBN/BarrierCert.lean` | 1092 | **M2a Lane B (added 2026-09-02).** The barrier-certificate transcript data (`PrismData`, `RectData`, `BarrierData`), the integer checker `checkBarrier` (per-prism `checkPrism` = W1's C1, C3–C9 with the strip-free C2′, m = 0, the C11 floor and the gate C-B12 (E+D)·Fd < Fn·K; global `checkBarrierChain` = C-B13), the displayed hypothesis H2-B (`BarrierEnclOK`), and the soundness theorem `cert_of_checkBarrier` — PROVED, not displayed: the rectangle argument principle on a general rectangle (`rectArgPrincipleGen`, from the v1.1 bridge), the strip-free W1 mesh chain, and the one new analytic lemma `logDerivSegIntegral_eq_log_sub` (∫ h′/h = Log h(w) − Log h(z) when Re h > 0 on the segment) with log-derivative additivity; no Rouché, no zero-continuity in t. Plus `cert_of_checkBarrier_xy`, the coordinate form `Polymath15Bridge`'s (iii) consumes. Contract: `results/d1-m2a/SPEC.md`; record: `results/d1-m2a/lean-notes.md` |
 | `Zeta23/DBN/Instance02.lean` + `Zeta23/DBN/Instance02/` (116 modules) | 23965 | **M2a item (e), Lane B instance (added 2026-09-03).** The Polymath15 Table-1 row-2 barrier transcripts of BOTH untrusted producers as kernel-checked checker instances: `Instance02/Rect.lean` (`row2Rect`), `Instance02/mp_0000…mp_0038.lean` (mpmath-ball leg, 39 prisms, 7 176 rows, K = 10²⁴) and `Instance02/arb_0000…arb_0071.lean` (Arb/FLINT leg, 72 prisms, 10 771 rows, K = 10¹²), each proving `checkPrism row2Rect <prism> = true` by `decide +kernel`; `Instance02/{mp,arb}_Barrier.lean` (`row2Barrier{MP,ARB} : BarrierData`, the chain fact by `decide +kernel`, the split per-prism fact, the monolithic `checkBarrier … = true`); `Instance02.lean` instantiates `cert_of_checkBarrier` / `cert_of_checkBarrier_xy` on both (`row2_barrier_{mp,arb}`, `_xy`), generic in G. Emitted by `results/d1-m2a/emit_lean_m2a.py` (untrusted), back-parse-verified by `verify_lean_m2a.py` (0 mismatches); record `results/d1-m2a/INSTANCE-REPORT.md`. **PARTIAL by design:** Lane A, `Defs.lean` v1.1 and the glue theorem `lambda_le_point2` are NOT here (cut line stated in the module header) |
-| `Zeta23/DBN/Asym.lean` + `Zeta23/DBN/Instance02/Asym_{mp,arb}.lean` | 246 + 117 + 117 | **M2a Lane A (added 2026-09-09).** `Asym.lean` (hand-written, Session 19 builder): the asymptotic-lane transcript data (`AsymRow`, `TailRow`, `AsymData`), the integer checker `checkAsym` (C-A1 … C-A6, SPEC §7.4), the window index `windowIdx`, the displayed hypotheses H2-A (`AsymEnclOK`) and H-TAIL (`TailOK`), the soundness theorem `cert_of_checkAsym` (SPEC §8.3, proof = SPEC §5.6 via `cover_of_consecutive`) — PROVED — and L-A2 `windowIdx_mono`, L-A1 `row2_windowIdx_ge` (from `Real.pi_lt_d6`). `Instance02/Asym_mp.lean`, `Asym_arb.lean` (mechanically emitted by `results/d1-m2a/lane-a/emit_lean_lane_a.py`, untrusted; back-parse-verified integer by integer by `backparse_lane_a.py`, 0 mismatches): the two producers' Lane A literals `row2AsymMP` (mpmath-ball leg, K = 10²⁴) and `row2AsymARB` (Arb/FLINT leg, K = 10¹²) — 3 window rows covering N ∈ [630783, 5140999] consecutively plus the tail row at N₁ = 5 141 000 — each with its kernel fact `checkAsym … = true` by `decide +kernel` (`[propext]`) and the glue lemma `row2_laneA_{mp,arb}` (PLAN §1.5) that hands `cert_of_checkAsym` on the literal to `Polymath15Bridge'` as (ii′). `Instance02.lean`'s four theorems now display `hAsym`/`hTail` instead of `hLaneA`. Records: `results/d1-m2a/lane-a/{PLAN,PLAN-REVIEW,BUILD-NOTES,EMIT-NOTES}.md`, `final-axioms.log`, `trust-greps.log` |
+| `Zeta23/DBN/Asym.lean` + `Zeta23/DBN/Instance02/Asym_{mp,arb}.lean` | 246 + 120 + 120 | **M2a Lane A (added 2026-09-09).** `Asym.lean` (hand-written, Session 19 builder): the asymptotic-lane transcript data (`AsymRow`, `TailRow`, `AsymData`), the integer checker `checkAsym` (C-A1 … C-A6, SPEC §7.4), the window index `windowIdx`, the displayed hypotheses H2-A (`AsymEnclOK`) and H-TAIL (`TailOK`), the soundness theorem `cert_of_checkAsym` (SPEC §8.3, proof = SPEC §5.6 via `cover_of_consecutive`) — PROVED — and L-A2 `windowIdx_mono`, L-A1 `row2_windowIdx_ge` (from `Real.pi_lt_d6`). `Instance02/Asym_mp.lean`, `Asym_arb.lean` (mechanically emitted by `results/d1-m2a/lane-a/emit_lean_lane_a.py`, untrusted; back-parse-verified integer by integer by `backparse_lane_a.py`, 0 mismatches): the two producers' Lane A literals `row2AsymMP` (mpmath-ball leg, K = 10²⁴) and `row2AsymARB` (Arb/FLINT leg, K = 10¹²) — 3 window rows covering N ∈ [630783, 5140999] consecutively plus the tail row at N₁ = 5 141 000 — each with its kernel fact `checkAsym … = true` by `decide +kernel` (`[propext]`) and the glue lemma `row2_laneA_{mp,arb}` (PLAN §1.5) that hands `cert_of_checkAsym` on the literal to `Polymath15Bridge'` as (ii′). `Instance02.lean`'s four theorems now display `hAsym`/`hTail` instead of `hLaneA`. Records: `results/d1-m2a/lane-a/{PLAN,PLAN-REVIEW,BUILD-NOTES,EMIT-NOTES}.md`, `final-axioms.log`, `trust-greps.log` |
 
 `#print axioms` on every machine-checked theorem here reports only Lean's three standard
 axioms — `propext`, `Classical.choice`, `Quot.sound`. This now covers, besides the twelve
@@ -180,6 +180,10 @@ PLAN-REVIEW §6 verbatim:
 >   `hLaneA`; it is a vastly smaller x-region with a hair-wider y-band. Both directions are covered — the glue lemma
 >   derives y ≤ yA from y² ≤ 157/250 — but the label should say "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of
 >   what `hLaneA` said".
+>   [DATED CORRECTION 2026-09-09 22:25 IST, phase-3(d) audit (AUDIT-3d.md A-1).] "1.5·10⁻⁷ wider" above is the gap in the
+>   SQUARES (yA² − 157/250 = 3556329/(25·10¹²) = 1.4225·10⁻⁷). The gap in y itself is yA − √(157/250) = 8.975·10⁻⁸ ≈
+>   9.0·10⁻⁸. The bullet's point — that `TailOK`'s y-band is a hair WIDER than the conclusion's, so `TailOK` is not
+>   literally a sub-statement of `hLaneA` — is unaffected.
 > * C-A6 (the tail row's Σ < 2K) is kernel-checked but **not consumed** by `cert_of_checkAsym` (§1, A9). It is
 >   recorded evidence for Lemma T's prose discharge, exactly as SPEC §5.1 designs it. The label must not imply the
 >   kernel checked the tail *reduction*.
@@ -192,7 +196,7 @@ formulas (`p9_mp.py`, mpmath `iv` prec 288; `p9_arb.py`, python-flint `arb` prec
 E/K ≤ 1.06·10⁻⁷, E/T ≤ 9·10⁻⁶) and the tail row at N₁ = 5 141 000 (Q₁ + Q₂ + Q₃ + Q₄ + E₁ = 1.99699937… < 2, margin
 3.0·10⁻³; side conditions (S1)–(S4) true; `--direct` term-by-term validation contained on both legs). Cross-check
 (`crosscheck-full.txt`, CONSISTENT): T and Q₁ … Q₄ agree across the legs to ≤ 5·10⁻⁷⁹ relative; the E upper bounds are
-hull bounds — Arb's the larger on every row (Arb/mp = 1.027, 1.124, 1.261; E₁ 1.000000) — recorded, not gated (etol 0.3;
+hull bounds — Arb's the larger on every row (Arb/mp = 1.027, 1.124, 1.261; E₁ 1.000042) — recorded, not gated (etol 0.3;
 PLAN-REVIEW F-2). Each leg keeps its own E in its own literal and its own theorem.
 
 **Lean.** `DBN/Asym.lean` (builder, `lane-a/BUILD-NOTES.md`): `checkAsym`, `AsymEnclOK`, `TailOK`, `cert_of_checkAsym`
@@ -205,16 +209,17 @@ mismatches; cross-leg window ranges and N₁ identical, T/K and Q/K to ≤ 5·10
 *Build completed successfully (9142 jobs)*, `Built Zeta23.DBN.Instance02 (1.7s)`, `Built Zeta23 (11s)`, no warning in any
 DBN file (`lane-a/asym-literal-build.log`). Trust greps over `Zeta23/DBN/` (`axiom`, `native_decide`, `unsafe`,
 `implemented_by`, `extern`, `opaque`, `sorry`): 0 hits in code, every hit in header prose (`lane-a/trust-greps.log`).
-SHA-256 (10(i)): `Asym_mp.lean` 128eb3101c30032080e6ecdde79aee6af04de50a21111e6bf99f3c405ad7ac05, `Asym_arb.lean`
-767ee5000f358e1bb661efb282b46f0a6cc3fd4f201afc73d70bf41d27981987, `Instance02.lean`
-bcf81f5e179e14b12d4ddcc85cb970fef5a5cc6f048136bb9443f1fce7cf9850.
+SHA-256 (10(i)), after the phase-3(d) fix pass (22:27 IST; header-only edits, AUDIT-3d.md A-1/A-2 — the pass-1 hashes are in
+`lane-a/EMIT-NOTES.md` §5): `Asym_mp.lean` 609e55f223331e4c99554853792a7e7fa97b752f6c2872481de68b289449512a, `Asym_arb.lean`
+d669fc31b1908b8db1688f1d0b87d7118541fef4a3806644c835212af6a44740, `Instance02.lean`
+810ee7d8d9c73c2cc320b7147bf5ecbc9aae3821884076a06cc65092aa1ca4de.
 
 **What the kernel does not use (PLAN-REVIEW F-6; SPEC §5.1).** `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
 and C-A5. C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on both literals but never
 consumed by a proof: recorded evidence for the prose discharge of Lemma T (SPEC §5.4). "C-A6 is kernel-checked" must
-not be read as "the tail reduction is kernel-checked". And `TailOK`'s y-band [y₀, yA] is 1.5·10⁻⁷ wider than the
-former `hLaneA`'s y ≤ √(157/250): the tail hypothesis is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what
-`hLaneA` said".
+not be read as "the tail reduction is kernel-checked". And `TailOK`'s y-band [y₀, yA] is 9.0·10⁻⁸ wider than the
+former `hLaneA`'s y ≤ √(157/250) (yA − √(157/250) = 8.975·10⁻⁸; in the squares yA² − 157/250 = 1.42·10⁻⁷): the tail
+hypothesis is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said". [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
 
 **Honest label (SPEC §3.7, verbatim): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3"** — never "fully machine-checked". The Λ bracket of record stays
 0 ≤ Λ ≤ 0.2 (Rodgers–Tao; Platt–Trudgian): nothing here proves Λ ≤ 0.2; what is new is that the whole chain from two

@@ -130,10 +130,11 @@ hypotheses" only with that gloss: R-1's condition (item 3 landing) is met, so R-
 not glossed (PLAN-REVIEW §6): the window range N ∈ [630 783, 5 140 999] (x from 5.0·10¹² to ≈ 3.32·10¹⁴) is no longer a
 displayed nonvanishing claim but a displayed floor enclosure plus the kernel-checked coverage argument; the displayed
 nonvanishing conclusion that remains is `TailOK` on N(x) ≥ 5 141 000 with the y-band [y₀, yA], yA = 0.7924646 being
-1.5·10⁻⁷ wider than `hLaneA`'s √(157/250) = 0.79246451… (the glue derives y ≤ yA from y² ≤ 157/250), so `TailOK` is "the
+9.0·10⁻⁸ wider than `hLaneA`'s √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸; in the squares yA² − 157/250 =
+1.42·10⁻⁷; the glue derives y ≤ yA from y² ≤ 157/250), so `TailOK` is "the
 tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said"; and C-A6 (the tail row's Σ < 2K) is kernel-checked
 but NOT consumed by `cert_of_checkAsym` — recorded evidence for Lemma T's prose discharge, never "the tail reduction is
-kernel-checked".
+kernel-checked".  [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
 
 ### Left for the Lane A stream (RUN-REPORT §6 item 3)
 

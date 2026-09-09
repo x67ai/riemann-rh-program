@@ -1,0 +1,59 @@
+# #print axioms after the fix pass (r2) — same scratch as final-axioms.log; Wed Sep  9 22:27:12 IST 2026
+'Zeta23.DBN.Instance02.lambda_le_point2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.lambda_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_laneA_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_laneA_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_check' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.row2AsymARB_check' depends on axioms: [propext]
+Zeta23.DBN.Instance02.lambda_le_point2 : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+        Zeta23.DBN.Instance02.row2AsymMP →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+          Zeta23.DBN.Instance02.row2AsymMP →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.lambda_le_point2_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierARB →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+        Zeta23.DBN.Instance02.row2AsymARB →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+          Zeta23.DBN.Instance02.row2AsymARB →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.row2_ray_mp : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierMP →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+        Zeta23.DBN.Instance02.row2AsymMP →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+          Zeta23.DBN.Instance02.row2AsymMP →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.row2_ray_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) Zeta23.DBN.Instance02.row2BarrierARB →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+        Zeta23.DBN.Instance02.row2AsymARB →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+          Zeta23.DBN.Instance02.row2AsymARB →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+Zeta23.DBN.Instance02.row2_laneA_mp : Zeta23.DBN.AsymEnclOK
+    (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) Zeta23.DBN.Instance02.row2AsymMP →
+  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+      Zeta23.DBN.Instance02.row2AsymMP →
+    ∀ (x y : ℝ),
+      5000000194858 + 1 ≤ x →
+        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
+Zeta23.DBN.Instance02.row2_laneA_arb : Zeta23.DBN.AsymEnclOK
+    (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) Zeta23.DBN.Instance02.row2AsymARB →
+  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z)
+      Zeta23.DBN.Instance02.row2AsymARB →
+    ∀ (x y : ℝ),
+      5000000194858 + 1 ≤ x →
+        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
+real 2.45
+user 1.03
+sys 1.14
+# exit 0  Wed Sep  9 22:27:15 IST 2026

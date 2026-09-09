@@ -69,7 +69,8 @@ WHAT IS DISPLAYED (since 2026-09-09: exactly the SPEC §3.7 label, as written):
     a displayed FLOOR ENCLOSURE (‖g‖ ≥ (T − E)/K per window row) plus the kernel-checked coverage argument (C-A3, C-A4,
     C-A5 + L-A1 + L-A2 inside `cert_of_checkAsym`); the displayed nonvanishing CONCLUSION that remains is `TailOK`
     only — N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  Asymmetry recorded: yA = 3962323/5000000 =
-    0.7924646 is 1.5·10⁻⁷ WIDER than the former `hLaneA`'s y ≤ √(157/250) = 0.79246451…, so `TailOK` is "the tail region
+    0.7924646 is 9.0·10⁻⁸ WIDER than the former `hLaneA`'s y ≤ √(157/250) = 0.79246451… (yA − √(157/250) = 8.975·10⁻⁸;
+    in the squares yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷), so `TailOK` is "the tail region
     N ≥ N₁, y ∈ [y₀, yA]", not literally a sub-statement of `hLaneA` (the glue derives y ≤ yA from y² ≤ 157/250).
     C-A6 (the tail row's Q₁ + Q₂ + Q₃ + Q₄ + E₁ < 2K) is kernel-checked on each literal but NOT consumed by any proof:
     recorded evidence for Lemma T's prose discharge (SPEC §5.1, §5.4) — the tail REDUCTION is not kernel-checked.

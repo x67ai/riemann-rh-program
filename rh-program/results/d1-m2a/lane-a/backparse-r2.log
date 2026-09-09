@@ -1,0 +1,18 @@
+# backparse_lane_a.py — Session 19 phase 3(d) FIX PASS (r2) emitter, Wed Sep  9 22:26:27 IST 2026
+# command: python3 backparse_lane_a.py ~/rh-lean-work/zeta-23-lean-main asym-mp.json asym-arb.json  (after re-emitting from the corrected template; AUDIT-3d.md A-1/A-2)
+[mp] /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/DBN/Instance02/Asym_mp.lean (8339 bytes) vs asym-mp.json
+  25 integers compared, 0 mismatches/problems; K = 1000000000000000000000000, rows 3, N ∈ [630783, 5140999], N1 = 5141000
+[arb] /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/DBN/Instance02/Asym_arb.lean (8202 bytes) vs asym-arb.json
+  25 integers compared, 0 mismatches/problems; K = 1000000000000, rows 3, N ∈ [630783, 5140999], N1 = 5141000
+[cross-leg] mp vs arb, on the back-parsed literals:
+  row 0 [630783, 746495]: T/K rel diff 2.26e-11 (OK ≤ 1e-9); E/K mp 1.0307e-07 arb 1.0589e-07, Arb/mp = 1.0274 (hull bound, recorded, not gated)
+  row 1 [746496, 1469440]: T/K rel diff 8.97e-13 (OK ≤ 1e-9); E/K mp 7.5689e-08 arb 8.5041e-08, Arb/mp = 1.1236 (hull bound, recorded, not gated)
+  row 2 [1469441, 5140999]: T/K rel diff 2.92e-12 (OK ≤ 1e-9); E/K mp 2.1291e-08 arb 2.6856e-08, Arb/mp = 1.2614 (hull bound, recorded, not gated)
+  tail Q1/K rel diff 2.57e-14 (OK ≤ 1e-9)
+  tail Q2/K rel diff 2.06e-12 (OK ≤ 1e-9)
+  tail Q3/K rel diff 4.78e-11 (OK ≤ 1e-9)
+  tail Q4/K rel diff 2.65e-11 (OK ≤ 1e-9)
+  tail E1/K mp 1.822923e-09 arb 1.823000e-09, Arb/mp = 1.000042 (hull bound, recorded, not gated)
+  tail Σ/K: mp 1.996999372832, arb 1.996999372834 (each < 2 is C-A6, kernel-checked per leg, not consumed)
+backparse_lane_a: 50 integers compared exactly (both legs), cross-leg 0 mismatches; TOTAL 0 mismatches/problems -> OK
+# exit 0  Wed Sep  9 22:26:27 IST 2026

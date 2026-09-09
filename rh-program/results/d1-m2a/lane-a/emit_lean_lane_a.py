@@ -141,9 +141,11 @@ analytic is asserted here: H2-A (`AsymEnclOK`, the window-row floors ‖g(x + iy
 y ∈ [y₀, yA]) and H-TAIL (`TailOK`, g(x + iy) ≠ 0 for N(x) ≥ N₁, y ∈ [y₀, yA]) stay DISPLAYED (SPEC.md §6, §8.1).
 
 WHAT THE KERNEL DOES NOT USE (PLAN-REVIEW.md F-6; SPEC §5.1).  `cert_of_checkAsym` consumes only K ≥ 1, C-A3, C-A4
-and C-A5.  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are kernel-checked on this literal but
-never consumed by any proof: they are recorded evidence for the prose discharge of Lemma T (SPEC §5.4) and of the
-y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail reduction is kernel-checked".
+and C-A5 — and of C-A3 only E < T per row (Nlo ≤ Nhi and 0 ≤ E are checked, then discarded; the coverage step uses
+C-A4 through `cover_of_consecutive` and C-A5).  C-A2, C-A6 (the tail row's Σ < 2K) and C-A1's yA² ≥ 1 − 2t₀ are
+kernel-checked on this literal but never consumed by any proof: they are recorded evidence for the prose discharge
+of Lemma T (SPEC §5.4) and of the y-band condition.  "C-A6 is kernel-checked" must not be read as "the tail
+reduction is kernel-checked".
 
 THE GLUE (PLAN.md §1.5) AND WHAT IT BUYS (PLAN-REVIEW.md §6).  `{glue} hAsym hTail` has the conclusion
 ∀ x y, X + 1 ≤ x → y₀ ≤ y → y² ≤ 1 − 2t₀ → Ht t₀ (x + y·I) ≠ 0 — character for character the former `hLaneA`
@@ -153,14 +155,15 @@ Before the replacement the whole region x ≥ X + 1 was a DISPLAYED nonvanishing
 N ∈ [630783, 5140999] (x from ≈ 5.0·10¹² up to x_{{N₁}} ≈ 3.32·10¹⁴) is a displayed FLOOR ENCLOSURE (`AsymEnclOK`)
 plus the kernel-checked coverage argument (C-A3, C-A4, C-A5 + L-A1 + L-A2), and the displayed nonvanishing
 CONCLUSION that remains is `TailOK` only: N(x) ≥ 5 141 000, i.e. x ≳ 3.32·10¹⁴, on the y-band [y₀, yA].  One
-asymmetry, stated not glossed: yA = 0.7924646 is 1.5·10⁻⁷ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…,
+asymmetry, stated not glossed: yA = 0.7924646 is 9.0·10⁻⁸ WIDER than the conclusion's y ≤ √(157/250) = 0.79246451…
+(yA − √(157/250) = 8.975·10⁻⁸; in the squares, yA² − 157/250 = 3556329/(25·10¹²) = 1.42·10⁻⁷),
 so `TailOK` (and `AsymEnclOK`) are hypotheses on the y-band [y₀, yA], a hair wider than the conclusion's y-range —
 "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what `hLaneA` said".
 
 The two producer legs are never merged (D-R3): this module is the {leg_desc}'s; {other[1]} is the {other[2]}, and each
 leg pairs its own Lane A literal with its own Lane B literal in Instance02.lean.  The two-producer cross-check
 (results/d1-m2a/lane-a/crosscheck-full.txt, CONSISTENT: T_lo and Q₁ … Q₄ agree to ≤ 5·10⁻⁷⁹ relative; the E upper
-bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000000 on E₁,
+bounds are hull bounds, Arb's the larger on every row, Arb/mp = 1.027, 1.124, 1.261 on rows 0–2 and 1.000042 on E₁,
 recorded not gated, etol 0.3) is producer-side evidence, not a proof.
 Trust label (SPEC.md §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".
 -/
