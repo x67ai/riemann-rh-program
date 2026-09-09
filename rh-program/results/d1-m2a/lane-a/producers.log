@@ -1,0 +1,6 @@
+== launch_producers.sh Wed Sep  9 21:36:29 IST 2026  host Mac.lan  cwd /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a  heavy-jobs-before=0  caffeinate-pid=5186
+== mp : nohup ./run_leg.sh mp  . > producers-mp.log  2>&1 &
+== mp  pid 5302  (stdout/stderr: producers-mp.log)
+== arb: nohup ./run_leg.sh arb . > producers-arb.log 2>&1 &
+== arb pid 5303  (stdout/stderr: producers-arb.log)
+== poll: STATUS.json (top-level roll-up + per-leg dicts), STATUS-mp.json, STATUS-arb.json, batches/<leg>-row_000k.json, batches/<leg>-tail.json, asym-<leg>.json

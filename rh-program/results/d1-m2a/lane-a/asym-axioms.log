@@ -1,0 +1,8 @@
+# #print axioms on every theorem of Zeta23/DBN/Asym.lean (module built by lake, asym-build.log) — Wed Sep  9 21:30:53 IST 2026
+# command: lake env lean results/d1-m2a/lane-a/asym-axioms-scratch.lean  (from ~/rh-lean-work/zeta-23-lean-main)
+'Zeta23.DBN.cover_of_consecutive' depends on axioms: [propext, Quot.sound]
+'Zeta23.DBN.cert_of_checkAsym' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.windowIdx_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.row2_windowIdx_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean   0.99s user 1.09s system 94% cpu 2.203 total
+# exit 0  Wed Sep  9 21:30:55 IST 2026
