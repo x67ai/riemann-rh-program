@@ -1,0 +1,11 @@
+# AUDITOR independent check: kernel-elaborated literal (#print) vs producer JSON — 2026-09-09 22:11:30 IST
+[row2AsymMP] vs asym-mp.json   json top keys: ['format', 'kind', 'lane', 'producer', 'rows', 'scales', 't0', 'tail', 'trust_label', 'version', 'y0', 'yA']
+   K=1000000000000000000000000 rows=3 N in [630783,5140999] N1=5141000
+   C-A3 E<T all rows OK; C-A4 rows consecutive OK; C-A5 last Nhi+1 == N1 OK; C-A6 Sigma/K = 1.996999372832 (<2: True)
+   C-A1 yA^2 = 15700003556329/25000000000000 >= 1-2t0 = 157/250 : True ; y0<yA: True
+[row2AsymARB] vs asym-arb.json   json top keys: ['format', 'kind', 'lane', 'producer', 'rows', 'scales', 't0', 'tail', 'trust_label', 'version', 'y0', 'yA']
+   K=1000000000000 rows=3 N in [630783,5140999] N1=5141000
+   C-A3 E<T all rows OK; C-A4 rows consecutive OK; C-A5 last Nhi+1 == N1 OK; C-A6 Sigma/K = 1.996999372834 (<2: True)
+   C-A1 yA^2 = 15700003556329/25000000000000 >= 1-2t0 = 157/250 : True ; y0<yA: True
+TOTAL 50 integers compared, 0 mismatches
+# exit 0

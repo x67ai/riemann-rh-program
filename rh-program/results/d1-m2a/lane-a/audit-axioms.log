@@ -1,0 +1,75 @@
+'Zeta23.DBN.Instance02.lambda_le_point2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.lambda_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_ray_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_laneA_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2_laneA_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_check' depends on axioms: [propext]
+'Zeta23.DBN.Instance02.row2AsymARB_check' depends on axioms: [propext]
+'Zeta23.DBN.cert_of_checkAsym' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_t0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_y0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymMP_yA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymARB_t0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymARB_y0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.DBN.Instance02.row2AsymARB_yA' depends on axioms: [propext, Classical.choice, Quot.sound]
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/lane-a/audit-axioms-scratch.lean:28:14: error(lean.unknownIdentifier): Unknown constant `Zeta23.DBN.Instance02.row2_windowIdx_ge`
+lambda_le_point2 : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) row2BarrierMP →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+lambda_le_point2_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) row2BarrierARB →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 1 / 5 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+row2_ray_mp : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) row2BarrierMP →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+row2_ray_arb : Zeta23.DBN.ZeroVerification (116733 / 200000) 2500000097429 →
+  Zeta23.DBN.BarrierEnclOK (fun t z => Zeta23.DBN.Ht t z / Zeta23.DBN.Bt t z) row2BarrierARB →
+    Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+      Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+        Zeta23.DBN.Polymath15Bridge' ∧ Zeta23.DBN.HtEntire →
+          ∀ (t : ℝ), 93 / 500 + (16733 / 100000) ^ 2 / 2 ≤ t → ∀ (z : ℂ), Zeta23.DBN.Ht t z = 0 → z.im = 0
+row2_laneA_mp : Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymMP →
+    ∀ (x y : ℝ),
+      5000000194858 + 1 ≤ x →
+        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
+row2_laneA_arb : Zeta23.DBN.AsymEnclOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+  Zeta23.DBN.TailOK (fun z => Zeta23.DBN.Ht (93 / 500) z / Zeta23.DBN.Bt (93 / 500) z) row2AsymARB →
+    ∀ (x y : ℝ),
+      5000000194858 + 1 ≤ x →
+        16733 / 100000 ≤ y → y ^ 2 ≤ 1 - 2 * (93 / 500) → Zeta23.DBN.Ht (93 / 500) (↑x + ↑y * Complex.I) ≠ 0
+Zeta23.DBN.cert_of_checkAsym : ∀ (g : ℂ → ℂ) (d : Zeta23.DBN.AsymData),
+  Zeta23.DBN.checkAsym d = true →
+    Zeta23.DBN.AsymEnclOK g d →
+      Zeta23.DBN.TailOK g d →
+        ∀ (x y : ℝ),
+          ∀ r ∈ d.rows,
+            ↑r.Nlo ≤ ↑(Zeta23.DBN.windowIdx (Zeta23.DBN.At0 d) x) →
+              Zeta23.DBN.Ay0 d ≤ y → y ≤ Zeta23.DBN.AyA d → g (↑x + ↑y * Complex.I) ≠ 0
+def Zeta23.DBN.Instance02.row2AsymMP : Zeta23.DBN.AsymData :=
+{ K := 1000000000000000000000000, t0n := 93, t0d := 500, y0n := 16733, y0d := 100000, yAn := 3962323, yAd := 5000000,
+  rows :=
+    [{ Nlo := 630783, Nhi := 746495, T := 12023114801271919081297, E := 103072920877602897 },
+      { Nlo := 746496, Nhi := 1469440, T := 12022114003010781117361, E := 75688809572996497 },
+      { Nlo := 1469441, Nhi := 5140999, T := 154429052431451108544607, E := 21290798704178334 }],
+  tail :=
+    { N1 := 5141000, Q1 := 1780738683685954234282109, Q2 := 178607231319632698856344, Q3 := 18638466997109653259291,
+      Q4 := 19014989006495801050358, E1 := 1822923348119831 } }
+def Zeta23.DBN.Instance02.row2AsymARB : Zeta23.DBN.AsymData :=
+{ K := 1000000000000, t0n := 93, t0d := 500, y0n := 16733, y0d := 100000, yAn := 3962323, yAd := 5000000,
+  rows :=
+    [{ Nlo := 630783, Nhi := 746495, T := 12023114801, E := 105892 },
+      { Nlo := 746496, Nhi := 1469440, T := 12022114003, E := 85041 },
+      { Nlo := 1469441, Nhi := 5140999, T := 154429052431, E := 26856 }],
+  tail := { N1 := 5141000, Q1 := 1780738683686, Q2 := 178607231320, Q3 := 18638466998, Q4 := 19014989007, E1 := 1823 } }
+lake env lean "$O/audit-axioms-scratch.lean"  1.07s user 1.18s system 106% cpu 2.100 total
