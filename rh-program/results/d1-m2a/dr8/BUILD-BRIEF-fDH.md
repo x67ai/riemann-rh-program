@@ -15,3 +15,6 @@ From the existing clean clone `~/rh-lean-work/checker-clone-s20/` (overlay the u
 
 ## Not in scope
 Nothing about ζ, Λ, or a comparator topic for f_DH (a later packaging item if the W1 packaging step is ever scheduled — PRICING §4.4's GO-later trigger).
+
+## Addendum (02:47 IST) — the M3 seed ledger rides in this stream (2b decision)
+Job 1 also lands the SEED of the M3 exclusion ledger exactly as `PRICING-M3-ledger.md` specifies (its format, layout under `results/d1-m3/`, `ledger-schema.json`, `ledger_check.py`, `index.json`, the 4 rows R1–R4 from the 8 acceptance null transcripts with the hashes the pricing re-verified, provenance `acceptance`), plus the leaf `Zeta23/W1/Ledger.lean` with the eight corollaries of `cert_of_checkW1_ap` (one per transcript, 3 lines each; `#print axioms` standard; mirror). No new rows, no producer runs (the optional six Arb calibration rows are NOT authorized now). Job 2 checks the eight corollaries' statements against the transcripts' boxes (own parser) and `ledger_check.py` against `index.json`. D1 frontier and `lean/README.md` dated blocks; the label per row: "no zero of ζ in the closed box, kernel-checked modulo H-ENCL (producers untrusted)".
