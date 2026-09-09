@@ -774,6 +774,8 @@ Reading (iii)′, so the gate should say "a leaf of finite type with χ = +1, i.
   compact, then the C^m_ub topology is just the C^m topology'; memoir §2.4.3 p. 28). For foliated spaces
   (Deninger p. 29) the same family with leafwise derivatives only is Moore–Schochet 1988 Ch. II (Deninger's
   [33]), not on disk — that half remains recalled, now with a named printed source." Nothing in §2.1(a)
+
+  **[RECORD CORRECTION 2026-09-09 — Session 19, Round-4 ingest enacted]** That half is now PRINTED: Moore–Schochet, 2nd ed. (CUP 2006), **Chapter III p. 57** (not Ch. II; "Fréchet" does not occur in the book), delivered in Round 4 as `fetched-r4/r4-15b` — see the dated blocks in `f1-check-C0-seminorm-s17.md` and `results/fetch-r4/a08-textbooks-closed-leaf.md` Q2.
   changes.]
 
 **Not checked, and out of scope:** Leichtnam 2008 §5.1 (the adjudicator's reading is not among my

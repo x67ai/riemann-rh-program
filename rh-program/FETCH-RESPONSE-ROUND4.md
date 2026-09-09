@@ -2,6 +2,9 @@
 
 **Session 18, 2026-09-09 (INGEST ONLY — the RH program is not resumed this session).** Demand: `FETCH-LIST-ROUND4.md`. Delivery: `fetched-r4/` (gitignored, local-only; filenames `r4-<item>-…`; `duplicates-of-r3/` and `not-on-list/` subfolders). Verification and extraction: ten ingest agents, brief `results/fetch-r4/BRIEF.md`, one report per agent in `results/fetch-r4/`. Mechanical sweep: `results/fetch-r4/a10-sweep.md` + `sweep-2026-09-09.json`. Nothing in this file is from memory; every statement below points at a report that points at a page.
 
+
+**Record corrections ENACTED 2026-09-09 (Session 19):** every "next program session, not enacted" item below was written into the records as dated blocks (nothing deleted). The list, with file and line anchors, is `results/fetch-r4/RECORD-CORRECTIONS-s19.md`; ledger §16-quinquies. No verdict changed.
+
 **Sponsor-side clarification recorded:** "KMNT 2021" (list items 6 and 17) = Kim–Morishita–Noda–Terashima, *On 3-dimensional foliated dynamical systems and Hilbert type reciprocity law*, Münster J. Math. 14 (2021) 323–348, on disk as `fetched-r3/r3s-36`.
 
 ## Delivery status by item
