@@ -17,7 +17,9 @@ and `ChallengeDeps/DBN/Instance02.lean`, `Challenge/DBN.lean`, `Solution/DBN.lea
 | `Zeta23/PairCeiling/GridParseval.lean` | 583 | The grid-Parseval decoupling identity — the algebraic core of the A4 absorption result (Lemma 3.8 and Theorem 3.9 of the A4 paper) |
 | `Zeta23/PairCeiling/GridWitness.lean` | 402 | The 4128/33 witness, for every vacancy position |
 | `Zeta23/PairCeiling/GridCorner.lean` | 263 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
-| `Zeta23/W1/Soundness.lean` | 1262 | W1 checker soundness |
+| `Zeta23/W1/Soundness.lean` | 1300 | W1 checker soundness — generic in the function since 2026-09-10 (`cert_of_checkW1_of_diffOn`; ζ instance `cert_of_checkW1` unchanged) |
+| `Zeta23/W1/FDH.lean` | 176 | **D-R8 (2026-09-10):** f_DH in Lean — `kappaDH`, `fDH`, `differentiable_fDH`, `cert_of_checkW1_fDH` (modulo H-ENCL_DH only), `mpDH_zero`, `arbDH_zero` — see the "D-R8" section below |
+| `Zeta23/W1/Ledger.lean` | 95 | **M3 seed (2026-09-10):** the eight 3-line corollaries of `cert_of_checkW1_ap` (m = 0 branch) for the four seed rows of `results/d1-m3/` — see the "M3 seed" section below |
 | `Zeta23/W1/{Checker,Examples,Format}.lean` | 385 | The W1 checker, its examples and its output format |
 | `Zeta23/W1/Instances.lean` | 3265 | The ten M1 v1 acceptance transcripts and the two positive controls as kernel-checked checker instances (`checkW1Floor … = true` ×10, `checkW1 … = false` ×2 by `decide +kernel`); mechanically emitted by `results/d1-m1/emit_lean.py` and back-parse-verified against the JSON; needs `set_option maxRecDepth 100000` (written by the emitter) for the 983/1294-row literals — added at the reconciled audit of 2026-09-02, `results/d1-m1/AUDIT.md` |
 | `Zeta23/W1/ArgPrinciple/Rect.lean` | 492 | The rectangle-integral machinery of the argument principle: `Rect`, `RectFrontier`, the four-edge `rectIntegral` in Mathlib's boundary convention, `windingRect`, the rectangle residue integral `rectIntegral_inv_sub` (∮ (ζ−a)⁻¹ dζ = 2πi — the piece Mathlib lacks), and the factored forms for entire cofactors. **Ported** (see the v1.1 note below) |
@@ -269,6 +271,71 @@ from the prose one — is `results/d1-m2a/packaging/FIDELITY.md`, mirrored in `f
 `formalization.yaml` (schema v0.4, at `rh-program/lean/formalization.yaml`) records the program's Lean additions with honest
 `automation` (agent; Claude Fable 5.1 and Claude Opus 5; Claude Code) and `review` (`self-assessed`: no human has read
 `Challenge/DBN.lean` against the prose statement) fields.
+
+## D-R8 (2026-09-10): f_DH in Lean — `W1/FDH.lean`; `W1/Soundness.lean` generic in the function
+
+**What landed (Session 20; record `results/d1-m2a/dr8/BUILD-NOTES-fDH.md`, pricing `dr8/PRICING-fDH.md`, brief `dr8/BUILD-BRIEF-fDH.md`).**
+`Soundness.lean`'s only ζ-specific content (the §9 edge-continuity lemma and the inline `hdiff` block) is replaced by the
+generic `continuousOn_logDeriv_seg_of_diffOn` (any f differentiable on an open U ⊇ the segment), and the soundness theorem is
+restated as
+
+    Zeta23.W1.cert_of_checkW1_of_diffOn (f : ℂ → ℂ) (hf : DifferentiableOn ℂ f {s | s.re < 1}) (d : W1Data)
+        (hc : checkW1 d = true) (hEncl : W1EnclOK f d) (hAP : RectArgPrinciple f) : <the v1 conclusion with f for ζ>
+
+with the v1 body verbatim (`riemannZeta` → `f`, 16 occurrences); `cert_of_checkW1` is its ζ instance with the v1 docstring
+and statement character-for-character, and `cert_of_checkW1_ap` in the bridge is untouched (`#check` before/after identical:
+`dr8/no-regression.log`). `W1/FDH.lean` (new, 176 lines) defines `kappaDH := (√(10 − 2√5) − 2)/(√5 − 1)` and
+`fDH s := 5^{−s}[ζ(s,1/5) + κ ζ(s,2/5) − κ ζ(s,3/5) − ζ(s,4/5)]` on Mathlib's `HurwitzZeta.hurwitzZeta` (FORMAT.md §9.2
+verbatim; κ reproduced to 60 digits by three mpmath routes, `dr8/kappa-check.log`), proves `differentiable_fDH` (the poles at
+s = 1 cancel pairwise, Mathlib `differentiable_hurwitzZeta_sub_hurwitzZeta`), and states
+
+    Zeta23.W1.cert_of_checkW1_fDH (d : W1Data) (hc : checkW1 d = true) (hEncl : W1EnclOK fDH d) :
+        (1 ≤ d.m → ∃ ρ : ℂ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ T1 d < ρ.im ∧ ρ.im < T2 d)
+        ∧ (d.m = 0 → ∀ s ∈ W1Rect d, fDH s ≠ 0)
+    Zeta23.W1.mpDH_zero (hEncl : W1EnclOK fDH mpDH) :
+        ∃ ρ : ℂ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ (8569/100 : ℝ) < ρ.im ∧ ρ.im < 8571/100      (and arbDH_zero likewise)
+
+on the UNCHANGED live-fire literals `mpDH`, `arbDH` of `W1/Instances.lean`. `#print axioms` on all of them:
+`[propext, Classical.choice, Quot.sound]` (`dr8/fdh-axioms.log`); trust greps with comments stripped: 0 hits
+(`dr8/fdh-trust-greps.log`). Build: `lake build Zeta23` — *Build completed successfully (9144 jobs)*, 68 s (the cascade
+through `DBN/BarrierCert` and the 116 DBN modules re-elaborated; no DBN or comparator SOURCE changed — SHA-256 identical to the
+packaging record, `dr8/untouched.log`; `lake build Solution.DBN` and `PrintAxioms/DBN.lean` re-run clean,
+`dr8/solution-dbn-rebuild.log`).
+
+**Honest label, binding (PRICING-fDH.md §3.2, verbatim).** *"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+What it does NOT say: nothing about ζ (no zero of ζ, nothing about RH, no ζ transcript's label changes); nothing about Λ
+(the de Bruijn–Newman chain runs from a zero of ζ or of H_t; f_DH is neither); not "RH-for-DH machine-checked disproof"
+(one off-line zero modulo H-ENCL_DH — the witness direction only; the witness's truth is the producers'); not "fully
+machine-checked" (H-ENCL_DH is where mpmath/Arb enter, exactly as H-ENCL does for ζ); not a Mathlib fact about
+Davenport–Heilbronn. The identification of the producers' f_DH with Lean's `fDH` is a META-level convention match
+(Mathlib `hasSum_hurwitzZeta_of_one_lt_re` / `hurwitz_encl.py` STEP 3′ / Arb `acb_hurwitz_zeta`, all Σ_{n≥0}(n+a)^{−s}
+with a = j/5 ∈ (0,1)), written in the file's header and in `formalization.yaml` fidelity item (l), never a Lean theorem.
+`W1Data` carries no function tag, so the instance corollaries name `fDH` in their statements. The label was swept
+through FORMAT.md §9.2, `w1-schema.json`, both producers, both Python checkers and the two DH JSONs (label + comment fields
+only; arithmetic byte-identical; re-checked — `dr8/label-sweep-checkers.log`). The module doc of `W1/Instances.lean`
+(emitter-written, back-parse-verified, deliberately NOT regenerated) still says "there is NO theorem about f_DH at all":
+read that sentence as dated 2026-09-02; this section supersedes it.
+
+## M3 seed (2026-09-10): `W1/Ledger.lean` and `results/d1-m3/`
+
+The exclusion ledger of D1's charter (line 48) and D-R6 is SEEDED with the four M1 v1 acceptance null boxes — eight ζ
+exclusion transcripts already on disk, zero producer compute (`results/d1-m2a/dr8/PRICING-M3-ledger.md` §2; layout §1.3).
+`W1/Ledger.lean` (new, 95 lines) carries one corollary per leg, the m = 0 branch of `cert_of_checkW1_ap` on the unchanged
+literal:
+
+    Zeta23.W1.mpNullT100_exclusion (hEncl : W1EnclOK riemannZeta mpNullT100) : ∀ s ∈ W1Rect mpNullT100, riemannZeta s ≠ 0
+
+(and `arbNullT100`, `mpNullT1000`, `arbNullT1000`, `mpNullT10000`, `arbNullT10000`, `mpNullDeepT100`, `arbNullDeepT100`
+likewise; each `(cert_of_checkW1_ap d (checkW1Floor_spec d_check).1 hEncl).2 (by decide)`; axioms
+`[propext, Classical.choice, Quot.sound]`). Rows R1 [3/5, 9/10] × [100, 101], R2 [3/5, 9/10] × [1000, 1001],
+R3 [3/5, 9/10] × [10000, 10001] (δ₀ = 1/10), R4 [21/40, 39/40] × [100, 101] (δ₀ = 1/40); provenance `acceptance`; status
+`accepted` (both legs ACCEPTed by both Python checkers, kernel-checked, cross-check CONSISTENT, hashes re-verified —
+`results/d1-m3/ledger_check.py` PASS, `dr8/ledger-check.log`). **Label per row (binding):** *"no zeros of ζ in the closed
+box, kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)"* — the single-box sentence; never "RH
+verified in [T₁, T₂]" (a box has σ₁ > ½ strictly; a range statement needs a Turing-method count the format does not carry);
+nothing about ζ outside the box; nothing about Λ; no aggregate (isolated boxes extend no contiguous record). All four boxes
+lie far below the 3·10¹² record: they are format-validation rows in the program's own trust vocabulary, not a verification
+result. No row program (2b: NO-GO), no calibration rows run.
 
 ## What these build against, and why it is not here
 
