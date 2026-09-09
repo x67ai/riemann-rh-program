@@ -110,3 +110,38 @@ hull-slack case of F-2, not a producer disagreement. Per the review's fix: recor
 `--etol` just above the observed maximum (e.g. `--etol 0.3`), and note the widened tolerance in the transcripts' `producer` block; any
 T_lo/Q_i disagreement or an `ok` mismatch stays a stop-the-line. Each leg's E is < 10⁻⁵ of its own T, and each leg carries its own E in
 its own literal (D-R3), so the soundness argument is untouched. The builder did NOT run the crosscheck (step (c) is the orchestrator's).
+
+**Row records pre-checked (21:40 IST, read-only Python on the six `batches/*-row_*.json`; UNTRUSTED, the kernel re-does it):**
+C-A3 and C-A4 hold on both legs; per leg E/T = 8.6·10⁻⁶ / 6.3·10⁻⁶ / 1.4·10⁻⁷ (mp), 8.8·10⁻⁶ / 7.1·10⁻⁶ / 1.7·10⁻⁷ (Arb); cross-leg
+|T_lo(mp) − T_lo(Arb)|/T_lo = 3.9·10⁻⁷⁹ / 4.2·10⁻⁷⁹ / 2.8·10⁻⁸⁰ (P-11's rtol 10⁻⁹ on T passes with 70 digits to spare). mp integers at
+K = 10²⁴: T = 12023114801271919081297 / 12022114003010781117361 / 154429052431451108544607, E = 103072920877602897 / 75688809572996497 /
+21290798704178334; Arb at K = 10¹²: T = 12023114801 / 12022114003 / 154429052431, E = 105892 / 85041 / 26856. `asym-arb.json` (assembled
+21:36:43) carries format `M2a-barrier-transcript` 1.0, kind `asymptotic`, the trust label, K/t0/y0/yA, the 3 rows, the tail
+{N1 5141000, Q1 1780738683686, Q2 178607231320, Q3 18638466998, Q4 19014989007, E1 1823} and the `producer` block; a Python pre-check of
+C-A1…C-A6 on its integers is all-true (first Nlo = 630783 = L-A1's constant; windows = 4 510 217).
+
+**Provenance of the producer patch.** The pre-F-3 `p9_mp.py` / `p9_arb.py` are byte-identical to their copies at git commit `6161fc2`
+(Session 19 auto-commit 20:59 IST; repo root `…/Math/riemann`, in-repo path `rh-program/results/d1-m2a/lane-a/`); the patched files were
+auto-committed at `af6a336` (21:39). `f3-patch.diff` is the exact difference. `apply_f3.py` (scratchpad, session-local) is reproduced by
+the diff; nothing else was changed in either producer.
+
+**Thermal-guard defect found and fixed (21:43 IST).** On this Mac the legs run as `/Library/Developer/CommandLineTools/…/Python p9_mp.py …`
+(capital P), so `pgrep -fl 'python3|lake'` — the guard in the first version of `launch_producers.sh`, and the BRIEF's own
+`pgrep -fl "python|arb|lake"` — does NOT see the mp leg (the Arb leg is caught only through the substring `arb`). The heavy-job counts
+reported above were taken from `ps … | grep -E "run_leg.sh|p9_mp.py|p9_arb.py"` and are correct (2 during rows, 1 during the mp tail);
+a case-insensitive name pattern turned out noisy too (the status line spawns short-lived `Python` processes; `lake` matches other
+names), so the launcher's guard now counts processes above 50 % CPU (`ps -axo pcpu=,command= | awk '$1 > 50'`), lists them in
+`producers.log`, and refuses above 2 — verified to read exactly 1 (the mp tail) while it ran. Recommendation for the brief's
+checklist: judge "heavy" by CPU (`ps -axo pcpu=,command= | awk '$1 > 50'`), not by the name `python`.
+
+**Final verification (2026-09-09 21:44:37 IST).** mp leg: == mp done Wed Sep  9 21:43:55 IST 2026; producer processes remaining: none; heavy jobs now: 0.
+* mp tail (`batches/mp-tail.json`, 404.3 s wall incl. `--direct` 403.6 s): Q₁…Q₄, E₁ = 1780738683685954234282109 / 178607231319632698856344 / 18638466997109653259291 / 19014989006495801050358 / 1822923348119831 at K = 10²⁴, sum 1996999372832115735567933 < 2K (margin (2K − Σ)/K = 3.000627e-03), (S1)–(S4) {'S1': True, 'S2': True, 'S3': True, 'S4': True}, `--direct` contained = True, ok = True.
+  - cross-leg Q1: |mp − Arb|/mp = 7.43e-82
+  - cross-leg Q2: |mp − Arb|/mp = 2.50e-81
+  - cross-leg Q3: |mp − Arb|/mp = 3.97e-81
+  - cross-leg Q4: |mp − Arb|/mp = 4.92e-81
+  - cross-leg E1 (hull bounds): Arb/mp = 1.000000
+* `asym-mp.json` assembled (2026-09-09 21:43:55 IST): kind asymptotic, K = 1000000000000000000000000, rows [('630783', '746495'), ('746496', '1469440'), ('1469441', '5140999')], tail N1 = 5141000, producer rows ok = [True, True, True], tail ok = True.
+  - Python pre-check C-A1…C-A6 on the mp literal (UNTRUSTED; the kernel re-does it): [True, True, True, True, True, True].
+* `STATUS.json` top level: phase = "arb:tail-done mp:tail-done", windows_done/total = 4510217/4510217, started 2026-09-09 21:36:29 IST, updated 2026-09-09 21:43:55 IST, eta_hours = 0.0, errors = []; per leg: mp tail-done (rows 3/3), arb tail-done (rows 3/3).
+* Both legs' transcripts are on disk (`asym-mp.json`, `asym-arb.json`) with every per-row/tail record under `batches/`. Next (orchestrator, PLAN §4 phase 3 (c)–(d)): `python3 crosscheck_lane_a.py .` (expect the F-2 E-ratio trip on the wide rows — see above — then `--etol` above the observed maximum), emit the two literal modules, back-parse, `lake build`, replace `hLaneA` per PLAN §1.5, `#print axioms`, F-5 bookkeeping, Opus audit.
