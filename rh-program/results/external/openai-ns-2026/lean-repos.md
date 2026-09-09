@@ -221,3 +221,98 @@ acknowledgements: >-
   Conjectures, Lake, Comparator, lean4export, nanoda, and related tools.
 ```
 
+### 1(b) Size and history
+
+Measured on the clone at commit `8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538` (2026-09-08 06:57:25 -0400).
+
+| Quantity | Value |
+|---|---|
+| `.lean` files (excluding `.lake/`) | 2,486 |
+| Total lines of Lean | 616,276 (32.4 MB of source) |
+| `NavierStokes/` | 643 files, 392,455 lines (one subdirectory, `NavierStokes/R3/`) |
+| `Euler/` | 1,839 files, 211,579 lines (flat, no subdirectories) |
+| `ComparatorChallenges/` | 5 files: README.md, NavierStokes.lean, NavierStokes.json, Euler.lean, Euler.json |
+| File-size distribution | <100 lines: 1,014 files; 100–300: 1,046; 300–600: 167; 600–1,000: 138; ≥1,000: 121 |
+
+Largest files by line count:
+
+```
+   20755  Euler/EulerProof.lean
+    9849  NavierStokes/CorrectionStep.lean
+    5573  NavierStokes/CorrectionInitializationNoOptions.lean
+    5562  NavierStokes/CorrectionInitialization.lean
+    3004  NavierStokes/VariableGaugeMean.lean
+    2854  NavierStokes/InitialPhysicalData.lean
+    2807  NavierStokes/BaseResidual.lean
+    2679  NavierStokes/NominalProfile.lean
+    2602  NavierStokes/ParticularWaveBounds.lean
+    2253  NavierStokes/TransitionRamp.lean
+    2180  NavierStokes/OutgoingEntranceCone.lean
+    2146  NavierStokes/ActualSignedPhysicalData.lean
+    2065  NavierStokes/PrimaryPulseBounds.lean
+    2037  NavierStokes/MeanRankUpdate.lean
+    2031  NavierStokes/ActivationContinuation.lean
+```
+
+**Commit history: exactly one commit.** `git log` shows a single commit, `8937a8f`, dated 2026-09-08 06:57:25 -0400, author Boris Alexeev `<balexeev@openai.com>`, commit message `.` (a single period). No tags, one branch (`main`). So the public history carries no information about how the 616k lines were produced — no incremental development, no review trail, no per-file authorship. The development happened elsewhere (presumably in an internal repository or agent workspace) and was squashed into a single drop. For comparison, Mathlib itself is roughly 1.7M lines; this drop is over a third of Mathlib's size, delivered in one commit. The only attribution to a process is `formalization.yaml`'s `automation.methods: agent / GPT-6 Astra / Codex` and its `review.status: self-assessed`.
+
+For scale: `Euler/` has 1,839 files averaging 115 lines, with one 20,755-line file (`EulerProof.lean`) sitting on top; `NavierStokes/` has 643 files averaging 610 lines. The two subprojects were clearly produced by different runs or different regimes (the Euler library also compiles under `autoImplicit = false, warningAsError = true`, the Navier–Stokes library does not).
+
+### 1(e) `ComparatorChallenges/` — independent proof checking
+
+**What Comparator is.** [Comparator](https://github.com/leanprover/comparator) is a tool from the Lean FRO (pinned here at tag `v4.34.0-rc2`). Its purpose is to check that a *solution* module proves exactly the theorems stated in an independent *challenge* module: it exports both environments with `lean4export`, compares the theorem *types* (statements) declaration-for-declaration, re-checks the solution's proof terms with an independent external kernel (`nanoda`, a Rust re-implementation of the Lean type checker), and verifies that the proof uses only a permitted axiom list. The sandbox `landrun` is used to isolate the run. The point is to defeat the standard attacks on a "0 sorries" claim: redefining the statement in the solution, smuggling in an axiom, exploiting a Lean kernel bug, or using `native_decide`/`implemented_by` to trust compiled code.
+
+**How the challenge is set up.** Each of the two JSON files names a *challenge module* (a standalone file importing only Mathlib, with the theorems stated and their proofs given as `sorry`), a *solution module* (inside the project), a list of theorem names that must match, `enable_nanoda: true`, and a permitted axiom list of exactly `propext`, `Quot.sound`, `Classical.choice` — the three standard axioms of Lean's `Classical` core. Verbatim:
+
+```json
+{
+  "challenge_module": "ComparatorChallenges.NavierStokes",
+  "solution_module": "NavierStokes.ComparatorSolution",
+  "enable_nanoda": true,
+  "theorem_names": [
+    "NavierStokes.Comparator.navier_stokes_breakdown_R3",
+    "NavierStokes.Comparator.navier_stokes_breakdown_periodic"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
+
+{
+  "challenge_module": "ComparatorChallenges.Euler",
+  "solution_module": "Euler.Solution",
+  "enable_nanoda": true,
+  "theorem_names": [
+    "Euler.euler_breakdown_R3",
+    "Euler.exists_compact_smooth_euler_singularity"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
+```
+
+**The challenge README, verbatim:**
+
+```markdown
+# [Comparator](https://github.com/leanprover/comparator) challenges
+
+Install `landrun`, `lean4export`, and `nanoda_bin`, and make them available on `PATH`. Then, from the repository root:
+
+```sh
+lake exe cache get
+lake exe comparator ComparatorChallenges/NavierStokes.json
+lake exe comparator ComparatorChallenges/Euler.json
+```
+
+Thank you to the [Formal Conjectures](https://google-deepmind.github.io/formal-conjectures/) authors for their [Lean formalization of the Navier–Stokes problem statement](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Millenium/NavierStokes.lean), which we adapted for these Comparator challenges.
+```
+
+**Provenance of the challenge statements.** Both challenge files carry the Formal Conjectures (Google DeepMind) copyright header and state that they were adapted from `FormalConjectures/Millenium/NavierStokes.lean` — the NS one at pinned upstream commit `8bf45ed70d48b2b2a501de9c00b26bfa38c573ee`. The Navier–Stokes challenge says "The upstream definitions, helper proofs, and breakdown alternatives (C) and (D) are retained, including their intentional `sorry` challenge placeholders … Neither the proof root nor the submission imports this reference." That last clause matters: the solution cannot cheat by importing and reusing the challenge's definitions; the definitions are duplicated independently on both sides and Comparator checks that the two *types* agree up to the export. The Euler challenge, by contrast, is *not* an upstream Formal Conjectures statement — it is OpenAI's own specialization ("the whole-space breakdown alternative specialized to zero viscosity and zero external force") plus a second, much more elaborate theorem (`exists_compact_smooth_euler_singularity`) whose solution class (`EulerSobolevExistenceAndSmoothnessR3On`, `SobolevSmoothOn`, `toL2`) was written by OpenAI. So for Euler the "independent" statement is independent of the *proof* but not of the *authors*; there is no third-party statement of the Euler theorem to compare against.
+
+**What I could and could not verify locally.** I did not run Comparator (it needs `landrun`, `lean4export`, `nanoda_bin` on PATH and a full build of the 616k-line project; see §Build estimate). What I did verify is below in §1(d): the axiom-relevant greps over the entire source, and that the solution files' theorem statements are textually identical to the challenge files' statements.
+
