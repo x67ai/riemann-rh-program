@@ -1,0 +1,51 @@
+(1) results/d1-m2a/packaging/hashes.txt, line by line, against disk NOW
+   OK       comparator/ChallengeDeps/DBN.lean
+   OK       comparator/ChallengeDeps/DBN/Instance02.lean
+   OK       comparator/Challenge/DBN.lean
+   OK       comparator/Solution/DBN.lean
+   OK       comparator/PrintAxioms/DBN.lean
+   OK       comparator/config-dbn.json
+   CHANGED  lean/formalization.yaml
+            recorded eb798527540b8cf341eee38c0dce3ef427565dad7f4676632db9ca108bd0f58b
+            on disk  89475ddbd24fa1da67b0dbd09cedf91124f1d712f68f6aada508368ce7e0d5e0
+   OK       results/d1-m2a/packaging/BRIEF.md
+   CHANGED  results/d1-m2a/packaging/FIDELITY.md
+            recorded da045cd8549e56dae385bcc5225235b8172ae2c94409ddf7486fc4ce7270d85f
+            on disk  b0927f5c79dc7d7c93df9a5ba3699b68a9d1255a7f60906e8ee6e8bb063265ee
+   OK       results/d1-m2a/packaging/gen_challengedeps_dbn.py
+   OK       results/d1-m2a/packaging/gen-challengedeps-table.txt
+   OK       results/d1-m2a/packaging/emit_challengedeps_instance02.py
+   OK       results/d1-m2a/packaging/cmp_literal_blocks.py
+   OK       results/d1-m2a/packaging/cmp-literal-blocks.log
+   OK       results/d1-m2a/packaging/statement_identity.py
+   OK       results/d1-m2a/packaging/statement-identity.log
+   OK       results/d1-m2a/packaging/trust_greps.py
+   OK       results/d1-m2a/packaging/trust-greps-packaging.log
+   OK       results/d1-m2a/packaging/print-axioms.log
+   OK       results/d1-m2a/packaging/print-axioms-bridge.lean
+   OK       results/d1-m2a/packaging/print-axioms-bridge.log
+   OK       results/d1-m2a/packaging/validate_yaml.py
+   OK       results/d1-m2a/packaging/formalization-yaml-validate.log
+   OK       results/d1-m2a/packaging/v0.4.schema.json
+   OK       results/d1-m2a/packaging/formalization.schema.dispatcher.json
+
+(2) lane-a/EMIT-NOTES.md 5 'Current (fix pass r2)' hashes, against disk NOW
+   OK       Zeta23/DBN/Instance02/Asym_mp.lean
+   OK       Zeta23/DBN/Instance02/Asym_arb.lean
+   OK       Zeta23/DBN/Instance02.lean
+   OK       Zeta23/DBN/Asym.lean
+   OK       lane-a/asym-mp.json
+   OK       lane-a/asym-arb.json
+   OK       lane-a/emit_lean_lane_a.py
+   OK       lane-a/backparse_lane_a.py
+
+(3) full manifest lean/Zeta23/DBN/** + lean/comparator/**, mirror vs the PRE-OVERLAY clone
+   overlay touched 6 path(s): ['README.md', 'Zeta23.lean', 'Zeta23/W1/FDH.lean', 'Zeta23/W1/Ledger.lean', 'Zeta23/W1/Soundness.lean', 'formalization.yaml']
+   under Zeta23/DBN/ or comparator/: 0 OK
+   127 mirror files under DBN/comparator compared with the clone: 0 differ
+
+======================================================================
+EXPECTED-CHANGE NOTES (not failures by themselves, but the record is now stale):
+  - lean/formalization.yaml: packaging/hashes.txt records eb798527540b..., disk has 89475ddbd24f...
+  - results/d1-m2a/packaging/FIDELITY.md: packaging/hashes.txt records da045cd8549e..., disk has b0927f5c79dc...
+VERDICT: PASS

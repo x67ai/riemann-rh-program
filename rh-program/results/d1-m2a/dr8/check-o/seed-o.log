@@ -1,0 +1,49 @@
+PRICING-M3-ledger 2 table parsed: 8 transcript rows
+rows on disk: 4 -> ['zeta_21-40_39-40_100_101', 'zeta_3-5_9-10_10000_10001', 'zeta_3-5_9-10_1000_1001', 'zeta_3-5_9-10_100_101']
+
+== zeta_21-40_39-40_100_101
+   row_id matches directory                       OK
+   delta0 == sigma1 - 1/2 exactly                  OK
+   1/2 < sigma1 <= sigma2 < 1 (clause C2)          OK
+   function/mode/claimed_m/grade/status            OK
+   provenance kind is 'acceptance'                 OK
+   [mp] w1-mp-null-deep-t100.json    sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-28, 30] vs row ['-28', '30']  OK
+   [arb] w1-arb-null-deep-t100.json   sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-16, 14] vs row ['-16', '14']  OK
+== zeta_3-5_9-10_10000_10001
+   row_id matches directory                       OK
+   delta0 == sigma1 - 1/2 exactly                  OK
+   1/2 < sigma1 <= sigma2 < 1 (clause C2)          OK
+   function/mode/claimed_m/grade/status            OK
+   provenance kind is 'acceptance'                 OK
+   [mp] w1-mp-null-t10000.json       sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-679, 637] vs row ['-679', '637']  OK
+   [arb] w1-arb-null-t10000.json      sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-495, 488] vs row ['-495', '488']  OK
+== zeta_3-5_9-10_1000_1001
+   row_id matches directory                       OK
+   delta0 == sigma1 - 1/2 exactly                  OK
+   1/2 < sigma1 <= sigma2 < 1 (clause C2)          OK
+   function/mode/claimed_m/grade/status            OK
+   provenance kind is 'acceptance'                 OK
+   [mp] w1-mp-null-t1000.json        sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-41, 40] vs row ['-41', '40']  OK
+   [arb] w1-arb-null-t1000.json       sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-29, 36] vs row ['-29', '36']  OK
+== zeta_3-5_9-10_100_101
+   row_id matches directory                       OK
+   delta0 == sigma1 - 1/2 exactly                  OK
+   1/2 < sigma1 <= sigma2 < 1 (clause C2)          OK
+   function/mode/claimed_m/grade/status            OK
+   provenance kind is 'acceptance'                 OK
+   [mp] w1-mp-null-t100.json         sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-24, 28] vs row ['-24', '28']  OK
+   [arb] w1-arb-null-t100.json        sha256/bytes OK | pricing-2 table OK | box==rect OK | box==Lean literal OK | fields OK | m==0 in literal OK | corollary shape OK
+        winding sums recomputed from the segments: [-14, 13] vs row ['-14', '13']  OK
+
+index.json: format=M3-exclusion-ledger-index version=0.1 rows=4
+index.json entries identical to the ROW.json files            OK
+
+COUNTS: legs checked 8, transcript hashes re-verified 8, boxes agreeing (rect & Lean literal) 8, corollaries in the 1.6 shape 8
+VERDICT: PASS
