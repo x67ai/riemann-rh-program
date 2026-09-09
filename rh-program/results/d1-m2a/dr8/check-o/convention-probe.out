@@ -1,0 +1,5 @@
+def Zeta23.W1.fDH : ℂ → ℂ :=
+fun s =>
+  (5 : ℂ) ^ (-s) *
+    (hurwitzZeta (↑(1 / 5 : ℝ)) s + ↑kappaDH * hurwitzZeta (↑(2 / 5 : ℝ)) s - ↑kappaDH * hurwitzZeta (↑(3 / 5 : ℝ)) s -
+      hurwitzZeta (↑(4 / 5 : ℝ)) s)
