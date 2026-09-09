@@ -240,7 +240,28 @@ def update_status(out_dir, leg, st):
     except Exception:
         cur = {}
     cur[leg] = st; cur["updated"] = now()
+    # 2026-09-09 (Session 19): top-level roll-up over the legs present, so STATUS.json carries the brief's keys at the top level too
+    legs = {k: v for k, v in cur.items() if isinstance(v, dict) and "phase" in v}
+    cur["phase"] = " ".join(f"{k}:{v.get('phase')}" for k, v in sorted(legs.items()))
+    cur["windows_done"] = min((v.get("windows_done") or 0) for v in legs.values())
+    cur["windows_total"] = max((v.get("windows_total") or 0) for v in legs.values())
+    starts = [v.get("started") for v in legs.values() if v.get("started")]
+    cur["started"] = min(starts) if starts else None
+    etas = [v.get("eta_hours") for v in legs.values() if v.get("eta_hours") is not None]
+    cur["eta_hours"] = max(etas) if etas else None
+    cur["errors"] = [f"{k}: {e}" for k, v in sorted(legs.items()) for e in (v.get("errors") or [])]
     atomic_json(merged, cur)
+
+def merge_status(out_dir, leg, upd, more_errors=()):
+    """2026-09-09 (Session 19, PLAN-REVIEW F-3c): update the leg's status dict in place (keeps windows_done/windows_total, started, rows_*) and append errors."""
+    p = os.path.join(out_dir, f"STATUS-{leg}.json")
+    try:
+        st = json.load(open(p)) if os.path.exists(p) else {}
+    except Exception:
+        st = {}
+    st.update(upd); st["leg"] = leg
+    st["errors"] = list(st.get("errors") or []) + list(more_errors)
+    update_status(out_dir, leg, st)
 
 def load_plan(path):
     plan = json.load(open(path))
@@ -259,9 +280,15 @@ def run_rows(args):
     for j, i in enumerate(sel):
         r = rows[i]
         path = os.path.join(args.out, "batches", f"arb-row_{i:04d}.json")
-        if args.resume and os.path.exists(path):
-            done_windows += r["Nhi"] - r["Nlo"] + 1
-            print(f"[resume] row {i} present, skipped", flush=True); continue
+        if args.resume and os.path.exists(path):  # 2026-09-09 (Session 19, PLAN-REVIEW F-3b): skip only a record that loads with ok = True
+            try:
+                prev = json.load(open(path))
+            except Exception:
+                prev = {}
+            if prev.get("ok") is True:
+                done_windows += r["Nhi"] - r["Nlo"] + 1
+                print(f"[resume] row {i} present and ok, skipped", flush=True); continue
+            print(f"[resume] row {i} present but not ok ({prev.get('error', 'ok=False')}); recomputing", flush=True)
         t0 = time.time()
         pieces = []; T_lo = None
         try:
@@ -294,6 +321,8 @@ def run_rows(args):
               started=started, updated=now(), elapsed_s=time.time() - t_start, eta_hours=0.0, errors=errors)
     update_status(args.out, "arb", st)
     print("rows done:", json.dumps(st), flush=True)
+    if errors:  # 2026-09-09 (Session 19, PLAN-REVIEW F-3a): fail loud so run_leg.sh stops before tail/assemble
+        print(f"rows FAILED: {len(errors)} error(s) recorded; exit 6", flush=True); sys.exit(6)
 
 def run_tail(args):
     plan, rows = load_plan(args.plan)
@@ -309,10 +338,12 @@ def run_tail(args):
     tr["N1"] = str(tr["N1"])  # 2026-09-09 (Session 19): the tail record carries N1 once, as a decimal string (the s17 line passed N1 twice -> TypeError)
     rec = dict(leg="arb", K=str(K), ints=ints, sum_int=str(ssum), lt_2K=bool(ssum < 2 * K), ok=ok, seconds=time.time() - t0, stamp=now(), **tr)
     atomic_json(os.path.join(args.out, "batches", "arb-tail.json"), rec)
-    update_status(args.out, "arb", dict(phase="tail-done", leg="arb", N1=N1, ok=ok, seconds=rec["seconds"], updated=now(), errors=[] if ok else ["tail row failed"]))
+    merge_status(args.out, "arb", dict(phase="tail-done", N1=N1, ok=ok, seconds=rec["seconds"], updated=now()), [] if ok else ["tail row failed"])  # 2026-09-09 (Session 19, PLAN-REVIEW F-3c): merge, keep windows_*
     print("tail:", json.dumps({k: rec[k] for k in ("N1", "ints", "sum_int", "lt_2K", "sum_float", "side", "ok", "seconds")}), flush=True)
     if args.direct:
         print("direct:", json.dumps({k: rec["direct"][k] for k in ("contained", "Q1sum_float", "Q2sum_float", "seconds")}), flush=True)
+    if not ok:  # 2026-09-09 (Session 19, PLAN-REVIEW F-3a, same spirit): fail loud so run_leg.sh stops before assemble
+        print("tail FAILED (ok = False); exit 7", flush=True); sys.exit(7)
 
 def assemble(args):
     plan, rows = load_plan(args.plan)
