@@ -8,7 +8,7 @@ Page numbers below are the paper's own printed page numbers unless marked "pdf p
 
 Sponsor's question: "learn whatever you can from their approach" — for an AI-agent attack on RH with a barrier zoo and Lean formalization. Read for method as much as mathematics.
 
-Status: IN PROGRESS (sections appended as read).
+Status: COMPLETE (see end of file).
 
 ## 1. The theorem, verbatim
 
@@ -287,3 +287,394 @@ linearized stability, no spectral analysis, no computer assistance), and NOT con
 Buckmaster–Vicol sense (no weak solutions, no relaxation, everything C^∞ for t < 1). The paper neither
 cites Elgindi, Chen–Hou, De Lellis–Székelyhidi, Isett, nor any computer-assisted-proof literature.
 
+### 2.3 §10 in detail — the hinge lemmas (pp. 116–126, read in full)
+
+* **Prop 10.1** (p. 117): cutoffs c = χ_x(x) χ_t(t), with χ_t = 0 for 1 − t ≥ τ_0 and = 1 for
+  1 − t ≤ τ_0/2; u = curl(cA) + cB e_θ, p = c p_loc. The key inequality is q ≤ C_0(τ + |z|^{1/D})
+  (10.3), which keeps the support inside the local domain Ω_* = {τ > 0, q < q_*}.
+* **f := R(u,p)** (10.5, p. 118), "This definition includes every derivative of the cutoffs." The paper
+  notes explicitly (p. 118) "the force may have nonzero divergence" — f is not projected.
+* **Lemma 10.2** (p. 118): every ∂_x^α ∂_t^j f converges uniformly on R^3 as t ↑ 1 to ∂_x^α F_j with
+  F_j ∈ C_c^∞ and ∂^α F_j(0) = 0. Proof splits R^3 × {t ≈ 1} into three regions: (a) q bounded below
+  (Theorem 3.1(ii) gives bounded derivatives, FTC gives Cauchy); (b) r bounded below and q small
+  (exterior heat field K = c_∞ s^{−A} H(2τ/s), explicit derivative bounds (10.8)); (c) near the origin
+  (flatness (3.4) gives |∂^α ∂_t^j f| ≤ C (τ + |z|^{1/D})^N, eq. (10.9)).
+* **Lemma 10.3** (p. 120): extension past t = 1 by a Borel-type series f(x, 1+σ) = Σ_j χ_0(b_j σ)
+  σ^j F_j(x)/j! (10.11) with explicitly chosen integers b_j (a displayed min-formula) — support in
+  K × [0, 2]. Then decay bounds |∂^α ∂_t^m f| ≤ M_{α,m}(3+R)^k (1+|x|+t)^{−k} — matched to "[13, (5)]",
+  i.e. Fefferman's condition (5).
+* **Lemma 10.4** (p. 121): energy: ‖u(t)‖_2^2 + 2∫_0^t ‖∇u‖_2^2 ≤ F(t)^2 with F(t) = ∫_0^t ‖f(s)‖_2 ds.
+  Elementary.
+* **Lemma 10.5** (p. 121–123) — the uniqueness/comparison lemma, and the single most load-bearing
+  "classical" step: "Fix T < 1. If v, P is a smooth solution of (1.1) at viscosity one on R^3 × [0,T],
+  with the force f of Lemma 10.3, zero initial velocity, and v ∈ L^∞([0,T]; L^2(R^3)), then v = u on
+  that interval." Note the hypothesis class: SMOOTH, L^∞_t L^2_x, and NO growth condition on P or
+  on ∇v at infinity ("These hypotheses leave the growth of spatial derivatives at infinity
+  unrestricted", p. 121). The proof is a weak–strong-type argument on expanding balls: recover ∇P
+  from the equation via Riesz transforms (π_* = Σ R_i R_j g_ij, (10.16)), show ∇π = ∇π_* by a
+  Fourier-support-at-{0} argument (pp. 121–122), bound the pressure flux through ∂B_R by a
+  commutator estimate ‖K_R‖_{4/3} ≤ C R^{−1} (p. 122) and interpolation (10.19), then a Gronwall on
+  E_R(t) = ∫χ_R|w|^2 using ‖∇u‖_∞ < ∞ on [0,T] (u is the constructed smooth compactly supported
+  field), giving E_R ≤ C'_T/R → 0. This is where the "Consequently" clause of Theorem 1.1 is earned.
+  A referee will read this lemma line by line because it is the bridge from "we built one solution
+  that blows up" to "no bounded-energy smooth solution exists" — see §6.
+* **Proof of Theorem 1.1** (p. 124): also notes "The embedding H^3 ↪→ L^∞ excludes a classical H^3
+  continuation through time one", and "The force is nonzero, since (10.13) would otherwise give
+  u = 0" — a one-line sanity check that the theorem is not vacuous. Scaling (10.22)–(10.23) with
+  ‖u_ν‖_2^2 = ν^{5/2} ‖u‖_2^2.
+* **Cor 10.6** (p. 125): torus. Rescale by λ so λ^{−1}K_ν ⋐ Q_0 = (−1/2,1/2)^3, shift time by
+  t_0 = 1 − λ^{−2}, periodize by summing translates (disjoint supports so the nonlinearity is exact).
+  Uniqueness on T^3 is the trivial Gronwall (p. 126). Notes "The pressure is periodic as well, as
+  required in the erratum to the problem statement [13]" — they read Fefferman's erratum.
+
+## 3. What is genuinely new versus assembled
+
+### 3.1 The paper's own attributions (§1.1, pp. 2–3; verbatim where it matters)
+
+The bibliography has 22 entries. Of these, 6 are context/history (Euler 1757, Navier 1827, Stokes
+1845, Leray 1934, CKN 1982, ESŠ 2003, Fefferman/Clay), 3 are "nearby results" (Tao [22] averaged
+NS; Buckmaster–Vicol [4]; Albritton–Brué–Colombo [1]), 1 is a textbook (Stein [20], used once, p. 122,
+for L^p-boundedness of Riesz transforms in Lemma 10.5), and the rest carry the method:
+
+* Córdoba–Martínez-Zoroa [6] (forced 3D Euler blowup with C^{1,1/2−ε} ∩ L^2 force, arXiv 2023),
+  Córdoba–Martínez-Zoroa–Zheng [8] (hypodissipative NS blowup with force in L^1_t C^{1,ε} ∩ L^∞_t L^2,
+  ARMA 2026), Córdoba–Martínez-Zoroa [7] (IPM singularities with smooth source, arXiv 2024/25).
+  The paper (p. 2): "These works established a strategy for singularity formation based on
+  amplification across scales while controlling the regularity of the external force. In their
+  constructions, larger-scale strain amplifies smaller-scale vorticity, with leading self-interactions
+  and feedback on the larger scales suppressed." And on [7]: "using approximations of increasing order
+  to keep every spatial derivative of the source uniformly bounded." Then (p. 3): "Our construction
+  also exploits dynamical amplification, with a different role for the amplified disturbances:
+  oscillatory pulses generate a mean momentum flux that supplies the missing force on a collapsing
+  background vortex."
+* Wave dynamics: Lifschitz–Hameiri [17], Friedlander–Vishik [14] ("describe the evolution of
+  wavevectors and velocity polarizations along a background flow"), Craik–Criminale [9] ("exact
+  finite-amplitude waves on affine background flows, exploiting the cancellation of the wave's
+  quadratic self-interaction"), Leibovich–Stewartson [15], Billant–Gallaire [2, 3] (centrifugal
+  instability criteria), Singh–Sridhar [19] (exact viscous shearing waves).
+* Daneri–Székelyhidi [10]: "The use of oscillations to realize a prescribed stress is central to the
+  Euler constructions of Daneri and Székelyhidi."
+
+So the assembled ingredients are: (i) the "make the force the residual, control all derivatives"
+strategy [6, 7, 8]; (ii) the Kelvin-mode / localized-instability kinematics of a WKB wave in shear
+[9, 14, 17]; (iii) the Reynolds-stress-by-oscillation idea [10]; (iv) classical Whitney/Borel extension,
+Riesz transforms, Gronwall.
+
+### 3.2 What the paper presents as its own
+
+The paper never uses the word "new" or "novel" about itself (grep: 0 hits for "novel"; "new" only in
+technical senses like "new residual"). Its claim of originality is entirely implicit in the
+attribution sentence quoted above ("a different role for the amplified disturbances"). Reading
+between that line and the body, the steps that have no cited antecedent are:
+
+1. **The specific self-similar collapsing vortex with anisotropic scaling** ℓ_r ≍ τ^{1/2}, ℓ_z ≍ τ^{1/2−h},
+   A = 1/2 + h, D = 1/2 − h, and the deliberately ASYMMETRIC axial profile ("a slightly asymmetric
+   axial profile, with a small upward bias and nonzero velocity at z = 0", p. 5) so that shear is
+   available at every height. No citation. (§4, App. A, B.)
+2. **The exact "heat exterior"** — an explicit swirl K(r,τ) = r^{−1−2h} H_ext(τ/r^2) solving the
+   radial heat equation with H(Z) = Γ(1+h)^{−1} ∫_0^∞ e^{−v} v^h (1+Zv)^{−h} dv (eq. (4.29), p. 33),
+   so the exterior residual vanishes identically and derivative limits at t = 1 are explicit. No
+   citation. (App. A.)
+3. **The five-moment gluing invariant** (4.15)/(Lemma 4.4/A.1/A.2): finitely many cumulative radial
+   integrals whose preservation lets pieces built on different radial intervals be joined without
+   changing the exterior. No citation.
+4. **The admissible stress cone** (Lemma 4.5, (4.21)–(4.23)): the explicit 2D inequality system
+   P_c > v_s, (v_s − 2) J_c^2 < 2(P_c − v_s)^2 — with the "v_s > 2" condition attributed to viscosity
+   ("The additional inequality is required by the viscous waves", p. 31) — and the App. C device of
+   an N log X phase oscillation to force the cone condition. No citation.
+5. **The auxiliary-torus separation of pulse supports** (§6, Lemma 6.1). [My inference: this is a
+   reinvention, in a fast–slow setting, of the "building blocks with disjoint supports" idea; it is
+   not attributed to anyone.]
+6. **The four-operation correction cycle** with gain σ_{j+1} = σ_j + 1/10 (Prop 9.6) and the
+   "recompute the full residual after each operation" discipline. No citation.
+7. **The uniqueness Lemma 10.5** in the class smooth ∩ L^∞_t L^2_x with no growth condition on the
+   pressure. The technique is classical (expanding balls + Riesz commutator), but the paper works
+   it out from scratch with only Stein [20] cited; the standard references (Serrin, Prodi, Lions,
+   Galdi's book) are absent.
+
+### 3.3 What is conspicuously NOT cited
+
+No Elgindi (2021, C^{1,α} Euler blowup); no Chen–Hou (computer-assisted NS-boundary/Euler blowup);
+no De Lellis–Székelyhidi (2009/2013), Isett, Buckmaster–De Lellis–Székelyhidi–Vicol (Onsager); no
+Hou–Luo numerics; no Serrin/Prodi/Ladyzhenskaya uniqueness; no Whitney/Borel extension reference;
+no Nash–Moser; no self-similar-profile literature (Nečas–Růžička–Šverák, Tsai). The bibliography is
+lean to the point of austerity — 22 items for a 166-page paper claiming a Millennium Problem
+alternative. [My inference: the bibliography was written to justify the specific steps taken and
+nothing else; it reads like a dependency list, not a literature review. This is consistent with an
+agent-produced document whose "related work" section was assembled from the actual inputs the
+construction drew on rather than from a field survey.]
+
+## 4. Signs of how it was produced
+
+All counts are over the pdftotext layer (97,751 words; 8,656 layout lines).
+
+**4.1 Vocabulary of hand-waving: essentially absent.**
+"clearly" 0; "obviously" 0; "it is easy to see" 0; "easy to see" 0; "well known"/"well-known" 0;
+"straightforward" 0; "routine" 0; "trivial" 0; "we omit" 0; "left to the reader" 0; "one checks" 0;
+"should" 0; "expect" 0; "we believe" 0; "presumably" 0; "unable"/"do not know"/"not known" 0.
+"standard" occurs ONCE (p. 122: "We use the standard L^p boundedness of Riesz transforms ... see
+[20]"). "Note that" once (p. 28). "Remark" once (Remark B.9, p. 157 — and it is not a remark in the
+usual sense; it is a dependency-order specification, see 4.4). "Indeed" 23, "Recall" 10. This
+profile is far outside the norm for a human-written analysis paper of this length, where "clearly"
+and "standard" typically appear dozens of times. I read it as a strong sign of either (a) a style
+rule imposed on the writer ("no appeals to obviousness") or (b) generation by a system checked
+against a rule of that kind.
+
+**4.2 No human trace.** No author names, no affiliations, no acknowledgments ("acknowledg" 0,
+"thank" 0), no funding, no date on the title page, no arXiv identifier, no "Data availability", no
+mention of computers, numerics, or verification tools ("computer" 0, "numeric" 0, "Lean" 0,
+"formal" only in "formal expansion/series"). No sentence anywhere describes how the proof was
+found. The PDF metadata Author field is empty. The Euler companion in the same fetch
+(`openai-euler-2026-09-08.pdf`, "Finite time blowup for the Euler equation", 60 pp., claims UNFORCED
+Euler blowup from smooth compactly supported divergence-free data — a far stronger-sounding claim)
+has the same author line "OPENAI" and the same house style; the NS paper does not cite it.
+
+**4.3 Statement density and proof structure.**
+8 Theorems, 42 Propositions, 73 Lemmas, 8 Corollaries, 5 Definitions, 1 Remark; 70 "Proof." and
+72 "□" (the extra two end-of-proof marks close proofs stated as "Proof of Theorem 1.1" and
+"This proves Theorem 3.1(iv), and completes its proof", p. 116). Numbered displayed equations:
+§3: 11, §4: 43, §5: 46, §6: 32, §7: 42, §8: 27, §9: 21, App. A: 56, B: 40, C: 19. Proofs are organized
+into explicitly labeled "Step 1: …", "Step 2: …" (64 occurrences), each step with a bold-face
+sentence summarizing its goal, e.g. "Step 1: verify the summation hypotheses and choose the
+cutoffs." (p. 60), "Step 4: verify the six conclusions." (p. 44), "Step 3: One-sided regularity away
+from the singular point." (p. 115). Every proposition is cross-referenced forward and backward by
+equation number; Fig. 5 and Fig. 6 (pp. 13, 15) are flowcharts whose boxes name the exact
+proposition and equation that discharges them (e.g. "Lemma 7.7; (9.11)", "Proposition 9.6; (9.8),
+(9.18)"). The hypertext links are live (hyperref).
+
+**4.4 Explicit constants and explicit dependency order.** The paper tracks constants with an
+unusual literalness: σ_0 = 1/5, σ_{j+1} = σ_j + 1/10 (p. 14); in the proof of Prop 9.5 (p. 107):
+"These estimates imply (9.8) with B_0 = 0.7 and C_0^* = 1.2. The primary curl correction has
+exponent 1 − κ_s > 0.68. All mean increments and pressure changes have exponent H_0 > 0.9, with
+radial exponent H_0 + 1 > 1.9." — decimal exponents, with numerical slack stated ("gain greater than
+0.8 above H_0"). Prop 9.6 (p. 108) tabulates the error exponents per interaction type in a 4-row
+table (linear error B + 1/2 − 3κ_s; cross with old exact waves B + 1/2 − κ_s; self-interaction
+2B − κ_s; cross with total mean B + 0.4). Lemma 10.3 gives b_j by an explicit min-formula (p. 120).
+Theorem 4.6(v) gives H(Z) as an explicit integral (p. 33). Hext derivative bound: 2^A c_∞ 4^m (h)_m
+(1+h)_m with rising factorials (p. 116). Definition 3.3 (p. 18) formalizes the parameter-choice
+protocol: "we write α ≪ β when α/β is required to be sufficiently small, with the allowed size
+depending on all data already fixed. In a chain of constants, choices proceed from right to left".
+Remark B.9 (p. 157) then writes the actual dependency chain as a displayed diagram (B.40):
+M_d, T_d, P_*, λ, h → tolerance, j_0 → δ_*, σ_*, Λ → (B_k), T_sh → C, X_R → κ_0, t_1, widths. This
+is exactly the "parameter dependency graph" one writes when preparing a proof for mechanical
+checking, or when many contributors must not accidentally create a circular choice.
+
+**4.5 The Table 1 "Guide to the principal symbols"** (pp. 19–24, six pages, ~90 rows): every symbol
+with role and the equation where it is defined. Includes disambiguations a human author would rarely
+bother with: "The index n counts background expansion orders", "The background expansion order n,
+correction stage j, dyadic band index ℓ, and Fourier harmonic index are distinct" (p. 17), "This
+label is distinct from the axial mean-velocity component γ below" (p. 21), "Here ε denotes their
+logarithmic width, independent of the physical scale q" (p. 21). [My inference: a symbol table of
+this kind is what you produce when the document was written by many hands (or many agent
+contexts) that needed a shared namespace; it is also what a formalizer asks for first.]
+
+**4.6 Is §3 a plan the rest fulfils?** Yes, in a strong sense. §3 is 18 printed pages but only
+~11 of prose (pp. 6–17); pp. 18–24 are notation and Table 1. The prose part is structured as
+§3.1 (leading field) → §3.2 (four numbered construction steps, each naming the App. A/B/C result
+that does it) → §3.3 (pulses; the exact residual identity; the numerology) → §3.4 (the four-operation
+cycle, numbered 1–4, each naming its proposition) → Theorem 3.1 (the local contract, four clauses
+(i)–(iv)) → §3.5 (how §10 consumes Theorem 3.1). Every box in Figs. 5–6 has a proposition number.
+The body sections then open by restating the contract they fulfil: §4 (p. 24) "We first derive the
+stress from the profiles, then identify the five cumulative radial integrals…"; §10 (p. 116) "In this
+section we turn the fields supplied by Theorem 3.1 into the whole-space solution and force in
+Theorem 1.1." The interface between §§4–9 and §10 is EXACTLY Theorem 3.1 — §10 uses nothing else
+about the construction except (3.3)–(3.6). That is a clean module boundary. [My inference: Theorem
+3.1 is the spec that the "construction" workstream had to deliver and the "completion" workstream
+could assume; §§4–9 could have been developed and checked independently of §10, and vice versa.]
+
+**4.7 Lean-shaped?** Not literally (no Lean, no Mathlib, no formal-statement blocks, and the
+analysis — smooth functions of several variables, cutoffs, Riesz transforms, Gronwall — is far from
+what Mathlib can currently host). But the statements ARE written in the shape a formalizer wants:
+fully quantified hypotheses (Lemma 4.5: "Let a > 0, b_s ∈ R, p_s ∈ R^2, and define … by (4.20). If
+v_s > 2, … is equivalent to (4.22). For every nonempty compact set K ⊂ {…} such that, for every
+(a,b_s,w) ∈ K, [two displayed inequalities], there exists P_K > 0 with the following property…"),
+explicit domains ("on the closed annulus [X_a, X_b] × [−1, 1]", "for every η ∈ [−1,1]"), explicit
+uniformity claims ("The constants may depend on X_max"), explicit statements of what is preserved
+across steps ("The cumulative bounds (9.9) and the exact moments (9.10) are preserved", Prop 9.6),
+and one-sided-derivative conventions spelled out ("derivatives at the boundary are one-sided",
+Thm 4.6(i)). Definition 9.4 ("Finite correction state") is an explicit invariant for the induction —
+what a program would call the loop invariant.
+
+**4.8 Redundancy.** Moderate and deliberate. §2 (physics) and §3 (outline) say the same things at
+two levels of precision; §3 and Figs. 5–6 say them a third time; each body section re-summarizes
+its role in its first paragraph. Sentences are short and declarative; there is almost no "we now
+turn to" connective tissue beyond one sentence per subsection. The prose has the flat, uniform
+register of a document generated under a strict style guide.
+
+**4.9 What would a human editor have added?** A one-paragraph discussion of why the unforced
+problem is different; a comparison with [1] (which also uses forcing and zero initial data) beyond
+the single sentence "Their force lies in L^1_t L^2_x and is singular at the initial time"; a remark
+on optimality of h or of the blowup rate; open questions; acknowledgments. None are present.
+
+## 5. Transferable lessons for an AI-driven attack on RH
+
+Each lesson names the feature of the paper it comes from; "the paper does X" is separated from
+"I infer".
+
+**L1. They attacked the disproof-shaped alternatives (C)/(D), not the proof-shaped (A)/(B), and
+they chose the one where the free parameter (the force) lets you DESIGN the object.** The paper
+does: pick (u,p), define f := R(u,p), prove f smooth (p. 3). The whole 166 pages is a
+construction-plus-estimates, not an analysis of an unknown object. I infer: for RH the analogous
+move is to look for statements in the RH orbit where a construction with a free parameter can be
+DESIGNED rather than a fixed object analyzed — e.g. disproof-shaped variants (a counterexample to a
+Selberg-class or Beurling-generalized-prime analog, a zero-free-region-violating Dirichlet series
+with prescribed functional equation, a Beurling prime system with a specific zero). The barrier zoo
+should carry, for each RH-adjacent conjecture, its DISPROOF-shaped form and a note on which
+parameters are free in it. (Compare: Clay's NS statement offered four alternatives; the "cheapest"
+one turned out to be the one with a free smooth force.)
+
+**L2. A local "contract theorem" as the module boundary.** The paper does: Theorem 3.1 (p. 15) is
+the only interface between the construction (§§4–9) and the completion (§10); §10 uses (3.3)–(3.6)
+and nothing else. I infer: direction files in our program should be written as contract theorems
+with numbered clauses that the downstream step consumes verbatim, so that agents on either side can
+work (and be checked) independently. Our KICKSTART/direction files currently describe tasks; they
+should also state the interface as a theorem-with-clauses.
+
+**L3. The proof outline is a plan with a discharge map.** The paper does: every box in Figs. 5–6
+names the proposition and equation that discharges it (pp. 13, 15); §3.2's four numbered steps and
+§3.4's four numbered operations each cite the App./§9 result that does the work. I infer: we should
+maintain a "discharge map" — a table from outline step to the file/lemma/Lean declaration that
+discharges it — and treat an outline step without a discharge target as an open obligation. This is
+a cheap artifact to keep current and it is the first thing a referee (or a verifier agent) wants.
+
+**L4. Explicit parameter-dependency chains, written down as a diagram.** The paper does: Definition
+3.3 (p. 18, "choices proceed from right to left") plus Remark B.9's chain (B.40) (p. 157). I infer:
+circularity in parameter choice is the classic failure mode of long analytic constructions and of
+multi-agent work (agent A fixes ε depending on N, agent B fixes N depending on ε). For any RH
+sub-project with more than three parameters, a dependency chain file should exist and be checked
+for acyclicity mechanically. For the Lean side this is automatic; for the informal side it must be
+imposed.
+
+**L5. Zero tolerance for "clearly".** The paper does: 0 occurrences of clearly/obviously/easy to
+see/well known/standard(1) in 97k words (§4.1 above). I infer: a lint rule on our prose outputs that
+rejects those words, forcing an agent either to write the argument or to cite. It costs nothing and
+it is the one style feature of this document most obviously produced by a rule. It also makes the
+text vastly easier to formalize later.
+
+**L6. Numerical slack tracking in exponents.** The paper does: "B_0 = 0.7, C_0^* = 1.2", "exponent
+1 − κ_s > 0.68", "gain greater than 0.8 above H_0", tabulated per-interaction exponents (pp. 107–108).
+I infer: when an iteration must close with a fixed gain per step (here 1/10 in the ε-exponent), keep
+a machine-readable ledger of every error term's exponent, so that the closing inequality is a
+one-line check rather than a page of prose. For RH-adjacent analytic work (zero-density,
+large-sieve, mollifier exponents), the same ledger discipline — exponent tables with explicit slack —
+would let an agent verify closure mechanically and would surface exactly where a barrier bites.
+
+**L7. Finitely many invariants as the gluing interface.** The paper does: the five cumulative
+radial integrals (4.15)/Lemma 4.4 let pieces built on different radial intervals be glued without
+disturbing the exterior; the same five moments reappear as the compatibility conditions in §8
+(8.25). I infer: identify, for each RH sub-construction, the finite list of invariants that must be
+preserved across a gluing/induction step, and make preserving them an explicit clause of every
+lemma (as Prop 9.6 does: "The cumulative bounds (9.9) and the exact moments (9.10) are preserved").
+This is also what makes the induction state (Definition 9.4) a checkable object.
+
+**L8. The "big yet cancel" balance is a cone condition, and cone conditions are where sign
+obstructions live.** The paper does: the required stress must lie in the OPEN positive cone of what
+nonnegative squared amplitudes can supply (Lemma 4.5, Fig. 4); when the naive profile fails the
+cone condition they perturb it (App. C, N log X oscillation) to force it. I infer: in the barrier
+zoo, positivity/cone-type obstructions (e.g. the nonnegativity constraints in Beurling-Selberg /
+Montgomery-pair-correlation extremal problems, the positivity in Weil's explicit-formula
+criterion, sign constraints in de Branges-type approaches) should be catalogued as CONE conditions
+with an explicit description of the generating vectors; the NS paper shows that a cone condition
+which fails for the "natural" object can sometimes be forced by a cheap perturbation that changes
+derivatives at order one while changing values at order 1/N. That is a general trick worth having
+in the zoo as a "cone-opening perturbation".
+
+**L9. Lean bibliography = dependency list, and that is a feature for verification.** The paper does:
+22 references, of which about 10 carry weight, each cited at the exact step it supports (§3.1 above).
+I infer: our output documents should carry a "load-bearing citations" list separate from context
+citations, and each load-bearing citation should be tied to a lemma number in OUR text. A verifier
+agent can then check the external inputs one by one. (The flip side, for the zoo: the NS paper's
+absence of Elgindi/Chen–Hou citations means it did not go through the self-similar-stability
+route; the zoo entry for "self-similar blowup" should record that a route AROUND the stability
+barrier — design the solution, absorb the mismatch into a smooth force — exists.)
+
+**L10. Flatness, not smallness, is the target.** The paper does: the residual is not made small in a
+norm; it is made FLAT — every Cartesian space-time derivative O(q^N) for every N (Thm 3.1(iii),
+(3.4)) — and then extended by zero through the singular time (Lemma 10.3). Flatness is achieved by
+"correct to all orders in ε = q^h, then sum with shrinking cutoffs" (Lemma 5.4, reused in §9).
+I infer: when an RH-adjacent construction needs a remainder that "does not matter", ask whether the
+right notion is "flat at the boundary" (all derivatives vanish, Borel-summable) rather than "small in
+L^2" — the former is what lets one glue across a singular point with C^∞ regularity. This is a
+technique-family entry for the zoo ("all-orders correction + Borel/cutoff summation to flatness")
+with this paper as the worked example.
+
+## 6. Doubts
+
+I did not referee 166 pages. What follows are places a referee would push, plus one structural
+observation.
+
+**D1. Lemma 10.5's uniqueness class (pp. 121–123).** The "Consequently" clause of Theorem 1.1 rests
+entirely on: any SMOOTH solution with the same f, zero datum, and sup_t ‖v‖_2 < ∞ agrees with the
+constructed u on [0,T], T < 1. Fefferman's (C) says "there exist … such that there is no solution
+(p, u) on R^3 × [0,∞) satisfying (1), (2), (3), (6), (7)" — where (6)/(7) are smoothness and bounded
+energy. So the hypothesis class matches Fefferman's. The proof recovers ∇P via Riesz transforms with
+NO growth assumption on P; the argument that ∇π − ∇π_* has Fourier transform supported at {0} and
+is therefore zero (p. 122) needs the difference to be a tempered distribution — smoothness alone does
+not give temperedness of P. The paper handles this by working with ∫a∇π dt and the equation
+(conservative form), deducing membership in H^{−3} from the OTHER terms, so temperedness of ∇π is
+derived rather than assumed. That is correct in outline, but it is exactly the step where a
+referee will want every line. Also: u is smooth with compact support and v ∈ L^∞_t L^2_x, so the
+"difference energy on expanding balls" argument needs ‖∇u‖_∞ < ∞ on [0,T] (true, u is compactly
+supported and smooth for t < 1) — fine.
+
+**D2. The transfer from "u blows up" to "no global smooth v".** Once v = u on [0,1), v is unbounded
+near (0,1) so it cannot be smooth on R^3 × [0,∞). This is sound. But note the subtlety the paper
+itself flags (p. 124): the energy bound is on the HYPOTHETICAL v, so a Leray–Hopf weak continuation
+past t = 1 is not excluded and is not discussed. Not a gap, but the statement is exactly as strong
+as Fefferman's alternative (C) and no stronger.
+
+**D3. The h < 1/100 constraint and its actual use.** h enters as the anisotropy exponent, the
+expansion parameter ε = q^h, the pulse scaling, and the cone/viscosity inequalities. The proof
+of Theorem 4.6 (Remark B.9) requires h ≪ λ and h ≪ e^{−T_d}, chosen after other parameters. A
+referee would check that every "h sufficiently small" is consistent with h being fixed BEFORE q,
+the bands, and the stages (the paper asserts this at the end of Theorem 4.6, p. 165: "The finite
+frequency N was fixed in Proposition C.2 before the physical scale q and all later bands and
+correction stages"). The dependency chain (B.40) is where I would start.
+
+**D4. The auxiliary torus and the phase map Y(r,t).** The claim that products of distinct pulses
+vanish identically after evaluation at Y(r,t) because their Y-supports are disjoint (Lemma 6.1) is
+clean; but the physical derivatives then include chain-rule terms from Y(r,t) = v_r r^{d_r} + v_t t,
+and the paper says (p. 12) "All chain-rule terms from Y(r,t) are included." The consistency of
+angular/Haar averaging "before restriction to the physical phase map" (p. 17) with the actual
+physical residual — i.e. that the averaged extended residual, evaluated at Y(r,t), equals the
+physical residual up to terms that are controlled — is the kind of "the trick works" claim that a
+referee checks by hand. Lemma 6.3 ("Number of relevant labels") bounds overlaps by O(S_ref^3); fine
+in principle.
+
+**D5. Per-stage constants vs. summation.** Prop 9.6 says constants "may depend on j, m" while K_m
+(the derivative loss) is independent of j (p. 14). Summation with cutoffs χ(a_j q) then needs the
+a_j chosen so that the tails satisfy (5.35). This is the standard place where "constants depending
+on the stage" can silently defeat a summation; the paper's Lemma 5.4 is written to handle exactly
+this (cutoff supports shrinking with the stage so each stage's constant is beaten by a power of q).
+Plausible; would want to check that the derivative-loss exponent K_m really is j-independent in the
+wave-amplitude equations, where each cycle adds harmonics.
+
+**D6. The uniqueness/nonuniqueness landscape.** Albritton–Brué–Colombo [1] show NONUNIQUENESS of
+Leray–Hopf solutions with zero data and a force in L^1_t L^2_x. The present paper's f is far more
+regular (C_c^∞), and the uniqueness lemma is only used for t < 1 among SMOOTH bounded-energy
+solutions, where uniqueness is classical. No conflict; just noting the two results sit side by side.
+
+**D7. Provenance and checkability.** No author, no acknowledgment of any verification, no
+companion code, no Lean, no numerics, and a 22-item bibliography. The Euler companion paper in the
+same drop claims unforced Euler blowup from smooth compactly supported data — a claim that, if
+correct, is at least as significant as this one and one that the field (Elgindi, Chen–Hou, Hou–Luo)
+has been working toward for a decade with heavy computer assistance. Two such results released on
+the same day with no stated verification process is itself a fact a referee must weigh. Nothing in
+the NS text looked wrong to me at the level I read it (the outline is coherent, the numerology
+closes, §10 is careful), but I read §§1–3 and §10 closely and only sampled §§4–9 and the
+appendices (Thm 4.6, Lemma 4.5, Prop 5.5, Props 9.5–9.6, Remark B.9).
+
+**D8. The one visible weakness of the writing as a verification artifact.** Because the correction
+cycle "recomputes the full residual after each operation" and the exponents are tracked in prose
+tables rather than in a single closed formula, checking closure of the induction (that σ_{j+1} =
+σ_j + 1/10 really holds for every term) requires reconstructing the ledger by hand from pp. 101–111.
+A machine-readable ledger would have made this a mechanical check. That is the same lesson as L6,
+stated as a doubt.
+
+---
+Reading log: §§1–3 in full (pp. 1–24); §10 in full (pp. 116–126); references (pp. 165–166);
+Theorem 4.6 + Lemma 4.5 (pp. 31–33); Prop 5.5 (pp. 60–61); Props 9.5–9.6 (pp. 107–108); Remark B.9
+(p. 157); Euler companion p. 1. Vision-checked: pp. 1, 11, 14, 15 (Theorem 1.1, A_wave scaling,
+σ_j recursion, Theorem 3.1).
+
+Status: COMPLETE
