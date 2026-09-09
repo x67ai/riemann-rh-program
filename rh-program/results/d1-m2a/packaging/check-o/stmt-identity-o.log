@@ -1,0 +1,14 @@
+CHECK-O — statement identity, Job 2's own extraction
+challenge statements: 7; solution root statements: 7; config theorem_names: 7
+  dbn_ray_le_point2_of_certificates    IDENTICAL (758 chars)
+  dbn_ray_le_point2_mp                 IDENTICAL (399 chars)
+  dbn_ray_le_point2_arb                IDENTICAL (403 chars)
+  dbn_row2BarrierMP_checked            IDENTICAL (69 chars)
+  dbn_row2BarrierARB_checked           IDENTICAL (71 chars)
+  dbn_row2AsymMP_checked               IDENTICAL (60 chars)
+  dbn_row2AsymARB_checked              IDENTICAL (62 chars)
+  config-dbn.json theorem_names == the challenge's names, in order: True
+  permitted_axioms: ['propext', 'Quot.sound', 'Classical.choice']
+  enable_nanoda: True
+  solution root theorems not in the challenge: none
+RESULT: IDENTICAL
