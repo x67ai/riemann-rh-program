@@ -276,3 +276,5 @@ Adjacent: **THEOREM 7′ (p. 375):** "*Let Y be a closed subspace of the injecti
 | 14 Mangino | List's **185** is RIGHT; file name/text layer "186" is an OCR error (vision + Crossref DOI 10.1002/mana.3211850111) | Def. 1.1 (MO) p. 153; Thm 1.3 pp. 153–154 ((MO) ⟹ ind(E_n ⊗̂_ε X) = E ⊗̂_ε X for all Banach X ⟺ ind(E_n ⊗̂_π X) acyclic; converse for totally reflexive steps); Props. 1.5, 1.6, 1.9; Prop. 2.1 p. 158. **Neighbor of C6(iii), not an anticipation**: no statement of (M)/(M\*) for the ε-spectrum (C(T; E_n)), no converse, and (MO) is an operator condition the program's interpolation does not supply. |
 
 No source contradicts anything on the program's record. Two forward notes for a future (non-ingest) session: Wengenroth Thm 3.3 offers a regularity-only route to acyclicity **if** the compactly based steps S^m_K are themselves Montel (unchecked); Mangino Prop. 1.5 would yield the topological interchange ind_m C(T; S^m_K) = C(T; S^∞_K) **if** frequency cut-off operators verify (MO) (unchecked).
+
+**Status: COMPLETE** (2026-09-09; all four items — 6a, 10, 11, 14 — with §1–§5 each; report committed as b34e702, push left to the push watchdog).
