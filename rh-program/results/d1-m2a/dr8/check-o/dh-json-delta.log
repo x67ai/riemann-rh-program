@@ -1,0 +1,18 @@
+== results/d1-m1/acceptance/w1-mp-dh-livefire.json
+   keys changed: ['comment', 'trust_label']
+   keys added:   []
+   keys removed: []
+   every OTHER field byte-identical (rect, scales, claimed_m, mesh, segments, modulus_floor, producer, format, version, mode, function): YES
+   segments identical: True (40 segments)
+   modulus_floor identical: True
+== results/d1-m1/acceptance/w1-arb-dh-livefire.json
+   keys changed: ['comment', 'trust_label']
+   keys added:   ['comment']
+   keys removed: []
+   every OTHER field byte-identical (rect, scales, claimed_m, mesh, segments, modulus_floor, producer, format, version, mode, function): YES
+   segments identical: True (50 segments)
+   modulus_floor identical: True
+
+schema-validate w1-mp-dh-livefire.json: 0 error(s)
+schema-validate w1-arb-dh-livefire.json: 0 error(s)
+schema-validate the 8 zeta null transcripts: 0 error(s)
