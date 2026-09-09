@@ -160,3 +160,5 @@ BUILD-NOTES "Owed"), Job 2's independent clean-clone check (`CHECK-O.md`) and Jo
 which follow in the same queue item. **Label unchanged and verbatim: "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3"** — never
 "fully machine-checked"; Λ ≤ 0.2 is not proved. The cut line: item 5 is landed modulo the SPEC v1.1 fold-in; items 7 (M2b) and 8
 (Gomila M2a′) lie beyond it.
+
+**[DATED NOTE 2026-09-10 02:35 IST, Session 20 (orchestrator).]** §6 item 5 (packaging) LANDED in full: comparator topic `DBN` (Comparator PASS with nanoda, `results/d1-m2a/packaging/COMPARATOR-RUN.md`), `lean/formalization.yaml` + `FIDELITY.md` (a)–(k), independent clean-clone check CLEAN (`CHECK-O.md`), and the SPEC v1.1 fold-in of §14 (four dated blocks at §2.3, §2.4/P-6, §3.4, §7.1; header bumped). The cut line moves to §6 item 8 (Gomila M2a′ decision) and D-R8, both priced first (`results/d1-m2a/dr8/BRIEF.md`). Label unchanged.
