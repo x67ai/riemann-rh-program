@@ -1,0 +1,26 @@
+# C3-r — Session 20 queue item 3: re-scoping by consolidation (KICKSTART 10(a)), NO construction — brief
+
+**Written 2026-09-10 (Session 20, orchestrator).** One agent (Fable 5.1), one deliverable: `results/c3-r/s20/insights-digest.md`. Reads only; the only files it may edit are its deliverable and `results/c3-r/SHARED.md` (append a dated block). Standing order 6 is in force: the Deninger leg's construction question is CLOSED at "open in print" (Session 19); this digest licenses no construction and proposes none. Paths contain spaces — quote them. U.S. English.
+
+## What to read, in this order (all on disk; every claim in the digest cites one of these by section/page)
+1. `results/c3-r/m2c-feasibility-ledger.md` §14, §15, §16, §16-bis, §16-ter, §16-quater, §16-quinquies, §16-sexies (lines ~289–630) — the obstruction ledger through the Q-S4⁗ decision.
+2. `directions/C3-geometric-substrate.md`: "Commission" (lines 21–139: the immutable commission, esp. every sentence containing "conversion" or "M2a-watch" or "M3"), "THE REDUCED RECOMMISSION (C3-r)" (170–173), "Current frontier" (203–221, the contract theorem with numbered clauses), "Dependencies" (222–231).
+3. `BARRIER-ZOO.md` IV.10–IV.16 (lines 395–465).
+4. `results/c3-r/s19/qs4quad/adjudication.md` §0, §2 (esp. D3, the double-cover sketch), §3, §6, §7; `results/c3-r/s19/insights-digest.md` §G, §H, §I (the previous digest — do not duplicate it; extend it).
+5. `FETCH-RESPONSE-ROUND5.md` and `results/fetch-r5/a01…a04.md` (the Round-5 ingest, Session 20 item 0): the Markov LMS definition and theorem hypotheses (a01), the answer to adjudication §6 item 1 (a02), the sharpening sources (a03), the completeness rows (a04). These are INPUTS: the digest records what they settle, in the fetch reports' own words with page numbers.
+6. `results/c3-r/s14/{qstar-adjudication.md}` and `results/c3-r/referee-s14/` only as needed for the M2a-watch and M3 items' original wording.
+
+## What to write — `results/c3-r/s20/insights-digest.md`
+- **§A Where C3-r stands, one page.** The four legs the commission and the reduced recommission name (M0-note, M1, M2c-primary with its obstruction ledger, M2a-watch, M3-instrument — quote the recommission's own list), and for each: CLOSED / OPEN / INSTRUMENT with the ledger section that decides it. The Deninger substrate leg: closed at "open in print" (§16-sexies) — state exactly what is closed (the construction question under standing order 6) and what is not (the mathematical question itself, which the literature does not decide).
+- **§B The conversion clause.** Quote the commission's conversion clause verbatim. Then decide by reading, not by preference: does it fire on an "open in print" closure, or only on a kill (a refutation)? If the text is ambiguous, say so and give both readings with their consequences; do not resolve ambiguity by inventing text. State what "firing" would convert C3-r into, in the commission's own words.
+- **§C The live legs now.** (i) M3-instrument: what it is (quote), what it would take, whether anything in Round 4/5 or the ledger bears on it. (ii) M2a-watch: what is being watched ([CC7] ≥ Nov 2026, prismatic Stage-1, Dong et al.) and the trigger for each. (iii) The substrate question OUTSIDE Deninger's class: which named substrates the sweep left (CC square, condensed archimedean FF-curve, the Morishita bridge) and what each would need to be a Q-S4-type question with a decidable first rung — one paragraph each, sources cited; no new mathematics.
+- **§D The Round-5 harvest as it bears on the gate.** From the fetch reports: the Markov LMS definition and the exact hypotheses under which Duminy's semiproperness is dropped (a01); the §6-item-1 answer (a02) — if "none", say the branch (P∞) stays unnamed; if a statement was found, quote it and say which branch it names, and that the verdict does not change (adjudication §6 says so in advance); what a03/a04 sharpen. Propose (do not apply) the dated blocks: for ledger §16-sexies (a "§16-septies" or a dated addendum), zoo IV.16, the adjudication §6, the C3 frontier — verbatim text, ready to paste, each ≤ 10 lines.
+- **§E The double-cover lemma (rider R1).** Restate adjudication §2 D3's sketch in full, list its hypotheses, and price the dual-check (two agents, one per model; no construction — it is a transfer lemma about (S)'s ingredients under the orientation double cover). Do NOT prove it here.
+- **§F Refutation-shaped statements to bank (10(c)).** Numbered, each of the form "proof class X cannot yield Y because Z" or "Y holds", each with its ledger/zoo source; only statements already on record or directly read off the fetch reports — nothing new. Mark which are already zoo entries and which are candidates.
+- **§G What the next C3-r brief must quote (≤ 12 sentences, verbatim, with sources)** — the successor of the s19 digest's §J.
+- **Closing honesty note (standing order 5):** what you read, what you did not, what is inferred.
+
+Append to `results/c3-r/SHARED.md` a dated block: digest written, SHA-256, the §B reading, the §D answer in one line.
+
+## On completion (orchestrator)
+Enact §D's dated blocks (insertion-only), LOG/STATUS, commit; decide whether §E (the double-cover dual-check) runs this session or is queued.
