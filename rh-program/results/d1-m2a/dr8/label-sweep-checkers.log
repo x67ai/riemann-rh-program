@@ -1,5 +1,5 @@
-# dr8/label-sweep-checkers.log — 2026-09-10 03:44 IST: after the trust_label amendment of the two DH transcripts (label + comment fields only; the Arb JSON had no comment field, one was added — schema-optional), both Python checkers and the Instances.lean back-parse re-run. (An earlier version of this log, 03:38, recorded a SyntaxError in reference_checker.py: the new label's apostrophe inside a single-quoted Python literal; fixed by double-quoting, then everything re-run.)
-## reference_checker.py
+# dr8/label-sweep-checkers.log — 2026-09-10 03:46 IST: after the trust_label amendment of the two DH transcripts (label + comment fields only; the Arb JSON had no comment field, one was added — schema-optional), both Python checkers and the Instances.lean back-parse re-run. (Two earlier versions of this log: 03:38 recorded a SyntaxError in reference_checker.py — the new label's apostrophe inside a single-quoted Python literal, fixed by double-quoting; 03:44 lost the eight-null-transcript section to a shell word-splitting slip in the log script. Everything below is one clean run.)
+## reference_checker.py on the two DH transcripts
 == acceptance/w1-mp-dh-livefire.json
    C1 pass: K=1000000000000000000000000000000 A=1000000000000, all denominators >= 1
    C2 pass: 1/2 < sigma1 <= sigma2 < 1, T1 < T2 (cross-multiplied)
@@ -27,7 +27,7 @@
    C11 pass: modulus floor 301881785757956470927016215/1000000000000000000000000000000 certified on all rows
    VERDICT: ACCEPT (all checks pass; f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
 exit=0
-## checker_ref.py
+## checker_ref.py on the two DH transcripts
 acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 exit=0
@@ -67,25 +67,32 @@ exit=0
    VERDICT: CONSISTENT
 exit=0
 ## ζ transcripts unaffected: both checkers on the eight null transcripts
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/reference_checker.py", line 319, in <module>
-== acceptance/w1-mp-null-t100.json acceptance/w1-arb-null-t100.json acceptance/w1-mp-null-t1000.json acceptance/w1-arb-null-t1000.json acceptance/w1-mp-null-t10000.json acceptance/w1-arb-null-t10000.json acceptance/w1-mp-null-deep-t100.json acceptance/w1-arb-null-deep-t100.json
-    ok = all(run_file(p) for p in args)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/reference_checker.py", line 319, in <genexpr>
-    ok = all(run_file(p) for p in args)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/reference_checker.py", line 241, in run_file
-    with open(path) as fh:
-FileNotFoundError: [Errno 2] No such file or directory: 'acceptance/w1-mp-null-t100.json acceptance/w1-arb-null-t100.json acceptance/w1-mp-null-t1000.json acceptance/w1-arb-null-t1000.json acceptance/w1-mp-null-t10000.json acceptance/w1-arb-null-t10000.json acceptance/w1-mp-null-deep-t100.json acceptance/w1-arb-null-deep-t100.json'
-exit=
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/checker_ref.py", line 337, in <module>
-    sys.exit(main(sys.argv[1:]))
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/checker_ref.py", line 331, in main
-    ok, _ = check_file(path)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/checker_ref.py", line 256, in check_file
-    with open(path) as fh:
-FileNotFoundError: [Errno 2] No such file or directory: 'acceptance/w1-mp-null-t100.json acceptance/w1-arb-null-t100.json acceptance/w1-mp-null-t1000.json acceptance/w1-arb-null-t1000.json acceptance/w1-mp-null-t10000.json acceptance/w1-arb-null-t10000.json acceptance/w1-mp-null-deep-t100.json acceptance/w1-arb-null-deep-t100.json'
-exit=1
+== acceptance/w1-mp-null-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-t1000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t1000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-t10000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-t10000.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-mp-null-deep-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+== acceptance/w1-arb-null-deep-t100.json
+   VERDICT: ACCEPT (all checks pass; conclusion holds modulo the displayed hypotheses H-ENCL, H-AP)
+exit=0
+acceptance/w1-mp-null-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t100.json: ACCEPT (zeta/exclusion, m=0, 27 segments, S=[-14, 13], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 81 segments, S=[-41, 40], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 65 segments, S=[-29, 36], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 1294 segments, S=[-679, 637], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 983 segments, S=[-495, 488], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-mp-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 58 segments, S=[-28, 30], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+acceptance/w1-arb-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 30 segments, S=[-16, 14], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+exit=0
 ## SHA-256 after (old DH hashes: mp 756b144704c19b5ba8f34d38ec812255ee94025ebb2804f120ff932a5025d441, arb e39b90cbacccb6b1e262498ba1a05280006385aa57cf40908a9de8ef91d24381)
 fdd3701d2f353990beeac0d7e56808a8cbe959a1748c904d152fc221e93a0765  acceptance/w1-mp-dh-livefire.json
 b652bde5aedb79d8d5723942adbd75ec83b2ca1fd0e603cdfcdb6c75b55eae9d  acceptance/w1-arb-dh-livefire.json

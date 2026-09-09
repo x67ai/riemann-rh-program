@@ -182,3 +182,12 @@ IDENTICAL:      143 files under Zeta23/DBN/** and comparator/** unchanged (tree)
 > 8a2481fc5ddb8a5cf9ef842536aa1ecb237aaf118767db2e01e3665cfed36bb7  comparator/Solution/Multiplicity.lean
 > 0192f2cb65d19c23fbdfbe0906444be66acc114cf9bd87fb8b482aaf0b537137  comparator/Solution/XiPrime.lean
 MIRROR DRIFT (see above)
+
+# NOTE (Job 1, after the orchestrator's read): the "MIRROR DRIFT" above is the EXPECTED asymmetry, not a defect. The tree's
+# comparator/ holds the PARENT library's own files (comparator/README.md, ChallengeDeps.lean, Challenge.lean, Solution.lean,
+# PrintAxioms.lean, config.json — Anthropic's Zeta23 release), which rh-program/lean/comparator/ deliberately never carries
+# (lean/README.md, "What these build against"); the diff lines above are exactly those parent files, present in the tree
+# manifest and absent from the mirror manifest. Every DBN-topic file (comparator/*/DBN*.lean, config-dbn.json) and every
+# Zeta23/DBN/** file is byte-identical between tree and mirror and identical to the packaging record; the tree manifest
+# before/after the build is IDENTICAL (143 files). Verified line: "IDENTICAL: 143 files under Zeta23/DBN/** and comparator/**
+# unchanged (tree)".
