@@ -1471,3 +1471,5 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **Open at close:** nothing running. Sponsor: email the ÁLKL note if not yet sent; corpus + bundle backup; round-5 fetch optional.
 **Next session should:** follow the SESSION 20 QUEUE in STATUS (D1 packaging per 10(j) first).
 
+- **2026-09-10 00:36 IST — post-close addendum (Session 19):** the sponsor delivered ALL 13 rows of `FETCH-LIST-ROUND5.md` into `~/Downloads`; the orchestrator identified every file from its first pages (two whole volumes vision-checked: CM 70's *Theory of levels* at PDF p. 12; the Fête volume's Inaba article at printed p. 95), filed them as `fetched-r5/r5-01…r5-11` (gitignored; 13 files, 70 MB; `git status` clean of PDFs), and recorded the delivery in the list's header. Extra find by the sponsor: Cantwell–Conlon, Math. Ann. 265 (1983) — the candidate printed source for row 10. Nothing missing; the list is closed for the sponsor. Page-by-page verification + routing = Session 20 item 0.
+
