@@ -10,13 +10,13 @@
 |---|---|---|---|---|---|---|
 | 1 | P1 | Cantwell–Conlon 1989, *Leaves of Markov local minimal sets*, Publ. Mat. 33, 461–484 | **DELIVERED, verified EXACT** | `r5-01` | printed = PDF + 460; text layer EMPTY at PDF 10–11 (printed 470–471, Theorem 3) — vision | `a01.md` |
 | 2 | P1 | Cantwell–Conlon 1988, *Foliations and subshifts*, Tôhoku 40, 165–187 | **DELIVERED, verified EXACT** | `r5-02` | printed = PDF + 164; PDF 24 blank; math garbled | `a01.md` |
-| 3 | P1 | Cantwell–Conlon 1981, *Poincaré–Bendixson theory*, TAMS 265, 181–209 | (a02, pending harvest) | `r5-03` | | `a02.md` |
+| 3 | P1 | Cantwell–Conlon 1981, *Poincaré–Bendixson theory*, TAMS 265, 181–209 | **DELIVERED, verified EXACT** | `r5-03` | printed = PDF + 180; math garbled — vision | `a02.md` |
 | 4 | P2 | Cantwell–Conlon 1998, *Generic leaves*, CMH 73, 306–336 | (a03, pending harvest) | `r5-04` | | `a03.md` |
 | 5 | P2 | Dippolito 1978, Annals 107, 403–453 | (a03, pending harvest) | `r5-05` | | `a03.md` |
 | 6 | P2 | Cantwell–Conlon 1987, *Every surface is a leaf*, Topology 26, 265–285 | (a03, pending harvest) | `r5-06` | | `a03.md` |
 | 7 | P3 | Inaba 1988, *Examples of exceptional minimal sets*, Fête volume pp. 95–100 | (a04, pending) | `r5-07` (whole volume) | | `a04.md` |
-| 7b | P2 | Cantwell–Conlon 1988, *The theory of levels*, Contemp. Math. 70, 1–10 | (a02, pending harvest) | `r5-07b` (whole volume, IMAGE-ONLY) | | `a02.md` |
-| 7c | P3 | Cantwell–Conlon 1982, *Nonexponential leaves at finite level*, TAMS 269, 637–661 | (a02, pending harvest) | `r5-07c` | | `a02.md` |
+| 7b | P2 | Cantwell–Conlon 1988, *The theory of levels*, Contemp. Math. 70, 1–10 | **DELIVERED, verified EXACT** (AMS 1988, ISBN 0-8218-5077-6, eds. Kaminker–Millett–Schochet) | `r5-07b` (whole volume, IMAGE-ONLY) | article = PDF 12–21 = printed 1–10 (printed = PDF − 11); vision only | `a02.md` |
+| 7c | P3 | Cantwell–Conlon 1982, *Nonexponential leaves at finite level*, TAMS 269, 637–661 | **DELIVERED, verified EXACT** | `r5-07c` | printed = PDF + 636; math garbled — vision | `a02.md` |
 | 8 | P3 | Schweitzer 1978, LNM 652, 240–252 | (a04, pending) | `r5-08` | | `a04.md` |
 | 9 | P3 | Cantwell–Conlon 1982, *Endsets of leaves*, Topology 21, 333–352 | (a04, pending) | `r5-09` | | `a04.md` |
 | 10 | P3 | Cantwell–Conlon 1983, *Analytic foliations and the theory of levels*, Math. Ann. 265, 253–261 (sponsor's find) | (a04, pending) | `r5-10` | | `a04.md` |
@@ -32,5 +32,14 @@
 - **Checklist for any future program theorem about K (a01 §3, recorded, not judged):** the hypotheses visibly NOT among (D1)–(D6) are L ⊂ X (the (P0)/(P1)/(P∞) trichotomy — in (P∞) Theorem 1 does not reach L at all) and the subshift condition on Γ|C. r5-02 §7 prints exceptional minimal sets that are NOT Markov (Fuchsian groups of the second kind with parabolics), so the condition is not automatic.
 - **Record:** nothing contradicts it. Two sharpenings for the next program stream: Hurder's gloss is to be read as above; r5-01 p. 461 prints ℰ*(L) as ends "asymptotic to L" — a misprint for X (vision at 240 dpi).
 
+### Rows 3, 7b, 7c — the level theory and the bounded question (report `a02.md`, COMPLETE, harvested 2026-09-10 01:05 IST)
+- **Identity:** all three EXACT (details in the table). Standing hypotheses in all three: closed (compact), C², codimension one, transversely orientable (r5-03 also orientable M); nothing is printed for foliated spaces or laminations — the face-(a) vocabulary gap of adjudication §0 stands.
+- **The bounded question of adjudication §6 item 1 — "Does Cantwell–Conlon 1981/1988 print any relation between the endset (or the existence of an exceptional LMS in the closure) of a leaf at infinite level and its level?" — ANSWER: NONE** (a02 §3.4). The only endset–level theorems (r5-03 (6.0)–(6.4); Contemp. Math. 70 Theorems 4 and 8) carry hypotheses ("totally proper", "growth dominated by a polynomial") that force finite level. On an exceptional LMS in the closure of a leaf at infinite level r5-03 prints only a dichotomy ((5.0)(a), (5.2), the Remark after (5.1)): all LMS in L̄ are proper leaves or exceptional; either all of S(L) is totally proper or only finitely many leaves are — both horns possible, neither tied to ends. **Nothing names branch (P∞); nothing moves any face; the verdict stands as adjudication §6 predicted.**
+- **The only level–semiproperness implication in the three files** is semiproper ⇒ finite level (r5-03 (5.0)(d)/(5.4); r5-07c (3.5) proof) — exactly as the record states. Verbatim definitions of level, LMS, infinite level, end-level and the standing hypotheses are in a02 §3.
+- **Provenance gained:** Candel–Conlon I Lemma 8.3.23 originates at r5-03 (5.0)(d)/(5.4); Example 8.3.20's "hyperbolic plane at infinite level" originates at Contemp. Math. 70 p. 3, which cites *Every surface is a leaf* (5.2) (= r5-06, row 6) as the source.
+- **r5-07c** constrains growth at finite level only (main theorems (5.1), (5.5), (6.2), (6.10), (6.13), (7.1) transcribed); its end-statements ((6.1): one or two locally dense ends) concern holonomy-free locally dense LMS, never an exceptional one; it cannot name any branch. Side note for the next stream (a02 §4, the agent's inference from (3.2)+(3.3)+(3.7)): a non-semiproper leaf accumulating on an exceptional LMS at finite level must have exponential growth.
+- **Record:** nothing contradicts it. Two traps: in Contemp. Math. 70 "Duminy's theorem" means the Godbillon–Vey vanishing theorem (its Theorem 6, p. 4), never the endset theorem; p. 2 prints a typo ("M₁ = M₀ ∪ W₀") — quote, do not correct.
+
 ## Caveats routed to `results/corpus-routing.md` caveat 22 (filled at the end of the ingest)
 - from a01: r5-01 text layer empty at PDF 10–11; script letters garbled in both; PDF 24 of r5-02 blank; the Markov definition is split across three pages of r5-02; the [C-C n] reference keys are renumbered between the two papers.
+- from a02: r5-03 title OCRs as "POINCARÉ-BENDEXSON" and garbles all math (printed = PDF + 180); r5-07b is image-only, search it by page never by text, PDF 23 carries a bleed-through of printed p. 8, "Duminy's theorem" there = Godbillon–Vey; r5-07c garbles 𝓕/B/overbars (printed = PDF + 636), its level definition (1.3) is worded differently from r5-03 p. 186 (equivalent).
