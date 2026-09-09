@@ -13,9 +13,9 @@ Sections are appended as they are finished; a section that is absent was not rea
 
 **File:** `fetched-r4/r4-09-alvarez-lopez-kordyukov-leichtnam-trace-formula-foliated-flows-LNM2387-2026-PUBLISHED.pdf` — 8,785,829 bytes, 233 PDF pages, PDF 1.7, producer "Adobe PDF Library 10.0.1", created 2026-03-24, modified 2026-03-26, tagged, not encrypted. Page size 439 × 666 pt (Springer LNM trim).
 
-**What it is (read from the file itself, PDF pp. 1–4, 9–10, and the chapter-opening footers):**
+**What it is (read from the file itself, PDF pp. 1–5, 8–10, and the chapter-opening footers):**
 - Series page (PDF p. 1): "Lecture Notes in Mathematics 2387 / Jesús A. Álvarez López / Yuri A. Kordyukov / Eric Leichtnam / A Trace Formula for Foliated Flows".
-- Copyright page (PDF p. 4): "ISSN 0075-8434  ISSN 1617-9692 (electronic) / Lecture Notes in Mathematics / ISBN 978-3-032-15412-5  ISBN 978-3-032-15413-2 (eBook) / https://doi.org/10.1007/978-3-032-15413-2 / Mathematics Subject Classification: 58J32, 57R30, 58A14, 35K05, 57R30, 35S05 / … © The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG 2026 / … This Springer imprint is published by the registered company Springer Nature Switzerland AG / The registered company address is: Gewerbestrasse 11, 6330 Cham, Switzerland". Author affiliations (PDF p. 3): Álvarez López — Dept of Math & CITMAga, Univ. of Santiago de Compostela; Kordyukov — Institute of Mathematics, Ufa Federal Research Centre of RAS; Leichtnam — IMJ-PRG, Paris.
+- Title page (PDF p. 4): authors and title, Springer logo. Copyright page (PDF p. 5): "ISSN 0075-8434  ISSN 1617-9692 (electronic) / Lecture Notes in Mathematics / ISBN 978-3-032-15412-5  ISBN 978-3-032-15413-2 (eBook) / https://doi.org/10.1007/978-3-032-15413-2 / Mathematics Subject Classification: 58J32, 57R30, 58A14, 35K05, 57R30, 35S05 / … © The Editor(s) (if applicable) and The Author(s), under exclusive license to Springer Nature Switzerland AG 2026 / … This Springer imprint is published by the registered company Springer Nature Switzerland AG / The registered company address is: Gewerbestrasse 11, 6330 Cham, Switzerland". Author affiliations (PDF p. 5): Álvarez López — Dept of Math & CITMAga, Univ. of Santiago de Compostela; Kordyukov — Institute of Mathematics, Ufa Federal Research Centre of RAS; Leichtnam — IMJ-PRG, Paris.
 - Front matter: Foreword by Christopher Deninger (pp. v–vi), Abstract (p. vii), Declarations (p. ix), Contents (p. xi). Chapters 1–7 pp. 1–216, References pp. 217–221, Index pp. 223–231, LNM editorial policy pp. [232–233 of the PDF, unnumbered].
 - Every chapter-opening page carries the Springer footer "© The Author(s), under exclusive license to Springer Nature Switzerland AG 2026 / J. A. Álvarez López et al., *A Trace Formula for Foliated Flows*, Lecture Notes in Mathematics 2387, https://doi.org/10.1007/978-3-032-15413-2_N" (N = chapter number).
 
@@ -27,7 +27,7 @@ Sections are appended as they are finished; a section that is absent was not rea
 
 | PDF pages | printed | rule |
 |---|---|---|
-| 1–10 | i–xi (front matter; p. x blank, omitted) | — |
+| 1–10 | front matter: 1 series half-title, 2 LNM board, 3 series description, 4 title, 5 copyright, 6–7 Foreword (v–vi), 8 Abstract (vii), 9 Declarations (ix), 10 Contents (xi); pp. viii and x blank, omitted | — |
 | 11–21 | 1–11 (Ch. 1) | printed = PDF − 10 |
 | 22–108 | 13–99 (Ch. 2; p. 12 blank, omitted) | printed = PDF − 9 |
 | 109–165 | 101–157 (Ch. 3–4; p. 100 omitted; p. 134→135 contiguous) | printed = PDF − 8 |
