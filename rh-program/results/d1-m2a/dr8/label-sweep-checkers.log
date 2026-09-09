@@ -1,4 +1,4 @@
-# dr8/label-sweep-checkers.log — 2026-09-10 03:34 IST: after the trust_label amendment of the two DH transcripts (label + comment only), both Python checkers and the Instances.lean back-parse re-run
+# dr8/label-sweep-checkers.log — 2026-09-10 03:38 IST: after the trust_label amendment of the two DH transcripts (label + comment only; the Arb JSON had no comment field, one was added — schema-optional), both Python checkers and the Instances.lean back-parse re-run
 ## reference_checker.py
   File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/reference_checker.py", line 32
     'f_DH': 'f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).'  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
@@ -7,8 +7,8 @@ SyntaxError: invalid syntax
 exit=1
 ## checker_ref.py
 acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
-acceptance/w1-arb-dh-livefire.json: REJECT at SHAPE (SHAPE: trust_label is not the fixed verbatim string for function f_DH)
-exit=1
+acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+exit=0
 ## selftests (negative controls) of both checkers, to show the label edit broke nothing
   File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/reference_checker.py", line 32
     'f_DH': 'f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).'  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
@@ -19,7 +19,7 @@ exit=0
   mutate-for-C3 -> C3 OK
   mutate-for-C2 -> C2 OK
 exit=0
-## recon_instances_verify.py (back-parse of Instances.lean vs all 12 JSONs)
+## recon_instances_verify.py (back-parse of Instances.lean vs all 12 JSONs; the label is outside W1Data)
 RECONCILER -- Instances.lean literals vs acceptance/*.json (independent back-parse, O's reader)
 AUDIT O -- AuditOCases.lean literals vs acceptance/*.json (independent back-parse)
 instance               rows  field/row comparison
@@ -38,7 +38,14 @@ instance               rows  field/row comparison
 
 TOTAL literal mismatches: 0
 exit=0
-## ζ transcripts unaffected: both checkers on the eight null transcripts
+## crosscheck.py on the DH pair (label outside the compared arithmetic)
+== acceptance/w1-mp-dh-livefire.json  vs  acceptance/w1-arb-dh-livefire.json
+   overlap pairs checked: 122, all value boxes intersect
+   winding leg1 [49999999999/50000000000, 50000000001/50000000000] vs leg2 [999973/1000000, 1000023/1000000] turns, m = 1
+   floors (independent lower bounds): leg1 0.00024672, leg2 0.000301882
+   VERDICT: CONSISTENT
+exit=0
+## ζ transcripts unaffected: checker_ref.py on the eight null transcripts
 acceptance/w1-mp-null-t100.json: ACCEPT (zeta/exclusion, m=0, 52 segments, S=[-24, 28], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 acceptance/w1-arb-null-t100.json: ACCEPT (zeta/exclusion, m=0, 27 segments, S=[-14, 13], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 acceptance/w1-mp-null-t1000.json: ACCEPT (zeta/exclusion, m=0, 81 segments, S=[-41, 40], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
@@ -48,11 +55,14 @@ acceptance/w1-arb-null-t10000.json: ACCEPT (zeta/exclusion, m=0, 983 segments, S
 acceptance/w1-mp-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 58 segments, S=[-28, 30], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 acceptance/w1-arb-null-deep-t100.json: ACCEPT (zeta/exclusion, m=0, 30 segments, S=[-16, 14], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 exit=0
-## SHA-256 after
+## SHA-256 after (old DH hashes: mp 756b144704c19b5ba8f34d38ec812255ee94025ebb2804f120ff932a5025d441, arb e39b90cbacccb6b1e262498ba1a05280006385aa57cf40908a9de8ef91d24381)
 fdd3701d2f353990beeac0d7e56808a8cbe959a1748c904d152fc221e93a0765  acceptance/w1-mp-dh-livefire.json
-e39b90cbacccb6b1e262498ba1a05280006385aa57cf40908a9de8ef91d24381  acceptance/w1-arb-dh-livefire.json
+b652bde5aedb79d8d5723942adbd75ec83b2ca1fd0e603cdfcdb6c75b55eae9d  acceptance/w1-arb-dh-livefire.json
 02563d15160b3834ba64c8746f4795010ae87af1021efbd325e3e6ef1b1aacfc  w1-schema.json
 79c0271176c762fb78a05ae26595535e7247ef5cc8a84877cb97e05b43db4fd8  producer_mp.py
 dee9e1be3ba1922f7709339cca86ac9e59c6f22b91d3792dedc22d3be79a6de5  producer_arb.py
 c3957816c5fe6dd8c97fa1774096ba87712ab226af96ba9a3c143407ac7b40dd  checker_ref.py
 094ec15e521e4d6c23368701501607812939a32cc76488b3a73a9924e5389b80  reference_checker.py
+   13732 acceptance/w1-mp-dh-livefire.json
+   15994 acceptance/w1-arb-dh-livefire.json
+   29726 total

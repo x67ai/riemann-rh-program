@@ -1,0 +1,102 @@
+{
+ "row_id": "zeta_3-5_9-10_1000_1001",
+ "function": "zeta",
+ "mode": "exclusion",
+ "claimed_m": "0",
+ "box": {
+  "sigma1": "3/5",
+  "sigma2": "9/10",
+  "T1": "1000",
+  "T2": "1001"
+ },
+ "delta0": "1/10",
+ "height": 1000.0,
+ "height_span": "1",
+ "grade": "box",
+ "status": "accepted",
+ "trust_label": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+ "sentence": "no zeros of zeta in the closed box [3/5, 9/10] x [1000, 1001] -- kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+ "delta0_form": "no zeros of zeta with Re s >= 1/2 + 1/10 AND Re s <= 9/10 in 1000 <= Im s <= 1001 (the single-box form; the D-R6 range form 'Re s >= 1/2 + delta0 in [T1, T2]' needs a box family reaching sigma = 1 -- README, 'What a row licenses')",
+ "legs": {
+  "mp": {
+   "transcript": "../d1-m1/acceptance/w1-mp-null-t1000.json",
+   "sha256": "a18a7bf713b802ae4c7755d3f5f7041ef5c4b256f8fa40ec8f7572aabbcf8cc0",
+   "bytes": 24880,
+   "segments": 81,
+   "K": "1000000000000000000000000000000",
+   "A": "1000000000000",
+   "winding_lo_hi": [
+    "-41",
+    "40"
+   ],
+   "floor": "15573147747628599694108305508/1000000000000000000000000000000",
+   "wall_seconds": 8.6,
+   "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+   "python_checkers": {
+    "reference_checker": "REJECT",
+    "checker_ref": "ACCEPT",
+    "logs": [
+     "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+     "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+     "../d1-m1/recon_checker_pass.log"
+    ]
+   },
+   "lean": {
+    "module": "Zeta23.W1.Instances",
+    "data": "mpNullT1000",
+    "floor": "mpNullT1000_floor",
+    "check": "mpNullT1000_check",
+    "corollary": "mpNullT1000_exclusion",
+    "corollary_module": "Zeta23.W1.Ledger",
+    "build_record": "../d1-m1/recon_lean_instances.log",
+    "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+   }
+  },
+  "arb": {
+   "transcript": "../d1-m1/acceptance/w1-arb-null-t1000.json",
+   "sha256": "36b7685a5ae464c6ad5dd6d93834bf2fa44fd63b32b090163c7fcedfd7809476",
+   "bytes": 19504,
+   "segments": 65,
+   "K": "1000000000000000000000000000000",
+   "A": "1000000",
+   "winding_lo_hi": [
+    "-29",
+    "36"
+   ],
+   "floor": "13827374068318355602774897092/1000000000000000000000000000000",
+   "wall_seconds": 0.135,
+   "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+   "python_checkers": {
+    "reference_checker": "REJECT",
+    "checker_ref": "ACCEPT",
+    "logs": [
+     "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+     "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+     "../d1-m1/recon_checker_pass.log"
+    ]
+   },
+   "lean": {
+    "module": "Zeta23.W1.Instances",
+    "data": "arbNullT1000",
+    "floor": "arbNullT1000_floor",
+    "check": "arbNullT1000_check",
+    "corollary": "arbNullT1000_exclusion",
+    "corollary_module": "Zeta23.W1.Ledger",
+    "build_record": "../d1-m1/recon_lean_instances.log",
+    "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+   }
+  }
+ },
+ "crosscheck": {
+  "log": "../d1-m1/acceptance/logs/crosscheck.log",
+  "overlap_pairs": 158,
+  "verdict": "CONSISTENT"
+ },
+ "provenance": {
+  "kind": "acceptance",
+  "note": "M1 v1 acceptance null test 2 (cost-curve height point T = 10^3, delta0 = 1/10): instrument-validation box chosen for the cost curve, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
+ },
+ "added_utc": "2026-09-09T22:13:35Z",
+ "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
+ "entry_sha256": "1f8241c74e142f2edbbe4245f3591e80e72533e184f752fe17f89c39e78d9fba"
+}

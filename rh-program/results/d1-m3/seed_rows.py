@@ -145,7 +145,7 @@ for tag, stem, mpname, arbname, note in SEED:
         for rel in [mp["transcript"], arb["transcript"], rec["crosscheck"]["log"],
                     "../d1-m1/acceptance/logs/crosscheck-t10000.log" if stem == "null-t10000" else None,
                     "../d1-m1/acceptance/logs/reference-checker-accepts.log", "../d1-m1/acceptance/logs/checker-ref-accepts.log",
-                    "../d1-m1/recon_checker_pass.log", "../d1-m1/recon_lean_instances.log", "../lean/Zeta23/W1/Instances.lean", "../lean/Zeta23/W1/Ledger.lean"]:
+                    "../d1-m1/recon_checker_pass.log", "../d1-m1/recon_lean_instances.log", "../../lean/Zeta23/W1/Instances.lean", "../../lean/Zeta23/W1/Ledger.lean"]:
             if rel is None: continue
             ap = os.path.normpath(os.path.join(HERE, rel))
             fh.write("%s  %s\n" % (sha256(ap), rel))

@@ -29,6 +29,9 @@ Nothing here is "fully machine-checked".
 
 No failure was observed. Honest notes and residual gaps are in §7 — none softened.
 
+**[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only.]** Row 3 of the table and every "checker-level only" / "no theorem about f_DH" sentence in this report describe the state up to 2026-09-10. Since the D-R8 build the DH live fire carries a Lean theorem: `Zeta23.W1.cert_of_checkW1_fDH` and the instance corollaries `mpDH_zero`, `arbDH_zero` (`lean/Zeta23/W1/FDH.lean`; axioms `[propext, Classical.choice, Quot.sound]`), modulo the single displayed hypothesis H-ENCL_DH. Honest label, verbatim: *"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."* — nothing about ζ or Λ, never "RH-for-DH disproved", never "fully machine-checked". The two DH transcripts were edited in their `trust_label` (now that sentence) and `comment` fields ONLY — arithmetic byte-identical, both Python checkers re-ACCEPT, cross-check CONSISTENT, `recon_instances_verify.py` 0 mismatches (`results/d1-m2a/dr8/label-sweep-checkers.log`); their SHA-256 changed: `w1-mp-dh-livefire.json` 756b144704c19b5ba8f34d38ec812255ee94025ebb2804f120ff932a5025d441 → fdd3701d2f353990beeac0d7e56808a8cbe959a1748c904d152fc221e93a0765; `w1-arb-dh-livefire.json` e39b90cbacccb6b1e262498ba1a05280006385aa57cf40908a9de8ef91d24381 → b652bde5aedb79d8d5723942adbd75ec83b2ca1fd0e603cdfcdb6c75b55eae9d. The eight ζ transcripts and the two positive controls are untouched (hashes as in `results/d1-m2a/dr8/PRICING-M3-ledger.md` §2). Record: `results/d1-m2a/dr8/BUILD-NOTES-fDH.md`.
+
+
 ## 1. Null tests (exclusion certificates, the M3 prototype)
 
 Four rectangles strictly right of the critical line, both producer legs each, mode
