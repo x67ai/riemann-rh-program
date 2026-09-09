@@ -1,0 +1,101 @@
+# asym-literal-kernel-time.lean via lake env lean against the BUILT literal modules — Wed Sep  9 21:59:23 IST 2026
+parsing took 0.0766ms
+parsing took 0.0442ms
+parsing took 0.0211ms
+parsing took 0.019ms
+parsing took 0.000542ms
+overlappingInstancesLinter took 0.0554ms
+tacticAnalysis took 0.645ms
+linting took 11.2ms
+attribute application took 0.00617ms
+instantiate metavars took 0.00213ms
+instantiate metavars took 0.000333ms
+let-to-have transformation took 0.00558ms
+attribute application took 0.000958ms
+attribute application took 0.000416ms
+elaboration took 0.586ms
+typeclass inference of Decidable took 0.274ms
+typeclass inference of Decidable took 0.00363ms
+type checking took 2.02ms
+tactic execution of Lean.Parser.Tactic.decide took 0.18ms
+tactic execution of Lean.Parser.Tactic.tacticSeq1Indented took 0.0107ms
+tactic execution of Lean.Parser.Tactic.tacticSeq took 0.0145ms
+instantiate metavars took 0.000708ms
+instantiate metavars took 0.000209ms
+instantiate metavars took 0.000167ms
+instantiate metavars took 0.000166ms
+instantiate metavars took 8.4e-05ms
+share common exprs took 0.00713ms
+fix level params took 0.00317ms
+let-to-have transformation took 0.000958ms
+attribute application took 0.00137ms
+attribute application took 0.000458ms
+process pre-definitions took 0.0604ms
+elaboration took 0.225ms
+type checking took 0.0221ms
+overlappingInstancesLinter took 1.09ms
+tacticAnalysis took 1.09ms
+linting took 7.27ms
+attribute application took 0.000792ms
+instantiate metavars took 0.000958ms
+instantiate metavars took 0.000167ms
+let-to-have transformation took 0.000916ms
+attribute application took 0.000875ms
+attribute application took 0.000375ms
+elaboration took 0.191ms
+typeclass inference of Decidable took 0.0554ms
+typeclass inference of Decidable took 0.00371ms
+type checking took 4.1ms
+tactic execution of Lean.Parser.Tactic.decide took 0.164ms
+tactic execution of Lean.Parser.Tactic.tacticSeq1Indented took 0.00608ms
+tactic execution of Lean.Parser.Tactic.tacticSeq took 0.00558ms
+instantiate metavars took 0.000584ms
+instantiate metavars took 0.000166ms
+instantiate metavars took 0.000125ms
+instantiate metavars took 0.000125ms
+instantiate metavars took 0.000125ms
+share common exprs took 0.00425ms
+fix level params took 0.00133ms
+let-to-have transformation took 0.000625ms
+attribute application took 0.000791ms
+attribute application took 0.000375ms
+process pre-definitions took 0.0328ms
+elaboration took 0.124ms
+type checking took 0.0145ms
+overlappingInstancesLinter took 0.398ms
+tacticAnalysis took 0.506ms
+linting took 6.87ms
+'row2AsymMP_check_timed' depends on axioms: [propext]
+elaboration took 4.52ms
+overlappingInstancesLinter took 0.354ms
+tacticAnalysis took 1.03ms
+linting took 6.17ms
+'row2AsymARB_check_timed' depends on axioms: [propext]
+elaboration took 0.0371ms
+overlappingInstancesLinter took 0.351ms
+tacticAnalysis took 0.46ms
+linting took 6.65ms
+elaboration took 0.016ms
+overlappingInstancesLinter took 0.0148ms
+tacticAnalysis took 0.537ms
+linting took 6.65ms
+module linting took 0.000708ms
+cumulative profiling times:
+	attribute application 0.0115ms
+	elaboration 5.71ms
+	fix level params 0.00421ms
+	instantiate metavars 0.00463ms
+	let-to-have transformation 0.00758ms
+	linting 52.2ms
+	module linting 0.000542ms
+	overlappingInstancesLinter 2.49ms
+	parsing 0.173ms
+	process pre-definitions 0.0929ms
+	share common exprs 0.011ms
+	tactic execution 0.38ms
+	tacticAnalysis 5.55ms
+	type checking 6.16ms
+	typeclass inference 0.336ms
+        2.05 real         0.99 user         1.05 sys
+          2934325248  maximum resident set size
+# exit   Wed Sep  9 21:59:25 IST 2026
