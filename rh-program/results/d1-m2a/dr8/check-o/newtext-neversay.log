@@ -1,0 +1,45 @@
+Lines ADDED by the D-R8 work (Job 1), excluding Job 2's own outputs: 5345 across 66 files
+
+=== "RH-for-DH disproved": 4 added line(s)
+    rh-program/directions/D1-certified-refutation-arm.md
+      - **[Dated block 2026-09-10 — Session 20, D-R8 build.]** "f_DH-in-Lean is unpriced work" is discharged: priced GO (`results/d1-m2a/dr8/PRICING-fDH.md`) and BUILT (`dr8/BUILD-NOTES-fDH.md`): `lean/Zeta23/W1/FDH.lean` — `fDH`, `differentiable_fDH`, `cert_of_checkW1_fDH` (the twin of `cert_of_checkW1_ap`, modulo the displayed H-ENCL_DH only), `mpDH_zero`/`arbDH_zero` on the unchanged live-fire litera
+    rh-program/lean/formalization.yaml
+      "RH-for-DH disproved"; not "fully machine-checked" (results/d1-m2a/dr8/fdh-axioms.log).
+    rh-program/results/d1-m1/acceptance-report.md
+      **[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only.]** Row 3 of the table and every "checker-level only" / "no theorem about f_DH" sentence in this report describe the state up to 2026-09-10. Since the D-R8 build the DH live fire carries a Lean theorem: `Zeta23.W1.cert_of_checkW1_fDH` and the instance corollaries `mpDH_zero`, `arbDH_zero` (`lean/Zeta23/W1/FDH.lean`; axioms `[propex
+    rh-program/results/d1-m2a/dr8/BUILD-NOTES-fDH.md
+      Verification after the sweep (`dr8/label-sweep-checkers.log`, one clean run): both checkers ACCEPT both DH JSONs; both checkers' negative-control self-tests pass; `recon_instances_verify.py` 0 mismatches over 12 instances (the label is outside `W1Data`, so `Instances.lean` is untouched and still back-parses); `crosscheck.py` on the DH pair CONSISTENT (122 pairs); both checkers ACCEPT all eight ζ n
+
+=== "RH for DH disproved": 0 added line(s)
+
+=== "fully machine-checked": 5 added line(s)
+    rh-program/lean/formalization.yaml
+      "RH-for-DH disproved"; not "fully machine-checked" (results/d1-m2a/dr8/fdh-axioms.log).
+    rh-program/results/d1-m1/FORMAT.md
+      not "fully machine-checked" (H-ENCL_DH is where mpmath/Arb enter). The identification of the
+    rh-program/results/d1-m1/acceptance-report.md
+      **[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only.]** Row 3 of the table and every "checker-level only" / "no theorem about f_DH" sentence in this report describe the state up to 2026-09-10. Since the D-R8 build the DH live fire carries a Lean theorem: `Zeta23.W1.cert_of_checkW1_fDH` and the instance corollaries `mpDH_zero`, `arbDH_zero` (`lean/Zeta23/W1/FDH.lean`; axioms `[propex
+    rh-program/results/d1-m2a/dr8/BUILD-NOTES-fDH.md
+      Verification after the sweep (`dr8/label-sweep-checkers.log`, one clean run): both checkers ACCEPT both DH JSONs; both checkers' negative-control self-tests pass; `recon_instances_verify.py` 0 mismatches over 12 instances (the label is outside `W1Data`, so `Instances.lean` is untouched and still back-parses); `crosscheck.py` on the DH pair CONSISTENT (122 pairs); both checkers ACCEPT all eight ζ n
+    rh-program/results/d1-m3/README.md
+      "RH verified in W" · "RH verified up to T" · "total height covered" · "the record inherits the improvement" · "fully machine-checked" · a `turing`-grade entry · a sentence from a `one-leg` row · anything about ζ outside a row's box · anything about Λ.
+
+=== "machine-checked disproof": 2 added line(s)
+    rh-program/lean/README.md
+      (the de Bruijn–Newman chain runs from a zero of ζ or of H_t; f_DH is neither); not "RH-for-DH machine-checked disproof"
+    rh-program/results/d1-m1/FORMAT.md
+      What it does NOT say: nothing about ζ, RH or Λ; not "RH-for-DH machine-checked disproof" (one
+
+=== "disproof of RH": 0 added line(s)
+
+=== "RH is false": 0 added line(s)
+
+=== "RH disproved": 0 added line(s)
+
+=== "RH for DH is disproved": 0 added line(s)
+
+=== "refutes RH": 0 added line(s)
+
+=== "RH refuted": 0 added line(s)
+
+TOTAL added lines carrying any never-say phrase: 11

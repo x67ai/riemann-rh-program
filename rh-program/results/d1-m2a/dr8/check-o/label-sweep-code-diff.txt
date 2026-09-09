@@ -1,0 +1,56 @@
+diff --git a/rh-program/results/d1-m1/checker_ref.py b/rh-program/results/d1-m1/checker_ref.py
+index f0943cc..7a2a161 100644
+--- a/rh-program/results/d1-m1/checker_ref.py
++++ b/rh-program/results/d1-m1/checker_ref.py
+@@ -63,3 +63,3 @@ _LABELS = {
+     "zeta": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+-    "f_DH": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion",
++    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+ }
+diff --git a/rh-program/results/d1-m1/producer_arb.py b/rh-program/results/d1-m1/producer_arb.py
+index 9ba402e..2bf8846 100644
+--- a/rh-program/results/d1-m1/producer_arb.py
++++ b/rh-program/results/d1-m1/producer_arb.py
+@@ -150,3 +150,3 @@ TRUST_LABELS = {
+     "zeta": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+-    "f_DH": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion",
++    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+ }
+diff --git a/rh-program/results/d1-m1/producer_mp.py b/rh-program/results/d1-m1/producer_mp.py
+index 17fe145..60c5106 100644
+--- a/rh-program/results/d1-m1/producer_mp.py
++++ b/rh-program/results/d1-m1/producer_mp.py
+@@ -118,3 +118,3 @@ TRUST_LABELS = {
+     "zeta": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+-    "f_DH": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion",
++    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+ }
+diff --git a/rh-program/results/d1-m1/reference_checker.py b/rh-program/results/d1-m1/reference_checker.py
+index ed479e4..36465ca 100644
+--- a/rh-program/results/d1-m1/reference_checker.py
++++ b/rh-program/results/d1-m1/reference_checker.py
+@@ -31,3 +31,3 @@ TRUST_LABELS = {
+     'zeta': 'kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)',
+-    'f_DH': 'checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion',
++    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+ }
+@@ -251,4 +251,4 @@ def run_file(path):
+         else:
+-            label = ('checker-level only (D-R8): format-checked modulo H-ENCL for '
+-                     + str(doc.get('function')) + '; no Lean-backed conclusion')
++            # amended 2026-09-10 (D-R8 build): the f_DH banner is the schema constant itself
++            label = TRUST_LABELS.get(str(doc.get('function')), 'unknown function')
+         print(f'   VERDICT: ACCEPT (all checks pass; {label})')
+diff --git a/rh-program/results/d1-m1/w1-schema.json b/rh-program/results/d1-m1/w1-schema.json
+index 8cec223..b5c4d48 100644
+--- a/rh-program/results/d1-m1/w1-schema.json
++++ b/rh-program/results/d1-m1/w1-schema.json
+@@ -1,2 +1,3 @@
+ {
++  "$comment": "2026-09-10 (Session 20, D-R8 build): the f_DH trust_label const is the honest label of the Lean theorem cert_of_checkW1_fDH (PRICING-fDH.md sec. 3.2, verbatim; box-specific because the only f_DH transcripts are the two live-fire ones on that box, and any further f_DH transcript enters only by a version bump of FORMAT.md, sec. 9.2 last sentence). The zeta const is the v1.0 string, superseded for zeta by v1.1 (H-AP discharged) -- see results/d1-m3/README.md, label note.",
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+@@ -93,3 +94,3 @@
+           "trust_label": {
+-            "const": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion"
++            "const": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
+           }
