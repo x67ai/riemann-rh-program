@@ -1,0 +1,54 @@
+# audit-trust-greps.log — AUDITOR's independent trust greps over Zeta23/DBN/, 2026-09-09 22:12:53 IST
+# method: strip Lean comments and docstrings with strip.py, THEN grep the CODE. Prose hits cannot hide here.
+# file count: 121
+
+== CODE hits for: sorry ==
+  (none)
+
+== CODE hits for: native_decide ==
+  (none)
+
+== CODE hits for: axiom ==
+  (none)
+
+== CODE hits for: unsafe ==
+  (none)
+
+== CODE hits for: implemented_by ==
+  (none)
+
+== CODE hits for: extern ==
+  (none)
+
+== CODE hits for: opaque ==
+  (none)
+
+== CODE hits for: hLaneA ==
+  (none)
+
+== CODE hits for: ofReduceBool ==
+  (none)
+
+== CODE hits for: trust_me ==
+  (none)
+
+== CODE hits for: lean_evalConst ==
+  (none)
+
+== raw grep counts INCLUDING prose, for comparison ==
+ugrep: warning: --include=*.lean: No such file or directory
+  sorry            raw=3
+ugrep: warning: --include=*.lean: No such file or directory
+  native_decide    raw=116
+ugrep: warning: --include=*.lean: No such file or directory
+  axiom            raw=5
+ugrep: warning: --include=*.lean: No such file or directory
+  unsafe           raw=0
+ugrep: warning: --include=*.lean: No such file or directory
+  implemented_by   raw=0
+ugrep: warning: --include=*.lean: No such file or directory
+  extern           raw=0
+ugrep: warning: --include=*.lean: No such file or directory
+  opaque           raw=0
+ugrep: warning: --include=*.lean: No such file or directory
+  hLaneA           raw=12
