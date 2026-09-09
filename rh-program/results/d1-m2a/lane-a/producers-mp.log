@@ -3,3 +3,7 @@ row   0 [630783,746495] pieces=8  T_lo=0.012023114801271918  E_hi=1.030729208776
 row   1 [746496,1469440] pieces=8  T_lo=0.012022114003010781  E_hi=7.56888095729965e-08  ok=True  13.5s
 row   2 [1469441,5140999] pieces=8  T_lo=0.1544290524314511  E_hi=2.1290798704178333e-08  ok=True  13.7s
 rows done: {"phase": "rows-done", "leg": "mp", "rows_done": 3, "rows_total": 3, "windows_done": 4510217, "windows_total": 4510217, "started": "2026-09-09 21:36:30 IST", "updated": "2026-09-09 21:37:10 IST", "elapsed_s": 40.64800405502319, "eta_hours": 0.0, "errors": []}
+tail: {"N1": "5141000", "ints": {"Q1": "1780738683685954234282109", "Q2": "178607231319632698856344", "Q3": "18638466997109653259291", "Q4": "19014989006495801050358", "E1": "1822923348119831"}, "sum_int": "1996999372832115735567933", "lt_2K": true, "sum_float": 1.9969993728321158, "side": {"S1": true, "S2": true, "S3": true, "S4": true}, "ok": true, "seconds": 404.29320216178894}
+direct: {"contained": true, "Q1sum_float": [1.7807384675573077, 1.7807384675573077], "Q2sum_float": [2.323659824979233, 2.323659824979233], "seconds": 403.5959641933441}
+assembled asym-mp.json rows 3 all ok: True
+== mp done Wed Sep  9 21:43:55 IST 2026
