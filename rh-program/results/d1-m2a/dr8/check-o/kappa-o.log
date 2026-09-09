@@ -1,0 +1,42 @@
+Job 2 independent kappa re-derivation (mpmath, mp.dps = 80)
+repo root: /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program
+
+A. contract line  'kap = (sqrt(10-2*sqrt5) - 2)/(sqrt5 - 1)'
+   found verbatim in results/d1-m1/FORMAT.md : True
+   found verbatim in results/ccm-dh-test/dh.py: True
+   radicand 10 - 2*sqrt5 = 5.5278640450004206072  (> 0: True)
+   denominator sqrt5 - 1 = 1.2360679774997896964  (!= 0: True)
+   kappa_A = 0.284079043840412296028291832393126169091088088445737582759163
+
+B. Lean literal, re-read from lean/Zeta23/W1/FDH.lean:
+   (Real.sqrt (10 - 2 * Real.sqrt 5) - 2) / (Real.sqrt 5 - 1)
+   as Python: (sqrt(10 - 2 * sqrt(5)) - 2) / (sqrt(5) - 1)
+   identifiers used: ['Real.sqrt']
+   kappa_B = 0.284079043840412296028291832393126169091088088445737582759163
+
+C. Gauss-sum closed form (chi mod 5 quartic, chi(2) = i):
+   chi values: chi(1) = (1.0 + 0.0j), chi(2) = (0.0 + 1.0j), chi(3) = (0.0 - 1.0j), chi(4) = (-1.0 + 0.0j)
+   tau(chi)   = (-1.17557050458494625833741190928 + 1.90211303259030714423287866676j)
+   |tau|      = 2.23606797749978969640917366873   (sqrt 5 = 2.23606797749978969640917366873)
+   eps_chi    = tau/(i sqrt5) = (0.850650808352039932181540497063 + 0.525731112119133606025669084848j)   (|eps| = 1.0)
+   theta      = 0.2767871794485226257542663650446342600175
+   kappa_C    = tan(theta) = 0.284079043840412296028291832393126169091088088445737582759163
+
+D. dh.py kappa() body, re-read and re-evaluated (not imported):
+   |    s5 = mp.sqrt(5)
+   |    return (mp.sqrt(10 - 2*s5) - 2)/(s5 - 1)
+
+   kappa_D = 0.284079043840412296028291832393126169091088088445737582759163
+
+PAIRWISE DIFFERENCES (tolerance 1e-50):
+   |A contract  - B Lean     | = 0.0           OK
+   |A contract  - C Gauss sum| = 2.63555e-81   OK
+   |A contract  - D dh.py    | = 0.0           OK
+   |B Lean      - C Gauss sum| = 2.63555e-81   OK
+   |B Lean      - D dh.py    | = 0.0           OK
+   |C Gauss sum - D dh.py    | = 2.63555e-81   OK
+
+kappa (60 digits) = 0.284079043840412296028291832393126169091088088445737582759163
+leading digits    = 0.284079044   (pricing 1.1 says 0.28407904...)
+
+VERDICT: PASS  (four independent routes agree to > 50 digits; >= 30 demanded)

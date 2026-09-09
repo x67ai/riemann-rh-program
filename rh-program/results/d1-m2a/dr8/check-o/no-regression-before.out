@@ -1,0 +1,13 @@
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,27 @@
+Convention check: sum_{n>=0} (n+a)^{-s}  vs  mpmath mp.zeta(s,a)  vs  Arb acb.zeta(a)
+mp.dps = 50; tolerances: EM-series vs library 1e-20, mp.zeta vs Arb 1e-25
+
+s = (2.0 + 0.0j)       a = 0.2    |series - mp.zeta| = 0.0        |series - acb.zeta| = 1.16e-40   |mp.zeta - acb.zeta| = 1.16e-40    OK
+s = (2.0 + 0.0j)       a = 0.4    |series - mp.zeta| = 1.069e-50  |series - acb.zeta| = 2.233e-40  |mp.zeta - acb.zeta| = 2.233e-40   OK
+s = (2.0 + 0.0j)       a = 0.6    |series - mp.zeta| = 0.0        |series - acb.zeta| = 9.462e-41  |mp.zeta - acb.zeta| = 9.462e-41   OK
+s = (2.0 + 0.0j)       a = 0.8    |series - mp.zeta| = 5.346e-51  |series - acb.zeta| = 4.043e-40  |mp.zeta - acb.zeta| = 4.043e-40   OK
+s = (3.0 + 1.0j)       a = 0.2    |series - mp.zeta| = 1.711e-49  |series - acb.zeta| = 4.101e-38  |mp.zeta - acb.zeta| = 4.101e-38   OK
+s = (3.0 + 1.0j)       a = 0.4    |series - mp.zeta| = 0.0        |series - acb.zeta| = 1.744e-39  |mp.zeta - acb.zeta| = 1.744e-39   OK
+s = (3.0 + 1.0j)       a = 0.6    |series - mp.zeta| = 5.346e-51  |series - acb.zeta| = 1.896e-40  |mp.zeta - acb.zeta| = 1.896e-40   OK
+s = (3.0 + 1.0j)       a = 0.8    |series - mp.zeta| = 0.0        |series - acb.zeta| = 4.172e-40  |mp.zeta - acb.zeta| = 4.172e-40   OK
+s = (1.5 + 10.0j)      a = 0.2    |series - mp.zeta| = 1.282e-29  |series - acb.zeta| = 1.282e-29  |mp.zeta - acb.zeta| = 8.914e-40   OK
+s = (1.5 + 10.0j)      a = 0.4    |series - mp.zeta| = 1.282e-29  |series - acb.zeta| = 1.282e-29  |mp.zeta - acb.zeta| = 4.404e-40   OK
+s = (1.5 + 10.0j)      a = 0.6    |series - mp.zeta| = 1.282e-29  |series - acb.zeta| = 1.282e-29  |mp.zeta - acb.zeta| = 2.179e-41   OK
+s = (1.5 + 10.0j)      a = 0.8    |series - mp.zeta| = 1.282e-29  |series - acb.zeta| = 1.282e-29  |mp.zeta - acb.zeta| = 1.561e-40   OK
+s = (4.0 - 2.5j)       a = 0.2    |series - mp.zeta| = 0.0        |series - acb.zeta| = 2.232e-38  |mp.zeta - acb.zeta| = 2.232e-38   OK
+s = (4.0 - 2.5j)       a = 0.4    |series - mp.zeta| = 4.276e-50  |series - acb.zeta| = 1.807e-39  |mp.zeta - acb.zeta| = 1.807e-39   OK
+s = (4.0 - 2.5j)       a = 0.6    |series - mp.zeta| = 5.346e-51  |series - acb.zeta| = 5.252e-40  |mp.zeta - acb.zeta| = 5.252e-40   OK
+s = (4.0 - 2.5j)       a = 0.8    |series - mp.zeta| = 2.673e-51  |series - acb.zeta| = 2.864e-40  |mp.zeta - acb.zeta| = 2.864e-40   OK
+
+f_DH assembled from the series, vs the two producers' assembly order:
+  s = (2.0 + 0.0j)       f_DH = (1.00006833780978267565189 + 0.0j)              |series - mp| = 0.0        OK
+  s = (3.0 + 1.0j)       f_DH = (1.01899195633208959074835 - 0.00209000212729307911482684j)  |series - mp| = 2.675e-51  OK
+  s = (1.5 + 10.0j)      f_DH = (1.14007252059968736025193 + 0.098643560968217392110252j)  |series - mp| = 8.352e-52  OK
+  s = (4.0 - 2.5j)       f_DH = (1.00383010293759595500829 + 0.016695274608412463220295j)  |series - mp| = 0.0        OK
+
+VERDICT: PASS
