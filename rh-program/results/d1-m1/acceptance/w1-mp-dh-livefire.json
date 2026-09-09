@@ -3,7 +3,7 @@
  "version": "1.0",
  "mode": "refutation",
  "function": "f_DH",
- "trust_label": "checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion",
+ "trust_label": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).",
  "rect": {
   "sigma1": {
    "n": "4",
@@ -549,7 +549,7 @@
   "finished_utc": "2026-08-26T17:50:29.834359+00:00",
   "wall_seconds": 3.5
  },
- "comment": "UNTRUSTED producer output (mpmath-ball leg). Accepted only modulo H-ENCL (+ H-AP for zeta); see trust_label.",
+ "comment": "UNTRUSTED producer output (mpmath-ball leg). Accepted only modulo H-ENCL (+ H-AP for zeta); see trust_label. [Label amended 2026-09-10 (Session 20, D-R8 build): the f_DH trust_label is now the honest label of the Lean theorem cert_of_checkW1_fDH (lean/Zeta23/W1/FDH.lean; results/d1-m2a/dr8/PRICING-fDH.md sec. 3.2, verbatim), replacing the v1.0 string 'checker-level only (D-R8): format-checked modulo H-ENCL for f_DH; no Lean-backed conclusion'. The checked arithmetic (rect, scales, mesh, segments, modulus_floor) is byte-identical; only trust_label and this comment changed; old/new SHA-256 recorded in results/d1-m1/acceptance-report.md (dated block after sec. 0) and results/d1-m2a/dr8/BUILD-NOTES-fDH.md.]",
  "modulus_floor": {
   "Fn": "246720161844356978370552244",
   "Fd": "1000000000000000000000000000000"

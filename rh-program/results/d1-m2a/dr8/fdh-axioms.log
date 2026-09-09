@@ -1,0 +1,121 @@
+# dr8/fdh-axioms.log — D-R8 build (Session 20, Job 1), 2026-09-10 03:32 IST
+# tree ~/rh-lean-work/zeta-23-lean-main, Lean v4.33.0-rc2, Mathlib 51e6992e; after 'lake build Zeta23' (9144 jobs, 0 errors, 03:29 )
+# probe: lake env lean axioms_probe.lean (source appended at the end); one lake process
+
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.differentiable_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.hasSum_hurwitzZeta_one_fifth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.differentiableOn_riemannZeta_re_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.continuousOn_zeta_logDeriv_seg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpNullT100_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbNullT100_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpNullT1000_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbNullT1000_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpNullT10000_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbNullT10000_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpNullDeepT100_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbNullDeepT100_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_check' depends on axioms: [propext]
+'Zeta23.W1.arbDH_check' depends on axioms: [propext]
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.mpNullT100_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.mpNullT100 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.mpNullT100, riemannZeta s ≠ 0
+Zeta23.W1.arbNullT100_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.arbNullT100 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.arbNullT100, riemannZeta s ≠ 0
+Zeta23.W1.mpNullT1000_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.mpNullT1000 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.mpNullT1000, riemannZeta s ≠ 0
+Zeta23.W1.arbNullT1000_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.arbNullT1000 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.arbNullT1000, riemannZeta s ≠ 0
+Zeta23.W1.mpNullT10000_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.mpNullT10000 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.mpNullT10000, riemannZeta s ≠ 0
+Zeta23.W1.arbNullT10000_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.arbNullT10000 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.arbNullT10000, riemannZeta s ≠ 0
+Zeta23.W1.mpNullDeepT100_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.mpNullDeepT100 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.mpNullDeepT100, riemannZeta s ≠ 0
+Zeta23.W1.arbNullDeepT100_exclusion : Zeta23.W1.W1EnclOK riemannZeta Zeta23.W1.arbNullDeepT100 →
+  ∀ s ∈ Zeta23.W1.W1Rect Zeta23.W1.arbNullDeepT100, riemannZeta s ≠ 0
+def Zeta23.W1.kappaDH : ℝ :=
+(√(10 - 2 * √5) - 2) / (√5 - 1)
+def Zeta23.W1.fDH : ℂ → ℂ :=
+fun s =>
+  5 ^ (-s) *
+    (HurwitzZeta.hurwitzZeta (↑(1 / 5)) s + ↑Zeta23.W1.kappaDH * HurwitzZeta.hurwitzZeta (↑(2 / 5)) s -
+        ↑Zeta23.W1.kappaDH * HurwitzZeta.hurwitzZeta (↑(3 / 5)) s -
+      HurwitzZeta.hurwitzZeta (↑(4 / 5)) s)
+lake env lean "$S/axioms_probe.lean"  1.04s user 1.24s system 97% cpu 2.341 total
+
+# ---- probe source ----
+import Zeta23.W1.FDH
+import Zeta23.W1.Ledger
+-- D-R8 build, Session 20: #print axioms on every new theorem, the generic soundness theorem, the
+-- re-instantiated ζ theorem, and (unchanged) cert_of_checkW1_ap; #check on the new statements.
+#print axioms Zeta23.W1.cert_of_checkW1_fDH
+#print axioms Zeta23.W1.mpDH_zero
+#print axioms Zeta23.W1.arbDH_zero
+#print axioms Zeta23.W1.differentiable_fDH
+#print axioms Zeta23.W1.hasSum_hurwitzZeta_one_fifth
+#print axioms Zeta23.W1.cert_of_checkW1_of_diffOn
+#print axioms Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn
+#print axioms Zeta23.W1.differentiableOn_riemannZeta_re_lt_one
+#print axioms Zeta23.W1.continuousOn_zeta_logDeriv_seg
+#print axioms Zeta23.W1.cert_of_checkW1
+#print axioms Zeta23.W1.cert_of_checkW1_ap
+#print axioms Zeta23.W1.mpNullT100_exclusion
+#print axioms Zeta23.W1.arbNullT100_exclusion
+#print axioms Zeta23.W1.mpNullT1000_exclusion
+#print axioms Zeta23.W1.arbNullT1000_exclusion
+#print axioms Zeta23.W1.mpNullT10000_exclusion
+#print axioms Zeta23.W1.arbNullT10000_exclusion
+#print axioms Zeta23.W1.mpNullDeepT100_exclusion
+#print axioms Zeta23.W1.arbNullDeepT100_exclusion
+#print axioms Zeta23.W1.mpDH_check
+#print axioms Zeta23.W1.arbDH_check
+#check @Zeta23.W1.cert_of_checkW1_fDH
+#check @Zeta23.W1.mpDH_zero
+#check @Zeta23.W1.arbDH_zero
+#check @Zeta23.W1.cert_of_checkW1_of_diffOn
+#check @Zeta23.W1.cert_of_checkW1
+#check @Zeta23.W1.cert_of_checkW1_ap
+#check @Zeta23.W1.mpNullT100_exclusion
+#check @Zeta23.W1.arbNullT100_exclusion
+#check @Zeta23.W1.mpNullT1000_exclusion
+#check @Zeta23.W1.arbNullT1000_exclusion
+#check @Zeta23.W1.mpNullT10000_exclusion
+#check @Zeta23.W1.arbNullT10000_exclusion
+#check @Zeta23.W1.mpNullDeepT100_exclusion
+#check @Zeta23.W1.arbNullDeepT100_exclusion
+#print Zeta23.W1.kappaDH
+#print Zeta23.W1.fDH

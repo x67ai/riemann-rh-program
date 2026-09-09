@@ -1,0 +1,14 @@
+# lake build Solution.DBN after the Route G cascade — 2026-09-10 03:32 IST
+✔ [8826/8826] Built Solution.DBN (11s)
+Build completed successfully (8826 jobs).
+lake build Solution.DBN  13.59s user 4.64s system 128% cpu 14.217 total
+
+# PrintAxioms.DBN rerun
+'dbn_ray_le_point2_of_certificates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dbn_ray_le_point2_mp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dbn_ray_le_point2_arb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dbn_row2BarrierMP_checked' depends on axioms: [propext, Quot.sound]
+'dbn_row2BarrierARB_checked' depends on axioms: [propext, Quot.sound]
+'dbn_row2AsymMP_checked' depends on axioms: [propext]
+'dbn_row2AsymARB_checked' depends on axioms: [propext]
+lake env lean comparator/PrintAxioms/DBN.lean  1.59s user 1.84s system 101% cpu 3.391 total
