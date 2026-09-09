@@ -1,0 +1,415 @@
+{
+ "format": "M3-exclusion-ledger-index",
+ "version": "0.1",
+ "generated_by": "ledger_check.py (regenerated from rows/*/ROW.json; never hand-edited)",
+ "rows": [
+  {
+   "row_id": "zeta_21-40_39-40_100_101",
+   "function": "zeta",
+   "mode": "exclusion",
+   "claimed_m": "0",
+   "box": {
+    "sigma1": "21/40",
+    "sigma2": "39/40",
+    "T1": "100",
+    "T2": "101"
+   },
+   "delta0": "1/40",
+   "height": 100.0,
+   "height_span": "1",
+   "grade": "box",
+   "status": "accepted",
+   "trust_label": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "sentence": "no zeros of zeta in the closed box [21/40, 39/40] x [100, 101] -- kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "delta0_form": "no zeros of zeta with Re s >= 1/2 + 1/40 AND Re s <= 39/40 in 100 <= Im s <= 101 (the single-box form; the D-R6 range form 'Re s >= 1/2 + delta0 in [T1, T2]' needs a box family reaching sigma = 1 -- README, 'What a row licenses')",
+   "legs": {
+    "mp": {
+     "transcript": "../d1-m1/acceptance/w1-mp-null-deep-t100.json",
+     "sha256": "2faaec2e251a1451a0f5a5e2257b39b9d4e2bd12c78b6d69c142baa5c3249f59",
+     "bytes": 18346,
+     "segments": 58,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000000000",
+     "winding_lo_hi": [
+      "-28",
+      "30"
+     ],
+     "floor": "355499887121540294312997953419/1000000000000000000000000000000",
+     "wall_seconds": 1.1,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "mpNullDeepT100",
+      "floor": "mpNullDeepT100_floor",
+      "check": "mpNullDeepT100_check",
+      "corollary": "mpNullDeepT100_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    },
+    "arb": {
+     "transcript": "../d1-m1/acceptance/w1-arb-null-deep-t100.json",
+     "sha256": "53cc7897dee89a4f9cbb740eb322e7bd787fdbe9b0cad4d184453f9a8d75ba27",
+     "bytes": 9935,
+     "segments": 30,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000",
+     "winding_lo_hi": [
+      "-16",
+      "14"
+     ],
+     "floor": "30520933299389668081940760485/1000000000000000000000000000000",
+     "wall_seconds": 0.089,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "arbNullDeepT100",
+      "floor": "arbNullDeepT100_floor",
+      "check": "arbNullDeepT100_check",
+      "corollary": "arbNullDeepT100_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    }
+   },
+   "crosscheck": {
+    "log": "../d1-m1/acceptance/logs/crosscheck.log",
+    "overlap_pairs": 90,
+    "verdict": "CONSISTENT"
+   },
+   "provenance": {
+    "kind": "acceptance",
+    "note": "M1 v1 acceptance null test 4 (depth point T = 10^2, delta0 = 1/40 -- the deep box): instrument-validation box chosen for the cost curve's depth axis, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
+   },
+   "added_utc": "2026-09-09T22:14:41Z",
+   "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
+   "entry_sha256": "cd5bafb7a4a7dba9ea366157ee52283a1944f3c8df27528e1cb5588d65f6deba"
+  },
+  {
+   "row_id": "zeta_3-5_9-10_100_101",
+   "function": "zeta",
+   "mode": "exclusion",
+   "claimed_m": "0",
+   "box": {
+    "sigma1": "3/5",
+    "sigma2": "9/10",
+    "T1": "100",
+    "T2": "101"
+   },
+   "delta0": "1/10",
+   "height": 100.0,
+   "height_span": "1",
+   "grade": "box",
+   "status": "accepted",
+   "trust_label": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "sentence": "no zeros of zeta in the closed box [3/5, 9/10] x [100, 101] -- kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "delta0_form": "no zeros of zeta with Re s >= 1/2 + 1/10 AND Re s <= 9/10 in 100 <= Im s <= 101 (the single-box form; the D-R6 range form 'Re s >= 1/2 + delta0 in [T1, T2]' needs a box family reaching sigma = 1 -- README, 'What a row licenses')",
+   "legs": {
+    "mp": {
+     "transcript": "../d1-m1/acceptance/w1-mp-null-t100.json",
+     "sha256": "17f06458036b6df1a23e6406f409b5802757e776c376474e11900d81cba13212",
+     "bytes": 16588,
+     "segments": 52,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000000000",
+     "winding_lo_hi": [
+      "-24",
+      "28"
+     ],
+     "floor": "355554664076502668908324848278/1000000000000000000000000000000",
+     "wall_seconds": 1.0,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "mpNullT100",
+      "floor": "mpNullT100_floor",
+      "check": "mpNullT100_check",
+      "corollary": "mpNullT100_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    },
+    "arb": {
+     "transcript": "../d1-m1/acceptance/w1-arb-null-t100.json",
+     "sha256": "3248f7ca4a0160d5369bf61c8ac367ab95591e2bf5bd995b998878369e1899d5",
+     "bytes": 9073,
+     "segments": 27,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000",
+     "winding_lo_hi": [
+      "-14",
+      "13"
+     ],
+     "floor": "83279470814228915473835202868/1000000000000000000000000000000",
+     "wall_seconds": 0.092,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "arbNullT100",
+      "floor": "arbNullT100_floor",
+      "check": "arbNullT100_check",
+      "corollary": "arbNullT100_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    }
+   },
+   "crosscheck": {
+    "log": "../d1-m1/acceptance/logs/crosscheck.log",
+    "overlap_pairs": 83,
+    "verdict": "CONSISTENT"
+   },
+   "provenance": {
+    "kind": "acceptance",
+    "note": "M1 v1 acceptance null test 1 (cost-curve height point T = 10^2, delta0 = 1/10): instrument-validation box chosen for the cost curve, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
+   },
+   "added_utc": "2026-09-09T22:14:41Z",
+   "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
+   "entry_sha256": "3ed21862bd766782215cadbd09fd6db1a915208de8447e5cb3555a49e132a41c"
+  },
+  {
+   "row_id": "zeta_3-5_9-10_1000_1001",
+   "function": "zeta",
+   "mode": "exclusion",
+   "claimed_m": "0",
+   "box": {
+    "sigma1": "3/5",
+    "sigma2": "9/10",
+    "T1": "1000",
+    "T2": "1001"
+   },
+   "delta0": "1/10",
+   "height": 1000.0,
+   "height_span": "1",
+   "grade": "box",
+   "status": "accepted",
+   "trust_label": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "sentence": "no zeros of zeta in the closed box [3/5, 9/10] x [1000, 1001] -- kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "delta0_form": "no zeros of zeta with Re s >= 1/2 + 1/10 AND Re s <= 9/10 in 1000 <= Im s <= 1001 (the single-box form; the D-R6 range form 'Re s >= 1/2 + delta0 in [T1, T2]' needs a box family reaching sigma = 1 -- README, 'What a row licenses')",
+   "legs": {
+    "mp": {
+     "transcript": "../d1-m1/acceptance/w1-mp-null-t1000.json",
+     "sha256": "a18a7bf713b802ae4c7755d3f5f7041ef5c4b256f8fa40ec8f7572aabbcf8cc0",
+     "bytes": 24880,
+     "segments": 81,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000000000",
+     "winding_lo_hi": [
+      "-41",
+      "40"
+     ],
+     "floor": "15573147747628599694108305508/1000000000000000000000000000000",
+     "wall_seconds": 8.6,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "mpNullT1000",
+      "floor": "mpNullT1000_floor",
+      "check": "mpNullT1000_check",
+      "corollary": "mpNullT1000_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    },
+    "arb": {
+     "transcript": "../d1-m1/acceptance/w1-arb-null-t1000.json",
+     "sha256": "36b7685a5ae464c6ad5dd6d93834bf2fa44fd63b32b090163c7fcedfd7809476",
+     "bytes": 19504,
+     "segments": 65,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000",
+     "winding_lo_hi": [
+      "-29",
+      "36"
+     ],
+     "floor": "13827374068318355602774897092/1000000000000000000000000000000",
+     "wall_seconds": 0.135,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "arbNullT1000",
+      "floor": "arbNullT1000_floor",
+      "check": "arbNullT1000_check",
+      "corollary": "arbNullT1000_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    }
+   },
+   "crosscheck": {
+    "log": "../d1-m1/acceptance/logs/crosscheck.log",
+    "overlap_pairs": 158,
+    "verdict": "CONSISTENT"
+   },
+   "provenance": {
+    "kind": "acceptance",
+    "note": "M1 v1 acceptance null test 2 (cost-curve height point T = 10^3, delta0 = 1/10): instrument-validation box chosen for the cost curve, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
+   },
+   "added_utc": "2026-09-09T22:14:41Z",
+   "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
+   "entry_sha256": "95e3a63fb43f8b2e09d4dcd9db66b5d3e82bb819945e0bcfbf542b82f8fd8f9c"
+  },
+  {
+   "row_id": "zeta_3-5_9-10_10000_10001",
+   "function": "zeta",
+   "mode": "exclusion",
+   "claimed_m": "0",
+   "box": {
+    "sigma1": "3/5",
+    "sigma2": "9/10",
+    "T1": "10000",
+    "T2": "10001"
+   },
+   "delta0": "1/10",
+   "height": 10000.0,
+   "height_span": "1",
+   "grade": "box",
+   "status": "accepted",
+   "trust_label": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "sentence": "no zeros of zeta in the closed box [3/5, 9/10] x [10000, 10001] -- kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)",
+   "delta0_form": "no zeros of zeta with Re s >= 1/2 + 1/10 AND Re s <= 9/10 in 10000 <= Im s <= 10001 (the single-box form; the D-R6 range form 'Re s >= 1/2 + delta0 in [T1, T2]' needs a box family reaching sigma = 1 -- README, 'What a row licenses')",
+   "legs": {
+    "mp": {
+     "transcript": "../d1-m1/acceptance/w1-mp-null-t10000.json",
+     "sha256": "007c4977f2f58052b414dcd25eacf9eeccfb8046b6cfbff39d2d232267ee3168",
+     "bytes": 371219,
+     "segments": 1294,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000000000",
+     "winding_lo_hi": [
+      "-679",
+      "637"
+     ],
+     "floor": "81319508742932870287418014/1000000000000000000000000000000",
+     "wall_seconds": 1564.7,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "mpNullT10000",
+      "floor": "mpNullT10000_floor",
+      "check": "mpNullT10000_check",
+      "corollary": "mpNullT10000_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    },
+    "arb": {
+     "transcript": "../d1-m1/acceptance/w1-arb-null-t10000.json",
+     "sha256": "5422646bd635edf0753874a44968a9e41c66d7aa7a4c054dbab3f2c5ca7381bf",
+     "bytes": 270942,
+     "segments": 983,
+     "K": "1000000000000000000000000000000",
+     "A": "1000000",
+     "winding_lo_hi": [
+      "-495",
+      "488"
+     ],
+     "floor": "7637761775207501854796622/1000000000000000000000000000000",
+     "wall_seconds": 2.608,
+     "embedded_trust_label": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
+     "python_checkers": {
+      "reference_checker": "ACCEPT",
+      "checker_ref": "ACCEPT",
+      "logs": [
+       "../d1-m1/acceptance/logs/reference-checker-accepts.log",
+       "../d1-m1/acceptance/logs/checker-ref-accepts.log",
+       "../d1-m1/recon_checker_pass.log"
+      ]
+     },
+     "lean": {
+      "module": "Zeta23.W1.Instances",
+      "data": "arbNullT10000",
+      "floor": "arbNullT10000_floor",
+      "check": "arbNullT10000_check",
+      "corollary": "arbNullT10000_exclusion",
+      "corollary_module": "Zeta23.W1.Ledger",
+      "build_record": "../d1-m1/recon_lean_instances.log",
+      "corollary_axioms_record": "../d1-m2a/dr8/fdh-axioms.log"
+     }
+    }
+   },
+   "crosscheck": {
+    "log": "../d1-m1/acceptance/logs/crosscheck.log",
+    "overlap_pairs": 2547,
+    "verdict": "CONSISTENT"
+   },
+   "provenance": {
+    "kind": "acceptance",
+    "note": "M1 v1 acceptance null test 3 (cost-curve height point T = 10^4, delta0 = 1/10; the mp leg's 1 294 segments and 1 565 s are the recorded cost ceiling of the Euler-Maclaurin leg): instrument-validation box chosen for the cost curve, not by any prior; results/d1-m1/acceptance-report.md sec. 1, RUN-REPORT.md sec. 1.4."
+   },
+   "added_utc": "2026-09-09T22:14:41Z",
+   "added_by": "Claude Fable 5.1 (Session 20, D-R8 + M3-seed build, Job 1 builder; brief results/d1-m2a/dr8/BUILD-BRIEF-fDH.md addendum)",
+   "entry_sha256": "a14655ddc65ef4617ec68f76ed1b80a8ca9e4cb90d33640228b794c8124768af"
+  }
+ ]
+}

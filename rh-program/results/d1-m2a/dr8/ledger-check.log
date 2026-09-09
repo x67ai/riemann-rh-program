@@ -1,9 +1,18 @@
+== row zeta_21-40_39-40_100_101
+  leg mp  w1-mp-null-deep-t100.json  sha256 ok  58 segments  S=[-28, 30]  checkers ACCEPT/ACCEPT  lean mpNullDeepT100/mpNullDeepT100_check/mpNullDeepT100_exclusion
+  leg arb w1-arb-null-deep-t100.json  sha256 ok  30 segments  S=[-16, 14]  checkers ACCEPT/ACCEPT  lean arbNullDeepT100/arbNullDeepT100_check/arbNullDeepT100_exclusion
+  crosscheck CONSISTENT, 90 overlap pairs
+== row zeta_3-5_9-10_10000_10001
+  leg mp  w1-mp-null-t10000.json  sha256 ok  1294 segments  S=[-679, 637]  checkers ACCEPT/ACCEPT  lean mpNullT10000/mpNullT10000_check/mpNullT10000_exclusion
+  leg arb w1-arb-null-t10000.json  sha256 ok  983 segments  S=[-495, 488]  checkers ACCEPT/ACCEPT  lean arbNullT10000/arbNullT10000_check/arbNullT10000_exclusion
+  crosscheck CONSISTENT, 2547 overlap pairs
+== row zeta_3-5_9-10_1000_1001
+  leg mp  w1-mp-null-t1000.json  sha256 ok  81 segments  S=[-41, 40]  checkers ACCEPT/ACCEPT  lean mpNullT1000/mpNullT1000_check/mpNullT1000_exclusion
+  leg arb w1-arb-null-t1000.json  sha256 ok  65 segments  S=[-29, 36]  checkers ACCEPT/ACCEPT  lean arbNullT1000/arbNullT1000_check/arbNullT1000_exclusion
+  crosscheck CONSISTENT, 158 overlap pairs
 == row zeta_3-5_9-10_100_101
-  DRIFT: zeta_3-5_9-10_100_101/mp: python checkers now REJECT/ACCEPT, recorded REJECT/ACCEPT
-  leg mp  w1-mp-null-t100.json  sha256 ok  52 segments  S=[-24, 28]  checkers REJECT/ACCEPT  lean mpNullT100/mpNullT100_check/mpNullT100_exclusion
-  DRIFT: zeta_3-5_9-10_100_101/arb: python checkers now REJECT/ACCEPT, recorded REJECT/ACCEPT
-  leg arb w1-arb-null-t100.json  sha256 ok  27 segments  S=[-14, 13]  checkers REJECT/ACCEPT  lean arbNullT100/arbNullT100_check/arbNullT100_exclusion
+  leg mp  w1-mp-null-t100.json  sha256 ok  52 segments  S=[-24, 28]  checkers ACCEPT/ACCEPT  lean mpNullT100/mpNullT100_check/mpNullT100_exclusion
+  leg arb w1-arb-null-t100.json  sha256 ok  27 segments  S=[-14, 13]  checkers ACCEPT/ACCEPT  lean arbNullT100/arbNullT100_check/arbNullT100_exclusion
   crosscheck CONSISTENT, 83 overlap pairs
-  DRIFT: zeta_3-5_9-10_100_101: status 'accepted' is not earned (needs both legs ACCEPTed, kernel-checked, CONSISTENT)
-rows: 1; findings: 3 -> FAIL
-exit=1
+rows: 4; findings: 0 -> OK
+exit=0
