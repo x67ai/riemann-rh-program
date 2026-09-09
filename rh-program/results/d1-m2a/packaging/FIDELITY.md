@@ -28,3 +28,9 @@ bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.
 the solution's (`statement-identity.log`); `#print axioms` on all seven: the three standard axioms or a subset (`print-axioms.log`).
 No human has read `Challenge/DBN.lean` against the prose statement (the sponsor does not review Lean): `review.status` is
 `self-assessed`; Job 2 (Opus 5, clean clone; `CHECK-O.md`) and Job 3 (the Comparator run with nanoda; `COMPARATOR-RUN.md`) follow.
+
+### (l), (m) — added by the D-R8 build and its fix pass (2026-09-10, Session 20; not DBN items)
+
+**(l)** f_DH (D-R8): the identification of the producers' f_DH with Lean's `Zeta23.W1.fDH` is a META-level convention match (Mathlib `hasSum_hurwitzZeta_of_one_lt_re` / `hurwitz_encl.py` STEP 3′ / Arb `acb_hurwitz_zeta`, all Σ_{n≥0}(n+a)^{−s} with a = j/5), not a Lean theorem; κ a 60-digit-checked transcription; `W1Data` carries no function tag; the M3 seed corollaries license the single-box sentence only. Full text: `lean/formalization.yaml` fidelity (l); record `results/d1-m2a/dr8/BUILD-NOTES-fDH.md`.
+
+**(m)** Box-form conclusion NOT stated (CHECK-fDH-O.md FIX-FIRST 1): `cert_of_checkW1_of_diffOn` — hence `cert_of_checkW1_fDH`, `cert_of_checkW1_ap` and `mpDH_zero`/`arbDH_zero` — concludes only 1/2 < Re ρ < 1 ∧ T1 d < Im ρ < T2 d for the witness; the proof holds `hρmem : ρ ∈ rectOpen (sigma1 d) (sigma2 d) (T1 d) (T2 d)` and discards `hr1`/`hr2` by `lt_trans`. "The zero lies in R" is true but not what the kernel checked; every printed label now says the half-strip window only. A σ-strong sibling `cert_of_checkW1_of_diffOn'` (sigma1 d < Re ρ < sigma2 d) with box-form instance corollaries is OWED (next D-R8 item); frozen statements untouched.

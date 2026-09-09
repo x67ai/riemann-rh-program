@@ -36,9 +36,9 @@ WHAT IS PROVED HERE (sorry-free; `#print axioms`: [propext, Classical.choice, Qu
     (kernel-decided integer facts, Instances.lean) and H-ENCL_DH for the literal, a zero ρ of f_DH
     with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71.
 
-HONEST LABEL (binding; PRICING-fDH.md §3.2, verbatim): "f_DH has at least one zero in
-R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis
-H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
+HONEST LABEL (binding; PRICING-fDH.md §3.2, verbatim): "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the
+transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed
+hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
 What it does NOT say, and must never be read as: nothing about ζ (no zero of ζ, nothing about RH,
 no change to any ζ transcript's label); nothing about Λ (the de Bruijn–Newman chain starts from a
 zero of ζ or of H_t, and f_DH is neither); not a machine-checked disproof of "RH for DH" (the

@@ -23,3 +23,6 @@ cbc26e91fd902c05803403b878e46dc8e5be621d69cd3a0e8b598685c9e609a3  results/d1-m2a
 c42a04e387c92f784d86ff3e64f056a51b1762010b73d405fb7a58e8e444e1f4  results/d1-m2a/packaging/formalization-yaml-validate.log
 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce  results/d1-m2a/packaging/v0.4.schema.json
 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3  results/d1-m2a/packaging/formalization.schema.dispatcher.json
+# [2026-09-10, Session 20] Two lines above are superseded (append-only note; CHECK-fDH-O.md MINOR 4): lean/formalization.yaml -> 99b77f8022bfef03494c980acb1710e58b81dbf16c99f11749bc542d640746b0
+# (D-R8 build + fix pass, dr8/hashes-fdh.txt) and results/d1-m2a/packaging/FIDELITY.md -> dee704cf8f3762db01a33c7893b5c26a53549b25a80c103f4a2552263e681c99 (item (k), commit 34c0332; items (l),(m) appended
+# in the D-R8 fix pass). The six comparator/* lines and every other line still verify.

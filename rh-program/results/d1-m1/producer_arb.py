@@ -148,7 +148,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 TRUST_LABELS = {
     "zeta": "kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)",
-    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+    "f_DH": "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
 }
 
 MAX_SEGMENTS = 20000
