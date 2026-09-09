@@ -1,0 +1,147 @@
+# trust greps over Zeta23/DBN/ (KICKSTART Part 2 item 10(j)) — Session 19 emitter, Wed Sep  9 22:00:42 IST 2026
+# tree: /Users/jaytyagi/rh-lean-work/zeta-23-lean-main; files: 121 .lean files (Zeta23/DBN/*.lean + Instance02/*.lean)
+# rule: a hit is a defect unless it is inside a comment/docstring (the header prose says 'no native_decide', 'sorry-free', 'axiom').
+
+== axiom  (word-boundary grep -rnw, all files):
+   total hits: 0
+
+== native_decide  (word-boundary grep -rnw, all files):
+   total hits: 116
+Zeta23/DBN/Asym.lean:38:on ℤ and a ℕ length; no `native_decide`); it does not see t₀, x, y or any real number.
+Zeta23/DBN/Instance02.lean:26:by citing the per-prism theorems, and the monolithic `checkBarrier … = true`.  No `native_decide` anywhere.
+Zeta23/DBN/BarrierCert.lean:35:discipline, no `native_decide`); it does not see t, f, or any real number.
+Zeta23/DBN/Instance02/arb_0038.lean:14:`arb0038_check : checkPrism row2Rect arb0038 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0026.lean:14:`mp0026_check : checkPrism row2Rect mp0026 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0030.lean:14:`mp0030_check : checkPrism row2Rect mp0030 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0055.lean:14:`arb0055_check : checkPrism row2Rect arb0055 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0014.lean:14:`arb0014_check : checkPrism row2Rect arb0014 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0043.lean:14:`arb0043_check : checkPrism row2Rect arb0043 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0002.lean:14:`arb0002_check : checkPrism row2Rect arb0002 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0063.lean:14:`arb0063_check : checkPrism row2Rect arb0063 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0010.lean:14:`mp0010_check : checkPrism row2Rect mp0010 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0034.lean:14:`arb0034_check : checkPrism row2Rect arb0034 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0022.lean:14:`arb0022_check : checkPrism row2Rect arb0022 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0059.lean:14:`arb0059_check : checkPrism row2Rect arb0059 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0007.lean:14:`mp0007_check : checkPrism row2Rect mp0007 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0006.lean:14:`mp0006_check : checkPrism row2Rect mp0006 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0018.lean:14:`arb0018_check : checkPrism row2Rect arb0018 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/Asym_arb.lean:15:kernel fact `row2AsymARB_check : checkAsym row2AsymARB = true` (`decide +kernel`; no `native_decide`), the three real-parameter
+Zeta23/DBN/Instance02/mp_0011.lean:14:`mp0011_check : checkPrism row2Rect mp0011 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0019.lean:14:`arb0019_check : checkPrism row2Rect arb0019 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0062.lean:14:`arb0062_check : checkPrism row2Rect arb0062 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0058.lean:14:`arb0058_check : checkPrism row2Rect arb0058 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0054.lean:14:`arb0054_check : checkPrism row2Rect arb0054 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0023.lean:14:`arb0023_check : checkPrism row2Rect arb0023 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0015.lean:14:`arb0015_check : checkPrism row2Rect arb0015 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0039.lean:14:`arb0039_check : checkPrism row2Rect arb0039 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0065.lean:14:`arb0065_check : checkPrism row2Rect arb0065 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0027.lean:14:`mp0027_check : checkPrism row2Rect mp0027 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0042.lean:14:`arb0042_check : checkPrism row2Rect arb0042 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0035.lean:14:`arb0035_check : checkPrism row2Rect arb0035 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0024.lean:14:`arb0024_check : checkPrism row2Rect arb0024 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0008.lean:14:`arb0008_check : checkPrism row2Rect arb0008 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0049.lean:14:`arb0049_check : checkPrism row2Rect arb0049 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0036.lean:14:`mp0036_check : checkPrism row2Rect mp0036 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0016.lean:14:`mp0016_check : checkPrism row2Rect mp0016 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0003.lean:14:`arb0003_check : checkPrism row2Rect arb0003 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0028.lean:14:`arb0028_check : checkPrism row2Rect arb0028 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0004.lean:14:`arb0004_check : checkPrism row2Rect arb0004 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0020.lean:14:`mp0020_check : checkPrism row2Rect mp0020 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0031.lean:14:`mp0031_check : checkPrism row2Rect mp0031 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0013.lean:14:`arb0013_check : checkPrism row2Rect arb0013 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0012.lean:14:`arb0012_check : checkPrism row2Rect arb0012 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0032.lean:14:`arb0032_check : checkPrism row2Rect arb0032 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0045.lean:14:`arb0045_check : checkPrism row2Rect arb0045 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0021.lean:14:`mp0021_check : checkPrism row2Rect mp0021 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0005.lean:14:`arb0005_check : checkPrism row2Rect arb0005 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0000.lean:14:`mp0000_check : checkPrism row2Rect mp0000 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0017.lean:14:`mp0017_check : checkPrism row2Rect mp0017 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0069.lean:14:`arb0069_check : checkPrism row2Rect arb0069 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0037.lean:14:`mp0037_check : checkPrism row2Rect mp0037 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0052.lean:14:`arb0052_check : checkPrism row2Rect arb0052 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0053.lean:14:`arb0053_check : checkPrism row2Rect arb0053 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0009.lean:14:`arb0009_check : checkPrism row2Rect arb0009 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0025.lean:14:`arb0025_check : checkPrism row2Rect arb0025 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0068.lean:14:`arb0068_check : checkPrism row2Rect arb0068 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0064.lean:14:`arb0064_check : checkPrism row2Rect arb0064 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0044.lean:14:`arb0044_check : checkPrism row2Rect arb0044 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0038.lean:14:`mp0038_check : checkPrism row2Rect mp0038 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0001.lean:14:`mp0001_check : checkPrism row2Rect mp0001 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0030.lean:14:`arb0030_check : checkPrism row2Rect arb0030 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0051.lean:14:`arb0051_check : checkPrism row2Rect arb0051 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0029.lean:14:`arb0029_check : checkPrism row2Rect arb0029 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0033.lean:14:`arb0033_check : checkPrism row2Rect arb0033 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0026.lean:14:`arb0026_check : checkPrism row2Rect arb0026 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0048.lean:14:`arb0048_check : checkPrism row2Rect arb0048 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0018.lean:14:`mp0018_check : checkPrism row2Rect mp0018 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0014.lean:14:`mp0014_check : checkPrism row2Rect mp0014 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0047.lean:14:`arb0047_check : checkPrism row2Rect arb0047 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0002.lean:14:`mp0002_check : checkPrism row2Rect mp0002 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0023.lean:14:`mp0023_check : checkPrism row2Rect mp0023 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0071.lean:14:`arb0071_check : checkPrism row2Rect arb0071 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0022.lean:14:`mp0022_check : checkPrism row2Rect mp0022 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0067.lean:14:`arb0067_check : checkPrism row2Rect arb0067 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0046.lean:14:`arb0046_check : checkPrism row2Rect arb0046 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0010.lean:14:`arb0010_check : checkPrism row2Rect arb0010 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0019.lean:14:`mp0019_check : checkPrism row2Rect mp0019 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0006.lean:14:`arb0006_check : checkPrism row2Rect arb0006 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0027.lean:14:`arb0027_check : checkPrism row2Rect arb0027 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/Asym_mp.lean:15:kernel fact `row2AsymMP_check : checkAsym row2AsymMP = true` (`decide +kernel`; no `native_decide`), the three real-parameter
+Zeta23/DBN/Instance02/arb_0050.lean:14:`arb0050_check : checkPrism row2Rect arb0050 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0034.lean:14:`mp0034_check : checkPrism row2Rect mp0034 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0015.lean:14:`mp0015_check : checkPrism row2Rect mp0015 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0031.lean:14:`arb0031_check : checkPrism row2Rect arb0031 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0035.lean:14:`mp0035_check : checkPrism row2Rect mp0035 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0007.lean:14:`arb0007_check : checkPrism row2Rect arb0007 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0008.lean:14:`mp0008_check : checkPrism row2Rect mp0008 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0011.lean:14:`arb0011_check : checkPrism row2Rect arb0011 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0041.lean:14:`arb0041_check : checkPrism row2Rect arb0041 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0066.lean:14:`arb0066_check : checkPrism row2Rect arb0066 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0070.lean:14:`arb0070_check : checkPrism row2Rect arb0070 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0004.lean:14:`mp0004_check : checkPrism row2Rect mp0004 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0057.lean:14:`arb0057_check : checkPrism row2Rect arb0057 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0012.lean:14:`mp0012_check : checkPrism row2Rect mp0012 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0003.lean:14:`mp0003_check : checkPrism row2Rect mp0003 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0016.lean:14:`arb0016_check : checkPrism row2Rect arb0016 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0020.lean:14:`arb0020_check : checkPrism row2Rect arb0020 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0028.lean:14:`mp0028_check : checkPrism row2Rect mp0028 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0000.lean:14:`arb0000_check : checkPrism row2Rect arb0000 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0060.lean:14:`arb0060_check : checkPrism row2Rect arb0060 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0024.lean:14:`mp0024_check : checkPrism row2Rect mp0024 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0037.lean:14:`arb0037_check : checkPrism row2Rect arb0037 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0032.lean:14:`mp0032_check : checkPrism row2Rect mp0032 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0061.lean:14:`arb0061_check : checkPrism row2Rect arb0061 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0025.lean:14:`mp0025_check : checkPrism row2Rect mp0025 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0036.lean:14:`arb0036_check : checkPrism row2Rect arb0036 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0033.lean:14:`mp0033_check : checkPrism row2Rect mp0033 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0029.lean:14:`mp0029_check : checkPrism row2Rect mp0029 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0001.lean:14:`arb0001_check : checkPrism row2Rect arb0001 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0021.lean:14:`arb0021_check : checkPrism row2Rect arb0021 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0009.lean:14:`mp0009_check : checkPrism row2Rect mp0009 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0005.lean:14:`mp0005_check : checkPrism row2Rect mp0005 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0040.lean:14:`arb0040_check : checkPrism row2Rect arb0040 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/mp_0013.lean:14:`mp0013_check : checkPrism row2Rect mp0013 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0017.lean:14:`arb0017_check : checkPrism row2Rect arb0017 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+Zeta23/DBN/Instance02/arb_0056.lean:14:`arb0056_check : checkPrism row2Rect arb0056 = true` (`decide +kernel`; no `native_decide`).  UNTRUSTED producer
+
+== unsafe  (word-boundary grep -rnw, all files):
+   total hits: 0
+
+== implemented_by  (word-boundary grep -rnw, all files):
+   total hits: 0
+
+== extern  (word-boundary grep -rnw, all files):
+   total hits: 0
+
+== opaque  (word-boundary grep -rnw, all files):
+   total hits: 0
+
+== sorry  (word-boundary grep -rnw, all files):
+   total hits: 3
+Zeta23/DBN/BtFacts.lean:16:PROVED HERE (sorry-free; `#print axioms` = propext, Classical.choice, Quot.sound):
+Zeta23/DBN/Asym.lean:47:WHAT IS PROVED HERE (all sorry-free; `#print axioms` = propext, Classical.choice, Quot.sound):
+Zeta23/DBN/BarrierCert.lean:37:WHAT IS PROVED HERE (all sorry-free; `#print axioms` = propext, Classical.choice, Quot.sound):
+
+== CODE-ONLY check (comments and docstrings stripped, per file, via python):
+   121 files scanned, code-only hits: 0 -> CLEAN
+# Wed Sep  9 22:00:42 IST 2026
