@@ -191,3 +191,107 @@ Raw counts (prose included, for the record): `axiom` 2, `native_decide` 119, `un
 placeholders:** `comparator/Challenge/DBN.lean` lines 84, 103, 116, 121, 125, 130, 134 (one per statement, in order: (G), (I) mp,
 (I) arb, (K) ×4). Other code hits: 0. Exit 0.
 
+## 3. `formalization.yaml` (`rh-program/lean/formalization.yaml`, 386 lines) and the fidelity ledger — LANDED
+
+Schema v0.4, modeled on `lean-repos.md` §1(d-ii) (the OpenAI file, verbatim there). Field names confirmed against the schema: the
+URL in the file's first line is a version DISPATCHER (`formalization.schema.json`, `$ref` → `v0.4.schema.json` in the same directory);
+both fetched 2026-09-10 and kept here (`v0.4.schema.json` SHA-256 25ff6b25…; `formalization.schema.dispatcher.json`). Nothing else was
+fetched. v0.4 requires `project`, `sources`, `automation`, `review`; it HAS a `fidelity` object with a `divergences` string, so the ledger
+is a schema key, not an extension. Validation: neither PyYAML nor jsonschema is installed and this job may not fetch packages, so the
+YAML was parsed by macOS's Ruby (Psych) into JSON and checked by `packaging/validate_yaml.py` (types, required, enums, items,
+additionalProperties) → `formalization-yaml-validate.log`: **0 errors**, no key outside the schema; 11 `main_results`, 16
+`alignment.statements`, 6 `sources`, `fidelity.divergences` 4 455 characters.
+Honest fields: `project.authors` (the sponsor writes no Lean; Claude wrote every file under his direction); `sources` = SPEC.md,
+the design note, Polymath15 (H3's paper; `relationship: formalizes` with the note that Theorem 1.2 is a displayed hypothesis, not
+proved), Platt–Trudgian (H1; `background`), the A4 paper and M1 FORMAT.md for the earlier theorems; `related_formalizations` =
+anthropics/zeta-23-lean (`builds-on`), Gomila's branch (`adapts`, the two ported files); `status.scope` states plainly that the only
+`sorry`s are the seven challenge placeholders; `status.main_results` = the seven DBN statements (grouped as five entries) with
+`sorry_count 0`, their exact axiom lists and `comparator_config: comparator/config-dbn.json`, plus `lambda_le_point2(_arb)`,
+`cert_of_checkBarrier`, `cert_of_checkAsym`, `cert_of_checkW1_ap`, the GridParseval and GridCorner theorems, each pointing at its
+`#print axioms` log; `automation.methods` = agent, models "Claude Fable 5.1" and "Claude Opus 5", framework "Claude Code
+(Workflow/Agent)", with the tool setup and the untrusted-producer / back-parse practice in the notes; `review.status` =
+`self-assessed`, `reviewers: []`, notes saying that no human has read `Challenge/DBN.lean` against the prose statement (the sponsor
+does not review Lean) and listing what stands behind the self-assessment, with Jobs 2–3 pending and their verdicts to be appended
+verbatim; `alignment.statements` = 16 rows SPEC/prose ↔ Lean name ↔ module ↔ status (the displayed hypotheses H1, H2-*, H3 listed
+as "stated, DISPLAYED, not proved"). The phrase "fully machine-checked" occurs in the program's new files only inside prohibitions
+(`never "fully machine-checked"`; in the yaml once more as `forbid "fully machine-checked"`) — no file uses it as a label.
+`fidelity.divergences` = items (a)–(j) — (a) the y-band asymmetry with the corrected figures, (b) C-A6 not consumed, (c) producers
+untrusted / five displayed hypotheses / the exact label, (d) ray form vs Λ, (e) (ii′) and the y² rewrite and the p3 box, (f) (G) vs
+Zeta23's instance-only proof + the re-declared-structure transport + the (K) addition, (g) no reductions, (h) H1's shape and prose
+discharge, (i) two legs two theorems, (j) what is proved vs displayed and the modeling choices — mirrored with source pointers in
+`packaging/FIDELITY.md`.
+
+## 4. Bookkeeping — LANDED
+
+* `lean/README.md`: the opening paragraph gained a dated sentence; a new section "Packaging (2026-09-10)" (the topic table, the quick
+  check with its recorded run, the label verbatim, the pointer to FIDELITY.md and formalization.yaml).
+* `results/d1-m2a/RUN-REPORT.md` §6: a dated Session-20 note after the Session-19 note — item 5 landed modulo the SPEC v1.1 fold-in
+  (owed, §6 below); the cut line stated.
+* Mirror: `rh-program/lean/comparator/{ChallengeDeps/DBN.lean, ChallengeDeps/DBN/Instance02.lean, Challenge/DBN.lean, Solution/DBN.lean,
+  PrintAxioms/DBN.lean, config-dbn.json}` copied from the tree, `cmp`-identical (re-verified after the last edit);
+  `rh-program/lean/formalization.yaml` (program scope; not placed in the Lean tree, which is not a git repo and whose parent ships none).
+* Not touched, as ordered: `Zeta23/DBN/{Defs,BarrierCert,Asym,BtFacts,Instance02}.lean` and every module under `Zeta23/DBN/Instance02/`
+  (the trust greps re-scanned all 121; the lakefile needed no change — the three `[[lean_lib]]` stanzas resolve the new submodules).
+
+## 5. SHA-256 (KICKSTART 10(i)); tree = mirror, `cmp`-verified; 2026-09-10 01:37 IST
+
+    b55cb89bd71a56cf5a893322d25d2e8e81b9a8162477b11b8ebfc92ab57f842f  comparator/ChallengeDeps/DBN.lean
+    1eb81bf8201b2bcf92c07073ec0460f21722b5fbaccaaba614f3204d73f21685  comparator/ChallengeDeps/DBN/Instance02.lean
+    2c928d4bf8c4d2ea90ce83026ecc42de67b575141dd0ab7b5132921a2a9d0604  comparator/Challenge/DBN.lean
+    dcc18e39777e9b76dbc21bb95ef6d552eb74e59c718194c60bb998e2192bad96  comparator/Solution/DBN.lean
+    cca0c76017a02d980c99bebbacfbcfe3c365ca29808f3c1c68d3197dc28e9576  comparator/PrintAxioms/DBN.lean
+    aa0b9fcd086cd6841b555eae6887098748be66165b9f52019c5ee2c6b66a32dd  comparator/config-dbn.json
+    eb798527540b8cf341eee38c0dce3ef427565dad7f4676632db9ca108bd0f58b  lean/formalization.yaml
+    275bac11ef1101847e0717a6d646af9f5b1cd47339a350f0d73bca7a946aa75a  results/d1-m2a/packaging/BRIEF.md
+    da045cd8549e56dae385bcc5225235b8172ae2c94409ddf7486fc4ce7270d85f  results/d1-m2a/packaging/FIDELITY.md
+    65b84a5eb98b4f007b25e0817a557ae51b268a9165a3d5182b033abe56715f6f  results/d1-m2a/packaging/gen_challengedeps_dbn.py
+    93aa996549efd876404af41d0bb16472a7b362f9c2494544783fa2cc9c8867a7  results/d1-m2a/packaging/gen-challengedeps-table.txt
+    f216bbb4ee177a57bc2503f70ebcb20c766fbf382dd12ccc1d4f0de9b5a9c201  results/d1-m2a/packaging/emit_challengedeps_instance02.py
+    7a1d0700980bc2bec4c131fea37126f692c5a528e5389d013af2e670b9a1f7b5  results/d1-m2a/packaging/cmp_literal_blocks.py
+    6ee422b71ac5f372c75187b703cf56838b73fa70c14321afc8ea8cd72b6180d1  results/d1-m2a/packaging/cmp-literal-blocks.log
+    297e33e5e3e137d9314d58364e5591293e529e891ef8b3664ce8f4e65a8f7cfc  results/d1-m2a/packaging/statement_identity.py
+    a83bffa7caa7ed83b846281ed5109e686d0dc9dae310504029585aec1c7c6bda  results/d1-m2a/packaging/statement-identity.log
+    fc3306d80f652a96a1e71b4300df70e6397f35d7118059832019edb8ee1e9d82  results/d1-m2a/packaging/trust_greps.py
+    5707773cfe68526de20c5a1e519652551c9f72d37e2df35ebe07cddddff3dc5c  results/d1-m2a/packaging/trust-greps-packaging.log
+    9c34e62d11e9ed3dc8af317143d83dfed9567caa0ac5078410dc73272a264c81  results/d1-m2a/packaging/print-axioms.log
+    cbc26e91fd902c05803403b878e46dc8e5be621d69cd3a0e8b598685c9e609a3  results/d1-m2a/packaging/print-axioms-bridge.lean
+    6d79c06923d8afe49790ef8ee9375f5811fb6e19228bd5183af6529ad2b8c264  results/d1-m2a/packaging/print-axioms-bridge.log
+    3ecd7cd93e5d31c93277b6e4689e1901a2607cfcbf3e1106afa74baffec9840e  results/d1-m2a/packaging/validate_yaml.py
+    c42a04e387c92f784d86ff3e64f056a51b1762010b73d405fb7a58e8e444e1f4  results/d1-m2a/packaging/formalization-yaml-validate.log
+    25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce  results/d1-m2a/packaging/v0.4.schema.json
+    22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3  results/d1-m2a/packaging/formalization.schema.dispatcher.json
+
+Line counts: `ChallengeDeps/DBN.lean` 562, `ChallengeDeps/DBN/Instance02.lean` 20 157, `Challenge/DBN.lean` 136, `Solution/DBN.lean` 422,
+`PrintAxioms/DBN.lean` 28, `formalization.yaml` 386. (BUILD-NOTES.md itself is hashed by the orchestrator at harvest, 10(i).)
+
+## 6. Wall times, thermal
+
+| step | wall |
+|---|---|
+| generator (ChallengeDeps/DBN.lean), emitter (Instance02 copy), cmp script, statement identity, trust greps | < 1 s each (Python) |
+| `lake build ChallengeDeps.DBN` | 28 s (module 25 s; import Mathlib) |
+| `lake build ChallengeDeps.DBN.Instance02` (20 157 lines, 17 947 row literals) | 38 s (module 35 s; 55.7 s user) |
+| `lake build Challenge.DBN Solution.DBN` — three rounds (two with errors, one clean) | 16 s, 11 s, 14 s (Solution 11 s incl. the four `decide +kernel` literal identities) |
+| `lake env lean comparator/PrintAxioms/DBN.lean` | 4 s |
+| `lake env lean packaging/print-axioms-bridge.lean` | 4 s |
+| whole job, brief read to notes closed | ≈ 45 min (00:52–01:38 IST) |
+
+One `lake` process at a time throughout; heavy jobs (> 50 % CPU) checked before every build: 0; no producer ran; `caffeinate` running;
+both watchdogs running (`pgrep -f watchdog.sh` → 2); every unit committed as it landed (five commits before this close).
+
+## 7. Owed / not done — honest
+
+1. **SPEC v1.1** (the second half of RUN-REPORT §6 item 5: "a v1.1 of SPEC.md/schema that folds in §14 — per-lane trust label; (14)
+   with the overline; the n² exponent") — NOT done in this job; outside the brief's §2 deliverables. Item 5 is landed modulo it.
+2. **Job 2 (Opus 5, clean clone; `CHECK-O.md`) and Job 3 (the Comparator run with nanoda; `COMPARATOR-RUN.md`)** — not this job's; the
+   files they must read are all on disk. On a FIX-FIRST from Job 2 the builder re-runs once (brief §3 item 6).
+3. **`review.notes` / `automation.notes` of `formalization.yaml`** are to receive Job 3's outcome verbatim ("Comparator run: performed
+   without sandbox, nanoda enabled" or the exact failure) — placeholder sentences say so.
+4. **The yaml was validated with a minimal validator**, not the reference `jsonschema` library (not installed; no package fetch allowed
+   in this job). The checks it makes — types, required keys, enums, item shapes, unknown keys — are the ones that matter for v0.4; a
+   reference validation can be run by Job 2 or the orchestrator if a network-allowed job installs `pyyaml` + `jsonschema`.
+5. **Nothing was reduced, sampled, or left `sorry` on the solution side.** No `Zeta23/DBN/*.lean` file was edited. The generic
+   statement (G) carries the builder's side conditions (fidelity (f)); if the referee prefers the constants fixed instead of bound, the
+   change is textual in `Challenge/DBN.lean` + `Solution/DBN.lean` only.
+6. **Orchestrator harvest:** STATUS live entry, LOG entry with the hashes above, the D1 direction file frontier, then the mirror commit is
+   already done by this job (five commits + this close); the push watchdog pushes.
