@@ -1,0 +1,13 @@
+FORMAT.md sec. 9.2 line: kap = (sqrt(10-2*sqrt5) - 2)/(sqrt5 - 1)
+dh.py line found: True -> kap = (sqrt(10-2*sqrt5) - 2)/(sqrt5 - 1)
+
+kappa (contract text, FORMAT sec. 9.2 / dh.py) = 0.284079043840412296028291832393126169091088088445737582759163
+kappa (Lean kappaDH transcription)            = 0.284079043840412296028291832393126169091088088445737582759163
+kappa (tan theta, eps_chi = tau(chi)/(i sqrt5)) = 0.284079043840412296028291832393126169091088088445737582759163
+|contract - lean|   = 0.0
+|contract - closed| = 3.8893845486632135669650400336125776503689076054507294581882e-62
+agreement digits (min over the two comparisons) = 60
+leading digits per PRICING sec. 1.1: 0.28407904... -> 0.2840790438
+VERDICT: PASS (>= 30 digits, three routes agree)
+radicand 10 - 2 sqrt5 = 5.52786404500042060718165266253744752911876328077694855145821 > 0: True
+denominator sqrt5 - 1 = 1.2360679774997896964091736687312762354406183596115257242709 != 0: True
