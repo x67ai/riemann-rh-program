@@ -123,6 +123,9 @@ theorem mpDH_zero (hEncl : W1EnclOK fDH mpDH) :
 
 ### 3.2 The honest label (binding wording, to be used everywhere it is printed)
 
+**[SUPERSEDED 04:18 IST 2026-09-10, Session 20 — after the Opus check (`CHECK-fDH-O.md` §12 item 1).]** The sentence below overclaimed the box: the theorem as shipped concludes `1/2 < Re ρ < 1 ∧ T1 d < Im ρ < T2 d`, not Re ρ ∈ [σ₁, σ₂]. The binding label is now the one in `BUILD-NOTES-fDH.md` §7 / `Zeta23/W1/FDH.lean`'s module doc: "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (producers untrusted)." The box-form conclusion is OWED as a σ-strong sibling `cert_of_checkW1_of_diffOn'` (fidelity item (m)). Text below kept as written.
+
+
 **"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."**
 
 What it says: the W1 checker's acceptance of the DH transcript is now a Lean-backed implication for f_DH, of the same shape and the same trust boundary as the ζ theorem `cert_of_checkW1_ap`. The DH rung of the ladder (KICKSTART 10(b): "Davenport–Heilbronn (RH false)") carries the same theorem as the ζ rung; the "checker-level only" caveat of D-R8 is discharged.
