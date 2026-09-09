@@ -50,3 +50,29 @@ WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.DBN
 Build completed successfully (8826 jobs).
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.DBN -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind dbn_ray_le_point2_of_certificates dbn_ray_le_point2_mp dbn_ray_le_point2_arb dbn_row2BarrierMP_checked dbn_row2BarrierARB_checked dbn_row2AsymMP_checked dbn_row2AsymARB_checked propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.dRktNkmU
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, dbn_ray_le_point2_of_certificates, dbn_ray_le_point2_mp, dbn_ray_le_point2_arb, dbn_row2BarrierMP_checked, dbn_row2BarrierARB_checked, dbn_row2AsymMP_checked, dbn_row2AsymARB_checked, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.DBN
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      199.09 real       209.73 user        17.43 sys
+          9575104512  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             4395423  page reclaims
+                5529  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               98268  voluntary context switches
+              207031  involuntary context switches
+          3589241945  instructions retired
+          1191532533  cycles elapsed
+           136568408  peak memory footprint
+--- comparator exit code: 0 ---
+=== [DBN] end 2026-09-10 02:16:04 IST ===
