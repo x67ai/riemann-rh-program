@@ -313,6 +313,24 @@ review:
     the Opus 5 clean-clone check (CHECK-O.md) and the Comparator run with nanoda (COMPARATOR-RUN.md); their verdicts are to
     be appended here verbatim.
 
+    Comparator run (results/d1-m2a/packaging/COMPARATOR-RUN.md, Session 20 Job 3, 2026-09-10 02:12:45-02:16:04 IST): performed
+    without sandbox, nanoda enabled.  leanprover/comparator v4.33.0 (commit 3927ad38) with lean4export v4.33.0-rc2 (9fb131bb, the
+    project's toolchain) and nanoda 0.4.17 (ammkrn/nanoda_lib commit 4c544ed4), run as `lake env comparator comparator/config-dbn.json`
+    from the repository root with Challenge.DBN and Solution.DBN built by comparator itself (pre-built artifacts removed first);
+    final lines verbatim: "Running nanoda kernel on solution" / "Nanoda kernel accepts the solution" / "Running Lean default kernel
+    on solution." / "Lean default kernel accepts the solution" / "Your solution is okay!"; exit code 0; 199 s wall, 8.9 GiB peak.
+    All seven theorem_names compared (statements identical constant-for-constant between Challenge.DBN and Solution.DBN); axioms
+    within propext, Quot.sound, Classical.choice.  nanoda evidence beyond the comparator's own line: the same solution export
+    (406 013 219 bytes, 7 590 534 lines, export format 3.1.0) re-checked by nanoda_bin directly: "Checked 56428 declarations with
+    no errors", admitted axioms printed by nanoda = exactly propext, Quot.sound, Classical.choice.  NOT sandboxed: landrun needs
+    Linux Landlock (on this macOS host: "missing kernel Landlock support. Landlock is only supported on Linux"), so comparator's own
+    scripts/fake-landrun.sh shim was used through COMPARATOR_LANDRUN; comparator README assumptions 3-4 therefore do not hold for
+    this run, and a referee who wants the sandbox re-runs the same command on a Linux host.  A control run on the parent's own
+    comparator/config.json (fifteen theorems) passed the same way first (comparator-control-run.log, 171 s), so the tooling is
+    attributable.  This verifies the packaging (statement identity, axiom set, Lean-kernel and nanoda replay of the proofs) and
+    nothing about the truth of the five displayed hypotheses: the label stays "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL),
+    H3"; Lambda <= 0.2 is not proved.
+
 alignment:
   namespaces:
     - "DBN"

@@ -1,0 +1,50 @@
+=== nanoda evidence for Solution.DBN start 2026-09-10 02:17:02 IST
+targets: Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind dbn_ray_le_point2_of_certificates dbn_ray_le_point2_mp dbn_ray_le_point2_arb dbn_row2BarrierMP_checked dbn_row2BarrierARB_checked dbn_row2AsymMP_checked dbn_row2AsymARB_checked propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+lean4export exit=0 ; export bytes:  406013219 ; lines:  7590534
+{"meta":{"exporter":{"name":"lean4export","version":"3.1.0"},"format":{"version":"3.1.0"},"lean":{"githash":"d8b18978322de05a8f3dba51ef03cf5461676c17","version":"4.33.0-rc2"}}}
+{"in":1,"str":{"pre":0,"str":"Nat"}}
+{"il":1,"succ":0}
+{"ie":0,"sort":1}
+{"in":2,"str":{"pre":1,"str":"zero"}}
+{"in":3,"str":{"pre":1,"str":"succ"}}
+{"const":{"name":1,"us":[]},"ie":1}
+{"in":4,"str":{"pre":0,"str":"n"}}
+{"f
+declaration lines by kind (first token): 
+   1 {"thm":{"all":[99999],"levelParams":[],"name":99999,"type":1262940,"value":1262952}}
+   1 {"thm":{"all":[99993],"levelParams":[19],"name":99993,"type":1262879,"value":1262935}}
+   1 {"thm":{"all":[99987],"levelParams":[19],"name":99987,"type":1262822,"value":1262853}}
+   1 {"thm":{"all":[99986],"levelParams":[19],"name":99986,"type":1262798,"value":1262811}}
+   1 {"thm":{"all":[99985],"levelParams":[19],"name":99985,"type":1262758,"value":1262779}}
+   1 {"thm":{"all":[99977],"levelParams":[19],"name":99977,"type":1262743,"value":1262752}}
+   1 {"thm":{"all":[99975],"levelParams":[19],"name":99975,"type":1262724,"value":1262736}}
+   1 {"thm":{"all":[99937],"levelParams":[19],"name":99937,"type":1262253,"value":1262714}}
+   1 {"thm":{"all":[99932],"levelParams":[19],"name":99932,"type":1262183,"value":1262223}}
+   1 {"thm":{"all":[99914],"levelParams":[19],"name":99914,"type":1261754,"value":1262175}}
+   1 {"thm":{"all":[99908],"levelParams":[74],"name":99908,"type":1261688,"value":1261729}}
+   1 {"thm":{"all":[99907],"levelParams":[74],"name":99907,"type":1261668,"value":1261673}}
+{"export_file_path": "/Users/jaytyagi/rh-lean-work/comparator-evidence-dbn/solution.export", "permitted_axioms": ["propext","Quot.sound","Classical.choice"],
+ "unpermitted_axiom_hard_error": true, "nat_extension": true, "string_extension": true, "print_success_message": true}
+Checked 56428 declarations with no typechecker errors, 1 pretty printer errors: [
+    "Unable to print axioms",
+]
+       43.34 real        42.07 user         1.26 sys
+          2904899584  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              980495  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 206  involuntary context switches
+        494801379707  instructions retired
+        185996656499  cycles elapsed
+          2903918992  peak memory footprint
+nanoda exit=0
+=== end 2026-09-10 02:18:24 IST

@@ -147,3 +147,76 @@ the process exits 0, and a non-zero exit prints "Nanoda kernel rejected the solu
 (`print_success_message` unset, `main.rs`), so to see *how much* it checked, the export was reproduced outside comparator and fed to
 nanoda with `print_success_message: true` (`comparator-run/nanoda-evidence.sh`, identical target list, identical config otherwise):
 
+Run 1 (`comparator-run/nanoda-evidence-dbn.log`, 02:17:02–02:18:24 IST): `lake env lean4export Solution.DBN -- <the 43 targets>` →
+`solution.export` in `~/rh-lean-work/comparator-evidence-dbn/` (not committed; 406 013 219 bytes, 7 590 534 lines; header
+`{"meta":{"exporter":{"name":"lean4export","version":"3.1.0"},"format":{"version":"3.1.0"},"lean":{"githash":"d8b18978…","version":"4.33.0-rc2"}}}`);
+lean4export 13.34 s real, 6.14 GB peak RSS. Then `nanoda_bin nanoda-config.json` (file input instead of stdin, otherwise the comparator's
+config plus `print_success_message: true`): **`Checked 56428 declarations with no typechecker errors, 1 pretty printer errors:
+["Unable to print axioms"]`**, exit 0, 43.34 s real, 2.90 GB peak RSS. The "pretty printer error" is bookkeeping, not a check failure:
+nanoda's `print_axioms` defaults to true and, with no pretty-printer destination configured, `pretty_printer.rs` l. 383–384 records
+"Unable to print axioms" — the typechecker had already finished with zero errors (`main.rs` `use_config`: the message is built only
+after `check_all_declars()`).
+Run 2 (`comparator-run/nanoda-evidence-dbn-axioms.log`, 02:19:26 IST): the same with `pp_to_stdout: true` so nanoda prints the axioms it
+admitted. Verbatim output:
+
+    axiom propext {a b : Prop} : Iff a b → Eq a b
+    axiom Quot.sound.{u} {α : Sort u} {r : α → α → Prop} {a b : α} : r a b → Eq (Quot.mk r a) (Quot.mk r b)
+    axiom Classical.choice.{u} {α : Sort u} : Nonempty α → α
+    Checked 56428 declarations with no errors
+
+42.80 s real, 2.87 GB peak RSS; exit code on nanoda-config-pp.json: 0 (02:21:34).
+Composition of the export (`comparator-run/export-kinds-dbn.txt`, this job's parser over the JSON lines): 42 101 `thm`, 11 209 `def`,
+991 `inductive` (with their constructors and recursors), 46 `opaque`, 4 `quot`, **3 `axiom`** — the whole Mathlib + Zeta23 + trusted-copy
+closure of the seven theorems, replayed declaration by declaration by a kernel written independently of Lean's (Rust). So: yes, the
+external kernel re-checked the proofs — 56 428 declarations, no errors, exactly the three permitted axioms admitted.
+
+## 6. Sponsor — nothing needed
+
+No step needed sudo, a login, or a purchase. The only thing this machine cannot supply is the Linux Landlock sandbox (§2), and no
+user-level or sponsor-level action on macOS supplies it; if a sandboxed run is ever wanted, the instruction is: on any Linux machine
+with the same toolchain, clone the tree, build landrun from `main`, and run the command in §0 with real `landrun` on `PATH` (and the
+`systemd-run` wrapper of the parent's README).
+
+## 7. Figures at a glance
+
+| run | config | theorems | wall | peak RSS (comparator) | final line | exit |
+|---|---|---|---|---|---|---|
+| CONTROL | `comparator/config.json` | 15 (parent) | 171.33 s (02:09:08–02:11:59 IST) | 6 393 495 552 B | `Your solution is okay!` | 0 |
+| DBN | `comparator/config-dbn.json` | 7 (DBN) | 199.09 s (02:12:45–02:16:04 IST) | 9 575 104 512 B | `Your solution is okay!` | 0 |
+| nanoda evidence | `Solution.DBN` export → nanoda_bin | (56 428 declarations) | export 13.3 s + nanoda 43.3 s / 42.8 s | 6.14 GB / 2.90 GB | `Checked 56428 declarations with no errors` | 0 |
+
+Export size (DBN solution side): 406 013 219 B, 7 590 534 lines. Lake work inside the runs: control — `Built ChallengeDeps (24s)`,
+`Built Challenge (3.4s)`, `Built Solution (2.9s)` (8699 / 8877 jobs); DBN — `Built ChallengeDeps.DBN (2.0s)`,
+`Built ChallengeDeps.DBN.Instance02 (35s)`, `Built Challenge.DBN (2.7s)`, `Built Solution.DBN (12s)` (8699 / 8826 jobs). No producer ran;
+one `lake` at a time; heavy-process check before each launch: none. No tooling fix, patch, or version change was needed by this job; the
+orchestrator's builds (§1) were used as found and re-hashed. Nothing under `Zeta23/` or `comparator/` was edited.
+
+## 8. `formalization.yaml` — outcome appended, re-validated, mirrored
+
+Appended to `review.notes` (the schema's only free-text field under `review`; `review.status` left at `self-assessed` — no human has
+read the trusted files) in `rh-program/lean/formalization.yaml` (386 → 411 lines) a paragraph beginning "Comparator run
+(results/d1-m2a/packaging/COMPARATOR-RUN.md, Session 20 Job 3, …): performed without sandbox, nanoda enabled." with the verbatim final
+lines, the versions, the nanoda evidence, the sandbox statement, the control run, and the label sentence. Validation after the edit
+(`comparator-run/formalization-yaml-jsonschema-job3.log`): PyYAML 6.0.3 + jsonschema 4.25.1 (Draft 7) against the upstream dispatcher
+`formalization.schema.json` (SHA-256 22bd0b61…, re-fetched by this job and byte-identical to the stored copy) resolving to
+`v0.4.schema.json` (SHA-256 25ff6b25…) — **errors: 0**; and Job 1's route (Ruby/Psych → JSON → `validate_yaml.py`) — **validation
+errors: 0**, no key outside the schema. Copied to `~/rh-lean-work/zeta-23-lean-main/formalization.yaml`, `cmp` identical.
+
+## 9. Files this job wrote, with SHA-256 (KICKSTART 10(i))
+
+All under `results/d1-m2a/packaging/` unless noted; the report's own hash is in `comparator-run/hashes.txt` (computed after the
+report was final). The 406 MB export and its two nanoda configs stay in `~/rh-lean-work/comparator-evidence-dbn/` (outside the repo).
+
+    ed12b901ad20a94429b0296e8232eb0294b48bae758803138b025bb2e3219f54  comparator-control-run.log
+    29c2667ec37a334580c434c4dd3396df66f7d10b7f8a05ff48f3ef51ccf5a14b  comparator-run.log
+    5de1cc10c11380c59e49e88bdac5bbece32f7dd6674bb8ffc3caa4d5527c8155  comparator-run/run.sh
+    e941bc0c6f9f13f754365caa64e307677f0e10a174523c5fe50f82b6d47c6b23  comparator-run/prerun-cleanup.log
+    a4b87c507497ea45d23c7d2a34df8116e6a552c2c6c70cdf49f59c99d1e7adb4  comparator-run/nanoda-evidence.sh
+    2d52a1cc887991cc45b3f70eeccbde01dca6f893a706d2aad3cc313ea5976772  comparator-run/nanoda-evidence-dbn.log
+    32dda3be8cfcab95314524533279215c3389e7f14794b575077982faefb73209  comparator-run/nanoda-evidence-dbn-axioms.log
+    6b81cc67ecfdc85bce089f8bcc15bb616086c73211dbf5a8f6138dd404e4b439  comparator-run/export-kinds-dbn.txt
+    faa8fed88ff98f71619fcfaa78a6041ebcec77d0c3ba9b33943fbf079c4ff8d2  comparator-run/validate_yaml_jsonschema.py
+    780a5aa5f9cc93931510f6b33805552a9ca82202dec3a25050be285a7bc8c3f0  comparator-run/formalization-yaml-jsonschema-job3.log
+    42e8d26d5c0c72c09f922fe1e0b0cfc21231f36d465c863be4a0ee0ad42e48b6  rh-program/lean/formalization.yaml
+    42e8d26d5c0c72c09f922fe1e0b0cfc21231f36d465c863be4a0ee0ad42e48b6  /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/formalization.yaml
+    5eed7e04cec66b60eede56171e246cdf2fcd4807abaf0f4db477ad1de55e0acd  /Users/jaytyagi/rh-lean-work/comparator-evidence-dbn/solution.export
