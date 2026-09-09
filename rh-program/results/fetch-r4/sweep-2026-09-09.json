@@ -1,7 +1,7 @@
 {
  "summary": {
   "date": "2026-09-09",
-  "status": "mechanical pass complete; folio/vision pass pending",
+  "status": "COMPLETE (mechanical + vision folio pass)",
   "corpus": "fetched-r4",
   "files_on_disk": 24,
   "total_bytes": 337720125,
@@ -14,6 +14,43 @@
    "garbled": 3,
    "clean": 11,
    "image-only": 5
+  },
+  "identity_fail": [
+   "r4-13b"
+  ],
+  "citation_mismatches": [
+   "r4-14: list says Math. Nachr. 185, file prints 186",
+   "r4-15b: filename says FIRST-EDITION-1988, file is 2nd ed. (c) MSRI 2006 = the list's citation",
+   "r4-15c: list cites Vieweg 1981 1st ed., file is 2nd ed. 1986",
+   "r4-13b: index entry gives Hajek pp. 77-85, list says 77-84"
+  ],
+  "read_visually": [
+   "r4-04",
+   "r4-06a",
+   "r4-11",
+   "r4-15a",
+   "r4-15a2"
+  ],
+  "quote_by_vision_only": [
+   "r4-02",
+   "r4-14",
+   "r4-15b",
+   "r4-15c",
+   "r4-15c2",
+   "r4-16b",
+   "r4-x1",
+   "r4-13a"
+  ],
+  "duplicates_of_disk": [
+   "r4-07 == r3s-35",
+   "r4-08 == s16 qs4prime Wayback copy",
+   "duplicates-of-r3/* == r3s-32, r3s-34"
+  ],
+  "git": {
+   "gitignore_line": "riemann/.gitignore:9 'rh-program/fetched-r4/' (added in 2e28924 at 16:18:30)",
+   "tracked_files": 19,
+   "tracking_commit": "b77e474 (auto-commit 16:17:35, pushed to origin/main)",
+   "git_status_porcelain_under_fetched_r4": 0
   }
  },
  "files": [
@@ -256,7 +293,12 @@
     113,
     135
    ],
-   "page_delta_vs_expected": 1
+   "page_delta_vs_expected": 1,
+   "health_final": "clean (NUMDAM OCR layer)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 111 (pdf 2 = 113 ... pdf 24 = 135); pdf 1 NUMDAM cover",
+   "identity": "SHA-256 identical to fetched-r3/r3s-32; AIF 31 no. 2 (1981) 113-135",
+   "notes": "ignore"
   },
   {
    "id": "DUP-epstein",
@@ -498,7 +540,12 @@
     265,
     282
    ],
-   "page_delta_vs_expected": 1
+   "page_delta_vs_expected": 1,
+   "health_final": "clean (NUMDAM OCR layer)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 263 (pdf 2 = 265 ... pdf 19 = 282); pdf 1 NUMDAM cover",
+   "identity": "SHA-256 identical to fetched-r3/r3s-34; AIF 26 no. 1 (1976) 265-282",
+   "notes": "ignore"
   },
   {
    "id": "NOT-blinovsky",
@@ -755,7 +802,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "clean",
+   "source_kind": "born-digital (arXiv)",
+   "offset_final": "folio = pdf",
+   "identity": "not requested; arXiv 1703.03827v16 (math.GM), Blinovsky, 'Proof of Riemann hypothesis'",
+   "notes": "ignore"
   },
   {
    "id": "r4-01+12",
@@ -989,7 +1041,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "clean (OCR layer)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf - 9, constant pdf 12..461 (folio 3..452); pdf 1-3 cover art, pdf 4 title page, pdf 5 copyright (WS 2002), TOC pdf 6-9",
+   "identity": "OK (editors Walczak, Conlon, Langevin, Tsuboi on pdf 4)",
+   "notes": "Alvarez Lopez-Kordyukov 'Distributional Betti numbers' folio 159 = pdf 168; Cantwell-Conlon 'Endsets of exceptional leaves; a theorem of G. Duminy' folio 225 = pdf 234 (TOC text layer misreads 'Endests'/'Dummy')"
   },
   {
    "id": "r4-02",
@@ -1225,7 +1282,12 @@
     387,
     422
    ],
-   "page_delta_vs_expected": 1
+   "page_delta_vs_expected": 1,
+   "health_final": "garbled (JSTOR OCR: inter-word spaces lost, accents stripped, section sign read as '?') - searchable, NOT quotable",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 385 (pdf 2 = 387 ... pdf 37 = 422); pdf 1 = JSTOR cover",
+   "identity": "OK - cover: Annals of Mathematics (2) 141 no. 2 (Mar. 1995) 387-422, JSTOR 2118526; exact match",
+   "notes": ""
   },
   {
    "id": "r4-03",
@@ -1484,7 +1546,12 @@
     141,
     189
    ],
-   "page_delta_vs_expected": 0
+   "page_delta_vs_expected": 0,
+   "health_final": "clean",
+   "source_kind": "born-digital (Springer)",
+   "offset_final": "folio = pdf + 140 (pdf 1 = 141 ... pdf 49 = 189)",
+   "identity": "OK - masthead Abh. Math. Semin. Univ. Hambg. (2011) 81:141-189, DOI 10.1007/s12188-011-0061-4; exact match",
+   "notes": ""
   },
   {
    "id": "r4-04",
@@ -1667,7 +1734,12 @@
    "author_ok": false,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "image-only (tiff2pdf scan, created 2026-09-09)",
+   "source_kind": "scan, no text layer",
+   "offset_final": "Leichtnam article: folio = pdf - 19 (pdf 220 = 201 title page, pdf 255 = 236 references; pdf 211 = 192 Katz-Lescop); front: pdf 1 cover, 3 frontispiece, 5 copyright, 8 preface, 9 IMCP, 10-11 participants, 12 program; pdf 298 back cover",
+   "identity": "OK by vision (pdf 220: 'An Invitation to Deninger's Work on Arithmetic Zeta Functions', Eric Leichtnam, Contemp. Math. 387, 2005, (c) 2005 E. Leichtnam)",
+   "notes": "READ VISUALLY"
   },
   {
    "id": "r4-06a",
@@ -1853,7 +1925,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "image-only (DjVu-derived scan, 2011)",
+   "source_kind": "scan, no text layer",
+   "offset_final": "pdf 10 = folio 1 (offset -9), drifting to -1 by the end because blank versos were dropped: pdf 30=21, 60=52, 120=114, 180=176, 245=244, 246=245, 247=246 (last index page; book complete). Sec. 2.1 (folio 35 per Contents on pdf 3) is about pdf 43-44 - locate by vision",
+   "identity": "OK by vision (pdf 1 title page: Topology of Closed One-Forms, Michael Farber, SMM 108, AMS)",
+   "notes": "READ VISUALLY; metadata title says 'AMS, 2003' - copyright year not checked (list says 2004)"
   },
   {
    "id": "r4-07",
@@ -2100,7 +2177,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "clean (French, TeX/Textures 2001)",
+   "source_kind": "born-digital",
+   "offset_final": "folio = pdf (1..50) - author's own pagination, NOT the SMF 49-95 pagination",
+   "identity": "OK - but SHA-256 identical to r3s-35 already on disk; adds nothing to item 7",
+   "notes": ""
   },
   {
    "id": "r4-08",
@@ -2357,7 +2439,12 @@
     163,
     188
    ],
-   "page_delta_vs_expected": -5
+   "page_delta_vs_expected": -5,
+   "health_final": "clean",
+   "source_kind": "born-digital (pdfeTeX 2008)",
+   "offset_final": "folio = pdf (1..21) - author copy; journal 163-188 (26 pp) not derivable",
+   "identity": "OK - SHA-256 identical to the s16 Wayback author copy (results/c3-r/s16/qs4prime/); adds nothing to item 8",
+   "notes": ""
   },
   {
    "id": "r4-09",
@@ -2600,7 +2687,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "clean",
+   "source_kind": "born-digital (Springer, Adobe PDF Library, 2026-03)",
+   "offset_final": "front matter pdf 1-10 (pdf 4 title page); body offset steps by one at each chapter opener because the blank verso before each chapter is omitted - see report table",
+   "identity": "OK (title page pdf 4: Alvarez Lopez, Kordyukov, Leichtnam; chapter DOIs 10.1007/978-3-032-15413-2_n)",
+   "notes": ""
   },
   {
    "id": "r4-10",
@@ -2836,7 +2928,12 @@
     366,
     383
    ],
-   "page_delta_vs_expected": 0
+   "page_delta_vs_expected": 0,
+   "health_final": "clean (OCR layer)",
+   "source_kind": "scan+OCR (Project Euclid)",
+   "offset_final": "folio = pdf + 365 (pdf 1 = 366 ... pdf 18 = 383)",
+   "identity": "OK - masthead J. Math. Soc. Japan Vol. 19 No. 3 1967, Komatsu; exact match",
+   "notes": ""
   },
   {
    "id": "r4-11",
@@ -3000,7 +3097,12 @@
     247,
     258
    ],
-   "page_delta_vs_expected": -5
+   "page_delta_vs_expected": -5,
+   "health_final": "image-only (ICM/EuDML 2-up scan)",
+   "source_kind": "scan, no text layer",
+   "offset_final": "two printed pages per PDF page: pdf p = printed 2p+244 (left) and 2p+245 (right); pdf 1 = 246|247 ... pdf 7 = 258|259; article 247-258 complete",
+   "identity": "OK by vision (pdf 1 right: STUDIA MATHEMATICA 120 (3) (1996), 'Acyclic inductive spectra of Frechet spaces', JOCHEN WENGENROTH (Trier)); exact match",
+   "notes": "READ VISUALLY"
   },
   {
    "id": "r4-13a",
@@ -3245,12 +3347,17 @@
     543,
     555
    ],
-   "page_delta_vs_expected": 1
+   "page_delta_vs_expected": 1,
+   "health_final": "clean-ish (JSTOR OCR layer, usable)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 541 (pdf 2 = 543 ... pdf 14 = 555); pdf 1 = JSTOR cover",
+   "identity": "OK - cover: Annals (2) 73 no. 3 (May 1961) 543-555, authors listed 'J. Dugundji and H. A. Antosiewicz'; exact match",
+   "notes": ""
   },
   {
    "id": "r4-13b",
-   "file": "r4-13b-proc-ams-27-1971-WHOLE-ISSUE-contains-hajek-parallelizability-revisited-pp77-84.pdf",
-   "note": "whole issue Proc AMS 27; article 77-84 inside",
+   "file": "r4-13b-WRONG-FILE-proc-ams-30-4-dec-1971-cover-plus-index-vols-21-30-HAJEK-ABSENT.pdf",
+   "note": "WRONG FILE: Proc AMS 30 no 4 (Dec 1971) cover + index vols 21-30, pp 613-796; Hajek absent",
    "magic_ok": true,
    "magic": "%PDF-1.4",
    "size_bytes": 37858548,
@@ -3491,11 +3598,16 @@
    "author_ok": false,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "clean (OCR layer)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 612 (pdf 3 = 615 ... pdf 184 = 796); pdf 1-2 = issue cover/masthead",
+   "identity": "FAIL - file is Proc. AMS Vol. 30 No. 4 (Dec. 1971): cover + INDEX TO VOLUMES 21-30, pp. 613-796. Hajek's paper is ABSENT; the only occurrence is the index entry 'Hajek, Otomar - 1 Parallelizability revisted, 27 (1971), 77-85' (index gives 77-85, list says 77-84)",
+   "notes": "already renamed WRONG-FILE by another agent; re-fetch Proc. AMS 27 no. 1 (Jan. 1971)"
   },
   {
    "id": "r4-14",
-   "file": "r4-14-mangino-1997-LF-spaces-tensor-products-math-nachr-186-149-162.pdf",
+   "file": "r4-14-mangino-1997-LF-spaces-tensor-products-math-nachr-185-149-162.pdf",
    "note": "Math. Nachr. (185 per list; 186 per filename)",
    "magic_ok": true,
    "magic": "%PDF-1.3",
@@ -3737,7 +3849,12 @@
     149,
     162
    ],
-   "page_delta_vs_expected": 0
+   "page_delta_vs_expected": 0,
+   "health_final": "partial garble (Acrobat Paper Capture OCR: 'MANQINO', 'Fkeived'; math unreliable)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 148 (pdf 1 = 149 ... pdf 14 = 162)",
+   "identity": "OK - masthead prints 'Math. Nachr. 186 (1997), 149-162' -> the list's '185' is WRONG (filename is right)",
+   "notes": ""
   },
   {
    "id": "r4-15a",
@@ -3924,7 +4041,12 @@
    "author_ok": false,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "image-only (Foxit print of a scan, 2013)",
+   "source_kind": "scan, no text layer",
+   "offset_final": "pdf 1 title page (GSM 23), pdf 3 dedication, pdf 9 = xiv; body offset drifts -8 -> +4 (blank versos dropped): pdf 40=32, 80=73, 120=114, 160=158, 200=198, 240=241, 280=281, 320=322, 360=363, 390=393, 398=402 (last index page; body complete; part of the xiv front matter absent)",
+   "identity": "OK by vision (pdf 1: Foliations I, Alberto Candel, Lawrence Conlon, GSM 23, AMS)",
+   "notes": "READ VISUALLY; locate folios by rendering, never by arithmetic"
   },
   {
    "id": "r4-15a2",
@@ -4111,7 +4233,12 @@
    "author_ok": false,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "image-only (Foxit print of a scan, 2013)",
+   "source_kind": "scan, no text layer",
+   "offset_final": "pdf 1 title page (GSM 60), pdf 9 = xii, pdf 10 = xiii; body offset drifts -8 -> +6: pdf 60=52, 120=113, 240=237, 300=301, 360=363, 420=423, 480=485, 520=525, 535=541, 539=545 (last index page; body complete)",
+   "identity": "OK by vision (pdf 1: Foliations II, Candel, Conlon, GSM 60, AMS)",
+   "notes": "READ VISUALLY; locate folios by rendering"
   },
   {
    "id": "r4-15b",
@@ -4368,7 +4495,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "born-digital but text layer DROPS fi/fl ligatures ('finite'->'nite' 15x in 7 pages, 'first'->'rst') and remaps math glyphs (C*_r(G) -> 'Cr .G/ Š'); prose search on ligature words fails - quote by vision",
+   "source_kind": "born-digital (dvipdfm, TeX output 2005-10-21; CUP eBook boilerplate)",
+   "offset_final": "folio = pdf - 16, constant pdf 17..309 (folio 1..293); pdf 5 series half-title, 6 MSRI series list, 7 title page, 8 copyright",
+   "identity": "OK - SECOND EDITION: title page pdf 7 'Global Analysis on Foliated Spaces, Second Edition, Calvin C. Moore, Claude L. Schochet, Cambridge University Press'; pdf 8 '(c) Mathematical Sciences Research Institute 2006', cambridge.org/9780521613057. Matches the list's citation; the FILENAME 'FIRST-EDITION-1988' is WRONG",
+   "notes": ""
   },
   {
    "id": "r4-15c",
@@ -4595,7 +4727,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "partial (CVISION OCR of a typewritten original: prose good, math garbage, 'Proof' -> 'PILoo6')",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf - 11, pdf 13..234 (folio 2..223), folios printed as '- n -'; folio 224 absent = blank verso (223 ends the text, Literature starts on recto 225 = pdf 235); pdf 4 copyright, 5-6 preface",
+   "identity": "OK - pdf 4: Hector/Hirsch, Introduction to the geometry of foliations, Pt. A, 2nd ed. 1986, Vieweg (1st ed. 1981), ISBN 978-3-528-18501-5. List cites the 1981 first edition: EDITION CAVEAT (Part B's preface says the 2nd ed. changed only minor corrections; Part A's own preface not checked)",
+   "notes": ""
   },
   {
    "id": "r4-15c2",
@@ -4841,7 +4978,12 @@
    "author_ok": true,
    "expected_printed_pages": null,
    "expected_range": null,
-   "page_delta_vs_expected": null
+   "page_delta_vs_expected": null,
+   "health_final": "partial (same OCR quality as Part A)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf - 10, pdf 12..307 (folio 2..297); pdf 4 copyright, 5-6 preface (Bonn, April 1987)",
+   "identity": "OK - Pt. B, 2nd ed. 1987 (1st ed. 1983), Vieweg, ISBN 978-3-528-18568-8 (bonus, not on the list)",
+   "notes": ""
   },
   {
    "id": "r4-16a",
@@ -5097,7 +5239,12 @@
     225,
     255
    ],
-   "page_delta_vs_expected": 0
+   "page_delta_vs_expected": 0,
+   "health_final": "clean (OCR layer, good)",
+   "source_kind": "scan+OCR (PageGenie from TIFF)",
+   "offset_final": "folio = pdf + 224 (pdf 1 = 225 ... pdf 31 = 255)",
+   "identity": "OK - masthead Inventiones math. 36, 225-255 (1976); exact match",
+   "notes": ""
   },
   {
    "id": "r4-16b",
@@ -5327,7 +5474,12 @@
     327,
     361
    ],
-   "page_delta_vs_expected": 1
+   "page_delta_vs_expected": 1,
+   "health_final": "partial (JSTOR OCR: spaces lost in places, refs run together)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 325 (pdf 2 = 327 ... pdf 36 = 361); pdf 1 = JSTOR cover",
+   "identity": "OK - cover: Annals (2) 102 no. 2 (Sep. 1975) 327-361, J. F. Plante; exact match",
+   "notes": ""
   },
   {
    "id": "r4-x1",
@@ -5579,7 +5731,12 @@
     13,
     32
    ],
-   "page_delta_vs_expected": 0
+   "page_delta_vs_expected": 0,
+   "health_final": "partial (Acrobat Capture OCR: 'MILLETr', 'KEr~Ern', '[oliated' - names and math unreliable)",
+   "source_kind": "scan+OCR",
+   "offset_final": "folio = pdf + 12 (pdf 1 = 13 ... pdf 20 = 32)",
+   "identity": "OK - masthead Topology Vol. 16, pp. 13-32, Pergamon 1977; Edwards, Millett, Sullivan (Millett only by vision-quality reading of 'MILLETr'); exact match",
+   "notes": ""
   }
  ]
 }
