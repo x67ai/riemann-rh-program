@@ -292,6 +292,13 @@ fidelity:
     the argument principle (L-B0); coverage in t and in N.  `Ht` is a Bochner integral with junk value 0 if the integrand
     is not integrable — the anti-cheat direction: junk makes the target FALSE, not vacuous; integrability is not proved
     in M2a.
+    (k) Nothing in Lean ties the trusted literals to the transcripts of record: the (I)/(K) statements are about
+    ChallengeDeps.DBN.Instance02.row2Barrier{MP,ARB} / row2Asym{MP,ARB}; that those 20 157 lines are the contents of
+    results/d1-m2a/transcripts/row2/*.json, transcripts/row2-arb/*.json and lane-a/asym-{mp,arb}.json is established only
+    by untrusted scripts (emit_challengedeps_instance02.py, cmp_literal_blocks.py; independently re-derived by
+    check-o/check_literals.py, 145 533 integers, 0 mismatches); the kernel identities tie the trusted copy to the Zeta23
+    copy, not to the JSON.  Benign (the literals occur only inside displayed hypotheses), but the formal chain stops at
+    the Lean literals.  [Added 2026-09-10 after the independent checker's FIX-FIRST 2, CHECK-O.md §8.]
 
 review:
   status: "self-assessed"
