@@ -1,6 +1,6 @@
 # D1 M2a packaging — brief (Session 20 queue item 1; KICKSTART 10(j), 10(f), 10(d))
 
-**Written 2026-09-10 (Session 20, orchestrator).** Sequential stream: Job 1 (builder, Fable 5.1) → Job 2 (independent checker, Opus 5, clean clone) → Job 3 (optional: the Comparator tool run, priced first). One `lake` process at a time on this machine; no producers run; nothing else heavy.
+**Written 2026-09-10 (Session 20, orchestrator).** Sequential stream: Job 1 (builder, Fable 5.1) → Job 2 (independent checker, Opus 5, clean clone) → Job 3 (the Comparator run with nanoda — REQUIRED, standing order 9). One `lake` process at a time on this machine; no producers run; nothing else heavy.
 
 ## 0. What is being packaged, and the one label allowed
 
