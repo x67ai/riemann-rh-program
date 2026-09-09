@@ -12,9 +12,10 @@ place of my own. Scripts and raw logs: `results/d1-m2a/dr8/check-o/`. Written as
 warnings) · §2 axioms (112 declarations) · §3 κ (4 routes, 80 digits) · §4 convention · §5 statement
 fidelity (0 divergences) · §6 no-regression · §7 untouched · §8 M3 seed · §9 label sweep · §10 trust
 greps · §11 formalization.yaml · §12 findings.
-**VERDICT: FIX-FIRST** — 3 label/documentation fixes + 1 hash-record fix, all in §12 with exact
-text; the theorem, the proofs, the transcripts and the seed ledger are sound and independently
-re-derived.
+**VERDICT (§12, first pass): FIX-FIRST** — 3 label/documentation fixes + 1 hash-record fix, with
+exact text; the theorem, the proofs, the transcripts and the seed ledger sound and independently
+re-derived. **VERDICT (§13, re-check of the fix pass, 2026-09-10): CLEAN** — all four applied
+exactly, nothing else moved, the label is now the theorem's conclusion clause for clause.
 
 ## 0. Setup, provenance of the tree I checked
 
@@ -499,3 +500,105 @@ myself and found exact.
 
 **Checked by:** Claude Opus 5 (1M), Job 2, 2026-09-10. Scripts and raw logs: `dr8/check-o/`.
 Re-derivations only; no verdict in this file rests on Job 1's testimony.
+## 13. Re-check of the fix pass (2026-09-10 04:2x IST, Job 2, Opus) — VERDICT CLEAN
+
+Scope: only what changed, from the current mirror at commit `93e706cb` (fix pass `74fc5ea`,
+harvest `5e24619`, `93e706c`) and the files named in BUILD-NOTES §7. The orchestrator's decision on
+FIX-FIRST 1 was to RELABEL to what the theorem proves and record the σ-strong sibling as OWED; I
+check that decision as executed, not the decision.
+
+**What the overlay actually changed** (my own `cmp` of all 143 mirror files against the clone that
+already carried the pre-fix mirror, `check-o/overlay-plan-fixpass.txt`): **four** files —
+`Zeta23/W1/FDH.lean`, `Zeta23/W1/Instances.lean`, `formalization.yaml` **and `README.md`**. The
+fourth is the label site listed in §7 (documentation, not Lean); the coordinator's brief named
+three. Post-overlay SHA-256 equals the §7 fix-pass block: `FDH.lean` `ed6d8892…`,
+`Instances.lean` `430a325f…`, `formalization.yaml` `99b77f80…`.
+
+**Build.** `lake build Zeta23` on the overlaid clone: **9144 jobs, Build completed successfully**,
+39 s, 0 errors, 0 warnings from any W1/DBN/comparator module; only `W1.Instances`, `W1.Ledger`,
+`W1.FDH` re-elaborated (`check-o/build-fixpass.log`).
+
+**(a) The label, and whether it matches the theorem.** My 112-declaration probe re-run on the
+rebuilt clone (`check-o/axioms-probe-fixpass.out`) is **byte-identical** to the pre-fix run: every
+statement and every axiom set unchanged — nothing in Lean moved, as §7 says. The elaborated
+conclusions are
+
+```
+mpDH_zero / arbDH_zero : W1EnclOK fDH mpDH → ∃ ρ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ 8569/100 < ρ.im ∧ ρ.im < 8571/100
+cert_of_checkW1_fDH    : … (1 ≤ d.m → ∃ ρ, fDH ρ = 0 ∧ 1/2 < ρ.re ∧ ρ.re < 1 ∧ T1 d < ρ.im ∧ ρ.im < T2 d) ∧ …
+```
+
+and the new sentence is *"f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71
+(the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) —
+kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on
+∂R are true; producers untrusted)."* `8569/100 = 85.69` and `8571/100 = 85.71` exactly, and
+`1/2 < Re ρ < 1` is quoted unweakened: **the label is now the theorem's conclusion, clause for
+clause, and asserts nothing more.** The parenthetical names R as the transcript's rectangle, which
+is a fact about the transcript, not a claim about ρ.
+
+Character-by-character presence (`check-o/relabel_o.py`, log `check-o/relabel-o.log`): the new
+sentence occurs **exactly once in each of the 13 label files and twice in BUILD-NOTES §7 — 14 files
+in all** (FORMAT.md, acceptance-report.md, the D1 direction file, lean/README.md, FDH.lean,
+formalization.yaml, w1-schema.json, producer_mp.py, producer_arb.py, checker_ref.py,
+reference_checker.py, both DH JSONs, BUILD-NOTES-fDH.md), and the **old sentence occurs zero times
+in all fourteen**. `PRICING-fDH.md` §3.2 keeps the old wording by decision and now carries a dated
+**[SUPERSEDED]** block above it that quotes the new label and points at BUILD-NOTES §7 — so the
+one un-updated copy cannot be picked up by accident.
+
+**(b) Fidelity items.** `formalization.yaml` `fidelity.divergences` (7 194 chars) carries **(l)**
+and **(m)**; `results/d1-m2a/packaging/FIDELITY.md` carries both in a new dated section
+"(l), (m) — added by the D-R8 build and its fix pass". (m) states exactly the gap I raised and
+records the σ-strong sibling as owed. My own YAML run (`check-o/yaml-o-fixpass.log`), PyYAML 6.0.3
++ jsonschema 4.25.1 against the schema **fetched fresh from upstream in this run**: **0 validation
+errors**; 14 main results, 19 alignment statements; all 39 declaration names still resolve in the
+mirror (the 12 "not declared" are module names, as before).
+
+**(c) `reference_checker.py` and `Instances.lean`.** `git diff 5fe6aa2..HEAD`
+(`check-o/relabel-o.log`, and the diffs read in full): `reference_checker.py` = the one
+`TRUST_LABELS["f_DH"]` string plus the AUDIT-O comment rewritten to the dated text I proposed —
+**no code line changed** (the `run_file` banner logic is untouched by this pass);
+`Instances.lean` = **+3 comment lines inside the module docstring**, identical to the +3 in
+`results/d1-m1/instances-doc.txt` (edited first, as the emitter's source), and nothing else.
+My own re-runs: `reference_checker.py` ACCEPT on both DH JSONs (exit 0, banners printing the new
+sentence), `checker_ref.py` ACCEPT on both (exit 0), `crosscheck.py` **CONSISTENT** (122 pairs),
+`checker_ref.py --controls` **6/6 rejected at the intended check on both** DH JSONs,
+`reference_checker.py`'s three self-test controls rejected at C10/C3/C2, and
+`recon_instances_verify.py` **TOTAL literal mismatches: 0** over all 12 instances (`mpDH` 40,
+`arbDH` 50 rows) — the literals did not move (`check-o/fixpass-checkers.log`). The amended schema
+still validates all **12** acceptance transcripts (both DH + the eight ζ) with **0 errors**.
+
+**(d) `packaging/hashes.txt`.** The diff is **append-only**: three trailing comment lines, nothing
+above them removed or altered. Both hashes it names verify against disk right now —
+`lean/formalization.yaml` `99b77f8022bfef03…`, `packaging/FIDELITY.md` `dee704cf8f3762db…` — and
+my line-by-line re-verification (`check-o/untouched-o.log`) shows the six `comparator/*` lines and
+every other line still OK, with only those two recorded-vs-disk deltas, which the note now
+documents.
+
+**(e) Never-say, over the text this fix pass added.** 124 added lines across 23 files since
+`5fe6aa2`, excluding my own outputs. "RH-for-DH disproved": 2 hits, both `Never …` in dated blocks.
+"fully machine-checked": 1 hit, `never "fully machine-checked"` in the acceptance-report block.
+The old box-form claim **"in R = [4/5, 41/50]" as a theorem claim: 0** — the single hit is
+BUILD-NOTES §7 describing the defect it fixed. The allowed parenthetical
+"the transcript's rectangle is R = …" is present and is the only surviving box-form phrasing.
+
+**Notes, non-blocking.** (i) Three places still cite the sentence as "PRICING-fDH.md §3.2,
+verbatim" — `lean/README.md:305`, `lean/Zeta23/W1/FDH.lean:39`, `results/d1-m1/w1-schema.json`'s
+`$comment` — while §3.2's own sentence is the superseded one (its SUPERSEDED block quotes the new
+label with a shortened tail, so not verbatim either). A reader following the citation lands on the
+dated correction, so nothing false is asserted; the tidy fix is to re-cite as
+"BUILD-NOTES-fDH.md §7 (relabel 2026-09-10; PRICING-fDH.md §3.2 superseded)". (ii) `lean/README.md`
+is a fourth changed mirror file, label-only. (iii) The σ-strong sibling
+`cert_of_checkW1_of_diffOn'` remains genuinely owed; until it exists, no printed sentence may put
+ρ in R.
+
+### VERDICT ON THE FIX PASS: **CLEAN**
+
+All four FIX-FIRST items are applied exactly and nothing more: no proof, no statement, no
+transcript arithmetic, no seed-ledger file moved; the axioms probe is byte-identical to before; the
+label everywhere is now precisely what the kernel checked; the two documentation corrections and
+the append-only hash note are in place and verify. The earlier FIX-FIRST verdict of §12 is
+discharged.
+
+**Re-checked by:** Claude Opus 5 (1M), Job 2, 2026-09-10, from the clean clone at mirror commit
+`93e706cb`. Scripts and logs: `dr8/check-o/{relabel_o.py, relabel-o.log, build-fixpass.log,
+axioms-probe-fixpass.out, fixpass-checkers.log, yaml-o-fixpass.log, overlay-plan-fixpass.txt}`.

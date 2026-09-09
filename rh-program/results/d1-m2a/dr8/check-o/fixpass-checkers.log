@@ -1,0 +1,45 @@
+### checkers on the two DH JSONs (Job 2 re-run, fix pass)
+   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
+   exit=0
+acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+   exit=0
+   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
+   exit=0
+acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
+   exit=0
+### crosscheck
+   floors (independent lower bounds): leg1 0.00024672, leg2 0.000301882
+   VERDICT: CONSISTENT
+### negative-control self-tests
+   control 'mode exclusion with m = 1': rejected at C10 [ok]  (C10: mode exclusion requires m = 0)
+   control 'bottom[last] != sigma2': rejected at C3 [ok]  (C3: mesh.bottom[last] != edge end corner)
+   control 'sigma1 = 1/2': rejected at C2 [ok]  (C2: sigma1 <= 1/2)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m1/checker_ref.py", line 256, in check_file
+    with open(path) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '--selftest'
+### checker_ref.py --controls on both DH JSONs
+negative controls on acceptance/w1-mp-dh-livefire.json (FORMAT.md sec. 11 list):
+  mutate-for-C6 -> C6 OK
+  mutate-for-C8 -> C8 OK
+  mutate-for-C9 -> C9 OK
+  mutate-for-C10 -> C10 OK
+  mutate-for-C3 -> C3 OK
+  mutate-for-C2 -> C2 OK
+   exit=0
+negative controls on acceptance/w1-arb-dh-livefire.json (FORMAT.md sec. 11 list):
+  mutate-for-C6 -> C6 OK
+  mutate-for-C8 -> C8 OK
+  mutate-for-C9 -> C9 OK
+  mutate-for-C10 -> C10 OK
+  mutate-for-C3 -> C3 OK
+  mutate-for-C2 -> C2 OK
+   exit=0
+
+### back-parse recon_instances_verify.py
+  mpDH                     40  OK
+  arbDH                    50  OK
+  posMP_rej                77  OK
+  posARB_rej              183  OK
+
+TOTAL literal mismatches: 0
+   exit=0
