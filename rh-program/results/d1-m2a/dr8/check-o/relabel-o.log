@@ -1,0 +1,39 @@
+NEW label (297 chars):
+  f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).
+
+file                                                 new   old   note
+--------------------------------------------------------------------------------------------
+results/d1-m1/FORMAT.md                              1     0     
+results/d1-m1/acceptance-report.md                   1     0     
+directions/D1-certified-refutation-arm.md            1     0     
+lean/README.md                                       1     0     
+lean/Zeta23/W1/FDH.lean                              1     0     
+lean/formalization.yaml                              1     0     
+results/d1-m1/w1-schema.json                         1     0     
+results/d1-m1/producer_mp.py                         1     0     
+results/d1-m1/producer_arb.py                        1     0     
+results/d1-m1/checker_ref.py                         1     0     
+results/d1-m1/reference_checker.py                   1     0     
+results/d1-m1/acceptance/w1-mp-dh-livefire.json      1     0     
+results/d1-m1/acceptance/w1-arb-dh-livefire.json     1     0     
+results/d1-m2a/dr8/BUILD-NOTES-fDH.md                2     0     
+
+PRICING-fDH.md (deliberately NOT edited; must carry a superseded note):
+   old sentence occurrences: 1 ; new sentence occurrences: 0
+   carries a 'superseded' annotation: True
+
+The old box-form claim as a THEOREM claim, over the lines the fix pass ADDED:
+   lines added since 5fe6aa2: 124 across 23 files
+   "RH-for-DH disproved": 2 added line(s)
+      [OK] rh-program/directions/D1-certified-refutation-arm.md
+         - **[Dated block 2026-09-10 — Session 20, D-R8 build.]** "f_DH-in-Lean is unpriced work" is discharged: priced GO (`results/d1-m2a/dr8/PRICING-fDH.md`) and BUILT (`dr8/BUILD-NOTES-fDH.md`): `lean/Zeta23/W1/FDH.lean` — `fDH`, `differentiable_fDH`, `cert_of_checkW1_fDH` (the twin of `cert_of_checkW1_a
+      [OK] rh-program/results/d1-m1/acceptance-report.md
+         **[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only.]** Row 3 of the table and every "checker-level only" / "no theorem about f_DH" sentence in this report describe the state up to 2026-09-10. Since the D-R8 build the DH live fire carries a Lean theorem: `Zeta23.W1.cert_of_checkW1_fDH
+   "fully machine-checked": 1 added line(s)
+      [OK] rh-program/results/d1-m1/acceptance-report.md
+         **[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only.]** Row 3 of the table and every "checker-level only" / "no theorem about f_DH" sentence in this report describe the state up to 2026-09-10. Since the D-R8 build the DH live fire carries a Lean theorem: `Zeta23.W1.cert_of_checkW1_fDH
+   "in R = [4/5, 41/50]": 1 added line(s)
+      [OK] rh-program/results/d1-m2a/dr8/BUILD-NOTES-fDH.md
+         1. **Label (FIX-FIRST 1).** The §3.2 sentence claimed the zero lies "in R = [4/5, 41/50] × …" while `cert_of_checkW1_fDH` / `mpDH_zero` conclude only 1/2 < Re ρ < 1 ∧ T₁ < Im ρ < T₂ (the proof has `hρmem ∈ rectOpen …` in scope and discards `hr1`/`hr2` by `lt_trans`). The one string was replaced ever
+
+VERDICT: PASS

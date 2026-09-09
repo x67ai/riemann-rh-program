@@ -1,0 +1,72 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/dr8/check-o/yaml_o.py:26: DeprecationWarning: Accessing jsonschema.__version__ is deprecated and will be removed in a future release. Use importlib.metadata directly to query for jsonschema's version.
+  print("PyYAML %s, jsonschema %s" % (yaml.__version__, jsonschema.__version__))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/dr8/check-o/yaml_o.py:52: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
+  res = jsonschema.RefResolver(base_uri=DISP, referrer=disp, store=store)
+PyYAML 6.0.3, jsonschema 4.25.1
+dispatcher https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json  sha256 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3
+dispatcher $refs: ['v0.3.schema.json', 'v0.4.schema.json']
+fetched https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.3.schema.json sha256 93247a8093ea0bb622650e8f387bcc95c4e4c7941408974d6779341844262b27
+   on-disk copy results/d1-m2a/dr8/v0.3.schema.json: IDENTICAL to upstream
+fetched https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json sha256 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+   on-disk copy results/d1-m2a/dr8/v0.4.schema.json: IDENTICAL to upstream
+   on-disk copy results/d1-m2a/packaging/v0.4.schema.json: IDENTICAL to upstream
+dr8 dispatcher copy: IDENTICAL to upstream
+
+VALIDATION errors: 0
+top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
+main_results: 14   alignment.statements: 19   fidelity.divergences: 7194 chars
+
+Lean names referenced in status.main_results + alignment.statements: 51
+   Zeta23.DBN.Asym                                      NOT DECLARED IN THE MIRROR
+   Zeta23.DBN.AsymEnclOK                                comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
+   Zeta23.DBN.BarrierCert                               NOT DECLARED IN THE MIRROR
+   Zeta23.DBN.BarrierEnclOK                             comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.BtFacts                                   NOT DECLARED IN THE MIRROR
+   Zeta23.DBN.Bt_ne_zero                                Zeta23/DBN/BtFacts.lean
+   Zeta23.DBN.Defs                                      NOT DECLARED IN THE MIRROR
+   Zeta23.DBN.HtEntire                                  comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.Instance02                                NOT DECLARED IN THE MIRROR
+   Zeta23.DBN.Instance02.lambda_le_point2               Zeta23/DBN/Instance02.lean
+   Zeta23.DBN.Instance02.lambda_le_point2_arb           Zeta23/DBN/Instance02.lean
+   Zeta23.DBN.Polymath15Bridge                          comparator/ChallengeDeps/DBN.lean, comparator/Solution/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.TailOK                                    comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
+   Zeta23.DBN.ZeroVerification                          comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.cert_of_checkAsym                         Zeta23/DBN/Asym.lean
+   Zeta23.DBN.cert_of_checkBarrier                      Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.cert_of_checkBarrier_xy                   Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.differentiableOn_Ht_div_Bt                Zeta23/DBN/BtFacts.lean
+   Zeta23.DBN.row2_windowIdx_ge                         Zeta23/DBN/Asym.lean
+   Zeta23.DBN.windowIdx_mono                            Zeta23/DBN/Asym.lean
+   Zeta23.PairCeiling.GridCorner                        NOT DECLARED IN THE MIRROR
+   Zeta23.PairCeiling.GridCorner.grid_corner_attained   Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.grid_corner_law        Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.grid_corner_pointwise  Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.mark_one_count_ge      Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridParseval                      NOT DECLARED IN THE MIRROR
+   Zeta23.PairCeiling.GridParseval.flat_band_trace_sq   Zeta23/PairCeiling/GridParseval.lean
+   Zeta23.PairCeiling.GridParseval.trace_sq_grid        Zeta23/PairCeiling/GridParseval.lean
+   Zeta23.W1                                            NOT DECLARED IN THE MIRROR
+   Zeta23.W1.ArgPrincipleBridge                         NOT DECLARED IN THE MIRROR
+   Zeta23.W1.FDH                                        NOT DECLARED IN THE MIRROR
+   Zeta23.W1.Ledger                                     NOT DECLARED IN THE MIRROR
+   Zeta23.W1.Soundness                                  NOT DECLARED IN THE MIRROR
+   Zeta23.W1.arbDH_zero                                 Zeta23/W1/FDH.lean
+   Zeta23.W1.arbNullDeepT100_exclusion                  Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT10000_exclusion                    Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT1000_exclusion                     Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT100_exclusion                      Zeta23/W1/Ledger.lean
+   Zeta23.W1.cert_of_checkW1_ap                         Zeta23/W1/ArgPrincipleBridge.lean
+   Zeta23.W1.cert_of_checkW1_fDH                        Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn                  Zeta23/W1/Soundness.lean
+   Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn        Zeta23/W1/Soundness.lean
+   Zeta23.W1.differentiable_fDH                         Zeta23/W1/FDH.lean
+   Zeta23.W1.fDH                                        Zeta23/W1/FDH.lean
+   Zeta23.W1.kappaDH                                    Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero                                  Zeta23/W1/FDH.lean
+   Zeta23.W1.mpNullDeepT100_exclusion                   Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT10000_exclusion                     Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT1000_exclusion                      Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT100_exclusion                       Zeta23/W1/Ledger.lean
+   Zeta23.W1.rectArgPrinciple_of_local                  Zeta23/W1/ArgPrincipleBridge.lean
+
+VERDICT: FINDINGS: 0 schema error(s), 12 undeclared name(s)
