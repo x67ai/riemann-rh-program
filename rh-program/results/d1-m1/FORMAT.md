@@ -512,6 +512,34 @@ row is consumed) is OUTSIDE W1 v1 and lives in the BarrierCert format.
 
 ### 9.2 The Davenport–Heilbronn live-fire variant (`function`: `"f_DH"`) — checker-level only
 
+**[Dated block 2026-09-10 — Session 20, D-R8 build; insertion-only, the v1.0 text below is kept as the record.]**
+The "checker-level only" scope of this section is DISCHARGED: `lean/Zeta23/W1/FDH.lean` defines
+`fDH` (the object above, transcribed verbatim; κ reproduced against mpmath to 60 digits by three
+routes, `results/d1-m2a/dr8/kappa-check.log`), proves it entire (`differentiable_fDH`, Mathlib
+`differentiable_hurwitzZeta_sub_hurwitzZeta`), and states `cert_of_checkW1_fDH` — the twin of
+`cert_of_checkW1_ap` with `fDH` for `riemannZeta`, modulo the single displayed hypothesis
+H-ENCL_DH (`W1EnclOK fDH d`) — with the live-fire instance corollaries `mpDH_zero`, `arbDH_zero`
+on the unchanged literals of `Instances.lean`; `#print axioms` `[propext, Classical.choice,
+Quot.sound]` (`dr8/fdh-axioms.log`). The soundness theorem itself is now generic in the function
+(`cert_of_checkW1_of_diffOn`, `Soundness.lean`), `cert_of_checkW1`/`cert_of_checkW1_ap` unchanged
+character-for-character (`dr8/no-regression.log`). **The f_DH trust label is now, verbatim and
+everywhere it is printed (this file, `w1-schema.json`, `producer_mp.py`, `producer_arb.py`,
+`checker_ref.py`, `reference_checker.py`, the two live-fire JSONs):**
+*"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+It is box-specific by design: the only f_DH transcripts are the two live-fire ones on that box,
+and any further f_DH transcript enters only by a version bump (last sentence of this section).
+What it does NOT say: nothing about ζ, RH or Λ; not "RH-for-DH machine-checked disproof" (one
+off-line zero modulo H-ENCL_DH, the witness direction only, the witness's truth the producers');
+not "fully machine-checked" (H-ENCL_DH is where mpmath/Arb enter). The identification of the
+producers' f_DH with Lean's `fDH` is a documented META-level convention match (Mathlib
+`hasSum_hurwitzZeta_of_one_lt_re` / `hurwitz_encl.py` STEP 3′ / Arb `acb_hurwitz_zeta`, all
+Σ_{n≥0}(n+a)^{−s} with a = j/5), not a Lean theorem — PRICING-fDH.md §1.3. The two DH JSONs were
+edited in their `trust_label` and `comment` fields only (arithmetic byte-identical; both checkers
+re-ACCEPT, back-parse 0 mismatches — `dr8/label-sweep-checkers.log`); their SHA-256 changed and the
+old/new values are recorded in `acceptance-report.md` (dated block after §0). Record:
+`results/d1-m2a/dr8/BUILD-NOTES-fDH.md`.
+
+
 Same fields, same checks, same row semantics with f = f_DH, where (on-disk source, quoted
 verbatim from `rh-program/results/ccm-dh-test/dh.py`, lines 5–8):
 

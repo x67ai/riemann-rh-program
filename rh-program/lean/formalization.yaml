@@ -207,6 +207,45 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        D-R8 (2026-09-10): W1 checker soundness for the Davenport–Heilbronn function f_DH — the twin of `cert_of_checkW1_ap`
+        with `fDH` for `riemannZeta`, modulo the single displayed hypothesis H-ENCL_DH (`W1EnclOK fDH d`); `fDH` is FORMAT §9.2's
+        5^{-s}[ζ(s,1/5) + κζ(s,2/5) − κζ(s,3/5) − ζ(s,4/5)] on Mathlib's `hurwitzZeta`, entire (`differentiable_fDH`).
+        With the live-fire instance corollaries `mpDH_zero`, `arbDH_zero` on the unchanged literals `mpDH`, `arbDH`: a zero ρ of
+        f_DH with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71.  Honest label, verbatim: "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  Nothing about ζ or Λ follows; not
+        "RH-for-DH disproved"; not "fully machine-checked" (results/d1-m2a/dr8/fdh-axioms.log).
+      declaration: "Zeta23.W1.cert_of_checkW1_fDH, Zeta23.W1.mpDH_zero, Zeta23.W1.arbDH_zero, Zeta23.W1.differentiable_fDH"
+      file: "Zeta23/W1/FDH.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        D-R8 (2026-09-10): the W1 soundness theorem generic in the function — for any f differentiable on {Re s < 1}, modulo
+        H-ENCL (`W1EnclOK f d`) and H-AP (`RectArgPrinciple f`, a theorem for every f since v1.1); `cert_of_checkW1` (ζ) is its
+        instance with the v1 statement unchanged (results/d1-m2a/dr8/no-regression.log).
+      declaration: "Zeta23.W1.cert_of_checkW1_of_diffOn, Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn"
+      file: "Zeta23/W1/Soundness.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        M3 exclusion-ledger seed (2026-09-10): the eight 3-line corollaries of `cert_of_checkW1_ap` (m = 0 branch) on the eight
+        M1 acceptance null literals — one per leg of the four seed rows of results/d1-m3/ (R1 [3/5, 9/10] × [100, 101],
+        R2 × [1000, 1001], R3 × [10000, 10001], R4 [21/40, 39/40] × [100, 101]): `W1EnclOK riemannZeta d → ∀ s ∈ W1Rect d,
+        riemannZeta s ≠ 0`.  Label per row: "no zeros of ζ in the closed box, kernel-checked modulo the displayed hypothesis
+        H-ENCL (producers untrusted)" — never "RH verified in a range"; the boxes lie far below the 3·10¹² record and are the
+        ledger's format-validation rows (results/d1-m3/README.md).
+      declaration: "Zeta23.W1.mpNullT100_exclusion, Zeta23.W1.arbNullT100_exclusion, Zeta23.W1.mpNullT1000_exclusion, Zeta23.W1.arbNullT1000_exclusion, Zeta23.W1.mpNullT10000_exclusion, Zeta23.W1.arbNullT10000_exclusion, Zeta23.W1.mpNullDeepT100_exclusion, Zeta23.W1.arbNullDeepT100_exclusion"
+      file: "Zeta23/W1/Ledger.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
     - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
       declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       file: "Zeta23/PairCeiling/GridParseval.lean"
@@ -299,6 +338,16 @@ fidelity:
     check-o/check_literals.py, 145 533 integers, 0 mismatches); the kernel identities tie the trusted copy to the Zeta23
     copy, not to the JSON.  Benign (the literals occur only inside displayed hypotheses), but the formal chain stops at
     the Lean literals.  [Added 2026-09-10 after the independent checker's FIX-FIRST 2, CHECK-O.md §8.]
+    (l) f_DH (D-R8, added 2026-09-10): the identification of the producers' f_DH (mpmath `hurwitz_encl.py` STEP 3′ /
+    `mp.zeta(s, a)`; Arb `acb_hurwitz_zeta`) with Lean's `Zeta23.W1.fDH` on Mathlib's `HurwitzZeta.hurwitzZeta` is a
+    META-level convention match, not a Lean theorem: all three realize Σ_{n≥0}(n+a)^{−s} with a = j/5 ∈ (0,1) on Re s > 1
+    (Mathlib `hasSum_hurwitzZeta_of_one_lt_re`, stated in FDH.lean as `hasSum_hurwitzZeta_one_fifth`), and uniqueness of
+    analytic continuation identifies the three entire functions — of the same standing as "mpmath's zeta / Arb's acb_zeta
+    is Mathlib's riemannZeta" on the ζ leg; it is where H-ENCL_DH's meaning lives (dr8/PRICING-fDH.md §1.3).  κ is a
+    transcription of FORMAT §9.2 checked to 60 digits (dr8/kappa-check.log).  `W1Data` carries no function tag (the JSON
+    `function` field is dropped at the JSON→Lean boundary), so the function enters only through `W1EnclOK f d` and the
+    instance corollaries name `fDH` in their statements.  The M3 seed corollaries (Ledger.lean) license the single-box
+    sentence only: D-R6's range form "Re s ≥ ½ + δ₀ in [T₁, T₂]" needs a box family reaching σ = 1, which no row supplies.
 
 review:
   status: "self-assessed"
@@ -396,6 +445,18 @@ alignment:
       lean: "Zeta23.W1.cert_of_checkW1_ap, Zeta23.W1.rectArgPrinciple_of_local"
       module: "Zeta23.W1.ArgPrincipleBridge"
       status: "proved (modulo the displayed H-ENCL)"
+    - source: "M1 FORMAT.md §9.2 — the Davenport–Heilbronn function f_DH and the D-R8 statement (dr8/PRICING-fDH.md §3.1)"
+      lean: "Zeta23.W1.fDH, Zeta23.W1.kappaDH, Zeta23.W1.differentiable_fDH, Zeta23.W1.cert_of_checkW1_fDH, Zeta23.W1.mpDH_zero, Zeta23.W1.arbDH_zero"
+      module: "Zeta23.W1.FDH"
+      status: "proved (modulo the displayed H-ENCL_DH); the identification of the producers' f_DH with `fDH` is a documented meta-level convention match, fidelity (l)"
+    - source: "M1 FORMAT.md §7–§8 — W1 checker soundness generic in the function (Route G, dr8/PRICING-fDH.md §2.2)"
+      lean: "Zeta23.W1.cert_of_checkW1_of_diffOn, Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn"
+      module: "Zeta23.W1.Soundness"
+      status: "proved (modulo the displayed H-ENCL and H-AP; H-AP a theorem for every f)"
+    - source: "D1 charter line 48 + D-R6 — the M3 exclusion ledger's per-leg theorem (dr8/PRICING-M3-ledger.md §1.6), four seed rows"
+      lean: "Zeta23.W1.{mp,arb}Null{T100,T1000,T10000,DeepT100}_exclusion"
+      module: "Zeta23.W1.Ledger"
+      status: "proved (modulo the displayed H-ENCL per leg); single-box sentence only, never a range statement"
     - source: "A4 paper Lemma 3.8, Theorem 3.9"
       lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       module: "Zeta23.PairCeiling.GridParseval"

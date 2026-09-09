@@ -1,0 +1,9 @@
+== row zeta_3-5_9-10_100_101
+  DRIFT: zeta_3-5_9-10_100_101/mp: python checkers now REJECT/ACCEPT, recorded REJECT/ACCEPT
+  leg mp  w1-mp-null-t100.json  sha256 ok  52 segments  S=[-24, 28]  checkers REJECT/ACCEPT  lean mpNullT100/mpNullT100_check/mpNullT100_exclusion
+  DRIFT: zeta_3-5_9-10_100_101/arb: python checkers now REJECT/ACCEPT, recorded REJECT/ACCEPT
+  leg arb w1-arb-null-t100.json  sha256 ok  27 segments  S=[-14, 13]  checkers REJECT/ACCEPT  lean arbNullT100/arbNullT100_check/arbNullT100_exclusion
+  crosscheck CONSISTENT, 83 overlap pairs
+  DRIFT: zeta_3-5_9-10_100_101: status 'accepted' is not earned (needs both legs ACCEPTed, kernel-checked, CONSISTENT)
+rows: 1; findings: 3 -> FAIL
+exit=1

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rh-program/results/d1-m3/ledger-schema.json",
+  "title": "M3 exclusion ledger index (shape only)",
+  "$comment": "Seed 2026-09-10 (Session 20). Shape of index.json = { format, version, generated_by, rows: [ROW ...] }; each ROW is one rows/<row_id>/ROW.json verbatim. Semantics (what a row certifies, the licensed sentence, provenance kinds) live in README.md and results/d1-m2a/dr8/PRICING-M3-ledger.md sec. 1. No aggregate field is admitted anywhere (D-R6: isolated boxes extend no contiguous record); grade 'turing' is reserved and NOT admitted until a Turing-method entry format exists; status 'accepted' requires both legs. Integers and rationals are decimal strings; 'height' is a float for sorting only.",
+  "type": "object",
+  "required": ["format", "version", "generated_by", "rows"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "M3-exclusion-ledger-index" },
+    "version": { "const": "0.1" },
+    "generated_by": { "const": "ledger_check.py (regenerated from rows/*/ROW.json; never hand-edited)" },
+    "rows": { "type": "array", "items": { "$ref": "#/$defs/row" } }
+  },
+  "$defs": {
+    "rat": { "type": "string", "pattern": "^-?(0|[1-9][0-9]*)(/[1-9][0-9]*)?$" },
+    "int": { "type": "string", "pattern": "^-?(0|[1-9][0-9]*)$" },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "leg": {
+      "type": "object",
+      "required": ["transcript", "sha256", "bytes", "segments", "K", "A", "winding_lo_hi", "floor", "wall_seconds", "embedded_trust_label", "python_checkers", "lean"],
+      "additionalProperties": false,
+      "properties": {
+        "transcript": { "type": "string" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "segments": { "type": "integer", "minimum": 1 },
+        "K": { "$ref": "#/$defs/int" },
+        "A": { "$ref": "#/$defs/int" },
+        "winding_lo_hi": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/int" } },
+        "floor": { "type": "string", "pattern": "^(0|[1-9][0-9]*)/[1-9][0-9]*$" },
+        "wall_seconds": { "type": "number", "minimum": 0 },
+        "embedded_trust_label": { "type": "string" },
+        "python_checkers": {
+          "type": "object",
+          "required": ["reference_checker", "checker_ref", "logs"],
+          "additionalProperties": false,
+          "properties": {
+            "reference_checker": { "enum": ["ACCEPT", "REJECT"] },
+            "checker_ref": { "enum": ["ACCEPT", "REJECT"] },
+            "logs": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "lean": {
+          "type": "object",
+          "required": ["module", "data", "floor", "check", "corollary", "corollary_module", "build_record", "corollary_axioms_record"],
+          "additionalProperties": false,
+          "properties": {
+            "module": { "type": "string" }, "data": { "type": "string" }, "floor": { "type": "string" },
+            "check": { "type": "string" }, "corollary": { "type": "string" }, "corollary_module": { "type": "string" },
+            "build_record": { "type": "string" }, "corollary_axioms_record": { "type": "string" }
+          }
+        }
+      }
+    },
+    "row": {
+      "type": "object",
+      "required": ["row_id", "function", "mode", "claimed_m", "box", "delta0", "height", "height_span", "grade", "status", "trust_label", "sentence", "delta0_form", "legs", "crosscheck", "provenance", "added_utc", "added_by", "entry_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "row_id": { "type": "string", "pattern": "^zeta_[0-9-]+_[0-9-]+_[0-9-]+_[0-9-]+$" },
+        "function": { "const": "zeta" },
+        "mode": { "const": "exclusion" },
+        "claimed_m": { "const": "0" },
+        "box": {
+          "type": "object", "required": ["sigma1", "sigma2", "T1", "T2"], "additionalProperties": false,
+          "properties": { "sigma1": { "$ref": "#/$defs/rat" }, "sigma2": { "$ref": "#/$defs/rat" }, "T1": { "$ref": "#/$defs/rat" }, "T2": { "$ref": "#/$defs/rat" } }
+        },
+        "delta0": { "$ref": "#/$defs/rat" },
+        "height": { "type": "number" },
+        "height_span": { "$ref": "#/$defs/rat" },
+        "grade": { "enum": ["box"] },
+        "status": { "enum": ["accepted", "one-leg", "pending"] },
+        "trust_label": { "const": "kernel-checked modulo the displayed hypothesis H-ENCL (producers untrusted)" },
+        "sentence": { "type": "string", "pattern": "^no zeros of zeta in the closed box \\[" },
+        "delta0_form": { "type": "string" },
+        "legs": {
+          "type": "object", "additionalProperties": false,
+          "properties": { "mp": { "$ref": "#/$defs/leg" }, "arb": { "$ref": "#/$defs/leg" } }
+        },
+        "crosscheck": {
+          "type": "object", "required": ["log", "overlap_pairs", "verdict"], "additionalProperties": false,
+          "properties": { "log": { "type": "string" }, "overlap_pairs": { "type": "integer", "minimum": 0 }, "verdict": { "enum": ["CONSISTENT", "INCONSISTENT", "not-run"] } }
+        },
+        "provenance": {
+          "type": "object", "required": ["kind", "note"], "additionalProperties": false,
+          "properties": { "kind": { "enum": ["acceptance", "calibration", "prior", "pointer"] }, "note": { "type": "string", "minLength": 20 } }
+        },
+        "added_utc": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$" },
+        "added_by": { "type": "string" },
+        "entry_sha256": { "$ref": "#/$defs/sha256" }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "accepted" } } },
+          "then": { "properties": {
+            "legs": { "required": ["mp", "arb"] },
+            "crosscheck": { "properties": { "verdict": { "const": "CONSISTENT" } } } } } }
+      ]
+    }
+  }
+}
