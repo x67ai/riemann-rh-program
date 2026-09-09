@@ -302,7 +302,7 @@ through `DBN/BarrierCert` and the 116 DBN modules re-elaborated; no DBN or compa
 packaging record, `dr8/untouched.log`; `lake build Solution.DBN` and `PrintAxioms/DBN.lean` re-run clean,
 `dr8/solution-dbn-rebuild.log`).
 
-**Honest label, binding (PRICING-fDH.md §3.2, verbatim).** *"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+**Honest label, binding (PRICING-fDH.md §3.2, verbatim).** *"f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
 What it does NOT say: nothing about ζ (no zero of ζ, nothing about RH, no ζ transcript's label changes); nothing about Λ
 (the de Bruijn–Newman chain runs from a zero of ζ or of H_t; f_DH is neither); not "RH-for-DH machine-checked disproof"
 (one off-line zero modulo H-ENCL_DH — the witness direction only; the witness's truth is the producers'); not "fully
