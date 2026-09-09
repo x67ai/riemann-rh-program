@@ -27,7 +27,7 @@
 | 17 | P3 | zbMATH reviews (Epstein 1976, Cantwell–Conlon 1981, KMNT 2021) | **CLOSED via zbMATH Open API** — Epstein and Cantwell–Conlon carry NO review text; KMNT carries the authors' summary only. Nothing to fetch. | — | `a09-…md` |
 | — | — | Bonus: Edwards–Millett–Sullivan 1977, Topology 16, 13–32 | delivered, not requested; verified, printed = PDF − 12 | `r4-x1` | `a09-…md` |
 | — | — | Re-deliveries of r3s-32 (Cantwell–Conlon 1981) and r3s-34 (Epstein 1976) | byte-identical duplicates; parked | `duplicates-of-r3/` | `a09-…md` |
-| — | — | Stray: arXiv:1703.03827v16 (Blinovsky, math.GM "Proof of Riemann hypothesis") | not requested; parked unread | `not-on-list/` | — |
+| — | — | Stray: arXiv:1703.03827v16 (Blinovsky, math.GM "Proof of Riemann hypothesis") | not requested; read in full at the sponsor's request — **NOT a proof** (its decisive (π/T)² term is a differentiation error; corrected, it vanishes) | `not-on-list/` | `blinovsky-assessment.md` |
 
 ## Findings by item (filled at harvest; each entry cites its report)
 
