@@ -142,3 +142,21 @@ nonvanishing claim; the displayed nonvanishing conclusion that remains is only `
 [y₀, yA], yA 9.0·10⁻⁸ wider than √(157/250) (1.42·10⁻⁷ in the squares); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
 **The cut line moves to item 5 (packaging).**  Λ ≤ 0.2 is still not proved: H1, the four enclosure Props of H2 and H3 are
 displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.  [Figure corrected 2026-09-09 22:25 IST after the phase-3(d) audit (AUDIT-3d.md A-1): the earlier "1.5·10⁻⁷" was the gap in the squares.]
+
+**[DATED NOTE 2026-09-10, Session 20 (packaging stream, Job 1 builder).]** §6 item 5 LANDED (`results/d1-m2a/packaging/`: `BRIEF.md`,
+`BUILD-NOTES.md`, `FIDELITY.md`, the logs): the M2a ray theorem is packaged as the comparator topic `DBN` in the parent's layout —
+`comparator/ChallengeDeps/DBN.lean` (the statement vocabulary, 79 declarations character for character the Zeta23 blocks, `import Mathlib`
+only), `ChallengeDeps/DBN/Instance02.lean` (the row-2 literals emitted a second time from the same JSON, 227 `def` blocks cmp-identical
+to the Zeta23 modules, data only), `Challenge/DBN.lean` (seven `sorry` statements: the generic (G) `dbn_ray_le_point2_of_certificates`,
+the instance (I) `dbn_ray_le_point2_mp` / `_arb` with the five displayed hypotheses verbatim, and the four kernel facts (K)),
+`Solution/DBN.lean` (the same statements proved by delegation through transport lemmas and kernel-decided literal identities; one new
+generic lemma since Zeta23 proves only the instance form), `config-dbn.json`, `PrintAxioms/DBN.lean`; `rh-program/lean/formalization.yaml`
+(schema v0.4; `automation` agent — Claude Fable 5.1, Claude Opus 5, Claude Code; `review` self-assessed; the `fidelity.divergences`
+ledger). `#print axioms`: the three ray statements `[propext, Classical.choice, Quot.sound]`, the barrier kernel facts
+`[propext, Quot.sound]`, the asymptotic ones `[propext]` (`packaging/print-axioms.log`); statement identity IDENTICAL ×7; trust greps
+code-only clean but for the seven challenge placeholders. The PrintAxioms audit is folded into `lean/README.md` ("Packaging
+(2026-09-10)"). NOT done in this item: the SPEC v1.1 that folds in §14 (the second half of item 5's sentence — owed, see
+BUILD-NOTES "Owed"), Job 2's independent clean-clone check (`CHECK-O.md`) and Job 3's Comparator run with nanoda (`COMPARATOR-RUN.md`),
+which follow in the same queue item. **Label unchanged and verbatim: "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3"** — never
+"fully machine-checked"; Λ ≤ 0.2 is not proved. The cut line: item 5 is landed modulo the SPEC v1.1 fold-in; items 7 (M2b) and 8
+(Gomila M2a′) lie beyond it.

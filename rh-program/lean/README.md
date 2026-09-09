@@ -8,6 +8,9 @@ in this repository.
 Since 2026-09-09 (Session 19, M2a Lane A) also the hand-written `DBN/Asym.lean` (246 lines) and the two mechanically
 emitted Lane A literal modules `DBN/Instance02/Asym_mp.lean` (120) and `Asym_arb.lean` (120) — see the
 "M2a Lane A (2026-09-09)" section below.
+Since 2026-09-10 (Session 20, packaging) also the comparator topic `DBN` under `comparator/` (the trusted `ChallengeDeps/DBN.lean`
+and `ChallengeDeps/DBN/Instance02.lean`, `Challenge/DBN.lean`, `Solution/DBN.lean`, `PrintAxioms/DBN.lean`, `config-dbn.json`) and
+`formalization.yaml` — see the "Packaging (2026-09-10)" section below.
 
 | File | Lines | What it carries |
 |---|---|---|
@@ -225,6 +228,47 @@ hypothesis is "the tail region N ≥ N₁, y ∈ [y₀, yA]", not "part of what 
 0 ≤ Λ ≤ 0.2 (Rodgers–Tao; Platt–Trudgian): nothing here proves Λ ≤ 0.2; what is new is that the whole chain from two
 kernel-checked barrier transcripts and two kernel-checked window/tail transcripts to the ray-form statement is closed
 in Lean modulo H1, the four enclosure-type Props of H2, and H3.
+
+## Packaging (2026-09-10): the comparator topic `DBN` — `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/DBN.lean`, `ChallengeDeps/DBN/Instance02.lean`, `config-dbn.json`; `formalization.yaml`
+
+**What the topic is (Session 20, RUN-REPORT §6 item 5; record `results/d1-m2a/packaging/BUILD-NOTES.md`).** The M2a ray theorem is
+shipped in the parent library's Comparator layout ("one topic per file", `comparator/README.md`), so that a reader who trusts only
+Mathlib and the Lean kernel can see WHAT is claimed without reading anything under `Zeta23/`:
+
+| file (under `comparator/`) | module | trusted? | content |
+|---|---|---|---|
+| `ChallengeDeps/DBN.lean` (634 lines) | `ChallengeDeps.DBN` | yes — read it | the statement vocabulary, `import Mathlib` only: the nine definitions of `DBN/Defs.lean` v1.1, the W1 transcript vocabulary (`W1Row`, `W1Data`, the checker helpers, `segs`, `RowEnclOK`), the barrier lane (`PrismData`, `RectData`, `BarrierData`, `checkPrism`, `checkBarrierChain`, `checkBarrier`, `PrismEnclOK`, `BarrierEnclOK`) and the asymptotic lane (`AsymData`, `checkAsym`, `AsymEnclOK`, `TailOK`) — 79 declarations, each CHARACTER FOR CHARACTER the Zeta23 block (mechanically extracted; source lines in `packaging/gen-challengedeps-table.txt`), under `DBN.*` / `DBN.W1.*` |
+| `ChallengeDeps/DBN/Instance02.lean` (20 157 lines) | `ChallengeDeps.DBN.Instance02` | yes — data only | the row-2 literals emitted a SECOND time from the same JSON (`packaging/emit_challengedeps_instance02.py`, a re-targeting of the two program emitters): `row2Rect`, `mp0000…mp0038` + `row2BarrierMP`, `arb0000…arb0071` + `row2BarrierARB`, `row2AsymMP`, `row2AsymARB` — 227 `def` blocks, every one byte-identical to the Zeta23 module's (`cmp-literal-blocks.log`: 2 355 096 bytes, 17 947 row literals, 0 differences); no theorem, no `decide` |
+| `Challenge/DBN.lean` | `Challenge.DBN` | yes — read it | seven statements, every proof `sorry`: (G) `dbn_ray_le_point2_of_certificates` — for ANY checker-accepted barrier data on the instance rectangle/final time and ANY checker-accepted asymptotic data with the instance's t₀, y₀, yA and a row at or below N_start, the five displayed hypotheses imply the ray conclusion; (I) `dbn_ray_le_point2_mp`, `dbn_ray_le_point2_arb` — the referee's statements of `lambda_le_point2` / `_arb`, the five hypotheses verbatim over the trusted literal copies; (K) `dbn_row2Barrier{MP,ARB}_checked`, `dbn_row2Asym{MP,ARB}_checked` — the copied literals pass the copied integer checkers |
+| `Solution/DBN.lean` | `Solution.DBN` | no (checked by comparator) | the same seven statements byte-for-byte, proved by delegating to `Zeta23.DBN.*`: `rfl` bridges for the copied `def`s, field-wise transports for the re-declared structures with commutation lemmas for the checkers and the enclosure Props, the literal identities decided in the kernel (`decide +kernel`), and one NEW generic lemma `DBNBridge.ray_of_certificates` for (G) (Zeta23 proves only the instance form — fidelity item (f)) |
+| `config-dbn.json`, `PrintAxioms/DBN.lean` | — | yes / — | comparator configuration (the seven names; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick check |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.DBN && lake env lean comparator/PrintAxioms/DBN.lean
+# the three ray statements: '<name>' depends on axioms: [propext, Classical.choice, Quot.sound]
+# the four kernel facts (K): [propext, Quot.sound] (barrier) / [propext] (asymptotic) — integer facts on literals
+python3 results/d1-m2a/packaging/statement_identity.py .     # challenge = solution statements, textually; exit 0
+python3 results/d1-m2a/packaging/trust_greps.py .            # eight patterns, comments stripped; only the 7 challenge sorrys
+```
+
+Recorded run (2026-09-10; `results/d1-m2a/packaging/{print-axioms,statement-identity,trust-greps-packaging}.log`):
+`Built Solution.DBN (11s)`, *Build completed successfully (8827 jobs)*; the trusted vocabulary module 28 s, the trusted literal
+module 38 s; all seven `#print axioms` as stated above, no `sorryAx`, no `Lean.ofReduceBool`; statement identity IDENTICAL ×7; trust
+greps code-only 0 for every pattern except the seven `sorry` placeholders of `Challenge/DBN.lean`. The full comparator run (with the
+independent `nanoda` kernel) is the stronger check: `lake env /path/to/comparator comparator/config-dbn.json` — see `comparator/README.md`
+and, for this program's run, `results/d1-m2a/packaging/COMPARATOR-RUN.md` (Session 20 queue item 1, Job 3).
+
+**Honest label, verbatim (SPEC §3.7): "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3"** — never "fully machine-checked". Every
+statement of the topic has the shape "if the displayed hypotheses hold then every H_t with t ≥ 1/5 has only real zeros"; Λ ≤ 0.2 is
+not proved and the bracket of record stays 0 ≤ Λ ≤ 0.2. The window range N ∈ [630783, 5140999] is a displayed floor enclosure plus
+kernel-checked coverage; the only displayed nonvanishing conclusion is `TailOK` on N ≥ 5 141 000 with the y-band [y₀, yA]
+(9.0·10⁻⁸ wider than √(157/250)); C-A6 is kernel-checked but not consumed. The fidelity ledger — where the formal statements differ
+from the prose one — is `results/d1-m2a/packaging/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences`).
+`formalization.yaml` (schema v0.4, at `rh-program/lean/formalization.yaml`) records the program's Lean additions with honest
+`automation` (agent; Claude Fable 5.1 and Claude Opus 5; Claude Code) and `review` (`self-assessed`: no human has read
+`Challenge/DBN.lean` against the prose statement) fields.
 
 ## What these build against, and why it is not here
 
