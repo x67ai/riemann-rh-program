@@ -105,6 +105,8 @@ Reference **[21]**, resolved at Candel–Conlon I's own bibliography, printed **
 
 **What this does not settle.** Example 8.3.20's construction is not stated to produce an exceptional (local) minimal set in L̄; the contract additionally demands (D5). Nothing in the example, and nothing else read, says whether the two can co-exist. That gap is exactly the residue of §5 below.
 
+**[NOTE 2026-09-10 — Session 20, added by the orchestrator after the Round-5 ingest; the scout's text above is left as written.]** §2.3's "Nothing in the example, and nothing else read, says whether the two can co-exist" and §5 statement 5's "What is not printed anywhere read here is whether that leaf's closure can also contain an exceptional minimal set" were true of what was read on 2026-09-09. The co-existence IS printed in the construction's own paper and its sequel, neither on disk at the time: Cantwell–Conlon, *Every surface is a leaf*, Topology 26 (1987), proof of Thm 5.1 p. 283 ("the leaf L∗ is asymptotic to Z", Z an exceptional minimal set, L∗ at infinite level); Cantwell–Conlon, *Generic leaves*, CMH 73 (1998), Ex. 10.4 p. 333 ("It is also possible to carry out the construction in arbitrary M so that X contains an exceptional minimal set"). The scout's verdicts are unaffected (adjudication §6 item 1 anticipated this). Binding record: adjudication 2026-09-10 block after §0; ledger §16-sexies addendum.
+
 ### §2.4 The printed statements of what is *not* known
 
 **Warsaw, printed pp. 226–227** (vision, PDF 235–236) — **digest §J sentence 4, verbatim, plus the two sentences that follow it**:
