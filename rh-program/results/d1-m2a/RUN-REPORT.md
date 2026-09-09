@@ -119,3 +119,26 @@ the design note's work breakdown is PARTIAL (Lane B complete twice and kernel-ch
 started); item (f) is not started. No program Lean file was changed by the audit.
 
 **[DATED NOTE 2026-09-06, Session 16 (orchestrator).]** §6 items 1, 2 and 4 LANDED (run wf_f340aed8-833; `results/d1-m2a/v11/{DEFS-V11-NOTES,LB3-NOTES,GLUE-NOTES,AUDIT,REVISION}.md`): `Defs.lean` v1.1 (`Polymath15Bridge'`, `alpha`, `M0`, `Mt`, `Bt`, `HtEntire`, dated deviation record); L-B3 PROVED in the new `Zeta23/DBN/BtFacts.lean` (hypothesis Re z ≠ 0; `differentiableOn_Ht_div_Bt` on the open right half-plane); `lambda_le_point2` and `lambda_le_point2_arb` in `Instance02.lean`, `#print axioms` = [propext, Classical.choice, Quot.sound], with FOUR displayed hypotheses — H1 exact, H2-B (one leg each), **H2-A in conclusion form (`hLaneA`)**, H3 = `Polymath15Bridge' ∧ HtEntire`. Opus audit CLEAN after three documentation repairs. **The cut line moves to item 3 (Lane A: producers P-9/P-10, `checkAsym` + `cert_of_checkAsym`, L-A1/L-A2) and item 5 (packaging); item 4's short public sentence is NOT licensed until item 3 lands (audit ruling R-1).**
+
+**[DATED NOTE 2026-09-09, Session 19 (Lane A stream, phase 3(d) emitter).]** §6 item 3 LANDED (`results/d1-m2a/lane-a/`:
+`PLAN.md` GO, `PLAN-REVIEW.md` APPROVED, `BUILD-NOTES.md`, `EMIT-NOTES.md`, audit `AUDIT-3d.md`): producers P-9/P-10 run on
+both legs from the quoted formulas (mpmath `iv` prec 288 / Arb prec 320; 3 window rows covering N ∈ [630783, 5140999]
+consecutively, T/K ≈ 0.01202, 0.01202, 0.1544, E/T ≤ 9·10⁻⁶; the tail row at N₁ = 5 141 000 with Q₁ + Q₂ + Q₃ + Q₄ + E₁ =
+1.99699937… < 2, (S1)–(S4) true, `--direct` contained; cross-check `crosscheck-full.txt` CONSISTENT — T, Q agree to ≤ 5·10⁻⁷⁹,
+the E hull bounds recorded with Arb the larger, never merged); `Zeta23/DBN/Asym.lean` — `checkAsym` (C-A1 … C-A6),
+`AsymEnclOK` (H2-A), `TailOK` (H-TAIL), `cert_of_checkAsym` PROVED per SPEC §5.6, L-A1 `row2_windowIdx_ge`, L-A2
+`windowIdx_mono`, standard axioms; the two literals `row2AsymMP` (K = 10²⁴) and `row2AsymARB` (K = 10¹²) emitted, back-parse-
+verified (50 integers, 0 mismatches) and kernel-checked (`decide +kernel`: 2.0 ms and 4.1 ms of kernel time); `hLaneA`
+REPLACED in `Instance02.lean` by `hAsym`/`hTail` per PLAN §1.5 (2 imports, 4 binders, 2 consumption tokens, 2 pass-throughs;
+`instance02-replacement.diff`); root build clean (9142 jobs); `#print axioms` unchanged — `[propext, Classical.choice,
+Quot.sound]` for `lambda_le_point2`, `lambda_le_point2_arb`, `row2_ray_mp`, `row2_ray_arb`, `row2_laneA_mp`, `row2_laneA_arb`,
+`[propext]` for the two kernel facts (`final-axioms.log`); trust greps clean in code (`trust-greps.log`).  **Item 4's short
+sentence — "Λ ≤ 0.2 in ray form, kernel-checked modulo H1, H2, H3" — is now LICENSED, with SPEC §3.7's gloss** (H2 = the
+conjunction H2-B ∧ H2-A ∧ H-TAIL of producer-certified enclosure-type Props behind the kernel-checked checkers; "three
+displayed hypotheses" only with that gloss; R-1's condition is met, so R-1 is discharged, not reversed).  The label, verbatim:
+"kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" — never "fully machine-checked".  What the replacement bought, stated not glossed (PLAN-REVIEW §6): the window range
+N ∈ [630 783, 5 140 999] is now a displayed floor-enclosure hypothesis plus kernel-checked coverage, no longer a displayed
+nonvanishing claim; the displayed nonvanishing conclusion that remains is only `TailOK` on N ≥ 5 141 000 with the y-band
+[y₀, yA], yA 1.5·10⁻⁷ wider than √(157/250); C-A6 is kernel-checked but not consumed (Lemma T's reduction stays prose).
+**The cut line moves to item 5 (packaging).**  Λ ≤ 0.2 is still not proved: H1, the four enclosure Props of H2 and H3 are
+displayed; the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.
