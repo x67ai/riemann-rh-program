@@ -212,7 +212,7 @@ status:
         with `fDH` for `riemannZeta`, modulo the single displayed hypothesis H-ENCL_DH (`W1EnclOK fDH d`); `fDH` is FORMAT §9.2's
         5^{-s}[ζ(s,1/5) + κζ(s,2/5) − κζ(s,3/5) − ζ(s,4/5)] on Mathlib's `hurwitzZeta`, entire (`differentiable_fDH`).
         With the live-fire instance corollaries `mpDH_zero`, `arbDH_zero` on the unchanged literals `mpDH`, `arbDH`: a zero ρ of
-        f_DH with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71.  Honest label, verbatim: "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  Nothing about ζ or Λ follows; not
+        f_DH with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71.  Honest label, verbatim: "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  Nothing about ζ or Λ follows; not
         "RH-for-DH disproved"; not "fully machine-checked" (results/d1-m2a/dr8/fdh-axioms.log).
       declaration: "Zeta23.W1.cert_of_checkW1_fDH, Zeta23.W1.mpDH_zero, Zeta23.W1.arbDH_zero, Zeta23.W1.differentiable_fDH"
       file: "Zeta23/W1/FDH.lean"
@@ -348,6 +348,13 @@ fidelity:
     `function` field is dropped at the JSON→Lean boundary), so the function enters only through `W1EnclOK f d` and the
     instance corollaries name `fDH` in their statements.  The M3 seed corollaries (Ledger.lean) license the single-box
     sentence only: D-R6's range form "Re s ≥ ½ + δ₀ in [T₁, T₂]" needs a box family reaching σ = 1, which no row supplies.
+    (m) Box-form conclusion NOT stated (D-R8 fix pass, 2026-09-10; CHECK-fDH-O.md FIX-FIRST 1): `cert_of_checkW1_of_diffOn`,
+    hence `cert_of_checkW1_fDH`, `cert_of_checkW1_ap` and the instance corollaries `mpDH_zero`/`arbDH_zero`, conclude only
+    1/2 < Re ρ < 1 ∧ T1 d < Im ρ < T2 d for the witness — the proof has `hρmem : ρ ∈ rectOpen (sigma1 d) (sigma2 d) (T1 d)
+    (T2 d)` in scope and deliberately weakens `hr1`/`hr2` by `lt_trans` to the half-strip bounds (Soundness.lean, the
+    witness branch).  So "the zero lies in R = [σ₁, σ₂] × [T₁, T₂]" is true but NOT what the kernel checked; the label says
+    the half-strip window only.  A σ-strong sibling (`cert_of_checkW1_of_diffOn'` with sigma1 d < Re ρ < sigma2 d, and the
+    box-form instance corollaries) is OWED, not written: the frozen statements are untouched.
 
 review:
   status: "self-assessed"

@@ -33,6 +33,9 @@ WHAT THE THEOREMS SAY, and what they do not (binding trust vocabulary, D-R3 / D-
   * For the two f_DH live-fire transcripts (`mpDH`, `arbDH`) there is NO theorem about f_DH at all:
     they are checker-level true-positive firing tests (D-R8); the kernel verdict says only that the
     checker's arithmetic accepts their rows.
+  * [2026-09-10, D-R8] Superseded: Zeta23/W1/FDH.lean now proves cert_of_checkW1_fDH and the
+    instance corollaries mpDH_zero / arbDH_zero on these two literals, modulo the displayed
+    H-ENCL_DH only. The literals below are unchanged.
   * `posMP_rej_check`, `posARB_rej_check : checkW1 … = false` — the positive controls (a box
     STRADDLING the critical line around ρ₁ ≈ ½ + 14.13i, deliberately violating C2) are rejected by
     the kernel, exactly as by both Python checkers (acceptance-report.md §2).

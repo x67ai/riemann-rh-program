@@ -1,29 +1,35 @@
-# dr8/fix-pass-checkers.log — 2026-09-10 04:14 IST: after the fix-pass relabel (CHECK-fDH-O.md FIX-FIRST 1) and the Instances.lean comment (FIX-FIRST 3)
+# dr8/fix-pass-checkers.log — 2026-09-10 04:15 IST: after the fix-pass relabel (CHECK-fDH-O.md FIX-FIRST 1), the reference_checker comment (2) and the Instances.lean/instances-doc.txt note (3)
 == acceptance/w1-mp-dh-livefire.json
-   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
+   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
 == acceptance/w1-arb-dh-livefire.json
-   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
+   VERDICT: ACCEPT (all checks pass; f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted).)
 exit=0
 acceptance/w1-mp-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 40 segments, S=[999999999980, 1000000000020], A=1000000000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 acceptance/w1-arb-dh-livefire.json: ACCEPT (f_DH/refutation, m=1, 50 segments, S=[999973, 1000023], A=1000000; checks passed: C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11; floor verified)
 exit=0
    control 'sigma1 = 1/2': rejected at C2 [ok]  (C2: sigma1 <= 1/2)
 exit=0
+  mutate-for-C2 -> C2 OK
+exit=0
   posARB_rej              183  OK
 
 TOTAL literal mismatches: 0
 exit=0
-## SHA-256
-fdd3701d2f353990beeac0d7e56808a8cbe959a1748c904d152fc221e93a0765  acceptance/w1-mp-dh-livefire.json
-b652bde5aedb79d8d5723942adbd75ec83b2ca1fd0e603cdfcdb6c75b55eae9d  acceptance/w1-arb-dh-livefire.json
-02563d15160b3834ba64c8746f4795010ae87af1021efbd325e3e6ef1b1aacfc  w1-schema.json
-79c0271176c762fb78a05ae26595535e7247ef5cc8a84877cb97e05b43db4fd8  producer_mp.py
-dee9e1be3ba1922f7709339cca86ac9e59c6f22b91d3792dedc22d3be79a6de5  producer_arb.py
-c3957816c5fe6dd8c97fa1774096ba87712ab226af96ba9a3c143407ac7b40dd  checker_ref.py
-8724d4ee7459f59dccb68bc3a06aaf3bc3d7a9b7e31ad2b8aa2304164f102ec4  reference_checker.py
-247da5c0246bc3632ba81d4fdde376a997d4b3faf8344cb28ee8a9efe8971768  instances-doc.txt
-8e644fc66e8e7089d590c3a56fe1d00a6f5eb1a042d49d651789516bc7770fac  ../../lean/Zeta23/W1/Instances.lean
-3fa70b82d5a03d9b88a3c296dbdf24d1704290939e1e13fb604e5ca801f7d2f7  ../../lean/Zeta23/W1/FDH.lean
-89475ddbd24fa1da67b0dbd09cedf91124f1d712f68f6aada508368ce7e0d5e0  ../../lean/formalization.yaml
-b0927f5c79dc7d7c93df9a5ba3699b68a9d1255a7f60906e8ee6e8bb063265ee  ../d1-m2a/packaging/FIDELITY.md
-169eff84b348c9c5362e4516b3f19b4df8c216e510eacca75296516383920d57  ../d1-m2a/packaging/hashes.txt
+## SHA-256 after the fix pass
+125e6ca0420dc227a99b5f8e3c345d7b7921f0e8d7238b93acaef6f3f66dfff3  acceptance/w1-mp-dh-livefire.json
+92494c7895b89326ead137b4e5bc62f54fe3ce8e035617cc7536abfe96e81d2f  acceptance/w1-arb-dh-livefire.json
+22f88b4c63e64f4e3417ede259e95ab874902d579da811906434220a0c2485df  w1-schema.json
+de595bb8b81613f43a1f49eeed0dd7d94c3c8de6bd64449ddf0af00dc9f2a9a2  producer_mp.py
+636b49c85a9e9aa3d3306fe1ffbbf240c3af30cfd0f9b34b9d321181a0d2a241  producer_arb.py
+7f19599b3f24d798331488bf98342cb2aa73b4f8e4fea416a99096b1097eeb53  checker_ref.py
+4c793a847a508357c6b8c146a4cd65618f564ee1ce67b9c2cce186d71296c67a  reference_checker.py
+9d6c62202121e8bcbd66498422b1aebf04dbab94cebb3ca6f66a64cc0835caeb  instances-doc.txt
+ccd56d8eb3648d1cd7fb7828cb44d3e540dbea7539b3788c33f1012d040b2665  FORMAT.md
+0a8ba33bfa82631f42b9217a56a2b21adf9f6786f5d78d1c75c4c5019a250fb6  acceptance-report.md
+430a325f698e4ca0c66745ec72c2b152cdffb07c18f4202834b2819cd877dbf2  ../../lean/Zeta23/W1/Instances.lean
+ed6d88926ed51c04c8fd3d3c2e66016cd17ce3dbe318510c398d28638f01abc7  ../../lean/Zeta23/W1/FDH.lean
+99b77f8022bfef03494c980acb1710e58b81dbf16c99f11749bc542d640746b0  ../../lean/formalization.yaml
+9917e357e61707e0053bbfdb49a44f1f563316440482d4c6295aabfc41541e95  ../../lean/README.md
+26e5a1da077af1a50e38945edc346bb121b7bfe763136d5f0013a6fb8945e784  ../../directions/D1-certified-refutation-arm.md
+dee704cf8f3762db01a33c7893b5c26a53549b25a80c103f4a2552263e681c99  ../d1-m2a/packaging/FIDELITY.md
+1ee0f8630dad2dcc2fe164f3ad0c339cfcecba48059df28c19f5693d3968ea28  ../d1-m2a/packaging/hashes.txt

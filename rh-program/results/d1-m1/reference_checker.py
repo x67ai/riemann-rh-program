@@ -29,7 +29,7 @@ POS_RE = re.compile(r'^[1-9][0-9]*$')
 
 TRUST_LABELS = {
     'zeta': 'kernel-checked modulo displayed hypotheses H-ENCL and H-AP (producers untrusted)',
-    "f_DH": "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
+    "f_DH": "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."  # amended 2026-09-10 (D-R8 build): PRICING-fDH.md sec. 3.2 verbatim; was the v1.0 'checker-level only' string,
 }
 ROW_KEYS = ('reLo', 'reHi', 'imLo', 'imHi', 'argLo', 'argHi')
 TOP_REQUIRED = ('format', 'version', 'mode', 'function', 'trust_label',
@@ -244,8 +244,10 @@ def run_file(path):
         d = parse(doc)
         check(d, lambda s: print('   ' + s))
         # AUDIT O MINOR-1 (applied at reconciliation 2026-09-02): the banner names the
-        # function's own trust label (FORMAT.md sec. 9.2, D-R8) -- an f_DH acceptance is
-        # checker-level only and carries no H-AP-backed conclusion.
+        # function's own trust label (FORMAT.md sec. 9.2, D-R8).
+        # [Amended 2026-09-10 (Session 20, D-R8): an f_DH acceptance now backs the Lean theorem
+        # Zeta23.W1.cert_of_checkW1_fDH modulo the displayed H-ENCL_DH only (H-AP is a theorem for every
+        # f, rectArgPrinciple_of_local); the banner prints TRUST_LABELS[function], the schema constant.]
         if doc.get('function') == 'zeta':
             label = 'conclusion holds modulo the displayed hypotheses H-ENCL, H-AP'
         else:
