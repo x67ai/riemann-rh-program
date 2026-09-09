@@ -6,6 +6,8 @@
 
 **Delivery:** drop PDFs (or scans; scans are read by vision) into `fetched-r3/` or a new folder at the rh-program root; the next session verifies each file against its citation (standing order 5) and routes it in `results/corpus-routing.md`. Nothing in this list should be bought before checking the "why" column: only the P1 items block current work.
 
+**Delivery status (Session 18, 2026-09-09 — see `FETCH-RESPONSE-ROUND4.md`):** DELIVERED and verified: 1, 2, 3, 4, 6 (Farber half), 9, 10, 11, 12, 13 (Dugundji–Antosiewicz half), 14, 15, 16. CLOSED without fetch: 17 (zbMATH holds no review text). **STILL OPEN — please fetch:** **5** (P2: Deninger–Singhof, *A note on dynamical trace formulas*, Contemp. Math. 290, AMS 2001, pp. 41–55); **6b** (P2: Calegari, *Foliations and the Geometry of 3-Manifolds*, OUP 2007 — the published book); **13b** (P3: O. Hájek, *Parallelizability revisited*, Proc. AMS 27, no. 1 (Jan. 1971) 77–84, DOI 10.1090/S0002-9939-1971-0271925-7 — the file delivered was Proc. AMS 30(4) + the index to vols 21–30, which does not contain the article); **7** and **8** (P3, journal texts only — the files delivered were the same author copies already on disk).
+
 ## Already self-fetched in Session 16 — do NOT fetch
 
 | id | Document |
