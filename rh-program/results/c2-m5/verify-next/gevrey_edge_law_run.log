@@ -1,2 +1,47 @@
-(eval):2: command not found: timeout
-exit=127
+lam=   1  c= 1.019903e+00  log c - lam/2 = -0.48029   -sqrt(lam) = -1.00000   e^{lam/2}/c =  1.6165e+00
+lam=   2  c= 1.081297e+00  log c - lam/2 = -0.92184   -sqrt(lam) = -1.41421   e^{lam/2}/c =  2.5139e+00
+lam=   4  c= 1.353674e+00  log c - lam/2 = -1.69718   -sqrt(lam) = -2.00000   e^{lam/2}/c =  5.4585e+00
+lam=   8  c= 2.982025e+00  log c - lam/2 = -2.90740   -sqrt(lam) = -2.82843   e^{lam/2}/c =  1.8309e+01
+lam=  16  c= 3.086385e+01  log c - lam/2 = -4.57041   -sqrt(lam) = -4.00000   e^{lam/2}/c =  9.6584e+01
+lam=  25  c= 7.324171e+02  log c - lam/2 = -5.90365   -sqrt(lam) = -5.00000   e^{lam/2}/c =  3.6637e+02
+lam=  36  c= 5.007646e+04  log c - lam/2 = -7.17869   -sqrt(lam) = -6.00000   e^{lam/2}/c =  1.3112e+03
+lam=  49  c= 9.703262e+06  log c - lam/2 = -8.41203   -sqrt(lam) = -7.00000   e^{lam/2}/c =  4.5009e+03
+lam=  64  c= 5.271688e+09  log c - lam/2 = -9.61438   -sqrt(lam) = -8.00000   e^{lam/2}/c =  1.4979e+04
+lam=  81  c= 7.972970e+12  log c - lam/2 = -10.79292   -sqrt(lam) = -9.00000   e^{lam/2}/c =  4.8675e+04
+lam= 100  c= 3.340194e+16  log c - lam/2 = -11.95261   -sqrt(lam) = -10.00000   e^{lam/2}/c =  1.5522e+05
+lam= 144  c= 1.229443e+25  log c - lam/2 = -14.22881   -sqrt(lam) = -12.00000   e^{lam/2}/c =  1.5118e+06
+lam= 196  c= 2.578908e+35  log c - lam/2 = -16.46216   -sqrt(lam) = -14.00000   e^{lam/2}/c =  1.4107e+07
+lam= 256  c= 3.047637e+47  log c - lam/2 = -18.66413   -sqrt(lam) = -16.00000   e^{lam/2}/c =  1.2756e+08
+lam= 324  c= 2.014033e+61  log c - lam/2 = -20.84217   -sqrt(lam) = -18.00000   e^{lam/2}/c =  1.1263e+09
+lam= 400  c= 7.405326e+76  log c - lam/2 = -23.00133   -sqrt(lam) = -20.00000   e^{lam/2}/c =  9.7578e+09
+fit on lam >= 25:  log c - lam/2 + (3/4) log lam = -1.0012 sqrt(lam) + 1.5150;  max resid 0.0020  (saddle predicts C = 1)
+(b) if the law were e^(lam/2)(c/lam)^(k+1), log c - lam/2 would be linear in log lam; fitted slope over lam in [25,400] = -6.155 (and the residual curvature is what the sqrt fit captures)
+   local slopes d(log c - lam/2)/d log lam: ['25:-3.50', '36:-4.00', '49:-4.50', '64:-5.00', '81:-5.50', '100:-6.24', '144:-7.24', '196:-8.25', '256:-9.25', '324:-10.25']
+(c) slack absorbs the Gevrey loss (2C sqrt(lam) <= c0 lam) once lam = delta L >= (2C/c0)^2: {0.1: np.float64(401.0), 0.25: np.float64(64.2), 0.5: np.float64(16.0)}
+    exact: c(lam)^2 >= e^((1-0.1) lam) holds for lam in table >= None
+    exact: c(lam)^2 >= e^((1-0.25) lam) holds for lam in table >= 100
+    exact: c(lam)^2 >= e^((1-0.5) lam) holds for lam in table >= 25
+eta=   0.5  Bhat= 9.9507e-01   log|Bhat| = -0.005   -sqrt(eta) = -0.707   -2 sqrt(eta) = -1.414
+eta=   1.0  Bhat= 9.8037e-01   log|Bhat| = -0.020   -sqrt(eta) = -1.000   -2 sqrt(eta) = -2.000
+eta=   2.0  Bhat= 9.2312e-01   log|Bhat| = -0.080   -sqrt(eta) = -1.414   -2 sqrt(eta) = -2.828
+eta=   4.0  Bhat= 7.1712e-01   log|Bhat| = -0.333   -sqrt(eta) = -2.000   -2 sqrt(eta) = -4.000
+eta=   8.0  Bhat= 1.8612e-01   log|Bhat| = -1.681   -sqrt(eta) = -2.828   -2 sqrt(eta) = -5.657
+eta=  16.0  Bhat=-4.5762e-02   log|Bhat| = -3.084   -sqrt(eta) = -4.000   -2 sqrt(eta) = -8.000
+eta=  32.0  Bhat=-2.3455e-03   log|Bhat| = -6.055   -sqrt(eta) = -5.657   -2 sqrt(eta) = -11.314
+eta=  64.0  Bhat= 1.3884e-03   log|Bhat| = -6.580   -sqrt(eta) = -8.000   -2 sqrt(eta) = -16.000
+eta= 128.0  Bhat=-1.3176e-05   log|Bhat| = -11.237   -sqrt(eta) = -11.314   -2 sqrt(eta) = -22.627
+eta= 256.0  Bhat=-1.2521e-06   log|Bhat| = -13.591   -sqrt(eta) = -16.000   -2 sqrt(eta) = -32.000
+eta= 512.0  Bhat= 9.2528e-09   log|Bhat| = -18.498   -sqrt(eta) = -22.627   -2 sqrt(eta) = -45.255
+(d) b1 = sup |eta Bhat(eta)|^2 = 8.64612 at eta = 4.675;  ||B'||_1 = 3.3143  (tx_032: b1 <= ||B'||_1^2 = 10.9844)
+(e) t=1e+03 delta=0.05: least L = 81.0  (delta L = 4.05);  delta^-1(loglog t + log 1/delta) = 98.6;  ratio = 0.822
+(e) t=1e+03 delta=0.1: least L = 41.0  (delta L = 4.1);  delta^-1(loglog t + log 1/delta) = 42.4;  ratio = 0.968
+(e) t=1e+03 delta=0.25: least L = 17.0  (delta L = 4.25);  delta^-1(loglog t + log 1/delta) = 13.3;  ratio = 1.281
+(e) t=1e+06 delta=0.05: least L = 99.0  (delta L = 4.95);  delta^-1(loglog t + log 1/delta) = 112.4;  ratio = 0.881
+(e) t=1e+06 delta=0.1: least L = 50.0  (delta L = 5.0);  delta^-1(loglog t + log 1/delta) = 49.3;  ratio = 1.015
+(e) t=1e+06 delta=0.25: least L = 20.0  (delta L = 5.0);  delta^-1(loglog t + log 1/delta) = 16.0;  ratio = 1.246
+(e) t=1e+12 delta=0.05: least L = 118.0  (delta L = 5.9);  delta^-1(loglog t + log 1/delta) = 126.3;  ratio = 0.934
+(e) t=1e+12 delta=0.1: least L = 59.0  (delta L = 5.9);  delta^-1(loglog t + log 1/delta) = 56.2;  ratio = 1.05
+(e) t=1e+12 delta=0.25: least L = 24.0  (delta L = 6.0);  delta^-1(loglog t + log 1/delta) = 18.8;  ratio = 1.275
+2 delta^2 c(delta L)^2 at delta=0.1: L=20 -> 2.3384e-02, L=120 -> 1.5518e+00; ratio 6.636e+01 = e^(4.20); growth rate per unit L = 0.0420 (C2 line 54 measured 0.30 -> 132, rate 0.0609)
+done in 17.3s
+exit=0
