@@ -1514,3 +1514,9 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **Open at close:** nothing running. Sponsor: ÁLKL email if not sent; corpus backup; no fetch list open.
 **Next session should:** follow the SESSION 21 QUEUE in STATUS (program-wide consolidation digest first).
 - **09:23 IST — post-close addendum (Session 20): the ÁLKL courtesy note WAS SENT** on Mon 2026-09-07 13:06 to the three authors with both attachments (sponsor's screenshot `~/Downloads/screen.png`, read by vision). Matter CLOSED; Session-19 print-page contingency retired; STATUS Session 21 queue item 4(a) and the C3 direction file updated.
+
+## Session 21 — 2026-09-10 (opened 10:05 IST; LOCAL; THE RH PROGRAM RESUMED at the SESSION 21 QUEUE; caffeinate + both watchdogs running)
+
+**Focus:** item 0 (program-wide consolidation digest, 10(a)) → Opus read of its ranking → the ranking's first item; queue items 1–3 placed by the digest.
+- **10:05 IST — bootstrap:** `git pull` up to date at c206e57; corpus present (`fetched/` 174, `fetched-r2/` 162); caffeinate + push-watchdog + autocommit-watchdog ("Session 21") running; Rust/Go on PATH.
+- **10:22 IST — item 0 LAUNCHED:** brief `results/program-digest-s21/BRIEF.md`; deliverable `results/program-digest-s21.md`; live entry in STATUS.
