@@ -1,0 +1,14 @@
+# FETCH LIST — ROUND 6 (opened 2026-09-10, Session 21)
+
+**Sponsor rule (2026-09-06, binding):** everything the sponsor needs to fetch lives ONLY in this file — full citation, priority, reason. STATUS, LOG and direction files carry at most a one-line pointer. Deliver into `fetched-r6/` (gitignored, local-only, like its siblings); the next session ingests and verifies (identity check against the citation, standing order 5).
+
+**Delivery status:** OPEN — nothing delivered yet. **Nothing here blocks the current work**: the C2 confinement theorem lands with its unconditional clause 5 deferred or stated with a symbolic constant until rows 1–2 are read; the sessions will also try the arXiv versions themselves first (rows 1–2 have arXiv numbers), so the sponsor may wait for the next session's ingest report before fetching.
+
+| # | Item (full citation) | Priority | Why (which unit consumes it) | Notes |
+|---|---|---|---|---|
+| r6-01 | T. S. Trudgian, "An improved upper bound for the argument of the Riemann zeta-function on the critical line II", *J. Number Theory* 134 (2014) 280–292. arXiv number recalled as 1208.5846 `[recalled, unverified — check on arXiv before use]`. | MEDIUM | C2 repair 1, the Sector-I confinement theorem, clause 5 (unconditional layer constant): needs an explicit \|S(t)\| ≤ c₁ log t + c₂ log log t + c₃ read at the page (`results/c2-m5/PRICING-next-unit.md` §1.2 clause 5, §1.7). | The session will try the arXiv version first; the journal version is wanted only if the constants differ. |
+| r6-02 | E. Hasanalizade, Q. Shen, P.-J. Wong, "Counting zeros of the Riemann zeta function", *J. Number Theory* 235 (2022) 219–241. arXiv number recalled as 2107.06506 `[recalled, unverified — check on arXiv before use]`. | MEDIUM | Same as r6-01 (the sharper explicit S(t) / N(T) constants). | arXiv version first. |
+| r6-03 | D. R. Heath-Brown, "Zero-free regions for Dirichlet L-functions, and the least prime in an arithmetic progression", *Proc. London Math. Soc.* (3) 64 (1992) 265–338. | LOW | C2 mandatory repair 3's prior-art list (smoothed-explicit-formula zero-free regions): the confinement theorem's prior-art section cites it from listings only (`PRICING-next-unit.md` §1.7). | Closed-access journal; needed only if a referee asks for the exact form of the smoothed detector. |
+| r6-04 | M. V. Berry, "Semiclassical formula for the number variance of the Riemann zeros", *Nonlinearity* 1 (1988) 399–407. | LOW | `results/c2-m5/PRICING.md` §1.2(c) cites Berry's number-variance saturation from listings only; on disk is the image-only Berry 1985 (t-03a). | Needed only if the non-periodic M5 object (M1 foundations) is ever built. |
+
+**Closed rounds:** Round 5 CLOSED 2026-09-10 (13/13 EXACT, `FETCH-RESPONSE-ROUND5.md`); Round 4 CLOSED 2026-09-09; earlier rounds in `FETCH-LIST-ROUND{2,3,4,5}.md` and `FETCH-VERIFICATION.md`.
