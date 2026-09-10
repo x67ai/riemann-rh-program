@@ -35,6 +35,8 @@ WHAT IS PROVED HERE (sorry-free; `#print axioms`: [propext, Classical.choice, Qu
   * `mpDH_zero`, `arbDH_zero` — the live-fire instances: from `mpDH_check` / `arbDH_check`
     (kernel-decided integer facts, Instances.lean) and H-ENCL_DH for the literal, a zero ρ of f_DH
     with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71.
+  * [Session 21, 2026-09-10] `cert_of_checkW1_fDH'`, `mpDH_zero'`, `arbDH_zero'` — the σ-strong
+    (box-form) twins: the zero has 4/5 < Re ρ < 41/50 as well; see "σ-STRONG SIBLING" below.
 
 HONEST LABEL (binding; PRICING-fDH.md §3.2, verbatim): "f_DH has at least one zero ρ with 1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71 (the live-fire window; the
 transcript's rectangle is R = [4/5, 41/50] × [85.69, 85.71]) — kernel-checked modulo the displayed
@@ -46,6 +48,19 @@ theorem exhibits ONE off-line zero modulo H-ENCL_DH — the witness direction on
 truth is the producers'); not "fully machine-checked" (H-ENCL_DH is where mpmath/Arb enter, exactly
 as H-ENCL does for ζ); not a Mathlib fact about Davenport–Heilbronn (`fDH`, `kappaDH` and the
 identification below are this program's).
+
+σ-STRONG SIBLING (Session 21, 2026-09-10; owed by D-R8 — CHECK-fDH-O.md §12 FIX-FIRST 1,
+BUILD-NOTES-fDH.md §7 (a); record results/d1-m2a/dr8/BUILD-NOTES-sigma-strong.md).  The primed
+theorems `cert_of_checkW1_fDH'`, `mpDH_zero'`, `arbDH_zero'` (§4 below) are the box-form twins:
+from `cert_of_checkW1_of_diffOn'` (Soundness.lean, witness branch keeping `sigma1 d < Re ρ <
+sigma2 d`) they place the zero in the OPEN box itself — 4/5 < Re ρ < 41/50 (and, weakened from it,
+1/2 < Re ρ < 1), 85.69 < Im ρ < 85.71.  For the primed theorems ONLY, the label is the box form
+(PRICING-fDH.md §3.2, verbatim): "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71]
+with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers'
+enclosures of f_DH on ∂R are true; producers untrusted)."  The unprimed theorems keep the
+half-strip label above and are unchanged character-for-character; the never-say list applies to
+both forms unchanged (nothing about ζ, RH or Λ; not "RH-for-DH disproved"; not "fully
+machine-checked").
 
 THE CONVENTION MATCH (META-level, not a Lean theorem; PRICING-fDH.md §1.3; standing order 5).
 Three conventions must agree: Mathlib's `hurwitzZeta`, mpmath's `mp.zeta(s, a)`, and Arb's
@@ -134,6 +149,17 @@ theorem cert_of_checkW1_fDH (d : W1Data) (hc : checkW1 d = true) (hEncl : W1Encl
   cert_of_checkW1_of_diffOn fDH differentiable_fDH.differentiableOn d hc hEncl
     (rectArgPrinciple_of_local fDH)
 
+/-- **W1 checker soundness for f_DH, σ-strong form** (Session 21, 2026-09-10): the same theorem
+from `cert_of_checkW1_of_diffOn'`, so the witness satisfies `sigma1 d < Re ρ < sigma2 d` — the
+zero lies in the open box R° = (σ₁, σ₂) × (T₁, T₂) of the transcript, not only in the half-strip.
+Same single displayed hypothesis H-ENCL_DH; `cert_of_checkW1_fDH` is unchanged. -/
+theorem cert_of_checkW1_fDH' (d : W1Data) (hc : checkW1 d = true) (hEncl : W1EnclOK fDH d) :
+    (1 ≤ d.m → ∃ ρ : ℂ, fDH ρ = 0 ∧ sigma1 d < ρ.re ∧ ρ.re < sigma2 d
+        ∧ T1 d < ρ.im ∧ ρ.im < T2 d)
+    ∧ (d.m = 0 → ∀ s ∈ W1Rect d, fDH s ≠ 0) :=
+  cert_of_checkW1_of_diffOn' fDH differentiable_fDH.differentiableOn d hc hEncl
+    (rectArgPrinciple_of_local fDH)
+
 /-! ## 3. The live-fire instances (`mpDH`, `arbDH` of Instances.lean, consumed unchanged) -/
 
 /-- the transcript rationals of the live-fire rectangle, as reals: T₁ = 8569/100 = 85.69. -/
@@ -169,6 +195,53 @@ theorem arbDH_zero (hEncl : W1EnclOK fDH arbDH) :
   have h := (cert_of_checkW1_fDH arbDH (checkW1Floor_spec arbDH_check).1 hEncl).1 (by decide)
   rw [arbDH_T1, arbDH_T2] at h
   exact h
+
+/-! ## 4. The box-form live-fire instances (Session 21, 2026-09-10; the σ-strong sibling owed by
+D-R8).  Label for THIS section only, verbatim (PRICING-fDH.md §3.2): "f_DH has at least one zero
+in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed
+hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
+The statements carry both the box bounds and the half-strip bounds, so a reader of either label
+finds its clause in the statement. -/
+
+/-- the transcript rationals of the live-fire rectangle, as reals: σ₁ = 4/5 (mp leg). -/
+lemma mpDH_sigma1 : sigma1 mpDH = 4 / 5 := by
+  show ((4 : ℤ) : ℝ) / ((5 : ℤ) : ℝ) = 4 / 5
+  norm_num
+/-- σ₂ = 41/50 = 0.82 (mp leg). -/
+lemma mpDH_sigma2 : sigma2 mpDH = 41 / 50 := by
+  show ((41 : ℤ) : ℝ) / ((50 : ℤ) : ℝ) = 41 / 50
+  norm_num
+/-- σ₁ = 4/5 (Arb leg; identical rectangle). -/
+lemma arbDH_sigma1 : sigma1 arbDH = 4 / 5 := by
+  show ((4 : ℤ) : ℝ) / ((5 : ℤ) : ℝ) = 4 / 5
+  norm_num
+/-- σ₂ = 41/50 (Arb leg). -/
+lemma arbDH_sigma2 : sigma2 arbDH = 41 / 50 := by
+  show ((41 : ℤ) : ℝ) / ((50 : ℤ) : ℝ) = 41 / 50
+  norm_num
+
+/-- **Live fire, mpmath-ball leg, box form.**  From the kernel-decided `mpDH_check` and H-ENCL_DH
+for the literal `mpDH` (`w1-mp-dh-livefire.json`, R = [4/5, 41/50] × [85.69, 85.71], m = 1):
+f_DH has a zero ρ with 4/5 < Re ρ < 41/50 (hence 1/2 < Re ρ < 1) and 85.69 < Im ρ < 85.71.
+Label: the §4 box form.  `mpDH_zero` (half-strip form) is unchanged. -/
+theorem mpDH_zero' (hEncl : W1EnclOK fDH mpDH) :
+    ∃ ρ : ℂ, fDH ρ = 0 ∧ (4/5 : ℝ) < ρ.re ∧ ρ.re < 41/50 ∧ 1/2 < ρ.re ∧ ρ.re < 1
+      ∧ (8569/100 : ℝ) < ρ.im ∧ ρ.im < 8571/100 := by
+  have h := (cert_of_checkW1_fDH' mpDH (checkW1Floor_spec mpDH_check).1 hEncl).1 (by decide)
+  rw [mpDH_sigma1, mpDH_sigma2, mpDH_T1, mpDH_T2] at h
+  obtain ⟨ρ, hρ0, hr1, hr2, hi1, hi2⟩ := h
+  exact ⟨ρ, hρ0, hr1, hr2, lt_trans (by norm_num) hr1, lt_trans hr2 (by norm_num), hi1, hi2⟩
+
+/-- **Live fire, Arb/FLINT leg, box form.**  The same from `arbDH_check` and H-ENCL_DH for
+`arbDH` (`w1-arb-dh-livefire.json`, same rectangle, m = 1).  The two legs are never merged (D-R3).
+`arbDH_zero` (half-strip form) is unchanged. -/
+theorem arbDH_zero' (hEncl : W1EnclOK fDH arbDH) :
+    ∃ ρ : ℂ, fDH ρ = 0 ∧ (4/5 : ℝ) < ρ.re ∧ ρ.re < 41/50 ∧ 1/2 < ρ.re ∧ ρ.re < 1
+      ∧ (8569/100 : ℝ) < ρ.im ∧ ρ.im < 8571/100 := by
+  have h := (cert_of_checkW1_fDH' arbDH (checkW1Floor_spec arbDH_check).1 hEncl).1 (by decide)
+  rw [arbDH_sigma1, arbDH_sigma2, arbDH_T1, arbDH_T2] at h
+  obtain ⟨ρ, hρ0, hr1, hr2, hi1, hi2⟩ := h
+  exact ⟨ρ, hρ0, hr1, hr2, lt_trans (by norm_num) hr1, lt_trans hr2 (by norm_num), hi1, hi2⟩
 
 end W1
 end Zeta23

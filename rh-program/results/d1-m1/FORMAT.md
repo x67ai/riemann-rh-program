@@ -539,6 +539,24 @@ re-ACCEPT, back-parse 0 mismatches — `dr8/label-sweep-checkers.log`); their SH
 old/new values are recorded in `acceptance-report.md` (dated block after §0). Record:
 `results/d1-m2a/dr8/BUILD-NOTES-fDH.md`.
 
+**[Dated block 2026-09-10 — Session 21, the σ-strong sibling (owed by D-R8, `dr8/CHECK-fDH-O.md`
+§12 FIX-FIRST 1); insertion-only.]** `lean/Zeta23/W1/Soundness.lean` now also proves
+`cert_of_checkW1_of_diffOn'` — the same theorem with the witness branch keeping the rectangle
+bounds `sigma1 d < Re ρ < sigma2 d` (the unprimed body line for line; only the final witness line
+differs) — and `lean/Zeta23/W1/FDH.lean` its f_DH twin `cert_of_checkW1_fDH'` and the box-form
+live-fire corollaries `mpDH_zero'`, `arbDH_zero'`: a zero ρ of f_DH with 4/5 < Re ρ < 41/50,
+1/2 < Re ρ < 1 and 85.69 < Im ρ < 85.71, modulo H-ENCL_DH for the literal; `#print axioms`
+`[propext, Classical.choice, Quot.sound]` on all four (`dr8/sigma-strong-axioms.log`). **For the
+primed theorems ONLY, the label returns to the box form of `dr8/PRICING-fDH.md` §3.2, verbatim:**
+*"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+The unprimed theorems `cert_of_checkW1`, `cert_of_checkW1_ap`, `cert_of_checkW1_fDH`,
+`cert_of_checkW1_of_diffOn`, `mpDH_zero`, `arbDH_zero` are unchanged character-for-character
+(`dr8/sigma-strong-no-regression.log`) and keep the half-strip label above. The trust label
+printed by the producers, the checkers, `w1-schema.json` and the two live-fire JSONs is NOT
+changed by this block: it describes the checker's acceptance, whose Lean backing is the unprimed
+theorem; the box-form sentence is the label of the primed theorems in `FDH.lean`. Fidelity item (m)
+of `lean/formalization.yaml` is CLOSED. Record: `results/d1-m2a/dr8/BUILD-NOTES-sigma-strong.md`.
+
 
 Same fields, same checks, same row semantics with f = f_DH, where (on-disk source, quoted
 verbatim from `rh-program/results/ccm-dh-test/dh.py`, lines 5–8):

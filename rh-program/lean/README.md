@@ -17,8 +17,8 @@ and `ChallengeDeps/DBN/Instance02.lean`, `Challenge/DBN.lean`, `Solution/DBN.lea
 | `Zeta23/PairCeiling/GridParseval.lean` | 583 | The grid-Parseval decoupling identity — the algebraic core of the A4 absorption result (Lemma 3.8 and Theorem 3.9 of the A4 paper) |
 | `Zeta23/PairCeiling/GridWitness.lean` | 402 | The 4128/33 witness, for every vacancy position |
 | `Zeta23/PairCeiling/GridCorner.lean` | 263 | The corner theorem: Lemma 4.2 and Theorem 4.3, pointwise, in law form, and with exact attainment |
-| `Zeta23/W1/Soundness.lean` | 1300 | W1 checker soundness — generic in the function since 2026-09-10 (`cert_of_checkW1_of_diffOn`; ζ instance `cert_of_checkW1` unchanged) |
-| `Zeta23/W1/FDH.lean` | 176 | **D-R8 (2026-09-10):** f_DH in Lean — `kappaDH`, `fDH`, `differentiable_fDH`, `cert_of_checkW1_fDH` (modulo H-ENCL_DH only), `mpDH_zero`, `arbDH_zero` — see the "D-R8" section below |
+| `Zeta23/W1/Soundness.lean` | 1534 | W1 checker soundness — generic in the function since 2026-09-10 (`cert_of_checkW1_of_diffOn`; ζ instance `cert_of_checkW1` unchanged); σ-strong sibling `cert_of_checkW1_of_diffOn'` (Session 21, 2026-09-10) — see the "σ-strong sibling" section below |
+| `Zeta23/W1/FDH.lean` | 249 | **D-R8 (2026-09-10):** f_DH in Lean — `kappaDH`, `fDH`, `differentiable_fDH`, `cert_of_checkW1_fDH` (modulo H-ENCL_DH only), `mpDH_zero`, `arbDH_zero` — see the "D-R8" section below; **Session 21 (2026-09-10):** the box-form twins `cert_of_checkW1_fDH'`, `mpDH_zero'`, `arbDH_zero'` — see the "σ-strong sibling" section below |
 | `Zeta23/W1/Ledger.lean` | 95 | **M3 seed (2026-09-10):** the eight 3-line corollaries of `cert_of_checkW1_ap` (m = 0 branch) for the four seed rows of `results/d1-m3/` — see the "M3 seed" section below |
 | `Zeta23/W1/{Checker,Examples,Format}.lean` | 385 | The W1 checker, its examples and its output format |
 | `Zeta23/W1/Instances.lean` | 3265 | The ten M1 v1 acceptance transcripts and the two positive controls as kernel-checked checker instances (`checkW1Floor … = true` ×10, `checkW1 … = false` ×2 by `decide +kernel`); mechanically emitted by `results/d1-m1/emit_lean.py` and back-parse-verified against the JSON; needs `set_option maxRecDepth 100000` (written by the emitter) for the 983/1294-row literals — added at the reconciled audit of 2026-09-02, `results/d1-m1/AUDIT.md` |
@@ -315,6 +315,44 @@ through FORMAT.md §9.2, `w1-schema.json`, both producers, both Python checkers 
 only; arithmetic byte-identical; re-checked — `dr8/label-sweep-checkers.log`). The module doc of `W1/Instances.lean`
 (emitter-written, back-parse-verified, deliberately NOT regenerated) still says "there is NO theorem about f_DH at all":
 read that sentence as dated 2026-09-02; this section supersedes it.
+
+## σ-strong sibling (2026-09-10, Session 21): `cert_of_checkW1_of_diffOn'` and the box-form f_DH corollaries
+
+**What landed (record `results/d1-m2a/dr8/BUILD-NOTES-sigma-strong.md`; brief `dr8/BUILD-BRIEF-sigma-strong.md`; the item owed by
+D-R8 after the independent checker's FIX-FIRST 1, `dr8/CHECK-fDH-O.md` §12).** The D-R8 witness branch held
+`hρmem : ρ ∈ rectOpen (sigma1 d) (sigma2 d) (T1 d) (T2 d)` and weakened its real bounds to the half-strip by `lt_trans`, so
+no theorem stated that the zero lies in the transcript's box. `W1/Soundness.lean` now adds, beside the unprimed theorem,
+
+    Zeta23.W1.cert_of_checkW1_of_diffOn' (f : ℂ → ℂ) (hf : DifferentiableOn ℂ f {s : ℂ | s.re < 1})
+        (d : W1Data) (hc : checkW1 d = true) (hEncl : W1EnclOK f d) (hAP : RectArgPrinciple f) :
+        (1 ≤ d.m → ∃ ρ : ℂ, f ρ = 0 ∧ sigma1 d < ρ.re ∧ ρ.re < sigma2 d
+            ∧ T1 d < ρ.im ∧ ρ.im < T2 d) ∧ (d.m = 0 → ∀ s ∈ W1Rect d, f s ≠ 0)
+
+whose body is the unprimed proof line for line with the single witness line `exact ⟨ρ, hρ0, hr1, hr2, hi1, hi2⟩` in place of
+the `lt_trans` line (`hhalf`, `hs2lt1` stay in use elsewhere in the body, so nothing is unused). `W1/FDH.lean` adds its f_DH twin
+`cert_of_checkW1_fDH'` (same statement shape with `fDH`, H-ENCL_DH the only displayed hypothesis), four unfolding lemmas of the
+`mpDH_T1` kind (`mpDH_sigma1 : sigma1 mpDH = 4/5`, `mpDH_sigma2 : sigma2 mpDH = 41/50`, and the Arb twins), and the box-form
+live-fire corollaries
+
+    Zeta23.W1.mpDH_zero' (hEncl : W1EnclOK fDH mpDH) :
+        ∃ ρ : ℂ, fDH ρ = 0 ∧ (4/5 : ℝ) < ρ.re ∧ ρ.re < 41/50 ∧ 1/2 < ρ.re ∧ ρ.re < 1
+          ∧ (8569/100 : ℝ) < ρ.im ∧ ρ.im < 8571/100                                        (and arbDH_zero' likewise)
+
+on the unchanged literals `mpDH`, `arbDH`. `#print axioms` on the four new theorems (and the four lemmas):
+`[propext, Classical.choice, Quot.sound]` (`dr8/sigma-strong-axioms.log`). The six frozen theorems `cert_of_checkW1`,
+`cert_of_checkW1_ap`, `cert_of_checkW1_fDH`, `cert_of_checkW1_of_diffOn`, `mpDH_zero`, `arbDH_zero` are unchanged
+character-for-character, `#check` and axioms before/after identical (`dr8/sigma-strong-no-regression.log`); trust greps with
+comments stripped on the two edited files: 0 hits (`dr8/sigma-strong-trust-greps.log`); all 143 files under `Zeta23/DBN/` and
+`comparator/` byte-identical before and after (`dr8/sigma-strong-untouched.log`). Build: `lake build Zeta23` — *Build completed
+successfully (9144 jobs)*, 0 errors, 83 s (`dr8/sigma-strong-build.log`).
+
+**Label (binding).** For the PRIMED theorems `cert_of_checkW1_fDH'`, `mpDH_zero'`, `arbDH_zero'` only, the box form of
+`dr8/PRICING-fDH.md` §3.2 applies, verbatim: *"f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."*
+The unprimed theorems keep the half-strip label of the D-R8 section above. The never-say list is unchanged for both forms:
+nothing about ζ, RH or Λ; not "RH-for-DH machine-checked disproof" (one off-line zero modulo H-ENCL_DH, the witness direction
+only, the witness's truth the producers'); not "fully machine-checked"; not a Mathlib fact about Davenport–Heilbronn. The trust
+label printed by the producers, checkers, `w1-schema.json` and the two live-fire JSONs is not changed: it describes the checker's
+acceptance, not the theorem. Fidelity item (m) of `formalization.yaml` is CLOSED by this section.
 
 ## M3 seed (2026-09-10): `W1/Ledger.lean` and `results/d1-m3/`
 

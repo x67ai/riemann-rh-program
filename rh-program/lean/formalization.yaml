@@ -233,6 +233,55 @@ status:
         - "Classical.choice"
         - "Quot.sound"
     - description: >-
+        Session 21 (2026-09-10), the σ-strong sibling owed by D-R8 (results/d1-m2a/dr8/CHECK-fDH-O.md §12 FIX-FIRST 1): the W1
+        soundness theorem generic in the function with the witness branch keeping the rectangle bounds — for m ≥ 1 a zero ρ
+        of f with sigma1 d < Re ρ < sigma2 d and T1 d < Im ρ < T2 d (the open box of the transcript), same m = 0 branch, same
+        hypotheses as `cert_of_checkW1_of_diffOn`, whose body it repeats line for line except the final witness line.  The
+        unprimed theorem and its instances are unchanged character-for-character (results/d1-m2a/dr8/sigma-strong-no-regression.log).
+      declaration: "Zeta23.W1.cert_of_checkW1_of_diffOn'"
+      file: "Zeta23/W1/Soundness.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        Session 21 (2026-09-10): W1 checker soundness for f_DH in σ-strong form — `cert_of_checkW1_of_diffOn'` at f = fDH with
+        H-AP from `rectArgPrinciple_of_local fDH`; modulo the single displayed hypothesis H-ENCL_DH, an accepted transcript with
+        m ≥ 1 gives a zero of f_DH in the open box (sigma1 d, sigma2 d) × (T1 d, T2 d) (results/d1-m2a/dr8/sigma-strong-axioms.log).
+      declaration: "Zeta23.W1.cert_of_checkW1_fDH'"
+      file: "Zeta23/W1/FDH.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        Session 21 (2026-09-10): the box-form live-fire corollary, mpmath-ball leg — from the kernel-decided `mpDH_check` and
+        H-ENCL_DH for the unchanged literal `mpDH`: a zero ρ of f_DH with 4/5 < Re ρ < 41/50, 1/2 < Re ρ < 1 and
+        85.69 < Im ρ < 85.71 (unfolding lemmas `mpDH_sigma1`, `mpDH_sigma2`, `mpDH_T1`, `mpDH_T2`).  Label, verbatim and for the
+        primed theorems only (dr8/PRICING-fDH.md §3.2): "f_DH has at least one zero in R = [4/5, 41/50] × [85.69, 85.71] with Re s > 1/2 — kernel-checked modulo the displayed hypothesis H-ENCL_DH (the two producers' enclosures of f_DH on ∂R are true; producers untrusted)."
+        The unprimed `mpDH_zero` keeps the half-strip label.  Nothing about ζ or Λ follows; not "RH-for-DH disproved"; not
+        "fully machine-checked".
+      declaration: "Zeta23.W1.mpDH_zero'"
+      file: "Zeta23/W1/FDH.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        Session 21 (2026-09-10): the box-form live-fire corollary, Arb/FLINT leg — the same statement from `arbDH_check` and
+        H-ENCL_DH for the unchanged literal `arbDH` (same rectangle, m = 1; the two legs are never merged, D-R3).  Same label
+        as `mpDH_zero'`; the unprimed `arbDH_zero` keeps the half-strip label.
+      declaration: "Zeta23.W1.arbDH_zero'"
+      file: "Zeta23/W1/FDH.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
         M3 exclusion-ledger seed (2026-09-10): the eight 3-line corollaries of `cert_of_checkW1_ap` (m = 0 branch) on the eight
         M1 acceptance null literals — one per leg of the four seed rows of results/d1-m3/ (R1 [3/5, 9/10] × [100, 101],
         R2 × [1000, 1001], R3 × [10000, 10001], R4 [21/40, 39/40] × [100, 101]): `W1EnclOK riemannZeta d → ∀ s ∈ W1Rect d,
@@ -354,7 +403,12 @@ fidelity:
     (T2 d)` in scope and deliberately weakens `hr1`/`hr2` by `lt_trans` to the half-strip bounds (Soundness.lean, the
     witness branch).  So "the zero lies in R = [σ₁, σ₂] × [T₁, T₂]" is true but NOT what the kernel checked; the label says
     the half-strip window only.  A σ-strong sibling (`cert_of_checkW1_of_diffOn'` with sigma1 d < Re ρ < sigma2 d, and the
-    box-form instance corollaries) is OWED, not written: the frozen statements are untouched.
+    box-form instance corollaries) is OWED, not written: the frozen statements are untouched.  CLOSED 2026-09-10 (Session 21,
+    results/d1-m2a/dr8/BUILD-NOTES-sigma-strong.md): `cert_of_checkW1_of_diffOn'` (Soundness.lean), `cert_of_checkW1_fDH'`,
+    `mpDH_zero'`, `arbDH_zero'` (FDH.lean) state the box form — 4/5 < Re ρ < 41/50 for the live-fire literals — on
+    [propext, Classical.choice, Quot.sound], with the frozen statements unchanged character-for-character; the box-form
+    label applies to the primed theorems only, the unprimed ones keep the half-strip label, and the transcripts' printed
+    trust label (checker acceptance) is unchanged.
 
 review:
   status: "self-assessed"
@@ -453,11 +507,11 @@ alignment:
       module: "Zeta23.W1.ArgPrincipleBridge"
       status: "proved (modulo the displayed H-ENCL)"
     - source: "M1 FORMAT.md §9.2 — the Davenport–Heilbronn function f_DH and the D-R8 statement (dr8/PRICING-fDH.md §3.1)"
-      lean: "Zeta23.W1.fDH, Zeta23.W1.kappaDH, Zeta23.W1.differentiable_fDH, Zeta23.W1.cert_of_checkW1_fDH, Zeta23.W1.mpDH_zero, Zeta23.W1.arbDH_zero"
+      lean: "Zeta23.W1.fDH, Zeta23.W1.kappaDH, Zeta23.W1.differentiable_fDH, Zeta23.W1.cert_of_checkW1_fDH, Zeta23.W1.mpDH_zero, Zeta23.W1.arbDH_zero, Zeta23.W1.cert_of_checkW1_fDH', Zeta23.W1.mpDH_zero', Zeta23.W1.arbDH_zero'"
       module: "Zeta23.W1.FDH"
       status: "proved (modulo the displayed H-ENCL_DH); the identification of the producers' f_DH with `fDH` is a documented meta-level convention match, fidelity (l)"
     - source: "M1 FORMAT.md §7–§8 — W1 checker soundness generic in the function (Route G, dr8/PRICING-fDH.md §2.2)"
-      lean: "Zeta23.W1.cert_of_checkW1_of_diffOn, Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn"
+      lean: "Zeta23.W1.cert_of_checkW1_of_diffOn, Zeta23.W1.cert_of_checkW1_of_diffOn', Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn"
       module: "Zeta23.W1.Soundness"
       status: "proved (modulo the displayed H-ENCL and H-AP; H-AP a theorem for every f)"
     - source: "D1 charter line 48 + D-R6 — the M3 exclusion ledger's per-leg theorem (dr8/PRICING-M3-ledger.md §1.6), four seed rows"

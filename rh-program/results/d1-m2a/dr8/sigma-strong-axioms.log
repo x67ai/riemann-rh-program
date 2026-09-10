@@ -1,0 +1,65 @@
+# dr8/sigma-strong-axioms.log — σ-strong sibling build (Session 21, Job 1, Fable 5.1), 2026-09-10 14:39 IST
+# tree ~/rh-lean-work/zeta-23-lean-main, Lean v4.33.0-rc2, Mathlib 51e6992e; after 'lake build Zeta23' (Build completed successfully (9144 jobs), 0 errors, 82.7 s wall, 14:37–14:38 IST)
+# probe: lake env lean new_axioms.lean (source appended at the end); one lake process. Required: exactly [propext, Classical.choice, Quot.sound] on the four new theorem names.
+
+'Zeta23.W1.cert_of_checkW1_of_diffOn'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_fDH'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_zero'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_zero'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_sigma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_sigma2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_sigma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_sigma2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_of_diffOn' : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m →
+                ∃ ρ,
+                  f ρ = 0 ∧
+                    Zeta23.W1.sigma1 d < ρ.re ∧
+                      ρ.re < Zeta23.W1.sigma2 d ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+Zeta23.W1.cert_of_checkW1_fDH' : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m →
+          ∃ ρ,
+            Zeta23.W1.fDH ρ = 0 ∧
+              Zeta23.W1.sigma1 d < ρ.re ∧ ρ.re < Zeta23.W1.sigma2 d ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+Zeta23.W1.mpDH_zero' : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ,
+    Zeta23.W1.fDH ρ = 0 ∧
+      4 / 5 < ρ.re ∧ ρ.re < 41 / 50 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.arbDH_zero' : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ,
+    Zeta23.W1.fDH ρ = 0 ∧
+      4 / 5 < ρ.re ∧ ρ.re < 41 / 50 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.mpDH_sigma1 : Zeta23.W1.sigma1 Zeta23.W1.mpDH = 4 / 5
+Zeta23.W1.mpDH_sigma2 : Zeta23.W1.sigma2 Zeta23.W1.mpDH = 41 / 50
+Zeta23.W1.arbDH_sigma1 : Zeta23.W1.sigma1 Zeta23.W1.arbDH = 4 / 5
+Zeta23.W1.arbDH_sigma2 : Zeta23.W1.sigma2 Zeta23.W1.arbDH = 41 / 50
+lake env lean "$S/new_axioms.lean"  1.02s user 1.09s system 103% cpu 2.033 total
+
+# ---- probe source ----
+import Zeta23.W1.FDH
+-- σ-strong sibling build (Session 21, 2026-09-10): #print axioms + #check on the four new theorems and the four unfolding lemmas
+#print axioms Zeta23.W1.cert_of_checkW1_of_diffOn'
+#print axioms Zeta23.W1.cert_of_checkW1_fDH'
+#print axioms Zeta23.W1.mpDH_zero'
+#print axioms Zeta23.W1.arbDH_zero'
+#print axioms Zeta23.W1.mpDH_sigma1
+#print axioms Zeta23.W1.mpDH_sigma2
+#print axioms Zeta23.W1.arbDH_sigma1
+#print axioms Zeta23.W1.arbDH_sigma2
+#check @Zeta23.W1.cert_of_checkW1_of_diffOn'
+#check @Zeta23.W1.cert_of_checkW1_fDH'
+#check @Zeta23.W1.mpDH_zero'
+#check @Zeta23.W1.arbDH_zero'
+#check @Zeta23.W1.mpDH_sigma1
+#check @Zeta23.W1.mpDH_sigma2
+#check @Zeta23.W1.arbDH_sigma1
+#check @Zeta23.W1.arbDH_sigma2
