@@ -6,8 +6,13 @@ Theorem G (c): via TRU (2.5) with |S| <= 2.0 (T <= 6.8e+06): gaps <= 7.5 for T i
 Theorem G (d): via HSW Cor 1.4 (second bound) + TRU (2.5): gaps <= 7.5 for all T >= 1.220e+04
 clause 5: m(H) = (H/pi - 0.2076)/cosh(pi H) is maximal at H* = 0.9719, m* = 0.009586;  C_uncond = 2/(pi m*) = 66.41
           (the contract's H = 4 pi c1 = 1.3044 gives m = 0.006894, C = 92.3)
-clause 5: the statement becomes non-vacuous (Psi_5 >= 2) from log t0 = 5000.0  (t0 = e^5000)
+clause 5: the statement becomes non-vacuous (Psi_5 >= 2) from log t0 = 377.4  (t0 = e^377)
+  log t =    377.4: best H = 1.159, Psi_5 = 2.0000, uncertifiable from delta_5 = 0.50000  (delta_5 log t = 188.68; asymptote C_uncond = 66.41)
   log t =    400.0: best H = 1.148, Psi_5 = 2.1911, uncertifiable from delta_5 = 0.36608  (delta_5 log t = 146.43; asymptote C_uncond = 66.41)
   log t =    500.0: best H = 1.113, Psi_5 = 3.0579, uncertifiable from delta_5 = 0.22693  (delta_5 log t = 113.47; asymptote C_uncond = 66.41)
+  log t =   1000.0: best H = 1.044, Psi_5 = 7.6340, uncertifiable from delta_5 = 0.08438  (delta_5 log t = 84.38; asymptote C_uncond = 66.41)
+  log t =   3000.0: best H = 0.996, Psi_5 = 26.6098, uncertifiable from delta_5 = 0.02395  (delta_5 log t = 71.84; asymptote C_uncond = 66.41)
+  log t =  10000.0: best H = 0.979, Psi_5 = 93.5958, uncertifiable from delta_5 = 0.00680  (delta_5 log t = 68.02; asymptote C_uncond = 66.41)
+  log t = 100000.0: best H = 0.973, Psi_5 = 956.1779, uncertifiable from delta_5 = 0.00067  (delta_5 log t = 66.58; asymptote C_uncond = 66.41)
 done
 exit=0
