@@ -29,3 +29,6 @@ inputs from other directions; shared instruments (ceiling LP, barrier zoo, Lean 
 ```
 
 Discipline: when a direction is refuted or absorbed, do NOT delete the file — set status, record the refutation argument (refutations are load-bearing results for this program), and cross-link. The set of refuted directions with reasons is itself a primary output (cf. the zeta-campaign transcript's ~30 refuted routes, which seeded this program).
+
+
+**Template amendment 2026-09-10 (Session 21; KICKSTART 10(k) and 10(m)).** Every direction file gains two sections, placed before "Current frontier": `## Instruments` — a table (quantity | current best value | result file | dated), recording, never ranking; and `## Untried` — ideas not yet attempted, each with its S1–S5 fit reason and its first ladder rung; an idea leaves only into a result file or a zoo entry. The next consolidation agent (10(a)) populates both for every live direction from the record; until then a direction file without them is not defective, only unpopulated.
