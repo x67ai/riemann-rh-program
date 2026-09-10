@@ -1,0 +1,7 @@
+## [2026-09-10, Session 21 — PRICING slot (Fable 5.1) DONE] C2 M5-deciding feasibility experiment
+- Deliverable: `results/c2-m5/PRICING.md` — SHA-256 16a5b6dd33b12413a5f34b32828f48a0336ddd5bf7700a402907ef606795dd47
+- GO/NO-GO: **NO-GO for the experiment as designed** (the A4/LawN256 N-periodic LP template cannot host first-order rules; the honest object — non-periodic band-limited positive prime-tone superpositions — is M1 foundations + a new gate, ≥ 3 slots, not "M3 cost"; digest §D.5 (d) fires; C2 not paused per correction C5; next C2 unit to be priced between repair 1 and M2).
+- Model-world check (zoo §0 step 2, I.2/I.3): FAILS THE TEMPLATE — two-tooth cone elements force every lattice mode c_k (|u_k| ≤ L) to vanish; the grid extremal is excluded (|c_32| = 64 vs bound 4.63 at T = 10^6, → 0 as the tooth narrows) and so is a periodization of 198 genuine ζ zeros (violated at 20/20 prime-free frequencies below log 2); marks are never tested.
+- IV.1 containment audit: HIT as written (∫(w/cosh(u/2))dπ = Weil test × multiplier 1/cosh(u/2) ∈ [1/cosh(L/2), 1]); evasion clause WRITTEN (sign of the measure, not a new coordinate); the cone-restriction audit is what decides the NO-GO.
+- Bankable by-product after Opus dual check (statement B, single-check): periodic configuration LPs cannot yield any first-order-rule decision (lattice Fourier support vs {± k log p}).
+- Verify scripts and outputs under `results/c2-m5/verify/` (cone_rows_check.py, two_tooth_exact.py, zeta_periodized_check.py + logs/JSON). Nothing committed by this agent.
