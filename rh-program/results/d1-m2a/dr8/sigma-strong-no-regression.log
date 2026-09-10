@@ -1,0 +1,98 @@
+# dr8/sigma-strong-no-regression.log — #check + #print axioms of the frozen theorems BEFORE and AFTER the σ-strong sibling edit of Soundness.lean/FDH.lean (Session 21, Job 1)
+# frozen set (the brief's five, plus arbDH_zero — six names): cert_of_checkW1, cert_of_checkW1_ap, cert_of_checkW1_fDH, cert_of_checkW1_of_diffOn, mpDH_zero, arbDH_zero
+# before: 2026-09-10 14:34 IST against the pre-edit oleans (mirror = tree, cmp-verified; Soundness.lean aeb8f62e…, FDH.lean ed6d8892…); after: 14:39 IST against the rebuilt tree
+
+## BEFORE
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## AFTER
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean "$S/frozen_check.lean"  1.01s user 1.09s system 104% cpu 2.014 total
+
+## diff (lake timing lines excluded)
+NO DIFFERENCE — statements and axioms of all six frozen theorems are character-for-character unchanged
+
+## source-level check: lines 1–1181 of Soundness.lean (through the end of cert_of_checkW1_of_diffOn) and the tail from cert_of_checkW1 onward are byte-identical to the pre-edit mirror (diff of sed ranges, 14:36 IST); the primed theorem is an insertion between them
+
+# ---- probe source ----
+import Zeta23.W1.FDH
+import Zeta23.W1.Ledger
+-- σ-strong sibling build (Session 21, D1 queue item 1): #check + #print axioms of the five frozen theorems
+#check @Zeta23.W1.cert_of_checkW1
+#check @Zeta23.W1.cert_of_checkW1_ap
+#check @Zeta23.W1.cert_of_checkW1_fDH
+#check @Zeta23.W1.cert_of_checkW1_of_diffOn
+#check @Zeta23.W1.mpDH_zero
+#check @Zeta23.W1.arbDH_zero
+#print axioms Zeta23.W1.cert_of_checkW1
+#print axioms Zeta23.W1.cert_of_checkW1_ap
+#print axioms Zeta23.W1.cert_of_checkW1_fDH
+#print axioms Zeta23.W1.cert_of_checkW1_of_diffOn
+#print axioms Zeta23.W1.mpDH_zero
+#print axioms Zeta23.W1.arbDH_zero

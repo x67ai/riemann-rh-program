@@ -1,0 +1,9 @@
+# dr8/sigma-strong-trust-greps.log — KICKSTART 10(j) trust greps (axiom, native_decide, unsafe, implemented_by, extern, opaque, sorry, admit, ofReduceBool), comments stripped, on the two edited files; 2026-09-10 14:40 IST
+# script: dr8/trust_greps_sigma_strong.py (trust_greps_fdh.py restricted to the two files) run against the mirror rh-program/lean (cmp-identical to the tree)
+
+files: 2; hits outside comments: 0
+exit code: 0
+
+# raw grep -n over the same two files (comments included, for the record):
+Zeta23/W1/FDH.lean:27:WHAT IS PROVED HERE (sorry-free; `#print axioms`: [propext, Classical.choice, Quot.sound]):
+Zeta23/W1/Soundness.lean:43:WHAT IS PROVED HERE (all sorry-free; the Lean-side obligations of FORMAT.md §8.3):

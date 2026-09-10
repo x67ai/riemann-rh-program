@@ -1180,6 +1180,240 @@ theorem cert_of_checkW1_of_diffOn (f : ℂ → ℂ) (hf : DifferentiableOn ℂ f
     · exact hZ0 hZ0' s hop
     · exact hbnz s ⟨hsmem, hop⟩
 
+/-- **W1 checker soundness, generic in the function, σ-strong form** (Session 21, 2026-09-10; the
+sibling owed by D-R8 — `results/d1-m2a/dr8/CHECK-fDH-O.md` §12 FIX-FIRST 1, `BUILD-NOTES-fDH.md`
+§7 (a)).  Same hypotheses as `cert_of_checkW1_of_diffOn`, same m = 0 branch; the witness branch
+keeps the rectangle bounds the argument principle delivers — `sigma1 d < Re ρ < sigma2 d` in place
+of the half-strip `1/2 < Re ρ < 1` — so the zero is placed in the open box R° itself.  The proof is
+the unprimed body line for line; the only change is the final witness line, which returns `hr1`,
+`hr2` instead of weakening them by `lt_trans` against `hhalf`, `hs2lt1`.  The unprimed theorem and
+its instances (`cert_of_checkW1`, `cert_of_checkW1_ap`, `cert_of_checkW1_fDH`) are unchanged
+character-for-character; this one is stronger (½ < σ₁ and σ₂ < 1 are C2 facts, `hhalf`/`hs2lt1`). -/
+theorem cert_of_checkW1_of_diffOn' (f : ℂ → ℂ) (hf : DifferentiableOn ℂ f {s : ℂ | s.re < 1})
+    (d : W1Data) (hc : checkW1 d = true) (hEncl : W1EnclOK f d) (hAP : RectArgPrinciple f) :
+    (1 ≤ d.m → ∃ ρ : ℂ, f ρ = 0 ∧ sigma1 d < ρ.re ∧ ρ.re < sigma2 d
+        ∧ T1 d < ρ.im ∧ ρ.im < T2 d) ∧ (d.m = 0 → ∀ s ∈ W1Rect d, f s ≠ 0) := by
+  have hchk := checksOK_of_checkW1 hc
+  -- rectangle facts (D7 conversions of C2)
+  have hhalf : 1 / 2 < sigma1 d := by
+    have h12 : ratVal (1, 2) = 1 / 2 := by norm_num [ratVal]
+    have h := ratVal_lt_of_cross (r := ((1:ℤ), (2:ℤ))) (s := (d.p1, d.q1)) (by norm_num)
+      hchk.hq1 (show (1:ℤ) * d.q1 < d.p1 * 2 by have := hchk.hC2a; omega)
+    rw [h12] at h
+    exact h
+  have hs12le : sigma1 d ≤ sigma2 d :=
+    ratVal_le_of_cross (r := (d.p1, d.q1)) (s := (d.p2, d.q2)) hchk.hq1 hchk.hq2 hchk.hC2b
+  have hs2lt1 : sigma2 d < 1 := by
+    have h11 : ratVal (1, 1) = 1 := by norm_num [ratVal]
+    have h := ratVal_lt_of_cross (r := (d.p2, d.q2)) (s := ((1:ℤ), (1:ℤ))) hchk.hq2
+      (by norm_num) (show d.p2 * 1 < 1 * d.q2 by have := hchk.hC2c; omega)
+    rw [h11] at h
+    exact h
+  have hT12 : T1 d < T2 d :=
+    ratVal_lt_of_cross (r := (d.a1, d.b1)) (s := (d.a2, d.b2)) hchk.hb1 hchk.hb2 hchk.hC2d
+  -- boundary nonvanishing (step 1 of the chain)
+  have hbnz := boundary_nonvanishing hchk hEncl
+  -- edge data
+  obtain ⟨h2b, hfb, hlb, hcb⟩ := edgeOK_inc_spec hchk.hEb
+  obtain ⟨h2r, hfr, hlr, hcr⟩ := edgeOK_inc_spec hchk.hEr
+  obtain ⟨h2t, hft, hlt', hct⟩ := edgeOK_dec_spec hchk.hEt
+  obtain ⟨h2l, hfl, hll, hclf⟩ := edgeOK_dec_spec hchk.hEl
+  -- real breakpoint chains, heads and lasts
+  obtain ⟨rba, hrba, hvba⟩ := firstOK_spec hfb hchk.hdb hchk.hq1
+  obtain ⟨rbb, hrbb, hvbb⟩ := lastOK_spec hchk.hq2 hlb hchk.hdb
+  have hheadb : (d.bottom.map ratVal).head? = some (sigma1 d) := by
+    rw [List.head?_map, hrba, Option.map_some]
+    exact congrArg some hvba
+  have hlastb : (d.bottom.map ratVal).getLast? = some (sigma2 d) := by
+    rw [List.getLast?_map, hrbb, Option.map_some]
+    exact congrArg some hvbb
+  have hpairsb : ∀ p ∈ consecPairs (d.bottom.map ratVal), p.1 < p.2 :=
+    consec_map_forall fun q hq => chainLt_spec hchk.hdb hcb q hq
+  -- σ₁ < σ₂ (forced by the bottom chain, C3)
+  have hs12 : sigma1 d < sigma2 d :=
+    head?_lt_getLast? (fun x : ℝ => x) hheadb hlastb hpairsb (by simpa using h2b)
+  obtain ⟨rra, hrra, hvra⟩ := firstOK_spec hfr hchk.hdr hchk.hb1
+  obtain ⟨rrb, hrrb, hvrb⟩ := lastOK_spec hchk.hb2 hlr hchk.hdr
+  have hheadr : (d.right.map ratVal).head? = some (T1 d) := by
+    rw [List.head?_map, hrra, Option.map_some]
+    exact congrArg some hvra
+  have hlastr : (d.right.map ratVal).getLast? = some (T2 d) := by
+    rw [List.getLast?_map, hrrb, Option.map_some]
+    exact congrArg some hvrb
+  have hpairsr : ∀ p ∈ consecPairs (d.right.map ratVal), p.1 < p.2 :=
+    consec_map_forall fun q hq => chainLt_spec hchk.hdr hcr q hq
+  obtain ⟨rta, hrta, hvta⟩ := firstOK_spec hft hchk.hdt hchk.hq2
+  obtain ⟨rtb, hrtb, hvtb⟩ := lastOK_spec hchk.hq1 hlt' hchk.hdt
+  have hheadt : (d.top.map ratVal).head? = some (sigma2 d) := by
+    rw [List.head?_map, hrta, Option.map_some]
+    exact congrArg some hvta
+  have hlastt : (d.top.map ratVal).getLast? = some (sigma1 d) := by
+    rw [List.getLast?_map, hrtb, Option.map_some]
+    exact congrArg some hvtb
+  have hpairst : ∀ p ∈ consecPairs (d.top.map ratVal), p.2 < p.1 :=
+    consec_map_forall fun q hq => chainGt_spec hchk.hdt hct q hq
+  obtain ⟨rla, hrla, hvla⟩ := firstOK_spec hfl hchk.hdl hchk.hb2
+  obtain ⟨rlb, hrlb, hvlb⟩ := lastOK_spec hchk.hb1 hll hchk.hdl
+  have hheadl : (d.left.map ratVal).head? = some (T2 d) := by
+    rw [List.head?_map, hrla, Option.map_some]
+    exact congrArg some hvla
+  have hlastl : (d.left.map ratVal).getLast? = some (T1 d) := by
+    rw [List.getLast?_map, hrlb, Option.map_some]
+    exact congrArg some hvlb
+  have hpairsl : ∀ p ∈ consecPairs (d.left.map ratVal), p.2 < p.1 :=
+    consec_map_forall fun q hq => chainGt_spec hchk.hdl hclf q hq
+  -- the four edge continuity facts (generic §9 lemma at U = {Re s < 1})
+  have hUopen : IsOpen {s : ℂ | s.re < 1} := isOpen_lt Complex.continuous_re continuous_const
+  have hcontB := continuousOn_logDeriv_seg_of_diffOn hUopen hf
+    (z := cpt (sigma1 d) (T1 d)) (w := cpt (sigma2 d) (T1 d))
+    (fun t ht0 ht1 => by
+      rw [segPt_mk_horiz]
+      simp only [Set.mem_ofPred_eq, cpt_re]
+      nlinarith)
+    (fun t ht0 ht1 => by
+      apply hbnz
+      rw [segPt_mk_horiz]
+      simp only [W1Bdry, rectBdry, rectClosed, rectOpen, Set.mem_sdiff, Set.mem_ofPred_eq,
+        cpt_re, cpt_im]
+      refine ⟨⟨by nlinarith, by nlinarith, le_rfl, hT12.le⟩, ?_⟩
+      rintro ⟨-, -, hlt, -⟩
+      exact lt_irrefl _ hlt)
+  have hcontR := continuousOn_logDeriv_seg_of_diffOn hUopen hf
+    (z := cpt (sigma2 d) (T1 d)) (w := cpt (sigma2 d) (T2 d))
+    (fun t ht0 ht1 => by
+      rw [segPt_mk_vert]
+      simp only [Set.mem_ofPred_eq, cpt_re]
+      exact hs2lt1)
+    (fun t ht0 ht1 => by
+      apply hbnz
+      rw [segPt_mk_vert]
+      simp only [W1Bdry, rectBdry, rectClosed, rectOpen, Set.mem_sdiff, Set.mem_ofPred_eq,
+        cpt_re, cpt_im]
+      refine ⟨⟨hs12le, le_rfl, by nlinarith, by nlinarith⟩, ?_⟩
+      rintro ⟨-, hlt, -, -⟩
+      exact lt_irrefl _ hlt)
+  have hcontT := continuousOn_logDeriv_seg_of_diffOn hUopen hf
+    (z := cpt (sigma2 d) (T2 d)) (w := cpt (sigma1 d) (T2 d))
+    (fun t ht0 ht1 => by
+      rw [segPt_mk_horiz]
+      simp only [Set.mem_ofPred_eq, cpt_re]
+      nlinarith)
+    (fun t ht0 ht1 => by
+      apply hbnz
+      rw [segPt_mk_horiz]
+      simp only [W1Bdry, rectBdry, rectClosed, rectOpen, Set.mem_sdiff, Set.mem_ofPred_eq,
+        cpt_re, cpt_im]
+      refine ⟨⟨by nlinarith, by nlinarith, hT12.le, le_rfl⟩, ?_⟩
+      rintro ⟨-, -, -, hlt⟩
+      exact lt_irrefl _ hlt)
+  have hcontL := continuousOn_logDeriv_seg_of_diffOn hUopen hf
+    (z := cpt (sigma1 d) (T2 d)) (w := cpt (sigma1 d) (T1 d))
+    (fun t ht0 ht1 => by
+      rw [segPt_mk_vert]
+      simp only [Set.mem_ofPred_eq, cpt_re]
+      exact lt_of_le_of_lt hs12le hs2lt1)
+    (fun t ht0 ht1 => by
+      apply hbnz
+      rw [segPt_mk_vert]
+      simp only [W1Bdry, rectBdry, rectClosed, rectOpen, Set.mem_sdiff, Set.mem_ofPred_eq,
+        cpt_re, cpt_im]
+      refine ⟨⟨le_rfl, hs12le, by nlinarith, by nlinarith⟩, ?_⟩
+      rintro ⟨hlt, -, -, -⟩
+      exact lt_irrefl _ hlt)
+  -- the four edge sums (L1 per edge)
+  have hsumB : ((consecPairs (bottomPts d)).map
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d)) := by
+    obtain ⟨hgh, hgl, hgle⟩ := tau_facts_inc hs12 hheadb hlastb hpairsb
+    have hbp : bottomPts d = (d.bottom.map ratVal).map
+        fun y => segPt (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d))
+          ((y - sigma1 d) / (sigma2 d - sigma1 d)) := by
+      unfold bottomPts
+      rw [List.map_map]
+      exact map_congr_fn (fun r => (segPt_horiz_tau hs12.ne (T1 d) (ratVal r)).symm) d.bottom
+    rw [hbp]
+    exact edge_sum_eq _ _ hgh hgl hgle hcontB
+  have hsumR : ((consecPairs (rightPts d)).map
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d)) := by
+    obtain ⟨hgh, hgl, hgle⟩ := tau_facts_inc hT12 hheadr hlastr hpairsr
+    have hbp : rightPts d = (d.right.map ratVal).map
+        fun y => segPt (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d))
+          ((y - T1 d) / (T2 d - T1 d)) := by
+      unfold rightPts
+      rw [List.map_map]
+      exact map_congr_fn (fun r => (segPt_vert_tau hT12.ne (sigma2 d) (ratVal r)).symm) d.right
+    rw [hbp]
+    exact edge_sum_eq _ _ hgh hgl hgle hcontR
+  have hsumT : ((consecPairs (topPts d)).map
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d)) := by
+    obtain ⟨hgh, hgl, hgle⟩ := tau_facts_dec hs12 hheadt hlastt hpairst
+    have hbp : topPts d = (d.top.map ratVal).map
+        fun y => segPt (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d))
+          ((y - sigma2 d) / (sigma1 d - sigma2 d)) := by
+      unfold topPts
+      rw [List.map_map]
+      exact map_congr_fn (fun r => (segPt_horiz_tau hs12.ne' (T2 d) (ratVal r)).symm) d.top
+    rw [hbp]
+    exact edge_sum_eq _ _ hgh hgl hgle hcontT
+  have hsumL : ((consecPairs (leftPts d)).map
+      fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
+    obtain ⟨hgh, hgl, hgle⟩ := tau_facts_dec hT12 hheadl hlastl hpairsl
+    have hbp : leftPts d = (d.left.map ratVal).map
+        fun y => segPt (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d))
+          ((y - T2 d) / (T1 d - T2 d)) := by
+      unfold leftPts
+      rw [List.map_map]
+      exact map_congr_fn (fun r => (segPt_vert_tau hT12.ne' (sigma1 d) (ratVal r)).symm) d.left
+    rw [hbp]
+    exact edge_sum_eq _ _ hgh hgl hgle hcontL
+  -- apply H-AP
+  have hUsub : rectClosed (sigma1 d) (sigma2 d) (T1 d) (T2 d) ⊆ {s : ℂ | s.re < 1} := by
+    intro s hs
+    exact lt_of_le_of_lt hs.2.1 hs2lt1
+  obtain ⟨Z, hZeq, hZ0, hZ1⟩ := hAP (sigma1 d) (sigma2 d) (T1 d) (T2 d) hhalf hs12le hs2lt1
+    hT12 _ hUopen hUsub hf hbnz
+  -- total winding: the segment sum equals 2πZ
+  have hsegsum : ((segs d).map fun p => logDerivSegIntegral f p.1 p.2).sum
+      = logDerivSegIntegral f (cpt (sigma1 d) (T1 d)) (cpt (sigma2 d) (T1 d))
+        + logDerivSegIntegral f (cpt (sigma2 d) (T1 d)) (cpt (sigma2 d) (T2 d))
+        + logDerivSegIntegral f (cpt (sigma2 d) (T2 d)) (cpt (sigma1 d) (T2 d))
+        + logDerivSegIntegral f (cpt (sigma1 d) (T2 d)) (cpt (sigma1 d) (T1 d)) := by
+    unfold segs
+    rw [List.map_append, List.map_append, List.map_append, List.sum_append, List.sum_append,
+      List.sum_append, hsumB, hsumR, hsumT, hsumL]
+  have htot : ((segs d).map fun p => argIncrement f p.1 p.2).sum = 2 * π * Z := by
+    have h1 : ((segs d).map fun p => argIncrement f p.1 p.2)
+        = ((segs d).map fun p => logDerivSegIntegral f p.1 p.2).map Complex.im := by
+      rw [List.map_map]
+      rfl
+    rw [h1, ← im_list_sum, hsegsum]
+    simp only [Complex.add_im]
+    exact hZeq.symm
+  -- the winding enclosure pins Z = m (steps 3–4 of the chain)
+  obtain ⟨hlo, hhi⟩ := sum_arg_encl hEncl
+  rw [htot] at hlo hhi
+  have h2π : (2:ℝ) * π ≠ 0 := Real.two_pi_pos.ne'
+  rw [mul_div_cancel_left₀ _ h2π] at hlo hhi
+  have hloZ : sumArgLo d.rows ≤ d.A * (Z:ℤ) := by exact_mod_cast hlo
+  have hhiZ : d.A * (Z:ℤ) ≤ sumArgHi d.rows := by exact_mod_cast hhi
+  have hZm : (Z:ℤ) = d.m := pin_m hchk.hA hchk.hC8 hchk.hC9a hchk.hC9b hloZ hhiZ
+  -- conclusions (steps 5–6)
+  constructor
+  · intro hm
+    have hZ1' : 1 ≤ Z := by omega
+    obtain ⟨ρ, hρmem, hρ0⟩ := hZ1 hZ1'
+    obtain ⟨hr1, hr2, hi1, hi2⟩ := hρmem
+    exact ⟨ρ, hρ0, hr1, hr2, hi1, hi2⟩
+  · intro hm
+    have hZ0' : Z = 0 := by omega
+    intro s hsmem
+    by_cases hop : s ∈ rectOpen (sigma1 d) (sigma2 d) (T1 d) (T2 d)
+    · exact hZ0 hZ0' s hop
+    · exact hbnz s ⟨hsmem, hop⟩
+
 /-- **W1 checker soundness** (FORMAT.md §6.3, the L3 obligation; theorem shape per §7.1).
 Modulo the two displayed hypotheses H-ENCL (`W1EnclOK riemannZeta d`) and H-AP
 (`RectArgPrinciple riemannZeta`), an accepted transcript certifies: for m ≥ 1, a zero ρ of ζ
