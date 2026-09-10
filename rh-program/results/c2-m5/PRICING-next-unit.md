@@ -185,3 +185,15 @@ Scope: theorem / instrument (a lemma about configuration classes; no RH claim). 
 **No file outside `results/c2-m5/` was modified. Nothing was committed. No Lean edits.**
 
 Lint (10(g)): the phrases "clearly", "obviously", "easy to see", "well known" do not occur in this file (checked by grep at finish). Machine clock at finish: 2026-09-10, Session 21.
+
+
+---
+## [RECORD CORRECTION 14:32 IST 2026-09-10, Session 21 — from `results/c2-r1/confinement-note.md` §0.4 D1 and `check-O.md` §2, §12 item 2; insertion-only]
+- **§1.1(c)** — the "exact layer edge" table (δ*·ℓ ∈ [1.84, 2.78] at t = 10⁶; "2/ℓ"; "2·(ℓ/2π)/Ψ(t)") is SUPERSEDED: those numbers are the literal-on-window quantity (reproduced digit for digit in the note's §7 Table E, last column), not the layer edge. The domination condition needs 2/sin(πδ) ≤ Ψ(t); the corrected edges are δ*·ℓ = 4.55, 5.73 at the two of seven heights that admit any δ at all, and the layer constant at a given height is 4·(ℓ/2π)/Ψ(t)·(1 + o(1)), i.e. 4 at mean density.
+- **§1.2 clause 2** — the hypothesis "μ_y(t − s) + μ_y(t + s) ≤ Ψ(s) for every s ∈ ℝ" is UNSATISFIABLE at s = −t (Ψ(−t) ≤ 2.6·10⁻¹⁰ unconditionally); the correct condition is 2[μ_y(t − s) + μ_y(t + s)] ≤ Ψ(s) + Ψ(−s) for every s ≥ 0, local content 2/sin(πδ) ≤ Ψ(t) — a pair puts two zeros at height t.
+- **§1.2 clause 3(i)** — becomes 2/sin(πδ) + ε₃(δ) ≤ min_{|s−t|≤4} Ψ(s), ε₃(δ) = 4.03 sin(πδ)e^{−4π} ≤ 1.4054·10⁻⁵; clause 3(ii) is discharged for ζ by Theorem G (G = 7.5); "below t − 4 automatic from γ₁" is WITHDRAWN (it needs the gap condition too).
+- **§1.2 clause 4** — (2/ℓ)(1 + ε + O(ε²)) becomes (4/ℓ)(1 + ε + O(ε²) + O(ℓ⁻²)); the layer is {1 − σ < (4 + o(1))/log t}.
+- **§1.2 clause 5** — the recalled "C_uncond of order 50–70" becomes the COMPUTED 66.41 at H* = 0.9719 (the contract's H = 4πc₁ = 1.3044 gives 92.3), non-vacuous from t ≥ e^{377.4}, from HSW arXiv:2107.06506v1 Cor. 1.2 read at the page (`fetched-r6/r6-02`). The contract's number was right only by cancellation of two errors (1/sin for 2/sin; a non-optimal H).
+- **§1.2 clause 6** — 8p(0)e^{−δL′}/δ·‖q‖ becomes 16 p(0)‖q‖_∞ e^{−δL′}/δ (the 8 counted two orbit points, not four).
+- **§1.9** — "whenever 1/sin(πδ) ≤ min Ψ" becomes "whenever 2/sin(πδ) ≤ min Ψ"; the close names C = 4 + o(1) (mean density / under RH) and C = 66.41 + o(1) (unconditional, t ≥ e^{377}).
+Everything else in §1 stands; R1 is DISCHARGED (theorem + dual check), zoo IV.18.
