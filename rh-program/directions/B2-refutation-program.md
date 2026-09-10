@@ -94,6 +94,7 @@ M1: first depth-uniform every-window constraints on RH counterexamples; as a by-
 ## Work log (append-only)
 - 2026-08-11: direction born (Phase 3 designer output).
 - 2026-08-11 (Session 3): Phase-4 verdicts harvested (no conflict). Survives with repairs; repairs merged above.
+- 2026-09-10 12:26 IST (Session 21, zoo stream): the Phase-4 finding that Experiment 1's depth-blindness falsification channel was INVERTED (would fire on a correct theorem; mandatory repair 2) is now **BARRIER-ZOO V.4**, the negative-control rule: a falsification test is trusted only after it is checked to fire on the negative control and stay silent on the positive control. Labeled "extracted from a Phase-4 FINDING (survives-with-repairs), not a kill". Opus-read CONFIRMED.
 
 ## Current frontier
 Survives as the program's refutation channel (consensus ~6.75) with deflated rhetoric: the "wanted poster" constrains only Ω(N)-dense off-line configurations — it does NOT address isolated/Lehmer-type or carrier-wave failure modes, and must say so. The first theorem (short-interval simplicity + off-line local-density cap) is verified provable and publishable on its own. Λ-channel (M6) pending literature check. Repairs are scoping/honesty fixes, not structural.
