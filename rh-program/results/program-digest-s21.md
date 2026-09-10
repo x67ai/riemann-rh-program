@@ -360,3 +360,8 @@ Count: 19 statements; 7 bankable now at zoo grade (1, 2, 3, 4, 5, 6, 13), 1 bank
 **No file outside `results/program-digest-s21.md` and `results/program-digest-s21/SHARED.md` was modified. No network was used. No new mathematics is claimed. No construction is proposed.**
 
 **Machine clock at finish:** 2026-09-10 10:36 IST. Lint (10(g)): 0 hits for "clearly / obviously / easy to see / well known".
+
+
+---
+## [ORCHESTRATOR ADDENDUM 2026-09-10 11:35 IST — after the Opus dual read `results/program-digest-s21/ranking-read-O.md`; insertion-only]
+Verdict AGREES-WITH-CORRECTIONS; adopted order: 1 C2 M5 pricing slot (scope per the read's corrections 1–5: bandwidth the free parameter; object first; IV.1/I.2–I.3/II.1–II.4 audits; NO named as "no binding constraint up to L"), 2 the zoo stream (re-scoped per §B.3 PLUS A4's fractional-mark integrality theorem as a NEW numbered Group-IV entry and §E item 13 as Group V), 3 the σ-strong sibling, 4 C-3′, 5 A3 conditional on §D.5 (d)/(e), 6 the §D.4 pauses. **§D.5 (e) is STRUCK**: a NO retires M5/M6, not C2 (C2 lines 66, 71, 81 + standing order 4). §D.2 rank 5's "case (i)" reads "(d) or (e)". §1.2 of the read lists line-anchor drift (one to three lines, STATUS/zoo/A4/D1); the quoted content is correct in every checked case — read anchors as approximate. The read's §1.1 ("the zoo sentence is not at process-lessons line 52") is REFUTED by re-derivation (`results/program-digest-s21/ORCHESTRATOR-NOTES.md`): the sentence is at line 52 (a 1106-character line, seen truncated); its STATUS is a process-lessons transfer note (orchestrator-authored 2026-09-09), not a KICKSTART rule — §F item 4 travels with that label. "≈ 30 sessions' worth" in §D.2 rank 1 is unsourced; strike it (the program has run 21 sessions).
