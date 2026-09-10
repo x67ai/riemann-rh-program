@@ -2,7 +2,7 @@
 
 **Sponsor rule (2026-09-06, binding):** everything the sponsor needs to fetch lives ONLY in this file — full citation, priority, reason. STATUS, LOG and direction files carry at most a one-line pointer. Deliver into `fetched-r6/` (gitignored, local-only, like its siblings); the next session ingests and verifies (identity check against the citation, standing order 5).
 
-**Delivery status:** OPEN — nothing delivered yet. **Nothing here blocks the current work**: the C2 confinement theorem lands with its unconditional clause 5 deferred or stated with a symbolic constant until rows 1–2 are read; the sessions will also try the arXiv versions themselves first (rows 1–2 have arXiv numbers), so the sponsor may wait for the next session's ingest report before fetching.
+**Delivery status (13:27 IST, Session 21):** OPEN — **rows r6-01 and r6-02 REQUESTED from the sponsor now** (sponsor's standing instruction restated 2026-09-10: any literature an agent cannot reach is fetched by the sponsor, never worked around). The confinement theorem's unconditional clause 5 is written from the page as soon as either the arXiv version (the author is trying it) or the sponsor's copy is on disk; a deferral is a waiting state, not an end state. Rows r6-03/r6-04 LOW — no action needed yet.
 
 | # | Item (full citation) | Priority | Why (which unit consumes it) | Notes |
 |---|---|---|---|---|
