@@ -1,2 +1,53 @@
-(eval):1: command not found: timeout
-exit=127
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:41: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  mass_mu0 = np.trapz(mu0(xi), xi)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:44: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  mass_mu_y = {y: float(np.trapz(mu_y(xi, y), xi)) for y in (0.0, 0.25, 0.4, 0.45, 0.49)}
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:58: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  a = np.array([np.trapz(A(tt - xg) * mu_g, xg) for tt in tau])
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:70: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  I_minus_half = -np.trapz(np.where(neg, a, 0.0), tau)   # one side
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:120: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  arch = 2 * np.trapz(whatT(tau, T) * a, tau)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify-next/budget_floor.py:126: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  nu = lambda s: np.trapz(whatT(s - xg, T) * mu_g, xg)
+mass mu_0 = 1.0000000000000004  mass mu_y: {0.0: 1.0000000000000004, 0.25: 0.9999999999999999, 0.4: 1.0, 0.45: 1.0, 0.49: 1.0000000000000024}
+peak mu_y vs 1/cos(pi y): {0.0: (1.0, np.float64(1.0)), 0.25: (1.4142135623730951, np.float64(1.414213562373095)), 0.4: (3.2360679774997885, np.float64(3.2360679774997894)), 0.45: (6.392453221499658, np.float64(6.392453221499659)), 0.49: (31.836225209097677, np.float64(31.83622520909752))}
+a(0) = -0.653847   A(0) = -0.855010
+zero crossing: a at tau0 = 6.31003;  A at 6.28984
+I_minus (both sides) = 2.241523   ->  2 - I_minus = -0.241523
+  tau=  0.0  A=-0.855010  a=-0.653847  (1/2pi)log(tau/2pi)= nan
+  tau=  1.0  A=-0.322312  a=-0.363648  (1/2pi)log(tau/2pi)=-0.292507
+  tau=  2.0  A=-0.184868  a=-0.194162  (1/2pi)log(tau/2pi)=-0.182189
+  tau=  3.0  A=-0.118450  a=-0.121162  (1/2pi)log(tau/2pi)=-0.117658
+  tau=  4.0  A=-0.072293  a=-0.073630  (1/2pi)log(tau/2pi)=-0.071872
+  tau=  5.0  A=-0.036624  a=-0.037452  (1/2pi)log(tau/2pi)=-0.036357
+  tau=  6.0  A=-0.007525  a=-0.008092  (1/2pi)log(tau/2pi)=-0.007340
+  tau=  8.0  A= 0.038342  a= 0.038027  (1/2pi)log(tau/2pi)= 0.038446
+  tau= 10.0  A= 0.073894  a= 0.073693  (1/2pi)log(tau/2pi)= 0.073961
+  tau= 14.0  A= 0.127478  a= 0.127376  (1/2pi)log(tau/2pi)= 0.127512
+  tau= 20.0  A= 0.184262  a= 0.184212  (1/2pi)log(tau/2pi)= 0.184278
+  tau= 30.0  A= 0.248803  a= 0.248781  (1/2pi)log(tau/2pi)= 0.248810
+  tau= 60.0  A= 0.359126  a= 0.359121  (1/2pi)log(tau/2pi)= 0.359128
+sieve to 4000000 done at 3.5s; sum Lambda(n)/n = 14.6245 (~ log N - gamma = 14.6246)
+200 zeros at 15.7s; gamma_1 = 14.134725, gamma_200 = 396.3819
+T=  4.0  B_arch=2+-1.41901= 0.58099   P=0.56036(+0.04188 tail)  Z=0.00000   shares=0.60224   diff=-0.02125
+T=  5.0  B_arch=2+-1.56432= 0.43568   P=0.41881(+0.03350 tail)  Z=0.00000   shares=0.45231   diff=-0.01663
+T=  6.0  B_arch=2+-1.67387= 0.32613   P=0.31218(+0.02792 tail)  Z=0.00000   shares=0.34010   diff=-0.01397
+T=  6.5  B_arch=2+-1.71749= 0.28251   P=0.26976(+0.02577 tail)  Z=0.00000   shares=0.29553   diff=-0.01302
+T=  7.0  B_arch=2+-1.75454= 0.24546   P=0.23354(+0.02393 tail)  Z=0.00000   shares=0.25747   diff=-0.01201
+T=  8.0  B_arch=2+-1.81095= 0.18905   P=0.17851(+0.02094 tail)  Z=0.00000   shares=0.19945   diff=-0.01040
+T=  9.0  B_arch=2+-1.84642= 0.15358   P=0.14434(+0.01861 tail)  Z=0.00000   shares=0.16295   diff=-0.00937
+T= 10.0  B_arch=2+-1.86346= 0.13654   P=0.12811(+0.01675 tail)  Z=0.00000   shares=0.14487   diff=-0.00833
+T= 11.0  B_arch=2+-1.86403= 0.13597   P=0.12839(+0.01523 tail)  Z=0.00000   shares=0.14362   diff=-0.00764
+T= 12.0  B_arch=2+-1.84970= 0.15030   P=0.14328(+0.01396 tail)  Z=0.00004   shares=0.15728   diff=-0.00697
+T= 13.0  B_arch=2+-1.82177= 0.17823   P=0.17089(+0.01289 tail)  Z=0.00088   shares=0.18466   diff=-0.00643
+T= 14.0  B_arch=2+-1.78134= 0.21866   P=0.19453(+0.01197 tail)  Z=0.01817   shares=0.22466   diff=-0.00600
+T= 16.0  B_arch=2+-1.66652= 0.33348   P=0.09503(+0.01047 tail)  Z=0.23323   shares=0.33873   diff=-0.00526
+T= 18.0  B_arch=2+-1.51124= 0.48876   P=0.05464(+0.00931 tail)  Z=0.42948   shares=0.49342   diff=-0.00466
+T= 20.0  B_arch=2+-1.32011= 0.67989   P=0.08835(+0.00838 tail)  Z=0.58734   shares=0.68407   diff=-0.00418
+T= 25.0  B_arch=2+-0.70784= 1.29216   P=0.08693(+0.00670 tail)  Z=1.20188   shares=1.29551   diff=-0.00335
+T= 30.0  B_arch=2+ 0.06570= 2.06570   P=0.07055(+0.00558 tail)  Z=1.99236   shares=2.06849   diff=-0.00280
+T= 40.0  B_arch=2+ 1.99496= 3.99496   P=0.04798(+0.00419 tail)  Z=3.94488   shares=3.99705   diff=-0.00210
+min over the Fejer family: T = 11  B/what(0) = 0.13597466598876018
+done in 16.2s
+exit=0
