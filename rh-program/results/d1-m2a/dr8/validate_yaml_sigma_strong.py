@@ -28,6 +28,7 @@ for url, fn in local.items():
     print("   upstream: %s" % ("IDENTICAL to the on-disk copy" if got is not None and sha(got) == sha(b) else ("DIFFERS (sha256 %s)" % sha(got) if got is not None else "unreachable in 3 attempts; validation uses the on-disk copy")))
 disp = store[DISP]
 doc = yaml.safe_load(open(os.path.join(ROOT, "lean/formalization.yaml"), encoding="utf-8"))
+import warnings; warnings.filterwarnings("ignore", category=DeprecationWarning)
 res = jsonschema.RefResolver(base_uri=DISP, referrer=disp, store=store)
 V = jsonschema.validators.validator_for(disp)
 errs = sorted(V(disp, resolver=res).iter_errors(doc), key=lambda e: list(e.path))
@@ -47,8 +48,10 @@ def declared(name):
     return [f for f, t in src.items() if pat.search(t)]
 names = set()
 for item in mr + al:
-    for m in re.finditer(r"\b(Zeta23(?:\.[A-Za-z0-9_']+)+)", json.dumps(item, ensure_ascii=False)): names.add(m.group(1).rstrip("."))
-names = {n for n in names if "{" not in n}
+    # declaration names live in the `declaration` (main_results) and `lean` (alignment) fields; `module`/`file` name modules
+    blob = " ".join(str(item.get(k, "")) for k in ("declaration", "lean"))
+    for m in re.finditer(r"\b(Zeta23(?:\.[A-Za-z0-9_']+)+)", blob): names.add(m.group(1).rstrip("."))
+names = {n for n in names if "{" not in n and n.count(".") >= 2}  # drop the brace form `Zeta23.W1.{mp,arb}Null…` and its truncated prefix `Zeta23.W1`
 missing = []
 print("\nLean names referenced in status.main_results + alignment.statements: %d" % len(names))
 for n in sorted(names):
