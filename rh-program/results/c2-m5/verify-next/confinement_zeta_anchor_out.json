@@ -1,0 +1,116 @@
+{
+ "t=1e+04": {
+  "t": 10000.0,
+  "ell": 7.372463305566837,
+  "n_zeros_in_window": 19,
+  "first_index": 10134,
+  "mean_gap": 0.8399847584477256,
+  "max_gap": 1.5379263728627848,
+  "rvm_gap": 0.8522504686371577,
+  "Psi_min": 0.3953732274978125,
+  "Psi_mean": 1.105073518282717,
+  "mean_density_l_over_2pi": 1.1733639778445766,
+  "delta_star": null,
+  "one_minus_sigma_layer": null,
+  "four_over_ell": 0.5425594993439519,
+  "dlvp_certified": 0.01948063779885875,
+  "far_tail_ok_4_to_8_at_y_0.49": true,
+  "far_tail_max_ratio": 1.624475973131325e-07,
+  "exact_layer_edge_near_t": {
+   "9998.0": {
+    "Psi_at_t": 1.122908567321894,
+    "delta_star_exact": null,
+    "delta_star_times_ell": null
+   },
+   "9999.0": {
+    "Psi_at_t": 1.1023300812838674,
+    "delta_star_exact": null,
+    "delta_star_times_ell": null
+   },
+   "9999.5": {
+    "Psi_at_t": 0.6863129238032333,
+    "delta_star_exact": null,
+    "delta_star_times_ell": null
+   },
+   "10000.0": {
+    "Psi_at_t": 1.4052954857412703,
+    "delta_star_exact": 0.2614781858114129,
+    "delta_star_times_ell": 1.9277383301008288
+   },
+   "10000.5": {
+    "Psi_at_t": 1.8973764067819583,
+    "delta_star_exact": 0.17743824067615716,
+    "delta_star_times_ell": 1.3081569183893056
+   },
+   "10001.0": {
+    "Psi_at_t": 1.7186446098509844,
+    "delta_star_exact": 0.20381263252298415,
+    "delta_star_times_ell": 1.5026011544866789
+   },
+   "10002.0": {
+    "Psi_at_t": 0.9052263009180064,
+    "delta_star_exact": null,
+    "delta_star_times_ell": null
+   }
+  }
+ },
+ "t=1e+06": {
+  "t": 1000000.0,
+  "ell": 11.97763349155493,
+  "n_zeros_in_window": 31,
+  "first_index": 1747131,
+  "mean_gap": 0.5184468742265987,
+  "max_gap": 0.9719693342922255,
+  "rvm_gap": 0.5245765210306086,
+  "Psi_min": 1.080420059874295,
+  "Psi_mean": 1.8582066749826844,
+  "mean_density_l_over_2pi": 1.9062995767240045,
+  "delta_star": 0.37641026686245666,
+  "one_minus_sigma_layer": 0.37641026686245666,
+  "four_over_ell": 0.3339557854078838,
+  "dlvp_certified": 0.012987091865905834,
+  "far_tail_ok_4_to_8_at_y_0.49": true,
+  "far_tail_max_ratio": 1.652824606496494e-07,
+  "domination_at_0.9_delta_star": true,
+  "domination_at_1.1_delta_star": true,
+  "exact_layer_edge_near_t": {
+   "999998.0": {
+    "Psi_at_t": 2.1517597972300773,
+    "delta_star_exact": 0.15385072506237196,
+    "delta_star_times_ell": 1.8427675972070758
+   },
+   "999999.0": {
+    "Psi_at_t": 1.8841169232709325,
+    "delta_star_exact": 0.1785375866239645,
+    "delta_star_times_ell": 2.138457777048586
+   },
+   "999999.5": {
+    "Psi_at_t": 1.9668417474153912,
+    "delta_star_exact": 0.1697736869385479,
+    "delta_star_times_ell": 2.0334869986599133
+   },
+   "1000000.0": {
+    "Psi_at_t": 1.632797964929188,
+    "delta_star_exact": 0.21082876006662205,
+    "delta_star_times_ell": 2.525229617556971
+   },
+   "1000000.5": {
+    "Psi_at_t": 2.0134154453385156,
+    "delta_star_exact": 0.16660683356987505,
+    "delta_star_times_ell": 1.9955555896884534
+   },
+   "1000001.0": {
+    "Psi_at_t": 2.035746860037563,
+    "delta_star_exact": 0.1638764863391312,
+    "delta_star_times_ell": 1.9628524912539218
+   },
+   "1000002.0": {
+    "Psi_at_t": 1.5280638756888574,
+    "delta_star_exact": 0.2317760224603831,
+    "delta_star_times_ell": 2.776128249160872
+   }
+  }
+ },
+ "asymptotic_constant_note": "domination needs 1/sin(pi delta) <= Psi_min; with Psi_min ~ l/2pi (RH-strength local density) the layer is 1 - sigma <= (2/l)(1 + o(1))",
+ "runtime_s": 26.551891803741455
+}

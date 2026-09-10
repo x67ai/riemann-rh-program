@@ -1,0 +1,26 @@
+t=1e+04: l=7.372, 19 zeros in |gamma-t|<=8 (indices from 10134); mean gap 0.8400 (RvM 0.8523), max gap 1.5379
+   Psi on |s-t|<=4: min 0.3954, mean 1.1051; mean density l/2pi = 1.1734
+   Psi_min < 1: the pointwise domination fails for every delta at this height -> no confinement statement at t=1e+04 (the layer is the whole strip)
+   far tail 4<=|s-t|<=8 at y=0.49: max (mu_y(t-s)+mu_y(t+s))/Psi(s) = 1.624e-07 (<=1 required)
+   t'=9998.0: Psi(t') = 1.1229;  exact layer edge delta*(t') = None  (delta* * l = None;  2/l = 0.271)
+   t'=9999.0: Psi(t') = 1.1023;  exact layer edge delta*(t') = None  (delta* * l = None;  2/l = 0.271)
+   t'=9999.5: Psi(t') = 0.6863;  exact layer edge delta*(t') = None  (delta* * l = None;  2/l = 0.271)
+   t'=10000.0: Psi(t') = 1.4053;  exact layer edge delta*(t') = 0.2615  (delta* * l = 1.928;  2/l = 0.271)
+   t'=10000.5: Psi(t') = 1.8974;  exact layer edge delta*(t') = 0.1774  (delta* * l = 1.308;  2/l = 0.271)
+   t'=10001.0: Psi(t') = 1.7186;  exact layer edge delta*(t') = 0.2038  (delta* * l = 1.503;  2/l = 0.271)
+   t'=10002.0: Psi(t') = 0.9052;  exact layer edge delta*(t') = None  (delta* * l = None;  2/l = 0.271)
+t=1e+06: l=11.978, 31 zeros in |gamma-t|<=8 (indices from 1747131); mean gap 0.5184 (RvM 0.5246), max gap 0.9720
+   Psi on |s-t|<=4: min 1.0804, mean 1.8582; mean density l/2pi = 1.9063
+   layer edge at this height: delta* = 0.3764 (1 - sigma >= delta* is uncertifiable by any cone test);  4/l = 0.3340;  dlVP certified 1-sigma >= 0.01299
+   far tail 4<=|s-t|<=8 at y=0.49: max (mu_y(t-s)+mu_y(t+s))/Psi(s) = 1.653e-07 (<=1 required)
+   delta = 0.9 * delta* = 0.3388: pointwise domination on |s-t|<=4 holds: True
+   delta = 1.1 * delta* = 0.4141: pointwise domination on |s-t|<=4 holds: True
+   t'=999998.0: Psi(t') = 2.1518;  exact layer edge delta*(t') = 0.1539  (delta* * l = 1.843;  2/l = 0.167)
+   t'=999999.0: Psi(t') = 1.8841;  exact layer edge delta*(t') = 0.1785  (delta* * l = 2.138;  2/l = 0.167)
+   t'=999999.5: Psi(t') = 1.9668;  exact layer edge delta*(t') = 0.1698  (delta* * l = 2.033;  2/l = 0.167)
+   t'=1000000.0: Psi(t') = 1.6328;  exact layer edge delta*(t') = 0.2108  (delta* * l = 2.525;  2/l = 0.167)
+   t'=1000000.5: Psi(t') = 2.0134;  exact layer edge delta*(t') = 0.1666  (delta* * l = 1.996;  2/l = 0.167)
+   t'=1000001.0: Psi(t') = 2.0357;  exact layer edge delta*(t') = 0.1639  (delta* * l = 1.963;  2/l = 0.167)
+   t'=1000002.0: Psi(t') = 1.5281;  exact layer edge delta*(t') = 0.2318  (delta* * l = 2.776;  2/l = 0.167)
+done in 26.6s
+exit=0
