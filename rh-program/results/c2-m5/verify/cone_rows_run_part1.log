@@ -1,0 +1,18 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: divide by zero encountered in matmul
+  C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: overflow encountered in matmul
+  C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: invalid value encountered in matmul
+  C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+T=1e6 crystal  doubles       L=0.5    (  0.50) K=   8 maxLP[E-P-2hhat]=+3.7102e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e6 crystal  doubles       L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+6.2967e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e6 crystal  doubles       L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+4.8618e-12 holds    Fejer E/P max=-1.505e-14 P/pole=0.142
+T=1e6 crystal  doubles       L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5293e-12 holds    Fejer E/P max=-3.786e-15 P/pole=0.376
+T=1e6 crystal  doubles       L=4.0    (  4.00) K=  64 maxLP[E-P-2hhat]=+1.2018e+00 VIOLATED Fejer E/P max=2.696e-01 P/pole=0.602
+T=1e6 crystal  doubles       L=6.0    (  6.00) K=  96 maxLP[E-P-2hhat]=+1.6571e+00 VIOLATED Fejer E/P max=2.030e-01 P/pole=0.710
+T=1e6 crystal  doubles       L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5293e-12 holds    Fejer E/P max=-3.815e-15 P/pole=0.376
+T=1e6 crystal  doubles       L=ell/3  (  3.99) K=  64 maxLP[E-P-2hhat]=+1.2018e+00 VIOLATED Fejer E/P max=2.698e-01 P/pole=0.601
+T=1e6 crystal  doubles       L=ell/2  (  5.99) K=  96 maxLP[E-P-2hhat]=+1.6571e+00 VIOLATED Fejer E/P max=2.033e-01 P/pole=0.709
+T=1e6 crystal  doubles       L=ell    ( 11.98) K= 192 maxLP[E-P-2hhat]=+2.0551e+00 VIOLATED Fejer E/P max=1.174e-01 P/pole=0.842
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:82: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  p[k] += np.trapz(hat_vals(ug, k, D) * dens, ug)

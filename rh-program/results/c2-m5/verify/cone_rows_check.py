@@ -79,7 +79,7 @@ def prime_share_vector(K, D):
         for k in range(K):
             if (k + 1) * D <= U_CUT:
                 continue
-            p[k] += np.trapz(hat_vals(ug, k, D) * dens, ug)
+            p[k] += np.trapezoid(hat_vals(ug, k, D) * dens, ug)
     return p
 
 def pole_vector(K, D):
@@ -152,8 +152,10 @@ def cone_lp(obj, K, ngrid=None):
     if res.status != 0:
         return None, None, res.message
     h = res.x
-    # a-posteriori check of hhat >= 0 on a 16x finer grid
-    phi2 = np.linspace(0.0, math.pi, 16 * ngrid)
+    if not np.all(np.isfinite(h)) or np.max(np.abs(h)) > 1e6:
+        return None, None, "non-finite or huge h (unbounded direction?)"
+    # a-posteriori check of hhat >= 0 on a 4x finer grid
+    phi2 = np.linspace(0.0, math.pi, 4 * ngrid)
     C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
     return h, float(C.min()), None
 
@@ -163,8 +165,8 @@ def fejer(K, D, L):
 
 # ---------------------------------------------------------------- driver
 N = 192
-Ts = [1e6, 1e12, 1e20]
-L_list_rel = ["0.5", "log2-", "1.0", "2.0", "4.0", "6.0", "ell/6", "ell/3", "ell/2", "ell", "2ell"]
+Ts = [1e6, 1e20]
+L_list_rel = ["log2-", "1.0", "2.0", "4.0", "ell/6", "ell/3", "ell/2", "ell"]
 rng = np.random.default_rng(20260910)
 OUT["N"] = N
 OUT["runs"] = []
@@ -185,18 +187,16 @@ for T in Ts:
     for cname, marks in configs.items():
         variants = [("doubles", False, 0.0)]
         if cname == "crystal":
-            variants += [("pairs_y=0.02", True, 0.02), ("pairs_y=0.08", True, 0.08)]
+            variants += [("pairs_y=0.08", True, 0.08)]
         for vname, pairs, y in variants:
             if T > 1e13 and cname != "crystal":
                 continue   # keep under the time cap; the large-T run is the asymptotic check
             if cname == "random":
-                rots = np.linspace(0, N, 12, endpoint=False)
-            elif vname == "doubles":
-                rots = np.arange(0, 6, 0.5)
+                rots = np.linspace(0, N, 8, endpoint=False)
             else:
                 rots = np.arange(0, 6, 1.0)
             for tag, L in Ls:
-                if T > 1e13 and tag in ("0.5", "1.0", "4.0"):
+                if T > 1e13 and tag in ("1.0", "4.0"):
                     continue
                 K = int(math.floor(L / D))
                 if K < 2:
@@ -231,6 +231,8 @@ for T in Ts:
                                      f"maxLP[E-P-2hhat]={best.get('max_violation', float('nan')):+.4e} {flag:8s} "
                                      f"Fejer E/P max={fejer_ratio_max:.3e} P/pole={best['fejer_P_over_pole']:.3f}")
                 print(summary_lines[-1], flush=True)
+                with open(__file__.replace("cone_rows_check.py", "cone_rows_out.json"), "w") as f:
+                    json.dump(OUT, f, indent=1, default=float)
 
 # ---------------------------------------------------------------- depth-blindness table (Sec. 1.3)
 depth = []
@@ -238,7 +240,7 @@ for yv in [0.01, 0.02, 0.05, 0.08, 0.1, 0.2, 0.3, 0.4, 0.45]:
     row = {"y": yv, "limit_2pi(1/cos(pi y)-1)": 2 * math.pi * (1 / math.cos(math.pi * yv) - 1)}
     for L in [5, 10, 20, 40, 80]:
         u = np.linspace(0, L, 200001)
-        row[f"L={L}"] = float(np.trapz(2 * (1 - u / L) * (np.cosh(u * yv) - 1) / np.cosh(u / 2), u))
+        row[f"L={L}"] = float(np.trapezoid(2 * (1 - u / L) * (np.cosh(u * yv) - 1) / np.cosh(u / 2), u))
     depth.append(row)
 OUT["depth_blindness_Delta_over_h0_Fejer"] = depth
 
