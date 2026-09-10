@@ -1,0 +1,19 @@
+zeros 3000..3197: T=3630.911 ell=6.3594 mean gap=0.98787 (RvM 2pi/ell=0.98802) elapsed 80.0s
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/zeta_periodized_check.py:63: RuntimeWarning: divide by zero encountered in matmul
+  C = h[0] + 2 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/zeta_periodized_check.py:63: RuntimeWarning: overflow encountered in matmul
+  C = h[0] + 2 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/zeta_periodized_check.py:63: RuntimeWarning: invalid value encountered in matmul
+  C = h[0] + 2 * (h[1:] @ np.cos(np.outer(kk, phi2)))
+zeta_periodized  L=log2- K= 21 prime-free teeth= 20 two-tooth violations= 20 max|c_k| at prime-free k=2.599 LP max[E-P]=+7.0506e-02 (rot 5.5, hhat_min -0.20666403517513854)
+crystal          L=log2- K= 21 prime-free teeth= 20 two-tooth violations=  0 max|c_k| at prime-free k=0.000 LP max[E-P]=+0.0000e+00 (rot 0.0, hhat_min 1.0)
+zeta_periodized  L=2     K= 62 prime-free teeth= 51 two-tooth violations= 51 max|c_k| at prime-free k=5.607 LP max[E-P]=+2.6657e-01 (rot 0.5, hhat_min -0.09045887201609326)
+crystal          L=2     K= 62 prime-free teeth= 51 two-tooth violations=  1 max|c_k| at prime-free k=66.000 LP max[E-P]=+9.3429e-01 (rot 0.0, hhat_min -0.07837901023986271)
+zeta_periodized  L=4     K=124 prime-free teeth= 77 two-tooth violations= 81 max|c_k| at prime-free k=5.782 LP max[E-P]=+2.8640e-01 (rot 0.5, hhat_min -0.04374448540329534)
+crystal          L=4     K=124 prime-free teeth= 77 two-tooth violations=  2 max|c_k| at prime-free k=66.000 LP max[E-P]=+1.6373e+00 (rot 0.0, hhat_min -0.014087587436358628)
+zeta_periodized  L=ell   K=198 prime-free teeth= 80 two-tooth violations= 88 max|c_k| at prime-free k=5.782 LP max[E-P]=+2.8935e-01 (rot 0.5, hhat_min -0.012263477069492268)
+crystal          L=ell   K=198 prime-free teeth= 80 two-tooth violations=  3 max|c_k| at prime-free k=66.000 LP max[E-P]=+2.0429e+00 (rot 0.0, hhat_min -0.010160952268402301)
+zeta_periodized  L=2ell  K=396 prime-free teeth= 94 two-tooth violations=103 max|c_k| at prime-free k=25.722 LP max[E-P]=+2.8920e-01 (rot 0.5, hhat_min -0.0037931120811012242)
+crystal          L=2ell  K=396 prime-free teeth= 94 two-tooth violations=  4 max|c_k| at prime-free k=66.000 LP max[E-P]=+2.6242e+00 (rot 0.0, hhat_min -0.021066203643459458)
+elapsed 90.7s
+exit=0

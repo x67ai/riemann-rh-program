@@ -1,18 +1,76 @@
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:159: RuntimeWarning: divide by zero encountered in matmul
   C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:159: RuntimeWarning: overflow encountered in matmul
   C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:157: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:159: RuntimeWarning: invalid value encountered in matmul
   C = h[0] + 2.0 * (h[1:] @ np.cos(np.outer(kk, phi2)))
-T=1e6 crystal  doubles       L=0.5    (  0.50) K=   8 maxLP[E-P-2hhat]=+3.7102e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
-T=1e6 crystal  doubles       L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+6.2967e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
-T=1e6 crystal  doubles       L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+4.8618e-12 holds    Fejer E/P max=-1.505e-14 P/pole=0.142
-T=1e6 crystal  doubles       L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5293e-12 holds    Fejer E/P max=-3.786e-15 P/pole=0.376
+T=1e6 crystal  doubles       L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+6.2953e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e6 crystal  doubles       L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+4.8596e-12 holds    Fejer E/P max=-2.447e-14 P/pole=0.142
+T=1e6 crystal  doubles       L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-3.786e-15 P/pole=0.376
 T=1e6 crystal  doubles       L=4.0    (  4.00) K=  64 maxLP[E-P-2hhat]=+1.2018e+00 VIOLATED Fejer E/P max=2.696e-01 P/pole=0.602
-T=1e6 crystal  doubles       L=6.0    (  6.00) K=  96 maxLP[E-P-2hhat]=+1.6571e+00 VIOLATED Fejer E/P max=2.030e-01 P/pole=0.710
-T=1e6 crystal  doubles       L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5293e-12 holds    Fejer E/P max=-3.815e-15 P/pole=0.376
+T=1e6 crystal  doubles       L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-3.815e-15 P/pole=0.376
 T=1e6 crystal  doubles       L=ell/3  (  3.99) K=  64 maxLP[E-P-2hhat]=+1.2018e+00 VIOLATED Fejer E/P max=2.698e-01 P/pole=0.601
 T=1e6 crystal  doubles       L=ell/2  (  5.99) K=  96 maxLP[E-P-2hhat]=+1.6571e+00 VIOLATED Fejer E/P max=2.033e-01 P/pole=0.709
 T=1e6 crystal  doubles       L=ell    ( 11.98) K= 192 maxLP[E-P-2hhat]=+2.0551e+00 VIOLATED Fejer E/P max=1.174e-01 P/pole=0.842
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m5/verify/cone_rows_check.py:82: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
-  p[k] += np.trapz(hat_vals(ug, k, D) * dens, ug)
+T=1e6 crystal  pairs_y=0.08  L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+6.2953e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e6 crystal  pairs_y=0.08  L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+4.8596e-12 holds    Fejer E/P max=-2.447e-14 P/pole=0.142
+T=1e6 crystal  pairs_y=0.08  L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-3.779e-15 P/pole=0.376
+T=1e6 crystal  pairs_y=0.08  L=4.0    (  4.00) K=  64 maxLP[E-P-2hhat]=+1.2183e+00 VIOLATED Fejer E/P max=2.730e-01 P/pole=0.602
+T=1e6 crystal  pairs_y=0.08  L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-3.808e-15 P/pole=0.376
+T=1e6 crystal  pairs_y=0.08  L=ell/3  (  3.99) K=  64 maxLP[E-P-2hhat]=+1.2183e+00 VIOLATED Fejer E/P max=2.732e-01 P/pole=0.601
+T=1e6 crystal  pairs_y=0.08  L=ell/2  (  5.99) K=  96 maxLP[E-P-2hhat]=+1.6928e+00 VIOLATED Fejer E/P max=2.081e-01 P/pole=0.709
+T=1e6 crystal  pairs_y=0.08  L=ell    ( 11.98) K= 192 maxLP[E-P-2hhat]=+2.1475e+00 VIOLATED Fejer E/P max=1.224e-01 P/pole=0.842
+T=1e6 dipole   doubles       L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+6.2954e-12 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e6 dipole   doubles       L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+4.8599e-12 holds    Fejer E/P max=-2.248e-14 P/pole=0.142
+T=1e6 dipole   doubles       L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-3.994e-15 P/pole=0.376
+T=1e6 dipole   doubles       L=4.0    (  4.00) K=  64 maxLP[E-P-2hhat]=+5.5402e-01 VIOLATED Fejer E/P max=1.348e-01 P/pole=0.602
+T=1e6 dipole   doubles       L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+4.5271e-12 holds    Fejer E/P max=-4.011e-15 P/pole=0.376
+T=1e6 dipole   doubles       L=ell/3  (  3.99) K=  64 maxLP[E-P-2hhat]=+5.5402e-01 VIOLATED Fejer E/P max=1.349e-01 P/pole=0.601
+T=1e6 dipole   doubles       L=ell/2  (  5.99) K=  96 maxLP[E-P-2hhat]=+7.4098e-01 VIOLATED Fejer E/P max=1.017e-01 P/pole=0.709
+T=1e6 dipole   doubles       L=ell    ( 11.98) K= 192 maxLP[E-P-2hhat]=+8.6617e-01 VIOLATED Fejer E/P max=6.502e-02 P/pole=0.842
+T=1e6 random   doubles       L=log2-  (  0.69) K=  11 maxLP[E-P-2hhat]=+7.3524e-01 VIOLATED Fejer E/P max=inf P/pole=0.000
+T=1e6 random   doubles       L=1.0    (  1.00) K=  16 maxLP[E-P-2hhat]=+7.4930e-01 VIOLATED Fejer E/P max=2.682e+00 P/pole=0.142
+T=1e6 random   doubles       L=2.0    (  2.00) K=  32 maxLP[E-P-2hhat]=+1.1025e+00 VIOLATED Fejer E/P max=1.026e+00 P/pole=0.376
+T=1e6 random   doubles       L=4.0    (  4.00) K=  64 maxLP[E-P-2hhat]=+1.1990e+00 VIOLATED Fejer E/P max=5.018e-01 P/pole=0.602
+T=1e6 random   doubles       L=ell/6  (  2.00) K=  32 maxLP[E-P-2hhat]=+1.1025e+00 VIOLATED Fejer E/P max=1.028e+00 P/pole=0.376
+T=1e6 random   doubles       L=ell/3  (  3.99) K=  64 maxLP[E-P-2hhat]=+1.1990e+00 VIOLATED Fejer E/P max=5.026e-01 P/pole=0.601
+T=1e6 random   doubles       L=ell/2  (  5.99) K=  96 maxLP[E-P-2hhat]=+1.2065e+00 VIOLATED Fejer E/P max=3.527e-01 P/pole=0.709
+T=1e6 random   doubles       L=ell    ( 11.98) K= 192 maxLP[E-P-2hhat]=+1.2084e+00 VIOLATED Fejer E/P max=1.745e-01 P/pole=0.842
+T=1e20 crystal  doubles       L=log2-  (  0.69) K=   3 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e20 crystal  doubles       L=2.0    (  2.00) K=   8 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=-9.736e-15 P/pole=0.375
+T=1e20 crystal  doubles       L=ell/6  (  7.37) K=  32 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=-2.160e-15 P/pole=0.756
+T=1e20 crystal  doubles       L=ell/3  ( 14.74) K=  64 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=1.443e-02 P/pole=0.869
+T=1e20 crystal  doubles       L=ell/2  ( 22.11) K=  96 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=1.224e-02 P/pole=0.911
+T=1e20 crystal  doubles       L=ell    ( 44.21) K= 192 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=7.306e-03 P/pole=0.955
+T=1e20 crystal  pairs_y=0.08  L=log2-  (  0.69) K=   3 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=0.000e+00 P/pole=0.000
+T=1e20 crystal  pairs_y=0.08  L=2.0    (  2.00) K=   8 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=-9.743e-15 P/pole=0.375
+T=1e20 crystal  pairs_y=0.08  L=ell/6  (  7.37) K=  32 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=-2.156e-15 P/pole=0.756
+T=1e20 crystal  pairs_y=0.08  L=ell/3  ( 14.74) K=  64 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=1.702e-02 P/pole=0.869
+T=1e20 crystal  pairs_y=0.08  L=ell/2  ( 22.11) K=  96 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=1.455e-02 P/pole=0.911
+T=1e20 crystal  pairs_y=0.08  L=ell    ( 44.21) K= 192 maxLP[E-P-2hhat]=-9.8520e-40 holds    Fejer E/P max=8.732e-03 P/pole=0.955
+
+DEPTH BLINDNESS Delta/h0 for Fejer(L) vs limit 2pi(1/cos(pi y)-1):
+  y=0.01  L=5: 4.7160e-04  L=10: 1.3120e-03  L=20: 2.1529e-03  L=40: 2.6269e-03  L=80: 2.8644e-03   limit=3.1019e-03
+  y=0.02  L=5: 1.8868e-03  L=10: 5.2508e-03  L=20: 8.6195e-03  L=40: 1.0519e-02  L=80: 1.1471e-02   limit=1.2423e-02
+  y=0.05  L=5: 1.1808e-02  L=10: 3.2934e-02  L=20: 5.4211e-02  L=40: 6.6251e-02  L=80: 7.2286e-02   limit=7.8321e-02
+  y=0.08  L=5: 3.0304e-02  L=10: 8.4870e-02  L=20: 1.4042e-01  L=40: 1.7206e-01  L=80: 1.8793e-01   limit=2.0380e-01
+  y=0.10  L=5: 4.7458e-02  L=10: 1.3342e-01  L=20: 2.2181e-01  L=40: 2.7249e-01  L=80: 2.9792e-01   limit=3.2335e-01
+  y=0.20  L=5: 1.9350e-01  L=10: 5.6187e-01  L=20: 9.7517e-01  L=40: 1.2279e+00  L=80: 1.3556e+00   limit=1.4833e+00
+  y=0.30  L=5: 4.4957e-01  L=10: 1.3805e+00  L=20: 2.6062e+00  L=40: 3.4838e+00  L=80: 3.9449e+00   limit=4.4064e+00
+  y=0.40  L=5: 8.3619e-01  L=10: 2.7883e+00  L=20: 6.0989e+00  L=40: 9.4892e+00  L=80: 1.1724e+01   limit=1.4050e+01
+  y=0.45  L=5: 1.0879e+00  L=10: 3.8228e+00  L=20: 9.3116e+00  L=40: 1.6946e+01  L=80: 2.4244e+01   limit=3.3882e+01
+
+PRIME SHARE P(Fejer_L) vs pole 2L (exact primes to 2e6):
+  L=  0.5  P=  0.0000  2L=  1.00  ratio=0.0000
+  L=  1.0  P=  0.2836  2L=  2.00  ratio=0.1418
+  L=  2.0  P=  1.5050  2L=  4.00  ratio=0.3763
+  L=  3.0  P=  3.0815  2L=  6.00  ratio=0.5136
+  L=  4.0  P=  4.8153  2L=  8.00  ratio=0.6019
+  L=  6.0  P=  8.5169  2L= 12.00  ratio=0.7097
+  L=  8.0  P= 12.3619  2L= 16.00  ratio=0.7726
+  L= 10.0  P= 16.2678  2L= 20.00  ratio=0.8134
+  L= 12.0  P= 20.2052  2L= 24.00  ratio=0.8419
+  L= 14.0  P= 24.1604  2L= 28.00  ratio=0.8629
+
+elapsed 6.0 s
+exit=0
