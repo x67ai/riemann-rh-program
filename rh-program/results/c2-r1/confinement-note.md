@@ -79,3 +79,88 @@ and its local content at s = t is **2/sin(πδ) ≤ Ψ(t)**, not 1/sin(πδ) ≤
 **D6 (clause 5 landed).** Both fetch-list sources were located on arXiv by title and read at the page in-session (§5): Hasanalizade–Shen–Wong arXiv:2107.06506v1 (SHA-256 of the PDF 3fc4c89f…) and Trudgian arXiv:1208.5846v2 (SHA-256 274b3a0a…). Clause 5 is therefore stated and proved with explicit constants, not deferred. Trudgian's arXiv v2 constants (0.111, 0.275, 2.450) differ from the journal constants HSW's Table 1 attributes to Trudgian 2014 (0.1120, 0.2780, 3.3850); nothing here uses Trudgian's constants, only his identity (2.5) and the Platt-database bound HSW quote as (1.7).
 
 ---
+
+## §1 The formal input and clause 1 (the identity clause)
+
+### §1.1 The input, quoted as Lean states it (`~/rh-lean-work/zeta-23-lean-main`, read 2026-09-10; no Lean file was modified)
+
+`Zeta23/WeilEF/Main.lean`, lines 268–270:
+
+```
+/-- **Hypothesis-free form**: [eq:EFstd] holds for the canonical
+unconditional ζ zero configuration. -/
+theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+```
+
+with `EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs)` (same file, line 51), `zetaSeam : ZetaSeam := ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect` and `def zetaZeroConfig : ZeroConfig := zetaZeros zetaSeam` (`Zeta23/Statement/SeamClosed.lean`, lines 22 and 26). The predicate, `Zeta23/ExplicitFormula.lean` lines 81–84:
+
+```
+def EF_lit (Z : ZeroConfig) : Prop :=
+  ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+    ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+```
+
+and the right-hand side, lines 69–73:
+
+```
+def literatureRHS (k : ℝ → ℂ) : ℂ :=
+  paperFT k (I / 2) + paperFT k (-I / 2)
+  - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+      * (k (Real.log n) + k (-Real.log n))
+  + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+```
+
+with `gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π` (line 64) and `paperFT` as quoted in §0.1. **The hypotheses on the test are exactly two: `ContDiff ℝ 2 k` and `HasCompactSupport k`.** The docstring of `EF_lit` (lines 75–80) names the literature form: "[eq:EFstd]; [IK04, Thm 5.12] specialised to ζ / [Wei52] / [Bom00] … It is a hypothesis (structure field in Hypotheses.lean), never a Lean axiom" — and `EF_lit_zetaZeroConfig` discharges that hypothesis for ζ's zero configuration. Audit status (`AUDIT.md`, "Recorded results at this commit", read): `lake build` completes with no errors and no `sorry` under `Zeta23/`; declared axioms in the repository: 0; every `#print axioms` line of the 27 comparator statements is exactly `[propext, Classical.choice, Quot.sound]`. The theorem `EF_lit_zetaZeroConfig` itself is not among the 27 printed statements; per KICKSTART 10(f) its own `#print axioms` line is owed by the checker (Job 2) and is not claimed here.
+
+The second formal input, used only for absolute convergence in Lemma E (§4) and for the finiteness of Ψ: `Zeta23/WeilEF/Effective.lean`, lines 924–927:
+
+```
+/-- **E2 — the fully explicit local zero count**:
+N(t, t+1] ≤ 540000000·log(|t|+3) for every t ∈ ℝ, unconditionally. -/
+theorem zeta_local_zero_count_explicit (t : ℝ) :
+    (Zeta23.Ncount t (t + 1) : ℝ) ≤ 540000000 * Real.log (|t| + 3) := by
+```
+
+### §1.2 Clause 1 and its proof
+
+**Theorem R1, clause 1 (identity clause).** For every L > 0 and every w ∈ Σ_L, the sum Z(w) = Σ_ρ m_ρ ĝ(γ(ρ)) converges absolutely, every one of its terms is real and nonnegative, and
+
+  B(w) = Z(w) + P(w),  Z(w) = 2∫_ℝ ŵ Ψ + Σ_{off-line orbits} 4(ŵ ∗ μ_{y_j})(x_j) ≥ 2∫ŵΨ,  P(w) ≥ 0.
+
+*Proof.* Let g := w/cosh(u/2). Since w ∈ C² has compact support and 1/cosh(u/2) is smooth, g ∈ C²_c(ℝ), so `EF_lit_zetaZeroConfig` applies to k := g (as a function ℝ → ℂ with zero imaginary part). Its first conjunct is the absolute convergence (summability in Lean's sense, which for a family of complex numbers means absolute summability); its second conjunct is the identity Σ_ρ m_ρ ĝ(γ(ρ)) = literatureRHS(g). Term by term:
+
+* ĝ(i/2) + ĝ(−i/2) = ∫ g(u)(e^{−u/2} + e^{u/2}) du = ∫ 2 cosh(u/2) g(u) du = 2∫w = 2ŵ(0).
+* The prime term is Σ_n Λ(n) n^{−1/2}(g(log n) + g(−log n)) = P(w), a finite sum (supp g compact), and P(w) ≥ 0 because Λ(n) ≥ 0 (axiom P, here a theorem: the von Mangoldt function is nonnegative by definition) and g ≥ 0.
+* The archimedean term is (1/2π)∫ ĝ(r)[Re ψ(¼ + ir/2) − log π] dr = ∫ (ŵ ∗ μ_0)(r) A(r) dr, by Lemma K at y = 0 (ĝ(r) = Re ĝ(r) = (ŵ ∗ μ_0)(r) for real r) and the definition of A.
+So literatureRHS(g) = 2ŵ(0) + ∫(ŵ ∗ μ_0)A − P(w) = B(w) − P(w), which is the identity. For the structure of Z(w): the zeros are invariant under ρ ↦ conj ρ and ρ ↦ 1 − ρ with multiplicities preserved (this is what `ZetaSeam.of_reflect zeta_reflect_zero zeta_mult_reflect` packages; for ζ it is the functional equation together with ζ(conj s) = conj ζ(s)). Group the zeros: an on-line zero ρ = ½ + iτ has γ(ρ) = τ real and ĝ(τ) = (ŵ ∗ μ_0)(τ) ≥ 0 (Lemma K, y = 0); ρ and conj ρ contribute the same amount, and summing over τ > 0 gives 2Σ_{τ>0} m_ρ(ŵ ∗ μ_0)(τ) = 2∫ŵΨ by (0.4) (a zero at s = ½, if there were one, adds (ŵ ∗ μ_0)(0) ≥ 0). An off-line zero β + iτ with β ≠ ½ lies in a four-element orbit whose total share is 4(ŵ ∗ μ_y)(|τ|) ≥ 0 with y = |β − ½| (Lemma K; orbits with τ = 0 would be two-element and contribute 2(ŵ ∗ μ_y)(0) ≥ 0). All terms being nonnegative, the regrouping is legitimate. ∎
+
+*Remarks.* (1) The clause is unconditional: nothing about the location of ζ's zeros is used; if off-line zeros exist they only enlarge Z. (2) The one place where the Riemann–Weil formula's hypotheses bite is the test class: w ∈ C²_c. The cone Σ_L of C2 line 16 without the C² requirement is handled by mollification when needed; the note does not need it. (3) Axiom P is consumed exactly once, in "P(w) ≥ 0"; this is the S1 bearing of §6 and the reason the theorem is vacuous on the Davenport–Heilbronn rung (§6.2).
+
+---
+
+## §2 Clause 2 — the domination clause
+
+**Theorem R1, clause 2 (domination clause; hypothesis corrected per §0.4 D1).** Let t > 0 and y ∈ [0, ½), δ = ½ − y, and suppose
+
+  (D_{t,y})  2[μ_y(t − s) + μ_y(t + s)] ≤ Ψ(s) + Ψ(−s)  for every s ≥ 0.
+
+Then for every w ∈ Σ_∞ — in particular for every L > 0 and every w ∈ Σ_L —
+
+  4(ŵ ∗ μ_y)(t) ≤ 2∫_ℝ ŵ Ψ ≤ Z(w) ≤ B(w);
+
+equivalently V(t, y; L) ≤ 1 for every L: **no strip-positive cone certificate excludes a zero at height t and depth y, at any bandwidth.** The sufficient one-sided form is 2[μ_y(t − s) + μ_y(t + s)] ≤ Ψ(s) for every s ≥ 0.
+
+*Proof.* By Lemma K the orbit share is 4∫_ℝ ŵ(s) μ_y(t − s) ds. Split the integral at s = 0 and substitute s ↦ −s on the negative half-line, using ŵ(−s) = ŵ(s) (w is even, §0.1):
+
+  4∫_ℝ ŵ(s) μ_y(t − s) ds = 4∫_0^∞ ŵ(s)[μ_y(t − s) + μ_y(t + s)] ds.
+
+On the other side, by (0.4) and the same folding,
+
+  2∫_ℝ ŵ(s) Ψ(s) ds = 2∫_0^∞ ŵ(s)[Ψ(s) + Ψ(−s)] ds.
+
+Since ŵ ≥ 0, (D_{t,y}) integrated against ŵ on [0, ∞) gives 4(ŵ ∗ μ_y)(t) ≤ 2∫ŵΨ. The remaining two inequalities are (0.4) and (0.3) (P(w) ≥ 0), which hold for every w ∈ Σ_∞ by definition of Σ_∞ and for every w ∈ Σ_L by clause 1. A cone certificate at (t, y) would need 4(ŵ ∗ μ_y)(t) > B(w); it therefore does not exist. Nothing in the argument depends on L. ∎
+
+*What the clause says and does not say.* (a) It is a statement about a proof class — the set of all certificates of the cone form — and not about ζ's zeros: whether ζ has a zero at (t, y) is not decided; only that this class of arguments cannot exclude one. (b) It consumes ζ through Ψ: the actual on-line zeros must carry, near t, at least the weight of the hypothetical pair. For an abstract admissible datum (C2 line 14) with on-line part σ the same proof gives the same statement with Ψ_σ in place of Ψ. (c) The factor 2 (D1): at s = t the hypothesis reads 2μ_y(0) + 2μ_y(2t) ≤ Ψ(t) + Ψ(−t), i.e. **2/sin(πδ) ≤ Ψ(t)** up to terms below 10⁻¹⁹ (Lemma P(iii) at ξ = 2t ≥ 56 and the bound on Ψ(−t) of §0.4). Since 2/sin(πδ) ≥ 2 for every δ ∈ (0, ½], the clause can only apply where Ψ(t) ≥ 2 — two on-line zeros' worth of smoothed density — which is the honest content of "a pair weighs at least a double". (d) Sign of the measure: the whole argument is the comparison of two nonnegative kernels integrated against a nonnegative ŵ; no positivity of anything is asserted beyond what the cone already carries (zoo IV.1's containment, §7).
+
+---

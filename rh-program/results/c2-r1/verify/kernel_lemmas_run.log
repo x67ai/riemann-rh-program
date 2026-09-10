@@ -1,0 +1,21 @@
+P(i)  closed form vs quadrature: max |diff| = 2.807e+00 over 20 samples
+P(i)  positive: True; strictly decreasing in |xi| on grid: True
+P(ii) mass: {0.0: 1.0, 0.25: 1.0, 0.4: 1.0, 0.45: 1.0, 0.49: 1.0}
+P(ii) peak (closed, 1/cos(pi y), 1/sin(pi delta)): {0.0: (1.0, 1.0, 1.0), 0.25: (1.4142135623730951, 1.414213562373095, 1.4142135623730951), 0.4: (3.2360679774997885, 3.2360679774997894, 3.2360679774997907), 0.45: (6.392453221499658, 6.392453221499659, 6.392453221499663), 0.49: (31.836225209097677, 31.83622520909752, 31.836225209097595)}
+P(iii) max_(|xi|>=1) mu_y e^(pi|xi|)/sin(pi delta): {0.0: 2.000000000000001, 0.25: 2.0037278977782482, 0.4: 2.0098006617648725, 0.45: 2.010870660718517, 0.49: 2.011224743078435, 0.499: 2.0112394723762006, 0.4999: 2.011239619719732}
+P(iii) 2(1+e^-2pi)/(1-e^-2pi)^2 = 2.011240  (c_P := 2.012 covers it); first bound sin(pi d) cosh/sinh^2 holds: True
+P(iv) max k_y(u) e^(delta|u|): {0.0: 2.0, 0.25: 1.2071067784862684, 0.4: 1.063933918638313, 0.45: 1.029755948282772, 0.49: 1.0056414688183404} (<= 2 required)
+D     max |Re psi(z) - log|z|| / (3/(2|Im z|)) = 0.1679 at (Re, Im, lhs, bound) = (1.0, 1, 0.2519232696574957, 1.5)  (< 1 required)
+D     Gauss integral vs digamma, |diff|: [0.0004098343040247545, 0.00040983501499910856, 0.00041917780440431834, 0.0004098343040247545]
+      psi(1) = -0.5772156649 (= -Euler gamma), psi(1/2) = -1.9635100260; 2 + psi(1) - log pi = 0.278054
+A     a=0.6, x=0.0: Poisson integral = -2.8806891365, Re psi((1/2+a+ix)/2) - log pi = -2.8806891365, diff = 7.66e-17
+A     a=0.6, x=30.0: Poisson integral = 1.5631405932, Re psi((1/2+a+ix)/2) - log pi = 1.5631405474, diff = 4.58e-08
+A     a=1.0, x=100.0: Poisson integral = 2.7672689002, Re psi((1/2+a+ix)/2) - log pi = 2.7672889528, diff = 2.01e-05
+A     a=0.55, x=1000.0: Poisson integral = 5.0698728520, Re psi((1/2+a+ix)/2) - log pi = 5.0698780472, diff = 5.20e-06
+A     a=1.5, x=0.0: Poisson integral = -1.7219455508, Re psi((1/2+a+ix)/2) - log pi = -1.7219455508, diff = 1.69e-21
+K     int 2a/(a^2+r^2) cos(r xi) dr at a=0.7, xi=1.3: 2.5300207139 vs 2 pi e^(-a xi) = 2.5291342902
+K     dlVP what(0.0) formula 17.50237887 vs quadrature 17.49130114
+K     dlVP what(50.0) formula 11.66893677 vs quadrature 11.65282968
+K     dlVP element (a=0.7, t=50): min w on grid = 0.000e+00 (>= 0), min what on grid = 3.520e-04 (> 0)
+done in 3.7s
+exit=0

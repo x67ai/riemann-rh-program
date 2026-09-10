@@ -1,0 +1,35 @@
+t=1e+06: l = 11.978, 37 zeros in |gamma - t| <= 10 (indices from 1747128); mean gap 0.5348 (RvM 0.5246), max gap 0.9720; 12s
+   Psi on |s - t| <= 6: min 1.0804, mean 1.9336, max 2.5621;  mean density l/2pi = 1.9063
+   (a) literal contract condition at s = -t: left side >= mu_y(0) = 1/sin(pi delta) >= 1, right side Psi(-t) <= 0.0e+00: FAILS for every delta
+   (b) t'=999998.0: Psi(t') = 2.1518;  corrected edge delta* = 0.3799 (delta* l = 4.551; 4/l = 0.334);  literal-on-window edge = 0.1539 (x l = 1.843)
+   (b) t'=999999.0: Psi(t') = 1.8841;  corrected edge delta* = None (delta* l = None; 4/l = 0.334);  literal-on-window edge = 0.1785 (x l = 2.138)
+   (b) t'=999999.5: Psi(t') = 1.9668;  corrected edge delta* = None (delta* l = None; 4/l = 0.334);  literal-on-window edge = 0.1698 (x l = 2.033)
+   (b) t'=1000000.0: Psi(t') = 1.6328;  corrected edge delta* = None (delta* l = None; 4/l = 0.334);  literal-on-window edge = 0.2108 (x l = 2.525)
+   (b) t'=1000000.5: Psi(t') = 2.0134;  corrected edge delta* = None (delta* l = None; 4/l = 0.334);  literal-on-window edge = 0.1666 (x l = 1.996)
+   (b) t'=1000001.0: Psi(t') = 2.0357;  corrected edge delta* = 0.4787 (delta* l = 5.734; 4/l = 0.334);  literal-on-window edge = 0.1639 (x l = 1.963)
+   (b) t'=1000002.0: Psi(t') = 1.5281;  corrected edge delta* = None (delta* l = None; 4/l = 0.334);  literal-on-window edge = 0.2318 (x l = 2.776)
+   (c) clause 3(i) window-min form: min_(|s-t|<=4) Psi = 1.0804 <= 2 -> the uniform form says nothing at this height (a pair weighs two on-line zeros)
+t=1e+07: l = 14.280, 45 zeros in |gamma - t| <= 10 (indices from 21136104); mean gap 0.4402 (RvM 0.4400), max gap 0.9128; 29s
+   Psi on |s - t| <= 6: min 1.3488, mean 2.3119, max 3.2266;  mean density l/2pi = 2.2728
+   (a) literal contract condition at s = -t: left side >= mu_y(0) = 1/sin(pi delta) >= 1, right side Psi(-t) <= 0.0e+00: FAILS for every delta
+   (b) t'=9999998.0: Psi(t') = 2.5024;  corrected edge delta* = 0.2961 (delta* l = 4.228; 4/l = 0.280);  literal-on-window edge = 0.1309 (x l = 1.869)
+   (b) t'=9999999.0: Psi(t') = 2.6613;  corrected edge delta* = 0.2709 (delta* l = 3.869; 4/l = 0.280);  literal-on-window edge = 0.1226 (x l = 1.751)
+   (b) t'=9999999.5: Psi(t') = 1.7917;  corrected edge delta* = None (delta* l = None; 4/l = 0.280);  literal-on-window edge = 0.1925 (x l = 2.749)
+   (b) t'=10000000.0: Psi(t') = 1.4898;  corrected edge delta* = None (delta* l = None; 4/l = 0.280);  literal-on-window edge = 0.2379 (x l = 3.397)
+   (b) t'=10000000.5: Psi(t') = 2.0686;  corrected edge delta* = 0.4193 (delta* l = 5.987; 4/l = 0.280);  literal-on-window edge = 0.1606 (x l = 2.294)
+   (b) t'=10000001.0: Psi(t') = 2.0432;  corrected edge delta* = 0.4372 (delta* l = 6.244; 4/l = 0.280);  literal-on-window edge = 0.1628 (x l = 2.325)
+   (b) t'=10000002.0: Psi(t') = 2.3921;  corrected edge delta* = 0.319 (delta* l = 4.555; 4/l = 0.280);  literal-on-window edge = 0.1375 (x l = 1.963)
+   (c) clause 3(i) window-min form: min_(|s-t|<=4) Psi = 1.3488 <= 2 -> the uniform form says nothing at this height (a pair weighs two on-line zeros)
+t=1e+08: l = 16.583, 52 zeros in |gamma - t| <= 10 (indices from 248007999); mean gap 0.3860 (RvM 0.3789), max gap 0.7128; 50s
+   Psi on |s - t| <= 6: min 1.7750, mean 2.7005, max 3.5235;  mean density l/2pi = 2.6392
+   (a) literal contract condition at s = -t: left side >= mu_y(0) = 1/sin(pi delta) >= 1, right side Psi(-t) <= 0.0e+00: FAILS for every delta
+   (b) t'=99999998.0: Psi(t') = 2.4255;  corrected edge delta* = 0.3086 (delta* l = 5.117; 4/l = 0.241);  literal-on-window edge = 0.1353 (x l = 2.243)
+   (b) t'=99999999.0: Psi(t') = 2.8030;  corrected edge delta* = 0.2536 (delta* l = 4.206; 4/l = 0.241);  literal-on-window edge = 0.1161 (x l = 1.926)
+   (b) t'=99999999.5: Psi(t') = 2.7967;  corrected edge delta* = 0.2537 (delta* l = 4.207; 4/l = 0.241);  literal-on-window edge = 0.1164 (x l = 1.93)
+   (b) t'=100000000.0: Psi(t') = 2.1697;  corrected edge delta* = 0.4034 (delta* l = 6.69; 4/l = 0.241);  literal-on-window edge = 0.1533 (x l = 2.542)
+   (b) t'=100000000.5: Psi(t') = 1.8927;  corrected edge delta* = None (delta* l = None; 4/l = 0.241);  literal-on-window edge = 0.1778 (x l = 2.948)
+   (b) t'=100000001.0: Psi(t') = 2.4318;  corrected edge delta* = 0.3103 (delta* l = 5.145; 4/l = 0.241);  literal-on-window edge = 0.1351 (x l = 2.24)
+   (b) t'=100000002.0: Psi(t') = 2.8360;  corrected edge delta* = 0.2496 (delta* l = 4.14; 4/l = 0.241);  literal-on-window edge = 0.1147 (x l = 1.902)
+   (c) clause 3(i) window-min form: min_(|s-t|<=4) Psi = 1.7750 <= 2 -> the uniform form says nothing at this height (a pair weighs two on-line zeros)
+done in 50.5s
+exit=0
