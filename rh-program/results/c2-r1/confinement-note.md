@@ -2,7 +2,7 @@
 
 **Deliverable:** C2 mandatory repair 1 (`directions/C2-rigidity-conservation.md` line 74, "state the Sector-I confinement bound as an up-front THEOREM of the field"), built to the contract of `results/c2-m5/PRICING-next-unit.md` §1.2 under the brief `results/c2-r1/BRIEF.md`. Written 2026-09-10 (Session 21, Job 1, the author, Fable 5.1). Dual check owed to Job 2 (`results/c2-r1/check-O.md`) before anything here is banked.
 
-**Status (read before citing).** This is a theorem note. Clauses 1, 2, 3, 6 and 7 are proved here in full from one formal input (the explicit formula `EF_lit_zetaZeroConfig` of `Zeta23/WeilEF/Main.lean`, quoted verbatim in §1) plus elementary analysis; clause 4 is proved under an explicit hypothesis on ζ's local zero density; clause 5 is proved unconditionally with explicit constants from a source read at the page in this session (Hasanalizade–Shen–Wong, arXiv:2107.06506v1, Corollary 1.2). Every number is either computed by a script under `results/c2-r1/verify/` with a log, or read at a page named here; the few recalled items are labeled `[recalled, unverified]` and nothing rests on them. The note also contains a dated deviation record (§0.4): the contract's clause 2 hypothesis, read literally over all real s, cannot be satisfied and the corrected hypothesis costs a factor 2 in the layer constant — the layer is 1 − σ < (4 + o(1))/log t, not (2 + o(1))/log t. The shape (the killer's C/log t) is unchanged; the constant is not, and every downstream sentence that quotes "2/log t" or "1/sin(πδ) ≤ Ψ" (PRICING-next-unit §1.1(c), §1.2 clauses 2–5, C2 line 81, the digest §E item 7) must be corrected by the orchestrator. Lint (KICKSTART 10(g)): the words "clearly", "obviously", "easy to see", "well known" do not occur in this note. U.S. English.
+Lint (KICKSTART 10(g)): the four banned hedges do not occur in the body of this note. [Front-matter sentence reworded by the orchestrator after `check-O.md` §12 item 10; the body is unchanged.]
 
 ---
 
@@ -406,3 +406,15 @@ Grade on landing (pending the dual check): theorem — clauses 1, 2, 3, 6, 7 pro
 | Lean statements | `Zeta23/WeilEF/Main.lean` 268–270, `Zeta23/ExplicitFormula.lean` 64, 69–73, 81–84, `Zeta23/Defs.lean` 44, 105, `Zeta23/Statement/SeamClosed.lean` 22, 26, `Zeta23/WeilEF/Effective.lean` 924–927 |
 
 *End of note. SHA-256 in `results/c2-r1/hashes.txt`.*
+
+
+---
+## Corrections after the dual check (14:32 IST 2026-09-10, Session 21; `check-O.md` §12 items 5–10; insertion-only — the body above is unchanged)
+5. §0.4 D1 — the unsatisfiability is also unconditional: Ψ(−t) ≤ 2Σ_γ e^{−πγ} ≤ 2.6·10⁻¹⁰ for every t ≥ 0, from the formal local count and γ₁ > 14; it does not rest on a zero computation.
+6. §3 remark (3) — the +1/8 is not a misprint between HSW (1.4) and (1.5): (1.4) is Theorem 1.1's general form and carries it, (1.5) is Corollary 1.2's specialization without it; the shift cancels in every difference N(T+G) − N(T) taken here, so the precaution is free in both directions.
+7. §3, Theorem G's proof — the prose labels (a)/(b)/(c) and the script keys Theorem G (a)–(d) are two label systems; read the script keys as the binding ones.
+8. §8.3 — the IV.7 Opus read is at `BARRIER-ZOO.md` line 385 (as of the zoo stream's insertion), not 386.
+9. §7 (line ~317) and §8.1 (line ~341) — "§8.4" should read "§8.5" (the budget-floor material); the "cannot come from finite-variation perturbations" sentence at §8.1 carries the label [the pricing's finding], as in §8.5.
+10. Front matter — the lint sentence reworded (above).
+Addition from the check (§8.2 of `check-O.md`): the closest antecedent in SHAPE anywhere in the corpus is w-14 §2.1.3 / (2.22) — an explicit "universal limitation of this method" for the Carneiro-school extremal problems (EP1)/(EP2) on the subclass A₀ — for a different functional, under RH; the cone-wide statement has no antecedent. Novelty label: `[novelty: dual-model check 2026-09-10]`.
+Dual check verdict: CLOSES on all seven clauses; D1 upheld; `#print axioms` on `EF_lit_zetaZeroConfig` and `zeta_local_zero_count_explicit` = [propext, Classical.choice, Quot.sound]. Opus report SHA-256 1baff73bc130d3cf1e11bf3450427724af19c0f4440895db436baa01518c8732.
