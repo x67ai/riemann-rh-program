@@ -1,6 +1,4 @@
-# dr8/sigma-strong-yaml.log — lean/formalization.yaml re-validated after +4 results / fidelity (m) CLOSED; 2026-09-10 14:42 IST; script dr8/validate_yaml_sigma_strong.py
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d1-m2a/dr8/validate_yaml_sigma_strong.py:31: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
-  res = jsonschema.RefResolver(base_uri=DISP, referrer=disp, store=store)
+# dr8/sigma-strong-yaml.log — lean/formalization.yaml re-validated after +4 results / fidelity (m) CLOSED / alignment names; 2026-09-10 14:44 IST; script dr8/validate_yaml_sigma_strong.py (PyYAML + jsonschema, upstream schema, on-disk copies re-compared to upstream)
 PyYAML 6.0.3, jsonschema 4.25.1
 on-disk formalization.schema.dispatcher.json     sha256 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3
    upstream: IDENTICAL to the on-disk copy
@@ -13,16 +11,11 @@ VALIDATION errors: 0
 top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
 main_results: 18   alignment.statements: 19   fidelity.divergences: 7737 chars
 
-Lean names referenced in status.main_results + alignment.statements: 55
-   Zeta23.DBN.Asym                                          NOT DECLARED IN THE MIRROR
+Lean names referenced in status.main_results + alignment.statements: 43
    Zeta23.DBN.AsymEnclOK                                    comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
-   Zeta23.DBN.BarrierCert                                   NOT DECLARED IN THE MIRROR
    Zeta23.DBN.BarrierEnclOK                                 comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/BarrierCert.lean
-   Zeta23.DBN.BtFacts                                       NOT DECLARED IN THE MIRROR
    Zeta23.DBN.Bt_ne_zero                                    Zeta23/DBN/BtFacts.lean
-   Zeta23.DBN.Defs                                          NOT DECLARED IN THE MIRROR
    Zeta23.DBN.HtEntire                                      comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
-   Zeta23.DBN.Instance02                                    NOT DECLARED IN THE MIRROR
    Zeta23.DBN.Instance02.lambda_le_point2                   Zeta23/DBN/Instance02.lean
    Zeta23.DBN.Instance02.lambda_le_point2_arb               Zeta23/DBN/Instance02.lean
    Zeta23.DBN.Polymath15Bridge'                             comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
@@ -34,19 +27,12 @@ Lean names referenced in status.main_results + alignment.statements: 55
    Zeta23.DBN.differentiableOn_Ht_div_Bt                    Zeta23/DBN/BtFacts.lean
    Zeta23.DBN.row2_windowIdx_ge                             Zeta23/DBN/Asym.lean
    Zeta23.DBN.windowIdx_mono                                Zeta23/DBN/Asym.lean
-   Zeta23.PairCeiling.GridCorner                            NOT DECLARED IN THE MIRROR
    Zeta23.PairCeiling.GridCorner.grid_corner_attained       Zeta23/PairCeiling/GridCorner.lean
    Zeta23.PairCeiling.GridCorner.grid_corner_law            Zeta23/PairCeiling/GridCorner.lean
    Zeta23.PairCeiling.GridCorner.grid_corner_pointwise      Zeta23/PairCeiling/GridCorner.lean
    Zeta23.PairCeiling.GridCorner.mark_one_count_ge          Zeta23/PairCeiling/GridCorner.lean
-   Zeta23.PairCeiling.GridParseval                          NOT DECLARED IN THE MIRROR
    Zeta23.PairCeiling.GridParseval.flat_band_trace_sq       Zeta23/PairCeiling/GridParseval.lean
    Zeta23.PairCeiling.GridParseval.trace_sq_grid            Zeta23/PairCeiling/GridParseval.lean
-   Zeta23.W1                                                NOT DECLARED IN THE MIRROR
-   Zeta23.W1.ArgPrincipleBridge                             NOT DECLARED IN THE MIRROR
-   Zeta23.W1.FDH                                            NOT DECLARED IN THE MIRROR
-   Zeta23.W1.Ledger                                         NOT DECLARED IN THE MIRROR
-   Zeta23.W1.Soundness                                      NOT DECLARED IN THE MIRROR
    Zeta23.W1.arbDH_zero                                     Zeta23/W1/FDH.lean
    Zeta23.W1.arbDH_zero'                                    Zeta23/W1/FDH.lean
    Zeta23.W1.arbNullDeepT100_exclusion                      Zeta23/W1/Ledger.lean
@@ -70,5 +56,5 @@ Lean names referenced in status.main_results + alignment.statements: 55
    Zeta23.W1.mpNullT100_exclusion                           Zeta23/W1/Ledger.lean
    Zeta23.W1.rectArgPrinciple_of_local                      Zeta23/W1/ArgPrincipleBridge.lean
 
-RESULT: FINDINGS: 0 schema error(s), 12 undeclared name(s)
-exit code: 1
+RESULT: PASS — errors: 0, undeclared names: 0
+exit code: 0

@@ -1,0 +1,36 @@
+# dr8/hashes-sigma-strong.txt — SHA-256 of every file the σ-strong sibling build created or changed (KICKSTART 10(i)); 2026-09-10 14:44 IST, Session 21, Job 1; base commit d4c7fc4 (the pre-edit values are listed at the end); BUILD-NOTES-sigma-strong.md itself is hashed in the final report and in LOG.md at the commit
+## changed (tracked)
+6881e6dbb40d6d927a2cc8198bcf9ce88b901a46196b6a593dac5116b7ce7496  lean/Zeta23/W1/Soundness.lean
+26c323216e7287f2a1e2bab1084276e9237601034c4007c5efbb6a57fc8d2fab  lean/Zeta23/W1/FDH.lean
+479976cd081e4cd5dab83458e648e85810296a0273069c21fd3ff62f650e70fc  lean/README.md
+d7b7518968ca6f272ac2b105ba729a1d0c5d20a30041319cb8eec7d65e82eb3c  lean/formalization.yaml
+59c2069fc8cec3cd706fd17359671729eaeb1a17f24c88665f342166dc98de5a  results/d1-m1/FORMAT.md
+ffdd32059e16157676b0241f0b567a721bf67c402a1815bdb3cf4ea06104104d  directions/D1-certified-refutation-arm.md
+6030b9cc679687ccb2eb30a9df8118f43908d0704325197a6558f4627636c88f  results/d1-m2a/packaging/FIDELITY.md
+3afb20f0bf8a34369a77e021536800002cfcfdc74579f38dd86a9249e2d21db7  results/d1-m2a/dr8/formalization-yaml-jsonschema.log
+## new
+5d5269a4c4ca310b8fa43231f3dc05fca99a96055a931a390bcff14c0168e4d6  results/d1-m2a/dr8/sigma-strong-axioms.log
+9dd79fdbb0da88e266fbaf49aa4226f081db0fa8e12c6202fa60cc1c2eefd27c  results/d1-m2a/dr8/sigma-strong-no-regression.log
+4f1fd8fbea8d068213797af5c5364f42603ad239e4a10dbc15fea4aa5d40ed38  results/d1-m2a/dr8/sigma-strong-trust-greps.log
+395765d577c8e47b6ef56d7d51a6c757016b8891084ac99591c82e8ecfff6d1c  results/d1-m2a/dr8/sigma-strong-untouched.log
+7e9b2325c947cadbea2fd678684c73b6c1cabcc1ee417fc7ada581bbea2717ee  results/d1-m2a/dr8/sigma-strong-build.log
+4b5969fe8b9a24b28fce8ab30bb42507b3bcbcc0c67015357028722ce086adc7  results/d1-m2a/dr8/sigma-strong-yaml.log
+85350db78d2d202f9ce3f92abbec4c3631eea158fb212eb763a3b6878501c738  results/d1-m2a/dr8/trust_greps_sigma_strong.py
+f68bc574631a5eb75de2c5d3e655ea7e1bcaf51cde07c26a57777acd16e759b1  results/d1-m2a/dr8/validate_yaml_sigma_strong.py
+## tree copies (must equal the mirror lines above)
+6881e6dbb40d6d927a2cc8198bcf9ce88b901a46196b6a593dac5116b7ce7496  /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/W1/Soundness.lean
+26c323216e7287f2a1e2bab1084276e9237601034c4007c5efbb6a57fc8d2fab  /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/Zeta23/W1/FDH.lean
+d7b7518968ca6f272ac2b105ba729a1d0c5d20a30041319cb8eec7d65e82eb3c  /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/formalization.yaml
+## unchanged, re-verified: the six comparator/* lines of packaging/hashes.txt and all 143 files under Zeta23/DBN/** and comparator/** (dr8/sigma-strong-untouched.log); Zeta23/W1/{Instances,Ledger,ArgPrincipleBridge,Format,Checker,Examples}.lean and Zeta23.lean not touched
+## pre-edit values (commit d4c7fc4; Soundness/FDH/README/formalization.yaml/FORMAT/FIDELITY equal the dr8/hashes-fdh.txt fix-pass block)
+aeb8f62ee9876762095d04903121596be1bb5f654626dfe588a4fb6c1e48d056  lean/Zeta23/W1/Soundness.lean
+ed6d88926ed51c04c8fd3d3c2e66016cd17ce3dbe318510c398d28638f01abc7  lean/Zeta23/W1/FDH.lean
+9917e357e61707e0053bbfdb49a44f1f563316440482d4c6295aabfc41541e95  lean/README.md
+99b77f8022bfef03494c980acb1710e58b81dbf16c99f11749bc542d640746b0  lean/formalization.yaml
+ccd56d8eb3648d1cd7fb7828cb44d3e540dbea7539b3788c33f1012d040b2665  results/d1-m1/FORMAT.md
+fe0241209a65cb5fdecbd8fc9bffbf325a213280c04baa2b057856b33406f58e  directions/D1-certified-refutation-arm.md
+dee704cf8f3762db01a33c7893b5c26a53549b25a80c103f4a2552263e681c99  results/d1-m2a/packaging/FIDELITY.md
+bdb3274bdfd9ccb477a3e4f5b7221ecd8f5b9dcc505f24b2880fdcefe9e103bc  results/d1-m2a/dr8/formalization-yaml-jsonschema.log
+cb115daf32af7a80ac4626a3404498d4e468cb09e0559e5cd56c571412bacb47  results/d1-m2a/dr8/hashes-sigma-strong.txt
+c7631e2de1971dc3717fdba0bc4d6b2150cded562129fd5ab3b1630f2a3b4cff  results/d1-m2a/dr8/BUILD-NOTES-sigma-strong.md
+## appended: hashes-sigma-strong.txt (its own pre-append value) and BUILD-NOTES-sigma-strong.md
