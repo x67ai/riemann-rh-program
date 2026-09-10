@@ -1513,3 +1513,4 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **New artifacts:** `results/fetch-r5/`, `FETCH-RESPONSE-ROUND5.md`, corpus-routing caveat 22; `results/d1-m2a/packaging/` (+ `lean/comparator/`, `lean/formalization.yaml`, `lean/Zeta23.lean`); `results/d1-m2a/dr8/`; `results/d1-m3/`; `lean/Zeta23/W1/{FDH,Ledger}.lean`; `results/c3-r/s20/{insights-digest.md, dc/}`; `results/c3-r/SHARED.md`.
 **Open at close:** nothing running. Sponsor: ÁLKL email if not sent; corpus backup; no fetch list open.
 **Next session should:** follow the SESSION 21 QUEUE in STATUS (program-wide consolidation digest first).
+- **09:23 IST — post-close addendum (Session 20): the ÁLKL courtesy note WAS SENT** on Mon 2026-09-07 13:06 to the three authors with both attachments (sponsor's screenshot `~/Downloads/screen.png`, read by vision). Matter CLOSED; Session-19 print-page contingency retired; STATUS Session 21 queue item 4(a) and the C3 direction file updated.
