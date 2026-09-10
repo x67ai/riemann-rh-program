@@ -102,7 +102,8 @@ for z in (mp.mpc(0.25, 0.0), mp.mpc(0.25, 7.0), mp.mpc(0.75, 50.0), mp.mpc(0.5, 
         if tau < mp.mpf('1e-8'):
             return (z - mp.mpf(3) / 2) + tau * (mp.mpf(5) / 12 + z / 2 - z * z / 2)  # Taylor expansion of the integrand at tau = 0
         return mp.exp(-tau) / tau - mp.exp(-z * tau) / (1 - mp.exp(-tau))
-    val = mp.quad(f, [0, mp.mpf('1e-8'), mp.mpf('0.01'), 0.5, 2, 10, 60, 200])
+    pts = [0, mp.mpf('1e-8'), mp.mpf('0.01')] + [mp.mpf(k) / 20 for k in range(1, 400)] + [20 + k for k in range(1, 181)]
+    val = mp.quad(f, pts)
     gauss.append(dict(z=str(z), integral=str(val), digamma=str(mp.digamma(z)), diff=float(abs(val - mp.digamma(z)))))
 out["D_gauss_integral_check"] = gauss
 print("D     Gauss integral vs digamma, |diff|:", [g["diff"] for g in gauss])
@@ -117,7 +118,9 @@ def F(r):
 recA = []
 for (a, x) in ((0.6, 0.0), (0.6, 30.0), (1.0, 100.0), (0.55, 1000.0), (1.5, 0.0)):
     integrand = lambda th: F(x + a * mp.tan(th)) / mp.pi          # r = x + a tan(theta): Poisson weight becomes dtheta/pi
-    val = mp.quad(integrand, [-mp.pi / 2, -1.5, -1.0, 0, 1.0, 1.5, mp.pi / 2])
+    # breakpoints where F varies fastest (r near 0, where Re psi(1/4 + ir/2) has its dip) and near the endpoints
+    brk = sorted(set([float(mp.atan((r0 - x) / a)) for r0 in (-30, -10, -3, -1, 0, 1, 3, 10, 30)] + [-1.5, -1.0, 0.0, 1.0, 1.5]))
+    val = mp.quad(integrand, [-mp.pi / 2] + brk + [mp.pi / 2])
     rhs = mp.re(mp.digamma((mp.mpf(1) / 2 + a + 1j * x) / 2)) - mp.log(mp.pi)
     recA.append(dict(a=a, x=x, poisson_integral=float(val), rhs=float(rhs), diff=float(abs(val - rhs))))
     print(f"A     a={a}, x={x}: Poisson integral = {float(val):.10f}, Re psi((1/2+a+ix)/2) - log pi = {float(rhs):.10f}, diff = {float(abs(val-rhs)):.2e}")

@@ -1,0 +1,239 @@
+# Excerpts of the two S(t) sources as READ 2026-09-10 (pdftotext -layout of the arXiv PDFs; on disk fetched-r6/r6-01, r6-02; SHA-256 below). Written by Job 1 for the dual checker.
+SHA-256 hsw (2107.06506v1): 3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf
+SHA-256 tru (1208.5846v2): 274b3a0a14d79400f23505ede664a2f77b0a6ad7278245d25ec6e06169e2a303
+
+===== HSW abstract and Table 1 (pdftotext lines 1-51) =====
+COUNTING ZEROS OF THE RIEMANN ZETA FUNCTION
+
+ELCHIN HASANALIZADE, QUANLI SHEN, AND PENG-JIE WONG
+
+
+Abstract. In this article, we show that
+
+
+
+
+arXiv:2107.06506v1 [math.NT] 14 Jul 2021
+     
+T         T
+N (T ) −     log         ≤ 0.1038 log T + 0.2573 log log T + 9.3675
+2π       2πe
+where N (T ) denotes the number of non-trivial zeros ρ, with 0 < Im(ρ) ≤ T , of the Riemann zeta
+function. This improves the previous result of Trudgian for sufficiently large T . The improvement
+comes from the use of various subconvexity bounds and ideas from the work of Bennett et al. on
+counting zeros of Dirichlet L-functions.
+
+
+
+
+1. Introduction
+Let ζ(s) be the Riemann zeta function defined by
+∞
+X 1
+ζ(s) =              ,
+n=1
+ns
+
+for Re(s) > 1, which has an analytic continuation to a meromorphic function on C with only a
+simple pole at s = 1. The study of zeros of ζ(s) is an important topic in number theory. In this
+article, we shall estimate the number of non-trivial zeros ρ = β + iγ, with 0 < γ ≤ T , of ζ(s). For
+T ≥ 0, we set
+N (T ) = #{ρ ∈ C | ζ(ρ) = 0, 0 < β < 1, 0 < γ ≤ T }.
+Before stating our results, we shall note that the study of N (T ) has a long history. Indeed, for
+T ≥ T0 , writing
+     
+T         T
+N (T ) −    log          ≤ C1 log T + C2 log log T + C3 ,                (1.1)
+2π       2πe
+we have the following table summarising the progress that has been made.
+
+C1         C2     C3      T0
+Von Mangoldt [19] (1905)         0.4320     1.9167 13.0788 28.5580
+Grossmann [6] (1913)           0.2907     1.7862 7.0120     50
+Backlund [1] (1918)           0.1370     0.4430 5.2250    200
+Rosser [14] (1941)           0.1370     0.4430 2.4630      2
+Trudgian [17] (2014)           0.1120     0.2780 3.3850      e
+Corollary 1.2              0.1038     0.2573 9.3675      e
+
+===== HSW Theorem 1.1 (1.4), Corollary 1.2 (1.5), S(T) definition, Theorem 1.3, (1.7), Corollary 1.4 (lines 64-106) =====
+mating sums over zeros of ζ(s), and all the best known bounds for π(x) and ψ(x) rely on them (see,
+e.g., [5]).
+   In this article, we prove the following general result for N (T ) with explicit dependence on the
+given bounds for ζ(s) on the both 12 -line and 1-line.
+Theorem 1.1. Let c, r, η be positive real numbers satisfying
+     1                          1                     1       1                      (c − 1/2)2
+  − < c − r < 1 − c < −η < ≤ δ := 2c − σ1 − < < 1 + η < σ1 := c +                                  <c+r
+     2                          4                     2       2                           r
+and θ1+η ≤ 2.1, where θy is defined in (4.10). Let c1 , c2 , k1 , k3 ≥ 0, k2 ∈ [0, 12 ] and t0 , t1 ≥ e such
+that for t ≥ t0 ,
+|ζ(1 + it)| ≤ c1 (log t)c2 ,                                     (1.2)
+and for t ≥ t1 ,
+|ζ( 12 + it)| ≤ k1 tk2 (log t)k3 .                                 (1.3)
+Let T0 ≥ e be fixed. Then for any T ≥ T0 , we have
+      
+T         T         1
+N (T ) −    log           +    ≤ C1 log T + C2 log log T + C3 ,                    (1.4)
+2π       2πe        8
+where C1 = C1 (c, r, η; k2 ), C2 = C2 (c, r, η; c2 , k3 ), C3 = C3 (c, r, η; c1 , c2 , t0 , k1 , k2 , k3 , t1 ; T0 ) are
+defined in (5.1), (5.2), (5.3), and (5.4), and some admissible values of C1 , C2 , and C3 are recorded
+in Table 2 in Section 5.
+   As a consequence, we obtain an explicit estimate for N (T ) as follows.
+Corollary 1.2. For any T ≥ e, we have
+     
+T         T
+N (T ) −    log         ≤ 0.1038 log T + 0.2573 log log T + 9.3675.                                  (1.5)
+2π       2πe
+   Note that C1 = 0.1038 is the smallest value that can be obtained by our argument and compu-
+tation, and one can make C2 and C3 smaller at expense of larger C1 .
+   Let S(T ) = π1 ∆L arg ζ(s), where L denotes the straight line from 2 to 2 + iT and then to 21 + iT .
+We also have the following theorem concerning the argument of ζ(s) along the critical line.
+Theorem 1.3. In the notation and assumptions of Theorem 1.1, for any T ≥ T0 , we have
+|S(T )| ≤ C1 log T + C2 log log T + C3′ ,                                     (1.6)
+where C1 = C1 (c, r, η; k2 ), C2 = C2 (c, r, η; c2 , k3 ), C3′ = C3′ (c, r, η; c1 , c2 , t0 , k1 , k2 , k3 , t1 ; T0 ) are
+defined in (5.1), (5.2), (5.3), and (5.7), and some admissible values of C1 , C2 , and C3′ are recorded
+in Table 2 in Section 5.
+  A stronger bound for S(T ), up to certain given height, can be confirmed using the database of
+non-trivial zeros of ζ(s) computed by Platt and made available at [9]. Indeed, nowadays, one has
+|S(T )| ≤ 2.5167                                                 (1.7)
+1
+for 0 ≤ T ≤ 30 610 046 000. Hence, by Theorem 1.3 (with T0 = 30 610 046 000 and Table 2) and
+(1.7), we derive the following explicit bound for S(T ).
+Corollary 1.4. For any T ≥ e, we have
+
+[Visual read of p. 2: (1.4) is |N(T) - (T/2pi) log(T/2pi e) + 1/8| <= C1 log T + C2 log log T + C3; (1.5) is |N(T) - (T/2pi) log(T/2pi e)| <= 0.1038 log T + 0.2573 log log T + 9.3675 for T >= e.]
+
+===== HSW Table 2 and proof of Corollary 1.2 incl. (5.5)-(5.6) (lines 940-966) =====
+1] states that (k1 , k2 , k3 ) = (0.732, 16 , 1) is admissible. However, as pointed out by [10], both bounds made use of an
+incorrect result obtained by Cheng-Graham in [4]. We refer the reader to [10] for a detailed discussion.
+                         COUNTING ZEROS OF THE RIEMANN ZETA FUNCTION                                                                 15
+
+c           r             η                               C1       C2       C3       C3′
+      1.000011314 1.064340602 4.2826451 · 10−6                    0.103787 0.257297 9.367419 8.367419
+      1.025253504 1.182375395 0.009944751381                      0.109410 0.204142 4.030486 3.030486
+      1.035766557 1.229059659 0.014325507360                      0.111973 0.189768 3.746756 2.746756
+
+         Table 2. Choices of parameters (c, r, η) and resulting admissible (C1 , C2 , C3 , C3′ )
+
+  Now, we are in a position to prove Corollary 1.2.
+Proof of Corollary 1.2. By Theorem 1.1 (with T0 = 30 610 046 000 and Table 2), it is sufficient to
+verify the corollary for e ≤ T ≤ 30 610 046 000. We note that by (2.8),
+                                  
+1                1            T       T      1
+S(T ) = ∆C0 arg ζ(s) =        NQ (T ) − log         + − g(T ) − 2 ,           (5.5)
+π                2            π      2πe     4
+where g(T ) is defined as in (2.6). Thus, by (1.7) and (2.7), we obtain
+     
+T         T      1              1                       1
+N (T ) −    log         +    ≤ |S(T )| + |g(T )| + 1 ≤ 2.5167 +     +1                                             (5.6)
+2π       2πe     8              2                      50e
+for e ≤ T ≤ 30 610 046 000. (We remark that one may apply [3, Lemma 2] to improve (5.6) for T ≥
+2π.) As the quantity on the right of (5.6) clearly is less than 0.1038 log T + 0.2573 log log T + 9.3675
+for any T ≥ e. We then conclude the proof by using the triangle inequality.                           
+  To end this section, we shall prove Theorem 1.3.
+
+===== TRUDGIAN abstract, Table 1, Theorem 1, Corollary 1, (1.2) (lines 14-70) =====
+arXiv:1208.5846v2 [math.NT] 5 Sep 2012
+TIMOTHY TRUDGIAN
+
+
+Abstract. This paper concerns the function S(T ), the argument of the Rie-
+mann zeta-function along the critical line. The main result is that
+|S(T )| ≤ 0.111 log T + 0.275 log log T + 2.450,
+which holds for all T ≥ e.
+
+
+
+
+1. Summary of Results
+This paper is the sequel to [14] and is related to [13]; reference will be made
+frequently to these papers. Write
+(1.1)              |S(T )| ≤ a log T + b log log T + c,          for T ≥ T0 ,
+whence the following table provides a brief historical summary.
+Table 1. Bounds on S(T ) in (1.1)
+
+a                  b      c     T0
+Von Mangoldt [15] 1905    0.432              1.917 12.204 28.588
+Grossmann [5] 1913        0.291              1.787 6.137    50
+Backlund [1] 1914         0.275              0.979 7.446   200
+Backlund [2] 1918         0.137              0.443 4.35    200
+Rosser [10] 1941          0.137              0.443 1.588   1467
+Trudgian [14] 2012         0.17                0   1.998     e
+Trudgian (Theorem 1) 2012 0.111              0.275 2.450     e
+
+Note that the result in [14] improves on that in [10] when 25 ≤ T ≤ 1015 . The
+purpose of this article is to improve on the result in [10] for all T . This is achieved
+with the following theorem.
+Theorem 1.
+|S(T )| ≤ 0.111 log T + 0.275 log log T + 2.450,
+for T ≥ e.
+This implies the following result concerning N (T ), the number of complex zeroes
+of ζ(s) with imaginary parts in (0, T ).
+
+Received by the editor February 24, 2011.
+2010 Mathematics Subject Classification. Primary 11M06; Secondary 11M26.
+Key words and phrases. Riemann zeta-function, convexity estimate.
+Supported by ARC Grant DE120100173.
+
+c XXXX American Mathematical Society
+
+1
+2                                   TIMOTHY TRUDGIAN
+
+
+Corollary 1. For T ≥ T0 ≥ e
+              T       T   7                                           0.2
+     N (T ) −    log    −   ≤ 0.111 log T + 0.275 log log T + 2.450 +     .
+              2π     2πe 8                                            T0
+    It is known (see, e.g., [3, 11]) that1
+(1.2)      |S(T )| ≤ 1, for 0 ≤ T ≤ 280,       |S(T )| ≤ 2, for 0 ≤ T ≤ 6.8 · 106 .
+The approach taken in this paper is to prove results initially for T > T0 > 6.8 · 106 ,
+and then for all T by using (1.2). Note that Theorem 1 is sharper than Rosser’s
+bound in [10] whenever T ≥ 6.4 · 106 ; for smaller values of T one is better placed
+
+===== TRUDGIAN (2.2)-(2.5) (lines 112-157) =====
+1 − σ1 ± iT . Let C denote the portion of the rectangle in the region ℜ(s) ≥ 21 and
+ℑ(s) ≥ 0. Write C as the union of two straight lines, viz. let C = C1 + C2 , where C1
+connects 0 to σ1 + iT and C2 connects σ1 + iT to 21 + iT . From Cauchy’s theorem
+and (2.1) one deduces that πN (T ) = ∆C arg ξ(s). Thus
+                                                                 s
+(2.2)     πN (T ) = ∆C arg π −s/2 + ∆C arg s(s − 1) + ∆C arg Γ        + πS(T ),
+                                                                  2
+where
+(2.3)         πS(T ) = ∆C1 arg ζ(s) + ∆C2 arg a(s) − ∆C2 arg(s − 1).
+The only terms in (2.2) and (2.3) that require more than a passing mention are
+∆C1 arg ζ(s), ∆C arg Γ 2s and ∆C2 arg a(s). For the first use
+                   | arg ζ(σ1 + it)| ≤ | log ζ(σ1 + it)| ≤ log ζ(σ1 ),
+and for the second use
+                                  
+                                 1              1          θ
+                  log Γ(z) = z −     log z − z + log 2π +      ,
+                                 2              2         6|z|
+(see, e.g., [7, p. 294]) which is valid for | arg z| ≤ π2 , and in which θ denotes a
+complex number satisfying |θ| ≤ 1. To estimate ∆C2 arg a(s) write
+                                   1
+(2.4)                    f (s) =     {a(s + iT )N + a(s − iT )N },
+                                   2
+for some positive integer N , to be determined later. Thus f (σ) = ℜa(σ + iT )N .
+Suppose that there are n zeroes of ℜa(σ + iT )N for σ ∈ C2 . These zeroes partition
+the segment into n + 1 intervals. On each interval arg a(σ + iT )N can increase by
+at most π, whence
+                                       1                    (n + 1)π
+                  |∆C2 arg a(s)| =       |∆C2 arg a(s)N | ≤
+                                       N                       N
+In conclusion, when T ≥ 1
+(2.5)
+                                                            
+           T       T   7    1      −1 1      T           1        1
+  N (T ) −    log    −   ≤     tan         +    log 1 +        +     + |S(T )|
+           2π     2πe 8    4π        2T      4π         4T 2     3πT
+                           0.2
+                         ≤      + |S(T )|,
+                            T
+where
+                    (n + 1)  1             1      1  1      σ1
+           |S(T )| ≤        + log ζ(σ1 ) + tan−1    + tan−1
+                      N      π             π     2T  π      T
+                    (n + 1)  1             0.8
+                  ≤         + log ζ(σ1 ) +     .
+                      N      π              T
+The inequality in (2.5) enables one to deduce Corollary 1 from Theorem 1.
