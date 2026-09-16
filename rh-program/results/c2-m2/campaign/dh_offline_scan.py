@@ -29,7 +29,7 @@ logf = open(os.path.join(HERE, 'logs', 'dh_offline_scan.log'), 'a')
 def log(s):
     print(s, flush=True); logf.write(s + '\n'); logf.flush()
 log("=" * 120)
-log("[%s] dh_offline_scan.py START (cap %d s)" % (cl.now(), CAP_S))
+log("[%s] dh_offline_scan.py START (cap %d s)  [restarted 21:36 IST after the safe_T fix: the first launch spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass]" % (cl.now(), CAP_S))
 mp.mp.dps = 15
 out = dict(date=cl.now(), blocks=[], offline=[], found_in_strip=[], cap_s=CAP_S)
 def elapsed(): return time.time() - T0
@@ -60,7 +60,8 @@ def safe_T(T):
     T = mp.mpf(T)
     for k in range(20):
         v = Zline(T)
-        if abs(v) > 1e-6*max(1, abs(Zline(T + mp.mpf('0.02')))): return T
+        # Xi_DH decays like e^{-pi T/4} (1e-307 at T = 900), so the test is RELATIVE to the neighbors
+        if abs(v) > 1e-3*max(abs(Zline(T + mp.mpf('0.1'))), abs(Zline(T - mp.mpf('0.1')))): return T
         T += mp.mpf('0.013')
     return T
 def online_count(T1, T2, step=mp.mpf('0.05')):

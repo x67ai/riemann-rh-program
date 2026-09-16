@@ -2,19 +2,19 @@
 
 **Written 2026-09-16 21:17 IST by the builder (Fable 5.1, Session 22). Purpose: ANY later session can harvest without the builder.** INSTRUMENT (standing order 4): every table decides constants and the detection-bandwidth law; nothing about RH. Paths contain spaces — quote them. Do not commit by hand (the watchdogs commit every ten minutes and push every minute).
 
-## 1. What is running (all nohup, under `results/c2-m2/campaign/`; PID files under `logs/`)
+## 1. State (updated 2026-09-16 21:33 IST): ALL FOUR HEIGHTS DONE; CAMPAIGN.md at v1; the DH sub-task is the only process still running
 
-| process | PID file | started | what it does | expected duration | writes |
-|---|---|---|---|---|---|
-| `launch_heights.sh` (supervisor) | `logs/launch_heights.pid` (13906) | 21:15:40 IST | batch 1: `run_height.py --t 1e4 --tag t1e4` ‖ `--t 1e5 --tag t1e5`; when both exit, batch 2: `--t 1e6 --tag t1e6`; then `python3 aggregate.py` (CAMPAIGN.md v1). ≤ 2 heavy processes at any time (`ps -Ao pcpu,comm \| awk '$1>50'`). | ~3–6 min per height (zeros: 0.3 s/zero × 340 / 450 / 1150 at 10⁴ / 10⁵ / 10⁶, plus ~1 min of transforms and the 143-center ensemble); all done ≈ 21:40 IST | `logs/launch.log`, `logs/launch.stdout` |
-| `run_height.py` t = 10⁴ | `logs/height_t1e4.pid` (13925) | 21:15:40 | one height end to end | ~4 min | `zeros_t1e4.json`, `rows_t1e4.{csv,json}`, `finescan_t1e4.json`, `summary_t1e4.json`, `logs/height_t1e4.log` (+ `.stdout`; a progress line every 500 zeros) |
-| `run_height.py` t = 10⁵ | `logs/height_t1e5.pid` (13936) | 21:15:45 | same | ~5 min | same pattern with `t1e5` |
-| `run_height.py` t = 10⁶ | `logs/height_t1e6.pid` (written by the supervisor when batch 1 exits) | after batch 1 | same | ~8 min | same pattern with `t1e6` |
-| DH sub-task wrapper → `dh_offline_scan.py` | `logs/dh_wrapper.pid`; the scan logs to `logs/dh_offline_scan.log` | waits for the supervisor to exit, then starts | PRICING §2(c): scan f_DH for one more off-line orbit in the strip at height ≤ 10³ (blocks of 5; phase count vs on-line sign changes; Newton to locate; the known orbit at 85.699 must be re-found); if found, the zero-side control there (as at 85.7); 30-minute cap | ≤ 30 min | `dh_offline_scan.json`, `logs/dh_offline_scan.log` |
+| height | zeros (±U_data) | s/zero | controls | stop conditions | run time | finished |
+|---|---|---|---|---|---|---|
+| 10³ (rehearsal) | 459 (±285.6), indices 427..885 | 0.166 | positive PASS (min W_{Z′} = 4.1·10⁻¹⁹), negative PASS | (i) 0.329 s/zero no; (ii) no; (iv) center-mean N_Z/model ∈ [0.42, 1.08] no; (iii) pending checker | 118 s (+ 76 s zeros) | 21:15 IST |
+| 10⁴ | 681 (±290.3), 9804..10484 | 0.600 | PASS / PASS (min W_{Z′} = 1.2·10⁻¹²) | (ii) no; (iv) [0.89, 1.16] no | 451 s | 21:23 |
+| 10⁵ | 905 (±294.1), 137617..138521 | 0.422 | PASS / PASS (3.4·10⁻²³) | (ii) no; (iv) [0.69, 1.04] no | 437 s | 21:23 |
+| 10⁶ | 1133 (±297.2), 1746580..1747712 | 0.344 | PASS / PASS (2.3·10⁻¹⁹) | (ii) no; (iv) [0.91, 1.30] no | 458 s | 21:31 |
 
-Done before this file was written: the dress rehearsal t = 10³ (`zeros_t1e3.json`, `rows_t1e3.{csv,json}`, `summary_t1e3.json`, `finescan_t1e3.json`, `logs/height_t1e3.log` — PASSED, no stop condition fires; see `SHARED.md` checkpoint 1) and item (6) (`outwindow_test.json`, `logs/outwindow_test.log`). `CAMPAIGN.md` is at v0 (rehearsal + item (6)).
-
-Liveness: `kill -0 $(cat logs/<name>.pid)`; heavy count: `ps -Ao pcpu,comm | awk '$1>50'`. If a height process died (no `summary_<tag>.json`, PID dead, a `Traceback` at the end of `logs/height_<tag>.stdout`), rerun it alone: `cd "…/results/c2-m2/campaign" && nohup python3 run_height.py --t 1e5 --tag t1e5 > logs/height_t1e5.stdout 2>&1 &` (add `--reuse-zeros` if `zeros_<tag>.json` exists and only the rows need recomputing). Each height's log ends with `run_height.py DONE … any stop condition fires: True/False`.
+* The supervisor `launch_heights.sh` (pid 13906) ran batch 1 (10⁴ ‖ 10⁵, 21:15:40–21:23:15) then batch 2 (10⁶, 21:23:15–21:30:53), then `aggregate.py` → **`CAMPAIGN.md` v1 (21:31:16 IST)**, and exited (`logs/launch.log`). No stop condition fired at any height ((iii) is the checker's).
+* **Still running: the DH sub-task** — `dh_offline_scan.py` (started by the wrapper pid 14018 when the supervisor exited; find it with `pgrep -f dh_offline_scan.py`; log `logs/dh_offline_scan.log`, JSON `dh_offline_scan.json`; 30-minute cap → done by ≈ 22:03 IST). Its last log line says either "DH control available at N further height(s)" (then the control rows are in the JSON and in the log) or "DH at one height only …". Harvest: step 3 of §3 below.
+* Checkpoints 1–3 (hashes of every zeros / rows / summary / log file, the controls and the stop-condition lines per height, CAMPAIGN.md v0 and v1) are in `results/c2-m2/SHARED.md` (appended by `checkpoint.sh`).
+* Heavy-process check: `ps -Ao pcpu,comm | awk '$1>50'` (should show at most the DH scan now).
 
 ## 2. Where the outputs land and what each is
 

@@ -1,6 +1,6 @@
-# CAMPAIGN.md -- the zero-side numerics campaign for Theorem M2 (C2; PRICING.md section 2) -- v0 (heights present: t1e3, t1e4, t1e5)
+# CAMPAIGN.md -- the zero-side numerics campaign for Theorem M2 (C2; PRICING.md section 2) -- v1
 
-**Built 2026-09-16 21:24:27 by `aggregate.py` from the row files on disk** (`rows_<tag>.json`, `summary_<tag>.json`, `finescan_<tag>.json`, `outwindow_test.json`, all under `results/c2-m2/campaign/`; logs under `logs/`). Every number below is read from those files; nothing is typed in. **INSTRUMENT (standing order 4): every table here decides constants and the detection-bandwidth law of the first-order datum on zeta's actual zeros; nothing here is a statement about RH.** Heights present: t = 1000, t = 10000, t = 100000.
+**Built 2026-09-16 21:31:15 by `aggregate.py` from the row files on disk** (`rows_<tag>.json`, `summary_<tag>.json`, `finescan_<tag>.json`, `outwindow_test.json`, all under `results/c2-m2/campaign/`; logs under `logs/`). Every number below is read from those files; nothing is typed in. **INSTRUMENT (standing order 4): every table here decides constants and the detection-bandwidth law of the first-order datum on zeta's actual zeros; nothing here is a statement about RH.** Heights present: t = 1000, t = 10000, t = 100000, t = 1e+06.
 
 ## 0. Method (one code path: `campaign_lib.py`; driver `run_height.py`; item (6): `outwindow_test.py`)
 
@@ -17,29 +17,30 @@
 | 1000 | 459 (±285.6) | 427..885 | 0.166 | 9.7e-13 | 183 | 4.095e-19 (PASS: True) | 0 | PASS | 0.329 s/zero → no | no | 0.652 [0.422, 1.081] (0) → no | 118 s |
 | 10000 | 681 (±290.3) | 9804..10484 | 0.600 | 1.9e-11 | 183 | 1.170e-12 (PASS: True) | 0 | PASS | (rehearsal) | no | 0.983 [0.886, 1.159] (0) → no | 451 s |
 | 100000 | 905 (±294.1) | 137617..138521 | 0.422 | 2.2e-10 | 183 | 3.446e-23 (PASS: True) | 0 | PASS | (rehearsal) | no | 0.815 [0.687, 1.037] (0) → no | 437 s |
+| 1e+06 | 1133 (±297.2) | 1746580..1747712 | 0.344 | 2.9e-09 | 183 | 2.334e-19 (PASS: True) | 0 | PASS | (rehearsal) | no | 1.101 [0.909, 1.297] (0) → no | 458 s |
 
 Stop condition (iii) (the checker's independent transform within 10⁻⁸ relative on two rows per height) is the Opus checker's item; its verdicts are appended to `SHARED.md` / `CHECK-O.md`, not decided here.
 
 ## 2. The twelve-point tables: L_sign(δ, t) and L_bal3(δ, t) (INSTRUMENT; fine grid step 0.1; E₋ excluded from W_Z)
 
-| δ \ t | 1000 | 10000 | 100000 |
-|---|---|---|---|
-| L_sign, δ = 0.05 — at t ; median [p10, p90] over centers | 32.1 ; 20.6 [14.6, 35.9] | 25.1 ; 27.8 [19.4, 38.3] | 25.8 ; 29.0 [19.5, 39.0] |
-| L_sign, δ = 0.10 — at t ; median [p10, p90] over centers | 19.4 ; 15.4 [10.8, 19.4] | 13.5 ; 18.0 [12.9, 20.9] | 20.1 ; 19.2 [14.6, 22.3] |
-| L_sign, δ = 0.25 — at t ; median [p10, p90] over centers | 6.7 ; 8.4 [7.2, 9.8] | 8.8 ; 9.2 [8.0, 10.6] | 9.5 ; 10.2 [9.0, 11.2] |
-| L_bal3, δ = 0.05 — at t ; median [p10, p90] over centers | 37.6 ; 24.0 [18.4, 48.7] | 58.8 ; 35.0 [23.1, 56.2] | 29.2 ; 36.2 [25.6, 56.8] |
-| L_bal3, δ = 0.10 — at t ; median [p10, p90] over centers | 28.5 ; 19.4 [13.6, 29.8] | 22.2 ; 25.0 [17.1, 30.8] | 23.9 ; 26.0 [18.4, 31.8] |
-| L_bal3, δ = 0.25 — at t ; median [p10, p90] over centers | 11.6 ; 11.2 [8.8, 13.2] | 11.1 ; 12.8 [10.0, 14.4] | 13.4 ; 13.8 [11.8, 15.4] |
+| δ \ t | 1000 | 10000 | 100000 | 1e+06 |
+|---|---|---|---|---|
+| L_sign, δ = 0.05 — at t ; median [p10, p90] over centers | 32.1 ; 20.6 [14.6, 35.9] | 25.1 ; 27.8 [19.4, 38.3] | 25.8 ; 29.0 [19.5, 39.0] | 33.3 ; 31.4 [22.6, 40.0] |
+| L_sign, δ = 0.10 — at t ; median [p10, p90] over centers | 19.4 ; 15.4 [10.8, 19.4] | 13.5 ; 18.0 [12.9, 20.9] | 20.1 ; 19.2 [14.6, 22.3] | 22.4 ; 20.6 [16.0, 23.6] |
+| L_sign, δ = 0.25 — at t ; median [p10, p90] over centers | 6.7 ; 8.4 [7.2, 9.8] | 8.8 ; 9.2 [8.0, 10.6] | 9.5 ; 10.2 [9.0, 11.2] | 11.0 ; 10.8 [9.8, 11.8] |
+| L_bal3, δ = 0.05 — at t ; median [p10, p90] over centers | 37.6 ; 24.0 [18.4, 48.7] | 58.8 ; 35.0 [23.1, 56.2] | 29.2 ; 36.2 [25.6, 56.8] | 38.5 ; 42.2 [29.6, 60.2] |
+| L_bal3, δ = 0.10 — at t ; median [p10, p90] over centers | 28.5 ; 19.4 [13.6, 29.8] | 22.2 ; 25.0 [17.1, 30.8] | 23.9 ; 26.0 [18.4, 31.8] | 28.9 ; 27.2 [20.0, 32.2] |
+| L_bal3, δ = 0.25 — at t ; median [p10, p90] over centers | 11.6 ; 11.2 [8.8, 13.2] | 11.1 ; 12.8 [10.0, 14.4] | 13.4 ; 13.8 [11.8, 15.4] | 13.3 ; 14.4 [13.0, 16.0] |
 
-'At t' is the contract's L_sign(δ, t) at the height exactly (fine grid step 0.1); 'over centers' is the same quantity at the 143, 145, 147 centers t' = t + 2j inside the data window (section (M) of the height log; fine grid step 0.2) — the median is the ensemble instrument, the band shows how configuration-dominated a single-t value is.
+'At t' is the contract's L_sign(δ, t) at the height exactly (fine grid step 0.1); 'over centers' is the same quantity at the 143, 145, 147, 149 centers t' = t + 2j inside the data window (section (M) of the height log; fine grid step 0.2) — the median is the ensemble instrument, the band shows how configuration-dominated a single-t value is.
 
 Reference values per (δ, t) from the record (`zero_data_cost_run.log` (d)–(g)): density model L_bal(κ=1) / L_bal(κ=3); the theorem's L*(C₁ = 1); the transcript's L_ann = 1.12δ^{−0.07}(log(t/2π))^{0.89}:
 
-| δ \ t | 1000 | 10000 | 100000 |
-|---|---|---|---|
-| δ = 0.05: model κ=1 / κ=3 ; L* ; L_ann | 25.2 / 35.5 ; 862.5 ; 5.9 | 28.3 / 39.8 ; 885.5 ; 8.2 | 30.9 / 43.2 ; 903.3 ; 10.4 |
-| δ = 0.10: model κ=1 / κ=3 ; L* ; L_ann | 15.7 / 21.9 ; 375.8 ; 5.6 | 17.6 / 24.5 ; 387.3 ; 7.8 | 19.2 / 26.5 ; 396.2 ; 9.9 |
-| δ = 0.25: model κ=1 / κ=3 ; L* ; L_ann | 8.3 / 11.4 ; 121.0 ; 5.2 | 9.3 / 12.7 ; 125.6 ; 7.3 | 10.1 / 13.6 ; 129.2 ; 9.3 |
+| δ \ t | 1000 | 10000 | 100000 | 1e+06 |
+|---|---|---|---|---|
+| δ = 0.05: model κ=1 / κ=3 ; L* ; L_ann | 25.2 / 35.5 ; 862.5 ; 5.9 | 28.3 / 39.8 ; 885.5 ; 8.2 | 30.9 / 43.2 ; 903.3 ; 10.4 | 33.0 / 46.0 ; 917.9 ; 12.6 |
+| δ = 0.10: model κ=1 / κ=3 ; L* ; L_ann | 15.7 / 21.9 ; 375.8 ; 5.6 | 17.6 / 24.5 ; 387.3 ; 7.8 | 19.2 / 26.5 ; 396.2 ; 9.9 | 20.4 / 28.1 ; 403.5 ; 12.0 |
+| δ = 0.25: model κ=1 / κ=3 ; L* ; L_ann | 8.3 / 11.4 ; 121.0 ; 5.2 | 9.3 / 12.7 ; 125.6 ; 7.3 | 10.1 / 13.6 ; 129.2 ; 9.3 | 10.7 / 14.4 ; 132.1 ; 11.2 |
 
 ## 3. The three-law comparison (PRICING §2(a) last paragraph; §2(d) item 1) — δ-ratios 1.12 : 2.9 : 5
 
@@ -50,29 +51,30 @@ The three laws predict L(δ = 0.05)/L(δ = 0.25) = 5^{0.07} = 1.12 (transcript),
 | 1000 | 4.79 | 3.24 | 3.04 | 3.11 |
 | 10000 | 2.85 | 5.30 | 3.04 | 3.13 |
 | 100000 | 2.72 | 2.18 | 3.06 | 3.18 |
+| 1e+06 | 3.03 | 2.89 | 3.08 | 3.19 |
 
-* **L_sign at t**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 9 points: **b = 0.752, c = 0.062**, max residual factor 1.240. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
-* **L_bal3 at t**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 9 points: **b = 0.752, c = -0.130**, max residual factor 1.452. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
-* **L_sign median over centers**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 9 points: **b = 0.635, c = 0.396**, max residual factor 1.106. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
-* **L_bal3 median over centers**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 9 points: **b = 0.572, c = 0.483**, max residual factor 1.145. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
-   * L_sign at t against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 1.86): measured/predicted in [0.804, 1.364] → YES within a factor 1.5
-   * L_sign at t against the theorem δ^{-1} law (free prefactor 1.7): measured/predicted in [0.737, 1.396] → YES within a factor 1.5
-   * L_sign at t against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 2.35): measured/predicted in [0.486, 2.607] → NO within a factor 1.5
-   * L_sign median over centers against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 1.89): measured/predicted in [0.863, 1.057] → YES within a factor 1.5
-   * L_sign median over centers against the theorem δ^{-1} law (free prefactor 1.73): measured/predicted in [0.597, 1.477] → NO within a factor 1.5
-   * L_sign median over centers against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 2.39): measured/predicted in [0.514, 1.649] → NO within a factor 1.5
-   * L_bal3 at t against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 2.69): measured/predicted in [0.692, 1.527] → NO within a factor 1.5
-   * L_bal3 at t against the theorem δ^{-1} law (free prefactor 2.46): measured/predicted in [0.594, 1.362] → NO within a factor 1.5
-   * L_bal3 at t against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 3.4): measured/predicted in [0.474, 2.368] → NO within a factor 1.5
-   * L_bal3 median over centers against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 2.46): measured/predicted in [0.771, 1.126] → YES within a factor 1.5
-   * L_bal3 median over centers against the theorem δ^{-1} law (free prefactor 2.25): measured/predicted in [0.533, 1.533] → NO within a factor 1.5
-   * L_bal3 median over centers against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 3.11): measured/predicted in [0.534, 1.540] → NO within a factor 1.5
+* **L_sign at t**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 12 points: **b = 0.737, c = 0.262**, max residual factor 1.281. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
+* **L_bal3 at t**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 12 points: **b = 0.732, c = 0.003**, max residual factor 1.443. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
+* **L_sign median over centers**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 12 points: **b = 0.642, c = 0.368**, max residual factor 1.119. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
+* **L_bal3 median over centers**: least-squares log L = a + b·log(1/δ) + c·log log(t/2π) over 12 points: **b = 0.596, c = 0.434**, max residual factor 1.179. Laws: density model (b, c) = (0.667, 0.333); theorem (1, ≈ 0 — log log t enters additively); transcript (0.07, 0.89).
+   * L_sign at t against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 1.89): measured/predicted in [0.790, 1.340] → YES within a factor 1.5
+   * L_sign at t against the theorem δ^{-1} law (free prefactor 1.81): measured/predicted in [0.694, 1.520] → NO within a factor 1.5
+   * L_sign at t against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 2.23): measured/predicted in [0.491, 2.753] → NO within a factor 1.5
+   * L_sign median over centers against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 1.89): measured/predicted in [0.862, 1.056] → YES within a factor 1.5
+   * L_sign median over centers against the theorem δ^{-1} law (free prefactor 1.8): measured/predicted in [0.571, 1.497] → NO within a factor 1.5
+   * L_sign median over centers against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 2.22): measured/predicted in [0.484, 1.771] → NO within a factor 1.5
+   * L_bal3 at t against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 2.62): measured/predicted in [0.710, 1.565] → NO within a factor 1.5
+   * L_bal3 at t against the theorem δ^{-1} law (free prefactor 2.5): measured/predicted in [0.583, 1.338] → NO within a factor 1.5
+   * L_bal3 at t against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 3.09): measured/predicted in [0.429, 2.610] → NO within a factor 1.5
+   * L_bal3 median over centers against the density δ^{-2/3}(log(t/2π))^{1/3} law (free prefactor 2.47): measured/predicted in [0.767, 1.119] → YES within a factor 1.5
+   * L_bal3 median over centers against the theorem δ^{-1} law (free prefactor 2.36): measured/predicted in [0.507, 1.522] → NO within a factor 1.5
+   * L_bal3 median over centers against the transcript δ^{-0.07}(log(t/2π))^{0.89} law (free prefactor 2.91): measured/predicted in [0.492, 1.645] → NO within a factor 1.5
 
 ## 4. The four refutation-shaped closes of PRICING §2(d), filled in from the files (INSTRUMENT; nothing about RH)
 
-1. (Close 1 needs all four heights; 3 present. The rehearsal's own δ-ratios are in §3.)
+1. **L_sign at t (the contract's twelve points) — lands:** the measured sign-detection bandwidth follows **the density model δ^{−2/3}(log t)^{1/3}** within a factor 1.5 across 10³ ≤ t ≤ 10⁶ and 0.05 ≤ δ ≤ 0.25 (measured/predicted in [0.79, 1.34]); the two other laws are refuted at that tolerance (the theorem's δ⁻¹ log log t [0.69, 1.52]; the transcript's δ^{−0.07}(log t)^{0.89} [0.49, 2.75]). **L_sign median over the centers (the ensemble instrument) — lands:** the measured sign-detection bandwidth follows **the density model δ^{−2/3}(log t)^{1/3}** within a factor 1.5 across 10³ ≤ t ≤ 10⁶ and 0.05 ≤ δ ≤ 0.25 (measured/predicted in [0.86, 1.06]); the two other laws are refuted at that tolerance (the theorem's δ⁻¹ log log t [0.57, 1.50]; the transcript's δ^{−0.07}(log t)^{0.89} [0.48, 1.77]). Measured δ-ratios L_sign(0.05)/L_sign(0.25) at t: 4.79, 2.85, 2.72, 3.03 (laws 1.12 : 2.9 : 5); the single-t values scatter within the p10–p90 bands of §2 (the noise at one t is configuration-dominated for L ≳ 20), which is why the ensemble median is the sharper instrument.
 
-2. **Where the theorem's L* is spent.** At (0.1, 10⁶): L* = 40·(2.626 + 4.605 + 2.856) = 403.5 — log log(3 + t) 26 %, 2log(1/δ) 46 %, log(2b₁C₁) 28 %; the floor without the noise term, 4δ⁻¹(2log(1/δ) + log(2b₁C₁)) = 298. Measured: t = 1000: at the record point L* = 375.8 (δ = 0.1) N_Z = 1.693e-08 against the clause-4 bound 2b₁ℓ_R/L² = 1.276e-03 (ratio 7.54e+04); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 143 centers is in [2.56, 4.54] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [1.38, 593] because of the nearest-zero oscillation); t = 10000: at the record point L* = 387.3 (δ = 0.1) N_Z = 5.007e-09 against the clause-4 bound 2b₁ℓ_R/L² = 1.233e-03 (ratio 2.46e+05); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 145 centers is in [1.32, 1.57] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [0.25, 1] because of the nearest-zero oscillation); t = 100000: at the record point L* = 396.2 (δ = 0.1) N_Z = 1.134e-09 against the clause-4 bound 2b₁ℓ_R/L² = 1.307e-03 (ratio 1.15e+06); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 147 centers is in [1.42, 1.83] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [3.20, 1817] because of the nearest-zero oscillation). **Refutation-shaped close:** the clause-4 bound is loose by a factor of order L at ζ's density (measured factors above), and the theorem's L* cannot be reduced below 298 at (0.1, 10⁶) by any improvement of the noise bound alone.
+2. **Where the theorem's L* is spent.** At (0.1, 10⁶): L* = 40·(2.626 + 4.605 + 2.856) = 403.5 — log log(3 + t) 26 %, 2log(1/δ) 46 %, log(2b₁C₁) 28 %; the floor without the noise term, 4δ⁻¹(2log(1/δ) + log(2b₁C₁)) = 298. Measured: t = 1000: at the record point L* = 375.8 (δ = 0.1) N_Z = 1.693e-08 against the clause-4 bound 2b₁ℓ_R/L² = 1.276e-03 (ratio 7.54e+04); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 143 centers is in [2.56, 4.54] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [1.38, 593] because of the nearest-zero oscillation); t = 10000: at the record point L* = 387.3 (δ = 0.1) N_Z = 5.007e-09 against the clause-4 bound 2b₁ℓ_R/L² = 1.233e-03 (ratio 2.46e+05); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 145 centers is in [1.32, 1.57] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [0.25, 1] because of the nearest-zero oscillation); t = 100000: at the record point L* = 396.2 (δ = 0.1) N_Z = 1.134e-09 against the clause-4 bound 2b₁ℓ_R/L² = 1.307e-03 (ratio 1.15e+06); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 147 centers is in [1.42, 1.83] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [3.20, 1817] because of the nearest-zero oscillation); t = 1e+06: at the record point L* = 403.5 (δ = 0.1) N_Z = 8.314e-09 against the clause-4 bound 2b₁ℓ_R/L² = 1.480e-03 (ratio 1.78e+05); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the 149 centers is in [0.93, 1.16] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [2.09, 122] because of the nearest-zero oscillation). **Refutation-shaped close:** the clause-4 bound is loose by a factor of order L at ζ's density (measured factors above), and the theorem's L* cannot be reduced below 298 at (0.1, 10⁶) by any improvement of the noise bound alone.
 
 3. **λ₀ = 25 near-optimal?** Not a campaign item (bump-only, height-independent): the crossing of 2c(λ)² ≥ e^{λ/2} recomputed by the campaign's transform is λ = 18.6 (record 18.6; proved from 23; contract 25). One line, as priced.
 
@@ -100,6 +102,12 @@ The three laws predict L(δ = 0.05)/L(δ = 0.25) = 5^{0.07} = 1.12 (transcript),
 | 100000 | 0.10 | 1260.15 | 2.4e9 | True | 98 | 6.441e-16 | -2.693e+41 | -2.693e+41 | 2.312e+25 | 1.16e+16 | -1896.5 / -9695.5 | 0.000 |
 | 100000 | 0.25 | 129.16 | 1 | True | 905 | 7.703e-07 | -1.707e+07 | -1.707e+07 | 6.421e+05 | 26.6 | -598.0 / -3105.9 | 0.010 |
 | 100000 | 0.25 | 474.74 | 2.4e9 | True | 259 | 2.429e-12 | -2.343e+39 | -2.343e+39 | 3.698e+24 | 6.34e+14 | -1138.8 / -5932.3 | 0.000 |
+| 1e+06 | 0.05 | 917.90 | 1 | True | 165 | 1.583e-12 | -3.657e+10 | -3.657e+10 | 2.311e+07 | 1.58e+03 | -5277.5 / -26294.6 | 0.000 |
+| 1e+06 | 0.05 | 2645.80 | 2.4e9 | True | 57 | 2.334e-19 | -1.911e+43 | -1.911e+43 | 1.331e+26 | 1.44e+17 | -8952.0 / -44620.2 | 0.000 |
+| 1e+06 | 0.10 | 403.50 | 1 | True | 378 | 8.314e-09 | -1.616e+09 | -1.616e+09 | 5.779e+06 | 280 | -3487.4 / -17428.6 | 0.003 |
+| 1e+06 | 0.10 | 1267.45 | 2.4e9 | True | 120 | 1.938e-14 | -5.187e+41 | -5.187e+41 | 3.329e+25 | 1.56e+16 | -6173.8 / -30867.1 | 0.000 |
+| 1e+06 | 0.25 | 132.08 | 1 | True | 1133 | 9.659e-06 | -3.012e+07 | -3.012e+07 | 9.246e+05 | 32.6 | -1981.8 / -9965.7 | 0.112 |
+| 1e+06 | 0.25 | 477.66 | 2.4e9 | True | 319 | 2.552e-09 | -4.503e+39 | -4.503e+39 | 5.326e+24 | 8.45e+14 | -3763.5 / -18930.1 | 0.001 |
 
 ## 6. Grid rows at δ = 0.1 (compact; the full tables with all columns are `rows_<tag>.csv`; INSTRUMENT)
 
@@ -187,9 +195,37 @@ The three laws predict L(δ = 0.05)/L(δ = 0.25) = 5^{0.07} = 1.12 (transcript),
 | 110 | no | 905 | 4.946e-07 | 1.208e-04 | 0.00 | 1.67e-02 | -8.684e-01 | -8.684e-01 | -8.684e-01 | 0.355 | True | True | -559 / -2874 / - |
 | 120 | no | 905 | 7.171e-06 | 9.307e-05 | 0.08 | 1.40e-02 | -1.552e+00 | -1.552e+00 | -1.552e+00 | 0.385 | True | True | -584 / -3002 / - |
 
+### t = 1e+06 (reflection condition t ≥ 21L holds for L ≤ 47619.0; rows with L above that are below the theorem's hypotheses)
+
+| L | inside | n | N_Z | model | N/model | clause-4 bound | main | W_Z | W_Zrep | sep/cl6 | sign fires | bal3 | log10\|E₋\| bound / est / direct |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | no | 1133 | 3.459e+00 | 3.111e+00 | 1.11 | 1.50e+01 | -2.013e-02 | 3.439e+00 | 3.397e+00 | 1.65 | False | False | -330 / -1733 / - |
+| 6 | no | 1133 | 9.669e-01 | 9.217e-01 | 1.05 | 6.68e+00 | -2.029e-02 | 9.466e-01 | 9.065e-01 | 1.5 | False | False | -409 / -2123 / - |
+| 8 | no | 1133 | 4.719e-01 | 3.889e-01 | 1.21 | 3.76e+00 | -2.051e-02 | 4.514e-01 | 4.131e-01 | 1.37 | False | False | -475 / -2452 / - |
+| 10 | no | 1133 | 2.513e-01 | 1.991e-01 | 1.26 | 2.40e+00 | -2.080e-02 | 2.305e-01 | 1.945e-01 | 1.26 | False | False | -534 / -2742 / - |
+| 12 | no | 1133 | 9.748e-02 | 1.152e-01 | 0.85 | 1.67e+00 | -2.117e-02 | 7.632e-02 | 4.299e-02 | 1.16 | False | False | -587 / -3005 / - |
+| 14 | no | 1133 | 5.662e-02 | 7.256e-02 | 0.78 | 1.23e+00 | -2.160e-02 | 3.502e-02 | 4.618e-03 | 1.07 | False | False | -635 / -3246 / - |
+| 16 | no | 1133 | 3.949e-02 | 4.861e-02 | 0.81 | 9.39e-01 | -2.211e-02 | 1.737e-02 | -9.932e-03 | 0.994 | False | False | -681 / -3470 / - |
+| 18 | no | 1133 | 3.109e-02 | 3.414e-02 | 0.91 | 7.42e-01 | -2.271e-02 | 8.388e-03 | -1.573e-02 | 0.923 | False | False | -723 / -3681 / - |
+| 20 | no | 1133 | 2.917e-02 | 2.489e-02 | 1.17 | 6.01e-01 | -2.338e-02 | 5.788e-03 | -1.515e-02 | 0.86 | False | False | -763 / -3880 / - |
+| 22 | no | 1133 | 2.517e-02 | 1.870e-02 | 1.35 | 4.97e-01 | -2.415e-02 | 1.021e-03 | -1.681e-02 | 0.804 | False | False | -801 / -4070 / - |
+| 24 | no | 1133 | 2.067e-02 | 1.440e-02 | 1.44 | 4.17e-01 | -2.502e-02 | -4.351e-03 | -1.923e-02 | 0.754 | True | False | -838 / -4251 / - |
+| 26 | no | 1133 | 1.538e-02 | 1.133e-02 | 1.36 | 3.56e-01 | -2.600e-02 | -1.062e-02 | -2.276e-02 | 0.708 | True | False | -873 / -4425 / - |
+| 28 | no | 1133 | 1.054e-02 | 9.069e-03 | 1.16 | 3.07e-01 | -2.708e-02 | -1.655e-02 | -2.621e-02 | 0.668 | True | False | -907 / -4592 / - |
+| 30 | no | 1133 | 7.787e-03 | 7.374e-03 | 1.06 | 2.67e-01 | -2.829e-02 | -2.051e-02 | -2.798e-02 | 0.631 | True | True | -939 / -4753 / - |
+| 40 | no | 1133 | 1.204e-03 | 3.111e-03 | 0.39 | 1.50e-01 | -3.665e-02 | -3.544e-02 | -3.649e-02 | 0.496 | True | True | -1087 / -5489 / - |
+| 50 | no | 1133 | 1.321e-04 | 1.593e-03 | 0.08 | 9.62e-02 | -5.047e-02 | -5.034e-02 | -5.036e-02 | 0.414 | True | True | -1218 / -6137 / - |
+| 60 | no | 1133 | 4.303e-04 | 9.217e-04 | 0.47 | 6.68e-02 | -7.340e-02 | -7.297e-02 | -7.335e-02 | 0.365 | True | True | -1336 / -6723 / - |
+| 70 | no | 1133 | 3.090e-04 | 5.804e-04 | 0.53 | 4.91e-02 | -1.119e-01 | -1.116e-01 | -1.119e-01 | 0.338 | True | True | -1444 / -7262 / - |
+| 80 | no | 1133 | 4.654e-05 | 3.889e-04 | 0.12 | 3.76e-02 | -1.778e-01 | -1.778e-01 | -1.778e-01 | 0.326 | True | True | -1545 / -7763 / - |
+| 90 | no | 1133 | 1.348e-05 | 2.731e-04 | 0.05 | 2.97e-02 | -2.929e-01 | -2.929e-01 | -2.929e-01 | 0.325 | True | True | -1640 / -8234 / - |
+| 100 | no | 1133 | 5.555e-05 | 1.991e-04 | 0.28 | 2.41e-02 | -4.976e-01 | -4.975e-01 | -4.976e-01 | 0.335 | True | True | -1730 / -8679 / - |
+| 110 | no | 1133 | 3.049e-05 | 1.496e-04 | 0.20 | 1.99e-02 | -8.684e-01 | -8.684e-01 | -8.684e-01 | 0.355 | True | True | -1815 / -9103 / - |
+| 120 | no | 1133 | 1.143e-06 | 1.152e-04 | 0.01 | 1.67e-02 | -1.552e+00 | -1.552e+00 | -1.552e+00 | 0.385 | True | True | -1896 / -9507 / - |
+
 ## 7. Instruments-table row (for `directions/C2-rigidity-conservation.md`)
 
-| measured detection bandwidth L_sign(δ, t) on ζ's zeros (zero-side; first-order datum W_Z(f_{t,L})) | t = 1000: L_sign = 32.1 / 19.4 / 6.7 at δ = 0.05 / 0.1 / 0.25; t = 10000: L_sign = 25.1 / 13.5 / 8.8 at δ = 0.05 / 0.1 / 0.25; t = 100000: L_sign = 25.8 / 20.1 / 9.5 at δ = 0.05 / 0.1 / 0.25 | `results/c2-m2/campaign/CAMPAIGN.md` §2–§4; row files `rows_t1e{3,4,5,6}.{csv,json}`; controls §1 | INSTRUMENT: decides the δ- and t-law of the bandwidth and the looseness of b₁-, C₁- and R₀-type constants; nothing about RH |
+| measured detection bandwidth L_sign(δ, t) on ζ's zeros (zero-side; first-order datum W_Z(f_{t,L})) | t = 1000: L_sign = 32.1 / 19.4 / 6.7 at δ = 0.05 / 0.1 / 0.25; t = 10000: L_sign = 25.1 / 13.5 / 8.8 at δ = 0.05 / 0.1 / 0.25; t = 100000: L_sign = 25.8 / 20.1 / 9.5 at δ = 0.05 / 0.1 / 0.25; t = 1e+06: L_sign = 33.3 / 22.4 / 11.0 at δ = 0.05 / 0.1 / 0.25 | `results/c2-m2/campaign/CAMPAIGN.md` §2–§4; row files `rows_t1e{3,4,5,6}.{csv,json}`; controls §1 | INSTRUMENT: decides the δ- and t-law of the bandwidth and the looseness of b₁-, C₁- and R₀-type constants; nothing about RH |
 
 ## 8. Hashes (SHA-256 of the files this document was built from)
 
@@ -205,6 +241,10 @@ The three laws predict L(δ = 0.05)/L(δ = 0.25) = 5^{0.07} = 1.12 (transcript),
 * `rows_t1e5.csv`  835bc4146936a55eb33b89f602e909b560385a7fda0d172e003b0af9b102b608
 * `rows_t1e5.json`  d5eef078f0374234112e778a72040c1484e93b37965be1d62bb5ff2ac9ec6477
 * `summary_t1e5.json`  38403cf70c2ca0dba2fa80475cd675dda94076cf528362120ff86578b1c5070a
+* `zeros_t1e6.json`  1665fc1c753d6605d7ec9038ec6ee062d41b1fbcac6adc01d50de574668391ff
+* `rows_t1e6.csv`  4f60b78e4071c7f124d58cafb9c1b96bfa16fe001c0caff287ab0a584aecf638
+* `rows_t1e6.json`  9546ffb83218a6ef810f12793dc9965ca9566cb7ff18f23f0dfeb4eb9ec6a0b8
+* `summary_t1e6.json`  b86a1cc8790bc5283d672481042c3f97815a944e6be6845623ef6d3a57d13890
 * `outwindow_test.json`  5bc41b48f95263fbcd2dc92c86db2b14a921553ac071eb44a4213e95c0c1f663
 * `campaign_lib.py`  1eca667a1fa2b741734c3b7eaebde213e6cef1551fe6d4d54d99075e23339c70
 * `run_height.py`  c24b53f0fccc69cd0670822d7acfa1b579901d2da8e0190bc67ac700249e400b

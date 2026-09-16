@@ -107,3 +107,22 @@ Nothing outside `results/c2-m2/` was edited; no Lean file touched; nothing commi
   * `campaign/summary_t1e5.json`  38403cf70c2ca0dba2fa80475cd675dda94076cf528362120ff86578b1c5070a
   * `campaign/logs/height_t1e5.log`  30d17c296406743018cb0f6df5b4e41dba65ad24c1a28e9c1d29e0f66040d568
 * `campaign/CAMPAIGN.md` (v0 (heights present: t1e3))  dd42bf1f4d1f5af264d047491578e806a0efb9412a7de5f7230285156eba1d37
+
+## 2026-09-16 21:31 IST — CAMPAIGN checkpoint (builder `checkpoint.sh`): heights t1e6
+
+* **t1e6** — [2026-09-16 21:29:45] zeros done: 1133 zeros in [999702.780, 1000297.220], indices 1746580..1747712, RvM count 1133.2, monotone True, max |Z(gamma)| 2.9e-09, 389.6 s (0.344 s/zero)
+  * POSITIVE control (zeta's zeros, all real; the channel must stay silent): min over all rows of W_Z' = 2.333554e-19 at L = 2645.8  -> PASS (>= 0)
+  * -> NEGATIVE control PASS; POSITIVE control PASS
+  * at t: delta = 0.05: L_sign = 33.3 (flips after: 0; at grid bottom: False)   L_bal3 = 38.5 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 12.59; theorem L* = 917.9
+  * at t: delta = 0.10: L_sign = 22.4 (flips after: 0; at grid bottom: False)   L_bal3 = 28.9 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 11.99; theorem L* = 403.5
+  * at t: delta = 0.25: L_sign = 11.0 (flips after: 0; at grid bottom: False)   L_bal3 = 13.3 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 11.25; theorem L* = 132.1
+  * ensemble: delta = 0.05 over 149 centers: L_sign median 31.4 [p10 22.6, p90 40.0; min 17.6, max 48.6];  L_bal3 median 42.2 [p10 29.6, p90 60.2; min 22.0, max 74.6]
+  * ensemble: delta = 0.10 over 149 centers: L_sign median 20.6 [p10 16.0, p90 23.6; min 12.2, max 26.8];  L_bal3 median 27.2 [p10 20.0, p90 32.2; min 16.8, max 39.0]
+  * ensemble: delta = 0.25 over 149 centers: L_sign median 10.8 [p10 9.8, p90 11.8; min 8.8, max 12.4];  L_bal3 median 14.4 [p10 13.0, p90 16.0; min 11.0, max 17.2]
+  * stop conditions: does not fire; (iv) does not fire; (summary summary_t1e6.json; any stop condition fires: False)
+  * `campaign/zeros_t1e6.json`  1665fc1c753d6605d7ec9038ec6ee062d41b1fbcac6adc01d50de574668391ff
+  * `campaign/rows_t1e6.csv`  4f60b78e4071c7f124d58cafb9c1b96bfa16fe001c0caff287ab0a584aecf638
+  * `campaign/rows_t1e6.json`  9546ffb83218a6ef810f12793dc9965ca9566cb7ff18f23f0dfeb4eb9ec6a0b8
+  * `campaign/summary_t1e6.json`  b86a1cc8790bc5283d672481042c3f97815a944e6be6845623ef6d3a57d13890
+  * `campaign/logs/height_t1e6.log`  d0b6bcc9731a603697cbaa920f75d4be0a032fbf2024c912a6b63a037f8cb2a4
+* `campaign/CAMPAIGN.md` (v1)  c969a28321de61aa6daf239d605d4dba780c04e4e24d79821cbffc92351793c0

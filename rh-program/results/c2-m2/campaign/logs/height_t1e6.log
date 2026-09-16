@@ -272,3 +272,25 @@ INSTRUMENT: this run decides constants and the detection-bandwidth law of the fi
    written /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m2/campaign/rows_t1e6.csv / .json (sha256 4f60b78e4071c7f124d58cafb9c1b96bfa16fe001c0caff287ab0a584aecf638 / 9546ffb83218a6ef810f12793dc9965ca9566cb7ff18f23f0dfeb4eb9ec6a0b8)
 
 (F) DERIVED BANDWIDTHS on the fine L-grid 3.0..120 step 0.1: L_sign = least L with W_Z < 0 (= 2 delta^2 c^2 > N_Z; E_- excluded), L_bal3 = least L with 2 delta^2 c^2 >= 3 N_Z
+   [2026-09-16 21:30:53] fine scan done in 61.3 s (1171 L-values)
+   delta = 0.05: L_sign = 33.3 (flips after: 0; at grid bottom: False)   L_bal3 = 38.5 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 12.59; theorem L* = 917.9
+   delta = 0.10: L_sign = 22.4 (flips after: 0; at grid bottom: False)   L_bal3 = 28.9 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 11.99; theorem L* = 403.5
+   delta = 0.25: L_sign = 11.0 (flips after: 0; at grid bottom: False)   L_bal3 = 13.3 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 11.25; theorem L* = 132.1
+
+(C) V.4 CONTROLS at t = 1e+06 (both, before any number is quoted)
+   POSITIVE control (zeta's zeros, all real; the channel must stay silent): min over all rows of W_Z' = 2.333554e-19 at L = 2645.8  -> PASS (>= 0)
+   POSITIVE control against the clause-4 bound 2 b1 l_R/L^2 (asserted for L >= 50): 0 violations of 114 asserted rows -> PASS
+   POSITIVE control on the fine grid (1171 L-values): min N_Z = 1.143e-06 -> PASS
+   NEGATIVE control (the planted orbit at depth 0.05 is the injected defect; the channel must fire): W_Z < 0 at every grid row L >= L_sign = 33.3: True; ratio |W_Z - W_Z'|/(delta^2 e^{delta L/2}) >= 1 at the record points: True (L=917.9: 1.58e+03, L=2645.8: 1.44e+17)
+   NEGATIVE control (the planted orbit at depth 0.10 is the injected defect; the channel must fire): W_Z < 0 at every grid row L >= L_sign = 22.4: True; ratio |W_Z - W_Z'|/(delta^2 e^{delta L/2}) >= 1 at the record points: True (L=403.5: 280, L=1267.4: 1.56e+16)
+   NEGATIVE control (the planted orbit at depth 0.25 is the injected defect; the channel must fire): W_Z < 0 at every grid row L >= L_sign = 11.0: True; ratio |W_Z - W_Z'|/(delta^2 e^{delta L/2}) >= 1 at the record points: True (L=132.1: 32.6, L=477.7: 8.45e+14)
+   -> NEGATIVE control PASS; POSITIVE control PASS
+
+(X) STOP CONDITIONS of PRICING 2(e), quoted and checked:
+   [rule for (iv), stated: the density model is an ensemble mean, so it is compared with the MEAN of N_Z over the 149 centers of section (M); it fires if that mean/model is outside [0.1, 10] at any grid L, or its geometric mean over the grid is. The single-t ratios are printed for the record: geomean 0.278, rows outside 10x: 11 of 59 -- the dips are the zeros of Bhat(L u_1) for the nearest zero u_1, a configuration effect at one t, not a model failure.]
+   (i) 'zetazero at n ~ 1.75e6 exceeds 2 s per zero on this machine in the rehearsal (data cost x7 -- reprice the L-grid's bottom)': not probed in this run (probed in the rehearsal); this height's own rate 0.344 s/zero
+   (ii) 'the rehearsal's positive control at t = 1e3 shows W_Z' < 0 at any L (an on-line configuration cannot give a negative datum)': min W_Z' = 2.334e-19 over 183 rows and 1171 fine-grid L -> does not fire
+   (iii) 'the checker's independent transform disagrees with the builder's on any row by more than 1e-8 relative': the checker's item (Opus half slot, SHARED.md); not decidable by the builder -- pending
+   (iv) 'the density model and the measured N_Z differ by more than a factor 10 at 1e3 (then the model is wrong and 2(d) item 2's inference is withdrawn)': center-mean N_Z/model over the 59 grid L: min 0.909, max 1.297, geometric mean 1.101; rows outside [0.1, 10]: 0 (of which 0 at L <= 50) -> does not fire
+
+[2026-09-16 21:30:53] run_height.py DONE  t = 1e+06  in 457.6 s  (summary summary_t1e6.json; any stop condition fires: False)
