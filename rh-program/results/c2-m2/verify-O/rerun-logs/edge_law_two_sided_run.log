@@ -1,0 +1,53 @@
+Z = 0.22199690808404;  kappa_inf = log(sqrt(pi/2) e^(-1/4) / Z) = 1.4808831774
+(0) identities:
+   lam=25: c(lam) = 732.417149524,  e^(lam/2) I(lam)/Z = 732.417149524
+   lam=100: c(lam) = 3.34019353654e+16,  e^(lam/2) I(lam)/Z = 3.34019353654e+16
+   lam=400: c(lam) = 7.40532617989e+76,  e^(lam/2) I(lam)/Z = 7.40532617989e+76
+   mu=25.25: J(mu)=0.000782888363793  mu^(-1/2)K1(sqrt mu)=0.000782888363793  K1 integral rep=0.00393396534067  besselk=0.00393396534067  | int s^2 e^{..}=1.58406120489e-5  mu^(-3/2)K3/4=1.58406120489e-5
+   mu=100.25: J(mu)=1.83820175921e-6  mu^(-1/2)K1(sqrt mu)=1.83820175921e-6  K1 integral rep=1.8404980771e-5  besselk=1.8404980771e-5  | int s^2 e^{..}=6.69597421688e-9  mu^(-3/2)K3/4=6.69597421688e-9
+   mu=400.25: J(mu)=2.92181880304e-11  mu^(-1/2)K1(sqrt mu)=2.92181880304e-11  K1 integral rep=5.84546345759e-10  besselk=5.84546345759e-10  | int s^2 e^{..}=2.21756500221e-14  mu^(-3/2)K3/4=2.21756500221e-14
+(1) elementary Bessel bounds (ratios to the bound; must be <= 1 for upper, >= 1 for lower):
+   x=5.0: K1/upper=0.99624471  K1/lower=1.0032441  K3/upper=0.9463606
+   x=5.025: K1/upper=0.99627829  K1/lower=1.0032104  K3/upper=0.94671131
+   x=6.0: K1/upper=0.99730263  K1/lower=1.0022155  K3/upper=0.95787318
+   x=8.0: K1/upper=0.99841488  K1/lower=1.0012168  K3/upper=0.97134104
+   x=10.0: K1/upper=0.99895758  K1/lower=1.0007662  K3/upper=0.97873194
+   x=15.0: K1/upper=0.99951904  K1/lower=1.0003323  K3/upper=0.98750894
+   x=20.0: K1/upper=0.9997242  K1/lower=1.0001844  K3/upper=0.99133666
+   x=30.0: K1/upper=0.99987498  K1/lower=1.0000808  K3/upper=0.99472744
+   x=45.0: K1/upper=0.99994369  K1/lower=1.0000355  K3/upper=0.99672087
+   x=60.0: K1/upper=0.99996811  K1/lower=1.0000199  K3/upper=0.9976319
+(2) kappa(lam) exact vs proved bounds:
+   lam=    25: kappa=1.5105071  lower=1.5025136  upper(exact chain)=1.520457  upper(clean)=1.5309457  E1=0.000178 E2=0.0114  OK
+   lam=    26: kappa=1.5104173  lower=1.5028167  upper(exact chain)=1.5198881  upper(clean)=1.5299711  E1=0.000118 E2=0.0108  OK
+   lam=    30: kappa=1.5099079  lower=1.5035111  upper(exact chain)=1.5178426  upper(clean)=1.5265743  E1=2.25e-5 E2=0.00893  OK
+   lam=    36: kappa=1.5089455  lower=1.5037542  upper(exact chain)=1.515317  upper(clean)=1.522586  E1=1.8e-6 E2=0.007  OK
+   lam=    49: kappa=1.5068379  lower=1.5031723  upper(exact chain)=1.5112885  upper(clean)=1.5166202  E1=6.79e-9 E2=0.00468  OK
+   lam=    64: kappa=1.5047787  lower=1.5020613  upper(exact chain)=1.5080718  upper(clean)=1.5121484  E1=9.54e-12 E2=0.00334  OK
+   lam=    81: kappa=1.5029151  lower=1.5008242  upper(exact chain)=1.5054541  upper(clean)=1.5086717  E1=4.97e-15 E2=0.00249  OK
+   lam=   100: kappa=1.5012679  lower=1.499611  upper(exact chain)=1.5032872  upper(clean)=1.505891  E1=9.57e-19 E2=0.00193  OK
+   lam=   400: kappa=1.492265  lower=1.4918923  upper(exact chain)=1.4927362  upper(clean)=1.4933842  E1=1.06e-79 E2=0.00039  OK
+   lam=  2500: kappa=1.4857068  lower=1.4856511  upper(exact chain)=1.4857799  upper(clean)=1.4858832  E1=7.01e-523 E2=5.47e-5  OK
+   lam= 10000: kappa=1.4833393  lower=1.4833257  upper(exact chain)=1.4833574  upper(clean)=1.4833832  E1=6.39e-2130 E2=1.31e-5  OK
+   all 90 lambda values: bounds hold = True;  min lower bound = 1.483326 (kappa_inf = 1.480883);  max upper = 1.530946;  min margins: low 0.0000, up 0.0000
+   D(lam) = lower(lam) - kappa_inf >= 0.002442 over the table (claim: >= 0 for all lam >= 25, proved in the note)
+   PROVED constants for lam >= 25: kappa_- = kappa_inf = 1.48088, kappa_+ = 1.53095;  exact kappa(25) = 1.51051, kappa(10000) = 1.48334
+   gap to the pricing's fitted 1.515: kappa_- - 1.515 = -0.0341, kappa_+ - 1.515 = +0.0159  (|.| <= 0.1: stop condition (a) does not fire)
+   (the pricing's least-squares fit on the same 11 points: C = 1.0012, const = 1.5150 -- the fitted C > 1 absorbs the drift kappa(lam) -> kappa_inf)
+(3) clause 3 (slack, c0 = 1/2):
+   proved margin function at lam=25: lam/2 - 2 sqrt(lam) - 1.5 log(lam) + 2 kappa_- = 0.633453 (>0), derivative 1/2 - 1/sqrt(lam) - 1.5/lam = 0.24 > 0
+   lam=25: c^2 = 536435.0  e^(lam/2) = 268337.0  ratio = 1.99911  proved lower ratio e^(slack) = 1.8841
+   lam=26: c^2 = 1.12765e+6  e^(lam/2) = 442413.0  ratio = 2.54887  proved lower ratio e^(slack) = 2.40267
+   lam=30: c^2 = 2.32908e+7  e^(lam/2) = 3.26902e+6  ratio = 7.12471  proved lower ratio e^(slack) = 6.7229
+   lam=36: c^2 = 2.50765e+9  e^(lam/2) = 6.566e+7  ratio = 38.1915  proved lower ratio e^(slack) = 36.107
+   lam=49: c^2 = 9.41533e+13  e^(lam/2) = 4.36732e+10  ratio = 2155.86  proved lower ratio e^(slack) = 2046.81
+   lam=64: c^2 = 2.77907e+19  e^(lam/2) = 7.8963e+13  ratio = 351946.0  proved lower ratio e^(slack) = 335522.0
+   lam=100: c^2 = 1.11569e+33  e^(lam/2) = 5.18471e+21  ratio = 2.15189e+11  proved lower ratio e^(slack) = 2.06592e+11
+   lam=400: c^2 = 5.48389e+153  e^(lam/2) = 7.22597e+86  ratio = 7.58913e+66  proved lower ratio e^(slack) = 7.41833e+66
+   least integer lam with the PROVED slack inequality (c0=1/2): 23   (the contract fixes lam0 = 25)
+done in 5.0s
+
+real	0m5.030s
+user	0m5.001s
+sys	0m0.025s
+exit=0

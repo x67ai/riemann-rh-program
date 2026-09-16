@@ -1,0 +1,27 @@
+(1) h_f(r) = (r - t) Bhat_L(r - t):
+    r = 30.7: direct (-0.01161801638 - 1.50764663e-29j)   closed form (-0.01161801638 - 1.918856354e-28j)   |diff| = 1.77e-28
+    r = 28.0: direct (-0.0005799387612 - 5.678934884e-30j)   closed form (-0.0005799387612 + 2.89103723e-29j)   |diff| = 3.46e-29
+    r = (30.0 - 0.3j): direct (-4.192599556e-30 - 2.642528392j)   closed form (0.0 - 2.642528392j)   |diff| = 3.39e-21
+    r = (-30.0 + 0.3j): direct (7.685713202e-14 - 2.461550419e-13j)   closed form (7.685713202e-14 - 2.461550419e-13j)   |diff| = 6.42e-24
+(2) c(delta L) = Bhat_L(i delta) = 8.80842797478;  -i delta c = (0.0 - 2.64252839243j)
+    h_f(t-id) = (-4.19259955588e-30 - 2.64252839243j)
+    h_f(t+id) = (-8.14250001351e-30 + 2.64252839243j)
+    h_f(-t-id) = (7.68571320169e-14 + 2.46155041897e-13j)
+    h_f(-t+id) = (7.68571320168e-14 - 2.46155041897e-13j)
+    contribution of t-id: h_f(gamma) conj(h_f(conj gamma)) = (-6.98295630482 + 3.25958508356e-29j)
+    contribution of t+id: h_f(gamma) conj(h_f(conj gamma)) = (-6.98295630482 - 3.25958508356e-29j)
+    contribution of -t-id: h_f(gamma) conj(h_f(conj gamma)) = (-5.46852859096e-26 + 3.78375411034e-26j)
+    contribution of -t+id: h_f(gamma) conj(h_f(conj gamma)) = (-5.46852859096e-26 - 3.78375411034e-26j)
+    pair at +t: (-13.9659126096 + 0.0j)   vs  -2 delta^2 c^2 = -13.9659126096   |diff| = 6.78e-20
+    reflected pair at -t (E_-): (-1.09371e-25 + 0.0j);  |E_-| / (2 delta^2 c^2) = 7.831e-27;  e^(-L) = 4.248e-18
+(3) W_Z(f) over the 8-point Z = orbit + {+-r1, +-r2}: (-13.9655967426 + 0.0j)  (imaginary part 0.0);
+    real points: |h_f(r1)|^2 = 0.00031002332, |h_f(-r1)|^2 = 1.42e-30, |h_f(r2)|^2 = 5.8437237e-6, |h_f(-r2)|^2 = 2.96e-31;  b1/L^2 = 0.005404
+    W_Z = -2 delta^2 c^2 + E_- + sum|h_f|^2:  (-13.9655967426 + 0.0j)
+(4) g = f*f~ on a 161-point grid: max|g(-x) - conj g(x)| = 0.0 (Hermitian), max|Im g(x)| = 0.000249 (NOT real)
+    ghat(z0) by grid transform = (-0.11056557 + 0.056627592j)   h_f(z0) conj(h_f(conj z0)) = (-0.11056557 + 0.056627592j)   rel diff = 1.0e-9
+done in 64.5s
+
+real	1m4.504s
+user	1m4.098s
+sys	0m0.203s
+exit=0

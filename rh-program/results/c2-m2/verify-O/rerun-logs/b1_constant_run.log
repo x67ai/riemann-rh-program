@@ -1,0 +1,16 @@
+Z = 0.22199690808404
+||B^(1)||_1 = 3.31427535948   sign changes on (0,1/2): []
+||B^(2)||_1 = 28.7726440417   sign changes on (0,1/2): [0.379918]
+||B^(3)||_1 = 642.301196307   sign changes on (0,1/2): [0.305272, 0.447566]
+int |v| B(v) dv = 0.1672269989   (so |d/deta (eta Bhat)| <= 1 + eta*m1)
+coarse grid max: F = 2.940428772 at eta = 4.67
+certified sup over [0,40] from the coarse grid: F <= 2.9493431
+refined: F* = 2.94042995327 at eta* = 4.67274;  certified sup on [0,40]: 2.949250878;  tail bound for eta >= 40: ||B''||_1/40 = 0.719316
+b1 = sup|eta Bhat|^2 = 8.64612831 (computed)   <= 8.6980807 (certified)   ;  ||B'||_1^2 = 10.98442 (tx_032's bound)
+pricing value 8.646123549211879 at 4.675 -- difference from this run's computed b1: 4.761e-06
+done in 143.2s
+
+real	2m23.238s
+user	2m22.601s
+sys	0m0.374s
+exit=0
