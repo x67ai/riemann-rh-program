@@ -34,14 +34,26 @@ out['rho0'] = mp.nstr(rho0, 25); out['abs_f_rho0'] = mp.nstr(abs(dh.f_dh(rho0)),
 # ---------------------------------------------------------------- on-line zeros in [t - W0, t + W0]
 mp.mp.dps = 20
 def zline(u): return dh.z_dh(u)[0]
+# RESCALED real function for the root refinement: Z_DH(u) = Re Xi_DH(1/2 + iu) has the size of |Gamma(3/4 + iu/2)| ~ e^{-pi u/4}
+# (1e-30 at u = 87), so a root finder that stops on |f| < tol stops after ONE step (this is what verify/dh_negative_control.py
+# and the campaign's DH scans did: their on-line zeros are off by up to 1.4e-3 -- diagnosed 2026-09-16 23:45 by the M6 rung,
+# logs/dh_zero_precision_check.log).  S(u) = Z_DH(u)/[(5/pi)^{3/4} |Gamma(3/4 + iu/2)|] is real, O(1) and has the same zeros.
+def scale(u): return (5/mp.pi)**mp.mpf(0.75)*abs(mp.gamma(mp.mpf(3)/4 + 1j*mp.mpf(u)/2))
+def sline(u): return zline(u)/scale(u)
 step = mp.mpf('0.05')
-onl = []; u = t - W0; zp = zline(u)
+onl = []; u = t - W0; zp = sline(u)
 while u < t + W0:
-    u2 = u + step; zn = zline(u2)
+    u2 = u + step; zn = sline(u2)
     if zp*zn < 0:
-        r_ = mp.findroot(zline, (u, u2), solver="illinois")
+        r_ = mp.findroot(sline, (u, u2), solver="illinois")
         if abs(r_ - t) <= W0: onl.append(r_)
     u, zp = u2, zn
+mp.mp.dps = 30
+onl = [mp.findroot(sline, z) for z in onl]          # polish at 30 digits (secant from the 20-digit root)
+res_S = max(abs(sline(z)) for z in onl)
+print(f"[{now()}] on-line zeros refined on the rescaled S(u): max |S| at the roots = {mp.nstr(res_S, 3)} (S is O(1) away from zeros); "
+      f"max |f_DH(1/2 + i gamma)| = {mp.nstr(max(abs(dh.f_dh(mp.mpc(0.5, z))) for z in onl), 3)}")
+out['online_max_abs_S'] = mp.nstr(res_S, 3)
 print(f"[{now()}] on-line zeros of DH in [{float(t-W0):.3f}, {float(t+W0):.3f}] by sign change (step 0.05): {len(onl)};  {time.time()-t0:.0f}s")
 print("    ", [round(float(z), 4) for z in onl])
 out['online'] = [mp.nstr(z, 18) for z in onl]
