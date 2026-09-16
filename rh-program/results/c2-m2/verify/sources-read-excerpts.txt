@@ -1,0 +1,172 @@
+# sources-read-excerpts.txt — passages read at the page for separation-note.md §11 (2026-09-16, Job 1)
+# Source: fetched-r3/r3s-24-hua-yang-simple-distinct-zeros-prime-modulus-dirichlet-family-arxiv-2608.16034v2-SESSION14-FETCH.pdf
+# SHA-256: 465a5c6dc3d6b780f493843b54ca9474b7dedbd83c208f6ad89196a76537a09d ; text layer by pdftotext -layout; line numbers refer to that text layer
+
+## abstract (lines 44-50)
+                                                    may tend to zero, remain bounded, or grow as any prescribed fixed power
+                                                    of log q. The proof combines Selberg’s family-averaged argument estimate
+                                                    and a zero-density deletion with a finite Gevrey Gabor compression of
+                                                    Weil’s Hermitian form. A quantitative Fourier–Laplace estimate gives
+                                                    uniform trace-norm control of the exterior zeros at the lower end of the
+                                                    stated range, and a local–remote shell decomposition gives the same
+                                                    control throughout the polylogarithmic upper range. First and second
+
+## introduction, the four steps (lines 126-140)
+used below [14, 10].
+   The proof has four main steps. First, an endpoint-safe family counting
+formula and a zero-density shell argument give the denominator and the
+good–bad character decomposition. Second, the explicit formula and exact
+character orthogonality for prime polynomials of length q λ < q evaluate
+the first two moments of a finite Gabor matrix. Third, critical-line zeros
+and off-line functional-equation orbits are encoded by blocks with controlled
+positive index, while the exterior zero set is removed in trace norm. The
+localization step uses a self-contained Gevrey Fourier–Laplace estimate: near
+the critical line it gives subexponential decay in T Q, while away from the
+line it is combined with goodness and a local–remote decomposition of the
+ordinate shells. Finally, a rank–trace inequality gives the certificates for
+simple and distinct zeros, and a one-dimensional variational problem yields
+CMT . The fixed-parameter reduction appears in Section 2; the counting
+and zero-density inputs are stated in Section 3; and Section 12 records
+
+## the Gevrey class (lines 243-247)
+Write Gc ((−1/2, 1/2)) for the compactly supported Gevrey class consisting
+of those ψ ∈ Cc∞ ((−1/2, 1/2)) for which there exist constants Cψ , Rψ > 0
+such that
+(2.5.1)                 ∥ψ (m) ∥∞ ≤ Cψ Rψm (m!)s            (m ≥ 0).
+Choose
+
+## Section 9, Lemma 9.1 and its proof, (9.2), (9.3), Proposition 9.2 (lines 1532-1620)
+        9. Gevrey complex sampling and the exterior zero tail
+  We retain the good–bad terminology and the exceptional set Bq from
+Lemma 3.4. The complex polarization of the infinite lattice identity is
+                    X
+(9.1)                            b ′ − τ ) = L|ϕ|
+                          b − τ )ϕ(z
+                          ϕ(z                 d2 (z − z ′ ).
+                               k        k
+                    k∈Z
+For complex sampling we use the Gevrey derivative bounds in (2.5.1) to
+obtain quantitative Fourier–Laplace decay.
+Lemma 9.1 (Gevrey complex sampled-vector bound). Let s = 1 + η/2.
+There exist constants c, C > 0, depending only on the fixed window and the
+lattice spacing, such that, uniformly for r, δ ∈ R,
+                                            h                             i
+(9.1.1)        ∥u(r − iδ)∥22 ≤ CL2 eL|δ| exp −c{L dist(r, J)}1/s .
+Consequently,
+                                                       h                      i
+(9.1.2)     ∥u(r − iδ)∥2 ∥u(r + iδ)∥2 ≤ CL2 eL|δ| exp −c{L dist(r, J)}1/s .
+
+Proof. By (2.5.1), after increasing the constants if necessary,
+                      ∥ψ (m) ∥1 ≤ C0 R0m (m!)s       (m ≥ 0).
+For w = r − iδ − τ , the substitution u = Ls and m integrations by parts
+against the whole complex exponential give
+                                             C0 R0m (m!)s
+                                                         
+                           L|δ|/2
+               |ϕ(w)| ≤ Le
+                b                 min ∥ψ∥1 ,                .
+                                              (L|w|)m
+Since |w| ≥ |r − τ |, the denominator may be weakened to L|r − τ |. Using
+m! ≤ mm and taking m = ⌊c0 (L|r − τ |)1/s ⌋, with c0 > 0 sufficiently small in
+terms of R0 , yields
+                                                 h                        i
+(9.1.3)        b − iδ − τ )| ≤ C1 LeL|δ|/2 exp −c1 {L|r − τ |}1/s .
+              |ϕ(r
+The trivial estimate covers the bounded range omitted by the integer choice
+of m.
+   The scaled lattice points Lτk have spacing 2π. If D = L dist(r, J), then
+comparison with an integral gives
+                           h                     i              1/s
+                        exp −2c1 {L|r − τk |}1/s ≤ C2 e−c2 D
+                  X
+                                                                      .
+                  k∈K
+Indeed the left side is bounded for D ≤ 1; for D > 1, the integral tail
+                                  1/s
+is a polynomial in D times e−2c1 D , and that polynomial is absorbed by
+weakening the exponential constant. Squaring (9.1.3) and summing proves
+(9.1.1). Applying the same estimate to both signs of δ and taking square
+roots proves (9.1.2).                                                 □
+   Lemma 3.6, deduced from the symmetric zero-count theorem of Bennett–
+Martin–O’Bryant–Rechnitzer, gives uniformly for primitive characters and
+real t,
+(9.2)                #{ρ : |ℑρ − t| ≤ 1} ≪ log(q(|t| + 3)),
+with multiplicity. The trace norm of a rank-one operator is ∥xy ∗ ∥1 =
+∥x∥2 ∥y∥2 . An off-line orbit has two rank-one summands; the resulting factor
+          SIMPLE AND DISTINCT ZEROS IN AN EXTENDED HEIGHT RANGE                 27
+
+two is absorbed in the implied constant. Lemma 9.1 therefore bounds an
+on-line block or a full off-line orbit block of multiplicity m by
+                                         h                     i
+(9.3)                  ≪ mL2 eL|δ| exp −c{L dist(γ, J)}1/s .
+
+For fixed q, |δ| < 1/2; the exponential decay in |γ|1/s , together with (9.2),
+shows that the sum of these trace norms over all orbits converges. Hence the
+zero-side matrix is absolutely convergent in trace norm and may be grouped
+into functional-equation orbits and split according to γ ∈ I.
+   Define Eχ to be the trace-norm sum over the complementary set γ ∈      / I.
+Thus, with the endpoint convention fixed above,
+(9.4)                               Eχ = Gχ − Aχ .
+Proposition 9.2 (Good-character Gevrey zero tail). Fix B > 0 after
+η, A0 , λ, θ, ψ. Uniformly for good characters and for T satisfying (2.1),
+                             Eχ
+(9.2.1)                   ∥ 2 ∥1 ≪η,A0 ,B,λ,θ,ψ Q−B .
+                            aL
+Proof. Put
+                        1           1+η
+                    α= ,        β=        > 1,     H = T Q.
+                        s             s
+For every exterior ordinate γ ∈ / I = (T, 2T ],
+(9.2.2)             dist(γ, J) ≥ θT,          L dist(γ, J) ≥ λθH.
+By summing (9.2) over unit intervals,
+                 X
+(9.2.3)                    mρ ≪ (T + 1){Q + log(T + 3)} ≪A0 (T + 1)Q.
+               |γ|≤4T +1
+
+We first treat these local ordinates. If |δ| < δ0 , then eL|δ| ≤ Q24λ ; hence their
+normalized contribution is
+
+## the local/remote table and the discussion of the lower endpoint (lines 1933-1975)
+Local Gevrey exterior tail    per character: QCλ,A0 exp[−cH1/s ]
+Remote Gevrey exterior        per character: OB (Q−B )
+tail
+                                                √
+Trace-norm transfer: trace,   O(Q−B /H), O(Q−B / H), and O(Q−2B /H)
+cross, and square terms
+     Because
+                                                     η
+                        H ≥ (log Q)1+η ,         s=1+ ,
+                                                     2
+one has
+                          H1/s ≥ (log Q)(1+η)/(1+η/2) ,
+whose exponent is strictly larger than one. Hence the local Gevrey tail
+is smaller than every fixed power of Q−1 , even after multiplication by the
+polynomial factor allowed by T ≤ QA0 . Also H−1 ≤ (log Q)−1−η and
+log(T + 2) ≪A0 log Q. Every entry in the table therefore tends to zero
+uniformly over the height range. No displayed little-oh estimate is uniform
+as η ↓ 0, A0 → ∞, λ ↑ 1, or θ ↓ 0; these limits are taken only in the order
+specified in Section 2.
+        SIMPLE AND DISTINCT ZEROS IN AN EXTENDED HEIGHT RANGE                    33
+
+The lower endpoint T Q ≍ 1. The Gevrey estimate removes the fixed-
+power requirement T Q ≥ Qη that would result from a direct polynomial-
+decay argument, but it does not reach a window containing only O(1) local
+mean spacings. At T Q ≍ 1, the main family scale is only q, so the O(q)
+averaged-argument and finite-centre errors are no longer little-oh terms. Also
+d ≍ T Q ≍ 1, and the Fourier–Laplace suppression in Proposition 9.2 is
+only a fixed constant. Thus the denominator asymptotic, finite-dimensional
+approximation to the variational profile, and trace-norm localization all lose
+their vanishing margins. Reaching that scale would require a genuinely finite-
+normalized-window certificate and a sharper family counting input; choosing
+any fixed Gevrey order s > 1 or increasing the number of integrations by
+parts does not repair it.
+Uniformity through T ≍ Q. The earlier shortcut available under T = o(Q)
+replaces the distance from a far-line zero to J by a fixed multiple of its ordinate.
+The proof of Proposition 9.2 instead splits the exterior zeros into the local
+region |γ| ≤ 4T + 1 and the remote region |γ| > 4T + 1. In the local region
+the fixed margin gives dist(γ, J) ≥ θT , and the Gevrey factor suppresses the
+polynomial cost in T . In the remote region one recovers dist(γ, J) ≫ |γ|.
+This decomposition is uniform for every fixed upper exponent A0 , so the
+same tail estimate remains valid when T ≍ log q and throughout the stated
+polylogarithmic range.
+
