@@ -1,0 +1,80 @@
+Z = 0.221996908084   ||B'||_2^2 = 16.62196535   (b1 = 8.70 record; ||B'''||_1 = 642.30 record)
+
+(a) mpmath.zetazero timing (mp.dps=15), one zero near each height
+   t~1e+03: index n=649  zetazero(n) = (0.5 + 999.791571557j)  in 0.13 s
+   t~1e+04: index n=10143  zetazero(n) = (0.5 + 10000.0653454j)  in 0.44 s
+   t~1e+05: index n=138069  zetazero(n) = (0.5 + 99999.7009486j)  in 0.36 s
+   t~1e+06: index n=1747146  zetazero(n) = (0.5 + 999999.793417j)  in 0.28 s
+
+(b) zeros in the theorem's window R = 81 L* (RvM count N(t+R)-N(t-R)); C1 = 1 (abstract) and C1 = 2.4e9 (zeta's record)
+   t=1e+03 C1=1 delta=0.05: L*=862.5 R=69861 zeros=9.4e+04  [window reaches below t=0]
+   t=1e+03 C1=1 delta=0.10: L*=375.8 R=30439 zeros=3.76e+04  [window reaches below t=0]
+   t=1e+03 C1=1 delta=0.25: L*=121.0 R=9801 zeros=1.11e+04  [window reaches below t=0]
+   t=1e+03 C1=2.4e9 delta=0.05: L*=2590.4 R=209821 zeros=3.16e+05  [window reaches below t=0]
+   t=1e+03 C1=2.4e9 delta=0.10: L*=1239.7 R=100419 zeros=1.4e+05  [window reaches below t=0]
+   t=1e+03 C1=2.4e9 delta=0.25: L*=466.6 R=37792 zeros=4.77e+04  [window reaches below t=0]
+   t=1e+04 C1=1 delta=0.05: L*=885.5 R=71723 zeros=1.1e+05  [window reaches below t=0]
+   t=1e+04 C1=1 delta=0.10: L*=387.3 R=31370 zeros=5.13e+04  [window reaches below t=0]
+   t=1e+04 C1=1 delta=0.25: L*=125.6 R=10173 zeros=2.27e+04  [window reaches below t=0]
+   t=1e+04 C1=2.4e9 delta=0.05: L*=2613.4 R=211682 zeros=3.34e+05  [window reaches below t=0]
+   t=1e+04 C1=2.4e9 delta=0.10: L*=1251.2 R=101350 zeros=1.56e+05  [window reaches below t=0]
+   t=1e+04 C1=2.4e9 delta=0.25: L*=471.2 R=38165 zeros=6.09e+04  [window reaches below t=0]
+   t=1e+05 C1=1 delta=0.05: L*=903.3 R=73168 zeros=2.23e+05
+   t=1e+05 C1=1 delta=0.10: L*=396.2 R=32093 zeros=9.87e+04
+   t=1e+05 C1=1 delta=0.25: L*=129.2 R=10462 zeros=3.22e+04
+   t=1e+05 C1=2.4e9 delta=0.05: L*=2631.2 R=213128 zeros=4.89e+05  [window reaches below t=0]
+   t=1e+05 C1=2.4e9 delta=0.10: L*=1260.2 R=102072 zeros=3.02e+05  [window reaches below t=0]
+   t=1e+05 C1=2.4e9 delta=0.25: L*=474.7 R=38454 zeros=1.18e+05
+   t=1e+06 C1=1 delta=0.05: L*=917.9 R=74350 zeros=2.83e+05
+   t=1e+06 C1=1 delta=0.10: L*=403.5 R=32683 zeros=1.25e+05
+   t=1e+06 C1=1 delta=0.25: L*=132.1 R=10698 zeros=4.08e+04
+   t=1e+06 C1=2.4e9 delta=0.05: L*=2645.8 R=214310 zeros=8.17e+05
+   t=1e+06 C1=2.4e9 delta=0.10: L*=1267.4 R=102663 zeros=3.91e+05
+   t=1e+06 C1=2.4e9 delta=0.25: L*=477.7 R=38690 zeros=1.48e+05
+
+(c) truncation radius U (C1 = 1, l_R = log(4+t+81L)) for tail <= 1e-10, and zeros within +-U
+   t=1e+03 L=10: U=2743.9  zeros in +-U = 3212
+   t=1e+03 L=20: U=697.8  zeros in +-U = 1105
+   t=1e+03 L=30: U=314.2  zeros in +-U = 505
+   t=1e+03 L=50: U=115.5  zeros in +-U = 186
+   t=1e+03 L=100: U=30.3  zeros in +-U = 49
+   t=1e+03 L=403.5: U=2.9  zeros in +-U = 5
+   t=1e+06 L=10: U=3363.0  zeros in +-U = 12822
+   t=1e+06 L=20: U=841.5  zeros in +-U = 3208
+   t=1e+06 L=30: U=374.6  zeros in +-U = 1428
+   t=1e+06 L=50: U=135.5  zeros in +-U = 517
+   t=1e+06 L=100: U=34.6  zeros in +-U = 132
+   t=1e+06 L=403.5: U=3.1  zeros in +-U = 12
+
+(d)-(g) density-model noise N ~ log(t/2pi) ||B'||_2^2 / L^3 [computed model, not a bound]; signal 2 delta^2 c(delta L)^2;
+        L_bal = least L (step 0.5) with signal >= kappa*noise (kappa = 1, 3); L_bnd = least L with signal >= b1 log(3+t)/L^2 (the pricing's balance);
+        L* = theorem (C1 = 1); L_ann = transcript fit; X = e^L_bal(kappa=3), terms ~ X, primes ~ X/log X
+   t=1e+03 d=0.05: L_bal(k=1)= 25.5  L_bal(k=3)= 35.5  L_bnd= 81.0  L*(C1=1)= 862.5  L*(zeta)=2590.4  L_ann=  5.9 | at L_bal(3): X=2.61e+15 primes~7.37e+13 signal=0.00566 noise=0.00188 trivial-size=3.8e+04
+   t=1e+03 d=0.10: L_bal(k=1)= 16.0  L_bal(k=3)= 22.0  L_bnd= 40.5  L*(C1=1)= 375.8  L*(zeta)=1239.7  L_ann=  5.6 | at L_bal(3): X=3.58e+09 primes~1.63e+08 signal=0.0242 noise=0.00791 trivial-size=187
+   t=1e+03 d=0.25: L_bal(k=1)=  8.5  L_bal(k=3)= 11.5  L_bnd= 16.5  L*(C1=1)= 121.0  L*(zeta)= 466.6  L_ann=  5.2 | at L_bal(3): X=9.87e+04 primes~8.58e+03 signal=0.172 noise=0.0554 trivial-size=6.87
+   t=1e+04 d=0.05: L_bal(k=1)= 28.5  L_bal(k=3)= 40.0  L_bnd= 88.5  L*(C1=1)= 885.5  L*(zeta)=2613.4  L_ann=  8.2 | at L_bal(3): X=2.35e+17 primes~5.88e+15 signal=0.00585 noise=0.00191 trivial-size=2.52e+05
+   t=1e+04 d=0.10: L_bal(k=1)= 18.0  L_bal(k=3)= 24.5  L_bnd= 44.5  L*(C1=1)= 387.3  L*(zeta)=1251.2  L_ann=  7.8 | at L_bal(3): X=4.37e+10 primes~1.78e+09 signal=0.0253 noise=0.00833 trivial-size=472
+   t=1e+04 d=0.25: L_bal(k=1)=  9.5  L_bal(k=3)= 13.0  L_bnd= 18.0  L*(C1=1)= 125.6  L*(zeta)= 471.2  L_ann=  7.3 | at L_bal(3): X=4.42e+05 primes~3.40e+04 signal=0.188 noise=0.0558 trivial-size=10.1
+   t=1e+05 d=0.05: L_bal(k=1)= 31.0  L_bal(k=3)= 43.5  L_bnd= 94.0  L*(C1=1)= 903.3  L*(zeta)=2631.2  L_ann= 10.4 | at L_bal(3): X=7.79e+18 primes~1.79e+17 signal=0.00601 noise=0.00195 trivial-size=1.13e+06
+   t=1e+05 d=0.10: L_bal(k=1)= 19.5  L_bal(k=3)= 26.5  L_bnd= 47.0  L*(C1=1)= 396.2  L*(zeta)=1260.2  L_ann=  9.9 | at L_bal(3): X=3.23e+11 primes~1.22e+10 signal=0.0263 noise=0.00864 trivial-size=1.01e+03
+   t=1e+05 d=0.25: L_bal(k=1)= 10.5  L_bal(k=3)= 14.0  L_bnd= 19.0  L*(C1=1)= 129.2  L*(zeta)= 474.7  L_ann=  9.3 | at L_bal(3): X=1.20e+06 primes~8.59e+04 signal=0.2 noise=0.0586 trivial-size=13.3
+   t=1e+06 d=0.05: L_bal(k=1)= 33.0  L_bal(k=3)= 46.0  L_bnd= 99.0  L*(C1=1)= 917.9  L*(zeta)=2645.8  L_ann= 12.6 | at L_bal(3): X=9.50e+19 primes~2.06e+18 signal=0.00614 noise=0.00205 trivial-size=3.33e+06
+   t=1e+06 d=0.10: L_bal(k=1)= 20.5  L_bal(k=3)= 28.5  L_bnd= 49.5  L*(C1=1)= 403.5  L*(zeta)=1267.4  L_ann= 12.0 | at L_bal(3): X=2.38e+12 primes~8.37e+10 signal=0.0274 noise=0.0086 trivial-size=2.22e+03
+   t=1e+06 d=0.25: L_bal(k=1)= 11.0  L_bal(k=3)= 14.5  L_bnd= 20.0  L*(C1=1)= 132.1  L*(zeta)= 477.7  L_ann= 11.2 | at L_bal(3): X=1.98e+06 primes~1.37e+05 signal=0.206 noise=0.0653 trivial-size=15.4
+   t=1e+09 d=0.05: L_bal(k=1)= 38.0  L_bal(k=3)= 52.5  L_bnd=110.0  L*(C1=1)= 950.3  L*(zeta)=2678.2  L_ann= 18.9 | at L_bal(3): X=6.32e+22 primes~1.20e+21 signal=0.00653 noise=0.00217 trivial-size=5.77e+07
+   t=1e+09 d=0.10: L_bal(k=1)= 23.5  L_bal(k=3)= 32.0  L_bnd= 55.0  L*(C1=1)= 419.7  L*(zeta)=1283.7  L_ann= 18.0 | at L_bal(3): X=7.90e+13 primes~2.47e+12 signal=0.0296 noise=0.00958 trivial-size=9.02e+03
+   t=1e+09 d=0.25: L_bal(k=1)= 12.5  L_bal(k=3)= 16.5  L_bnd= 22.0  L*(C1=1)= 138.6  L*(zeta)= 484.1  L_ann= 16.9 | at L_bal(3): X=1.47e+07 primes~8.88e+05 signal=0.238 noise=0.0699 trivial-size=28.3
+   t=1e+12 d=0.05: L_bal(k=1)= 42.0  L_bal(k=3)= 57.5  L_bnd=117.5  L*(C1=1)= 973.3  L*(zeta)=2701.2  L_ann= 24.9 | at L_bal(3): X=9.37e+24 primes~1.63e+23 signal=0.00688 noise=0.00226 trivial-size=5.35e+08
+   t=1e+12 d=0.10: L_bal(k=1)= 26.0  L_bal(k=3)= 34.5  L_bnd= 59.0  L*(C1=1)= 431.2  L*(zeta)=1295.2  L_ann= 23.7 | at L_bal(3): X=9.62e+14 primes~2.79e+13 signal=0.0315 noise=0.0104 trivial-size=2.51e+04
+   t=1e+12 d=0.25: L_bal(k=1)= 13.5  L_bal(k=3)= 17.5  L_bnd= 23.5  L*(C1=1)= 143.2  L*(zeta)= 488.7  L_ann= 22.3 | at L_bal(3): X=3.98e+07 primes~2.28e+06 signal=0.257 noise=0.08 trivial-size=39.1
+
+(h) bump-only crossing: least lambda (step 0.1) with 2 c(lambda)^2 >= e^(lambda/2): 18.6  (proved from 23; contract lambda0 = 25)
+
+(i) DH control rows (read from ../../verify/dh_negative_control_out.json): L, W_Z, W_Z'
+   L= 10.0  W_Z=-0.2698  W_Z'=0.004801  -> sign channel FIRES; prime-side length e^L = 2.2e+04
+   L= 20.0  W_Z=-0.7482  W_Z'=4.464e-05  -> sign channel FIRES; prime-side length e^L = 4.85e+08
+   L= 30.0  W_Z=-3.183  W_Z'=1.251e-05  -> sign channel FIRES; prime-side length e^L = 1.07e+13
+   L= 40.0  W_Z=-18.09  W_Z'=1.885e-06  -> sign channel FIRES; prime-side length e^L = 2.35e+17
+
+done
+python3 zero_data_cost.py  3.64s user 0.01s system 99% cpu 3.654 total

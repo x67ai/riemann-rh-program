@@ -1,0 +1,32 @@
+# mathlib_grep_run.log -- PRICING sanity check (Session 22, Wed Sep 16 20:27:39 IST 2026); Mathlib commit 51e6992e (lake-manifest); greps over $M = /Users/jaytyagi/rh-lean-work/zeta-23-lean-main/.lake/packages/mathlib/Mathlib
+## Bessel (files mentioning bessel, case-insensitive):
+Analysis/InnerProductSpace/Orthonormal.lean
+Analysis/Distribution/Sobolev.lean
+Analysis/Distribution/TemperateGrowth.lean
+## modified Bessel K / besselK by name:
+(none)
+## Laplace transform:
+(none)
+## Gevrey:
+(none)
+## expNegInvGlue:
+Analysis/SpecialFunctions/SmoothTransition.lean
+## iteratedDeriv composition / Leibniz lemmas:
+Analysis/Calculus/IteratedDeriv/Lemmas.lean:342:theorem iteratedDeriv_const_smul {n : ℕ} {f : 𝕜 → F} (h : ContDiffAt 𝕜 n f x) (c : R) :
+Analysis/Calculus/IteratedDeriv/Lemmas.lean:351:theorem iteratedDeriv_const_smul_field {n : ℕ} (c : 𝕝) (f : 𝕜 → F) :
+Analysis/Calculus/IteratedDeriv/Lemmas.lean:384:theorem iteratedDeriv_mul_const_field {n : ℕ} (f : 𝕜 → 𝕜') (c : 𝕜') :
+Analysis/Calculus/IteratedDeriv/Lemmas.lean:401:theorem iteratedDeriv_comp_const_mul {n : ℕ} {f : 𝕜 → 𝕜} (h : ContDiff 𝕜 n f) (c : 𝕜) :
+Analysis/Calculus/ContDiff/Bounds.lean:275:theorem norm_iteratedFDeriv_mul_le {f : E → A} {g : E → A} {N : ℕ∞ω} (hf : ContDiff 𝕜 N f)
+## Gaussian integrability lemmas (moments):
+97:theorem integrable_rpow_mul_exp_neg_mul_sq {b : ℝ} (hb : 0 < b) {s : ℝ} (hs : -1 < s) :
+180:theorem integral_gaussian_sq_complex {b : ℂ} (hb : 0 < b.re) :
+211:theorem integral_gaussian (b : ℝ) : ∫ x : ℝ, exp (-b * x ^ 2) = √(π / b) := by
+237:theorem integral_gaussian_complex {b : ℂ} (hb : 0 < re b) :
+276:theorem integral_gaussian_complex_Ioi {b : ℂ} (hb : 0 < re b) :
+290:theorem integral_gaussian_Ioi (b : ℝ) :
+## Zeta23 on-disk integration-by-parts shapes (for Lemma G):
+80:theorem norm_paperFT_le {f : ℝ → ℂ} {Λ : ℝ} (hfi : Integrable f)
+93:theorem paperFT_deriv {f : ℝ → ℂ} (hf : ContDiff ℝ 1 f) (hsupp : HasCompactSupport f) (z : ℂ) :
+119:theorem paperFT_deriv_deriv {f : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hsupp : HasCompactSupport f)
+139:theorem norm_paperFT_mul_sq_le {f : ℝ → ℂ} {Λ : ℝ} (hf : ContDiff ℝ 2 f)
+244:  rw [iteratedDeriv_comp_const_sub]
