@@ -1,0 +1,20 @@
+[2026-09-16 23:20:35] measured at X = 485165195 (25617272 terms): single-thread full 5.640s, sieve-only 0.994s -> r_sieve = 2.05 ns/integer, r_term = 181.4 ns/term; 8 threads: full 1.144s (speed-up S = 4.93), sieve-only 0.214s
+[2026-09-16 23:20:35] model check at X0: predicted 8-thread wall 1.144s vs measured 1.144s
+[2026-09-16 23:20:35] the cost line at the twelve campaign points (L_sign at t | median over centers -> X, terms, wall on this machine, class):
+   t=   1e+03 delta= 0.05: L_sign at t =  32.1 -> X = 8.73e+13, terms = 2.81e+12, wall =     1.6 d, class C   | median  20.6 -> X = 8.84e+08, wall =     2.0 s, class A
+   t=   1e+03 delta= 0.10: L_sign at t =  19.4 -> X = 2.66e+08, terms = 1.45e+07, wall =     0.6 s, class A   | median  15.4 -> X = 4.88e+06, wall =     0.0 s, class A
+   t=   1e+03 delta= 0.25: L_sign at t =   6.7 -> X = 8.12e+02, terms = 1.82e+02, wall =     0.0 s, class A   | median   8.4 -> X = 4.45e+03, wall =     0.0 s, class A
+   t=   1e+04 delta= 0.05: L_sign at t =  25.1 -> X = 7.96e+10, terms = 3.31e+09, wall =   2.6 min, class A   | median  27.8 -> X = 1.18e+12, wall =  35.3 min, class A
+   t=   1e+04 delta= 0.10: L_sign at t =  13.5 -> X = 7.29e+05, terms = 5.91e+04, wall =     0.0 s, class A   | median  18.0 -> X = 6.57e+07, wall =     0.2 s, class A
+   t=   1e+04 delta= 0.25: L_sign at t =   8.8 -> X = 6.63e+03, terms = 9.32e+02, wall =     0.0 s, class A   | median   9.2 -> X = 9.90e+03, wall =     0.0 s, class A
+   t=   1e+05 delta= 0.05: L_sign at t =  25.8 -> X = 1.60e+11, terms = 6.47e+09, wall =   5.1 min, class A   | median  29.0 -> X = 3.93e+12, wall =     1.9 h, class B
+   t=   1e+05 delta= 0.10: L_sign at t =  20.1 -> X = 5.36e+08, terms = 2.82e+07, wall =     1.3 s, class A   | median  19.2 -> X = 2.18e+08, wall =     0.5 s, class A
+   t=   1e+05 delta= 0.25: L_sign at t =   9.5 -> X = 1.34e+04, terms = 1.68e+03, wall =     0.0 s, class A   | median  10.2 -> X = 2.69e+04, wall =     0.0 s, class A
+   t=   1e+06 delta= 0.05: L_sign at t =  33.3 -> X = 2.90e+14, terms = 8.98e+12, wall =     5.2 d, class C   | median  31.4 -> X = 4.33e+13, wall =    19.6 h, class B
+   t=   1e+06 delta= 0.10: L_sign at t =  22.4 -> X = 5.35e+09, terms = 2.51e+08, wall =    11.4 s, class A   | median  20.6 -> X = 8.84e+08, wall =     2.0 s, class A
+   t=   1e+06 delta= 0.25: L_sign at t =  11.0 -> X = 5.99e+04, terms = 6.18e+03, wall =     0.0 s, class A   | median  10.8 -> X = 4.90e+04, wall =     0.0 s, class A
+[2026-09-16 23:20:35] class boundaries on this machine: A/B at L = 28.35 (X = 2.04e+12, terms 7.48e+10); B/C at L = 31.61 (X = 5.34e+13, terms 1.75e+12); one year at L = 37.64 (X = 2.22e+16)
+   pricing's reference X = 1e+09: terms 5.09e+07, wall 2.3 s (class A) -- PRICING section 3(a) priced 'X terms at 50 ns/term'; the term count is li(X), a factor ln X smaller, and the sieve is the other cost
+   pricing's reference X = 1e+13: terms 3.46e+11, wall 4.7 h (class B) -- PRICING section 3(a) priced 'X terms at 50 ns/term'; the term count is li(X), a factor ln X smaller, and the sieve is the other cost
+   pricing's reference X = 1e+15: terms 2.98e+13, wall 17.5 d (class C) -- PRICING section 3(a) priced 'X terms at 50 ns/term'; the term count is li(X), a factor ln X smaller, and the sieve is the other cost
+[2026-09-16 23:20:35] wrote out/cost_line.json

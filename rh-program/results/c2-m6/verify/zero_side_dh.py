@@ -39,7 +39,8 @@ onl = []; u = t - W0; zp = zline(u)
 while u < t + W0:
     u2 = u + step; zn = zline(u2)
     if zp*zn < 0:
-        onl.append(mp.findroot(zline, (u, u2), solver='illinois'))
+        r_ = mp.findroot(zline, (u, u2), solver="illinois")
+        if abs(r_ - t) <= W0: onl.append(r_)
     u, zp = u2, zn
 print(f"[{now()}] on-line zeros of DH in [{float(t-W0):.3f}, {float(t+W0):.3f}] by sign change (step 0.05): {len(onl)};  {time.time()-t0:.0f}s")
 print("    ", [round(float(z), 4) for z in onl])
