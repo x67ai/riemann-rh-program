@@ -1,0 +1,29 @@
+strip orbits: 26 (new: 25)
+
+(A) three new off-line zeros of f_DH, re-verified at 30 digits
+  rho = 0.650830080609737 + 114.163342730757 i
+     |f_DH(stored rho)| = 1.758e-15 ; |f_DH(refined)| = 4.092e-30 ; |refined - stored| = 1.92e-15
+     beta = 0.650830080610 -> in the OPEN strip 0 < beta < 1: True ; off the line (beta != 1/2): delta = |beta - 1/2| = 0.150830081 (stored 0.150830081)
+  rho = 0.846953803092049 + 531.279726896521 i
+     |f_DH(stored rho)| = 5.023e-14 ; |f_DH(refined)| = 2.270e-29 ; |refined - stored| = 2.50e-14
+     beta = 0.846953803092 -> in the OPEN strip 0 < beta < 1: True ; off the line (beta != 1/2): delta = |beta - 1/2| = 0.346953803 (stored 0.346953803)
+  rho = 0.6884301365964 + 892.149034773427 i
+     |f_DH(stored rho)| = 3.131e-14 ; |f_DH(refined)| = 3.185e-29 ; |refined - stored| = 2.49e-14
+     beta = 0.688430136596 -> in the OPEN strip 0 < beta < 1: True ; off the line (beta != 1/2): delta = |beta - 1/2| = 0.188430137 (stored 0.188430137)
+
+(B) one new-height control row, recomputed with the checker's own transform
+  t = 114.163343, delta = 0.150830, 39 DH on-line zeros in [t-30, t+30] (builder's list, re-checked below)
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/f0642f49-dab5-4c05-a061-651fcb3ec7a7/scratchpad/chk/dh_check.py", line 38, in <module>
+    bad=max(float(abs(Zdh(mp.mpf(repr(x))))) for x in g)
+  File "/private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/f0642f49-dab5-4c05-a061-651fcb3ec7a7/scratchpad/chk/dh_check.py", line 38, in <genexpr>
+    bad=max(float(abs(Zdh(mp.mpf(repr(x))))) for x in g)
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/ctx_mp_python.py", line 79, in __new__
+    v._mpf_ = mpf_pos(cls.mpf_convert_arg(val, prec, rounding), prec, rounding)
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/ctx_mp_python.py", line 86, in mpf_convert_arg
+    if isinstance(x, basestring): return from_str(x, prec, rounding)
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/libmp/libmpf.py", line 1331, in from_str
+    man, exp = str_to_man_exp(x, base=10)
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/libmp/libmpf.py", line 1294, in str_to_man_exp
+    float(x)
+ValueError: could not convert string to float: 'np.float64(87.64779786394637)'
