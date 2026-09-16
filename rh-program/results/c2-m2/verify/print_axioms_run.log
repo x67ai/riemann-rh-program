@@ -1,0 +1,28 @@
+# scratch file: /private/tmp/claude-501/-Users-jaytyagi-Library-Mobile-Documents-com-apple-CloudDocs-Documents-Work-2026-Math-riemann/f0642f49-dab5-4c05-a061-651fcb3ec7a7/scratchpad/axioms_m2.lean (outside the tree); compiled with 'lake env lean' from ~/rh-lean-work/zeta-23-lean-main; Wed Sep 16 17:46:22 IST 2026
+# toolchain: leanprover/lean4:v4.33.0-rc2
+import Zeta23.ExplicitFormula
+import Zeta23.WeilEF.Main
+import Zeta23.WeilEF.Effective
+import Zeta23.Taper.Gevrey
+import Zeta23.Taper.GevreyRamps
+#print axioms Zeta23.EF.prop_EF_of_lit
+#print axioms Zeta23.EF.paperFT_weilTest
+#print axioms Zeta23.WeilEF.EF_lit_zetaZeroConfig
+#print axioms Zeta23.WeilEF.zeta_local_zero_count_explicit
+#print axioms Zeta23.Taper.gevrey_expNegInvGlue
+#print axioms Zeta23.Taper.abs_iteratedDeriv_theta_le
+#print axioms Zeta23.Taper.gevreyProfile_rhoTwo
+#print axioms Zeta23.Taper.integral_abs_iteratedDeriv_phi_le
+#print axioms Zeta23.Params.gevreyPhiBound_of_profile
+# ---- output
+'Zeta23.EF.prop_EF_of_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.EF.paperFT_weilTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.zeta_local_zero_count_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Taper.gevrey_expNegInvGlue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Taper.abs_iteratedDeriv_theta_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Taper.gevreyProfile_rhoTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Taper.integral_abs_iteratedDeriv_phi_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Params.gevreyPhiBound_of_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean "$SCR/axioms_m2.lean"  1.84s user 2.00s system 91% cpu 4.187 total
+exit=0
