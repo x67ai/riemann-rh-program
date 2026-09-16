@@ -1,0 +1,9 @@
+[2026-09-16 23:21:52] V.4 controls, prime/coefficient side against the zero side
+  kind      t        L   |   pole term      ARCH (arch. integral)   P (twisted sum)        W_rhs = pole + ARCH - P   |   W_zero                    |  W_rhs - W_zero   budget
+  zeta     85.6993  10 | -1.470e-15 (computed) +0.043431373522116  +0.039608507012439  +0.003822866509676  |  +0.003822866509675  |  +2.30e-16   2.0e-14   [99 zeros, tail <= 1.9e-20]
+  zeta     85.6993  20 | +2.023e-21 (computed) +0.005429034056565  +0.004562999824717  +0.000866034231848  |  +0.000866034231848  |  +6.92e-17   8.2e-14   [99 zeros, tail <= 3.1e-28]
+  zeta  1000000.0000  10 | +0.000e+00 (bounded: ) +0.199091808834892  -0.052207475557697  +0.251299284392589  |  +0.251299284362037  |  +3.06e-11   1.9e-08   [1133 zeros, tail <= 4.9e-27]
+  zeta  1000000.0000  20 | +0.000e+00 (bounded: ) +0.024886476104362  -0.004285191215912  +0.029171667320275  |  +0.029171667318689  |  +1.59e-12   9.3e-09   [1133 zeros, tail <= 7.4e-35]
+  dh       85.6993  10 | +0.000e+00 (none (DH ) +0.070183394730637  +0.339995468928925  -0.269812074198287  |  -0.269811108612619  |  -9.66e-07   7.6e-12   [FULL config (argument-principle count MISMATCH), record config -0.2698111106, tails <= 7.6e-12]
+  dh       85.6993  20 | +0.000e+00 (none (DH ) +0.008773036707631  +0.757004182004964  -0.748231145297333  |  -0.748231154881513  |  +9.58e-09   4.6e-13   [FULL config (argument-principle count MISMATCH), record config -0.7482311549, tails <= 1.4e-18]
+[2026-09-16 23:21:52] wrote out/controls_table.json

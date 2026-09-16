@@ -1,0 +1,13 @@
+witnesses: Lambda_DH(3) = -0.312092728516164, (4) = -1.44223196460646, (6) = 1.93635607662104, (12) = -0.762877471988412
+n <= 22026 coprime to 5 with Lambda_DH(n) == 0 exactly (mpmath): 2178; first 30: [22, 33, 44, 57, 62, 77, 82, 87, 93, 118, 123, 143, 177, 202, 209, 218, 242, 253, 262, 278, 302, 303, 323, 327, 362, 363, 369, 393, 407, 417]
+max |Lambda_DH(n)| = 157.7961 at n = 19656;  sum Lambda/sqrt n = -0.763400842343
+A(v) trapezoid vs mpmath quad: [(0.0, 16.62196534693393, 16.62196534693393, 0.0), (0.3, 0.9429411914777707, 0.9429411914777707, 0.0), (0.7, -7.126807537829553, -7.126807537829554, 8.881784197001252e-16)]
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/dh_coeff_check.py", line 48, in <module>
+    wn = lam[n]/mp.sqrt(n)*2*mp.mpf(A(mp.log(n)/L))/L**3
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/dh_coeff_check.py", line 35, in A
+    qs = 1 - 4*ws*ws; b2 = np.where(np.abs(ws) < 0.5, np.exp(-1/qs)*(-8*ws/(qs*qs)), 0.0)
+TypeError: loop of ufunc does not support argument 0 of type mpf which has no callable exp method
+A(v) trapezoid vs mpmath quad: [(0.0, 16.62196534693393, 16.62196534693393, 0.0), (0.3, 0.9429411914777707, 0.9429411914777707, 0.0), (0.7, -7.126807537829553, -7.126807537829554, 8.881784197001252e-16)]
+P_DH(85.7, 10) independent (mpmath Lambda, dps 30) = 0.33999546892892627165;  terms = 15442;  l1 = 3.292368468
+Rust P_dd = 0.3399954689289246; difference = 1.645e-15;  Rust terms = 15346, l1 = 3.292368467762117
