@@ -12,3 +12,16 @@ L=   50.0: W_Z =     -124.59068  W_Z' = 2.6027952e-7  (Z'' - Z' = 1.82e-38)  mai
 L=   60.0: W_Z =     -982.50091  W_Z' = 3.4975791e-8  (Z'' - Z' = 1.0e-37)  main -2d^2c^2 =     -982.50091  |W_Z - W_Z'| =    982.50091  bound d^2 e^(dL/2) =    995.814  ratio = 0.98663  fires(>=1): True
 L=   70.0: W_Z =     -8565.3022  W_Z' = 4.3679402e-9  (Z'' - Z' = 3.78e-38)  main -2d^2c^2 =     -8565.3022  |W_Z - W_Z'| =    8565.3022  bound d^2 e^(dL/2) =    4657.09  ratio = 1.8392  fires(>=1): True
 L= 86.907: W_Z =     -394292.19  W_Z' = 3.432164e-10  (Z'' - Z' = 2.34e-38)  main -2d^2c^2 =     -394292.19  |W_Z - W_Z'| =    394292.19  bound d^2 e^(dL/2) =    63212.9  ratio = 6.2375  fires(>=1): True
+L=  100.0: W_Z =     -8536115.2  W_Z' = 1.022002e-11  (Z'' - Z' = 4.47e-39)  main -2d^2c^2 =     -8536115.2  |W_Z - W_Z'| =    8536115.2  bound d^2 e^(dL/2) =   476348.0  ratio = 17.92  fires(>=1): True
+POSITIVE control: 25 zeta zeros in the window (indices up to 36); W_zeta(f_{t,L}) at the same t:
+    L=20.0: W_zeta = 0.000866034 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.1033;  clause-6 bound d^2 e^(dL/2) at DH's delta = 2.082
+    L=40.0: W_zeta = 1.08483e-5 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.02581;  clause-6 bound d^2 e^(dL/2) at DH's delta = 45.53
+    L=86.907: W_zeta = 2.09234e-7 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.005469;  clause-6 bound d^2 e^(dL/2) at DH's delta = 6.321e+4
+    L=100.0: W_zeta = 3.77892e-8 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.00413;  clause-6 bound d^2 e^(dL/2) at DH's delta = 4.763e+5
+CAVEAT (printed by design): the theorem's window hypothesis -- all points of Z other than the orbit real within |Re gamma - t| <= R_0 L* -- is NOT verified for DH here (R_0 L* is thousands; DH has further off-line zeros); the control shows the datum firing on the known off-line orbit, with the in-window on-line zeros present, at the theorem's bandwidth and below it.
+done in 974.3s
+
+real	16m18.074s
+user	16m13.230s
+sys	0m2.975s
+exit=0
