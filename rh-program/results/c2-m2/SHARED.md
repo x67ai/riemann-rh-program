@@ -131,3 +131,64 @@ Nothing outside `results/c2-m2/` was edited; no Lean file touched; nothing commi
 
 * `campaign/CAMPAIGN.md` (v1)  09239e0a606bf7ca3463f35b9b5166a1e1e913fdfcf21635fb5e35b7a9b4dfb8
 * `campaign/dh_offline_scan.json`  b197dc06c612a5f00541ff9b97f526ad5b0d7f4da0a86a502cfeac27b8d5cc91  — DH control available at 25 further height(s)
+
+## 2026-09-16 22:52 IST — CAMPAIGN CHECKPOINT VERDICT (the Opus CHECKER, half slot; PRICING §2(e) stop condition (iii))
+
+**Verdict: PASS at all four heights. Stop condition (iii) DOES NOT FIRE. No row is flagged; no leg is stopped.**
+Object checked: `campaign/CAMPAIGN.md` v1, SHA-256 `09239e0a606bf7ca3463f35b9b5166a1e1e913fdfcf21635fb5e35b7a9b4dfb8`
+(matches), with the four `rows_*` / `summary_*` / `zeros_*` files, `logs/`, `outwindow_test.json`,
+`dh_offline_scan.json`. `campaign_lib.py` was NOT imported: the checker's transform is its own Gauss-Legendre
+quadrature (scipy `roots_legendre`, N = 12000-16000) cross-checked against 40-digit mpmath tanh-sinh quadrature;
+complex arguments by a 40-110-digit oscillatory rule. Scripts and logs: `campaign/check-O/`.
+
+* **(1) zeros** — 20 random zeros per height re-verified at 30 digits (`mpmath.zetazero` + Newton on `siegelz`):
+  max |gamma_stored - gamma_30| = 1.07e-13 / 1.20e-12 / 9.11e-12 / 8.24e-11 at t = 1e3 / 1e4 / 1e5 / 1e6;
+  max |Z(gamma_30)| = 8.1e-28 / 5.7e-27 / 1.6e-25 / 8.5e-25; Newton agrees with `zetazero` to 0 (to 1.0e-25 at 1e6).
+  Index-to-height map GAP-FREE at every height: indices consecutive (427..885, 9804..10484, 137617..138521,
+  1746580..1747712), gammas monotone, and the RvM count theta(T)/pi over the window gives 458.71 / 680.97 / 905.41 /
+  1133.41 against the stored 459 / 681 / 905 / 1133.
+* **(2) two rows per height, INDEPENDENT transform** (small-L delta = 0.1, L = 20; record point delta = 0.1, L*(C1 = 1)):
+  worst over the eight rows — **W_Z 1.7e-12 relative** (tolerance 1e-8), **main term 9.7e-14 relative**,
+  **W_Z' 5.7e-16 ABSOLUTE** (tolerance 1e-10), ratio to the clause-6 bound 9.8e-14 relative; n_zeros_used and U_row
+  identical. Four extreme rows (delta = 0.05, L*(C1 = 2.4e9)) were added: W_Z' there differs by up to 8.8e-3 RELATIVE
+  but only 3.0e-25 ABSOLUTE - **the builder's note (4) on tolerances is confirmed and adopted.**
+* **(3) clause-4 truncation with k <= 13** — all thirteen `||B^(k)||_1` recomputed from scratch (own recursion
+  P_{k+1} = -8vP_k + P_k'w^2 + 16k v P_k w, roots by `mpmath.polyroots`, 60-digit piecewise quadrature) and confirmed
+  to 12 significant digits (k = 1, 2, 3 reproduce 3.31428, 28.7726, 642.301). The tail bound is the note's clause-4
+  polynomial route with k in place of 3 and is rigorous (k >= 2, U >= 3 hold at every row); U_kopt, k_opt and the tail
+  at U_row reproduce to 1.3e-13; U_data = 2 U(L_min = 4) = 285.594 / 290.344 / 294.096 / 297.220 with tail 1.000e-10.
+  One precision item: the shell log is replaced by l_R for shells beyond R_0 L; the true ratio is 0.88-0.99999 at the
+  operating points, so the printed bounds are upper bounds. Operative C1: the largest count in a closed window of
+  length 2 is 3/4/5/6 against log(3+t) = 6.91/9.21/11.51/13.82, i.e. C1_operative = 0.4343 - C1 = 1 is conservative.
+* **(4) closes** — close 1 **REPAIRED** (verdict stands: b = 0.737/0.262, 0.732/0.003, 0.642/0.368, 0.596/0.434 and all
+  twelve prefactor intervals reproduce exactly; two repairs — the theorem's own delta-ratio is 7.13 / 6.95, not 5, and
+  the theorem-law refutation at "L_sign at t" has a 1.3 % margin, which the exact-L* test widens to [0.60, 1.75]);
+  close 2 **CONFIRMED** (403.50 = 40*(2.6258+4.6052+2.8565), shares 26.0/45.7/28.3 %, floor 298.5, record-point ratios
+  7.536e4 / 2.463e5 / 1.153e6 / 1.780e5, looseness [2.56,4.54] / [1.32,1.57] / [1.42,1.83] / [0.93,1.16] — all exact);
+  close 3 **CONFIRMED** (crossing lambda* = 18.582824 -> 18.6 on the 0.1 grid, with the checker's own c; c(25)^2/e^12.5
+  = 1.999107); close 4 **CONFIRMED** with one repair ((7/(8*0.85))^2 = 1.0597, (7/(8/sqrt2))^2 = 1.5312,
+  (7/(8 c_B))^2 = 37.4613, factors 24.5-35.4; B-hat at 40+ digits: **B-hat(16384) = 8.437e-43**, so the note's
+  1.76e-37 WAS quadrature noise, by a factor 2.1e5; envelope A = 9 confirmed conservative; bound/exact 10.63, 23.35,
+  14.33, 33.25, 19.84, 47.82 reproduce; u_true confirmed at L = 20, 50 (0.986, 0.975 of e^-L) but the bisection runs on
+  a sign-oscillating value and at L = 120 gives 0.173 of e^-L, so u_true/L <= 1.086 there).
+* **(5) V.4** — positive control W_Z' >= 0 at **all 732 rows and all 4684 fine-grid bandwidths** (min 3.4462e-23);
+  zero clause-4 violations at L >= 50. Three of the 25 new off-line zeros of f_DH re-verified at 30 digits
+  (t = 114.163343, 531.279727, 892.149035): |f_DH| <= 3.2e-29 after refinement, all strictly inside 0 < beta < 1,
+  stored delta correct to nine decimals. The t = 114.16 control row recomputed with the checker's transform: all ten
+  bandwidths agree to <= 6.7e-14 relative on W_Z and 1.5e-21 absolute on W_Z'; ratio 30.66 at L* = 217.48 (fires).
+  Max |Z_DH(gamma)| over the builder's 39 on-line points at 25 digits: 1.857e-32.
+* **(6) stop conditions** — (i) does not fire (0.166-0.600 s/zero); (ii) does not fire; (iii) **does not fire**;
+  **(iv) FIRES in the form PRICING §2(e) writes it** (single-t N_Z/model outside a factor 10 at 10 of 59 grid
+  bandwidths at t = 1e3, 25 of 59 at 1e5, 11 of 59 at 1e6) and does not fire on the builder's center-mean restatement
+  ([0.42,1.08], [0.89,1.16], [0.69,1.04], [0.91,1.30]). **Assessment: the restatement is legitimate mathematics** (the
+  model is an ensemble mean by its own derivation, PRICING §2(a)(4)) **but a weakening as a stop condition** (it was
+  restated after it fired), and it is recorded in the logs and `summary_*.json` but NOT in `CAMPAIGN.md`. Wording
+  repair in CHECK-O.md §7 item 4. No close depends on it: L_sign and L_bal3 are thresholds in L, not levels of N_Z.
+* **(7) lint** — the four banned hedges absent; no British spelling in `CAMPAIGN.md` or `STATUS-campaign.md`;
+  INSTRUMENT carried by every table header **except §3** (repair in CHECK-O.md §7 item 1); two numbers
+  ((7/(8*0.707))^2 = 1.53 and 1.06) are typed in `aggregate.py`'s template rather than printed by a log (item 6).
+
+* `campaign/CHECK-O.md`  a331d579d2f96fbf799b636c2b1e617f2c75a334c956cf7250bb58c7a609f35e
+* `campaign/check-O/` — the checker's scripts and logs (`ind_transform.py`, `verify_zeros.py`, `recompute_rows.py`,
+  `deriv_norms.py`, `bhat_big.py`, `outwin_check.py`, `dh_check.py`, `dh_control_check.py`, `closes_check.py`,
+  `owosc.py` and the matching `*.log` / `*.json`)
