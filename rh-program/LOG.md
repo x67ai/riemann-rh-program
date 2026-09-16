@@ -1563,3 +1563,9 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 - **NOTHING RUNNING.** Session 22 queue stands as written.
 - **~20:20 IST — sponsor's second FYI item: github.com/luckyseoul/perry-beurling-spectral-sieve (PBSS, N. Perry).** Read README + status + theorem list + the Weil-transfer and zero-proportion notes (session scratchpad only; no corpus fetch). Verdict: a Legendre-projection diagnostic on the prime residual; self-declared not a proof; "B-ABS" converse is an RH-equivalence (von Koch on a log window); normalized converse shown false by the author for positive Beurling systems = zoo I.2 from the inside; its reading of the 2/3 paper's Lemma 3.1 (upper inertia bound only) is accurate. No route, no input, no queue change. STATUS watch line 12; `results/watch-pbss-perry-2026-09/ASSESSMENT.md`.
 - **NOTHING RUNNING.** Program not resumed; Session 22 queue stands.
+
+## Session 22 — 2026-09-16 (opened 16:40 IST; LOCAL; THE RH PROGRAM RESUMED at the SESSION 22 QUEUE; caffeinate + both watchdogs running)
+
+**Focus:** queue item 0(b) — (i) the zoo stream (V.5, V.2 pointer, III.16 rider) and (ii) pricing the Grossmann-style scout pair on the three class-(C) branches under the standing-order-6 refinement — then item 1, the M2 build brief (author + Opus check, then two blind referees).
+- **16:40 IST — bootstrap:** `git pull` up to date at 14dd1a5; corpus present (`fetched/` 174, `fetched-r2/` 162); caffeinate + push-watchdog + autocommit-watchdog ("Session 22") started and verified by `pgrep`. Model: Fable 5.1. Sponsor offered fetches and Chrome (MCP) for bot-walled pages.
+- **16:52 IST — item 0(b)(i) zoo stream LAUNCHED:** brief `results/zoo-s22/BRIEF.md` (V.5 text from AUDIT §4 with four source verifications; V.2 rider; III.16 rider suspending the dead-end grade on the UNBUILT prime-side sector only; §0 step-7 sentence; count 56). Writer (Fable) then Opus reader. Live entry in STATUS.
