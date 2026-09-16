@@ -19,20 +19,26 @@
     eta=8: |Bhat|=0.1861  G1=26.71  G2=44.15  log10(G1/|Bhat|)=2.16
     eta=64: |Bhat|=0.001388  G1=16.67  G2=23.12  log10(G1/|Bhat|)=4.08
     eta=512: |Bhat|=9.253e-9  G1=3.43  G2=3.71  log10(G1/|Bhat|)=8.57
-    eta=4096: |Bhat|=0.1513  G1=0.01972  G2=0.02098  log10(G1/|Bhat|)=-0.88
-    eta=16384: |Bhat|=0.03538  G1=3.815e-6  G2=6.996e-6  log10(G1/|Bhat|)=-3.97
-    min log10(G1/|Bhat|) = -3.967, min log10(G2/|Bhat|) = -3.704 over 18 eta values
+    eta=4096: |Bhat|=3.563e-22  G1=0.01972  G2=0.02098  log10(G1/|Bhat|)=19.74
+    eta=16384: |Bhat|=1.76e-37  G1=3.815e-6  G2=6.996e-6  log10(G1/|Bhat|)=31.34
+    min log10(G1/|Bhat|) = 1.499, min log10(G2/|Bhat|) = 1.753 over 18 eta values
     numerical envelope constant (max over eta in 256..8192 of -log|Bhat|/sqrt eta, a lower bound on the true rate): 0.849  [computed, not proved]
-(d) clause 5: least R_0 (step 0.5) with F(50) := log S_bound(50, R_0 L) + L <= 0 and 2c_B sqrt(R_0) - 7/4 >= 0.1:  R_0 = 85.0;  F(50) = -0.3283
-    asymptotic constants: (3/(4 c_B))^2 = 27.523 (contract's form),  (7/(8 c_B))^2 = 37.461 (with the density prefactor absorbed through the L-hypothesis)
-    L=50: F(L) = log S_bound + L = -0.3283
-    L=60: F(L) = log S_bound + L = -8.2987
-    L=100: F(L) = log S_bound + L = -41.23
-    L=403: F(L) = log S_bound + L = -302.79
-    L=1000: F(L) = log S_bound + L = -827.23
-    L=10000: F(L) = log S_bound + L = -8790.3
-    L=100000: F(L) = log S_bound + L = -88525.0
-    max F over the L-grid = -0.3283 (<= 0 required; the note proves the decrease in L analytically)
+(d) clause 5: least R_0 (step 0.5) with F~(L0) <= 0 and 5/(2 c_B sqrt R_0 - 7/4) <= L0  (then F~(L) <= 0 for ALL L >= L0):
+    L0 =     50: R_0 = 81.0   F~(L0) = -0.13339   decrease from L = 6.073
+    L0 =    100: R_0 = 58.5   F~(L0) = -0.70166   decrease from L = 11.44
+    L0 =    200: R_0 = 48.0   F~(L0) = -0.6518   decrease from L = 21.65
+    L0 =    403: R_0 = 43.0   F~(L0) = -1.8158   decrease from L = 40.03
+    L0 =   1000: R_0 = 40.0   F~(L0) = -5.5937   decrease from L = 85.73
+    L0 =  10000: R_0 = 38.0   F~(L0) = -61.366   decrease from L = 398.8
+    THE THEOREM'S R_0 (all L >= 50): 81.0;  asymptotic constants: (3/(4 c_B))^2 = 27.523 (contract's form),  (7/(8 c_B))^2 = 37.461 (with the density prefactor absorbed through the L-hypothesis)
+    L=50: F~(L) = -0.13339
+    L=60: F~(L) = -7.4768
+    L=100: F~(L) = -37.898
+    L=403: F~(L) = -280.44
+    L=1000: F~(L) = -767.41
+    L=10000: F~(L) = -8165.5
+    L=100000: F~(L) = -82250.0
+    max F~ over the L-grid at R_0 = 81.0: -0.13339
     for the record [computed, not proved]: with the numerical rate 0.849 the same chain would give (7/(8c))^2 = 1.06
 (e) clause 1 reflection condition: least t = T_1(L) with margin >= 0, and the clean linear form t >= c_R L:
     L=50: T_1(L) = 1039.9  (T_1/L = 20.8)
@@ -42,19 +48,20 @@
     L=1000: T_1(L) = 7389.2  (T_1/L = 7.389)
     L=10000: T_1(L) = 64283.0  (T_1/L = 6.428)
     least integer c_R with t = c_R L admissible on the L-grid: c_R = 21;  margins at L=50,100,1000,1e5: [0.7170931207366856, 34.06726338797546, 753.940648498114, 84762.1094290393]
+    margin(c_R L, L) nondecreasing in L on a fine grid [50, ~1.3e5]: True;  min margin = 0.7171
     asymptotic threshold t/L -> 1/(8 c_B^2) = 6.1161;  [computed, not proved] with the numerical rate 0.849: 1/(8c^2) = 0.173
 (f) clause 4: ||B'''||_1 = 642.3012;  L_1 = (2 zeta(4) ||B'''||_1^2 / b1)^(1/4) = 17.9  (polynomial route; L >= 50 already covers it)
     for the record: the contract's GEVREY form of T_1 falls below b1 C1 l_R/L^2 only from L ~ 11366 (with c_B = 0.143)
 (g) IV.9: L* from the theorem's constants (C1 = 1):
-    delta=0.1, t=1e+06: L* = 403.49, window R = R_0 L* = 34297.0, t/L* = 2478.0, reflection condition t >= 21 L*: True
-    delta=0.1, t=1e+03: L* = 375.78, window R = R_0 L* = 31941.0, t/L* = 2.661, reflection condition t >= 21 L*: False
-    delta=0.1, t=1e+12: L* = 431.21, window R = R_0 L* = 36653.0, t/L* = 2.319e+9, reflection condition t >= 21 L*: True
-    delta=0.05, t=1e+06: L* = 917.88, window R = R_0 L* = 78020.0, t/L* = 1089.0, reflection condition t >= 21 L*: True
-    delta=0.25, t=1e+06: L* = 132.07, window R = R_0 L* = 11226.0, t/L* = 7572.0, reflection condition t >= 21 L*: True
-    delta=0.3085, t=85.7: L* = 86.99, window R = R_0 L* = 7394.2, t/L* = 0.9852, reflection condition t >= 21 L*: False
-done in 5.0s
+    delta=0.1, t=1e+06: L* = 403.49, window R = R_0 L* = 32683.0, t/L* = 2478.0, reflection condition t >= 21 L*: True
+    delta=0.1, t=1e+03: L* = 375.78, window R = R_0 L* = 30438.0, t/L* = 2.661, reflection condition t >= 21 L*: False
+    delta=0.1, t=1e+12: L* = 431.21, window R = R_0 L* = 34928.0, t/L* = 2.319e+9, reflection condition t >= 21 L*: True
+    delta=0.05, t=1e+06: L* = 917.88, window R = R_0 L* = 74348.0, t/L* = 1089.0, reflection condition t >= 21 L*: True
+    delta=0.25, t=1e+06: L* = 132.07, window R = R_0 L* = 10698.0, t/L* = 7572.0, reflection condition t >= 21 L*: True
+    delta=0.3085, t=85.7: L* = 86.99, window R = R_0 L* = 7046.2, t/L* = 0.9852, reflection condition t >= 21 L*: False
+done in 51.6s
 
-real	0m5.003s
-user	0m4.976s
-sys	0m0.020s
+real	0m52.022s
+user	0m51.689s
+sys	0m0.208s
 exit=0

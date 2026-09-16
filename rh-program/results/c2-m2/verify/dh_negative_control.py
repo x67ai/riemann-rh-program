@@ -52,13 +52,19 @@ def W_of(points, L):
     return mp.fsum(h_f(gm, L)*mp.conj(h_f(mp.conj(gm), L)) for gm in points)
 def c_of(lam): return mp.quad(lambda v: Braw(v)*mp.cosh(lam*v), [-0.5, -0.25, 0, 0.25, 0.5])/Zn
 orbit = [mp.mpc(t, -delta), mp.mpc(t, delta), mp.mpc(-t, -delta), mp.mpc(-t, delta)]
-online = [mp.mpc(z, 0) for z in zs] + [mp.mpc(-z, 0) for z in zs]
 b1 = 8.647
 Lstar = max(25/delta, 4/delta*(mp.log(mp.log(3+t)) + 2*mp.log(1/delta) + mp.log(2*b1)))
+online = [mp.mpc(z, 0) for z in zs]
+# the reflected on-line points -tau_j (present in Z by reflection invariance) contribute |h_f(-tau)|^2 = 4 tau^2 Bhat(L(tau + t))^2 each:
+# bounded by Lemma G's (G1) with eta = L(tau + t) >= L(2t - W); one of them is evaluated directly at L = 20 for the record, the rest are bounded.
+refl_bound = lambda L: mp.fsum(4*z**2*(33.2845*(1 + 0.14296/2*mp.sqrt(L*(z + t)))*mp.e**(-0.14296*mp.sqrt(L*(z + t))))**2 for z in zs)
+zc = zs[0]; Lc = mp.mpf(20)
+print(f"reflected on-line points: direct |h_f(-tau_1)|^2 at L = 20, tau_1 = {mp.nstr(zc,6)}: {mp.nstr(abs(h_f(mp.mpc(-zc,0), Lc))**2, 3)};  Lemma-G bound on the sum over all reflected on-line points: {mp.nstr(refl_bound(Lc),3)} at L=20, {mp.nstr(refl_bound(Lstar),3)} at L = L*  (omitted from the sums below)")
+out["reflected_online_direct_L20"] = float(abs(h_f(mp.mpc(-zc,0), Lc))**2); out["reflected_online_bound_Lstar"] = float(refl_bound(Lstar))
 print(f"theorem bandwidth at (t, delta): L* = max(25/delta, 4/delta (loglog(3+t) + 2 log(1/delta) + log(2 b1))) = {mp.nstr(Lstar,5)}")
 out["L_star"] = float(Lstar)
 rows = []
-for L in [10, 20, 30, 40, 50, 60, 70, 80, float(Lstar), 100, 120]:
+for L in [10, 20, 30, 40, 50, 60, 70, float(Lstar), 100]:
     L = mp.mpf(L)
     WZ = W_of(orbit + online, L); WZp = W_of(online, L)
     # Z'' = Z' + double at +-t: h_f(t)=0 exactly; h_f(-t) = -2t Bhat(-2tL) (tiny, real point) -> contributes 2|h_f(-t)|^2 twice (multiplicity 2)
@@ -76,10 +82,10 @@ while True:
     if g > t + Wd: break
     if g >= t - Wd: zz.append(g)
     n += 1
-zeta_pts = [mp.mpc(g, 0) for g in zz] + [mp.mpc(-g, 0) for g in zz]
+zeta_pts = [mp.mpc(g, 0) for g in zz]   # reflected points omitted (bounded as above)
 print(f"POSITIVE control: {len(zz)} zeta zeros in the window (indices up to {n-1}); W_zeta(f_{{t,L}}) at the same t:")
 pos = []
-for L in [20, 40, 60, float(Lstar), 100]:
+for L in [20, 40, float(Lstar), 100]:
     L = mp.mpf(L); Wz = W_of(zeta_pts, L); pos.append(dict(L=float(L), W_zeta=float(Wz.real), noise_bound=float(b1*mp.log(3+t+Wd)/L**2)))
     print(f"    L={mp.nstr(L,5)}: W_zeta = {mp.nstr(Wz.real,6)} (>= 0; imag {mp.nstr(Wz.imag,2)});  b1 log(3+t+W)/L^2 = {mp.nstr(b1*mp.log(3+t+Wd)/L**2,4)};  clause-6 bound d^2 e^(dL/2) at DH's delta = {mp.nstr(delta**2*mp.e**(delta*L/2),4)}")
 out["positive_control"] = pos

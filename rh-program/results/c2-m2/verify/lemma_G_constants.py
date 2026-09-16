@@ -40,8 +40,9 @@ cB2 = mp.mpf(7)/8*cB; CB2 = 4*mp.e**(-mp.mpf(3)/4)*CB
 out.update(c_B=float(cB), C_B=float(CB), c_B_crude=float(cBc), c_B_clean=float(cB2), C_B_clean=float(CB2), A1=float(A1), Z=float(Z))
 print(f"(c) c_B = 2/sqrt(72e) = {mp.nstr(cB,8)};  C_B = e^2/Z = {mp.nstr(CB,8)};  crude-Leibniz c_B = 1/(6 sqrt e) = {mp.nstr(cBc,6)};  clean form c_B' = {mp.nstr(cB2,6)}, C_B' = {mp.nstr(CB2,6)};  the pricing's 0.20 = 1/(3 sqrt e) = {mp.nstr(1/(3*mp.sqrt(mp.e)),6)} is the constant for theta, not for B")
 def Bhat(eta):
-    eta = mp.mpf(eta)
-    return mp.quad(lambda v: Braw(v)*mp.cos(eta*v)/Z, [-0.5, -0.25, 0, 0.25, 0.5])
+    eta = mp.mpf(eta); n = max(8, int(eta)//3 + 8)     # >= ~3 nodes per oscillation of cos(eta v) on |v| <= 1/2
+    pts = [-mp.mpf(1)/2 + mp.mpf(k)/n for k in range(n+1)]
+    return mp.quad(lambda v: Braw(v)*mp.cos(eta*v)/Z, pts)
 def G1(eta): eta = mp.mpf(eta); return CB*(1 + cB/2*mp.sqrt(eta))*mp.e**(-cB*mp.sqrt(eta))
 def G2(eta): eta = mp.mpf(eta); return CB2*mp.e**(-cB2*mp.sqrt(eta))
 print("    (G1)/(G2) against |Bhat(eta)| (log10 of ratio bound/|Bhat| must be >= 0):")
@@ -58,36 +59,42 @@ env = [(e, float(mp.log(abs(Bhat(e))))) for e in (256, 512, 1024, 2048, 4096, 81
 cnum = -min(y/math.sqrt(e) for e, y in env); out["numerical_decay_constant_envelope"] = cnum
 print(f"    numerical envelope constant (max over eta in 256..8192 of -log|Bhat|/sqrt eta, a lower bound on the true rate): {cnum:.3f}  [computed, not proved]")
 out["G1_min_log10_ratio"] = worst1; out["G2_min_log10_ratio"] = worst2
-# (d) clause 5: the explicit out-window sum bound and R_0
-#   S <= (e^{3L/4}/b1) [ 1.05 * Sigma_2 + Sigma_3 ],  Sigma_m := sum_{k >= R-1} (k+3/2)^m G1(Lk)^2 <= (5/2)^m C_B^2 [phi_m(R-1) + int_{R-1}^inf phi_m],
-#   phi_m(u) := u^m (1 + (c_B/2) sqrt(Lu))^2 e^{-2 c_B sqrt(Lu)},  int = (2/L^{m+1}) int_{s0}^inf s^{2m+1} (1 + c_B s/2)^2 e^{-2 c_B s} ds, s0 = sqrt(L(R-1))
-def upper_incgamma_poly(n, a, s0):
-    # int_{s0}^inf s^n e^{-a s} ds = e^{-a s0} sum_{j=0}^n n!/j! s0^j / a^{n+1-j}
-    return mp.e**(-a*s0)*mp.fsum(mp.factorial(n)/mp.factorial(j)*s0**j/a**(n+1-j) for j in range(n+1))
-def Sigma_bound(m, L, R):
-    L = mp.mpf(L); R = mp.mpf(R); u0 = R - 1; s0 = mp.sqrt(L*u0); a = 2*cB
-    phi0 = u0**m*(1 + cB/2*s0)**2*mp.e**(-a*s0)
-    integ = (2/L**(m+1))*(upper_incgamma_poly(2*m+1, a, s0) + cB*upper_incgamma_poly(2*m+2, a, s0) + cB**2/4*upper_incgamma_poly(2*m+3, a, s0))
-    return (mp.mpf(5)/2)**m*CB**2*(phi0 + integ)
-def logS_bound_plus_L(L, R0):
-    L = mp.mpf(L); R = R0*L
-    S = (mp.e**(3*L/4)/b1)*(mp.mpf('1.05')*Sigma_bound(2, L, R) + Sigma_bound(3, L, R))
-    return mp.log(S) + L        # must be <= 0
-# least R0 (step 0.5) with F(50) <= 0 and slope condition 2 c_B sqrt(R0) - 7/4 >= 5/50 (polynomial degree 5 in L)
-R0 = mp.mpf(1)
-while True:
-    if logS_bound_plus_L(50, R0) <= 0 and 2*cB*mp.sqrt(R0) - mp.mpf(7)/4 >= mp.mpf(5)/50:
-        break
-    R0 += mp.mpf('0.5')
-print(f"(d) clause 5: least R_0 (step 0.5) with F(50) := log S_bound(50, R_0 L) + L <= 0 and 2c_B sqrt(R_0) - 7/4 >= 0.1:  R_0 = {mp.nstr(R0,4)};  F(50) = {mp.nstr(logS_bound_plus_L(50, R0),5)}")
-print(f"    asymptotic constants: (3/(4 c_B))^2 = {mp.nstr((3/(4*cB))**2,5)} (contract's form),  (7/(8 c_B))^2 = {mp.nstr((7/(8*cB))**2,5)} (with the density prefactor absorbed through the L-hypothesis)")
+# (d) clause 5: the explicit out-window sum bound and R_0.
+#   S <= (e^{3L/4}/b1) [ 1.05 * Sigma_2 + Sigma_3 ],  Sigma_m := sum_{k >= R-1} (k+3/2)^m G1(Lk)^2 <= beta^m C_B^2 [phi_m(u0) + int_{u0}^inf phi_m],
+#   u0 = R-1, beta = 1 + 3/(2 u0), phi_m(u) := u^m (1 + (c_B/2) sqrt(Lu))^2 e^{-2 c_B sqrt(Lu)},
+#   int = (2/L^{m+1}) int_{s0}^inf s^{2m+1} (1 + c_B s/2)^2 e^{-2 c_B s} ds, s0 = sqrt(L u0)  (phi_m decreasing on [u0, inf) since u0 > (m+1)^2/(c_B^2 L)).
+#   RELAXED form used for the "all L >= L0" proof (R = R0 L): s0 >= sqrt(R0) L - 1/sqrt(R0), so e^{-2 c_B s0} <= e^{2 c_B/sqrt R0} e^{-2 c_B sqrt(R0) L};
+#   u0 <= R0 L and s0 <= sqrt(R0) L in every polynomial factor.  Then S <= e^{(3/4 - 2 c_B sqrt R0) L} e^{2 c_B/sqrt R0} P(L)/b1 with P a polynomial
+#   in L with NONNEGATIVE coefficients of degree 5, and F~(L) := log(S-bound) + L is decreasing for L >= 5/(2 c_B sqrt(R0) - 7/4).
+def gamma_poly(n, a, s):      # sum_{j=0}^n n!/j! s^j / a^{n+1-j}  (= e^{a s} int_s^inf x^n e^{-a x} dx)
+    return mp.fsum(mp.factorial(n)/mp.factorial(j)*s**j/a**(n+1-j) for j in range(n+1))
+def P_relaxed(m, L, R0, L0):
+    L = mp.mpf(L); R0 = mp.mpf(R0); a = 2*cB; sR = mp.sqrt(R0)*L; u0 = R0*L
+    beta = 1 + 3/(2*(R0*mp.mpf(L0) - 1))
+    phi0 = u0**m*(1 + cB/2*sR)**2
+    integ = (2/L**(m+1))*(gamma_poly(2*m+1, a, sR) + cB*gamma_poly(2*m+2, a, sR) + cB**2/4*gamma_poly(2*m+3, a, sR))
+    return beta**m*CB**2*(phi0 + integ)
+def Ftilde(L, R0, L0):
+    L = mp.mpf(L); R0 = mp.mpf(R0)
+    return (mp.mpf(7)/4 - 2*cB*mp.sqrt(R0))*L + 2*cB/mp.sqrt(R0) + mp.log((mp.mpf('1.05')*P_relaxed(2, L, R0, L0) + P_relaxed(3, L, R0, L0))/b1)
+def least_R0(L0):
+    R0 = mp.mpf(1)
+    while not (Ftilde(L0, R0, L0) <= 0 and 2*cB*mp.sqrt(R0) - mp.mpf(7)/4 > 0 and 5/(2*cB*mp.sqrt(R0) - mp.mpf(7)/4) <= L0):
+        R0 += mp.mpf('0.5')
+    return R0
+print("(d) clause 5: least R_0 (step 0.5) with F~(L0) <= 0 and 5/(2 c_B sqrt R_0 - 7/4) <= L0  (then F~(L) <= 0 for ALL L >= L0):")
+R0tab = {}
+for L0 in (50, 100, 200, 403, 1000, 10000):
+    r = least_R0(L0); R0tab[L0] = float(r)
+    print(f"    L0 = {L0:6d}: R_0 = {mp.nstr(r,4)}   F~(L0) = {mp.nstr(Ftilde(L0, r, L0),5)}   decrease from L = {mp.nstr(5/(2*cB*mp.sqrt(r) - mp.mpf(7)/4),4)}")
+R0 = mp.mpf(R0tab[50])
+print(f"    THE THEOREM'S R_0 (all L >= 50): {mp.nstr(R0,4)};  asymptotic constants: (3/(4 c_B))^2 = {mp.nstr((3/(4*cB))**2,5)} (contract's form),  (7/(8 c_B))^2 = {mp.nstr((7/(8*cB))**2,5)} (with the density prefactor absorbed through the L-hypothesis)")
 worstF = -mp.inf
 for L in [50, 55, 60, 70, 80, 100, 150, 200, 300, 403, 500, 1000, 2000, 5000, 10000, 100000]:
-    F = logS_bound_plus_L(L, R0); worstF = max(worstF, F)
-    if L in (50, 60, 100, 403, 1000, 10000, 100000): print(f"    L={L}: F(L) = log S_bound + L = {mp.nstr(F,5)}")
-print(f"    max F over the L-grid = {mp.nstr(worstF,5)} (<= 0 required; the note proves the decrease in L analytically)")
-out["R0"] = float(R0); out["F50_at_R0"] = float(logS_bound_plus_L(50, R0)); out["R0_asymptotic_contract_form"] = float((3/(4*cB))**2); out["R0_asymptotic_with_prefactor"] = float((7/(8*cB))**2)
-# what R_0 the NUMERICAL decay constant would give, for the record (not proved)
+    F = Ftilde(L, R0, 50); worstF = max(worstF, F)
+    if L in (50, 60, 100, 403, 1000, 10000, 100000): print(f"    L={L}: F~(L) = {mp.nstr(F,5)}")
+print(f"    max F~ over the L-grid at R_0 = {mp.nstr(R0,4)}: {mp.nstr(worstF,5)}")
+out["R0"] = float(R0); out["R0_table_by_L0"] = R0tab; out["Ftilde50_at_R0"] = float(Ftilde(50, R0, 50)); out["R0_asymptotic_contract_form"] = float((3/(4*cB))**2); out["R0_asymptotic_with_prefactor"] = float((7/(8*cB))**2)
 print(f"    for the record [computed, not proved]: with the numerical rate {cnum:.3f} the same chain would give (7/(8c))^2 = {(7/(8*cnum))**2:.2f}")
 # (e) clause 1: the reflection condition.  |E_-| <= 2(4t^2+delta^2) e^{delta L} G1(2tL)^2 <= 2 delta^2 c(delta L)^2 e^{-L}
 #     sufficient (using clause 2's lower bound on c and delta in [25/L, 1/2]):
@@ -108,6 +115,10 @@ out["T1_of_L"] = T1
 cR = 1
 while any(refl_margin(cR*L, L) < 0 for L in [50, 55, 60, 70, 80, 100, 150, 200, 300, 500, 1000, 3000, 10000, 100000]): cR += 1
 print(f"    least integer c_R with t = c_R L admissible on the L-grid: c_R = {cR};  margins at L=50,100,1000,1e5: {[float(refl_margin(cR*L, L)) for L in (50,100,1000,100000)]}")
+fine = [50 + k*mp.mpf('0.25') for k in range(0, 4*950+1)] + [1000*mp.mpf('1.05')**k for k in range(0, 100)]
+mono_ok = all(refl_margin(cR*fine[i+1], fine[i+1]) >= refl_margin(cR*fine[i], fine[i]) for i in range(len(fine)-1))
+print(f"    margin(c_R L, L) nondecreasing in L on a fine grid [50, ~1.3e5]: {mono_ok};  min margin = {float(min(refl_margin(cR*L, L) for L in fine)):.4f}")
+out["reflection_margin_monotone_grid"] = bool(mono_ok)
 print(f"    asymptotic threshold t/L -> 1/(8 c_B^2) = {mp.nstr(1/(8*cB**2),5)};  [computed, not proved] with the numerical rate {cnum:.3f}: 1/(8c^2) = {1/(8*cnum**2):.3f}")
 out["c_R"] = cR; out["t_over_L_asymptotic"] = float(1/(8*cB**2))
 # (f) clause 4: L_1 from the polynomial route, and where the Gevrey form would put it
