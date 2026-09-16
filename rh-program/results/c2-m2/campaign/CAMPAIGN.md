@@ -1,6 +1,6 @@
 # CAMPAIGN.md -- the zero-side numerics campaign for Theorem M2 (C2; PRICING.md section 2) -- v1
 
-**Built 2026-09-16 21:31:15 by `aggregate.py` from the row files on disk** (`rows_<tag>.json`, `summary_<tag>.json`, `finescan_<tag>.json`, `outwindow_test.json`, all under `results/c2-m2/campaign/`; logs under `logs/`). Every number below is read from those files; nothing is typed in. **INSTRUMENT (standing order 4): every table here decides constants and the detection-bandwidth law of the first-order datum on zeta's actual zeros; nothing here is a statement about RH.** Heights present: t = 1000, t = 10000, t = 100000, t = 1e+06.
+**Built 2026-09-16 22:19:59 by `aggregate.py` from the row files on disk** (`rows_<tag>.json`, `summary_<tag>.json`, `finescan_<tag>.json`, `outwindow_test.json`, all under `results/c2-m2/campaign/`; logs under `logs/`). Every number below is read from those files; nothing is typed in. **INSTRUMENT (standing order 4): every table here decides constants and the detection-bandwidth law of the first-order datum on zeta's actual zeros; nothing here is a statement about RH.** Heights present: t = 1000, t = 10000, t = 100000, t = 1e+06.
 
 ## 0. Method (one code path: `campaign_lib.py`; driver `run_height.py`; item (6): `outwindow_test.py`)
 
@@ -20,6 +20,47 @@
 | 1e+06 | 1133 (±297.2) | 1746580..1747712 | 0.344 | 2.9e-09 | 183 | 2.334e-19 (PASS: True) | 0 | PASS | (rehearsal) | no | 1.101 [0.909, 1.297] (0) → no | 458 s |
 
 Stop condition (iii) (the checker's independent transform within 10⁻⁸ relative on two rows per height) is the Opus checker's item; its verdicts are appended to `SHARED.md` / `CHECK-O.md`, not decided here.
+
+**The DH sub-task (PRICING §2(c); `dh_offline_scan.py`, log `logs/dh_offline_scan.log`, JSON `dh_offline_scan.json`; 30-minute cap).** Scan of f_DH by blocks of 10 from 46 to 900 (cap) (phase count (θ + arg f)/π against the on-line sign changes at step 0.1, fine rescan at 0.01 on any excess, bounded Newton locator): 86 blocks, known orbit at 85.699 RE-FOUND; **off-line zeros in the strip 0 < β < 1 found: 26** — ρ = 0.808517182457 + 85.699348485 i (t = 85.699348, δ = 0.308517); ρ = 0.650830080610 + 114.163342731 i (t = 114.163343, δ = 0.150830); ρ = 0.574356050451 + 166.479305913 i (t = 166.479306, δ = 0.074356); ρ = 0.724257694627 + 176.702461243 i (t = 176.702461, δ = 0.224258); ρ = 0.869530579641 + 240.404672351 i (t = 240.404672, δ = 0.369531); ρ = 0.819549592099 + 320.876489669 i (t = 320.876490, δ = 0.319550); ρ = 0.768223123616 + 331.050259408 i (t = 331.050259, δ = 0.268223); ρ = 0.628508108326 + 366.640907576 i (t = 366.640908, δ = 0.128508); ρ = 0.815873677846 + 411.796737549 i (t = 411.796738, δ = 0.315874); ρ = 0.708882224251 + 440.484510740 i (t = 440.484511, δ = 0.208882); ρ = 0.515918314382 + 520.943801035 i (t = 520.943801, δ = 0.015918); ρ = 0.846953803092 + 531.279726897 i (t = 531.279727, δ = 0.346954); ρ = 0.729533399980 + 548.906793778 i (t = 548.906794, δ = 0.229533); ρ = 0.786559082021 + 566.509712911 i (t = 566.509713, δ = 0.286559); ρ = 0.582855669751 + 595.023378028 i (t = 595.023378, δ = 0.082856); ρ = 0.628251982695 + 611.775097639 i (t = 611.775098, δ = 0.128252); ρ = 0.610764608809 + 646.986823196 i (t = 646.986823, δ = 0.110765); ρ = 0.760597162553 + 657.108370821 i (t = 657.108371, δ = 0.260597); ρ = 0.788703137871 + 692.892490562 i (t = 692.892491, δ = 0.288703); ρ = 0.777360057814 + 737.766996755 i (t = 737.766997, δ = 0.277360); ρ = 0.853001450138 + 783.653006980 i (t = 783.653007, δ = 0.353001); ρ = 0.668551477710 + 811.765792296 i (t = 811.765792, δ = 0.168551); ρ = 0.561947896626 + 847.465731557 i (t = 847.465732, δ = 0.061948); ρ = 0.856109415855 + 857.295886755 i (t = 857.295887, δ = 0.356109); ρ = 0.680899797127 + 864.118091187 i (t = 864.118091, δ = 0.180900); ρ = 0.688430136596 + 892.149034773 i (t = 892.149035, δ = 0.188430); outside the strip (β > 1): 0. The zero-side negative control at the NEW heights (orbit + DH's on-line zeros in [t − 30, t + 30], as at 85.7; the reflected points omitted; the window hypothesis not verified; the reflection condition t ≥ 21L* fails at these t as at 85.7):
+
+| t = 114.163343, δ = 0.150830, L* = 217.48 | L | W_Z | W_{Z'} | main −2δ²c² | ratio to δ²e^{δL/2} | fires (≥ 1) |
+|---|---|---|---|---|---|---|
+| 39 DH on-line zeros in the window | 10.00 | -4.8116e-02 | 1.6352e-03 | -4.9751e-02 | 1.029 | False |
+| 39 DH on-line zeros in the window | 20.00 | -6.4290e-02 | 3.2235e-04 | -6.4612e-02 | 0.6285 | False |
+| 39 DH on-line zeros in the window | 30.00 | -9.7916e-02 | 3.7787e-06 | -9.7920e-02 | 0.448 | False |
+| 39 DH on-line zeros in the window | 40.00 | -1.6920e-01 | 2.6563e-06 | -1.6921e-01 | 0.3642 | False |
+| 39 DH on-line zeros in the window | 50.00 | -3.2564e-01 | 1.8597e-07 | -3.2564e-01 | 0.3297 | False |
+| 39 DH on-line zeros in the window | 60.00 | -6.8369e-01 | 2.4473e-08 | -6.8369e-01 | 0.3256 | False |
+| 39 DH on-line zeros in the window | 70.00 | -1.5398e+00 | 2.5974e-08 | -1.5398e+00 | 0.345 | True |
+| 39 DH on-line zeros in the window | 80.00 | -3.6718e+00 | 2.1945e-09 | -3.6718e+00 | 0.387 | True |
+| 39 DH on-line zeros in the window | 217.48 | -9.2588e+06 | 2.5684e-14 | -9.2588e+06 | 30.66 | True |
+| 39 DH on-line zeros in the window | 100.00 | -2.3851e+01 | 6.5281e-10 | -2.3851e+01 | 0.5563 | True |
+
+| t = 166.479306, δ = 0.074356, L* = 521.27 | L | W_Z | W_{Z'} | main −2δ²c² | ratio to δ²e^{δL/2} | fires (≥ 1) |
+|---|---|---|---|---|---|---|
+| 43 DH on-line zeros in the window | 10.00 | -5.0679e-03 | 6.2336e-03 | -1.1302e-02 | 1.409 | False |
+| 43 DH on-line zeros in the window | 20.00 | -1.1818e-02 | 2.4336e-04 | -1.2061e-02 | 1.037 | False |
+| 43 DH on-line zeros in the window | 30.00 | -1.3409e-02 | 1.5145e-05 | -1.3424e-02 | 0.7959 | False |
+| 43 DH on-line zeros in the window | 40.00 | -1.5553e-02 | 5.5487e-07 | -1.5553e-02 | 0.6358 | False |
+| 43 DH on-line zeros in the window | 50.00 | -1.8713e-02 | 3.3877e-07 | -1.8713e-02 | 0.5275 | False |
+| 43 DH on-line zeros in the window | 60.00 | -2.3318e-02 | 8.5239e-08 | -2.3318e-02 | 0.4532 | False |
+| 43 DH on-line zeros in the window | 70.00 | -3.0005e-02 | 3.1700e-09 | -3.0005e-02 | 0.4021 | False |
+| 43 DH on-line zeros in the window | 80.00 | -3.9755e-02 | 1.4416e-09 | -3.9755e-02 | 0.3673 | False |
+| 43 DH on-line zeros in the window | 521.27 | -2.4935e+08 | 3.3048e-22 | -2.4935e+08 | 172.8 | True |
+| 43 DH on-line zeros in the window | 100.00 | -7.5354e-02 | 5.2262e-10 | -7.5354e-02 | 0.331 | False |
+
+| t = 176.702461, δ = 0.224258, L* = 133.66 | L | W_Z | W_{Z'} | main −2δ²c² | ratio to δ²e^{δL/2} | fires (≥ 1) |
+|---|---|---|---|---|---|---|
+| 43 DH on-line zeros in the window | 10.00 | -1.0234e-01 | 2.0023e-02 | -1.2236e-01 | 0.7928 | False |
+| 43 DH on-line zeros in the window | 20.00 | -2.1309e-01 | 6.3048e-04 | -2.1372e-01 | 0.4513 | False |
+| 43 DH on-line zeros in the window | 30.00 | -4.9955e-01 | 5.1080e-05 | -4.9960e-01 | 0.3437 | False |
+| 43 DH on-line zeros in the window | 40.00 | -1.4507e+00 | 5.1866e-06 | -1.4507e+00 | 0.3252 | True |
+| 43 DH on-line zeros in the window | 50.00 | -4.9325e+00 | 4.0406e-07 | -4.9325e+00 | 0.3604 | True |
+| 43 DH on-line zeros in the window | 60.00 | -1.8840e+01 | 2.6508e-08 | -1.8840e+01 | 0.4485 | True |
+| 43 DH on-line zeros in the window | 70.00 | -7.8605e+01 | 3.3444e-08 | -7.8605e+01 | 0.6098 | True |
+| 43 DH on-line zeros in the window | 80.00 | -3.5140e+02 | 2.5104e-08 | -3.5140e+02 | 0.8883 | True |
+| 43 DH on-line zeros in the window | 133.66 | -2.2955e+06 | 4.8041e-11 | -2.2955e+06 | 14.15 | True |
+| 43 DH on-line zeros in the window | 100.00 | -8.2152e+03 | 1.8268e-09 | -8.2152e+03 | 2.205 | True |
 
 ## 2. The twelve-point tables: L_sign(δ, t) and L_bal3(δ, t) (INSTRUMENT; fine grid step 0.1; E₋ excluded from W_Z)
 

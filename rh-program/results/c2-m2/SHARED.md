@@ -126,3 +126,8 @@ Nothing outside `results/c2-m2/` was edited; no Lean file touched; nothing commi
   * `campaign/summary_t1e6.json`  b86a1cc8790bc5283d672481042c3f97815a944e6be6845623ef6d3a57d13890
   * `campaign/logs/height_t1e6.log`  d0b6bcc9731a603697cbaa920f75d4be0a032fbf2024c912a6b63a037f8cb2a4
 * `campaign/CAMPAIGN.md` (v1)  c969a28321de61aa6daf239d605d4dba780c04e4e24d79821cbffc92351793c0
+
+## 2026-09-16 22:19 IST — CAMPAIGN checkpoint (builder `checkpoint.sh`): heights 
+
+* `campaign/CAMPAIGN.md` (v1)  09239e0a606bf7ca3463f35b9b5166a1e1e913fdfcf21635fb5e35b7a9b4dfb8
+* `campaign/dh_offline_scan.json`  b197dc06c612a5f00541ff9b97f526ad5b0d7f4da0a86a502cfeac27b8d5cc91  — DH control available at 25 further height(s)
