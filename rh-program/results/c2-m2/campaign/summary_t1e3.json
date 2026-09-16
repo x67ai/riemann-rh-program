@@ -1,0 +1,171 @@
+{
+ "t": 1000.0,
+ "tag": "t1e3",
+ "date_start": "2026-09-16 20:57:57",
+ "record_constants": {
+  "b1": 8.7,
+  "C1_zeta": 2400000000.0,
+  "c_B": 0.14296064749345114,
+  "C_B": 33.28450005318736,
+  "R0": 81.0,
+  "lambda0": 25.0,
+  "C0": 4.0,
+  "refl_c": 21.0,
+  "normBprime_L2sq": 16.62196535,
+  "Z": 0.2219969080840397,
+  "envelope_A": 9.0
+ },
+ "selftest_bhat_max_absdiff": 6.938893903907228e-18,
+ "selftest_c_max_reldiff": 1.1975353991441495e-16,
+ "envelope": {
+  "500": {
+   "envelope": 1.025141916046293e-08,
+   "local_rate": 0.822687408047208,
+   "A_fit": 7.976459875378359,
+   "check_diff": 1.105679789504837e-18,
+   "M": 508,
+   "dps": 21
+  },
+  "1000": {
+   "envelope": 9.40637567790618e-12,
+   "local_rate": 0.8028907047842994,
+   "A_fit": 8.600865530461,
+   "check_diff": 4.730705369536149e-22,
+   "M": 800,
+   "dps": 24
+  },
+  "2000": {
+   "envelope": 5.390554884110177e-16,
+   "local_rate": 0.7861280049418038,
+   "A_fit": 8.729781012141991,
+   "check_diff": 1.3828195462991378e-27,
+   "M": 1326,
+   "dps": 28
+  },
+  "5000": {
+   "envelope": 2.7890703725513022e-24,
+   "local_rate": 0.7670175896254215,
+   "A_fit": 8.598269845057033,
+   "check_diff": 1.5026872030905823e-37,
+   "M": 2762,
+   "dps": 36
+  },
+  "10000": {
+   "envelope": 1.705499907273482e-33,
+   "local_rate": 0.7545144980029606,
+   "A_fit": 8.73190533387236,
+   "check_diff": 1.4544081846566761e-46,
+   "M": 5004,
+   "dps": 46
+  },
+  "20000": {
+   "envelope": 1.9179005869740663e-46,
+   "local_rate": 0.7443549258400166,
+   "A_fit": 8.67055263814566,
+   "check_diff": 1.078523797049821e-59,
+   "M": 9298,
+   "dps": 59
+  },
+  "50000": {
+   "envelope": 5.602477550774554e-72,
+   "local_rate": 0.7337116734676875,
+   "A_fit": 8.721567193859437,
+   "check_diff": 2.7782540512127625e-84,
+   "M": 21706,
+   "dps": 84
+  }
+ },
+ "derivative_norms": {
+  "1": 3.3142753594764205,
+  "2": 28.77264404173932,
+  "3": 642.3011963065986,
+  "4": 38779.96724648729,
+  "5": 4291724.351381675,
+  "6": 766365507.9766678,
+  "7": 201117898543.5338,
+  "8": 72865076555777.3,
+  "9": 3.4842900715335444e+16,
+  "10": 2.125730670642291e+19,
+  "11": 1.6113480094248254e+22,
+  "12": 1.4856211088055799e+25,
+  "13": 1.6370748561862242e+28
+ },
+ "derivative_norms_max_reldev": 2.9944935420189722e-12,
+ "bump_only_crossing": 18.59999999999997,
+ "stop_i_seconds_per_zero_1e6": 0.3296658039093018,
+ "stop_i_fires": false,
+ "zeros": {
+  "count": 459,
+  "U_data": 285.59407337278884,
+  "U_kopt_Lmin": 142.79703668639442,
+  "k_opt_Lmin": 9,
+  "checks": {
+   "monotone": true,
+   "count": 459,
+   "rvm_expected": 459.6222652832396,
+   "index_lo": 427,
+   "index_hi": 885,
+   "seconds": 76.27621507644653,
+   "seconds_per_zero": 0.166179117813609,
+   "max_residual": 9.717565999559992e-13
+  },
+  "file": "zeros_t1e3.json",
+  "sha256": "12f085d083bb3ed637bc6fe8dc608dfd428a1f79dd6635a5dc60321b1b5da3fc"
+ },
+ "rows": {
+  "count": 183,
+  "csv": "rows_t1e3.csv",
+  "json": "rows_t1e3.json",
+  "sha256_csv": "6bc706dae92cb6e2ba346413d6ea6a3a8c283a93b75e89a2ddc71570ac3e912c",
+  "sha256_json": "9b54792e130fc4186da5fecfca404ea0b94c188c42026a7188ace5b0f52f547b"
+ },
+ "derived": {
+  "0.05": {
+   "L_sign": 32.1,
+   "L_sign_at_grid_bottom": false,
+   "L_sign_flips_after": 0,
+   "L_bal3": 37.6,
+   "L_bal3_at_grid_bottom": false,
+   "L_bal3_flips_after": 0
+  },
+  "0.1": {
+   "L_sign": 19.4,
+   "L_sign_at_grid_bottom": false,
+   "L_sign_flips_after": 0,
+   "L_bal3": 28.5,
+   "L_bal3_at_grid_bottom": false,
+   "L_bal3_flips_after": 0
+  },
+  "0.25": {
+   "L_sign": 6.7,
+   "L_sign_at_grid_bottom": false,
+   "L_sign_flips_after": 0,
+   "L_bal3": 11.6,
+   "L_bal3_at_grid_bottom": false,
+   "L_bal3_flips_after": 0
+  }
+ },
+ "controls": {
+  "positive_min_W_Zprime": 4.095306567218333e-19,
+  "positive_min_at_L": 2590.3798089510756,
+  "positive_clause4_violations": 0,
+  "positive_fine_min": 3.12559028241253e-08,
+  "negative_pass": true,
+  "positive_pass": true
+ },
+ "stop_conditions": {
+  "i_seconds_per_zero_1e6": 0.3296658039093018,
+  "ii_min_W_Zprime": 4.095306567218333e-19,
+  "iii": "pending checker",
+  "iv": {
+   "min": 0.0032299717055072185,
+   "max": 2.579602545734686,
+   "geomean": 0.42166619613021256,
+   "outside_10x": 10,
+   "outside_10x_L_le_50": 3
+  },
+  "any_fires": true
+ },
+ "date_end": "2026-09-16 21:01:06",
+ "seconds": 189.52239394187927
+}

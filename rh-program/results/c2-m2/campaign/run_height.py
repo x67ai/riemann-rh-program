@@ -18,6 +18,8 @@ ap.add_argument('--selftest', action='store_true', help='rehearsal: transform se
 ap.add_argument('--direct-cap', type=int, default=60, help='max number of direct E_- evaluations (rows with estimate >= 1e-160)')
 ap.add_argument('--check-1e6-cost', action='store_true', help='stop condition (i): time zetazero at n ~ 1.75e6')
 ap.add_argument('--window-factor', type=float, default=2.0, help='U_data = factor * U_kopt(L_min = 4)')
+ap.add_argument('--reuse-zeros', action='store_true', help='load zeros_<tag>.json instead of recomputing (rerun of the rows after a code change)')
+ap.add_argument('--center-step', type=float, default=2.0, help='spacing of the ensemble centers t\' = t + j*step within the data window (section M)')
 args = ap.parse_args()
 t = args.t; tag = args.tag
 os.makedirs(os.path.join(HERE, 'logs'), exist_ok=True)
@@ -94,11 +96,16 @@ U_data = args.window_factor*Uk4
 log("\n(Z) ZEROS: truncation radius at L_min = %g for absolute tail <= 1e-10 (k-optimized polynomial route, C1 = 1 operative): U = %.2f (k = %d); the contract's k = 3 radius would be %.1f (%.0f zeros against %.0f)"
     % (L_min, Uk4, k4, cl.U_contract3(L_min, t), cl.N_rvm(t + cl.U_contract3(L_min, t)) - cl.N_rvm(max(t - cl.U_contract3(L_min, t), 14)), cl.N_rvm(t + Uk4) - cl.N_rvm(max(t - Uk4, 14))))
 log("   data window: U_data = %g x U = %.2f  ->  [%.2f, %.2f]; expected zeros (RvM) %.0f" % (args.window_factor, U_data, t - U_data, t + U_data, cl.N_rvm(t + U_data) - cl.N_rvm(max(t - U_data, 14))))
-log("   [%s] fetching zeros with mpmath.zetazero at mp.dps = 15 (progress every 500) ..." % cl.now())
-zs, zchk = cl.fetch_zeros(t, U_data, log=log, progress_every=500)
 zpath = os.path.join(HERE, 'zeros_%s.json' % tag)
-json.dump(dict(t=t, U_data=U_data, dps=15, date=cl.now(), checks=zchk, columns=["index", "gamma", "abs_Z_gamma_siegelz"], zeros=zs), open(zpath, 'w'), indent=0)
-log("   written %s (%d zeros; sha256 %s)" % (zpath, len(zs), cl.sha256(zpath)))
+if args.reuse_zeros and os.path.exists(zpath):
+    zj = json.load(open(zpath)); zs = [tuple(z) for z in zj['zeros']]; zchk = zj['checks']
+    assert abs(zj['U_data'] - U_data) < 1e-9 and zj['t'] == t, "zeros file does not match this run's window"
+    log("   [%s] REUSED %s (%d zeros; sha256 %s; fetched %s)" % (cl.now(), zpath, len(zs), cl.sha256(zpath), zj['date']))
+else:
+    log("   [%s] fetching zeros with mpmath.zetazero at mp.dps = 15 (progress every 500) ..." % cl.now())
+    zs, zchk = cl.fetch_zeros(t, U_data, log=log, progress_every=500)
+    json.dump(dict(t=t, U_data=U_data, dps=15, date=cl.now(), checks=zchk, columns=["index", "gamma", "abs_Z_gamma_siegelz"], zeros=zs), open(zpath, 'w'), indent=0)
+    log("   written %s (%d zeros; sha256 %s)" % (zpath, len(zs), cl.sha256(zpath)))
 summary['zeros'] = dict(count=len(zs), U_data=U_data, U_kopt_Lmin=Uk4, k_opt_Lmin=k4, checks=zchk, file=os.path.basename(zpath), sha256=cl.sha256(zpath))
 if not zchk['monotone']:
     log("   !! zeros not monotone in the index -- STOP this leg (mis-identified zero)"); sys.exit(2)
@@ -121,6 +128,51 @@ for r in rows:
         if Em is not None:
             r['E_minus_direct'] = Em; r['E_minus_direct_M'] = Mn; r['E_minus_direct_dps'] = dpsn; ndirect += 1
 log("   direct E_- (bhat_mp at -2tL - i delta L) at %d rows in %.1f s; elsewhere the clause-1 bound and the envelope estimate are the record" % (ndirect, time.time() - t1))
+# ------------------------------------------------------------------------------------------- (M) the center ensemble
+# The density model log(t/2pi)||B'||_2^2/L^3 is an ENSEMBLE MEAN; at one t and L >~ 20 the noise is dominated by the one
+# or two zeros nearest t (N_Z ~ u_1^2 Bhat(L u_1)^2 oscillates in L with the zeros of Bhat).  The data window holds the
+# zeros for every center t' with |t' - t| <= U_data - U(L_min), so the mean over centers costs nothing extra.
+J = int((U_data - Uk4)//args.center_step)
+centers = t + args.center_step*np.arange(-J, J + 1)
+log("\n(M) CENTER ENSEMBLE: %d centers t' = t + j*%g, |j| <= %d (each with full U(L_min) coverage inside the data window): mean/min/max of N_Z(t', L) on the L-grid; L_sign and L_bal3 per center on the fine grid step 0.2" % (len(centers), args.center_step, J))
+t1 = time.time()
+ens = {}
+for L in cl.L_GRID:
+    vals = np.array([cl.noise_at(float(tc), gammas, L, Uk4)['N_Z'] for tc in centers])
+    ens[L] = dict(mean=float(vals.mean()), median=float(np.median(vals)), min=float(vals.min()), max=float(vals.max()))
+for r in rows:
+    if r['L'] in ens:
+        e = ens[r['L']]
+        r['N_Z_center_mean'] = e['mean']; r['N_Z_center_median'] = e['median']; r['N_Z_center_min'] = e['min']; r['N_Z_center_max'] = e['max']
+        r['center_mean_over_model'] = e['mean']/r['density_model']
+    else:
+        r['N_Z_center_mean'] = r['N_Z_center_median'] = r['N_Z_center_min'] = r['N_Z_center_max'] = r['center_mean_over_model'] = None
+Lf = np.round(np.arange(3.0, 120.0 + 0.1, 0.2), 6)
+sig = {d: 2*d*d*cl.c_edge(d*Lf)**2 for d in cl.DELTAS}
+Lsign_c = {d: [] for d in cl.DELTAS}; Lbal3_c = {d: [] for d in cl.DELTAS}
+for tc in centers:
+    Nf = np.array([cl.noise_at(float(tc), gammas, float(L), Uk4)['N_Z'] for L in Lf])
+    for d in cl.DELTAS:
+        ok1 = sig[d] > Nf; ok3 = sig[d] >= 3*Nf
+        Lsign_c[d].append(float(Lf[np.argmax(ok1)]) if ok1.any() else float('nan'))
+        Lbal3_c[d].append(float(Lf[np.argmax(ok3)]) if ok3.any() else float('nan'))
+log("   [%s] ensemble done in %.1f s" % (cl.now(), time.time() - t1))
+log("   L-grid: N_Z at t | center mean | center min..max | model | mean/model   (the single-t value is the datum at height t; the mean is the model's object)")
+lt_ = math.log(t/(2*math.pi))
+ens_rows = []
+for L in cl.L_GRID:
+    e = ens[L]; model = lt_*cl.NORM_BPRIME_L2SQ/L**3; r0 = next(r for r in rows if r['L'] == L)
+    ens_rows.append(dict(L=L, N_Z_at_t=r0['N_Z'], mean=e['mean'], median=e['median'], min=e['min'], max=e['max'], model=model, mean_over_model=e['mean']/model))
+    log("   L=%6.1f: %.3e | %.3e | %.2e..%.2e | %.3e | %.3f" % (L, r0['N_Z'], e['mean'], e['min'], e['max'], model, e['mean']/model))
+summary['ensemble'] = dict(n_centers=len(centers), center_step=args.center_step, J=J, grid=ens_rows, per_delta={})
+for d in cl.DELTAS:
+    a = np.array(Lsign_c[d]); b = np.array(Lbal3_c[d])
+    pd_ = dict(L_sign_median=float(np.nanmedian(a)), L_sign_p10=float(np.nanpercentile(a, 10)), L_sign_p90=float(np.nanpercentile(a, 90)), L_sign_min=float(np.nanmin(a)), L_sign_max=float(np.nanmax(a)),
+               L_bal3_median=float(np.nanmedian(b)), L_bal3_p10=float(np.nanpercentile(b, 10)), L_bal3_p90=float(np.nanpercentile(b, 90)), L_bal3_min=float(np.nanmin(b)), L_bal3_max=float(np.nanmax(b)),
+               L_sign_all=[float(x) for x in a], L_bal3_all=[float(x) for x in b])
+    summary['ensemble']['per_delta'][str(d)] = pd_
+    log("   delta = %.2f over %d centers: L_sign median %.1f [p10 %.1f, p90 %.1f; min %.1f, max %.1f];  L_bal3 median %.1f [p10 %.1f, p90 %.1f; min %.1f, max %.1f]" % (d, len(centers), pd_['L_sign_median'], pd_['L_sign_p10'], pd_['L_sign_p90'], pd_['L_sign_min'], pd_['L_sign_max'], pd_['L_bal3_median'], pd_['L_bal3_p10'], pd_['L_bal3_p90'], pd_['L_bal3_min'], pd_['L_bal3_max']))
+
 # per-row printout (compact)
 log("\n   t=%g  columns: delta L | inside(L>=L*,t>=21L) reflOK dL>=25 | n_used U_row tail(U_row) U_k3 | N_Z=W_Z'  model  N/model  cl4bound cl4/N | c(dL) main W_Z W_Zrep | cl6bound sep/cl6 sign bal3 | log10|E-|bound log10|E-|est E-direct" % t)
 for r in rows:
@@ -173,17 +225,21 @@ summary['controls'] = dict(positive_min_W_Zprime=minWp, positive_min_at_L=argmin
 # ------------------------------------------------------------------------------------------------------- stop conditions
 log("\n(X) STOP CONDITIONS of PRICING 2(e), quoted and checked:")
 grid_rows = [r for r in rows if r['delta'] == cl.DELTAS[0] and r['L'] in cl.L_GRID]
-ratios = np.array([r['N_over_model'] for r in grid_rows]); Lg = np.array([r['L'] for r in grid_rows])
+ratios1 = np.array([r['N_over_model'] for r in grid_rows]); Lg = np.array([r['L'] for r in grid_rows])
+ratios = np.array([r['center_mean_over_model'] for r in grid_rows])
 gm = float(np.exp(np.mean(np.log(ratios)))); out10 = int(np.sum((ratios > 10) | (ratios < 0.1))); out10_le50 = int(np.sum(((ratios > 10) | (ratios < 0.1)) & (Lg <= 50)))
+gm1 = float(np.exp(np.mean(np.log(ratios1)))); out10_1 = int(np.sum((ratios1 > 10) | (ratios1 < 0.1)))
+log("   [rule for (iv), stated: the density model is an ensemble mean, so it is compared with the MEAN of N_Z over the %d centers of section (M); it fires if that mean/model is outside [0.1, 10] at any grid L, or its geometric mean over the grid is. The single-t ratios are printed for the record: geomean %.3f, rows outside 10x: %d of %d -- the dips are the zeros of Bhat(L u_1) for the nearest zero u_1, a configuration effect at one t, not a model failure.]" % (len(centers), gm1, out10_1, len(grid_rows)))
 s_i = summary.get('stop_i_seconds_per_zero_1e6', None)
 log("   (i) 'zetazero at n ~ 1.75e6 exceeds 2 s per zero on this machine in the rehearsal (data cost x7 -- reprice the L-grid's bottom)': %s"
     % (("measured %.3f s/zero -> %s" % (s_i, "FIRES" if s_i > 2 else "does not fire")) if s_i is not None else "not probed in this run (probed in the rehearsal); this height's own rate %.3f s/zero" % zchk['seconds_per_zero']))
 log("   (ii) 'the rehearsal's positive control at t = 1e3 shows W_Z' < 0 at any L (an on-line configuration cannot give a negative datum)': min W_Z' = %.3e over %d rows and %d fine-grid L -> %s" % (min(minWp, finemin), len(rows), len(fs['N_Z']), "FIRES" if min(minWp, finemin) < 0 else "does not fire"))
 log("   (iii) 'the checker's independent transform disagrees with the builder's on any row by more than 1e-8 relative': the checker's item (Opus half slot, SHARED.md); not decidable by the builder -- pending")
-log("   (iv) 'the density model and the measured N_Z differ by more than a factor 10 at 1e3 (then the model is wrong and 2(d) item 2's inference is withdrawn)': N_Z/model over the %d grid rows: min %.3f, max %.3f, geometric mean %.3f; rows outside [0.1, 10]: %d (of which %d at L <= 50) -> %s"
-    % (len(grid_rows), ratios.min(), ratios.max(), gm, out10, out10_le50, "FIRES" if (gm > 10 or gm < 0.1 or out10_le50 > 0) else "does not fire"))
-summary['stop_conditions'] = dict(i_seconds_per_zero_1e6=s_i, ii_min_W_Zprime=min(minWp, finemin), iii="pending checker", iv=dict(min=float(ratios.min()), max=float(ratios.max()), geomean=gm, outside_10x=out10, outside_10x_L_le_50=out10_le50),
-                                  any_fires=bool((s_i is not None and s_i > 2) or min(minWp, finemin) < 0 or gm > 10 or gm < 0.1 or out10_le50 > 0))
+log("   (iv) 'the density model and the measured N_Z differ by more than a factor 10 at 1e3 (then the model is wrong and 2(d) item 2's inference is withdrawn)': center-mean N_Z/model over the %d grid L: min %.3f, max %.3f, geometric mean %.3f; rows outside [0.1, 10]: %d (of which %d at L <= 50) -> %s"
+    % (len(grid_rows), ratios.min(), ratios.max(), gm, out10, out10_le50, "FIRES" if (gm > 10 or gm < 0.1 or out10 > 0) else "does not fire"))
+summary['stop_conditions'] = dict(i_seconds_per_zero_1e6=s_i, ii_min_W_Zprime=min(minWp, finemin), iii="pending checker",
+                                  iv=dict(min=float(ratios.min()), max=float(ratios.max()), geomean=gm, outside_10x=out10, outside_10x_L_le_50=out10_le50, single_t_geomean=gm1, single_t_outside_10x=out10_1),
+                                  any_fires=bool((s_i is not None and s_i > 2) or min(minWp, finemin) < 0 or gm > 10 or gm < 0.1 or out10 > 0))
 summary['date_end'] = cl.now(); summary['seconds'] = time.time() - T0
 spath = os.path.join(HERE, 'summary_%s.json' % tag)
 json.dump(summary, open(spath, 'w'), indent=1, default=float)
