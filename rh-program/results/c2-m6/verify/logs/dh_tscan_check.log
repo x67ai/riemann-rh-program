@@ -1,6 +1,12 @@
-  dh    t=  60.000 L=10: ARCH = +0.064256306448  P = +0.012353645021  W_rhs = +0.051902661427  W_zero = +0.051902645338  diff = +1.609e-08
-  dh    t=  85.699 L=10: ARCH = +0.070183394731  P = +0.339995468929  W_rhs = -0.269812074198  W_zero = -0.269811108613  diff = -9.656e-07
-  dh    t= 120.000 L=10: ARCH = +0.075779755122  P = +0.051909561405  W_rhs = +0.023870193717  W_zero = +0.023825037947  diff = +4.516e-05
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/dh_tscan_check.py:12: RuntimeWarning: divide by zero encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/dh_tscan_check.py:12: RuntimeWarning: overflow encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/dh_tscan_check.py:12: RuntimeWarning: invalid value encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+  dh    t=  60.000 L=10: ARCH = +0.064256306448  P = +0.012353645021  W_rhs = +0.051902661427  W_zero = +0.051902661413  diff = +1.370e-11
+  dh    t=  85.699 L=10: ARCH = +0.070183394731  P = +0.339995468929  W_rhs = -0.269812074198  W_zero = -0.269812074198  diff = +3.775e-14
+  dh    t= 120.000 L=10: ARCH = +0.075779755122  P = +0.051909561405  W_rhs = +0.023870193717  W_zero = +0.023870190395  diff = +3.322e-09
   zeta  t=  60.000 L=10: ARCH = +0.037504285239  P = -0.038727626770  W_rhs = +0.076231912009  W_zero = +0.076231912009  diff = +7.711e-13
   zeta  t=  85.699 L=10: ARCH = +0.043431373522  P = +0.039608507012  W_rhs = +0.003822866510  W_zero = +0.003822866510  diff = +1.701e-15
   zeta  t= 120.000 L=10: ARCH = +0.049027733914  P = +0.017262510440  W_rhs = +0.031765223474  W_zero = +0.031765223474  diff = +1.596e-16
