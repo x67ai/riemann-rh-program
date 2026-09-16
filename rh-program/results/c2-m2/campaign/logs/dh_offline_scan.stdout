@@ -1,5 +1,4 @@
 ========================================================================================================================
-[2026-09-16 21:35:18] dh_offline_scan.py START (cap 1800 s)  [restarted 21:36 IST after the safe_T fix: the first launch spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass]
+[2026-09-16 21:49:57] dh_offline_scan.py START (cap 1800 s)  [attempt 4, 21:52 IST: attempt 3's mp.findroot locator wandered to huge |Im s| from far seeds (seconds per Hurwitz zeta) -- replaced by a bounded damped Newton from |f|-grid seeds; attempt 1 spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass; attempt 2 (5-unit blocks, line step 0.05, contour-integral locator) ran at 35 s/block and re-found rho_0 = 0.808517182457 + 85.699348485 i, |f| = 2.4e-15 (its log is above); this attempt: 10-unit blocks, line step 0.1 with fine rescan, cheaper argument walk, Newton seed grid]
    calibration: 19 on-line zeros of DH in (0.4, 46.000) by sign changes; phase count (theta + arg)/pi = 19.000; n_0 = 0.000 (should be near an integer + 0)
-   [2026-09-16 21:35:39] block 0/191 [46.0, 50.0]: phase 2.000 on-line 2 excess 0  (21 s elapsed)
-   [2026-09-16 21:40:06] block [85.00, 90.00]: phase count 4.000, on-line 2 (fine 2), excess 2 -> zero located at rho = 0.808517182457 + 85.699348485 i, |f| = 2.4e-15, IN THE STRIP (off-line orbit)
+   [2026-09-16 21:50:09] block 0/96 [46.0, 50.0]: phase 2.000 on-line 2 excess 0  (11 s elapsed)
