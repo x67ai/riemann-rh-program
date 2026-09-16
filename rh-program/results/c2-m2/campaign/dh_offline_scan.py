@@ -29,7 +29,7 @@ logf = open(os.path.join(HERE, 'logs', 'dh_offline_scan.log'), 'a')
 def log(s):
     print(s, flush=True); logf.write(s + '\n'); logf.flush()
 log("=" * 120)
-log("[%s] dh_offline_scan.py START (cap %d s)  [restarted 21:36 IST after the safe_T fix: the first launch spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass]" % (cl.now(), CAP_S))
+log("[%s] dh_offline_scan.py START (cap %d s)  [attempt 4, 21:52 IST: attempt 3's mp.findroot locator wandered to huge |Im s| from far seeds (seconds per Hurwitz zeta) -- replaced by a bounded damped Newton from |f|-grid seeds; attempt 1 spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass; attempt 2 (5-unit blocks, line step 0.05, contour-integral locator) ran at 35 s/block and re-found rho_0 = 0.808517182457 + 85.699348485 i, |f| = 2.4e-15 (its log is above); this attempt: 10-unit blocks, line step 0.1 with fine rescan, cheaper argument walk, Newton seed grid]" % (cl.now(), CAP_S))
 mp.mp.dps = 15
 out = dict(date=cl.now(), blocks=[], offline=[], found_in_strip=[], cap_s=CAP_S)
 def elapsed(): return time.time() - T0
@@ -38,20 +38,24 @@ def theta(T):
     T = mp.mpf(T); return T/2*mp.log(5/mp.pi) + mp.im(mp.loggamma(mp.mpf(3)/4 + 1j*T/2))
 def Zline(u): return dh.z_dh(u)[0]
 def arg_track(T):
-    """arg f_DH(sigma + iT) by continuous variation from sigma = 3 to 1/2 (halving the step when a jump exceeds pi/2)."""
+    """arg f_DH(sigma + iT) by continuous variation from sigma = 3 to 1/2: step 0.5 down to sigma = 1.25, then 0.05 to 1/2,
+    halving whenever a jump exceeds pi/2 (a zero near the segment), to a floor of 1e-4."""
     s0 = mp.mpf(3); a = mp.arg(dh.f_dh(mp.mpc(s0, T)))
     if abs(a) > 0.5: log("   !! |arg f(3 + i%.3f)| = %.3f > 0.5 -- unexpected" % (T, float(a)))
-    sig = s0; step = mp.mpf('0.25'); target = mp.mpf('0.5')
+    sig = s0; target = mp.mpf('0.5')
     while sig > target:
-        nxt = max(target, sig - step)
-        b = mp.arg(dh.f_dh(mp.mpc(nxt, T)))
-        d = b - a
-        while d > mp.pi: d -= 2*mp.pi
-        while d < -mp.pi: d += 2*mp.pi
-        if abs(d) > mp.pi/2 and step > mp.mpf('1e-4'):
-            step /= 2; continue
+        base = mp.mpf('0.5') if sig > 1.25 else mp.mpf('0.05')
+        step = base
+        while True:
+            nxt = max(target, sig - step)
+            b = mp.arg(dh.f_dh(mp.mpc(nxt, T)))
+            d = b - a
+            while d > mp.pi: d -= 2*mp.pi
+            while d < -mp.pi: d += 2*mp.pi
+            if abs(d) > mp.pi/2 and step > mp.mpf('1e-4'):
+                step /= 2; continue
+            break
         a = a + d; sig = nxt
-        step = min(step*1.5, mp.mpf('0.25'))
     return a
 def N_DH(T):
     return float((theta(T) + arg_track(T))/mp.pi)
@@ -64,7 +68,7 @@ def safe_T(T):
         if abs(v) > 1e-3*max(abs(Zline(T + mp.mpf('0.1'))), abs(Zline(T - mp.mpf('0.1')))): return T
         T += mp.mpf('0.013')
     return T
-def online_count(T1, T2, step=mp.mpf('0.05')):
+def online_count(T1, T2, step=mp.mpf('0.1')):
     zs = []; u = mp.mpf(T1); zp = Zline(u)
     while u < T2:
         u2 = min(u + step, mp.mpf(T2)); zn = Zline(u2)
@@ -78,11 +82,11 @@ n_low = len(online_count(mp.mpf('0.4'), Tlow))
 n0 = n_low - N_DH(Tlow)
 log("   calibration: %d on-line zeros of DH in (0.4, %.3f) by sign changes; phase count (theta + arg)/pi = %.3f; n_0 = %.3f (should be near an integer + 0)" % (n_low, float(Tlow), N_DH(Tlow), n0))
 out['n0'] = n0; out['n_low_46'] = n_low
-# blocks of height 5 from 46 to 1000
+# blocks of height 10 from 46 to 1000 (coarse line step 0.1; fine rescan at 0.01 on any excess)
 edges = [Tlow]
 Tb = 50.0
 while Tb < 1000 + 1e-9:
-    edges.append(safe_T(Tb)); Tb += 5.0
+    edges.append(safe_T(Tb)); Tb += 10.0
 Nprev = N_DH(edges[0]) + n0
 for i in range(len(edges) - 1):
     if elapsed() > CAP_S - 120:
@@ -98,27 +102,31 @@ for i in range(len(edges) - 1):
         onl2 = online_count(T1, T2, step=mp.mpf('0.01'))
         excess2 = int(round(cnt_phase)) - len(onl2); blk['online_fine'] = len(onl2); blk['excess_fine'] = excess2
         if excess2 > 0:
-            # locate: sum of zeros in the block by the contour integral (1/2 pi i) oint s f'/f ds on the rectangle [-1, 2.5] x [T1, T2]
-            with mp.workdps(15):
-                def fp_over_f(s):
-                    f = dh.f_dh(s); fp = mp.diff(dh.f_dh, s)
-                    return fp/f
-                corners = [mp.mpc(-1, T1), mp.mpc(2.5, T1), mp.mpc(2.5, T2), mp.mpc(-1, T2), mp.mpc(-1, T1)]
-                tot = mp.mpc(0)
-                for a, b in zip(corners[:-1], corners[1:]):
-                    tot += mp.quad(lambda x: (a + (b - a)*x)*fp_over_f(a + (b - a)*x)*(b - a), mp.linspace(0, 1, 40))
-                zsum = tot/(2j*mp.pi)
-            missing = zsum - mp.fsum(mp.mpc(0.5, z) for z in onl2)
-            tau = float(mp.im(missing))/max(1, excess2); beta_bar = float(mp.re(missing))/max(1, excess2)
-            blk['missing_sum'] = [float(mp.re(missing)), float(mp.im(missing))]; blk['tau_guess'] = tau
+            # locate: |f_DH| on a grid over the block (beta in [0.55, 1.2] step 0.05, tau step 0.25) picks the six best seeds;
+            # a damped Newton (f'/f by mp.diff) that must stay inside the block (Re in [-0.5, 2], Im in [T1 - 1, T2 + 1]) refines
+            # them (15 steps, stop at |f| < 1e-12); accepted once (distinct to 1e-6), beta != 1/2
             found = []
-            for beta0 in (0.6, 0.75, 0.9, 1.1, 1.3, 1.6):
-                try:
-                    r = mp.findroot(dh.f_dh, mp.mpc(beta0, tau), tol=1e-20, maxsteps=60)
-                    if abs(dh.f_dh(r)) < 1e-9 and T1 < mp.im(r) < T2 and all(abs(r - q) > 1e-6 for q in found):
-                        found.append(r)
-                except Exception as e:
-                    pass
+            grid = []
+            tau = float(T1)
+            while tau <= float(T2):
+                for bb in [0.55 + 0.05*k for k in range(14)]:
+                    sd = mp.mpc(bb, tau); grid.append((abs(dh.f_dh(sd)), sd))
+                tau += 0.25
+            grid.sort(key=lambda x: x[0])
+            for _, sd in grid[:6]:
+                x = sd; ok = False
+                for it in range(15):
+                    f = dh.f_dh(x)
+                    if abs(f) < 1e-12: ok = True; break
+                    fp = mp.diff(dh.f_dh, x)
+                    if fp == 0: break
+                    dx = f/fp
+                    if abs(dx) > 0.5: dx = dx/abs(dx)*0.5
+                    x = x - dx
+                    if not (-0.5 < mp.re(x) < 2 and T1 - 1 < mp.im(x) < T2 + 1): break
+                if ok and abs(mp.re(x) - 0.5) > 1e-6 and all(abs(x - q) > 1e-6 for q in found):
+                    found.append(x)
+            blk['tau_guess'] = None; beta_bar = float('nan')
             for r in found:
                 beta = float(mp.re(r)); tau_r = float(mp.im(r))
                 in_strip = (0 < beta < 1) and abs(beta - 0.5) > 1e-8
@@ -127,11 +135,11 @@ for i in range(len(edges) - 1):
                 if in_strip: out['found_in_strip'].append(rec)
                 log("   [%s] block [%.2f, %.2f]: phase count %.3f, on-line %d (fine %d), excess %d -> zero located at rho = %.12f + %.9f i, |f| = %.1e, %s" % (cl.now(), float(T1), float(T2), cnt_phase, len(onl), len(onl2), excess2, beta, tau_r, rec['abs_f'], "IN THE STRIP (off-line orbit)" if in_strip else "outside the strip (beta > 1 or < 0)"))
             if not found:
-                log("   [%s] block [%.2f, %.2f]: excess %d but Newton found no zero from the seeds (tau guess %.4f, beta-bar %.4f) -- recorded, unresolved" % (cl.now(), float(T1), float(T2), excess2, tau, beta_bar))
+                log("   [%s] block [%.2f, %.2f]: excess %d but Newton found no zero from the seed grid -- recorded, unresolved" % (cl.now(), float(T1), float(T2), excess2))
         else:
             log("   block [%.2f, %.2f]: coarse excess %d resolved by the fine line scan (%d on-line)" % (float(T1), float(T2), excess, len(onl2)))
     out['blocks'].append(blk)
-    if (i % 20) == 0: log("   [%s] block %d/%d [%.1f, %.1f]: phase %.3f on-line %d excess %d  (%.0f s elapsed)" % (cl.now(), i, len(edges) - 1, float(T1), float(T2), cnt_phase, len(onl), excess, elapsed()))
+    if (i % 10) == 0: log("   [%s] block %d/%d [%.1f, %.1f]: phase %.3f on-line %d excess %d  (%.0f s elapsed)" % (cl.now(), i, len(edges) - 1, float(T1), float(T2), cnt_phase, len(onl), excess, elapsed()))
     Nprev = Nnext
     json.dump(out, open(os.path.join(HERE, 'dh_offline_scan.json'), 'w'), indent=1, default=float)
 
