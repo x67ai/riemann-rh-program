@@ -1,0 +1,129 @@
+Wed Sep 16 23:11:59 IST 2026
+=== zeta_t85p7_L20 ===  Wed Sep 16 23:11:59 IST 2026
+[unix 1789580519] mode=zeta t=8.56993484853775840e1 L=20 X=485165195 threads=8 direct=false
+[unix 1789580519] dd-log values (n, hi, lo): [(2, 0.6931471805599453, 2.3190468138462993e-17), (3, 1.0986122886681098, -9.071297235001531e-17), (7, 1.9459101490553132, 7.323586207904906e-17), (10, 2.302585092994046, -2.1707562233822496e-16), (65537, 11.090370147631774, -2.2108500861306432e-16), (1000003, 13.815513557959774, 4.636218047193208e-16), (485165195, 19.99999999915536, -8.026664119583126e-16), (999999937, 20.72326577394641, 3.8628426884953976e-16), (0, 0.6931471805599453, 2.3190468138462993e-17)]
+[unix 1789580519] A-table built in 0.26s: Z = 0.2219969080840402, A(0) = 16.621965346934 (M=8192: 16.621965346934); interp-vs-quad [(0.1234567, 9.848192099927926, 9.848192099927958, -3.197442310920451e-14), (0.5, -5.209362663929407, -5.20936266392941, 2.6645352591003757e-15), (0.87654321, -0.610135483531583, -0.6101354835315815, -1.4432899320127035e-15)]; A'(0.3) table -38.377064567 vs FD -38.377065469
+[unix 1789580520] done: terms=25617272 (primes 25614562, prime powers 2710) P_dd = 4.562999824717394e-3  P_double = 4.562999824716920e-3  diff = 4.736e-16  l1 = 1.253973e1  sum Lambda/sqrt n = 4.405044e4  sum time 1.03s (40.4 ns/term/thread-count-8)
+[unix 1789580520] wrote out/zeta_t85p7_L20.json (1.3s total)
+        1.30 real         7.93 user         0.03 sys
+            11501568  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 895  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                6496  involuntary context switches
+         59828079884  instructions retired
+         27075790876  cycles elapsed
+            10813896  peak memory footprint
+=== done zeta_t85p7_L20  Wed Sep 16 23:12:00 IST 2026
+=== zeta_t1e6_L10 ===  Wed Sep 16 23:12:00 IST 2026
+[unix 1789580520] mode=zeta t=1.00000000000000000e6 L=10 X=22026 threads=8 direct=false
+[unix 1789580520] dd-log values (n, hi, lo): [(2, 0.6931471805599453, 2.3190468138462993e-17), (3, 1.0986122886681098, -9.071297235001531e-17), (7, 1.9459101490553132, 7.323586207904906e-17), (10, 2.302585092994046, -2.1707562233822496e-16), (65537, 11.090370147631774, -2.2108500861306432e-16), (1000003, 13.815513557959774, 4.636218047193208e-16), (485165195, 19.99999999915536, -8.026664119583126e-16), (999999937, 20.72326577394641, 3.8628426884953976e-16), (0, 0.6931471805599453, 2.3190468138462993e-17)]
+[unix 1789580520] A-table built in 0.24s: Z = 0.2219969080840402, A(0) = 16.621965346934 (M=8192: 16.621965346934); interp-vs-quad [(0.1234567, 9.848192099927926, 9.848192099927958, -3.197442310920451e-14), (0.5, -5.209362663929407, -5.20936266392941, 2.6645352591003757e-15), (0.87654321, -0.610135483531583, -0.6101354835315815, -1.4432899320127035e-15)]; A'(0.3) table -38.377064567 vs FD -38.377065469
+[unix 1789580520] done: terms=2532 (primes 2466, prime powers 66) P_dd = -5.220747555769701e-2  P_double = -5.220747555284308e-2  diff = -4.854e-12  l1 = 1.456863e0  sum Lambda/sqrt n = 2.940122e2  sum time 0.00s (102.8 ns/term/thread-count-8)
+[unix 1789580520] wrote out/zeta_t1e6_L10.json (0.2s total)
+        0.24 real         0.23 user         0.00 sys
+             2686976  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 352  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  92  involuntary context switches
+          6391591635  instructions retired
+          1029756934  cycles elapsed
+             1999304  peak memory footprint
+=== done zeta_t1e6_L10  Wed Sep 16 23:12:00 IST 2026
+=== zeta_t1e6_L20 ===  Wed Sep 16 23:12:00 IST 2026
+[unix 1789580520] mode=zeta t=1.00000000000000000e6 L=20 X=485165195 threads=8 direct=false
+[unix 1789580520] dd-log values (n, hi, lo): [(2, 0.6931471805599453, 2.3190468138462993e-17), (3, 1.0986122886681098, -9.071297235001531e-17), (7, 1.9459101490553132, 7.323586207904906e-17), (10, 2.302585092994046, -2.1707562233822496e-16), (65537, 11.090370147631774, -2.2108500861306432e-16), (1000003, 13.815513557959774, 4.636218047193208e-16), (485165195, 19.99999999915536, -8.026664119583126e-16), (999999937, 20.72326577394641, 3.8628426884953976e-16), (0, 0.6931471805599453, 2.3190468138462993e-17)]
+[unix 1789580520] A-table built in 0.24s: Z = 0.2219969080840402, A(0) = 16.621965346934 (M=8192: 16.621965346934); interp-vs-quad [(0.1234567, 9.848192099927926, 9.848192099927958, -3.197442310920451e-14), (0.5, -5.209362663929407, -5.20936266392941, 2.6645352591003757e-15), (0.87654321, -0.610135483531583, -0.6101354835315815, -1.4432899320127035e-15)]; A'(0.3) table -38.377064567 vs FD -38.377065469
+[unix 1789580521] done: terms=25617272 (primes 25614562, prime powers 2710) P_dd = -4.285191215912379e-3  P_double = -4.285191213840604e-3  diff = -2.072e-12  l1 = 1.253973e1  sum Lambda/sqrt n = 4.405044e4  sum time 1.06s (41.6 ns/term/thread-count-8)
+[unix 1789580521] wrote out/zeta_t1e6_L20.json (1.3s total)
+        1.31 real         7.93 user         0.03 sys
+            11927552  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 921  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                5666  involuntary context switches
+         60722219651  instructions retired
+         27312466171  cycles elapsed
+            11239880  peak memory footprint
+=== done zeta_t1e6_L20  Wed Sep 16 23:12:01 IST 2026
+=== dh_t85p7_L10 ===  Wed Sep 16 23:12:01 IST 2026
+[unix 1789580521] mode=dh t=8.56993484853775840e1 L=10 X=22026 threads=8 direct=false
+[unix 1789580521] dd-log values (n, hi, lo): [(2, 0.6931471805599453, 2.3190468138462993e-17), (3, 1.0986122886681098, -9.071297235001531e-17), (7, 1.9459101490553132, 7.323586207904906e-17), (10, 2.302585092994046, -2.1707562233822496e-16), (65537, 11.090370147631774, -2.2108500861306432e-16), (1000003, 13.815513557959774, 4.636218047193208e-16), (485165195, 19.99999999915536, -8.026664119583126e-16), (999999937, 20.72326577394641, 3.8628426884953976e-16), (0, 0.6931471805599453, 2.3190468138462993e-17)]
+[unix 1789580522] A-table built in 0.27s: Z = 0.2219969080840402, A(0) = 16.621965346934 (M=8192: 16.621965346934); interp-vs-quad [(0.1234567, 9.848192099927926, 9.848192099927958, -3.197442310920451e-14), (0.5, -5.209362663929407, -5.20936266392941, 2.6645352591003757e-15), (0.87654321, -0.610135483531583, -0.6101354835315815, -1.4432899320127035e-15)]; A'(0.3) table -38.377064567 vs FD -38.377065469
+[unix 1789580522] Lambda_DH recursion to X = 22026 in 0.0s; witnesses (n, Lambda_DH(n)): [(2, 0.19690858829414687), (3, -0.3120927285161636), (4, -1.4422319646064572), (5, 0.0), (6, 1.9363560766210388), (7, 0.5527922945429875), (8, 0.015890700913188005), (9, -2.285883581242637), (10, 0.0), (12, -0.7628774719884116), (25, 0.0)]
+[unix 1789580522] done: terms=15346 (primes 0, prime powers 15346) P_dd = 3.399954689289246e-1  P_double = 3.399954689289273e-1  diff = -2.720e-15  l1 = 3.292368e0  sum Lambda/sqrt n = -7.634008e-1  sum time 0.00s (64.2 ns/term/thread-count-8)
+[unix 1789580522] wrote out/dh_t85p7_L10.json (0.3s total)
+        0.27 real         0.26 user         0.00 sys
+             2719744  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                 350  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 263  involuntary context switches
+          6414988650  instructions retired
+          1090646029  cycles elapsed
+             2015664  peak memory footprint
+=== done dh_t85p7_L10  Wed Sep 16 23:12:02 IST 2026
+=== dh_t85p7_L20 ===  Wed Sep 16 23:12:02 IST 2026
+[unix 1789580522] mode=dh t=8.56993484853775840e1 L=20 X=485165195 threads=8 direct=false
+[unix 1789580522] dd-log values (n, hi, lo): [(2, 0.6931471805599453, 2.3190468138462993e-17), (3, 1.0986122886681098, -9.071297235001531e-17), (7, 1.9459101490553132, 7.323586207904906e-17), (10, 2.302585092994046, -2.1707562233822496e-16), (65537, 11.090370147631774, -2.2108500861306432e-16), (1000003, 13.815513557959774, 4.636218047193208e-16), (485165195, 19.99999999915536, -8.026664119583126e-16), (999999937, 20.72326577394641, 3.8628426884953976e-16), (0, 0.6931471805599453, 2.3190468138462993e-17)]
+[unix 1789580522] A-table built in 0.24s: Z = 0.2219969080840402, A(0) = 16.621965346934 (M=8192: 16.621965346934); interp-vs-quad [(0.1234567, 9.848192099927926, 9.848192099927958, -3.197442310920451e-14), (0.5, -5.209362663929407, -5.20936266392941, 2.6645352591003757e-15), (0.87654321, -0.610135483531583, -0.6101354835315815, -1.4432899320127035e-15)]; A'(0.3) table -38.377064567 vs FD -38.377065469
+[unix 1789580543] Lambda_DH recursion to X = 485165195 in 21.3s; witnesses (n, Lambda_DH(n)): [(2, 0.19690858829414687), (3, -0.3120927285161636), (4, -1.4422319646064572), (5, 0.0), (6, 1.9363560766210388), (7, 0.5527922945429875), (8, 0.015890700913188005), (9, -2.285883581242637), (10, 0.0), (12, -0.7628774719884116), (25, 0.0)]
+[unix 1789580555] done: terms=340796040 (primes 0, prime powers 340796040) P_dd = 7.570041820049636e-1  P_double = 7.570041820049650e-1  diff = -1.443e-15  l1 = 7.835728e1  sum Lambda/sqrt n = -5.200991e0  sum time 11.39s (33.4 ns/term/thread-count-8)
+[unix 1789580555] wrote out/dh_t85p7_L20.json (32.9s total)
+       32.96 real       108.20 user         1.09 sys
+          3883384832  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              601787  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               82578  involuntary context switches
+        667846678242  instructions retired
+        388658141829  cycles elapsed
+          3885059216  peak memory footprint
+=== done dh_t85p7_L20  Wed Sep 16 23:12:35 IST 2026
+ALL DONE Wed Sep 16 23:12:35 IST 2026

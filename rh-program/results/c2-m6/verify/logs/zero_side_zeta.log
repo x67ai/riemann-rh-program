@@ -1,0 +1,9 @@
+[2026-09-16 23:14:10] Z_trap(M=8192) = 0.22199690808403971891  Z_quad = 0.22199690808403971891;  Bhat trapezoid(dps40) vs quad(dps30): [(0, '1.0', '1.0', '-1.17e-30'), (5.5, '0.51542945803052625835', '0.51542945803052625835', '-6.02e-31'), (37.25, '0.0068521599557271485087', '0.0068521599557271485087', '-8.01e-33'), (250, '1.7629504621808752533e-6', '1.7629504621808752533e-6', '-2.06e-36')]
+[2026-09-16 23:14:15] zeta zeros to gamma <= t + 150.0: 99 zeros (n = 1..99), last gamma = 233.693404179; 7s
+[2026-09-16 23:14:25] ZERO SIDE zeta t=85.7 L=10: sum over 99 zeros = 0.0038228665096753781492;  reflected points = 3.385e-19;  tail beyond U=150.0: <= 1.92e-20 (k=13); reflected tail <= 4.61e-28;  W = 0.0038228665096753784877
+[2026-09-16 23:14:35] ZERO SIDE zeta t=85.7 L=20: sum over 99 zeros = 0.00086603423184794462487;  reflected points = 1.037e-27;  tail beyond U=150.0: <= 3.14e-28 (k=13); reflected tail <= 7.51e-36;  W = 0.00086603423184794462487
+[2026-09-16 23:14:35] campaign zeros_t1e6.json: 1133 zeros, U_data = 297.2197569201164, dps = 15, checks = {'monotone': True, 'count': 1133, 'rvm_expected': 1133.1797922288533, 'index_lo': 1746580, 'index_hi': 1747712, 'seconds': 389.57923913002014, 'seconds_per_zero': 0.34384751909092687, 'max_residual': 2.8616623867665757e-09}
+[2026-09-16 23:14:43] 20 zeros re-verified at dps 30: worst |delta gamma| = 5.57e-11; 34s
+[2026-09-16 23:15:39] ZERO SIDE zeta t=1e6 L=10: sum over 1133 zeros (own transform, dps 40) = 0.25129928436203739617;  campaign rows_t1e6 N_Z = 0.25129928436203747;  diff = -7.11e-17;  tail beyond U_data <= 4.95e-27 (k=13); reflected <= 3.85e-115
+[2026-09-16 23:16:36] ZERO SIDE zeta t=1e6 L=20: sum over 1133 zeros (own transform, dps 40) = 0.029171667318688647231;  campaign rows_t1e6 N_Z = 0.029171667318688647;  diff = 4.95e-19;  tail beyond U_data <= 7.37e-35 (k=13); reflected <= 5.74e-123
+[2026-09-16 23:16:36] wrote out/zero_side_zeta.json in 148s
