@@ -73,3 +73,37 @@ Nothing outside `results/c2-m2/` was edited; no Lean file touched; nothing commi
 * `campaign/campaign_lib.py`  1eca667a1fa2b741734c3b7eaebde213e6cef1551fe6d4d54d99075e23339c70
 * `campaign/run_height.py`  c24b53f0fccc69cd0670822d7acfa1b579901d2da8e0190bc67ac700249e400b
 * `campaign/logs/height_t1e3.log`  533cbf4ef4d9d3c8a655da985c100addfa278838c82d8ac5e17685f2d03330e0
+
+## 2026-09-16 21:24 IST — CAMPAIGN checkpoint (builder `checkpoint.sh`): heights t1e4 t1e5
+
+* **t1e4** — [2026-09-16 21:22:28] zeros done: 681 zeros in [9709.656, 10290.344], indices 9804..10484, RvM count 681.3, monotone True, max |Z(gamma)| 1.9e-11, 408.6 s (0.600 s/zero)
+  * POSITIVE control (zeta's zeros, all real; the channel must stay silent): min over all rows of W_Z' = 1.169612e-12 at L = 2613.36  -> PASS (>= 0)
+  * -> NEGATIVE control PASS; POSITIVE control PASS
+  * at t: delta = 0.05: L_sign = 25.1 (flips after: 0; at grid bottom: False)   L_bal3 = 58.8 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 8.17; theorem L* = 885.5
+  * at t: delta = 0.10: L_sign = 13.5 (flips after: 0; at grid bottom: False)   L_bal3 = 22.2 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 7.79; theorem L* = 387.3
+  * at t: delta = 0.25: L_sign = 8.8 (flips after: 0; at grid bottom: False)   L_bal3 = 11.1 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 7.30; theorem L* = 125.6
+  * ensemble: delta = 0.05 over 145 centers: L_sign median 27.8 [p10 19.4, p90 38.3; min 13.6, max 42.4];  L_bal3 median 35.0 [p10 23.1, p90 56.2; min 16.2, max 61.0]
+  * ensemble: delta = 0.10 over 145 centers: L_sign median 18.0 [p10 12.9, p90 20.9; min 11.0, max 25.2];  L_bal3 median 25.0 [p10 17.1, p90 30.8; min 13.2, max 36.2]
+  * ensemble: delta = 0.25 over 145 centers: L_sign median 9.2 [p10 8.0, p90 10.6; min 6.4, max 11.6];  L_bal3 median 12.8 [p10 10.0, p90 14.4; min 8.0, max 15.8]
+  * stop conditions: does not fire; (iv) does not fire; (summary summary_t1e4.json; any stop condition fires: False)
+  * `campaign/zeros_t1e4.json`  8497a48e5871bb62f6739a493e4b7ccad9fd33bc2329e45bd44c1e64c0583fa8
+  * `campaign/rows_t1e4.csv`  1f626271ad2ae137e9235dbfb197da4858f3673e784712129c71dcf8439ee322
+  * `campaign/rows_t1e4.json`  5a7741ebbcd3f03cf7080d6fcd7d35db9cb93f33d6f6461782fdf0710d6a8264
+  * `campaign/summary_t1e4.json`  5c45119e9cb6055e54c529084431742c8ddd1a325d1f28d667c577aa475fc7c5
+  * `campaign/logs/height_t1e4.log`  5fe58720801eaa81321e9d365a806d106b8d3e8bf6597bc61b7734cf04564aab
+* **t1e5** — [2026-09-16 21:22:07] zeros done: 905 zeros in [99705.904, 100294.096], indices 137617..138521, RvM count 905.7, monotone True, max |Z(gamma)| 2.2e-10, 381.7 s (0.422 s/zero)
+  * POSITIVE control (zeta's zeros, all real; the channel must stay silent): min over all rows of W_Z' = 3.446238e-23 at L = 2631.21  -> PASS (>= 0)
+  * -> NEGATIVE control PASS; POSITIVE control PASS
+  * at t: delta = 0.05: L_sign = 25.8 (flips after: 0; at grid bottom: False)   L_bal3 = 29.2 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 10.41; theorem L* = 903.3
+  * at t: delta = 0.10: L_sign = 20.1 (flips after: 0; at grid bottom: False)   L_bal3 = 23.9 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 9.92; theorem L* = 396.2
+  * at t: delta = 0.25: L_sign = 9.5 (flips after: 0; at grid bottom: False)   L_bal3 = 13.4 (flips after: 0)   | density model L_bal(k=1)/L_bal(k=3) from zero_data_cost: see aggregate; transcript L_ann = 9.30; theorem L* = 129.2
+  * ensemble: delta = 0.05 over 147 centers: L_sign median 29.0 [p10 19.5, p90 39.0; min 14.8, max 41.2];  L_bal3 median 36.2 [p10 25.6, p90 56.8; min 19.4, max 61.2]
+  * ensemble: delta = 0.10 over 147 centers: L_sign median 19.2 [p10 14.6, p90 22.3; min 12.2, max 26.0];  L_bal3 median 26.0 [p10 18.4, p90 31.8; min 14.6, max 34.4]
+  * ensemble: delta = 0.25 over 147 centers: L_sign median 10.2 [p10 9.0, p90 11.2; min 7.8, max 12.2];  L_bal3 median 13.8 [p10 11.8, p90 15.4; min 9.6, max 16.2]
+  * stop conditions: does not fire; (iv) does not fire; (summary summary_t1e5.json; any stop condition fires: False)
+  * `campaign/zeros_t1e5.json`  c0bc906beaac93f6eca0ccd68293310f68ca1b179821846b0b27b51fcf82c0a5
+  * `campaign/rows_t1e5.csv`  835bc4146936a55eb33b89f602e909b560385a7fda0d172e003b0af9b102b608
+  * `campaign/rows_t1e5.json`  d5eef078f0374234112e778a72040c1484e93b37965be1d62bb5ff2ac9ec6477
+  * `campaign/summary_t1e5.json`  38403cf70c2ca0dba2fa80475cd675dda94076cf528362120ff86578b1c5070a
+  * `campaign/logs/height_t1e5.log`  30d17c296406743018cb0f6df5b4e41dba65ad24c1a28e9c1d29e0f66040d568
+* `campaign/CAMPAIGN.md` (v0 (heights present: t1e3))  dd42bf1f4d1f5af264d047491578e806a0efb9412a7de5f7230285156eba1d37

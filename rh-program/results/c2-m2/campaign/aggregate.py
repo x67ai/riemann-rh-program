@@ -120,18 +120,25 @@ P(fit_txt)
 P("## 4. The four refutation-shaped closes of PRICING §2(d), filled in from the files (INSTRUMENT; nothing about RH)")
 P()
 if len(present) == 4 and pts:
-    y = np.array([p[2] for p in pts]); verdicts = []
-    for law, fn in (('the density model δ^{−2/3}(log t)^{1/3}', lambda d, t: d**(-2/3)*lt(t)**(1/3)), ("the theorem's δ⁻¹ log log t", lambda d, t: 1/d), ("the transcript's δ^{−0.07}(log t)^{0.89}", lambda d, t: d**(-0.07)*lt(t)**0.89)):
-        x = np.array([fn(d, t) for d, t, _, _ in pts]); k = float(np.exp(np.mean(np.log(y/x)))); ratio = y/(k*x); verdicts.append((law, ratio.max(), ratio.min()))
-    fits = [v for v in verdicts if v[1] <= 1.5 and v[2] >= 1/1.5]
-    if len(fits) == 1:
-        P("1. **Lands:** the measured sign-detection bandwidth L_sign(δ, t) of the first-order datum on ζ's actual zeros follows **%s** within a factor 1.5 across 10³ ≤ t ≤ 10⁶ and 0.05 ≤ δ ≤ 0.25 (measured/predicted in [%.2f, %.2f]); the two other laws are refuted at the δ-ratio (measured L_sign(0.05)/L_sign(0.25) = %s against 1.12 : 2.9 : 5)." % (fits[0][0], fits[0][2], fits[0][1], ", ".join("%.2f" % (S[tag]['derived']['0.05']['L_sign']/S[tag]['derived']['0.25']['L_sign']) for tag, _ in present)))
-    elif len(fits) == 0:
-        P("1. **Fails (the instrument finds no law among the three):** no law fits within a factor 1.5 (max ratios: %s); see §3 for the fitted exponents." % "; ".join("%s [%.2f, %.2f]" % v for v in verdicts))
-    else:
-        P("1. **Ambiguous:** more than one law fits within a factor 1.5 (%s); the fitted exponents of §3 decide." % "; ".join(v[0] for v in fits))
+    laws = (('the density model δ^{−2/3}(log t)^{1/3}', lambda d, t: d**(-2/3)*lt(t)**(1/3)), ("the theorem's δ⁻¹ log log t", lambda d, t: 1/d), ("the transcript's δ^{−0.07}(log t)^{0.89}", lambda d, t: d**(-0.07)*lt(t)**0.89))
+    def verdict(pp, col):
+        y = np.array([p[col] for p in pp]); vs = []
+        for law, fn in laws:
+            x = np.array([fn(d, t) for d, t, _, _ in pp]); k = float(np.exp(np.mean(np.log(y/x)))); ratio = y/(k*x); vs.append((law, ratio.max(), ratio.min()))
+        return vs, [v for v in vs if v[1] <= 1.5 and v[2] >= 1/1.5]
+    texts = []
+    for name, pp in (("L_sign at t (the contract's twelve points)", pts), ("L_sign median over the centers (the ensemble instrument)", pts_med)):
+        if not pp: continue
+        vs, fits = verdict(pp, 2)
+        if len(fits) == 1:
+            texts.append("**%s — lands:** the measured sign-detection bandwidth follows **%s** within a factor 1.5 across 10³ ≤ t ≤ 10⁶ and 0.05 ≤ δ ≤ 0.25 (measured/predicted in [%.2f, %.2f]); the two other laws are refuted at that tolerance (%s)." % (name, fits[0][0], fits[0][2], fits[0][1], "; ".join("%s [%.2f, %.2f]" % (v[0], v[2], v[1]) for v in vs if v not in fits)))
+        elif len(fits) == 0:
+            texts.append("**%s — no law within a factor 1.5** (%s)." % (name, "; ".join("%s [%.2f, %.2f]" % (v[0], v[2], v[1]) for v in vs)))
+        else:
+            texts.append("**%s — ambiguous at a factor 1.5:** %s fit (%s); the fitted exponents of §3 decide." % (name, len(fits), "; ".join("%s [%.2f, %.2f]" % (v[0], v[2], v[1]) for v in fits)))
+    P("1. " + " ".join(texts) + " Measured δ-ratios L_sign(0.05)/L_sign(0.25) at t: %s (laws 1.12 : 2.9 : 5); the single-t values scatter within the p10–p90 bands of §2 (the noise at one t is configuration-dominated for L ≳ 20), which is why the ensemble median is the sharper instrument." % ", ".join("%.2f" % (S[tag]['derived']['0.05']['L_sign']/S[tag]['derived']['0.25']['L_sign']) for tag, _ in present))
 else:
-    P("1. (Close 1 needs all four heights; %d present. The rehearsal's own δ-ratios are in §3.)" % len(present))
+    P("1. (Close 1 needs all four heights; %d present. The δ-ratios so far are in §3.)" % len(present))
 # close 2: clause-4 looseness
 P()
 lines = []
