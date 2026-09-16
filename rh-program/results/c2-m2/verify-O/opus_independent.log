@@ -1,0 +1,34 @@
+(0) Z = 0.22199690808404   (note: 0.221996908084...)
+(1a) lam=25: c direct = 732.417149524   c via (3.1) = 732.417149524   rel diff = 4.59e-41
+(1a) lam=60: c direct = 965890092.689   c via (3.1) = 965890092.689   rel diff = 1.38e-40
+(1b) kappa_inf = log(sqrt(pi/2) e^{-1/4}/Z) = 1.4808831774 ;  kappa_+ = 1.5309456774
+(1c) kappa(lam) in [kappa_-, kappa_+] on 15 values: False ; kappa(25)=1.5105071, kappa(1e4)=1.310804, violations=[(10000, 1.3108039565098657)]
+(1d) clause 3: m(25) = 0.63345262 (>0), m'(25) = 0.24 ; proved margin e^{m(25)} = 1.8841 vs computed c(25)^2/e^{12.5} = 1.99911
+(2a) A1 = 72/e = 26.48732 ; c_B = 2/sqrt(72e) = 0.1429606475 ; C_B = e^2/Z = 33.2845 ; c_B' = 0.12509057 ; C_B' = 62.889938
+     note's D2 prints c_B = 0.14298 ; sec2/sec15 print 0.142961/0.14296 ; exact = 0.14296065
+(2b) 1/(3 sqrt e) = 0.202177  (the pricing's inferred c_B, valid for theta not for B) ; 1/(6 sqrt e) = 0.101088 (crude 2^k Leibniz)
+(2c) max |B_raw(v) - theta(v+1/2)^{1/4}| on a grid = 1.435e-41   (contract's B IS theta^{1/4})
+(2d) C(k,i) i^i (k-i)^{k-i} <= k^k for 1<=k<=39, all i: True
+(2e) max ratio |B_raw^{(k)}|/((k+1) A1^k k^{2k}) over k<=6 = 0.0299  (<=1 required)
+(2f) min G1(eta)/|Bhat(eta)| over the grid = 31.53  (>=1 required)
+(3a) F~(50) at R0=81, b1=8.6981: -0.133397 ;  at R0=80.5: 0.237029 ;  at R0=80: 0.608523
+(3b) F~(50) at R0=81 with b1 = 8.64613 (the note's headline b1): -0.127404
+(3c) decrease threshold 5/(2 c_B sqrt R0 - 7/4) at R0=81: 6.0732 ; F~ at L=60,100,403,1000,1e4: ['-7.4768', '-37.898', '-280.44', '-767.41', '-8165.5']
+(3d) asymptotes: (3/(4 c_B))^2 = 27.5226 ; (7/(8 c_B))^2 = 37.4613 ; (13/(16 c_B))^2 = 32.3008 (combined absorption, see check)
+(3e) my least R0 (step 1/2, L0=50) = 81.0
+(3f) least R0 with the combined absorption (budget 13/8 instead of 7/4) = 73.0
+(4a) (R') margin at t = 21L: L=50: 0.71709 ; L=100: 34.067 ; L=1000: 753.94 ; L=1e5: 84762.0
+(4b) (R') margin at t = 20L, L=50: -1.3714 ;  at t=3, L=50: -70.512 ;  asymptote 1/(8 c_B^2) = 6.11613
+(4c) with rate 0.85: least admissible t at L=50 is 24.965  (t/L = 0.4993)  -- 'vacuous for t>=3'?
+(4c) with rate 0.85: least admissible t at L=87 is 32.941  (t/L = 0.3786)  -- 'vacuous for t>=3'?
+(4c) with rate 0.85: least admissible t at L=100 is 35.657  (t/L = 0.3566)  -- 'vacuous for t>=3'?
+(5a) b1 = sup|eta Bhat|^2 = 8.6461283 at eta* = 4.67274   (note: 8.64613 at 4.6727)
+(5b) ||B'||_1 ~ 3.3142754  => b1 <= ||B'||_1^2 = 10.984421  (fully proved bound on the sup)
+(5c) L1 = (2 zeta(4) ||B'''||_1^2 / b1)^{1/4} = 17.927  (with ||B'''||_1 = 642.301, b1 = 8.64613)
+(6a) h_f(t-i d) = (-4.1468708e-49 - 2.6425284j)  vs  -i d c(dL) = (0.0 - 2.6425284j)
+(6b) h_f(t+i d) = (-4.1468708e-49 + 2.6425284j)  vs  +i d c(dL) = (0.0 + 2.6425284j)
+(6c) the +t PAIR contributes (-13.96591261 + 0.0j) ; -2 d^2 c^2 = -13.96591261 ; rel err 0.00e+00
+(6d) the -t pair contributes E_- = (-1.09371e-25 + 0.0j) ; |E_-|/(2 d^2 c^2) = 7.831e-27 ; e^{-L} = 4.248e-18
+(6e) clause 7: h_f(t) = (7.08072e-51 - 5.5794e-49j) (=0) ; double at -t contributes mult*|h_f(-t)|^2 = 2*9.04182e-32 = 1.80836e-31 ; note's '2*2|h_f(-t)|^2 = 16 t^2 Bhat(2tL)^2' = 3.61673e-31  (a factor 2 too large)
+(6f) 8 t^2 Bhat(2tL)^2 = 1.80836e-31  (the correct value of 2*|h_f(-t)|^2)
+DONE

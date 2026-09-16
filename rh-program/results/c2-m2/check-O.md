@@ -500,7 +500,7 @@ At the theorem's own bandwidth L* = 86.907 the datum separates DH's off-line orb
 * **Constants.** Every constant in §9 is an implied constant "depending only on the fixed window and the lattice spacing" — c, C, c₀, c₁, c₂, C₁, C₂ are never evaluated. The note's c_B, C_B, R₀, κ± are explicit and traceable to a machine-checked derivative bound. That is bookkeeping, and the note grades it as such ((d), "bookkeeping, not mathematics").
 * **The test.** Their sampled vectors are p_k(t) = φ̂(t − τ_k) with φ(u) = ψ(u/L) — modulated Gevrey windows on a lattice of centers (§5, (5.5)); the note's test is a single center and the **derivative** of the window, which is what makes h_f(t) = 0 and gives clause 7 its content. The note's 10(n) line states exactly this difference, and I confirm it at §5 of the paper.
 
-*The corpus and the listing.* The author's eight arXiv queries are on record with their hit lists; I ran six further queries of my own with different terms (Gevrey + critical line; ultradifferentiable + zeta; localized test function + zeros of the Riemann zeta; explicit formula + off-line + zeros; sum rule + zeros + explicit formula; bandlimited + zeros + zeta). The first returned 0 entries and the remainder were still in flight at the time of writing; the corpus route (`results/corpus-routing.md`, row 259 for r3s-24) and the paper itself are the decisive evidence, and nothing found alters the picture. **Note that under V.5 none of this grounds a verdict**: the note is careful to use the absence only to attach `[novelty: single-check]` labels, never to support a dead end, and its §12 step-7 paragraph says so explicitly. That is the correct use.
+*The corpus and the listing.* The author's eight arXiv queries are on record with their hit lists; I ran six further queries of my own with different terms, all returning **0 entries** (`opus_arxiv_queries.log`): `Gevrey AND "critical line"`; `ultradifferentiable AND zeta`; `"explicit formula" AND "off-line" AND zeros`; `"sum rule" AND zeros AND "explicit formula"`; `bandlimited AND zeros AND zeta`; `Gevrey AND "zeta function"`. The corpus route (`results/corpus-routing.md`, row 259 for r3s-24) and the paper itself are the decisive evidence, and nothing I found alters the picture. **Note that under V.5 none of this grounds a verdict**: the note is careful to use the absence only to attach `[novelty: single-check]` labels, never to support a dead end, and its §12 step-7 paragraph says so explicitly. That is the correct use.
 
 **Novelty verdict.** The note's four novelty items (a)–(d) stand, and its "NOT new" list — Lemma G's mechanism, the shell summation, the modulated derivative-bump test, the cosh gain — is correct and complete. The labels may be upgraded from `[novelty: single-check]` to **`[novelty: dual-model check 2026-09-16]`** on items (a), (b), (c); item (d) is self-described as bookkeeping and needs no label. The single most important thing this check changes: **the note has already reduced its own novelty claim by the right amount.** Hua–Yang §9 is the Gevrey decay mechanism *and* the out-window localization mechanism in print; what remains novel is the statement — separation of two configuration classes by one first-order datum at an explicit bandwidth with an explicit bandwidth-proportional window — together with the two-sided edge law and the tight-pair corollary.
 
@@ -519,3 +519,115 @@ Two attributions in the note that I checked and confirm: the paper does cite "an
 I re-ran §0's checklist against the note's §12 and agree with every step. Step 2 (I.1): correct, with the strip-restriction point of §7.5 owed. Step 3 (II.4): correct, and §10.2 above. Step 5 (IV.1): the hit is real — the observable of clause 8 is a Weil test at bandwidth L with no multiplier, a point of the classical data class — and the evasion is written and is the right one: the theorem claims no new data coordinate, its content is a **lower bound on the separation between two values of the same datum**, i.e. a sensitivity statement. That is precisely the shape IV.1 does not kill. Step 6 (IV.9): §10's two numbers are computed and both sides are named. Step 7 (V.2, V.4, V.5): discharged, §11.1 and §11.2.
 
 One number in §10 I re-derived: the theorem's L* at δ = 0.1, t = 10⁶, C₁ = 1 is 40·(2.6259 + 4.6052 + 2.8500) = **403.2**, matching the log's 403.5 (which carries b₁ = 8.6981 in log(2b₁)); the pricing's "≈ 250" is 25/δ, the non-binding term, exactly as the note says. The balance-only value 50 reproduces the pricing's log line for line, and the note's description of `gevrey_edge_law_rerun_DIFF.txt` is exact: the file is `46d45\n< \n`, i.e. **one blank line**, an artifact of the grep filter, and no numeric difference anywhere.
+
+---
+
+## §12 The exact wording corrections the record needs
+
+The author's body is not edited by this check. What follows is the list the orchestrator appends as a dated corrections section, in the pattern of `confinement-note.md`'s "Corrections after the dual check". Items 1–3 are the ones a referee would call out; items 4–13 are precision and citation.
+
+**§12.1 — the reflection condition is not "numerically vacuous". (Three places; the first is the note's own summary.)**
+
+*Line 5, summary, "(a 'reflection condition' enters the hypotheses; numerically it is vacuous for every t ≥ 3)"* → **"(a 'reflection condition' enters the hypotheses; with the numerically observed decay rate it is satisfied at every parameter this program uses, including the DH control at t = 85.7, L = 87 and the campaign's operating point t = 10⁶, L* = 403)"**.
+
+*D3, line 39, "With the numerically observed decay rate 0.8 the threshold would read t/L ≥ 0.2, vacuous for every t ≥ 3 and L ≥ 50 (computed, not proved)"* → **"With the numerically observed decay rate 0.85 the same chain gives the finite-L thresholds t ≥ 25.0 at L = 50, t ≥ 32.9 at L = 87 and t ≥ 35.7 at L = 100, with the asymptotic ratio t/L → 1/(8·0.85²) = 0.17 (computed, not proved) — satisfied at every parameter used in this program, but not implied by t ≥ 3 alone."**
+
+*§4, line 255, "a condition that with the numerical decay rate 0.85 would read t ≥ 0.17L (vacuous for t ≥ 3, L ≥ 50; computed, not proved)"* → **"a condition whose asymptotic form at the numerical decay rate 0.85 is t ≳ 0.17L, and whose finite-L thresholds there are t ≥ 25.0 at L = 50 and t ≥ 32.9 at L = 87 (computed, not proved)"**.
+
+**§12.2 — state the theorem with b₁ = 8.70.** §7.1's constant list prints "b₁ = sup|ηB̂|² = 8.6461", which is a computed grid maximum, i.e. a *lower* bound on the supremum, while b₁ is used everywhere as an *upper* bound (clause 4's noise bound, and the L-hypothesis via log(2b₁C₁)). Replace by **"b₁ = sup|ηB̂|² ∈ [8.64613, 8.6981]; every statement below is made with b₁ = 8.70, the certified upper end, which is what `verify/lemma_G_constants.py` uses (`b1_certified_upper`); the fully proved bound b₁ ≤ ‖B′‖₁² = 10.99 may be substituted throughout at the cost of 0.24 nats in the L-hypothesis."** §5 already anticipates this; §7.1 should match it. Effect on F̃(50): −0.133 at 8.6981, −0.127 at 8.64613 — nothing moves.
+
+**§12.3 — clause 7 / D9: the reflected double contributes 8t²B̂(2tL)², not 16t²B̂(2tL)².** D9 (line 51) and §7.2's proof both read "2·2|h_f(−t)|² = 16t²B̂(2tL)²". The point −t carries multiplicity 2 and its `Wsummand` is m_ρ|h_f(−t)|² = 2·4t²B̂(2tL)² = **8t²B̂(2tL)²**. Verified numerically at t = 30, L = 40: 1.80836·10⁻³¹, half the note's figure. The term is nonnegative and absorbed into N_{Z′} or O_{Z′}, so nothing downstream changes; the value in the text is wrong by a factor 2.
+
+**§12.4 — DH's zeros outside the strip.** §8 rung 2 and §12 step 2 say the theorem "holds for DH" and that "the RH-false world satisfies every input". f_DH has zeros with β > 1, which are not points of any configuration in 𝒞(C₁). Add: **"DH's zero multiset restricted to the closed strip 0 ≤ β ≤ 1 is a legal configuration — both symmetries used, ρ ↦ 1 − conj ρ (the functional equation) and ρ ↦ conj ρ (real coefficients), map the strip to itself — and it contains the off-line orbit at ρ₀; the zeros of f_DH with β > 1 lie outside the class and are simply not part of Z."** The I.1 argument is unaffected; the sentence as written is imprecise.
+
+**§12.5 — ζ's C₁ is 1.4·10⁹, not 5.4·10⁸.** `zeta_local_zero_count_explicit` bounds a window of length 1 (`Ncount t (t+1)`); the class 𝒞(C₁) asks for |Re γ − x| ≤ 1, a window of length 2, which needs two (strictly three, to catch the left endpoint) applications, plus log(|x| + 4) ≤ (log 4/log 3)log(|x| + 3). So in §1, §7.3 and §8 rung 4 read **C₁ ≤ 1.4·10⁹**. Consequence: log(2b₁C₁) = 23.91 in place of 22.96, so rung 4's "L* = 1208 at δ = 0.1, t = 10⁶" becomes **L* ≈ 1246**. Nothing else moves.
+
+**§12.6 — c_B's fourth decimal.** D2 (line 37) prints "c_B = 2/√(72e) = 0.14298"; §2 prints 0.142961 and §15 prints 0.14296. The value is **0.14296065**. Make D2 read 0.14296.
+
+**§12.7 — P is a Laurent polynomial.** §6 and the script comment say "P an explicit polynomial in L with nonnegative coefficients and degree 5". The incomplete-gamma terms carry L^{j−m−1} with j down to 0, so P is a **Laurent** polynomial with nonnegative coefficients and top degree 5. The conclusion (log P)′ ≤ 5/L is unaffected — negative-power terms contribute ja_jL^{j−1} < 0 ≤ 5a_jL^{j−1} — but the sentence should say "Laurent polynomial … and top degree 5".
+
+**§12.8 — a sharper R₀ is available from the same hypothesis (optional).** §6 spends L/8 ≥ log log(3+t) and L/8 ≥ log(2b₁C₁) separately, for a combined e^{L/4}; the single hypothesis gives e^{L/8} ≥ 2b₁C₁·log(3+t) directly, so 2C₁log(3.5+t) ≤ 1.05e^{L/8}/b₁ in one use. The exponent to beat becomes 13/8 rather than 7/4, the asymptote becomes (13/(16c_B))² = 32.30, and the least R₀ at L₀ = 50 becomes **73**. The note's 81 is valid and conservative; if the record prefers the sharper constant, the same one-point check proves it.
+
+**§12.9 — D8's "implies" reads the wrong way for a deviation record.** "the proved chain is [with (1 − e^{−L})], which the contract's right-hand side implies once E₋ is folded in" is logically true but inverts the point. Read: **"the contract's form is not what is proved; what is proved is weaker by the factor (1 − e^{−L}) on the main term, because 2δ²c(δL)²e^{−L} is not absorbable into the target's 2e^{−L} (c(δL)² ≥ e^{δL/2} is unbounded). The final conclusion, ≥ δ²e^{(1−c₀)δL} ≥ 1, is unchanged."**
+
+**§12.10 — a cleaner justification for λE₁(λ) ≤ 25E₁(25) (optional).** §3.2's parenthetical ("E₁(λ) ≤ 0.8e^{−1.51√λ}, and λe^{−1.51√λ} is decreasing") yields only λE₁ ≤ 0.0105, not 0.0045. The direct route gives the stated bound: d/dλ log(λE₁(λ)) = 1/λ − 1/(4μ) + 1/(2√μ) − ½ < 0 for λ ≥ 25, so λE₁ is decreasing outright. Either way D(λ) > 0, since 0.52 − 0.9625·0.0105 = 0.510 > 0.
+
+**§12.11 — one "cannot" sentence is not a theorem.** §9 (line 372): "a separation theorem about configurations cannot, without an arithmetic input, tell which configuration is ζ's" is a general impossibility claim about all such theorems and is not proved anywhere in the note. Restrict it — **"*this* separation theorem cannot, without an arithmetic input, tell which configuration is ζ's: clauses 1–7 hold verbatim for DH (rung 2), so no consequence of them distinguishes ζ's configuration from DH's"** — or label it `[reading]`.
+
+**§12.12 — four Lean citations.** `Zeta23/Taper/Gevrey.lean`: `def theta` is at **61**, not 55; `gb_mul_gb_le` is at **248**, not 262–275; `gevreyProfile_rhoTwo` is at **401**, not 393; `GevreyProfile`'s `structure` line is 52 with its `bound` field at 58, so "lines 45–52" should read "lines 44–58". All four names exist and all quoted text is verbatim correct, so the brief's stop condition (d) does not fire. Also: `prop_EF_of_lit`'s conclusion is a **three**-fold conjunction (`Summable ∧ Integrable ∧ Z.W f g = ∫ …`); §1 quotes two of the three.
+
+**§12.13 — three small record items.** (i) §0.3 says the (0.2) check has "relative difference 10⁻⁶ at trapezoid resolution"; `four_point_accounting_run.log` (4) prints `rel diff = 1.0e-9`. (ii) §6 says the transcript "fell back to an exponential exclusion zone e^{L/8}"; tx_032 line 46 reads R_L := **e^{L/12}**L, and the same sentence in the note uses e^{L/12} correctly two clauses earlier. (iii) §14's compute list records `dh_negative_control.py` once; `verify/run_all.log` shows a first attempt terminated at `exit=143` and `run_rest.sh` re-running it and `lemma_G_constants.py` to completion. The logs on disk are the complete run; a one-line note in §14 would close the loop.
+
+---
+
+## §13 Verdicts
+
+### §13.1 Per clause
+
+| clause | verdict | the derivation or computation behind it |
+|---|---|---|
+| **1** — orbit clause | **CLOSES** | Four-point accounting re-derived (§2) and confirmed by my own quadrature to zero relative error; the exact bound \|E₋\| ≤ 2(4t²+δ²)e^{δL}G(2tL)² re-derived from Lemma G's complex case (§8.1); (R) re-derived line by line and (R′) re-evaluated — margin 0.717 at t = 21L, L = 50, and −1.371 at t = 20L, so 21 is least (§8.2). §12.1 owed. |
+| **2** — edge law, two-sided | **CLOSES** | (3.1)–(3.3) re-derived; Lemma K's four envelope inequalities checked algebraically; both bounds re-derived constant by constant; κ₋ = κ_∞ = 1.4808831774, κ₊ = 1.5309456774; my own quadrature puts κ(λ) in the band at λ = 25 … 10⁵ (§5). |
+| **3** — slack | **CLOSES** | m(25) = 0.63345262 > 0 and m′ > 0 for λ ≥ 25; proved margin 1.8841 against the computed 1.99911 (§6). |
+| **4** — in-window noise | **CLOSES** | b₁ = 8.6461283 at η* = 4.67274 independently; the factor-2 shell count verified; T₁^{poly} re-derived and L₁ = 17.927 recomputed (§9). §12.2 owed. |
+| **5** — out-window contamination | **CLOSES** | All ten steps re-derived (§7.2); my own implementation of F̃ gives F̃(50) = −0.133397 at R₀ = 81, +0.237 at R₀ = 80.5, and the full F̃ table matches; uniformity over depth ½ verified at the source (the depth enters only through e^{L\|y\|/2}); the hypothesis is exactly what the proof uses (§7.4). |
+| **6** — separation | **CLOSES** | The split, the two bounds, (7.1) and each of its four steps re-checked; the dependency chain re-checked for cycles; the final δL/2 ≥ 2log(1/δ) holds with a factor 2 to spare (§10.1). |
+| **7** — tight pair | **CLOSES** | h_f(t) = 0 confirmed; II.4 re-read at BARRIER-ZOO 134–146 and the note's quotation verified verbatim; the three-part answer (outside the data class, degeneration stated, depth-continuity priced) is complete (§10.2). §12.3 owed. |
+| **8** — scope | **CLOSES** | `EF_lit`'s hypotheses are met by g = f ⋆ f̃; `literatureRHS` transcribed correctly; the M6 wall and IV.7's Session-6 closure cited by line and correct (§10.3). |
+
+**No clause is FIX-FIRST. No clause FAILS.**
+
+### §13.2 Per deviation
+
+| | verdict | reason |
+|---|---|---|
+| **D1** g is Hermitian, not real | **UPHELD** | g(x) = e^{−itx}a(x) with a real even; the log measures max\|g(−x) − conj g(x)\| = 0 and max\|Im g\| = 2.5·10⁻⁴. Nothing downstream needs g real: `EF_lit` takes `k : ℝ → ℂ`. |
+| **D2** c_B = 2/√(72e) = 0.14296, not 0.20 | **UPHELD** | B_raw(v) = θ(v+½)^{1/4} exactly (checked to 10⁻⁴¹), and a quarter power does not transfer a derivative bound; the factorization + 4^k chain rule + Leibniz route is the right one and gives 2/√(72e). The pricing's 1/(3√e) is θ's constant. §12.6 (a fourth-decimal print). |
+| **D3** reflection condition t ≥ 21L | **UPHELD as a deviation; the vacuity claim inside it OVERRULED** | The condition is necessary for this route (t ≳ 1/(8c_B²)·L = 6.12L asymptotically, 21L at L = 50) and unnecessary for the truth (E₋/main = 7.8·10⁻²⁷ where (R) fails by 70 nats). But the claim "numerically vacuous for every t ≥ 3", made in the summary and twice more, is false: at the numerical rate the finite-L thresholds are t ≥ 25.0 (L = 50), 32.9 (L = 87), 35.7 (L = 100). §12.1. |
+| **D4** the factor 2 in the shell count; the polynomial route for T₁ | **UPHELD** | The shell k ≥ 1 is two intervals, one each side of t; each needs its own class window. The Gevrey form of T₁ needs L ≈ 1.1·10⁴ with c_B = 0.143, the polynomial route L₁ = 17.927 — both proved, the second operative. |
+| **D5** R₀ = 81 for L ≥ 50; asymptote (7/(8c_B))² = 37.46 | **UPHELD** | Independently reproduced, including that 81 is the least value on the half-integer grid at L₀ = 50. The contract's (3/(4c_B))² = 27.52 is the budget 3/2, which omits the prefactor absorption the hypothesis forces. (§12.8: 13/8 and R₀ = 73 are available from the same hypothesis.) |
+| **D6** κ₋ = 1.48088 (closed form), κ₊ = 1.53095; 1.515 was a fit | **UPHELD** | κ_∞ = log(√(π/2)e^{−1/4}/Z) re-derived and recomputed; the band contains every exact κ(λ) I computed on λ ∈ [25, 10⁵]; \|κ± − 1.515\| ≤ 0.035 ≤ 0.1, so stop condition (a) does not fire and λ₀ = 25 stands. |
+| **D7** ℓ_R = log(4 + t + R) | **UPHELD** | The shell centers are t ± (k + ½), so the class's log is log(3.5 + t + k); the contract's log(3 + t + R) is not what the decomposition produces. Costs under 3 % in clause 6's chain, as the note says. |
+| **D8** clause 6's chain carries (1 − e^{−L}); the last condition is automatic | **UPHELD** | 2δ²c²e^{−L} is not absorbable into 2e^{−L}, so the contract's literal form is not proved; the final bound is unchanged. δL/2 ≥ 4log(1/δ) ≥ 2log(1/δ) verified. §12.9 (wording). |
+| **D9** the reflected on-line double contributes a nonnegative real-point term | **UPHELD in substance; the value corrected** | h_f(t) = 0 kills the +t double; the −t double contributes m\|h_f(−t)\|² = **8t²B̂(2tL)²**, not the note's 16t²B̂(2tL)². Nonnegative and absorbed either way. §12.3. |
+
+### §13.3 The items the brief asked this check to settle
+
+* **The exponent bookkeeping.** The contract's B *is* θ^{1/4}; the note's claim is right and is the reason the pricing's c_B = 0.20 is unavailable. The chain B_raw = g(4v+2)g(2−4v) → 4^k → Leibniz with C(k,i)i^i(k−i)^{k−i} ≤ k^k → (k+1)A₁^kk^{2k} → the optimized k = ⌊√(η/A₁)/e⌋ → c_B = 2/√(72e), C_B = e²/Z is correct at every step (§4).
+* **Clause 5's hypothesis is exactly what its proof uses** (§7.4), and 𝒞(C₁) is what ζ satisfies with C₁ ≤ 1.4·10⁹ (§12.5) and what DH's strip-restricted configuration satisfies, with the DH density claim correctly flagged as recalled and not load-bearing (§7.5, §12.4).
+* **The four-point accounting and the W_Z convention** check out against `Zeta23/Defs.lean` 164–170, against the γ-coordinate dictionary, and against a two-point instance of my own (§2, §3).
+* **`#print axioms`** re-run by me on my own scratch file outside the tree: all nine clean (§1.2).
+* **The DH negative control** ran zero-side, fired at the theorem's bandwidth (ratio 6.24) and below it, and the positive control stayed silent; neither caveat undermines it (§11.1).
+* **Standing order 7**: Hua–Yang §9 is Lemma G's mechanism and clause 5's shell summation in print, with unspecified constants, at a height-proportional radius, for family-averaged second-order trace data; the single-defect separation statement, the explicit constants, the bandwidth-proportional window, the derivative test with h_f(t) = 0, and the two-sided edge law are not (§11.2).
+* **Lint and English**: clean (§11.3). One "cannot" sentence needs a hypothesis or a label (§12.11).
+
+### §13.4 The six points Job 1 asked this check to look at (its SHARED block, 18:26 IST)
+
+* **(a) Lemma G1's step (iii) and the choice k = ⌊√(η/A₁)/e⌋.** Both correct. C(k,i)i^i(k−i)^{k−i} ≤ k^k is one term of the nonnegative binomial expansion of k^k = (i + (k−i))^k, and the second factor i^i(k−i)^{k−i} ≤ k^ik^{k−i} = k^k is immediate; each of the k+1 terms is then ≤ k^{2k}. Verified exhaustively for 1 ≤ k ≤ 39 and every i. The choice of k makes log A₁ + 2log κ − log|η| equal to exactly −2, which is why the bound is (e²/Z)(1+κ)e^{−2κ}; the κ < 1 branch is covered by |B̂| ≤ ∫B = 1 against 1/Z = 4.50 > 1. (§4.2, §4.3.)
+* **(b) Clause 2's lower bound — Lemma K's K₃ bound and D(λ) ≥ 0.** Both correct. cosh 3θ = 1 + 18y² + 48y⁴ + 32y⁶ in the variable y = sinh(θ/2), and dropping (1+y²)^{−1/2} ≤ 1 gives the four-term envelope; the Gaussian moments are right. Every constant in the D(λ) chain re-checked at λ ≥ 25 (0.373134, 0.29, 0.234141, 0.647094, 0.52); the only loose step is the parenthetical justification of λE₁ ≤ 0.0045, which a one-line derivative argument fixes and which changes nothing (§12.10). (§5.4.)
+* **(c) Clause 5's F̃ and "decreasing from L = 6.1".** Correct, with one wording fix: P is a Laurent polynomial with nonnegative coefficients and top degree 5, for which P′/P ≤ 5/L still holds, so F̃′ < 0 for L > 5/(2c_B√R₀ − 7/4) = 6.073 (§12.7). My own implementation reproduces F̃(50) = −0.133397 and the whole table. (§7.2, §7.3.)
+* **(d) (R) → (R′) → t ≥ 21L.** Correct at every step, and 21 is the least integer multiplier (the margin at t = 20L, L = 50 is −1.371). The condition is intrinsic to the route at this c_B (t ≳ 1/(8c_B²)·L) and is not needed for the truth of the clause. (§8.2, §8.3.)
+* **(e) The DH control's configuration choice and its two caveats.** The choice — explicit finite Z, Z′, Z″ — is the right one, and neither caveat undermines the control; §11.1 gives the reason in each case, including the observation that an unlocated further off-line orbit inside the window would push the datum further negative, i.e. the control is conservative in the direction that matters.
+* **(f) "Is Hua–Yang Lemma 9.1 the same mechanism? I say yes."** **Confirmed at the page.** Lemma 9.1's proof is m integrations by parts against the whole complex exponential, ‖ψ^{(m)}‖₁ ≤ C₀R₀^m(m!)^s, m! ≤ m^m, m = ⌊c₀(L|r − τ|)^{1/s}⌋, the strip weight e^{L|δ|/2} per factor, and "the trivial estimate covers the bounded range omitted by the integer choice of m" — Lemma G's proof, step for step, at s = 2. Their constants are never evaluated, their radius is height-proportional, and their target is a trace norm of second-order family-averaged data. The reading is correct, and so is the note's reduction of its own novelty claim. (§11.2.)
+
+### §13.5 Recommendation
+
+**CLOSES.** The two blind referees (Jobs 3 and 4) may be launched. I recommend the orchestrator append §12 to the note as a dated corrections section **before** they run, because §12.1 and §12.3 are statements a referee will independently find, and §12.2 is a statement a careful referee will call a gap in the theorem's constant list. None of the three is a mathematical defect: the theorem, its eight clauses, and every constant in its chain survive this check intact.
+
+---
+
+## §14 This check's own artifacts and hashes
+
+The transcripts quoted above are complete. All of it is on disk under **`results/c2-m2/verify-O/`**.
+
+| file | what it is |
+|---|---|
+| `opus_independent.py` / `.log` / `_out.json` | my independent recomputation of Z, κ_∞, κ(λ), m(25), c_B, C_B, c_B′, C_B′, A₁, the θ^{1/4} identity, Lemma G1's Leibniz step (exhaustive for k ≤ 39), G1 against \|B̂\|, F̃ and the least R₀ at both exponent budgets, the (R′) margins at the proved and numerical rates, b₁ and η*, ‖B′‖₁, L₁, and the four-point / tight-pair quadratures |
+| `axioms_opus_check.lean.txt` / `axioms_opus_check_run.log` | my `#print axioms` scratch file and its output (the file itself was compiled from the session scratchpad, outside the Lean tree) |
+| `rerun-logs/` | the six `_run.log` files from my isolated re-run of the author's scripts (`results/ccm-dh-test` symlinked so `dh_negative_control.py` resolved); byte-identical to `verify/` after the timing lines are stripped |
+| (scratchpad `hy.txt`) | my own `pdftotext -layout` extraction of the Hua–Yang PDF (2092 lines), read at §2.2, §5, §9, §12, §13; not copied into the repository, since `fetched-r3/` already holds the PDF and `verify/sources-read-excerpts.txt` the passages |
+| `opus_arxiv_queries.log` | my own six arXiv listing queries (terms independent of the author's eight), all 0 entries |
+
+`hashes.txt` of the note's deliverable: **31 of 31 verify** (`shasum -a 256 -c`, 0 failures). Hua–Yang PDF: `465a5c6dc3d6b780f493843b54ca9474b7dedbd83c208f6ad89196a76537a09d`, matching the note.
+
+*End of check. SHA-256 of this file recorded in `results/c2-m2/SHARED.md` and in the final report.*
