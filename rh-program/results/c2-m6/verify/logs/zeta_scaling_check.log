@@ -1,0 +1,14 @@
+   L      P (coeff side)        ARCH_DH               W_rhs = ARCH - P        W_zero (full, +-60)     W_rhs - W_zero    ratio to L=10 value
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/zeta_scaling_check.py:15: RuntimeWarning: divide by zero encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/zeta_scaling_check.py:15: RuntimeWarning: overflow encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-m6/verify/zeta_scaling_check.py:15: RuntimeWarning: invalid value encountered in matmul
+  for i in range(0, len(eta), 2000): out[i:i+2000] = np.cos(np.outer(eta[i:i+2000], v)) @ wB
+    5  -0.144071185532526  +0.347422132946968  +0.491493318479493  +0.491493318523260  -4.377e-11
+    7  -0.025483225157801  +0.126618437891134  +0.152101663048935  +0.152101663048541  +3.935e-13
+   10  +0.039608507012439  +0.043431373522116  +0.003822866509677  +0.003822866509675  +1.701e-15
+   12  +0.015122386893882  +0.025134108729942  +0.010011721836060  +0.010011721836060  +1.908e-17
+   15  +0.006141445497034  +0.012868752444918  +0.006727306947884  +0.006727306947884  -2.689e-17
+   20  +0.004562999824717  +0.005429034056565  +0.000866034231848  +0.000866034231848  +6.917e-17
+ratios diff(L)/diff(10): [(5, -25724.7046), (7, 231.2842), (10, 1.0), (12, 0.0112), (15, -0.0158), (20, 0.0407)]  -- an L^-3 law would give [(5, 8.0), (7, 2.9155), (10, 1.0), (12, 0.5787), (15, 0.2963), (20, 0.125)]
