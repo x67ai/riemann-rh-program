@@ -28,8 +28,11 @@ MAX_WORK = 3.0e8
 def pair_exact(L, u, rel=1e-8):
     """(value, M, dps) of the exact pair contribution 2 Re[(u - i/2)^2 Bhat(Lu - iL/2)^2], or (None, M, dps)."""
     xi = L*u; y = L/2
-    scale = math.exp(cl.log_env(xi) + y/2)                     # estimate of |Bhat(z)| (strip weight e^{y/2} x real envelope)
-    val, M, dps = cl.bhat_mp(mp.mpc(xi, -y), max(scale*rel, 1e-3000), max_work=MAX_WORK)
+    lt = cl.log_env(xi) + y/2 + math.log(rel)                  # log of the target: estimate of |Bhat(z)| (strip weight e^{y/2} x real envelope) x rel
+    if lt < -650:                                              # below the double range: the value is < 1e-280 -- bound / estimate only
+        need = -lt + y/2 + 3; M = int((xi + (need/0.6)**2)/(2*math.pi)); dps = int(need/2.3 + 8)
+        return None, M, dps
+    val, M, dps = cl.bhat_mp(mp.mpc(xi, -y), math.exp(lt), max_work=MAX_WORK)
     if val is None: return None, M, dps
     with mp.workdps(dps):
         w = 2*mp.re((mp.mpc(u, -0.5))**2*val**2)
