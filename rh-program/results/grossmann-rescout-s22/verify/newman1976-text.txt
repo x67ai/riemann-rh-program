@@ -1,0 +1,428 @@
+Fourier Transforms with Only Real Zeros
+Author(s): Charles M. Newman
+Source: Proceedings of the American Mathematical Society, Vol. 61, No. 2 (Dec., 1976), pp.
+245-251
+Published by: American Mathematical Society
+Stable URL: https://www.jstor.org/stable/2041319
+Accessed: 12-02-2019 23:42 UTC
+
+
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+
+
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at
+https://about.jstor.org/terms
+
+
+
+
+                 American Mathematical Society is collaborating with JSTOR to digitize, preserve and extend
+                 access to Proceedings of the American Mathematical Society
+
+
+
+
+                                This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                                                 All use subject to https://about.jstor.org/terms
+PROCEEDINGS OF THE
+AMERICAN MATHEMATICAL SOCIETY
+Volume 61, Number 2, December 1976
+
+
+
+
+              FOURIER TRANSFORMS WITH ONLY REAL ZEROS'
+
+                                     CHARLES M. NEWMAN2
+
+
+            ABSTRACT. The class of even, nonnegative, finite measures p on the real line
+            such that for any b > 0 the Fourier transform of exp(- bt2) dp(t) has only
+            real zeros is completely determined. This result is then applied to the
+            Riemann hypothesis.
+
+
+
+    1. Main results. The problem of determining whether a Fourier transform
+has only real zeros arises in two rather disparate areas of mathematics:
+number theory and mathematical physics. In number theory, the problem is
+intimately associated with the Riemann hypothesis [T, Chapter 10], while in
+mathematical physics it is closely connected with the Lee-Yang theorem of
+statistical mechanics and quantum field theory [SGj, [NI], [N3]; see Kac's
+remarks in [P, pp. 424-426] for a discussion of the historical connection
+between these two topics. The results of this paper developed out of the study
+of certain quantum field theoretic problems, but for pedagogical reasons, we
+present them in the context of the Riemann hypothesis.
+   Following standard practice, we define the Riemann xi function as
+
+(1.1) _(z) = s(s - 1)7T`s/2r(S/2) (s)./2; s = iz + 2
+where t (s) is the Riemann zeta function. _ is the Fourier transform of the
+strictly positive, even function,
+                                      00
+
+
+                                (1.2
+                                              n=                                                        I
+
+which satisfies
+
+(1.3) F(t) = O(exp(91t1/2 - e2l)) as ltl- oo,
+and the Riemann hypothesis is identical to the conjecture that the zeros of _
+are all real. For a discussion of these and other facts related to the Riemann
+hypothesis, see [T, Chapters 1, 2, 10].
+   We generalize the xi function by defining for arbitrary real b,
+
+
+(1.4) -b(Z) =f exp(izt - bt2)F(t) dt,
+                                        -00
+
+
+
+
+  Received by the editors January 5, 1976 and, in revised form, May 3, 1976.
+  AMS (MOS) subject classifications (1970). Primary 30A08, 10H05.
+   'Research partially supported by National Science Foundation Grant MPS -74-04870 AOl.
+  2NATO postdoctoral fellow on leave from Department of Mathematics, Indiana University,
+RIoomington Indiana.
+                                                                 O American Mathematical Society 1977
+
+
+
+
+                                                245
+
+
+
+
+           This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                            All use subject to https://about.jstor.org/terms
+ 246        C.      M.       NEWMAN
+
+
+
+  so         that                 Z       and               Z0           are            identic
+Bruijn [B, Theorem 13] and is an extension of various results of P6lya,
+indicates that definition (1.4) is a natural one in that whenever the zeros of
+ bl are all real, then so are the zeros of -b for b < b'. This theorem of de
+Bruijn, when combined with the fact that all the zeros of _0 lie in the critical
+strip TIm z I <2 also implies that (at least) for b < -81 the zeros of -b are
+all real. The main number theoretic conclusion of this paper (Theorem 3
+below) is the complementary fact that for some b,, the zeros of 'b are not all
+real for b > b1.
+
+   THEOREM 1. Suppose f is a real, even, integrable function on R with If(t)l =
+O(exp(-ItI')) as ItI- +Xo for some y > 2, such that all the zeros of the
+Fourier transform off lie in the strip TIm z < A; then for 8 > 0, all the zeros of
+the Fourier transform of exp(8t2)f(t) lie in the strip
+
+                               jlm zj I [max(A2 - 26, O)]1/2.
+   Motivated by Theorem 1 and the discussion preceding it, we define VP to
+be the class of even, nonnegative, finite measures p on the real line such that
+for any b > 0, the Fourier transform of exp(- bt2) dp(t) has only real zeros.
+One group of measures belonging to VP, which was discovered by Polya (see
+[B, p. 197]), consists of absolutely continuous ones with density
+
+(1.5) dp/dt = Kt2mexp(- at4-/t2)f(l + t2/a2)
+
+whereK > 0,m = 0, 1, 2, . . . ,aj > O, 2(l/aaj) < x,(a > Oand,83isreal(or
+else a = 0 and /3 > 0); here and elsewhere in this paper, t2m with m = 0
+means the function identically equal to 1. While working on the Riemann
+hypothesis, de Bruijn discovered [B, Theorem 28] that the product of two
+densities of measures in VP is again the density of a measure in VP but could
+not find any measures in VP essentially different from those of (1.5). The class
+VP is also a natural one in quantum field theory where one is particularly
+interested in- functions V(t) such that exp( - XV(t)) dt E 3 for all A > 0, and
+the example V(t) = at4 + 83t2 of (1.5) was in fact rediscovered by statistical
+mechanical methods in [SG]; Theorem 2 below shows that no other V(t) is
+possible, thus disproving a conjecture of [N3] that V(t) = cosh t is allowed.
+   The next theorem gives a complete classification of VP and shows that (1.5)
+yields essentially the whole class; we change from Fourier to Laplace trans-
+forms in the statement of the theorem for purposes of the proof, which is
+presented in ?2 of the paper.
+
+   THEOREM 2. Suppose p is an even, nonnegative, finite measure on the real line
+and Zb is defined (for b > 0) as
+
+ (1.6) Zb(z) exp(zt - bt2) dp(t);
+                    t00
+then Zb has 'only pure imaginary zeros for every b > O if and only if either
+
+
+
+
+         This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                          All use subject to https://about.jstor.org/terms
+                       FOURIER TRANSFORMS WITH ONLY REAL ZEROS 247
+
+
+
+ (1.7) p(t) = K(8(t - to) + 8(t + to))
+ for some K > 0 and to > 0 (where 8 (t - to) denotes the poin
+ mass concentrated at the point to), or else p is absolutely cont
+
+
+
+  (1.8) dp = Kt2mexp(_- t4-ft2) 1 t-2 )ex
+ where K > 0, m = 0, 1, 2, . . ., aj > 0, X(I/afa) < oo, a >
+ else a = 0 and /3 + 2(ll/a1)2 > 0). The product in (1.8) i
+which may be empty, finite, or infinite and the condition ,B + X(I/a1)2 > 0 is
+considered to be satisfied if X(1 /aj)2 = + xc.
+      REMARK 1. If we weaken the assumptions on p to allow noneven real-val-
+ued measures, the theorem remains true provided we also allow dp(t) in the
+conclusion to be ? tndpo(t) (with n = 0 or 1) with po as given by (1.7) or (1.8)
+or else proportional to a Gaussian measure of mean to and variance a 2 with to
+real and a2 > 0. We do not include this result in Theorem 2 simply because
+the extra complications needed for the proof do not seem justified by the
+extra generality obtained.
+
+      THEOREM 3. There exists a real number bo with - < bo < O such that
+-b(z) has only real zeros when b < bo but has nonreal zeros when b > bo.
+      PROOF. This result follows immediately from Theorems I and 2 (see the
+discussion preceding Theorem 1) once we show that F(t), as given by (1.2), is
+not of the form of (1.8). To see this, we note that one consequence of (1.8) is
+that
+
+
+(1.9) dp/dt a Kt2m exp(-[a + 2 (1/ (2a4)) ] t4-/3t2)
+while F satisfies (1.3); (1.9) follows from (1.8) after application of the
+inequality
+
+ (1.10) ( + x2)exp(-x2) > exp(-x4/2); x E R,
+which itself may be obtained by exponentiating the elementary inequality,
+ln(I + y) y -y2/2 fory > 0.
+      REMARK 2. The Riemann hypothesis is the statement that bo > 0; w
+the complementary conjecture that bo < 0. This new conjecture is a qu
+tive version of the dictum that the Riemann hypothesis, if true, is only barely
+so.
+
+
+      2. Proof of Theorem 2.
+      PROOF OF SUFFICIENCY. The measure of (1.7) clearly belongs to VP while the
+measures of (1.8) can be seen to belong to P since they are limits of P6lya's
+measures of (1.5) (via truncation of the product in (1.8)). For the sake of
+completeness; we note that the measures of (1.5) can themselves be obtained
+as limits of measures with density dp/dt = Q(t)exp(- ct2), where Q is an
+
+
+
+
+           This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                            All use subject to https://about.jstor.org/terms
+ 248       C.      M.      NEWMAN
+
+
+even polynomial with only pure imaginary zeros and c > 0, since
+                                   .n
+               (1 + (2a /n)/2t2) exp(-(2an) /2t2) -* exp(- at4);
+and that measures with such densities belong to P since their Laplace
+transforms may be expressed as a limit of polynomials of the form
+Q(d/dz)P(z) (where P is an even polynomial with only pure imaginary
+zeros) which have only pure imaginary zeros by standard results for poly-
+nomials (e.g. [M, pp. 62-63]).
+  PROOF OF NECESSITY. We now assume that Zb has only pure imaginary
+zeros; it is also even, strictly positive for real z, and O(exp(jzj2/4b)) for
+complex z so that it is entire of at most order two and finite type. It follows
+by standard entire function techniques (see [N2, Proposition 2] for a more
+complete discussion) that
+
+
+(2.1) Zb(z) = Kb exp(dbz2)ll(I + Z21aj(b) )
+with Kb > O, db real, ai(b) > 0, and X:(l/ad(b)2) oo; here +i?-(b) are the
+zeros of Zb.
+  The key idea of the proof is to express p as the weak limit of measures Pb as
+b -*oo (i.e. ff (t) dpb(t) -Jf (t) dp(t) for all bounded continuous f) where Pb
+is the convolution of p with the Gaussian probability measure of mean zero
+and variance I/b:
+
+
+                dpb/dt = f_ (b/2)'1/2exp(-b(t - s)2/2) dp(s)
+
+(2.2) = (b/2v) 1/2exp( - bt2/2)Zb/2 (bt)
+                         = Kbexp(-dbt2)ll(I + t2/aj(b)2)
+
+with Kb > 0, db > 0 (since Pb is finite), aj(b) > 0, and J(l/aj(b))2 < 00. It
+only remains to show that any finite measure p, which is the weak limit of
+measures such as those given by (2.2), must be either as in (1.7) or as in (1.8).
+  We first make several definitions and then complete the proof after a series
+of lemmas. We define
+
+(2.3) Ab = El + X-2(1/aj(b))4; Bb = db -22(la(b
+where 21 (resp. 22) denotes the sum over all j such that aj(b) < 1 (resp.
+a>(b) > 1); we further define fb(t) = dpb/dt and Vb =-ln(fb) so that
+
+
+(2.4) Vb(t) = 2t[db - I {/ (t2 + aj(b)2))1,
+
+(2.5) (Vb'/2t)' = 2tE {(/ (t2 + aj(b)2)}.
+  LEMMA 1. If Ab and IBbI are uniformly bounded as b oo, then p(t) is
+absolutely continuous with density as in (1.8).
+
+
+
+
+        This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                         All use subject to https://about.jstor.org/terms
+                   FOURIER TRANSFORMS WITH ONLY REAL ZEROS 249
+
+
+
+  PROOF. We define Pb(t) = 111@(a(b)2 + t2) and
+
+ (2.6) Qb(t) = 112(1 + t2laj(b)2)exp(-t2/aj
+where HII and H2 are defined analogously to X and 22 so that fb(t) =
+Kb exp(- Bbt2)Pb(t)Qb(t). In order to bound fb(t) below for real t and above
+for complex t, we use the following inequalities:
+
+(2.7) Pb (t) > l2>t2Ab, t GE[-, ]
+
+(2.8) IPb(Z)I S 1(1 +jzj2) S (1 +IzI2) exp(AbIzI2), z E C;
+
+(2.9) Qb (t) > exp(- 22t4/2a (b)4) ? exp(-Abt/2), t E R;
+
+(2.10) IQb (z)I < exp(X21Z 4/2aj(b)4) < exp(Ab|Z 14/2), z E C.
+(2.7) and (2.8) are elementary; (2.9) follows by applying (1.10) to (2.6); and
+(2.10) may be obtained by applying the inequality
+
+(2.11) 1(1 + Z2)exp(-Z2)/ < exp(IzI4/2), z E C,
+to (2.6). To derive (2.11), we set u = Iz14 and v = Re(z2) so that (2.11) is
+equivalent to (1 + u + 2v)I/2exp( - v) < exp(u/2), which is itself equivalent
+to the elementary inequality (1 + w) S exp(w) with w = u + wv. Combining
+(2.7) through (2.10), we have
+
+(2.12) fb (t) > Kbt 2bexp(- Bbt2 - Abt4/2), t E[-1, 1],
+
+(2.13) Ifb(z)I < kbexp([IBbI+AbIzI2 + AbIzI /2), z E C.
+  Now, since fb(t) dt -* dp, a finite measure, it follows from (2.12) that Kb
+must be bounded above uniformly in b; consequently we have from (2.13)
+that fb(z) is uniformly bounded on compact subsets of C and thus, by
+standard analytic function theory, some subsequence of the fb's converges
+uniformly on compacts to an entire function f(z) and clearly dp(t) = f(t) dt.
+Now by (2.13), f is entire of (at most) exponential order four and finite type,
+and since each fb has only pure imaginary zeros, so does f by Hurwitz'
+Theorem; moreover f is even and nonnegative on the real axis (since p > 0)
+so we may conclude by standard entire function theory (analogously to the
+derivation of (2.1)) that f has the form given in (1.8). The conditions on a and
+,f are required simply because p is a finite measure.
+
+  LEMMA 2. For each b > 0, there is a Tb > 0 with lim sup Tb < xc such that
+Vb' < 0 on [0, Tb] and Vb' > 0 on (Tb, oo). If for some subsequence bj and some
+0 < tl < t2 < , VZb'j + cc (resp. -xc) uniformly on [t1, t21, then
+p((t1, x))= 0 (resp. p((-t2, t2)) = 0)-
+
+  PROOF. The existence of Tb follows from the fact that Vb'(0) = 0 while
+Vb,(t)/t is increasing on (0, cc) to 2db > 0 as t x-* c. To see that
+                                   lim sup Tb < cc,
+
+
+
+
+       This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                        All use subject to https://about.jstor.org/terms
+ 250           C.      M.      NEWMAN
+
+
+  we            note              that            fb(t)             is      nondecreasi
+follow that for any s1, 52 > 0,
+
+              P(l Si, S+ 52]) >lim sup Pbk([sI,sI + 52])
+                                      k--+oo ([ISI+2
+
+(2.14) > lim inf Pbk(( 52 52))/2 > P(( S2 S2))/2
+
+which is impossible for a finite measure p.
+
+ We now consider the case when V,, - + xc on [tl, t2] and define Dj as the
+minimum of Vbj on [t1, t2] which by assumption tends to + xc as j x-* c. By
+elementary calculus, we have for t, t + 8 E [tl, t2] and 3 > 0, that Vbj(t + 8)
+> Vb (t) + Dj3 so that fbj(t + 8) < exp(-Dj8)fb (t); after integrating this
+last inequality, we have that for 0 < 8 < (t2 -tl
+
+(2.15) Pbj([tl + 3, t2]) < exp(-D13)pbj([tl, t2 - D])'
+Now clearly Tbj < t, for sufficiently largej so that eventuallyfbj is nonincreas-
+ing on [tl, cc) and thus eventually Pbj([tl + 8 + T, t2 + T]) < Pbj([tl + 3, t2])
+for any T > 0; combining this inequality with (2.15) and taking the limit gives
+p((t + 8 + , t2 + T)) = 0 for any T > 0 so that letting 8-*0, we have
+p((t1 + T, t2 + T)) = 0 for any T > 0 which clearly implies that p((tl, cc)) =
+0. The case of Vbj -X is handled essentially identically with the assistance
+of (2.14) for s + S2 < t2
+
+   LEMMA 3. If lim sup AI = + cc, then there is a to > 0 and a subsequence bj
+such that VbI -* + cc (resp. -oo) uniformly on compact subsets of (to, cc) (resp.
+(0, to)).
+
+  PROOF. We choose the subsequence bj so that Ab - + oo while Tb has a
+limit to > 0; this can be done since lim sup Tb < oo by Lemma 2. The
+conclusions then follow by elementary arguments from the inequality (easily
+derivable from (2.5)) (Vbg/2t)' > 2Abt/(l + t2)2, and the elementary calculus
+fact that
+
+
+(2.16) Vb(t2) = (t2/t1)Vb(t1) + t2 (b/5) ds.
+
+   LEMMA 4. If Ab is uniformly bounded as b oc, but lim sup Bb= + X (resp.
+lim inf Bb =-c), then there is a subsequence bj such that Vb, + x (resp
+- cc) uniformly on compact subsets of (0, cc).
+
+   PROOF. We choose bj so that Bb -j + X (resp. - c) and then use the
+estimate,
+
+                     - A/t2 < - (/(t2 + ab ))
+
+ (2.17) S 2(l/aj(b)2)- , (1/ (t2 +
+
+                                 S X2{( t2/ (a1(b)2(t2 + a (b)2))} S AIt2
+
+
+
+
+            This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                             All use subject to https://about.jstor.org/terms
+                       FOURIER TRANSFORMS WITH ONLY REAL ZEROS 251
+
+
+together with (2.4) to obtain
+
+(2.18) - Ab/t2 S Vb(t)/2t - Bb S Abt2,
+
+which clearly implies the desired result.
+   COMPLETION OF PROOF OF THEOREM 2. The theorem is a straightforward
+consequence of the above four lemmas. We only point out that by combining
+Lemmas 4 and 2, it follows that we cannot have Ab uniformly bounded while
+lim inf Bb = - oX (or else p would be identically zero); on the other hand,
+when Ab is bounded and lim sup Bb = + oo, then p(t) = KS (t).
+   ACKNOWLEDGEMENT. The author has benefited from discussions with many
+people during the course of this research including, in particular, J. Klauder,
+J. Lebowitz and D. Ruelle.
+
+                                          REFERENCES
+
+  [B] N. G. de Bruijn, The roots of trigonometric integrals, Duke Math. J. 17 (1950), 197-22
+12, 250.
+  [M] M. Marden, The geometry of the zeros of a polynomial in a complex variable, Math.
+Surveys, no. 3, Amer. Math. Soc., Providence, R. I., 1949. MR 11, 101.
+  [Ni] C. M. Newman, Zeros of the partition function for generalized Ising systems, Comm. Pure
+Appl. Math. 27 (1974), 143-159.
+  [N2] , Inequalities for Ising models and field theories which obey the Lee- Yang theorem,
+Comm. Math. Phys. 41 (1975), 1-9.
+   [N3] , Classifying general Ising models, Les Methodes Mathematiques de la Theorie
+Quantique des Champs, C.N.R.S., Paris, 1976, pp. 273-288.
+  [PI G. P6lya, Collected papers, Vol, II (R. P. Boas, editor), M.I.T. Press, Cambridge, 1974.
+  [SG] B. Simon and R. B. Griffiths, The (04)2 field theory as a classical Ising model, Comm.
+Math. Phys. 33 (1973), 145-164.
+   [T] E. C. Titchmarsh, The theory of the Riemann Zeta-function, Oxford Univ. Press, Oxford
+1951. MR 13, 741.
+
+  DEPARTMENTS OF MATHEMATICS AND PHYSICS, TECHNION-ISRAEL INSTITUTE OF TECHNOLOGY,
+HAIFA, ISRAEL
+
+
+   Current address: Department of Mathematics, Indiana University, Bloomington, Indian
+
+
+
+
+           This content downloaded from 165.124.165.50 on Tue, 12 Feb 2019 23:42:31 UTC
+                            All use subject to https://about.jstor.org/terms
+

@@ -1,0 +1,1873 @@
+                                            A PROOF OF NEWMAN’S CONJECTURE FOR THE EXTENDED
+                                                             SELBERG CLASS
+
+                                                                                 ALEXANDER DOBNER
+
+                                                   Abstract. Newman’s conjecture (proved by Rodgers and Tao in 2018) concerns
+                                                   a certain family of deformations {ξt (s)}t∈R of the Riemann xi function for which
+
+
+
+
+arXiv:2005.05142v2 [math.NT] 10 Jan 2026
+                                                   there exists an associated constant Λ ∈ R (called the de Bruijn-Newman constant)
+                                                   such that all the zeros of ξt lie on the critical line if and only if t ≥ Λ. The Riemann
+                                                   hypothesis is equivalent to the statement that Λ ≤ 0, and Newman’s conjecture states
+                                                   that Λ ≥ 0.
+                                                       In this paper we give a new proof of Newman’s conjecture which avoids many of the
+                                                   complications in the proof of Rodgers and Tao. Unlike the previous best methods for
+                                                   bounding Λ, our approach does not require any information about the zeros of the zeta
+                                                   function, and it can be readily applied to a wide variety of L-functions. In particular,
+                                                   we establish that any L-function in the extended Selberg class has an associated de
+                                                   Bruijn-Newman constant and that all of these constants are nonnegative.
+                                                       Stated in the Riemann xi function case, our argument proceeds by showing that
+                                                   for everyPt < 0 the function ξt can be approximated in terms of a Dirichlet series
+                                                                ∞
+                                                   ζt (s) = n=1 exp( 4t log2 n)n−s whose zeros then provide infinitely many zeros of ξt
+                                                   off the critical line.
+
+
+
+
+                                                                                   1. Introduction
+                                             Let
+                                                                                  1              s
+                                                                        ξ(s) := s(s − 1)π −s/2 Γ      ζ(s)
+                                                                                  2                2
+                                           be the Riemann xi function where ζ denotes the Riemann zeta function. The xi function
+                                           is entire and satisfies the functional equation ξ(1 − s) = ξ(s), from which one may
+                                           deduce that the zeros of ξ(s) are symmetric about the line Re s = 12 , also known as the
+                                           critical line. The Riemann hypothesis is equivalent to the statement that all the zeros
+                                           of the xi function lie on this line.
+                                              In order to study the behavior of ξ on the critical line, one may consider the function
+                                           z 7→ ξ 1+iz
+                                                        
+                                                     2
+                                                          which has a Fourier representation (see [23, p. 255]),
+                                                                                    Z ∞
+                                                                             1 + iz
+                                           (1)                           ξ           =      Φ(u)eizu du,
+                                                                                2       −∞
+
+
+                                             2020 Mathematics Subject Classification. 11M06, 11M41.
+                                             Key words and phrases. generalized Newman’s conjecture, extended Selberg class, de Bruijn-
+                                           Newman constant.
+                                                                                              1
+2                                   ALEXANDER DOBNER
+
+where
+                                   ∞
+                                                                    2 4u
+                                   X
+                                         2π 2 n4 e9u − 3πn2 e5u e−πn e
+                                                               
+(2)                    Φ(u) := 4
+                                   n=1
+
+is a super-exponentially decaying even function. (The evenness of Φ follows from the
+fact that it is the Fourier transform of an even, real-valued function.)
+    In the course of his investigations on the Riemann hypothesis, Pólya [15] proved the
+rather remarkable result that if one replaces Φ in (1) with a certain approximation
+coming from the first term of (2), then the resulting “deformed” xi function has all
+of its zeros on the critical line. Moreover, he showed that the average spacing of these
+zeros is the same as the average spacing of the zeros of the true xi function. This work
+initiated the study of various other deformations of ξ which come about by modifying
+Φ in some way.
+    The deformations of interest to us in this paper come from the work of de Bruijn [9]
+and later Newman [12], who considered the family {ξt }t∈R of entire functions defined
+such that                                     Z ∞
+                                    1 + iz             2
+                               ξt            :=     etu Φ(u)eizu du.
+                                      2          −∞
+One may verify that each of these functions satisfies the functional equation ξt (1 − s) =
+ξt (s) as a consequence of the fact that Φ is even. Furthermore, a result of Pólya [16]
+implies that if ξt0 has all of its zeros on the critical line for some t0 ∈ R, then the same
+is true of ξt for all t > t0 . De Bruijn proved that for all t ≥ 1/2 the zeros of ξt all lie
+on the critical line, and Newman subsequently proved that there is some t < 1/2 for
+which this is not the case. Newman concluded that there exists a real number Λ ≤ 1/2
+(now called the de Bruijn-Newman constant) with the defining property that ξt has all
+of its zeros on the critical line if and only if t ≥ Λ.
+    Because ξ = ξ0 , it is clear that the Riemann hypothesis is equivalent to the statement
+that Λ ≤ 0. Newman made the complementary conjecture that Λ ≥ 0, and in doing
+so he pointed out that this is a quantitative form of the assertion that “the Riemann
+hypothesis, if true, is only barely so.” A progression of lower bounds on Λ (see [5], [22],
+[7], [13], [6], [8], [14], [19]) culminated in a proof of Newman’s conjecture by Rodgers
+and Tao [18] in 2018. Their proof is inspired by previous work of Csordas, Smith, and
+Varga [8] who noted that zeros of ξt exhibit a repulsion effect as t varies. Rodgers and
+Tao were able to use this repulsion to show via a rather involved argument that if
+Λ < 0, then as t → 0− the zeros of ξt spread out in such a way as to contradict known
+results about the gaps between zeta zeros.
+    In this paper we will give a simpler proof of Newman’s conjecture which does not
+rely on any information about the zeros of the zeta function. In fact, because we use
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                             3
+
+such limited information about ζ, we can state and prove our results in a generalized L-
+function setting. We will set up our generalization in Section 2 by giving the definition of
+a large class of Dirichlet series S ♯ (known as the extended Selberg class in the literature)
+for which it is reasonable to define a de Bruijn-Newman constant. This class contains
+the Riemann zeta function as well as all Dirichlet L-functions associated to primitive
+characters. The main restriction on membership in S ♯ is that every Dirichlet series F ∈
+S ♯ must have a corresponding “completed” version ξ F satisfying a certain functional
+equation. Given such an F , we will show that one can always define a set of deformations
+{ξtF }t∈R analogous to the ξt functions we defined above, and we prove the following
+theorem:
+
+Theorem 1. For every F ∈ S ♯ , there is a real number ΛF such that all the zeros of
+ξtF lie on the critical line if and only if t ≥ ΛF .
+
+  Previous authors have defined generalized de Bruijn-Newman constants but only for
+certain restricted classes of L-functions (see [21] for the case of quadratic Dirichlet
+L-functions and [2, Section 2.4] for the case of certain automorphic L-functions). Our
+definition of ΛF for F ∈ S ♯ subsumes these definitions, and we are also able to prove
+the analogue of Newman’s conjecture in this general case,
+
+Theorem 2. ΛF ≥ 0 for every F ∈ S ♯ .
+
+  We now give the idea behind our proof of Theorem 2 (restricting to the zeta function
+case for ease of exposition). The main tool will be an approximation for ξt that we
+establish for every t < 0 and which we use to locate zeros of ξt off the critical line. This
+approximation is of the form
+(3)                       ξt (Jt (s)) ≈ [gamma-like factor] · ζt (s)
+where                                  ∞               
+                                       X         t
+                              ζt (s) :=     exp    log n n−s
+                                                      2
+
+                                        n=1
+                                                 4
+is an everywhere absolutely convergent Dirichlet series, and
+                                              |t|     s 
+                                Jt (s) := s + Log
+                                               4       2π
+is a nonlinear change of coordinates. If s is restricted to lie in a vertical strip, a crucial
+feature of our approximation is that it becomes increasingly accurate as the imaginary
+part of s increases.
+   Such an approximation hints that for any t < 0 and any vertical strip V , there should
+be a close correspondence between the zeros of ζt in V and the zeros of ξt in the curved
+region Jt (V ). We will prove that this is the case and also that there is some vertical
+4                                  ALEXANDER DOBNER
+
+strip where ζt has zeros at arbitrarily high heights. Since the region Jt (V ) eventually
+lies to the right of the the critical line at high enough heights, this argument produces
+zeros of ξt which are off the critical line, thus implying Newman’s conjecture.
+   An example of the correspondence between the zeros of ζt and ξt in the case t = −1
+and V = {−.3 ≤ Re s ≤ −.2} is depicted in Figure 1. The figure also indicates that this
+correspondence seems to extend quite a bit beyond the range we have just described.
+Indeed, one can clearly see that the zeros of ξt on the critical line show up as zeros
+of ζt near the inverse image of the critical line under the Jt map. We note that our
+results in this paper are insufficient to explain this broader correspondence because the
+rigorous form of (3) that we prove does not remain accurate if one chooses Jt (s) to lie
+in a vertical strip rather than s.
+   For large negative t values, a different phenomenon occurs that is readily apparent
+in Figure 2 (which depicts zeros for t = −30). In this case one sees that the zeros
+of ξt begin to congregate near deterministic curves, and as t becomes increasingly
+negative more of these curves appear. This phenomenon was originally discovered by
+Rudolph Dwars (see the comments at terrytao.wordpress.com/2018/12/28) while
+doing extensive numerical work on the zeros of ξt . Our results can be used to give a
+rigorous explanation for these curves, but since the case of large negative t values is
+not relevant to Newman’s conjecture we do not pursue this direction here.
+   To prove the approximation (3) the starting point will be to rewrite ξt , for t < 0, as
+a certain contour integral of the xi function times a complex Gaussian. This integral
+is taken over a vertical line in the complex plane, and we are able to estimate it by
+shifting the contour to the right so that ζ(s) can be written in terms of its absolutely
+convergent Dirichlet series. Interestingly, in the t > 0 case there is an analogous contour
+integral representation of ξt , but the integral is taken over a horizontal line instead, so
+it is not possible to proceed in the same manner. It turns out that is possible to derive
+an estimate for ξt in terms of partial sums of ζt in this case. This is done in [17, Thm.
+1.3], where the estimate is is used to prove an upper bound on the de Bruijn-Newman
+constant.
+   One final note we make about our proof is that it reveals that Newman’s conjecture
+holds for completely analytic rather than arithmetic reasons. To highlight this, we
+mention that our methods can be used to show that if one selects essentially any
+Dirichlet series F and multiplies F by arbitrary Γ factors to produce a “mock” ξ F
+function, then there are corresponding ξtF functions for all t < 0 and these functions
+always have zeros off the critical line (though in this completely general case there is no
+associated de Bruijn-Newman constant because of the lack of a functional equation).
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                                   5
+
+                                           1000     1000
+
+
+
+
+                                           800      800
+
+
+
+
+                                           600      600
+
+
+
+
+                                           400      400
+
+
+
+
+                                           200      200
+
+
+
+
+                                                      0
+-0.6   -0.5   -0.4   -0.3    -0.2   -0.1      0.0          0.5   0.6    0.7    0.8    0.9   1.0   1.1
+
+
+              (a) Zeros of ζ−1 .                                       (b) Zeros of ξ−1
+
+        Figure 1. The zeros of ζt in any vertical strip are mapped quite precisely
+        under Jt to zeros of ξt in the corresponding curved region. This correspondence
+        provides zeros of ξt off the critical line. For ξt the zeros are symmetric about
+        the critical line, but in (b) we only depict the zeros on and to the right of the
+        line.
+
+
+Thus, our proof of Newman’s conjecture is quite different from the proof of Rodgers
+and Tao which depends fundamentally on knowledge about the gaps between zeta zeros
+and hence on the arithmetic structure of the zeta function.
+
+1.1. Notation. We will use Arg z to denote the argument of a complex number, where
+this value is chosen to lie in the interval (−π, π]. Correspondingly, we use Log z to
+denote the standard branch of the complex logarithm (i.e. Log z = log |z| + i Arg z),
+               √
+and we define z := exp( 12 Log z).
+   We will use the usual asymptotic notation X ≪ Y , Y ≫ X and X = O(Y ) to
+indicate that there exists a positive constant C such that |X| ≤ CY . If the constant C
+depends on other parameters then this will be indicated in the text or by a subscript
+in the notation (i.e. if C depends on Z then we write X ≪Z Y or X = OZ (Y )). The
+notation X ≍ Y indicates X ≪ Y ≪ X, and the notation X = oT →∞ (Y ) indicates
+that there exists a bound |X| ≤ c(T )Y where c(T ) → 0 as T → ∞.
+   In Section 2, we will give the definition of a certain family S ♯ of Dirichlet series, and
+we will subsequently choose an arbitrary F ∈ S ♯ which will remain fixed for the rest
+6                                     ALEXANDER DOBNER
+
+
+
+                                           1000      1000
+
+
+
+
+                                           800       800
+
+
+
+
+                                           600       600
+
+
+
+
+                                           400       400
+
+
+
+
+                                           200       200
+
+
+
+
+                                                       0
+-35   -30   -25    -20   -15    -10   -5         0         0   5   10    15   20       25   30   35
+
+
+              (a) Zeros of ζ−30 .                                  (b) Zeros of ξ−30
+
+        Figure 2. For large negative t values, the zeros of ξt congregate near curves
+        which are the images of certain vertical lines under the Jt map. On these
+        lines the Dirichlet series ζt is dominated by two consecutive terms of equal
+        magnitude, which leads to the regular pattern of zeros.
+
+of the paper. We will also choose a certain meromorphic function γ (depending on F )
+which will be fixed for the rest of the paper. All implicit constants in the estimates
+that we prove will then be allowed to depend on F and γ. Similarly, if a statement is
+said to hold for “sufficiently large y” then the meaning of sufficiently large may depend
+on F and γ. Readers who are primarily interested in the Riemann zeta function case
+of Theorem 2 (i.e. Newman’s conjecture) may want to skim the definition of S ♯ in
+Section 2 in order to understand the notation and then skip to Section 3 and assume
+that F := ζ.
+
+1.2. Acknowledgments. The author thanks Terence Tao for his guidance and for
+many helpful discussions. The author also thanks the anonymous referee for many
+comments and suggestions.
+
+              2. The generalized de Bruijn-Newman Constant ΛF
+  In 1989, Selberg [20] introduced a definition for a class of Dirichlet series S now known
+as the Selberg class. Among other things, Selberg conjectured that all the functions in
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                            7
+
+S satisfy a corresponding Riemann hypothesis, and the conditions he imposed on S
+were chosen with this in mind.
+  For the purposes of defining generalized de Bruijn-Newman constants, one of Sel-
+berg’s conditions (the existence of a functional equation) is completely essential, whereas
+some of the other conditions (e.g. the existence of an Euler product) are not necessary.
+Because of this, the Dirichlet series that we consider will be members of a class known
+as the extended Selberg class S ♯ which was defined by Kaczorowski and Perelli [11].
+This class may be thought of as capturing only the analytic rather than arithmetic
+properties among those given by Selberg.
+  A function F (s) is said to be a member of S ♯ if it is not identically zero and it
+satisfies the following conditions:
+ (i) (Dirichlet series) F has a Dirichlet series representation
+                                              ∞
+                                             X    an
+                                     F (s) =
+                                             n=1
+                                                  ns
+      which converges absolutely for all s with Re s > 1.
+ (ii) (Meromorphic continuation) (s − 1)m F (s) is an entire function of finite order for
+      some nonnegative integer m.
+(iii) (Functional Equation) Let m be the order of the pole of F at s = 1 (or let m = 0
+      in the case where F has no pole). There exists a function γ(s) of the form
+                                                    k
+                                                    Y
+                         γ(s) := αsm (s − 1)m Qs          Γ(ωi s + µi )
+                                                    i=1
+
+      where α ∈ C \ {0}, Q > 0, ωi > 0, and µi ∈ C with Re µi ≥ 0 such that
+                                    ξ F (s) := γ(s)F (s)
+      satisfies
+(4)                                 ξ F (s) = ξ F (1 − s).
+
+
+   Our notation in (iii) differs slightly from the usual notation given in definitions for
+S and S ♯ (e.g. [10, p. 160]) because we include the polynomial factor sm (s − 1)m in the
+functional equation. This notation will be convenient for us because we require that
+the “completed” L-function ξ F be an entire function. In our notation it is clear that
+if F is the Riemann zeta function, then one may choose γ(s) = 12 s(s − 1)π −s/2 Γ 2s to
+                                                                                          
+
+make ξ F the usual Riemann xi function.
+   There are a few straightforward consequences of conditions (i),(ii), and (iii) which
+we will need later on, so we state these now. Firstly, from (i) it is clear that |an | cannot
+8                                  ALEXANDER DOBNER
+
+grow too fast. For instance, note that (i) implies, say, an = O(n2 ). Secondly, since
+the Γ function has no poles in the right half-plane, (ii) and (iii) imply that ξ F is an
+entire function. Thirdly, it must be the case that an is nonzero for more than one n
+(i.e. the Dirichlet series representation of F has more than one term). To see this, note
+that if the Dirichlet series had only a single term then F would have no zeros, but
+F must have many “trivial zeros” coming from the poles of the gamma factors in the
+functional equation. Lastly, for any vertical strip V in the complex plane, if s ∈ V
+                                                                        
+and s is bounded away from 1, then a bound F (s) = O (1 + | Im s|)A holds for some
+A ≥ 0 depending on V . This follows by applying the Phragmén-Lindelöf principle in
+the same way one does to get convexity bounds for ζ(s) in vertical strips.
+   We will now state a lemma about the magnitude of γ(s) in certain regions, which we
+will need later. The proof, which is an application of Stirling’s formula, will be given
+in Section 5.
+
+Lemma 1. Let γ(s) be one of the functions described in condition (iii) of the extended
+Selberg class definition. Let D > 0 and 0 ≤ θ < 1, and let s be a complex number
+which is at least unit distance away from the poles and zeros of γ and which satisfies
+| Re s| ≤ D| Im s|θ . There exist K, K ′ > 0 (depending on γ, D, and θ) such that
+                      exp(−K ′ | Im s|) ≪ |γ(s)| ≪ exp(−K| Im s|),
+where the implicit constants may depend on γ, D, and θ.
+
+   One immediate consequence of this lemma (and the Phragmén-Lindelöf bound on
+F ) is that ξ F (s) decays exponentially as Im(s) → ±∞ in any fixed vertical strip. This
+means that for any F ∈ S ♯ , we can perform the same Fourier analytic setup that we
+did for the Riemann xi function in the introduction. We define
+                                        Z ∞            
+                                      1        F 1 + ix
+(5)                        ΦF (u) :=         ξ           e−ixu dx
+                                     2π −∞         2
+to be the Fourier transform of ξ F on the critical line, and likewise we define the family
+                    
+of entire functions ξtF t∈R so that
+                                       Z ∞
+                          F 1 + iz                2
+(6)                      ξt           :=       etu ΦF (u)eizu du.
+                                2          −∞
+In the proof of Theorem 1, we will show that ΦF has rapid enough decay for this
+definition to make sense for all t ∈ R, and that there exists a real number ΛF for which
+ξtF has all of its zeros on the critical line if and only if t ≥ ΛF .
+   It is important to note that, strictly speaking, for a given Dirichlet series F ∈ S ♯ the
+choice of γ is not unique. For example, α can be scaled by any nonzero real number
+and the functional equation (4) will still hold. However, it turns out that other than
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                             9
+
+the choice of scaling, γ is unique (see [4, Thm. 2.1] which is stated for S but whose
+proof only requires the properties we gave for S ♯ ). Since scaling does not affect the
+locations of the zeros of ξtF , there will be no ambiguity in our definition of ΛF .
+  From now on we shall assume that F has been fixed, and that the parameters α, Q, ωi ,
+and µi have all been chosen as well. All implied constants in error terms will be allowed
+to depend on these parameters.
+  In order to prove Theorem 1, we will rely on the following theorem of de Bruijn
+extending a previous theorem of Pólya:
+
+Theorem 3 (De Bruijn [9, Thm. 13], cf. Pólya [16, Thm.        1]). Let ϕ : R → C be an
+                                                                   b
+integrable function satisfying ϕ(u) = ϕ(−u) and ϕ(u) = O e−|u| for some b > 2, and
+             R∞                                              R∞     2
+let G(z) := −∞ ϕ(u)eizu du. For any t > 0, let Gt (z) := −∞ etu ϕ(u)eizu du. If all the
+roots of G lie in the strip | Im z| ≤ ∆, then all the roots of Gt lie in the strip
+                                                          1
+                               | Im z| ≤ max(∆2 − 2t, 0) 2 .
+
+Proof of Theorem 1. In order to apply Theorem 3, it is convenient to define a rotated
+version of ξ F . Let
+                                                 
+                                         F 1 + iz
+                               H(z) := ξ           ,
+                                             2
+so that values of ξ F on the critical line correspond to values of H on the real line. In this
+rotated frame of reference, we would like to apply Theorem 3 with H corresponding to
+the function G in the statement of the theorem.
+  The functional equation (4) implies that H(x) = H(x) for any real number x, so
+H is real valued as a function on the real line. Also, H(x) decays exponentially as
+x → ±∞ because of the presence of the Γ factors in γ, so H is a Schwartz function
+and its Fourier transform is ΦF by (5). Fourier inversion gives,
+                                           Z ∞
+                                 H(x) =         ΦF (u)eixu du.
+                                           −∞
+
+   Since H(x) is real valued for all x ∈ R, its Fourier transform ΦF has the conjugate
+symmetry property ΦF (u) = ΦF (−u). Hence, in order to apply Theorem 3 with ϕ := ΦF
+it will suffice to verify that ΦF has the necessary decay as u → +∞. The decay as
+u → −∞ then follows immediately by the symmetry of ΦF .
+   To bound ΦF we begin by performing the substitution w := 1+ix  2
+                                                                     to rewrite (5) as a
+complex contour integral,
+                                       Z 1
+                                     eu 2 +∞i F
+                            ΦF (u) =           ξ (w)e−2uw dw.
+                                     πi 12 −∞i
+10                                ALEXANDER DOBNER
+
+  After expanding out the definition of ξ F in the integrand, we wish to interchange
+the infinite sum coming from the Dirichlet series F with the integral. To justify this,
+one can first shift the vertical line contour to the right into the half-plane of absolute
+convergence of F (which can be done because ξ F decays uniformly exponentially in any
+vertical strip), and on this new contour the interchange of sum and integral is valid.
+Hence,
+                        ∞     Z 2+∞i                k                 2u −w
+                   αeu X                m        m
+                                                   Y                  ne
+(7)     ΦF (u) =           an         w (w − 1)        Γ(ωj w + µj )           dw.
+                   πi n=1      2−∞i                j=1
+                                                                       Q
+  It is now helpful to view the above integral as an inverse Mellin transform. Letting
+Ψ(w) := wm (w − 1)m kj=1 Γ(ωj w + µj ), define ψ : (0, ∞) → C to be the inverse Mellin
+                      Q
+
+transform,                             Z 2+∞i
+                                    1
+                           ψ(v) :=            Ψ(w)v −w dw.
+                                   2πi 2−∞i
+Then (7) can be rewritten as
+                                           ∞        2u 
+                                        u
+                                          X         ne
+(8)                         ΦF (u) = 2αe      an ψ        .
+                                          n=1
+                                                      Q
+   We can now bound ψ using the following lemma whose proof can be found in Sec-
+tion 5.
+
+Lemma 2. Let
+                                            k
+                                     Z 1+∞i Y
+                                1
+                       h(x) :=                      Γ(aj w + bj )x−w dw
+                               2πi    1−∞i    j=1
+for some aj > 0 and bj ∈ C with Re bj ≥ 0. Then there exists a δ > 0 (depending on
+                                          δ
+the aj and bj values) such that h(x) ≪ e−x for all x ≥ 1.
+
+   The function ψ is not quite of the same form as h in the lemma, but by expanding
+out the polynomial factors in the definition of Ψ and then repeatedly applying the
+relation
+                                    1                   b
+                    wΓ(aw + b) = Γ(aw + b + 1) − Γ(aw + b).
+                                    a                  a
+one can write ψ as a linear combination functions to which the lemma does apply.
+                                                                            δ
+Hence, we can conclude that there exists a δ > 0 be such that ψ(v) ≪ e−v for all
+v ≥ 1. Applying this bound in (8) we see that for all sufficiently large u,
+                                         ∞
+                                            an e−(n e /Q )
+                                                   δ 2δu  δ
+                                        X
+                            ΦF (u) ≪ eu
+                                             n=1
+                                             ∞
+                                                            (2Qδ )
+                                                      δ 2δu /
+                                             X
+                                     ≪ eu          e−n e
+                                             n=1
+             NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                         11
+
+                                                                               o(1)
+where the second inequality follows from the fact that an = O(n2 ) = en .
+  Note that for all c ∈ [0, 1/2], say, we have a bound ∞        nδ
+                                                        P
+                                                          n=1 c    ≪δ c which we can
+apply to the sum above to get
+                                           2δu /(2Qδ )           2δu /(3Qδ )
+                         ΦF (u) ≪ eu e−e                 ≪ e−e
+for all u large enough. Hence, ΦF has rapid enough decay that Theorem 3 applies.
+   We are now in a position to define the de Bruijn-Newman constant ΛF associated
+to F . For any t ∈ R, let
+                                      Z ∞
+                                             2
+                            Ht (z) :=     etu ΦF (u)eizu du
+                                        −∞
+
+be the functions which are relevant to the conclusions of Theorem 3, and let
+                      Z := {t ∈ R : all the roots of Ht are real}.
+The functions ξtF defined in (6) are simply the un-rotated versions of Ht , and so Z
+could just as well be defined as the set of t for which all the zeros of ξtF lie on the
+critical line.
+   We now make some observations about the set Z. First we note that Z is closed. To
+see this, suppose we have a sequence {tn } ⊂ Z converging to a real number t′ . One may
+verify (using the extremely rapid decay of ΦF ) that the functions Htn are entire, and
+that they converge uniformly on compact subsets to Ht′ . Since the functions Htn have
+only real roots, it follows from Hurwitz’s theorem (as stated in [1, Chap. 5 Thm. 2],
+for example) that Ht′ has only real roots or is identically zero. The latter is impossible
+because Ht′ is the Fourier transform of a function which is not identically zero. Hence
+t′ ∈ Z. So we have shown that Z is closed.
+                                                                                  2
+   Next, we note that if t0 ∈ Z, then by applying Theorem 3 with ϕ(u) := et0 u ΦF (u),
+we may conclude t ∈ Z for all t ≥ t0 . Hence, the only possible choices for Z are the
+empty set, all of R, or a half line {t ≥ ΛF } where ΛF is some real number.
+   To see that Z is nonempty, Theorem 3 shows (by choosing ϕ := ΦF ) that it suffices
+to check that H has all of its zeros lying in some horizontal strip, or equivalently that
+ξ F has all of its zeros in some vertical strip. It is a general fact that any convergent
+Dirichlet series F has a zero-free half plane because if s has large enough real part,
+then the first term of F (s) will strictly dominate the sum of all the other terms. This
+implies ξ F also has a zero-free half plane, and so by the functional equation for ξ F all
+the zeros of ξ F must lie in a vertical strip.
+   The fact that Z ̸= R will be a consequence of the generalized Newman’s conjecture
+which we prove in the next section. Once this is proved it follows that there is a
+generalized de Bruijn-Newman constant ΛF associated to F for which Z = {t ≥ ΛF }.
+12                                           ALEXANDER DOBNER
+
+The constant ΛF is the unique real number for which ξtF has all of its zeros on the
+critical line if and only if t ≥ ΛF .                                            □
+
+
+
+            3. Proof of the Generalized Newman’s Conjecture
+   To prove ΛF ≥ 0, we will take the direct approach of showing that for every t < 0
+the function ξtF has zeros off the critical line. As a starting point, we first rewrite our
+defintion of ξtF for all t < 0 in terms of a new integral which is essentially a convolution
+of ξ F with a Gaussian whose variance is proportional to |t|.
+   Inserting the definition (5) of ΦF into the definition (6) of ξtF and then applying
+Fubini’s theorem (which can be justified for any t < 0) gives
+                                           Z ∞       Z ∞
+                         1 + iz          1       1 + ix            2
+               ξtF                    =       ξ    F
+                                                              etu ei(z−x)u du dx
+                           2            2π −∞       2     −∞
+                                              Z ∞          
+                                         1         F 1 + ix    1       2
+                                      = p        ξ           e 4t (z−x) dx.
+                                       2 π|t| −∞        2
+
+Substituting s := 1+iz
+                   2
+                       and w := 1+ix
+                                 2
+                                     this becomes
+                                                   Z 1 +∞i
+                                           1           2              1      2
+                            ξtF (s) =     p                  ξ F (w)e |t| (s−w) dw.
+                                         i π|t|     1
+                                                    2
+                                                      −∞i
+
+
+  Because it will be convenient later on, we will shift the contour in the above integral
+to the vertical line Re w = 2 where the Dirichlet series for F converges absolutely.
+Since ξ F (s) has no poles and decays exponentially in any vertical strip, this shift will
+not affect the value of the integral. Hence,
+                                                   Z 2+∞i
+                                           1                          1      2
+(9)                         ξtF (s) =     p                  ξ F (w)e |t| (s−w) dw.
+                                         i π|t|     2−∞i
+
+
+We will make use of this new expression for ξtF in the proof of the next theorem, which
+will be our main tool for proving the generalized Newman’s conjecture.
+
+Theorem 4. Let s = x + iy with x ∈ R, y > 0, and let t < 0. Suppose |t| ≤ C and
+|x| ≤ Cy 1/4 for some positive constant C. Then for all y sufficiently large (depending
+on C) the following estimate holds,
+                                                                             
+                                                      −1/5      10
+(10)         ξtF (Jt (s)) = γt (s)       Ft (s) + O y      exp      min(x, −2)2
+                                                                |t|
+             NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                         13
+
+where
+                                ∞             
+                                X        |t| 2   an
+(11)                  Ft (s) :=     exp − log n s ,
+                                n=1
+                                          4      n
+                                                      k
+                                     |t|          |t| X
+(12)                   Jt (s) := s + log Q +              ωi Log(ωi s),
+                                      2            2 i=1
+                                                            
+                                            1              2
+(13)                   γt (s) := γ(s) exp      (s − Jt (s))
+                                           |t|
+and where the implicit constant in the error may depend on C.
+
+   One should think of Theorem 4 as showing that ξtF is analogous to ξ F in that it
+can be expressed (approximately) as the product of a Dirichlet series and some special
+additional factors. We stress that the error term in (10) is not optimal, but for our
+application to Newman’s conjecture, we only require the following qualitative version
+of the theorem: if t < 0, V is some vertical strip, and s = x + iy ∈ V with y sufficiently
+large, then
+(14)                      ξtF (Jt (s)) = γt (s)(Ft (s) + oy→∞ (1))
+where the decay of the error term is uniform in x (but not necessarily in t).
+  The appearance of the Dirichlet series Ft in the theorem can be explained heuristi-
+cally from (9) as follows. Suppose one could pull the γ factor of ξ F (w) = γ(w)F (w)
+outside of the integral in (9), leaving an integral of the form
+                                     Z 2+∞i
+                                1                   1       2
+                              p             F (w)e |t| (s−w) dw.
+                             i π|t| 2−∞i
+Interchanging the sum and the integral and then computing the result gives,
+          ∞             Z 2+∞i                      ∞               
+         X        1                 1
+                                −w |t| (s−w)2
+                                                   X           |t|
+             an p              n e            dw =     an exp − log n n−s
+                                                                   2
+
+         n=1   i   π|t|  2−∞i                      n=1
+                                                                4
+                                                   = Ft (s).
+   Further explanation of Theorem 4 including an explanation for the presence of the
+Jt function and a full proof of theorem will be left for Section 4. We will now show how
+this theorem implies the generalized Newman’s conjecture without much additional
+work.
+
+3.1. Deducing Theorem 2 from Theorem 4. Assume that t < 0 is fixed. Theorem 4
+suggests that if Ft has a zero at s0 , then ξtF should have a zero near Jt (s0 ). In order
+to make this rigorous, we must somehow deal with the fact that there are error terms
+present in the correspondence between Ft and ξtF given in the theorem.
+14                                 ALEXANDER DOBNER
+
+  A crucial feature of Ft that we will use is that it is everywhere absolutely convergent.
+To see this, recall that
+                                        ∞                 
+                                       X         |t|    2    an
+                             Ft (s) :=     exp − log n s ,
+                                       n=1
+                                                  4          n
+                                 
+and the factor exp − |t| 4
+                           log2 n decays faster than O(n−d ) for any d whereas an =
+O(n2 ).
+  Because Ft is everywhere absolutely convergent it is entire, and it has a property
+known as almost periodicity which was introduced and studied extensively by Bohr [3].
+Roughly speaking, almost periodicity for Ft means that for any vertical strip there is
+an ample supply of shifts τ ∈ R for which Ft (s) and F (s + iτ ) are uniformly close.
+  A precise version of one of Bohr’s results can be stated as follows,
+                                             P∞        −s
+Theorem 5 ([3, Thm. 1]). Let G(s) =            n=1 bn n   be a Dirichlet series which is
+absolutely convergent for all Re s > σ. For any ε > 0 and α, β ∈ R such that σ < α < β,
+there exists a sequence of shifts
+                                     0 < τ1 < τ2 < · · ·
+satisfying
+                                                                  τm
+                    lim inf (τm+1 − τm ) > 0    and     lim sup      <∞
+                     m→∞                                   m→∞    m
+such that
+                                 |G(s) − G(s + iτm )| < ε
+for all α ≤ Re s ≤ β.
+
+  Because Ft is everywhere absolutely convergent, the above theorem holds for Ft for
+any choice of α < β.
+  In order to proceed with the proof, we suppose for the moment that one is able to
+locate a single zero s0 of Ft . Let C be a circle centered at s0 of radius r chosen so that
+C does not pass through any other zeros of Ft , and let
+                                   δ := min |Ft (s)| > 0.
+                                         s∈C
+
+   Let V denote the vertical strip {| Re s − Re s0 | ≤ r} and recall that the qualitative
+form of Theorem 4 states
+(15)                       ξtF (Jt (s)) = γt (s)(Ft (s) + oy→∞ (1))
+for s = x + iy ∈ V , y sufficiently large, where the decay of the error term is uniform in
+x.
+   Let
+                                  h(s) := ξtF (Jt (s))/γt (s),
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                               15
+
+and note that h is analytic in the upper half plane, and
+(16)                               h(s) = Ft (s) + oy→∞ (1)
+for s = x + iy ∈ V , y > 0 by (15).
+    Applying Theorem 5 to Ft on the strip V and taking ε := δ/3, let 0 < τ1 < τ2 < . . .
+be the resulting sequence of shifts.
+    By picking τm which is sufficiently large, one can ensure that for any s on the circle
+C the shift s + iτm will have a large enough imaginary part that the error term in (16)
+when evaluating h(s + iτm ) is uniformly less than δ/3. Consequently, for all s ∈ C we
+have
+                                                                 δ  2δ
+              |h(s + iτm ) − Ft (s)| ≤ |Ft (s + iτm ) − Ft (s)| + ≤    < |Ft (s)|,
+                                                                 3  3
+so by Rouché’s theorem h has a zero inside the shifted circle C + iτm .
+    By taking larger and larger shifts τm , the argument above yields an infinite collection
+of zeros of h which are arbitrarily high up the strip V . From the definition of h and
+the fact that poles of γt only exist up to some bounded height, we can deduce that
+ξtF (Jt (s)) also has an infinite collection of zeros and these zeros exist arbitrarily high
+up the strip V . Hence, ξtF has infinitely many zeros within the curved region Jt (V ) at
+arbitrarily high heights. Past a certain height Jt (V ) lies completely to the right of the
+critical line so in particular we have shown that ξtF has zeros off the critical line.
+    This completes the deduction of the generalized Newman’s conjecture from Theorem
+4 and the assumption that Ft has at least one zero. We will assert this latter fact as a
+lemma for now, and the proof will be given in Section 5.
+
+Lemma 3. For any t < 0, Ft has a zero.
+
+                                 4. Proof of Theorem 4
+   We are interested in estimating ξtF (Jt (s)), so by (9) we know
+                                             Z 2+∞i
+                                       1                      1            2
+                       F
+                      ξt (Jt (s)) = p               ξ F (z)e |t| (Jt (s)−z) dz
+                                    i π|t| 2−∞i
+for all t < 0. By inserting the definition ξ F (z) = γ(z) ∞                −z
+                                                            P
+                                                                 n=1 an n     and then interchang-
+ing the sum and integral (which can be justified since the contour is in the half-plane
+of absolute convergence of the Dirichlet series F ) we get
+                                                X∞
+                                   F
+                                  ξt (Jt (s)) =     an Bt,n (s)
+                                                n=1
+where
+                                           Z 2+∞i
+                                    1                      1          2
+(17)                  Bt,n (s) := p                 γ(z)e |t| (Jt (s)−z) n−z dz.
+                                  i π|t|    2−∞i
+16                                   ALEXANDER DOBNER
+
+ Our goal is to estimate Bt,n (s) in the regime of s and t values we are interested in.
+We will prove the following lemma:
+
+Lemma 4. Let t, s = x+iy, and C satisfy the same restrictions as in Theorem 4. Then
+for all y sufficiently large (depending on C), the following estimates for Bt,n (s) hold
+for small, medium, and large n respectively (where the implicit constants may depend
+on C):
+ (i) For 1 ≤ n ≤ exp(y 1/3 /|t|),
+                                               
+                                          |t|
+                   Bt,n (s) = γt (s) exp − log n n−s (1 + O(y −1/5 )).
+                                              2
+                                           4
+ (ii) For 1 ≤ n ≤ exp(y 3/5 /|t|),
+                                                           
+                                                  |t| 2    −x
+                       Bt,n (s) = O |γt (s)| exp − log n n      .
+                                                   8
+(iii) For n > exp(y 3/5 /|t|),
+                                                   
+                                               |t| 2
+                             Bt,n (s) = O exp − log n .
+                                               10
+   Before giving the proof we will summarize our method. Looking at the integral in
+(17), one may note that the integrand exhibits very rapid decay along the vertical line
+contour. Hence, a reasonable approach to estimate Bt,n (s) is to split the contour into
+a finite segment where the mass of the integrand is concentrated, and a tail whose
+size can be crudely bounded. It then remains to estimate the integral over the finite
+segment. Unfortunately, this problem is still nontrivial because the integrand can be
+quite oscillatory on this segment. One way to proceed is to use the method of station-
+ary phase to estimate the resulting oscillatory integral (e.g. see [23, Ch. 4] for useful
+lemmas in this direction). We will instead use the complex analytic analogue of this
+method known as the method of steepest descent. The basic principle is to start by
+shifting the contour so that the mass of the integrand is concentrated somewhere where
+the integrand is not so oscillatory. Upon doing so, one may then estimate the result-
+ing integral and get good error terms without needing to be too sophisticated about
+handling cancellation.
+   We are now in a position to describe the significance of the Jt (s) function. This
+function has been defined such that when performing the contour shift to estimate the
+value of ξtF (Jt (s)), the region where the integrand oscillates negligibly is near the point
+s (although the precise shift will depend on the value of n as well).
+   We now give a heuristic argument for Lemma 4 which will also serve as a sketch to
+be made rigorous. We will skip over any details about contour shifting for now.
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                       17
+
+   The first step is to locally approximate the integrand of Bt,n (s) near s because it
+turns out that this is approximately where the dominant contribution is. We will see
+in an upcoming lemma that for all z suitably close to s one has
+                                       k
+                                                      !         Pk              !
+                                      X                               ωi
+(18)      γ(z) ≈ γ(s) exp     log Q +     ωi Log(ωi s) (z − s) + i=1 (z − s)2
+                                      i=1
+                                                                   2s
+
+where this is essentially coming from a Taylor expansion of Log γ(z) around s. A similar
+Taylor expansion of the Gaussian factor in the integrand of Bt,n (s) yields
+                                                                                      
+             1
+                (Jt (s)−z)2     1
+                                   (Jt (s)−s)2       2                        1      2
+(19)      e |t|             =e |t|             exp      (s − Jt (s))(z − s) + (z − s)
+                                                    |t|                      |t|
+where in this case the Taylor expansion is exact because the phase is simply a quadratic
+polynomial.
+  Taking the product of (18) and (19), the constant term in the resulting Taylor
+expansion is
+                                          1        2
+                                 γ(s)e |t| (Jt (s)−s) = γt (s),
+and the coefficient of the (z − s) term is
+                                k
+                                X                       2
+                      log Q +         ωi Log(ωi s) +       (s − Jt (s)) = 0
+                                i=1
+                                                       |t|
+
+where this equality holds because we have chosen the definition of Jt (s) to make it so.
+  Putting this information together, we get the heuristic approximation
+                                         Z 2+∞i
+                                     1
+                                                exp A(z − s)2 n−z dz
+                                                             
+                  Bt,n (s) ≈ γt (s) p
+                                   i π|t| 2−∞i
+                 Pk
+            1         ωi
+where A := |t| + i=12s
+                         .
+  The remaining integral can now be computed directly. By completing the square,
+                                     
+                   −z         1
+                2
+  exp A(z − s) n = exp −         log n n−s
+                                    2
+                              4A
+                                                                         2 !
+                                                                   1
+                                             × exp A z − s +         log n
+                                                                  2A
+which means
+                                    
+                              1
+(20) Bt,n (s) ≈ γt (s) exp −    log n n−s
+                                   2
+                             4A
+                                                 Z 2+∞i                          
+                                         1                             1        2
+                                      × p              exp A(z − (s +    log n)) dz.
+                                       i π|t|     2−∞i                2A
+18                                 ALEXANDER DOBNER
+                                            p
+   The value of this last integral is just i π/A. Inserting this and then removing all
+                                                                                            1
+instances of A in the resulting expression by using the approximate equality A ≈ |t|
+gives the desired main term in (i).
+   Before giving a rigorous version of the heuristic calculations above, we first list several
+lemmas that we will need. The proofs of these lemmas will be given in Section 5. The
+first is a rigorous version of (18):
+
+Lemma 5. For any ε > 0, define the region Sε := {| Arg w| < π − ε, |w| > ε}. Let
+z, z0 ∈ Sε and |z − z0 | ≤ D|z0 |2/3 for some D > 0. Then for all z, z0 that are at least
+unit distance away from the poles and zeros of γ, we have the estimate
+                                 k
+                                                  !             Pk                   !
+                               X                                  j=1  ωj
+  γ(z) = γ(z0 ) exp    log Q +      ωj Log(ωj z0 ) (z − z0 ) +            (z − z0 )2
+                                j=1
+                                                                  2z 0
+
+                                                              1 + |z − z0 | |z − z0 |3
+                                                                                      
+                                                 × 1+O                      +
+                                                                  |z0 |          |z0 |2
+where the implicit constant may depend on ε and D.
+
+   The above lemma can be used to approximate the integrand of Bt,n (s) when z is
+relatively close to s. It will also be useful to have an upper bound on the integrand
+when z is far away from s.
+
+Lemma 6. Let t, s = x + iy, and C satisfy the same hypotheses as in Theorem 4. Let
+n ≤ exp(y 3/5 /|t|) (i.e. the small/medium case of Lemma 4) and let
+                                                1         2
+                                I(z) := γ(z)e |t| (Jt (s)−z) n−z
+
+be the integrand of (17). Then for all y sufficiently large (depending on C) the following
+estimates hold (where the implicit constants may also depend on C):
+ (i) If |x − Re z| ≤ y 3/5 and 12 y 2/3 ≤ |y − Im z| ≤ 2y 2/3 then
+                                                    y 4/3
+                                                         
+                                   I(z) ≪ exp −            .
+                                                    10|t|
+ (ii) If Re z = 2 and |y − Im z| ≥ y 2/3 then
+                                                            
+                                              1            2
+                            I(z) ≪ exp −         (y − Im z) .
+                                            2|t|
+     We will also need a weak bound on γ at some point,
+
+Lemma 7. There is some K > 0 such that |γ(z)| ≤ exp(K(Re z)1.1 ) uniformly for any
+z with Re z ≥ 1.
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                              19
+
+Proof of Lemma 4. Recall that s = x + iy, and we assume that y > 0, |x| ≤ Cy 1/4
+and −C < t < 0. The lemma is only asserted to hold when y is sufficiently large, and
+throughout the proof we will frequently assume that y is large enough (depending on
+C) to make various statements hold. We also allow all implicit constants to depend on
+C.
+    We start by proving (i) and (ii) using the heuristic calculations given above as
+framework. These are the cases of small and medium n where |t| log n ≤ y 1/3 and
+|t| log n ≤ y 3/5 respectively. We will not need to distinguish between these two cases
+until the very end of the proof, so for now we will just assume that the latter bound
+holds.
+    Recall that in the heuristic calculations, the final integral in (20) was a complex
+                                      1                   1    1
+                                                                  Pk
+Gaussian centered at the point s+ 2A     log n where A = |t| + 2s   j=1 ωj . We will shift our
+contour to pass through this point. The shifted contour we select is the piecewise linear
+                                                       1                       1
+contour passing though 2 − ∞i, 2 + (y − y 2/3 )i, s + 2A log n − y 2/3 i, s + 2A log n + y 2/3 i,
+2 + (y + y 2/3 )i, and 2 + ∞i. Let V1 , H1 , M , H2 , and V2 denote these linear pieces
+respectively.
+    We will make frequent use of the estimate
+                                                
+                                     1           |t|       1
+(21)                            A=        1+O          ≍ ,
+                                    |t|           y       |t|
+                                            1
+starting with the fact that this implies 2A    log n ≪ y 3/5 . From this and our assumption
+x ≪ y 1/4 , it follows that the contour shift we are performing occurs completely within a
+O(y 2/3 ) radius ball around s. One consequence of this is that for all large y the contour
+shift does not pass over any poles of the integrand (which come from the Γ factors)
+because the imaginary parts of these poles are uniformly bounded above. Hence, by
+Cauchy’s theorem
+                            Z 2+∞i Z         Z      Z    Z       Z
+                                    =     +      +    +        +
+                             2−∞i       V1    H1     M      H2     V2
+
+where the M integral will contribute the main term of our estimate, and the other
+integrals are negligible in comparison. We will apply Lemma 5 to estimate the M
+integral and Lemma 6 to bound the other four.
+
+
+M integral. As noted above, the segment M lies completely within a circle of radius
+O(y 2/3 ) around s, so Lemma 5 gives an approximation for γ(z) in terms of γ(s) for
+every z ∈ M . Applying the lemma and then manipulating the integrand in the same
+way that we did in our heuristic calculations (but now carrying along the error terms
+20                                  ALEXANDER DOBNER
+
+coming from Lemma 5), the integral over M becomes
+                          
+                   1              1
+(22) γt (s) exp −     log n n−s p
+                         2
+                  4A           i π|t|
+                                                       1 + |z − s| |z − s|3
+              Z                                                         
+                                 1          2
+            ×    exp A(z − (s +     log n))      1+O              +            dz.
+               M                2A                         |s|       |s|2
+                                      1
+  Parametrizing M as z(u) = s + 2A       log n + ui for u = −y 2/3 to u = y 2/3 , and then
+                                         1
+using the fact that |z(u) − s| ≤ |u| + 2A  log n ≪ |u| + y 3/5 and |s| ≍ y to simplify the
+error terms we deduce that (22) equals
+                                            Z y2/3
+                                                                        1 + |u|3
+                                                                             
+                      1    2     −s    1                   2
+                                                             
+(23) γt (s) exp −       log n n p                  exp −Au      1+O                 du.
+                     4A                π|t| −y2/3                         y 1/5
+     The integral of the error term can be bounded via the triangle inequality,
+       Z y2/3                                        Z ∞
+                              1 + |u|3
+                                                                     
+                                                −1/5              1 2
+                        2
+                                                                          1 + |u|3 du
+                                                                                 
+                exp −Au O         1/5
+                                         du ≪ y            exp −      u
+         −y 2/3                 y                     −∞         2|t|
+                                              p −1/5
+                                            ≪ |t|y       ,
+                                             1
+where we have used the fact that Re A ≥ 2|t|   which comes from (21) and taking y
+sufficiently large.
+  Estimating the main term now we see that
+       Z y2/3               Z ∞                    Z ∞                     
+                      2                  2                              2
+                                                                        
+               exp −Au du =     exp −Au du + O              exp −(Re A)u du
+        −y 2/3               −∞                       y 2/3
+                            r                 4/3 
+                              π                 y
+                          =     + O |t| exp −            ,
+                              A                 2|t|
+                                                               1
+where the second line follows from the first by using Re A ≥ 2|t|  again.
+                                                       p
+   Inserting these estimates into (23) and using √1A = |t|(1 + O(y −1 )), which follows
+from (21), we see that the value of the M contour integral is
+                                             
+                                       1
+                       = γt (s) exp −    log n n−s (1 + O(y −1/5 ))
+                                            2
+                                      4A
+which we will see later is the main term of our estimate.
+
+H1 and H2 integrals. The H1 integral is
+                                Z
+                           1               1            2
+                          p         γ(z)e |t| (Jt (s)−z) n−z dz,
+                         i π|t| H1
+so applying the M L-inequality gives the bound
+                             1                 1          2
+(24)                    ≪ p |H1 | max γ(z)e |t| (Jt (s)−z) n−z
+                              |t|    z∈H1
+
+where |H1 | denotes the length of the contour.
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                                 21
+
+                                                                         1
+   Recall that H1 is the line segment from 2+(y −y 2/3 )i to s+ 2A          log n−y 2/3 i, and since
+  1
+ 2A
+    log n ≤ y 3/5 ≤ y 2/3 /2 for all sufficiently large y, the hypotheses of Lemma 6(i) are
+satisfied, so
+                                                                   y 4/3
+                                                                        
+                                      1
+                                         (Jt (s)−z)2 −z
+                        max γ(z)e    |t|             n   ≪ exp −           .
+                        z∈H1                                      10|t|
+   Also,
+                                    1
+                    |H1 | = x +           log n − 2 ≪ y 1/4 + y 3/5 + 2 ≪ y,
+                                   2A
+so, we conclude that the integral over H1 is bounded by
+                                                 y 4/3           y 4/3
+                                                                     
+                               y
+                          ≪ p exp −                      ≪ exp −
+                                |t|              10|t|           20|t|
+since |t| ≤ C and y is large.
+   For the H2 integral, an identical bound holds and the derivation is the same.
+
+V1 and V2 integrals. First consider the integral over V1 . Applying the triangle inequality
+and Lemma 6(ii) we get
+             Z                               
+        1                    1
+      p          γ(z) exp       (Jt (s) − z) n−z dz
+                                            2
+     i π|t| V1              |t|
+                                                        Z                             
+                                                    1                1               2
+                                                ≪p          exp          (y − Im z) |dz|
+                                                     |t| V1         2|t|
+                                                        Z −y2/3
+                                                                           u2
+                                                                               
+                                                   1
+                                                =p              exp −             du
+                                                    |t| −∞                 2|t|
+                                                          y 4/3
+                                                               
+                                                ≪ exp −           .
+                                                          20|t|
+  A matching argument gives the same bound for the V2 integral.
+
+Conclusion of (i) and (ii). Adding together our estimates for all five integrals we get
+                                                                           y 4/3
+                                                                             
+                                 1    2   −s         −1/5
+(25)    Bt,n (s) = γt (s) exp −    log n n (1 + O(y       )) + O exp −              .
+                                4A                                         20|t|
+  In order to absorb the additive error term at the end into the multiplicative error
+term it suffices to show the following lower bound on the size of the main term:
+                                                           2y 6/5
+                                                               
+                                    1    2    −s
+(26)                  γt (s) exp −    log n n    ≫ exp −            .
+                                   4A                        |t|
+(This is sufficient because the exponent 6/5 is less than 4/3.)
+   To derive this lower bound, we will bound       each of the factors individually. For the
+                                              1
+first factor, recall that γt (s) := γ(s) exp |t| (s − Jt (s)) . Since x ≪ y 1/4 , we can apply
+                                                             2
+22                                 ALEXANDER DOBNER
+
+Lemma 1 to get
+                                   |γ(s)| ≫ exp(−K ′ y)
+
+for some K ′ > 0, and furthermore
+                                                                     
+                       1              2            1                 2
+                 exp      (s − Jt (s))    = exp       Re (s − Jt (s))
+                      |t|                         |t|
+                                                                         
+                                                      1                 2
+                                          ≥ exp − (Im(s − Jt (s)))
+                                                     |t|
+                                          ≥ exp(−O(1))
+
+where the last inequality comes from the fact that Im(s − Jt (s)) = O(|t|) by definition
+(12) of Jt (s). Combining these lower bounds gives
+
+(27)                               |γt (s)| ≫ exp(−K ′ y)
+
+for all sufficiently large y.
+   To lower bound the other two factors of (26), note Re A1 ≤ 2|t| for all large y by
+                                                           
+
+(21), and log n ≤ y 3/5 /|t| by assumption, so
+                                                          6/5 
+                           1     2             |t| 2           y
+                  exp −       log n ≥ exp − log n ≥ exp −
+                          4A                    2              2|t|
+and also
+                                                     6/5 
+                            −s                         y
+                          |n | = exp(−x log n) ≥ exp −
+                                                       2|t|
+since x ≪ y 1/4 .
+   Hence, (26) is true, so we deduce that
+                                                 
+                                           1
+(28)              Bt,n (s) = γt (s) exp −    log n n−s (1 + O(y −1/5 )).
+                                                2
+                                          4A
+From this estimate we shall now deduce (i) and (ii) of the lemma. By taking absolute
+values in (28) and applying Re A1 ≥ |t|
+                                    
+                                            2
+                                              , which follows from (21), we deduce (ii)
+immediately. To get (i), note that since log n ≤ y 1/3 /|t| in this case
+                                                    
+                          1     2       |t|           |t|
+                       −     log n = −         1+O            log2 n
+                         4A              4             y
+                                        |t|
+                                   = − log2 n + O(y −1/3 ),
+                                         4
+where we have used (21) once again in the first line. Inserting this estimate into (28)
+and using exp(O(y −1/3 )) = 1 + O(y −1/3 ) gives (i).
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                             23
+
+Proof of (iii). Recall that the integral defining Bt,n (s) is
+                                       Z 2+∞i
+                                  1                   1            2
+                    Bt,n (s) = p               γ(z)e |t| (Jt (s)−z) n−z dz.
+                               i π|t| 2−∞i
+
+We now work under the assumption that n is large enough that |t| log n > y 3/5 .
+  We can rewrite the exponentials in the integrand by completing the square
+                                                             
+              1                                 |t|                 1         |t|       2
+                              n = exp − Jt (s) + log n log n e |t| (z−(Jt (s)+ 2 log n)) ,
+                 (J  (s)−z) 2
+                   t           −z
+(29)       e |t|
+                                                 4
+                                                                                         
+                                                                                  |t|
+so if we choose to integrate over the vertical line Re z = Re Jt (s) + 2 log n , we
+see that there would be no oscillation coming these exponentials. Let L denote this
+vertical line, and we now claim that L lies in the right half plane. Indeed, because
+Re Jt (s) = x + O(log y) = O(y 1/4 ), and |t| log n > y 3/5 , we see that
+                                                     |t|
+(30)                                | Re Jt (s)| ≤       log n
+                                                     10
+                                                                        
+for y large enough, and so in particular Re         Jt (s) + |t|
+                                                              2
+                                                                 log n
+                                                                     > 0.
+   In the right half plane the integrand has no poles and decays rapidly in any vertical
+strip, so by Cauchy’s theorem
+                                         Z
+                                     1             1            2
+(31)                    Bt,n (s) = p        γ(z)e |t| (Jt (s)−z) n−z dz.
+                                   i π|t| L
+
+  For all z ∈ L, note that (30) implies Re z ≍ |t| log n so we can apply Lemma 7 to
+bound γ(z), which gives γ(z) ≪ exp(K ′′ |t| log1.1 n) for some K ′′ > 0. Applying this
+bound and (29) to (31), we can bound Bt,n (s) by,
+
+           exp(K ′′ |t| log1.1 n)
+                                  Z
+                                          1             2
+       ≪          p                    e |t| (Jt (s)−z) n−z |dz|
+                      |t|          L
+
+                                                            exp(K ′′ |t| log1.1 n) ∞ −u2 /|t|
+                                                       
+                                  |t|
+                                                                                  Z
+       = exp − Re Jt (s) + log n log n                              p                 e       du
+                                   4                                   |t|         −∞
+                                                       
+                                   |t|
+       ≪ exp − Re Jt (s) + log n log n exp(K ′′ |t| log1.1 n).
+                                    4
+                                                         
+From (30) it follows that Re Jt (s) + |t|        4
+                                                    log n   ≥ |t|
+                                                               8
+                                                                  log n, so
+                                                             
+                          |t| 2       ′       1.1        |t| 2
+          Bt,n (s) ≪ exp − log n exp(K |t| log n) ≪ exp − log n
+                           8                             10
+for all y sufficiently large (because this implies log n is large).                          □
+24                                ALEXANDER DOBNER
+
+4.1. Deducing Theorem 4 from Lemma 4. Recall that ξtF (Jt (s)) = ∞
+                                                                       P
+                                                                         n=1 an Bt,n (s).
+We will split this sum into small, medium, and large n as designated by Lemma 4, and
+then we will approximate each of the terms using the lemma.
+  It will be notationally convenient to define,
+                                       ∞             
+                                      X         |t| 2   |an |
+                           Fet (x) :=     exp − log n
+                                      n=1
+                                                 4       nx
+
+which is the sum one gets when applying the triangle inequality to |Ft (s)|.
+  For the small n terms of the sum (i.e. those for which |t| log n ≤ y 1/3 ) the lemma
+gives
+                                                           
+         X                            X             |t|       an
+                an Bt,n (s) = γt (s)         exp − log n s (1 + O(y −1/5 ))
+                                                          2
+
+        small n                      small n
+                                                     4        n
+                                                                               !
+                                        X             |t|       a n
+                            = γt (s)           exp − log2 n s + O(y −1/5 Fet (x)) .
+                                       small n
+                                                       4        n
+
+Rewriting the sum in the main term as Ft (s) minus a tail sum, we get
+                                                                          
+                                                                   
+                                              X             |t|       |an | 
+(32)     = γt (s)Ft (s) + Oy −1/5 Fet (x) +        exp − log2 n              .
+                                                1/3
+                                                             4         nx
+                                             log n>y        /|t|
+
+For the medium n terms (which satisfy y 1/3 < |t| log n ≤ y 3/5 ) the lemma gives
+                                                                              
+                                                                      
+           X                                X                |t|         |an | 
+(33)              an Bt,n (s) = γt (s) × O          exp − log2 n                .
+         medium n                             1/3
+                                                              8           nx
+                                          log n>y    /|t|
+
+Adding (32) and (33), we get an estimate for the sum over all small and medium n,
+                                                                         
+                                                                  
+                                            X             |t|        |an | 
+      = γt (s)Ft (s) + Oy −1/5 Fet (x) +         exp − log2 n        x
+                                                                              .
+                                              1/3
+                                                           8          n
+                                           log n>y     /|t|
+
+  To bound the tail sum in the error term note that since |t| log n > y 1/3 and an =
+O(n2 ),
+                                  
+                           |t|   2    |an |   
+                                                  −y 1/3 /8
+                                                            
+                                                              n2−x
+                                                                   
+                     exp − log n        x
+                                            ≪   n
+                            8          n
+                                                       y 1/3
+                                              ≤ n− 10
+
+where the second inequality holds for all sufficiently large y because x = O(y 1/4 ).
+Summing this bound over n > exp(y 1/3 /|t|) and applying the bound n>R n−M ≤
+                                                                       P
+               NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                      25
+
+2R1−M (which holds for all R, M ≥ 2, say) we conclude that
+
+                                                                     y 2/3
+        X                                                               
+                                                  −1/5 e
+(34)            an Bt,n (s) = γt (s) Ft (s) + O y     Ft (x) + exp −           .
+            3/5
+                                                                     15|t|
+        log n< y |t|
+
+
+for all sufficiently large y.
+   Lastly, for large n (which satisfy |t| log n > y 3/5 ) the lemma tells us
+                                                                         
+                                                                  
+                    X                      X               |t|  2
+                                                                          
+                           an Bt,n (s) = O
+                                                   exp − log n |an |    ,
+                   large n                      3/5
+                                                            10
+                                           log n> y |t|
+
+
+and by using the same method that was just used to bound the other tail sum, we
+deduce the bound
+                                                    y 6/5
+                       X                                
+                              an Bt,n (s) = O exp −          .
+                      large n
+                                                    15|t|
+
+In order to add this into the small and medium n estimate (34) and absorb this error
+term into the existing error terms we first need to divide through by the γt (s) factor.
+Since we have seen previously in (27) that γt (s) only decays exponentially in y, we can
+write the large n sum bound as
+                                                            y 6/5
+                      X                                         
+                             an Bt,n (s) = γt (s) × O exp −          .
+                     large n
+                                                            20|t|
+
+Adding together all of the small, medium, and large n then gives
+                                                                y 2/3
+                                                                   
+            F                                −1/5 e
+(35)       ξt (Jt (s)) = γt (s) Ft (s) + O y     Ft (x) + exp −           .
+                                                                20|t|
+
+  We conclude the proof by bounding Fet (x) to simplify the error term. First we consider
+the case when x ≤ −2. By applying an = O(n2 ), we see that
+                                ∞                              
+                               X          |t|    2
+                     Fet (x) ≪     exp − log n + 2|x| log n .
+                               n=1
+                                           4
+
+Truncating this sum to only those values of n satisfying |t|
+                                                          4
+                                                             log n ≤ 3|x| will incur only
+an O(1) error because this condition implies that all the terms in the tail are O(n−2 ),
+so we have
+                                                                
+                           X              |t|   2
+             Fet (x) ≪             exp − log n + 2|x| log n + O(1).
+                                           4
+                        n≤exp(12|x|/|t|)
+26                                  ALEXANDER DOBNER
+                                                                                 2
+It is easy to verify that the maximum possible value of a term in the sum is exp 4|x|
+                                                                                  |t|
+                                                                                      ,
+and so bounding each term by this quantity gives
+                                    2                                    2
+                                                                      
+                               4|x|          12|x|                 10|x|
+               Fet (x) ≪ exp            exp          + O(1) ≪ exp           ,
+                                |t|           |t|                    |t|
+where the second inequality holds because |t| ≤ C and because we are in the case
+x ≤ −2.
+  For x > −2, one can prove a bound which decays exponentially in x by similar
+methods to what we used above, but in the interest of keeping the error term simple
+we instead choose to use the trivial bound coming from the monotonicity of Fet (x).
+Since Fet (x) is decreasing in x, we naturally have
+                                                             
+                                              10            2
+(36)                          Fet (x) ≪ exp       min(x, −2) .
+                                              |t|
+Inserting this into (35) gives the theorem.
+
+                                  5. Proof of Lemmas
+Lemma 1. Let γ(s) be one of the functions described in condition (iii) of the extended
+Selberg class definition. Let D > 0 and 0 ≤ θ < 1, and let s be a complex number
+which is at least unit distance away from the poles and zeros of γ and which satisfies
+| Re s| ≤ D| Im s|θ . There exist K, K ′ > 0 (depending on γ, D, and θ) such that
+                       exp(−K ′ | Im s|) ≪ |γ(s)| ≪ exp(−K| Im s|),
+where the implicit constants may depend on γ, D, and θ.
+
+Proof. Recall that
+                                                    k
+                                                    Y
+                          γ(s) := αsm (s − 1)m Qs         Γ(ωi s + µi ).
+                                                    i=1
+   We may assume | Im s| is large, because the small | Im s| case follows by compactness.
+(Indeed, since s is assumed to be bounded away from the poles and zeros of γ and since
+| Re s| ≤ D| Im s|θ , one sees that |γ(s)| ≍ 1 in the | Im s| = O(1) case.)
+   Note that the polynomial and exponential factors in γ(s) are insignificant because
+if | Im s| is large and | Re s| ≤ D| Im s|θ , then
+                                  ′
+                                                                     ′
+                                                                         
+                     exp −| Im s|θ ≤ |sm (s − 1)m Qs | ≤ exp | Im s|θ
+for some θ < θ′ < 1. Hence, it is enough to show that each Γ factor obeys
+(37)                exp(−Ki′ | Im s|) ≤ |Γ(ωi s + µi )| ≤ exp(−Ki | Im s|)
+for Ki′ , Ki > 0.
+             NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                          27
+
+   Fix some i and let z := ωi s + µi . Since ωi ∈ R and | Im s| is large, we have | Im z| ≍
+| Im s| and | Re z| ≪ | Im z|θ , and we may assume | Im z| is large as well.
+   Stirling’s approximation gives
+                                                                       
+                                                  1     2π
+                |Γ(z)| = exp Re z Log z − z + Log             + O(1/|z|)
+                                                  2      z
+                                                          
+                                                         θ′
+                       = exp −(Im z) Arg z + O | Im z|         .
+
+  Since | Re z| ≪ | Im z|θ and | Im z| is large, we deduce that π/4 ≤ Arg z ≤ 3π/4 if
+Im z > 0 and −3π/4 ≤ Arg z ≤ −π/4 if Im z < 0. Hence, we can conclude
+
+                      exp(−C ′ | Im z|) ≤ |Γ(z)| ≤ exp(−C| Im z|),
+
+and then (37) follows since | Im z| ≍ | Im s|.                                           □
+
+Lemma 2. Let
+                                            k
+                                     Z 1+∞i Y
+                                1
+                       h(x) :=                     Γ(aj w + bj )x−w dw
+                               2πi    1−∞i   j=1
+
+for some aj > 0 and bj ∈ C with Re bj ≥ 0. Then there exists a δ > 0 (depending on
+                                          δ
+the aj and bj values) such that h(x) ≪ e−x for all x ≥ 1.
+
+Proof. Let R denote the set of functions f ∈ C((0, ∞)) for which,
+                                                     δ
+  (i) there exists a δ > 0 such that f (x) ≪ e−x for all x ≥ 1, and
+ (ii) for every κ > 0, the bound f (x) ≪κ x−κ holds for all x > 0.
+To prove the statement it clearly suffices to show that h ∈ R. In order to do this we
+first make several observations about R and about Mellin transforms.
+   Note that for any function f ∈ R, the bound (ii) implies that the Mellin transform
+                                         Z ∞
+                                                     dx
+                                F (w) :=     f (x)xw
+                                          0          x
+of f is defined for all Re w > 0. Moreover, if F is integrable over some vertical line
+Re w = c > 0, then f can be recovered from F via the inverse Mellin transform,
+                                       Z c+∞i
+                                     1
+                            f (x) =           F (w)x−w dw.
+                                    2πi c−∞i
+This follows directly from the Fourier inversion formula for L1 functions if one performs
+the necessary changes of variables.
+  If f and g are functions in R, we define their multiplicative convolution to be
+                                         Z ∞  
+                                                 x       dy
+(38)                         f ⋆ g(x) :=      f     g(y) ,
+                                          0      y        y
+28                                   ALEXANDER DOBNER
+
+and we claim that R is closed under this operation. Note that if f, g ∈ R, then f ⋆ g
+is continuous by a standard application of the dominated convergence theorem, so it
+suffices to show that this function satisfies the bounds (i) and (ii).
+                                                         δ               δ
+   Let δ > 0 be small enough so that both f (y) ≪ e−y and g(y) ≪ e−y for all y ≥ 1.
+For x ≥ 1, we bound the f ⋆ g(x) integral by splitting it into two parts,
+                                    Z x1/2 Z ∞ !  
+                                                      x        dy
+                       f ⋆ g(x) =          +        f      g(y) ,
+                                     0         x1/2    y        y
+which we denote by I and II respectively.
+                              −δ
+                                                          δ
+  To bound II, apply f xy ≪ xy           and g(y) ≪ e−y to get
+                  Z ∞  −δ                     Z ∞
+                         x       −y δ dy                       δ        δ/2
+             II ≪              e          =x −δ
+                                                      y δ−1 e−y dy ≪ e−x .
+                   x1/2 y             y          x1/2
+To bound I, note that the substitution y ′ := xy turns this integral into an integral which
+is identical to II but with the roles of f and g reversed. Hence the same bound holds,
+and we can conclude that
+                                                    δ/2
+                                    f ⋆ g(x) ≪ e−x
+for all x ≥ 1.
+   It remains to show that f ⋆ g(x) ≪κ x−κ for all x > 0 and κ > 0. Fixing some κ > 0,
+it suffices to prove this bound for 0 < x < 1 because we have already proved a superior
+bound when x ≥ 1. To obtain the bound when x < 1, we split the f ⋆ g(x) integral into
+three parts
+                                  Z x Z 1 Z ∞   
+                                                        x       dy
+                       f ⋆ g(x) =      +     +       f     g(y)
+                                     0     x    1       y        y
+which we denote by I, II,   and
+                               III.
+                                       −κ                 δ
+     For III, the bounds f   x
+                             y
+                                 ≪   x
+                                     y
+                                      and g(y) ≪ e−y hold, so
+                                Z ∞  −κ
+                                      x         δ dy
+                          III ≪             e−y      ≪ x−κ .
+                                 1    y           y
+                           −κ/2
+For II, the bounds f xy ≪ xy        and g(y) ≪ y −κ/2 hold, so
+                       Z 1  −κ/2
+                             x            dy             1
+                  II ≪             y −κ/2    = x−κ/2 log     ≪ x−κ .
+                        x    y            y              x
+For I, we can again apply the substitution y ′ := xy to turn this integral into an identical
+integral to III but with the roles of f and g reversed. Hence,
+                                         f ⋆ g(x) ≪ x−κ ,
+so we can conclude that f ⋆ g ∈ R.
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                               29
+
+  Now suppose that f, g ∈ R with F, G their respective Mellin transforms. Using
+Fubini’s theorem and a change of variables, it is straightforward to show that the
+Mellin transform of f ⋆ g is the product F G. Furthermore, if F (w)G(w) is integrable
+over a line Re w = c > 0 then our previous remark about Mellin inversion implies that
+f ⋆ g is the inverse Mellin transform of F G. We may now apply this result inductively
+to prove the lemma.
+  Using the fact that the inverse Mellin transform of Γ(w) is e−x , one can verify that
+                                                                1/aj
+the inverse Mellin transform of Γ(aj w + bj ) is a1j xbj /aj e−x , which is a member of
+R. Any product of these gamma functions will be integrable over the line Re w = 2
+because of the exponential decay of the gamma function on vertical lines. Hence, the
+inverse Mellin transform
+                                    Z 2+∞i Yk
+                                 1
+                       h(x) =                 Γ(aj w + bj )x−w dw
+                                2πi 2−∞i j=1
+is a multiplicative convolution of k functions each of which are in R, so h is in R as
+well.
+                                                                                    □
+
+Lemma 3. For any t < 0, Ft has a zero.
+                                            P∞                   
+                                                        |t|     2    an
+Proof. Fix t < 0, and recall that Ft (s) :=  n=1 exp − 4 log n ns is an entire function.
+                                                                                  
+Furthermore, the bound (36) on the function Fet (x) := ∞                |t|     2    |an |
+                                                        P
+                                                            n=1 exp   −  4
+                                                                            log   n   nx
+                                                                                           implies
+                                                                     
+                                                   10               2
+                    |Ft (x + iy)| ≤ Ft (x) ≪ exp
+                                      e                min(x, −2) ,
+                                                   |t|
+so Ft is of order at most two.
+   Now suppose for the sake of contradiction that Ft has no zeros. Then by the Hadamard
+factorization theorem, Ft (s) = exp(P (s)) where P is a polynomial of degree at most
+two. Using the fact that Ft (s) is uniformly bounded in all half-planes {Re s > c},
+one may verify that the only possible choices for P (s) are polynomials of the form
+P (s) = −λs + ρ where λ ≥ 0, ρ ∈ C. Hence,
+                         ∞                 
+                        X           |t|   2    an
+                            exp − log n s = eρ exp(−λs)
+                        n=1
+                                     4         n
+for all s ∈ C. Now note that the right-hand side of this equality is a generalized Dirichlet
+series with only one term whereas the left-hand side is a Dirichlet series with multiple
+terms (since an is nonzero for more than one n as we have noted previously). By the
+uniqueness of coefficients of generalized Dirichlet series such an equality is impossible,
+so we get a contradiction.                                                                □
+30                                       ALEXANDER DOBNER
+
+Lemma 5. For any ε > 0, define the region Sε := {| Arg w| < π − ε, |w| > ε}. Let
+z, z0 ∈ Sε and |z − z0 | ≤ D|z0 |2/3 for some D > 0. Then for all z, z0 that are at least
+unit distance away from the poles and zeros of γ, we have the estimate
+
+                                       k
+                                                          !               Pk                        !
+                                                                              j=1 ωj
+                                       X
+     γ(z) = γ(z0 ) exp       log Q +         ωj Log(ωj z0 ) (z − z0 ) +                (z − z0 )2
+                                       j=1
+                                                                              2z0
+                                                                 1 + |z − z0 | |z − z0 |3
+                                                                                        
+                                                         × 1+O                +
+                                                                     |z0 |       |z0 |2
+
+where the implicit constant may depend on ε and D.
+
+Proof. We may assume that |z0 | is large, as the small |z0 | case holds by compactness.
+We allow all implicit constants to depend on ε and D.
+  Recall that γ(z) := αz m (z − 1)m Qz kj=1 Γ(ωi z + µi ). We will consider the factors of
+                                      Q
+
+γ separately and show how each one differs when evaluating at z versus z0 .
+  To handle the polynomial factor αz m (z − 1)m , note that for all |z0 | large we have
+                                                                                          
+                        |z − z0 |                                            |z − z0 |
+         z = z0 1 + O                          and    z − 1 = (z0 − 1) 1 + O                      ,
+                          |z0 |                                                |z0 |
+
+hence
+                                                                              
+                         m         m                               |z − z0 |
+(39)                 αz (z − 1)        = αz0m (z0 − 1)m        1+O                .
+                                                                     |z0 |
+
+     For the exponential term in γ, there is a trivial equality
+
+(40)                              Qz = Qz0 exp((log Q)(z − z0 )).
+
+   To get estimates for the Γ factors in γ we recall Stirling’s formula which states that
+for any w ∈ Sε with |w| ≥ 1,
+
+                      √
+                                                      
+                                           1              1
+(41)            Γ(w) = 2π exp w Log w − w − Log w 1 + O      .
+                                           2             |w|
+
+  Supposew, w0 ∈ Sε and |w − w0 | ≪ |w0 |2/3 . By assuming |w0 | is sufficiently large we
+have Arg 1 + w−w
+               w0
+                  0
+                       < ε, and we then deduce
+                                                             
+                                                       w − w0
+(42)                          Log w = Log w0 + Log 1 +         .
+                                                         w0
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                             31
+
+  By applying Stirling’s formula at w and w0 (and assuming |w0 | is large), then using
+(42) and the fact that |w| ≍ |w0 | gives
+                                                                        
+       Γ(w)                                          1            w − w0
+              = exp w Log w − w − w0 Log w0 + w0 − Log 1 +
+       Γ(w0 )                                        2               w0
+                                                                            
+                                                                         1
+                                                         × 1+O
+                                                                        |w0 |
+                                                                         
+                                                           1 + |w − w0 |
+              = exp(w Log w − w − w0 Log w0 + w0 ) 1 + O
+                                                                |w0 |
+where the second line follows from the first because Log(1 + s) = O(|s|) for |s| ≤ 21 ,
+and exp(s) = 1 + O(|s|) for s bounded.
+  If we consider just the expression inside the exponential, one can show that
+                                                             1
+  w Log w − w − w0 Log w0 + w0 = Log(w0 )(w − w0 ) +            (w − w0 )2
+                                                            2w0
+                                                                           |w − w0 |3
+                                                                                        
+                                                                        +O
+                                                                             |w0 |2
+by applying (42) to the logarithm, then applying the Taylor approximation Log(1+s) =
+     2
+s − s2 + O(s3 ) which holds for all |s| ≤ 12 , and gathering together error terms.
+                                                    Γ(w)
+  Plugging this back into our expression for Γ(w       0)
+                                                          and then applying exp(1 + s) =
+1 + O(|s|) for s bounded again,
+                                                            
+       Γ(w)                                   1            2
+(43)          = exp Log(w0 )(w − w0 ) +          (w − w0 )
+       Γ(w0 )                               2w0
+                                                             1 + |w − w0 | |w − w0 |3
+                                                                                    
+                                               × 1+O                      +              .
+                                                                 |w0 |       |w0 |2
+   Taking w := ωi z + µi and w0 := ωi z0 + µi note that from the assumptions that
+z, z0 ∈ Sε , |z − z0 | ≤ D|z0 |2/3 , and |z0 | is large, we get the corresponding facts that
+w, w0 ∈ Sε′ , |w − w0 | ≪ |w0 |2/3 , and |w0 | is large. Hence, by (43)
+                                                                   ωi2
+                                                                                      
+       Γ(ωi z + µi )                                                                 2
+(44)                  = exp ωi Log(ωi z0 + µi )(z − z0 ) +                  (z − z0 )
+       Γ(ωi z0 + µi )                                        2(ωi z0 + µi )
+                                                                1 + |z − z0 | |z − z0 |3
+                                                                                        
+                                                    × 1+O                     +              .
+                                                                    |z0 |          |z0 |2
+  When |z0 | is large,
+                                                                   
+                                                             1
+                         Log(ωi z0 + µi ) = Log(ωi z0 ) + O
+                                                            |z0 |
+and                                                         
+                                   1        1           1
+                                         =       +O            .
+                              ωi z0 + µi   ωi z0      |z0 |2
+32                                 ALEXANDER DOBNER
+
+Inserting these into (44) gives
+                                                                     
+       Γ(ωi z + µi )                                  ωi            2
+(45)                  = exp ωi Log(ωi z0 )(z − z0 ) +     (z − z0 )
+       Γ(ωi z0 + µi )                                 2z0
+                                                              1 + |z − z0 | |z − z0 |3
+                                                                                     
+                                                × 1+O                      +              .
+                                                                   |z0 |      |z0 |2
+  Applying (45) to each Γ factor in γ and combining this with (39) and (40) gives the
+lemma.
+                                                                                   □
+
+Lemma 6. Let t, s = x + iy, and C satisfy the same hypotheses as in Theorem 4. Let
+n ≤ exp(y 3/5 /|t|) (i.e. the small/medium case of Lemma 4) and let
+                                                 1         2
+                                I(z) := γ(z)e |t| (Jt (s)−z) n−z
+be the integrand of (17). Then for all y sufficiently large (depending on C) the following
+estimates hold (where the implicit constants may also depend on C):
+ (i) If |x − Re z| ≤ y 3/5 and 12 y 2/3 ≤ |y − Im z| ≤ 2y 2/3 then
+                                                    y 4/3
+                                                         
+                                   I(z) ≪ exp −            .
+                                                    10|t|
+ (ii) If Re z = 2 and |y − Im z| ≥ y 2/3 then
+                                                            
+                                              1            2
+                            I(z) ≪ exp −         (y − Im z) .
+                                            2|t|
+Proof. We shall bound the three factors of I(z) individually and prove (i) and (ii) in
+parallel. We allow all implicit constants to depend on C, and we freely assume that y
+large enough to make various assumptions hold.
+   From the definition (12) of Jt (s), and the assumptions that x = O(y 1/4 ) and t = O(1)
+it is clear that
+                 Im Jt (s) = y + O(1)      and       Re Jt (s) = x + O(log y),
+so if z satisfies the hypotheses in either (i) or (ii), then
+             Re (Jt (s) − z)2 = (x + O(log y) − Re z)2 − (y + O(1) − Im z)2
+                                 
+
+                                          1
+                                   ≤ − (y − Im z)2 .
+                                          2
+for all y sufficiently large (where we have used the assumption that x ≪ y 1/4 again in
+the (ii) case). Hence we can bound the first exponential factor in I(z) by
+                                                                     
+                              1
+                                 (Jt (s)−z)2          1             2
+(46)                       e |t|             ≤ exp −      (y − Im z) .
+                                                     2|t|
+             NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                        33
+
+  To handle the γ(z) factor we can apply Lemma 1. Note that the hypotheses in (i)
+imply
+                     | Re z| ≤ |x| + y 3/5 ≪ y 3/5     and        Im z ≍ y
+
+and the in case (ii) we have Re z = 2, so in both cases Lemma 1 implies that γ(z) =
+O(1).
+   In (ii) it is clear that the n−z = O(1), and in (i) note that Re z ≪ y 3/5 and log n ≤
+y 3/5 /|t|, so
+                                                           Ky 6/5
+                                                                 
+                           −z
+                          n = exp(−(Re z) log n) ≤ exp              .
+                                                             |t|
+  Hence, to get the conclusion in (i), we put together the above bounds and the fact
+that |y − Im z| ≥ 12 y 2/3 which gives
+
+                                                                Ky 6/5
+                                                                    
+                                         1             2
+                       I(z) ≪ exp −          (y − Im z) exp
+                                       2|t|                      |t|
+                                   4/3 
+                                                     Ky 6/5
+                                                           
+                                       y
+                            ≤ exp −            exp
+                                       8|t|           |t|
+                                         4/3
+                                             
+                                       y
+                            ≤ exp −
+                                       10|t|
+for all y sufficiently large.
+   Similarly, the conclusion of (ii) is immediate from (46) and the O(1) bounds on the
+other two factors.
+                                                                                    □
+
+Lemma 7. There is some K > 0 such that |γ(z)| ≤ exp(K(Re z)1.1 ) uniformly for any
+z with Re z ≥ 1.
+
+Proof. Recall that
+                                                     k
+                                                     Y
+                                    m        m   z
+                        γ(z) := αz (z − 1) Q               Γ(ωi z + µi ).
+                                                     i=1
+
+  Consider two cases where either | Im z| > (Re z)2 or | Im z| ≤ (Re z)2 . In the first
+case, we see γ(z) = O(1) by Lemma 1. In the second case, one can bound each of the
+Γ factors in γ with the bound
+
+                  |Γ(ωi z + µi )| ≤ Γ(Re(ωi z + µi )) ≤ exp(K0 (Re z)1.1 )
+
+for some K0 > 0. Since, |z| ≪ (Re z)2 and |Qz | = exp((log Q)(Re z)) the bound
+follows.                                                                     □
+34                                    ALEXANDER DOBNER
+
+                                          References
+ 1. L. V. Ahlfors, Complex analysis, third ed., McGraw-Hill Book Co., New York, 1978, An introduc-
+    tion to the theory of analytic functions of one complex variable, International Series in Pure and
+    Applied Mathematics.
+ 2. J. Andrade, A. Chang, and S. J. Miller, Newman’s conjecture in various settings, J. Number
+    Theory 144 (2014), 70–91.
+ 3. H. Bohr, Über eine quasi-periodische Eigenschaft Dirichletscher Reihen mit Anwendung auf die
+    Dirichletschen L-Funktionen, Math. Ann. 85 (1922), no. 1, 115–122.
+ 4. J.B. Conrey and A. Ghosh, On the Selberg class of Dirichlet series: small degrees, Duke Math. J.
+    72 (1993), no. 3, 673–693.
+ 5. G. Csordas, T. S. Norfolk, and R. S. Varga, A lower bound for the de Bruijn-Newman constant
+    Λ, Numer. Math. 52 (1988), no. 5, 483–497.
+ 6. G. Csordas, A. M. Odlyzko, W. Smith, and R. S. Varga, A new Lehmer pair of zeros and a
+    new lower bound for the de Bruijn-Newman constant Λ, Electron. Trans. Numer. Anal. 1 (1993),
+    no. Dec., 104–111 (electronic only).
+ 7. G. Csordas, A. Ruttan, and R. S. Varga, The Laguerre inequalities with applications to a problem
+    associated with the Riemann hypothesis, Numer. Algorithms 1 (1991), no. 3, 305–329.
+ 8. G. Csordas, W. Smith, and R. S. Varga, Lehmer pairs of zeros, the de Bruijn-Newman constant
+    Λ, and the Riemann hypothesis, Constr. Approx. 10 (1994), no. 1, 107–129.
+ 9. N. G. de Bruijn, The roots of trigonometric integrals, Duke Math. J. 17 (1950), 197–226.
+10. J. Kaczorowski, Axiomatic theory of L-functions: the Selberg class, Analytic number theory, Lec-
+    ture Notes in Math., vol. 1891, Springer, Berlin, 2006, pp. 133–209.
+11. J. Kaczorowski and A. Perelli, On the structure of the Selberg class. I. 0 ≤ d ≤ 1, Acta Math.
+    182 (1999), no. 2, 207–241.
+12. C. M. Newman, Fourier transforms with only real zeros, Proc. Amer. Math. Soc. 61 (1976), no. 2,
+    245–251 (1977).
+13. T. S. Norfolk, A. Ruttan, and R. S. Varga, A lower bound for the de Bruijn-Newman constant Λ.
+    II, Progress in approximation theory (Tampa, FL, 1990), Springer Ser. Comput. Math., vol. 19,
+    Springer, New York, 1992, pp. 403–418.
+14. A. M. Odlyzko, An improved bound for the de Bruijn-Newman constant, vol. 25, 2000, Mathe-
+    matical journey through analysis, matrix theory and scientific computation (Kent, OH, 1999),
+    pp. 293–303.
+15. G. Pólya, Bemerkung Über die Integraldarstellung der Riemannschen ξ-Funktion, Acta Math. 48
+    (1926), no. 3-4, 305–317.
+16.         , Über trigonometrische Integrale mit nur reellen Nullstellen, J. Reine Angew. Math. 158
+    (1927), 6–18.
+17. D. H. J. Polymath, Effective approximation of heat flow evolution of the Riemann ξ function, and
+    a new upper bound for the de Bruijn-Newman constant, Res. Math. Sci. 6 (2019), no. 3, Paper
+    No. 31, 67.
+18. B. Rodgers and T. Tao, The de Bruijn–Newman constant is non-negative, Forum Math. Pi 8
+    (2020), e6.
+19. Y. Saouter, X. Gourdon, and P. Demichel, An improved lower bound for the de Bruijn-Newman
+    constant, Math. Comp. 80 (2011), no. 276, 2281–2287.
+20. A. Selberg, Old and new conjectures and results about a class of Dirichlet series, Proceedings of
+    the Amalfi Conference on Analytic Number Theory (Maiori, 1989), Univ. Salerno, Salerno, 1992,
+    pp. 367–385.
+21. J. Stopple, Notes on low discriminants and the generalized Newman conjecture, Funct. Approx.
+    Comment. Math. 51 (2014), no. 1, 23–41.
+22. H. J. J. te Riele, A new lower bound for the de Bruijn-Newman constant, Numer. Math. 58 (1991),
+    no. 6, 661–667.
+              NEWMAN’S CONJECTURE FOR THE EXTENDED SELBERG CLASS                             35
+
+23. E. C. Titchmarsh, The theory of the Riemann zeta-function, second ed., The Clarendon Press,
+    Oxford University Press, New York, 1986, Edited and with a preface by D. R. Heath-Brown.
+
+  Department of Mathematics, UCLA, 520 Portola Plaza, Los Angeles CA 90095
+  Email address: adobner@math.ucla.edu
+

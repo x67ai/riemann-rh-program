@@ -1,0 +1,376 @@
+                                                   There is no “Weil-”cohomology theory with real
+                                                          coefficients for arithmetic curves
+
+                                                                             Christopher Deninger∗
+
+
+
+
+arXiv:2204.02714v2 [math.AG] 27 Jan 2023
+                                           1       Weil cohomologies over Fp
+
+                                           A well known argument by Serre shows that there is no Weil cohomology theory with real
+                                           coefficients for smooth projective varieties over Fp . For such a cohomology theory and every
+                                           elliptic curve E over Fp there would have to be an R-algebra anti-homomorphism
+
+                                           1.1.     (End E) ⊗ R −→ End H 1 (E, R) ,
+
+                                           However, if E is supersingular, then (End E)⊗Q is a quaternion algebra over Q which is non-
+                                           split precisely at p and ∞. Thus (End E)⊗R would be the Hamilton quaternions H whereas
+                                           End H 1 (E, R) = M2 (R), and there is no anti-homomorphism of R-algebras H → M2 (R). The
+                                           algebras (End E) ⊗ Ql for l 6= p and (End E) ⊗ Qp are split, where Qp is the quotient field of
+                                           W (Fp ), the (p-typical) Witt vector ring of Fp . Hence Serre’s argument does not contradict
+                                           the existence of Weil cohomology theories with values in Ql resp. Qp . Indeed l-adic and
+                                           crystalline cohomology are such theories. In particular, embedding Ql or Qp into C one sees
+                                           that there is a Weil cohomology with values in C-vector spaces. Of course such embeddings
+                                           are highly uncanonical. However, if the standard conjectures on algebraic cycles hold,
+                                           there is a Weil-cohomology theory with values in Q. It would give a theory with complex
+                                           coefficients after choosing an embedding Q ֒→ C, which is a more reasonable process than
+                                           embedding Ql or Qp into C.
+                                                                                                                              n
+                                           In Scholze [15, Conjecture 9.5 ff] the existence of a Weil cohomology theory HKt     Q
+                                                                                                                                  (X) for
+                                           varieties X over Fp with values in Kottwitz’ category KtQ is conjectured, and assuming
+                                           well known conjectures also proved. As yet, we have no indication that such a refined
+                                           category as (the ind-category of KtQ) may be the target of our conjectural “Weil-”cohomology
+                                           H n (spec ok , C) for arithmetic curves in the next section. However, the following much
+                                           simpler R-linear abelian ⊗-category KR may be a target category. Its objects are Z/2-graded
+                                               Funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Ger-
+                                               ∗
+
+                                           many’s Excellence Strategy EXC 2044–390685587, Mathematics Münster: Dynamics–Geometry–Structure
+                                           and the CRC 1442 Geometry: Deformations and Rigidity
+
+
+                                                                                         1
+C-vector spaces V = V0 ⊕ V1 with an antilinear isomorphism σ respecting the grading and
+σ 2 = (−1)i on Vi . Morphisms are C-linear maps which respect the grading and commute
+with σ. On V0 the involution σ defines the real structure V0σ=id , i.e. V0 = V0σ=id ⊗R C.
+On V1 we obtain a quaternionic structure: The quaternions H = R ⊕ Ri ⊕ Rj ⊕ Rk act on
+V1 by 1, i, j = σ and k = iσ, turning V1 into an H-vector space. Thus Serre’s argument
+would not exclude a Weil cohomology theory H n with values in KR if H 1 (E) = H 1 (E)1 for
+supersingular elliptic curves. In fact, as Milne pointed out to me, it follows directly from
+Grothendieck’s standard conjectures that there exists a Weil cohomology with values in KR
+- the conjectures imply that the motives over Fp form a polarized Tannakian category, to
+which one can apply [1, Theorem 4.29]. He also remarked that this was likely known to
+Grothendieck in the 1960s. Note that there are canonical ⊗-functors KtQ → KtR → KR ,
+where Kottwitz’ category KtR is the same as the category V∞ in [11], Example 1.7.
+
+
+
+2    “Weil-”cohomologies over spec Z
+
+In several articles we discussed the possibility of a cohomology theory H n ( , C) with values
+in C-vector spaces which is defined for all arithmetic schemes over spec Z and their arith-
+metic compactifications. The theory should be equipped with functorial endomorphisms
+θ whose eigenvalues would be the zeroes and poles of the corresponding zeta functions.
+In particular the cohomology groups can be infinite dimensional. For arithmetic schemes
+over spec Fp such a theory can be constructed by a formal process starting with l-adic co-
+homology, c.f. [2, section 4]. The question arises whether a theory of this type can have
+real coefficients. For arithmetic schemes which are not flat over spec Z the arguments in
+[5, 4.7] make this improbable but for flat schemes over spec Z real coefficients remained a
+theoretical possibility. In the following, we will explain why no real-valued theory of the
+type conjectured in [4], [6] can exist, even for spectra of number rings. On the other hand,
+a theory with values in KR refining the conjectural C-theory seems plausible. We begin by
+recalling some of the discussion from [4], [6]. Let k/Q be a number field and let spec ok be
+the arithmetic compactification of spec ok . The basic expected properties of H n (spec ok , C)
+and its operator θ are the following:
+2.1. θ is a derivation with respect to cup-product.
+2.2. H 0 (spec ok , C) = C with θ = 0.
+2.3. H 1 (spec ok , C) is infinite dimensional with the eigenvalues of θ being the non-trivial
+zeroes of ζk (s) with their multiplicities. Here the eigenvalues α are counted with their
+algebraic multiplicities dim H 1 (spec ok , C)θ∼α . Here
+                    H θ∼α = {h ∈ H | (θ − α)n (h) = 0 for some n ≥ 1}
+is the generalized α-eigenspace of θ.
+2.4. There is a θ-equivariant trace isomorphism
+                                    ∼
+               tr : H 2 (spec ok , C) −
+                                      → C(−1) where C(−1) = C with θ = id .
+
+By 2.1 and 2.4, for h1 , h2 ∈ H 1 (spec ok , C) we would have
+
+                                               2
+2.5.    h1 ∪ h2 = θ(h1 ∪ h2 ) = θh1 ∪ h2 + h1 ∪ θh2 .
+
+For h1 ∈ H 1 (spec ok , C)θ∼α and h2 ∈ H 1 (spec ok , C)θ∼β we have
+
+                                h1 ∪ h2 ∈ H 2 (spec ok , C)θ∼α+β .
+
+Hence h1 ∪ h2 6= 0 can only happen by 2.4 if α + β = 1 and we expect that:
+
+2.6. the pairing
+                                                                                tr
+                                                                ∪               ∼
+             ∪ : H 1 (spec ok , C)θ∼α × H 1 (spec ok , C)θ∼1−α −
+                                                               → H 2 (spec ok , C) −
+                                                                                   →C
+
+is perfect. In particular, α is an eigenvalue of θ on H 1 if and only if 1 − α is an eigenvalue
+and the (algebraic) multiplicities are equal. Note that via 2.3 this is compatible with the
+functional equation of ζk (s).
+
+Much more optimistically, one could hope for the following property.
+
+2.7. There is a canononical anti-linear automorphism ∗ of H 1 (spec ok , C) with ∗2 = −id, ∗ ◦ θ =
+θ ◦ ∗ and such that we get a scalar product by setting
+
+                           hh, h′ i = tr(h ∪ ∗h′ ) on H 1 (spec ok , C) .
+
+
+In particular α is then an eigenvalue of θ on H 1 if and only if α is an eigenvalue. Note that
+2.5 and 2.7 imply the relation
+
+                                  hh, h′ i = hθh, h′ i + hh, θh′ i .
+
+Hence θ − 12 would be skew-symmetric on H 1 (spec ok , C) and its eigenvalues therefore purely
+imaginary. Using 2.3 the Riemann hypotheses would follow. Of course this argument follows
+the lead of Serre [16]. Also note that if 2.7 is true, skew-symmetry of θ − 21 would imply
+that the algebraic eigenspaces H θ∼α of θ are the usual ones H θ=α .
+
+The following heuristic argument suggests that property 2.7 may be more than whishful
+thinking. In [8] we showed that higher dimensional analogues of 2.7 together with certain
+Abel-Jacobi isomorphisms would imply Beilinson’s conjectures on the positivity of height
+pairings. In particular, suitably normalized the Néron-Tate height pairing on E(Q) for an
+elliptic curve E over Q would be the scalar product as in 2.7 restricted to the 1-eigenspace
+of θ on the relevant cohomology group. We expect an Abel-Jacobi isomorphism to identify
+E(Q) ⊗ C with this 1-eigenspace. Thus the same scalar product on cohomology whose
+positivity would imply that all zeroes of L(E, s) lie on the line Re s = 1 would also imply
+that the Néron-Tate height pairing on E(Q) is positive definite, c.f. [8] for the details.
+
+For spec ok there is no natural known candidate of a C-vector space which might be isomor-
+                         1
+phic to H 1 (spec ok )θ∼ 2 via an Abel-Jacobi map. We will discuss this intriguing problem
+below.
+
+As a particular case of 2.3 we would get the formula
+
+                                                  3
+                                                     1
+2.8.    ords=1/2 ζk (s) = dimC H 1 (spec ok , C)θ∼ 2 .
+
+Note that if an antilinear involution ∗ on H 1 (spec ok , C) exists with ∗2 = −id and ∗ ◦ θ = θ ◦ ∗
+                              1
+then Vk = H 1 (spec ok , C)θ∼ 2 carries a quaternionic structure and hence it has even C-
+dimension. Since the order of ζk (s) at s = 1/2 is even by the functional equation, this is
+compatible with (2.8). Alternatively, the existence of the perfect alternating pairing 2.6 for
+α = 1/2
+2.9.    ∪ : Vk × Vk −→ C
+
+would also imply that dim Vk is even.
+
+Let us now assume that k/Q is Galois with group G. By contravariant functoriality of the co-
+homology ring with derivation (H • (spec ok , C), ∪, θ) the group G would act on H 1 (spec ok , C)
+and in particular on Vk . By the following argument kindly pointed out to me by Baptiste
+Morin, it is natural to assume that G acts trivially on H 2 (spec ok , C) ∼
+                                                                          = C, so that the pair-
+ings 2.6 and in particular (2.9) would be G-invariant. Namely one may expect a natural
+continuous G-equivariant homomorphism from the Arakelov Chow group:
+
+(1)                          cl : CH 1 (spec ok ) −→ H 2 (spec ok , C) .
+
+The map cl would send the compact kernel of the Arakelov degree map to zero since C has
+no non-trivial compact subgroups. Hence cl would factor over the Arakelov degree map
+and this would lead to a copy of R with trivial G-action inside of H 2 (spec ok , C). Hence G
+would act trivially on the entire group.
+
+For an equivalence class π of irreducible representations of G over C let eπ ∈ C[G]opp =
+End G C[G] be the corresponding idempotent projecting to the π-isotypical component of
+C[G]. For any complex vector space H on which G acts, eπ defines a projector and we set
+H(π) = eπ H. For a realization Vπ of π consider the G-equivariant isomorphism:
+                                             ∼
+                                         → H(π) with f ⊗ v 7→ f (v) .
+                      HomG (Vπ , H) ⊗ Vπ −
+
+Since θ commutes with the G-action, it respects both H 1 (spec ok , C)(π) and the decompo-
+sition                                      M
+                        H 1 (spec ok , C) =   H 1 (spec ok , C)(π) .
+                                                 π
+
+Consider the G-isomorphism:
+                                                         ∼
+                    HomG (Vπ , H 1 (spec ok , C)) ⊗ Vπ −
+                                                       → H 1 (spec ok , C)(π) .
+
+It is compatible with θ if θ acts on the left as θ(f ⊗ v) = (θ ◦ f ) ⊗ v. In accordance with the
+formula                          Y                    Y
+                        ζk (s) =     L(C[G](π), s) =      L(Vπ , s)dim Vπ
+                                    π                     π
+we expect:
+2.10. The eigenvalues α of θ on HomG (Vπ , H 1 (spec ok , C)) counted with their algebraic
+multiplicities are the non-trivial zeroes of the Artin L-function L(Vπ , s) counted with mul-
+tiplicity.
+
+                                                  4
+A corresponding assertion in the function field case is true, c.f. [10, § 9].
+In particular, we would get
+2.11.    dimC HomG (Vπ , H 1 (spec ok , C)θ∼α ) = ords=α L(Vπ , s) .
+
+For α = 1/2 this amounts to the formula
+2.12.    dimC HomG (Vπ , Vk ) = ords=1/2 L(Vπ , s) .
+Theorem 2.13. For a number field k there is no functorial real valued cohomology theory
+H • (spec ok , R) with endomorphism θR such that H • (spec ok , C) := H • (spec ok , R) ⊗R C with
+θ := θR ⊗ id satisfies property 2.12.
+
+Proof. Let k be a finite Galois extension of Q whose Galois group G has an irreducible
+symplectic representation Vπ with root number W (π) = −1. For example, there exist
+quaternion fields i.e. normal extensions of Q with Galois group the quaternion group H8
+with 8 elements whose Artin L-function for the unique non-abelian representation (it is
+symplectic) has root number −1. See [12] for examples of such fields. From the functional
+equation of L(Vπ , s) it follows that ords=1/2 L(Vπ , s) ≥ 1 is odd. By property 2.12 the rep-
+resentation Vπ occurs with odd multiplicity HomG (Vπ , Vk ) in Vk . If a theory H • (spec ok , R)
+as in the theorem exists set
+                                                             1
+                                   VkR = H 1 (spec ok , R)θ∼ 2 .
+Then VkR would be a G-module with Vk = VkR ⊗R C. and we could write VkR as a sum of
+irreducible representations W of G over R. According to [17, 13.2] there are three possi-
+bilities for W . If W has the form W = ResV for an irreducible non-self dual irreducible
+representation V over C, then we would have W ⊗ C = V ⊕ V and since both V and
+V are not self-dual they cannot be symplectic. If W is orthogonal then W ⊗ C is an ir-
+reducible orthogonal C-representation and hence not symplectic. If W is symplectic i.e.
+W = ResV for a symplectic irreducible representation V over C then W ⊗ C = V ⊕ V . It
+follows that the symplectic representation Vπ occurs with even multiplicity in Vk . This is a
+contradiction.
+
+I would like to thank one of the referees for suggesting this simplification of my original
+argument.
+There is thus no real valued “Weil-”cohomology for arithmetic curves. On the other hand,
+the operator ∗ in 2.7 would give a canonical quaternionic structure on H 1 (spec ok , C) and
+hence we could view (H 1 (spec ok , C), ∗) as an object of KR, equal to its degree 1 part. The
+groups H 0 and H 2 being isomorphic to C by 2.2 and 2.4 must be equal to their degree
+zero parts if they actually take values in KR. In other words, they must have natural
+real structures. For H 2 the real structure would be the image of the cycle class map (1)
+in Morin’s heuristic argument above. We noted that cl would have to factorize over the
+Arakelov degree map onto R.
+Hence, a “Weil-”cohomology theory with values in KR is a possibility for arithmetic curves.
+In [6], [7] we discussed analogies between the leafwise (or tangential) cohomology of certain
+foliated dynamical systems and cohomologies such as the hoped for H 1 (spec ok , C). The
+
+                                                 5
+operator θ corresponds to the infinitesimal generator of the induced R-action by the flow
+on leafwise cohomology. Complex leafwise cohomology always has the real structure given
+by the cohomology of the real forms. Since such a real structure cannot exist on the
+cohomologies H 1 (spec ok , C) as we have seen, it follows that the analogy is too simple. There
+has to be a twisted version of leafwise cohomology with complex coefficients that does not
+have a natural real structure. This can become relevant since in [9] we did construct foliated
+dynamical systems for arithmetic schemes which have some (but not all) the expected
+properties.
+We will now state the expected properties of the spaces Vk = H 1 (spec ok , C)θ∼1/2 and suggest
+the problem to find a direct number theoretical construction of the Vk . This refines the
+discussion in [3, § 7]. We need the following conjecture which is due to Serre (unpublished).
+Sarnak and Rubinstein also arrived at this conjecture in a wider context on p. 195 of [14].
+Previously Chowla had conjectured that the Dirichlet L-series of quadratic characters do
+not vanish at s = 1/2.
+Vanishing Conjecture For an irreducible complex representation of the Galois group of
+Q the corresponding Artin L-function has a zero at s = 1/2 if and only if the representation
+is symplectic with root number −1. In this case the order of vanishing is one.
+If the root number is −1, the functional equation implies that the Artin L-function vanishes
+at s = 1/2. For orthogonal irreducible representations it is known that the root number is
++1 by [10]. Hence there is no a priori reason why their L-functions should vanish at s = 1/2.
+For certain quaternion fields the vanishing conjecture has been verified numerically in [12].
+If k/Q is Galois, it follows from 2.12 and the vanishing conjecture that precisely the sym-
+plectic π’s with W (π) = −1 among the irreducible representations of G are realized in the
+G-module Vk and each of them with multiplicity one. Thus, as C[G]-modules we should
+have
+               L
+2.14. Vk =         π sympl Vk (π) and Vk (π) ∼ = Vπ .
+                  W (π)=−1
+
+
+
+Since the Vk (π) are irreducible self dual and pairwise non-isomorphic, it would follow that
+the cup-product on Vk gives the (up to scalar) unique G-invariant symplectic pairing on
+Vk (π).
+All together we get the following suggestion:
+ 2.15. There should be a covariant functor k 7→ (Vk , ∪) from the category of number
+fields k to the category of finite dimensional complex vector spaces Vk with a non-degenerate
+alternating form ∪ : Vk × Vk → C. If k is Galois over Q with group G, the C[G]-module
+structure on Vk resulting from functoriality should be the one described in 2.14. In particular,
+we should have                                  X
+                                    dimC Vk =        dim Vπ .
+                                              π sympl
+                                             W (π)=−1
+
+Moreover, we expect the symplectic vector spaces (Vk , ∪) to be equipped with an antilinear
+isomorphism ∗ : Vk → Vk with ∗2 = −1 such that we obtain a scalar product by setting
+                               hv, wi = v ∪ ∗w      for v, w ∈ Vk .
+Like height pairings, the symplectic form ∪ should be a sum of local contributions.
+
+                                                6
+In case a natural candidate for Vk can be found, one may also expect a formula for the leading
+coefficient of ζk (s) at s = 1/2 in the style of the Birch Swinnerton-Dyer or Lichtenbaum
+Weil-étale conjectures. From the point of view of the Beilinson conjectures, Vk would be
+the 1/2-eigenspace of the Adams operators on K0 (k), or the CH 1/2 group of spec k or the
+group of extensions Ext1 (C(0), C(1/2)) in some C-linear category of “motives” over k where
+a 1/2-twist of the Tate motive exists. Classically all these objects do not make sense in the
+number field case. In the function field case the H 1 of a supersingular elliptic curve over
+a finite field can be used as a kind of 1/2-Tate twist, c.f.[13]. In the Galois module theory
+of rings of integers in tamely ramified extensions k/Q, symplectic representations with root
+number −1 play a vital role. Also, exponential motives come to mind because they allow
+non-integral twists.
+Acknowledgements. I would like to thank the referees for their suggestions to simplify
+and improve this note. I am also grateful to Luca Barbieri Viale, Werner Bley, James
+Milne, Baptiste Morin, Peter Sarnak and Jean-Pierre Serre for valuable mathematical and
+historical comments. Many thanks go to Umberto Zannier for the invitation to the SNS in
+Pisa, where the first version of this note was written.
+
+
+
+References
+ [1] P. Deligne and J. S. Milne. Tannakian Categories, pages 101–228. Springer Berlin
+     Heidelberg, Berlin, Heidelberg, 1982.
+ [2] Christopher Deninger. Motivic L-functions and regularized determinants. In Motives
+     (Seattle, WA, 1991), volume 55 of Proc. Sympos. Pure Math., pages 707–743. Amer.
+     Math. Soc., Providence, RI, 1994.
+ [3] Christopher Deninger. Motivic L-functions and regularized determinants. II. In Arith-
+     metic geometry (Cortona, 1994), Sympos. Math., XXXVII, pages 138–156. Cambridge
+     Univ. Press, Cambridge, 1997.
+ [4] Christopher Deninger. Some analogies between number theory and dynamical systems
+     on foliated spaces. In Proceedings of the International Congress of Mathematicians,
+     Vol. I (Berlin, 1998), number Extra Vol. I, pages 163–186, 1998.
+ [5] Christopher Deninger. On dynamical systems and their possible significance for arith-
+     metic geometry. In Regulators in analysis, geometry and number theory, volume 171
+     of Progr. Math., pages 29–87. Birkhäuser Boston, Boston, MA, 2000.
+ [6] Christopher Deninger. Number theory and dynamical systems on foliated spaces.
+     Jahresber. Deutsch. Math.-Verein., 103(3):79–100, 2001.
+ [7] Christopher Deninger. Analogies between analysis on foliated spaces and arithmetic
+     geometry. In Groups and analysis, volume 354 of London Math. Soc. Lecture Note Ser.,
+     pages 174–190. Cambridge Univ. Press, Cambridge, 2008.
+ [8] Christopher Deninger. The Hilbert-Polya strategy and height pairings. In Casimir
+     force, Casimir operators and the Riemann hypothesis, pages 275–283. Walter de
+     Gruyter, Berlin, 2010.
+
+                                              7
+ [9] Christopher Deninger.       Dynamical systems for arithmetic schemes,          2022.
+     arXiv:1807.06400.
+
+[10] A. Fröhlich and J. Queyrut. On the functional equation of the Artin L-function for
+     characters of real representations. Invent. Math., 20:125–138, 1973.
+
+[11] J. S. Milne. Motives over finite fields. In Motives (Seattle, WA, 1991), volume 55 of
+     Proc. Sympos. Pure Math., pages 401–459. Amer. Math. Soc., Providence, RI, 1994.
+
+[12] Sami Omar. On Artin L-functions for octic quaternion fields. Experiment. Math.,
+     10(2):237–245, 2001.
+
+[13] Niranjan Ramachandran. Values of zeta functions at s = 1/2. Int. Math. Res. Not.,
+     (25):1519–1541, 2005.
+
+[14] Michael Rubinstein and Peter Sarnak. Chebyshev’s bias. Experiment. Math., 3(3):173–
+     197, 1994.
+
+[15] Peter Scholze. p-adic geometry. In Proceedings of the International Congress of
+     Mathematicians—Rio de Janeiro 2018. Vol. I. Plenary lectures, pages 899–933. World
+     Sci. Publ., Hackensack, NJ, 2018.
+
+[16] Jean-Pierre Serre. Analogues kählériens de certaines conjectures de Weil. Ann. of
+     Math. (2), 71:392–394, 1960.
+
+[17] Jean-Pierre Serre. Linear representations of finite groups. Graduate Texts in Math-
+     ematics, Vol. 42. Springer-Verlag, New York-Heidelberg, 1977. Translated from the
+     second French edition by Leonard L. Scott.
+
+
+
+
+                                            8
+

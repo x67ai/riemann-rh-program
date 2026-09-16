@@ -1,0 +1,838 @@
+COMMUNICATIONS ON PURE AND APPLIED MATHEMATICS, VOL. XXVII,                      143-159 (1974)
+
+
+
+
+           Zeros of the Partition Function for
+               Generalized Ising Systems*
+                                CHARLES M. NEWMAN
+                                        Indiana University
+
+
+
+                                       1. Introduction
+    The Lee-Yang circle theorem (cf. [lo]) is a highly useful result for the rigorous
+study of phase transitions in ferromagnetic spin systems and lattice gases (cf.
+[ 121, Chapter 5). When applied to a system of one-dimensional independent
+“spin” random variables, {Sj : j = 1, * * , N } , with Hamiltonian
+
+
+
+
+the theorem concludes that the partition function, E(exp { - p H } ) , does not
+vanish when ~‘25zj > 0 for all j providing that J k j >= 0 for all k and j
+(ferromagnetic interactions). Lee and Yang proved this result only for the
+case of spin   a,but it was later extended first to spin 1 and $ (cf. [l], [15]) and
+then by Griffiths to spin in (where each Si takes on the equally likely values:
+-n, -n     + 2,     , +n) and to uniformly distributed continuous spins (cf.
+[5]). Generalizations of other types have also been made (cf. [2], [13], [16]).
+     Extensions of the Lee-Yang theorem to continuous spin systems are useful
+not only in statistical mechanics but also in constructive quantum field theory.
+I t has recently been shown by Guerra, Rosen and Simon [7] how P ( $ ) 2 Eucli-
+dean quantum fields can be approximated by “general Ising models’’ with
+continuous spins and Hamiltonians such as (1.1). Simon and Griffiths then
+extended the Lee-Yang theorem to continuous spins, Si, with probability distri-
+butions, pi , of the form
+
+
+
+
+   *  This research was supported by the National Science Foundation, Grant NSF GP-24003
+at the Courant Institute of Mathematical Sciences. Reproduction in whole or in part is permitted
+for any purpose of the United States Government.
+     zj represents the external magnetic field at the j-th site and should not be confused with the
+activity variable used in the usual polynomial formulation of the Lee-Yang theorem.
+
+                                               143
+@ 1974 by John Wiley & Sons, Inc.
+144                             CHARLES M. NEWMAN
+
+
+                        +
+where P,(S) = a, S4 6 , S2 for a, > 0, and used this result to derive several new
+properties of the (44)2quantum field theory (cf. [14]). They also showed that
+there are (even, bounded below) sixth degree polynomials which, when sub-
+stituted into (1.2), lead to distributions which do not satisfy the Lee-Yang
+theorem.
+    I n this paper we investigate the class of distributions for which the Lee-
+Yang theorem is valid. We allow each y , to be a signed (real-valued) measure
+but require it to be either even or odd. O u r basic result is that a necessary and
+sufficient condition for the Lee-Yang theorem to be valid for every B > 0 a n d
+every choice of Jkf 2 0 is that it be valid for J k j 0 (noninteracting spins).
+
+    'THEOREM 1.1.   suppose that each p i , i = 1, *       *   , N , is a signed even or odd
+nonzero measure on R satisfying y i ( S ) # d(S),
+
+
+                     j e x p { b S 2 }d Iyu,(S)l< co f o r all b 2 0 ,
+
+and
+
+
+
+
+and sufipose H is dejned by (1.1) with Jkj 5 0. r f            B > 0 and g e z j > 0 for
+all j , i t follows that the partition function
+
+
+
+
+and the correlation functions
+
+
+
+
+do not vanish; in addition,
+
+
+(1.5)
+
+
+   Remark 1.1. This theorem can be extended to the case where the inequality
+in (A) is only assumed valid for some 6 > 0 ; in that case the conclusions will
+only be valid for small /I (depending on (.Ikj)). The proof of this extension is
+conipletely analogous to that of the main theorem as given in this paper except
+that Lemma 2.1 below must be generalized (in a straightforward way) to ac-
+count for the weakened form of condition (A).
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                                   145
+
+   Remark 1.2.      When condition
+                                                                            1
+                                           (A) is satisfied, E,(z) = eZSd,u(S) is a n
+entire function of z. Since ,u is either even or odd, condition (B) is identical to
+the requirement that E, have only pure imaginary zeros or equivalently that
+the characteristic function (Fourier transform) of ,u have only real zeros. We
+note that the indices ii in (1.4) and (1.5) may be repeated and that (1.5) is a
+generalization of Griffiths’ (first) inequality (cf. [4], [9]) to complex zi.
+    Remark 1.3. By the results of [14], the nonvanishing of (1.4) and the in-
+equality (1.5) apply immediately to the Schwinger functions (correlations) in
+the lattice approximation to the (q54))z Euclidean quantum field theory. They
+should also apply to the Schwinger functions (evaluated at noncoincident points)
+in the non-lattice (q54)2 field theory.
+    The above theorem (except for (1.5)) is a direct consequence of Theorems
+2.5 and 2.6 of the next section. The proof is basically similar to that used in [5]
+and [14], where the system of continuous spins is expressed in terms of “analogue”
+spin 3 systems (as in the proof of Theorem 2.2 below). I n Section 2 we also
+show directly that all the one-dimensional spin distributions considered in [ 5 ]
+and [14] satisfy the hypotheses of our theorem; this yields a new proof that the
+Lee-Yang theorem is satisfied in those cases. We also note there that the Lee-
+Yang theorem is valid for distributions of the form d,u/dS = exp { - A cosh 53
+with A > 0. Finally, a special case of higher order Griffiths’ inequalities is
+shown to follow from the conclusions of the Lee-Yang theorem.
+                                                 +
+    I n Section 3 we reconsider the spin case and obtain stronger results than
+those of the usual Lee-Yang theorem; these results give a new and quite simple
+proof of that theorem as a special case. The results are then extended to spin
+distributions satisfying (A) and (B) ; this yields the inequality (1.5) as a corollary
+(Theorem 3.3). Another corollary (Theorem 3.4) extends Griffiths’ second
+inequality (cf. [4], [9]) to pure imaginary zj.
+
+
+                               2. The Lee-Yang Property
+
+   We use vector notation freely with cr, S, A, J, x, y belonging to RN and
+z=x     +iy E CN.The components of a vector Q are (al, . * * , an,) and
+inner products are denoted by z cr = zlal         *    +-- +
+                                                      zN a,; 994 z is defined
+as the vector (94tl, * * * , g&t N ) .We let f = (Jkj)Fsj=l        and define
+                N
+j ( a , cr) =   1 J k jakai ; x > 0 means that xi > 0 for all j and 2 2 0 means
+            ksj=1
+that Jkj 2 0 for all k , j .
+   DEFINITION.
+             An Ising system2 is a pair ( N , p N ) , where N is a positive
+
+    More correctly, this should be called a ferromagnetic Ising system with pair interactions.
+146                             CHARLES M. NEWMAN
+
+
+integer and p N is a positive measure on RN of the form,
+
+
+
+
+   We now state the Lee-Yang theorem as follows.
+
+   ‘rHEOREM 2.1.     r f ( N , p N ) is an Ising system, then
+
+
+(2.2)
+
+whenever 9 8 z > 0.
+
+   DEFINITION. A set of totally finite signed measures on R will be said to
+have the Lee-Yang property, if for every positive integer N , every choice of
+                           -
+nonzero measures pI , * , prv belonging to the set, and every choice of
+   >=
+3 0, the following two conditions are satisfied:
+
+
+and
+
+
+
+
+A single measure p will be said to have the Lee-Yang property if { p } does.
+    Thcorcm 2.1 may thus be restated as the fact that + ( S ( S - 1)     +
+                                                                       6(S 1 ) )+
+has the Lee-Yang property. By taking N = 1, we see immediately that con-
+ditions (A) and (B) of Section 1 are necessary conditions for a measure to have
+the Lee-Yang property. We shall prove that, in the case of even or odd measures,
+they are sufficient as well.
+
+     DEFINITION.   Let Jlr be the set of all even or odd signed measures (either
+p ( S ) = p(-S) for all S or p ( S ) = - p ( - S )  for all S) on the real line
+satisfying conditions (A) and (B).
+
+     DEFINITION.      A generalized Ising system is a pair ( N , p N ) , where N is a
+positive integer and p N is a nonzero signed measure on RN of the form given
+in (A’) with   9        0 and each pi E JV ( p j ( S )# a(&’)). Its partition function,
+Z ( z ) , is defined by (B‘).
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS               147
+
+    Theorem 2.5 below states that the Lee-Yang theorem is valid for generalized
+Ising systems; the proof is based on the fact that measures in A’” can be well
+approximated by certain measures constructed from Ising systems.
+
+    DEFINITION.
+             Let 9 be the set of all signed measures         ,u on the real line
+such that
+
+
+                 J
+
+
+
+
+for some Ising system ( N , p N ) with A > 0, nR = 0 or 1, and K real.
+
+   EXAMPLE
+         2.1.        If N = 1, 1, = l/a, and n, = 0, then
+
+
+                                E,(z) = Kcosh
+                                                 (3.
+   EXAMPLE
+         2.2.        If N = 1, ill = l/a, and n1 = 1, then
+
+
+(2.5)
+
+   EXAMPLE
+         2.3.        If N = 2, A, = A, = l/a, and n, = n2 = 1, then
+
+
+(2.6)
+              E,(t)= &rC exp {J12}(
+                                  cosh 22  (-) - exp {-2J12)) .
+                                             a
+
+    Every ,u € 3 satisfies (A) since it has finite support and satisfies (B) by
+Theorem 2.1; by using Grifiths’ method of “analogue” systems (cf. [5]), one
+easily proves the following :
+
+        2.2. 9 has the Lee-Yangproperty.
+   THEOREM
+
+    Proof: Since any set of measures satisfying (A) also satisfies (A’), we need
+                                                                         -
+only show that 9 satisfies (B’). We choose nonzero pi € 3 j, = 1, * * , N ,
+and express each E j = E,,, in terms of an Ising system ( M i ,pj(uj)) according
+to (2.3):
+
+
+                            s
+                   = D j exp {zi(Aj uj) + i$rrnj oi}dpj(oj),
+              Ej(zj)
+148                                      CHARLES M. NEWMAN
+
+
+where Aj oi =1            2 AF'o;', etc. We define a new Ising system ( M ,p M ) with
+                          k=l
+izf = M l    + - + M N and
+                 *    *
+
+
+
+
+With Z ( z ) defined as in (R') we have
+
+
+
+
+Since 94z > 0 implies that 28 ( z kA:?)                + i & n n F 1 )> 0 for all k , j , it follows
+from Theorem 2.1 applied to ( M , p')                    that    Z ( z ) # 0 when         942   >0
+which completes the proof.
+
+   DEFINITION.3 is the set of signed measures ,u on R which satisfy (A)
+and for which there exists a sequence p, €9 such that
+
+      (i) IEp,(Z)I        s C exp {c   IZP}     for    z E C,
+
+with C and c independent of n ; and
+    (ii) E,,(z)      -+    E,,(,T) uniformly on compact subsets of C.
+
+    Since measures in 9 are either even or odd, the same is true for 3; in
+addition it follows from (ii) and Hurwitz' theorem (cf. [ 8 ] , p. 205) that measures
+in 3 satisfy (B). We thus have that 3 C N . The next theorem states that
+in fact 3 = N.
+
+    THEOREM          2.3.       If ,u is an even or odd signed measure satisfying (A) and (B),
+then ,u € 3 .
+
+    The proof of Theorem 2.3 requires several lemmas; we assume ,u satisfies
+the hypotheses of Theorem 2.3 and we carry over notation from one lemma
+to the next.
+
+        2.1 , L', (2) can be represented as
+    LEMMA
+
+
+
+
+                                                                                     Da
+f o r some K E R, non-negative integer m, and 0       < a1 s a2 5 -     * *   with   2(      < 03.
+                                                                                     $4
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                                     149
+
+    Proof: p satisfies (A) and thus E,(z) is a n entire function either of ex-
+ponential order strictly less than 2 or of order 2 and minimal type. Moreover, p
+also satisfies (B) and is either even or odd so that its zeros are pure imaginary
+and occur in conjugate pairs; we allow for z = 0 to be a zero of multiplicity
+m and express its other zeros as t = f i u j with 0 < u1 5 uz 5 * . . When
+                                                        W
+                                                                                               -
+E, is of order less than 2, it follows that            2 ( l / a j ) " < co for some p < 2; we
+                                                       1=1
+then express E p by the Hadamard factorization theorem (cf. [8], p. 199), com-
+bine the terms corresponding to f i a j , and use the evenness or oddness of E,
+to eliminate exponential factors and obtain (2.8). If E,, is of order 2 and
+                                                   W
+
+minimal type, then it follows that
+                                   '='
+                                                   2
+                                       ( l / u j ) " < co for all p 2 2 (cf. [8], p.
+196) and again we obtain (2.8).
+   We denote the convolution of p and p' by p * p' and recall that
+
+
+
+    LEMMA
+        2.2.              If p1 , pz E 9, then p1 * p2 E 9.
+   Proof: If each pi is related to an Ising system ( N i , p i ) as in (2.3), then
+pl * pz is related in the obvious way to the Ising system ( N l N , , p), where      +
+p is the direct product of p1 and p 2 on R N 1+ N 2; thus p1 * pz E 9.
+                                                                            -
+   LEMMA2.3. For any positive integer n and any a 2 4 2 u, , there is a measure
+pn+ E 9 such that
+
+(2.9) E ,
+            n.a
+                  ( z ) = K [ a sinh (f)]mfi'('y[.~sh
+                                             7=12 u j
+                                                               ):(        - ( 1 -])!:(2
+
+    Proof: This follows immediately from Lemma 2.2 together with Examples
+2.2 and 2.3 above.
+                                                                      -
+    Proof of Theorem 2.3: We let a,, = sup ( 1 , J2 u , ,2n                         + m + 2), define
+E n ( z ) as the right-hand side of (2.9) with a = a , , and let
+
+(2.10)
+
+We must show that E n --f E, in the sense of (i) and (ii) above. By using the
+elementary inequalities
+
+
+
+(2.1 1)
+                   1 It
+                    j=l
+                          aj -   fi b j 1 2 ( i l a j - bjl) fi
+                                 j=l         j=l             j=l
+                                                                   S U P (1, laA,   Vjl)   9
+
+
+
+
+                   sup (1, lajI, Pjl) 2 (1     + 16, - 11 + l a j - bjl)
+150                               CHARLES M. NEWMAN
+
+
+together with the simple estimates (for a, E 2 l ) ,
+
+
+
+
+         1   + E 12~1'7+ lcosh (2w) - 1 - 2w21 S exp (28 lwI2 + 2 Iwl},
+                          E
+
+
+for w = z/a, and       E = $ ( a n / u j ) z ,one finds that
+
+
+
+
+(2.12)
+
+
+
+With our choice of a , , (2.12) is easily estimated, yielding
+
+
+
+
+               m
+where D =      2 ( l / ~ ~ I)t ~is .also easy to see that
+              j=1
+
+
+
+
+and, of course,
+
+
+
+Combining (2.13), (2.14) and (2.15), we see that
+
+
+
+for a fixed polynomial Q and that IE,(z) - E,(z)l       0 uniformly on com-
+                                                               ---f
+
+
+pact subsets of @. We have thus shown that E n--+ E , in the desired sense
+which completes the proof.
+    The following proposition will be used in proving that 2 has the Lee-
+Yang property; it is also interesting in its own right.
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                             151
+
+    PROPOSITION       2.4. r f p(S) belongs to N,then so do exp {bS2)p(S) and
+Q ( S ) p ( S )for any b )= 0 and any polynomial Q which is even or odd and has onb
+pure imaginary zeros.
+   Proof To show that Q p E M , it suffices to show that Eo,,(z) has only
+pure imaginary zeros. Now EQ,,(z) = Q(d/dz)E,(z) = lim Q(d/dz)En(z)(uni-
+                                                                             n-m
+formly on compacts in C)where E n ( z ) is the polynomial with only pure
+imaginary zeros given in (2.10). By Hurwitz' theorem, it suffices to show that
+Q(d/dz)E,(t) has only pure imaginary zeros; this follows from standard results
+for polynomials (e.g. [I 13, pp. 62-63). Finally, to show that p' = exp {bS2}pE &",
+we note that, by the first part of the proof, p n       (1      = +
+                                                             bS2/n)npE JI' and that
+E J z ) +-E,,,(z) uniformly on compacts in C ; hence, by Hurwitz' theorem,
+EN. has only pure imaginary zeros and thus p' E X .
+
+           2.5. M ( = 2)has the Lee-Yangproperty
+      THEOREM
+                                                                  -
+    Proof: We choose nonzero p k €3,k = 1, * , N, and define p N ( S )
+and Z N ( z ) as in (A') and (B'); it is only necessary to show that (B') is satis-*
+fied. By Proposition 2.4, we may assume without loss of generality that Jkk= 0
+for all k, since otherwise pk(Sk) can be replaced by exp (JkkS2)pk(Sk).W e
+choose p3,$€9according to the definition of 3 so that E 3 , z ( z )= E P j , J z )3
+E,(z) -= E P 3 ( t )uniformly on compacts in C as i --t co, while
+
+(2.17)                                              2
+                                      l ~ ~ , * ( z ) lceclzl*
+
+                                                                         -
+independent of j and i. For a multi-index i = (il , * * , iN) we define pi(S)
+and Zi(z) analogously to pN and Z N (according to (A') and (B')) but with
+p3,%,replacing p, for every j = 1,           --
+                                         , N ; we also define p i , k and z i , k
+analogously but with ,u,,,~replacing ,u3 only for j = k, k    1, * * , N .     +       -
+   According to Theorem 2.2, Z,(z) # 0 when 9 8 z > 0. For each j , we
+may consider Zi as a n entire function of z, (z,, fixed,j' # j ) ; it thus suffices
+by Hurwitz' theorem to show that, for each j , Z,(z)-+ Z N ( z ) uniformly on
+compact subsets of z, E C as i + co,to conclude that Z N # 0 when We z > 0.
+   We define
+                      sk   = ( S l , * ' * , sk-l   ,Sk+l   J   ' * ' J SN)>
+
+zk similarly,
+
+                  J k = (Jlk >         > J(k--l)k   3 Jk(k+l)    ,' '   J JkN)     9
+
+
+and
+ 152                              CHARLES M. NEWMAN
+
+
+ I n order to show that for each j
+
+                                Iim
+                                in+w
+                                       - . lim Z , ( z ) = Z N ( z )
+                                          *
+                                              il-.ffl
+
+
+
+ uniformly on compacts of zi , it su@-ces to show that, for each j = 1, . , N
+ and for each k = 1, * * , N , &(z) -+ Z i . k + l ( ~ )
+                                                     uniformly on compacts of zi
+ as ik -+ co. zi,k is defined as an integral over R N ; we first integrate over the
+ variable s k and find that
+
+
+
+
+  Now by (2.17) and the uniform convergence of Ek,ik to E, , we may take the
+  limit of (2.19) as i, + 00, either for k =j or for k # j , obtaining (uniformly
+'in zj),
+
+
+
+
+ Since the right-hand side of (2.20) is just Zi,k+l(Z),the proof is complete.
+    Given a generalized Ising system ( N , p N ) with partition function Z ( z ) ,
+ we define, for any suitable function F on RN ,
+
+
+
+
+ This definition makes sense at least for 9?.? z > 0 (or 9 4 z < 0) since in that
+ case Theorem 2.5 implies that the denominator is nonzero. As an immediate
+ corollary of Proposition 2.4 and Theorem 2.5, we have:
+
+    THEOREM     2.6. Ij" each    Qi(S) is an even or odd polynomial with only pure
+ imaginary zeros, then
+
+                            (Qi(SA* *              QN(~N)>.+0
+ when 9   4z > 0 ; in particular this is the case for           Qi(S)= Smi for non-negative
+ integers mi .
+
+   We give next some examples of measures belonging to N.The Lee-Yang
+theorem was already known to apply in Examples 2.4, 2.5 and 2.7 (cf. [5], [14]).
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                              153
+
+    EXAMPLE2.4. p(S) = (6(s- n)          6(s-  +                + 2) + . + 6(s-k n))/(n+ 1)
+                                                                         *   '
+is the distribution corresponding to spin $n:
+
+
+             EJz) = -
+                    n
+                      1 sinh ( ( n 1)z)
+                       1   + sinh z
+                                           +
+                                        =?(1                      + ( c n +i     y),
+where the product is taken over all j = 1, 2,             * *   not divisible by n   + 1.
+   EXAMPLE2.5. dp(S)/dS = +X~-~,~,(S)      is the density corresponding to a
+continuous spin uniformly distributed between - 1 and 1 :
+
+
+                           EJZ) =   * fi (g),
+                                       z       = 3=1 (1    +
+    EXAMPLE
+          2.6.          d,u/dS = exp { - A coshS) for il          > 0:
+
+
+K,(1) is a modified Bessel function of the second kind and for il > 0 has only
+pure imaginary zeros in z (cf. [3], Chapter VII).
+
+    EXAMPLE2.7. dp/dS = exp {-AS4 - bS2) with 1 > 0 and real b is the
+density arising in the lattice approximation to a ( c $ ~ ) ~
+                                                           Euclidean quantum
+field theory (cf. [7], [14]). We show that p E M by noting first that, according
+to Example 2.6 and Proposition 2.4, the measure p,, , defined by
+
+
+(2.21)
+             din
+                           [
+             - = exp -(4 !)iln4[cosh
+             dS
+                                                (f) - 1 - -(-y]
+                                                          1 s
+                                                          2 n
+                                                                - bS'},
+belongs to N for sufficiently large n and that E J z ) - E , ( z )                    uniformly
+on compacts.
+
+   Remark 2.1. To apply the Lee-Yang theorem to P(#)z quantum fields,
+it would be useful to find conditions on a polynomial P guaranteeing that
+dp = exp { - P ( S ) } dS E N. We have no example of polinomials of degree
+higher than four for which this is the case; we can show the negative result
+                    n
+
+that if P ( S ) =    C r, SZk is such that r3 > 0 while r2 < 0, then
+                    k=l
+                               dp = exp {-AP(S) - bS2) dS
+
+cannot belong to Jlr for all 1,b > 0. This result is obtained by methods
+similar to those used in Proposition 2.4 and Example 2.7. One can similarly
+ 154                                       CHARLES M. NEWMAN
+
+show that if exp { -bS2}p(S) E JV for all b 2 0, then exp { -AS4 - bS2}p(S)E JV
+for all A > 0 and all real b .
+    Remark 2.2. The correlation inequality of Griffiths, Hurst, and Sherman
+[6] is known to apply to Ising systems and to the distributions of Examples 2.4,
+2.5 and 2.7 (cf. [ 5 ] , [6], [14]). I t cannot be valid for all measures in M since
+it aIready fails for the measure in 9 given in Example 2.3. I n fact, Griffiths'
+second inequality (cf. [4], [9]) also fails for this measure. This can be seen by
+noting that, for m = 2 or 3, the sign of
+
+
+
+
+is independent of z > 0 only when $ 5 0. O n e can however choose A > 0,
+define EL(.) = Z ( z h ) where Z is the partition function of a generalized
+Ising system, and note that EL(t) has the representation (2.8) with {aj} de-
+pending on A. If EA(0)# 0 (e.g., when all pi are positive), it then follows
+from the expansion
+                             log (1    + ZZ) = -     z2      4z4   + gzs - - -   *
+
+
+
+that there are universal constants             E,    > 0 so that
+                      d"               >O      for        m=l,2,5,6,9,10,..-,
+(2.22)               -log EL
+                     dz"               < 0 for            m = 3, 4, 7, 8, *    ,
+when 0 < z < &,a1.
+    The case m = 2 (respectively, m = 3) is a special case of Griffiths' second
+(respectively, the Griffiths-Hurst-Sherman) inequality for small t. We re-
+state this result in a form applicable to the truncated Schwinger functions
+((4(f ))m)T , with f 0, of                     +
+                                     b4* Euclidean quantum field models.
+
+    THEOREM     2.7. Suppose u is a random variable such that E(e") is an entire
+even function of z of exponential order less than four with only pure imaginary zeros.
+Then, f o r each m = 1, 2, 3, * * ,    -
+                               d"
+                ( u " ) ~ ,=~ -log E(eZ")
+                                         2 0 for                     m = 1 , 2 , 5,6, *   - ,
+                                                                                           *
+
+
+                              dz"          0 for                     rn = 3,4, 7, 8, *         ,
+f o r suficiently small positive z .
+    Proof:     This follows, as in Remark 2.2, directly from the Hadamard factor-
+ization
+
+(2.23)
+
+where b > 0 and            2 (I/.,)*
+                        5= 1
+                                            < CO.
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                          155
+
+                           3. A Strong Lee-Yang Theorem
+
+                                                                     -
+     I n this section we consider multi-indices m = ( m , , . , m N ) for mi = 0,
+1, * . and denote by       am                                            ..-
+                             the partial derivative a ~ m ~ / a ( x l ) n L ~
+                                                                           a(xA,)vzflwhere
+Iml = m,    +       + mN.
+
+   THEOREM
+        3.1. Let (N, p N ) be an Ising system, z = x            + iy,
+
+
+and, f o r anyjxed y, let F N ( x ) = IZN(x   + iy)I2. Then, f o r every m, a m p N ( %>) 0
+when x > 0.
+
+    Proof: We note first that F N ( x ) is a finite multinomial in powers of exp {xj}
+and exp {-xj}; it suffices accordingly to show that its multi-Taylor coefficients
+                                         >=
+are non-negative, i.e., that a m F N ( 0 ) 0 for all m.
+   We proceed by induction on N . We know that when N = 1
+
+
+
+
+has non-negative Taylor coefficients as a function of x, . We assume now the
+theorem to be true for any Ising system of degree N and consider an Ising system
+of degree N     +1 and a particular multi-index m' = (m, ,                     -
+                                                                  , mi", mN+l) ;
+we wish to show that (am'FN+l)(0) 5 0. This is trivially the case for m' = 0
+so that by relabelling we may assume without loss of generality that m =
+mN+l   >
+   We now reserve vector notation for N-dimensional vectors so that m' = (m, m )
+                      --                       -
+with m = (m, , * , m N ) , x = ( x l , * * , x N ) with x = x N + , ,  =           am' amam
+with   am
+        acting on x and am = am/axm, etc.; we also define
+
+
+
+
+With this notation, we have
+
+
+
+
+so that, since m    > 0,
+I56                             CHARLES M. NEWMAN
+
+
+             +                    +
+Now Z N ( x i y ) = ZLv(-x i y ) (where the bar denotes complex conjuga-
+tion) so that F N ( x ) = F N ( - x ) and thus amFN(J) = (-l)lmlamFN(-J).
+Applying    am
+             to both sides of (3.2) and using this last equality we see that
+
+                                                    if Iml   + m is o d d ,
+              amamFN+l(O, 0) =
+                                           amFN(J) otherwise .
+
+Since J )= 0, we have by our induction step that amFN(J)5 0 which com-
+pletes the proof.
+
+     Remark 3.1. The weaker form of the Lee-Yang theorem (Theorem 2.1) is
+of course just the special case of Theorem 3.1 when m = 0. The usual state-
+ment of the Lee-Yang theorem in its polynomial form (e.g. [lo], [12]) is actually
+somewhat more general than the form given in Theorem 2.1 in that each
+exp { -2Jkj} can be replaced by any real number between - 1 and 1. If we
+equivalently replace each Jkjby Jkf+ iinn,, with Jk,5 0 and nkj = 0 or
+1 , the conclusions of Theorem 3.1 are still valid.
+
+    THEOREM      3.2. If Z ( z ) is the partition function of a generalized Ising system
+( N , pN), then f o r every m
+
+                        am lZ(x + i y ) I 2 > O     when      x   >0.
+    Proof: We use the notation in the proof of Theorem 2.5. A consideration
+of the proof of Theorem 2.2 and especially of equation (2.7) shows that lheorem
+3.1 extends to measures in 9 ;yielding that 8" I Z i ( x          +     >
+                                                              i y ) I 2 0 for x         >
+                                                                                        0
+and any multi-index i. I t only remains to mimic the proof of Theorem 2.5
+and show that this inequality remains valid as i      CO. For fixed y , lZ(x
+                                                      ---f                          +
+                                                                                  i y ) l2
+is a real analytic function of the x j and, since it is not a polynomial, we need
+only show that    am IZ(x   +         >=
+                             i y ) I 2 0 for x    >
+                                                  0 to conclude that actually the
+strict inequality holds as desired. We further note that          {amIZIz} for varying
+m may be written in terms of expressions of the form
+
+
+
+
+for varying n together with complex conjugates (and similarly for             {am
+                                                                            lZilz}).
+Thus it is enough to show that any expression of the form (3.3) with p N re-
+placed by pi converges for all z to (3.3) as i + CO. This follows from the
+proof given in Theorem 2.5 for the fact that Zi -+Z , since it is easily seen that,
+when pi,,+ p i as j + a, in the sense of the definition of            J,
+                                                                  the same holds
+for (SJni              pi . This completes the proof.
+              --t (Sf)ni
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                        157
+
+   If we consider the specical case of          a"' = a / a x i , we see that Theorem 3.2
+implies that, when 9 e z > 0,
+
+
+(3.4)
+
+                         and use the notation of Theorem 2.6, we find that
+If we divide (3.4) by (2l2
+(3.4) is equivalent to
+
+(3.5)                                 928 (Q,    >0.
+Additionally, we note that since log Z ( z ) is analytic for        9 8z   > 0, it follows
+that
+
+                             a                      a               a
+           B?e (Si)= 9 e - log Z ( z ) = 9 m -log Z(z) = - arg Z ( z )
+                            axi                    ayi             ayi
+and thus (3.5) implies that, when 9 e z > 0,
+
+                                     a
+                                    -argZ(z)       >0
+                                    ayi
+Combining (3.5) and (3.6) with Proposition 2.4, we immediately obtain
+
+    THEOREM    3.3. If each Qj(S) is an even or odd polynomial with only pure imagi-
+nary zeros, and 9 8 z > 0, then
+
+
+(3.7)
+
+and equivalently
+
+
+
+
+                                          = S,"Ei for non-negative integers mj .
+in particular, this is the case .for Qj(Sj)
+
+    Remark 3.2. For A > 0, E,,(z)      Z ( z A ) has the representation given in
+(2.8) with a j = a,(A). I n the case of an Ising system, one may use (3.1) to
+verify (at least for $ > 0) that a,@) is the solution to
+158                                     CHARLES M. NEWMAN
+
+
+                       -
+where A‘ = (A,, * , AN-1) and the other notation mimics that in (3.1). Then
+it follows from (3.6) applied to ZN-l that
+
+(3.10)                        ocj(A,)     @,(A,)         if      A, 2 A, .
+
+This inequality can be extended to generalized Ising systems by using Hurwitz’
+theorem and the usual limit arguments.
+   Finally, we consider Theorem 3.2 in the special case                        am
+                                                             = a2/ax, a x , . We
+then have that, when g e z > 0,
+
+
+(3.11)
+
+
+Dividing (3.1 1) by        1212,   we see that
+
+
+
+                                                              -
+Letting x -+o and using the fact that (&)iy      = -(&)i,,,   we immediately
+obtain the following extension of Griffiths’ second inequality to pure imag-
+inary z.
+
+    THEOREM
+         3.4.              If Z ( i y ) # 0, then
+
+
+   Acknowledgement. The author has benefited from discussions with many
+people during the course of this research including J. Dimock, J. Glimm, R.
+Grifiths, F. A. Grunbaum, P. Kelemen, 0. Lanford, J. Lebowitz, S. Sherman
+and T. Spencer.
+
+                                            Bibliography
+ [ l ] Asano, T., Generalized Lee-Yang’s theorem, J. Phys. SOC. Japan, Vol. 25, 1968, pp. 1220-1224.
+ [2] Asano, T., Theorems on the partitionjimctions of the Heisenberg ferromagnets, J. Phys. SOC. Japan,
+       Vol. 29, 1970, pp. 350-359.
+ 131 Gray, A., and Mathews, C. B., A Treatise on Bessel Functions and Their Applications to Physics,
+       2nd Ed., Dover, Nrw York, 1966.
+ 141 Griffiths, R. R., Correlations in Zsing ferromagnets, ZZ, external magneticJields, J . Math. Phys., Vol.
+       8, 1967, pp. 484-489.
+ 151 Griffiths, R. B., Rigorous results f o r Ising ferromagnets of arbitrary spin, J. Math. Phys., Vol. 10,
+       1969, pp. 1559-1565.
+ [6] Criffiths, R. H., Hurst, C. A., and Sherman, S., Concavity o f magnetization of an Zsing ferromagnet
+       in a positive externaljeld, J. Math. Phys., Vol. 11, 1970, pp. 790-795.
+ [7] Guerra, F., Rosen, L., and Simon, B., P ( + ) 2 EuclideanJield theory as classical statistical mechanics,
+       Ann. Math., to appear.
+ ZEROS OF THE PARTITION FUNCTION FOR GENERALIZED ISING SYSTEMS                                           159
+
+  181 HilIe, E., AnalyticFunction Theory, Vol. 11, Ginn, New York, 1962.
+  [9] Kelly, D. G., and Sherman, S., General Gri&ths’ ineqtdalities on correlations in Zsingferromagnets,
+      J. Math. Phys., Vol. 9, 1968, pp. 466-484.
+[ 101 Lee, T. D., and Yang, C. N., Statistical theory of equations of state and phase transitions, ZZ, lattice
+      gas and Zsing model, Phys. Rev., Vol. 87, 1952, pp. 410-419.
+[I 11 Marden, M., The geometry of the zeros of a polynomial in a complex variable, Amer. Math. SOC.,
+      Providence, 1949.
+[ 121 Ruelle, D., Statistical Mechanics-Rigorous Results, Benjamin, New York, 1969.
+[I31 Ruelle, D., Some remarks on the location o f zeros of the partition function for lattice systems, Comm.
+      Math. Phys., Vol. 31, 1973, pp. 265-277.
+[I41 Simon, B., and Griffiths, R. B., The (+4)2 j e l d theory as a classical Zsing moll, Comm. Math.
+      Phys., to appear.
+[I51 Suzuki, M., Theorems on the Zsing model with general spin and phase transition, J. Math. Phys.,
+      VoI. 9, 1968, pp. 2064-2068.
+[I61 Suzuki, M., and Fisher, M., Zeros of the partition function f o r the Heisenberg, ferroelectric and
+      general Zsing models, J . Math. Phys., Vol. 12, 1971, pp. 235-246.
+
+Received July, 1973.
+
