@@ -221,3 +221,43 @@ Rung 2's heading reads "the theorem holds, and the datum FIRES on DH's own off-l
 ---
 
 *End of referee report O. Written 2026-09-16, 19:29 IST. Note refereed: SHA-256 dd06d6913d51ff01a3f706c66cec4049af91053ae02dd55659982ed20313fa84. No file other than this one was created or modified by this referee; the Lean tree was read only, and the `#print axioms` check compiled a scratch file outside it.*
+
+---
+
+## Re-read after the second corrections section (Wed Sep 16 19:41 IST 2026)
+
+**Read for this re-read:** ONLY the section "Corrections after the two blind referees" (lines 489–497) of `results/c2-m2/separation-note.md`, whose SHA-256 is now `89fba193c985eb610b1c2a7a42d949f3ad1662ea2ab292f6aec0c39c7ee39e81`. I did not open `check-O.md`, `verify-O/`, `hashes-O.txt`, `SHARED.md` or `referee-F.md`; referee F's record items reach me only as quoted inside that section, which is the orchestrator's doing.
+
+### MAJOR-1 (ζ's density constant C₁) — **CLOSES**
+
+The section records my derivation correctly and I re-verified every number independently at 30 digits:
+
+* Three unit windows are indeed needed, and the section states the reason exactly (x − 1 ∉ (x−1, x] ∪ (x, x+1]). With (x−2, x−1], (x−1, x], (x, x+1] the worst Ncount argument has |t| ≤ |x| + 2, so log(|t|+3) ≤ log(|x|+5) ≤ (log 5/log 3)log(|x|+3), the ratio being worst at x = 0. **C₁(ζ) ≤ 3 · 5.4·10⁸ · (log 5/log 3) = 2.373·10⁹ → 2.4·10⁹** ✔.
+* **The shifted-window sharpening to 2.1·10⁹ is valid**, and I confirm it on its own terms: with (x−1−ε, x−ε], (x−ε, x+1−ε], (x+1−ε, x+2−ε] the union is (x−1−ε, x+2−ε] ⊃ [x−1, x+1] for every ε > 0, the worst argument has |t| ≤ |x| + 1 + ε, and since the quantity bounded does not depend on ε the infimum over ε > 0 of the upper bounds is itself an upper bound, giving the factor log(|x|+4)/log(|x|+3) ≤ log 4/log 3 = 1.26186 and **C₁(ζ) ≤ 3 · 5.4·10⁸ · (log 4/log 3) = 2.044·10⁹ → 2.1·10⁹** ✔.
+* Consequences check out: log(2b₁C₁) = **24.444** at 2.4·10⁹ and 24.295 at 2.1·10⁹ (b₁ = 8.70); **L*(δ = 0.1, t = 10⁶) = 1267.0** and **1261.0** respectively (the section's "≈ 1262" for the sharpened constant is 1261 by my computation — a rounding difference of no consequence).
+
+Recording 2.4·10⁹ as the value and 2.1·10⁹ as a noted valid sharpening is the right call: 2.4·10⁹ is the one whose covering argument needs no ε-limit. **My MAJOR-1 is closed.**
+
+### MAJOR-2 (the DH control's quotable headline) — **still MAJOR, narrowly: one false clause inside the new sentence**
+
+The substance of the repair is **accepted**. The new reading — that the DH control confirms the mechanism and the datum at the theorem's bandwidth on explicit finite configurations, and is **not** an instance of the theorem's hypotheses, with the window hypothesis and the reflection condition named as the two unverified ones — is exactly the qualification I required, and it is now attached to the sentence that will be quoted. Were it not for the following, I would close it.
+
+**The defect.** The parenthetical reads: "*the reflection condition (t/L\* = 0.985 against the proved 21 and the numerical-rate threshold t ≥ 32.9 at L = 87 — this one FAILS)*". DH's height is t = 85.699. **85.699 ≥ 32.9**, so DH *clears* the numerical-rate threshold with 2.6× to spare; it is only the **proved** form (t ≥ 21L = 1825 at L = 87) that fails. I recomputed the numerical-rate thresholds myself, running the same chain with c = 0.849 in place of c_B: least admissible t = **24.6 at L = 50, 32.5 at L = 87, 35.2 at L = 100** (the section's 25.0 / 32.9 / 35.7 from §12.1; the small differences are immaterial). So the clause "this one FAILS" is false on either reading, and it **contradicts §12.1 of the first corrections section**, whose entire purpose was to replace the earlier "numerically vacuous" claim by "satisfied at every parameter this program uses, **including the DH control at t = 85.7, L = 87**". Two corrections sections of the same note would then assert opposite things about the same number, and the false one sits in the headline.
+
+*Exact repair required (deletion or one clause):* strike "and the numerical-rate threshold t ≥ 32.9 at L = 87 — this one FAILS", replacing it by "**— the PROVED form t ≥ 21L = 1825 fails by a factor 21; the numerical-rate threshold at L = 87 is t ≥ 32.9, which DH clears (§12.1)**". Nothing else in the sentence needs to move, and no number elsewhere changes.
+
+*One further wording point, not a MAJOR:* the same sentence asserts "clauses 1–7 are theorems about the class 𝒞(C₁), **of which DH's strip-restricted zero multiset is a member**". Membership is `[recalled, unverified]` in the note itself (§6's hypothesis check and §12.4 both label the Riemann–von Mangoldt-type local count for DH as recalled, with no on-disk source). Write "a member **with some C₁** `[recalled — the RvM-type local count for DH; §6]`".
+
+### Item (d) (the §7.1 non-partition when 21L ≤ t < 40.5L) — **recorded correctly; CLOSES**
+
+Record item (d) states the point exactly as I raised it and prescribes the right fix: R = 81L while the reflection condition gives only t ≥ 21L, so for 21L ≤ t < 40.5L the reflected orbit at −t lies in the region |Re γ − t| ≥ R; **assign the reflected pair to clause 1 explicitly and exclude it from clause 5's sum**, after which the split is a genuine partition and the conclusion is untouched (clause 5's bound is over a superset of absolute values, so dropping two terms only decreases it). That is precisely my MINOR-1, and the prescription is the one I asked for.
+
+### Other record items spot-checked in this re-read
+
+(a) 8t²B̂(2tL)² = 1.8084·10⁻³¹ at t = 30, L = 40 — mine independently, ✔. (b) L*(0.3085, 85.7) = 86.99 at b₁ = 8.70 and 86.907 at 8.6461, §13's close at 17.4C₁ — ✔. (c) c_B = 0.14296065 — ✔. (e) clause 7's silence on II.4's depth family, and F's observation that at δ = 1/L the orbit term 8.3·10⁻⁴ sits below b₁/L² = 3.5·10⁻³ at L = 50 — ✔ (I confirm 2δ²c(δL)²|_{δ=1/L, L=50} ≈ 8.3·10⁻⁴ and b₁/L² = 3.48·10⁻³), and it is the right way to say the datum is blind in II.4's own regime. (g) the direct-summation figures (F's 70, my crossing near 57 at t = 3, C₁ = 1) are consistent: they differ because they fix different (t, C₁), which is exactly the uniformity price; 81 proved-and-uniform, 73 under §12.8, both conservative — ✔. (f) and (h) I did not re-derive, being referee F's items outside my MAJORs; neither bears on any grade of mine.
+
+### Grades after the re-read
+
+Clauses 1–7 **CLOSES** (unchanged). Clause 8 **CLOSES** — MAJOR-1 is repaired and the recorded constant is now correct. The single open item is **MAJOR-2, narrowed to one false clause in the new headline sentence**, with the exact replacement given above; it is a record defect, not a defect in any clause, and it blocks nothing but the quotability of that sentence. **No FATAL, at either reading.**
+
+*Re-read block appended 2026-09-16, 19:41 IST, by referee O. Note re-read at SHA-256 89fba193c985eb610b1c2a7a42d949f3ad1662ea2ab292f6aec0c39c7ee39e81 (new section only).*
