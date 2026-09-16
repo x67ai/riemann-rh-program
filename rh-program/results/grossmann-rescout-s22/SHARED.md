@@ -1,0 +1,9 @@
+# SHARED — grossmann-rescout-s22 (stream scratch, KICKSTART 10(e))
+
+## [Wed Sep 16 17:28:21 IST 2026] PRICING agent (Fable 5.1) — item 0(b)(ii) DONE
+
+- Deliverable: `results/grossmann-rescout-s22/PRICING.md` (296 lines), SHA-256 `bc1a42c6d817638cf5673fa03675d847c7c94fc1e2421a904e9263484d2e98d7`.
+- Decisions: **W1-14 lorentzian-log-concavity GO** (rung R-b, reading: is the von-Mangoldt-coefficient Lorentzian polynomial on C × C the Hodge-index form of the square — Brändén–Huh Thm 4.6 + Castelnuovo–Severi; sources in `verify/`; 2 slots + 1 adjudicator on disagreement; FIRST after queue item 1). **W1-26 lee-yang-stat-mech GO** (rung R-b, computation at genus ≤ 2: ±1-ferromagnet realizability of the regularized kernel measure with couplings explicit in point counts, plus the Newman-1974 read; 2 (+1) slots; SECOND). **W1-25 condensed-analytic-stacks NO-GO now, DEFERRED** to [CC7] / a printed determinant formula over a global analytic base / prismatic Stage 1 (rung named: x-12 §11 import + x-04 Thm 2.13 coefficients). **W1-23 arithmetic-que-microlocal NO-GO**, no rung, (B) stands.
+- FETCH lines: none required; two optional P3 (Hartshorne V Ex. 1.10 — book; Newman 1991 Constr. Approx. 7 — paywalled) collected in PRICING §4(ii). Newman 1976 (p1-03b), Newman 1974 (r-06a), Ki–Kim–Lee (p2-11) are on disk — the report's access failures for them are discharged.
+- Record corrections (PRICING §5): the "Newman class L" of `reports[26]` is Newman 1974's 𝒩 (r-06a), not Newman 1976's class (which Φ provably does not belong to, 1976 Thm 3); Newman 1974 Thm 2.3 (𝒩 = 𝒟) makes "Ising approximants with Newman's bounds exist" equivalent to RH. Sanity computation `verify/genus2_signed_kernel.{py,log}`: 97/587 genus-2 Weil classes (p ≤ 7) have a signed kernel measure; 77 have a₁ = 0; at g = 1 the two-spin coupling J ≥ 0 is the Hasse bound. `[novelty: single-check]`
+- Nothing committed (watchdog); no other file modified.
