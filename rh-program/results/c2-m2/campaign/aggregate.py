@@ -48,6 +48,22 @@ for tag, t in present:
 P()
 P("Stop condition (iii) (the checker's independent transform within 10⁻⁸ relative on two rows per height) is the Opus checker's item; its verdicts are appended to `SHARED.md` / `CHECK-O.md`, not decided here.")
 P()
+DH = json.load(open(os.path.join(HERE, 'dh_offline_scan.json'))) if os.path.exists(os.path.join(HERE, 'dh_offline_scan.json')) else None
+if DH:
+    strip = DH.get('found_in_strip', [])
+    P("**The DH sub-task (PRICING §2(c); `dh_offline_scan.py`, log `logs/dh_offline_scan.log`, JSON `dh_offline_scan.json`; 30-minute cap).** Scan of f_DH by blocks of 10 from 46 to %s (phase count (θ + arg f)/π against the on-line sign changes at step 0.1, fine rescan at 0.01 on any excess, bounded Newton locator): %d blocks, known orbit at 85.699 %s; **off-line zeros in the strip 0 < β < 1 found: %d** — %s%s. %s" % (
+        "1000" if 'cap_hit_at' not in DH else "%.0f (cap)" % DH['cap_hit_at'], len(DH.get('blocks', [])), "RE-FOUND" if DH.get('known_refound') else "not re-found",
+        len(strip), "; ".join("ρ = %.12f + %.9f i (t = %.6f, δ = %.6f)" % (r['rho'][0], r['rho'][1], r['t'], r['delta']) for r in strip),
+        ("; outside the strip (β > 1): %d" % len([r for r in DH.get('offline', []) if not r['in_strip']])) if DH.get('offline') else "",
+        "The zero-side negative control at the NEW heights (orbit + DH's on-line zeros in [t − 30, t + 30], as at 85.7; the reflected points omitted; the window hypothesis not verified; the reflection condition t ≥ 21L* fails at these t as at 85.7):" if any('control_rows' in r for r in strip) else ("No control rows yet (the scan's cap left no time, or no new orbit)." if not strip else "")))
+    for r in strip:
+        if 'control_rows' in r:
+            P()
+            P("| t = %.6f, δ = %.6f, L* = %.2f | L | W_Z | W_{Z'} | main −2δ²c² | ratio to δ²e^{δL/2} | fires (≥ 1) |" % (r['t'], r['delta'], cl.Lstar(r['delta'], r['t'], 1)))
+            P("|---|---|---|---|---|---|---|")
+            for c in r['control_rows']:
+                P("| %d DH on-line zeros in the window | %.2f | %.4e | %.4e | %.4e | %.4g | %s |" % (len(r['online_window']), c['L'], c['W_Z'], c['W_Zprime'], c['main'], c['ratio'], c['sep'] >= 1))
+    P()
 
 # --------------------------------------------------------------------------------------------------------- twelve points
 P("## 2. The twelve-point tables: L_sign(δ, t) and L_bal3(δ, t) (INSTRUMENT; fine grid step 0.1; E₋ excluded from W_Z)")
