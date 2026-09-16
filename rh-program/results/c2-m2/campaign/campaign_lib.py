@@ -77,6 +77,46 @@ def bhat_real(eta):
     if not np.all(np.isfinite(out)): raise FloatingPointError("bhat_real: non-finite output")
     return out
 
+# ---------------------------------------------------------------------------------------------------------------------
+# tabulated transform for the center ensemble (many centers x many L): Bhat on a uniform eta-grid by ONE FFT of the bump's
+# samples (the same trapezoid rule, M_FAST = 4096 nodes, aliasing at 2 pi M_FAST = 25736 >> ETA_FAST), then a cubic spline.
+# Interpolation error <= h^4 max|Bhat''''|/384 <= (1.5e-3)^4/(16*384) ~ 1e-15 absolute; |Bhat(eta)| < 1e-18 beyond ETA_FAST
+# = 2500 and is set to 0 there (a term u^2 Bhat^2 with u = 2500/L is then < 1e-30).  Checked against bhat_real in the log.
+M_FAST = 4096
+ETA_FAST = 2500.0
+_fast = {}
+def _build_fast():
+    from scipy.interpolate import CubicSpline
+    v = (np.arange(1, M_FAST)/M_FAST) - 0.5
+    with np.errstate(all='ignore'):
+        b = np.exp(-1.0/(1.0 - 4.0*v*v))
+    b[~np.isfinite(b)] = 0.0
+    w = b/b.sum()
+    N = 1 << 24
+    s = np.zeros(N); s[1:M_FAST] = w                      # sample j sits at v_j = -1/2 + j/M_FAST
+    F = np.fft.rfft(s)                                     # F_k = sum_j w_j exp(-2 pi i j k/N)
+    eta = 2*np.pi*M_FAST*np.arange(len(F))/N               # eta_k = 2 pi k M/N;  exp(-i eta_k v_j) = exp(i eta_k/2) exp(-2 pi i jk/N)
+    keep = eta <= ETA_FAST + 5
+    vals = np.real(np.exp(1j*eta[keep]/2)*F[keep])
+    _fast['eta'] = eta[keep]; _fast['spline'] = CubicSpline(eta[keep], vals); _fast['h'] = eta[1] - eta[0]
+
+def bhat_fast(eta):
+    """Bhat(eta) for a real array by the tabulated cubic spline (|eta| <= ETA_FAST; 0 beyond).  For the ensemble only."""
+    if not _fast: _build_fast()
+    eta = np.abs(np.atleast_1d(np.asarray(eta, dtype=float)))
+    out = np.zeros_like(eta)
+    m = eta <= ETA_FAST
+    out[m] = _fast['spline'](eta[m])
+    return out
+
+def noise_fast(t, gammas, L, U):
+    """N_Z(t, L) over the zeros within U of t, with bhat_fast (ensemble use)."""
+    u = gammas - t
+    m = np.abs(u) <= U
+    uu = u[m]
+    bh = bhat_fast(L*uu)
+    return float((uu*uu*bh*bh).sum())
+
 def c_edge(lam):
     """c(lam) = int B(v) cosh(lam v) dv = Bhat(i lam), vectorized (positive terms, no cancellation); lam <= ~1400 in double."""
     lam = np.atleast_1d(np.asarray(lam, dtype=float))

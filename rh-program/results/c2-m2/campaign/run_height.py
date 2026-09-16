@@ -136,9 +136,14 @@ J = int((U_data - Uk4)//args.center_step)
 centers = t + args.center_step*np.arange(-J, J + 1)
 log("\n(M) CENTER ENSEMBLE: %d centers t' = t + j*%g, |j| <= %d (each with full U(L_min) coverage inside the data window): mean/min/max of N_Z(t', L) on the L-grid; L_sign and L_bal3 per center on the fine grid step 0.2" % (len(centers), args.center_step, J))
 t1 = time.time()
+# the tabulated transform, checked against the exact one on this height's own arguments
+etas = np.abs(np.concatenate([L*(gammas - t) for L in (4.0, 10.0, 30.0, 120.0)])); etas = etas[etas <= cl.ETA_FAST]
+fdiff = float(np.max(np.abs(cl.bhat_fast(etas) - cl.bhat_real(etas))))
+log("   tabulated transform (FFT + cubic spline, M = %d, eta <= %g) against the exact trapezoid at %d arguments of this height: max |diff| = %.1e" % (cl.M_FAST, cl.ETA_FAST, len(etas), fdiff))
+summary['ensemble_transform_check_maxdiff'] = fdiff
 ens = {}
 for L in cl.L_GRID:
-    vals = np.array([cl.noise_at(float(tc), gammas, L, Uk4)['N_Z'] for tc in centers])
+    vals = np.array([cl.noise_fast(float(tc), gammas, L, Uk4) for tc in centers])
     ens[L] = dict(mean=float(vals.mean()), median=float(np.median(vals)), min=float(vals.min()), max=float(vals.max()))
 for r in rows:
     if r['L'] in ens:
@@ -151,7 +156,7 @@ Lf = np.round(np.arange(3.0, 120.0 + 0.1, 0.2), 6)
 sig = {d: 2*d*d*cl.c_edge(d*Lf)**2 for d in cl.DELTAS}
 Lsign_c = {d: [] for d in cl.DELTAS}; Lbal3_c = {d: [] for d in cl.DELTAS}
 for tc in centers:
-    Nf = np.array([cl.noise_at(float(tc), gammas, float(L), Uk4)['N_Z'] for L in Lf])
+    Nf = np.array([cl.noise_fast(float(tc), gammas, float(L), Uk4) for L in Lf])
     for d in cl.DELTAS:
         ok1 = sig[d] > Nf; ok3 = sig[d] >= 3*Nf
         Lsign_c[d].append(float(Lf[np.argmax(ok1)]) if ok1.any() else float('nan'))

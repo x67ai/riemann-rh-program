@@ -1,0 +1,8 @@
+========================================================================================================================
+[2026-09-16 21:15:45] run_height.py START  t = 100000  tag = t1e5  (mp.dps = 15 for zeros; numpy 2.0.2; mpmath 1.3.0)
+INSTRUMENT: this run decides constants and the detection-bandwidth law of the first-order datum on zeta's zeros; nothing here is about RH.
+
+(Z) ZEROS: truncation radius at L_min = 4 for absolute tail <= 1e-10 (k-optimized polynomial route, C1 = 1 operative): U = 147.05 (k = 10); the contract's k = 3 radius would be 19775.8 (60861 zeros against 453)
+   data window: U_data = 2 x U = 294.10  ->  [99705.90, 100294.10]; expected zeros (RvM) 906
+   [2026-09-16 21:15:45] fetching zeros with mpmath.zetazero at mp.dps = 15 (progress every 500) ...
+   [2026-09-16 21:19:17] 500 zeros so far (n = 138116, gamma = 100030.506109, |Z| = 2.3e-11), 212.4 s elapsed, 0.425 s/zero
