@@ -355,3 +355,5 @@ and every log.
 
 ---
 
+**[RECORD CORRECTION 00:36 IST 2026-09-17, Session 22 close — from `results/c2-m6/m6-rung1-note.md` §5.3, CONFIRMED independently in `results/c2-m6/check-O.md` §3 at 40 digits; insertion-only.]** The recipe used for DH's ON-LINE zeros in §1 (the DH rows) and the DH sub-task — `findroot` on Re Ξ_DH(½ + iu) at scale 10⁻³⁰ (`dh_negative_control.py`, `dh_offline_scan.py`, `dh_control_new_heights.py`) — mislocates them by 1.2·10⁻⁶ … 1.4·10⁻³ (|f_DH| at the recorded points 4.9·10⁻⁶ … 3.7·10⁻³, against ≤ 3.5·10⁻³⁹ after refinement on the gamma-normalized Z_DH); the record's |Z_DH| = 1.9·10⁻³² acceptance criterion is scale-blind. Effect: the DH W_Z′ columns move at 10⁻⁴ relative (0.0048010832 → 0.0048001176 at L = 10; 4.4642882·10⁻⁵ → 4.4652466·10⁻⁵ at L = 20); NO headline moves, because W_Z − W_Z′ = W(orbit) identically — every separation, ratio and "fires" column is independent of the on-line positions (×6.24 → 6.23731); the 26 off-line orbits are refined on f_DH itself and stand. The three scripts are to be re-run with the corrected refinement (Session 23 queue item 0(c)); until then their DH on-line columns carry this note.
+
