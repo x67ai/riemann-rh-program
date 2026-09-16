@@ -33,3 +33,7 @@ Any of `reports[14]`, `[25]`, `[26]` is missing the `first_interface` field; or 
 
 ## On completion (orchestrator)
 Record GO/NO-GO per branch in STATUS (queue item 0(b)(ii)) and LOG (SHA-256); on any GO, write the scout-pair brief from §1/§2/§3 of the pricing (two scouts, one per model, blind; one adjudicator on disagreement) and queue it AFTER item 1 (the M2 build brief) unless the pricing's §4 argues otherwise; move FETCH lines into `FETCH-LIST-ROUND7.md`; commit + push.
+
+## Addendum (orchestrator, after the zoo stream's Opus read, 2026-09-16 17:05 IST)
+- The zoo now carries V.5 with two Opus repair notes and the III.16 rider with a scope note: read the suspension as "the grade on the UNBUILT sector is not supported by the grounds on record", NOT "the sector has been shown open" (AUDIT §5 records the class-(C) call on W1-14 as arguable). Price accordingly: a NO-GO that restores the dead-end grade on INTERNAL grounds is a legitimate, refutation-shaped outcome.
+- Optional fourth candidate, cheapest: **W1-23 arithmetic-que-microlocal (dead-end 0.72, zoo III.19)** — AUDIT §5 names it the closest (B), surviving on one cell (the Gårding/Fefferman–Phong margin mismatch). Add a short §3a: is there a decidable first rung there at all, or does the one internal cell already settle it? One paragraph; GO/NO-GO.
