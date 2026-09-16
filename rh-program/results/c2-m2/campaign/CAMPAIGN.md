@@ -291,3 +291,67 @@ The three laws predict L(δ = 0.05)/L(δ = 0.25) = 5^{0.07} = 1.12 (transcript),
 * `run_height.py`  c24b53f0fccc69cd0670822d7acfa1b579901d2da8e0190bc67ac700249e400b
 
 Status of the running campaign and the harvest recipe: `STATUS-campaign.md`. Checkpoints and the checker's verdicts: `SHARED.md`, `CHECK-O.md`.
+
+---
+## Corrections after the Opus check (22:54 IST 2026-09-16, Session 22; `CHECK-O.md` SHA-256 a331d579d2f96fbf799b636c2b1e617f2c75a334c956cf7250bb58c7a609f35e — PASS at all four heights, no row flagged; closes 1 REPAIRED / 2–4 CONFIRMED; insertion-only — the body above is unchanged; orchestrator)
+
+**Headline of the check:** 20 zeros per height re-verified at 30 digits (max |Δγ| ≤ 8.2·10⁻¹¹, |Z(γ)| ≤ 8.5·10⁻²⁵; index map gap-free); two rows per height recomputed with an independent Gauss–Legendre transform (W_Z ≤ 1.7·10⁻¹² relative, main term ≤ 9.7·10⁻¹⁴ relative, W_Z′ ≤ 5.7·10⁻¹⁶ absolute); the k ≤ 13 truncation route confirmed rigorous with all thirteen ‖B^(k)‖₁ recomputed to 12 digits; the operative C₁ for ζ in these windows ≈ 0.434 (C₁ = 1 conservative); three of the 25 new DH off-line zeros re-verified (|f_DH| ≤ 3.2·10⁻²⁹, inside the strip); positive control ≥ 0 at all 732 rows and 4684 fine-grid bandwidths. **Close 1 stands but is REPAIRED (items 2–3 below): the theorem's own tabulated δ-ratio is 7.13 / 6.95, not the idealized 5, and its refutation clears the 1.5 threshold by 1.3 % at t (widened to [0.60, 1.75] on the theorem's exact shape), so the refutation does not depend on the idealization. Stop condition (iv) FIRED in the form the contract wrote it (item 4) — a process finding recorded here, with no effect on any close.**
+
+## §7 Corrections — exact wording for CAMPAIGN.md
+
+Insertion-only; none of them changes a computed number, and none of them changes a close's verdict.
+
+1. **§3 header is the one table header without the INSTRUMENT label** (the requirement of the brief and of standing
+   order 4; §1, §2, §4, §5, §6 and §7 all carry it). Read:
+   `## 3. The three-law comparison (PRICING §2(a) last paragraph; §2(d) item 1) — δ-ratios 1.12 : 2.9 : 5 (INSTRUMENT — decides the detection-bandwidth law; nothing about RH)`
+
+2. **§3, first line, and §4 close 1 — the theorem's δ-ratio.** After
+   "and 5 (theorem, L* ∝ δ⁻¹)" insert: **"— 5 is the ratio of the leading δ⁻¹ scaling; the theorem's L* as tabulated
+   below carries 2log(1/δ) inside its bracket and its own δ-ratio is L*(0.05)/L*(0.25) = 7.13 at t = 10³ and 6.95 at
+   t = 10⁶."**
+
+3. **§4 close 1 — the theorem law's refutation margin.** After "(the theorem's δ⁻¹ log log t [0.69, 1.52]" insert:
+   **"— a margin of 1.3 % over the 1.5 threshold; tested against the theorem's exact L*(δ, t) shape with a free
+   prefactor the interval is [0.60, 1.75] at t and [0.50, 1.73] on the medians, so the refutation does not depend on
+   the idealization"**.
+
+4. **§1 — stop condition (iv).** Change the column heading to
+   **"stop (iv): as written (single t) / as restated (center mean)"** and add the following sentence under the table:
+   **"Stop condition (iv) as PRICING §2(e) writes it compares the density model with the measured N_Z at t, and in that
+   form it FIRES: 10 of the 59 grid bandwidths at t = 10³ (also 25 of 59 at 10⁵ and 11 of 59 at 10⁶) are outside a
+   factor 10 of the model, the geometric means being 0.42, 2.42, 0.13, 0.28. The rule was restated on the mean over the
+   143–149 centers, because the model is an ensemble mean by construction (PRICING §2(a)(4) derives it by replacing the
+   zero sum with an integral against the mean density) and the single-t value at L ≳ 20 is dominated by the nearest zero;
+   in that form it does not fire at any height ([0.42, 1.08], [0.89, 1.16], [0.69, 1.04], [0.91, 1.30]). Both forms are
+   in `summary_<tag>.json` (`single_t_*` keys) and in `logs/height_t1e3.log`. The restatement was made after the literal
+   form fired in the rehearsal; the finding it carries — that the density model does not predict N_Z at a single height
+   and bandwidth within a factor 10 — stands as a measured property of the instrument."**
+
+5. **§4 close 4 — the u_true bisection.** After "the radius at which the TRUE contamination of a depth-½ orbit falls to
+   e^{−L} is u_true/L = …" insert: **"(the bisection runs on the signed value 2Re[(u − i/2)²B̂(Lu − iL/2)²], which
+   changes sign in u, so a listed u_true can sit on a local dip: the checker's independent 86-digit evaluation finds
+   0.986·e^{−L} at L = 20 and 0.975·e^{−L} at L = 50 but 0.173·e^{−L} at L = 120, i.e. u_true/L ≤ 1.086 there)"**.
+
+6. **§4 close 4 — "(7/(8·0.707))² = 1.53" is typed into `aggregate.py`'s template, not printed by any script or log.**
+   Either compute it in `aggregate.py` from `math.sqrt(2)` and print it, or cite `check-O/closes_check.log` §4, which
+   prints 1.5312, 1.0597 and 37.4613. (10(g): every number to a script and a log.)
+
+7. **§0, the truncation paragraph — the shell-log covering.** After "with the shell count 2C₁ℓ_R" insert:
+   **"(ℓ_R = log(4 + t + R₀L) covers the shells j ≤ R₀L − ½; beyond that the shell log exceeds ℓ_R, and the checker
+   computed the true ratio Σ j^{2−2k}log(3.5 + t + j)/(ℓ_R Σ j^{2−2k}) at the operating points to be 0.88–0.99999, so
+   the printed bounds are upper bounds — `check-O/closes_check.log`)"**.
+
+8. **§5, the "N_Z/model" column at the record points** prints 0.000 at most rows. The density model is an L⁻³ law for the
+   noise at bandwidths where several zeros contribute; at L = 400–2600 only 25–378 zeros survive the truncation and the
+   kernel sees essentially none of them. Add a footnote to §5: **"N_Z/model at the record points is out of the model's
+   regime (the model averages over zeros the kernel no longer reaches); it is printed for completeness, and close 1 and
+   close 2 use the grid rows and the center means."**
+
+**Lint and labels, checked (10(g)).** The four banned hedges ("clearly", "obviously", "easy to see", "well known") do not
+occur in `CAMPAIGN.md` or `STATUS-campaign.md`. No British spelling occurs in either file: the checker grepped thirty
+British forms (the -ise / -yse, -our, -re and -ll-before-suffix families, plus the usual lexical pairs) — zero hits. Every table header carries INSTRUMENT except §3 (item 1 above). Every number traced
+to a script or log except the two of item 6. `date` stamps are present in `CAMPAIGN.md`'s preamble, `STATUS-campaign.md`
+and every log.
+
+---
+
