@@ -1,0 +1,13 @@
+u_true check: the pair contamination at the builder's u_true should equal e^{-L}
+  L=20    u_true(builder)=20.93613177  |pair|=2.031695e-09   e^{-L}=2.061154e-09   ratio=0.98571   (|Bhat(Lu-iL/2)|=3.1076e-06, dps=64)
+  L=50    u_true(builder)=54.50484161  |pair|=1.879483e-22   e^{-L}=1.928750e-22   ratio=0.97446   (|Bhat(Lu-iL/2)|=2.4639e-13, dps=70)
+  L=120   u_true(builder)=130.36133764  |pair|=1.324964e-53   e^{-L}=7.667648e-53   ratio=0.17280   (|Bhat(Lu-iL/2)|=1.1066e-28, dps=86)
+
+bound/exact looseness at the planted distances (CAMPAIGN close 4)
+  L=20    u=5     log10(bound/|exact|) = 10.63   (CAMPAIGN quotes 10^10.6)
+  L=20    u=50    log10(bound/|exact|) = 23.35   (CAMPAIGN quotes 10^23.4)
+  L=50    u=5     log10(bound/|exact|) = 14.33   (CAMPAIGN quotes 10^14.3)
+  L=50    u=50    log10(bound/|exact|) = 33.25   (CAMPAIGN quotes 10^33.3)
+  L=120   u=5     log10(bound/|exact|) = 19.84   (CAMPAIGN quotes 10^19.8)
+  L=120   u=50    log10(bound/|exact|) = 47.82   (CAMPAIGN quotes 10^47.8)
+DONE

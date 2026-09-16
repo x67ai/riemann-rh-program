@@ -1,0 +1,76 @@
+======================================================================================================================
+CHECK-O closes_check.py
+
+(1) twelve-point tables of CAMPAIGN section 2, read back from summary_*.json
+   L_sign  d=0.05  at t [32.1, 25.1, 25.8, 33.3]  median [20.6, 27.8, 29.0, 31.4]  -> match True / True
+   L_sign  d=0.1   at t [19.4, 13.5, 20.1, 22.4]  median [15.4, 18.0, 19.2, 20.6]  -> match True / True
+   L_sign  d=0.25  at t [6.7, 8.8, 9.5, 11.0]  median [8.4, 9.2, 10.2, 10.8]  -> match True / True
+   L_bal3  d=0.05  at t [37.6, 58.8, 29.2, 38.5]  median [24.0, 35.0, 36.2, 42.2]  -> match True / True
+   L_bal3  d=0.1   at t [28.5, 22.2, 23.9, 28.9]  median [19.4, 25.0, 26.0, 27.2]  -> match True / True
+   L_bal3  d=0.25  at t [11.6, 11.1, 13.4, 13.3]  median [11.2, 12.8, 13.8, 14.4]  -> match True / True
+   ALL 24 CELLS MATCH: True
+
+(1b) least squares log L = a + b log(1/delta) + c log log(t/2pi)
+   L_sign at t      b = 0.737, c = 0.262, max residual factor 1.281
+   L_bal3 at t      b = 0.732, c = 0.003, max residual factor 1.443
+   L_sign median    b = 0.642, c = 0.368, max residual factor 1.119
+   L_bal3 median    b = 0.596, c = 0.434, max residual factor 1.179
+   CAMPAIGN section 3: (0.737,0.262)/1.281, (0.732,0.003)/1.443, (0.642,0.368)/1.119, (0.596,0.434)/1.179
+
+(1c) the three laws with a free (geometric-mean) prefactor
+   L_sign at t    density  d^-2/3 (log t/2pi)^1/3    prefactor 1.892 ratio [0.790, 1.340] -> YES
+   L_sign at t    theorem  d^-1 (t-flat)             prefactor 1.809 ratio [0.694, 1.520] -> NO
+   L_sign at t    transcript d^-0.07 (log)^0.89      prefactor 2.230 ratio [0.491, 2.753] -> NO
+   L_sign at t    theorem  exact L*(delta,t) shape   prefactor 0.04749 ratio [0.597, 1.754] -> NO
+   L_sign median  density  d^-2/3 (log t/2pi)^1/3    prefactor 1.887 ratio [0.862, 1.056] -> YES
+   L_sign median  theorem  d^-1 (t-flat)             prefactor 1.804 ratio [0.571, 1.497] -> NO
+   L_sign median  transcript d^-0.07 (log)^0.89      prefactor 2.224 ratio [0.484, 1.771] -> NO
+   L_sign median  theorem  exact L*(delta,t) shape   prefactor 0.04736 ratio [0.504, 1.726] -> NO
+   L_bal3 at t    density  d^-2/3 (log t/2pi)^1/3    prefactor 2.619 ratio [0.710, 1.565] -> NO
+   L_bal3 at t    theorem  d^-1 (t-flat)             prefactor 2.504 ratio [0.583, 1.338] -> NO
+   L_bal3 at t    transcript d^-0.07 (log)^0.89      prefactor 3.087 ratio [0.429, 2.610] -> NO
+   L_bal3 at t    theorem  exact L*(delta,t) shape   prefactor 0.06575 ratio [0.492, 1.578] -> NO
+   L_bal3 median  density  d^-2/3 (log t/2pi)^1/3    prefactor 2.474 ratio [0.767, 1.119] -> YES
+   L_bal3 median  theorem  d^-1 (t-flat)             prefactor 2.365 ratio [0.507, 1.522] -> NO
+   L_bal3 median  transcript d^-0.07 (log)^0.89      prefactor 2.915 ratio [0.492, 1.645] -> NO
+   L_bal3 median  theorem  exact L*(delta,t) shape   prefactor 0.06209 ratio [0.448, 1.756] -> NO
+   the theorem's own delta-ratio L*(0.05)/L*(0.25): t=1e3 7.128 ; t=1e6 6.950  (CAMPAIGN quotes the law-ratio as 5)
+   measured delta-ratios at t  : L_sign ['4.79', '2.85', '2.72', '3.03'] ; L_bal3 ['3.24', '5.30', '2.18', '2.89']
+   measured delta-ratios median: L_sign ['2.45', '3.02', '2.84', '2.91'] ; L_bal3 ['2.14', '2.73', '2.62', '2.93']
+
+(2) close 2: L* spend, and the clause-4 looseness
+   L*(0.1, 1e6) = 40*(2.6258 + 4.6052 + 2.8565) = 403.50 ; shares 26.0 / 45.7 / 28.3 % ; floor 40*7.4616 = 298.5
+   t=1000     (bound/mean N_Z)/L in [2.56, 4.54] (CAMPAIGN [2.56, 4.54]) ; single-t [1.38, 593]
+      record point L* = 375.79: N_Z = 1.693e-08 vs clause-4 bound 1.276e-03 -> 7.536e+04
+   t=10000    (bound/mean N_Z)/L in [1.32, 1.57] (CAMPAIGN [1.32, 1.57]) ; single-t [0.25, 1]
+      record point L* = 387.28: N_Z = 5.007e-09 vs clause-4 bound 1.233e-03 -> 2.463e+05
+   t=100000   (bound/mean N_Z)/L in [1.42, 1.83] (CAMPAIGN [1.42, 1.83]) ; single-t [3.20, 1817]
+      record point L* = 396.20: N_Z = 1.134e-09 vs clause-4 bound 1.307e-03 -> 1.153e+06
+   t=1e+06    (bound/mean N_Z)/L in [0.93, 1.16] (CAMPAIGN [0.93, 1.16]) ; single-t [2.09, 122]
+      record point L* = 403.50: N_Z = 8.314e-09 vs clause-4 bound 1.480e-03 -> 1.780e+05
+
+(3) close 3: bump-only crossing with the CHECKER's own c(lambda)
+   least lambda with 2 c(lambda)^2 >= e^{lambda/2}: exact 18.582824 -> 18.6 on a 0.1 grid (record 18.6; proved from 23; contract 25)
+   c(25)^2/e^{12.5} = 1.999107 (note section 3.3 quotes 2.00)
+
+(4) close 4 arithmetic
+   (7/(8*0.85))^2 = 1.0597 ; (7/(8/sqrt2))^2 = 1.5312 ; (7/(8 c_B))^2 = 37.4613 with c_B = 0.14296065
+   factor in R_0 from c_B to the numerical rate: (0.7071/c_B)^2 = 24.5 ; (0.85/c_B)^2 = 35.4 (CAMPAIGN 'approx 25-35')
+
+(5) V.4 positive control: W_{Z'} >= 0 at every row of every height
+   t=1000     rows 183 min 4.0953e-19 (>=0 True) ; fine grid 1171 min 3.1256e-08 (>=0 True) ; clause-4 violations (L>=50) 0
+   t=10000    rows 183 min 1.1696e-12 (>=0 True) ; fine grid 1171 min 1.7901e-04 (>=0 True) ; clause-4 violations (L>=50) 0
+   t=100000   rows 183 min 3.4462e-23 (>=0 True) ; fine grid 1171 min 2.0325e-08 (>=0 True) ; clause-4 violations (L>=50) 0
+   t=1e+06    rows 183 min 2.3336e-19 (>=0 True) ; fine grid 1171 min 1.1430e-06 (>=0 True) ; clause-4 violations (L>=50) 0
+
+(6) stop condition (iv): the contract's literal form (single t) against the builder's restatement (center mean)
+   t=1000     LITERAL single-t N_Z/model: min 0.0032 max 2.5796 geomean 0.4217 ; rows outside [0.1,10]: 10 of 59 -> FIRES
+            RESTATED center-mean N_Z/model: min 0.4222 max 1.0815 geomean 0.6524 ; outside: 0 -> does not fire
+   t=10000    LITERAL single-t N_Z/model: min 0.3578 max 5.5245 geomean 2.4208 ; rows outside [0.1,10]: 0 of 59 -> does not fire
+            RESTATED center-mean N_Z/model: min 0.8859 max 1.1586 geomean 0.9831 ; outside: 0 -> does not fire
+   t=100000   LITERAL single-t N_Z/model: min 0.0007 max 1.2424 geomean 0.1276 ; rows outside [0.1,10]: 25 of 59 -> FIRES
+            RESTATED center-mean N_Z/model: min 0.6868 max 1.0371 geomean 0.8150 ; outside: 0 -> does not fire
+   t=1e+06    LITERAL single-t N_Z/model: min 0.0099 max 1.4353 geomean 0.2779 ; rows outside [0.1,10]: 11 of 59 -> FIRES
+            RESTATED center-mean N_Z/model: min 0.9090 max 1.2972 geomean 1.1008 ; outside: 0 -> does not fire
+
+DONE
