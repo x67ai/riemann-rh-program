@@ -139,8 +139,9 @@ for tag, t in present:
     rr = R[tag]
     rec = [r for r in rr if r['is_record_point_C1_1'] and r['delta'] == 0.1]
     grid = [r for r in rr if r['delta'] == 0.1 and r['L'] in cl.L_GRID and r['L'] >= 50]
-    fac = [r['clause4_over_N']/r['L'] for r in grid if r['N_Z'] > 0]
-    lines.append("t = %g: at the record point L* = %.1f (δ = 0.1) N_Z = %.3e against the clause-4 bound 2b₁ℓ_R/L² = %.3e (ratio %.3g); over the grid rows L ≥ 50 the ratio (bound/N_Z)/L is in [%.2f, %.2f] (the pricing's inference: ≈ 1.05)" % (t, rec[0]['L'], rec[0]['N_Z'], rec[0]['clause4_bound_C1_1'], rec[0]['clause4_over_N'], min(fac), max(fac)))
+    fac = [r['clause4_bound_C1_1']/r['N_Z_center_mean']/r['L'] for r in grid if r.get('N_Z_center_mean')]
+    fac1 = [r['clause4_over_N']/r['L'] for r in grid if r['N_Z'] > 0]
+    lines.append("t = %g: at the record point L* = %.1f (δ = 0.1) N_Z = %.3e against the clause-4 bound 2b₁ℓ_R/L² = %.3e (ratio %.3g); over the grid rows L ≥ 50 the ratio (bound/N̄_Z)/L with N̄_Z the mean over the %d centers is in [%.2f, %.2f] (the pricing's inference: ≈ 1.05; against the single-t N_Z the same ratio ranges over [%.2f, %.0f] because of the nearest-zero oscillation)" % (t, rec[0]['L'], rec[0]['N_Z'], rec[0]['clause4_bound_C1_1'], rec[0]['clause4_over_N'], S[tag].get('ensemble', {}).get('n_centers', 0), min(fac) if fac else float('nan'), max(fac) if fac else float('nan'), min(fac1), max(fac1)))
 ls = cl.Lstar(0.1, 1e6); a, b, c = math.log(math.log(3 + 1e6)), 2*math.log(10), math.log(2*cl.B1)
 P("2. **Where the theorem's L* is spent.** At (0.1, 10⁶): L* = 40·(%.3f + %.3f + %.3f) = %.1f — log log(3 + t) %.0f %%, 2log(1/δ) %.0f %%, log(2b₁C₁) %.0f %%; the floor without the noise term, 4δ⁻¹(2log(1/δ) + log(2b₁C₁)) = %.0f. Measured: %s. **Refutation-shaped close:** the clause-4 bound is loose by a factor of order L at ζ's density (measured factors above), and the theorem's L* cannot be reduced below %.0f at (0.1, 10⁶) by any improvement of the noise bound alone." % (a, b, c, ls, 100*a/(a+b+c), 100*b/(a+b+c), 100*c/(a+b+c), 40*(b + c), "; ".join(lines), 40*(b + c)))
 P()
