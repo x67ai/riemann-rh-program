@@ -1,0 +1,15 @@
+separation_clause6_assembly                   challenge   903 bytes, solution   903 bytes: IDENTICAL
+    theorem separation_clause6_assembly (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+        (hL1 : 25 / δ ≤ L)
+        (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * (87 / 10) * C₁)) ≤ L)
+        (hRstar : Separation.Rstar t δ L)
+        (Z Z' : Separation.SepConfig C₁)
+        (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+        (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+        (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+        (hb1 : Separation.Hb1) (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+        (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+        δ ^ 2 * Real.exp (δ * L / 2)
+            ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+          1 ≤ δ ^ 2 * Real.exp (δ * L / 2)
+RESULT: PASS

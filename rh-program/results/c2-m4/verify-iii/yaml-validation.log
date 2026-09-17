@@ -8,9 +8,9 @@ on-disk v0.4.schema.json                         sha256 25ff6b25ca4511635aff4443
 
 VALIDATION errors: 0
 top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
-main_results: 21   alignment.statements: 22   fidelity.divergences: 14052 chars
+main_results: 22   alignment.statements: 23   fidelity.divergences: 16611 chars
 
-Lean names referenced in status.main_results + alignment.statements: 52
+Lean names referenced in status.main_results + alignment.statements: 59
    Zeta23.DBN.AsymEnclOK                                    comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
    Zeta23.DBN.BarrierEnclOK                                 comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/BarrierCert.lean
    Zeta23.DBN.Bt_ne_zero                                    Zeta23/DBN/BtFacts.lean
@@ -33,13 +33,20 @@ Lean names referenced in status.main_results + alignment.statements: 52
    Zeta23.PairCeiling.GridParseval.flat_band_trace_sq       Zeta23/PairCeiling/GridParseval.lean
    Zeta23.PairCeiling.GridParseval.trace_sq_grid            Zeta23/PairCeiling/GridParseval.lean
    Zeta23.Separation.Braw_eq_mul                            Zeta23/Separation/LemmaG1.lean
+   Zeta23.Separation.W_decomp                               Zeta23/Separation/Assembly.lean
    Zeta23.Separation.abs_iteratedDeriv_Braw_le              Zeta23/Separation/LemmaG1.lean
+   Zeta23.Separation.absorb                                 Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.clause6_assembly                       Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.edge_sq_ge                             Zeta23/Separation/Assembly.lean
    Zeta23.Separation.inWindowNoise_le                       Zeta23/Separation/Clause4.lean
    Zeta23.Separation.norm_paperFT_Bc_le                     Zeta23/Separation/LemmaG.lean
    Zeta23.Separation.norm_paperFT_Bc_ofReal_le              Zeta23/Separation/LemmaG.lean
    Zeta23.Separation.norm_paperFT_Bc_ofReal_le'             Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.norm_wsum_reflected                    Zeta23/Separation/Assembly.lean
    Zeta23.Separation.paperFT_ftest                          Zeta23/Separation/Clause4.lean
    Zeta23.Separation.paperFT_iteratedDeriv                  Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.re_tsum_offline_le                     Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.rstar_exp                              Zeta23/Separation/Assembly.lean
    Zeta23.Separation.shell_sum_le                           Zeta23/Separation/Clause4.lean
    Zeta23.W1.arbDH_zero                                     Zeta23/W1/FDH.lean
    Zeta23.W1.arbDH_zero'                                    Zeta23/W1/FDH.lean

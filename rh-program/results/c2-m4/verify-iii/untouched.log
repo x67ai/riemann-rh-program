@@ -1,35 +1,40 @@
-# untouched.log — 2026-09-17 13:31:34 IST; git status of lean/ after the M4 (iii) rung, git diff of lean/Zeta23.lean (the one additive import), git diff --stat over the frozen areas (must be empty), cmp tree = mirror for every M4 (i) file
+# untouched.log — 2026-09-17 14:04:21 IST; after the M4 (iii) rung AND assembly: git status of lean/, git diff of lean/Zeta23.lean (two additive imports), git diff --stat over the frozen areas (must be empty), cmp tree = mirror for every Separation-related file
 ## git status --short lean/
  M lean/Zeta23.lean
-?? lean/Zeta23/Separation/Clause4.lean
-?? lean/comparator/Challenge/SeparationClause4.lean
-?? lean/comparator/PrintAxioms/SeparationClause4.lean
-?? lean/comparator/Solution/SeparationClause4.lean
-?? lean/comparator/config-separation-clause4.json
-## git diff lean/Zeta23.lean
+ M lean/Zeta23/Separation/Assembly.lean
+?? lean/comparator/PrintAxioms/Separation6.lean
+?? lean/comparator/Solution/Separation6.lean
+## git diff HEAD -- lean/Zeta23.lean
 diff --git a/rh-program/lean/Zeta23.lean b/rh-program/lean/Zeta23.lean
-index 3e438ff..c9c87d7 100644
+index c9c87d7..90aceaf 100644
 --- a/rh-program/lean/Zeta23.lean
 +++ b/rh-program/lean/Zeta23.lean
-@@ -35,3 +35,4 @@ import Zeta23.W1.FDH
- import Zeta23.W1.Ledger
+@@ -36,3 +36,4 @@ import Zeta23.W1.Ledger
  import Zeta23.Separation.LemmaG1
  import Zeta23.Separation.LemmaG
-+import Zeta23.Separation.Clause4
-## git diff --stat HEAD -- lean/comparator lean/Zeta23/DBN lean/Zeta23/W1 lean/Zeta23/PairCeiling lean/Zeta23/Separation/LemmaG1.lean lean/Zeta23/Separation/LemmaG.lean
+ import Zeta23.Separation.Clause4
++import Zeta23.Separation.Assembly
+## git diff --stat HEAD -- lean/comparator/{ChallengeDeps/Separation.lean,Challenge/Separation.lean,Challenge/SeparationG1.lean,Solution/Separation.lean,Solution/SeparationG1.lean,PrintAxioms/Separation.lean,PrintAxioms/SeparationG1.lean,config-separation.json,config-separation-g1.json,config-dbn.json,ChallengeDeps/DBN.lean,Challenge/DBN.lean,Solution/DBN.lean} lean/Zeta23/DBN lean/Zeta23/W1 lean/Zeta23/PairCeiling lean/Zeta23/Separation/LemmaG1.lean lean/Zeta23/Separation/LemmaG.lean
 (end of diff --stat)
 ## cmp tree = mirror
+same: Zeta23.lean
 same: Zeta23/Separation/LemmaG1.lean
 same: Zeta23/Separation/LemmaG.lean
 same: Zeta23/Separation/Clause4.lean
-same: Zeta23.lean
+same: Zeta23/Separation/Assembly.lean
 same: comparator/ChallengeDeps/Separation.lean
 same: comparator/ChallengeDeps/SepConfig.lean
+same: comparator/ChallengeDeps/Separation6.lean
 same: comparator/Challenge/Separation.lean
 same: comparator/Challenge/SeparationG1.lean
 same: comparator/Challenge/SeparationClause4.lean
+same: comparator/Challenge/Separation6.lean
 same: comparator/Solution/Separation.lean
 same: comparator/Solution/SeparationG1.lean
 same: comparator/Solution/SeparationClause4.lean
+same: comparator/Solution/Separation6.lean
 same: comparator/PrintAxioms/SeparationClause4.lean
+same: comparator/PrintAxioms/Separation6.lean
 same: comparator/config-separation-clause4.json
+same: comparator/config-separation6.json
+same: formalization.yaml
