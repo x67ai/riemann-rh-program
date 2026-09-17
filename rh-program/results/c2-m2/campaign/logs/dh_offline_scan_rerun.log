@@ -1,0 +1,30 @@
+========================================================================================================================
+[2026-09-17 11:14:11] dh_offline_scan_rerun.py START (RE-RUN; record log line follows) (cap 1800 s)  [attempt 4, 21:52 IST: attempt 3's mp.findroot locator wandered to huge |Im s| from far seeds (seconds per Hurwitz zeta) -- replaced by a bounded damped Newton from |f|-grid seeds; attempt 1 spent its time in an absolute |Z| test that Xi_DH's e^{-pi T/4} decay can never pass; attempt 2 (5-unit blocks, line step 0.05, contour-integral locator) ran at 35 s/block and re-found rho_0 = 0.808517182457 + 85.699348485 i, |f| = 2.4e-15 (its log is above); this attempt: 10-unit blocks, line step 0.1 with fine rescan, cheaper argument walk, Newton seed grid]
+   [RE-RUN] record scan read from dh_offline_scan.json: 86 blocks, 26 off-line zeros, 26 in the strip, n_0 = 0.000, cap hit at 900.0
+   scanner's own control: the known orbit at 85.699 RE-FOUND
+   further off-line orbits IN THE STRIP at height <= 1e3: 25  [(0.65083, 114.163343), (0.574356, 166.479306), (0.724258, 176.702461), (0.869531, 240.404672), (0.81955, 320.87649), (0.768223, 331.050259), (0.628508, 366.640908), (0.815874, 411.796738), (0.708882, 440.484511), (0.515918, 520.943801), (0.846954, 531.279727), (0.729533, 548.906794), (0.786559, 566.509713), (0.582856, 595.023378), (0.628252, 611.775098), (0.610765, 646.986823), (0.760597, 657.108371), (0.788703, 692.892491), (0.77736, 737.766997), (0.853001, 783.653007), (0.668551, 811.765792), (0.561948, 847.465732), (0.856109, 857.295887), (0.6809, 864.118091), (0.68843, 892.149035)]
+   CONTROL at t = 114.163343, delta = 0.150830: 39 DH on-line zeros in [t-30, t+30]
+   L=  10.00: W_Z = -4.811799e-02  W_Z' = 1.633490e-03  main = -4.975148e-02  |W_Z - W_Z'|/bound = 1.029  fires(>=1): False
+   L=  20.00: W_Z = -6.428924e-02  W_Z' = 3.226260e-04  main = -6.461186e-02  |W_Z - W_Z'|/bound = 0.6285  fires(>=1): False
+   L=  30.00: W_Z = -9.791595e-02  W_Z' = 3.763916e-06  main = -9.791971e-02  |W_Z - W_Z'|/bound = 0.448  fires(>=1): False
+   L=  40.00: W_Z = -1.692027e-01  W_Z' = 2.637414e-06  main = -1.692054e-01  |W_Z - W_Z'|/bound = 0.3642  fires(>=1): False
+   L=  50.00: W_Z = -3.256405e-01  W_Z' = 1.909460e-07  main = -3.256407e-01  |W_Z - W_Z'|/bound = 0.3297  fires(>=1): False
+   L=  60.00: W_Z = -6.836912e-01  W_Z' = 2.348929e-08  main = -6.836912e-01  |W_Z - W_Z'|/bound = 0.3256  fires(>=1): False
+   L=  70.00: W_Z = -1.539834e+00  W_Z' = 2.592156e-08  main = -1.539834e+00  |W_Z - W_Z'|/bound = 0.345  fires(>=1): True
+   L= 217.48: W_Z = -9.258755e+06  W_Z' = 2.535531e-14  main = -9.258755e+06  |W_Z - W_Z'|/bound = 30.66  fires(>=1): True
+   L= 100.00: W_Z = -2.385146e+01  W_Z' = 6.463208e-10  main = -2.385146e+01  |W_Z - W_Z'|/bound = 0.5563  fires(>=1): True
+   [RE-RUN] max |f_DH(1/2 + i gamma)| over the refined on-line zeros so far = 5.40e-39;  max |S(gamma)| = 5.40e-39  (criterion: max |f_DH| <= 1e-25)
+   CAVEATS (as at 85.7): the window hypothesis (all other points real within R_0 L*) is not verified; the reflection condition t >= 21 L* FAILS at this t; the reflected points are omitted.
+   CONTROL at t = 166.479306, delta = 0.074356: 43 DH on-line zeros in [t-30, t+30]
+   L=  10.00: W_Z = -5.072087e-03  W_Z' = 6.229482e-03  main = -1.130157e-02  |W_Z - W_Z'|/bound = 1.409  fires(>=1): False
+   L=  20.00: W_Z = -1.181734e-02  W_Z' = 2.437795e-04  main = -1.206112e-02  |W_Z - W_Z'|/bound = 1.037  fires(>=1): False
+   L=  30.00: W_Z = -1.340907e-02  W_Z' = 1.509206e-05  main = -1.342416e-02  |W_Z - W_Z'|/bound = 0.7959  fires(>=1): False
+   L=  40.00: W_Z = -1.555273e-02  W_Z' = 5.586802e-07  main = -1.555329e-02  |W_Z - W_Z'|/bound = 0.6358  fires(>=1): False
+   L=  50.00: W_Z = -1.871311e-02  W_Z' = 3.407196e-07  main = -1.871345e-02  |W_Z - W_Z'|/bound = 0.5275  fires(>=1): False
+   L=  60.00: W_Z = -2.331823e-02  W_Z' = 8.490422e-08  main = -2.331831e-02  |W_Z - W_Z'|/bound = 0.4532  fires(>=1): False
+   L=  70.00: W_Z = -3.000530e-02  W_Z' = 3.071366e-09  main = -3.000530e-02  |W_Z - W_Z'|/bound = 0.4021  fires(>=1): False
+   L= 521.27: W_Z = -2.493549e+08  W_Z' = 2.843383e-22  main = -2.493549e+08  |W_Z - W_Z'|/bound = 172.8  fires(>=1): True
+   L= 100.00: W_Z = -7.535352e-02  W_Z' = 5.207395e-10  main = -7.535352e-02  |W_Z - W_Z'|/bound = 0.331  fires(>=1): False
+   [RE-RUN] max |f_DH(1/2 + i gamma)| over the refined on-line zeros so far = 6.54e-39;  max |S(gamma)| = 6.54e-39  (criterion: max |f_DH| <= 1e-25)
+   CAVEATS (as at 85.7): the window hypothesis (all other points real within R_0 L*) is not verified; the reflection condition t >= 21 L* FAILS at this t; the reflected points are omitted.
+[2026-09-17 11:14:53] dh_offline_scan_rerun.py DONE in 42 s; verdict: DH control available at 25 further height(s)

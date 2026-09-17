@@ -1,0 +1,42 @@
+========================================================================================================================
+[2026-09-17 11:14:54] dh_control_new_heights_rerun.py START (RE-RUN): 26 strip orbits in the JSON (25 new); controls at the first 3 new heights
+   CONTROL at rho = 0.650830080610 + 114.163342731 i (re-refined: |f| = 4.6e-15), t = 114.163343, delta = 0.150830, L*(C1 = 1) = 217.48, t/L* = 0.52: 39 DH on-line zeros in [t-30, t+30] (mean gap 1.538)
+   L=  10.00: W_Z = -4.811799e-02  W_Z' = 1.633490e-03 (clause-4 bound 8.685e-01)  main = -4.975148e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 1.029  fires(>=1): False  deltaL = 1.5
+   L=  20.00: W_Z = -6.428924e-02  W_Z' = 3.226260e-04 (clause-4 bound 2.171e-01)  main = -6.461186e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.6285  fires(>=1): False  deltaL = 3.0
+   L=  30.00: W_Z = -9.791595e-02  W_Z' = 3.763916e-06 (clause-4 bound 9.650e-02)  main = -9.791971e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.448  fires(>=1): False  deltaL = 4.5
+   L=  40.00: W_Z = -1.692027e-01  W_Z' = 2.637414e-06 (clause-4 bound 5.428e-02)  main = -1.692054e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3642  fires(>=1): False  deltaL = 6.0
+   L=  50.00: W_Z = -3.256405e-01  W_Z' = 1.909460e-07 (clause-4 bound 3.474e-02)  main = -3.256407e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3297  fires(>=1): False  deltaL = 7.5
+   L=  60.00: W_Z = -6.836912e-01  W_Z' = 2.348929e-08 (clause-4 bound 2.413e-02)  main = -6.836912e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3256  fires(>=1): False  deltaL = 9.0
+   L=  70.00: W_Z = -1.539834e+00  W_Z' = 2.592156e-08 (clause-4 bound 1.773e-02)  main = -1.539834e+00  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.345  fires(>=1): True  deltaL = 10.6
+   L=  80.00: W_Z = -3.671776e+00  W_Z' = 2.298568e-09 (clause-4 bound 1.357e-02)  main = -3.671776e+00  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.387  fires(>=1): True  deltaL = 12.1
+   L= 217.48: W_Z = -9.258755e+06  W_Z' = 2.535531e-14 (clause-4 bound 1.836e-03)  main = -9.258755e+06  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 30.66  fires(>=1): True  deltaL = 32.8
+   L= 100.00: W_Z = -2.385146e+01  W_Z' = 6.463208e-10 (clause-4 bound 8.685e-03)  main = -2.385146e+01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.5563  fires(>=1): True  deltaL = 15.1
+   [RE-RUN] max |f_DH(1/2 + i gamma)| over the refined on-line zeros so far = 5.40e-39;  max |S(gamma)| = 5.40e-39  (criterion: max |f_DH| <= 1e-25)
+   CAVEATS (as at 85.7): window hypothesis not verified (further orbits every ~40 units in the scan); reflection condition t >= 21 L* FAILS (t/L* = 0.52); reflected points omitted.
+   CONTROL at rho = 0.574356050451 + 166.479305913 i (re-refined: |f| = 8.5e-15), t = 166.479306, delta = 0.074356, L*(C1 = 1) = 521.27, t/L* = 0.32: 43 DH on-line zeros in [t-30, t+30] (mean gap 1.395)
+   L=  10.00: W_Z = -5.072087e-03  W_Z' = 6.229482e-03 (clause-4 bound 9.215e-01)  main = -1.130157e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 1.409  fires(>=1): False  deltaL = 0.7
+   L=  20.00: W_Z = -1.181734e-02  W_Z' = 2.437795e-04 (clause-4 bound 2.304e-01)  main = -1.206112e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 1.037  fires(>=1): False  deltaL = 1.5
+   L=  30.00: W_Z = -1.340907e-02  W_Z' = 1.509206e-05 (clause-4 bound 1.024e-01)  main = -1.342416e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.7959  fires(>=1): False  deltaL = 2.2
+   L=  40.00: W_Z = -1.555273e-02  W_Z' = 5.586802e-07 (clause-4 bound 5.759e-02)  main = -1.555329e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.6358  fires(>=1): False  deltaL = 3.0
+   L=  50.00: W_Z = -1.871311e-02  W_Z' = 3.407196e-07 (clause-4 bound 3.686e-02)  main = -1.871345e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.5275  fires(>=1): False  deltaL = 3.7
+   L=  60.00: W_Z = -2.331823e-02  W_Z' = 8.490422e-08 (clause-4 bound 2.560e-02)  main = -2.331831e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.4532  fires(>=1): False  deltaL = 4.5
+   L=  70.00: W_Z = -3.000530e-02  W_Z' = 3.071366e-09 (clause-4 bound 1.881e-02)  main = -3.000530e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.4021  fires(>=1): False  deltaL = 5.2
+   L=  80.00: W_Z = -3.975548e-02  W_Z' = 1.474311e-09 (clause-4 bound 1.440e-02)  main = -3.975548e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3673  fires(>=1): False  deltaL = 5.9
+   L= 521.27: W_Z = -2.493549e+08  W_Z' = 2.843383e-22 (clause-4 bound 3.391e-04)  main = -2.493549e+08  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 172.8  fires(>=1): True  deltaL = 38.8
+   L= 100.00: W_Z = -7.535352e-02  W_Z' = 5.207395e-10 (clause-4 bound 9.215e-03)  main = -7.535352e-02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.331  fires(>=1): False  deltaL = 7.4
+   [RE-RUN] max |f_DH(1/2 + i gamma)| over the refined on-line zeros so far = 6.54e-39;  max |S(gamma)| = 6.54e-39  (criterion: max |f_DH| <= 1e-25)
+   CAVEATS (as at 85.7): window hypothesis not verified (further orbits every ~40 units in the scan); reflection condition t >= 21 L* FAILS (t/L* = 0.32); reflected points omitted.
+   CONTROL at rho = 0.724257694627 + 176.702461243 i (re-refined: |f| = 4.3e-15), t = 176.702461, delta = 0.224258, L*(C1 = 1) = 133.66, t/L* = 1.32: 43 DH on-line zeros in [t-30, t+30] (mean gap 1.395)
+   L=  10.00: W_Z = -1.023288e-01  W_Z' = 2.003063e-02 (clause-4 bound 9.302e-01)  main = -1.223594e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.7928  fires(>=1): False  deltaL = 2.2
+   L=  20.00: W_Z = -2.130931e-01  W_Z' = 6.309658e-04 (clause-4 bound 2.325e-01)  main = -2.137240e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.4513  fires(>=1): False  deltaL = 4.5
+   L=  30.00: W_Z = -4.995523e-01  W_Z' = 5.116277e-05 (clause-4 bound 1.034e-01)  main = -4.996035e-01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3437  fires(>=1): False  deltaL = 6.7
+   L=  40.00: W_Z = -1.450713e+00  W_Z' = 5.206410e-06 (clause-4 bound 5.813e-02)  main = -1.450718e+00  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3252  fires(>=1): True  deltaL = 9.0
+   L=  50.00: W_Z = -4.932520e+00  W_Z' = 4.074484e-07 (clause-4 bound 3.721e-02)  main = -4.932521e+00  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.3604  fires(>=1): True  deltaL = 11.2
+   L=  60.00: W_Z = -1.884042e+01  W_Z' = 2.629638e-08 (clause-4 bound 2.584e-02)  main = -1.884042e+01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.4485  fires(>=1): True  deltaL = 13.5
+   L=  70.00: W_Z = -7.860539e+01  W_Z' = 3.305947e-08 (clause-4 bound 1.898e-02)  main = -7.860539e+01  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.6098  fires(>=1): True  deltaL = 15.7
+   L=  80.00: W_Z = -3.514042e+02  W_Z' = 2.500916e-08 (clause-4 bound 1.453e-02)  main = -3.514042e+02  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 0.8883  fires(>=1): True  deltaL = 17.9
+   L= 133.66: W_Z = -2.295510e+06  W_Z' = 4.687273e-11 (clause-4 bound 5.207e-03)  main = -2.295510e+06  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 14.15  fires(>=1): True  deltaL = 30.0
+   L= 100.00: W_Z = -8.215223e+03  W_Z' = 1.850220e-09 (clause-4 bound 9.302e-03)  main = -8.215223e+03  |W_Z - W_Z'|/(d^2 e^{dL/2}) = 2.205  fires(>=1): True  deltaL = 22.4
+   [RE-RUN] max |f_DH(1/2 + i gamma)| over the refined on-line zeros so far = 6.54e-39;  max |S(gamma)| = 6.54e-39  (criterion: max |f_DH| <= 1e-25)
+   CAVEATS (as at 85.7): window hypothesis not verified (further orbits every ~40 units in the scan); reflection condition t >= 21 L* FAILS (t/L* = 1.32); reflected points omitted.
+[2026-09-17 11:16:25] dh_control_new_heights_rerun.py DONE in 92 s: DH negative control available at 3 further height(s) (114.163, 166.479, 176.702)
