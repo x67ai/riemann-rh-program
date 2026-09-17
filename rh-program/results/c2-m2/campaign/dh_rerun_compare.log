@@ -1,0 +1,113 @@
+============================================================================================================================================
+1. verify/dh_negative_control.py (record, 2026-09-16 18:23) vs dh_negative_control_rerun.py (re-run, refinement on S(u) at 40 digits); t = 85.6993484853776 (record) / 85.6993484853776 (re-run), delta = 0.3085171824566374 / 0.3085171824566374, L* = 86.90744354035114 / 86.90744354035114
+   on-line zeros in +-30: 36 recorded, 36 re-run; displacements re-run - recorded: min |d| = 1.187e-06, max |d| = 1.140e-03 (at u = 102.820350); re-run max |f_DH(1/2+i gamma)| = 3.54e-39, max |S| = 3.54e-39
+   phase count 40.11829246005906 / 40.11829246005906;  reflected direct L20 1.552013362458954e-32 / 1.5516103952274837e-32;  reflected bound L* 0.0001565128016253255 / 0.00015651609433542
+
+| L | W_Z' recorded | W_Z' re-run | relative | W_Z recorded | W_Z re-run | W_Z - W_Z' recorded | W_Z - W_Z' re-run | rel. diff of the difference | ratio rec | ratio re-run | rel | fires rec / re-run |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 10 | 4.8010831908e-03 | 4.8001176057e-03 | -2.011e-04 | -2.6981111059e-01 | -2.6981207617e-01 | -2.746121937766e-01 | -2.746121937766e-01 | -0.00e+00 | 0.616914 | 0.616914 | +0.0e+00 | False / False |
+| 20 | 4.4642881736e-05 | 4.4652465910e-05 | +2.147e-04 | -7.4823115488e-01 | -7.4823114530e-01 | -7.482757977633e-01 | -7.482757977633e-01 | -0.00e+00 | 0.359443 | 0.359443 | +0.0e+00 | False / False |
+| 30 | 1.2514578452e-05 | 1.2522590829e-05 | +6.402e-04 | -3.1833149313e+00 | -3.1833149233e+00 | -3.183327445847e+00 | -3.183327445847e+00 | -0.00e+00 | 0.326974 | 0.326974 | +0.0e+00 | True / True |
+| 40 | 1.8852470375e-06 | 1.8863134684e-06 | +5.657e-04 | -1.8088047781e+01 | -1.8088047780e+01 | -1.808804966629e+01 | -1.808804966629e+01 | -0.00e+00 | 0.397271 | 0.397271 | +0.0e+00 | True / True |
+| 50 | 2.6027951573e-07 | 2.6024039135e-07 | -1.503e-04 | -1.2459067815e+02 | -1.2459067815e+02 | -1.245906784070e+02 | -1.245906784070e+02 | -0.00e+00 | 0.585119 | 0.585119 | +0.0e+00 | True / True |
+| 60 | 3.4975791480e-08 | 3.4907642115e-08 | -1.948e-03 | -9.8250090591e+02 | -9.8250090591e+02 | -9.825009059413e+02 | -9.825009059413e+02 | -0.00e+00 | 0.986631 | 0.986631 | +0.0e+00 | True / True |
+| 70 | 4.3679402394e-09 | 4.3466795872e-09 | -4.867e-03 | -8.5653022375e+03 | -8.5653022375e+03 | -8.565302237533e+03 | -8.565302237533e+03 | -0.00e+00 | 1.839197 | 1.839197 | +0.0e+00 | True / True |
+| 86.90744 | 3.4321639764e-10 | 3.4083860980e-10 | -6.928e-03 | -3.9429218507e+05 | -3.9429218507e+05 | -3.942921850696e+05 | -3.942921850696e+05 | -0.00e+00 | 6.237523 | 6.237523 | +0.0e+00 | True / True |
+| 100 | 1.0220019660e-11 | 1.0185755033e-11 | -3.353e-03 | -8.5361151738e+06 | -8.5361151738e+06 | -8.536115173797e+06 | -8.536115173797e+06 | -0.00e+00 | 17.919920 | 17.919920 | +0.0e+00 | True / True |
+
+   the x6.24 ratio at L* = 86.907444: |W_Z - W_Z'| = 394292.185070 (record 394292.185070), bound delta^2 e^{delta L/2} = 63212.9413 (record 63212.9413), ratio = 6.237523 (record 6.237523); relative change +0.00e+00
+   script 1 summary: rows changed (W_Z' or W_Z) 9 of 9; max |relative change of W_Z'| = 6.928e-03; identity residual max |rel. diff of (W_Z - W_Z')| = 0.00e+00; max rel. move of separation/ratio/bound = 0.00e+00; runtime record 974 s, re-run 957 s
+   positive control (zeta, untouched by construction): L=20: 0.0008660342318441806 / 0.0008660342318441806; L=40: 1.0848320111089183e-05 / 1.0848320111089183e-05; L=86.9074: 2.0923417371703022e-07 / 2.0923417371703022e-07; L=100: 3.7789194294620364e-08 / 3.7789194294620364e-08
+
+============================================================================================================================================
+3. campaign/dh_control_new_heights.py (record rows in dh_offline_scan.json, 2026-09-16 22:19) vs dh_control_new_heights_rerun.py (re-run); scan step 0.05, refinement on S(u) at 40 digits
+   t = 114.163343, delta = 0.150830: 39 / 39 on-line zeros; displacements min |d| = 1.496e-05, max |d| = 8.442e-04; re-run max |f_DH| at the refined points = 5.40e-39; orbit |f| after Newton on f_DH: 4.6e-15 / 4.6e-15
+| t = 114.163343 | L | W_Z' recorded | W_Z' re-run | relative | W_Z recorded | W_Z re-run | W_Z - W_Z' rec | W_Z - W_Z' re-run | ratio rec | ratio re-run | fires rec / re-run |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | 10.00 | 1.635183e-03 | 1.633490e-03 | -1.035e-03 | -4.811630e-02 | -4.811799e-02 | -4.975148e-02 | -4.975148e-02 | 1.0287 | 1.0287 | False / False |
+| | 20.00 | 3.223497e-04 | 3.226260e-04 | +8.572e-04 | -6.428951e-02 | -6.428924e-02 | -6.461186e-02 | -6.461186e-02 | 0.6285 | 0.6285 | False / False |
+| | 30.00 | 3.778699e-06 | 3.763916e-06 | -3.912e-03 | -9.791593e-02 | -9.791595e-02 | -9.791971e-02 | -9.791971e-02 | 0.4480 | 0.4480 | False / False |
+| | 40.00 | 2.656320e-06 | 2.637414e-06 | -7.117e-03 | -1.692027e-01 | -1.692027e-01 | -1.692054e-01 | -1.692054e-01 | 0.3642 | 0.3642 | False / False |
+| | 50.00 | 1.859727e-07 | 1.909460e-07 | +2.674e-02 | -3.256405e-01 | -3.256405e-01 | -3.256407e-01 | -3.256407e-01 | 0.3297 | 0.3297 | False / False |
+| | 60.00 | 2.447342e-08 | 2.348929e-08 | -4.021e-02 | -6.836912e-01 | -6.836912e-01 | -6.836912e-01 | -6.836912e-01 | 0.3256 | 0.3256 | False / False |
+| | 70.00 | 2.597387e-08 | 2.592156e-08 | -2.014e-03 | -1.539834e+00 | -1.539834e+00 | -1.539834e+00 | -1.539834e+00 | 0.3450 | 0.3450 | True / True |
+| | 80.00 | 2.194502e-09 | 2.298568e-09 | +4.742e-02 | -3.671776e+00 | -3.671776e+00 | -3.671776e+00 | -3.671776e+00 | 0.3870 | 0.3870 | True / True |
+| | 217.48 | 2.568421e-14 | 2.535531e-14 | -1.281e-02 | -9.258755e+06 | -9.258755e+06 | -9.258755e+06 | -9.258755e+06 | 30.6595 | 30.6595 | True / True |
+| | 100.00 | 6.528070e-10 | 6.463208e-10 | -9.936e-03 | -2.385146e+01 | -2.385146e+01 | -2.385146e+01 | -2.385146e+01 | 0.5563 | 0.5563 | True / True |
+   t = 114.163343 summary: W_Z' rows changed 10 of 10; max |relative change of W_Z'| = 4.742e-02; max rel. move of sep/ratio/bound/main = 0.00e+00 (the identity W_Z - W_Z' = main = -2 delta^2 c(delta L)^2 holds by construction in the campaign library: W_Z := W_Z' + main)
+
+   t = 166.479306, delta = 0.074356: 43 / 43 on-line zeros; displacements min |d| = 1.289e-05, max |d| = 1.002e-03; re-run max |f_DH| at the refined points = 6.54e-39; orbit |f| after Newton on f_DH: 8.5e-15 / 8.5e-15
+| t = 166.479306 | L | W_Z' recorded | W_Z' re-run | relative | W_Z recorded | W_Z re-run | W_Z - W_Z' rec | W_Z - W_Z' re-run | ratio rec | ratio re-run | fires rec / re-run |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | 10.00 | 6.233641e-03 | 6.229482e-03 | -6.672e-04 | -5.067929e-03 | -5.072087e-03 | -1.130157e-02 | -1.130157e-02 | 1.4094 | 1.4094 | False / False |
+| | 20.00 | 2.433615e-04 | 2.437795e-04 | +1.717e-03 | -1.181775e-02 | -1.181734e-02 | -1.206112e-02 | -1.206112e-02 | 1.0371 | 1.0371 | False / False |
+| | 30.00 | 1.514518e-05 | 1.509206e-05 | -3.508e-03 | -1.340902e-02 | -1.340907e-02 | -1.342416e-02 | -1.342416e-02 | 0.7959 | 0.7959 | False / False |
+| | 40.00 | 5.548726e-07 | 5.586802e-07 | +6.862e-03 | -1.555274e-02 | -1.555273e-02 | -1.555329e-02 | -1.555329e-02 | 0.6358 | 0.6358 | False / False |
+| | 50.00 | 3.387737e-07 | 3.407196e-07 | +5.744e-03 | -1.871311e-02 | -1.871311e-02 | -1.871345e-02 | -1.871345e-02 | 0.5275 | 0.5275 | False / False |
+| | 60.00 | 8.523910e-08 | 8.490422e-08 | -3.929e-03 | -2.331823e-02 | -2.331823e-02 | -2.331831e-02 | -2.331831e-02 | 0.4532 | 0.4532 | False / False |
+| | 70.00 | 3.170028e-09 | 3.071366e-09 | -3.112e-02 | -3.000530e-02 | -3.000530e-02 | -3.000530e-02 | -3.000530e-02 | 0.4021 | 0.4021 | False / False |
+| | 80.00 | 1.441580e-09 | 1.474311e-09 | +2.271e-02 | -3.975548e-02 | -3.975548e-02 | -3.975548e-02 | -3.975548e-02 | 0.3673 | 0.3673 | False / False |
+| | 521.27 | 3.304799e-22 | 2.843383e-22 | -1.396e-01 | -2.493549e+08 | -2.493549e+08 | -2.493549e+08 | -2.493549e+08 | 172.8443 | 172.8443 | True / True |
+| | 100.00 | 5.226186e-10 | 5.207395e-10 | -3.596e-03 | -7.535352e-02 | -7.535352e-02 | -7.535352e-02 | -7.535352e-02 | 0.3310 | 0.3310 | False / False |
+   t = 166.479306 summary: W_Z' rows changed 10 of 10; max |relative change of W_Z'| = 1.396e-01; max rel. move of sep/ratio/bound/main = 0.00e+00 (the identity W_Z - W_Z' = main = -2 delta^2 c(delta L)^2 holds by construction in the campaign library: W_Z := W_Z' + main)
+
+   t = 176.702461, delta = 0.224258: 43 / 43 on-line zeros; displacements min |d| = 6.073e-06, max |d| = 1.774e-03; re-run max |f_DH| at the refined points = 6.54e-39; orbit |f| after Newton on f_DH: 4.3e-15 / 4.3e-15
+| t = 176.702461 | L | W_Z' recorded | W_Z' re-run | relative | W_Z recorded | W_Z re-run | W_Z - W_Z' rec | W_Z - W_Z' re-run | ratio rec | ratio re-run | fires rec / re-run |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | 10.00 | 2.002283e-02 | 2.003063e-02 | +3.892e-04 | -1.023366e-01 | -1.023288e-01 | -1.223594e-01 | -1.223594e-01 | 0.7928 | 0.7928 | False / False |
+| | 20.00 | 6.304798e-04 | 6.309658e-04 | +7.708e-04 | -2.130936e-01 | -2.130931e-01 | -2.137240e-01 | -2.137240e-01 | 0.4513 | 0.4513 | False / False |
+| | 30.00 | 5.108015e-05 | 5.116277e-05 | +1.617e-03 | -4.995524e-01 | -4.995523e-01 | -4.996035e-01 | -4.996035e-01 | 0.3437 | 0.3437 | False / False |
+| | 40.00 | 5.186613e-06 | 5.206410e-06 | +3.817e-03 | -1.450713e+00 | -1.450713e+00 | -1.450718e+00 | -1.450718e+00 | 0.3252 | 0.3252 | True / True |
+| | 50.00 | 4.040622e-07 | 4.074484e-07 | +8.380e-03 | -4.932520e+00 | -4.932520e+00 | -4.932521e+00 | -4.932521e+00 | 0.3604 | 0.3604 | True / True |
+| | 60.00 | 2.650769e-08 | 2.629638e-08 | -7.972e-03 | -1.884042e+01 | -1.884042e+01 | -1.884042e+01 | -1.884042e+01 | 0.4485 | 0.4485 | True / True |
+| | 70.00 | 3.344357e-08 | 3.305947e-08 | -1.149e-02 | -7.860539e+01 | -7.860539e+01 | -7.860539e+01 | -7.860539e+01 | 0.6098 | 0.6098 | True / True |
+| | 80.00 | 2.510397e-08 | 2.500916e-08 | -3.777e-03 | -3.514042e+02 | -3.514042e+02 | -3.514042e+02 | -3.514042e+02 | 0.8883 | 0.8883 | True / True |
+| | 133.66 | 4.804132e-11 | 4.687273e-11 | -2.432e-02 | -2.295510e+06 | -2.295510e+06 | -2.295510e+06 | -2.295510e+06 | 14.1489 | 14.1489 | True / True |
+| | 100.00 | 1.826804e-09 | 1.850220e-09 | +1.282e-02 | -8.215223e+03 | -8.215223e+03 | -8.215223e+03 | -8.215223e+03 | 2.2051 | 2.2051 | True / True |
+   t = 176.702461 summary: W_Z' rows changed 10 of 10; max |relative change of W_Z'| = 2.432e-02; max rel. move of sep/ratio/bound/main = 0.00e+00 (the identity W_Z - W_Z' = main = -2 delta^2 c(delta L)^2 holds by construction in the campaign library: W_Z := W_Z' + main)
+
+   runtime: record 53 s, re-run 92 s
+
+============================================================================================================================================
+2. campaign/dh_offline_scan.py control stage (record rows from logs/dh_offline_scan.log, printed at 7 significant digits / ratio at 4; scan step 0.1) vs dh_offline_scan_rerun.py (re-run; the orbit search read from dh_offline_scan.json, not redone)
+   t = 114.163343, delta = 0.150830: 39 recorded (log) / 39 re-run on-line zeros at scan step 0.1; re-run max |f_DH| at the refined points = 5.40e-39
+| t = 114.163343 | L | W_Z' recorded (log) | W_Z' re-run | relative | W_Z recorded (log) | W_Z re-run | ratio rec (log) | ratio re-run | fires rec / re-run | W_Z' re-run of script 3 (step 0.05) | rel. (2 vs 3, both refined) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | 10.00 | 1.649760e-03 | 1.633490e-03 | -9.862e-03 | -4.810172e-02 | -4.811799e-02 | 1.029 | 1.029 | False / False | 1.633490e-03 | +0.0e+00 |
+| | 20.00 | 3.206609e-04 | 3.226260e-04 | +6.128e-03 | -6.429120e-02 | -6.428924e-02 | 0.6285 | 0.6285 | False / False | 3.226260e-04 | +0.0e+00 |
+| | 30.00 | 3.863945e-06 | 3.763916e-06 | -2.589e-02 | -9.791585e-02 | -9.791595e-02 | 0.448 | 0.448 | False / False | 3.763916e-06 | +0.0e+00 |
+| | 40.00 | 2.694785e-06 | 2.637414e-06 | -2.129e-02 | -1.692027e-01 | -1.692027e-01 | 0.3642 | 0.3642 | False / False | 2.637414e-06 | +0.0e+00 |
+| | 50.00 | 1.778466e-07 | 1.909460e-07 | +7.366e-02 | -3.256405e-01 | -3.256405e-01 | 0.3297 | 0.3297 | False / False | 1.909460e-07 | +0.0e+00 |
+| | 60.00 | 2.555270e-08 | 2.348929e-08 | -8.075e-02 | -6.836912e-01 | -6.836912e-01 | 0.3256 | 0.3256 | False / False | 2.348929e-08 | +0.0e+00 |
+| | 70.00 | 2.594334e-08 | 2.592156e-08 | -8.397e-04 | -1.539834e+00 | -1.539834e+00 | 0.345 | 0.345 | True / True | 2.592156e-08 | +0.0e+00 |
+| | 217.48 | 2.595405e-14 | 2.535531e-14 | -2.307e-02 | -9.258755e+06 | -9.258755e+06 | 30.66 | 30.66 | True / True | 2.535531e-14 | +0.0e+00 |
+| | 100.00 | 6.634350e-10 | 6.463208e-10 | -2.580e-02 | -2.385146e+01 | -2.385146e+01 | 0.5563 | 0.5563 | True / True | 6.463208e-10 | +0.0e+00 |
+   t = 114.163343 summary: W_Z' rows changed 9 of 9 (beyond the log's 7 printed digits); max |relative change of W_Z'| = 8.075e-02; max rel. move of the ratio column = 2.50e-04 (against 4 printed digits); the two refined re-runs (scan step 0.1 here, 0.05 in script 3) agree on W_Z' to max rel. 0.00e+00
+
+   t = 166.479306, delta = 0.074356: 43 recorded (log) / 43 re-run on-line zeros at scan step 0.1; re-run max |f_DH| at the refined points = 6.54e-39
+| t = 166.479306 | L | W_Z' recorded (log) | W_Z' re-run | relative | W_Z recorded (log) | W_Z re-run | ratio rec (log) | ratio re-run | fires rec / re-run | W_Z' re-run of script 3 (step 0.05) | rel. (2 vs 3, both refined) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | 10.00 | 6.280816e-03 | 6.229482e-03 | -8.173e-03 | -5.020753e-03 | -5.072087e-03 | 1.409 | 1.409 | False / False | 6.229482e-03 | +0.0e+00 |
+| | 20.00 | 2.385118e-04 | 2.437795e-04 | +2.209e-02 | -1.182260e-02 | -1.181734e-02 | 1.037 | 1.037 | False / False | 2.437795e-04 | +0.0e+00 |
+| | 30.00 | 1.569788e-05 | 1.509206e-05 | -3.859e-02 | -1.340846e-02 | -1.340907e-02 | 0.7959 | 0.7959 | False / False | 1.509206e-05 | +0.0e+00 |
+| | 40.00 | 5.142043e-07 | 5.586802e-07 | +8.649e-02 | -1.555278e-02 | -1.555273e-02 | 0.6358 | 0.6358 | False / False | 5.586802e-07 | +0.0e+00 |
+| | 50.00 | 3.178436e-07 | 3.407196e-07 | +7.197e-02 | -1.871313e-02 | -1.871311e-02 | 0.5275 | 0.5275 | False / False | 3.407196e-07 | +0.0e+00 |
+| | 60.00 | 8.837381e-08 | 8.490422e-08 | -3.926e-02 | -2.331822e-02 | -2.331823e-02 | 0.4532 | 0.4532 | False / False | 8.490422e-08 | +0.0e+00 |
+| | 70.00 | 4.316279e-09 | 3.071366e-09 | -2.884e-01 | -3.000530e-02 | -3.000530e-02 | 0.4021 | 0.4021 | False / False | 3.071366e-09 | +0.0e+00 |
+| | 521.27 | 7.395514e-22 | 2.843383e-22 | -6.155e-01 | -2.493549e+08 | -2.493549e+08 | 172.8 | 172.8 | True / True | 2.843383e-22 | +0.0e+00 |
+| | 100.00 | 5.346515e-10 | 5.207395e-10 | -2.602e-02 | -7.535352e-02 | -7.535352e-02 | 0.331 | 0.331 | False / False | 5.207395e-10 | +0.0e+00 |
+   t = 166.479306 summary: W_Z' rows changed 9 of 9 (beyond the log's 7 printed digits); max |relative change of W_Z'| = 6.155e-01; max rel. move of the ratio column = 3.06e-04 (against 4 printed digits); the two refined re-runs (scan step 0.1 here, 0.05 in script 3) agree on W_Z' to max rel. 0.00e+00
+
+   runtime: re-run control stage 42 s (the record's 1712 s included the 30-minute orbit search, which is not redone)
+
+============================================================================================================================================
+STOP CONDITIONS (DH-RERUN-BRIEF.md 10(m)): FIRED: script 2: W_Z' moved by 2.21e-02 at t = 166.479, L = 20
+   sha256 89017bbf1be8c37016fa17191bb25b2725b8b0beda5b1af0bfe40aa32aa57c28  verify/dh_negative_control_rerun.py
+   sha256 1b9ee5f29ee5b473772affaa49189a83126890530f665797cefae27ea93104f4  verify/dh_negative_control_rerun_run.log
+   sha256 6ac279a2cde67a23540b81077a9d1154dde252fba3b7f66a813cf1ff9086896a  verify/dh_negative_control_rerun_out.json
+   sha256 da43607291d2b4001bb5d052e04afa7df9d58c3285750081af90967c3a6b11f8  campaign/dh_offline_scan_rerun.py
+   sha256 f9350729e1626a9668958fa5aecc6efada3d065b764f4a4c74519940aebfd340  campaign/dh_offline_scan_rerun.json
+   sha256 3d8d40ccb165263eca08a18499b6a5bd1176f87bea8a75eebe732e3e3c5ac5ae  campaign/logs/dh_offline_scan_rerun.log
+   sha256 04f9cf8719dc09a86050c62560ab58f2540a4235c4331bde3e157618bb598b1c  campaign/dh_control_new_heights_rerun.py
+   sha256 f6bb4aa5736029423d7945414106c177f3946a66a933bf8995aeae2422ce5be4  campaign/dh_control_new_heights_rerun.json
+   sha256 b642d61057e2a0b2b9adc9f005a86644d9d5ad3f22aaf43d9d9311b8060d121b  campaign/logs/dh_control_new_heights_rerun.log
