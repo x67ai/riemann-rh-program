@@ -1,0 +1,23 @@
+=== L = 10  Thu Sep 17 10:30:35 IST 2026
+dh_count: L = 10, X = 22026, theta = 1e-6
+[0.0s] primes <= X: 1222 == +-1 (5), 1243 == +-2 (5), plus p = 5;  |S| = 8562 = 1239 prime powers of +-1 primes + 7323 in T;  proven zeros: 4405 multiples of 5 + 9058 others = 13463
+[0.0s] Lambda_DH recursion (f64, twisted_sum.rs arithmetic) to X in 0.0s; witnesses [(2, 0.19690858829414687), (3, -0.3120927285161636), (4, -1.4422319646064572), (5, 0.0), (6, 1.9363560766210388), (12, -0.7628774719884116)]
+[0.0s] f64 `!= 0.0` count = 15346 (the note's term count at this L);  multiples of 5 with lambda != 0: 0 (expect 0)
+    roundoff FLOOR, measured on the 9058 proven zeros coprime to 5: max |lambda_f64| = 8.690e-15 at n = 14364
+    on S (8562 elements): min |lambda_f64| = 5.439e-8 at n = 8192;  max = 157.7961 at n = 19656;  exactly 0.0 in f64: 0;  |lambda_f64| <= theta = 1e-6: 2 (listed for exact evaluation)
+    decade histogram (count of |lambda_f64| in [10^e, 10^(e+1))), e from -30 to 9; first column: exactly 0.0
+      on S          : 0.0:0  e-8:1  e-7:1  e-6:2  e-5:3  e-4:14  e-3:42  e-2:138  e-1:517  e0:5664  e1:2178  e2:2
+      proven zeros  : 0.0:2274  e-20:1  e-18:33  e-17:601  e-16:4705  e-15:1444
+[0.0s] wrote out/dh_count_L10.json and out/dh_count_L10_below_theta.txt (2 entries)
+=== L = 20  Thu Sep 17 10:30:35 IST 2026
+dh_count: L = 20, X = 485165195, theta = 1e-6
+[4.2s] primes <= X: 12806386 == +-1 (5), 12808175 == +-2 (5), plus p = 5;  |S| = 120953877 = 12807696 prime powers of +-1 primes + 108146181 in T;  proven zeros: 97033039 multiples of 5 + 267178278 others = 364211317
+[24.3s] Lambda_DH recursion (f64, twisted_sum.rs arithmetic) to X in 20.2s; witnesses [(2, 0.19690858829414687), (3, -0.3120927285161636), (4, -1.4422319646064572), (5, 0.0), (6, 1.9363560766210388), (12, -0.7628774719884116)]
+[26.4s] f64 `!= 0.0` count = 340796040 (the note's term count at this L);  multiples of 5 with lambda != 0: 0 (expect 0)
+    roundoff FLOOR, measured on the 267178278 proven zeros coprime to 5: max |lambda_f64| = 7.860e-12 at n = 387891504
+    on S (120953877 elements): min |lambda_f64| = 2.165e-15 at n = 134217728;  max = 230154.9915 at n = 322790832;  exactly 0.0 in f64: 0;  |lambda_f64| <= theta = 1e-6: 2235 (listed for exact evaluation)
+    decade histogram (count of |lambda_f64| in [10^e, 10^(e+1))), e from -30 to 9; first column: exactly 0.0
+      on S          : 0.0:0  e-15:1  e-14:1  e-13:4  e-12:9  e-11:27  e-10:77  e-9:128  e-8:434  e-7:1554  e-6:5403  e-5:19158  e-4:69413  e-3:129824  e-2:570202  e-1:2341096  e0:24124915  e1:87632160  e2:5551468  e3:493597  e4:14288  e5:118
+      proven zeros  : 0.0:47336115  e-30:98820  e-22:1  e-21:73  e-20:731  e-19:23489  e-18:441600  e-17:8374080  e-16:87047604  e-15:117882851  e-14:5839961  e-13:131357  e-12:1596
+[26.4s] wrote out/dh_count_L20.json and out/dh_count_L20_below_theta.txt (2235 entries)
+=== done Thu Sep 17 10:31:02 IST 2026

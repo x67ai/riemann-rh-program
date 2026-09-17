@@ -1,0 +1,19 @@
+[2026-09-17 10:28:09] dh_true_count.py: L = 10, X = 22026
+    kappa = 0.284079043840412296028291832393;  kappa^4 + 2kappa^3 - 6kappa^2 - 2kappa + 1 = -6.33e-81 (80 digits)
+[2026-09-17 10:28:10] exact recursion done in 0.2s
+    witnesses (coefficient vectors (c0, c1, c2, c3) meaning c0 + c1 kappa + c2 kappa^2 + c3 kappa^3):
+      Lambda_DH(2) = ((0, 1, 0, 0)) log 2
+      Lambda_DH(3) = ((0, -1, 0, 0)) log 3
+      Lambda_DH(4) = ((-2, 0, -1, 0)) log 2
+      Lambda_DH(6) = ((1, 0, 1, 0)) log 2 + ((1, 0, 1, 0)) log 3
+      Lambda_DH(12) = ((0, -2, 0, -2)) log 2 + ((0, -1, 0, -1)) log 3
+    the five closed forms of m0-axiom-note.md §6.1 hold EXACTLY in Z[kappa]
+[2026-09-17 10:28:10] EXACT: #{n in [2, 22026] : Lambda_DH(n) != 0} = 8562;  zeros coprime to 5: 9058;  multiples of 5 (all zero): 4405;  total 22025 = 22025
+    first 40 zeros coprime to 5: [22, 33, 38, 44, 57, 58, 62, 66, 76, 77, 82, 87, 88, 93, 99, 114, 116, 118, 122, 123, 124, 132, 133, 142, 143, 152, 154, 158, 164, 171, 174, 176, 177, 178, 183, 186, 187, 198, 202, 203]
+    structural: #{p^k <= X, p == +-1 (5)} = 1239;  #T = #{n <= X: all prime factors == +-2 (5)} = 7323;  |S| = 8562
+    exact nonzero set == S ?  True   (nonzero not in S: [];  S with Lambda = 0: [])
+    Lambda_DH(p^k) = chi(p)^k log p for every p == +-1 (5), p^k <= X:  True
+    smallest nonzero |Lambda_DH(n)| at L = 10: 5.4392e-8 at n = 8192 (((60390, -137985, -323070, 212894)) log 2);  largest: 157.796 at n = 19656
+[2026-09-17 10:28:10] f64 recursion: `!= 0.0` count = 15346 (the note's Rust: 15 346; mpmath dps 30 `!= 0`: 15 442);  roundoff floor at the 9058 exact zeros: max |lambda_f64| = 8.690e-15 at n = 14364;  margin at the 8562 exact nonzeros: min |lambda_f64| = 5.439200e-08 at n = 8192;  worst |f64 - exact| over the nonzeros = 2.842e-14
+    the floor/margin ratio at L = 10 is 1.60e-07; a threshold anywhere in (8.7e-15, 5.4e-08) separates the two sets exactly
+[2026-09-17 10:28:10] wrote out/dh_true_count.json (0.4s)
