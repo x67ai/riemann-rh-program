@@ -1,0 +1,5 @@
+separation_braw_iteratedDeriv_le              challenge   174 bytes, solution   174 bytes: IDENTICAL
+    theorem separation_braw_iteratedDeriv_le :
+        ∀ k : ℕ, 1 ≤ k → ∀ v : ℝ,
+          |iteratedDeriv k Separation.Braw v| ≤ ((k : ℝ) + 1) * (72 / Real.exp 1) ^ k * (k : ℝ) ^ (2 * k)
+RESULT: PASS
