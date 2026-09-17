@@ -306,3 +306,7 @@ Nothing in this list is a FAILS. Nothing in it moves a number that the rung comp
 | the IV.7 grep (zero hits for Lindelöf / λ_max / Dirichlet polynomial / pointwise over `BARRIER-ZOO.md` lines 392–403) | inline grep, recorded in §6c |
 
 *End of check. SHA-256 of this file is in `results/c2-m6/SHARED.md`'s Job-2 block and in the final report.*
+
+---
+
+**[CORRECTION 2026-09-17, Session 23 (orchestrator, from `recheck-O.md` §1 and the page images of Turán p. 313 (2.1) and Weber p. 2):** this check's two renderings of Turán's window as "e^{17ωN² log N}" (§4.3 and §6a) should read **e^{17ωN log² N}**. The text above is left as written.]**
