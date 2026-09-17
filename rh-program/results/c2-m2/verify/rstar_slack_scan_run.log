@@ -1,0 +1,15 @@
+constants (read from the record): b1 = 8.69808 (certified upper), kappa_- = 1.480883, R0 = 81.0 (the larger of 81/73, conservative for l_R), coefficient tested: 2.7
+clause 3's proved margin at lambda = 25: e^m(25) = 1.8841 (record: 1.884);  m'(lambda) = 1/2 - 1/sqrt(lambda) - 3/(2 lambda) >= 0.24 for lambda >= 25, so e^m is increasing and the worst delta for the SLACK is delta = 25/L (lambda = 25), not delta = 1/2
+the R0 L <= e^L - 1 condition behind l_R <= 1.1 log(3+t) + L at L = 50: 4050.0 <= 5.185e+21: True
+L =    50: delta in [0.5, 0.5], 2001 points + endpoints: min M = 0.068116 at delta = 0.5;  M(25/L) = 0.068116, M(1/2) = 0.068116;  max N/U = 9.31e-5;  absorbable cap: 2.7681 at 25/L, 2.7681 at 1/2;  HOLDS: True
+L =    87: delta in [0.28736, 0.5], 2001 points + endpoints: min M = 0.068192 at delta = 0.28736;  M(25/L) = 0.068192, M(1/2) = 698.96;  max N/U = 5.26e-5;  absorbable cap: 2.7682 at 25/L, 701.66 at 1/2;  HOLDS: True
+L =   376: delta in [0.066489, 0.5], 2001 points + endpoints: min M = 0.068209 at delta = 0.066489;  M(25/L) = 0.068209, M(1/2) = 1.231e+27;  max N/U = 1.2e-5;  absorbable cap: 2.7682 at 25/L, 1.231e+27 at 1/2;  HOLDS: True
+L =   403: delta in [0.062035, 0.5], 2001 points + endpoints: min M = 0.068209 at delta = 0.062035;  M(25/L) = 0.068209, M(1/2) = 3.6007e+29;  max N/U = 1.12e-5;  absorbable cap: 2.7682 at 25/L, 3.6007e+29 at 1/2;  HOLDS: True
+L =  1000: delta in [0.025, 0.5], 2001 points + endpoints: min M = 0.068209 at delta = 0.025;  M(25/L) = 0.068209, M(1/2) = 4.9004e+86;  max N/U = 4.49e-6;  absorbable cap: 2.7682 at 25/L, 4.9004e+86 at 1/2;  HOLDS: True
+sweep over L = 50..1000 step 1 and 1000..1e5 geometric, delta in (25/L, midpoint, 1/2): min M = 0.068116 at (L, delta) = (50.0, 0.5)
+analytic lower bound for M on the whole range (e^m at lambda = 25, N/U at delta = 1/2, L = 50, e^-L at L = 50): 0.068116 >= 0: True;  the coefficient could be as large as 2.7681 (2.7 is referee F's rounding of it)
+sanity [computed]: c(lambda)^2/e^{lambda/2} against the proved e^{m(lambda)}: lambda = 25: 1.9991 >= 1.8841; lambda = 50: 2990.5 >= 2840.1; lambda = 100: 2.1519e+11 >= 2.0659e+11
+VERDICT: |E_-| <= 2.7 delta^2 e^{delta L/2} is absorbable: HOLDS on [25/L, 1/2] for every L >= 50 (the 'closes' branch of PRICING section 5(e))
+done in 0.7s
+  0.76s user 0.01s system 99% cpu 0.776 total
+exit=0

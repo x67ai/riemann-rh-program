@@ -1,0 +1,40 @@
+constants (read from the record): c_B = 0.14296065, C_B = 33.2845, b1 = 8.69808 (certified upper), kappa_- = 1.480883, Z = 0.2219969081
+(a) d/d(delta) of the right side = L/2 + 2 delta/(4t^2 + delta^2) - 2/delta  >= L/2 - 2/delta  >= 0 for delta >= 4/L;
+    numerical check on delta in [25/L, 1/2] (1001 points), L in (50, 87, 376, 403, 1000), t in (3, 100, 1e3, 1e6): min derivative = 21.0 (> 0);  worst case of (R*) on the admissible range is delta = 1/2
+(b) d(margin)/dt >= c_B sqrt(L/(2t)) - 8t/(4t^2 + delta^2) >= c_B sqrt(L/(2t)) - 2/t > 0 for t > 8/(c_B^2 L)  (left side: d/ds[2c_B s - 2log(1 + c_B s/2)] >= c_B, ds/dt = sqrt(L/(2t)))
+    numerical check (delta = 1/2, geometric t-grid from 8/(c_B^2 L) to ~1e6 x that, five L): margin strictly increasing: True;  8/(c_B^2 L) = 7.829 at L = 50, 0.3914 at L = 1000
+(c) least t with (R*) at delta = 1/2 (bisection; margin increasing in t beyond 8/(c_B^2 L), so (R*) holds for every t >= least t):
+    L =    50: least t = 166.16  (ceil 167;  t/L = 3.323)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =    87: least t = 150.9  (ceil 151;  t/L = 1.734)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =   100: least t = 151.16  (ceil 152;  t/L = 1.512)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =   200: least t = 175.74  (ceil 176;  t/L = 0.8787)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =   376: least t = 239.45  (ceil 240;  t/L = 0.6368)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =   403: least t = 249.7  (ceil 250;  t/L = 0.6196)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L =  1000: least t = 480.74  (ceil 481;  t/L = 0.4807)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    L = 10000: least t = 3942.6  (ceil 3943;  t/L = 0.3943)   [referee F: 167 / 151 / -- / -- / 240 / 250 / 483 / --]
+    asymptotic ratio: 2 c_B sqrt(2tL) >= L/4  <=>  t/L >= 1/(128 c_B^2) = 0.38226;  least t / L at L = 1e6: 0.38243, at L = 1e8: 0.38226
+    for the record: at the row's own delta the balance is t/L >= delta^2/(32 c_B^2): 0.01529 at delta = 0.1;  least t at delta = 0.1: L = 376: 30.461, L = 1000: 35.148
+(d) the campaign's lines: for fixed t, the largest L at which (R*) holds (delta = 1/2, the uniform form; and at the campaign's delta):
+    t = 1000: (R*) holds for L <= 2341.3 at delta = 1/2;  L <= 2.5818e+5 at delta = 0.05;  L <= 63795.0 at delta = 0.1;  L <= 9876.2 at delta = 0.25   [the proved 21L form: L <= 47.62]
+    t = 10000: (R*) holds for L <= 25818.0 at delta = 1/2;  L <= 2.6119e+6 at delta = 0.05;  L <= 6.5204e+5 at delta = 0.1;  L <= 1.0391e+5 at delta = 0.25   [the proved 21L form: L <= 476.2]
+    CAMPAIGN.md section 5 record points (L = L*(delta, t; C1)), flag 'inside' = (L >= L*, which holds at L = L*) and the reflection part: 21L (record) -> (R*) at delta = 1/2 (uniform) -> (R*) at the row's delta:
+    t =  1000, delta = 0.05, L* = 862.48   (C1 = 1): 21L: OUTSIDE;  (R*) delta=1/2: margin    127.5 -> inside ;  (R*) own delta: margin    317.0 -> inside
+    t =  1000, delta = 0.05, L* = 2590.38  (C1 = 2.4e+09): 21L: OUTSIDE;  (R*) delta=1/2: margin    -30.3 -> OUTSIDE;  (R*) own delta: margin    547.9 -> inside
+    t =  1000, delta = 0.10, L* = 375.79   (C1 = 1): 21L: OUTSIDE;  (R*) delta=1/2: margin    122.3 -> inside ;  (R*) own delta: margin    194.3 -> inside
+    t =  1000, delta = 0.10, L* = 1239.74  (C1 = 2.4e+09): 21L: OUTSIDE;  (R*) delta=1/2: margin    107.5 -> inside ;  (R*) own delta: margin    352.3 -> inside
+    t =  1000, delta = 0.25, L* = 120.99   (C1 = 1): 21L: OUTSIDE;  (R*) delta=1/2: margin    79.93 -> inside ;  (R*) own delta: margin    93.66 -> inside
+    t =  1000, delta = 0.25, L* = 466.57   (C1 = 2.4e+09): 21L: OUTSIDE;  (R*) delta=1/2: margin    127.8 -> inside ;  (R*) own delta: margin    184.7 -> inside
+    t = 10000, delta = 0.05, L* = 885.46   (C1 = 1): 21L: OUTSIDE;  (R*) delta=1/2: margin    942.5 -> inside ;  (R*) own delta: margin   1137.0 -> inside
+    t = 10000, delta = 0.05, L* = 2613.36  (C1 = 2.4e+09): 21L: OUTSIDE;  (R*) delta=1/2: margin   1373.0 -> inside ;  (R*) own delta: margin   1957.0 -> inside
+    t = 10000, delta = 0.10, L* = 387.28   (C1 = 1): 21L: inside ;  (R*) delta=1/2: margin    660.4 -> inside ;  (R*) own delta: margin    734.7 -> inside
+    t = 10000, delta = 0.10, L* = 1251.23  (C1 = 2.4e+09): 21L: OUTSIDE;  (R*) delta=1/2: margin   1078.0 -> inside ;  (R*) own delta: margin   1325.0 -> inside
+    t = 10000, delta = 0.25, L* = 125.59   (C1 = 1): 21L: inside ;  (R*) delta=1/2: margin    384.4 -> inside ;  (R*) own delta: margin    398.7 -> inside
+    t = 10000, delta = 0.25, L* = 471.17   (C1 = 2.4e+09): 21L: inside ;  (R*) delta=1/2: margin    721.2 -> inside ;  (R*) own delta: margin    778.7 -> inside
+    check: L* = 375.8 at (0.1, 1e3) is inside since least t at L = 376 is 239.5 < 1e3
+(e) DH control at referee F's rounding (85.7, 87, 0.3085): (R*) margin = -2.4051 nats (referee F: -2.4)  -> (R*) FAILS at DH;  uniform form (delta = 1/2): -9.7696;  least t at L = 87.0, delta = 0.3085: 100.33 against t = 85.7
+(e) DH control at the log's values (85.6993, 86.907, 0.3085172): (R*) margin = -2.4092 nats (referee F: -2.4)  -> (R*) FAILS at DH;  uniform form (delta = 1/2): -9.7642;  least t at L = 86.907, delta = 0.3085: 100.36 against t = 85.699
+(f) (R) of section 4 implies (R*): RHS(R) - RHS(R*) = L - delta L/2 + 2 sqrt(delta L) + (3/2) log(delta L) - 2 kappa_- + log(1.35) > 0 on delta in [25/L, 1/2], L >= 50;  hence t >= 21L => (R') => (R) => (R*):
+    min of RHS(R) - RHS(R*) over the grid: 49.667 (> 0);  margin of (R*) at t = 21L, delta = 1/2: L = 50: 50.384, L = 1000: 1561.3
+done in 0.8s
+  0.79s user 0.01s system 99% cpu 0.799 total
+exit=0
