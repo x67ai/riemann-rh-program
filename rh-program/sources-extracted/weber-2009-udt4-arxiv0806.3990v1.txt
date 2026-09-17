@@ -1,0 +1,893 @@
+                                                              On localization in Kronecker’s diophantine theorem
+
+                                                                                              Michel Weber
+
+                                                         Abstract: Using a probabilistic approach, we extend for general Q-linearly
+                                                         independent sequences a result of Túran concerning the sequence (log pℓ ),
+                                                         pℓ being the ℓ-th prime. For instance let λ1 , λ2 , . . . be linearly independent
+                                                         over Q. We prove that there exists
+                                                                                       q    a constant C0 such that for any positive
+                                                                                    4ω
+                                                                                                N
+                                                         integers N and ω, if T > C0 log NCω       /Ξ, where
+
+
+
+
+arXiv:0806.3990v1 [math.NT] 24 Jun 2008
+                                                                                              0        X
+                                                                             Ξ=         min                    λk uk
+                                                                                             uk integers
+                                                                                       |uk |≤6ω log (N ω/C0 )   1≤k≤N
+                                                                                       |u1 λ1 +...+uN λN |6=0
+
+                                                         then to any reals d, β1 , . . . , βN , corresponds a real t ∈ [d, d + T ] such that
+                                                         supN
+                                                            j=1 tλj − βj ≤ 1/ω.
+
+
+
+                                          1. Introduction and main result
+                                          The well-known theorem of Kronecker on Diophantine approximation asserts that if λ1 , λ2 , . . . , λN
+                                          are linearly independent over Q, then for any given real numbers α1 , α2 , . . . , αN and any ε > 0,
+                                          there exists a real number t such that
+                                                                                             N
+                                                                                           sup tλj − αj ≤ ε,                                                 (1.1)
+                                                                                           j=1
+
+                                          where x denotes the distance of x to Z, i.e. x = minν∈Z |x − ν|.
+                                                A quantitative form of Kronecker’s theorem was given by Bacon [B], who proved that if
+                                          λ1 , λ2 , . . . , λN are reals numbers satisfying for some M ≥ 1
+                                                     
+                                                                u1 λ1 + . . . + uN λN = 0
+                                                                                                   =⇒       u1 = u2 = . . . = uN = 0,
+                                                         |u1 | + . . . + |uN | ≤ M, uk integers
+                                                                                                                                      (1.2)
+                                          then for any real numbers α1 , α2 , . . . , αN , there exists a real number t such that
+                                                                                                                                   (N 3 −N )/12
+                                                             N             c(N )                         1                    125
+                                                            sup tλj − αj ≤       ,                c(N ) = (N − 1)3/2                                .        (1.3)
+                                                            j=1             M                            2                    48
+
+                                               Recently Chen [C1] considerably improved this result, showing that there exists a real number
+                                          t such that
+                                                                            N
+                                                                           X                π2     N
+                                                                                tλn − αn ≤               .                              (1.4)
+                                                                           n=1
+                                                                                            16 (M + 1)2
+                                          He also considered the case when λ1 , λ2 , . . . λN and α1 , α2 , . . . , αN are real numbers such that for
+                                          some M ≥ 1
+                                                 
+                                                    u1 λ1 + . . . + uN λN is an integer
+                                                                                                =⇒         u1 α1 + . . . + uN αN is an integer.
+                                                   |u1 | + . . . + |uN | ≤ M, uk integers
+                                                                                                                                                (1.5)
+
+                                                [Loc]Kronecker Date: on September 8, 2021
+                                                AMS Subject Classification 2000: Primary 11K60, Secondary 60G50, 11J25.
+                                                Keywords: Kronecker’s theorem, localization, Turán’s theorem, diophantine approximation, small deviations, weighted
+                                          i.i.d. sums.
+
+
+
+
+                                                                                                       1
+     No indication is however given on the range of t, and in [C1] it was claimed that no estimate
+for t exists in general. We refer to [Tu] (see also [Ti]) for more information about this important
+facet of Kronecker’s theorem. The object of this work is to provide a simple estimate for t.
+Theorem 1. There exists a constant C0 such that for any positive integers N , ω, if λ1 , λ2 , . . . , λN
+are reals satisfying
+
+                     u1 λ1 + . . . + uN λN = 0
+           (
+                                     Nω                      =⇒         u1 = u2 = . . . = uN = 0,
+                max |uℓ | ≤ 6ω log       , uk integers
+               1≤ℓ≤N                 C0
+                                                                                                                  (1.6)
+      if
+             √ r       N
+          3 2 3ω     Nω                                                                                X
+     T >         log                         where       Ξ = Ξ(N, ω) :=             min                       λk uk ,
+         πΞ   C0     C0                                                           u integers
+                                                                                     k
+                                                                             |uk |≤6ω log (N ω/C0 )   1≤k≤N
+                                                                             |u1 λ1 +...+uN λN |6=0
+
+
+
+then to any reals d, β1 , . . . , βN corresponds a real t ∈ [d, d + T ] such that
+
+                                                N                 1
+                                               sup tλj − βj ≤       .                                             (1.7)
+                                               j=1                ω
+
+
+     When λ1 , λ2 , . . . , λN are linearly independent over Q, condition (1.6) is trivially satisfied, and
+so the theorem applies. In the case λℓ = log pℓ , pℓ being the ℓ-th prime, ℓ = 1, . . . , N , Turán ([Tu],
+                                                                                         2
+Lemma p.313) proved that the conclusion above is satisfied with T = e17ωN log N if N is large
+enough, and 4 ≤ ω ≤ N . It is possible to estimate Ξ from below. More precisely, given any real
+ε > 0, there exists and integer N (ε) depending on ε only, such that for N ≥ Nε .
+
+                                         Ξ ≥ e−(1+ε)ωN log (N ω/C0 ) log N
+
+From this and Theorem 1, we deduce the similar estimate: if N is large enough, and ω is any
+positive integer, one can take T > e(1+2ε)ωN log (N ω/C0 ) log N .
+     The proof of Theorem 1 is inspired from Túran’s proof of the aforementionned particular case.
+But we also introduced an important probability structure allowing us to tacle the general case.
+                                                                              q         N
+                                                                           4ω
+     Let us make some further remarks. By Theorem 1, we can take T = C      0
+                                                                                log NCω
+                                                                                      0
+                                                                                           /Ξ. Then
+ ω
+   q                                                               √
+C0
+     log NC0ω = (T Ξ)1/N /4. Let w = ω/C0 , Θ = (T Ξ)1/N /4. As w log N w = Θ, we get
+
+                                                     √
+                                        Θ           w log N w         ω
+                                  √           = p         √       ≤w=    .
+                                      log N Θ     log N (w log w)     C0
+
+
+Since by (1.7), to any reals d, β1 , . . . , βN , corresponds a real t ∈ [d, d + T ] such that supN
+                                                                                                  j=1 tλj −
+βj ≤ 1/ω, we are free to choose d = T /2. Then
+                                         √          p                      p
+                  N            1          log N Θ    log N (T Ξ)1/N /4      log tN (Ξ)1/N
+                 sup tλj − βj ≤ ≤                 =                    ≤ 4                ,
+                 j=1           ω           C0 Θ       C0 (T Ξ)1/N /4         C0 (tΞ)1/N
+
+or
+                                          (tΞ)1/N      N             4
+                                       p              sup tλj − βj ≤    .
+                                        log tN (Ξ)1/N j=1            C0
+
+
+                                                         2
+And this holds for infinitely many t. We deduce
+
+                                                   t1/N      N
+                                           lim inf √      · sup tλj − βj < ∞.
+                                             t→∞     log t j=1
+
+In particular for λ1 irrational
+                                                           t tλ1
+                                                   lim inf √       < ∞.
+                                                     t→∞     log t
+and if λ1 , λ2 and λ1 /λ2 are irrationals
+
+                                                          t tλ1 tλ2
+                                                lim inf             < ∞.
+                                                   t→∞       log t
+
+     The well-known Littlewood’s conjecture (see [M] p. 202), however states that for any λ1 , λ2
+irrationals lim inf t tλ1 tλ2 = 0.
+              t→∞
+     Finally, applications of Theorem 1 to supremums of Dirichlet polynomials and more general
+polynomials are given at the end of Section 3.
+
+2. Some probabilistic preliminaries
+Let e(x) = e2iπx . Let m be a positive integer. Let (Ω, A, P) be a probability space, and let X be
+a discrete random variable with law defined by:
+                                           m−|n|
+                                                         if 0 ≤ |n| < m,
+                           P{X = n} =        m2
+                                              0         if |n| ≥ m.
+
+Then E X = 0, σ2 := E X 2 = (m2 − 1)/6, and the characteristic function ϕX (t) = E e(tX) satisfies
+                     X                                    1     X
+        ϕX (t) =             P{X = n}e(tn) =                             (m − |n|)e(tn) = m−2 · |Am (e(t))|2 ,
+                                                          m2
+                   0≤|n|<m                                     0≤|n|<m
+
+
+where Am (z) = 1 + z + . . . + z m−1 . Indeed we have
+                 m−1
+                 X m−1
+                     X                       m−1
+                                             X                                                X
+            2
+    |Am (z)| =               z   j−ℓ
+                                       =            z n #{0 ≤ j, ℓ < m : j − ℓ = n} =                   m − |n|)z n .
+                   j=0 ℓ=0                 n=−m+1                                            0≤|n|<m
+
+
+    Remark 1. — We have ϕX (t) = (2π/m)Fm (2πt), where Fm is the Fejér kernel
+                                                         m−1
+                      1  sin mu/2 2   1 X                                                   1 X −iku
+          Fm (u) =                    =     Dk (u),                               Dm (u) =        e    ,
+                     2mπ sin u/2        m                                                    2π
+                                                         k=0                                    |k|≤m
+
+Dm being the Dirichlet kernel. Now let X1 , . . . , Xk be independent copies of X. Put Sk =
+X1 + . . . + Xk , and consider its characteristic function ϕSk (t) = E e(tSk ). Basic properties of
+independent random variables imply
+                                      X
+              ϕSk (t) = ϕkX (t) =             P{Sk = ν}e(tν) = m−2k · |Am (e(t))|2k .         (2.1)
+                                           0≤|ν|≤(m−1)k
+
+By the local limit theorem [P] p.187
+                            √              1    ν2
+                       sup σ kP{Sk = ν} − √ e− 2σ2 k = o(1)                            k → ∞.
+                        ν                  2π
+
+                                                                3
+Thereby
+                                                       2
+                                        1        − 3ν                 1
+                       P{Sk = ν} = p            e (m2 −1)k + o(1) p           ,
+                                        2
+                                    πk(m − 1)/3                       2
+                                                                   k(m − 1)/6
+and in particular for each m, as k tends to infinity
+                                Z 1                                    Z 1
+                          −2k                          2k                        sin πmt 2k      3 1/2 1
+    P{Sk = 0} = m                     |Am (e(t))| dt =                       |            | dt =        √ (1 + o(1)).                          (2.2)
+                                 0                                      0        m sin πt        π     m k
+
+     When m and k vary simultaneously, some useful estimates are also at disposal ([Tu]). For k
+large, and any positive integer m
+                                                 Z 1
+                                                           sin πmt 2k       m2k−1
+                                                                       dt ≥ C √ ,
+                                                  0         sin πt              k
+
+where C is an absolute constant. Indeed, with the variable change t = u/mπ
+          Z 1                                    Z mπ                                            Z mπ
+                    sin πmt 2k      1                            sin u 2k      1                                sin u 2k
+                |           | dt =                         |           | du ≥                              |          | du
+           0         sin πt        mπ             0            sin u/m        mπ                  0            (u/m)
+                                                                                                           −1/2
+                                             2k−1 Z mπ                                         2k−1 Z k
+                                         m                         sin u 2k    m                                         sin u 2k
+                                     ≥                           |      | du ≥                                       |        | du
+                                             π         0             u           π                     0                   u
+                                                               −1/2                                                 −1/2
+                                             2k−1 Z k                            2                2k−1 Z k
+                                         m                                u         m                                                u2
+                                     ≥                                |1 − |2k du =                                        e2k log(1− 5 ) du
+                                             π         0                  5           π                         0
+                                                               −1/2
+                                             2k−1 Z k                                           2k−1
+                                         m                              ku2      m
+                                     ≥                                e− 5 du ≥ C √                    .
+                                             π         0                                         k
+
+    And so there exist constants k0 , C0 > 0 such that for k ≥ k0 and any positive integer m
+
+                                                                                      C0
+                                                           P{Sk = 0} ≥                √ .                                                      (2.3)
+                                                                                     m k
+
+Further, we may and do assume C0 < 1/4. Conversely, notice that for any m > m0 , and any
+positive k
+                 Z 1
+                       sin πmt 2k              2
+                     |         | dt ≤ 22k+1 m4k /(2k+1) = C · m2k−1+1/(2k+1) .
+                  0     sin πt
+
+
+    Finally, as sin πt ≥ (2/π)πt = 2t, for 0 ≤ t ≤ 1/2, we have
+                                                        sin πmt 2k                      1 2k
+                                         ϕSk (t) =                                   ≤           ∧ 1.                                          (2.4)
+                                                               m sin πt                   2m t
+
+
+3. Proof of Theorem 1.
+Let β1 , . . . , βN be given reals. Let Y1 , . . . , YN be independent copies of Sk . Consider the random
+vector Y = (Y1 , . . . , YN ) and let β = (β1 , . . . , βN ), t = (tλ1 − β1 , . . . , tλN − βN ). Put
+
+                                             XN         N
+                                                         X       YN
+                Υ(t, β) := E e(ht, Yi) = E e t   λℓ Yℓ −   βℓ Yℓ =   ϕSk (tλℓ − βℓ ),
+                                                                      ℓ=1                ℓ=1                   ℓ=1
+
+                                                                            4
+and for j = 1, . . . , N
+                                     X         X        Y
+                    Υj (t, β) := E e t  λℓ Yℓ −   βℓ Yℓ =   ϕSk (tλℓ − βℓ ).
+                                           1≤ℓ≤N             1≤ℓ≤N            1≤ℓ≤N
+                                            ℓ6=j              ℓ6=j             ℓ6=j
+
+
+
+Let ω ≥ 1. Let d be another given real and let T > 0. Suppose that to any t ∈ [d, d + T ],
+corresponds an indice j = jt ∈ {1, . . . , N }, such that
+
+                                                     tλj − βj > 1/ω.                                           (3.1)
+
+We will show that this can happen only if T is not too large. By (2.4)
+                                                               1      2k    ω 2k
+                                 ϕSk (tλj − βj ) ≤                         ≤        .
+                                                           2m tλj − βj       2m
+and so
+                                                       N
+                                                ω 2k X
+                                     Υ(t, β) ≤            χ{jt = j}Υj (t, β).
+                                               2m     j=1
+
+Integrating this inequality over [d, d + T ] yields
+  Z d+T                               N   Z d+T                                       N   Z d+T
+                           ω 2k X                                         ω 2k X
+              Υ(t, β)dt ≤                          χ{jt = j}Υj (t, β)dt ≤                         Υj (t, β)dt. (3.2)
+    d                     2m     j=1       d                              2m     j=1       d
+
+
+        But
+                        Y                           Y            X                                    
+                                                                                                        
+        Υj (t, β) =           ϕSk (tλℓ − βℓ ) =                             P{Sk = ν}e (tλℓ − βℓ )ν
+                      1≤ℓ≤N                        1≤ℓ≤N     0≤|ν|≤(m−1)k
+                       j6=ℓ                         ℓ6=j
+
+                  = P{Sk = 0}N −1                                                                              (3.3)
+                          X                     Y                    X               X
+                  +                                    P{Sk = νℓ } e(−   βℓ νℓ ) · e(t   λℓ νℓ ).
+                      0<supℓ6=j |νℓ |≤(m−1)k   1≤ℓ≤N                        1≤ℓ≤N              1≤ℓ≤N
+                                                j6=ℓ                         j6=ℓ               j6=ℓ
+
+
+
+Let C0 be the constant from (2.3). As C0 < 1/4, it follows that N ω > 4C0 . Choose
+                                                          n        Nω  42j−1 o
+                                  m = 2ω,          k = inf j ≥ 1 :    ≤ √      .                               (3.4)
+                                                                   C0     j
+
+Then k is well defined, k ≥ 2, and
+
+                                    Nω  42k−1                        Nω   42k−3
+                                       ≤ √                  and         > √     .
+                                    C0     k                         C0     k−1
+
+Further
+                                                                  Nω 
+                                                    k ≤ 3 log         .                                        (3.5)
+                                                                  C0
+Indeed, put for a while X = N ω/C0 and observe that k ≤ 2k and (7k/2) − 6 ≥ k/2 when k ≥ 2.
+Then
+                           42k−3   42k−3
+                     X>√         > √ ≥ 24k−6−k/2 = 2(7k/2)−6 ≥ 2k/2 .
+                            k−1       k
+Hence k ≤ (2/ log 2) log X < 3 log X.
+
+                                                              5
+                                                                  P
+      By the assumption made, the argument                            1≤ℓ≤N ,j6=ℓ νℓ λℓ is non-vanishing. Thus if sup{|νℓ | :
+ℓ 6= j} > 0
+                                                                  P                     P                 
+                   Z d+T           X                        e(d       1≤ℓ≤N   λℓ νℓ ) e(T 1≤ℓ≤N λℓ νℓ ) − 1
+                                                                       j6=ℓ                j6=ℓ
+                           e(t               λℓ νℓ )dt =                           P                         ,
+                    d              1≤ℓ≤N
+                                                                              2iπ 1≤ℓ≤N λℓ νℓ
+                                                                                      j6=ℓ
+                                    j6=ℓ
+
+
+
+and so                                                                    P
+                                   Z d+T            X               sin πT 1≤ℓ≤N λℓ νℓ
+                                                                               j6=ℓ
+                                              e(t       λℓ νℓ )dt =      P             .
+                                    d                                  π   1≤ℓ≤N λℓ νℓ
+                                                  1≤ℓ≤N                               j6=ℓ
+                                                    j6=ℓ
+
+
+       Therefore                        Z d+T
+                                                  Υj (t, β)dt = T P{Sk = 0}N −1 + Hj ,
+                                         d
+
+with
+                                   X               Y                  Z d+T                X                
+                Hj =                                       P{Sk = νℓ }        e                  (tλℓ − βℓ )νℓ dt,
+                           0<|νℓ |≤(m−1)k         1≤ℓ≤N                         d       1≤ℓ≤N
+                                  ℓ6=j             j6=ℓ                                  j6=ℓ
+
+
+and                                                                                       P
+                                             X               Y                   sin πT 1≤ℓ≤N λℓ νℓ
+                                                                                            j6=ℓ
+                    |Hj | ≤                                           P{Yℓ = νℓ }       P             .
+                                                                                      π 1≤ℓ≤N λℓ νℓ
+                                0<supℓ6=j |νℓ |≤(m−1)k         ℓ6=j                              j6=ℓ
+
+
+       It follows that
+                         Z d+T                                                           N
+                                                            ω 2k                      X        
+                                    Υ(t, β)dt ≤                     N T P{Sk = 0}N −1 +     |Hj | .                    (3.6)
+                           d                               2m                           j=1
+
+
+Similarly
+                                           Z d+T
+                                                    Υ(t, β)dt = T P{Sk = 0}N + H,
+                                              d
+
+and
+                                                            Y                sin πT P      λℓ νℓ
+                                                                                    P 1≤ℓ≤N
+                                             X
+                        |H| ≤                                     P{Yℓ = νℓ }                      .
+                                                                                  π 1≤ℓ≤N λℓ νℓ
+                                0<supℓ |νℓ |≤(m−1)k           ℓ
+
+So that
+                                                                                             N
+                                                    ω 2k    N                        ω 2k X
+            T P{Sk = 0}N − |H| ≤                                      T P{Sk = 0}N +
+                                                                    
+                                                                                                |Hj |.                 (3.7)
+                                                   2m     P{Sk = 0}                  2m     j=1
+
+
+By the choice made in (3.4) of m and k, we have
+
+                                ω 2k     N      Nω       C0  1
+                                      N = 2k =         ≤   √ ≤ P{Sk = 0}.                                              (3.8)
+                               2m        4     2m42k−1   2m k 2
+
+We get from (3.7) and (3.8)
+                                                             N                           N       
+                               N                       ω 2k X                   P{Sk = 0} X
+            T P{Sk = 0}            ≤ 2 |H| +                     |Hj | ≤ 2 |H| +               |Hj | .
+                                                      2m     j=1
+                                                                                    2N     j=1
+
+
+                                                                       6
+Hence
+                                                                   N
+                                        T P{Sk = 0}N ≤ 3 max |H|, max |Hj | .
+                                                                           
+                                                                                                                       (3.9)
+                                                                            j=1
+                                                                                                  P
+    We shall now bound |Hj | and |H|. We begin with |H| and put ZN =                                  1≤ℓ≤N λℓ Yℓ . We have
+
+                                                    sin πT ZN
+                                          |H| ≤ E             · χ{ZN 6= 0}.                                           (3.10)
+                                                       πZN
+Indeed
+                                Y                  sin πT P      λℓ νℓ    sin πT ZN
+                                                          P 1≤ℓ≤N
+                 X
+  |H| ≤                                 P{Yℓ = νℓ }                      =E           · χ{ZN 6= 0}.
+                                                        π 1≤ℓ≤N λℓ νℓ          πZN
+          0<supℓ |νℓ |≤(m−1)k       ℓ
+
+And we have the trivial bound
+         sin πT ZN                    1                                                            1
+    E              · χ{ZN 6= 0} ≤ E        · χ{ZN 6= 0} ≤                                                          .
+            πZN                     π|ZN |
+                                                                                                        X
+                                                          π                             min             |  λℓ νℓ |
+                                                                                0<supℓ |νℓ |≤(m−1)k
+                                                                                                          1≤ℓ≤N
+
+By (3.4), (3.5), mk = 2ωk ≤ 6ω log(N ω/C0 ). Notice by using assumption (1.6) that
+              X                                                         X
+        min          λℓ νℓ : 0 < sup |νℓ | ≤ (m − 1)k =      min              λℓ νℓ
+                                                                                uk integers
+                                            ℓ
+                 1≤ℓ≤N                                                        |uℓ |≤(m−1)k        1≤ℓ≤N
+                                                                         |u1 λ1 +...+uN λN |6=0
+                                                                                                   X
+                                                                     ≥            min                     λℓ νℓ = Ξ
+                                                                                uk integers
+                                                                          |uℓ |≤6ω log(N ω/C0 )   1≤ℓ≤N
+                                                                         |u1 λ1 +...+uN λN |6=0
+
+
+Thus
+                                                                   1
+                                                      |H| ≤          .                                                (3.11)
+                                                                  πΞ
+                                P
+Similarly, letting ZN,j =           1≤ℓ≤N   λℓ Yℓ , we have
+                                     ℓ6=j
+
+                                                                                P
+                                         X            Y                 sin πT 1≤ℓ≤N λℓ νℓ
+                                                                                   ℓ6=j
+                   |Hj | ≤                                   P{Yℓ = νℓ }       P
+                                                                             π 1≤ℓ≤N λℓ νℓ
+                             0<supℓ6=j |νℓ |≤(m−1)k     ℓ                                  ℓ6=j
+
+                                 sin πT ZN,j
+                         =E                  · χ{ZN,j 6= 0}.
+                                    πZN,j
+And so,
+                 sin πT ZN,j                                                      1                  1
+    |Hj | ≤ E                · χ{ZN,j 6= 0} ≤                                                     ≤    .              (3.12)
+                    πZN,j                                                                           πΞ
+                                                                                       X
+                                              π                      min               |  λℓ νℓ |
+                                                            0<supℓ6=j |νℓ |≤(m−1)k
+                                                                                        1≤ℓ≤N
+
+By inserting these estimates into (3.9), we get
+                                                                          3
+                                                T P{Sk = 0}N ≤              .                                         (3.13)
+                                                                         πΞ
+                                  √            √
+     By (2.3), P{Sk = 0} ≥ C0 /(m k) = C0 /(2ω k), and by reporting this into (3.13) and using
+(3.4), (3.5), we arrive to
+                                    √
+                                                    q
+                                                 2ω 3 log N ω  N
+                                3 2ω k N     3             C0
+                           T ≤            ≤                         .                   (3.14)
+                               πΞ C0         πΞ        C0
+
+                                                              7
+         Consequently, if
+                                                                √ r        N
+                                                             3 2 3ω      Nω
+                                                        T >          log       ,
+                                                            πΞ   C0      C0
+then to any reals d, β1 , . . . , βN corresponds a real t ∈ [d, d + T ] such that
+
+                                                                   N                          1
+                                                                   sup tλj − βj ≤               .                                                   (3.15)
+                                                                   j=1                        ω
+
+The proof is now complete.
+
+
+    Theorem 1 has interesting consequences for Dirichlet polynomials and more general poly-
+nomials. We shall investigate  them. Let α1 , . . . , αL be given reals and consider the Dirichlet
+polynomials DL (t) = L           it
+                    P
+                       n=1 α n n    . Let π(x) = #{p prime ≤ x} be the prime number function.
+Choose N = π(L). Using the prime factor decomposition, n = pa1 1 . . . paNN , aj (n) ≥ 0, 1 ≤ j ≤ N ,
+1 ≤ n ≤ L, we get
+                                           L        PN
+                                                 it        aj (n) log pj
+                                          X
+                               DL (t) =      αn e      j=1               .                     (3.16)
+                                                                     n=1
+                                                          PN
+Let θ1 , . . . , θN ∈ [0, 1[. Let Ω(n) =                     j=1 aj (n) denotes the prime divisor function. As
+
+            PN                                   PN
+     2iπt              aj (n) log pj       2iπ            aj (n)θj
+     e           j=1                   −e          j=1
+
+                 PN                                                            PN                                PN
+           2iπ            aj (n)[(t log pj −νj −θj )+νj +θj ]            2iπ              aj (n)θj         2iπ          aj (n)(t log pj −νj −θj )
+     = e           j=1                                               −e             j=1                 = e       j=1                               −1
+            N
+            X
+     ≤ 2π         aj (n) t log pj − νj − θj ,
+            j=1
+
+
+by taking the infimum over all νj , we get
+
+          PN                                  PN                             N
+  2iπt            aj (n) log pj         2iπ             aj (n)θj
+                                                                             X                                 N               
+ e          j=1                   −e             j=1                 ≤ 2π           aj (n) t log pj − θj ≤ 2π sup t log pj − θj Ω(n).
+                                                                                                                          j=1
+                                                                             j=1
+
+
+Herefrom
+                  L                        L                 PN                                            L
+                  X
+                                2iπt
+                                           X           2iπ           aj (n)θj                 N          X
+                         αn n          −         αn e          j=1                ≤ 2π sup t log pj − θj ·   |αn |Ω(n).
+                  n=1                      n=1                                               j=1                         n=1
+
+
+Let ω be some positive integer. By the comments made after Theorem 1 concerning Túran’s
+result, if T > T (N, ω) := e2ωN log (N ω/C0 ) log N , then for any real d, any reals θ1 , . . . , θN , there exists
+τ ∈ [d, d + T ] such that
+                                                             N
+                                                             sup τ log pj − θj ≤ 1/ω.
+                                                             j=1
+
+Thus
+                                 L                       L                                                  L
+                                                                                                        2π X
+                                                                             PN
+                                                                       2iπ            aj (n)θj
+                                 X                       X
+                                       αn n2iπτ −              αn e             j=1                 ≤     ·   |αn |Ω(n).
+                                 n=1                     n=1
+                                                                                                        ω n=1
+                                                                                                                                          PN
+                                                                                                                      PL            2iπ           aj (n)θj
+Let T = R/Z be the circle. Put for (θ1 , . . . , θN ) ∈ TN , Q(θ1 , . . . , θN ) =                                       n=1 αn e
+                                                                                                                                            j=1              .
+
+                                                                                8
+    Consequently, given any (θ1 , . . . , θN ) ∈ TN , Q(θ1 , . . . , θN ) is well approached by DL (2πτ ), for
+some τ ∈ [d, d + T ] with an error term precised by the above estimate. Now by (3.16),
+                                       L                   PN
+                                                    2iπτ              aj (n) log pj
+                                       X
+                    DL (2πτ ) =               αn e            j=1                     = Q( τ log p1 , . . . , τ log pN ).
+                                       n=1
+
+Thereby
+                             L                                                                    L
+                                                                                              2π X
+                                                   PN
+                                             2iπ           aj (n)θj
+                             X
+    0≤         sup                 αn e              j=1                − sup     DL (2πτ ) ≤   ·   |αn |Ω(n).                          (3.17)
+          (θ1 ,...,θN )∈TN   n=1                                         d≤τ ≤d+T             ω n=1
+
+Letting −d and T tend to infinity, next ω tend to infinity yields (Bohr’s reduction argument)
+                                                                                L                 PN
+                                                                                            2iπ          aj (n)θj
+                                                                                X
+                                 sup DL (t) =                   sup                    αn e        j=1              .
+                                 t∈R                    (θ1 ,...,θN )∈TN        n=1
+
+Thus (3.17) means that
+                                                                                                  L
+                                                                                              2π X
+                         0 ≤ sup |DL (t)| −                     sup             |DL (t)| ≤      ·   |αn |Ω(n),                          (3.18)
+                                 t∈R                    2πd≤t≤2π(d+T )                        ω n=1
+
+     Therefore the supremum of the Dirichlet polynomials DL over large intervals (of length greater
+than T (N, ω)) is comparable to the supremum over the real line. And the error made is controlled
+by the degree of accuracy existing for the Kronecker theorem within this interval. Further estimate
+(3.18) is uniform over d.
+     It would be interesting to know below which size of the interval this property breaks down.
+Notice by the Dirichlet Theorem, that for any reals ϕ1 , . . . , ϕN we may choose t ≤ ω N such that
+                                                                 N                    1
+                                                                sup tϕj ≤               .                                               (3.19)
+                                                                j=1                   ω
+
+(corresponding to the particular case β1 = . . . = βN = d = 0 in Theorem 1). Further this is nearly
+optimal, see Erdös and Rényi’s article [ER] for a discussion and for some related results and the
+references therein, notably Hajós paper. Therefore this size cannot be smaller than ω N .
+     More generally, let A be some positive real and let λ1 , λ2 , . . . , λN be reals satisfying
+             (
+                u1 λ1 + . . . + uN λN = 0
+                 max |uj | ≤ 2A, uj ∈ Z        =⇒        u1 = u2 = . . . = uN = 0.
+                      1≤j≤N
+                                                                                                                                        (3.20)
+Let aj : Z → Z, 1 ≤ j ≤ N be arbitrary mappings, and put
+
+                n       N
+                        X                                   o                                                           N
+                                                                                                                        X
+            NA = b(n) =   aj (n)λj : max |aj (n)| ≤ A, n ∈ Z ,                                              B(n) =            aj (n).
+                                                           1≤j≤N
+                                  j=1                                                                                   j=1
+
+Because of assumption (3.20), to any b ∈ NA corresponds    P a uniqueitb(n)
+                                                                      n such that b = b(n). Given
+N reals α1 , . . . , αN , consider the polynomials DA (t) = n∈NA αn e       . Let θ1 , . . . , θN ∈ [0, 1[.
+Similarly
+               PN                            PN                            N
+        2iπt          aj (n)λj         2iπ           aj (n)θj
+                                                                           X                           N          
+      e         j=1              −e            j=1               ≤ 2π            aj (n) tλj − θj ≤ 2π sup tλj − θj B(n).
+                                                                                                                j=1
+                                                                           j=1
+
+
+                                                                            9
+And                                              PN
+             X                    X        2iπ              aj (n)θj          N           X
+                    αn n2iπt −          αn e         j=1                ≤ 2π sup tλj − θj ·  |αn |B(n).
+                                                                                j=1
+             n∈NA                n∈NA                                                                   n∈NA
+
+Let ω be a positive integer such that A < ω log NC0ω . By Theorem 1, if
+
+                    √ r        N
+             3      2 3ω     Nω                                                                                      X
+      T >                log       ,                                    Ξ(N, ω) =                min                        λk uk ,
+          πΞ(N, ω)   C0      C0                                                              uk integers
+                                                                                        |uk |≤ω log (N ω/C0 )       1≤k≤N
+                                                                                       |u1 λ1 +...+uN λN |6=0
+
+
+
+then to any reals d, β1 , . . . , βN corresponds a real τ ∈ [d, d + T ] such that supN
+                                                                                     j=1 τ λj − βj ≤ 1/ω.
+      Consequently, by similar considerations
+
+                                                                                                    2π X
+                                          PN
+                                    2iπ          aj (n)θj
+                          X
+  0≤         sup                 αn e      j=1               −         sup     DA (2πτ ) ≤            ·  |αn |B(n). (3.21)
+       (θ1 ,...,θN )∈TN                                          d≤τ ≤d+T                           ω
+                          n∈NA                                                                              n∈NA
+
+
+Since, by letting −d, T , next ω tend to infinity
+                                                                                       PN
+                                                                                 2iπ             aj (n)θj
+                                                                       X
+                           sup DA (t) =              sup                      αn e         j=1              ,
+                           t∈R                 (θ1 ,...,θN )∈TN        n∈NA
+
+
+the same comments concerning the supremums of the polynomials DA over large intervals are in
+order.
+
+4. Concludings remarks.
+We conclude this work by making several remarks related to the proof above and some key expres-
+sions having appeared in it, as well as to some related questions.
+  1 . The central point of the proof is inequality (3.9):
+
+                                                                   N
+                                        T P{Sk = 0}N ≤ 3 max |H|, max |Hj | .
+                                                                           
+                                                                                     j=1
+                                                                             2k
+      To get it, we had to adjust parameters m and k so that the factor ω/2m (N/P{Sk = 0})
+      of T P{Sk = 0}N in (3.7), can be made less than 1/2. This operation seems inherent to the
+      proof, thereby making the choice of m and k made in (3.4) unavoidable. Next |H| and |HJ |
+      are controlled in exactly the same manner. For H for instance, in (3.10) we obtained the
+      interesting bound
+                                             sin πT ZN
+                                   |H| ≤ E             · χ{ZN 6= 0},
+                                                πZN
+      and next continued with the rather brutal estimate
+
+             sin πT ZN                    1                                                                     1
+         E             · χ{ZN 6= 0} ≤ E        · χ{ZN 6= 0} ≤                                                                          ,
+                πZN                     π|ZN |
+                                                                                                                       X
+                                                              π                                     min                       λℓ νℓ
+                                                                                           0<supℓ |νℓ |≤(m−1)k
+                                                                                                                     1≤ℓ≤N
+
+
+      leading to (3.11). At this stage, the question naturally arises whether this bound is really the
+      best possible, in other words how to compute
+
+                                                      sin πT ZN
+                                                 E              χ{ZN 6= 0}.                                                           (4.1)
+                                                         πZN
+
+                                                                 10
+    We believe that this is an important question. When in place of ZN , we have a random variable
+    U with density distribution G, it is possible to evaluate E sinπU
+                                                                    πT U
+                                                                         , by using the formula (see
+    for instance [K] p.430) for any real 0 < r < 2
+
+                                                                                   sin2 ( xt
+                                            Z ∞                                Z ∞
+                           r    1               1 − cos xt       1                        2 )
+                        |x| =                         r+1
+                                                           dt =                         r+1
+                                                                                              dt         (4.2)
+                              2K(r)          −∞   |t|           K(r)             −∞ |t|
+
+    where x is real and
+                                                     Γ(2 − r)            π
+                                            K(r) =            sin[(1 − r) ].                             (4.3)
+                                                     r(1 − r)            2
+                                                           r+1             r+1
+    Choose 1 < r < 2. By writing that |t| = |t|( 2 ) · |t|1−( 2 ) , next using the Cauchy-Schwarz
+    inequality, we get by the aforementionned formula
+
+             sin xU
+                       Z
+                            sin 2xt )          h Z sin2 2xt i1/2 h Z          G2 (t)        i1/2
+                                  2                       2
+         E           =                G(t)dt ≤          r+1
+                                                            dt     ·               r+1   dt
+                U               t                 R |t|
+                                                                             2[1−( 2 )]
+                        R                                              R |t|
+                                                |2x|r 1/2 h  Z                  i1/2           (4.4)
+                                                                     r−1 2
+                                             =              ·     |t| G (t)dt          ,
+                                                 2K(r)          R
+
+    since 2[1 − ( r+1       1−r
+                   2 )] = 2( 2 ) = 1 − r. Let V be a random variable with density distribution
+                                                                 |2x|r                 1/2
+    A−1     2                     2                  sin xU
+                                                                        AU · E |V |r−1
+                              R
+      U · G (t) where AU = R G (t)dt. Thereby E         U    ≤ 2K(r)                        . Letting
+    x = πT , we obtain
+                                  sin πT U     h                   i1/2
+                               E           ≤ Cr T r AU · E |V |r−1      .
+                                      U
+  2 . The construction made in Section 2 leads to an interesting observation concerning the general
+    study of small deviations in probability theory. The problem of evaluating
+
+                                                     P{|ZN | < ε}
+                                                            πT ZN
+    which is clearly related to the one of estimating E sinπZ N
+                                                                   χ{ZN 6= 0}, is of an arithmetic
+    nature. And so it seems that in general, one cannot expect to find estimates of the small
+    deviations of sums of i.i.d. random variables (even discrete and bounded) by means on purely
+    probabilist arguments only. The intriguing remainding question is then to know which kind
+    of conditions on the sequence λn , n ≤ N , would permit to get sharp estimates of the small
+    deviations.
+  3 . In a very recent work, we obtained an estimate of integral (4.1). The proof is rather
+    delicate and will be published elsewhere. Although the bounds we found are sharp, there are
+    unfortunately not sharp enough to be incorporated in the proof (section 3), and to provide
+    significant new results. But we showed that the integral in (4.1) appears in a rather wide
+    context and obtained other applications.
+
+Final note. While writing down the paper, Chen [C2] (December 2007) informed us that his
+theorem 1 in [C1] can also provide another estimate for t, but different than ours and concerning
+PN
+  n=1 tλn − αn . More precisely let λ1 , λ2 , . . . , λN be linearly independent over Q. Given ε > 0,
+                      h N π2          i
+                                 1/2
+               M0 =                     ,       Λ=              min            u1 λ1 + . . . + uN λN .
+                          8ε                               uj integers
+                                                           |uj |≤M0
+                                                      |u1 λ1 +...+uN λN |6=0
+
+
+    Put
+                                                                N M0N
+                                              T0 (ε, (λj )) =         .
+                                                                 2πΛ
+
+                                                        11
+Let α1 , α2 , . . . , αN be real numbers. Then in any interval J of length greater than T0 (ε, (λj )),
+there exists a t such that N
+                                P                                                   PN
+                                   n=1 tλn − αn ≤ ε. Although the two quantities      n=1 tλn − αn and
+supN
+   n=1   tλ n −    α  n are not really comparable, it is however interesting to compare the bounds for T
+obtained in each case, call them TC and TW respectively. Besides, Chen’s approach and our are
+radically different.
+      i) Suppose we want to bound supNn=1 tλn − αn . Let ε = 1/ω. Compare first Ξ and Λ. If
+(ω/N )1/2 log(N ω) = O(1), then Ξ ≫ Λ. Next log(TC Λ) ∼ N log(N ω) and log(TW Ξ) ∼ (N log ω +
+log log(N ω)). Thus TW ≪ TC . Now if ω is large, namely if (ω/N )1/2 log(N ω) 6= O(1), then Ξ ≪ Λ,
+the two preceding estimates of TC and TW remain valid, but we do not see how to compare them.
+      ii) Suppose now we want to bound N                               −1
+                                        P
+                                           n=1 tλn − αn . Let ε = µ       , µ integer and ω = N µ.
+Then log(TW Ξ) ∼ N log(N µ) ∼ log(TC Λ). The same comments on Ξ and Λ are in order.
+
+Acknowledgments: I wish to thank Mikhaı̈l Lifshits; his careful reading of the preliminary versions,
+much helped to improve the writing of the present paper. I also thank Yong-Gao Chen for helpful
+comments.
+
+References
+[B] Bacon H. M. [1934] An extension of Kronecker’s Theorem, Ann. of Math. 35, 776-786.
+[C1] Chen Y.-G. [2000] The best quantitative Kronecker’s Theorem, J. London Math. Soc. 61
+no2, 691-701.
+[C2] Chen Y.-G. [2007] Private communication.
+[ER] Erdős P., Rényi A. [1957] A probabilistic approach to problems of diophantine approximation,
+Illinois J. Math. 1, 303-315.
+[K] Kawata T. [1972] Fourier analysis in probability theory, Academic Press, New York and London.
+[M] Montgomery H. [1993] Ten lectures on the interface between analytic number theory and
+harmonic analysis, Conference Board of the Math. Sciences, Regional Conference Series in Math.
+84.
+[P] Petrov V. [1975] Sums of independent random variables, Ergebnisse der Math. und ihre Gren-
+zgebiete, Springer 82.
+[Ti] Tijdeman R. [1989] Diophantine equations and diophantine approximations, Number theory
+and applications (Banff, AB, 1988), 215–243, NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci 265,
+Kluwer Acad. Publ., Dordrecht, 1989.
+[Tu] Turán P. [1960] A theorem on diophantine approximation with application to Riemann zeta-
+function, Acta Math. Sci. Szeged 21, 311–318.
+[W] Weber M. [2004] Discrepancy of randomly sampled sequences of reals, Math. Nachrichten 271,
+105-110.
+Address : U.F.R. de Mathématique (IRMA), Université Louis-Pasteur et C.N.R.S., 7 rue René
+Descartes, F-67084 Strasbourg Cedex
+Email : weber@math.u-strasbg.fr
+
+
+
+
+                                                  12
+
