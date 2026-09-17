@@ -1,4 +1,4 @@
-# frozen-statements.log — 2026-09-17 13:32:08 IST; the six frozen D1/R1 statements + the three M4 (i) Lemma G root statements (+ the G1 rung statement), #check + #print axioms AFTER the M4 (iii) rung files were added (probe frozen_probe.lean.txt, lake env lean; Solution.Separation / Solution.SeparationG1 rebuilt first, their artifacts having been removed by the CONTROL run's pre-run cleanup)
+# frozen-statements.log — 2026-09-17 14:04:16 IST; the six frozen D1/R1 statements + the three M4 (i) Lemma G root statements (+ the G1 rung statement), #check + #print axioms AFTER all M4 (iii) files (rung + assembly) were added (probe frozen_probe.lean.txt, lake env lean)
 Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
   Zeta23.W1.checkW1 d = true →
     Zeta23.W1.W1EnclOK riemannZeta d →
@@ -49,4 +49,4 @@ separation_braw_iteratedDeriv_le : ∀ (k : ℕ),
   1 ≤ k → ∀ (v : ℝ), |iteratedDeriv k Separation.Braw v| ≤ (↑k + 1) * (72 / Real.exp 1) ^ k * ↑k ^ (2 * k)
 'separation_braw_iteratedDeriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 
-# comparison with results/c2-m4/verify/frozen-statements.log (the six D1/R1 statements): #check lines IDENTICAL (28 lines, in order); #print axioms lines IDENTICAL as a set (the M4 (i) record lists them in a separate block; this probe interleaves them)
+# comparison with results/c2-m4/verify/frozen-statements.log (the six D1/R1 statements): #check lines IDENTICAL (28 lines, in order); #print axioms IDENTICAL as a set. The three M4 (i) Lemma G root statements and the G1 rung statement: 4 axiom lines, all standard: True.

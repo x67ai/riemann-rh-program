@@ -1,0 +1,44 @@
+comparator/Challenge/Separation6.lean:46:theorem separation_clause6_assembly (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+comparator/ChallengeDeps/Separation6.lean:51:def orbit (t δ : ℝ) : Set ℂ :=
+comparator/ChallengeDeps/Separation6.lean:55:def edge (l : ℝ) : ℝ := ∫ v, B v * Real.cosh (l * v)
+comparator/ChallengeDeps/Separation6.lean:59:def Hedge : Prop :=
+comparator/ChallengeDeps/Separation6.lean:63:def Rstar (t δ L : ℝ) : Prop :=
+comparator/ChallengeDeps/Separation6.lean:72:def outWindow (t R : ℝ) : Set ℂ := Z.carrier ∩ {ρ | R < |ρ.im - t|}
+comparator/ChallengeDeps/Separation6.lean:76:def Hout (t L R : ℝ) : Prop :=
+comparator/Solution/Separation6.lean:30:theorem separation_clause6_assembly (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+Zeta23/Separation/Assembly.lean:46:def orbit (t δ : ℝ) : Set ℂ :=
+Zeta23/Separation/Assembly.lean:50:def edge (l : ℝ) : ℝ := ∫ v, B v * Real.cosh (l * v)
+Zeta23/Separation/Assembly.lean:54:def Hedge : Prop :=
+Zeta23/Separation/Assembly.lean:58:def Rstar (t δ L : ℝ) : Prop :=
+Zeta23/Separation/Assembly.lean:64:def wsum (mult : ℂ → ℕ) (f : ℝ → ℂ) (ρ : ℂ) : ℂ :=
+Zeta23/Separation/Assembly.lean:68:def Gmaj (x : ℝ) : ℝ := CB * (1 + cB / 2 * Real.sqrt x) * Real.exp (-(cB * Real.sqrt x))
+Zeta23/Separation/Assembly.lean:72:theorem B_even (v : ℝ) : B (-v) = B v := by
+Zeta23/Separation/Assembly.lean:75:theorem hasCompactSupport_B : HasCompactSupport B :=
+Zeta23/Separation/Assembly.lean:80:theorem B_continuous : Continuous B := (B_contDiff (n := 0)).continuous
+Zeta23/Separation/Assembly.lean:82:theorem integrable_B_mul_exp (l : ℝ) : Integrable (fun u => B u * Real.exp (l * u)) :=
+Zeta23/Separation/Assembly.lean:86:theorem integral_B_exp_symm (l : ℝ) :
+Zeta23/Separation/Assembly.lean:93:theorem edge_eq (l : ℝ) : edge l = ∫ u, B u * Real.exp (-(l * u)) := by
+Zeta23/Separation/Assembly.lean:101:theorem edge_nonneg (l : ℝ) : 0 ≤ edge l := by
+Zeta23/Separation/Assembly.lean:106:theorem paperFT_Bc_I_mul (l : ℝ) : paperFT (fun v => (B v : ℂ)) (I * l) = (edge l : ℂ) := by
+Zeta23/Separation/Assembly.lean:119:theorem paperFT_Bc_neg_I_mul (l : ℝ) : paperFT (fun v => (B v : ℂ)) (-(I * l)) = (edge l : ℂ) := by
+Zeta23/Separation/Assembly.lean:130:theorem edge_neg (l : ℝ) : edge (-l) = edge l := by
+Zeta23/Separation/Assembly.lean:133:theorem Gmaj_nonneg (x : ℝ) : 0 ≤ Gmaj x := by
+Zeta23/Separation/Assembly.lean:138:theorem gammaOf_mk (a b : ℝ) : gammaOf ⟨a, b⟩ = (b : ℂ) - ((a - 1 / 2 : ℝ) : ℂ) * I := by
+Zeta23/Separation/Assembly.lean:144:theorem paperFT_ftest_sub_I {t L s : ℝ} (hL : 0 < L) :
+Zeta23/Separation/Assembly.lean:152:theorem paperFT_ftest_add_I {t L s : ℝ} (hL : 0 < L) :
+Zeta23/Separation/Assembly.lean:160:theorem wsum_of_gammaOf_eq {mult : ℂ → ℕ} {t L s : ℝ} (hL : 0 < L) {ρ : ℂ} (hm : mult ρ = 1)
+Zeta23/Separation/Assembly.lean:171:theorem gammaOf_orbit_plus (t δ : ℝ) :
+Zeta23/Separation/Assembly.lean:179:theorem gammaOf_orbit_minus (t δ : ℝ) :
+Zeta23/Separation/Assembly.lean:187:theorem wsum_orbit_plus {mult : ℂ → ℕ} {t δ L : ℝ} (hL : 0 < L)
+Zeta23/Separation/Assembly.lean:195:theorem norm_paperFT_ftest_reflected {t δ L : ℝ} (ht : 0 ≤ t) (hL : 0 < L) (s : ℝ) (hs : |s| = δ) :
+Zeta23/Separation/Assembly.lean:223:theorem norm_wsum_reflected {mult : ℂ → ℕ} {t δ L : ℝ} (ht : 0 ≤ t) (hL : 0 < L) {ρ : ℂ} (hm : mult ρ = 1)
+Zeta23/Separation/Assembly.lean:245:theorem rstar_exp {t δ L : ℝ} (hδ : 0 < δ) (h : Rstar t δ L) :
+Zeta23/Separation/Assembly.lean:291:theorem W_decomp {carrier : Set ℂ} {mult : ℂ → ℕ} {f : ℝ → ℂ} {t R : ℝ}
+Zeta23/Separation/Assembly.lean:346:theorem wsum_real {mult : ℂ → ℕ} {f : ℝ → ℂ} {ρ : ℂ} (hρ : ρ.re = 1 / 2) :
+Zeta23/Separation/Assembly.lean:354:theorem tsum_inWindow_eq {carrier : Set ℂ} {mult : ℂ → ℕ} {f : ℝ → ℂ} {t R : ℝ} :
+Zeta23/Separation/Assembly.lean:364:theorem re_tsum_offline_le {carrier : Set ℂ} {mult : ℂ → ℕ} {t δ L : ℝ} (ht : 0 < t) (hδ : 0 < δ) (hL : 0 < L)
+Zeta23/Separation/Assembly.lean:444:theorem log25_le : Real.log 25 ≤ 3221173 / 1000000 := by
+Zeta23/Separation/Assembly.lean:455:theorem log_1875_le : Real.log (1875 / 1000) ≤ 63 / 100 := by
+Zeta23/Separation/Assembly.lean:465:theorem edge_sq_ge (hedge : Hedge) {l : ℝ} (hl : 25 ≤ l) : 1875 / 1000 * Real.exp (l / 2) ≤ edge l ^ 2 := by
+Zeta23/Separation/Assembly.lean:492:theorem absorb {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2) (hL1 : 25 / δ ≤ L)
+Zeta23/Separation/Assembly.lean:590:theorem clause6_assembly {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
