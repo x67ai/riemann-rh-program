@@ -33,3 +33,5 @@ import Zeta23.W1.ArgPrincipleBridge
 import Zeta23.W1.Instances
 import Zeta23.W1.FDH
 import Zeta23.W1.Ledger
+import Zeta23.Separation.LemmaG1
+import Zeta23.Separation.LemmaG

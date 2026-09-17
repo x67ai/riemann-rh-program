@@ -23,8 +23,12 @@ project:
     the derivative bounds |B_raw^{(k)}| ≤ (k + 1)(72/e)^k k^{2k} for the bump B_raw = exp(−1/(1 − 4v²)) — as the
     Comparator topic `SeparationG1` (comparator/config-separation-g1.json), with NO displayed hypothesis: the statement is
     concrete over Mathlib's `iteratedDeriv` and the exp formula for B_raw.  It is the dress-rehearsal rung of M4 (i)
-    (results/c2-m2/followups/PRICING.md §1(b) candidate (i)); Lemma G itself (the Fourier decay of B) is the topic
-    `Separation`, recorded below as it lands.
+    (results/c2-m2/followups/PRICING.md §1(b) candidate (i)).  Lemma G itself — the Fourier decay
+    ‖B̂(η)‖ ≤ (e²/Z)(1 + (c_B/2)√|η|)e^{−c_B√|η|}, c_B = 2/√(72e), for the bump B = B_raw/Z, its complex-argument form with
+    the strip weight e^{|Im z|/2}, and the pure-exponential form (G2) — is the topic `Separation`
+    (comparator/config-separation.json), again with NO displayed hypothesis: "a Comparator-checked theorem over Mathlib's
+    expNegInvGlue with no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda" — the first
+    statements of this program that carry no "modulo H" label at all.  Nothing about ζ or RH follows from them.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -116,8 +120,9 @@ status:
     contains a `sorry`.  The only `sorry`s in the program's files are the deliberate placeholders of the Comparator
     CHALLENGE side, which states the theorems with `sorry` by design (as the parent's Challenge files do): the seven of
     comparator/Challenge/DBN.lean (proved by comparator/Solution/DBN.lean) and, from Session 23, the one of
-    comparator/Challenge/SeparationG1.lean (proved by comparator/Solution/SeparationG1.lean; nothing under
-    Zeta23/Separation contains a `sorry`).  Not formalized, and displayed as hypotheses:
+    comparator/Challenge/SeparationG1.lean (proved by comparator/Solution/SeparationG1.lean) and the three of
+    comparator/Challenge/Separation.lean (proved by comparator/Solution/Separation.lean); nothing under Zeta23/Separation
+    contains a `sorry`.  Not formalized, and displayed as hypotheses:
     H1 (Platt–Trudgian), H2-B / H2-A / H-TAIL (the untrusted producers' enclosure claims), H3 (Polymath15 Theorem 1.2 in
     the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`.
   sorry_count: 0
@@ -321,6 +326,25 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 23 (2026-09-17), M4 (i) — Lemma G of Theorem M2's separation note (results/c2-m2/separation-note.md §2),
+        three statements over the trusted layer comparator/ChallengeDeps/Separation.lean (Braw, Z = ∫_{−1/2}^{1/2} Braw,
+        B = Braw/Z, ft = the paper's transform ∫ f(u)e^{izu}du, cB = 2/√(72e), CB = e²/Z, all from Mathlib alone):
+        (G1) ∀ η : ℝ, ‖ft B η‖ ≤ CB·(1 + (cB/2)√|η|)·exp(−cB√|η|); the complex form ∀ z : ℂ, ‖ft B z‖ ≤ exp(|Im z|/2)·
+        CB·(1 + (cB/2)√|Re z|)·exp(−cB√|Re z|); (G2) ∀ η : ℝ, ‖ft B η‖ ≤ 4e^{−3/4}·CB·exp(−(7/8)cB√|η|).  NO displayed
+        hypothesis; Z and CB are reals defined by an integral, no digit asserted.  Proof (Zeta23/Separation/LemmaG.lean):
+        the k-fold integration by parts as an induction on Zeta23's `paperFT_deriv`, `norm_paperFT_le` with the strip weight
+        1/2, the L¹ bound from Lemma G1 on the unit-length support, k = ⌊(cB/2)√|Re z|⌋₊, and e^t ≥ 1 + t for (G2).
+        Label (PRICING §5(e), verbatim): "Lemma G — |B̂(η)| ≤ (e²/Z)(1 + (c_B/2)√|η|)e^{−c_B√|η|} with c_B = 2/√(72e) for
+        the bump B — is a Comparator-checked theorem over Mathlib's expNegInvGlue, with no displayed hypothesis, axioms
+        propext/Classical.choice/Quot.sound, replayed by nanoda."  Nothing about ζ, RH or Theorem M2's other clauses.
+      declaration: "separation_bump_fourier_decay, separation_bump_fourier_decay_complex, separation_bump_fourier_decay_pure_exp (root, Challenge.Separation / Solution.Separation); Zeta23.Separation.norm_paperFT_Bc_ofReal_le, Zeta23.Separation.norm_paperFT_Bc_le, Zeta23.Separation.norm_paperFT_Bc_ofReal_le', Zeta23.Separation.paperFT_iteratedDeriv"
+      file: "comparator/Solution/Separation.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
     - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
       declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       file: "Zeta23/PairCeiling/GridParseval.lean"
@@ -446,6 +470,27 @@ fidelity:
     times the affine factor 4 — is provenance recorded in the file headers, not content of the statement.  (n5) Mathlib's
     `iteratedDeriv` of a real function versus the note's classical k-th derivative: identical for C^∞ functions (Braw is
     C^∞: `Braw_contDiff`), no divergence.  Ledger text: results/d1-m2a/packaging/FIDELITY.md (n).
+    (o) [Session 23, 2026-09-17; M4 (i), topic Separation — Lemma G; the seven divergences PRICING §1(b)(i) (a)–(g) names,
+    each checked against the files as built.]  (a) B is defined by the exp formula in the trusted layer (Braw v = if |v| < 1/2
+    then exp(−1/(1 − 4v²)) else 0, B = Braw/Z); the note's G0 factorization B_raw = g(4v + 2)g(2 − 4v) is the solution-side
+    lemma `Braw_eq_mul`, and "B = θ^{1/4}" is stated nowhere in Lean.  (b) Z = ∫ v in −1/2..1/2, Braw v and CB = e²/Z are real
+    numbers defined by an integral; the challenge asserts no digit of either (the note's 0.221996908 and 33.28 are remarks);
+    what IS proved about Z on the solution side is 0 < Z ≤ 1 (`Z_pos`, `Z_le_one`) and ∫_ℝ B = 1 (`integral_norm_Bc`).
+    (c) the transform is the paper's h_k(z) = ∫ k(u)e^{izu}du, re-declared in the trusted layer as `Separation.ft` character
+    for character with `Zeta23.paperFT` (sign +i, no 2π, complex argument); the note's "k̂" is this and nothing else, and
+    nothing is claimed for Mathlib's 𝓕.  (d) the note's prefactor (1 + (c_B/2)√|η|) is kept: the challenge states (G1) with it,
+    and (G2) — the pure exponential with c_B′ = (7/8)c_B, C_B′ = 4e^{−3/4}C_B — as a separate statement
+    (`separation_bump_fourier_decay_pure_exp`), written out as 4 * exp(−3/4) * CB * exp(−(7/8 * cB * √|η|)).  (e) nothing
+    about "the constant the Lean bounds give" is a theorem: the challenge states an inequality with the number 2/√(72e)
+    (`cB := 2 / Real.sqrt (72 * Real.exp 1)`); that this number comes from (18/e)^k k^{2k} through the affine factor 4 and
+    the choice k = ⌊κ⌋ is provenance in the file headers, not content.  (f) the complex-argument form uses |Im z|/2 as the
+    strip weight (support [−1/2, 1/2]), written exp(|z.im| / 2) times G(|z.re|); the note's clause-5 use at L(x − t) − iLy is
+    an instance by the scaling B̂_L(z) = B̂(Lz) and is NOT stated (no fourth theorem).  (g) Lean's `iteratedDeriv` of the real
+    function versus the note's classical derivatives: identical for C^∞ functions (B is C^∞: `B_contDiff`; the complex-valued
+    B has ‖D^k(B : ℝ → ℂ)‖ = |D^k B|, `norm_iteratedDeriv_Bc`, through the linear isometry Complex.ofRealLI) — no divergence,
+    recorded so that the checker can say so.  Two further points, not divergences: the real form is derived from the complex
+    form at z = (η : ℂ) (the note proves them together); and the monotonicity of G in η, which the note records, is not stated
+    (the complex form carries G(|Re z|) directly).  Ledger text: results/d1-m2a/packaging/FIDELITY.md (o).
 
 review:
   status: "self-assessed"
@@ -492,6 +537,22 @@ review:
     comments stripped on the five new files: the challenge's deliberate `sorry` only (verify/trust-greps-g1.log).  No human
     has read comparator/Challenge/SeparationG1.lean against the note; the independent clean-clone check (Opus 5,
     results/c2-m4/CHECK-O.md) is the next job.  This statement carries no "modulo H" label at all.
+
+    Comparator run, topic Separation (results/c2-m4/verify/comparator-run-separation.log, Session 23 builder, 2026-09-17
+    11:59:27-12:00:40 IST): same tool chain and shim (NOT sandboxed), `lake env comparator comparator/config-separation.json`
+    from the repository root with Challenge.Separation, ChallengeDeps.Separation and Solution.Separation built by comparator
+    itself (pre-built artifacts removed first); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda kernel
+    accepts the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your
+    solution is okay!"; exit code 0; 73.11 s wall, 5.9 GiB peak.  All three theorem_names compared; axioms within propext,
+    Quot.sound, Classical.choice.  Statement identity challenge/solution: verify/statement-identity-separation.log (219 / 269 /
+    218 bytes, IDENTICAL x3).  #print axioms on the three root theorems and on eight library theorems probed: [propext,
+    Classical.choice, Quot.sound] (verify/print-axioms-separation.log).  Trust greps with comments stripped on all nine new
+    files: the four deliberate challenge `sorry`s only (verify/trust-greps-separation.log).  The six frozen D1/R1 statements
+    (cert_of_checkW1, cert_of_checkW1_ap, cert_of_checkW1_fDH, cert_of_checkW1_of_diffOn, mpDH_zero, arbDH_zero): #check +
+    #print axioms character-for-character identical to the σ-strong record (verify/frozen-statements.log); no existing Lean
+    file edited except the two additive imports in Zeta23.lean (verify/untouched.log).  No human has read
+    comparator/Challenge/Separation.lean against the note; the independent clean-clone check (Opus 5, results/c2-m4/CHECK-O.md)
+    is the next job.  These three statements carry no "modulo H" label at all.
 
 alignment:
   namespaces:
@@ -576,6 +637,10 @@ alignment:
       lean: "separation_braw_iteratedDeriv_le; Zeta23.Separation.abs_iteratedDeriv_Braw_le"
       module: "Challenge.SeparationG1 / Solution.SeparationG1 (library: Zeta23.Separation.LemmaG1)"
       status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/c2-m4/verify/comparator-run-g1.log)"
+    - source: "C2 separation note §2, Lemma G — (G1), the complex-argument form, and (G2); PRICING §1(b) (i)"
+      lean: "separation_bump_fourier_decay, separation_bump_fourier_decay_complex, separation_bump_fourier_decay_pure_exp; Zeta23.Separation.norm_paperFT_Bc_ofReal_le, Zeta23.Separation.norm_paperFT_Bc_le, Zeta23.Separation.norm_paperFT_Bc_ofReal_le'"
+      module: "Challenge.Separation / Solution.Separation (library: Zeta23.Separation.LemmaG)"
+      status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/c2-m4/verify/comparator-run-separation.log)"
     - source: "A4 paper Lemma 3.8, Theorem 3.9"
       lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       module: "Zeta23.PairCeiling.GridParseval"

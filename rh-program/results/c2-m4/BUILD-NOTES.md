@@ -1,0 +1,73 @@
+# C2 — M4 (i): Lemma G of Theorem M2 as a Comparator-style pair — build notes (Job 1, BUILDER, Fable 5.1; Session 23, 2026-09-17, 11:30– IST)
+
+Brief: `results/c2-m4/BRIEF.md`. Contract: `results/c2-m2/followups/PRICING.md` §1(a), §1(b) candidate (i) (with the dress-rehearsal rung), §5(e)'s M4 line. Mathematics: `results/c2-m2/separation-note.md` §2 (Lemmas G0, G1, G), §12.6, §12.12; `check-O.md` §4. Tree `~/rh-lean-work/zeta-23-lean-main` (Lean `v4.33.0-rc2`, Mathlib `51e6992e`), mirror `rh-program/lean/` (cmp-identical for every file below at the end of each stage). Not independently checked yet: Job 2 (Opus 5, clean clone; `CHECK-O.md`) is the next step. No commit by this job (the watchdogs commit). Stage log with timestamps: `results/c2-m4/SHARED.md`.
+
+**Label, verbatim (PRICING §5(e), the "lands" sentence), once §5 below is PASS:** "Lemma G — |B̂(η)| ≤ (e²/Z)(1 + (c_B/2)√|η|)e^{−c_B√|η|} with c_B = 2/√(72e) for the bump B — is a Comparator-checked theorem over Mathlib's `expNegInvGlue`, with no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda." Nothing here is about ζ, RH, or the other clauses of Theorem M2; the numerical decay rate of B̂ (≈ 0.85 per √η) is not a theorem.
+
+## 0. What was run, where, by what (rule 1: the toolchain shown alive first)
+
+* Runner `results/c2-m4/verify/run.sh` — a byte copy of `results/d1-m2a/packaging/comparator-run/run.sh` (comparator v4.33.0 `~/rh-lean-work/tools/comparator/.lake/build/bin/comparator`, lean4export v4.33.0-rc2, nanoda 0.4.17, `fake-landrun.sh` shim: NOT sandboxed, for the reason `COMPARATOR-RUN.md` §2 gives — Landlock is Linux-only). Every run: from the repository root, `lake env comparator <config>`, comparator building the comparator-layer modules itself after the pre-run cleanup (`verify/prerun-cleanup.log`, three dated sections: 30 D1-era artifacts before the CONTROL run; the rung's; the topic's).
+* **CONTROL run (`comparator/config.json`, the parent's fifteen theorems): PASS** — `verify/control-run.log`, 11:35:40–11:38:37 IST, `175.78 real 137.72 user 18.17 sys`, lake `8699 jobs` / `8877 jobs` (identical to the D1 record's counts), final lines `Nanoda kernel accepts the solution` / `Lean default kernel accepts the solution` / `Your solution is okay!`, exit 0. Heavy processes before launch: none but iCloud's `fileproviderd`.
+
+## 1. The dress-rehearsal rung — Lemma G1 as a complete pair (rule 2): PASS
+
+Files (line counts; declaration lists with line numbers in `verify/decls-g1.txt`):
+
+| file | lines | content |
+|---|---|---|
+| `Zeta23/Separation/LemmaG1.lean` | 252 | §1 `Braw` 55, `Z` 58, `B` 61, `cB` 64, `CB` 67; §2 (G0) `Braw_eq_mul` 72, `gL` 91, `gR` 94, `Braw_eq_gL_mul_gR` 96, `gL_contDiff` 98, `gR_contDiff` 101; §3 `abs_iteratedDeriv_gL_le` 107, `abs_iteratedDeriv_gR_le` 120 (affine chain rule: 4^k·gb k), `choose_mul_pow_mul_pow_le` 135 (C(k,i)i^i(k−i)^{k−i} ≤ k^k, one term of `add_pow` over ℕ), `pow_mul_pow_le` 147, `choose_mul_sq_le` 153, `choose_mul_gb_le` 162, **(G1) `abs_iteratedDeriv_Braw_le` 187** (every k); §4 `Braw_nonneg` 213, `Braw_le_one` 218, `Braw_pos` 226, `Braw_eq_zero_of_half_le` 229, `Braw_contDiff` 232, `Braw_continuous` 235, `Z_pos` 238, `Z_le_one` 244 |
+| `comparator/ChallengeDeps/Separation.lean` | 59 | trusted, `import Mathlib` only, namespace `Separation`: `Braw` 39, `Z` 42, `B` 45, `ft` 49 (character for character `Zeta23.paperFT`), `cB` 52, `CB` 55 |
+| `comparator/Challenge/SeparationG1.lean` | 40 | `separation_braw_iteratedDeriv_le` 37, `sorry` |
+| `comparator/Solution/SeparationG1.lean` | 28 | the same statement (174 bytes, `verify/statement-identity-g1.log` IDENTICAL), `fun k _ v => Zeta23.Separation.abs_iteratedDeriv_Braw_le k v` |
+| `comparator/PrintAxioms/SeparationG1.lean`, `comparator/config-separation-g1.json` | — | one theorem name, the three axioms, `enable_nanoda: true` |
+
+Decision recorded: the brief's "solution in `Zeta23/Separation/LemmaG1.lean`" is read as "the proof lives there"; the comparator's solution MODULE is the thin `Solution/SeparationG1.lean` (D1 layout), because the tool compares root-namespace names between the two modules.
+
+Checks: `lake build Solution.SeparationG1` — *Build completed successfully (8701 jobs)*, 0 errors, 0 warnings from the new modules. `#print axioms` (`verify/print-axioms-g1.log`): the root theorem and `abs_iteratedDeriv_Braw_le`, `Braw_eq_mul`, `choose_mul_sq_le`, `Z_pos`, `Z_le_one`, `Braw_contDiff` — all `[propext, Classical.choice, Quot.sound]`. Trust greps, comments stripped (`verify/trust_greps_m4.py`, `trust-greps-g1.log`): the challenge's deliberate `sorry` only. **Comparator (`verify/comparator-run-g1.log`): PASS** — 11:47:38–11:48:46 IST, `67.73 real`, peak RSS 5 921 390 592 B, `Built Challenge.SeparationG1 (2.9s)` (8698 jobs, one `sorry` warning), `Built Solution.SeparationG1 (2.9s)` (8701 jobs), `Nanoda kernel accepts the solution`, `Lean default kernel accepts the solution`, `Your solution is okay!`, exit 0. Ledger: `formalization.yaml` (main_results entry, fidelity (n), review.notes, alignment) and `packaging/FIDELITY.md` (n) — written before Lemma G started.
+
+## 2. The target — Lemma G (rule 3)
+
+Files (declaration lists in `verify/decls-g.txt`):
+
+| file | lines | content |
+|---|---|---|
+| `Zeta23/Separation/LemmaG.lean` | 328 | §1 `B_contDiff` 53, `B_nonneg` 55, `B_eq_zero_of_half_le` 57, `Bc_contDiff` 60, `Bc_support` 63, `hasCompactSupport_Bc` 67, `Bc_integrable` 70, `norm_iteratedDeriv_Bc` 74 (‖D^k(B : ℝ → ℂ)‖ = \|D^k B\| via `Complex.ofRealLI`), `abs_iteratedDeriv_B_le` 82, `iteratedDeriv_Bc_eq_zero` 91, `hasCompactSupport_iteratedDeriv` 102, `contDiff_iteratedDeriv` 107, `integral_norm_iteratedDeriv_Bc_le` 112; §2 **`paperFT_iteratedDeriv` 146** (the k-fold integration by parts, induction on `Zeta23.paperFT_deriv`), `integral_Braw` 157, `integral_norm_Bc` 169 (∫ B = 1), `norm_paperFT_Bc_le_exp` 177, **`norm_paperFT_Bc_mul_le` 184** (‖B̂(z)‖‖z‖^k ≤ e^{\|Im z\|/2}(k+1)(72/e)^k k^{2k}/Z); §3 `cB_pos` 205, `CB_pos` 207, **`key_ineq` 211** (the exponent bookkeeping for k = ⌊κ⌋), **`norm_paperFT_Bc_le` 240** (the complex form), **`norm_paperFT_Bc_ofReal_le` 299** (G1), `G2_aux` 306, **`norm_paperFT_Bc_ofReal_le'` 315** (G2) |
+| `comparator/Challenge/Separation.lean` | 60 | `separation_bump_fourier_decay` 40 (G1), `separation_bump_fourier_decay_complex` 48, `separation_bump_fourier_decay_pure_exp` 56 (G2); three `sorry`s |
+| `comparator/Solution/Separation.lean` | 46 | the same three statements (219 / 269 / 218 bytes, `verify/statement-identity-separation.log` IDENTICAL ×3), each one delegation line |
+| `comparator/PrintAxioms/Separation.lean`, `comparator/config-separation.json` | — | three theorem names, the three axioms, `enable_nanoda: true` |
+| `Zeta23.lean` (root) | +2 | additive imports of the two new modules (the only edit to an existing Lean file) |
+
+The route is the note's, step for step (file header of `LemmaG.lean`): k-fold integration by parts as an induction on `paperFT_deriv`; `norm_paperFT_le` with the strip weight Λ = 1/2; the L¹ bound by the unit-length support; the choice k = ⌊κ⌋₊ with κ = (c_B/2)√|Re z| (so (72/e)κ² = |Re z|/e² and c_B√|Re z| = 2κ); the κ < 1 branch through ∫B = 1 and C_B e^{−2} = 1/Z ≥ 1 (Z ≤ 1); (G2) from e^t ≥ 1 + t at t = (x − 6)/8. The real form is the complex form at z = (η : ℂ). No monotonicity of G is needed (the complex form is stated with G(|Re z|) directly).
+
+Checks: `lake build Solution.Separation` — *Build completed successfully (8703 jobs)*, 0 errors, 0 warnings from the new modules. `#print axioms` (`verify/print-axioms-separation.log`): the three root theorems and `norm_paperFT_Bc_le`, `norm_paperFT_Bc_ofReal_le`, `norm_paperFT_Bc_ofReal_le'`, `paperFT_iteratedDeriv`, `key_ineq`, `integral_norm_Bc`, `norm_iteratedDeriv_Bc`, `G2_aux` — all `[propext, Classical.choice, Quot.sound]`. Trust greps on all nine files (`trust-greps-separation.log`): the four deliberate challenge `sorry`s (1 + 3), nothing else. Frozen set (`verify/frozen-statements.log`): `#check` + `#print axioms` of `cert_of_checkW1`, `cert_of_checkW1_ap`, `cert_of_checkW1_fDH`, `cert_of_checkW1_of_diffOn`, `mpDH_zero`, `arbDH_zero` character-for-character IDENTICAL to `dr8/sigma-strong-no-regression.log`'s AFTER record. Untouched (`verify/untouched.log`): `git diff --stat HEAD -- lean/comparator lean/Zeta23/DBN lean/Zeta23/W1 lean/Zeta23/PairCeiling` empty; tree = mirror for every tracked file there.
+
+## 3. Comparator run, topic `Separation` (`verify/comparator-run-separation.log`): PASS
+
+Launched 11:59:27 IST after the pre-run cleanup of the topic's comparator-layer artifacts (third section of `verify/prerun-cleanup.log`); heavy processes before launch: none. `Built ChallengeDeps.Separation`, `Built Challenge.Separation` with its three deliberate `sorry` warnings (lines 44, 53, 60 of the challenge), `Build completed successfully`; `Exporting #[…, separation_bump_fourier_decay, separation_bump_fourier_decay_complex, separation_bump_fourier_decay_pure_exp, propext, Quot.sound, Classical.choice, …] from Challenge.Separation`; `Built Solution.Separation`, `Build completed successfully (8703 jobs)`; the same export from `Solution.Separation`; then, verbatim:
+
+    Running nanoda kernel on solution
+    Nanoda kernel accepts the solution
+    Running Lean default kernel on solution.
+    Lean default kernel accepts the solution
+    Your solution is okay!
+
+`73.11 real 65.92 user 13.74 sys`, maximum resident set size 5 930 254 336 B, `--- comparator exit code: 0 ---`, end 12:00:40 IST. Five shim `WARNING: THIS IS NOT REAL LANDRUN!` lines (build ×2, export ×2, nanoda ×1): NOT sandboxed, as in the D1 record; a referee who wants the sandbox re-runs `lake env comparator comparator/config-separation.json` on a Linux host with landrun. What the run established (comparator README "Internals", `Main.lean` `verifyMatch`): each of the three statements in `Solution.Separation` coincides constant-for-constant with its namesake in `Challenge.Separation` (including the trusted `Separation.Braw`, `Z`, `B`, `ft`, `cB`, `CB`); the proofs use no axiom outside the three; nanoda re-checked the whole solution export and Lean's kernel replayed it.
+
+## 4. Packaging (rule 4)
+
+* **Full build.** `lake build` (default target `Zeta23`, the root `Zeta23.lean` now importing the two new modules): *Build completed successfully (9146 jobs)* — the σ-strong record's 9144 plus the two new modules — 0 errors; the 247 warning lines are the upstream library's own deprecation warnings replayed from cached modules, none names a `Separation` or `comparator` module (`verify/lake-build.log`; the modules had been compiled by the topic builds, so the wall time is 6.13 s). Job counts of the topic builds: `Solution.SeparationG1` 8701, `Solution.Separation` 8703; inside the comparator runs: 8698/8701 (rung), 8703 (topic).
+* **`formalization.yaml`** (`lean/formalization.yaml`, 533 → 656 lines; tree copy `cmp`-identical): project name and description; `status.scope` sorry accounting (the four challenge `sorry`s named); two `main_results` entries (rung; Lemma G — declaration fields naming the root theorems and the library theorems, `sorry_count: 0`, the three axioms); `fidelity.divergences` paragraphs (n) and (o); two `review.notes` paragraphs quoting the runs (`review.status` stays `self-assessed`: no human has read the trusted files); `alignment.namespaces` + `Separation`, `Zeta23.Separation`; two `alignment.statements` rows; `automation` unchanged (the same builder/checker pattern, the same toolchain). Validation (`verify/yaml-validation.log`, `dr8/validate_yaml_sigma_strong.py` with its apostrophe-safe regex, the upstream schema re-fetched and IDENTICAL to the on-disk copies): **VALIDATION errors: 0; every `Zeta23.*` name referenced is declared in the mirror (50 names) — RESULT: PASS.**
+* **`results/d1-m2a/packaging/FIDELITY.md`** (the ledger the brief calls `lean/FIDELITY.md`): sections (n) and (o) appended.
+* **Mirror = tree** for every file this job wrote or edited (`cmp` after each stage; `verify/untouched.log` for the frozen areas). Files this job wrote under `results/c2-m4/`: `BUILD-NOTES.md`, `SHARED.md`, `hashes.txt`, `verify/{run.sh, prerun-cleanup.log, control-run.log, comparator-run-g1.log, comparator-run-separation.log, print-axioms-g1.log, print-axioms-separation.log, axioms_g1_probe.lean.txt, axioms_g_probe.lean.txt, statement_identity_m4.py, statement-identity-g1.log, statement-identity-separation.log, trust_greps_m4.py, trust-greps-g1.log, trust-greps-separation.log, frozen-statements.log, untouched.log, lake-build.log, yaml-validation.log, decls-g1.txt, decls-g.txt}`.
+* 10(g) lint: U.S. English throughout the new files (grep for `-ise`, `-isation`, `colour`, `behaviour`, `centre`: none); no "clearly / obviously / easy to see / well known".
+
+## 5. What an independent checker from a clean clone must do (Job 2, Opus 5; `CHECK-O.md`)
+
+1. Clone `anthropics/zeta-23-lean` at tag `v1.0` (commit `3635e748…`), overlay `rh-program/lean/Zeta23/`, `lean/comparator/`, `lean/Zeta23.lean`, `lean/formalization.yaml` as `lean/README.md` says; `lake exe cache get`; `lake build Zeta23` (expect *9146 jobs*, 0 errors); `lake build Solution.SeparationG1 Solution.Separation`.
+2. `lake env lean comparator/PrintAxioms/SeparationG1.lean` and `…/Separation.lean`: four lines, each `[propext, Classical.choice, Quot.sound]`; a scratch probe with `#print axioms` on every top-level theorem of `Zeta23/Separation/LemmaG1.lean` and `LemmaG.lean` (the names in `verify/decls-g1.txt`, `verify/decls-g.txt`).
+3. Trust greps (`verify/trust_greps_m4.py <clone-root>`): exactly the four challenge `sorry`s. Statement identity (`verify/statement_identity_m4.py`) for both topics. The byte-identity of the trusted definitions with the library's: `Separation.{Braw,Z,B,cB,CB}` versus `Zeta23.Separation.{…}` (LemmaG1.lean §1) and `Separation.ft` versus `Zeta23.paperFT` (`Zeta23/Defs.lean` 44) — `diff` of the `def` lines.
+4. The fidelity divergences (a)–(g) one by one against PRICING §1(b)(i) and the note's Lemma G, and (n1)–(n5) for the rung: is each a divergence, is each recorded (yaml (n), (o); FIDELITY.md (n), (o)).
+5. The two Comparator runs with nanoda from the clean clone (`verify/run.sh` pattern; do NOT pre-build the comparator layer): `config-separation-g1.json`, `config-separation.json`; the CONTROL config first.
+6. The six frozen statements (`verify/frozen-statements.log` probe) against the σ-strong record; the yaml schema validation; 10(g) lint.
+
+## 6. SHA-256 (`hashes.txt`; this file's own hash is in `SHARED.md`'s final block and in the chat report)
