@@ -71,3 +71,5 @@ Launched 11:59:27 IST after the pre-run cleanup of the topic's comparator-layer 
 6. The six frozen statements (`verify/frozen-statements.log` probe) against the σ-strong record; the yaml schema validation; 10(g) lint.
 
 ## 6. SHA-256 (`hashes.txt`; this file's own hash is in `SHARED.md`'s final block and in the chat report)
+
+**[CORRECTION 2026-09-17 12:55 IST, Session 23 (orchestrator, from `CHECK-O.md` §11 — two MINOR prose slips; nothing above is edited):** §4 "(50 names)" should read 49 (the yaml log's count); §3's `sorry` warning lines 44/53/60 are the lines Lean reports for the declarations at 40/48/56. The SHA-256 f667f2fa… recorded in SHARED.md, LOG.md and the C2 work log is that of the file WITHOUT this line.]**
