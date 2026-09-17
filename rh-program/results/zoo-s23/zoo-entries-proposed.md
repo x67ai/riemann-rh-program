@@ -9,3 +9,7 @@
 <!-- BLOCK:count -->
 **Entry count (dated, Session 23, 2026-09-17).** IV.19 (the Kronecker sharpness of the pointwise prime-sum wall — a classical theorem cited at the page (Bohr 1913; Turán 1960; Weber 2009), the program's dual-model-verified instance and cost line, and the program's reading of it as the M6 estimate wall; C2 mandatory repairs 4 and 6) makes **57 entries** — I: 7, II: 5, III: 21, IV: 19, V: 5 (recounted from this file's `###` headings at insertion: 7 + 5 + 21 + 19 + 5 = 57). The IV.9 stopper rider entered this session is not an entry and moves no count.
 <!-- END:count -->
+
+<!-- BLOCK:xref -->
+| C2 M6 "estimate route" — certify a first-order datum's sign at a chosen height by a height-uniform prime-side estimate of P_X(g_t) (C2 line 48; `results/c2-m2/followups/PRICING.md` §3(a)) | CLOSED (Session 22/23; M6 rung 1, `results/c2-m6/m6-rung1-note.md` §6, dual-checked + re-checked) — the torus supremum (Bohr; Turán 1960; Weber 2009) is attained on every window of length ≥ H₀, so the detector is an EVALUATION with term count e^{L_sign}; the sign channel itself is an instrument (both V.4 controls pass) | IV.19; IV.9 (the 2026-09-17 stopper rider) |
+<!-- END:xref -->
