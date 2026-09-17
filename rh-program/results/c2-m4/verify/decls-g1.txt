@@ -1,0 +1,38 @@
+## declaration list, Zeta23/Separation/LemmaG1.lean (     252 lines)
+55:def Braw (v
+58:def Z
+61:def B (v
+64:def cB
+67:def CB
+72:theorem Braw_eq_mul (v
+91:def gL (v
+94:def gR (v
+96:theorem Braw_eq_gL_mul_gR
+98:theorem gL_contDiff {n
+101:theorem gR_contDiff {n
+107:theorem abs_iteratedDeriv_gL_le (k
+120:theorem abs_iteratedDeriv_gR_le (k
+135:theorem choose_mul_pow_mul_pow_le (k i
+147:theorem pow_mul_pow_le (k i
+153:theorem choose_mul_sq_le (k i
+162:theorem choose_mul_gb_le {k i
+187:theorem abs_iteratedDeriv_Braw_le (k
+213:theorem Braw_nonneg (v
+218:theorem Braw_le_one (v
+226:theorem Braw_pos {v
+229:theorem Braw_eq_zero_of_half_le {v
+232:theorem Braw_contDiff {n
+235:theorem Braw_continuous
+238:theorem Z_pos
+244:theorem Z_le_one
+## comparator/ChallengeDeps/Separation.lean (      59 lines)
+39:def Braw (v : ℝ) : ℝ
+42:def Z : ℝ
+45:def B (v : ℝ) : ℝ
+49:def ft (f : ℝ → ℂ) (z : ℂ) : ℂ
+52:def cB : ℝ
+55:def CB : ℝ
+## comparator/Challenge/SeparationG1.lean (      40 lines) / Solution/SeparationG1.lean (      28 lines)
+comparator/Challenge/SeparationG1.lean:37:theorem separation_braw_iteratedDeriv_le :
+comparator/Solution/SeparationG1.lean:17:theorem below has exactly the statement of its Challenge namesake and uses only the permitted axioms.
+comparator/Solution/SeparationG1.lean:25:theorem separation_braw_iteratedDeriv_le :

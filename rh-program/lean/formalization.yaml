@@ -9,7 +9,7 @@
 version: "v0.4"
 
 project:
-  name: "rh-program Lean additions (de Bruijn–Newman M2a, W1 checker, A4 grid theorems)"
+  name: "rh-program Lean additions (de Bruijn–Newman M2a, W1 checker, A4 grid theorems, Theorem M2 Lemma G)"
   description: >-
     The Lean 4 / Mathlib files this program adds on top of the Zeta23 library.  Headline unit: the de Bruijn–Newman
     milestone M2a — the ray form of Λ ≤ 0.2 at Polymath15 Table 1 row 2, "kernel-checked modulo H1, H2 (H2-B, H2-A,
@@ -19,6 +19,12 @@ project:
     the bracket of record stays 0 ≤ Λ ≤ 0.2 on the literature.  Earlier units: the W1 rectangle-exclusion checker with
     the argument principle discharged (`cert_of_checkW1_ap`), and the grid-Parseval / corner theorems of the A4 no-go
     paper.  Packaged in the Comparator challenge/solution layout as the topic `DBN` (comparator/config-dbn.json).
+    Session 23 (2026-09-17) adds the first unit of Theorem M2 (the Gevrey-localized separation theorem, C2): Lemma G1 —
+    the derivative bounds |B_raw^{(k)}| ≤ (k + 1)(72/e)^k k^{2k} for the bump B_raw = exp(−1/(1 − 4v²)) — as the
+    Comparator topic `SeparationG1` (comparator/config-separation-g1.json), with NO displayed hypothesis: the statement is
+    concrete over Mathlib's `iteratedDeriv` and the exp formula for B_raw.  It is the dress-rehearsal rung of M4 (i)
+    (results/c2-m2/followups/PRICING.md §1(b) candidate (i)); Lemma G itself (the Fourier decay of B) is the topic
+    `Separation`, recorded below as it lands.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -107,9 +113,11 @@ status:
   scope: >-
     Complete for the stated units: the M2a ray theorem modulo its five displayed hypotheses (both producer legs), the
     W1 checker soundness modulo H-ENCL, the A4 grid theorems.  Nothing under Zeta23/DBN, Zeta23/W1 or Zeta23/PairCeiling
-    contains a `sorry`.  The only `sorry`s in the program's files are the seven deliberate placeholders of
-    comparator/Challenge/DBN.lean — the Comparator CHALLENGE side, which states the theorems with `sorry` by design (as the
-    parent's Challenge files do); comparator/Solution/DBN.lean proves them.  Not formalized, and displayed as hypotheses:
+    contains a `sorry`.  The only `sorry`s in the program's files are the deliberate placeholders of the Comparator
+    CHALLENGE side, which states the theorems with `sorry` by design (as the parent's Challenge files do): the seven of
+    comparator/Challenge/DBN.lean (proved by comparator/Solution/DBN.lean) and, from Session 23, the one of
+    comparator/Challenge/SeparationG1.lean (proved by comparator/Solution/SeparationG1.lean; nothing under
+    Zeta23/Separation contains a `sorry`).  Not formalized, and displayed as hypotheses:
     H1 (Platt–Trudgian), H2-B / H2-A / H-TAIL (the untrusted producers' enclosure claims), H3 (Polymath15 Theorem 1.2 in
     the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`.
   sorry_count: 0
@@ -295,6 +303,24 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 23 (2026-09-17), M4 (i) dress-rehearsal rung — Lemma G1 of Theorem M2's separation note
+        (results/c2-m2/separation-note.md §2): for every k ≥ 1 and every real v,
+        |iteratedDeriv k Braw v| ≤ (k + 1)·(72/e)^k·k^{2k}, with Braw v = exp(−1/(1 − 4v²)) on |v| < 1/2 and 0 elsewhere
+        (the trusted definition in comparator/ChallengeDeps/Separation.lean, over Mathlib alone).  NO displayed
+        hypothesis.  Proof (Zeta23/Separation/LemmaG1.lean): the factorization Braw v = g(4v + 2)·g(2 − 4v) with
+        g = Mathlib's expNegInvGlue (G0), the affine chain rule, Leibniz, the Cauchy-estimate bound
+        `Taper.gevrey_expNegInvGlue` ((18/e)^k k^{2k}) of Zeta23, and the binomial-term inequality
+        C(k,i)·i^i·(k−i)^{k−i} ≤ k^k.  Label: "Lemma G1 is a Comparator-checked theorem over Mathlib's expNegInvGlue
+        with no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda"
+        (results/c2-m4/BUILD-NOTES.md; Comparator run results/c2-m4/verify/comparator-run-g1.log).
+      declaration: "separation_braw_iteratedDeriv_le (root, Challenge.SeparationG1 / Solution.SeparationG1); Zeta23.Separation.abs_iteratedDeriv_Braw_le, Zeta23.Separation.Braw_eq_mul"
+      file: "comparator/Solution/SeparationG1.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
     - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
       declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       file: "Zeta23/PairCeiling/GridParseval.lean"
@@ -409,6 +435,17 @@ fidelity:
     [propext, Classical.choice, Quot.sound], with the frozen statements unchanged character-for-character; the box-form
     label applies to the primed theorems only, the unprimed ones keep the half-strip label, and the transcripts' printed
     trust label (checker acceptance) is unchanged.
+    (n) [Session 23, 2026-09-17; M4 (i) dress-rehearsal rung, topic SeparationG1 — not a DBN item.]  Where the formal Lemma G1
+    differs from the note's Lemma G1 (separation-note.md §2): (n1) the trusted Braw is DEFINED by the exp formula
+    (if |v| < 1/2 then exp(−1/(1 − 4v²)) else 0); the note's factorization through expNegInvGlue is a solution-side lemma
+    (`Braw_eq_mul`) and the remark "B_raw = θ(v + ½)^{1/4}" is not stated anywhere in Lean (a quarter power transfers no
+    derivative bound).  (n2) k^{2k} is Lean's natural-number power (k : ℝ)^(2 * k), the note's real power; identical for
+    natural k, with 0^0 = 1 in both.  (n3) the note states k ≥ 1; the challenge keeps that binder, the library theorem
+    `abs_iteratedDeriv_Braw_le` holds for every k (k = 0 reads |B_raw| ≤ 1).  (n4) the constant 72/e is written as the
+    closed form 72 / Real.exp 1; that it is 4·(18/e) — the Cauchy-estimate constant of Zeta23's `gevrey_expNegInvGlue`
+    times the affine factor 4 — is provenance recorded in the file headers, not content of the statement.  (n5) Mathlib's
+    `iteratedDeriv` of a real function versus the note's classical k-th derivative: identical for C^∞ functions (Braw is
+    C^∞: `Braw_contDiff`), no divergence.  Ledger text: results/d1-m2a/packaging/FIDELITY.md (n).
 
 review:
   status: "self-assessed"
@@ -441,6 +478,21 @@ review:
     nothing about the truth of the five displayed hypotheses: the label stays "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL),
     H3"; Lambda <= 0.2 is not proved.
 
+    Comparator run, topic SeparationG1 (results/c2-m4/verify/comparator-run-g1.log, Session 23 builder, 2026-09-17
+    11:47:38-11:48:46 IST): the same tool chain (comparator v4.33.0, lean4export v4.33.0-rc2, nanoda 0.4.17, fake-landrun
+    shim — NOT sandboxed, as above), `lake env comparator comparator/config-separation-g1.json` from the repository root with
+    Challenge.SeparationG1, ChallengeDeps.Separation and Solution.SeparationG1 built by comparator itself (pre-built artifacts
+    removed first, verify/prerun-cleanup.log); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda kernel
+    accepts the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" /
+    "Your solution is okay!"; exit code 0; 67.73 s wall, 5.9 GiB peak.  The one theorem_name compared; axioms within propext,
+    Quot.sound, Classical.choice.  The parent's CONTROL config was re-run first on this machine the same morning and passed
+    (verify/control-run.log, 175.78 s, 8699/8877 jobs as in the D1 record), so the tooling is attributable.  Statement identity
+    challenge/solution: verify/statement-identity-g1.log (174 bytes, IDENTICAL).  #print axioms on the root theorem and on
+    every library lemma probed: [propext, Classical.choice, Quot.sound] (verify/print-axioms-g1.log).  Trust greps with
+    comments stripped on the five new files: the challenge's deliberate `sorry` only (verify/trust-greps-g1.log).  No human
+    has read comparator/Challenge/SeparationG1.lean against the note; the independent clean-clone check (Opus 5,
+    results/c2-m4/CHECK-O.md) is the next job.  This statement carries no "modulo H" label at all.
+
 alignment:
   namespaces:
     - "DBN"
@@ -449,6 +501,8 @@ alignment:
     - "Zeta23.DBN.Instance02"
     - "Zeta23.W1"
     - "Zeta23.PairCeiling"
+    - "Separation"
+    - "Zeta23.Separation"
   statements:
     - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
       lean: "dbn_ray_le_point2_mp"
@@ -518,6 +572,10 @@ alignment:
       lean: "Zeta23.W1.{mp,arb}Null{T100,T1000,T10000,DeepT100}_exclusion"
       module: "Zeta23.W1.Ledger"
       status: "proved (modulo the displayed H-ENCL per leg); single-box sentence only, never a range statement"
+    - source: "C2 separation note §2, Lemma G1 (derivative bounds for B_raw from the Lean Cauchy estimate); PRICING §1(b) (i), the dress-rehearsal rung"
+      lean: "separation_braw_iteratedDeriv_le; Zeta23.Separation.abs_iteratedDeriv_Braw_le"
+      module: "Challenge.SeparationG1 / Solution.SeparationG1 (library: Zeta23.Separation.LemmaG1)"
+      status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/c2-m4/verify/comparator-run-g1.log)"
     - source: "A4 paper Lemma 3.8, Theorem 3.9"
       lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       module: "Zeta23.PairCeiling.GridParseval"
