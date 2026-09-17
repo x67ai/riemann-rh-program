@@ -1,0 +1,17 @@
+separation_bump_fourier_decay                 challenge   219 bytes, solution   219 bytes: IDENTICAL
+    theorem separation_bump_fourier_decay (η : ℝ) :
+        ‖Separation.ft (fun v => (Separation.B v : ℂ)) η‖
+          ≤ Separation.CB * (1 + Separation.cB / 2 * Real.sqrt |η|)
+            * Real.exp (-(Separation.cB * Real.sqrt |η|))
+separation_bump_fourier_decay_complex         challenge   269 bytes, solution   269 bytes: IDENTICAL
+    theorem separation_bump_fourier_decay_complex (z : ℂ) :
+        ‖Separation.ft (fun v => (Separation.B v : ℂ)) z‖
+          ≤ Real.exp (|z.im| / 2)
+            * (Separation.CB * (1 + Separation.cB / 2 * Real.sqrt |z.re|)
+              * Real.exp (-(Separation.cB * Real.sqrt |z.re|)))
+separation_bump_fourier_decay_pure_exp        challenge   218 bytes, solution   218 bytes: IDENTICAL
+    theorem separation_bump_fourier_decay_pure_exp (η : ℝ) :
+        ‖Separation.ft (fun v => (Separation.B v : ℂ)) η‖
+          ≤ 4 * Real.exp (-3 / 4) * Separation.CB
+            * Real.exp (-(7 / 8 * Separation.cB * Real.sqrt |η|))
+RESULT: PASS

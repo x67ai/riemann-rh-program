@@ -1,0 +1,36 @@
+# frozen-statements.log — 2026-09-17 11:59:25 IST; the six frozen D1/R1 statements (dr8/BUILD-NOTES-sigma-strong.md §2 set), #check + #print axioms AFTER the M4 (i) files were added (no frozen file was edited; SHA manifest in untouched-manifest.txt)
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+# verdict: the diff against dr8/sigma-strong-no-regression.log's AFTER section differs only in that record's five trailing lines (its timing line, verdict line and probe source); the six statements and six axiom lines are character-for-character IDENTICAL. FROZEN SET: IDENTICAL.

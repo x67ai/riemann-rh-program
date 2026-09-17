@@ -1,0 +1,23 @@
+# print-axioms-separation.log — 2026-09-17 11:59:19 IST; lake env lean comparator/PrintAxioms/Separation.lean after 'lake build Solution.Separation' (8703 jobs)
+'separation_bump_fourier_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'separation_bump_fourier_decay_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'separation_bump_fourier_decay_pure_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+# library theorems of Zeta23/Separation/LemmaG.lean (scratch probe, #check + #print axioms):
+Zeta23.Separation.norm_paperFT_Bc_le : ∀ (z : ℂ),
+  ‖Zeta23.paperFT (fun v => ↑(Zeta23.Separation.B v)) z‖ ≤
+    Real.exp (|z.im| / 2) *
+      (Zeta23.Separation.CB * (1 + Zeta23.Separation.cB / 2 * √|z.re|) * Real.exp (-(Zeta23.Separation.cB * √|z.re|)))
+Zeta23.Separation.norm_paperFT_Bc_ofReal_le : ∀ (η : ℝ),
+  ‖Zeta23.paperFT (fun v => ↑(Zeta23.Separation.B v)) ↑η‖ ≤
+    Zeta23.Separation.CB * (1 + Zeta23.Separation.cB / 2 * √|η|) * Real.exp (-(Zeta23.Separation.cB * √|η|))
+Zeta23.Separation.norm_paperFT_Bc_ofReal_le' : ∀ (η : ℝ),
+  ‖Zeta23.paperFT (fun v => ↑(Zeta23.Separation.B v)) ↑η‖ ≤
+    4 * Real.exp (-3 / 4) * Zeta23.Separation.CB * Real.exp (-(7 / 8 * Zeta23.Separation.cB * √|η|))
+'Zeta23.Separation.norm_paperFT_Bc_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.norm_paperFT_Bc_ofReal_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.norm_paperFT_Bc_ofReal_le'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.paperFT_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.key_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.integral_norm_Bc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.norm_iteratedDeriv_Bc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.Separation.G2_aux' depends on axioms: [propext, Classical.choice, Quot.sound]

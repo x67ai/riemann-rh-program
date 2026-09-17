@@ -1,0 +1,23 @@
+# untouched.log — 2026-09-17 12:00:25 IST; the mirror lean/ after the M4 (i) build: git status of lean/ (the watchdog commits in between are the program's own; every path listed is an addition, except lean/Zeta23.lean, whose diff is the two additive import lines shown) and the SHA-256 of every file under lean/comparator/** , lean/Zeta23/DBN/**, lean/Zeta23/W1/** against HEAD (git diff --stat over those paths must be empty)
+## git status --short lean/
+ M lean/Zeta23.lean
+?? lean/Zeta23/Separation/LemmaG.lean
+?? lean/comparator/Challenge/Separation.lean
+?? lean/comparator/PrintAxioms/Separation.lean
+?? lean/comparator/Solution/Separation.lean
+?? lean/comparator/config-separation.json
+## git diff lean/Zeta23.lean
+diff --git a/rh-program/lean/Zeta23.lean b/rh-program/lean/Zeta23.lean
+index 40cbf79..3e438ff 100644
+--- a/rh-program/lean/Zeta23.lean
++++ b/rh-program/lean/Zeta23.lean
+@@ -33,3 +33,5 @@ import Zeta23.W1.ArgPrincipleBridge
+ import Zeta23.W1.Instances
+ import Zeta23.W1.FDH
+ import Zeta23.W1.Ledger
++import Zeta23.Separation.LemmaG1
++import Zeta23.Separation.LemmaG
+## git diff --stat HEAD -- lean/comparator lean/Zeta23/DBN lean/Zeta23/W1 lean/Zeta23/PairCeiling (frozen areas; new Separation files excluded by being untracked additions)
+(end of diff --stat; empty = untouched)
+## SHA-256 manifest, lean/comparator/** (tracked at HEAD) — tree vs mirror cmp
+tree = mirror for every tracked file under those paths (no MISMATCH line above)
