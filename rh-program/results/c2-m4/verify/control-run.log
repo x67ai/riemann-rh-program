@@ -227,3 +227,30 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 ✔ [8876/8877] Built Solution (3.3s)
 Build completed successfully (8877 jobs).
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind two_thirds_on_critical_line two_thirds_on_critical_line_cumulative half_simple_on_critical_line half_simple_on_critical_line_cumulative three_quarters_distinct three_quarters_distinct_cumulative montgomery_taylor_on_critical_line montgomery_taylor_simple_on_critical_line montgomery_taylor_distinct dirichlet_two_thirds_on_critical_line dirichlet_half_simple_on_critical_line dirichlet_three_quarters_distinct dirichlet_montgomery_taylor_on_critical_line dirichlet_montgomery_taylor_simple_on_critical_line dirichlet_montgomery_taylor_distinct propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.nsDFXEeo
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, two_thirds_on_critical_line, two_thirds_on_critical_line_cumulative, half_simple_on_critical_line, half_simple_on_critical_line_cumulative, three_quarters_distinct, three_quarters_distinct_cumulative, montgomery_taylor_on_critical_line, montgomery_taylor_simple_on_critical_line, montgomery_taylor_distinct, dirichlet_two_thirds_on_critical_line, dirichlet_half_simple_on_critical_line, dirichlet_three_quarters_distinct, dirichlet_montgomery_taylor_on_critical_line, dirichlet_montgomery_taylor_simple_on_critical_line, dirichlet_montgomery_taylor_distinct, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      175.78 real       137.72 user        18.17 sys
+          6396510208  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2495987  page reclaims
+              304336  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              364635  voluntary context switches
+              496794  involuntary context switches
+          5995396671  instructions retired
+          2274990770  cycles elapsed
+           137387632  peak memory footprint
+--- comparator exit code: 0 ---
+=== [CONTROL] end 2026-09-17 11:38:37 IST ===
