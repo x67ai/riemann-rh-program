@@ -1,0 +1,72 @@
+=== [RUNG-clause4] start 2026-09-17 13:29:17 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/zeta-23-lean-main
+config=comparator/config-separation-clause4.json
+{
+  "challenge_module": "Challenge.SeparationClause4",
+  "solution_module": "Solution.SeparationClause4",
+  "theorem_names": [
+    "separation_clause4_in_window_noise"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.SeparationClause4
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.SeparationClause4
+✔ [8698/8699] Built ChallengeDeps.SepConfig (3.1s)
+⚠ [8699/8699] Built Challenge.SeparationClause4 (3.0s)
+warning: comparator/Challenge/SeparationClause4.lean:42:8: declaration uses `sorry`
+Build completed successfully (8699 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.SeparationClause4 -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause4_in_window_noise propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause4_in_window_noise, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.SeparationClause4
+Building Solution.SeparationClause4
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.SeparationClause4
+⚠ [8697/8705] Replayed Zeta23.Taper.Gevrey
+warning: Zeta23/Taper/Gevrey.lean:342:80: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8705/8705] Built Solution.SeparationClause4 (3.0s)
+Build completed successfully (8705 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.SeparationClause4 -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause4_in_window_noise propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.Fa3d0Xty
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause4_in_window_noise, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.SeparationClause4
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       68.92 real        60.21 user        14.26 sys
+          5888901120  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2477484  page reclaims
+               11304  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               62704  voluntary context switches
+              167086  involuntary context switches
+          4081650825  instructions retired
+          1377412312  cycles elapsed
+           136797784  peak memory footprint
+--- comparator exit code: 0 ---
+=== [RUNG-clause4] end 2026-09-17 13:30:26 IST ===

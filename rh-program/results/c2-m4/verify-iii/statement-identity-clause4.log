@@ -1,0 +1,6 @@
+separation_clause4_in_window_noise            challenge   305 bytes, solution   305 bytes: IDENTICAL
+    theorem separation_clause4_in_window_noise (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+        (Z : Separation.SepConfig C₁) (hb1 : Separation.Hb1) (hB3 : Separation.HB3) :
+        0 ≤ Z.inWindowNoise t L R ∧
+          Z.inWindowNoise t L R ≤ 2 * (87 / 10) * C₁ * Real.log (4 + t + R) / L ^ 2
+RESULT: PASS
