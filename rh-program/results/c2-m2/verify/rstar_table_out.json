@@ -1,0 +1,181 @@
+{
+ "rhs_ddelta_min": 21.00000000000025,
+ "margin_monotone_in_t": true,
+ "least_t_at_delta_half": {
+  "50": 166.15964027862924,
+  "87": 150.90123858782223,
+  "100": 151.15979972468912,
+  "200": 175.73944469223366,
+  "376": 239.4505890165104,
+  "403": 249.70332623048657,
+  "1000": 480.7429571462231,
+  "10000": 3942.6279040088425
+ },
+ "t_over_L_asymptotic_Rstar": 0.3822583821270532,
+ "least_t_at_delta_0p1": {
+  "376": 30.460558996586144,
+  "1000": 35.147888938446734
+ },
+ "largest_L_inside_Rstar": {
+  "1000": {
+   "delta_half": 2341.260797257927,
+   "delta_0.05": 258176.64664735598,
+   "delta_0.1": 63794.51629060523,
+   "delta_0.25": 9876.22227449858
+  },
+  "10000": {
+   "delta_half": 25817.6646647356,
+   "delta_0.05": 2611877.047512489,
+   "delta_0.1": 652040.9281094531,
+   "delta_0.25": 103912.49584651686
+  }
+ },
+ "campaign_record_points": [
+  {
+   "t": 1000,
+   "delta": 0.05,
+   "L": 862.48,
+   "C1": 1,
+   "inside_21L": false,
+   "margin_Rstar_half": 127.49912812112142,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 316.9519579970083,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 1000,
+   "delta": 0.05,
+   "L": 2590.38,
+   "C1": 2400000000.0,
+   "inside_21L": false,
+   "margin_Rstar_half": -30.29568096200449,
+   "inside_Rstar_half": false,
+   "margin_Rstar_own": 547.9346489138824,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 1000,
+   "delta": 0.1,
+   "L": 375.79,
+   "C1": 1,
+   "inside_21L": false,
+   "margin_Rstar_half": 122.3448271564742,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 194.283951391606,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 1000,
+   "delta": 0.1,
+   "L": 1239.74,
+   "C1": 2400000000.0,
+   "inside_21L": false,
+   "margin_Rstar_half": 107.52433524975106,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 352.25345948488285,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 1000,
+   "delta": 0.25,
+   "L": 120.99,
+   "C1": 1,
+   "inside_21L": false,
+   "margin_Rstar_half": 79.92715902398388,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 93.66461470973898,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 1000,
+   "delta": 0.25,
+   "L": 466.57,
+   "C1": 2400000000.0,
+   "inside_21L": false,
+   "margin_Rstar_half": 127.75852323243453,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 184.69347891818964,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.05,
+   "L": 885.46,
+   "C1": 1,
+   "inside_21L": false,
+   "margin_Rstar_half": 942.5346652510326,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 1137.1579950656633,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.05,
+   "L": 2613.36,
+   "C1": 2400000000.0,
+   "inside_21L": false,
+   "margin_Rstar_half": 1373.3558237123007,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 1956.7566535269314,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.1,
+   "L": 387.28,
+   "C1": 1,
+   "inside_21L": true,
+   "margin_Rstar_half": 660.4258670183465,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 734.6629911940782,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.1,
+   "L": 1251.23,
+   "C1": 2400000000.0,
+   "inside_21L": false,
+   "margin_Rstar_half": 1077.834530685265,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 1324.8616548609969,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.25,
+   "L": 125.59,
+   "C1": 1,
+   "inside_21L": true,
+   "margin_Rstar_half": 384.36864819053517,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 398.681103829884,
+   "inside_Rstar_own": true
+  },
+  {
+   "t": 10000,
+   "delta": 0.25,
+   "L": 471.17,
+   "C1": 2400000000.0,
+   "inside_21L": true,
+   "margin_Rstar_half": 721.2215394937446,
+   "inside_Rstar_half": true,
+   "margin_Rstar_own": 778.7314951330935,
+   "inside_Rstar_own": true
+  }
+ ],
+ "DH": {
+  "referee F's rounding (85.7, 87, 0.3085)": {
+   "margin": -2.4051088452865046,
+   "margin_uniform": -9.769591605302903,
+   "least_t_own_delta": 100.32670134839354
+  },
+  "the log's values (85.6993, 86.907, 0.3085172)": {
+   "margin": -2.4092163237859197,
+   "margin_uniform": -9.764159084496951,
+   "least_t_own_delta": 100.3613693260462
+  }
+ },
+ "R_implies_Rstar_min_gap": 49.666651974950746,
+ "runtime_s": 0.7686290740966797
+}

@@ -1,0 +1,28 @@
+constants (read from the record): c_B = 0.14296065, C_B = 33.2845, b1 = 8.69808 (certified upper)
+(0) regression, the record's exponent 7/4: least R_0 at L_0 = 50 = 81.0, F~(50) = -0.13339 (record: 81.0, -0.13339), decrease from L = 6.073
+(1) the L-hypothesis spent once: exponent 13/8; least R_0 (step 0.5) with F13(L0) <= 0 and 5/(2 c_B sqrt R_0 - 13/8) <= L0:
+    L0 =     50: R_0 = 73.0   F13(L0) = -0.32272   decrease from L = 6.113   [record's 7/4 chain: 81.0]
+    L0 =    100: R_0 = 51.5   F13(L0) = -0.26572   decrease from L = 11.71   [record's 7/4 chain: 58.5]
+    L0 =    200: R_0 = 42.0   F13(L0) = -0.65765   decrease from L = 21.93   [record's 7/4 chain: 48.0]
+    L0 =    403: R_0 = 37.5   F13(L0) = -2.8252   decrease from L = 39.71   [record's 7/4 chain: 43.0]
+    L0 =   1000: R_0 = 34.5   F13(L0) = -2.3358   decrease from L = 91.9   [record's 7/4 chain: 40.0]
+    L0 =  10000: R_0 = 33.0   F13(L0) = -111.55   decrease from L = 285.8   [record's 7/4 chain: 38.0]
+    THE ADDENDUM'S R_0 (all L >= 50): 73.0 (check-O section 12.8: 73);  asymptote (13/(16 c_B))^2 = 32.301 (check-O: 32.30);  record's (7/(8 c_B))^2 = 37.461
+    one-point check at L0 = 50, R_0 = 73.0: F13(50) = -0.32272 <= 0: True;  5/(2 c_B sqrt R_0 - 13/8) = 6.113 <= 50: True;  at R_0 = 72.5: F13(50) = 0.066032 (> 0, so 73 is least on the half-integer grid)
+    L = 50: F13(L) = -0.32272
+    L = 60: F13(L) = -7.6135
+    L = 100: F13(L) = -37.822
+    L = 403: F13(L) = -278.73
+    L = 1000: F13(L) = -762.49
+    L = 10000: F13(L) = -8112.2
+    L = 100000: F13(L) = -81713.0
+    max F13 over the L-grid at R_0 = 73.0: -0.32272
+(2) the single-use absorption: for L = 8(log log(3+t) + log(2 b1 C1)) exactly, e^{L/8} = 2 b1 C1 log(3+t), so 2 C1 log(3.5+t) <= 1.05 e^{L/8}/b1 needs log(3.5+t)/log(3+t) <= 1.05 and 2 C1 <= e^{L/8}/b1 needs log(3+t) >= 1:
+    max log(3.5+t)/log(3+t) on t in [3, 1003]: 1.0447 (at t = 3; decreasing) <= 1.05: True;  log(6) = 1.7918 >= 1: True
+    l_R at t = 1e6, L = 50: log(4 + t + 81 L) = 13.8196 -> log(4 + t + 73 L) = 13.8192 (smaller: clause 4's bound and (7.1) only improve)
+    l_R at t = 1e6, L = 403: log(4 + t + 81 L) = 13.8476 -> log(4 + t + 73 L) = 13.8445 (smaller: clause 4's bound and (7.1) only improve)
+    l_R at t = 1e6, L = 1000: log(4 + t + 81 L) = 13.8934 -> log(4 + t + 73 L) = 13.886 (smaller: clause 4's bound and (7.1) only improve)
+(3) for the record: referee F's 70 (direct summation at L = 50) and referee O's crossing near 57 (t = 3, C1 = 1) fix (t, C1) and are not uniform; not recomputed here -- the note's second corrections section item (g) records them as such
+done in 0.6s
+  0.65s user 0.01s system 99% cpu 0.666 total
+exit=0
