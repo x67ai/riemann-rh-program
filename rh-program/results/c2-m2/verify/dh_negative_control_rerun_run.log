@@ -1,1 +1,29 @@
 RE-RUN launched Thu Sep 17 11:14:11 IST 2026
+DH off-line zero rho_0 = (0.8085171824566374 + 85.69934848537759j)  |f_DH(rho_0)| = 2.4e-15;  t = 85.6993484854, delta = Re rho_0 - 1/2 = 0.3085171825
+DH on-line zeros in [55.6993, 115.699] by sign change (step 0.05): 36 found
+    RE-RUN refinement on S(u) at 40 digits: max |f_DH(1/2 + i gamma)| over the 36 refined on-line zeros = 3.54e-39;  max |S(gamma)| = 3.54e-39  (criterion: max |f_DH| <= 1e-25)
+    [57.0411, 58.3951, 59.7668, 61.702, 63.2796, 64.6767, 66.6558, 68.3471, 68.9367, 71.4298, 72.5113, 74.325, 75.9094, 77.2264, 78.7174, 80.3279, 81.9254, 83.1088, 87.6475, 89.4392, 90.7245, 92.1827, 93.7809, 95.3487, 96.2917, 97.9736, 99.6823, 100.599, 102.8192, 103.6474, 104.957, 106.5797, 108.2021, 109.2278, 110.8658, 112.3764]
+    phase count (theta(t+W)-theta(t-W))/pi = 40.118  vs on-line found 36 + 2 (the off-line pair) = 38   [indicative: S(T) fluctuations are O(1)]
+reflected on-line points: direct |h_f(-tau_1)|^2 at L = 20, tau_1 = 57.0411: 1.55e-32;  Lemma-G bound on the sum over all reflected on-line points: 1.77e+3 at L=20, 0.000157 at L = L*  (omitted from the sums below)
+theorem bandwidth at (t, delta): L* = max(25/delta, 4/delta (loglog(3+t) + 2 log(1/delta) + log(2 b1))) = 86.907
+L=   10.0: W_Z =    -0.26981208  W_Z' = 0.0048001176  (Z'' - Z' = 4.41e-24)  main -2d^2c^2 =    -0.27461219  |W_Z - W_Z'| =   0.27461219  bound d^2 e^(dL/2) =   0.445139  ratio = 0.61691  fires(>=1): False
+L=   20.0: W_Z =    -0.74823115  W_Z' = 4.4652466e-5  (Z'' - Z' = 5.47e-35)  main -2d^2c^2 =     -0.7482758  |W_Z - W_Z'| =    0.7482758  bound d^2 e^(dL/2) =    2.08177  ratio = 0.35944  fires(>=1): False
+L=   30.0: W_Z =     -3.1833149  W_Z' = 1.2522591e-5  (Z'' - Z' = 5.17e-39)  main -2d^2c^2 =     -3.1833274  |W_Z - W_Z'| =    3.1833274  bound d^2 e^(dL/2) =    9.73573  ratio = 0.32697  fires(>=1): True
+L=   40.0: W_Z =     -18.088048  W_Z' = 1.8863135e-6  (Z'' - Z' = 8.43e-39)  main -2d^2c^2 =      -18.08805  |W_Z - W_Z'| =     18.08805  bound d^2 e^(dL/2) =    45.5308  ratio = 0.39727  fires(>=1): True
+L=   50.0: W_Z =     -124.59068  W_Z' = 2.6024039e-7  (Z'' - Z' = 1.82e-38)  main -2d^2c^2 =     -124.59068  |W_Z - W_Z'| =    124.59068  bound d^2 e^(dL/2) =    212.932  ratio = 0.58512  fires(>=1): True
+L=   60.0: W_Z =     -982.50091  W_Z' = 3.4907642e-8  (Z'' - Z' = 1.0e-37)  main -2d^2c^2 =     -982.50091  |W_Z - W_Z'| =    982.50091  bound d^2 e^(dL/2) =    995.814  ratio = 0.98663  fires(>=1): True
+L=   70.0: W_Z =     -8565.3022  W_Z' = 4.3466796e-9  (Z'' - Z' = 3.78e-38)  main -2d^2c^2 =     -8565.3022  |W_Z - W_Z'| =    8565.3022  bound d^2 e^(dL/2) =    4657.09  ratio = 1.8392  fires(>=1): True
+L= 86.907: W_Z =     -394292.19  W_Z' = 3.4083861e-10  (Z'' - Z' = 2.34e-38)  main -2d^2c^2 =     -394292.19  |W_Z - W_Z'| =    394292.19  bound d^2 e^(dL/2) =    63212.9  ratio = 6.2375  fires(>=1): True
+L=  100.0: W_Z =     -8536115.2  W_Z' = 1.0185755e-11  (Z'' - Z' = 4.47e-39)  main -2d^2c^2 =     -8536115.2  |W_Z - W_Z'| =    8536115.2  bound d^2 e^(dL/2) =   476348.0  ratio = 17.92  fires(>=1): True
+POSITIVE control: 25 zeta zeros in the window (indices up to 36); W_zeta(f_{t,L}) at the same t:
+    L=20.0: W_zeta = 0.000866034 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.1033;  clause-6 bound d^2 e^(dL/2) at DH's delta = 2.082
+    L=40.0: W_zeta = 1.08483e-5 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.02581;  clause-6 bound d^2 e^(dL/2) at DH's delta = 45.53
+    L=86.907: W_zeta = 2.09234e-7 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.005469;  clause-6 bound d^2 e^(dL/2) at DH's delta = 6.321e+4
+    L=100.0: W_zeta = 3.77892e-8 (>= 0; imag 0.0);  b1 log(3+t+W)/L^2 = 0.00413;  clause-6 bound d^2 e^(dL/2) at DH's delta = 4.763e+5
+CAVEAT (printed by design): the theorem's window hypothesis -- all points of Z other than the orbit real within |Re gamma - t| <= R_0 L* -- is NOT verified for DH here (R_0 L* is thousands; DH has further off-line zeros); the control shows the datum firing on the known off-line orbit, with the in-window on-line zeros present, at the theorem's bandwidth and below it.
+done in 957.3s
+
+real	16m1.047s
+user	15m59.691s
+sys	0m1.271s
+exit=0

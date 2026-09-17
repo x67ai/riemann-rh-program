@@ -177,6 +177,7 @@ complex arguments by a 40-110-digit oscillatory rule. Scripts and logs: `campaig
   stored delta correct to nine decimals. The t = 114.16 control row recomputed with the checker's transform: all ten
   bandwidths agree to <= 6.7e-14 relative on W_Z and 1.5e-21 absolute on W_Z'; ratio 30.66 at L* = 217.48 (fires).
   Max |Z_DH(gamma)| over the builder's 39 on-line points at 25 digits: 1.857e-32.
+  * **Re-run 2026-09-17 (Session 23 item 0(c); `campaign/DH-RERUN-BRIEF.md`):** the criterion "max |Z_DH(γ)| at 25 digits: 1.857e-32" above is scale-blind (|Z_DH| ≈ e^{−πu/4} ≈ 10⁻³² on the line at these heights, whatever the point; `results/c2-m6/m6-rung1-note.md` §5.3, `check-O.md` §3); the replacement criterion is max |f_DH(½ + iγ)| or max |S(γ)|, S(u) = Z_DH(u)/[(5/π)^{3/4}|Γ(¾ + iu/2)|] — re-run value 6.5·10⁻³⁹ over the 125 refined on-line points of the three campaign heights (`campaign/dh_control_new_heights_rerun.json`; record's points 10⁻⁶ … 10⁻³).
 * **(6) stop conditions** — (i) does not fire (0.166-0.600 s/zero); (ii) does not fire; (iii) **does not fire**;
   **(iv) FIRES in the form PRICING §2(e) writes it** (single-t N_Z/model outside a factor 10 at 10 of 59 grid
   bandwidths at t = 1e3, 25 of 59 at 1e5, 11 of 59 at 1e6) and does not fire on the builder's center-mean restatement
