@@ -1,0 +1,36 @@
+comparator/Solution/SeparationClause4.lean:19:theorem below has exactly the statement of its Challenge namesake and uses only the permitted axioms.
+comparator/Solution/SeparationClause4.lean:28:theorem separation_clause4_in_window_noise (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+comparator/Challenge/SeparationClause4.lean:42:theorem separation_clause4_in_window_noise (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+comparator/ChallengeDeps/SepConfig.lean:63:def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+comparator/ChallengeDeps/SepConfig.lean:66:def reflect (ρ : ℂ) : ℂ := 1 - (starRingEnd ℂ) ρ
+comparator/ChallengeDeps/SepConfig.lean:72:structure SepConfig (C₁ : ℝ) where
+comparator/ChallengeDeps/SepConfig.lean:95:def Wsummand (f g : ℝ → ℂ) (ρ : ℂ) : ℂ :=
+comparator/ChallengeDeps/SepConfig.lean:100:def W (f g : ℝ → ℂ) : ℂ := ∑' ρ : Z.carrier, Z.Wsummand f g ρ
+comparator/ChallengeDeps/SepConfig.lean:103:def inWindowReal (t R : ℝ) : Set ℂ := Z.carrier ∩ {ρ | ρ.re = 1 / 2 ∧ |ρ.im - t| ≤ R}
+comparator/ChallengeDeps/SepConfig.lean:108:def BL (L : ℝ) (u : ℝ) : ℝ := B (u / L) / L
+comparator/ChallengeDeps/SepConfig.lean:111:def ftest (t L : ℝ) (u : ℝ) : ℂ := Complex.I * ((deriv (BL L) u : ℝ) : ℂ) * Complex.exp (-(Complex.I * t * u))
+comparator/ChallengeDeps/SepConfig.lean:114:def SepConfig.inWindowNoise {C₁ : ℝ} (Z : SepConfig C₁) (t L R : ℝ) : ℝ :=
+comparator/ChallengeDeps/SepConfig.lean:118:def Hb1 : Prop := ∀ η : ℝ, (|η| * ‖ft (fun v => (B v : ℂ)) η‖) ^ 2 ≤ 87 / 10
+comparator/ChallengeDeps/SepConfig.lean:121:def HB3 : Prop := ∫ u, ‖iteratedDeriv 3 (fun v => (B v : ℂ)) u‖ ≤ 64231 / 100
+Zeta23/Separation/Clause4.lean:51:def BL (L : ℝ) (u : ℝ) : ℝ := B (u / L) / L
+Zeta23/Separation/Clause4.lean:54:def ftest (t L : ℝ) (u : ℝ) : ℂ := Complex.I * ((deriv (BL L) u : ℝ) : ℂ) * Complex.exp (-(Complex.I * t * u))
+Zeta23/Separation/Clause4.lean:57:def Hb1 : Prop := ∀ η : ℝ, (|η| * ‖paperFT (fun v => (B v : ℂ)) η‖) ^ 2 ≤ 87 / 10
+Zeta23/Separation/Clause4.lean:60:def HB3 : Prop := ∫ u, ‖iteratedDeriv 3 (fun v => (B v : ℂ)) u‖ ≤ 64231 / 100
+Zeta23/Separation/Clause4.lean:62:theorem BL_contDiff {L : ℝ} {n : ℕ∞} : ContDiff ℝ n (BL L) :=
+Zeta23/Separation/Clause4.lean:65:theorem BL_eq_zero_of_le {L : ℝ} (hL : 0 < L) {u : ℝ} (h : L / 2 ≤ |u|) : BL L u = 0 := by
+Zeta23/Separation/Clause4.lean:71:theorem BLc_contDiff {L : ℝ} : ContDiff ℝ ∞ (fun u => (BL L u : ℂ)) :=
+Zeta23/Separation/Clause4.lean:74:theorem BLc_support {L : ℝ} (hL : 0 < L) : ∀ u : ℝ, (fun u => (BL L u : ℂ)) u ≠ 0 → |u| ≤ L / 2 :=
+Zeta23/Separation/Clause4.lean:79:theorem hasCompactSupport_BLc {L : ℝ} (hL : 0 < L) : HasCompactSupport (fun u => (BL L u : ℂ)) :=
+Zeta23/Separation/Clause4.lean:82:theorem hasDerivAt_BLc {L : ℝ} (u : ℝ) :
+Zeta23/Separation/Clause4.lean:86:theorem deriv_BLc {L : ℝ} : deriv (fun u => (BL L u : ℂ)) = fun u => ((deriv (BL L) u : ℝ) : ℂ) :=
+Zeta23/Separation/Clause4.lean:90:theorem paperFT_BLc {L : ℝ} (hL : 0 < L) (z : ℂ) :
+Zeta23/Separation/Clause4.lean:108:theorem paperFT_ftest {t L : ℝ} (hL : 0 < L) (r : ℂ) :
+Zeta23/Separation/Clause4.lean:129:theorem gammaOf_of_re_eq_half {ρ : ℂ} (h : ρ.re = 1 / 2) : gammaOf ρ = (ρ.im : ℂ) := by
+Zeta23/Separation/Clause4.lean:137:theorem abs_cube_mul_norm_paperFT_Bc_le (hB3 : HB3) (η : ℝ) :
+Zeta23/Separation/Clause4.lean:153:theorem term_le_b1 (hb1 : Hb1) {L : ℝ} (hL : 0 < L) (d : ℝ) :
+Zeta23/Separation/Clause4.lean:165:theorem term_le_B3 (hB3 : HB3) {L : ℝ} (hL : 0 < L) {d k : ℝ} (hk : 1 ≤ k) (hd : k ≤ |d|) :
+Zeta23/Separation/Clause4.lean:183:theorem sum_inv_pow_four_le : ∀ K : ℕ, 1 ≤ K →
+Zeta23/Separation/Clause4.lean:199:theorem sum_inv_pow_four_le' (K : ℕ) : ∑ k ∈ Finset.range K, 1 / ((k : ℝ) + 1) ^ 4 ≤ 2 := by
+Zeta23/Separation/Clause4.lean:208:theorem window_count_le {C₁ : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+Zeta23/Separation/Clause4.lean:226:theorem shell_sum_le {C₁ t R a b : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+Zeta23/Separation/Clause4.lean:358:theorem inWindowNoise_le {C₁ t L R : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)

@@ -29,6 +29,14 @@ project:
     (comparator/config-separation.json), again with NO displayed hypothesis: "a Comparator-checked theorem over Mathlib's
     expNegInvGlue with no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda" — the first
     statements of this program that carry no "modulo H" label at all.  Nothing about ζ or RH follows from them.
+    Session 23 item 3 (M4 (iii), 2026-09-17) adds the class 𝒞(C₁) of the separation note as the trusted structure
+    `Separation.SepConfig C₁` (comparator/ChallengeDeps/SepConfig.lean: the seven fields of Zeta23.ZeroConfig, conjugation
+    invariance, and the explicit local count Σ_{|Im ρ − x| ≤ 1} m_ρ ≤ C₁·log(3 + |x|)) and clause 4 of Theorem M2 — the
+    in-window on-line noise 0 ≤ N_Z ≤ 2·(87/10)·C₁·log(4 + t + R)/L² for t ≥ 3, L ≥ 50, R ≥ 1 — as the Comparator topic
+    `SeparationClause4` (comparator/config-separation-clause4.json), "kernel-checked modulo the DISPLAYED H-b₁
+    (sup_η |ηB̂(η)|² ≤ 87/10) and H-B‴ (∫|B‴| ≤ 64231/100)" — never "clause 4 is formalized".  It is the dress-rehearsal
+    rung of the clause-6 assembly (PRICING §1(b) candidate (iii)), whose label, when it lands, is "kernel-checked modulo
+    H-edge, H-b₁, H-B‴, H-R₀ — never 'the theorem is formalized'".
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -121,10 +129,12 @@ status:
     CHALLENGE side, which states the theorems with `sorry` by design (as the parent's Challenge files do): the seven of
     comparator/Challenge/DBN.lean (proved by comparator/Solution/DBN.lean) and, from Session 23, the one of
     comparator/Challenge/SeparationG1.lean (proved by comparator/Solution/SeparationG1.lean) and the three of
-    comparator/Challenge/Separation.lean (proved by comparator/Solution/Separation.lean); nothing under Zeta23/Separation
-    contains a `sorry`.  Not formalized, and displayed as hypotheses:
+    comparator/Challenge/Separation.lean (proved by comparator/Solution/Separation.lean) and the one of
+    comparator/Challenge/SeparationClause4.lean (proved by comparator/Solution/SeparationClause4.lean); nothing under
+    Zeta23/Separation contains a `sorry`.  Not formalized, and displayed as hypotheses:
     H1 (Platt–Trudgian), H2-B / H2-A / H-TAIL (the untrusted producers' enclosure claims), H3 (Polymath15 Theorem 1.2 in
-    the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`.
+    the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`; and, for the topic SeparationClause4,
+    H-b₁ and H-B‴ (two computed constants of the separation note: `Separation.Hb1`, `Separation.HB3`).
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -345,6 +355,26 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 23 (2026-09-17), M4 (iii) dress-rehearsal rung — clause 4 of Theorem M2's separation note
+        (results/c2-m2/separation-note.md §5), the in-window on-line noise, over the trusted class 𝒞(C₁)
+        (comparator/ChallengeDeps/SepConfig.lean, `Separation.SepConfig C₁`): for C₁ ≥ 1, t ≥ 3, L ≥ 50, R ≥ 1 and every
+        Z ∈ 𝒞(C₁), 0 ≤ N_Z ≤ 2·(87/10)·C₁·log(4 + t + R)/L², N_Z = Σ_{ρ ∈ Z, Re ρ = 1/2, |Im ρ − t| ≤ R} m_ρ‖h_f(γ_ρ)‖² with
+        f = f_{t,L} = i(B_L)′e^{−itu} — MODULO the two DISPLAYED hypotheses H-b₁ (`Separation.Hb1`: (|η|‖B̂(η)‖)² ≤ 87/10 for
+        every real η) and H-B‴ (`Separation.HB3`: ∫‖B‴‖ ≤ 64231/100), both computed constants of the note.  Proof
+        (Zeta23/Separation/Clause4.lean): (0.1) h_f(r) = (r − t)B̂(L(r − t)) by `paperFT_deriv` and the scaling
+        `integral_comp_mul_left`; per point b₁/L² (H-b₁) or ‖B‴‖₁²/(L⁶k⁴) (three integrations by parts, H-B‴); the finite
+        in-window set partitioned by k = ⌊|Im ρ − t|⌋₊ (`Finset.sum_fiberwise_of_maps_to`), shell 0 ≤ C₁ℓ_R points and shell
+        k ≥ 1 ≤ 2C₁ℓ_R (two windows of the local count at t ± (k + 1/2)), Σ k⁻⁴ ≤ 2.  Label: "clause 4 is kernel-checked
+        modulo H-b₁, H-B‴" — never "clause 4 is formalized" (results/c2-m4/BUILD-NOTES-iii.md; Comparator run
+        results/c2-m4/verify-iii/comparator-run-clause4.log).
+      declaration: "separation_clause4_in_window_noise (root, Challenge.SeparationClause4 / Solution.SeparationClause4); Zeta23.Separation.inWindowNoise_le, Zeta23.Separation.shell_sum_le, Zeta23.Separation.paperFT_ftest"
+      file: "comparator/Solution/SeparationClause4.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
     - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
       declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       file: "Zeta23/PairCeiling/GridParseval.lean"
@@ -491,6 +521,28 @@ fidelity:
     recorded so that the checker can say so.  Two further points, not divergences: the real form is derived from the complex
     form at z = (η : ℂ) (the note proves them together); and the monotonicity of G in η, which the note records, is not stated
     (the complex form carries G(|Re z|) directly).  Ledger text: results/d1-m2a/packaging/FIDELITY.md (o).
+    (p) Clause 4 of Theorem M2 over `Separation.SepConfig` (topic SeparationClause4, M4 (iii) rung), MODULO the displayed
+    H-b₁ and H-B‴ — label "clause 4 is kernel-checked modulo H-b₁, H-B‴", never "clause 4 is formalized".  (p1) the computed
+    constants b₁ ≤ 8.70 (certified upper end, note §12.2) and ‖B‴‖₁ = 642.301 are the rationals 87/10 and 64231/100 and are
+    DISPLAYED as the Props `Separation.Hb1` (for every real η) and `Separation.HB3` (the L¹ norm of D³ of the complex-valued
+    B), not proved: both are quadrature results; the "proved b₁ ≤ ‖B′‖₁² = 10.99" substitute of PRICING §1(a) item 4 was
+    not taken because 4e⁻²/Z² ≤ 10.99 needs a numeric lower bound on Z — itself a quadrature certificate.  (p2) 𝒞(C₁) is
+    `SepConfig C₁` in ρ-coordinates: the seven fields of Zeta23.ZeroConfig character for character, conjugation invariance
+    with equal multiplicity, and the local count as a finite `∑ᶠ` over the closed window |Im ρ − x| ≤ 1 (Re γ_ρ = Im ρ; the
+    set is finite by `finite_window`, so the finite sum is honest); the proof of clause 4 consumes only `finite_window` and
+    `localCount`.  (p3) the note's "on-line except for the orbit" hypothesis is NOT a hypothesis of the statement: N_Z is
+    by definition the sum over the on-line in-window points, so the bound holds for every Z ∈ 𝒞(C₁); the binders t ≥ 3
+    and C₁ ≥ 1 are the note's and are consumed only as t ≥ 0, C₁ ≥ 0.  (p4) the tail is taken by the polynomial route only
+    (the note's T₁^poly), with Σ_{k≥1} k⁻⁴ ≤ 2 in place of 2ζ(4) and L ≥ 50 in place of the note's L₁ = 17.9; the Gevrey
+    form of T₁ and the intermediate b₁C₁ℓ_R/L² + T₁ are not stated — only the note's final 2b₁C₁ℓ_R/L².  (p5) the shell
+    index is ⌊|Im ρ − t|⌋₊ (shell 0 = distance < 1; a point at distance exactly 1 is in shell 1, bounded there by
+    ‖B‴‖₁²/L⁶); shells k ≥ 1 are covered by the two windows at t ± (k + 1/2) (note D7), ℓ_R = log(4 + t + R) as in the note.
+    (p6) the test is `ftest t L u = I * (deriv (BL L) u : ℂ) * exp(−(I t u))` with Mathlib's `deriv` of the real
+    B_L = B(u/L)/L (C^∞); (0.1) is the proved lemma `paperFT_ftest`; the transform is `ft` = `paperFT` as in (o)(c).
+    (p7) N_Z is written with ‖h_f(γ_ρ)‖², not as the Weil summand restricted to real γ; their identity for real γ is the
+    assembly's, not stated in the rung.  (p8) `Hb1`, `HB3` are named Props taken as named hypotheses of the theorem; nothing
+    else is displayed.  Not divergences: 0 ≤ N_Z is stated as in the note; the tsum over the finite in-window subtype is
+    proved to be the finite sum, not assumed.  Ledger text: results/d1-m2a/packaging/FIDELITY.md (p).
 
 review:
   status: "self-assessed"
@@ -553,6 +605,23 @@ review:
     file edited except the two additive imports in Zeta23.lean (verify/untouched.log).  No human has read
     comparator/Challenge/Separation.lean against the note; the independent clean-clone check (Opus 5, results/c2-m4/CHECK-O.md)
     is the next job.  These three statements carry no "modulo H" label at all.
+
+    Comparator run, topic SeparationClause4 (results/c2-m4/verify-iii/comparator-run-clause4.log, Session 23 builder,
+    2026-09-17 13:29:17-13:30:26 IST; CONTROL config re-run first, verify-iii/control-run.log, PASS 174.24 s): same tool
+    chain and shim (NOT sandboxed), `lake env comparator comparator/config-separation-clause4.json` from the repository root
+    with ChallengeDeps.SepConfig, Challenge.SeparationClause4 and Solution.SeparationClause4 built by comparator itself
+    (pre-built artifacts removed first); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda kernel accepts
+    the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your solution
+    is okay!"; exit code 0; 68.92 s wall, 5.9 GiB peak.  The one theorem_name compared; axioms within propext, Quot.sound,
+    Classical.choice.  Statement identity challenge/solution: verify-iii/statement-identity-clause4.log (IDENTICAL).
+    #print axioms on the root theorem and on all 18 theorems of Zeta23/Separation/Clause4.lean: [propext, Classical.choice,
+    Quot.sound] (verify-iii/print-axioms-clause4.log).  Trust greps with comments stripped on the five new files: the one
+    deliberate challenge `sorry` only (verify-iii/trust-greps-clause4.log).  The six frozen D1/R1 statements and the three
+    M4 (i) root statements: #check + #print axioms identical to the records (verify-iii/frozen-statements.log); no existing
+    Lean file edited except the one additive import in Zeta23.lean (verify-iii/untouched.log); `lake build Zeta23` 9147
+    jobs, 0 errors.  No human has read comparator/ChallengeDeps/SepConfig.lean or Challenge/SeparationClause4.lean against
+    the note; the independent clean-clone check (Opus 5, results/c2-m4/CHECK-O-iii.md) is the next job.  This statement
+    DOES carry a "modulo H" label: H-b₁, H-B‴.
 
 alignment:
   namespaces:
@@ -641,6 +710,10 @@ alignment:
       lean: "separation_bump_fourier_decay, separation_bump_fourier_decay_complex, separation_bump_fourier_decay_pure_exp; Zeta23.Separation.norm_paperFT_Bc_ofReal_le, Zeta23.Separation.norm_paperFT_Bc_le, Zeta23.Separation.norm_paperFT_Bc_ofReal_le'"
       module: "Challenge.Separation / Solution.Separation (library: Zeta23.Separation.LemmaG)"
       status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/c2-m4/verify/comparator-run-separation.log)"
+    - source: "C2 separation note §5, clause 4 (the in-window on-line noise) over the class 𝒞(C₁) of §0.1; PRICING §1(b) (iii), the dress-rehearsal rung"
+      lean: "separation_clause4_in_window_noise; Zeta23.Separation.inWindowNoise_le, Zeta23.Separation.shell_sum_le, Zeta23.Separation.paperFT_ftest"
+      module: "Challenge.SeparationClause4 / Solution.SeparationClause4 over ChallengeDeps.SepConfig (library: Zeta23.Separation.Clause4)"
+      status: "proved modulo the displayed H-b₁ (Separation.Hb1) and H-B‴ (Separation.HB3); Comparator PASS with nanoda (results/c2-m4/verify-iii/comparator-run-clause4.log)"
     - source: "A4 paper Lemma 3.8, Theorem 3.9"
       lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       module: "Zeta23.PairCeiling.GridParseval"

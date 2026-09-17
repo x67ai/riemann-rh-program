@@ -1,0 +1,52 @@
+# frozen-statements.log — 2026-09-17 13:32:08 IST; the six frozen D1/R1 statements + the three M4 (i) Lemma G root statements (+ the G1 rung statement), #check + #print axioms AFTER the M4 (iii) rung files were added (probe frozen_probe.lean.txt, lake env lean; Solution.Separation / Solution.SeparationG1 rebuilt first, their artifacts having been removed by the CONTROL run's pre-run cleanup)
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay : ∀ (η : ℝ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) ↑η‖ ≤
+    Separation.CB * (1 + Separation.cB / 2 * √|η|) * Real.exp (-(Separation.cB * √|η|))
+'separation_bump_fourier_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay_complex : ∀ (z : ℂ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) z‖ ≤
+    Real.exp (|z.im| / 2) * (Separation.CB * (1 + Separation.cB / 2 * √|z.re|) * Real.exp (-(Separation.cB * √|z.re|)))
+'separation_bump_fourier_decay_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay_pure_exp : ∀ (η : ℝ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) ↑η‖ ≤
+    4 * Real.exp (-3 / 4) * Separation.CB * Real.exp (-(7 / 8 * Separation.cB * √|η|))
+'separation_bump_fourier_decay_pure_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_braw_iteratedDeriv_le : ∀ (k : ℕ),
+  1 ≤ k → ∀ (v : ℝ), |iteratedDeriv k Separation.Braw v| ≤ (↑k + 1) * (72 / Real.exp 1) ^ k * ↑k ^ (2 * k)
+'separation_braw_iteratedDeriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+# comparison with results/c2-m4/verify/frozen-statements.log (the six D1/R1 statements): #check lines IDENTICAL (28 lines, in order); #print axioms lines IDENTICAL as a set (the M4 (i) record lists them in a separate block; this probe interleaves them)
