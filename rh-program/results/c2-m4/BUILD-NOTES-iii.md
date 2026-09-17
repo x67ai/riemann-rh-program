@@ -64,3 +64,5 @@ Launched 14:02:19 IST after the pre-run cleanup of the topic's 24 comparator-lay
 6. The nine frozen statements (`verify-iii/frozen_probe.lean.txt`) against the records; the yaml schema validation; 10(g) lint.
 
 ## 6. SHA-256 (`hashes-iii.txt`; this file's own hash is in `SHARED.md`'s final block and in the chat report)
+
+**[CORRECTION 2026-09-17 14:45 IST, Session 23 (orchestrator, from `CHECK-O-iii.md` §14 — three MINOR prose items; nothing above is edited):** `Assembly.lean`'s header line 27 says N ≤ 6/100·U where `absorb` proves the sharper 39/1000; `SHARED.md`'s 13:52 "(in progress)" block prints line counts 79/67 superseded by the 14:05 block's 84/59; `BRIEF-iii.md`'s source list mis-numbers the note's sections (the builder used the right ones). The SHA-256 2ed30732… recorded in SHARED.md, LOG.md and the C2 work log is that of this file WITHOUT this line.]**
