@@ -1,0 +1,168 @@
+# decls-B.txt — 2026-09-24 23:00:55 IST; declaration list with line numbers, the sixteen Unit B files (tree = mirror)
+## Zeta23/Separation/Clause5.lean (1210 lines)
+45:import Mathlib.Analysis.SumIntegralComparisons
+46:import Zeta23.Separation.Assembly2
+60:theorem Gmaj_antitone {x y : ℝ} (hxy : x ≤ y) : Gmaj y ≤ Gmaj x := by
+86:theorem norm_paperFT_ftest_le_strip {t L : ℝ} (hL : 0 < L) (x y : ℝ) (hy : |y| ≤ 1 / 2) :
+118:theorem norm_wsum_le_strip {mult : ℂ → ℕ} {t L : ℝ} (hL : 0 < L) {ρ : ℂ} (hρ : 0 ≤ ρ.re ∧ ρ.re ≤ 1) :
+147:theorem shell_count_le {C₁ t : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+197:theorem out_finset_sum_le {C₁ t R : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+232:theorem out_window_summable_tsum_le {C₁ t R : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+256:theorem out_window_norm_le {C₁ t R : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+271:theorem pow16_mul_exp_le {w : ℝ} (hw : 0 ≤ w) : (1 + w) ^ 16 * Real.exp (-(2 * w)) ≤ 8 ^ 16 := by
+283:def crudeM (L : ℝ) : ℝ := CB ^ 2 * (1 + cB ^ 2 * L) ^ 7 * 8 ^ 16 / (cB ^ 2 * L) ^ 7
+285:theorem crudeM_nonneg {L : ℝ} (hL : 0 < L) : 0 ≤ crudeM L := by
+290:theorem crude_bound {L : ℝ} (hL : 0 < L) {u : ℝ} (hu : 0 ≤ u) :
+321:theorem crude_shell_bound {L : ℝ} (hL : 0 < L) {u : ℝ} (hu : 0 ≤ u) :
+336:theorem crude_series_le {C₁ t L : ℝ} (hC : 0 ≤ C₁) (ht : 0 ≤ t) (hL : 0 < L) (K₀ K : ℕ) :
+366:theorem C1_nonneg_of_count {C₁ : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+378:theorem clause5_summable {C₁ t L : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+398:def gammaPoly (n : ℕ) (a s : ℝ) : ℝ :=
+401:theorem gammaPoly_zero (a s : ℝ) : gammaPoly 0 a s = 1 / a := by
+405:theorem gammaPoly_succ (n : ℕ) {a : ℝ} (ha : a ≠ 0) (s : ℝ) :
+420:theorem gammaPoly_nonneg (n : ℕ) {a s : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) : 0 ≤ gammaPoly n a s := by
+424:theorem gammaPoly_mono (n : ℕ) {a s s' : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) (hss' : s ≤ s') :
+431:theorem gammaPoly_mul_le (n : ℕ) {a s r : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) (hr : 1 ≤ r) :
+445:theorem hasDerivAt_exp_mul_gammaPoly {a : ℝ} (ha : 0 < a) (n : ℕ) (s : ℝ) :
+478:theorem tendsto_exp_mul_gammaPoly {a : ℝ} (ha : 0 < a) (n : ℕ) :
+504:theorem integral_pow_mul_exp_Ioi {a : ℝ} (ha : 0 < a) (n : ℕ) {s₀ : ℝ} (hs₀ : 0 ≤ s₀) :
+522:def GammaM (m : ℕ) (s : ℝ) : ℝ :=
+526:theorem GammaM_nonneg (m : ℕ) {s : ℝ} (hs : 0 ≤ s) : 0 ≤ GammaM m s := by
+534:theorem GammaM_mono (m : ℕ) {s s' : ℝ} (hs : 0 ≤ s) (hss' : s ≤ s') : GammaM m s ≤ GammaM m s' := by
+545:theorem hasDerivAt_exp_mul_GammaM (m : ℕ) (s : ℝ) :
+557:theorem tendsto_exp_mul_GammaM (m : ℕ) :
+573:def phi (m : ℕ) (L u : ℝ) : ℝ :=
+577:def Phi (m : ℕ) (L u : ℝ) : ℝ :=
+580:theorem phi_nonneg (m : ℕ) {L u : ℝ} (hu : 0 ≤ u) : 0 ≤ phi m L u := by
+584:theorem phi_eq (m : ℕ) {L u : ℝ} (hL : 0 < L) (hu : 0 ≤ u) :
+593:theorem hasDerivAt_Phi (m : ℕ) {L u : ℝ} (hL : 0 < L) (hu : 0 < u) : HasDerivAt (Phi m L) (phi m L u) u := by
+611:theorem tendsto_Phi (m : ℕ) {L : ℝ} (hL : 0 < L) : Filter.Tendsto (Phi m L) Filter.atTop (nhds 0) := by
+621:theorem integral_phi_Ioi (m : ℕ) {L u₀ : ℝ} (hL : 0 < L) (hu₀ : 0 < u₀) :
+630:theorem integrableOn_phi_Ioi (m : ℕ) {L u₀ : ℝ} (hL : 0 < L) (hu₀ : 0 < u₀) :
+643:theorem gpow_antitone (m : ℕ) {s₁ s₂ : ℝ} (h1 : 0 < s₁) (hm : 2 * m ≤ cB * s₁) (h12 : s₁ ≤ s₂) :
+683:theorem phi_antitoneOn (m : ℕ) {L u₀ : ℝ} (hL : 0 < L) (hu₀ : 0 < u₀) (hm : 2 * m ≤ cB * Real.sqrt (L * u₀))
+700:theorem sum_phi_le (m : ℕ) {L : ℝ} (hL : 0 < L) {K₀ : ℕ} (hK₀ : 0 < K₀)
+727:theorem five_thirds_le_log_six : 5 / 3 ≤ Real.log 6 := by
+743:theorem absorb_once {C₁ t L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+772:theorem exp_neg_s0_le {L K₀ : ℝ} (hL : 1 ≤ L) (hK₀ : 73 * L - 1 ≤ K₀) :
+793:theorem pow_mul_Gmaj_sq_le (m : ℕ) {L k : ℝ} (hL : 0 < L) (hk : 3649 ≤ k) :
+813:def Prelax (m : ℕ) (L : ℝ) : ℝ :=
+821:def P2 (L : ℝ) : ℝ := Prelax 2 L
+824:def P3 (L : ℝ) : ℝ := Prelax 3 L
+828:def F13 (L : ℝ) : ℝ :=
+833:def HR0 : Prop := F13 50 ≤ 0 ∧ 5 / (2 * cB * Real.sqrt 73 - 13 / 8) ≤ 50
+835:theorem Prelax_pos (m : ℕ) {L : ℝ} (hL : 0 < L) : 0 < Prelax m L := by
+845:theorem phi_tail_le (m : ℕ) {L K₀ : ℝ} (hL : 0 < L) (hK₀ : 0 < K₀) (hK : K₀ ≤ 73 * L) :
+883:theorem Prelax_mul_le (m : ℕ) {r : ℝ} (hr : 1 ≤ r) : Prelax m (50 * r) ≤ r ^ (m + 2) * Prelax m 50 := by
+938:theorem slope_pos : 0 < 2 * cB * Real.sqrt 73 - 13 / 8 := by
+948:theorem F13_le_F13_50 (hR0 : HR0) {L : ℝ} (hL : 50 ≤ L) : F13 L ≤ F13 50 := by
+999:theorem shell_weight_le {L u : ℝ} (hL : 0 < L) (hu : 0 ≤ u) :
+1016:theorem shell_series_le {C₁ t L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L)
+1137:theorem clause5_out_window {C₁ t L : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+1159:theorem hL8_of_hL2 {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+1179:theorem clause6_assembly_c {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+## Zeta23/Separation/ZEnclosure.lean (188 lines)
+26:import Mathlib.Analysis.SumIntegralComparisons
+27:import Zeta23.Separation.B1Sym
+38:theorem Braw_antitoneOn : AntitoneOn Braw (Set.Icc 0 (1 / 2)) := by
+53:theorem Braw_even (v : ℝ) : Braw (-v) = Braw v := by
+57:theorem Z_eq_two_mul : Z = 2 * ∫ v in (0 : ℝ)..(1 / 2), Braw v := by
+69:theorem sixteen_mul_Z : 16 * Z = ∫ x in (0 : ℝ)..(0 + (16 : ℕ)), Braw (x / 32) := by
+74:theorem g_antitoneOn : AntitoneOn (fun x : ℝ => Braw (x / 32)) (Set.Icc 0 (0 + (16 : ℕ))) := by
+82:theorem riemann_bracket :
+95:def cellx (i : ℕ) : ℝ := 256 / (256 - (i : ℝ) ^ 2)
+98:def qcell (i : ℕ) : ℕ := if i = 0 then 1 else if i ≤ 11 then 2 else if i ≤ 13 then 3 else if i = 14 then 5 else 9
+100:theorem Braw_cell {i : ℕ} (hi : i ≤ 15) : Braw ((i : ℝ) / 32) = Real.exp (-(cellx i)) := by
+109:theorem Braw_sixteen : Braw ((16 : ℝ) / 32) = 0 :=
+113:theorem exp_neg_le_inv_taylor {x : ℝ} (hx : 0 ≤ x) :
+125:theorem one_div_pow_le_exp_neg {y S : ℝ} (hS : Real.exp y ≤ S) (q : ℕ) : 1 / S ^ q ≤ Real.exp (-(q * y)) := by
+131:def taylorT (y : ℝ) : ℝ :=
+134:theorem exp_le_taylorT {y : ℝ} (h0 : 0 ≤ y) (h1 : y ≤ 1) : Real.exp y ≤ taylorT y := by
+140:theorem cell_lo {x : ℝ} {q : ℕ} (hq : 0 < q) (hx : 0 ≤ x) (hxq : x ≤ q) :
+149:theorem cellx_le_qcell {i : ℕ} (hi : i ≤ 15) : 0 ≤ cellx i ∧ cellx i ≤ qcell i ∧ 0 < qcell i := by
+156:theorem Z_enclosure : 421 / 2000 ≤ Z ∧ Z ≤ 233651 / 1000000 := by
+## Zeta23/Separation/Clause5Cert.lean (234 lines)
+26:import Zeta23.Separation.Clause5
+27:import Zeta23.Separation.ZEnclosure
+37:def eLo : ℝ := 27182818283 / 10000000000
+39:def eHi : ℝ := 13591409143 / 5000000000
+41:def cLo : ℝ := 14296064739 / 100000000000
+43:def cHi : ℝ := 14296064759 / 100000000000
+45:def rLo : ℝ := 427200187261 / 50000000000
+47:def rHi : ℝ := 427200187271 / 50000000000
+49:def ZLo : ℝ := 421 / 2000
+51:def ZHi : ℝ := 233651 / 1000000
+53:def CBHi : ℝ := eHi ^ 2 / ZLo
+55:def b1Lo : ℝ := (2 / (eHi * ZHi)) ^ 2
+57:theorem eLo_le : eLo ≤ Real.exp 1 := by
+60:theorem le_eHi : Real.exp 1 ≤ eHi := by
+63:theorem cB_bounds : cLo ≤ cB ∧ cB ≤ cHi := by
+86:theorem sqrt73_bounds : rLo ≤ Real.sqrt 73 ∧ Real.sqrt 73 ≤ rHi := by
+91:theorem CB_le_CBHi : CB ≤ CBHi := by
+103:theorem b1Lo_le_b1sym : b1Lo ≤ b1sym := by
+123:theorem gammaPoly_le (n : ℕ) {a a' s s' : ℝ} (ha' : 0 < a') (haa : a' ≤ a) (hs : 0 ≤ s) (hss : s ≤ s') :
+131:def PrelaxQ (m : ℕ) : ℝ :=
+138:theorem Prelax_50_le (m : ℕ) : Prelax m 50 ≤ PrelaxQ m := by
+162:def ELo : ℝ := 50 * (2 * cLo * rLo) - 13 / 8 * 50 - 2 * cHi / rLo
+165:theorem cert_numeric :
+173:theorem exp_ELo_ge : eLo ^ 40 * ∑ i ∈ Finset.range 6, (ELo - 40) ^ i / (i.factorial : ℝ) ≤ Real.exp ELo := by
+188:theorem F13_50_neg : HR0 := by
+## comparator/ChallengeDeps/Separation5.lean (73 lines)
+37:import Mathlib
+38:import ChallengeDeps.Separation6b
+45:def gammaPoly (n : ℕ) (a s : ℝ) : ℝ :=
+49:def Prelax (m : ℕ) (L : ℝ) : ℝ :=
+57:def P2 (L : ℝ) : ℝ := Prelax 2 L
+60:def P3 (L : ℝ) : ℝ := Prelax 3 L
+64:def F13 (L : ℝ) : ℝ :=
+69:def HR0 : Prop := F13 50 ≤ 0 ∧ 5 / (2 * cB * Real.sqrt 73 - 13 / 8) ≤ 50
+## comparator/Challenge/SeparationClause5Sum.lean (44 lines)
+33:import ChallengeDeps.Separation6b
+40:theorem separation_clause5_summable (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (ht : 3 ≤ t) (hL : 0 < L) :
+## comparator/Solution/SeparationClause5Sum.lean (34 lines)
+23:import ChallengeDeps.Separation6b
+24:import Zeta23.Separation.Clause5
+31:theorem separation_clause5_summable (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (ht : 3 ≤ t) (hL : 0 < L) :
+## comparator/PrintAxioms/SeparationClause5Sum.lean (22 lines)
+20:import Solution.SeparationClause5Sum
+22:#print axioms separation_clause5_summable
+## comparator/Challenge/Separation5.lean (69 lines)
+39:import ChallengeDeps.Separation5
+46:theorem separation_clause5_out_window (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+56:theorem separation_clause6_assembly_c (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+## comparator/Solution/Separation5.lean (58 lines)
+27:import ChallengeDeps.Separation5
+28:import Zeta23.Separation.Clause5
+35:theorem separation_clause5_out_window (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+44:theorem separation_clause6_assembly_c (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+## comparator/PrintAxioms/Separation5.lean (21 lines)
+18:import Solution.Separation5
+20:#print axioms separation_clause5_out_window
+21:#print axioms separation_clause6_assembly_c
+## comparator/Challenge/Separation5c.lean (64 lines)
+36:import ChallengeDeps.Separation6b
+43:theorem separation_clause5_out_window_c (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+51:theorem separation_clause6_assembly_d (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+## comparator/Solution/Separation5c.lean (55 lines)
+25:import ChallengeDeps.Separation6b
+26:import Zeta23.Separation.Clause5Cert
+33:theorem separation_clause5_out_window_c (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+41:theorem separation_clause6_assembly_d (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+## comparator/PrintAxioms/Separation5c.lean (21 lines)
+18:import Solution.Separation5c
+20:#print axioms separation_clause5_out_window_c
+21:#print axioms separation_clause6_assembly_d
+## comparator/config-separation-clause5sum.json
+2:  "challenge_module": "Challenge.SeparationClause5Sum",
+3:  "solution_module": "Solution.SeparationClause5Sum",
+5:    "separation_clause5_summable"
+## comparator/config-separation5.json
+2:  "challenge_module": "Challenge.Separation5",
+3:  "solution_module": "Solution.Separation5",
+5:    "separation_clause5_out_window",
+6:    "separation_clause6_assembly_c"
+## comparator/config-separation5c.json
+2:  "challenge_module": "Challenge.Separation5c",
+3:  "solution_module": "Solution.Separation5c",
+5:    "separation_clause5_out_window_c",
+6:    "separation_clause6_assembly_d"
