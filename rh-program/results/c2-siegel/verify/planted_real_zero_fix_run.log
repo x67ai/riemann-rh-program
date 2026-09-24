@@ -1,0 +1,124 @@
+[1] a_K closed form vs quadrature of mu_0 * A_K (two-digamma form), D = -20:
+    s = 0.0000: closed -0.512597893063 quad -0.512597893063 diff 2.2e-16
+    s = 0.3000: closed -0.457088158975 quad -0.457088158975 diff 2.2e-16
+    s = 1.0000: closed -0.163920395959 quad -0.163920395959 diff -2.8e-17
+    s = 1.5384: closed 0.000007913646 quad 0.000007913646 diff -2.8e-16
+    s = 3.0000: closed 0.234946236635 quad 0.234946236635 diff 0.0e+00
+    s = 10.0000: closed 0.624172446512 quad 0.624172446512 diff -1.1e-16
+    s = 40.0000: closed 1.065944787067 quad 1.065944787067 diff -2.2e-16
+    max |closed - quad| = 2.79e-16
+D_1 = 16 pi^2 e^{2 gamma} = 500.936739 ; pi^2 e^{-2 psi(1/2)} = 500.936739 ; a_K(0; D_1) = 1.1e-16
+D_0 = 64 pi^2 e^{2 gamma} = 2003.746956 ; exp(2 log pi - psi(1/4) - psi(3/4)) = 2003.746956 ; D_0 / D_1 = 4.000000000000
+D > 0 (chi_D even, two Gamma_R(s) factors): D_1^+ = exp(2 log pi - int mu_0 . 2 Re psi(1/4 + ir/2)) = 3701.45 ; D_0^+ = pi^2 e^{-2 psi(1/4)} = 46368.1
+D = -20: A_K(0) = -0.733233 ; a_K(0) = -0.512598 ; a_K < 0 exactly on |s| < 1.5384 ; negative mass 0.812946
+a_K strictly increasing on s in [0, 50] (sampled at 501 points, step 1e-6 forward difference): True
+[2] ledger constant 2 gamma + 2 log 2 + 2 log pi = 4.8302 ; double-zero ledger at eta, delta -> 0: 32/(eta + delta) + 32 > 16/eta + 16 + 8(log|D| - 4.8302), i.e. 32/(eta + delta) > 16/eta + 8(log|D| - 6.830)
+    asymptote: z < x(2 - x)/(2 + x), max at x = 2 sqrt2 - 2 = 0.8284, z* = 6 - 4 sqrt2 = 0.343146
+    saturation root of 16/d + 16/(1 - d) = 8 log|D| - 38.6415 at |D| = 1e+06: d = 0.33443 ; d log|D| = 4.6203
+    saturation root of 16/d + 16/(1 - d) = 8 log|D| - 38.6415 at |D| = 1e+12: d = 0.09716 ; d log|D| = 2.6845
+[3] Part B rerun: 32 elements; share = 2 int what mu_y (adaptive), Arch_K(w) = int what a_K over the FULL line (closed-form a_K)
+    pole-cap check: max over the family and delta of share/(2 what(0)) = 0.999882
+    Poisson a=0.55 cross-check: arch1 quad -4.3373020002 closed 2[psi(1/2 + a/2) - log pi] -4.3373020002 ; share(0.1) xi-quad 6.4051356160 u-space 6.4051356160
+    Poisson a=0.60 cross-check: arch1 quad -4.2194769051 closed 2[psi(1/2 + a/2) - log pi] -4.2194769051 ; share(0.1) xi-quad 5.9484152351 u-space 5.9484152351
+    Part B [D = -20]: inf over the family of Arch_K(w)/what(0) = -0.667693 (Gauss sigma=1)
+      delta =  0.100: best single margin +0.59470 [Gauss sigma=1] FIRES ; best double margin +6.87911 [Poisson a=0.55] FIRES
+      delta =  0.050: best single margin +0.86069 [Poisson a=0.55] FIRES ; best double margin +7.65253 [Poisson a=0.55] FIRES
+      delta =  0.020: best single margin +1.13641 [Poisson a=0.55] FIRES ; best double margin +8.20397 [Poisson a=0.55] FIRES
+      delta =  0.010: best single margin +1.23671 [Poisson a=0.55] FIRES ; best double margin +8.40457 [Poisson a=0.55] FIRES
+      delta =  0.001: best single margin +1.33087 [Poisson a=0.55] FIRES ; best double margin +8.59290 [Poisson a=0.55] FIRES
+    Part B [D = -4]: inf over the family of Arch_K(w)/what(0) = -1.671256 (Gauss sigma=2)
+      delta =  0.100: best single margin +2.11493 [Poisson a=0.6] FIRES ; best double margin +8.48855 [Poisson a=0.55] FIRES
+      delta =  0.050: best single margin +2.47013 [Poisson a=0.55] FIRES ; best double margin +9.26197 [Poisson a=0.55] FIRES
+      delta =  0.020: best single margin +2.74584 [Poisson a=0.55] FIRES ; best double margin +9.81341 [Poisson a=0.55] FIRES
+      delta =  0.010: best single margin +2.84614 [Poisson a=0.55] FIRES ; best double margin +10.01401 [Poisson a=0.55] FIRES
+      delta =  0.001: best single margin +2.94031 [Poisson a=0.55] FIRES ; best double margin +10.20234 [Poisson a=0.55] FIRES
+    Part B [|D| = 2005 (positive control)]: inf over the family of Arch_K(w)/what(0) = +0.037475 (Fejer^2 T=0.25)
+      delta =  0.100: best single margin -0.57877 [Gauss sigma=0.3] silent ; best double margin +2.27145 [Poisson a=0.55] FIRES
+      delta =  0.050: best single margin -0.41260 [Gauss sigma=0.3] silent ; best double margin +3.04487 [Poisson a=0.55] FIRES
+      delta =  0.020: best single margin -0.26359 [Gauss sigma=0.2] silent ; best double margin +3.59630 [Poisson a=0.55] FIRES
+      delta =  0.010: best single margin -0.19550 [Gauss sigma=0.2] silent ; best double margin +3.79690 [Poisson a=0.55] FIRES
+      delta =  0.001: best single margin -0.07257 [Gauss sigma=0.1] silent ; best double margin +3.98523 [Poisson a=0.55] FIRES
+    Part B [|D| = 1e6 (positive control)]: inf over the family of Arch_K(w)/what(0) = +0.202256 (Fejer^2 T=0.25)
+      delta =  0.100: best single margin -1.17311 [Gauss sigma=0.2] silent ; best double margin +0.30193 [Gauss sigma=0.3] FIRES
+      delta =  0.050: best single margin -0.89359 [Gauss sigma=0.1] silent ; best double margin +0.74035 [Gauss sigma=0.2] FIRES
+      delta =  0.020: best single margin -0.58275 [Gauss sigma=0.1] silent ; best double margin +1.13929 [Gauss sigma=0.1] FIRES
+      delta =  0.010: best single margin -0.45234 [Gauss sigma=0.1] silent ; best double margin +1.40012 [Gauss sigma=0.1] FIRES
+      delta =  0.001: best single margin -0.25836 [Fejer^2 T=0.25] silent ; best double margin +1.68554 [Fejer^2 T=0.25] FIRES
+    the scout's Poisson entries at D = -20, full-line Arch vs Arch truncated to |s| <= 20 (the scout's grid Sg):
+      Poisson a=0.60 delta=0.100: margin full +0.50549 ; truncated +0.64509 ; Arch tail |s| > 20 = 0.13960
+      Poisson a=0.55 delta=0.050: margin full +0.86069 ; truncated +0.98866 ; Arch tail |s| > 20 = 0.12797
+      Poisson a=0.55 delta=0.020: margin full +1.13641 ; truncated +1.26438 ; Arch tail |s| > 20 = 0.12797
+      Poisson a=0.55 delta=0.010: margin full +1.23671 ; truncated +1.36468 ; Arch tail |s| > 20 = 0.12797
+      Poisson a=0.55 delta=0.001: margin full +1.33087 ; truncated +1.45884 ; Arch tail |s| > 20 = 0.12797
+      double, |D| = 2005, Poisson a=0.55 delta=0.100: margin full +2.27145
+      double, |D| = 2005, Poisson a=0.55 delta=0.001: margin full +3.98523
+      double, |D| = 1e+06, Poisson a=0.55 delta=0.100: margin full -3.94066
+      double, |D| = 1e+06, Poisson a=0.55 delta=0.001: margin full -2.22688
+    reach vs |D| (best single margin / what(0) over the 31-element family, full-line Arch):
+      reach vs |D| =     3: best single margin/what(0) at delta = 0.1: +1.87966 [Gauss sigma=2], at delta = 0.01: +1.89846 [Gauss sigma=2]
+      reach vs |D| =     4: best single margin/what(0) at delta = 0.1: +1.65013 [Gauss sigma=2], at delta = 0.01: +1.66892 [Gauss sigma=2]
+      reach vs |D| =     7: best single margin/what(0) at delta = 0.1: +1.20362 [Gauss sigma=2], at delta = 0.01: +1.22527 [Gauss sigma=1.5]
+      reach vs |D| =     8: best single margin/what(0) at delta = 0.1: +1.11336 [Gauss sigma=1.5], at delta = 0.01: +1.14536 [Gauss sigma=1.5]
+      reach vs |D| =    11: best single margin/what(0) at delta = 0.1: +0.92280 [Gauss sigma=1.5], at delta = 0.01: +0.95480 [Gauss sigma=1.5]
+      reach vs |D| =    15: best single margin/what(0) at delta = 0.1: +0.73720 [Gauss sigma=1.5], at delta = 0.01: +0.77430 [Gauss sigma=1]
+      reach vs |D| =    19: best single margin/what(0) at delta = 0.1: +0.61516 [Gauss sigma=1], at delta = 0.01: +0.67999 [Gauss sigma=1]
+      reach vs |D| =    20: best single margin/what(0) at delta = 0.1: +0.59470 [Gauss sigma=1], at delta = 0.01: +0.65953 [Gauss sigma=1]
+      reach vs |D| =    23: best single margin/what(0) at delta = 0.1: +0.53894 [Gauss sigma=1], at delta = 0.01: +0.60377 [Gauss sigma=1]
+      reach vs |D| =    24: best single margin/what(0) at delta = 0.1: +0.52196 [Gauss sigma=1], at delta = 0.01: +0.58679 [Gauss sigma=1]
+      reach vs |D| =    40: best single margin/what(0) at delta = 0.1: +0.31817 [Gauss sigma=1], at delta = 0.01: +0.40302 [Gauss sigma=0.75]
+      reach vs |D| =   100: best single margin/what(0) at delta = 0.1: +0.02631 [Gauss sigma=0.75], at delta = 0.01: +0.16237 [Gauss sigma=0.5]
+      reach vs |D| =   200: best single margin/what(0) at delta = 0.1: -0.15785 [Gauss sigma=0.5], at delta = 0.01: +0.02697 [Gauss sigma=0.3]
+      reach vs |D| =   300: best single margin/what(0) at delta = 0.1: -0.23873 [Gauss sigma=0.5], at delta = 0.01: -0.02156 [Gauss sigma=0.3]
+      reach vs |D| =   500: best single margin/what(0) at delta = 0.1: -0.34062 [Gauss sigma=0.5], at delta = 0.01: -0.08269 [Gauss sigma=0.3]
+      reach vs |D| =  1000: best single margin/what(0) at delta = 0.1: -0.47888 [Gauss sigma=0.5], at delta = 0.01: -0.14000 [Gauss sigma=0.2]
+      reach vs |D| =  2000: best single margin/what(0) at delta = 0.1: -0.57848 [Gauss sigma=0.3], at delta = 0.01: -0.19530 [Gauss sigma=0.2]
+      reach vs |D| =  2005: best single margin/what(0) at delta = 0.1: -0.57877 [Gauss sigma=0.3], at delta = 0.01: -0.19550 [Gauss sigma=0.2]
+      reach vs |D| =  5000: best single margin/what(0) at delta = 0.1: -0.68814 [Gauss sigma=0.3], at delta = 0.01: -0.24096 [Gauss sigma=0.1]
+[4] closing conductor for ONE real zero, best element of each continuous family (|D|* = exp of the largest log|D| at which a certificate exists):
+    delta = 0.1    : gauss |D|* =   111.06 (sigma 0.6793) ; poisson    33.33 (a 0.6335) ; fejer    78.12 (T 1.8253)
+    delta = 0.05   : gauss |D|* =   148.16 (sigma 0.5561) ; poisson    47.87 (a 0.5028) ; fejer   106.07 (T 1.5245)
+    delta = 0.01   : gauss |D|* =   256.35 (sigma 0.3465) ; poisson   103.61 (a 0.2838) ; fejer   198.02 (T 0.9944)
+    delta = 0.001  : gauss |D|* =   393.14 (sigma 0.1827) ; poisson   223.50 (a 0.1249) ; fejer   343.07 (T 0.5560)
+    delta = 0.0001 : gauss |D|* =   462.30 (sigma 0.1001) ; poisson   338.97 (a 0.0562) ; fejer   435.76 (T 0.3204)
+    delta = 1e-06  : gauss |D|* =   496.85 (sigma 0.0313) ; poisson   459.49 (a 0.0118) ; fejer   492.61 (T 0.1086)
+    (sup over the cone tends to D_1 = 500.937 as delta -> 0: check-O item 2, sharpening 2)
+[5] double real zero, delta_max * log|D| (largest excluded depth times log|D|):
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1000: delta_max = 0.266372 ; delta_max log|D| = 1.8400
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 10000: delta_max = 0.109642 ; delta_max log|D| = 1.0098
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1e+06: delta_max = 0.046621 ; delta_max log|D| = 0.6441
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1e+10: delta_max = 0.020957 ; delta_max log|D| = 0.4826
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1e+20: delta_max = 0.008732 ; delta_max log|D| = 0.4021
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1e+40: delta_max = 0.004022 ; delta_max log|D| = 0.3705
+    dlVP-Poisson (w = 8 e^{-a|u|} cosh(u/2)), |D| = 1e+80: delta_max = 0.001934 ; delta_max log|D| = 0.3563
+    |D| = 1000: Gaussian delta_max log|D| = 3.4539 ; pure Poisson (w = e^{-a|u|}) 3.4539
+    |D| = 1e+06: Gaussian delta_max log|D| = 2.1881 ; pure Poisson (w = e^{-a|u|}) 1.2339
+    |D| = 1e+10: Gaussian delta_max log|D| = 1.4347 ; pure Poisson (w = e^{-a|u|}) 0.9398
+    |D| = 1e+20: Gaussian delta_max log|D| = 1.1694 ; pure Poisson (w = e^{-a|u|}) 0.7936
+    |D| = 1e+40: Gaussian delta_max log|D| = 1.0780 ; pure Poisson (w = e^{-a|u|}) 0.7360
+    |D| = 1e+80: Gaussian delta_max log|D| = 1.0389 ; pure Poisson (w = e^{-a|u|}) 0.7103
+    |D| = 1e+160: Gaussian delta_max log|D| = 1.0208 ; pure Poisson (w = e^{-a|u|}) 0.6981
+    Cauchy-limit asymptotes: dlVP-Poisson 6 - 4 sqrt2 = 0.343146 ; pure Poisson 12 - 8 sqrt2 = 0.686292 ; Gaussian max_z 2 sqrt(pi) z (4 e^{z^2} erfc z - 2) = 1.003449 at z = 0.3276
+[6] positive control, dlVP single real zero, sup over delta in [1e-6, 1/2] (120 log-spaced points) and eta in [1e-5, 3]:
+    |D| = 501: sup of the single-zero margin = -11.5105 -> silent
+    |D| = 2005: sup of the single-zero margin = -22.6049 -> silent
+    |D| = 1e+06: sup of the single-zero margin = -72.3018 -> silent
+    |D| = 1e+12: sup of the single-zero margin = -182.8258 -> silent
+    (the scout's window eta in [1e-3, 1], delta in {0.1, 0.05, 0.02, 0.01, 0.001, 0.3, 0.5} gave -26.17, -75.86, -186.39 at 2005, 1e6, 1e12: planted_real_zero_run.log lines 29-31)
+[7] section 3 table, classical column in the table's units delta * log(|D|(2 + t)):
+    (2/3) log(1/delta_0) at delta_0 = 1e-3 / 1e-6: 4.605 / 9.210 (independent of the row)
+    (|D|, t) = (20, 28): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 3.87 / 8.48 ; cone column (dh_repulsion_run.log) 3.198 / 3.198 ; ratio classical/cone (plain units) 1.44 / 2.88, (HB units) 1.21 / 2.65
+    (|D|, t) = (20, 1000): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 3.87 / 8.48 ; cone column (dh_repulsion_run.log) 1.032 / 1.469 ; ratio classical/cone (plain units) 4.46 / 6.27, (HB units) 3.75 / 5.77
+    (|D|, t) = (20, 10000): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 3.87 / 8.48 ; cone column (dh_repulsion_run.log) 0.838 / 1.243 ; ratio classical/cone (plain units) 5.50 / 7.41, (HB units) 4.62 / 6.82
+    (|D|, t) = (1e+06, 28): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 2.85 / 7.46 ; cone column (dh_repulsion_run.log) 0.821 / 1.274 ; ratio classical/cone (plain units) 5.61 / 7.23, (HB units) 3.48 / 5.86
+    (|D|, t) = (1e+06, 1000): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 2.85 / 7.46 ; cone column (dh_repulsion_run.log) 0.694 / 1.134 ; ratio classical/cone (plain units) 6.64 / 8.12, (HB units) 4.11 / 6.58
+    (|D|, t) = (1e+06, 10000): HB-normalized (2/3) log(1/(delta_0 log|D|)) = 2.85 / 7.46 ; cone column (dh_repulsion_run.log) 0.640 / 1.079 ; ratio classical/cone (plain units) 7.20 / 8.54, (HB units) 4.46 / 6.91
+[8] Z_K(w_B) = B_K - P_K, w_B = e^{-2u^2} (w(0) = 1, int what_B = 2 pi); B_K = 2 what_B(0) + int what_B a_K (closed-form a_K); P_K = 4 sum Lambda_K(n) w_B(log n)/(n + 1), n <= 4000:
+    D = -20: B_K 2.0215 P_K 0.5691 Z_K 1.4523 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 0.1156 ; log|D|/(4 pi) = 0.2384
+    D = -10007: B_K 8.2368 P_K 0.9276 Z_K 7.3092 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 0.5816 ; log|D|/(4 pi) = 0.7330
+    D = -1000003: B_K 12.8412 P_K 0.0238 Z_K 12.8174 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 1.0200 ; log|D|/(4 pi) = 1.0994
+    D = -100000007: B_K 17.4464 P_K 0.9276 Z_K 16.5188 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 1.3145 ; log|D|/(4 pi) = 1.4659
+    D = -10000000019: B_K 22.0516 P_K 0.2325 Z_K 21.8191 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 1.7363 ; log|D|/(4 pi) = 1.8323
+    D = -1000000000039: B_K 26.6567 P_K 0.7441 Z_K 25.9126 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 2.0621 ; log|D|/(4 pi) = 2.1988
+    D = -10000000000000079: B_K 35.8671 P_K 0.9407 Z_K 34.9264 ; what_B-weighted mean of the zero density Z_K/(2 int what_B) = 2.7794 ; log|D|/(4 pi) = 2.9317
+    (D = -20 control: the scout's siegel_setup_run.log prints B_K 2.021456839, Z_K 1.452311179 for w_B; the bound Z_K >= w(0) log|D| - C with C = 2 P_zeta(w_B) - 2 what_B(0) - archB1 = 1.9150)
+done in 12.0s
