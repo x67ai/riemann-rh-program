@@ -1,0 +1,1324 @@
+                                           NEW COMPUTATIONS OF THE RIEMANN ZETA FUNCTION
+                                                       ON THE CRITICAL LINE
+
+
+                                                              JONATHAN W. BOBER AND GHAITH A. HIARY
+
+
+
+
+arXiv:1607.00709v1 [math.NT] 4 Jul 2016
+                                                   Abstract. We present highlights of computations of the Riemann zeta func-
+                                                   tion around large values and high zeros. The main new ingredient in these
+                                                   computations is an implementation of the second author’s fast algorithm for
+                                                   numerically evaluating quadratic exponential sums. In addition, we use a new
+                                                   simple multi-evaluation method to compute the zeta function in a very small
+                                                   range at little more than the cost of evaluation at a single point.
+
+
+
+
+                                                                              1. Introduction
+                                              Computations of ζ(1/2 + it) have a long history and are of interest in number
+                                          theory because of fundamental links to the prime numbers. (The primes and zeta
+                                          zeros are Fourier transforms of each other.) Progress in zeta computations has
+                                          paralleled advances in our understanding of zeta, and has in many ways traced the
+                                          development of the computer.
+                                              With the exception of Riemann’s hand calculation in the 1850s, which remained
+                                          unknown to the outside world for many decades, computations of ζ(1/2 + it) until
+                                          1932 had relied on the Euler-Maclaurin formula for approximating sums by in-
+                                          tegrals. This formula enables the numerical evaluation of ζ(1/2 + it) with high
+                                          accuracy, but requires summing at least t/2π terms. Since computations were done
+                                          manually, this limited the feasible range of t to a few hundred.
+                                              An important advance came in 1932 when Siegel published on a formula that
+                                          he discovered in Riemann’s Nachclass. This formula, now knownpas the Riemann–
+                                          Siegel (RS) formula, allows computing ζ(1/2 + it) by summing b t/2πc terms, far
+                                          fewer than in the Euler-Maclaurin method. The resulting accuracy is only moderate
+                                          (i.e. to within ±t−c for various c > 0 and large t) but still suffices in most numerical
+                                          investigations. Shortly after Siegel’s paper, Titchmarsh [25] reported in 1936 on
+                                          his computation using the RS formula to verify the Riemann hypothesis (RH) up
+                                          to t = 1468, extending the previous verification range by severalfold.1
+                                              For a long time after that, progress in zeta computations came from advances
+                                          in computing technology rather than faster algorithms. This is nicely illustrated
+                                          in Turing’s effort in the 1930s to build a mechanical computer to calculate zeta,
+                                          and his pioneering use of the electronic computer for that purpose two decades
+
+                                             2010 Mathematics Subject Classification. Primary: 11Y35. Secondary: 65Y20.
+                                             Key words and phrases. The Riemann zeta function, large values, exponential sums, the van
+                                          der Corput iteration, Theta algorithm.
+                                             GH is partially supported by the National Science Foundation under agreements No. DMS-
+                                          1406190. Both authors are pleased to thank IAS, MSRI, and ICERM, where parts of this work
+                                          was conducted.
+                                             1Puzzlingly, Titchmarsh stated in [25] that zeta has 1041 zeros between t = 0 and t = 1468
+                                          even though there are 1042 zeros in that range.
+                                                                                        1
+2                            J.W. BOBER AND G.A. HIARY
+
+
+later. In 1953, Turing [29] published on his verification of the RH in the interval
+2π632 < t < 2π642 , in which the main sum of the RS formula consists of 63
+terms. This interval lies significantly higher on the critical line than in previous
+computations. As remarked in [12], Turing’s consideration of an isolated interval at
+high t signaled a great insight. Certainly, Turing was motivated by his skepticism
+of the RH as, to quote him, his “calculations were done in an optimistic hope that
+a zero would be found off the critical line.” To check the RH, Turing introduced
+a novel method to prove that a given list of zeta zeros in an interval is complete.
+This method is still the state of the art today. See §3.
+   The main algorithmic improvements on the RS formula did not arrive until
+the 1980s, starting with the the Odlyzko–Schönhage algorithm [22] for multiple
+evaluations of zeta, and the algorithms of Schönhage [24] and Heath-Brown (see
+[13]) for evaluation at a single point. Odlyzko implemented the Odlyzko–Schönhage
+algorithm and computed large sets of zeros at various heights in order to test
+conjectured statistical connections between zeta and random matrix theory. The
+most extensive of Odlyzko’s computations began in 1999 and finished in Fall of 2000,
+resulting in a dataset of 20 billion zeros around zero number 1023 . Gourdon [11] then
+computed two billion zeros around the 1024 -th zero using another implementation
+of the Odlyzko–Schönhage algorithm.
+   In the meantime, the theoretical complexity of computing ζ(1/2 + it) at a sin-
+gle point became of interest in its own right. New algorithms by the second au-
+thor [13, 14] have bounded this complexity by t1/3+o(1) time and little space, and
+then by t4/13+o(1) time and space. The purpose of this article is to report on our
+implementation of the t1/3+o(1) algorithm and subsequent computations. In fact, a
+basic implementation of this algorithm had already been completed by the authors
+during March–July of 2010 while resident at IAS. This was followed by debugging
+and refinements in short periods of availability after that.
+   Most of our computations were in small “targeted intervals” where zeta was
+expected to be unusually large. Our hope was that unusual behaviors of the zeros
+would be discovered in such intervals. The heuristic method used to find these
+intervals naturally produced very large t, and so most computations at large t were
+out of necessity. This resulted in the largest computed value of Z(t) ≈ 16244.8652
+and S(t) ≈ 3.3455, and in checking the RH for more than 50000 zeros in over 200
+small intervals going up to the 1036 -th zero. See §4.
+   Our computations demonstrate that the t1/3+o(1) algorithm is practical. Indeed,
+almost all computations finished in a few days on the “riemann machine,” a com-
+puter cluster at the University of Waterloo. (The implementation source code is
+available on the authors’ websites.) This cluster has 16 nodes (though we usually
+limited our use to about 12 nodes) and each node has 8 cores at 2.27GHz clock
+speed. During initial development of our code, we also used William Stein’s ”Sage
+cluster” at the University of Washington, and in more recent computations we used
+the BlueCrystal cluster at the University of Bristol. Probably, the range of t feasible
+via the current implementation and using easily available computational resources
+is past the 1040 -th zero.
+                           NEW COMPUTATIONS OF ζ(1/2 + it)                                3
+
+
+                         2. The Riemann–Siegel formula
+   Let s = σ + it where σ and t are real numbers. The Riemann zeta function ζ(s)
+is defined by
+                                   X∞
+(1)                        ζ(s) :=     n−s    (σ > 1).
+                                           n=1
+It has a meromorphic continuation with a simple pole at s = 1, and satisfies the
+functional equation ξ(s) = ξ(1 − s) where ξ(s) := π −s/2 Γ(s/2)ζ(s). The RH is the
+conjecture that all zeros (i.e. roots) of ξ(s) lie on the critical line Re(s) = 1/2.
+   The RS formula is an asymptotic formula to compute ζ(s). The starting point
+is the following identity, proved via the functional equation and general principles
+in complex analysis. Let χ(s) := π s−1/2 Γ((1 − s)/2)/Γ(s/2), and let
+                                e−πis Γ(1 − s)       z s−1 e−N z
+                                               Z
+(2)                   R(s) :=                                    dz,
+                                     2πi         CN     ez − 1
+where CN is the contour that goes from +∞ to (2N + 1)πi, makes half a circle of
+radius (2N + 1)π around the origin, then returns to +∞. (Here, z s−1 = e(s−1) log z
+where the logarithm is real at the beginning of CN .) Then we have
+                                 N                    N
+                                 X 1                  X      1
+(3)                     ζ(s) =             s
+                                             + χ(s)                + R(s).
+                                 n=1
+                                       n              n=1
+                                                            n1−s
+Riemann analyzed the remainder R(s) using a saddle-point method, and obtained
+a remarkably simple evaluation as an asymptotic series.2
+   Actually, the RS formula is usually stated for Z(t) := eiθ(t) ζ(1/2 + it), which is
+a rotated version of zeta on the critical line often called the Hardy Z-function. The
+phase factor θ(t) is a real smooth function, determined via the functional equation,
+that ensures that Z(t) is real for real t. In particular, one can isolate simple non-
+trivial zeros of zeta merely by looking for sign changes of Z(t). It is thus desirable
+to work with Z(t) instead of ζ(1/2 + it). There is no harm in doing so because
+these functions can be recovered easily from each other. For by Lemma 9.2 we have
+                                               
+                          1      t    π      1        0.129
+(4)              θ(t) −     log     − +            ≤ 3 ,         (t > 1).
+                          2     2πe   8     48t         t
+So one can compute θ(t) precisely and quickly for large t. Also, since Z(t) = Z(−t)
+by the functional equation, we may restrict to t ≥ 0.
+   The version of the RS formula
+                          p      that we used in our computations is the same as in
+[23]. For t > 2π, let a := t/(2π), N := bac the integer part of a, and z = a − bac
+the fractional part of a. Then the RS formula consists of a main sum
+                                                  N
+                                                 X   eit log n
+(5)                               M(t) =               √ ,
+                                                 n=1
+                                                          n
+a correction Cm (t), and a remainder Rm (t). Specifically, for each m ∈ Z≥0 ,
+(6)                    Z(t) = 2 <e−iθ(t) M(t) + Cm (t) + Rm (t),
+   2Edwards’ book [8, page 156] contains a copy of a page of Riemann’s notes where he does
+such calculations. As a curiosity, we compared with C.L. Siegel’s 1932 paper “Über Riemanns
+Nachlaßzur analytischen Zahlentheorie,” and it appears that the magnified expression at the
+bottom of that copy corresponds to the fourth correction term C4 (z); see (7).
+4                                 J.W. BOBER AND G.A. HIARY
+
+
+where Cm (t) is a sum of m + 1 terms,
+                                                       m
+                                           (−1)N +1 X Cr (z)
+(7)                             Cm (t) =     √               ,
+                                               a    r=0
+                                                        ar
+
+and Rm (t) satisfies the bound Rm (t)  t−(2m+3)/4 . The functions Cr (u) on the
+r.h.s. in (7) are linear combinations of derivatives of
+                                         cos(2π(u2 − u − 1/16))
+(8)                           F (u) :=                          ,
+                                                cos(2πu)
+up to the 3r-th derivative; see [10, 1, 2].3 For example, C0 (u) = F (u) and C1 (u) =
+F (3) (u)/96π 2 , where F (3) (u) is the third derivative of F (u). The arguments of
+the cosines in (8) are simultaneously odd multiples of π/2, so that poles due to
+denominator are cancelled by zeros due to the numerator. Therefore, the function
+F (u) is entire and even (but not periodic). To evaluate F (u), and more generally
+Cr (u), near removable singularities at u = π(2n+1)/2, we used a numerically stable
+Taylor expansion.
+   The remainder Rm (t) in (6) is well-controlled when t is large. Gabcke derived in
+his thesis [10] explicit bounds for Rm (t) when m ≤ 10. For example, if t ≥ 200, then
+|R1 (t)| < .053t−5/4 , |R4 (t)| < 0.017t−11/4 , and |R10 (t)| < 25966t−23/4 . Actually,
+even the bound for R1 (t) will be sufficient in our computations since t will be of
+size > 1020 , so already |R1 (t)| < 10−26 .
+
+                                    3. Turing’s method
+    The zeros of ξ(s) are called the non-trivial zeros of zeta. They are denoted by
+ρn = 1/2 + iγn , n 6= 0. For example, ρ1 = 1/2 + i14.134725 . . ., ρ2 = 1/2 +
+i21.022039 . . ., ρ3 = 1/2 + i25.010857 . . ., and ρ−n = ρn . The RH is the statement
+that the ordinates γn are always real. The counting function of zeros is
+                                                    1
+(9)                   N (t) := |{0 < Im ρn < t}| + |{Im ρn = t}|.
+                                                    2
+Using the functional equation and the argument principle from complex analysis,
+if t 6= Im ρn for any n, then
+                                        1
+(10)                            N (t) = θ(t) + 1 + S(t),
+                                        π
+where θ(t) and S(t) are defined4 by a continuous variation in the argument of
+π −s/2 Γ(s/2) and ζ(s), respectively, as s moves along the line segments from 2,
+where the argument is defined to be zero, to 2 + it to 1/2 + it; see [27, 7, 8]. If
+t = Im ρn for some n, then we define S(t) := lim&0 21 (S(t + ) + S(t − )).
+    As mentioned earlier, θ(t) can be computed easily; it increases roughly linearly
+with no unpredictable oscillations. Therefore, in view of formula (10), the main
+difficulty is to compute S(t), for which we employ Turing’s method [29]. This is a
+particularly attractive method as it uses the already computed list of zeros together
+with a few evaluations of Z(t). Basically, the value of S(t) is determined at two
+points t2 > t1 , which in turn determines N (t2 ) − N (t1 ).5 If the number of zeros
+    3Slightly different expressions for the functions C (z) can be found in [22, 1] and in Siegel’s
+                                                      r
+1932 paper.
+   4This is the same θ(t) appearing in the definition of Z(t).
+   5We assume that Z(t ) and Z(t ) are nonzero.
+                        1         2
+                            NEW COMPUTATIONS OF ζ(1/2 + it)                                 5
+
+
+found in [t1 , t2 ] matches this difference, then the completeness of the zeros list is
+verified, and we are in a position to compute S(t) throughout [t1 , t2 ]. It is thus
+clear that the main issue is to find such t1 and t2 .
+   To this end, Turing first observed that if the sign of Z(t) is known, then the value
+of S(t) is known modulo 2. It is therefore not necessary to compute S(t) to any great
+accuracy. In fact, as observed in [8], it is advantageous to specialize to t a good gram
+point6, for then S(t) must be an even integer, and it suffices to prove that |S(t)| < 2
+in order to conclude that S(t) = 0. The basic idea here is that S(t) is small on
+                                   R t+∆
+average, satisfying the bound | t         S(y)dy| ≤ 0.128 log(t + ∆) + 2.30, provided
+that t > 168π and ∆ > 0. (The constants in this bound have been improved by
+Trudgian [28].) So if one incorrectly assumes that S(t) ≥ 2, then, provided that
+sign changes of the Z-function are sufficiently regularly spaced around t, the average
+of S(y) over [t, t + ∆] will contradict the required bound once ∆ is large enough
+(roughly of size  log(t + ∆)). And therefore one can conclude that S(t) < 2. An
+analogous argument can be used to prove that S(t) > −2; see [29, 8] for details.
+
+
+
+                           4. Examples of computations
+   The new methods described in this paper are suitable for evaluation of Z(t) in
+short intervals. Accordingly, most of our computations have focused on evaluating
+the zeta function high on the critical line at spots where we might expect interesting
+behavior. Additionally, we have done some evaluation at spots where t or N (t) is
+a nice “round” number; in these spots we expect to see “typical” behavior.
+   To find points where we expect to see interesting behavior, we used the LLL
+algorithm [19], as done in [21], to search for values of t where pit ≈ 1 for many
+initial primes p. By multiplicativity, then, there should be unusually many values
+of nit close to 1, making the initial segment of the main sum large. Though we
+have not attempted to make this argument rigorous, it works well in practice, and
+we have observed many values of Z(t) which are much larger than average by using
+LLL to line up the values of just one hundred or so initial pit .
+   As a byproduct of our search for large values, we also find large values of S(t).
+It is always the case in our computations that when ζ(1/2 + it) is very large there
+is a large gap between the zeros around the large value. And it seems that to
+compensate for this large gap the zeros nearby get “pushed” to the left and right.
+A typical trend in the large values that we have found is that S(t) is particularly
+large and positive before the large value and large and negative afterwards. This
+behavior can be seen in the plots in Figures 1 and 2.
+   As a consequence on the Riemann Hypothesis, ζ(1/2 + it) is known to grow
+slower than any fixed power of t. Currently, the best conditional upper bound is
+                                                                                 
+                                      log 2 log t            log t log log log t
+(11)        |ζ(1/2 + it)|  exp                     +O                                  ,
+                                        2 log log t             (log log t)2
+
+
+
+    6The m-th gram point g is the unique solution the equation θ(t) = πm ∈ Z
+                           m                                                 ≥−1 for t ≥ 7. It
+is called good if (−1)m Z(gm ) > 0. One usually finds a good gram point on testing Z(t) at few
+consecutive gram points.
+6                           J.W. BOBER AND G.A. HIARY
+
+
+a result of Chandee and Soundararajan [5] improving the leading constant in earlier
+results. On the other hand, Bondarenko and Seip [3] have recently shown uncondi-
+tionally that there exist values of t for which
+                                                s                         !
+                                        1               log t log log log t
+              |ζ(1/2 + it)| > exp      √ + o(1)                               ,
+                                         2                   log log t
+                                                 √
+improving on previous results by a factor of log log log t. Where exactly in this
+range the largest values lie is still an open question, though a detailed conjecture
+of Farmer, Gonek, and Hughes [9] suggests that the largest values are of size
+                                           r                   !
+                                           1
+(12)                     exp 1 + o(1)          log t log log t .
+                                             2
+   Table 1 has a list of the 12 local maxima of |Z(t)| larger than 10000 that we
+have found to date. We do not attempt further here to shed light on conjectures
+regarding the maximal size of |ζ(1/2 + it)|, but focus on presenting some raw data.
+Additionally, it seems unlikely that the values that we have found are close to as
+large as possible. These extreme values are very rare, and cannot be found by
+random search, so we find them using one specialized method, but there could be
+other methods.
+   Bounds for the growth of S(t) are similar to the bounds for the growth of
+log|ζ(1/2 + it)|. Again assuming the Riemann Hypothesis, Montgomery established
+in [20] that there are values of t for which
+                                                   1/2
+                                            log t
+(13)                           |S(t)|                   .
+                                          log log t
+Goldston and Gonek proved that |S(t)| ≤ (1/2 + o(1)) log t/ log log t, and the con-
+stant was improved to 1/4 in [4]. Even unconditionally, |S(t)| is known to be
+unbounded by results of Selberg. Nevertheless, previous to these computations, the
+largest observed value of S(t) seems to have been −2.9076, as reported by Gour-
+don [11]. Table 2 lists 11 spots where we have found values of |S(t)| > 3.1, the
+largest of which is S(t) ≈ 3.3455 for t ≈ 7.75 × 1027 .
+   In addition to computation at points where we expect ζ(1/2 + it) to be large, we
+have computed Z(t) for some arbitrarily chosen values of t. Often these values have
+either t or N (t) close to some nice round number in base ten, and the computations
+highest in the critical strip are for
+                t ≈ 81029194732694548890047854481676712.98790,
+the imaginary part of zero number n = 1036 + 42420637374017961984.
+   The data is just meant to be a sample of what we have computed. Further
+examples of computations can be found on the authors’ websites. All together,
+we have checked the Riemann Hypothesis for more than 50000 zeros in over 200
+separate small intervals with values of t ranging from 1024 to 8 × 1034 .
+                    NEW COMPUTATIONS OF ζ(1/2 + it)                           7
+
+
+                              t                           Z(t)
+         39246764589894309155251169284104.0506         16244.8652
+         70391066310491324308791969554453.2490        −14055.8928
+           552166410009931288886808632346.5052        −13558.8331
+         35575860004214706249227248805977.2412         13338.6875
+          6632378187823588974002457910706.5963         12021.0940
+           698156288971519916135942940460.3337         11196.7919
+           289286076719325307718380549050.2563         10916.1145
+         50054757231073962115880454671617.4008        −10622.1763
+           803625728592344363123814218778.1993         10282.6496
+           690422639823936254540302269442.4854         10268.7134
+          1907915287180786223131860607197.5463         10251.5994
+          9832284408046499500622869540131.7445        −10138.5908
+
+Table 1. All local maxima of |Z(t)| > 10000 found by our computations
+
+
+                                  t                       S(t)
+                7757304990367861417150213053.6386        3.3455
+              546577562321057124801498516819.4609       −3.2748
+            35575860004214706249227248805976.9763        3.2722
+               31774695316763918183637654364.8066        3.2573
+               11580026442432493576924087062.5414       −3.2371
+               10758662450340950434456735185.3359       −3.2261
+            50054757231073962115880454671617.8419       −3.1826
+            50054757231073962115880454671617.8419       −3.1826
+            39246764589894309155251169284103.7774        3.1694
+               10251393160473423776137882271.3031        3.1660
+               77590565202125505656738011641.6876        3.1431
+
+   Table 2. Spots where |S(t)| > 3.1 found by our computations. In
+   this table, t actually denotes the imaginary part of a zero of ζ(s),
+   so the value of S(t) is attained just before (if negative) or after this
+   zero.
+8                             J.W. BOBER AND G.A. HIARY
+
+
+                   n                                        γn
+    1025                                         1194479330178301585147871.32909
+    1026                                        11452628915113964213507127.18757
+    1027                                       109990955615748542241920621.36163
+    98094362213058141112271181439                                  1028 + 0.00366
+    1029                                     10191135223869807023206505980.23860
+    1030 + 484                               98297762869274424758690514889.09764
+    1017590402074552798166351185765                                1029 + 0.07316
+    1031                                    949298829754554964058786559878.40484
+    1032                                   9178358656494989336431259004805.28194
+    1033                                  88837796029624663862630219091104.93992
+    1036 + 42420637374017961984        81029194732694548890047854481676712.98790
+
+          Table 3. Some examples of zeros of ζ(1/2+it). Here the notation
+          means that ζ(1/2 + iγn ) = 0 for some real number γn within about
+          10−5 of the number in the right column, and that there are exactly
+          n − 1 zeros in of ζ(s) in the critical strip with positive imaginary
+          part < γn .
+                                                                                                                  NEW COMPUTATIONS OF ζ(1/2 + it)
+
+
+
+
+                                                                                                                  9
+
+
+
+
+Figure 1. Z(t) and S(t) around the largest value of S(t) we have found. Here t0 = 7757304990367861417150213044.
+J.W. BOBER AND G.A. HIARY
+10
+                            Figure 2. Z(t) and S(t) around the largest value of Z(t) we have found. Here t0 = 39246764589894309155251169284094.
+                                                                                                                   NEW COMPUTATIONS OF ζ(1/2 + it)
+
+
+
+
+                                                                                                                   11
+
+
+Figure 3. Z(t) and S(t) around the zero number 1000000000000000042420637374017961984 > 1036 , where t0 =
+81029194732694548890047854481676703. In contrast to Figures 1 and 2, there is nothing particularly special about
+this range of t, so we should expect this to exhibit typical behavior of S(t) and Z(t).
+12                                J.W. BOBER AND G.A. HIARY
+
+
+                    5. Reducing to quadratic exponential sums
+  To start, we choose a positive integer v0 ≤ N + 1 and a real number u0 > 1.
+Then we construct the sequences
+(14)                Kr = dvr /u0 e,           vr+1 = vr + Kr ,               (0 ≤ r < R),
+where R is the largest integer such that vR < N + 1. We define
+(15)                         KR := min{dvR /u0 e, N + 1 − vR }.
+So vR+1 = N + 1, which is the first point outside the range of summation of the
+main sum M(t). Given the sequences (14), we subdivide M(t) into an initial sum
+of v0 − 1 terms, followed by R + 1 consecutive blocks where the r-th block starts at
+vr and consists of Kr consecutive terms. We use the Taylor expansion to express
+the r-th block as a linear combination of the quadratic exponential sums
+                                              K−1
+                                       1 X j 2πiak+2πibk2
+(16)                F (K, j; a, b) =      k e             ,                      j ∈ Z≥0 .
+                                       Kj
+                                              k=0
+
+(We treat k j as 1 when k = j = 0.) To this end, we define
+                                                      2
+                                       e(s−1/2)(z−z /2)
+(17)                      fs (z) :=                     ,                fs (0) = 1.
+                                           (1 + z)s
+For n ∈ [vr , vr + Kr ), we write n = vr + k where 0 ≤ k < Kr . Then, letting
+s∗ = 1/2 − it and noting that
+                         eit log n  eit log vr itk/vr −itk2 /2vr2
+(18)                       √       = √        e                   fs∗ (k/vr ),
+                              n          vr
+we obtain, on expanding fs∗ (z) around 0, that
+                                                               ∞
+                       X        eit log n  eit log vr X
+(19)                              √       = √           cr (j)F (Kr , j; ar , br ),
+                                     n          vr j=0
+                vr ≤n<vr +Kr
+
+where the linear and quadratic arguments ar and br are given by the formulas
+                                  t                t
+(20)                     ar :=       ,   br := −       .
+                                2πvr             4πvr2
+The coefficients cr (j) are given by
+                                                         j       (j)
+                                                     Kr        fs∗ (0)
+(21)                               cr (j) :=                           ,
+                                                     vr           j!
+        (j)
+where fs (z) is the j-th derivative in z. For instance,
+              (1)                       (2)                          (3)
+(22)         fs (z)         1   fs (z)   3       fs (z)             1
+                        =− ,           = ,                 = − (16s + 7).
+                1!          2      2!    8          3!             48
+Note that, in order to avoid clutter, we suppressed dependence on t, u0 , and v0 in
+all of cr (j), ar , br , and R.
+   Let J denote a positive integer, and let cr = (cr (0), . . . , cr (J)) denote a tuple of
+the first J + 1 coefficients. Define
+                                                    J
+                                                    X
+(23)                         F(K, c; a, b) =              c(j)F (K, j; a, b),
+                                                    j=0
+                                 NEW COMPUTATIONS OF ζ(1/2 + it)                            13
+
+
+which is a linear combination of quadratic sums. We bound the truncation error
+J (t) in the main sum when the series on the r.h.s. of (19) is stopped after J + 1
+terms for each block. That is, J (t) satisfies
+                          0 −1
+                         vX              R
+                             eit log n X eit log vr
+(24)          M(t) =           √      +     √       F(Kr , cr ; ar , br ) + J (t),
+                         n=1
+                                  n     r=0
+                                              vr
+
+The following proposition gives bounds on the size of J (t) for various J and t. The
+proof of this proposition is in §9.
+                                                                             p
+Proposition 5.1. Let α = 1/0.9, Kmin = 2000. If v0 = dKmin t1/3 e ≤ 31 t/(2π)
+say, and u0 = α|s|1/3 ≥ 1, then J (t) is bounded as in the following table.
+
+       J
+               18                 21             24                 27                30
+ t
+ 1024      0.000831893    0.0000386099     0.0000108755      7.46138 × 10−6     5.42799 × 10−6
+ 1026      0.00283154     0.0000925556     7.50489 × 10−6    3.85022 × 10−6     2.76739 × 10−6
+ 1028      0.00839067     0.000256977      9.10602 × 10−6    1.82102 × 10−6     1.21035 × 10−6
+ 1030      0.0230403      0.000698646      0.0000196934      1.1228 × 10−6      4.96568 × 10−7
+ 1032      0.0603446      0.00182714       0.0000495358      1.44903 × 10−6     2.13244 × 10−7
+ 1034      0.15309        0.00463399       0.000124900       3.12046 × 10−6     1.36063 × 10−7
+ 1036      0.37952        0.011489         0.00030938        7.53404 × 10−6     1.89985 × 10−7
+
+                    Table 4. Bounds on J (t) for various J and t.
+
+
+
+    The bounds in Table 5.1 are calculated as |J (t)| ≤ cmax (J, t)Mmax (t) where
+cmax (J, t) is essentially a bound on the truncation error after J terms in the Taylor
+expansion of fs (z) at z = 0, and Mmax (t) is a bound on the sum of the R+1 blocks.
+The bound Mmax (t) that we proved is of the form  t1/6 log t, which we know is
+a significant overestimate, and is in fact the main source of inefficiencyp in Propo-
+sition 5.1. In practice, J (t) is bounded by something like cmax (J, t) log(N/v0 ),
+though we cannot prove this. In any case, Table 5 furnishes bounds on cmax (J, t)
+alone. The numbers appearing there should be much closer to the true truncation
+error in our computations. Note that cmax (J, t) depends mostly on J, and that its
+dependence on t is weak in comparison.
+    We consider the sensitivity of the main sum to perturbations in the quadratic
+sums in (24). Such perturbations arise from the accumulation of roundoff errors
+when using floating point arithmetic. If each sum F(Kr , cr ; ar , br ) in (24) is com-
+puted to within ε, say, then this introduces a total error
+                                               R
+                                               X    1
+(25)                                      ≤ε       √ .
+                                               r=0
+                                                    vr
+
+Choosing u0 and v0 as in Proposition 5.1, and noting vr+1 = vr +Kr ≥ vr (1+1/u0 ),
+it is easy to show that this error is ≤ 0.05εt1/6 , provided that u0 ≥ 200 and
+t ≥ 1010 say. In practice though, this maximal size is never reached. Instead, due
+14                             J.W. BOBER AND G.A. HIARY
+
+
+     J
+              18               21             24              27              30
+ t
+ 1024    1.048 × 10−8    4.864 × 10−10   1.370 × 10−10   9.399 × 10−11   6.838 × 10−11
+ 1026    1.028 × 10−8    3.358 × 10−10   2.723 × 10−11   1.397 × 10−11   1.004 × 10−11
+ 1028    1.025 × 10−8    3.137 × 10−10   1.112 × 10−11   2.223 × 10−12   1.478 × 10−12
+ 1030    1.024 × 10−8    3.105 × 10−10   8.751 × 10−12   4.989 × 10−13   2.207 × 10−13
+ 1032    1.024 × 10−8    3.100 × 10−10   8.404 × 10−12   2.459 × 10−13   3.618 × 10−14
+ 1034    1.024 × 10−8    3.099 × 10−10   8.353 × 10−12   2.087 × 10−13   9.099 × 10−15
+ 1036    1.024 × 10−8    3.099 × 10−10   8.345 × 10−12   2.033 × 10−13   5.125 × 10−15
+
+                   Table 5. Bounds on cmax (J, t) for various J and t.
+
+
+
+to pseudorandom nature of roundoff errors, one observes square-root cancellation
+in their sum. So the cumulative error is typically
+                                       R
+                                             !1/2
+                                      X 1
+(26)                            ≤ε                 .
+                                          v
+                                      r=0 r
+Thus, under the same assumptions on u0 and t as before, the error is ≤ 0.0011ε.
+
+                    6. Computing quadratic exponential sums
+   The main new ingredient in our algorithm to compute the zeta function is
+an implementation of Hiary’s algorithm to compute quadratic exponential sums
+F(K, c; a, b). The algorithm runs in O((J + 1)A logA (K/)) bit operations, where 
+is the desired accuracy and A ≤ 3. This algorithm was derived in [14] to compute
+ζ(1/2+it) in t1/3+o(1) time, which is the method implemented in our computations.
+Currently, the fastest method for computing zeta at a single point has asymptotic
+running time t4/13+o(1) ; see [13]. This method relies on computing cubic exponential
+sums instead of quadratic sums.
+   From a high level point of view, in the typical case the algorithm for quadratic
+sums works by using Poisson summation to write F(K, c; a, b) as a combination of
+a shorter sum and some integrals which can be calculated to whatever precision
+we like. The length of the new sum will be ba + 2bKc, and we will be able to
+assume that 0 ≤ b < 1/4, so the length of the sum decreases quickly. There are
+some cases where this Poisson summation does not work well, but these correspond
+precisely to the case where b is very small and we can compute this sum by using
+Euler-Maclaurin summation.
+   From [14], we distill Proposition 6.1. The proof of this proposition is essentially
+the content of Equations (3.37), (3.38), and (3.39) [14], though we have modified
+the notation in some ways, and have explicitly written out the result for general
+v, rather than only for v = (0, 0, . . . , 1), as is done in [14]. (This implicitly in-
+volves changing an order of summation, which causes the appearance of zj and zj0
+and makes computation more efficient.) The formula in Proposition 6.1 is fairly
+complicated since, following [14], it is completely explicit and avoids numerical
+differentiation. This ensures better and more robust performance in practice.
+   The algorithm works by applying the formula in Proposition 6.1 repeatedly,
+until either b  1/K, in which case the Euler–Maclaurin summation is used, or
+                                  NEW COMPUTATIONS OF ζ(1/2 + it)                                    15
+
+
+K ≤ Kmin , in which case direct summation is used. Before each application of
+the formula, the linear argument a is normalized to be in [0, 1] and the quadratic
+argument b is normalized to be in [0, 1/4]. This is done using the periodicity of
+the complex exponential, conjugation, and the identity (k ± k 2 )/2 ≡ 0 (mod 1),
+which enables changing b in steps of 1/2. The normalization of b is critical to this
+algorithm as it ensures that the length of the quadratic sum is halved after each
+iteration; hence, the total number of iterations is  log K.
+   The algorithm for computing quadratic sums has been subsequently implemented
+by Kuznetsov [18], but using Mordell integral identities instead of the Poisson
+summation and relying on numerical differentiation.
+
+Proposition 6.1. If K is a positive integer, a ≥ 0, and b > 0, then we have the
+transformation
+
+                          F(K, v; a, b) = F(q, v0 ; a0 , b0 ) + R(K, v; a, b),
+
+where q = ba + 2bKc is the length of the new quadratic sum, a0 = a/(2b) is the
+new linear argument, and b0 = −1/(4b) is the new quadratic argument. The new
+coefficient vector v0 = (v00 , . . . , vJ0 ) is defined by
+
+                                  J
+               iπa2           j              1+`                                k
+                                  X                             X
+      vj0 = e− 2b q j b− 2              v` b− 2 K −` Aj,`                 ak b− 2 B`−j,k ,
+                                  `=j                       k≡`−j mod 2
+                                                             0≤k≤`−j
+                                                                             k+j
+            `! j−` j−3`−1 πi                                        (−1) 2       k   3πik
+      Aj,` = π 2 2 2 e 4 (1+3(`−j)) ,                        Bj,k =       (2π) 2 e− 4 .
+            j!                                                        j−k
+                                                                           ! k!
+                                                                       2
+
+
+The remainder R(K, v; a, b) is given explicitly by
+                                                           
+                                          J           J
+                                  2   πi
+                                         X         1 X          v0
+     R(K, v; a, b) = e2πiaK+2πibK e 2        Sj +       vj  +    − δdae−1 v00 .
+                                         j=0
+                                                   2 j=0
+                                                                2
+
+                                                      PJ                    PJ          `+1  iπ(`+1)
+                                                                   `    0           `
+                                                                                        
+The Sj are defined as follows. Let zj = ij                  `=j v` j , zj =  `=j v` j 2
+                                                                                         2 e    4    ,
+ω = {a + 2bK}, and ω1 = dae − a. Then
+               "
+       Sj = zj IC̃1 (K, j, ω, b) − IC7 (K, j, ω, b) − J1 (ω, b, j, q − dae , K)
+                                                                                             #
+              + (−1)j IC9H (K, j, 1 − ω, b) + J2 (2bK − ω1 , 1 − ω, b, j, K)
+                      "
+              + vj (−1)j+1 J1 (ω1 , b, j, q − dae , K) + (−1)j+1 IC7 (K, j, ω1 , b)
+                                                                                                 #
+              + IC9H (K, j, 1 − ω1 , b) + (−i)j+1 J2 (2bK − ω, 1 − ω1 , b, j, K)
+
+              − zj0 e2πiaK−2πωK IC9E (K, j, ω, b).
+16                                   J.W. BOBER AND G.A. HIARY
+
+
+Here, the J terms are given by the integrals
+                            Z K
+                        1                               1 − exp(−2πM t)
+J1 (α, β, j, M, K) = j          tj exp(−2παt − 2πiβt2 )                  dt,
+                        K 0                               exp(2πt) − 1
+                             Z K
+                          1                      exp(−2πα1 t) + (−1)j+1 exp(−2πα2 t)
+J2 (α1 , α2 , β, j, K) = j       tj exp(−2πβt2 )                                     dt.
+                         K 0                                 exp(2πt) − 1
+The I terms are all integrals of the same integrand along different paths in the
+complex plane, which we can write explicitly as integrals over segments of R≥0 as
+                                               Z K √2                   √
+                            −
+                                iπ(j+1)   1                                        
+     IC7 (K, j, α, β) = e          4                    tj exp −(1 + i)π 2αt − 2πβt2 dt,
+                                      0   Kj
+                             Z ∞
+                           1
+     IC9H (K, j, α, β) = j       t exp(−2παt − 2πiβt2 )dt,
+                                  j
+                          K 0
+                             Z ∞
+                           1
+     IC9E (K, j, α, β) = j       tj exp(−2π(α − iα + 2βK + 2iβKt − 4πβt2 )dt,
+                          K 0
+                                          Z K
+                                        2
+     IC̃1 (K, j, α, β) = −ie−2παK−2πiβK       tj exp(2πiαt − 4πβKt + 2πiβt2 )dt.
+                                                        0
+
+     Some remarks:
+       • The formula in Proposition 6.1 takes on a simpler form if J = 0. For
+         example,
+                                                                       πi iπa2
+                                                                   e   4 − 2b
+                     z0 = v0 ,        z00 = (1 + i)v0 ,      v00 =      √        v0 .
+                                                                            2b
+       • The integral J2 occurs from certain “boundary” terms in the computation,
+         while the bulk of the contribution to the sum generally comes from the J1 .
+       • As might be expected, and as can be seen in the formula for Sj , for large K
+         F(K, v; a, b) is extremely sensitive to small perturbations in a and b. This
+         means that we require some sort of high precision computation even if we
+         only want a moderate precision answer. A feature of this formula, however,
+         is that it isolates a small number of terms which require high precision
+         computation (namely, a few exponentials and a0 and b0 ).
+       • In practice it is better to compute at least some of these integrals simul-
+         taneously for all j. In particular, our methods of computation for the J
+         terms are only weakly dependent on j (e.g. we use Taylor expansions to ap-
+         proximate the integrals as polynomials in t, and the same terms arise many
+         times as integrands). Our current methods to compute the I terms do not
+         have this feature and are not as amenable to simultaneous computation,
+         but this is a possible spot for future optimization. Another optimization is
+         to precompute the J and (some of the) I integrals instead of computing
+         them on the fly.
+       • If ω is not too small (compared to the target precision) then the terms
+         involving IC9E and IC̃1 are not large enough to make any significant con-
+         tribution, so we do not need to compute them. This is usually the case,
+         and can easily be detected, so on average the computation of these terms
+         adds almost nothing to the running time of the algorithm.
+                          NEW COMPUTATIONS OF ζ(1/2 + it)                           17
+
+
+                           7. Simple multi-evaluation
+   Thus far we have only described how to evaluate ζ(1/2 + it) at a single point. To
+locate zeros and make plots of zeta, we of course want to evaluate at more points.
+We note that the sum M(t), which consumes almost all    pthe computation time, is a
+bandlimited function with highest frequency τ = logb t/2πc; see [21]. So we can
+use interpolation to recover M(t) for any t in a small window if we have already
+evaluated it on a relatively coarse grid of points covering a slightly larger window.
+Such a grid consists of points spaced π/β apart, with β > τ . In light of this, we
+focus first on the problem of computing M(t0 + δj) for a range of integers j, with
+t0 large and δj  1. For concreteness, we might imagine that 1024 < t0 , δ = .04,
+and 0 ≤ j ≤ 1000, which corresponds to the evaluation of ζ(1/2 + it) in a window
+of size 40. To further simplify matters, we avoid the vicinity of t0 where the length
+of M(t) changes; i.e. t0 of the form 2πn2 for some integer n.
+   We perform the multi-evaluation on each block, which we recall have the shape
+            v+K−1                                       K−1
+             X      ei(t0 +δj) log n   ei(t0 +δj) log v X ei(t0 +δj) log(1+k/v)
+(27)                      √          =       √                 p                .
+              n=v
+                            n                  v                  1 + k/v
+                                                        k=0
+
+The entirety of our multi-evaluation is based on the simple observation that in
+factoring out the first term in this sum we have removed most of the oscillation
+from the summands. So the inner sum in (27) changes little with j, and it suffices
+to approximate by its value at t0 only.
+   Let us denote the inner sum in (27) by V (t, v, K). Then using the inequality
+log(1 + x) ≤ x for 0 ≤ x ≤ 1, and the bound (K − 1)/v ≤ 1/u0 , we obtain
+                                                                      K−1
+                                                  ρδj      X
+(28)      |V (t0 + δj, K, v) − V (t0 , K, v)| ≤       max    eit0 log(v+k) ,
+                                                  u0 0≤∆<K
+                                                                      k=∆
+
+where ρ > 1 depends on t0 . Given the range of t0 under consideration, we can show
+that ρ = 1.1 is admissible. So, summing over all blocks, the total error in the multi-
+                                                                          1/6
+evaluation method is at most ρδju−10 Mmax (t0 ). Now, Mmax (t0 ) ≤ At0 log t0 for
+some constant A (see Lemma 9.1), and by the main result in [17] we should be able
+to take A ≤ 1. Moreover, we have u0 ≥ αt1/3 where we took α = 1/0.9 in our
+computations. Thus, the error in the multi-evaluation is
+                                   ρAδj log t0        δj log t0
+(29)                           ≤       1/6
+                                                  ≤      1/6
+                                                                  .
+                                     αt0                t0
+In light of this, the multi-evaluation can be carried out safely over a large range
+                  1/6−
+of j (of length t0      ). In practice, the estimate (29) is conservative because the
+estimate for Mmax (t0 ) is wasteful. Almost surely the cumulative error will be
+significantly below the maximal size (29), and is much closer to
+                                        p
+                                      δj log(N/v0 )
+(30)                               ≤        1/3
+                                                    .
+                                           t0
+
+                              8. Our implementation
+  In this section, we document our implementation of the t1/3+o(1) algorithm. We
+remark that due to special features of the theta algorithm in [14] (e.g. strong links
+          18                                  J.W. BOBER AND G.A. HIARY
+
+
+
+
+                      3 × 109
+
+
+
+
+Summands per second
+                      2 × 109
+
+                         109
+
+                            0
+                                0                      5 × 1016                        1017
+                                                     Range of summation
+
+                           Figure 4. The computation at the largest height was split into
+                           over 130000 independent blocks of computation, each computing a
+                           consecutive piece of the main sum. Here we show the “speed” of
+                           our implementation in terms of the number of summands per sec-
+                           ond summed in each block. We can see here that the diophantine
+                           properties of the input affect the running time of the theta algo-
+                           rithm; for example, the largest spikes correspond to summands
+                           n−1/2+it where t/(4πn2 ) is very close to an integer.
+
+
+          between the running time and number-theoretic properties of the inputs), there are
+          several spots of optimization, but we have explored only few of them.
+
+          8.1. Quadratic exponential sums. We have a general implementation of the
+          algorithm described by Proposition 6.1, focused on moderate precision output for
+          general input. The entirety of our C++ code currently consists of a bit over 3000
+          lines, though some of that is for precomputed tables and constants that are pro-
+          duced quickly. It was quite useful during the implementation to constantly compare
+          answers obtained from the C++ code with answers obtained from a basic version of
+          the algorithm that was implemented in Mathematica. The end result is a single
+          function which computes the sum F (K, v; a, b) to a specified “attempted” abso-
+          lute precision . By this we mean that if our implementation were bug-free, and if
+          our subroutines employ sufficient working precision consistently (as they hopefully
+          should), then we would compute the answer to within .
+             In practice, floating point arithmetic is not exact, and we limit our use of high
+          precision arithmetic (using MPFR) to small areas of the algorithm where it is com-
+          pletely unavoidable. For example, if K is very large then F (K, v; a, b) typically
+          oscillates rapidly as b changes (on a scale like 1/K 2 ), so it is necessary to specify
+          the value of b sufficiently precisely. For typical input (for example, with J = 18,
+          v = (1, 1, . . . , 1), and a and b arbitrary) we expect to be able to able to compute up
+          to an absolute precision of around 10−10 with our implementation, and we usually
+          get over 40 bits of relative precision.
+                         NEW COMPUTATIONS OF ζ(1/2 + it)                             19
+
+
+   There are also some other limitations in our implementation that come from our
+use of C++ doubles. For example, there are numbers that occur in the computation
+which may become too large or too small to be represented as double precision
+numbers, but in practice our implementation will usually fail before we reach this
+point. We hope, at least, that our implementation will return NaN in such a case,
+rather than returning a wrong answer. These are technical limitations, however,
+and with some effort they could be removed at little cost to the overall running
+time of our implementation.
+   For efficient evaluation of the integrals arising in Proposition 6.1, we cannot rely
+on straightforward numeric integration. Instead we must deal with each integral
+on a case-by-case basis and evaluate as appropriate. Many of the details are given
+in [14], and we do not include them all here, but as a typical example we explain
+here how one might evaluate the integral
+                                 Z 1
+                                                            1 − exp(−2πM t)
+       J := J1 (α, β, 0, M, 1) =     exp(−2παt − 2πiβt2 )                     dt.
+                                   0                          exp(2πt) − 1
+Here, α ∈ [0, 1] and β ∈ [0, 1/4]. We can begin by replacing exp(−2πiβt2 ) by its
+Taylor series, and get
+                    ∞
+                       (−2πiβ)r 1 2r            1 − exp(−2πM t)
+                   X            Z
+              J =                   t exp(−πat)                  dt.
+                   r=0
+                          r!      0               exp(2πt) − 1
+The integral inside the sum will be small, so we can truncate the infinite sum after
+a small number of terms, and we now focus on this inner integral, in which we can
+expand the geometric sum
+                                  1 − exp(−2πM t)
+                                    exp(2πt) − 1
+to get that the inner integral equals
+                          XM Z 1
+                                  t2r exp(−2π(α + m)t)dt.
+                          m=1   0
+
+This integral is now a fairly simple function, and we have a number of choices for
+how to evaluate it. For example, we can evaluate it explicitly using its antideriv-
+ative, or we can again use the Taylor expansion for the exponential and integrate
+term-by-term, or we can write it in terms of an incomplete gamma function and use
+a continued fraction expansion; these methods each work well for different ranges
+of parameters.
+   This still does not completely solve the problem, as M may be very large. To
+deal with this, once m is past a certain size we use a simple approximation to the
+antiderivative of the integrand and Euler–Maclaurin summation to compute the
+sum over the full range.
+                                                       PN
+8.2. The main sum. We compute the sum M(t) = n=1 n−1/2+it in three stages,
+as different methods of computation are appropriate for different sizes of n. We
+write
+                          M(t) = M1 (t) + M2 (t) + M3 (t),
+where
+                X      nit                X       nit               X      nit
+   M1 (t) =             1/2
+                            , M2 (t) =             1/2
+                                                       , M3 (t) =              ,
+              n ≤n<n
+                      n                 n ≤n<n
+                                                 n                n ≤n<n
+                                                                          n1/2
+              0     1                     1     2                     2     3
+20                             J.W. BOBER AND G.A. HIARY
+
+
+with n0 = 1, n1  t1/4 , n2  t1/3 and n3 = N .
+    In stage 1, we compute the sum M1 (t) directly. More specifically, we compute
+each term to roughly 50 bits of relative precision, and add them up. This ensures
+that, for the ranges of t where we computed, the roundoff error |M1 (t) − fl(M1 (t))|
+is far subsumed by the “practical truncation error” discussed in §5.
+    In stage 2 we still add up each term in the sum individually, but gain efficiency
+by approximating the exponent (it − 1/2) log(1 + k/v) in successive terms using
+a rapidly decaying Taylor series instead of computing it directly using expensive
+multiprecision arithmetic for the logarithm function. Another advantage to this
+approach is that, now, double precision arithmetic suffices to to compute many of
+the terms in the Taylor expansion, and higher precision is only needed for the first
+few terms (the exact number of these terms and the needed working precision are
+both determined by the attempted absolute precision  and using formulas coded
+in the implementation). The overall effect is to ensure that the roundoff error from
+stage 2 is again subsumed by the practical truncation error.
+    In stage 3 we approximate by quadratic exponential sums as described in §5 and
+apply the theta algorithm described in §6, passing a requested precision parameter
+ε to the algorithm. In turn, ε is passed to subfunctions in our code in order to
+determine the needed working precision for each subfunction, and so on. Signifi-
+cant effort was spent on sharpening formulas to calculate the working precision for
+each subfunctions. This enabled a numerically more robust implementation and
+facilitated the discovery of programming bugs. Actually, the precision of the theta
+algorithm in practice is much better than the requested precision ε. Here is a typi-
+cal example. On a test suite of 29952 sums which might come from a computation
+of ζ(1/2 + i1036 ), when the theta algorithm is called with a precision of ε = 10−5 ,
+the worst error is 5.361 × 10−6 but the typical error is around 7.45 × 10−9 , and the
+vast majority of the errors are < 3 × 10−8 .
+    In summary, we expect the values of Z(t) that we computed to be accurate to
+within ±10−7 typically, and accurate to within ±10−5 in the worst cases. The
+bulk of the error comes from the practical truncation error discussed in §5. In
+comparison, the practical roundoff and multi-evaluation errors are small.
+
+8.3. Example running time. Figure 4 gives an indication of the speed of our
+current implementation. We graph the number of terms per second computed
+in large blocks of the main sum at the largest height computation we ran, in a
+range around t = 81029194732694548890047854481676712. For this computation,
+we used approximately 22.5 cpu-core-years on the BlueCrystal Phase 2 cluster at
+the University of Bristol, which has 2.8 Ghz Intel Xeon E5462 cpus. Using just
+our ”stage 2” code, we estimate that the same computation would take around 300
+core-years instead. Towards the end of the range the ”stage 3” code often has a
+speedup over ”stage 2” by a factor of around 200.
+
+
+                                        9. Proofs
+Proof of Proposition 5.1. By definition
+                               R
+                              X   eit log vr X
+(31)               J (t) =         √          cr (j)F (Kr , j; ar , br ).
+                              r=0
+                                       vr
+                                            j>J
+                             NEW COMPUTATIONS OF ζ(1/2 + it)                                                 21
+
+
+Applying partial summation to F (Kr , j; ar , br ) gives
+                                                  j
+                                            Kr − 1
+(32)             |F (Kr , j; ar , br )| ≤             Fmax (Kr ; ar , br ),
+                                             Kr
+where
+                                                                 K−1
+                                                                 X                        2
+(33)                  Fmax (K; a, b) = max                              e2πiak+2πibk .
+                                                  0≤∆<K
+                                                                 k=∆
+
+In view of this, let us define
+                                                           X  Kr − 1 j
+                       cmax (J, t) = max                                          |cr (j)|,
+                                          0≤r≤R                       Kr
+                                                           J<j
+(34)
+                                           R
+                                          X   Fmax (Kr ; ar , br )
+                       Mmax (t) =                   √              .
+                                          r=0
+                                                      vr
+
+(The dependence of cmax (J, t) on t is through the coefficients cr (j).) By the triangle
+inequality then,
+(35)                              |J (t)| ≤ cmax (J, t)Mmax (t).
+Now, recall from (21) that
+                                                               j    (j)
+                                                           Kr        fs∗ (0)
+(36)                                cr (j) =                                 .
+                                                           vr           j!
+By construction Kr = dvr /u0 e, hence, (Kr − 1)/vr ≤ 1/u0 . Also, if we write
+                                               s∗ z 3                                 ∞
+                   fs∗ (z)     s∗ z 3 e          3      fs∗ (z)     s∗ z 3
+                                                                           X
+(37)                       = e− 3                               = e− 3         dm z m ,
+                     j!                                 j!                 m=0
+
+then
+                                    (j)
+                                  fs∗ (0)                   X        |s|h
+(38)                                      ≤                               |dm |,
+                                     j!                              h!3h
+                                                         0≤m,h
+                                                        m+3h=j
+
+where, by Cauchy’s theorem applied with a circle of radius ρ > 0 around the origin,
+                                              s∗ z 3                        ρ    ρ2       P∞        ρ`
+                                                                      e 2 + 4 +|s|
+                              Z
+                         1                e     3      fs∗ (z)                                `=4    `
+(39)            |dm | ≤                                          dz ≤                                    .
+                        2π     |z|=ρ            z m+1                          ρm
+
+Choosing ρ = 1/|s|1/4 therefore gives
+(40)                                      |dm | ≤ |s|m/4 eλ(s) ,
+where
+                                     1         1     X |s|−`/4+1
+                       λ(s) ≤             +        +
+                                  2|s|1/4   4|s|1/2 4≤`    `
+(41)
+                                     1         1            1
+                             ≤            +         +                 .
+                                  2|s|1/4   4|s|1/2   4(1 − |s|−1/4 )
+22                                      J.W. BOBER AND G.A. HIARY
+
+
+Combining (40), (38), (36), and observing that d0 = 1 and |d1 | + |d2 | + |d3 | = 49/48
+                                                 1    2
+(since they come exclusively from expanding e− 2 (z−z /2) ) we obtain (on treating
+the cases m = 0, 1 ≤ m ≤ 3, and 4 ≤ m separately) that
+(42)
+                X 1 |s|h     X 1      X       |s|h                X 1     X |s|h+m/4
+cmax (J, t) ≤      3h    h
+                           +     j                h
+                                                    |dm | + eλ(s)     j
+                  u0 h!3        u             h!3                    u           h!3h
+                J            J<j 0 1≤m≤3, 0≤h                     J<j 0 4≤m, 0≤h
+                3 <h
+                                                    m+3h=j                                       m+3h=j
+                X 1         1         49    X 1     1
+           ≤                 3 h
+                                 +
+                J
+                       h! (3α )    48|s| α J−1 h! (3α3 )h
+                                        1/3
+                3 <h                                    3   <h
+
+                  eλ(s)   X 1  1             X 1       X          1    1 1
+          +                     3  h
+                                     + eλ(s)       j
+                   1/3  4
+                |s| α J−4 h! (3α )               α            |s| m/12 h! 3h
+                                   <h        J<j     5≤m, 0≤h
+                               3
+                                                                       m+3h=j
+                h          3       X      1    1 i         49    h     3               X        1    1 i
+           ≤ e1/3α −                             3 )h
+                                                      +           e1/3α −
+                                        J
+                                          h! (3α             1/3
+                                                        48|s| α                             J−1
+                                                                                                h! (3α3 )h
+                               0≤h≤ 3                                               0≤h≤     3
+
+                    λ(s)                                                         λ(s)+1/3
+             e   h     3                      X        1    1      i  e
+          + 1/3 4 e1/3α −                                    3 h
+                                                                 + 5/12 J−1         .
+           |s| α                                   J−4
+                                                       h! (3α )   |s|   α   (α − 1)
+                                            0≤h≤    3
+
+The proposition now follows on substituting into (35) this estimate for cmax (J, t)
+and the bound for Mmax (t) from Lemma 9.1.                                       
+                                                                    p
+Lemma 9.1. Let α = 1/0.9, Kmin = 2000. If v0 = dKmin t1/3 e ≤ 13 t/(2π) and
+u0 = α|s|1/3 ≥ 1, then
+                                       t             √            √
+                                 log 2πv
+                     r
+                       1    1            2     t1/4    2     2t     2
+        Mmax (t) ≤        +              0
+                                         1  + 1/4 √ +           √
+                       u0   v0 log(1 + u0 ) 3π         u0    3π u0 v0 v0
+(43)                            √                               
+                                  t 1                    t
+                              +√       + 2u0 + 2u0 log 2 + 5 .
+                                  π v0                 πv0
+Proof. Recall that
+                                                     R
+                                                    X   Fmax (Kr ; ar , br )
+(44)                               Mmax (t) =                 √              .
+                                                    r=0
+                                                                vr
+To bound Fmax (Kr ; ar , br ), we use the Weyl-van der Corput Lemma in [6, Lemma
+5]. This lemma gives rise to a certain geometric sum, which is in turn bounded
+using the Kusmin–Landau Lemma in [6, Lemma 2]. This gives for each positive
+integer M ,
+                                                                       
+                              2             Kr
+(45)      Fmax (Kr ; ar , br ) ≤(K + M )       + min(1/πk2br k + 1, Kr ) ,
+                                            M
+where kxk is the distance to the nearest integer to x. Choosing M = Kr yields
+                                     p
+(46)           Fmax (Kr ; ar , br ) ≤ 4Kr + 2Kr min(1/πk2br k, Kr ).
+            {br }R
+We partitionP    r=0 into subsets I` = {br : 2|br | ∈ [` − 1/2, ` + 1/2), 0 ≤ r ≤ R}.
+So Mmax = ` M` where
+                        X p          p
+(47)             M` =          Kr /vr 4 + 2 min(1/πk2br k, Kr ).
+                                   br ∈I`
+                          NEW COMPUTATIONS OF ζ(1/2 + it)                               23
+
+
+Let K`∗ denote the maximum block length Kr associated with a subset I` . Analo-
+gously define v`∗ to be the maximum such vr . Then appealing to the inequality
+                                      p
+(48)                          Kr /vr ≤ 1/u0 + 1/v0 ,
+                 √         √    √
+and the bound x + y ≤ x + y (valid for x, y ≥ 0), we obtain
+                             p                  p         
+(49)                  M` ≤ 1/u0 + 1/v0 2|I` | + 2/πM`∗
+where |I` | is the cardinality of I` and
+                                   X q
+(50)                       M`∗ =         min(1/k2br k, πK`∗ ).
+                                   br ∈I`
+
+We bound M∗` in terms of the minimum distance between distinct points br , br0 ∈ I` ,
+(51)                           δ` =         min |2br − 2br0 |.
+                                      br ,br0 ∈I`
+                                       br 6=br0
+
+To this end, proceed similarly to the proof of [15, Lemma 3.1] (starting with Equa-
+tion (25) there and using the monotonicity of the br ) to obtain
+                        X       q
+               M∗` ≤
+                                                        p
+(52)                              2 min (1/wδ` , K`∗ ) ≤ 2K`∗ + 2/δ` .
+                       0≤w≤1/2δ`
+
+The last inequality follows on isolating the term in the sum corresponding to w = 0,
+fixing the min to be 1/wδ` in the remainder of the sum, and estimating that by an
+integral.
+                                                 2                     2
+   At this point, we observe that if ` < t/2πv  pR − 1/2 or ` > t/2πv0 + 1/2, then
+I` is empty. In view of this, and since vR ≤ t/2π, we may restrict the range of
+summation in (47) to 1 ≤ ` ≤ `∗ = t/2πv02 + 1/2.   P So, substituting (52) into (49),
+summing over `, and using the obvious formula ` |I` | = R + 1, we obtain
+                                                                             
+                      p                            X p             X
+(53)      Mmax (t) ≤ 1/u0 + 1/v0 2R + 2 +                 2K`∗ +        2/δ`  .
+                                                       1≤`≤`∗        1≤`≤`∗
+
+Now, a simple calculation shows that
+                            t                  t
+(54)                              ≤ vr2 ≤              ,      (br ∈ I` ).
+                       π(2` + 1)           π(2` − 1)
+Hence,
+                        √                                        √
+             ∗            t                            ∗           t         1
+(55)        v` ≤ p             ,      and so        K` ≤ p                     + 1.
+                     π(2` − 1)                                 π(2` − 1) 0 u
+                            √          √     √
+So, using the inequality x + y ≤ x + y once again, we obtain
+                                 1/4
+                                     √                 3/4
+                                                                !        √
+              X p              t        2    1     2 t       1             t
+(56)                   2K`∗ ≤ 1/4 √            +       3/4 3/2
+                                                                   +   √       + 1.
+                               π       u 0   3     3 π     v0            πv  0
+            1≤`≤`∗
+
+Here, we additionally estimated 1≤`≤`∗ 1/(2` − 1)1/4 ≤ 1/3 + (2/3)(2`∗ − 1)3/4 ,
+                                     P
+which follows on isolating the term corresponding to ` = 1 and bounding the rest by
+an integral. Furthermore, since the sequence {br }R      r=0 is monotonically increasing),
+then
+                                                             t Kr (vr+1 + vr )
+(57)         δ` = min (2br+1 − 2br ) = min                               2       .
+                  br ,br+1 ∈I`                 br ,br+1 ∈I` 2π      vr2 vr+1
+24                           J.W. BOBER AND G.A. HIARY
+
+
+Thus, using the inequalities Kr /vr ≥ 1/u0Pand vr+1 ≤ v`∗ , we arrive at the lower
+bound δ` ≥ (2` − 1)/u0 . Consequently, as 1≤`≤`∗ 1/(2` − 1) ≤ 1 + 21 log(2`∗ − 1),
+we obtain
+                          X
+(58)                          2/δ` ≤ 2u0 + u0 log(t/πv02 ).
+                         1≤`≤`∗
+
+Last, a routine application of induction (see [16, Lemma 3.1]) gives
+                                       p
+                                   log( t/2π/v0 )
+(59)                         R≤                    + 1.
+                                    log(1 + 1/u0 )
+The claim follows on substituting (59), (58), and (56) into (53).                     
+
+Lemma 9.2. If t > 1, then
+                                                      
+                     t      t   π   1        49    3ζ(4) 1
+(60)       θ(t) −      log     − +       ≤       +            .
+                     2     2πe  8  48t       640    2π 3   t3
+Proof. By definition, θ(t) is the variation in the argument of π −s/2 Γ(s/2) as s varies
+continuously along the line segments from 2 to 2 + it to 1/2 + it. Therefore
+                               t
+(61)                   θ(t) = − log π + Im log Γ(1/4 + it/2).
+                               2
+By Stirling’s formula (see [26, §4.42])
+                                                                Z +∞
+                                                 1                     B1 ({x})
+(62)    log Γ(s/2) = (s/2 − 1/2) log(s/2) − s/2 + log 2π −                      dx,
+                                                 2                0    x + s/2
+where B1 (x) = x − 1/2 is the first Bernoulli polynomial, and {x} is the fractional
+part of x. Now, s = 1/2 + it, and so
+                                        t                   1
+(63)     Im ((s/2 − 1/2) log(s/2)) =      log |1/4 + it/2| − arg(1/4 + it/2).
+                                        2                   4
+And it is routine to show that
+                            t   1                       1
+                    0 ≤ log + 2 − log |1/4 + it/2| ≤      4
+                                                            ,
+                            2  8t                      64t
+(64)                             
+                            π   1                         1
+                    0≤ − +          + arg(1/4 + it/2) ≤       .
+                            2  2t                       24t3
+Hence
+                                   
+             t    t  1   π  1                                             7
+(65)           log +    − +             − Im ((s/2 − 1/2) log(s/2)) ≤         .
+             2    2 16t  8  8t                                          384t3
+Moreover, applying integration by parts twice gives
+                Z +∞
+                                              1 +∞ B2 ({x})
+                                                Z
+                       B1 ({x})          1
+                                 dx = − +                         dx
+                 0     x + s/2           6s 2 0        (x + s/2)2
+(66)
+                                              1 +∞ B3 ({x})
+                                                Z
+                                         1
+                                    =− +                          dx.
+                                         6s 3 0        (x + s/2)3
+          1        1       1
+                     
+Now, 0 ≤ 6t + Im 6s    ≤ 24t 3 . Therefore, applying integration by parts once more,
+                                                             R∞
+and using the estimates |B4 (x)| ≤ 2(4!)ζ(4)
+                                       (2π)4  (see [23]) and 0 dx/|x + s/2|4 ≤ 2π t3
+                             NEW COMPUTATIONS OF ζ(1/2 + it)                                   25
+
+
+yields
+                   Z +∞
+                                                   1 +∞ B4 ({x})
+                                                      Z
+               1           B3 ({x})          1
+                                     dx ≤        +                      dx
+               3   0      (x + s/2)3      60|s|3   4 0       (x + s/2)4
+(67)                                                  
+                                            1    3ζ(4) 1
+                                        ≤      +            .
+                                            60    2π 3   t3
+Put together
+                                                                  
+           t      t  π   1                                49   3ζ(4) 1
+(68)         log    − +       − Im log Γ(1/4 + it/2) ≤       +            .
+           2     2e  8  48t                              640    2π 3   t3
+The lemma follows on using this in (61).                                                       
+
+                                         References
+ 1. M. V. Berry, The Riemann-Siegel expansion for the zeta function: high orders and remain-
+    ders, Proc. Roy. Soc. London Ser. A 450 (1995), no. 1939, 439–462. MR 1349513 (96f:11105)
+ 2. M. V. Berry and J. P. Keating, A new asymptotic representation for ζ( 12 + it) and quan-
+    tum spectral determinants, Proc. Roy. Soc. London Ser. A 437 (1992), no. 1899, 151–173.
+    MR 1177749 (93j:11057)
+ 3. Andriy Bondarenko and Kristian Seip, Large GCD sums and extreme values of the Riemann
+    zeta function, arXiv:1507.05840 (2015).
+ 4. Emanuel Carneiro, Vorrapan Chandee, and Micah B. Milinovich, Bounding S(t) and S1 (t)
+    on the Riemann hypothesis, Math. Ann. 356 (2013), no. 3, 939–968. MR 3063902
+ 5. Vorrapan Chandee and K. Soundararajan, Bounding |ζ( 12 + it)| on the Riemann hypothesis,
+    Bull. Lond. Math. Soc. 43 (2011), no. 2, 243–250. MR 2781205
+ 6. Yuanyou F. Cheng and Sidney W. Graham, Explicit estimates for the Riemann zeta function,
+    Rocky Mountain J. Math. 34 (2004), no. 4, 1261–1280. MR 2095256 (2005f:11179)
+ 7. Harold Davenport, Multiplicative number theory, third ed., Graduate Texts in Mathematics,
+    vol. 74, Springer-Verlag, New York, 2000, Revised and with a preface by Hugh L. Montgomery.
+    MR 1790423 (2001f:11001)
+ 8. H. M. Edwards, Riemann’s zeta function, Dover Publications, Inc., Mineola, NY, 2001,
+    Reprint of the 1974 original [Academic Press, New York; MR0466039 (57 #5922)].
+    MR 1854455 (2002g:11129)
+ 9. David W. Farmer, S. M. Gonek, and C. P. Hughes, The maximum size of L-functions, J.
+    Reine Angew. Math. 609 (2007), 215–236. MR 2350784 (2009b:11140)
+10. W. Gabcke, Neue herleitung und explicite restabschätzung der riemann-siegel-formel., Ph.D.
+    thesis, Göttingen, 1979.
+11. X. Gourdon, The 1013 first zeros of the riemann zeta function and zero computation at very
+    large heights, Online manuscript (2004).
+12. D. A. Hejhal and A. M. Odlyzko, Alan turing and the riemann zeta function, Alan Turing -
+    His Work and Impact, S. Barry Cooper and Jan van Leeuwen, eds., Elsevier (2013), 265–279.
+13. Ghaith A. Hiary, Fast methods to compute the Riemann zeta function, Ann. of Math. (2) 174
+    (2011), no. 2, 891–946. MR 2831110 (2012g:11154)
+14.         , A nearly-optimal method to compute the truncated theta function, its derivatives,
+    and integrals, Ann. of Math. (2) 174 (2011), no. 2, 859–889. MR 2831109 (2012g:11215)
+15.         , An explicit hybrid estimate for L(1/2 + it, χ), arXiv:1510.00950 (2015).
+16.         , An alternative to Riemann-Siegel type formulas, Math. Comp. 85 (2016), no. 298,
+    1017–1032. MR 3434892
+17.         , An explicit van der Corput estimate for ξ(1/2 + it), Indag. Math. (N.S.) 27 (2016),
+    no. 2, 524–533. MR 3479170
+18. A. Kuznetsov, Computing the truncated theta function via Mordell integral, Math. Comp. 84
+    (2015), no. 296, 2911–2926. MR 3378853
+19. A. K. Lenstra, H. W. Lenstra, Jr., and L. Lovász, Factoring polynomials with rational coeffi-
+    cients, Math. Ann. 261 (1982), no. 4, 515–534. MR 682664
+20. Hugh L. Montgomery, Extreme values of the Riemann zeta function, Comment. Math. Helv.
+    52 (1977), no. 4, 511–518. MR 0460255
+26                               J.W. BOBER AND G.A. HIARY
+
+
+21. A. M. Odlyzko, The 1020 -th zero of the riemann zeta function and 175 million of its neighbors,
+    Unpublished manuscript, 1992.
+22. A. M. Odlyzko and A. Schönhage, Fast algorithms for multiple evaluations of the Riemann
+    zeta function, Trans. Amer. Math. Soc. 309 (1988), no. 2, 797–809. MR 961614 (89j:11083)
+23. Michael Rubinstein, Computational methods and experiments in analytic number theory, Re-
+    cent perspectives in random matrix theory and number theory, London Math. Soc. Lecture
+    Note Ser., vol. 322, Cambridge Univ. Press, Cambridge, 2005, pp. 425–506. MR 2166470
+    (2006d:11153)
+24. A. Schönhage, Numerik analytischer Funktionen und Komplexität, Jahresber. Deutsch. Math.-
+    Verein. 92 (1990), no. 1, 1–20. MR 1037441
+25. E. C. Titchmarsh, The zeros of the riemann zeta-function, Proc. Royal Soc. London A 157
+    (1936), 261–263.
+26.         , The theory of functions, Oxford University Press, Oxford, 1958, Reprint of the second
+    (1939) edition. MR 3155290
+27.         , The theory of the Riemann zeta-function, second ed., The Clarendon Press Ox-
+    ford University Press, New York, 1986, Edited and with a preface by D. R. Heath-Brown.
+    MR 882550 (88c:11049)
+28. Timothy S. Trudgian, An improved upper bound for the argument of the Riemann zeta-
+    function on the critical line II, J. Number Theory 134 (2014), 280–292. MR 3111568
+29. A. M. Turing, Some calculations of the Riemann zeta-function, Proc. London Math. Soc. (3)
+    3 (1953), 99–117. MR 0055785
+
+   JB: Heilbronn Institute for Mathematical Research, School of Mathematics, Uni-
+versity of Bristol, Howard House, Queens Avenue, Bristol BS8 1SN, United Kingdom
+   E-mail address: j.bober@bris.ac.uk
+
+  GH: Department of Mathematics, The Ohio State University, 231 West 18th Ave,
+Columbus, OH 43210, USA
+  E-mail address: hiary.1@osu.edu
+

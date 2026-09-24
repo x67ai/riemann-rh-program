@@ -1,0 +1,1729 @@
+                         Annals of Mathematics 174 (2011), 859–889
+                        http://dx.doi.org/10.4007/annals.2011.174.2.3
+
+
+
+
+        A nearly-optimal method to compute
+           the truncated theta function,
+            its derivatives, and integrals
+                               By Ghaith Ayesh Hiary
+
+
+                                        Abstract
+
+            A poly-log time method to compute the truncated theta function, its
+        derivatives, and integrals is presented. The method is elementary, rigorous,
+        explicit, and suited for computer implementation. We repeatedly apply the
+        Poisson summation formula to the truncated theta function while suitably
+        normalizing the linear and quadratic arguments after each repetition. The
+        method relies on the periodicity of the complex exponential, which enables
+        the suitable normalization of the arguments, and on the self-similarity of the
+        Gaussian, which ensures that we still obtain a truncated theta function after
+        each application of the Poisson summation. In other words, our method
+        relies on modular properties of the theta function. Applications to the
+        numerical computation of the Riemann zeta function and to finding the
+        number of solutions of Waring type Diophantine equations are discussed.
+
+
+
+                                    1. Introduction
+     Sums of the form
+                 K2
+                 X
+(1.1)                 g(k) exp(f (k)),         f (x) ∈ C[x] , g(x) ∈ C[x]
+               k=K1
+arise in areas such as number theory, differential equations, lattice-point prob-
+lems, optics, and mathematical physics, among others. For example, one en-
+counters these sums in the context of Diophantine equations and fractional
+parts of polynomials ([Kor92]), solutions of heat and wave equations ([Mum83]),
+counting of integer points lying close to a curve ([Hux96]), numerical integra-
+tion and quadrature formulas ([Kor92]), and motion of harmonic oscillators
+([Kar04]). Due to the importance of such sums, there exists an abundance of
+methods to bound them. For instance, Vinogradov’s [Vin54] methods supply
+
+
+   Preparation of this material is partially supported by the National Science Foundation
+under agreements No. DMS-0757627 (FRG grant) and DMS-0635607 (while at the Institute
+for Advanced Study). This material is based on the author’s Ph.D. thesis.
+
+
+                                             859
+860                                G. A. HIARY
+
+
+such bounds, which along with some involved sieving techniques are used in
+attacking Goldbach-Waring type problems (see [LWY04] for example).
+     Despite the substantial interest in the sums (1.1), comparatively little is
+known about how to compute them for general values of their arguments. Yet
+in some settings, it is useful to be able to compute these sums efficiently and
+accurately. We soon describe two such settings, both of which originate in
+number theory.
+     The simplest examples of the exponential sums (1.1) occur when f (x) is of
+degree one, where we obtain the geometric series and its derivatives for which
+“closed-form” formulae are available. The first nontrivial example occurs when
+f (x) is a quadratic polynomial. In this case, the exponential sum (1.1) can be
+written as a linear combination of exponential sums of the form
+                                    K
+                                  1 X
+(1.2)           F (K, j; a, b) := j    k j exp(2πiak + 2πibk 2 ) .
+                                 K k=0
+
+     Suppose the integer j is not too large. Then in this article, using ideas
+rooted in analysis, we prove the sum F (K, j; a, b) can be numerically computed
+to within ± ε, for any positive ε < e−1 , in poly-log time in K/ε. The linear
+and quadratic arguments a and b are any numbers in [0, 1), and j is any integer
+that satisfies 0 ≤ j ≤ O(log(K/ε)κ0 ), where κ0 is any fixed constant.
+     More precisely, we obtain the following upper bound on the number of
+elementary arithmetic operations (additions, multiplications, evaluations of
+the logarithm of a positive number, or evaluations of the complex exponential)
+on numbers of O((j + 1) log(K/ε)) bits that our theta algorithm uses.
+     Theorem 1.1. There are absolute constants κ1 , κ2 , A1 , A2 , and A3 ,
+such that for any positive ε < e−1 , any integer K > 0, any integer j ≥ 0, any
+a, b ∈ [0, 1), and with ν := ν(K, j, ε) = (j + 1) log(K/ε), the value of the func-
+tion F (K, j; a, b) can be computed to within ± A1 ν κ1 ε using ≤ A2 ν κ2 arith-
+metic operations on numbers of ≤ A3 ν 2 bits.
+     We remark that a bit complexity bound follows routinely from the arith-
+metic operations bound in Theorem 1.1. This is because all the numbers that
+occur in our algorithm have ≤ A3 ν(K, j, ε)2 bits. We do not try to obtain
+numerical values for the constants κ1 and κ2 in Theorem 1.1. With some
+optimization, they probably can be taken around 3. Also, in a practical ver-
+sion of the algorithm, the arithmetic can be performed using substantially
+fewer than A3 ν 2 bits, and we will likely be able to replace ν(K, j, ε) with
+j + log(K/ε). If we take ε = K −d in the statement of the theorem, then
+ν(K, j, ε) = (d + 1)(j + 1) log K. So the running time of the algorithm becomes
+≤ A2 (d + 1)κ2 (j + 1)κ2 (log K)κ2 operations. For d and j bounded by any fixed
+power of log K, this running time is poly-log in K.
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                            861
+
+
+     We now discuss two applications of the algorithm of Theorem 1.1. For
+brevity, we will often refer to it as the “theta algorithm” because F (K, j; a, b)
+is directly related to the truncated theta function.
+     The values of ζ(1/2 + it) on finite intervals are of great interest to num-
+ber theorists. For example, the numerical verification of the Riemann hy-
+pothesis is clearly dependent on such data. There exist several methods to
+compute ζ(1/2 + it), which means methods to obtain the numerical value of
+ζ(1/2 + it) to within ± t−λ , for any fixed λ > 0, and any t > 1. A well-known
+approach to computing ζ(1/2 + it) relies on a straightforward application of
+the Riemann-Siegel
+         »            formula. The Riemann-Siegel formula has a main sum of
+length b t/(2π)c terms. A simplified version of that formula is
+                                             n1                     
+(1.3) ζ(1/2+it) = e−iθ(t) < 2 e−iθ(t)              n−1/2 exp(it log n) +Φλ (t)+O(t−λ ) ,
+                                              X
+
+                                          n=1
+                »
+where n1 := b t/(2π)c, and θ(t) and Φλ (t) are certain well-understood func-
+tions that can be evaluated accurately in toλ (1) operations on numbers of
+Oλ (log t) bits; see [OS88]. (The notation Oλ (t) or toλ (1) indicates asymptotic
+constants are taken as t → ∞, and they depend only on λ, where we wish to
+compute ζ(1/2 + it) to within ± t−λ .)
+     Our theta algorithm directly leads to a practical method to compute
+ζ(1/2 + it) to within ± t−λ using t1/3+oλ (1) operations on numbers of Oλ (log t)
+bits and requiring Oλ (log t) bits of storage. The derivation is explained in a
+general context in [Hia08] (similar manipulations can also be found in [Sch90]
+and in [Tit86, p. 99]). A preliminary step in the derivation is to apply appro-
+priate subdivisions and Taylor expansions to the main sum in the Riemann-
+Siegel formula in order to reduce its computation to that of evaluating, to
+within ± t−λ−1 , a sum of about t1/3+oλ (1) terms of the form F (K, j; a, b), where
+K = O(t1/6 ), and 0 ≤ j = Oλ (log t). The power savings now follow because,
+using the theta algorithm, each of the functions F (K, j; a, b) can be evaluated
+to within ± t−λ−2 in poly-log time in t.
+     As another simple and direct application of the theta algorithm, we show
+how to find the number of solutions of a Waring type Diophantine equation.
+Suppose we wish to find the number of integer solutions to the system
+             s
+             X                          s+t
+                                        X
+(1.4)            (αr kr + βr kr2 ) −          (αr kr + βr kr2 ) ≡ 0 (modM ) ,
+             r=1                       r=s+1
+
+where 0 ≤ k1 , . . . , ks+t ≤ K, and α1 , β1 , . . . , αs+t , βs+t are some fixed integers.
+A straightforward calculation reveals that the number of solutions is given by
+           −1 Y
+        1 MX   s                             s+t
+                                               Y                             
+(1.5)             F (K, 0; αr l/M, βr l/M )         F (K, 0; αr l/M, βr l/M ) .
+        M l=0 r=1                             r=s+1
+862                                  G. A. HIARY
+
+
+     Using the theta algorithm, the expression (1.5) can be evaluated, to the
+nearest integer say, in M 1+o(1) K os,t (1) time. This is already significantly better
+than a brute-force search. One can also employ the fast Fourier transform to
+compute (1.5) with sufficient accuracy in M 1+o(1) K os,t (1) +K 3+os,t (1) time. But
+this is less efficient, and it requires temporarily storing large amounts of data.
+In the special case M = K, one can calculate (1.5) to the nearest integer in
+M 1+o(1) K os,t (1) time using well-known formulae for complete Gauss sums.
+     In searching for methods to compute F (K, j; a, b), one should make use
+of the rich structure of the theta function. The theta function, together with
+variants, occurs frequently in number theory. It is directly related to the zeta
+function by a Mellin transform, and it has a functional equation as well as
+other modular properties. So one anticipates that a fast method to compute
+the truncated theta function will take advantage of this.
+     With this in mind, let us motivate the algorithm of Theorem 1.1 in the
+case j = 0. To this end, recall the following application of Poisson summation
+due to van der Corput (see [Tit86, p. 74], for a slightly different version). We
+refer to this application as the van der Corput iteration, although it is not
+conventionally labelled as such.
+       Theorem 1.2 (van der Corput iteration). Let f (x) be a real function with
+a continuous and strictly increasing derivative in s ≤ x ≤ t. Let f 0 (s) = α and
+f 0 (t) = β. Then
+         X                           X      Z t
+(1.6)           exp(2πif (k)) =                   exp(2πi(f (x) − vx)) dx + Rs,t,f ,
+        s≤k≤t                     α−η<v<β+η s
+
+where Rs,t,f = O (log(2 + β − α)) for any positive constant η less than 1.
+     The van der Corput iteration turns a sum of length t − s terms into a sum
+of length about β − α = f 0 (t) − f 0 (s) terms, plus a remainder term Rs,t,f . In
+order for this transformation to be a potentially useful computational device,
+we need β − α ≤ τ (t − s) for some absolute constant 0 ≤ τ < 1. This ensures
+that the new sum is shorter than the original sum. Moreover, we must be
+able to compute the remainder term Rs,t,f , and each of the integrals in the
+sum over v in (1.6), using relatively few operations. For η sufficiently small,
+the latter are precisely the integrals in the Poisson summation formula that
+contain a saddle point, where an integral is said to contain a saddle point if
+the function dxd
+                  (f (x) − vx) = f 0 (x) − v vanishes for some x in the interval of
+integration [s, t]. So the integrals containing saddle points are determined by
+
+(1.7)       f 0 (x) = v ,    for some x ∈ [s, t] ,       ⇐⇒        α≤v ≤β.
+
+    Still, if we simply ensure β−α ≤ τ (t−s) for some fixed constant 0 ≤ τ < 1,
+then the length of the sum over v in (1.6) might be of the same order of
+            A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                        863
+
+
+magnitude as the length of the original sum. For example, if τ = 1/2, then
+we are only guaranteed a cut in the length by 1/2. So the complexity of the
+problem appears unchanged (in the sense of power-savings). But if we also
+require the function exp(2πif (x)) to possess some favorable Fourier transform
+properties that allow us to turn the v-terms into ones suited for yet another
+application of the transformation (1.6), then under such hypotheses, one may
+hope repeated applications of the van der Corput iteration are possible. If they
+are, then one can compute the original sum over k using ≤ log2 K applications
+of (1.6). (log2 x is the logarithm of x to base 2.)
+     These restrictions on f (x) and its Fourier transform are quite stringent.
+They severely limit the candidate functions for the proposed strategy. Fortu-
+nately, the choice f (x) = ax + bx2 , which occurs in F (K, j; a, b), is particularly
+amenable to repeated applications of the van der Corput iteration. Indeed, if
+we take s = 0 and t = K in relation (1.6), and assume dae < ba + 2bKc say,
+which is frequently the case, then with f (x) = ax + bx2 , and for η sufficiently
+small, the transformation (1.6) becomes
+(1.8)
+K                                 ba+2bKc Z K
+X                                   X
+      exp(2πiak + 2πibk 2 ) =                    exp(2πiax + 2πibx2 − 2πivx) dx + R1 ,
+k=0                                v=dae     0
+
+where R1 := R1 (a, b, K). We remark that if the condition dae < ba + 2bKc
+fails, so ba + 2bKc ≤ dae, then b < 1/K. This means b will be relatively small.
+For such small b, we will use the Euler-Maclaurin summation formula instead
+of the van der Corput iteration to calculate the sum on the left side in (1.8);
+see Section 3.2 for details. That aside, let us write the relation (1.8) as
+(1.9)                   F (K; a, b) = F̃ (ba + 2bKc; a, b) + R1 ,
+where
+                                  K
+                                  X
+(1.10)          F (K; a, b) :=          exp(2πiak + 2πibk 2 ) ,
+                                  k=0
+                                  ba+2bKc Z K
+                                    X
+        F̃ (ba + 2bKc; a, b) :=                  exp(2πiax + 2πibx2 − 2πivx) dx .
+                                   v=dae     0
+
+We refer to sums of the form F (K; a, b) as quadratic sums. We recall the
+following “self-similarity” property of the Gaussian:
+                Z ∞
+                                       √
+(1.11)               exp(ηt − t2 ) dt = π exp(η 2 /4), η ∈ C.
+                   −∞
+
+      With this setup, we describe the typical iteration of our algorithm. Using
+the identities in Lemma 4.1 in Section 4, as well as conjugation if necessary,
+it is easily shown the arguments a and b in (1.8) can always be normalized
+864                                   G. A. HIARY
+
+
+so that a ∈ [0, 1) and b ∈ [0, 1/4]. The normalization is important, otherwise
+successive applications of the Poisson summation (in the form of the van der
+Corput iteration) will essentially cancel each other. Since b ∈ [0, 1/4], the new
+sum F̃ (ba + 2bKc; a, b) has length ba + 2bKc ≤ K/2, which is at most half
+the length of the original sum. We observe each term in F̃ (ba + 2bKc; a, b)
+is an integral of the form 0K exp(2πiax + 2πibx2 − 2πivx) dx for some dae ≤
+                           R
+
+v ≤ ba + 2bKc. And by construction, each such integral contains a saddle-
+point. We extract the saddle point contribution from each of these integrals.
+To do so, we first shift the contour of integration to the stationary phase (at
+an angle of π/4). Then we complete the domain of integration on both sides
+to infinity. Last, we use the self-similarity of the Gaussian (1.11) to calculate
+the completed integral explicitly. This yields a new quadratic exponential sum
+F (ba + 2bKc; a/2b, −1/4b). Slightly more explicitly, one obtains
+                                              2       Å                   ã
+                                   eπi/4−πia /(2b)             a    1
+(1.12)   F̃ (ba + 2bKc; a, b) =         √          F ba + 2bKc; , −   + R2 ,
+                                          2b                   2b 4b
+where R2 := R2 (a, b, K) is a remainder term. It is shown that the original
+remainder term R1 in (1.6), and the new remainder term R2 in (1.12), can both
+be computed to within ± ε in poly-log time in K/ε. Therefore, on repeating
+the typical iteration at most log2 K times, we arrive at a quadratic sum of a
+small enough length to be evaluated directly.
+     In the typical iteration, most of the effort is spent on computing the “error
+terms” R1 and R2 . So in order for the overall algorithm to work, it is critical
+to prove that R1 and R2 can in fact be computed to within ± ε in poly-log time
+in K/ε. This is accomplished in detail in Sections 3 and 6. Briefly though, let
+us give a heuristic description of why that is.
+     The remainder terms R1 and R2 are implicitly defined by relations (1.8)
+and (1.12), respectively. It is not hard to show these definitions, together with
+the Poisson summation formula, and the self-similarity of the Gaussian, imply
+R1 and R2 must equal the following:
+                                      X      Z K
+  R1 (a, b, K) = ca,b,K + PV                       exp(2πiax + 2πibx2 − 2πivx) dx ,
+                                v>ba+2bKc 0
+                                 or v<dae
+                          ba+2bKc Z
+                            X
+  R2 (a, b, K) = da,b +                      exp(2πiax + 2πibx2 − 2πivx) dx ,
+                                    x<0 or
+                           v=dae    x>K
+
+where ca,b,K and da,b are certain easily computable quantities, and PV in front
+of the sum in R1 means the terms of the infinite sum are taken in conjugate
+pairs. One observes none of the integrals in R1 and R2 contains a saddle point.
+Because, by construction, R1 consists of precisely the integrals in the Poisson
+summation formula with no saddle point, while R2 consists of “complements”
+          A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                      865
+
+                                                     d
+of such integrals, hence, by the monotonicity of dx    (ax+bx2 −vx) = a+2bx−v,
+they do not contain saddle points themselves.
+      The absence of saddle points from the geometric sums R1 and R2 is the
+reason they do not present any computational difficulty. This is because the
+absence of saddle points, when combined with suitable applications of Cauchy’s
+theorem, allows for their oscillations to be controlled easily and in an essentially
+uniform way. This means the same suitably chosen contour shift can be applied
+to a large subset of the integrals in R1 (or R2 ) to ensure rapid exponential decay
+in the modulus of their integrands. The shifted integrals can thus be truncated
+quickly, and at a uniform point (after distance about log(K/ε), where we wish
+to evaluated F (K; a, b) to within ± ε say). Once truncated, the quadratic part
+of the integrand, which is exp(2πibx2 ), can be expanded away as a polynomial
+in x of low degree (since 2πbx2 no longer gets too large; see Section 3 and
+Lemmas 6.1 and 6.2 for the details). One then finds that in computing R1 and
+R2 the bulk of the computational effort is exerted on integrals of the form
+                         Z 1
+(1.13)      h(z, w) :=         tz exp(wt) dt ,   0 ≤ z , z ∈ Z , <(w) ≤ 0 .
+                          0
+      The function h(z, w) is directly related to the incomplete gamma func-
+tion. For purposes of our algorithm, the nonnegative integer z will be of size
+O(log(K/ε)κ̃ ), where κ̃ is some absolute constant. In particular, the range of
+z is quite constrained, which enables a fast evaluation of the integrals (1.13)
+via relatively simple methods. But the literature is rich with methods to com-
+pute the incomplete gamma function, and consequently h(z, w), for general
+values of its arguments. These methods are surveyed in great detail by Rubin-
+stein [Rub05], where they arise in the context of his derivation of a smoothed
+approximate functional equation for a general class of L-functions.
+      We further remark that the linear argument a, and the quadratic argu-
+ment b, play different roles in the algorithm. Varying the linear argument a
+corresponds to sliding the sum over v in (1.8), whereas varying the quadratic
+argument b corresponds to compressing, or stretching, the sum. The latter
+feature greatly accounts for the utility of the van der Corput iteration in the
+context of the theta algorithm. Also, the role played by the self-similarity of
+the Gaussian is crucial, because it is the reason we still obtain a quadratic sum
+after each application of the van der Corput iteration, making its repetition
+natural to do.
+      At the beginning of each iteration, the algorithm normalizes the pair
+(a, b) to be in [0, 1) × [0, 1/4]. Afterwards, it computes the remainder terms
+R1 (a, b, K) and R2 (a, b, K) to within ± ε in poly-log time in K/ε. We com-
+ment that the remainder terms R1 and R2 can still be computed with the same
+accuracy and efficiency even if we only normalize (a, b) to be in [0, 1) × [0, 1).
+However, the resulting quadratic sum, which is of length ≈ 2bK, could then be
+866                                         G. A. HIARY
+
+
+longer the original sum, which is of length K. So, although normalizing (a, b)
+to be in [0, 1) × [0, 1/4] is not important to computing the remainder terms R1
+and R2 accurately and efficiently in a single iteration, it is important for the
+recursive step in the algorithm.
+     Notice it is not enough to normalize the quadratic argument b so it is
+in [0, 1/2) (this is straightforward to do using the periodicity of the complex
+exponential and conjugation if necessary). Because if b ∈ [0, 1/2), then 2bK
+could be very close to K. So the length of the new sum in the van der Corput
+iteration, which is ≈ 2bK, might be very close to the length of the original
+sum, which is K. In particular, we will not have a sufficiently good upper
+bound on the number of iterations required by theta algorithm. For example,
+if b starts close to 1/2 mod 1, then its image under the map b ← −1/(4b),
+which is the map that occurs in the algorithm, remains close to 1/2 mod 1.
+The extra ingredient needed to ensure that b is bounded away from 1/2, that
+in fact b ∈ [0, 1/4], is the following (easily-provable) identity from Lemma 4.1:
+(1.14) F (K, j; a, b) = F (K, j; a ± 1/2, b ± 1/2) = F (K, j; a ∓ 1/2, b ± 1/2) .
+    This concludes our sketch of the theta algorithm in the special case j = 0.
+For a general j ≥ 0, the theta algorithm consists of at most log2 K iterations.
+Each iteration acts on F (K, j; a, b) in the following way:
+                                  j                      Ä                   ä
+                                        wl,j,a,b,K F qa,b,K , l; a∗a,b , b∗a,b + RK,j,a,b ,
+                                  X
+(1.15)         F (K, j; a, b) =
+                                  l=0
+
+where qa,b,K := ba + 2bKc, a∗a,b := a/(2b), b∗b := −1/(4b), and the coeffi-
+cients wl,j,a,b,K are given by formula (6.14) in Lemma 6.3. The remainder term
+RK,j,a,b is computed to within ± ε in poly-log time in K/ε, via the algorithm.
+A key point is the tuple (qa,b,K , a∗a,b , b∗b ) does not depend on j. Therefore,
+the number of new sums F (.) we need to compute in each iteration is always
+≤ j + 1. And since the length of each new sum in (1.15) is qa,b,K ≤ (K + 1)/2,
+the algorithm has to repeat at most log2 K times.
+     More generally, our method acts on a sum of the form jl=0 zl F (K, l; a, b)
+                                                                P
+
+in the following way:
+         j                           j                       Ä               ä       j
+                                           w̃l,j,a,b,K F qa,b,K , l; a∗a,b , b∗b +
+         X                           X                                               X
+(1.16)         zl F (K, l; a, b) =                                                         RK,l,j,a,b ,
+         l=0                         l=0                                             l=0
+
+where qa,b,K , a∗a,b , and b∗b are the same as in (1.15), and
+                                                 j
+                                                 X
+(1.17)                        w̃l,j,a,b,K :=            zs wl,s,a,b,K .
+                                                  s=l
+In Section 3, we show that the coefficients w̃l,j,a,b,K do not grow too rapidly with
+each iteration. Specifically, we show that the maximum modulus of w̃l,j,a,b,K
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                       867
+
+
+over all iterations of the algorithm is O(8j K 2 ), provided the initial coefficients
+zl satisfy max0≤l≤j |zl | = O(1) say, which is often the case. This bound is
+rather generous, but it is sharp enough for purposes of our error analysis,
+and for bounding the number of bits needed by the algorithm to perform its
+arithmetic operations.
+     The presentation is organized as follows. In Section 3, we describe the
+typical van der Corput iteration. In Section 4, we provide a pseudo-code for
+the algorithm. In Section 5, it is shown how to compute the related sums
+                                     K
+                                     X 1
+(1.18)            G(K, j; a, b) :=            exp(2πiak + 2πibk 2 ) ,
+                                     k=1
+                                         kj
+
+with a similar complexity and accuracy to F (K, j; a, b). This is done mainly
+for use in the separate paper [Hia08]. Finally, in Section 6, we give proofs
+of various lemmas employed in the previous sections. Section Section 6 in-
+cludes Lemmas 6.6 and 6.7, which are also intended for use in the separate
+paper [Hia08]. These two lemmas give a complete account of how the theta
+algorithm behaves, in the case j = 0, under small perturbations in the linear
+argument a.
+
+                                     2. Notation
+     We let bxc denote the largest integer less than or equal to x , dxe denote
+smallest integer greater than or equal to x, {x} denote x − bxc, log x denote
+loge x, and exp(x) as well as ex stand for the exponential function (they are
+used interchangeably). We define 00 := 1 whenever it occurs (e.g. in a bino-
+mial expansion). For easy reference, we list contours frequently used in later
+sections:
+         C0 := {t | 0 ≤ t < K} ,               C1 := {K + it | 0 ≤ t < K} ,
+                                 √
+         C2 := {eπi/4 t | 0 ≤ t < 2K} ,        C3 = {−it | 0 ≤ t < ∞} ,
+         C4 = {K − it | 0 ≤ t < ∞} ,           C5 := {eπi/4 t | − ∞ < t < 0} ,
+                          √                                             √
+         C6 := {eπi/4 t | 2K ≤ t < ∞} ,        C7 := {e−πi/4 t | 0 ≤ t < 2K} ,
+         C8 := C2 ∪ C5 ∪ C6 ,                  C9 := {t | 0 ≤ t < ∞} .
+Next, define the functions
+                        1
+                             Z
+(2.1) IC (K, j; a, b) :=     tj exp(2πiat + 2πibt2 ) dt ,
+                       Kj C
+                        1
+                          Z K        Ä                ä 1 − exp (−2πM t)
+    J(K, j; M, a, b) := j     tj exp −2πat − 2πibt2                      dt .
+                       K 0                                exp(2πt) − 1
+It is convenient to define I˜C (K, j; a, b) := IC (K, j; ia, −b) because it will occur
+often. Notice I˜C (K, j; a, b) = e−πi/2 Ieπi/2 C (K, j; a, b), so it is essentially a
+868                                    G. A. HIARY
+
+
+rotation by π/2. We also define
+      p := p(a) = dae ,                        ω1 := ω1 (a) = dae − a ,
+      q := q(a, b, K) = ba + 2bKc ,            ω := ω(a, b, K) = {a + 2bK} ,
+      p1 := p1 (a, b, K) = q(a, b, K) − p(a) , ν(K, l, ε) := (l + 1) log(K/ε) .
+      For any j ≥ 0 and ε ∈ (0, e−1 ), we say K is large enough if it is satis-
+fies the lower bound K > Λ(K, j, ε), where Λ(K, j, ε) := 1000ν(K, j, ε)6 , and
+ν(K, j, ε) := (j + 1) log(K/ε). For example, if K is large enough, then among
+other consequences, e−K < (ε/K)1000(j+1) . Finally, in the remainder of the
+paper, any implicit asymptotic constants are absolute, and are applicable as
+soon as ε < e−1 , 0 ≤ j, and Λ(K, j, ε) < K, unless otherwise is indicated.
+      In Sections 3 and 4, we prove Theorem 1.1, which is our main theorem.
+
+                  3. The basic iteration of the algorithm
+     Let j be any nonnegative integer, ε any number in (0, e−1 ), K any large
+enough integer, and (a, b) any pair in [0, 1) × [0, 1) (the assumption b ∈ [0, 1/4]
+is not needed in this section, but it is needed in §4). Then with p := p(a) = dae,
+and q := q(a, b, K) = ba + 2bKc, either p < q or q ≤ p. The first possibility is
+the main case, and it is where the algorithm typically spends most of its time.
+The second possibility is a boundary point that will be handled separately
+using the Euler-Maclaurin summation.
+    3.1. Main case: p < q. Let p := p(K, a, b) = dae−a, and q := q(K, a, b) =
+ba + 2bKc. Assume p < q. By the Poisson summation formula
+                                                ∞
+                                                X
+(3.1)          F (K, j; a, b) = cbd + PV               IC0 (K, j; a − m, b) ,
+                                              m=−∞
+                                                                                  2
+where δj is Kronecker’s delta, and cbd := cbd (a, b, j, K) = 21 δj + 12 e2πiaK+2πibK
+is a boundary term. The notation PV in (3.1) stands for principal value, so
+terms are taken in conjugate pairs. Define
+                                       q
+                                       X
+(3.2)             S1 (K, j; a, b) :=         IC0 (K, j; a − m, b) ,
+                                       m=p
+                                              X
+                  S2 (K, j; a, b) := PV              IC0 (K, j; a − m, b) .
+                                            ∈[p,q]
+                                           m/
+
+Therefore,
+(3.3)           F (K, j; a, b) = cbd + S1 (K, j; a, b) + S2 (K, j; a, b) .
+     Since the boundary term cbd in (3.3) can be computed in a constant num-
+ber of operations on numbers of O(log K) bits, then it is enough to show
+how to deal with S1 (K, j; a, b) and S2 (K, j; a, b). We remark that the sum
+S1 (K, j; a, b) corresponds to the terms in the Poisson summation formula that
+          A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                 869
+
+
+contain a saddle point, and S2 (K, j; a, b) corresponds to the terms that do not
+contain a saddle point. The plan is to extract the saddle point contributions
+from S1 (K, j; a, b), which will yield a new (shorter) quadratic exponential sum,
+plus a remainder term (involving no saddle points) that we will show is com-
+putable to within ± ε in poly-log time in K/ε. As for S2 (K, j; a, b), whose
+terms do not contain saddle-points and hence will not contribute to the new
+quadratic sum, we will show it also can be computed in a similar amount of
+time and accuracy.
+    3.1.1. The sum S1 (K, j; a, b). By definition,
+                                         q
+                                         X
+(3.4)               S1 (K, j; a, b) =          IC0 (K, j; a − m, b) ,
+                                         m=p
+
+
+where p = dae, q = ba + 2bKc, C0 := {t | 0 ≤ t < K}, and
+
+                                   1
+                                          Z
+(3.5)      IC0 (K, j; a − m, b) := j     tj exp(2πi(a − m)t + 2πibt2 ) dt
+                                  K C0
+                                     Z K
+                                   1
+                                 = j      tj exp(2πi(a − m)t + 2πibt2 ) dt .
+                                  K 0
+                                                               d
+The integral IC0 (K, j; a − m, b) contains a saddle-point when dt [(a − m)t − bt2 ]
+vanishes for some 0 ≤ t ≤ K, which is the interval of integration in (3.5). This
+occurs precisely when
+
+(3.6)        0 ≤ (m − a)/(2b) ≤ K             ⇐⇒      a ≤ m ≤ a + 2bK .
+
+Since (3.6) is exactly the range of summation in the definition of S1 (K, j; a, b),
+then each integral there contains a saddle-point. As stated earlier, we plan to
+extract the saddle-point contributions from these integrals, which will produce
+a new shorter quadratic exponential sum of length ≤ q + 1 terms.
+      To this end,√define the contours C1 := {K + it | 0 ≤ t < K}, and C2 :=
+{e πi/4 t | 0 ≤ t < K}. So C1 and C2 are the two other sides of a right-angle
+triangle with base C0 . By Cauchy’s theorem,
+                             q
+                             X                              q
+                                                            X
+(3.7)    S1 (K, j; a, b) =         IC2 (K, j; a − m, b) −         IC1 (K, j; a − m, b) .
+                             m=p                            m=p
+
+
+     We first consider the sum qm=p IC1 (K, j; a−m, b) in (3.7). Let us exclude
+                                    P
+
+the term corresponding to m = q in that sum for now as it will require a
+special treatment. We apply the change of variable t ← K + it to each integral
+IC1 (K, j; a − m, b), followed by interchanging the order of summation, then
+870                                        G. A. HIARY
+
+
+executing the resulting geometric sum, to obtain
+                                                           Ç å
+         q−1
+         X                                 j
+                                           X                 j 1
+                                                                        Z K             Ä                  ä
+                                                       l
+(3.8)          IC1 (K, j; a − m, b) = c1               i                           tl exp −2πωt − 2πibt2
+         m=p                               l=0
+                                                             l Kl          0
+                                                                                        1 − exp(−2πp1 t)
+                                                                                    ×                    dt ,
+                                                                                          exp(2πt) − 1
+                                                                                                       2
+where ω = {a + 2bK}, p1 = q − p, and c1 := c1 (a, b, K) = ie2πiaK+2πibK . For
+any integer M ≥ 0, define
+                            Z K
+                          1                             1 − exp(−2πM t)
+(3.9) J(K, l; M, a, b) := l     tl exp(−2πat − 2πibt2 )                 dt .
+                         K 0                              exp(2πt) − 1
+Then (3.8) can be expressed as
+                  q−1                                        j         Ç å
+                  X                                          X
+                                                                   l    j
+(3.10)                  IC1 (K, j; a − m, b) = c1                  i      J(K, l; p1 , ω, b) .
+                 m=p                                         l=0
+                                                                        l
+     The integrand on the right side of (3.8) declines at least like e−2πt with t.
+The rapid decline permits the interval of integration to be truncated quickly,
+which enables an efficient evaluation of the (3.8), hence of J(K, l; p1 , ω, b).
+(Notice if the term m = q were included in the sum (3.8), the integrand will
+decline only like e−2πωt , which might not be fast enough if ω is very close to
+zero, and it is the reason that term was excluded earlier.)
+     Indeed, according to Lemma 6.1, which is proved via this approach, there
+exist absolute constants κ3 , κ4 , A4 , A5 , and A6 such that J(K, l; p1 , ω, b) can
+be evaluated (in terms of short exponential sums) to within
+                                 ± A4 10κ4 ν(K, j, ε)κ4 4−j ε
+using ≤ A5 10κ3 ν(K, j, ε)κ3 operations on numbers of ≤ A6 ν(K, j, ε)2 bits.
+Notice the reason we built in the factor 4−j in the accuracy is because each
+term in (3.10) is multiplied by jl ≤ 2j , and there are j + 1 ≤ 2j terms. But
+                                   
+
+even if we require J(.) to be computed to within ± 2−jd1 K −d2 ε, say for any
+fixed d1 and d2 , then the running time will still be polynomial in ν(K, j, ε).
+     As for the term IC1 (K, j; a − q, b), which we excluded earlier, it is treated
+as follows. Using the change of variable t ← K + it, followed by a binomial
+expansion, we obtain
+                                         j             Ç å             Z K
+                                         X
+                                                   l       j 1
+(3.11)     IC1 (K, j; a − q, b) = c1           i                               tl exp(−2πωt − 2πibt2 ) dt
+                                         l=0
+                                                           l Kl        0
+                                          j            Ç å
+                                         X
+                                                   l       j ˜
+                                  = c1         i             IC0 (K, l; ω, b) ,
+                                         l=0
+                                                           l
+                                                                               2
+where, as before, c1 := c1 (a, b, K) = ie2πiaK+2πibK , and
+                                     Z K
+              ˜                    1
+(3.12)       IC0 (K, l; ω, b) := l       tl exp(−2πωt − 2πibt2 ) dt .
+                                  K 0
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                871
+
+
+The integrand in I˜C0 (K, l; ω, b) might not experience rapid exponential decline,
+because ω could be very close to zero (recall ω := {a + 2bK}, which could get
+arbitrarily close to zero). One overcomes  √        this difficulty by using Cauchy’s
+theorem: let C7 := {te     −πi/4 | 0 ≤ t < 2K} and C1 := {K − it | 0 ≤ t < K}, so
+C7 and C1 are the two other sides of a right-angle triangle with base C0 ; one
+finds
+(3.13)
+   j     Ç å                       j   Ç å                     j    Ç å
+        l j ˜                         l j ˜                        l j ˜
+  X                              X                            X
+      i      IC0 (K, l; ω, b) =      i     IC7 (K, l; ω, b) −     i     I (K, l; ω, b) .
+  l=0
+          l                      l=0
+                                         l                    l=0
+                                                                     l C1
+
+      The point now is that if b is not too small, the functions IC7 (.) and IC1 (.)
+in (3.13) experience more rapid exponential decay, making them much easier to
+evaluate than I˜C0 (K, l; ω, b). Specifically, by Lemma 6.1, each of the functions
+I˜C7 (K, l; ω, b) and I˜C1 (K, l; ω, b) can be evaluated to within
+
+                             ± A7 10κ6 ν(K, j, ε)κ6 8−j ε
+
+using ≤ A8 10κ5 ν(K, j, ε)κ5 operations on numbers of ≤ A9 ν(K, j, ε)2 bits,
+provided 1 ≤ 2bK. Since in this subsection it is assumed p = dae < q =
+ba + 2bKc, it follows a + 1 ≤ a + 2bK, and so 1 ≤ 2bK. Put together, we have
+              q                                j             Ç å
+              X                                X
+                                                         l       j
+(3.14)             IC1 (K, j; a − m, b) = c1         i             J(K, l; p1 , ω, b)
+             m=p                               l=0
+                                                                 l
+                                                 j                   Ç å
+                                                 X
+                                                                 l    j ˜
+                                          + c1               i          IC7 (K, l; ω, b)
+                                                 l=0
+                                                                      l
+                                                  j                  Ç å
+                                                 X
+                                                                 l    j ˜
+                                          − c1               i          I (K, l; ω, b) ,
+                                                 l=0
+                                                                      l C1
+
+where we have shown the right of (3.14) side can be computed accurately and
+efficiently enough for purposes of proving Theorem 1.1.
+                                     P
+      Having disposed of the sum        IC1 (.) in (3.7),
+                                                       √ we now consider the sum
+   IC2 (.) there. Recall C2 := {eπi/4 t | 0 ≤ t < 2K}. We “complete” C2
+P
+
+to span the full range (−∞, ∞). This yields C2 = C8 − C5 − C6 , where
+C8 := {e√πi/4 t | − ∞ < t < ∞}, C5 := {eπi/4 t | − ∞ < t < 0}, and C6 :=
+{eπi/4 t | 2K ≤ t < ∞}. The advantage of rewriting C2 in this way is the
+following. The integrand in
+(3.15)
+                                     Z √2K
+                          eπi(j+1)/4
+   IC2 (K, j; a − m, b) =                   tj exp(2πieπi/4 (a − m)t − 2πbt2 ) dt ,
+                             Kj       0
+
+experiences large oscillations that lead to a tremendous amount of cancel-
+                                      πi/4        2
+lation. Consider, for instance, |e2πie (a−m)t−2πbt | reaches a maximum of
+872                                            G. A. HIARY
+
+         2                                      √       √
+eπ(m−a) /(4b) at the point 0 ≤ t = (m − a)/(2 2b) ≤ 2K, while, in compar-
+ison, the actual value of the integral is typically much smaller in size. This
+makes IC2 (.) difficult to evaluate numerically for such m. On the other hand,
+IC8 (.), which still involves a tremendous amount of cancellation, can be eval-
+uated at once via formula (1.11), which is the self-similarity property of the
+Gaussian. Moreover, the extra integrals IC5 (.) and IC6 (.), which were needed to
+complete IC2 (.), can also be evaluated efficiently because when m ∈ {p, . . . , q}
+             √                         πi/4          2
+and t ∈ / [0, 2K], the integrand e2πie (a−m)t−2πbt declines rapidly (a conse-
+quence of the lack a saddle-point there). Explicitly, since C2 = C8 − C5 − C6 ,
+we have
+(3.16)
+   q
+   X                                    q
+                                        X                                   q
+                                                                            X
+         IC2 (K, j; a − m, b) =              IC8 (K, j; a − m, b) −               IC5 (K, j; a − m, b)
+  m=p                                   m=p                                 m=p
+                                          Xq
+                                        −         IC6 (K, j; a − m, b).
+                                            m=p
+
+We consider qm=p IC5 (.) first. Let us exclude the term corresponding to m = p
+                P
+
+from the sum for now because it will require a special treatment. By Cauchy’s
+theorem and a straightforward estimate, we obtain
+                    q
+                         IC5 (K, j; a − m, b) = c2 J (K, j; p1 , ω1 , b) + O(e−K ) ,
+                    X
+(3.17)
+                m=p+1
+
+where ω1 := dae−a, and c2 := c2 (j) = (−1)j e(j+1)πi/2 . Like before, the integral
+J(.) in (3.17) is handled by Lemma 6.1. To deal with the special term m = p,
+we relate it to the integral I˜C7 (.):
+(3.18)              IC5 (K, j; a − p, b) = c2 I˜C7 (K, j; ω1 , b) + O(e−K ) .
+And we already know how to handle I˜C7 (.) via Lemma 6.2.
+     We now consider the sum qm=p IC6 (.) in (3.16). It is not hard to see
+                                  P
+
+IC6 (K, j; a − m, b) is bounded by O(e−K /K) for each m = p, . . . , q − 1; hence,
+these terms are negligible due to our assumption K is large enough. And when
+m = q, we have
+                                                  j Ç å
+                              j+1
+                                    −2πωK
+                                                  X  j ˜
+IC6 (K, j; a−q, b) = c3 2      2    e                   IC (K, l; ω −iω +2bK +i2bK, −2ib) ,
+                                                                9
+                                                  l=0
+                                                          l
+
+where c3 := c3 (a, j, K) = e(j+1)πi/4+2πiaK . The integral I˜C9 (.) above is also
+handled by Lemma 6.2. Finally, the sum qm=p IC8 (.) in (3.16) produces the
+                                           P
+
+new quadratic exponential sums since by Lemma 6.3, we obtain
+           q                                   j
+                                                        ws,j,a,b,K F (q, s; a∗ , b∗ ) − δ1−p w0,j,a,b,K ,
+           X                                   X
+(3.19)          IC8 (K, j; a − m, b) =
+          m=p                                  s=0
+               A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                        873
+
+
+where a∗ ≡ a/(2b)(mod 1), b∗ ≡ −1/(4b)(mod 1), and as is apparent from
+formula (6.14) in Lemma 6.3, the coefficients ws,j,a,b,K can be computed to
+within ±, 8−j K −2 ε say for all s = 0, 1, . . . , j using ≤ A10 j 2 operations on
+numbers of ≤ A11 ν(K, j, ε)2 bits, where A10 and A11 are absolute constants.
+     More generally, if we wish to compute a linear combination of quadratic
+sums jl=0 zl F (K, l; a, b), rather than a single quadratic sum, then instead of
+      P
+
+(3.19), we obtain
+(3.20)
+  j           q                              j
+                                                     w̃l,j,a,b,K F (q, l; a∗ , b∗ ) − δ1−p w̃0,j,a,b,K ,
+  X           X                              X
+         zl         IC8 (K, l; a − m, b) =
+  l=0         m=p                            l=0
+
+where
+                                                     j
+                                                     X
+(3.21)                              w̃l,j,a,b,K :=          zs wl,s,a,b,K .
+                                                      s=l
+
+And we have the bound
+                                                             j
+                                                             X
+(3.22)                       |w̃l,j,a,b,K | ≤ max |zl |               |wl,s,a,b,K | .
+                                                0≤l≤j
+                                                                s=l
+
+     We consider the growth in the coefficients w̃s,j,a,b,K with each iteration.
+For our purposes, it suffices to bound the maximum modulus of w̃s,j,a,b,K over
+a full run of the algorithm. We examine two scenarios. In the first scenario,
+2ν(K, j, ε)3 ≤ 2bK say. Here, as a consequence of Lemma 6.4, we have (log2 K
+denotes the logarithm to the base 2):
+                    j
+                                                                  3
+                          |ws,m,a,b,K | ≤ (2b)−1/2 e1+j/2ν (1 + j/ν 3 )
+                    X
+(3.23)
+                    m=s
+
+                                       ≤ (2b)−1/2 e1+1/ log2 K (1 + 1/ log2 K) .
+In the second scenario, 2bK < 2 ν(K, j, ε)3 . We observe this can happen only
+in the last iteration (because then q = ba + 2bKc is not large enough, which
+is a boundary point of the algorithm). There are two possibilities: q ≤ p or
+p < q < 2 ν(K, j, ε)3 + 1. In the former case, the algorithm concludes via the
+Euler-Maclaurin summation method of Section 3.2, and not via the van der
+Corput iteration. In particular, if q ≤ p, we do not reach the right side of
+(3.20) at all. In the latter case (the case p < q < 2 ν(K, j, ε)3 + 1), Lemma 6.4
+supplies the bound
+                             j
+                                   |ws,m,a,b,K | ≤ (2b)−1/2 (j + 1)4j+2 .
+                             X
+(3.24)
+                             m=s
+
+Therefore, by the bounds (3.22), (3.23), and (3.24), and taking into account
+the algorithm involves ≤ log2 K iterations and 1 ≤ 2bK, it follows that the
+874                                      G. A. HIARY
+
+
+maximum modulus of the coefficients w̃s,j,a,b,K that can occur over a full run
+of the algorithm is
+                                                √      Ä     ä
+(3.25)          ≤ elog2 K (2 log K)2 (j + 1)4j+2 K = O 8j K 2 .
+    In Section 4, we use the bound (3.25) to determine by how much ε needs
+to be adjusted over a full run of the algorithm so that the final output is still
+accurate to within ± A1 ν κ1 ε, as claimed in Theorem 1.1.
+       3.1.2. The sum S2 (K, j; a, b). By definition,
+                             M
+                             X                                         p−1
+                                                                       X
+(3.26) S2 (K, j; a, b) :=           IC0 (K, j; a − m, b) +                   IC0 (K, j; a − m, b) .
+                            m=q+1                                  m=−M
+                                    PM
+Let us deal with the subsum           m=q+1 IC0 (K, j; a − m, b) first. If m > q, then
+it holds
+(3.27)
+                                                        Z K
+      |IC0 −iT (K, j; a − m, b)| ≤ (2T )j e−2π(1−ω)T              e−4πbT (K−t) dt →T →∞ 0 ,
+                                                         0
+where the fact 1 ≤ 2bK was used to ensure b is bounded from below. So by
+Cauchy’s theorem we can replace C0 with the contours C3 = {−it | 0 ≤ t < ∞}
+and C4 = {K − it | 0 ≤ t < ∞}, which yields
+(3.28)
+  M
+  X                              M
+                                 X                                       M
+                                                                         X
+         IC0 (K, j; a−m, b) =            IC3 (K, j; a−m, b)−                   IC4 (K, j; a−m, b) .
+m=q+1                           m=q+1                                  m=q+1
+
+(We remark that if j = 0, then (3.27) holds uniformly in a ∈ [0, 2] and integers
+m > q. Therefore, (3.28) holds for all a ∈ [0, 2] and integers m > q = ba+2bKc.
+This observation is used in the proof of Lemma 6.6 later.) Now, by a routine
+calculation
+            M
+                   IC3 (K, j; a − m, b) = c4 J(K, j; M − q, 2bK − ω, b) + O(e−K ) ,
+            X
+(3.29)
+           m=q+1
+
+where c4 =: c4 (j) = e−(j+1)πi/2 . A similar calculation gives
+(3.30)
+   M                             j       Ç å
+                                        l j
+                                             J(K, l; M −q −1, 1−ω, b)+O(e−K ) ,
+  X                            X
+       IC4 (K, j; a−m, b) = c5     (−i)
+m=q+2                          l=0
+                                          l
+
+where we isolated the term IC4 (K, j; a − q − 1; b) since it will require a special
+                                                               2
+treatment, and where c5 := c5 (a, b, K) = −ie2πiaK+2πibK (note c5 = −c1 ,
+where c1 as in (3.8)). Last, in the case of IC4 (K, j; a − q − 1; b), we have
+                                                j                Ç å
+                                                X
+                                                             l    j ˜
+(3.31)          IC4 (K, j; a − q − 1, b) = c5         (−i)          IC9 (K, l; 1 − ω, b) ,
+                                                l=0
+                                                                  l
+            A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                   875
+
+
+where C9 := {t | 0 ≤ t < ∞}. As before, the integrals J(.) and I˜C9 (.), which
+occur in (3.29), (3.30) and (3.31), can by computed to within ± ε in polynomial
+time in ν(K, j, ε) by Lemmas 6.1 and 6.2.
+     As for the second subsum p−1   m=−M IC0 (K, j; a − m, b) in (3.26), the situ-
+                                 P
+
+ation is analogous. We simply use the conjugates of the contours C3 and C4 ,
+then repeat the previous calculations with appropriate modifications, which
+results in the integrals
+(3.32)
+ p−2
+         IC3 (K, j; a − m, b) = c6 J(K, j; M + p − 1, 1 − ω1 , b)i + O(e−K ) ,
+ X
+
+m=−M
+ p−1                                       j Ç å
+                                              j l
+                                                     i J(K, l; M + p, 2bK − ω1 , b) + O(e−K ) ,
+ X                                         X
+         IC4 (K, j; a − m, b) = c7
+m=−M                                       l=0
+                                                 l
+and
+(3.33)               IC3 (K, j; a − p + 1, b) = c6 I˜C9 (K, j; 1 − ω1 , b) ,
+                                                                                       2
+where c6 := c6 (j) = e(j+1)πi/2 , and c7 := c7 (a, b, K) = ie2πiaK+2πibK (note
+c7 = c1 , where c1 occurs in (3.8)). Once again, the functions on the right
+side in (3.32) and (3.33) can by computed to within ± ε in polynomial time
+                                                               P
+in ν(K, j, ε) by Lemmas 6.1 and 6.2. Finally, the sum PV |m|>M IC0 (.) is
+bounded as follows:
+      X                         X 2 Z K
+PV        IC0 (K, j; a−m, b) =        j
+                                            tj exp(2πiat+2πibt2 ) cos(2πmt) dt .
+    |m|>M                      m>M
+                                    K    0
+
+Integrating by parts this is equal to
+                      Ç           Z K
+                X           j
+(3.34)      −                              (1 − δj )tj−1 exp(2πiat + 2πibt2 ) sin(2πmt) dt
+                m>M
+                          πmK j    0
+                              Z K                                                          å
+                     2i                j                                2
+                  +                    t (a + 2bt) exp(2πiat + 2πibt ) sin(2πmt) dt .
+                    mK j       0
+
+By the second mean value theorem, we deduce for M > 2K that
+                                                         Ç                  å      Å       ã
+                 X                                   K       X                     K
+(3.35)      PV       IC0 (K, j; a − m, b) = O                                   =O   .
+               |m|>M                          m>M
+                                                  m(m − K)                         M
+
+Finally, take M = d8j K 3 eν(K,j,ε) e to obtain
+                             IC0 (K, j; a − m, b) = O(8−j K −2 (ε/K)j+1 ) ,
+                      X
+(3.36)          PV
+                     |m|>M
+
+which suffices in light of our earlier bound (3.25) on the maximum modulus of
+the coefficients w̃s,j,a,b,K after a full run of the algorithm. We remark that one
+can let M tend to ∞ unless j = 0, in which case, one can still let M tend to
+876                                                   G. A. HIARY
+
+
+∞ provided the various J(.) integrals are paired appropriately. Of course, this
+is what one should do in a practical implementation of the algorithm (we do
+not do this here to simplify the presentation).
+    In summary, we have shown the following: Let
+                              2
+      c1 := i e2πiaK+2πibK , c2 := (−1)j e(j+1)πi/2 , c3 := e(j+1)πi/2+2πiaK ,
+                                                    2
+      c4 := e−(j+1)πi/2 ,    c5 := −i e2πiaK+2πibK , c6 := e(j+1)πi/2 .
+Let wl,j := wl,j,a,b,K be defined as in (6.14), and let
+                         1              2  1
+                  c̃bd := e2πiaK+2πibK + δj − w0,j δ1−p ,
+                         2                 2
+where δj is Kronecker’s delta. Also define
+            a∗ := a/(2b) ,   b∗ := −1/(4b) , q := ba + 2bKc ,
+            ω := {a + 2bK} , ω1 := dae − a , p := dae , p1 := q − p .
+Then, for p < q, 0 ≤ j, ε ∈ (0, e−1 ), and K large enough, it holds
+                          j
+                                   wl,j F (q, l; a∗ , b∗ )+ S˜1 (K, j; a, b)+S2 (K, j; a, b)+c̃bd ,
+                          X
+(3.37) F (K, j; a, b) =
+                          l=0
+
+where, for some absolute constant κ̃1 , we have
+(3.38)
+                              j             Ç å
+                                                j
+   S˜1 (K, j; a, b) = − c1
+                              X
+                                        l
+                                    i             J(K, l; p1 , ω, b) − c2 J(K, j; p1 , ω1 , b)
+                              l=0
+                                                l
+                               j            Ç å                            j   Ç å
+                              X
+                                        l       j ˜                     X      j ˜
+                     − c1           i             IC7 (K, l; ω, b) + c1     il   I (K, l; ω, b)
+                              l=0
+                                                l                       l=0
+                                                                               l C1
+                                                       j
+                                  j+1
+                     − c3 2 2 e−2πωK                         I˜C9 (K, l; ω − iω + 2bK + i2bK, −2ib)
+                                                       X
+
+                                                       l=0
+                     − c2 I˜C7 (K, j; ω1 , b) + O(ν(K, j, ε)κ̃1 8−j K −2 ε).
+
+(3.39)
+                         j                      Ç å
+                         X
+                                            l    j
+S2 (K, j; a, b) = − c5        (−i)                 J(K, l; M, 1 − ω, b)+c4 J(K, j; M, 2bK − ω, b)
+                        l=0
+                                                 l
+                        j    Ç å
+                            l j
+                        X
+                 + c5         i                 J(K, l; M, 2bK − ω1 , b)+c6 J(K, j; M ; 1 − ω1 , b)
+                        l=0
+                                    l
+                         j                  Ç å
+                                                j ˜
+                                                  IC9 (K, l; 1 − ω, b)+c6 I˜C9 (K, j; 1 − ω1 , b)
+                        X
+                                        l
+                 − c5         (−i)
+                        l=0
+                                                l
+                 + O(ν(K, j, ε)κ̃1 8−j K −2 ε) .
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                         877
+
+
+Furthermore, we have shown, with the aid of Lemmas 6.1 and 6.2, that each
+of the functions on the right side of (3.38) and (3.39) can be computed to
+within O(ν(K, j, ε)κ̃2 8−j K −2 ε) using O(ν(K, j, ε)κ̃3 ) operations on numbers
+of O(ν(K, j, ε)2 ) bits, where the constants κ̃2 and κ̃3 are absolute.
+     3.2. Boundary case: q ≤ p. This occurs when b is very small. We tackle
+it using the Euler-Maclaurin summation. Without loss of generality, one may
+assume K is a multiple of 8. So we may write
+                                                 7      (m+1)K/8−1
+                                      2     1 X            X
+ F (K, j; a, b) = e2πiaK+2πibK +                                      k j exp(2πiak + 2πibk 2 ) .
+                                            K j m=0      k=mK/8
+
+It suffices to deal with each inner sum in (3.40) since there are only eight of
+them. By a binomial expansion, we have
+    (m+1)K/8                                                    j          Ç å
+1                                                      j
+         k j exp(2πiak + 2πibk 2 ) = cK,m 8−j
+    X                                         X
+  j
+                                                  mj−l   F (K1 , l; aK,m , b) ,
+K k=mK/8                                      l=0
+                                                       l
+
+where cK,m := cK,m,a,b is a quickly computable constant of modulus 1, 0 ≤ m < 8,
+K1 := K/8, and aK,m := aK,m,a,b = a + mbK/4. Using the periodicity of the
+complex exponential, we can normalize aK,m so it satisfies −1/2 ≤ aK,m ≤ 1/2.
+Since by assumption q ≤ p, then 0 ≤ a + 2bK < 2. So 0 ≤ 2bK < 2, which
+implies 0 ≤ 2bK1 < 1/4. Therefore, 0 ≤ |aK,m | + 2bK1 < 3/4. Put together,
+we may now assume our task is to compute a quadratic sum F (K, j; a, b) with
+|a| + |2bK| < 3/4. To this end, define
+                                            tj
+                          fK,j,a,b (t) :=      exp(2πiat + 2πibt2 ) .
+                                            Kj
+By Lemma 6.5, we obtain
+                                             Å                         N       ã
+                            (N )                 j+N
+                max |fK,j,a,b (t)| ≤                 + 2π(|a| + |2bK|)   ,
+                0≤t≤K                             K
+         (N )
+where fK,j,a,b (t) denotes the N th derivative with respect to t. Applying the
+Euler-Maclaurin summation formula to
+                                1 K X
+                                          j                   2
+                                                                     XK
+(3.40)     F (K, j; a, b) =             k   exp(2πiak + 2πibk   ) =:     fK,j,a,b (k) ,
+                                K j k=0                              k=0
+yields
+(3.41)
+                                                  N
+                                                    (−1)n Bn
+                      Z K                         X                   (n−1)           (n−1)
+   F (K, j; a, b) =         fK,j,a,b (t) dt +                       (fK,j,a,b (K) − fK,j,a,b (0))
+                      0                           n=0
+                                                           n!
+                            Ç        Z K                               å
+                                1                     (N )
+                      +O                   |BN ({t}) fK,j,a,b (t)| dt      ,
+                                N!   0
+878                                              G. A. HIARY
+
+
+where {t} denotes the fractional part of t, Bn are the Bernoulli numbers, and
+Bn (t) are the Bernoulli polynomials; so B0 = 1, B1 = −1/2, B2 = 1/6, . . . ,
+and B0 (t) = 1, B1 (t) = t − 1/2, B2 (t) = t2 − t + 1/6, . . . .
+     Taking N = d2 log(8j K 3 /ε)/ log(8/7) + 1e in (3.41), it follows from known
+asymptotics for Bn and Bn ({t}) (see [Rub05] for instance) that
+                Ç                                    å
+                      2
+                            Z K                              Ä          ä
+(3.42)      O                     |f   (N )
+                                              (t)| dt    = O 2K(7/8)−N = O(8−j K −2 ε) .
+                    (2π)N    0
+
+Given our earlier bound (3.25) on the maximum modulus of the coefficients
+ws,l,a,b,K after a full run of the algorithm, the bound (3.42) suffices for purposes
+of the algorithm.
+      Last, the correction terms in (3.41) can be computed quickly because there
+are only ≤ N + 1 ≤ 10ν(K, j, ε) of them, and each can be computed to within
+± ε using O(ν(K, j, ε2 )) operations on numbers of O(ν(K, j, ε)2 ) bit via the
+                           (n)
+recursion formula for fK,j,a,b (t) provided in the proof of Lemma 6.5. It only
+remains to evaluate the integral 0K fK,j,a,b (t) dt in (3.41), which is the main
+                                                 R
+
+term. But this is equal to IC0 (K, j; a, b), which is handled by Lemma 6.2.
+
+                            4. The algorithm for F (K, j; a, b)
+     We call a real pair (a, b) normalized if (a, b) ∈ [0, 1) × [0, 1/4]. The
+normalization is important because sums are converted to integrals via Poisson
+summation. Therefore, different choices of a or b produce different integrals.
+We remark that it is mainly the normalization of quadratic argument b that
+truly matters. Normalizing a so that it is in the interval [0, 1) is not critical to
+what follows. For example, it suffices to take a ∈ [−m, m] for a fixed integer
+m > 0. To normalize the arguments a and b properly, we use the following
+lemma:
+     Lemma 4.1. For any integer K ≥ 0, any integer j ≥ 0, and any a, b ∈ C,
+the function F (K, j; a, b) satisfies the identities
+         F (K, j; a, b) = F (K, j; a + 1, b) = F (K, j; a, b + 1)
+(4.1)
+                        = F (K, j; a ± 1/2, b ± 1/2) = F (K, j; a ∓ 1/2, b ± 1/2) .
+     Proof. This follows from the fact exp(2πi(z + 1)) = exp(2πiz), and the
+fact (k 2 ± k)/2 ∈ Z for any k ∈ Z.                                      
+
+     As a direct application of the identities in Lemma 4.1, we obtain a simple
+procedure such that starting with any real pair (a, b) it produces a normalized
+pair (a0 , b0 ) ∈ [0, 1) × [0, 1/4] satisfying
+(4.2)
+   F (K, j; a, b) = F (K, j; a0 , b0 ) ,     or F (K, j; a, b) = F (K, j; a0 , b0 ) .
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                         879
+
+
+Notice that the pair (a0 , b0 ) is independent of K and j. The normalization
+procedure is used in the pseudo-code below to compute jl=0 zl F (K, l; a, b). As
+                                                        P
+
+before, we let ν(K, j, ε) := (j + 1) log(K/ε), and Λ(K, j, ε) := 1000ν(K, j, ε)6 .
+  • INPUT: Numbers a, b ∈ [0, 1), an integer K > 0, a positive number ε ∈
+    (0, e−1 ), an integer j ≥ 0, and an array of numbers zl , l = 0, . . . , j, with
+    |zl | ≤ 1 say.
+
+  • OUTPUT: A complex number S that equals jl=0 zl F (K, l; a, b) to within
+                                                                  P
+
+    ± A1 ν(K, j, ε)κ1 ε, where A1 and κ1 are the absolute constants in Theo-
+    rem 1.1.
+
+  • INITIALIZE: Set S = 0, flag = 0, and counter = 0. It suffices to per-
+    form arithmetic using A3 ν(K, j, ε)2 bit numbers where A3 is the absolute
+    constant in Theorem 1.1.
+(1) Normalize (a, b) ← (a0 , b0 ) using the identities in Lemma 4.1. This costs a
+    constant number of operations on numbers of A3 ν(K, j, ε)2 bits. If conju-
+    gation is needed to normalize (a, b), set flag ← 1 and zl ← zl .
+
+(2) Let p = da0 e, and q = ba0 + 2b0 Kc. These numbers can be calculated
+    using a constant number of operations on numbers of A3 ν(K, j, ε)2 bits.
+
+(3) If K < Λ(K, j, ε) (a boundary case), evaluate the sum jl=0 zl F (K, l; a, b)
+                                                                                P
+
+    directly. This can be done using ≤ Ã1 (j + 1)Λ(K, j, ε) operations on
+    number of A3 ν(K, j, ε)2 bits, where Ã1 is an absolute constant. Store the
+    result in R[counter]. If flag = 1, set R[counter] ← R[counter]. Go to (9).
+
+(4) If q ≤ p (a boundary case), apply the Euler-Maclaurin technique of Sec-
+    tion 3.2 to evaluate the sum to within ± ε̃ where ε̃ := 8−j K −2 ε. This costs
+    ≤ Ã2 ν(K, j, ε̃)κ̃4 operations on numbers of A3 ν(K, j, ε)2 bits, where Ã2
+    and κ̃4 are absolute constants. (Notice ν(K, j, ε̃) ≤ 4(j + 1)ν(K, j, ε), and
+    so Ã3 ν(K, j, ε̃)κ̃4 ≤ 4κ̃4 Ã3 ν(K, j, ε)2κ̃4 .) Store the result in R[counter]. If
+    flag = 1, set R[counter] ← R[counter]. Go to (9).
+
+(5) Apply the algorithm iteration for the case p < q. This step requires the
+                                                           a0
+    calculation of the quantities q := ba0 + 2b0 Kc, a∗ := 2b 0
+                                                                , and b∗ := − 4b10 ,
+    all of which can be calculated using a constant number of operations. We
+    obtain
+         j                            j                                        j
+                                            w̃l,j,a,b,K F (q, l; a∗ , b∗ ) +
+         X                            X                                        X
+                zl F (K, l; a, b) =                                                  RK,l,j,a,b ,
+          l=0                         l=0                                      l=0
+                            Pj                                             Pj
+    where w̃l,j,a,b,K := s=l zs wl,s,a,b,K . The remainder l=0 RK,l,j,a,b is com-
+    puted by the algorithm to within ± Ã4 ν(K, j, ε)κ̃5 ε using ≤ Ã5 ν(K, j, ε̃)κ̃6
+880                                       G. A. HIARY
+
+
+      operations on numbers of A3 ν(K, j, ε)2 bits, where Ã4 , Ã5 , κ̃5 , and κ̃6 , are
+      absolute constants.
+
+(6) Set R[counter] = jl=0 zl Rl , zl ←
+                                                 Pj                                  ∗       ∗
+                                                      s=l zs,j wl,s,a0 ,b0 ,K , a ← a , b ← a ,
+                           P
+
+    K ← q, and counter ← counter + 1.
+
+(7) If flag = 1, set zl ← zl , R[counter] ← R[counter], a ← −a, b ← −b, and
+    flag ← 0.
+
+(8) Go to (1).
+               Pcounter
+(9) Set S =       l=0     R[l]. Return S.
+
+                                5. The sums G(K, j; a, b)
+     We show how evaluate the sums G(K, j; a, b) defined in (1.18) to within
+± ε. Assume K is large enough (i.e. K > Λ(K, j, ε)), otherwise we can evaluate
+the sum directly. Define
+                                        2N −1
+                                         X   1
+(5.1)              G̃(N, j; a, b) :=           j
+                                                 exp(2πiak + 2πibk 2 ) .
+                                         k=N
+                                             k
+It is not too hard to show that G(K, j; a, b) can be written as the sum of
+O(log K) subsums of the form G̃(N, j; a, b), with N < K, plus a remainder
+sum of length O(log K) terms. So it is enough to show how to compute G̃(.)
+to within ± ε. Without loss of generality, we may assume N is a multiple of
+16, so we may write
+                                         X−1 1
+                                     15 Nm+1
+                                     X
+(5.2)           G̃(N, j; a, b) =                       exp(2πiak + 2πibk 2 ) ,
+                                     m=0 k=Nm
+                                                  kj
+where Nm := N + mN/16. The inner sum in the last expression is
+                  ∞             Ç          å N/16−1 l
+             cN,m X         l       j+l−1     X k
+(5.3)         j         (−1)                            l
+                                                            exp(2πiaN,m k + 2πibk 2 ) ,
+             Nm l=0
+                                     j−1        k=0
+                                                       Nm
+where cN,m := cN,m,a,b satisfies |cN,m | = 1, and aN,m := a + 2bNm . Since
+ j+l−1 l   l+j ≤ 8−l , we can truncate the sum over l in (5.3) after say
+  j−1 k /Nm
+d10 log(K/ε)e terms, which yields a truncation error of say ±ε/K . Finally, by
+Theorem 1.1, each inner sum in (5.3) can be computed to within ± ε/K, using
+≤ 2κ1 A2 ν(K, j, ε)κ1 operations on numbers of ≤ A3 ν(K, j, ε)2 bits.
+
+                                     6. Auxiliary results
+     Lemma 6.1. There are absolute constants κ3 , κ4 , A4 , A5 , and A6 , such
+that for any positive ε < e−1 , any integer 0 ≤ j, any integer 10 ν(K, j, ε)2 < K
+                                       2
+say, any integer 0 < M < e10 ν(K,j,ε) say, any 0 ≤ w < K say, and any 0 ≤
+              A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                            881
+
+
+b ≤ 1, the integral J(K, j; M, w, b) can be evaluated to within ± A4 ν(K, j, ε)κ3 ε
+using ≤ A5 ν(K, j, ε)κ4 operations on numbers of ≤ A6 ν(K, j, ε)2 bits.
+     Proof. The integrand in J(K, j; M, w, b) declines exponential fast, so the
+integral can be truncated quickly. Specifically, let L := L(K, j, ε) = dν(K, j, ε)e;
+then
+                   1
+                            Z L           Ä                  ä 1 − exp (−2πM t)
+J(K, j; M, w, b) = j              tj exp −2πwt − 2πibt2                            dt+O(ε) .
+                  K          0                                   exp(2πt) − 1
+Therefore, in order to evaluate J(K, j; M, w, b) in a time complexity as stated
+in the lemma, it suffices to deal with the integrals
+                      1
+                                 Z n+1           Ä                ä 1 − exp (−2πM t)
+  g(j, M, w, b, n) := j                  tj exp −2πwt − 2πibt2                         dt ,
+                     K            n                                   exp(2πt) − 1
+where n ∈ {0, . . . , L − 1}. By the change of variable t ← t − n, followed by
+                                                         2
+Taylor expansions applied to the quadratic factor e−2πibt , we obtain after some
+simple estimates that
+                                                       j   Ç å
+                   exp(−2πwn − 2πibn2 ) X j j−s L
+                                                X (−2πib)r
+g(j, M, w, b, n) =                            n
+                           Kj           s=0
+                                            s   r=0
+                                                     r!
+        Z 1
+                                                  1 − exp (−2πM (t + n))
+   ×          ts+2r exp (−2πwt − 4πibnt)                                 dt + O(ε log M ) .
+         0                                          exp(2π(t + n)) − 1
+Since the last expression is a linear combination of (L+1)(j+1) ≤ 10 ν(K, j, ε)2
+terms of the form
+                Z 1
+                                                     1 − exp (−2πM (t + n))
+(6.1)                 tα exp (−2πwt − 4πibnt)                               dt ,
+                 0                                     exp(2π(t + n)) − 1
+for integers 0 ≤ α ≤ 2L + j, then our task is reduced to dealing with the
+integral (6.1) over that range of α. To evaluate this integral, we first unfold
+the geometric series in the integrand; that is, we write (6.1) as
+                 M
+                 X                       Z 1
+(6.2)                  exp(−2πmn)              tα exp (−2π(m + w + 2ibn)t) dt .
+                m=1                       0
+
+(Notice the integrals occurring in (6.2) are incomplete Gamma functions, which
+we alluded to earlier in formula (1.13). Although the methods given in this
+lemma to evaluate such integrals suffice for complexity bounds, there are other
+more practical, though more tedious to describe, methods.) Define mα,n :=
+mα,n,w = max{1, dα − w − 2bne}, in particular α ≤ mα,n + w + 2bn. We split
+                         P                   P
+(6.2) into two subsums: mα,n ≤m≤M and 1≤m<mα,n (the splitting of the sum
+is because the general function h(z, w) := 01 tz exp(wt) dt behaves essentially
+                                              R
+
+differently according to whether |w| < |z| or |z| < |w|). Each term in the
+882                                     G. A. HIARY
+
+         P
+subsum      mα,n ≤m≤M can be calculated explicitly as
+              Z 1
+(6.3)                 tα exp (−2π(m + w + 2ibn)t) dt
+                  0
+                             α+1
+                             X        α!      exp(−2πm − 2πw − 4πbin))
+                       =−
+                             v=1
+                                 (α + 1 − v)!   (2πm + 2πw + 4πibn)v
+                                       α!
+                         +                          .
+                             (2πm + 2πw + 4πibn)α+1
+                                                               P
+So, on interchanging the order of summation, the subsum          mα,n ≤m≤M is equal
+to
+            α+1                M
+            X       α!        X                exp(−2πm − 2πw − 4πbin))
+(6.4)   −                           exp(−2πmn)
+            v=1
+                (α + 1 − v)! m=mα,n              (2πm + 2πw + 4πibn)v
+                                                  M
+                                                  X          exp(−2πmn)
+                                           +α!                                 .
+                                                 m=mα,n (2πm + 2πw + 4πibn)α+1
+
+We claim expression (6.4) can be evaluated to within ± 100 ν(K, j, ε) ε using
+≤ 1000 ν(K, j, ε)2 operations on numbers of 100 ν(K, j, ε)2 bits. To see why,
+notice if n 6= 0, the series over m can be truncated after L := L(K, j, ε)
+terms, with a truncation error ≤ 10 (α + 1) exp(−2πn(α + L)) ≤ 10 ε, where
+we used the facts αv ≤ (mα,n + w + 2bn)v , which holds by construction, and
+α!/(α + 1 − v)! ≤ αv . Once truncated, the series (6.4) can be evaluated directly
+in ≤ 100L(K, j, ε) operations. If n = 0, the series (6.4) is equal to
+(6.5)
+   α+1                 M                                 M
+   X        α!         X    exp(−2πm − 2πw))             X            1
+ −                                          v
+                                                 +  α!                      α+1
+                                                                                .
+   v=1
+       (α + 1 − v)! m=mα,n (2πm + 2πw)                 m=mα,n (2πm + 2πw)
+
+Since the terms in the first series over m in (6.5) decline exponentially fast
+with m (due the the decay provided by the term e−2πm ), it can be trun-
+cated early, after L := L(K, j, ε) terms, with truncation error ≤ 10 ε. The
+truncated series can then be evaluated directly. As for the second series
+in (6.5), it can be calculated efficiently using the Euler-Maclaurin summa-
+                                           P
+tion formula; specifically, the initial sum mα,n ≤m<10(mα,n +L) , which consists
+of ≤ 10(mα,n + L) ≤ 100 ν(K, j, ε) terms, is evaluated directly, while the tail
+sum 10(mα,n +L)≤m≤M is evaluated to within ± 10 ν(K, j, ε) ε using an Euler-
+     P
+
+Maclaurin formula like (3.41) at a cost of ≤ 100 ν(K, j, ε)2 operations on num-
+bers of ≤ 100 ν(K, j, ε)2 bits say.
+                                            P
+     It remains to deal with the subsum 1≤m<mα,n from (6.2). Since this
+subsum consists of < mα,n = 2L + j ≤ 10 ν(K, j, ε) terms, it suffices to show
+how to deal with a single term there, which is essentially an integral of the
+          A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                          883
+
+
+form
+            Z 1
+(6.6)             tα exp (−2π(m + w + 2ibn)t) dt ,          1 ≤ m < mα,n .
+              0
+To do so, we apply the change of variable t ← dm + w + 2bne t to (6.6) to
+reduce it to a sum of the dm + w + 2bne ≤ 10 ν(K, j, ε) integrals
+(6.7)
+                      Z l+1
+            1
+                            tα exp (−2π(m + w + 2ibn)t/dm + w + 2bne) dt ,
+   dm + w + 2bneα+1 l
+where 0 ≤ l ≤ dm + w + 2bne − 1 is an integer. The integrals (6.7) are
+straightforward to evaluate: one makes the change of variable t ← t − l, then
+uses Taylor expansions to break down the integrand into a polynomial in t
+of degree 2L + α say, plus an error of size O(ε), and finally one integrates
+each term explicitly (note each term is just a monomial zd td for some integer
+0 ≤ d ≤ 2L + α, and some quickly computable coefficient zd ).               
+     Lemma 6.2. There are absolute constants κ5 , κ6 , A7 , A8 , and A9 , such
+that for any positive ε < e−1 , any integer 0 ≤ j, any integer 10 ν(K, j, ε)2 < K
+say, any 0 ≤ b ≤ 1 satisfying 1 ≤ 2bK say, and any 0 ≤ w ≤ 1 say, each of
+the integrals
+           I˜C1 (K, j; w, b),        I˜C7 (K, j; w, b) ,
+           I˜C9 (K, j; w, b),        I˜C9 (K, j; w − iw + 2bK + i2bK, −2ib)
+can be evaluated to within ± A7 ν(K, j, ε)κ5 ε using ≤ A8 ν(K, j, ε)κ6 operations
+on numbers of ≤ A9 ν(K, l, ε)2 bits. Moreover, under the same assumptions
+on K, j, and b, as above, except b need not satisfy the condition 1 ≤ 2bK, and
+for any −1 ≤ a ≤ 1 say, the integral IC0 (K, j; a, b) can be evaluated with the
+same accuracy and efficiency as the above four integrals.
+    Proof. We show how to compute I˜C1 (K, j; w, b) first. We have
+
+   I˜C1 (K, j; w, b)
+                          j Ç å                        Ä                      ä
+                             j (−i)l K l
+                                    Z
+                  −2πwK
+                          X
+         = c8 e                                 t exp 2πiwt − 4πbKt + 2πibt2 dt ,
+                          l=0
+                                 l   Kl     0
+
+                                           2
+where c8 := c8 (b, K) = −ie−2πibK . Since 2bK ≥ 1 by hypothesis, we can
+truncate the interval of integration above at L := L(K, j, ε) = dν(K, j, ε)e,
+which reduces our task to evaluating (j + 1)L integrals of the form
+                    1
+                         Z n+1         Ä                        ä
+(6.8)                            tl exp 2πiwt − 4πbKt + 2πibt2 dt ,
+                    Ll    n
+for integers 0 ≤ l ≤ j and 0 ≤ n ≤ L−1. To evaluate (6.8), substitute t ← t−n,
+then eliminate the quadratic term exp(2πibt2 ) using Taylor expansion. This
+884                                       G. A. HIARY
+
+
+results in a linear combination, with quickly computable coefficients each of
+size O(1), of, say, 3L integrals of the form
+                                   Z 1
+(6.9)                                    tα exp (2πiηt) dt ,
+                                    0
+where η := ηn,w,b,K = w + 2bn + 2ibK and 0 ≤ α < 3L an integer. The
+integrals (6.9) are easily-calculable: if α < |w + 2bn + 2ibK|, we evaluate (6.9)
+explicitly as was done in (6.3), and if |w + 2bn + 2ibK| ≤ α, we follow similar
+techniques to those used to arrive at expression (6.7) earlier. The evaluation
+of I˜C9 (K, l; w − iw + 2bK + i2bK, −2ib) is completely similar to I˜C1 (K, j; w, b),
+already considered.
+      We move on to I˜C7 (K, j; w, b). We have by definition
+                             Z √2K        Ä √          √                 ä
+                          c9
+       I˜C7 (K, j; w, b) = j       tj exp − 2πwt + 2πiwt − 2πbt2 dt ,
+                          K 0
+                                                                         √
+where c9 := c9 (j) = exp (−(j + 1)πi/4). The change of variable t ← b t yields
+                                   Z √2bK
+                          c9                              w             w               
+I˜C7 (K, j; w, b) =                        tj
+                                              exp   − 2π  √    t +  2πi √    t −  2πt  2
+                                                                                           dt .
+                      b(j+1)/2 K j 0                      √ 2b            2b
+So, truncating the interval of integration at d Le reduces the problem to
+evaluating
+                             Z n+1
+                     c9              j
+                                                   w             w           2
+                                                                                
+(6.10)                             t   exp    − 2π √    t + 2πi  √    t − 2πt     dt ,
+               b(j+1)/2 K j n                        2b            2b
+                           √
+for integers 0 ≤ n < d Le. The integrals are handled as follows: substitute
+t ← t − n, then eliminate the quadratic term using Taylor expansions, this
+results in integrals similar to (6.9), which we already know how to handle.
+     Next, we consider I˜C9 (K, j; w, b). If w = 0, this integral is quickly calcu-
+lable via the self-similarity formula (1.11), or some variation of it. So we may
+assume w > 0. Since
+           1
+               Z T                 Ä                                    ä
+(6.11)       j
+                    (T − it)j exp −2πw(T − it) − 2πib(T − it)2 dt →T →∞ 0,
+          K 0
+then by Cauchy’s theorem, we may replace C9 by e−πi/4 C9 in I˜C9 (K, j; w, b).
+(We remark that if j = 0, then (6.11) holds uniformly in 0 ≤ ω ≤ 1. This ob-
+servation is used in the proof of Lemma 6.6 later.) Combined with a straight-
+forward estimate, this yields
+(6.12)            I˜ −πi/4 (K, j; w, b) = I˜C (K, j; w, b) + O(e−K ) ,
+                   e      C9                     7
+
+which we have already shown how to compute.
+    Last, we consider the integral IC0 (K, j; a, b). This may contain a critical
+point or it may not according to whether −a/(2b) ∈ [0, K] or not. We supplied
+methods to deal with these possibilities in Sections 3.1.1 and 3.1.2 respectively,
+provided 1 ≤ 2bK. But the same methods still apply as long as b is not too
+small, say 1 < bK 2 . If not, say b < 1/K 2 , then computing IC0 (K, j; a, b)
+          A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                                            885
+
+
+is straightforward anyway because one can apply Taylor expansions to the
+quadratic factor exp(2πibt2 ) in IC0 (K, j; a, b) to reduce it to a polynomial in
+t of degree 2L say, plus an error of size O(ε), which, on applying the change
+of variable t ← t/K, yields an integral similar to (6.9), which we have already
+shown how to handle.                                                           
+    Lemma 6.3. For any integer K > 0, any integer j ≥ 0, any integer m,
+any a ∈ R, and any b > 0 such that q := ba + 2bKc is not zero, we have
+                                               Å                 ã j
+                                                   2πia    2πi 2 X ws,j,a,b,K ms
+(6.13)     IC8 (K, j; a − m, b) = exp                   m−     m                 ,
+                                                    2b      4b    s=0
+                                                                         qs
+                                   √                            2
+                                                                                   !s
+                            s j!       2πeπi/4 e(j−s)3πi/4 e−iπa /(2b)        2π
+(6.14)     ws,j,a,b,K = q                         √
+                                         2j/2 s!(2 bπ)j+1 K j                  b
+                             j−s                                                             !l
+                             X   δ(j−s−l) mod 2 (−1)(j+l−s)/2             −3πi/4        2π
+                       ×                                                 ae                       .
+                             l=0                l! j−s−l
+                                                     2 !
+                                                                                         b
+
+We remark that (6.13) is what one would expect; it is also essentially inde-
+pendent of K. The normalization by q s , as well as the shifting by m, in the
+statement of the lemma is done because it is convenient in the context of our
+proof of Theorem 1.1 in Sections 3 and 4.
+      Proof. This follows from well-known properties of the Hermite polynomi-
+als; see [Ism05].                                                          
+     Lemma 6.4. For any ε ∈ (0, e−1 ), any a ∈ [0, 1], any b ∈ [0, 1], any
+integer j ≥ 0, any positive integer K > Λ(K, j, ε), any integer 0 ≤ s ≤ j, let
+ws,m,a,b,K be defined as in (6.14), then assuming dae < ba + 2bKc, we have
+               j                                 Å          ãj X
+                                                               j Å            ãg
+               X                    e       1                          j
+(6.15)             |ws,m,a,b,K | ≤ √    1+                                         .
+               m=s                   2b    2bK                 g=0
+                                                                      2bK
+
+If, in addition, 2bK ≤ 4 ν(K, j, ε)3 say, then
+                     j
+                             |ws,m,a,b,K | ≤ (2b)−1/2 (j + 1)4j+2 .
+                     X
+
+                     m=s
+
+    Proof. From formula (6.14), and the bounds b ∈ [0, 1] and s ∈ [0, j], we
+obtain
+                                                                                Ä√        äl
+j                                    j−s
+X                   (ba + 2bKc)s 1 X        (m + s)m                     X             2πa b(m−l)/2
+    |ws,m,a,b,K | ≤             √        Ä√   äm
+m=s
+                       (2bK)s     2b m=0    2π (2bK)m                 0≤l≤m
+                                                                                        l! m−l
+                                                                                            2 !
+                                                                     m−l even
+                             " j Å    ãg #
+                    a j 1   X    j
+               ≤ 1+      √                 ea .
+                    2bK    2b g=0 2bK
+886                                     G. A. HIARY
+
+
+The bound (6.15) now follows because a ∈ [0, 1] by hypothesis. To prove the
+last part of the lemma, notice if 2bK ≤ 4 ν(K, j, ε)3 , then since Λ(K, j, ε) < K,
+it follows b < 1/(2j + 2)2 . Also, the assumption dae < ba + 2bKc implies
+1/(2K) ≤ b. Therefore, by the definition (6.14), and a direct calculation,
+          j                                  j−s
+          X                      2q s   X      (m + s)!    (j + 1)4j+2
+(6.16)        |ws,m,a,b,K | ≤        √                   ≤     √       .                       
+          m=s                 (2bK)s 2b m=0 s! m! (2bK)m         2b
+    Lemma 6.5. For any integer j ≥ 0, any integer m ≥ 0, any integer K > 0,
+                                                           xj
+and any real numbers a and b, the function fK,j,a,b (x) := K j exp(2πiax +
+     2
+2πibx ) satisfies
+                            (m)
+(6.17)               max |fK,j,a,b (x)| ≤ (2π(|a| + |2bK|) + (m + j)/K)m .
+                 0≤x≤K
+
+               (m)
+      Proof. fK,j,a,b (x) = Pm,K,j,a,b (x) exp(2πiax + 2πibx2 ), where Pm,K,j,a,b (x)
+                                                                            Pm+j
+is a polynomial in x of degree m + j. So Pm,K,j,a,b (x) :=                   l=0   dl,m,K,j,a,b xl
+for some coefficients dl,m,K,j,a,b defined by the recursion
+                                                               0
+(6.18)        Pm+1,K,j,a,b (x) = 2πi(a + 2bx)Pm,K,j,a,b (x) + Pm,K,j,a,b (x) ,
+                                     0
+where P0,K,j,a,b (x) := xj /K j and Pm,K,j,a,b (x) is the derivative of Pm,K,j,a,b (x)
+                                  (m)
+with respect to x. Notice |fK,j,a,b (x)| = |Pm,K,j,a,b (x)|. Define
+                                                 m+j
+                                                 X
+                          |Pm,K,j,a,b (x)|1 :=         |dl,m,K,j,a,b xl |
+                                                 l=0
+and notice |P (x)| ≤ |P (x)|1 . By induction on m, suppose
+(6.19)          max |Pm,K,j,a,b (x)|1 ≤ (2π(|a| + |2bK|) + (m + j)/K)m .
+               0≤x≤K
+Clearly, (6.19) holds when m = 0, and it is straightforward to verify
+                      0               m+j
+(6.20)        max |Pm,K,j,a,b (x)|1 ≤        max |Pm,K,j,a,b (x)|1 .
+             0≤x≤K                     K 0≤x≤K
+On combining relations (6.18) and (6.20), we obtain
+(6.21)     max |Pm+1,K,j,a,b (x)|1 ≤ max |2πi(a + 2bx)Pm,K,j,a,b (x)|1
+          0≤x≤K                           0≤x≤K
+                                                  0
+                                          + max |Pm,K,j,a,b (x)|1
+                                            0≤x≤K
+
+                                        ≤ (2π(|a| + |2bK|) + (m + 1 + j)/K)m+1 ,
+as required. Notice the inductive proof naturally gives a method to compute
+the polynomials Pm,K,j,a,b (x).                                          
+      Lemma 6.6. Let ε ∈ (0, e−1 ), a ∈ [0, 2], b ∈ [0, 1/4], and K > 0 an inte-
+ger. Define ν(K, ε) := log(K/ε), M := M (K, ε) = dK 3 eν(K,ε) e, F (K; a, b) :=
+F (K, 0; a, b), pa = dae, qa := qa,b,K = ba + 2bKc, p1,a := p1,a,b,K = qa,b,K −
+pa,b,K , ωa := ωa,b,K = {a+ 2bK}, and ω1,a = pa −a. Let δn denote the function
+           A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                         887
+
+
+which is 1 for n = 0, and 0 otherwise, and let J(.) and I˜C. (.) be as defined
+in Section 2. Then for any tuple (α, a, b) ∈ [−1, 1] × [0, 2] × [0, 1/4] such that
+pa+αx < qa+αx and a + αx ∈ (0, 2) for all x ∈ [−1/4, 1/4], we have
+                                                         Å                      ã
+                                  πi/4−πi(a+αx)2 /(2b)     a + αx    1
+(6.22)      F (K; a + αx, b) = e                 F b2bKc;         ,−
+                                                             2b      4b
+                                                        −2      −K
+                               + RM (K, a + αx, b) + O(K ε + e ) ,
+where x is any number in [−1/4, 1/4], and RM (K, a + αx, b) is a linear com-
+bination of the constant function 1, and the following eighteen functions:
+         J(K; M, 2bK − ωa+αx , b) ,      e2πiαxK J(K; M, 2bK − ω1,a+αx , b) ,
+         J(K; p1,a+αx , ω1,a+αx , b) ,   e2πiαxK J(K; p1,a+αx , ωa+αx , b) ,
+         J(K; M, 1 − ω1,a+αx , b) ,      e2πiαxK J(K; M, 1 − ωa+αx , b) ,
+         I˜C7 (K; 1 − ω1,a+αx , b) ,     e2πiαxK I˜C7 (K; 1 − ωa+αx , b) ,
+         I˜C7 (K; ω1,a+αx , b) ,         e2πiαxK I˜C7 (K; ωa+αx , b) ,
+              2
+ √1 e−πi(a+αx) /(2b) ,
+   2b
+                          e2πiαxK−2πωa+αx K I˜C0 (K; eπi/4 (−iωa+αx + 2bK), −ib) ,
+ e2πiαxK ,                e2πiαxK−2πωa+αx K I˜C0 (K; −iωa+αx + 2bK, −b) .
+                              2                              ∗                  2
+ c1,a+αx e2πiαx/(2b)−πi(a+αx) /(2b),       c2,a+αx e2πiαx(K +1)/(2b)−πi(a+αx) /(2b),
+                  ∗                  2                      ∗                2
+ c3,a+αx e2πiαx(K +1)/(2b)−πi(a+αx) /(2b), c3,a+αx e2πiαx(K +2)/(2b)−πi(a+αx) /(2b),
+where c1,a = δ2−pa , c2,a := c2,a,b,K = δqa,b,K −Kb,K
+                                                    ∗ −1 , and c3,a := c3,a,b,K =
+
+δqa,b,K −Kb,K
+          ∗ −2 . The coefficients in the linear combination can all be computed to
+
+within ± ε/K 2 say using O(ν(K, ε)) operations on numbers of O(ν(K, ε)) bits,
+are bounded by O(1), and do not depend on x. Implicit asymptotic constants
+are absolute.
+     Proof. This follows directly from formulas (3.37), (3.38), and (3.39), the
+method of proof of Lemmas 6.2 and 6.3, the remarks following formulas (3.28)
+and (6.11), and some routine calculations and estimates. The conditions
+pa+αx < qa+αx and a + αx ∈ (0, 2) for all x ∈ [−1/4, 1/4], which are stated
+in the lemma, are not essential but they help simplify the presentation of
+Lemma 6.7 next.                                                              
+     Lemma 6.7. Let ε ∈ (0, e−1 ), K > Λ(K, ε) := 1000 ν(K, ε)6 say, K an
+integer, and (α, a, b) ∈ [−1/Λ(K, ε), 1/Λ(K, ε)] × [0, 2] × [0, 1/4]. Let [w, z) ⊂
+[−1/4, 1/4] be any subinterval such that pa+αx and qa+αx are constant over x ∈
+[w, z), pa+αx < qa+αx for all x ∈ [w, z), and a + αx ∈ (0, 2) for all x ∈ [w, z).
+Last, let l and m denote any integers satisfying m, l ∈ [0, 1000 ν(K, ε)] say.
+Then for any x ∈ [w, z), each of the eighteen functions listed in Lemma 6.6
+can be written as a linear combination of the functions
+                                              Ä                                 ä
+    xm ,       xm exp (2πiαxK) ,          exp 2πiαxP/(2b) − 2πiα2 x2 /(4b) ,
+888                                  G. A. HIARY
+
+
+where P ∈ {−1, 0, K ∗ , K ∗ + 1}, and the functions
+          Ç                                   å
+                                  ωa+αx
+      exp 2πi ωa+αx N − 2π(1 − i)m √
+                                     2b
+                               Z 1        Ç                            å
+                                     l           ωa+αx
+                             ×   t exp −2π(1 − i) √ t − 2πmt               dt ,
+                               0                   2b
+where N ∈ {0, K}, and the functions
+
+                  (ωa+αx )m exp (2πi ωa+αx L − 2π ωa+αx R) ,
+
+where L, R ∈ [K, K + 1000 ν(K, ε)] say, as well as functions of the same form,
+but with ωa+αx possibly replaced by 1 − ωa+αx or ω1,a+αx or 1 − ω1,a+αx , plus
+an error term bounded by O(Λ(K, ε)K −2 ε). The length of the linear combi-
+nation is O(ν(K, ε)) terms. The coefficients in the linear combinations can
+all be computed to within ± ε/K 2 using O(Λ(K, ε)) operations on numbers of
+O(ν(K, ε)2 ) bits, are bounded by O(K), and are independent of x. Implicit
+Big-O constants are absolute.
+     Proof. This follows from Lemma 6.6, the proofs of Lemmas 6.1 and 6.2,
+the assumption that pa+αx and qa+αx are constant over x ∈ [w, z), and some
+routine calculations.                                                    
+    Acknowledgment. I would like thank my Ph.D. thesis advisor Andrew
+Odlyzko. Without his help and comments this paper would not have been
+possible. I would like to thank Jonathan Bober, Dennis Hejhal, and Michael
+Rubinstein, for helpful remarks.
+
+
+                                  References
+[Hia08] G. A. Hiary, Fast methods to compute the Riemann zeta function, Pro-
+        Quest LLC, Ann Arbor, MI, 2008, Ph.D. thesis, University of Minnesota.
+        MR 2712221. Available at http://gateway.proquest.com/openurl?url ver=
+        Z39.88-2004&rft val fmt=info:ofi/fmt:kev:mtx:dissertation&res dat=xri:
+        pqdiss&rft dat=xri:pqdiss:3328310.
+[Hux96] M. N. Huxley, Area, Lattice Points, and Exponential Sums, London Math.
+        Soc. Monogr. New Series 13, Oxford Science Publications, The Clarendon
+        Press Oxford Univ. Press, New York, 1996. MR 1420620. Zbl 0861.11002.
+[Ism05] M. E. H. Ismail, Classical and Quantum Orthogonal Polynomials in One
+        Variable, with two chapters by Walter Van Assche and a foreword by Richard
+        A. Askey, Encyclopedia Math. Appl. 98, Cambridge Univ. Press, Cambridge,
+        2005. MR 2191786. Zbl 1082.42016.
+[Kar04] E. A. Karatsuba, Approximation of sums of oscillating summands in cer-
+        tain physical problems, J. Math. Phys. 45 (2004), 4310–4321. MR 2098139.
+        Zbl 1064.11086. http://dx.doi.org/10.1063/1.1797552.
+          A METHOD TO COMPUTE THE TRUNCATED THETA FUNCTION                   889
+
+
+[Kor92] N. M. Korobov, Exponential Sums and their Applications, Math. Appl.
+        (Soviet Series ) 80, Kluwer Academic Publishers Group, Dordrecht, 1992,
+        translated from the 1989 Russian original by Yu. N. Shakhov. MR 1162539.
+        Zbl 0754.11022.
+[LWY04] J. Liu, T. D. Wooley, and G. Yu, The quadratic Waring-Goldbach prob-
+        lem, J. Number Theory 107 (2004), 298–321. MR 2072391. Zbl 1056.11055.
+        http://dx.doi.org/10.1016/j.jnt.2004.04.011.
+[Mum83] D. Mumford, Tata Lectures on Theta. I, Progr. Math. 28, Birkhäuser,
+        Boston, MA, 1983, with the assistance of C. Musili, M. Nori, E. Previato
+        and M. Stillman. MR 0688651. Zbl 0509.14049.
+[OS88] A. M. Odlyzko and A. Schönhage, Fast algorithms for multiple eval-
+        uations of the Riemann zeta function, Trans. Amer. Math. Soc. 309
+        (1988), 797–809. MR 0961614. Zbl 0706.11047. http://dx.doi.org/10.2307/
+        2000939.
+[Rub05] M. Rubinstein, Computational methods and experiments in analytic num-
+        ber theory, in Recent Perspectives in Random Matrix Theory and Num-
+        ber Theory, London Math. Soc. Lecture Note Ser. 322, Cambridge Univ.
+        Press, Cambridge, 2005, pp. 425–506. MR 2166470. Zbl 1168.11329. http:
+        //dx.doi.org/10.1017/CBO9780511550492.015.
+[Sch90] A. Schönhage, Numerik analytischer Funktionen und Komplexität,
+        Jahresber. Deutsch. Math.-Verein. 92 (1990), 1–20. MR 1037441. Zbl 0797.
+        68090.
+[Tit86] E. C. Titchmarsh, The Theory of the Riemann zeta-Function, second ed.,
+        The Clarendon Press Oxford University Press, New York, 1986, edited and
+        with a preface by D. R. Heath-Brown. MR 0882550. Zbl 0601.10026.
+[Vin54] I. M. Vinogradov, Elements of Number Theory, Dover Publications, New
+        York, 1954, translated by S. Kravetz. MR 0062138. Zbl 0057.28201.
+                         (Received: January 1, 2008)
+    Pure Mathematics, University of Waterloo, Waterloo, Ontario, Canada
+    E-mail : hiaryg@gmail.com
+

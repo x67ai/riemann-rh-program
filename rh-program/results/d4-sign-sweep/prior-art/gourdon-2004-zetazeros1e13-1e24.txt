@@ -1,0 +1,2277 @@
+                                           Abstract
+   In this paper, we present an optimization of Odlyzko and Schönhage algorithm that com-
+putes efficiently Zeta function at large height on the critical line, together with computation of
+zeros of the Riemann Zeta function thanks to an implementation of this technique. The first
+family of computations consists in the verification of the Riemann Hypothesis on all the first
+1013 non trivial zeros. The second family of computations consists in verifying the Riemann
+Hypothesis at very large height for different height, while collecting statistics in these zones.
+For example, we were able to compute two billion zeros from the 1024 -th zero of the Riemann
+Zeta function.
+
+
+
+
+                                                1
+    The 1013 first zeros of the Riemann Zeta function,
+       and zeros computation at very large height
+                                    Xavier Gourdon
+                           version of : October 24th 2004
+
+
+1     Introduction
+The Riemann Zeta function is defined by
+                                                 ∞
+                                                 X   1
+                                       ζ(s) =          s
+                                                 n=1
+                                                     n
+
+for complex values of s. While converging only for complex numbers s with <(s) > 1 , this
+function can be analytically continued to the whole complex plane (with a single pole at
+s = 1). The Riemann Zeta-function was first introduced by Euler with the computation of
+                                           ∞
+                                           X 1
+                                           n=1
+                                                  n2
+
+but it was Riemann who, in the 1850’s, generalized its use and showed that the distribution
+of primes is related to the location of the zeros of Zeta. Riemann conjectured that the non
+trivial zeros of ζ(s) are located on the critical line <(s) = 1/2. This conjecture, known as
+the Riemann Hypothesis (RH), has never been proved or disproved, and is probably the most
+important unsolved problem in mathematics.
+
+1.1     Numerical verification of the RH on the first zeros
+History of numerical verifications
+Numerical computations have been made threw the ages to check the RH on the first zeros.
+Computer age, starting with Turing computations, permitted to perform verification higher
+than billions of zeros. An history of the RH verification on the first n zeros is given below.
+
+ Year                  n    Author
+ 1903                 15    J. P. Gram [8]
+ 1914                 79    R. J. Backlund [1]
+ 1925                138    J. I. Hutchinson [10]
+ 1935              1,041    E. C. Titchmarsh [30]
+ 1953              1,104    A. M. Turing [33]
+ 1956             15,000    D. H. Lehmer [16]
+ 1956             25,000    D. H. Lehmer [15]
+ 1958             35,337    N. A. Meller [18]
+ 1966            250,000    R. S. Lehman [14]
+ 1968          3,502,500    J. B. Rosser, J. M. Yohe, L. Schoenfeld [28]
+ 1977         40,000,000    R. P. Brent [3]
+ 1979         81,000,001    R. P. Brent [4]
+ 1982        200,000,001    R. P. Brent, J. van de Lune, H. J. J. te Riele, D. T. Winter [34]
+ 1983        300,000,001    J. van de Lune, H. J. J. te Riele [12]
+ 1986      1,500,000,001    J. van de Lune, H. J. J. te Riele, D. T. Winter [13]
+ 2001     10,000,000,000    J. van de Lune (unpublished)
+ 2003    250,000,000,000    S. Wedeniwski [35]
+
+
+                                              2
+   It is important to notice here that the recent fast method by Odlyzko and Schönhage to
+perform multi-evaluation of the Riemann Zeta function (see later for detail) has not been
+used even in the recent important distributed computation directed by S. Wedeniwski (on a
+Pentium 4 2Ghz equivalent time, this computation required about 700 years of computation).
+The method he used is more classical and is more likely to control potential numerical errors
+and implementation bugs.
+
+Consequences of numerical verifications of the RH
+Without the assumption of the RH, numerical verifications of the RH on the first N zeros
+permit to derive explicit estimates for some number theoretic functions, like
+                        X                    X                      X
+               π(x) =       1,    ψ(x) =          log p,    θ(x) =      log p,
+                        p≤x                 (p,ν):pν ≤x                  p≤x
+
+
+where p runs other prime numbers. This development have been initiated by Rosser [26] in
+1941, later improved by Rosser and Schoenfeld [27, 29] in 1975-1976. For example, Rosser
+and Schoenfeld, based on the verification on the RH on the first 3, 502, 500 zeros [28], proved
+that for x > 1.04 × 107 ,
+                                           x                                      x
+                |ψ(x) − x| < 0.0077629         ,       |θ(x) − x| < 0.0077629         .
+                                         log x                                  log x
+From RH verification at larger height, more recent progress have been obtained. For example,
+Dusart in [6] obtained several tighter estimates of this kind based on the RH verification until
+the first 1, 500, 000, 001 zeros [13]. Very recently, Ramar and Saouter [25], from S. Wedeniwski
+computations that shows that all non-trivial zeros s = σ + it of Zeta for |t| < T0 = 3.3 × 109
+lie on the critical line, obtained an estimate of a different kind by proving that for every real
+number x ≥ 10, 726, 905, 041, there exists at least one prime number p such that
+                                                       
+                                                1
+                                   x 1−                   < p ≤ x.
+                                           28, 314, 000
+
+    Our result of the RH verification until the 1013 -th zero should permit to improve such
+quantitative estimates a little more. It is of importance here to state that numerical verifi-
+cation of the RH is proven by a large computation. Thus, in addition to possible errors in
+the validity of used results and algorithms, it is subject to several possible other errors that
+would not be easily controlled (human coding bug, compiler bug, system bug, processor bug,
+etc). Unlike other numerical computations for which the notion of certificate permits rela-
+tively easy verification, (examples include primality testing with Elliptic curve for example
+(ECPP), integer factorization, odd perfect number bounds) here the verification has the same
+cost as the total computation which was used to obtain the result (unlike computations with
+certificates). It is thus difficult to consider such results as “proved” in a strong sense as a
+pure mathematical proof. This problematic is expected to be more and more important in
+the future, as results “computationnaly proved” are likely to be more frequent. Discussion
+about validity of our RH verification until the 1013 -th zero is the object of section 3.3.1.
+
+1.2 Numerical computations of the distribution of the zeros of
+the Zeta function
+While numerical computations on zeros of the Zeta function have long been focused on RH
+verification only (to check the RH, isolating the zeros is sufficient so no precise computations
+of the zeros are needed) it was Odlyzko who the first, computed precisely large consecutive
+sets of zeros to observe their distribution. More precisely, Odlyzko made some empirical
+observations of the distribution on the spacing between zeros of ζ(s) in various zones and
+checked the correspondence with the GUE hypothesis, which conjectures that normalized
+spacing between zeros behaves like eigenvalues of random hermitian matrices (see section 4.2
+for more details). In 1987, Odlyzko computed numerically 105 zeros of the Riemann Zeta
+function between index 1012 + 1 and 1012 + 105 to the accuracy of 10−8 and was the first to
+observe a good agreement with the GUE hypothesis (see [20]). Later, in order to reach much
+higher heights, Odlyzko with Schönhage [24] developed a fast algorithm for multi-evaluation
+
+
+                                                   3
+of ζ(s). After refinements to make this method efficient for practical purposes, Odlyzko was
+able to compute 70 million zeros at height 1020 in 1989 and then 175 million in 1992 at the
+same height (see [21]). Later he reached the height 1021 (see [22]), and in 2001 he computed
+ten billion zeros at height 1022 (see [23]). In a more recent unpublished work in 2002, Odlyzko
+computed twenty billion zeros at height 1023 .
+
+1.3     Notations and definitions
+All results in this section are classical and can be found in [31] or [7] for example.
+    It is known that all non-trivial zeros are located in the band 0 < <(s) < 1. The Riemann
+Hypothesis is the conjecture that all these zeros are located on the critical line <(s) = 1/2.
+Restricting on zeros with positive imaginary part, the n-th zero (sorted in increasing order of
+its imaginary part) is denoted by ρn and we denote γn = =(ρn ). Thus if the RH is true, we
+have ρn = 1/2 + iγn .
+    We define                                                  
+                                θ(t) = arg π −it/2 Γ(1/4 + it/2)                            (1)
+where the argument is defined by continuous variation of t starting with the value 0 at t = 0.
+A consequence of the Zeta functional equation is that the function
+
+                                      Z(t) = eiθ(t) ζ( 12 + it),
+
+known as the Riemann-Siegel Z-function, is real valued. Moreover we have |Z(t)| = |ζ(1/2+it)|
+thus the zeros of Z(t) are the imaginary part of the zeros of ζ(s) which lie on the critical strip.
+We are lead to finding change of sign of a real valued function to find zeros on the critical
+strip, and this is a very convenient property in numerical verification of the RH. This is why
+our computations concentrate on Z(t) evaluation.
+    We define
+                                            1
+                                    S(t) = arg ζ( 12 + it),                                     (2)
+                                            π
+where the argument is defined by continuous variation of s in ζ(s) starting at s = 2, then
+vertically to s = 2 + it, then horizontally to s = 1/2 + it. The number of zeros ρ of Zeta
+function with 0 < =(ρ) < t is denoted by N (t). We have
+                                                  1
+                                    N (t) = 1 +     θ(t) + S(t).                                (3)
+                                                  π
+It is known unconditionally that
+                                          S(t) = O(log t)
+so that with the asymptotic expansion of θ(t) we get
+                                          t      t    t
+                               N (t) =      log    −    + O(log t).
+                                         2π     2π   2π
+This entails that γn ∼ 2πn/ log n. The function S(t) is important and has been widely studied.
+It is known that unconditionally,
+                                         Z t
+                                S1 (t) ≡     S(u)du = O(log t).
+                                            0
+
+Thus the mean value of the S(t) function is zero. Another result states that the mean value
+of S(t)2 is 2π 2 log log T , so S(t) is a small and very very slowly increasing function on average.
+As we will see later, unexpected behavior of the ζ(1/2 + it) function is likely to occur when
+S(t) is large, and this is why some particular statistics were done on this function.
+
+
+2     Computation of the Riemann-Siegel Z-function
+In this section, we describe an algorithm due to Odlyzko and Schönhage that computes ef-
+ficiently values of the Riemann Zeta function on the critical line, together with practical
+considerations and optimizations that were used in our implementation.
+
+
+
+                                                  4
+2.1    Notations
+We first recall that on the critical line σ = 1/2, the Riemann Zeta function satisfies
+                                        ζ( 12 + it) = e−iθ(t) Z(t)                                   (4)
+where θ(t) is a real valued function defined in (1). As t goes to infinity, θ(t) satisfies the
+asymptotic formula
+                                   t      t  t π   1      7
+                         θ(t) =      log    − − +     +        + ···                                 (5)
+                                   2     2π  2 8  48t   5760t3
+The Riemann-Siegel Z-function is a real valued function of the real variable t and satisfies
+the Riemann-Siegel expansion
+                                   m
+                                  X   cos(θ(t) − t log n)
+                  Z(t)   =    2              √            + R(t)
+                                  n=1
+                                               n
+                                                          M
+                                                          X
+                              R(t) = (−1)m+1 τ −1/2         (−1)j τ −j Φj (z) + RM (t),              (6)
+                                                          j=0
+
+
+with RM (t) = O(t−(2M +3)/4 ), where we used the notations
+                              r
+                                 t
+                        τ =        , m = bτ c, z = 2(t − m) − 1.
+                                2π
+The first functions Φj (z) are defined by
+                                              cos( 12 πz 2 + 38 π)
+                             Φ0 (z)    =
+                                                   cos(πz)
+                                                1      (3)
+                             Φ1 (z)    =             Φ (z)
+                                              12π 2 0
+                                                1      (2)         1    (6)
+                             Φ2 (z)    =             Φ (z) +           Φ (z)
+                                              16π 2 0            288π 4 0
+The general expression of Φj (z) for j > 2 Is quite complicated and we refer to [36] or [31]
+for it. As exposed in [11], explicit bounds have been rigorously obtained on the error term
+RM (t), and for t ≥ 200, one has
+
+          |R0 (t)| ≤ 0.127 t−3/4 ,         |R1 (t)| ≤ 0.053 t−5/4 ,       |R2 (t)| ≤ 0.011 t−7/4 .
+In the practice for computations of zeros of Z(t) above the 1010 -th zero for example, the
+choice M = 1 permits to obtain an absolute precision of Z(t) smaller than 2 × 10−14 and this
+is sufficient to locate the zeros.
+
+2.2    Presentation of the Odlyzko-Schönhage algorithm
+The Odlyzko-Schönhage algorithm
+                           √     permits efficient evaluations of Z(t) in a range of the form
+T ≤ t ≤ T + ∆, with ∆ = O( T ). For t in this range, we write
+               k0 −1                                        m
+               X cos(θ(t) − t log n)                       X     cos(θ(t) − t log n)
+      Z(t) =            √            + <(e−iθ(t) F (t)) +               √            + R(t)
+               n=1
+                          n                               n=k +1
+                                                                          n
+                                                                      1
+
+
+where R(t) is the remainder term defined in (6) and where F (t) is a complex function defined
+by
+                                                        k1
+                                                        X 1
+                         F (t) = F (k0 − 1, k1 ; t) :=      √ exp(it log k)                  (7)
+                                                       k=k0
+                                                             k
+             p
+where k1 = b T /(2π)c and k0 is a small fixed integer (we will discuss its value later). What
+counts is that, for a given interval [T, T + ∆] and t in this range, the values of k0 and k1 are
+fixed in our computations of Z(t). Since k√0 is chosen as very small compared to T 1/2 and
+since m − k1 is bounded (because ∆ = O( T )), we see that the most time consuming part
+in the computation of Z(t) is the computation of F (k0 − 1, k1 ; t). The rest of the technique
+is mainly dedicated to fast evaluation of this sum.
+
+
+                                                      5
+Main steps of the algorithm
+To obtain fast evaluations of F (t) in the range [T, T + ∆], the Odlyzko-Schönhage algorithm
+is divided in two steps :
+   • first, multi-evaluations of F (t) are computed on a well chosen regular grid of abscissa
+     for t.
+   • from these values, an interpolation formula permits to obtain efficiently any value of
+     F (t) at a certain accuracy when t stays in our range.
+    In the original Odlyzko and Schönhage algorithm of [24], multi-evaluations of not-only
+F (t) were needed, but also multi-evaluations of derivatives of F (t) on the regular grid. An
+important improvement of this have been obtained by Odlyzko (see [21]) that permits to have
+an interpolation formula from multi-evaluations of F (t) only.
+    We first concentrate on the multi evaluation part of the algorithm, which requires numerous
+treatments to make it efficient, and which is the most time consuming for computation at
+very large height (say above the 1020 -th zero). Interpolation considerations will be presented
+afterward. Of course, the way the regular grid should be chosen in the previous step is
+dependent of the interpolation formula.
+
+2.3     Fast multi-evaluation of F (t) on a regular grid
+We describe here how Odlyzko-Schönhage algorithm permits to evaluate efficiently approxi-
+mations at a controlled accuracy of the values F (t) defined in (7) at evenly spaced values
+
+                                t = T0 ,     T0 + δ,     ...,      T0 + (R − 1)δ.
+
+We will later precise what values of δ and R we should choose. Instead of computing directly
+the values F (T0 ), F (T0 + δ), . . ., F (T0 + (R − 1)δ), the key idea of [24] is to compute their
+discrete Fourier transform, defined by
+                                 R−1
+                                 X
+                         uk =            F (T0 + jδ)ω −jk ,            ω = exp(2iπ/R),
+                                  j=0
+
+for 0 ≤ k < R. The property of the inverse Fourier transform gives
+                                                                 R−1
+                                                           1 X
+                                         F (T0 + jδ) =         uk ω jk .                                  (8)
+                                                           R
+                                                                 k=0
+
+In the algorithm, the value of R is chosen to be a power of two, so the values F (T0 + jδ) are
+efficiently obtained from the (uk ) with an FFT transform. As Odlyzko described in [22], we
+found that this FFT takes a small portion of the total time (not more than a few percent of
+the total time in our implementation, even using disk FFT for very large values of R). So the
+problem is now reduced to computing efficiently the (uk ). Using the definition (7) of F (t) and
+exchanging the order of summations, we obtain that uk = ω k f (ω k ), where f (z) is defined by
+                        k1
+                       X        ak                                        eiT0 log k
+             f (z) =                 ,        bk = eiδ log k ,     ak =              (1 − eiRδ log k ).   (9)
+                              z − bk                                        k1/2
+                       k=k0
+
+
+The key point is now to compute efficiently the complex values f (ω k ) for 0 ≤ k < R. The
+approach presented in [24] and [22] is to use Taylor series expansions for different subset of
+the indices in the sum. Given a complex number z0 on the unit circle and given L, 0 < L < 1,
+consider for example the subset I of indices in {k0 , k0 + 1, . . . , k1 } such that |bk − z0 | > L for
+all k ∈ I. We have the Taylor series expansion
+                       X ak        X                                  X
+              fI (z) ≡           =     An (z0 − z)n ,      An =           (z0 − bk )−n−1
+                         z − bk
+                        k∈I                n≥0                                  k∈I
+
+
+valid for all z on the unit circle with |z − z0 | < L. When restricting to z with |z − z0 | < L/2
+for example, the convergence of the Taylor series expansion is better than (1/2)n and a fixed
+number of terms (say V ) in this expansion is sufficient to obtain a given absolute precision.
+
+
+                                                         6
+Approximations of values fI (ω j ) for indices j such that |ω j − z0 | < L/2 (let us call J this set
+of indices) are then obtained from this Taylor series expansion. When the number of elements
+in I is much bigger than the number of terms V used in the series expansion, this gives a
+much more efficient method to compute the values (fI (ω j ))j∈J . This idea   P is used in [24] as a
+basic ingredient of a sophisticated method that writes f (z) in the form        fI` , the (I` ) being
+a partition of {k0 , k0 + 1, . . . , k1 } chosen such that Taylor series convergence of fI` is well
+controlled. In our implementation, we used two different approaches which are more efficient.
+The first approach, described in 2.3.1, is dedicated to computations of the Riemann Zeta
+function at large but reasonable height (say until the 1013 -th zero). The second approach,
+suited to computations at larger height, is the Greengard-Rokhlin algorithm, that Odlyzko
+presented in [22] as a possible improvement but he did not implement it in his computations.
+Implementation aspects of the Greengard-Rokhlin algorithm are described in 2.3.2.
+
+2.3.1    Fast multi-evaluations of f (ω k ) at reasonable height
+The approach of Odlyzko and Schöhnage for the computation of (f (ω k ))0≤k<R is not optimal
+for practical concerns. We propose another technique which benefits from several optimiza-
+tions. First, it permits a certain flexibility that can be used at different recursive level of
+the computation (tuning of the speed of convergence of approximating series for example).
+Then we make use of a better approximation compared to the Taylor series expansion, which
+permits to decrease the number of terms. Finally, instead of evaluating complex Taylor series
+expansion of a complex variable, our approximations are computed from a function of a real
+variable, and benefits additionally from symmetry in the abscissa. We did not implement
+Odlyzko and Schönhage algorithm in order to have a precise estimation of the saving, but we
+estimate that our approach is probably at least twice of three times faster (however, only a
+constant factor is saved).
+
+Chebychev interpolation. The basic ingredient in our approach is, instead of using
+Taylor series of the complex variable z of ak /(z − bk ), to use Chebychev interpolation of the
+function ak /(eiθ − bk ) of the real variable θ. On the interval [θ0 − L, θ0 + L], the interpolation
+of degree N is performed on the abscissas
+
+                                                               (2j + 1)π
+                             αj = θ0 + Lγj ,        γj = cos
+                                                                  2N
+and the resulting interpolating polynomial of a function G(θ) on this interval is
+                                 N −1                                  N −1
+                                 X    G(αj )RN (θ)                     Y
+                PN,θ0 ,L (θ) =         0
+                                                       ,    RN (θ) =          (θ − αj ).        (10)
+                                 j=0
+                                     RN (αj )(θ − αj )                 j=0
+
+
+When the singularities of G(θ) are far from the interval [θ0 − L, θ0 + L], this interpolating
+polynomial is a good approximation to G(θ) in this interval. The following result gives a
+quantitative information of the approximation bound.
+Proposition 1 [Point interpolation error bound] Let
+                                  X       ak
+                          G(θ) =                ,   bk = eiβk
+                                       bk − eiθ
+                                            k
+
+be a function of the real variable θ. Suppose that for all k,
+
+                      kβk − θ0 k ≡ min |βk − θ0 + 2nπ| > λL           (λ > 1).
+                                        n
+
+Then for all θ in [θ0 − L, θ0 + L] we have
+
+                                       4 + 21−N    X                                p
+          |G(θ) − PN,θ0 ,L (θ)| <                    |ak |,         K(λ) = λ +       λ2 − 1,
+                                    (λ − 1)L K(λ)N
+                                                       k
+
+where PN,θ0 ,L (θ) is the degree N Chebyshev interpolating polynomial of G(θ) other [θ0 −L, θ0 +
+L] defined in (10).
+
+
+
+                                                   7
+Proof : We make use of the residue theorem, from the integral on the complex domain of t
+                                Z
+                                            G(t) dt
+                                  |t−θ0 |=R RN (t) t − θ
+
+where R = 2nπ. As n → ∞, the function G(t) stays bounded on |t − θ0 | = R and we
+obtain that this integral vanishes. Thus the sum of its residues vanishes. The residues of the
+integrand are the points t = θ, the zeros αj of RN (t) and the poles βk + 2nπ of G(t), thus
+
+                  N −1                        ∞
+         G(θ)     X         G(αj )         X X               ak
+                +        0
+                                         +                                   = 0.
+         RN (θ)        RN  (αj )(αj − θ)         RN (βk + 2nπ)(βk + 2nπ − θ)
+                  j=0                       n=−∞
+                                               k
+
+This identity rewrites in a form that gives an explicit error term in the approximation obtained
+with the interpolating polynomial
+                                                                 ∞
+                                                    X            X           RN (θ)
+     G(θ) − PN,θ0 ,L (θ) = E(θ),          E(θ) =        ak                                    .
+                                                                  RN (βk + 2nπ)(θ − βk + 2nπ)
+                                                    k        n=−∞
+
+
+The polynomial RN (t) is related to the [−1, 1] Chebychev polynomial TN (t) thanks to the
+formula
+                                 LN
+               RN (θ0 + Lt) = N −1 TN (t),       TN (t) = cos(N arccos(t)).          (11)
+                                2
+which entails
+                                     ∞
+                          X          X              TN ((θ − θ0 )/L)
+                 E(θ) =        ak                                             .
+                                         TN ((βk − θ0 + 2nπ)/L)(θ − βk + 2nπ)
+                           k        n=−∞
+
+
+Since |θ−θ0 | < L, we have |TN ((θ−θ0 )/L)| ≤ 1. Now we concentrate on TN ((βk −θ0 +2nπ)/L).
+We can choose βk modulo 2π such that the inequality
+
+                                      βk − θ0 + 2nπ
+                                                    > |2n + 1|λ
+                                            L
+
+is always fulfilled. Since for real x and |x| > 1 we have
+
+                                                    K(|x|)N                          p
+            |TN (x)| = cosh(N arccosh(|x|)) >               ,           K(x) = x +    x2 − 1,
+                                                       2
+we deduce
+    +∞
+    X             TN ((θ − θ0 )/L)
+       TN ((βk − θ0 + 2nπ)/L)(θ − βk + 2nπ)
+  n=−∞
+                                    +∞
+                                    X                 2
+                               <                    N |2n + 1|(λ − 1)L
+                                   n=−∞
+                                        K(|2n + 1|λ)
+                                                                  +∞
+                                                2                 X        1           4 + 21−N
+                                      <                                            <                ,
+                                          K(λ)N (λ − 1)L         n=−∞
+                                                                      |2n + 1|N +1   K(λ)N (λ − 1)L
+
+where we have used the property K(kλ) > kK(λ). The result follows easily. •
+    In fact, it is cheaper in terms of performance to compute G and G0 at a given point rather
+than computing G at two different points. This remark motivates an interpolation at point
+and derivatives of G instead of points of G only. The previous proposition easily generalizes
+to the following result :
+Proposition 2 (Point and derivatives interpolation error bound) Under the assump-
+tions of proposition 1, for all real values of θ such that |θ − θ0 | ≤ L, we have
+
+                                         8 + 22−N    X                                 p
+          |G(θ) − QN,θ0 ,L (θ)| <                      |ak |,             K(λ) = λ +    λ2 − 1,
+                                     (λ − 1)L K(λ)2N
+                                                             k
+
+
+
+
+                                                    8
+where QN,θ0 ,L (θ) is the degree 2N point-and-derivative Chebyshev interpolating polynomial of
+G(θ) other [θ0 −L, θ0 +L], with interpolating abscissa (αj )0≤j<N . The interpolating polynomial
+is defined by
+                       N −1 
+                                   G(αj )RN (θ)2       G(αj )R00 (αj )RN (θ)2   G0 (αj )RN (θ)2
+                       X                                                                                          
+      QN,θ0 ,L (θ) =              0
+                                                     −    0
+                                                                              + 0                                     .
+                       j=0
+                                 RN (αj ) (θ − αj )
+                                         2         2    RN (αj ) (θ − αj )
+                                                                  2            RN (αj )2 (θ − αj )
+
+Proof : The proof is similar to the previous one, starting from the contour integral
+                                 Z
+                                              G(t)    dt
+                                             R  (t)2 t−θ
+                                   |t−θ0 |=R  N
+
+
+and taking into account residues of the integrand. •
+
+Practical implementation of the interpolation. In our implementation, we used
+the point-and-derivative Chebychev interpolation defined in proposition 2. Undesired numer-
+ical errors can appear if one does not achieve the interpolation in the right way. To overcome
+this problem, we keep a non expanded form of the interpolation which is described below.
+    It is convenient to express the interpolation on [−1, 1] instead of [θ0 − L, θ0 + L], which
+writes in the form G(θ0 + Lt) ≃ QN (t) with
+            N −1 
+                     G(θ0 + Lγj )TN (t)2    G(θ0 + Lγj )T 00 (γj )TN (t)2   L G0 (θ0 + Lγj )TN (t)2
+            X                                                                                                             
+QN (t) =               0
+                                          −       0
+                                                                          +      0
+                                                                                                                              ,
+            j=0
+                      TN (γj ) (t − γj )
+                              2         2        TN (γj ) (t − γj )
+                                                         3                     TN  (γj )2 (t − γj )
+
+with γj = cos (2j+1)π and TN (t) = 2N −1 j (t − γj ) the N -th Chebychev polynomial. The
+                                          Q
+                 2N
+interpolating polynomial QN (t) also writes as
+                                          N
+                                          X −1
+                        QN (t) =                 G(θ0 + Lγj )Vj (t) + L G0 (θ0 + Lγj )Wj (t)
+                                           j=0
+
+
+with Vj (t) and Wj (t) the interpolation base polynomials of degree 2N − 1 defined by
+                                                                                            
+              TN (t)2           TN00
+                                     (γj )TN (t)2    Y  t − γk 2                 X    1
+Vj (t) = 0                    − 0                  =               1 − 2(t − γj )           
+         TN (γj )2 (t − γj )2  TN (γj )3 (t − γj )      γj − γk                      γj − γk
+                                                                   k6=j                                    k6=j
+
+
+and                                                                                            2
+                                               TN (t)2
+                                                                                 
+                                                                           Y          t − γk
+                         Wj (t) =           0
+                                                               = (t − γj )                          .
+                                           TN (γj )2 (t − γj )                       γj − γk
+                                                                          k6=j
+
+In fact, coefficients of the polynomials Vj (x) and Wj (x) are quite big compared to the evalu-
+ations of these polynomials in [−1, 1], and this creates important numerical imprecisions. To
+avoid them, it is much better to keep a non-expanded form of the polynomials. We define the
+linear polynomials
+                                                          
+                       1                              1     and Bj (t) = Q (t − γj )
+                                                 X
+    Aj (t) = Q                   1 − 2(t − γj )                                              ,
+                 k6=j (γj − γk )                   γj − γk                    k6=j (γj − γk )
+                                                           k6=j
+
+
+so that                                                                                        
+                                 Y                                               Y
+                Vj (t) =               (t − γk )2  Aj (t),        Wj (t) =           (t − γk )2  Bj (t).
+                                 k6=j                                            k6=j
+
+Now suppose that N is even. During the interpolation, we define the linear polynomials Lj (t)
+by
+                    Lj (t) = G(θ0 + Lγj )Aj (t) + LG0 (θ0 + Lγj )Bj (t)
+and then cubic polynomials Cj (t) (for j < N/2) by
+
+                                  Cj (t) = (t − γj )2 Ln−j (t) + (t − γn−j )2 Lj (t).
+
+
+
+                                                               9
+The symmetry of Chebyshev roots γj = −γn−j entails
+                                                          
+                                X  Y
+                    QN (t) =                  (t2 − γk2 )2  Cj (t).
+                                                           
+                                     
+                                     0≤j<N/2          k6=j
+                                                    0≤k<N/2
+
+
+Taking into account additional easy factorizations, this form is well suited to fast and precise
+evaluation of both QN (t) and QN (−t).
+   In our implementation, we choose the parameters λ = 2 and N = 8, that provide enough
+precision for the Z(t) evaluation in the context of RH verification until the 1013 -th zero.
+
+Recursive process for fast computation of f (ω j ). Recall that our objective is to
+obtain a fast computation of the values f (ω j ) where ω = exp(2iπ/R) and
+                                  k1
+                                  X        ak
+                        f (z) =                 ,     bk = eiβk ,   βk = δ log k.
+                                         z − bk
+                                  k=k0
+
+
+Now suppose we want to compute approximations of the values f (ω j ) for consecutive indexes
+j = j0 , j0 + 1, . . ., j1 . We define jc = (j0 + j1 )/2 and L = (j1 − j0 )π/R. We construct the
+subset I of indices in K = {k0 , k0 + 1, . . . , k1 } such that kβk − ω jc k > λL for all k ∈ I. The
+contribution fI (ω j ), where                      X ak
+                                          fI (z) =             ,
+                                                        z − bk
+                                                     k∈I
+
+can be approximated efficiently for values of j = j0 , j0 + 1, . . . , j1 by using a point-and-
+derivative Chebychev interpolation of fI (eiθ ) on the interval [2j0 π/R, 2j1 π/R] = [θ0 −L, θ0 +L]
+where θ0 = 2jc π/R ; moreover, the approximation error can be estimated thanks to propo-
+sition 2. To obtain contribution on the remaining k indices in K − I, the process is made
+recursive, by considering the two half of indexes j0 , . . . , jc and jc + 1, . . . , j1 and considering
+that the remaining set of k indices is K − I instead of K. When the number of j indices is
+small, direct evaluation of fI (ω j ) is made instead of using the Chebychev interpolation. A
+particular attention to numerical errors should be payed for cases for which ω j is very close
+to a βk value. When this situation occurs, the stable expression
+
+        ak        eiT0 log k                             sin Rx                     jπ   δ log k
+              = −            exp(−i((R + 1)x + δ log k))        ,           x=         −         .   (12)
+     ω j − bk       k1/2                                  sin x                     R       2
+should be used.
+    It is interesting to notice that, at each step of our recursive process, a different value of
+λ and N (number of points considered for the interpolation) can be taken, giving potential
+high flexibility to our algorithm. However, in our implementation, we did not make use of
+this potential and kept the fixed values λ = 2 and N = 8 that gave good results. We choose
+to implement the recursive process presented above by starting with four sets of j indices
+corresponding to quarters of the complete j indices set.
+
+2.3.2    Implementation of the Greengard-Rokhlin algorithm for huge height
+When the number of k indices is much bigger than the number of j indices in the evaluations
+of f (ω j ), the Greengard-Rokhlin algorithm is much more efficient than the Chebychev inter-
+polation based technique. This algorithm was first designed for Coulomb and gravitational
+potentials evaluations (see [9]), and later subsequently improved, extended and applied to
+other areas. Moreover, as described below, it is well suited to the use of disk memory since it
+requires only a few number of memory access. In [22], Odlyzko presented this algorithm as a
+possible improvement to his technique but did not implement it.
+    Instead of computing the Taylor series of the complex variable z of ak /(z − bk ), the
+Greengard-Rokhlin algorithm consists in computing the series in the variable 1/(z −c) outside
+the pole c, by writing
+                                                   ∞
+                     ak             a             X                     1
+                          =        k          =     ak (bk − c)n            .
+                   z − bk   (z − c) 1 − bk −c     n=0
+                                                                   (z − c)n+1
+                                               z−c
+
+
+
+                                                     10
+The approximation is obtained by considering only the first V most significant terms in this
+sum (we will discuss the value of V later), thus giving
+                                                     V −1
+                                      X       ak     X                   1
+                           fK (z) =                ≈      An (K, c)
+                                            z − bk   n=0
+                                                                    (z − c)n+1
+                                      k∈K
+
+with                                                  X
+                                       An (K, c) =           ak (bk − c)n .                           (13)
+                                                      k∈K
+
+The values of coefficients An (K, c) when the pole c is moved satisfy a very nice property, that
+makes the Greengard-Rokhlin algorithm so efficient. We have the shift formula
+                                         n
+                                               !
+                                        X    n
+                            An (K, d) =         (c − d)n−j Aj (K, c),                       (14)
+                                        j=0
+                                             j
+
+thus once the values Aj (K, c) are known, the value of An (K, d) can be computed with O(n)
+operations only. Since n is not too large (in the practice, it is smaller than V which is less
+than 100), we save a lot of time compared to the use of definition formula (13) which is leads
+to much more expensive computations when the set K is very large.
+
+The recursive process of Greengard-Rokhlin algorithm For a subset K ⊂
+{k0 , k0 + 1, . . . , k1 } of k indices and a subset J ⊂ {0, 1, . . . , R − 1} of j indices, the Greengard-
+Rokhlin procedure, denoted by
+                                                  GR(J, K)
+computes approximations of the contributions fK (ω j ) for j ∈ J, where
+                                    X ak
+                           fK (z) =            ,      bk = eiβk .
+                                        z − bk
+                                             k∈K
+
+It also returns a pole c and the sequence of coefficients An (K, c), defined in (13), for 0 ≤ n < V .
+    The recursive process to compute GR(J, K) is as follows :
+   • First the extremal values βmin and βmax of the sequence (βk )k∈K are computed. The
+                               i
+     pole c is chosen as c = e 2 (βmin +βmax ) .
+   • If the number of elements in K or in J is “small” (say #K = O(V ) or #J = O(1)), then
+     the contributions fK (ω j ) for j ∈ J are computed from the direct formula (for stability,
+     formula (12) should also be used if needed). The values An (K, c) for 0 ≤ n < V are
+     computed directly with formula (13).
+   • Else, we define
+                                        βmin + βmax             βmax − βmin
+                                 β0 =               ,      L=
+                                             2                       2
+       so that the elements (βk )k∈K are in [β 0 − L, β 0 + L]. We then compute the subset J 0 of J
+                                                  0
+       made of j indices which satisfy |ω j − eiβ | ≤ λ|1 − eiL | (to fix ideas we can choose λ = 2,
+       but the λ factor can be any constant > 1). Then the process is called recursively twice :
+       first a call to GR(J 0 , K1 ) is made, with K1 the subset of k indices defined by indices k
+       in K such that βk < β 0 , and then to GR(J 0 , K2 ) where K2 = K \ K1 . The coefficients
+       An (K, c) for 0 ≤ n < V are then obtained with An (K, c) = An (K1 , c)+An (K2 , c), where
+       the coefficients An (K1 , c) and An (K2 , c) are obtained from An (K1 , c1 ) and An (K2 , c2 )
+       with formula (14). As for the values fK (ω j ), they are obtained as fK1 (ω j ) + fK2 (ω j )
+       for j ∈ J 0 , or with the Taylor approximation formula
+                                                    V −1
+                                                    X                        1
+                                      fK (ω j ) ≈          An (K, c)                                  (15)
+                                                    n=0
+                                                                       (ω j − c)n+1
+
+       for j ∈ J \ J 0 .
+
+
+
+
+                                                       11
+      The error in approximation formula used in the last step can be controlled. In fact, we have
+                                                                     !
+                                     X         iβk     n
+                                                            X
+                       |An (K, c)| ≤   |ak | |e    − c| ≤       |ak | |1 − eiL |n ,
+                                         k∈K                    k∈K
+
+      thus an error bound on the approximation (15) for j ∈ J \ J 0 is given by
+                                                                         !
+                      X                  1            1        X           X 1
+                          |An (K, c)| j         ≤                   |ak |          .
+                                     |ω − c|n+1   λ|1 − e |
+                                                         iL                     λn
+                       n≥V                                         k∈K       n≥V
+
+
+      2.3.3    Comparisons between both approaches
+      The first approach, dedicated to computation of Z(t) at not too large height, and described
+      in 2.3.1, has the same complexity as the approach implemented by Odlyzko in [22], and is
+      equal to
+                                              nk1 log R,
+      n being the degree of the interpolating Chebyshev polynomial. As for the Greengard-Rokhlin
+      algorithm, its use gives a complexity of
+
+                                                k1 V + V 2 R.
+
+      Since n and V are fixed value of the same magnitude (in fact n is smaller than V due to
+      the best Chebychev interpolation, but by a constant factor; in our implementation, we have
+      n = 16 and V = 30) and are fixed, the comparison between both complexities give a significant
+      saving for Greengard Rokhlin approach when k1 is significantly bigger than R. Since in the
+      implementations, the number R, corresponding to the number of discretization points, will be
+      bounded by practical limiting factors (total available memory, including disk space, and total
+      timing) it means that for very large height (thus for very large values of k1 ), the Greengard
+      Rokhlin algorithm will be significantly faster.
+         This theoretical observation is confirmed by practical experiments done with our imple-
+      mentation, achieved for computations of the zeros of Z(t) near the 1013 -th zero (in this case,
+      k1 ≈ 6.2 × 105 ). The table in figure 1 gives the total multi-evaluation time of f (ω j ) for both
+      approaches, for different values of R.
+
+                                 R        First approach    Greengard Rokhlin
+                               65,536          8.56 s             1.73 s
+                              131,072           9.3 s             2.89 s
+                              262,144           9.9 s             4.14 s
+                              524,288          10.8 s             8.12 s
+                             1,048,576         12.1 s            13.47 s
+                             2,097,152         14.2 s             32.3 s
+                             4,194,304          18 s              50.6 s
+                             8,388,608         25.4 s             151 s
+
+Figure 1: Comparison of timing of multi-evaluation of f (ω j ) for R values of j near height 1013 , between
+first approach, based on interpolating Chebychev polynomial and described in section 2.3.1, and Greengard
+Rokhlin algorithm. As expected, the Greengard Rokhlin approach is significantly faster when R is small
+compared to k1 .
+
+          The Greengard Rokhlin algorithm has another very important property that permits to
+      deal with very large values of k1 : the values ak and bk can be computed on demand, since they
+      are needed only once, thus there is no need to store them, making this approach particularly
+      suited to very large values of k1 . On the contrary, the first approach based on Chebychev
+      interpolation needs on the average log R access to the values ak and bk , and since computing
+      these values is not immediate (see below), it is better to store them. To overcome
+                                                                                      P this limiting
+      memory factor at huge heights, it appears that one should cut the summation k ak /(z − bk )
+      into a collection of smaller summations (and repeat the process for each sub-summations),
+      thus increasing very significantly the total timing with the first approach.
+
+
+                                                     12
+2.3.4   Additional considerations for multi-evaluation of F (t)
+We focus here on three particular important topics that permit to achieve properly the multi-
+evaluation of F (t). The first subject is related to the computations of the values ak and bk
+of (9), for which some care is needed to ensure enough precision. The second topic is the FFT
+step needed after the multi-evaluation of f (z) to retrieve the values F (T0 + jδ). The third
+topic relates with an important optimization that permitted to decrease the multi-evaluation
+time by roughly 30% to 40%.
+
+Computing coefficients of the function f (z). In order to compute f (z), defined
+in (9), one needs to compute properly the coefficients ak and bk , for which we recall the
+definition
+                              eiT0 log k
+                        ak =             (1 − eiRδ log k ), bk = eiδ log k                 (16)
+                                k1/2
+In our implementation, we just make use of classic double floating point data type of C/C++
+language, which provides floating point numbers with a mantissa of 53-bits (thus a little more
+than 15 significant decimal digits). In our context, the values of T0 and R are very large
+(the value of T0 can be bigger than 1020 ), so to get the values T0 log k (mod 2π) and Rδ log k
+(mod 2π) at a relative double floating point precision, we need a special treatment. What
+follows permits to compute efficiently the sequence
+
+                          (uk )k0 ≤k≤k1 ,     uk = U log k   (mod 2π)
+
+at double precision, for a very large value of an integer U (say U of the order of 1020 or even
+more).
+    First, we developed in our implementation a small module of multiprecision arithmetic,
+permitting to compute with roughly 40 decimal digits of relative precision. This module has
+not been optimized but since we use it a small portion of the time, it was sufficient for our
+purpose. A single value uK can be computed with our multiprecision arithmetic module, but
+at a relatively high cost, and the idea of our approach is to compute a large set of successive
+values (uk ) efficiently, given a precomputation of a reasonable cost. For a given index K, we
+compute, thanks to the multiprecision module, 32-bits integers A and B and double floating
+points values with maximal possible precision rA and rB such that
+             U   A                                   U     B
+               = 32 2π + rA       (mod 2π),              = 32 2π + rB   (mod 2π),
+             K  2                                   2K 2  2
+with 0 ≤ rA < 2π/232 and 0 ≤ rB < 2π/232 . Now, once uK is computed, to get the values
+uK+h we write
+
+                                                       ρ2    X       ρj               h
+     uK+h = uK + U log(1 + h/K) = uK + U ρ − U            +U  (−1)j−1 ,          ρ=     ,
+                                                       2             j                K
+                                                              j≥3
+
+which leads to the formula
+                  Ah − Bh2 (mod 232 )                       X        ρj
+   uK+h = uK +             32
+                                      2π + rA h − rB h2 − U  (−1)j−1             (mod 2π).
+                          2                                          j
+                                                                 j≥3
+
+In order to keep a good precision with this formula, we choose to restrict on values of h such
+that 0 < h < 216 and such that U ρ3 /3 ≤ 1, which is equivalent to
+                                                           
+                               0 < h < min 216 , K(3/U )1/3 .
+
+Performing FFT. The final step to obtain a discretization of F (t) with Odlyzko-Schönhage
+algorithm is to apply formula (8) to retrieve the values (F (T0 + jδ))0≤j<R from the sequence
+(uk )0≤k<R . We performed this FFT by applying two recursive level of a four-step FFT algo-
+rithm as described in [2], which is particularly suited to our context (very big size R of the
+FFT, and disk memory used). Thanks to this effective approach, the time spent in FFT step
+does not represent more than 5% to 10% of the total F (t) multi-evaluation step time.
+
+
+
+
+                                               13
+Decreasing the number of terms in the F summation. Odlyzko-Schönhage al-
+gorithm permits to perform multi-evaluation of the function
+                                              X −1/2+it
+                               F (a, b; t) :=     k       .
+                                                    a<k≤b
+
+Instead of applying directly this technique on the function F (k0 − 1, k1 ; t), we made use of a
+rearrangement in order to decrease the number of terms in the sum, that proved to be efficient
+in the practice. Separating terms of odd and even index in the summation, we get the identity
+                                                                                           
+                   X     −1/2+it
+                                    X        −1/2+it                       −1/2+it      k1
+ F (0, k1 ; t) =       k         +       (2k)        = Fodd (0, k1 ; t) + 2        F 0, ; t ,
+                 0<k≤k
+                                                                                        2
+                        1             0<k≤k1 /2
+                k odd
+                                                                                         (17)
+where Fodd (a, b; t) can be multi-evaluated by Odlyzko-Schönhage algorithm and is defined by
+                                                  X −1/2+it
+                                 Fodd (a, b; t) =    k       .
+                                                     a<k≤b
+                                                      k odd
+
+
+The same identity (17) applied iteratively to F (0, k1 /2; t) leads to
+                                                                                 
+                                          −1/2+it         k1        −1/2+it     k1
+      F (0, k1 ; t) = Fodd (0, k1 ; t) + 2         Fodd 0, ; t + 2          F 0, ; t    .
+                                                          2                     4
+
+After two additional iterations, on F (0, k1 /4; t) then on F (0, k1 /8; t) we get
+                                                                                      
+                                                          k1                        k1
+       F (0, k1 ; t) = Fodd (0, k1 ; t) + 2−1/2+it Fodd 0, ; t + 4−1/2+it Fodd 0, ; t
+                                                          2                           4
+                                                                                     
+                                                          k1                       k1
+                                        + 8−1/2+it Fodd 0, ; t + 16−1/2+it F 0, ; t ,
+                                                          8                        16
+which finally writes as
+                                                                                                 
+                                   k1                                                       k1
+  F (0, k1 ; t) = 16−1/2+it F    0, ; t + (1 + 2−1/2+it + 4−1/2+it + 8−1/2+it ) Fodd 0, ; t
+                                   16                                                       8
+                                                                                    
+                                                                             k 1 k1
+                                         + (1 + 2−1/2+it + 4−1/2+it ) Fodd      , ;t
+                                                                             8 4
+                                                                                               
+                                                                  k1 k1               k1
+                                         + (1 + 2−1/2+it ) Fodd     , ; t + Fodd         , k1 ; t
+                                                                  4 2                 2
+                                                                                                   (18)
+
+Now, instead of applying directly Odlyzko-Schönhage algorithm to F (k0 −1, k1 ; t), we apply it
+to each of the five terms in the above identity. After, we combine the multi-evaluation of each
+term in the way described in formula (18) and use an additional substraction of F (0, k0 − 1; t)
+to recover multi-evaluation of F (k0 − 1, k1 ; t). Since Fodd (a, b; t) has (b − a)/2 terms in the
+summation, we see than the total number of needed summations using this technique is
+k1 /16 + 1/2(k1 /8 + k1 /8 + k1 /4 + k1 /2) = 9/16k1 , so a saving of 43.75% compared to the
+k1 summations needed in the direct use of the algorithm. But in addition here, we have
+the extra-cost of computing 5 FFT of size R instead of one, and combining multi-evaluation
+using (18). In the practice, because FFT is very fast, this extra-cost represented only a few
+percent of the total time at large height so this technique proved to be useful even if precise
+time saving has not be measured. The process could be of course refined, by applying more
+iterations with formula (17) or, more generally, by applying transformations in the spirit
+of Euler product but we expect that in the practice, it would probably not save significant
+enough time and would require and additional complicated implementation.
+
+2.4     Band limited function interpolation
+From a discretization of F (t) on a regular grid, we now want to approximate any value of
+F (t) thanks to an interpolation formula. We first state a general result about band-limited
+function like F (t), which we will later use in our specific context.
+
+
+                                                    14
+2.4.1    A general result on band-limited function interpolation
+It is known that for a band-limited function of the form
+                                           Z τ
+                                   G(x) =       g(t)eixt dt,
+                                                      −τ
+
+then under smooth conditions, G(x) is determined by its sampling at points nπ/τ value with
+the “cardinal-series”
+                                    +∞
+                                    X       nπ  sin(τ x − nπ)
+                          G(x) =         G                      .
+                                  n=−∞
+                                              τ      τ x − nπ
+However, this formula is not well suited to our context because its convergence is too slow.
+Instead we will make use of an interpolation formula at more dense points nπ/β with β >
+τ , which leads to a much better convergence. Our approach is based on complex analysis
+techniques. It is different from the approach of Odlyzko in [22] and states results in a slightly
+different form.
+Proposition 3 Let G(z) be a complex function of the complex variable z = x + iy defined on
+the whole complex plane such that
+
+                                    |G(z)| = O(eτ |y| ),             τ > 0.
+
+Let β > τ , and let a kernel complex function h(z) defined on the whole complex plane satisfying
+
+                         h(0) = 1    and     |h(z)| = o(eγ|y| ),            τ + γ ≤ β.
+
+Then for any value of x we have
+                                    +∞               
+                                    X            nπ                       sin(βx − nπ)
+                         G(x) =          G                h(x − nπ/β)                  .    (19)
+                                  n=−∞
+                                                 β                           βx − nπ
+
+Proof : We start from the integral
+                              Z
+                                                    β   h(x − z)
+                                 G(z)                            dz
+                                                 sin(βz) x − z
+where the contour is the circle |z| = (n + 1/2)π/β and letting n → ∞, we obtain that its value
+is zero, thus the sum of all its residues is zero, which entails
+                                         +∞               
+                               β         X              nπ h(x − nπ/β)
+                     G(x)            =        (−1)n G                    ,
+                           sin(βx)     n=−∞
+                                                         β      x − nπ/β
+
+yielding the result. •
+
+2.4.2    Application to interpolation of the function F (t)
+We want to compute sums of the form
+                                                      k1
+                                                      X
+                                         F (t) =               k−1/2+it
+                                                      k=k0
+
+thanks to an interpolation formula on a regular sampling of F (t). Instead of interpolating
+directly F (t), we interpolate an intermediate function which has a lower growth in the complex
+plane, defined by
+                                                        1
+                          G(t) = e−iαt F (t),      α = (log k0 + log k1 )                  (20)
+                                                        2
+which satisfies
+                                                       1
+                          |G(z)| = O(eτ |y| ),     τ = (log k1 − log k0 ).
+                                                       2
+We then define the parameters β = λτ (with λ > 1 being a fixed value, say λ = 2 for example)
+and γ = β − τ . We choose the kernel function h(t) in the form
+                                                           M
+                                                 sin(γt/M )
+                                     hM (t) =
+                                                    γt/M
+
+
+                                                          15
+with M a positive integer (we discuss this choice later). Now we are under condition of propo-
+sition 3, so we can use formula (19) to interpol G(t) where we keep only the most significant
+terms of the summations, applied not to the values G(nπ/β) themselves but to approxima-
+tions G(nπ/β)
+       b        of these values obtained with the preceding algorithm of approximation of F (t)
+on a regular grid. Our key formula consists in computing the value
+                                                
+                                          b nπ hM (x − nπ/β) sin(βx − nπ) .
+                                X
+                G(x) =
+                b                         G                                               (21)
+                                               β                    βx − nπ
+                                n:|x−nπ/β|<M u0/γ
+
+
+where u0 = 2.55.
+
+Error bound estimation of approximation formula. Bound estimation of approx-
+imation formula (21) is given in the following result.
+Proposition 4 Suppose that the approximations b
+                                              G(nπ/β) satisfy
+                                              
+                                   nπ         nπ
+                               G
+                               b        −G         <
+                                   β          β
+
+for integers n such that |x − nπ/β| < M u1 /γ with u1 = 5.5, and suppose that M ≥ 2. Then
+the value G(x),
+           b     computed with formula (21), satisfies
+                                                               √
+                                                                             
+                                                     γ                      γ
+         G(x)
+          b    − G(x) ≤ AM,β,γ ·  + Bx,β,γ CM + DM + 2 k1 EM + FM .
+                                                     β                     β
+
+where                                                                                           
+                                                     X                  1                   nπ
+                               AM,β,γ = 2                                     hM                     ,
+                                                                   (n + 1/2)π               β
+                                              0≤n<M u0 β/(γπ)
+
+                                    Bx,β,γ =  +              max            |Ĝ(nπ/β)|,
+                                                     n:|x−nπ/β|<M u1 /γ
+
+and
+
+        CM = 2IM (M u0 ),            DM = 2JM (M u0 ),             EM = 2IM (M u1 ),             FM = 2JM (M u1 )
+
+with
+               Z ∞                                              Z ∞
+           1                                       `M (u) 1
+IM (u) =               `M (t) dt,       JM (u) =         +              |`0M (t)| dt,   `M (t) = (sin(t/M )/(t/M ))M /t
+           π       u                                 2     2       u
+
+Proof : Starting from equation (21), we first write
+
+                                               G(x)
+                                               b    − G(x) ≤ X ·  + Y,
+
+with
+                                    X                                  sin(βx − nπ)
+               X       =                         hM (x − nπ/β)
+                                                                          βx − nπ
+                            n:|x−nπ/β|<M u0
+                                                                                             
+                                    X                                  sin(βx − nπ)        nπ
+               Y       =                         hM (x − nπ/β)                      · G x−      .
+                                                                          βx − nπ          β
+                            n:|x−nπ/β|≥M u0
+
+
+   To obtain a bound on Y , we consider Euler-Maclaurin identity applied on a differentiable
+function f (t) of the real variable t with rapid convergence to 0 at infinity
+                       +∞               Z ∞                            Z ∞            
+                       X                                   f (n0 )                   1
+                              f (n) =         f (t) dt +           +       x − [x] −     f 0 (t) dt                 (22)
+                       n=n0              n0                   2         n0           2
+
+Starting from the inequality
+                       X                          sin(βx − nπ)   γ X
+                              hM (x − nπ/β)                    ≤     `M (nπγ/β − γx)
+                                                     βx − nπ     β
+                       n≥n0                                                 n≥n0
+
+
+
+
+                                                              16
+and using identity (22) on the function f (t) = `M (tπγ/β − γx) we obtain the upper bound
+                                                                             
+     X                   sin(βx − nπ)            n0 πγ         γ      n0 πγ
+          hM (x − nπ/β)                 ≤ IM           − γx + JM            − γx .     (23)
+                            βx − nπ                β           β        β
+     n≥n0
+
+In the summation of Y the values of n for which |x − nπ/β| > M u1 /γ satisfy |G(nπ/β)| <
+Pk1 −1/2      1/2
+  k0 k    < 2k1 and for other values of n, |G(nπ/β)| < +|G(nπ/β)|
+                                                           b        ≤ Bx,β,γ . We deduce
+                                                 √
+                                                               
+                                      γ                      γ
+                  Y ≤ Bx,β,γ CM + DM + 2 k1 EM + FM .
+                                      β                      β
+    Now we prove that X ≤ AM,β,γ . Let y, −1/2 < y ≤ 1/2, such that x = (n0 + 1/2 + y)π/β
+for a (unique) integer n0 . If |x − nπ/β| < M u0 /γ, then n is necessarily of the form n = n0 − m
+with −1 − mmax < m < mmax , with mmax = M u0 β/(γπ). Thus
+                                                             
+                         X                   (m + 1/2 + y)π sin((m + 1/2 + y)π)
+           X≤                          hM                                              .
+                m:−1−m       <m<m
+                                                     β             (m + 1/2 + y)π
+                         max        max
+
+
+for convenience, we write this in the form
+                                                                               
+                  X                                            (m + y + 1/2)π          cos(yπ)
+   X≤                           gm (y),      gm (y) = hM                                           .
+         m:−1−mmax <m<mmax
+                                                                     β              (m + y + 1/2)π
+
+For parity reasons, we have g−m−1 (y) = gm (−y), thus
+                            X
+                    X≤             cm (y),    cm (y) = gm (y) + gm (−y).
+                           0≤m<mmax
+
+   The function y → hM ((m + y + 1/2)π/β) defined on y ∈ [−1/2, 1/2] is decreasing when
+0 ≤ m < mmax thus its maximum is obtained for y = −1/2 and we deduce
+                                                                                
+                mπ                                       1                1
+  cm (y) ≤ hM        bm (y),   bm (y) = cos(yπ)                  +                   .
+                 β                                (m + y + 1/2)π   (m − y + 1/2)π
+To prove that X ≤ AM,β,γ , it now remains to prove that bm (y) ≤ bm (0) for −1/2 ≤ y ≤ 1/2
+when 0 ≤ m < mmax , and since bm (y) is even, it suffices to prove that b0m (y) ≤ 0 for
+0 ≤ y ≤ 1/2. We have
+                                                                         
+               0        (2m + 1) cos(πy)           2y
+              bm (y) =                                        − π tan(πy) ,
+                       π((m + 1/2)2 − y 2 ) (m + 1/2)2 − y 2
+thus on [0, 1/2], b0m (y) has the sign of
+                                                2y
+                               am (y) =                    − π tan(πy).
+                                          (m + 1/2)2 − y 2
+We have am (y) ≤ a0 (y) and an easy study of the function a0 (y) shows that a0 (y) ≤ 0 on
+[0, 1/2], thus bm (y) is decreasing and the result follows. •
+     It is interesting to have the values of the involved parameters CM , DM , EM and FM for
+typical values of M . Here are some numerical upper values.
+
+                M         CM               DM                EM              FM
+                2       0.0165            0.033         4.39 × 10−3     5.91 × 10−3
+                4    4.65 × 10−4      7.19 × 10−4       3.84 × 10−5     4.55 × 10−5
+                6    1.71 × 10−5      2.51 × 10−5       4.62 × 10−7     4.63 × 10−7
+                8    6.86 × 10−7      7.93 × 10−7       6.26 × 10−9     5.84 × 10−9
+                10   2.87 × 10−8      3.02 × 10−8       8.97 × 10−11    7.62 × 10−11
+                12   1.24 × 10−9      1.20 × 10−9       1.33 × 10−12    1.04 × 10−12
+                16   2.37 × 10−12     2.03 × 10−12      3.08 × 10−16    2.11 × 10−16
+    We also give an idea of the values of other parameters in the proposition. Typical values
+of β and γ when computing around the 1012 -th zero of ζ(1/2 + it) are β = 10 and γ = β/2.
+For these values, we have
+            A4,β,γ ≃ 1.922,      A8,β,γ ≃ 2.111,    A12,β,γ ≃ 2.225,    A16,β,γ ≃ 2.307.
+
+
+                                                   17
+A typical value of k1 in this zone is also k1 ∼ 2 × 105 ; a value of Bx,β,γ is very often smaller
+than 10, thus a typical bound obtained from the proposition in this range is
+|b
+ G(x) − G(x)| ≤ 1.922 + 0.135     (N = 4),         G(x) − G(x)| ≤ 2.111 + 3.87 × 10−5
+                                                   |b                                     (N = 8),
+
+|G(x)−G(x)|
+ b          ≤ 2.225+3.9×10−8          (N = 12),       |G(x)−G(x)|
+                                                        b          ≤ 2.307+6.5×10−11       (N = 16).
+
+2.4.3    Practical considerations on interpolation implementation
+The interpolation formula (21) needs a number of terms roughly equal to
+                                                                    λ
+                         M u0 /π × β/γ ≃ 0.81M β/γ = 0.81M             .
+                                                                   λ−1
+In order to decrease interpolation timing, one should use the smallest possible value of M
+that permits to reach a given error bound thanks to proposition 4. While isolating roots of
+the Z(t) function, a typical need is getting the sign of Z(t). In our implementation, each such
+evaluation is done first with the smallest value of M = 2, then the interpolation formula is
+used again for increasing higher values of M until the needed error bound (estimated with
+proposition 4) is reached. In this way, we highly decrease on average the cost of the use of the
+interpolation formula since the needed error is usually not too small. By comparison with a
+technique with a fixed value of M = 16 for example, we estimate that a factor of 3 or 4 has
+been saved in the interpolation computations. This is particularly important while evaluating
+Z(t) at not too large height (say until the 1013 -th zero) because in this range, interpolation
+computations take approximately half of the total time.
+    Another trick we used to speed up the interpolation computations is the use of the iterative
+formula
+                 sin(x − (n + 1)π/β)       =   sin(x − nπ/β)c − cos(x − nπ/β)s
+                 cos(x − (n + 1)π/β)       =   cos(x − nπ/β)c + sin(x − nπ/β)s
+
+
+with c = cos(nπ/β) and s = sin(nπ/β), which permits to obtain the values of sin(x − (n +
+1)π/β) and cos(x − (n + 1)π/β) from sin(x − nπ/β) and cos(x − nπ/β) faster than the direct
+evaluation of sin(x−(n+1)π/β), thus the successive values of the kernel function hM (x−nπ/β)
+evaluate efficiently. This trick is the reason of our choice of the kernel function hM (x). In
+terms of implied speed of convergence, our kernel function is a little less efficient than the
+kernel function chosen by Odlyzko in [22]
+
+                                    c sinh(c2 − 2 u2 )1/2             β−τ
+                       h(u) =                              ,      =       ,
+                                 sinh c (c2 − 2 u2 )1/2                2
+with c a constant that was equal to 30 is most computations, but since the kernel function
+hM (u) evaluates faster, we globally save time.
+
+Density of discretization. An important parameter       P is the value λ > 1 which is related
+to the density of discretization of the function F (t) = k0 ≤k≤k1 k−1/2+it . Remember that
+the discretization is made with a regular step equal to
+                                           π        2π
+                                      δ=     =                ,
+                                           β   λ log(k1 /k0 )
+whereas the cost of one interpolation from the discretization is proportional to λ/(λ − 1).
+In our implementation, the choice of λ was made in relation with the relative cost of the
+discretization of F (t) and the interpolation. Until the 1013 -th zero for example, each of the
+discretization or interpolation part take approximately half of the time, and the value λ = 2
+was chosen. As the height increases, the relative cost of the discretization becomes bigger and
+a smaller value of λ > 1 was taken. Around the 1022 -th zero for example, we have chosen the
+value λ = 6/5.
+     Another way to decrease the needed density of discretization was to increase the value of
+k0 . Until the 1013 -th zero, we have taken k0 = 6. Around the 1022 -th zero, the choice k0 = 30
+was made. These values have been chosen with a heuristic based on rough timing experiments
+and are probably not optimal.
+
+
+                                                 18
+      2.4.4   More accurate approximation of Z(t)
+      In some rare cases (especially between two very close zeros), it may be useful to compute Z(t)
+      more accurately to separate zeros of it. While using the band-limited function interpolation
+      technique to compute Z(t), this imply to compute the multi-evaluation of F (t) at a high
+      precision, which would have some bad impact on the total timing. We preferred to use
+      a different technique : when the required precision on Z(t) was higher than the available
+      precision issued from the band-limited function interpolation, we computed Z(t) directly with
+      the classic direct use of the Riemann-Siegel formula (6). In this way, the Odlyzko-Schönhage
+      algorithm is used with reasonable parameters so that almost all Z(t) evaluations are computed
+      precisely enough, thus controlling the total timing.
+          Nearly all the time in the direct computation of Z(t) from the Riemann-Siegel is spent in
+      the summation                                              $r %
+                                   m
+                                  X   cos(θ(t) − t log n)              t
+                                             √            , m=            .                     (24)
+                                  n=1
+                                               n                      2π
+      Instead of using directly this form, we used an Euler-product form of the value
+                                                       m
+                                                       X
+                                             F (t) =         k−1/2+it ,
+                                                       k=1
+
+                                    −iθ(t)
+      and taking the real part of e       F (t) gives the expected value. An Euler-product form of
+      F (t) (as described in [22]) is obtained by considering the product P = 2 × 3 × · · · × ph of
+      the first h primes (with h small in the practice, say h ≤ 4) and by considering the set Q of
+      integers all of whose prime factors are smaller than ph . It permits to reduce the summation
+      to integers k relatively prime to P , with the formula
+                                  X                                  X −1/2+it
+                        F (t) =         k−1/2+it s(m/k),     s(a) =       `       .            (25)
+                               0<k≤m                                      0<`≤a
+                               (k,P )=1                                    `∈Q
+
+
+      Since the s(m/k) for 0 < k ≤ m are the same for many k the summation above is much
+      more efficient than the direct summation for F (t), and the asymptotically expected factor is
+      at most φ(P )/P = (1 − 1/2)(1 − 1/3) × · · · × (1 − 1/ph ).
+          We implemented this technique, and as can be seen on the table of figure 2, we nearly save
+      a factor 3 compared to the direct use of the summation (24) at large height.
+
+              Height index        Classic       ph = 2           ph = 3      ph = 5     ph = 7
+                  1014              1.19          0.92             0.82        0.76       0.77
+                  1016              7.86          5.98             4.91        4.45       4.36
+                  1018             60.48         39.92            32.18        28.8       27.6
+                  1020            473.50        299.79           238.90      210.08     197.31
+                  1022           4050.86       2501.24          1951.19     1668.51    1577.33
+                  1024          36909.16      22361.02         16842.16    14840.87   13584.88
+
+Figure 2: Comparison of timing of a single evaluation of Z(t) between classic summation (24) and faster
+formula (25) with 1, 2, 3 or 4 primes. The first column contains a zero index n near the evaluation
+(so evaluation was made near t = gn where gn is the n-th Gram point). The timings are in seconds,
+computation was made on a Pentium m 1.6 Ghz.
+
+         In our program, notice that we always performed at least one very accurate evaluation of
+      Z(t) in this way per range where Odlyzko-Schönhage algorithm was used, in order to check
+      correctness of the computation. Other needed very accurate evaluation of Z(t) to separate
+      zeros of it were very rare (say a few units per billion zero on average).
+
+
+      3 Verification of the Riemann Hypothesis until the
+      1013 -th zero
+      Our first family of computations consisted in verifying that until the 1013 -th zero, all zeros
+      of the Riemann Zeta function lie on the critical line <(s) = 12 . In order to verify the RH, we
+
+
+                                                        19
+do not need precise computations abscissa of zeros, counting them by finding enough changes
+of sign of Z(t) is sufficient. At higher ranges (see next section) we computed in addition
+the abscissa of zeros of Zeta (as Odlyzko did in [22]) in order to collect more statistics. The
+advantage of verifying the RH only relies in computational timing : while verifying the RH
+until the 1013 -th zero, we needed on average less than 1.2 evaluations of the Z(t) function
+per zero to locate them, whereas to be able to compute abscissa of zeros in this range, we
+would have needed at least five or six times more evaluations of Z(t). Since the verification
+of the RH on the first 1013 zeros took a little more than one year and a half of a single
+modern computer (and the same for verification), timing was a crucial aspect that motivates
+our choice of restricting on RH verification only in this range.
+
+3.1     Gram points, Gram blocks
+We recall the formula, already seen in (4)
+
+                                         ζ( 12 + it) = e−iθ(t) Z(t)
+
+with θ(t) and Z(t) real valued functions. When t ≥ 7, the θ(t) function is monotonic increas-
+ing ; for n ≥ −1, the n-th Gram point gn is defined as the unique solution > 7 to
+
+                                               θ(gn ) = nπ.
+
+The Gram points are as dense as the zeros of ζ(s) but are much more regularly distributed.
+The asymptotic formula (5) of θ(t) entails that
+                                                       2nπ
+                                              gn ∼           .
+                                                      log(n)
+
+Starting with the approximation
+                                                                                        
+   1                       X    cos(θ(gn ) − gn log n)               X    cos(g n log n)
+     Z(gn ) ≈ cos θ(gn ) +               √             = (−1)n 1 +            √         
+   2                                       n                                      n
+                          2≤n≤m                                     2≤n≤m
+
+
+we see that the leading term in expansion of Z(gn ) has the sign of (−1)n . This motivates
+Gram’s law, which is the empirical observation that Z(t) usually changes its sign in each
+Gram interval Gn = [gn , gn+1 ), that holds in Gram’s computations [8]. It is known that this
+law fails infinitely often, but it is true a large proportion of cases (more than 70% at not too
+large height, more than 66% at larger height).
+    A Gram point gn is called good if (−1)n Z(gn ) > 0, and bad otherwise. A Gram block is
+an interval [gn , gn+k ) such that gn and gn+k are good Gram points and gn+1 , . . ., gn+k−1
+bad Gram points. A Gram block is denoted by the notation a1 a2 . . . ak where k is called the
+length of the Gram block, and ai denote the number of roots of Z(t) in the Gram interval
+[gn+i−1 , gn+i ). As of today, no Gram interval has been found with more than 5 zeros, thus
+the notation is unambiguous.
+    Most Gram blocks of length k contain exactly k zeros (see below for the discussion about
+violations of Rosser rule) ; such Gram blocks are called regular. Regular Gram blocks must
+have a pattern of one of the following three forms
+
+                          21 . . . 10,       01 . . . 12,    01 . . . 131 . . . 10.
+
+where the notation 1 . . . 1 refers to any string of consecutive 1, including zero length string.
+
+Violations of Rosser rule
+Another important empirical rule, known as Rosser rule, states that Gram blocks of length k
+contains at least k zeros. In fact, if this rule would be true, then it would imply the RH, which
+would imply that each Gram block of length k contains exactly k zeros. Violations of Rosser
+rule are quite rare. The first occurrence of such a violation is at index n = 13, 999, 825 and
+until the 1013 -th zero, there is just a little more than 32 violations of Rosser rule on average
+per million zeros. It is known that Rosser rule has to fail infinitely often.
+
+
+
+                                                      20
+   If a Gram block of length k is an exception to Rosser rule, then its pattern of zeros must
+be of the form 01 . . . 10. To describe the exception, we must specify where the two missing
+zeros are. We use the notation
+                                 kXa1 . . . am ,        X = L or R                           (26)
+to describe an exception on a Gram block of length k where the missing zeros are on the
+left (for X = L) or on the right (for X = R), the pattern containing the missing zeros being
+a1 . . . am (moreover, this pattern is the smallest union of Gram block adjacent to the exception
+that contains the missing zeros). For example, 3L04 denotes a violation of Rosser rule on
+a Gram block of length 3, the missing zeros being at its left. Globally, the pattern of zeros
+expressed by the notation is 04010.
+    We refer to (26) as the type of violation of Rosser rule, the value m being called the
+length of the excess block. Notice that the notation used for exception to Rosser rule is not
+unambiguous. When several contiguous violation of Rosser rule exists, they may overlap or
+missing zeros can be in the same Gram interval. When such very rare situation occurs (we
+found just it three times until the 1013 -th zero), we simply use the notation M a1 . . . a` where
+the pattern a1 . . . a` is made of the minimal contiguous Gram blocks containing at least one
+violation to Rosser rule, and all the missing zeros. For example, the pattern M 00500, first
+encountered at gram index n = 3, 680, 295, 786, 518, denotes a situation with two violations
+of Rosser rule (“00” and “00”, Gram blocks with missing zeros) and a single Gram interval
+containing all the missing zeros (pattern “5”).
+
+3.2     Approach used to locate all zeros
+To verify Riemann Hypothesis until the 1013 -th zero, we made use of the Odlyzko Schönhage
+approach presented in section 2, associated to the first variant presented in subsection 2.3.1, to
+compute the Riemann-Siegel Z-function. Evaluating the Z-function permits to find changes
+of sign of Z(t), thus to locate some zeros of it, but may be not enough to verify the Rie-
+mann Hypothesis. We made use of the Turing’s method presented below, that permits, once
+“enough” roots have been located on the critical line in a certain zone, to prove that all roots
+of ζ(s) lie on the critical line in this zone.
+
+Regular Gram points and Turing’s method
+It is known that the number of zeros of ζ(σ + it) for 0 < σ < 1 and 0 < t < T , denoted by
+N (T ), satisfies
+                                                θ(T )
+                                   N (T ) = 1 +       + S(T ),
+                                                  π
+               1      1
+with S(t) = π arg ζ( 2 + it). Von Mangoldt proved that S(T ) = O(log T ). In 1924, Littlewood
+               RT
+proved that 0 S(t) dt = O(log T ). Thus Littlewood result states that the average value of
+S(t) is zero, whereas Von Mongoldt result proves that S(t) is not too large. Since the zero
+value of S(T ) is the “standard”, we say that a Gram point gn is regular if S(gn ) = 0, which
+is equivalent to N (gn ) = n + 1. A regular Gram point is a good Gram point in the sense of
+the above definition.
+    One of the key point in RH verification is the ability to find regular Gram points. Once
+regular Gram points are found, it suffices to check that between them, the expected number
+of change of sign of Z(t) occurs, in order to numerically check the RH in this zone.
+    A possibility to find regular Gram points would be to use Backlund’s method, which
+consists in proving when possible that the real part of ζ(σ + iT ) is never zero for 21 ≤ σ ≤ 32 .
+The disadvantage of this method is that it requires evaluations of ζ(s) out of the critical
+line. To overcome this difficulty we used Turing’s method (see [7] for a complete description)
+which permits to prove that some Gram points are regular, by evaluating Z(t) only. Turing
+approach is briefly described as follows : when locating zeros of Z(t), a sequence (hn ) is found
+such that (−1)n Z(gn + hn ) > 0, the sequence (gn + hn ) being increasing, with hn small and
+zero whenever possible. Turing showed that if hm = 0 and if values of hn for n near m are not
+too large, then gm is a regular Gram point. More precisely, Turing obtained a quantitative
+version of Littlewood estimate
+                               Z t2
+                                                               t2
+                                    S(t) dt ≤ 2.30 + 0.128 log    ,
+                                t1                             2π
+
+
+                                                   21
+from which he was able to prove that for all k > 0, we have
+                                                                        g
+     2.30 + 0.128 log g2π + k−1                                              + k−1
+                           P                                                   P
+                        m
+                             j=1 hm−j                   2.30 + 0.128 log m+k
+                                                                          2π    j=1 hm+j
+−1 −                                   ≤ S(gm ) ≤ 1 +                                    .
+                gm − gm−k                                            gm+k − gm
+
+When k > 0 is found for which those estimates give −2 < S(gm ) < 2, then since for parity
+reason, S(gm ) is always an even integer, we prove that S(gm ) = 0.
+
+Locating zeros
+To locate zeros of Z(t) in a zone, we followed a heuristic approach based on the zeros statistics,
+in order to decrease as much as possible the number of evaluations needed to locate all zeros
+of Z(t). The underlying idea was that each Gram interval is associated to a unique zero of
+Z(t) in this Gram interval or very close to it. We first computed the value of Z(t) at each
+Gram point (in fact the sign of Z(t) is sufficient). This permitted to compute Gram blocks,
+and then missing changes of sign in Gram blocks were searched in most statistical frequent
+places order, with easy heuristics. Among the search techniques, we used the observation that
+under the RH, |Z(t)| cannot have any relative minima between two consecutive zeros of Z(t)
+(see [7] for a proof of it that holds under the RH for t not too small). This property gives a
+very powerful search method : if a < b < c and |Z(b)| < |Z(a)|, |Z(b)| < |Z(c)| with Z(a),
+Z(b) and Z(c) having the same sign, then we should have at least two zeros between a and c
+(under the RH).
+    This simple approach permitted to find the pattern of most Gram blocks. When this
+simple approach did not work, it meant that we could have a violation of Rosser rule, so
+we looked in a neighborhood if a missing change of sign could occur. If yes, we had found
+an exception to Rosser rule, otherwise, we tried much aggressive techniques to look for the
+missed change of sign.
+    This approach permitted to locate quite easily most zeros of Z(t) and since aggressive
+searches were performed only a very small fraction of the time, the average number of eval-
+uations of Z(t) per zero was only 1.193 until the 1013 -th zero, which is nearly optimal. As
+expected also, the average number of evaluations of Z(t) per zero needed increases with the
+height of zeros : until zero number 2 × 109 for example, this average number of evaluations
+was just 1.174. Thus in a certain manner, and as “measured” by our internal indicator, the
+“complexity” of Z(t) increases when t gets large.
+
+3.3     Statistical data in RH verification until the 1013 -th zero
+We now present statistical data that we generated while verifying the RH on the first 1013
+zeros.
+
+3.3.1    Computation information
+Computation was distributed on several machines and in total, it took the equivalent of 525
+days of a single modern computer in 2003 (Pentium 4 processor 2.4 Ghz), thus 220,000 zeros
+checked per second on average. Required memory was also classic for such computers (256
+Mo were sufficient). The computation was made in different periods between April of 2003
+and September of 2003, using spare time of several machines, and could be performed thanks
+to Patrick Demichel who could access to computer spare time and managed this distributed
+computation.
+   Computational results for the RH verification on the first 1013 zeros are based on proved
+inequality estimates of this paper. The computation was checked in too ways : first, after each
+application of Odlyzko-Schönhage algorithm in a certain range, evaluations at two different
+abscissas in this range were compared with the classic direct use of Riemann-Siegel formula.
+This check is in fact quite global, in the sense that a single evaluation using Odlyzko-Schönhage
+technique depends on all the result of the multi-evaluation of f (z) (see section 2.3). Another
+check was done that consisted in re-launching all the computation with different parameters
+(we changed slightly a certain number of free parameters of our approach), and by checking
+that the same number of zeros were found in the same zones. This second check took an
+additional one year and a half time (equivalent timing of one modern computer).
+
+
+
+                                               22
+3.3.2    Statistics
+First of all, no exception to Riemann Hypothesis were found on the first 1013 zeros. As already
+discussed before, computations until the 1013 -th zero essentially consisted in computing the
+number of zeros in each Gram interval and not the zeros themselves.
+
+Particular situations. Some particular situations have been observed that did not ap-
+pear historically in previous ranges of RH verification.
+   • One Gram interval has been found which contains 5 zeros of the Zeta function (at index
+     3,680,295,786,520). All other Gram interval contained 4 zeros or less.
+   • Largest Gram block length found is 13, and first occurrence of Gram block of size 11,
+     12 and 13 have been found :
+        – The first Gram block of size 11 is at Gram index 50,366,441,415.
+        – The first Gram block of size 12 is at Gram index 166,939,438,596.
+        – The first Gram block of size 13 is at Gram index 1,114,119,412,264.
+   • Three times, we found pairs of close violations of Rosser rule for which the missing zeros
+     were merged in common Gram intervals :
+        – The pattern M 00500 was found at Gram index 3,680,295,786,518.
+        – The pattern M 002400 was found at Gram index 4,345,960,047,912.
+        – The pattern M 004200 was found at Gram index 6,745,120,481,067.
+   • The smallest known normalized difference δn between consecutive roots γn and γn+1 of
+     Z(t), defined by
+                                                 log(γn /(2π))
+                               δn = (γn+1 − γn )               ,
+                                                      2π
+     was found at γn = 1034741742903.35376 (for index n = 4, 088, 664, 936, 217), with a
+     value of δ ≈ 0.00007025. Non normalized difference between those roots is equal to
+     0.00001709 . . ..
+
+Closest found pairs of zeros. Close pairs of zeros are interesting because it corresponds
+to cases for which the RH is “nearly” false. Verifying the RH in zones where two zeros are very
+close is a particular situation (often described as the “Lehmer’s phenomenon” since Lehmer
+was the first to observe such situations, see [7] for more details) that was detected in our
+implementation thanks to some simple heuristics. In such detected situations, we computed
+effectively the close zeros and their difference. In this way, even if all zeros abscissas were not
+computed, we were able to find a large number of close zeros. As the technique used to find
+them is based on a heuristic, some pairs of close zeros may have been missed. However, we
+estimate that for very close zeros (say those for which δn < 0.0002) most (and probably all)
+pairs of close zeros have been found.
+    We recall our notations : the value γn denotes the abscissa of the n-th zero, the value δn
+denotes the normalized spacing at the n-th zero
+
+                                                     log(γn /(2π))
+                                δn = (γn+1 − γn )                  .
+                                                          2π
+    To give an idea of the number of close pairs of zeros we may have missed with our simple
+heuristic, we recall that under the GUE hypothesis (see section 4.2), until the N -th zero, the
+expected number of pairs of consecutive zeros for which δn is less than a small value δ is
+asymptotic to
+                                              π2
+                                 E(δ, N ) = N δ 3 + O(N δ 5 )
+                                               9
+(see [22, p. 30] for example). In our case, N = 1013 , so E(0.0001, N ) ≃ 10.96 and we found
+exactly 13 zeros such that δn < 0.0001. We have E(0.0002, N ) ≃ 87.73 and we found exactly
+86 zeros such that δn < 0.0002. So for such small values of δn , we are close to the GUE
+expectations. Higher values of δ show that our heuristic probably missed close pairs of zeros.
+For example, we found 1240 zeros for which δn < 0.0005 whereas the GUE hypothesis expects
+E(0.0005, N ) ≃ 1370.78 such zeros.
+
+
+
+                                                23
+   The table below lists statistics relative to all closest found pairs of zeros for which δn <
+0.0001 (it may not be extensive). The last column gives values of n which is an error upper
+bound on the value γn+1 − γn .
+          δn        γn+1 − γn              γn                       n               n
+      0.00007025    0.00001709     1034741742903.35376      4,088,664,936,217    1.45E-08
+      0.00007195    0.00001703     2124447368584.39307      8,637,740,722,916    4.59E-08
+      0.00007297    0.00001859      323393653047.91290      1,217,992,279,429    1.29E-08
+      0.00007520    0.00001771     2414113624163.41943      9,864,598,902,284    1.69E-08
+      0.00008193    0.00002420       10854395965.14210         3,5016,977,795    4.46E-09
+      0.00008836    0.00002183      694884271802.79407      2,701,722,171,287    1.74E-08
+      0.00008853    0.00002133     1336685304932.84375      5,336,230,948,969    5.88E-08
+      0.00008905    0.00002127     1667274648661.65649      6,714,631,699,854    4.53E-08
+      0.00008941    0.00002210      693131231636.82605      2,694,627,667,761    3.19E-08
+      0.00009153    0.00002158     2370080660426.91699      9,677,726,774,990    1.38E-07
+      0.00009520    0.00002495      161886592540.99316        591,882,099,556    1.73E-08
+      0.00009562    0.00002367      664396512259.97949      2,578,440,990,347    4.09E-08
+      0.00009849    0.00002756       35615956517.47854        121,634,753,454    7.63E-09
+
+Statistics on Gram blocks. First, statistics on Gram blocks are not completely rigorous
+since when the evaluation of Z(t) at a Gram point t = gn gave a too small value compared to
+the error bound (so we were not able to decide the sign of Z(t)), we changed a little bit the
+value of gn (this trick does not affect the RH verification). Thus the statistics in the table
+below contains a very small proportion of errors. However, it gives a very good idea of the
+repartition of Gram block until the 1013 -th zero.
+    Below is a table that contains the number of Gram blocks found between zero #10,002
+and #1013 + 1. Gram block of type I are those with pattern 21 . . . 10 (except for Gram block
+of length 1 where it is just the pattern 1), type II corresponds to pattern 01 . . . 12, type III
+corresponds to pattern 01 . . . 131 . . . 10.
+       Length of Gram block                 type I              type II          type III
+                 1               6,495,700,874,143
+                 2                 530,871,955,423     530,854,365,705                 0
+                 3                 137,688,622,847     137,680,560,105    12,254,585,933
+                 4                  41,594,042,888      41,590,457,599     4,713,328,934
+                 5                  11,652,547,455      11,651,049,077     1,677,257,854
+                 6                   2,497,894,288       2,497,449,668       582,216,827
+                 7                     335,440,093         335,304,175       186,090,022
+                 8                      22,443,772          22,427,099        47,938,397
+                 9                         552,727             553,654         8,667,047
+                10                           3,137               3,114         1,081,811
+                11                               0                   1            93,693
+                12                               0                   0             4,967
+                13                               0                   0               122
+
+Violations of Rosser rules In our verification of the RH until the 1013 -th zero, we found
+320,624,341 violations of Rosser rules (here again, the statistic is not completely rigorous, as
+explained above). So we have an average of about 32.06 violations of Rosser rules per million
+zero. Rosser rules fails more and more often with the height, as shown in the table below which
+contains the number of violations of Rosser rule (VRR) in different ranges of our computation.
+Table below also shows that the number of type of VRR (see (26)) also increases with the
+height.
+
+
+
+
+                                               24
+              Zero index range     Number of VRR       Number of types of VRR
+                  0 − 1012           20007704                   121
+               1012 − 2 × 1012       26635210                   147
+             2 × 1012 − 3 × 1012     29517546                   160
+             3 × 1012 − 4 × 1012     31476295                   159
+             4 × 1012 − 5 × 1012     32970500                   172
+             5 × 1012 − 6 × 1012     34192167                   186
+             6 × 1012 − 7 × 1012     35211583                   179
+             7 × 1012 − 8 × 1012     36108621                   184
+             8 × 1012 − 9 × 1012     36893156                   192
+               9 × 1012 − 1013       37611559                   193
+   In total, we found 225 different types of violations of Rosser rules. The table below shows
+the most frequent encountered types on all the first 1013 zeros.
+                    Type of VRR      Number of occurrence     Frequency
+                        2L3              77146526              24.061%
+                        2R3              77119629              24.053%
+                        2L22             43241178              13.487%
+                       2R22              43232794              13.484%
+                        3L3              19387035              6.047%
+                        3R3              19371857              6.042%
+                       2L212              7992806              2.493%
+                       2R212              7986096              2.491%
+                        3L22              6644035              2.072%
+                       3R22               6641646              2.071%
+                        4L3               2326189              0.726%
+                        4R3               2321577              0.724%
+                      2R2112              716337               0.223%
+                      2L2112              714976               0.223%
+                       2L032              614570               0.192%
+                       2R230              614407               0.192%
+                       3L212              527093               0.164%
+                       3R212              524785               0.164%
+                        4L22              366441               0.114%
+                       4R22               365798               0.114%
+                        2L04              363861               0.113%
+                       2R40               363174               0.113%
+Among the more rare types, we found for example the patterns 7R410 (occurs once at index
+2,194,048,230,633) and 2L011111114 (occurs twice). We found 17 different types that were
+encountered only once, 11 that were encountered just twice.
+
+Large values of Z(t). The largest value of |Z(t)| = |ζ(1/2 + it)| found until the 1013 -th
+zero was for t = 2381374874120.45508 for which we have |Z(t)| ≃ 368.085, but since no special
+treatment was made to find biggest values of |Z(t)|, bigger values probably exist and were
+missed in our computation.
+
+
+4 Zeros computations of the Zeta function at very
+large height
+The second type of computations we performed consisted in computing a large number of zeros
+at large height. This time, we did not restrict on RH verification, but we also approximated
+quite precisely all zeros in our ranges in order to get a larger collection of statistics. Our
+main goal here was to test the GUE hypothesis which conjectures a certain distribution of the
+spacing between the zeros of the zeta function. The GUE hypothesis is discussed below in
+section 4.2. As we will see, computations show a good agreement with this conjecture, and
+
+
+
+                                             25
+moreover we have observed empirically the speed of the convergence toward the conjectured
+distribution.
+     We considered a collection of heights 10n for all integer values of n between 13 and 24,
+and a set of two billion zeros was computed at each height. Our largest reached height 1024
+is larger than the height reached before by Odlyzko in unpublished result (Odlyzko computed
+50 billion zeros at height 1023 ).
+
+4.1     Approach to compute zeros at large height
+Since the abscissas considered here are very large, we made use of the Greengard-Rokhlin
+algorithm (see section 2.3.2) to compute values of the Z(t) function. As discussed in 2.3.3,
+this method is much more efficient in the large height context.
+    The approach consisted in locating first the zeros as done in the first family of computations
+(see section 3.2), and then to perform a few iterations to approximate the abscissa of each
+zero with a precision of about 10−9 . On average, we needed about 7.5 evaluations of the
+Z(t) function per zero here, while only about 1.2 evaluations were needed per zero in the RH
+verification until the 1013 -th zero.
+
+Managing precision control
+We are dealing here with very large heights (largest height computations were made around
+the 1024 -th zero), making the precision management one of the key success factors. Since
+double precision storage only was used (thus a little more than 15 decimal digits of precision),
+the error bound on a sum like
+                                     k1
+                                    X
+                                         k−1/2 cos(t log k)
+                                      k=k0
+
+would be of the form
+                                                k1
+                                                X
+                                           E=        k k−1/2
+                                                k0
+
+where for all k, k is the imprecision on the value of cos(t log k). Due to our techniques in the
+computation of t log k modulo 2π, a typical precision for k is |k | < , say with  = 10−12 .
+Without any additional information, we would only deduce that the total error E is bounded
+by
+                                  k1                k1
+                                  X                 X
+                                     |k |k−1/2 ≤     k−1/2 ∼ 2k1 .
+                                                                    1/2
+                            |E| ≤                                                            (27)
+                                 k0                      k0
+
+Around the 1024 -th zero, the value of k1 is around k1 ≃ 1.3 × 1011 , thus we would obtain
+|E| < 0.73 × 10−6 . This error bound is too large in our context, since separations of some
+zeros frequently needs a higher precision. For performance reason, we obviously did not
+want to rely on multiprecision operations, so we needed to deal with our double precision
+storage. Since in the practice, the true error E is much smaller than (27), we preferred to
+use a statistically reasonable error bound. Based on the observation that k can be seen as
+independent variables, taking any values between − and +, the typical error bound on E
+has the form                                  1/2
+                                    k1
+                                    X −1/2 2
+                           |E| ≤  (k       )     ∼ (log k1 )1/2 .                   (28)
+                                      k0
+
+Around the 10 -th zero, this gives an error of the order 5 × 10−12 instead of 0.73 × 10−6 ,
+               24
+
+which is closer to the true error bound, and which gives enough precision to separate zeros of
+Zeta. Following this observation, in our large height context, anytime we add a sum of terms
+of the form                                    X
+                                          S=       fk
+                                                     k
+each fk having an imprecision bounded by k , we expected for the error on S and error of the
+order                                              !1/2
+                                            X 2
+                                   |E| =        k
+                                                     k
+
+
+
+                                                 26
+(multiplied by a certain security factor,
+                                        P equal to 10 in our implementation) instead of the
+very pessimistic classic bound |E| ≤      k k . This kind of statistical error control was also
+used by Odlyzko in his large height computations (see [22, Section 4.6]). Thanks to this
+important error management, we have been able to control the precision with enough accuracy
+to separate zeros in our large height computations. Even if we did not use rigorous error bound
+but rather statistical one in our implementation, the computational results are thought to be
+accurate, as discussed below.
+
+Computational correctness
+Especially at very large height, controlling correctness of computational results is fundamental.
+Several ways to check the computational results were used. First, after each application of
+Odlyzko-Schönhage algorithm in a certain range, an evaluation at a certain abscissa in this
+range was compared with the classic direct use of Riemann-Siegel formula. As observed earlier,
+this check validates in some sense all the result of the multi-evaluation of f (z) (see section 2.3).
+Another check was done that consisted in re-launching all the computation in some ranges
+with different parameters (some free parameters in multi-evaluation techniques were changed)
+and by computing the difference between computed zeros (see table in section 4.3.5 below for
+more information). Finally, as observed by Odlyzko in [22] the RH verification itself is also a
+check since a slight error anywhere in the evaluation of Z(t) may lead to RH violations.
+
+4.2     The GUE hypothesis
+While many attempts to prove the RH had been made, a few amount of work has been
+devoted to the study of the distribution of zeros of the Zeta function. A major step has
+been done toward a detailed study of the distribution of zeros of the Zeta function by Hugh
+Montgomery [19], with the Montgomery pair correlation conjecture. Expressed in terms of
+the normalized spacing δn = (γn+1 − γn ) log(γn2π/(2π)) , this conjecture is that, for M → ∞
+                                                                    Z β                     2
+   1                                                                                sin πu
+     #{(n, k) : 1 ≤ n ≤ M, k ≥ 0, δn + · · · + δn+k ∈ [α, β]} ∼           1−                      du.     (29)
+   M                                                                 α                πu
+
+In other words, the density of normalized spacing between non-necessarily consecutive zeros
+is 1 − (sin(πu)/πu)2 . It was first noted by the Freeman Dyson, a quantum physicist, during a
+now-legendary short teatime exchange with Hugh Montgomery, that this is precisely the pair
+correlation function of eigenvalues of random hermitian matrices with independent normal
+distribution of its coefficients. Such random hermitian matrices are called the Gauss unitary
+ensemble (GUE). As referred by Odlyzko in [20] for example, this motivates the GUE hypoth-
+esis which is the conjecture that the distribution of the normalized spacing between zeros of
+the Zeta function is asymptotically equal to the distribution of the GUE eigenvalues. Under
+this conjecture, we might expect a stronger result than (29), that is
+                                                                          Z β                    2
+ 1                                                                                       sin πu
+   #{(n, k) : N +1 ≤ n ≤ N +M, k ≥ 0, δn +· · ·+δn+k ∈ [α, β]} ∼                1−                     du (30)
+ M                                                                         α               πu
+
+with M not too small compared to N , say M ≥ N ν for some ν > 0. Another result under
+the GUE hypothesis is about the distribution of the δn itself,
+                                                               Z β
+                1
+                  #{n : N + 1 ≤ n ≤ N + M, δn ∈ [α, β]} ∼          p(0, u) du    (31)
+               M                                                α
+
+where p(0, u) is a certain probability density function, quite complicated to obtain (see (32)
+for an expression of it). As reported by Odlyzko in [22], we have the Taylor expansion around
+zero
+                                       π 2 2 2π 4 4       π6 6
+                            p(0, u) =     u −       u +       u + ···
+                                        3        45       315
+which under the GUE hypothesis entails that the proportion of δn less than a given small
+value δ is asymptotic to (π 2 /9)δ 3 + O(δ 5 ). Thus very close pairs of zeros are rare.
+    Previous computations by Odlyzko [20, 21, 22, 23], culminating with the unpublished
+result of computations at height 1023 , were mainly dedicated to the GUE hypothesis empirical
+
+
+                                                 27
+verifications. As observed by Odlyzko using different statistics, agreement is very good. Our
+goal here is to compute some of the statistics observed by Odlyzko relative to the GUE
+hypothesis, at height at each power of ten from 1013 to 1024 . Our statistics, systematically
+observed at consecutive power-of-ten heights, are also oriented to observe empirically how the
+distribution of the spacing between zeros of the Zeta function converges to the asymptotic
+expectation.
+
+4.3     Statistics
+4.3.1    Computation information
+Computation was launched on spare time of several machines. Zeros were computed starting
+roughly from the 10n -th zero for 13 ≤ n ≤ 24. An amount of roughly 2 × 109 zeros was
+computed at each height. Physical memory requirement was less than 512 Mo, and in the
+case of large height (for height 1023 and 1024 ), an amount of 12 Go of disk space was necessary.
+    Table below gives some indications of timing and the value of R used (see section 2.3). It
+is to notice that due to the difficulty to have some long spare times on the different computers
+used, we adapt values of R that is why it is not monotonous. Due also to different capacities
+of the machines, the amount of used memory were not always identical. Timings are not
+monotonous also but at least, the table is just here to fix idea about cost. Third and fourth
+columns relates to offset index, so the value 10n should be added to have the absolute index
+of first or last zero. First and last zeros are always chosen to be Gram points proved regular
+with Turing’s method (see section 3.2).
+           Height    Total timing      offset index of   offset index of   Value of R
+                     in hours          first zero        last zero
+             1013              33.1                  1           2 × 109    16777216
+             1014              35.0                  3           2 × 109    16777216
+             1015              38.3                  0      2 × 109 − 1      8388608
+             1016              49.5                  1      2 × 109 − 1     16777216
+             1017              46.9                  0           2 × 109    16777216
+             1018              81.6                  1      2 × 109 − 1     33554432
+             1019              65.9                  0      2 × 109 + 1     33554432
+             1020              87.8                  4      2 × 109 − 1     33554432
+             1021             139.9                  0      2 × 109 − 1     33554432
+             1022             151.5                  2      2 × 109 − 1    134217728
+             1023             219.0               100       2 × 109 − 1    268435456
+             1024             326.6                  0     2 × 109 + 47    268435456
+    Additional timing information relates to the efficiency of our implementation, using Odlyzko-
+Schönhage algorithm, compared to the direct evaluation of the Zeta function using Riemann-
+Siegel formula (6). At height 1024 for example, two third of the total time was spent in the
+multi-evaluation of F (t) (see section 2.3) and a single evaluation of Zeta using the direct
+optimized evaluation of Riemann-Siegel formula (25) (we used it for verification) took 5%
+of the total time. So globally, the time needed to compute all the 2 × 109 zeros at height
+1024 in our implementation is approximately equal to 20 evaluations of Zeta using the direct
+Riemann-Siegel formula. This proves the very high efficiency of the method.
+
+4.3.2    Distribution of spacing between zeros
+Statistics were done to observe numerically the agreement of asymptotic formulas (31) and (30).
+A first step is to be able to derive an expression for the density probability function p(0, t).
+In [20], Odlyzko made use of a technique from Mehta and des Cloizeaux [17], that requires
+explicit computation of eigenvalues and eigenvectors of an integral operator on an infinite
+dimension functions space, then a complicated expression with infinite products and sums
+depending on these eigenvalues. As suggested by Odlyzko to the author, more modern and
+easier techniques are available today and Craig A. Tracy kindly transmitted those to the
+author (see [32]). The approach relies on the identity
+                                                Z πs         
+                                        d              σ(x)
+                              p(0, s) = 2 exp               dx                            (32)
+                                       ds           0    x
+
+
+                                               28
+where σ satisfies the differential equation
+
+                              (xσ 00 )2 + 4(xσ 0 − σ)(xσ 0 − σ + (σ 0 )2 ) = 0
+
+with the boundary condition σ(x) ∼ −x/π as x → 0.
+    In our statistical study to check the validity of the GUE hypothesis, we observed the
+agreement of the empirical data with formulas (31) and (30) on each interval [α, β), with
+α = i/100 and β = (i + 1)/100 for integer values of i, 0 ≤ i < 300. In figure 3, in addition to
+the curve representing the density probability function p(0, t), points were plotted at abscissa
+(i + 1/2)/100 and coordinate
+                          1
+               ci = 100     #{n : N + 1 ≤ n ≤ N + M, δn ∈ [i/100, (i + 1)/100]},
+                          M
+for height N = 1013 and number of zeros M ≃ 2 × 109 . As we can see the agreement is very
+good, whereas the graphic is done with the lowest height in our collection : human eye is
+barely able to distinguish between the points and the curve. That is why it is interesting to
+plot rather the density difference between empirical data and asymptotic conjectured behavior
+(as Odlyzko did in [23] for example). This is the object of figure 4, and this time what is
+plotted in coordinate is the difference
+                                           Z (i+1)/100
+                                 di = ci −             p(0, t) dt.
+                                                 i/100
+
+To make it readable, the graphic restricts on some family of height N even if the corresponding
+                                                         R (i+1)/100
+data were computed at all height. The values Ii = i/100              p(0, t) dt were computed from
+formula (32) with Maple. It is convenient to notice that Ii can be computed as p(0, t) in (32)
+but using one differentiation order only instead of two.
+    Even if oscillations in the empirical data appear because the sampling size of 2 × 109 zeros
+is a bit insufficient, we clearly see a structure in figure 4. First, the form of the difference at
+each height has a given form, and then, the way this difference decreases with the height can
+be observed.
+    Another interesting data is the agreement with Montgomery pair correlation conjecture (31)
+about normalized spacing between non-necessarily consecutive zeros. Here analogous graphics
+have been done, first with the distribution itself in figure 5 at height 1013 , then with difference
+of the asymptotic conjectured distribution and empirical data in figure 6. Again for readabil-
+ity in the graphic, we restricted to plot only data for a limited number of height. It is striking
+to observe here a better regularity in the form of the distribution difference, which is a sort
+of sinusoid put on a positive slope.
+
+4.3.3      Violations of Rosser rule
+The table below lists statistics obtained on violations of Rosser rule (VRR). As we should
+expect, more and more violations of Rosser rule occurs when the height increases. Special
+points are Gram points which are counted in a VRR, so equivalently, they are points that do
+not lie in a regular Gram block.
+  Height     VRR per mil-        Number     of       Number of special           Average number of
+             lion zeros          types of VRR        points                      points in VRR
+   1013               37.98                 68              282468                       3.719
+   1014               54.10                 86              418346                       3.866
+   1015               72.42                109              581126                       4.012
+   1016               93.99                140              780549                       4.152
+   1017              117.25                171              1004269                      4.283
+   1018              142.30                196              1255321                      4.411
+   1019              168.55                225              1529685                      4.538
+   1020              197.28                270              1837645                      4.657
+   1021              225.80                322              2156944                      4.776
+   1022              256.53                348              2507825                      4.888
+   1023              286.97                480              2868206                      4.997
+   1024              319.73                473              3262812                      5.102
+
+
+                                                    29
+Figure 3: Probability density of the normalized spacing δn and the GUE prediction, at height
+1013 . A number of 2 × 109 zeros have been used to compute empirical density, represented as
+small circles.
+
+
+
+
+Figure 4: Difference of the probability density of the normalized spacing δn and the GUE predic-
+tion, at different height (1014 , 1016 , 1018 , 1020 , 1022 , 1024 ). At each height, 2 × 109 zeros have
+been used to compute empirical density, and the corresponding points been joined with segment
+for convenience.
+
+
+
+
+                                                  30
+Figure 5: Probability density of the normalized spacing between non-necessarily consecutive zeros
+and the GUE prediction, at height 1013 . A number of 2 × 109 zeros have been used to compute
+empirical density, represented as small circles.
+
+
+
+
+Figure 6: Difference of the probability density of the normalized spacing between non-necessarily
+consecutive zeros and the GUE prediction, at different height (1016 , 1020 , 1024 ). At each height,
+2 × 109 zeros have been used to compute empirical density, and the corresponding points been
+joined with segment for convenience.
+
+
+
+                                                31
+4.3.4    Behavior of S(t)
+The S(t) function is defined in (2) and permits to count zeros with formula (3). It plays an
+important role in the study of the zeros of the Zeta function, because it was observed that
+special phenomenon about the zeta function on the critical line occurs when S(t) is large.
+For example, Rosser rule holds when |S(t)| < 2 in some range, thus one needs to have larger
+values of S(t) to find more rare behavior.
+   As already seen before, it is known unconditionally that
+
+                                        S(t) = O(log t).
+
+Under the RH, we have the slightly better bound
+                                                      
+                                               log t
+                                  S(t) = O               .
+                                             log log t
+
+However, it is thought that the real growth of rate of S(t) is smaller. First, it was proved that
+unconditionally, the function S(t)/(2π 2 log log t)1/2 is asymptotically normally distributed.
+So in some sense, the “average” order of S(t) is (log log t)1/2 . As for extreme values of S(t);
+Montgomery has shown that under the RH, there is an infinite number of values of t tending to
+infinity so that the order of S(t) is at least (log t/ log log t)1/2 . Montgomery also conjectured
+that this is also an upper bound for S(t). As described in section 4.3.6 with formula (33), the
+GUE suggests that S(t) might get as large as (log t)1/2 which would contradict this conjecture.
+    As explained in [22, P. 28], one might expect that the average number of changes of sign
+of S(t) per Gram interval is of order (log log t)−1/2 . This is to be compared with the last
+column of the table below, which was obtained thanks to the statistics on Gram blocks and
+violations of Rosser rule.
+    As it is confirmed in heuristic data in the table below, the rate of growth of S(t) is very
+small. Since exceptions to RH, if any, would probably occur for large values of S(t), we see
+that one should be able to reach much larger height, not reachable with today’s techniques,
+to find those.
+   Height    Minimum       Maximum       Number of      Number of      Average number of
+             of S(t)       of S(t)       zeros with     zeros with     change of sign of S(t)
+                                         S(t) < −2.3    S(t) > 2.3     per Gram interval
+     1013       -2.4979        2.4775            208            237           1.5874
+     1014       -2.5657        2.5822            481            411           1.5758
+     1015       -2.7610        2.6318            785            760           1.5652
+     1016       -2.6565        2.6094           1246          1189            1.5555
+     1017       -2.6984        2.6961           1791          1812            1.5465
+     1018       -2.8703        2.7141           2598          2743            1.5382
+     1019       -2.9165        2.7553           3487          3467            1.5304
+     1020       -2.7902        2.7916           4661          4603            1.5232
+     1021       -2.7654        2.8220           5910          5777            1.5164
+     1022       -2.8169        2.9796           7322          7359            1.5100
+     1023       -2.8178        2.7989           8825          8898            1.5040
+     1024       -2.9076        2.8799          10602         10598            1.4983
+
+4.3.5    Estimation of the zeros approximation precision
+As already discussed in section 4.1, a certain proportion of zeros were recomputed in another
+process with different parameters in the implementation and zeros computed twice were com-
+pared. Table below list the proportion of twice computed zeros per height, mean value of
+absolute value of difference and maximal difference.
+
+
+
+
+                                               32
+        Height    Proportion of zeros           Mean difference for         Max difference for ze-
+                  computed twice                zeros computed twice        ros computed twice
+         1013            4.0%                          5.90E-10                   5.87E-07
+         1014            6.0%                          6.23E-10                   1.43E-06
+         1015            6.0%                          7.81E-10                   1.08E-06
+         1016            4.5%                          5.32E-10                   7.75E-07
+         1017            8.0%                          5.85E-10                   9.22E-07
+         1018            7.5%                          6.59E-10                   1.88E-06
+         1019            11.0%                         5.15E-10                   3.07E-06
+         1020            12.5%                         3.93E-10                   7.00E-07
+         1021            31.5%                         5.64E-10                   3.54E-06
+         1022            50.0%                         1.15E-09                   2.39E-06
+         1023            50.0%                         1.34E-09                   3.11E-06
+         1024            50.0%                         2.68E-09                   6.82E-06
+
+4.3.6    Extreme gaps between zeros
+The table below lists the minimum and maximal values of normalized spacing between zeros
+δn and of δn + δn+1 , and compares this with what is expected under the GUE hypothesis (see
+section 4.2). It can be proved that p(0, t) have the following Taylor expansion around 0
+                                                π2 2   π4
+                                    p(0, u) =     u − 2 u4 + · · ·
+                                                3      45
+so in particular, for small delta
+                                                   Z δ
+                                                                        π2 3
+                             Prob(δn < δ) =              p(0, u) du ∼     δ
+                                                    0                   9
+so that the probability that the smallest δn are less than δ for M consecutive values of δn is
+about                                   M
+                                   π2 3                    π2
+                                                                
+                         1− 1−        δ     ≃ 1 − exp − δ 3 M .
+                                   9                        9
+This was the value used in the sixth column of the table. The result can be also obtained for
+the δn + δn+1
+                                                         π6 8
+                               Prob(δn + δn+1 < δ) ∼          δ ,
+                                                       32400
+from which we deduce the value of the last column.
+   Height        Mini δn    Maxi δn      Mini             Maxi           Prob min     Prob min δn +
+                                         δn + δn+1        δn + δn+1      δn in GUE    δn+1 in GUE
+
+     1013       0.0005330    4.127         0.1097           5.232           0.28           0.71
+     1014       0.0009764    4.236         0.1213           5.349           0.87           0.94
+     1015       0.0005171    4.154         0.1003           5.434           0.26           0.46
+     1016       0.0005202    4.202         0.1029           5.433           0.27           0.53
+     1017       0.0006583    4.183         0.0966           5.395           0.47           0.36
+     1018       0.0004390    4.194         0.1080           5.511           0.17           0.67
+     1019       0.0004969    4.200         0.0874           5.341           0.24           0.18
+     1020       0.0004351    4.268         0.1067           5.717           0.17           0.63
+     1021       0.0004934    4.316         0.1019           5.421           0.23           0.50
+     1022       0.0008161    4.347         0.1060           5.332           0.70           0.61
+     1023       0.0004249    4.304         0.1112           5.478           0.15           0.75
+     1024       0.0002799    4.158         0.0877           5.526           0.05           0.19
+  For very large spacing in the GUE, as reported by Odlyzko in [22], des Cloizeaux and
+Mehta [5] have proved that
+                              log p(0, t) ∼ −π 2 t2 /8          (t → ∞),
+which suggests that
+                                                          (8 log M )1/2
+                                       max        δn ∼                  .                            (33)
+                                N +1≤n≤N +M                     π
+
+                                                    33
+This would imply that S(t) would get occasionally as large as (log t)1/2 , which is in contra-
+diction with Montgomery’s conjecture about largest values of S(t), discussed in section 4.3.4.
+
+4.3.7   Moments of spacings
+The table below list statistical data about moments of the spacing δn − 1 at different height,
+that is mean value of
+                                        Mk = (δn − 1)k ,
+together with the GUE expectations.
+  Height      M2         M3          M4        M5         M6         M7       M8       M9
+   1013     0.17608    0.03512     0.09608   0.05933    0.10107    0.1095   0.1719   0.2471
+   1014     0.17657    0.03540     0.09663   0.05990    0.10199    0.1108   0.1741   0.2510
+   1015     0.17697    0.03565     0.09710   0.06040    0.10277    0.1119   0.1759   0.2539
+   1016     0.17732    0.03586     0.09750   0.06084    0.10347    0.1129   0.1776   0.2567
+   1017     0.17760    0.03605     0.09785   0.06123    0.10407    0.1137   0.1789   0.2590
+   1018     0.17784    0.03621     0.09816   0.06157    0.10462    0.1145   0.1803   0.2613
+   1019     0.17805    0.03636     0.09843   0.06189    0.10511    0.1152   0.1814   0.2631
+   1020     0.17824    0.03649     0.09867   0.06215    0.10553    0.1158   0.1824   0.2649
+   1021     0.17839    0.03661     0.09888   0.06242    0.10595    0.1165   0.1836   0.2668
+   1022     0.17853    0.03671     0.09906   0.06262    0.10627    0.1169   0.1842   0.2678
+   1023     0.17864    0.03680     0.09922   0.06282    0.10658    0.1174   0.1850   0.2692
+   1024     0.17875    0.03688     0.09937   0.06301    0.10689    0.1179   0.1859   0.2708
+  GUE       0.17999    0.03796     0.10130   0.06552    0.11096    0.1243   0.1969   0.2902
+    In the next table we find statistical data about moments of the spacing δn + δn+1 − 2 at
+different height, that is mean value of
+                                    Nk = (δn + δn+1 − 2)k ,
+together with the GUE expectations.
+   Height      N2         N3         N4        N5          N6        N7       N8       N9
+    1013     0.23717   0.02671     0.16887   0.06252     0.2073    0.1530   0.3764   0.4304
+    1014     0.23846   0.02678     0.17045   0.06301     0.2099    0.1550   0.3827   0.4388
+    1015     0.23956   0.02688     0.17181   0.06349     0.2122    0.1568   0.3880   0.4458
+    1016     0.24050   0.02700     0.17299   0.06396     0.2142    0.1585   0.3927   0.4523
+    1017     0.24132   0.02713     0.17404   0.06446     0.2159    0.1601   0.3970   0.4583
+    1018     0.24202   0.02726     0.17494   0.06488     0.2175    0.1614   0.4005   0.4630
+    1019     0.24264   0.02740     0.17574   0.06530     0.2188    0.1627   0.4036   0.4672
+    1020     0.24319   0.02753     0.17645   0.06569     0.2201    0.1639   0.4065   0.4713
+    1021     0.24366   0.02766     0.17709   0.06609     0.2212    0.1651   0.4092   0.4753
+    1022     0.24409   0.02778     0.17765   0.06643     0.2222    0.1660   0.4114   0.4780
+    1023     0.24447   0.02790     0.17819   0.06679     0.2232    0.1671   0.4140   0.4821
+    1024     0.24480   0.02801     0.17863   0.06709     0.2240    0.1679   0.4158   0.4846
+   GUE        0.249      0.03       0.185     0.073      0.237     0.185    0.451    0.544
+   The last table below is about mean value of log δn , 1/δn and 1/δn2 .
+                          Height       log δn        1/δn       1/δn2
+                           1013      -0.101540     1.27050    2.52688
+                           1014      -0.101798     1.27124    2.53173
+                           1015      -0.102009     1.27184    2.54068
+                           1016      -0.102188     1.27235    2.54068
+                           1017      -0.102329     1.27272    2.54049
+                           1018      -0.102453     1.27308    2.54540
+                           1019      -0.102558     1.27338    2.54906
+                           1020      -0.102650     1.27363    2.54996
+                           1021      -0.102721     1.27382    2.54990
+                           1022      -0.102789     1.27401    2.54783
+                           1023      -0.102843     1.27415    2.55166
+                           1024      -0.102891     1.27427    2.55728
+                          GUE         -0.1035      1.2758     2.5633
+
+
+                                              34
+5     Acknowledgments
+The author specially thanks Patrick Demichel who managed the distribution of the computa-
+tion on several computers in order to make the RH verification on the first 1013 zeros possible.
+The author also thanks Andrew Odlyzko who provided some informations on the previous
+computations from his side, and Craig A. Tracy for the very precise and valuable informations
+about modern techniques to evaluate the p(0, t) function.
+
+
+References
+ [1] R. J. Backlund. Uber die nullstellen der Riemannschen zetafunktion. Dissertation, 1916.
+     Helsingfors.
+ [2] David H. Bailey. Ffts in external or hierarchical memory. Journal of Supercomputing,
+     4(1):23–25, 1990.
+ [3] R. P. Brent. The first 40,000,000 zeros of ζ(s) lie on the critical line. Notices of the
+     American Mathematical Society, (24), 1977.
+ [4] R. P. Brent. On the zeros of the Riemann zeta function in the critical strip. Mathematics
+     of Computation, (33):1361–1372, 1979.
+ [5] J. des Cloizeaux and M. L. Mehta. Asymptotic behavior of spacing distributions for the
+     eigenvalues of random matrices. J. Math. Phys., 14:1648–1650, 1973.
+ [6] P. Dusart. Autour de la fonction qui compte les nombres premiers. PhD thesis, Universit
+     de Limoges, 1998.
+ [7] H. M. Edwards. Riemann’s Zeta Function. Academic Press, 1974.
+ [8] J. P. Gram. Note sur les zéros de la fonction de Riemann. Acta Mathematica, (27):289–
+     304, 1903.
+ [9] L. Greengard and V. Rokhlin. A fast algorithm for particle simulations. J. of Computa-
+     tional Phys., 73:325–348, 1987.
+[10] J. I. Hutchinson. On the roots of the Riemann zeta function. Transactions of the
+     American Mathematical Society, 27(49-60), 1925.
+[11] D. Bradley J. Borwein and R. Crandall.            Computational strategies for
+     the Riemann zeta function.       available from the CECM preprint server,
+     URL=http://www.cecm.sfu.ca/preprints/1999pp.html, CECM-98-118, 1999.
+[12] H. J. J. te Riele J. van de Lune. On the zeros of the Riemann zeta function in the critical
+     strip. iii. Mathematics of Computation, 41(164):759–767, October 1983.
+[13] H. J. J. te Riele J. van de Lune and D. T. Winter. On the zeros of the Riemann zeta
+     function in the critical strip. iv. Math. Comp., 46(174):667–681, April 1986.
+[14] R. S. Leghman. Separation of zeros of the Riemann zeta-function. Mathematics of
+     Computation, (20):523–541, 1966.
+[15] D. H. Lehmer. Extended computation of the Riemann zeta-function. Mathematika,
+     3:102–108, 1956.
+[16] D. H. Lehmer. On the roots of the Riemann zeta-function. Acta Mathematica, (95):291–
+     298, 1956.
+[17] M. L. Mehta and J. des Cloizeaux. The probabilities for several consecutive eigenvalues
+     of a random matrix. Indian J. Pure Appl. Math., 3:329–351, 1972.
+[18] N. A. Meller. Computations connected with the check of Riemanns hypothesis. Doklady
+     Akademii Nauk SSSR, (123):246–248, 1958.
+[19] H. L. Montgomery. The pair correlation of zeroes of the zeta function. In Analytic
+     Number Theory, volume 24 of Proceedings of Symposia in Pure Mathematics, pages 181–
+     193. AMS, 1973.
+[20] A. M. Odlyzko. On the distribution of spacings between zeros of the zeta function.
+     Mathematics of Computation, 48:273–308, 1987.
+
+
+                                              35
+[21] A. M. Odlyzko. The 1021 -st zero of the Riemann zeta function. note for the informal
+     proceedings of the Sept. 1998 conference on the zeta function at the Edwin Schroedinger
+     Institute in Vienna., Nov. 1988.
+[22] A. M. Odlyzko.            The 1020 -th zero of the Riemann                  zeta func-
+     tion   and   175   million   of  its  neighbors.         Available          at  URL=
+     http://www.dtc.umn.edu/˜odlyzko/unpublished/index.html, 1992.
+[23] A. M. Odlyzko. The 1022 -th zero of the Riemann zeta function. In M. van Frankenhuysen
+     and M. L. Lapidus, editors, Dynamical, Spectral, and Arithmetic Zeta Functions, number
+     290 in Contemporary Math. series, pages 139–144. Amer. Math. Soc., 2001.
+[24] A. M. Odlyzko and A. Schönhage. Fast algorithms for multiple evaluations of the Rie-
+     mann zeta-function. Trans. Amer. Math. Soc., (309), 1988.
+[25] O. Ramaré and Y. Saouter. Short effective intervals containing primes. Journal of
+     Number Theory, 98:10–33, 2003.
+[26] J. B. Rosser. Explicit bounds for some functions of prime numbers. Amer. J. Math.,
+     63:211–232, 1941.
+[27] J. B. Rosser and L. Schoenfeld. Sharper bounds for the Chebyshev functions θ(x) and
+     ψ(x). Math. Comput., 29:243–269, 1975.
+[28] J. B. Rosser, J. M. Yohe, and L. Schoenfeld. Rigorous computation and the zeros of the
+     Riemann zeta-function. In Information Processing, number 68 in Proceedings of IFIP
+     Congress, pages 70–76. NH, 1968.
+[29] L. Schoenfeld. Sharper bounds for the Chebyshev functions θ(x) and ψ(x). II. Math.
+     Comput., 30(134):337–360, 1976. Corrigenda in Math. Comp. 30 (1976), 900.
+[30] E. C. Titchmarsh. The zeros of the Riemann zeta-function. In Proceedings of the Royal
+     Society of London, volume 151, pages 234–255, 1935.
+[31] E. C. Titchmarsh. The theory of the Riemann Zeta-function. Oxford Science publications,
+     second edition, 1986. revised by D. R. Heath-Brown.
+[32] C. A. Tracy and H. Widom. Introduction to random matrices. In G. F. Helminck, editor,
+     Geometric and Quantum aspects of integrale systems, volume 424 of Lecture Notes in
+     physics, pages 103–130, Berlin, Heidelberg, 1993. Springer.
+[33] A. M. Turing. Some calculations of the Riemann zeta-function. In Proceedings of the
+     Royal Society of London, number 3, pages 99–117, 1953.
+[34] R. P. Brent J. van de Lune H. J. J. te Riele and D. T. Winter. On the zeros of the
+     Riemann zeta function in the critical strip. ii. Mathematics of Computation, 39(160):681–
+     688, October 1982.
+[35] S. Wedeniwski. Zetagrid - computational verification of the Riemann hypothesis. In
+     Conference in Number Theory in Honour of Professor H.C. Williams, Alberta, Canda,
+     May 2003.
+[36] Eric W. Weisstein. Riemann-siegel functions. available from the MathWorld site at
+     URL=http://mathworld.wolfram.com/Riemann-SiegelFunctions.html.
+
+
+A      Appendix : Graphics of Z(t) in particular zones
+The following figures show the function Z(t) in some particular zones. Vertical doted lines
+correspond to Gram points.
+
+
+
+
+                                             36
+Figure 7: The function Z(t) around the first Gram interval that contains 5 roots. The point G is
+the Gram point of index 3, 680, 295, 786, 520.
+
+
+
+
+Figure 8: A zoom of previous figure focused on the Gram interval that contains 5 roots. The point
+G is the Gram point of index 3, 680, 295, 786, 520.
+
+
+
+
+Figure 9: The function Z(t) around its maximal value encountered on the 1013 zero, at Gram
+point of index 9, 725, 646, 131, 432.
+
+
+
+
+                                               37
+
