@@ -1,0 +1,73 @@
+a_K closed form (1/pi)[Re psi(1/2+is/2) - log pi] + log|D|/2pi vs quadrature of mu_0*A_K at s in {0,0.3,1.54,3,10,40}, D=-20: max diff 1.78e-15
+D1 = 16 pi^2 e^{2 gamma} = 500.936739 ; D0 = 64 pi^2 e^{2 gamma} = 2003.746956 ; a_K(0; D1) = 1.11e-16
+Lemma A degree 2 (duplication form), a=0.8 x=0.0: quad -1.0184036370 closed -1.0184036370 diff 7.1e-15
+Lemma A degree 2 (duplication form), a=0.8 x=5.0: quad 2.5610257616 closed 2.5610257617 diff -1.3e-11
+Lemma A degree 2 (duplication form), a=1.3 x=28.0: quad 5.9864348225 closed 5.9864348225 diff -3.6e-15
+Part A (dlVP, D = -20): continuous max over eta of single margin [share - B_K] and double margin [2 share - B_K]
+  t=  0 delta=0.100 single    +0.3615 (eta 0.5460) FIRES ; double   +52.5149 (eta 0.2060) FIRES
+  t=  0 delta=0.050 single    +2.4683 (eta 0.4360) FIRES ; double   +82.3866 (eta 0.1145) FIRES
+  t=  0 delta=0.020 single    +5.0335 (eta 0.3185) FIRES ; double  +166.5725 (eta 0.0478) FIRES
+  t=  0 delta=0.010 single    +6.7211 (eta 0.2500) FIRES ; double  +304.5000 (eta 0.0241) FIRES
+  t=  0 delta=0.001 single   +10.6959 (eta 0.1118) FIRES ; double +2775.7715 (eta 0.0024) FIRES
+  t=  1 delta=0.100 single    -0.2282 (eta 0.4161) silent ; double   +27.5649 (eta 0.2083) FIRES
+  t=  1 delta=0.050 single    +0.7692 (eta 0.3467) FIRES ; double   +37.8160 (eta 0.1159) FIRES
+  t=  1 delta=0.020 single    +2.0147 (eta 0.2628) FIRES ; double   +68.6316 (eta 0.0479) FIRES
+  t=  1 delta=0.010 single    +2.8464 (eta 0.2101) FIRES ; double  +120.0806 (eta 0.0241) FIRES
+  t=  1 delta=0.001 single    +4.8068 (eta 0.0972) FIRES ; double +1046.5561 (eta 0.0024) FIRES
+  t=  5 delta=0.100 single   -14.1061 (eta 0.5327) silent ; double    +6.0097 (eta 0.2068) FIRES
+  t=  5 delta=0.050 single   -13.2842 (eta 0.4275) silent ; double   +17.1692 (eta 0.1147) FIRES
+  t=  5 delta=0.020 single   -12.2905 (eta 0.3137) silent ; double   +48.7069 (eta 0.0478) FIRES
+  t=  5 delta=0.010 single   -11.6405 (eta 0.2468) silent ; double  +100.4180 (eta 0.0241) FIRES
+  t=  5 delta=0.001 single   -10.1190 (eta 0.1108) silent ; double +1027.1340 (eta 0.0024) FIRES
+  t= 28 delta=0.100 single   -31.1781 (eta 0.5456) silent ; double   -11.6021 (eta 0.2060) silent
+  t= 28 delta=0.050 single   -30.3869 (eta 0.4357) silent ; double    -0.4016 (eta 0.1145) silent
+  t= 28 delta=0.020 single   -29.4238 (eta 0.3184) silent ; double   +31.1671 (eta 0.0478) FIRES
+  t= 28 delta=0.010 single   -28.7904 (eta 0.2498) silent ; double   +82.8896 (eta 0.0241) FIRES
+  t= 28 delta=0.001 single   -27.2988 (eta 0.1117) silent ; double +1009.6161 (eta 0.0024) FIRES
+positive control dlVP t=0, |D| = 501: sup over delta in [1e-6, 0.5], eta of single margin = -11.5105
+positive control dlVP t=0, |D| = 2005: sup over delta in [1e-6, 0.5], eta of single margin = -22.6049
+positive control dlVP t=0, |D| = 1e+06: sup over delta in [1e-6, 0.5], eta of single margin = -72.3018
+positive control dlVP t=0, |D| = 1e+12: sup over delta in [1e-6, 0.5], eta of single margin = -182.8258
+dlVP-Poisson double real zero excluded for delta < 0.266372 at |D| = 1000 ; delta_max log|D| = 1.8400
+dlVP-Poisson double real zero excluded for delta < 0.109642 at |D| = 10000 ; delta_max log|D| = 1.0098
+dlVP-Poisson double real zero excluded for delta < 0.046621 at |D| = 1e+06 ; delta_max log|D| = 0.6441
+dlVP-Poisson double real zero excluded for delta < 0.020957 at |D| = 1e+10 ; delta_max log|D| = 0.4826
+dlVP-Poisson double real zero excluded for delta < 0.008732 at |D| = 1e+20 ; delta_max log|D| = 0.4021
+dlVP-Poisson double real zero excluded for delta < 0.004022 at |D| = 1e+40 ; delta_max log|D| = 0.3705
+dlVP-Poisson double real zero excluded for delta < 0.001934 at |D| = 1e+80 ; delta_max log|D| = 0.3563
+  asymptote 6 - 4 sqrt2 = 0.343146
+Poisson closed-form checks a=0.3: arch1 quad -5.0301586935 closed -5.0301586935 ; share(delta=0.1) xi-quad 10.3717612328 u-space 2 int w k_y 10.3717612328
+Poisson closed-form checks a=0.6: arch1 quad -4.2194769051 closed -4.2194769051 ; share(delta=0.1) xi-quad 5.9484152351 u-space 2 int w k_y 5.9484152351
+closing conductor for ONE real zero, best element of each family (|D|* = exp of the largest log|D| at which a certificate exists):
+  delta=0.1     gauss |D|*=   111.06 (sigma 0.6793) ; poisson     33.33 (a 0.6335) ; fejer     78.12 (T 1.8253)
+  delta=0.05    gauss |D|*=   148.16 (sigma 0.5561) ; poisson     47.87 (a 0.5028) ; fejer    106.07 (T 1.5245)
+  delta=0.01    gauss |D|*=   256.35 (sigma 0.3465) ; poisson    103.61 (a 0.2838) ; fejer    198.02 (T 0.9944)
+  delta=0.001   gauss |D|*=   393.14 (sigma 0.1827) ; poisson    223.50 (a 0.1249) ; fejer    343.07 (T 0.5560)
+  delta=0.0001  gauss |D|*=   462.30 (sigma 0.1001) ; poisson    338.97 (a 0.0562) ; fejer    435.76 (T 0.3204)
+  delta=1e-06   gauss |D|*=   496.85 (sigma 0.0313) ; poisson    459.49 (a 0.0118) ; fejer    492.61 (T 0.1086)
+  (the sup over the whole cone tends to D1 = 500.937 as delta -> 0 by the argument of check-O item 2)
+pole cap: max over families (12 params each) and delta in {0.1,0.01,0.001} of share/(2 what(0)) = 0.999980
+double real zero, delta_max * log|D| by family (best parameter):
+  |D| = 1000: gauss 3.4539 ; pure poisson 3.4539
+  |D| = 1e+06: gauss 2.1881 ; pure poisson 1.2339
+  |D| = 1e+10: gauss 1.4347 ; pure poisson 0.9398
+  |D| = 1e+20: gauss 1.1694 ; pure poisson 0.7936
+  |D| = 1e+40: gauss 1.0780 ; pure poisson 0.7360
+  |D| = 1e+80: gauss 1.0389 ; pure poisson 0.7103
+  |D| = 1e+160: gauss 1.0208 ; pure poisson 0.6981
+  Cauchy-limit asymptotes (check-O item 3): gauss pi/4 = 0.7854 ; pure poisson 1/2
+section 3 spot check |D|=1e+06 t=1000 delta0=0.001: delta_max log(|D|(2+t)) = 0.6935
+section 3 spot check |D|=1e+06 t=28 delta0=1e-06: delta_max log(|D|(2+t)) = 1.2743
+section 3 spot check |D|=20 t=10000 delta0=0.01: delta_max log(|D|(2+t)) = 0.4254
+section 3 spot check |D|=20 t=28 delta0=None: delta_max log(|D|(2+t)) = 0.0380
+section 3 second real zero |D|=1e+06 delta0=0.1: delta1_max = 0.01589 ; delta1_max log|D| = 0.2195
+section 3 second real zero |D|=1e+06 delta0=1e-06: delta1_max = 0.31950 ; delta1_max log|D| = 4.4141
+section 3 second real zero |D|=1e+12 delta0=1e-06: delta1_max = 0.09307 ; delta1_max log|D| = 2.5715
+  saturation root 16/d + 16/(1-d) = 8 log|D| - 38.6415 at |D|=1e+06: 0.33443
+  saturation root 16/d + 16/(1-d) = 8 log|D| - 38.6415 at |D|=1e+12: 0.09716
+(D_{0,y}) delta=0.10: 2 mu_y(0) = 6.4721 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 1.103]
+(D_{0,y}) delta=0.05: 2 mu_y(0) = 12.7849 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 0.995]
+(D_{0,y}) delta=0.02: 2 mu_y(0) = 31.8519 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 0.850]
+(D_{0,y}) delta=0.01: 2 mu_y(0) = 63.6725 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 0.741]
+(D_{0,y}) delta=0.50: 2 mu_y(0) = 2.0000 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 1.289]
+done in 12.1s
