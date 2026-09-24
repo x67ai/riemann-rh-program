@@ -1,0 +1,86 @@
+# yaml-validation.log — 2026-09-24 19:53:16 IST; results/d1-m2a/dr8/validate_yaml_sigma_strong.py on lean/formalization.yaml after the Unit A additions (attempt 1)
+PyYAML 6.0.3, jsonschema 4.25.1
+on-disk formalization.schema.dispatcher.json     sha256 22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3
+   upstream: IDENTICAL to the on-disk copy
+on-disk v0.3.schema.json                         sha256 93247a8093ea0bb622650e8f387bcc95c4e4c7941408974d6779341844262b27
+   upstream: IDENTICAL to the on-disk copy
+on-disk v0.4.schema.json                         sha256 25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce
+   upstream: IDENTICAL to the on-disk copy
+
+VALIDATION errors: 0
+top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
+main_results: 24   alignment.statements: 25   fidelity.divergences: 19895 chars
+
+Lean names referenced in status.main_results + alignment.statements: 70
+   Zeta23.DBN.AsymEnclOK                                    comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
+   Zeta23.DBN.BarrierEnclOK                                 comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.Bt_ne_zero                                    Zeta23/DBN/BtFacts.lean
+   Zeta23.DBN.HtEntire                                      comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.Instance02.lambda_le_point2                   Zeta23/DBN/Instance02.lean
+   Zeta23.DBN.Instance02.lambda_le_point2_arb               Zeta23/DBN/Instance02.lean
+   Zeta23.DBN.Polymath15Bridge'                             comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.TailOK                                        comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Asym.lean
+   Zeta23.DBN.ZeroVerification                              comparator/ChallengeDeps/DBN.lean, Zeta23/DBN/Defs.lean
+   Zeta23.DBN.cert_of_checkAsym                             Zeta23/DBN/Asym.lean
+   Zeta23.DBN.cert_of_checkBarrier                          Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.cert_of_checkBarrier_xy                       Zeta23/DBN/BarrierCert.lean
+   Zeta23.DBN.differentiableOn_Ht_div_Bt                    Zeta23/DBN/BtFacts.lean
+   Zeta23.DBN.row2_windowIdx_ge                             Zeta23/DBN/Asym.lean
+   Zeta23.DBN.windowIdx_mono                                Zeta23/DBN/Asym.lean
+   Zeta23.PairCeiling.GridCorner.grid_corner_attained       Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.grid_corner_law            Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.grid_corner_pointwise      Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridCorner.mark_one_count_ge          Zeta23/PairCeiling/GridCorner.lean
+   Zeta23.PairCeiling.GridParseval.flat_band_trace_sq       Zeta23/PairCeiling/GridParseval.lean
+   Zeta23.PairCeiling.GridParseval.trace_sq_grid            Zeta23/PairCeiling/GridParseval.lean
+   Zeta23.Separation.Braw_eq_mul                            Zeta23/Separation/LemmaG1.lean
+   Zeta23.Separation.W_decomp                               Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.abs_iteratedDeriv_Braw_le              Zeta23/Separation/LemmaG1.lean
+   Zeta23.Separation.absorb                                 Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.absorb_b                               Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.clause6_assembly                       Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.clause6_assembly_b                     Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.clause7_tight_pair                     Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.edge_sq_ge                             Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.four_le_b1sym                          Zeta23/Separation/B1Sym.lean
+   Zeta23.Separation.hb1sym                                 Zeta23/Separation/B1Sym.lean
+   Zeta23.Separation.inWindowNoise_le                       Zeta23/Separation/Clause4.lean
+   Zeta23.Separation.inWindowNoise_le_b                     Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.integral_norm_deriv_Bc                 Zeta23/Separation/B1Sym.lean
+   Zeta23.Separation.norm_paperFT_Bc_le                     Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.norm_paperFT_Bc_ofReal_le              Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.norm_paperFT_Bc_ofReal_le'             Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.norm_wsum_reflected                    Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.one_div_eighteen_le_Z                  Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.paperFT_ftest                          Zeta23/Separation/Clause4.lean
+   Zeta23.Separation.paperFT_iteratedDeriv                  Zeta23/Separation/LemmaG.lean
+   Zeta23.Separation.re_tsum_offline_le                     Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.rstar_exp                              Zeta23/Separation/Assembly.lean
+   Zeta23.Separation.rstar_of_21L                           comparator/Solution/Separation6b.lean, comparator/Challenge/Separation6b.lean, Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.shell_sum_le                           Zeta23/Separation/Clause4.lean
+   Zeta23.Separation.wsum_double_minus                      Zeta23/Separation/Assembly2.lean
+   Zeta23.Separation.wsum_double_plus                       Zeta23/Separation/Assembly2.lean
+   Zeta23.W1.arbDH_zero                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.arbDH_zero'                                    Zeta23/W1/FDH.lean
+   Zeta23.W1.arbNullDeepT100_exclusion                      Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT10000_exclusion                        Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT1000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT100_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.cert_of_checkW1_ap                             Zeta23/W1/ArgPrincipleBridge.lean
+   Zeta23.W1.cert_of_checkW1_fDH                            Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_fDH'                           Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn                      Zeta23/W1/Soundness.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn'                     Zeta23/W1/Soundness.lean
+   Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn            Zeta23/W1/Soundness.lean
+   Zeta23.W1.differentiable_fDH                             Zeta23/W1/FDH.lean
+   Zeta23.W1.fDH                                            Zeta23/W1/FDH.lean
+   Zeta23.W1.kappaDH                                        Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero                                      Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero'                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.mpNullDeepT100_exclusion                       Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT10000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT1000_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT100_exclusion                           Zeta23/W1/Ledger.lean
+   Zeta23.W1.rectArgPrinciple_of_local                      Zeta23/W1/ArgPrincipleBridge.lean
+
+RESULT: PASS — errors: 0, undeclared names: 0
