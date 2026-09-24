@@ -92,7 +92,9 @@ for p in (3, 5, 7):
                 a2 = num // 2
                 key = (p, a1, a2)
                 if key not in classes:
-                    classes[key] = dict(p=p, a1=a1, a2=a2, N1=N1, N2=N2, deg=d, lead=lead, f=f)
+                    classes[key] = dict(p=p, a1=a1, a2=a2, N1=N1, N2=N2, deg=d, lead=lead, f=f, degs=[])
+                if d not in classes[key]['degs']:
+                    classes[key]['degs'].append(d)
                 if lead == 1:
                     monic_only.add(key)
     per_p[p] = cnt
@@ -112,6 +114,8 @@ for key in sorted(classes):
     out.append(c)
 print(f"distinct (p,a1,a2) classes (deg 5 monic + deg 6 lead in {{1, nonresidue}}): {len(out)}")
 print(f"  of which reachable with lead = 1 only (the template's monic family): {len(monic_only)}")
+print(f"  counted as (p, deg, a1, a2) with deg 5 and deg 6 separately (the template log's key): {sum(len(c['degs']) for c in classes.values())}")
+print(f"  same, restricted to lead = 1: {sum(len(c['degs']) for k, c in classes.items() if k in monic_only)}  [NB: a deg-6 nonresidue-lead class that also occurs at deg 5 or monic deg 6 is counted in the monic family]")
 print(f"all classes satisfy Weil RH (|root| = q^-1/2 to 1e-6): {all_rh}")
 print("a1 = 0 classes:", sum(1 for c in out if c['a1'] == 0), " (monic family:", sum(1 for k in monic_only if k[1] == 0), ")")
 def signed_both(c):
