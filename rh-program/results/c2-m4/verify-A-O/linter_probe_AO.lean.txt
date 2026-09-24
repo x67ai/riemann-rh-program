@@ -1,0 +1,59 @@
+import Solution.Separation6b
+/-! CHECK-O-A item (v): the two tight-pair theorems re-elaborated WITHOUT the linter option, to list what it hides. -/
+/-- **Theorem M2, clause 7 — the tight pair** (separation note §7.2, with check-O §12.3's accounting): the hypotheses of
+`separation_clause6_assembly_b` with Z′ carrying the on-line double at ±t — the points 1/2 + it and 1/2 − it in Z′ with
+multiplicity 2 — and the same conclusion: the pair (Z: the defect's orbit; Z′: the double on the line) is separated at
+the same bandwidth.  The double's own accounting (0 at +t, 2·(2t)²‖B̂(−2tL)‖² at −t) is a solution-side lemma. -/
+theorem probe_tight_pair_linter_on (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+    (hL1 : 25 / δ ≤ L)
+    (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+    (hRstar : Separation.Rstar t δ L)
+    (Z Z' : Separation.SepConfig C₁)
+    (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+    (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+    (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+    (hZ'plus : (⟨1 / 2, t⟩ : ℂ) ∈ Z'.carrier) (hZ'minus : (⟨1 / 2, -t⟩ : ℂ) ∈ Z'.carrier)
+    (hZ'plus2 : Z'.mult ⟨1 / 2, t⟩ = 2) (hZ'minus2 : Z'.mult ⟨1 / 2, -t⟩ = 2)
+    (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+    (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+    δ ^ 2 * Real.exp (δ * L / 2)
+        ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+      1 ≤ δ ^ 2 * Real.exp (δ * L / 2) :=
+  Zeta23.Separation.clause7_tight_pair hC ht hδ0 hδ hL1 hL2 hRstar
+    Z.carrier Z.mult Z.finite_window Z.localCount Z'.carrier Z'.mult Z'.finite_window Z'.localCount
+    hZorb hZmult hZ hZ' hZ'plus hZ'minus hZ'plus2 hZ'minus2 hB3 hedge houtZ houtZ'
+
+
+namespace Zeta23.Separation
+/-- **Theorem M2, clause 7 (the tight pair)**, library form: the assembly's hypotheses with Z′ carrying the on-line
+double at ±t (multiplicity 2 at ⟨1/2, t⟩ and at ⟨1/2, −t⟩); the same conclusion — `clause6_assembly_b` applied, since
+Z′ is already arbitrary on-line inside the window (note §7.2: "nothing else changes"); the double's accounting is
+`wsum_double_plus` (0 at +t) and `wsum_double_minus` (2·(2t)²‖B̂(−2tL)‖² at −t). -/
+theorem probe_lib_tight_pair_linter_on {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+    (hL1 : 25 / δ ≤ L)
+    (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * b1sym * C₁)) ≤ L)
+    (hRstar : Rstar t δ L)
+    (carrier : Set ℂ) (mult : ℂ → ℕ)
+    (hfin : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite)
+    (hcount : ∀ x : ℝ, ((∑ᶠ ρ ∈ carrier ∩ {ρ | |ρ.im - x| ≤ 1}, mult ρ : ℕ) : ℝ) ≤ C₁ * Real.log (3 + |x|))
+    (carrier' : Set ℂ) (mult' : ℂ → ℕ)
+    (hfin' : ∀ T₁ T₂ : ℝ, (carrier' ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite)
+    (hcount' : ∀ x : ℝ, ((∑ᶠ ρ ∈ carrier' ∩ {ρ | |ρ.im - x| ≤ 1}, mult' ρ : ℕ) : ℝ) ≤ C₁ * Real.log (3 + |x|))
+    (hZorb : orbit t δ ⊆ carrier) (hZmult : ∀ ρ ∈ orbit t δ, mult ρ = 1)
+    (hZ : ∀ ρ ∈ carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ orbit t δ → ρ.re = 1 / 2)
+    (hZ' : ∀ ρ ∈ carrier', |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+    (hZ'plus : (⟨1 / 2, t⟩ : ℂ) ∈ carrier') (hZ'minus : (⟨1 / 2, -t⟩ : ℂ) ∈ carrier')
+    (hZ'plus2 : mult' ⟨1 / 2, t⟩ = 2) (hZ'minus2 : mult' ⟨1 / 2, -t⟩ = 2)
+    (hB3 : HB3) (hedge : Hedge)
+    (houtZ : Summable (fun ρ : ↥(carrier ∩ {ρ | 73 * L < |ρ.im - t|}) => ‖wsum mult (ftest t L) ρ‖) ∧
+      ‖∑' ρ : ↥(carrier ∩ {ρ | 73 * L < |ρ.im - t|}), wsum mult (ftest t L) ρ‖ ≤ Real.exp (-L))
+    (houtZ' : Summable (fun ρ : ↥(carrier' ∩ {ρ | 73 * L < |ρ.im - t|}) => ‖wsum mult' (ftest t L) ρ‖) ∧
+      ‖∑' ρ : ↥(carrier' ∩ {ρ | 73 * L < |ρ.im - t|}), wsum mult' (ftest t L) ρ‖ ≤ Real.exp (-L)) :
+    δ ^ 2 * Real.exp (δ * L / 2)
+        ≤ ‖(∑' ρ : carrier, wsum mult (ftest t L) ρ) - ∑' ρ : carrier', wsum mult' (ftest t L) ρ‖ ∧
+      1 ≤ δ ^ 2 * Real.exp (δ * L / 2) :=
+  clause6_assembly_b hC ht hδ0 hδ hL1 hL2 hRstar carrier mult hfin hcount carrier' mult' hfin' hcount'
+    hZorb hZmult hZ hZ' hB3 hedge houtZ houtZ'
+
+
+end Zeta23.Separation

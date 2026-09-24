@@ -1,0 +1,22 @@
+Zeta23/Separation/B1Sym.lean:41:def b1sym : ℝ := (2 * Real.exp (-1) / Z) ^ 2
+Zeta23/Separation/Assembly2.lean:34:H-edge, H-B‴ and H-out, on the three standard axioms, replayed by nanoda — with b₁ = ‖B′‖₁² proved, clause 7 folded, and
+Zeta23/Separation/Assembly2.lean:294:set_option linter.unusedVariables false in
+comparator/ChallengeDeps/Separation6b.lean:38:def b1sym : ℝ := (2 * Real.exp (-1) / Z) ^ 2
+comparator/Challenge/SeparationClause4b.lean:17:Zeta23/Separation/Assembly2.lean; github.com/leanprover/comparator checks statement equality, that only the axioms
+comparator/Solution/SeparationClause4b.lean:19:theorem below has exactly the statement of its Challenge namesake and uses only the permitted axioms.
+comparator/Challenge/Separation6b.lean:19:github.com/leanprover/comparator checks statement equality, that only the axioms propext, Classical.choice, Quot.sound
+comparator/Challenge/Separation6b.lean:36:    (Assembly2.lean §4), on the standard axioms, not part of this statement.
+comparator/Challenge/Separation6b.lean:41:H-edge, H-B‴ and H-out, on the three standard axioms, replayed by nanoda — with b₁ = ‖B′‖₁² proved, clause 7 folded, and
+comparator/Challenge/Separation6b.lean:72:set_option linter.unusedVariables false in
+comparator/Solution/Separation6b.lean:21:permitted axioms.
+comparator/Solution/Separation6b.lean:50:set_option linter.unusedVariables false in
+comparator/PrintAxioms/SeparationClause4b.lean:12:comparator/PrintAxioms/SeparationClause4b.lean — quick axiom audit of the SeparationClause4b topic WITHOUT the comparator
+comparator/PrintAxioms/SeparationClause4b.lean:15:The line must print exactly 'separation_clause4_in_window_noise_b' depends on axioms: [propext, Classical.choice,
+comparator/PrintAxioms/SeparationClause4b.lean:16:Quot.sound].  No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run
+comparator/PrintAxioms/SeparationClause4b.lean:22:#print axioms separation_clause4_in_window_noise_b
+comparator/PrintAxioms/Separation6b.lean:12:comparator/PrintAxioms/Separation6b.lean — quick axiom audit of the Separation6b topic WITHOUT the comparator tool:
+comparator/PrintAxioms/Separation6b.lean:14:The three lines must each print 'depends on axioms: [propext, Classical.choice, Quot.sound]'.  No sorryAx, no
+comparator/PrintAxioms/Separation6b.lean:15:Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-separation6b.json) is the stronger
+comparator/PrintAxioms/Separation6b.lean:20:#print axioms separation_clause6_assembly_b
+comparator/PrintAxioms/Separation6b.lean:21:#print axioms separation_clause7_tight_pair
+comparator/PrintAxioms/Separation6b.lean:22:#print axioms rstar_of_21L

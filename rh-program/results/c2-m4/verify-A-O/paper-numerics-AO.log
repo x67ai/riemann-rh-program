@@ -1,0 +1,13 @@
+Z                = 0.22199690808404
+||B'||_1 (quad)  = 3.31427535947642   2B(0) = 2e^-1/Z = 3.31427535947642
+b1sym            = 10.9844211584326   (>= 4: True )  Z <= e^-1: True   Z >= 1/18: True
+log(b1sym/8.70)  = 0.233154985    log(10.984/8.70) = 0.2331166428    log(10.99/8.70) = 0.2336627428
+L*(0.1,1e6;C1=1): b1=8.70 -> 403.4973 ; b1=b1sym -> 412.8235 ; difference 9.3261994 ; 4*log(b1sym/8.70)/0.1 = 9.3261994
+cB = 0.142960647493  (>= 0.1429: True )   CB = 33.2845000532  (<= 18e^2 = 133.00301 )
+(t,delta,L)=(1050.0,0.5,50.0): exact (R*) margin 50.3837 nats; chain margin (cB -> 0.1429, dL/2 exact) 40.0858 nats; s = 324.037
+(t,delta,L)=(1050.0,0.5,50.0): exact (R*) margin 50.3837 nats; chain margin (cB -> 0.1429, dL/2 exact) 40.0858 nats; s = 324.037
+(t,delta,L)=(21000.0,0.5,1000.0): exact (R*) margin 1561.31 nats; chain margin (cB -> 0.1429, dL/2 exact) 1465.87 nats; s = 6480.74
+(t,delta,L)=(2100.0,0.25,100.0): exact (R*) margin 138.916 nats; chain margin (cB -> 0.1429, dL/2 exact) 127.627 nats; s = 648.074
+linear chain value 0.230158*s - 34.955 at s=324.04: 39.624356
+absorb_b: threshold b*C1 >= 2/0.624 = 3.2051282 ; supplied b1sym*C1 >= 4
+clause-7 double at (t,L)=(30,40): 2*(2t)^2*Bhat(2tL)^2 = 1.8083631e-31 ; note body's 16t^2 form = 3.6167262e-31
