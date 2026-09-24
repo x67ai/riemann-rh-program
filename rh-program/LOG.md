@@ -1632,3 +1632,8 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **Next session should:** follow the SESSION 24 QUEUE in STATUS.
 
 - **2026-09-18 — REPLY RECEIVED from Álvarez López on the ÁLKL courtesy note (sent 2026-09-07):** about half the arguments read, "seem to be OK", full reading expected next week; two questions (whole paper checked with Claude? Claude used with the memoir?). Verbatim reply, the facts behind the answer and the drafted response: `results/c3-r/s14/correspondence/2026-09-18-alvarez-lopez-reply.md`. Watch item stays OPEN until their final word.
+
+## Session 24 — 2026-09-24 (opened 15:35 IST; LOCAL; THE RH PROGRAM RESUMED at the SESSION 24 QUEUE; caffeinate + both watchdogs running; model Fable 5.1)
+
+**Bootstrap:** KICKSTART Part 2 followed (git pull up to date at dc23a1f; corpus `fetched/` 174 + `fetched-r2/` 162 present, `fetched-r3/`…`fetched-r7/` present; caffeinate + push-watchdog + autocommit-watchdog verified by pgrep; context 13 % after the read-in). Nothing was running; no fetch item open. The Álvarez López watch item (reply of 2026-09-18) stays OPEN.
+**15:45 IST — item 0 launched: stream `c2-followups-digest`** (brief `results/c2-followups/BRIEF.md`, 55 lines): one Fable agent writes `results/c2-followups/insights-digest.md` for the closed phase (M2 → campaign → M6 rung 1 → M4 (i) → addendum → M4 (iii) → DH re-runs) and populates the Instruments/Untried sections owed since Session 22 item 3 (A4, B2, C3, D1; A3/B3/B4 if sourced; C2 reconciled by dated lines only). Items 1 and 2 follow in order.
