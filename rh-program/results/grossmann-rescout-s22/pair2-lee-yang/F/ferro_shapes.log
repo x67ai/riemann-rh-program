@@ -1,0 +1,104 @@
+== Part A: sanity check of the root-at-(-1) theorem on random ferromagnets (N = 3..7, random support graphs) ==
+  trials 300, mismatches 0  (multiplicity of -1 == number of odd components in every trial: True)
+
+== Part B: per-class decision at m <= 2, both signs (JCAP = 8.0) ==
+classes: 357; realized at some m <= 2 with the identity sign: 201; with identity or flip: 287; unrealized under both signs: 70
+least m over classes (best sign; 99 = unrealized): [(0, 258), (1, 27), (2, 2), (99, 70)]
+realized classes with a CONNECTED realization ({4} or {5} with a connected support found): 267  (of which also factorizable: 236);  realized ONLY by a factorized (one 2- or 3-site block per zero pair) shape: 20
+accepted connected solutions with max coupling J > 4 (scrutinized: w = e^-2J < 3.4e-4): 5
+    3,-2,1,flip shape 4 Jmax=6.980
+    3,2,1,id shape 4 Jmax=6.980
+    5,-2,9,id shape 5 Jmax=4.231
+    5,0,9,flip shape 5 Jmax=5.724
+    5,2,9,flip shape 5 Jmax=4.231
+(class,sign,shape) excluded by the r_2 >= L(r_1) lemma (coefficients positive): 26
+(class,sign,shape) with positive coefficients where the connected solve did NOT certify a realization: 13
+    5,-2,10,id shape 5 cap err=1.80e-07 least_m by other shapes: 2
+    5,-2,11,id shape 5 cap err=1.65e-01 least_m by other shapes: 2
+    5,0,10,id shape 5 notfound err=6.24e-07 least_m by other shapes: 2
+    5,0,10,flip shape 5 notfound err=9.97e-07 least_m by other shapes: 2
+    5,2,10,flip shape 5 cap err=1.80e-07 least_m by other shapes: 2
+    5,2,11,flip shape 5 cap err=1.65e-01 least_m by other shapes: 2
+    7,-2,14,id shape 5 cap err=1.32e-07 least_m by other shapes: 2
+    7,-2,15,id shape 5 cap err=1.05e-01 least_m by other shapes: 2
+    7,0,14,id shape 5 notfound err=7.66e-07 least_m by other shapes: 2
+    7,0,14,flip shape 5 notfound err=9.32e-07 least_m by other shapes: 2
+    7,2,14,flip shape 5 cap err=1.32e-07 least_m by other shapes: 2
+    7,2,15,flip shape 5 cap err=1.05e-01 least_m by other shapes: 2
+    7,8,30,id shape 5 notfound err=1.54e-12 least_m by other shapes: 0
+unrealized classes (both signs), with certificates:
+  (3,-1,-2): b=(1,-0.5774,-0.6667) c(id)=(-1.9470,1.3696); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (3,-1,-1): b=(1,-0.5774,-0.3333) c(id)=(-1.8432,1.2659); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (3,-1,0): b=(1,-0.5774,0.0000) c(id)=(-1.7321,1.1547); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (3,0,-2): b=(1,0.0000,-0.6667) c(id)=(-1.6330,1.6330); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (3,0,-1): b=(1,0.0000,-0.3333) c(id)=(-1.5275,1.5275); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (3,0,0): b=(1,0.0000,0.0000) c(id)=(-1.4142,1.4142); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (3,1,-2): b=(1,0.5774,-0.6667) c(id)=(-1.3696,1.9470); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (3,1,-1): b=(1,0.5774,-0.3333) c(id)=(-1.2659,1.8432); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (3,1,0): b=(1,0.5774,0.0000) c(id)=(-1.1547,1.7321); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (5,-2,0): b=(1,-0.8944,0.0000) c(id)=(-1.9305,1.0360); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (5,-1,-5): b=(1,-0.4472,-1.0000) c(id)=(-1.9700,1.5228); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,-1,-4): b=(1,-0.4472,-0.8000) c(id)=(-1.9118,1.4646); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,-1,-3): b=(1,-0.4472,-0.6000) c(id)=(-1.8515,1.4043); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,-1,-2): b=(1,-0.4472,-0.4000) c(id)=(-1.7889,1.3416); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (5,-1,-1): b=(1,-0.4472,-0.2000) c(id)=(-1.7236,1.2764); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (5,-1,0): b=(1,-0.4472,0.0000) c(id)=(-1.6554,1.2082); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (5,0,-10): b=(1,0.0000,-2.0000) c(id)=(-2.0000,2.0000); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-7): b=(1,0.0000,-1.4000) c(id)=(-1.8439,1.8439); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-6): b=(1,0.0000,-1.2000) c(id)=(-1.7889,1.7889); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-5): b=(1,0.0000,-1.0000) c(id)=(-1.7321,1.7321); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-4): b=(1,0.0000,-0.8000) c(id)=(-1.6733,1.6733); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-3): b=(1,0.0000,-0.6000) c(id)=(-1.6125,1.6125); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-2): b=(1,0.0000,-0.4000) c(id)=(-1.5492,1.5492); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,-1): b=(1,0.0000,-0.2000) c(id)=(-1.4832,1.4832); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,0,0): b=(1,0.0000,0.0000) c(id)=(-1.4142,1.4142); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,-5): b=(1,0.4472,-1.0000) c(id)=(-1.5228,1.9700); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,-4): b=(1,0.4472,-0.8000) c(id)=(-1.4646,1.9118); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,-3): b=(1,0.4472,-0.6000) c(id)=(-1.4043,1.8515); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,-2): b=(1,0.4472,-0.4000) c(id)=(-1.3416,1.7889); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,-1): b=(1,0.4472,-0.2000) c(id)=(-1.2764,1.7236); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (5,1,0): b=(1,0.4472,0.0000) c(id)=(-1.2082,1.6554); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (5,2,0): b=(1,0.8944,0.0000) c(id)=(-1.0360,1.9305); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,-2,-3): b=(1,-0.7559,-0.4286) c(id)=(-1.9815,1.2256); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-2,-2): b=(1,-0.7559,-0.2857) c(id)=(-1.9364,1.1804); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-2,-1): b=(1,-0.7559,-0.1429) c(id)=(-1.8898,1.1339); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-2,0): b=(1,-0.7559,0.0000) c(id)=(-1.8418,1.0859); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-1,-8): b=(1,-0.3780,-1.1429) c(id)=(-1.9718,1.5939); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-7): b=(1,-0.3780,-1.0000) c(id)=(-1.9313,1.5533); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-6): b=(1,-0.3780,-0.8571) c(id)=(-1.8898,1.5119); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-5): b=(1,-0.3780,-0.7143) c(id)=(-1.8473,1.4693); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-4): b=(1,-0.3780,-0.5714) c(id)=(-1.8036,1.4257); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-3): b=(1,-0.3780,-0.4286) c(id)=(-1.7588,1.3808); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,-1,-2): b=(1,-0.3780,-0.2857) c(id)=(-1.7126,1.3346); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-1,-1): b=(1,-0.3780,-0.1429) c(id)=(-1.6650,1.2870); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,-1,0): b=(1,-0.3780,0.0000) c(id)=(-1.6158,1.2378); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/lemma
+  (7,0,-14): b=(1,0.0000,-2.0000) c(id)=(-2.0000,2.0000); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-11): b=(1,0.0000,-1.5714) c(id)=(-1.8898,1.8898); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-10): b=(1,0.0000,-1.4286) c(id)=(-1.8516,1.8516); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-9): b=(1,0.0000,-1.2857) c(id)=(-1.8127,1.8127); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-8): b=(1,0.0000,-1.1429) c(id)=(-1.7728,1.7728); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-6): b=(1,0.0000,-0.8571) c(id)=(-1.6903,1.6903); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-5): b=(1,0.0000,-0.7143) c(id)=(-1.6475,1.6475); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-4): b=(1,0.0000,-0.5714) c(id)=(-1.6036,1.6036); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-3): b=(1,0.0000,-0.4286) c(id)=(-1.5584,1.5584); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-2): b=(1,0.0000,-0.2857) c(id)=(-1.5119,1.5119); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,-1): b=(1,0.0000,-0.1429) c(id)=(-1.4639,1.4639); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,0,0): b=(1,0.0000,0.0000) c(id)=(-1.4142,1.4142); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-8): b=(1,0.3780,-1.1429) c(id)=(-1.5939,1.9718); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-7): b=(1,0.3780,-1.0000) c(id)=(-1.5533,1.9313); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-6): b=(1,0.3780,-0.8571) c(id)=(-1.5119,1.8898); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-5): b=(1,0.3780,-0.7143) c(id)=(-1.4693,1.8473); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-4): b=(1,0.3780,-0.5714) c(id)=(-1.4257,1.8036); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-3): b=(1,0.3780,-0.4286) c(id)=(-1.3808,1.7588); shape4/5 (id): nonpositive/nonpositive; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-2): b=(1,0.3780,-0.2857) c(id)=(-1.3346,1.7126); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,-1): b=(1,0.3780,-0.1429) c(id)=(-1.2870,1.6650); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,1,0): b=(1,0.3780,0.0000) c(id)=(-1.2378,1.6158); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,2,-3): b=(1,0.7559,-0.4286) c(id)=(-1.2256,1.9815); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,2,-2): b=(1,0.7559,-0.2857) c(id)=(-1.1804,1.9364); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,2,-1): b=(1,0.7559,-0.1429) c(id)=(-1.1339,1.8898); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+  (7,2,0): b=(1,0.7559,0.0000) c(id)=(-1.0859,1.8418); shape4/5 (id): nonpositive/lemma; shape4/5 (flip): nonpositive/nonpositive
+
+== Part C: the pricing's example (3,0,-2) at m = 7 (N = 11), coefficients positive, free-J solve ==
+  coefficients of P~(z)(1+z)^7: [1.0, 7.0, 20.3333, 30.3333, 22.0, 4.6667, 4.6667, 22.0, 30.3333, 20.3333, 7.0, 1.0]  all positive: True
+  best residual over 8 starts: 4.165e-01; realized: False; Jmax=2.876; at cap: False  (theorem: impossible — needs 7 odd components on 11 sites with reduced degree 4, i.e. {3,3}+5 or {5}+6 or {2,3}+6 or {4}/{2,2}+7; c = (-1.633, +1.633) fails {3,3}, and P~(1+z) has a negative coefficient)
+elapsed s: 101.8

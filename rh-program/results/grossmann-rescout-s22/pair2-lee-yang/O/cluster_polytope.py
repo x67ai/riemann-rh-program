@@ -68,39 +68,45 @@ def vertices(n):
     return _V[n]
 
 
+_VF = {}
+
+
 def lp_separate(n, parts, q):
     """returns (inside: bool, certificate or None). parts: exact (X, Y) coefficient pairs."""
     rows, labels = vertices(n)
     K = n // 2
     scale = [math.comb(n, k) for k in range(1, K + 1)]
-    V = np.array([[r[k] / scale[k] for k in range(K)] for r in rows], dtype=float)
+    if n not in _VF:
+        _VF[n] = (np.array(rows, dtype=float) / np.array(scale, dtype=float))
+    V = _VF[n]
     T = np.array([float(parts[k + 1][0] + parts[k + 1][1] / math.sqrt(q)) / scale[k]
                   for k in range(K)])
-    # variables: lambda0, lambda_1..K ; minimize lambda0 + lambda.T
     c = np.concatenate([[1.0], T])
-    A = -np.hstack([np.ones((len(V), 1)), V])     # -(lambda0 + lambda.V) <= 0
+    A = -np.hstack([np.ones((len(V), 1)), V])
     b = np.zeros(len(V))
     res = linprog(c, A_ub=A, b_ub=b, bounds=[(-1, 1)] * (K + 1), method="highs")
     if res.status != 0 or res.fun > -1e-9:
         return True, None
-    # rationalize and re-check exactly
     lam = [Fraction(v).limit_denominator(10 ** 6) for v in res.x]
-    # exact: lambda0 + sum_k lambda_k * V_k / scale_k >= 0 for every vertex
     lam_true = [lam[0]] + [lam[k + 1] / scale[k] for k in range(K)]
-    minv = min(lam_true[0] + sum(lam_true[k + 1] * r[k] for k in range(K)) for r in rows)
-    if minv < 0:  # shift lambda0 up to restore validity exactly
-        lam_true[0] -= minv
-    # value at T:  lambda0 + sum lambda_k (X_k + Y_k / sqrt q)
-    X = lam_true[0] + sum(lam_true[k + 1] * parts[k + 1][0] for k in range(K))
-    Y = sum(lam_true[k + 1] * parts[k + 1][1] for k in range(K))
-    sgn = F.sign_xy(X, Y, q)
-    if sgn < 0:
-        # tight vertices of the certificate (for the record)
-        vals = [lam_true[0] + sum(lam_true[k + 1] * r[k] for k in range(K)) for r in rows]
+    D = 1
+    for v in lam_true:
+        D = D * v.denominator // math.gcd(D, v.denominator)
+    L = [int(v * D) for v in lam_true]          # exact integers, functional scaled by D > 0
+    vals = [L[0] + sum(L[k + 1] * r[k] for k in range(K)) for r in rows]
+    minv = min(vals)
+    if minv < 0:                                  # restore validity exactly
+        L[0] -= minv
+        vals = [v - minv for v in vals]
+    X = Fraction(L[0]) + sum(L[k + 1] * parts[k + 1][0] for k in range(K))
+    Y = sum(L[k + 1] * parts[k + 1][1] for k in range(K))
+    if F.sign_xy(X, Y, q) < 0:
         tight = [labels[i] for i, v in enumerate(vals) if v == 0][:6]
-        return False, {"lambda": [str(v) for v in lam_true], "value_at_T_float":
-                       float(X + Y / math.sqrt(q)), "tight_partitions": tight}
-    return True, None  # LP said outside but exact check failed: treat as not certified
+        return False, {"functional_integer": [str(v) for v in L],
+                       "value_at_T_over_D_float": float(X + Y / math.sqrt(q)) / D,
+                       "min_over_vertices": 0 if minv >= 0 else "shifted",
+                       "tight_partitions": tight}
+    return True, None
 
 
 def run(r, orient_list=(1, -1)):
@@ -218,7 +224,10 @@ def main():
         print("CONTROL planted 4-site ferromagnet: best residual %.2e (realized: %s)"
               % (best[0], best[0] < 1e-11))
         return
-    classes = g1 if which == "g1" else g2 if which == "g2" else g1 + g2
+    if which.startswith("g2p"):
+        classes = [r for r in g2 if r["p"] == int(which[3:])]
+    else:
+        classes = g1 if which == "g1" else g2 if which == "g2" else g1 + g2
     res = []
     for r in classes:
         rec = run(r)
