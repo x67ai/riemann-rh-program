@@ -47,3 +47,30 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 ✔ [8710/8710] Built Solution.SeparationClause4b (3.1s)
 Build completed successfully (8710 jobs).
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.SeparationClause4b -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause4_in_window_noise_b propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.IFw5he2s
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause4_in_window_noise_b, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.SeparationClause4b
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       79.37 real        66.55 user        18.92 sys
+          5894340608  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             3781966  page reclaims
+                1700  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              108890  voluntary context switches
+              172879  involuntary context switches
+          4154922303  instructions retired
+          1332711494  cycles elapsed
+           137158232  peak memory footprint
+--- comparator exit code: 0 ---
+=== [Clause4b] end 2026-09-24 20:11:12 IST ===

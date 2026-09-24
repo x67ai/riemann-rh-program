@@ -1,0 +1,82 @@
+Zeta23.W1.cert_of_checkW1 : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      Zeta23.W1.RectArgPrinciple riemannZeta →
+        (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+          (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_ap : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK riemannZeta d →
+      (1 ≤ d.m → ∃ ρ, riemannZeta ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, riemannZeta s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_fDH : ∀ (d : Zeta23.W1.W1Data),
+  Zeta23.W1.checkW1 d = true →
+    Zeta23.W1.W1EnclOK Zeta23.W1.fDH d →
+      (1 ≤ d.m → ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+        (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, Zeta23.W1.fDH s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_fDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.cert_of_checkW1_of_diffOn : ∀ (f : ℂ → ℂ),
+  DifferentiableOn ℂ f {s | s.re < 1} →
+    ∀ (d : Zeta23.W1.W1Data),
+      Zeta23.W1.checkW1 d = true →
+        Zeta23.W1.W1EnclOK f d →
+          Zeta23.W1.RectArgPrinciple f →
+            (1 ≤ d.m → ∃ ρ, f ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ Zeta23.W1.T1 d < ρ.im ∧ ρ.im < Zeta23.W1.T2 d) ∧
+              (d.m = 0 → ∀ s ∈ Zeta23.W1.W1Rect d, f s ≠ 0)
+'Zeta23.W1.cert_of_checkW1_of_diffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.mpDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.mpDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.mpDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Zeta23.W1.arbDH_zero : Zeta23.W1.W1EnclOK Zeta23.W1.fDH Zeta23.W1.arbDH →
+  ∃ ρ, Zeta23.W1.fDH ρ = 0 ∧ 1 / 2 < ρ.re ∧ ρ.re < 1 ∧ 8569 / 100 < ρ.im ∧ ρ.im < 8571 / 100
+'Zeta23.W1.arbDH_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay : ∀ (η : ℝ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) ↑η‖ ≤
+    Separation.CB * (1 + Separation.cB / 2 * √|η|) * Real.exp (-(Separation.cB * √|η|))
+'separation_bump_fourier_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay_complex : ∀ (z : ℂ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) z‖ ≤
+    Real.exp (|z.im| / 2) * (Separation.CB * (1 + Separation.cB / 2 * √|z.re|) * Real.exp (-(Separation.cB * √|z.re|)))
+'separation_bump_fourier_decay_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_bump_fourier_decay_pure_exp : ∀ (η : ℝ),
+  ‖Separation.ft (fun v => ↑(Separation.B v)) ↑η‖ ≤
+    4 * Real.exp (-3 / 4) * Separation.CB * Real.exp (-(7 / 8 * Separation.cB * √|η|))
+'separation_bump_fourier_decay_pure_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_braw_iteratedDeriv_le : ∀ (k : ℕ),
+  1 ≤ k → ∀ (v : ℝ), |iteratedDeriv k Separation.Braw v| ≤ (↑k + 1) * (72 / Real.exp 1) ^ k * ↑k ^ (2 * k)
+'separation_braw_iteratedDeriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_clause4_in_window_noise : ∀ (C₁ t L R : ℝ),
+  1 ≤ C₁ →
+    3 ≤ t →
+      50 ≤ L →
+        1 ≤ R →
+          ∀ (Z : Separation.SepConfig C₁),
+            Separation.Hb1 →
+              Separation.HB3 →
+                0 ≤ Z.inWindowNoise t L R ∧ Z.inWindowNoise t L R ≤ 2 * (87 / 10) * C₁ * Real.log (4 + t + R) / L ^ 2
+'separation_clause4_in_window_noise' depends on axioms: [propext, Classical.choice, Quot.sound]
+separation_clause6_assembly : ∀ (C₁ t δ L : ℝ),
+  1 ≤ C₁ →
+    3 ≤ t →
+      0 < δ →
+        δ ≤ 1 / 2 →
+          25 / δ ≤ L →
+            4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * (87 / 10) * C₁)) ≤ L →
+              Separation.Rstar t δ L →
+                ∀ (Z Z' : Separation.SepConfig C₁),
+                  Separation.orbit t δ ⊆ Z.carrier →
+                    (∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1) →
+                      (∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2) →
+                        (∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2) →
+                          Separation.Hb1 →
+                            Separation.HB3 →
+                              Separation.Hedge →
+                                Z.Hout t L (73 * L) →
+                                  Z'.Hout t L (73 * L) →
+                                    δ ^ 2 * Real.exp (δ * L / 2) ≤
+                                        ‖Z.W (Separation.ftest t L) (Separation.ftest t L) -
+                                            Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+                                      1 ≤ δ ^ 2 * Real.exp (δ * L / 2)
+'separation_clause6_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
