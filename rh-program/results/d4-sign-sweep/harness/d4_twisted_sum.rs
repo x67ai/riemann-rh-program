@@ -6,7 +6,9 @@
 // the double-double log (two two_prods: four doubles, no rounding) and reduced mod 2 pi against 2 pi held as THREE doubles in
 // two stages, so that the product and the reduction add nothing at the 10^-32 (t log n) scale -- the per-height self-test
 // (--selftest N) measures the whole path against mpmath at 50 digits; (3) the phase line eps_phi(t) * l1 with eps_phi(t) =
-// EPS_PHI_PER_T * t (BRIEF (i): 2.2e-31 * t, the M6 dd-log self-test; overridable by --eps-phi) is computed from the printed
+// EPS_PHI_PER_T * t (fix (b), 2026-09-25: EPS_PHI_PER_T = 1.0266395604864687e-30, the PROVEN a-priori bound on the dd log,
+// checker-O/job1_ddlog_bound.py, CHECK-O-A.md section 2(b); the brief's 2.2e-31 and the sampled 6.392e-31 are retired; --eps-phi
+// is MANDATORY -- the binary refuses to run without it, so no run can silently fall back to a compiled constant) is computed from the printed
 // l1 norm and the point is flagged `refused` when it exceeds PHASE_LINE_ALLOWANCE = 1e-8; (4) --selftest N prints N
 // pseudo-random n <= X with their dd log and dd reduced phase (xorshift64, --seed).
 //
@@ -34,7 +36,7 @@
 // No external crates (the machine's network is patchy); build:  rustc -O -C target-cpu=native twisted_sum.rs
 //
 // usage: d4_twisted_sum --mode zeta|dh --t <double as decimal string> --L <double> [--threads N] [--direct] [--out file.json]
-//                       [--selftest N] [--seed S] [--eps-phi 2.2e-31] [--selftest-only]     (D4 additions)
+//                       [--selftest N] [--seed S] --eps-phi <per-unit-t bound, MANDATORY> [--selftest-only]     (D4 additions)
 use std::env;
 use std::fs::File;
 use std::io::Write;
@@ -144,7 +146,7 @@ const TWOPI_2: f64 = -5.989539619436679e-33;
 const INV_TWOPI: f64 = 0.15915494309189535;
 // M6 kept 2 pi in double-double and formed t*logn by DD::mul_f64 (one rounding of lo*t) then subtracted k*2pi in dd: both steps
 // carry a 2^-106 (t log n) error, i.e. 3e-11 rad at t = 1e20 -- the same size as the allowance.  D4 replaces them:
-const EPS_PHI_PER_T: f64 = 2.2e-31;         // D4: BRIEF (i): per-term phase error eps_phi(t) = 2.2e-31 * t (M6 dd-log self-test)
+const EPS_PHI_PER_T: f64 = 1.0266395604864687e-30;   // D4 fix (b): the PROVEN per-unit-t bound on the dd log (checker-O/job1_ddlog_bound.py: S1 4.250e-31 + add 3*2^-102 + R cap 1e-32); printed in the refusal message only -- --eps-phi is mandatory
 const PHASE_LINE_ALLOWANCE: f64 = 1e-8;     // D4: BRIEF (i): the phase line eps_phi * l1 must not exceed this
 
 // D4: the reduced phase (t * logn) mod 2 pi in double-double, with the product formed EXACTLY and the reduction in two stages.
@@ -379,7 +381,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let mut mode = String::from("zeta"); let mut t_str = String::from("85.69934848537759"); let mut l = 10.0f64;
     let mut threads = 8usize; let mut direct = false; let mut sieve_only = false; let mut out = String::from("out.json");
-    let mut selftest = 0usize; let mut seed: u64 = 20260925; let mut eps_phi_per_t = EPS_PHI_PER_T;   // D4
+    let mut selftest = 0usize; let mut seed: u64 = 20260925; let mut eps_phi_per_t: Option<f64> = None;   // D4 fix (b): no compiled default
     let mut selftest_only = false;   // D4: --selftest-only skips the sum (self-test at a height without the hour-long sum)
     let mut i = 1;
     while i < args.len() {
@@ -393,11 +395,15 @@ fn main() {
             "--out" => { out = args[i + 1].clone(); i += 2; }
             "--selftest" => { selftest = args[i + 1].parse().unwrap(); i += 2; }        // D4
             "--seed" => { seed = args[i + 1].parse().unwrap(); i += 2; }                // D4
-            "--eps-phi" => { eps_phi_per_t = args[i + 1].parse().unwrap(); i += 2; }    // D4
+            "--eps-phi" => { eps_phi_per_t = Some(args[i + 1].parse().unwrap()); i += 2; }    // D4 (mandatory since fix (b))
             "--selftest-only" => { selftest_only = true; i += 1; }                         // D4
             _ => { eprintln!("unknown arg {}", args[i]); std::process::exit(2); }
         }
     }
+    // D4 fix (b) (CHECK-O-A section 2(b), applied Fri Sep 25 2026): --eps-phi is mandatory; the compiled constant is the proven bound and is only quoted here
+    let eps_phi_per_t: f64 = match eps_phi_per_t { Some(e) => e, None => {
+        eprintln!("--eps-phi is mandatory: pass the governing per-unit-t phase bound explicitly (the proven bound is EPS_PHI_PER_T = {:e}; harness/eps_phi.json; checker-O/job1_ddlog_bound.py)", EPS_PHI_PER_T);
+        std::process::exit(2); } };
     let t: f64 = t_str.parse().unwrap();
     let t_exact = exact_double_str(t);            // D4: the height as the exact decimal expansion of the double used
     let x = l.exp().floor() as u64;               // terms n <= X = floor(e^L); a(log n) = 0 for n >= e^L anyway

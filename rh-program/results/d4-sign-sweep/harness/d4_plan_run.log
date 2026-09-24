@@ -9,3 +9,32 @@
   [2.513274e+15, 2.513274e+15] width 1.88e+08  #13,048,994,265,258,476 .. +1,006,374,896
   [1.520244e+19, 1.520244e+19] width 5.22e+07  ~176 million zeros near #1e20 (window taken 
   [2.991494e+19, 2.991494e+19] width 2.95e+07  over 101 million zeros near #2e20 (+-101e6 s
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-sign-sweep/harness/d4_plan.py", line 78
+    refused_t2_1e20 = dict(t_exact="100000000000000000000", phase_line_L28.35=line("100000000000000000000", 28.35), accepted=False, role="REFUSED at eps_proven (was the v1 tier-2 ceiling)")
+                                                                          ^
+SyntaxError: positional argument follows keyword argument
+[Fri Sep 25 03:42:16 IST 2026] FIX PASS plan: ladder 121 points 3000175332800 .. 94873874315016716288; inside a covered window: 0; refused at eps_proven: 0 (largest line 2.124e-09); covered measure 2.748e+09 of 1.000e+20 (fraction 2.7e-11) over 14 windows
+  eps_proven = 1.026640e-30; l1(22) est = 21.8095, l1(28.35) = 146.950608; t_ceil(22) = 4.466e+20, t_ceil(28.35) = 6.628e+19; sampled max = 6.3920e-31 over 10 self-tests
+  tier 2  t =          3000175332900  line 4.526e-16  accepted  PT-edge point (rehearsal; landed, PASS by Job 2)
+  tier 2  t =        100000000000000  line 1.509e-14  accepted  1e14
+  tier 2  t =      10000000000000000  line 1.509e-12  accepted  1e16
+  tier 2  t =    1000000000000000000  line 1.509e-10  accepted  1e18
+  tier 2  t =   15202440115920748544  line 2.294e-09  accepted  covered-range control: the double 1275.4 above the 1e20-th z
+  tier 2  t =   61609351296641974272  line 9.295e-09  accepted  the ceiling: ladder k = 117, the largest planned height whos
+  tier 2  t =  100000000000000000000  line 1.509e-08  REFUSED  REFUSED at eps_proven (was the v1 tier-2 ceiling)
+  tier 1 control t =       2513274122900000  line 5.627e-14  accepted
+  tier 1 control t =   15202440115920748544  line 3.404e-10  accepted
+  [2.251448e+13, 2.251492e+13] width 4.35e+08  #10^14+3 .. #10^14+2000000000
+  [2.085141e+14, 2.085145e+14] width 4.04e+08  #10^15+0 .. #10^15+1999999999
+  [1.941394e+15, 1.941394e+15] width 3.77e+08  #10^16+1 .. #10^16+1999999999
+  [1.815945e+16, 1.815945e+16] width 3.53e+08  #10^17+0 .. #10^17+2000000000
+  [1.705536e+17, 1.705536e+17] width 3.32e+08  #10^18+1 .. #10^18+1999999999
+  [1.607635e+18, 1.607635e+18] width 3.14e+08  #10^19+0 .. #10^19+2000000001
+  [1.520244e+19, 1.520244e+19] width 2.97e+08  #10^20+4 .. #10^20+1999999999
+  [2.513274e+15, 2.513274e+15] width 1.88e+08  #13,048,994,265,258,476 .. +1,006,374,896
+  [2.251448e+13, 2.251448e+13] width 3.67e+05  #100000000000000-736 .. #100000000000000+1,684,715 (1,685,45
+  [1.941394e+15, 1.941394e+15] width 3.10e+06  #10000000000000000-5,946 .. #10000000000000000+16,475,026 (1
+  [1.705536e+17, 1.705536e+17] width 2.77e+06  #1000000000000000000-8,839 .. #1000000000000000000+16,662,20
+  [1.607635e+18, 1.607635e+18] width 2.63e+06  #10000000000000000000-13,607 .. #10000000000000000000+16,736
+  [1.520244e+19, 1.520244e+19] width 2.61e+07  #100000000000000000000-30,769,710 .. #100000000000000000000+
+  [2.991494e+19, 2.991494e+19] width 1.48e+07  #200000000000000000000-633,984 .. #200000000000000000000+100

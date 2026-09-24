@@ -14,7 +14,11 @@
   9. W = pole + ARCH - P; the error budget in M6 section 3's shape; the stop-line evaluation:
        W < 0 and t <= 3 000 175 332 800 -> BUG (stop);  W < 0 above -> CANDIDATE (stop everything);
  10. out/zeta_t<exact t>_L<L>.json, a row in SHARED.md, a line in hashes.txt.
-usage: d4_point.py --t <exact decimal> --L <L> [--threads 8] [--eps-phi 6.4e-31] [--reuse] [--tier rehearsal|1|2] [--label ...]
+FIX PASS (Fri Sep 25 2026, CHECK-O-A.md; v1 kept as d4_point.v1.py): (f) `binary_sha256` is the hash of the binary taken AT LAUNCH,
+ before the sum (the binary that RAN); the hash taken at assembly is stored as `binary_sha256_at_assembly`; (b) eps_phi defaults to
+ harness/eps_phi.json's governing value (the PROVEN bound 1.0266395604864687e-30) and is passed explicitly to every binary call,
+ including the DH regression (the binary now refuses to run without --eps-phi).
+usage: d4_point.py --t <exact decimal> --L <L> [--threads 8] [--eps-phi <per-unit-t bound>] [--reuse] [--tier rehearsal|1|2] [--label ...]
 """
 import json, os, sys, math, time, datetime, subprocess, hashlib, argparse
 import numpy as np
@@ -42,7 +46,8 @@ eps = A.eps_phi
 if eps is None:
     eps = json.load(open(os.path.join(HERE, 'eps_phi.json')))['eps_phi_per_t']
 T0 = time.time()
-out(f"[{now()}] d4_point.py start: t = {t_str}, L = {L}, threads = {A.threads}, eps_phi/t = {eps:.3e}, tier = {A.tier} {A.label}")
+bin_sha_launch = sha(BIN); src_sha_launch = sha(os.path.join(HERE, 'd4_twisted_sum.rs'))   # fix (f): hashed at launch, before the sum -- the binary that RUNS
+out(f"[{now()}] d4_point.py start: t = {t_str}, L = {L}, threads = {A.threads}, eps_phi/t = {eps:.3e} (governing: proven bound), tier = {A.tier} {A.label}; binary at launch {bin_sha_launch[:16]}, source {src_sha_launch[:16]}")
 # 1. process rule
 heavy = [l for l in subprocess.run(['ps', '-Ao', 'pcpu,comm'], capture_output=True, text=True).stdout.splitlines()[1:] if float(l.split()[0]) > 50]
 if len(heavy) >= 4 and not A.reuse:
@@ -103,7 +108,8 @@ PL = json.load(open(pl_json))
 dh = dict(skipped=True)
 if not A.no_dh:
     dh_json = os.path.join(OUT, f"dhreg_t{t_str}_L{Lg}.json")
-    r = subprocess.run([BIN, '--mode', 'dh', '--t', T85, '--L', '10', '--threads', '2', '--out', dh_json], capture_output=True, text=True)
+    r = subprocess.run([BIN, '--mode', 'dh', '--t', T85, '--L', '10', '--threads', '2', '--eps-phi', repr(eps), '--out', dh_json], capture_output=True, text=True)
+    if r.returncode != 0: out(f"[{now()}] DH regression FAILED rc={r.returncode}: {r.stderr[-300:]}"); sys.exit(8)
     D = json.load(open(dh_json)); arch_dh = json.load(open(os.path.join(OUT, 'arch_dh_t85.69934848537759_L10.json')))['arch']
     W_dh = arch_dh - D['P_dd']
     wit = {n: v for n, v in D['lambda_dh_witnesses']}
@@ -136,7 +142,7 @@ res = dict(date=now(), tier=A.tier, label=A.label, t_exact=t_str, t_bits=S['t_bi
            control2_zero_side=dict(delta=dvis, lambda_=PL['lambda_'], kernel_value=PL['pair_kernel_re'], expected=PL['expected'], rel_diff=PL['rel_diff'], pass_=PL['pass_'], json=os.path.basename(pl_json)),
            control2_coefficient_side_DH=dh, controls_pass=controls_pass, verdict=verdict, stop_line=stop,
            wall_sum_s=wall_sum, time_sum_s=S['time_sum_s'], ns_per_term_wall=S['ns_per_term_wall'], threads=S['threads'],
-           binary_sha256=sha(BIN), source_sha256=sha(os.path.join(HERE, 'd4_twisted_sum.rs')), sum_json=os.path.basename(sum_json), sum_json_sha256=sha(sum_json),
+           binary_sha256=bin_sha_launch, binary_hashed_at='launch, before the sum: the binary that ran (fix (f))', binary_sha256_at_assembly=sha(BIN), source_sha256=src_sha_launch, sum_reused=bool(wall_sum is None), sum_json=os.path.basename(sum_json), sum_json_sha256=sha(sum_json),
            arch_json=os.path.basename(arch_json), arch_json_sha256=sha(arch_json), seconds_total=time.time() - T0)
 pj = os.path.join(OUT, f"zeta_t{t_str}_L{Lg}.json")
 json.dump(res, open(pj, 'w'), indent=1)

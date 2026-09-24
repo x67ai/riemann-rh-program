@@ -1,5 +1,11 @@
 {
- "eps_phi_per_t": 6.392019332313393e-31,
+ "eps_phi_per_t": 1.0266395604864687e-30,
+ "basis": "PROVEN a-priori bound on the dd log of harness/d4_twisted_sum.rs (dd_log_u64): checker-O/job1_ddlog_bound.py (CHECK-O-A.md section 2(b)) -- bit-exact emulation (0 mismatches on 205 000 rows); S1 = ln2_dd*k + logm0[idx] error computed exactly over all (k, idx): 4.249938815707099e-31; the last dd add <= 3*2^-102 = 5.916e-31; the log1p series capped at 1e-32 (measured 1.4e-34): total 1.0266395604864687e-30 per unit t. The product-and-reduction path adds <= 1.3e-26 rad at 1e20 (< 1e-46 t). BINDING for every phase line, refusal and Control-1 tolerance (fix (b), applied Job 1 fix pass).",
+ "measured_sample_max": {
+  "job1_1000n_x8_selftests": 6.392019332313393e-31,
+  "job2_200000n_at_1e20": 6.686e-31,
+  "note": "sample maxima over the n sampled, NOT bounds; kept as measurements beside the proven figure"
+ },
  "per_selftest": {
   "sum_zeta_t1000000_L10.selftest.json": [
    22026,
@@ -21,6 +27,10 @@
    485165195,
    6.392019279120966e-31
   ],
+  "sum_zeta_t1000000000000_L28.35.selftest.json": [
+   2052336466859,
+   5.54854465690592e-31
+  ],
   "sum_dh_t85p7_L10.selftest.json": [
    22026,
    3.382230609844051e-31
@@ -29,11 +39,27 @@
    2052336466859,
    5.548544656905997e-31
   ],
+  "sum_zeta_t3000175332900_L28.35.selftest.json": [
+   2052336466859,
+   5.548544656905987e-31
+  ],
   "selftest_t100000000000000000000_L28.35.selftest.json": [
    2052336466859,
    5.548544656905997e-31
   ]
  },
- "basis": "maximum over the self-tests on disk of max|phase error|/t (1000 pseudo-random n <= X each, mpmath at 50 digits); the product-and-reduction path adds <= 7.3e-27 rad at 1e20 (< 1e-46 t). A priori worst case of the dd arithmetic at |log n| <= 28.35: about 3 x 2^-105 x 28.35 = 2.1e-30 (a bound, not a measurement).",
- "date": "Fri Sep 25 01:16:00 IST 2026"
+ "retired": {
+  "brief_constant": 2.2e-31,
+  "v1_sampled": 6.392019332313393e-31,
+  "v1_apriori_estimate": 2.1e-30
+ },
+ "t_ceil": {
+  "22": 4.466178844686461e+20,
+  "28.35": 6.628429152739855e+19
+ },
+ "l1_used": {
+  "22": 21.809509312819866,
+  "28.35": 146.95060754424162
+ },
+ "date": "Fri Sep 25 03:42:16 IST 2026"
 }
