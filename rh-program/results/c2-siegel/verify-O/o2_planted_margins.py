@@ -151,7 +151,10 @@ for absD in (1e3, 1e6, 1e10, 1e20, 1e40, 1e80, 1e160):
     dbl.append(dict(D=absD, **row))
     say("  |D| = %g: gauss %.4f ; pure poisson %.4f" % (absD, row["gauss"] * L, row["poisson"] * L))
 out["double"] = dbl
-say("  Cauchy-limit asymptotes (check-O item 3): gauss pi/4 = %.4f ; pure poisson 1/2" % (math.pi / 4))
+from scipy.special import erfcx
+_r = minimize_scalar(lambda z: -(2*math.sqrt(math.pi)*z*(4*erfcx(z)-2)), bounds=(1e-3, 3), method="bounded", options={"xatol": 1e-12})
+say("  Cauchy-limit asymptotes (mu_y -> Cauchy of width delta; check-O item 3): gauss max_z 2 sqrt(pi) z (4 e^{z^2} erfc z - 2) = %.6f (z = %.4f) ; pure poisson 12 - 8 sqrt2 = %.6f ; dlVP-Poisson 6 - 4 sqrt2 = %.6f"
+    % (-_r.fun, _r.x, 12 - 8*math.sqrt(2), 6 - 4*math.sqrt(2)))
 
 # ---------- scout section 3 spot checks (dlVP with a planted real zero) ----------
 def dh_complex(absD, t, d0):
