@@ -1,0 +1,426 @@
+start 2026-09-24 23:08:21 IST
+✔ [8696/9153] Built Zeta23.Prelude.InstancePriorities (5.0s)
+✔ [8697/9153] Built Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic (4.8s)
+✔ [8698/9153] Built Zeta23.Tail.Basic (5.3s)
+✔ [8699/9153] Built Zeta23.LinAlg.PosIndex (7.0s)
+✔ [8700/9153] Built Zeta23.FromPNTPlus.EulerMaclaurin (5.7s)
+✔ [8701/9153] Built Zeta23.FromPNTPlus.Auxiliary (5.7s)
+✔ [8702/9153] Built Zeta23.Defs (7.6s)
+✔ [8703/9153] Built Zeta23.FromPNTPlus.Tactic.AdditiveCombination (2.4s)
+✔ [8704/9153] Built Zeta23.MV.EigenIdentity (8.6s)
+✔ [8705/9153] Built Zeta23.FromPNTPlus.Rectangle (3.9s)
+✔ [8706/9153] Built Zeta23.PairCeiling.Defs (3.2s)
+✔ [8708/9153] Built Zeta23.FromPNTPlus.ZetaConj (3.9s)
+✔ [8709/9153] Built Zeta23.FromPNTPlus.Sobolev (9.5s)
+✔ [8710/9153] Built Zeta23.Defs.LeafIntegrals (9.8s)
+✔ [8711/9153] Built Zeta23.XiPrime.ZeroCount.ArgBound (4.1s)
+✔ [8712/9153] Built Zeta23.XiPrime.Coeff.Param (4.2s)
+✔ [8713/9153] Built Zeta23.W1.Format (966ms)
+✔ [8714/9153] Built Zeta23.PairCeiling.GridParseval (3.9s)
+✔ [8715/9153] Built Zeta23.DBN.Defs (3.6s)
+✔ [8716/9153] Built Zeta23.RvM.BacklundDefs (3.5s)
+✔ [8717/9153] Built Zeta23.W1.ArgPrinciple.Rect (5.4s)
+✔ [8718/9153] Built Zeta23.Tail.Grid (4.0s)
+✔ [8719/9153] Built Zeta23.FromPNTPlus.Mertens (4.0s)
+✔ [8720/9153] Built Zeta23.LinAlg.VonNeumann (5.2s)
+⚠ [8721/9153] Built Zeta23.FromPNTPlus.StrongPNTPrefix (6.2s)
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:61:71: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:202:9: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:343:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:368:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:390:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:432:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8722/9153] Built Zeta23.LinAlg.HermitianPosPart (4.6s)
+✔ [8723/9153] Built Zeta23.Taper.GevreyPhi (4.7s)
+✔ [8724/9153] Built Zeta23.Tail.Count (7.2s)
+✔ [8725/9153] Built Zeta23.PairCeiling.NumericCert (11s)
+✔ [8726/9153] Built Zeta23.XiPrime.Defs (4.0s)
+⚠ [8727/9153] Built Zeta23.Taper.Gevrey (5.8s)
+warning: Zeta23/Taper/Gevrey.lean:342:80: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8728/9153] Built Zeta23.GammaFacts (3.9s)
+✔ [8729/9153] Built Zeta23.Defs.Profile (3.5s)
+✔ [8730/9153] Built Zeta23.Poisson.PaperFT (4.2s)
+✔ [8731/9153] Built Zeta23.PrimeSideTemp (3.8s)
+✔ [8732/9153] Built Zeta23.Defs.Counting (3.9s)
+✔ [8733/9153] Built Zeta23.Hypotheses (4.0s)
+✔ [8734/9153] Built Zeta23.ExplicitFormula (6.3s)
+✔ [8735/9153] Built Zeta23.W1.Checker (1.8s)
+⚠ [8736/9153] Built Zeta23.PairCeiling.Stability (4.5s)
+warning: Zeta23/PairCeiling/Stability.lean:49:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Zeta23/PairCeiling/Stability.lean:245:4: 'push_cast at this ⊢' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [8737/9153] Built Zeta23.FromPNTPlus.Fourier (4.7s)
+✔ [8738/9153] Built Zeta23.PairCeiling.GridCorner (4.2s)
+✔ [8739/9153] Built Zeta23.PairCeiling.GridWitness (4.4s)
+✔ [8740/9153] Built Zeta23.W1.ArgPrinciple.General (4.6s)
+✔ [8741/9153] Built Zeta23.DBN.Asym (4.9s)
+✔ [8742/9153] Built Zeta23.DBN.BtFacts (5.1s)
+✔ [8743/9153] Built Zeta23.FromPNTPlus.ResidueCalcOnRectangles (8.7s)
+✔ [8744/9153] Built Zeta23.XiPrime.Coeff.LT (3.4s)
+✔ [8745/9153] Built Zeta23.LinAlg.RankTrace (5.2s)
+✔ [8746/9153] Built Zeta23.LinAlg.Sylvester (4.1s)
+✔ [8747/9153] Built Zeta23.XiPrime.Coeff.Basic (4.4s)
+✔ [8748/9153] Built Zeta23.Taper.Basic (3.7s)
+✔ [8749/9153] Built Zeta23.Separation.LemmaG1 (4.5s)
+✔ [8750/9153] Built Zeta23.GammaFacts.Series (5.1s)
+✔ [8751/9153] Built Zeta23.TracesBoundsE (3.7s)
+⚠ [8752/9153] Built Zeta23.RvM.Halving (4.1s)
+warning: Zeta23/RvM/Halving.lean:52:55: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/RvM/Halving.lean:62:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/RvM/Halving.lean:70:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8753/9153] Built Zeta23.ThmE.Hypotheses (4.8s)
+✔ [8754/9153] Built Zeta23.MV (4.0s)
+✔ [8755/9153] Built Zeta23.Hypotheses.GzGp (4.9s)
+⚠ [8756/9153] Built Zeta23.Statement (5.3s)
+warning: Zeta23/Statement.lean:148:30: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8757/9153] Built Zeta23.W1.Examples (2.4s)
+✔ [8758/9153] Built Zeta23.PrimeSideA.Defs (10s)
+⚠ [8759/9153] Built Zeta23.XiPrime.ExplicitFormula.PrimeTermJ (5.3s)
+warning: Zeta23/XiPrime/ExplicitFormula/PrimeTermJ.lean:136:8: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: Zeta23/XiPrime/ExplicitFormula/PrimeTermJ.lean:154:32: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+✔ [8760/9153] Built Zeta23.PrimeSideB (14s)
+✔ [8761/9153] Built Zeta23.ExplicitFormula.Bridge (6.8s)
+✔ [8762/9153] Built Zeta23.Chebyshev (13s)
+⚠ [8763/9153] Built Zeta23.XiPrime.Certificate.D1 (17s)
+warning: Zeta23/XiPrime/Certificate/D1.lean:307:68: `intervalIntegral.integral_finset_sum` has been deprecated: Use `intervalIntegral.integral_finsetSum` instead
+warning: Zeta23/XiPrime/Certificate/D1.lean:316:11: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+✔ [8764/9153] Built Zeta23.PairCeiling.Grid (3.3s)
+✔ [8765/9153] Built Zeta23.PairCeiling.Ceiling (3.5s)
+⚠ [8766/9153] Built Zeta23.MV.Spacing (25s)
+warning: Zeta23/MV/Spacing.lean:58:0: automatically included section variable(s) unused in theorem `Zeta23.MV.Adm.itv_disjoint`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Zeta23/MV/Spacing.lean:153:8: automatically included section variable(s) unused in theorem `_private.Zeta23.MV.Spacing.0.Zeta23.MV.Adm.mem_window`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8767/9153] Built Zeta23.DBN.Instance02.Asym_arb (3.9s)
+✔ [8768/9153] Built Zeta23.DBN.Instance02.Asym_mp (4.2s)
+✔ [8769/9153] Built Zeta23.ThmD.Functional (29s)
+✔ [8770/9153] Built Zeta23.LinAlg.Weyl (4.2s)
+✔ [8771/9153] Built Zeta23.Analytic.RectangleLogDeriv (5.0s)
+✔ [8772/9153] Built Zeta23.Tail.RankOne (4.4s)
+✔ [8773/9153] Built Zeta23.LinAlg.Inertia (4.3s)
+✔ [8774/9153] Built Zeta23.XiPrime.Coeff.MainTerm.Squarefree (4.6s)
+✔ [8775/9153] Built Zeta23.Taper.Strip (5.0s)
+✔ [8776/9153] Built Zeta23.ThmE.TracesHypChi (4.7s)
+✔ [8777/9153] Built Zeta23.WeilEF.GammaRBracket (5.6s)
+✔ [8778/9153] Built Zeta23.Separation.LemmaG (6.4s)
+✔ [8779/9153] Built Zeta23.W1.Soundness (15s)
+✔ [8780/9153] Built Zeta23.ThmE.Statement (5.6s)
+✔ [8781/9153] Built Zeta23.Analytic.Stirling (8.8s)
+✔ [8782/9153] Built Zeta23.WeilEF.XiLogDeriv (5.1s)
+⚠ [8783/9153] Built Zeta23.ZetaReflect (5.3s)
+warning: Zeta23/ZetaReflect.lean:91:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [8784/9153] Built Zeta23.Statement.Seam (4.9s)
+warning: Zeta23/Statement/Seam.lean:59:13: `ENat.toNat_coe` has been deprecated: Use `ENat.toNat_natCast` instead
+✔ [8785/9153] Built Zeta23.Taper.Norms (12s)
+✔ [8786/9153] Built Zeta23.XiPrime.Coeff.Abel (5.0s)
+⚠ [8787/9153] Built Zeta23.XiPrime.Certificate.Poly (6.3s)
+warning: Zeta23/XiPrime/Certificate/Poly.lean:42:6: `intervalIntegral.integral_finset_sum` has been deprecated: Use `intervalIntegral.integral_finsetSum` instead
+✔ [8788/9153] Built Zeta23.PairCeiling.Bridge (5.9s)
+⚠ [8789/9153] Built Zeta23.FromPNTPlus.ZetaBounds (22s)
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:859:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:952:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1092:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1099:32: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1105:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1115:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1119:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1135:54: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1157:22: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:15: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:59: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1185:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1835:19: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1837:45: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1840:28: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1844:28: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1900:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1906:20: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2091:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2884:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2940:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8790/9153] Built Zeta23.PrimeSideB.PPKernel (11s)
+✔ [8791/9153] Built Zeta23.PrimeSideA.CrossMuPCore (13s)
+✔ [8792/9153] Built Zeta23.ThmE.ChebCoprime (11s)
+✔ [8793/9153] Built Zeta23.LinAlg (3.8s)
+✔ [8794/9153] Built Zeta23.Separation.B1Sym (4.5s)
+✔ [8795/9153] Built Zeta23.W1.ArgPrincipleBridge (4.0s)
+✔ [8796/9153] Built Zeta23.MV.Duality (9.7s)
+✔ [8797/9153] Built Zeta23.Separation.Clause4 (6.5s)
+✔ [8798/9153] Built Zeta23.PrimeSideA.Basic (18s)
+⚠ [8799/9153] Built Zeta23.ThmE.SeamL (5.1s)
+warning: Zeta23/ThmE/SeamL.lean:337:13: `ENat.toNat_coe` has been deprecated: Use `ENat.toNat_natCast` instead
+✔ [8800/9153] Built Zeta23.Statement.SeamClosed (4.2s)
+✔ [8801/9153] Built Zeta23.W1.Instances (41s)
+ℹ [8802/9153] Built Zeta23.GammaFacts.Mu (8.7s)
+info: Zeta23/GammaFacts/Mu.lean:137:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [8803/9153] Built Zeta23.Taper.Fourier (13s)
+✔ [8804/9153] Built Zeta23.PiFacts (21s)
+✔ [8805/9153] Built Zeta23.XiPrime.Certificate.AtOne (4.2s)
+✔ [8806/9153] Built Zeta23.MV.Quadratic (15s)
+✔ [8807/9153] Built Zeta23.Taper.Params (7.4s)
+✔ [8808/9153] Built Zeta23.XiPrime.Coeff.PowerSums (6.1s)
+✔ [8809/9153] Built Zeta23.RvM.ZetaGrowth (5.6s)
+⚠ [8810/9153] Built Zeta23.XiPrime.Statement (4.0s)
+warning: Zeta23/XiPrime/Statement.lean:365:69: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8811/9153] Built Zeta23.PairCeiling.NearCUE (7.5s)
+✔ [8812/9153] Built Zeta23.Assembly.Inputs (4.3s)
+⚠ [8813/9153] Built Zeta23.ZeroSide.RankTraceMult (5.8s)
+warning: Zeta23/ZeroSide/RankTraceMult.lean:49:32: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:49:60: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:56:30: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:56:43: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:81:32: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:81:58: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:164:20: This simp argument is unused:
+  Matrix.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:359:28: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8814/9153] Built Zeta23.Taper.Decay (11s)
+✔ [8815/9153] Built Zeta23.PrimeSideB.PPOffDiag (10s)
+✔ [8816/9153] Built Zeta23.Separation.ZEnclosure (8.2s)
+✔ [8817/9153] Built Zeta23.RvM.CountByIntegral (4.3s)
+✔ [8818/9153] Built Zeta23.ThmE.CountByIntegralChi (4.7s)
+⚠ [8819/9153] Built Zeta23.RvM.NcountWindow (3.6s)
+warning: Zeta23/RvM/NcountWindow.lean:23:22: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8820/9153] Built Zeta23.DBN.BarrierCert (9.4s)
+✔ [8821/9153] Built Zeta23.RvM.Defs (3.3s)
+✔ [8822/9153] Built Zeta23.PrimeSideB.Concrete (6.9s)
+✔ [8823/9153] Built Zeta23.W1.FDH (3.4s)
+✔ [8824/9153] Built Zeta23.W1.Ledger (3.4s)
+✔ [8825/9153] Built Zeta23.Separation.Assembly (12s)
+✔ [8826/9153] Built Zeta23.PrimeSideA.CrossMuP (11s)
+ℹ [8827/9153] Built Zeta23.GammaFacts.StirlingVert (7.2s)
+info: Zeta23/GammaFacts/StirlingVert.lean:452:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [8828/9153] Built Zeta23.XiPrime.Coeff.NonSquarefree (6.3s)
+✔ [8829/9153] Built Zeta23.XiPrime.Coeff.Upper (5.6s)
+✔ [8830/9153] Built Zeta23.Poisson (9.2s)
+✔ [8831/9153] Built Zeta23.PrimeSideA.MuMu (16s)
+✔ [8832/9153] Built Zeta23.MV.Eigen (9.8s)
+✔ [8833/9153] Built Zeta23.ThmE.LGrowth (5.5s)
+✔ [8834/9153] Built Zeta23.XiPrime.Coeff.MainTerm.Asymp (9.5s)
+✔ [8835/9153] Built Zeta23.XiPrime.StatementW (3.9s)
+✔ [8836/9153] Built Zeta23.PrimeSideA.EndsCore (11s)
+✔ [8837/9153] Built Zeta23.PairCeiling.RowCert (6.7s)
+⚠ [8838/9153] Built Zeta23.ZeroSide.TightMult (4.4s)
+warning: Zeta23/ZeroSide/TightMult.lean:45:24: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/TightMult.lean:57:28: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Sum.inl_injective.eq_iff, Ne.symm hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/TightMult.lean:64:14: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Sum.inl_injective.eq_iff, Ne.symm this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/TightMult.lean:67:12: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/TightMult.lean:93:22: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8839/9153] Built Zeta23.ZeroSide (6.3s)
+warning: Zeta23/ZeroSide.lean:701:4: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/ZeroSide.lean:706:66: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/ZeroSide.lean:712:52: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/ZeroSide.lean:755:53: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [8840/9153] Built Zeta23.Tail (6.5s)
+warning: Zeta23/Tail.lean:290:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/Tail.lean:399:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8841/9153] Built Zeta23.DBN.Instance02.Rect (3.5s)
+✔ [8842/9153] Built Zeta23.RvM.LocalCount (16s)
+✔ [8843/9153] Built Zeta23.ThmE.RvMChiDefs (3.5s)
+✔ [8844/9153] Built Zeta23.Taper (8.6s)
+✔ [8845/9153] Built Zeta23.RvM.Fold (4.9s)
+⚠ [8846/9153] Built Zeta23.WeilEF.Landau (17s)
+warning: Zeta23/WeilEF/Landau.lean:341:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/WeilEF/Landau.lean:437:64: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8847/9153] Built Zeta23.XiPrime.Coeff.PrimeSums (6.2s)
+✔ [8848/9153] Built Zeta23.RvM.GammaSide (8.4s)
+✔ [8849/9153] Built Zeta23.XiPrime.Coeff.LSeries (4.9s)
+⚠ [8850/9153] Built Zeta23.Assembly (21s)
+warning: Zeta23/Assembly.lean:885:47: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/Assembly.lean:958:34: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/Assembly.lean:962:90: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8851/9153] Built Zeta23.WeilEF.VerticalLine (11s)
+ℹ [8852/9153] Built Zeta23.XiPrime.Coeff.ReexpansionGen (4.9s)
+info: Zeta23/XiPrime/Coeff/ReexpansionGen.lean:223:73: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [8853/9153] Built Zeta23.XiPrime.Coeff.Tail (9.5s)
+✔ [8854/9153] Built Zeta23.PrimeSideB.PP (17s)
+✔ [8855/9153] Built Zeta23.MV.Final (6.4s)
+✔ [8856/9153] Built Zeta23.ZeroSide.Mult (3.8s)
+✔ [8857/9153] Built Zeta23.DBN.Instance02.arb_0071 (3.2s)
+✔ [8858/9153] Built Zeta23.DBN.Instance02.arb_0070 (2.9s)
+✔ [8859/9153] Built Zeta23.PairCeiling.LawN256 (4.7s)
+✔ [8860/9153] Built Zeta23.DBN.Instance02.arb_0069 (3.3s)
+✔ [8861/9153] Built Zeta23.PrimeSideA.EndsWeighted (8.4s)
+✔ [8862/9153] Built Zeta23.Separation.Assembly2 (17s)
+✔ [8863/9153] Built Zeta23.DBN.Instance02.arb_0067 (3.9s)
+✔ [8864/9153] Built Zeta23.DBN.Instance02.arb_0068 (3.0s)
+✔ [8865/9153] Built Zeta23.DBN.Instance02.arb_0065 (3.0s)
+✔ [8866/9153] Built Zeta23.DBN.Instance02.arb_0066 (4.2s)
+✔ [8867/9153] Built Zeta23.DBN.Instance02.arb_0064 (3.9s)
+✔ [8868/9153] Built Zeta23.DBN.Instance02.arb_0062 (3.7s)
+✔ [8869/9153] Built Zeta23.DBN.Instance02.arb_0063 (3.8s)
+✔ [8870/9153] Built Zeta23.DBN.Instance02.arb_0061 (3.5s)
+✔ [8871/9153] Built Zeta23.DBN.Instance02.arb_0060 (3.7s)
+✔ [8872/9153] Built Zeta23.DBN.Instance02.arb_0058 (3.6s)
+✔ [8873/9153] Built Zeta23.DBN.Instance02.arb_0059 (3.6s)
+⚠ [8874/9153] Built Zeta23.ThmD.Window (32s)
+warning: Zeta23/ThmD/Window.lean:132:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8875/9153] Built Zeta23.DBN.Instance02.arb_0057 (3.6s)
+✔ [8876/9153] Built Zeta23.DBN.Instance02.arb_0055 (3.8s)
+✔ [8877/9153] Built Zeta23.DBN.Instance02.arb_0056 (3.8s)
+✔ [8878/9153] Built Zeta23.DBN.Instance02.arb_0054 (3.7s)
+✔ [8879/9153] Built Zeta23.DBN.Instance02.arb_0053 (3.8s)
+✔ [8880/9153] Built Zeta23.DBN.Instance02.arb_0051 (3.6s)
+✔ [8881/9153] Built Zeta23.DBN.Instance02.arb_0052 (3.6s)
+✔ [8882/9153] Built Zeta23.DBN.Instance02.arb_0050 (3.7s)
+✔ [8883/9153] Built Zeta23.DBN.Instance02.arb_0049 (3.8s)
+✔ [8884/9153] Built Zeta23.DBN.Instance02.arb_0048 (3.7s)
+✔ [8885/9153] Built Zeta23.DBN.Instance02.arb_0047 (3.8s)
+✔ [8886/9153] Built Zeta23.DBN.Instance02.arb_0046 (3.7s)
+✔ [8887/9153] Built Zeta23.DBN.Instance02.arb_0045 (3.6s)
+✔ [8888/9153] Built Zeta23.DBN.Instance02.arb_0044 (3.8s)
+✔ [8889/9153] Built Zeta23.DBN.Instance02.arb_0043 (3.8s)
+✔ [8890/9153] Built Zeta23.DBN.Instance02.arb_0042 (3.8s)
+✔ [8891/9153] Built Zeta23.DBN.Instance02.arb_0041 (3.9s)
+✔ [8892/9153] Built Zeta23.DBN.Instance02.arb_0040 (3.7s)
+✔ [8893/9153] Built Zeta23.DBN.Instance02.arb_0039 (3.6s)
+⚠ [8894/9153] Built Zeta23.PrimeSideA.EndsE1 (23s)
+warning: Zeta23/PrimeSideA/EndsE1.lean:326:41: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8895/9153] Built Zeta23.DBN.Instance02.arb_0038 (3.9s)
+✔ [8896/9153] Built Zeta23.DBN.Instance02.arb_0037 (3.9s)
+✔ [8897/9153] Built Zeta23.DBN.Instance02.arb_0036 (3.8s)
+✔ [8898/9153] Built Zeta23.DBN.Instance02.arb_0035 (3.0s)
+✔ [8899/9153] Built Zeta23.DBN.Instance02.arb_0034 (3.9s)
+✔ [8900/9153] Built Zeta23.DBN.Instance02.arb_0032 (3.8s)
+✔ [8901/9153] Built Zeta23.DBN.Instance02.arb_0033 (4.1s)
+✔ [8902/9153] Built Zeta23.DBN.Instance02.arb_0031 (4.0s)
+✔ [8903/9153] Built Zeta23.DBN.Instance02.arb_0030 (4.1s)
+✔ [8904/9153] Built Zeta23.DBN.Instance02.arb_0029 (4.1s)
+✔ [8905/9153] Built Zeta23.DBN.Instance02.arb_0028 (4.0s)
+✔ [8906/9153] Built Zeta23.DBN.Instance02.arb_0026 (3.8s)
+✔ [8907/9153] Built Zeta23.DBN.Instance02.arb_0027 (4.1s)
+✔ [8908/9153] Built Zeta23.DBN.Instance02.arb_0025 (3.9s)
+✔ [8909/9153] Built Zeta23.DBN.Instance02.arb_0022 (4.1s)
+✔ [8910/9153] Built Zeta23.DBN.Instance02.arb_0023 (4.2s)
+✔ [8911/9153] Built Zeta23.DBN.Instance02.arb_0024 (4.4s)
+✔ [8912/9153] Built Zeta23.DBN.Instance02.arb_0021 (3.9s)
+✔ [8913/9153] Built Zeta23.DBN.Instance02.arb_0020 (3.9s)
+✔ [8914/9153] Built Zeta23.DBN.Instance02.arb_0019 (3.9s)
+✔ [8915/9153] Built Zeta23.DBN.Instance02.arb_0017 (4.3s)
+✔ [8916/9153] Built Zeta23.DBN.Instance02.arb_0018 (4.3s)
+✔ [8917/9153] Built Zeta23.DBN.Instance02.arb_0016 (4.2s)
+✔ [8918/9153] Built Zeta23.DBN.Instance02.arb_0013 (4.2s)
+✔ [8919/9153] Built Zeta23.DBN.Instance02.arb_0014 (4.3s)
+✔ [8920/9153] Built Zeta23.DBN.Instance02.arb_0015 (4.3s)
+✔ [8921/9153] Built Zeta23.DBN.Instance02.arb_0012 (4.4s)
+✔ [8922/9153] Built Zeta23.DBN.Instance02.arb_0011 (4.2s)
+✔ [8923/9153] Built Zeta23.DBN.Instance02.arb_0010 (4.5s)
+✔ [8924/9153] Built Zeta23.DBN.Instance02.arb_0008 (4.6s)
+✔ [8925/9153] Built Zeta23.DBN.Instance02.arb_0009 (4.6s)
+✔ [8926/9153] Built Zeta23.DBN.Instance02.arb_0007 (4.7s)
+✔ [8927/9153] Built Zeta23.DBN.Instance02.arb_0004 (4.7s)
+✔ [8928/9153] Built Zeta23.DBN.Instance02.arb_0005 (4.7s)
+✔ [8929/9153] Built Zeta23.DBN.Instance02.arb_0006 (4.8s)
+✔ [8930/9153] Built Zeta23.DBN.Instance02.arb_0003 (4.9s)
+✔ [8931/9153] Built Zeta23.DBN.Instance02.arb_0002 (4.0s)
+✔ [8932/9153] Built Zeta23.DBN.Instance02.arb_0001 (5.0s)
+✔ [8933/9153] Built Zeta23.DBN.Instance02.mp_0038 (4.3s)
+✔ [8934/9153] Built Zeta23.DBN.Instance02.mp_0037 (4.2s)
+✔ [8935/9153] Built Zeta23.DBN.Instance02.arb_0000 (4.9s)
+✔ [8936/9153] Built Zeta23.DBN.Instance02.mp_0036 (4.3s)
+✔ [8937/9153] Built Zeta23.DBN.Instance02.mp_0034 (4.4s)
+✔ [8938/9153] Built Zeta23.DBN.Instance02.mp_0035 (4.4s)
+✔ [8939/9153] Built Zeta23.DBN.Instance02.mp_0032 (4.3s)
+✔ [8940/9153] Built Zeta23.DBN.Instance02.mp_0033 (4.6s)

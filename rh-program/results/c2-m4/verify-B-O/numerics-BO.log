@@ -1,0 +1,59 @@
+Z = 0.22199690808403971891  cB = 0.14296064749345113275  CB = 33.284500053187363306  b1sym = 10.984421158432557036
+---- r0_73_check.py lines 22-33 (exec'd verbatim) ----
+def gamma_poly(n, a, s):      # sum_{j=0}^n n!/j! s^j / a^{n+1-j}  (= e^{a s} int_s^inf x^n e^{-a x} dx)
+    return mp.fsum(mp.factorial(n)/mp.factorial(j)*s**j/a**(n+1-j) for j in range(n+1))
+def P_relaxed(m, L, R0, L0):
+    L = mp.mpf(L); R0 = mp.mpf(R0); a = 2*cB; sR = mp.sqrt(R0)*L; u0 = R0*L
+    beta = 1 + 3/(2*(R0*mp.mpf(L0) - 1))
+    phi0 = u0**m*(1 + cB/2*sR)**2
+    integ = (2/L**(m+1))*(gamma_poly(2*m+1, a, sR) + cB*gamma_poly(2*m+2, a, sR) + cB**2/4*gamma_poly(2*m+3, a, sR))
+    return beta**m*CB**2*(phi0 + integ)
+# --- end of the copy; the exponent is now a parameter ---
+def Ftilde(L, R0, L0, ex):
+    L = mp.mpf(L); R0 = mp.mpf(R0)
+    return (ex - 2*cB*mp.sqrt(R0))*L + 2*cB/mp.sqrt(R0) + mp.log((mp.mpf('1.05')*P_relaxed(2, L, R0, L0) + P_relaxed(3, L, R0, L0))/b1)
+----
+[true constants (cB, CB from Z at 50 digits)]  record b1 = 8.698080741
+  L=    50  P2 lean 945084322266075.4 script 945084322266075.4 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -0.322723205707064 script Ftilde -0.322723205707064 rel 0.0 | F13(b1sym) -0.5560988195
+  L=   100  P2 lean 1.423155451809302e+16 script 1.423155451809302e+16 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -37.8221871827996 script Ftilde -37.8221871827996 rel 0.0 | F13(b1sym) -38.0555628
+  L=  1000  P2 lean 1.347348423408449e+20 script 1.347348423408449e+20 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -762.492965035373 script Ftilde -762.492965035373 rel 0.0 | F13(b1sym) -762.7263406
+  L= 10000  P2 lean 1.33998150879799e+24 script 1.33998150879799e+24 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -8112.19979935196 script Ftilde -8112.19979935196 rel 0.0 | F13(b1sym) -8112.433175
+  max relative difference: 0.0  -> AGREE
+[record constants (json)]  record b1 = 8.698080741
+  L=    50  P2 lean 945084322266075.6 script 945084322266075.6 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -0.322723205707068 script Ftilde -0.322723205707068 rel 0.0 | F13(b1sym) -0.5560988195
+  L=   100  P2 lean 1.423155451809302e+16 script 1.423155451809302e+16 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -37.8221871827996 script Ftilde -37.8221871827996 rel 0.0 | F13(b1sym) -38.0555628
+  L=  1000  P2 lean 1.347348423408449e+20 script 1.347348423408449e+20 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -762.492965035373 script Ftilde -762.492965035373 rel 0.0 | F13(b1sym) -762.7263406
+  L= 10000  P2 lean 1.33998150879799e+24 script 1.33998150879799e+24 rel 0.0 | P3 rel 0.0 | F13(b1 rec) lean -8112.19979935196 script Ftilde -8112.19979935196 rel 0.0 | F13(b1sym) -8112.433175
+  max relative difference: 0.0  -> AGREE
+5/(2cB sqrt73 - 13/8) = 6.113122486  (A3: 6.113);  2cB sqrt73 - 13/8 = 0.8179126152
+F13(50) at record b1 = -0.3227232057 (A3: -0.3227);  at b1sym = -0.5560988195;  log(b1sym/b1rec) = 0.23337561
+==== (iv) certificate, exact rational arithmetic ====
+  i= 0 x=        1=1.000000 q=1 (lean qcell 1) lo=3.6787943554e-01 exp(-x)=0.36787944117 hi=3.6788321168e-01
+  i= 1 x=  256/255=1.003922 q=2 (lean qcell 2) lo=3.6643959882e-01 exp(-x)=0.36643960176 hi=3.6644346364e-01
+  i= 2 x=    64/63=1.015873 q=2 (lean qcell 2) lo=3.6208618168e-01 exp(-x)=0.36208618482 hi=3.6209033597e-01
+  i= 3 x=  256/247=1.036437 q=2 (lean qcell 2) lo=3.5471619610e-01 exp(-x)=0.3547161996 hi=3.5472088802e-01
+  i= 4 x=    16/15=1.066667 q=2 (lean qcell 2) lo=3.4415378277e-01 exp(-x)=0.34415378687 hi=3.4415936208e-01
+  i= 5 x=  256/231=1.108225 q=2 (lean qcell 2) lo=3.3014440696e-01 exp(-x)=0.33014441197 hi=3.3015141322e-01
+  i= 6 x=    64/55=1.163636 q=2 (lean qcell 2) lo=3.1234829485e-01 exp(-x)=0.31234830126 hi=3.1235762373e-01
+  i= 7 x=  256/207=1.236715 q=2 (lean qcell 2) lo=2.9033640663e-01 exp(-x)=0.29033641522 hi=2.9034964700e-01
+  i= 8 x=      4/3=1.333333 q=2 (lean qcell 2) lo=2.6359712615e-01 exp(-x)=0.26359713812 hi=2.6361728971e-01
+  i= 9 x=  256/175=1.462857 q=2 (lean qcell 2) lo=2.3157367260e-01 exp(-x)=0.23157368952 hi=2.3160688283e-01
+  i=10 x=    64/39=1.641026 q=2 (lean qcell 2) lo=1.9378116801e-01 exp(-x)=0.19378119039 hi=1.9384083890e-01
+  i=11 x=  256/135=1.896296 q=2 (lean qcell 2) lo=1.5012358774e-01 exp(-x)=0.15012360419 hi=1.5024134556e-01
+  i=12 x=     16/7=2.285714 q=3 (lean qcell 3) lo=1.0170137890e-01 exp(-x)=0.1017013923 hi=1.0195561719e-01
+  i=13 x=   256/87=2.942529 q=3 (lean qcell 3) lo=5.2732208761e-02 exp(-x)=0.052732214169 hi=5.3303078337e-02
+  i=14 x=    64/15=4.266667 q=5 (lean qcell 5) lo=1.4028462397e-02 exp(-x)=0.01402846686 hi=1.5061989663e-02
+  i=15 x=   256/31=8.258065 q=9 (lean qcell 9) lo=2.5915995712e-04 exp(-x)=0.00025916010632 hi=6.2066062755e-04
+  Z_lo (exact sum)/16 = 0.2105013520  Z_hi = 0.2336502280   true Z = 0.221996908084
+  421/2000 <= Z_lo_sum: True   Z_hi_sum <= 233651/10^6: True
+  slack: Z_lo_sum - 421/2000 = 1.352e-06;  233651/10^6 - Z_hi_sum = 7.720e-07
+  true Riemann sums: right 0.2105013598 <= Z = 0.2219969081 <= left 0.2334938249
+  eLo<=e<=eHi: True; cLo<=cB<=cHi: True; rLo<=sqrt73<=rHi: True
+  72*eHi <= (2/cLo)^2: True;  (2/cHi)^2 <= 72*eLo: True;  rLo^2 <= 73: True;  73 <= rHi^2: True
+  CBHi = 35.10240427 (true CB 33.2845);  b1Lo = 9.91598222 (true b1sym 10.984421)
+  ELo = 40.8621661155;  ELo - 40 >= 0: True
+  cert_numeric: LHS = 3.9385262270e+17  RHS = 5.5730664252e+17  LHS <= RHS (exact): True;  margin log(RHS/LHS) = 0.34713883 nats
+  F13(50) upper bound at the endpoints = log(Q_hi/b1_lo) - E_lo = -0.34741294 (builder: -0.3474; pricing: -0.349)
+  true F13(50) at b1sym = -0.55609882 >= endpoint bound? True  (the bound must be an UPPER bound)
+  second conjunct: 2 cLo rLo - 13/8 = 0.81791261;  5/(that) = 6.113122 <= 50: True
+digits in cert_numeric's cleared numerator/denominator: 294 277 577 559
