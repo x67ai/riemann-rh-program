@@ -29,7 +29,7 @@ import mpmath as mp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 NMAX = int(os.environ.get("NMAX", "13"))
-JMAX = 40.0
+JMAX = float(os.environ.get("JMAX", "12"))
 NSTART = int(os.environ.get("NSTART", "12"))
 EXTRA_M = int(os.environ.get("EXTRA_M", "4"))
 rng = np.random.default_rng(20260924)
