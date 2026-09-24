@@ -1,0 +1,41 @@
+=== [CONTROL] start 2026-09-24 22:10:53 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/zeta-23-lean-main
+config=comparator/config.json
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "two_thirds_on_critical_line",
+    "two_thirds_on_critical_line_cumulative",
+    "half_simple_on_critical_line",
+    "half_simple_on_critical_line_cumulative",
+    "three_quarters_distinct",
+    "three_quarters_distinct_cumulative",
+    "montgomery_taylor_on_critical_line",
+    "montgomery_taylor_simple_on_critical_line",
+    "montgomery_taylor_distinct",
+    "dirichlet_two_thirds_on_critical_line",
+    "dirichlet_half_simple_on_critical_line",
+    "dirichlet_three_quarters_distinct",
+    "dirichlet_montgomery_taylor_on_critical_line",
+    "dirichlet_montgomery_taylor_simple_on_critical_line",
+    "dirichlet_montgomery_taylor_distinct"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge
