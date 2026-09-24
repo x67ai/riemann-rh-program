@@ -36,3 +36,4 @@
 * `harness/eps_phi.json`: ε = 6.392·10⁻³¹ (max over 8 self-tests, 5000 sampled n); a-priori dd worst case 2.1·10⁻³⁰ stated beside it. With ε measured: t_ceil(28.35) = 1.04·10²⁰ at ℓ¹ = 150, t_ceil(22) ≈ 6·10²⁰.
 * `d4-sweep-note.md` §0–§3, §4.1–§4.2, §4.4–§4.6, §5, §8, §10, 10(n) written (30.7 kB; 10(g) lint 0 hits); §4.3/§4.7 pending the two runs; §6, §7, §9, §11, §12 after the sweep. `hashes.txt` opened with the harness sources and the three fetched PDFs.
 * Second build of the binary (f6256ded…; source c1149d54…) adds only `--selftest-only`; the (10¹², 28.35) run in flight uses the first build (f97fc582…; source ceeb3a28…). `harness/run_pt_edge_after.sh` (pid 19432) starts the PT-edge point through `d4_point.py` the moment the (10¹², 28.35) job (pid 18700) exits.
+| Fri Sep 25 01:50:38 IST 2026 | Job 1 | alive — running (10¹², 28.35) (8 threads, since 01:01:30) |
