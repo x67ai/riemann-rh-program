@@ -1,0 +1,7 @@
+# statement identity, topic SeparationClause5Sum, 2026-09-24 22:29:44 IST
+separation_clause5_summable                   challenge   222 bytes, solution   222 bytes: IDENTICAL
+    theorem separation_clause5_summable (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (ht : 3 ≤ t) (hL : 0 < L) :
+        Summable (fun ρ : Z.outWindow t (73 * L) =>
+          ‖Z.Wsummand (Separation.ftest t L) (Separation.ftest t L) ρ‖)
+RESULT: PASS
+exit=0
