@@ -1,0 +1,29 @@
+=== trust greps (CHECK-O-B) 2026-09-24 23:12:14 IST, clone /Users/jaytyagi/rh-lean-check-s25/clone, 13 files ===
+--- (1) the builder's trust_greps_B.py (comments stripped), read before use ---
+comparator/Challenge/SeparationClause5Sum.lean:44: [sorry] sorry
+comparator/Challenge/Separation5.lean:51: [sorry] sorry
+comparator/Challenge/Separation5.lean:69: [sorry] sorry
+comparator/Challenge/Separation5c.lean:47: [sorry] sorry
+comparator/Challenge/Separation5c.lean:64: [sorry] sorry
+files present: 13; hits outside comments: 5
+exit=1
+--- (2) raw grep, comments NOT stripped, word-bounded: axiom native_decide unsafe implemented_by extern opaque sorry admit ofReduceBool ---
+comparator/Challenge/Separation5c.lean:33:The two `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when
+comparator/Challenge/Separation5c.lean:47:  sorry
+comparator/Challenge/Separation5c.lean:64:  sorry
+comparator/Challenge/SeparationClause5Sum.lean:30:The `sorry` below is deliberate (this is the challenge side); expect a "declaration uses 'sorry'" warning when building
+comparator/Challenge/SeparationClause5Sum.lean:44:  sorry
+comparator/PrintAxioms/SeparationClause5Sum.lean:12:comparator/PrintAxioms/SeparationClause5Sum.lean — quick axiom audit of the SeparationClause5Sum topic WITHOUT the
+comparator/PrintAxioms/SeparationClause5Sum.lean:16:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run
+comparator/PrintAxioms/Separation5c.lean:12:comparator/PrintAxioms/Separation5c.lean — quick axiom audit of the Separation5c topic WITHOUT the comparator tool:
+comparator/PrintAxioms/Separation5c.lean:15:Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-separation5c.json) is the stronger
+comparator/Challenge/Separation5.lean:36:The two `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when
+comparator/Challenge/Separation5.lean:51:  sorry
+comparator/Challenge/Separation5.lean:69:  sorry
+comparator/PrintAxioms/Separation5.lean:12:comparator/PrintAxioms/Separation5.lean — quick axiom audit of the Separation5 topic WITHOUT the comparator tool:
+comparator/PrintAxioms/Separation5.lean:15:Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-separation5.json) is the stronger
+--- (3) decide +kernel / csimp ---
+comparator/PrintAxioms/Separation5.lean:15:Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-separation5.json) is the stronger
+comparator/PrintAxioms/SeparationClause5Sum.lean:16:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run
+comparator/PrintAxioms/Separation5c.lean:15:Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-separation5c.json) is the stronger
+(3) done

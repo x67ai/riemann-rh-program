@@ -1,0 +1,17 @@
+=== frozen-statement comparison (CHECK-O-B) 2026-09-24 23:17:45 IST ===
+--- my clone's output vs builder's verify-B/frozen-statements.log (header line dropped) ---
+IDENTICAL (142 lines)
+--- verify-A body (82 lines) is a byte-identical prefix of my output? ---
+YES: first       82 lines identical
+--- verify-A-O (Unit A checker) body vs my prefix ---
+YES identical to verify-A-O/frozen-statements-AO.log
+--- axiom lines ---
+16
+0
+=== Unit A's two root pairs, statement SHA-256 prefixes in my clone vs CHECK-O-A §6 (444525975a688dff, 9203e9309edb8ac3, 4b4027faf5d3d745, d74308b606df73c0) ===
+separation_clause4_in_window_noise_b       challenge   315 B, solution   315 B, sha256[:16] 444525975a688dff: IDENTICAL
+RESULT: PASS
+separation_clause6_assembly_b              challenge   970 B, solution   970 B, sha256[:16] 9203e9309edb8ac3: IDENTICAL
+separation_clause7_tight_pair              challenge  1162 B, solution  1162 B, sha256[:16] 4b4027faf5d3d745: IDENTICAL
+rstar_of_21L                               challenge   161 B, solution   161 B, sha256[:16] d74308b606df73c0: IDENTICAL
+RESULT: PASS

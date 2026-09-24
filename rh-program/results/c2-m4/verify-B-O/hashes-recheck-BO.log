@@ -1,0 +1,138 @@
+=== hashes-B.txt recheck (CHECK-O-B) 2026-09-24 23:12:56 IST; lean/ files read in the CLONE, records in the repository ===
+SAME    lean/Zeta23.lean
+SAME    lean/formalization.yaml
+SAME    lean/Zeta23/Separation/Clause5.lean
+SAME    lean/Zeta23/Separation/ZEnclosure.lean
+SAME    lean/Zeta23/Separation/Clause5Cert.lean
+SAME    lean/comparator/ChallengeDeps/Separation5.lean
+SAME    lean/comparator/Challenge/SeparationClause5Sum.lean
+SAME    lean/comparator/Solution/SeparationClause5Sum.lean
+SAME    lean/comparator/PrintAxioms/SeparationClause5Sum.lean
+SAME    lean/comparator/config-separation-clause5sum.json
+SAME    lean/comparator/Challenge/Separation5.lean
+SAME    lean/comparator/Solution/Separation5.lean
+SAME    lean/comparator/PrintAxioms/Separation5.lean
+SAME    lean/comparator/config-separation5.json
+SAME    lean/comparator/Challenge/Separation5c.lean
+SAME    lean/comparator/Solution/Separation5c.lean
+SAME    lean/comparator/PrintAxioms/Separation5c.lean
+SAME    lean/comparator/config-separation5c.json
+SAME    results/d1-m2a/packaging/FIDELITY.md
+SAME    results/c2-m4/BUILD-NOTES-B.md
+SAME    results/c2-m4/BRIEF-B.md
+SAME    results/c2-m4/verify-B/run.sh
+SAME    results/c2-m4/verify-B/prerun-cleanup.log
+SAME    results/c2-m4/verify-B/control-run.log
+SAME    results/c2-m4/verify-B/lake-build-before.log
+SAME    results/c2-m4/verify-B/lake-build.log
+SAME    results/c2-m4/verify-B/comparator-run-clause5sum.log
+SAME    results/c2-m4/verify-B/comparator-run-separation5.log
+SAME    results/c2-m4/verify-B/comparator-run-separation5c.log
+SAME    results/c2-m4/verify-B/print-axioms-clause5sum.log
+SAME    results/c2-m4/verify-B/print-axioms-separation5.log
+SAME    results/c2-m4/verify-B/print-axioms-separation5c.log
+SAME    results/c2-m4/verify-B/print-axioms-library-B.log
+SAME    results/c2-m4/verify-B/axioms_B_probe.lean.txt
+SAME    results/c2-m4/verify-B/statement_identity_B.py
+SAME    results/c2-m4/verify-B/statement-identity-clause5sum.log
+SAME    results/c2-m4/verify-B/statement-identity-separation5.log
+SAME    results/c2-m4/verify-B/statement-identity-separation5c.log
+SAME    results/c2-m4/verify-B/trust_greps_B.py
+SAME    results/c2-m4/verify-B/trust-greps-B.log
+SAME    results/c2-m4/verify-B/trust-greps-B-rung.log
+SAME    results/c2-m4/verify-B/trust-greps-B-1a.log
+SAME    results/c2-m4/verify-B/trust-greps-B-1b.log
+SAME    results/c2-m4/verify-B/p23_diff.py
+SAME    results/c2-m4/verify-B/p23-diff.log
+SAME    results/c2-m4/verify-B/cert_numbers.py
+SAME    results/c2-m4/verify-B/cert-numbers.log
+SAME    results/c2-m4/verify-B/frozen_probe.lean.txt
+SAME    results/c2-m4/verify-B/frozen-statements.log
+SAME    results/c2-m4/verify-B/untouched.log
+SAME    results/c2-m4/verify-B/yaml-validation.log
+SAME    results/c2-m4/verify-B/decls-B.txt
+SAME 52, CHANGED 0
+
+=== frozen Unit A files vs hashes-A.txt, read in the CLONE (Lean/config) or repository (records) ===
+CHANGED Zeta23.lean (now 02299918b160f183dc9c4e27ed4add209f5ca3b652a371c6a3b1218f599fb797)
+CHANGED formalization.yaml (now 42255bab658cd0b0e20e300712c76e9ec35241f3eb4a8c30ff0063fd5f3b1702)
+SAME    Zeta23/Separation/B1Sym.lean
+SAME    Zeta23/Separation/Assembly2.lean
+SAME    comparator/ChallengeDeps/Separation6b.lean
+SAME    comparator/Challenge/SeparationClause4b.lean
+SAME    comparator/Solution/SeparationClause4b.lean
+SAME    comparator/Challenge/Separation6b.lean
+SAME    comparator/Solution/Separation6b.lean
+SAME    comparator/PrintAxioms/SeparationClause4b.lean
+SAME    comparator/PrintAxioms/Separation6b.lean
+SAME    comparator/config-separation-clause4b.json
+SAME    comparator/config-separation6b.json
+CHANGED results/d1-m2a/packaging/FIDELITY.md (now e937ed35edd9ebe1ef8cf3abbd8f648131edf9a090fde9918f71749f49781776)
+SAME    results/c2-m4/BRIEF-A.md
+SAME    results/c2-m4/verify-A/axioms_A_probe.lean.txt
+SAME    results/c2-m4/verify-A/comparator-run-clause4b.log
+SAME    results/c2-m4/verify-A/comparator-run-separation6b.log
+SAME    results/c2-m4/verify-A/control-run.log
+SAME    results/c2-m4/verify-A/decls-A.txt
+SAME    results/c2-m4/verify-A/digit-grep-A.log
+SAME    results/c2-m4/verify-A/frozen_probe.lean.txt
+SAME    results/c2-m4/verify-A/frozen-statements.log
+SAME    results/c2-m4/verify-A/lake-build-before.log
+SAME    results/c2-m4/verify-A/lake-build.log
+SAME    results/c2-m4/verify-A/prerun-cleanup.log
+SAME    results/c2-m4/verify-A/print-axioms-clause4b.log
+SAME    results/c2-m4/verify-A/print-axioms-library-A.log
+SAME    results/c2-m4/verify-A/print-axioms-separation6b.log
+SAME    results/c2-m4/verify-A/run.sh
+SAME    results/c2-m4/verify-A/statement_identity_A.py
+SAME    results/c2-m4/verify-A/statement-identity-clause4b.log
+SAME    results/c2-m4/verify-A/statement-identity-separation6b.log
+SAME    results/c2-m4/verify-A/trust_greps_A.py
+SAME    results/c2-m4/verify-A/trust-greps-A.log
+SAME    results/c2-m4/verify-A/untouched.log
+SAME    results/c2-m4/verify-A/yaml-validation.log
+SAME 34, CHANGED 3
+
+=== frozen M4 (iii) files vs hashes-iii.txt ===
+CHANGED lean/Zeta23.lean (now 02299918b160f183dc9c4e27ed4add209f5ca3b652a371c6a3b1218f599fb797)
+SAME    lean/Zeta23/Separation/Clause4.lean
+SAME    lean/Zeta23/Separation/Assembly.lean
+SAME    lean/comparator/ChallengeDeps/SepConfig.lean
+SAME    lean/comparator/ChallengeDeps/Separation6.lean
+SAME    lean/comparator/Challenge/SeparationClause4.lean
+SAME    lean/comparator/Challenge/Separation6.lean
+SAME    lean/comparator/Solution/SeparationClause4.lean
+SAME    lean/comparator/Solution/Separation6.lean
+SAME    lean/comparator/PrintAxioms/SeparationClause4.lean
+SAME    lean/comparator/PrintAxioms/Separation6.lean
+SAME    lean/comparator/config-separation-clause4.json
+SAME    lean/comparator/config-separation6.json
+CHANGED lean/formalization.yaml (now 42255bab658cd0b0e20e300712c76e9ec35241f3eb4a8c30ff0063fd5f3b1702)
+CHANGED results/d1-m2a/packaging/FIDELITY.md (now e937ed35edd9ebe1ef8cf3abbd8f648131edf9a090fde9918f71749f49781776)
+CHANGED results/c2-m4/BUILD-NOTES-iii.md (now a8574307cd5e1eb098444632d49741d3507a4b4ff4bfbd7e1dcbda867dabb196)
+SAME    results/c2-m4/BRIEF-iii.md
+SAME    results/c2-m4/verify-iii/axioms_clause4_probe.lean.txt
+SAME    results/c2-m4/verify-iii/axioms_separation6_probe.lean.txt
+SAME    results/c2-m4/verify-iii/comparator-run-clause4.log
+SAME    results/c2-m4/verify-iii/comparator-run-separation6.log
+SAME    results/c2-m4/verify-iii/control-run.log
+SAME    results/c2-m4/verify-iii/decls-clause4.txt
+SAME    results/c2-m4/verify-iii/decls-separation6.txt
+SAME    results/c2-m4/verify-iii/frozen_probe.lean.txt
+SAME    results/c2-m4/verify-iii/frozen-statements.log
+SAME    results/c2-m4/verify-iii/lake-build-before.log
+SAME    results/c2-m4/verify-iii/lake-build-rung.log
+SAME    results/c2-m4/verify-iii/lake-build.log
+SAME    results/c2-m4/verify-iii/prerun-cleanup.log
+SAME    results/c2-m4/verify-iii/print-axioms-clause4.log
+SAME    results/c2-m4/verify-iii/print-axioms-separation6.log
+SAME    results/c2-m4/verify-iii/run.sh
+SAME    results/c2-m4/verify-iii/statement_identity_m4iii.py
+SAME    results/c2-m4/verify-iii/statement-identity-clause4.log
+SAME    results/c2-m4/verify-iii/statement-identity-separation6.log
+SAME    results/c2-m4/verify-iii/trust_greps_m4iii.py
+SAME    results/c2-m4/verify-iii/trust-greps-clause4.log
+SAME    results/c2-m4/verify-iii/trust-greps-separation6.log
+SAME    results/c2-m4/verify-iii/untouched.log
+SAME    results/c2-m4/verify-iii/yaml-validation.log
+SAME 37, CHANGED 4
