@@ -58,7 +58,7 @@ def braw_d1(x):
 Z = braw(w).sum()/M
 def A_of(v): return float(np.sum(braw_d1(w)*braw_d1(w - v))/M)/(Z*Z)
 vs = np.linspace(0, 1, 2001); Av = np.array([A_of(v) for v in vs])
-l1_est = float(2.0/L**2*np.trapz(np.exp(L*vs/2)*np.abs(Av), vs))
+l1_est = float(2.0/L**2*np.trapezoid(np.exp(L*vs/2)*np.abs(Av), vs))
 line_est = eps*t_f*l1_est
 out(f"[{now()}] pre-check: l1(L={L}) PNT estimate = {l1_est:.4f}; phase line estimate eps*t*l1 = {line_est:.3e} against {ALLOW:.0e} -> {'REFUSE' if line_est > ALLOW else 'go'}")
 if line_est > ALLOW:
