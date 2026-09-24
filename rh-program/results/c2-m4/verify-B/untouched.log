@@ -1,0 +1,17 @@
+# untouched.log — 2026-09-24 23:00:55 IST; Unit B: git status of the mirror lean/ (rh-program), git diff --stat of the frozen areas against HEAD, tree = mirror cmp
+## git status --short lean/
+ M lean/Zeta23.lean
+?? lean/Zeta23/Separation/Clause5Cert.lean
+?? lean/Zeta23/Separation/ZEnclosure.lean
+?? lean/comparator/Challenge/Separation5c.lean
+?? lean/comparator/PrintAxioms/Separation5c.lean
+?? lean/comparator/Solution/Separation5c.lean
+?? lean/comparator/config-separation5c.json
+## git diff --stat HEAD -- frozen areas (M4 (i), M4 (iii), Unit A pairs; DBN, W1, PairCeiling; LemmaG1, LemmaG, Clause4, Assembly, B1Sym, Assembly2; SepConfig, Separation6, Separation6b deps)
+(empty above = nothing changed in the frozen areas; the only untracked/modified entries are the Unit B files and the three root imports)
+## git diff Zeta23.lean
++import Zeta23.Separation.Clause5
++import Zeta23.Separation.ZEnclosure
++import Zeta23.Separation.Clause5Cert
+## tree = mirror (cmp), every Separation file, comparator/, Zeta23.lean, formalization.yaml
+identical files: 58

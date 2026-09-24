@@ -1,0 +1,73 @@
+=== [Separation5c] start 2026-09-24 22:57:58 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/zeta-23-lean-main
+config=comparator/config-separation5c.json
+{
+  "challenge_module": "Challenge.Separation5c",
+  "solution_module": "Solution.Separation5c",
+  "theorem_names": [
+    "separation_clause5_out_window_c",
+    "separation_clause6_assembly_d"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.Separation5c
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.Separation5c
+⚠ [8701/8701] Built Challenge.Separation5c (27s)
+warning: comparator/Challenge/Separation5c.lean:43:8: declaration uses `sorry`
+warning: comparator/Challenge/Separation5c.lean:51:8: declaration uses `sorry`
+Build completed successfully (8701 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.Separation5c -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause5_out_window_c separation_clause6_assembly_d propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause5_out_window_c, separation_clause6_assembly_d, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.Separation5c
+Building Solution.Separation5c
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.Separation5c
+⚠ [8697/8713] Replayed Zeta23.Taper.Gevrey
+warning: Zeta23/Taper/Gevrey.lean:342:80: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8713/8713] Built Solution.Separation5c (3.3s)
+Build completed successfully (8713 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.Separation5c -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause5_out_window_c separation_clause6_assembly_d propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.voPAwJa7
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause5_out_window_c, separation_clause6_assembly_d, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.Separation5c
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      107.37 real        73.92 user        15.98 sys
+          5974016000  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1844511  page reclaims
+              254757  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              273728  voluntary context switches
+              446365  involuntary context switches
+          4065003021  instructions retired
+          1277167331  cycles elapsed
+           137223792  peak memory footprint
+--- comparator exit code: 0 ---
+=== [Separation5c] end 2026-09-24 22:59:46 IST ===
