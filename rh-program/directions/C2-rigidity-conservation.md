@@ -2,8 +2,8 @@
 
 **Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** C (new field)
-**Last touched:** 2026-08-11
-**Designer confidence (first theorem provable ~2y):** 0.55
+**Last touched:** 2026-09-24 (Session 25; the 2026-08-11 date stood unedited until the s25 digest flagged it — the work log below is the record of every touch)
+**Designer confidence (first theorem provable ~2y):** 0.55 *(Phase-3 figure, immutable; superseded by the record: the first theorem, M2, landed 2026-09-16 — see the work log.)*
 
 ## Proposal (Phase 3, immutable)
 
