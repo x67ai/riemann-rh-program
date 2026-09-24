@@ -1,2 +1,14 @@
 p=3: squarefree f examined = 1134; distinct (p,a1,a2) so far = 50; elapsed 0.0s
 p=5: squarefree f examined = 27500; distinct (p,a1,a2) so far = 165; elapsed 2.5s
+p=7: squarefree f examined = 216090; distinct (p,a1,a2) so far = 357; elapsed 39.3s
+distinct (p,a1,a2) classes (deg 5 monic + deg 6 lead in {1, nonresidue}): 357
+  of which reachable with lead = 1 only (the template's monic family): 349
+  counted as (p, deg, a1, a2) with deg 5 and deg 6 separately (the template log's key): 607
+  same, restricted to lead = 1: 599  [NB: a deg-6 nonresidue-lead class that also occurs at deg 5 or monic deg 6 is counted in the monic family]
+all classes satisfy Weil RH (|root| = q^-1/2 to 1e-6): True
+a1 = 0 classes: 53  (monic family: 53 )
+signed under both identity and flip: 57  (monic family: 57 )
+p=3: classes 50, a1 range [-4, 4], a2 range [-2, 10]
+p=5: classes 115, a1 range [-6, 6], a2 range [-10, 19]
+p=7: classes 192, a1 range [-8, 8], a2 range [-14, 30]
+elapsed s: 39.4

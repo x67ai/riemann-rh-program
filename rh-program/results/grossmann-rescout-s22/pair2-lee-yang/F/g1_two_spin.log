@@ -1,0 +1,22 @@
+Z(z) = z**2*exp(J) + 2*z*exp(-J) + exp(J)
+Z(z)/e^J = z**2 + 2*z*exp(-2*J) + 1   middle coefficient: 2*exp(-2*J)
+solve 2 e^{-2J} = a1/sqrt q  =>  J = [log(-sqrt(sqrt(q)/a1)) + log(2)/2, log(sqrt(q)/a1)/2 + log(2)/2]    (requires a1 > 0; for a1 < 0 use the flip z -> -z, i.e. the quadratic twist, a1 -> -a1)
+J >= 0  <=>  |a1|/(2 sqrt q) <= 1  <=>  |a1| <= 2 sqrt q  (the Hasse bound, i.e. Weil RH for E).
+
+(3) every elliptic curve over F_p, p <= 13:
+p=3: a1 values realized by curves = [-3, -2, -1, 0, 1, 2, 3]  (Hasse |a1| <= 3.464);  a1=-3:J=0.0719 a1=-2:J=0.2747 a1=-1:J=0.6212 a1=0:J=+inf(m=0 unrealizable; see (4)) a1=1:J=0.6212 a1=2:J=0.2747 a1=3:J=0.0719
+      non-curve a1 in [-6, -5, -4, 4]: J < 0 and roots off the circle: True (checked)
+p=5: a1 values realized by curves = [-4, -3, -2, -1, 0, 1, 2, 3, 4]  (Hasse |a1| <= 4.472);  a1=-4:J=0.0558 a1=-3:J=0.1996 a1=-2:J=0.4024 a1=-1:J=0.7489 a1=0:J=+inf(m=0 unrealizable; see (4)) a1=1:J=0.7489 a1=2:J=0.4024 a1=3:J=0.1996 a1=4:J=0.0558
+      non-curve a1 in [-10, -9, -8, -7]: J < 0 and roots off the circle: True (checked)
+p=7: a1 values realized by curves = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]  (Hasse |a1| <= 5.292);  a1=-5:J=0.0283 a1=-4:J=0.1399 a1=-3:J=0.2837 a1=-2:J=0.4865 a1=-1:J=0.8331 a1=0:J=+inf(m=0 unrealizable; see (4)) a1=1:J=0.8331 a1=2:J=0.4865 a1=3:J=0.2837 a1=4:J=0.1399 a1=5:J=0.0283
+      non-curve a1 in [-14, -13, -12, -11]: J < 0 and roots off the circle: True (checked)
+p=11: a1 values realized by curves = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]  (Hasse |a1| <= 6.633);  a1=-6:J=0.0502 a1=-5:J=0.1413 a1=-4:J=0.2529 a1=-3:J=0.3967 a1=-2:J=0.5995 a1=-1:J=0.9460 a1=0:J=+inf(m=0 unrealizable; see (4)) a1=1:J=0.9460 a1=2:J=0.5995 a1=3:J=0.3967 a1=4:J=0.2529 a1=5:J=0.1413 a1=6:J=0.0502
+      non-curve a1 in [-22, -21, -20, -19]: J < 0 and roots off the circle: True (checked)
+p=13: a1 values realized by curves = [-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]  (Hasse |a1| <= 7.211);  a1=-7:J=0.0149 a1=-6:J=0.0919 a1=-5:J=0.1831 a1=-4:J=0.2947 a1=-3:J=0.4385 a1=-2:J=0.6412 a1=-1:J=0.9878 a1=0:J=+inf(m=0 unrealizable; see (4)) a1=1:J=0.9878 a1=2:J=0.6412 a1=3:J=0.4385 a1=4:J=0.2947 a1=5:J=0.1831 a1=6:J=0.0919 a1=7:J=0.0149
+      non-curve a1 in [-26, -25, -24, -23]: J < 0 and roots off the circle: True (checked)
+all checks (curve => J >= 0, circle, Hasse; non-curve => J < 0, off circle): True
+
+(4) a1 = 0 at m = 1: (1+z^2)(1+z) as the uniform 3-site ferromagnet.
+Z_3(z)/e^{3J} = z**3 + 3*z**2*exp(-4*J3) + 3*z*exp(-4*J3) + 1
+z^1 coefficient = 1  =>  J = [log(3**(1/4))] = log(3)/4 = 0.27465307216702745
+check: substituting gives z**3 + z**2 + z + 1  = (1+z)(1+z^2) = z**3 + z**2 + z + 1
