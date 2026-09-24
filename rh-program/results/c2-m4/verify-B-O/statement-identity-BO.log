@@ -1,0 +1,19 @@
+=== statement identity (CHECK-O-B) 2026-09-24 23:12:22 IST ===
+--- (1) the builder's statement_identity_B.py ---
+"""statement_identity_B.py -- the challenge/solution statement-identity check for the Unit B topics (Session 25; byte copy of verify-A/statement_identity_A.py apart from this docstring):
+for each theorem name, extract the text from `theorem <name>` up to (not including) the ` := ` that starts the proof, in
+Challenge/<Topic>.lean and Solution/<Topic>.lean, and compare byte for byte.  usage: statement_identity_m4.py <root> <Topic> <names...>"""
+import re, sys, os
+root, topic, names = sys.argv[1], sys.argv[2], sys.argv[3:]
+RESULT: PASS
+RESULT: PASS
+RESULT: PASS
+--- (2) the checker's own extraction (stmt_identity_BO.py: bracket-depth scan to the first top-level :=, UTF-8 bytes) ---
+separation_clause5_summable                challenge   236 B, solution   236 B, sha256[:16] 119b55687fa7bc09: IDENTICAL
+RESULT: PASS
+separation_clause5_out_window              challenge   281 B, solution   281 B, sha256[:16] 1c2f7e346ad8c724: IDENTICAL
+separation_clause6_assembly_c              challenge   927 B, solution   927 B, sha256[:16] fb7c2b19ceeb998e: IDENTICAL
+RESULT: PASS
+separation_clause5_out_window_c            challenge   256 B, solution   256 B, sha256[:16] b03e22187628f44d: IDENTICAL
+separation_clause6_assembly_d              challenge   904 B, solution   904 B, sha256[:16] bb1004b1e5a917be: IDENTICAL
+RESULT: PASS

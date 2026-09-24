@@ -2,7 +2,7 @@
 """CHECK-O-B item (ii): numerical cross-check of the tail-integral identities proved in Clause5.lean §4-§5.
  (a) a*gamma_n - gamma_n' = s^n (the derivative identity behind hasDerivAt_exp_mul_gammaPoly), n = 0..12, symbolic (sympy);
  (b) int_{s0}^inf s^n e^{-a s} ds = e^{-a s0} gamma_n(a, s0) (integral_pow_mul_exp_Ioi), quadrature at 40 digits;
- (c) int_{u0}^inf phi_m(u) du = (2/L^{m+1}) e^{-2 cB s0} Gamma_m(s0), s0 = sqrt(L u0) (integral_phi_Ioi), m = 2, 3;
+ (c) int_{u0}^inf phi_m(u) du (quadrature in the s-variable, s = sqrt(L u), breakpoints every 10) = (2/L^{m+1}) e^{-2 cB s0} Gamma_m(s0), s0 = sqrt(L u0) (integral_phi_Ioi), m = 2, 3;
  (d) d/du Phi_m(u) = phi_m(u) (hasDerivAt_Phi) by a centered finite difference."""
 import sympy as sp, mpmath as mp
 mp.mp.dps = 40
@@ -23,7 +23,7 @@ def phi(m, L, u): return u**m*(1 + cB/2*mp.sqrt(L*u))**2*mp.exp(-2*cB*mp.sqrt(L*
 def Phi(m, L, u): return -(2/L**(m+1)*(mp.exp(-2*cB*mp.sqrt(L*u))*GammaM(m, mp.sqrt(L*u))))
 for m in (2, 3):
     for (L, u0) in ((mp.mpf(50), mp.mpf(3650)), (mp.mpf(100), mp.mpf(7300)), (mp.mpf(1), mp.mpf(5))):
-        I = mp.quad(lambda u: phi(m, L, u), [u0, 2*u0, 10*u0, mp.inf])
+        s0 = mp.sqrt(L*u0); I = mp.quad(lambda x: phi(m, L, x*x/L)*2*x/L, [s0 + 10*k for k in range(80)] + [mp.inf])  # u = s^2/L, fine breakpoints
         R = 2/L**(m+1)*mp.exp(-2*cB*mp.sqrt(L*u0))*GammaM(m, mp.sqrt(L*u0))
         h = mp.mpf('1e-12')*u0
         d = (Phi(m, L, u0+h) - Phi(m, L, u0-h))/(2*h)

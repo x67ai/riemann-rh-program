@@ -1,0 +1,47 @@
+=== the Unit B statements against the frozen ones (challenge side; CHECK-O-B) 2026-09-24 23:12:34 IST ===
+--- diff assembly_b -> assembly_c ---
+1c1
+< theorem separation_clause6_assembly_b (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+---
+> theorem separation_clause6_assembly_c (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+9,10c9
+<     (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+<     (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+---
+>     (hB3 : Separation.HB3) (hedge : Separation.Hedge) (hR0 : Separation.HR0) :
+--- diff assembly_b -> assembly_d ---
+1c1
+< theorem separation_clause6_assembly_b (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+---
+> theorem separation_clause6_assembly_d (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+9,10c9
+<     (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+<     (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+---
+>     (hB3 : Separation.HB3) (hedge : Separation.Hedge) :
+--- diff assembly_c -> assembly_d ---
+1c1
+< theorem separation_clause6_assembly_c (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+---
+> theorem separation_clause6_assembly_d (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+9c9
+<     (hB3 : Separation.HB3) (hedge : Separation.Hedge) (hR0 : Separation.HR0) :
+---
+>     (hB3 : Separation.HB3) (hedge : Separation.Hedge) :
+--- diff clause5_out_window -> clause5_out_window_c ---
+1,3c1,2
+< theorem separation_clause5_out_window (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+<     (hL : 50 ≤ L) (hL8 : 8 * (Real.log (Real.log (3 + t)) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+<     (hR0 : Separation.HR0) :
+---
+> theorem separation_clause5_out_window_c (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+>     (hL : 50 ≤ L) (hL8 : 8 * (Real.log (Real.log (3 + t)) + Real.log (2 * Separation.b1sym * C₁)) ≤ L) :
+--- conclusion lines (from the first line starting with 4 spaces + δ ^ 2) of b, c, d: sha256 ---
+20325f773e456474abe54987ac7a256046a08541e1d2682192ec43c87bec24eb  -
+20325f773e456474abe54987ac7a256046a08541e1d2682192ec43c87bec24eb  -
+20325f773e456474abe54987ac7a256046a08541e1d2682192ec43c87bec24eb  -
+--- Hout (trusted, frozen, ChallengeDeps/Separation6.lean) ---
+def Hout (t L R : ℝ) : Prop :=
+  Summable (fun ρ : Z.outWindow t R => ‖Z.Wsummand (ftest t L) (ftest t L) ρ‖) ∧
+    ‖∑' ρ : Z.outWindow t R, Z.Wsummand (ftest t L) (ftest t L) ρ‖ ≤ Real.exp (-L)
+
