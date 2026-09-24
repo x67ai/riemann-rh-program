@@ -1,0 +1,44 @@
+import Solution.Separation6b
+/-! CHECK-O-A item (vi): the corollary's binders against the assembly's, and the composition "t ≥ 21L ⟹ assembly"
+    checked by the kernel.  Checker's probe; not part of any deliverable. -/
+
+/-- under δ > 0 and L > 0 the two binder forms are the same proposition. -/
+theorem probe_binders_equiv (δ L : ℝ) (hδ : 0 < δ) (hL : 0 < L) : (25 / L ≤ δ ↔ 25 / δ ≤ L) := by
+  rw [div_le_iff₀ hL, div_le_iff₀ hδ, mul_comm]
+
+/-- the assembly's hypotheses (0 < δ ≤ 1/2, 25/δ ≤ L) give every binder of `rstar_of_21L` except 21L ≤ t. -/
+theorem probe_assembly_to_corollary (δ L : ℝ) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2) (hL1 : 25 / δ ≤ L) :
+    50 ≤ L ∧ 25 / L ≤ δ := by
+  have h50 : (50 : ℝ) ≤ 25 / δ := by rw [le_div_iff₀ hδ0]; linarith
+  have hL0 : 0 < L := by linarith
+  exact ⟨by linarith, (probe_binders_equiv δ L hδ0 hL0).mpr hL1⟩
+
+/-- the corollary's hypotheses (50 ≤ L, 25/L ≤ δ ≤ 1/2) give the assembly's δ-binders. -/
+theorem probe_corollary_to_assembly (δ L : ℝ) (hL : 50 ≤ L) (hδ1 : 25 / L ≤ δ) :
+    0 < δ ∧ 25 / δ ≤ L := by
+  have hL0 : 0 < L := by linarith
+  have hδ0 : 0 < δ := lt_of_lt_of_le (by positivity) hδ1
+  exact ⟨hδ0, (probe_binders_equiv δ L hδ0 hL0).mp hδ1⟩
+
+/-- the composition: the assembly with (R*) replaced by t ≥ 21L, by the two Comparator-checked theorems. -/
+theorem probe_assembly_of_21L (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+    (hL1 : 25 / δ ≤ L)
+    (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+    (h21 : 21 * L ≤ t)
+    (Z Z' : Separation.SepConfig C₁)
+    (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+    (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+    (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+    (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+    (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+    δ ^ 2 * Real.exp (δ * L / 2)
+        ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+      1 ≤ δ ^ 2 * Real.exp (δ * L / 2) := by
+  obtain ⟨h50, hδ1⟩ := probe_assembly_to_corollary δ L hδ0 hδ hL1
+  exact separation_clause6_assembly_b C₁ t δ L hC ht hδ0 hδ hL1 hL2 (rstar_of_21L t δ L ht h50 hδ1 hδ h21)
+    Z Z' hZorb hZmult hZ hZ' hB3 hedge houtZ houtZ'
+
+#print axioms probe_binders_equiv
+#print axioms probe_assembly_to_corollary
+#print axioms probe_corollary_to_assembly
+#print axioms probe_assembly_of_21L
