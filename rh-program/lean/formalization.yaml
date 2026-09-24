@@ -57,6 +57,17 @@ project:
     and H-out, on the three standard axioms, replayed by nanoda — with b₁ = ‖B′‖₁² proved, clause 7 folded, and (R*)
     implied by t ≥ 21L as a proved corollary" — never "Theorem M2 is formalized".  The M4 (iii) pairs stay on disk, frozen.
     Nothing about ζ or RH follows from it.
+    Session 25 item 2, Unit B (2026-09-24; results/c2-m4/PRICING-RESIDUE.md §1 Piece 1, Piece 8, §2 row B; build record
+    results/c2-m4/BUILD-NOTES-B.md) proves clause 5 — the out-window contamination beyond 73L, uniform over the depth,
+    the one whole clause that was displayed as H-out — in three Comparator topics over the frozen trusted files: the rung
+    `SeparationClause5Sum` (clause 5's summability, no numerics), `Separation5` (clause 5 and the assembly modulo the
+    displayed one-point check H-R₀ = "F₁₃(50; 73) ≤ 0 ∧ 5/(2c_B√73 − 13/8) ≤ 50", with P₂, P₃, F₁₃ Lean definitions equal
+    term for term to r0_73_check.py), and `Separation5c` (H-R₀ discharged by a 16-cell rational enclosure
+    421/2000 ≤ Z ≤ 233651/10⁶ and one finite inequality over ℚ; the assembly re-stated without it).  Label, binding:
+    "Theorem M2's clause-6 assembly is a Comparator-checked theorem over `SepConfig`, modulo the displayed H-edge and
+    H-B‴, on the three standard axioms, replayed by nanoda" — never "Theorem M2 is formalized" (clause 8's ζ instance
+    `zeta_in_class_C1` is not stated; the fidelity rows (p)–(r) record where the formal statements differ from the
+    note).  Nothing about ζ or RH follows from it.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -157,8 +168,11 @@ status:
     comparator/Challenge/Separation6b.lean (proved by comparator/Solution/Separation6b.lean); still nothing under
     Zeta23/Separation contains a `sorry`.  From Session 25 (Unit B), also the one of
     comparator/Challenge/SeparationClause5Sum.lean (proved by comparator/Solution/SeparationClause5Sum.lean; clause 5's
-    summability, no displayed hypothesis); still nothing under Zeta23/Separation contains a `sorry`.  Not formalized, and
-    displayed as hypotheses:
+    summability, no displayed hypothesis), the two of comparator/Challenge/Separation5.lean (proved by
+    comparator/Solution/Separation5.lean; clause 5 and the assembly modulo H-R₀) and the two of
+    comparator/Challenge/Separation5c.lean (proved by comparator/Solution/Separation5c.lean; clause 5 with no displayed
+    hypothesis and the assembly modulo H-edge, H-B‴ only); still nothing under Zeta23/Separation contains a `sorry`.  Not
+    formalized, and displayed as hypotheses:
     H1 (Platt–Trudgian), H2-B / H2-A / H-TAIL (the untrusted producers' enclosure claims), H3 (Polymath15 Theorem 1.2 in
     the amended form `Polymath15Bridge'`, and the entirety of H_t) — see `fidelity`; and, for the topic SeparationClause4,
     H-b₁ and H-B‴ (two computed constants of the separation note: `Separation.Hb1`, `Separation.HB3`); and, for the
@@ -166,6 +180,11 @@ status:
     clause 5 whole: the out-window sum's absolute convergence and its bound e^{−L}).  For the Session 24 topics
     SeparationClause4b and Separation6b, H-b₁ is NO LONGER displayed (b₁ is the proved real number b₁sym = (2e^{−1}/Z)²):
     the rung takes H-B‴ only; the assembly, the tight pair take H-B‴, H-edge, H-out; `rstar_of_21L` takes nothing displayed.
+    For the Session 25 topics (Unit B): SeparationClause5Sum takes nothing displayed; Separation5 takes H-R₀
+    (`Separation.HR0`, the one-point check F₁₃(50; 73) ≤ 0 ∧ 5/(2c_B√73 − 13/8) ≤ 50, a displayed real inequality about
+    explicitly defined reals) for clause 5, and H-B‴, H-edge, H-R₀ for the assembly; Separation5c takes nothing displayed
+    for clause 5 (H-R₀ is the theorem `Zeta23.Separation.F13_50_neg`) and H-B‴, H-edge only for the assembly — H-out is no
+    longer displayed anywhere in the Session 25 topics.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -491,6 +510,63 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 25 item 2, Unit B, leg 1(a) (2026-09-24) — clause 5 of Theorem M2 modulo H-R₀ (results/c2-m2/separation-note.md
+        §6, addendum A3 with R₀ = 73 and the L-hypothesis spent once; PRICING-RESIDUE §1 Piece 1 items 1–10), and the
+        clause-6 assembly with H-out REPLACED by H-R₀.  (1) `separation_clause5_out_window`: for Z ∈ 𝒞(C₁), C₁ ≥ 1, t ≥ 3,
+        L ≥ 50, 8(log log(3 + t) + log(2b₁C₁)) ≤ L and the displayed H-R₀, `Z.Hout t L (73L)` — both conjuncts: absolute
+        convergence and ‖Σ‖ ≤ e^{−L}.  Route (Zeta23/Separation/Clause5.lean §4–§9): the tail incomplete-gamma integrals
+        ∫_{s₀}^∞ sⁿe^{−as}ds = e^{−as₀}γ_n(a, s₀) (absent from Mathlib; the antiderivative −e^{−as}γ_n(s), whose derivative
+        identity is proved for every n by induction through γ_{n+1} = s^{n+1}/a + ((n + 1)/a)γ_n, and
+        `integral_Ioi_of_hasDerivAt_of_nonneg'`), the substitution u = s²/L inside the chain rule (Φ_m(u) =
+        −(2/L^{m+1})e^{−2c_B√(Lu)}Γ_m(√(Lu))), φ_m antitone on [u₀, ∞) by a ratio bound (no `deriv`), Σ ≤ φ_m(u₀) + ∫
+        (`AntitoneOn.sum_le_integral`), the absorption of the prefactors spent ONCE (2C₁log(3 + t) ≤ e^{L/8}/b₁, 2C₁ ≤
+        e^{L/8}/b₁, log(7/2 + t) ≤ 1.05·log(3 + t)), the relaxations u₀ ≤ 73L, s₀ ≤ √73·L, s₀ ≥ (73L − 1)/√73, the Lean
+        definitions `gammaPoly`, `Prelax`, `P2`, `P3`, `F13` EQUAL term for term to r0_73_check.py lines 22–33
+        (results/c2-m4/verify-B/p23-diff.log: |rel diff| = 0.0 at L = 50, 100, 10³, 10⁴), and the decrease of F₁₃ on
+        [50, ∞) from H-R₀'s second conjunct by the monomial comparison Q(50r) ≤ r⁵Q(50) (the integrated form of the note's
+        (log P)′ ≤ 5/L).  (2) `separation_clause6_assembly_c`: `separation_clause6_assembly_b` with `houtZ`, `houtZ'`
+        replaced by `hR0 : Separation.HR0`; same conclusion; proof = (1) for Z and Z′, then the frozen assembly.  Label,
+        binding: "Theorem M2's clause-6 assembly is a Comparator-checked theorem over `SepConfig`, modulo the displayed
+        H-edge, H-B‴ and H-R₀ (the one-point check F₁₃(50; 73) ≤ 0 as a displayed real inequality), on the three
+        standard axioms, replayed by nanoda" — never "Theorem M2 is formalized" (results/c2-m4/BUILD-NOTES-B.md; Comparator
+        run results/c2-m4/verify-B/comparator-run-separation5.log).  Not stated: H-R₀ itself (the topic Separation5c),
+        clause 2 (H-edge), ‖B‴‖₁ (H-B‴), anything about ζ or RH.
+      declaration: "separation_clause5_out_window, separation_clause6_assembly_c (root, Challenge.Separation5 / Solution.Separation5); Zeta23.Separation.clause5_out_window, Zeta23.Separation.clause6_assembly_c, Zeta23.Separation.shell_series_le, Zeta23.Separation.integral_pow_mul_exp_Ioi, Zeta23.Separation.hasDerivAt_exp_mul_gammaPoly, Zeta23.Separation.integral_phi_Ioi, Zeta23.Separation.sum_phi_le, Zeta23.Separation.absorb_once, Zeta23.Separation.F13_le_F13_50"
+      file: "comparator/Solution/Separation5.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
+        Session 25 item 2, Unit B, leg 1(b) + Piece 8 (2026-09-24) — H-R₀ DISCHARGED: clause 5 of Theorem M2 with no
+        displayed hypothesis, and the clause-6 assembly modulo H-edge and H-B‴ only (PRICING-RESIDUE §1 Piece 1 item 11,
+        Piece 8 at n = 16).  (1) `separation_clause5_out_window_c`: the 1(a) statement with `hR0` REMOVED — for Z ∈ 𝒞(C₁),
+        C₁ ≥ 1, t ≥ 3, L ≥ 50, 8(log log(3 + t) + log(2b₁C₁)) ≤ L, `Z.Hout t L (73L)`.  (2) `separation_clause6_assembly_d`:
+        `separation_clause6_assembly_b` with `houtZ`, `houtZ'` DELETED; same conclusion.  This topic adds NO trusted
+        definition (its challenge imports the frozen ChallengeDeps.Separation6b only).  H-R₀ is the theorem
+        `Zeta23.Separation.F13_50_neg` (Zeta23/Separation/Clause5Cert.lean): rational enclosures e ∈ [2.7182818283,
+        2.7182818286], c_B ∈ [c_lo, c_hi] (width 2·10⁻¹⁰), √73 ∈ [r_lo, r_hi] (width 2·10⁻¹⁰), Z ∈ [421/2000, 233651/10⁶]
+        (Zeta23/Separation/ZEnclosure.lean: B_raw antitone on [0, 1/2], 16-cell Riemann sums Σ_{i<16}B_raw((i + 1)/32) ≤
+        16Z ≤ Σ_{i<16}B_raw(i/32), per cell exp(−x_i) ≤ 1/Σ_{k<8}x_i^k/k! and exp(−x_i) ≥ 1/T(x_i/q_i)^{q_i} with
+        `Real.exp_bound'` at n = 8, q_i = ⌈x_i⌉, x_i = 256/(256 − i²); `norm_num` over ℚ, 3.8 s), hence C_B ≤ e_hi²/Z_lo,
+        b₁sym ≥ (2/(e_hi Z_hi))²; the monotone substitution of the endpoints into every monomial of 1.05P₂(50) + P₃(50)
+        (`gammaPoly_le`, `Prelax_50_le`); and the ONE finite inequality over ℚ, Q_hi/b₁_lo ≤ e_lo⁴⁰·Σ_{i<6}(E_lo − 40)^i/i!
+        (`cert_numeric`, `norm_num`, numerators of 294 and 577 digits, 3.4 s), with e^{E_lo} ≥ e_lo⁴⁰·Σ (`Real.exp_nat_mul`,
+        `Real.sum_le_exp_of_nonneg`) and `Real.log_le_iff_le_exp`.  F₁₃(50) at the endpoints = −0.347 (the pricing's −0.349;
+        results/c2-m4/verify-B/cert-numbers.log).  Label, binding: "Theorem M2's clause-6 assembly is a Comparator-checked
+        theorem over `SepConfig`, modulo the displayed H-edge and H-B‴, on the three standard axioms, replayed by nanoda"
+        — never "Theorem M2 is formalized" (clause 8's ζ instance and the fidelity rows remain) (results/c2-m4/BUILD-NOTES-B.md;
+        Comparator run results/c2-m4/verify-B/comparator-run-separation5c.log).  Not stated: clause 2 (H-edge), ‖B‴‖₁
+        (H-B‴), anything about ζ or RH.
+      declaration: "separation_clause5_out_window_c, separation_clause6_assembly_d (root, Challenge.Separation5c / Solution.Separation5c); Zeta23.Separation.F13_50_neg, Zeta23.Separation.Z_enclosure, Zeta23.Separation.cert_numeric, Zeta23.Separation.cB_bounds, Zeta23.Separation.sqrt73_bounds, Zeta23.Separation.CB_le_CBHi, Zeta23.Separation.b1Lo_le_b1sym, Zeta23.Separation.Prelax_50_le, Zeta23.Separation.riemann_bracket, Zeta23.Separation.Braw_antitoneOn"
+      file: "comparator/Solution/Separation5c.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
     - description: "A4 grid-Parseval decoupling: the paper's Lemma 3.8 (`flat_band_trace_sq`) and Theorem 3.9 (`trace_sq_grid`) (results/a4-no-go/formalization-status.md)."
       declaration: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       file: "Zeta23/PairCeiling/GridParseval.lean"
@@ -718,7 +794,29 @@ fidelity:
     (≥ 73L − 1, the note's u₀ := R − 1), and every shell, including shell 0, is counted by the two windows of the class
     definition centered at t ± (k + 1/2) — ≤ 2C₁log(7/2 + t + k) points — rather than Clause4.lean's shell-0 special
     case; the rung's summability uses a crude majorant e^{L/2}M_L/(k + 1)⁵ (M_L = C_B²(1 + c_B²L)⁷8¹⁶/(c_B²L)⁷) and not
-    the note's incomplete-gamma tail, which is the 1(a) leg.  Ledger text: results/d1-m2a/packaging/FIDELITY.md (r).
+    the note's incomplete-gamma tail, which is the 1(a) leg.  (r1) H-out (clause 5 displayed whole, (q1)) is replaced by
+    H-R₀ in the topic Separation5 — `Separation.HR0 := F13 50 ≤ 0 ∧ 5/(2·cB·√73 − 13/8) ≤ 50`, the note's one-point check
+    at L₀ = 50, R₀ = 73 (addendum A3), a displayed real inequality about explicitly defined reals — and by NOTHING in the
+    topic Separation5c, where H-R₀ is the theorem `F13_50_neg`; (q1) is superseded for the Session 25 topics (the M4 (iii)
+    and Unit A pairs keep H-out and stay frozen).  H-R₀ is STRONGER than H-out (it implies it), so the 1(a) theorem is
+    weaker than the Unit A one by exactly the note's reduction, and 1(b) removes the difference.  (r2) `gammaPoly`,
+    `Prelax`, `P2`, `P3`, `F13` are Lean definitions equal term for term to r0_73_check.py lines 22–33 (`gamma_poly`,
+    `P_relaxed(m, L, 73, 50)`, `Ftilde(L, 73, 50, 13/8)`), with 1.05 as 105/100 and b₁ = b₁sym in place of the script's
+    certified digit 8.69808 (so the Lean F₁₃(50) is −0.556 where the script prints −0.3227; the difference is
+    log(10.984/8.698) = 0.233, the same b₁ shift as (t1)); the two helpers `gammaPoly`, `Prelax` are the script's two
+    functions and are recorded as additions to the trusted layer beyond the four names PRICING-RESIDUE item 10 lists.
+    The decrease of F₁₃ on [50, ∞) is proved by the monomial comparison Q(50r) ≤ r⁵Q(50) and log r ≤ r − 1 (the integrated
+    form of the note's (log P)′ ≤ 5/L), not by `deriv`; the antitonicity of φ_m likewise by a ratio bound; the
+    substitution u = s²/L is inside the chain rule of the antiderivative Φ_m rather than `integral_comp_mul_deriv_Ioi`.
+    (r5) The absorption is spent ONCE, with A3's exponent 13/8 and R₀ = 73 (`absorb_once`: 2C₁log(3 + t) ≤ e^{L/8}/b₁ and
+    2C₁ ≤ e^{L/8}/b₁ from the single hypothesis 8(log log(3 + t) + log(2b₁C₁)) ≤ L; log(7/2 + t) ≤ 1.05·log(3 + t) from
+    log 6 ≥ 5/3), not the note body's twice (7/4, R₀ = 81): the Lean constant is 73 and the body's 81 is the superseded
+    conservative form (A3 "Adopted").  The window hypothesis of clause 5 in Lean is 8(log log(3 + t) + log(2b₁C₁)) ≤ L,
+    derived from the assembly's L-hypothesis by `hL8_of_hL2` (4/δ ≥ 8, both summands ≥ 0).  The certificate (Piece 8,
+    (r6)): Z is enclosed by 16-cell Riemann sums, 421/2000 ≤ Z ≤ 233651/10⁶ (`Z_enclosure`), the first two-sided digits of
+    Z asserted in Lean, PROVED (not displayed), and consumed by `F13_50_neg` only; Unit A's `one_div_eighteen_le_Z` and
+    (t1)'s "no lower bound on Z in any statement" remain true of the Unit A statements.  Ledger text:
+    results/d1-m2a/packaging/FIDELITY.md (r).
 
 review:
   status: "self-assessed"
@@ -854,6 +952,34 @@ review:
     run first (verify-B/control-run.log, PASS, 184.73 s).  This statement carries no displayed hypothesis; its label is
     "clause 5's summability is Comparator-checked" (the size of the sum is the topic Separation5).
 
+    Comparator run, topic Separation5 (results/c2-m4/verify-B/comparator-run-separation5.log, Session 25 builder,
+    2026-09-24 22:49 IST): same tool chain and shim, `lake env comparator comparator/config-separation5.json`, the two
+    theorem_names separation_clause5_out_window, separation_clause6_assembly_c compared, with ChallengeDeps.Separation5,
+    Challenge.Separation5 and Solution.Separation5 built by comparator itself; final lines verbatim: "Running nanoda
+    kernel on solution" / "Nanoda kernel accepts the solution" / "Running Lean default kernel on solution." / "Lean
+    default kernel accepts the solution" / "Your solution is okay!"; exit code 0; 79.58 s wall.  Statement identity:
+    verify-B/statement-identity-separation5.log (263 / 846 bytes, IDENTICAL).  #print axioms on the two roots
+    (verify-B/print-axioms-separation5.log): the standard three.  The Lean P₂, P₃, F₁₃ against r0_73_check.py at four
+    values of L: verify-B/p23-diff.log (|rel diff| = 0.0; RESULT PASS).  Label: "modulo H-edge, H-B‴ and H-R₀".
+
+    Comparator run, topic Separation5c (results/c2-m4/verify-B/comparator-run-separation5c.log, Session 25 builder,
+    2026-09-24 22:58 IST): same tool chain and shim, `lake env comparator comparator/config-separation5c.json`, the two
+    theorem_names separation_clause5_out_window_c, separation_clause6_assembly_d compared (the challenge imports the
+    frozen ChallengeDeps.Separation6b only — no new trusted definition); final lines verbatim: "Running nanoda kernel
+    on solution" / "Nanoda kernel accepts the solution" / "Running Lean default kernel on solution." / "Lean default
+    kernel accepts the solution" / "Your solution is okay!"; exit code 0; 107.37 s wall.  Statement identity:
+    verify-B/statement-identity-separation5c.log (238 / 823 bytes, IDENTICAL).  #print axioms on the two roots
+    (verify-B/print-axioms-separation5c.log) and on all 74 theorems of Zeta23/Separation/{Clause5, ZEnclosure,
+    Clause5Cert}.lean (verify-B/print-axioms-library-B.log): [propext, Classical.choice, Quot.sound].  Trust greps with
+    comments stripped on the thirteen Unit B Lean files: the five deliberate challenge `sorry`s only
+    (verify-B/trust-greps-B.log).  The sixteen frozen statements (the twelve of Unit A's probe, byte-identical, plus Unit
+    A's two root pairs) #check + #print axioms (verify-B/frozen-statements.log); no existing Lean file edited except the
+    three additive imports in Zeta23.lean (verify-B/untouched.log); `lake build Zeta23` 9153 jobs, 0 errors
+    (verify-B/lake-build.log).  The 16-cell kernel check and the certificate inequality ran in 3.8 s and 3.4 s (stop
+    line (d): ten minutes).  No human has read the new trusted definitions or the challenges against the note; the
+    independent clean-clone check (Opus 5, results/c2-m4/CHECK-O-B.md) is the next job.  Label: "modulo H-edge and
+    H-B‴" — never "Theorem M2 is formalized".
+
 alignment:
   namespaces:
     - "DBN"
@@ -961,6 +1087,14 @@ alignment:
       lean: "separation_clause5_summable; Zeta23.Separation.clause5_summable, Zeta23.Separation.norm_wsum_le_strip, Zeta23.Separation.shell_count_le, Zeta23.Separation.out_finset_sum_le, Zeta23.Separation.out_window_summable_tsum_le, Zeta23.Separation.out_window_norm_le, Zeta23.Separation.crude_bound"
       module: "Challenge.SeparationClause5Sum / Solution.SeparationClause5Sum over ChallengeDeps.Separation6b (library: Zeta23.Separation.Clause5)"
       status: "proved, no displayed hypothesis (the strip and the local count of SepConfig; Lemma G's complex form); Comparator PASS with nanoda (results/c2-m4/verify-B/comparator-run-clause5sum.log)"
+    - source: "C2 separation note §6 clause 5 (a)–(b) with addendum A3 (R₀ = 73, exponent 13/8, the one-point check F₁₃(50) ≤ 0) as H-R₀; §7.1 clause 6 with H-out replaced by H-R₀; PRICING-RESIDUE §1 Piece 1 items 1–10, §2 row B"
+      lean: "separation_clause5_out_window, separation_clause6_assembly_c; Zeta23.Separation.clause5_out_window, Zeta23.Separation.clause6_assembly_c, Zeta23.Separation.shell_series_le, Zeta23.Separation.integral_pow_mul_exp_Ioi, Zeta23.Separation.integral_phi_Ioi, Zeta23.Separation.sum_phi_le, Zeta23.Separation.absorb_once, Zeta23.Separation.F13_le_F13_50"
+      module: "Challenge.Separation5 / Solution.Separation5 over ChallengeDeps.Separation5 (library: Zeta23.Separation.Clause5)"
+      status: "proved modulo the displayed H-R₀ (Separation.HR0) for clause 5, and H-B‴, H-edge, H-R₀ for the assembly; Comparator PASS with nanoda, two theorems (results/c2-m4/verify-B/comparator-run-separation5.log)"
+    - source: "C2 separation note §6 clause 5 with addendum A3's one-point check PROVED (F₁₃(50; 73) ≤ 0 from a 16-cell enclosure of Z); §7.1 clause 6 with clause 5 proved; PRICING-RESIDUE §1 Piece 1 item 11, Piece 8 (n = 16), §2 row B"
+      lean: "separation_clause5_out_window_c, separation_clause6_assembly_d; Zeta23.Separation.F13_50_neg, Zeta23.Separation.Z_enclosure, Zeta23.Separation.cert_numeric, Zeta23.Separation.Prelax_50_le"
+      module: "Challenge.Separation5c / Solution.Separation5c over ChallengeDeps.Separation6b (library: Zeta23.Separation.Clause5Cert, Zeta23.Separation.ZEnclosure, Zeta23.Separation.Clause5)"
+      status: "proved, no displayed hypothesis for clause 5; the assembly modulo the displayed H-B‴ and H-edge only; Comparator PASS with nanoda, two theorems (results/c2-m4/verify-B/comparator-run-separation5c.log)"
     - source: "A4 paper Lemma 3.8, Theorem 3.9"
       lean: "Zeta23.PairCeiling.GridParseval.flat_band_trace_sq, Zeta23.PairCeiling.GridParseval.trace_sq_grid"
       module: "Zeta23.PairCeiling.GridParseval"
