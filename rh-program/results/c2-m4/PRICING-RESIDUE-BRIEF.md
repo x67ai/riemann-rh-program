@@ -29,5 +29,5 @@ Final message: the SHA-256 of the deliverable, its line count, the GO/NO-GO/DEFE
 ## On completion (orchestrator)
 STATUS item 1 ✅ with the verdicts + hash; LOG; zoo item 11 gets a dated "priced" line (orchestrator, pure insertion); C2 frontier line; commit + push; then item 2 (pair 1 of `results/grossmann-rescout-s22/SCOUT-BRIEF.md`) unless §4 names a consumer.
 
-## Addendum at launch (16:20 IST 2026-09-24) — the digest is on disk
+## Addendum at launch (16:09 IST 2026-09-24) — the digest is on disk
 `results/c2-followups/insights-digest.md` (SHA-256 a09382db4d940e32…) §D(i) items 1–7 are the facts you must quote in §0 (they name, per piece, the note section, the hypothesis removed, the consumer, and what is on disk — including `Clause4.lean`'s `shell_sum_le` / `window_count_le`, `Assembly.lean`'s `Gmaj`, `edge_eq`, `paperFT_Bc_I_mul`, `wsum_real`, LemmaG1's `Z_pos` / `Z_le_one`, and the check-O §12.2 sentence licensing the 10.99 substitution at 0.24 nats). §B's formal / displayed / prose map is the second table you quote. §D(iii) says the queue order stands; your §4 confirms or overturns that with a named consumer only.
