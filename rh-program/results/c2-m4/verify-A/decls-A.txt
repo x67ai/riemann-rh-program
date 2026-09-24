@@ -1,0 +1,70 @@
+# decls-A.txt — 2026-09-24 19:49:16 IST; declaration list with line numbers, the nine Unit A Lean files (tree = mirror)
+## Zeta23/Separation/B1Sym.lean (222 lines)
+28:import Zeta23.Separation.LemmaG
+41:def b1sym : ℝ := (2 * Real.exp (-1) / Z) ^ 2
+46:theorem abs_mul_norm_paperFT_Bc_le_integral (η : ℝ) :
+63:theorem Braw_of_abs_lt {u : ℝ} (hu : |u| < 1 / 2) : Braw u = Real.exp (-1 / (1 - 4 * u ^ 2)) := if_pos hu
+66:theorem hasDerivAt_Braw {u : ℝ} (hu : |u| < 1 / 2) :
+85:theorem deriv_Braw_of_abs_lt {u : ℝ} (hu : |u| < 1 / 2) :
+90:theorem deriv_B (u : ℝ) : deriv B u = deriv Braw u / Z := by
+94:theorem hasDerivAt_B (u : ℝ) : HasDerivAt B (deriv B u) u :=
+97:theorem continuous_deriv_B : Continuous (deriv B) := (B_contDiff (n := 1)).continuous_deriv_one
+100:theorem deriv_B_eq_zero_of_half_le {u : ℝ} (hu : 1 / 2 ≤ |u|) : deriv B u = 0 := by
+118:theorem deriv_B_nonpos {u : ℝ} (h0 : 0 ≤ u) (h1 : u ≤ 1 / 2) : deriv B u ≤ 0 := by
+133:theorem deriv_B_nonneg {u : ℝ} (h0 : -1 / 2 ≤ u) (h1 : u ≤ 0) : 0 ≤ deriv B u := by
+148:theorem B_zero : B 0 = Real.exp (-1) / Z := by
+152:theorem integral_norm_deriv_Bc : ∫ u, ‖iteratedDeriv 1 (fun v => (B v : ℂ)) u‖ = 2 * Real.exp (-1) / Z := by
+187:theorem Braw_le_exp_neg_one (v : ℝ) : Braw v ≤ Real.exp (-1) := by
+196:theorem Z_le_exp_neg_one : Z ≤ Real.exp (-1) := by
+204:theorem four_le_b1sym : 4 ≤ b1sym := by
+213:theorem hb1sym (η : ℝ) : (|η| * ‖paperFT (fun v => (B v : ℂ)) η‖) ^ 2 ≤ b1sym := by
+## Zeta23/Separation/Assembly2.lean (461 lines)
+37:import Zeta23.Separation.Assembly
+38:import Zeta23.Separation.B1Sym
+51:theorem term_le_b1sym {L : ℝ} (hL : 0 < L) (d : ℝ) :
+64:theorem inWindowNoise_le_b {C₁ t L R : ℝ} (carrier : Set ℂ) (mult : ℂ → ℕ)
+116:theorem absorb_b {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2) (hL1 : 25 / δ ≤ L)
+223:theorem clause6_assembly_b {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+276:theorem wsum_double_plus {mult : ℂ → ℕ} {t L : ℝ} (hL : 0 < L) :
+283:theorem wsum_double_minus {mult : ℂ → ℕ} {t L : ℝ} (hL : 0 < L) (hm : mult ⟨1 / 2, -t⟩ = 2) :
+294:set_option linter.unusedVariables false in
+299:theorem clause7_tight_pair {C₁ t δ L : ℝ} (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+328:theorem log_le_div_403_add_five {s : ℝ} (hs : 0 < s) : Real.log s ≤ s / 403 + 5 := by
+341:theorem cB_ge : 1429 / 10000 ≤ cB := by
+352:theorem exp_neg_four_thirds_le_Braw {v : ℝ} (hv : |v| ≤ 1 / 4) : Real.exp (-4 / 3) ≤ Braw v := by
+364:theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+386:theorem log_CB_le : Real.log CB ≤ Real.log 25 + 2 := by
+403:theorem rstar_of_21L {t δ L : ℝ} (ht : 3 ≤ t) (hL : 50 ≤ L) (hδ1 : 25 / L ≤ δ) (hδ : δ ≤ 1 / 2)
+## comparator/ChallengeDeps/Separation6b.lean (42 lines)
+29:import Mathlib
+30:import ChallengeDeps.Separation6
+38:def b1sym : ℝ := (2 * Real.exp (-1) / Z) ^ 2
+## comparator/Challenge/SeparationClause4b.lean (43 lines)
+33:import ChallengeDeps.Separation6b
+39:theorem separation_clause4_in_window_noise_b (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+## comparator/Solution/SeparationClause4b.lean (34 lines)
+19:theorem below has exactly the statement of its Challenge namesake and uses only the permitted axioms.
+23:import ChallengeDeps.Separation6b
+24:import Zeta23.Separation.Assembly2
+30:theorem separation_clause4_in_window_noise_b (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+## comparator/Challenge/Separation6b.lean (100 lines)
+49:import ChallengeDeps.Separation6b
+56:theorem separation_clause6_assembly_b (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+72:set_option linter.unusedVariables false in
+77:theorem separation_clause7_tight_pair (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+97:theorem rstar_of_21L (t δ L : ℝ) (ht : 3 ≤ t) (hL : 50 ≤ L) (hδ1 : 25 / L ≤ δ) (hδ : δ ≤ 1 / 2)
+## comparator/Solution/Separation6b.lean (78 lines)
+25:import ChallengeDeps.Separation6b
+26:import Zeta23.Separation.Assembly2
+33:theorem separation_clause6_assembly_b (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+50:set_option linter.unusedVariables false in
+55:theorem separation_clause7_tight_pair (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+76:theorem rstar_of_21L (t δ L : ℝ) (ht : 3 ≤ t) (hL : 50 ≤ L) (hδ1 : 25 / L ≤ δ) (hδ : δ ≤ 1 / 2)
+## comparator/PrintAxioms/SeparationClause4b.lean (22 lines)
+20:import Solution.SeparationClause4b
+22:#print axioms separation_clause4_in_window_noise_b
+## comparator/PrintAxioms/Separation6b.lean (22 lines)
+18:import Solution.Separation6b
+20:#print axioms separation_clause6_assembly_b
+21:#print axioms separation_clause7_tight_pair
+22:#print axioms rstar_of_21L
