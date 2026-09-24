@@ -6,3 +6,10 @@
 - **Criterion on the rung:** ferromagnetic realizability ⟺ RH ∧ a₂ > 0 at g = 2 (N₂ > q² + 1 − (N₁ − q − 1)²) — strictly stronger than Weil's RH; the pricing's (1 + z)^m regularization is not a repair ((3, 0, −2) excluded at every m).
 - **Newman 1974:** Thm 2.3 states 𝒩 = ℐ̄ (Newman's symbol for the pricing's 𝒟), read by vision; COROLLARY restated with (i)–(ii) in §2.2.
 - **Report:** `scout-F.md`, SHA-256 `52ea6e21611a4bbf216205e5e9ced7e95d0418ead81fd294464b835dddd68a81`.
+
+## Scout O (Opus 5) — PAIR 2 W1-26 lee-yang-stat-mech — 2026-09-24 17:49 IST
+- Verdict: **instrument** (restored on internal grounds), confidence 0.78. (R-b) return: **NO** — stop line (c) fired; (a), (b), (d) did not.
+- g = 2 (own enumeration, 357 RH-true (p, a₁, a₂) classes, p ∈ {3, 5, 7}; the record's "587" are (p, degree, a₁, a₂) rows = 349 classes, all inside mine): plain ±1 ferromagnet, uniform fugacity, P(z/√q)(1+z)^m — realized 201 (m ≤ 2; 194 exact, 7 double-zero numerical) / unrealized for EVERY m 140 (closed-form obstruction φ_j = a₂/q − j a₁/√q + j(j+1)/2 ≤ 0, incl. all 70 classes with a₂ ≤ 0 in both twists; LP cross-check to m = 36) / open 16. All 140 are realized only in Newman 1974's twisted class 𝒥 by one pair per zero (J_j = −½ log|cos θ_j|) — zeros as input. m_max = ∞ for the unrealized.
+- g = 1 (60 classes, p ≤ 13): two-spin identity J ≥ 0 ⟺ Hasse reproduced (flip = quadratic twist, needed for a₁ < 0; a₁ = 0 needs J = +∞); regularized plain ferromagnet realizes exactly a₁ > −√q (45 / 15 / 0), for every m.
+- Record corrections: Newman's 𝒩 contains signed measures (text line 184), so μ_C ∈ 𝒩 ⟺ RH; 97/587 and 77/587 are rows — 57/349 and 53/349 classes.
+- Report: `pair2-lee-yang/scout-O.md`, SHA-256 a4633623ecf49bf9638fc7b04666ebb112671bfe4509da9b0b9d633564505417. Scripts/logs: `pair2-lee-yang/O/`.
