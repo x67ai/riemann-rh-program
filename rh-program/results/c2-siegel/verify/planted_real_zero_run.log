@@ -1,0 +1,79 @@
+Lemma A (degree 2) check at eta = 0.3, t = 5, D = -20: direct quadrature 11.1196011930 vs closed form 11.1196011930 (diff 1.8e-15)
+Part A -- dlVP element, D = -20: max over eta of [share - B_K] (single real zero) and [2 share - B_K] (double)
+  t =    0, delta =  0.100: single margin    +0.3613 (eta 0.5484) FIRES;  double margin   +52.5126 (eta 0.2078) FIRES
+  t =    0, delta =  0.050: single margin    +2.4682 (eta 0.4353) FIRES;  double margin   +82.3856 (eta 0.1140) FIRES
+  t =    0, delta =  0.020: single margin    +5.0326 (eta 0.3150) FIRES;  double margin  +166.5641 (eta 0.0474) FIRES
+  t =    0, delta =  0.010: single margin    +6.7211 (eta 0.2500) FIRES;  double margin  +304.4910 (eta 0.0242) FIRES
+  t =    0, delta =  0.001: single margin   +10.6959 (eta 0.1114) FIRES;  double margin +2775.7485 (eta 0.0024) FIRES
+  t =    1, delta =  0.100: single margin    -0.2282 (eta 0.4157) silent;  double margin   +27.5649 (eta 0.2078) FIRES
+  t =    1, delta =  0.050: single margin    +0.7692 (eta 0.3455) FIRES;  double margin   +37.8153 (eta 0.1167) FIRES
+  t =    1, delta =  0.020: single margin    +2.0146 (eta 0.2619) FIRES;  double margin   +68.6270 (eta 0.0485) FIRES
+  t =    1, delta =  0.010: single margin    +2.8460 (eta 0.2078) FIRES;  double margin  +120.0780 (eta 0.0242) FIRES
+  t =    1, delta =  0.001: single margin    +4.8068 (eta 0.0970) FIRES;  double margin +1046.5475 (eta 0.0024) FIRES
+  t =    5, delta =  0.100: single margin   -14.1063 (eta 0.5359) silent;  double margin    +6.0094 (eta 0.2078) FIRES
+  t =    5, delta =  0.050: single margin   -13.2843 (eta 0.4254) silent;  double margin   +17.1686 (eta 0.1140) FIRES
+  t =    5, delta =  0.020: single margin   -12.2905 (eta 0.3150) silent;  double margin   +48.7036 (eta 0.0474) FIRES
+  t =    5, delta =  0.010: single margin   -11.6407 (eta 0.2443) silent;  double margin  +100.4147 (eta 0.0242) FIRES
+  t =    5, delta =  0.001: single margin   -10.1190 (eta 0.1114) silent;  double margin +1027.1254 (eta 0.0024) FIRES
+  t =   28, delta =  0.100: single margin   -31.1782 (eta 0.5484) silent;  double margin   -11.6029 (eta 0.2078) silent
+  t =   28, delta =  0.050: single margin   -30.3869 (eta 0.4353) silent;  double margin    -0.4019 (eta 0.1140) silent
+  t =   28, delta =  0.020: single margin   -29.4242 (eta 0.3150) silent;  double margin   +31.1640 (eta 0.0474) FIRES
+  t =   28, delta =  0.010: single margin   -28.7904 (eta 0.2500) silent;  double margin   +82.8862 (eta 0.0242) FIRES
+  t =   28, delta =  0.001: single margin   -27.2988 (eta 0.1114) silent;  double margin +1009.6074 (eta 0.0024) FIRES
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.50000 at |D| = 2e+01;  delta_max * log|D| = 1.4979
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.50000 at |D| = 1e+02;  delta_max * log|D| = 2.3026
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.26637 at |D| = 1e+03;  delta_max * log|D| = 1.8400
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.10964 at |D| = 1e+04;  delta_max * log|D| = 1.0098
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.04662 at |D| = 1e+06;  delta_max * log|D| = 0.6440
+  double real zero excluded by the Poisson element (t = 0) for delta < 0.02096 at |D| = 1e+10;  delta_max * log|D| = 0.4825
+  POSITIVE CONTROL |D| = 2e+03: max over delta, eta of the single-zero margin = -26.1655 -> silent (as the pole cap requires)
+  POSITIVE CONTROL |D| = 1e+06: max over delta, eta of the single-zero margin = -75.8623 -> silent (as the pole cap requires)
+  POSITIVE CONTROL |D| = 1e+12: max over delta, eta of the single-zero margin = -186.3864 -> silent (as the pole cap requires)
+thresholds: A_K(0) >= 0 iff |D| >= D_0 = exp(2 log pi - psi(1/4) - psi(3/4)) = 2003.747;  a_K(0) = (mu_0 * A_K)(0) >= 0 iff |D| >= D_1 = 500.937
+D = -20: A_K(0) = -0.733233, a_K(0) = -0.512598, a_K minimal at s = 0.000 (min -0.512598); a_K > 0 for |s| > 1.540; negative mass int_{a_K<0} |a_K| = 0.812945
+graded-grid check: int mu_y over |s| <= 20 = {'0.1': '1.000000092', '0.05': '1.000000048', '0.02': '1.000000020', '0.01': '1.000000010', '0.001': '1.000000001'}
+Part B [D = -20]: inf over the family of Arch_K(w)/what(0) = -0.667693 (Gauss sigma=1.0);  max over family, delta of share/(2 what(0)) = 0.999882 (pole cap 1)
+    delta =  0.100: best single margin +0.64509 [Poisson a=0.6] FIRES;  best double margin +7.00709 [Poisson a=0.55] FIRES
+    delta =  0.050: best single margin +0.98866 [Poisson a=0.55] FIRES;  best double margin +7.78051 [Poisson a=0.55] FIRES
+    delta =  0.020: best single margin +1.26438 [Poisson a=0.55] FIRES;  best double margin +8.33194 [Poisson a=0.55] FIRES
+    delta =  0.010: best single margin +1.36468 [Poisson a=0.55] FIRES;  best double margin +8.53254 [Poisson a=0.55] FIRES
+    delta =  0.001: best single margin +1.45884 [Poisson a=0.55] FIRES;  best double margin +8.72087 [Poisson a=0.55] FIRES
+Part B [D = -4 (Q(i), no real zero: L(chi_4) -- the small-|D| regime where the cone reaches)]: inf over the family of Arch_K(w)/what(0) = -1.671256 (Gauss sigma=2.0);  max over family, delta of share/(2 what(0)) = 0.999882 (pole cap 1)
+    delta =  0.100: best single margin +2.22380 [Poisson a=0.6] FIRES;  best double margin +8.58835 [Poisson a=0.55] FIRES
+    delta =  0.050: best single margin +2.56993 [Poisson a=0.55] FIRES;  best double margin +9.36177 [Poisson a=0.55] FIRES
+    delta =  0.020: best single margin +2.84565 [Poisson a=0.55] FIRES;  best double margin +9.91321 [Poisson a=0.55] FIRES
+    delta =  0.010: best single margin +2.94594 [Poisson a=0.55] FIRES;  best double margin +10.11381 [Poisson a=0.55] FIRES
+    delta =  0.001: best single margin +3.04011 [Poisson a=0.55] FIRES;  best double margin +10.30214 [Poisson a=0.55] FIRES
+Part B [|D| = 2005 >= D_0 (positive control: pole cap, silent)]: inf over the family of Arch_K(w)/what(0) = +0.037505 (Fejer^2 T=0.25);  max over family, delta of share/(2 what(0)) = 0.999882 (pole cap 1)
+    delta =  0.100: best single margin -0.57877 [Gauss sigma=0.3] silent;  best double margin +2.48006 [Poisson a=0.55] FIRES
+    delta =  0.050: best single margin -0.41260 [Gauss sigma=0.3] silent;  best double margin +3.25348 [Poisson a=0.55] FIRES
+    delta =  0.020: best single margin -0.26359 [Gauss sigma=0.2] silent;  best double margin +3.80492 [Poisson a=0.55] FIRES
+    delta =  0.010: best single margin -0.19550 [Gauss sigma=0.2] silent;  best double margin +4.00552 [Poisson a=0.55] FIRES
+    delta =  0.001: best single margin -0.07257 [Gauss sigma=0.1] silent;  best double margin +4.19385 [Poisson a=0.55] FIRES
+Part B [|D| = 1e6 (positive control)]: inf over the family of Arch_K(w)/what(0) = +0.202418 (Fejer^2 T=0.25);  max over family, delta of share/(2 what(0)) = 0.999882 (pole cap 1)
+    delta =  0.100: best single margin -1.17311 [Gauss sigma=0.2] silent;  best double margin +0.30193 [Gauss sigma=0.3] FIRES
+    delta =  0.050: best single margin -0.89359 [Gauss sigma=0.1] silent;  best double margin +0.74035 [Gauss sigma=0.2] FIRES
+    delta =  0.020: best single margin -0.58275 [Gauss sigma=0.1] silent;  best double margin +1.13929 [Gauss sigma=0.1] FIRES
+    delta =  0.010: best single margin -0.45234 [Gauss sigma=0.1] silent;  best double margin +1.40012 [Gauss sigma=0.1] FIRES
+    delta =  0.001: best single margin -0.25852 [Fejer^2 T=0.25] silent;  best double margin +1.68538 [Fejer^2 T=0.25] FIRES
+  reach vs |D| =     3: best single margin/what(0) at delta = 0.1: +1.87966, at delta = 0.01: +1.89846
+  reach vs |D| =     4: best single margin/what(0) at delta = 0.1: +1.65013, at delta = 0.01: +1.66892
+  reach vs |D| =     7: best single margin/what(0) at delta = 0.1: +1.20362, at delta = 0.01: +1.22527
+  reach vs |D| =     8: best single margin/what(0) at delta = 0.1: +1.11336, at delta = 0.01: +1.14536
+  reach vs |D| =    11: best single margin/what(0) at delta = 0.1: +0.92280, at delta = 0.01: +0.95480
+  reach vs |D| =    15: best single margin/what(0) at delta = 0.1: +0.73720, at delta = 0.01: +0.77430
+  reach vs |D| =    19: best single margin/what(0) at delta = 0.1: +0.61516, at delta = 0.01: +0.67999
+  reach vs |D| =    20: best single margin/what(0) at delta = 0.1: +0.59470, at delta = 0.01: +0.65953
+  reach vs |D| =    23: best single margin/what(0) at delta = 0.1: +0.53894, at delta = 0.01: +0.60377
+  reach vs |D| =    24: best single margin/what(0) at delta = 0.1: +0.52196, at delta = 0.01: +0.58679
+  reach vs |D| =    40: best single margin/what(0) at delta = 0.1: +0.31817, at delta = 0.01: +0.40302
+  reach vs |D| =   100: best single margin/what(0) at delta = 0.1: +0.02631, at delta = 0.01: +0.16237
+  reach vs |D| =   200: best single margin/what(0) at delta = 0.1: -0.15785, at delta = 0.01: +0.02697
+  reach vs |D| =   300: best single margin/what(0) at delta = 0.1: -0.23873, at delta = 0.01: -0.02156
+  reach vs |D| =   500: best single margin/what(0) at delta = 0.1: -0.34062, at delta = 0.01: -0.08269
+  reach vs |D| =  1000: best single margin/what(0) at delta = 0.1: -0.47888, at delta = 0.01: -0.14000
+  reach vs |D| =  2000: best single margin/what(0) at delta = 0.1: -0.57848, at delta = 0.01: -0.19530
+  reach vs |D| =  2005: best single margin/what(0) at delta = 0.1: -0.57877, at delta = 0.01: -0.19550
+  reach vs |D| =  5000: best single margin/what(0) at delta = 0.1: -0.68814, at delta = 0.01: -0.24096
+done in 73.8s
+exit=
