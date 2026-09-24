@@ -1,0 +1,16 @@
+classes 357; realized (either sign) 287; realized with identity 201; realized with flip 201; unrealized 70
+least m (best sign): [(0, 258), (1, 27), (2, 2)]
+least m (identity sign only): [(0, 129), (1, 62), (2, 10)]
+unrealized classes all have a2 <= 0: True  ; classes with a2 <= 0: 70  ; realized classes with a2 <= 0: 0
+=> realized at some m  <=>  a2 > 0  holds on all 357 classes: True
+unrealized by p: [(3, 9), (5, 23), (7, 38)]  a1 values: [(-2, 5), (-1, 18), (0, 24), (1, 18), (2, 5)]
+unrealized list: (3,-1,-2) (3,-1,-1) (3,-1,0) (3,0,-2) (3,0,-1) (3,0,0) (3,1,-2) (3,1,-1) (3,1,0) (5,-2,0) (5,-1,-5) (5,-1,-4) (5,-1,-3) (5,-1,-2) (5,-1,-1) (5,-1,0) (5,0,-10) (5,0,-7) (5,0,-6) (5,0,-5) (5,0,-4) (5,0,-3) (5,0,-2) (5,0,-1) (5,0,0) (5,1,-5) (5,1,-4) (5,1,-3) (5,1,-2) (5,1,-1) (5,1,0) (5,2,0) (7,-2,-3) (7,-2,-2) (7,-2,-1) (7,-2,0) (7,-1,-8) (7,-1,-7) (7,-1,-6) (7,-1,-5) (7,-1,-4) (7,-1,-3) (7,-1,-2) (7,-1,-1) (7,-1,0) (7,0,-14) (7,0,-11) (7,0,-10) (7,0,-9) (7,0,-8) (7,0,-6) (7,0,-5) (7,0,-4) (7,0,-3) (7,0,-2) (7,0,-1) (7,0,0) (7,1,-8) (7,1,-7) (7,1,-6) (7,1,-5) (7,1,-4) (7,1,-3) (7,1,-2) (7,1,-1) (7,1,0) (7,2,-3) (7,2,-2) (7,2,-1) (7,2,0)
+certificate kinds over unrealized classes (statuses of shapes {4},{5} under both signs; factor shapes excluded by the c-inequalities in every case): {('nonpositive',): 44, ('lemma', 'nonpositive'): 26}
+every unrealized class: shapes {4},{5} excluded by positivity or the lemma under both signs, shapes {2,2},{2,3},{3,3} by the c-inequalities: PROVED for all 70
+kernel-measure signed under both signs: 57 classes; of these realized: 0 (all at m >= 1)
+a1 = 0 classes: 53; realized: 29; least m among them: [(1, 27), (2, 2)]
+realized with a connected {4}/{5} solution: 285; realized by a factorized shape: 256; factorized ONLY: 2
+  of the factorized-only classes, connected shapes excluded by PROOF (positivity/lemma) under both signs: 0; by numerics only: 2: [(5, 0, 10), (7, 0, 14)]
+  factorized-only list: [(5, 0, 10), (7, 0, 14)]
+classes with positive P~ coefficients for some sign: 258; of these with a connected 4-site realization found: 258; not found: [] (their statuses: [])
+wrote g2_decision.csv (one row per class)

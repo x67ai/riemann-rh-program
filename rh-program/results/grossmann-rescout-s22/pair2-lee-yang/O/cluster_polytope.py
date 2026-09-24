@@ -81,31 +81,40 @@ def lp_separate(n, parts, q):
     V = _VF[n]
     T = np.array([float(parts[k + 1][0] + parts[k + 1][1] / math.sqrt(q)) / scale[k]
                   for k in range(K)])
+    # STRENGTHENED test (face lemma, scout-O.md 5.2): a finite-J point is a strict convex
+    # combination that gives positive weight to the all-free vertex (1+z)^n, so it cannot lie
+    # on a supporting hyperplane of K_n that misses (1+z)^n.  Normalize lambda0 + lambda.v_free = 1
+    # and minimize lambda0 + lambda.T; a value <= 0 certifies "no finite ferromagnet".
+    vfree = np.array([math.comb(n, k) / scale[k - 1] for k in range(1, K + 1)])
     c = np.concatenate([[1.0], T])
     A = -np.hstack([np.ones((len(V), 1)), V])
     b = np.zeros(len(V))
-    res = linprog(c, A_ub=A, b_ub=b, bounds=[(-1, 1)] * (K + 1), method="highs")
-    if res.status != 0 or res.fun > -1e-9:
+    Aeq = np.concatenate([[1.0], vfree])[None, :]
+    res = linprog(c, A_ub=A, b_ub=b, A_eq=Aeq, b_eq=[1.0],
+                  bounds=[(-50, 50)] * (K + 1), method="highs")
+    if res.status != 0 or res.fun > 1e-9:
         return True, None
-    lam = [Fraction(v).limit_denominator(10 ** 6) for v in res.x]
+    lam = [Fraction(v).limit_denominator(10 ** 7) for v in res.x]
     lam_true = [lam[0]] + [lam[k + 1] / scale[k] for k in range(K)]
     D = 1
     for v in lam_true:
         D = D * v.denominator // math.gcd(D, v.denominator)
-    L = [int(v * D) for v in lam_true]          # exact integers, functional scaled by D > 0
+    L = [int(v * D) for v in lam_true]
     vals = [L[0] + sum(L[k + 1] * r[k] for k in range(K)) for r in rows]
     minv = min(vals)
-    if minv < 0:                                  # restore validity exactly
+    if minv < 0:
         L[0] -= minv
         vals = [v - minv for v in vals]
+    vfree_val = L[0] + sum(L[k + 1] * math.comb(n, k + 1) for k in range(K))
     X = Fraction(L[0]) + sum(L[k + 1] * parts[k + 1][0] for k in range(K))
     Y = sum(L[k + 1] * parts[k + 1][1] for k in range(K))
-    if F.sign_xy(X, Y, q) < 0:
+    sg = F.sign_xy(X, Y, q)
+    if vfree_val > 0 and sg <= 0:
         tight = [labels[i] for i, v in enumerate(vals) if v == 0][:6]
         return False, {"functional_integer": [str(v) for v in L],
                        "value_at_T_over_D_float": float(X + Y / math.sqrt(q)) / D,
-                       "min_over_vertices": 0 if minv >= 0 else "shifted",
-                       "tight_partitions": tight}
+                       "on_face": sg == 0, "value_at_free_vertex": str(vfree_val),
+                       "shifted": minv < 0, "tight_partitions": tight}
     return True, None
 
 

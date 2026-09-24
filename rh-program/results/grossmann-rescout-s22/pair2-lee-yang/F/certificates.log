@@ -1,0 +1,16 @@
+3,1,2,id shape {4}: status=realized err=3.33e-16 smin=1.151e+00 support=[4]
+   J = {'01': 1.013487, '02': 0.151851, '03': 0.148585, '12': 0.151262, '13': 0.192893, '23': 0.436353}
+   brute-force Z_J/Z_J(0) = [np.float64(1.0), np.float64(0.57735027), np.float64(0.66666667), np.float64(0.57735027), np.float64(1.0)]  target = [1.0, 0.57735027, 0.66666667, 0.57735027, 1.0]  max|diff| = 1.02e-10
+3,0,2,id shape {5}: status=realized err=9.99e-16 smin=5.915e-01 support=[5]
+   J = {'01': 0.307849, '02': 0.11317, '03': 0.128305, '04': 0.012348, '12': 0.3737, '13': 0.553376, '14': 0.387588, '23': 0.199334, '24': 0.020026, '34': 0.215311}
+   brute-force Z_J/Z_J(0) = [np.float64(1.0), np.float64(1.0), np.float64(0.66666667), np.float64(0.66666667), np.float64(1.0), np.float64(1.0)]  target = [1.0, 1.0, 0.66666667, 0.66666667, 1.0, 1.0]  max|diff| = 2.98e-11
+5,0,9,flip shape {5}: status=realized err=1.67e-15 smin=1.817e+00 support=[5]
+   J = {'01': 0.017647, '02': 0.000998, '03': 0.666609, '04': 0.094058, '12': 5.723718, '13': 0.001033, '14': 0.073753, '23': 0.008635, '24': 0.011426, '34': 0.096334}
+   brute-force Z_J/Z_J(0) = [np.float64(1.0), np.float64(1.0), np.float64(1.8), np.float64(1.8), np.float64(1.0), np.float64(1.0)]  target = [1.0, 1.0, 1.8, 1.8, 1.0, 1.0]  max|diff| = 1.72e-10
+3,0,-2,id b=(0.0000,-0.6667) c=(-1.6330,1.6330) shape4: {'status': 'nonpositive', 'mincoef': -0.6666666666666666} shape5: {'status': 'nonpositive', 'mincoef': -0.6666666666666666} fact: False False False
+3,0,-2,flip b=(0.0000,-0.6667) c=(-1.6330,1.6330) shape4: {'status': 'nonpositive', 'mincoef': -0.6666666666666666} shape5: {'status': 'nonpositive', 'mincoef': -0.6666666666666666} fact: False False False
+3,1,0,id b=(0.5774,0.0000) c=(-1.1547,1.7321) shape4: {'status': 'nonpositive', 'mincoef': 0.0} shape5: {'status': 'lemma', 'r1': 1.5773502691896257, 'r2': 0.5773502691896258, 'L': 0.5773502691896257} fact: False False False
+7,2,-3,id b=(0.7559,-0.4286) c=(-1.2256,1.9815) shape4: {'status': 'nonpositive', 'mincoef': -0.42857142857142855} shape5: {'status': 'lemma', 'r1': 1.7559289460184544, 'r2': 0.32735751744702585, 'L': 0.7559289460184544} fact: False False False
+5,0,9 flip shape 5 re-solved with cap 6.0: ok=True err=1.11e-16 Jmax=1.076 at_cap=False
+5,0,9 flip shape 5 re-solved with cap 4.0: ok=True err=2.22e-16 Jmax=1.206 at_cap=False
+5,0,9 flip shape 5 re-solved with cap 3.0: ok=True err=2.22e-16 Jmax=1.274 at_cap=False
