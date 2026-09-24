@@ -1,0 +1,79 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:105: RuntimeWarning: divide by zero encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:105: RuntimeWarning: overflow encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:105: RuntimeWarning: invalid value encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:109: RuntimeWarning: divide by zero encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:109: RuntimeWarning: overflow encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:109: RuntimeWarning: invalid value encountered in matmul
+  w = np.exp(-2.0 * cut @ J)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:113: RuntimeWarning: divide by zero encountered in matmul
+  rows.append(-2.0 * (cut[L].T @ w[L]) / Qk)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:113: RuntimeWarning: overflow encountered in matmul
+  rows.append(-2.0 * (cut[L].T @ w[L]) / Qk)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/grossmann-rescout-s22/pair2-lee-yang/O/feasibility.py:113: RuntimeWarning: invalid value encountered in matmul
+  rows.append(-2.0 * (cut[L].T @ w[L]) / Qk)
+g=1 p=2 a1=-2 | noflip: m_pos=5 m_real=None best=1.1e-01 | flip: m_pos=0 m_real=0 best=nan Jmax=0.173 mpErr=1.2e-17 rootDev=0.0e+00
+g=1 p=2 a1=-1 | noflip: m_pos=1 m_real=1 best=nan Jmax=0.996 mpErr=2.2e-17 rootDev=6.7e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.520 mpErr=9.0e-17 rootDev=0.0e+00
+g=1 p=2 a1=0 | noflip: m_pos=1 m_real=1 best=nan Jmax=0.408 mpErr=4.5e-17 rootDev=4.4e-16 | flip: m_pos=1 m_real=1 best=nan Jmax=0.536 mpErr=7.2e-18 rootDev=4.4e-16
+g=1 p=2 a1=1 | noflip: m_pos=0 m_real=0 best=1.7e-16 Jmax=0.520 mpErr=1.3e-16 rootDev=2.2e-16 | flip: m_pos=1 m_real=1 best=6.7e-16 Jmax=0.748 mpErr=7.5e-16 rootDev=5.6e-16
+g=1 p=2 a1=2 | noflip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.173 mpErr=9.9e-17 rootDev=0.0e+00 | flip: m_pos=5 m_real=None best=1.1e-01
+g=1 p=3 a1=-3 | noflip: m_pos=13 m_real=None best=nan | flip: m_pos=0 m_real=0 best=nan Jmax=0.072 mpErr=9.8e-17 rootDev=0.0e+00
+g=1 p=3 a1=-2 | noflip: m_pos=3 m_real=None best=4.0e-02 | flip: m_pos=0 m_real=0 best=nan Jmax=0.275 mpErr=4.5e-17 rootDev=1.1e-16
+g=1 p=3 a1=-1 | noflip: m_pos=1 m_real=1 best=1.1e-16 Jmax=1.308 mpErr=2.2e-17 rootDev=1.6e-15 | flip: m_pos=0 m_real=0 best=2.2e-16 Jmax=0.621 mpErr=2.4e-16 rootDev=0.0e+00
+g=1 p=3 a1=0 | noflip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.749 mpErr=1.1e-16 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=nan Jmax=0.793 mpErr=1.7e-17 rootDev=4.4e-16
+g=1 p=3 a1=1 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.621 mpErr=2.2e-17 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=8.9e-16 Jmax=0.560 mpErr=1.1e-15 rootDev=3.3e-16
+g=1 p=3 a1=2 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.275 mpErr=4.5e-17 rootDev=1.1e-16 | flip: m_pos=3 m_real=None best=4.0e-02
+g=1 p=3 a1=3 | noflip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.072 mpErr=1.8e-16 rootDev=0.0e+00 | flip: m_pos=13 m_real=None best=nan
+g=1 p=5 a1=-4 | noflip: m_pos=17 m_real=None best=nan | flip: m_pos=0 m_real=0 best=nan Jmax=0.056 mpErr=7.4e-17 rootDev=1.1e-16
+g=1 p=5 a1=-3 | noflip: m_pos=5 m_real=None best=8.0e-02 | flip: m_pos=0 m_real=0 best=nan Jmax=0.200 mpErr=6.2e-17 rootDev=0.0e+00
+g=1 p=5 a1=-2 | noflip: m_pos=1 m_real=1 best=8.9e-16 Jmax=0.884 mpErr=7.7e-16 rootDev=6.7e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.402 mpErr=6.5e-17 rootDev=0.0e+00
+g=1 p=5 a1=-1 | noflip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.786 mpErr=2.3e-16 rootDev=1.1e-15 | flip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.749 mpErr=1.5e-16 rootDev=0.0e+00
+g=1 p=5 a1=0 | noflip: m_pos=1 m_real=1 best=nan Jmax=2.100 mpErr=4.5e-17 rootDev=4.4e-16 | flip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.730 mpErr=5.4e-17 rootDev=4.4e-16
+g=1 p=5 a1=1 | noflip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.749 mpErr=7.0e-17 rootDev=1.1e-16 | flip: m_pos=1 m_real=1 best=nan Jmax=1.093 mpErr=1.3e-17 rootDev=4.4e-16
+g=1 p=5 a1=2 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.402 mpErr=6.5e-17 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=8.9e-16 Jmax=0.983 mpErr=5.8e-16 rootDev=1.0e-15
+g=1 p=5 a1=3 | noflip: m_pos=0 m_real=0 best=3.3e-16 Jmax=0.200 mpErr=2.8e-16 rootDev=0.0e+00 | flip: m_pos=5 m_real=None best=8.0e-02
+g=1 p=5 a1=4 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.056 mpErr=9.3e-18 rootDev=1.1e-16 | flip: m_pos=17 m_real=None best=nan
+g=1 p=7 a1=-5 | noflip: m_pos=35 m_real=None best=nan | flip: m_pos=0 m_real=0 best=nan Jmax=0.028 mpErr=1.9e-17 rootDev=0.0e+00
+g=1 p=7 a1=-4 | noflip: m_pos=7 m_real=None best=1.8e-01 | flip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.140 mpErr=4.2e-17 rootDev=0.0e+00
+g=1 p=7 a1=-3 | noflip: m_pos=3 m_real=None best=3.4e-02 | flip: m_pos=0 m_real=0 best=nan Jmax=0.284 mpErr=3.9e-17 rootDev=1.1e-16
+g=1 p=7 a1=-2 | noflip: m_pos=1 m_real=1 best=4.4e-16 Jmax=1.214 mpErr=4.3e-16 rootDev=1.1e-15 | flip: m_pos=0 m_real=0 best=1.7e-16 Jmax=0.486 mpErr=7.4e-17 rootDev=0.0e+00
+g=1 p=7 a1=-1 | noflip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.809 mpErr=1.9e-16 rootDev=1.1e-16 | flip: m_pos=0 m_real=0 best=2.2e-16 Jmax=0.833 mpErr=1.6e-16 rootDev=0.0e+00
+g=1 p=7 a1=0 | noflip: m_pos=1 m_real=1 best=nan Jmax=0.830 mpErr=1.0e-17 rootDev=4.4e-16 | flip: m_pos=1 m_real=1 best=nan Jmax=0.493 mpErr=5.6e-17 rootDev=0.0e+00
+g=1 p=7 a1=1 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.833 mpErr=6.0e-17 rootDev=2.2e-16 | flip: m_pos=1 m_real=1 best=nan Jmax=0.491 mpErr=2.2e-17 rootDev=2.2e-16
+g=1 p=7 a1=2 | noflip: m_pos=0 m_real=0 best=1.7e-16 Jmax=0.486 mpErr=1.5e-16 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=2.2e-16 Jmax=1.282 mpErr=2.6e-16 rootDev=4.4e-16
+g=1 p=7 a1=3 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.284 mpErr=3.9e-17 rootDev=1.1e-16 | flip: m_pos=3 m_real=None best=3.4e-02
+g=1 p=7 a1=4 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.140 mpErr=1.3e-17 rootDev=2.2e-16 | flip: m_pos=7 m_real=None best=1.8e-01
+g=1 p=7 a1=5 | noflip: m_pos=0 m_real=0 best=2.7e-15 Jmax=0.028 mpErr=2.7e-15 rootDev=1.1e-16 | flip: m_pos=35 m_real=None best=nan
+g=1 p=11 a1=-6 | noflip: m_pos=19 m_real=None best=nan | flip: m_pos=0 m_real=0 best=5.3e-15 Jmax=0.050 mpErr=5.4e-15 rootDev=0.0e+00
+g=1 p=11 a1=-5 | noflip: m_pos=7 m_real=None best=1.7e-01 | flip: m_pos=0 m_real=0 best=1.1e-15 Jmax=0.141 mpErr=1.1e-15 rootDev=0.0e+00
+g=1 p=11 a1=-4 | noflip: m_pos=3 m_real=None best=5.6e-02 | flip: m_pos=0 m_real=0 best=1.9e-16 Jmax=0.253 mpErr=8.6e-17 rootDev=1.1e-16
+g=1 p=11 a1=-3 | noflip: m_pos=1 m_real=1 best=8.9e-16 Jmax=1.051 mpErr=8.0e-16 rootDev=1.1e-15 | flip: m_pos=0 m_real=0 best=2.5e-16 Jmax=0.397 mpErr=2.8e-16 rootDev=2.2e-16
+g=1 p=11 a1=-2 | noflip: m_pos=1 m_real=1 best=4.4e-16 Jmax=0.581 mpErr=4.7e-16 rootDev=2.2e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.599 mpErr=6.3e-17 rootDev=2.2e-16
+g=1 p=11 a1=-1 | noflip: m_pos=1 m_real=1 best=1.7e-16 Jmax=0.557 mpErr=1.6e-16 rootDev=6.7e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.946 mpErr=1.5e-16 rootDev=0.0e+00
+g=1 p=11 a1=0 | noflip: m_pos=1 m_real=1 best=1.3e-15 Jmax=0.738 mpErr=1.3e-15 rootDev=1.8e-15 | flip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.612 mpErr=1.7e-16 rootDev=1.1e-16
+g=1 p=11 a1=1 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.946 mpErr=1.5e-16 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=nan Jmax=0.753 mpErr=5.9e-17 rootDev=8.9e-16
+g=1 p=11 a1=2 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.599 mpErr=6.3e-17 rootDev=2.2e-16 | flip: m_pos=1 m_real=1 best=nan Jmax=1.074 mpErr=4.4e-17 rootDev=6.7e-16
+g=1 p=11 a1=3 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.397 mpErr=5.1e-17 rootDev=1.1e-16 | flip: m_pos=1 m_real=1 best=4.4e-16 Jmax=0.949 mpErr=7.6e-16 rootDev=1.3e-15
+g=1 p=11 a1=4 | noflip: m_pos=0 m_real=0 best=1.9e-16 Jmax=0.253 mpErr=2.0e-16 rootDev=1.1e-16 | flip: m_pos=3 m_real=None best=5.6e-02
+g=1 p=11 a1=5 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.141 mpErr=7.7e-17 rootDev=1.1e-16 | flip: m_pos=7 m_real=None best=1.7e-01
+g=1 p=11 a1=6 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.050 mpErr=4.2e-17 rootDev=1.1e-16 | flip: m_pos=19 m_real=None best=nan
+g=1 p=13 a1=-7 | noflip: m_pos=67 m_real=None best=nan | flip: m_pos=0 m_real=0 best=nan Jmax=0.015 mpErr=7.7e-18 rootDev=2.2e-16
+g=1 p=13 a1=-6 | noflip: m_pos=9 m_real=None best=nan | flip: m_pos=0 m_real=0 best=2.0e-15 Jmax=0.092 mpErr=2.0e-15 rootDev=1.1e-16
+g=1 p=13 a1=-5 | noflip: m_pos=5 m_real=None best=9.6e-02 | flip: m_pos=0 m_real=0 best=nan Jmax=0.183 mpErr=7.1e-17 rootDev=1.1e-16
+g=1 p=13 a1=-4 | noflip: m_pos=3 m_real=None best=2.7e-02 | flip: m_pos=0 m_real=0 best=1.2e-15 Jmax=0.295 mpErr=1.1e-15 rootDev=0.0e+00
+g=1 p=13 a1=-3 | noflip: m_pos=1 m_real=1 best=2.2e-16 Jmax=1.203 mpErr=2.4e-16 rootDev=6.7e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.439 mpErr=1.6e-18 rootDev=2.2e-16
+g=1 p=13 a1=-2 | noflip: m_pos=1 m_real=1 best=6.7e-16 Jmax=0.507 mpErr=7.2e-16 rootDev=8.9e-16 | flip: m_pos=0 m_real=0 best=1.1e-16 Jmax=0.641 mpErr=2.2e-16 rootDev=1.1e-16
+g=1 p=13 a1=-1 | noflip: m_pos=1 m_real=1 best=7.8e-16 Jmax=0.672 mpErr=9.0e-16 rootDev=2.2e-16 | flip: m_pos=0 m_real=0 best=nan Jmax=0.988 mpErr=1.3e-16 rootDev=0.0e+00
+g=1 p=13 a1=0 | noflip: m_pos=1 m_real=1 best=1.1e-16 Jmax=1.223 mpErr=1.2e-16 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=2.2e-16 Jmax=0.323 mpErr=1.4e-16 rootDev=1.1e-16
+g=1 p=13 a1=1 | noflip: m_pos=0 m_real=0 best=2.2e-16 Jmax=0.988 mpErr=8.9e-17 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=1.7e-16 Jmax=0.674 mpErr=8.4e-17 rootDev=2.2e-16
+g=1 p=13 a1=2 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.641 mpErr=1.3e-18 rootDev=0.0e+00 | flip: m_pos=1 m_real=1 best=nan Jmax=1.178 mpErr=1.0e-16 rootDev=6.7e-16
+g=1 p=13 a1=3 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.439 mpErr=1.6e-18 rootDev=2.2e-16 | flip: m_pos=1 m_real=1 best=8.9e-16 Jmax=0.985 mpErr=9.9e-16 rootDev=2.2e-16
+g=1 p=13 a1=4 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.295 mpErr=8.7e-17 rootDev=0.0e+00 | flip: m_pos=3 m_real=None best=2.7e-02
+g=1 p=13 a1=5 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.183 mpErr=1.5e-17 rootDev=1.1e-16 | flip: m_pos=5 m_real=None best=9.6e-02
+g=1 p=13 a1=6 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.092 mpErr=6.2e-18 rootDev=1.1e-16 | flip: m_pos=9 m_real=None best=nan
+g=1 p=13 a1=7 | noflip: m_pos=0 m_real=0 best=nan Jmax=0.015 mpErr=6.2e-17 rootDev=2.2e-16 | flip: m_pos=67 m_real=None best=nan
+elapsed s: 41.2

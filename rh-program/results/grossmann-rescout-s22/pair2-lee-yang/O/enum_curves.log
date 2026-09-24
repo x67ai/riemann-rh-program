@@ -1,0 +1,17 @@
+g=1 classes: 60  all Hasse: True
+  p=2 a1 values: [-2, -1, 0, 1, 2]
+  p=3 a1 values: [-3, -2, -1, 0, 1, 2, 3]
+  p=5 a1 values: [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+  p=7 a1 values: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+  p=11 a1 values: [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
+  p=13 a1 values: [-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
+p=3: smooth genus-2 models enumerated: 1296; distinct classes so far: 50; 0.0s
+p=5: smooth genus-2 models enumerated: 30000; distinct classes so far: 165; 0.4s
+p=7: smooth genus-2 models enumerated: 230496; distinct classes so far: 357; 3.0s
+g=2 distinct (p,a1,a2) classes: 357
+  per p: {3: 50, 5: 115, 7: 192}
+  all satisfy Weil RH (exact integer test): True
+record classes parsed from the log: 349
+  record subset of mine: True | mine minus record: 8 | record minus mine: 0
+  classes new in this enumeration (non-monic leading coefficient twists): [(3, -4, 8), (3, -4, 9), (3, -4, 10), (5, -6, 17), (5, -6, 18), (5, -6, 19), (7, -8, 29), (7, -8, 30)]
+elapsed s: 3.0
