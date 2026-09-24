@@ -1,0 +1,50 @@
+8\.7                         comment  Zeta23/Separation/B1Sym.lean:26: verified here). The note's 8.70 and the hand computation's 10.984 are not stated.
+87\s*/\s*10                  comment  Zeta23/Separation/B1Sym.lean:23: (|η|·‖B̂(η)‖)² ≤ b₁sym for every real η    the displayed H-b₁ of M4 (iii) (`Hb1`, 87/10) REPLACED by a theorem.
+10\.98                       comment  Zeta23/Separation/B1Sym.lean:26: verified here). The note's 8.70 and the hand computation's 10.984 are not stated.
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le comment  Zeta23/Separation/B1Sym.lean:22: §4  b₁sym := (2e^{−1}/Z)²,  4 ≤ b₁sym          from Z ≤ e^{−1} (B_raw ≤ e^{−1}: the `Z_le_one` pattern), and
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/B1Sym.lean:122: have hZ := Z_pos
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/B1Sym.lean:137: have hZ := Z_pos
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le comment  Zeta23/Separation/B1Sym.lean:195: /-- Z ≤ e^{−1} (B_raw ≤ e^{−1} on an interval of length 1; the `Z_le_one` pattern). -/
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/B1Sym.lean:196: theorem Z_le_exp_neg_one : Z ≤ Real.exp (-1) := by
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/B1Sym.lean:205: have hZ := Z_pos
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/B1Sym.lean:206: have h := Z_le_exp_neg_one
+87\s*/\s*10                  comment  Zeta23/Separation/Assembly2.lean:19: log(2·(87/10)·C₁); the SAME constants 39/1000 and 1/1000. The step ℓ + 73L ≤ (Lℓ)² is used in place of the old
+1\s*/\s*18                   comment  Zeta23/Separation/Assembly2.lean:30: `exp_one_lt_d9`; C_B ≤ 18e² from Z ≥ 1/18, which is B_raw ≥ e^{−4/3} on |v| ≤ 1/4 and e^{4/3} ≤ e² < 9). The lower
+1\s*/\s*18                   comment  Zeta23/Separation/Assembly2.lean:31: bound Z ≥ 1/18 is PROVED and used in this lemma's own C_B step only; it is not displayed and not exported to any
+1\s*/\s*18                   comment  Zeta23/Separation/Assembly2.lean:362: /-- Z ≥ 1/18: ∫_{−1/4}^{1/4} B_raw ≥ (1/2)·e^{−4/3} ≥ 1/18 (e^{4/3} ≤ e² < 9). PROVED, for `rstar_of_21L`'s C_B step
+1\s*/\s*18                   CODE     Zeta23/Separation/Assembly2.lean:364: theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+1\s*/\s*18                   CODE     Zeta23/Separation/Assembly2.lean:392: have : 18 * Real.exp 1 ^ 2 * (1 / 18) ≤ 18 * Real.exp 1 ^ 2 * Z := by gcongr
+one_div_eighteen             CODE     Zeta23/Separation/Assembly2.lean:364: theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+one_div_eighteen             CODE     Zeta23/Separation/Assembly2.lean:388: have h18 := one_div_eighteen_le_Z
+eighteen                     CODE     Zeta23/Separation/Assembly2.lean:364: theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+eighteen                     CODE     Zeta23/Separation/Assembly2.lean:388: have h18 := one_div_eighteen_le_Z
+\b18\b                       comment  Zeta23/Separation/Assembly2.lean:30: `exp_one_lt_d9`; C_B ≤ 18e² from Z ≥ 1/18, which is B_raw ≥ e^{−4/3} on |v| ≤ 1/4 and e^{4/3} ≤ e² < 9). The lower
+\b18\b                       comment  Zeta23/Separation/Assembly2.lean:31: bound Z ≥ 1/18 is PROVED and used in this lemma's own C_B step only; it is not displayed and not exported to any
+\b18\b                       comment  Zeta23/Separation/Assembly2.lean:362: /-- Z ≥ 1/18: ∫_{−1/4}^{1/4} B_raw ≥ (1/2)·e^{−4/3} ≥ 1/18 (e^{4/3} ≤ e² < 9). PROVED, for `rstar_of_21L`'s C_B step
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:364: theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:389: have hCB : CB ≤ 18 * Real.exp 1 ^ 2 := by
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:392: have : 18 * Real.exp 1 ^ 2 * (1 / 18) ≤ 18 * Real.exp 1 ^ 2 * Z := by gcongr
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:394: calc Real.log CB ≤ Real.log (18 * Real.exp 1 ^ 2) := Real.log_le_log CB_pos hCB
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:395: _ = Real.log 18 + 2 := by
+\b18\b                       CODE     Zeta23/Separation/Assembly2.lean:398: linarith [Real.log_le_log (by norm_num : (0 : ℝ) < 18) (by norm_num : (18 : ℝ) ≤ 25)]
+exp\s*\(-4\s*/\s*3\)         CODE     Zeta23/Separation/Assembly2.lean:352: theorem exp_neg_four_thirds_le_Braw {v : ℝ} (hv : |v| ≤ 1 / 4) : Real.exp (-4 / 3) ≤ Braw v := by
+exp\s*\(-4\s*/\s*3\)         CODE     Zeta23/Separation/Assembly2.lean:365: have hexp : 1 / 9 ≤ Real.exp (-4 / 3) := by
+exp\s*\(-4\s*/\s*3\)         CODE     Zeta23/Separation/Assembly2.lean:377: have hlow : ∫ _ in (-1 / 4 : ℝ)..(1 / 4), Real.exp (-4 / 3) ≤ ∫ v in (-1 / 4 : ℝ)..(1 / 4), Braw v :=
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/Assembly2.lean:364: theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     Zeta23/Separation/Assembly2.lean:387: have hZ := Z_pos
+8\.7                         comment  comparator/ChallengeDeps/Separation6b.lean:22: note's 8.70 (the displayed `Hb1` of M4 (iii), 87/10, which the new statements no longer
+87\s*/\s*10                  comment  comparator/ChallengeDeps/Separation6b.lean:22: note's 8.70 (the displayed `Hb1` of M4 (iii), 87/10, which the new statements no longer
+10\.98                       comment  comparator/ChallengeDeps/Separation6b.lean:23: take) nor the computation's 10.984 appears.  The solution proves (|η|·‖B̂(η)‖)² ≤ b1sym
+8\.7                         comment  comparator/Challenge/SeparationClause4b.lean:26: digit 87/10 (the L-hypothesis of the assembly is stronger by log(10.984/8.70) = 0.233 nats; nothing else changes).
+87\s*/\s*10                  comment  comparator/Challenge/SeparationClause4b.lean:24: the M4 (iii) rung (Challenge/SeparationClause4.lean, frozen): H-b₁ (b₁ ≤ 87/10) is NO LONGER a hypothesis — the bound
+87\s*/\s*10                  comment  comparator/Challenge/SeparationClause4b.lean:26: digit 87/10 (the L-hypothesis of the assembly is stronger by log(10.984/8.70) = 0.233 nats; nothing else changes).
+10\.98                       comment  comparator/Challenge/SeparationClause4b.lean:26: digit 87/10 (the L-hypothesis of the assembly is stronger by log(10.984/8.70) = 0.233 nats; nothing else changes).
+0\.23                        comment  comparator/Challenge/SeparationClause4b.lean:26: digit 87/10 (the L-hypothesis of the assembly is stronger by log(10.984/8.70) = 0.233 nats; nothing else changes).
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     comparator/Challenge/SeparationClause4b.lean:41: 0 ≤ Z.inWindowNoise t L R ∧
+\(Z\)|≤ Z\b|≤ Z\)|Z_pos|Z_le CODE     comparator/Solution/SeparationClause4b.lean:32: 0 ≤ Z.inWindowNoise t L R ∧
+8\.7                         comment  comparator/Challenge/Separation6b.lean:25: λ₀ = 25, C₀ = 4 and the PROVED b₁ in place of the displayed digit 87/10 — stronger by log(10.984/8.70) = 0.233 nats),
+87\s*/\s*10                  comment  comparator/Challenge/Separation6b.lean:25: λ₀ = 25, C₀ = 4 and the PROVED b₁ in place of the displayed digit 87/10 — stronger by log(10.984/8.70) = 0.233 nats),
+87\s*/\s*10                  comment  comparator/Challenge/Separation6b.lean:55: L-hypothesis carries b₁sym = (2e^{−1}/Z)² in place of the digit 87/10, and H-b₁ is no longer a hypothesis. -/
+10\.98                       comment  comparator/Challenge/Separation6b.lean:25: λ₀ = 25, C₀ = 4 and the PROVED b₁ in place of the displayed digit 87/10 — stronger by log(10.984/8.70) = 0.233 nats),
+0\.23                        comment  comparator/Challenge/Separation6b.lean:25: λ₀ = 25, C₀ = 4 and the PROVED b₁ in place of the displayed digit 87/10 — stronger by log(10.984/8.70) = 0.233 nats),
+87\s*/\s*10                  comment  comparator/Solution/Separation6b.lean:32: L-hypothesis carries b₁sym = (2e^{−1}/Z)² in place of the digit 87/10, and H-b₁ is no longer a hypothesis. -/
