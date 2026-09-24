@@ -1666,3 +1666,9 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **New artifacts:** `results/c2-followups/` (digest, BRIEF, SHARED, scripts/); seven direction files' Instruments/Untried; `results/c2-m4/PRICING-RESIDUE{-BRIEF,}.md`, `BRIEF-A.md`, `BUILD-NOTES-A.md`, `CHECK-O-A.md`, `hashes-A.txt`, `verify-A/`, `verify-A-O/`, `BRIEF-B.md` (staged); `lean/Zeta23/Separation/{B1Sym,Assembly2}.lean` + comparator pairs `SeparationClause4b`, `Separation6b`; `results/grossmann-rescout-s22/pair1-lorentzian/` and `pair2-lee-yang/` (launch notes, scout-F/O, HARVEST, SHARED, F/ O/ compute); `results/c2-siegel/` (BRIEF, scout report, check-O, FIX-BRIEF, recheck-O, verify/, verify-O/, SHARED); `results/zoo-s25/BRIEF.md` (staged); `FETCH-LIST-ROUND8.md`; BARRIER-ZOO.md dated notes on III.16, III.15, item 11 ×2 (count unchanged at 57 — I.8 enters at the Session-25 zoo stream).
 **Open at close:** NOTHING RUNNING. Session 25 item 1: the zoo stream (`results/zoo-s25/BRIEF.md`; count → 58); item 2: Unit B (`results/c2-m4/BRIEF-B.md`). Sponsor: `FETCH-LIST-ROUND8.md` r8-01 optional; corpus backup still owed; the Álvarez López reply watch item OPEN.
 **Next session should:** follow the SESSION 25 QUEUE in STATUS.
+
+## Session 25 — 2026-09-24 (opened 21:32 IST 2026-09-24; LOCAL; THE RH PROGRAM RESUMED at the SESSION 25 QUEUE; caffeinate + both watchdogs running; model Fable 5.1)
+
+**Focus:** the SESSION 25 QUEUE in order: item 1 the zoo stream (`results/zoo-s25/BRIEF.md`; I.8 + riders; count 57 → 58), then item 2 Unit B of the M4 residue (`results/c2-m4/BRIEF-B.md`). Nothing was running at open; nothing to harvest.
+**Landing as it happens (appended below in the present):**
+- 21:32 IST 2026-09-24: precondition for I.8 checked (`recheck-O.md` CLOSES ×6); zoo writer (Fable) launched.
