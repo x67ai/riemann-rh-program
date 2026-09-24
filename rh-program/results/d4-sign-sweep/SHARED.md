@@ -42,3 +42,4 @@
 ## Checkpoint 4 (Fri Sep 25 02:04:54 IST 2026) — (10¹², 28.35) LANDED: silent, both controls pass, 62.4 min on 8 threads (stop line (7) does not fire)
 * 75 148 949 134 terms, ℓ¹ = 146.9506 (PNT estimate 146.95), P = −5.555624780685936·10⁻³, ARCH = 0.01881600702215674, **W = +0.02437163180284268**, budget 8.9·10⁻¹³, δ_vis = 0.0993, planted orbit PASS (rel. 10⁻¹⁶), DH regression FIRES. Wall 3742.3 s real / 28 835 s user, 47 MB; cost model 3 606 s. Binary of the run: first build f97fc582… (annotated in the JSON). Self-test at this X: 5.549·10⁻³¹·t. With the exact ℓ¹: t_ceil(28.35) = 1.065·10²⁰ (ε measured), phase line at 10²⁰ = 9.39·10⁻⁹ — the 10²⁰ tier-2 point is accepted by a 6 % margin.
 * PT-edge point 3 000 175 332 900 at L = 28.35 started 02:03:53 IST (`run_pt_edge_after.sh` → `d4_point.py`, second build f6256ded…), expected ≈ 03:06.
+| Fri Sep 25 02:19:47 IST 2026 | Job 1 | alive — running --t 3000175332900 --L 28.35 |
