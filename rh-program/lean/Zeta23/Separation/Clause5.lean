@@ -387,6 +387,252 @@ theorem clause5_summable {C₁ t L : ℝ} (carrier : Set ℂ) (mult : ℂ → �
       (mul_le_mul_of_nonneg_left (crude_shell_bound hL (abs_nonneg _)) (Nat.cast_nonneg _)))
     _ (fun K => crude_series_le hC (by linarith) hL _ K)).1
 
+/-! ### §4 The tail incomplete-gamma integrals (Piece 1 item 4 — absent from Mathlib): γ_n(a, s) := Σ_{j≤n} (n!/j!)s^j/a^{n+1−j}
+and ∫_{s₀}^∞ sⁿe^{−as}ds = e^{−as₀}γ_n(a, s₀), through the antiderivative −e^{−as}γ_n(a, s) — the identity
+d/ds[e^{−as}γ_n(s)] = −sⁿe^{−as} is proved for EVERY n at once by induction through the recursion
+γ_{n+1}(s) = s^{n+1}/a + ((n + 1)/a)γ_n(s), so the n = 9 instance of stop line (c) is the general case. -/
+
+/-- γ_n(a, s) := Σ_{j=0}^{n} (n!/j!)·s^j/a^{n+1−j} — `r0_73_check.py` lines 22–23 (`gamma_poly`), term for term
+(= e^{as}∫_s^∞ xⁿe^{−ax}dx, `integral_pow_mul_exp_Ioi`). -/
+def gammaPoly (n : ℕ) (a s : ℝ) : ℝ :=
+  ∑ j ∈ Finset.range (n + 1), (n.factorial : ℝ) / (j.factorial : ℝ) * s ^ j / a ^ (n + 1 - j)
+
+theorem gammaPoly_zero (a s : ℝ) : gammaPoly 0 a s = 1 / a := by
+  simp [gammaPoly]
+
+/-- the recursion γ_{n+1}(s) = s^{n+1}/a + ((n + 1)/a)·γ_n(s), read off the Finset sum. -/
+theorem gammaPoly_succ (n : ℕ) {a : ℝ} (ha : a ≠ 0) (s : ℝ) :
+    gammaPoly (n + 1) a s = s ^ (n + 1) / a + ((n : ℝ) + 1) / a * gammaPoly n a s := by
+  unfold gammaPoly
+  rw [Finset.sum_range_succ, Finset.mul_sum]
+  have hlast : ((n + 1).factorial : ℝ) / ((n + 1).factorial : ℝ) * s ^ (n + 1) / a ^ (n + 1 + 1 - (n + 1))
+      = s ^ (n + 1) / a := by
+    rw [div_self (by positivity), one_mul, show n + 1 + 1 - (n + 1) = 1 by omega, pow_one]
+  rw [hlast, add_comm]
+  congr 1
+  refine Finset.sum_congr rfl fun j hj => ?_
+  have hj' : j ≤ n := Nat.lt_succ_iff.mp (Finset.mem_range.mp hj)
+  rw [show n + 1 + 1 - j = (n + 1 - j) + 1 by omega, pow_succ, Nat.factorial_succ]
+  push_cast
+  field_simp
+
+theorem gammaPoly_nonneg (n : ℕ) {a s : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) : 0 ≤ gammaPoly n a s := by
+  unfold gammaPoly; positivity
+
+/-- γ_n is monotone in s (nonnegative coefficients). -/
+theorem gammaPoly_mono (n : ℕ) {a s s' : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) (hss' : s ≤ s') :
+    gammaPoly n a s ≤ gammaPoly n a s' := by
+  unfold gammaPoly
+  refine Finset.sum_le_sum fun j _ => ?_
+  gcongr
+
+/-- the monomial comparison γ_n(a, s·r) ≤ rⁿ·γ_n(a, s) for r ≥ 1 (every monomial has degree ≤ n). -/
+theorem gammaPoly_mul_le (n : ℕ) {a s r : ℝ} (ha : 0 ≤ a) (hs : 0 ≤ s) (hr : 1 ≤ r) :
+    gammaPoly n a (s * r) ≤ r ^ n * gammaPoly n a s := by
+  unfold gammaPoly
+  rw [Finset.mul_sum]
+  refine Finset.sum_le_sum fun j hj => ?_
+  have hj' : j ≤ n := Nat.lt_succ_iff.mp (Finset.mem_range.mp hj)
+  have hrj : r ^ j ≤ r ^ n := pow_le_pow_right₀ hr hj'
+  have e : (n.factorial : ℝ) / (j.factorial : ℝ) * (s * r) ^ j / a ^ (n + 1 - j)
+      = r ^ j * ((n.factorial : ℝ) / (j.factorial : ℝ) * s ^ j / a ^ (n + 1 - j)) := by
+    rw [mul_pow]; ring
+  rw [e]
+  gcongr
+
+/-- d/ds[e^{−as}γ_n(a, s)] = −sⁿe^{−as}, every n, by induction through `gammaPoly_succ`. -/
+theorem hasDerivAt_exp_mul_gammaPoly {a : ℝ} (ha : 0 < a) (n : ℕ) (s : ℝ) :
+    HasDerivAt (fun s => Real.exp (-(a * s)) * gammaPoly n a s) (-(s ^ n * Real.exp (-(a * s)))) s := by
+  have hd : ∀ s : ℝ, HasDerivAt (fun s => Real.exp (-(a * s))) (Real.exp (-(a * s)) * (-a)) s := by
+    intro s
+    have := (((hasDerivAt_id s).const_mul a).neg).exp
+    simp only [Pi.neg_apply, id_eq, mul_one] at this
+    exact this
+  induction n generalizing s with
+  | zero =>
+    have h : (fun s => Real.exp (-(a * s)) * gammaPoly 0 a s) = fun s => Real.exp (-(a * s)) * (1 / a) := by
+      funext s; rw [gammaPoly_zero]
+    rw [h]
+    refine ((hd s).mul_const (1 / a)).congr_deriv ?_
+    rw [pow_zero, one_mul]
+    field_simp
+  | succ n ih =>
+    have h : (fun s => Real.exp (-(a * s)) * gammaPoly (n + 1) a s)
+        = fun s => Real.exp (-(a * s)) * s ^ (n + 1) / a
+          + ((n : ℝ) + 1) / a * (Real.exp (-(a * s)) * gammaPoly n a s) := by
+      funext s; rw [gammaPoly_succ n ha.ne' s]; ring
+    rw [h]
+    have h1 : HasDerivAt (fun s => Real.exp (-(a * s)) * s ^ (n + 1) / a)
+        ((Real.exp (-(a * s)) * (-a) * s ^ (n + 1)
+          + Real.exp (-(a * s)) * (((n + 1 : ℕ) : ℝ) * s ^ (n + 1 - 1))) / a) s :=
+      ((hd s).mul (hasDerivAt_pow (n + 1) s)).div_const a
+    have h2 := (ih s).const_mul (((n : ℝ) + 1) / a)
+    refine (h1.add h2).congr_deriv ?_
+    rw [show n + 1 - 1 = n by omega]
+    push_cast
+    field_simp
+    ring
+
+/-- e^{−as}γ_n(a, s) → 0 as s → ∞ (each monomial s^j e^{−as} → 0). -/
+theorem tendsto_exp_mul_gammaPoly {a : ℝ} (ha : 0 < a) (n : ℕ) :
+    Filter.Tendsto (fun s => Real.exp (-(a * s)) * gammaPoly n a s) Filter.atTop (nhds 0) := by
+  have hterm : ∀ j : ℕ, Filter.Tendsto (fun s => s ^ j * Real.exp (-(a * s))) Filter.atTop (nhds 0) := by
+    intro j
+    have h1 : Filter.Tendsto (fun s => (a * s) ^ j * Real.exp (-(a * s))) Filter.atTop (nhds 0) :=
+      (Real.tendsto_pow_mul_exp_neg_atTop_nhds_zero j).comp (Filter.tendsto_id.const_mul_atTop ha)
+    have h2 := h1.div_const (a ^ j)
+    rw [zero_div] at h2
+    refine h2.congr fun s => ?_
+    rw [mul_pow]; field_simp
+  have hj : ∀ j : ℕ, Filter.Tendsto
+      (fun s => Real.exp (-(a * s)) * ((n.factorial : ℝ) / (j.factorial : ℝ) * s ^ j / a ^ (n + 1 - j)))
+      Filter.atTop (nhds 0) := by
+    intro j
+    have := (hterm j).const_mul ((n.factorial : ℝ) / (j.factorial : ℝ) / a ^ (n + 1 - j))
+    rw [mul_zero] at this
+    refine this.congr fun s => ?_
+    ring
+  have hsum := tendsto_finsetSum (Finset.range (n + 1)) (fun j _ => hj j)
+  simp only [Finset.sum_const_zero] at hsum
+  refine hsum.congr fun s => ?_
+  unfold gammaPoly
+  rw [Finset.mul_sum]
+
+/-- **the tail incomplete-gamma integral** (Piece 1 item 4): for a > 0 and s₀ ≥ 0,
+∫_{s₀}^∞ sⁿe^{−as}ds = e^{−as₀}·γ_n(a, s₀) — the note's ∫_{s₀}^∞sⁿe^{−as}ds = e^{−as₀}Σ_j(n!/j!)s₀^j a^{−(n+1−j)}. -/
+theorem integral_pow_mul_exp_Ioi {a : ℝ} (ha : 0 < a) (n : ℕ) {s₀ : ℝ} (hs₀ : 0 ≤ s₀) :
+    ∫ s in Set.Ioi s₀, s ^ n * Real.exp (-(a * s)) = Real.exp (-(a * s₀)) * gammaPoly n a s₀ := by
+  have hd : ∀ s ∈ Set.Ici s₀,
+      HasDerivAt (fun s => -(Real.exp (-(a * s)) * gammaPoly n a s)) (s ^ n * Real.exp (-(a * s))) s := by
+    intro s _
+    have := (hasDerivAt_exp_mul_gammaPoly ha n s).neg
+    rwa [neg_neg] at this
+  have hpos : ∀ s ∈ Set.Ioi s₀, 0 ≤ s ^ n * Real.exp (-(a * s)) := by
+    intro s hs
+    have : 0 ≤ s := le_trans hs₀ (le_of_lt hs)
+    positivity
+  have hlim := (tendsto_exp_mul_gammaPoly ha n).neg
+  rw [neg_zero] at hlim
+  rw [integral_Ioi_of_hasDerivAt_of_nonneg' hd hpos hlim]
+  ring
+
+/-- Γ_m(s) := γ_{2m+1}(2c_B, s) + c_B·γ_{2m+2}(2c_B, s) + (c_B²/4)·γ_{2m+3}(2c_B, s) — the bracket of
+`r0_73_check.py` line 28 (a = 2c_B; the coefficients 1, c_B, c_B²/4 of (1 + (c_B/2)s)²). -/
+def GammaM (m : ℕ) (s : ℝ) : ℝ :=
+  gammaPoly (2 * m + 1) (2 * cB) s + cB * gammaPoly (2 * m + 2) (2 * cB) s
+    + cB ^ 2 / 4 * gammaPoly (2 * m + 3) (2 * cB) s
+
+theorem GammaM_nonneg (m : ℕ) {s : ℝ} (hs : 0 ≤ s) : 0 ≤ GammaM m s := by
+  have := cB_pos
+  unfold GammaM
+  have h1 := gammaPoly_nonneg (2 * m + 1) (a := 2 * cB) (by positivity) hs
+  have h2 := gammaPoly_nonneg (2 * m + 2) (a := 2 * cB) (by positivity) hs
+  have h3 := gammaPoly_nonneg (2 * m + 3) (a := 2 * cB) (by positivity) hs
+  positivity
+
+theorem GammaM_mono (m : ℕ) {s s' : ℝ} (hs : 0 ≤ s) (hss' : s ≤ s') : GammaM m s ≤ GammaM m s' := by
+  have := cB_pos
+  unfold GammaM
+  have h1 := gammaPoly_mono (2 * m + 1) (a := 2 * cB) (by positivity) hs hss'
+  have h2 := gammaPoly_mono (2 * m + 2) (a := 2 * cB) (by positivity) hs hss'
+  have h3 := gammaPoly_mono (2 * m + 3) (a := 2 * cB) (by positivity) hs hss'
+  have hc2 : 0 ≤ cB ^ 2 / 4 := by positivity
+  nlinarith [mul_le_mul_of_nonneg_left h2 this.le, mul_le_mul_of_nonneg_left h3 hc2]
+
+/-- d/ds[e^{−2c_Bs}Γ_m(s)] = −s^{2m+1}(1 + (c_B/2)s)²e^{−2c_Bs} (the three instances n = 2m+1, 2m+2, 2m+3 of
+`hasDerivAt_exp_mul_gammaPoly`, and (1 + (c_B/2)s)² = 1 + c_Bs + (c_B²/4)s²). -/
+theorem hasDerivAt_exp_mul_GammaM (m : ℕ) (s : ℝ) :
+    HasDerivAt (fun s => Real.exp (-(2 * cB * s)) * GammaM m s)
+      (-(s ^ (2 * m + 1) * (1 + cB / 2 * s) ^ 2 * Real.exp (-(2 * cB * s)))) s := by
+  have ha : 0 < 2 * cB := by have := cB_pos; positivity
+  have h1 := hasDerivAt_exp_mul_gammaPoly ha (2 * m + 1) s
+  have h2 := (hasDerivAt_exp_mul_gammaPoly ha (2 * m + 2) s).const_mul cB
+  have h3 := (hasDerivAt_exp_mul_gammaPoly ha (2 * m + 3) s).const_mul (cB ^ 2 / 4)
+  have h := (h1.add h2).add h3
+  refine (h.congr_of_eventuallyEq (Filter.Eventually.of_forall fun s => ?_)).congr_deriv ?_
+  · simp only [Pi.add_apply]; unfold GammaM; ring
+  · ring
+
+theorem tendsto_exp_mul_GammaM (m : ℕ) :
+    Filter.Tendsto (fun s => Real.exp (-(2 * cB * s)) * GammaM m s) Filter.atTop (nhds 0) := by
+  have ha : 0 < 2 * cB := by have := cB_pos; positivity
+  have h1 := tendsto_exp_mul_gammaPoly ha (2 * m + 1)
+  have h2 := (tendsto_exp_mul_gammaPoly ha (2 * m + 2)).const_mul cB
+  have h3 := (tendsto_exp_mul_gammaPoly ha (2 * m + 3)).const_mul (cB ^ 2 / 4)
+  have h := (h1.add h2).add h3
+  simp only [mul_zero, add_zero] at h
+  refine h.congr fun s => ?_
+  unfold GammaM; ring
+
+/-! ### §5 The substitution u = s²/L, folded into the antiderivative: φ_m(u) := u^m(1 + (c_B/2)√(Lu))²e^{−2c_B√(Lu)}
+has the antiderivative Φ_m(u) := −(2/L^{m+1})e^{−2c_B√(Lu)}Γ_m(√(Lu)) (chain rule through √(Lu)), so
+∫_{u₀}^∞φ_m = (2/L^{m+1})e^{−2c_Bs₀}Γ_m(s₀), s₀ = √(Lu₀) — the note's ∫_{u₀}^∞φ_m(u)du = (2/L^{m+1})∫_{s₀}^∞ s^{2m+1}(1 + (c_B/2)s)²e^{−2c_Bs}ds. -/
+
+/-- φ_m(u) := u^m(1 + (c_B/2)√(Lu))²e^{−2c_B√(Lu)} (note §6 "The sums"). -/
+def phi (m : ℕ) (L u : ℝ) : ℝ :=
+  u ^ m * (1 + cB / 2 * Real.sqrt (L * u)) ^ 2 * Real.exp (-(2 * cB * Real.sqrt (L * u)))
+
+/-- Φ_m(u) := −(2/L^{m+1})e^{−2c_B√(Lu)}Γ_m(√(Lu)), the antiderivative of φ_m. -/
+def Phi (m : ℕ) (L u : ℝ) : ℝ :=
+  -(2 / L ^ (m + 1) * (Real.exp (-(2 * cB * Real.sqrt (L * u))) * GammaM m (Real.sqrt (L * u))))
+
+theorem phi_nonneg (m : ℕ) {L u : ℝ} (hu : 0 ≤ u) : 0 ≤ phi m L u := by
+  have := cB_pos; unfold phi; positivity
+
+/-- φ_m in the s-variable: φ_m(u) = s^{2m}(1 + (c_B/2)s)²e^{−2c_Bs}/L^m, s = √(Lu). -/
+theorem phi_eq (m : ℕ) {L u : ℝ} (hL : 0 < L) (hu : 0 ≤ u) :
+    phi m L u = Real.sqrt (L * u) ^ (2 * m) * (1 + cB / 2 * Real.sqrt (L * u)) ^ 2
+      * Real.exp (-(2 * cB * Real.sqrt (L * u))) / L ^ m := by
+  unfold phi
+  have hs2 : Real.sqrt (L * u) ^ (2 * m) = L ^ m * u ^ m := by
+    rw [pow_mul, Real.sq_sqrt (by positivity), mul_pow]
+  rw [hs2]
+  field_simp
+
+theorem hasDerivAt_Phi (m : ℕ) {L u : ℝ} (hL : 0 < L) (hu : 0 < u) : HasDerivAt (Phi m L) (phi m L u) u := by
+  have hLu : 0 < L * u := by positivity
+  have hs : 0 < Real.sqrt (L * u) := Real.sqrt_pos.mpr hLu
+  have hsq : HasDerivAt (fun u => Real.sqrt (L * u)) (L / (2 * Real.sqrt (L * u))) u := by
+    have := ((hasDerivAt_id u).const_mul L).sqrt (by simpa only [id_eq] using hLu.ne')
+    simpa only [id_eq, mul_one] using this
+  have hE := (hasDerivAt_exp_mul_GammaM m (Real.sqrt (L * u))).comp u hsq
+  have h := (hE.const_mul (2 / L ^ (m + 1))).neg
+  refine (h.congr_of_eventuallyEq (Filter.Eventually.of_forall fun u => ?_)).congr_deriv ?_
+  · rfl
+  unfold phi
+  set s := Real.sqrt (L * u) with hs_def
+  have hs2 : s ^ (2 * m + 1) = L ^ m * u ^ m * s := by
+    rw [pow_succ, pow_mul, hs_def, Real.sq_sqrt hLu.le, mul_pow]
+  rw [hs2]
+  field_simp
+  ring
+
+theorem tendsto_Phi (m : ℕ) {L : ℝ} (hL : 0 < L) : Filter.Tendsto (Phi m L) Filter.atTop (nhds 0) := by
+  have hsqrt : Filter.Tendsto (fun u : ℝ => Real.sqrt (L * u)) Filter.atTop Filter.atTop :=
+    Real.tendsto_sqrt_atTop.comp (Filter.tendsto_id.const_mul_atTop hL)
+  have h := ((tendsto_exp_mul_GammaM m).comp hsqrt).const_mul (2 / L ^ (m + 1))
+  rw [mul_zero] at h
+  have h' := h.neg
+  rw [neg_zero] at h'
+  exact h'
+
+/-- **∫_{u₀}^∞ φ_m = (2/L^{m+1})e^{−2c_Bs₀}Γ_m(s₀)**, s₀ = √(Lu₀) (Piece 1 items 4–5 together). -/
+theorem integral_phi_Ioi (m : ℕ) {L u₀ : ℝ} (hL : 0 < L) (hu₀ : 0 < u₀) :
+    ∫ u in Set.Ioi u₀, phi m L u
+      = 2 / L ^ (m + 1) * (Real.exp (-(2 * cB * Real.sqrt (L * u₀))) * GammaM m (Real.sqrt (L * u₀))) := by
+  have hd : ∀ u ∈ Set.Ici u₀, HasDerivAt (Phi m L) (phi m L u) u :=
+    fun u hu => hasDerivAt_Phi m hL (lt_of_lt_of_le hu₀ hu)
+  have hpos : ∀ u ∈ Set.Ioi u₀, 0 ≤ phi m L u := fun u hu => phi_nonneg m (le_trans hu₀.le (le_of_lt hu))
+  rw [integral_Ioi_of_hasDerivAt_of_nonneg' hd hpos (tendsto_Phi m hL)]
+  unfold Phi; ring
+
+theorem integrableOn_phi_Ioi (m : ℕ) {L u₀ : ℝ} (hL : 0 < L) (hu₀ : 0 < u₀) :
+    IntegrableOn (phi m L) (Set.Ioi u₀) := by
+  have hd : ∀ u ∈ Set.Ici u₀, HasDerivAt (Phi m L) (phi m L u) u :=
+    fun u hu => hasDerivAt_Phi m hL (lt_of_lt_of_le hu₀ hu)
+  have hpos : ∀ u ∈ Set.Ioi u₀, 0 ≤ phi m L u := fun u hu => phi_nonneg m (le_trans hu₀.le (le_of_lt hu))
+  exact integrableOn_Ioi_deriv_of_nonneg' hd hpos (tendsto_Phi m hL)
+
 end
 
 end Separation
