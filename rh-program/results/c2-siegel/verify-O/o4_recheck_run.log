@@ -1,0 +1,35 @@
+family size: 32
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/c2-siegel/verify-O/o4_recheck.py:25: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  def Q(f, a, b, **kw): return quad(f, a, b, limit=2000, epsabs=1e-13, epsrel=1e-11, **kw)[0]
+  share cross-check Fejer T=1        delta=0.100: u-space 1.6481794754 xi-space 1.6481794754 diff -2.8e-13
+  share cross-check Fejer T=1        delta=0.001: u-space 1.9906166183 xi-space 1.9906166183 diff -2.9e-13
+  share cross-check Fejer^2 T=1      delta=0.100: u-space 1.4478066037 xi-space 1.4478066037 diff -7.0e-14
+  share cross-check Fejer^2 T=1      delta=0.001: u-space 1.9829409430 xi-space 1.9829409430 diff -7.1e-14
+  share cross-check Gauss sigma=1    delta=0.100: u-space 1.9270041639 xi-space 1.9270041639 diff -4.4e-16
+  share cross-check Gauss sigma=1    delta=0.001: u-space 1.9991745158 xi-space 1.9991745158 diff 4.4e-16
+  share cross-check Poisson a=0.55   delta=0.100: u-space 6.4051356160 xi-space 6.4051356160 diff 0.0e+00
+  share cross-check Poisson a=0.55   delta=0.001: u-space 7.2620286299 xi-space 7.2620286299 diff 0.0e+00
+pole-cap ratio max share/(2 what(0)) over family and delta = 0.999882
+[D = -20]
+  delta=0.100: best single +0.59470 [Gauss sigma=1] (runner-up +0.56504 [Gauss sigma=1.5]) FIRES ; best double +6.87911 [Poisson a=0.55] FIRES
+  delta=0.050: best single +0.86069 [Poisson a=0.55] (runner-up +0.82758 [Poisson a=0.6]) FIRES ; best double +7.65253 [Poisson a=0.55] FIRES
+  delta=0.020: best single +1.13641 [Poisson a=0.55] (runner-up +1.05531 [Poisson a=0.6]) FIRES ; best double +8.20397 [Poisson a=0.55] FIRES
+  delta=0.010: best single +1.23671 [Poisson a=0.55] (runner-up +1.13776 [Poisson a=0.6]) FIRES ; best double +8.40457 [Poisson a=0.55] FIRES
+  delta=0.001: best single +1.33087 [Poisson a=0.55] (runner-up +1.21498 [Poisson a=0.6]) FIRES ; best double +8.59290 [Poisson a=0.55] FIRES
+  Poisson a=0.6 single margins: +0.50549, +0.82758, +1.05531, +1.13776, +1.21498
+  Poisson a=0.55 single margins: +0.47398, +0.86069, +1.13641, +1.23671, +1.33087
+  Gauss sigma=1 single margins: +0.59470, +0.62882, +0.65156, +0.65953, +0.66687
+[|D| = 2005]
+  delta=0.100: best single -0.57877 [Gauss sigma=0.3] (runner-up -0.61765 [Gauss sigma=0.5]) silent ; best double +2.27145 [Poisson a=0.55] FIRES
+  delta=0.050: best single -0.41260 [Gauss sigma=0.3] (runner-up -0.44339 [Gauss sigma=0.2]) silent ; best double +3.04487 [Poisson a=0.55] FIRES
+  delta=0.020: best single -0.26359 [Gauss sigma=0.2] (runner-up -0.29274 [Gauss sigma=0.3]) silent ; best double +3.59630 [Poisson a=0.55] FIRES
+  delta=0.010: best single -0.19550 [Gauss sigma=0.2] (runner-up -0.20451 [Gauss sigma=0.1]) silent ; best double +3.79690 [Poisson a=0.55] FIRES
+  delta=0.001: best single -0.07257 [Gauss sigma=0.1] (runner-up -0.08985 [Fejer T=0.25]) silent ; best double +3.98523 [Poisson a=0.55] FIRES
+[|D| = 1e6]
+  delta=0.100: best single -1.17311 [Gauss sigma=0.2] (runner-up -1.23281 [Gauss sigma=0.1]) silent ; best double +0.30193 [Gauss sigma=0.3] FIRES
+  delta=0.050: best single -0.89359 [Gauss sigma=0.1] (runner-up -0.93905 [Gauss sigma=0.2]) silent ; best double +0.74035 [Gauss sigma=0.2] FIRES
+  delta=0.020: best single -0.58275 [Gauss sigma=0.1] (runner-up -0.65824 [Fejer T=0.25]) silent ; best double +1.13929 [Gauss sigma=0.1] FIRES
+  delta=0.010: best single -0.45234 [Gauss sigma=0.1] (runner-up -0.51641 [Fejer T=0.25]) silent ; best double +1.40012 [Gauss sigma=0.1] FIRES
+  delta=0.001: best single -0.25836 [Fejer^2 T=0.25] (runner-up -0.32039 [Gauss sigma=0.1]) silent ; best double +1.68554 [Fejer^2 T=0.25] FIRES
