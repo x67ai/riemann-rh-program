@@ -2,7 +2,6 @@
 
 **Opened Fri Sep 25 02:29 IST 2026 (machine clock). Contract: `results/d4-sign-sweep/BRIEF.md` "Job 2 — Part A", read in full, with the orchestrator's item list (a)–(g). Inputs read: BRIEF.md, SHARED.md checkpoints 0–4 and rows, `d4-sweep-note.md` §0–§5, §8, §10, `hashes.txt`, `harness/d4_twisted_sum.rs` (phase path lines 49–183, sum/self-test lines 286–500), `harness/d4_phase_selftest.py`, `harness/eps_phi.json`, `harness/sweep_plan.json`, `out/zeta_t*.json`, the prior-art texts and — for Odlyzko 1992 and 2001 — page images. Nothing of Job 1's was edited. Nothing committed by hand (watchdogs). Every number below is printed by a script under `results/d4-sign-sweep/checker-O/` whose log is named in place.**
 
-[DRAFT — being filled as runs land; the verdict section is final only when this line is removed.]
 
 ## 1. The independent evaluator (deliverable 1) — `checker-O/twsumO.go`
 
@@ -103,7 +102,7 @@ The note §4.5 states the last point. The first point should be added to it in o
 * The (10¹², 28.35) JSON should be re-annotated so that `binary_sha256` = f97fc582…, with the second-build hash moved to `binary_sha256_at_assembly`. `hashes.txt` then gets the re-hashed JSON.
 * For the PT-edge point it does not arise (one build throughout).
 
-## 3. Control 1 at the rehearsal points — checker-O against Job 1 (`checker-O/compare.py`, output `checker-O/out/compare.json`; tolerance 10⁻¹⁰ + the phase line at the BINDING ε = 1.027·10⁻³⁰)
+## 3. Control 1 at the rehearsal points — checker-O against Job 1 (`checker-O/compare.py`, log `checker-O/logs/compare_run.log`, output `checker-O/out/compare.json`; tolerance 10⁻¹⁰ + the phase line at the BINDING ε = 1.027·10⁻³⁰)
 
 | point | P (Job 1) | P (checker-O) | \|ΔP\| | W (checker-O) | \|ΔW\| | tolerance | verdict |
 |---|---|---|---|---|---|---|---|
@@ -113,6 +112,38 @@ The note §4.5 states the last point. The first point should be added to it in o
 | zeta (1e6, 20) | -4.2851912159123789e-03 | -4.2851912159125186e-03 | 1.4e-16 | +2.917166732027457e-02 | 1.1e-16 | 1.00e-10 | **PASS** |
 | zeta (1e12, 20) | -6.4571825725515371e-03 | -6.4571825725517002e-03 | 1.6e-16 | +6.004877589499902e-02 | 4.4e-16 | 1.00e-10 | **PASS** |
 | zeta (1e12, 28.35) | -5.5556247806859364e-03 | -5.5556247806872027e-03 | 1.3e-15 | +2.437163180284393e-02 | 1.2e-15 | 1.00e-10 | **PASS** |
+| zeta (3000175332900, 28.35) PT edge | -2.6490225778961545e-03 | -2.6490225778974144e-03 | 1.3e-15 | +2.226650599838479e-02 | 1.3e-15 | 1.00e-10 | **PASS** |
 | DH (85.7, 10) | 3.3999546892892463e-01 | 3.3999546892892663e-01 | 2.0e-15 | -2.698120741982896e-01 | 2.6e-15 | 1.00e-10 | **PASS** |
+| DH (85.7, 20) | 7.5700418200496356e-01 | 7.5700418200496788e-01 | 4.3e-15 | -7.482311452973375e-01 | 4.4e-15 | 1.00e-10 | **PASS** |
 
-Notes on the table. At (10¹², 28.35) checker-O finds the same term count as Job 1: **75 148 949 134 = 75 148 837 837 primes + 111 297 prime powers**, over X = 2 052 336 466 859. It also finds the same ℓ¹, 146.95060754424256 against 146.95060754424162. ARCH = 0.018816007022156727 against Job 1's 0.01881600702215674; my own [0, 2000], half-panel ARCH check agrees to 4·10⁻¹⁷. Sum wall time: 1 800 s on 8 threads, run concurrently with Job 1's PT-edge process. Log: `checker-O/logs/zetaO_t1e12_L28.35_run.log`, JSON `checker-O/out/zetaO_t1e12_L28.35.json`. The (85.7, ·) ζ values are compared with Job 1's printed digits (SHARED checkpoint 1) and with the M6 record (§4), because Job 1 wrote no ζ JSON at 85.7. The DH witnesses from my own recursion are Λ_DH(3) = −0.31209272851616354, Λ_DH(4) = −1.4422319646064572, Λ_DH(6) = 1.9363560766210386 and Λ_DH(12) = −0.7628774719884115; all four reproduced. **Every difference is at the 10⁻¹⁵ level: five orders inside the tolerance at every point.** At 10¹² the phase lines are ≤ 1.5·10⁻¹⁶, so the agreement tests everything except the phase at large t. That part is tested by item (a) and by my own self-test (§1).
+Notes on the table. At (10¹², 28.35) checker-O finds the same term count as Job 1: **75 148 949 134 = 75 148 837 837 primes + 111 297 prime powers**, over X = 2 052 336 466 859. It also finds the same ℓ¹, 146.95060754424256 against 146.95060754424162. ARCH = 0.018816007022156727 against Job 1's 0.01881600702215674; my own [0, 2000], half-panel ARCH check agrees to 4·10⁻¹⁷. Sum wall time: 1 800 s on 8 threads (1 792 s at the PT edge), run concurrently with Job 1's PT-edge process. Log: `checker-O/logs/zetaO_t1e12_L28.35_run.log`, JSON `checker-O/out/zetaO_t1e12_L28.35.json`. The (85.7, ·) ζ values are compared with Job 1's printed digits (SHARED checkpoint 1) and with the M6 record (§4), because Job 1 wrote no ζ JSON at 85.7. The DH witnesses from my own recursion are Λ_DH(3) = −0.31209272851616354, Λ_DH(4) = −1.4422319646064572, Λ_DH(6) = 1.9363560766210386 and Λ_DH(12) = −0.7628774719884115; all four reproduced. **Every difference is at the 10⁻¹⁵ level: five orders inside the tolerance at every point.** At 10¹² the phase lines are ≤ 1.5·10⁻¹⁶, so the agreement tests everything except the phase at large t. That part is tested by item (a) and by my own self-test (§1).
+
+**The PT-edge point (item (g)).** Job 1's JSON `out/zeta_t3000175332900_L28.35.json` landed at 03:32:34 IST, with its SHARED row: W = +0.02226650599838353, verdict "silent (W > 0)", controls pass, stop_line null. It is not a STOP/BUG or CONTROL FAILED row. checker-O ran the full point independently: `checker-O/out/zetaO_t3000175332900_L28.35.json`, log `checker-O/logs/zetaO_t3000175332900_L28.35_run.log`, 75 148 949 134 terms. It gives **W = +0.022266505998384794, |ΔP| = |ΔW| = 1.3·10⁻¹⁵ — PASS**. The phase line at the binding ε is 4.5·10⁻¹⁶. The DH (85.7, 20) regression on my own recursion also reproduces Job 1 and the M6 record: W = −0.7482311452973375 (M6 −0.748231145297333), and I found 360 809 171 f64-nonzero terms against Job 1's 340 796 040. The difference is roundoff-level structural zeros that differ between the two recursions (M6 §2.2: the true nonzero count is 120 953 877). Their contribution to W is at the 10⁻¹⁵ level. Log: `checker-O/logs/dhO_L20_run.log`.
+
+## 4. Verdict (deliverable 3)
+
+**Overall: FIX-FIRST.** The fixes are small and none touches a computed value. The harness computes correctly: both implementations agree to ≤ 4.4·10⁻¹⁵ at all nine rehearsal points, and the phase path's error is the dd log's alone. The sweep may start at scale once the binding ε and the tier-2 change are applied (items (b), (f) below). The note fixes (c), (e) may land in the same fix pass without blocking the first tier-1 points.
+
+| item | verdict | what I ran | log |
+|---|---|---|---|
+| Evaluator agreement, 9 points incl. (10¹², 28.35) and the PT edge | **GATE PASS** (max \|ΔW\| 4.4·10⁻¹⁵ against tolerance ≥ 10⁻¹⁰) | `checker-O/twsumO.go`, `compare.py` | `checker-O/logs/*_run.log`, `checker-O/out/compare.json` |
+| (a) `reduced_phase_dd`, three-double 2π, whole-path self-test | **GATE PASS**: product + reduction ≤ 1.3·10⁻²⁶ rad at 10²⁰; c₂ is the nearest double; error = dd log's alone | `job1_phase_check.py` on Job 1's binary, seeds 777 / 31337 (215 000 rows) | `checker-O/logs/job1_phase_check_run.log` |
+| (b) ε governance | **FIX-FIRST (binding)**: ε = 1.027·10⁻³⁰ (a-priori, derived); t_ceil(28.35) = 6.63·10¹⁹; tier-2 10²⁰ → 61609351296641974272; `eps_phi.json` and the compiled default updated | `job1_ddlog_bound.py` (bit-exact emulation, 0 mismatches on 205 000 rows) | `checker-O/logs/job1_ddlog_bound_run.log` |
+| (c) coverage map | **GATE PASS** for the heights (no planned height in any of 14 windows; both controls inside published sets); **note FIX**: add the four Odlyzko 1992 Table 1.2 sets (N = 10¹⁴, 10¹⁶, 10¹⁸, 10¹⁹); "2·10⁷" → "2·10⁴" | `coverage_check.py`; page images Odlyzko 1992 PDF pp. 4, 8, 140; Odlyzko 2001 PDF p. 3 | `checker-O/logs/coverage_check_run.log` |
+| (d) δ_vis, log t against log(t/2π) | **GATE PASS**: variants differ by ≤ 1.0523 against the band 1.837 at all 133 points | `dvis_planted_check.py` | `checker-O/logs/dvis_planted_check_run.log` |
+| (e) Control 2 zero-side only | **MET, labeled**: the planted value reproduced independently to ≤ 8·10⁻¹⁸; add one sentence to note §4.5 (the planted value does not depend on t; the height-dependent check is Control 1) | same | same |
+| (f) `binary_sha256` against `_ran` | **FIX-FIRST (minor)**: the primary key must name the binary that ran; hash at launch | `shasum` of both builds and the source | this file §2(f) |
+| (g) PT-edge point | **PASS**: silent (W = +0.022266505998384 on both), \|ΔW\| = 1.3·10⁻¹⁵; Job 1's row is not STOP/BUG or CONTROL FAILED | full independent run, 1 792 s | `checker-O/logs/zetaO_t3000175332900_L28.35_run.log` |
+
+**Binding ε decision, restated:** the a-priori worst case governs the refusal rule and the Control-1 tolerance, at **ε = 1.027·10⁻³⁰ per unit t** (the sampled 6.392·10⁻³¹ is exceeded by a larger sample, 6.686·10⁻³¹, and is not a bound). **Resulting ceiling: t_ceil(28.35) = 6.63·10¹⁹; t_ceil(22) = 4.47·10²⁰.**
+
+**Change to `sweep_plan.json` (for the orchestrator or Job 1's fix pass to apply):**
+* tier 2 "100000000000000000000" → "61609351296641974272" (ladder k = 117; phase line 9.30·10⁻⁹);
+* tier 1 unchanged (121 + 2 controls, all accepted);
+* the tier-2 covered-range control 15202440115920748544 unchanged (line 2.29·10⁻⁹).
+
+After the fix pass I re-check only (b) and (f), per the brief.
+
+**Reading, for the record.** Nothing here is a statement about RH. Every value is positive (silent). The sign channel stays an instrument, and the floating-point evaluation is a signal to certify, not a proof. The Go-contraction bug of §1 is a lesson for any future compiled second implementation in Go: it passed the brief's 10⁻¹⁰ tolerance at (10¹², 20) and was caught only by the phase self-test against mpmath. The self-test, not the tolerance, is what guards the phase above t ≈ 10¹².
+
+*Closed Fri Sep 25 03:34:45 IST 2026 (machine clock).*
