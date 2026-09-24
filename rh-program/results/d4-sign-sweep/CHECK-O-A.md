@@ -102,3 +102,17 @@ The note §4.5 states the last point. The first point should be added to it in o
 * `binary_sha256` must be the binary that produced the sum. `d4_point.py` should hash it at launch, before the sum, and store the at-assembly hash under another key.
 * The (10¹², 28.35) JSON should be re-annotated so that `binary_sha256` = f97fc582…, with the second-build hash moved to `binary_sha256_at_assembly`. `hashes.txt` then gets the re-hashed JSON.
 * For the PT-edge point it does not arise (one build throughout).
+
+## 3. Control 1 at the rehearsal points — checker-O against Job 1 (`checker-O/compare.py`, output `checker-O/out/compare.json`; tolerance 10⁻¹⁰ + the phase line at the BINDING ε = 1.027·10⁻³⁰)
+
+| point | P (Job 1) | P (checker-O) | \|ΔP\| | W (checker-O) | \|ΔW\| | tolerance | verdict |
+|---|---|---|---|---|---|---|---|
+| zeta (85.7, 10) | 3.9608507012438988e-02 | 3.9608507012439245e-02 | 2.6e-16 | +3.822866509675067e-03 | 9.3e-16 | 1.00e-10 | **PASS** |
+| zeta (85.7, 20) [M6 record] | 4.5629998247170003e-03 | 4.5629998247173629e-03 | 3.6e-16 | +8.660342318479756e-04 | 2.4e-17 | 1.00e-10 | **PASS** |
+| zeta (1e6, 10) | -5.2207475557697010e-02 | -5.2207475557697426e-02 | 4.2e-16 | +2.512992843925873e-01 | 1.7e-15 | 1.00e-10 | **PASS** |
+| zeta (1e6, 20) | -4.2851912159123789e-03 | -4.2851912159125186e-03 | 1.4e-16 | +2.917166732027457e-02 | 1.1e-16 | 1.00e-10 | **PASS** |
+| zeta (1e12, 20) | -6.4571825725515371e-03 | -6.4571825725517002e-03 | 1.6e-16 | +6.004877589499902e-02 | 4.4e-16 | 1.00e-10 | **PASS** |
+| zeta (1e12, 28.35) | -5.5556247806859364e-03 | -5.5556247806872027e-03 | 1.3e-15 | +2.437163180284393e-02 | 1.2e-15 | 1.00e-10 | **PASS** |
+| DH (85.7, 10) | 3.3999546892892463e-01 | 3.3999546892892663e-01 | 2.0e-15 | -2.698120741982896e-01 | 2.6e-15 | 1.00e-10 | **PASS** |
+
+Notes on the table. At (10¹², 28.35) checker-O finds the same term count as Job 1: **75 148 949 134 = 75 148 837 837 primes + 111 297 prime powers**, over X = 2 052 336 466 859. It also finds the same ℓ¹, 146.95060754424256 against 146.95060754424162. ARCH = 0.018816007022156727 against Job 1's 0.01881600702215674; my own [0, 2000], half-panel ARCH check agrees to 4·10⁻¹⁷. Sum wall time: 1 800 s on 8 threads, run concurrently with Job 1's PT-edge process. Log: `checker-O/logs/zetaO_t1e12_L28.35_run.log`, JSON `checker-O/out/zetaO_t1e12_L28.35.json`. The (85.7, ·) ζ values are compared with Job 1's printed digits (SHARED checkpoint 1) and with the M6 record (§4), because Job 1 wrote no ζ JSON at 85.7. The DH witnesses from my own recursion are Λ_DH(3) = −0.31209272851616354, Λ_DH(4) = −1.4422319646064572, Λ_DH(6) = 1.9363560766210386 and Λ_DH(12) = −0.7628774719884115; all four reproduced. **Every difference is at the 10⁻¹⁵ level: five orders inside the tolerance at every point.** At 10¹² the phase lines are ≤ 1.5·10⁻¹⁶, so the agreement tests everything except the phase at large t. That part is tested by item (a) and by my own self-test (§1).
