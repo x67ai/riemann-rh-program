@@ -1,0 +1,21 @@
+# statement identity, topic Separation5, 2026-09-24 22:49:05 IST
+separation_clause5_out_window                 challenge   263 bytes, solution   263 bytes: IDENTICAL
+    theorem separation_clause5_out_window (C₁ t L : ℝ) (Z : Separation.SepConfig C₁) (hC : 1 ≤ C₁) (ht : 3 ≤ t)
+        (hL : 50 ≤ L) (hL8 : 8 * (Real.log (Real.log (3 + t)) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+        (hR0 : Separation.HR0) :
+        Z.Hout t L (73 * L)
+separation_clause6_assembly_c                 challenge   846 bytes, solution   846 bytes: IDENTICAL
+    theorem separation_clause6_assembly_c (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+        (hL1 : 25 / δ ≤ L)
+        (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+        (hRstar : Separation.Rstar t δ L)
+        (Z Z' : Separation.SepConfig C₁)
+        (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+        (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+        (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+        (hB3 : Separation.HB3) (hedge : Separation.Hedge) (hR0 : Separation.HR0) :
+        δ ^ 2 * Real.exp (δ * L / 2)
+            ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+          1 ≤ δ ^ 2 * Real.exp (δ * L / 2)
+RESULT: PASS
+exit=0
