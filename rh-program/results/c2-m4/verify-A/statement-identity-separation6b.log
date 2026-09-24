@@ -1,0 +1,35 @@
+# statement-identity-separation6b.log — 2026-09-24 19:44:22 IST
+separation_clause6_assembly_b                 challenge   889 bytes, solution   889 bytes: IDENTICAL
+    theorem separation_clause6_assembly_b (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+        (hL1 : 25 / δ ≤ L)
+        (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+        (hRstar : Separation.Rstar t δ L)
+        (Z Z' : Separation.SepConfig C₁)
+        (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+        (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+        (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+        (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+        (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+        δ ^ 2 * Real.exp (δ * L / 2)
+            ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+          1 ≤ δ ^ 2 * Real.exp (δ * L / 2)
+separation_clause7_tight_pair                 challenge  1057 bytes, solution  1057 bytes: IDENTICAL
+    theorem separation_clause7_tight_pair (C₁ t δ L : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hδ0 : 0 < δ) (hδ : δ ≤ 1 / 2)
+        (hL1 : 25 / δ ≤ L)
+        (hL2 : 4 / δ * (Real.log (Real.log (3 + t)) + 2 * Real.log (1 / δ) + Real.log (2 * Separation.b1sym * C₁)) ≤ L)
+        (hRstar : Separation.Rstar t δ L)
+        (Z Z' : Separation.SepConfig C₁)
+        (hZorb : Separation.orbit t δ ⊆ Z.carrier) (hZmult : ∀ ρ ∈ Separation.orbit t δ, Z.mult ρ = 1)
+        (hZ : ∀ ρ ∈ Z.carrier, |ρ.im - t| ≤ 73 * L → ρ ∉ Separation.orbit t δ → ρ.re = 1 / 2)
+        (hZ' : ∀ ρ ∈ Z'.carrier, |ρ.im - t| ≤ 73 * L → ρ.re = 1 / 2)
+        (hZ'plus : (⟨1 / 2, t⟩ : ℂ) ∈ Z'.carrier) (hZ'minus : (⟨1 / 2, -t⟩ : ℂ) ∈ Z'.carrier)
+        (hZ'plus2 : Z'.mult ⟨1 / 2, t⟩ = 2) (hZ'minus2 : Z'.mult ⟨1 / 2, -t⟩ = 2)
+        (hB3 : Separation.HB3) (hedge : Separation.Hedge)
+        (houtZ : Z.Hout t L (73 * L)) (houtZ' : Z'.Hout t L (73 * L)) :
+        δ ^ 2 * Real.exp (δ * L / 2)
+            ≤ ‖Z.W (Separation.ftest t L) (Separation.ftest t L) - Z'.W (Separation.ftest t L) (Separation.ftest t L)‖ ∧
+          1 ≤ δ ^ 2 * Real.exp (δ * L / 2)
+rstar_of_21L                                  challenge   143 bytes, solution   143 bytes: IDENTICAL
+    theorem rstar_of_21L (t δ L : ℝ) (ht : 3 ≤ t) (hL : 50 ≤ L) (hδ1 : 25 / L ≤ δ) (hδ : δ ≤ 1 / 2)
+        (h21 : 21 * L ≤ t) : Separation.Rstar t δ L
+RESULT: PASS

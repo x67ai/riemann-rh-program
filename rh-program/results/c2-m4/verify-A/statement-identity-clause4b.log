@@ -1,0 +1,7 @@
+# statement-identity-clause4b.log — 2026-09-24 19:44:22 IST
+separation_clause4_in_window_noise_b          challenge   291 bytes, solution   291 bytes: IDENTICAL
+    theorem separation_clause4_in_window_noise_b (C₁ t L R : ℝ) (hC : 1 ≤ C₁) (ht : 3 ≤ t) (hL : 50 ≤ L) (hR : 1 ≤ R)
+        (Z : Separation.SepConfig C₁) (hB3 : Separation.HB3) :
+        0 ≤ Z.inWindowNoise t L R ∧
+          Z.inWindowNoise t L R ≤ 2 * Separation.b1sym * C₁ * Real.log (4 + t + R) / L ^ 2
+RESULT: PASS

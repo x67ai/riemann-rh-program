@@ -37,3 +37,5 @@ import Zeta23.Separation.LemmaG1
 import Zeta23.Separation.LemmaG
 import Zeta23.Separation.Clause4
 import Zeta23.Separation.Assembly
+import Zeta23.Separation.B1Sym
+import Zeta23.Separation.Assembly2

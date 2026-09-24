@@ -1,0 +1,58 @@
+# untouched.log — 2026-09-24 19:49:57 IST; after the Unit A pairs and the full build (preliminary; re-run after packaging): git status of lean/, git diff of lean/Zeta23.lean (two additive imports), git diff --stat over the frozen areas (must be empty), cmp tree = mirror for every Separation-related file
+## git status --short lean/
+ M lean/Zeta23.lean
+?? lean/Zeta23/Separation/Assembly2.lean
+?? lean/comparator/Challenge/Separation6b.lean
+?? lean/comparator/Challenge/SeparationClause4b.lean
+?? lean/comparator/ChallengeDeps/Separation6b.lean
+?? lean/comparator/PrintAxioms/Separation6b.lean
+?? lean/comparator/PrintAxioms/SeparationClause4b.lean
+?? lean/comparator/Solution/Separation6b.lean
+?? lean/comparator/Solution/SeparationClause4b.lean
+?? lean/comparator/config-separation-clause4b.json
+?? lean/comparator/config-separation6b.json
+## git diff HEAD -- lean/Zeta23.lean
+diff --git a/rh-program/lean/Zeta23.lean b/rh-program/lean/Zeta23.lean
+index 90aceaf..d5a712f 100644
+--- a/rh-program/lean/Zeta23.lean
++++ b/rh-program/lean/Zeta23.lean
+@@ -37,3 +37,5 @@ import Zeta23.Separation.LemmaG1
+ import Zeta23.Separation.LemmaG
+ import Zeta23.Separation.Clause4
+ import Zeta23.Separation.Assembly
++import Zeta23.Separation.B1Sym
++import Zeta23.Separation.Assembly2
+## git diff --stat HEAD -- the frozen areas (M4 (i), M4 (iii) pairs, DBN, W1, PairCeiling, LemmaG1, LemmaG, Clause4, Assembly, SepConfig, Separation6)
+(end of diff --stat)
+## cmp tree = mirror
+same: Zeta23.lean
+same: Zeta23/Separation/LemmaG1.lean
+same: Zeta23/Separation/LemmaG.lean
+same: Zeta23/Separation/Clause4.lean
+same: Zeta23/Separation/Assembly.lean
+same: Zeta23/Separation/B1Sym.lean
+same: Zeta23/Separation/Assembly2.lean
+same: comparator/ChallengeDeps/Separation.lean
+same: comparator/ChallengeDeps/SepConfig.lean
+same: comparator/ChallengeDeps/Separation6.lean
+same: comparator/ChallengeDeps/Separation6b.lean
+same: comparator/Challenge/Separation.lean
+same: comparator/Challenge/SeparationG1.lean
+same: comparator/Challenge/SeparationClause4.lean
+same: comparator/Challenge/Separation6.lean
+same: comparator/Challenge/SeparationClause4b.lean
+same: comparator/Challenge/Separation6b.lean
+same: comparator/Solution/Separation.lean
+same: comparator/Solution/SeparationG1.lean
+same: comparator/Solution/SeparationClause4.lean
+same: comparator/Solution/Separation6.lean
+same: comparator/Solution/SeparationClause4b.lean
+same: comparator/Solution/Separation6b.lean
+same: comparator/PrintAxioms/SeparationClause4.lean
+same: comparator/PrintAxioms/Separation6.lean
+same: comparator/PrintAxioms/SeparationClause4b.lean
+same: comparator/PrintAxioms/Separation6b.lean
+same: comparator/config-separation-clause4.json
+same: comparator/config-separation6.json
+same: comparator/config-separation-clause4b.json
+same: comparator/config-separation6b.json

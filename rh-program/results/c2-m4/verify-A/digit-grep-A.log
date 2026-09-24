@@ -1,0 +1,6 @@
+# digit-grep-A.log — 2026-09-24 19:44:50 IST; grep for 8.7 / 87/10 / 10.99 / 1099 / 0.22 / 10.98 / Z_lo / 1 / 18 in the nine Unit A files, block comments and line comments excluded
+Zeta23/Separation/Assembly2.lean:364: [1\s*/\s*18\b] theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+Zeta23/Separation/Assembly2.lean:364: [eighteen] theorem one_div_eighteen_le_Z : 1 / 18 ≤ Z := by
+Zeta23/Separation/Assembly2.lean:388: [eighteen] have h18 := one_div_eighteen_le_Z
+Zeta23/Separation/Assembly2.lean:392: [1\s*/\s*18\b] have : 18 * Real.exp 1 ^ 2 * (1 / 18) ≤ 18 * Real.exp 1 ^ 2 * Z := by gcongr
+code-line hits: 4
