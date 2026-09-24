@@ -96,6 +96,22 @@
   "checkerO_json": "out/zetaO_t1e12_L28.35.json"
  },
  {
+  "point": "zeta (3000175332900, 28.35) PT edge",
+  "P_job1": -0.0026490225778961545,
+  "P_checkerO": -0.0026490225778974144,
+  "dP": 1.2598429244281562e-15,
+  "W_job1": 0.022266505998383535,
+  "W_checkerO": 0.022266505998384794,
+  "dW": 1.259409243559162e-15,
+  "phase_line_binding": 4.5262237307913e-16,
+  "tolerance": 1.0000045262237308e-10,
+  "PASS": true,
+  "n_terms_checkerO": 75148949134,
+  "l1_checkerO": 146.95060754424256,
+  "job1_source": "../out/zeta_t3000175332900_L28.35.json",
+  "checkerO_json": "out/zetaO_t3000175332900_L28.35.json"
+ },
+ {
   "point": "DH (85.7, 10)",
   "P_job1": 0.3399954689289246,
   "P_checkerO": 0.3399954689289266,
@@ -110,5 +126,21 @@
   "l1_checkerO": 3.292368467762136,
   "job1_source": "out/sum_dh_t85p7_L10.json; W from SHARED checkpoint 1",
   "checkerO_json": "out/dhO_t85.69934848537759_L10.json"
+ },
+ {
+  "point": "DH (85.7, 20)",
+  "P_job1": 0.7570041820049636,
+  "P_checkerO": 0.7570041820049679,
+  "dP": 4.3298697960381105e-15,
+  "W_job1": -0.748231145297333,
+  "W_checkerO": -0.7482311452973375,
+  "dW": 4.440892098500626e-15,
+  "phase_line_binding": 2.639490310010711e-27,
+  "tolerance": 1e-10,
+  "PASS": true,
+  "n_terms_checkerO": 360809171,
+  "l1_checkerO": 78.35727577674855,
+  "job1_source": "SHARED checkpoint 1",
+  "checkerO_json": "out/dhO_t85.69934848537759_L20.json"
  }
 ]
