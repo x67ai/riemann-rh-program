@@ -1,0 +1,23 @@
+chi_{-20} mod 20: [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, -1, 0, -1, 0, 0, 0, -1, 0, -1]  (odd: chi(-1) = -1)
+Lambda_K(n)/Lambda(n) values for prime powers n <= 2000: [np.float64(0.0), np.float64(1.0), np.float64(2.0)] ; min Lambda_K = 0.0
+max relative |Im Lambda_chi(1/2+it)| at five t: 7.19e-21
+L(chi_-20): 58 sign changes of the completed function on (0, 80.0]; first eight: 2.358934994, 4.675507750, 7.429109775, 8.804527425, 10.663300735, 12.802400811, 14.336169008, 15.493534961
+  comparison: (T/2pi) log(qT/2pi e) at T = 80.0: 57.80  (smooth main term; the identity check below is the completeness test)
+L(sigma, chi_-20) on (0,1): min = 1.407199 at sigma = 0.995, max = 1.997355; L(1/2) = 1.6796711115441842578; L(1) = 1.4049629462081452786 (class number formula: 2 pi h/(w sqrt|D|) = 2*pi*2/(2*sqrt 20) = pi/sqrt 5 = 1.404962946)
+zeta: first 40 zeros, last = 122.9468
+[w_A = e^{-u^2/2}(1+cos 12u)] ghat spot (u-quad vs conv) at r=0,3,12,14.13: 2.260789899/2.260789899, 0.062867772/0.062867772, 1.130394949/1.130394949, 0.177944440/0.177944440
+[w_A = e^{-u^2/2}(1+cos 12u)] zeta : B = 2*2.506628 + -2.210285005 = 2.802971544;  Z = 0.355888794;  P = 2.447082750;  B - Z - P = 2.449e-12
+[w_A = e^{-u^2/2}(1+cos 12u)] chi  : B = 0 + 4.817023444 = 4.817023444;  Z = 3.608386648;  P = 1.208636796;  B - Z - P = -5.341e-12
+[w_A = e^{-u^2/2}(1+cos 12u)] zeta_K: B_K = 7.619994988;  Z_K = 3.964275443;  P_K = 3.655719546 (= P_zeta + P_chi: 3.655719546);  B_K - Z_K - P_K = -2.891e-12
+[w_B = e^{-2u^2}] ghat spot (u-quad vs conv) at r=0,3,12,14.13: 1.216875640/1.216875640, 0.421152787/0.421152787, 0.000000078/0.000000078, 0.000000000/0.000000000
+[w_B = e^{-2u^2}] zeta : B = 2*1.253314 + -2.036289666 = 0.470338608;  Z = 0.000000000;  P = 0.470338608;  B - Z - P = 2.257e-12
+[w_B = e^{-2u^2}] chi  : B = 0 + 1.551118231 = 1.551118231;  Z = 1.452311178;  P = 0.098807052;  B - Z - P = -1.720e-12
+[w_B = e^{-2u^2}] zeta_K: B_K = 2.021456839;  Z_K = 1.452311179;  P_K = 0.569145660 (= P_zeta + P_chi: 0.569145660);  B_K - Z_K - P_K = 5.377e-13
+STOP CONDITION (a): max |B_K - Z_K - P_K| = 2.891e-12  -> not fired (identity holds to 1e-6)
+Psi_K(0) = 1.210193e-03;  max_{|s|<=4} Psi_K = 1.001381 at s = 2.360;  Psi_K(zeros_chi[0]) = 1.0014
+(D_{0,y}) at delta = 0.1: 2 mu_y(0) = 2/sin(pi delta) = 6.4721 vs Psi_K(0)+Psi_K(-0) = 2.420e-03; holds: False; violated on s in [0.00, 1.10]
+(D_{0,y}) at delta = 0.05: 2 mu_y(0) = 2/sin(pi delta) = 12.7849 vs Psi_K(0)+Psi_K(-0) = 2.420e-03; holds: False; violated on s in [0.00, 0.99]
+(D_{0,y}) at delta = 0.02: 2 mu_y(0) = 2/sin(pi delta) = 31.8519 vs Psi_K(0)+Psi_K(-0) = 2.420e-03; holds: False; violated on s in [0.00, 0.85]
+(D_{0,y}) at delta = 0.01: 2 mu_y(0) = 2/sin(pi delta) = 63.6725 vs Psi_K(0)+Psi_K(-0) = 2.420e-03; holds: False; violated on s in [0.00, 0.74]
+(D_{0,y}) at delta = 0.5: 2 mu_y(0) = 2/sin(pi delta) = 2.0000 vs Psi_K(0)+Psi_K(-0) = 2.420e-03; holds: False; violated on s in [0.00, 1.28]
+done in 178.5s
