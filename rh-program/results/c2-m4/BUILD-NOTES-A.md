@@ -128,3 +128,5 @@ Decisions: (i) 3-sym in two files — `B1Sym.lean` (imports `LemmaG` only: the t
 6. The twelve frozen statements (`verify-A/frozen_probe.lean.txt`) against `verify-A/frozen-statements.log` and `verify-iii/frozen-statements.log`; the yaml schema validation; 10(g) lint.
 
 ## 6. SHA-256 (`hashes-A.txt`; this file's own hash is in `SHARED.md`'s final Unit A block and in the chat report)
+
+**[DATED 2026-09-24 20:25 IST, orchestrator — the checker's three MINOR notes (`CHECK-O-A.md`): M1 the composed assembly with t ≥ 21L in place of (R*) is not shipped (FIDELITY (w1) says so; optional later); M2 the chain margin reads "39" in the `Assembly2.lean` header and "40.1" here (both correct: 39.6–40.1); M3 the `linter.unusedVariables` option is needed only in the library copy. No number or label moves.]**
