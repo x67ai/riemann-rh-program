@@ -34,7 +34,7 @@
 // No external crates (the machine's network is patchy); build:  rustc -O -C target-cpu=native twisted_sum.rs
 //
 // usage: d4_twisted_sum --mode zeta|dh --t <double as decimal string> --L <double> [--threads N] [--direct] [--out file.json]
-//                       [--selftest N] [--seed S] [--eps-phi 2.2e-31]     (D4 additions)
+//                       [--selftest N] [--seed S] [--eps-phi 2.2e-31] [--selftest-only]     (D4 additions)
 use std::env;
 use std::fs::File;
 use std::io::Write;
@@ -380,6 +380,7 @@ fn main() {
     let mut mode = String::from("zeta"); let mut t_str = String::from("85.69934848537759"); let mut l = 10.0f64;
     let mut threads = 8usize; let mut direct = false; let mut sieve_only = false; let mut out = String::from("out.json");
     let mut selftest = 0usize; let mut seed: u64 = 20260925; let mut eps_phi_per_t = EPS_PHI_PER_T;   // D4
+    let mut selftest_only = false;   // D4: --selftest-only skips the sum (self-test at a height without the hour-long sum)
     let mut i = 1;
     while i < args.len() {
         match args[i].as_str() {
@@ -393,6 +394,7 @@ fn main() {
             "--selftest" => { selftest = args[i + 1].parse().unwrap(); i += 2; }        // D4
             "--seed" => { seed = args[i + 1].parse().unwrap(); i += 2; }                // D4
             "--eps-phi" => { eps_phi_per_t = args[i + 1].parse().unwrap(); i += 2; }    // D4
+            "--selftest-only" => { selftest_only = true; i += 1; }                         // D4
             _ => { eprintln!("unknown arg {}", args[i]); std::process::exit(2); }
         }
     }
@@ -429,7 +431,9 @@ fn main() {
     let t_sieve;
     let mut lam_witness: Vec<(u64, f64)> = Vec::new();
     let t1 = Instant::now();
-    if mode == "zeta" {
+    if selftest_only {                       // D4: no sum; the accumulators stay empty
+        t_sieve = 0.0;
+    } else if mode == "zeta" {
         let base = Arc::new(base_primes((x as f64).sqrt() as u64 + 2));
         t_sieve = 0.0;
         let chunk = (x + 1) / threads as u64 + 1;
