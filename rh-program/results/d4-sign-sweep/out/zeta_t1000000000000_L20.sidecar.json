@@ -1,0 +1,21 @@
+{
+ "date": "Fri Sep 25 03:42:16 IST 2026",
+ "sidecar_of": "zeta_t1000000000000_L20.json",
+ "sidecar_of_sha256": "9ed2fad5b8bbd64fe2ae746e9e98c41dfd919ad9787cc6ce20124c4071efe90e",
+ "note": "phase line recomputed with eps_proven (fix (b), CHECK-O-A.md section 2(b)); the landed JSON is not edited and the point is not re-run",
+ "eps_phi_per_t_used_in_run": 6.392e-31,
+ "eps_phi_per_t_proven": 1.0266395604864687e-30,
+ "eps_source": "checker-O/job1_ddlog_bound.py (bit-exact emulation; a-priori bound)",
+ "phase_line_in_run": 8.01539256933429e-18,
+ "phase_line_eps_proven": 1.287377832369816e-17,
+ "refused_eps_proven": false,
+ "budget_total_in_run": 8.531670812434049e-14,
+ "budget_total_eps_proven": 8.532156651009486e-14,
+ "W": 0.06004877589499946,
+ "W_over_budget_eps_proven": 703793640355.8035,
+ "control1_tolerance_eps_proven": 1.0000001287377833e-10,
+ "binary_hash_annotation": {
+  "binary_sha256_in_json": "f97fc582a54636477dbf31a48e4ceeb42f8b43be056a1a9ae42bc7f9333d023b",
+  "note": "one build ran this point end to end; the key names the binary that ran"
+ }
+}
