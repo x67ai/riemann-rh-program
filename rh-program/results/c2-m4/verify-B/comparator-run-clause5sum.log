@@ -1,0 +1,71 @@
+=== [SeparationClause5Sum] start 2026-09-24 22:29:54 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/zeta-23-lean-main
+config=comparator/config-separation-clause5sum.json
+{
+  "challenge_module": "Challenge.SeparationClause5Sum",
+  "solution_module": "Solution.SeparationClause5Sum",
+  "theorem_names": [
+    "separation_clause5_summable"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.SeparationClause5Sum
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.SeparationClause5Sum
+⚠ [8701/8701] Built Challenge.SeparationClause5Sum (2.8s)
+warning: comparator/Challenge/SeparationClause5Sum.lean:40:8: declaration uses `sorry`
+Build completed successfully (8701 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.SeparationClause5Sum -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause5_summable propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause5_summable, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.SeparationClause5Sum
+Building Solution.SeparationClause5Sum
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.SeparationClause5Sum
+⚠ [8697/8711] Replayed Zeta23.Taper.Gevrey
+warning: Zeta23/Taper/Gevrey.lean:342:80: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8711/8711] Built Solution.SeparationClause5Sum (2.9s)
+Build completed successfully (8711 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.SeparationClause5Sum -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind separation_clause5_summable propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.0HwpjqC9
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, separation_clause5_summable, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.SeparationClause5Sum
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       73.89 real        67.08 user        12.56 sys
+          5954732032  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2062450  page reclaims
+               12671  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               71339  voluntary context switches
+              162367  involuntary context switches
+          4070456383  instructions retired
+          1293554975  cycles elapsed
+           136945168  peak memory footprint
+--- comparator exit code: 0 ---
+=== [SeparationClause5Sum] end 2026-09-24 22:31:08 IST ===
