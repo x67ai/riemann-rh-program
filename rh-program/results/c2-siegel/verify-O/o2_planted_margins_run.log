@@ -55,7 +55,7 @@ double real zero, delta_max * log|D| by family (best parameter):
   |D| = 1e+40: gauss 1.0780 ; pure poisson 0.7360
   |D| = 1e+80: gauss 1.0389 ; pure poisson 0.7103
   |D| = 1e+160: gauss 1.0208 ; pure poisson 0.6981
-  Cauchy-limit asymptotes (check-O item 3): gauss pi/4 = 0.7854 ; pure poisson 1/2
+  Cauchy-limit asymptotes (mu_y -> Cauchy of width delta; check-O item 3): gauss max_z 2 sqrt(pi) z (4 e^{z^2} erfc z - 2) = 1.003449 (z = 0.3276) ; pure poisson 12 - 8 sqrt2 = 0.686292 ; dlVP-Poisson 6 - 4 sqrt2 = 0.343146
 section 3 spot check |D|=1e+06 t=1000 delta0=0.001: delta_max log(|D|(2+t)) = 0.6935
 section 3 spot check |D|=1e+06 t=28 delta0=1e-06: delta_max log(|D|(2+t)) = 1.2743
 section 3 spot check |D|=20 t=10000 delta0=0.01: delta_max log(|D|(2+t)) = 0.4254
@@ -70,4 +70,4 @@ section 3 second real zero |D|=1e+12 delta0=1e-06: delta1_max = 0.09307 ; delta1
 (D_{0,y}) delta=0.02: 2 mu_y(0) = 31.8519 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 0.850]
 (D_{0,y}) delta=0.01: 2 mu_y(0) = 63.6725 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 0.741]
 (D_{0,y}) delta=0.50: 2 mu_y(0) = 2.0000 vs Psi_K(0)+Psi_K(-0) = 2.4204e-03 ; violated on s in [0.000, 1.289]
-done in 12.1s
+done in 12.0s
