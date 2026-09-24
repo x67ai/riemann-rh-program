@@ -1,0 +1,33 @@
+chi_{-20}(n), n = 0..19: [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, -1, 0, -1, 0, 0, 0, -1, 0, -1]
+max |Im Z_chi|/|Z_chi| at five heights (realness on the line, root number +1): 1.65e-24
+L(chi_-20): 58 zeros on (0, 80]; first eight: 2.358934994, 4.675507750, 7.429109775, 8.804527425, 10.663300735, 12.802400811, 14.336169008, 15.493534961
+  max |mine - scout| over the first eight: 4.99e-10
+zeta: 40 zeros, last 122.9468
+L(1, chi_-20) = -(1/20) sum chi(a) psi(a/20) = 1.40496294620815 ; pi/sqrt5 = 1.40496294620815
+min L(sigma, chi_-20) on sigma in [0.005, 0.995] step 0.005: 1.4072
+Lambda_K/Lambda on prime powers <= 1e6 takes the values [np.float64(0.0), np.float64(1.0), np.float64(2.0)] ; min Lambda_K = 0.0
+[w_C] zeta : B 3.3168196667 Z 1.4718220859 P 1.8449975807 resid 5.18e-13
+[w_C] chi  : B 5.3308715662 Z 5.1284333819 P 0.2024381843 resid -2.70e-12
+[w_C] zetaK: B 8.6476912329 Z 6.6002554679 P 2.0474357651 resid -2.18e-12 ; duplication vs two-digamma archimedean: 8.88e-16
+[w_E] zeta : B 0.8137960181 Z 0.0000000816 P 0.8137959365 resid -8.48e-13
+[w_E] chi  : B 4.0554767443 Z 3.4980371005 P 0.5574396438 resid 8.69e-13
+[w_E] zetaK: B 4.8692727624 Z 3.4980371821 P 1.3712355803 resid 2.11e-14 ; duplication vs two-digamma archimedean: 0.00e+00
+[w_A (scout's element, my code)] zeta : B 2.8029715444 Z 0.3558887942 P 2.4470827502 resid -7.23e-13
+[w_A (scout's element, my code)] chi  : B 4.8170234439 Z 3.6083866484 P 1.2086367956 resid 1.09e-12
+[w_A (scout's element, my code)] zetaK: B 7.6199949883 Z 3.9642754426 P 3.6557195457 resid 3.70e-13 ; duplication vs two-digamma archimedean: 0.00e+00
+Psi_K(0) at D = -20: 1.210193e-03 (first L-zero term 1.209358e-03)
+thresholds (odd chi, D < 0): D0 = 64 pi^2 e^{2 gamma} = 2003.7470 (direct 2003.7470);  D1 = 500.9367 (two-digamma form 500.9367)
+thresholds (even chi, D > 0; bracket 2 Re psi(1/4+ir/2) - 2 log pi + log D): D0+ = 46368.1 ; D1+ = 3701.45
+D = -20: A_K(0) = -0.733233 ; a_K(0) = -0.512598
+control: degree-1 a(0) for zeta alone = -0.653847 (IV.18 rider (ii) prints -0.653847)
+a_K(s), D = -20, s = 0..3 step 0.05: nondecreasing on the grid: True ; sign change between s = 1.50 and 1.55
+a_K < 0 exactly on |s| < 1.5384 ; negative mass 0.812946
+Z_K(w_B) = B_K - P_K (w_B = e^{-2u^2}, w(0) = 1, so Lambda_K <= 2 Lambda gives Z_K >= log|D| - C):
+  D = -20: B_K 2.0215 P_K 0.5691 Z_K 1.4523 ; what-weighted mean of the zero density Z_K/(2 int what) = 0.1156 ; log|D|/(4 pi) = 0.2384
+  D = -10007: B_K 8.2368 P_K 0.9276 Z_K 7.3092 ; what-weighted mean of the zero density Z_K/(2 int what) = 0.5816 ; log|D|/(4 pi) = 0.7330
+  D = -1000003: B_K 12.8412 P_K 0.0238 Z_K 12.8174 ; what-weighted mean of the zero density Z_K/(2 int what) = 1.0200 ; log|D|/(4 pi) = 1.0994
+  D = -100000007: B_K 17.4464 P_K 0.9276 Z_K 16.5188 ; what-weighted mean of the zero density Z_K/(2 int what) = 1.3145 ; log|D|/(4 pi) = 1.4659
+  D = -10000000019: B_K 22.0516 P_K 0.2325 Z_K 21.8191 ; what-weighted mean of the zero density Z_K/(2 int what) = 1.7363 ; log|D|/(4 pi) = 1.8323
+  D = -1000000000039: B_K 26.6567 P_K 0.7441 Z_K 25.9126 ; what-weighted mean of the zero density Z_K/(2 int what) = 2.0621 ; log|D|/(4 pi) = 2.1988
+  D = -10000000000000079: B_K 35.8671 P_K 0.9407 Z_K 34.9264 ; what-weighted mean of the zero density Z_K/(2 int what) = 2.7794 ; log|D|/(4 pi) = 2.9317
+done in 85.1s
