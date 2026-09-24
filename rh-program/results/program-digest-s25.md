@@ -336,3 +336,10 @@ Stop and report when: any of D3's stop lines (i)–(v) fires; or the μ-side for
 **Novelty labels:** the μ-side route (D3) is `[novelty: single-check]` as a program candidate; every other candidate is a re-pricing of items already on the record with their own labels. No file outside `results/program-digest-s25.md` and `results/program-digest-s25/SHARED.md` was modified. No new mathematics is claimed. No brief was written.
 
 **Machine clock at finish:** Thu Sep 24 23:57:19 IST 2026. Lint (10(g)): 0 hits for the four phrases KICKSTART 10(g) forbids (this sentence does not spell them).
+
+
+---
+
+## [ORCHESTRATOR ADDENDUM 2026-09-25 00:14 IST — after the Opus dual read `results/program-digest-s25/ranking-read-O.md` (b5b1d18f…); insertion-only]
+
+The read DISAGREES on rank 1. The orchestrator re-derived the three material points (`ORCHESTRATOR-NOTES.md`, `verify-orch/residue_signs.py`): zoo I.5 IS the Möbius data class (§B.2 item 1 and §D D3's "no zoo entry names" sentence are withdrawn); the on-line residues 1/(ρζ′(ρ)) alternate in sign (computed at the first sixteen zeros) so contract clause (6) is NO and no sign test exists; the consumed axiom holds in I.2, I.5 and I.8 with GRH false, so D3 has no S1 value. **§E's ranking is superseded: rank 1 D4 (with four corrections), rank 2 D3 as a ½-slot refutation-shaped zoo note (barrier), rank 3 D2, then D1(b), D5, D8; D7 out.** §C sentence 4's label for the Lean residue is replaced by "a debt paid knowingly; found nothing new, correctly". Record corrections: see ORCHESTRATOR-NOTES. Everything else in §0–§C stands as read.

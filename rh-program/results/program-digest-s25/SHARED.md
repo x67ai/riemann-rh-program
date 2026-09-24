@@ -26,3 +26,7 @@ The finish line was reworded so the 10(g) lint stays at 0 (it had spelled the fo
 
 ## [Thu Sep 24 23:57:42 IST 2026] hash correction 2 (insertion-only)
 The previous correction block recorded the hash before its own reword had applied (the sed pattern did not match). FINAL, verified by re-reading the last line: `results/program-digest-s25.md` 338 lines, SHA-256 e42b682957782c6dd67c13207662c43cfdd6e46a917a6cab0f40a9c16fefb2bf; lint 0.
+
+## [Fri Sep 25 00:12:18 IST 2026] Opus 5 dual read landed — ranking-read-O.md
+`results/program-digest-s25/ranking-read-O.md`: 163 lines, SHA-256 b5b1d18f3a60cdf92dacf8d62252ed314b9438db6ce667ae94195e3c5104f280. Digest re-hashed at the head of the read: e42b6829… MATCHES.
+VERDICT: DISAGREES (rank 1). D3's three hypotheses are decided now, adversely: no on-line sign for the μ-side datum (Ξ real ⇒ residues 1/ξ′(ρ) alternate; Odlyzko–te Riele 1985 pp. 139, 141, opened); consumed axiom held by the I.2/I.5/I.8 worlds; μ-data are zoo I.5's data class (line 84) and information-equivalent to the Λ-band. Reader's ranking: D4 (corrected: height cap ≈ 10¹⁹ by the dd phase, PT exact height, firing certification priced separately — D1 line 174 one-legged above 10⁵) > D3 as a ½-slot zoo NO note > D2 > D1(b) > D5 > D8 > D7 (not fundable under the criterion). Sign-channel mechanism CONFIRMED at separation-note §0.3 line 31 and Lean Assembly.lean wsum_real 346–351. Unit B pulls nothing: AGREE; "covered ground" label: partly disagree (criterion post-dates the spend). Lint 0.
