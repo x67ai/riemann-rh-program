@@ -1,0 +1,68 @@
+Z(z) = (2*z + (z**2 + 1)*exp(2*J))*exp(-J)
+Z(z)/e^J = z**2 + 2*z*exp(-2*J) + 1
+J solving 2e^{-2J} = c : [log(1/c)/2 + log(2)/2, log(-sqrt(1/c)) + log(2)/2]
+discriminant of z^2 + 2 x z + 1: 4*x**2 - 4 (<= 0 iff |x| <= 1)
+x = e^{-2J} <= 1  iff  J >= 0; x in (0, 1] needs c = 2x in (0, 2]:  c <= 2  iff  |a1| <= 2 sqrt q
+p=2 a1=-2: orientation flip(z->-z)  J = 0.173287  J>=0: True  Hasse: True
+p=2 a1=-1: orientation flip(z->-z)  J = 0.519860  J>=0: True  Hasse: True
+p=2 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=2 a1=1: orientation noflip  J = 0.519860  J>=0: True  Hasse: True
+p=2 a1=2: orientation noflip  J = 0.173287  J>=0: True  Hasse: True
+p=3 a1=-3: orientation flip(z->-z)  J = 0.071921  J>=0: True  Hasse: True
+p=3 a1=-2: orientation flip(z->-z)  J = 0.274653  J>=0: True  Hasse: True
+p=3 a1=-1: orientation flip(z->-z)  J = 0.621227  J>=0: True  Hasse: True
+p=3 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=3 a1=1: orientation noflip  J = 0.621227  J>=0: True  Hasse: True
+p=3 a1=2: orientation noflip  J = 0.274653  J>=0: True  Hasse: True
+p=3 a1=3: orientation noflip  J = 0.071921  J>=0: True  Hasse: True
+p=5 a1=-4: orientation flip(z->-z)  J = 0.055786  J>=0: True  Hasse: True
+p=5 a1=-3: orientation flip(z->-z)  J = 0.199627  J>=0: True  Hasse: True
+p=5 a1=-2: orientation flip(z->-z)  J = 0.402359  J>=0: True  Hasse: True
+p=5 a1=-1: orientation flip(z->-z)  J = 0.748933  J>=0: True  Hasse: True
+p=5 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=5 a1=1: orientation noflip  J = 0.748933  J>=0: True  Hasse: True
+p=5 a1=2: orientation noflip  J = 0.402359  J>=0: True  Hasse: True
+p=5 a1=3: orientation noflip  J = 0.199627  J>=0: True  Hasse: True
+p=5 a1=4: orientation noflip  J = 0.055786  J>=0: True  Hasse: True
+p=7 a1=-5: orientation flip(z->-z)  J = 0.028332  J>=0: True  Hasse: True
+p=7 a1=-4: orientation flip(z->-z)  J = 0.139904  J>=0: True  Hasse: True
+p=7 a1=-3: orientation flip(z->-z)  J = 0.283745  J>=0: True  Hasse: True
+p=7 a1=-2: orientation flip(z->-z)  J = 0.486478  J>=0: True  Hasse: True
+p=7 a1=-1: orientation flip(z->-z)  J = 0.833051  J>=0: True  Hasse: True
+p=7 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=7 a1=1: orientation noflip  J = 0.833051  J>=0: True  Hasse: True
+p=7 a1=2: orientation noflip  J = 0.486478  J>=0: True  Hasse: True
+p=7 a1=3: orientation noflip  J = 0.283745  J>=0: True  Hasse: True
+p=7 a1=4: orientation noflip  J = 0.139904  J>=0: True  Hasse: True
+p=7 a1=5: orientation noflip  J = 0.028332  J>=0: True  Hasse: True
+p=11 a1=-6: orientation flip(z->-z)  J = 0.050168  J>=0: True  Hasse: True
+p=11 a1=-5: orientation flip(z->-z)  J = 0.141328  J>=0: True  Hasse: True
+p=11 a1=-4: orientation flip(z->-z)  J = 0.252900  J>=0: True  Hasse: True
+p=11 a1=-3: orientation flip(z->-z)  J = 0.396741  J>=0: True  Hasse: True
+p=11 a1=-2: orientation flip(z->-z)  J = 0.599474  J>=0: True  Hasse: True
+p=11 a1=-1: orientation flip(z->-z)  J = 0.946047  J>=0: True  Hasse: True
+p=11 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=11 a1=1: orientation noflip  J = 0.946047  J>=0: True  Hasse: True
+p=11 a1=2: orientation noflip  J = 0.599474  J>=0: True  Hasse: True
+p=11 a1=3: orientation noflip  J = 0.396741  J>=0: True  Hasse: True
+p=11 a1=4: orientation noflip  J = 0.252900  J>=0: True  Hasse: True
+p=11 a1=5: orientation noflip  J = 0.141328  J>=0: True  Hasse: True
+p=11 a1=6: orientation noflip  J = 0.050168  J>=0: True  Hasse: True
+p=13 a1=-7: orientation flip(z->-z)  J = 0.014856  J>=0: True  Hasse: True
+p=13 a1=-6: orientation flip(z->-z)  J = 0.091931  J>=0: True  Hasse: True
+p=13 a1=-5: orientation flip(z->-z)  J = 0.183092  J>=0: True  Hasse: True
+p=13 a1=-4: orientation flip(z->-z)  J = 0.294664  J>=0: True  Hasse: True
+p=13 a1=-3: orientation flip(z->-z)  J = 0.438505  J>=0: True  Hasse: True
+p=13 a1=-2: orientation flip(z->-z)  J = 0.641237  J>=0: True  Hasse: True
+p=13 a1=-1: orientation flip(z->-z)  J = 0.987811  J>=0: True  Hasse: True
+p=13 a1=0: noflip needs c = 0: J = +inf (not finite); flip likewise
+p=13 a1=1: orientation noflip  J = 0.987811  J>=0: True  Hasse: True
+p=13 a1=2: orientation noflip  J = 0.641237  J>=0: True  Hasse: True
+p=13 a1=3: orientation noflip  J = 0.438505  J>=0: True  Hasse: True
+p=13 a1=4: orientation noflip  J = 0.294664  J>=0: True  Hasse: True
+p=13 a1=5: orientation noflip  J = 0.183092  J>=0: True  Hasse: True
+p=13 a1=6: orientation noflip  J = 0.091931  J>=0: True  Hasse: True
+p=13 a1=7: orientation noflip  J = 0.014856  J>=0: True  Hasse: True
+all 60 enumerated g=1 classes with a1 != 0: J >= 0 (finite) -> True | classes with a1 = 0 (J = +inf): 6
+CONTROL non-curve datum p=13 a1=8 (Hasse fails): J = -0.051910 < 0: True
+CONTROL non-curve datum p=5 a1=5 (Hasse fails): J = -0.055786 < 0: True
