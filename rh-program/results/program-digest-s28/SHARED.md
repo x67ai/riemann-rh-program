@@ -19,3 +19,14 @@
 ## [Sat Sep 26 02:46:52 IST 2026] §C and §D appended
 - §C: six numbered sentences — three closures, all theorems or dual-checked lines; ≈ 1¾ slots spent within prices; (P) not started and the one mechanism shape now lacks a candidate OBJECT; no mechanism-shaped route for the third digest running; 10(d): no trigger, neither theorem merits a referee pair now (½ slot each if ever).
 - §D: F1 the axiom-level SPEC with E3's target clause (½ slot, bookkeeping); F2 κ > 0 re-priced with E1's Krein–Langer apparatus (¼ slot first line, then ≥ 2); F3 D5 in Lean (2 slots, rides a Lean stream); F4 M5-U follow-up: BANKED, nothing buyable, three factual triggers named; F5 the other square: NO in one paragraph; F6 the disproof side: not funded, pointer only; F7 items 5, 10, 11, 16 receive no candidate, item 17 only through F1.
+
+## [Sat Sep 26 02:50:27 IST 2026] §E, §F, the closing honesty note and the 10(o) line appended — DELIVERABLE COMPLETE
+- `results/program-digest-s28.md`:      303 lines, SHA-256 c8a4ff98641c7effe6349a33ed931cd2a32b9cb4246b65b56618cf6984957363 (after one label fix in §A C3 (i): "M0/M1 referee outcomes (line 220)").
+- Lint (10(g)), case-insensitive: "clearly" 0, "obviously" 0, "easy to see" 0, "well known" 0; a U.S.-English scan of common British spellings returned nothing.
+- **The top three of §E, one line each:**
+  - Rank 0 (bookkeeping, ¼ slot): the zoo stream — E3's IV.10 and III.20 riders, E1's II.1 rider, the E1 §5.2 correction note beside `results/c2-m5b/`, eight Instruments rows, two stale headers, one reader question (the Z-form of E3's NO).
+  - Rank 1 (instrument, ¼ slot): F2's first line — the κ-dual of IV.18 rider (ii) as a Krein–Langer continuation problem in E1's normalization, and the F1(a)/finite-mass identification decided; re-prices κ > 0.
+  - Rank 2 (bookkeeping under standing order 6, ½ slot): F1, the axiom-level SPEC for the pair (F₁-square, target) with E3's target clause — the first axiom-level unit, rung-1 test = (W_S*(S), S ×_k S, c), rung-2 failure = III.21; licenses no construction.
+- Then rank 3 F2's explicit-κ unit (≥ 2, only on a positive rank 1), rank 4 F3 D5 in Lean (2); NOT funded F4 (banked), F5 (closed), F6 (pointer only), D7, Units C/D, the two referee pairs.
+- §C: what the s27 ranking bought — three closures, all theorems or dual-checked lines, ≈ 1¾ slots, within prices, "found something, correctly" ×2 and bookkeeping ×1; no mechanism-shaped route and no candidate OBJECT for the one mechanism shape (III.20 (B)). 10(d): no trigger; no referee pair recommended.
+- Nothing committed; nothing written outside the deliverable and this file.
