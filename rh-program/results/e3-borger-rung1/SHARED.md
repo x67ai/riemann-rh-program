@@ -1,0 +1,15 @@
+# E3 — SHARED (writer Fable 5.1 → Opus reader → orchestrator)
+
+## Block 1 — writer, Sat Sep 26 00:49 IST 2026 (machine clock): §0–§3 on disk
+- BRIEF.md SHA-256 b028575561365a1d50b387f9d2cdedd80bbac2841543a7d3ad6e33635ecf34f2 (52 lines). Zoo at launch 1de55c2ee319a7e89e724c94780ebf0626a4fa5f045968deafc66e4c7413d9ca (662 lines).
+- Prior art: NOT FOUND by the writer (NOTE.md §2, 13 items; Borger 0906.3146 §7 read in full at the page; Gurney 1710.08674 and Borger–Gurney 1905.10495 fetched and grepped; arXiv listing and six web searches). Stop line (i) did not fire.
+- Decision so far: (Z) expressed (Theorem 3.4, checked on g = 1 at N = 1..4: 5, 55, 380, 2475); H1 proved from the definition (no printed general congruence form exists); H2 confirmed; H5 corrected ((Γ₂,Γ₃) = 0, not log 6).
+- verify/: ghost_curve_F7x.py (+_run.log), witt_pairs_Z.py (+_run.log), curve_g1_points.py (+_run.log, +_N4_run.log). sources/: milne-1509.00797.pdf/.txt, arxiv-1710.08674, arxiv-1905.10495, arxiv-1408.2987 (.pdf/.txt), abs pages, arxiv-api-searches.xml.
+
+## Block 2 — writer, Sat Sep 26 00:53 IST 2026 (machine clock): NOTE.md complete (§0–§9), handing to the Opus reader
+- NOTE.md SHA-256 f962e737e50331086e7807b6e9a976289805a6e0e9de635eb1f7fd37ea55d46a (     146 lines). verify/ghost_curve_F7x.py 370b1c27e2f8ceef8f3283c9c2c81cc90f09843c560523507ef8fe33db7b1b81; verify/curve_g1_points.py bbb0a8e2fe157399dcb7796114008ff458c57e76f2e0c06376d6b412d18f6f2d; verify/witt_pairs_Z.py 22129747ecb0f79c6503a67729c6e53b38abaad8c1ff0e903cf9e5776c859ec1; logs beside them.
+- Prior-art verdict (one line): NOT FOUND by the writer — the translation of Weil's proof into the Λ_S-formalism is named by Borger (0906.3146 p. 5) and carried out nowhere in print; no printed statement of the Castelnuovo–Severi step's (im)possibility on W_S*(S); labels `[novelty: single-check, writer 2026-09-26]` pending the reader's own search.
+- Decision (one line, 10(c)): NO — only the zero-dimensional half is expressed on W_S*(S) (Σ_{deg n = N} deg(Γ₀ ∩ Γ_n) = log q·N_N, Theorem 3.4); the quadratic-form half is not (host one-dimensional, components not Cartier, no self-intersections, pairing data ⇔ Z(S,t): Theorems 4.1–4.2); 1 of 2; stop line (iii) fired; the ½–1-slot computation is NOT bought.
+- Hypotheses: H1 CONFIRMED (proved from 0801.1691 p. 2 + §1.8; no printed general congruence form), H2 CONFIRMED, H3 CONFIRMED (g = 1: 5, 55, 380, 2475), H4 CONFIRMED (sharper form proved), H5 CORRECTED ((Γ₂,Γ₃) = 0 not log 6; closed form (1+min v_p) log p or 0), H6 CONFIRMED as corollary.
+- For the reader, hardest checks: Theorem 3.1's (⊇) step (the lemma M = 𝔪L via invertibility of 𝔪) and (⊆) induction; Theorem 4.1(b) (zero-divisor argument at finite level) and whether any invertible sheaf on a finite-level host restricts to degree 2 − 2g on a component without the comparison map; Theorem 4.2's scope (cautions (i)–(ii)); the identification of the image of Γ_n under (7.3.2) at p. 25; the claim that the dimension statement 16.5(d) extends to several ideals via (0.0.1).
+- Nothing committed; nothing edited outside results/e3-borger-rung1/.
