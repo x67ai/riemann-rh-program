@@ -18,11 +18,18 @@ def mu_inf(tau): return (mp.re(mp.digamma(mp.mpf(1)/4 + 1j*tau/2)) - lp) / (2*mp
 def make(g, R):
     def ghat(tau): return 2*mp.quad(lambda u: g(u)*mp.cos(tau*u), [0, R/2, R])
     return ghat
+import numpy as np
+from scipy import integrate, special
 def A_inf_tau(g, R, cut=400):
-    gh = make(g, R)
-    # ghat decays like tau^{-4} for these C^3-at-the-edge bumps; tail beyond cut estimated by the dominant log growth, reported
-    pts = [0] + [k*mp.pi/R for k in range(1, int(cut*R/mp.pi) + 1)]
-    return 2*mp.quad(lambda t: gh(t)*mu_inf(t), pts)
+    """tau-side direct integral in double precision: ghat by QAWO (weight cos), mu_inf by scipy's complex digamma;
+    integral over [0, cut] on panels of length pi/R; the tail beyond cut is bounded by the printed |ghat| decay."""
+    gf = lambda u: float(g(mp.mpf(u)))
+    gh = lambda t: 2*integrate.quad(gf, 0, R, weight='cos', wvar=t, limit=200, epsabs=1e-13)[0]
+    mu = lambda t: (special.psi(0.25 + 0.5j*t).real - np.log(np.pi))/(2*np.pi)
+    edges = np.arange(0, cut + 1e-9, np.pi/R); tot = 0.0
+    for a, b in zip(edges[:-1], edges[1:]):
+        tot += integrate.quad(lambda t: gh(t)*mu(t), a, b, epsabs=1e-13, limit=100)[0]
+    return mp.mpf(2*tot), abs(gh(cut))
 def A_inf_u(g, R):
     return -(gE + lp)*g(0) - mp.quad(lambda u: (g(u)*mp.exp(u/2) - g(0)*mp.exp(-u))/mp.sinh(u), [0, R/2, R, mp.inf])
 print("identity check: int_0^inf (1 - e^{-u})/sinh u du =", mp.quad(lambda u: (1-mp.exp(-u))/mp.sinh(u), [0, mp.inf]), " vs 2 log 2 =", 2*mp.log(2))
@@ -33,8 +40,8 @@ bumps = {"(1-u^2)^3 on [-1,1]": (lambda u: (1-u**2)**3 if abs(u) < 1 else mp.mpf
 for name, (g, R) in bumps.items():
     au = A_inf_u(g, R)
     for cut in (200, 400):
-        at = A_inf_tau(g, R, cut)
-        print(f"{name}: u-side (reader form R) {mp.nstr(au, 12)}; tau-side direct, |tau| <= {cut}: {mp.nstr(at, 12)}; diff {mp.nstr(at-au, 3)}  [{time.time()-t0:.0f} s]")
+        at, gtail = A_inf_tau(g, R, cut)
+        print(f"{name}: u-side (reader form R) {mp.nstr(au, 12)}; tau-side direct, |tau| <= {cut}: {mp.nstr(at, 12)}; diff {mp.nstr(at-au, 3)}; |ghat(cut)| = {gtail:.1e}  [{time.time()-t0:.0f} s]", flush=True)
 # dilation law for g = (1-u^2)^3
 g = lambda u: (1-u**2)**3 if abs(u) < 1 else mp.mpf(0)
 K = mp.quad(lambda w: mp.exp(w/2)/mp.sinh(w) - 1/w, [0, 1]) + mp.quad(lambda w: mp.exp(w/2)/mp.sinh(w), [1, mp.inf])

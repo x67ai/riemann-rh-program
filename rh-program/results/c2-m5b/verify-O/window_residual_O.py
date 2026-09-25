@@ -5,7 +5,7 @@ Own design, differing from the writer's on purpose:
  (2) data = the demodulated envelope S(u) = sum_k e^{-i(gamma_k - T)u} on a uniform grid u in (0, L], spacing 0.04
      (4x oversampled against the Nyquist spacing pi/(W/2) = 0.16), NO exclusion around +-log n (the windowed envelope has
      no prime atoms; the exclusion is immaterial for this object — a variant with the writer's exclusion is also run at 3 L's);
- (3) optimizer: Levenberg-Marquardt ('lm', unbounded) with CONTINUATION in L — every L is started from the best solutions
+ (3) optimizer: bounded trust-region ('trf', x_scale='jac'; an unbounded Levenberg-Marquardt first run aliased, see (3')) with CONTINUATION in L — every L is started from the best solutions
      at the neighboring L's (an ascending and a descending sweep) as well as from 12 fresh merge-starts;
  (4) the Jacobian's singular-value spectrum at zeta's own positions (40 simples) as a function of L: the number of
      singular values above 1e-6 * the largest is the numerically identifiable number of position parameters — the
@@ -35,8 +35,10 @@ def solve(m, u, S, starts):
         ph = np.exp(-1j*np.outer(u, tau - T))*m[None, :]*(-1j*u[:, None]); return np.vstack([ph.real, ph.imag])
     out = []
     for s in starts:
-        meth = 'lm' if 2*len(u) >= len(s) else 'trf'
-        r = least_squares(res, s, jac=jac, method=meth, xtol=1e-15, ftol=1e-15, gtol=1e-15, max_nfev=4000)
+        # positions confined to the window [gamma_1 - 1, gamma_40 + 1] (the first run, unbounded LM, let points escape
+        # the window and ALIAS on the grid: off-grid max|E| ~ 4 at grid RMS 2e-4 — recorded in the log header)
+        s = np.clip(s, gam[0] - 1 + 1e-9, gam[-1] + 1 - 1e-9)
+        r = least_squares(res, s, jac=jac, bounds=(gam[0] - 1, gam[-1] + 1), method='trf', x_scale='jac', xtol=1e-15, ftol=1e-15, gtol=1e-15, max_nfev=3000)
         out.append((np.sqrt(np.mean(np.abs(env(r.x, m, u) - S)**2)), r.x, r.nfev))
     out.sort(key=lambda z: z[0]); return out
 def merges(nd, k):
@@ -100,6 +102,6 @@ for sig in (0.15, 0.5):
         sol = solve(np.ones(N), u, S, [np.sort(gam + rng.normal(0, sig, N)) for _ in range(4)])
         v, x, nf = sol[0]; dev = np.max(np.abs(np.sort(x) - gam))
         out["control"][f"{sig}/{L:.4f}"] = {"rms": float(v), "dev": float(dev), "nfev": int(nf), "bitwise_equal": bool(np.array_equal(np.sort(x), gam))}
-        print(f"  sigma {sig}, L = {L:6.3f} (count {L*W/np.pi:6.1f}): best RMS = {v!r:.12}, max|tau - gamma| = {dev:.3e}, nfev {nf}, bitwise equal to gamma: {np.array_equal(np.sort(x), gam)}")
+        print(f"  sigma {sig}, L = {L:6.3f} (count {L*W/np.pi:6.1f}): best RMS = {v:.3e}, max|tau - gamma| = {dev:.3e}, nfev {nf}, bitwise equal to gamma: {np.array_equal(np.sort(x), gam)}")
 json.dump(out, open("window_residual_O_out.json", "w"))
 print(f"\ntotal {time.time()-t0:.1f} s")

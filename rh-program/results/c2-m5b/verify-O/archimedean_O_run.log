@@ -1,0 +1,15 @@
+identity check: int_0^inf (1 - e^{-u})/sinh u du = 1.3862943611198906188  vs 2 log 2 = 1.3862943611198906188
+c1 = 2.2639435073548   c_A = log 4pi + gamma + c1 = 5.3721834192257   (writer: 2.26394350735, 5.37218341922)
+(1-u^2)^3 on [-1,1]: u-side (reader form R) -1.71873149397; tau-side direct, |tau| <= 200: -1.71873149476; diff -7.95e-10; |ghat(cut)| = 3.1e-08  [0 s]
+(1-u^2)^3 on [-1,1]: u-side (reader form R) -1.71873149397; tau-side direct, |tau| <= 400: -1.71873149399; diff -2.81e-11; |ghat(cut)| = 1.9e-09  [1 s]
+(1-(u/2)^2)^4 on [-2,2]: u-side (reader form R) -2.43966910262; tau-side direct, |tau| <= 200: -2.43966910254; diff 8.36e-11; |ghat(cut)| = 1.3e-10  [1 s]
+(1-(u/2)^2)^4 on [-2,2]: u-side (reader form R) -2.43966910262; tau-side direct, |tau| <= 400: -2.43966910262; diff -3.15e-12; |ghat(cut)| = 4.2e-12  [2 s]
+predicted a(g) for (1-u^2)^3 (reader closed form; int_0^1 (g-1)/v = -11/12): -1.49842606464
+  eps =     0.5: A(g_eps) - log(1/eps) = -0.6935527256; minus a_pred = 0.8049
+  eps =     0.1: A(g_eps) - log(1/eps) = -1.338345412; minus a_pred = 0.1601
+  eps =    0.02: A(g_eps) - log(1/eps) = -1.466423753; minus a_pred = 0.032
+  eps =   0.005: A(g_eps) - log(1/eps) = -1.490425931; minus a_pred = 0.008
+  eps =   0.001: A(g_eps) - log(1/eps) = -1.496826059; minus a_pred = 0.0016
+  eps =  0.0002: A(g_eps) - log(1/eps) = -1.498106064; minus a_pred = 0.00032
+total 2.0 s
+python3 -u archimedean_O.py  2.06s user 0.50s system 124% cpu 2.055 total
