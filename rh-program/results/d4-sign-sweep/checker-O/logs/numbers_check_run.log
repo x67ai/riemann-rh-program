@@ -1,0 +1,23 @@
+L = 22: 123 points; min W +0.0252902930 at t = 40007981065365; max W +0.0895704 at t = 19482587526283665408
+   delta_vis 0.1482 (t = 3000175332800, band [0.0806, 0.2722]) .. 0.1875 (t = 94873874315016716288, band [0.1020, 0.3444])
+   Control 2 rel diff max 6.583e-16 at t = 19482587526283665408; all pass True; DH fires at all True
+   max |dW| (control1) 6.804e-14 at t = 53351500208249126912; max |dP| 6.813e-14; max |dW| at t <= 1e16: 3.469e-16
+   min |W|/budget 3.340e+07
+L = 28.35: 6 points; min W +0.0184337908 at t = 10000000000000000; max W +0.0374731 at t = 15202440115920748544
+   delta_vis 0.1013 (t = 3000175332900, band [0.0551, 0.1861]) .. 0.1276 (t = 61609351296641974272, band [0.0694, 0.2343])
+   Control 2 rel diff max 4.325e-16 at t = 1000000000000000000; all pass True; DH fires at all True
+   max |dW| (control1) 5.392e-14 at t = 61609351296641974272; max |dP| 5.394e-14; max |dW| at t <= 1e16: 1.259e-15
+   min |W|/budget 3.678e+06
+     t = 3000175332900: sum 5299.0 s = 88.3 min; replay 1796 s; delta_vis 0.1013; W/budget 2.50e+10
+     t = 100000000000000: sum 3784.3 s = 63.1 min; replay 1040 s; delta_vis 0.1073; W/budget 2.65e+10
+     t = 10000000000000000: sum 4092.2 s = 68.2 min; replay 1080 s; delta_vis 0.1147; W/budget 7.68e+09
+     t = 1000000000000000000: sum 4131.2 s = 68.9 min; replay 1200 s; delta_vis 0.1216; W/budget 2.15e+08
+     t = 15202440115920748544: sum 4122.7 s = 68.7 min; replay 1240 s; delta_vis 0.1256; W/budget 1.63e+07
+     t = 61609351296641974272: sum 4220.0 s = 70.3 min; replay 1260 s; delta_vis 0.1276; W/budget 3.68e+06
+delta_vis(t, 28.35) = 0.1 at t = 1.4579e+12; the band's upper edge delta_vis*1.837 = 0.1 at t = 4.0185e+03; the band's lower edge delta_vis/1.837 = 0.1 at t = 1.1286e+41
+delta_vis(t, 22) = 0.1 at t = 4.8337e+05; the band's upper edge delta_vis*1.837 = 0.1 at t = 4.8331e+01; the band's lower edge delta_vis/1.837 = 0.1 at t = 1.5291e+19
+delta_vis(t, 28.35) = 0.25 at t = 1.0550e+76; the band's upper edge delta_vis*1.837 = 0.25 at t = 3.3528e+22; the band's lower edge delta_vis/1.837 = 0.25 at t = 3.7884e+256
+delta_vis(t, 22) = 0.25 at t = 3.3630e+35; the band's upper edge delta_vis*1.837 = 0.25 at t = 3.3608e+10; the band's lower edge delta_vis/1.837 = 0.25 at t = 7.9932e+119
+delta = 1/4 inside the band at every point? L = 22: False ; L = 28.35: True
+delta = 0.1 >= delta_vis at any sweep point? []
+overall delta_vis range over the 129: 0.1013 .. 0.1875; band extremes 0.0551 .. 0.3444; ratio band/delta 1.8371
