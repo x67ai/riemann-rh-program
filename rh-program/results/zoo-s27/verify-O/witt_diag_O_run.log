@@ -1,0 +1,35 @@
+Fri Sep 25 20:49:18 IST 2026
+Part A: N=120: basis vectors v_d violating (1.10): 0; det(v_1..v_N) = N! (triangular); [Z^N:L_N] = prod of pinning moduli = N!
+Part A2: gcd{d|n, d>1} vs Lambda(n): mismatches 0 (n<=min(NMAX,3000) by divisor loop), 0 (n<=20000 by spf)
+  n= 2  I_n = 2Z  log#(Z/I_n) = 0.693147  Lambda(n) = 0.693147  OK
+  n= 3  I_n = 3Z  log#(Z/I_n) = 1.098612  Lambda(n) = 1.098612  OK
+  n= 4  I_n = 2Z  log#(Z/I_n) = 0.693147  Lambda(n) = 0.693147  OK
+  n= 5  I_n = 5Z  log#(Z/I_n) = 1.609438  Lambda(n) = 1.609438  OK
+  n= 6  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n= 7  I_n = 7Z  log#(Z/I_n) = 1.945910  Lambda(n) = 1.945910  OK
+  n= 8  I_n = 2Z  log#(Z/I_n) = 0.693147  Lambda(n) = 0.693147  OK
+  n= 9  I_n = 3Z  log#(Z/I_n) = 1.098612  Lambda(n) = 1.098612  OK
+  n=10  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=11  I_n = 11Z  log#(Z/I_n) = 2.397895  Lambda(n) = 2.397895  OK
+  n=12  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=13  I_n = 13Z  log#(Z/I_n) = 2.564949  Lambda(n) = 2.564949  OK
+  n=14  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=15  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=16  I_n = 2Z  log#(Z/I_n) = 0.693147  Lambda(n) = 0.693147  OK
+  n=17  I_n = 17Z  log#(Z/I_n) = 2.833213  Lambda(n) = 2.833213  OK
+  n=18  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=19  I_n = 19Z  log#(Z/I_n) = 2.944439  Lambda(n) = 2.944439  OK
+  n=20  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=21  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=22  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=23  I_n = 23Z  log#(Z/I_n) = 3.135494  Lambda(n) = 3.135494  OK
+  n=24  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=25  I_n = 5Z  log#(Z/I_n) = 1.609438  Lambda(n) = 1.609438  OK
+  n=26  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=27  I_n = 3Z  log#(Z/I_n) = 1.098612  Lambda(n) = 1.098612  OK
+  n=28  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+  n=29  I_n = 29Z  log#(Z/I_n) = 3.367296  Lambda(n) = 3.367296  OK
+  n=30  I_n = 1Z  log#(Z/I_n) = 0.000000  Lambda(n) = 0.000000  OK
+Part B: 4000 random big-Witt vectors (Witt coords in [-3,3], N=40), ghost map from the definition: (1.10) fails for 0; gcd(w_1 - w_n) over samples = [2, 3, 2, 5, 1, 7, 2, 3, 1, 11, 1, 13, 1, 1, 2, 17, 1, 19, 1, 1, 1, 23, 1, 5, 1, 3, 1, 29, 1, 31, 2, 1, 1, 1, 1, 37, 1, 1, 1] (n=2..40); equals exp(Lambda(n)) at every n: True
+elapsed 8.0s
+Fri Sep 25 20:49:26 IST 2026
