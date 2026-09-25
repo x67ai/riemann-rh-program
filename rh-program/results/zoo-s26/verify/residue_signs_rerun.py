@@ -38,7 +38,7 @@ P(f'Part A result: {16 - mism}/16 lines byte-identical to the orchestrator\'s lo
 P('')
 P('## Part B: the first 200 zeros at 30 digits')
 P('# columns: n, gamma, sign Re w, Re w, Im w, arg(1/zeta\')/pi, arg(Res 1/xi)/pi, |arg(Res 1/xi)| - pi/2, arg H(rho)/pi, |xi\'(rho) - diff xi| (independent numeric derivative), |Im rho - 1/2|')
-signs = []; args_zeta = []; dev_xi = []; args_xi = []; dev_diff = []; imxi = []
+signs = []; args_zeta = []; dev_xi = []; args_xi = []; dev_diff = []; imxi = []; absres = []
 for n in range(1, N + 1):
     r = zetazero(n)
     d = zeta(r, derivative=1)
@@ -51,7 +51,7 @@ for n in range(1, N + 1):
     xip_num = diff(xi, r)             # independent: numeric derivative of xi at rho
     dd = fabs(xip - xip_num)
     s = '+' if w.real > 0 else '-'
-    signs.append(s); args_zeta.append(a_z); dev_xi.append(dev); args_xi.append(a_x); dev_diff.append(dd); imxi.append(fabs(re(res_xi)))
+    signs.append(s); args_zeta.append(a_z); dev_xi.append(dev); args_xi.append(a_x); dev_diff.append(dd); imxi.append(fabs(re(res_xi))/fabs(res_xi)); absres.append(fabs(res_xi))
     P(f"{n:3d} {nstr(r.imag, 12):>16s} {s} {nstr(w.real, 8):>14s} {nstr(w.imag, 8):>14s} {nstr(a_z, 6):>10s} {nstr(a_x, 6):>10s} {nstr(dev, 3):>10s} {nstr(a_h, 6):>10s} {nstr(dd, 3):>10s} {nstr(fabs(r.real - mpf(1)/2), 3):>8s}")
 P('')
 P('## Part C: summary over n = 1..200')
@@ -71,7 +71,7 @@ P(f'range of arg(1/zeta\'(rho))/pi over n <= 200: [{nstr(min(args_zeta), 6)}, {n
 P(f'range of arg(1/zeta\'(rho))/pi over n <= 16: [{nstr(min(args_zeta[:16]), 6)}, {nstr(max(args_zeta[:16]), 6)}]  (orchestrator: (-0.33pi, +0.27pi))')
 P(f'arg(Res_rho 1/xi)/pi takes the values: {sorted(set(nstr(a, 12) for a in args_xi))}')
 P(f'max | |arg(Res 1/xi)| - pi/2 | over n <= 200: {nstr(max(dev_xi), 3)}  (clause (3)(a): must be 0 to working precision)')
-P(f'max |Re(Res 1/xi)| over n <= 200: {nstr(max(imxi), 3)}')
+P('max |Re(Res 1/xi)|/|Res 1/xi| over n <= 200: ' + nstr(max(imxi), 3) + '  (relative; the absolute size |Res 1/xi| = 1/|H(rho) zeta_prime(rho)| grows like e^{pi gamma/4}: |Res| at n = 1, 100, 200 = ' + nstr(absres[0], 3) + ', ' + nstr(absres[99], 3) + ', ' + nstr(absres[199], 3) + ')')
 xs = ['+' if a > 0 else '-' for a in args_xi]
 xchanges = sum(1 for i in range(1, N) if xs[i] != xs[i-1])
 P(f'sign of Im(Res 1/xi) alternates at every consecutive pair: {xchanges == N-1} ({xchanges} changes of {N-1})')

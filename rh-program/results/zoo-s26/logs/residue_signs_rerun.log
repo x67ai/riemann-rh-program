@@ -1,4 +1,4 @@
-# residue_signs_rerun.py -- mpmath 1.3.0 -- mp.dps = 30 -- started Fri Sep 25 18:26:25 IST 2026
+# residue_signs_rerun.py -- mpmath 1.3.0 -- mp.dps = 30 -- started Fri Sep 25 18:31:09 IST 2026
 ## Part A: the orchestrator's sixteen, same format as verify-orch/residue_signs.py
 n= 1 gamma=   14.134725  Re w=-0.01089  Im w=-0.08847  arg(1/zeta')=-0.050pi
 n= 2 gamma=   21.022040  Re w=+0.01012  Im w=-0.04059  arg(1/zeta')=+0.070pi
@@ -231,9 +231,9 @@ range of arg(1/zeta'(rho))/pi over n <= 200: [-0.506529, 0.506296]
 range of arg(1/zeta'(rho))/pi over n <= 16: [-0.326882, 0.270819]  (orchestrator: (-0.33pi, +0.27pi))
 arg(Res_rho 1/xi)/pi takes the values: ['-0.5', '0.5']
 max | |arg(Res 1/xi)| - pi/2 | over n <= 200: 5.96e-29  (clause (3)(a): must be 0 to working precision)
-max |Re(Res 1/xi)| over n <= 200: 6.41e+101
+max |Re(Res 1/xi)|/|Res 1/xi| over n <= 200: 5.94e-29  (relative; the absolute size |Res 1/xi| = 1/|H(rho) zeta_prime(rho)| grows like e^{pi gamma/4}: |Res| at n = 1, 100, 200 = 723.0, 7.45e+75, 1.66e+130)
 sign of Im(Res 1/xi) alternates at every consecutive pair: True (199 changes of 199)
 Im(Res 1/xi) sign string: -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 max |xi'(rho) - numeric diff xi(rho)| over n <= 200: 1.12e-33  (independent check of xi' = H zeta' at a zero)
 max |Re rho - 1/2| over the 200 zeros returned by zetazero: 0.0 (sampled)
-elapsed 19.1 s; finished Fri Sep 25 18:26:44 IST 2026
+elapsed 18.9 s; finished Fri Sep 25 18:31:28 IST 2026
