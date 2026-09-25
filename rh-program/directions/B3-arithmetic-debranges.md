@@ -2,7 +2,7 @@
 
 **Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree; thesis to be restated)
 **Track:** B (new machinery)
-**Last touched:** 2026-08-11
+**Last touched:** 2026-09-25 (Session 27; the 2026-08-11 date stood unedited until the s27 digest flagged it — Instruments/Untried populated 2026-09-24, closure line 2026-09-25; the work log is the record)
 **Designer confidence (first theorem provable ~2y):** 0.8
 
 ## Proposal (Phase 3, immutable)
@@ -81,6 +81,7 @@ M1 lands => a new unconditional theorem class (mixed correlations of xi with its
 | Quantity | Current best value | Result file | Dated |
 |---|---|---|---|
 | Parent paper v5 Remark 7.1 — unconditional ξ′ proportions (the baseline any mixed (ξ, ξ′) statement is measured against) | flat: 0.85838 simple-on-line / 0.92919 distinct; quartic: 0.86864 / 0.93432; formalized `Zeta23.XiPrime.xiDeriv_simple_on_line` + `_quartic` | `results/paper-v5-assessment-2026-08-14.md` item 2 | 2026-08-14 |
+| ↳ [POINTER 2026-09-25, Session 27 — duplicate] A3 line 97 carries the same four constants with the quartic window written out; the two rows agree; A3's is the row of record (it prints the window), this one is B3's baseline for the mixed (ξ, ξ′) statement | (no value) | `directions/A3-families-derivatives.md` line 97 | 2026-09-25 |
 
 ## Untried (KICKSTART 10(m); opened 2026-09-24, Session 24)
 

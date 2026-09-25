@@ -2,7 +2,7 @@
 
 **Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** B (new machinery)
-**Last touched:** 2026-08-11
+**Last touched:** 2026-09-25 (Session 27; the 2026-08-11 date stood unedited until the s27 digest flagged it — Instruments/Untried populated 2026-09-24; the work log is the record)
 **Designer confidence (first theorem provable ~2y):** 0.65
 
 ## Proposal (Phase 3, immutable)
@@ -79,6 +79,7 @@ M1 lands: first unconditional realness/simplicity proportions for the de Bruijn-
 |---|---|---|---|
 | The Polymath15 multiplier identity (the engine both critics verified) | Polymath15's B_t coefficient exponent, taken relative to n = 1, equals the proposed m_n = e^{(t/4) log n (log n − L′)} exactly ("nobody has computed" deflated to "nobody has used") | `results/verdicts.json` (B4 killer and referee verdicts) | 2026-08-11 |
 | de Bruijn–Newman bracket of record (the flow's t-range for ζ) | 0 ≤ Λ ≤ 0.2 (Rodgers–Tao; Platt–Trudgian Cor. 2, exact height 3 000 175 332 800); Λ ≤ 0.2 in Lean only "kernel-checked modulo H1, H2 (H2-B, H2-A, H-TAIL), H3" (D1) | `results/d1-m2a/RUN-REPORT.md` §0; `results/d1-m2a/packaging/FIDELITY.md` line 8 | 2026-09-10 |
+| ↳ [POINTER 2026-09-25, Session 27 — duplicate] the row of record is D1 line 168 (label at 169); this row restates it for the flow's t-range and is not updated independently | (no value) | `directions/D1-certified-refutation-arm.md` lines 168–169 | 2026-09-25 |
 | H_t as defined in the program's Lean (the definition any B4 formalization must inherit, not re-declare) | `Ht` is a Bochner integral with junk value 0 if the integrand is not integrable (anti-cheat: junk makes the target FALSE, not vacuous); `hHol` (H_t/B_t holomorphic near R) proved from `HtEntire` and L-B3; the argument principle a theorem (L-B0) | `results/d1-m2a/packaging/FIDELITY.md` row (j); `lean/Zeta23/DBN/{Defs,BtFacts}.lean` | 2026-09-10 |
 
 ## Untried (KICKSTART 10(m); opened 2026-09-24, Session 24)
