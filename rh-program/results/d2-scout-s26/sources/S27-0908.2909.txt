@@ -1,0 +1,472 @@
+                                                   Abstract intersection theory and operators in Hilbert space
+                                                                            Grzegorz Banaszak∗ and Yoichi Uetake
+
+                                          Abstract. For an operator of a certain class in Hilbert space, we introduce axioms of an
+                                          abstract intersection theory, which we prove to be equivalent to the Riemann Hypothesis con-
+                                          cerning the spectrum of that operator. In particular if the nontrivial zeros of the Riemann
+                                          zeta-function arise from an operator of this class, the original Riemann Hypothesis is equiva-
+                                          lent to the existence of an abstract intersection theory.
+
+
+
+
+arXiv:0908.2909v1 [math.NT] 20 Aug 2009
+                                          1. Introduction
+
+                                              Let A be a linear operator acting on a Hilbert space H such that its spectrum σ(A) consists
+                                          only of the point spectrum σp (A) (i.e. eigenvalues). We say that the operator A satisfies the
+                                          Riemann Hypothesis (RH, shortly) if Re(s) = 21 for all s ∈ σ(A) = σp (A).
+                                              We introduce a set of axioms ((INT1–3) in §3.1), which we show to be equivalent to the
+                                          RH for the operator A. The axioms constitute a theory that is analogous to the classical
+                                          intersection theory on a surface used by Weil for his proof of the RH for curves over a finite
+                                          field and his explicit formulae [8] (see also [3], [4] and [6]). Thereby we call the axioms an
+                                          abstract intersection theory. The paper is organized as follows.
+                                              In §2 we impose some reasonable conditions (OP1–5) on operators in Hilbert space to be
+                                          considered. Then we introduce a functional calculus for them, which has a role of cutting
+                                          off their spectra. Our abstract intersection theory consists of conditions (INT1–2) on some
+                                          specific vectors including what we call a Hodge vector, and the Lefschetz type formula (INT3).
+                                          We describe this in §3.1. In §3.2, we give a model of the abstract intersection theory, using a
+                                          construction similar to the GNS (Gelfand-Naimark-Segal) representation (e.g. [5]). Interestingly
+                                          enough, Weil himself reviewed Segal’s work [5] in the Mathematical Reviews. Using this model,
+                                          we show in Theorem 3.5 that the RH for the operator A is equivalent to the existence of an
+                                          intersection theory in our sense.
+                                              In our intersection theory we introduce R-valued functions q and g of the Y -coordinate of
+                                          the critical strip. These can be seen as analogs of q = ♯Fq and the genus number g of a curve C
+                                          respectively in the classical intersection theory on a surface C × C, which is used to prove the
+                                          RH for C over a finite field Fq . For further comparison of our construction with the classical
+                                          theory, see §4.
+                                              We note that there is the so called Tehran program by Connes, Consani and Marcolli [1] to
+                                          adapt Weil’s proof to the case of number fields.
+
+                                          2. Functional calculus for closed operators
+
+                                             Let A: H ⊃ dom(A) → H be a possibly unbounded operator on a separable C-Hilbert
+                                          space H. We assume the following properties of A.
+
+                                          (OP1) A is closed.
+
+                                          (OP2) The spectrum σ(A) consists only of the point spectrum (i.e. eigenvalues) σp (A) (i.e.
+                                          σ(A) = σp (A)), which accumulates at most at infinity.
+
+                                          (OP3) (a) Image(P{sα } ) (see Lemma 2.1 below for definition) is finite dimensional for any
+                                          ∗
+                                              Supported by a research grant of the Polish Ministry of Science and Education
+
+                                                                                                 1
+sα ∈ σp (A).
+        (b) The Riesz index ν(sα ) = 1 for any sα ∈ σp (A). (See the paragraph following Lemma
+2.1 for definition.)
+
+(OP4) σ(A) ⊂ Ω∞ , where Ω∞ := {s ∈ C; 0 < Re(s) < 1}.
+
+(OP5) (a) Re(sα ) < 21 for some sα ∈ σ(A) if and only if there is sβ ∈ σ(A) such that
+Re(sβ ) > 21 .
+        (b) If sα ∈ σ(A) then sα ∈ σ(A) with the same multiplicity mult(sα ) = mult(sα ). (See
+the paragraph following Lemma 2.1 for definition.)
+
+For examples of operators related to Dirichlet L-functions satisfying all the above conditions
+except for (OP3-b), see e.g. [7, Theorem 4.1]. If the multiplicity of nontrivial zeros of a given
+L-function is one, then the corresponding operator constructed in [7] also satisfies (OP3-b).
+   By (OP1) we can use the following lemma from [2, XV.2, Theorem 2.1, p. 326].
+
+Lemma 2.1. Suppose A: H ⊃ dom(A) → H is a closed operator. For a bounded subset
+W of σ(A), let PW : H → H be the Riesz projection
+                                          I
+                                       1
+                               PW =           (s − A)−1 ds,
+                                      2πi ∂∆
+where ∆ is a bounded domain of C such that W ⋐ ∆ (i.e. W ⊂ ∆◦ ) and ∆ ∩ τ = ∅ for
+τ = σ(A) \ W . Then
+(i) M = Image(PW ) and N = Ker(PW ) are A-invariant (i.e. A(N ∩ dom(A)) ⊂ N etc.).
+(ii) M ⊂ dom(A) and A|M (the restriction of A to M) is bounded.
+(iii) σ(A|M ) = W and σ(A|N ) = τ .
+
+    By (OP3) and Lemma 2.1 (i) and (iii), the resolvent (s − A)−1 has a pole of order ν(sα ) = 1
+at s = sα ∈ σp (A). Here ν(sα ) denotes the Riesz index of sα defined as the smallest positive
+integer such that Ker((sα − A)ν(sα ) ) = Image(P{sα } ). We call mult(sα ) := dim Image(P{sα } ) the
+(algebraic) multiplicity of sα . By (OP2), (s − A)−1 is meromorphic in C.
+    For Y > 0 let σY (A) := {s ∈ σ(A); |Im(s)| ≤ Y }. By (OP2) and (OP3-a) one can take some
+ǫY > 0 and ΩY = {s ∈ C; 0 < Re(s) < 1, |Im(s)| < Y + ǫY } such that ΩY ∩ (σ(A) \ σY (A)) = ∅.
+Let F be an R-algebra defined by
+
+     F := {φ; φ(s) is holomorphic in an open set ⋑ Ω∞ and φ(s̄) = φ(s) for s ∈ σ(A) ∪ {0, 1}}.
+
+     Let φ(A): H ⊃ dom(φ(A)) → H be defined by
+                                          I
+                                      1                  −1
+                                                             
+                        φ(A)x = lim            φ(s)(s − A) ds x
+                                Y →∞ 2πi   ∂ΩY
+
+for x ∈ dom(φ(A)) := {x ∈ H; the limit φ(A)x exists in H}.PBy (OP3-b), Lemma 2.1 and the
+functional calculus for bounded operators, we have φ(A) = s∈σ(A) φ(s)P{s} .
+    We define tr(φ(A)) as a functional on F as follows: Define
+
+                                tr(·(A)): F ⊃ dom(tr(·(A))) → C
+
+by                                              X
+                                  tr(φ(A)) =            mult(s)φ(s),
+                                               s∈σ(A)
+
+
+                                                  2
+where                                                   X
+                        dom(tr(·(A))) := {φ ∈ F ;               mult(s)φ(s) < ∞}.
+                                                       s∈σ(A)
+
+    Let qe: F → R be defined by qe(φ) = φ(1). Using the Weierstrass factorization theorem, one
+can define φY ∈ F for each Y > 0 so that
+(i) φY (0) = 1,
+(ii) qe(φY ) ∈ (0, 1) ∪ (1, ∞),
+(iii) φY (s) = qe(φY )s if s ∈ σY (A),
+(iv) φY (s) = 0 if s ∈ σ(A) \ σY (A).
+    Note that for such φY , φY (A) is bounded and
+                                       I
+                                   1             s         −1
+                                                                  
+                      φY (A)x =          e
+                                         q (φ Y )   (s − A)    ds  x for all x ∈ H.
+                                 2πi ∂ΩY
+
+   We define ge: F → [0, ∞] by ge(φ) = 12 dim Image(φ(A)). Note that ge(φY ) < ∞ for each
+Y > 0. Let
+                       q = q(Y ) := qe(φY ) and g = g(Y ) := ge(φY ).
+
+3. Abstract intersection theory
+
+3.1. Axioms of abstract intersection theory
+
+     Let V be an R-linear space, endowed with a symmetric bilinear form β: V × V → R.
+Let EndR (V ) denote the set of R-linear operators on V . Suppose that there are nonzero vectors
+v01 , v10 and ha in V , a mapping veδ : F ⊃ dom(e  vδ ) → V , and an R-algebra homomorphism
+e
+Φ: F ⊃ dom(e  vδ ) → EndR (V ) that satisfy the conditions listed below, which we call an abstract
+intersection theory. For each φY ∈ F defined in §2, let
+                                                                    e Y ).
+                         vδ = vδ (Y ) := veδ (φY ) and Φ = Φ(Y ) := Φ(φ
+
+(INT1) (a) β(v01 , v01 ) = 0. (b) β(v10 , v10 ) = 0. (c) β(v01 , v10 ) = 1.
+       (d) β(Φn vδ , v01 ) = 1. (e) β(Φn vδ , v10 ) = O(q n ). (f) β(Φn vδ , Φn vδ ) = O(q n ).
+       (g) β(x, y) = β(y, x) ∈ R for x, y ∈ V .
+
+(INT2) For x ∈ V , if β(x, ha ) = 0 then β(x, x) ≤ 0.
+
+Note that (INT1) is assumed to hold for each Y > 0. The Bachmann-Landau notation O(q n )
+in (INT1) is with respect to n ≫ 0 for q = q(Y ) fixed. We call (INT2) the Hodge property, and
+ha a Hodge vector.
+
+Lemma 3.1. Under the assumptions (INT1-a)–(INT1-c), (INT1-g) and (INT2), we have
+
+                               β(x, x) ≤ 2β(x, v01 )β(x, v10 ) (x ∈ V ).
+                                                                                        P3
+Proof. Given any x ∈ V , define b: R3 → V by rb = r1 v01 + r2 v10 + r3 x for r =         j=1 rj ej .
+Here e1 = (1, 0, 0)t , e2 = (0, 1, 0)t and e3 = (0, 0, 1)t . Let E1 = e1 + e2 and E2 = e1 − e2 .
+Then by (INT1-a)–(INT1-c), β(E     b1 , E
+                                        b1 ) = 2, β(E
+                                                    b2 , E
+                                                         b2 ) = −2 and β(E
+                                                                         b1 , E
+                                                                              b2 ) = 0. Let E3 =
+e3 + k1 E1 + k2 E2 . Then
+      b3 , E
+    β(E    b1 ) = β(x, v01 ) + β(x, v10 ) + 2k1         b3 , E
+                                                  and β(E    b2 ) = β(x, v01 ) − β(x, v10 ) − 2k2 .
+
+                                                   3
+Hence one can set
+                      1                                  1
+                k1 = − {β(x, v01 ) + β(x, v10 )} and k2 = {β(x, v01 ) − β(x, v10 )}
+                      2                                  2
+          b3 , E
+so that β(E    b1 ) = β(E
+                        b3 , E
+                             b2 ) = 0. Then one can check that
+
+                                b3 , E
+                              β(E    b3 ) = β(x, x) − 2β(x, v01 )β(x, v10 ).
+
+Now suppose β(E  b3 , Eb3 ) > 0. Then m := β(E
+                                             b3 , ha ) 6= 0 by the Hodge property in (INT2) and
+            b1 , ha ),
+for n := −β(E
+          b1 + nE
+       β(mE     b3 , mE
+                      b1 + nE
+                            b3 ) = m2 β(E
+                                        b1 , E
+                                             b1 ) + n2 β(E
+                                                         b3 , E
+                                                              b3 ) ≥ m2 β(E
+                                                                          b1 , E
+                                                                               b1 ) = 2m2 > 0.
+
+               b1 + nE
+But we have β(mE     b3 , ha ) = 0, which contradicts the Hodge property. Hence we get the
+claim.                                                                                  
+
+      For x, y ∈ V let
+(∗)                  hx, yiV = β(x, v01 )β(y, v10) + β(x, v10 )β(y, v01) − β(x, y).
+By Lemma 3.1, h·, ·iV is positive semidefinite, i.e. hx, xiV ≥ 0 for x ∈ V . Indeed, as we will see
+soon below, this bilinear form must be positive semidefinite, not positive definite.
+   It is easy to see that from (INT1) and (∗) the following conditions follow.
+
+(IP) (a) hv01 , v01 iV = 0. (b) hv10 , v10 iV = 0. (c) hv01 , v10 iV = 0.
+     (d) hΦn vδ , v01 iV = 0. (e) hΦn vδ , v10 iV = 0. (f) hΦn vδ , Φn vδ iV = O(q n ).
+
+Here vδ , Φ and q are parametrized by Y as in (INT1).
+   From the positive semidefinite property, we obtain the Cauchy-Schwarz inequality:
+                                      p
+                          |hx, yiV | ≤ hx, xiV hy, yiV   (x, y ∈ V ).
+Note that by this inequality, hx, y0 iV = 0 for all x ∈ V if hy0 , y0 iV = 0.             Accordingly
+hx, v01 iV = hx, v10 iV = 0 for x ∈ V .
+    Now we introduce axiom (INT3), which we call the Lefschetz type formula.
+
+(INT3) For any φ ∈ dom(e
+                       vδ ) and any n ≥ 0,
+                                                e n veδ (φ), veδ (φ)iV .
+                                  tr(φ(A)n ) = hΦ(φ)
+
+
+3.2. A model of abstract intersection theory and the main theorem
+
+    The following construction, which we call a model of abstract intersection theory, is hinted
+by the GNS (Gelfand-Naimark-Segal) construction [5].
+    Let {ej }dim
+             j=1
+                 H
+                   (1 ≤ dim H ≤ ∞) be a complete orthonormal basis of H. Embed H into a
+bigger Hilbert space K, so that K ⊖ H = C2 . Here K ⊖ H is the  orthogonal
+                                                                             complement of H
+                                                                  ej
+in K. We understand that ej is embedded in K as ej 7→ e′j = 00 . Let B(K) denote a set
+of bounded operators on K. Put
+                                                        dim
+                                                         XH
+                         V1 = {x ∈ B(K); kxk2V1 :=            hx∗ xe′j , e′j iK < ∞}
+                                                        j=1
+
+
+                                                    4
+  an R-linear space of Hilbert-Schmidt type class with a semidefinite inner product hx, yiV1 =
+asP
+1  dim H   ∗     ∗   ′   ′
+2  j=1 h(y x + x y)ej , ej iK for x, y ∈ V1 . Note that hx, yiV1 = hy, xiV1 ∈ R.
+                                                                                              H
+      Define some elements of V1 in block diagonal form (acting on K = K ⊕⊖ H ) as follows (blank =
+0):                                                                                P∗ P                
+                         0                       0                                       Hφ    Hφ
+            v01 :=           0   1    , v10 :=        0       0       , veδ1 (φ) :=                 0   0    ,
+                             0   0                    1       0                                     0   0
+
+                                 veδ (φ) := veδ1 (φ) + v01 + v10 (φ ∈ dom(e
+                                                                          vδ )).
+Here H φ := Image(φ(A)) and PH φ : H → H φ denotes the orthogonal projection of H onto H φ
+(not a Riesz projection in Lemma 2.1). In this model of abstract intersection theory we let
+
+                                           vδ ) := {φ ∈ F ; ge(φ) < ∞}.
+                                       dom(e
+
+Note that φY ∈ dom(e
+                   vδ ). It is easy to see that v01 , v10 belong to V1 , and that veδ (φ) ∈ V1 for
+φ ∈ dom(evδ ).
+
+Lemma 3.2. Suppose that an operator A: H ⊃ dom(A) → H that satisfies (OP1), (OP2),
+(OP3), (OP4) and (OP5-b) is given. Let φY (Y > 0) be as defined in §2. Then for the above
+R-linear space V1 there exists an R-algebra homomorphism e   Φ: F ⊃ dom(e
+                                                                        vδ ) → EndR (V1 ), so
+that
+(i) The conditions (IP-a)–(IP-e) with V replaced by V1 hold.
+(ii) The Lefschetz type formula (INT3) with V replaced by V1 holds.
+
+Proof. (i) Define e
+                  Φ: F ⊃ dom(e
+                             vδ ) → EndR (V1 ) by
+                                                                              
+                                          φ(A)
+                              e
+                              Φ(φ)x =            φ(1)                    0      x
+                                                                  0     φ(0)
+
+
+for φ ∈ dom(e     vδ ) and x ∈ V1 . It is easy to check that e        Φ(φ)x ∈ V1 if x ∈ V1 . Observe that
+dom(e vδ ) is a subalgebra of F . Hence one can easily see that Φ          e is an R-algebra homomorphism.
+It is easy to check that Φ(φ)  e n veδ (φ) ∈ V1 (n ≥ 0) provided that φ ∈ dom(e             vδ ). We recall that
+φY ∈ dom(e     vδ ). It is also easy to see thatPthe vectors v01 , v10 and vδ satisfy the conditions
+(IP-a)–(IP-e). For example, hv01 , v01 iV1 = dim          H ∗          ′   ′
+                                                       j=1 hv01 v01 ej , ej iK . However since v01 ej = 0 one
+gets (IP-a).
+                                        2e
+                                         g (φ)
+    (ii) For φ ∈ dom(e   vδ ) let {ej }j=1 be an orthonormal basis of H φ . Then, since φ(A)H φ ⊂ H φ ,
+we have
+                                                 e(φ)
+                                                 g
+                    e                          1X
+                         n
+                   hΦ(φ) veδ (φ), veδ (φ)iV1 =        {hφ(A)n ej , ej iH φ + hφ(A)∗n ej , ej iH φ }
+                                               2 j=1
+                     ge(φ)
+               1X                                                  1
+             =       {hφ(A)n ej , ej iH φ + hφ(A)n ej , ej iH φ } = (tr(φ(A)n ) + tr(φ(A)n )),
+               2 j=1                                               2
+
+which is tr(φ(A)n ) provided that tr(φ(A)n ) ∈ R. This condition is satisfied by (OP5-b) and the
+definition of F .                                                                             
+
+    The following lemma says that given V1 as above, one can find many V ’s and β’s satis-
+fying (INT1–2).
+
+Lemma 3.3. In the same situation as in Lemma 3.2 and its proof, suppose that Φ = Φ(Y )(=
+
+                                                          5
+e Y )) further satisfies (IP-f). Let V be an R-linear subspace of V1 such that v01 , v10 and
+Φ(φ
+Φn vδ = Φ(Y )n vδ (Y ) all belong to V for any Y > 0.
+    Then there is a bilinear form β: V × V → R and a Hodge vector ha ∈ V which satisfy
+(INT1–2) and (∗).
+
+Proof. (INT1) and (∗): In (∗) let h·, ·iV be the inner product on V inherited from h·, ·iV1 .
+Given h·, ·iV , one can determine β(x, y) from β(x, v01 ), β(x, v10 ), β(y, v01) and β(y, v10) via
+(∗). Decompose V into a direct sum of W1 and W2 , where W1 is the R-linear span of
+{v01 , v10 , Φ(Y )n vδ (Y ); Y > 0, n ≥ 0}.
+    Let vδ1 = vδ1 (Y ) = veδ1 (φY ). For each fixed Y > 0 there is mY ≤ dim Image(PσY (A) ) such
+that vectors Φn vδ1 = Φ(Y )n vδ1 (Y ) (0 ≤ n ≤ mY ), v01 , v10 are linearly independent. Moreover
+Φn vδ1 (n > mY ) is a linear combination of Φn vδ1 (0 ≤ n ≤ mY ). Hence one can define β(·, v01 ),
+β(·, v10 ), β(v01 , ·) and β(v10 , ·) on W1 so as to satisfy (INT1-a), (INT1-b), (INT1-c), (INT1-g)
+and
+                β(Φn vδ1 , v01 ) = 0 (0 ≤ n ≤ mY ), β(Φn vδ1 , v10 ) = 0 (0 ≤ n ≤ mY ).
+    Then, since Φn vδ = Φn vδ1 + q n v01 + v10 , we see that β satisfies (INT1-d) and (INT1-e).
+(INT1-f) also follows from (IP-f), (INT1-d), (INT1-e) via (∗).
+    Assign arbitrary R-linear mappings β(·, v01 ) and β(·, v10 ) of W2 to R, imposing (INT1-g).
+Then one can determine β on V × V via (∗). One can check (INT1-g) since hx, yiV = hy, xiV
+in (∗).
+    (INT2): Let ha = v01 + v10 . If β(x, ha ) = 0, then β(x, v10 ) = −β(x, v01 ). Thus β(x, x) =
+2β(x, v01 )β(x, v10 ) − hx, xiV = −2β(x, v01 )2 − hx, xiV ≤ 0. Therefore ha is a Hodge vector. 
+
+   We use the following lemma (e.g. [4], Lemma 2.2, p. 20) in the proof of Theorem 3.5 be-
+low.
+
+Lemma 3.4. Let λj (1 ≤ j ≤ P      2g) be complex numbers. Then there exist infinitely many
+integers n ≥ 1 such that |λ1 | ≤ | 2g
+                              n          n
+                                    j=1 λj |.
+
+
+Theorem 3.5. Let A: H ⊃ dom(A) → H be an operator satisfying (OP1–5). The follow-
+ing conditions are equivalent.
+(i) The Riemann Hypothesis holds for A.
+(ii) There exist an R-linear space V , a symmetric bilinear R-valued form β on V , a mapping
+veδ of dom(evδ ) ⊂ F into V , and an R-algebra homomorphism Φ     e of dom(evδ ) ⊂ F into EndR (V )
+                                  n          n
+ giving vectors v01 , v10 , ha , Φ vδ = Φ(Y ) vδ (Y ) (Y > 0) in V so that axioms (INT1–3) of the
+ abstract intersection theory hold.
+
+Proof. (ii) =⇒ (i): Suppose the RH for A does not hold. Then by (OP5) one can find and fix
+Y > 0 so that σY (A) as described in §2 contains sα , sβ ∈ σ(A) with Re(sα ) < 21 , Re(sβ ) > 21 .
+                                                     1
+Therefore σY (A) contains s1 such that q Re(s1 ) > q 2 , where q = q(Y ). Actually, if 0 < q < 1
+(re)set s1 = sα , while if q > 1 (re)set s1 = sβ .
+    Let sj (2 ≤ j ≤ 2g = 2g(Y ) = dim H φY ) be all the other eigenvalues of A in σY (A), counted
+with algebraic multiplicities. (Note that Image(PσY (A) ) = H φY since φY (s) 6= 0 for s ∈ σY (A).)
+                                                                    P                     n
+Let λj = φY (sj ) = q sj (1 ≤ j ≤ 2g). Then by Lemma 3.4, νn = 2g           n
+                                                                       j=1 λj is not O(q ), since
+                                                                                          2
+                                                        n
+                                         n     s1 n            n
+we could have chosen s1 so that |λ1 | = |q | = q 2 (1 + ǫ) for some ǫ > 0. By (OP4) and
+the spectral mapping theorem, σ(φY (A)n ) = σp (φY (A)n ) = φY (σY (A))n ∪ {0} = {λnj ; 1 ≤ j ≤
+2g} ∪ {0}. However, by (INT3), the Cauchy-Schwarz inequality and (IP-f), we see that νn is
+    n
+O(q 2 ). This is a contradiction.
+
+                                                6
+    (i) =⇒ (ii): By Lemma 3.2, we have (IP-a)–(IP-e) and (INT3) for vectors in V1 and Φ =
+Φ(Y ). All we have to do now is to verify (IP-f). Let us take a constant q > 1 so that q = q(Y )
+for all Y > 0. If the RH for the operator A holds, then each eigenvalue λℓ (1 ≤ ℓ ≤ 2g)
+                                                                                     1
+besides 0, counted with algebraic multiplicities, of φY (A) can be written as λℓ = q 2 eiθℓ (θℓ ∈ R).
+By (OP3-b) one can choose eigenvectors wℓ associated with λℓ so that φYP(A)wℓ = λℓ wℓ . Let
+{ej }2g
+     j=1 be an orthonormal basis of H
+                                       φY
+                                          . Now one can write ej as ej = 2g    ℓ=1 αjℓ wℓ for some
+αjℓ = αjℓ (Y ) ∈ C. Then in a similar way as in the proof of Lemma 3.2 (ii),
+                                                        2g
+                                                        X
+                        n               n
+                  hΦ(Y ) vδ (Y ), Φ(Y ) vδ (Y )iV =           hφY (A)n ej , φY (A)n ej iH φY
+                                                        j=1
+
+                          2g   2g                 2g
+                          X    X                  X
+                        =    h              n
+                                  αjℓ φY (A) wℓ ,    αjm φY (A)n wm iH φY .
+                            j=1 ℓ=1                  m=1
+
+Since φY (A)n wℓ = λnℓ wℓ , we have (IP-f). Therefore by Lemma 3.3, we have (INT1–2) for a
+subspace V ⊂ V1 . We have of course (INT3) by restricting to V .                        
+
+4. Analogy with the intersection theory on a surface over Fq
+
+    Let C be a smooth projective curve over a finite field Fq , and S = C × C the surface
+over Fq . Let Pic(S)(≃ H 1 (S, OS× )) be its Picard group, which we regard as a Z-module, so
+as to preserve the analogy with Weil divisors. V in §3 is modeled on Pic(S) ⊗Z R, and β(·, ·)
+in §3 on the R-tensored intersection pairing i(·, ·) on Pic(S) ⊗Z R. Φ = Φ(Y ) in (INT1) is
+an analog of the linear mapping on Pic(S) ⊗Z R induced by the morphism Frob × id on S.
+Then one may regard v01 , v10 , vδ and Φn vδ in (INT1) as analogs of graphs pt × C, C × pt, ∆
+and ΓFrobn , respectively. The Hodge property comes from the Hodge index theorem. A Hodge
+vector ha corresponds to an (ample) hyperplane section of S, thereby β(·, ha ) gives an analog
+of the degree function deg ⊗Z 1: Pic(S) ⊗Z R → R. Lemma 3.1 is an analog of Castelnuovo’s
+inequality.
+    If ϕ = Frobn , then it turns out that
+                            tr(ϕ∗ |Hét0 ) = 1 = i(Γϕ , pt × C)i(∆, C × pt)
+and
+                            tr(ϕ∗ |Hét2 ) = q n = i(Γϕ , C × pt)i(∆, pt × C).
+So the Lefschetz fixed-point formula for the ℓ-adic cohomology reads for ϕ = Frobn as
+
+
+       tr(ϕ∗ |Hét1 ) = i(Γϕ , pt × C)i(∆, C × pt) + i(Γϕ , C × pt)i(∆, pt × C) − i(Γϕ , ∆)
+                      =: hΓϕ , ∆iPic(S)⊗Z R .
+(INT3) is modeled on this, and φ(A)n acting on H is an analogy of ϕ∗ |Hét1 acting on the first
+ℓ-adic étale cohomology group Hét1 (C ⊗Fq Fq , Qℓ ).
+   Introducing a cut-off function φ is modeled on Weil’s explicit formula [1952b], [1972] in [8].
+
+References
+
+  [1] A. Connes, C. Consani and M. Marcolli, The Weil proof and the geometry of the adeles class
+      space, arXiv math.NT/0703392 (2007). [See also: pp. 90–99 of A. Connes and M. Marcolli, A
+      walk in the noncommutative garden, arXiv math.QA/0601054 (2006).]
+
+                                                    7
+ [2] I. Gohberg, S. Goldberg and M. A. Kaashoek, Classes of Linear Operators, Vol. I, Oper. Theory
+     Adv. Appl. 49, Birkhäuser, Basel (1990).
+
+ [3] A. Grothendieck, Sur une note de Mattuck-Tate, J. reine ang. Math. 200 (1958) 208–215.
+
+ [4] P. Monsky, P-Adic Analysis and Zeta Functions, Lectures in Mathematics 4, Kyoto University,
+     Kinokuniya Book-Store, Tokyo (1970).
+
+ [5] I. E. Segal, Irreducible representations of operator algebras, Bull. of AMS 53 (1947) 73–88.
+
+ [6] J.-P. Serre, Analogues Kählériens de certaines conjectures de Weil, Ann. of Math. 71 (1960)
+     392–394.
+
+ [7] Y. Uetake, Spectral scattering theory for automorphic forms, Integral Equations Operator Theory
+     63 (2009) 439–457.
+
+ [8] A. Weil, Œuvres Scientifiques, Vol. I, [1940b], [1941], [1942], [1946a], [1948a, b]; [1952b], [1972],
+     Springer Verlag, New York (1979).
+
+
+Faculty of Mathematics and Computer Science
+Adam Mickiewicz University
+ul. Umultowska 87, 61-614 Poznań
+Poland
+E-mail: banaszak@amu.edu.pl, uetake@amu.edu.pl
+
+
+
+
+                                                   8
+
