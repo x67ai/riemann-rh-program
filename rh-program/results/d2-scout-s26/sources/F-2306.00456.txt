@@ -1,0 +1,441 @@
+                                                                                                                                                  1
+
+
+
+
+arXiv:2306.00456v1 [math.NT] 1 Jun 2023
+                                                                         Riemann-Roch for the ring Z
+
+
+                                                                ALAIN CONNES1,2 and CATERINA CONSANI3
+                                                                     1
+                                                                Collège de France Paris, F-75005 France
+                                                                            (alain@connes.org)
+                                                                 2
+                                                                   IHES Bures-sur-Yvette 91440 France
+                                            3
+                                              Department of Mathematics The Johns Hopkins University, Baltimore 21218 USA
+                                                                           (cconsan1@jhu.edu)
+
+
+
+
+                                          Abstract We show that by working over the absolute base S (the categorical version of the sphere
+                                          spectrum) instead of S[±1] improves our previous Riemann-Roch formula for Spec Z. The formula equates
+                                          the (integer-valued) Euler characteristic of an Arakelov divisor with the sum of the degree of the divisor
+                                          (using logarithms with base 2) and the number 1, thus confirming the understanding of the ring Z as a
+                                          ring of polynomials in one variable over the absolute base S, namely S[X], 1 + 1 = X + X 2 .
+
+
+                                          Keywords: Riemann-Roch; Arakelov compactification; Adeles; Segal’s Gamma-ring
+
+                                          2010 Mathematics subject classification: 14C40; 14G40; 14H05; 11R56; 13F35; 18N60; 19D55
+
+
+
+                                          1. Introduction
+                                          In [3] we proved a Riemann-Roch formula for Spec Z working over the spherical extension
+                                          S[±1] := S[µ2,+ ] of the absolute base S. The proof of that result is based on viewing the
+                                          ring Z as a ring of polynomials1 with coefficients in S[±1] and generator 3 ∈ Z. In the
+                                          present paper we show that by working over the absolute base S itself, one obtains the
+                                          following Riemann-Roch formula.
+
+                                          Theorem 1.1. Let D be an Arakelov divisor on Spec Z. Then2
+                                                                                                                   ′
+                                                                   dimS H 0 (D) − dimS H 1 (D) =           deg2 D        + 1.                 (1.1)
+
+
+                                          Here ⌈x⌉′ denotes the right continuous function which agrees with the function ceiling(x)
+                                          for x > 0 non-integer, and with –ceiling(−x) for x < 0 non-integer (see Figure 1).
+
+                                          Research supported by The Simons Foudation
+                                            1 More precisely every integer is uniquely of the form P (X) where P is a polynomial with coefficients
+
+                                          in {−1, 0, 1} and X = 3, the presentation is given by 1 + 1 = X − 1
+                                            2 We use the notation deg := deg / log 2
+                                                                      2
+2                                  A. Connes and C. Consani
+
+  The proof of (1.1) follows the same lines as the proof of the Riemann-Roch formula in
+[3], and views Z as a ring of polynomials3 over S with generator −2. It greatly improves
+this earlier result as follows:
+1. The term 1L involving the exceptional set L in the earlier formula is now eliminated.
+2. Formula (1.1) displays a perfect analogy with the Riemann-Roch formula holding
+   for curves of genus 0.
+3. The canonical divisor K = −2{2} has integral degree deg2 (K) = −2.
+When working over the absolute base S one is led to a very natural notion of S-module
+associated to an Arakelov divisor as explained in Section 2.
+
+
+
+2. Working over the absolute base S
+
+We let Γop be the opposite of the Segal category (see [4] Chpt. 2 and [1]), it has one
+object k+ for each integer k > 0, the pointed set {∗, 1, . . . , k}, and the morphisms are
+morphisms of pointed sets. Covariant functors Γop −→ Sets∗ and their natural transfor-
+mations determine the category ΓSets∗ of Γ-sets (aka S-modules). When working over
+the spherical monoidal algebra S[±1] of the (pointed) multiplicative monoid {±1}, the
+natural S[±1]-module associated to a norm on an abelian group A is (k ∈ N, λ ∈ R)
+
+                                                                  X
+                            ∥HA∥λ (k+ ) := {a ∈ Ak |                  |aj | ≤ λ}.               (2.1)
+
+
+The above formula is applied at the archimedean place, for subgroups A ⊂ R and with |·|
+denoting the euclidean absolute value. If S[±1] is replaced by the base S, there is a more
+basic definition of an S-module associated to an arbitrary subset X ⊂ A containing 0 ∈ A
+
+Lemma 2.1. Let A be an abelian monoid with 0 ∈ A. Let X ⊂ A be a subset containing
+0. The following condition defines a subfunctor of the S-module HA
+                                                  X
+                   (HA)X (k+ ) := {a ∈ Ak |                aj ∈ X, ∀Z ⊂ k+ } ⊂ X k .            (2.2)
+                                                      Z
+
+
+Proof. By construction (HA)X (k+ ) is a subset of HA(k+ ) containing the base point
+aj = 0, ∀j. Let ϕ : k+ → m+ be a map preserving the base point ∗, we shall show that
+ϕ∗ ((HA)X (k+ )) ⊂ (HA)X (m+ ). Let a ∈ (HA)X (k+ ). For any ℓ ∈ m+ , ℓ ̸= ∗, one has
+
+                                      X               X
+                       ϕ∗ (a)(ℓ) =             aj =        aj ,       Zℓ := ϕ−1 (ℓ).
+                                     ϕ−1 (ℓ)          Zℓ
+
+
+
+ 3 Every integer is uniquely of the form P (X) where P is a polynomial with coefficients in {0, 1} and
+
+X = −2, the presentation is 1 + 1 = X + X 2
+                                          Riemann-Roch for the ring Z                                                     3
+
+It follows from (2.2) that ϕ∗ (a)(ℓ) ∈ X for all ℓ and that for any pointed subset Z ′ ⊂ m+
+                               X                     X
+                                       ϕ∗ (a)(ℓ) =       aj ∈ X,         Z = ∪ℓ∈Z ′ Zℓ .
+                               ℓ∈Z ′                 Z
+
+
+This proves that ϕ∗ ((HA)X (k+ )) ⊂ (HA)X (m+ ).                                                                          □
+
+  Next Proposition shows that for X = [−λ, λ] ⊂ R a symmetric interval, the S-module
+(HR)X is a module over the S-algebra ∥HR∥1 .
+
+Proposition 2.2. Let λ > 0, X = [−λ, λ] ⊂ R a symmetric interval and (HR)X as in
+(2.2). Then
+                                       X          X
+               (HR)X (k+ ) = {a ∈ Rk |    aj ≤ λ,    (−aj ) ≤ λ}           (2.3)
+                                                          aj >0              aj <0
+
+Moreover, the module action of the S-algebra HR on itself by multiplication induces an
+action of the S-algebra ∥HR∥1 on the module (HR)X .
+
+Proof. The condition (2.3) is fulfilled by all elements of (HR)X (k+ ) since it involves
+sums on subsets of k+ . Conversely if a ∈ Rk fulfills (2.3) and Z ⊂ k+ let
+
+                              Z+ := {j ∈ Z | aj > 0}, Z− := {j ∈ Z | aj < 0}
+            P                P                               P
+One has 0 ≤ Z+ aj ≤ λ, 0 ≥ Z− aj ≥ −λ and thus −λ ≤ Z aj ≤ λ.
+To prove the second statement, let Y = k+ , Y ′ = k+
+                                                   ′
+                                                     be finite pointed sets and consider
+the map given by the product
+
+                              m : ∥HR∥1 (Y ) ∧ (HR)X (Y ′ ) → (HR)(Y ∧ Y ′ )
+
+                                         |αi | ≤ 1 and (aj ) ∈ (HR)X (Y ′ ) the doubly indexed
+                                      P
+It associates to (αi ) ∈ ∥HR∥1 (Y ),
+b := (bi,j ), bi,j = αi aj and one needs to show that b ∈ (HR)X (Y ∧ Y ′ ). Let
+
+Y+ = {i ∈ Y | αi > 0}, Y− = {i ∈ Y | αi < 0}, Y+′ = {j ∈ Y ′ | aj > 0}, Y−′ = {j ∈ Y ′ | aj < 0}
+
+By the rule of signs the pairs (i, j) for which bi,j > 0 form the union Y+ × Y+′ ∪ Y− × Y−′
+so that one gets
+  X                  X                    X                        X         X            X             X
+           bi,j =             αi aj +            (−αi )(−aj ) =         αi         aj +        (−αi )        (−aj ) ≤ λ
+ bi,j >0            Y+ ×Y+′                  ′
+                                        Y− ×Y−                     Y+        Y+′          Y−             ′
+                                                                                                        Y−
+
+                                                                 P         P
+       P for the sums over the aj together with the inequality Y+ αi + Y− (−αi ) ≤ 1
+using (2.3)
+(since    |αi | ≤ 1). One treats in a similar way the sum over the negative bi,j . □
+
+  In general, let σ ∈ HomΓop (k+ , 1+ ) with σ(ℓ) = 1 ∀ℓ ̸= ∗ and δ(j, k) ∈ HomΓop (k+ , 1+ ),
+δ(j, k)(ℓ) := 1 if ℓ = j, δ(j, k)(ℓ) := ∗ if ℓ ̸= j.
+4                              A. Connes and C. Consani
+
+Given an S-module F and elements x, xj ∈ F(1+ ), j = 1, . . . , k, one writes
+           X
+      x=        xj ⇐⇒ ∃z ∈ F(k+ ) s.t. F(σ)(z) = x, F(δ(j, k))(z) = xj , ∀j.          (2.4)
+            j
+
+
+A tolerance relation R on a set X is a reflexive and symmetric relation on X. Equivalently,
+R is a subset R ⊂ X × X which is symmetric and contains the diagonal. We shall denote
+by T the category of tolerance relations (X, R). Morphisms in T are defined by
+
+                 HomT ((X, R), (X ′ , R′ )) := {ϕ : X → X ′ , ϕ(R) ⊂ R′ }.
+
+We denote T∗ the pointed category under the object {∗} endowed with the trivial relation.
+A tolerant S-module is a pointed covariant functor Γop −→ T∗ ([3]). We recall below the
+definition of their dimension.
+
+Definition 2.1. [3] Let (E, R) be a tolerant S-module. A subset F ⊂ E(1+ ) generates
+E(1+ ) if the following two conditions hold
+1. For x, y ∈ F , with x ̸= y =⇒ (x, y) ∈/R
+2. For every
+       P      x ∈ E(1+ ) there exists αj ∈ {0, 1}, j ∈ F and y ∈ E(1+ ) such that
+   y = F αj j ∈ E(1+ ) in the sense of (2.4), and (x, y) ∈ R.
+The dimension dimS (E, R) is defined as the minimal cardinality of a generating set F .
+
+3. Dimension of H 0 over S
+
+Let m ∈ N, and Im = [−m, m] ∩ Z. Next lemma follows from (2.4) and Definition 2.1.
+
+Lemma 3.1. The dimension dimS ((Z)Im ) is the smallest cardinality of a subset G ⊂ Im
+                                                         P             P
+such that for any j ∈ Im there exists a subset Z ⊂ G with Z i = j and Z ′ i ∈ Im for
+any Z ′ ⊂ Z.
+
+  The number of elements of Im is 2m + 1 and the number of subsets of G is 2#G , thus
+one has the basic inequalities
+
+           #G ≥ log2 (2m + 1) > log2 (2m),       dimS ((Z)Im ≥ ⌈log2 (m)⌉ + 1.        (3.1)
+
+Here x 7→ ⌈x⌉ denotes the ceiling function which associates to x the smallest integer > x.
+For m = 1 one needs the two elements {−1, 1} to generate, while for m = 2 one selects
+the three elements {−2, 1, 2}. For m = 3 one takes the three elements {−3, 1, 2} while
+for m = 4 one takes the 4 elements {−3, −1, 1, 3}.
+  In general, one uses the following result.
+
+Lemma 3.2. Let n ∈ N and I := [−a, a] ⊂ Z, where 2n−1 ≤ a <P       2n .
+(i) If n > 4 there exist n distinct elements αj ∈ (0, a) such that   αj = a and that any
+                                 Riemann-Roch for the ring Z                                    5
+                                                      P
+element z ∈ [0, a] can be written as a partial sum z = Z αj .
+(ii) The minimal number of S-generators of (HZ)I is n + 1.
+                       Pn−1                             Pn−2
+Proof. (i) We have 0 2j = 2n − 1 ≥ a and σ := 0 2j = 2n−1 − 1 < a. The idea
+is to adjoin to the set T := {2j | 0 ≤ j ≤ n − 2}, whose cardinality is n − 1 and whose
+sum is σ < a, another element a − σ so that the full sum is a. The first try is by taking
+F = T ∪ {a − σ}. Assume first that a − σ ∈    / T . The partial sums obtained from F are
+the union of the interval [0, σ] with the interval [a − σ, a] and these two intervals cover
+[0, a], since a − σ + σ = a while a − σ ≤ σ + 1. If a − σ ∈ T one has for some k ≥ 0 that
+a = σ + 2k . To avoid the repetition we adopt the following rules for 2n−1 ≤ a < 2n
+1. If a = 2n−1 we let F := {2j | 0 ≤ j ≤ n − 3} ∪ {2n−2 − 2} ∪ {3}
+2. If a ̸= 2n−1 and a − σ ∈ T , let F := {2j | 0 ≤ j ≤ n − 3} ∪ {2n−2 − 1} ∪ {a − σ + 1}
+3. If a ̸= 2n−1 and a − σ ∈
+                          / T , let F := T ∪ {a − σ}
+Since by hypothesis n > 4 one has 2n−2 − 2 > 2n−3 , so in case 1. one gets #F = n and
+the sum of elements of F is a = 2n−1 . The partial sums of elements of {2j | 0 ≤ j ≤ n−3}
+cover the interval J = [0, 2n−2 − 1]. By adding 2n−2 − 2 to elements of J one obtains the
+interval J + 2n−2 − 2 = [2n−2 − 2, 2n−1 − 3] whose union with J is [0, 2n−1 − 3], then by
+imputing the element 3 ∈ F one sees that the partial sums cover [0, a].
+In case 2. one obtains similarly #F = n since a − σ + 1 ∈    / T and the sum of elements of
+F is σ + a − σ = a. The partial sums of elements of {2j | 0 ≤ j ≤ n − 3} cover the interval
+J = [0, 2n−2 − 1] and using 2n−2 − 1 added to elements of J one obtains the interval
+J + 2n−2 − 1 = [2n−2 − 1, 2n−1 − 2] whose union with J is J ′ = [0, 2n−1 − 2] = [0, σ − 1].
+Adding a − σ + 1 to J ′ one obtains the interval J” = [a − σ + 1, a]. Since a − σ ∈ T one
+has a − σ ≤ 2n−2 , hence a − σ + 1 ≤ σ − 1, so that the lowest element of J” belongs to
+J ′ and J ′ ∪ J” = [0, a].
+In case 3. the partial sums of elements of F cover [0, a] as explained above.
+(ii) Let k be the minimal number of S-generators of (HZ)I . By (3.1) one has k ≥ n + 1.
+It remains to show that there exists a generating set of cardinality n + 1. We assume
+first that n > 4 and thus, by (i), let αj ∈ (0, a) be n distinct elements fulfilling (i).
+Let F = {−a} ∪ {αj } ⊂ [−a, a]. By construction #F = n + 1. To show that F is an S-
+generating set of (HZ)I one needs to check the conditions of Lemma 3.1. By construction,
+the sum of positive elements of F is a and the sum of its negative elements is −a thus
+any partial sum of elements of F belongs to I = [−a, a]. Moreover the partial sums of
+positive elements of F cover the interval [0, a] by (i), and using the element −a one covers
+I = [−a, a].
+For n ≤ 4 one has a ≤ 15 and one can list generating sets of cardinality n + 1 as follows
+
+
+
+
+      {−1, 1}, {−3, 1, 2}, {−6, 1, 2, 3}, {−7, 1, 2, 4}, {−10, 1, 2, 3, 4}, {−11, 1, 2, 3, 5}
+      {−12, 1, 2, 3, 6}, {−13, 1, 2, 3, 7}, {−14, 1, 2, 4, 7}, {−15, 1, 2, 4, 8}
+6                                     A. Connes and C. Consani
+
+These sets are of the same type as those constructed for n > 4; for the other values one
+has
+                   {−3, −1, 1, 3}, {−4, −1, 2, 3}, {−7, −1, 1, 2, 5}, {−8, −1, 1, 3, 5}.
+The value a = 2 requires 3 generators {−2, 1, 2} and it is the only one for which the set
+F of generators cannot be chosen in such a way that the sum of its positive elements is
+a and the sum of its negative elements is −a. One nevertheless checks that all elements
+are obtained as an admissible sum.                                                     □
+
+Theorem 3.3. Let D be an Arakelov divisor on Spec Z. If deg(D) ≥ 0 one has
+                                                               
+                                     dimS H 0 (D) =       deg2 D + 1.                      (3.2)
+
+
+Proof. One may assume that D = δ{∞} where δ = deg(D) > 0. One has H 0 (D) =
+(HZ)I where I = [−eδ , eδ ], using the classical relation between the degree of the divisor
+and the associated compact subset in adeles4 . Let n ∈ N, n ≥ 1, such that 2n−1 ≤ eδ < 2n .
+The integer part a of eδ fulfills 2n−1 ≤ a < 2n and one has H 0 (D) = (HZ)[−a,a] . Thus,
+by Lemma 3.2 one gets dimS H 0 (D) = n + 1. By definition deg2 D := deg D/ log 2. The
+conditions 2n−1 ≤ eδ < 2n mean that n − 1 ≤ deg2 D < n and show that the least integer
+> deg2 D is equal to n which proves (3.2).                                               □
+
+4. Dimension of H 1 over S
+
+We define the following sequence of integers:
+
+                                        1        1        1
+                              j(n) :=     (−2)n − (−1)n +            n ∈ N.                (4.1)
+                                        3        2        6
+
+The first values of j(n) are then: 0, 1, −2, 5, −10, 21, −42, 85, −170, 341, −682, 1365, −2730, . . .
+
+Lemma 4.1. Let G(n) = {(−2)j | 0 ≤ j < n}. The map σ from the set of subsets of G(n)
+to Z defined by σ(Z) := Z j is a bijection with the interval ∆(n) := [j(k), j(k) + 2n − 1]
+                       P
+where k = k(n) := 2E(n/2) + 1, (E(x) = integral part of x).
+
+Proof. The map σ is injective and covers an interval [a, b]. The lower bound a is the
+                              (−2)2ℓ+1 and the upper bound is the sum of powers
+                   P
+sum of powers a =    0≤ℓ< n−1
+                            2
+               2ℓ
+   P
+b = 0≤ℓ< n (−2) . We list the first intervals as follows
+               2
+
+
+
+∆(1) = [0, 1], ∆(2) = [−2, 1], ∆(3) = [−2, 5], ∆(4) = [−10, 5], ∆(4) = [−10, 21], . . .
+
+                                                                                               □
+
+    4 Note that edeg D = 2deg2 (D)
+                               Riemann-Roch for the ring Z                                 7
+
+  We refer to [3], Appendix A, B, for the interpretation of H 1 (D) in terms of the tolerant
+S-module (U (1), d)λ , λ = edeg D . At level 1 the tolerance relation on the abelian group
+R/Z is given by the condition d(x, y) ≤ λ.
+
+Proposition 4.2. Let U (1) be the abelian group R/Z endowed with the canonical metric
+d of length 1. Let λ ∈ R>0 , U (1)λ the tolerant S-module (U (1), d)λ . Then
+
+                                         (
+                                          m   if 2−m−1 ≤ λ < 2−m ,
+                        dimS U (1)λ =                                                   (4.2)
+                                          0   if λ ≥ 21 .
+
+Proof. For λ ≥ 12 , any element of U (1)λ = (R/Z, d)λ is atPdistance ≤ λ from 0, thus one
+can take F = ∅ as generating set since, by convention, ∅ = 0. Thus dimS U (1)λ = 0.
+Next, we assume λ < 21 . Let F ⊂ U (1) be a generating set and let k = #F . One easily
+                               k
+                                                         P
+                  P at most 2 elements of the form F αj j, αj ∈ {0, 1}. The subsets
+sees that there are
+{x ∈ U (1) | d(x, F αj j) ≤ λ} cover U (1), and since each of them has measure 2λ one
+gets the inequality 2λ·2k ≥ 1. Thus k ≥ − loglog
+                                              λ−log 2
+                                                 2    . When − loglog
+                                                                   λ−log 2
+                                                                      2    = m is an integer,
+one has λ = 2−m−1 . Let F (m) = {(−2)−j | 1 ≤ j ≤ m}. The minimal distance between
+two elements of F (m) is the distance between 2−m+1 and −2−m which is 3 · 2−m = 6λ.
+Let us show that F (m) is a generating
+                             Pm−1        set. By Lemma 4.1 any integer q in the interval
+∆(m) can be written as q = i=0 αi (−2)i , with αi ∈ {0, 1}. One then gets
+
+
+                                   m−1
+                                   X                    m
+                                                        X
+                    q · (−2)−m =         αi (−2)i−m =         αm−j (−2)−j .
+                                   i=0                  j=1
+
+
+
+
+Let y ∈ R/Z, lift y to an element x of the interval (−2)−m [j(k(m)), j(k(m)) + 2m )
+which is connected of length 1 and is a fundamental domain for the action of Z by
+translation. Then there exists an integer q ∈ ∆(m) such that |(−2)m x − q| ≤ 12 . Hence
+d(x, q · (−2)−m ) ≤ 2−m−1 = λ. This proves that F (m) is a generating set (see Definition
+2.1) and one derives dimS U (1)λ = m. Assume now that − loglog    λ−log 2
+                                                                    2     ∈ (m, m + 1), where
+                                   −m−2 −m−1
+m is an integer, i.e. that λ ∈ (2        ,2      ). For any generating set F of cardinality k
+one has k ≥ − loglog
+                   λ−log 2
+                     2      >  m so that  k ≥ m  +  1. The subset F (m + 1) = {(−2)−j | 1 ≤
+j ≤ m + 1} fulfills the first condition of Definition 2.1 since the minimal distance between
+two elements of F (m + 1) is 3 · 2−m−1 which is larger than λ < 2−m−1 . As shown above,
+the subset F (m + 1) is generating for λ = 2−m−2 and a fortiori for λ > 2−m−2 . Thus one
+obtains dimS U (1)λ = m + 1 and (4.2) is proven.                                           □
+
+5. Riemann-Roch formula
+We can now formulate the main result of our paper
+8                                    A. Connes and C. Consani
+
+Theorem 5.1. Let D be an Arakelov divisor on Spec Z. Then
+                                                                                 ′
+                                 0                           1
+                        dimS H (D) − dimS H (D) =                        deg2 D        +1   (5.1)
+
+
+where ⌈x⌉′ is the right continuous function which agrees with ceiling(x) for x > 0 non-
+integer and with -ceiling(−x) for x < 0 non-integer (see Figure 1).
+
+Proof. For deg2 D ≥ 0 one has λ = edeg D ≥ 1 and hence by (4.2) one gets dimS H 1 (D) =
+0, so (5.1) follows from Theorem 3.3. For deg2 D < 0 one has dimS H 0 (D) = 0 since the
+empty set is a generating set. For deg2 D ∈ [−m − 1, −m) where m ∈ N one has, by (4.2),
+dimS H 1 (D) = m. Thus the left hand side of (5.1) is −m while the right hand side is
+                                                       ′
+                                               deg2 D        + 1 = −m
+
+
+by definition of the function ⌈x⌉′ as the right continuous function which agrees with
+ceiling(x) for x > 0 non-integer and with -ceiling(−x) for x < 0 non-integer.      □
+
+
+
+                                                         6
+
+
+                                                         4
+
+
+                                                         2
+
+
+
+                            -6        -4         -2              2        4        6
+
+                                                        -2
+
+
+                                                        -4
+
+
+                                                        -6
+
+
+
+
+      Figure 1. Graph of dimS H 0 (D) − dimS H 1 (D) − 1 as a function of deg2 D .
+
+
+Acknowledgments. The second author is partially supported by the Simons Foundation collaboration
+grant n. 691493.
+
+References
+[1]   A. Connes, C. Consani, Absolute algebra and Segal’s Gamma sets, J. Number Theory 162
+      (2016), 518–551.
+[2]   A. Connes, C. Consani, On Absolute Algebraic Geometry, the affine case, Advances in
+      Mathematics, 390, Paper No. 107909 (2021), 44 pp.
+[3]   A. Connes, C. Consani, Riemann-Roch for Spec Z. To appear in Bulletin des Sciences
+      Mathématiques.
+[4]   B. Dundas, T. Goodwillie, R. McCarthy, The local structure of algebraic K-theory. Algebra
+      and Applications, 18. Springer-Verlag London, Ltd., London, 2013.
+                                Riemann-Roch for the ring Z                                 9
+
+[5]   A. Weil Sur l’analogie entre les corps de nombres algébriques et les corps de fonctions
+      algébriques, Oeuvres scientifiques/Collected papers I. 1926–1951. Springer, Heidelberg,
+      2014.
+

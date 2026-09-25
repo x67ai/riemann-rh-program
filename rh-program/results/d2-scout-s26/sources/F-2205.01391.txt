@@ -1,0 +1,1313 @@
+                                                                                                                                                    1
+
+
+
+
+arXiv:2205.01391v2 [math.AG] 8 Mar 2023
+                                                                          RIEMANN-ROCH FOR Spec Z
+
+
+                                                                 ALAIN CONNES1,2 and CATERINA CONSANI3
+                                                                      1
+                                                                Collège de France Paris, F-75005 France
+                                                                            (alain@connes.org)
+                                                                 2
+                                                                   IHES Bures-sur-Yvette 91440 France
+                                            3
+                                              Department of Mathematics The Johns Hopkins University, Baltimore 21218 USA
+                                                                           (cconsan1@jhu.edu)
+
+
+
+
+                                          Abstract We prove a Riemann-Roch theorem of an entirely novel nature for divisors on the Arakelov
+                                          compactification of the algebraic spectrum of the integers. This result relies on the introduction of
+                                          three key concepts: the cohomologies (attached to a divisor), their integer dimension, and Serre duality.
+                                          These notions directly extend their classical counterparts for function fields. The Riemann-Roch formula
+                                          equates the (integer valued) Euler characteristic of a divisor with a slight modification of the traditional
+                                          expression in terms of the sum of the degree of the divisor and the logarithm of 2. Both the definitions of
+                                          the cohomologies and of their dimensions rely on a universal arithmetic theory over the sphere spectrum
+                                          that we had previously introduced using Segal’s Gamma rings. By adopting this new perspective we
+                                          can parallel Weil’s adelic proof of the Riemann-Roch formula for function fields including the use of
+                                          Pontryagin duality.
+
+
+                                          Keywords: Riemann-Roch; Arakelov compactification; Adeles; Segal’s Gamma-ring
+
+                                          2010 Mathematics subject classification: 14C40; 14G40; 14H05; 11R56; 13F35; 18N60; 19D55
+
+
+                                          1. Introduction
+                                          The development of the theory of curves from complex Riemann surfaces to algebraic
+                                          curves over arbitrary fields, led F. K. Schmidt, in the 1930s, to the first proof of the
+                                          Riemann-Roch theorem for function fields over finite fields. In nowadays terminology,
+                                          that result involves the integer dimensions of the two cohomologies H 0 (D) and H 1 (D)
+                                          of a divisor D on the algebraic curve associated to the function field, as vector spaces
+                                          over the (finite) field of constants. The analogy between function fields in one variable
+                                          over fields of positive characteristic and number fields suggests, as pointed out by A.
+                                          Weil [13], to investigate the existence of a Riemann-Roch formula for number fields.
+                                          Both the notions of a divisor D with its degree, and the finite set underlying H 0 (D) are
+                                          easy to define. These ideas led S. Lang [9] to an asymptotic formula that relates for Q,
+                                          log #H 0 (D) and deg D + log 2, when deg D → ∞. Another attempt to a Riemann-Roch
+                                          formula for a number field was promoted two decades ago by G. van der Geer and R.
+                                          Shoof [11] and more recently, in the work of J.B. Bost [1]. In this approach one starts
+
+                                          Research supported by The Simons Foudation
+2                                    A. Connes and C. Consani
+
+from the functional equation in terms of the theta function and rewrites that equation as
+a Riemann-Roch formula for the log-theta number, which is thus promoted to the status
+of a dimension. This view of the log-theta number as a dimension remains virtual for the
+obvious reason that it outputs real numbers rather than integers. An interpretation of
+these numbers as Murray-von Neumann dimensions could greatly improve their status
+as dimensions, but this step has not been achieved so far.
+The most fundamental number field is the field Q of rational numbers that governs
+elementary arithmetics through its ring Z of integers. In this paper we prove a Riemann-
+Roch theorem of an entirely novel nature for this basic arithmetic structure. This result
+relies on the introduction of three key concepts: the two cohomologies H • (D) (attached
+to a divisor D), their (integer) dimension, and Serre duality. These three notions directly
+extend their classical analogues for function fields. Our main result is the following
+theorem.
+
+Theorem 1.1. Let D be an Arakelov divisor on Spec Z. Then
+                                                                                  ′
+                 dimS[±1] H 0 (D) − dimS[±1] H 1 (D) =           deg′ D + log′ 2        − 1L .     (1.1)
+
+
+Here, ⌈x⌉′ denotes the odd function on R that agrees with the ceiling function on posi-
+tive reals, and 1L is the characteristic function of the exceptional set of finite Lebesgue
+                                                    k        k
+measure which is the union of the intervals (log′ 32 , log′ 3 2+1 ):
+
+  In this formula, the
+                     P neperian logarithm that is traditionally used to define the 1degree
+of a divisor D =       j aj {pj } + a{∞}, is replaced by the logarithm in base 3. This
+alteration is equivalent to the division by log 3 i.e. deg′ (D) := deg(D)/ log 3. Let us now
+comment on the key role played by the number 3. In the proof of Theorem 1.1, the ring
+                                                    P
+Z appears in a new light as a ring of polynomials       aj 3j with coefficients in the absolute
+base S[±1] = {0, ±1}. At an elementary level, it is not difficult to check that any integer
+n ∈ Z can be written uniquely as a finite sum of powers of 3 with coefficients in {0, ±1}.
+The deep reason behind this fact is that, for p = 3 (and only for this rational prime)
+the Witt vectors with only finitely many non-zero components form a subring inside the
+ring of p-adic integers, which turns out to be isomorphic
+                                                       P      to Z. In particular, the formula
+                                                              j
+for the addition of integers written as polynomials       aj 3 coincides with the formula for
+the addition of Witt vectors over F3 .
+Next, we describe the general formalism that allows us to give a precise mathematical
+meaning both to the base S[±1] = {0, ±1} and (to) the two cohomologies H • (D) with
+their integer-valued dimension. The basic step underlying this formalism is taken by
+going beyond the traditional use of abelian groups and rings in algebra using Segal’s Γ-
+rings. In [2, 5] we developed the fundamentals of a geometric theory where the initial
+ring Z of the category of rings is replaced by the sphere spectrum S. A similar change
+of structures is familiar in homotopy theory, but in our work we insist on staying at a
+
+    1 All throughout the paper, to avoid confusion, we shall nevertheless use the neperian logarithm
+                                  Riemann-Roch for Spec Z                                       3
+
+concrete computational level in the definition of the basic objects, while the link with
+the Γ-spaces of homotopy theory [6] enters only when doing homological algebra. The
+extension of the category of abelian groups is obtained by embedding faithfully and fully
+this category in the category S − Mod of pointed covariant functors from finite pointed
+sets to pointed sets. Given an abelian group H one assigns to a finite pointed set X
+the pointed set of H-valued divisors on X. These divisors push forward by summing
+over the pre-image of a point. In S − Mod the traditional notion of ring becomes that of
+Segal’s Γ-ring, and the (classical) base Z is replaced by the Γ-ring S here understood in
+its most elementary form of identity functor (from finite pointed sets to pointed sets).
+The base S is in fact the most elementary categorical form of the sphere spectrum in
+homotopy theory [6]. In analogy with the theory of algebraic curves over finite fields, we
+have (previously) defined the structure sheaf of the one-point compactification Spec Z of
+the algebraic spectrum of the integers by suitably extending, at the archimedean place,
+the structure sheaf of Spec Z as a subsheaf of the constant sheaf Q. The global sections
+of this sheaf determine the S-algebra S[±1]. In [3] we have generalized the notion of
+homology for simplicial complexes, when group coefficients are replaced by S-modules.
+In [4] we implemented homological algebra in this context by showing an extension of the
+Dold-Kan correspondence which associates a Γ-space to a short complex of S-modules.
+P us now introduce the cohomologies and their dimensions. An Arakelov divisor D =
+Let
+   j aj {pj } + a{∞} on Spec Z determines a compact subset O(D) ⊂ AQ of the adeles of
+Q. This is the product, indexed by the places of Q, of the abelian group Zp ⊂ Qp for each
+                                                −a
+finite prime p ∈ / {pj }j , the abelian groups pj j Zpj , and the interval [−ea , ea ] ⊂ R. This
+last component is implemented by a sub-module of the Eilenberg-MacLane S[±1]-module
+HR which functorially encodes the additive structure of the group R. The morphisms
+of abelian groups used by Weil in the development of the adelic geometry of function
+fields still retain a meaning in this absolute set-up and they are viewed as morphisms of
+S[±1]-modules. We focus, in particular, on the morphism
+
+
+                ψ : Q × O(D) → AQ        ψ(q, a) = q + a ∀q ∈ Q, a ∈ O(D),                  (1.2)
+
+
+where Q is embedded diagonally in the adeles. The Γ-space H(D) associated by the Dold-
+Kan correspondence to (1.2) (ψ is viewed here as a short complex of S[±1]-modules: see
+appendix B) provides the absolute incarnation of the Riemann-Roch problem for the
+divisor D. By implementing linear equivalence i.e. the multiplicative action of Q× on
+AQ , one is reduced to consider only the case D = a{∞}, for which ker(ψ) is the S[±1]-
+module H 0 (D) = kHZkea that associatesP
+P                                              to a finite pointed set X the Z-valued divisors
+                                                            a
+  i n i xi , xi ∈ X,  fulfilling the condition   i |ni | ≤ e (| · | = euclidean absolute value).
+By definition, H (D) is a covariant functor Γ −→ Sets∗ from the small category Γo
+                    0                                o
+
+(a skeleton of the category of finite pointed sets) to pointed sets. It keeps track of the
+partially defined addition in I P
+P                                    = kHZkea (1+ ) = [−ea , ea ] ∩ Z, so that for ni ∈ I, the sum
+   ni is meaningful provided i |ni | ≤ ea . The dimension dimS[±1] H 0 (D) is defined to
+be the smallest number of linear generators of I. More precisely, a subset F ⊂ I linearly
+generates if and only if for every m ∈ I there exist coefficients α(f ) ∈ {−1, 0, 1} =
+4                                    A. Connes and C. Consani
+                           P                       P
+S[±1](1+ ) such that m =      α(f )f , f ∈ F , and   |α(f )f | ≤ ea (see section 3). The
+S[±1]-module H (D) only depends upon the integer part n = ⌊ea ⌋ of ea and Proposition
+                0
+
+3.3 determines its dimension to be2
+                                                                        
+                                                             log(2n + 1)
+                                dimS[±1] (kHZkn ) =                        .                          (1.3)
+                                                                log 3
+
+The cokernel of ψ in (1.2), that is H 1 (D), is defined in terms of the Γ-space H(D). The
+lack of transitivity of the homotopy relation in non-Kan complexes is dealt with using the
+classical notion of tolerance relation [12]. Thus H 1 (D) is the couple of the S[±1]-module
+HAQ and a suitable tolerance relation R on it (see Proposition 2.2 and appendix A). This
+relation is defined by pairs whose difference belongs to the image of ψ. More specifically,
+H 1 (D) defines an object of the category ΓT∗ of tolerance S-modules (see appendix A). Its
+dimension dimS[±1] H 1 (D) is defined to be the smallest number of linear generators where
+a subset F ⊂ HAQ (1+ ) = AQ linearly generates if and only if P     for every x ∈ HAQ (1+ )
+there exists coefficients α(f ) ∈ {−1, 0, 1} such that the pair (x, α(f )f ) belongs to the
+relation R (see section 4).
+An attentive reader should readily recognize that our construction strictly parallels Weil’s
+adelic proof of the Riemann-Roch formula for function fields and, in particular, that
+our notion of dimension is a straigthforward generalization of the classical dimension for
+vector spaces. For an archimedean divisor D = a{∞}, the dimension of H 1 (D) is the same
+as the dimension of the pair (H(R/Z), R), where the relation R on H(R/Z)(1+ ) = R/Z
+is given by
+                                (x, y) ∈ R ⇐⇒ d(x, y) ≤ ea ,                           (1.4)
+for d the translation invariant Riemannian metric of length 1 on R/Z. In Proposition 4.1
+we show that this dimension is the integer
+                                                               
+                                                     −a − log 2
+                              dimS[±1] (H(R/Z), R) =             .                                    (1.5)
+                                                       log 3
+
+Theorem 1.1 follows from (1.3) when deg D ≥ − log 2, since in this case dimS[±1] H 1 (D) =
+0. The case deg D < − log 2 is proved using (1.5). The symmetry of the term ⌈ deg log
+                                                                                  D+log 2 ′
+                                                                                      3  ⌉
+under the replacement of D by the divisor K − D, with K := −2{2}, is the numerical
+evidence of a geometric duality holding on the curve Spec Z over S[±1] (see section 5).
+This is precisely stated by the following (see Theorem 5.3)
+
+Theorem 1.2. Let D be an Arakelov divisor on Spec Z and K = −2{2}, with deg K =
+−2 log 2. Then there is an isomorphism of S[±1]-modules.
+
+                             H 0 (K − D) ≃ HomΓT∗ (H 1 (D), U (1) 14 ),                               (1.6)
+
+  2 For the values n = 4, 13, 40, . . . , (3k − 1)/2, every element of I is uniquely written in terms of the
+
+generating set F = {3i | 0 ≤ i < k} (Proposition 3.3 (iii)).
+                                Riemann-Roch for Spec Z                                    5
+
+where U (1) 14 coincides with H 1 (K), playing the role of the dualizing module in Pontryagin
+duality.
+
+The isomorphism H 0 (K − D) ≃ HomΓT∗ (H 1 (D), H 1 (K)) is the analogue of
+Grothendieck’s version of Serre’s duality [7] (12.15.1955). The duality (1.6) derives from
+Pontryagin’s duality holding for tolerant S[±1]-modules (Proposition 5.2), once again in
+analogy with the corresponding result proven in [13] for curves over fields of positive
+characteristic. The divisor K plays the role of the canonical divisor.
+  The paper is organized as follows, in section 2 we adapt to the adelic framework the
+construction of the Γ-space H(D) naturally associated to an Arakelov divisor D. This
+gives, in Proposition 2.2, the cohomologies H 0 (D) and H 1 (D). We compute the dimension
+of H 0 (D) in section 3 (Theorem 3.4), and of H 1 (D) in section 4 which concludes with the
+proof of the main Theorem 4.3. Section 5 is devoted to Serre and Pontrjagin dualities. In
+appendix A we develop the needed generalities on tolerance S-modules and in appendix
+B the technical details of the construction, through the Dold-Kan correspondence, of the
+Γ-space H(D).
+
+2. The cohomology H • (D)
+We recall, from [4], the construction of the Γ-space H(D) naturally associated to an
+Arakelov divisor D on Spec Z. This space is the absolute homological incarnation of the
+Riemann-Roch problem for the divisor D. We formulate this construction in terms of the
+adeles of Q.
+             P
+  Let D = j aj {pj } + a{∞} be an Arakelov divisor on Spec Z. This is a formal finite
+sum with aj ∈ Z and a ∈ R, where pj are rational primes in Z and the symbol ∞ stands
+for the restriction | · | : Q → R of the euclidean absolute value | · |∞ . Let ΣQ denote the
+full set of places ν of Q. To D is naturally associated the following idele exp(D) of Q
+                                        −aj
+                                       pj
+                                                  if ν = νj
+                             exp(D)ν := 1          ∀ν 6= νj , ∀j
+                                       
+                                        a
+                                         e         if ν = ∞.
+
+The equality exp(D)(ν) = | exp(D)ν |ν defines a map exp(D) : ΣQ → R∗+ such that
+exp(D)(ν) ∈ mod(Qν ), ∀ν ∈ ΣQ , and exp(D)(ν) = 1, for ν 6= ∞, νj , ∀j. To the divisor D
+corresponds the compact subset of the adeles of Q
+                      
+               O(D) := (aν ) ∈ AQ | |aν |ν ≤ exp(D)(ν), ∀ν ∈ ΣQ ⊂ AQ .
+                                             Q
+By definition O(D) = O(D)f × O(D)∞ =           ν O(D)ν with
+
+                                −aj
+                               pj Zpj if ν = νj
+                               
+                        O(D)ν = Zν         ∀ν 6= νj , ∀j, ν < ∞
+                               
+                                   a a
+                                 [−e , e ] if ν = ∞.
+6                                A. Connes and C. Consani
+                                      Q
+In particular, the product O(D)f = ν6=∞ O(D)ν is a compact abelian group. The
+archimedean component, on the other hand, i.e. the real interval [−ea , ea ], is not, and for
+this reason we implement the functorial viewpoint to suitably understand O(D). Indeed,
+to O(D)∞ we associate the covariant functor
+                                                                            X                     
+      kHRkea : Γo −→ Sets∗          kHRkea (F ) :=         φ ∈ HR(F ) |              |φ(x)| ≤ ea
+                                                                            F \{∗}
+
+
+from the opposite of the Segal category (see e.g. [6] Chpt. 2 and [2]) to pointed sets, which
+maps a finite pointed set F to the pointed set of R-valued divisors on F vanishing on
+                                       P
+the base point and whose total mass F \{∗} |φ(x)| is bounded by ea . Covariant functors
+Γo −→ Sets∗ and their natural transformations determine the category ΓSets∗ of Γ-sets
+(aka S-modules). In particular, the Eilenberg-MacLane functor H encodes an abelian
+group A as the covariant functor HA : Γo −→ Sets∗ that associates to F the pointed set
+of A-valued divisors on F vanishing on the base point. Functoriality holds by taking sums
+on the inverse images of a point. The functor HA encodes the addition on A = HA(1+ ).
+In general, let σ ∈ HomΓo (k+ , 1+ ) with σ(ℓ) = 1 ∀ℓ 6= ∗ and
+                                                                   (
+                                                                       1   if ℓ = j
+                   δ(j, k) ∈ HomΓo (k+ , 1+ ),     δ(j, k)(ℓ) :=                                       (2.1)
+                                                                       ∗   if ℓ 6= j.
+
+Given an S-module F and elements x, xj ∈ F (1+ ), j = 1, . . . , k, one writes
+           X
+      x=        xj ⇐⇒ ∃z ∈ F (k+ ) s.t. F (σ)(z) = x, F (δ(j, k))(z) = xj , ∀j.                        (2.2)
+            j
+
+
+For A = R the key point is that this general construction respects the bound on the total
+mass while encoding the addition. One easily sees that kHRkea is an S[±1]-module (an
+“(S[±1]∧−)-algebra” as in [6] 2.1.5), where S[±1] : Γo −→ Sets∗ , S[±1](F ) := {−1, 0, 1}∧
+F is the spherical monoid algebra of the multiplicative monoid {±1}. In particular, the
+inclusion functor kHRkea −→ HR determines kHRkea as a sub S[±1]-module of HR,
+where S : Γo −→ Sets∗ is the identity functor.
+  Given two S-modules Fj , j = 1, 2, one defines their product as the functor
+
+                F1 × F2 : Γo −→ Sets∗ ,          (F1 × F2 )(F ) = F1 (F ) × F2 (F )
+
+with the base point of F1 (F ) × F2 (F ) taken to be (∗, ∗). For abelian groups A, B one has
+a canonical isomorphism H(A × B) ≃ HA × HB. In particular, the morphism of addition
+in adeles α : Q × AQ → AQ , α(q, a) = q + a (using the diagonal embedding of Q in AQ )
+determines a morphism of S[±1]-modules Hα : HQ × HAQ −→ HAQ . Next proposition
+shows how this functorial construction is well combined with the adelic formalism.
+                                  Riemann-Roch for Spec Z                                     7
+
+  Proposition 2.1. (i)     The S[±1]-module
+
+                                HO(D) := H(O(D)f ) × kHRkea
+
+        determines, canonically, a sub S[±1]-module ι : HO(D) −→ HAQ .
+(ii)    The restriction of Hα to HQ × HO(D) defines a morphism of S[±1]-modules
+
+                                   ψ : HQ × HO(D) −→ HAQ .                                 (2.3)
+
+  Proof. (i) With AQ = Af × R, let ιf : O(D)f → Af be the inclusion of abelian groups.
+  Then ι : HO(D) → HAQ is the product of Hιf and the inclusion kHRkea → HR.
+  (ii) By composition one obtains ψ = Hα ◦ (HidQ × ι).                              
+
+    The morphism ψ in (2.3) is obtained by restricting Hα to the (adelic) divisor D,
+  where α is a morphism of abelian groups. The theory developed in [4] associates to ψ
+  a Γ-space H(D), by implementing the Dold-Kan correspondence in the special case of
+  a short complex of abelian groups and its restriction to a sub-S-module. The Γ-space
+  H(D) supplies the absolute cohomology of the divisor D. We recall this construction in
+  appendix B. Moreover, we review how the generalized homotopy π∗T (H(D)), where T is
+  the category of tolerance relations defined in A.1, is meaningful in this context supplying,
+  with π1T (H(D)) and π0T (H(D)), the (tolerant) S-modules descriptions of resp. the kernel
+  and the cokernel of ψ. In other words, one obtains the following result
+
+  Proposition 2.2. (i)     The kernel of ψ is the S[±1]-module:
+
+           H 0 (D) = (HidQ × ι)−1 (H ker(α)) ≃ ι−1 HQ = kH 0 (Spec Z, O(D)f )kea .         (2.4)
+
+(ii)    The cokernel of ψ is the S[±1]-module H 1 (D) = (HAQ , R) endowed with the
+        relations
+
+                  Rk := {(x, y) ∈ HAQ (k+ ) × HAQ (k+ ) | x − y ∈ Image ψ(k+ )}.           (2.5)
+
+(iii)   Both H 0 (D) and H 1 (D) only depend, up to isomorphism, on the linear equivalence
+        class of the divisor D.
+
+  Proof. We refer to appendix B.1.                                                            
+
+  3. The dimension of H 0 (D)
+  In this section we consider, for each integer n > 0, the S[±1]-module kHZkn
+                                                                     X
+           kHZkn : Γo −→ Sets∗        kHZkn (F ) := {φ ∈ HZ(F ) |            |φ(x)| ≤ n}
+                                                                    F \{∗}
+8                                     A. Connes and C. Consani
+
+and evaluate its dimension. It follows from the S[±1]-module structure, that (2.2) holds
+for a sum of the form
+          X                                                                                X
+               αj j ∈ [−n, n] ∩ Z = kHZkn (1+ ) ∀αj ∈ {−1, 0, 1} s.t.                           |αj j| ≤ n.
+           F                                                                                F
+
+
+By applying Definition A.2, a subset F ⊂ [−n, n] ∩ Z = kHZkn (1+ ) generates3
+kHZkn (1+ ) if and only if for every element x ∈ kHZkn (1+ ) there exists coefficients
+                                         P             P
+αj ∈ {−1, 0, 1}, j ∈ F , such that x =      F αj j and    F |αj j| ≤ n. The dimension
+dimS[±1] kHZkn is the minimal cardinality of a generating set.
+  The explicit computation of dimS[±1] kHZkn follows from the next two statements.
+
+Lemma 3.1. For k ∈ N, let n = (3k − 1)/2. Consider the subset F := {3i , 0 ≤ i ≤
+k − 1} ⊂ [−n, n]. Then F is a generating set and the map
+
+                                                                                     k−1
+                                                                                     X
+                                      ×k
+                     θ : {−1, 0, 1}        → [−n, n] ∩ Z,              θ((αi )) :=         αi 3i              (3.1)
+                                                                                     i=0
+
+                           Pk−1        i                               ×k
+is bijective. Moreover        i=0 |αi 3 | ≤ n, for all αi ∈ {−1, 0, 1}    .
+
+Proof. First of all, note that for all α ∈ {−1, 0, 1}×k one has
+
+                                           k−1
+                                           X                  k−1
+                                                              X
+                                                 |αi 3i | ≤         3i = n.
+                                           i=0                i=0
+
+
+This shows that for any α ∈ {−1, 0, 1}×k one has z = (αi 3i ) ∈ kHZkn (k+ ), and, as in
+(2.2), kHZkn (σ)(z) = θ((αi )). We prove the bijectivity of θ by induction on k. It is clear
+for k = 1. For k = 2, n = 4 and one writes the set [−4, 4] ∩ Z as the disjoint union of
+three subsets as follows
+
+                 [−4, 4] ∩ Z = {−4, −3, −2} ∪ {−1, 0, 1} ∪ {2, 3, 4} =
+                              = (−3 + {−1, 0, 1}) ∪ {−1, 0, 1} ∪ (3 + {−1, 0, 1}).
+
+This shows that θ is bijective. Next, by assuming to have shown the bijectivity up to
+k − 1, we deduce it for k. Indeed, with n = (3k − 1)/2 let m = (3k−1 − 1)/2. The induction
+hypothesis ensures that every element of the set [−m, m] ∩ Z can be uniquely written as
+        Pk−2
+a sum i=0 αi 3i . We divide the set [−n, n] ∩ Z into three disjoint parts of the form
+
+          J−1 := [−n, −n + 2m] ∩ Z,               J0 := [−m, m] ∩ Z,          J1 := [n − 2m, n] ∩ Z.
+
+    3 For simplicity we use from now on the term “generates” for “linearly generates”
+                                   Riemann-Roch for Spec Z                                         9
+
+ One has n − 2m = m + 1 and thus the union of these three disjoint sets is [−n, n] ∩ Z.
+ Moreover one has J1 = (n − m) + J0 with n − m = 3k−1 , and similarly J−1 = J0 − 3k−1 .
+ Thus, given x ∈ [−n, n] ∩ Z one determines uniquely the coefficients αi ∈ {−1, 0, 1} such
+ that θ((αi )) = x. Indeed, one uses the above partition in three intervals to determine
+ the coefficient αk−1 and then one applies the induction hypothesis to determine the
+ others.                                                                                
+
+ Remark 3.2 1. The conceptual explanation of Lemma 3.1 derives from the following
+    peculiar property of the Teichmüller lift τ : F3 → Z3 . One has
+    τ (F3 ) = {−1, 0, 1} ⊂ Z ⊂ Z3 and τ extends to a canonical map τ̃ : Wk (F3 ) → Z
+    from Witt vectors to Z
+
+                                                               k−1
+                                                               X
+                           ξ = (ξj ) ∈ Wk (F3 ) 7→ τ̃ (ξ) :=         τ (ξj )3j ∈ Z.
+                                                                0
+
+
+    This map coincides with θ in (3.1) and one can compute the partially defined sums
+    (2.2) in kHZkn using the addition in Wk (F3 ). The prime p = 3 is the only prime
+    such that the subring Z ⊂ Zp = W (Fp ) coincides with the ring of Witt vectors with
+    finitely many non-zero components. When p > 3 one has τ (Fp ) 6⊂ Z, while for p = 2
+    the integer −1 ∈ Z ⊂ Z2 is the Witt vector whose components are all equal to 1. In
+    general the Witt vectors with finitely many non-zero components do not even form
+    a subgroup of the additive group of Witt vectors.
+ 2. The Teichmüller lift τ , as a morphism of multiplicative pointed monoids, induces a
+    morphism S[±1] → HZ of S-algebras.
+ 3. The ordering of the natural numbers encoded by θ coincides with the lexicographic
+    ordering of the coefficients (αi ) ∈ {−1, 0, 1}×k
+
+                  θ((αi )) < θ((βi )) ⇐⇒ ∃j s.t. αj < βj and αℓ = βℓ                  ∀ℓ > j.
+
+   We recall that the ceiling function ⌈x⌉ associates to a positive real number x the
+ smallest integer n ≥ x.
+
+ Proposition 3.3. (i)      For any integer n ≥ 0 one has
+                                                                      
+                                                           log(2n + 1)
+                                 dimS[±1] kHZkn =                       .                       (3.2)
+                                                              log 3
+
+(ii)   For n ∈/ {2, 5}, there exists a generating subset F ⊂ {1, . . . , n} of cardinality
+                                 P
+       #F = ⌈ log(2n+1)
+                  log 3  ⌉, with j∈F j = n, such that the following map surjects onto
+       [−n, n] ∩ Z
+                                                                                  X
+                     θ : {−1, 0, 1}×(#F ) → [−n, n] ∩ Z,            θ((αi )) :=         αj j.
+                                                                                  j∈F
+10                                  A. Connes and C. Consani
+
+Proof. (i) Set κ(n) := dimS[±1] kHZkn . Since the cardinality of [−n, n] ∩ Z is 2n + 1 and
+the cardinality of {−1, 0, 1}×#F is 3#F , it follows that if F is a generating set one must
+have 3#F ≥ 2n + 1. Thus one has #F ≥ log(2n+1) log 3 , and since #F is an integer one gets
+#F ≥ ⌈ log(2n+1)
+          log 3  ⌉. This shows that κ(n) ≥ ⌈ log(2n+1)
+                                                log 3  ⌉. It remains to prove that for each
+n ≥ 0 one can find a generating set F with #F = ⌈ log(2n+1)
+                                                        log 3 ⌉. One uses Lemma 3.1, and
+distinguishes several cases starting with the easiest one. Set F (k) := {3i , 0 ≤ i ≤ k − 1}
+and let E ⊂ N be the subset
+                                                               
+                                 ℓ   1 m
+                         E = 3 + (3 − 1) | m ∈ N, ℓ < m .                               (3.3)
+                                     2
+
+We list the first elements of E as follows
+
+     2, 5, 7, 14, 16, 22, 41, 43, 49, 67, 122, 124, 130, 148, 202, 365, 367, 373, 391, 445, 607 . . .
+
+First, assume that n ∈   / E. Then let m be the largest integer such that 3m ≤ 2n + 1.
+    m
+If 3 = 2n + 1, then Lemma 3.1 provides one with a generating set of cardinality
+m = log(2n+1)
+          log 3 . Assume now that 3m < 2n + 1. Then, the map θ for F (m) covers the
+set [−q, q] ∩ Z, where q = 21 (3m − 1). Thus by adjoining to F (m) the element n − q one
+covers [−n, n] ∩ Z. More precisely, let F = F (m) ∪ {n − 21 (3m − 1)}, then we show that
+F fulfills the conditions in (ii). One has #F = #F (m) + 1 since the additional element
+n − 21 (3m − 1) does not belong to F (m) as, by hypothesis, n ∈   / E. Since #F (m) = m,
+#F = m + 1 = ⌈ log(2n+1)
+                      log 3 ⌉. The  sum of elements in F (m)  is 1   m
+                                                                 2 (3 − 1), so the sum of
+elements in F is equal to n. Next, we show that θ is surjective. Its image contains the
+three sets θ(F (m)), θ(F (m)) + n − 21 (3m − 1), and θ(F (m)) − (n − 12 (3m − 1)). Using
+Lemma 3.1 one obtains, with q = 12 (3m − 1)
+
+                   θF (m) = [−q, q] ∩ Z,       θF (m) + n − q = [n − 2q, n] ∩ Z,
+                   θF (m) − (n − q) = [−n, −n + 2q] ∩ Z.
+
+One has 3(2q +1) = 3m+1 > 2n+1. This inequality prevents the three subsets from being
+disjoint, thus the upper limit q of θF (m) is greater or equal to the lower limit n − 2q of
+the interval θF (m) + n − q. Thus θ is surjective.
+The next case is for n ∈ E of the form n = 1+ 12 (3m − 1), for some m (ℓ = 0 in (3.3)). We
+assume that m > 2 (this excludes the cases n = 2 for m = 1, and n = 5 for m = 2). Let
+
+                           F := {3k | 0 ≤ k ≤ m − 2} ∪ {2, 3m−1 − 1}.
+
+(This choice avoids the repetition of the element 1 = n − q while keeping the sum
+of elements of F equal to n). We show that F fulfills the conditions in (ii). We have
+#F = m − 1 + 2 = m + 1 since 3m−1 − 1 ∈ / {1, 2}. Moreover 2n + 1 = 3m + 2, thus #F =
+          log(2n+1)
+m + 1 = ⌈ log 3 ⌉. The sum of terms in F is equal to one plus the sum of the powers
+of 3 up to 3m−1 and thus is equal to n. Let us now show that the map θ is surjective.
+                                   Riemann-Roch for Spec Z                                      11
+
+By construction θ(F ) is the union of nine intervals obtained, with q ′ = 12 (3m−1 − 1), by
+adding to the set [−q ′ , q ′ ] ∩ Z the terms in {2, 3m−1 − 1} with coefficients in {−1, 0, 1}.
+With the term 3m−1 − 1 one covers the set [−q + 1, q − 1] ∩ Z, where q = 12 (3m − 1) as
+the union of the three sets
+
+         [−q ′ , q ′ ] ∩ Z, ([−q ′ , q ′ ] + 3m−1 − 1) ∩ Z, ([−q ′ , q ′ ] − (3m−1 − 1)) ∩ Z.
+
+One has q ′ + 3m−1 − 1 = n − 2, and thus it remains to cover the two elements n − 1, n
+and their opposite. This is done using the set ([−q ′ , q ′ ] + 3m−1 − 1 + 2) ∩ Z whose upper
+limit is n, and appealing to the fact that since q ′ > 1 this interval contains n − 1.
+Finally, we consider the case n ∈ E of the form n = 3ℓ + 21 (3m − 1), with m ∈ N, 0 <
+ℓ < m. Here, the additional element n − 12 (3m − 1) does belong to F (m) so the proof
+of the first case considered above does not apply since 3ℓ appears twice in F (m) ∪ {n −
+1   m                                                  ℓ                                ℓ
+2 (3 − 1)}. We replace this double occurrence of 3 by the two distinct elements 3 ± 1.
+This gives
+                           F = (F (m) \ {3ℓ }) ∪ {3ℓ − 1, 3ℓ + 1}.
+By construction #F (m) + 1 = m + 1. Furthermore one has: n = 3ℓ + 12 (3m − 1), 2n + 1 =
+3m + 2 × 3ℓ and since 0 < ℓ < m one gets #F = m + 1 = ⌈ log(2n+1)          log 3  ⌉. The sum
+of elements of F is the same as the sum of elements of F (m) plus 3ℓ which is equal
+to n. It remains to show that, for such F , θ is surjective. We first deal with the set
+G(ℓ) := F (ℓ) ∪ {3ℓ − 1, 3ℓ + 1} and show P that the map θG(ℓ) , for this set, surjects onto
+the interval [−t(ℓ), t(ℓ)] ∩ Z, where t(ℓ) = G(ℓ) j = 3ℓ + 12 (3ℓ+1 − 1). Lemma 3.1 shows
+that the image of θF (ℓ) is the set J ∩ Z, with J = [− 21 (3ℓ − 1), 21 (3ℓ − 1)]. To show the
+surjectivity of θG(ℓ) it is enough to show that the following intervals cover [0, t(ℓ)]:
+
+                         J,   J + 3ℓ − 1,      J + 3ℓ + 1,     J + 2 × 3ℓ .
+
+The upper limit of J + 2 × 3ℓ is 21 (3ℓ − 1) + 2 × 3ℓ = t(ℓ), its lower limit is equal to the
+upper limit of J +3ℓ +1. The lower limit of J +3ℓ −1 is 3ℓ −1− 21 (3ℓ −1) = 21 (3ℓ −1) which
+is the upper limit of J. Moreover, the length of J is 3ℓ − 1 ≥ 2 so that two translates
+of J of the form J + a, J + a + 2 necessarily overlap. This shows that the map θG(ℓ)
+surjects onto the interval [−t(ℓ), t(ℓ)] ∩ Z. Thus θG(ℓ) is the symmetric enlargement of
+the interval θ(F (ℓ + 1)) obtained by adding 3ℓ to the upper limit. Then, as in the proof
+                                                                                            ′
+of Lemma 3.1, one obtains by induction that when one adjoins the higher powers 3ℓ ,
+where ℓ < ℓ′ < m, one achieves the enlargement of the interval θ(F (m)) obtained by
+adding 3ℓ to the upper limit. This shows that the map θ for F is surjective. In fact the
+above arguments prove (ii) and (i), except that one has to take care of the special cases
+n = 2, 5. For n = 2, {1, 2} is a generating set but the sum of its terms is > 2. For n = 5,
+{1, 2, 3} is a generating set but the sum of its terms is > 5.                             
+
+  We are now ready to determine the dimension of the S[±1]-module H 0 (D), for any
+Arakelov divisor D. It is a non-decreasing function of deg D but the formula for this
+dimension drops by 1 on an exceptional set L. It is the open set defined as the union of
+12                               A. Connes and C. Consani
+
+open intervals as follows
+                                [
+                 L + log 2 =         (k log 3, k log 3 + ǫk ), ǫk := log(1 + 3−k ).       (3.4)
+                               k∈N
+
+
+It has finite Lebesgue measure
+
+                                X                   
+                                                   1
+                        |L| =         ǫk = log −1;     = 1.14099 . . .
+                                                   3 ∞
+                                k≥0
+
+               Q
+where −1; 31 ∞ = ∞
+                 n=0 (1 + 3
+                            −n
+                               ) is the −1 Pochhammer symbol at 31 .
+
+Theorem 3.4. Let D be an Arakelov divisor on Spec Z. If deg D ≥ − log 2, then
+                                                       
+                                        0 deg D + log 2
+                         dimS[±1] H (D) =                 − 1L                            (3.5)
+                                              log 3
+
+where 1L is the characteristic function of the open set L.
+
+Proof. Let a = deg D and n = ⌊exp(deg(D)⌋, then H 0 (D) = kHZkn . By Proposition
+3.3 one gets
+                                             
+                         0        log(2n + 1)
+               dimS[±1] H (D) =                ,  n := ⌊exp(a)⌋.
+                                     log 3
+Let us compare this formula with (3.5). Assume first that a ∈ L, thus there exists
+k ∈ N such that a + log 2 ∈ (k log 3, k log 3 + ǫk ). Then, 2 exp a ∈ (3k , 3k + 1) and with
+n = ⌊exp a⌋, one has n = 12 (3k − 1). Thus 2n + 1 = 3k and ⌈ log(2n+1)
+                                                                    log 3   ⌉ = k. Moreover,
+a+log 2            ǫk                 ǫk                        a+log 2
+  log 3 ∈ (k, k + log 3 ), where 0 < log 3 < 1, hence one has ⌈ log 3 ⌉ = k + 1, so that (3.5)
+holds since 1L (a) = 1. Now, assume that a ∈   / L, equivalently that a+log  2       ǫk
+                                                                        log 3 ∈ [k+ log 3 , k+1]
+                                                                     a+log 2
+for some integer k ≥ 0 (since a ≥ − log 2 by hypothesis). Then ⌈ log 3 ⌉ = k + 1. One has
+
+           2 exp a ∈ [exp(k log 3)(1 + 3−k ), exp((k + 1) log 3)] = [3k + 1, 3k+1 ].
+
+In this case n = ⌊exp a⌋ ∈ [ 12 (3k + 1), 12 (3k+1 − 1)] and thus 2n + 1 ∈ [3k + 2, 3k+1 ]. This
+implies that log(2n+1)
+                log 3   ∈ (k, k + 1] and hence that ⌈ log(2n+1)
+                                                            log 3 ⌉ = k + 1. In this case (3.5)
+holds since 1L (a) = 0.                                                                       
+
+4. The dimension of H 1 (D)
+Let (A, d) be an abelian group endowed with a translation invariant metric d. For λ ∈
+R>0 , we shall refer to (A, d)λ as the associated object of the category ΓT∗ as in Proposition
+A.3. The S-module structure determines the addition in A = (A, d)λ (1+ ), as well as the
+action of S[±1] on it, where for x ∈ A = (A, d)λ (1+ ), −x is the additive inverse of x. The
+                                  Riemann-Roch for Spec Z                                     13
+
+metric d determines the tolerance relation R on A = (A, d)λ (1+ ). Next result computes
+the dimension (Definition A.2) of the tolerant S[±1]-module (R/Z, d)λ .
+
+Proposition 4.1. Let λ ∈ R>0 , and U (1)λ = (U (1), d)λ where U (1) is the abelian group
+R/Z endowed with the canonical metric d of length 1. Then
+
+
+                                                           
+                                              − log λ−log 2       if λ < 21
+                                                     log 3
+                       dimS[±1] U (1)λ =                                                   (4.1)
+                                             
+                                                 0                 if λ ≥ 12 .
+
+Proof. For λ ≥ 12 , any element of U (1)λ = (R/Z, d)λ is at distance ≤ λ from 0, thus one
+                                                         P
+can take F = ∅ as generating set since, by convention, ∅ = 0. Thus dimS[±1] U (1)λ = 0.
+Next, we assume λ < 21 . Let F ⊂ U (1) be a generating P       set and let k = #F . One
+easily sees that there are at most 3k elements of the form F αj j. The subsets {x ∈
+U (1) | d(x, αj j) ≤ λ} cover U (1), and since each of them has measure 2λ one gets the
+inequality 2λ · 3k ≥ 1. Thus k ≥ − loglog
+                                        λ−log 2
+                                          3     . For λ = 16 one has k ≥ 1 and the subset
+F = { 31 } generates, thus dimS[±1] U (1)λ = 1. When − loglog λ−log 2
+                                                                3     = m is an integer, one
+          1 −m                1          1
+has λ = 2 3 . Let F (m) = { 3 , . . . , 3m }. The minimal distance between two elements of
+F (m) is the distance between 3−m and 3−m+1 = 3 · 3−m which is 2 · 3−m = 4λ. Let us
+show that F (m) is a generating set. By LemmaP     3.1 any integer q in the interval [−N, N ],
+for N = 21 (3m − 1) can be written as q = m−1          i
+                                               i=0 αi 3 , with αi ∈ {−1, 0, 1}. One then gets
+
+
+
+                                       m−1
+                                       X                 m
+                                                         X
+                           q · 3−m =         αi 3i−m =         αm−j 3−j .
+                                       i=0               j=1
+
+
+
+                                     m    m
+Let x ∈ [− 21 , 12 ], then 3m x ∈ [− 32 , 32 ] and there exists an integer q ∈ [−N, N ] such
+that |3m x − q| ≤ 12 . Hence d(x, q · 3−m ) ≤ λ. This proves that F (m) is a generating set
+(see Definition A.2) and one derives dimS[±1] U (1)λ = m. Assume now that − loglog    λ−log 2
+                                                                                        3      ∈
+(m, m + 1), where m is an integer. For any generating set F of cardinality k one has
+k ≥ − loglog
+           λ−log 2
+              3      > m so that k ≥ m + 1. The subset F (m + 1) = { 31 , . . . , 3m+1
+                                                                                    1
+                                                                                       } fulfills
+the first condition of Definition A.2 since the minimal distance between two elements
+of F (m + 1) is 2 · 3−m−1 which is larger than λ < 12 3−m . As shown above, the subset
+F (m + 1) is generating for λ = 12 3−m−1 and a fortiori for λ > 21 3−m−1 (as by assumption
+− log λ−log 2
+    log 3      < m + 1). Thus one obtains dimS[±1] U (1)λ = m + 1 and (4.1) is proven. 
+
+Remark 4.2 The proof of Proposition 4.1 relies on a definite advantage of the triadic
+expansion of numbers [15]: truncating a number is identical to rounding it. This property
+does not hold in the decimal system where rounding a number requires the knowledge of
+the next digit.
+14                              A. Connes and C. Consani
+
+  We extend the ceiling function to negative values of the variable as follows
+                                         (
+                                    ′        ⌈x⌉ if x ≥ 0
+                                 ⌈x⌉ =                                                      (4.2)
+                                             −⌈−x⌉ if x ≤ 0.
+
+ We can now state and prove the absolute Riemann-Roch theorem for Spec Z over S[±1].
+With L the exceptional set defined in (3.4) one has
+
+Theorem 4.3. Let D be an Arakelov divisor on Spec Z. Then
+                                                                             ′
+                                                              deg D + log 2
+               dimS[±1] H 0 (D) − dimS[±1] H 1 (D) =                               − 1L .   (4.3)
+                                                                  log 3
+
+Proof. By appealing to the invariance under linear equivalence (Proposition 2.2 (iii)),
+one may assume that D = a{∞}. Then it follows from Proposition A.5 (ii) that
+dimS[±1] H 1 (D) = dimS[±1] U (1)λ for λ = exp(deg(D)). Assume first that exp(deg(D)) ≥
+1                                        1
+2 , then by Proposition 4.1: dimS[±1] H (D) = 0, thus for deg(D) ≥ − log 2 (4.3) follows
+from (3.5). Let us now assume that deg(D) < − log 2. Then dimS[±1] H 0 (D) = 0 since
+H 0 (D) = {∗} when deg D < 0. Moreover deg D ∈   / L since L is lower bounded by − log 2.
+Thus (4.3) follows from (4.1) which gives, using (4.2)
+                                                                                      ′
+                                                       − log λ − log 2     deg D + log 2
+     − dimS[±1] H 1 (D) = − dimS[±1] U (1)λ = −                         =                   .
+                                                            log 3              log 3
+
+This ends the proof of (4.3).                                                                   
+
+5. Duality
+In this section we prove an absolute analogue of Serre’s duality, namely the following
+isomorphism of S[±1]-modules, for any divisor D on Spec Z:
+
+                          H 0 (D) ≃ HomΓT∗ (H 1 (K − D), U (1) 14 ).
+
+Here, the divisor K = −2{2} plays the role of the canonical divisor. The choice of the
+tolerant S[±1]-module (U (1), d) 14 as dualizing module is motivated by Pontryagin duality
+(see 5.2). One has dimS[±1] (U (1) 14 ) = 1. This equality, in fact, also holds for the tolerant
+S[±1]-module U (1)λ for 61 ≤ λ < 12 : the specific choice λ = 14 is dictated by the invariance
+of the Riemann-Roch formula (4.3) when one switches H 0 and H 1 and replaces D by
+K − D (ignoring the exceptional set L).
+
+5.1. HomS (kHRkλ , kHRkµ )
+We start with the following general statement.
+                                Riemann-Roch for Spec Z                                   15
+
+Lemma 5.1. Let λ, µ ∈ R>0 . The S-algebra structure of HR induces an isomorphism
+of S-modules
+                      kHRkµ/λ ≃ HomS (kHRkλ , kHRkµ ).                      (5.1)
+
+Proof. One starts by defining the morphism of S-modules
+
+                        η : kHRkµ/λ → HomS (kHRkλ , kHRkµ ).                         (5.2)
+
+Precisely, the multiplication in the S-algebra HR determines natural maps
+
+                          m : HR(X) ∧ HR(Y ) → HR(X ∧ Y )
+
+inducing, for a fixed pointed set X, the map mX : HR(X) → HomS (HR, HR(X ∧ −)).
+The morphism η is defined as the natural transformation of functors which associates to
+X = k+ , the map ηX : kHRkµ/λ (X) → HomS (kHRkλ , kHRkµ (X ∧ −)) defined as the
+restriction of mX . This restriction is meaningful in view of [2] (Proposition 6.1).
+Next, we show that η is an isomorphism. First, we determine the S-module
+HomS (kHRkλ , kHRkµ ). For integers 1 ≤ j ≤ k we let as in (2.1)
+                                                               (
+                                                                   1 if ℓ = j
+                 δ(j, k) ∈ HomΓo (k+ , 1+ ),   δ(j, k)(ℓ) :=
+                                                                   ∗ if ℓ 6= j.
+
+Let φ ∈ HomS (kHRkλ , kHRkµ ). By construction, the natural transformation φ reads,
+for each k, as a map φ(k+ ) : kHRkλ (k+ ) → kHRkµ (k+ ) and by naturality we have
+
+                   kHRkµ (δ(j, k)) ◦ φ(k+ ) = φ(1+ ) ◦ kHRkλ (δ(j, k)).              (5.3)
+
+Since an element y ∈ kHRkµ (k+ ) is determined by its components yj ∈ R, 1 ≤ j ≤ k,
+with yj = kHRkµ (δ(j, k))(y), (5.3) shows that φ(k+ ) is uniquely determined by the map
+φ(1+ ) acting componentwise, i.e.
+
+                               φ(k+ )((xj )) = (φ(1+ )(xj )) .                       (5.4)
+
+Moreover, the map f = φ(1+ ) : [−λ, λ] → [−µ, µ] fulfills
+
+                    f (x + y) = f (x) + f (y) ∀x, y s.t. |x| + |y| ≤ λ,              (5.5)
+
+as one sees using the naturality of φ for the map σ ∈ HomΓo (2+ , 1+ ), i.e. using
+
+  (kHRkµ (σ) ◦ φ(2+ ))(x, y) = (φ(1+ ) ◦ kHRkλ (σ))(x, y) =⇒ f (x) + f (y) = f (x + y).
+
+By (5.5) one has f (x2−n ) = 2−n f (x), for any x ∈ [−λ, λ] and n ≥ 0. Thus the ‘germ
+of map’ f uniquely extends to a map f˜ : R → R defined by f˜(x) := 2n f (x2−n )
+16                               A. Connes and C. Consani
+
+for any n such that |x2−n | ≤ λ. Moreover, again by (5.5), the map f˜ is addi-
+tive and since f˜([−2−n λ, 2−n λ]) ⊂ [−2−n µ, 2−n µ], it is also continuous and hence
+determined by the multiplication by a real number r. One has |rλ| ≤ µ and hence
+r ∈ kHRkµ/λ (1+ ). Thus one gets φ(1+ )(x) = rx, ∀x ∈ [−λ, λ]. By (5.4) one obtains
+φ(k+ )((xj )) = (rxj ), ∀(xj ) ∈ kHRkλ (k+ ). This shows that for X = 1+ , ηX :
+kHRkµ/λ (X) → HomS (kHRkλ , kHRkµ (X ∧−)) is bijective. The next step is to determine
+HomS (kHRkλ , kHRkµ (X ∧−)) for X = ℓ+ . Let φ ∈ HomS (kHRkλ , kHRkµ (ℓ+ ∧−)). One
+has ℓ+ ∧k+ = (ℓk)+ and an element z ∈ kHRkµ (ℓ   P+ ∧k+ ) is determined by its components
+z(i, j) ∈ R for 1 ≤ i ≤ ℓ, 1 ≤ j ≤ k such that     |z(i, j)| ≤ µ. In particular, for each j,
+the z(i, j), 1 ≤ i ≤ ℓ, are the components of zj = kHRkµ (id ∧ δ(j, k)))(z) ∈ kHRkµ (ℓ+ ).
+This implies by applying the naturality of φ, that
+
+
+                                     φ(k+ )(z) = (φ(1+ )(zj )) .                        (5.6)
+
+
+As shown above the map f = φ(1+ ) : [−λ, λ] → kHRkµ (ℓ+ ) fulfills
+
+
+                      f (x + y) = f (x) + f (y) ∀x, y s.t. |x| + |y| ≤ λ                (5.7)
+
+
+and it extends to an additive map f˜ : R → Rℓ which is continuous since f˜ maps the
+interval [−λ, λ] inside kHRkµ (ℓ+ ). Thus there exists real numbers ri , 1 ≤ i ≤ ℓ, such that
+                                  P
+f˜(x) = (ri x) ∀x ∈ R. One has       |ri λ| ≤ µ and thus r = (ri ) ∈ kHRkµ/λ (ℓ+ ). Finally,
+using (5.6) it follows that φ = ηX (r). This proves that η as in (5.2) is an isomorphism. 
+
+5.2. Pontryagin duality
+In order to formulate Pontryagin duality in this context we consider, for λ > 0, the
+S[±1]-module U (1)λ = (U (1), d)λ , where U (1) is the abelian group R/Z endowed with
+                                                                                    b
+its canonical metric d of length 1. For a metric abelian group (A, d), we denote by A
+the abelian group of continuous characters, i.e. of continuous group homomorphisms
+A → U (1), where A is endowed with the topology associated to the metric d. We retain
+the notations of section A. Next statement is motivated by Lemma 5.1.
+
+Proposition 5.2. Let (A, d) be an abelian group endowed with a translation invariant
+metric d.
+(i)   For λ, µ ∈ R>0 , the S[±1]-module HomΓT∗ ((A, d)λ , U (1)µ ) is isomorphic to the sub
+      S[±1]-module of H A  b which, on the set k+ , is given by k-tuples (χj ), 1 ≤ j ≤ k of
+      continuous characters χj ∈ A   b such that, with |x| := d(x, 0), and for all finite
+      collections {xi } ⊂ A, fulfill
+
+                                X                    X
+                                      |xi | ≤ λ ⇒          |χj (xi )| ≤ µ.              (5.8)
+                                 i                   i,j
+                                          Riemann-Roch for Spec Z                                 17
+
+(ii)     Let p : A′ → A be a surjective morphism of abelian groups and let p∗ (A, d)λ be the
+         pullback as in Proposition A.4. One has the following canonical isomorphism
+
+                           HomΓT∗ (p∗ (A, d)λ , U (1)µ ) ≃ HomΓT∗ ((A, d)λ , U (1)µ ).          (5.9)
+
+ Proof. (i) Let φ ∈ HomΓT∗ ((A, d)λ , U (1)µ )(1+ ) = HomΓT∗ ((A, d)λ , U (1)µ ). By apply-
+ ing the forgetful functor F : T −→ Sets which associates to (X, R) the set X
+ (see Proposition A.2), one obtains an element F (φ) ∈ HomS (HA, HU (1)). Since the
+ Eilenberg-MacLane functor H determines a full and faithful embedding of the category
+ of abelian groups inside the category of S-modules, there exists a unique group homomor-
+ phism χ : A → U (1) such that H(χ) = F (φ). The condition that φ preserves     P the relation
+ Rk on theP  set k+  means     that for   any x ,
+                                               i iy ∈ A, 1 ≤    i ≤ k such that  d(xi , yi ) ≤ λ
+ one has     d(χ(xi ), χ(yi )) ≤ µ. By translation invariance of the metrics this condition is
+ equivalent to
+                                 X                  X
+                                     |xi | ≤ λ ⇒       |χ(xi )| ≤ µ.                      (5.10)
+                                      i                       i
+
+ This shows that HomΓT∗ ((A, d)λ , U (1)µ ) consists exactly of the group homomorphisms
+ χ : A → U (1) fulfilling (5.8). Specializing (5.10) to the case where all xi = x, i = 1, . . . , n,
+ one obtains the implication |x| ≤ λ/n ⇒ |χ(x)| ≤ µ/n, and hence that χ is uniformly
+ continuous. Let φ ∈ HomΓT∗ ((A, d)λ , U (1)µ )(k+ ) = HomΓT∗ ((A, d)λ , U (1)µ (k+ ∧ −)).
+ The object U (1)µ (k+ ∧ −) of ΓT∗ is (U (1)×k , dk )µ , where the metric dk on the product
+ group (U (1)×k is defined by
+
+                                                    k
+                                                    X
+                             dk ((xi ), (yi )) :=        d(xi , yi ) ∀xi , yi ∈ U (1).
+                                                     1
+
+
+ Replacing U (1)µ with (U (1)×k , dk )µ in the first part of the proof one obtains that F (φ) ∈
+ HomS (HA, HU (1)×k ) = H((χj )), where (χj ), 1 ≤ j ≤ k is a k-tuple of characters of A
+                                        b
+ fulfilling (5.8). It follows that χj ∈ A.
+ (ii) Let φ ∈ HomΓT∗ (p∗ (A, d)λ , U (1)µ )(1+ ) = HomΓT∗ (p∗ (A, d)λ , U (1)µ ). As in the proof
+ of (i), there exists a group homomorphism χ′ : A′ → U (1) such that H(χ′ ) = F (φ).
+ Moreover χ′ preserves the relation Rk for any k, and this implies
+
+                    k
+                    X                          k
+                                               X
+                           |p(x′i )| ≤ λ ⇒           |χ′ (x′i )| ≤ µ,     ∀(x′i ) ∈ (A′ )×k .
+                     i=1                       i=1
+
+
+ In particular, taking all x′i = x′ ∈ ker(p) one obtains |χ′ (x′ )| ≤ µ/k ∀k, and hence
+ χ′ (ker(p)) = {1}. This implies that there exists a group homomorphism χ : A → U (1)
+ such that χ′ = χ ◦ p.                                                               
+
+       We can now state and prove Serre’s duality.
+18                                 A. Connes and C. Consani
+                        P
+Theorem 5.3. Let D = j aj {pj } + a{∞} be an Arakelov divisor on Spec Z. There is
+a canonical isomorphism of S[±1]-modules
+
+                            H 0 (K − D) ≃ HomΓT∗ (H 1 (D), U (1) 14 ),                 (5.11)
+
+where K is the divisor K = −2{2}.
+
+Proof. By Proposition A.5, with λ = exp a, one has H 1 (D) = π ∗ ((R/L, d)λ ) and by
+Proposition 5.2, (ii), one gets the isomorphism
+
+                 HomΓT∗ (H 1 (D), U (1) 14 ) ≃ HomΓT∗ ((R/L, d)λ , U (1) 14 ).
+
+In fact, we can assume that D = a{∞}, with a = deg D so that L = Z. Then we apply
+Proposition 5.2 (i), with A = R/Z and µ = 41 . One has A    b = Z and the characters χn ∈ Ab
+are given by multiplication by n, i.e. χn (s) := ns ∈ R/Z, ∀s ∈ R/Z. Next, we need to
+determine the S[±1]-submodule of H A     b = HZ which, on the set k+ , is given by k-tuples
+(nj ), 1 ≤ j ≤ k of characters nj ∈ Z such that (5.8) holds. This means, using the distance
+d on R/Z, that
+                          X                    X                  1
+                              d(xi , 0) ≤ λ ⇒       d(nj xi , 0) ≤ .                  (5.12)
+                           i                    i,j
+                                                                  4
+The distance d(x, 0) is given, for any x′ ∈ R in the class of x by the distance between
+x′ and the closed
+             P subset1Z ⊂ R. Thus for any integer n one has: d(nx, 0) ≤ |n|d(x, 0).
+Assume that j |nj | ≤ 4λ   , then (5.12) follows since
+
+                    X                       X                         1 X
+                           d(nj xi , 0) ≤         |nj |d(xi , 0) ≤        d(xi , 0).
+                     i,j                    i,j
+                                                                     4λ i
+
+Conversely, assume (5.12). Then repeating m times the same x, gives
+
+                                         λ   X               1
+                             d(x, 0) ≤     ⇒   d(nj x, 0) ≤    .
+                                         m   j
+                                                            4m
+
+                               λ             P           1            P           1
+Taking m large enough and x = m  one obtains j |nj |x ≤ 4m , and hence j |nj | ≤ 4λ .
+                                           b
+This proves that the S[±1]-submodule of H A = HZ determined by (5.8) is equal to
+kHZk 4λ
+      1 which gives (5.11).                                                                
+
+A. Tolerance S-modules
+The construction of the category ΓS∗ of Γ-spaces (see appendix B) can be broadly gen-
+eralized by considering in place of the category S∗ of simplicial pointed sets any pointed
+category C with initial and final object ∗. In this way, one obtains a category ΓC of
+pointed covariant functor Γo −→ C. We shall apply this formal construction to the cat-
+egory of tolerance relations and introduce the notion of tolerant S[±1]-modules which
+                                 Riemann-Roch for Spec Z                                 19
+
+ plays a central role in the development of the absolute Riemann-Roch problem. We start
+ with the following general fact
+
+ Lemma A.1. Let C be a pointed category with initial and final object ∗. Then ΓC is nat-
+ urally enriched in S-modules. More precisely, the following formula endows the internal
+ HomΓC (A, B) with a structure of S-module defined by
+
+                  HomΓC (A, B)(k+ ) := HomΓC (A, B(k+ ∧ −))         k ∈ N.            (A.1)
+
+ Proof. Let φ ∈ HomΓo (k+ , ℓ+ ). For every object F of Γo the morphism φ ∧ id ∈
+ HomΓo (k+ ∧ F, ℓ+ ∧ F ) gives, by functoriality of B : Γo −→ C, a morphism B(φ ∧ id) ∈
+ HomC (B(k+ ∧ F ), B(ℓ+ ∧ F )). These morphisms define a natural transformation of func-
+ tors B(φ ∧ −) ∈ HomΓC (B(k+ ∧ −), B(ℓ+ ∧ −)), and one obtains the functoriality on the
+ right hand side of (A.1) using the left composition
+
+           ψ ∈ HomΓC (A, B(k+ ∧ −)) 7→ B(φ ∧ −) ◦ ψ ∈ HomΓC (A, B(ℓ+ ∧ −)).
+
+                                                                                          
+
+ A.1. The category ΓT∗
+ A tolerance relation R on a set X is a reflexive and symmetric relation on X. Equivalently,
+ R is a subset R ⊂ X × X which is symmetric and containing the diagonal. We shall
+ denote by T the category of tolerance relations (X, R). Morphisms in T are defined by
+
+                  HomT ((X, R), (X ′ , R′ )) := {φ : X → X ′ , φ(R) ⊂ R′ }.
+
+ We denote T∗ the pointed category under the object {∗} endowed with the trivial relation.
+ One has the following
+
+ Definition A.1. A tolerant S-module is a pointed covariant functor Γo −→ T∗ . We
+ denote by ΓT∗ the category of tolerant S-modules.
+
+   Next statement is an easy but useful fact
+
+  Proposition A.2. (i) The functor Sets −→ T which endows a set with the diagonal
+     relation, embeds the category of sets as a full subcategory of T , and consequently
+     the category of S-modules as a full subcategory of the category ΓT∗ .
+(ii) The forgetful functor is the right adjoint of the inclusion in (i).
+
+ A.2. The tolerant S-module (A, d)λ
+ A relevant example of tolerant S-module is given by the following construction. Let
+ A be an additive abelian group. A translation invariant metric d on A is a metric on
+ A that satisfies d(x, y) = d(x − y, 0), so that the triangle inequality can be read as
+ 20                                A. Connes and C. Consani
+
+ d(x + y, 0) ≤ d(x, 0) + d(y, 0) ∀x, y ∈ A. This fact implies that the inequality
+                                  X      X  X
+                                 d   xi ,  yi ≤ d(xi , yi )                              (A.2)
+                                     I      I              I
+
+
+ holds for any finite index set I and maps x, y : I → A.
+
+ Proposition A.3. Let (A, d) be an abelian group endowed with a translation invariant
+ metric d and let λ ∈ R>0 . The following relations turn the Eilenberg?MacLane S-module
+ HA into a tolerant S[±1]-module (A, d)λ : Γo −→ T∗ :
+
+                                                X
+           Rk = {((xi ), (yi )) ∈ A×k × A×k |          d(xi , yi ) ≤ λ}   ∀k+ , k ∈ N.   (A.3)
+                                                I=k+
+
+
+ Proof. For any φ ∈ HomΓo (k+ , ℓ+ ), the map HA(φ) : HA(k+ ) → HA(ℓ+ ) fulfills
+ HA(φ)×2 (Rk ) ⊂ Rℓ . Indeed, this follows from (A.2) applied to the finite sets Ij = {i ∈
+ k+ | φ(i) = j} which label pairs of elements of A.                                      
+
+  Let U (1) be the abelian group R/Z endowed with the canonical metric d of length 1.
+ We shall denote by U (1)λ the tolerant S-module (U (1), d)λ , (λ ∈ R>0 ).
+
+
+
+ A.3. The dimension of a tolerant S[±1]-module
+ In this part we introduce a notion of dimension for a tolerant S[±1]-module that naturally
+ generalizes, in the absolute context, the definition of dimension of a vector space.
+
+ Definition A.2. Let (E, R) be a tolerant S[±1]-module. A subset F ⊂ E(1+ ) generates
+ E(1+ ) if the following two conditions hold
+ 1. For x, y ∈ F , with x 6= y =⇒ (x, y) ∈
+                                         /R
+ 2. For every x ∈ E(1+ ) there exists αj ∈ {−1, 0, 1}, j ∈ F and y ∈ E(1+ ) such that
+        P
+    y = F αj j ∈ E(1+ ) in the sense of (2.2), and (x, y) ∈ R.
+ The dimension dimS[±1] (E, R) is defined as the minimal cardinality of a generating set F .
+
+       To familiarize with this notion we prove the following
+
+ Proposition A.4. Let p : A → B be a morphism of abelian groups and (HB, R) a
+ tolerant S[±1]-module.
+(i)      Consider the relation
+         p∗ (Rk ) := {(x, y) ∈ HA(k+ ) × HA(k+ ) | (Hp(x), Hp(y)) ∈ Rk }. Then the pair
+         p∗ (HB, R) := (HA, p∗ (R)) is a tolerant S[±1] module.
+(ii)     If p is surjective: dimS[±1] (p∗ (HB, R)) = dimS[±1] (HB, R).
+                                  Riemann-Roch for Spec Z                                   21
+
+ Proof. (i) Since (HB, R) is a tolerant S[±1]-module, for any φ ∈ HomΓo (k+ , ℓ+ ) one
+ has HB(φ)×2 (Rk ) ⊂ Rℓ . Also
+
+                     HA(φ)×2 (p∗ Rk ) ⊂ p∗ Rℓ       ∀φ ∈ HomΓo (k+ , ℓ+ ),
+
+ which shows that p∗ (HB, R) = (HA, p∗ (R)) is a tolerant S[±1] module.
+ (ii) Let F ⊂ HB(1+ ) = B be a generating set for (HB, R), and let F ′ ⊂ HA(1+ ) = A
+ be a lift of F , with #F ′ = #F . Let us show that F ′ is a generating set for p∗ (HB, R) =
+ (HA, p∗ (R)). Let a ∈ HA(1 P + ) = A, then there exists coefficients αj ∈ {−1, 0, 1},
+ j ∈ F , such that (p(a), F αj j) ∈ R. It follows that using the lifts j ′ ∈ F ′ of j ∈ F
+               P
+ one has (a, F ′ αj j ′ ) ∈ p∗ (R), hence F ′ is a generating set for p∗ (HB, R). Thus
+ dimS[±1] (p∗ (HB, R)) ≤ dimS[±1] (HB, R). Conversely, let F ′ ⊂ A be a generating set for
+ p∗ (HB, R) and F := p(F ′ ). Then condition 1. of Definition A.2 for F ′ implies the same
+ condition for F , thus one has #F ′ = #F . Let b ∈ HB(1+ ) = B and aP    ∈ A with p(a) = b.
+ Then there exists coefficients αj ∈ {−1, 0, 1}, j ∈ F ′ , such that (a, F ′ αj j ′ ) ∈ p∗ (R).
+                   P
+ This implies (b, αj j) ∈ R so that F is a generating set for (HB, R).                       
+
+   Next, we apply this functorial machinery to the geometry of Spec Z. We retain the
+ notations of section 2.
+                           P
+ Proposition A.5. Let D = j aj {pj } + a{∞} be an Arakelov divisor on Spec Z and let
+ π : AQ → R/L be the projection of the adeles on their archimedean component modulo
+ the lattice
+
+              L = H 0 (Spec Z, O(D)f ) := {q ∈ Q | |q|ν ≤ exp(D)(ν), ∀ν 6= ∞}.           (A.4)
+
+(i)    Let d be the metric on R/L induced by the standard metric on R and set λ = exp a.
+       Then one has H 1 (D) = π ∗ ((R/L, d)λ ).
+(ii)   dimS[±1] H 1 (D) = dimS[±1] (R/L, d)λ .
+
+ Proof. (i) Let j : AfQ → AQ , j(x) := (x, 0), be the embedding of finite adeles in adeles.
+ Using the ultrametric property of the local norms at the finite places one sees that
+ j(O(D)f ) = O(D) ∩ j(AfQ ) ⊂ AQ is a compact subgroup. Set G = Q × j(O(D)f ): one has
+ j(O(D)f ) ∩ Q = {0} since all the adeles in j(O(D)f ) have archimedean component equal
+ to 0. Thus, the restriction of the morphism of addition, α : Q × AQ → AQ , α(q, a) = q + a,
+ to G determines an isomorphism of G with the subgroup α(G) = Q + j(O(D)f ) of AQ .
+ Note, in particular, that α(G) is closed in AQ , since Q is discrete (hence closed) and
+ j(O(D)f ) is compact. In the following, we identify (set-theoretically) AQ with the product
+ AfQ × R endowed with the two projection morphisms pf : AQ → AfQ and p∞ : AQ → R.
+ The subgroup pf (Q) ⊂ AfQ is dense and the subgroup pf (j(O(D)f )) = O(D)f ⊂ AfQ
+ is open. Hence pf (α(G)) = AfQ . Thus the projection p∞ induces the isomorphism of
+                        ∼
+ groups p : AQ /α(G) → R/L, where L = p∞ (ker(pf ◦ α)). The kernel of the composite
+ pf ◦ α : G → AfQ is the group of pairs (q, a) ∈ Q × j(O(D)f ) such that pf (q) + pf (a) = 0.
+22                                  A. Connes and C. Consani
+
+Such pairs are determined by the value of q and thus
+
+      L = p∞ (H 0 (Spec Z, O(D)f )) = {q ∈ Q | |q|ν ≤ exp(D)(ν),          ∀ν 6= ∞}.    (A.5)
+
+By Proposition 2.2, H 1 (D) is the tolerant S[±1]-module H 1 (D) = (HAQ , R) where the
+relations are given by (2.5), i.e.
+
+             Rk := {(x, y) ∈ HAQ (k+ ) × HAQ (k+ ) | x − y ∈ Image ψ(k+ )},
+
+and where ψ is as in (2.3). By construction one has Q × O(D) ≃ G × [−ea , ea ]. After
+quotienting both sides of (2.3) by G = Q × j(O(D)f ), the map ψ becomes
+
+       φ : kHRkea → H(R/L),            φ(x) = x + L ∈ R/L ∀x ∈ [−ea , ea ] ⊂ R,        (A.6)
+
+where L ⊂ Q ⊂ R is the lattice (A.5). Thus one obtains that the relation R is equal to
+the inverse image by the map π : AQ → R/L of the relation (A.3).
+(ii) Follows from Proposition A.4 (ii).                                             
+
+B. The Γ-space H(D)
+Let φ : A → B be a morphism of abelian groups. To φ one associates the following (short)
+complex C = {Cn , φn } of abelian groups indexed in non-negative degrees
+
+                             φ1
+                C = {C1 → C0 };            C0 = B, C1 = A,      φ1 (x) := φ(x).        (B.1)
+
+ The Dold-Kan correspondence associates to C the simplicial abelian group (see [8] III.2,
+Proposition 2.2)
+                    M
+            An =             Ck ,   F (n, k) := {σ ∈ Hom∆ ([n], [k]) | σ([n]) = [k]}   (B.2)
+                   F (n,k)
+
+
+where ∆ denotes the simplicial category. The direct sum in (B.2) repeats the term Ck
+of the chain complex as many times as the number of elements of the set F (n, k) of
+surjective morphisms σ ∈ Hom∆ ([n], [k]). For the short complex C, the allowed values of
+k are k = 0, 1. Therefore the set F (n, 0) is reduced to Hom∆ ([n], [0]) =: ∆0n , i.e. to a
+single point. A morphism ξ ∈ Hom∆ ([n], [1]) =: ∆1n is characterized by ξ −1 ({1}) which
+is an hereditary subset of [n]. It follows that the vertices in ∆1n are labelled by the
+
+                        ξj , 0 ≤ j ≤ n + 1,      ξj (k) = 1 ⇐⇒ k ≥ j.                  (B.3)
+
+For each integer n ≥ 0 the finite set F (n) := F (n, 1) of surjective elements ξ ∈ ∆1n
+excludes ξ0 and ξn+1 , thus the set F (n) = {ξj , 1 ≤ j ≤ n} has n elements. This gives
+the identification
+                             An = HB(1+ ) ⊕ HA(F (n)+ )                           (B.4)
+                                   Riemann-Roch for Spec Z                                        23
+
+We refer to [8] (III.2, pp. 160-161) for a detailed description of the simplicial structure,
+namely the definition for each θ ∈ Hom∆ ([m], [n]) of a map of sets A(θ) : An → Am .
+Next, we introduce some notations.
+  We identify the opposite ∆o of the simplicial category with (the skeleton of) the cat-
+egory of finite intervals. An interval is a totally ordered set with the smallest element
+distinct from the largest one. A morphism of intervals is a non-decreasing map that pre-
+serves the smallest and largest elements. The canonical contravariant functor ∆ −→ ∆o
+which identifies the opposite category of ∆ with ∆o (described by intervals as above),
+maps the finite ordinal object [n] = {0, 1, . . . , n} in ∆ to the interval [n]∗ = {0, . . . , n+1}.
+  We denote by Sets2,∗ the category of pairs of pointed sets (X, Y ), with X ⊃ Y . The
+morphisms are maps of pairs of pointed sets. We let c : Sets2,∗ −→ Sets∗ be the functor
+(X, Y ) → X/Y of collapsing Y to the base point ∗.
+  Let ∂ : ∆o −→ Sets2,∗ be the functor that replaces an interval I with the pair ∂I =
+(X, Y ), where X is the set I pointed by its smallest element, and Y ⊂ X is the subset
+formed by the smallest and largest elements of I.
+  Finally, we denote by γ : Sets2,∗ −→ ΓSets2,∗ (see section A) the functor that
+associates to an object (X, Y ) of Sets2,∗ the covariant functor
+
+            γ(X, Y ) : Γo −→ Sets2,∗ ,      k+ := {0, . . . , k} 7→ (X ∧ k+ , Y ∧ k+ ).
+
+
+  The following formula defines a covariant functor that associates to a pair of pointed
+sets an abelian group directly related to the morphism φ : A → B
+
+               Hφ : Sets2,∗ −→ Ab,           Hφ (X, Y ) := HB(Y ) × HA(X/Y ).                   (B.5)
+
+On morphisms f : (X, Y ) → (X ′ , Y ′ ) in Sets2,∗ with α = (αY , αX/Y ) ∈ Hφ (X, Y ), the
+functor Hφ acts as follows
+                                             
+            Hφ (f )(α) = αY ′ , HA(f )(αX/Y )                                                   (B.6)
+                                                        X
+              αY ′ (y ′ ) := HB(f )(αY )(y ′ ) +                     φ(αX/Y (x)),   y ′ 6= ∗.
+                                                   x∈X\Y,f (x)=y ′
+
+
+By [4] (Proposition 4.5), the Dold-Kan correspondence for the short complex (B.1), i.e.
+the simplicial abelian group An in (B.4) is canonically isomorphic to the composite
+functor Hφ ◦ ∂ : ∆o −→ Ab, with Hφ as in (B.5). By composing Hφ with the Eilenberg-
+MacLane functor H one obtains a covariant functor HHφ = H ◦ Hφ : Sets2,∗ −→
+S − Mod to the category of S-modules, which is naturally isomorphic to the functor
+((U ◦Hφ )×id)◦γ, where U : Ab −→ Sets∗ is the forgetful functor (see op.cit. Lemma 4.6).
+Moreover, as shown in op.cit. (Theorem 4.7) the Γ-space associated by the Dold-Kan
+correspondence to the complex C is canonically isomorphic to the functor
+
+                          ((U ◦ Hφ ) × id) ◦ γ ◦ ∂ : ∆o −→ S − Mod.                             (B.7)
+ 24                             A. Connes and C. Consani
+
+ Notice that the above construction involves the morphism φ : A → B only through the
+ composite functor U ◦Hφ : Sets2,∗ −→ Sets∗ . This latter functor is still meaningful when
+ one restricts φ to a sub-S-module E of the S-module HA and it is given by
+
+              Hφ |E : Sets2,∗ −→ Sets∗ ,      Hφ (X, Y ) := HB(Y ) × E(X/Y ).         (B.8)
+
+ This provides the following construction
+
+ Definition B.1. Let φ : A → B be a morphism of abelian groups and E a sub S-module
+ of the S-module HA. We denote by Γ(φ|E ) the Γ-space obtained as a sub-functor of (B.7)
+
+                      Γ(φ|E ) := (Hφ |E × id) ◦ γ ◦ ∂ : ∆o −→ S − Mod.                (B.9)
+
+   When evaluated on the object 1+ = {0, 1} of Γo , the Γ-space Γ(φ|E ) defines a sub-
+ simplicial set of the Kan simplicial set An in (B.4). However it is not in general a Kan
+ simplicial set, thus one needs to exert care when considering its homotopy. We refer to [3]
+ 2.1, for the definition of the homotopies used there. The relation R of homotopy between
+ n-simplices (x, y) ∈ Xn × Xn is defined as follows
+
+    (x, y) ∈ R ⇐⇒ ∂j x = ∂j y ∀j & ∃z s.t. ∂j z = sn−1 ∂j x ∀j < n, ∂n z = x, ∂n+1 z = y.
+                                                                                      (B.10)
+   In general, the relation R in (B.10) fails to be an equivalence relation. In place of the
+ quotient we consider pairs of sets and relations. We define πnT to be the set of spherical
+ elements in Xn (i.e. of n-simplices x, with ∂j x = ∗ ∀j), endowed with the relation R.
+ Then we have the following result (we refer to section A for the notion of tolerant module)
+
+ Proposition B.1. Let φ : A → B be a morphism of abelian groups and let E be a
+ sub-S[±1]-module of the Eilenberg-MacLane S[±1]-module HA (where (±1)x := ±x).
+(i)    The homotopy π1T (Γ(φ|E )) is the sub-S[±1]-module ker(Hφ|E ) of E
+
+                          ker(Hφ|E )(k+ ) = {x ∈ E(k+ ) | Hφ(x) = ∗}.                (B.11)
+
+(ii)   The homotopy π0T (Γ(φ|E )) is the tolerant S[±1]-module HB endowed with the
+       relations
+
+            Rk = {(x, y) ∈ HB(k+ ) × HB(k+ ) | x − y ∈ Hφ(E(k+ ))}        k ∈ N.     (B.12)
+
+ Proof. By construction, Γ(φ|E ) is the composite of the functors Hφ |E : Sets2,∗ −→
+ Sets∗ of (B.8) and γ ◦ ∂ : ∆o −→ Sets2,∗ . One has ∂[0]∗ = (X, Y ) where X = Y = {0, 1}
+ with base point 0. Thus γ ◦ ∂[0]∗ (k+ ) = (X ∧ k+ , Y ∧ k+ ) = (k+ , k+ ) and by (B.8)
+
+                 Hφ |E (γ ◦ ∂[0]∗ )(k+ ) = Hφ |E (X ∧ k+ , Y ∧ k+ ) = HB(k+ ).
+                                 Riemann-Roch for Spec Z                                   25
+
+One has ∂[1]∗ = (X, Y ), where X = {0, 1, 2}, Y = {0, 2} with base point 0. Thus one
+has γ ◦ ∂[1]∗ (k+ ) = (X ∧ k+ , Y ∧ k+ ) and Y ∧ k+ = k+ , while (X ∧ k+ )/(Y ∧ k+ ) =
+{0, 1} ∧ k+ = k+ and by (B.8) it follows that
+
+                         Hφ |E (γ ◦ ∂[1]∗ )(k+ ) = E(k+ ) × HB(k+ ).                   (B.13)
+
+The boundaries ∂j : Hφ |E (γ ◦ ∂[1]∗ ) → Hφ |E (γ ◦ ∂[0]∗ ) are obtained as in [4] Proposition
+4.11
+
+     ∂0 (ψ) = ψ2 , ∂1 (ψ) = Hφ(ψ1 ) + ψ2 ,    ∀ψ = (ψ1 , ψ2 ) ∈ Hφ |E (γ ◦ ∂[1]∗ ).    (B.14)
+
+  (i) The spherical condition ∂j (ψ) = ∗ on ψ ∈ Hφ |E (γ ◦ ∂[1]∗ )(k+ ) means that ψ2 = 0
+and Hφ(ψ1 ) = 0. Thus the solutions correspond to ker(Hφ|E )(k+ ) as in (B.11). One
+shows as in [4] Proposition 4.11 (iii), that the relation of homotopy is the identity.
+(ii) The relation Rk on elements of Hφ |E (γ ◦ ∂[0]∗ )(k+ ) is defined as follows
+
+    (α, β) ∈ Rk ⇐⇒ ∃ψ ∈ Hφ |E (γ ◦ ∂[1]∗ )(k+ ) s.t. ∂0 (ψ) = α & ∂1 (ψ) = β.          (B.15)
+
+By (B.14) it coincides with (B.12).
+ Note that this relation is a tolerance relation i.e. is symmetric since E is a sub S[±1]-
+module of the S[±1]-module HA, so that
+
+                      x − y ∈ Hφ(E(k+ )) ⇐⇒ y − x ∈ Hφ(E(k+ )).
+
+                                                                                            
+
+
+  The above general construction applies to the geometric adelic context and by imple-
+menting the action of Q× on adeles, we obtain the following variant of Proposition 4.9
+in [4].
+
+Proposition B.2. Let D be an Arakelov divisor on Spec Z. Let A = Q × AQ , B = AQ
+and α : A → B, α(q, a) = q + a. Let E = HQ × HO(D) be the sub S[±1]-module of HA
+as in Proposition 2.1. Then the functor
+
+                            H(D) := Γ(α|E ) : ∆o −→ S − Mod                            (B.16)
+
+defines a Γ-space that depends only on the linear equivalence class of D.
+
+B.1. Proof of Proposition 2.2
+With the notations of section A and Proposition B.2, one has H 0 (D) := π1T (H(D)) =
+π1T (Γ(α|E )). Proposition B.1, (i), gives
+
+                         H 0 (D)(k+ ) = {x ∈ E(k+ ) | Hα(x) = ∗}.
+26                               A. Connes and C. Consani
+
+An element x ∈ E(k+ ) is a k-tuple (qj , aj ) with qj ∈ Q for all j, and (aj ) ∈ HO(D)(k+ ),
+where HO(D) := HO(D)f × kHRkea . The condition Hα(x) = ∗ means qj = −aj for all
+j, so that x is uniquely determined by the k-tuple (qj ). Moreover, the allowed k-tuples
+                    P
+are those for which    |qj | ≤ ea and qj ∈ O(D)f for all j. One has
+
+                             Q ∩ O(D)f = H 0 (Spec Z, O(D)f ).
+
+This proves (i) of Proposition 2.2. The statement (ii) follows from Proposition B.1 (ii).
+Finally, (iii) follows from Proposition B.2.
+
+Acknowledgments. The second author is partially supported by the Simons Foundation collaboration
+grant n. 691493 and thanks IHES for the hospitality, where part of this research was done.
+
+References
+[1]  J. B. Bost, Theta invariants of Euclidean lattices and infinite-dimensional Hermitian vector
+     bundles over arithmetic curves. Progress in Mathematics, 334.
+[2] A. Connes, C. Consani, Absolute algebra and Segal’s Gamma sets, J. Number Theory 162
+     (2016), 518–551.
+[3] A. Connes, C. Consani, Spec Z and the Gromov norm, Theory and Applications of
+     Categories, 35, No. 6, (2020), pp. 155–178.
+[4] A. Connes, C. Consani, Segal’s Gamma rings and universal arithmetic, The Quarterly
+     Journal of Mathematics, 72, 1-2, (2021), pp. 1–29.
+[5] A. Connes, C. Consani, On Absolute Algebraic Geometry, the affine case, Advances in
+     Mathematics, 390, Paper No. 107909 (2021), 44 pp.
+[6] Dundas, Bjorn Ian; Goodwillie, Thomas G.; McCarthy, Randy The local structure of
+     algebraic K-theory, Algebra and Applications, 18. Springer-Verlag London, Ltd., London,
+     2013.
+[7] Correspondance Grothendieck-Serre. Edited by Pierre Colmez and Jean-Pierre Serre. Doc-
+     uments Mathématiques (Paris), 2. Société Mathématique de France, Paris, 2001. xii+288
+     pp.
+[8] Goerss, Paul G.; Jardine, John F. Simplicial homotopy theory. Progress in Mathematics,
+     174. Birkhauser Verlag, Basel, 1999.
+[9] S. Lang, Algebraic Number Theory. Addison Wesley, 1970.
+[10] J. Neukirch, Algebraic number theory. Translated from the 1992 German original and
+     with a note by Norbert Schappacher. With a foreword by G. Harder. Grundlehren der
+     Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences], 322.
+     Springer-Verlag, Berlin, 1999.
+[11] G. van der Geer, R. Schoof, Effectivity of Arakelov divisors and the theta divisor of a
+     number field, Selecta Math. (N.S.) 6 (2000), no. 4, 377–398.
+[12] H. Poincaré, Science and Hypothesis (with a preface by J.Larmor ed.) (1905) New York:
+     3 East 14th Street: The Walter Scott Publishing Co., Ltd. pp. 22–23.
+[13] A. Weil Sur l’analogie entre les corps de nombres algébriques et les corps de fonctions
+     algébriques, Oeuvres scientifiques/Collected papers I. 1926–1951. Springer, Heidelberg,
+     2014.
+[14] A. Weil Basic number theory. Reprint of the second edition (1973). Classics in Mathemat-
+     ics. Springer-Verlag, Berlin, 1995
+[15] http://solbakkn.com/math/triadic-nums.htm
+

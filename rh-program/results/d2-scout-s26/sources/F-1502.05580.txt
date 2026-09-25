@@ -1,0 +1,2451 @@
+                                                                 Geometry of the Arithmetic Site
+
+                                                                        Alain Connes and Caterina Consani
+
+
+
+
+arXiv:1502.05580v1 [math.AG] 19 Feb 2015
+                                                                                             Abstract
+                                                We introduce the Arithmetic Site: an algebraic geometric space deeply related to the
+                                                non-commutative geometric approach to the Riemann Hypothesis. We prove that the
+                                                non-commutative space quotient of the adèle class space of the field of rational numbers
+                                                by the maximal compact subgroup of the idèle class group, which we had previously
+                                                shown to yield the correct counting function to obtain the complete Riemann zeta
+                                                function as Hasse-Weil zeta function, is the set of geometric points of the arithmetic
+                                                site over the semifield of tropical real numbers. The action of the multiplicative group
+                                                of positive real numbers on the adèle class space corresponds to the action of the
+                                                Frobenius automorphisms on the above geometric points. The underlying topological
+                                                space of the arithmetic site is the topos of functors from the multiplicative semigroup
+                                                of non-zero natural numbers to the category of sets. The structure sheaf is made by
+                                                semirings of characteristic one and is given globally by the semifield of tropical integers.
+                                                In spite of the countable combinatorial nature of the arithmetic site, this space admits
+                                                a one parameter semigroup of Frobenius correspondences obtained as sub-varieties of
+                                                the square of the site. This square is a semi-ringed topos whose structure sheaf involves
+                                                Newton polygons. Finally, we show that the arithmetic site is intimately related to the
+                                                structure of the (absolute) point in non-commutative geometry.
+
+                                                                                             Contents
+                                                1 Introduction                                                                                      2
+                                                  1.1 Notations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           4
+                                                2 The points of the topos N   ̂×                                                                    5
+                                                  2.1 The points of a presheaf topos . . . . . . . . . . . . . . . . . . . . . . . . .              5
+                                                                ̂× and ordered groups . . . . . . . . . . . . . . . . . . . . . . . .
+                                                  2.2 Points of N                                                                                   5
+                                                  2.3 The case of N×0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           7
+                                                  2.4 Adelic interpretation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           8
+                                                3 The Arithmetic Site (N  ̂× , Zmax )                                                              10
+                                                  3.1 The structure sheaf Zmax and its stalks . . . . . . . . . . . . . . . . . . .                10
+                                                  3.2 The points of the arithmetic site over Rmax +     . . . . . . . . . . . . . . . . .          12
+                                                4 Hasse-Weil formula for the Riemann zeta function                                                 14
+                                                  4.1 The periodic orbits of the Frobenius on points over Rmax     +    . . . . . . . . .          14
+                                                  4.2 Counting function for the Frobenius action on points over Rmax       +    . . . . .          15
+                                                  4.3 Analogue of the Hasse-Weil formula for the Riemann zeta function . . .                       16
+                                                5 Relation of Spec Z with the arithmetic site                                                      18
+
+                                           2010 Mathematics Subject Classification 12K10, 58B34,11S40,14M25
+                                           Keywords: Riemann zeta, Hasse-Weil, Site, Arithmetic, Semiring, Characteristic one, Topos.
+                                             The second author would like to thank the Collège de France for hospitality and financial support.
+                            Alain Connes and Caterina Consani
+
+       5.1 The geometric morphism Θ . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+       5.2 Θ∗ (O) as Cartier divisors on Spec Ocyc . . . . . . . . . . . . . . . . . . . 20
+     6 The square of the arithmetic site and Frobenius correspondences                       22
+       6.1 The closed symmetric monoidal category Mod(B) . . . . . . . . . . . . . 22
+       6.2 The semiring Zmin ⊗B Zmin and the unreduced square (N        ̂×2 , Z
+                                                                               min ⊗B Zmin ) 23
+                                                 ̂
+       6.3 The Frobenius correspondences on (N , Zmax ) . . . . . . . . . . . . . . . 26
+                                                   ×
+
+       6.4 The reduced square (N  ̂×2 , Conv (Z × Z)) . . . . . . . . . . . . . . . . . . .
+                                            ≥                                                30
+     7 Composition of Frobenius correspondences                                              33
+       7.1 Reduced correspondences . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+       7.2 R(λ) ⊗Z+min R(λ′ ), for λλ′ ∉ Qλ′ + Q . . . . . . . . . . . . . . . . . . . . . . 34
+       7.3 R(λ) ⊗Z+min R(λ′ ) for λλ′ ∈ Qλ′ + Q . . . . . . . . . . . . . . . . . . . . . . 36
+       7.4 The composition Ψ(λ) ○ Ψ(λ′ ) . . . . . . . . . . . . . . . . . . . . . . . . . 37
+     8 The structure of the point in noncommutative geometry                                 41
+     References                                                                              42
+
+                                         1. Introduction
+
+It has long been known since [5] that the noncommutative space of adèle classes of a global
+field provides a framework to interpret the explicit formulas of Riemann-Weil in number theory
+as a trace formula. In [7], we showed that if one divides the adèle class space AQ /Q× of the
+rational numbers by the maximal compact subgroup Ẑ× of the idèle class group, one obtains
+by considering the induced action of R×+ , the counting distribution N (u), u ∈ [1, ∞), which
+determines, using the Hasse-Weil formula in the limit q → 1, the complete Riemann zeta function.
+This analytic construction provides the starting point of the noncommutative attack to the
+Riemann Hypothesis. In order to adapt the geometric proof of A. Weil, what was still missing
+until now was the definition of a geometric space of classical type whose points (defined over a
+“field” replacing the algebraic closure of the finite field Fq as q → 1) would coincide with the afore
+mentioned quotient space. The expectation being that the action of suitably defined Frobenius
+automorphisms on these points would correspond to the above action of R×+ .
+The primary intent of this paper is to provide a natural solution to this search by introducing
+(cf. Definition 3.1) the arithmetic site as an object of algebraic geometry involving two elaborate
+mathematical concepts: the notion of topos and of (structures of) characteristic 1 in algebra.
+The topological space underlying the arithmetic site is the Grothendieck topos of sets with an
+action of the multiplicative monoı̈d N× of non-zero positive integers. The structure sheaf of the
+arithmetic site is a fundamental semiring of characteristic 1, i.e. Zmax ∶= (Z ∪ {−∞}, max, +) on
+which N× acts by Frobenius endomorphisms. The role of the algebraic closure of Fq , in the limit
+q → 1, is provided by the semifield Rmax+    of tropical real numbers which is endowed with a one
+parameter group of Frobenius automorphisms Frλ , λ ∈ R×+ , given by Frλ (x) = xλ ∀x ∈ Rmax   + .
+In this article we prove the following
+
+Theorem 1.1 The set of points of the arithmetic site (N    ̂× , Zmax ) over Rmax coincides with the
+                                                                             +
+quotient of AQ /Q× by the action of Ẑ× . The action of the Frobenius automorphisms Frλ of Rmax+
+on these points corresponds to the action of the idèle class group on Ẑ× /AQ /Q× .
+
+The definition of the arithmetic site arises as a natural development of our recent work which
+underlined the following facts
+
+
+                                                  2
+                             Geometry of the Arithmetic Site
+
+
+
+
+               Figure 1. The arithmetic site, Spec Z, and the adele class space.
+
+
+− The theory of topoi of Grothendieck provides the best geometric framework to understand
+cyclic (co)homology and the λ-operations using the (presheaf) topos associated to the cyclic
+category [3] and its epicyclic refinement (cf. [11]).
+− Both the cyclic and the epicyclic categories, as well as the points of the associated topoi are
+best described from projective geometry over algebraic extensions of Zmax (cf. [10]).
+The arithmetic site acquires its algebraic structure from its structure sheaf. In Section 3, we
+describe the stalks of this sheaf at the points of the topos N  ̂× which are in turn described in
+Section 2, in terms of rank one ordered abelian groups. In Section 4, we combine the above
+theorem with our previous results as in [7, 8] to obtain (cf. Theorem 4.2) a description of the
+complete Riemann zeta function ζQ (s) = π −s/2 Γ(s/2)ζ(s) as the Hasse-Weil zeta function of the
+arithmetic site. This construction makes heavy use of analysis and is naturally exploited on the
+right hand side of the correspondence between geometry and analysis described in Figure 1. The
+role of the prime numbers, as parameters for the periodic orbits of the Frobenius flow is refined
+in Section 5 to construct (cf. Theorem 5.3) a geometric morphism of topoi between Spec Z and
+̂× . The slight difference between N
+N                                  ̂× and the topos N̂× , dual to the semigroup N× of non-negative
+  0                                                   0                            0
+integers, is given by adjoining a base point to the points of N ̂× : cf. §2.3. In Proposition 5.7 we
+provide an interpretation of the pullback of the structure sheaf of the arithmetic site in terms of
+Cartier divisors on the spectrum of the ring of cyclotomic integers.
+The general strategy adopted in this paper is to take full advantage of the knowledge achieved
+on both sides of the correspondence of Figure 1. The left hand side of that picture develops
+naturally into the investigation of the square of the arithmetic site and into the definition of
+the Frobenius correspondences. In Section 6, we describe the square of the arithmetic site as the
+topos N̂×2 endowed with the structure sheaf defined globally by the tensor square Z
+                                                                                      min ⊗B Zmin
+over the smallest Boolean semifield of characteristic one. The semiring Zmin ∶= (Z ∪ {∞}, min, +)
+is isomorphic to Zmax (by n ↦ −n) but is more convenient for drawing figures. The reduced
+
+
+                                                 3
+                            Alain Connes and Caterina Consani
+
+square is then obtained by reducing the involved semirings to become multiplicatively cancella-
+tive. In this way one achieves the important result of working with semirings whose elements
+are Newton polygons and whose operations are given by the convex hull of the union and the
+sum. In Proposition 6.11, we prove that the points of the square of the arithmetic site over Rmax
+                                                                                              +
+coincide with the product of the points of the arithmetic site over Rmax
+                                                                       +  . Then, we describe the
+Frobenius correspondences as congruences on the square parametrized by positive real numbers
+λ ∈ R×+ . The remarkable fact to notice at this point is that while the arithmetic site is con-
+structed as a combinatorial object of countable nature it possesses nonetheless a one parameter
+semigroup of “correspondences” which can be viewed as congruences in the square of the site. In
+the context of semirings, the congruences i.e. the equivalence relations compatible with addition
+and product, play the role of the ideals in ring theory. The Frobenius correspondences Ψ(λ),
+for a rational value of λ, are deduced from the diagonal of the square, which is described by
+the product structure of the semiring, by composition with the Frobenius endomorphisms. We
+interpret these correspondences geometrically, in terms of the congruence relation on Newton
+polygons corresponding to their belonging to the same half planes with rational slope λ. These
+congruences continue to make sense also for irrational values of λ and are described using the
+best rational approximations of λ, while different values of the parameter give rise to distinct
+congruences. In Section 7, we compute the composition law of the Frobenius correspondences
+and we show the following
+
+Theorem 1.2 Let λ, λ′ ∈ R×+ be such that λλ′ ∉ Q. The composition of the Frobenius correspon-
+dences is then given by the rule
+                                      Ψ(λ) ○ Ψ(λ′ ) = Ψ(λλ′ ).
+The same equality still holds if λ and λ′ are rational numbers. When λ, λ′ are irrational and
+λλ′ ∈ Q one has
+                                    Ψ(λ) ○ Ψ(λ′ ) = Id ○ Ψ(λλ′ )
+where Id is the tangential deformation of the identity correspondence.
+
+Finally, in Section 8 we establish the link between the structure of the (absolute) point in non-
+commutative geometry and the topos N    ̂× . In particular, we recast the classification of matroı̈ds
+obtained by J. Dixmier in [13] in terms of the non-commutative space of points of the topos N   ̂× .
+
+1.1 Notations
+Topos The main reference for the theory of (Grothendieck) topoi is [1]. We shall denote by P the
+“point” in topos theory i.e. the topos of sets. Throughout the paper we also use extensively [20].
+
+Characteristic one We denote by Rmax   +   the semifield that plays a central role in idempotent
+analysis (cf. [18, 19]) and tropical geometry (cf.e.g. [14, 22]). It is the locally compact space
+R+ = [0, ∞) endowed with the ordinary product and the idempotent addition x +′ y = max{x, y}.
+This structure admits a one parameter group of automorphisms Frλ ∈ Aut(Rmax        + ), Frλ (x) = x
+                                                                                                     λ
+
+∀x ∈ R+ which is the analogue of the arithmetic Frobenius in positive characteristic. The fixed
+       max
+
+points of the operator Frλ form the Boolean semifield B = {0, 1} ⊂ Rmax    + : this is the only finite
+semifield which is not a field. One has GalB (Rmax
+                                                 +   ) = R ×
+                                                           + . In this paper Rmax
+                                                                              +   denotes in fact the
+multiplicative version of the tropical semifield of real numbers Rmax ∶= (R ∪ {−∞}, max, +).
+Let Zmax ∶= (Z ∪ {−∞}, max, +) be the semifield of tropical integers. Notice that Zmax ≃ Zmin ∶=
+(Z ∪ {∞}, min, +): the isomorphism mapping Zmin ∋ n ↦ −n ∈ Zmax .
+
+
+                                                  4
+                             Geometry of the Arithmetic Site
+
+In this article, we shall use the multiplicative notation to refer to elements in Zmin , i.e. we asso-
+ciate to n ∈ Zmin the symbol q n . In this way, the second operation of Zmin becomes the ordinary
+product. If one represents q as a positive, real number 0 < q < 1, the first operation corresponds
+                      + : x ∨ y ∶= max(x, y).
+to the addition in Rmax
+All these semirings are of characteristic 1 i.e. the multiplicative unit 1 is idempotent for the ad-
+dition and fulfills the equation 1 ∨ 1 = 1. The operators Frk ∈ End(Zmin ): N× → End(Zmin ), k ↦
+Frk (n) ∶= kn are the analogues, in characteristic 1, of the Frobenius endomorphism in character-
+istic p > 1 and, in the multiplicative notation, they are defined by the rule Frk (x) = xk .
+
+                                                           ̂×
+                                2. The points of the topos N
+
+In this section we show that the category of points of the topos N ̂× is equivalent to the category
+of rank one ordered groups, i.e. of totally ordered groups isomorphic to non-trivial subgroups of
+(Q, Q+ ), and injective morphisms of ordered groups. We recall that for a topos of presheaf type
+C,
+ ˆ i.e. the topos of contravariant functors G ∶ C Ð→ Sets from a small category C to the category
+Sets of sets, any object C of the category C defines a point p of Cˆ whose pullback p∗ is given by
+the evaluation G ↦ p∗ (G) ∶= G(C). Moreover, it is well known that every point of Cˆ is obtained
+as a filtering colimit of points of the above form. In particular, for the topos N   ̂× this implies
+that every point can be obtained from a (filtering) sequence (ni ), with ni ∈ N× and ni ∣ni+1 ∀i.
+Two cofinal sequences label the same point. The equivalence relation (ni ) ∼ (mi ) on sequences
+to define isomorphic points states that the classes of the limits n = lim ni , m = lim mi ∈ Ẑ/Ẑ× are
+the same in the double quotient Q×+ /Af /Ẑ× , where Af = Ẑ ⊗Z Q denotes the finite adèles of Q
+and where Q×+ acts by multiplication on Af . In this section we shall give a detailed account of
+this construction of the points of the topos N̂× and discuss, also, the case of the topos N ̂× .
+                                                                                              0
+
+
+2.1 The points of a presheaf topos
+It is a standard fact in topos theory that the category of points a topos ˆ C, where C is a small
+category, is canonically equivalent to the category of flat functors C Ð→ Sets and natural equiv-
+alences between them. We recall that a covariant functor F ∶ C Ð→ Sets is flat if and only if it is
+filtering i.e. F satisfies the following conditions
+ (i) F (C) ≠ ∅, for at least one object C of C.
+(ii) Given two objects A, B of C and elements a ∈ F (A), b ∈ F (B), there exists an object Z of C,
+     morphisms u ∶ Z → A, v ∶ Z → B and an element z ∈ F (Z), such that F (u)z = a, F (v)z = b.
+(iii) Given two objects A, B of C and arrows u, v ∶ A → B and a ∈ F (A) with F (u)a = F (v)a,
+      there exists an object Z of C, a morphism w ∶ Z → A, and an element z ∈ F (Z), such that
+                                F (w)z = a, u ○ w = v ○ w ∈ HomC (Z, B).
+
+2.2 Points of N  ̂× and ordered groups
+We shall investigate the case of the small category C = N× with a single object ∗. A point of N̂×
+is described by a covariant functor F ∶ N Ð→ Sets which is filtering, i.e. such that the category
+                                         ×
+
+∫N× F is filtering (cf. [20] Chapter VII §6 for the notation). The functor F is determined by
+the set X = F (∗) endowed with an action of the semi-group N× : F (k) ∶ X → X, ∀k > 0. The
+category ∫N× F has objects given by elements x ∈ X and the morphisms between any pair of
+objects x, y ∈ X are provided by the elements of N× such that F (k)x = y. The filtering condition
+for the category ∫N× F means that
+
+
+                                                  5
+                               Alain Connes and Caterina Consani
+
+ (i) X ≠ ∅.
+(ii) For any x, x′ ∈ X there exist z ∈ X and k, k ′ ∈ N× such that F (k)z = x, F (k ′ )z = x′ .
+(iii) For x ∈ X and k, k ′ ∈ N× , the equality F (k)x = F (k ′ )x implies k = k ′ .
+The last condition here above follows from the third condition of §2.1 and the fact that the
+semigroup N× is simplifiable.
+                                                                          ̂× .
+Next theorem provides an algebraic description of the points of the topos N
+
+Theorem 2.1 The category of points of the topos N     ̂× is canonically equivalent to the category
+of totally ordered groups isomorphic to non-trivial subgroups of (Q, Q+ ) and injective morphisms
+of ordered groups.
+Proof. The proof of this theorem follows from the next two lemmas and some final, easy consid-
+erations.
+
+Lemma 2.2 Let F ∶ N× Ð→ Sets be a flat functor. The following equality defines a commutative
+and associative addition on X = F (∗)
+                         x + x′ ∶= F (k + k ′ )z, ∀z ∈ X, F (k)z = x, F (k ′ )z = x′ .                         (1)
+Endowed with this operation X coincides with the strictly positive part of an abelian, totally
+ordered group (H, H+ ) which is an increasing union of subgroups (Z, Z+ ).
+
+Proof. We show that the operation + on X is well defined, that means independent of the
+choices. If for some y ∈ X and `, `′ ∈ N× one has F (`)y = x, F (`′ )y = x′ , one uses (ii) of the
+filtering condition to find u ∈ X and a, b ∈ N× such that F (a)u = y, F (b)u = z. One then has
+F (`a)u = x = F (kb)u, F (`′ a)u = x′ = F (k ′ b)u and then one uses (iii) of the filtering condition
+to obtain a` = bk, a`′ = bk ′ . Thus one gets
+     F (k + k ′ )z = F ((k + k ′ )b)u = F (kb + k ′ b)u = F (a` + a`′ )u = F (` + `′ )F (a)u = F (` + `′ )y.
+This shows that the addition is well defined. This operation is commutative by construction.
+Notice that for any finite subset Z ⊂ X one can find z(Z) ∈ X such that Z ⊂ F (N× )z(Z). The
+associativity of the addition then follows from the associativity of the addition of integers. The
+obtained additive semigroup (X, +) is therefore an increasing union
+                                         (X, +) = ⋃ z(Z)[1, ∞)
+                                                     Z⊂X
+                                                    Zfinite
+
+of the additive semigroups z(Z)[1, ∞), each isomorphic to the additive semigroup of integers
+n ≥ 1. From this fact one derives that the obtained semigroup is simplifiable and that for any
+pair a, b ∈ X, a ≠ b, there exists c ∈ X such that a + c = b or b + c = a. By symmetrization of (X, +)
+one obtains an abelian, totally ordered group (H, H+ ) which is an increasing union of subgroups
+isomorphic to (Z, Z+ ). One has X = {h ∈ H ∣ h > 0}.
+
+Notice that the additive structure (X, +) determines the action of N× on X = F (∗) by the
+equation
+                                         kx = x + ⋯ + x (k terms).
+
+Lemma 2.3 The ordered abelian group (H, H+ ) obtained as the symmetrization of (X, +) is
+isomorphic to a subgroup of (Q, Q+ ). For any two injective morphisms j, j ′ ∶ H → Q, there exists
+r ∈ Q×+ such that j ′ = rj.
+
+
+
+                                                        6
+                               Geometry of the Arithmetic Site
+
+Proof. Let x ∈ X: we show that there exists a unique injective morphism jx ∶ H → Q such that
+jx (x) = 1. For any x′ ∈ X and with the notations of (1) one sets
+                           jx (x′ ) ∶= k ′ /k, ∀z ∈ X, F (k)z = x, F (k ′ )z = x′ .
+This is well defined since, with the notations of the proof of Lemma 2.2, another choice y, `, `′ of
+z, k, k ′ gives the equalities a` = bk, a`′ = bk ′ showing that k ′ /k = `′ /` is independent of any choice.
+One easily checks that jx is also additive and injective.
+We claim that given two subgroups H, H ′ ⊂ Q, any non-trivial ordered group morphism φ ∶ H →
+H ′ is of the form φ(x) = rx, ∀x ∈ H for some r ∈ Q×+ . Indeed, one takes x0 ∈ H, x0 > 0, and lets
+r ∈ Q×+ such that φ(x0 ) = rx0 . Then, for any x ∈ H+ there exist integers n > 0 and m ≥ 0 such
+that nx = mx0 . Then one derives nφ(x) = φ(nx) = φ(mx0 ) = mφ(x0 ) = mrx0 = nrx and thus
+φ(x) = rx.
+
+To finish the proof of the theorem, one notices that a natural transformation of flat functors is by
+definition an N× -equivariant map f ∶ X → X ′ . Then, the properties (ii) and (iii) of flat functors
+show that f is necessarily injective. Moreover, for x, y ∈ X, x = F (n)z, y = F (m)z, one has
+                      f (x + y) = f (F (n + m)z) = F ′ (n + m)f (z) = f (x) + f (y)
+using F ′ (n)f (z) = f (x) and F ′ (m)f (z) = f (y). Thus, f is an injective morphism of ordered
+groups. Conversely, an injective morphism of ordered groups gives a natural transformation of
+the associated flat functors. Thus one finally concludes that the category of points of the topos
+̂× is the category of totally ordered abelian groups of rank one (isomorphic to subgroups of Q)
+N
+and injective morphisms.
+
+2.3 The case of N×0
+We investigate a variant of Theorem 2.1 obtained by replacing the multiplicative monoı̈d N× with
+the (pointed) monoı̈d N×0 defined by adjoining a 0-element: N×0 is the multiplicative monoı̈d of
+non-negative integers. Let C ′ be the small category with one object ∗ and endomorphisms given
+by N×0 . As before, a flat functor F ∶ C ′ Ð→ Sets is described by assigning a set X = F (∗) and an
+action F of the monoı̈d N×0 on X fulfilling the filtering conditions. Let P = F (0), this determines
+a map P ∶ X → X which fulfills
+                           P ○ P = P, P ○ F (n) = F (n) ○ P = P , ∀n ∈ N× .
+Thus, the image of P is described by the subset X0 = {x ∈ X ∣ P x = x}. We use the filtering
+conditions to investigate X0 . The second condition states that for any pair x, x′ ∈ X there exist
+z ∈ X and k, k ′ ∈ N×0 such that F (k)z = x, F (k ′ )z = x′ . If both x, x′ ∈ X0 , then one gets
+                          x = P x = P F (k)z = P z, x′ = P x′ = P F (k ′ )z = P z
+and hence x = x′ . Moreover the first filtering condition shows that the set X is non-empty and so
+is X0 , thus it contains exactly one element that we denote 0X . Next, let x ∈ X, n ∈ N× and assume
+that for some n ∈ N× one has F (n)x = 0X . Then one has F (n)x = F (0)x and this time the third
+filtering condition states the existence of a morphism w ∶ ∗ → ∗, and an element z ∈ X, such that
+F (w)z = x, n ○ w = 0 ○ w ∈ HomC (∗, ∗). Since n ∈ N× one has w = 0, and the equation F (w)z = x
+implies that x = 0X . It follows that the set X ∗ ∶= X ∖ {0X } is stable under the action of N× .
+Let us assume that X ∗ ≠ ∅. We show that the restriction of the action of N× on X ∗ fulfills the
+filtering conditions. The second filtering condition is fulfilled since given two elements a, b ∈ X ∗ ,
+there exists morphisms u, v ∈ N×0 and an element z ∈ X, such that F (u)z = a, F (v)z = b. The
+
+
+                                                      7
+                            Alain Connes and Caterina Consani
+
+element z ∈ X cannot be 0X since F (n)0X = 0X for all n ∈ N×0 . Thus z ∈ X ∗ . Moreover one cannot
+have u = 0 or v = 0 since we assume a, b ∈ X ∗ . The third filtering condition for the flat functor
+F ∶ C ′ Ð→ Sets states that given u, v ∈ N×0 and a ∈ X with F (u)a = F (v)a there exists w ∈ N×0 ,
+and an element z ∈ X, such that F (w)z = a, u ○ w = v ○ w ∈ N×0 . Let us assume that a ∈ X ∗ and
+that u, v ∈ N× . Then the condition F (w)z = a shows that one cannot have w = 0 since this would
+imply that a = 0X . Thus one has w ∈ N× and u = v. This shows that the restriction of the action
+of N× to X ∗ fulfills the three filtering conditions, provided one assumes X ∗ ≠ ∅.
+With this verification, the replacement for Theorem 2.1 is given by the following
+
+Theorem 2.4 The category of points of the topos N   ̂× is canonically equivalent to the category
+                                                      0
+of totally ordered groups isomorphic to subgroups of (Q, Q+ ), and morphisms of ordered groups.
+
+Proof. Given a point of N   ̂× i.e. a flat functor F ∶ N× Ð→ Sets, we consider the set X̃ ∶= X ∪ {0X }.
+We extend the action of N× on X to an action of N×0 on X̃ such that 0X is fixed by all F (n) and
+setting F (0)y = 0X , ∀y ∈ X. This extended functor F̃ fulfills the first two filtering conditions.
+We check that the third also holds. Let u, v ∈ N×0 and a ∈ X̃ with F (u)a = F (v)a. Then, if a = 0X
+we take the morphism w = 0 ∈ N×0 and z = a. One has F (w)z = a and u ○ w = v ○ w ∈ N×0 . If a ≠ 0X
+and F (u)a = F (v)a = 0X , it follows that necessarily one has u = v = 0 ∈ N×0 . Thus, one can take
+w = 1 and z = a. Finally, if a ≠ 0X and F (u)a = F (v)a ≠ 0X , then one has u, v ∈ N× and one uses
+the flatness for the action of N× on X. This proves that F̃ is flat and hence defines a point of
+̂× . Moreover the above discussion shows that any point of N
+N                                                                  ̂× different from the one element
+  0                                                                 0
+set X = {0X } is obtained in this manner. We claim that under an equivariant map f ∶ X → X ′ of
+N×0 -sets one has f (0X ) = 0X ′ and if f (x) = 0X ′ for some x ∈ X, x ≠ 0X then one has f (y) = 0X ′
+for all y ∈ X. Indeed, there exists z ∈ X and n, m such that F (n)z = x, F (m)z = y. One has
+n ∈ N× since x ≠ 0X and thus one gets f (z) = 0X ′ since otherwise f (x) ≠ 0X ′ as the complement
+of 0X ′ is stable under F ′ (n) for n ∈ N× . This shows that the only new morphism is the morphism
+0 and the only new point is the point 0.
+                                                ̂× is pointed, i.e. it admits a (unique) initial and
+Notice that the category of points of the topos N 0
+final object 0. The above proof shows that the category of points of the topos N     ̂× is obtained
+                                                                                      0
+                                                      ̂× an object which is both initial and final.
+canonically by adjoining to the category of points of N
+
+2.4 Adelic interpretation
+The ring Af of finite adèles of Q is defined as the restricted product Af = ∏′ Qp : its maximal
+compact subring is the profinite completion Ẑ = ∏ Zp of Z. One has Af = Ẑ ⊗Z Q and there is a
+canonical embedding Q ⊂ Af such that Q ∩ Ẑ = Z. Let Q×+ act by multiplication on Af .
+The following result will play an important role in the paper.
+
+Proposition 2.5 (i) Any non-trivial subgroup of Q is uniquely of the form
+                                 Ha ∶= {q ∈ Q ∣ aq ∈ Ẑ}, a ∈ Af /Ẑ×                              (2)
+        ×
+where Ẑ denotes the multiplicative group of invertible elements in the ring Ẑ acting by multipli-
+cation on Af .
+(ii) The map a ↦ Ha of (2) induces a canonical bijection of the quotient space
+                                             Q×+ /Af /Ẑ×                                          (3)
+                                                           ̂× .
+with the set of isomorphism classes of points of the topos N
+
+
+                                                  8
+                             Geometry of the Arithmetic Site
+
+Proof. (i) We give a conceptual proof using Pontrjagin duality for abelian groups.
+Let χ ∶ Q/Z → U (1), χ(α) = e2πiα . It gives a character, still noted χ of Af , whose kernel is the
+additive subgroup Ẑ ⊂ Af (use the canonical isomorphism Q/Z = Af /Ẑ). Then the pairing
+                                 < q, a >= χ(qa) , ∀q ∈ Q/Z, a ∈ Ẑ
+identifies Ẑ with the Pontrjagin dual of the discrete abelian group Q/Z. To prove (i) we can
+assume that the non-trivial subgroup of Q contains Z. The subgroups of Q which contain Z are
+in fact determined by subgroups H ⊂ Q/Z. Given a subgroup H ⊂ Q/Z one has
+        H = (H ⊥ )⊥ = {q ∈ Q/Z ∣< q, x >= 1, ∀x ∈ H ⊥ }, H ⊥ = {x ∈ Ẑ ∣< q, x >= 1, ∀q ∈ H}.
+Let J = H ⊥ . It is a closed subgroup J ⊂ Ẑ. Then, the equality H = Ha for some a ∈ Ẑ derives
+from the following observations on closed subgroups J ⊂ Ẑ, by showing that they are all of the
+form J = aẐ, for some a ∈ Ẑ unique up to the action of Ẑ× by multiplication.
+  – A closed subgroup of Ẑ is an ideal in the ring Ẑ.
+  – For each prime p, the projection πp (J) ⊂ Zp coincides with the intersection ({0} × Zp ) ∩ J
+    and is a closed ideal Jp ⊂ Zp , moreover one has: x ∈ J ⇐⇒ πp (x) ∈ Jp ∀p.
+  – Any ideal of Zp is principal.
+Thus one writes Jp = ap Zp for all p and it follows that J = aẐ where a = (ap ) ∈ ∏ Zp . Moreover,
+for each p the element ap ∈ Zp is unique up to the action of Z×p and in this way one also proves
+the statement on the uniqueness.
+(ii) By Theorem 2.1 any point of the topos N    ̂× is obtained from a subgroup Ha ⊂ Q. Elements
+a, b ∈ A /Ẑ determine isomorphic points of the topos N
+        f   ×                                              ̂× if and only if the ordered groups Ha
+and Hb are abstractly isomorphic. An abstract isomorphism is given by the multiplication by
+q ∈ Q×+ so that Hb = qHa . It follows from (i) that a = qb in Af /Ẑ× and one derives the result.
+Remark 2.6 The quotient of the additive group Af by the open compact subgroup Ẑ is the
+direct sum
+                                     Q/Z = Af /Ẑ = ⊕ Qp /Zp .
+When this fact is applied to a rational number q ∈ Q, this yields the decomposition in simple
+elements
+                                                          α
+                                         q = n + ∑ npj /pj j                                     (4)
+                                                          α
+where n ∈ Z, the pj ’s are prime numbers, 0 < npj      < pj j , and (npj , pj ) = 1. One can use this
+decomposition to give a direct proof of Proposition 2.5.
+Remark 2.7 One can describe the elements of Ẑ/Ẑ× (which parametrize the subgroups Z ⊂ H ⊂
+Q) by means of “supernatural numbers” in the sense of Steinitz. This is the point of view adopted
+in [13,17]. By definition, a supernatural number is a formal product ∏ pnp over all primes, where
+the exponents np belong to N ∪ {∞}. One can check easily that this product is convergent in
+Ẑ/Ẑ× and that one obtains in this way a canonical bijection of the supernatural numbers with
+Ẑ/Ẑ× compatible with the labeling of subgroups Z ⊂ H ⊂ Q.
+Remark 2.8 In §3, we shall enrich the topos N    ̂× with the structure of a curve over the Boolean
+semifield B, by endowing the topos with its structure sheaf. The presence of a large group of
+automorphisms on the topos N   ̂× , arising from the automorphisms of the monoı̈d N× , shows that
+one does not have, at this state of the construction, a sufficient geometric structure on the
+topos. It is however useful to investigate how the endomorphisms ρ of the monoı̈d N× act on the
+
+
+                                                  9
+                              Alain Connes and Caterina Consani
+
+points of N ̂× in terms of the above adelic description. Any such ρ extends by continuity to an
+endomorphism ρ̄ of the multiplicative monoı̈d Ẑ/Ẑ× and this extension determines the action of
+ρ on the points of N  ̂× . The action of ρ on the point associated to the ordered group H = Ha ,
+a ∈ Ẑ/Ẑ× is given by the point associated to the ordered group H = Hb , with b = ρ̄(a) ∈ Ẑ/Ẑ× .
+
+Remark 2.9 In §5, we shall construct a geometric morphism of topoi Θ ∶ Spec Z → N       ̂× . When
+                                                                                          0
+considered as a map of points, it associates to the point of Spec Z corresponding to a prime p the
+         ̂× associated to the class of the finite adele αp = p∞ ∈ Af /Ẑ× whose components are all
+point of N 0
+equal to 1 except at p where the component vanishes. One can show that the topology induced
+on these points by the quotient topology of Q×+ /Af /Ẑ× coincides with the Zariski topology of
+Spec Z, i.e. the open sets are the complements of the finite subsets. The geometric morphism Θ
+associates to the generic point of Spec Z the base point of N ̂× .
+                                                               0
+
+
+                                                         ̂× , Zmax )
+                                 3. The Arithmetic Site (N
+
+In this section we introduce the structure sheaf Zmax on the topos N̂× . This additional structure
+    ̂
+on N , without which the group of automorphisms (cf. Remark 2.8) would contain arbitrary
+     ×
+
+permutations of the primes, turns the topos N ̂× into the arithmetic site (N
+                                                                           ̂× , Zmax ).
+
+3.1 The structure sheaf Zmax and its stalks
+We start by introducing the definition of the arithmetic site.
+
+                                    ̂× , Zmax ) is the topos N
+Definition 3.1 The arithmetic site (N                        ̂× endowed with the structure sheaf
+O ∶= Zmax viewed as a semiring in the topos using the action of N× by the Frobenius endomor-
+phisms.
+
+The action of N× on Zmax is by the Frobenius endomorphisms N× → End(Zmax ), k ↦ Frk (n) ∶= kn.
+Likewise an algebraic scheme is a ringed space of a certain kind, the arithmetic site can be thought
+of as a “semi-ringed topos”. The semiring structure of Zmax is compatible with the action of N×
+and automatically endows the stalks of the sheaf Zmax on the topos N  ̂× with a particular structure
+of semiring which we now determine.
+
+Theorem 3.2 The stalk of the structure sheaf O at the point of the topos N̂× associated to the
+ordered group H ⊂ Q is canonically isomorphic to the semiring Hmax ∶= (H ∪ {−∞}, max, +).
+
+                                 ̂× associated to the rank one ordered group H corresponds the
+Proof. To the point of the topos N
+flat functor F ∶ N Ð→ Sets which associates to the single object ∗ of the small category N× the
+                  ×
+
+set F (∗) = H>0 and to the endomorphism k the multiplication F (k) by k in H>0 . The inverse
+image functor connected with this point is the functor which associates to any N× -space X its
+geometric realization ∣X∣F of the form
+                                         ∣X∣F = (X ×N× H>0 ) / ∼ .                                       (5)
+The relation ∼ states the equivalence of the pairs (x, F (k)y) ∼ (k.x, y), where k.x denotes the
+action of k on x ∈ X. More precisely, by using the flatness of the functor F the equivalence
+relation is expressed as follows
+           (x, y) ∼ (x′ , y ′ ) ⇐⇒ ∃z ∈ Y, k, k ′ ∈ N× , F (k)z = y, F (k ′ )z = y ′ , k.x = k ′ .x′ .
+
+
+                                                       10
+                             Geometry of the Arithmetic Site
+
+To obtain a description of the stalk of the structure sheaf O at H, one applies (5) to the N× -space
+X = Zmax , with the action of N× defined by k.x ∶= kx and k.(−∞) ∶= −∞. We define
+                 β ∶ ∣Zmax ∣F → Hmax , β(x, y) = xy ∈ Hmax , ∀x ∈ Zmax , y ∈ H>0 .              (6)
+The map β is compatible, by construction, with the equivalence relation ∼. One has
+               β(1, y) = y, β(0, y) = 0, β(−1, y) = −y, β(−∞, y) = −∞ , ∀y ∈ H>0
+which shows that β is surjective. We show that β is also injective. Let u = β(x, y) = β(x′ , y ′ ),
+then if u > 0 one has x ∈ N× and (x, y) ∼ (1, xy) = (1, x′ y ′ ) ∼ (x′ , y ′ ). For u < 0, one has
+−x ∈ N× and (x, y) ∼ (−1, −xy) = (−1, −x′ y ′ ) ∼ (x′ , y ′ ). For u = 0 one has x = x′ = 0 and one
+uses the flatness of F to find z ∈ H>0 and k, k ′ ∈ N× with kz = y, k ′ z = y ′ . Then one derives
+(0, y) = (0, kz) ∼ (0, z) ∼ (0, k ′ z) = (0, y ′ ). The same proof works also for u = −∞.
+The two operations ∨ and + on Zmax determine maps of N× -spaces Zmax × Zmax → Zmax . Since
+the geometric realization functor commutes with finite limits one gets ∣Zmax × Zmax ∣F = ∣Zmax ∣F ×
+∣Zmax ∣F . One obtains corresponding maps ∣Zmax ∣F × ∣Zmax ∣F → ∣Zmax ∣F associated respectively to
+the two operations. The identification ∣Zmax × Zmax ∣F = ∣Zmax ∣F × ∣Zmax ∣F is described by the map
+                       (x, x′ , y) ↦ (x, y) × (x′ , y) , ∀x, x′ ∈ Zmax , y ∈ H>0 .
+One has y(x ∨ x′ ) = yx ∨ yx′ for any y ∈ H>0 and x, x′ ∈ Zmax and this suffices to show that the
+map ∣Zmax ∣F × ∣Zmax ∣F → ∣Zmax ∣F associated to the operation ∨ on Zmax is the operation ∨ on
+Hmax . Similarly one has y(x + x′ ) = yx + yx′ for any y ∈ H>0 and x, x′ ∈ Zmax and again this
+suffices to show that the map ∣Zmax ∣F × ∣Zmax ∣F → ∣Zmax ∣F associated to the operation + on Zmax
+is the operation + on Hmax .
+
+Remark 3.3 The statement of Theorem 3.2 continues to hold if one replaces the pair (N    ̂× , Zmax )
+by (N ̂ , Zmax ), where the action of 0 ∈ N on Zmax is the endomorphism x ↦ 0x = 0 ∀x ∈ Z ⊂ Zmax
+         ×                                  ×
+         0                                  0
+and 0(−∞) ∶= −∞. The map β of (6) extends to the case y ∈ H≥0 by setting 0(−∞) ∶= −∞. In the
+proof of injectivity of β, in the case u = 0, one uses that x or y vanishes to get (x, y) ∼ (0, 0) ∼
+(x′ , y ′ ). The proof in the other cases is unchanged. Moreover at the only new point of N  ̂× i.e.
+                                                                                              0
+the point associated to the trivial group {0}, the stalk is the semifield B.
+
+Remark 3.4 Theorem 3.2 continues to hold if one replaces the pair (N    ̂× , Zmax ) by (N
+                                                                                        ̂× , Z+ ),
+                                                                                              min
+where Z+min is the sub-semiring Z+min ∶= {n ∈ Zmin , n ≥ 0}. The stalk at the point of the topos
+̂× associated to the ordered group H ⊂ Q is canonically isomorphic to the semiring R = (H≥0 ∪
+N
+{∞}, min, +). This is the notation adopted in Theorem 2.4 of [12], where Z+min was denoted N.
+One switches back and forth from the semiring Zmax ∼ Zmin to the semiring Z+min ∼ N, by applying
+the following two functors. The first one, noted O, associates to a semiring R of characteristic
+one the (sub) semiring O(R) ∶= {x ∈ R ∣ x ⊕ 1 = 1} where ⊕ denotes the addition in R and 1 is
+the multiplicative unit. The second functor, noted Frac, associates to a semiring R without zero
+divisors its semiring of fractions.
+
+One should not confuse the semiring Zmax with the semiring of global sections of the structure
+sheaf of the arithmetic site. The latter selects the elements of Zmax which are invariant under
+the action of N× as explained by the following
+
+                                      ̂× , Zmax ) of the structure sheaf are given by the sub-
+Proposition 3.5 The global sections Γ(N
+semifield B ⊂ Zmax .
+
+
+                                                   11
+                            Alain Connes and Caterina Consani
+
+Proof. For a Grothendieck topos T the global section functor Γ ∶ T → Sets, is given by Γ(E) ∶=
+HomT (1, E), where E is an object of T and 1 is the final object in the topos. In the particular
+case of a topos of the form ˆC, where C is a small category, a global section of a contravariant
+functor P ∶ C Ð→ Sets is a function which assigns to each object C of C an element γC ∈ P (C) in
+such a way that for any morphism f ∶ D → C one has P (f )γC = γD (see [20] Chapter I §6 (9)).
+We apply this definition to C = N× and derive that the global sections coincide with the elements
+of Zmax which are invariant under the action of N× , i.e. B ⊂ Zmax .
+
+Proposition 3.5 indicates that, as a generalized scheme over B, the arithmetic site is, inasmuch
+as it can be considered as the analogue of a curve, both complete and irreducible.
+The above Theorem 3.2 shows that one does not require additional structure in order to obtain
+                                                                             ̂× . In the next sections,
+the semiring structure on the stalks of the structure sheaf at the points of N
+we shall see that this structure has the right properties to obtain the Riemann zeta function and
+the counting function of the mysterious “curve” underlying the geometry of the prime numbers.
+
+3.2 The points of the arithmetic site over Rmax     +
+By definition ([1] Exposé 4, Definition 13.1), a morphism of ringed topos (X, OX ) → (Y, OY ) is
+a pair (f, θ), where f ∶ X → Y is a geometric morphism and θ ∶ f ∗ (OY ) → OX is a morphism
+of rings on the topos X. Using the adjunction formula between the pullback f ∗ and the push-
+forward f∗ , one can equivalently describe θ as the morphism θ ∶ OY → f∗ (OX ). This definition
+extends immediately to semi-ringed topoi, in this paper we apply it to the semi-ringed topos
+      + ), where P is the single point, i.e. the topos of sets, endowed with the semifield R+ .
+(P, Rmax                                                                                    max
+
+
+Definition 3.6 Let (Y, OY ) be a semi-ringed topos. A point of (Y, OY ) defined over Rmax
+                                                                                      +   is a
+pair given by a point p of Y and a morphism fp ∶ OY,p → R+ of semirings from the stalk of
+                                               #            max
+
+OY at p to Rmax
+             + .
+
+Likewise a point of a topos T is an equivalence class of isomorphic objects in the category of
+geometric morphisms P → T , we say that two points of (Y, OY ) defined over Rmax +   are equivalent
+(p, fp ) ∼ (q, gq ) when there exists an isomorphism of points φ ∶ p → q compatible with the
+     #          #                                                        ∼
+
+morphisms of semirings i.e. such that gq# ○ φ# = fp# .
+Before stating the main theorem of this section we introduce the following lemma which provides
+a canonical bijection between the quotient Q×+ /((Af /Ẑ× ) × R×+ ) and the set of non-trivial rank
+one subgroups of R.
+
+Lemma 3.7 Let Φ be the map from (Af /Ẑ× ) × R×+ to subgroups of R defined by
+                               Φ(a, λ) ∶= λHa , ∀a ∈ Af /Ẑ× , λ ∈ R×+ .
+Then, Φ is a bijection between the quotient of (Af /Ẑ× ) × R×+ by the diagonal action of Q×+ and
+the set of non zero subgroups of R whose elements are pairwise commensurable.
+
+Proof. The map Φ is invariant under the diagonal action of Q×+ since by replacing (a, λ) with
+(qa, qλ) for q ∈ Q×+ one replaces Ha by Hqa = q −1 Ha and λHa by qλq −1 Ha = λHa .
+We show that Φ is surjective. A subgroup H ⊂ R whose elements are pairwise commensurable
+is, as an ordered group, isomorphic to a subgroup of Q. Given x ∈ H, x > 0 one can find λ ∈ R×+
+such that λ−1 x ∈ Q and it follows that λ−1 H ⊂ Q. This determines an adèle a ∈ Af /Ẑ× such that
+H = λHa and thus H = Φ(a, λ).
+Next, we prove that Φ is injective. Assume that λHa = λ′ Hb , for λ, λ′ ∈ R×+ . Then since both Ha
+
+
+                                                  12
+                             Geometry of the Arithmetic Site
+
+and Hb are non-zero subgroups of Q, one has λ′ = qλ for some q ∈ Q×+ . One then gets λHa = λqHb
+and hence Ha = qHb . But qHb = Hq−1 b and the equality Ha = Hq−1 b together with Proposition 2.5,
+(i), show that a = q −1 b in Af /Ẑ× . Thus we get λ′ = qλ and b = qa which proves the injectivity.
+
+In terms of semifields, the space we are considering here is that of sub-semifields of Rmax which
+are abstractly isomorphic to algebraic extensions of Zmax . The natural action of R×+ on this space
+through the Frobenius automorphisms Fru (at the multiplicative notation level, Fru is raising
+to the power u) is given by H ↦ uH. Thus, the action of R×+ on the pair (a, λ) is given by the
+formula Fru (Φ(a, λ)) = Φ(a, uλ).
+
+Theorem 3.8 The points of the arithmetic site (N    ̂× , Zmax ) over Rmax form the quotient of the
+                                                                       +
+adèle class space of Q by the action of Ẑ× . The action of the Frobenius automorphisms Frλ of
+Rmax
+  +    on these points corresponds to the action of the idèle class group on the above quotient of
+the adèle class space of Q.
+                                                                               ̂×
+Proof. Consider a point of the arithmetic site over Rmax+ : f ∶ (P, R+ ) → (N , Zmax ). This is
+                                                                       max
+
+given by a pair (p, fp ) as in Definition 3.6. By applying Theorem 2.1, to a point p of the topos
+                     #
+
+̂× is associated a rank one ordered group H and, by Theorem 3.2, the stalk of the structure
+N
+sheaf Zmax at p is the semifield K = Hmax . The map of stalks is given by a (local) morphism of
+semifields fp# ∶ K → Rmax
+                       + . One considers the following two cases, depending upon the nature of
+                #
+the range of fp .
+(α) The range of fp# is the semifield B ⊂ Rmax
+                                            + . Then, since fp sends invertible elements to 1 ∈ B,
+                                                              #
+
+this map is completely determined and thus the pair (p, fp# ) is uniquely determined by the point
+p. We write ιp for such a degenerate morphism on the stalks: it exists uniquely for any point of
+̂× . Thus, the map p ↦ (p, ιp ) gives a bijection between points of N
+N                                                                     ̂× and points of (N
+                                                                                        ̂× , Zmax )
+over R+ which are defined over B ⊂ R+ . These points are the fixed points for the action of
+       max                                max
+
+the Frobenius automorphisms Frλ of Rmax  + .
+(β) The range of fp# is not contained in B. In this case fp# is an isomorphism of the semifield K
+                                                                                        #
+with a sub-semifield of Rmax                                                         ×
+                          + . Indeed, when restricted to the multiplicative group K , fp defines
+a non-trivial morphism of ordered groups and is injective. Moreover, the range fp (K) ⊂ Rmax
+                                                                                  #
+                                                                                             +   is
+entirely determined by the non-trivial rank one subgroup H ′ ⊂ R defined by
+                                  H ′ = {log u ∣ u ∈ fp# (K), u ≠ 0}.                           (7)
+The subgroup H ′ determines uniquely, up to isomorphism, the pair given by the point p and
+the map fp# . More precisely, if two pairs f = (p, fp# ) and g = (q, gq# ) define the same rank one
+subgroup H ′ ⊂ R, then there exists a unique isomorphism of points φ ∶ p → q such that the
+                                                                                  ∼
+
+following diagram commutes
+                                                   φ#
+                                         Op                    / Oq
+                                             66                 
+                                               66            
+                                                 6          
+                                           fp# 66           #
+                                                        gq
+                                                 Rmax
+                                                  +
+
+                                                   ̂× , Zmax ) over Rmax form the union of two sets:
+This shows that the points of the arithmetic site (N                 +
+                                            ̂
+the set of isomorphism classes of points of N and the set of the non-trivial rank one subgroups
+                                              ×
+
+H ⊂ R. By Proposition 2.5 (ii), the first set coincides with the quotient
+                                              Q×+ /Af /Ẑ× .                                    (8)
+
+
+                                                       13
+                            Alain Connes and Caterina Consani
+
+By Lemma 3.7, the set of non-trivial rank one subgroups H ⊂ R is the quotient
+                                     Q×+ /(Af × R×+ )/(Ẑ× × {1})                                  (9)
+of (Af × R×+ )/(Ẑ× × {1}) by the diagonal action of Q×+ . The quotient of the adèle class space of Q
+by the action of Ẑ×
+                            Q× /A/(Ẑ× × {1}) = Q× /(Af × R)/(Ẑ× × {1})
+is also the disjoint union of two pieces. The first one arises from the contribution of Af × {0} ⊂
+Af × R and gives Q× /Af /Ẑ× = Q×+ /Af /Ẑ× , since the element −1 ∈ Q× is already in Ẑ× . Thus,
+this piece coincides with (8). The second piece arises from the contribution of Af × R× ⊂ Af × R
+and gives, using multiplication by −1 ∈ Q× to shift back to positive reals, the quotient Q×+ /(Af ×
+R×+ )/(Ẑ× × {1}) which coincides with (9). Thus, the points of the arithmetic site (N ̂× , Zmax ) over
+  max                                                                              ×
+R+ coincide with the quotient of the adèle class space of Q by the action of Ẑ . The action of the
+Frobenius automorphisms Frλ ∈ Aut(Rmax    + ) is the identity on the degenerate morphisms ιp since
+these morphisms have range in the semifield B ⊂ Rmax     +   which is fixed by the Frλ ∈ Aut(Rmax + ).
+This result is in agreement with the fact that the scaling action of R+ on Q /(A × R)/(Ẑ × {1})
+                                                                         ×      ×    f         ×
+
+fixes the contribution of Af × {0} ⊂ Af × R. Under the correspondence given by (7), the action
+of the Frobenius automorphisms Frλ on the points translates into the scaling action H ↦ λH on
+the rank one subgroups H ⊂ R. In turns, by Lemma 3.7, this scaling action corresponds to the
+action of the idèle class group GL1 (A)/GL1 (Q) = Ẑ× × R×+ on the quotient of the adèle class space
+of Q by (Ẑ× × {1}). Finally, notice that with (p, fp# ) as in case β), one gets in the limit λ → 0,
+that (p, Frλ ○ fp# ) → (p, ιp ). More precisely, for any x ∈ Op one has Frλ ○ fp# (x) → ιp (x). This is
+clear for x = 0 (the neutral element for the addition), while for x ≠ 0 and u = fp# (x) ∈ Rmax +    the
+action of Frλ replaces log u by λ log u which converges to 0 = log 1 = log ιp (x) when λ → 0.
+
+Remark 3.9 Theorem 2.6 of [12] is the analogue of Theorem 3.8 when the pair (N      ̂× , Zmax ) is
+             ̂× , Z+ ). The proofs are similar. One replaces Rmax in (P, Rmax ) by the maximal
+replaced by (N     min                                         +           +
+compact subring O(Rmax + ), where the functor O  is defined in Remark 3.4.
+
+
+                  4. Hasse-Weil formula for the Riemann zeta function
+
+In this section, we combine Theorem 3.8 with our previous results as in [7,8] and derive a descrip-
+tion of the complete Riemann zeta function as the Hasse-Weil zeta function of the arithmetic
+site.
+
+4.1 The periodic orbits of the Frobenius on points over Rmax          +
+We shall describe, at a qualitative level, the periodic orbits of the Frobenius action on points
+of the arithmetic site (N̂× , Zmax ) over Rmax . These points contribute through various terms in
+                                           +
+the counting distribution. To obtain a conceptual formula, one considers the action of the idèle
+class group G = GL1 (A)/GL1 (Q) = Ẑ× × R×+ on the adèle class space of Q. One then restricts the
+attention to test functions h on G which are invariant under the maximal compact subgroup Ẑ× ,
+i.e. of the form h(u) = g(∣u∣), where g is a test function on R×+ and u ↦ ∣u∣ is the module, i.e. the
+projection of G = Ẑ× ×R×+ on the second factor. Notice that restricting to (Ẑ× ×{1})-invariant test
+functions is the same as considering the action of R×+ on the quotient of the adèle class space of
+Q by (Ẑ× × {1}). We shall also assume that the support of the function g is contained in (1, ∞).
+The periodic orbits of the Frobenius flow which contribute to the Lefschetz formula on the adèle
+class space of Q correspond, at a place v of Q, to the adèles a = (aw ) which vanish at v, i.e.
+
+
+                                                  14
+                             Geometry of the Arithmetic Site
+
+with av = 0. This condition makes sense in the quotient of the adèle class space of Q by Ẑ× × {1}
+and does not depend on the choice of a lift of a given class as an adèle. Next, we investigate the
+                                                    ̂× , Zmax ) over Rmax that it labels, accordingly
+meaning of this condition in terms of the point of (N                 +
+to the place v of Q.
+
+Archimedean place For v = ∞ the archimedean place, the above condition means that the
+corresponding point α is in the contribution of (8) i.e. it is fixed by the Frobenius action Frλ (α) =
+α ∀λ. Thus, the points of (N ̂× , Zmax ) over Rmax which correspond to v = ∞ are the points of
+                                               +
+ ̂× , Zmax ) defined over B.
+(N
+
+Finite places For a finite place v = p, with p a rational prime, the condition ap = 0 implies that
+the class α of a in the quotient of the adèle class space of Q by (Ẑ× × {1}), fulfills the equation
+Frλ (α) = α ∀λ ∈ pZ . Indeed, the principal adèle p ∶= (pv ) associated to the rational number p is a
+product of the form p = (u × 1)(1 × p∞ )pp , where each term of the product is an idèle. The first
+term belongs to Ẑ× × {1}, the second to 1Af × R×+ and the third term has all its components equal
+to 1 except at p where it is equal to p. The multiplication by this last term fixes a since ap = 0.
+The multiplication by (1 × p∞ ) is the action of Frp . Finally, the multiplication by (u × 1) is the
+identity in the quotient of the adèle class space of Q by Ẑ× × {1}. Moreover, since one operates
+in the adèle class space, the multiplication by the principal idèle p is the identity, and thus one
+has Frp (α) = α. Conversely however, the condition Frp (α) = α is not sufficient to ensure that the
+component ap = 0 since it holds for all fixed points of the Frobenius action. This condition is in
+fact best understood in terms of the intermediate semifields F ⊂ K ⊂ F = Qmax which label the
+points of N ̂× . In these terms it means that the Frobenius map x ↦ xp is an automorphism of
+K. Notice that this condition depends only on the point of the topos N       ̂× over which the point
+of (N̂× , Zmax ) over R max
+                            sits. This invariance of K under the Frobenius at p implies of course
+                        +
+that the range of the morphism fp# to Rmax  +   is invariant under Frp . The condition Frp (α) = α is
+sufficient for non-degenerate points but for degenerate points (those defined over B) it does not
+suffice to ensure ap = 0.
+
+4.2 Counting function for the Frobenius action on points over Rmax
+                                                               +
+                                                                                   ̂× , Zmax ) over
+In order to count the number of fixed points of the Frobenius action on points of (N
+R+ , we let ϑw ξ(x) = ξ(w x) be the scaling action of the idèle class group G = GL1 (A)/GL1 (Q)
+  max                     −1
+
+on the complex valued functions on the adèle class space AQ /Q× and we use the trace formula
+in the form
+                                                            h(w−1 ) ∗
+                        Trdistr (∫ h(w)ϑ(w)d∗ w) = ∑ ∫                d w.                     (10)
+                                                      v   v ∣1 − w∣
+                                                         Q×
+
+We refer to [5, 6, 21] for a detailed treatment. The subgroups Q×v ⊂ G = GL1 (A)/GL1 (Q) arise
+                                                          h(w−1 )
+as isotropy groups. One can understand why the terms               occur in the trace formula by
+                                                           ∣1 − w∣
+computing, formally as follows, the trace of the scaling operator T = ϑw−1
+
+                                T ξ(x) = ξ(wx) = ∫ k(x, y)ξ(y)dy
+
+given by the distribution kernel k(x, y) = δ(wx − y)
+                                                                1                   1
+            Trdistr (T ) = ∫ k(x, x) dx = ∫ δ(wx − x) dx =           ∫ δ(z) dz =         .
+                                                             ∣w − 1∣             ∣w − 1∣
+
+
+                                                 15
+                                  Alain Connes and Caterina Consani
+
+We apply the trace formula (10) by taking the function h of the form h(u) = g(∣u∣), where the
+support of the function g is contained in (1, ∞). On the left hand side of (10) one first performs
+the integration in the kernel Ẑ× of the module G → R×+ . At the geometric level, this corresponds
+to taking the quotient of the adèle class space by the action of Ẑ× . We denote by ϑw the scaling
+action on this quotient. By construction, this action only depends upon ∣w∣ ∈ R×+ . In order to
+count the number of fixed points of the Frobenius we consider the distributional trace of an
+expression of the form ∫ gx (u)ϑu d∗ u where gx (u) = uδx (u). It is characterized, as a distribution,
+by its evaluation on test functions b(u). This gives
+
+                                ∫ b(u)gx (u)d u = b(x), ∫ gx (u)ϑu d u = ϑx
+                                             ∗                      ∗
+                                                                                                    (11)
+thus we are simply considering an intersection number. We now look at the right hand side of
+(10), i.e. at the terms
+                                              ′ h(w −1 )
+                                           ∫ ×           d∗ w.                                       (12)
+                                             Qv ∣1 − w∣
+Since h(w) = g(∣w∣) and the support of the function g is contained in (1, ∞), one sees that the
+integral (12) can be restricted in all cases to the unit ball {w ; ∣w∣ < 1} of the local field Qv . Again
+we study separately the two cases.
+
+Archimedean place At the archimedean place, let u = w−1 then one has
+                                                1   1      1         u2
+                                                  (     +       ) =        .
+                                                2 1 − u1 1 + u1     u2 − 1
+The above equation is applied for u > 1, in which case one can write equivalently
+                                       1     1          1           u2
+                                         (         +           ) =        .                         (13)
+                                       2 ∣1 − u−1 ∣ ∣1 + u−1 ∣     u2 − 1
+The term corresponding to (12) yields the distribution κ(u)
+                    ∞                           ∞ u2 f (u) − f (1)     1
+            ∫           κ(u)f (u)d∗ u = ∫           d∗ u + cf (1) , c = (log π + γ)      (14)
+                1                           1u2 − 1                    2
+where γ = −Γ (1) is the Euler constant. The distribution κ(u) is positive on (1, ∞) where, by
+                ′
+                                        2
+construction, it is given by κ(u) = uu2 −1 .
+
+Finite places At a finite place one has ∣1 − w∣ = 1, thus for each finite prime p one has
+                                            ′ h(w −1 )             ∞
+                                      ∫ ×                  d∗ w = ∑ log p g(pm ).                   (15)
+                                        Qp       ∣1 − w∣           m=1
+
+
+4.3 Analogue of the Hasse-Weil formula for the Riemann zeta function
+The results of §4.2 yield a distribution N (u) on [1, ∞) which counts the number of fixed points
+of the Frobenius action on points of (N   ̂× , Zmax ) over Rmax . The next task is to derive from this
+                                                            +
+distribution the complete Riemann zeta function in full analogy with the geometric construction
+in finite characteristic. In that case, i.e. working over a finite field Fq , the zeta function ζN (s),
+associated to a counting function N (q r ) which counts the number of points over the finite field
+extensions Fqr , is given by the Hasse-Weil formula
+                                                                                    Tr
+                              ζN (s) = Z(q, q −s ), Z(q, T ) = exp ( ∑ N (q r )        ).           (16)
+                                                                         r≥1        r
+
+
+                                                              16
+                             Geometry of the Arithmetic Site
+
+Inspired by the pioneering work of R. Steinberg and J. Tits, C. Soulé associated a zeta function
+to any sufficiently regular counting-type function N (q), by considering the following limit
+                            ζN (s) ∶= lim Z(q, q −s )(q − 1)N (1)            s ∈ R.           (17)
+                                      q→1
+
+Here, Z(q, q −s ) denotes the evaluation, at T = q −s , of the Hasse-Weil expression
+                                                                    Tr
+                                   Z(q, T ) = exp ( ∑ N (q r )         ).                     (18)
+                                                          r≥1       r
+For the consistency of the formula (17), one requires that the counting function N (q) is defined
+for all real numbers q ≥ 1 and not only for prime integers powers as for the counting function
+in (18). For many simple examples of rational algebraic varieties, like the projective spaces, the
+function N (q) is known to extend unambiguously to all real positive numbers. The associated
+zeta function ζN (s) is easy to compute and it produces the expected outcome. For a projective
+line, for example, one finds ζN (s) = s(s−1)
+                                         1
+                                             . To by-pass the difficulty inherent to the definition
+(17), when N (1) = −∞, one works with the logarithmic derivative
+                                       ∂s ζN (s)
+                                                 = − lim F (q, s)                             (19)
+                                        ζN (s)       q→1
+
+where
+                                                                   q −rs
+                                    F (q, s) = −∂s ∑ N (q r )            .                    (20)
+                                                         r≥1         r
+Then one finds, under suitable regularity conditions on N (u), that (cf. Lemma 2.1 of [7])
+
+Lemma 4.1 With the above notations and for Re(s) large enough, one has
+                                                  ∞
+                           lim F (q, s) = ∫           N (u)u−s d∗ u , d∗ u = du/u             (21)
+                           q→1                1
+
+and
+                                  ∂s ζN (s)        ∞
+                                            = − ∫ N (u) u−s d∗ u .                            (22)
+                                   ζN (s)        1
+
+
+Using this lemma we can now recall one of our key results (cf. [7, 8])
+
+Theorem 4.2 The zeta function associated by (22) to the counting distribution of §4.2 is the
+complete Riemann zeta function ζQ (s) = π −s/2 Γ(s/2)ζ(s).
+
+This theorem implies that we are now working in a similar geometric framework as in the case
+of the geometry of a complete curve in finite characteristic. Moreover, in [7] we also showed that
+the counting distribution N (u) can be expressed in the form
+
+                                               d ⎛            uρ+1 ⎞
+                              N (u) = u −          ∑ order(ρ)        +1
+                                              du ⎝ρ∈Z         ρ + 1⎠
+where Z is the set of non-trivial zeros of the Riemann zeta function and the derivative is taken
+in the sense of distributions. The main open question is at this point the definition of a suitable
+Weil cohomology which would allow one to understand the above equality as a Lefschetz formula.
+
+
+                                                         17
+                           Alain Connes and Caterina Consani
+
+                       5. Relation of Spec Z with the arithmetic site
+
+As shown in §4.2, the periodic orbits of the Frobenius action which are responsible for the contri-
+bution of a given prime p to the counting function correspond to adeles (av ) whose component
+ap = 0. This fact gives a first hint for the determination of a precise relation between Spec Z and
+the arithmetic site. In this section we construct a geometric morphism of topoi Θ ∶ Spec Z → N  ̂× ,
+                                                                                                  0
+where Spec Z is viewed as a topos with the Zariski topology. In the second part of the section
+we give an interpretation of the pullback of the structure sheaf of the arithmetic site in terms of
+Cartier divisors.
+
+5.1 The geometric morphism Θ
+Recall that Spec Z is the affine scheme given by the algebraic spectrum of the ring Z. As a
+topological space it contains, besides the generic point, one point p for each rational prime and
+the non-empty open sets are the complements of finite sets. The generic point belongs to all non-
+empty open sets. We consider the topos Sh(Spec Z) of sheaves of sets on Spec Z and investigate
+the definition of a geometric morphisms of topoi
+                                                      ̂× .
+                                         Θ ∶ Spec Z → N 0
+
+The general theory states that any such morphism is uniquely determined by a flat functor
+                                     Θ∗ ∶ N×0 Ð→ Sh(Spec Z).
+Thus we are looking for a sheaf S of sets on Spec Z corresponding to the unique object ∗ of the
+small category N×0 and for an action of the semigroup N×0 on S. In fact, a geometric morphism
+such as Θ determines a map between the points of Spec Z and the points of N   ̂× . We first give the
+                                                                               0
+natural guess for the definition of such map on points related to the periodic orbits associated to
+primes as in §4.2. For each prime p, let αp ∈ Af be the finite adele whose components are all equal
+to 1 except at p where the component vanishes. We let H(p) be the corresponding subgroup of
+Q as in (2) i.e.
+                                    H(p) ∶= {q ∈ Q ∣ αp q ∈ Ẑ}.
+Thus H(p) is the group of fractions whose denominator is a power of p. To this ordered group
+corresponds a point of N ̂× and also of N̂× . By working with N ̂× we see that, as a set with an
+                                          0                      0
+action of N0 , the stalk of S at the point p ∈ Spec Z is Sp = H(p)+ , i.e. the set of non-negative
+           ×
+
+elements of H(p) on which N×0 acts by multiplication. Moreover N ̂× admits a point corresponding
+                                                                   0
+to the subgroup {0} ⊂ Q: we associate this point to the generic point of Spec Z. Thus the stalk
+of S at the generic point is {0}. This suggests that when one considers a section ξ ∈ Γ(U, S) of
+S on an open set U ⊂ Spec Z, its value at all primes but finitely many is the zero element of the
+stalk Sp .
+In agreement with the above construction we introduce the following
+
+Definition 5.1 The sheaf of sets S on Spec Z assigns, for each open set U ⊂ Spec Z, the set
+Γ(U, S) = {U ∋ p ↦ ξp ∈ Sp = H(p)+ ∣ξp ≠ 0 for finitely many primes p ∈ U }. The action of N×0 on
+sections is done pointwise i.e. (nξ)p ∶= nξp .
+
+The restriction maps on sections of S are the obvious ones and they are N×0 -equivariant by
+construction. To check that the above definition produces a sheaf, we notice that for an open
+cover {Uj } of a non-empty open set U ⊂ Spec Z, each Uj ≠ ∅ has a finite complement so that the
+finiteness condition is automatic for the sections locally defined using that cover. Moreover, two
+
+
+                                                18
+                             Geometry of the Arithmetic Site
+
+sections ξ, η ∈ Γ(U, S) with the same value at p are equal on an open set containing p and thus
+the stalk of S at p is H(p).
+We now formulate the filtering condition for the functor F ∶ N×0 Ð→ Sh(Spec Z) that we just
+constructed. By applying Definition VII.8.1 of [20], the three filtering conditions involve the
+notion of an epimorphic family of morphisms in the topos Sh(Spec Z). Next lemma provides an
+easy way to prove that a family of morphisms fi ∶ Ai → A is epimorphic.
+Lemma 5.2 Let X be a topological space and Sh(X) a topos of sheaves (of sets) on X. Then,
+a family of morphisms fi ∶ Ai → A is epimorphic if for any non-empty open set U ⊂ X and a
+section ξ ∈ Γ(U, A) there exists an open cover {Uα } of U and sections ξα ∈ Γ(Uα , Ai(α) ) such that
+                                            fi(α) ○ ξα = ξ∣Uα .
+Proof. By definition, a family of morphisms fi ∶ Ai → A is epimorphic if and only if for any
+morphisms f, g ∶ A → B the equality f ○fi = g○fi for all i implies f = g. Here, the hypothesis implies
+that for a section ξ ∈ Γ(U, A) there exists an open cover {Uα } of U and sections ξα ∈ Γ(Uα , Ai(α) )
+such that
+                            f ξ∣Uα = f ○ fi(α) ○ ξα = g ○ fi(α) ○ ξα = gξ∣Uα
+so that one derives f ξ = gξ as required.
+Alternatively (and equivalently) one can use the formalism of generalized elements which allows
+one to think in similar terms as for the topos of sets. In the case of the topos Spec Z it is enough
+to consider the sections of the form ξ ∈ Γ(U, S) where U is an arbitrary open set, i.e. a subobject
+of the terminal object 1. We now reformulate the filtering condition as in Lemma VII.8.4 of [20].
+In fact, we take advantage of the fact that the small category C = N×0 has a single object ∗ and
+that its image under the flat functor F is the object F (∗) = S of Sh(Spec Z).
+ (i) For any open set U of Spec Z there exists a covering {Uj } and sections ξj ∈ Γ(Uj , S).
+(ii) For any open set U of Spec Z and sections c, d ∈ Γ(U, S), there exists a covering {Uj } of U
+     and for each j arrows uj , vj ∶ ∗ → ∗ in N×0 and a section bj ∈ Γ(Uj , S) such that
+                                     c∣Uj = F (uj )bj , d∣Uj = F (vj )bj .
+(iii) Given two arrows u, v ∶ ∗ → ∗ in N×0 and any section c ∈ Γ(U, S) with F (u)c = F (v)c, there
+      exists a covering {Uj } of U and for each j an arrow wj ∶ ∗ → ∗, and a section zj ∈ Γ(Uj , S),
+      such that
+                             F (wj )zj = c∣Uj , u ○ wj = v ○ wj ∈ HomN×0 (∗, ∗).
+We now state the main result of this subsection
+Theorem 5.3 The functor F ∶ N×0 Ð→ Sh(Spec Z) which associates to the object ∗ the sheaf S
+and to the endomorphisms of ∗ the natural action of N×0 on S is filtering and defines a geometric
+morphism Θ ∶ Spec Z → N  ̂× . The image of the point p of Spec Z associated to a prime p is the
+                           0
+         ̂× associated to the subgroup H(p) ⊂ Q.
+point of N 0
+
+Proof. We check the three filtering conditions. Let U be a non-empty open set of Spec Z. Then
+the 0-section (i.e. the section whose value at each p is 0) is a generalized element of Γ(U, S).
+This checks (i). We verify (ii). Let U be a non-empty open set of Spec Z and c, d be sections of
+S over U . Then there exists a finite set E ⊂ U of primes such that both c and d vanish in the
+complement of E. The complement V ∶= U ∖ E is a non-empty open set of Spec Z and for each
+p ∈ E let Up = V ∪ {p} ⊂ U . By construction, the collection {Up }p∈E form an open cover of U .
+
+
+                                                    19
+                            Alain Connes and Caterina Consani
+
+The restriction of the sections c, d of S to Up are entirely determined by their value at p since
+they vanish at any other point of Up . Moreover, if one is given an element b ∈ Sp in the stalk of
+S at p, one can extend it uniquely to a section of S on Up which vanishes in the complement
+of p. Thus, for each p one checks, using the filtering property of the functor associated to the
+stalk Sp , that, as required, there exist arrows up , vp ∈ N×0 and a section bp ∈ Γ(Up , S) such that
+c∣Up = F (up )bp , d∣Up = F (vp )bp . Since {Up }p∈E form an open cover of U , one gets (ii). Finally,
+we verify (iii). Let c ∈ Γ(U, S) with F (u)c = F (v)c. Assume first that for some p ∈ U one has
+cp ≠ 0. Then the equality F (u)c = F (v)c in the stalk at p implies that u = v and in that case
+one can take the cover of U by U itself and z = c, w = 1. Otherwise, c is the zero section and
+one can take the cover of U made by U itself and z = 0, w = 0. We have thus shown that the
+functor F ∶ N×0 Ð→ Sh(Spec Z) is filtering and by Theorem VII.9.1 of [20] it is thus flat so that
+by Theorem VII.7.2 of op.cit. it defines a geometric morphism Θ ∶ Spec Z → N      ̂× . The image of a
+                                                                                   0
+point p of Spec Z is the point of N   ̂ whose associated flat functor G ∶ N Ð→ Sets is obtained by
+                                       ×                                   ×
+                                       0                                   0
+composing the functor F ∶ N×0 Ð→ Sh(Spec Z) with the stalk functor at p. This functor assigns
+to any sheaf on Spec Z its stalk at p, viewed as a set. In the above case we see that G is the flat
+functor G ∶ N×0 Ð→ Sets given by the stalk Sp = H(p)+ and this proves the statement.
+
+Proposition 5.4 Let Θ∗ (O) denote the pullback of the structure sheaf of (N  ̂× , Zmax ). Then
+(i) The stalk of Θ∗ (O) at the prime p is the semiring H(p)max , and it is B at the generic point
+of Spec Z.
+(ii) The sections ξ ∈ Γ(U, Θ∗ (O)) on an open set U ⊂ Spec Z are the maps U ∋ p ↦ ξp ∈ H(p) ⊂
+H(p)max which are either equal to 0 outside a finite set, or everywhere equal to the constant
+section ξp = −∞ ∈ H(p)max , ∀p ∈ U .
+
+Proof. (i) The stalk of Θ∗ (O) at the prime p is the same as the stalk of O at the point Θ(p) of
+̂× . Thus (i) follows from Remark 3.3.
+N 0
+(ii) The pullback functor Θ∗ commutes with arbitrary colimits. As a sheaf of sets on N       ̂× the
+                                                                                              0
+structure sheaf O is the coproduct of two sheaves. The first is the constant sheaf taking always
+the value −∞. The second is the coproduct of two copies of N×0 glued over the map from the
+constant sheaf 0 to the zeros in both terms. It follows that the sheaf Θ∗ (O) on Spec Z is obtained
+as the corresponding colimit among sheaves on Spec Z. One has Θ∗ (N×0 ) = S and the pullback of
+the constant sheaves −∞ and 0 are the corresponding constant sheaves on Spec Z. Thus Θ∗ (O) is
+the coproduct of the constant sheaf −∞ on Spec Z with the sheaf on Spec Z obtained by glueing
+two copies S± of S over the constant sheaf 0 which maps to 0± . Let U be a non empty open set
+of Spec Z and U ∋ p ↦ ξp ∈ H(p) ⊂ H(p)max a map equal to 0 outside a finite set E ⊂ U . To
+show that ξ ∈ Γ(U, Θ∗ (O)), let E+ = {p ∣ ξp > 0} and E− = {p ∣ ξp < 0}. Consider the sections
+ξ± = ξ∣U± ∈ Γ(U± , S± ) obtained as restrictions of ξ to U+ = U ∖ E− and U− = U ∖ E+ . One has
+ξ+ = ξ− on U+ ∩ U− since one identifies the 0+ section with the 0− section on any open set. Thus
+since Θ∗ (O) is a sheaf, there is a section η ∈ Γ(U, Θ∗ (O)) which agrees with ξ± on U± and hence
+η = ξ and ξ ∈ Γ(U, Θ∗ (O)). Finally there is only one section of the constant sheaf −∞ on any
+non-empty open set of Spec Z.
+
+5.2 Θ∗ (O) as Cartier divisors on Spec Ocyc
+In this part, we relate the sheaf Θ∗ (O) with Cartier divisors on the algebraic spectrum of the
+ring Ocyc of the cyclotomic integers. By construction, Ocyc is a filtering limit of the rings of
+integers OK of finite, intermediate field extensions Q ⊂ K ⊂ Qcyc . It is a well-known fact that
+the localization of OK at any non-zero prime ideal is a discrete valuation ring (cf. [16] §I.6). To
+
+
+                                                 20
+                             Geometry of the Arithmetic Site
+
+the ring homorphism Z → OK corresponds a morphism of schemes πK ∶ Spec OK → Spec Z and
+for a prime ideal ℘ ⊂ OK above a given rational prime p, one normalizes the associated discrete
+valuation so that v℘ (p) = p − 1.
+We recall that the Cartier divisors on a scheme X are the global sections of the sheaf K× /O×
+which is the quotient of the sheaf of multiplicative groups of the total quotient rings K of X by
+the sub-sheaf O× of the structure sheaf (cf. [16] page 140-141). Since K is a sheaf of rings and
+O× is a sheaf of subgroups of the multiplicative groups one gets on the quotient K/O× a natural
+structure of sheaf of hyperrings.
+Definition 5.5 Let X be an algebraic scheme. We denote by CaC`(X) the sheaf of hyperrings
+K/O× .
+Since X = Spec OK is an integral scheme, K is simply a constant sheaf K.
+Lemma 5.6 Let ℘ ⊂ OK be a prime ideal above a rational prime p ⊂ Z. Then, the normalized
+valuation v℘ determines an isomorphism of hyperfields
+                             −v℘ ∶ K/(OK )×℘ → α℘ Zhmax ,    α℘ ∈ Q>0
+                                              ∼
+                                                                                               (23)
+where Zhmax is the hyperfield obtained from the semifield Zmax by altering the addition of two
+equal elements x ∈ Zmax as
+                                         x ∨ x ∶= [−∞, x].                                     (24)
+Proof. By definition one has v℘ (0) = ∞. For x, y ∈ K one has: x ∈ (OK )×℘ y ⇐⇒ v℘ (x) = v℘ (y).
+Thus −v℘ is a bijection of K/(OK )×℘ with the range α℘ Z ∪ {−∞} of −v℘ , where α℘ is a positive
+rational number. This bijection transforms the multiplication of K in addition. Let then x, y ∈ K
+and assume that v℘ (x) ≠ v℘ (y), then v℘ (x + y) = inf(v℘ (x), v℘ (y)) so that one gets the additive
+rule
+                                  −v℘ (x + y) = −v℘ (x) ∨ −v℘ (y).
+For v℘ (x) = v℘ (y) = −a one checks that all values in [−∞, a] ⊂ α℘ Zmax are obtained as −v℘ (x+y).
+Since the quotient of a ring by a subgroup of its multiplicative group defines always a hyperring
+one knows that Zhmax is an hyperfield.
+Proposition 5.7 The normalized valuation −v℘ determines an isomorphism of sheaves of hy-
+perrings on Spec (Ocyc )
+                               CaC`(Spec (Ocyc )) → (Θ ○ π)∗ (Oh )
+                                                       ∼
+                                                                                               (25)
+where Oh denotes the sheaf of hyperrings on the arithmetic site obtained from the structure sheaf
+by altering the addition as in (24).
+Proof. At the generic point ξ of Spec OK one has (OK )ξ = K and the stalk of CaC`(Spec OK )
+is the Krasner hyperfield K = {0, 1} (1 + 1 = {0, 1}). This coincides with (Θ ○ π)∗ (Oh ) since the
+stalk of the structure sheaf O of the arithmetic site at the point Θ(π(ξ)) is the semiring B. Thus
+at the generic point, (25) is an isomorphism. The stalk of (Θ ○ π)∗ (Oh ) at a point ℘ ≠ ξ is the
+hyperfield H(p)hmax obtained from the semiring H(p)max by altering the addition as in (24).
+Let v ∈ Valp (Qcyc ) be an extension of the p-adic valuation to Qcyc . Let us check that with the
+normalization taken above, i.e. v(p) = p − 1, one has v(Qcyc ) = H(p). The composite subfield
+Qp ∨ Qcyc ⊂ (Qcyc )v is the maximal abelian extension Qab  p of Qp . This extension coincides with
+the composite Qp = Qp ∨ Q(µp∞ ), where Qp denotes the maximal unramified extension of Qp
+                  ab    ur                    ur
+
+and Q(µp∞ ) is obtained by adjoining to Qp all roots of unity of order a p-power (cf. [24]). The
+
+
+                                                  21
+                             Alain Connes and Caterina Consani
+
+extension Qur p does not increase the range of the valuation since it is unramified. The extension
+Q(µp∞ ) is totally ramified and the p-adic valuation extends uniquely from Q to Q(µp∞ ). Let z
+                                                    m−1
+be a primitive root of 1 of order pm . Then u = z p     fulfills the equation up−1 + up−2 + ⋯ + u + 1 = 0,
+and with z = 1 + π the equation fulfilled by π is of Eisenstein type, the constant term being equal
+                                                                        v(p)
+to p, and reduces to π ϕ(n) = 0, modulo p. This shows that v(π) = ϕ(n) , ϕ(n) = (p − 1)pm−1 . Thus
+with the valuation v, normalized as v(p) = p − 1, one gets v(Qcyc ) = H(p) as required.
+Let Q ⊂ K ⊂ Qcyc be a finite extension of Q and OK its ring of integers. The non-empty open
+sets U ⊂ Spec OK are the complements of finite sets of prime ideals. We claim that the map
+which to u ∈ K associates φ(u) = ξ, with ξ℘ ∶= −v℘ (u) ∈ H(π(℘))max , for any prime ideal ℘ of
+OK , defines a morphism of sheaves CaC`(Spec (OK )) → (Θ ○ π)∗ (Oh ). For u = 0, the image of
+φ is the constant section −∞ which is the pullback by π of the constant section −∞ on Spec Z
+as in Proposition 5.4. For u ≠ 0, one needs to show that the section φ(u) = ξ is a section of
+the pullback by π of the sheaf Θ∗ (O) again as in Proposition 5.4. To this end, it suffices to
+find an open cover {Uj } of Spec OK and for each Uj a section ηj ∈ Γ(Spec Z, Θ∗ (O)) such that
+ξ∣Uj = (π ∗ ηj )∣Uj . Since u ≠ 0, one has u ∈ K × and thus −v℘ (u) = 0 outside a finite set F of
+prime ideals of OK . Let F ′ = π −1 π(F ) be the saturation of F : it is a finite subset of Spec OK
+and its complement U is open. For each j ∈ F ′ one lets Uj = U ∪ {j}. One has by construction
+−v℘ (u) ∈ H(π(j)) and by Proposition 5.4, there is a section ηj of the sheaf Θ∗ (O) which takes
+the value −vj (u) at π(j) and vanishes elsewhere. One then gets ξ∣Uj = (π ∗ ηj )∣Uj as required.
+This reasoning applied in junction with Lemma 5.6 show that the map φ defines an injective
+morphism of sheaves CaC`(Spec (OK )) → (Θ ○ π)∗ (Oh ). These morphisms are compatible with
+the filtering colimit expressing Ocyc in terms of subrings OK and in the colimit one obtains the
+surjectivity at the level of the stalks and hence the required isomorphism.
+
+         6. The square of the arithmetic site and Frobenius correspondences
+
+The last sections have provided an interpretation of the non-commutative space quotient of the
+adèle class space of Q by the action of Ẑ× as the set of points of the arithmetic site over Rmax
+                                                                                               + . The
+action of R+ on the adèle class space corresponds to the action of the Frobenius Frλ ∈ Aut(Rmax   + )
+             ×
+
+on the above points. It is natural to ask what one gains with this interpretation with respect
+to the original non-commutative geometric approach. In this section we prove that this algebro-
+geometric construction leads naturally to the definition of the square of the arithmetic site and
+to the introduction of the Frobenius correspondences.
+
+6.1 The closed symmetric monoidal category Mod(B)
+We refer to [23] for a general treatment of tensor products of semirings. The category Mod(B)
+of B-modules endowed with the tensor product is a closed, symmetric, monoidal category. One
+first defines the internal homomorphisms Hom by endowing the set of homomorphisms of two
+B-modules HomB (E, F ) with the following addition
+                                 (φ + ψ)(x) ∶= φ(x) + ψ(x) , ∀x ∈ E.
+The definition of the tensor product is then dictated by the required adjunction formula
+                             HomB (E ⊗B F, G) ≃ HomB (E, Hom(F, G)).
+The tensor product E ⊗B F of B-modules is, as in the case of modules over rings, the (unique)
+initial object in the category of bilinear maps E × F → G. It is constructed as the quotient of
+
+
+                                                   22
+                                 Geometry of the Arithmetic Site
+
+the B-module of finite formal sums ∑ ei ⊗ fi (where no coefficients are needed since E and F are
+idempotent) by the equivalence relation
+                       ∑ ei ⊗ fi ∼ ∑ ej ⊗ fj ⇐⇒ ∑ ρ(ei , fi ) = ∑ ρ(ei , fi ) , ∀ρ
+                                          ′     ′                                ′   ′
+
+
+where ρ varies through all bilinear maps from E × F to arbitrary B-modules.
+
+Remark 6.1 The notion of tensor product reviewed above does not coincide with the tensor
+product considered in Chapter 16 of [15]. Indeed, it follows from Proposition (16.12) of op.cit.
+that any tensor product so defined is cancellative which excludes all B-semimodules M since for
+any x, y ∈ M one has x + z = y + z for z = x + y. The notion recalled above is developed e.g. in §6
+of [23], and had been previously well understood by e.g. G. Duchamp (letter to P. Lescot).
+
+6.2 The semiring Zmin ⊗B Zmin and the unreduced square (N            ̂×2 , Z
+                                                                            min ⊗B Zmin )
+In this subsection we describe the tensor product Zmin ⊗B Zmin . Let R be a B-module and consider
+bilinear maps φ ∶ Zmin × Zmin → R, i.e. maps fulfilling
+       φ(a ∧ b, c) = φ(a, c) ⊕ φ(b, c), φ(a, b ∧ c) = φ(a, b) ⊕ φ(a, c), φ(∞, b) = φ(a, ∞) = 0
+where ⊕ denotes the idempotent addition of R and 0 ∈ R the neutral element. The simplest
+example of such a map is the projection π ∶ Zmin × Zmin → Zmin ∧ Zmin , where the smash product
+is taken for the base point ∞ ∈ Zmin and the idempotent addition is defined component-wise as
+(a, b) ⊕ (c, d) ∶= (a ∧ c, b ∧ d) outside the base point, i.e. for a, b, c, d ∈ Z. The bilinearity follows
+using the idempotent property of addition in Zmin . At first, one might think that any bilinear
+map φ ∶ Zmin × Zmin → R would factor through this B-module Zmin ∧ Zmin , however this is not
+true even for the operation m(a, b) = a + b in Zmin playing the role of the product in the semiring
+structure. One might then conclude from this example that one would need to consider all finite
+formal sums of simple tensors a⊗B b, for a, b ∈ Zmin , i.e. roughly, the finite subsets of Z2 . However,
+the associativity of the idempotent addition ⊕ of R provides one further relation as the following
+lemma points out
+
+Lemma 6.2 For any bilinear map φ ∶ Zmin × Zmin → R one has
+              x1 ∧ x2 = x1 , y1 ∧ y2 = y1 Ô⇒ φ(x1 ∧ x2 , y1 ∧ y2 ) = φ(x1 , y1 ) ⊕ φ(x2 , y2 ).
+
+Proof. Using the bilinearity of φ and the hypothesis one has
+      φ(x1 , y1 ) ⊕ φ(x2 , y2 ) = φ(x1 ∧ x2 , y1 ) ⊕ φ(x2 , y2 ) = (φ(x1 , y1 ) ⊕ φ(x2 , y1 )) ⊕ φ(x2 , y2 ) =
+
+     = φ(x1 , y1 ) ⊕ (φ(x2 , y1 ) ⊕ φ(x2 , y2 )) = φ(x1 , y1 ) ⊕ φ(x2 , y1 ∧ y2 ) == φ(x1 , y1 ) ⊕ φ(x2 , y1 )
+                                   = φ(x1 ∧ x2 , y1 ) = φ(x1 ∧ x2 , y1 ∧ y2 ).
+
+
+The above result shows that the following rule holds in Zmin ⊗B Zmin
+                  x1 ∧ x2 = x1 , y1 ∧ y2 = y1 Ô⇒ (x1 ⊗B y1 ) ⊕ (x2 ⊗B y2 ) = x1 ⊗B y1 .                          (26)
+In view of these facts we introduce the following
+
+Definition 6.3 Let J be a partially ordered set. We denote by Sub≥ (J) the set of subsets E ⊂ J
+which are finite unions of intervals of the form Ix ∶= {y ∣ y ≥ x}.
+
+Such subsets E ⊂ J are hereditary, i.e. they fulfill the rule: x ∈ E Ô⇒ y ∈ E, ∀y ≥ x.
+
+
+                                                        23
+                            Alain Connes and Caterina Consani
+
+Lemma 6.4 Let J be a partially ordered set, then Sub≥ (J) endowed with the operation E ⊕E ′ ∶=
+E ∪ E ′ is a B-module.
+
+Proof. One just needs to check that E ∪ E ′ ∈ Sub≥ (J) which is immediate. The empty set
+∅ ∈ Sub≥ (J) is the neutral element for the operation ⊕.
+
+Lemma 6.5 Endow J = N × N with the product ordering: (a, b) ≤ (c, d) ⇐⇒ a ≤ c and b ≤ d.
+Then, Sub≥ (N × N) is the set of hereditary subsets of N × N.
+
+Proof. Let E ≠ ∅ be a hereditary subset of N × N and let (a, b) ∈ E. Then, for any x ∈ N let
+Lx ∶= {y ∈ N ∣ (x, y) ∈ E}. One has Lx ⊂ Lz for x ≤ z (because (x, y) ∈ E implies (z, y) ∈ E). Thus
+there exists xmin ∈ [0, a − 1] such that Lx ≠ ∅ ⇐⇒ x ≥ xmin . Let γ ∶ [xmin , ∞) → N be such that
+Lx = [γ(x), ∞) for all x ≥ xmin . The map γ is non-increasing and thus γ takes only finitely many
+values. We thus get finitely many pairs αj = (xj , yj ) such that γ(xj ) < γ(xj − 1). By construction
+of γ, the set E is the upper graph of γ, and one gets E ∈ Sub≥ (N × N) since E is the finite union
+of the intervals I(xj ,yj ) .
+
+Proposition 6.6 Let S = Sub≥ (Z × Z) be the B-module associated by Lemma 6.4 to the ordered
+set Z × Z with the product ordering: (a, b) ≤ (c, d) ⇐⇒ a ≤ c and b ≤ d. Then
+(i) The following equality defines a bilinear map:
+                   ψ ∶ Zmin × Zmin → S,     ψ(u, v) = {(a, b) ∈ Z × Z ∣ a ≥ u, b ≥ v}.           (27)
+
+(ii) Let R be a B-module and φ ∶ Zmin × Zmin → R be bilinear. Then there exists a unique B-linear
+map ρ ∶ S → R such that φ = ρ ○ ψ. In other words one has the identification
+                                    Zmin ⊗B Zmin = Sub≥ (Z × Z).                                 (28)
+
+Proof. (i) For a fixed v ∈ Z, the map u ↦ ψ(u, v) which associates to u ∈ Z the quadrant as in
+(27) is monotone. This fact gives the required linearity.
+(ii) By construction, an element of S is a finite sum of the form z = ⊕ψ(αi ). The uniqueness of ρ is
+implied by φ = ρ ○ ψ which shows that ρ(z) = ∑ φ(xi , yi ), αi = (xi , yi ) ∀i. To prove the existence
+of ρ, we show that the sum ∑ φ(xi , yi ) does not depend on the choice of the decomposition
+z = ⊕ψ(αi ). In fact in such a decomposition the set of the αi ’s necessarily contains as a subset
+the elements β` of the canonical decomposition of Lemma 6.5. Moreover, for any element αj
+which is not a β` , there exists a β` such that αj ≥ β` for the ordering of Z × Z. Thus one
+concludes, using Lemma 6.2, that one has: ∑ φ(xi , yi ) = ∑ φ(a` , b` ), β` = (a` , b` ) independently
+of the decomposition z = ⊕ψ(αi ). It then follows that ρ is additive and fulfills φ = ρ ○ ψ.
+
+From now on, we shall adopt a multiplicative notation to refer to elements in Zmin , i.e. we
+associate to n ∈ Zmin the symbol q n . The second operation of Zmin then becomes the ordinary
+product and if one represents q as a real number 0 < q < 1, the first operation corresponds to the
+             + : x ∨ y ∶= max(x, y). Here, R+
+addition in Rmax                            max
+                                                denotes the multiplicative version of the tropical
+semifield Rmax ∶= (R ∪ {−∞}, max, +).
+Every element of Zmin ⊗B Zmin is a finite sum of the form x = ∑ q ni ⊗B q mi . We can endow the
+tensor product S = Zmin ⊗B Zmin with the structure of a semiring of characteristic 1.
+
+Proposition 6.7 (i) On the B-module S = Zmin ⊗B Zmin there exists a unique bilinear multipli-
+cation satisfying the rule
+                                (q a ⊗B q b )(q c ⊗B q d ) = q a+c ⊗B q b+d .                    (29)
+
+
+                                                     24
+                                 Geometry of the Arithmetic Site
+
+
+
+
+                               Figure 2. Typical subset E ∈ Sub≥ (N × N)
+
+
+
+(ii) The above multiplication turns S = Zmin ⊗B Zmin into a semiring of characteristic 1.
+(iii) The following equality defines an action of N× × N× by endomorphisms of Zmin ⊗B Zmin
+                                    Frn,m (∑ q a ⊗B q b ) ∶= ∑ q na ⊗B q mb .                                 (30)
+
+Proof. We define an operation directly on Sub≥ (Z × Z) as follows
+                                     E + E ′ ∶= {α + α′ ∣ α ∈ E, α′ ∈ E ′ }.                                  (31)
+One has ψ(u, v) = (u, v) + (N × N) and thus ψ(u, v) + ψ(u′ , v ′ ) = ψ(u + u′ , v + v ′ ). Since ψ(u, v)
+corresponds to q u ⊗B q v under the identification (28), one gets (i). This also shows that the
+operation (31) is well defined, i.e. that E + E ′ ∈ Sub≥ (Z × Z). Moreover ψ(0, 0) = (N × N) is the
+neutral element. The operation (31) is associative and commutative and one has (E ∪ E ′ ) + E ′′ =
+(E + E ′′ ) ∪ (E ′ + E ′′ ) so that one obtains a semiring structure on Sub≥ (Z × Z) and one gets (ii).
+                                                                                n 0
+(iii) The affine transformation of R2 given by the matrix (                            ) maps N × N to itself but
+                                                                                 0 m
+fails to be surjective. It is an automorphism of the quadrant Q ∶= R+ × R+ (in fact also of
+Q+ × Q+ ). Let us associate to any E ∈ Sub≥ (Z × Z) the subset of R2 given by Ẽ ∶= E + Q. One
+then has E = Ẽ ∩ (Z × Z) so that the map E ↦ Ẽ is injective. Moreover the two operations in
+Sub≥ (Z × Z) satisfy (E ∪   ̃                        ̃
+                                E ′ ) = Ẽ ∪ Ẽ ′ , (E + E ′ ) = Ẽ + Ẽ ′ . The action (30) is then given in terms
+                                                        n 0
+of the associated subsets by Fr̃         n,m (E) = (             ) Ẽ which is simply an affine transformation
+                                                        0 m
+preserving Q and commuting with the operations of union and sum.
+
+Remark 6.8 We are grateful to S. Gaubert, who pointed out to us that the semiring Zmin ⊗B Zmin
+has been introduced in a totally different context, namely in the modelisation of execution of
+discrete events. In that framework, it is denoted Max
+                                                    in [[γ, δ]] and corresponds more precisely to
+Zmin ⊗B Zmax . In that set-up q ⊗B q encodes the fact that the event labelled a occurs after the
+                               a      b
+
+instant labelled b. We refer to [2] for the convex analysis and spectral analysis of timed event
+graphs.
+
+Proposition 6.7 shows that the semiring Zmin ⊗B Zmin is enriched with an action of the mul-
+tiplicative monoı̈d N× × N× of pairs of non-zero positive integers. This action is given by the
+
+
+                                                        25
+                            Alain Connes and Caterina Consani
+
+endomorphisms Frn,m ∈ End(Zmin ⊗B Zmin )
+                        N× × N× → End(Zmin ⊗B Zmin ),            (n, m) → Frn,m                   (32)
+
+
+Remark 6.9 Notice that the diagonal Frn,n ∈ End(Zmin ⊗B Zmin ) does not coincide with the op-
+eration x ↦ xn in Zmin ⊗B Zmin . In fact this operation fails to be an endomorphism of Zmin ⊗B Zmin
+which itself fails to be multiplicatively cancellative. This defect will be taken care in the following
+part of this section by passing to the reduced semiring.
+
+We denote by N̂×2 the topos of sets endowed with an action of N× × N× . It is the dual of the small
+
+category with a single object {∗} and whose endomorphisms form the semigroup N× × N× .
+
+Definition 6.10 The unreduced square (N  ̂ ×2 , Z
+                                                 min ⊗B Zmin ) of the arithmetic site is the topos
+̂
+N with the structure sheaf Zmin ⊗B Zmin , viewed as a semiring in the topos.
+ ×2
+
+
+The unreduced square comes endowed with the two projections πj to (N       ̂× , Zmax ) ∼ (N̂× , Zmin ).
+These morphisms are specified by the corresponding geometric morphisms of topoi and the
+semiring homomorphisms. We describe the projection π1 on the first factor. One defines p1 ∶ N×2 →
+                                                                        ̂
+N× as p1 (n, m) ∶= n: it gives a corresponding geometric morphism p̂1 ∶ N ×2 → N̂× . At the semiring
+level, one has a natural homomorphism ι1 ∶ Zmin → Zmin ⊗B Zmin given in multiplicative notation
+by q n ↦ q n ⊗ 1. Moreover, one derives the compatibility: Frn,m (ι1 (x)) = ι1 (Frp1 (n,m) (x)) ∀x ∈
+Zmin .
+
+Proposition 6.11 The set of points of the unreduced square (N    ̂ ×2 , Z
+                                                                         min ⊗B Zmin ) over R+
+                                                                                             max
+                                                                                                 is
+                                                              ̂
+canonically isomorphic to the square of the set of points of (N , Zmax ) over R+ .
+                                                               ×                 max
+
+
+Proof. By Definition 3.6, a point of the unreduced square (N  ̂×2 , Z
+                                                                     min ⊗B Zmin ) over R+
+                                                                                          max
+                                                                                              is given
+                          ̂
+by a pair of a point p of N×2 and a morphism fp ∶ Op → R+ of the stalk of the structure sheaf
+                                                  #          max
+
+         + . As a multiplicative monoı̈d, the product N × N is isomorphic to N and it follows
+at p to Rmax                                              ×     ×                     ×
+                                                                               ̂
+that, up to isomorphism, all its points are obtained as pairs of the points of N associated to rank
+                                                                                 ×
+
+one ordered groups. Moreover the stalk of the structure sheaf at the point p of N      ̂×2 associated
+
+to the pair (H1 , H2 ) of rank one ordered groups is given by the tensor product of semirings
+Op = H1,max ⊗B H2,max . Finally a morphism of semirings fp# ∶ Op → Rmax   +   is the same thing as a
+pair of morphisms Hj,max → R+ . max
+
+
+6.3 The Frobenius correspondences on (N        ̂× , Zmax )
+Next, we want to interpret the product in the semiring Zmin as yielding a morphism of semirings
+µ ∶ (Zmin ⊗B Zmin ) → Zmin . On simple tensors, µ is given by the equality µ(q a ⊗B q b ) = q a+b and
+thus, since addition in Zmin corresponds to taking the inf, one derives for arbitrary elements
+                              µ (∑ q ni ⊗B q mi ) = q α , α = inf(ni + mi ).                      (33)
+ Guided by this example of the product, we shall define the Frobenius correspondences Cr for
+each positive rational number r ∈ Q×+ using the composition µ ○ Frn,m for r = n/m.
+
+Proposition 6.12 (i) The range of the composite µ ○ Frn,m (Z+min ⊗B Z+min ) ⊂ Z+min depends, up
+to canonical isomorphism, only upon the ratio r = n/m. Assuming (n, m) = 1, this range contains
+the ideal {q a ∣ a ≥ (n − 1)(m − 1)} ⊂ Z+min .
+(ii) The range of µ ○ Frn,m (Z+min ⊗B Z+min ) ⊂ Z+min ((n, m) = 1) is the semiring F (n, m) generated
+
+
+                                                   26
+                              Geometry of the Arithmetic Site
+
+
+
+
+                       Figure 3. Diagonal in the square, the morphism µ.
+
+
+by two elements X, Y such that X m = Y n and where the addition comes from a total order.
+If (n, m) = 1 and n, m ≠ 1, the subset {n, m} ⊂ N of such pairs is determined by the semiring
+F (n, m).
+(iii) Let r = n/m, q ∈ (0, 1) and let
+            mr ∶ Zmin ⊗B Zmin → Rmax
+                                 + ,        mr (∑(q ni ⊗B q mi )) = q α , α = inf(rni + mi ).
+Up to canonical isomorphism of their ranges, the morphisms µ ○ Frn,m and mr are equal.
+
+Proof. (i) The range R = µ ○ Frn,m (Z+min ⊗B Z+min ) ⊂ Z+min consists of the q na+mb where a, b ∈ N.
+Let Rn,m = {na+mb ∣ a, b ∈ N}. Let us first assume that n and m are relatively prime. Then as for
+the simplest case of the Frobenius problem, if one assumes that (n, m) = 1, one has by a result
+of Sylvester x ∈ Rn,m ∀x ≥ (n − 1)(m − 1), (n − 1)(m − 1) − 1 ∉ Rn,m . When n, m are arbitrary, let
+d be their GCD, then Rn,m = dRn′ ,m′ with n = dn′ and m = dm′ and one gets (i).
+(ii) One can compare the range R = µ○Frn,m (Z+min ⊗B Z+min ) ⊂ Z+min with the semiring F generated
+by two elements X, Y such that X m = Y n and such that the addition comes from a total order.
+One has a homomorphism ρ ∶ F → R given by ρ(X) ∶= q n and ρ(Y ) ∶= q m . This morphism is
+surjective by construction. Any element of F is uniquely of the form X a Y b where b ∈ {0, . . . n−1}.
+One has ρ(X a Y b ) = q na q mb = q na+mb , where b ∈ {0, . . . n − 1} is uniquely determined from z =
+na + mb by the equality z ≡ mb mod. n and the fact that m is prime to n. This shows that ρ is
+injective and the hypothesis that the addition in F comes from a total order shows that ρ is an
+isomorphism. Let us now show how one recovers the ratio n/m or its inverse from the semiring
+F . In fact, we only use the multiplicative monoı̈d of F . We assume that n and m are relatively
+prime and neither of them is equal to 1. Then, an equality of the form n = na + mb with a and
+b non-negative integers, implies that a = 1 and m = 0. Indeed, the only other possibility is a = 0
+but then one gets n = mb which is not possible. This shows, using the isomorphism ρ that the
+elements X, Y of F are the only ones which are indecomposable for the product. It follows that
+the two integers n, m are uniquely determined from the relation X m = Y n , with m prime to n.
+(iii) By (33) one has
+                       µ ○ Frn,m (∑ q ni ⊗B q mi ) = q α ,   α = inf(nni + mmi ).                 (34)
+Since inf(nni + mmi ) = m inf(rni + mi ) with r = n/m, one gets the required equality with mr .
+
+The statement (iii) of Proposition 6.12 shows how to define the Frobenius correspondence asso-
+
+
+                                                    27
+                              Alain Connes and Caterina Consani
+
+
+
+
+                                   Figure 4. The morphism mr .
+
+
+ciated to a positive real number
+Proposition 6.13 (i) Let λ ∈ R∗+ and q ∈ (0, 1), then the following defines a homomorphism of
+semirings
+    F(λ, q) ∶ Zmin ⊗B Zmin → Rmax
+                              + ,           F(λ, q) (∑ q ni ⊗B q mi ) = q α , α = inf(λni + mi ).   (35)
+(ii) The semiring R(λ) ∶= F(λ, q)(Z+min ⊗B Z+min ) does not depend, up to canonical isomorphism,
+of the choice of q ∈ (0, 1).
+(iii) The semirings R(λ) and R(λ′ ), for λ, λ′ ∉ Q∗+ , are isomorphic if and only if λ′ = λ or
+λ′ = 1/λ.
+Proof. (i) We use the identification of Zmin ⊗B Zmin with Sub≥ (Z×Z) for which the two operations
+are given by the union E ∪ E ′ and the sum E + E ′ . The expression of F(λ, q) in terms of
+E ∈ Sub≥ (Z × Z) is, using the linear form Lλ ∶ R2 → R, Lλ (a, b) ∶= λa + b
+                                  F(λ, q)(E) = q α , α = inf Lλ (x).
+                                                              x∈E
+One has
+                       inf Lλ = inf{inf Lλ , inf′ Lλ },    inf Lλ = inf Lλ + inf′ Lλ
+                      E∪E ′           E       E           E+E ′       E        E
+which shows that F(λ, q) is a homomorphism.
+(ii) Let q ′ ∈ (0, 1), then there exists u ∈ R×+ such that q ′ = q u . It then follows that F(λ, q ′ ) =
+Fru ○ F(λ, q), where Fru ∈ Aut(Rmax+ ), Fru (x) = x , ∀x ∈ R+ .
+                                                    u         max
+
+(iii) The semiring R(λ) is a monoı̈d for the multiplication and a totally ordered set using its
+additive structure. As a monoı̈d, it contains two elements X, Y which are indecomposable as
+products (and are ≠ 1). We first choose X = q λ and Y = q. The total ordering allows one to
+compare X a with Y b for any positive integers a, b ∈ N. Let
+                         D− ∶= {b/a ∣ X a < Y b },        D+ ∶= {b/a ∣ X a > Y b }.
+One has X a < Y b if and only if λa > b, i.e. b/a < λ so that D− = {b/a ∣ b/a < λ} and similarly
+D+ = {b/a ∣ λ < b/a}. Thus one recovers from the semiring R(λ) the Dedekind cut which defines
+λ. The choice of the other of the two generators replaces λ by 1/λ.
+Remark 6.14 Notice that the parameter λ ∈ R×+ is uniquely specified by the pair of semiring
+homomorphisms ` ∶ Zmin → R, r ∶ Zmin → R, where `(q n ) = q nλ and r(q n ) = q n , while R is
+
+
+                                                     28
+                                 Geometry of the Arithmetic Site
+
+the semiring generated by `(Zmin )r(Zmin ) which does not depend upon the choice of q ∈ (0, 1).
+Indeed, as above one obtains the Dedekind cut which defines λ by comparing the powers of
+X = q λ and Y = q.
+The congruence
+                                    x ∼ y ⇐⇒ F(λ, q)(x) = F(λ, q)(y)                                         (36)
+associated to the morphism F(λ, q) ∶ Zmin ⊗B Zmin → Rmax
+                                                     +   is independent of q. It is important to
+note that this congruence can be obtained on any finite subset Z ⊂ Zmin ⊗B Zmin by approximating
+λ by rational values λ′ ∈ Q×+ . Indeed, recall that a best rational approximation to a real number
+λ is a rational number n/d, d > 0, that is closer to λ than any approximation with a smaller or
+equal denominator. One has
+Lemma 6.15 Let λ ∈ R×+ and n/d be a best rational approximation of λ. Then replacing λ by
+n/d does not change the following sets of rational numbers
+                D− (λ, d) ∶= {b/a ∣ b/a < λ, a < d}, D+ (λ, d) ∶= {b/a ∣ b/a > λ, a < d}.
+Proof. For λ1 ≤ λ2 one has D− (λ1 , d) ⊂ D− (λ2 , d), D+ (λ1 , d) ⊃ D+ (λ2 , d) and
+                          D− (λ2 , d) ∖ D− (λ1 , d) = {b/a ∣ λ1 ≤ b/a < λ2 , a < d}.
+Thus, if D− (λ2 , d) ≠ D− (λ1 , d), there exists b/a ∈ [λ1 , λ2 ) with a < d. Since the interval between
+λ and n/d does not contain any rational number b/a with a < d one gets the equality D− (λ, d) =
+D− (n/d, d). Similarly one has D+ (λ, d) = D+ (n/d, d).
+Proposition 6.16 Let λ ∈ R×+ be irrational and x, y ∈ Zmin ⊗B Zmin . Then one has F(λ, q)(x) =
+F(λ, q)(y) if and only if for all sufficiently good approximations n/m ∼ λ one has
+                                         µ ○ Frn,m (x) = µ ○ Frn,m (y)
+where µ ∶ Zmin ⊗B Zmin → Zmin is the semiring multiplication.
+Proof. (i) We fix q ∈ (0, 1). After multiplying x and y by q k ⊗ q k for k large enough, we can
+assume that x, y ∈ Z+min ⊗B Z+min . Let x = ∑ q ni ⊗B q mi , y = ∑ q ri ⊗B q si , with ni , mi , ri , si ∈ N. Then
+by (35) one has
+                      F(λ, q)(x) = F(λ, q)(y) ⇐⇒ inf(λni + mi ) = inf(λri + si )
+Let then n/d be a best rational approximation of λ with d > sup{ni , ri }. We show that the
+equality inf(λni + mi ) = inf(λri + si ) is unaffected if one replaces λ by n/d. To check this, it is
+enough to show that for any positive integers a, a′ , b, b′ with a < d, a′ < d, one has
+                                aλ + b < a′ λ + b′ ⇐⇒ an/d + b < a′ n/d + b′ .
+This amounts to show that the comparison of (a − a′ )λ with b′ − b is unaffected when one replaces
+λ by n/d which follows from Lemma 6.15.
+Proposition 6.16 shows in a precise manner that for each λ ∈ R×+ , not in Q×+ , the congruence
+relation Cλ on Zmin ⊗B Zmin defined by (36) is in fact the limit of the Cr , as the rational r → λ
+and in turns the congruence Cr for r = n/m is simply given by composing the endomorphism
+Frn,m with the diagonal relation C1 which corresponds to the product µ in the semiring Zmin .
+Thus one can write
+                                            Cλ = lim C1 ○ Frn,m .                                            (37)
+                                                 n/m→λ
+
+
+
+
+                                                       29
+                              Alain Connes and Caterina Consani
+
+Definition 6.17 We let Conv≥ (Z × Z) be the set of closed, convex subsets
+                             C ⊂ R2 ,    C + R2+ = C,      ∃z ∈ R2 , C ⊂ z + R2+
+such that the extreme points ∂C belong to Z × Z.
+
+We endow Conv≥ (Z × Z) with the following two operations, the first is the convex hull of the
+union
+                     conv(C ∪ C ′ ) = {αx + (1 − α)x′ ∣ α ∈ [0, 1], x ∈ C, x′ ∈ C ′ }                     (38)
+and the second is the sum C + C .    ′
+
+
+Lemma 6.18 Endowed with the above two operations Conv≥ (Z × Z) is a semiring of character-
+istic 1.
+
+Proof. First notice that the operation defined in (38) is commutative, associative, and admits ∅
+as the neutral element. Similarly, the second operation C + C ′ is commutative, associative, and
+admits Q = R2+ as neutral element. Moreover, for three elements C, C ′ , C ′′ ∈ Conv≥ (Z × Z), one
+has
+          conv(C ∪ C ′ ) + C ′′ = {αx + (1 − α)x′ + x′′ ∣ α ∈ [0, 1], x ∈ C, x′ ∈ C ′ , x′′ ∈ C ′′ }
+which coincides, using the convexity of C ′′ , with
+ conv((C + C ′′ ) ∪ (C ′ + C ′′ )) = {α(x + y) + (1 − α)(x′ + z) ∣ α ∈ [0, 1], x ∈ C, x′ ∈ C ′ , y, z ∈ C ′′ }
+Finally, by construction, the first operation is evidently idempotent.
+
+The role of the semiring Conv≥ (Z × Z) will be clarified in Proposition 6.21 where we show that
+it gives the reduction of Zmin ⊗B Zmin .
+
+Proposition 6.19 Let x, y ∈ Zmin ⊗B Zmin . One has: F(λ, q)(x) = F(λ, q)(y) ∀λ ∈ R×+ if and only
+if µ ○ Frn,m (x) = µ ○ Frn,m (y) for all pairs of positive integers n, m ∈ N. This defines a congruence
+relation on the semiring Zmin ⊗B Zmin . The quotient semiring is the semiring Conv≥ (Z × Z).
+
+Proof. The first part follows from Proposition 6.16. For each λ ∈ R×+ the relation F(λ, q)(x) =
+F(λ, q)(y) is a congruence relation on Zmin ⊗B Zmin independent of the choice of q ∈ (0, 1). The
+conjunction of congruences is a congruence and thus it only remains to show that the quotient
+semiring is Conv≥ (Z×Z). This follows since the convex closure of any E ∈ Sub≥ (Z×Z) is obtained
+as the intersection of the half planes of the form
+                           Hλ,α ∶= {(x, y) ∈ R2 ∣ λx + y ≥ α}, λ ∈ R×+ , α ≥ 0.
+which contain E.
+
+6.4 The reduced square (N     ̂ ×2 , Conv (Z × Z))
+                                          ≥
+Next, we investigate the relation between the semirings Zmin ⊗B Zmin and Conv≥ (Z × Z). One has
+by construction a homomorphism of semirings γ ∶ Zmin ⊗B Zmin → Conv≥ (Z × Z) which in terms
+of the description of Zmin ⊗B Zmin as Sub≥ (Z × Z) is simply given by E ↦ γ(E), where γ(E)
+is the convex hull of E. Observe that while the operation E ↦ nE defines the endomorphism
+Frn,n of Sub≥ (Z × Z) = Zmin ⊗B Zmin , it does not coincide with the operation x ↦ xn . Indeed, the
+latter map corresponds to E ↦ E + E + . . . + E which differs in general from nE. In particular
+
+
+                                                      30
+                               Geometry of the Arithmetic Site
+
+the operation x ↦ xn is not an endomorphism of Zmin ⊗B Zmin and it fails to be additive. The
+simplest example of this failure of additivity is the following (n = 2)
+                 (q ⊗B 1 + 1 ⊗B q)2 = q 2 ⊗B 1 + q ⊗B q + 1 ⊗B q 2 ≠ q 2 ⊗B 1 + 1 ⊗B q 2 .
+By Proposition 4.43 of [15], the map x ↦ xn is an injective endomorphism for any multiplica-
+tively cancellative semiring of characteristic 1. We thus conclude that Zmin ⊗B Zmin fails to be
+multiplicatively cancellative. In fact one checks that the equality ac = bc for a = (q ⊗B 1 + 1 ⊗B q)2 ,
+b = q 2 ⊗B 1 + 1 ⊗B q 2 , c = q ⊗B 1 + 1 ⊗B q, while a ≠ b and c ≠ 0.
+We now show that the homomorphism γ ∶ Zmin ⊗B Zmin → Conv≥ (Z×Z) is the same as the homo-
+morphism from Zmin ⊗B Zmin to its semiring of quotients, as defined in Chapter 11, Proposition
+11.5 of [15].
+We use the notation Ceiling(x) ∶= inf{n ∈ Z ∣ n ≥ x}.
+
+Lemma 6.20 Let a, b ∈ N, both ≠ 0. Define an element σ(a, b) ∈ Z+min ⊗B Z+min by
+                                                                         bj
+                                     σ(a, b) = ∑ q a−j ⊗B q Ceiling( a ) .
+                                                  0≤j≤a
+
+One has F(b/a, q)(σ(a, b)) = q and
+                                 b
+
+                 x ∈ Z+min ⊗B Z+min and F(b/a, q)(x) = q b Ô⇒ x + σ(a, b) = σ(a, b).                  (39)
+Moreover, the following equality holds in Z+min ⊗B Z+min
+                              (q a ⊗B 1 + 1 ⊗B q b )σ(a, b) = σ(a, b)σ(a, b).                         (40)
+
+Proof. The equality F(b/a, q)(σ(a, b)) = q b follows from
+                                                                      bj
+                                     inf ((b/a)(a − j) + Ceiling(        ) = b.
+                                 0≤j≤a                                a
+Let E ∈ Sub≥ (N × N) be the subset of N × N associated to σ(a, b) ∈ Z+min ⊗B Z+min . By construction
+one has E = {(n, m) ∈ N × N ∣ (b/a)n + m ≥ b}. Let F ∈ Sub≥ (N × N) be the subset of N × N
+associated to x ∈ Z+min ⊗B Z+min . Then, if F(b/a, q)(x) = q b one has F ⊂ E and since addition in
+Sub≥ (N × N) is given by union one gets x + σ(a, b) = σ(a, b).
+To prove (40) we show that both sides are equal to σ(2a, 2b). For the left hand side one has
+                                                                 bj                           bi
+         (q a ⊗B 1 + 1 ⊗B q b )σ(a, b) = ∑ q 2a−j ⊗B q Ceiling( a ) + ∑ q a−i ⊗B q b+Ceiling( a ) =
+                                         0≤j≤a                            0≤i≤a
+
+                                            2bj                                   2bj
+                = ∑ q 2a−j ⊗B q Ceiling( 2a ) + ∑ q 2a−j ⊗B q Ceiling( 2a ) = σ(2a, 2b)
+                  0≤j≤a                              a≤j≤2a
+where we used the idempotent addition so that the common term only counts once. Next one
+has (q a ⊗B 1 + 1 ⊗B q b ) + σ(a, b) = σ(a, b) and thus for the right hand side of (40) one gets
+         σ(a, b)σ(a, b) = ((q a ⊗B 1 + 1 ⊗B q b ) + σ(a, b)) σ(a, b) = σ(2a, 2b) + σ(a, b)σ(a, b).
+Since F(b/a, q)(σ(a, b)) = q b one has F(2b/2a, q)(σ(a, b)σ(a, b)) = q 2b and by applying (39) one
+derives σ(a, b)σ(a, b) + σ(2a, 2b) = σ(2a, 2b). We thus get as required (q a ⊗B 1 + 1 ⊗B q b )σ(a, b) =
+σ(2a, 2b) = σ(a, b)σ(a, b).
+
+Proposition 6.21 (i) The semiring Conv≥ (Z × Z) is multiplicatively cancellative.
+(ii) The homomorphism γ ∶ Zmin ⊗B Zmin → Conv≥ (Z × Z) coincides with the homomorphism
+
+
+                                                          31
+                              Alain Connes and Caterina Consani
+
+
+
+
+          Figure 5. The equality (q a ⊗B 1 + 1 ⊗B q b )σ(a, b) = σ(2a, 2b) for a = 6, b = 4.
+
+
+
+from Zmin ⊗B Zmin to its image in its semiring of quotients.
+(iii) Let R be a multiplicatively cancellative semiring and ρ ∶ Zmin ⊗B Zmin → R a homomorphism
+such that ρ−1 ({0}) = {0}. Then, there exists a unique semiring homomorphism ρ′ ∶ Conv≥ (Z ×
+Z) → R such that ρ = ρ′ ○ γ.
+
+Proof. (i) An element x ∈ Conv≥ (Z × Z) is uniquely specified by the elements F(λ, q)(x) ∀λ ∈ R×+
+(one can fix q ∈ (0, 1)). Moreover if x ≠ 0 one has F(λ, q)(x) ≠ 0, ∀λ ∈ R×+ . Since the semifield
+Rmax
+  +   is multiplicatively cancellative one has for a, b, c ∈ Conv≥ (N × N), a ≠ 0
+ab = ac Ô⇒ F(λ, q)(ab) = F(λ, q)(ac) ∀λ ∈ R×+ Ô⇒ F(λ, q)(b) = F(λ, q)(c) ∀λ ∈ R×+ Ô⇒ b = c
+(ii) Since we have shown that Conv≥ (Z × Z) is multiplicatively cancellative, and moreover the
+homomorphism γ ∶ Zmin ⊗B Zmin → Conv≥ (Z × Z) fulfills γ −1 ({0}) = {0}, we get that
+                         ∃c ∈ Zmin ⊗B Zmin , c ≠ 0, ca = cb Ô⇒ γ(a) = γ(b).
+To prove (ii) it is enough to prove the converse, i.e. to show that for any a, a′ ∈ Zmin ⊗B Zmin
+one has
+                        γ(a) = γ(a′ ) Ô⇒ ∃c ∈ Zmin ⊗B Zmin , c ≠ 0, ca = ca′ .
+Multiplying a and a′ by q n ⊗ q n , for n large enough, we can assume that a, a′ ∈ Z+min ⊗B Z+min . Let
+then E, E ′ ∈ Sub≥ (N × N) be associated to a, a′ ∈ Z+min ⊗B Z+min . The equality γ(a) = γ(a′ ) means
+that the convex hulls of E and E ′ are the same. In particular the extreme points are the same, i.e.
+∂Conv≥ (E) = ∂Conv≥ (E ′ ). We denote this finite subset of N×N by E = {(ai , bi ) ∣ 1 ≤ i ≤ n}, where
+the sequence ai is strictly increasing and bi is strictly decreasing. If n = 1 we have necessarily
+a = q a1 ⊗B q b1 and the same holds for a′ so that a = a′ . We thus assume n > 1 and let
+                 x = ∑ q ai ⊗B q bi , y =        ∑ (q i ⊗B q i+1 )σ(ai+1 − ai , bi − bi+1 ).
+                                                     a      b
+                      1≤i≤n                   1≤i≤n−1
+
+One has
+                         x=     ∑ (q i ⊗B q i+1 ) (q i+1 i ⊗B 1 + 1 ⊗B q i i+1 )
+                                    a      b        a −a                b −b
+                              1≤i≤n−1
+and it follows from Lemma 6.20 that with c ∶= ∏1≤i≤n−1 σ(ai+1 − ai , bi − bi+1 ) one has xc = yc since
+             (q ai+1 −ai ⊗B 1 + 1 ⊗B q bi −bi+1 ) c = σ(ai+1 − ai , bi − bi+1 )c , ∀i, 1 ≤ i ≤ n − 1.
+
+
+                                                        32
+                              Geometry of the Arithmetic Site
+
+Moreover for any E ∈ Sub≥ (N × N) such that ∂Conv≥ (E) = E one has E + Q ⊂ E ⊂ Conv≥ (E).
+This implies that with a ∈ Z+min ⊗B Z+min associated to E ∈ Sub≥ (N × N), one has with the above
+notations, a = a + x and a + y = y. Multiplying by c and using xc = yc one gets ac = ac + xc =
+ac + yc = yc = xc. Thus, since ∂Conv≥ (E) = ∂Conv≥ (E ′ ), one gets ac = a′ c as required.
+(iii) Since R is multiplicatively cancellative, and ρ ∶ Zmin ⊗B Zmin → R fulfills ρ−1 ({0}) = {0}, we
+get that
+                        ∃c ∈ Zmin ⊗B Zmin , c ≠ 0, ca = cb Ô⇒ ρ(a) = ρ(b).
+Thus ρ(a) only depends upon γ(a) ∈ Conv≥ (Z×Z) and one obtains the required factorization.
+
+
+Definition 6.22 The reduced square (N   ̂                                                       ̂
+                                         ×2 , Conv (Z × Z)) of the arithmetic site is the topos N
+                                                  ≥
+                                                                                                  ×2
+
+with the structure sheaf Conv≥ (Z × Z), viewed as a semiring in the topos.
+
+Remark 6.23 One can prove in the same way the analogue of Proposition 6.11, i.e. that the
+set of points of the reduced square (N̂  ×2 , Conv (Z × Z)) over Rmax is canonically isomorphic to
+                                                  ≥               +
+                                    ̂× , Zmax ) over Rmax .
+the square of the set of points of (N                  +
+
+
+                       7. Composition of Frobenius correspondences
+
+In this section we investigate the composition of Frobenius correspondences. In order to re-
+late directly the next results to those announced in [12], we shall work out the tensor product
+using the restriction to Z+min which simplifies the description of the reduced correspondences.
+The main result of this section is Theorem 7.7 which describes the composition law of Frobe-
+nius correspondences. A subtle feature appears with respect to the expected composition rule
+Ψ(λ) ○ Ψ(λ′ ) = Ψ(λλ′ ). In fact, the equality holds when λλ′ ∉ Q but when one composes
+Ψ(λ) ○ Ψ(λ′ ) for irrational value of λ and with λλ′ ∈ Q, one obtains the tangential deforma-
+tion of the correspondence Ψ(λλ′ ). The reason behind this result is that for irrational λ, the
+Frobenius correspondence Ψ(λ) has a flexibility which is automatically inherited by composi-
+tion, and this property is not present for the Frobenius correspondence Ψ(λ) when λ is rational,
+but it is restored in the tangential deformation.
+
+7.1 Reduced correspondences
+We view the Frobenius correspondence associated to λ ∈ R×+ as the homomorphism F(λ) ∶
+Z+min ⊗B Z+min → R(λ) defined in Proposition 6.13. By construction, the semiring R(λ) is multi-
+plicatively cancellative. Moreover the semiring Z+min ⊗B Z+min is generated by the images ιj (Z+min )
+of the two projections, i.e. by the morphisms ι1 (q n ) ∶= q n ⊗B 1, ι2 (q n ) ∶= 1 ⊗B q n ∀n ∈ N. Com-
+posing F(λ) with the projections yields two morphisms Z+min → R(λ), `(λ) ∶= F(λ) ○ ι1 and
+r(λ) ∶= F(λ) ○ ι2 which fulfill the following definition
+
+Definition 7.1 A reduced correspondence on the arithmetic site (N      ̂× , Zmax ) is given by a triple
+(R, `, r), where R is a multiplicatively cancellative semiring, `, r ∶ Z+min → R are semiring mor-
+phisms such that `−1 ({0}) = {0}, r−1 ({0}) = {0} and R is generated by `(Z+min )r(Z+min ).
+
+By construction, the Frobenius correspondence determines a reduced correspondence
+            Ψ(λ) ∶= (R, `(λ), r(λ)), R ∶= R(λ), `(λ) ∶= F(λ) ○ ι1 , r(λ) ∶= F(λ) ○ ι2 .           (41)
+
+
+                                                  33
+                             Alain Connes and Caterina Consani
+
+From (35) one gets that the elements of R(λ) are powers q α , where α ∈ N+λN and the morphisms
+`(λ) and r(λ) are described as follows
+                              `(λ)(q n )q α = q α+nλ , r(λ)(q n )q α = q α+n .                       (42)
+
+                                                          ̂× , Zmax ), then there exists a unique
+Lemma 7.2 Let (R, `, r) be a reduced correspondence over (N
+semiring homomorphism ρ ∶ Conv≥ (N × N) → R such that ` = ρ ○ γ ○ ι1 and r = ρ ○ γ ○ ι2 .
+
+Proof. By Proposition 6.6 there exists a unique B-linear map ρ0 ∶ Z+min ⊗B Z+min → R such that
+ρ0 (q a ⊗B q b ) = `(q a )r(q b ) ∀a, b ∈ N. Moreover ρ0 is multiplicative and hence it defines a homo-
+morphism of semirings ρ0 ∶ Z+min ⊗B Z+min → R. Let us show that ρ−1      0 ({0}) = {0}. We recall that a
+semiring of characteristic 1 is zero sum free ([15] page 150) i.e. it satisfies the property
+                                  xj ∈ R, ∑ xj = 0 Ô⇒ xj = 0, ∀j.                                    (43)
+Indeed, if a + b = 0 then a = a + a + b = a + b = 0. As R is multiplicatively cancellative by hypothesis,
+it has no zero divisors and `(q a )r(q b ) ≠ 0 ∀a, b ∈ N. This fact together with (43) shows that
+  0 ({0}) = {0}. We now apply Proposition 6.21 (iii) and get that there exists a unique semiring
+ρ−1
+homomorphism ρ ∶ Conv≥ (N × N) → R such that ρ0 = ρ ○ γ. It follows that ` = ρ ○ γ ○ ι1 and
+r = ρ ○ γ ○ ι2 . Since γ ∶ Z+min ⊗B Z+min → Conv≥ (N × N) is surjective one gets the uniqueness of the
+homomorphism ρ.
+
+7.2 R(λ) ⊗Z+min R(λ′ ), for λλ′ ∉ Qλ′ + Q
+We compute the composition of two Frobenius correspondences, viewed as reduced correspon-
+dences, i.e. we consider the reduced correspondence associated to the formal expression
+                             (R(λ) ⊗Z+min R(λ′ ), `(λ) ⊗ Id, Id ⊗ r(λ′ )) .
+Reducing this expression means that one looks for the multiplicatively cancellative semiring
+associated to the semiring R(λ)⊗Z+min R(λ′ ) and then the sub-semiring generated by the images of
+`(λ)⊗Id and Id⊗r(λ′ ). In particular, we first study the meaning of the semiring R(λ)⊗Z+min R(λ′ )
+and the associated multiplicatively cancellative semiring. For λ, λ′ ∈ R×+ and q ∈ (0, 1), we let
+R(λ, λ′ ) be the sub-semiring of Rmax
+                                   +   of elements of the form q α for α ∈ N + λN + λ′ N. Up to
+canonical isomorphism, R(λ, λ ) is independent of the choice of q ∈ (0, 1). We denote as above
+                               ′
+
+Fru ∈ Aut(Rmax
+            + ), Fru (x) = x , ∀x ∈ R+ .
+                            u         max
+
+
+
+Proposition 7.3 (i) Consider the map
+           ψ ∶ R(λ) × R(λ′ ) → R(λλ′ , λ′ ),    ψ(a, b) ∶= Frλ′ (a)b , ∀a ∈ R(λ), b ∈ R(λ′ ).
+Then ψ is bilinear: ψ(aa′ , bb′ ) = ψ(a, b)ψ(a′ , b′ ), ∀a, a′ ∈ R(λ), b, b′ ∈ R(λ′ ) and it satisfies the
+equality
+                ψ(r(λ)(x)a, b) = ψ(a, `(λ′ )(x)b) , ∀a ∈ R(λ), b ∈ R(λ′ ), x ∈ Z+min .
+(ii) Let R be a multiplicatively cancellative semiring and φ ∶ R(λ) × R(λ′ ) → R be a bilinear map
+such that φ(aa′ , bb′ ) = φ(a, b)φ(a′ , b′ ), ∀a, a′ ∈ R(λ), b, b′ ∈ R(λ′ ) and
+                φ(r(λ)(x)a, b) = φ(a, `(λ′ )(x)b) , ∀a ∈ R(λ), b ∈ R(λ′ ), x ∈ Z+min .               (44)
+Then, assuming λλ′ ∉ Qλ′ + Q, there exists a unique homomorphism ρ ∶ R(λλ′ , λ′ ) → R such that
+φ = ρ ○ ψ.
+
+
+                                                    34
+                                      Geometry of the Arithmetic Site
+
+Proof. (i) By construction ψ(a, b) is the product of the two homomorphisms a ↦ Frλ′ (a) and
+b ↦ b hence the bilinearity and multiplicativity properties follow. Moreover, for a = q α ∈ R(λ),
+b = q β ∈ R(λ′ ) and x = q n ∈ Z+min one has, using (42)
+                      ψ(r(λ)(x)a, b) = ψ(r(λ)(q n )q α , q β ) = ψ(q α+n , q β ) = q λ (α+n)+β
+                                                                                                       ′
+
+
+
+
+                   ψ(a, `(λ′ )(x)b) = ψ(q α , `(λ′ )(q n )q β )) = ψ(q α , q β+nλ ) = q λ (α+n)+β .
+                                                                                           ′               ′
+
+
+
+(ii) Let αi ∈ N + λN, βi ∈ N + λ′ N be such that λ′ α1 + β1 < λ′ α2 + β2 . Let us show that
+                                        φ(q α1 , q β1 ) + φ(q α2 , q β2 ) = φ(q α1 , q β1 ).                          (45)
+Since R is multiplicatively cancellative, the map R ∋ x ↦ xn ∈ R is an injective endomorphism.
+Thus it is enough to show that for some n ∈ N one has
+                                      φ(q α1 , q β1 )n + φ(q α2 , q β2 )n = φ(q α1 , q β1 )n .                        (46)
+Using the multiplicativity of φ one has φ(q αj , q βj )n = φ(q nαj , q nβj ). Thus it is enough to show
+that for some n ∈ N one has
+                                 φ(q nα1 , q nβ1 ) + φ(q nα2 , q nβ2 ) = φ(q nα1 , q nβ1 )                            (47)
+By (44) one has
+                                                    φ(q α , q β+λ k ) = φ(q α+k , q β ).
+                                                                 ′
+                                                                                                                      (48)
+We can find n ∈ N and k, k ∈ N such that
+                                  ′
+
+                                 k k′            k         k′
+                                  ,     ≤ α2 , λ′ + β1 < λ′ + β2 .
+                                        α1 ≤
+                                 n n             n         n
+One then has, using nα1 ≤ k and the bilinearity of φ
+                                  φ(q nα1 , q nβ1 ) = φ(q nα1 , q nβ1 ) + φ(q k , q nβ1 ).
+By (48), one has φ(q k , q nβ1 ) = φ(1, q nβ1 +λ k ) and since λ′ nk + β1 < λ′ kn + β2 one gets
+                                                            ′                                      ′
+
+
+
+                                φ(1, q nβ1 +λ k ) + φ(1, q nβ2 +λ k ) = φ(1, q nβ1 +λ k )
+                                                     ′                            ′ ′          ′
+
+
+
+so that
+                                       φ(q k , q nβ1 ) + φ(q k , q nβ2 ) = φ(q k , q nβ1 ).
+                                                                             ′
+
+
+
+Moreover, using k ′ ≤ nα2 one has
+                                      φ(q k , q nβ2 ) = φ(q k , q nβ2 ) + φ(q nα2 , q nβ2 ).
+                                            ′                            ′
+
+
+
+Combining the above equalities gives
+              φ(q nα1 , q nβ1 ) + φ(q nα2 , q nβ2 ) = φ(q nα1 , q nβ1 ) + φ(q k , q nβ1 ) + φ(q nα2 , q nβ2 ) =
+
+= φ(q nα1 , q nβ1 )+φ(q k , q nβ1 )+φ(q k , q nβ2 )+φ(q nα2 , q nβ2 ) = φ(q nα1 , q nβ1 )+φ(q k , q nβ1 )+φ(q k , q nβ2 ) =
+                                                ′                                                                 ′
+
+
+
+                                 = φ(q nα1 , q nβ1 ) + φ(q k , q nβ1 ) = φ(q nα1 , q nβ1 ).
+Thus we have shown (47) and hence (45). Let us now assume that λλ′ ∉ Qλ′ + Q. Every element
+of R(λλ′ , λ′ ) is uniquely of the form q z , z = xλλ′ + β, x ∈ N, β ∈ Nλ′ + N. Define the map
+ρ ∶ R(λλ′ , λ′ ) → R by ρ(q z ) ∶= φ(q xλ , q β ). It is multiplicative by construction. We show that it
+is additive, i.e. that for z, z ′ ∈ Nλλ′ + Nλ′ + N, z < z ′ one has ρ(q z ) = ρ(q z ) + ρ(q z ). This follows
+                                                                                             ′
+
+
+from (45) applied to α1 = xλ, β1 = β, α2 = x′ λ, β2 = β ′ . Finally one has φ(a, b) = ρ(ψ(a, b)) for
+a = q α ∈ R(λ), b = q β ∈ R(λ′ ) since with α = xλ + y, one has ψ(a, b) = q xλλ +yλ +β and
+                                                                                    ′   ′
+
+
+
+                             ρ(ψ(a, b)) = φ(q xλ , q yλ +β ) = φ(q xλ+y , q β ) = φ(a, b).
+                                                                     ′
+
+
+
+
+                                                                             35
+                                 Alain Connes and Caterina Consani
+
+
+
+7.3 R(λ) ⊗Z+min R(λ′ ) for λλ′ ∈ Qλ′ + Q
+In this subsection we consider the more delicate case when λ and λ′ are irrational but λλ′ ∈
+Qλ′ + Q. We let Germ=0 (Rmax  + ) be the semiring of germs of continuous functions from a neigh-
+borhood of 0 ∈ R to Rmax+   , endowed  with the pointwise operations. We consider the sub-semiring
+R (λλ′ , λ′ ) of Germ=0 (Rmax )            for fixed q ∈ (0, 1), by q, q λ and Fr1+ (q λλ ) = q (1+)λλ .
+                                                                            ′               ′             ′
+                            +     generated,
+Proposition 7.3 adapts as follows
+Proposition 7.4 Let λ, λ′ ∈ R×+ be irrational and such that λλ′ ∈ Qλ′ + Q.
+(i) Let ψ ∶ R(λ) × R(λ′ ) → R (λλ′ , λ′ ) be given by
+                          ψ(q λi+j , b) ∶= q (1+)λλ i q λ j b , ∀q λi+j ∈ R(λ), b ∈ R(λ′ ).
+                                                  ′    ′
+
+
+
+Then ψ is bilinear, ψ(aa′ , bb′ ) = ψ(a, b)ψ(a′ , b′ ), ∀a, a′ ∈ R(λ), b, b′ ∈ R(λ′ ) and
+                 ψ(r(λ)(x)a, b) = ψ(a, `(λ′ )(x)b) , ∀a ∈ R(λ), b ∈ R(λ′ ), x ∈ Z+min .                       (49)
+(ii) Let R be a multiplicatively cancellative semiring and φ ∶ R(λ) × R(λ ) → R be a bilinear map
+                                                                                       ′
+
+such that φ(aa′ , bb′ ) = φ(a, b)φ(a′ , b′ ), ∀a, a′ ∈ R(λ), b, b′ ∈ R(λ′ ) and
+                 φ(r(λ)(x)a, b) = φ(a, `(λ′ )(x)b) , ∀a ∈ R(λ), b ∈ R(λ′ ), x ∈ Z+min .                       (50)
+Then there exists a unique homomorphism ρ ∶ R (λλ′ , λ′ ) → R such that φ = ρ ○ ψ.
+Proof. (i) Since λ is irrational the map δ ∶ R(λ) → Germ=0 (Rmax  + ), δ(q      ) ∶= q ((1+)λi)+j is an
+                                                                            λi+j
+
+isomorphism with its image. Indeed, for (i, j) ≠ (i , j ) one has a strict inequality of the form
+                                                        ′ ′
+
+λi + j < λi′ + j ′ and this still holds for  small enough when one replaces λ by (1 + )λ. One has
+                                ψ(a, b) = Frλ′ (δ(a)) b , ∀a ∈ R(λ), b ∈ R(λ′ )
+which shows that ψ is bilinear and multiplicative. One checks directly the equality (49).
+(ii) Let U ∶= φ(q λ , 1), V ∶= φ(q, 1) = φ(1, q λ ), W ∶= φ(1, q). Let U = ψ(q λ , 1) = q (1+)λλ ,
+                                                     ′                                              ′
+
+
+V = ψ(q, 1) = ψ(1, q λ ) = q λ , W = ψ(1, q) = q. The equality φ = ρ ○ ψ implies that one must have
+                       ′       ′
+
+
+
+                                      ρ(U ) = U, ρ(V ) = V, ρ(W ) = W                                      (51)
+which shows the uniqueness of ρ, if it exists, since by construction U , V , W generate R (λλ′ , λ′ ).
+Let us show the existence of ρ. As shown in the proof of Proposition 7.3, one has the addition
+rule (45) which means with our notations
+ a, b, c, a′ , b′ , c′ ∈ N and λλ′ a + λ′ b + c < λλ′ a′ + λ′ b′ + c′ Ô⇒ U a V b W c + U a V b W c = U a V b W c .
+                                                                                           ′   ′   ′
+
+
+
+The same rule holds by direct computation for U , V , W instead of U, V, W . This shows that if
+one defines ρ on monomials using multiplicativity and (51), the additivity follows provided one
+proves that for any u > 0
+                                  F (u) = {(a, b, c) ∈ N3 ∣ λλ′ a + λ′ b + c = u}
+and for subsets S, S ′ ⊂ F (u) one has
+                     ∑ U V W = ∑ U V W Ô⇒ ∑ U V W = ∑ U V W .
+                        a b   c      a b   c       a b c     a b c
+                      S                  S′                     S              S′
+
+Let s, t ∈ Q be the unique rational numbers such that λλ = sλ′ + t. Let m be the lcm of
+                                                                           ′
+
+the denominators of s and t. One has s = f /m, t = g/m with f, g ∈ Z. Let (a, b, c) ∈ F (u),
+(a′ , b′ , c′ ) ∈ F (u), then one gets c′ − c = (a − a′ )t, b′ − b = (a − a′ )s and there exists k ∈ Z such that
+
+
+                                                           36
+                                  Geometry of the Arithmetic Site
+
+a − a′ = km, b′ − b = kf , c′ − c = kg. Thus if F (u) ≠ ∅ there exists (a0 , b0 , c0 ) ∈ F (u) and an integer
+n ∈ N such that
+                          F (u) = {(a0 , b0 , c0 ) + j(m, −f, −g) ∣ j ∈ {0, . . . , n}}.
+Both R (λλ , λ ) and R are multiplicatively cancellative semirings and thus they embed in the
+             ′   ′
+
+semifields of fractions Frac(R (λλ′ , λ′ )) and Frac(R) resp. Let then
+                 Z ∶= Um V−f W−g ∈ Frac(R (λλ′ , λ′ )), Z ∶= U m V −f W −g ∈ Frac(R).
+What remains to be shown is that for any subsets S, S ′ ⊂ {0, . . . , n} one has
+                                          ∑ Z = ∑ Z Ô⇒ ∑ Z = ∑ Z .
+                                             j      j       j     j
+                                          S          S′            S        S′
+
+Now, Z is given by the germ of the function  ↦ q (1+)mλλ q −f λ −g = q mλλ and one gets
+                                                                            ′      ′       ′
+
+
+
+                     ∑ Z = ∑ Z ⇐⇒ inf(S) = inf(S ) and max(S) = max(S )
+                         j            j                             ′                          ′
+                     S       S′
+
+Thus the proof of (ii) follows from the following Lemma 7.5.
+Lemma 7.5 Let F be a semifield of characteristic 1 and Z ∈ F , n ∈ N. Then the additive span
+of the Z i for i ∈ {0, . . . , n} is the set of Z(i, j) ∶= Z i + Z j for 0 ≤ i ≤ j ≤ n.
+For any subset S ⊂ {0, . . . , n} one has
+                                  ∑ Z = Z(i, j), i = inf(S), j = max(S).
+                                           k
+                                                                                                        (52)
+                                  S
+
+Proof. Let s(i, j) ∶= ∑i≤x≤j Z x . One has the following analogue of Lemma 6.20
+                                               Z(i, j)s(i, j) = s(i, j)s(i, j).                         (53)
+In fact, we first show
+                                                 Z(i, j)s(i, j) = s(2i, 2j).                            (54)
+One has
+                                   Z(i, j)s(i, j) = ∑ Z x+i + ∑ Z x+j .
+                                                           i≤x≤j         i≤x≤j
+In the first sum x + i varies from 2i to i + j, while in the second x + j varies from i + j to 2j while
+the repetition at i + j does not affect the sum since 1 + 1 = 1. Thus we get (54). Moreover one has
+
+                                               s(i, j)s(k, `) = s(i + k, j + `).                        (55)
+Indeed, this amounts to check that
+          {(x, n − x) + (y, m − y) ∣ i ≤ x ≤ j, k ≤ y ≤ `} = {(z, n + m − z) ∣ i + k ≤ z ≤ j + `}.
+Now by (53) one has Z(i, j) = s(i, j) and it follows that for any subset S ⊂ {0, . . . , n} one gets
+∑S Z k = Z(i, j) where i = inf S and j = max S. This shows that the additive span of the Z i for
+i ∈ {0, . . . , n} is the set of Z(i, j) ∶= Z i + Z j for 0 ≤ i ≤ j ≤ n and that (52) holds.
+
+7.4 The composition Ψ(λ) ○ Ψ(λ′ )
+Let R be the the sub-semiring of Germ=0 (Rmax  + ) generated, for fixed q ∈ (0, 1), by q and
+θ1+ (q) = q . It is independent, up to canonical isomorphism, of the choice of q ∈ (0, 1).
+            1+
+
+
+Definition 7.6 The tangential deformation of the identity correspondence is given by the triple
+(R , ` , r ) where ` (q n ) ∶= θ1+ (q n ) and r(q n ) ∶= q n , ∀n ∈ N.
+
+
+                                                              37
+                            Alain Connes and Caterina Consani
+
+We then obtain:
+Theorem 7.7 Let λ, λ′ ∈ R∗+ such that λλ′ ∉ Q. The composition of the Frobenius correspon-
+dences is then given by
+                                        Ψ(λ) ○ Ψ(λ′ ) = Ψ(λλ′ )
+The same equality holds if λ and λ′ are rational. When λ, λ′ are irrational and λλ′ ∈ Q,
+                                     Ψ(λ) ○ Ψ(λ′ ) = Id ○ Ψ(λλ′ )
+where Id is the tangential deformation of the identity correspondence.
+Proof. Let us first assume that λλ′ ∉ Qλ′ +Q. By Proposition 7.3 the multiplicatively cancellative
+reduction of R(λ) ⊗Z+min R(λ′ ) is R(λλ′ , λ′ ) and the left and right actions of Z+min are given by
+
+                                 `(q n )q α = q λλ n q α , r(q n )q α = q n+α
+                                                   ′
+
+
+
+Thus the sub-semiring of the multiplicatively cancellative reduction of R(λ)⊗Z+min R(λ′ ) which is
+generated by `(Z+min ) and r(Z+min ) is R(λλ′ ) and the left and right actions of Z+min are the same
+as for the correspondence Ψ(λλ′ ). Let then λ, λ′ ∈ R∗+ be irrational and such that λλ′ ∈ Qλ′ + Q.
+By Proposition 7.4 the multiplicatively cancellative reduction of R(λ) ⊗Z+min R(λ′ ) is R (λλ′ , λ′ )
+and the left and right actions of Z+min are given by
+                    `(q n )X = q (1+)λλ n X, r(q n )X = q n X , ∀X ∈ R (λλ′ , λ′ ).
+                                        ′
+
+
+
+Assume first that λλ′ ∉ Q. Let us show that the sub-semiring R of R (λλ′ , λ′ ) generated by the
+`(q n ) and r(q m ) is isomorphic to R(λλ′ ) and the left and right actions of Z+min are the same as
+for the correspondence Ψ(λλ′ ). Indeed R is the sub-semiring of Germ=0 (Rmax + ) generated by the
+q (1+)αn and q m where α = λλ′ is irrational. Its elements are finite sums of the form
+                                            σ() = ∑ q (1+)αnj +mj
+where the sum is taken in Germ=0 (Rmax
+                                      + ). Since α ∉ Q the real numbers αnj + mj are distinct
+and thus there exists a unique j0 such that
+                                   αnj0 + mj0 < αnj + mj , ∀j ≠ j0
+This implies that for  small enough one has
+                           (1 + )αnj0 + mj0 < (1 + )αnj + mj , ∀j ≠ j0
+and thus one gets the equality σ() = q (1+)αnj0 +mj0 in Germ=0 (Rmax   + ). This shows that the
+evaluation at  = 0 is an isomorphism R → R(α).
+For λλ′ = 1 the sub-semiring R of R (λλ′ , λ′ ) generated by the `(q n ) and r(q m ) is isomorphic to
+R with left and right actions given as in Definition 7.6 and thus one gets
+                                            Ψ(λ) ○ Ψ(λ−1 ) = Id .
+Assume now that α = λλ′ ∈ Q. Then the sub-semiring R of R (λλ′ , λ′ ) generated by the `(q n )
+and r(q m ) is formed of finite sums of the form
+                                            σ() = ∑ q (1+)αnj +mj
+where the sum is taken in Germ=0 (Rmax
+                                    + ). The left and right actions are given by
+
+                          `(q n )X = q (1+)αn X, r(q n )X = q n X , ∀X ∈ R.                     (56)
+Let us compare this with the compositions Id ○ Ψ(α) and Ψ(α) ○ Id . We first need to determine
+the multiplicatively cancellative reduction of R ⊗Z+min R(α).
+
+
+                                                       38
+                                    Geometry of the Arithmetic Site
+
+Lemma 7.8 Let α ∈ Q∗+ .
+(i) Let ψ ∶ R × R(α) → Germ=0 (Rmax
+                                  + ) be given by
+
+                              ψ(q (1+)i+j , b) ∶= q (1+)αi q αj b , ∀i, j ∈ N, b ∈ R(α)
+Then ψ is bilinear, ψ(aa′ , bb′ ) = ψ(a, b)ψ(a′ , b′ ), ∀a, a′ ∈ R , b, b′ ∈ R(α) and
+                       ψ(r (x)a, b) = ψ(a, `(α)(x)b) , ∀a ∈ R , b ∈ R(α), x ∈ Z+min                                      (57)
+(ii) Let R be a multiplicatively cancellative semiring and φ ∶ R × R(α) → R be a bilinear map
+such that φ(aa′ , bb′ ) = φ(a, b)φ(a′ , b′ ), ∀a, a′ ∈ R , b, b′ ∈ R(α) and
+                       φ(r (x)a, b) = φ(a, `(α)(x)b) , ∀a ∈ R , b ∈ R(α), x ∈ Z+min                                      (58)
+Then there exists a unique homomorphism ρ ∶ R (α, α) → R such that φ = ρ ○ ψ.
+
+Proof. (i) One has ψ(a, b) = Frα (a)b which gives the required properties.
+(ii) Let U ∶= φ(q (1+) , 1), V ∶= φ(q, 1) = φ(1, q α ), W ∶= φ(1, q). Let us show that :
+      a, b, c, a′ , b′ , c′ ∈ N & αa + αb + c < αa′ + αb′ + c′ Ô⇒ U a V b W c + U a V b W c = U a V b W c
+                                                                                               ′   ′   ′
+
+
+
+Let ai ∈ N, βi ∈ N + αN be such that αa1 + β1 < αa2 + β2 . Let us show that
+                              φ(q (1+)a1 , q β1 ) + φ(q (1+)a2 , q β2 ) = φ(q (1+)a1 , q β1 )                           (59)
+Since R is multiplicatively cancellative the map R ∋ x ↦ x ∈ R is an injective endomorphism.
+                                                                               n
+
+Thus it is enough to show that for some n ∈ N one has
+                          φ(q (1+)na1 , q nβ1 ) + φ(q (1+)na2 , q nβ2 ) = φ(q (1+)na1 , q nβ1 )                         (60)
+We can find n ∈ N and k, k ′ ∈ N such that
+                                              k k′         k        k′
+                                       a1 <    ,   < a2 , α + β1 < α + β2
+                                              n n          n        n
+One then has, using na1 < k, that in R , q (1+)na1 + q k = q (1+)na1 and
+                              φ(q (1+)na1 , q nβ1 ) = φ(q (1+)na1 , q nβ1 ) + φ(q k , q nβ1 )
+Using (58) one has φ(q k , q nβ1 ) = φ(1, q nβ1 +αk ) and since α nk + β1 < α kn + β2 one gets
+                                                                                           ′
+
+
+
+                                 φ(1, q nβ1 +αk ) + φ(1, q nβ2 +αk ) = φ(1, q nβ1 +αk )
+                                                                       ′
+
+
+
+so that
+                                     φ(q k , q nβ1 ) + φ(q k , q nβ2 ) = φ(q k , q nβ1 )
+                                                             ′
+
+
+
+Moreover, using k ′ < na2 one has q (1+)na2 + q k = q k in R so that
+                                                             ′     ′
+
+
+
+                                 φ(q k , q nβ2 ) = φ(q k , q nβ2 ) + φ(q (1+)na2 , q nβ2 )
+                                       ′                 ′
+
+
+
+Combining the above equalities gives
+     φ(q (1+)na1 , q nβ1 ) + φ(q (1+)na2 , q nβ2 ) = φ(q (1+)na1 , q nβ1 ) + φ(q k , q nβ1 ) + φ(q (1+)na2 , q nβ2 )
+
+                    = φ(q (1+)na1 , q nβ1 ) + φ(q k , q nβ1 ) + φ(q k , q nβ2 ) + φ(q (1+)na2 , q nβ2 )
+                                                                           ′
+
+
+
+= φ(q (1+)na1 , q nβ1 )+φ(q k , q nβ1 )+φ(q k , q nβ2 ) = φ(q (1+)na1 , q nβ1 )+φ(q k , q nβ1 ) = φ(q (1+)na1 , q nβ1 ).
+                                                ′
+
+
+
+The sub-semiring of Germ=0 (Rmax   + ) generated by the range of ψ is generated by the q
+                                                                                              (1+)αi+αj+k
+
+for i, j, k ∈ N. Let U = ψ(q (1+)
+                                    , 1) = q (1+)α
+                                                    , V = ψ(q, 1) = ψ(1, q ) = q , W = ψ(1, q) = q. The
+                                                                           α     α
+
+
+
+
+                                                             39
+                                   Alain Connes and Caterina Consani
+
+equality φ = ρ ○ ψ implies that one must have
+                                        ρ(U ) = U, ρ(V ) = V, ρ(W ) = W,                                (61)
+which shows the uniqueness of ρ, if it exists, since by construction U , V , W generate R (α, α).
+Let us show the existence of ρ. As shown above
+     a, b, c, a′ , b′ , c′ ∈ N & αa + αb + c < αa′ + αb′ + c′ Ô⇒ U a V b W c + U a V b W c = U a V b W c
+                                                                                     ′   ′   ′
+
+
+
+and the same rule holds by direct computation for U , V , W instead of U, V, W . This shows that
+if one defines ρ on monomials using multiplicativity and (61), the additivity follows provided one
+proves that for any u > 0
+                                   F (u) = {(a, β) ∈ N × (αN + N) ∣ αa + β = u}
+and subsets S, S ′ ⊂ F (u) one has
+
+                           ∑ U W = ∑ U W Ô⇒ ∑ U W = ∑ U W
+                              a  β      a  β       a β     a  β
+                               S                 S′               S             S′
+
+Here we use the notations
+                          Wβ ∶= Vb Wc , W β ∶= V b W c , , ∀β = αb + c, b, c ∈ N
+The products Vb Wc and V b W c only depend on β = αb+c. Now assume F (u) ≠ ∅, then u ∈ αN+N
+by construction since αa + β = u for some (a, β) ∈ N × (αN + N). The pairs (a, β) ∈ N × (αN + N)
+such that αa+β = u thus contain (0, u) and all the (a, u−aα) such that a ∈ N and u−aα ∈ αN+N.
+There is a largest t ∈ N such that u − tα ∈ αN + N and one then has
+                                            F (u) = {(a, u − aα) ∣ 0 ≤ a ≤ t}
+Both R (α, α) and R are multiplicatively cancellative semirings and thus they embed in the
+semifields of fractions Frac(R (α, α)) and Frac(R). Let then
+                         Z ∶= U V−1 ∈ Frac(R (α, α)), Z ∶= U V −1 ∈ Frac(R).
+What remains to be shown is that for any subsets S, S ′ ⊂ {0, . . . , t} one has
+
+                                        ∑ Z = ∑ Z Ô⇒ ∑ Z = ∑ Z
+                                           j      j       j      j
+                                            S         S′          S       S′
+
+Now Z is given by the germ of the function  ↦ q (1+)α q −α = q α and one gets
+
+                     ∑ Z = ∑ Z ⇐⇒ inf(S) = inf(S ) & max(S) = max(S )
+                           j            j                          ′                     ′
+                     S             S′
+
+Thus the proof of (ii) follows from Lemma 7.5.
+
+
+In order to obtain the composition Id ○Ψ(λλ′ ) one then takes the left and right actions of Z+min in
+the sub-semiring of Germ=0 (Rmax + ) generated by the range of ψ i.e. generated by the q
+                                                                                          (1+)αi+αj+k
+
+for i, j, k ∈ N. One gets the sub-semiring of Germ=0 (R+ ) generated by the q
+                                                        max                     (1+)αi+k
+                                                                                          for i, k ∈ N,
+with left action of q given by i ↦ i + 1 and right action by k ↦ k + 1. This coincides with (56)
+and thus shows that
+                                                Ψ(λ) ○ Ψ(λ′ ) = Id ○ Ψ(λλ′ )
+where Id is the tangential deformation of the identity correspondence.
+
+
+                                                             40
+                               Geometry of the Arithmetic Site
+
+               8. The structure of the point in noncommutative geometry
+
+This section is motivated by the classification of matroı̈ds discovered by J. Dixmier in [13].
+It turns out that this classification involves the same noncommutative space as the space of
+points of the topos N ̂× . The conceptual reason behind this coincidence comes from the structure
+of the topological space reduced to a single point when considered from the point of view of
+noncommutative geometry. As we show below this structure leads naturally to the topos N        ̂× .
+                                                                        ∗
+In noncommutative geometry a topological space is encoded by a C -algebra. Moreover the large
+class of examples coming from spaces of leaves of foliations made it clear that Morita equivalent
+C ∗ -algebras represent the same underlying space. In each Morita equivalence class of (separable)
+C ∗ -algebras one finds a unique (up to isomorphism) representative A which is stable i.e. such that
+A is isomorphic with the tensor product A ⊗ K of A by the C ∗ -algebra K of compact operators
+in Hilbert space. In particular, the single point is represented by the C ∗ -algebra K. This C ∗ -
+algebra is the natural home for the theory of infinitesimals (cf. [4]). All the (star) automorphisms
+of the C ∗ -algebra K are inner, i.e. they are implemented by unitaries in the multiplier algebra.
+But this algebra admits non-trivial endomorphisms and in fact one has the following well-known
+result where an endomorphism is called non-degenerate if it transforms approximate units into
+approximate units.
+
+Theorem 8.1 The semigroup End(K) of non-degenerate endomorphisms of the C ∗ -algebra K
+is an extension of the group Int(K) of inner automorphisms by the semigroup N× .
+
+Let ρ ∈ End(K) be a non-degenerate endomorphism, then ρ acts on the K-theory group K0 (K) =
+Z and respects the order. Thus its action is given by multiplication by an integer Mod(ρ) ∈ N×
+and this provides a homomorphism of semigroups Mod ∶ End(K) → N× whose kernel is the group
+Int(K) of inner automorphisms. It is important to construct explicitly a splitting of this extension
+and one way to do that is as follows, this also fits with our considerations in characteristic 1. We
+let H ∶= `2 (Z) be the Hilbert space of square integrable sequences of complex numbers. For each
+integer k ∈ N× one considers the isometries u(k, j) ∶ H → H, 0 ≤ j < k, which are defined on the
+canonical orthonormal basis δn of the Hilbert space H ∶= `2 (Z) by
+                                      u(k, j)(δn ) ∶= δkn+j , ∀n ∈ Z.                                  (62)
+The maps φ(k, j) ∶ Z → Z, n ↦ φ(k, j)(n) ∶= kn + j are injective and have disjoint ranges for fixed
+k ∈ N× when 0 ≤ j < k. Thus the u(k, j) ∶ H → H are isometries and their ranges are pairwise
+orthogonal so that they form a k-dimensional Hilbert space of isometries i.e. fulfill the rules
+                  u(k, i)∗ u(k, j) = δij , ∀i, j ∈ {0, . . . k − 1}, ∑ u(k, i)u(k, i)∗ = 1.            (63)
+Moreover, the composition φ(k, j) ○ φ(k ′ , j ′ ) is given by n ↦ k(k ′ n + j ′ ) + j = kk ′ n + (kj ′ + j).
+When written in terms of the isometries u(k, i) one gets the following equality
+                                    u(k, j)u(k ′ , j ′ ) = u(kk ′ , kj ′ + j).                         (64)
+We can then define an action of N× on the C ∗ -algebra K as follows
+
+Lemma 8.2 Let K be the C ∗ -algebra of compact operators in the Hilbert space H = `2 (Z). The
+following formula defines an action of the semigroup N× by endomorphisms of K
+                                 Frk (x) ∶=       ∑          u(k, j) x u(k, j)∗ .                      (65)
+                                              j∈{0,...k−1}
+
+
+
+
+                                                       41
+                                    Alain Connes and Caterina Consani
+
+Proof. The multiplicativity of Frk follows from (63) which implies
+     Frk (x)Frk (y) = ∑ u(k, i) x u(k, i)∗ ∑ u(k, j) y u(k, j)∗ = ∑ u(k, i) xy u(k, i)∗ = Frk (xy).
+                         i                        j                         i
+
+The equality Frkk′ = Frk ○ Frk′ follows from (64) which implies
+    Frk ○ Frk′ (x) = ∑ u(k, j)u(k ′ , j ′ )x u(k ′ , j ′ )∗ u(k, j)∗ = ∑ u(kk ′ , i)x u(kk ′ , i)∗ = Frkk′ (x)
+                      (j,j ′ )                                          i
+
+since when (j, j ′ ) vary in {0, . . . k − 1} × {0, . . . k ′ − 1}, one obtains the kk ′ isometries u(kk ′ , i)
+as every element i ∈ {0, . . . kk ′ − 1} is uniquely of the form i = kj ′ + j for (j, j ′ ) ∈ {0, . . . k − 1} ×
+{0, . . . k ′ − 1}.
+
+As a corollary of Lemma 8.2, we can think of K as an object of the topos N       ̂× , i.e. a sheaf of
+sets on N̂× and we can use the compatibility of the action of N by endomorphisms to view it
+                                                                   ×
+
+as a sheaf of involutive algebras and obtain the relevant structure on the stalks of this sheaf.
+The construction of the stalk given in (5) is that of an inductive limit and one needs to handle
+the distinction between inductive limits taken in the category of C ∗ -algebras with set-theoretic
+                                                                                    ̂× one needs to
+inductive limits. To obtain a C ∗ -algebra from the stalk at a point p of the topos N
+take the completion of the set-theoretic stalk. One then has the following corollary of Theorem
+5.1 of [13]:
+
+Proposition 8.3 Let K be the C ∗ -algebra of compact operators in `2 (Z) endowed with the action
+of N× given by Lemma 8.2. Then
+                                            ̂× .
+(i) K is an involutive algebra in the topos N
+                                              ̂× is a pre-C ∗ -algebra and its completion Kp is an
+(ii) The stalk of K at a point p of the topos N
+                             ∗
+infinite separable matroid C -algebra.
+(iii) Let A be an infinite separable matroid C ∗ -algebra, then there exists a point p of the topos
+̂× , unique up to isomorphism, such that Kp is isomorphic to A.
+N
+
+Here, by a pre-C ∗ -algebra we mean an involutive algebra (over C) in which the following equality
+defines a norm whose completion is a C ∗ -algebra
+                                 ∥x∥ ∶= sup{∣λ∣ ∣ λ ∈ C, (x − λ) ∉ Ã−1 }, Ã ∶= A ⊕ C
+where we let Ã ∶= A ⊕ C be the algebra obtained by adjoining a unit.
+The invariant at work in Proposition 8.3 is, as already mentioned above, the K-group K0 (A)
+which is an ordered group called the dimension group of A.
+
+
+References
+ 1 M. Artin, A. Grothendieck, J-L. Verdier, eds. (1972), SGA4 , LNM 269-270-305, Berlin, New York,
+   Springer-Verlag.
+ 2 G. Cohen, S. Gaubert, R. Nikoukhah, J.P. Quadrat, Convex analysis and spectral analysis of timed
+   event graphs, Decision and Control, 1989, Proceedings of the 28th IEEE Conference.
+ 3 A. Connes, Cohomologie cyclique et foncteurs Extn , C. R. Acad. Sci. Paris Sér. I Math. 296 (1983),
+   no. 23, 953–958.
+ 4 A. Connes, Noncommutative geometry, Academic Press (1994).
+ 5 A. Connes, Trace formula in noncommutative geometry and the zeros of the Riemann zeta function,
+   Selecta Math. (N.S.) 5 (1999), no. 1, 29–106.
+
+
+
+                                                          42
+                               Geometry of the Arithmetic Site
+
+ 6 A. Connes, M. Marcolli, Noncommutative Geometry, Quantum Fields, and Motives, Colloquium Pub-
+   lications, Vol.55, American Mathematical Society, 2008.
+ 7 A. Connes, C. Consani, Schemes over F1 and zeta functions, Compositio Mathematica 146 (6), (2010)
+   1383–1415.
+ 8 A. Connes, C. Consani, From monoı̈ds to hyperstructures: in search of an absolute arithmetic, in
+   Casimir Force, Casimir Operators and the Riemann Hypothesis, de Gruyter (2010), 147–198.
+ 9 A. Connes, C. Consani, Characteristic one, entropy and the absolute point, “Noncommutative Ge-
+   ometry, Arithmetic, and Related Topics”, the Twenty-First Meeting of the Japan-U.S. Mathematics
+   Institute, Baltimore 2009, JHUP (2012), pp 75–139.
+10 A. Connes, C. Consani, Cyclic structures and the topos of simplicial sets, to appear on Journal of
+   Pure and Applied Algebra; arXiv:1309.0394.
+11 A. Connes, C. Consani, The cyclic and epicyclic sites, arXiv:1407.3945 [math.AG] (2014).
+12 A. Connes, C. Consani, The Arithmetic Site, Comptes Rendus Mathématiques Ser. I 352 (2014),
+   971–975.
+13 J. Dixmier, On some C ∗ -algebras considered by Glimm. J. Functional Analysis, 1, (1967), 182–203.
+14 A. Gathmann Tropical algebraic geometry, Jahresbericht der DMV 108 (2006) no. 1, 3–32.
+15 J. Golan, Semi-rings and their applications, Updated and expanded version of The theory of semi-
+   rings, with applications to mathematics and theoretical computer science [Longman Sci. Tech., Harlow,
+   1992. Kluwer Academic Publishers, Dordrecht, 1999.
+16 R. Hartshorne Algebraic Geometry, Graduate Texts in Mathematics 52, Springer-Verlag, New York
+   Heidelberg Berlin 1977.
+17 L. Le Bruyn, The sieve topology on the arithmetic site, preprint (2014).
+18 V. Kolokoltsov, V. Maslov, Idempotent analysis and its applications. Translation of Idempotent anal-
+   ysis and its application in optimal control (Russian), “Nauka” Moscow, 1994. Translated by V. E.
+   Nazaikinskii. With an appendix by Pierre Del Moral. Mathematics and its Applications, 401. Kluwer
+   Academic Publishers Group, Dordrecht, 1997.
+19 G. Litvinov Tropical Mathematics, Idempotent Analysis, Classical Mechanics and Geometry
+   arXiv:1005.1247
+20 S. Mac Lane, I Moerdijk, Sheaves in geometry and logic. A first introduction to topos theory. Corrected
+   reprint of the 1992 edition. Universitext. Springer-Verlag, New York, 1994.
+21 R. Meyer, On a representation of the idèle class group related to primes and zeros of L-functions.
+   Duke Math. J. Vol.127 (2005), N.3, 519–595.
+22 G. Mikhalkin, Tropical Geometry and its applications, Proceedings of the International Congress of
+   Mathematicians, Madrid 2006, pp. 827–852.
+23 B. Pareigis, H. Rohrl Remarks on semimodules, Arxiv:1305.5531.v2.
+24 J. P. Serre, Corps locaux. (French) Deuxième edition. Publications de l’Université de Nancago, No.
+   VIII. Hermann, Paris, 1968.
+
+Alain Connes alain@connes.org
+Collège de France, 3 rue d’Ulm, Paris F-75005 France
+I.H.E.S. and Ohio State University.
+
+Caterina Consani kc@math.jhu.edu
+Department of Mathematics, The Johns Hopkins University
+Baltimore, MD 21218 USA.
+
+
+
+
+                                                   43
+
