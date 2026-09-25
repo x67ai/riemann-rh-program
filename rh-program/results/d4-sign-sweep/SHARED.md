@@ -333,3 +333,4 @@
 | Fri Sep 25 09:40:12 IST 2026 | Job 1 | alive — running Control-1 replay of (1000000000000000000, 28.35) tier 2 1e18 |
 | Fri Sep 25 09:57:53 IST 2026 | Job 1 running Job 2's twsumO (d57080a8eeee7da8) | 1000000000000000000 | 28.35 | terms 75148949134 (same) | P_O = -3.788681619229979e-03 | ARCH_O = 2.889437293110770e-02 | — | **W_O = +3.268305455033768e-02** | \|ΔP\| = 1.4e-15, \|ΔW\| = 1.4e-15 | tol 2.51e-10 (line 1.51e-10) | — | — | — | sum 1200 s, 8 thr | **Control 1 PASS** | f07705d7fc39bd2b |
 | Fri Sep 25 10:10:13 IST 2026 | Job 1 | alive — running (15202440115920748544, 28.35) tier 2 covered-range control: the double 1275.4 above the 1e20-th zero (8 592 |
+| Fri Sep 25 10:40:14 IST 2026 | Job 1 | alive — running (15202440115920748544, 28.35) tier 2 covered-range control: the double 1275.4 above the 1e20-th zero (8 592 |
