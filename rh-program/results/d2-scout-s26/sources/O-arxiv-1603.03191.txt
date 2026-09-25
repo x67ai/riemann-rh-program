@@ -1,0 +1,2161 @@
+                                                                       Geometry of the scaling site
+
+                                                                             Alain Connes, Caterina Consani∗
+
+
+                                                                                               Abstract
+
+
+
+
+arXiv:1603.03191v1 [math.AG] 10 Mar 2016
+                                                      In this paper we construct the scaling site S by implementing the extension of scalars on
+                                                  the arithmetic site A , from the smallest Boolean semifield B to the tropical semifield Rmax    + .
+                                                  The obtained semiringed topos is the Grothendieck topos [0, ∞) o N , semi-direct product of
+                                                                                                                             ×
+
+                                                  the Euclidean half-line and the monoid N× of positive integers acting by multiplication, en-
+                                                  dowed with the structure sheaf of piecewise affine, convex functions with integral slopes. We
+                                                  show that pointwise [0, ∞) o N× coincides with the adele class space of Q and that this latter
+                                                  space inherits the geometric structure of a tropical curve. We restrict this construction to the
+                                                  periodic orbit of the scaling flow associated to each prime p and obtain a quasi-tropical struc-
+                                                  ture which turns this orbit into a variant C p = R∗+ / pZ of the classical Jacobi description C∗ /qZ
+                                                  of an elliptic curve. On C p , we develop the theory of Cartier divisors, determine the struc-
+                                                  ture of the quotient Div(C p )/P of the abelian group of divisors by the subgroup of principal
+                                                  divisors, develop the theory of theta functions, and prove the Riemann-Roch formula which
+                                                  involves real valued dimensions, as in the type II index theory. We show that one would have
+                                                  been led to the same definition of S by analyzing the well known results on the localization
+                                                  of zeros of analytic functions involving Newton polygons in the non-archimedean case and
+                                                  the Jensen’s formula in the complex case.
+
+
+
+
+                                           Contents
+                                           1    Introduction                                                                                               2
+
+                                           2    The topos [0, ∞) o N×                                                                                      5
+                                                2.1 Extension of scalars . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         6
+                                                2.2 The small category C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           7
+                                                2.3 The topology J on C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .            8
+
+                                           3    The points of the topos [0, ∞) o N×                                                                        9
+                                                3.1 Flatness and continuity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         10
+                                                3.2 The point p H associated to a rank one subgroup of R . . . . . . . . . . . . . . . . . .              10
+                                                3.3 Classification of points of the topos [0, ∞) o N× . . . . . . . . . . . . . . . . . . . .             11
+                                                3.4 Representation of points as filtering colimits of representables . . . . . . . . . . . .              15
+                                               ∗ Partially supported by the Simons Foundation collaboration grant n. 353677.   This author would also like to
+                                           thank the Collège de France for some financial support.
+
+
+                                                                                                     1
+4   The structure sheaf O of the scaling site                                                            16
+    4.1 The stalks of the structure sheaf O . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
+    4.2 The points of S over Rmax+   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   18
+    4.3 The sheaf of fractions and Cartier divisors . . . . . . . . . . . . . . . . . . . . . . . .      19
+    4.4 The order at a point . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   20
+
+5   The periodic orbits C p                                                                              20
+    5.1 Divisors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   21
+    5.2 Symmetries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     24
+    5.3 Theta functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    27
+    5.4 Riemann-Roch theorem of type II . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        30
+
+Appendices                                                                                               35
+
+A The structure of the Rmax -module E N,p                                                                35
+
+B Why semirings and characteristic one                                                            39
+  B.1 Semiadditive category . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+  B.2 The uniqueness of B and Zmax . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+
+C The tropical framework                                                                           40
+  C.1 Newton polygons . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+  C.2 Jensen’s Formula . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+
+
+1     Introduction
+In this article we show that the adele class space1 of Q admits a natural structure of tropical curve.
+We follow the strategy outlined in [2, 3] and investigate the algebraic geometric structure of the
+Scaling Site2 S obtained from the arithmetic site A by extension of scalars from the Boolean
+                                         + (cf. Figure 1). As a Grothendieck topos S is described
+semifield B to the tropical semifield Rmax
+as [0, ∞) o N : the topos of N -equivariant sheaves (of sets) on the half-line and our first result
+                ×               ×
+
+(Theorem 3.9) states that the isomorphism classes of points of this topos form the basic sector of
+the adele class space of Q
+
+Theorem. The space of points of the topos [0, ∞) o N× is canonically isomorphic to A (Rmax
+                                                                                       + ) ≃
+ ×       ∗
+Q \AQ /Ẑ .
+
+This result provides the missing geometric structure on the adele class space since the topos
+[0, ∞) o N× inherits, from its construction by extension of scalars, a natural sheaf O of regular
+functions. We call Scaling Site the semi-ringed topos
+
+                                      S := [0, ∞) o N× , O
+                                                           
+
+    1 More specifically the sector Q× \A /Ẑ∗ corresponding to the trivial Grossencharacter.
+                                        Q
+    2 These results have been announced in [4].
+
+
+
+
+                                                          2
+                                           θ
+
+
+
+
+                                                                        *
+                                                               � � ��� /ℤ
+
+
+
+
+                          Figure 1: The extension of scalars from A to S
+
+
+so obtained. The sections of the sheaf O are convex, piecewise affine functions with integral
+slopes. In Appendix C we review the well known results on the localization of zeros of ana-
+lytic functions showing in which sense the tropical half-line (0, ∞), endowed with the sheaf of
+convex piecewise affine functions with integral slopes, provides a suitable structure for the lo-
+calization (both in the archimedean and non-archimedean case) of zeros of analytic functions in
+the punctured unit disk. The new component supplied with the scaling site is the action of N×
+by multiplication on the tropical half-line [0, ∞). On analytic functions this action is given by the
+transformation f ( z) 7→ f ( zn ) for n ∈ N× , i.e. the action of the degree n endomorphism z 7→ zn
+on the punctured unit disk.
+The structure sheaf O of S is a sheaf of semirings of “characteristic one" (i.e. of semirings in
+which 1 + 1 = 1) and the naturalness of this structure is justified at the conceptual level (see
+Appendix B) by two facts. First, the endomorphisms of any object admit a canonical structure
+of semiring in any category with finite products and coproducts when the canonical morphisms
+from coproducts to products are isomorphisms. Second, passing from rings to semirings only
+adds one more object to the list of finite fields Fq , namely the Boolean semifield B, and only
+one object to the list of fields whose multiplicative group is cyclic, i.e. the semifield Zmax whose
+multiplicative group is infinite cyclic. Both B and Zmax are semirings of characteristic one.
+In section 4.1 we describe the stalks of the structure sheaf O and show (Theorem 4.3) that the
+points S (Rmax+ ) of the scaling site defined over R+
+                                                         max coincide with the points A (Rmax ) of the
+                                                                                             +
+arithmetic site defined over the same semifield. As stated in [2, 3] a long term goal of this project
+is to develop an adequate version of the Riemann-Roch theorem in characteristic 1, suitable to
+transplant the pRH proof of Weil to the Riemann zeta function. In this paper we test this idea by
+restricting our geometric structure to the periodic orbits of the scaling flow, i.e. to the points of
+[0, ∞) o N× over the image of Spec Z (cf. Figure 1 and [3], §5.1). We find that for each prime p
+the corresponding circle of length log p is endowed with a quasi-tropical structure which turns
+this orbit into a variant C p = R∗+ / pZ of the classical Jacobi description C∗ /qZ of an elliptic curve.
+The structure sheaf O p of C p is obtained by restriction of O to C p and its sections are periodic
+
+                                                   3
+functions f ( pλ ) = f (λ ), λ ∈ R∗+ , which are convex, piecewise affine and whose derivatives
+take values in the group H p ⊂ R of rational numbers with denominators a power of p. When
+suitably understood in conceptual terms using Cartier divisors, the notions of rational functions,
+divisors, etc. on C p are all meaningful. The global rational functions form a semifield K(C p ) (of
+characteristic one). A new feature of this construction is that the degree of a divisor can be any
+real number. We introduce an invariant χ( D ) ∈ Z/( p − 1)Z for divisors D on C p and determine,
+in Theorem 5.6, the precise structure of the quotient Div(C p )/P of the abelian group of divisors
+by the subgroup of principal divisors
+Theorem. The map (deg, χ) is an isomorphism of abelian groups
+
+                              (deg, χ) : Div(C p )/P → R × (Z/( p − 1)Z).
+
+We develop, in analogy with the non-archimedean version established in [18], the theory of
+theta functions on C p , starting with the following infinite sums as the analogues3 of the infinite
+products defining classical theta functions
+                                   ∞                     ∞
+                         θ (λ ) := ∑ (0 ∨ (1 − pm λ )) + ∑ 0 ∨ ( p−m λ − 1) .
+                                                                           
+                                    0                             1
+
+We define θ-functions Θh,µ for h ∈ H p , h > 0 and µ ∈ R∗+ . They are obtained by applying to the
+basic theta function θ (λ ) defined above the symmetries associated to the various incarnations
+(arithmetic, relative, absolute, geometric) of the “Frobenius" operator in this context. This part is
+discussed in details in §5.2. The main output (cf. Theorem 5.12) is provided by the following
+Theorem. Any function f ∈ K(C p ) is canonically expressed in terms of theta functions associated to the
+principal divisor of f , and a constant c ∈ R
+
+                              f (λ ) := ∑ Θhi ,µi (λ ) − ∑ Θh0 ,µ 0 (λ ) − hλ + c.
+                                                                      j   j
+                                         i                    j
+
+For each divisor D on C p we define the corresponding Riemann-Roch problem with solution
+space H 0 ( D ) := H 0 (C p , O( D )). We introduce the continuous dimension DimR ( H 0 ( D )) of this
+Rmax -module using a limit of normalized topological dimensions and find that DimR ( H 0 ( D )) is
+a real number. The topological dimension used in this part is the Lebesgue covering dimension
+which assigns to any topological space X an integer dimtop ( X ) ∈ {0, . . . , ∞} counting the min-
+imal overlap of refinements of open covers. The appearance of arbitrary positive real numbers
+as continuous dimensions of DimR ( H 0 ( D )) is due to the density in R of the subgroup H p ⊂ Q
+and the fact that continuous dimensions are defined as limits
+                                                                                  n
+                             DimR ( H 0 ( D )) := lim p−n dimtop ( H 0 ( D ) p )
+                                                   n→∞
+                                                      n                       n
+of normalized dimensions p−n dimtop ( H 0 ( D ) p ) where H 0 ( D ) p is a natural filtration of H 0 ( D )
+involving the p-adic norms of the derivatives. We interpret this result as the characteristic 1
+counterpart of the statement for matroid C ∗ -algebras and the type II normalized traces as in [5].
+  3 We use the notation x ∨ y for the max of two real numbers
+
+
+
+                                                          4
+The continuous dimensions which affect arbitrary positive real values appear when passing to
+the von Neumann algebra of type II obtained as the weak closure of the C ∗ -algebra using the
+trace to perform the completion. Finally, in Theorem 5.17 we prove that the Riemann-Roch
+formula holds for C p
+
+Theorem. Let D ∈ Div(C p ) be a divisor, then the limit DimR ( H 0 ( D )) exists and one has the Riemann-
+Roch formula:
+
+                  DimR ( H 0 ( D )) − DimR ( H 0 (− D )) = deg( D ) , ∀ D ∈ Div(C p ).
+
+By comparing the periodic orbit C p with a tropical elliptic curve and our Riemann-Roch theorem
+with the tropical Riemann-Roch theorem of [1,8,14] and its variants we find several fundamental
+differences. First, for an elliptic tropical curve C given by a circle of length L, the structure of the
+group Div(C )/P of divisor classes is inserted into an exact sequence of the form 0 → R/ LZ →
+            deg
+Div(C )/P → Z → 0 (cf. [14]), while for the periodic orbit C p the group of divisor classes
+is Div(C p )/P ≃ R × (Z/( p − 1)Z). The second fundamental difference is the appearance of
+continuous dimensions in our Riemann-Roch theorem. The source for these differences is seen
+when one compares the structure sheaf of C p with that of the elliptic tropical curve C := R/ LZ,
+L = log p. Let us use for C p the variable u = log λ, so that the periodicity condition f ( px) = f ( x)
+becomes translation invariance by log p. Then the local sections of the structure sheaf of C p are
+in particular piecewise affine in the parameter λ and this condition is expressed, in the variable
+u, by the piecewise vanishing of ∆2 f , where ∆2 is the elliptic translation invariant operator
+                                            2
+                                         ∂                                                ∂
+                       ∆2 = λ   2
+                                                  , ∆2 ( f ) := ( Du2 − Du ) f , Du :=      .         (1)
+                                        ∂λ                                               ∂u
+
+On the other hand, the local sections of the structure sheaf of C are in particular piecewise affine
+in the parameter u, and this condition is expressed, in the variable u, by the piecewise vanishing
+of Du2 f . Thus one readily sees that the difference between the two sheaves is due to the presence
+of the sub-principal term − Du in (1).
+
+
+Notations
+For any abelian ordered group H we denote by Hmax = H ∪ {−∞} the semifield obtained
+from H by applying the max-plus construction i.e. the addition is given by the max and the
+multiplication by the addition in H. Since Rmax is isomorphic to Rmax  +  by the exponential map
+(cf. [9]) we shall pass freely from the “additive" notation Rmax to the “multiplicative" one Rmax
+                                                                                              + .
+
+2    The topos [0, ∞) o N×
+In this section we define the topos underlying the scaling site S as a Grothendieck site, i.e. as
+a small category C endowed with a Grothendieck topology J. In §2.1 we shortly explain its
+structure as naturally arising from the arithmetic site A by extension of scalars from B to Rmax
+                                                                                              + .
+In §2.2 we provide the definition of the small category C and in §2.3 we describe its Grothendieck
+topology.
+
+                                                            5
+                                      4
+
+                                                                  8
+
+                                      3
+                                                                  7
+
+                                      2                           6
+
+
+                                      1
+                                                                  5
+
+
+                                                                  4
+                 -4   -3   -2   -1        1
+
+                                                                  3
+                                     -1
+
+                                                                  2
+
+                                     -2
+
+
+
+                                                                       2        4      6       8     10
+                                     -3
+
+
+                                                                           (b) The Legendre transform `C (λ )
+             (a) An element C of R(Z)
+
+
+2.1   Extension of scalars
+The arithmetic site A of [2, 3] is defined using the action of N× by Frobenius endomorphisms
+Frn on the semifield Zmax of characteristic one. To define the extension of scalars from B to Rmax+
+we consider the semiring R(Z) = Zmax ⊗      ˆ B Rmax obtained as the multiplicatively cancellative
+reduction of the tensor product Zmax ⊗B Rmax and we endow R(Z) with the Rmax -linear en-
+domorphisms Frn ⊗ Id. Then, by applying the Legendre transform we identify R(Z) with the
+semiring of convex piecewise affine functions on R+ with slopes in Z ⊂ R and only finitely many
+discontinuities of the derivative. These functions are endowed with the pointwise operations of
+functions taking values in Rmax .
+The operation of reduction from Zmax ⊗B Rmax to R(Z) = Zmax ˆ    ⊗B Rmax is obtained as described
+in [3] Lemma 6.20 and Proposition 6.21. More precisely, the elements of R(Z) are given by the
+convex hull C of the union of finitely many quadrants of the form ( x j , y j ) − Q, for Q = R+ × R+ ,
+where x j ∈ Z and y j ∈ R. To determine this convex hull it is enough to know which half planes
+P ⊂ R2 contain it, and any such half-plane has the form
+
+                Pλ,u := {( x, y) ∈ R2 | λx + y ≤ u},                  Pv := {( x, y) ∈ R2 | x ≤ v}
+
+where λ ∈ R+ and u, v ∈ R. Thus C is uniquely determined by the function
+
+                                              `C (λ ) := inf{u ∈ R | C ⊂ Pλ,u }
+and this function is given in terms of the finitely many vertices ( x j , y j ) of the polygon C by the
+formula
+                                     `C (λ ) = max λx j + y j .                                      (2)
+                                                              j
+
+Note that `C (λ ) is meaningful also for λ = 0 and that limλ →∞ `C (λ )/λ = max x j = inf{v ∈ R |
+C ⊂ Pv }. One then obtains the required identification
+Lemma 2.1. The map L : C 7→ `C where `C (λ ), for ∀λ ∈ R+ has been defined in (2), is an isomorphism
+of Zmax ⊗ˆ B Rmax with the semiring R(Z) of continuous4 convex piecewise affine functions on R+ with
+slopes in Z ⊂ R and only finitely many discontinuities of the derivative. These functions are endowed
+with the pointwise operations of functions with values in Rmax .
+  4 Continuity is automatic for convex functions on open intervals, see [17], Theorem 3.2.
+
+
+
+                                                             6
+Proof. It follows by the formula (2) that the function `C belongs to R(Z) since the slopes x j ∈ Z,
+and the discontinuities of the derivative only occur when there exists a pair of vertices ( xi , yi ) 6=
+( x j , y j ) such that λ ( xi − x j ) = y j − yi . Moreover `C is convex by construction as a supremum
+of finitely many affine functions. The map C 7→ `C is evidently injective. The surjectivity is
+a consequence of the fact that an element f ∈ R(Z) is a finite supremum of affine functions
+λ 7→ aλ + b with a ∈ Z and b ∈ R, and thus of the form `C where C is the convex hull of the union
+of quadrants ( a, b) − Q. The pointwise operations of functions with values in Rmax are given for
+the addition by the rule ( f , g) 7→ f ∨ g, where ( f ∨ g)(λ ) := f (λ ) ∨ g(λ ) = max{ f (λ ), g(λ )}.
+This corresponds to the max in (2) and thus to the convex hull of the union in terms of the
+convex sets C. This shows that the map L : C 7→ `C is additive. It is also multiplicative, i.e.
+`C+C0 = `C + `C0 . This follows using (2) and the identity max( A + B) = max( A) + max( B)
+holding for any two finite subsets A, B ⊂ R.
+Proposition 2.2. (i ) Under the isomorphism L the endomorphism Frn ⊗ Id of Zmax ˆ      ⊗B Rmax corresponds
+                  ×
+to the action of N on R+ by multiplication.
+(ii) The following map identifies the half line [0, ∞) with the space of characters of R(Z)
+
+                  [0, ∞) 3 λ 7→ χλ ∈ HomRmax (R(Z), Rmax ),             χλ ( f ) := f (λ ).
+
+Proof. (i ) We use multiplicative notations both for Zmax and Rmax and represent elements of
+     ⊗B Rmax in terms of finite sums ∑ q x j ⊗B q y j with x j ∈ Z and y j ∈ R. In these terms the
+Zmax ˆ
+isomorphism L : Zmax ⊗ˆ B Rmax → R(Z) is such that
+
+                                L(∑ q x j ⊗B q y j )(λ ) = max{λx j + y j }
+
+With X = ∑ q x j ⊗B q y j one has
+
+           L((Frn ⊗ Id)( X )(λ ) = L(∑ qnx j ⊗B q y j )(λ ) = max{nλx j + y j } = L( X )(nλ ).
+
+(ii) Let ι ∈ R(Z) be the function ι(λ ) = λ. An element ρ ∈ HomRmax (R(Z), Rmax ) is uniquely
+specified by ρ(ι) ∈ Rmax and since 0 ∨ ι = ι and ρ(0) = 0 (as the morphism ρ preserves the
+multiplicative unit) one has ρ(ι) = λ ∈ [0, ∞) ⊂ Rmax . By multiplicativity one gets ρ(kι) = kλ
+for any k ∈ Z and by Rmax -linearity that ρ(kι + y) = kλ + y for y ∈ R. By additivity one then
+gets that for any f = ∨( x jι + y j ) ∈ R(Z), ρ( f ) = ρ(∨( x jι + y j )) = ∨(λx j + y j ) = f (λ ).
+Remark 2.3. One has in general, for a semiring R of characteristic 1, a natural isomorphism
+
+                                         ˆ B Rmax , Rmax ) ≃ HomB ( R, Rmax )
+                        Res : HomRmax ( R⊗                                                             (3)
+
+given by restriction of χ ∈ HomRmax ( R ˆ
+                                       ⊗B Rmax , Rmax ) to the canonical image of R. Taking R =
+Zmax , this shows that the space HomRmax (Zmax ⊗ ˆ B Rmax , Rmax ) of characters of Zmax ⊗
+                                                                                         ˆ B Rmax is
+the same as HomB (Zmax , Rmax ).
+
+
+2.2   The small category C
+The topos [0, ∞) o N× is defined by assigning a small category C endowed with a Grothendieck
+topology J. We first describe C . The objects of C are the (possibly empty) bounded open intervals
+
+                                                    7
+Ω ⊂ [0, ∞) including those of the form [0, a) for a > 0. The morphisms between two objects of
+C are defined by
+                           HomC (Ω, Ω0 ) = {n ∈ N× | nΩ ⊂ Ω0 }
+if Ω 6= ∅. By definition HomC (∅, Ω0 ) := {∗} i.e. the one point set, for any object Ω0 of C . Thus
+the empty set is the initial object of C . The following lemma shows that pullbacks exist in the
+category C
+                                                                                    nj
+Lemma 2.4. Let Ω j 6= ∅ ( j = 1, 2) and consider two morphisms φ j : Ω j → Ω given by integers
+n j ∈ HomC (Ω j , Ω). Let n = lcm(n j ) be their lowest common multiple, n = a j n j and let Ω0 :=
+{λ ∈ [0, ∞) | a j λ ∈ Ω j , j = 1, 2}. Then Ω0 is an object of C , and if it is non-empty one has
+a j ∈ HomC (Ω0 , Ω j ) and (Ω0 , a j ) is the pullback of the φ j . When Ω0 = ∅ the pullback of the φ j is the
+initial object of C .
+Proof. By construction Ω0 = ∩2j=1 a− 1
+                                   j Ω j is an intersection of bounded open intervals and is thus
+                                  kj
+an object of C . Let ψ j : W → Ω j be morphisms such that φ1 ◦ ψ1 = φ2 ◦ ψ2 . If W 6= ∅ it
+contains a λ 6= 0 and one has n1 k1 = n2 k2 = mn for a unique m ∈ N× . One has k j = ma j and
+                                                                kj                                m
+k j W ⊂ Ω j so that mW ⊂ Ω0 . Moreover the map ψ j : W → Ω j is the composite of W → Ω0 with
+a j ∈ HomC (Ω0 , Ω j ). This shows that (Ω0 , a j ) is the pullback of the φ j . It also shows that if there
+                                           kj
+exists W 6= ∅ and morphisms ψ j : W → Ω j such that φ1 ◦ ψ1 = φ2 ◦ ψ2 , then Ω0 6= ∅. Otherwise
+i.e. if this implies W = ∅ then one easily sees that the empty set is indeed the pullback.
+
+
+2.3    The topology J on C
+A Grothendieck topology J (cf. [13] Definition III.2.1) on a small category C associates to every
+object Ω of the category a collection J (Ω) of sieves of Ω, (i.e. of families, stable under right
+composition, of morphisms with codomain Ω), such that:
+I The maximal sieve { f | Codom f = Ω} belongs to J (Ω)
+I S ∈ J (Ω), h ∈ HomC (Ω0 , Ω) ⇒ h∗ ( S) ∈ J (Ω0 ), where h∗ ( S) := { f | h ◦ f ∈ S}
+I For S ∈ J (Ω), and any sieve R of Ω
+
+                               h∗ ( R) ∈ J (Dom h), ∀h ∈ S ⇒ R ∈ J (Ω).
+
+When the small category C admits pullbacks one can associate a Grothendieck topology J to a
+basis K, i.e. a function which assigns to any object Ω a collection K (Ω) of families of morphisms
+with codomain Ω by the condition
+
+                                  S ∈ J (Ω) ⇐⇒ ∃ R ∈ K (Ω), R ⊂ S.
+
+The above three conditions on J are derived from the following three conditions on K: (cf. [13]
+Definition III.2.2):
+   1. For any isomorphism f with range Ω the singleton { f } is a covering.
+
+   2. The pullback of a covering of Ω by any morphism Ω0 → Ω is a covering of Ω0 .
+
+                                                      8
+    3. Given a covering (Ω j ) j∈ I of Ω and for each j ∈ I a covering Ωi j of Ω j , the composite Ωi j
+       is a covering of Ω.
+
+Proposition 2.5. (i ) For each object Ω of C , let K (Ω) be the collection of all ordinary covers {Ωi ⊂
+Ω, i ∈ I | ∪Ωi = Ω} of Ω. Then K defines a basis for a Grothendieck topology J on C .
+(ii) The Grothendieck topology J is subcanonical.
+(iii) The category Sh(C , J ) of sheaves of sets on (C , J ) is canonically isomorphic to the category of N× -
+equivariant sheaves of sets on [0, ∞).
+Proof. (i ) The only isomorphisms in C are the identity maps, thus one verifies 1. To check the
+                         n
+condition 2., we let Ω0 → Ω be a morphism in C and {Ωi ⊂ Ω, i ∈ I | ∪Ωi = Ω} a covering of
+Ω. Then it follows from Lemma 2.4 that the pullback of the cover is given by
+                                                                    
+                           π 2 : Ωi ×Ω Ω 0 → Ω 0 ≃ n −1 Ωi ∩ Ω 0 → Ω 0 .
+
+This defines a covering of Ω0 . Finally the condition 3. is a standard fact on ordinary covers of a
+topological space (here chosen to be [0, ∞)).
+(ii) We prove that any representable presheaf is a sheaf on (C , J ). For a fixed object Ω of C and
+an arbitrary open subset U of [0, ∞) one sets
+
+                            Γ(U ) := HomC (U, Ω) = {n ∈ N× | nU ⊂ Ω}.
+
+This determines the subsheaf of the constant sheaf N× which is given by the local condition
+around λ: {n ∈ N× | nλ ∈ Ω}.
+(iii) An N× -equivariant sheaf (of sets) on [0, ∞) gives by restriction to C an object of Sh(C , J ).
+Conversely let F be an object of Sh(C , J ), and U an arbitrary open subset of [0, ∞). Let {Ωi ⊂
+U, i ∈ I | ∪Ωi = U } be a covering of U by bounded open intervals. Take the limit lim F (Ωi ∩
+                                                                                         ←−
+Ω j ) in Sets of the diagram F (Ωi ∩ Ω j ) indexed by pairs (i, j) ∈ I 2 , Ωi ∩ Ω j 6= ∅ and arrows
+(i, j) → (i, i), (i, j) → ( j, j). This is the equalizer of the two maps
+                                                  p`
+                                      ∏ F ( Ωi ) ⇒ ∏ F ( Ωi ∩ Ω j ) .
+                                      i∈ I             i, j
+
+Since F is an object of Sh(C , J ) the above equalizer does not depend upon the choice of the
+covering of U by bounded open intervals, and defines a sheaf of sets on [0, ∞) endowed with an
+action of N× compatible with the action of N× on [0, ∞).
+Remark 2.6. The setting HomC (∅, Ω) = {∗} is imposed if one wants the Grothendieck topology
+J to be subcanonical. Indeed, any sheaf evaluated on the empty set gives the one point set {∗}.
+
+
+3     The points of the topos [0, ∞) o N×
+In this section we investigate the structure of the points of the topos [0, ∞) o N× and prove
+Theorem 3.9 which provides a canonical bijection between the space of these points (up to iso-
+morphism) and the sector Q× \AQ /Ẑ∗ of the adele class space of Q.
+
+                                                       9
+3.1   Flatness and continuity
+It follows from [13] Corollary VII.5.4, that the points of the topos Sh(C , J ) correspond by means
+of an equivalence of categories to continuous, flat functors F : C −→ Sets. Moreover again
+from [13] Theorem VII.6.3, one knows that a functor F : C −→ Sets is flat iff it is filtering, i.e. F
+fulfills the three conditions reported in the following definition
+Definition 3.1. A functor F : C −→ Sets is filtering iff
+
+   1. F (C ) 6= ∅ for some object C of C .
+
+   2. Given a j ∈ F (C j ) j = 1, 2, there exist an object C of C , an element a ∈ F (C ) and morphisms
+      u j : C → C j such that F (u j ) a = a j .
+
+   3. Given two morphisms u, v : C → D in C and a ∈ F (C ) such that F (u) a = F (v) a, there exists an
+      object B of C , an element b ∈ F ( B) and a morphism w : B → C of C such that u ◦ w = v ◦ w and
+      F (w)b = a.
+
+By [13], Lemma VII.5.3, a flat functor F : C −→ Sets is continuous iff it sends covering sieves to
+epimorphic families.
+Lemma 3.2. Let F : C −→ Sets be a flat functor and let J be the Grothendieck topology on C generated
+by a basis K. Then F is continuous iff for any object U of C and a covering (U j → U ) j∈ I ∈ K (U ) the
+family of maps F (U j → U ) : F (U j ) → F (U ) is jointly surjective.
+Proof. Since any covering sieve S ∈ J (U ) contains a covering from the basis, the condition of the
+Lemma implies that F sends covering sieves to epimorphic families. Conversely let R ∈ K (U ),
+then the associated covering sieve ( R) ∈ J (U )
+
+                              ( R) := { f ◦ g | f ∈ R, Dom f = Codom g}
+
+gives an epimorphic family F ( f ◦ g) iff the family F ( f ) is jointly surjective.
+
+
+3.2   The point p H associated to a rank one subgroup of R
+The next Proposition shows that any (non-trivial) rank one subgroup H ⊂ R defines a point of
+the topos [0, ∞) o N× .
+Proposition 3.3. (i ) Let H be a (non-trivial) rank one subgroup of R, then the equality FH (V ) :=
+V ∩ H ∩ (0, ∞) defines a flat continuous functor FH : C −→ Sets.
+(ii) The map H 7→ p H which associates to a rank one subgroup of R the point of the topos [0, ∞) o N×
+represented by the flat continuous functor FH provides an injection of the space of (non-trivial) rank one
+subgroups of R into the space of points of the topos [0, ∞) o N× up to isomorphism.
+                                                n
+Proof. (i ) We set H+ := H ∩ (0, ∞). Let V → W be a morphism in C , then since nH+ ⊂ H+ the
+equality FH (V ) = V ∩ H+ defines a subfunctor of the covariant functor C −→ Sets, V 7→ V.
+Given a covering (U j ⊂ U ) j∈ I ∈ K (U ) the family of maps FH (U j → U ) : FH (U j ) → FH (U ) is
+jointly surjective since U ∩ H+ = ∪(U j ∩ H+ ), thus Lemma 3.2 shows that FH is continuous. We
+show that FH is filtering. Since H is non-trivial, H+ 6= ∅ and this gives condition 1. Next, given
+
+                                                    10
+h j ∈ V j ∩ H+ we let h ∈ H+ , n j ∈ N× be such that h j = n j h. Let V be an open interval containing
+h and such that n j V ⊂ V j . This defines an object V of C . One has h ∈ V ∩ H+ = FH (V ) and
+                          nj                                                                          n
+the morphisms u j : V → V j fulfill FH (u j )h = h j . This gives condition 2. Finally, if u : C → D,
+       m
+v : C → D are two morphisms in C and a ∈ FH (C ) is such that FH (u) a = FH (v) a, then since
+a > 0 one gets that n = m and thus the condition 3 holds.
+(ii) Let FH (V ) := V ∩ H+ be the continuous flat functor associated to H ⊂ R. Given a point
+λ ∈ (0, ∞), we let V j be a basis of neighborhoods of λ of bounded open intervals. Then one has
+                          lim FH (U ) 6= ∅ ⇐⇒ ∩ FH (V j ) 6= ∅ ⇐⇒ λ ∈ H.
+                          ←−
+                          U 3x
+This shows that one can recover the subgroup H ⊂ R from the continuous flat functor FH .
+Moreover it shows that a morphism of functors from FH to FH 0 exists iff H ⊂ H 0 and hence that
+the isomorphism class of the point p H uniquely determines H ⊂ R.
+
+3.3   Classification of points of the topos [0, ∞) o N×
+The main result of this subsection (Theorem 3.9) states the existence of a canonical isomor-
+phism between the points A (Rmax+ ) of the arithmetic site over R+
+                                                                    max and the points of the topos
+
+[0, ∞) o N× . To this end we shall need to state first several technical lemmas.
+Lemma 3.4. Let F : C −→ Sets be a continuous flat functor. Then the following facts hold
+(i) Let U j ⊂ V ( j = 1, 2) be objects of C with U1 ∩ U2 = ∅. Then the images F (U j → V ) F (U j ) ⊂ F (V )
+are disjoint.
+(ii) Let V be an object of C and x ∈ F (V ). Then there exist a unique λ ∈ V such that for any object U of
+C , U ⊂ V, containing λ one has x ∈ F (U → V ) F (U ) ⊂ F (V ).
+Proof. (i ) Since F is flat it commutes with fibered products. The fibered product of the two maps
+U j → V is the empty set. The object ∅ of C admits the empty cover. Thus by continuity one
+has F (∅) = ∅. One can also give the following argument. Let a j ∈ U j with F (U1 → V )( a1 ) =
+F (U2 → V )( a2 ) = z. Then the flatness of F gives an object W of C an element c ∈ F (W ) and
+                  nj                       nj
+morphisms W → U j such that F (W → U j )(c) = a j . By composition with U j → V one gets
+      nj
+F (W → V )(c) = z. The third filtering condition on F implies, since N× is simplifiable, that
+n1 = n2 which contradicts n j W ⊂ U j and U1 ∩ U2 = ∅.
+(ii) We show the existence of λ, its uniqueness then follows from (i) since distinct points have
+disjoint neighborhoods given by objects of C . Let V = ∪W j where W j is an increasing family of
+bounded open intervals such that W j ⊂ W j+1 . Then the continuity of F gives an interval W = W j ,
+with W ⊂ V such that x ∈ F (W → V ) F (W ), i.e. x = F (W → V ) z, z ∈ F (W ). Using a cover U
+of W by bounded open intervals one obtains, by continuity of F, an interval I1 ⊂ W of diameter
+< 1/2 and z1 ∈ F ( I1 ) such that z = F ( I1 → W ) z1 . By induction one gets a decreasing sequence
+of intervals Ik ⊂ Ik−1 ⊂ W of diameter < 1/2k and zk ∈ F ( Ik ) such that zk−1 = F ( Ik → Ik−1 ) zk .
+Let λ be the unique limit point of the sequence Ik , i.e. the limit of any sequence λk ∈ Ik . One has
+λ ∈ W ⊂ V. Let U ⊂ V be an object of C containing λ. Then U is an open neighborhood of λ
+and there exists k such that Ik ⊂ U. One then gets
+           x = F (W → V ) z = F ( Ik → V ) zk = F (U → V ) F ( Ik → U ) zk ∈ F (U → V ) F (U )
+
+                                                    11
+In what follows we shall denote by λV : F (V ) → V the map defined in Lemma 3.4.
+Lemma 3.5. Let F : C −→ Sets be a continuous flat functor.
+(i) The maps λV : F (V ) → V define a natural transformation of F with the functor C −→ Sets,
+V 7→ V.
+(ii) The maps λV : F (V ) → V are injective when 0 ∈
+                                                   / V.
+                     n                                                                  n
+Proof. (i ) Let U → V be a morphism in C . Let x ∈ F (U ), y = F (U → V ) x ∈ F (V ). For any
+object W ⊂ U of C containing λU ( x) one has x ∈ F (W → U ) F (W ) and thus
+                 n                                           n                              n
+     y ∈ F (U → V ) F (W → U ) F (W ) = F (W → V ) F (W ) = F (nW → V ) F (W → nW ) F (W ).
+
+This shows that y ∈ F (nW → V ) F (nW ). Thus if λV ( y) 6= nλU ( x) one obtains a contradiction by
+Lemma 3.4 (i ). We have thus shown that the following diagram commutes
+                                                                  n
+                                                            F (U → V )
+                                           F (U )                        / F (V )
+
+                                                  λU                               λV
+                                                                              
+                                                                 n            /V
+                                             U
+
+(ii) Let x j ∈ F (V ). By the flatness of F there exists an object W of C , an element c ∈ F (W )
+                         nj                            nj
+and morphisms W → V such that F (W → V )(c) = x j . Since 0 ∈         / V by hypothesis, one has
+λV ( x1 ) 6= 0. Assume now that λV ( x1 ) = λV ( x2 ). By (i ) one has λV ( x j ) = n j λW (c) and this
+implies λW (c) 6= 0 (since λV ( x1 ) 6= 0) and n1 = n2 . One then gets x1 = x2 since one has
+            nj
+x j = F (W → V )(c).
+Lemma 3.6. Let F : C −→ Sets be a continuous flat functor.
+(i) Let λ > 0 be a positive real number then, for objects V of C one has
+
+                              ∃V | λ ∈ λV ( F (V )) ⇐⇒ ∀V 3 λ, λ ∈ λV ( F (V ))
+
+(ii) The subset of (0, ∞) defined by the above condition is of the form H ∩ (0, ∞), where H ⊂ R is a rank
+one subgroup.
+Proof. (i ) It is enough to show the implication ⇒. Let V and x ∈ F (V ) such that λ = λV ( x). Then
+for any object U of C , U ⊂ V, containing λ one has x ∈ F (U → V ) F (U ) ⊂ F (V ). Let then W be
+an object of C containing λ. Let U = W ∩ V and z ∈ F (U ) such that x = F (U → V ) z. One has
+by Lemma 3.5 (i ), λW ( F (U → W ) z) = λU ( z) and λU ( z) = λV ( F (U → V ) z) = λV ( x) = λ. Thus
+one gets λ ∈ λW ( F (W )) as required.
+(ii) Let E = {λ > 0 | λ ∈ λV ( F (V )) , ∀V 3 λ }. Let λ j ∈ E, j = 1, 2, and V containing the λ j , and
+x j ∈ F (V ) such that λ j = λV ( x j ). By the flatness of F there exists an object W of C , an element
+                                     nj                                  nj
+c ∈ F (W ) and morphisms W → V such that F (W → V )(c) = x j . By Lemma 3.5 (i ), one has
+λV ( x j ) = n j λW (c). By (i ) one has λW (c) ∈ E. This shows that given any two elements λ j ∈ E
+there exists λ ∈ E and integers n j ∈ N× such that n j λ = λ j , j = 1, 2. Moreover Lemma 3.5 (i )
+
+                                                                 12
+shows that λ ∈ E ⇒ nλ ∈ E, ∀n ∈ N× . Thus E is an increasing union of subsets of the form
+λk N× . Let H = ∪λk Z be the corresponding increasing union of subgroups of R. Then H is a rank
+one subgroup of R and E = (0, ∞) ∩ H by construction.
+Lemma 3.7. Let F : C −→ Sets be a continuous flat functor.
+(i) One has
+                     ∃V | 0 ∈ λV ( F (V )) ⇐⇒ ∀V, λV ( F (V )) = V ∩ {0}
+(ii) If the above equivalent conditions do not hold then there exists a rank one subgroup H ⊂ R and an
+isomorphism of functors F ≃ FH .
+Proof. (i ) Let V be such that 0 ∈ λV ( F (V )). One then has 0 ∈ V. Moreover the proof of Lemma
+3.6 (i ) applies and shows that for any object W of C containing 0 one has 0 ∈ λW ( F (W )). Let W
+be an object of C and assume that some λ > 0 belongs to λW ( F (W )). Let U be an object of C con-
+taining both V and W. Then by Lemma 3.5 (i ), one has {0, λ } ⊂ λU ( F (U )). Let x j ∈ F (U ) with
+λU ( x1 ) = 0, λU ( x2 ) = λ. Then the flatness of F gives an object U 0 of C , an element c ∈ F (U 0 ) and
+                 nj                     nj
+morphisms U 0 → U such that F (U 0 → U )(c) = x j . By Lemma 3.5 (i ), one has λU ( x j ) = n j λU 0 (c).
+But λU ( x1 ) = 0 implies that λU 0 (c) = 0 and this contradicts λU ( x2 ) = λ 6= 0. Thus it follows that
+for any object W of C , λW ( F (W )) contains at most 0 and it does if and only if one has 0 ∈ W.
+(ii) If the condition of (i) does not hold, it follows that for any object V of C one has 0 ∈          /
+λV ( F (V )). It follows that the canonical map ρV = F (V ∩ (0, ∞) → V ) : F (V ∩ (0, ∞)) → F (V )
+is surjective. But by Lemma 3.5, (ii ), and the commutation with the localization λV this map is
+injective. By Lemma 3.6 (ii ) there exists a rank one subgroup H ⊂ R such that for any U not
+containing 0 one has λU ( F (U )) = U ∩ H. By Lemma 3.5, (ii ), the composite
+                                            −1
+                               λV ∩(0,∞) ◦ ρV  : F (V ) → V ∩ (0, ∞) ∩ H
+
+gives an isomorphism of functors F ≃ FH .
+Lemma 3.8. Let F : C −→ Sets be a continuous flat functor such that λV ( F (V )) = V ∩ {0}, ∀V.
+(i) One has F (V ) = ∅ if 0 ∈/ V and if 0 ∈ V then the canonical map pV from X := limW 30 F (W ) to
+                                                                                    ←−
+F (V ) is bijective.
+                                                                                      n
+(ii) There exists a unique action n 7→ X (n) of N× on X such that for any morphism U → V of objects
+containing 0 the following diagram commutes :
+
+                                                        X (n)
+                                             X                       /X                                 (4)
+                                                 pU                        pV
+                                                          n
+                                                      F (U → V )       
+                                         F (U )                    / F (V )
+
+
+(iii) With the above notations, the action of N× on X defines a point of the topos N
+                                                                                   c× .
+(iv) Let H be an abstract rank one ordered group. The following defines a flat continuous functor FH0 :
+C −→ Sets
+                               0
+                             FH                / V, FH0 (V ) = H+ if 0 ∈ V.
+                                 (V ) = ∅ if 0 ∈
+
+
+
+                                                         13
+Proof. (i ) If 0 ∈
+                 / V one has λV ( F (V )) = ∅ and hence F (V ) = ∅. Let U ⊂ V with 0 ∈ U. The
+map F (U → V ) : F (U ) → F (V ) is surjective since λV ( F (V )) = {0}. Let us show that it is
+injective. Let x j ∈ F (U ) be such that F (U → V )( x j ) = z. By the flatness of F there exists an
+                                                             nj                     nj
+object W of C , an element c ∈ F (W ) and morphisms W → U such that F (W → U )(c) = x j . One
+                nj
+then has F (W → V )(c) = z and the flatness of F shows, since N× is simplifiable, that n1 = n2
+so that x1 = x2 . Thus the map F (U → V ) : F (U ) → F (V ) is bijective and the projective limit
+X := limW 30 F (W ) is such that all maps pV : X → F (V ) are bijective.
+      ←−                                                                                  n
+(ii) The inclusions U ⊂ V, nU ⊂ nV form a commutative square with the maps U → nU,
+    n
+V → nV. It follows that the map from X to X such that
+                                        n
+                                  F (U → nU ) pU ( x) = pnU ( X (n) x)
+
+is independent of the choice of U containing 0 and turns (4) into commutative diagrams.
+(iii) The set X is non-empty since otherwise one would have F (V ) = ∅, ∀V. Let x j ∈ X and
+u j ∈ F (U ) (0 ∈ U) such that pU ( x j ) = u j . By the flatness of F there exists an object W of C , an
+                                            nj                    nj
+element c ∈ F (W ) and morphisms W → U such that F (W → U )(c) = u j . One has 0 ∈ W. Let
+x ∈ X such that pW ( x) = c, using (4) one gets X (n j ) x = x j . Thus the action of N× on X verifies
+the second filtering condition. We now check the third filtering condition. Let x ∈ X and n1 6= n2
+be such that X (n1 ) x = X (n2 ) x. Let 0 ∈ U, u = pU ( x). Let V ⊃ n j U. One then gets an equality
+of the form
+                                          n                n
+                                    F (U →1 V )(u) = F (U →2 V )(u)
+and the flatness of F shows that n1 = n2 . This shows that the action of N× on X verifies the three
+filtering conditions.
+(iv) One checks that FH0 is continuous, its flatness follows from the rank one property of H.
+We are now ready to define a map Θ from points of A (Rmax+ ) to points of the topos [0, ∞ ) o N .
+                                                                                               ×
+
+As shown in [3] Theorem 3.8, the points of the arithmetic site A over R+ form the union of
+                                                                           max
+
+two sets: the set A (B) ⊂ A (Rmax                                           c×
+                              + ) of isomorphism classes of points of N , and the set of the
+non-trivial rank one subgroups H ⊂ R. To a point of A (B) ⊂ A (R+ ) associated with an
+                                                                        max
+
+abstract rank one ordered group H we assign the point q H of [0, ∞) o N× associated to the flat
+continuous functor FH0 of Lemma 3.8, (iv ). Next to the point of A (Rmax ) \ A (B) corresponding
+                                                                     +
+to the rank one subgroup H ⊂ R, we associate the point p H of Proposition 3.3.
+Theorem 3.9. The map Θ defines a canonical isomorphism of A (Rmax
+                                                              + ) with the points of the topos
+[0, ∞) o N .
+          ×
+
+Proof. The map Θ is well defined. Lemma 3.8 shows that is bijective from points of A (B) ⊂
+A (Rmax
+      + ) to points of [0, ∞ ) o N such that the associated flat continuous functor F : C −→ Sets
+                                  ×
+
+fulfills the hypothesis of Lemma 3.8. Proposition 3.3 shows that Θ is injective from points of
+A (Rmax
+      + ) \ A (B) to points of [0, ∞ ) o N . Finally, Lemma 3.7 shows that Θ is surjective.
+                                          ×
+
+
+
+
+                                                   14
+3.4    Representation of points as filtering colimits of representables
+Let C be a small category. Any covariant functor F : C −→ Sets which is representable, i.e. of
+the form y I (C ) = HomC ( I, C ) for some object I of C is flat, and any flat functor is obtained as
+a filtering colimit of such representable functors. In this subsection we describe such represen-
+tations for the flat continuous functors associated to points of the topos [0, ∞) o N× . This result
+will be used in the description of the stalks of the sheaves given in § 4.
+Lemma 3.10. Let H ⊂ R be a rank one subgroup of R. Let hi ∈ H+ be a sequence of elements, n j ∈ N× ,
+such that n j h j+1 = h j and that H = ∪h j Z. Let I j be bounded open intervals with h j ∈ I j for j ≥ 1, such
+that
+                                               k−1
+                   n j I j+1 ⊂ I j , ∀ j ≥ 1, ( ∏ ni ) Diameter( Ik ) → 0, when k → ∞.                        (5)
+                                                1
+Then the limit lim y I j of the representable functors y I j (V ) := HomC ( I j , V ) defines the point p H of the
+               −→
+topos [0, ∞) o N× .
+Proof. We show that the functor lim y I j is simply given by
+                                −→
+                   lim y I j (V ) = lim(h− 1
+                                             V ∩ N× ) ∼ lim(V ∩ h j N× ) = V ∩ H+ .
+                   −→               −→ j                −→
+It is enough to prove that the natural inclusion, due to h j ∈ I j
+                                lim y I j (V ) ⊂ lim(h− 1
+                                                          V ∩ N× )
+                                −→               −→ j
+(in both cases one uses multiplication by n j to organize the inductive system) is a bijection.
+                                                                                                j−1
+Indeed, let n ∈ h−  1     ×
+                  k V ∩ N : we show that for j large enough one has n ∏k      ni ∈ y I j (V ). Let
+ > 0 be a positive real number such that the neighborhood W of hk n of radius  is contained
+                                                                          j−1
+in V. Then for j large enough, using the hypothesis (5), one gets that n ∏k ni I j ⊂ W (since it
+                                                                          j−1
+contains hk n and is of small enough diameter) and hence n ∏k                   n i ∈ y I j (V ).
+
+Proposition 3.11. Let H ⊂ R be a rank one subgroup of R. Let hi ∈ H+ , n j ∈ N× and I j be bounded
+open intervals as in Lemma 3.10. Then, the pullback part of the point p H of the topos [0, ∞) o N× is
+given by the functor which associates to an object F of Sh(C , J ) the following colimit
+                                                        n
+                             lim F ( Ik ),    F ( Ik+1 →k Ik ) : F ( Ik ) → F ( Ik+1 ).                       (6)
+                             −→
+                               k
+Proof. The colimit (6) defines the pullback part f ∗ of a point of the topos of contravariant functors
+C −→ Sets, which is defined as a filtering colimit of the points associated to the objects Ik of C .
+To show that the corresponding geometric morphism from the topos of sets to Cˆ factors through
+Sh(C , J ) it is enough to show (cf. [13] Lemma VII.5.3) that the composite f ∗ ◦ y with the Yoneda
+embedding sends each covering sieve to an epimorphic family of functions. Lemma 3.10 shows
+that for any object V of C and the associated object of Cˆ: F = y(V ) := HomC (•, V ) one has
+                                   lim F ( Ik ) = lim HomC ( Ik , V ) = V ∩ H+ .
+                                   −→             −→
+                                    k               k
+
+Thus f fulfills the condition (iii ) of [13] Lemma VII.5.3, and f ∗ is the pullback part of the point
+p H of the topos [0, ∞) o N× .
+
+                                                            15
+Next, we consider the limit case of Lemma 3.10 when all the h j are 0.
+Lemma 3.12. Let n j ∈ N× , and I j be bounded open intervals containing 0 ∈ [0, ∞), for j ≥ 1, such that
+(5) holds. Then the limit lim y I j of the representable functors y I j (V ) := HomC ( I j , V ) defines the point
+                          −→
+q H of the topos [0, ∞) o N× associated to the abstract ordered rank one group H := ∪(∏k1 n j )−1 Z.
+                                                                                   j−1
+                                                     / V. Let m j := ∏1 n` and H := ∪ m−
+Proof. Let F = lim y I j . One has F (V ) = ∅ when 0 ∈                                       1
+                                                                                           j Z.
+               −→
+We denote by ι( j, k) := k/m j ∈ H the element of H given by the image of k ∈ Z by the canonical
+injection Z → H associated to the j-th copy of Z in the colimit. One has by construction
+                                     ι( j, k) = ι( j + 1, n j k) , ∀ j, k ∈ Z.                                (7)
+Let V be a bounded open interval with 0 ∈ V. One then obtains an injection
+                                                               k
+                                  α : F (V ) → H+ , α ( I j → V ) := ι( j, k)
+by using the compatibility with the inductive limits, i.e.
+                                                  
+                             k              nj
+                    α ( I j → V ) ◦ ( I j+1 → I j ) = ι( j + 1, n j k) = ι( j, k).
+
+Let us show that α is surjective. Given k ∈ N× and j > 0 we prove that for ` large enough one
+has k ∏`−
+        j
+          1
+            ni ∈ y I` (V ). Let  > 0 such that the neighborhood W of 0 of radius  is contained
+in V. Then for ` large enough, using the hypothesis (5), one gets that k ∏`−
+                                                                          j
+                                                                             1
+                                                                               ni I` ⊂ W (since it
+contains 0 and is of small enough diameter) and hence k ∏`−
+                                                         j
+                                                            1
+                                                              ni ∈ y I` (V ).
+
+Proposition 3.13. Let H be an abstract rank one ordered group. Let n j ∈ N× , I j be bounded open
+intervals as in Lemma 3.12 such that H := ∪(∏k1 n j )−1 Z. Then, the pullback part of the point q H of the
+topos [0, ∞) o N× is given by the functor which associates to an object F of Sh(C , J ) the colimit (6).
+The proof is the same as the one of Proposition 3.11.
+
+
+4    The structure sheaf O of the scaling site
+We define the structure sheaf O of the scaling site S as the N× -equivariant sheaf on [0, ∞) of
+semirings O(U ) of continuous convex functions f (λ ) ∈ Rmax , such that for any λ ∈ U there
+exists an open interval V containing λ, with f affine and with slope f 0 ∈ Z in the complement
+V \ {λ }. This condition is local and hence defines a sheaf. One endows this sheaf with the
+                       n
+following action O(V → W ) : O(W ) → O(V ) of N×
+                                         n
+                                  O(V → W )( f )(λ ) := f (nλ ) , ∀λ ∈ V.                                     (8)
+This action is compatible with the semiring structure and with the integrality property of the
+slopes and thus defines a semi-ring in the topos [0, ∞) o N×
+Definition 4.1. The scaling site S is the semi-ringed topos given by the topos [0, ∞) o N× endowed
+with the structure sheaf O .
+
+                                                        16
+4.1     The stalks of the structure sheaf O
+The next result determines the structure of the stalks of O .
+Theorem 4.2. (i ) At the point p H of the topos [0, ∞) o N× associated to the rank one subgroup H ⊂ R
+the stalk of the structure sheaf O is the semiring R H of germs, at λ = 1, of Rmax -valued, piecewise affine
+convex functions f (λ ) with slopes in H.
+(ii) The stalk of the structure sheaf O at the point q H of [0, ∞) o N× associated to the abstract rank one
+ordered group H is the semiring Z H associated by the max-plus construction to the totally ordered group
+R × H and endowed with the lexicographic order.
+Proof. (i ) To evaluate the stalk of the structure sheaf O at the point p H we use the description
+given by (6). We let h j , n j , I j as in Proposition 3.11 and evaluate the colimit
+                                                                  n
+                                 OpH = lim O( Ik ), O( Ik+1 →k Ik ) : O( Ik ) → O( Ik+1 ).
+                                       −→
+                                           k
+
+We define a map ρ : OpH → R H by associating to ( j, f ), f ∈ O( I j ), the germ at λ = 1 of
+the function λ 7→ f (λh j ). This function is defined in the neighborhood of λ = 1 given by
+{λ | h j λ ∈ I j }, and it is a piecewise affine, continuous, convex function with slopes in h j Z ⊂ H.
+Thus its germ at λ = 1 is an element ρ( j, f ) ∈ R H . Next we prove that this construction is
+compatible with the colimit, i.e. that
+                                                                     nj
+                                   ρ( j, f ) = ρ( j + 1, O( I j+1 → I j )( f )) , ∀ f ∈ O( I j )
+                  nj
+where O( I j+1 → I j ) is defined in (8). One has
+                                                 nj
+                                       O( I j+1 → I j )( f )(λ ) = f (n j λ ) , ∀λ ∈ I j+1
+
+and thus, using n j h j+1 = h j , one has for any f ∈ O( I j )
+                       nj                                nj
+ ρ( j + 1, O( I j+1 → I j )( f ))(λ ) = O( I j+1 → I j )( f )(λh j+1 ) = f (n j λh j+1 ) = f (λh j ) = ρ( j, f )(λ ).
+
+Thus the map ( j, f ) 7→ ρ( j, f ) is compatible with the colimit and determines a map ρ : OpH →
+R H which is easily shown to be an isomorphism of semirings.
+                                                                    j
+(ii) Let (n j ), with I j be as in Lemma 3.12 and such that H = ∪(∏1 n` )−1 Z. We let, as above, m j :=
+  j−1
+∏1 n` so that H := ∪ m−          1
+                                j Z. We set ι ( j, k ) : = k / m j ∈ H so that (7) follows by construction.
+Then by Proposition 3.13, the stalk of the structure sheaf O at the point q H is the colimit OqH =
+lim O( I j ). We define a map δ : OqH → H as follows. We associate to ( j, f ), with f ∈ O( I j ), the
+−→
+element δ ( j, f ) := ι( j, k) where k = f 0 (0) ∈ Z is the derivative of f at 0 ∈ I j . One then has
+                            nj
+   δ ( j + 1, O( I j+1 → I j )( f )) = ι( j + 1, ( f (n j λ ))0λ =0 = ι( j + 1, n j f 0 (0)) = ι( j, f 0 (0)) = δ ( j, f ).
+
+This shows that the map δ is well defined. Similarly, the equality α ( j, f ) := f (0) defines a map
+α : OqH → Rmax and the pair ρ = (α, δ ) gives a map OqH → Z H which is both injective and
+
+                                                                17
+surjective. One easily checks that this map is an isomorphism of OqH for the semiring structure
+whose multiplication corresponds to ( x, h) • ( x0 , h0 ) = ( x + x0 , h + h0 ) and the addition to
+                                                   
+                                                                       0
+                                                   ( x, h) if x > x
+                                                   
+                           ( x, h) ∨ ( x0 , h0 ) := ( x0 , h0 ) if x0 > x
+                                                     ( x, h ∨ h0 ) if x = x0 .
+                                                   
+                                                   
+
+
+
+Next, we describe the semiring R H of germs at λ = 1 of Rmax valued piecewise affine (con-
+tinuous) convex functions f (λ ) with slopes in H. The germ of f is determined by the triple
+( x, h+ , h− ), with x ∈ R and h± ∈ H given by x = f (1), f (1 ± ) = x ± h±, for  ≥ 0 small
+enough. The triples ( x, h+ , h− ) obtained from elements of R H are characterized by the condition
+h+ ≥ h− which corresponds to the convexity of the function f (1 ± ) = x ± h± for  ≥ 0 small
+enough. The only other element of the semiring R H corresponds to the germ of the constant
+function −∞. This function plays the role of the “zero" element for the following algebraic rules
+applied to the non-zero elements of the semiring. The “addition" ∨ is given by the max between
+two germs and hence it is described by the formula
+                                                          
+                                                                                      0
+                                                          ( x, h+ , h− ) if x > x
+                                                          
+                    ( x, h+ , h− ) ∨ ( x0 , h0+ , h0− ) := ( x0 , h0+ , h0− ) if x0 > x
+                                                            ( x, h+ ∨ h0+ , h− ∧ h0− ) if x = x0 .
+                                                          
+                                                          
+
+The “product" of two germs is given by their sum and hence it is described by the formula
+
+                       ( x, h+ , h− ) • ( x0 , h0+ , h0− ) := ( x + x0 , h+ + h0+ , h− + h0− ).
+
+The conditions on the functions f ( H ) on subgroups H ⊂ R which define the structure sheaf are
+expressed locally in terms of the scaling flow by the two derivatives D± where
+
+                                                        f ((1 + ) H ) − f ( H )
+                                D± ( f )( H ) := lim                                                    (9)
+                                                   →0±            
+and can be written in the form
+
+                       D± ( f )( H ) ∈ H , ∀ H, D+ ( f )( H ) ≥ D− ( f )( H ) , ∀ H.                  (10)
+
+Indeed, taking a neighborhood of H of the form {λH | λ ∈ V } where V is a neighborhood of 1,
+and considering the function g(λ ) := f (λH ) condition (10) becomes λ∂±       λ g ( λ ) ∈ λH, where the
+∂λ are the directional derivatives. Thus the condition on the functions becomes ∂±
+ ±
+                                                                                          λ g ( λ ) ∈ H and
+               −
+∂+
+ λ g ( λ ) ≥ ∂ λ g ( λ ) which is the characterization of the germs in a neighborhood    of H.
+
+
+4.2   The points of S over Rmax
+                            +
+The next Theorem states that the process of extension of scalars from A to S does not affect the
+points over Rmax
+             + .
+
+                                                         18
+Theorem 4.3. The canonical projection from the set S (Rmax ) of the points of the scaling site S defined
+      + to the points of the topos [0, ∞ ) o N is bijective.
+over Rmax                                     ×
+
+The proof follows from the next Lemma
+Lemma 4.4. (i ) The map ( x, h+ , h− ) 7→ x is the only element of HomRmax (R H , Rmax ).
+(ii) The map ( x, h+ ) 7→ x is the only element of HomRmax (Z H , Rmax ).
+Proof. (i ) Let φ ∈ HomRmax (R H , Rmax ). First, we notice that the Rmax -linearity shows that the
+image by φ of the constant function is φ( x, 0, 0) = x. Then, we see that for any germ f which is
+not identical to −∞, there exists a constant function g < f . One then has
+
+                   f ∨ g = f ⇒ φ( f ) = φ( f ∨ g) = φ( f ) ∨ φ( g) ⇒ φ( f ) ≥ φ( g).
+
+This shows that one cannot have φ( f ) = −∞. This argument shows that for any elements f , g
+of R H , one has f < g ⇒ φ( f ) ≤ φ( g) and it follows that
+
+                                x < x0 ⇒ φ( x, h+ , h− ) ≤ φ( x0 , h0+ , h0− ).
+
+Then, since φ( x, 0, 0) = x one gets φ( x, h+ , h− ) = x.
+(ii) The proof is similar as for (i).
+
+4.3   The sheaf of fractions and Cartier divisors
+Cartier divisors on a scheme are defined as the global sections of the sheaf K × /O × quotient of
+the sheaf of multiplicative groups of the rings of fractions K of the scheme by the sub-sheaf O ×
+of invertible elements of the structure sheaf (cf. [11] pp. 140-141). We adapt this notion in this
+context of characteristic 1.
+Proposition 4.5. Let p H be the point of the topos [0, ∞) o N× associated to a rank one subgroup H ⊂ R.
+The semiring R H of germs, at λ = 1, of Rmax -valued, piecewise affine, continuous convex functions f (λ )
+with slopes in H is multiplicatively cancellative and its semifield of fractions Frac R H is the semifield of
+germs, at λ = 1, of Rmax -valued, piecewise affine, continuous functions f (λ ) with slopes in H and
+endowed with the operations of the max and the addition of germs.
+Proof. To show that R H is multiplicatively cancellative one considers an equation of the form f +
+h = g + h for f , g, h ∈ R H and notice that since these functions take finite values at every point
+we get f = g. It follows that two pairs ( f , g) and (h, k) of elements of R H define the same element
+of the associated semifield of fractions Frac R H if and only if one has f + k = g + h. This is
+equivalent to write f − g = h − k and hence to the equality of the functions obtained as pointwise
+differences. Next, the addition in the semiring R H is given by the pointwise supremum and one
+needs to check that its extension to the associated semifield of fractions Frac R H coincides with
+the pointwise supremum for functions. This follows from the equality, valid for real numbers
+x, y, z, t and obtained from translation invariance of ∨
+
+                           ( x − y) ∨ ( z − t) = (( x + t) ∨ ( y + z)) − ( y + t).
+
+
+
+                                                      19
+As in the case of R H the germ of a function f is characterized by the triple ( x, h+ , h− ) with x ∈ R
+and h± ∈ H given by x = f (1), f (1 ± ) = x ± h±, for  ≥ 0 small enough. The triples
+( x, h+ , h− ) obtained from elements of Frac R H correspond to arbitrary values of ( x, h+ , h− ) ∈
+R × H × H. As above the only other element of Frac R H corresponds to the germ of the con-
+stant function −∞ which plays the role of the “zero" element. The algebraic rules for the other
+elements are given for the “addition" ∨ of two germs by the max of the two germs and hence by
+                                                          
+                                                                                      0
+                                                          ( x, h+ , h− ) if x > x
+                                                          
+                    ( x, h+ , h− ) ∨ ( x0 , h0+ , h0− ) := ( x0 , h0+ , h0− ) if x0 > x             (11)
+                                                            ( x, h+ ∨ h0+ , h− ∧ h0− ) if x = x0
+                                                          
+                                                          
+
+The “product" of the germs is given by the sum of the two germs and hence by
+
+                       ( x, h+ , h− ) • ( x0 , h0+ , h0− ) := ( x + x0 , h+ + h0+ , h− + h0− ).        (12)
+
+
+4.4   The order at a point
+Definition 4.6. Let p H be the point of the [0, ∞) o N× associated to a rank one subgroup H ⊂ R and let f
+be an element in the stalk of K at p H . Then, the order of f at H is defined as Ord( f ) = h+ − h− ∈ H ⊂ R,
+                         f ((1+) H )− f ( H )
+where h± = lim→0±                            .
+Proposition 4.7. For any two elements f , g in the stalk of K at p H one has
+
+                                      Ord( f ∨ g) ≥ Ord( f ) ∧ Ord( g)                                 (13)
+
+
+                                     Ord( f + g) = Ord( f ) + Ord( g).                                 (14)
+Proof. The germ of f ∨ g is given by the max of the two germs and hence by (11). When x 6= x0
+the inequality (13) follows from h ≥ h ∧ h0 , h0 ≥ h ∧ h0 . When x = x0 one has Ord( f ∨ g) =
+(h+ ∨ h0+ ) − (h− ∧ h0− ). Thus the inequality (13) follows from the general fact
+
+             ( a ∨ b) − (c ∧ d) ≥ ( a − c) ∨ (b − d) ≥ ( a − c) ∧ (b − d) , ∀ a, b, c, d ∈ R.
+
+Note that one needs the ∧ in (13) to take care of the cases x 6= x0 , but when x = x0 the ∨ works.
+Finally, the germ of f + g is given by the sum of the two germs and hence (14) holds.
+
+
+5     The periodic orbits C p
+Let p be a prime and consider the subspace C p of points of [0, ∞) o N× corresponding to sub-
+groups H ⊂ R which are abstractly isomorphic to the subgroup H p ⊂ Q of fractions with de-
+nominator a power of p. In this section we study the (quasi)-tropical structure of these curves,
+we develop the theory of theta-functions and finally we formulate a Riemann-Roch problem and
+establish a Riemann-Roch formula.
+
+
+                                                         20
+Lemma 5.1. (i ) The map R∗+ → C p , λ 7→ λH p induces the isomorphism η p : R∗+ / pZ → C p .
+(ii) The pull-back by η p of the (restriction to C p of the) structure sheaf O is the sheaf O p on R∗+ / pZ of
+piecewise affine (continuous), convex functions with slopes in H p .
+Proof. (i ) For λ ∈ R∗+ one has λH p ∈ C p . An abstract isomorphism of ordered groups φ : H p →
+H ⊂ R is given by multiplication by φ(1) = λ. Since pH p = H p the map R∗+ → C p induces a
+surjective map η p : R∗+ / pZ → C p . We show that η p is injective. If λH p = λ 0 H p , then µH p = H p
+for µ = λ /λ 0 . Thus µ = a/ pn ∈ H p and the same result holds for µ −1 , thus µ is a power of p.
+(ii) The condition on the functions f ( H ) on subgroups H ⊂ R which defines the structure sheaf
+are expressed locally in terms of the scaling flow by the two derivatives D± of (9) and can be
+written in the form (10). On the function g = f ◦ η p , g(λ ) := f (λH p ), condition (10) becomes
+λ∂±                        +              −                     ±
+   λ g ( λ ) ∈ λH p , λ∂λ g ( λ ) ≥ λ∂λ g ( λ ) (where the ∂λ are the directional derivatives) or equiva-
+lently: ∂±                       +            −
+            λ g ( λ ) ∈ H p and ∂λ g ( λ ) ≥ ∂λ g ( λ ) thus one gets (ii ).
+
+
+5.1    Divisors
+Proposition 5.2. (i ) The sheaf of quotients of the sheaf of semirings O p is the sheaf K p on R∗+ / pZ of
+piecewise affine, continuous functions with slopes in H p , endowed with the two operations max, +.
+(ii) The quotient sheaf of Cartier divisors C aC`(C p ) := K ×p /O p is isomorphic to the sheaf Div (C p ) of
+                                                                   ×
+
+naive divisors, i.e. of maps H 7→ D ( H ) ∈ H, such that
+
+                       ∀λ ∈ R∗+ , ∃V open λ ∈ V : D (µ ) = 0 , ∀µ ∈ V, µ 6= λ.
+
+Proof. (i ) The proof is the same as for Proposition 4.5.
+(ii) A germ ( x, h+ , h− ) ∈ R H is invertible for the multiplicative structure given by (12) iff one
+has h+ = h− , thus the map given by the order as in Definition 4.6 is an isomorphism
+Definition 5.3. A divisor on C p is a global section of the sheaf C aC`(C p ) ≃ Div(C p ). The collection of
+these global sections is denoted by Div(C p ).
+By Proposition 5.2, a divisor on C p is uniquely specified by a global section of Div(C p ) and by
+compactness, these are the maps H ∈ C p 7→ D ( H ) ∈ H with finite support, where the support is
+defined
+                               Support( D ) := { H | D ( H ) 6= 0}.
+In other words a divisor D on C p is a section, vanishing everywhere except on a finite subset of
+C p , of the projection on the base from the total space of the bundle formed of pairs ( H, h) where
+H ⊂ R is a subgroup abstractly isomorphic to the subgroup H p ⊂ Q and h ∈ H. The sheaf K p
+has global sections and they form the semifield K(C p ) := H 0 (R∗+ / pZ , K p ).
+Proposition 5.4. (i ) The divisors Div(C p ) form an abelian group under pointwise addition.
+(ii) The condition D0 ( H ) ≥ D ( H ), ∀ H ∈ C p , defines a partial order on the group Div(C p ).
+(iii) The following map defines a surjective group homomorphism compatible with the partial order
+
+                           deg : Div(C p ) → R,      deg( D ) := ∑ D ( H ) ∈ R.
+                                                                   H
+
+
+
+
+                                                     21
+                                          λ�     λ�                           λ�=�λ�
+
+
+
+                             ��� ���        ��                   ��
+
+
+
+
+                                  Figure 2: A function f ∈ K × (C p ).
+
+(iv) The map which associates to f ∈ K × (C p ) the principal divisor
+                                        ( f ) := ∑( H, Ord H ( f ))                                (15)
+                                                   H
+
+determines a group homomorphism K × (C p ) → Div(C p ).
+(v) The subgroup P ⊂ Div(C p ) of principal divisors is contained in the kernel of deg : Div(C p ) → R
+
+                                    ∑ Ord H ( f ) = 0 , ∀ f ∈ K(Cp ).
+                                    H
+
+
+Proof. (i ) By construction Div(C p ) is the direct sum of the groups H, with H ∈ C p .
+(ii) Each group H is ordered and the condition D0 ( H ) ≥ D ( H ), ∀ H ∈ C p defines the natural
+partial order on their direct sum.
+(iii) The statement follows from the fact that the groups H are subgroups of R and their union is
+R.
+(iv) For any f ∈ K × (C p ) the sum in (15) is finite and defines a divisor. Moreover the formula
+(14) shows that one obtains a group homomorphism.
+(v) A global section f ∈ K(C p ) is a real valued function f : R∗+ → R which is piecewise affine,
+continuous, with slopes in H p and fulfills f ( pλ ) = f (λ ) ∀λ ∈ R∗+ (cf. Figure 2). Such a function
+is uniquely determined by its restriction to the fundamental domain [λ0 , pλ0 ] and the only con-
+straint on this restriction is the periodicity: f ( pλ0 ) = f (λ0 ). Let λ0 < λ1 < . . . < λn−1 < λn =
+pλ0 be a finite sequence of positive real numbers such that f is affine with slope h j ∈ H p on the
+interval I j = [λ j−1 , λ j ]. One has for any j ∈ {1, . . . , n}
+                                                            j
+                                   f ( λ j ) = f ( λ 0 ) + ∑ ( λi − λi −1 ) hi .
+                                                            1
+
+By applying the equality above when j = n, and using the periodicity property f (λn ) = f ( pλ0 ) =
+f (λ0 ) one obtains
+                                            n
+                                           ∑(λi − λi−1 )hi = 0.
+                                            1
+
+                                                       22
+By using λn = pλ0 one also has
+                                                                  n−1
+      (λ1 − λ0 )h1 + (λ2 − λ1 )h2 + . . . + (λn − λn−1 )hn = ∑ λi (hi − hi+1 ) + λ0 ( phn − h1 ).
+                                                                    1
+
+For 1 ≤ i ≤ n − 1 one has λi (hi − hi+1 ) = −Order( f )(λi ) where we set Order( f )(λ ) := OrdλHp f .
+Moreover, notice that phn is the slope of the function f in the interval (1/ p) In so that the order of
+f at λ0 is λ0 (h1 − phn ). Then, the above equality shows that the sum of all orders must vanish.
+Next, we consider the problem of constructing a global section f ∈ K(C p ) whose divisor is an
+assigned divisor of degree zero.
+Let J p := ( p − 1) H p ⊂ H p be the principal ideal generated by the integer ( p − 1) in the ring H p .
+One has the following exact sequence of rings
+                                                    χ
+                                  0 → J p → H p → Z/( p − 1)Z → 0
+
+where χ( a/ pn ) := a mod. ( p − 1), for any a ∈ Z and n ∈ N.
+Proposition 5.5. (i ) Let H ∈ C p , then there exists a unique map χ H : H → H p /( p − 1) H p ≃
+Z/( p − 1)Z such that for any λ ∈ R∗+ with H = λH p , one has χ H = χ ◦ λ −1 .
+(ii) The group P of principal divisors is contained in the kernel of the group homomorphism
+
+                       χ : Div(C p ) → Z /( p − 1)Z,       χ( D ) := ∑ χ H ( D ( H )).
+                                                                        H
+
+Proof. (i ) Given H ∈ C p the λ 0 s ∈ R∗+ such that H = λH p provide maps λ −1 : H → H p which
+differ from each other by multiplication by a power of p, thus the corresponding map H →
+H p /( p − 1) H p ≃ Z/( p − 1)Z is independent of the choice of λ.
+(ii) We use the notations of the proof of Proposition 5.4 (v). The support of the principal divisor
+( f ) is contained in {λ j H p | 0 ≤ j ≤ n − 1}. For 1 ≤ j ≤ n − 1, one has Order( f )(λ j ) =
+λ j (h j+1 − h j ) and thus
+
+                      χλ j Hp (Ordλ j Hp ( f )) = χ(h j+1 − h j ) = χ(h j+1 ) − χ(h j ).
+
+For j = 0: Order( f )(λ0 ) = λ0 (h1 − phn ) and thus
+
+                        χλ0 Hp (Ordλ0 Hp ( f )) = χ(h1 − phn ) = χ(h1 ) − χ(hn ).
+
+Thus one gets χ(( f )) = 0 as required.
+Theorem 5.6. The map defined by the pair of homomorphisms
+
+                            (deg, χ) : Div(C p )/P → R × (Z/( p − 1)Z)                              (16)
+
+is an isomorphism of abelian groups.
+
+
+
+
+                                                     23
+Proof. We show first that any divisor D such that deg( D ) = 0 and χ( D ) = 0 is principal. Indeed,
+the divisor D can be written in the form
+
+                     D=       ∑       (λ j H p , a j λ j ),         λ0 < λ1 < . . . < λn−1 < pλ0
+                           0≤ j≤n−1
+
+where the elements a j ∈ H p are such that ∑n0 −1 a j λ j = 0. Thus one is given the intervals I j =
+[λ j−1 , λ j ] with λn = pλ0 . In order to show that D is principal one needs to find elements h j ∈ H p
+for 1 ≤ j ≤ n, giving the slope of f on I j and hence such that
+
+                 a0 = h1 − phn , a1 = h2 − h1 , a2 = h3 − h2 , . . . , an−1 = hn − hn−1 .
+
+The solution of the above system of equations is unique and of the form
+
+                 hn = σ /(1 − p), hn−1 = hn − an−1 , . . . , h1 = h2 − a1 ,              σ := ∑ a j .
+
+Thus it takes values in H p if and only if the element σ is divisible by p − 1 in H p i.e. iff χ( D ) = 0.
+If this is the case one defines the function f to be affine with slope h j in the interval I j = [λ j−1 , λ j ]
+and normalized by f (λ0 ) = 0. One has, using λn = pλ0
+                    n                                         n−1                             n−1
+          f (λn ) = ∑(λ j − λ j−1 )h j = −λ0 h1 + ∑ λ j (h j − h j+1 ) + λn hn = − ∑ a j λ j = 0.
+                    1                                          1                               0
+
+This argument shows that one can extend f by periodicity so that f ( pλ ) = f (λ ) and obtain a
+continuous, piecewise affine function with slopes in H p . Moreover, by construction the divisor
+of f is D, since the discontinuities of the derivative take place at the λ j ’s and are given by the
+a j ’s. It remains to show that the restriction of the map χ to the subgroup Div0 (C p ) ⊂ Div( D )
+of divisors of degree 0 is surjective onto Z/ pZ. Given m ∈ Z/( p − 1)Z, it is enough to find an
+increasing finite sequence of real numbers λ j > 0, λ0 < λ1 < . . . < λn = pλ0 and elements
+a j ∈ H p such that ∑0n−1 a j λ j = 0 and ∑n0 −1 a j = m mod. ( p − 1) H p . Both the group H p ⊂ R and
+              (m)
+the subset H p := { x ∈ H p | x = m mod. ( p − 1) H p } are dense in R. This shows that one can
+fix arbitrarily the (λ j ) and all the a j except for one of them, say ak , and then choose ak ∈ H p with
+preassigned χ( ak ) ∈ Z/( p − 1)Z such that for a choice of λk0 close to λk one gets
+                            n−1                         n−1
+                             ∑ a j λ0j = 0,             ∑ χ(a j ) = m ∈ Z/( p − 1)Z.
+                              0                           0
+
+The same argument also shows that one can arbitrarily prescribe both deg( D ) and χ( D ) for
+divisors D ∈ Div(C p ). Since the group law on divisors is given by pointwise addition of sections,
+both maps deg : Div(C p ) → R and χ : Div(C p ) → Z/( p − 1)Z are group homomorphisms and
+one obtains the isomorphism of groups (16).
+
+
+5.2    Symmetries
+The scaling site S inherits from its construction by extension of scalars, as in Section 2.1, several
+symmetries such as the arithmetic Frobenius associated to the automorphisms of Rmax     +    ∼ Rmax
+
+                                                               24
+or the absolute Frobenius associated to the frobenius endomorphisms of the semirings of charac-
+teristic one of the structure sheaf. These symmetries induce symmetries of the curves C p and in
+this subsection we describe them as operators acting on the structure sheaf O p of these curves.
+Since the divisors on C p are Cartier divisors, one then obtains, as a byproduct, induced actions
+on Div(C p ) and on its quotient Div(C p )/P .
+
+Arithmetic Frobenius
+The analogue of the arithmetic Frobenius Fr a on sections f of O p is defined as follows
+
+                                 Frµa ( f )(λ ) := µ f (µ −1 λ ) , ∀λ, µ ∈ R∗+
+
+This operator preserves the properties of f ( f is convex, piecewise affine with slopes in H p and
+periodic f ( pλ ) = f (λ )) as well as the algebraic operations (∨, +). Thus it defines automor-
+phisms denoted by Frµa . On a function f which is locally written as ∨(n j λ + a j ) the action of Frµa
+replaces the a j ’s by µa j and this corresponds to the arithmetic Frobenius. The induced action on
+the stalks of O p associates to a germ at λ a germ at µλ given by x 7→ µ f (µ −1 x), for x near µλ.
+One thus obtains a morphism from germs at H to germs at µH
+
+                        Frµa : R H → RµH ,         ( x, h+ , h− ) 7→ (µx, µh+ , µh− ).                 (17)
+
+Indeed, one has f ((1 + ) H ) ∼ f ( H ) + h+ , for  > 0 small and thus
+
+                       Frµa ( f )((1 + )µH ) = µ f ((1 + ) H ) ∼ µ f ( H ) + µh+ .
+
+Next, we list some properties of the induced action by Frµa on divisors. We use the notation D =
+∑( H j , h j ), with h j ∈ H j for the divisor with support on the set { H j } and such that D ( H j ) = h j
+∀ j.
+Lemma 5.7. The action induced by Frµa on divisors is given by
+
+                              D = ∑( H j , h j ) 7→ Frµa ( D ) = ∑(µH j , µh j ).
+
+This action preserves the homomorphism χ : Div(C p ) → Z/( p − 1)Z as well as the subgroup P of
+principal divisors and it acts on the degree of a divisor by multiplication by µ.
+Proof. The first part of the statement follows from (17) which shows that the singularity of the
+derivative of f at H gives a singularity of the derivative of Frµa ( f ) at µH, while the order is
+multiplied by µ. The value of χ( H j , h j ) is obtained as χ(k) where H j = λH p , h j = λk. One
+can choose the same k for the pair (µH j , µh j ) and this implies that χ(Frµa ( D )) = χ( D ). The
+degree of D = ∑( H j , h j ) is deg( D ) = ∑ h j and the degree of Frµa ( D ) is ∑ µh j = µ deg( D ). Since
+P = Ker(deg, χ) this group is preserved by the action of Frµa .
+
+
+
+
+                                                      25
+Relative Frobenius
+Let h ∈ H p , h > 0. One defines the operator Frrh acting on functions by
+                                  Frrh ( f )(λ ) := f (hλ ) , ∀λ , ∀h ∈ H p+ .
+This operator acts on a section f of O p locally written as f = ∨(n j λ + a j ) by replacing the n j
+by hn j , while leaving the a j unchanged. In particular it is Rmax -linear. Since the powers pn act
+trivially in view of the periodicity of f , the operator Frrh only depends upon the class of h in the
+quotient H p+ / pZ which is the multiplicative monoid N×     ( p)
+                                                                  of positive integers relatively prime
+to p. The induced action on the stalks associates to a germ at λ, the germ at h−1 λ given by
+x 7→ f (hx) for x near h−1 λ. One thus obtains a morphism from germs at H to germs at h−1 H
+            Frrh : R H → Rh−1 H ,        ( x, h+ , h− ) 7→ ( x, h+ , h− ) ∈ Rmax × h−1 H × h−1 H           (18)
+as follows from the identity Frrh ( f )((1 + )h−1 H ) = f ((1 + ) H ).
+Lemma 5.8. The action induced by Frrh on divisors is given by
+
+                              D = ∑( H j , h j ) 7→ Frrh ( D ) = ∑(h−1 H j , h j ).
+This action preserves the degree deg ◦Frrh = deg, the subgroup P of principal divisors and it acts on the
+invariant χ by multiplication by χ(h) ∈ Z/( p − 1)Z.
+Proof. The first part of the statement follows from (18). One has deg(Frrh ( D )) = ∑ h j = deg( D ).
+The value of χ( H j , h j ) is obtained as χ(k) where H j = λH p , h j = λk. One then has h−1 H j =
+h−1 λH p and h j = (h−1 λ )hk, so that χ(h−1 H j , h j ) = χ(hk) = χ(h)χ(k). This argument also shows
+that P = Ker(deg, χ) is preserved by the action of Frrh .
+
+Absolute Frobenius
+This operator acts on sections f of O p by composition with the Frobenius of Rmax which, in this
+logarithmic notation, multiplies the function f by a constant. In order to preserve the property
+of the slopes in H p one takes this constant to be an element in H p . More precisely, the action of
+the absolute Frobenius on functions is given, for any h ∈ H p+ , by the formula
+
+                                  Frh ( f )(λ ) := h f (λ ) , ∀λ , ∀h ∈ H p+ .
+Its properties follow from the properties of the two previous operators since
+                                 Frh = Frha ◦ Frrh = Frrh ◦ Frha , ∀h ∈ H p+ .                             (19)
+
+Indeed, one has Frha ◦ Frrh ( f )(λ ) = h f (h−1 hλ ) = h f (λ ) and similarly Frrh ◦ Frha = Frh .
+Lemma 5.9. The action induced by Frh on divisors is given by
+                                D = ∑( H j , h j ) 7→ Frh ( D ) = ∑( H j , hh j ).
+This action is trivial on the points, i.e. it fixes Support( D ). It preserves the subgroup P of principal divi-
+sors, acts on the invariant χ by multiplication by χ(h) ∈ Z/( p − 1)Z and on the degree by multiplication
+by h ∈ H p+ ⊂ R∗+ .
+
+                                                       26
+                          ��
+
+
+
+                             �
+
+
+
+                             �
+
+
+                                  Θ(λ)∼λ/(�-�)-��� λ/��� �
+                             �
+
+
+
+                             �
+
+
+
+
+                                          �          ��           ��       ��     ��
+
+
+
+                                      Figure 3: The function θ for p = 3.
+
+
+Proof. This follows from (19) using Lemmas 5.7 and 5.8.
+Notice that each point H ∈ C p determines a morphism
+
+                                 f ∈ K(C p ) 7→ p H ( f ) = f ( H ) ∈ Rmax ≃ Rmax
+                                                                              +
+
+and the absolute Frobenius is compatible with this morphism: p H (Frh ( f )) = Frh ( p H ( f )). In
+particular it acts trivially on the spectrum.
+
+
+5.3   Theta functions
+In this subsection we provide an explicit construction of elements of K(C p ) with assigned di-
+visor, by introducing (tropical) analogues of theta functions. We proceed by analogy with the
+construction of theta functions for elliptic curves Et (k) = k× /tZ over non-archimedean local
+fields k as in [18]. In that case the theta function is defined as
+
+                                        n2 −n
+                                                                  ∞
+              θ (w, t) = ∑(−1)n t         2     wn = (1 − w) ∏(1 − tm )(1 − tm w)(1 − tm w−1 )       (20)
+                         Z                                        1
+
+and satisfies the functional equation: −wθ (tw, t) = θ (w, t). Its relation with the standard theta
+                                                          √
+function ϑ1 (u, q) is given by the equation: ϑ1 (u, q) = i 4 q e−iuθ (e2iu , q2 ). This suggests to trans-
+pose (20) naively in order to define theta functions for C p = R∗+ / pZ . In our framework, the
+role of the product is replaced by addition, thus the following infinite sums replace the infinite
+products on the left
+                                 ∞                                     ∞
+                                 ∏(1 − tm w)          f + (λ ) := ∑ (0 ∨ (1 − pm λ ))
+                                  0                                    0
+                          ∞                                            ∞
+                         ∏ ( 1 − tm w−1 )             f − ( λ ) : = ∑ 0 ∨ ( p−m λ − 1 ) .
+                                                                                       
+                          1                                            1
+
+
+
+
+                                                             27
+Lemma 5.10. (i ) The functions f ± (λ ), λ ∈ (0, ∞) are convex (continuous), piecewise affine with slopes
+in H p and
+
+             f + ( pλ ) − f + (λ ) = − (0 ∨ (1 − λ )) ,        f − ( pλ ) − f − (λ ) = (0 ∨ (λ − 1)) .    (21)
+
+(ii) The function θ (λ ) := f + (λ ) + f − (λ ), λ ∈ (0, ∞) (cf. Figure 3), is convex (continuous), piecewise
+affine with slopes in H p and fulfills the equation: θ ( pλ ) = θ (λ ) + λ − 1, ∀λ ∈ (0, ∞).
+(iii) One has                                                
+                                      1
+                       |θ (λ ) −          λ − log λ / log p | ≤ 1          ∀λ ∈ (0, ∞).
+                                    p−1
+Proof. (i ) Notice that the sum ∑∞                  m
+                                    0 ( 0 ∨ ( 1 − p λ )) has only finitely many non-zero terms since
+  m
+p λ > 1 for m large enough. Each of these terms is convex continuous, piecewise affine with
+slopes in H p and thus the same property holds for f + . Moreover, the difference f + ( pλ ) − f + (λ )
+is given by the single term corresponding to m = 0, i.e. f + ( pλ ) − f + (λ ) = − (0 ∨ (1 − λ )).
+Similarly for f − (λ ) = ∑∞ 1 (0 ∨ ( p
+                                       −m λ − 1 )) one gets the term (0 ∨ (λ − 1 )) in f ( pλ ) − f (λ ).
+                                                                                        −          −
+Thus we obtain (21).
+(ii) The first part of the statement follows from (i). Moreover one has
+
+ θ ( pλ ) − θ (λ ) = f + ( pλ ) − f + (λ ) + f − ( pλ ) − f − (λ ) = − (0 ∨ (1 − λ )) + (0 ∨ (λ − 1)) = λ − 1
+
+since for any real number x one has (0 ∨ x) − (0 ∨ − x) = x.
+(iii) Let g(λ ) := p−1 1 λ − log λ / log p. Then g( pλ ) − g(λ ) = λ − 1. Thus the function k(λ ) =
+θ (λ ) − g(λ ) fulfills k( pλ ) = k(λ ). This periodicity shows that |k(λ )| ≤ max[1,p] |k(u)|. Since
+θ (u) = 0, ∀u ∈ [1, p] one just needs to check that | g(u)| ≤ 1, ∀u ∈ [1, p]. In this interval
+                                                                        1
+the convex function g varies between its value at the end points: p−      1 and its minimum g ( λ ) at
+     p−1                                 p−1
+λ = log p ∈ [1, p], whose value is g( log p ) = (1 − log( p − 1) + log log p)/ log p ≥ −1.
+
+We define, for h ∈ H p , h > 0 and µ ∈ R∗+ , the function
+
+                                          Θh,µ (λ ) := µ θ (µ −1 hλ ).
+
+It is a convex continuous, piecewise affine function with slopes in H p and fulfills the equation
+
+                                       Θh,µ ( pλ ) = Θh,µ (λ ) + hλ − µ                                   (22)
+
+since by Lemma 5.10 (ii ) one has
+
+                              µ θ (µ −1 hpλ ) = µ θ (µ −1 hλ ) + µ µ −1 hλ − µ.
+
+It follows that
+                                      Θ ph,µ (λ ) = Θh,µ (λ ) + hλ − µ.
+To a pair of labels (h, µ ) we associate the divisor which is everywhere zero except on the sub-
+group H = µh−1 H p (abstractly isomorphic to H p ) where it takes the value µ ∈ H. We let
+
+                                          δ (h, µ ) := (µh−1 H p , µ ).
+
+                                                          28
+Note that by construction one has δ ( ph, µ ) = δ (h, µ ), so that δ (h, µ ) only depends upon the class
+of h modulo the multiplication by powers of p. Such a class is uniquely specified as that of an
+integer m > 0, prime to p. Given a simple divisor, i.e. a positive divisor supported on a single
+H, and µ ∈ H, µ > 0 one can find λ > 0 such that H = λH p and thus h ∈ H p with µ = hλ. One
+then has δ (h, µ ) = ( H, µ ). The choice of λ (and hence of h) is unique only up-to multiplication
+by a power of p.
+The classical description of elliptic functions in terms of theta functions admits the following
+counterpart in our framework, which provides, in particular, with another proof of Theorem 5.6
+by an explicit construction of an f ∈ K(C p ) with given divisor.
+Proposition 5.11. Let D = D+ − D− ∈ Div(C p ) be a divisor (D± ∈ Div+ ) and (hi , µi ) ∈ H p+ × R∗+ ,
+(h0j , µ 0j ) ∈ H p+ × R∗+ such that D+ = ∑ δ (hi , µi ) and D− = ∑ δ (h0j , µ 0j ). Then, if deg( D ) = 0 and
+h ∈ H p fulfills ( p − 1)h = ∑ hi − ∑ h0j , the following function
+
+                                  f (λ ) := ∑ Θhi ,µi (λ ) − ∑ Θh0 ,µ 0 (λ ) − hλ                              (23)
+                                                                         j   j
+                                                  i              j
+
+is continuous, piecewise affine with slopes in H p , fulfills f ( pλ ) = f (λ ) ∀λ ∈ R∗+ and one has: Div( f ) =
+D.
+Proof. By applying the equation (22), one has
+
+                     f ( pλ ) − f (λ ) = ∑(hi λ − µi ) − ∑(h0j λ − µ 0j ) − ( p − 1)hλ = 0
+                                          i                  j
+
+since by hypothesis ∑i µi − ∑ j µ 0j = deg( D ) = 0 and ( p − 1)h = ∑ hi − ∑ h0j . Moreover, the
+divisor of f is equal to D by construction since each theta function Θhi ,µi (resp. Θh0 ,µ 0 ) contributes
+                                                                                                 j   j
+with the term δ (hi , µi ) (resp. δ (h0j , µ 0j )) while −hλ does not contribute at all.
+
+Theorem 5.12. Let f ∈ K(C p ). Then f admits the following canonical decomposition
+
+                                f (λ ) = ∑ Θhi ,µi (λ ) − ∑ Θh0 ,µ 0 (λ ) − hλ + c                             (24)
+                                                                     j   j
+                                              i              j
+
+where c ∈ R, ( p − 1)h = ∑ hi − ∑ h0j and hi ≤ µi < phi , h0j ≤ µ j < ph0j .
+
+Proof. Let D = ( f ) be the principal divisor of f , and D = D+ − D− its decomposition with
+(hi , µi ) ∈ H p+ × R∗+ , (h0j , µ 0j ) ∈ H p+ × R∗+ such that D+ = ∑ δ (hi , µi ) and D− = ∑ δ (h0j , µ 0j ). Since
+δ ( ph, µ ) = δ (h, µ ) we can choose the hi and h0j in such a way that µh−1 ∈ [1, p) for all of them,
+which gives hi ≤ µi < phi , h0j ≤ µ j < ph0j . Proposition 5.11 then shows that the function defined
+in (23) belongs to K(C p ) and has the same divisor as f thus it differs from f by a constant c ∈ R
+and one gets (24).
+
+
+
+
+                                                        29
+5.4   Riemann-Roch theorem of type II
+In this subsection we define a Riemann-Roch problem for divisors on the curves C p and prove
+a Riemann-Roch formula. To this end, we introduce the notion of continuous dimension for the
+Rmax -modules H 0 (C p , O( D )) associated to divisors D on C p .
+It follows from Proposition 5.2 that the notion of divisors on C p coincides with the notion of
+global section of the sheaf C aC`(C p ) = K ∗p /O ∗p of Cartier divisors. In analogy with the classical
+case, a Cartier divisor D described by local sections f i ∈ K ∗p (Wi )/O ∗p (Wi ), defines a subsheaf
+O( D ) of K p . This is the sheaf of O p -modules generated on Wi by the (multiplicative) inverses
+of the f i , i.e. in the additive notation of this tropical set-up by the functions − f i . The sections
+of O( D ) are given locally by the rational functions f ∈ K p (W ) which satisfy the inequality
+D + ( f ) ≥ 0, where ( f ) denotes the principal divisor associated to f . By construction, O( D ) is a
+sheaf of O p -modules, and in particular its global sections define a module over Rmax
+
+                      H 0 ( D ) := Γ(C p , O( D )) = { f ∈ K(C p ) | D + ( f ) ≥ 0}.                   (25)
+
+It follows from (13) that f , g ∈ H 0 ( D ) ⇒ f ∨ g ∈ H 0 ( D ). The constant function −∞ is, by
+convention, contained in all the H 0 ( D ) and plays the role of the 0-element. We use the notation
+H 0 ( D ) = 0, rather than H 0 ( D ) = {−∞}, to mean that H 0 ( D ) does not contain any other f .
+Lemma 5.13. (i ) If deg( D ) < 0 then H 0 ( D ) = 0.
+(ii) If deg( D ) > 0 then H 0 ( D ) 6= 0.
+Proof. (i ) The condition D + ( f ) ≥ 0 implies that deg( D + ( f )) ≥ 0 and hence deg( D ) ≥ 0.
+(ii) Assume deg( D ) = λ > 0, set H = λH p and let Pλ be the positive divisor which vanishes
+for H 0 ∈ C p , H 0 6= H and takes the value λ at H. By construction λ ∈ H and Pλ is an effective
+(i.e. positive) divisor such that deg( Pλ ) = λ. Moreover one has χ( Pλ ) = 1 ∈ Z/( p − 1)Z. Let
+m ∈ {1, . . . , p − 1} be an integer congruent to χ( D ) mod. p − 1, then it follows that the divisor
+D 0 = D − mPλ /m fulfills deg( D 0 ) = 0 and χ( D 0 ) = 0 and hence it is principal. Let f ∈ K p with
+D 0 + ( f ) = 0. One has D + ( f ) = mPλ/m ≥ 0 and thus f ∈ H 0 ( D ) 6= 0.
+
+The slopes of the functions f ∈ K(C p ) can have arbitrarily small real size since the group H p ⊂ R
+is dense. This shows that when deg( D ) > 0, (25) will in general yield an infinite dimensional
+space of solutions. However, notice that the group H p is discrete when embedded diagonally in
+Q p × R, and this fact allows one to obtain a natural norm on sections of K p by implementing the
+p-adic norm of the slopes. In the following, we choose to normalize the p-adic norm |h| p ≥ 0,
+∀h ∈ H p so that | p| p = 1/ p.
+Let f be a continuous, piecewise affine function on R∗+ with slopes h± (u) ∈ H p and such that
+f ( pu) = f (u). The slope h± ( pλ ) of f at pλ is h± (λ )/ p since
+
+                   f ( pλ + ) − f ( pλ )        f ( pλ + pδ ) − f ( pλ )   1       f (λ + δ ) − f (λ )
+  h± ( pλ ) := lim                        = lim                           =    lim                      .
+              →0±                        δ →0±           pδ               p δ →0±         δ
+
+The value of |h± (λ )| p /λ is unchanged if one replaces λ by pλ since the p-adic norm of h± (λ )/ p
+is p|h± (λ )| p .
+
+
+
+                                                    30
+Definition 5.14. Let f ∈ K(C p ). We set
+
+                                     k f k p := max{|h(λ )| p /λ | λ ∈ R∗+ }                                    (26)
+
+where h(λ ) ∈ H p is the5 slope of f at λ, and |h(λ )| p its p-adic norm.
+One has the following compatibility with the semiring structure of K(C p )
+Proposition 5.15. Let f , g ∈ K(C p ). One has
+(i) k f ∨ gk p ≤ max{k f k p , k gk p }.
+(ii) k f + gk p ≤ max{k f k p , k gk p }.
+(iii) k p a f k p = p−a k f k p .
+(iv) k f k p ≤ 1 iff the restriction of f to [1, p] has integral slopes.
+(v) Let D ∈ Div(C p ) be a divisor. The following formula defines an increasing filtration on H 0 ( D ) by
+Rmax -submodules
+                                    H 0 ( D )ρ := { f ∈ H 0 ( D ) | k f k p ≤ ρ}.
+Proof. (i ) At a point λ ∈ R∗+ the set of slopes (there can be two) of f ∨ g is a subset of the union
+of the sets of slopes of f and g, thus one obtains the stated inequality.
+(ii) At a point λ ∈ R∗+ , the slope of f + g is the sum of the slopes of f and g and the ultrametric
+inequality for the p-adic norm gives the required result.
+(iii) The equality follows from the equality | p a x| p = p−a | x| p .
+(iv) Using the invariance of |h(λ )| p /λ under λ 7→ pλ, one has
+
+                                    k f k p := max{|h(λ )| p /λ | λ ∈ [1, p]}.
+
+Note that the value |h(1)− | p corresponding to the ingoing slope at λ = 1 is taken into account
+for λ ∈ [1, p] near p as the limit of the values |h(λ )| p /λ when λ → p, since h( p)− = h(1)− / p.
+If the restriction of f to [1, p] has integral slopes, one has |h(λ )| p ≤ 1 for all λ ∈ [1, p] and
+thus k f k p ≤ 1. Conversely, if k f k p ≤ 1 one has |h(λ )| p < p for all λ ∈ [1, p) and thus, since
+h(λ ) ∈ H p , one gets h(λ ) ∈ Z for all λ ∈ [1, p) as required.
+(v) It follows from (i) and (ii) that H 0 ( D )ρ is an Rmax -submodule of H 0 ( D ), moreover one easily
+                                 0
+sees that H 0 ( D )ρ ⊂ H 0 ( D )ρ for ρ < ρ0 .
+The next step is to define the continuous dimension of the module H 0 ( D ) using the filtration by
+the submodules H 0 ( D )ρ by means of a formula of the form
+
+                                                             1
+                                  DimR ( H 0 ( D )) := lim     dim( H 0 ( D )ρ ),
+                                                         ρ→∞ ρ
+
+where, on the right hand side, one uses a suitable notion of integer valued dimension for Rmax -
+modules. In our context, the most natural notion is that of “topological dimension" that counts
+the number of real parameters on which a general element depends. The original definition for
+such dimension is due to Lebesgue. We use the reference [15].
+  5 at a point of discontinuity of the slopes one takes the max of the two values | h
+                                                                                        ± (λ )| p / λ in (26)
+
+
+
+
+                                                         31
+Definition 5.16. Let X be a topological space. The topological dimension dimtop ( X ) of X is the small-
+est integer n such that every open cover U of X admits a refinement V such that every point of X is in at
+most n + 1 elements of V .
+When working with the modules H 0 ( D ) we use the topology of uniform convergence for Rmax -
+valued functions on the interval [1, p] (or equivalently by periodicity on R∗+ ). The distance defin-
+ing this topology is given by
+
+                                    d( f , g) = max | f ( x) − g( x)|.                              (27)
+                                                x∈[1,p]
+
+We define
+                                                                              n
+                            DimR ( H 0 ( D )) := lim p−n dimtop ( H 0 ( D ) p )                     (28)
+                                                 n→∞
+Our next goal is to prove that the above limit exists and one obtains a Riemann-Roch formula.
+Theorem 5.17. (i ) Let D ∈ Div(C p ) be a divisor with deg( D ) ≥ 0. Then the limit in (28) converges
+and one has DimR ( H 0 ( D )) = deg( D ).
+(ii) The Riemann-Roch formula holds
+
+                 DimR ( H 0 ( D )) − DimR ( H 0 (− D )) = deg( D )         ∀ D ∈ Div(C p ).
+
+The proof of Theorem 5.17 will be given later and follows by combining Lemma 5.18 below with
+the understanding of H 0 ( D ) in the special case discussed in Lemma 5.19.
+Lemma 5.18. Let D ∈ Div(C p ) and f ∈ K(C p ). Then
+(i) For D0 = D + ( f ) and for any non-negative integer n such that k f k p ≤ pn , the map H 0 ( D ) →
+                                                             n                  n
+H 0 ( D 0 ), ξ 7→ ξ − f induces an isomorphism of H 0 ( D ) p with H 0 ( D 0 ) p .
+(ii) The absolute Frobenius f 7→ pn f determines a twisted isomorphism of Rmax -modules
+                                                    n
+                                     Fpn : H 0 ( D ) p → H 0 ( pn D )1 .
+
+This map preserves the topological dimension.
+Proof. (i ) By Lemma 5.15, (ii ), one has kξ − f k p ≤ max{kξ k p , k f k p } so that if k f k p ≤ pn one
+derives
+                       n                                                                      n
+          ξ ∈ H 0 ( D ) p ⇐⇒ kξ k p ≤ pn ⇐⇒ kξ − f k p ≤ pn ⇐⇒ ξ − f ∈ H 0 ( D 0 ) p .
+
+(ii) The twisting is by the Frobenius Fr pn ∈ Aut(Rmax ) and occurs since Fpn ( f + a) = Fpn ( f ) +
+pn a for any scalar a ∈ Rmax . This operation does not affect the topological dimension. The
+principal divisor ( pn f ) is equal to pn × ( f ) and one has, using Proposition 5.15 (iii )
+
+               D + ( f ) ≥ 0 ⇐⇒ pn D + ( pn f ) ≥ 0, k f k p ≤ pn ⇐⇒ k pn f k p ≤ 1.
+
+Thus the map f 7→ pn f gives a twisted isomorphism of Rmax -modules as stated.
+Next, we determine the topological dimension of the Rmax -module E N,p := H 0 ( D )1 which is
+associated to the divisor D := ( H p , N ), where N > 0 is an integer.
+
+                                                     32
+                                        �(����� �������)
+
+
+
+
+                        Figure 4: The function h(t0 , . . . , t N − p ) with N − p = 7.
+
+
+Lemma 5.19. (i ) The module E N,p is the Rmax -module of convex (continuous), piecewise affine functions
+on [1, p] with integral slopes, such that f (1) = f ( p) and − f +0 (1) + p f −0 ( p) ≤ N.
+(ii) Let a ∈ {1, . . . , N − p} and denote by b = E(( N − a)/ p) ≥ 1 the integer part of ( N − a)/ p. Let
+φ a ( x) := max{− a( x − 1), b( x − p)}, for x ∈ [1, p]. Then φ a ∈ E N,p .
+(iii) For  > 0, let ∆N − p := {(t1 , . . . , t N − p ) | 0 < t1 < . . . < t N − p < }. The following map is
+continuous and injective for  sufficiently small (φ0 := 0 by convention)
+                                                                                                j
+                                                                             N− p
+                h : R × ∆N − p → E N,p ,       h(t0 , . . . , t N − p ) := ∨0 (φ N − p− j −   ∑ ti ) .
+                                                                                                0
+
+(iv) dimtop (E N,p ) = N − p + 1.
+Proof. (i ) By Proposition 5.15 (iv), the condition k f k p ≤ 1 means that the restriction of f to
+[1, p] has integral slopes. The condition D + ( f ) ≥ 0 means that f is convex, piecewise affine,
+(continuous) inside [1, p] and that N + Ord Hp f ≥ 0. These properties imply (i ) since
+
+         Ord Hp f = f +0 (1) − p f −0 ( p),     N + Ord Hp f ≥ 0 ⇐⇒ − f +0 (1) + p f −0 ( p) ≤ N.
+
+(ii) By construction, the function f = φ a is continuous, convex, piecewise affine with integral
+                                                                       a+bp
+slopes and φ a (1) = φ a ( p) = 0. Moreover, at the point x = a+b where − a( x − 1) = b( x − p),
+the slope of φ a changes from − a to b. The point x is inside the interval (1, p) since a > 0, b > 0.
+Thus the slope of φ a is − a near 1 and b near p. The condition − f +0 (1) + p f −0 ( p) ≤ N is fulfilled
+since a + pb ≤ N.
+                 p−1
+(iii) Let  ≤ N − p+1 . Then on [ 1, 1 +  ] all the φ a ( x )’s coincide with − a ( x − 1 ) since with b =
+E(( N − a)/ p) ≥ 1 and a ∈ {1, . . . , N − p} one has
+
+                     a + bp      b( p − 1)                          p−1
+                            −1 =           = ( p − 1)(1 + a/b)−1 ≥       .
+                      a+b          a+b                             N−p+1
+
+                                                       33
+                                                     j                              N− p
+For 0 ≤ j < N − p, let ψ j := φ N − p− j − ∑0 ti and let ψ N − p = − ∑0                    ti be a constant function.
+For 0 ≤ j ≤ N − p one has
+                                                                   j
+                           ψ j ( x) = ( j + p − N )( x − 1) − ∑ ti , ∀ x ∈ [1, 1 + ].
+                                                                   0
+
+For 0 ≤ j < N − p, the x coordinate of the point where the line
+                                                                                    j
+                               L j := {( x, y) | y = ( j + p − N )( x − 1) − ∑ ti }
+                                                                                   0
+
+meets L j+1 is 1 + t j+1 ∈ [1, 1 + ]. Thus one has
+          ψ j ( x) ≥ ψ j+1 ( x) , ∀ x ∈ [1, 1 + t j+1 ], ψ j ( x) ≤ ψ j+1 ( x) , ∀ x ∈ [1 + t j+1 , 1 + ].
+Thus h(t0 , . . . , t N − p )( x) = ψ0 ( x) , ∀ x ∈ [1, 1 + t1 ] and for 1 ≤ j ≤ N − p − 1, h(t0 , . . . , t N − p )( x) =
+ψ j ( x), for x ∈ [1 + t j , 1 + t j+1 ] (cf. Figure 4). It follows that h( x) passes from the slope j + p − N
+to the slope j + 1 + p − N at the point 1 + t j+1 ∈ [1, 1 + ]. This statement still holds for
+j = 0 and j = N − p − 1. In the latter case, one needs to check that in a small interval
+[1 + t N − p , 1 + t N − p + δ ], h = ψ N − p and this follows as t N − p < . The value of the function
+h(t0 , . . . , t N − p ) at λ = 1 is −t0 , thus one recovers all the parameters t j , 0 ≤ j ≤ N − p from the
+function h(t0 , . . . , t N − p ) and this shows that the map h : R × ∆N − p → E N,p is injective.
+(iv) Let k = dimtop (E N,p ). The above construction of h(t0 , . . . , t N − p ) shows that k ≥ N − p + 1.
+Let f ∈ E N,p be non-constant, then one has β = f −0 ( p) ≥ 1 and α = − f +0 (1) > 0 while
+α + pβ ≤ N. To determine the topological dimension of E N,p one can fix the values of α and
+β and count on how many real parameters the element f ∈ E N,p depends. The possible values of
+the slope of f in the interval [1, p] are in the interval [ f 0 (1), f 0 ( p)] = [−α, β] and f is determined,
+up to an additive constant, by the points where the slope changes, which gives at most α + β
+points. Since the last of these points is determined by the previous ones in view of the periodicity
+of f , one sees that the number of free parameters for the turning points is α + β − 1. Since this
+argument determines f up to an additive constant, f depends on at most α + β real parameters.
+Moreover α + β = α + pβ − ( p − 1)β ≤ N − ( p − 1). Thus the topological dimension k of E N,p
+is less than α + β ≤ N − p + 1 and since k ≥ N − p + 1 one gets the equality.
+In Appendix A we shall provide a more detailed description of the Rmax -module E N,p making
+the above qualitative argument more precise.
+Proof. (of Theorem 5.17)
+(i) Assume first that deg( D ) = 0. Then one has H 0 ( D ) = 0 except when there exists a non-
+trivial solution to D + ( f ) ≥ 0. In that case D is equivalent to 0 and H 0 ( D ) consists of the
+constant functions which form the module Rmax whose topological dimension is 1. Thus the
+formula (28) gives in all cases that DimR ( H 0 ( D )) = 0. Assume now that δ = deg( D ) > 0 and
+let  > 0. We show that
+                                              n                                                 n
+            limn→∞ p−n dimtop ( H 0 ( D ) p ) ≥ δ − , limn→∞ p−n dimtop ( H 0 ( D ) p ) ≤ δ + 
+
+where lim and lim denote respectively the lim inf and the lim sup. Let α j ∈ H p ( j = 1, 2),
+α j > 0, be such that δ −  ≤ α1 < δ, δ < α2 ≤ δ +  and that χ(α j ) = χ( D ). Then let (as in
+
+                                                           34
+Lemma 5.13, (ii )) Pj ∈ Div+ (C p ) be positive divisors such that χ( Pj ) = 0 with deg( P1 ) = δ − α1 ,
+deg( P2 ) = α2 − δ. One has deg(α1 {1} + P1 ) = δ and χ(α1 {1} + P1 ) = χ( D ). Thus by applying
+Theorem 5.6 we get the existence of a function f 1 ∈ K(C p ) such that α1 {1} + P1 = D + ( f 1 )
+and a function f 2 ∈ K(C p ) such that D + ( f 2 ) + P2 = α2 {1}. Using the natural injective maps,
+isometric for the distance (27), given by the inclusions
+                                                                              + f1
+                     H 0 (α1 {1}) ⊂ H 0 (α1 {1} + P1 ) = H 0 ( D + ( f 1 )) → H 0 ( D )
+
+one obtains, by Lemma 5.18 (i )
+                                                         n                     n
+                              dimtop ( H 0 (α1 {1}) p ) ≤ dimtop ( H 0 ( D ) p )
+
+as soon as k f 1 k p ≤ pn . Similarly, one derives
+                                n                                   n                          n
+              dimtop ( H 0 ( D ) p ) = dimtop ( H 0 ( D + ( f 2 )) p ) ≤ dimtop ( H 0 (α2 {1}) p )
+
+as soon as k f 2 k p ≤ pn . Thus the result will follow provided we show that for any α ∈ H p , α > 0
+one has
+                                                                 n
+                                   lim p−n dimtop ( H 0 (α {1}) p ) = α.
+                                    n→∞
+                                                              n
+By Lemma 5.18 (ii ), one has dimtop ( H 0 (α {1}) p ) = dimtop ( H 0 (α pn {1})1 ) and for n large
+enough so that α pn is an integer, Lemma 5.19 (iv) shows that dimtop ( H 0 (α pn {1})1 ) = α pn −
+p + 1. Thus one gets as required
+                                                     n
+                    lim p−n dimtop ( H 0 (α {1}) p ) = lim p−n (α pn − p + 1) = α.
+                   n→∞                                        n→∞
+
+(ii) Follows from (i) and the fact that H 0 ( D ) = 0 if deg( D ) < 0.
+
+
+
+Appendices
+A     The structure of the Rmax -module E N,p
+In this appendix we provide further properties of the Rmax -module E N,p of convex, piecewise
+affine, continuous functions f on [1, p] with integral slopes such that f (1) = f ( p) and − f 0 (1) +
+p f 0 ( p) ≤ N. The convexity of f implies that its graph is above its tangent at any point i.e. one
+has the inequality
+                            f (u) ≥ f (v) + f 0 (v)(u − v) , ∀u, v ∈ [1, p].                       (29)
+If v is a point of discontinuity of the derivative, one can take for f 0 (v) any value between the left
+and right limits f −0 (v) ≤ f +0 (v).
+We recall the definition of the extremal rays of an Rmax -module.
+Definition A.1. Let E be an Rmax -module, and f ∈ E . Then f is extremal iff the equality f 1 ∨ f 2 = f
+implies that one of the f j = f . The Rmax -submodule { f + x | x ∈ Rmax } is called an extremal ray.
+
+                                                         35
+                                                     ���              ���   ���        ���
+
+
+
+
+                                      -���
+
+
+
+
+                                      -���
+
+                                                                                  ϕ�
+                                      -���
+                                                                ϕ�
+                                                           ϕ�
+                                      -���
+
+
+
+
+                                      -���
+
+
+
+
+                Figure 5: The functions φ a for p = 3 and N = 10; φ0 = 0 is constant.
+
+
+The following proposition describes the structure of the Rmax -module E N,p . We use the notation
+of Lemma 5.19 (ii).
+Proposition A.2. The functions φ a , for 0 ≤ a ≤ N − p, are extremal elements of E N,p and the elements
+of the set {φ a + x | x ∈ Rmax } are the extremal rays of E N,p . These elements generate the module E N,p ,
+i.e. the following map is surjective
+                                N − p+1
+                          σ : Rmax           → E N,p , x = ( x a ) 7→ σ ( x) := ∨(φ a + x a ).         (30)
+
+Proof. We use Lemma A.3 proved below. We prove first that φ a is extremal. Assume that φ a =
+f 1 ∨ f 2 , with f j ∈ E N,p for j = 1, 2. Then one of the f j , say f 1 , agrees with φ a in a neighborhood
+V 3 λ = 1. By (33) one has f 1 = ∨(φ` + t` ) for some real numbers t` . One of the φ` + t` agrees
+with f 1 in a neighborhood of 1. Comparing the slopes one gets ` = a and t a = 0. Thus one
+derives that f 1 ≥ φ a and since φ a = f 1 ∨ f 2 ≥ f 1 one concludes that f 1 = φ a . This argument
+shows that φ a is extremal. The equality (33) shows that any extremal element of E N,p is of the
+form φ a + t for some a and t ∈ R so that the φ a generate all the extremal rays. Finally (33) shows
+that σ is surjective.
+For a ∈ {0, . . . , N − p}, let γ a : E N,p → Rmax be defined by
+
+                                             γ a ( f ) := − max (φ a − f )( x).                        (31)
+                                                                x∈[1,p]
+
+Lemma A.3. (i ) Let f ∈ E N,p and x ∈ (1, p). Then, there exists a ∈ {0, . . . , N − p} such that
+
+                                 f ( z) − f ( x) ≥ φ a ( z) − φ a ( x), ∀ z ∈ [1, p].                  (32)
+
+(ii) Let f ∈ E N,p , then with γ a ( f ) as in (31)
+
+                                                   f = ∨(φ a + γ a ( f )).                             (33)
+
+
+
+                                                                     36
+Proof. (i ) If f is constant (32) holds for a = 0, thus we assume that f is non-constant. Let α =
+− f 0 (1) and apply (29) for v = 1, u = p. Using the equality f (1) = f ( p) one has α ≥ 0, and in
+fact α > 0 since f is non-constant. Let β = f 0 ( p), by applying (29) for v = p, u = 1 and using
+f (1) = f ( p) one has β ≥ 0, and in fact β > 0 since f is non-constant. Furthermore one has
+α + pβ ≤ N since f ∈ E N,p . By continuity of the functions involved and the finiteness of the
+set {0, . . . , N − p}, one can assume that f is affine at x. Let us first assume that f 0 ( x) ≤ 0. Let
+a = − f 0 ( x) so a ≥ 0. Since f is convex its derivative is non-decreasing and one has f 0 ( x) ≥ f 0 (1)
+so that a ≤ α. Moreover by applying (29) for v = x, u = 1 one has
+
+                           f (1) ≥ f ( x) + f 0 ( x)(1 − x) = f ( x) + a( x − 1).
+
+By applying (29) for v = p, u = x one derives
+
+                           f ( x) ≥ f ( p) + f 0 ( p)( x − p) = f (1) + β( x − p).
+
+Thus
+                       f ( x) ≥ f (1) + β( x − p) ≥ f ( x) + a( x − 1) + β( x − p)
+and one gets a( x − 1) + β( x − p) ≤ 0, i.e. a( x − 1) ≤ β( p − x). One has α + pβ ≤ N and a ≤ α
+so that a + pβ ≤ N and β ≤ ( N − a)/ p. But β = f 0 ( p) ∈ N is an integer ≤ ( N − a)/ p and
+thus it is ≤ E(( N − a)/ p) = b. Then β ≤ b and one has a( x − 1) ≤ β( p − x) ≤ b( p − x). By
+definition φ a ( x) := max{− a( x − 1), b( x − p)} and thus, since − a( x − 1) ≥ b( x − p), one gets
+φ a ( x) = − a( x − 1). By applying (29) for v = x, u = z one has
+
+                          f ( z) ≥ f ( x) + f 0 ( x)( z − x) = f ( x) − a( z − x) =
+
+                     = f ( x) − a( z − 1) + a( x − 1) = f ( x) − a( z − 1) − φ a ( x).
+Thus
+                           f ( z) − f ( x) ≥ − a( z − 1) − φ a ( x) , ∀ z ∈ [1, p].                  (34)
+By applying (29) for v = p, u = z, one has
+
+                    f ( z) ≥ f ( p) + f 0 ( p)( z − p) = f (1) + β( z − p) , ∀ z ∈ [1, p].
+
+Since β ≤ b one gets β( z − p) ≥ b( z − p) so one derives
+
+                             f ( z) ≥ f (1) + β( z − p) ≥ f (1) + b( z − p).
+
+By (34) for z = 1, one has f (1) − f ( x) ≥ −φ a ( x) and we thus get
+
+                             f ( z) ≥ f ( x) − φ a ( x) + b( z − p) , ∀ z ∈ [1, p]                   (35)
+
+which combines with (34) to yield
+
+                  f ( z) − f ( x) ≥ max{− a( z − 1), b( z − p)} − φ a ( x) , ∀ z ∈ [1, p].
+
+This is the required inequality (32).
+Let us now assume that f 0 ( x) > 0. Since f is convex, its derivative is non-decreasing and one
+has f 0 ( x) ≤ f 0 ( p) = β. Let a = N − p f 0 ( x). One has − p f 0 ( x) ≥ − pβ and thus a ≥ N − pβ.
+
+                                                     37
+Since α + pβ ≤ N, one gets a ≥ α. Moreover one has f 0 ( x) > 0 and thus a ≤ N − p. The integer
+b := E(( N − a)/ p) involved in the definition of φ a is equal to f 0 ( x) since N − a = p f 0 ( x) by
+construction. Thus b = f 0 ( x). By applying (29) for v = 1, u = x one has
+
+                               f ( x) ≥ f (1) + f 0 (1)( x − 1) = f (1) − α ( x − 1).
+
+By applying (29) for v = x, u = p one has
+
+                               f ( p) ≥ f ( x) + f 0 ( x)( p − x) = f ( x) + b( p − x).
+
+Thus, since f ( p) = f (1) one gets
+
+                          f ( x) ≥ f (1) − α ( x − 1) ≥ f ( x) + b( p − x) − α ( x − 1)
+
+so that b( p − x) − α ( x − 1) ≤ 0, and b( p − x) ≤ α ( x − 1) ≤ a( x − 1) since a ≥ α. It follows that
+φ a ( x) := max{− a( x − 1), b( x − p)} = b( x − p). By applying (29) for v = x, u = z one has
+
+         f ( z) − f ( x) ≥ f 0 ( x)( z − x) = b( z − x) = b( z − p) − b( x − p) = b( z − p) − φ a ( x).
+
+Thus
+                                f ( z) − f ( x) ≥ b( z − p) − φ a ( x) , ∀ z ∈ [1, p].                            (36)
+By applying (29) for v = 1, u = z one has, for z ∈ [1, p]
+
+                               f ( z) ≥ f (1) + f 0 (1)( z − 1) = f (1) − α ( z − 1)
+
+and since α ≤ a one gets −α ( z − 1) ≥ − a( z − 1), so that f ( z) ≥ f (1) − a( z − 1). By (36) for
+z = p one has f ( p) − f ( x) ≥ −φ a ( x) and since f (1) = f ( p) one gets f (1) ≥ f ( x) − φ a ( x). It
+follows that for z ∈ [1, p] one has
+
+                             f ( z) ≥ f (1) − a( z − 1) ≥ f ( x) − φ a ( x) − a( z − 1)
+
+and hence
+                                f ( z) ≥ f ( x) − φ a ( x) − a( z − 1) , ∀ z ∈ [1, p].                            (37)
+Thus combining (36) and (37), one gets
+
+                     f ( z) − f ( x) ≥ max{− a( z − 1), b( z − p)} − φ a ( x) , ∀ z ∈ [1, p]
+
+which is the required inequality (32).
+(ii) For t = γ a ( f ) one has φ a + t ≤ f , and γ a ( f ) is the largest value of t for which this happens.
+By (i ) (of this Lemma A.3) one sees that at any x ∈ (1, p) there exists a ∈ {0, . . . , N − p} such that
+(32) holds and hence φ a + t ≤ f , for t = f ( x) − φ a ( x) so that γ a ( f ) = max{t ∈ R | φ a + t ≤ f } ≥
+f ( x) − φ a ( x). One also has φ a ( x) + γ a ( f ) ≤ f ( x), thus one gets γ a ( f ) = f ( x) − φ a ( x) and f ( x) =
+φ a ( x) + γ a ( f ). It follows that for all x ∈ (1, p) one has f ( x) = ∨ a∈{0,...,N − p} (φ a + γ a ( f ))( x).
+The section γ of the map σ of (30) has the following interpretation
+                                                           N − p+1
+                                   γ ( f ) = max{ g ∈ Rmax           | σ ( g) = f }.
+
+                                                          38
+Indeed, by (33) one has σ ◦ γ = Id, and since γ a ( f ) is the largest value of t for which φ a + t ≤ f
+
+                σ ( x) = f ⇒ f = ∨(φ a + x a ) ⇒ x a ≤ γ a ( f ) , ∀ a ∈ {0, . . . , N − p}.
+
+For f , g ∈ E N,p one has σ −1 ( f ∨ g) ⊃ σ −1 ( f ) ∨ σ −1 ( g). However the equality does not hold in
+general which explains why γ does not preserve ∨ in general. Given f ∈ E N,p the fiber σ −1 ( f )
+is of the form, with S f ⊂ {0, . . . , N − p} a suitable subset depending on f
+                                      N − p+1
+         σ −1 ( f ) = { x = ( x a ) ∈ Rmax      | xa = γa ( f ) , ∀a ∈ S f , xa ≤ γa ( f ) , ∀a ∈
+                                                                                                / S f }.
+
+
+B     Why semirings and characteristic one
+It is legitimate to wonder in which sense the algebra of semirings and its specialization to “char-
+acteristic one" (i.e. the condition 1 + 1 = 1) is a “natural" one. We examine this question in this
+Appendix as an illustration of the saying “The devil is in the details".
+
+
+B.1    Semiadditive category
+We refer to [12] chapter VIII, exercice 2.4 and recall the following
+Definition B.1. A category C is semiadditive if it has a zero object (both initial and final), all finite
+products and coproducts exist, and for any pair of objects M, N of C the canonical morphism from the
+coproduct to the product is an isomorphism
+                                                                           
+                                                                  Id M 0
+                      γ M,N : M q N → M × N,           γ M,N =                .
+                                                                    0 Id N
+
+The object M q N ≃ M × N is then called the biproduct of M and N, and denoted by M ⊕
+N. Moreover matrix notation works for morphisms. In particular, the matrix Id M Id M
+gives rise to a canonical element s M ∈ HomC ( M × M, M). For any pair of objects A, M of C ,
+this construction turns HomC ( A, M) into a commutative monoid with a zero element. Given
+α, β ∈ HomC ( A, M), their “sum" is obtained as the composition s M ◦ (α, β), where the pair
+(α, β) is viewed as an element of HomC ( A, M × M) = HomC ( A, M) × HomC ( A, M). Moreover,
+composition of morphisms is distributive over this addition and thus one has
+Lemma B.2. Let C be a semiadditive category. Then for any object M of C the set EndC ( M) :=
+HomC ( M, M) is canonically endowed with the structure of semiring.
+
+
+B.2    The uniqueness of B and Zmax
+Lemma B.2 shows that semirings occur naturally in semiadditive categories. It is well known
+that finite fields are commutative rings and their multiplicative group is cyclic. When accepting
+semirings one obtains two notable complements to the list of finite fields and both structures are
+semirings of characteristic one. Indeed, there is only one finite semifield which is not a field, and
+moreover while there is no field whose multiplicative group is infinite cyclic, there is a unique
+semifield with this property. More precisely, one has
+
+                                                       39
+Proposition B.3. (i ) If a semifield contains a non-trivial root of unity it is a field.
+(ii) The only finite semifield which is not a field is B.
+(iii) The only semifield whose multiplicative group is infinite cyclic is Zmax .
+Proof. (i ) By Proposition 4.41 of [10], any element of finite order in a semifield F which is not a
+field, is equal to 1. Indeed, with un = 1 one finds that a := 1 + u + . . . + un−1 fulfills ua = a so
+that u = 1 if a 6= 0. If a = 0 one gets an element b := u + . . . + un−1 such that 1 + b = 0 and one
+has a field.
+(ii) By (i) all elements of a finite semifield F which is not a field are 0 or 1. Moreover the equation
+1 + 1 = 1 holds thus F = B is the only finite semifield which is not a field.
+(iii) Let K be a semifield whose multiplicative group is infinite cyclic. The map χ : N → K
+defined inductively by χ(n + 1) = χ(n) + 1 is a morphism of semirings. Assume first that χ is
+injective. Then χ(n) ∈ G for all n 6= 0, where G is the infinite cyclic multiplicative group of K.
+                                                                                                       0
+Thus there would exist two distinct primes p, p0 and integers a, a0 > 0 such that χ( p) a = χ( p0 ) a
+but this contradicts the injectivity of χ. Thus χ is not injective and we let n < m be such that
+χ(n) = χ(m). Let k ∈ N and assume k ≥ m. Write k = am + b with a > 0, 0 ≤ b < m. Then one
+has
+           χ(k) = χ( am + b) = χ( a)χ(m) + χ(b) = χ( a)χ(n) + χ(b) = χ( an + b) = χ(k0 )
+where k0 = an + b < am + b = k. This shows that the image χ(N) is the same as the image
+χ({0, . . . , m − 1} and is hence finite. Since the multiplicative group of K is infinite cyclic, it
+follows that every element of χ(N) is in {0, 1} ⊂ K. There are two cases. If 1 + 1 = 0, then one
+is in a field of characteristic 2 and taking a generator q of the multiplicative group one has an
+equation of the form 1 + q = q a for some a ∈   / {0, 1} showing that K is an algebraic extension of
+F2 and thus it is finite. If 1 + 1 = 1 one is in characteristic 1 and since K is a semifield the maps
+Frn , Frn ( x) := xn , are injective endomorphisms ( [10] Proposition 4.43). Let then q be a generator
+of the multiplicative group and a ∈ Z such that 1 + q = q a . One then has, using the maps Frn ,
+                                                                  2
+that 1 + qn = qna for all n > 0. For a > 0 one has 1 + q a = q a and the associativity implies
+                          2
+                        q a = 1 + q a = 1 + (1 + q) = (1 + 1) + q = 1 + q = q a
+
+so that a2 = a and a = 1. For a = −t ≤ 0 one has 1 + q a = q a (1 + qt ) = q a+ta and by associativity
+one gets as above 1 + q a = 1 + (1 + q) = (1 + 1) + q = 1 + q = q a so that a + ta = a and
+t = a = 0. Thus the only possible values of a are 0 and 1. These values correspond to the
+two possible choices of the generator of the multiplicative group of Zmax and one obtains the
+required isomorphism K ≃ Zmax .
+
+
+C     The tropical framework
+In this paper we have constructed the scaling site S by implementing the extension of scalars
+              + ) for the arithmetic site A . It is rather intriguing that one would have been led
+(from B to Rmax
+to the same definition of S by analyzing the well known results on the localization of zeros of
+analytic functions which involve Newton polygons in the non-archimedean case and the Jensen’s
+formula in the complex case. Indeed, these results combine to show that the tropical half line,
+i.e. (0, ∞) endowed with the structure sheaf of convex piecewise affine functions with integral
+
+                                                      40
+slopes, gives a framework, common to all these cases, for the localization of zeros of analytic
+functions in the punctured unit disk. The additional structure involved in the scaling site, i.e.
+the action of N× by multiplication on the tropical half-line corresponds, as shown below in (39)
+and (40), to the transformation on functions given by the composition with the n-th power of the
+variable. The tropical notion of “zeros" of a convex piecewise affine function f with integral slope
+is that a zero of order k occurs at a point of discontinuity of the derivative f 0 with k equal to the
+sum of the outgoing slopes. The conceptual meaning of this notion is understood either by using
+Cartier divisors or by implementing the natural hyperstructure on Rmax as shown in [19, 20].
+
+C.1    Newton polygons
+Let K be a complete and algebraically closed extension of Q p and v( x) := − log | x| be the val-
+uation. The tropicalization (see for instance [7]) of a series with coefficients in K is obtained by
+applying the transformation a 7→ log | a| = −v( a) to the coefficients using the simple correspon-
+dences
+                                  + → ∨, × → +, X n → −nx.
+In this way a sum ∑ an X n of monomials is replaced by the max: ∨(−nx − v( an )). More precisely
+Definition C.1. Let f ( X ) = ∑ an X n be a Laurent series with coefficients in K and convergent in an
+annulus A(r1 , r2 ) = { z ∈ K | r1 < | z| < r2 }. Then, the tropicalization of f is the real valued function
+of a real parameter
+                      τ ( f )( x) := max{−nx − v( an )} , ∀ x ∈ (− log r2 , − log r1 ).                     (38)
+                                     n
+
+Up to a trivial change of variables, this notion is well known in p-adic analysis where the function
+−τ (− x) or rather its graph is called the valuation polygon of the series (cf. [16] chapter 6, §1.6).
+This polygon is dual to the Newton polygon of the series which is, by definition, the lower
+part of the convex hull of the points of the real plane with coordinates ( j, v( a j )), where v is the
+valuation. By construction, τ ( f )( x) is finite since using the convergence hypothesis the terms
+−nx − v( an ) tend to −∞ when |n| → ∞. Thus one gets a convex and piecewise affine function.
+Moreover one has the multiplicativity property (cf. [16] chapter 6, Proposition 1.4.2)
+                             τ ( f g)( x) = τ ( f )( x) + τ ( g)( x) , ∀ x ∈ (0, ∞),
+and the classical result
+Theorem C.2. Let f ( X ) = ∑ an X n be a Laurent series with coefficients in K, convergent in an annulus
+A(r1 , r2 ) = { z ∈ K | r1 < | z| < r2 }. Then the valuations v( zi ) of its zeros zi ∈ A(r1 , r2 ) (counted with
+multiplicities) are the zeros (in the tropical sense and counted with multiplicities) of the tropicalization
+τ ( f ) in (− log r2 , − log r1 ).
+This classical result is, for instance, deduced from the case of Laurent polynomials (see [6],
+Lemma 1.6) using the approximation argument of [16], proof of Theorem 6.2.2.1. In particu-
+lar one can take r1 = 0, r2 = 1 so that A(r1 , r2 ) is the punctured unit disk D (0, 1) \ {0}. In that
+case the τ ( f ) are convex piecewise affine functions on (0, ∞) and one has the compatibility with
+the action of N× on functions by f ( X ) 7→ f ( X n )
+                           τ ( f ( X n ))( x) = τ ( f )(nx) , ∀ x ∈ (0, ∞), n ∈ N× .                        (39)
+
+                                                       41
+C.2    Jensen’s Formula
+For complex numbers, unlike in the non-archimedean case, it is no longer true that for a generic
+radius r, the modulus | f ( z)| is constant on the sphere of radius r and one replaces (38) by
+Definition C.3. Let f ( z) be a holomorphic function in an annulus A(r1 , r2 ) = { z ∈ C | r1 < | z| < r2 }.
+Its tropicalization is the function on the interval (− log r2 , − log r1 )
+                                                          Z 2π
+                                                      1
+                                    τ ( f )( x) :=                  log | f (e−x+iθ )|dθ.
+                                                     2π    0
+
+By construction one still has the multiplicativity
+
+                             τ ( f g)( x) = τ ( f )( x) + τ ( g)( x) , ∀ x ∈ (0, ∞).
+
+For x ∈ (− log r2 , − log r1 ) such that f has no zero on the circle of radius e−x , the derivative
+of τ ( f )( x) is the opposite of the winding number n( x) of the loop θ 7→ f (e−x+iθ ) ∈ C× . Thus
+the function τ ( f )( x) is piecewise affine with integral slopes. When the radius e−x of the circle
+increases the winding number of the associated loop increases by the number of zeros of f in the
+intermediate annulus and this shows that the function τ ( f )( x) is convex and fulfills the Jensen’s
+formula (cf. [17] Theorem 15.15) which is seen as the analogue of Theorem C.2.
+Theorem C.4. Let f ( z) be a holomorphic function in an annulus A(r1 , r2 ) = { z ∈ C | r1 < | z| < r2 }
+and zi ∈ A(r1 , r2 ) its zeros counted with their multiplicities. Then the values − log | zi | are the zeros (in
+the tropical sense and counted with multiplicities) of the tropicalization τ ( f ) in (− log r2 , − log r1 ).
+In particular one can take r1 = 0, r2 = 1 so that A(r1 , r2 ) is the punctured unit disk D (0, 1) \ {0}.
+In that case the τ ( f ) are convex piecewise affine functions on (0, ∞) and one has the following
+compatibility with the action of N× on functions by f ( z) 7→ f ( zn )
+
+                            τ ( f ( zn ))( x) = τ ( f )(nx) , ∀ x ∈ (0, ∞), n ∈ N× .                       (40)
+
+This follows from the equality for periodic functions h(θ )
+                            Z 2π                          Z 2nπ                      Z 2π
+                        1                      1                               1
+                                   h(nθ )dθ =                       h(α )dα =               h(u)du.
+                       2π    0                2nπ          0                  2π       0
+
+
+References
+ [1] M. Baker, S. Norine, Riemann-Roch and Abel-Jacobi theory on a finite graph, Advances in Math-
+     ematics 215 (2007), 766–788.
+
+ [2] A. Connes, C. Consani, The Arithmetic Site, Comptes Rendus Mathématiques Ser. I 352
+     (2014), 971–975.
+
+ [3] A. Connes, C. Consani, Geometry of the Arithmetic Site. Adv. Math. 291 (2016), 274–329.
+
+ [4] A. Connes, C. Consani, The scaling site. C. R. Math. Acad. Sci. Paris 354 (2016), no. 1, 1–6.
+
+
+                                                               42
+ [5] J. Dixmier, On some C ∗ -algebras considered by Glimm. J. Functional Analysis, 1, (1967), 182–
+     203.
+ [6] B. Dwork, On the zeta function of a hypersurface. Inst. Hautes Etudes Sci. Publ. Math. No. 12
+     (1962) 5–68.
+ [7] M. Einsiedler, M. Kapranov, D. Lind, Non-Archimedean amoebas and tropical varieties. J. Reine
+     Angew. Math. 601 (2006), 139âĂŞ157.
+ [8] A. Gathmann, M. Kerber, A Riemann-Roch theorem in tropical geometry, Mathematische
+     Zeitschrift 259 (2008), 217-230
+ [9] S. Gaubert, Two lectures on Max Plus algebra. Proceedings of the 26th Spring School of Theo-
+     retical Computer Science, (1998), 83–147.
+[10] J. Golan, Semi-rings and their applications, Updated and expanded version of The theory of
+     semi-rings, with applications to mathematics and theoretical computer science [Longman
+     Sci. Tech., Harlow, 1992. Kluwer Academic Publishers, Dordrecht, 1999.
+[11] R. Hartshorne, Algebraic Geometry, Graduate Texts in Mathematics 52, Springer-Verlag, New
+     York Heidelberg Berlin 1977.
+[12] S. Mac Lane, Categories for the working mathematician. Second edition. Graduate Texts in
+     Mathematics, 5. Springer-Verlag, New York, 1998.
+[13] S. Mac Lane, I Moerdijk, Sheaves in geometry and logic. A first introduction to topos theory.
+     Corrected reprint of the 1992 edition. Universitext. Springer-Verlag, New York, 1994.
+[14] G. Mikhalkin and I. Zharkov. Tropical curves, their Jacobians and theta functions. In Curves and
+     abelian varieties, volume 465 of Contemp. Math., p 203–230. Amer. Math. Soc., Providence,
+     RI, 2008.
+[15] A. Pears Dimension theory of general spaces. Cambridge University Press, Cambridge,
+     England-New York-Melbourne, 1975.
+[16] A. Robert, A course in p-adic analysis. Graduate Texts in Mathematics, 198. Springer-Verlag,
+     New York, 2000.
+[17] W. Rudin, Real and complex analysis MacGraw-Hill, NewYork 1987.
+[18] J. Tate, A review of non-archimedean elliptic functions. Elliptic curves, modular forms, and
+     Fermat’s last theorem (Hong Kong, 1993), 162–184, Ser. Number Theory, I, Int. Press, Cam-
+     bridge, MA, 1995.
+[19] O. Viro, Hyperfields for Tropical Geometry I, Hyperfields and dequantization. Preprint. Arxiv:
+     math.AG/1006.3034, 2010.
+[20] O. Viro, On basic concepts of tropical geometry. Tr. Mat. Inst. Steklova, 273, (Sovremennye
+     Problemy Matematiki): 271–303, 2011.
+
+
+                                                 43
+

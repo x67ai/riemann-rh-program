@@ -1,0 +1,1630 @@
+                                                   SCHEMES OVER F1 AND ZETA FUNCTIONS
+
+                                                             ALAIN CONNES AND CATERINA CONSANI
+
+
+
+
+arXiv:0903.2024v3 [math.AG] 9 Jul 2009
+                                              Abstract. We determine the real counting function N (q) (q ∈ [1, ∞)) for
+                                              the hypothetical “curve” C = Spec Z over F1 , whose corresponding zeta func-
+                                              tion is the complete Riemann zeta function. Then, we develop a theory of
+                                              functorial F1 -schemes which reconciles the previous attempts by C. Soulé and
+                                              A. Deitmar. Our construction fits with the geometry of monoids of K. Kato, is
+                                              no longer limited to toric varieties and it covers the case of schemes associated
+                                              to Chevalley groups. Finally we show, using the monoid of adèle classes over
+                                              an arbitrary global field, how to apply our functorial theory of Mo-schemes to
+                                              interpret conceptually the spectral realization of zeros of L-functions.
+
+
+
+
+                                                                               Contents
+                                         1. Introduction                                                                           2
+                                         2. Zeta functions over F1 and C = Spec Z                                                  5
+                                         2.1. An integral formula for ∂s ζN (s)/ζN (s)                                             6
+                                         2.2. The counting function of C = Spec Z                                                  7
+                                         3. Mo-schemes.                                                                           11
+                                         3.1. Monoids: the category Mo.                                                           12
+                                         3.2. Automatic locality.                                                                 13
+                                         3.3. Open Mo-subfunctors.                                                                13
+                                         3.4. Open covering by Mo-subfunctors.                                                    14
+                                         3.5. Mo-schemes.                                                                         15
+                                         3.6. Geometric realization.                                                              16
+                                         3.7. Restriction to abelian groups.                                                      18
+                                         4. The category MR and F1 -Schemes                                                       19
+                                         4.1. Gluing two categories using adjoint functors                                        20
+                                         4.2. Extension of functors.                                                              21
+                                         4.3. F1 -Schemes and Chevalley groups.                                                   23
+                                         4.4. Zeta function of Noetherian F1 -schemes                                             25
+                                         5. The projective adèle class space                                                     27
+                                         5.1. Vanishing result for Mo-schemes                                                     27
+                                         5.2. The map to the base                                                                 28
+                                         5.3. The monoid M = AK /K× of adèle classes                                             28
+                                         5.4. The space of functions on the projective adèle class space                         29
+                                         5.5. H 0 (P1F1 , Ω) and the graph of the Fourier transform                               30
+                                         5.6. Spectral realization on H 1 (P1F1 , Ω)                                              30
+                                         References                                                                               32
+
+
+                                         The authors are partially supported by the NSF grant DMS-FRG-0652164.
+                                                                                     1
+                                  1. Introduction
+In this paper we develop three correlated aspects pertaining to the broad theory of
+the “field of characteristic one”: F1 . The appearance, in printed literature, of some
+explicit remarks related to this (hypothetical) degenerate algebraic structure is due
+to J. Tits, who proposed its existence to explain the limit case of the algebraic
+structure underlying the geometry of a Chevalley group over a finite field Fq , as q
+tends to 1 (cf. [23], § 13 and [2]). A suggestive comment pointing out to a finite
+geometry inherent to the limit case q = 1 is also contained in an earlier paper by
+R. Steinberg (cf. [22], p. 279), in relation to a geometric study of the representation
+theory of the general linear group over a finite field.
+In more recent years, the classical point of view that adjoining roots of unity is
+analogous to producing extensions of a base field, has also been applied in the
+process of developing a suitable arithmetic theory over F1 . This idea lead to the
+introduction of the notion of algebraic field extensions F1n of F1 which are not
+defined per se, but are described by the following equation (cf. [21], § 2.4 and [15])
+                      F1n ⊗F1 Z := Z[T ]/(T n − 1) ,      n ∈ N.
+The need for a field of characteristic one has also emerged in Arakelov’s geometry,
+especially in the context of an absolute motivic interpretation of the zeros of zeta
+and L-functions (cf. [19], § 1.5). In [21] (§ 6), C. Soulé introduced the zeta function
+of a variety X over F1 by considering the polynomial integer counting function of
+the associated functor X.
+In this paper we take-up the following central question formulated in [19] which
+originally motivated the development of the study of the arithmetic over F1 .
+Question: Can one find a “curve” C = Spec Z over F1 (defined in a suitable
+sense) whose zeta function ζC (s) is the complete Riemann zeta function ζQ (s) =
+π −s/2 Γ(s/2)ζ(s)?
+After transforming the limit definition (for q → 1) of the zeta function given in
+[21] into an integral formula which is more suitable in the cases of general types of
+counting functions and distributions, we show how to determine the real counting
+function NC (q) = N (q), q ∈ [1, ∞) associated to the hypothetical curve C over F1 .
+A convincing solution to this problem is a fundamental preliminary test for any
+arithmetic theory over F1 . The difficulty inherent to the above question can be
+easily understood by considering the following facts. First of all, notice that the
+value N (1) is conjectured to take the meaning of the Euler characteristic of the curve
+C = Spec Z. Since one expects C to be of infinite genus (cf. [19]), N (1) is supposed
+to take the value −∞, thus precluding any easy use of the limit definition of the zeta
+and a naive approach to the definition of C, by generalizing the constructions of
+[21]. On the other hand, the counting function N (q) is also supposed to be positive
+for q real, q > 1, since it should detect the cardinality of the set of points of C
+defined over various “field extensions” of F1 . This requirement creates an apparent
+contradiction with the earlier condition N (1) = −∞.
+The precise statement of our result (cf. Theorem 2.2 and Remark 2.3) is as follows:
+
+
+
+
+                                           2
+(1) The counting function N (q) satisfying the above requirements exists and is
+given by the formula
+                                                       
+                                d X              q ρ+1 
+                    N (q) = q −          order(ρ)         +1                (1)
+                                dq                ρ+1
+                                          ρ∈Z
+
+where Z is the set of non-trivial zeros of the Riemann zeta function and the deriv-
+ative is taken in the sense of distributions.
+(2) The function N (q) is positive (as a distribution) for q > 1.
+(3) The value N (1) is equal to −∞ and reflects precisely the distribution of the
+zeros of zeta in E log E 1.
+This result supplies a strong indication on the coherence of the quest for an arith-
+metic theory over F1 . Notice also that (1) is entirely similar to the classical formula
+for the counting function of the number of points of a proper, algebraic curve X
+over Fp in the form
+                                          X
+                 #X(Fq ) = N (q) = q −         αℓ + 1,      , ∀q = pℓ
+                                            α∈Z
+
+where the α’s are the eigenvalues of the Frobenius operator acting on the cohomol-
+ogy of the curve.
+The equation (1) is a typical application of the Riemann-Weil explicit formulae.
+These formulae become natural when lifted to the idèle class group. This fact
+supports the expectation that, even if a definition of the hypothetical curve C is
+at this time still out of reach, its counterpart, through the application of the class-
+field theory isomorphism, can be realized by a space of adelic nature and this is in
+agreement with earlier constructions: cf. [3], [4] and [5].
+A second topic that we develop in this paper is centered on the definition of a
+suitable geometric theory of algebraic schemes over F1 . The viewpoint that we
+introduce in this article is an attempt at unifying the theories developed on the one
+side by Soulé in [21] and in our paper [2] and on the other side by A. Deitmar in
+[7], [8] (following N. Kurokawa, H. Ochiai and M. Wakayama [18]), by K. Kato in
+[16] (with the geometry of logarithmic structures) and by B. Töen and M. Vaquié
+in [24].
+In [2], we introduced a refinement of the original notion (cf. [21]) of an affine variety
+over F1 and following this path we proved that Chevalley group schemes are ex-
+amples of affine varieties defined over the field extension F12 . While in the process
+of assembling this construction, we realized that the functors (from finite abelian
+groups to graded sets) describing these affine schemes fulfill stronger properties than
+the ones required in the original definition of Soulé. In this paper we develop this
+approach and show that the functors underlying the structure of the most common
+examples of schemes (of finite type) over F1 extend from (finite) abelian groups
+to a larger category obtained by gluing together the category Mo of commutative
+monoids (used in [18], [16], [7], [24]) with the category Ring of commutative rings.
+This process uses a natural pair of adjoint functors relating Mo to Ring and follows
+an idea we learnt from P. Cartier. The resulting category MR (cf. §4 for details)
+
+   1E = 1 , ǫ > 0 appears when taking the derivative lim     J (1+ǫ)−J (1)
+         ǫ                                             ǫ→0         ǫ
+                                                                             of the primitive J of
+N (q)
+                                             3
+defines an ideal framework in which the above two approaches are combined to-
+gether to determine a very natural notion of variety (and of scheme) X over F1 .
+In particular, the conditions imposed in the original definition of a variety over F1
+in [21] are now applied to a covariant functor X : MR → Sets to the category of
+sets. Such a functor determines a scheme (of finite type) over F1 if it also fulfills
+the following three properties (cf. Definition 4.7):
+- The restriction XZ of X to Ring is a scheme in the sense of [10].
+- The restriction X of X to Mo is locally representable.
+- The natural transformation connecting X to XZ , when applied to a field, yields
+a bijection (of sets).
+The category Ab of abelian groups embeds as a full subcategory in Mo. This
+fact allows one, in particular, to restrict a covariant functor from Mo to sets to
+the subcategory (isomorphic to) Ab. In §3.7 we prove that if the Mo-functor is
+locally representable, then the restriction to Ab yields a functor to graded sets.
+This result shows that the grading structure that we assumed in [2] is now derived
+as a byproduct of this new refined approach.
+In particular, we deduce that Chevalley groups are F12 -schemes in our new sense;
+the group law exists on the set of points of lowest degree and is given by Tits’
+functorial construction of the normalizer of a maximal split torus.
+As an arithmetic application of our new theory of F1 -schemes we compute the
+zeta function of a Noetherian F1 -scheme X . Theorem 4.10 extends Theorem 1 of
+[9] beyond the toric case and states, under a local torsion free hypothesis on the
+scheme, the following results:
+(a) There exists a polynomial N (x + 1) with positive integral coefficients such that
+                        # X(F1n ) = N (n + 1)       ∀ n ∈ N.
+(b) For each finite field Fq , the cardinality of the set of points of the Z-scheme XZ
+which are rational over Fq is equal to N (q).
+(c) The zeta function of X in the sense of [21] is given by
+                                     Y          1
+                            ζX (s) =               n(x)
+                                                1 ⊗
+                                     x∈X 1 − s
+
+where the ⊗-product is the Kurokawa tensor product and n(x) denotes the local
+dimension at the point x ∈ X of the geometric realization of X (cf. Definition 3.19).
+The geometric theory of schemes over F1 that we have developed in §§ 3 and 4
+also reveals the importance to replace, when necessary, an abelian group H by a
+naturally associated commutative monoid M (with a zero element) so that H = M ×
+is interpreted as the group of invertible elements in the monoid. This idea applies
+in particular to the idèle class group CK of a global field K, since by construction
+the group CK is the group of invertible elements in the multiplicative monoid of the
+adèle classes
+                             M = AK /K× , K× = GL1 (K).                           (2)
+This application of the theory of Mo-schemes to the study of geometric objects
+more pertinent to the realm of noncommutative geometry determines the third
+aspect of the theory of F1 that we have developed in this paper. In our previous
+work, the adèle class space has been considered mostly as a noncommutative space
+                                          4
+and its algebraic structure as a monoid did not play any role. One of the goals of
+the present paper is to promote this additional structure by pointing out how and
+where it provides a precious guide.
+In §5, we consider the particular case of the Mo-scheme P1F1 describing a projective
+line over F1 . It turns out that this scheme provides a perfect geometric framework
+to understand simultaneously and at a conceptual level, the spectral realization of
+zeros of L-functions, the functional equation and the explicit formulae. All these
+statements are deduced by simply computing the cohomology of a natural sheaf Ω
+of functions on the set P1F1 (M ). The sheaf Ω is a sheaf of complex vector spaces
+over the geometric realization P1F1 of the Mo-scheme P1F1 . To define it we use a
+specific property of an Mo-scheme, namely the existence, for each monoid M , of a
+natural projection πM : X(M ) → X, connecting the Mo-scheme X (understood as
+a functor from the category Mo of monoids to sets) to its associated geometric space
+X, i.e. its geometric realization. For the Mo-scheme P1F1 the geometric realization
+P1F1 is a very simple space ([7]) which consists of three points
+
+             P1F1 = {0, u, ∞} , {0} = {0} , {u} = P1F1 , {∞} = {∞}.
+
+A striking fact is that in spite of the apparent simplicity of this space, the computa-
+tion of H 0 (P1F1 , Ω) already yields the graph of the Fourier transform: cf. Lemma 5.3.
+While the Fourier transform at the level of the adèles depends upon the choice of a
+basic character, this dependence disappears at the level of the quotient space M of
+adèle classes. Also we explicitly remark that while the singularity of the operation
+x 7→ x−1 on the space of adèles prevents one to obtain any interesting global func-
+tion on the projective space of the adèles, this difficulty disappears at the level of
+the quotient space M of adèle classes (in view of the above result on H 0 (P1F1 , Ω)).
+Theorem 5.5 states that the first cohomology group H 1 (P1F1 , Ω) of the sheaf Ω over
+P1F1 of complex valued functions on the projective space P1F1 (M ) provides the space
+of the spectral realization of the zeros of L-functions. The symmetry associated to
+the functional equation derives as a simple consequence of the inversion x 7→ x−1
+holding on P1F1 .
+Finally, we want to stress the point that the most interesting aspect of this final
+result does not rely on its technical part, since for instance the afore mentioned
+spectral realization is identical to that obtained in several earlier works cf. [20],
+[3], [6] and initiated in [1]. The novelty of our statement is that of proposing a
+new conceptual explanation for some fundamental constructions of noncommutative
+arithmetic geometry, in a way that the Fourier transform, the Poisson formula and
+the cokernel of the restriction map to the idèles all appear in an effortless and
+natural manner on the projective line P1F1 (M ).
+
+
+                  2. Zeta functions over F1 and C = Spec Z
+In [21] (cf. §6) C. Soulé introduced the zeta function of a variety X over F1 using
+the polynomial counting function N (x) ∈ Z[x] of the associated functor X. Af-
+ter correcting a sign misprint (which is faithfully reproduced in [9]), the precise
+definition of the zeta function is as follows
+
+                   ζX (s) := lim Z(X, q −s )(q − 1)N (1) ,    s∈R                   (3)
+                             q→1
+                                           5
+where Z(X, q −s ) denotes the evaluation at T = q −s of the Hasse-Weil exponential
+series                                                 
+                                          X         Tr
+                         Z(X, T ) := exp   N (q r )  .                         (4)
+                                                    r
+                                                  r≥1
+
+Notice, incidentally, that so defined ζX (s) fulfills the properties of an absolute
+motivic zeta function as predicted by Y. Manin in [19] (cf. §1.5).
+In this section, after transforming the limit (3) into an integral formula which
+is more suitable when dealing with general counting functions and distributions,
+we shall determine a precise formula for the counting function associated to the
+hypothetical curve C = Spec (Z).
+
+2.1. An integral formula for ∂s ζN (s)/ζN (s).
+Let N (q) be a real continuous function on [1, ∞) satisfying a polynomial bound
+|N (q)| ≤ Cq k , for some finite positive integer k and a fixed positive constant C.
+Then, the corresponding generating function takes the following form
+                                                           
+                                                          r
+                                            X           T
+                           Z(q, T ) = exp      N (q r ) 
+                                                         r
+                                                  r≥1
+
+and one knows that the power series Z(q, q −s ) converges for ℜ(s) > k. The zeta
+function over F1 associated to N (q) is
+                    ζN (s) := lim Z(q, q −s )(q − 1)χ , χ = N (1)
+                              q→1
+
+and this definition requires some care to assure its convergence. To eliminate the
+ambiguity in the extraction of the finite part, one works with the logarithmic de-
+rivative
+                              ∂s ζN (s)
+                                        = − lim F (q, s)                       (5)
+                               ζN (s)       q→1
+
+where
+                                              X                q −rs
+                           F (q, s) = −∂s           N (q r )         .           (6)
+                                                                 r
+                                              r≥1
+
+Lemma 2.1. With the above notations and for ℜ(s) > k, one has
+                             Z ∞
+              lim F (q, s) =     N (u)u−s d∗ u , d∗ u = du/u                     (7)
+                   q→1              1
+
+and
+                                             Z ∞
+                          ∂s ζN (s)
+                                    =−             N (u) u−s d∗ u .              (8)
+                           ζN (s)             1
+
+Proof. The proof follows immediately by noticing that
+                                     X
+                          F (q, s) =   N (q r ) q −rs log q
+                                        r≥1
+                                        R∞
+is the Riemann sum for the integral      1    N (u)u−s d∗ u.                      
+                                              6
+Let us first assume that N (1) = 0. We then get the following expression by inte-
+grating in s, with c a constant of integration,
+                                       Z ∞
+                                            N (u) −s ∗
+                         log(ζN (s)) =            u d u + c.                  (9)
+                                        1   log u
+In the general case (i.e. when N (1) 6= 0) one has to choose a principal value in the
+                                           N (u)
+expression (9) near u = 1, since the term        is singular. The normalization used
+                                           log u
+in [21], corresponds to the principal value
+                                  Z ∞                             
+                                         N (u) −s ∗
+                log(ζN (s)) = lim              u d u + N (1) log ǫ .             (10)
+                              ǫ→0    1+ǫ log u
+
+Notice that this choice does not alter (8). This fact is quite important since we
+shall use (8) to investigate the analytic nature of ζN (s).
+
+2.2. The counting function of C = Spec Z.
+It is natural to wonder on the existence of a “curve” C = Spec Z suitably defined
+over F1 , whose zeta function ζC (s) is the complete Riemann zeta function ζQ (s) =
+π −s/2 Γ(s/2)ζ(s) (cf. also [19]). In this subsection we shall show that the integral
+equation (8) produces a precise formula for the counting function NC (q) = N (q)
+associated to C. In fact, (8) shows in this case that
+                                          Z ∞
+                            ∂s ζQ (s)
+                                      =−      N (u) u−s d∗ u .                   (11)
+                             ζQ (s)        1
+
+This integral formula appears in the Riemann-Weil explicit formulae and when
+ℜ(s) > 1, one derives that
+                                 ∞          Z ∞
+                     ∂s ζQ (s) X
+                  −           =          −s
+                                    Λ(n)n +     κ(u) u−s d∗ u ,          (12)
+                      ζQ (s)    n=1          1
+
+where Λ(n) is the von-Mangoldt function2 and κ(u) is the distribution
+                                           u2
+                                κ(u) =                 ∀u>1
+                                         u2 − 1
+which is defined using a principal value to eliminate the divergence at u = 1. More
+precisely, the distribution κ(u) is defined, for any test function f , by
+     Z ∞                  Z ∞ 2
+                     ∗         u f (u) − f (1) ∗                      1
+          κ(u)f (u)d u =              2−1
+                                               d u + cf (1) ,    c = (log π + γ)
+      1                     1       u                                 2
+where γ = −Γ′ (1) is the Euler constant. Hence, we derive the consequence that
+the counting function N (q) of the hypothetical curve C over F1 , is the distribution
+                                                                              d
+given by the sum of κ(q) with the discrete term equal to the derivative dq      ϕ(q),
+                                                    3
+taken in the sense of distributions, of the function
+                                          X
+                                 ϕ(u) =       n Λ(n).                            (13)
+                                              n<u
+
+
+  2with value log p for powers pℓ of primes and zero otherwise
+  3the value at the points of discontinuity does not affect the distribution
+
+                                                7
+Indeed, since d∗ u = du
+                      u , one can write (12) as
+                                   Z ∞               
+                       ∂s ζQ (s)         d
+                    −            =         ϕ(u) + κ(u) u−s d∗ u.                 (14)
+                        ζQ (s)      1   du
+If one compares (14) and (11), one derives the following formula for N (u)
+                                       d
+                                N (u) =  ϕ(u) + κ(u).                             (15)
+                                      du
+The above expression encloses in a very subtle and intrinsic form a fundamental
+information on the description of the counting function as geometric “trace type”
+formula. To substantiate this statement, we recall the well-known equation (cf. [14],
+Chapter IV, Theorems 28 and P 29, and use ϕ(u) = uψ0 (u)−ψ
+                                                        R u 1 (u), where ψ0 (u) is the
+Chebyshev function ψ0 (u) = n<u Λ(n) and ψ1 (u) = 0 ψ0 (x)dx is its primitive)
+valid for u > 1 (and not a prime power)
+                                u2 X          uρ+1
+                       ϕ(u) =     −  order(ρ)      + a(u)                        (16)
+                                2             ρ+1
+                                     ρ∈Z
+
+where
+                                            1    ζ ′ (−1)
+                         a(u) = ArcTanh( ) −
+                                            u    ζ(−1)
+and Z denotes the set of non-trivial zeros of the Riemann zeta function. Notice
+that the sum over Z in (16) has to be taken in a symmetric manner to ensure
+convergence. When one differentiates it in a formal way, the term in a(u) gives
+                                   d           1
+                                     a(u) =        .
+                                  du        1 − u2
+Hence, at the formal level i.e. disregarding the principal value, one obtains
+                                   d
+                                     a(u) + κ(u) = 1.
+                                  du
+Thus, when one differentiates (at the formal level) (16) one gets
+                         d                     X
+               N (u) =     ϕ(u) + κ(u) ∼ u −       order(ρ) uρ + 1.              (17)
+                        du
+                                                 ρ∈Z
+
+This formula for the counting function is now entirely similar to that describing the
+counting function of the number of points of a curve C over a finite prime field Fp
+in the form of
+                                          X
+                  #C(Fq ) = N (q) = q −      αℓ + 1,      ∀ q = pℓ
+                                           α∈Z
+
+where the α’s are the eigenvalues of the Frobenius.
+Notice that in the above formal computations we have neglected to consider the
+principal value for the distribution κ(u). By taking this into account we obtain the
+more precise result
+Theorem 2.2. The distribution N (u) satisfying the equation
+                                    Z ∞
+                        ∂s ζQ (s)
+                      −           =     N (u) u−s d∗ u ,
+                         ζQ (s)      1
+                                           8
+is positive on (1, ∞) and is given on [1, ∞) by
+                                                         
+                                                      ρ+1
+                                   d  X            u
+                     N (u) = u −           order(ρ)       +1                   (18)
+                                  du                ρ+1
+                                        ρ∈Z
+
+where the derivative is taken in the sense of distributions, and the value at u = 1
+                    X            uρ+1
+of the term ω(u) =      order(ρ)       is given by
+                                 ρ+1
+                    ρ∈Z
+
+                                   1 γ  log 4π ζ ′ (−1)
+                          ω(1) =    + +       −         .                       (19)
+                                   2 2    2     ζ(−1)
+Proof. The positivity of the distribution N (u) on (1, ∞) follows from (15). For
+u > 1 we define
+                                    X            uρ+1
+                            ω(u) =      order(ρ)      .                      (20)
+                                                 ρ+1
+                                      ρ∈Z
+
+By (16) one has (for u > 1)
+                                              u2
+                            ω(u) = −ϕ(u) +       + a(u).                         (21)
+                                              2
+In a neighborhood of 1 one has ϕ(u) = 0 and a(u) ∼ − 21 log(u − 1) when u → 1+.
+Thus ω(u) diverges when u → 1 although it is locally integrable and defines a
+distribution. Since [1, ∞) has a boundary, the derivative of the distribution depends
+on its boundary value and is defined, for f smooth and of fast enough decay at ∞,
+as                                  Z ∞
+                  d                            d
+                h ω(u), f (u)i = −       ω(u) f (u)du − ω(1)f (1).               (22)
+                 du                  1        du
+                                                                       d
+We apply this to the function f (u) = u−s−1 , for ℜ(s) > 1. One has − du f (u) =
+(s + 1)u−s−2 and one obtains
+                                Z ∞
+                                               u2
+                                                        
+         d
+       h ω(u), f (u)i = (s + 1)      −ϕ(u) +      + a(u) u−s−2 du − ω(1).
+        du                       1              2
+By applying some results from [14] (cf. Chapter I, (17): use ϕ(u) = uψ0 (u) − ψ1 (u),
+ψ ′ (u) = ψ0 (u)), one deduces
+                                             Z ∞
+                           ∂s ζ(s)
+                         −         = (s + 1)     ϕ(u)u−s−2 du                   (23)
+                            ζ(s)              1
+and by using
+  Z ∞                                                  Z ∞
+                      1    1                                 u2 −s−2       1  1
+      (u + 1)f (u)du = +       ,            −(s + 1)           u     du = − −
+   1                  s  s − 1                         1     2             2 s−1
+one concludes that
+                                                          Z ∞
+        d                    1 1 ∂s ζ(s)
+ h(u −    ω(u) + 1), f (u)i = − −        + ω(1) − (s + 1)     a(u)u−s−2 du.
+       du                    s 2  ζ(s)                     1
+Finally, we claim that the following equation holds
+                     Z ∞
+         1                                 ∂s Γ(s/2) ζ ′ (−1)          γ
+           − (s + 1)     a(u)u−s−2 du = −           +         − log 2 − .
+         s            1                     Γ(s/2)    ζ(−1)            2
+Indeed, using a process of integration by parts one has
+                                            9
+  120
+
+
+  100
+
+
+   80                         JHuL = à NHuL â u
+                                                               Jm HuL
+   60
+
+
+   40
+
+
+   20
+
+
+           2         4         6          8        10         12        14
+
+        Figure 1. Primitive J(u) of N (u) and approximation using the
+        symmetric set Zm of first 2m zeros, by
+                                       u2 X             uρ+1
+                              Jm (u) =    −    order(ρ)      +u
+                                        2               ρ+1
+                                              Zm
+
+        Note that J(u) → −∞ when u → 1+.
+                 Z ∞                          Z ∞ −s+1
+                              1                      u
+        −(s + 1)      ArcTanh( ) − u u−s−2 du =       2
+                                                           du + b(ǫ)
+                  1+ǫ         u                  1+ǫ u − 1
+with
+                                                Z ∞
+                                                      u−1
+                                
+                   1
+b(ǫ) = − ArcTanh(     ) − (1 + ǫ) (1+ǫ)−s−1 = −       2
+                                                           du+c+O(ǫ log(1/ǫ))
+                  1+ǫ                            1+ǫ u − 1
+and c = 1 − log 2. Moreover one also knows that
+                                          Z ∞ −1
+                      ∂s Γ(s/2)     γ           u − u−s+1
+                                =− +                           du.
+                        Γ(s/2)      2      1       u2 − 1
+Thus one gets
+                              d                        ∂s ζQ (s)
+                       h(u −    ω(u) + 1), f (u)i = −            ,
+                             du                         ζQ (s)
+provided that
+                                 1 γ       log 4π ζ ′ (−1)
+                         ω(1) = + +                −          .                (24)
+                                 2 2          2       ζ(−1)
+To check this latter equality one cannot use the explicit formula (16) which is not
+valid at u = 1, since the term ArcTanh( u1 ) is infinite, therefore displaying the
+discontinuity of the function ω(u) at u = 1. To verify (24) we rather use the
+following formula (taken from [14], cf. III, (26))
+        ζ ′ (s)                                1 Γ′ s
+                         X 1             
+                   1                    1                                 γ
+                +     =             +       −      ( + 1) + log(2π) − 1 −
+        ζ(s)      s−1          s−ρ ρ           2Γ 2                       2
+                         Z
+                                        10
+when s → 1. We notice that the left hand side of the above formula tends to γ while
+the right hand side, using the symmetry ρ → 1 − ρ of the zeros (and a symmetric
+                              ′
+summation and the formula ΓΓ 23 = 2 − γ − 2 log 2) tends to
+                                  
+
+                                 X1
+                               2      − 2 + log(4π).
+                                    ρ
+                                        Z
+Thus one obtains
+                                X1          γ      1
+                                        =     + 1 − log(4π).
+                                    ρ       2      2
+                                Z
+One then concludes by using the equalities (cf. [14] IV, Theorem 28)
+                     X       1      1                 ζ ′ (−1)
+                                  = − log(4π) +
+                         ρ(ρ + 1)   2                 ζ(−1)
+                        Z
+
+and the formula (using a symmetric summation)
+                        X 1        X1 X          1
+                                =       −              .
+                           ρ+1        ρ       ρ(ρ + 1)
+                            Z                Z        Z
+                                                                                    
+Remark 2.3. In agreement with [21], the value N (1) should be thought of as the
+Euler characteristic of the hypothetical curve C over F1 . Since C is expected to
+have infinite genus, one would deduce that N (1) = −∞, in apparent conflict with
+the expected positivity of N (q) for q > 1. This apparent contradiction is resolved
+in the proof of Theorem 2.2, since the distribution N (q) is positive for q > 1 but
+its value at q = 1 is formally given by
+                             ω(1 + ǫ) − ω(1)      1                     1
+            N (1) = 2 − lim                   ∼ − E log E,        E=
+                        ǫ→0         ǫ             2                     ǫ
+reflecting, when ǫ → 0, also the density of the zeros.
+Equality (16) is a typical application of the Riemann-Weil explicit formulae which
+become natural once they are lifted to the idèle class group. It seems therefore
+natural also to expect that the hypothetical curve C = Spec (Z) is of adèlic nature
+and that it also possesses an action of the idèle class group. This speculation is in
+agreement with the interpretation of the explicit formulae as a trace formula, by
+using the noncommutative geometric formalism of the adèle class space (cf. [1], [3],
+[4], [5], [20]).
+
+                                    3. Mo-schemes.
+In this section we describe, following a functorial approach similar to that of [10],
+a generalization of the theory of Z-functors and schemes obtained by enlarging the
+category of rings to that of commutative monoids. This functorial construction will
+be applied in §4.3, after gluing together the categories of monoids and rings, to
+derive a new notion of F1 -schemes and associated zeta functions. Our construction
+has evident connections with the theory of schemes over F1 developed by A. Deitmar
+in [7], [8], with the theory of logarithmic structures of K. Kato in [16], with the
+arithmetic theory over F1 described by N. Kurokawa, H. Ochiai, M. Wakayama in
+[18], and with the algebro-topological approach followed by B. Töen and M. Vaquié
+in [24].
+                                                 11
+3.1. Monoids: the category Mo.
+Throughout the paper we denote by Sets, Ab, Ring respectively the categories of
+sets, abelian groups and commutative rings with unit.
+We let Mo be the category of commutative monoids M denoted multiplicatively,
+with a neutral element 1 (i.e. unit) and an absorbing element 0 (0 · x = x · 0 =
+0, ∀x ∈ M ).
+A homomorphism ϕ : M → N in Mo is unital (i.e. ϕ(1) = 1) and satisfying
+ϕ(0) = 0.
+Given a commutative group H in Ab, we set
+                F1 [H] = H ∪ {0}      (0 · h = h · 0 = 0,   ∀h ∈ H).
+Following the analogy with the category of rings, one sees that in Mo a monoid of
+the form F1 [H] corresponds to a field F (F = F × ∪ {0}) in Ring. The collection of
+monoids like F1 [H], for H ∈ Obj(Ab), forms a full subcategory of Mo isomorphic
+to the category of abelian groups: cf. Proposition 3.17.
+Definition 3.1. An Mo-functor F is a covariant functor from the category Mo to
+Sets.
+To a monoid M in Mo one associates the covariant functor spec M defined as follows
+           spec M : Mo → Sets        N 7→ spec M (N ) = HomMo (M, N ).          (25)
+Notice that by applying Yoneda’s lemma, a morphism of functors (natural trans-
+formation) ϕ : spec M → F , with F : Mo → Sets is completely determined by
+the element ϕ(idM ) ∈ F (M ), moreover any such element gives rise to a morphism
+spec M → F . By applying this fact to the functor F = spec N , for N ∈ Obj(Mo),
+one obtains an inclusion of Mo as a full subcategory of the category of Mo-functors.
+Morphisms in the category of Mo-functors are natural transformations.
+An ideal I of a monoid M is a subset I ⊂ M such that 0 ∈ I and x ∈ I =⇒ xy ∈
+I , ∀y ∈ M (cf. [11]). As for rings, an ideal I ⊂ M defines an interesting subfunctor
+D(I) ⊂ spec M :
+
+     D(I) : Mo → Sets,        D(I)(N ) = {ρ ∈ spec (M )(N )|ρ(I)N = N }.        (26)
+
+We recall that an ideal p ⊂ M is said to be prime if 1 ∈
+                                                       / p and its complement
+pc = M \ p is a multiplicative subset of M i.e.
+                             x∈
+                              / p, y ∈
+                                     / p =⇒ xy ∈
+                                               / p.
+For an ideal I ⊂ M , one denotes by D(I) the set of prime ideals p ⊂ M which
+do not contain I. These subsets are the open sets for the natural topology on the
+set X = Spec (M ) of prime ideals of M (cf. [16]). The smallest ideal containing
+a collection of ideals {Iα } of a monoid M is just the union I = ∪α Iα and the
+corresponding open subset D(I) ⊂ Spec (M ) = {p ⊂ M |p prime ideal} satisfies
+the property D(∪α Iα ) = ∪α D(Iα ). It is a standard fact that the inverse image
+of a prime ideal by a morphism of monoids is a prime ideal. Moreover, it is also
+straightforward to verify that the complement of the set of invertible elements in
+a monoid M , pM = (M × )c , is a prime ideal in M which contains all other prime
+ideals of the monoid.
+                                         12
+3.2. Automatic locality.
+An interesting property fulfilled by any Mo-functor is that of being local. Locality
+is not automatically satisfied by Z-functors, essentially it corresponds to state the
+exactness, on an open covering of an affine scheme Spec (R) = ∪i D(fi ) (fi ∈ R), of
+sequences such as (27) below. On the other hand, we shall see that an Mo-functor
+is local by construction. We recall the following result (cf. [7])
+Lemma 3.2. Let M be an object in Mo and let {Wα }α∈A (A a set) be an open
+cover of the topological space X = Spec (M ). Then Wα = Spec (M ), for some index
+α ∈ A.
+Proof. The point pM = (M × )c ∈ Spec (M ) must be contained in at least one Wα ,
+for some index α ∈ A. One has Wα = D(Iα ) for some ideal Iα ⊂ M , hence
+pM ∈ D(Iα ), for some α ∈ A and this means Iα ∩ M × 6= ∅, that is Iα = M .   
+Let M be an object of Mo. For S ⊂ M a multiplicative subset we recall that the
+monoid S −1 M is the quotient of the set made by all expressions a/s = (a, s) ∈ A×S,
+by the following equivalence relation
+                        a/s ∼ b/t       ⇔   ∃u∈S      uta = usb.
+One checks that the product a/s.b/t = ab/st is well-defined on the quotient S −1 M .
+For f ∈ M and S = {f n ; n ∈ Z≥0 } one denotes S −1 M by Mf .
+For any Mo-functor F and any monoid M one defines a sequence of maps of sets
+                             u
+                               Y             v /Y
+                     F (M ) −→     F (Mfi )     /   F (Mfi fj )                (27)
+                                                 w
+                                    i                ij
+
+which is obtained by using the open covering of Spec (M ) made by the open sets
+D(fi M ) (fi ∈ M ), the natural morphisms M → Mfi and the functoriality of F .
+The following lemma shows that any Mo-functor is local
+Lemma 3.3. For any Mo-functor F and any monoid M , the sequence (27) is
+exact.
+Proof. By Lemma 3.2, there exists an index i such that fi ∈ M × . One may
+assume thatQi = 1. Then, the map ρ1 : M → Mf1 is invertible thus u is injective.
+Let (xi ) ∈ i F (Mfi ) be a family, with xi ∈ F (Mfi ) such that (xi )fj = (xj )fi ,
+for all i, j. This gives in particular the equality between the image of xi ∈ F (Mfi )
+under the isomorphism F (ρi1 ) : F (Mfi ) → F (Mfi f1 ) and F (ρ1i )(x1 ) ∈ F (Mf1 fi ) =
+F (Mfi f1 ). By writing x1 = ρ1 (x) one finds that u(x) is equal to the family (xi ). 
+3.3. Open Mo-subfunctors.
+In analogy with the theory of Z-schemes, we now introduce the notion of an open
+subfunctor
+Definition 3.4. A subfunctor G ⊂ F of an Mo-functor F is open if for any object
+M of Mo and any morphism of Mo-functors ϕ : spec M → F , there exists an ideal
+I ⊂ M satisfying the following property
+For any object N of Mo and for any ρ ∈ spec M (N ) = HomMo (M, N ):
+                       ϕ(ρ) ∈ G(N ) ⊂ F (N ) ⇔ ρ(I)N = N.                           (28)
+To clarify the meaning of this definition we develop a few examples.
+                                            13
+Example 3.5. The functor
+                        G : Mo → Sets,     N → G(N ) = N ×
+is an open subfunctor of the (identity) functor D1
+                       D1 : Mo → Sets,     N → D1 (N ) = N.
+In fact, let M be a monoid, then by Yoneda’s lemma a morphism of functors
+ϕ : spec M → D1 is determined by an element z ∈ D1 (M ) = M . For any monoid
+N and ρ ∈ Hom(M, N ), one has ϕ(ρ) = ρ(z) ∈ D1 (N ) = N , thus the condition
+ϕ(ρ) ∈ G(N ) = N × means that ρ(z) ∈ N × . One takes for I the ideal generated by
+z in M : I = zM . Then it is straightforward to check that (28) is fulfilled.
+Example 3.6. Let I ⊂ M be an ideal of a monoid M and consider the subfunctor
+D(I) ⊂ spec (M ) as defined in (26). Then, D(I) is an open subfunctor of spec M .
+Indeed, for any object A of Mo and ϕ : spec A → spec M one has ϕ(idA ) = η ∈
+spec (M )(A) = HomMo (M, A). One takes in A the ideal J = η(I)A. This ideal
+fulfills the condition (28) for any object N of Mo and ρ ∈ HomMo (A, N ). In
+fact, one has ϕ(ρ) = ρ ◦ η ∈ HomMo (M, N ) and ϕ(ρ) ∈ D(I)(N ) means that
+ρ(η(I))N = N . This latter equality holds if and only if ρ(J)N = N .
+
+3.4. Open covering by Mo-subfunctors.
+The next task is to introduce the notion of an open cover in the category of Mo-
+functors. We shall use the fact (cf. Proposition 3.17) that the category Ab of abelian
+groups embeds as a full subcategory of Mo, by means of the functor H → F1 [H].
+Definition 3.7. Let F be an Mo-functor and let {Fα }α∈S be a family of open
+subfunctors of F . Then one says that {Fα }α∈S (S = an index set) is an open cover
+of F if                         [
+                   F (F1 [H]) =    Fα (F1 [H]), ∀H ∈ Obj(Ab).                 (29)
+                                α∈S
+
+Since commutative groups (with 0 added) replace fields in Mo, the above definition
+is the natural transposition of the definition of open covers as in [10] within the
+category of Mo-functors. The following proposition gives a precise characterization
+of the open covers of an Mo-functor
+Proposition 3.8. Let F be an Mo-functor and let {Fα }α∈S be a family of open
+subfunctors of F . Then, the family {Fα }α∈S forms an open cover of F if and only
+if                             [
+                     F (M ) =     Fα (M ), ∀ M ∈ Obj(Mo).
+                               α∈S
+
+Proof. The condition is obviously sufficient. To show the converse, we assume (29).
+Let M be a monoid and let ξ ∈ F (M ), one needs to show that ξ ∈ Fα (M ) for some
+α ∈ S. Let ϕ be the morphism of functors from spec M to F such that ϕ(idM ) = ξ.
+Since each Fα is an open subfunctor of F , one can find ideals Iα ⊂ M such that
+for any object N of Mo and for any ρ ∈ spec M (N ) = HomMo (M, N ) one has
+                     ϕ(ρ) ∈ Fα (N ) ⊂ F (N ) ⇔ ρ(Iα )N = N.                      (30)
+                                                     ×
+One applies this to the morphism ǫM : M → F1 [M ] = κ given by
+              ǫ
+          M → F1 [M × ] , ǫM (y) = 0 , ∀y ∈
+                                          / M × , ǫM (y) = y , ∀y ∈ M × .        (31)
+                                          14
+                                                S
+One has ǫM ∈ spec (M )(κ) and ϕ(ǫM ) ∈ F (κ) = α∈S Fα (κ). Thus, ∃α such that
+ϕ(ǫM ) ∈ Fα (κ). By (30) one has ǫM (Iα )κ = κ and Iα ∩ M × 6= ∅ hence Iα = M .
+Applying then (30) to ρ = idM one obtains ξ ∈ Fα (M ) as required.           
+
+3.5. Mo-schemes.
+In view of the fact that any Mo-functor is local, the definition of an Mo-scheme
+simply involves the local representability
+Definition 3.9. An Mo-scheme is an Mo-functor which admits an open cover by
+representable subfunctors.
+We shall consider several elementary examples of Mo-schemes
+
+Example 3.10. The affine spaces Dn . For a fixed n ∈ N, we consider the following
+Mo-functor
+                        Dn : Mo → Sets, Dn (M ) = M n
+This functor is representable since it is described by
+                           Dn (M ) = HomMo (F1 [T1 , . . . , Tn ], M ),
+where
+                  F1 [T1 , . . . , Tn ] := {0} ∪ {T1a1 · · · Tnan |aj ∈ Z≥0 }   (32)
+is the union of {0} with the semi-group generated by the Tj .
+Example 3.11. The projective line P1 . We consider the Mo-functor P1 which
+associates to an object M of Mo the set P1 (M ) of complemented submodules E of
+rank one in M 2 , where the rank is defined locally. By definition a complemented
+submodule is the range of an idempotent matrix e ∈ M2 (M ) (i.e. e2 = e) with each
+line having at most4 one non-zero entry. To a morphism ρ : M → N one associates
+the following map P1 (ρ)
+                               E → N ⊗M E ⊂ N 2
+which replaces e ∈ M2 (M ) by ρ(e) ∈ M2 (N ). The condition of rank one means that
+for any prime ideal p ∈ Spec M one has ǫp (e) ∈ / {0, 1} where ǫp is the morphism
+from M to F1 [Mp× ] (where Mp = S −1 M , with S = pc ) given by
+                           ǫp (y) = 0 , ∀y ∈ p , ǫp (y) = y , ∀y ∈
+                                                                 / p.           (33)
+                       1
+Now, we compare P with the Mo-functor
+                                     P(M ) = M ∪M × M                           (34)
+                                                     −1
+where the gluing map is given by x → x . In other words, we define on the
+disjoint union M ∪ M an equivalence relation given by (using the identification
+M × {1, 2} = M ∪ M )
+                           (x, 1) ∼ (x−1 , 2) ∀x ∈ M × .
+We define a natural transformation e from P to P1 by observing that the matrices
+                                                  
+                          1 0                   0 b
+               e1 (a) =            , e2 (b) =            , a, b ∈ M
+                          a 0                   0 1
+are idempotent (e2 = e) and their ranges also fulfill the following property
+                              Im e1 (a) = Im e2 (b) ⇐⇒ ab = 1.
+   4Note that we need the 0-element to state this condition
+
+                                                15
+Lemma 3.12. The natural transformation e is an isomorphism i.e.
+                            P(M ) = M ∪M × M ∼
+                                             = P1 (M ).
+Moreover, the two copies of M define an open cover of P1 by representable sub-
+functors D1 .
+Proof. We show that an idempotent matrix e ∈ M2 (M ) of rank one, with each line
+having at most one non-zero entry is of the form ej (a) for some j ∈ {1, 2}. First
+we claim that one of the matrix elements of
+                                             
+                                        a b
+                                  e=
+                                        c d
+must be invertible. Otherwise, by localizing M at the prime ideal pM = (M × )c
+one would obtain the zero matrix which contradicts the hypothesis of rank one.
+Assume first that a is invertible. Then b = 0, and from the idempotency condition
+on e one gets that a2 = a and hence a = 1. Now we show that d = 0. Again from
+the condition e2 = e one gets d2 = d. Then, if d 6= 0 there exists a prime ideal
+p ⊂ M such that d ∈  / p. This because the intersection of all prime ideals is the set
+of nilpotent elements. More generally, one knows ([11]) that given an ideal I ⊂ M ,
+the intersection of the prime ideals p ⊂ M , with p ⊃ I coincides with the radical
+of I                   \      √
+                          p = I := {x ∈ M |∃n ∈ N, xn ∈ I}.
+                      p⊃I
+Thus, by localizing M at p one gets that e is the unit matrix at p which contradicts
+the hypothesis of rank one. Thus d = 0 and e = e1 (c).
+If b is invertible then a = 0, bd = b so that d = 1 and c = 0 thus e = e2 (b).
+The two other cases are treated in a similar manner. The functor P admits by
+construction two copies of the functor D1 embedded in it as subfunctor. We need
+to show that these two subfunctors are open in P1 : we prove it for the first copy
+of D1 . Let N be an object of Mo. A morphism spec (N ) → P1 (in the category
+of Mo-functors) is determined by an element z ∈ P1 (N ). If z belongs to the first
+copy of N , it follows that for any ρ ∈ HomMo (N, M ), ρ(z) is in the first copy of
+D1 (M ). In this case one can take I = N . Otherwise, z belongs to the second copy
+of N and in this case, likewise in the above Example 3.5, one takes I = zN . The
+local representability follows since D1 is representable.                        
+
+Example 3.13. Let M be a monoid and let I ⊂ M be an ideal. Consider the
+Mo-functor D(I) of Example 3.6. The next proposition states that this is an Mo-
+scheme.
+Proposition 3.14. 1) Let f ∈ M and I = f M . Then the subfunctor D(I) ⊂
+spec M is represented by Mf .
+2) For any ideal I ⊂ M , the Mo-functor D(I) is an Mo-scheme.
+The proof is straightforward.
+
+3.6. Geometric realization.
+As in the case of Z-schemes (and following similar set-theoretic precautions as the
+ones stated in the preliminary chapter of [10]), it can be shown that any Mo-scheme
+                                          16
+X can be represented in the form
+                  X(N ) = Hom(Spec (N ), X)         N ∈ Obj(Mo),                 (35)
+where X is the associated geometric space, i.e. the geometric realization of X. In
+this framework, a geometric space is properly defined by
+• A topological space X
+• A sheaf OX of monoids on X.
+For details on the properties of the geometric spaces which are locally of the form
+Spec (M ) we refer to [16], [7] and [8]. Notice that there is no need to require that
+the stalks of the structural sheaf of a geometric space are “local” since any monoid
+has already a local algebraic structure. We recall only a few concepts from the
+basic terminology and we refer to [10], [16], [7] and [8] for details. A morphism
+ρ : M1 → M2 of monoids is said to be local if ρ−1 (M2∗ ) = M1∗ . A morphism
+ϕ : X → Y between two geometric spaces is given by a pair (ϕ, ϕ♯ ) of a continuous
+map ϕ and a local morphism of sheaves of monoids
+                                      ϕ♯
+                            Γ(V, OY ) → Γ(ϕ−1 (V ), OX )
+                             ϕ♯
+i.e. the map of stalks Oϕ(x) → Ox is local.
+The sheaf of monoids associated to the prime spectrum Spec (M ) satisfies the fol-
+lowing properties:
+• The stalk at p ∈ Spec (M ) is Op = S −1 M , with S = pc .
+• For any f ∈ M , the map ϕ : Mf → Γ(D(f M ), O) defined by
+              ϕ(x)(p) = a/f n ∈ Op    ∀p ∈ D(f M ) , ∀x = a/f n ∈ Mf
+is an isomorphism.
+                                                                         Q
+• On an open set U ⊂ Spec (M ), a section s ∈ Γ(U, O) is an element of p∈U Op
+such that on any open set D(f ) ⊂ U its restriction agrees with an element in Mf .
+For any geometric space (X, OX ), one defines (as in [10]) a canonical morphism
+ψX : X → Spec (O(X)).
+Definition 3.15. A geometric space (X, OX ) is a prime spectrum if the morphism
+ψX is an isomorphism. It is a geometric Mo-scheme if X admits an open covering
+by prime spectra.
+The terminology is justified since the Mo-functor X(M ) = Hom(Spec M, X) asso-
+ciated to a geometric Mo-scheme X is an Mo-scheme in the sense of Definition 3.9.
+We can now state
+Proposition 3.16. Under the same set-theoretic conditions as in [10], any Mo-
+scheme X can be represented in the form
+                            X(N ) = Hom(Spec (N ), X),                           (36)
+for a geometric Mo-scheme X which is unique up to isomorphism.
+
+The proof of this proposition follows the lines of that for Z-schemes exposed in [10].
+The geometric realization X (|X| in the notation of [10]) is constructed canonically
+as an inductive limit of prime spectra: cf. Proposition 4.1 of op.cit. Proposition 3.8
+ensures that the natural map from Hom(Spec (N ), X) to X(N ) is surjective.
+                                           17
+3.7. Restriction to abelian groups.
+In this section we describe the functor obtained by restricting Mo-schemes to the
+category Ab of abelian groups. We first recall the definition of the natural functor-
+inclusion of Ab in Mo.
+Proposition 3.17. The covariant functor
+                          F1 [ · ] : Ab → Mo     H 7→ F1 [H]
+embeds the category of abelian groups as a full subcategory of the category of com-
+mutative monoids.
+Proof. We show that the group homomorphism
+              HomAb (H, K) −→ HomMo (F1 [H], F1 [K])           φ → F1 [φ]
+is bijective. It is injective by restriction to H ⊂ F1 [H]. Moreover, any unital
+monoid homomorphism in HomMo (F1 [H], F1 [K]) preserves the absorbing elements
+and sends invertible elements to invertible elements since it is unital. Thus it arises
+from a group homomorphism.                                                           
+
+We shall identify Ab with this full subcategory of Mo. Of course, any Mo-functor
+X : Mo → Sets can be restricted to Ab and it gives rise to a functor taking values
+in Sets.
+In fact, there is a pair of adjoint functors: Ab → Mo, H 7→ F1 [H] and Mo →
+Ab, M 7→ M × linked by the isomorphism
+                        HomMo (F1 [H], M ) ∼
+                                           = HomAb (H, M × ).
+Moreover, for a monoid M , the Weil restriction of the functor spec M , is defined
+by
+                    Ab → Sets, H → HomMo (M, F1 [H]).                         (37)
+The next proposition shows that the restriction to Ab of an Mo-scheme is a direct
+sum of representable functors.
+Proposition 3.18. Let X be an Mo-scheme and X its geometric realization. Then
+the (restriction) functor
+             X : Ab → Sets,     H 7→ Hom(Spec F1 [H], X) = X(F1 [H])
+is the disjoint union
+              X(F1 [H]) = ∪x∈X Xx (H) , Xx (H) = HomAb (Ox× , H).                 (38)
+Proof. Let ϕ ∈ Hom(Spec F1 [H], X). The unique point p ∈ Spec F1 [H] corresponds
+to the ideal (0). Let ϕ(p) = x ∈ X be its image; there is a corresponding map of
+the stalks
+                            ϕ# : Oϕ(p) → Op = F1 [H].
+This homomorphism is local by hypothesis: this means that the inverse image
+of (0) by ϕ# is the maximal ideal of Oϕ(p) = Ox . Therefore, the map ϕ# is
+entirely determined by the group homomorphism ρ ∈ HomAb (Ox× , H) obtained as
+the restriction of ϕ# . Thus ϕ ∈ Hom(Spec F1 [H], X) is entirely specified by a point
+x ∈ X and a group homomorphism ρ ∈ HomAb (Ox× , H).                                
+                                          18
+In algebraic geometry, given an algebraic variety X one knows that the degree of
+transcendence of the residue field κ(x) of a point x ∈ X measures the dimension
+of the closure {x} ⊂ X. For an Mo-scheme one has the following corresponding
+(local) notion
+
+Definition 3.19. Let X be a geometric Mo-scheme and let x ∈ X be a point. The
+local dimension n(x) of x is the rank of the abelian group Ox× .
+
+The local dimension determines a natural grading on the restriction of an Mo-
+scheme X to Ab by assigning the degree n(x) to the subset Xx (H) ⊂ X(F1 [H]) in
+the decomposition (38).
+
+Proposition 3.20. The restriction to Ab of the following Mo-schemes X coincides
+as a functor to Z≥0 -graded sets with the functors defined in [2]
+    (1) Finite abelian groups D: X = spec F1 [D]
+    (2) Tori Gm : X = spec F1 [Z]
+    (3) Affine space Dn : X = spec F1 [T1 , . . . , Tn ]
+    (4) Projective line X = P1F1
+
+Proof. 1) The space Spec F1 [D] has a single point and the local dimension is 0
+which agrees with example 3.1 of [2].
+2) The space Spec F1 [Z] has a single point and the local dimension is 1 which agrees
+with example 3.2 of [2]. This extends immediately to higher dimensional tori.
+3) Let M = F1 [T1 , . . . , Tn ] = {0} ∪ {T1a1 · · · Tnan |aj ∈ Z≥0 }. A prime ideal p of M
+                                                                                          c
+is of the form p = ∪i∈J Ti M , where J is a subset of {1, . . . , n}. One has Op× ≃ ZJ ,
+generated by the Tj ’s, with j ∈   / J. Thus the local dimension of Spec M at p is the
+cardinality of J c and this agrees with example 3.3 of [2].
+4) The geometric realization P1F1 is obtained by gluing two affine lines (cf. [7] and
+§3) and consists of three points P1F1 = {0, u, ∞} where the local dimension is zero
+at 0 and ∞ and is one at u. This agrees with example 3.4 of [2].                          
+
+
+                      4. The category MR and F1 -Schemes
+As we already remarked in [2] (cf. §4), the definition of the (affine) variety over F1
+for a Chevalley group is inclusive of the datum given by a covariant functor to the
+category Sets of sets, fulfilling much stronger properties than the ones required orig-
+inally in [21] (for affine varieties). The domain of such functor is a category which
+contains both the category of commutative rings and that of monoids (these two
+categories being linked by a pair of adjoint functors) and moreover in the definition
+of the variety one also requires the existence of a suitable natural transformation.
+In this section we develop the details of this construction following an idea we learnt
+from P. Cartier. The introductory subsection §4.1 develops some generalities on the
+gluing process of two categories linked by a pair of adjoint functors. In §4.2, we
+also treat in this generality the extension of functors. The specific case of interest is
+covered in §4.3 where we show that Chevalley groups are schemes over F12 . Finally,
+in §4.4 we extend the computation of zeta functions of [9] (Theorem 1) to our new
+setup which is no longer restricted to toric varieties (as it covers in particular the
+case of Chevalley groups).
+                                              19
+4.1. Gluing two categories using adjoint functors.
+We consider two categories C and C ′ and a pair of adjoint functors β : C → C ′ and
+β ∗ : C ′ → C. Thus, one has a canonical identification
+                          Φ
+     HomC ′ (β(H), R) ∼
+                      = HomC (H, β ∗ (R))               ∀ H ∈ Obj(C), R ∈ Obj(C ′ ).            (39)
+The naturality of Φ is expressed by the commutativity of the following diagram
+where the vertical arrows are given by composition, ∀f ∈ HomC (G, H) and ∀h ∈
+HomC ′ (R, S)
+                                               Φ    / HomC (H, β ∗ (R))
+                      HomC ′ (β(H), R)
+
+                 Hom(β(f ),h)                                  Hom(f,β ∗ (h))                   (40)
+                                                            
+                       HomC ′ (β(G), S)             / HomC (G, β ∗ (S))
+                                               Φ
+
+We shall now define a category C = C ∪β,β ∗ C ′ obtained by gluing C and C ′ . The
+                                          ′′
+
+collection5 of objects of C ′′ is obtained as the disjoint union of the collection of
+objects of C and C ′ . For R ∈ Obj(C ′ ) and H ∈ Obj(C), one sets HomC ′′ (R, H) = ∅.
+On the other hand, one defines
+               HomC ′′ (H, R) = HomC ′ (β(H), R) ∼= HomC (H, β ∗ (R)).           (41)
+The morphisms between objects contained in a same category are unchanged. The
+composition of morphisms in C ′′ is defined as follows. For φ ∈ HomC ′′ (H, R) and
+ψ ∈ HomC (H ′ , H), one defines φ ◦ ψ ∈ HomC ′′ (H ′ , R) as the composite
+                      φ ◦ β(ψ) ∈ HomC ′ (β(H ′ ), R) = HomC ′′ (H ′ , R).                       (42)
+Using the commutativity of the diagram (40), one obtains
+                       Φ(φ ◦ β(ψ)) = Φ(φ) ◦ ψ ∈ HomC (H ′ , β ∗ (R)).                           (43)
+                                    ′                                         ′
+Similarly, for θ ∈ HomC ′ (R, R ) one defines θ ◦ φ ∈ HomC ′′ (H, R ) as the composite
+                        θ ◦ φ ∈ HomC ′ (β(H), R′ ) = HomC ′′ (H, R′ )                           (44)
+and using again the commutativity of (40) one obtains that
+                       Φ(θ ◦ φ) = β ∗ (θ) ◦ Φ(φ) ∈ HomC (H, β ∗ (R′ )).                         (45)
+Moreover, one also defines specific morphisms αH and α′R as follows
+                αH = idβ(H) ∈ HomC ′ (β(H), β(H)) = HomC ′′ (H, β(H))                           (46)
+    α′R = Φ−1 (idβ ∗ (R) ) ∈ Φ−1 (HomC (β ∗ (R), β ∗ (R))) = HomC ′′ (β ∗ (R), R).              (47)
+By construction one gets
+                     HomC ′′ (H, R) = {g ◦ αH | g ∈ HomC ′ (β(H), R)}                           (48)
+and for any morphism ρ ∈ HomC (H, K) the following equation holds
+                                        αK ◦ ρ = β(ρ) ◦ αH .                                    (49)
+Similarly, it also turns out that
+                     HomC ′′ (H, R) = {α′R ◦ f | f ∈ HomC (H, β ∗ (R))}                         (50)
+and the associated equalities hold
+                        α′S ◦ β ∗ (ρ) = ρ ◦ α′R         ∀ρ ∈ HomC ′ (R, S)                      (51)
+   5It is not a set: we refer for details to the discussion contained in the preliminaries of [10]
+                                                   20
+                    g ◦ αH = α′R ◦ Φ(g)         ∀g ∈ HomC ′ (β(H), R).                    (52)
+
+Proposition 4.1. C ′′ = C ∪β,β ∗ C ′ is a category which contains C and C ′ as full
+subcategories. Moreover, for any object H of C and R of C ′ , one has
+               HomC ′′ (H, R) = HomC ′ (β(H), R) ∼
+                                                 = HomC (H, β ∗ (R)).
+Proof. One needs to check that the composition ◦′′ of morphisms is associative
+in C ′′ i.e. that h ◦′′ (g ◦′′ f ) = (h ◦′′ g) ◦′′ f . The only relevant case to check is
+when the image of f is an object H of C and the image of g is an object R of C ′ .
+Then f (G) = H, with G an object of C and h(R) = S an object of C ′ . One has
+g ∈ HomC ′ (β(H), R) and
+ g ◦′′ f = g ◦ β(f ) , h ◦′′ (g ◦′′ f ) = h ◦ (g ◦ β(f )) = (h ◦ g) ◦ β(f ) = (h ◦′′ g) ◦′′ f
+                                                                                                
+4.2. Extension of functors.
+We keep the notations introduced in §4.1 and let (β, β ∗ ) be a pair of adjoint functors
+linking C and C ′ , i.e. β : C → C ′ and β ∗ : C ′ → C and the isomorphism (39) holds.
+Let F : C → T and F ′ : C ′ → T be covariant functors to the same category T . It is
+straightforward routine to verify that the assignment of a natural transformation
+F → F ′ ◦ β is equivalent to giving a natural transformation F ◦ β ∗ → F ′ . By
+implementing in this setup the category C ′′ = C ∪β,β ∗ C ′ defined in §4.1, one obtains
+the following more precise result
+Proposition 4.2. 1) With the above notation, let F ′′ : C ′′ → T denote a covari-
+ant functor. Then the assignment H 7→ F ′′ (αH ) defines a natural transformation
+F ′′ |C → F ′′ |C ′ ◦ β and analogously the assignment R 7→ F ′′ (α′R ) defines a natural
+transformation F ′′ |C ◦ β ∗ → F ′′ |C ′ .
+2) Let F : C → T and F ′ : C ′ → T be covariant functors. Then
+a) Given a natural transformation F → F ′ ◦ β, there exists a unique covariant
+functor F ′′ which extends F , F ′ and agrees with the natural transformation on the
+morphisms αH .
+b) Given a natural transformation F ◦ β ∗ → F ′ , there exists a unique covariant
+functor F ′′ which extends F , F ′ and agrees with the natural transformation on the
+morphisms α′R .
+Proof. 1) follows from (49) and (51).
+2) a) A natural transformation F → F ′ ◦ β determines, by (48), the extension from
+C ∪ C ′ to C ′′ = C ∪β,β ∗ C ′ .
+2) b) The proof is similar to the proof of 2a).                                  
+Let us assume now that we are given a functor F : C → T , where T = Sets. In
+the following we shall investigate under which conditions F admits an extension to
+C ′′ = C ∪β,β ∗ C ′ .
+Notice first that if F is representable, then it admits a unique representable exten-
+sion to C ′′ . Indeed, the representability of C amounts to the existence of an object
+G in C such that
+                         F (H) = HomC (G, H)       ∀H ∈ Obj(C).
+If the extension of F is represented by an object of C ′′ then this object must
+necessarily belong to C, since by definition of C ′′ there is no morphism of C ′′ from
+                                              21
+an object of C ′ to an object of C. Moreover, by restriction to C one gets the
+uniqueness of the extension. Thus, any extension of F to C ′′ which is represented
+by an object of this latter category is unique (as a representable functor) and is
+given on C ′ by
+                             F ′ (R) = HomC ′ (β(G), R).                      (53)
+The natural transformation F → F ′ ◦ β is simply given by the restriction of the
+functor β
+                    β : HomC (G, H) → HomC ′ (β(G), β(H)).
+Similarly, the natural transformation F ◦ β ∗ → F ′ is defined by the identity map
+        HomC (G, β ∗ (R)) → F ′ (R) = HomC ′ (β(G), R) ∼
+                                                       = HomC (G, β ∗ (R)).
+Thus, the following result holds
+Proposition 4.3. Let F : C → Sets be a representable functor.
+1) There exists a unique extension F̃ of F to C ′′ = C ∪β,β ∗ C ′ as a representable
+functor.
+2) Let G be any extension of F to C ′′ = C ∪β,β ∗ C ′ . Then, there exists a unique
+morphism of functors from F̃ to G which restricts to the identity on C.
+Proof. For 1), we notice that the object of C representing F is unique up to iso-
+morphism and it represents F̃ .
+The proof of 2) follows from the following facts. If A ∈ Obj(C) represents F̃ , by
+applying Yoneda’s lemma (i.e. Nat(F̃ , G) ≃ G(A)) we know that there exists a
+uniquely determined natural transformation φ : F̃ → G associated to any object ρ
+of G(A): the pair (φ, ρ) being linked by the formulas ρ = φ(A)(idA ) ∈ G(A) and
+φ = ρ♯ (ρ♯ (R)(β) = G(β)(ρ)). But since the restriction of φ to C is the identity map
+from F (A) to G(A) = F (A), one obtains the required uniqueness.                    
+
+The following corollary shows that even though the extension F̃ of F to C ′′ =
+C ∪β,β ∗ C ′ is not unique it is universal.
+Corollary 4.4. Let F : C → Sets be a representable functor and let F ′ : C ′ → Sets
+be defined as in (53). Let G ′ be a functor from C ′ to Sets and let φ : F → G ′ ◦ β
+be a natural transformation. Then there exists a unique morphism of functors
+ψ : F ′ → G ′ such that
+                      φH = ψβ(H) ◦ F̃ (αH )       ∀H ∈ Obj(C).                    (54)
+                       ′
+Proof. Given φ and G , there exists by Proposition 4.2 a unique extension G of F
+to C ′′ = C ∪β,β ∗ C ′ which restricts to G ′ on C ′ and is such that
+                           φH = G(αH )         ∀H ∈ Obj(C).
+A morphism of functors from F̃ to G extending the identity on C is entirely specified
+by its restriction to C ′ which is a morphism of functors ψ from F ′ to G ′ and it must
+be compatible with the morphisms αH . This compatibility is given by (54). Thus
+the existence and uniqueness of ψ follows from Proposition 4.3.                      
+
+The next proposition states a similar, but simpler, result for extensions of functors
+from C ′ to the larger category C ′′ = C ∪β,β ∗ C ′ .
+                                          22
+Proposition 4.5. Let F ′ : C ′ → Sets be a functor.
+1) There exists a unique extension F̃ of F ′ to C ′′ = C ∪β,β ∗ C ′ given by F ′ ◦ β on C
+and such that F̃ (αH ) = idβ(H) for all objects H of C.
+2) Let G be any extension of F ′ to C ′′ = C ∪β,β ∗ C ′ , then there exists a unique
+morphism of functors from G to F̃ which is the identity on C ′ .
+Proof. The first statement follows from 2) of Proposition 4.2 by using the identity
+as a natural transformation. Similarly, for the second statement, again 2) of Propo-
+sition 4.2 determines a unique morphism of functors φ given by φ(H) = G(αH ) and
+obtained from the restriction of G to C to G ◦ β = F ′ ◦ β. We extend φ as the
+identity on C ′ . The commutative diagram
+                                            G(αH )
+                                 G(H)                 / G(β(H))
+
+                                    φH                                              (55)
+                                                            
+                          F̃ (H) = F ′ (β(H))         / F̃ (β(H))
+
+shows that one obtains a morphism of functors from G to F̃ . The same diagram
+also gives the uniqueness of φ.                                             
+
+
+4.3. F1 -Schemes and Chevalley groups.
+We now apply the construction described in §§4.1, 4.2 to the pair of adjoint covariant
+functors β and β ∗ which are defined as follows. The functor
+                       β : Mo → Ring ,     M 7→ β(M ) = Z[M ]                       (56)
+associates to a monoid M the convolution ring Z[M ] (the 0 element of M is sent
+to 0). The adjoint functor β ∗
+                         β ∗ : Ring → Mo        R 7→ β ∗ (R) = R                    (57)
+associates to a ring R the ring itself viewed as a multiplicative monoid. The ad-
+junction relation means that
+                     HomRing (β(M ), R) ∼ = HomMo (M, β ∗ (R)).              (58)
+Now, we apply Proposition 4.1 to construct the category MR = Ring ∪β,β ∗ Mo.
+Thus, one obtains for every object R of Ring, a morphism
+                               α′R ∈ HomMR (β ∗ (R), R)                             (59)
+and the following relation between the morphisms of MR:
+                     f ◦ α′R = α′S ◦ β ∗ (f ) , ∀f ∈ HomRing (R, S).                (60)
+Similarly, for every monoid M one has a morphism
+                              αM ∈ HomMR (M, β(M ))                                 (61)
+together with the relation
+                     β(f ) ◦ αM = αN ◦ f , ∀f ∈ HomMo (M, N ).                      (62)
+Definition 4.6. An F1 -functor is a covariant functor from the category MR =
+Ring ∪β,β ∗ Mo to the category of sets.
+                                           23
+Then, it follows from Proposition 4.2 that giving an F1 -functor X : MR → Sets is
+equivalent to the assignment of the following data:
+• An Mo-functor X.
+• A Z-functor XZ .
+• A natural transformation e : X → XZ ◦ β.
+The third condition can be equivalently replaced by the assignment of a natural
+transformation X ◦ β ∗ → XZ .
+Now that we have at our disposal the category MR obtained by gluing Mo and
+Ring we introduce our notion of an F1 -scheme.
+Definition 4.7. An F1 -scheme is an F1 -functor X : MR → Sets, such that:
+• The restriction XZ of X to Ring is a Z-scheme.
+• The restriction X of X to Mo is an Mo-scheme.
+• The natural transformation e : X ◦ β ∗ → XZ associated to a field is a bijection
+(of sets).
+Morphisms of F1 -schemes are natural transformations of the corresponding functors.
+Notice that even though the restriction X of X to Mo is an Mo-scheme, the com-
+posite X ◦ β ∗ is not in general a Z-scheme since it is not a local Z-functor. As
+an example, one may consider the case of X = P1 : here, the above composition
+of functors determines only a smaller portion of the projective line as a Z-scheme.
+However, one can associate to X ◦ β ∗ a unique Z-scheme Y that is defined by
+assigning to a ring R the set Y (R) of solutions of (27), using X ◦ β ∗ and an ar-
+bitrary partition of unity in R. Proposition 4.3 describes a canonical morphism of
+Z-schemes from Y to XZ . However, this morphism is not in general an isomorphism:
+we refer, for instance, to the case of Chevalley groups described in [2]. Proposi-
+tion 4.5 describes the natural morphism from the Mo-scheme X to the “gadget”
+(cf. [2] Definition 2.5) associated to the Z-scheme XZ .
+Definition 4.7 admits variants corresponding to the extensions F1n . For Chevalley
+schemes we shall need to consider only the case n = 2. One defines the category
+Mo(2) of pairs made by an object M of Mo and an element ǫ ∈ M of square one.
+One defines the functors β : Mo(2) → Ring as β(M, ǫ) = Z[M, ǫ]
+                 β(M, ǫ) = Z[M, ǫ] = Z[M ]/J , J = (1 + ǫ)Z[M ]               (63)
+and β ∗ : Ring → Mo(2) as β ∗ (A) = (A, −1), where (A, −1) is the object of Mo(2)
+given by the ring A viewed as a (multiplicative) monoid and the element −1 ∈ A.
+Then, the following adjunction relation holds for any commutative ring A
+                HomRing (β(M, ǫ), A) ∼
+                                     = HomMo(2) ((M, ǫ), β ∗ (A)).            (64)
+Finally, we have the following result
+Theorem 4.8. The scheme G over Z associated to a Chevalley group G extends
+to a scheme G over F12 .
+Proof. The proof follows from [2] Theorem 4.1, where we showed that
+                                                                  (2)
+• The construction of the functor G extends from the category Fab of pairs (D, ǫ)
+of a finite abelian group and an element of order two to the category Mo(2) .
+                                        24
+                                                                            (2)
+• The construction of the natural transformation eG extends from Fab to the
+category Mo(2) and associates to any A ∈ Obj(Ring) a map
+
+                           eG,A : G(A, −1) → G(A)                                 (65)
+• When A is a field the map eG,A is a bijection.                                    
+
+The map eG,A of (65) is constructed in [2], cf. proof of Theorem 4.1, it yields the
+natural transformation from G ◦ β ∗ to G (and using (52) the corresponding natural
+transformation from G to G ◦ β). For H ∈ Obj(Ab), this natural transformation
+is compatible with the group structure on the subset G(ℓ) (H). We recall that
+G(ℓ) (H) ⊂ G(H) is the part of lowest degree (ℓ = rk G) in the grading of G (cf.
+Definition 3.19).
+4.4. Zeta function of Noetherian F1 -schemes.
+We recall that a congruence on a monoid M is an equivalence relation which is com-
+patible with the semigroup operation. A monoid is Noetherian when any strictly
+increasing sequence of congruences is finite (cf. [11] page 30). The following condi-
+tions on a monoid M are equivalent (cf. [11]: Theorems 7.7, 7.8 and 5.10)
+- M is Noetherian.
+- M is finitely generated.
+- Z[M ] is a Noetherian ring.
+It is proven in [11] (Theorem 5.1) that if M is a Noetherian monoid, then for any
+prime ideal p ⊂ M the localized monoid Mp is also Noetherian (the semigroup pc is
+finitely generated and thus Mp is also finitely generated). The same theorem also
+shows that the abelian group (Mp )× is finitely generated.
+Definition 4.9. An Mo-scheme is Noetherian if it admits a finite open cover by
+representable subfunctors spec (M ), with M Noetherian monoids.
+An F1 -scheme is Noetherian if the associated Mo and Z-schemes are Noetherian.
+A geometric Mo-scheme X is said to be torsion free if the groups Ox× of invertible
+elements of the monoids Ox , for x ∈ X are torsion free. The following result is
+related to Theorem 1 of [9], but it applies to a wider class of varieties (i.e. non
+necessarily toric)
+Theorem 4.10. Let X be a Noetherian F1 -scheme and let X be the geometric
+realization of its restriction X to Mo. Then, if X is torsion free,
+     (1) There exists a polynomial N (x + 1) with positive integral coefficients such
+         that
+                            # X(F1n ) = N (n + 1) , ∀n ∈ N.
+     (2) For each finite field Fq the cardinality of the set of points of the Z-scheme
+         XZ which are rational over Fq is equal to N (q).
+     (3) The zeta function of X has the following description
+                                        Y         1
+                               ζX (s) =             n(x)                          (66)
+                                                  1 ⊗
+                                        x∈X 1 − s
+
+        where ⊗ denotes Kurokawa’s tensor product and n(x) is the local dimension
+        of X at the point x.
+                                          25
+In (66), we use the convention that when n(x) = 0 the expression
+                                      ⊗n(x)
+                                     1
+                                 1−           = s.
+                                     s
+We refer to [17] and [19] for the details of the definition of Kurokawa’s tensor
+products and zeta functions. When X is the projective line P1F1 , one has three
+points in X: two are of dimension zero and one is of dimension one. Thus (66)
+gives
+                    Y         1          1 1            1
+                                n(x) = s2 1 − 1 = s(s − 1) .
+                              1 ⊗
+                   x∈X 1 −        s            s
+
+Formula (66) continues to hold even in the presence of torsion and in that case it
+corresponds to the treatment of torsion given in [9].
+
+Proof. (1) By construction, X(F1n ) is the set obtained by evaluating the restriction
+of X (from the subcategory Mo of MR) on Ab, at the cyclic group H = Z/nZ. By
+Proposition 3.18 one has
+                   X(H) = ∪X x (H) , X x (H) = HomAb (Ox× , H).                     (67)
+Since X is Noetherian it is a finite topological space and for each x ∈ X the abelian
+group Ox× is finitely generated and torsion free by hypothesis. The rank of Ox× is
+n(x) and thus the set X x (H) = HomAb (Ox× , H) has cardinality nn(x) . It follows
+that                                       X
+                                   P (y) =     y n(x) .
+                                           x∈X
+is a polynomial function in the indeterminate y with positive integral coefficients
+which is related to the counting function of X by the equation N (x + 1) = P (x).
+Then (1) follows.
+(2) follows from (1) and the fact that the natural transformation e (which is part
+of the set of data describing an F1 -scheme, cf. Definition 4.7) evaluated at any field
+is a bijection. In the case of a finite field Fq , the corresponding monoid is F1 [H] for
+the cyclic group H = Z/nZ of order n = q − 1.
+To prove (3), we start by computing explicitly the Kurokawa’s tensor product (for
+n > 0) as follows
+                        ⊗n
+                       1                             n                  n
+                                      (s − n + j)( j ) /    (s − n + j)( j ) .
+                                 Y                       Y
+                   1−        =                                                      (68)
+                       s        j even               j odd
+
+The above equality is a straightforward consequence of the definition of the Kurokawa’s
+tensor product since the divisor of zeros of 1 − 1s is {1} − {0} and its n-th power is
+given by the binomial formula
+                                                  
+                                                k n
+                                       X
+                                   n
+                       ({1} − {0}) =       (−1)        {n − k}.
+                                                    k
+To obtain (66) we use (67) to express ζX (s) as a product over the points of X and
+then we apply the well-known fact
+                              d
+                              X                       d
+                                                      Y
+                    N (x) =       ak xk =⇒ ζX (s) =     (s − k)−ak                  (69)
+                              0                        0
+                                           26
+and (68) to show that the zeta function for the polynomial (q − 1)n is the inverse
+          ⊗n
+of 1 − 1s     .                                                                 
+
+                      5. The projective adèle class space
+In this section we develop an application of the functorial approach of the theory of
+Mo-schemes described in §3 to explain, at a conceptual level, the spectral realization
+of zeros of L-functions for an arbitrary global field K.
+
+5.1. Vanishing result for Mo-schemes.
+In this subsection, we shall first briefly review some standard facts on sheaf coho-
+mology and then we will show that for sheaves of abelian groups over (the geometric
+realization of) an Mo-scheme, sheaf cohomology and Čech cohomology agree.
+Given a topological space X, we denote by Ab(X) the category of sheaves of abelian
+groups on X. It is a well-known fact that Ab(X) is an abelian category with enough
+injectives (cf. [12], Propositions 3.1.1 and 3.1.2). For any open subset U ⊂ X the
+functor
+                    Γ(U, ·) : Ab(X) −→ Ab, F 7→ Γ(U, F ) = F (U )
+describes the space of sections of F on U and it is left-exact. Its derived functor
+defines the sheaf cohomology H(U, F ). Moreover, for any point x ∈ X the functor
+‘stalk of F at x’
+                       Ab(X) −→ Ab, F 7→ lim Γ(U, F ) =: Fx                    (70)
+                                              −→
+                                                  x∈U
+is exact.
+Proposition 5.1. Let X be the geometric realization of an Mo-scheme, then the
+following results hold
+1) For any open affine set U ⊂ X
+                 H p (U, F ) = 0         ∀p > 0,        ∀ F ∈ Obj Ab(X).           (71)
+                                                                               T
+2) Let U = {Uj }j∈J be an open cover of X such that all finite intersections    jk Ujk
+are affine, then for any sheaf F of abelian groups on X, one has
+                           H p (X, F ) = Ȟ p (U, F )      ∀p ≥ 0                  (72)
+where the cohomology on the right hand side is the Čech cohomology relative to the
+covering U.
+3) Let Y = U c be the complement of an affine open set in X. Then for any sheaf
+F of abelian groups on X one has the exact sequence
+                  0    → HY0 (X, F ) → H 0 (X, F ) → H 0 (U, F |U )                (73)
+                       →    HY1 (X, F ) → H 1 (X, F ) → 0
+where HY∗ (X, F ) denotes the cohomology with support on Y .
+Proof. 1) Let U = Spec M , where M is a monoid in Mo. Then any open set
+V ⊂ U which contains the closed point p = (M × )c of U coincides with U (cf. §3.2
+Lemma 3.3). Thus the stalk Fp is equal to Γ(U, F ) = F (U ) and the result follows
+from the exactness of the functor ‘stalk at p’ (70).
+2) follows from 1) in view of the equality of H p (X, F ) with the Čech cohomology
+relative to the covering U, under the assumption that for all finite intersections
+                                             27
+V = jk Ujk of opens in U one has H p (V, F ) = 0 , ∀p > 0 (cf. [13], Exercice III,
+     T
+
+4.11).
+3) Following [13] III 2.3, one has for any sheaf F of abelian groups on X, a long
+exact sequence of cohomology groups
+                   0   → HY0 (X, F ) → H 0 (X, F ) → H 0 (U, F |U )                (74)
+                       → HY1 (X, F ) → H 1 (X, F ) → H 1 (U, F |U )
+                       → HY2 (X, F ) → · · ·
+where F |U denotes the restriction of the sheaf F on the open set U . Thus 3) follows
+from (74) and the vanishing of H 1 (U, F |U ) shown in 1).                         
+
+
+5.2. The map to the base.
+
+We recall that an Mo-scheme is (in particular) a covariant functor Mo → Sets,
+M → X(M ) and that there exists a unique geometric space X associated to X and
+satisfying the property that X(M ) = Hom(Spec (M ), X). For each monoid M , we
+let pM be its maximal ideal: this is the complement of M × in M .
+Proposition 5.2. Let X be an Mo-scheme and let X be its geometric realization.
+1) For any monoid M there exists a canonical map of sets
+                                  πM : X(M ) → X                                   (75)
+such that
+                   πM (φ) = φ(pM ),       φ ∈ Hom(Spec (M ), X).                   (76)
+2) Let U be an open subset of X and let U be the associated open subfunctor of X,
+then
+                                     −1
+                           U (M ) = πM  (U ) ⊂ X(M ).                        (77)
+Proof. 1) is a definition of the map πM .
+2) holds since for φ ∈ X(M ) = Hom(Spec (M ), X) one has
+                       φ(pM ) ∈ U ⇐⇒ φ−1 (U ) = Spec (M ).
+                                                                                      
+
+
+5.3. The monoid M = AK /K× of adèle classes.
+Let K be a global field. The idèle class group CK is the group M × of invertible
+elements of the monoid
+                         M = AK /K× ,           K× = GL1 (K).                      (78)
+We consider the Mo-functor P1F1 associated to the projective line of Example 3.11.
+The geometric realization of P1F1 (cf. [7] and §3 above) is the finite topological space
+P1F1 whose underlying set is made by three points P1F1 = {0, u, ∞}
+                        {0} = {0}, {u} = P1F1 , {∞} = {∞}                          (79)
+and whose topology is described by the following three open sets
+                 U+ = P1F1 \{∞} , U− = P1F1 \{0} , U = U+ ∩ U− .                   (80)
+                                           28
+We apply this construction to M = AK /K× and obtain the projective adèle class
+space P1F1 (M ). The canonical projection (75) is given by
+
+                        πM : P1F1 (M ) = M ∪M × M → P1F1 .                               (81)
+
+It maps an element of M × = CK to u ∈ P1F1 and the complement of M × = CK to
+0 or ∞ accordingly to the two copies of M \M × inside P1F1 (M ).
+
+5.4. The space of functions on the projective adèle class space.
+To define a natural space S(M ) of functions on the quotient space M = AK /K× of
+adèle classes we consider the Bruhat-Schwartz space S(AK ) of the locally compact
+abelian group AK and the space of its coinvariants under the action of K× (cf. [1]).
+More precisely we start with the exactR sequence associated to the kernel of the
+K× -invariant linear forms ǫ(f ) = (f (0), AK f (x)dx) ∈ C ⊕ C[1],
+                                                      ǫ
+                     0 → S(AK )0 → S(AK ) → C ⊕ C[1] → 0 .                               (82)
+Then one lets
+             S(M ) = S0 (M ) ⊕ C ⊕ C[1] , S0 (M ) = S(AK )0 /{f − fq }                   (83)
+
+where {f − fq } denotes the closure of the subspace of S(AK )0 generated by the
+differences f − fq , with q ∈ K× .
+We now introduce the functions on the projective adèle class space P1F1 (M ). We
+start by defining the sheaf Ω on P1F1 which is uniquely determined by the following
+spaces of sections and restriction maps
+                                   Γ(U+ , Ω) = S(M )
+                                   Γ(U− , Ω) = S(M )
+                           Γ(U+ ∩ U− , Ω) = S∞ (CK )
+where, for a number field K, S∞ (CK ) is defined as follows
+      S∞ (CK ) = ∩β∈R µβ S(CK ) = {f ∈ S(CK ) | µβ f ∈ S(CK ) , ∀β ∈ R}.                 (84)
+Here µ ∈ C(CK ) denotes the module µ : CK → R×    β          β
+                                             + , µ (g) = µ(g) and S(CK ) is the
+Bruhat-Schwartz space over CK (cf. [6], [20]). The restriction maps to U = U+ ∩U−
+vanish on the component C ⊕ C[1] while on the other components they are defined
+as follows
+                         X
+          (Res f )(g) =      f (qg),       f ∈ S0 (M ) ⊂ Γ(U+ , Ω)
+                          q∈K×
+                                  X
+         (Res h)(g) =     |g|−1          h(qg −1 ),           h ∈ S0 (M ) ⊂ Γ(U− , Ω).   (85)
+                                  q∈K×
+
+
+We also introduce the notation:
+                                               X
+                              Σ(f )(g) =                  f (qg).                        (86)
+                                              q∈K×
+
+
+                                             29
+5.5. H 0 (P1F1 , Ω) and the graph of the Fourier transform.
+The Čech complex of the covering U = {U± } of P1F1 has two terms
+                             C0       = Γ(U+ , Ω) × Γ(U− , Ω)
+                                 1
+                             C        = Γ(U+ ∩ U− , Ω).
+                        0        1
+The coboundary ∂ : C → C is given by (cf. (86))
+                       ∂(f, h)(g) = Σ(f )(g) − |g|−1 Σ(h)(g −1 ).                   (87)
+Lemma 5.3. The kernel of ∂ is the graph of the Fourier transform i.e.
+          H 0 (P1F1 , Ω) = {(f, F (f )) | f ∈ S(AK )0 /{f − fq }} ⊕ 2C ⊕ 2C[1].     (88)
+Proof. Let α be a nontrivial character of the additive group AK /K. The lattice
+K ⊂ AK is its own dual. The Fourier transform
+                                      Z
+                          F (f )(a) =    f (x)α(ax)dx                     (89)
+                                              AK
+
+depends on the choice of α but is canonical modulo the subspace {f − fq } and a
+fortiori modulo its closure {f − fq }. We recall that the Poisson formula gives the
+equality               X          X
+                          f (q) =     F (f )(q)   ∀f ∈ S(AK )
+                       q∈K             q∈K
+where F denotes the Fourier transform. When applied to elements of S(AK )0 it
+gives                  X                   X
+                           h(g −1 q) = |g|   F (h)(gq).                 (90)
+                            q∈K×                   q∈K×
+In particular, for (f, h) ∈ Ker ∂ one gets
+                              Σ(F h)(g) = |g|−1 Σ(h)(g −1 ),                        (91)
+thus one obtains
+                                        Σ(f − F h) = 0                              (92)
+which shows that f − F h ∈ {f − fq }, by applying Lemma 5.4 of [20].                  
+
+5.6. Spectral realization on H 1 (P1F1 , Ω).
+The action of the idèle class group CK on the sheaf Ω is defined as follows
+                   ϑ+ (λ)f (x)       = f (λ−1 x) , ∀f ∈ Γ(U+ , Ω)                   (93)
+                   ϑ− (λ)f (x)       = |λ|f (λx) , ∀f ∈ Γ(U− , Ω)
+                    ϑ(λ)f (x)        = f (λ−1 x) , ∀f ∈ Γ(U+ ∩ U− , Ω).
+To check that the equalities (93) determine a well-defined action of CK on the sheaf
+Ω, we need to show that (93) is compatible with the restriction maps (85). This is
+clear for the restriction from U+ to U . For the restriction from U− to U , one has
+                                X                              X
+       Res(ϑ− (λ)f )(g) = |g|−1     (ϑ− (λ)f )(qg −1 ) = |g|−1    |λ|f (λqg −1 )
+                                     q∈K×                           q∈K×
+
+while                                                       X
+          ϑ(λ)Res(f )(g) = Res(f )(λ−1 g) = |λ−1 g|−1             f (q(λ−1 g)−1 )
+                                                           q∈K×
+                                              30
+and this shows the required compatibility.
+Let w be the element of the Weyl group W of PGL2 given by the matrix
+                                           
+                                       0 1
+                               w=             .
+                                       1 0
+This element acts on CK by the automorphism g 7→ g −1 . This determines the
+semi-direct product N = CK ⋊ W . The element w acts on P1F1 by exchanging 0 and
+∞.
+We lift the action of w to the sheaf Ω as follows. We consider the sheaf w∗−1 Ω which
+is defined by
+                       Γ(V, w∗−1 Ω) = Γ(w(V ), Ω)     ∀V open.                   (94)
+Then, we define the following morphism of sheaves w# : Ω → w∗−1 Ω
+                     w# f   =    f ∈ Γ(U− , Ω) , ∀f ∈ Γ(U+ , Ω)
+                     w# f   =    f ∈ Γ(U+ , Ω) , ∀f ∈ Γ(U− , Ω)                    (95)
+                                   −1          −1
+                  w# f (g) =     |g|    f (g        ) , ∀f ∈ Γ(U+ ∩ U− , Ω).
+The geometric action defined in the next proposition immediately implies the func-
+tional equation and in fact lifts the equation at the level of the representation
+Proposition 5.4. 1) The equalities (95) define an action of the Weyl group W
+on the sheaf Ω which fulfills the following compatibility property with respect to the
+action (93)
+                             ϑ(λ)w# ξ = |λ|w# ϑ(λ−1 )ξ.                           (96)
+2) There is a unique action of the semi-direct product N = CK ⋊ W on the sheaf Ω
+which agrees with (95) on W and restricts on CK to the twist ϑ[− 21 ].
+Proof. We need to show that the map w# : Ω → w∗−1 Ω defined in (95) is compatible
+with the restriction maps (85). For f ∈ Γ(U+ , Ω), one has
+                                              X
+                        Res(w# f )(g) = |g|−1      f (qg −1 )
+                                                       q∈K×
+
+which agrees with w# Res(f ), using (95). A similar result holds for f ∈ Γ(U− , Ω).
+In fact, the full statement follows from the involutive property of the transformation
+w# f (g) = |g|−1 f (g −1 ).                                                          
+
+Theorem 5.5. The cohomology H 1 (P1F1 , Ω) gives the spectral realization of zeros
+of L-functions. The spectrum of the action ϑ[− 21 ] of CK on H 1 (P1F1 , Ω) is invariant
+under the symmetry χ(g) 7→ χ(g −1 ) of Grössencharakters of K.
+Proof. Consider the affine open set U− ⊂ P1F1 and its complement Y = {0}. One
+checks directly that the cohomology with support HY1 (P1F1 , Ω) gives the cokernel
+of the map Σ : S0 (M ) → S∞ (CK ) of (86), i.e. the spectral realization of [20], [3],
+[6] initiated in [1]. Since U− is affine, one can use the exact sequence (73) which
+reduces to the isomorphism
+                         0 → HY1 (P1F1 , Ω) → H 1 (P1F1 , Ω) → 0                   (97)
+since the homomorphism
+                            H 0 (P1F1 , Ω) → H 0 (U− , Ω|U− )                      (98)
+                                               31
+is surjective cf. Lemma 5.3. The symmetry then follows from the existence of the
+action of N = CK ⋊W on the sheaf Ω and hence on the cohomology H 1 (P1F1 , Ω). 
+
+                                          References
+ [1] A. Connes, Trace formula in noncommutative geometry and the zeros of the Riemann zeta
+     function. Selecta Math. (N.S.) 5 (1999), no. 1, 29–106.
+ [2] A. Connes, C. Consani On the notion of geometry over F1 , to appear in Journal of Algebraic
+     Geometry; arXiv08092926v2 [mathAG].
+ [3] A. Connes, C. Consani, M. Marcolli, Noncommutative geometry and motives: the thermody-
+     namics of endomotives, Advances in Math. 214 (2) (2007), 761–831.
+ [4] A. Connes, C. Consani, M. Marcolli, The Weil proof and the geometry of the adeles class
+     space, to appear in “Algebra, Arithmetic and Geometry – Manin Festschrift”, Progress in
+     Mathematics, Birkhäuser (2008); arXiv0703392.
+ [5] A. Connes, C. Consani, M. Marcolli, Fun with F1 , Journal of Number Theory 129 (2009)
+     1532–1561.
+ [6] A. Connes, M. Marcolli, Noncommutative Geometry, Quantum Fields, and Motives, Collo-
+     quium Publications, Vol.55, American Mathematical Society, 2008.
+ [7] A. Deitmar Schemes over F1, in Number Fields and Function Fields Two Parallel Worlds.
+     Ed. by G. van der Geer, B. Moonen, R. Schoof. Progr. in Math, vol. 239, 2005.
+ [8] A. Deitmar F1-schemes and toric varieties, Contributions to Algebra and Geometry Vol. 49,
+     No. 2, pp. 517-525 (2008).
+ [9] A. Deitmar Remarks on zeta functions and K-theory over F1. Proc. Japan Acad. Ser. A
+     Math. Sci. 82 no 8, 141-146 (2006).
+[10] M. Demazure, P. Gabriel Groupes algébriques, Masson & CIE, Éditeur Paris 1970.
+[11] R. Gilmer, Commutative semigroup rings University of Chicago Press (1980).
+[12] A. Grothendieck Sur quelques points d’algbre homologique Tohoku Math. J., t. 9, 1957, p.
+     119- 183.
+[13] R. Hartshorne Algebraic Geometry, Graduate Texts in Mathematics 52, Springer-Verlag, New
+     York Heidelberg Berlin 1977.
+[14] A. Ingham, The distribution of prime numbers With a foreword by R. C. Vaughan. Cambridge
+     Mathematical Library. Cambridge University Press, Cambridge, 1990. xx+114 pp.
+[15] M. Kapranov and A. Smirnov, Cohomology determinants and reciprocity laws Prepublication.
+[16] K. Kato Toric Singularities American Journal of Mathematics, Vol. 116, No. 5 (Oct., 1994),
+     1073-1099.
+[17] N. Kurokawa Multiple zeta functions: an example. in Zeta functions in geometry (Tokyo,
+     1990), Adv. Stud. Pure Math., 21, Kinokuniya, Tokyo, 1992, pp. 219–226.
+[18] N. Kurokawa, H. Ochiai, A. Wakayama, Absolute Derivations and Zeta Functions Documenta
+     Math. Extra Volume: Kazuya Katos Fiftieth Birthday (2003) 565-584.
+[19] Y. I. Manin, Lectures on zeta functions and motives (according to Deninger and Kurokawa)
+     Columbia University Number-Theory Seminar (1992), Astérisque No. 228 (1995), 4, 121–163.
+[20] R. Meyer, On a representation of the idele class group related to primes and zeros of L-
+     functions. Duke Math. J. Vol.127 (2005), N.3, 519–595.
+[21] C. Soulé, Les variétés sur le corps à un élément. Mosc. Math. J. 4 (2004), no. 1, 217–244.
+[22] R. Steinberg A geometric approach to the representations of the full linear group over a
+     Galois field Transactions of the AMS, Vol. 71, No. 2 (1951), pp. 274–282.
+[23] J. Tits, Sur les analogues algébriques des groupes semi-simples complexes. Colloque d’algèbre
+     supérieure, Bruxelles 19–22 décembre 1956, Centre Belge de Recherches Mathématiques
+     Établissements Ceuterick, Louvain; Librairie Gauthier-Villars, Paris (1957), 261–289.
+[24] B. Töen, M. Vaquié Au dessous de Spec(Z) (preprint) arXiv0509684v4 to appear in K-theory.
+
+A. Connes: Collège de France, 3, rue d’Ulm, Paris, F-75005 France, I.H.E.S. and Van-
+derbilt University
+E-mail address: alain@connes.org
+
+C. Consani: Mathematics Department, Johns Hopkins University, Baltimore, MD 21218
+USA
+E-mail address: kc@math.jhu.edu
+
+                                                 32
+

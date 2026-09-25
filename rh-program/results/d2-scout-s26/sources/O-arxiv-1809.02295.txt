@@ -1,0 +1,2110 @@
+                                              EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC
+                                                           GEOMETRY OF Λ-RINGS
+
+                                                                        JAMES BORGER, BART DE SMIT
+
+
+                                                   Abstract. We consider generalized Λ-structures on algebras and schemes over
+
+
+
+
+arXiv:1809.02295v1 [math.NT] 7 Sep 2018
+                                                   the ring of integers OK of a number field K. When K “ Q, these agree with
+                                                   the λ-ring structures of algebraic K-theory. We then study reduced finite flat
+                                                   Λ-rings over OK and show that the maximal ones are classified in a Galois
+                                                   theoretic manner by the ray class monoid of Deligne and Ribet. Second, we
+                                                   show that the periodic loci on any Λ-scheme of finite type over OK generate
+                                                   a canonical family of abelian extensions of K. This raises the possibility that
+                                                   Λ-schemes could provide a framework for explicit class field theory, and we
+                                                   show that the classical explicit class field theories for the rational numbers
+                                                   and imaginary quadratic fields can be set naturally in this framework. This
+                                                   approach has the further merit of allowing for some precise questions in the
+                                                   spirit of Hilbert’s 12th Problem.
+                                                      In an interlude which might be of independent interest, we define rings of
+                                                   periodic big Witt vectors and relate them to the global class field theoretical
+                                                   mathematics of the rest of the paper.
+
+
+
+
+                                                                                    Contents
+                                             1. Introduction                                                                               2
+
+                                          Part 1. Finite Λ-rings and class field theory                                                    7
+                                            2. Maximal Λ-orders                                                                            7
+                                            3. The local case                                                                              7
+                                            4. The ray class monoid                                                                       10
+                                            5. Global arguments                                                                           12
+
+                                          Part 2. Periodic loci and explicit class field theory                                           15
+                                            6. Λ-schemes                                                                                  15
+                                            7. Periodic Λ-schemes                                                                         15
+                                            8. Periodic loci and abelian extensions                                                       17
+                                            9. Interlude on periodic Witt vectors                                                         19
+                                            10. K “ Q: the toric line and the Chebyshev line                                              22
+                                            11. K imaginary quadratic: CM elliptic curves and the Lattès scheme                          25
+                                            12. Further questions                                                                         34
+                                            References                                                                                    36
+
+
+
+
+                                             Date: September 10, 2018.
+                                             The first part of this paper is a revision of our note [6], which has had some circulation since
+                                          2006 and has been used by Yalkinoglu [24] and Uramoto [21].
+                                                                                          1
+2                               J. BORGER, B. DE SMIT
+
+
+                                  1. Introduction
+   Let A be a Dedekind domain with fraction field K. Let P be a set of maximal
+ideals of A such that for each p P P , the residue field kppq “ A{p has finite car-
+dinality N ppq. We will be most interested in the case where K is a number field
+or local field, A is the full ring of integers OK of K, and P is the set MK of all
+maximal ideals of OK .
+   Let B be a (commutative) A-algebra. Then for each p P P the algebra B{pB “
+BbA kppq over kppq has a natural kppq-algebra endomorphism Fp : x ÞÑ xN ppq , which
+is called the Frobenius endomorphism. By a Frobenius lift on B at p we mean an
+A-algebra endomorphism ψp : B Ñ B such that ψp b kppq “ Fp .
+   We define a ΛA,P -structure on B to be a set map P Ñ EndA-alg pEq, denoted
+p ÞÑ ψp , such that
+    (1) ψp is a Frobenius lift at p for each p P P .
+    (2) ψp ˝ ψq “ ψq ˝ ψp for all p, q P P .
+By a ΛA,P -ring we mean an A-algebra with ΛA,P -structure. (In fact, this definition
+of ΛA,P -structure is well-behaved only when B is torsion free as an A-module, but
+since all the ΛA,P -rings in this paper have that property, we will use the simple
+definition given above. For the general one, see [3].)
+   For example, if A is the ring of integers of a number field K and B is the ring of
+integers of a subfield L of the strict Hilbert class field of K, then B has a unique
+ΛA,P -structure: ψp is the Artin symbol of p in the field extension K Ď L.
+   Observe that if p satisfies B bA kppq “ 0, then the lifting condition (1) is vacuous.
+In particular, if B is an algebra over K, then any commuting collection of K-
+automorphisms of B indexed by the maximal ideals of P is a ΛA,P -structure on B.
+At a different extreme, if P consists of one maximal ideal, for example if A is a
+local ring, then the commutation condition (2) is vacuous.
+   When A “ Z and P “ MQ , Wilkerson and Joyal have shown that a ΛA,P -
+structure on a ring without Z-torsion is the same as a λ-ring structure in the sense
+of algebraic K-theory [23][15]. For instance, for any abelian group M we have a
+natural ΛZ,P -structure on the group ring ZrM s given by ψppq pmq “ mp for m P M
+and prime p. In an earlier paper [7], we showed that a ΛZ,P -ring that is reduced
+and finite flat over Z is a sub-ΛZ,P -ring of ZrCsn for some finite cyclic group C and
+integer n ě 0. The proof uses the explicit description of ray class fields over Q as
+cyclotomic fields.
+   Over a general number field, class field theory is less explicit, and the general-
+izations we present in the present paper are consequently less explicit. However,
+we can still give a very similar criterion for a finite étale K-algebra E with ΛA,P -
+structure to admit an integral ΛA,P -model, by which we mean a sub-ΛA,P -ring
+B Ď E which is finite flat as an A-module such that the induced map K bA B Ñ E
+is a bijection. See theorem 1.2 below.
+   Let IdP denote the set of non-zero ideals of A divisible only by the primes in P .
+It as a monoid under ideal multiplication, the free commutative monoid on the set
+P . Let K sep be a separable closure of K, and let GK denote the Galois group of
+K sep over K. It is a profinite group. By a GK -set X we mean a finite discrete set
+with a continuous GK -action. By Grothendieck’s formulation of Galois theory, a
+finite étale K-algebra E is determined by the GK -set S consisting of all K-algebra
+homomorphisms E Ñ K sep . Giving a ΛA,P -structure on E then translates to giving
+a monoid map IdP Ñ MapGK pS, Sq. By giving IdP the discrete topology, we see
+that the category of ΛA,P -rings whose underlying A-algebra is a finite étale K-
+algebra is anti-equivalent to the category of finite discrete sets with a continuous
+action of the monoid GK ˆ IdP .
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                 3
+
+
+   Let us first consider the case where A is a complete discrete valuation ring and
+P consists of the single maximal ideal p. Then IdP is isomorphic as a monoid to
+the monoid of non-negative integers under addition. Let IK Ď GK be the inertia
+subgroup. Then IK is normal in GK and GK {IK is the absolute Galois group of
+kppq, which contains the Frobenius element F P GK {IK given by x ÞÑ xN ppq . Thus,
+F acts on any GK -set on which IK acts trivially.
+Theorem 1.1. Suppose that A is a complete discrete valuation ring and that P
+consists of the single maximal ideal p. Let E be a finite étale K-algebra with a
+ΛA,P -structure, and let S be the set of K-algebra maps from E to K sep . Then K
+has an integral ΛA,P -model if and only if the action of GK ˆ IdP on S satisfies the
+following two conditions:
+     (1) the group IK acts trivially on Sunr “ ně0 pn S;
+                                               Ş
+     (2) the elements p P IdP and F P GK {IK act in the same way on Sunr .
+
+See section 3 for the proof.
+   Next, consider the global case, where A is the ring of integers in a number field.
+   In order to express our result, let us first recall
+                                                   ś the definition of the ray class
+monoid. A cycle of K is a formal product f “ p pnp , where the product ranges
+over all primes of K, both finite and infinite, all np are non-negative integers, only
+finitely many of which are non-zero, and we have np P t0, ś  1u for real primes p, and
+np “ 0 for complex primes p. The finite part of f is ffin “ pă8 pnp , which can be
+viewed as an ideal of A. We write ordp pfq “ np .
+   For a cycle f, we say that two integral ideals a, b are f-equivalent, and write
+a „f b, if the following two conditions are satisfied:
+     (1) a and b have the same greatest common divisor d with ffin
+     (2) ad´1 and bd´1 represent the same class in the ray class group Clpfd´1 q of
+         conductor fd´1 .
+This is an equivalence relation, and we write DRP pfq for the quotient IdP {„f .
+Because „f is preserved by multiplication of ideals, DRP pfq inherits a unique monoid
+structure from IdP . We call it the ray class monoid (or Deligne–Ribet monoid) of
+conductor f supported at P . It was introduced in Deligne–Ribet [11] in the case
+where P “ MK and every real place divides f. For alternative definitions of f-
+equivalence and DRP pfq, see section 4.
+   Let us say that P is Chebotarev dense if any element of any ray class group Clpfq
+can be represented by an ideal supported at P , or equivalently by infinitely many
+such ideals. For example, by Chebotarev’s theorem, any set P consisting of all
+but finitely many maximal ideals is Chebotarev dense. Whenever P is Chebotarev
+dense, any element of Clpfq can be written as the class of an ideal supported at
+P , and hence gives a well-defined element of DRP pfq. This defines a map Clpfq Ñ
+DRP pfq, which is in fact injective. Composing with the Artin symbol defines a map
+(1.1.1)                      GK ÝÑ Clpfq ÝÑ DRP pfq,
+and hence a surjective map
+(1.1.2)                        GK ˆ IdP ÝÑ DRP pfq
+whose restriction to the first factor is the map (1.1.1) and whose restriction to the
+second factor is the canonical quotient map IdP Ñ DRP pfq.
+Theorem 1.2. Suppose that K is a number field and that P is Chebotarev dense.
+Let E be a finite étale K-algebra with a ΛA,P -structure, and let S be the set of
+K-algebra maps from E to K sep . Then E has an integral ΛA,P -model if and only if
+there is a cycle f of K such that the action of GK ˆ IdP on S factors (necessarily
+uniquely) through the map GK ˆ IdP ÝÑ DRP pfq above.
+4                               J. BORGER, B. DE SMIT
+
+
+   It follows that the category of such ΛA,P -rings is anti-equivalent to the category
+of finite discrete sets with a continuous action by the profinite monoid limf DRP pfq,
+where the inverse limit is taken over all cycles f with respect to the canonical
+surjective maps DRpfq Ñ DRpf1 q when f1 | f. When K “ Q, A “ Z, and P “ MQ ,
+this limit is the monoid Ẑ˝ of all profinite integers under multiplication. In this
+case, the theorem above reduces to the first theorem of our earlier paper [7]. It was
+Lenstra who suggested that the ray class monoid could play this role over general
+number fields.
+   When E admits an integral ΛA,P -model, there must be a maximal one. (See
+section 2.) In the example above, Zrxs{pxn ´ 1q is the maximal integral model
+of Qrxs{pxn ´ 1q. This is the second theorem in [7]. In general, let us write
+RA,P pfq for the maximal integral ΛA,P -model associated to the free DRP pfq-set on
+one generator, namely DRP pfq. We call RA,P pfq the ray class algebra of conductor
+f—just as Kpfq, the ray class field of conductor f, is the extension of K corresponding
+to the free Clpfq-set on one generator. The ray class algebra is an order in a product
+of ray class fields:
+                                               ź
+                           K bA RA,P pfq “            Kpfd´1 q.
+                                            d|f,dPIdP
+
+It is typically smaller than the maximal order in the non-Λ sense. For example,
+                                                     ź
+                       RZ,MQ pn8q “ Zrxs{pxn ´ 1q Ĺ     Zrζd s.
+                                                        d|n
+
+   The theorems in [7] for K “ Q, however, give us something more than the
+abstract existence theorem above. They give explicit presentations of the ray class
+algebras RZ,MQ pn8q, namely Zrxs{pxn ´ 1q. More importantly, the presentations
+are all as quotients of a single finitely generated Λ-ring—in this case Zrx˘1 s, or
+Zrxs, where each ψp is defined by ψp pxq “ xp . One can view this as a Λ-refinement
+of the Kronecker–Weber theorem, telling us that the function algebra Opµn q of
+the n-torsion subscheme µn Ă Gm “ Spec Zrx˘1 s is isomorphic as a ΛZ,MQ -ring
+to the ray class algebra RZ,MQ pn8q; this is instead of the statement that its set
+of Q̄-points, µn pQ̄q, generates the ray class field Qpn8q. This refinement gives us
+Frobenius lifts at all primes, even those dividing the conductor, by treating integral
+structures with more care. But the ray class algebras will have zero divisors and
+be non-normal over the primes dividing the conductor, which some might consider
+a drawback. Then again, they are normal in a Λ-ring theoretic sense, by definition.
+   It is natural to ask whether something like this holds for number fields K larger
+than Q. Do the ray class algebras RA,P pfq have a common origin in the algebraic
+geometry of ΛA,P -rings? If so, this would give a systematic way of generating ray
+class algebras and hence ray class fields. Or more modestly, is it at least true that
+the known explicit class field theories admit a Λ-refinement as above? There is also
+a converse question: when does a ΛA,P -structure on an A-scheme X give rise to a
+family of abelian extensions, as the ΛZ,MQ -structure on Gm does?
+   The converse is the easier direction, and we will consider it first. Let X be a (flat
+and separated) A-scheme with a ΛA,P -structure, by which we mean a commuting
+family of Frobenius lifts ψp : X Ñ X, for p P P . If we are going to follow the model
+of µn Ď Gm and produce abelian extensions of our number field K by finding
+finite flat sub-ΛA,P -schemes Z Ď X and applying the theorem above, then by this
+theorem, there must exist a cycle f such that the Frobenius operators ψa on Z are
+f-periodic in a, meaning that they depend only on the class of a in DRP pfq. So it
+is natural to consider the largest such subscheme, the locus Xpfq Ď X where the
+operations ψa depend only the class of a in DRP pfq. We call Xpfq the f-periodic
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                   5
+
+
+locus. It is defined by a large equalizer diagram; so it does indeed exist and is a
+closed subscheme of X.
+    For example, in the cyclotomic setting with the ΛZ,MQ -scheme X “ Gm as above
+and f “ n8, with n ě 1, the f-periodicity condition is ψpm`nq “ ψpmq for all m ě 1.
+In other words, it is that the operators ψpmq are periodic in m with period dividing
+n. It follows that the f-periodic locus is just the n-torsion locus µn . In general,
+while the f-periodic locus is similar in spirit to the f-torsion locus when X is a group,
+they can be different: for example if X is still Gm but f is trivial at 8, so f “ pnq,
+then the periodic locus must also be invariant under the involution x ÞÑ x˘1 and
+is hence just µ2 if n is even, or µ1 if n is odd.
+    But the definition of Xpfq does not even require X to be a group. Thus the
+group scheme structure in the traditional frameworks for explicit class field theory
+is replaced by a Λ-structure in ours. This will allow us some flexibility that is not
+available when working with group schemes. For example, we can divide out a CM
+elliptic curve, say, by its automorphism group. Although the group structure is lost,
+the Λ-structure is retained and hence we can still speak of the periodic locus on the
+quotient. Note that whereas in the group-scheme setting, the abelian nature of the
+Galois theory comes from the torsion locus being of rank 1 over some commutative
+ring of complex multiplications and then from the commutativity of the general
+linear group GL1 , in our setting, it comes from the assumption that the Frobenius
+lifts ψp commute with each other and then from Chebotarev’s theorem.
+    We can now state the answer to the converse question:
+
+Theorem 1.3. Let X be a ΛA,P -scheme of finite type over A, as above, and assume
+P is Chebotarev dense. Then possibly after inverting some primes, Xpfq is an affine
+ΛA,P -scheme which is reduced and finite flat over A.
+
+   The idea of the proof is that for primes p ∤ f, the endomorphism ψp is an au-
+tomorphism of finite order because the class rps P DRP pfq is invertible and hence
+has finite order; therefore the Frobenius endomorphism of the fiber of X over p
+is an automorphism of finite order, and so the fiber is finite and geometrically re-
+duced. Then apply the semicontinuity theorems of scheme theory. For details, see
+theorem 8.4.
+   It then follows from theorem 1.2 that OpXpfqK q, the function algebra of the
+generic fiber of Xpfq, is a finite product of abelian extensions of K of conductor
+dividing f. Thus any ΛA,P -scheme X of finite type (still flat and separated) gives
+rise to a uniform geometric way of constructing abelian extensions indexed by cycles
+f. It will not always produce arbitrarily large abelian extensions—for example, the
+Chebyshev line below will only produce the ray class fields over Q with trivial
+conductor at infinity, namely Qpζn ` ζn´1 q.
+   We can now state some precise versions of our original question of whether the
+ray class algebras have a common origin in Λ-algebraic geometry. It is cleaner to
+restrict to cycles f of a fixed type away from P , and in particular of a fixed type at
+infinity. So fix a cycle r supported away from P , and let ZpP, rq denote the set of
+cycles f which agree with r away from the primes in P . We will refer to the triple
+pA, P, rq as the context.
+  (Q1) Does there exist a ΛA,P -scheme X of finite type such that for all f P ZpP, rq,
+       the direct factors of the étale K-algebra OpXpfqK q generate the ray class
+       field Kpfq?
+   The Kronecker–Weber theorem states that the answer is positive in the cyclo-
+tomic context pZ, MQ , 8q, with X being Gm with the usual ΛZ,MQ -structure de-
+fined above. We will show it is true in two other classical contexts of explicit
+6                               J. BORGER, B. DE SMIT
+
+
+class field theory, namely the real-cyclotomic context pZ, MQ , p1qq and the context
+pOK , MK , p1qq where K is an imaginary quadratic field.
+    In fact, we will show a stronger Λ-refinement holds. The strongest question one
+might ask is the following:
+   (Q2) Does there exist a ΛA,P -scheme X of finite type such that for all f P ZpP, rq,
+          the function algebra OpXpfqq of the periodic locus is isomorphic to the ray
+          class algebra RA,P pfq?
+    As mentioned above, the answer is positive in the cyclotomic context with X “
+Gm . But it appears to be slightly too much to ask for in general. For instance,
+consider the real-cyclotomic context pZ, MQ , p1qq, and let X “ Gm {px ÞÑ x´1 q –
+A1Z . Then the ΛZ,MQ -structure on Gm descends to one on X. The operations ψppq
+are given by Chebyshev polynomials ψppq pyq P Zrys determined by ψppq px ` x´1 q “
+xp ` x´p . Then for any n ě 1, the periodic locus Xpnq does indeed generate the
+real ray class fields,
+                              QpXpnqpQ̄qq “ Qpζn ` ζn´1 q,
+but OpXpnqq does not generally agree with the full ray class algebra RZ,P pnq. It
+is however only of index 2 in it, once n is even, and this error even disappears
+in the limit as n grows. So in the real-cyclotomic context, the answer to (Q2) is
+as about as close to being positive without being so (at least for the given X!).
+This discrepancy is no doubt due to the nontrivial isotropy groups of the points
+˘1 P Gm under the involution x ÞÑ x´1 , and it may very well disappear in a proper
+stack-theoretic treatment.
+    But if we stay in the world of schemes, we need to control it. So given a finite
+reduced ΛA,P -ring B, let B̃ denote the maximal integral ΛA,P -model in K bA B.
+It is the Λ-analogue of the integral closure of B.
+   (Q3) Does there exist a ΛA,P -scheme X of finite type such that for all f P ZpP, rq,
+            (i) the function algebra OpXpfqq is of finite index in OpXpfqq„ ,
+           (ii) the morphism of pro-rings
+                       ´         ¯           ´            ¯
+                         OpXpfqq         ÝÑ OpXpfqq„
+                                fPZpP,rq                  fPZpP,rq
+
+              is an isomorphism, and
+        (iii) OpXpfqq„ is isomorphic to RA pfq as a ΛA,P -ring?
+Theorem 1.4. The answer to (Q3) is positive in the following contexts pA, P, rq
+with the ΛA,P -schemes X:
+    (1) pZ, MQ , 8q and X “ Gm{Z with the ΛZ,MQ -structure above
+    (2) pZ, MQ , p1qq and X “ A1Z with the Chebyshev ΛZ,MQ -structure
+    (3) pOK , MK , p1qq, where K is imaginary quadratic with Hilbert class field H,
+        and X is P1OH , viewed as a scheme over OK , with the Lattès ΛOK ,MK -
+        structure defined in (11.2).
+   The Λ-scheme P1OH in the imaginary quadratic context plays the role of the tar-
+get of the Weber functions E Ñ E{AutpEq – P1C in the traditional treatments of
+explicit class field theory of imaginary quadratic fields. There are, however, a num-
+ber of subtleties in constructing this Λ-structure. For instance, CM elliptic curves
+are only defined over H and not K, there can be more than one of them, but it
+might be that none of them has good reduction everywhere. These problems were
+completely clarified in Gurney’s thesis [14]. He also gave an account of class field
+theory for imaginary quadratic fields from the point of view of the Λ-structure on
+P1OH , but he stopped at considering the field extensions generated by the preimages
+ψf´1 p8q. In either approach, the package of elliptic curves with complex multipli-
+cation and their Weber functions is replaced by the single ΛOK ,MK -scheme P1OH .
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                  7
+
+
+We emphasize that P1OH is not so interesting from a cohomological or motivic point
+of view—there are no interesting Galois representations in the cohomology. All the
+richness is in the Λ-structure.
+    It would be interesting to know if something similar holds for other number
+fields, starting with CM fields. One virtue of the questions above is that they allow
+for negative answers, which would also be interesting. In the final section, we will
+raise some further questions in this direction.
+   It is a pleasure to thank Lance Gurney and Hendrik Lenstra for several helpful
+discussions.
+
+Part 1. Finite Λ-rings and class field theory
+                              2. Maximal Λ-orders
+2.1. Maximal Λ-orders. Let A1 be a sub-A-algebra of K, and let E be a finite
+K-algebra with ΛA,P -structure. A sub-A1 -algebra B Ď E with a ΛA,P -structure is
+said to be a ΛA,P -order (over A1 ) if it is finite over A1 . We say it is maximal (in
+E) if it contains all others. Maximal ΛA,P -orders always exist, by an elementary
+argument ([7], prop. 1.1), since maximal orders in the ordinary sense exist and since
+A1 is noetherian.
+   We will say a finite flat A1 -algebra B with a ΛA,P -structure is normal (or ΛA,P -
+normal over A1 ) if it is maximal in K bA1 B, in the sense above.
+   We will need the following basic facts:
+Proposition 2.2. Let B be a finite flat A1 -algebra with ΛA,P -structure.
+   (1) B is ΛA,P -normal over A1 if OKp bA1 B is ΛOKp ,p -normal over OKp for all
+       maximal ideals p of A1 .
+   (2) If B is ΛA,P -normal over A1 , and G is a group acting on B by ΛA,P -
+       automorphisms, then the invariant subring B G is ΛA,P -normal over A1 .
+   (3) If B is a product B1 ˆ B2 of ΛA,P -rings, then B is ΛA,P -normal over A1 if
+       and only if B1 and B2 are.
+Proof. (1): Let C Ď K bA1 B be a ΛA,P -order over A1 containing B. Then for any
+maximal ideal p Ă A1 , the base change OKp bA1 C is a ΛOKp ,p -order over OKp .
+Therefore it agrees with OKp bA1 B. Since this holds for all maximal ideals p Ă A1 ,
+the ring C agrees with B. Therefore B is maximal.
+   (2): Let C Ď K bA1 B G be a ΛA,P -order over A1 containing B G . Then C is
+contained in K bA1 B and hence, by the maximality of B, is contained in B. But
+since C is contained in K bA1 B G , it is also G-invariant. Therefore we have C Ď B G .
+   (3): Let C Ď K bA1 pB1 ˆ B2 q be a ΛA,P -order over A1 containing B1 ˆ B2 . Put
+Ci “ C bB1 ˆB2 Bi , for i “ 1, 2. Then each Ci is a ΛA,P -order over A1 in K bA1 Bi .
+By the maximality of Bi , we have Ci “ Bi . Therefore we have
+                              C “ C1 ˆ C2 “ B1 ˆ B2 .
+Thus B1 ˆ B2 is maximal.                                                             
+
+                                3. The local case
+   In this section, A will be a complete discrete valuation ring with maximal ideal
+p, and P will be the singleton set tpu. So IdP is the multiplicative monoid of all
+nonzero ideals of A. Write k “ kppq and ΛA,p “ ΛA,P .
+Proposition 3.1. Let B be a finite étale A-algebra. Then B has a unique ΛA,p -
+structure, and the induced action of GK ˆ IdP on S “ HomK -alg pB bA K, K sep q has
+the property that the inertia group IK acts trivially and that the element p P IdP
+and the Frobenius element F P GK {IK act on S in the same way.
+8                                        J. BORGER, B. DE SMIT
+
+
+Proof. Because B is étale, k bA B is a product of finite fields. Since B is complete
+in its p-adic topology, idempotents of B{pB lift to B, so that B is a finite product
+of rings of integers in finite unramified extensions of K. Therefore the inertia group
+IK Ď GK acts trivially on S “ HomA-alg pB, K sep q. Every finite unramified field
+extension L of K is Galois with an abelian Galois group, and its rings of integers
+has a unique Frobenius lift. It follows that when B is unramified over A, it has a
+unique ΛA,p -structure.                                                              
+
+3.2. Structure of finite étale K-algebras with ΛA,p -structure. Let E be a finite
+étale K-algebra with a ΛA,p -structure, and write
+                                       S “ HomK -alg pE, K sep q.
+                       n
+           Ş
+Put S0 “       ně0 p       S and for i “ 1, 2, . . ., let
+                               Si “ ts P S : s R Si´1 and ps P Si´1 u.
+Then each Si is a sub-GK -set of S. Since S is finite, there exists an n ě 0 such
+that Sn`1 “ ∅. Then we have the decomposition
+                                         S “ S0 > S1 > ¨ ¨ ¨ > Sn .
+Let Ei “ MapGK pSi , K sep q be the corresponding finite étale K-algebra for each i.
+Then the maps Sn Ñ ¨ ¨ ¨ Ñ S1 Ñ S0 ý given by multiplication by p give rise to a
+diagram of K-algebras
+                                              1 f  2    f   n     f
+                                     f0 ü E0 ÝÑE1 ÝÑ ¨ ¨ ¨ ÝÑEn
+
+Since S “ S0 > S1 > ¨ ¨ ¨ > Sn is a decomposition of G as a GK -set, we have a corre-
+sponding product decomposition of the finite étale K-algebras E “ E0 ˆ E1 ˆ ¨ ¨ ¨ ˆ
+En . In terms of this decomposition, ψp is given by
+(3.2.3)            ψp pe0 , e1 , . . . , en q “ pf0 pe0 q, f1 pe0 q, . . . , fn pen´1 qq.
+Since S0 is closed under multiplication by p, the quotient ring E0 of E is a quotient
+ΛA,p -ring of E, with Frobenius lift f0 .
+    We will now construct a splitting of this quotient map E Ñ E0 in the category
+of ΛA,p -rings. Note that we have pk S “ S0 for sufficiently large k; so we have
+pS0 “ S0 and hence p act as a bijection on S0 . Thus, f0 is an automorphism of
+E0 . For s P Si we have pi s P S0 . Again since p acts bijectively on S0 , we can
+define a map S ÝÑ S0 by sending s P Si to the unique element s1 of S0 such that
+pi s1 “ pi s. This map commutes with the GK ˆ IdP -action, and it is a retraction of
+the inclusion S0 Ñ S. This induces our desired splitting E0 Ñ E. In other words,
+E0 is not only a quotient ΛA,p -ring of E, but also a sub-ΛA,p -ring:
+            j : E0 ÝÑ E
+                  e0 ÞÝÑpe0 , f1 f0´1 e0 , f2 f1 f0´2 e0 , . . . , fn´1 ¨ ¨ ¨ f1 f0´n`1 e0 q.
+
+3.3. Proof of theorem 1.1. Suppose that E has an integral ΛA,p -model B, that is,
+     (i) B is finitely generated as an A-module and has rank dimK pEq,
+    (ii) ψp pBq Ď B,
+   (iii) ψp bA k is the Frobenius map x ÞÑ xN ppq on B bA k.
+   Let B0 denote the image of B under the quotient map E Ñ E0 (in the notation of
+3.2). Then B0 is an integral ΛA,p -model of E0 . Since f0 is an automorphism of E0 ,
+the ring B0 and its subring f0 pB0 q have the same discriminant. Thus, f0 pB0 q “ B0
+and hence f0 is an automorphism of B0 . This implies that the map x ÞÑ xN ppq on
+B0 bA k is an automorphism, and so B0 is étale over A. Conditions (1) and (2) of
+theorem 1.1 now follow by proposition 3.1.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                   9
+
+
+   For the converse, suppose that conditions (1) and (2) hold. We will produce an
+integral ΛA,p -model of E “ E0 ˆ ¨ ¨ ¨ ˆ En . Let Ri be the integral closure of A in
+Ei . Since IK acts trivially on Sunr “ S0 , the A-algebra R0 is finite étale and hence
+has a unique ΛA,p -structure by proposition 3.1. Our integral model B Ď E will be
+of the form
+(3.3.4)                   B “ jpR0 q ‘ p0 ˆ a1 ˆ ¨ ¨ ¨ ˆ an q,
+where each ai is an ideal in Ri and j is the map defined in 3.2. Observe that
+any B of this form is a subring of E. For it to be a sub-ΛA,p -ring, we need to
+have ψp paq ” aN ppq mod pB for all a P B. Since both sides of this congruence are
+additive in a, it is enough to consider elements a in each of the summands in (3.3.4).
+It holds for the summand jpR0 q because j is a ΛA,p -morphism. So by (3.2.3), a
+                                                                             N ppq
+sufficient condition for B to be a sub-ΛA,p -ring is fi pai´1 q Ď pai and ai       Ď pai
+for i “ 1, . . . , n, where we take a0 “ 0. This holds if, for instance, ai “ pn´i`1 Ri .
+So for this choice, B is an integral ΛA,p -model of E.                                
+3.4. Remark. Note that the integral model produced in the proof above is not
+always the maximal one. For instance, if Cn denotes a cyclic group of order n, then
+on the group algebra Q2 rC4 s with its usual ΛZ2 ,2 -structure, the proof produces a
+strict subring of Z2 rC4 s and hence cannot be not maximal. (In fact, Z2 rC4 s is the
+maximal integral model, as is shown in [7]).
+   It can also happen that, for group algebras, the integral model supplied by the
+proof is strictly larger than the integral group algebra. An example is Q2 rC2 ˆ C2 s.
+3.5. Remark. It is possible to express theorem 1.1 in a more Galois-theoretic way,
+similar to the statement of theorem 1.2. We can define an inverse system of finite
+quotients GN,n of the monoid GK ˆ IdP with the property that E has an integral
+ΛA,p -model if and only if the action of GK ˆ IdP on S factors through some GN,n .
+    The quotients GN,n are defined as follows. Let N be an open normal subgroup of
+GK , and let n be an integer ě 0. Define a relation on GK ˆ IdP by pg, pa q „ ph, pb q
+if either or both of the following conditions hold:
+     (1) a “ b and g ” h mod N
+     (2) a, b ě n and gF a ” hF b mod N IK .
+This is easily seen to be an equivalence relation which is stable under the monoid
+operation. We then define GN,n to be the quotient monoid. Observe that we have
+a decomposition of GK -sets:
+(3.5.5)              GN,n “ G K {N > ¨ ¨ ¨ > GK {N > GK {N IK .
+                            loooooooooooomoooooooooooon
+                                      n times
+
+  For N 1 Ď N and n1 ě n, we have evident transition maps GN 1 ,n1 Ñ GN,n . If we
+consider the inverse limit
+                                Ĝ “ lim GN,n ,
+                                          N,n
+then the re-expression of theorem 1.1 is that E has an integral ΛA,p -model if and
+only if the action of GK ˆ IdP on S factors (necessarily uniquely) through a con-
+tinuous action of Ĝ. One might call Ĝ the ΛA,p -algebraic fundamental monoid of
+Spec OK with ramification allowed along Spec k.
+3.6. Remark. In the global case considered in the rest of this paper, we will see
+that only abelian field extensions arise from integral Λ-models. But in the local
+case, we can get nonabelian extensions. In fact, we can get arbitrary extensions.
+Indeed, any given extension L of K is a direct factor of the K-algebra Lunr ˆ L,
+which has a ΛA,p -structure admitting an integral model. For instance, one can take
+ψp pe0 , e1 q “ pF pe0 q, e0 q.
+10                                 J. BORGER, B. DE SMIT
+
+
+                              4. The ray class monoid
+     Fix the following notation:
+             K “ a finite extension of Q
+            OK “ the ring of integers in K
+            MK “ the set of maximal ideals of OK
+              A “ a Dedekind domain whose fraction field is K
+              P “ a set of maximal ideals of A
+            IdP “ the monoid of nonzero ideals of A supported at P
+               f “ a cycle (or modulus) on K
+              fP “ the part of f supported at P
+              fP “ the part of f supported away from P
+             ffin “ the part of f supported at the finite primes
+             f8 “ the part of f supported at the real places
+          IdP pfq “ the submonoid of IdP of ideals prime to ffin
+           Clpfq “ the ray class group of K of conductor f
+          ClP pfq “ the image of the canonical map IdP pfq Ñ Clpfq
+             R˝ “ R viewed as a monoid under multiplication, for any ring R
+Observe that, up to canonical isomorphism, the constructions above depend only
+on the places of K corresponding to P , and so they depend on A only in that
+these places must come from maximal ideals of A. Therefore we can take A “ OK
+without changing anything above.
+
+4.1. Structure of the ray class monoid. There is a bijection
+                                              „
+                            ž
+(4.1.6)                          ClP pfd´1 q ÝÑ DRP pfq,
+                             dPIdP ,d|f
+
+sending an ideal class ras P ClP pfd´1 q in the summand of index d to the class
+rdas P DRP pfq. Thus we have
+                           ž
+(4.1.7)                         rdsClP pfd´1 q “ DRP pfq.
+                            dPIdP ,d|f
+
+The multiplication law on DRP pfq is given in terms of the left-hand side by the
+formula
+(4.1.8)                         rdsras ¨ rd1 sra1 s “ rd2 sra2 s,
+where d2 “ gcdpdd1 , fq and a2 satisfies d2 a2 “ dad1 a1 . It follows, for example, that
+the submonoid DRP pfq˚ Ď DRP pfq of invertible elements agrees with the part of
+the ray class group supported at P :
+                                    DRP pfq˚ “ ClP pfq.
+   When P is Chebotarev dense, we have ClP pfq “ Clpfq, and so the invertible part
+of DRP pfq is independent of P . Observe however that this is not the case for the
+noninvertible part. For example, if K “ Q and f “ pnq8, then we have
+(4.1.9)                    DRP pfq “ pZ{nP Zq˝ ˆ pZ{nP Zq˚ ,
+where nP is the factor of n supported at P and nP is that supported away from P .
+The invertible part is pZ{nP Zq˚ ˆ pZ{nP Zq˚ “ pZ{nZq˚ , which does not depend
+on P , but the non-invertible part does.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS               11
+
+
+4.2. Change of conductor. Suppose f | f1 . Then we have the implication
+                                 b „f1 c ñ b „f c.
+which induces a monoid map
+(4.2.10)                        DRP pf1 q Ñ DRP pfq,
+which we call the canonical map.
+  There is also a map in the other direction. Write f1 “ fa. Then by the equivalence
+                                b „f c ô ab „af ac,
+there is a well-defined injective map
+(4.2.11)                DRP pfq ÝÑ DRP pf1 q,   rbs ÞÑ rabs.
+It is not a monoid map, but it is an equivariant map of DRP pf1 q-sets. The com-
+position with the canonical projection DRP pf1 q Ñ DRP pfq on either the left or the
+right, is given by multiplication by the class of a.
+
+   We conclude this section with two more descriptions of f-equivalence and the ray
+class monoid, although they only have small parts in this paper. The first is the
+one that appears in Deligne–Ribet [11], and a form of the second was pointed out
+to us by Bora Yalkinoglu.
+Proposition 4.3. Two ideals a, b of OK are f-equivalent if and only if a “ xb for
+some element x P 1 ` ffin b´1 which is positive at all real places dividing f.
+Proof. Let d “ gcdpf, bq. By definition, we have a „f b if and only if there exists
+an element x P K ˚ satisfying the following:
+     (1) ad´1 “ xbd´1
+     (2) x ” 1 mod pnp , where np “ ordp pfd´1 q, whenever np ě 1
+     (3) x is positive at all real places dividing fd´1 .
+Observe that (1) is equivalent to a “ xb and that (3) is equivalent to the positivity
+condition in the statement of the proposition. It is therefore enough to show that,
+under (1), condition (2) is equivalent to x P 1 ` ffin b´1 , or equivalently to the
+condition that that for all p, we have x ” 1 mod pmp , where mp “ ordp pfb´1 q. So
+fix a prime p. In the case ordp pfq ě ordp pbq, we have np “ mp and so this condition
+is indeed equivalent to (2).
+    Now consider the remaining case ordp pfq ă ordp pbq. Then we have np “ 0 and
+mp ă 0. Because np “ 0, condition (2) is vacuous. Therefore it is enough to
+show that x ” 1 mod pmp necessarily holds. Since gcdpf, bq “ gcdpf, aq, we have
+ordp pfq ă ordp paq and hence
+    ordp px ´ 1q ě mintordp pxq, 0u “ mintordp pab´1 q, 0u ě mintmp , 0u “ mp .
+                                                                                   
+Proposition 4.4. Assume that P is Chebotarev dense. Then there is an isomor-
+phism
+                                                  „
+(4.4.12)              pOK {fP q˝ ‘pOK {fP q˚ Clpfq ÝÑ DRP pfq,
+which is given by the canonical inclusion Clpfq Ñ DRP pfq on the second factor
+and which on the first factor sends the residue class of any element x P OK with
+pxq P IdP to the class rpxqs P DRP pfq.
+   The notation A‘G B above refers to the push out in the category of commutative
+monoids, which when G is a group is the quotient of A ‘ B “ A ˆ B by the action
+of G given by g ¨ pa, bq “ pga, g ´1 bq.
+12                                    J. BORGER, B. DE SMIT
+
+
+Proof. First observe that this morphism is well defined. Indeed, any element x P
+pOK {fP q˚ is the image of an element x̃ P OK relatively prime to fP , and its class
+rpx̃qs in DRP pfq is indeed the image of its class in the ray class group Clpfq.
+    The fact that this morphism is an isomorphism is a consequence of the following
+equalities, which will be justified below, and where d runs over IdP with d | f:
+                                 ž                   ž
+(4.4.13)              DRP pfq “     rdsClP pfd´1 q “   rdsClpfd´1 q
+                                      d                     d
+Let us simplify the right-hand side further and show
+(4.4.14)                 rdsClpfd´1 q “ Clpfq{p1 ` ffin d´1 {ffin q.
+We use the adèlic description of ray class groups: Clpmq “ A˚K {K ˚ Um . Then we
+have the exact sequence
+                         Ufd´1 {Uf ÝÑ Clpfq ÝÑ Clpfd´1 q ÝÑ 1.
+Since the archimedean parts of fd´1 and f agree, we have
+                      Ufd´1 {Uf “ Uffin d´1 {Uffin “ 1 ` ffin d´1 {ffin .
+Equation (4.4.14) follows.
+  Combining this with (4.4.13), we have
+                      ž
+          DRP pfq “     rdsClpfq{p1 ` ffin d´1 {ffin q
+                         d
+                      ž
+                    “  rdspOK {ffin d´1 q˚ ‘pOK {ffin q˚ Clpfq
+                         d
+                      ´ž                   ¯
+                    “   rdspOK {ffin d´1 q˚ ‘pOK {ffin q˚ Clpfq
+                             d
+                    “ pOK {fP q˝ ˆ pOK {fP q˚ ‘pOK {ffin q˚ Clpfq
+                     `                       ˘
+
+                    “ pOK {fP q˝ ˆ pOK {fP q˚ ‘pOK {fP q˚ ˆpOK {fP q˚ Clpfq
+                     `                       ˘
+
+                    “ pOK {fP q˝ ‘pOK {fP q˚ Clpfq.
+                                                                                   
+4.5. Examples. If K has class number 1 and P is still Chebotarev dense, then we
+have
+(4.5.15)               DRP pfq “ pOK {fP q˝ ‘O ˚            pOK {fP    ˚
+                                                                  fin q ,
+                                                     K,f8
+
+         ˚                           ˚
+where OK,f  8
+              is the subgroup of OK     consisting of units which are positive at all
+places dividing f8 . At a different extreme, if K is arbitrary but P “ MK , then in
+the limit we have
+                                                 ˝
+(4.5.16)                         lim DRP pfq “ ÔK ‘Ô ˚ Gab
+                                                          K.
+                                  f                      K
+
+
+If K has class number 1 and P “ MK , then we have
+                                 DRP pfq “ pOK {ffin q˝ {OK,f
+                                                          ˚
+                                                              8
+                                                                .
+
+                                   5. Global arguments
+   The purpose of this section is to prove theorem 1.2 from the introduction. It
+will follow immediately from proposition 5.2 and theorem 5.5 below.
+   We continue with the notation of the previous section. Also fix the following
+notation:
+           E “ a finite étale K-algebra with a ΛA,P -structure
+           S “ HomK pE, K sep q, with its continuous action of GK ˆ IdP .
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                 13
+
+
+Define r P IdP by setting
+(5.0.17)                 ordp prq “ infti ě 0 : pi`1 S “ pi Su
+for each prime p P P . This is well defined because pS “ S whenever p is unramified
+in B, by proposition 3.1.
+Lemma 5.1. Assume that E has an integral ΛA,P -model B. Let d be an ideal in
+IdP , and put b “ gcdpd, rq. Then dS equals bS, and this GK -set is unramified at
+all primes dividing db´1 .
+Proof. Observe that for any prime p | db´1 , we have pbS “ bS. Indeed, we have
+ordp pbq “ ordp prq and hence p1`ordp pbq S “ pordp pbq S, by the definition of r. Then
+pbS “ bS follows.
+    This implies by induction that dS “ bS. It also implies that for each prime
+p | db´1 , the action of p on bS “ dS is bijective. Therefore by theorem 1.1(1), this
+GK -set is unramified at all primes p | db´1 .                                       
+Proposition 5.2. If E has an integral ΛA,P -model and P is Chebotarev dense,
+then the action of GK on S factors through the abelianization of GK .
+Proof. Let B be an integral ΛA,P -model of E. For each prime p P P we consider
+the completion Ap , and its fraction field Kp . Then we obtain an ΛAp ,p -structure
+on the finite étale Kp -algebra Ep “ E bK Kp , and then B bA Ap is an integral
+ΛAp ,p -model of Ep . Fixing an embedding K sep Ñ Kpsep for each p we can view
+Gp as a subgroup of GK . The finite étale Kp -algebra Ep then corresponds to the
+Gp -set that one gets by restricting the action of GK on S to Gp .
+   Now let Ḡ be the image of the action map GK Ñ MappS, Sq. Because P is
+Chebotarev dense, for each g P Ḡ there is a prime p “ pg in P such that
+    (1) B is unramified at p,
+    (2) the image of Fp P Gp {Ip under the induced map Gp {Ip Ñ Ḡ is g.
+By proposition 3.1, the action of g on S is the same as the action of pg on S. But
+by the definition of ΛA,P -structure, the pg commute with each other. Therefore Ḡ
+is abelian.                                                                      
+5.3. Conductors. By class field theory, any continuous action of the abelianization
+of GK on a finite discrete set T factors, by the Artin map, through the ray class
+group ClpcpT qq for a minimal cycle cpT q on K, which we call the conductor of T .
+Lemma 5.4. Assume that E has an integral ΛA,P -model B and that the action of
+GK on S factors through its abelianization. Let f be a cycle on K, and let r be as
+in (5.0.17). Then following are equivalent:
+    (1) the action of GK ˆ IdP on S factors through an action of DRP pfq,
+    (2) r divides f, and for each ideal d | f we have cpdSq | fd´1 ,
+                                                                ´1
+    (3) r divides f, and for each ideal d | `r we have
+                                                    ˘ cpdSq | fd ,
+    (4) the least common multiple lcmd|r d cpdSq divides f.
+Proof. (1)ñ(2): To show r | f, we will show that for all p P P , we have pn S Ď
+pn`1 S, where n “ ordp pfq. Using the decomposition (4.1.7), we see rpsn`1 DRP pfq “
+rpsn DRP pfq and hence rpsn “ rpsn`1 x for some x P DRP pfq. Then because the
+action of IdP is assumed to factor through DRP pfq, we have pn S “ pn`1 xS Ď
+pn`1 S.
+   Second, the condition cpdSq | fd´1 of (2) is equivalent to the condition that the
+action of GK on dS factors through the Artin map GK Ñ Clpfd´1 q. But this holds
+by the assumption (1) and the decomposition (4.1.7).
+   (2)ñ(1): Consider an element pσ, aq P GK ˆ IdP . We will show its action
+on S depends only on its class in DRP pfq. First observe that by the assumption
+14                              J. BORGER, B. DE SMIT
+
+
+cpdSq | fd´1 , taken when d “ p1q, we have cpSq | f. This implies that the action of
+GK factors through the Artin map GK Ñ Clpfq, and so it is enough to show that
+the action of a depends only on its class ras P DRP pfq. Now put d “ gcdpa, fq and
+a1 “ ad´1 . Then we have a1 P IdP pfq. Therefore, because of (4.1.7), it is enough to
+show that the action of a1 P IdP pfq on dS depends only on its class ra1 s P ClP pfd´1 q.
+In particular, it is enough to show
+(5.4.18)                             a1 ds “ Fa1 ds,
+for all s P S, where Fa1 P GK is an element mapping to ra1 s under the Artin map
+GK Ñ Clpfq. To do this, it is enough to consider the case where a1 is a prime
+p P IdP pfq. Now by our assumption r | f, we have p ∤ r and hence p acts bijectively
+on S. Therefore by theorem 1.1, we have
+                                       ps “ Fp s,
+for all s P S. This implies (5.4.18) and hence (1).
+   (2) ô (3): The implication (2) ñ (3) is clear. So consider the other direction.
+Given an ideal d | f, let b denote gcdpd, rq. Then by lemma 5.1, we have equivalences
+           cpdSq | fd´1 ô cpbSq | fd´1 ô cpbSq | fd´1 db´1 ô cpbSq | fb´1 .
+Therefore since b is a divisor of r, the condition cpdSq | fd´1 holds for all d | f if it
+holds for all d | r.
+   (3) ô (4): Clear.                                                                   
+
+Theorem 5.5. Let f be a cycle on K. Then the action of GK ˆ IdP on S factors
+(necessarily uniquely) through the map GK ˆ IdP ÝÑ DRP pfq of (1.1.2) if and only
+if the following hold:
+     (1) the action
+               `    of G
+                       ˘ K on S factors through its abelianization,
+     (2) lcmd|r d cpdSq divides f,
+     (3) E has an integral ΛA,P -model.
+If P is Chebotarev dense, then condition (1) can be removed.
+Proof. If (1)–(3) hold, then by lemma 5.4, the action of GK ˆ IdP on S factors
+through DRP pfq; and if P is Chebotarev dense, then (1) can be removed because,
+by proposition 5.2, it follows from (3).
+   Let us now consider the converse direction. Suppose that the GK ˆ IdP -action
+on S factors through DRP pfq. Then (1) holds because DRP pfq is commutative.
+Further, (3) implies (2) by lemma 5.4. Therefore it is enough to show (3).
+   For each p P P , let Bp denote the maximal sub-ΛAp ,p -ring of E bK Kp which is
+finite over Ap . As mentioned in 3.4, it always exists. We will show that Bp bAp Kp
+agrees with Ep . To do this, it is enough to show that E bK Kp has an integral
+ΛAp ,p -model. So write f “ pn f1 with n “ ordp pfq. Then rpk s P rpn sClpf1 q Ď DRpfq
+for all k ě n. This implies, by say (4.1.8), that the action of p on i pi S “ pn S is
+                                                                     Ş
+given by the Artin symbol of rps P Clpf1 q, which by our local result, theorem 1.1,
+guarantees existence of an integral ΛAp ,p -model.
+   Now let R denote the integral closure of A in E, and let B denote the set of
+elements a P R such that the image of a in E bK Kp lies in Bp for all p P P . We
+will show that B is what we seek, an integral ΛA,P -model for E.
+   For all p ∤ f, we are in the unramified case, and so Bp is R bA Op , by proposition
+3.1. It follows that B is of finite index in R. Therefore, since R is finite and flat
+over A and we have E “ R bA K, the same hold for B. Further, B is closed
+under all ψq with q P P . Indeed it is enough to show ψq pBp q Ď Bp for all p, q P
+P ; and this holds because is a ψq pBp q sub-ΛAp ,p -ring of Ep which is finite over
+Ap , and so it is contained in the maximal one Bp . Finally, for each p P P , the
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                    15
+
+
+induced endomorphism ψp of B is a Frobenius lift, because B bA Op is a ΛAp ,p -
+ring. Therefore B is an integral ΛA,P -model for E. This establishes (3) and, hence,
+(1) and (2) as explained above.                                                   
+
+Corollary 5.6. If P is Chebotarev dense, there is a contravariant equivalence be-
+tween the category of finite étale ΛA,P -rings over K which admit an integral model
+and the category of finite discrete sets with a continuous action of the profinite
+monoid limf DRP pfq.
+
+
+
+Part 2. Periodic loci and explicit class field theory
+                                     6. Λ-schemes
+   Below X will denote a flat A-scheme.
+
+6.1. Λ-schemes. Let p be a maximal ideal of A. As in the affine case, the fiber
+X ˆSpec A Spec kppq has a natural kppq-scheme endomorphism Fp which is the iden-
+tity map on the underlying topological space and such that for each affine open
+subscheme Spec B, the induced the endomorphism of B is the affine Frobenius map
+x ÞÑ xN ppq .
+    Let EndA pXq denote the monoid of A-scheme endomorphisms of X. An endo-
+morphism ψ P EndA pXq is said to be a Frobenius lift at p if the induced endomor-
+phism on the fiber X ˆSpec A Spec kppq agrees with Fp . A ΛA,P -structure on a flat
+A-scheme X is defined to be a set map P Ñ EndA pXq, denoted p ÞÑ ψp such that
+ψp is a Frobenius lift at p for each p P P and such that ψp ˝ ψq “ ψq ˝ ψp for all
+p, q P P . We will call an A-scheme with ΛA,P -structure a ΛA,P -scheme. (When X
+is not flat over A, this definition still makes sense; but as in the affine case, it is not
+well behaved. In general, one should define it to be an action of the Witt vector
+            ˚
+monad WA,P      as in the introduction to [4]. We will only consider Λ-structures on
+flat schemes in this paper; so the simplified definition above is good enough here.)
+    For any ideal a P IdP with prime factorization a “ p1 ¨ ¨ ¨ pn , let ψa denote the
+composition ψp1 ˝ ¨ ¨ ¨ ˝ ψpn . It is independent of the order of the factors because
+the operators ψp commute with each other.
+    A morphism X Ñ Y of ΛA,P -schemes is a morphism f : X Ñ Y of A-schemes
+such that f ˝ ψp “ ψp ˝ f , for all p P P . In this way, ΛA,P -schemes form a category.
+
+6.2. Examples. The multiplicative group X “ Gm over A has a ΛA,P -structure
+given by ψp pxq “ xN ppq . This extends uniquely to ΛA,P -structures on A1 and P1 .
+More generally, projective n-space Pn has a ΛA,P -structure where ψp raises the
+homogeneous coordinates to the N ppq power.
+   Any product of ΛA,P -schemes is again a ΛA,P -scheme, where the ψ-operators act
+componentwise. In a similar way, coproducts of ΛA,P -schemes are ΛA,P -schemes.
+
+
+                               7. Periodic Λ-schemes
+   Let f be a cycle on K.
+
+7.1. Periodic Λ-schemes. We will say that a ΛA,P -scheme X is f-periodic if for
+all f-equivalent ideals a, b P IdP , the two maps ψa , ψb : X Ñ X are equal—in other
+words, the monoid map IdP Ñ EndA pXq factors through DRP pfq.
+16                              J. BORGER, B. DE SMIT
+
+
+7.2. Examples. Suppose that A “ Z, P “ MQ , and f “ pnq8 with n positive.
+Then f-periodicity means that ψpaq “ ψpa`nq for all integers a ě 1. In other words,
+the sequence of Frobenius lifts ψpaq is periodic in a ě 1 with period dividing n,
+which is the reason for the name. Representation rings of finite groups, with their
+usual λ-ring structure in algebraic K-theory, are periodic. In fact, periodicity was
+first introduced in this context by Davydov [10].
+    On the other hand, when A is general but f is p1q, then f-periodicity means that
+ψa depends only on the class of a in the class group Clp1q. If f is instead the product
+of all real places, then it means that ψa depends only on the class of a in the narrow
+class group Clpfq. In particular, if either of these class groups is trivial, then every
+ψa is the identity map, and so any (flat) A-scheme has at most one ΛA,P -structure
+with that type of periodicity.
+    If we are in the intersection of the two cases above, a p1q-periodic ΛZ,P -ring is
+just a λ-ring in which all the Adams operations are the identity. Elliott [12] has
+proved that this is equivalent to being a binomial ring, a notion which dates back
+to Berthelot’s exposé in SGA6 [1], p. 323.
+Proposition 7.3. Let X be a separated flat f-periodic ΛA,P -scheme of finite type.
+   (1) If P is infinite, then X is affine, reduced, and quasi-finite over A, with étale
+       generic fiber XK .
+   (2) If P is Chebotarev dense, then the generic fiber’s function algebra OpXK q
+       is a product of subextensions of the ray class field Kpfq.
+Proof. (1): Let us first show that X is reduced and quasi-finite over A. By period-
+icity, for every p P P satisfying p ∤ f, the Frobenius lift ψp on X is an automorphism
+of finite order. Therefore the Frobenius map Fp on the fiber kppq b X is an auto-
+morphism of finite order, and so the fiber is both geometrically reduced and finite
+over kppq. Since P is infinite and since the set of prime ideals of A with geomet-
+rically reduced fibers forms a constructible subset of Spec A, by EGA IV (9.7.7)
+[13], the generic fiber X ˆSpec A Spec K must be geometrically reduced. Similarly,
+since infinitely many fibers are finite, the generic fiber is also finite, by EGA IV
+(9.2.6.2) [13]. We now use the flatness of X over A to pass from the generic fiber to
+all of X. It is clear that flatness implies X is reduced. For quasi-finiteness, apply
+EGA IV (14.2.4) [13].
+    Therefore X is reduced and is quasi-finite over A. Affineness then follows from
+Zariski’s Main Theorem, as we now explain. Let D denote the integral closure of A
+in OpXq. Let X 1 denote Spec D, called the normalization of A in X in the Stacks
+Project [2, Tag 035H]. Then OpXq is reduced and is flat over A, and hence so is D.
+It is also finite over A, by [2, Tag 03GR]. Since X is quasi-finite, the canonical map
+X Ñ X 1 is an open immersion by Zariski’s Main Theorem [2, Tag 03GW]. Finally,
+since X 1 is finite flat over A, which is a Dedekind domain, its Krull dimension is 1
+and hence its open subscheme X must be affine [2, Tag 09N9].
+    Thus we can write X “ Spec B, where B is an f-periodic ΛA,P -ring which is
+reduced and is flat, quasi-finite, and of finite type over A. It follows that K bA B
+is étale over K.
+    (2): It follows from statement
+                             ś      (1) that there is a nonzero element t P A such that
+Br1{ts is a finite product i Di , where each Di is the integral closure of Ar1{ts in a
+finite extension Li of K: Indeed, since B is of finite type over A and since B bA K
+is finite over K, there is an element t P A such that Br1{ts is finite flat over Ar1{ts.
+Since B is reduced, so is Br1{ts, and hence the discriminant ideal of Br1{ts over
+Ar1{ts is nonzero. Then by scaling t so that it lies in the discriminant ideal, and
+is nonzero, we may assume that Br1{ts is finite étale over Ar1{ts. It then follows
+that Br1{ts is the integral closure of Ar1{ts in K bA B and is hence of the required
+form.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                17
+
+
+   Now let Pt denote the set of primes p in P that do not divide t. Then we can
+consider Pt as a set of primes of Ar1{ts; and since P is Chebotarev dense, so is Pt .
+Applying proposition 5.2 to the ΛAr1{ts,Pt -ring Br1{ts, we see each field K bA Di
+is an abelian extension of K. Since the Frobenius elements act on each Di with
+period f, the conductor of K bA Di divides f.                                     
+7.4. Ray class algebras. These are Λ-ring analogues of the ray class fields of K.
+   We can view DRP pfq as a pointed DRP pfq-set: the distinguished point is the
+identity element, and the action is translation. By theorem 5.5, the corresponding
+ΛA,P -ring over K has an integral model. Define RA,P pfq, the ray class algebra of
+conductor f, to be the maximal ΛA,P -order in this K-algebra. Thus we have
+                                             ź
+                         K bA RA,P pfq “         Kpfd´1 q,
+                                            dPIdP
+                                            d|ffin
+
+where Kpfd´1 q is the ray class field of K with conductor fd´1 . Under this identifi-
+cation, the map β : RA,P pfq Ñ K sep coming from the distinguished point of DRP pfq
+is the projection to the component with d “ p1q.
+    In our previous paper [7], we considered the case where A “ Z and P is all
+maximal ideals. There we showed that the ray class algebra of conductor pnq8 is
+Zrxs{pxn ´ 1q, or more naturally, the group ring on the cyclic group µn pK sep q of
+n-th roots of unity in K sep .
+    Observe that the ray class algebra is not usually a domain, and in particular the
+map β : RA,P pfq Ñ Kpfq to the ray class field is not usually injective. Also, unlike
+the ray class field, it depends not only on f but also on A and P . On the other
+hand, K bA RA,P pfq is independent of A.
+    If P is Chebotarev dense, the ray class algebra RA,P pfq satisfies the following
+maximality property: if D is a reduced finite flat f-periodic ΛA,P -ring equipped with
+a map α : D Ñ K sep of A-algebras, then there is a unique map ϕ : D Ñ RA,P pfq of
+ΛA,P -rings making the following diagram commute:
+                                    K sep
+                                   ④④= d❏❏❏❏
+                               α ④④         ❏❏β
+                                 ④            ❏❏❏
+                              ④④④                ❏
+                             ④          ϕ
+                           D ❴ ❴ ❴ ❴ ❴ ❴ ❴ ❴/ RA,P pfq.
+This is simply because, under the anti-equivalence with DRP pfq-sets, RA,P pfq cor-
+responds to DRP pfq, which is the free DRP pfq-set on one generator.
+7.5. Change of f. Suppose f1 “ fa. Then the maps DRP pf1 q Ñ DRP pfq and
+DRP pfq ÝÑ DRP pf1 q of 4.2 induce an inclusion
+(7.5.19)                      u : RA,P pfq ÝÑ RA,P pf1 q
+and a surjection
+(7.5.20)                      v : RA,P pf1 q ÝÑ RA,P pfq
+of ΛA,P -rings, and the compositions u ˝ v and u ˝ v agree with the two ψa endomor-
+phisms.
+   In the case where K “ Q, P is all maximal ideals, f “ pnq8, and f1 “ pn1 q8,
+these maps can be identified with the maps on group rings corresponding to the
+inclusion µn pK sep q Ď µn1 pK sep q, in the case of u, and the n1 {n-th power map
+µn1 pK sep q Ñ µn pK sep q, in the case of v.
+
+                   8. Periodic loci and abelian extensions
+  Let f be a cycle on K. Let X be a separated (flat) ΛA,P -scheme.
+18                               J. BORGER, B. DE SMIT
+
+
+8.1. Periodic locus Xpfq. Define the f-periodic locus Xpfq of X to be the scheme-
+theoretic intersection              č
+                          Xpfq “         Xpψa “ ψb q,
+                                      a,bPIdP
+                                       a„f b
+where Xpψa “ ψb q denotes the equalizer of the two maps ψa , ψb : X Ñ X. Since
+X is separated, Xpfq is a closed subscheme. The functor Xpfq represents is
+         XpfqpCq “ tx P XpCq : ψa pxq “ ψb pxq for all a, b P IdP with a „f bu.
+We emphasize that Xpfq depends on P as well as f, although the notation does not
+reflect this.
+    Observe that Xpfq is functorial in X. It also behaves well under change of f: if
+f1 is another cycle and f | f1 , then we have
+                                     Xpfq Ď Xpf1 q.
+   Finally, let Xpfqfl denote the maximal A-flat subscheme of Xpfq. It is the closed
+subscheme of Xpfq defined by the ideal sheaf of A-torsion elements. Although the
+actual periodic locus Xpfq is more fundamental than Xpfqfl , for the purposes of
+this paper it is enough to consider Xpfqfl , and doing so will allow us to avoid the
+subtleties of Λ-rings with torsion.
+Proposition 8.2. For any ideal a P IdP , we have the subscheme inclusion
+(8.2.21)                         Xpafq Ď ψa´1 pXpfqq.
+Proof. Let x be a point of Xpafq with coordinates in some ring R. Let b and c be
+f-equivalent ideals in IdP . Then we have ab „af ac and hence
+                        `     ˘                        `      ˘
+                     ψb ψa pxq “ ψab pxq “ ψac pxq “ ψc ψa pxq .
+It follows that ψa pxq P Xpfq, and this implies (8.2.21).                              
+8.3. Torsion locus Xrfs. Write f “ ffin f8 . Then we define the f-torsion locus by
+                                 Xrfs “ ψf´1
+                                          fin
+                                              pXpf8 qq.
+It follows from proposition 8.2 that we have an inclusion of subschemes
+(8.3.22)                             Xpfq Ď Xrfs.
+For example, if A “ Z, P “ MQ , and f “ pnq8, then this inclusion is an equality be-
+cause both sides are µn . If however f “ pnq, then the f-torsion locus is again µn , but
+the f-periodic locus Gm pfq is µm , where m “ gcdp2, nq. So the containment (8.3.22)
+can be far from an equality.
+
+     Summing up the results above with the previous section, we have the following:
+Theorem 8.4. If X is of finite type over A and P is Chebotarev dense, then we
+have the following:
+   (1) The flat f-periodic locus Xpfqfl is a closed f-periodic sub-ΛA,P -scheme of X,
+        and it is the maximal flat closed subscheme with these properties.
+   (2) We have Xpfqfl “ Spec B, where B is a finitely generated A-algebra, and
+        K bA B is a finite product of abelian extensions of K of conductor dividing
+        f.
+   (3) If X is proper, then B is a finite A-algebra.
+Proof. (1) By functoriality, the subscheme Xpfq is stable under the operators ψp ,
+for all p P P . Again by functoriality, Xpfqfl is also stable under them. Since the
+ψp are Frobenius lifts on X, so are the endomorphisms they induce on the closed
+subscheme Xpfqfl . Since Xpfqfl is flat, this defines a ΛA,P -structure on Xpfqfl . It is
+obviously f-periodic. Maximality is also clear.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                 19
+
+
+   (2) This follows from proposition 7.3.
+   (3) When X is proper, so is Xpfqfl , since it is a closed subscheme of X. It
+therefore must be finite over A because it is flat and generically finite.   
+
+8.5. Conjecture. Let r denote the product of all the real places. If X is proper
+and nonempty, we conjecture that Xprq is nonempty.
+   When K “ Q, this was proved in [5]. It is possible, however, to give an easier
+argument that avoids the deep theorems in étale cohomology and p-adic Hodge
+theory used there. One would expect this argument to go through for general K.
+
+8.6. Computing the periodic locus. Is there an algorithm to find equations describ-
+ing Xpfq, given equations for X and formulas for the Frobenius lifts ψp ? Without
+such an algorithm, our approach to generating abelian extensions would not be so
+explicit. But it also might be an indication that, for theoretical purposes, there
+really is more freedom in this approach.
+
+                   9. Interlude on periodic Witt vectors
+   In this section, we define periodic Witt vectors and show how they recover the
+ray class algebras of the previous section. It will not be used elsewhere in the paper.
+
+9.1. P -typical Witt vector rings WA,P pRq. Let us review the generalized Witt
+vector rings as defined in the first section of [3]. Let R be a flat A-algebra. Then
+the monoid IdP acts on the product A-algebra RIdP (the so-called ghost ring) by
+translation in the exponent. Explicitly, if xa denotes the a-th component of a vector
+x P RIdP , then ψb : RIdP Ñ RIdP is defined by the formula
+                                   `      ˘
+                                    ψb pxq a “ xab .
+   Now consider the set of sub-A-algebras D Ď RIdP such that D is taken to itself by
+the action of IdP and such that for each prime p P P , the induced endomorphism
+ψp : D Ñ D is a Frobenius lift at p. An elementary argument shows that this
+collection of subrings has a maximal element WA,P pRq. It is called the ring of P -
+typical Witt vectors with entries in R. It recovers the usual p-typical Witt vector
+functor (restricted to torsion-free rings) when A is Z and P consists of the single
+maximal ideal pZ; it recovers the big Witt vector functor when instead P consists
+of all maximal ideals of Z.
+   This construction is functorial in R, and one can show that the functor WA,P is
+representable by a flat A-algebra ΛA,P . (Incidentally, this shows that WA,P extends
+to a functor on all A-algebras, namely the one represented by ΛA,P . Thus we can
+extend the theory of Λ-structures and Witt vectors to A-algebras with torsion, but
+we will not need this generality here.) The endomorphisms ψa of the functor WA,P
+induce endomorphisms of ΛA,P . They are in fact Frobenius lifts, and hence ΛA,P
+is a ΛA,P -ring.
+
+9.2. Universal property of Witt vector rings. The Witt vector functor is the right
+adjoint of the forgetful functor from ΛA,P -rings to A-algebras. Let us spell out
+the universal property for future reference. Let R be a flat A-algebra, let D be a
+flat ΛA,P -ring, and let ϕ : D Ñ R be an A-algebra map. Then ϕ lifts to a unique
+ΛA,P -ring map ϕ̃ to the Witt vector ring:
+                                       ϕ̃
+                             D ❅❴ ❴ ❴ ❴ ❴ ❴ ❴/ WA,P pRq
+                                ❅❅       D!
+                                  ❅❅                ✉✉
+                                    ❅            ✉✉✉
+                                 ϕ   ❅❅       ✉ xÞÑxp1q
+                                                ✉
+                                            z✉✉
+                                         R.
+20                                     J. BORGER, B. DE SMIT
+
+
+Indeed, it lifts to a unique IdP -equivariant morphism D Ñ RIdP , given by a ÞÑ x,
+where xa “ ϕpψa paqq. It remains to check that the image S of this map lies in
+WA,P pRq. But S is torsion free, as a subalgebra of RIdP ; it has an action of IdP ,
+as the image of an equivariant map of rings with an IdP -action; and it satisfies
+the Frobenius lift condition because it is an IdP -equivariant quotient of D, which
+satisfies the Frobenius lift condition. Therefore S is contained in WA,P pRq by the
+maximality property of WA,P pRq.
+
+9.3. f-periodic Witt vector rings W pfq pRq. Let f be a cycle on K. We define the
+set of f-periodic Witt vectors with entries in an A-algebra R as follows
+                 pfq
+(9.3.23)       WA,P pRq :“ tx P WA,P pRq : ψa pxq “ ψb pxq whenever a „f bu.
+                                                                                                  pfq
+In other words, if we view the functor WA,P as a scheme, then WA,P pRq is the set
+of R-valued points on its f-periodic locus.
+   When R is flat, the periodic Witt vectors can be described simply in terms of
+their ghost components:
+                       pfq
+(9.3.24)          WA,P pRq “ tx P WA,P pRq : xa “ xb whenever a „f bu.
+Indeed, this follows from the implication a „f b ñ ac „f bc. In other words, we
+have
+                                 pfq
+(9.3.25)                       WA,P pRq “ WA,P pRq X RDRP pfq ,
+as subrings of the ghost ring RIdP .
+9.4. Example. Suppose A “ Z, P “ MQ , and f “ pnq8 where n ě 1. Then an
+f-periodic Witt vector with entries in a torsion-free ring R is just a big Witt vector
+whose ghost components are periodic with period dividing n. This is the reason for
+the name. For example, if ζn is an n-th root of unity, then the Teichmüller element
+                                       rζn s :“ xζn , ζn2 , ζn3 , . . . y
+is n8-periodic. (This is even true when R is not torsion free, by functoriality and
+because the universal ring with an n-th root of unity is Zrxs{pxn ´ 1q, which is
+torsion free.)
+                         pfq
+Proposition 9.5. WA,P pRq is an f-periodic sub-ΛA,P -ring of WA,P pRq, for any
+flat A-algebra R.
+Proof. It is clearly a sub-A-algebra of WA,P pRq. It is also preserved by all ψp
+operators (p P P ) because of the implication a „f b ñ pa „f pb. The family of
+                                     pfq
+operators ψa is also f-periodic on WA,P pRq by definition.
+   So all that remains is to check the Frobenius lift property. For p P P and any
+      pfq
+x P WA,P pRq, we have
+                                                                             pfq
+                        ψp pxq ´ xN ppq P pWA,P pRq X WA,P pRq.
+Thus it is enough to show that the containment
+                                 pfq                                        pfq
+(9.5.26)                     pWA,P pRq Ď pWA,P pRq X WA,P pRq
+is an equality. This follows from the diagram
+                                                                             γ
+                       / W pfq pRq
+                                                                                         ś
+           0                                            / W pRq
+                                                                                            a„f b R
+                                                                                     /
+                             O                               O                                O
+
+                           O                              O                                  śO
+                                                                            pbγ
+           0       / p bA W pfq pRq                / p bA W pRq                    / p bA
+                                                                                                  a„f b R
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                   21
+
+
+of exact sequences, where γpxq “ p. . . , xa ´ xb , . . . q. The vertical arrows are the
+evident multiplication maps a b b ÞÑ ab; they are injective because all modules on
+the top row are flat. This plus the exactness of the bottom row implies that (9.5.26)
+is an equality.                                                                       
+9.6. Remark: Plethysic algebra. The formal concepts above can be expressed in
+the language of plethystic algebra [8]. Let ΛA,P be the A-algebra representing the
+                         pfq                                        pfq
+functor WA,P , and let ΛA,P be the one representing the functor WA,P . Then the
+                         pfq                                              pfq
+inclusion of functors WA,P Ď WA,P induces a surjection ΛA,P Ñ ΛA,P . It is not
+hard to show that this has the structure of a morphism of A-plethories and an action
+     pfq
+of ΛA,P is the same as an f-periodic ΛA,P -structure. It follows that the forgetful
+functor from f-periodic ΛA,P -rings to all ΛA,P -rings has both a left and a right
+adjoint. The right adjoint outputs the f-periodic elements of the given ΛA,P -ring.
+This provides one approach to Λ-structures and Witt vectors that works smoothly
+in the presence of torsion.
+9.7. Universal property of periodic Witt vector rings. Let R be a flat A-algebra,
+let D be a flat f-periodic ΛA,P -ring, and let ϕ : D Ñ R be an A-algebra map. Then
+ϕ lifts to a unique ΛA,P -ring map to the f-periodic Witt vector ring:
+                                         ϕ̃               pfq
+                               D ❃❴ ❴ ❴ ❴ ❴ ❴ ❴/ WA,P pRq
+                                  ❃❃       D!
+                                    ❃❃                ✇✇
+                                      ❃            ✇✇✇
+                                   ϕ ❃
+                                        ❃       ✇✇ xÞÑxp1q
+                                              {✇✇
+                                           R.
+Indeed, by the universal property of Witt vectors (9.2), it lifts to a unique ΛA,P -map
+                                                                            pfq
+D Ñ WA,P pRq. But since D is f-periodic, the image is contained in WA,P pRq.
+
+Proposition 9.8. Let K sep be a separable closure of K, and let Aint denote the in-
+tegral closure of A in K sep . Let RA,P pfq denote the ray class ΛA,P -ring of conductor
+f, as defined in 7.4. Then we have an isomorphism
+                                                „   pfq
+(9.8.27)                       β̃ : RA,P pfq ÝÑ WA,P pAint q
+of ΛA,P -rings, where the map β̃ is the lift, in the sense of 9.7, of the projection
+β : RA,P pfq Ñ Aint defined in 7.4.
+                                              pfq
+Proof. The ΛA,P -rings RA,P pfq and WA,P pAint q are characterized by the same uni-
+versal property, except that the one for RA,P pfq is restricted to algebras D that are
+                                                                     pfq
+reduced and finite flat over A. So it is enough to show that WA,P pAint q is itself
+reduced and finite flat over A. Since it is a subalgebra of DRP pfq Aint by definition,
+                                                           ś
+
+it is reduced and flat. So it is enough to show that it is finite over A.
+    First, observe that we have
+                                   pfq                          pfq
+(9.8.28)                colimL WA,P pL X Aint q “ WA,P pAint q,
+where L runs over the finite extensions of K contained in K sep . Indeed, for any
+       pfq
+x P WA,P pAint q, let L denote the extension Kp. . . , xa , . . . q, where the xa are the
+(ghost) components of x. It follows that x P WA,P pLq X WA,P pAint q. Because WA,P
+is representable, we also have
+                     WA,P pLq X WA,P pAint q “ WA,P pL X Aint q,
+and hence x P WA,P pL X Aint q. Because x is also f-periodic, we have
+                                         pfq
+                                  x P WA,P pL X Aint q,
+22                              J. BORGER, B. DE SMIT
+
+
+as desired. It remains to show that L is a finite extension of K. This holds because
+x is f-periodic and DRP pfq is finite, and so x has only finitely many distinct ghost
+components. This proves (9.8.28).
+                                              pfq
+   Therefore it is enough to prove that WA,P pL X Aint q has bounded rank as L
+                                                                     pfq
+runs over all finite extensions of K. By proposition 9.5, WA,P pL X Aint q is a flat
+reduced f-periodic ΛA,P -ring. Being a subring of DRP pfq L X Aint, it is also finitely
+                                                 ś
+
+generated
+    ś as an A-module. Therefore by theorem 5.5, it is contained in the product
+ring d Kpfd´1 q X Aint , where d runs over IdP with d | ffin . Therefore its rank as
+L varies is bounded.                                                                 
+9.9. Example. If A “ Z, P “ MQ , and f “ pnq8 with n ě 1, then for any primitive
+n-th root of unity ζn , there is an isomorphism
+                                             „      pn8q
+                            Zrxs{pxn ´ 1q ÝÑ WZ,P pOQ̄ q
+given by x ÞÑ rζn s. Given the above, this is the second theorem of our first paper [7].
+   On the other hand, if f “ p1q but K is arbitrary and P “ MK , then we have
+                                      p1q
+                                    WOK ,P pOK̄ q “ OH
+where H is the Hilbert class field of K. More generally, if f is supported at infinity,
+       pfq
+then WOK ,P pOK̄ q is the ring of integers in the corresponding narrow Hilbert class
+field.
+Corollary 9.10. The periodic Witt vector ring is generically a product of ray class
+fields:
+                              pfq
+                                            ź
+(9.10.29)            K bA WA,P pAint q “         Kpfd´1 q.
+                                                 dPIdP
+                                                 d|ffin
+
+The ray class field Kpfq is the image of the projection
+                                pfq
+(9.10.30)             K bA WA,P pAint q ÝÑ K sep ,         x ÞÑ xp1q .
+9.11. Remark: Periodic Witt vectors and explicit class field theory. It follows
+from corollary 9.10 that any ray class field Kpfq is generated by the first coordinate
+xp1q of the f-periodic Aint -points x on the affine scheme WA,P “ SpecpΛA,P q. We
+emphasize however that WA,P is not of finite type, and so this does not give an
+explicit method of producing a polynomial whose roots generate Kpfq. In fact,
+                       pfq
+the periodic locus WA,P is itself not even of finite type. For instance, if K “ Q,
+                              pfq
+P “ MQ , and f “ 8, then ΛA,P is isomorphic to the binomial ring, the subring of
+Qrxs generated by the binomial coefficients nx , and this is not finitely generated
+                                               ` ˘
+                                              pfq
+as a ring. Therefore to find a point of WA,P , one has to solve infinitely many
+simultaneous polynomial equations with coefficients in A.
+                      pfq
+    To be sure, KbA ΛA,P is finitely generated as a K-algebra, because on K-algebras
+it represents the periodic ghost functor R ÞÑ RDRP pfq and DRP pfq is finite. There-
+fore a periodic Witt vector is determined by finitely many components, namely its
+ghost components. However to give a criterion for a periodic ghost vector to be a
+Witt vector, we need infinitely many congruences between polynomials in the ghost
+components. If we add variables to express these congruences as equations, we will
+need infinitely many new variables.
+
+             10. K “ Q: the toric line and the Chebyshev line
+   In this section, we consider the case where A is Z and P is the set of all maximal
+ideals of Z. For any integer n ě 1, let us write ψn “ ψpnq and Λ “ ΛZ,P .
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                     23
+
+
+10.1. The toric line and cyclotomic extensions. Define the toric Λ-structure on
+Gm “ Spec Zrx˘1 s to be the one given by ψp pxq “ xp , for all primes numbers p.
+(We use this name because it is a particular case of the natural Λ-structure on any
+toric variety.) Observe that it extends uniquely to the affine and projective lines.
+   For each cycle of the form pnq8, with n ě 1, the periodic locus Gm pn8q is
+simply µn “ Spec Zrxs{pxn ´ 1q. In other words, the containment (8.3.22) is an
+equality. Thus we have
+                                           ž
+                          Q bZ Gm pn8q “       Spec Qpζd q.
+                                                d|n
+
+So in this case, the n8-periodic locus of the Λ-scheme Gm does in fact generate
+the ray class field of conductor n8.
+
+10.2. The Chebyshev line and real-cyclotomic extensions. The toric Λ-ring Zrx˘1 s
+above has an automorphism σ defined by σpxq “ x´1 . The fixed subring is easily
+seen to be a sub-Λ-ring and freely generated as a ring by y “ x` x´1 . The elements
+ψp pyq P Zrys are given by Chebyshev polynomials
+                                         n´1
+                                         ź
+                          ψn pyq “ 2 `         py ´ ζni ´ ζn´i q,
+                                         i“0
+
+where ζn is a primitive n-th root of unity. For example, we have
+    ψ2 pyq “ y 2 ´ 2,     ψ3 pyq “ y 3 ´ 3y,          ψ5 pyq “ y 5 ´ 5y 3 ` 5y,   ....
+This gives the affine line Y “ Spec Zrys a Λ-scheme structure. We call it the
+Chebyshev Λ-structure. It also extends uniquely to the projective line. (Inciden-
+tally, Zrys is isomorphic as a Λ-ring to the Grothendieck group of the Lie algebra
+sl2 . By Clauwens’s theorem [9], this and the toric Λ-structure are the only two
+Λ-structures on the affine line, up to isomorphism.)
+    Now consider a cycle f with trivial infinite part. Write f “ pnq, where n ě 1, and
+write Y pnq “ Y pfq for the periodic locus. We have
+                         Y r1s “ Y p1q “ Spec Zrys{py ´ 2q,
+and hence the n-torsion locus is
+                           Y rns “ ψn´1 pSpec Zrys{py ´ 2qq
+or more simply, Y rns “ ψn´1 p2q. Observe that Y rns is not reduced when n ě 3: for
+instance if n is odd, we have
+                                                            n´1
+                        n´1
+                        ź                              2
+                                                       ź
+           ψn pyq ´ 2 “    py ´ ζni ´ ζn´i q “ py ´ 2q   py ´ ζni ´ ζn´i q2 .
+                         i“0                                i“1
+
+However the periodic locus is reduced. In fact, we have
+                                          ź
+                        Q bZ OpY pnqq “      Qpζd ` ζd´1 q,
+                                               d|n
+
+by the following more precise integral result:
+Proposition 10.3.        (1) The periodic locus Y pnq is flat and reduced, and the
+      inclusion
+                                 i : Y pnq Ñ Y rnsred
+        is an isomorphism.
+    (2) The map OpY pnqq Ñ Zrxs{pxn ´ 1q is injective. If n is odd, its image is
+        the subring of invariants under the involution σ : x ÞÑ x´1 . If n is even,
+        its image is the span of t1, x ` x´1 , . . . , xn{2´1 ` x1´n{2 , 2xn{2 u.
+24                                J. BORGER, B. DE SMIT
+
+
+Proof. (1): Consider the differences of Chebyshev polynomials
+                             Pa,b pyq :“ ψa pyq ´ ψb pyq P Zrys.
+Then the periodic locus Y pnq is Spec Zrys{I, where
+                         `                                ˘
+                     I “ Pa,b pyq | a ” ˘b mod n, a, b ě 1 .
+Let Qpyq denote the product of the monic irreducible factors of pψn pyq ´ 2q, each
+taken only with multiplicity 1. If n is odd, we have
+                                           n´1
+                                           ź2
+
+                                Qpyq “           py ´ ζni ´ ζn´i q.
+                                           i“0
+and if n is even, we have
+                                            n
+                                           2
+                                           ź
+                                Qpyq “           py ´ ζni ´ ζn´i q.
+                                           i“0
+Then we have
+                                       I Ď pQpyqq
+since each Pa,b pyq vanishes at y “ ζni ` ζn´i , for each i. Therefore to prove (1), it is
+enough to show this containment is an equality.
+   Since Zrx˘1 s is a faithfully flat extension of Zrys, it is enough to show this after
+base change to Zrx˘1 s. In other words, it is enough to show
+                  Qpx ` x´1 q P Pa,b px ` x´1 q | a ” ˘b mod n .
+                                  `                                  ˘
+
+We have
+          Pa,b px ` x´1 q “ xa ` x´a ´ xb ´ x´b “ x´a pxa`b ´ 1qpxa´b ´ 1q.
+Therefore we have
+                        Pn`1,1 px ` x´1 q “ pxn ´ 1qpxn`2 ´ 1q ,
+                       `                 ˘ `                  ˘
+
+                        Pn`2,2 px ` x´1 q “ pxn ´ 1qpxn`4 ´ 1q
+                       `                 ˘ `                  ˘
+
+and hence
+        Pn`1,1 px ` x´1 q, Pn`2,2 px ` x´1 q “ xn ´ 1 px2 ´ 1q, pxn ´ 1q .
+       `                                    ˘ `      ˘`                 ˘
+
+If n is odd, then we have
+          x ´ 1 px2 ´ 1q, pxn ´ 1q “ pxn ´ 1qpx ´ 1q “ Qpx ` x´1 q .
+         ` n     ˘`               ˘ `               ˘ `           ˘
+
+Similarly, if n is even
+         x ´ 1 px2 ´ 1q, pxn ´ 1q “ pxn ´ 1qpx2 ´ 1q “ Qpx ` x´1 q .
+        ` n      ˘`              ˘ `                ˘ `           ˘
+
+Thus in either case, we have
+                    Qpx ` x´1 q P Pn`1,1 px ` x´1 q, Pn`2,2 px ` x´1 q
+                                 `                                    ˘
+                                  `                                    ˘
+                                Ď Pa,b pyq | a ” ˘b mod n, a, b ě 1 .
+   (2): Suppose a polynomial f pyq P Zrys maps to zero in Zrxs{pxn ´ 1q. Then we
+have f pζni ` ζn´i q “ 0 for all i. Therefore we have py ´ ζni ´ ζn´i q | f pyq. Thus if n
+is odd, we have
+                                 n´1
+                                 ź2
+
+                                       py ´ ζni ´ ζn´1 q | f pyq
+                                 i“0
+and if n is even,
+                                  n
+                                 2
+                                 ź
+                                   py ´ ζni ´ ζn´1 q | f pyq.
+                                 i“0
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                    25
+
+
+In either case, we have Qpyq | f pyq. Therefore the map Zrys{pQpyqq Ñ Zrxs{pxn ´1q
+is injective.
+    Let us now consider surjectivity. When n is odd, the set
+                                               n´1        n´1
+                           t1, x ` x´1 , . . . , x 2 ` x´ 2 u
+                             `                    ˘σ
+is a Z-basis for the subring Zrxs{pxn ´ 1q of σ-invariants, and this is contained
+in the image of Zrys. When n is even, t1, x ` x´1 , . . . , xn{2´1 ` x1´n{2 , xn{2 u is a
+Z-basis. All these elements but xn{2 lie in the image of Zrys. However 2xn{2 does
+lie in the image.                                                                      
+Corollary 10.4. The map
+                                 OpY pnqq ÝÑ RZ,P pnq
+to the ray class algebra given by the point ζn ` ζn´1 P Y pnqpOQ̄ q is injective. If n is
+odd, it is surjective; if n is even, its  ścokernel is a group  of order 2 generated by the
+                                                         ´1
+class of r´1s “ x. . . , p´1qd , . . . y P d|n Qpζn{d ` ζn{d q.
+
+Proof. By the map Zrxs{pxn ´ 1q Ñ OQ̄ given by x ÞÑ ζn results in a diagram
+
+                            Zrxs{pxn ´ 1q            / RZ,P pn8q
+                                  O                         O
+
+                          `       O     ˘σ                 O
+                           Zrxs{pxn ´ 1q             / RZ,P pnq.
+
+By the second theorem in our first paper [7], the top map is an isomorphism. Since
+taking maximal Λ-orders commutes with taking group invariants, by part (2) of
+proposition 2.2, the bottom arrow is also an isomorphism. Observe that when n is
+even, the image of xn{2 is r´1s. Now invoke proposition 10.3.                   
+
+11. K imaginary quadratic: CM elliptic curves and the Lattès scheme
+   Let K be an imaginary quadratic field. For convenience, let us fix an embedding
+K Ă C. In this section, we show how explicit class field theory over K, due to
+Kronecker and his followers, can be set naturally in the framework of this paper.
+This builds on Gurney’s thesis [14]. The arguments are similar in spirit to those in
+the real-cyclotomic context in the previous section.
+   Let us write
+                        Λ “ ΛOK ,MK and Λp “ ΛOKp ,p ,
+where p P P is any given prime.
+
+11.1. The moduli space of CM elliptic curves. Let R be an OK -algebra. Then
+a CM elliptic curve over R is an elliptic curve E over R together with a ring
+map OK Ñ EndR pEq such that the induced action of OK on the tangent space
+T0 pEq agrees with the OK -algebra structure map OK Ñ R “ EndR pT0 pEqq. Let
+MCM pRq denote the category whose objects are the CM elliptic curves over R and
+whose morphisms are the OK -equivariant isomorphisms of elliptic curves. Since
+all morphisms are isomorphisms, MCM pRq is a groupoid by definition. As the
+OK -algebra R varies, the usual base-change maps make MCM a fibered category
+over the category of affine OK -schemes. Further, this fibered category satisfies
+effective descent for the fppf topology because all ingredients in its definition can be
+expressed in terms which are fppf-local. In other words, MCM is a stack. (See [16]
+the theory of stacks.) Let E Ñ MCM denote the universal object. Then EpRq is the
+groupoid of pairs pE, xq, where E is a CM elliptic curve over R, and x is a point of
+EpRq.
+26                               J. BORGER, B. DE SMIT
+
+
+   Both E and MCM have certain endomorphisms ψa , for any integral ideal a Ď OK ,
+defined as follows. On MCM , the map ψa is defined by
+                                   ψa : E ÞÑ a´1 b E,
+where the elliptic curve a´1 bE is the Serre tensor product [19], defined as a functor
+by
+                         ` ´1
+                          a b E pCq :“ a´1 bOK EpCq ,
+                                  ˘                  `    ˘
+
+for any algebra C over the base R of E. (This is again an elliptic curve: since
+a´1 is a direct summand of OK   2
+                                  , the functor a´1 b E is a direct summand of the
+abelian variety E 2 .) In particular, if R “ C and the period lattice of E is L, so
+that EpCq “ C{L, then a´1 b E is the elliptic curve with period lattice a´1 bOK L,
+up to canonical isomorphism.
+   Using the isogeny E Ñ a´1 b E defined by x ÞÑ 1 b x, we can then define the
+endomorphism ψa : E Ñ E by
+                            ψa : pE, xq ÞÑ pa´1 b E, 1 b xq.
+Observe that it lies over the endomorphism ψa of MCM .
+   The ψa operators should be thought of as providing a Λ-structure on MCM and
+E, but MCM and E are stacks and we will not define what Λ-structures on stacks
+are here. Let us just say that the ψa operators, whether on MCM or E, commute up
+to a coherent family of canonical isomorphisms coming from the usual associators
+pU b V q b W Ñ U b pV b W q on the category of OK -modules. Similarly, if a is a
+prime p, then the reduction of ψp modulo p agrees with the N ppq-power Frobenius
+map Fp , in the sense that for any elliptic curve E over an Fp -algebra, there is unique
+isomorphism ψp pEq Ñ Fp pEq compatible with the canonical maps from E.
+
+11.2. Lattès scheme. We follow Gurney’s thesis [14]. Let L denote the coarse
+space underlying E. It is the functor defined, for any OK -algebra C, by
+              LpCq “ tlocal-isomorphism classes of triples pC 1 , E, xqu,
+where C 1 is an fppf cover of C, and E is a CM elliptic curve over C 1 , and x P EpC 1 q
+and where two pairs pC11 , E1 , x1 q and pC21 , E2 , x2 q are in the same local-isomorphism
+class if C11 and C21 have a common fppf cover C 2 such that when pulled back to C 2 ,
+there is an isomorphism between E1 and E2 identifying x1 and x2 . Observe that if
+C “ C (or any algebraically closed field), we have
+                    LpCq “ tisomorphism classes of pairs pE, xqu,
+where E is a CM elliptic curve over C and x P EpCq. Thus LpCq is the union of
+hK copies of P1 pCq, where hK is the class number of K.
+   The functor L is an OK -scheme (see 4.3.10 of [14]), which we call the Lattès
+scheme, and unless we say otherwise we will view it as an OK -scheme. Note however
+that the structure map L Ñ Spec OK factors naturally through the coarse space
+underlying MCM , which Gurney shows (2.6.10 of [14]) is Spec OH , where H is the
+Hilbert class field of K in C:
+                            ❴ ❴ ❴ ❴ ❴ ❴ ❴ ❴ ❴ ❴/ Spec OH
+                           L●
+                             ●●                    q
+                               ●●
+                                 ●●           qqqqq
+                                   ●●        q
+                                     #   xqqq
+                                   Spec OK
+So one can also view L as an OH -scheme, and sometimes we will.
+  For example, given any CM elliptic curve E over R, we have an identification
+                                                      ˚
+(11.2.31)                   L ˆSpecpOH q SpecpRq “ E{OK .
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                   27
+
+
+(This can in fact serve as an alternative definition of L.) The universal map E Ñ L
+is then nothing more than the classical Weber function expressed in our language.
+Gurney (4.3.16 of [14]) proves there exists an isomorphism L Ñ P1OH of OH -schemes.
+(The fact that L is a P1 -bundle over OH is expected, but the fact that it is the trivial
+bundle requires more work.) It follows that as an OK -scheme, L has geometrically
+disconnected fibers if hK ą 1. We also emphasize that there appears to be no
+canonical isomorphism L Ñ P1OH . There is a canonical OH -point 8 P LpOH q, which
+corresponds to pairs of the form pE, 0q. The isomorphism L Ñ P1OH would then
+typically be chosen to send 8 to 8, but we cannot make any further restrictions, it
+seems. So the isomorphism L Ñ P1OH is canonically defined only up to the action
+                                                                ˚
+of the stabilizer group of 8, the semi-direct product OH ¸ OH     .
+    The endomorphisms ψa of E induce endomorphisms ψa : L Ñ L (morphisms of
+OK -schemes). Then ψp for p prime reduces to the N ppq-power Frobenius map Fp
+modulo p, and hence the ψa define a Λ-structure on L. (See 4.3.11 of [14].) Further
+the map L Ñ Spec OH above is a morphism of Λ-schemes, where OH is given its
+unique Λ-ring structure.
+    When expressed in terms of P1OH , the endomorphisms ψa are often call the Lattès
+functions, as for example in Milnor’s book [17] (page 72), which explains the name.
+
+Proposition 11.3.       (1) LrfspCq is the set of isomorphism classes of pairs pE, xq,
+       where E is a complex CM elliptic curve and x P ErfspCq.
+   (2) The action of IdP on LrfspCq, where a acts as ψa , factors through an action
+       (necessarily unique) of DRP pfq on LrfspCq. The resulting DRP pfq-set is a
+       torsor generated by any class of the form pE0 , x0 q, where E0 is a CM elliptic
+       curve and x0 is a generator of E0 rfspCq as an OK -module.
+
+Proof. (1): Any point of y P LpCq is the isomorphism class of a pair pE, xq, where
+E is a complex CM elliptic curve and x P EpCq. Under ψf , the pair pE, xq maps to
+pf´1 b E, 1 b xq. So if y lies in the f-torsion locus LrfspCq, the object pf´1 b E, 1 b xq
+must be isomorphic to one of the form pE 1 , 0q. Therefore the point 1 b x P pf´1 b
+EqpCq is 0, and hence x is an f-torsion point of E.
+   (2): Let us first show that the orbit of pE0 , x0 q under IdP is all of LrfspCq. Let
+pE, xq be an element of LrfspCq. Then there is an integral ideal a Ď OK such that
+there exists an isomorphism of elliptic curves f : a´1 b E0 Ñ E. We can choose a
+such that it is coprime to f. It follows that the image 1 b x0 P a´1 b E0 pCq of x0 is
+a generator of pa´1 b E0 qrfspCq, and hence that f p1 b x0 q is a generator of ErfspCq.
+In other words, there exists an element b P OK such that bf p1 b x0 q “ x. Then we
+have
+
+             ψba pE0 , x0 q “ pb´1 a´1 b E0 , 1 b x0 q – pa´1 b E0 , b b x0 q
+                          – pE, f pb b x0 qq “ pE, bf p1 b x0 qq “ pE, xq.
+
+Therefore pE0 , x0 q generates LrfspCq as a DRP pfq-set.
+  It remains to show
+
+                       a „f b ðñ ψa ppE0 , x0 qq “ ψb ppE0 , x0 qq,
+
+for any two ideals a, b P IdP .
+   First consider the direction ñ. The equality ψa ppE0 , x0 qq “ ψb ppE0 , x0 qq is
+equivalent to the existence of an isomorphism pa´1 bE0 , 1bx0 q – pb´1 bE0 , 1bx0 q.
+Since a „f b, by 4.3, there exists an element t P K such that a “ bt and t´ 1 P fb´1 .
+So it is enough to show that the isomorphism
+                                           tb1
+(11.3.32)                       a´1 b E0 ÝÑ b´1 b E0
+28                                J. BORGER, B. DE SMIT
+
+
+given by multiplication by t b 1, sends 1 b x0 on the left to 1 b x0 on the right. In
+other words, it is enough to show that the two elements 1 b x0 , t b x0 P b´1 b E0 pCq
+agree.
+   We give an argument using period lattices. Write E0 pCq “ C{c, where c is a
+fractional ideal of K, and let y P C be a coset representative of x0 P C{c. Then the
+morphism (11.3.32) above is identified with
+                                               t
+                                     C{a´1 c ÝÑ C{b´1 c.
+So what we want to show is equivalent to the congruence
+                                     ty ” y    mod b´1 c.
+But since x0 is an f-torsion element of C{c, we have y P f´1 c, and hence we have
+                             pt ´ 1qy P fb´1 ¨ f´1 c “ b´1 c,
+as desired.
+   Now consider the direction ð. So assume ψa pE0 , x0 q – ψb pE0 , x0 q. This means
+there is an isomorphism
+                                         t
+                                C{a´1 c ÝÑ C{b´1 c,
+given by multiplication by some element t P K ˚ with ptq “ ab´1 , such that tx0 “ x0 .
+Therefore the diagram
+                                         id
+                               f´1 c{c       / f´1 c{c
+
+
+                                                         
+                                                t
+                                  C{a´1 c            / C{b´1 c
+commutes, since the two ways around the diagram agree on x0 , which is a generator
+of f´1 c{c. Therefore the difference map t ´ 1 : f´1 c{c Ñ C{b´1 c is zero. This implies
+pt ´ 1qf´1 c Ď b´1 c and hence t ´ 1 P fb´1 . It follows from 4.3 that a „f b.        
+Proposition 11.4. Let f be an integral ideal in OK . Then we have equalities
+                                Lpfqfl “ Lpfqred “ Lrfsred
+of closed subschemes of L.
+Proof. We have the following diagram of containments of closed subschemes of L:
+                                         α    / Lpfqfl /     / Lpfq
+                             Lpfqred /
+                                                               
+                                 β
+                                                              
+                             Lrfsred /        / Lrfsfl /     / Lrfs
+
+(As an aside, we note that Lrfs is finite flat of degree N pfq over OH , by 4.3.11 of [14],
+and hence Lrfsfl “ Lrfs.) Observe that α is an isomorphism, by (7.3), and so it
+is enough to show that β is an isomorphism. It is enough to show this after base
+change to C, since β is a closed immersion and Lrfsred is flat over OK . Further,
+since the schemes in question are of finite type, it is enough to show that β induces
+a surjection on complex points, or in other words that the inclusion
+                                     LpfqpCq ãÑ LrfspCq
+is surjective. But this follows from 11.3, which says that LrfspCq is f-periodic.        
+Corollary 11.5. The map Erfs Ñ L factors through the closed subscheme Lpfqfl of
+L.
+Proof. By functoriality, it factors through Lrfs. Because Erfs is reduced, it factors
+further through Lrfsred . Therefore, by 11.4, it factors through Lpfqfl .          
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                     29
+
+
+Proposition 11.6. Let R be a flat OK -algebra over which there is a CM elliptic
+                                                    ˚
+curve E. Fix an ideal f Ď OK , and write G “ OK       . Let LR pfqfl denote the base
+change of Lpfqfl from OH to R. Then we have the following:
+    (1) The map OpLR pfqfl q Ñ OpErfsqG induced by corollary 11.5 is injective.
+    (2) Its cokernel is a finitely generated R{nR-module, where n is the order of
+          ˚
+        OK  .
+    (3) For any sufficiently divisible integer m, there exists a (unique) morphism
+        making the following diagram commute:
+                             OpLR pmfqfl q /           / OpErmfsqG
+                                                          ♦
+                                                 ♦   ♦ ♦
+                                         w♦ ♦
+                                                                 
+                                OpLR pfqfl q /              / OpErfsqG .
+
+Proof. Write LR “ E{G – P1R . Then LR pfqfl is a closed subscheme of LR , and
+by 11.5, we have the following containment of closed subschemes of E:
+                                        Erfs Ď LR pfqfl ˆLR E.
+Let If pRq denote the deal sheaf on LR pfqfl ˆLR E corresponding to Erfs; so we have
+the short exact sequence
+(11.6.33)             0 ÝÑ If pRq ÝÑ OpLR pfqfl ˆLR Eq ÝÑ OpErfsq ÝÑ 0.
+Its long exact sequence of group cohomology begins
+(11.6.34)   0 ÝÑ If pRqG ÝÑ OpLR pfqfl ˆLR EqG ÝÑ OpErfsqG ÝÑ H 1 pG, If pRqq.
+  We would like to simplify this sequence using the fact that the map
+(11.6.35)                  OpLR pfqfl q Ñ OpLR pfqfl ˆLR EqG
+is an isomorphism, which we will now show. We have the following diagram of G-
+equivariant quasi-coherent sheaves on LR (dropping the usual direct-image notation
+for simplicity):
+               0          / OLR                      / OE                  /M     /0
+
+
+                                                                          
+               0        / OL pfq              / OL pfq ˆ                   / M̄   / 0,
+                            R      fl            R     fl   LR E
+
+
+where the rows are exact, M and M̄ being defined to be the cokernels as shown.
+We know OLR “ OE    G
+                      , and so we have pQ bZ M qG “ 0 and hence pQ bZ M̄ qG “ 0.
+Therefore the map (11.6.35) becomes an isomorphism after tensoring with Q. To
+show it is an isomorphism, it is therefore enough to show it is surjective. Also
+observe that both sides are torsion free. So let b be a G-invariant element of
+OpLR pfqfl ˆLR Eq. Then we have b “ a{n, for some a P OpLR pfqfl q and some
+integer n ě 1. Therefore a becomes a multiple of n in OpLR pfqfl ˆLR Eq. But
+because LR pfqfl ˆLR E is faithfully flat over LR pfqfl , it must be a multiple of n
+already in OpLR pfqfl q. Therefore b is in OpLR pfqfl q, and so the map (11.6.35) is
+surjective, and hence an isomorphism.
+   Thus we can rewrite the long exact sequence (11.6.34) as
+(11.6.36)          0 ÝÑ If pRqG ÝÑ OpLR pfqfl q ÝÑ OpErfsqG ÝÑ H 1 pG, If pRqq.
+Using this sequence, we will prove parts (1)–(3).
+   (1): We will show If pRqG “ 0. First, observe that If pRqG is a flat-local construc-
+tion in R: if R1 {R is flat, we have If pR1 q “ R1 bR If pRq and hence
+                       If pR1 qG “ pR1 bR If pRqqG “ R1 bR If pRqG
+30                                 J. BORGER, B. DE SMIT
+
+
+since taking invariants under the action of a finite group commutes with flat base
+change.
+   Second, since If pRq is a submodule of OpLR pfqfl q, which by construction is flat
+over OK , its invariant subgroup If pRqG is also flat over OK and hence maps injec-
+tively to
+
+            C bOK If pRqG “ pC bOK Rq bR If pRqG “ If pC bOK RqG .
+
+Therefore to show If pRqG “ 0, it is enough to do it in the case where R is a
+C-algebra; and because any C-algebra is flat over C, we can apply the flat-local
+property again and conclude that it is enough to assume R “ C, which we will now
+do.
+   Summing up, we have the diagram
+
+                         Erfs /        / LC pfqfl ˆL E /        /E
+                                                     C
+
+
+
+
+                                                                  
+                                            LC pfqfl /          / LC
+
+where E Ñ LC is a G-Galois cover of complex curves, the horizontal    À maps are
+closed immersions, and Erfs and LC pfqfl are reduced. Write If pCq “ Z IZ , where
+Z runs over the G-orbits of ErfspCq and the ideal IZ of OpLC pfqfl ˆLC Eq is the part
+of If pCq supported at Z. It is then enough to show IZG “ 0 for each Z. So consider
+the filtration of IZ by its powers:
+
+                              IZ Ě IZ2 Ě ¨ ¨ ¨ Ě IZe “ t0u,
+
+where e is the ramification index of E over L at Z, or equivalently the order of
+the stabilizer subgroup H Ď G of a point x P Z. Then it is enough to show
+pIZn {IZn`1 qG “ 0 for n “ 1, . . . , e ´ 1.
+    This holds vacuously if e “ 1. So assume e ą 1. For n ď e ´ 1, the G-
+representation IZn {IZn`1 is the induced representation IndG
+                                                           H pU
+                                                                bn
+                                                                   q where and U “
+Ix {Ix2 is the cotangent space of E at x. Therefore we have
+
+                                  pIZn {IZn`1 qG “ pU bn qH .
+
+Observe that as a representation of H, the cotangent space U is isomorphic to the
+                                               ˚
+restriction to H of the representation of G “ OK on C given by usual multiplication.
+Therefore U bn is the one-dimensional representation on which a generator ζ P H
+acts as multiplication by ζ n . But since n ă e, and since e is the order of H, we
+have ζ n ‰ 1. Therefore ζ acts nontrivially on U bn and hence we have
+
+                             pIZn {IZn`1 qG “ pU bn qH “ 0,
+
+as desired.
+   (2): By general properties of group cohomology, H 1 pG, If pRqq is an R-module
+of exponent dividing n, and hence an R{nR-module. The cokernel in question is a
+sub-R-module of H 1 pG, If pRqq and is therefore also an R{nR-module. It remains
+to show it is finitely generated. Since it is a quotient of OpErfsqG , it is enough to
+show that OpErfsqG is finitely generated, and hence enough to show this locally on
+R. But locally E descends to some finitely generated OK -algebra over which R is
+flat. Since the formation of OpErfsqG commutes with flat base change, it is enough
+to show finite generation in the case where R is a finitely generated OK -algebra.
+Here it holds because Erfs is finite flat and R is noetherian.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                                  31
+
+
+  (3): Write If “ If pRq. Then by part (1), for any m ě 1,we have a morphism of
+exact sequences
+             0           / OpLR pmfqfl q                / OpErmfsqG          / H 1 pG, Imf q
+
+                                                                                     α
+                                                                                   
+             0               / OpLR pfqfl q             / OpErfsqG           / H 1 pG, If q.
+
+To prove (3), it is enough to show the map α above is zero for sufficiently divisible
+m. Since If is torsion free, it is enough by lemma 11.7 below to show that the map
+Imf Ñ If is zero modulo n for sufficiently divisible m. Further, by part (2), it is
+enough to show this instead modulo each prime dividing n—that is, it is enough
+to show that for each prime p | n, there exists an integer m such that the map
+Imf Ñ If is zero modulo p.
+    So fix a prime p | n. Let Ep denote the reduction of E modulo p, which is an
+elliptic curve over R{pR. Then for any j ě 0, we have a morphism of short exact
+sequences
+     0       / Ipj f {pIpj f             / OpLR ppj fqfl ˆLR Ep q        / OpEp rpf fsq        /0
+
+
+                                                                                
+     0           / If {pIf                / OpLR pfqfl ˆLR Ep q              / OpEp rfsq       / 0.
+
+(Left-exactness is because Erfs and Erpj fs are flat.) Now whether the fibers of
+Ep are supersingular or ordinary, the closed subschemes Ep rpj fs contain arbitrary
+nilpotent thickenings of Ep rfs, for large enough j. Since LR pfqfl ˆL Ep is a nilpotent
+thickening of Ep rfs, we can take j such that Ep rpj fs contains LR pfqfl ˆL Ep . Thus
+the map
+                                  Ipj f {pIpj f ÝÑ If {pIf
+is zero, and hence so is the map Ipj f Ñ If {pIf , as desired.                        
+Lemma 11.7. Let G be a finite group, and let n denote its order. Let M Ñ N
+be a morphism of G-modules which vanishes modulo n, and assume N is n-torsion
+free. Then the induced map H i pG, M q Ñ H i pG, N q is zero, for all i ě 1.
+Proof. Since our given map M Ñ N vanishes modulo n and N is n-torsion free, it
+factors as
+                                M✤ ❇
+                                       ❇
+                                  ✤ ❇❇❇
+                                   ✤      ❇❇
+                                           ❇!
+                                         n /
+                                N              N.
+Hence the induced map on cohomology factors similarly
+                                        H i pG, M q
+                                              ✤ ▼▼▼
+                                               ✤     ▼▼▼
+                                                 ✤      ▼▼▼
+                                                          ▼&
+                                                       n /
+                                        H i pG, N q        H i pG, N q
+However H i pG, N q is a n-torsion group for i ě 1, because G has exponent dividing
+n. Therefore the bottom map is zero and hence so is the diagonal map.             
+Corollary 11.8. With the notation of proposition 11.6, the map
+                       ´            ¯    ´          ¯
+                        OpLR pfqfl q ÝÑ OpErfsqG
+                                                    f                    f
+of pro-rings is an isomorphism.
+32                                J. BORGER, B. DE SMIT
+
+
+Proposition 11.9. Let p be a prime of OK , let R be a finite unramified extension
+of OKp , and let E be a CM elliptic curve over R. Then for any integer r ě 0,
+OpErpr sq is Λp -normal over OKp .
+Proof. We follow (3.1) of [7], which is the analogous result for Gm .
+   For r “ 0, it is clear. So we may assume that r ě 1 and, by induction, that
+OpErpr´1 sq is Λp -normal over OKp .
+   The pr -torsion Erpr s can be obtained by gluing the pr´1 -torsion Erpr´1 s and the
+locus of exact order pr , as follows. Let Dr denote OpErpr sq. Let π be a generator
+of pOKp , and consider the Lubin–Tate polynomial hpzq P Rrzs for E with respect
+to the uniformizer π and some fixed local coordinate. So we have hpzq “ zgpzq,
+where gpzq is a monic Eisenstein polynomial with gp0q “ π. Then Dr is identified
+with Rrzs{ph˝r pzqq. Because h˝r pzq “ h˝r´1 pzq ¨ gph˝r´1 pzqq, we have the following
+diagram of quotients of Rrzs:
+
+                 Rrzs{ph˝r pzqq                   / Rrzs{ph˝r´1pzqq
+
+
+                                                        
+              Rrzs{pgph˝r´1pzqqq          / Rrzs{ph˝r´1pzq, gph˝r´1 pzqqq.
+
+Observe that gph˝r´1 pzqq is a monic Eisenstein polynomial. For degree reasons, it
+does not divide h˝r´1 pzq, and so the least common multiple of these two polynomials
+is their product. Therefore we have
+                       ph˝r pzqq “ ph˝r´1 pzqq X pgph˝r´1 pzqqq,
+and hence the diagram above is a pull-back diagram. Further, if we put Br “
+Rrzs{pgph˝r´1pzqqq, then Br is the ring of integers in a totally ramified extension
+of Kp . Let πr P Br denote the corresponding uniformizer, namely the coset of z.
+Thus we have a pull-back diagram
+                                     Dr      / / Dr´1
+
+
+                                                   
+                                     Br       / / B̄r ,
+
+where B̄r “ Br {ph˝r´1 pπr qq. Further observe that the element h˝r´1 pπr q P Br is
+a root of gpzq, which is an Eisenstein polynomial of degree q ´ 1, where we write
+q “ N ppq. Therefore we have vp ph˝r´1 pπr qq “ 1{pq ´ 1q, where vp is the valuation
+normalized such that vp pπq “ 1.
+   Now suppose C is a sub-Λp -ring of Kp bOKp Dr which is finite over OKp . The
+maximality statement we wish to prove is that C is contained in Dr “ Br ˆB̄r
+Dr´1 . By induction, Dr´1 is Λp -normal over OKp , and hence the image of C in
+Kp bOKp Dr´1 is contained in Dr´1 . Similarly, since Br is a maximal order in the
+usual sense, the image of C in Kp bOKp Br is contained in Br . Putting the two
+together, we have the containment C Ď Br ˆ Dr´1 .
+   To show C Ď Br ˆB̄r Dr´1 , let us suppose that this does not hold. Then there
+is an element pb, f pzqq P C Ď Br ˆ Dr´1 such that b and f pzq do not become equal
+in B̄r . In other words, we have
+                              vp pb ´ f pπr qq ă 1{pq ´ 1q.
+Further we can choose pb, f pzqq P C such that vp pb ´ f pπr qq is as small as possible.
+Write a “ vp pb ´ f pπr qq. Since C is a sub-Λp -ring of Kp bOKp Dr , we know
+
+                           pb, f pzqqq ´ ψp ppb, f pzqqq P πC
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                   33
+
+
+The left side can be simplified using the fact ψp pzq “ hpzq on Dr :
+                                                                    q
+             pb, f pzqqq ´ ψp ppb, f pzqqq “ pbq ´ f ˚ phpπr qq, f pzq ´ f ˚ phpzqqq
+where f ˚ pzq the polynomial obtained by applying the Frobenius map to each coef-
+ficient of f pzq. Therefore by the minimality of a, we have
+               ´ bq ´ f ˚ phpπ qq f pzqq ´ f ˚ phpzqq ˇ          ¯      ´ bq ´ f pπ qq ¯
+                              r                                                    r
+        a ď vp                    ´                                “ vp
+                                                           ˇ
+                         π                    π                                π
+                                                           ˇ
+                                                            z“πr
+               ´ pb ´ f pπ qqq                                 ¯
+                           r
+          “ vp                  ` pb ´ f pπr qq ¨ cpb, f pπr qq
+                       π
+where cpX, Y q denotes the polynomial
+                           pX q ´ Y q q ´ pX ´ Y qq
+                                                    P OKp rX, Y s.
+                                 πpX ´ Y q
+But again by the minimality of a, we know a ď vp pb ´ f pπr qq. Therefore we have
+                                ´ pb ´ f pπ qqq ¯
+                                           r
+                         a ď vp                   “ qa ´ 1
+                                        π
+and hence a ě 1{pq ´ 1q. This contradicts the assumption a ă 1{pq ´ 1q.         
+Lemma 11.10. Let A “ OK r1{ts, for some t P OK , and let R be a Λ-ring, finite
+étale over A, over which there exists a CM elliptic curve E. Then for any ideal
+f Ď OK , the Λ-ring OpErfsq is Λ-normal over A.
+Proof. Let S denote the maximal Λ-order over A in K bOK OpErfsq. Then we have
+an inclusion OpErfsq Ď S of finite flat A-algebras. Therefore it is an equality if
+OKp bA OpErfsq “ OKp bA S for all primes p ∤ t. Thus it is enough to show that
+OKp bA OpErfsq is Λp -normal over OKp for all p ∤ t.
+  Write f “ pr g, where p ∤ g. Then putting Rp “ OKp bA R, we have
+             OKp bA OpErfsq “ OKp bA pOpErpr sq bR OpErgsqq
+                               “ pOKp bA OpErpr sqq bRp pOKp bA OpErgsqq
+                               “ OpERp rpr sq bRp OpERp rgsq
+                                 ź
+                               “   OpER1 rpr sq,
+                                   R1
+         1
+where R runs over all irreducible direct factors of the finite étale OKp -algebra
+OpERp rgsq. Therefore it is enough to show that each OpER1 rpr sq is Λp -normal over
+OKp . But this follows from 11.9.                                                 
+Proposition 11.11. Let A “ OK r1{ts, for some t P OK . Put R “ OH r1{ts and
+                                                              ˚
+assume there exists a CM elliptic curve E over R. Write G “ OK  . Then the
+                                                      G
+maximal Λ-order in K bA OpLR pfqfl q over A is OpErfsq .
+Proof. By lemma 11.10 and part (2) of proposition 2.2, the G-invariant subring
+OpErfsqG is Λ-normal over A. Since K bA OpLR pfqfl q “ K bA OpErfsqG , by part
+(2) of proposition 11.6, we can conclude that OpErfsqG is the maximal Λ-order over
+A in K bA OpLR pfqfl q.                                                         
+Theorem 11.12. Let OpLpfqfl q„ denote the maximal Λ-order over OK in K bOK
+OpLpfqfl q. Then
+   (1) OpLpfqfl q„ is isomorphic as a Λ-ring to the ray class algebra ROK ,P pfq.
+   (2) The map
+                           OpLpfqfl q f ÝÑ OpLpfqfl q„ f
+                          `          ˘    `           ˘
+
+        is an isomorphism of pro-rings.
+34                              J. BORGER, B. DE SMIT
+
+
+     (3) If a prime number divides the index rOpLpfqfl q„ : OpLpfqfl qs then it divides
+                                      ˚
+         the order of the unit group OK .
+Proof. (1): Since OpLpfqfl q„ is the maximal Λ-order over OK in K bOK OpLpfqfl q,
+and since ROK ,P pfq is that in K bOK ROK ,P pfq, it is enough to show there is an
+isomorphism
+                                  LpfqpQ̄q – DRP pfq
+of IdP -sets, but this is follows immediately from part (2) of proposition 11.3.
+   (2): Since the rings
+                                     A “ OK rq´1 s
+for any two primes q Ă OK form a cover of OK , it is enough to prove the map
+of pro-rings is an isomorphism after base change from OK to any two such A. By
+Shimura’s theorem ([14], prop. 4.2.2), there are at least two primes q Ă OK such
+that there exists a CM elliptic curve over R “ OH bOK A. (In fact, he proves there
+are infinitely many.) So fixing A and a CM elliptic curve E over OH bOK A, it is
+enough to show that
+                        ´                 ¯     ´                  ¯
+(11.12.37)               A bOK OpLpfqfl q ÝÑ A bOK OpLpfqfl q„
+                                               f                        f
+
+is an isomorphism of pro-rings.
+   But we also have
+                  A bOK OpLpfqfl q “ R bOH OpLpfqfl q “ OpLR pfqfl q
+and hence by part (1) of proposition 2.2
+                          OpLR pfqfl q„ “ A bOK OpLpfqfl q„ .
+Therefore (11.12.37) can be rewritten as
+                        ´             ¯  ´             ¯
+(11.12.38)                OpLR pfqfl q ÝÑ OpLR pfqfl q„ .
+                                       f                       f
+
+We know further that the map
+                              OpLR pfqfl q„ ÝÑ OpErfsqG
+is an isomorphism by 11.11. So the map (11.12.38) can in turn be rewritten as
+                        ´             ¯  ´          ¯
+(11.12.39)                OpLR pfqfl q ÝÑ OpErfsqG ,
+                                           f               f
+
+and this is an isomorphism of pro-rings by 11.8.
+   (3): It is enough to show these properties locally on OK . So as above, it is
+enough to show them after base change to A “ OK rq´1 s, where q is a prime of OK
+such that there is a CM elliptic curve E over R “ OH bOK A.
+   Then the map A bOK OpLR pfqfl q Ñ A bOK OpLR pfqfl q„ is identified with
+                              OpLR pfqfl q ÝÑ OpErfsqG .
+By part (2) of proposition 11.6, the image of this map is of finite index divisible
+                                          ˚
+only by the primes dividing the order of OK .                                    
+
+                              12. Further questions
+   Is it possible to use Λ-schemes of finite type to generate other large abelian
+extensions, beyond the Kroneckerian explicit class field theories? We will formulate
+a range of such questions in this section, some of which it is reasonable to hope
+have a positive answer and some which are more ambitious.
+   EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                35
+
+
+12.1. Λ-geometric field extensions. So far, we have mostly been interested in what
+in the introduction we called Λ-refinements of explicit class field theories—that is,
+in generating ray class algebras instead of abelian field extensions. But hungry for
+positive answers, we will give weaker, field-theoretic formulations here.
+   Let K be a number field, and write
+                     Λ “ ΛOK ,MK     and Rpfq “ ROK ,MK pfq.
+For any separated Λ-scheme X of finite type over OK , consider the extension of K
+obtained by adjoining the coordinates of the f-periodic points, for all cycles f:
+                                     ď
+                            KpXq :“      KpXpfqpK̄qq.
+                                        f
+
+For instance, we have the following:
+     (1) If K “ Q and X is Gm withŤthe toric Λ-structure, then Then KpXq is the
+          maximal abelian extension n Qpζn q.
+     (2) If K “ Q and X “ A1 with the Chebyshev    Ť Λ-structure, then KpXq is the
+          maximal totally real abelian extension n Qpζn ` ζn´1 q.
+     (3) K is imaginary quadratic, X is P1OH with the Lattès Λ-structure. Then
+          KpXq is the maximal abelian extension of K.
+     (4) If K is general and X “ Spec Rpfq, then KpXq is the ray class field Kpfq.
+     (5) KpX1 > X2 q is the compositum KpX1 qKpX2 q
+    Let us say that an abelian extension L{K is Λ-geometric if there exists an X as
+above such that L Ď KpXq. First observe that any finite extension of a Λ-geometric
+extension is Λ-geometric, by (4) and (5) above. Therefore there is no maximal Λ-
+geometric extension unless, as in the examples above, the maximal abelian extension
+itself is Λ-geometric.
+   (Q4) Are there number fields other than Q and imaginary quadratic fields for
+          which the maximal abelian extension is Λ-geometric?
+    It is natural to consider Shimura’s generalization of Kronecker’s theory to CM
+fields and abelian varieties. We expect that it can be realized in our framework, or
+at least that some version of it. But note that, assuming rK : Qs ą 2, the maximal
+abelian extension generated by Shimura’s method is an infinite subextension of the
+maximal abelian extension itself—the relative Galois group is an infinite group of
+exponent 2. (See [20][18][22].)
+   (Q5) Let K be a CM field of degree greater than 2. Is Shimura’s extension Λ-
+          geometric? If so, is there an infinite extension of it which is Λ-geometric?
+
+12.2. Production of Λ-schemes from ray class algebras. It appears difficult to find
+Λ-schemes of finite type which generate large infinite abelian extensions. Every
+example we know ultimately comes from varieties with complex multiplication.
+Here we will consider an alternative—the possibility of manufacturing Λ-schemes
+of finite type by interpolating the ray class schemes SpecpRpfqq, in the way that
+Gm can be viewed as interpolating the µn as n varies. This raises some questions
+which have the flavor of algebraic number theory more than the geometric questions
+above, and hence have a special appeal.
+   Let r be a product of real places of K, and let X a reduced Λ-scheme of finite
+type over OK . Assume further that the union
+                                      ď
+                                           Xpfq
+                                    fPZpP,rq
+
+of the closed subschemes Xpfq is Zariski dense in X. If it is not, replace X with the
+closure. Then all the information needed to construct X is in principle available
+36                                 J. BORGER, B. DE SMIT
+
+
+inside the function algebra of
+                                     colimfPZpP,rq Xpfq.
+To be sure, this ind-scheme and X are quite far apart, much as an abelian variety
+and its p-divisible groups are. But pressing on, if X satisfies the property in (Q2)
+in the introduction, then this colimit would be isomorphic to
+                                          `          ˘
+                             colimfPZpP,rq Spec Rpfq ,
+and so all the information need to construct X is in principle available in projective
+limit
+                                Rrrs “ lim Rpfq,
+                                              fPZpP,rq
+which can be viewed as a construction purely in the world of algebraic number
+theory in that it depends only on K and r and not on any variety X.
+   For example in the cyclotomic context, where K “ Q and r “ 8, the injective
+map
+                       Zrx˘1 s ÝÑ lim Zrxs{pxn ´ 1q “ Rr8s
+                                         n
+realizes the function algebra of Gm as a dense finitely generated sub-Λ-ring of Rr8s .
+    We can ask whether similar subrings exist for general K:
+   (Q6) Does Rrrs have a dense sub-OK -algebra which is finitely generated as an
+         OK -algebra? Does it have a dense sub-Λ-ring which is finitely generated as
+         an OK -algebra?
+It might be possible to cook up such a subring purely algebraically, instead of going
+through geometry.
+12.3. The cotangent space. One first step in finding such a subring might be to
+guess its dimension by looking at the cotangent space of the ray class algebras at
+a point modulo p. For example, the cotangent space of µpn modulo p at the origin
+is 1-dimensional, at least if n ě 1.
+   For any ideal a P IdMK (and r still a product of real places), let Ia denote the
+kernel of the morphism
+                                         aψ
+(12.3.40)                         Rpraq ÝÑ Rprq “ OKprq .
+So we have an exact sequence
+                                                   ψa
+                            0 ÝÑ Ia ÝÑ Rpraq ÝÑ OKprq ÝÑ 0.
+Therefore Ia {Ia2 is naturally an OKprq -module. It is finitely generated since Rpraq
+is noetherian, being finite over Z.
+   (Q7) Given a maximal ideal q Ă OKprq with residue field k, is the dimension
+                                   dimk pk bOKprq Ia {Ia2 q
+         constant for large a?
+If so, can it be expressed in terms of the classical algebraic number theoretic in-
+variants of K? One might hope it is the number of places of K at infinity.
+
+                                        References
+ [1] Théorie des intersections et théorème de Riemann-Roch. Lecture Notes in Mathematics, Vol.
+     225. Springer-Verlag, Berlin-New York, 1971. Séminaire de Géométrie Algébrique du Bois-
+     Marie 1966–1967 (SGA 6), Dirigé par P. Berthelot, A. Grothendieck et L. Illusie. Avec la
+     collaboration de D. Ferrand, J. P. Jouanolou, O. Jussila, S. Kleiman, M. Raynaud et J. P.
+     Serre.
+ [2] Stacks Project. http://stacks.math.columbia.edu, 2017.
+ [3] James Borger. Basic geometry of Witt vectors, I: The affine case. arXiv:0801.1691v5.
+ [4] James Borger. Basic geometry of Witt vectors, II: Spaces. arXiv:1006.0092v1.
+    EXPLICIT CLASS FIELD THEORY AND THE ALGEBRAIC GEOMETRY OF Λ-RINGS                             37
+
+
+ [5] James Borger. Λ-rings and the field with one element. arXiv:0906.3146v1.
+ [6] James Borger and Bart de Smit. Lambda actions of rings of integers. arXiv:1105.4662.
+ [7] James Borger and Bart de Smit. Galois theory and integral models of Λ-rings. Bull. Lond.
+     Math. Soc., 40(3):439–446, 2008.
+ [8] James Borger and Ben Wieland. Plethystic algebra. Adv. Math., 194(2):246–283, 2005.
+ [9] F. J. B. J. Clauwens. Commuting polynomials and λ-ring structures on Zrxs. J. Pure Appl.
+     Algebra, 95(3):261–269, 1994.
+[10] A. A. Davydov. Periodic λ-rings and periods of finite groups. Mat. Sb., 188(8):75–82, 1997.
+[11] Pierre Deligne and Kenneth A. Ribet. Values of abelian L-functions at negative integers over
+     totally real fields. Invent. Math., 59(3):227–286, 1980.
+[12] Jesse Elliott. Binomial rings, integer-valued polynomials, and λ-rings. J. Pure Appl. Algebra,
+     207(1):165–185, 2006.
+[13] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. III. Inst. Hautes Études Sci. Publ. Math., (28):255, 1966.
+[14] Lance Gurney. Elliptic curves with complex multiplication and Λ-structures. PhD thesis,
+     Australian National University, 2015.
+[15] André Joyal. δ-anneaux et λ-anneaux. C. R. Math. Rep. Acad. Sci. Canada, 7(4):227–232,
+     1985.
+[16] Gérard Laumon and Laurent Moret-Bailly. Champs algébriques, volume 39 of Ergebnisse der
+     Mathematik und ihrer Grenzgebiete. 3. Folge. A Series of Modern Surveys in Mathematics
+     [Results in Mathematics and Related Areas. 3rd Series. A Series of Modern Surveys in
+     Mathematics]. Springer-Verlag, Berlin, 2000.
+[17] John Milnor. Dynamics in one complex variable, volume 160 of Annals of Mathematics Stud-
+     ies. Princeton University Press, Princeton, NJ, third edition, 2006.
+[18] A. I. Ovseeviˇ c. Abelian extensions of fields of CM type. Funkcional. Anal. i Priložen.,
+     8(1):16–24, 1974.
+[19] J.-P. Serre. Complex multiplication. In Algebraic Number Theory (Proc. Instructional Conf.,
+     Brighton, 1965), pages 292–296. Thompson, Washington, D.C., 1967.
+[20] Goro Shimura. On the class-fields obtained by complex multiplication of abelian varieties.
+     Osaka Math. J., 14:33–44, 1962.
+[21] Takeo Uramoto. Semi-galois Categories II: An arithmetic analogue of Christol’s theorem.
+     arXiv:1710.01021v3.
+[22] Wafa Wei. Moduli fields of CM-motives applied to Hilbert’s 12-th problem.
+     http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.57.5573.
+[23] Clarence Wilkerson. Lambda-rings, binomial domains, and vector bundles over CP p8q.
+     Comm. Algebra, 10(3):311–328, 1982.
+[24] Bora Yalkinoglu. On arithmetic models and functoriality of Bost-Connes systems. With an
+     appendix by Sergey Neshveyev. Invent. Math., 191(2):383–425, 2013.
+    E-mail address: james.borger@anu.edu.au, desmit@math.leidenuniv.nl
+

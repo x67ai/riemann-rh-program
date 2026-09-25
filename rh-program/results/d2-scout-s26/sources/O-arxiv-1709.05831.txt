@@ -1,0 +1,1618 @@
+                                                                                Geometry over F1
+
+
+
+
+arXiv:1709.05831v1 [math.AG] 18 Sep 2017
+                                                                                         S. Haran
+                                                                                   (haran@tx.technion.ac.il)
+
+                                                                                  September 19, 2017
+
+
+
+
+                                            0. Introduction
+
+                                            1. The “Field with one element” F
+                                            2. CFRt : commutative F-rings with involution
+                                            3. CGR : commutative generalized rings
+                                            4. Basic facts
+
+                                            5. Valuation generalized ring and the “zeta machine”
+                                            6. Modules and differentials
+                                            7. N and Z as generalized rings
+                                            8. (Symmetric) Geometry
+
+                                            9. Pro-schemes
+                                           10. Arithmetical surface, and new (ordinary) commutative rings
+                                           11. Completed vector bundles
+
+
+
+
+                                                                                              1
+0       Introduction
+André Weil, in a letter to his sister Simone Weil, compares the basic mystery of mathematics to the Roseta
+stone. But the Roseta stone has three languages (Demotic and Greek that were well known, and the
+Hieroglyphic that was a complete mystery), all describing one and the same reality, while in mathematics
+we have one language, addition and multiplication, the language of commutative rings, and this language
+is describing three similar, but different, realities: the mysterious number fields – finite extensions of the
+rational numbers Q; function fields – finite extensions of Fq ptq, which correspond to maps f : X Ñ P1 of
+smooth proper curves over Fq ; finite extensions of Cptq, which correspond to maps f : X Ñ P1 of compact
+Riemann surfaces.
+    When Alexander Grothendieck founded the modern language of algebraic geometry, he had behind him
+functional analysis, and the Gelfand theorem on the equivalence of the category of compact Hausdorff spaces
+and the opposite of the category of commutative C ˚ -algebras, and he had in front of him the Weil conjectures,
+which are all above spec Z, and so he choses the language of commutative rings as the foundations of geometry.
+Comparing arithmetic and geometry we see that this language is not general enough: the “integers” at a
+real (resp. complex) place of a number field Z1R “ r´1, 1s (resp. Z1C “ tz P C, |z| ď 1u) are not closed
+under addition, and are not commutative rings; the “arithmetical plane” reduces to its diagonal Z b Z “ Z,
+unlike the geometric analogue F rts b F rts “ F rt1 , t2 s; we are missing the “field with one element” – the
+                                         F
+common field of all the finite fields Z{ppq, just as Fq is the common field of all the finite fields Fq rts{ppptqq,
+pptq irreducible.
+    We have some hints: the group GLn pQp q acts on Q‘n
+                                                     p , and the stabilizer of the lattice
+                                                                                                     (
+(0.1)                         Z‘n                        ‘n
+                               p “ px1 , . . . , xn q P Qp ,            maxt|x1 |, . . . , |xn |u ď 1
+
+is the maximal compact subgroup GLn pZp q Ď GLn pQp q. Similarly the group GLn pRq (resp. GLn pCq) act
+on R‘n (resp. C‘n ), and the stabilizer of the unit-L2 -ball
+                                        #                                  +
+                                                                n
+                                                                ÿ
+                                 n                           ‘n        2
+(0.2)                         “ ZR ” “ px1 , . . . , xn q P R ,   |xi | ď 1
+                                                                                     i“1
+
+resp.                                          #                                                   +
+                                                                                     n
+                                                                                     ÿ
+                                   “ ZnC ” “       px1 , . . . , xn q P C   ‘n
+                                                                                 ,            2
+                                                                                           |xi | ď 1
+                                                                                     i“1
+
+is the maximal compact subgroup “ GLn pZR q ” “ Opnq Ď GLn pRq the orthogonal group (resp. “ GLn pZC q ” “
+U pnq Ď GLn pCq the unitary group). Another basic hint is the Cauchy-Schwartz inequality: for x “
+px1 , . . . , xn q, y “ py1 , . . . , yn q in ZnR (resp. ZnC ) x y :“ x1 y1 ` x2 y2 ` . . . ` xn yn is in Z1R (resp. Z1C ).
+The essential thing in (0.2) is that we use the L2 -norm (a fact that goes back to Pythagorass!), unlike the
+L8 -norm we have in (0.1). In one dimension, there is no difference between L2 and L8 norms, and so we
+will have higher dimensions as part of our language.
+   We remark that the very same problem exists in physics: the interval of speeds p´c, cq, (c being the
+speed of light in vacuum), is not closed under addition. Einstein’s solution was to replace addition by the
+            x`y
+operation 1`  xy . But this operation does not work for the complex numbers: the set tx P C, |x| ă cu is
+               c2
+                                                                   x`y
+not closed under this operation; it is closed under the operation 1` xȳ , with ȳ (“ conjugate of y), in the
+                                                                                              c2
+denominator, but this operation is not commutative or associative.
+    We shall replace Grothendieck’s commutative rings, CRing, by the category of “commutative generalized
+rings” CGR, and even by the more general category of “commutative F-rings with involution”, CFRt . These
+
+
+
+
+                                                                   2
+give a diagram of adjunctions:
+
+                                                                F   /
+(0.3)                                                  CGRO o o           CFRO t
+                                                                  U
+                                                      Nb              Nb
+                                                        ?  F /    ?
+                                                       F                  F
+
+                                                     /
+                                           O oo
+                                        CRig           NzCGR o o     NzCFRt
+                                                           O     U
+                                                                         O
+                                        K             Zb              Zb
+                                           ?          ?  F /
+                                                       N                  N
+
+                                                     /                  ?
+                                        CRing o o      ZzCGR o o     ZzCFRt
+                                                                  U
+
+In this diagram the left adjoint F is written above the right adjoint U, and we have U ˝ F – id. The
+category CRig is the category of “commutative rings without negatives”, i.e. pR, `, ¨, 0, 1q, R is a set with
+two associative and commutative operations of addition “`” and multiplication “¨”, with units 0 and 1, with
+multiplication distributive over addition, and with functions that preserve the operations and units.
+
+(0.4)                            E.g.       R :“ t0, 1umax Ď r0, 1smax Ď r0, 8qmax
+
+with the operations
+                                            x ` y :“ maxtx, yu
+                                            x ¨ y :“ ordinary multiplication.
+For proofs of all the claims below we refer to [13].
+   This paper would have not existed without the encouragement of Laurent Lafforgue and the amazing
+typing job done by Cécile Gourgues and the artistic pictures done by Marie-Claude Vergne.
+
+
+1       The “field with one element” F
+We capture the “field with one element” via the category of “finite dimensional F1 -vector spaces”. Denote
+by F the category with objects the finite sets, and with maps the partial-bijections:
+                                                  !                         )
+                                                               ϕ
+(1.1)                        FY,X “ FpX, Y q “ X Ě Dpϕq ÝÑ    „
+                                                                  Ipϕq Ď  Y   .
+
+
+Remark: Adding a “zero” to a finite set X, we obtain        " the pointed set X0 “ X > tOX u, and a map
+                                                             ϕpxq x P Dpϕq
+ϕ P FpX, Y q gives a map ϕ0 P Set0 pX0 , Y0 q with ϕ0 pxq “                 , we thus get an identification
+                                                             OY    x R Dpϕq
+                                                                        „
+(1.2)                   FpX, Y q ” tϕ0 P Set0 pX0 , Y0 q, coker ker ϕ0 ÝÑ ker coker ϕ0 u .
+
+The category F has kernels and cokernels, and in (1.2) we see that they commute, which is one of the axioms
+of an abelian category.
+
+Remark: For ϕ P FpX, Y q we get a Y by X matrix with values 0, 1:
+                                                          "
+                                                           1 y “ ϕpxq
+(1.3)                        ry,x q P t0, 1uY ˆX , ϕ
+                            pϕ                     ry,x “
+                                                           0 otherwise.
+
+We can thus identify FpX, Y q with the t0, 1u-valued, Y by X matrices having at most one 1 in every raw
+and in every column.
+
+
+
+                                                           3
+     Note that F is self-dual: p qt : F ÝÑ
+                                         „
+                                           Fop , where for
+                                                                  "              *
+                                                                        ϕ´1
+                         !             )
+                                ϕ
+                      ϕ “ Dpϕq ÝÑ
+                                „
+                                  Ipϕq   P FpX, Y q ,         ϕt “ Ipϕq ÝÑ
+                                                                         „
+                                                                            Dpϕq   P FpY, Xq
+
+(or taking the transpose of the t0, 1u matrix r
+                                              ϕ):
+
+(1.4)                            pϕ ˝ ψqt “ ψ t ˝ ϕt ,   pidX qt “ idX ,   ϕtt “ ϕ .
+
+The category F does not have sums or products, but disjoint union induces a symmetric monoidal structure
+on F:
+
+(1.5)                                  ‘ : F ˆ F Ñ F,        X ‘Y “X >Y .
+
+The unit is the empty set r0s, which is the initial and final object of F. We have
+
+(1.6)                                          pϕ ‘ ψqt “ ϕt ‘ ψ t .
+
+
+2       CFRt : commutative F-rings with involution
+For B P CRig we associate the category FpBq of finitely generated free B-modules with a basis. Thus the
+objects are the finite sets, and for finite sets X, Y the arrows from X to Y are given by the“ B-valued, Y ‰by X,
+matrices: pBqY ˆX Q b “ pby,x q. The operation of composition is matrix multiplication pb1z,y q ˝ pby,x q z,x “
+ř 1
+  bz,y ¨ by,x . This category is self-dual via transpose of matrices, and has a symmetric monoidal structure
+y
+via direct-sum of matrices. Note that pBqY ˆX contains FpX, Y q Ď t0, 1uY ˆX , and we obtain a functor
+F ãÑ FpBq, which is the identity on objects, and is a strict-monoidal functor. This motivates the following
+
+(2.1) Definition. An F-ring A is a category, with a functor ε : F ãÑ A, which is the identity on objects,
+and such that εr0s is the initial and final object of A, and we have a symmetric monoidal structure
+
+                                                  ‘:AˆAÑA
+
+such that ε is strictly monoidal: the associativity, commutativity, and unit isomorphisms are those of F.
+
+     We say A is an F-ring with involution, if it is self-dual via an involution that extends the involution on F
+                                                      
+                                                  F          /A
+                                                  s            s p qt
+                                                               
+                                                 Fop         / Aop
+
+and is compatible with the symmetric monoidal structure
+
+                                               pa0 ‘ a1 qt “ at0 ‘ at1 .
+
+Thus the objects of A are the finite sets, and we have to give the arrows from a finite set X to a finite set
+Y : AY,X “ ApX, Y q.
+     We have the following:
+    (0) AY,r0s “ t0u “ Ar0s,X
+    (1) FY,X Ď AY,X
+
+
+                                                          4
+ (2) ˝ : AZ,Y ˆ AY,X Ñ AZ,X associative, unital, extends ˝ on F
+ (3) ‘ : AY0 ,X0 ˆ AY1 ,X1 Ñ AY0 >Y1 ,X0 >X1 with associativity, commutativity, and unit isomorphisms coming
+     from F
+ (4) p qt : AY,X Ñ AX,Y , att “ a, pa1 ˝ a2 qt “ at2 ˝ at1 , pa0 ‘ a1 qt “ at0 ‘ at1 .
+  All the operations in (2), (3), (4) agree with the corresponding operations in F.
+  A homomorphism ϕ P FRt pA, Bq is a functor over F, strict-monoidal, and preserving the involution.
+Thus we have functions ϕ “ ϕY,X : AY,X Ñ BY,X for X, Y P F, and we have
+
+                                       ϕpa1 ˝ a2 q     “ ϕpa1 q ˝ ϕpa2 q
+                                      ϕpa0 ‘ a1 q      “ ϕpa0 q ‘ ϕpa1 q
+                                                 t
+                                              ϕpa q    “ ϕpaqt
+                                        ϕpεA pψqq      “ εB pψq for ψ P FY,X .
+
+Thus we have a category FRt .
+  Note that for X, Y, Z P F, a P AY,X , we have ‘ a P A‘ Y, ‘ X “ AZˆY, ZˆX . We use this in the following
+                                                           Z       Z   Z
+critical
+
+(2.2) Definition. An F-ring (with involution) A P FRt is called commutative if for X, Y, Z P F, a P AY,X ,
+b P Ar1s,Z , d P AZ,r1s , we have in AY,X :
+                               „          „              ˆ ˙ ˆ ˙ ˆ ˙
+                            a ˝ ‘ pb ˝ dq “ ‘ pb ˝ dq ˝ a “ ‘ b ˝ ‘ a ˝ ‘ d .
+                               X                Y                      Y         Z       X
+
+
+We denote by CFRt the full subcategory of FRt with objects the commutative F-rings with involution.
+  Note that for B P CRig, we have FpBq P CFRt is commutative, and we get a functor
+
+                                                     F : CRig ãÑ CFRt .
+
+It is a full and faithfull embedding: For ϕ P CFRt pFpAq, FpBqq, and a “ pay,x q P FpAqY,X “ AY ˆX , since ϕ
+is a functor over F : pϕY,X paqqy,x “ ϕr1s,r1s pay,x q, and ϕ is determined by ϕr1s,r1s : A Ñ B which preserves
+multiplication, and the units 0, 1, but also preserves addition:
+                                                `                            ˘
+(2.3)                  ϕr1s,r1s pa1 ` a2 q “ ϕ p1, 1q ˝ pa1 ‘ a2 q ˝ p1, 1qt
+                                           “    pϕp1q, ϕp1qq ˝ pϕpa1 q ‘ ϕpa2 qq ˝ pϕp1q, ϕp1qqt
+                                           “    p1, 1q ˝ pϕpa1 q ‘ ϕpa2 qq ˝ p1, 1qt
+                                           “ ϕr1s,r1s pa1 q ` ϕr1s,r1s pa2 q .
+
+   Note that the F-ring A “ FpBq, B P CRig, satisfies the extra “total-commutativity” of the following
+
+(2.4) Definition. An F-ring A P FRt is called “total-commutative” if for all X, Y, Z, W P F, a P AY,X ,
+b P AW,Z , we have in AY ˆW, XˆZ :
+                                   ˆ   ˙ ˆ ˙ ˆ ˙ ˆ ˙
+                                     ‘a ˝ ‘b “ ‘b ˝ ‘a .
+                                          W            X           Y       Z
+
+This common value can be denoted by a b b “ pa b idW q ˝ pidX b bq “ pidY b bq ˝ pa b idZ q and we get another
+symmetric monoidal structure b : A ˆ A Ñ A, which is the usual product on objects X b Z “ X ˆ Z; the
+unit is the one point set r1s; and b is distributive over ‘, so A is a CRig-category, cf. [H07].
+
+
+                                                               5
+   As we shall see, total commutativity implies Z b Z “ Z, and it is not needed for the developement of
+geometry, and we shall not assume it in general.
+
+(2.5) Remark. For a (small) category G, and for A P FRt , we have the category of functors AG , and
+        `
+we let RA pGq denote its isomorphism (i.e. natural equivalences) classes, and let rf s denote the class of
+                                                   `
+f : G Ñ A. We have the well defined operations on RA pGq
+                                 ˆ      ˙ „                                        
+                                     g                     f0 pgq‘f1 pgq
+                    rf0 s ‘ rf1 s ‚ ÐÝ ‚ ”         ‚     ÐÝÝÝÝÝÝÝÝÝ         ‚
+                                            g1              g0           f0 pg1 q‘f1 pg1 q                                 f0 pg0 q‘f1 pg1 q
+                                                        »                         ˜                      ¸ ˜                    ¸                     fi
+                                                                                       À                         À
+                              ˆ                 ˙                                                f0 pgq ˝                 f1 pgq
+                                       g             —                                   f1 pg1 q              f0 pg0 q                               ffi
+              rf0 s b rf1 s       ‚ ÐÝ ‚            ”—               ‚             ÐÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝÝ                                       ‚      ffi
+                                  g1       g0        –       f0 pg1 qˆf1 pg1 q                                                       f0 pg0 qˆf1 pg0 qfl
+
+
+                                                        ˆ                  ˙       „                                   
+                                                    t            g                                  f pgqt
+                                             rf s           ‚ ÐÝ ‚             ”         ‚ ÐÝÝÝÝ ‚
+                                                            g1        g0               f pg0 q               f pg1 q
+          `                                                                            `
+making RA   pGq into a (non-commutative) rig with an involution. We let RA pGq “ KRA     pGq denote the
+                                                   `
+associated ring. If A is totally-commutative then RA pGq and RA pGq are commutative. E.g. for a group G,
+and for B P CRing, A “ FpBq, RA pGq is the representation ring of G on finitely-generated free B-modules,
+and RF pGq is the Burnside ring of finite G-sets.
+
+(2.6) Remark. If one wants to pass from “finitely-generated-free-modules” to “finitely-generated-projective-
+modules” (e.g. in the previous remark (2.5)), a quick way is to replace A P FRt by its idempotent completion
+A! , with objects pairs pX, pq, X P F, p P AX,X , p ˝ p “ p, and mappings
+
+                         A! ppX, pq, pY, qqq “ tf P AY,X , f “ q ˝ f ˝ pu “ q ˝ AY,X ˝ p .
+
+
+3       CGR: commutative generalized rings
+For A P CFRt , we can forget its “matrices” AY,X “ ApX, Y q, and just remember its “vectors” AX “ Ar1s,X
+(– AX,r1s since we have an involution), together with the operations of multiplication (resp. “contraction”)
+by the direct sum of such vectors (resp. transposed). Thus for B P CRig, let GpBq : F Ñ Set0 , denote the
+functor
+
+(3.1)                                                            X ÞÑ GpBqX :“ B X .
+
+For a function of fintie sets f : X Ñ Y , put
+                                                                     ź
+                                                 GpBqf “                   GpBqf ´1 pyq               p” B X q .
+                                                                     yPY
+
+Then we have the operations of
+
+(3.2)    multiplication: GpBqY ˆ GpBqf Ñ GpBqX
+
+                                                 bY , bf          ÞÑ bY C bf
+                                                                     pbY C bf qx “ bYfpxq ¨ bfx
+
+(3.3)    contraction: GpBqX ˆ GpBqf Ñ GpBqY
+
+                                           bX , bf          ÞÑ bX bf
+                                                               pbX bf qy “                                   bX    f
+                                                                                                    ř
+                                                                                                              x ¨ bx .
+                                                                                             x P f ´1 pyq
+
+
+                                                                                   6
+   This motivates the following
+
+(3.4) Definition. ś  A generalized ring A is a functor F Ñ Set0 , X ÞÑ AX , and putting for X, Y P F,
+f P SetpX, Y q, Af “    Af ´1 pyq , we have the operations
+                        yPY
+
+
+(3.5)    multiplication: C : AY ˆ Af Ñ AX
+
+(3.6)    contraction:     : AX ˆ Af Ñ AY .
+
+   These operations can be extended, fiber by fiber, to give for g P SetpY, Zq
+
+(3.7)    multiplication: C : Ag ˆ Af Ñ Ag˝f ,                pag C af qz “ agz C pafy qy Pg´1 pzq
+
+(3.8)    contraction:      : Ag˝f ˆ Af Ñ Ag ,           pag˝f      af qz “ ag˝f
+                                                                            z                 pafy qy Pg´1 pzq .
+
+   We require the following axioms:
+
+                                    h       g            f
+(3.9)    Associativity: for W ÐÝÝ Z ÐÝÝ Y ÐÝÝ X, ah P Ah , ag P Ag , af P Af , we have in Ah˝g˝f :
+
+                                         ah C pag C af q “ pah C ag q C af .
+
+
+(3.10)    Unit: We have 1 P Ar1s , and for any a P AX ,
+
+                                                1 C a “ a “ a C p1qx PX .
+
+   I.e. A with only the operation C is an F-operad: an operad, with compatible Sn -action on Arns , together
+                                                              j /
+with Srns Ď Srms -covariant embeddings and projections Arns o o     Arms , π ˝ j “ idArns , for n ă m.
+                                                                                         π
+   The operation of contraction is dual to that of multiplication:
+
+                    h         g      f
+Duality: For W ÐÝÝ Z ÐÝÝ Y ÐÝÝ X, a P Ag , c P Af , d P Ah˝g˝f , we have in Ah :
+
+(3.11)                                          d       pa C cq “ pd           cq        a
+
+and similarly, for b P Ag˝f , c P Af , e P Ah˝g , we have in Ah :
+
+(3.12)                                          pe C cq         b“e       pb            cq
+
+                                                    X
+                                                                   c           /Y
+                                                    d                               a
+                                                      we                  b
+                                                                               ' 
+                                                    W o                         Z
+   A homomorphism of generalized rings ϕ P GRpA, Bq, is a natural transformation of functors, preserving
+the operations of multiplication and contraction, and the unit 1 : tϕX : AX Ñ BX , X P Fu, and
+
+                        ϕpa C a1 q “ ϕpaq C ϕpa1 q ,         ϕpa       a1 q “ ϕpaq            ϕpa1 q ,    ϕp1q “ 1 .
+
+   Thus we have the category of generalized rings GR.
+   We say that A P GR is commutative if we have:
+
+(3.13)                                          a C pb       b1 q “ pa C bq              b1
+
+
+                                                                   7
+and if moreover, for a P AX , b P Af , f : X Ñ Y , c P Ag , g : Z Ñ Y we have in AZ :
+(3.14)                                        pa            bq C c “ pa C f ˚ cq                       g˚ b
+
+                                                            ś
+(3.15)                                             X                Z
+                                                            Y
+                                      f ˚c                                      g˚ b
+
+                                   }                                                                  pf ˚ cqx :“ cf pxq
+                                a´X                                                     Z              pg ˚ bqz :“ bgpzq
+                                              b                         c
+                                          f                                 g
+                                                        #       }
+                                                            Y
+  We let CGR denote the full subcategory of GR with objects the commutative GR.
+  Note that for B P CRig, GpBq is a commutative generalized ring, and we have a full and faithfull
+embedding
+(3.16)                                                      G : CRig ãÑ CGR .
+Indeed, for ϕ P CGR pGpAq, GpBqq, ϕX paqx “ ϕr1s pax q, so ϕ is determined by ϕr1s : A Ñ B, which is
+multiplicative, preserves 0 and 1, but also addition:
+(3.17)                      ϕr1s pa1 ` a2 q       “         ϕ ppp1, 1q C pai qq                       p1, 1qq
+                                                  “         ppϕp1q, ϕp1qq C pϕpai qqq                             pϕp1q, ϕp1qq
+                                                  “         pp1, 1q C pϕpai qqq                       p1, 1q
+                                                  “ ϕr1s pa1 q ` ϕr1s pa2 q .
+We say that A P GR is “totally-commutative” if for b P Af , c P Ag , in the notations of (3.15), we have in
+AX ś Z ÑY :
+    Y
+
+
+(3.18)                                                      b C f ˚ c “ c C g˚ b .
+Note that for B P CRig, the associated generalized ring GpBq is totally-commutative; but total-commutativity
+imply again Z b Z “ Z, and we do not need to assume it for developing geometry.
+   Given A P CFRt we have U A P CGR, with
+                                                       pUAqX :“ Ar1s,X
+                                                                     ˜     ¸
+                                                         f
+                                                                       à f
+                                                  aY C pay q :“ aY ˝    ay
+(3.19)                                                                                          yPY
+                                                                                            ˜               ¸t
+                                                                                                à
+                                              aX             pafy q :“ aX ˝                           afy
+                                                                                            yPY
+
+where aX P Ar1s,X , aY P Ar1s,Y , afy P Ar1s,f ´1 pyq , f : X Ñ Y . The left adjoint functor F : CGR Ñ CFRt can
+be
+` f described
+         ˘       as follows. For B P CGR, FpBqY,X “ DpBqY,X { «, where DpBqY,X is the collection of data
+ by , bgx , bfy P Bf ´1 pyq , bgx P Bg´1 pxq , f : Z Ñ Y, g : Z Ñ X, and we divide it by the equivalence relation «
+            `      ˘ ´ ¯ ¯
+given by bfy , bgx « b̄fx , b̄ḡy iff for any A P CFRt , any ϕ P CGRpB, UAq, we have in AY,X :
+                        ˜             ¸ ˜                               ¸t          ˜                       ¸ ˜                  ¸t
+                            à                     à                                     à            ¯             à
+(3.20)                          ϕpbfy q   ˝                 ϕpbgx q             “               ϕpb̄fy q      ˝          ϕpb̄ḡx q    .
+                          yPY                     xPX                                   yPY                        xPX
+
+
+                                                                                8
+The unit of adjunction εX : BX Ñ pUFBqX “ FpBqr1s,X is given by
+
+(3.21)                    εX pbq “ pb, t1x uxPX { «, f “ cX : X Ñ r1s, g “ idX : X Ñ X.
+
+The co-unit of adjunction ε˚Y,X : FpUAqY,X Ñ AY,X is given by
+                                                                       ˜         ¸ ˜               ¸t
+                                             `                  ˘          à f         à
+(3.22)                               ε˚Y,X       pbfy , bgx q{ « “          by     ˝         bgx        .
+                                                                        yPY            xPX
+
+
+
+4       Basic facts
+(4.1)    The categories CGR and CFRt are complete and co-complete.
+
+  Limits, and filtered co-limits are formed in Set “pointwise”: for a functor i                             Ai , from I to CGR or
+CFRt ,                                   ˜      ¸
+                                                       lim
+                                                       ÐÝ Ai           “ lim
+                                                                         ÐÝ pAi qX ;
+                                                       i PI        X       iPI
+                   ˜           ¸
+
+                       ÝÑ Ai
+                       lim          “ lim
+                                      ÝÑ pAi qX ,             I filtered: for i1 , i2 P I have i1 Ñ i, i2 Ñ i.
+                       i PI     X     iPI
+
+Moreover, CGR and CFRt have push out diagrams
+
+                                                              AO           / AbB
+                                                                              c
+                                                                               O
+
+                                                              C             /B
+
+and in the case of CGR some “miracles” happen that make A b B easier to describe (see below).
+                                                                                   c
+
+(4.2) For A P CGR (resp. A P CFRt ), we have a commutative, associative, unital monoid Ar1s (resp.
+Ar1s,r1s ), with an involution at :“ 1 a (resp. at ), and it acts centrally on all the sets AX (resp.
+                                                                                                 ˆ ˙  AY,X ): For
+a P Ar1s (resp. a P Ar1s,r1s ), aY P AY (resp. aY,X P AY,X ), a C aY “ aY C paqyPY (resp. ‘ a ˝ aY,X “
+                                                                                          Y
+      ˆ ˙
+aY,X ˝ ‘ a ). Moreover, if we have a homomorphism N Ñ A (resp. Z Ñ A), then this is the multiplicative
+         X
+monoid of a CRig (resp. CRing) with addition
+
+                               a1 ` a2       :“ pp1, 1q C pai qq p1, 1q                 A P NzCGR
+                                             :“ p1, 1q ˝ pa1 ‘ a2 q ˝ p1, 1qt           A P NzCFRt
+
+(4.3) The initial object of CGR (resp. CFR), is the “field with one element” F, with FX “ X > t0X u (resp.
+FY,X “ FpX, Y q).
+
+(4.4) There is a full and faithfull embedding of the category of commutative associative unital monoids
+CMon into CGR (resp. CFRt ), M ÞÑ FtM u with FtM uX “ M ˆ X > t0X u (resp. FtM uY,X “ set of Y by
+X matrices with values in M > t0u such that every raw/column contains at most one element of M ).
+
+(4.5) There are free objects F rδX s P CGR (resp. F rδY,X s P CFRt ) such that for A P CGR (resp. CFRt )
+we have:
+                                         CGR pF rδX s, Aq ” AX
+
+
+                                                                       9
+                                                   ϕ ÐÑ ϕX pδX q
+
+                                      resp.       CFRt pF rδY,X s, Aq ” AY,X
+                                                         ϕ ÐÑ ϕY,X pδY,X q
+
+(4.6) There are sub-CGR : ZR Ď GpRq and ZC Ď GpCq (resp. sub-CFRt : ZR Ď FpRq and ZC Ď FpCq)
+given by:
+                                 #                            +
+                                                   ÿ
+                                                X         2
+                       pZR qX “    a “ pax q P R ,   |ax | ď 1
+                                                                 xPX
+                                          #                                      +
+                                                                  ÿ
+                                                            X              2
+                            pZC qX    “       a “ pax q P C ,           |ax | ď 1
+                                                                  xPX
+                                                                Y ˆX
+                                                                                             (
+                           pZR qY,X   “       a “ pay,x q P R      , appZR qX q Ď pZR qY
+                                                                                       (
+                           pZC qY,X   “       a “ pay,x q P CY ˆX , appZC qX q Ď pZC qY .
+
+Moreover, there are “residue-fields” and surjective homomorphisms π : ZR  FR , π : ZC  FC , where
+                                       #                             +
+                                                        ÿ
+                             pFR qX “ a “ pax q P RX ,     |ax |2 “ 1 > t0X u
+                                                                xPX
+
+are the real spheres augmented with a zero,
+                                 !                                             )
+                                             ϕ
+                       pFR qY,X “ RX Ě Dpϕq ÝÑ
+                                             „
+                                               Ipϕq Ď R Y
+                                                          , ϕ partial isometry
+
+and similarly for C.
+   Note that for A P CGR (resp. A P CFRt ) we have “coefficient-map”:
+
+                               AX Ñ pAr1s qX          presp. AY,X Ñ pAr1s,r1s qY ˆX q
+
+                            a ÞÑ pa   1x qx P X      presp. a ÞÑ pjyt ˝ a ˝ jx qy P Y, x P X q.
+In most of the examples these are injections, but for FR and FC they are not!
+
+
+5       Valuation generalized ring and the “zeta machine”
+For K P CGR (resp. CFRt ) we let K ˚ “ GLr1s pKq denote the invertible elements in Kr1s (resp. Kr1s,r1s ).
+We say K is a “field” if K ˚ > t0u “ Kr1s (resp. Kr1s,r1s ); i.e. if every non-zero scalar is invertible. Let B Ď K
+be a sub-CGR (resp. CFRt ). It follows that t0u is a prime of B, and we have the localization Bp0q Ď K (see
+below). We say B is full in K if Bp0q “ K. This means
+
+(5.1)    B Ď Kˆfull :˙For every a P KX (resp. KY,X ), there exist d P Br1s zt0u, with d C a P BX
+         (resp.   ‘ d ˝ a P BY,X ).
+                  Y
+
+
+    The subset of KX (resp. KY,X ) consisting of elements a such that for any b P BX (resp. b P BX,r1s ,
+b1 P Br1s,Y ), a b P Br1s (resp. b1 ˝ a ˝ b P Br1s,r1s ) contains the set BX (resp. BY,X ); if these sets are equal
+we say B is tame in K:
+
+(5.2)    B Ď K tame : BX “ ta P KX , BX           a Ď Br1s u,
+
+
+                                                          10
+        (resp. BY,X “ ta P KY,X , Br1s,Y ˝ a ˝ BX,r1s Ď Br1s,r1s uq.
+
+    Finally, we say B is a valuation sub-CGR (resp. CFRt ) if it is full, and tame, and for any a P K ˚ : a P Br1s
+or a´1 P Br1s (resp. Br1s,r1s ). We let Val pKq denote all the valuation sub-CGR (resp. CFRt ) of K.
+    E.g. Gpr0, 1sq Ď Gpr0, 8qq is a valuation sub-CGR; Fpr0, 1sq Ď Fpr0, 8qq a valuation sub-CFRt , cf. (0.4).
+    We have the following interpretation of Ostrowski’s theorem.
+
+(5.3)   Ostrowski: For a number field K,
+            Val pKq ” tK; OK,p , p Ď OK a finite prime; K X σ ´1 pZC q, σ : K ãÑ C                 mod σ „ σ̄u .
+E.g. for K “ Q,
+                                      Val pQq ” tQ ; Zppq , p prime; Q X ZR u .
+
+(5.4) Remark: Here “valuation” can be taken either in the sense of CGR, or in the sense of CFRt , the
+                                                                                        pσq
+results are the same. But note that if for σ “ 1{p P r0, 1s, where p P r1, 8s, we let pZR qY, X denote the set
+                                                                                                            pσq
+of all real valued, Y by X matrices, that take the unit Lp -ball in RX into the unit Lp -ball in RY , then ZR
+                                                              pσq
+satisfy all the axioms of being a valuation sub-CFR, but ZR fails to have an involution, except in the L2
+case σ “ 21 .
+    In the above case of a number field K, the ordered abelian group K ˚ {B ˚ is class 1, and can be viewed
+as an ordered subgroup of R` “ p0, 8q. We get a homomorphism | |r1s : K ˚ Ñ p0, 8q, which we extend to
+(5.5)                    | |r1s : Kr1s Ñ r0, 8q , |x| “ 0 ô x “ 0 , |x1 ˝ x2 | “ |x1 | ¨ |x2 | .
+We also have
+(5.6)                       | |X : KX Ñ r0, 8q ,           presp. | |Y, X : KY, X Ñ r0, 8qq
+such that
+                  |aY C af |X ď |aY |Y ¨ Max |afy |f ´1 pyq , |aX      af |Y ď |aX |X ¨ Max |afy |f ´1 pyq
+                                           yPY                                            yPY
+
+                      (resp. |a1 ˝ a2 | ď |a1 | ¨ |a2 |, |a0 ‘ a1 | ď Max t|a0 |, |a1 |u, |at | “ |a|)
+so that BX “ ta P KX , |a|X ď 1u, (resp. BY, X “ ta P KY, X , |a|Y, X ď 1u) is a sub-CGR (resp. CFRt ) of K.
+    Moreover, we have:
+                                         !                               )
+(5.7)                      |a|X “ inf |d|´1  r1s , d P K ˚
+                                                           , d C a P B X    “full”
+                                                               (
+                                  “ sup |b a|r1s , b P BX          “tame”
+resp.
+                                         "                     ˆ    ˙             *
+                                             ´1            ˚
+                      |a|Y, X    “    inf |d|r1s , d P K , ‘ d ˝ a P BY, X             “full”
+                                                                 Y
+                                                                                     (
+                                 “    sup |b1 ˝ a ˝ b|r1s , b1 P Br1s,Y , b P BX,r1s    “tame”.
+
+   Let B be a compact topological valuation CFRt . This means the sets BY, X have a compact topology,
+such that the operations of composition, direct-sum, and transpose, are continuous. The field K “ Bp0q is
+then locally compact, and assume the valuation is given by a norm map
+(5.8)                                         | |Y, X : KY, X     Ñ    r0, 8q
+                                                             Ď          Ď
+                                                        BY, X     Ñ    r0, 1s .
+
+
+                                                             11
+E.g. B “ FpZp q or B “ ZR .
+    We let
+                                             rns
+(5.9)                                      SB “ tb P Br1s,rns , |b|r1s,rns “ 1u
+
+denote the “sphere” in n-dimensional space, on which we have the homogeneous action of the compact group
+
+(5.10)                    GLrns pBq “ tb P Brns,rns , D b1 P Brns,rns , b ˝ b1 “ b1 ˝ b “ idrns u .
+                                                                                         rns
+There exists a unique GLrns pBq-invariant probability measure on SB . We denote this Haar, or Maak,
+               rns
+measure by σB . Assume we have a homomorphism FpNq Ñ K, so we have the elements
+
+(5.11)                             1Irns “ p1, 1, . . . , 1q P Kr1s,rns ,       1Itrns P Krns,r1s .
+
+               rns
+Contracting σB with 1Irns we get a probability measure on Kr1s,r1s “ t0u > K ˚ , and integrating | |s´1
+                                                                                                    r1s we get
+rns-dimensional zeta
+                                            ż     ˇ           ˇs´1
+                                                                    rns
+(5.12)                        Lrns pB, sq “          ˝ 1Itrns ˇ    σB pdaq .
+                                                  ˇ           ˇ
+                                              rns
+                                                  ˇa
+                                                       SB                 r1s
+
+
+Finally, we pass to the n Ñ 8 limit to get the zeta of B:
+
+(5.13)                                          LpB, sq “ lim Lrns pB, sq .
+                                                                 nÑ8
+
+E.g. We have the following calculations:
+                         ż
+                                                                                   rns          ζp psq
+(5.14)   LpZp , sq “ lim                             |a1 ` . . . ` an |s´1
+                                                                       p          σZp pdaq “           , ζp psq “ p1 ´ p´s q´1 ,
+                         nÑ8 Max t|a |,...,|a |u“1
+                                    1        n
+                                                                                                ζp p1q
+
+                               ż
+                                                                                   rns          ζR psq              s
+                                                                                                                          ´s¯
+(5.15)       LpZR , sq “ lim                        |a1 ` . . . ` an |s´1        σZR pdaq “            , ζR psq “ 2 2 ¨ Γ     .
+                          nÑ8 |a |2 `...`|a |2 “1
+                                1          n
+                                                                                                ζR p1q                     2
+
+
+6       Modules and differentials
+(6.1) Definition. For A P CFRt , an A-module is a functor M : A ˆ Aop Ñ Ab, Y, X ÞÑ MY, X , such that
+Mr0s, X “ t0u “ MY, r0s . Thus MY, X are abelian groups, Y, X P F, and we have maps:
+
+                                       AY 1 , Y ˆ MY, X ˆ AX, X 1           Ñ MY 1 , X 1
+                                                            a , m , a ÞÑ a1 ˝ m ˝ a
+                                                             1
+
+
+such that
+
+                                    a1 ˝ pm1 ` m2 q ˝ a          “ a1 ˝ m1 ˝ a ` a1 ˝ m2 ˝ a
+                                a2 ˝ pa11 ˝ m ˝ a1 q ˝ a2
+                                 1
+                                                                 “     pa12 ˝ a11 q ˝ m ˝ pa1 ˝ a2 q
+                                          idY ˝ m ˝ idX          “ m.
+
+Such A-module is called “commutative” if for m P MY, X , b P Ar1s, Z , d P AZ, r1s , we have:
+               „                               „           ˆ ˙ ˆ                ˙ ˆ ˙
+                 ‘ pb ˝ dq ˝ m ˝ idX “ idY ˝ m ˝ ‘ pb ˝ dq “ ‘ b ˝ ‘ m ˝ ‘ d .
+                     Y                                           X                   Y          Z          X
+
+
+
+                                                                  12
+(6.2) Definition. For A P CGR,  ś an A-module is a functor M : F Ñ Ab, X ÞÑ MX , together with
+operations for f : X Ñ Y , Af “   Af ´1 pyq ,
+                                     yPY
+
+   multiplication: MY ˆ Af Ñ MX , m C pay q
+   contraction: MX ˆ Af Ñ MY , m                pay q,
+                             t
+such that: m     f “ m C f “ f pmq for f P FY, X , m P MX
+                                       pm1 ` m2 q C a “                 m1 C a ` m2 C a
+                                       pm1 ` m2 q            a “        m1       a ` m2        a
+                                        pm C a1 q C a2            “     m C pa1 C a2 q
+                                           pm       a1 q    a2    “     m       pa2 C a1 q
+                                           m        pa1    a0 q   “     pm C a0 q         a1
+                                           m C pa1         a0 q   “     pm C a1 q         a0
+   and commutativity: pm          aq C c “ pm C f ˚ cq            g ˚ a, a P Af , c P Ag .
+
+    I.e. for CFRt we take bi-modules (and we can add an involution on them that exchanges the left and
+right structures), while for CGR we take right modules. In both cases of A P CGR and A P CFRt , we
+get a complete and co-complete abelian category of A-modules with enough projective and injectives. A
+homomorphism ϕ : A Ñ B gives an adjunction
+
+(6.3)                                           MO B              B-mod
+                                                                    H                 N
+                                                                                      _
+
+                                                    _                                 
+                                                    M             A-mod              NA
+
+For A P CFRt , and M P A-mod, we can form an F-ring over A (non-commutative, and without involution):
+(6.4)                                           pA πM qY, X :“ AY, X ˆ MY, X
+
+composition: pa1 , m1 q ˝ pa2 , m2 q “ pa1 ˝ a2 , idZ ˝ m1 ˝ a2 ` a1 ˝ m2 ˝ idX q
+direct sum: pa0 , m0 q ‘ pa1 , m1 q “ pa0 ‘ a1 , j0Ya ˝ m0 ˝ pj0X qt ` j1Y ˝ m1 ˝ pj1X qt q with jiX P FX0 ‘ X1 , Xi the
+inclusions.
+   Similarly, for A P CGR, and M P A-mod, we can form the (non-commutative) generalized ring over A:
+(6.5)                                                pA πM qX :“ AX ˆ MX
+                                                ˜                                                                    ¸
+                                                                                 ř
+multiplication: pa1 , m1 q C pa2 , m2 q “           a1 C a2 , m1 C a2 `              pm2 qy C pa1 |y qx P f ´1 pyq
+                                                                                 y
+                                           ˜                                                            ¸
+                                                                          ř
+contraction: pa1 , m1 q     pa2 , m2 q “       a1       a2 , m1    a2 `         pm2 qy     pa1 |f ´1 pyq q .
+                                                                            y
+
+    Fixing a homomorphism k Ñ A of CGR or CFRt , we remember that A πM is under k via k Ñ A πM ,
+λ ÞÑ pλ, 0q, and we get adjunctions
+
+(6.6)                              C
+                                   _                      kzGR{A             kzFR{A                A πM
+                                                                                                      O
+                                                             I                  I
+
+                                                                                                   _
+                                 ΩpC{kqA                  A-mod                 A-mod               M
+
+
+                                                                   13
+for C “ A:
+
+                           kzGR{A pA, A πM q ” Derk pA, M q ” A-mod pΩpA{kq, M q
+                             pa ÞÑ pa, ϕpdaqqq Ð´´´´´´´´´´´´´´´´´| ϕ
+where d : A Ñ ΩpA{kq is the universal derivation (i.e. satisfying Leibnitz rule) trivial on k. From this all
+the usual properties of the Khaler differentials follow, e.g. for a triangle
+
+                                                               ? BO
+
+
+                                                    k          /A
+
+we get an exact sequence of B-modules
+
+(6.7)                                ΩpA{kqB Ñ ΩpB{kq Ñ ΩpB{Aq Ñ 0 .
+
+Moreover, the adjunction (6.6) extends to a Quillen adjunction on the Quillen model categories of simplicial
+objects of the categories in (6.6), and (6.7) extends to a long exact sequence. The Quillen cotangent complex
+                                                                 op
+LΩpB{Aq is an element of the derived category of pB-modq∆ – Ch‚ pB-modq.
+
+
+7       N and Z as generalized rings
+We can now view the initial objects N P CRig, and Z P CRing, as CGR, or as CFRt . Once we have the
+basic vector
+                                δ “ p1, 1q P Nr2s “ GpNqr2s “ FpNqr1s,r2s
+we have addition:
+                                  a1 ` a2 “ pδ C pai qq    δ “ δ ˝ pa1 ‘ a2 q ˝ δ t .
+It follows that δ generates GpNq and FpNq. One can prove the relations are precisely:
+
+(7.1)    δ-unit: δ|i “ 1
+                                 ˆ      ˙
+                              0        1
+(7.2)    δ-commutativity: δ ˝             “δ
+                              1        0
+
+(7.3)    δ-associativity: δ C pδ; 1q “ δ C p1; δq or δ ˝ pδ ‘ 1q “ δ ˝ p1 ‘ δq
+
+
+
+
+Moreover, GpZq and FpZq, are generated by δ and by p´1q P GpZqr1s “ FpZqr1s,r1s , with the above δ-relations,
+and
+
+(7.4)    p´1q ˝ p´1q “ 1
+
+(7.5)    δ-cancellation: pδ C p1; ´1qq    δ “ 0 “ δ ˝ p1 ‘ p´1qq ˝ δ t .
+
+    Note that beside the above relations, we are assuming the relation of commutativity, and in particular:
+
+
+                                                          14
+                                                                           ¨    ˛
+                  ˆ ˙            ˆ         ˙ ˆ                         ˙1      0
+                   1               1      1   1          1    0    0  ˚0       1‹
+(7.6)    δt ˝ δ “     ˝ p1, 1q “            “                        ˝˚         ‹ “ pδ ‘ δq ˝ pδ ‘ δqt
+                   1               1      1   0          0    1    1  ˝1       0‚
+                                                                        0      1
+
+   or picturiously
+
+
+
+
+   It follows that d δ generates ΩpN{Fq and ΩpZ{Ft˘1uq, as GpNq-module, and GpZq-module, respectively.
+In particular, for the CGR picture we get a map in degree r1s:
+
+(7.7)    d : N Ñ ΩpN{Fqr1s .
+
+   Here ΩpN{Fqr1s turns out to be the free abelian group on generators
+
+                                         ta, bu :“ d δ       pa, bq ,      pa, bq P Nr2s ,
+
+modulo the relations:
+
+(7.8)    d pδ-unitq : ta, 0u “ 0
+
+(7.9)    d pδ-commutativityq : ta, bu “ tb, au
+
+(7.10)    d pδ-associativityq : ta, b ` cu ` tb, cu “ ta ` b, cu ` ta, bu
+
+(7.11)    d (commutativity).
+
+   The last relation (7.11) follows from, and is equivalent modulo 2-torsion to, the relation:
+
+(7.12)    tc ¨ a, c ¨ bu “ c ¨ ta, bu.
+
+   Denoting by Ω the quotient of ΩpN{Fqr1s by the relation (7.12) and letting B : N Ñ Ω denote 21 d followed
+by the projection, we have:
+
+(7.13)    Leibnitz: Bpn ¨ mq “ n Bpmq ` m Bpnq
+
+(7.14)    Almost-additivity: Bpn ` mq “ Bpnq ` Bpmq ` tn, mu
+
+(7.15)    Bp0q “ Bp1q “ 0, and for n ą 1 : Bpnq “ t1, 1u ` t1, 2u ` . . . ` t1, n ´ 1u.
+
+    Note that it follows from Leibnitz that we have
+                                                  ÿ         n
+(7.16)                                     Bpnq “   vp pnq ¨ Bppq
+                                                  p
+                                                            p
+
+and Ω is the free abelian group on Bppq, p prime (vp pnq the p-adic valuation).
+
+(7.17) Remark. We can now also give the proof that total-commutativity imply Z b Z “ Z (a proof due
+to N. Durov). We write on the left (resp. right) the formulas in the language of CGR (resp. CFRt ). We
+
+
+                                                                  15
+note that Z b Z is generated (over Ft˘1u) by two generators δ1 and δ2 of degree r2s. Total-commutativity
+              Ft˘1u
+gives:
+                      δ1 C pδ2 , δ2 q “ δ2 C pδ1 , δ1 q                      δ1 ˝ pδ2 ‘ δ2 q “ δ2 ˝ pδ1 ‘ δ1 q
+
+
+
+
+Restricting this identity to tx2 , x3 u gives:
+
+          δ1 C pδ2 |x2 , δ2 |x3 q “ δ2 C pδ1 |x2 , δ1 |x3 q                δ1 ˝ pδ2 |x2 ‘ δ2 |x3 q “ δ2 ˝ pδ1 |x2 ‘ δ1 |x3 q
+
+
+
+
+Using the δ-unit relation, δ|xi “ 1, we get:
+
+
+
+
+i.e. δ1 “ δ2 , and Z b Z “ Z.
+                        Ft˘1u
+
+
+
+8        (Symmetric) Geometry
+For A P CFRt , or A P CGR, an equivalence ideal is a sub-CFRt , or CGR, of the product E Ď A Π A, which is
+an equivalence relation on A. We can then form the quotient A{E, and we have a canonical homomorphism
+π : A  A{E. Given any homomorphism ϕ : A Ñ B, it gives rise to an equivalence ideal of A
+
+                                          KERpϕq “ A Π A “ tpa, a1 q, ϕpaq “ ϕpa1 qu
+                                                              B
+
+and we have the factorization of ϕ
+
+(8.1)                                                         A
+                                                                   ϕ
+                                                                            /B
+                                                                              O
+                                                              π
+                                                                             ?
+                                                      A{KERpϕq
+                                                                       „   / ϕpAq
+
+We let EqpAq denote the equivalence ideals of A.
+
+
+
+
+                                                                  16
+(8.2) Definition: For A P CGR (resp. CFRt ), an ideal of A is a subset a Ď Ar1s (resp. Ar1s,r1s ), such that
+for X P F, a “ pax q P paqX , b, d P AX (resp. b P Ar1s,X , d P AX,r1s ),
+                                                                ˆ         ˙
+                               pb C pax qq d P a , (resp. b ˝ ‘ ax ˝ d P aq.
+                                                                           xPX
+
+We let IpAq denote the set of ideals of A. There is a Galois correspondence:
+                                                                     +
+(8.3)                                                 EqpAq l            IpAq
+
+
+                          Ea gen. by pa, 0q, a P a     Ð´´´´´´´´´´´|            a
+                                                  E     |´´´´´´´´´´´Ñ           aE “ ta, pa, 0q P Er1s u .
+
+    To motivate the following definition, imagine we would like to develope algebraic geometry based on
+commutative rings with a (possibly non-trivial) involution (cf. Remark 5.4). For such a ring A, we can
+forget the involution and look at spec pAq: it is a locally ringed space with a (global) involution, but once
+we localize we loose the involution. A better way to proceed is to look at the subring of symmetric elements
+A` “ ta P A, at “ au, and over the topological space spec pA` q we have a sheaf of commutative rings with
+involution, with stalk over p P spec pA` q given by the localization pA` z pq´1 ¨ A.
+
+(8.4) Definition: An ideal a is called symmetric if it is generated as an ideal by its symmetric elements
+a` “ ta Pˆa, at “ au,                                              ` X   t
+                   ˙ i.e. for any a P a, have X P F, c “ pcx q P pa q , cx “ cx , b, d P AX , with a “ pb C cq d
+(resp. b ˝      ‘ cx     ˝ dt for CFRt ).
+               xPX
+
+
+   An ideal p Ď Ar1s is called prime if Sp “ Ar1s z p is multiplicative:
+
+                                                 1 P Sp ,       Sp ˝ Sp “ Sp .
+
+A symmetric-ideal p Ď Ar1s is called symmetric-prime if Sp` “ A`
+                                                               r1s z p is multiplicative.
+    We let I ` pAq, spec pAq, spec` pAq denote the set of symmetric ideals, primes, and symmetric-primes
+respectively.
+    The set spec pAq (resp. spec` pAq) is not empty: every maximal proper (symmetric) ideal m P IpAq
+(resp. m P I ` pAq), which exists by Zorn, is a (symmetric) prime. The set spec pAq (resp. spec` pAq) carry
+a topology, which is compact (every open cover has a finite sub-cover), and Zariski (every closed irreducible
+subset is the closure of a unique “generic” point), where the closed sets are
+
+(8.5)                   V paq “ tp P spec pAq, p Ě au       (resp. V ` paq “ tp P spec` pAq, p Ě auq
+
+and a basis for the open sets is given by the “basic”
+
+(8.6)        Dpf q “ tp P spec pAq, p S f u, f P Ar1s ,     (resp. D` pf q “ tp P spec` pAq, p S f u, f “ f t P A`
+                                                                                                                 r1s q.
+
+On spec pAq we have a (global) involution p ÞÑ pt . There is a continuous map
+
+(8.7)                          π : spec pAq    ÝÝÝÝÝÝÝÝÝÝÑ           spec` pAq
+                                            p |´´´´´´´´´´´Ñ πppq “ ideal gen. by p` .
+
+The process of localization with respect to a multiplicative set S of symmetric elements S Ď A`   r1s works as
+usual for any A P CFRt or A P CGR, because the commutative monoid A`        r1s,r1s or A `
+                                                                                         r1s acts centrally on
+                                             ´1
+A. We obtain a homomorphism φS : A Ñ S A, which is universal taking S to units. For an open subset
+
+
+                                                                17
+U Ď spec` pAq, we have a CGR (resp. CFRt ) OA pUq, and restriction homomorphisms ρU        V : OA pUq Ñ OA pVq
+for V Ď U, with ρV  W  ˝ ρ U
+                           V “  ρU
+                                 W  , ρ U
+                                        U “ idOA pU q , and for X P F (resp. Y, X   P F)  U  ÞÑ OA pUqX (resp.
+OA pUqY,X ) is a sheaf of sets over spec` pAq. The stalk at a point p P spec` pAq is the localization
+                                                              ` ´1   „
+(8.8)                                 OA |p “ lim
+                                              ÝÑ OA pUq ÝÝÑ pSp q A “ Appq
+                                                pPU
+
+and it is “local” in the sense that it contains a unique maximal-symmetric-ideal mp Ď Appq . The usual
+argument (using commutativity!) gives that for f “ f t P A`
+                                                          r1s we have over the basic open set:
+                                                                     „
+(8.9)                                           OA pD` pf qq ÐÝÝ pf N q´1 A .
+All this is functorial: for a homomorphism ϕ : A Ñ B we get a square of continuous maps
+
+                                                            ϕ´1
+                                             spec pAq o
+                                                             r1s
+(8.10)                                                                    spec pBq
+                                              πA                                    πB
+                                                                ˚              
+                                             spec` pAq o
+                                                                 ϕ
+                                                                          spec` pBq
+
+              ϕ˚ pqq “ ideal gen. by A`
+                                      r1s X ϕ
+                                             ´1
+                                                pqq Ð´´´´´´´´´´´| q
+This leads to the introduction of the categories loc CGR-Sp and loc CFRt -Sp, with objects pX, OX q,
+X P Top a topological space, OX a sheaf of CGR (resp. CFRt ) over X, with local stalks mx Ď pOX |x qr1s a
+unique maximal-symmetric-ideal, and mappings pf, f # q : pX, OX q Ñ pY, OY q are pairs of f P Top pX, Y q a
+continuous map, and f # : OY Ñ f˚ OX a map of sheaves over Y of CGR (resp. CFRt ) and such that for
+x P X the composition
+                                f # |f pxq
+(8.11)             fx# : OY |f pxq ÝÝÝÝÝÝÑ f˚ OX |f pxq “ lim     ´1
+                                                          ÝÑ OX pf Vq Ñ lim
+                                                                        ÝÑ OX pUq “ OX |x
+                                                            f pxq P V                    xPU
+
+is a local-homomorphism:
+                                      fx# pmf pxq q Ď mx ô mf pxq “ pfx# q˚ pmx q .
+  Within the category loc CGR-Sp (resp. loc CFRt -Sp) we have the full subcategory CGR-Sch (resp.
+CFRt -Sch) of “schemes” consisting of pX, OX q which are locally affine: there is a covering by open sets
+X “ Y Ui , and the canonical mappings give isomorphisms in loc CGR-Sp (resp. loc CFRt -Sp)
+        iPI
+               „
+pUi , OX |Ui q ÝÝÑ spec` pOX pUi qq.
+     These categories CGR-Sch and CFRt -Sch are much like ordinary schemes Sch: we can glue together
+                                                                                         ϕij
+objects Xi , along consistent glueing data on open subsets Xi Ě Uij ´´´ÝÑ Uji Ď Xj , ϕjk ˝ ϕij “ ϕik ,
+                                                                                         „
+ϕii “ idUi . Finite limits exists in CGR-Sch and CFRt -Sch, in particular we have fiber products
+
+(8.12)                                                     X ΠY
+                                                                 Z
+
+
+                                                       |                    !
+                                                   X                            Y
+
+                                                             #        {
+                                                                 Z
+   All the local calculations in CGR-Sch (resp. CFRt -Sch) reduce to ˆ
+                                                                     “algebra” in CGR (resp.   t
+                                                                                          ˙ CFR ), and
+the fiber product (8.12) is obtained by glueing the affine pieces spec` OX pUq                   b      OY pVq .
+                                                                                               OZ pWq
+
+
+                                                                 18
+    Note that for A P CFRt , the underlying topological space spec` pAq depends only on U A P CGR, and
+spec` pAq ” spec` pU Aq, so that CGR is the basic geometric language. For A P CFRt we have more structure:
+the underlying symmetric monoidal category give rise to the algebraic K-theory spectrum:
+                                         ´            ¯`
+(8.13)                    KpAq ” Z ˆ B lim GLn pAq        ” BpA´1 Aq ” BΓApS ˚ q
+                                               nÑ8
+
+obtain by either Quillen `-construction, or “group-localization” A´1 A, or its delooping via Segal’s Γ-category
+ΓA applied to the sphere spectrum S ˚ .
+   Thus over any CFRt -Sch X we have a canonical sheaf of symmetric spectra KpOX q, and the associated
+sheaves of abelian groups Ki pOX q “ πi KpOX q.
+
+
+9       Pro-schemes
+The categories CGR-Sch and CFRt -Sch are still not enough for arithmetic, and we pass to the categories of
+pro-objects: pro-CGR-Sch and pro-CFRt -Sch. The objects are arbitrary functors X : I Ñ CGR-Sch (resp.
+CFRt -Sch), i ÞÑ Xi , j ě i ÞÑ Xj Ñ Xi , where we take for I a countable partially ordered set, which is
+
+(9.1)    directed: for any i1 , i2 P I, there is j P I, j ě i1 , j ě i2 , and which is
+
+(9.2)    cofinite: for j P I, ti P I, j ě iu is finite.
+
+    The mappings from tXi ui P I to tYj uj P J are given by
+(9.3)                                                              ÐÝ lim
+                          pro-CGR-Sch ptXi ui P I , tYj uj P J q “ lim ÝÑ CGR-Sch pXi , Yj q
+                                                                  J   I
+
+and similarly with CFRt -Sch.
+   To motivate the passage to pro-objects, one may think of ordinary schemes, Sch, which is the full
+subcategory of loc Ring Sp, consisting of objects which are locally affine » spec pAq, A P CRing. Given a
+functor X : I Ñ loc Ring Sp, with I directed as above, the limit Ð
+                                                                 lim
+                                                                   Ý Xi exists in loc Ring Sp, and moreover,
+                                                  ˜        ¸       I
+
+if Xi “ spec pAi q are all affine Ð
+                                  lim
+                                    Ý spec pAi q “ spec lim
+                                                        ÝÑ Ai      is again affine. But if Xi P Sch are schemes for
+                                   I                       I
+all i P I, the limit Ð
+                     lim
+                       Ý Xi need not be a scheme.
+                      I
+    What happens is that for X : I Ñ Sch Ď loc Ring Sp, a point x “ txi ui P I in the space lim
+                                                                                            ÐÝ Xi is a
+                                                                                                        I
+coherent family of points xi P Xi , and while each xi will have an affine neighborhood, these can shrink, so
+that x will not have an affine neighborhood. The same phenomenon happens with CGR-Sch and CFRt -Sch,
+which are not closed under directed inverse limits. The real and complex primes of a number field are such
+points that do not have an affine neighborhood.
+     Inside pro-CGR-Sch, and pro-CFRt -Sch, we have the “compactified” spec Z “ tXN uN P I , with I the set
+of square free integers, N “ p1 ¨ p2 . . . p` (pj distinct primes), with M ě N iff N divide M , and with
+                                                                     ˆ „         ˙
+                                                       ž                 1
+(9.4)                           XN “ spec pZq                    spec Z      X ZR
+                                                            1
+                                                                         N
+                                                   spec pZr N sq
+                  “ ‰           “ ‰
+i.e. we view Z, Z N1 , AN “ Z N1 XZR as CGR (resp. CFRt ), the involution is the identity so the spectrum
+is the same as the symmetric spectrum, and we glue spec pZq and spec pAN q along the common basic open
+set                                                  ˆ „ ˙              ˆ ˙
+                                                            1              1
+                       spec pZq Ě DZ pN q “ spec Z                 “ DAN       Ď spec pAN q .
+                                                            N              N
+
+                                                          19
+                                                          fM
+For N dividing M , we have a natural map XM ÝÝNÝÑ XN , it is the identity on points, and moreover
+       „      M
+OXN ÝÝÑ pfN     q˚ OXM is an isomorphism, but there are more open neighborhoods
+                                                                       “ ‰         of the “real-prime” in
+XM than in XN . Here the “real-prime” is the maximal ideal ηN of AN “ Z N1 X ZR , and for N “ p1 ¨p2 . . . p` ,
+the specialization picture of the points of XN looks like:
+(9.5)
+
+
+
+
+   Note that XN looks like it has Krull dimension 2, but the inverse limit X “ lim
+                                                                               ÐÝ XN in loc -CGR-Sp
+                                                                                          I
+(or in loc-CFRt -Sp) has Krull dimension 1, and the real-prime is a closed point just like the finite primes:
+
+(9.6)       ÐÝ XN :
+        X “ lim
+              I
+
+
+
+
+    The open subsets of X are arbitrary co-finite subsets U Ď X, with p0q P U, and X is integral:
+                                            ź
+(9.7)                       OX pUq “ Q X         Zppq , with Zpηq “ Q X ZR .
+                                               pPU
+
+E.g. the global sections are
+                                                    ź
+                                    OX pXq “ Q X         Zppq “ Z X ZR “ F t˘1u .
+                                                   pPX
+
+   Similarly, for any number field K, with ring of integers OK , and with “real and complex primes”
+                                                                                                         K
+Oσ “ K X σ ´1 pZC q, σ P γK “ tσ : K ãÑ Cu{σ „ σ, we have the compactified spec OK “ tXN                   uN P I ,
+with the same indexing set I of square free integers
+                                               `       N
+                                                     “ ‰  “ p1˘. . . p` under divisibility, where XN is obtained
+by glueing spec pOK q, and the various spec OK N1 X Oσ , σ P γK , along the common basic open set
+     `     “ 1 ‰˘
+spec OX N . This gives spec OK as an object of pro-CGR-Sch or as an object of pro-CFRt -Sch. The
+global sections are Ospec OK pspec OK q “ FtµK u, where µK is the group of roots of unity in K. For K Ď L,
+                          L      K
+there is a natural map XN   Ñ XN    for all N P I, and we get a map of pro-objects spec OL Ñ spec OK . Note
+                                                                   K
+that spec OK is “proper” in the sense that the points of lim
+                                                           ÐÝ XN correspond bijectively with ValpKq. Note
+                                                                  N
+that any f P K defines a geometric map from spec OK to
+                                                                          ˜ #ˆ ˙ +¸
+                                                                                N
+                                1               N
+                                                          ž                   1
+(9.8)                          P {F “ spec pFtz uq                    spec F
+                                                                              z
+                                                     spec pFtz Z uq
+
+via z ÞÑ f , (and a “Hurwitz-genus-formula” for this map should give the ABC conjecture [24]).
+
+
+                                                          20
+10       Arithmetical surface, and new commutative rings
+We have now new geometric objects, such as the Arithmetical-plane associated with a number field K
+                                                                     #                           +
+                                                                          K                  K
+                              ś                                                    ś
+(10.1)          spec OK                 spec OK         “                XN                 XM
+                          spec FtµK u                                         spec FtµK u
+                                                                                                   N, M square-free
+
+
+
+
+                              ś
+                                                                         #                         +
+                                                                                     ś
+                   spec Z           spec Z              “                    XN               XM
+                          spec Ft˘1u                                              spec Ft˘1u
+                                                                                                       pN,M q P IˆI
+
+
+and higher dimensional planes obtained by taking n-fold products. Note that the pro-objects in (10.1)
+contain the ordinary affine open and dense sub-scheme
+                                                       ˜                      ¸
+                                                                 Â
+(10.2)                                            spec OK             OK
+                                                              FtµK u
+
+
+
+                                                           ˜             ¸
+                                                                 Â
+                                                    spec Z             Z
+                                                              F t˘1u
+
+
+   When we have a homomorphism of CGR (resp. CFRt ) ϕ : Z Ñ A, we can make the commutative monoid
+Ar1s (resp. Ar1s,r1s ) into an ordinary commutative ring, with an involution, by defining addition by
+
+(10.3)                                  a1 ` a2 :“ pϕpp1, 1qq C pai qq            ϕpp1, 1qq
+
+                                        resp. :“ ϕpp1, 1qq ˝ pa1 ‘ a2 q ˝ ϕpp1, 1qqt
+(note that our axiom of commutativity imply the distributive law!).
+   We thus have the adjunction
+
+(10.4)                                   CRing pB, Ar1s q ” ZzCGR pGpBq, Aq
+
+                                       CRing pB, Ar1s,r1s q ” ZzCFRt pFpBq, Aq .
+The unit of adjunction GpAr1s q Ñ A (resp. FpAr1s,r1s q Ñ A), give for any A under Z an injection of spec pAq
+into the spectrum of an ordinary ring:
+
+(10.5)                          spec pAq ãÑ spec pAr1s q ,          (resp. spec pAr1s,r1s q).
+
+As a CGR, or as CFRt , the integers Z are generated by the vector δ “ p1, 1q, and the scalar p´1q. It follows
+that the n-fold tensor product
+
+(10.6)                                          Zbn “ Z b . . . b Z
+                                                            Ft˘1u        Ft˘1u
+
+
+is generated by the vectors δ1 , . . . , δn P pZbn qr2s , and p´1q. Thus every element of pZbn qY,X can be repre-
+sented as a graph made of the basic graphs
+
+(10.7)
+
+
+                                                              21
+and “going from X to Y ”. Moreover, using the δ-associativity relation (7.3), we can represent any m-fold
+product of a generator δi as the graph
+
+(10.8)
+
+
+
+
+Finally, we can use commutativity, to move all generators δi to the left, and all δjt to the right. It follows
+that any element a P pZbn qY, X has a representation as a “ pFy , Gx , σ, εq, where Fy , y P Y , Gx , x P X, are
+finite-rooted-trees, together with a labeling of the non-leaves vertices
+                                 ž                ž
+(10.9)                               pFy zBFy q >    pGx zBGx q Ñ t1, 2, . . . , nu ,
+                                 yPY               xPX
+
+and a bijection of this leaves
+                                              ž            „
+                                                               ž
+(10.10)                                  σ:         BFy ÝÝÑ          BGx ,
+                                              yPY              xPX
+
+and finally the signs
+                                                   ž
+(10.11)                                       ε:         BFy Ñ t˘1u .
+                                                   yPY
+
+(10.12)     E.g.
+
+
+
+
+moves to the equivalent
+
+
+
+
+   Taking X “ Y “ r1s, we have the commutative, associative, unital monoid, with an involution,
+pZbn qr1s,r1s , its element are represented as pF, G, σ, εq, F, G rooted trees with
+
+          labels pF zBF q > pGzBGq Ñ t1, . . . , nu, bijection σ : BF Ñ BG, and signs ε : BF Ñ t˘1u.
+
+
+                                                          22
+The relations are represented graphically as
+
+(10.13)   δ-unit:
+
+
+
+
+(10.14)   δ-commutativity: isomorphic data are equivalent.
+
+(10.15)   δ-associativity:
+
+
+
+
+(10.16)   cancellation:
+
+
+
+
+(10.17)   commutativity:
+
+
+
+
+   Here X is a cut of the tree F , Y is a cut of the tree G, we have mappings
+
+(10.18)
+                    š
+                          B c̄x ” X       r ” B b̄ ” š B ax , š B āy ” B b ” Yr
+                                          X                                            Y ”
+                                                                                             š
+                                                                                                   B cy
+                    xPX                             xPX         yPY                          yPY
+
+
+                                  !       z                                    #       ~
+                                      X                                            Y
+                                                                                            ´               ¯
+and the bijection σ identifies the part of BF over X with the part of BG over Y , both being X Π r
+                                                                                                Xq Π pYr Π Y .
+                                                                                                          X   Y
+
+
+                                                           23
+   The operation of multiplication is given by
+                                                                              ˆ                                                   ˙
+                                                    1   1     1   1                        1       1                1         1
+(10.19)               pF, G, σ, εq{« C pF , G , σ , ε q{« “                       F C F , G C1 G, σ π σ , ε ¨ ε
+                                                                                    BF                 BG                         {«
+
+where F C F 1 is the tree obtained by attaching a copy of F 1 at every leaf P BF of F .
+          BF
+   The involution is given by
+
+(10.20)                                       pF, G, σ, εqt{« “ pG, F, σ ´1 , ε ˝ σ ´1 q{« .
+
+For each i “ 1, 2, . . . , n, we can define an operation of addition on pZbn qr1s,r1s :
+
+(10.21)        pF1 , G1 , σ1 , ε1 q{« `piq pF2 , G2 , σ2 , ε2 q{« :“ pδi C pF1 , F2 q, δi C pG1 , G2 q, σ1 > σ2 , ε1 > ε2 q{« .
+                                                                                                                        tiu
+With this operation of addition we obtain an ordinary commutative ring pZbn qr1s , with an involution. The
+symmetric group Sn acts naturally on pZbn qr1s , preserving multiplication and involution, and g P Sn takes
+i-th addition into gpiq-th addition:
+
+(10.22)                                             g pa1 `piq a2 q “ gpa1 q `pgpiqq gpa2 q
+               tiu            tgpiqu
+so g : pZbn qr1s Ñ pZbn qr1s            is a ring homomorphism.
+                                                                                                                                            tiu
+   Note that a prime p P spec pZbn q is a subset of pZbn qr1s , which is a prime of all the rings pZbn qr1s ,
+i “ 1, . . . , n, and p is closed with respect to the additions `piq (as well as closed w.r.t. “richer-avarages”).
+
+   In a similar way, we get from the rigs p0, 4q, the ordinary commutative rings, with involution,
+                            ˆ            ˙     ˆ           ˙     ˆ          ˙
+(10.23)                       Z b t0, 1u    Ď Z b r0, 1s       Ď Z b r0, 8q
+                                          F             r1s           F              r1s               F          r1s
+
+and the continuous maps of compact Zariski topological spaces
+                         ˆ           ˙                            ˆ          ˙                                  ˆ          ˙
+(10.24)              spec Z b t0, 1u                o         spec Z b r0, 1s                  o            spec Z b r0, 8q
+                                F             r1s                         F              r1s                        F                 r1s
+
+
+
+                                Ď                                         Ď                                         Ď
+
+
+
+                        spec Z b t0, 1u o                         spec Z b r0, 1s o                           spec Z b r0, 8q
+                                    F                                         F                                         F
+
+
+(top line are spec’s of ordinary CRing, bottom line are spectra of CGR).
+   The group of positive reals R` acts on the rig r0, 8q by automorphism
+
+(10.25)                                                 f : R`        Ñ Aut pr0, 8qq
+                                                                  σ   ÞÑ f σ pxq “ xσ
+
+                     f σ px1 ¨ x2 q “ f σ px1 q ¨ f σ px2 q ,         f σ pmax tx1 , x2 uq “ max tf σ px1 q, f σ px2 qu
+                                                            f σ1 pf σ2 pxqq “ f σ1 ¨σ2 pxq
+and the “fixed-field” of this action is t0, 1u. It follows that R` acts on the compact spaces on the right of
+(10.24), preserving the fibers over the spaces of the left of (10.24).
+
+
+                                                                          24
+11        Completed vector bundles
+                          M
+We fix X “ tXN , N P I ; πN : XM Ñ XN , M ě N u P pro CFRt -Sch. For U Ď XN open, let
+                   $      t        `                           M ´1          1
+                                                                                             ,
+                   &s “ s P OXN pUqr1s,r1s , @ M ě N , @ V Ď pπN q U , @ a, a P OXM pVqd,d1 :.
+(11.1)     SpUq “                                                                              .
+                   %                     M #            M #      1       1                   -
+                                     pπN q s C a “ pπN q s C a ñ a “ a
+
+These multiplicative sets give rise to a pre-sheaf U ÞÑ SpUq´1 OXN pUq of CFRt over XN , and we let KN
+denote the associated sheaf. We have an embedding OXN ãÑ KN , and we obtain an embedding of sheaves
+of groups over XN
+
+(11.2)                                       GLd pOXN q ãÑ GLd pKN q .
+
+The global sections of the quotient sheaf is the set of rank d vector bundles on XN (trivialized at the generic
+points):
+
+(11.3)                              Dd pXN q “ ΓpXN , GLd pKN q{GLd pOXN qq .
+
+Its elements D P Dd pXN q are represented as D “ tUα , fα u{« , where XN “ Y Uα is an open cover,
+                                                                                            α
+fα P GLd pKN qpUα q, and for all α, β : fα´1 ˝ fβ P GLd pOXN qpUα X Uβ q. We have the equivalence relation,
+
+(11.4)    tUα , fα u « tVβ , gβ u if and only if there is a common refinement XN “ Y Wγ , and uγ P GLd pOXN qpWγ q,
+                                                                                        γ
+such that for Wγ Ď Uα X Vβ , fα “ gβ ˝ uγ P GLd pKN qpWγ q.
+
+   We obtain the category of vector bundles over XN , with objects Y Dd pXN q, and with arrows from
+                                                                                d
+D “ tUα , fα u{« to D1 “ tVβ , gβ u{« given by
+
+(11.5)          BunXN pD, D1 q “ th P KN pXN qd1 ,d , @ α, β : gβ´1 ˝ h ˝ fα P OXN pVβ X Uα qd1 ,d u .
+
+In particular, we get a partial order on Dd pXN q,
+
+(11.6)      D “ tUα , fα u{« ď D1 “ tVβ , gβ u{« ô idd P BunXN pD1 , Dq ô fα´1 ˝ gβ P OXN pUα X Vβ qd,d1 .
+
+For D “ tUα , fα u{« P Dd pXN q, we have the subsheaf
+
+(11.7)                            OXN pDqd1 “ fα ˝ pOXN |Uα qd,d1 Ď pKN |Uα qd,d1
+
+with OXN pDqd1 ˝ pOXN qd1 ,d2 Ď OXN pDqd2 .
+   Every h P BunXN pD, D1 q gives a mapping of sheaves
+
+(11.8)                                     OXN pDqd2     Ñ OXN pD1 qd2
+                                                     s ÞÑ h ˝ s
+
+commuting with the right action of OXN . We have
+
+(11.9)                            D ď D1 ô OXN pDqd1 Ě OXN pD1 qd1 ,         all d1 .
+
+   For M ě N in I, we have pull-back of bundles
+                                  M ˚
+(11.10)                         pπN q : BunXN       Ñ BunXM
+                                 M ˚                        M ´1       M #
+                               pπN q tUα , fα u{«   “    tpπN q Uα , pπN q fα u{« .
+
+
+                                                         25
+This is a functor, and an order preserving map Dd pXN q Ñ Dd pXM q. Since I is directed, (9.1), we can easily
+pass to the co-limit category Ý
+                              lim
+                               Ñ BunXN , with rank-d objects given by the partially ordered set Ý
+                                                                                                lim
+                                                                                                 Ñ Dd pXN q.
+                                      N PI                                                                              N PI
+But it seems that we should replace this co-limit by a kind of limit. For this we look at the set of monotone
+sequences
+                                                                   M ˚
+(11.11)         Bd pXq :“ tD “ tDN uN ěN0 , DN P Dd pXN q , DM ě pπN q DN                               for M ě N ě N0 u
+and its subset of bounded sequences
+                                                                           M ˚
+(11.12)    Bd˚ pXq :“ tD “ tDN uN ěN0 P Bd pXq , D D0 P Dd pXN0 q , DM ď pπN 0
+                                                                               q D0                             for M ě N0 u .
+For N1 P I, U Ď XN1 open, and for D “ tDN uN ěN0 P Bd pXq, we have the “d1 -sections of D over U”:
+                                                 M ˚
+(11.13)         OpD, Uqd1 “ th P KN1 pUqd,d1 , pπN 1
+                                                     q h P OXM pDM qd1                          for   M ě N0 , N1 u .
+We define for D “ tDN uN ěN0 , D1 “ tDN
+                                      1
+                                        uN ěN01 P Bd pXq,
+(11.14)                 D ď D1       iff     OpD, Uqd1 Ě OpD1 , Uqd1             for all   U Ď XN1 open, all d1 .
+We get an equivalence relation on Bd pXq
+(11.15)                                        D « D1         iff      D ď D1    and D1 ď D .
+We let Bund pXq “ Bd˚ pXq{« denote the equivalence classes, and we have an induce partial order ď on
+Bundd pXq. We have a category with objects Y Bund pXq, and arrows
+                                                                   d
+(11.16)                              #                                                                                            +
+                  1                                                                             1
+BunX ptDN u{« , tDN u{« q “                ÝÑ KN pXN qd ,d , h ˝ OpD, Uqd1 Ď OpD , Uqd1 ,
+                                       h P lim                                                             all U Ď XN1 open, all d1 .
+                                                       1
+
+                                             N PI
+
+Note that the group GLd pKpXqq “ lim
+                                 ÝÑ GLd pKN pXN qq acts on Bund pXq, and we can view GLd pKpXqqzBund pXq
+                                               N PI
+as the isomorphism classes of rank-d bundles.
+                                          K
+    For a number field K, and for X “ tXN   u “ spec OK , we get
+                                                             ź
+(11.17)                         Bund pspec OK q – GLd pAK q{     GLd pO
+                                                                      pK,v q
+                                                                                     v
+                                                                           "
+                                          pK,v q “ Opdq v real
+where AK is the ring of adeles of K, GLd pO                        , with the partial order
+                                                   U pdq v complex
+
+(11.18)                                                     p‘d Ě g 1 ¨ O
+                             g “ pgv q ď g 1 “ pgv1 q ô g ¨ O           p‘d for all v,
+                                                              K,v        K,v
+           "                            d
+                                                      *
+     p‘d “ px1 , . . . , xd u P K
+with O                          p ‘d , ř |xi |2 ď 1 for v real or complex, and with its natural
+       K,v                       v
+                                                i“1
+
+          ÝÑ GLd pKN pXN qq action (note that KN pXN q ” K, all N ).
+GLd pKq “ lim
+            N
+   E.g. For d “ 1 we get the Picard group of isomorphism classes of line bundles
+                         `        ˘            ź         deg         `      ˘
+(11.19)              Pic spec OK “ K ˚ zA˚K {     p˚ ´´´´´ Pic spec Z “ R` .
+                                                  OK,v
+                                                                       v
+                ˝
+                    `            ˘
+The kernel Pic spec OK               “ ker deg, is a compact group, an extension of the ideal class group by the
+Dirichlet units torus:
+                                                    »                      fi˝
+                                                           ź                       `       ˘
+(11.20)                           ˚
+                        ˚ Ñ µK Ñ OK                                    R` fl Ñ Pic˝ spec OK Ñ classK Ñ ˚ .
+                                     —                                    ffi
+                                    Ñ–
+                                                          v real
+                                                        or complex
+
+
+
+
+                                                                            26
+References
+ [1] S.J. Arakalov: Intersection theory of divisors on an arithmetical surface, Math. USSR Isvstija 8 (1974)
+     1167-1180.
+ [2] K.S. Brown, S.M. Gerstein: Algebraic K-theory as generalized sheaf cohomology, in Algebraic K-
+     theory I, LNM vol. 341, Springer (1973).
+ [3] J. Borger: Lambda-rings and the field with one element, arXiv:0906.3146 (2009).
+ [4] A. Connes, C. Consani: Schemes over F1 and zeta functions, arXiv:0903.2024v3.
+ [5] A. Connes, C. Consani: The arithmetical site, arXiv:1405.4527v.
+ [6] A. Connes, C. Consani, M. Marcolli: Fun with F1 , arXiv:0806.2401.
+ [7] A. Deitmar: Schemes over F1 , in Number field and Function field – two parallel worlds, Progress in
+     Math. vol. 239, Birkhäuser, Boston (2005).
+ [8] N. Durov: New approach to Arakelov geometry, arXiv:0704.2030.
+ [9] A. Grothendieck, J. Dieudonné: Éléments de Géométrie Algébrique I, Springer-Verlag, New York
+     (1971).
+[10] S. Haran: Index theory, potential theory, and the Riemann hypothesis, in L-functions and Arithmetic,
+     Durham 1989, London Math. Soc. LNS 153, Cambridge Univ. Press (1991) 257-270.
+[11] S. Haran: The mysteries of the real prime, London Math. Soc., Monogr. 25, Oxford Univ. Press (2001).
+[12] S. Haran: Non-additive geometry, Compositio Math. 143 (2007) 618-688.
+[13] S. Haran: New foundations for geometry, Memoirs AMS vol. 246, no. 1166 (2017).
+[14] N. Kurokawa, H. Ochiai, M. Wakayama: Absolute derivations and zeta functions, Doc. Math. (2003),
+     565-584.
+[15] O. Lorscheid: Blueprints – towards absolute arithmetic, arXiv:1204.3129.
+[16] Y. Manin: Lectures on zeta functions and motives (according to Deninger and Kurokawa), Astérisque
+     228 (1995) 4, 121-163.
+[17] J.L. Pena, O. Lorscheid: Mapping F1 -land, arXiv:0909.0069.
+[18] D.G. Quillen: Homotopical algebra, LNM 43, Springer-Verlag, Heidelberg (1967).
+[19] D.G. Quillen: On the (co)homology of commutative rings, Proc. Symp. Pure Math. 17 (1970) 65-87.
+[20] D.G. Quillen: Higher algebraic K-theory, in LNM 341, Springer-Verlag, Heidelberg (1973) 85-147.
+[21] C. Soulé: Les variétés sur le corps à un élément, Moscow Math. J. 4 (2004) 217-244.
+[22] C. Soulé, D. Abramovich, J.-F. Burnol, J. Kramer: Lectures on Arakelov geometry, Cambridge Studies
+     Adv. Math. 33 (1992).
+[23] G. Segal: Categories and cohomology theories, Topology 13 (1974) 293-312.
+[24] A.L. Smirnov: Hurwitz inequality for number fields, St. Petersburg Math. J. 4 (1993) 357-375.
+[25] B. Toën, M. Vaquié: Au-dessous de spec Z, arXiv:0509684.
+[26] A. Weil: Sur l’analogie entre les corps de nombres algébriques et les corps de fonctions algébriques,
+     Revue Scientifique 77 (1939) 104-106; Œuvres Scientifiques I, Springer-Verlag (1980) 236-240.
+
+
+                                                      27
+

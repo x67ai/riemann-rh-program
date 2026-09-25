@@ -1,0 +1,4097 @@
+                                                            Homotopy and Arithmetic
+                                                          From bi-operads to generalized schemes
+
+
+
+
+arXiv:2204.03107v1 [math.AT] 6 Apr 2022
+                                                                          Shai Haran
+                                                                      haran@technion.ac.il
+
+
+                                                                              Abstract
+                                                  We define the concept of a Bi-operad. We develop the homotopy theory
+                                               of Bital-Sets and of 8-Bi-operad. We develop a geometry of generalized
+                                               schemes based on the spectra of distributive monochromatic bi-operads.
+
+
+                                          1    Introduction
+                                             It was Dan Kan who developed the language of Categories, and of
+                                          Simplicial Sets based on ﬁnite-linearly-ordered sets, to give a combinational
+                                          approach to homotopy. Dan Quillen axiomatized this approach in his language
+                                          of Model Categories. Operads were discovered by Boardman and Vogt in
+                                          connection with homotopy invariant algebraic structures, and by May in con-
+                                          nection with iterated loop spaces. Ieke Moerdijk (with collaborators I. Weiss, C.
+                                          Berger, D.C. Cisinski, G. Heuts, V. Hinich, E. Hoﬀbeck) generalized categories
+                                          and operads to a theory of “Coloured-Operads”, leading to a generalization
+                                          of simplicial sets to “Dendroided Sets”, based on ﬁnite trees, and developed
+                                          the homotopy theory of 8Operads generalizing 8Categories.
+                                          While categories and simplicial sets have a dual opposite, there is no opposite of
+                                          an operad. Some algebraic structures (such as Hopf-algebras and bi-algebras)
+                                          are not controlled by an operad since they involve both operations and “co-
+                                          operations”. The purpose of this paper is to deﬁne a notion of “Bi-Operad”,
+                                          having both operations and co-operations, and of “Bital-Sets”, based on ﬁnite
+                                          - “Bi-trees”, and sketch the homotopy theory of 8Bi-Operads generalizing the
+                                          Dendroidal and the Simplicial stories.
+                                          Having an opposite for Bi-operads and Bital-Sets we can speak of the self-dual
+                                          Bi-operads and Bital-sets having an involution. Finally, returning to the clas-
+                                          sical “monochromatic” case of having one colour or object, we can speak of the
+                                          distributive Bi-operads.
+                                          It was Alexander Grothendieck who develop the modern language of algebraic
+                                          geometry, the schemes, based on the spectra of commutative-rings. But com-
+                                          mutative rings are Not adequate for Arithmetical Geometry (The “integers”
+                                          at a real or complex place of a number ﬁeld do not form a sub-ring; the integers Z
+                                          are the initial object of rings and so specpZq is the ﬁnal object of Grothendieck’s
+
+
+
+                                                                                  1
+geometry, rather than the absolute point specpF1 q “ tp0qu, where F1 the ini-
+tial object of distributive bi-operads
+                                   ś is the “Field with one element”; the
+Arithmetical surface specpZq specpZq “ spec pZ b Zq “ specpZq reduces
+to its diagonal [32]) The self-dual distributive bi-operads are essentially the
+“Generalized-Rings” of [37], and are the building blocks of an Arithmetical
+Geometry, generalizing Grothendieck’s theory of Schemes.
+As it turns out, to do geometry following Grothendieck’s paradigm, one does
+not need an involution (although in arithmetic, the real and complex “integers”
+prefer the self-dual ℓ2 -metric). We lay the foundation of generalized schemes
+based on the spectra of distributive bi-operads. This new language of geometry
+is indeed much simpler than the one of [37] (where we had to keep the involu-
+tion), and it also shows the way to a “Quantum-geometry“ (where vectors
+and co-vectors are Not the same).
+Thus the theory of Bi-operads and Bital-sets give the homotopy language needed
+for Derived Arithmetical Geometry  ś        and for Arithmetical
+                                                       š           Stacks.
+                                                                    š      The
+Arithmetical Surface specpZq specpZq “ specpZ Zq with Z Z the sum
+in the category of distributive Bi-operads (and its compactiﬁcation as a pro-
+object of generalized schemes, as in [34]) is our Jungentraum of [32]
+
+
+                   “Mathematics should not be complicated!
+                   You just set the stage right - then you sail
+                   away...”
+
+                                                               Raoul Bott
+
+
+                   “What’s important is the point-of-view...
+                   the theorems will follow!”
+
+                                                            Barry Mazur
+                               lecture on the rule of the point at infinity in
+                                “Algebra and Geometry”, Cambridge 1993.
+
+
+The content of this report is as follows:
+ 1. Introduction
+ 2. Bio”Bi-operands We deﬁne Bi-operads as a pair of colored symmetric
+    operads with the same objects, and with mutual actions on each other.
+ 3. Bit”Bi-trees We deﬁne the Bi-trees as ﬁnite oriented graphs, with no
+    closed paths, and such that for any vertex v, #d´ pvq “ 1 or #d` pvq “ 1.
+ 4. Formulas and 1-sub-bits We deﬁne our “formulas” inductively as bi-trees
+    with compatible planar structures.
+ 5. The free Bio We describe the free bio on a collection C as the C-labeled
+    formulas.
+
+                                          2
+ 6. Bios via generators and relations We show Bio is complete and co-complete.
+ 7. Bipo”Bi-Pre-Order We describe the (co-)complete closed symmetric monoidal
+    structure on Bipo ” the full subcategory of Bio with objects the bios hav-
+    ing at most one point in every hom-set.
+ 8. Natural transformation We describe the internal hom structure on Bio.
+ 9. Bilinear maps and tensor products We describe the closed monoidal struc-
+    ture on Bio.
+10. From Bits to Bios We associate with every bit a bio and we make Bit into
+    a category by deﬁning the “ﬂat” maps of bits.
+11. Degeneracies and face maps We show these maps generate Bit; the face
+    maps are either “outer” (“ elimination of an edge), or “inner” (= the
+    contraction of “composition” or “action” edge(s)).
+                                                                               op
+12. The category of Bital sets bSet We describe the category bSet ” SetBit
+     of pre-sheaves on Bit, and the resulting Kan adjunction bSet      Bio .
+13. The symmetric “monoidal” structure on bSet We describe the closed, sym-
+    metric, and not quite associative, tensor structure on bSet.
+14. The image of N : Bio ãÑ bSet The nerve functor N gives a full and faith-
+    full embedding of Bio onto the strict-Kan Bital Sets.
+15. The homotopy functor τ “ ho : 8Bio Ñ Bio For an 8Bio X P bSet satis-
+    fying the (inner) Kan condition, the associated bio τ pXq has a homotopical
+    description.
+16. Normal monomorphisms We describe following [12], [66] the coﬁbrations
+    of bSet, and their interaction with the monoidal structure.
+17. Quillen Model structure. Ein Märchen Following [66] we describe the model
+    structures on sBioC , C a ﬁxed set of objects, and the conjectural model
+    structures on simplicial bios sBio, and on bital sets bSet (these should
+    be equivalent via a modiﬁcation of the Berger-Moerdijk-Boardman-Vogt
+    resolution).
+18. Self-duality We show the bios P, with an involution P – Pop , X ÞÑ X t ,
+    can be also described as operads with a “contraction” operaton, making
+    contact with the language of [37].
+19. Rigs For a rig A (“ associative ring without “negatives”, i.e. no inverses
+    for addition) we associate a bio PA with one object, giving a full and
+    faithful embedding Rig ãÑ Biot˚u .
+20. The ℓp bio For p P r1, 8s we deﬁne the “ℓp -sub-bio” of the bios PR and
+    PC ; for p “ 2 these are ZR and ZC , the real and complex “integers”.
+
+
+                                      3
+21. Distributive bios These are the monochromatic bios P where the actions
+    and compositions interchange; the monoid Pp1q is commutative and cen-
+    tral. The association A ÞÑ PA gives a full and faithful embedding of
+    commutative rings into distributive bios under F1
+                                  CRing ãÑ CBio.
+
+22. The spectrum We associate with a distributive bio P P CBio, a compact
+    sober ” Zariski, topological space specpPq.
+23. The structure sheaf OP We describe the sheaf of bios over specpPq, P P
+    CBio.
+24. Generalized Schemes Following Grothendieck [29] we describe the gener-
+    alized schemes as spaces with a sheaf of distributive bios with local stalks,
+    that are locally aﬃne.
+25. A-sets For A P CBio we deﬁne the category of A-sets. For A P CRing this
+    is the category of A modules.
+26. Commutativity We discuss commutativity of A-sets
+27. Symmetric monoidal structure We describe the closed monoidal (model)
+    structure on CA(s)Set-the category of commutative A-(simplicial) sets.
+                                                                         isopFinq
+28. Symmetric sequences We describe the Category ΣpAq ” pCA-sSetq                   of
+    symmetric sequences, and the operadic Fourier transform.
+29. The sphere spectrum Following [44], [45], we describe the sphere spectrum
+    SF. as the commutative-monoid-object of ΣpFq, giving rise to the category
+      .
+    SA  -mod Ď ΣpAq of “symmetric spectra“, with its stable monoidal model
+    structure.
+30. Quasi-coherent OX -modules We describe the category of OX -modules, X
+    a generalized scheme, and its full subcategory q.c.OX -modules of ”quasi-
+    coherent“ OX -modules.
+31. The global derived category Following [60], we can describe the derived
+    category of quasi-coherent simplicial OX -modules as the homotopy cate-
+    gory of the 8-category of cartesian sections of the inner ﬁbration
+              .
+    Aﬀ{X ˙ SA   -mod Ñ Aﬀ{X .
+            “At all events, I have exceeded my commission and
+            been seduced into describing things as they may be
+            and, as seems to me at present, are likely to be... The
+            views of this report are in any case not peculiar mine.
+            I have simply fused my own observations and reﬂec-
+            tions with ideas of others and with commonly accepted
+            tenets.”
+
+                                                         R.P. Langlands
+
+
+                                       4
+2       Bio ” Bi-operads
+Definition 2.1. A Bio (” Bi-Operad) P “ pP´ , Po , P` q is a pair P´ , P`
+of (coloured, symmetric) operads with the same set of “colours” or “objects” Po ,
+together with mutual actions of P´ , P` on each other.
+  Explicitly, for c0 , c1 , . . . , cn P Po we have sets (simplicial sets, etc.) of (co)-
+operations P´ pc0 ; c1 , . . . , cn q and P` pc1 , . . . , cn ; c0 q, with actions of the sym-
+metric group Sn , given for σ P Sn
+        P´ pc0 ; cσp1q . . . cσpnq q          P´ pc0 ; c1 . . . cn q                 Pσ        P
+(2.2)
+        P` pc1 . . . cn ; c0 q         P` pcσ´1 p1q . . . cσ´1 pnq; c0 q             P         σP
+                     ´            `     `
+We have units 1´
+               c P P pc; cq and 1c P P pc; cq, pn “ 1q.
+The compositions are given for each word
+                                                                                 ř
+                                                                                     mi
+              c “ c11 . . . c1m1 , c21 . . . c2m2 , . . . , cn1 . . . cnmn P pP˝ q
+partitioned into the n words
+            c1 “ c11 . . . c1m1 , c2 “ c21 . . . c2m2 , . . . , cn “ cn1 . . . cnmn
+and for b0 , b1 , . . . , bn P Po ,
+(2.3)
+     o : P´ pb0 ; b1 . . . bn q ˆ rP´ pb1 ; c1 q ˆ ¨ ¨ ¨ ˆ P´ pbn , cn qs ÝÝÝÑ P´ pb0 ; cq
+
+     o : rP` pc1 ; b1 q ˆ ¨ ¨ ¨ ˆ P` pcn ; bn qs ˆ P` pb1 . . . bn ; b0 q ÝÝÝÑ P` pc; b0 q
+These compositions are assumed to be associative,
+                `           ˘  `          ˘
+           P ˝ Pi ˝ pPij q “ P ˝ pPi q ˝ pPij q                            P, Pi , Pij P P´
+(2.4)             `         ˘  `            ˘
+         pPij q ˝ pPj q ˝ P   “ pPij q ˝ Pj ˝ P                            Pij , Pj , P P P`
+unital,
+                 1´                  ´
+                  c0 ˝ P “ P “ P ˝ p1ci q                P P P´ pc0 ; c1 . . . cn q
+(2.5)            ` `˘
+                  1c i ˝ P “ P “ P ˝ 1`
+                                      c0                 P P P` pc1 . . . cn ; c0 q
+and Sn ˆ rSm1 ˆ ¨ ¨ ¨ ˆ Smn s Ď Sm1 `¨¨¨`mn covariant. The mutual actions are
+given for such words c “ c1 . . . cn , ci “ pci1 . . . ci,mi q , b0 , b1 . . . bn P Po , by maps
+(2.6)
+    Ñ̋ : rP´ pb1 ; c1 q ˆ ¨ ¨ ¨ ˆ P´ pbn ; cn qs ˆ P` pc; b0 q ÝÝÝÑ P` pb1 . . . bn ; b0 q
+    Ý
+
+    Ð
+    Ý̋ : P´ pb0 ; cq ˆ rP` pc1 ; b1 q ˆ ¨ ¨ ¨ ˆ P` pcn ; bn qs ÝÝÝÑ P´ pb0 ; b1 . . . bn q
+
+These actions are assumed to be associative
+(2.7)
+` Ð         ˘ Ý̋
+ P Ý̋ pPij q Ð             Ý̋ `pPij q˝Pj ˘ , pPi q Ý
+                 pPj q “ P Ð                       Ñ̋ `pPij q Ý
+                                                              Ñ̋ P ˘ “ `Pi ˝pPij q˘ Ý
+                                                                                    Ñ̋ P
+
+
+                                                  5
+unital,
+                                                        ` ´˘ Ý
+(2.8)                      PÐ
+                            Ý̋ p1` q “ P
+                                 ci             ,        1ci Ñ̋ P “ P
+
+Sn -covariant, and Sm1 ˆ ¨ ¨ ¨ ˆ Smn -invariant.
+We will also assume that these actions are “linear” in all possible ways:
+(2.9)
+`         ˘ Ý̋             ` Ý̋        ˘
+ P ˝ pPi q Ð   pPij q “ P ˝ Pi Ð                 Ñ̋ `pPj q ˝ P ˘ “ `pPij q Ý
+                                 pPij q , pPij q Ý                         Ñ̋ Pj ˘ ˝ P
+
+and
+(2.10)`
+PÐ           Ñ̋ Pj ˘ “ `P ˝pPij q˘ Ð
+   Ý̋ pPij q Ý                     Ý̋ pPj q         ,
+                                                        ` Ð          ˘ Ñ̋
+                                                         Pi Ý̋ pPij q Ý             Ñ̋ `pPij q˝P ˘
+                                                                          P “ pPi q Ý
+
+A map of bios ϕ : P Ñ Q is a pair of functors of operads ϕ´ : P´ Ñ Q´ and
+ϕ` : P` Ñ Q` , with the same map on objects ϕ˝ : P˝ Ñ Q˝ and preserving
+the natural actions
+(2.11)
+     ` Ý̋      ˘
+ ϕ´ P Ð                   Ý̋ `ϕ` pPi q˘
+          pPi q “ ϕ´ pP q Ð
+                                           `     Ñ̋ P ˘ “ `ϕ´ pPi q˘ Ý
+                                        ϕ` pPi q Ý                   Ñ̋ ϕ` pP q
+
+(as well as preserving the compositions, units, and Sn -actions).
+Thus we have a category Bio.
+Remark 2.12. Forgetting the Sn -actions we get the notion of planar, or non-
+symmetric bio, and we have the category pBio. There is a forgetful functor
+U : Bio Ñ pBio, forgetting the Sn -actions, and this functor has a left adjoint
+Σ : pBio Ñ Bio, with free Sn -actions
+              ř ´                         ž
+                 P pc0 ; c1 . . . cn q :“   P´ pc0 ; cσp1q . . . cσpnq q
+                                               σPSn
+                                                                (                  (
+We say the bio P is closed if (n “ 0), P´ pb; φq “ 0´                  `
+                                                              b , P pφ; bq “ 0b ,
+                                                                                 `
+
+reduce to a point for each b P P˝ ; we say P is open if these sets are empty. We
+will be mainly interested in closed bios P; the advantage being that every n (co)-
+operation give rise to m (co)-operations for m ă n: and for I “ pi1 , . . . , im q Ď
+                                                                 `
+t1, . . . , nu we get maps obtained by substituting 0´
+                                                     bi , resp. 0bi , for i R I,
+
+P´ pb0 ; b1 . . . bn q Ñ P´ pb0 ; bi1 . . . bim q ,     P` pb1 . . . bn ; b0 q Ñ P` pbi1 . . . bim ; b0 q
+
+We will write Bio for the category of closed bios, and Bioφ for the category
+of open bios. We can also fix the set of objects C, and we have the categories
+BioC (resp. pBioC ) with objects the closed bios P with P˝ “ C, and maps of
+bios ϕ such that ϕ˝ ” idC .
+Remark 2.13. For a bio P we have the underlying categories i˚P´ and i˚P` ,
+and for f ˘ P P˘ pb; cq we have
+              ÝÑ                                            ÐÝ        Ð
+                                                                      Ý̋ f ` P P´ pb; cq.
+(2.14)        f ´ :“ f ´ Ý
+                         Ñ̋ 1` P P` pb; cq
+                             c                       and    f ` :“ 1´
+                                                                    b
+
+
+
+
+                                                 6
+These are inverse isomorphisms
+
+                                  Ñ̋ 1` ˘ “ p1´ ˝ f ´ q Ð
+                          Ý̋ `f ´ Ý
+                 Ô
+(2.15)           f ´ “ 1´ Ð                             Ý̋ 1` “ f ´
+                        b             c       b             c
+
+                Õ
+and similarly f ` “ f ` . For g ˘ P P˘ pc; dq we have
+           ÝÝ ÝÝÝÑ
+           f ´ ˝ g ´ “ pf ´ ˝ g ´ q Ý
+                                    Ñ̋ 1` “ f ´ Ý
+                                        d
+                                                Ñ̋ pg ´ Ý
+                                                        Ñ̋ 1` q
+                                                            d
+
+
+(2.16)                       Ñ̋ `1` ˝ pg ´ Ý
+                        “ f´ Ý             Ñ̋ 1` q˘ “ pf ´ Ý
+                                                           Ñ̋ 1` q ˝ pg ´ Ý
+                                                                          Ñ̋ 1` q
+                                  c            d               c              d
+
+                          ÝÑ Ý  Ñ
+                        “ f ´ ˝ g´
+                  ÐÝÝÝÝÝ Ð     Ý Ð   Ý
+and similarly f ` ˝ g ` “ f ` ˝ g ` .
+Using these canonical isomorphisms we identify i˚P´ and i˚P` , and we write
+1c for either 1´            `          ˝                 ´
+                    c or 1c , c P P . Note that for P P P pb; c1 ¨ ¨ ¨ cn q, Q P
+  `                                    Ð
+                                       Ý̋      Ñ̋
+                                               Ý
+P pc1 ¨ ¨ ¨ cn ; cq, this identifies P Q with P Q.
+Remark 2.17. Every bio P “ pP´ , P˝ , P` q has an opposite bio
+Pop “ pP` , P˝ , P´ q, with the same objects, and for c0 , c1 , . . . , cn P P˝ ,
+                     pPop q´ pc0 ; c1 . . . cn q :“ P` pc1 . . . cn ; c0 q,
+(2.18)
+                     pPop q` pc1 . . . cn ; c0 q :“ P´ pc0 ; c1 . . . cn q
+and with the opposite compositions and actions, so
+(2.19)         Ý̋ pP op q :“ ` pPi q Ý
+          P op Ð                     Ñ̋ P ˘op , pP op q Ý
+                                                        Ñ̋ P op :“ `P Ð
+                                                                      Ý̋ pPi q˘op
+                    i                             i
+
+This is an involution, pPop qop “ P, of Bio extending the one on
+                      Cat p“ the category of small categoriesq
+
+
+Remark 2.20. For a symmetric monoidal category E, we can similarly define
+the category BiopEq of E-enriched bios P “ pP´ , P˝ , P` q. Here for c0 , c1 . . . cn
+we have objects of E, P´ pc0 ; c1 . . . cn q, P` pc1 . . . cn ; c0 q P E˝ , and the compo-
+sitions, actions, and units, are given by maps in E, replacing the Cartesian
+product ˆ in Set by the monoidal product b in E.
+For an E-enriched operad P P OperpEq, we get the bio j!P P BiopEq, with
+j!P :“ pP, P˝ , i˚Pq, i.e. with the same operations, but with only unaray coop-
+erations. This is left adjoint to the forgetfull functor j ˚ : BiopEq Ñ OperpEq,
+j ˚P “ pP´ , P˝ q. There is a right adjoints i˚ given by defining the missing
+m-array operations, m ą 1 to be a point. We thus have the adjunctions
+
+                                i!                                 j!
+(2.21)         CatpEq                         OperpEq                         BiopEq
+                                i˚                                j˚
+                                         i˚
+
+
+                                               7
+and i! , j! are full and faithful embeddings.
+For a symmetric monoidal category E, we have the bio Ê, with the same objects
+E˝ as the category E, and with (co)-operations for c0 , c1 . . . cn P E˝
+
+Ê´ pc0 ; c1 . . . cn q :“ Epc1 b ¨ ¨ ¨b cn , c0 q   ,           Ê` pc1 . . . cn ; c0 q :“ Epc0 , c1 b ¨ ¨ ¨b cn q
+
+with the obvious compositions and mutual actions (again given by compositions);
+this gives an embedding
+
+                       Sym                      Bio          ,        E                  Ê
+
+Forgetting the Sn -actions we get a similar embedding of (non-symmetric) monoidal
+categories into planar bios
+
+(2.22)                       M Cat              pBio             ,      E         Ê.
+
+If the symmetric monoidal category E is closed, so that we have an internal
+hom functor
+
+(2.23)             Eop ˆ E                       E       ,           pb, cq                   cb
+
+and adjunction Epb1 b b2 , cq “ Epb1 , cb2 q, then we can view Ê as an E-enriched
+bio
+
+(2.24) Ê´ pc0 ; c1 . . . cn q :“ cc01 b¨¨¨bcn       ,       Ê` pc1 . . . cn ; c0 q :“ pc1 b ¨ ¨ ¨ b cn qc0
+                                                                                        op
+For the category of simplicial sets E “ sSet “ pSetq∆    ∆
+                                                             , we shall write
+sBio ” BiopsSetq for simplicial bios. For the category of (compactly gener-
+ated) topological spaces Top we shall write tBio ” BiopTopq for topological bios.
+
+
+Definition 2.25. A collection C “ pC´ , C˝ , C` q is a set C˝ , and for c0 , c1 . . . cn P
+C˝ we have sets C´ pc0 ; c1 . . . cn q and C` pc1 . . . cn ; c0 q and when n “ 1 we have
+C´ pc0 ; c1 q ” C` pc0 ; c1 q, and for c0 “ c1 “ c we have 1c P C˘ pc; cq.
+    A map of collections ϕ : C Ñ B is a function ϕ˝ : C˝ Ñ B˝ , and for
+c0 , c1 . . . cn P C˝ functions ϕ´ : C`´ pc0 ; c1 . . . cn q Ñ B´ pϕ˝˘pc0 q; ϕ˝ pc1 q . . . ϕ˝ pcn qq
+and ϕ` : C` pc1 . . . cn ; c0 q Ñ B` ϕ˝ pc1 q . . . ϕ˝ pcn q; ϕ0 pc0 q with ϕ` “ ϕ´ when
+n “ 1, and ϕ˘ p1c q “ 1ϕ˝ pcq . Thus we have a category Coll, and a forgetful
+functor
+
+(2.26)                                    U : pBio Ñ Coll
+
+We shall describe next its left adjoint
+
+(2.27)                                    pF : Coll Ñ pBio
+
+whichřgives the left adjoint of U : Bio Ñ pBio Ñ Coll, the free bio on C
+FC “ pFC .
+
+                                                     8
+3       Bit ” Bi-Trees
+                                                  d`
+Definition 3.1. A graph pG1                       d´
+                                                       G˝ q for us will always be finite and
+oriented, so is just given by two parallel functions of finite sets: G1 the “edges”
+to G˝ the “vertices”.
+   As a general rule we write our edges from right ” positive to the
+left ” negative
+
+                                  d´ e                 e               d` e
+(3.2)
+
+A map of graphs ϕ : G Ñ H is a pair of functions ϕ1 : G1 Ñ H 1 and
+ϕ˝ : G˝ Ñ H ˝ such that dH       1     ˝
+                           ˘ ˝ ϕ “ ϕ ˝ d˘ .
+                                           G
+
+Thus we have a category of (ﬁnite, oriented) Graph.
+For v P G˝ , we write d´ v “ d´1              ´1
+                               ` pvq, d` v “ d´ pvq.
+For G P Graph, n, m ě 0, put Cn,m pGq :“ tv P G˝ , #d´ v “ n, #d` v “ mu.
+The left (resp. right) ends of G, C01 pGq (res. C10 pGq), are called stumps, and
+they are in bijection with the edges attached to them, which we will denote by
+(3.3)
+                                d´                                                              d`
+    d´ pGq :“ d´1                                              d` G :“ d´1
+                                  „                                                             „
+               ´ C01 pGq ÝÝÝÑ C01 pGq                  ,                ` C10 pGq ÝÝÝÑ C10 pGq
+
+We say G is a 1-Graph if
+
+(3.4)                        Cnm pGq ­“ φ ùñ n “ 1 or m “ 1
+
+Thus for a 1-graph G
+                                         š                     š             š
+                   G˝    “ C01 pGq               C ´ pGq           C ` pGq       C10 pGq
+(3.5)                         Ť                                                  Ť
+              C ´ pGq    “        mě1 C1m pGq              ,       C ` pGq “         ně1 Cn1 pGq
+
+Such a 1-graph is made up of the basic negative and positive n-corollas, n ě 0,
+
+           Cn´ :                                               Cn` :
+(3.6)                                  e1                                              e1
+                        e0                                                                      e0
+                                       en
+                                                                                       en
+
+A path in a graph G, “from vm , resp. em , to v0 , resp. e1 ”, ei P G1 , vi P G0 , is
+given by
+              ´ v0       e1       v1        e2                          em       vm ¯
+(3.7)    ℓ“                                                                                 “ pe1 , ¨ ¨ ¨ , em q
+
+
+
+                                                       9
+with d´ ei “ vi´1 , d` ei “ vi , i “ 1 ¨ ¨ ¨ m. We say G is simple if therešare No
+closed paths pv0 “ vm q. For simple G we get a partial order ď on G1 G˝ :
+
+(3.8)      v, resp. e ď v 1 , resp. e1 ô D path from v 1 , resp. e1 , to v, resp. e.
+
+Every path in a simple graph G extends to maximal path.
+A path ℓ “ pe1 , ¨ ¨ ¨ , em q is maximal iﬀ e1 P d´ G, em P d` G.
+Definition 3.9. A Bit (” Bi-Tree) G is a simple 1-graph.
+We write
+
+   Bitkn,m    “ tG P Bit, #d´ G “ n, #d` G “ m, #G˝ “ n ` m ` ku {isom
+                  Ť        k                   Ť
+   Bitn,m     “       k Bitn,m    ,    Bit “       n,m Bitn,m
+
+                  Ť                              Ť
+   Bit´       “       m Bit1,m     ,   Bit` “        n Bitn,1
+
+A planar structure on a bit G is a linear order on d˘ pvq for each v P G˝ , and
+a linear order on d˘ G, so that we can write
+
+(3.10)                d´ v “ t0v u     ,   d` v “ t11 pvq, ¨ ¨ ¨ , 1m pvqu      ,   v P C ´ pGq
+
+          resp.       d´ v “ t01 pvq, ¨ ¨ ¨ , 0n pvqu    ,     d` v “ t1v u     ,   v P C ` pGq
+
+
+(3.11)       d´ pGq “ t01 pGq, ¨ ¨ ¨ , 0n pGqu ,             d` G “ t11 pGq, . . . , 1m pGqu .
+
+
+
+   Thus we have the similarly deﬁned sets of isomorphism classes preserving the
+planar structure pBit, pBit´ , pBit` .
+Remark 3.12. We only define the “closed” bits. One can similarly define the
+more general bits by keeping two subsets outpGq Ď d´ G and inpGq Ď d` G of
+the “open-stumps”.
+
+                         `  d˘   ˘
+Definition 3.13. For G “ G1    G˝ P pBit, C “ pC´ , C˝ , C` q P Coll, a
+labeling f : G Ñ C is given by functions f 1 : G1 Ñ C˝ and f ˘ : C ˘ pGq Ñ C˘ ,
+such that for v P C ´ pGq, resp. C ` pGq,
+                                 `                                             ˘
+                     f ´ pvq P C´ f 1 p0v q; f 1 p11 pvqq, ¨ ¨ ¨ , f 1 p1m pvqq
+                                      `                                             ˘
+              resp.       f ` pvq P C` f 1 p01 pvqq, ¨ ¨ ¨ , f 1 p0n pvqq; f 1 p1v q
+
+                               f ` pvq “ f ´ pvq for v P C11 pGq.
+
+
+
+
+                                                 10
+4       Formulas and 1-sub-Bits
+   Contemplating the following bits in Bit2,2 we see their structure can be com-
+plicated:
+
+
+
+
+                                Figure 1: Bits in Bit2,2
+
+
+We deﬁne the subset fBit˘ of pBit˘ of “formulas” having compatible linear
+orders on the d˘ pvq’s and on d˘ pGq, by an inductive deﬁnition obtained by
+grafting of bits:
+                               !   ´0   1
+                                          ¯)
+                     fBit˝1,1 “ I “ ¨ Ð ¨
+(4.1)
+                        fBit11,m “ tCm
+                                     ´
+                                       u     ,    fBit1n,1 “ tCn` u
+
+There are two inductive steps given by compositions and actions:
+For G P fBitk1,m , d` G “ te1 , ¨ ¨ ¨ , em u, i P t1, ¨ ¨ ¨ , mu, n ě 1 we have
+
+(4.2)                            G ˝i Cn´ P Bitk`1
+                                               1,n`m´1 ;
+
+Picturially it is given by
+
+
+                                                 e1 :“ ℓ1                ℓi
+
+                                                            Cn´
+
+                                    G
+                                                    ei
+                                                                        ℓn`i´1
+
+
+                                                 em :“ ℓn`m´1
+
+                        Figure 2: Inductive composition step
+
+For G P fBitk1,m , m ě n ě 1, j ď m ´ n ` 1 we obtain
+
+                                    Ð
+(4.3)                           G ˝ Cn` P Bitk`1
+                                             1,m´n`1
+                                    j
+
+
+pictorially it is given by
+
+
+
+                                            11
+                                                    e1 :“ ℓ1
+                                                          ej
+                                                                              ℓj
+                                       G
+                                                     ej`n´1
+
+
+                                                     em :“ ℓm´n`1
+
+                          Figure 3: Inductive action step
+
+
+Elements of fBitkn,1 , and fBit` , have a similar inductive deﬁnition.
+                           `    d˘    ˘
+For G P Bit, a subgraph E “ E 1    E ˝ , E i Ď Gi , dE    G
+                                                     ˘ “ d˘ |E 1 , and such that
+
+E by itself is a bit will be called a sub-bit of G, and we let Bitkn,m pGq denote
+the sub-bits of G that are in Bitkn,m . In general, the collection Bitn,m pGq “
+Ť      k                                              k               k
+  k Bitn,m pGq are hard to describe, but the sets Bit1,m pGq and Bitn,1 pGq have
+a similar inductive deﬁnition. Beginning with
+
+         Bit˝1,1 pGq   ” G1
+                                                                                              (
+(4.4)    Bit11,m pGq   ” Ci´1 ...im pvq; v P C1,m1 pGq, ti1 , ¨ ¨ ¨ , im u Ď t1 ¨ ¨ ¨ m1 u
+                                                                                          (
+         Bit1n,1 pGq   ” Cj`1 ...jn pvq; v P Cn1 ,1 pGq, tj1 ¨ ¨ ¨ jn u Ď t1 ¨ ¨ ¨ n1 u
+
+and using the compositions and actions graftings, for E P Bitk1,m pGq, (and
+similarly for E P Bitkn,1 pGq):
+For ei P d` E with v “ d` ei P C1,n1 pGq, we have for a choice of n ď n1 edges in
+d` v,
+
+(4.5)                       E ˝i Cn´ pvq P Bitk`1
+                                              1,m`n´1 pGq.
+
+For D Ď d` E X d´ v, v P Cn1 ,1 pGq, n1 ě n “ #D, we have
+
+                             Ð̋
+(4.6)                      E D Cn` pvq P Bitk`1
+                                            1,m´n`1 pGq.
+
+
+Remark 4.7. This is the very reason we prefer to work with “bi-operads”, and
+not with the more general “properads” having operations Ppb1 ¨ ¨ ¨ bn ; c1 ¨ ¨ ¨ cm q
+with any output n ě 0 and any input m ě 0.
+For G P Bit, we denote the sub-1-bits E of G together with linear order on d˘ E,
+by                     ď                         ď
+                 SG´ “     Bitk1,m pGq , SG` “      Bitkn,1 pGq.
+                          k,m                              k,n
+
+
+
+
+                                             12
+5       The free Bio
+                          `                ˘
+    We can now deﬁne pFC “ pFC´ , C˝ , pFC` ,
+                                                        (
+(5.1)              pFC˘ :“ f : G Ñ C labeling, G P fBit˘ {isom
+
+where “isomorphisms” should preserve the planar structure and C labeling, and
+also allow “degeneracies”: the replacement of an edge e P G1 . by a path
+´v      e1 v1 e2                  em vm ¯
+   0
+                                            with labeling f 1 pei q ” f 1 peq, and
+f ˘ pvi q “ 1f 1 peq , i “ 1, ¨ ¨ ¨ , m ´ 1, v0 ” d´ e, vm ” d` e.
+Thus for c0 , c1 , ¨ ¨ ¨ , cn P C0 ,
+(5.2)                                                                            `      ˘     (
+ pFC´ pc0 ; c1 ¨ ¨ ¨ cn q “ pf : G Ñ Cq P pFC´ , G P fBit´ , f 1 p0G q “ c0 , f 1 1i pGq “ ci
+                                                                                               (
+ pFC` pc1 ¨ ¨ ¨ cn ; c0 q “ pf : G Ñ Cq P pFC` , G P fBit` , f 1 p1G q “ c0 , f 1 p0i pGqq “ ci .
+
+The composition in pFC˘ are given by “grafting” of bits. For example, for
+                                                               (
+P “ tf : G Ñ Cu P pFC´ pb0 ; b1 ¨ ¨ ¨ bn q , P 1 “ f 1 : G1 Ñ C P pFC´ pbi ; c1 ¨ ¨ ¨ cm q,
+
+we have
+(5.3)       !                        )
+                         ž
+ P ˝i P 1 :“ f Y f 1 : G   G1 { « Ñ C P pFC´ pb0 ; b1 ¨ ¨ ¨ bi´1 c1 ¨ ¨ ¨ cm bi`1 ¨ ¨ ¨ bn q
+
+where « means that we identify 1i pGq with 0pG1 q;
+`                                  ˘
+ and identify d˘ 1i pGq « d˘ 0pG1 q ; pictorially:
+
+                                                 11 pGq                           11 pG1 q
+                                                          0pG1 q
+                                                                           P1
+        0pGq
+                                 P
+                                                 1i pGq                           1m pG1 q
+
+
+                                                 1n pGq
+
+                              Figure 4: Grafting composition
+
+Note the new linear order on d` pP ˝i P 1 q. This composition on pFC´ , and the
+similar one on pFC` , are associative;(pFC´ pc; c1 q ” pFC` pc; c1 q n “ 1; and we have
+the units 1c :“ f ” f 1 ” c : I Ñ C , with the unit bit I P Bit˝1,1 ,
+                         ˜                                 ¸       ˆ          ˙
+                             1
+                                       d˘    ˝                       0 e    1
+(5.4)             I :“       I “ teu        I “ t0, 1u         ”    ‚       ‚
+
+
+
+                                             13
+Note that C ˘ pIq “ φ, so f is just the value f 1 peq “ c.
+Thus pFC˘ are operads, with the same objects C˝ , and the same underlying
+category.
+Similarly, the natural actions of pFC´ and pFC` on each other are given by grafting
+C-labeled bits. For example, for
+
+                P “ tf : G Ñ Cu P pFC´ pb0 ; b1 ¨ ¨ ¨ bi´1 c1 ¨ ¨ ¨ cm bi`1 ¨ ¨ ¨ bn q
+
+                P 1 “ tf 1 : G1 Ñ Cu P pFC` pc1 ¨ ¨ ¨ cm ; bi q
+
+we get
+                         !            ž           )
+(5.5)          PÐ
+                Ý̋ P 1 :“ f Y f 1 : G   G1 { « Ñ C P pFC´ pb0 ; b1 ¨ ¨ ¨ bi ¨ ¨ ¨ bn q
+
+where « means that we identify 1i´1`j pGq « 0j pG1 q; pictorially,
+
+
+                                                      11 pGq
+
+
+                                                                01 pG1 q
+
+
+         0pGq                                                                            1pG1 q
+                                                      1i pGq
+                                     P                                     P1
+                                                               0m pG1 q
+
+
+
+
+                                   Figure 5: Grafting action
+
+
+The axioms for a planar bio are easily checked. The unit of adjunction
+ε : C Ñ U FC is easy to describe: it is the identity on objects C0 , and it takes
+P P C´ pc0 ; c1 ¨ ¨ ¨ cn q (resp. C` pc1 ¨ ¨ ¨ cn ; c0 q), to the negative (resp. positive)
+n-corolla with C labeling given by f ˘ pvq “ P , f 1 pei q “ ci , pictorially
+(5.6)
+                       c1                                                       c1
+
+          c0      P                                                                  P     c0
+                                                resp.
+
+
+                       cn                                                       cn
+
+
+Given a planar bio P “ pP´ , P˝ , P` q, and given an element
+                                               ´
+                         P “ pf : G Ñ U Pq P pFU P pc0 ; c1 ¨ ¨ ¨ cn q,
+
+
+
+                                                 14
+we can deﬁne now µ´ pP q P P´ pc0 ; c1 ¨ ¨ ¨ cn q by induction:
+
+          If G P fBit11,n ,       G “ C ´ pvq,    µ´ pP q “ f ´ pvq P P´ pc0 ; c1 ¨ ¨ ¨ cn q.
+(5.7)
+                                                 ´                               Ð̋
+          If G P fBitk`1                    1
+                     1,n , then either G “ G ˝i Cℓ pvq or G “ G
+                                                               1
+                                                                                      Cℓ` pvq
+                                                                                 j
+
+
+with G1 P Bitk1,n1 , and we can deﬁne
+
+(5.8) µ´ pP q “ µ´ pP 1 q ˝i f ´ pvq or respectively µ´ pP q “ µ´ pP 1 q Ð
+                                                                         Ý̋j f ` pvq.
+
+It is easy to see that µ´ is well deﬁne (independent of the order of the op-
+erations we used in the induction steps), and similarly deﬁning inductively
+        `                         `
+µ` : pFU P pc1 ¨ ¨ ¨ cn ; c0 q Ñ P pc1 ¨ ¨ ¨ cn ; c0 q we get the co-unit map
+
+                                         µ : pFU P Ñ P
+
+
+6       Bios via generators and relations
+Definition 6.1. For P “ pP` , P˝ , P´ q P Bio, an ideal I⊳P is a collection of
+equivalence relations « on the sets P´ pc0 ; c1 ¨ ¨ ¨ cn q and P` pc1 ¨ ¨ ¨ cn ; c0 q for all
+c0 , c1 , ¨ ¨ ¨ , cn P P˝ , respecting the compositions, mutual actions, and Sn -actions,
+                                                                          ˝
+so that we get a quotient bio P{I, with the same objects pP{Iq “ P˝ ,
+                              ´
+                  pP{Iq pc0 ; c1 ¨ ¨ ¨ cn q “ P´ pc0 ; c1 ¨ ¨ ¨ cn q{ «      ,
+(6.2)
+                              `
+                  pP{Iq pc1 ¨ ¨ ¨ cn ; c0 q “ P` pc1 ¨ ¨ ¨ cn ; c0 q{ «,
+
+and a canonical surjective map of bios πI : P ÝÝÑ  Ñ P{I identity on objects.
+Given any map ϕ P BioC pP, Qq with ϕ˝ “ idC we get an ideal kerpϕq ⊳ P by
+P « P 1 iff ϕpP q “ ϕpP 1 q, and canonical factorization of ϕ
+
+                                                 ϕ
+                                   P                            Q
+
+(6.3)
+
+                              P{kerpϕq            „
+                                                              ϕpPq
+
+
+Remark
+Ş           6.4. Given ideals IαŞ⊳ P, their intersection is again an ideal
+  α αI  ⊳ P  , with P « P 1 mod α Iα ðñ P( « P 1 mod Iα for all α.
+Thus given any collection of pairs pPj , Pj1 q with Pj , Pj1 P P˘ pc0 ; ci q we can
+                                                    (       Ş
+speak of the ideal they generate I “ pPj , Pj1 q jPJ “ Iα the intersection of
+all ideals containing all the pPj , Pj1 q’s, and we have the canonical quotient map
+
+                       π : P ÝÝÝÝ
+                                ÑÑ P{I :“ P{ tPj „ Pj 1 ujPJ
+
+                                                 15
+Thus we can construct bios by “generators and relations”: the generating objects
+C ˝ , and the generating (co)-operations tQi u between
+                                                     (      them gives a collection
+C “ pC ´ , C ˝ , C ` q P Coll, the relations Pj „ Pj1 generate an ideal I ⊳ FC as
+above, and we have the bio
+                                                 (
+(6.5)                       FC ˝ rQi s { Pj „ Pj1 :“ FC {I.
+
+
+
+Corollary 1. The category Bio is complete and co-complete
+Proof. All limits are created in Set - for pPj q P BioJ ,
+
+(6.6)                                  plim
+                                         Ð
+                                            Pj q˝ :“ lim
+                                                      Ð
+                                                         Pj˝
+                                         J                   J
+
+                pjq          pjq               pjq
+and for c0 “ c0 , c1 “ c1 ¨ ¨ ¨ cn “ cn P lim
+                                           Ð
+                                              Pj˝ we have
+                                                         J
+                                                        ´                           ¯
+                        ´                                 ´ pjq pjq            pjq
+(6.7)          plim
+                 Ð
+                    Pj q  pc 0 ; c 1 ¨ ¨ ¨ c n q :“ lim
+                                                     Ð
+                                                         Pj pc 0 ; c 1 ¨ ¨ ¨ c n   q
+                  J                                  J
+
+                                   `
+and similarly for plimÐ Pj q pc1 ¨ ¨ ¨ cn ; c0 q. The functor P ÞÑ P˝ : Bio Ñ Set
+                        J
+preserves also co-limits, so let C ˝ “ pcolim    Ñ
+                                                       Pj q˝ “ colim Ñ
+                                                                        Pj˝ be the colimit
+                                                 J                   J(
+in Set. The sets Pj˘ pc0 ; c1 ¨ ¨ ¨ cn q, j P J, c0 , c1 ¨ ¨ ¨ cn P Pj˝ induce a collection
+C “ pC ´ , C ˝ , C ` q. The relations in each Pj , j P J, give relations on these
+                                                       2             2
+generators. Also for arrows ϕ1 : j Ñ j 1 , ϕ : j Ñ j in J with the same
+domain, and for any (co).operation P P Pj˘ pc0 ; c1 ¨ ¨ ¨ cn q we have the relation
+  1        2
+ϕ˚ pP q „ ϕ˚ pP q; these give all the relations and
+
+(6.8)                         colim
+                                Ñ
+                                    Pj “ FC {tϕ1 pP q„ϕ2 pP qu
+                                                          ˚         ˚
+                                   J
+
+
+
+
+7       Bipo ” Bi-Pre-Orders
+                                         š
+Definition 7.1. For a set C let M pCq “ ně0 C n denote the free (associative,
+unital) monoid on C; its elements are “words” c “ c1 ¨ ¨ ¨ cn P C n of “length”
+n ě 0, including the unit: the empty word φ (n “ 0).
+A planar Bipo (= Bi-pre-order) is a set C together with two relations
+R´ Ď C ˆ M pCq and R` Ď M pCq ˆ C; we write:
+
+ c0 ď c1 ¨ ¨ ¨ cn ô pc0 ; c1 ¨ ¨ ¨ cn q P R´     ,       c1 ¨ ¨ ¨ cn ď1 c0 ô pc1 ¨ ¨ ¨ cn ; c0 q P R` ,
+
+such that
+
+(7.2)                     cďc          and   c ď1 c       for all       c P C.
+
+                                                 16
+For n “ 1 we have
+
+(7.3)                              c0 ď c1 ðñ c0 ď1 c1 ,
+
+and we write ď for ď1 with no danger of confusion.
+
+(7.4)        b0 ď b1 ¨ ¨ ¨ bn ,    bi ď ci “ ci1 ¨ ¨ ¨ cimi ùñ b0 ď c1 ¨ ¨ ¨ cn
+
+             b1 ¨ ¨ ¨ bn ď b0 ,    ci “ ci1 ¨ ¨ ¨ cimi ď bi ùñ c1 ¨ ¨ ¨ cn ď b0
+
+
+(7.5)        b 0 ď c1 ¨ ¨ ¨ cn ,   ci “ ci1 ¨ ¨ ¨ cimi ď bi ùñ b0 ď b1 ¨ ¨ ¨ bn
+
+             c1 ¨ ¨ ¨ cn ď b 0 ,   bi ď ci “ ci1 ¨ ¨ ¨ cimi ùñ b1 ¨ ¨ ¨ bn ď b0
+
+(Notice that (7.3) follows from (7.2), (7.4) and (7.5)).
+  A map of planar bipo ϕ : C Ñ C 1 is a map of sets such that
+
+                      c0 ď c1 ¨ ¨ ¨ cn ùñ ϕpc0 q ď ϕpc1 q ¨ ¨ ¨ ϕpcn q
+(7.6)
+                      c1 ¨ ¨ ¨ cn ď c0 ùñ ϕpc1 q ¨ ¨ ¨ ϕpcn q ď ϕpc0 q
+
+Thus we have a category pBipo.
+A planar bipo C P pBipo is called symmetric if for c0 , c1 ¨ ¨ ¨ cn P C,
+
+                c0 ď c1 ¨ ¨ ¨ cn ðñ c0 ď cσp1q ¨ ¨ ¨ cσpnq     any σ P Sn
+(7.7)
+                c1 ¨ ¨ ¨ cn ď c0 ðñ cσp1q ¨ ¨ ¨ cσpnq ď c0     any σ P Sn
+
+i.e. the relations ď, ď1 are induced from similar relations on the free
+commutative monoid on C,
+                                    ž
+(7.8)                     CMpCq “      C n { Sn
+                                               ně0
+
+via the cannonical map π : M pCq ÝÝÑ
+                                   Ñ CMpCq.
+We let Bipo Ď pBipo denote the full subcategory of symmetric - bipos, and we
+call its objects simply “bipos”.
+We say a bipo C P Bipo is fermionic if for c0 , c1 ¨ ¨ ¨ cn P C,
+
+                    c0 ď c1 ¨ ¨ ¨ cn ùñ ci ­“ cj for i ­“ j, i, j ą 0.
+(7.9)
+                    c1 ¨ ¨ ¨ cn ď c0 ùñ ci ­“ cj for i ­“ j, i, j ą 0.
+
+We say C is simple if,
+
+(7.10)       c0 ď c1 ¨ ¨ ¨ cn and c1 ¨ ¨ ¨ cn ď c0 ñ c0 “ c1 “ ¨ ¨ ¨ “ cn .
+
+
+
+                                              17
+We say C is closed if,
+(7.11)                 c0 ď c1 ¨ ¨ ¨ cn , n ą 1 ñ c0 ď c1 ¨ ¨ ¨ cn´1
+and similarly if
+                     c1 ¨ ¨ ¨ cn ď c0     ,    n ą 1 ñ c1 ¨ ¨ ¨ cn´1 ď c0 .
+Given ϕ0 , ϕ1 , ¨ ¨ ¨ , ϕn P BipopC, Dq ” DC deﬁne
+               ϕ0 ď ϕ1 ¨ ¨ ¨ ϕn ðñ ϕ0 pcq ďD ϕ1 pcq ¨ ¨ ¨ ϕn pcq for all c P C
+(7.12)
+               ϕ1 ¨ ¨ ¨ ϕn ď ϕ0 ðñ ϕ1 pcq ¨ ¨ ¨ ϕn pcq ďD ϕ0 pcq for all c P C
+This makes DC into a bipo, the “internal Hom”.
+                                                              Ş
+Given bipos ďi on the same underlying set C, the intersection   ďi is again a
+                                                                                 i
+bipo, c0 ď c1 ¨ ¨ ¨ cn ô c0 ďi c1 ¨ ¨ ¨ cn for all i. Thus we can talk about the bipo
+generated by certain relations
+                !                    )         !                              )
+                    piq   piq                      1piq                  1piq
+                  c0 ď c1 ¨ ¨ ¨ cpiq
+                                 ni         Y    c 1    ¨ ¨ ¨ c 1piq
+                                                                ni   ď c 0
+                                          iPJ ´                              iPJ `
+We let B b C denote the bipo on B ˆ C, for B, C P Bipo, generated by the
+following relations
+                 pb, c0 q ď pb, c1 q ¨ ¨ ¨ pb, cn q    all b P B, c0 ď c1 ¨ ¨ ¨ cn in C
+
+                 pb0 , cq ď pb1 , cq ¨ ¨ ¨ pbn , cq    all c P C, b0 ď b1 ¨ ¨ ¨ bn in B
+(7.13)
+                 pb, c1 q ¨ ¨ ¨ pb, cn q ď pb, c0 q    all b P B, c1 ¨ ¨ ¨ cn ď c0 in C
+
+                 pb1 , cq ¨ ¨ ¨ pbn , cq ď pb0 , cq    all c P C, b1 ¨ ¨ ¨ bn ď b0 in B.
+Proposition 1. We have the adjunction
+                             BipopB, DC q ” BipopB b C, Dq
+via the usual Set adjunction ϕb pcq Ø ϕpb, cq, and thus Bipo is complete, co-
+complete, closed symmetric monoidal category.
+Proof. Limits in Bipo are created in Set. For co-limits colim Cj , we take the
+                                                             ÝÝÑ
+co-limit in Set of the underlying sets Cj , and than the bipo generated by all the
+relations in the Cj ’s. The functor B, C ÞÑ B b C is clearly symmetric monoidal,
+and it is closed because of the adjunction.
+For a bipo B, we have the bio ℓ! B, with ℓ! B ˝ :“ B, and
+                                              $
+                                              & t˚u b0 ď b1 ¨ ¨ ¨ bn
+                 ℓ! B ´ pb0 ; b1 ¨ ¨ ¨ bn q “
+                                              %
+                                                 φ otherwise
+(7.14)                                        $
+                                              & t˚u b1 ¨ ¨ ¨ bn ď b0
+                 ℓ! B ` pb1 ¨ ¨ ¨ bn ; b0 q “
+                                              %
+                                                 φ otherwise
+
+                                                  18
+This gives a full and faithful embedding ℓ! : Bipo Ď Bio, where the image are
+the bios having at most one point in every hom - set (just like the pre-orders
+are the categories having at most one point in every hom-set). The functor ℓ!
+has a left adjoint ℓ˚ : Bio Ñ Bipo, for P P Bio, ℓ˚P is the bipo with the same
+objects as P and for b0 , ¨ ¨ ¨ , bn P P˝ ,
+                   b0 ďℓ˚ P b1 ¨ ¨ ¨ bn ðñ P´ pb0 ; b1 ¨ ¨ ¨ bn q ­“ φ
+(7.15)
+                   b1 ¨ ¨ ¨ bn ďℓ˚ P b0 ðñ P` pb1 ¨ ¨ ¨ bn ; b0 q ­“ φ.
+
+
+
+8       Natural transformations
+Definition 8.1. Given ϕ0 , ϕ1 ¨ ¨ ¨ ϕn P BiopQ, Rq a natural transformation
+α´ P RQ pϕ0 ; ϕ1 ¨ ¨ ¨ ϕn q is a map Q˝ Q q ÞÑ α´         ´
+                                                    q P R pϕ0 pqq; ϕ1 pqq ¨ ¨ ¨ ϕn pqqq
+                      ´
+such that for Q P Q pq0 ; q1 ¨ ¨ ¨ qm q we have interchange:
+                                ´ ¯                   ` ´    ˘
+(8.2)                 ϕ´            ´             ´
+                        0 pQq ˝ αqj ˝ σn,m “ αq0 ˝ ϕi pQq
+
+with σn,m P Sn¨m the “rows-columns-interchange”
+(8.3)       σn,m pa ¨ n ` b ` 1q “ b ¨ m ` a ` 1,       0 ď a ă m,        0ďbăn
+Similarly α` P RQ pϕ1 ¨ ¨ ¨ ϕn ; ϕ0 q is a map Q˝ Q q ÞÑ α`     `
+                                                          q P R pϕ1 pqq ¨ ¨ ¨ ϕn pqq; ϕ0 pqqq
+                   `
+such that for Q P Q pq1 ¨ ¨ ¨ qm ; q0 q we have interchange:
+                                         `
+                                                ` `     ˘    `
+(8.4)              σn,m ˝ pα`    qj q ˝ ϕ0 pQq “ ϕi pQq ˝ αq0 .
+
+
+
+   We have composition and mutual actions of natural transformations given
+pointwise
+       ` ´         ˘        ` ´ ˘         ` `         ˘     `      ˘
+         α ˝ pα´         ´
+                i q q “ αq ˝ pαi qq     ,  pαi q ˝ α` q “ pα` i qq ˝ αq
+                                                                       `
+
+(8.5) `
+            Ý̋ pα` q˘ “ α´ Ð
+         α´ Ð               Ý̋ `pα` qq ˘ , `pα´ q ÝÑ̋ α` ˘ “ `pα´ qq ˘ Ý
+                                                                       Ñ̋ α` .
+                 i   q    q       i             i         q       i        q
+                                          `    ˘˝
+These make RQ into a bio with objects RQ “ BiopQ, Rq, and gives the
+internal hom functor
+                           op
+(8.6)                pBioq      ˆ Bio Ñ Bio ,      pQ, Rq ÞÑ RQ .
+
+
+9       Billinear maps and tensor products
+   Fix ϕ P BiopP, RQ q. On objects ϕ˝ gives for each p P P˝ an object ϕ˝ ppq
+of RQ , i.e. ϕ˝ ppq P BiopQ, Rq, which on objects gives for q P Q˝ the object
+ϕ˝ pp, qq P R˝ , thus we have a function
+(9.1)                            ϕ˝ : P˝ ˆ Q˝ Ñ R˝ .
+
+                                           19
+For Q P Q˘ , ϕ˝ ppq associate ϕ˘ pp, Qq P R˘ , preserving composition and ac-
+tions. For P P P´ pp0 ; p1 ¨ ¨ ¨ pn q, (resp. P P P` pp1 ¨ ¨ ¨ pn ; p0 q), ϕ associates the
+natural transformation
+                                      `                             ˘
+                    ϕ´ pP q P RQ ϕ˝ pp0 q; ϕ˝ pp1 q ¨ ¨ ¨ ϕ˝ ppn q ,
+(9.2)          ´                         `                              ˘¯
+                 resp. ϕ` pP q P RQ ϕ˝ pp1 q ¨ ¨ ¨ ϕ˝ ppn q; ϕ˝ pp0 q ,
+                                                 `                                  ˘
+thus
+´    for q P Q˝ we have ϕ´ pP, qq P R´ ϕ˝ pp0 , qq; ϕ˝¯pp1 , qq, ¨ ¨ ¨ , ϕ˝ ppn , qq ,
+                     `                                          ˘
+ resp. ϕ` pP, qq P R` ϕ˝ pp1 , qq ¨ ¨ ¨ ϕ˝ ppn , qq, ϕ˝ pp0 , qq  and since the com-
+position and actions are deﬁned poinwise, for ﬁxed q P Q˝ , P ÞÑ ϕpP, qq
+preserves compositions´ and actions. Moreover, ¯we have interchange: for
+Q P Q´ pq0 ; q1 ¨ ¨ ¨ qm q, resp. Q P Q` pq1 ¨ ¨ ¨ qm ; q0 q ,
+                       `           ˘               `           ˘
+(9.3)     ϕ´ pp0 , Qq ˝ ϕ´ pP, qj q “ ϕ´ pP, q0 q ˝ ϕ´ ppi , Qq ˝ σn,m ,
+´            `           ˘               `           ˘             ¯
+ resp. σn,m ˝ ϕ` pP, qj q ˝ ϕ` pp0 , Qq “ ϕ` ppi , Qq ˝ ϕ` pP, q0 q .
+Writing ϕp p´q :“ ϕpp, ´q, ψq p´q :“ ϕp´, qq, we have
+(9.4)
+                               def
+ BiopP, RQ q ” BillpP, Q; Rq : “
+ $                       ˝               ˝                                                    ,
+ ’
+ ’ pϕ, ψq P BiopQ, RqP ˆ BiopP, RqQ , ϕp pqq “ ψq ppq for p P P˝ , q P Q˝                     /
+                                                                                              /
+ ’
+ ’                                                                                            /
+                                                                                              /
+ ’
+ ’           ` ´      ˘            ` ´     ˘                                                  /
+                                                                                              /
+ ’
+ ’                          ´                                                                 /
+                                                                                              /
+ & ϕ´p0 pQq ˝ ψqj pP q “ ψq0 pP q ˝ ϕpi pQq ˝ σm,n ,  P P P´ pp0 ; p1 ¨ ¨ ¨ pn q ,            .
+                                                      Q P Q´ pq0 ; q1 ¨ ¨ ¨ qm q
+ ’
+ ’                                                                                            /
+                                                                                              /
+ ’
+ ’         `        ˘            ` `     ˘                                                    /
+                                                                                              /
+ ’
+ ’                                           `                                                /
+                                                                                              /
+ ’
+ ’ σ     ˝ ψq`j pP q ˝ ϕ`
+                        p0 pQq “ ϕpi pQq ˝ ψq0 pP q , P P P` pp1 ¨ ¨ ¨ pn ; p0 q,             /
+                                                                                              /
+ % n,m                                                                                        -
+                                                      Q P Q` pq1 ¨ ¨ ¨ qm ; q0 q
+
+For ﬁxed P, Q the functor Bio Ñ Set, R ÞÑ BillpP, Q; Rq is representable by a
+bio P b Q, and we get the adjunction
+
+(9.5)             BiopP, RQ q ” BillpP, Q; Rq ” BiopP b Q, Rq
+
+Here P b Q is deﬁned by generators and relations:
+
+(9.6)                   on objects     pP b Qq˝ :“ P˝ ˆ Q˝ ;
+
+For q P Q˝ we have generators tP b q, P P P˘ u, and for p P P˝ we have
+generators tp b Q, Q P Q˘ u; The generators tP b quP PP˘ , (resp tp b QuQPQ˘ )
+satisfying the relations of P (resp. of Q), so that for each q P Q˝ (resp. p P P˝ )
+jq : P Ñ P b Q, jq pP q “ P b q (resp. jp : Q Ñ P b Q, jp pQq “ p b Q) is a
+
+
+
+
+                                            20
+map of bios, and we have the interchange relations:
+(9.7)
+ pp0 b Qq ˝ pP b qj q “ pP b q0 q ˝ ppi b Qq ˝ σn,m ,              P P P´ pp0 ; p1 ¨ ¨ ¨ pn q ,
+                                                                   Q P Q´ pq0 , q1 ¨ ¨ ¨ qm q
+
+ σn,m ˝ pP b qj q ˝ pp0 b Qq “ ppi b Qq ˝ pP b q0 q ,              P P P` pp1 ¨ ¨ ¨ pn ; p0 q ,
+                                                                   Q P Q` pq1 ¨ ¨ ¨ qm ; q0 q
+The functor Bio ˆ Bio Ñ Bio, pP, Qq ÞÑ P b Q, makes Bio into a symmetric
+monoidal category with unit
+(9.8)
+  I : I ˝ “ teu , Ipe, eq “ tide u , I ´ pe; e
+                                             lo¨ ¨
+                                                              `
+                                               mo¨ enq “ φ “ I p e
+                                                                lo¨ ¨
+                                                                   mo¨ en; eq for n ą 1;
+                                                  n                       n
+                   ˝
+so BiopI, Pq ” P , and Bio{I ” Cat. Thus we have,
+Theorem 1. Bio is a closed symmetric monoidal category.
+Remark 9.9. We have the operads pP b Qq˘ , and there are map of operads
+         P´ bBW Q´ ÝÑ pP b Qq´ and P` bBW Q` ÝÑ pP b Qq`
+with bBV the Boardman-Vogt tensor product; but these maps are not in general
+isomorphism!
+
+
+10       From Bits to Bios
+                `      d˘   ˘
+   Fix a bit G “ pG1 q    G˝ . Recall the 1-sub bits B of G, with linear order
+on d˘ B, SG˘ , and associate with G the bio SG :
+             SG˝ :“ G1 ,       for c0 , c1 ¨ ¨ ¨ cn P G1
+                                                                                         (
+(10.1)       SG´ pc0 ; c1 ¨ ¨ ¨ cn q :“ B P SG´ , d´ B “ tc0 u, d` B “ tc1 ¨ ¨ ¨ cn u
+                                                                                         (
+             SG` pc1 ¨ ¨ ¨ cn ; c0 q :“ B P SG` , d´ B “ tc1 ¨ ¨ ¨ cn u , d` B “ tc0 u
+The compositions and actions are given by grafting sub-bits. The Sn -actions
+are given by reordering d˘ B, and is free. Note that the associated bipo ℓ˚ SG ,
+given by the set G1 and
+          c0 ď c1 ¨ ¨ ¨ cn ðñ DB P SG´      ,     d´ B “ tc0 u     ,      d` B “ tc1 ¨ ¨ ¨ cn u
+(10.2)
+          c1 ¨ ¨ ¨ cn ď c0 ðñ DB P SG`      ,     d´ B “ tc1 ¨ ¨ ¨ cn u       ,   d` B “ tc0 u
+is simple, closed, and fermionic.
+A map of bios f : SG Ñ SH , G, H P Bit, is given by
+(10.3)
+     f 1 : G1 Ñ H 1 and f ˝ : G˝ Ñ SG˘ with d˘ f ˝ pvq “ f 1 pd˘ vq for v P G˝ .
+We have the following easy,
+
+                                             21
+                                          "                                                         *
+Lemma 1.            If H “ rns “              v0       e1    v1   e2    v2                  en vn
+                                              ¨               ¨          ¨            ...       ¨
+then š             š
+G“     rmα s , f “   fα , fα P ∆
+                               ∆prmα s, rnsq.
+     αPQ              αPQ
+
+   Indeed there can be no m-array, m ą 1, that map to unary, and the sub-bits
+of H are just intervals.
+Fix the map f : SG Ñ SH , and ﬁx e P H 1 . By the lemma we can write
+                        "                               *
+               ´1         α eα    α eα          α    α
+(10.4)       f peq “ v0      1  v1    2        emα vmα
+                          ¨       ¨        ...        ¨  αPV peq
+
+a collection of paths in G with
+
+              f peα                 α
+                  1 q “ ¨ ¨ ¨ “ f pemα q “ e           ,    v1α ¨ ¨ ¨ vm
+                                                                       α
+                                                                         α ´1
+                                                                              P C11 pGq.
+
+Note that we can split paths to shorter paths, but if we take the paths to be
+maximal this representation of f ´1 peq is unique.
+Definition 10.5. The map f : SG Ñ SH is flat if for all e P H 1 ,
+                          "                       *
+                                         α
+(10.6)          f ´1 peq “ v0α eα
+                                1      e mα  v α
+                                              mα
+                            ¨     ...          ¨    αPV peq
+
+
+             1 P d´ G (resp. emα P d` G) for all α in V peq, except perhaps for
+and we have eα                α
+
+one index α “ α´ (resp. α “ α` );
+                α                     α
+Note that if e1 ´ R d´ G (resp. em`α` R d` G) then e R d´ H (resp. e R d` H). It
+follows that for every path e “ pe1 , ¨ ¨ ¨ , en q, ei P H 1 , vi “ d` ei “ d´ ei`1 P C11
+for i “ 1 ¨ ¨ ¨ n ´ 1, the set f ´1 peq has a similar representation. Thus if g : SH Ñ
+SK is ﬂat too, then g ˝ f : SG Ñ SK is ﬂat, and so we have a category Bit with
+maps f : G Ñ H the flat maps
+
+(10.7)                                 f : SG Ñ SH ,
+
+and a functor
+
+(10.8)                      S : Bit Ñ Bio ,                  G ÞÑ SG .
+                                                  "                                   *
+For f P BitpG, Hq, e P H , f1    ´1
+                                      peq “           v0α   eα
+                                                             1           eα
+                                                                          nα   vnαα          , we can
+                                                       ¨          ...            ¨    αPV peq
+                                                                   α                      α
+identify all the eα
+                  i ’s to one edge ẽ, with d´ ẽ “ v0
+                                                       ´
+                                                         (resp.                 d` ẽ “ vnα`` ) if α´
+                                                                                                 1
+(resp. α` ) exists, and otherwise d˘ ẽ is a stump. Doing this for all e P H we
+get a factorisation
+
+
+
+
+                                                   22
+                                                         f
+(10.9)          f “ f˜ ˝ π: SG                                                 SH
+
+
+                                        π                                 f˜
+
+
+                                                  SG { kerpf q
+
+where π is ﬂat by deﬁnition, and is surjective on edges, and f˜ is injective on
+edges (hence also ﬂat).
+Remark 10.10. The map f : G Ñ H given pictorially
+
+                                   a1               b1            d1
+                                             c1
+                       G                    c2
+                                   a2               b2            d2
+
+                                                    b
+                                   a                              d
+                       H
+                                                    c
+
+                         Figure 6: The map f : G Ñ H
+
+
+is both a map of graphs, f P GraphpG, Hq, and is a map of bios, f P Bio pSG , SH q,
+but is Not flat, hence is not a map of bits: f R BitpG, Hq.
+
+
+11       Degeneracies and face maps
+  For G P Bit, e P G1 , we can form the bit map
+                          ˜                                                        ¸
+                G      def     1
+                                                             d˘       ˝
+(11.1)    se “ se : Ge “     pG z teu Y te´ , e` u                G Y tve uq           ÝÝÝÑ
+                                                                                          Ñ G
+
+
+with d´ e´ “ d´ e, d` e´ “ ve “ d´ e` , d` e` “ d` e
+                e´     ve    e`                         se                     e
+
+i.e. we add the vertex ve"in the middle of the edge e, splitting e to the two
+                            e   e1 “ e˘
+halves e´ and e` , spe1 q “   1          . We call such a map an “elementary
+                            e otherwise
+
+                                            23
+degeneracy”.
+It will be convenient to call “elementary degeneracy” also for the maps
+(11.2)
+                           ˜                                       ¸
+                       def                      d˘
+             G                1                       ˝      ´ `
+    sqep “ sqep : Gqep “ pG z teuq Y te´ , e` u     G Y tve , ve u ÝÝÑ ÑG
+
+
+        d´ e´ “ d´ e ,        d` e´ “ ve´       ,    d´ e` “ ve`   ,       d` e` “ d` e
+
+
+          e´        ve´   ve`    e`                       sqep                      e
+
+      Figure 7: Composition map of two degeneracies and one face map
+
+
+For an edge e P G1 , we may add another copy e1 to G with v˘  1
+                                                                “ d˘ e1 both
+                                 1
+stumps, and identifying e and e we get the “elementary degeneracy”
+                               ˜                       ¸
+                  G        def   1  1
+                                      ( d˘ ˝       1
+                                                     (
+(11.3)     seq “ seq : Geq “ G Y e          G Y v˘       ÝÝÝÑ
+                                                            ÑG
+
+Note that Ge Gqep , Geq have one more edge than G.
+For f P BitpG, Hq clearly π P Bit pG, G{ kerpf qq is a composition of such ele-
+mentary degeneracies se , sqep and seq .
+Given G P Bit, any e P G1 , we get a bit by eliminating e
+                                ˜                      ¸
+                    G     e def   1
+                                         d˘ ˝
+(11.4)      Be “ Be : G “ G z teu           G Y tvℓ uℓ          G
+
+here the vertices tvℓ u are added to keep Ge a bit; pictorially we have four such
+0-faces:
+(11.5)
+ ˆ          ˙
+    ´ , ´                               e
+               :                                                                              n
+    m , n
+  m ě 1, n ě 0                                       n
+                                                                                  m´1
+                                    m
+
+
+ ˆ          ˙
+    ` , `                               e
+               :                                                       m
+    m , n                 m             n                                     n´1
+  m ě 0, n ě 1
+
+ ˆ              ˙
+     ´ , `                          e                                                   n´1
+                    :
+     m , n                      m           n                                     m´1
+     m, n ě 1
+
+
+                                                24
+ ˆ              ˙
+     ` , ´                                    e
+                    :                                                    m       n
+     m , n                      m                         n
+     m, n ě 0
+
+Note that when n “ 0 (resp. m “ 0) we are pruning G near d` G (resp. d´ G).
+Note that Ge have one less edge than G (and can have more vertices!).
+                                      1
+Note that if f P BitpG,
+                    ´     Hq¯ with f injective, and f is also a map of graphs
+(so that f 0 pvq Ď C f˜0 pvq , f˜0 : G0 Ñ H 0 ), then f is the composition of the
+0-faces Be , e P H 1 zG1 .
+Finally, we have the inner-faces, where we contract edges, and they come again
+in 4 types:
+
+
+     ˆ                  ˙                                         Be´
+         ´ , ´                                   e
+                            :
+         m , n
+          m, n ě 1                                            n
+                                                                             m`n´1
+                                                 m
+
+                                    Figure 8: – composition face
+
+
+
+     ˆ                  ˙                                         Be`
+          ` , `                                  e
+                            :
+          m , n
+           m, n ě 1             m
+                                              n                          m`n´1
+
+                                    Figure 9: + composition face
+
+
+
+     ˆ         ˙                           e1                      BeÐ
+         ´ , `                             e.i
+                 :                          .
+         m , n                             en
+         měně1
+                                                                             m´n`1
+                                          m
+
+                                      Figure 10: - action face
+
+
+
+
+                                                     25
+      ˆ         ˙                      e1                            BeÑ
+          ´ , `                        e.i
+                  :                     .
+          m , n                        em
+          1ďmďn
+                                                                     n´m`1
+                                   n
+
+                              Figure 11: + action face
+
+For the composition face Be˘ : Gpeq        G, Gpeq has one less edge than G; for
+                   Ð
+                   Ñ
+the action faces Bei : Gpei q        G, Gpei q has min tm, nu less edges than G !
+(all these faces have one less verex). Note: m, n ě 1, these are indeed “inner”.
+From the inductive construction of the 1-sub-bits SG˘ , it follows that every
+B P SG˘ can be replaced by a corolla by ﬁnite compositions of inner faces. We
+obtain,
+Proposition 2. Every map f P BitpG, Hq can be factored into
+
+                                        i           Bfin             Bfout
+                     π                 „
+              f :GÝ
+                  Ñ
+                  Ñ G{ kerpf q Ý
+                               Ñ f pGq                       f pGq           H
+
+π a composition of degeneracies, i an isomorphism, Bfin a composition of inner-
+faces, Bfout a composition of 0-faces.
+   We write ΦpGq for the set of all 1-faces se : Ge          G, and we write
+Φin pGq Ď ΦpGq for the “inner 1-faces” for compositions and actions (which can
+reduce the number of edges by more than one !).
+Remark 11.6. We will only need the full subcategory Bitcon Ď Bit consisting
+of G P Bit with G a connected graph (Indeed, 1-bits are always connected!). The
+maps in Bitcon have similar description via faces and degeneracies, but one has
+to be careful when taking a 0-face not to disconnect the graph.
+
+
+12     The categroy of Bital sets bSet
+                         op
+  We let bSet :“ SetBit denote the category of Bital-sets. Its objects are
+X “ tXG uGPBit , a collection of sets one for each G P Bit, and function ϕ˚ :
+                                          ˚
+XH Ñ XG for each ϕ P BitpG, Hq, pψ ˝ ϕq “ ϕ˚ ˝ ψ ˚ , id˚G “ idXG ;
+maps are natural transformations f : X Ñ Y , fG P SetpXG , YG q,
+fG ˝ ϕ˚ “ ϕ˚ ˝ fH for ϕ P BitpG, Hq.
+We call an element x P XG a "bitex of type G" (plural: "bitices")
+                                                                        D
+The category bSet is complete and
+                               ˆ cocomplete,˙ and for F “ tFd u P bSet the
+(co-)limit is obtained pointwise       (co)lim Fd          “ (co)lim pFd qG .
+                                            dPD     G          dPD
+
+
+
+                                              26
+                                 ˚                 ˚
+Indeed for G P Bit, the functor δG : bSet Ñ Set, δG  pXq “ XG , has both a left
+and a right adjoints.
+Every X P bSet is a canonical colimit of representable functors
+(12.1)                              X“        colim               YG
+                                           ÝÝÝÑ
+                                          p YG ÑXq PBit{X
+
+             Y : Bit           bSet the Yoneda functor, p YH qG :=Bit(G,H),
+ Bit{X “ the "Kan-Grothendieck comma category",
+          objects: pG, xq, G P Bit, x P XG ðñ x : YG Ñ X
+
+                arrows: ϕ : pG, xq Ñ pH, x1 q are ϕ P BitpG, Hq with ϕ˚ px1 q “ x.
+                                                                                y
+               there is an obvious functor Bit{X Ñ Bit                               bSet.
+By Kan’s abstract nonsense we get adjunction
+(12.2)
+       τ pXq the “realization“ of X:                                                      N pBq the "nerve" of B:
+
+                                     X          P                bSet               Q N pBq : N pBqG “ Bio pSG , Bq
+
+                                                        τ                   N
+
+ τ pXq “         colim        SG : τ pXq        P                Bio                Q B
+             p YG ÑXqPBit{X
+
+Remark 12.3. The full embeddings
+                                        i    j
+(12.4)                               ∆ ãÑ Ω ãÑ Bit
+                                     ∆
+(Ω the Dendroidal category of closed trees)
+give rise to Kan adjoints, compatible with the nerves and realizations functors,
+
+                               i!                                      j!
+
+     sSet ” Set∆
+               ∆       op
+                               i˚        dSet ” SetΩ
+                                                            op
+                                                                    j˚              bSet ” SetBit
+                                                                                                    op
+
+
+
+
+                               i˚                                      j˚
+
+         τ       N                         τ        N                                 τ       N
+
+
+                              i!                                       j!
+             Cat                               Oper                                       Bio
+                              i˚                                    j˚
+                              i˚
+
+                              Figure 12: Realization functors
+
+
+                                                 27
+The category bSet has an involution X ÞÑ X op with pX op qG :“ XGop , compatible
+with the involution P ÞÑ Pop on Bio : N pPop q “ N pPqop , τ pX op q “ τ pXqop .
+
+
+13       The symmetric “monoidal” structure on bSet
+  The closed symmetric monoidal structure on Bio induces a closed “almost-
+monoidal” symmetric structure on bSet via Day convolution
+
+(13.1)                  X b Y :“ colim         N pSG b SH q
+                                 ÝÝÝÑ
+                                     p YG ÑXqPBit{X
+                                     p YH ÑY qPBit{Y
+
+
+with inner hom
+                          ` X˘
+(13.2)                     Y G :“ bSet pX b YG , Y q
+
+and adjunction
+
+(13.3)                   bSetpX b Y, Zq ” bSetpX, Z Y q
+
+so that _ b _ commutes with co-limits.     This symmetric structure
+X b Y – Y b X, is Not associative: we have inclusions that need not be
+equalities:
+
+(13.4)            pX b Y q b Z Ď X b Y b Z Ě X b pY b Zq.
+
+Remark 13.5. The tensor product of representable can be described as in [17]
+via “perculations”. We have
+                                               ď
+(13.6)                YG b YH ” N pSG b SH q “    YK
+                                                         K
+
+the union taken š over all “shuffles“ K of G and H, with K Ď G ˆ H ,
+                                                                 1      1     1
+
+K 0 Ď G1 ˆ H 0 G0 ˆ H 1 . For G P BitmG ,nG , H P BitmH ,nH , the shuffles come
+with a partial order, with the biggest shuffle Kmax obtained by putting mH copies
+of G on the left of nG copies of H, and grafting the mH ˆ nG edges together:
+mH ¨ d` G „ nG ¨ d´ H
+                                              ž
+(13.7)                Kmax “ G ˆ d´ H              d` G ˆ H
+                                           d` Gˆd´ H
+
+Similarly, the smallest shuffle is
+                                               ž
+(13.8)                Kmin “ d´ G ˆ H                  G ˆ d` H
+                                           d´ Gˆd` H
+
+We go from Kmax down to Kmin in this partial order via the ”perculation moves“,
+moving G (co)-operations G0 ˆ H 1 to the right of H (co)-operations G1 ˆ H 0 ,
+
+                                          28
+                                š                                                    š
+replacing a copy of A ˆ d´ B         d` A ˆ B by a copy of d´ A ˆ B                      A ˆ d` B
+                             d` Aˆd´ B                                         d´ Aˆd` B
+for sub-bits A P Bitm1 ,n pGq, B P Bitm,n1 pHq.
+Graphically, with Aj – A, Bi – B,
+        $                                                                                 ,
+        ’
+        ’   1       1      1       1                    1            1    1          1    /
+                                                                                          /
+        ’
+        ’       A1 i          B1                              B1               A1         /
+                                                                                          /
+        ’
+        ’                  j                                         j     i              /
+                                                                                          /
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        ’  m1       n      m       n1                   m            n1   m1         n    /
+                                                                                          /
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        & 1         1      1       1                    1            1    1          1    /
+                                                                                          .
+      1         Aj i          B                               Bi               Aj
+m¨m                        j    i                                    j     i                  n ¨ n1
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        ’  m  1     n      m       n1                   m            n1   m1         n    /
+                                                                                          /
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        ’                                                                                 /
+                                                                                          /
+        ’
+        ’
+            1       1      1       1                    1            1    1          1    /
+                                                                                          /
+        ’
+        ’       Am            B n                             Bm 1             An1        /
+                                                                                          /
+        ’
+        ’           i      j                                         j     i              /
+                                                                                          /
+        ’
+        %                                                                                 /
+                                                                                          -
+            m 1     n      m        1
+                                    n                   m            n1   m1         n
+
+
+
+
+14       The image of N : Bio ãÑ bSet
+     For a face map in Bit, Be : Ge ãÑ G, we let
+(14.1)                Be YG “ Image tBe˚ : YGe Ñ YG u Ď YG
+so
+                       pBe YG qK “ tBe ˝ ϕ, ϕ P Bit pK, Ge qu
+We write the boundary,
+                                          ď
+(14.2)                      B YG :“                Be YG Ď YG
+                                        Be PΦpGq
+
+and the Be -horn
+                                          ď
+(14.3)                  ΛBe YG :“                    B 1 YG Ď B YG .
+                                    B1 PΦpGqztBe u
+
+and spine
+                                              ď
+(14.4)                          Sp YG :“            YCpvq ,
+                                               v
+
+the union over all v P C ˘ pGq, Cpvq the corolla at v.
+Definition 14.5. X P bSet is a (strict) inner Kan bital set if the diagram has
+a (unique) filling
+
+                            f : ΛB YG                          X
+
+
+
+
+(14.6)                           YG
+
+
+                                            29
+                             Ô
+for every (˘-composition or o -action) inner face B. The inner Kan bital sets
+will be also called 8-bios and we denote them by 8Bio Ď bSet.
+For P P Bio, X “ N pPq, XG “ BiopSG , Pq, a bitex x P XG is given by
+compatible
+
+                  fx1 : G1 ÝÑ P0
+(14.7)
+                  fx˘ : SG˘ ÝÑ P˘    ,        fx1 pd˘ Bq “ d˘ f pBq,
+
+and fx˘ is completely determined (by compositions and actions) by its restric-
+tions fx˘ : C ˘ pGq ÝÑ P˘ to the corollas of G, C ˘ pGq being the generators of
+SG .
+  A map f : Λe YG Ñ X “ N pPq again gives such compatible data
+f : G1 Ñ P0 , f ˘ : C ˘ pGq Ñ P˘ , and is determined uniquely by this data, so
+ 1
+
+
+(14.8)        bSet pSp YG , Xq “ bSet pΛe YG , Xq ” bSet p YG , Xq ” XG
+
+for X (the nerve of) a bio, and X is strict inner Kan. More precisely we have
+Theorem 2. For X P bSet, the following are equivalent
+(1) X is strict inner Kan
+(2) X – N pPq for P P Bio
+                                 „
+(3) The unit of adjunction X Ý
+                             Ñ N τ pXq is an isomorphism
+(4) For every G P Bit, the restriction
+
+                      XG “ bSet p YG , Xq ÝÑ bSet pSp YG , Xq
+
+     is a bijection.
+     And so N gives a full and faithful embedding of Bio into bSet with image
+     the strict Kan bital sets.
+
+
+
+15       The homotopy functor τ “ ho : 8 ¨ Bio Ñ Bio
+   For X P 8Bio the associated Bio τ pXq has a homotopical description as
+hopXq which we next brieﬂy describe. The objects of hopXq are
+                                       ˜            ¸
+                                         0   t    1
+(15.1)              hopXq0 :“ XI “ X ‚            ‚ .
+
+
+
+
+                                         30
+Thus for a bitex x P XG , and an edge e P G1 , the face δe : I Ñ G gives
+x|e :“ δe˚ pxq P hopXq0 .
+                     ¨            ˛                    ¨              ˛
+                              e 1                                 ℓ
+                     ˚ e0                              ˚ ℓ0
+                                                                    1
+                                  ‹                                   ‹
+ For x P XCm  ´ “ X ˝             ‚, for y P XCn´ “ X ˝               ‚,
+                              em                                  ℓn
+                       ¨                           ˛
+                                             e1
+                   ˚                           ..  ‹
+                   ˚                            .  ‹
+                   ˚                         ei´1 ‹
+                   ˚                               ‹
+                   ˚         e0                    ‹
+                   ˚                               ‹
+ for z P XC ´    “X˚                         ℓ1 ‹ ,
+           m`n´1   ˚                            .. ‹
+                   ˚                             . ‹
+                   ˚
+                   ˚                         ℓn ‹  ‹
+                   ˝                          ..   ‚
+                                               .
+                                             em
+
+  deﬁne x ˝i y « z if and only if there exists a homotopy h : x ˝i y « z, so that
+                              ¨                       ˛
+                                                 e1            ℓ1
+                                       e0             ℓ0 “ei
+(15.2)                   hPX˝                                       ‚
+                                                 em            ℓn
+
+
+and h restrict to x, y, z under the appropriate face maps.
+             ´ , x˝i 1e « z is independent of i, and gives an equivalence relation
+For x, z P XCm          i
+on XCm ´.
+
+
+We deﬁne for xi P hopXq0
+                                            !                    )
+(15.3)         hopXq´ px0 ; x1 ¨ ¨ ¨ xn q :“ x P XCn´ , x|ei “ xi { «
+
+and similarly hopXq` px1 ¨ ¨ ¨ xn ; x0 q.   For x P hopXq´ px0 ; x1 ¨ ¨ ¨ xn q,
+           ´
+y P hopXq pxi ; y1 , ¨ ¨ ¨ ym q we can deﬁne x ˝i y :“ z if h : x ˝i y « z; the
+existence of h, and z, follows from ﬁlling the ℓ0 “ ei horn in (15.2). This is well
+deﬁned, independent of the representatives chosen, and makes hopXq´ into an
+operad, and similarly for hopXq` . For m ě n ` j ´ 1
+                           ¨              ˛                 ¨                ˛
+                                      e1                         ℓ1     ℓ0 ‹
+                           ˚ e0           ‹                 ˚
+         x P XC m´ “ X ˝                  ‚, y P XCn` “ X ˚ ˝
+                                                                             ‹,
+                                                                             ‚
+                                     em                          ℓn
+
+(15.4)                      ¨               e1
+                                                        ˛
+                       ˚                         ej´1   ‹
+                       ˚          e0                    ‹
+                       ˚                          ℓ0  ‹
+         z P XC ´    “X˚                         ej`n ‹ ,
+               m´n`1   ˚                                ‹
+                       ˝                                ‚
+                                        em
+
+
+
+                                             31
+we say xÐ
+        Ý̋j y « z, if there is a homotopy h : xÐ
+                                               Ý̋j y « z, i.e. if there is an element
+h,
+                                ¨       e
+                                                          ˛
+                                                1
+
+                               ˚                     ej “ℓ1        ‹
+                               ˚          e0                  ℓ0   ‹
+                               ˚                                   ‹
+(15.5)                      hPX˚                                   ‹
+                               ˚                                   ‹
+                               ˝                     ej`n´1 “ℓn    ‚
+                                               em
+
+that restrict to x, y, z under the obvious face maps. Again, given x, y the exis-
+tence of h and z, follows from ﬁlling the ℓk “ ej`k´1 horn in (15.5), and putting
+xÐÝ̋j y :“ z is well deﬁned, independent of the representatives x, y, z chosen, and
+gives the action of hopXq` on hopXq´ . Similarly we have the action of hopXq´
+on hopXq` , and it is easy to see these are linear so that we have a bio hopXq,
+clearly functorial in X, so we have a functor
+(15.6)                               ho : 8Bio ÝÑ Bio
+When X “ N P we get
+ hopN Pq0 “ pN PqI “ BiopI, Pq “ P0 , and for c0 , c1 , ¨ ¨ ¨ cn P P0
+
+ hopN Pq´ pc0 ; c1 ¨ ¨ ¨ cn q “ tf P Bio pCn´ , Pq , f pei q “ ci u {« “ P´ pc0 ; c1 , ¨ ¨ ¨ cn q,
+the homotopy relation reduces to identity, and
+(15.7)                                  hopN Pq ” P
+For a general X P 8Bio, and ϕ P bSetpX, N Pq, P P Bio, we get the adjoint
+map of bios
+(15.8)                      hopϕq : hopXq ÝÑ hopN Pq ” P.
+
+
+16       Normal monomorphisms
+   The category Bit, like the dendroidal category of trees Ω, and unlike the
+simplicial category ∆ ∆, has automorphisms and so the cofibrations of bSet
+f : X Ñ Y are deﬁned to be the monomorphisms that are normal: for each
+G P Bit the group AutpGq acts freely on YG zf pXG q. An object X P bSet is
+cofibrant or normal if φ Ñ X is normal, i.e. for each G P Bit the group
+                                                                      ř AutpGq
+acts freely on XG ; e.g. every representable YG is normal since SG “ SG has
+free Sn -actions. For X P bSet, let Skn pXq Ď X the sub-bSet
+                                                                     (
+(16.1)          Skn pXqG :“ x P XG , x “ α˚ pxq, α : G Ñ H, #H 1 ď n
+generated by biticies coming from bits H with at most n edges. We obtain the
+skeltal ﬁlteration
+                                                           ď
+(16.2)          Sk1 pXq Ď Sk2 pXq Ď ¨ ¨ ¨ Ď Skn pXq Ď ¨ ¨ ¨ Skn pXq ” X
+                                                                    n
+
+
+                                               32
+Similarly, for a normal mono f : X ãÑ Y deﬁne
+
+                                 Skn pY, Xq :“ X Y Skn pY q
+(16.3)                                                     Ť
+           X “ Sk0 pY, Xq Ď ¨ ¨ ¨ Ď Skn pY, Xq Ď ¨ ¨ ¨ Ď       n Skn pY, Xq ” Y
+
+We get push out squares
+
+(16.4)
+                    š
+                          B YG                    Skn´1 pY, Xq
+                    G,x
+
+
+
+
+                      š
+                            YG                    Skn pY, Xq
+                     G,x
+
+
+the sum taken over isomorphism classes of pG, xq, G P Bit, x P YG non-
+degenerate and not in the image of XG .
+Similarly, a normal X P bSet can be represented as a union of the Skn pXq that
+are given by push-outs
+
+(16.5)
+                     š
+                          B YG                      Skn´1 pXq
+                    G,x
+
+
+
+
+                        š
+                            YG                      Skn pXq
+                      G,x
+
+
+                                                                n.d.
+the sum taken over isomorphism classes of pG, xq, G P Bit, x P XG    ¨, #G1 “ n.
+It follows that the set of coﬁbraions of bSet
+
+(16.6)            CbSet :“ tf P bSetpX, Y q, f normal monou
+
+is closed under composition, push-outs, sums, retracts, and sequential limits.
+Moreover, the push-out squares (16.4) show that CbSet is the smallest class that
+is closed under pushouts, compositions and sequential limits and contains the
+generating coﬁbraions,
+
+(16.7)                    GCbSet “ tB YG         YG uGPBit .
+The small object argument gives a factorization of any map f P bSet(X,Y) as
+f “ p ˝ j, with j a normal mono and p having RLP (-right lifting property) with
+
+                                           33
+respect to all normal monos (p a “trivial ﬁbration”). For f : φ Ñ X we get that
+every X P bSet has a normalization
+
+(16.8)                                p : X̃ Ñ X
+
+We have
+                                               K
+(16.9)                           CbSet ”           pCK
+                                                     bSet q
+
+where CK (resp. K C) is the set of arrows satisfying the right (resp. left) lifting
+property with respect to C. The inclusion
+                                     `      ˘Ď is tautological; for the converse  Ě
+use the retract argument: for f P K CK bSet  , factor f “ p ˝ j  with p P CK
+                                                                           bSet , so
+there is a lifting
+
+                                           j
+                                  X                     Y1
+
+                                 f                         p
+
+
+(16.10)                           Y                    Y
+
+so f is a retract of j P CbSet , and so f P CbSet too.
+Given normal monos f : A Ñ X, g : B Ñ Y , the pushout-product
+                #                                      +
+                                    ž
+(16.11)           f bg : AbY            X b B ÝÑ X b Y P CbSet
+                                     AbB
+
+is again a normal mono; this follows from the generaing case of boundary
+inclusions f : B YF Ñ YF , g : B YG Ñ YG , F, G P Bit, which reduce to
+pB YF b YG q X p YF b B YG q “ B YF b B YG (c.f. [40, 4.26 (ii)]).
+Similarly denoting by A Ď CbSet the sturation of the inner (composition or ac-
+tion) faces, the “anodyne extensions” (the “via” of [66]), for f P A , g P CbSet ,
+we have f b g P A is again anodyne; this follows from the generating cases
+f : Λe YF ãÑ YF , e a composition (resp action) edgepsq of F , and g : B YG ãÑ YG
+(c.f. [66, 6.3]).
+It follows by adjunction that we have “Joyal’s exponential property“:
+For Xp“ colim Skn pXqq normal, Q P 8Bio every map Λe YG b X Ñ Q ex-
+             Ñ
+tends to YG b X Ñ Q, so have QX P 8Bio. Similarly, for a normal mono
+f : X ãÑ Y , with X, Y normal, and any Q P 8Bio, the map f ˚ : QY Ñ QX
+is an inner ﬁbration between 8Bio; it is actually a Kan ﬁbration between the
+underlying 8categories (cf. [66, 7.2])!
+
+
+17        Quillen Model structure. Ein Märchen
+  Notation: We shall write P˘ pc0 ; cq as a short hand for ” P´ pc0 ; c1 , ¨ ¨ ¨ , cn q
+and P` pc1 , ¨ ¨ ¨ , cn ; c0 q“.
+
+                                           34
+The category sBioC , of simplicial bios with a ﬁxes set of objects C (and identify
+maps on C), has the projective model structure, where a map
+f : P Ñ Q is a weak equivalence (resp. ﬁbration) iﬀ for all c0 , c “ c1 ¨ ¨ ¨ cn P C,
+P˘ pc0 ; cq Ñ Q˘ pc0 ; cq are weak equivalences (resp. ﬁbrations) in sSet.
+There is an equivalent Reedy model structure, with the same weak-equivalences,
+and ﬁbrations f : P Ñ Q are maps such that for all c0 ; c “ c1 , ¨ ¨ ¨ , cn P C the
+maps
+                                                 ź
+(17.1)             P˘ pc0 ; cq ÝÑ P q ˘ pc0 ; cq     Q˘ pc0 ; cq
+                                                        |
+                                                        Q˘ pc0 ;cq
+
+are ﬁbration in sSet, where
+(17.2)
+  q ˘ pc0 ; cq :“ lim P˘ pc0 ; cI q ,
+  P                                               cI “ ci1 , ¨ ¨ ¨ cik for I “ ti1 ă ¨ ¨ ¨ ă ik u
+                IŘt1,...,nu
+
+For X P sSet and c0 ; c “ c1 , ¨ ¨ ¨ , cn P C, we have the ”Corollas“ simplicial bios
+(in fact ordinary simplicial operads!) Cc´0 ;c1 ...cn pXq and Cc`0 ...cn ;c0 pXq, to be
+denoted commonely by Cc˘0 ;c1 ...cn pXq, satisfying adjunction
+                         ´              ¯      `              ˘
+(17.3)             sBiosC Cc˘0 ;c pXq, P ” sSet X, P˘ pc0 ; cq
+
+Similarly we have the simplicial bios
+                              q˘ pXq :“               ˘
+(17.4)                        Cc0 ;c            ÝÝÝÑ Cc0 ;cI pXq
+                                                colim
+                                              IŘt1,...,nu
+
+so that
+                        ´             ¯      ´               ¯
+(17.5)             sBioC C                       q ˘ pc0 ; cq
+                          q ˘ , pXq, P ” sSet X, P
+                           c0 ,c
+
+
+The Reedy model structure is coﬁbrantly generated, with (resp. trivial) ﬁbra-
+tions given by
+                      $                                                                 ,K
+                      ’
+                      &                      ž                                          /
+                                                                                        .
+(17.6)     q sBio ”
+           F              Cc˘0 ,c pΛem q               q˘ p∆pmqq Ñ C ˘ p∆pmqq
+                                                       C
+                 c                                      c0 ,c       c0 ,c
+                      ’
+                      %                                                                 /
+                                                                                        -
+                                           q ˘ pΛe q
+                                           C c0 ,c m
+
+
+resp.
+(17.7)
+                    $                                                                         ,K
+                    ’
+                    &                            ž                                            /
+                                                                                              .
+         q sBio ”
+WsBioc X F              Cc˘0 ,c pB∆pmqq                     q ˘ p∆pmqq Ñ C ˘ p∆pmqq
+                                                            C
+               c                                             c0 ,c        c0 ,c
+                    ’
+                    %                                                                         /
+                                                                                              -
+                                             q ˘ pB∆pmqq
+                                             C c0 ,c
+
+
+
+
+                                                 35
+The main lemma here is that for X Ď Y , and for c0 c “ c1 ¨ ¨ ¨ cn P C, the
+push-out
+                               š       q˘ pY q
+               Cc˘0 ;c pXq             Cc0 ;c                            Cc˘0 ;c pY q
+                             q ˘ pXq
+                             C c0 ;c
+
+
+
+
+                                                               f
+(17.8)                          P                                            Q
+
+gives a weak-equivalence tf : P Ñ Qu P WsBioC .
+The category of open simplicial bio sBioφ (so for P P sBioφ , P˘ pc0 ; φq “ φ),
+has the coﬁbrantly generated projective model structure with ﬁbrations
+(17.9)     $                                     `             ˘(                  ,
+           & f : P Ñ Q, P˘ pc0 ; cq Ñ Q˘ f 0 pc0 q; f 0 pcq P FsSet                .
+  FsBioφ “
+           %                                                                       -
+              all c0 , c “ c1 ¨ ¨ ¨ cn P P0 and tπ0 i˚ j ˚P ÝÑ π0 i˚ j ˚ Qu P FCat
+
+(here FCat are the ﬁbrations of the naive model structure on Cat), and weak-
+equivalences
+(17.10)     $                                  `                ˘(               ,
+            & f : P Ñ Q, P˘ pc0 ; cq Ñ Q˘ f 0 pc0 q; f 0 pcq P WsSet ,           .
+  WsBioφ “
+            %                                                                    -
+               all c0 , c P Pand π0 i˚ j ˚P Ñ π0 i˚ j ˚ Q essentially surjective
+
+We have the (resp trivial) generating coﬁbrations, so that
+                                                                        ((K
+(17.11) WsBioφ X FsBioφ “ tφ Ñ g ˚ Iu Y g ˚ Cn˘ pB∆pmqq Ñ g ˚ Cn˘ p∆pmqq
+
+                                                                            ((K
+(17.12)   FsBioφ “ tg ˚ I Ñ g ˚ N p0 Ø 1qu Y g ˚ Cn˘ pΛem q Ñ g ˚ Cn˘ p∆pmqq
+                        φ
+Here g ˚ : sBio Ñ( sBio˚ is˘ the functor that simply forgets the constants,
+ ˘             ˘
+P pc0 ; φq “ 0c0 ÞÑ pg Pq pc0 ; φq “ φ, so that we have the adjunctions
+
+                                                  sBioφ
+
+
+                                       g!                 g˚       g˚
+
+
+(17.13)                                            sBio
+
+                  pg! Pq˘ pc0 ; cq “                  ˘      1        1
+                                              ÝÝÝÑ P pc0 ; cc1 ¨ ¨ ¨ cℓ q,
+                                              colim
+                                            t    uĎP
+                                             c11 ...c1ℓ
+                                                    0
+
+
+
+
+                                                     36
+                              ˘
+                                                      ź
+                       pg˚Pq pc0 ; cq “                        P˘ pc0 ; cI q
+                                                φ­“IĎt1...nu
+
+The category of closed simplicial bios sBio gets a transfered projective model
+structure via g ˚ from sBioφ , so that
+                                    ´1
+(17.14)            FsBio ” pg ˚ q        pFsBioφ q    ,    WsBio “ pg ˚ q´1 pWsBioφ q
+The main lemma here is that
+                          šthe transfer  condition are satisﬁed, and this follows
+since g ˚ g! g ˚ Cn pXq “       g ˚ CI pXq, and so the functor g ˚ g! takes the
+                          φ­“IĎt1...nu
+generating trivial coﬁbrations to trivial coﬁbrations.
+There is an equivalent Reedy model structure on sBio, with the same weak-
+equivalences, and with ﬁbrations
+(17.15)              !                                      )
+                                                  (
+ q sBio ” FsBio X f : P Ñ Q, P Ñ pf 0 q˚ Q P F
+ F                                                   q sBio
+                                                                           P0
+
+
+              #                            #                                                     ++K
+                                                             š
+          ”       tI Ñ N p0 Ø 1qu Y          Cn˘ pΛem q                qn˘ p∆pmqq Ñ Cn˘ p∆pmqq
+                                                                       C
+                                                          qn
+                                                          C ˘
+                                                              pΛem q
+
+The main lemma being again that any push-out of the generating trivial coﬁ-
+brations is a weak-equivalence.
+Recall that (the small object argument gives) a normalization π : X̃ Ñ X for
+any X P bSet, and moreover, any map f : X Ñ Y in bSet is covered
+                                                          ś       by a normal
+map between normal objects f˜ : X̃ Ñ Ỹ , (can take X̃ “ X Ỹ ).
+                                                                                 Y
+The category of bital sets bSet has a model structure with the coﬁbrations
+CbSet ” tnormal monosu, the ﬁbrant objects are 8Bio, and the weak-equivalences
+                   !                                                    )
+(17.16)    WbSet ” f : X Ñ Y, f˜˚ : QỸ Ñ QX̃ P WsSet for all Q P 8Bio
+
+It is coﬁbrantly generated, so that we have for the (resp. trivial) ﬁbration
+(17.17)
+                              !                                              )K
+                         K
+ FbSet ” pCbSet X WbSet q ” tI ãÑ N p0 Ø 1qu Y tΛe YG ãÑ YG uGPBit,ePΦin pGq
+
+                                                                             K
+                      WbSet X FbSet ” CK
+                                       bSet ” tB YG ãÑ YG uGPBit
+
+Moreover it seems that the pushout product property (for f, g P CbSet with
+f P WbSet , f b g P WkgSet ), as well as the associativity property (inclusions
+pX b Y q b Z ãÑ X b Y b Z Ðâ X b pY b Zq are trivial coﬁbrations) hold,
+and so one gets an induced associative symmetric product b on the homotopy
+category HopbSetq.
+A modiﬁcation of the Berger-Moerdijk-Boardman-Vogt resolution„ associating
+with a bit G P Bit the resolution W SG of the bio SG , gives a functor W : Bit Ñ
+sBio, something like
+                                               ž                   in
+(17.18)          pW SG q˘ pe0 ; ei q :“                      ∆r1sΦ pBq
+                                                  ˘
+                                               BPSG , d˘ B“e0 , d¯ B“tei u
+
+
+
+                                                 37
+By Kan extension get the adjunction
+
+(17.19)                    W! : bSet                    sBio : W ˚
+
+and this should give a Quillen equivalence between the model structures on bSet
+and sBio.
+
+
+18        Self-duality
+  Having the involution, Bio ý, P ÞÑ Pop , we can speak of the self-dual bios,
+Biot , with objects the bios with involution,
+                                                   „
+(18.1)            P ÞÑ P t : P “ pP´ , P` q Ý
+                                            Ñ Pop “ pP` , P´ q,
+
+and with maps of bios commuting with the involution (the involution is always
+the identity on P0 ). There is a forgetfull functor U : Biot Ñ Bio.
+For P “ pP´ , P` q P Biot , we can forget P` since it is isomorphic to P´ , and
+we only have to remember the action Ð    Ý̋ of P´ ” P` on P´ . Thus the objects
+      t
+of Bio are (closed, symmetric, colored) operads P, together with a contraction
+operation: For a word c “ c1 . . . cn , ci “ pci1 , ¨ ¨ ¨ , cimi q, b0 , b1 ¨ ¨ ¨ bn P P0 , we
+have Sn -covariant and Sm1 ˆ ¨ ¨ ¨ ˆ Smn - invariant functions
+
+             {{ : Ppb0 ; cq ˆ rPpb1 ; c1 q ˆ ¨ ¨ ¨ ˆ Ppbn ; cn qs ÝÑ Ppb0 ; b1 ¨ ¨ ¨ bn q
+(18.2)
+                             pP, Pi q ÞÝÝÝÑ P {{pPi q :“ P Ð
+                                                           Ý̋ pP t q.
+                                                                i
+
+This contraction is unital
+
+(18.3)                                 P {{p1ci q “ P
+
+and associative
+
+(18.4)                    pP {{pPij qq {{pPj q “ P {{ pPj ˝ pPij qq
+
+The linearity axioms read
+
+                          pP ˝ pPi qq {{pPij q “ P ˝ pPi {{Pij q
+(18.5)
+                          P {{ pPi {{pPij qq “ pP ˝ pPij qq {{pPi q
+
+Note that we get an involution for the underlying category i˚P – pi˚Pqop , for
+b, c P P0 ,
+                                              „
+                                 Ppb, cq ÝÝÝÝÝÑ Ppc, bq
+
+(18.6)                            P ÞÝÝÝÑ P t :“ 1c {{P
+
+                  pP1 ˝ P2 qt “ P2t ˝ P1t     ,    1tc “ 1c   ,   P tt “ P
+
+                                              38
+Similarly we have the category of self-dual bital sets bSett , its objects are bital
+sets X P bSet together with an involution X – X op , i.e. for each G P Bit we
+have
+                                                 „
+(18.7)                x ÞÝÝÑ xt : XG ÞÝÝÝÑ XGop , xtt “ x,
+and natural in G; the maps in bSett are maps in bSet that commute with the
+involution; we have a forgetfull functor U : bSett Ñ bSet.
+We get an induced “self-dual” picture
+(18.8)
+                                                     i!
+                        sSett                         i˚              bSett
+
+
+                            N                                             N
+                        τ                                            τ
+
+                                                i!
+                        Catt                                          Biot
+                                                  i˚
+
+with Catt (resp. sSett ) the similarly deﬁned categories of “categories with an
+involution” (resp “simplicial set with an involution”).
+
+
+19       Rigs
+Definition 19.1. A Rig (” Ring without Negatives) is a set R with two oper-
+ations of addition and multiplication
+                                                                    x`y
+(19.2)                 RˆR ÑR               ,        px, yq ÞÝÝÑ        ,
+                                                                    x¨y
+both associative and unital
+               px ` yq ` z “ x ` py ` zq                  ,   px ¨ yq ¨ z “ x ¨ py ¨ zq
+(19.3)
+               x`0“x“0`x                ,        x¨1“x“1¨x
+with addition always commutative x ` y “ y ` x, and distributive
+(19.4)
+     px1 ` x2 q ¨ y “ px1 ¨ yq ` px2 ¨ yq , x ¨ py1 ` y2 q “ px ¨ y1 q ` px ¨ y2 q
+
+     x¨0“0“0¨x
+
+   A rig with involution is a rig R with an involution
+              x ÞÑ xt : R ý ,       satisfying xtt “ x and 0t “ 0 ,                       1t “ 1
+(19.5)
+              px ` yqt “ xt ` y t   ,           px ¨ yqt “ y t ¨ xt
+
+                                                     39
+A rig is commutative R P CRig if multiplication is commutative,
+                                                  x¨y “y¨x
+                                     1
+A map of rigs ϕ : R Ñ R is a set map preserving the operations and constants
+(19.6)
+ϕp0q “ 0 , ϕp1q “ 1 , ϕpx ` yq “ ϕpxq ` ϕpyq , ϕpx ¨ yq “ ϕpxq ¨ ϕpyq
+and in the self-dual case Rigt , ϕ should also preserve the involution,
+                                                ϕpxt q “ ϕpxqt .
+Thus we have categories and functors
+                                                           U
+                                         Rigt                         Rig
+
+(19.7)
+                                                                       Ď
+                                                                     CRig
+
+(for a commutative rig the identity is an involution).
+There is a similar diagram with Ring instead of Rig, the inclusion Ring ãÑ Rig
+has the left adjoint functor K “Grothendieck functor localizing addition.
+E.g. we have the commutative rigs
+(19.8)                  B “ t0, 1u                 I “ r0, 1s                R “ r0, 8s
+with the usual multiplication x ¨ y, and with the “tropical” addition
+                                                     def
+(19.9)                                     x ` y : “ max tx, yu .
+For A P Rig we have the monochromatic operad PA (i.e. P0 “ t˚u, and we
+write PA´ pnq ” PA p˚; lo ¨ ¨ ˚nq) with PA´ pnq ” An , and with compositions
+                       ˚ ¨mo
+                                    n
+
+(19.10)                                oi : An ˆ Am ÝÝÝÑ An`m´1
+pa1 , ¨ ¨ ¨ , ai , ¨ ¨ ¨ an q˝i pb1 , ¨ ¨ ¨ , bm q :“ pa1 , . . . , ai´1 , ai ¨b1 , ai ¨b2 ¨ ¨ ¨ ai ¨bm , ai`1 ¨ ¨ ¨ am q
+We have similarly the operad PA` ” PAop of colume vectors
+                         PA` p˚               `
+                                mo¨ ˚n; ˚q ” PA pnq ” An ,
+                              lo¨ ¨                                          with composition
+                                   n
+
+                                                                                         ¨   ˛
+                                                                                      b1
+                                                                        ¨ ˛       ˚ .. ‹
+                                                                          b1      ˚ . ‹
+                                                                ¨ ˛ ˚ . ‹         ˚          ‹
+(19.11)                                                          a1     ˚ .. ‹    ˚ a1 ¨ b j ‹
+                                                                        ˚    ‹    ˚          ‹
+                                                                ˚ .. ‹ ˚ ‹        ˚ . ‹
+                        An ˆ Am ÝÝÑ Am`n´1                      ˝ . ‚˝j ˚ bj ‹ :“ ˚ .. ‹
+                                                                        ˚ . ‹     ˚          ‹
+                                                                 an     ˝ .. ‚ ˚             ‹
+                                                                                  ˚ an ¨ b j ‹
+                                                                                  ˚ . ‹
+                                                                          bm      ˝ .. ‚
+                                                                                               bm
+
+                                                           40
+Moreover, we have mutual actions, for 1 ď k ď m ď n,
+                              Ð
+                              Ý̋k : An ˆ Am´k`1 ÝÝÝÑ An´m`k
+                                                             ¨         ˛
+                                                                b0
+                          `                                   ˚
+                                                         ˘ Ý̋ ˚ b1     ‹
+(19.12)                                                                ‹
+                            a1 ¨ ¨ ¨ ak ¨ ¨ ¨ am ¨ ¨ ¨ an Ð  k˚ .      ‹ :“
+                                                              ˝ ..     ‚
+          `                                                     bm´k                       ˘
+           a1 ¨ ¨ ¨ ak´1 , ak ¨ b0 ` ¨ ¨ ¨ ` ak`j ¨ bj ` ¨ ¨ ¨ ` am ¨ bm´k , am`1 ¨ ¨ ¨ an
+
+and similarly for Ý
+                  Ñ̋ .
+This construction gives a full and faithful embedding
+
+(19.13)                 Rig           Biot˚u      ,   A ÞÝÝÝÑ PA .
+                                                         `        ˘
+Moreover, when the rig A has an involution, the bio PA “ PA´ , PA` has an
+involution
+                                                 ¨ t˛
+                                                  a1
+                                                 ˚ ‹
+(19.14)                   pa1 , ¨ ¨ ¨ , an qt :“ ˝ ... ‚
+                                                       atn
+
+giving
+
+(19.15)                        Rigt                   Biott˚u
+
+The initial object of Rig, and of Rigt , is N the rig of natural numbers,
+therefore, the above functor gives Bios under PN . Having the vectors
+p1, 1q P PN˘ p2q Ñ P˘ p2q we can deﬁne addition on Pp1q making it into a
+rig
+                                                 ˆ ˙
+                                      Ð
+                                      Ý̋      Ð
+                                              Ý̋  1
+(19.16)                a ` b :“ p1, 1q pa, bq        .
+                                                  1
+
+We get adjunctions,
+
+(19.17)                        zBiott˚u        U             zBiot˚u
+             PA               PN                        PN                         P
+
+
+
+                                               U
+               A                   Rigt                   Rig                    Pp1q
+
+
+
+
+                                             41
+20       The ℓp bio
+   Fix p, q P r1, 8s, with 1{p ` 1{q “ 1. We have the monochromatic operad
+Pℓp Ď PR , with
+(20.1)
+ Pℓp pnq :“ tpx1 , ¨ ¨ ¨ , xn q P PR pnq ” Rn , xp1 ` ¨ ¨ ¨ ` xpn ď 1u
+
+ px1 , ¨ ¨ ¨ , xn q ˝i py1 , ¨ ¨ ¨ , ym q :“ px1 , ¨ ¨ ¨ , xi´1 , xi ¨ y1 , . . . , xi ¨ ym , xi`1 , ¨ ¨ ¨ , xn q
+We write the elements of Pℓq as column vector, and we have the mutual actions
+induced from PR ,
+(20.2)                       ¨     ˛
+                               b0
+                             ˚ b1 ‹
+                        Ý̋ k ˚
+pa1 ¨ ¨ ¨ ak ¨ ¨ ¨ an q Ð
+                                   ‹
+                             ˚ .. ‹ :“ pa1 ¨ ¨ ¨ ak´1 , ak ¨b0 `¨ ¨ ¨`ak`j ¨bj `¨ ¨ ¨`am ¨bm´k , am`1 , ¨ ¨ ¨ , an q
+                             ˝ . ‚
+                              bm´k
+and similarly for Ý
+                  Ñ̋ .
+The rig R, being commutative has an (identity) involution, hence PR has an
+involution
+                                             ¨ ˛
+                                              a1
+                                             ˚ ‹
+(20.3)                    pa1 ¨ ¨ ¨ an qt :“ ˝ ... ‚
+                                                                 an
+                 `            ˘     `             ˘
+The sub-bio Pℓp , Pℓq Ď PR´ , PR                `
+                                                      is stable under this involution iﬀ p “ q “ 2,
+and we are in the self-dual case
+                                                                                          (
+(20.4)                Pℓ2 pnq ” px1 , ¨ ¨ ¨ , xn q P Rn , x21 ` ¨ ¨ ¨ ` x2n ď 1
+the ℓ2 -unit ball.
+The bio ZR :“ pPℓ2 , Pℓ2 q Ď PR is the “Real integers”, analogue at the “Real
+prime” of the p-adic integers Zp Ď Qp , p a prime. We similarly have the “complex
+integers” ZC Ď PC given by the unit ℓ2 complex balls.
+
+
+21       Distributive bios
+   Let P “ pP´ , P` q be a monochromatic bio, P0 “ t˚u.
+We say P is distributive if the actions and compositions interchange:
+for P P P´ pnq, P 1 P P` pmq, P 2 P P´ pℓq,
+              ` Ð       ˘                                        Ý̋ `P 1 , ¨ ¨ ¨ , P 1 ˘
+(21.1)         P Ý̋j P 1 ˝j P 2 ” pP ˝ loooooomoooooon
+                                       pP 2 , ¨ ¨ ¨ , P 2 qqσm,ℓ Ð  loooooomoooooon
+                                                             m                                ℓ
+
+and similarly,
+                           ` Ñ̋ ˘
+(21.2)               P 2 ˝j P 1 Ýj P ” pP
+                                          1
+                                            , ¨ ¨ ¨ , P 1q Ý
+                                        looooomooooon
+                                                           Ñ̋ σℓ,m ppP 2 , ¨ ¨ ¨ , P 2 q ˝ P q
+                                                                     looooomooooon
+                                                       ℓ                            m
+
+
+                                                       42
+for P P P` pnq, P 1 P P´ pmq, P 2 P P` pℓq.
+Pictorially,
+(21.3)
+
+                                                                    P2             P1
+          P           P1           P2        ”           P          P2
+                                                                    P2             P1
+
+
+
+
+We let CBio Ď Bio denote the full subcategory of distributive bios.
+For a planer bit G P pBit, and e P G1 with d´ e “ v´ P Cn1 pGq,
+d` e “ v` P C1m pGq, we deﬁne GZe, the interchange of G at e, by applying
+to G the perculation move: moving Cv` to the left of Cv´ , pictorially
+
+                                                              p1q            p1q
+                                                        e1   v`     e1,1    v´           ℓ1
+               e1                   ℓ1             ..                               ..
+                    v´     e   v`                   .         piq
+                                                             v`
+                                                                             piq
+                                                                            v´       .
+                                                        ei                               ℓj
+(21.4)                                      ⇛      ..                               ..
+                                                    .        pnq
+                                                             v`
+                                                                            pnq
+                                                                            v´       .
+               en                   ℓm                  en                               ℓm
+                                                                    en,m
+
+
+
+Using these percolation moves we can bring all the Cv , v P C ´ pGq, to the left
+of all Cu , u P C ` pGq. Thus for G P pBitn,m pGq, we obtain after a ﬁnite number
+of such perculations
+
+(21.5)          G ⇛ GZe1 ⇛ GZe1 Ze2 ⇛ ¨ ¨ ¨ GZe1 ¨ ¨ ¨ Zeℓ ” pTi , σ, Tj1 q
+                       (
+with tTi ui“1...n , Tj1 j“1...m are forest of planer trees, and σ is a bijection be-
+                          š          „      š
+tween their leaves σ :         BTi ÝÝÝÑ          BTj1 .
+                         1ďiďn                1ďjďm
+For a distributive bio P, G P Bit, e P G1 with v´ “ d´ e P C ` pGq,
+v` “ d` e P C ´ pGq, we clearly have
+
+                    pN PqG     ”     BiopSG , Pq
+                                     $                              ,
+                                     ’
+                                     ’ ϕ P BiopSGze , Pq, /         /
+                                     & ϕ˝ pei,j q “ ϕ˝ pei1 ,j 1 q, /
+                                     ’                              .
+(21.6)                         ”           piq         pi1 q
+                                     ’
+                                     ’ ϕpv´ q “ ϕpv´ q,             /
+                                                                    /
+                                     ’
+                                     %     pjq         pj 1 q       /
+                                                                    -
+                                       ϕpv` q “ ϕpv` q
+
+                               Ď     pN PqGZe Ď ¨ ¨ ¨ Ď pN PqpTi ,σ,Tj1 q
+
+
+                                              43
+For a distributive bio P, the underliying (associative, unital) monoid Pp˚; ˚q “
+P˘ p1q is commutative. Indeed, for unary operations (n “ m “ p “ 1)
+interchange reduces to commutativity
+
+(21.7)                      pP Ð
+                               Ý̋ P 1 q ˝ P 2 ” pP ˝ P 2 q Ð
+                                                           Ý̋ P 1
+
+                         Ñ̋ 1˚ “ Ý
+and for P “ 1˚ , P 1 “ Q Ý
+                                 Ñ
+                                 Q , this gives
+
+                                           Ý̋ Ý
+                                              Ñ
+                          Ô
+             Q ˝ P2 “ Q ˝ P2         ” p1˚ Ð  Q q ˝ P 2 ” p1˚ ˝ P 2 q Ð
+                                                                      Ý̋ pQ Ý
+                                                                            Ñ̋ 1˚ q
+(21.8)
+                                     ” pP 2 ˝ Qq Ð
+                                                 Ý̋ 1˚ ” P 2 ˝ Q
+
+Moreover, interchange imply this monoid Pp1q acts centrally on operations and
+co-operations, in the sense that for a P Pp1q, P P P´ pnq (resp. P P P` pnq) we
+have
+
+(21.9)         a ˝ P “ P ˝ pa, ¨ ¨ ¨ , aq ,
+                            looomooon              presp. P ˝ a “ pa, ¨ ¨ ¨ , aq ˝ P q
+                                                                   looomooon
+                                    n                                     n
+
+For a multiplicative subset S Ď Pp1q
+
+(21.10)                     s1 , s2 P S ùñ s1 ˝ s2 P S, 1 P S,
+
+we have the localization of P at S, S ´1P:
+
+                        S ´1P ” PrS ´1 s ” pS ´1P´ , S ´1P` q
+(21.11)
+                        S ´1P˘ “ P˘ ˆ S{ „
+
+with pP 2 , s2 q „ pP 1 , s1 q iﬀ s ˝ s1 ˝ P 2 “ s ˝ s2 ˝ P 1 for some s P S; one writes
+P {s “ 1s ˝ P for the equivalence class pP, sq{ „.
+For a commutative rig A the bio PA is distributive; this is true in particular for
+commutative rings A, and we shall continue and deﬁne ideals, primes, spectrum,
+schemes etc. for distributive bios making sure that we get the right deﬁnitions
+for P “ PA , A P CRing.
+Remark 21.12. For any rig A, the associated bio PA contains the (distributive,
+self-dual) sub-bio F Ď PA with
+
+           F´ pnq “ t0 “ p0, ¨ ¨ ¨ , 0q, δ1 “ p1, 0, ¨ ¨ ¨ , 0q, ¨ ¨ ¨ , δn “ p0, ¨ ¨ ¨ 0, 1qu
+                        $          ¨ ˛                  ¨ ˛,
+                       ¨ ˛
+                        ’           1                    0 /
+                        ’
+                        0
+                        ’                                     /
+(21.13)                 &          ˚0‹                  ˚ .. ‹/
+                                                              .
+            `       t  ˚ .. ‹ t ˚ ‹                 t   ˚.‹
+           F pnq “ 0 “ ˝ . ‚, δ1 “ ˚ . ‹ , ¨ ¨ ¨ , δn “ ˚ ‹
+                  ’
+                  ’                ˝ .. ‚               ˝0‚/  /
+                  ’
+                  %     0                                     /
+                                                              -
+                                    0                    1
+
+the (co)-vectors with at most one 1 coordinate (note that F is closed under the
+composition and action operations); we call F “the field with one element”.
+
+                                              44
+Although we can develop everything using arbitrary distributive bios, we will
+restrict our attention to “F-algegras”, and always assume our distributive bio
+P contains the bio F Ď P (note that F is indeed a “field”: if ϕ P BiopF, Pq
+is not an injection then ϕp0q “ ϕp1q P Pp1q, and P˘ pnq ” t˚u reduce to a
+point, P is the zero-bio, the final object of bio). We will use F Ď P beginning
+in section 29, to have the sphere spectrum and “homological algebra”. This is
+just for convenience (one can replace everywhere “φ˚ pV` q” by the “free P-set on
+V ”). Thus our basic building blocks for geometry will be the (non-zero) objects
+of the full subcategory
+
+(21.14)                               CBio Ď FzBio
+
+of distributive bios under F.
+
+
+22        The spectrum
+  Fix P “ pP´ , P` q P CBio.
+Definition 22.1. A 1-ideal is a subset a Ď Pp1q such that for a1 ¨ ¨ ¨ an P a,
+b P P´ pnq, d P P` pnq, the “linear combination”
+
+                tb, pai q, du “ pb ˝ pai qq Ð
+                                            Ý̋ d “ b Ý
+                                                     Ñ̋ ppai q ˝ dq P a is in a
+                            def
+(22.2)
+
+Note that intersection of ideals is again an ideal, so we can speak of the 1-ideal
+a generated by a set tai uiPI Ď Pp1q; a is also given as the collection of all linear
+- combinations of the ai ’s (with repetition).
+A proper 1-ideal p Ď Pp1q, with 1 R p, is called prime if Sp “ Pp1qzp is
+multiplicative. The set of primes is denoted specpPq.
+The set specpPq is not empty: a maximal proper ideal 1 R p Ď Pp1q, which
+exists by Zorn’s lemma, is always prime. Indeed, if a, a1 P Pp1qzp, then for some
+linear combinations
+                                                     (
+          tb, pai qiďn , du “ 1 “ b1 , pa1j qjďm , d1 , b, b1 P P´ , d, d1 P P` ,
+
+ai P p or ai “ a, a1j P p or a1j “ a1 and by distributivity we have
+                                              `` 1        ˘ Ý̋ 1 ˘
+         1“1˝1 “       ppb ˝ pai qq Ð
+                                    Ý̋ dq ˝     b ˝ pa1j q Ð  d
+                       ¨                 ˛                        ¨                    ˛
+
+                   “   ˝b ˝ pb1 , ¨ ¨ ¨ b1 q‚σ ˝ pai ˝ a1j q Ð
+                                                             Ý̋ σ 1 ˝pd, ¨ ¨ ¨ , dq ˝ d1 ‚
+                             loomoon                                  looomooon
+                                  n                                       m
+
+with ai ˝ a1j P p or ai ˝ a1j “ a ˝ a1 , and so a ˝ a1 R p.
+Moreover, specpPq is a (compact, sober”Zariski) topological space with respect
+
+
+
+
+                                             45
+to the Zariski topology with closed sets
+(22.3)
+ V paq :“ tp P specpPq, p Ě au , a Ď Pp1q ideal,
+
+ V paq X V pa1 q “ V pa ¨ a1 q ,       a ¨ a1 “ the ideal generated by ta ¨ a1 , a P a, a1 P a1 u;
+ Ť                ř           ř
+     V pai q “ V p ai q ,            ai the ideal generated by Yi ai ;
+ i               i               i
+
+
+ V p0q “ specpPq ,          V p1q “ φ
+We have a basis for the topology by basic open sets
+                       Dpf q :“ tp P specpPq, p S f u           ,       f P Pp1q.
+
+(22.4)     Dpf1 q X Dpf2 q “ D pf1 ˝ f2 q          ,   Dp1q “ specpPq ,             Dp0q “ φ,
+                                                        Ť
+                                     specpPqzV paq “        f Pa Dpf q
+
+For a map of distributive bios ϕ P CBiopP, Qq, the pull back of a (prime) ideal
+is a (prime) ideal, and we obtain
+                        specpϕq “ ϕ˚ : specpQq ÝÑ specpPq
+(22.5)
+                      ϕ˚ pqq “ ϕ´1 pqq “ ta P Pp1q, ϕpaq P qu .
+It is a continuous map:
+                 ´1 `   ˘                        (   `    ˘
+(22.6)        ϕ˚ V paq “ q P specpQq, ϕ´1 pqq Ě a “ V ϕpaq
+and similarly the pull back of basic open set is again basic open
+                ´1                                    (     `     ˘
+(22.7)       ϕ˚ pDpf qq “ q P specpQq, ϕ´1 pqq S f “ D ϕpf q .
+Thus we have a functor
+(22.8)               spec : pCBioqop ÝÑ Top (compact, sober)
+We have a Galois correspondence (” adjunction of order sets)
+
+                                             V
+(22.9)        ta Ď Pp1q idealu                         tZ Ď specpPq closedu
+                                              I
+                              č
+                                     p “: IpZq                      Z
+                              pPZ
+
+We have V IpZq “ Z, and
+                                 #                                                    +
+                      č                                                                       ?
+                                                  n
+(22.10)    IV paq “         p“       a P Pp1q, a “ loooomoooon
+                                                   a ˝ . . . ˝ a P a for n ąą 0           “       a
+                      pĚa                                   n
+
+
+                                                  46
+We get induced bijections
+(22.11)
+                  ? (                V
+     a Ď Pp1q, a “ a                 „                 tZ Ď specpPq closed u
+                                     I
+             Ď                                               Ď
+           specpPq               „                tZ Ď specpPq closed irreducibleu
+
+For a multiplicative set S Ď Pp1q, let φS : P Ñ S ´1P, φS pP q “ P {1, be the
+canonical map, it induces a homeomorphism
+
+                                                      φ˚S
+(22.12)          tp P specpPq, p X S “ φu              „         specpS ´1Pq
+                                                      S ´1
+                           (
+In particular, for Sf “ f N “ tf n , n ě 0u, f P Pp1q, we get
+                                     „                                   (´1
+(22.13)          specpPq Ě Dpf q ÐÝÝÑ specpPf q,             Pf :“ f N         P
+
+and for Sp “ Pp1qzp, p prime we get
+                                              „
+(22.14)              tq P specpPq, q Ď pu ÐÝÝÑ specpPp q, Pp :“ Sp´1P
+
+i.e. Pp P CBioloc is a local bio in the sense that
+                                                                 (
+(22.15) mp :“ Pp p1qz x P Pp p1q, Dx´1 with x ˝ x´1 “ 1 “ x´1 ˝ x “ Sp´1 ppq
+
+is the unique maximal ideal of Pp .
+We make CBioloc into a category by
+
+(22.16)      CBioloc pP, Qq “ tϕ P CBiopP, Qq, ϕ is local: ϕ˚ pmQ q “ mP u
+
+
+23        The structure sheaf OP
+   Fix P P CBio. For an open set U Ď specpPq deﬁne
+(23.1)    #                                                                   +
+                    ž
+  ˘
+ OP pnq :“ f : U Ñ      Pp˘ pnq, f ppq P Pp˘ pnq, and f is locally a fraction
+                        pP U
+
+                      for all p P U, there exists open p P Up Ď U , and
+f locally a fraction: Ť
+P P P˘ pnq, s P Pp1qz    q, such that for all q P Up we have f pqq ” P {s in
+                          qPUp
+Pq .               ` ´              ˘
+                              `
+Note that OP p Uq “ OP p Uq, OP p Uq is a distributive bio, the operations of
+
+                                         47
+compositions and actions are deﬁned pointwise (in each Pp ), and the “local
+fraction condition” is preserved. For open sets V Ď U Ď specpPq we have the
+restriction maps
+
+(23.2)                         ρU
+                                V : Pp Uq Ñ Pp V q
+
+making U ÞÑ Pp Uq a pre-sheaf of bios over specpPq; by the local nature of the
+“locally-fraction-condition” it is clearly a sheaf.
+For p P specpPq, the stalk of OP at p is given by
+                                                   „
+                            OP,p :“ lim
+                                    ÝÑ OP p Uq Ý
+                                               Ñ Pp
+                                       UQp
+(23.3)
+                                p U, f q{« ÞÝÝÑ f ppq
+
+it is well deﬁned, surjective, and injective.
+The global sections of OP are given by
+Theorem 3. For a basic open set Dpsq Ď specpPq, s P Pp1q,
+                               “ ‰   „
+                   Ψ : Ps “ P 1s ÝÝÝÝÝÑ OP pDpsqq
+
+               Ψ pP {sn q :“ tf ppq ” P {sn in Pp for all p P Dpsqu .
+
+
+  For s “ 1 we obtain the global sections
+                                   „
+                             P ÝÝÝÝÝÑ OP pspecpPqq
+
+Proof. The map Ψ which takes P {sn P Ps to the constant section f , f ppq ”
+P {sn , is a well deﬁned map of bios. Take P P P´ pkq, the case P P P` pkq is
+similar.
+Ψ is injective: Assume Ψ pP1 {sn1 q “ ΨpP2 {sn2 q, and deﬁne
+
+     a :“ An psn2 ˝ P1 ; sn1 ˝ P2 q “ ta P Pp1q, a ˝ sn2 ˝ P1 “ a ˝ sn1 ˝ P2 u ;
+
+by distributivity it follows a is a 1-ideal. We have
+
+                    P1 {sn1 “ P2 {sn2 in Pp for all p P Dpsq
+
+ñ sp ˝ sn2 ˝ P1 “ sp ˝ sn1 ˝ P2 for some sp P Pp1qzp, all p P Dpsq.
+ñ a Ę p, all p P Dpsq
+                                                          ?
+ñ V paq X Dpsq “ H ñ V paq Ď V psq ñ s P IV paq “          a
+ñ sn P a for n ąą 0 ñ sn`n2 ˝ P1 “ sn`n1 ˝ P2 for n ąą 0
+ñ P1 {sn1 “ P2 {sn2 in Ps .
+
+
+                                             48
+Ψ is surjective: Fix f P OP pDpsqq´ pkq. Since Dpsq is compact we can cover
+it by ﬁnite collection of basic open sets
+
+                                   Dpsq “ Dps1 q Y ¨ ¨ ¨ Y DpsN q
+
+with                                                                          ď
+                   f ppq ” Pi {ti for p P Dpsi q ;            ti P Pp1qz               p.
+                                                                            pPDpsi q
+
+We have V pti q Ď V psi q, so sni i “ ci ˝ ti for some ci P Pp1q, and for p P Dpsi q,
+f ppq “ Pi {ti “ ci ˝ Pi {sni i . We can replace si by sni i , (Dpsi q “ Dpsni i q), and Pi
+by ci ˝ Pi , so
+                                f ppq ” Pi {si for p P Dpsi q.
+On the set Dpsi q X Dpsj q “ Dpsi ˝ sj q, the section f is given by both Pi {si and
+Pj {sj , and by the injectivity of Ψ
+
+                             psi ˝ sj qn ˝ sj ˝ Pi “ psi ˝ sj qn ˝ si ˝ Pj
+
+By ﬁniteness we may assume one n works for all i, j.
+Replacing si by sn`1
+                 i   , and replacing sni ˝ Pi by Pi , we may assume
+
+                                  f ppq ” Pi {si     for all p P Dpsi q
+
+                                  sj ˝ Pi “ si ˝ Pj        all i, j.
+                  Ť
+Since Dpsq Ď             Dpsi q we have that some power sM is a linear-combination of
+                     i
+the si
+
+         sM “ tb, pcj q, du “ b ˝ pcj q Ð
+                                        Ý̋ d          ,    cj “ sipjq   ,    b, d P P˘ pℓq ,
+
+                              i
+         j P t1, ¨ ¨ ¨ , ℓu Ý
+                            Ñ t1, ¨ ¨ ¨ , N u .
+
+Deﬁne P “ b ˝ pPipjq q Ð
+                       Ý̋ pd, . . . , dq.
+                           loomoon
+                                       k
+We have,
+                            `          ˘ Ý̋                     `          ˘ Ý̋
+       sj ˝ P    “       b ˝ sj ˝ Pipjq Ð   pd, ¨ ¨ ¨ , dq ” b ˝ sipjq ˝ Pj Ð   pd, ¨ ¨ ¨ , dq
+
+                 “       pb ˝ pcj ˝ Pj qq Ð
+                                          Ý̋ pd, ¨ ¨ ¨ , dq
+
+                 “       ppb ˝ pcj qq Ð
+                                      Ý̋ dq ˝ Pj          by distributivity
+
+                 “       sM ˝ Pj
+
+Thus f ppq ” Pj {sj ” P {sM is constant.
+
+
+
+
+                                                    49
+24     Generalized Schemes
+    For a topological space X, we have the category CBio{X of sheaves of CBio
+over X, its maps are natural transformations ϕ “ tϕ U u, ϕ U P CBiopPp Uq, P1 p Uqq.
+Putting all these categories together we have the category CBio{Top: its ob-
+ject are pairs pX, Pq, X P Top, P P CBio{X, and its maps f : pX, Pq Ñ
+pX1 , P1 q are pairs f P ToppX, X1 q and f 6 P CBio{X1 pP1 , f˚Pq; explicitly, f
+is a continuous
+              ` 1 function,      for U Ď X1 open, we have the map of bios
+                        ` ´1and ˘˘
+  6
+f U P CBio P p Uq, P f p Uq , these maps being compatible with restric-
+tions.
+Remark 24.1. For f P ToppX, X1 q we have adjunction
+
+                                             CBio{X
+
+                                      f˚                 f˚
+   f ˚P1 “ sheaf associated                                        f˚Pp Uq “ Ppf ´1 Uq
+
+               to the pre-sheaf             CBio{X1
+
+     X Ě V ÞÝÝÝÝ
+               Ñ        lim
+                        ÝÑ      P1 p Uq
+                              1
+                      U Ď X open
+                      f p Vq Ď U
+For a map f P CBio{Top ppX, Pq, pX1 , P1 qq, and for a point x P X, we get an
+induced map of stalks
+(24.2)
+ fx6 : Pf1 pxq “ lim  1
+                 ÝÑ P p V q ÝÝÝÝÑ     lim         ´1
+                                      ÝÑ Ppf V q Ñ lim       ÝÑ Pp Uq “ Px
+              f pxqP V ĎX1                f pxqP V ĎX1                 xP UĎX
+
+
+
+Definition 24.3. The category of locally-bio-spaces CBioloc {Top , is the cat-
+egory with object pX, Pq P CBio{Top , such that for all x P X the stalk Px
+is a local bio with the unique maximal proper 1-ideal mx Ď Px p1q; the maps
+f P CBioloc {Top ppX, Pq, pX1 , P1 qq                                 1   1
+                                   ´ are maps¯f P CBio{Top ppX, Pq, pX , P qq such
+that for all x P X, fx6 P CBioloc Pf1 pxq , Px      is a local map: fx6 pmf pxq q Ď mx .
+
+Theorem 4. We have the adjunction
+
+                                                              op
+                                           pCBioloc {Top q
+
+     specpPq :“ pspecpPq, OP q            spec                Γ      ΓpX, Pq :“ PpXq
+                                                                   the global sections
+                                                  CBio
+
+
+                           `                 ˘      `         ˘
+               CBioloc {Top pX, Pq, specpP1 q ” CBio P1 , PpXq
+
+                                            50
+Proof. For a point x P X, we have canonical map φx P CBio pPpXq, Px q,
+φx P “ P |x the stalk of the global section P at the point x, and we get a
+prime px :“ φ´1 x pmx q P spec pPpXqq, mx Ď Px p1q the maximal ideal. For a
+basic open set Dpsq Ď spec pPpXqq, s P PpXqp1q, we have tx P X, px P Dpsqu “
+tx P X, φx psq R mx u is open in X: if φx psq R mx , it is invertible in Px , ax ˝
+φx psq “ 1, ax P Px and there is an open Ux Q x, a P Pp Ux q with ax “ a|x ; tak-
+ing Ux smaller we have a ˝ s| Ux “ 1 already in Pp Ux q, and so φx1 psq R mx1 for
+all x1 P Ux . Thus the map x ÞÑ px is a continuous map p : X ÞÝÝÑÑ spec pPpXqq.
+                                        ´1
+The uniqueness of` the  inverse˘ ps|ux q , shows these local inverses glue to a global
+          ´1        ´1
+inverse s P P p pDpsqq and we get the map of CBio
+                                         (´1                  `           ˘
+(24.4)        p6Dpsq : PpXqs ” sN              PpXq ÝÝÝÑ P p´1 pDpsqq
+
+These maps are compatible on intersections,
+                                     `       Dps1 q X Dps2 q “ ˘Dps1 ˝ s2 q, so
+by the sheaf property give p6u P CBio Ospec PpXq p Uq, Ppp´1 Uq for any open
+U Ď spec pPpXqq, compatible with restrictions, so
+
+(24.5)              p “ pp, p6 q P CBio{Top ppX, Pq, spec pPpXqqq
+
+For x P X, we get
+
+(24.6)              p6x “     lim
+                              ÝÑ        p6Dpsq P CBioloc pPpXqpx , Px q
+                            φx psqRmx
+
+
+is local, so p P CBioloc{Top ppX, Pq, spec pPpXqqq is the co-unit of adjunction.
+Given ϕ P CBio pA, PpXqq we get specpϕq ˝ p P CBioloc{Top ppX, Pq, specpAqq.
+Given f P CBioloc{Top ppX, Pq, specpAqq we get the global sections
+                                  6
+(24.7)                   Γpf q “ fspecpAq P CBiopA, PpXqq.
+
+One checks these are inverse bijections.
+Following the footsteps of Grothendieck we can deﬁne the category of
+Generalized Schemes GSch Ď CBioloc {Top to be the full subcategory of
+CBioloc {Top consistingŤof the object pX, OX q which are locally aﬃne: we have
+some open cover X “ Ui , and p Ui , OX | Ui q – spec pOX p Ui qq.
+An open subset of a scheme is again a scheme.
+Schemes can be glued along open subsets and consistent glueing data.
+Since ordinary commutative rings A give distributive bios PA P CBio and since
+all our deﬁnitions reduce to their classical analogues for P “ PA , A P CRing,
+ordinary schemes embeds fully faithfully in generalized schemes,
+
+                         Sch ãÑ GSch, pX, OX q ÞÑ pX, POX q
+
+
+
+                                               51
+Theorem 5. The category GSch has fiber products, for fi P GSchpXi , Y q:
+                                               ś
+                                        X0          X1
+                                               Y
+
+
+
+
+                              X0                              X1
+                                f0                       f1
+
+                                               Y
+
+                                                      Ť           Ť
+Proof. Exactly as for ordinary schemes. Write Y “ specpBi q, Xε “ specpAεj,i q,
+                                                      i           i,j
+                `            ˘
+ε “ 0, 1 with fε specpAεj,i q Ď spec pBi q, and glue:
+                                            ˜                  ¸
+                       ź          ž                ž
+(24.8)              X0      X1 ”      spec A0j0 ,i      A1j1 ,i .
+                        Y          i,j0 ,j1                    Bi
+                                              š
+Note that one uses the push-out A0j0 ,i            A1j1 ,i in CBio (Not the tensor product!).
+                                              Bi
+
+
+
+Remark 24.9. For (the initial object) Z P CRing Ď CRig, the “arithmetical
+surface”           ´ ž ¯                    ź
+              spec PZ      PZ ” spec pPZ q spec pPZ q
+does not reduce to its diagonal, as it does in classical algebraic geometry where
+            ź
+    specpZq   specpZq “ specpZ b Zq “ specpZq “ tp0q; p2q, p3q, p5q, p7q ¨ ¨ ¨ u .
+
+
+
+
+25     A-Sets
+  We will denote our new “generalized rings”, the distributive bios under F,
+CBio, by the letters A, B, ¨ ¨ ¨ ,
+Definition 25.1. For A P CBio an A-set is a pointed set M P Set0 together
+with an A-action: for n ě 1 we have maps
+
+                         A´ pnq ˆ M n ˆ A` pnq ÝÝÝÝ
+                                                  ÑM
+
+                         pb, pmj q, dq ÞÝÝÝÝ
+                                           Ñ hb, pmj qdin
+
+These maps are required to satisfy the following axioms:
+
+
+
+                                               52
+zero hb, pmj q, din “ hb ˝j0 0, pmj qj­“j0 , 0 ˝j0 din´1 if mj0 “ 0.
+
+Sn -variance hb, pmj q, din “ bσ, pmσpjq q, σ ´1 d n
+
+Associativity Forřb P A´ pnq, d P A` pnq bi P A´ pki q, di P A` pki q,
+    m “ pmi q P M ki ,
+
+                     hb ˝ pbi q, m, pdi q ˝ diř ki “ b, hbi , mi , di iki , d n
+
+Unit:    h1, m, 1i1 “ m
+Distributivity: For b P A´ pnq, d P A` pℓq, a P A˘ p|n ´ ℓ| ` 1q,                      m“
+     pmi q P M mintm,ℓu , m̃ “ pm1 , ¨ ¨ ¨ mi´1 mi   ¨ ¨ ¨ mi , ¨ ¨ ¨ q
+                                                loooomoooon
+                                                       |n´ℓ|`1
+
+
+                          hb Ð
+                             Ý̋ i a, m, di “ hb, m̃, a ˝i di ,
+                                          ℓ                 n        něℓ
+
+                          hb, m, a Ý
+                                   Ñ̋ i di “ hb ˝i a, m̃, di ,
+                                          n                 ℓ        nďℓ
+
+      For a P Ap1q, m P M , we write
+
+                               a ¨ m :“ ha, m, 1i1 “ h1, m, ai1
+
+      giving an action of the monoid Ap1q on M .
+      A map ϕ : M Ñ N of A-Set is a set map ϕ P Set0 pM, N q, preserving the
+      A-action              `             ˘
+                          ϕ hb, pmj q, din “ hb, pϕpmj qq , din
+      Thus we have a category A-Set.
+
+
+Example of A-Sets
+
+(25.2)
+    Given ϕ P CBio pA, Bq, the sets B ´ pmq and B ` pmq are A-Sets
+                                             ¨                   ˛
+
+    hb, pxi q, din :“ ϕpbq ˝ pxi q ˝ σn,m ˝ ˝ϕpdq,   ¨ ¨ ¨ , ϕpdq‚ ,
+                                             loooooooomoooooooon           xi P B ´ pmq.
+                                                       m
+
+
+(25.3)    A sub-A-set of Ap1q is just an ideal.
+
+(25.4)
+ For A “ F we have F-Set ” Set0 and for M P Set0 there is a unique F-action:
+                                         #
+                                          mi      b “ δi , d “ δit
+                          hb, mj , din “
+                                          0       otherwise
+
+                                             53
+               For a commutative ring A we have A-Set ” A-mod
+(25.5)
+               the category of A modules.
+
+
+             For A “ ZR (resp. ZC ), the sub-A-sets of Rn (resp Cn )
+              are the convex symmetric subsets M Ď Rn (resp M Ď Cn )
+(25.6)
+              (since the pointwise product of two vectors in the ℓ2 -unit
+             ball is a vector in the ℓ1 -unit ball).
+
+The category A-Set is complete and co-complete. Inverse limits, and ﬁltered
+co-limits are formed in Set0 , co-limits and sums are more complicated. Given a
+set V the free A-Set on V , AV is given by
+                               ž
+(25.7)                 AV “        A´ pnq ˆ V n ˆ A` pnq{„
+                                ně1
+
+where „ is the equivalence relation generated by zero, Sn -invariance, and dis-
+tributivity. The element of AV can be written, non-uniquely, as hb, v, din ,
+b P A´ pnq, v P V n , d P A` pnq. For M P A-Set, we have
+                                             V
+                      SetpV, M q ”
+                                 ` A-SetpA˘ , M q
+(25.8)
+                      ϕ ÞÝÝÝÑ ϕ̃ hb, vj , din “ hb, ϕpvj q, din
+
+When V “ tv0 u is a singleton Atv0 u ” Ap1q ¨ v0 , and the free A-Set on one
+generator is just Ap1q
+Given a homomorphism ϕ P CBiopB, Aq, we have an adjunction (we use “geo-
+metric” notation):
+
+                                          A-set
+
+                                    ϕ˚               ϕ˚
+
+
+(25.9)                                    B-set
+
+where ϕ˚ N ” N with the B-action xb, mj , b1 yn :“ xϕpbq, mj , ϕpb1 qyn .
+                           ˆ                  ˙
+                            š                    L
+The left adjoint is ϕ˚ M “    An ˆ M n ˆ An        „, where „ is the equivalence
+                                n
+relation generated by zero, Sn -invariance, distributivity, and B-linearity:
+
+(25.10)           xa, xbj , mi , b1j y, a1 yn “ xa ˝ ϕpbq, m, ϕpb1 q ˝ aym
+                                                                             ř
+a P A´ pnq, a1 P A` pnq, bj P B ´ pkj q, b1j P B ` pkj q, m “ m1 , ¨ ¨ ¨ , mn P M ki .
+In particular, for B “ F and φ P CBiopF, Aq the unique homomorphism, φ˚ is
+just the functor forgetting the A-action, and for V P Set0 , φ˚ V “ AV zx0y is the
+free A-set on V z t0u.
+More generally, for a simplicial distributive bio A “ pAn qně0 P sCBio ”
+
+
+                                            54
+              op
+pCBioq∆∆
+           we have the category of simplicial A-Sets, A-sSet, with objects the
+pointed simplicial sets M “ pMm qmě0 , with compatible Am ´ action in dimen-
+sion m ě 0,
+                             A´            n   `
+                              m pnq ˆ pMm q ˆ Am pnq ÝÝÝÑ Mm
+(25.11)
+                                 pb, pmi q, dq ÝÝÝÑ hb, pmi q, din
+            ∆pm, m1 q
+and for ℓ P ∆
+(25.12)                  ℓ˚ phb, pmi q, din q “ hℓ˚ pbq, pℓ˚ mi q, ℓ˚ pdqin
+The category A-sSet has a simplicial, cellular, Quillen model structure given by
+(25.13)
+     piq Fibrations:         FA ” φ´1 ˚ pFF q,        FF ” Kan ﬁbrations.
+                                                                             »          ﬁ
+                                                                            Weak-
+                                                                          — equivalence ﬃ
+                                                                          —             ﬃ
+      piiq Weak-equivalence:            WA ” φ´1
+                                              ˚ pWF q,                WF ”— of (pointed)ﬃ
+                                                                          –             ﬂ
+                                                                            simplicial
+                                                                            sets
+
+      piiiq Coﬁbrations:                CA ” K pWA X FA q,
+                      the maps satisfying the left lifting property
+                      with respect to the trivial ﬁbrations.
+The coﬁbrations can also be characterized as the retracts of the free maps, where
+a map f : M. Ñ N. is free if there exists subsets Vn Ď Nn with ℓ˚ pVn1 q Ď Vn for
+                   ∆pn, n1 q, and such that fn induces isomorphism
+all surjective ℓ P ∆
+                                   ž            „
+(25.14)                         Mn    φ˚A pVn q Ý
+                                                Ñ Nn
+
+where φ˚A pVn q is the free A-Set on Vn .
+This model structure is coﬁbrantly generated
+                                                    `     ˘(K
+                       piq    FA ” φ˚A pΛkn` q Ñ φ˚A ∆pnq` 0ďkďną0
+(25.15)
+                                                                                       K
+                       piiq WA X FA ” tφ˚A pB∆pnq` q Ñ φ˚A p∆pnq` quną0
+
+26        Commutativity
+Definition 26.1. For A P CBio, M P A-set will be called commutative if for
+b P A´ pnq, d P A` pnq, b1 P A´ pkq, d1 P A` pkq, m “ pmij q P M nˆk , we have
+interchange:
+
+(26.2)
+ b˝pb 1
+        ¨ ¨ ¨ b1 q σn,k , m, pd
+   looomooon
+                               1
+                                 , ¨ ¨ ¨ , d1 q ˝d n¨k “ b1 ˝pb,
+                             looooomooooon                       ¨ ¨ ¨ , bq, m, σn,k pd,
+                                                             loooomoooon                 ¨ ¨ ¨ , dq ˝d n¨k
+                                                                                     loooomoooon
+          n                       n                               k                        k
+
+
+                                                   55
+We let CA-Set Ď A-Set (resp. CA-sSet Ď A-sSet) denote the full subcategory of
+commutative A-Sets (resp. in each dimension n ě 0).
+Definition 26.3. We say A P CBio is n-commutative if the sets A´ pnq and
+A` pnq are commutative, and we let Cn Bio Ď CBio denote
+                                                    Ş the full subcategory
+of n-commutative distributive bios. We let C8 Bio “   Cn Bio. We say A is
+                                                                     ně1
+totally-commutative if for b P A´ pnq, b1 P A´ pkq (resp. b P A` pnq, b1 P A` pkq),
+we have
+     ` 1            ˘
+      b , ¨ ¨ ¨ , b1 σn,k “ b1 ˝ loooomoooon
+ b ˝ looooomooooon               pb, ¨ ¨ ¨ , bq resp. pb1 ¨ ¨ ¨ b1 q ˝ b “ σn,k pb, ¨ ¨ ¨ , bq ˝ b1 .
+           n                          k
+
+We let Ctot Bio Ď C8 Bio denote the full subcategory of totally-commutative bios;
+note that CRig Ď Ctot Bio, and so also F, ZR , ZC P Ctot Bio.
+For A P Ctot Bio we have CA-Set ” A-Set.
+The inclusion CA-Set ãÑ A-Set has a left adjoint M ÞÑ MC ; in particular, we
+have the free-commutative-A-set generated by a set V , AVC .
+
+
+27       Symmetric monoidal structure
+   The category A-Set (resp. A-sSet) has a symmetric monoidal structure.
+We only describe the symmetric monoidal structure on CA-Set (resp. CA-sSet),
+which is closed.
+For M, N, K P CA-set, let the “bilinear maps” be deﬁned by
+(27.1)            "                                                                      *
+                                         ϕ pha, mj , a1 i , nq “ ha, ϕ pmj ^ nq , a1 i ,
+BilA pM, N ; Kq “ ϕ : M ^ N Ñ K,
+                                         ϕ pm, ha, nj , a1 iq “ ha, ϕ pm ^ nj q , a1 i
+It is a functor in K, and as such it is representable
+(27.2)                   BilA pM, N ; Kq ” CA-set pM bA N, Kq
+Where M bA N is the free-commutative-A-Set on M ^N modulo the equivalance
+relation generated by the A-bilinear relations, and where b : M ^ N Ñ M bA N
+is the universal A-bilinear map. The elements of M bA N can be written, non-
+uniquely, as ha, mj b nj , a1 in . We thus get a bi-functor
+(27.3)                      ´   bA´ : CA-Set ˆ CA-Set Ñ CA-Set
+giving a symmetric monoidal structure on CA-Set, with unit Ap1qC .
+This symmetric monoidal structure on CA-Set is closed,
+(27.4)            CA-Set pM bA N, Kq ” CA-Set pM, HomA pN, Kqq
+with the internal Hom functor
+                                                 op
+                     HomA p´ ,´ q : pA-Setq ˆ CA-Set Ñ CA-Set
+(27.5)
+                           HomA pM, N q :“ A-SetpM, N q
+
+                                                 56
+where the A-action on HomA pM, N q is given by
+
+hb, ϕj , din pmq :“ hb, ϕj pmq, din ,       b P A´ pnq, d P A` pnq   ϕj P HomA pM, N q m P M.
+
+This in itself is a map of A-Set because of commutativity, and all the other
+properties: (associativity, unit, distributivity commutativity) follow from their
+validity in N .
+The tensor product commute with extension of scalars: for ϕ P CBiopB, Aq, and
+for M, N P CB-Set, we have
+
+(27.6)         ϕ˚ pM bB N q – ϕ˚ pM q bA ϕ˚ pN q ,             ϕ˚ Bp1qC “ Ap1qC
+
+We have therefore the adjunction formula
+
+(27.7)                 ϕ˚ HomA pϕ˚ M, N q – HomB pM, ϕ˚ N q
+
+The tensor product is distributive over sums,
+                             ˜       ¸
+                               ž          ž
+(27.8)                M bA         Ni –     pM bA Ni q.
+                                        i             i
+
+and more generally commutes with colimits.
+The category CA-sSet inherit a closed symmetric monoidal structure
+
+                       ´ bA´ : CA-sSet b CA-sSet Ñ CA-sSet
+
+                             pM bA N qn :“ Mn bAn Nn
+(27.9)                                          op
+                 HomA p´ ,´ q : pCA-sSetq            b CA-sSet ÞÝ
+                                                                Ñ CA-sSet
+
+                HomA pM¨ , N¨ qn :“ CA-sSet pM¨ b φ˚A p∆pnq` q , N¨ q
+
+Here φ˚A p∆pnq` q is the free-commutative A-sSet on ∆pnq.
+The category CA-sSet has a simplicial, cellular, Quillen model structure, exactly
+as in (25.13); for the free maps, and for the generating (trivial) coﬁbrations we
+take sums, and free objects φ˚A p´ q, in the category CA-sSet.
+The model structure is compatible with the symmetric monoidal structure:
+For ti¨ : N Ñ N¨1 u, tj¨ : M¨ Ñ M¨1 u in CA , we have the push-out-product
+                           `          ˘ ž ` 1            ˘
+(27.10)          i¨ b j¨ : N¨ bA M¨1            N¨ bA M¨ Ñ N¨1 bA M¨1
+                                              N¨ bA M¨
+
+It is also a coﬁbration in CA , and moreover, if i¨ is in WA , also i¨ b j¨ is in WA .
+To see this compatibility of the monoidal and model structures, we may assume
+i¨ and j¨ are free
+                   ž              „
+                                              ž                „
+               Nn     φ˚An pVn q ÝÝÑ Nn1 , Mn      φ˚An pWn q ÝÝÑ Mn1
+
+
+                                               57
+and then
+(27.11)
+˜                                         ¸
+                 ž                            ž                                  „
+  Nn bAn Mn1              Nn1 bAn Mn              φ˚An pVn qbAn φ˚An pWn q ÝÝÝÑ Nn1 bAn Mn1
+               Nn bA Mn
+                                              ś
+and since φ˚An pVn q bAn φ˚An pWn q ” φ˚An pVn Wn q, we see that i¨ b j¨ is also
+free.
+A map ϕ P sCBiopB¨ , A¨ q induces a Quillen adjunction
+
+                                       CA¨ -sSet
+
+                                 ϕ˚                      ϕ˚
+
+(27.12)                                CB¨ -sSet
+
+When A is an ordinary commutative ring, the bio PA is totally commutative,
+and we have by the Dold-Kan correspondence
+                                                              ∆op
+                                                              ∆
+(27.13)        CPA -sSet ” PA -sSet ” pPA -Setq                      ” Chě0 pA-modq .
+
+The model structure on CPA -sSet corresponds to the projective model structure
+on Chě0 pA-modq, which embeds in the stable model structure Ch` pA-modq.
+For general A¨ P sCBio, the model structure on CA¨ -sSet is not stable, and
+we shall stabilize it, preserving the symmetric monoidal structure by using the
+symmetric spectra of [44], [45].
+
+
+28        Symmetric Sequences
+                                                                             ř       š
+  Let Sn denote the symmetric group on n letters, and let                        “         Sn de-
+                                                                                     ně0
+note the category of ﬁnite bijection; it is equivalent to the category IsopFinq of
+bijections of ﬁnite sets. The category of symmetric sequences in CA-sSet is
+                   ÿ                      ř
+                                                         IsopFinq
+(28.1)                pA¨ q :“ pCA¨ -sSetq – pCA¨ -sSetq
+                                                                 S
+It has objects M ¨ “ tM¨n uně0 with M¨n P pCA.-sSetq
+                                            ř
+                                                      n
+                                                        a simplicial commutative
+A¨ -set with anřaction of Sn . The category pA¨ q is complete and co-complete.
+The category pAq has a closed symmetric monoidal structure
+                            ř
+                                   ř       ř        ř
+                        ´ b pAq´ :   pAq ˆ pAq Ñ pAq
+(28.2)         ` ¨ ř       ˘n             š
+                M b pAq N ¨ :“                     Sn     ˆ      pM p bA N q q
+                                      p`q“n             Sp ˆSq
+
+Here the induction functor is the left adjoint of the forgetful functor
+                                      S                          S ˆSq
+(28.3)                    pCA¨ -sSetq n Ñ pCA¨ -sSetq p
+
+                                              58
+and is given by
+                                                           ž
+(28.4)                       Sn     ˆ      pM q :“                     M
+                                  Sp ˆSq
+                                                      Sn {Sp ˆSq
+                                    ř
+Equivalently, writing M ¨ , N ¨ PpAq as functor IsopFinq Ñ CA-sSet we have
+                    ` ¨ ř        ˘n      ž
+(28.5)               M¨ b pAq N¨¨ “            M¨n0 bA N n1 .
+                                                      š
+                                             n“n0         n1
+
+the sum over all decomposition of n as a disjoint union of subsets n0 , n1 Ď n.
+The unit of this monoidal structure is the symmetric sequence
+
+(28.6)                        1A :“ pAp1qC , 0, 0, 0, ¨ ¨ ¨ q
+
+Remark 28.7. Note that this monoidal structure is symmetric,
+
+                      TM ¨ ,N ¨ : M ¨ břpAq N ¨ – N ¨ břpAq M ¨
+
+This symmetry is clear in the formula (28.5) M n0 bA N n1 – N n1 bA M n0 but
+in formula (28.2) the symmetry isomorphisms
+
+               Sn     ˆ      pM p bA N q q – Sn                ˆ       pN q bA M p q
+                    Sp ˆSq                                Sq ˆSp
+
+
+involves the pp, qq-shuffle ωp,q P Sn that conjugates Sp ˆ Sq to Sq ˆ Sp .
+The internal Hom is given by
+                                              ř                    ř           ř
+                       HomřpAq p´ ,´ q :          pAqop ˆ              pAq Ñ       pAq
+                                                   ś                     ` k k`n ˘
+(28.8)              HomřpAq pM ¨ , N ¨ qn :“          kě0 HomA            M ,N
+              ř      `                   ˘ ř   `                          ˘
+                  pAq M ¨ břpAq N ¨ , K ¨ – pAq M ¨ , HomřpAq pN ¨ , K ¨ q
+
+For a homomorphism ϕ P sCBiopB, Aq, we have adjunction
+                                            ř
+                                                pAq
+
+                                    ϕ˚                     ϕ˚
+
+                                            ř
+(28.9)                                          pBq
+
+and ϕ˚ is strict-monoidal
+                `           ˘
+(28.10)     ϕ˚ M ¨ bΣpBq N ¨ – ϕ˚ pM ¨ q bΣpAq ϕ˚ pN ¨ q,                      ϕ˚ p1B q – 1A .
+
+
+
+
+                                              59
+                                                 ř
+Remark 28.11. One canř   think of the elements of pAq as “Fourier-coefficients”,
+and associate with M ¨ P pAq the “Fourier-transform” given by the “analytic”
+functor
+
+     x¨ : CA-sSet ÝÑ CA¨ -sSet
+     M
+                 š
+     x¨ pXq :“
+     M                 M n bSAn X bn
+                 ně0
+
+
+     M n bSAn X bn :“ M n bA pX¨  b ¨ ¨ ¨ b X¨ q{σmbx1 b¨¨¨bxn „mbxσp1q b¨¨¨bxσpnq
+                              looooooomooooooon
+                                               n
+
+The Fourier-transform converts “convolution” (” the symmetric product in ΣpAq)
+to “multiplication”
+(28.12)
+    ` ¨           ˘Λ        š ` ¨             ˘n
+     M bΣpAq N ¨ pXq “           M bΣpAq N ¨ bSAn X bn
+                                  ně0
+
+                                      š                                                   S
+                              “               pM p bA N q q Spˆ
+                                                              ˆSq Sp`q bA
+                                                                         p`q
+                                                                             X bpp`qq
+                                  p,qěą0
+
+                                  š                               S ˆSq
+                              “       p,qě0 M
+                                                    p
+                                                        bA N q bAp            X bpp`qq
+                                  ˜                           ¸           ˜                          ¸
+                                      š             S                         š            S
+                              “           M    p
+                                                   bAp X bp       bA              N   q
+                                                                                          bAq X bq
+                                    pě0                                     qě0
+
+
+                                         x¨ pXq
+                               x¨ pXq bA N
+                              “M
+
+
+
+29       The sphere spectrum
+                                                   op
+  The categogry ΣpFq ” pSet0 qΣ. ˆ∆   ∆
+                                           is the usual category of symmetric se-
+quence of pointed simplicial sets, and in particular contains the sphere-spectrum:
+                                    #                                 +
+(29.1)                     SF¨ :“         n         1
+                                        S “ looooooomooooooon
+                                            S ^ ¨¨¨^ S            1
+
+                                                          n               ně0
+
+with the permutation action of Sn on S n .
+The sphere-spectrum is a monoid object of ΣpFq, with multiplication
+
+                                  m : SF¨ bΣpFq SF¨ Ñ SF¨
+(29.2)
+                        mpS n bF S m q ” mpS n ^ S m q ” S n`m
+
+
+
+                                                   60
+Note that it is a commutative monoid, m “ m ˝ TSF¨ ,SF¨ , cf. remark (28.7).
+The unit is given by the embedding
+(29.3)                            `                 ˘
+   ε : 1F ” pFp1q, 0, 0, . . . q ” S 0 , 0, 0, . . . ãÑ SF¨ , using Fp1q “ t0, 1u ” S 0 .
+            ¨
+We write SA     “ φ˚A SF¨ for the corresponding commutative monoid object of
+                    ¨                                              ¨
+ΣpAq. We let SA       -mod Ď ΣpAq denote the sub-category of SA      -modules, this
+is the category of “symmetric spectra”. It has objects the symmetric sequences
+M ¨ “ tM n u P ΣpAq, together with associative unital SA                  ¨
+                                                                            -action
+  ¨            m
+SA  bΣpAq M ¨ ÝÑ M ¨ , or equivalently, associative unital, Sp ˆ Sq ãÑ Sp`q covari-
+                                                 ¨
+ant, action S p ^ M q Ñ M p`q . The maps in SA     -mod are the maps in ΣpAq that
+                ¨                         ¨
+preserve the SA    -action. The category SA -mod is complete and co-complete.
+                  ¨
+The category SA     -mod has a closed symmetric monoidal structure
+                                     ¨         ¨         ¨
+                         _ bSA¨ _ : SA -mod ˆ SA -mod Ñ SA -mod
+                                 #                                                        +
+(29.4)                                                  N             mbid     ¨
+                                                    ÝÝÝÝÝÑ
+         M ¨ bSA¨ N ¨ :“ Cok M ¨ bΣpAq SA
+                                        ¨
+                                          bΣpAq N ¨ ÝÝÝÝÝÑ M ¨ bΣpAq N ¨
+                                                                      idM ¨ bm
+
+
+The unit is
+                                                                          (
+(29.5)                    ¨
+                         SA :“ φ˚A S 0 , φ˚A S 1 , . . . , φ˚A S n , . . . .
+
+The internal Hom is given by
+(29.6)
+                               ¨      op  ¨         ¨
+              HomSA p_, _q : pSA -modq ˆ SA -mod Ñ SA -mod
+                          "                              ˆ              ˙*
+ HomSA pM ¨ , N ¨ q :“ Ker HomΣpAq pM ¨ , N ¨ q Ñ HomΣpAq SA
+                                                           ¨
+                                                             b M ¨, N ¨    .
+                                                                                   ΣpAq
+
+                      `                  ˘         `                         ˘
+(29.7)         SA -mod M ¨ bSA¨ N ¨ , K ¨ ” SA -mod M ¨ , HomSA¨ pN ¨ , K ¨ q
+              ¨
+The category SA -mod is tensored, co-tensored, and enriched over pointed sim-
+plicial sets
+                                                     op
+(29.8)                        sSet0 ” pSet0 q∆
+                                             ∆
+                                                          ” F-sSet.
+
+The enrichment is given via the mapping space
+                ´     ¨
+                        ¯
+(29.9)           N ¨M     ” SA -mod pM ¨ bA φ˚A p∆pnq` q , N ¨ q
+                             n
+
+For M P CA-sSet, the “frea-SA -module of level n” on M¨ , Fn pM¨ q, is the value
+at M¨ of the left-adjoint Fn of the forgetfull functor
+(29.10)
+                                                   S    ¨
+                         CA¨ -sSet ÐÝ pCA¨ -sSetq n ÐÝ SA -mod
+
+             ¨
+                                     `                                                           ˘
+ Fn pM¨ q “ SA břpAq pSn ˆ M¨ q rns “ 0, . . . , 0, Sn ˆ M¨ , ¨ ¨ ¨ , Sn`p ˆSp S p bA M¨ , ¨ ¨ ¨
+
+                                                61
+We say M ¨ P SA
+              ¨
+                -mod is an Ω-spectrum, or a ﬁbrant object M ¨ P pSA
+                                                                  ¨
+                                                                    -modqF if
+ ¨
+M is levelwise ﬁbrant, and if the adjoint of the action map
+
+(29.11)                    m1,n : SA
+                                   1
+                                     bA M n Ñ M n`1
+
+is a weak equivalence
+             ` 1,n ˘6      „     ` 1        ˘           1
+(29.12)       m       : Mn Ý
+                           Ñ HomA SA , M n`1 “ pM n`1 qS :“ ΩM n`1
+                                 ¨
+The stable model structure on SA   -mod is a Bousﬁeld localization of the projec-
+tive model structure, having the same coﬁbrations, but with the ﬁbrant objects
+        ¨
+being pSA -modqF
+                                             !             )
+             Coﬁbrations:          CSA¨ “ K Wlev       lev
+                                                S ¨ X FS ¨
+                                                 A       A
+
+                                       $ ¨       ¨
+                                                                       ,
+                                       & f` P SA   -mod pM ¨ , N˘
+                                                                  ¨
+                                                                    q, .
+                                                     ¨        ¨
+(29.13)      Weak equivalences: WSA¨ “     f ˚ : X N Ñ X M P WF
+                                       %                               -
+                                         for all X ¨ P pSA
+                                                         ¨
+                                                           -modqF
+                                                        (K
+             Fibrations:           FSA¨ “ CSA¨ X WSA¨
+
+It is left proper, simplicial, cellular, Quillen Model structure compatible with
+its symmetric monoidal structure. It is moreover stable. We let
+                                                       ”      ı
+(29.14)              DpAq “ Ho pSA   ¨
+                                       -modq – SA¨
+                                                   -mod W´1
+                                                          S ¨
+                                                             A
+
+
+denote the associated homotopy category, this is the derived category of A-Set.
+It is a triangulated symmetric monoidal category.
+Given a homomorphism ϕ P sCBiopB¨ , A¨ q we get an induce adjunction
+
+                                     DpAq
+
+                             Lϕ˚               Rϕ˚
+
+(29.15)                              DpBq
+
+and Lϕ˚ is a monoidal functor. We have the adjunction formula for M ¨ P DpBq,
+N ¨ P DpAq,
+                   `                       ˘
+(29.16)        Rϕ˚ RHomSA¨ pLϕ˚ M ¨ , N ¨ q ” RHomSB¨ pM ¨ , Rϕ˚ N ¨ q
+
+
+30        Quasi-coherent OX -modules
+Definition 30.1. For X P GSch, a pre-OX -Set (resp. pre-C OX -Set, pre-
+C OX -sSet) is an assignment M for each open U Ď X of an Op Uq-Set M p Uq
+
+                                       62
+(resp. C OX p Uq-Set, C OX p Uq-sSet), and for V Ă U, on OX p Uq-map r V , U :
+M p Uq Ñ M p V q, and r W , V ˝ r V , U “ r W , U , r U, U “ idMp Uq . The maps are
+natural transformation commuting with the OX -action (resp. and the simpli-
+cial action ∆
+            ∆op ); We have the full subcategories of sheaves, denoted by omitting
+the prefix “pre”. Thus we have full-embeddings and adjunctions (using the left
+adjoint of the inclusion of sheaves in pre-sheaves, M ÞÑ M 6 the shiftication
+functor)
+
+                                         p qc
+
+                  pre-C OX -Set                 pre-OX -Set
+
+                  π0            p q6                         p q6
+                                                                    p qc
+
+                  pre-C OX -sSet                 C OX -Set                  OX -Set
+                                                 π0
+                                  p q6
+
+                                                C OX -sSet
+(30.2)
+
+All these categories are complete and co-complete. Limits and colimits for pre-
+sheaves (resp. sheaves) are created sectionwise over open subset (resp. for co-
+limit of sheaves use shification). They have a symmetric monoidal structure, but
+it is closed only in the commutative case: for pre-sheaves (resp. sheaves) the
+                                         „
+symmetric monoidal structure denoted bOX (resp. bOX ) is defined sctiowise
+(30.3)
+ ´ „         ¯                                   ´                 ´ „         ¯6 ¯
+  M bOX N p Uq :“ M p UqbOX p Uq N p Uq ,          resp. M bOX N :“ M bOX N        .
+
+
+
+   The internal Hom, deﬁned only in the commutative case, will be denoted by
+HomOX , and is deﬁned for pre-sheaves or sheaves, so that HomOX pM, M 1 qp Uq “
+OU -setpM | U , M 1 | U q is the equalizer
+(30.4)
+     "                                                                              *
+        ś                                      ś
+ ker        HomOX { V , pM p V q, M 1 p V qq Ñ     HomOX p V q pM p V q, M 1 p W qq
+         VĎ U                                          WĎ VĎ U
+
+                           ! )                               ϕ W ˝ r W, V
+                            ϕV
+                                                             r W, V ˝ ϕ V
+
+Given A P CBio, S Ď Ap1q a multiplicative subset, and M P A-Set, (commuta-
+tive or not!), we can localize M to obtain S ´1 M P S ´1 A-Set in the usual way:
+S ´1 M :“ pM ˆ Sq{», with the equivalence relation » given by
+
+(30.5)          pm1 , s1 q » pm2 , s2 q if s ¨ s2 ¨ m1 “ s ¨ s1 ¨ m2 for some s P S.
+
+
+                                                  63
+We denote by m{s the equivalence class of pm, sq.
+The functor M ÞÑ S ´1 M commutes with colimits, ﬁnite-limits, tensor products
+and Hom’s. We obtain the localization functors
+(30.6)
+                   p qc
+
+ C OA -Set                            OA -Set
+
+
+π0
+
+                                                   p qc
+
+ C OA -sSet                           CA-Set                      A-Set
+
+                                   π0
+                                                                   M
+                                                              6
+                                                          M
+                                   CA-sSet                                MpspecAq
+                                                                   M
+
+With the localization functor M ÞÑ M 6 given by
+                   #                                                   +
+                               ž
+          6                        ´1           ´1
+(30.7) M p Uq :“ σ : U Ñ          Sp M, σppq P Sp M, σ locally constant
+                               pP U
+
+where σ is locally constant if for all p P U, there is neighbourhood p P Dpsq Ď
+U, and m P M such that for q P Dpsq, σpqq ” m{s P Sq´1 M .
+We have an identiﬁcation of the stalk of M 6 at p P specpAq,
+              ˇ
+              ˇ                  „
+(30.8)    M 6 ˇ “ lim M 6 p Uq ÝÝÑ Sp´1 M :“ Mp ,         pσ, Uq { „ÞÝÝÑ σppq
+               p  ÝÝÝÑ
+                   UQp
+
+
+Moreover, we have the identiﬁcation of the global sections of M 6 over an aﬃne
+basic open subset Dpsq Ď specpAq,
+
+             Ψ : M r1{ss :“ sN
+                               (´1         „
+                                    M ÝÝÑ M 6 pDpsqq
+(30.9)                              m
+                                    sn   ÞÝÝÑ σppq ” smn P Sp´1 M
+(the proof that Ψ is a bijection is a repetition of the proof of Theorem (3)).
+Given a generalized scheme X, we have the full subcategory of “quasi-coherent”
+sheaves of OX -Sets (resp. C OX -Set), where an object M is quasi-coherent if
+there is a covering of X by open ˇ aﬃnes X “ Yi specpAi q, and there are Mi P
+Ai -Set (resp. CAi -Set), with M ˇspecpA q – Mi6 . Equivalently, for all open aﬃne
+                                        i
+specpAq Ď X, we have
+                              ˇ                       6
+(30.10)                    M ˇspecpAq – M pspecpAqq .
+
+
+                                         64
+We denote the subcategories of quasi-coherent sheaves by the preﬁx “q.c.”, so
+that for aﬃne scheme X “ specpAq, q.c. OX -Set – A-Set.
+The subcategories of quasi-coherent sheaves are closed under colimits and ﬁnite-
+limits in the associated categories of sheaves, and are therefore co-complete
+and ﬁnite-complete. Moreover they are closed under the symmetric monoidal
+structure, so that for quasi-coherent (resp. commutative) OX -Sets M, N , and
+for any aﬃne open subset U “ specpAq Ď X we have
+                                    ˇ
+                          M bOX N ˇ U – pM p Uq bA N p Uqq6
+(30.11)                                 ˇ
+                  resp. HomOX pM, N q ˇ U – HomA pM p Uq, N p Uqq6
+
+For a mapping of generalized schemes f P GSchpX, Y q, the functor f ˚ takes
+quasi-coherent OY -sets to quasi-coherent OX -sets. Moreover, for aﬃne open
+subsets U “ specpAq Ď X, V “ specpBq Ď Y , with f p Uq Ď V and with
+ϕ “ f # : B Ñ A the associated homomorphism, we have for quasi-coherent
+sheaf M on Y ,
+                                  ˇ
+                                  ˇ              6
+(30.12)                     f ˚ M ˇ – pϕ˚ M p Uqq .
+                                        U
+
+Definition 30.13. A mapping of generalized schemes f : X Ñ Y is called a
+c-map (“compact and quasi-separated”) if we can cover Y by open affine subsets
+(or equivalently, if for all open affine) U “ specpBq Ď Y , we have that f ´1 p Uq
+is compact, so that
+
+                                      ď
+                                      N
+                        f ´1 p Uq “         Vi ,         Vi “ specpAi q,
+                                      i“1
+
+is a finite union of open affine subsets, and if moreover for i, j ď N , we have
+Vi X Vj also compact, so that
+                               Nij
+                               ď
+                  Vi X Vj “           Wijk ,            Wijk “ spec pAijk q .
+                               k“1
+
+   For a c-map f : X Ñ Y , the functor f˚ takes quasi-coherent sheaves to
+quasi-coherent sheaves, so we get adjuctions
+(30.14)
+     q.c. C OX -sSet             q.c. C OX -Set         q.c. OX -Set
+
+  f˚               f˚             f˚                        f˚             f˚                  f˚
+
+     q.c. C OY -sSet                   q.c. C OY -Set                           q.c. OY -Set
+
+
+
+
+                                                   65
+Indeed, for a quasi-coherent sheaf M on X, we have (using the above notations)
+that f˚ M | U “ f˚ M |specpBq is the equalizer
+(30.15)
+         ˇ         śN     ´ ˇ ¯          ś N   śij   ´ ˇ   ¯
+   f˚ M ˇ U ÝÝÝÑ       f˚ M ˇVi                    f˚ M ˇW
+                                                                    ijk
+                   i“1                    i,jďN k“1
+
+         ´ ˇ ¯ ´             ¯6                  ´ ˇ            ¯    ´              ¯6
+   and f˚ M ˇVi “ fi# M pVi q ,                f˚ M ˇW                 #
+                                                                    “ fijk M pWijk q
+                                                          ijk
+
+
+are quasi-coherent.
+The adjunctions (30.14) satisfy the usual properties, such as the existence of
+canonical equivalences
+                             „                        ˚   „
+                 pg ˝ f q˚ ÝÝÑ g˚ ˝ f˚         pg ˝ f q ÝÝÑ f ˚ ˝ g ˚
+                                          „
+(30.16)                  f ˚ pM bOY N q ÝÝÑ f ˚ M bOX f ˚ N
+                                           „
+                  f˚ HomOX pf ˚ M, N q ÝÝÑ HomOY pM, f˚ N q .
+
+31        The global derived category
+   The language of model categories is notoriously diﬃcult for categories of
+sheaves, and to describe the derived category of OX -modules one usually uses the
+“hairy” injective resolutions (rather than the straightforward projective or even
+free resolutions). Using the language of 8 categories one can overcome these dif-
+ﬁculties and define DpXq, the derived category of quasi-coherent OX -modules,
+as the homotopy category DpXq “ HoDpXq8 , of the 8 categorical limit DpXq8
+of the 8 categories DpAq8 of ﬁbrant co-ﬁbrant SA -modules, the limit taken over
+the category
+                           Aﬀ{X “ tspecpAq Ď X openu
+We can do the same for a generalized scheme X P GSch, and deﬁne the derived
+category of quasi-coherent commutative OX -sets
+
+               DpXq “ π0 DpXq8        ,    DpXq8 “ 8 lim
+                                                     ÐÝ DpAq8
+                                                           Aff{X
+
+
+Using Lurie’s straightening/ unstraightening functors [60], corollary 3.3.3.2, this
+limit DpXq8 has an equivalent, and more concrete description as the cartesian
+sections of an inner, Cartesian and co-Cartesian, ﬁbrantion of 8 categories
+
+                      ∆ p DpXqq ÝÝÝÑ
+             ∆ pρq : N∆
+            N∆                     Ñ N pAﬀ{X q,
+(31.1)
+                                ¨
+            ρ : DpXq “ Aﬀ{X ˙ pSA -modq Ñ Aﬀ{X the forgetful functor.
+
+Here for a generalized scheme X, DpXq “ Aﬀ{X ˙ pS ¨ -modq is the simplicial
+category with objects pairs pspecpAq, M ¨ q, with specpAq Ď X open aﬃne, and
+
+
+                                          66
+       ¨
+M . P SA -mod. The maps are given by
+
+(31.2)        DpXq ppspecpA0 q, M0¨ q, pspecpA1 q, M1¨ qq “ SA0 -mod pLφ˚ M1¨ , M0¨ q
+
+where φ : specpA0 q ãÝ
+                     Ñ specpA1 q denotes the inclusion (and are empty if spec pA0 q Ę
+specpA1 q). The coherent nerve of DpXq is the simplicial set
+                                                n
+(31.3)                     ∆ pDpXqqn “ Cat∆
+                          N∆              ∆ pCp∆ q, DpXqq
+
+Explicitly, its elements are given by the data of
+
+     (i)      pU0 Ď U1 Ď ¨ ¨ ¨ Ď Un q P Nn pAﬀ{Xq ,           Ui “ specpAi q Ď X open,
+
+     (ii)     Mi¨ P SA
+                     ¨
+                       i
+                         -mod
+
+                                              ¨
+                                                      `                ˘
+     (iii)    For 0 ď i ă j ď n,       ϕij P SA i
+                                                  -mod Lφ˚ij Mj¨ , Mi¨
+
+where φij : Ui ãÑ Uj denotes the inclusion, and higher coherent homotopies
+given by
+                       ¨
+                               `                        ˘
+                ϕτ P SA  i
+                           -mod Lφ˚ij Mj¨ b ∆pℓq` , Mi¨
+(31.4)
+                     for all τ “ pτ0 Ď τ1 Ď ¨ ¨ ¨ Ď τℓ q P Nℓ pPij q
+
+(Where Pij is the set of subsets of ri, js containing the end points).
+These are required to satisfy:
+
+(31.5)                             dk ϕτ “ ϕpτ0 Ď...τ̂k ...Ďτℓ q
+
+and
+(31.6)
+   for ℓ “ 0, τ “ pτ0 q “ ti, k1 , . . . , kq , ju,
+                      ´                   ´                             `      ˘ ¯¯
+   ϕτ0 “ ϕik1 ˝ Lφ˚ik1 ϕk1 ,k2 ˝ Lφ˚k1 ,k2 . . . ϕkq´1 ,kq ˝ Lφ˚kq´1 ,kq ϕkq ,j . . .
+
+            A section m : N pAﬀ{Xq ÝÝÝÑ N∆
+                                         ∆ pDpXqq ,                 ∆ pρq ˝ m “ id
+                                                                   N∆
+is Cartesian iﬀ for all n-simplex pU0 Ď U1 Ď ¨ ¨ ¨ Ď Un q P Nn pAﬀ{Xq, Ui “
+                                                               ¨
+specpAi q, the data mpU¨ q satisﬁes that all the arrows ϕij P SA i
+                                                                   -modpLφ˚ij Mj¨ , Mi¨ q,
+0 ď i ă j ď n, are weak-equivalences.
+The category DpXq8 is symmetric monoidal stable quasi-category, so DpXq is
+symmetric monoidal triangulated category. Where X is an ordinary scheme,
+DpXq is equivalent to the usual derived category of quasi-coherent OX -modules.
+A c-map f P GSchpX, Y q induces adjunction f˚ : DpXq Õ DpY q : f ˚ satisfying
+the derived version of (30.16).
+
+
+
+
+                                                67
+References
+ [1] M. Artin and B. Mazur. Etale homotopy. Lecture Notes in Mathematics,
+     No. 100. Springer-Verlag, Berlin-New York, 1969.
+ [2] Ilan Barnea and Tomer M. Schlank. A projective model structure on
+     pro-simplicial sheaves, and the relative étale homotopy type. Adv. Math.,
+     291:784–858, 2016.
+ [3] Clemens Berger and Ieke Moerdijk. Axiomatic homotopy theory for oper-
+     ads. Comment. Math. Helv., 78(4):805–831, 2003.
+ [4] Clemens Berger and Ieke Moerdijk. The Boardman-Vogt resolution of op-
+     erads in monoidal model categories. Topology, 45(5):807–849, 2006.
+ [5] Clemens Berger and Ieke Moerdijk. Resolution of coloured operads and
+     rectiﬁcation of homotopy algebras. In Categories in algebra, geometry and
+     mathematical physics, volume 431 of Contemp. Math., pages 31–58. Amer.
+     Math. Soc., Providence, RI, 2007.
+ [6] Clemens Berger and Ieke Moerdijk. On an extension of the notion of Reedy
+     category. Math. Z., 269(3-4):977–1004, 2011.
+ [7] Jonathan Block and Andrey Lazarev. Homotopy theory and generalized
+     duality for spectral sheaves. Internat. Math. Res. Notices, (20):983–996,
+     1996.
+ [8] J. M. Boardman and R. M. Vogt. Homotopy invariant algebraic structures
+     on topological spaces. Lecture Notes in Mathematics, Vol. 347. Springer-
+     Verlag, Berlin-New York, 1973.
+ [9] Dennis V. Borisov and Yuri I. Manin. Generalized operads and their in-
+     ner cohomomorphisms. In Geometry and dynamics of groups and spaces,
+     volume 265 of Progr. Math., pages 247–308. Birkhäuser, Basel, 2008.
+[10] A. K. Bousﬁeld and D. M. Kan. Homotopy limits, completions and localiza-
+     tions. Lecture Notes in Mathematics, Vol. 304. Springer-Verlag, Berlin-New
+     York, 1972.
+[11] Kenneth S. Brown. Abstract homotopy theory and generalized sheaf coho-
+     mology. Trans. Amer. Math. Soc., 186:419–458, 1973.
+[12] Denis-Charles Cisinski.    Les préfaisceaux comme modèles des types
+     d’homotopie. Astérisque, (308):xxiv+390, 2006.
+[13] Denis-Charles Cisinski. Higher categories and homotopical algebra, volume
+     180 of Cambridge Studies in Advanced Mathematics. Cambridge University
+     Press, Cambridge, 2019.
+[14] Denis-Charles Cisinski and Ieke Moerdijk. Dendroidal sets as models for
+     homotopy operads. J. Topol., 4(2):257–299, 2011.
+
+                                      68
+[15] Denis-Charles Cisinski and Ieke Moerdijk. Dendroidal Segal spaces and
+     8-operads. J. Topol., 6(3):675–704, 2013.
+[16] Denis-Charles Cisinski and Ieke Moerdijk. Dendroidal sets and simplicial
+     operads. J. Topol., 6(3):705–756, 2013.
+[17] Denis-Charles Cisinski and Ieke Moerdijk. Note on the tensor product of
+     dendroidal sets. arXiv preprint arXiv:1403.6507, 2014.
+[18] Ajneet Dhillon and Pál Zsámboki. On the 8-stack of complexes over a
+     scheme. arXiv preprint arXiv:1801.06701, 2018.
+[19] V. Drinfeld. Hamiltonian structures on Lie groups, Lie bialgebras and the
+     geometric meaning of classical Yang-Baxter equations. Dokl. Akad. Nauk
+     SSSR, 268(2):285–287, 1983.
+[20] V. Drinfeld. Quantum groups. In Proceedings of the International Congress
+     of Mathematicians, Vol. 1, 2 (Berkeley, Calif., 1986), pages 798–820.
+     Amer. Math. Soc., Providence, RI, 1987.
+[21] W. G. Dwyer and D. M. Kan. Simplicial localizations of categories. J. Pure
+     Appl. Algebra, 17(3):267–284, 1980.
+[22] W. G. Dwyer and J. Spaliński. Homotopy theories and model categories. In
+     Handbook of algebraic topology, pages 73–126. North-Holland, Amsterdam,
+     1995.
+[23] Emmanuel Dror Farjoun. Cellular spaces, null spaces and homotopy lo-
+     calization, volume 1622 of Lecture Notes in Mathematics. Springer-Verlag,
+     Berlin, 1996.
+[24] Benoit Fresse. Homotopy of operads and Grothendieck-Teichmüller groups.
+     Part 1, volume 217 of Mathematical Surveys and Monographs. American
+     Mathematical Society, Providence, RI, 2017. The algebraic theory and its
+     topological background.
+[25] Ezra Getzler and John DS Jones. Operads, homotopy algebra and iterated
+     integrals for double loop spaces. arXiv preprint hep-th/9403055, 1994.
+[26] E. Getzler and M. M. Kapranov. Modular operads. Compositio Math.,
+     110(1):65–126, 1998.
+[27] Victor Ginzburg and Mikhail Kapranov. Koszul duality for operads. Duke
+     Math. J., 76(1):203–272, 1994.
+[28] Paul G. Goerss and John F. Jardine. Simplicial homotopy theory, volume
+     174 of Progress in Mathematics. Birkhäuser Verlag, Basel, 1999.
+[29] A. Grothendieck and J. A. Dieudonné. Éléments de géométrie algébrique.
+     I, volume 166 of Grundlehren der mathematischen Wissenschaften [Fun-
+     damental Principles of Mathematical Sciences]. Springer-Verlag, Berlin,
+     1971.
+
+                                      69
+[30] Philip Hackney, Marcy Robertson, and Donald Yau. Infinity properads and
+     infinity wheeled properads, volume 2147 of Lecture Notes in Mathematics.
+     Springer, Cham, 2015.
+[31] Philip Hackney, Marcy Robertson, and Donald Yau. Higher cyclic operads.
+     Algebr. Geom. Topol., 19(2):863–940, 2019.
+[32] Shai Haran. Index theory, potential theory, and the Riemann hypothesis. In
+     L-functions and arithmetic (Durham, 1989), volume 153 of London Math.
+     Soc. Lecture Note Ser., pages 257–270. Cambridge Univ. Press, Cambridge,
+     1991.
+[33] Shai Haran. The mysteries of the real prime, volume 25 of London Math-
+     ematical Society Monographs. New Series. The Clarendon Press, Oxford
+     University Press, New York, 2001.
+[34] Shai Haran. Non-additive geometry. Compos. Math., 143(3):618–688, 2007.
+[35] Shai Haran. Arithmetical investigations, volume 1941 of Lecture Notes
+     in Mathematics. Springer-Verlag, Berlin, 2008. Representation theory,
+     orthogonal polynomials, and quantum interpolations.
+[36] Shai Haran. Geometry over F1 . arXiv preprint arXiv:1709.05831, 2017.
+[37] Shai Haran. New foundations for geometry—two non-additive languages for
+     arithmetical geometry. Mem. Amer. Math. Soc., 246(1166):x+200, 2017.
+[38] Shai Haran.       Algebra over generalized rings.         arXiv preprint
+     arXiv:2006.15613, 2020.
+[39] Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk. On the equivalence be-
+     tween Lurie’s model and the dendroidal model for inﬁnity-operads. Adv.
+     Math., 302:869–1043, 2016.
+[40] Gijs Heuts and Ieke Moerdijk. Trees in algebra and topology. preprint,
+     2018.
+[41] Vladimir Hinich. Homological algebra of homotopy algebras. Comm. Al-
+     gebra, 25(10):3291–3323, 1997.
+[42] Philip S Hirschhorn. Model categories and their localizations. Number 99.
+     American Mathematical Soc., 2009.
+[43] Eric Hoﬀbeck and Ieke Moerdijk. Shuﬄes of trees. European J. Combin.,
+     71:55–72, 2018.
+[44] Mark Hovey. Spectra and symmetric spectra in general model categories.
+     J. Pure Appl. Algebra, 165(1):63–127, 2001.
+[45] Mark Hovey, Brooke Shipley, and Jeﬀ Smith. Symmetric spectra. J. Amer.
+     Math. Soc., 13(1):149–208, 2000.
+
+                                      70
+[46] J. F. Jardine. Simplicial presheaves. J. Pure Appl. Algebra, 47(1):35–87,
+     1987.
+[47] André Joyal. Foncteurs analytiques et espèces de structures. In Combi-
+     natoire énumérative (Montreal, Que., 1985/Quebec, Que., 1985), volume
+     1234 of Lecture Notes in Math., pages 126–159. Springer, Berlin, 1986.
+[48] André. Joyal. Quasi-categories and Kan complexes. volume 175, pages
+     207–222. 2002. Special volume celebrating the 70th birthday of Professor
+     Max Kelly.
+[49] André Joyal. The theory of quasi-categories and its applications. 2008.
+[50] André Joyal and Joachim Kock. Feynman graphs, and nerve theorem for
+     compact symmetric multicategories. Electronic Notes in Theoretical Com-
+     puter Science, 270(2):105–113, 2011.
+[51] André Joyal and Myles Tierney. Quasi-categories vs Segal spaces. In Cate-
+     gories in algebra, geometry and mathematical physics, volume 431 of Con-
+     temp. Math., pages 277–326. Amer. Math. Soc., Providence, RI, 2007.
+[52] Daniel M. Kan. Abstract homotopy. I. Proc. Nat. Acad. Sci. U.S.A.,
+     41:1092–1096, 1955.
+[53] Daniel M Kan. On css complexes. American Journal of Mathematics,
+     79(3):449–476, 1957.
+[54] Daniel M Kan. Adjoint functors. Transactions of the American Mathemat-
+     ical Society, 87(2):294–329, 1958.
+[55] Daniel M Kan. A combinatorial deﬁnition of homotopy groups. Annals of
+     Mathematics, pages 282–312, 1958.
+[56] Daniel M Kan. On homotopy theory and css groups. Annals of Mathemat-
+     ics, pages 38–53, 1958.
+[57] Jean-Louis Loday. La renaissance des opérades. Number 237, pages Exp.
+     No. 792, 3, 47–74. 1996. Séminaire Bourbaki, Vol. 1994/95.
+[58] Jean-Louis Loday and Bruno Vallette. Algebraic operads, volume 346 of
+     Grundlehren der mathematischen Wissenschaften [Fundamental Principles
+     of Mathematical Sciences]. Springer, Heidelberg, 2012.
+[59] Jacob Lurie. Derived algebraic geometry. PhD thesis, Massachusetts Insti-
+     tute of Technology, 2004.
+[60] Jacob Lurie. Higher topos theory, volume 170 of Annals of Mathematics
+     Studies. Princeton University Press, Princeton, NJ, 2009.
+[61] Jacob Lurie. Higher Algebra. 2017.
+
+
+
+                                      71
+[62] Saunders Mac Lane. Categories for the working mathematician, volume 5
+     of Graduate Texts in Mathematics. Springer-Verlag, New York, second
+     edition, 1998.
+[63] Martin Markl, Steve Shnider, and Jim Stasheﬀ. Operads in algebra, topology
+     and physics, volume 96 of Mathematical Surveys and Monographs. Ameri-
+     can Mathematical Society, Providence, RI, 2002.
+[64] J. P. May. The geometry of iterated loop spaces. Lecture Notes in Mathe-
+     matics, Vol. 271. Springer-Verlag, Berlin-New York, 1972.
+[65] J. P. May. Deﬁnitions: operads, algebras and modules. In Operads: Pro-
+     ceedings of Renaissance Conferences (Hartford, CT/Luminy, 1995), vol-
+     ume 202 of Contemp. Math., pages 1–7. Amer. Math. Soc., Providence, RI,
+     1997.
+[66] Ieke Moerdijk. Closed dendroidal sets and unital operads. Theory Appl.
+     Categ., 36:Paper No. 5, 118–170, 2021.
+[67] Ieke Moerdijk and Bertrand Toën. Simplicial methods for operads and
+     algebraic geometry. Advanced Courses in Mathematics. CRM Barcelona.
+     Birkhäuser/Springer Basel AG, Basel, 2010. Edited by Carles Casacuberta
+     and Joachim Kock.
+[68] Ieke Moerdijk and Ittay Weiss. Dendroidal sets. Algebr. Geom. Topol.,
+     7:1441–1470, 2007.
+[69] Ieke Moerdijk and Ittay Weiss. On inner kan complexes in the category of
+     dendroidal sets. Advances in Mathematics, 221(2):343–389, 2009.
+[70] Daniel Quillen. Rational homotopy theory. Ann. of Math. (2), 90:205–295,
+     1969.
+[71] Daniel Quillen. On the (co-) homology of commutative rings. In Applica-
+     tions of Categorical Algebra (Proc. Sympos. Pure Math., Vol. XVII, New
+     York, 1968), pages 65–87. Amer. Math. Soc., Providence, R.I., 1970.
+[72] Daniel Quillen. Higher algebraic K-theory. I. In Algebraic K-theory, I:
+     Higher K-theories (Proc. Conf., Battelle Memorial Inst., Seattle, Wash.,
+     1972), pages 85–147. Lecture Notes in Math., Vol. 341, 1973.
+[73] Daniel G. Quillen. Homotopical algebra. Lecture Notes in Mathematics,
+     No. 43. Springer-Verlag, Berlin-New York, 1967.
+[74] C. L. Reedy. Homotopy theory of model categories.
+[75] Graeme Segal. Categories and cohomology theories. Topology, 13:293–312,
+     1974.
+[76] Christophe Soulé. Les variétés sur le corps à un élément. Mosc. Math. J.,
+     4(1):217–244, 312, 2004.
+
+                                      72
+[77] Bruno Vallette. A Koszul duality for PROPs. Trans. Amer. Math. Soc.,
+     359(10):4865–4943, 2007.
+[78] André Weil. Sur l’analogie entre les corps de nombres algébriques et les
+     corps de fonctions algébriques. Revue Scient, 77:104–106, 1939.
+[79] Ittay Weiss. Dendroidal sets. PhD thesis, Utrecht University, 2007.
+[80] Ittay Weiss. From operads to dendroidal sets. In Mathematical foundations
+     of quantum field theory and perturbative string theory, volume 83 of Proc.
+     Sympos. Pure Math., pages 31–70. Amer. Math. Soc., Providence, RI, 2011.
+[81] Donald Yau and Mark W. Johnson. A foundation for PROPs, algebras, and
+     modules, volume 203 of Mathematical Surveys and Monographs. American
+     Mathematical Society, Providence, RI, 2015.
+
+
+
+
+                                      73
+

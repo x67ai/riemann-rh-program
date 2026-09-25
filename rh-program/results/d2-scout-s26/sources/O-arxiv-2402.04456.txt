@@ -1,0 +1,1524 @@
+Non    Additive      Geometry
+
+           Shai   Haran
+
+      shaiharan@gmail.com
+                                                Contents
+
+
+Chapter   0.    Introduction
+
+Chapter   1.    Props
+
+Chapter   2.    Associating             props        with      Rings
+
+Chapter   3.    Bio(perads)
+Chapter   4.    Commutativity                   for Bios
+
+Chapter   5.    Ideals     and    primes
+
+Chapter   6.    The      Spectrum
+
+Chapter   7.    Localization
+
+Chapter   8.    Sheaves
+
+Chapter   9.    Generalized             Schemes
+
+Chapter   10.    Pro-Schemes
+
+Chapter   11.    Valuations             and      Beta       integrals
+
+Chapter   12.    Categorical             objects         and       A-modules
+
+Chapter   13.    Derivations             and        differential                            112
+
+
+Chapter   14.    Simplicial objects                   and      the    cotangent   complex   122
+
+
+Chapter   15.    Properties         of generalized                   schemes                128
+
+Chapter   16.    Higher K-theory                                                            133
+
+Chapter   17.    The      Witt     ring                                                     136
+
+Chapter   18.    Modules         over         the     sphere spectrum                       147
+
+Bibliography                                                                                157
+4                                                              CONTENTS
+
+
+
+
+                                                                   Preface
+
+The       usual          dictionary         between                 geometry          and     commutative                      algebra           is
+
+not     appropriate               for Arithmetic                    geometry           because       addition                 is   a    singu-
+lar     operation            at    the     “Real         prime”.               We     replace Rings,                  with         addition
+
+and       multiplication,                 by Props                 (=strict symmetric                   monoidal                   category
+
+generated              by one          object), or by Bioperad (=two closed                                          symmetric               op-
+
+erads       acting         on      each         other):            to     a    ring   we    associate           the       prop             of all
+
+matrices          over       it, with           matrix         multiplication               and    block             direct         sums        as
+
+
+the     basic      operations,             or     the        bioperad           consisting        of all       raw       and           column
+
+vectors         over       it.     We      define            the        “commutative”             props          and          bioperads,
+and       using them              we     develop         a    generalized algebraic geometry,                                      following
+Grothendieck                 footsteps           closely.               This    new    geometry           is    appropriate                   for
+
+Arithmetic               (and potentially                    also       for    Physics).
+                                                                       CHAPTER                                0
+
+
+
+                                                                 Introduction
+
+
+      We, the human                            beings,           are        walking                      on       this           earth         doing most                           of the
+
+time           addition                and     subtraction                   in        our         brains               -
+
+
+                                                                                                                                 “How         much             will I profit?
+
+earn?            pay?             How         much         it will           cost?                 What                 will          be left?”                .        There’s               no
+
+
+wonder                that         addition           and         subtraction                             dominate                     all     our         mathematics.
+
+It is          always             an     Abelian           group             that                 is at        the           basis           of any                mathemati-
+
+cal structures                         (or an       additive                functor                  between                      Abelian             categories,                         and
+
+homological algebra                                that      produces                        all the               deeper theorems). However,
+there           is    a     world            before        addition,                    before                we            apply            the     functor                       of “the
+
+free Abelian                      group”           and     start            doing addition                                  and        subtraction                        -
+
+
+                                                                                                                                                                               it is the
+
+world           of homotopy.                       It is the           long exact                         sequences                     of    (co)fibrations that
+give us all the deeper theorems                                                   we          need.
+
+The            encoding                of geometry                into        an             Abelian                    group            begins            with                Gelfand
+
+theorem                on        the     equivalence               of the               category                    of compact                       Hausdorff                       topo-
+
+logical spaces                         and     continuous                   maps,                  with           the            opposite            of the                   category
+of commutative                               C*-    algebra              and             »homomorphism.                                            To      a        topological
+space           X          one         associate           the         commutative                                 C*-            algebra               C(X)                   =
+                                                                                                                                                                                         {f        :
+
+
+
+X      —        C continuous} using the                                     addition                      and           multiplication                             (and conju-
+gation               and         norm) in C to get the                                   structure                          of    a    C*-algebra                        on         C(X).
+To         a    commutative                        C*-algebra                 A          one             associate                     the         space                spec(A) of
+maximal                   ideals         of    A, which                is    compact                          Hausdorff                  with           respect                     to     the
+
+minimal                topology making                           all        f € A continuous.
+
+Alexander                        Grothendieck                (Shapiro)                            came             to        algebraic                geometry                           from
+
+C*-algebras,                       and        in   front         of him                were              the        Weil              conjectures                        which             are
+
+
+all     “above               Z”.        He therefore                   chose             Commutative                                         Rings                 as         the        basis
+
+
+                                                                                             ol
+6                                                       0.   INTRODUCTION
+
+
+for       the    language              of    algebraic geometry.                       If he        was    more          interested               in
+
+Arithmetic                he would             have        had   to    choose          a    more       general          notion       than          a
+
+
+commutative                 ring. That                commutative                rings       are     not   sufficient            for Arith-
+
+metic           geometry              is clear       by considering                Weil’s           “Rosetta            stone”,          that’s
+
+the       one     dimensional                 structures         we     have:
+
+
+(1*)                Number               Fields:        A’/Q finite.
+
+(2*)                Function                Fields      in characteristic                  p:      K’/F,(z) finite.
+
+(3*)                Function                Fields      in characteristic                  0: AK/C(<z) finite.
+
+
+The        Function             Fields        K      corresponds           one     to       one     with      smooth          projective
+curves          Xx,       and         the     points         of Xx       are      in       bijection       with         the      valuation
+
+sub       rings of kK. A choice                         of the        transcendental                  basis       “z”     corresponds
+to    a    choice     of        a    dominant           mapping          z:      X%         —~»      P!. At the            basis         of the
+
+Rosetta           stone         we     have       the      rational      numbers/functions,                        with          their      real
+
+prime/point                at        infinity:
+                                                              0.    INTRODUCTION                                                                       7
+
+
+
+
+                                                  Ze               =
+                                                                         {zlz|<1}ec
+                                                                                       Ul                      Ul
+
+                                                              Zp=(|-1,1] Cc                                    R
+                                                                           /
+                       (1*):                                          Cc
+                                                                       LZ                          Q
+
+                                                                          NO
+
+                       (2°)                                         Fylz]               SE    (2)
+
+
+
+
+We      see     that          the     “Real           integers”            Zp     =
+                                                                                         |—1,1] C R, and similarly                              the
+
+“Complex integers” Ze                                 =
+                                                              {z € C,            |z| < 1}, are            not         closed         under      ad-
+
+dition,        and       do not            form           a    sub       ring.        As Grothendieck                      knew      well:      the
+
+global         theorems             exist         only in projective                         geometry,          not        in affine         geom-
+
+etry.         The      most         basic         example being                       that     a   rational           function            without
+
+poles anywhere, including                                     the       point    at     infinity,       must          be    a    constant.           If
+
+our     language               does        not        “see”            all of the        points        there        will        be   no      global
+theorems.              We       must         therefore                 understand              these     real       and         complex         “in-
+
+tegers”         as     some         kind         of   a       “generalized ring”.
+8                                                                     0.    INTRODUCTION
+
+
+Another                 problem               is the            mysterious                   “Arithmetic                          surface”:               the     integers
+Z   are       the           initial       object               of the           category                of rings,                so    the         categorical         sum
+
+
+of Z with                   itself      reduces                to     the        diagonal
+
+(0.1)                                                                        ZOL=TZ,
+
+unlike          the          function              field        analog
+
+(0.2)                                                      Fz|             @r     Fz|         =
+                                                                                                    Fiz, 22].
+
+Thus          if we           insist         on        rings, the Arithmetical                                            Surface
+
+
+
+(0.3)                                                  spec(Z) I] spec(Z)                                =
+                                                                                                               spec(Z)
+
+reduces                to     its     diagonal.
+
+The       original                  Rosetta             Stone              had     three           languages talking                                 word        for word
+
+about          one           and      the     same             reality. Comparing                                  the     well understood                         ancient
+
+Greek              and         Demotic                  languages                 with            the        mysterious                      Hieroglyphic,                 the
+
+ancient                Egyptian               language,                    led to the              decipherment                             of the        Hieroglyph-
+ics, and                with          it the           understanding                         of many                     texts         from           the       mummies
+
+and       the          pyramids.                  While              in mathematics                           we     have             one         language          that     is
+
+talking                about          three        “one             dimensional”                    but        different                   realities        (1*), (2*),
+and       (3*). Moreover,                               this        language             of commutative                                rings, the language
+of Addition                         and       Multiplication,                                is not           the         right language                        for Arith-
+
+metic         geometry,                   because                   addition         is      singular                at     the        real         prime, and the
+Arithmetic                     Surface             disappears.
+A similar                   situation             occurs              in    physics: normalizing                                      the         speed of light to
+one,      c        =
+                            1, the interval                     of    speeds |—1,1] is not                                      closed             under        addition.
+
+Einstein’s                   solution             was          to     replace           z,        + z2        by
+
+
+(0.4)                                             21    (+) Ze =                 (Zz + 2,)/(1 + 21                          ©
+                                                                                                                                  22)
+
+That          is       we     use      the        fractional                linear           transformation                            z     +>
+                                                                                                                                                     (1 + z)/(1— z)
+that       identifies                  the        interval                 |—1,1] with                       the     positive                     reals     [0,0],         and
+                                                                  0.    INTRODUCTION                                                                               9
+
+
+we     carry           multiplication                 of positive                      real    numbers             (0, ©) to               the     interval
+
+(—1,1) to                obtain            Einstein’s                   addition              (+).       When           we       do     it with          com-
+
+
+
+plex numbers                    the        unit     disc           Ze        =
+                                                                                   {|z| < 1} get identified                           with       the     right
+half     plane {Re(z) > 0} which                                             is not      closed         with      respect             to     multiplica-
+tion,       so        Ze is not            closed         under                  (+). (Curiously, we                        do have          that        Ze is
+closed           with     respect            to     the           operations                 z)(+)’z2 := (21 + Z2)/(1 + 2122),
+or                     but
+       (21 + 22)/(1442%)                              these                  operations           are     not      commutative                     and       are
+
+
+not     associative).                      It is    perhaps                      already       here       that         relativity            and        quan-
+
+tum      mechanics                    cannot         coexist.                     Quantum               mechanics                started         with      the
+
+observation                by Heisenberg                          that           the   level     structure              of the         energy           of mi-
+
+croscopic               particles           are     controlled                     by finite         matrices.
+
+Our      basic          idea      is to        replace                 the       ring A by the collection                             of all matrices
+
+over     A        =
+                         {Anm}, n,m                       >            0 with          the     operations               of Matrix                   Multi-
+
+plication                and          of     Block                Direct               Sum        of      Matrices.                   The        algebraic
+structure               of this        collection                  of all matrices                   is that           of    a   “Prop”:            a   strict
+
+symmetric                monoidal                 category                   generated           by one          object.
+
+Observing                that
+
+
+(0.5)                                 (Zp)nm          =
+                                                                  14 © (Qp)nm | ac                       Ze S Zp}
+
+we     define
+
+
+
+(0.6)                                  (Zen               =
+                                                                   {0 € (R)nm | ao                       Ze S ZB}
+
+with
+
+
+
+(0.7)                      m      —
+                                        {(21,...,2m) ER”,Jal? +--+ lem? <1}
+
+the     unit          @2ball.          Similarly                  the        complex integers                    are        defined          by
+
+(0.8)                                      (Ze)num            =
+                                                                       {@€ Crm |@oZ@™
+                                                                                    < ZB}
+10                                                                  0.       INTRODUCTION
+
+
+with
+
+
+
+(0.9)                       Ze       =
+                                            {(21,...,2m) EC”,Jal? +... +lan? <
+
+the     unit     £2 complex ball.                                 The           sub        props
+
+
+
+(0.10)                                                            ZRER,                        ZoEC
+
+are     closed            under            the           operations                  of matrix               multiplication                   and                 block       di-
+
+rect     sum             of matrices.
+
+We      can      define              the         “residue                    field    at     the           real        prime” Fe,             and                 similarly
+the     “residue             field         at    the          complex prime” Fe, as                                      follows.       For           a       €
+                                                                                                                                                                       (Zr) nm
+we     have      a! €            (Zg)mn, and                         the         self-adjoint                     operators           a’ oa               €
+                                                                                                                                                                  (Zp)
+acate           (Ze) nn:                 The             spectral decomposition                                        of these       operators                        give
+
+                                                                         k                                                                    k
+
+(0.11)                     R”    =
+                                         ker(a")                    @DW(A)                                 R”      =
+                                                                                                                         ker(a)         ®             PV(Ai)
+                                                                    i=l                                                                     i=l
+
+
+
+with      0 <            Ay < Ag <                +--+
+
+                                                              <   Ay < 1, and                      a       induces         isomorphism
+(0.12)
+      W (Aj)         =
+                           ker       (aoa!                —
+
+
+
+
+                                                              ;old,)                  4            V(,)            =
+                                                                                                                         ker   (a'     oa
+                                                                                                                                                  —
+
+
+
+
+                                                                                                                                                          dj       -
+
+
+
+
+                                                                                                                                                                       Id)
+In     particular,               a       induces              the            partial isometry                          (possibly empty!)
+
+(0.13)                                                        @     :=
+                                                                              {W(1)            “@-
+                                                                                                 Vv(1)}
+
+Let     Fr denote                    the        collection                   of all such               partial            isometries
+
+
+
+(Fr) nm          =
+                           TW(a) <*_-¥(a) linear                                           isometry,                   “W(a) € R",°V(a)                                 ©   R™}.
+
+The      composition                       in     Fp is given by
+
+(0.14)
+
+a £v(a)Jo(W
+         (6) ()) (alla)                                                  LV                            =                          0
+                                                                                                                                      WH)                     SE              6     (Ha)
+                                                                                                                                                                                           WO)
+                                                            0.        INTRODUCTION                                                                               11
+
+
+
+The      direct        sum     in        Fe is the                usual         sum
+
+
+
+
+                            (cw
+                              (a)) 2
+                                     V(a))(Waa)L-V(ay))                                  ©                                                       =
+
+
+
+
+(0.15)
+
+                             (Wa)OW(w) CL                                                         ¥(a,)             OV
+                                                                                                                           (a2)
+With         these      operations               Fr forms                   a   prop,              and         we     have       the     surjection
+
+                                Zp ——»                           Fr
+
+(0.16)
+                                a>                                @=
+                                                                                (way
+                                                                                   a
+                                                                                     vi)
+In     exactly        the    same         way         (using @ instead                                  of a‘) we           have       the      surjection
+of props
+
+
+
+
+With         these      definitions,                 we         see     that         the          “mathematical                    Rosetta             stone”
+
+can     be     repaired,            and         in the                language               of props,               the       Arithmetic              reality
+(1*) becomes                 word          for       word              analogue                   to     the        function           fields        realities
+
+(2*) and (3%):
+
+
+                                                                                 Ul               Ul                   Ul
+                                                                                R        >
+                                                                                                  Zp         ——~
+                                                                                                                           Fre
+ 0.18                                                                            Ul
+(0.18)
+                                                                      Za
+                                                                      IN         In
+
+
+
+
+      Notice         that    the         prop         associated                    to       any        ring A will               contain            the     sub
+
+prop      F with
+
+
+                                    all the           n     by m            matrices                    with         entries       0    or      1 such
+
+(0.19)            Frm =|that                    in    any             row       and          in        any         column        there       will       be
+
+                                    at    most            one         nonzero                entry.
+12                                                                 0.    INTRODUCTION
+
+
+This       common                 sub         prop           of all rings is the                             “Field           with            One         element“
+
+[Sou08}]. It will                       be the               initial          object               of our           props,         and        the     “absolute-
+
+point”            spec(F) will                      be the              last        object             of     our      geometry.
+
+There        is       no     such        thing               as    non          commutative                          geometry                 ! Although                  non
+
+
+commutative                      rings (and similarly                                     non-commutative                               props) have                 a    rich
+
+theory           of        cohomology                      and          K-theory                      generalizing                  the       theory           of       com-
+
+
+mutative               rings           [Con94],                   there             is    no         spectrum                associated               with          a     non
+
+
+commutative                       algebra,                 there          are            no         spaces,           localization                  and        sheaves.
+
+We      will      have            to     understand                       what                it     means            for the           prop         A when               the
+
+underlying                  ring A is commutative.                                              There           will     be two               notions          of       com-
+
+
+
+mutativity                 for props                   giving           rise        to        the      full     embeddings                     beginning                with
+
+the     category                 of commutative                            rings              CRing,
+(0.20)                                        CRing© CrPrep < CPrep< Prep.
+These          categories                    are       all        complete                    and       co-complete.                      In        particular             we
+
+
+have       the        Arithmetical                        Surface               ,
+                                                                                    the            categorical               sum        of Z with               itself          in
+
+the     category                 CPrep
+
+                                       Z®r                   Z                                                                     »
+                                                                                                                                          7
+
+
+(0.21)                                                                                                        va
+Unfortunately,                         the         same           sum          in        the        category             CrPrep,the total                               com-
+
+
+mutative               quotient                of         Z @r          Z, reduces                    to      Z.       This        is     why we             prefer            to
+
+work       with            the     weaker                 notion           of commutativity.
+
+To     a    commutative                            prop           A      we         will            associate            functorially                   a     compact
+
+topological                 space             spec(A).                    This                space          depends               on     much              less    infor-
+
+mation            than           what              A      gives.           To            construct                  spec(A) we                  only         need         the
+                                                            0.    INTRODUCTION                                                                               13
+
+
+information              given by the collection                                        of “raw       and        column            vectors            in   A”,
+we      call     this   UA, so
+
+(0.22)                   (UA) (n):=Ain                                             =,          (UA) "(n)              =
+                                                                                                                           Ana
+
+The       collection        UA           =
+                                                  (P (n),P*(n)) forms                                 the        structure            we        call       Bio,
+short          for   Bi-operad,              consisting                 of two              (closed symmetric) operads P-
+and       P* acting         on           each          other           in     a         consistent          manner.                 We         obtain          a
+
+
+commutative               diagram                 with          rows        full        embeddings               and       their      left          adjoints
+
+
+                                                  1    Prep——                                   CPrap ——Prap
+                                                  *                                                                                    F
+                        CRing                                    U                                F)| oy                                            | oy
+(0.23)
+                           A                          bie              &——                        CBie =—                                      Bio
+
+
+Here       CBie are         the          bios          P    =
+                                                                      (P_,P") where                    all operations                      p    €    P     (n),
+and      all co-operations                    q €      P'(m), commute                                in the        sense      of bi-algebras,
+
+
+
+(0.24)                              qo       p=        (p,-* ,P)°Omn°(G°**                                         5):
+                                                         —_”                                          —r—
+                                                                  m                                         Th
+
+
+
+
+Thus       we        identify
+
+
+
+
+                                a
+(0.25)
+14                                                            0.       INTRODUCTION
+
+
+with
+
+
+
+                                                P                                                                      q
+                                     1                                                                                        1
+                                                e                                                                      e
+
+                                                e                                                                      e
+
+                                                e                                                                      e
+
+
+
+                                      _
+                                                dP                                                                     q
+                                     1                                                                                        j
+(0.26)                                          "                                                                      ;
+
+                                                e                                                                      6
+
+                                                e                                                                      e
+
+
+                                                P                                                                      q
+                                  m                                                                                           n
+
+
+
+                                                                   n                             m
+
+
+
+
+(0.27)            (@-1)-n+j =oOmn((G-l)mti), 1l<i<m,                                                                                    1<j<n,
+
+the     permutation                       Omn         €    Smen is given pictorially                              in the          diagram (0.26).
+
+The      totally           commutative                        bios             CrBt        are        the       commutative                   bios   P     =
+
+
+
+
+(P_,P')             where                 the        operads               P      and      P" satisfy                  further          the     original
+Boardman-Vogt                             commutativity:
+
+(0.28)
+      forpeP (m), pe                                 P (n)             :
+                                                                               po(p',:::         pp’) =plo(p,-++                        ,P) Oo
+                                                                                                                                             Onm
+                                                                                    en                                       ee
+
+
+      forgeP(m),                            gd
+                                             eP(n)                     :
+                                                                               (1,7.
+                                                                                Senn
+                                                                                         d)°qg=omn                                (gs
+                                                                                                                                   en
+                                                                                                                                              Qo”
+
+
+For      a    commutative                            bio     P     =
+                                                                           (P ,P"), (resp.                        prop        A), the           monoid
+
+P (1)         =     P'(1) (= Aj,1) is commutative                                                    and        central,          so   that     we   can
+
+
+localize           with      respect                 to    multiplicative                  subsets              S C        P(1) (= Aia).             We
+
+obtain         a    sheaf         Op (resp. 0,4) of commutative                                                 bios       (resp. props) with
+local        stalks       over             spec(P) (resp. spec(UA)).                                       To     a    map        of bios       (props)
+y     corresponds                a        map         of   locally bio (resp. prop) spaces                                        in the       opposite
+direction.            We         obtain              the    diagram                of   full-embedding
+                                                                         0.       INTRODUCTION                                                                     15
+
+
+
+
+                          (CRing)””                      >
+                                                                                              8c, Ring                                                |Top
+
+
+
+
+                                 <P
+                          (CPrap)°?                                                              Sch,<>                                  PrepTep
+Here         the        column            on         the             right         consists       of pairs          (X, Ox) of a topological
+space         X         together               with                  a   sheaf          Ox of         CRing/CBisa/CPrep
+                                                                                                                   with local
+
+stalks        at        each        point            x       €       X
+
+
+
+(0.30)                                                               Oxn =                 lim Ox(%)
+                                                                                        veucXx
+
+
+with         maps         f     :    X     —
+                                                     Y are                pairs of a             continuous            map          f and pull-back
+of sections               fe        :    Oy (U)                  >
+                                                                         Ox(f-'%U) compatible                          with             restriction         with
+
+respect            to    the        open             subsets                  %     ¢    Y, and inducing                   local          maps        on   stalk
+
+FF      :    Ov pe)        >
+                                     Ox,              fF (My,pa)) S Mx.
+The         middle             column                consists                     of the      category         of    ordinary              schemes          Sch,
+the         category            of       Bée schemes                              BSch, and            the     category            of
+                                                                                                                                           Prepschemes
+PSch.          These            are        the               full-subcategories                       of the        right     column             consisting
+of    (X,0Ox) which                            are           locally               affine:       we    have     X      =
+
+                                                                                                                              |), a,             Ua        open,
+
+and
+
+
+(0.31)                              (a, Oxla,}                                =
+                                                                                    spec      (Ox (%..))                   all     a.
+16                                                                  0.    INTRODUCTION
+
+
+These          categories                     of       generalized             scheme            are         finite-complete                          and     we      can
+
+
+
+always             construct                     fiber        produces
+
+
+
+
+(0.32)                                                            xX                                       %
+
+
+
+
+But      we         will          be         interested              in     more         general               limits        of the                  form     lim Xj,
+                                                                                                                                                              jeJd
+where          J is          a    partially                  ordered        set, and            for         simplicity               we        can      restrict        to
+
+
+
+(0.33)                                    J directed:              Vj,,j2E              J,            Je          7 Sh,           & JF S jo
+
+
+and
+
+
+
+(0.34)                                co—         finite:            Vj 6 J, #{y' e Jy’ <a}                                      <        @,
+
+
+and      where j                 ~~»
+                                             X;, is a functor,                     so   that      for 7> j’ we                       have            a map
+                                                                                                                                                                 X;     >
+
+
+
+
+Xj.       These                  limits            always           exist      in       the     categories                  of the             right         column:
+
+the                                                          of
+         underlying                         space                 limX; is the                  set        of all coherent                           sequences              of
+
+
+points         x        =
+
+                             {2;}je7, with                        iheinverse             limit         topology,                 and       the        sheaf        is the
+
+direct         limit             of       Ox,.
+Similarly,                  such          limits         always exists                  in the             categories             of the             left    column.
+
+Indeed             we       have            quite formally
+
+
+(0.35)                                                 lim spec(A;)
+                                                       jet
+                                                                                    =
+                                                                                         spec
+                                                                                                      [a4) jeJd
+
+But      the        categories                     of schemes, and                      of generalized                      schemes,                  do not         have
+
+such      limits:                 for        a     coherent               sequence             of points                x    =
+                                                                                                                                     {2;}je7 © lim Xj,
+while     each              2;        €
+                                          X; has             an    affine     neighborhood                        %,; ¢ X,                the         intersection
+                                 need            not     be open.
+5 (%s)
+}E
+
+
+Wetherefore                           pass        to     the      pro-categories                  of        (generalized) schemes,                                   with
+                                                                       0.   INTRODUCTION                                                                                                  17
+
+
+
+objects arbitrary                            such        inverse                systems                 {X,;}j-7, and                             maps
+
+
+
+(0.36)                           pro-Sch ({Xj} jes, {Vifier)                                                  =
+                                                                                                                    lim limSch(X;, Yi)
+                                                                                                                        iel        ged
+
+
+In the        categories                 pro-F.Sch and pre-BSch finally have the compact-                          we
+
+
+ification           of spec(Z), denoted                                     spec(Z), and similarly                                           for any         number                 field
+
+K      we     have             spec(Ox).                     For            spec(Z) we                    take                J    to        be     the      collection                   of
+
+finite       subsets             of the           primes,                   with        inclusion                   as            partial order,                      and
+
+
+
+
+(0.37)             —Xp,.--p,)                7=
+                                                      spec(Z)                           ial
+                                                                                svee(ZI5r)
+                                                                                                                  spec
+                                                                                                                                  (zi — Zs                        a                 .
+
+
+
+
+                                                                                       57]
+The         generalized                  scheme               Xf»,... »,;                has            closed                points {(p1),---                         ,   (pe),MR}
+                                         1
+with        nr
+                    =
+                           Z
+                                 | Pie
+                                                       mn
+                                                             (—1,1), the                              “Real             prime”,                    coming from                          the
+
+unique             maximal                ideal              (—1,1) of Zp. Enlarging                                                     the       set       of primes                   we
+
+
+have        maps
+
+
+
+(0.38)                                            Xp                   peaue         ae}
+                                                                                                  >
+                                                                                                              pipe}                      3
+
+
+these        maps          are       identity                on        points,               and        are        identity                  on        the    sheaves,                  but
+
+there                                                 sets        in        X                            qx} then                   there                    in       X
+             are        more         open                                       4p,
+                                                                                 ..-pp,q1,
+                                                                                                                                                       are
+                                                                                                                                                                           fy, p)}-
+                                                                                                                                                                             ....
+
+
+
+The         space
+
+
+
+(0.39)                                            limspec(Z)=
+                                                  ~
+                                                                                              lim                 Xye,....e,}
+                                                                                        {rbe}ed
+
+is   one      dimensional                     and            has        the      generic point (0), and the closed                                                          points
+
+Nr     and         (p), where                 p is           an        arbitrary                      prime.              The            structure                sheaf             (as a
+prop) is given by
+
+(0.40)                  0 lim
+                                 spec(Z) (U)ngm
+                                                                        =
+
+                                                                                {4 Quy,
+                                                                                    ©                     ao
+                                                                                                                     Z™© Z? for all pe WU}
+
+with        global             sections
+
+
+
+(041)                             (spec(Z)) Zam
+                           Opassearz
+                                                                                              =
+                                                                                                                    0
+                                                                                                                              (ZR)nm               =
+                                                                                                                                                             [+L nom
+18                                                                 0.       INTRODUCTION
+
+
+the         n     by m               matrices             where              each                raw         and         each      column             will     have         0
+
+entries,              accept           at        most       in     one           entry             which              could       be   +1.
+
+It     is       here          that         we      obtain              a     truely                global               result:        the         eigenvalues          of
+
+matrices                in         F[+1],,, are                  either               zero         or       roots         of unity,          the      “constants”
+
+of arithmetic                         and        conversely:                     the             algebraic integers                      having          “no        poles
+over            the     real         prime” (in any                         embedding                            into      C they        are        mapped           into
+
+Zc) are               the          roots         of unity              (Kronecker Theorem).
+For         any         prop          A, and            any            n     >          1, we               have         the      monoid            A,,,,      and     its
+
+subgroup                    of invertible               elements                       GL,,(A), the “general                                 linear     group”          in
+
+dimension                     n.
+
+
+
+
+For         example,
+(0.42)
+     GL,,(F)            =
+                                   Sp © GLn(F[4£1])                          =
+                                                                                       (+1)" » S, © GL» (Ze)                                   =
+                                                                                                                                                     O(n) €          GL,(Ze)    =
+                                                                                                                                                                                    U(n)
+
+and         GL,(A)                  is the        usual          group                of     n     by n           invertible           matrices          for    a    ring
+A.
+
+
+These             groups              come         with          associative                       maps
+
+
+
+(0.43)                                 ®:         Gh, (A) x Gly, (A)                                        —>
+                                                                                                                        GLn, +n,(A)
+
+and         give the K-theoretic                                  spectrum                       of A.
+
+
+The         groups                 GL,,(A) act                   via        conjugation                          on
+                                                                                                                        A,,,,      and       we      have      the    as-
+
+
+sociate               orbit         space
+
+                                                            [Ann] =                     Ann/GLn(A).
+On      the           direct          limit        as   n    —          ©        we          get        a   commutative                  monoid
+
+
+(0.44)                               [A]     =
+
+                                                    lim [AnnJ                                    [aa] + [a2] == [ar © ag]
+                                                   no
+                                                                   0.    INTRODUCTION                                                                                   19
+
+
+with         an        action        of the             multiplicative                          monoid         of     non-zero                    natural        num-
+
+
+bers      by “Frobenius”                              operators
+
+
+(0.45)                             Fila} :=|acac-+-oal                                                ,)    Fin,      0
+                                                                                                                          Ping       =
+                                                                                                                                             Finy-ma-
+
+
+Applying                    Grothendieck’s                    K-functor                     localizing addition,                         we        get an Abelian
+
+group
+
+
+
+(0.46)                                                              W(A) := KA].
+
+When
+              A is totally commutative,                                             A       €
+                                                                                                  CrPrep,W(A) has multiplication
+via     tensor               product making                        it    a     commutative                    ring, and has A-operations
+
+making                 it    a    special A-ring.
+
+When              we        take    A    =
+                                                  O
+                                                      specZ   (specZ) F[+1], the -ring  =
+                                                                                                                                         W    =
+                                                                                                                                                    ‘W
+                                                                                                                                                            (spec(Z))
+has     an         additive              basis         the     cyclotomic polynomials                                      ¢,, with                     ¢@,the    unit
+
+of ‘W, and                   we     have          ring homomorphisms
+
+
+(0.47)                                  tm    =
+                                                      tro     Fn:              W=QDZ-6, —»Z nel
+
+
+with
+
+                                                                                                                                 n
+(0.48) tm(bn)                        =
+                                             tr(Fmgn)               =
+
+                                                                              5) €™
+                                                                             foun
+                                                                                                  =
+                                                                                                          CP =p
+                                                                                                                          (; ) a                    -
+
+
+the     Ramanujan                            Sums.
+
+
+The       A-ring ‘W is                       “adic”           and             the       operators              F;,,       m      ¢       N*, extends                    to
+
+endomorphisms                            F,,, for
+
+
+(0.49)                               me
+                                                  L/54        =|
+                                                                               [p°!                   =
+                                                                                                           CRing(W,2),
+                                                                         Pp
+
+
+
+the     super-natural-numbers,                                          interpolating                      between         the rank                 1 projection
+20                                                         0.       INTRODUCTION
+
+
+
+Fo(én)       =
+                  p(n)        +
+
+
+                                  di, and F,                =
+                                                                     Idy:
+
+                       tr(¢n)           =
+                                              ti(én)        =
+                                                                     p(n)                        the       Mébuis     function,
+(0.50)
+                       tr(Fodn)               =
+                                                    to(on)           =
+                                                                              (nr)               the       Euler    function.
+
+
+We     can       complexify,
+
+
+
+
+and     complete We with                            respect              to    the        Hermitan          form
+
+
+(0.51)                      <         f,g     >:=         coefficient                of    ¢,   in the      product      f- 7
+
+obtaining          a   Hilbert               space
+
+
+
+
+with     orthogonal                   basis       @,,,
+
+
+                                                                |dn|?           =
+                                                                                     y(n).
+
+The     “Fourier-transform”                               gives          an     isomorphism
+(0.52)
+                                  A                 zZ*
+ He ————> Lo
+                                (Z,dm)                          ,
+                                                                          dm-additive                Haar     probability       measure
+
+
+
+
+ f—>               f(m):= tr(Ff) = t(Faf) = tm(f)
+Considering             the           “zeta       operators”
+
+                                                                         Fy                            1
+                                       (=
+                                                                    oe Lapa)
+(0.53)
+
+                                       CF.) =3“ =cR1)           mel
+
+
+well defined           on     the           dense     subset              We, and analytic                  for    R(s), R(t) > 1, we
+have
+                                                                               0.         INTRODUCTION                                                                                                    21
+
+
+
+Ramanujan’s                             evaluations
+
+
+
+(0.54)                       ty (C(F, s)¢1)                               =
+                                                                                       C(s)                  the        Riemann’s                           zeta        function
+
+
+
+
+(0.55)                          t        (C(E™,toi)                            =
+
+
+
+
+(0.56)                     SCF.
+                         (CUR
+                                                                               en)=YS                  nymel
+                                                                                                                                      =
+
+
+
+                                                                                                                                                   1 gist —2).
+      In     chapter                    1       we         give the                         definition                 of
+                                                                                                                                 Props,and                         their          commuta-
+
+tivity.            In       2       we           describe                     the            (full and                  faithful) embeddings                                            of    Rings
+in
+      Preps.In 3                              we          give the                     definition                  of       Bios, chapter                             4 discuss                       their
+
+commutativity.                                     In      Chapter                          5     we         describe                 the          ideals             and          primes                 of
+
+a     commutative                               Bée, A, and                                 in     chapter                  6    we           describe                  the       (compact,
+sober)             Zariski                  topology                      on              spec(A).                     In        chapter                    7    we         give the                    ba-
+
+sic        facts        for             localizations,                                 and          in       chapter                  8 construct                           the         sheaf             of
+
+Bie/Prsps     spec(A). In chapter 9
+                            over                                                                                        we        describe                      the         categories                    of
+
+Eie/Propsschemes, and in chapter 10                                                                                    we        describe                    the        pro-categories
+of    these,            and              the              “compactification”                                       spec6x, K                            a       number                 field.             In
+
+chapter              11         we              define              valuation                          props            and           bios,             we         show           that                they
+correspond                      in       the              rank            1        case           to     real          valued                 valuations;                        for     a        num-
+
+
+ber        field        K           they correspond                                          to        the      finite            primes                     p C            Ox     or        to         the
+
+real/complex primes                                             o     :       K=—+                       C,        0    ~
+                                                                                                                                 @.           We            also        show            how             the
+
+operad             structure                         is   compatible                              with         Beta-integrals,                               and        give the                  “zeta
+
+machine”:                   given                  a      compact                         homogeneous                            valuation
+                                                                                                                                                                PrepB, together
+with         a     map              N       >          K&   =
+                                                                     (B(1)){0})~'(B)                                         =     fraction                     field       of    B, we                 get
+a     meromophic                            function                 L(B,s),                        normalized                        by L(B,1)                         =
+                                                                                                                                                                              1 ; we                  have
+
+L(Zp, 8)            =
+
+
+                            23, with G(s)                                          =
+                                                                                            (1—p*)!, Ge(s)                                =
+
+                                                                                                                                                   281(8),Gels)                          =
+                                                                                                                                                                                                  P(s).
+In    chapter               12           we          describe                  for           a
+                                                                                                  Bis/PrepA, and                                   a        category               @, the                A-
+
+objects            in     @. In                  chapter                  13           we        sin     again with                       addition,                     taking               C    =
+                                                                                                                                                                                                         Aé
+we     have         the         category                    of A-modules,                                    isomorphic                       to    a       category               of abelian
+22                                                                          0.    INTRODUCTION
+
+
+                                                                                       of Bée/
+group             objects                in the            category                                      Prep            over           A    giving             rise        to    deriva-
+
+tions,            and            to      the            Kahler               differentials                         representing                      them.                  These           all
+
+arise         from               our          attempt                  to     linearize                  geometry                      infinitesimally.                           We       de-
+
+scribe            explicitly                      the     Z-prop-module                              0(Z/F).                      In     chapter                14     we        bring          in
+
+the         simplicial                   Bie/Prep,and the Quillen model                                                                 structure                on        them, giv-
+ing rise                to       the         cotanget                  complex                of         a   homomorphism                                 of     Bée/Prop.In
+chapter                 15       we       define             briefly              the        basic               properties                  of maps                  of     Béo/Prep
+schemes.                        In      chapter                   16    we        give for                   a
+                                                                                                                       PrepA, commutative                                         or     not,
+the         infinite               loop space                     W4 whose                         homotopy                       groups            are         the         higher         K-
+
+groups                 of       A; we                do     it     by a               very         concrete                      version           of      Quillen’s S~1'S
+construction.                            In        chapter              17       we      give the Witt                             ring story, and the basic
+
+example                     of the            special -ring                            “‘W     =
+                                                                                                     W(specZ). In chapter                                                  18    we      give
+the         (close) symmetric                                     monidal                structure                      on        (totally-commutative)                                     A-
+
+sets        for        a        Béo A, and                   we         briefly              describe                   the       stabilization                       of    simplicial
+A-sets                 using            “symmetric                          spectra”                or           modules                 over            the         sphere             spec-
+
+trum          -
+
+
+                       the       point being                       is       (Jeff Smith                       idea               [HSSO00])that                         the        spheres
+S       =
+                  {S59                        ©
+                                                        (sSeb)r*»                  =
+                                                                                             YF)                 are         a    commutative                                monoid                  -
+
+
+
+
+this        shows                very          clearly the                   interaction                         of     homotopy                   and          arithmetic                 via
+
+FodZ.
+
+
+We try to avoid                                most          technicalities,                        proofs or calculations,                                           and        we      con-
+
+
+centrate                   on      the        concepts                  and        ideas.           Two                exceptions                  are         the     calculation
+
+of the            global sections                            of the              sheaf        associated                         with        a    prop          or     a    bio        (The-
+orem          8.1), and                       the         proof of Ostrowski                                     theorem-                   the      calculation                       of the
+
+valuations                       on      a        number                field          (Theorem 11.2).                                      We       included                    these          so
+
+
+that         the            reader                can      see         that           they         are           exactly               the        same           as        the        proofs
+of the            analogue                    classical                statements                    only formulated                                in the             language                 of
+
+props             or        bios         (we suggest                        the        reader                skip these                  proofs            on
+                                                                                                                                                                     a first           read-
+
+ing). For                    the        same             reason             we         avoid         the              globalizations                      of     chapters                (16)
+and         (18), which                        are        best         done            in the        more                technical                language                  of infinite
+
+categories.
+                                          0.   INTRODUCTION                                        23
+
+
+This    monograph          is dedicated         to   the   memory   of my   teachers,   mentors,
+and    friends
+
+          e   Daniel     Quillen
+          e   Yuri     Manin
+
+          e   John     Coates
+                                                        Bibliography
+
+[Alm74]   Gert         Almkvist.             The     Grothendieck                   ring of the category                  of endomorphisms.
+
+          Journal             of Algebra, 28(3):375-388,                               1974.
+
+[AM69]    Mike         Artin         and      Barry        Mazur.           Etale       homotopy.              Lecture          Notes        in      Mathe-
+
+          matics,            No.      100.        Springer-Verlag,                  Berlin-New            York,          1969.
+
+[Ara74]   5S Ju        Arakelov.             Intersection              theory          of divisors          on    an      arithmetic              surface.
+
+          Mathematics                   of the          USSR-Izvestiya,                  8(6):1167, 1974.
+[Art06]   Emil         Artin.          Algebraic            numbers              and       algebraic        functions.              AMS           Chelsea
+
+          Publishing,                Providence,                RI, 2006.           Reprint           of the      1967         original.
+[AT69]    M.      F.        Atiyah          and     D.     O.      Tall.        Group          representations,                  -rings           and         the
+
+          J-homomorphism.                           Topology, 8:253-297,                         1969.
+
+[BGO06]   Kenneth              5 Brown              and     Stephen             M      Gersten.          Algebraic K-theory                          as     gen-
+
+          eralized            sheaf         cohomology.                In       Higher         K-Theories:                Proceedings                     of the
+          Conference                 held     at    the     Seattle         Research            Center         of the         Battelle        Memorial
+
+          Institute,              from August              28 to       September               8, 1972, pages                 266-292.         Springer,
+          2006.
+
+[BL96]    Jonathan                Block       and       Andrey          Lazarev.           Homotopy               theory         and       generalized
+          duality           for    spectral          sheaves.          Internat.              Math.      Res.     Notices,             (20):983-996,
+          1996.
+
+[Bor09]   James             Borger.          Lambda-rings                    and        the      field     with         one       element.                arXiv
+
+          preprint            arXiv:0906.               3146, 2009.
+
+[BP72]    Michael            Barratt          and        Stewart           Priddy.       On       the    homology              of non-connected
+
+          monoids              and      their       associated              groups.            Comment.            Math.           Helv., 47:1-14,
+          1972.
+
+[BS16]    Ilan        Barnea           and         Tomer         M.       Schlank.            A projective               model           structure             on
+
+
+
+          pro-simplicial                   sheaves,        and      the     relative          étale      homotopy              type.      Adv.        Math.,
+
+          291:784-858,                 2016.
+
+[BV73]    J.     M.     Boardman                  and      R.    M.       Vogt. Homotopy                    invariant             algebraic               struc-
+
+          tures        on     topological            spaces,          volume         347       of Lecture         Notes          in Mathematics.
+
+
+          Springer-Verlag,                      Berlin-New              York,          1973.
+
+
+                                                                          157
+158                                                          BIBLIOGRAPHY
+
+
+[CF67]    J. W.S.           Cassels         and         A.     Fréhlich,          editors.         Algebraic                number          theory:           Pro-
+
+          ceedings of an               instructional                     conference           organized                by the         London           Mathe-
+
+          matical          Society (a NATO                          Advanced           Study Institute)                        with      the        support          of
+          the International                  Mathematical                    Union.          Academic             Press, London; Thomp-
+          son     Book          Co., Inc., Washington,                            DC,      1967.
+
+[Con94]   Alain          Connes.           Noncommutative                         geometry.            Academic                   Press,            Inc.,      San
+
+          Diego, CA,               1994.
+
+[Con99]   Alain      Connes.           Trace            formula           in noncommutative                        geometry               and        the     zeros
+
+
+          of the         Riemann            zeta        function.           Selecta          Mathematica,                    5(1):29, 1999.
+[Den18]   Christopher              Deninger.                 Dynamical              systems         for arithmetic                      schemes.             arXiv
+
+          preprint          arXiv:       1807.         06400, 2018.
+
+[DG71]    Jean       Dieudonné                and            Alexandre            Grothendieck.                    Eléments               de        géométrie
+          algébrique,            volume               166.     Springer           Berlin      Heidelberg                    New       York,          1971.
+
+[DS95]    W.      G. Dwyer            and        J.    Spalinski.            Homotopy              theories             and       model         categories.
+          In     Handbook            of algebraic                   topology,         pages        73-126.              North-Holland,                       Ams-
+
+          terdam,          1995.
+
+[Dur07]   Nikolai          Durov.           New              approach          to     arakelov            geometry.                     arXiv         preprint
+
+          arXtv:0704.2030,                    2007.
+
+[Fal92]   Gerd      Faltings.          Lectures               on    the arithmetic                Riemann-Roch                     theorem.            Prince-
+
+          ton     University             Press,          1992.           Catalog      Number:               127.
+
+[Gra76]   Daniel          Grayson.            Higher algebraic                       K-theory.              II     (after Daniel                     Quillen).
+          In    Algebraic K-theory                           (Proc. Conf.,             Northwestern                      Univ., Evanston,                       IL,
+
+          1976), Lecture               Notes            in    Math., Vol. 551, pages                        217-240.              Springer,                Berlin-
+
+          New       York,        1976.
+
+[Gra77]   Daniel          R.       Grayson.                  The         K-theory            of     endomorphisms.                             J.     Algebra,
+
+          48(2):439-446,                 1977.
+
+[Har77|   Robin          Hartshorne.               Algebraic geometry.                        Graduate                 Texts       in    Mathematics,
+          No.      52.    Springer-Verlag,                         New      York-Heidelberg,                     1977.
+
+[Har89]   Shai      Haran.         Index         theory, potential                    theory,       and          the        Riemann             hypothesis.
+          In     L-functions               and         arithmetic            (Durham, 1989), volume                                     153         of London
+
+          Math.          Soc.      Lecture             Note         Ser.,    pages         257-270.              Cambridge                 Univ.            Press,
+
+          Cambridge,               1989.
+
+[Har90]   Shai      Haran.           Riesz            potentials            and      explicit        sums              in     arithmetic.              Invent.
+
+          Math., 101(3):697-703,                               1990.
+                                                        BIBLIOGRAPHY                                                                                           159
+
+
+
+[Har01]    Shai      Haran.        The     mysteries                  of the       real     prime,          volume          25 of London                    Math-
+
+           ematical            Society Monographs.                           New         Series.        The        Clarendon            Press,            Oxford
+
+           University            Press,       New        York,           2001.
+
+[Har08]    Shai      Haran.        Arithmetical                   investigations,                      volume         1941         of Lecture               Notes
+
+           in’ Mathematics.                   Springer-Verlag,                       Berlin,             2008.       Representation                       theory,
+
+           orthogonal             polynomials,                  and      quantum              interpolations.
+
+[Har09]    Shai      Haran.       Non-additive                   prolegomena                  (to any            future         arithmetic           that     will
+
+           be able        to    present        itself      as     a
+                                                                       geometry).                  arXiv         preprint          arXiv:0911.3522,
+           2009.
+
+[Har10]    Shai      Haran.        Invitation              to         nonadditive                  arithmetical                 geometry.                Casimir
+
+           force,       Casimir           operators              and         the     Riemann                hypothesis,               pages         249-265,
+           2010.
+
+[Har17a]   Shai      Haran.        Geometry               over         F,.      arXiv         preprint             arXtv:1709.05831,                        2017.
+
+[Har17b]   Shai      Haran.        New        foundations                 for      geometry—two                      non-additive               languages
+           for     arithmetical            geometry.                  Mem.          Amer.              Math.        Soc., 246(1166):x+200,
+           2017.
+
+[Har20]    Shai          Haran.           Algebra                 over             generalized                     rings.           arXiv            preprint
+           arXiv:2006.            15618, 2020.
+
+[Har22]    Shai      Haran.       Homotopy               and          arithmetic.                arXiv        preprint           arXiv:2204.08107,
+           2022.
+
+[Hov99]    Mark         Hovey. Model                categories,               volume             63 of Mathematical                          Surveys           and
+
+           Monographs.              American              Mathematical                       Society, Providence,                           RI, 1999.
+
+[Hov01]    Mark         Hovey. Spectra              and          symmetric                 spectra          in     general         model       categories.
+           J.    Pure      Appl. Algebra, 165(1):63-127,                                     2001.
+
+[HSS00]    Mark         Hovey,         Brooke            Shipley,             and         Jeff      Smith.           Symmetric                spectra.              J.
+
+           Amer.         Math.         Soc., 13(1):149-208,                         2000.
+
+[11171]    Luc       Illusie.      Complexe               cotangent                 et     déformations.                    I     Lecture           Notes           in
+
+
+           Mathematics,                Vol.     239.       Springer-Verlag,                         Berlin-New                  York,       1971.
+
+[JLO1]     Jay Jorgenson                 and      Serge Lang.                      The       ubiquitous               heat         kernel.          In      Math-
+
+           ematics          unlimited—2Z001                      and         beyond,          pages            655-683.            Springer,              Berlin,
+           2001.
+
+[KOW02] Nobushige Kurokawa,                             Hiroyuki Ochiai,                         and       Masato         Wakayama.                  Absolute
+
+           derivations            and      zeta         functions.              Department                    of    Math.,           Fac.     of     Science,
+
+           Tokyo        Inst.     of    Technology,                   2002.
+160                                                                BIBLIOGRAPHY
+
+
+[KS18]    Robert           A.         Kucharczyk                    and         Peter             Scholze.          Topological                realisations              of ab-
+
+          solute          galois               groups.             In        James               W.      Cogdell,             Giinter           Harder,             Stephen
+          Kudla,             and               Freydoon                  Shahidi,                  editors,             Cohomology                    of Arithmetic
+
+          Groups,            pages               201-288,               Cham,                  2018.      Springer            International               Publishing.
+
+[Lan78]   Serge Lang. Cyclotomic fields.                                                   Graduate               Texts        in     Mathematics,                  Vol.     59.
+
+          Springer-Verlag,                             New         York-Heidelberg,                            1978.
+
+[Lan98]   Saunders                   Mac        Lane.           Categories for the working mathematician,                                                          volume          5
+
+          of     Graduate                      Texts       in      Mathematics.                         Springer-Verlag,                     New        York,           second
+
+          edition,           1998.
+
+[Lur04]   Jacob           Lurie.               Derived            algebraic geometry.                              PhD         thesis,         Massachusetts                 In-
+
+          stitute          of        Technology,                   2004.
+
+[Lur09]   Jacob           Lurie.               Higher topos theory,                               volume           170        of Annals            of Mathematics
+          Studies.           Princeton                     University                 Press,             Princeton,             NJ, 2009.
+
+[Lur17]   Jacob           Lurie.               Higher algebra.                      2017.
+
+[Mac95]   I.    G.     Macdonald.                          Symmetric                       functions              and         Hall      polynomials.                    Oxford
+
+          Mathematical                           Monographs.                        The            Clarendon                  Press,         Oxford           University
+
+          Press,          New          York, second                      edition,                1995.     With         contributions                  by A. Zelevin-
+
+          sky, Oxford                      Science           Publications.
+
+[Man]     Yuri        Manin.                   Two        approaches                      to     geometries              in    characteristic                 1:     Combi-
+
+          natorics              vs     homotopy                    theory,            .
+
+                                                                                               Trinity      College            Dublin.
+
+[Man95]   Yuri        Manin.                    Lectures                on      zeta             functions              and          motives           (according                to
+
+
+          Deninger                   and        Kurokawa). Astérisque, 228(4):121-163,                                                          1995.
+
+[Onn06]   Uri        Onn.             From             p-adic           to     real            Grassmannians                     via      the      quantum.                Adv.
+
+          Math., 204(1):152-175,                                        2006.
+
+[PL11]    J    Lépez            Pena             and       Oliver            Lorscheid.                   Mapping              F,-land:            An     overview                of
+
+          geometries                   over          the        field        with          one         element.           Noncommutative                       geometry,
+
+          arithmetic,                   and          related            topics,            pages         241-265,             2011.
+
+[Qui67]   Daniel           G.         Quillen.             Homotopical                           algebra.         Lecture            Notes       in    Mathematics,
+          No.       43.     Springer-Verlag,                             Berlin-New                      York,       1967.
+
+[Qui69]   Daniel          Quillen. Rational                              homotopy                     theory. Annals                   of Mathematics,                   pages
+
+          205-295,                   1969.
+
+[Qui70]   Daniel           Quillen.                  On      the         (co-) homology                        of commutative                         rings.       In     Proc.
+
+          Symp.           Pure             Math,           volume              17, pages                 65-87,         1970.
+
+[Qui72]   Daniel           Quillen.                  On      the        cohomology                       and      K-theory              of the         general           linear
+
+          groups           over            a    finite       field.          Ann.              of Math.           (2), 96:552-586,                    1972.
+                                                    BIBLIOGRAPHY                                                                                            161
+
+
+
+[Qui73]    Daniel     Quillen.             Higher algebraic                   K-theory.                  I. In    Algebraic K-theory,                         I:
+
+           Higher     K-theories               (Proc. Conf.,                 Battelle           Memorial             Inst.,     Seattle,             Wash.,
+
+           1972), Lecture              Notes       in    Math., Vol. 341, pages                                85-147.        Springer,           Berlin-
+
+           New      York,      1973.
+
+[Ram 18] Srinivasa          Ramanujan.                  On      certain           trigonometrical                     sums          and        their        ap-
+
+           plications         in     the     theory           of    numbers.                 Trans.              Cambridge            Philos.               Soc,
+
+           22(13):259-276,                 1918.
+
+[SAB94] Christophe             Soulé, Dan               Abramovich,                   and       JF    Burnol.        Lectures             on   Arakelov
+
+           geometry.        Cambridge               university               press,         1994.         Catalog        Number:               33.
+
+[Seg74]    Graeme           Segal.           Categories                 and             cohomology                   theories.                 Topology,
+
+           13:293-312,             1974.
+
+[Sou08]    Christophe           Soulé.       Les    variétés           sur      le corps             a    un     élément.           arXiv       preprint
+
+           math/0304444,                  2008.
+
+[Wei39]    André      Weil.        Sur      l’analogie         entre         les corps               de nombres              algébriques               et    les
+
+           corps    de fonctions               algébriques.             Revue           Scient, 77:104—-106, 1939.
+
+[Wei66]    André        Weil.         Fonction               zéta       et       distributions.                     Séminaire                  Bourbaki,
+
+           9(312):523-531,                 1966.
+
+[Wei95]    André      Weil.         Basic         number            theory. Classics                      in     Mathematics.                  Springer-
+           Verlag, Berlin,               1995.     Reprint           of the           second             (1973) edition.
+[YJ15]     Donald       Yau         and      Mark        W.         Johnson.                A    foundation              for PROPs,                     alge-
+
+           bras, and modules,                 volume          203 of Mathematical                              Surveys        and     Monographs.
+           American         Mathematical                  Society, Providence,                             RI, 2015.
+

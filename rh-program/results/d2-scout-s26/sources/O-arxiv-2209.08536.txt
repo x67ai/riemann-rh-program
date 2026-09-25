@@ -1,0 +1,2159 @@
+                                                   Non-Additive Geometry and Frobenius
+
+
+
+
+arXiv:2209.08536v3 [math.AG] 26 Feb 2023
+                                                             Correspondences
+                                                                            Shai Haran
+                                                                        haran@technion.ac.il
+
+
+                                                                                 Abstract
+                                                     The usual language of algebraic geometry is not appropriate for Arith-
+                                                 metical geometry: addition is singular at the real prime. We developed
+                                                 two languages that overcome this problem: one replace rings by the col-
+                                                 lection of “vectors” or by bi-operads and another based on “matrices” or
+                                                 props. These are the two languages of [Har17], but we omit the involu-
+                                                 tions which brings considerable simplifications. Once one understands the
+                                                 delicate commutativity condition one can proceed following Grothendieck
+                                                 footsteps exactly. The square matrices , when viewed up to conjugation,
+                                                 give us new commutative rings with Frobenius endomorphisms.
+
+
+                                           Introduction
+                                              Our starting point is André Weil’s “Roseta - Stone”: The analogy between
+                                           number fields and function fields. On the one hand we have the mysterious
+                                           number fields - the finite extension of the field of rational numbers Q. On the
+                                           other hand we have the function fields: the finite extensions K{Fq pzq (resp.
+                                           K{Cpzq) of the field of rational functions Fq pzq (resp. in characteristic 0: Cpzq),
+                                           which correspond to smooth projective curves XK (with a dominant map z :
+                                           XK Ñ P1k , k “ Fq or C); the points of XK correspond to the valuations of K{k.
+                                           When we compare the field of rational functions kpzq with the field of rational
+                                           numbers Q we discover:
+
+                                                                     k p 1z q Ě k | z1 |
+                                                                      ` ˘        “ ‰
+                                                                                           the “point at infinity”
+
+                                                                                                ´         ¯
+                                                                                                     1
+                                                         kpzq        kppz ´ αqq ” k r|z ´ α|s       z´α
+
+
+                                                        Ď              Ď
+                                                         krzs         kr|z ´ α|s ” lim krzs{pz ´ αqn
+                                                                                     Ð
+                                                                                     n
+
+
+
+
+                                                                                     1
+versus:
+
+                                  R Ě ZR ” r´1, 1s         the “real prime”
+
+                                                ´ ¯
+                                                 1
+                   Q              Qp ” Zp        p
+
+                 Ď              Ď
+                    Z             Zp ” lim Z{pn
+                                           Ð
+                                            n
+
+
+
+The “real integers” ZR Ď R are not closed under addition and so do not form
+a Ring. The original Roseta stone contained three different languages talking
+about one and the same reality, while in mathematics we have one and the same
+language - the language of rings: addition and multiplication - and this language
+is talking about three different realities; moreover: it is not the appropriate
+language -addition is problematic at the real prime!
+
+
+1       Bio (perads)
+Definition 1.1. A Bio (short for Bi-operad) is a pair P “ pP´ , P` q of sym-
+metric operads P´ and P` “acting” on each other.
+  Explicitly, we have sets P´ pnq, P` pnq, n ě 1, with an action of the sym-
+metric group Sn on the right on P´ , and on the left on P` ,
+
+                          P´ pnq                     Sn          P` pnq
+                                                     P
+(1.2)                   p ÞÑ p ˝ σ                    σ      σ ˝ q Ð[ q
+
+
+
+We have composition maps
+
+                P´ pnq ˆ P´ pk1 q ˆ ¨ ¨ ¨ ˆ P´ pkn q ÝÑ P´ pk1 ` ¨ ¨ ¨ ` kn q
+                                                                                        ,
+                pp, p1 , ¨ ¨ ¨ , pn q ÞÑ p ˝ ppi q
+(1.3)
+                P` pk1 ` ¨ ¨ ¨ ` kn q ÐÝ P` pk1 q ˆ ¨ ¨ ¨ ˆ P` pkn q ˆ P` pnq
+                pqi q ˝ q Ð[ pq1 , ¨ ¨ ¨ , qn , qq
+
+which are associative
+
+(1.4)     pp ˝ ppi qq ˝ ppij q “ p ˝ ppi ˝ ppij qq , ppqij q ˝ qi q ˝ q “ pqij q ˝ ppqi q ˝ qq
+
+and unital
+                           p ˝ p1´ , ¨ ¨ ¨ , 1´ q “ p , 1´ P P´ p1q,
+(1.5)
+                           P` p1q Q 1` , q “ p1` , ¨ ¨ ¨ , 1` q ˝ q
+
+                                                     2
+and "Sk1 ˆ ¨ ¨ ¨ ˆ Skn ¸ Sn Ď Sk1 `...`kn - covariant." We have also action maps
+
+              P´ pk1 ` ¨ ¨ ¨ ` kn q ˆ P` pk1 q ˆ ¨ ¨ ¨ ˆ P` pkn q Ñ P´ pnq,
+
+              pp, q1 , . . . qn q ÞÑ p Ð
+                                       Ý̋ pqi q,
+(1.6)
+              P` pnq Ð P´ pk1 q ˆ ¨ ¨ ¨ ˆ P´ pkn q ˆ P` pk1 ` ¨ ¨ ¨ ` kn q,
+
+              ppi q Ý
+                    Ñ̋ q Ð[ pp1 , ¨ ¨ ¨ , pn , qq
+
+which are associative
+                            pÐ
+                             Ý̋ ppqij ˝ qi qq “ pp Ð
+                                                   Ý̋ pqij qq Ð
+                                                              Ý̋ pqi q,
+(1.7)
+                            ppi q Ý
+                                  Ñ̋ pppij q Ý
+                                             Ñ̋ qq “ ppi ˝ ppij qq Ý
+                                                                   Ñ̋ q
+
+unital
+
+(1.8)                          pÐ
+                                Ý̋ p1´ q “ p        ,   q “ p1` q Ý
+                                                                  Ñ̋ q
+
+Sk1 ˆ ¨ ¨ ¨ ˆ Skn - invariant and Sn -covariant.
+We also require naturality of the action maps, so we have
+
+(1.9)                       pp ˝ ppi qq Ð
+                                        Ý̋ pqij q “ p ˝ ppi Ð
+                                                            Ý̋ pqij qq ,
+
+pictorially
+
+                                    q11
+                         p1
+                                    q1ℓ1
+              p                                p P P´ pnq, pi P P´ pki1 ` ¨ ¨ ¨ ` ki,ℓi q,
+                                    qn1        qij P P` pkij q
+                         pn
+                                   qnℓn
+
+and symmetrically,
+
+(1.10)                      pppij q Ý
+                                    Ñ̋ qi q ˝ q “ ppij q Ý
+                                                         Ñ̋ ppqi q ˝ qq ;
+
+We also require co-naturality, so
+
+                      p ˝ ppij q Ð
+                                ˘ Ý̋
+                                     pqi q “ p Ð
+                                               Ý̋ pppij q Ý
+                                                          Ñ̋ qi q
+                     `
+(1.11)
+
+pictorially
+
+
+
+
+                                                    3
+                  p11
+                   ..    q1
+                    .
+                 p1ℓ1 ..               p P P´ pℓ1 ` ¨ ¨ ¨ ` ℓn q,
+           p     pn1 .
+                                       pij P P´ pkij q, qi P P` pki1 ` ¨ ¨ ¨ ` kiℓi q
+                    ..   qn
+                     .
+                 pnℓn
+
+
+and symmmetrically,
+(1.12)                ppi Ð
+                          Ý̋ pqij qq Ý
+                                     Ñ̋ q “ ppi q Ý
+                                                  Ñ̋ ppqij q ˝ qq
+
+Maps of bios ϕ : P Ñ Q are pairs of maps of symmetric operads ϕ˘ : P˘ Ñ
+Q˘ , preserving the Sn -actions, the compositions and units, that also preserve
+the action maps; thus we have a category Bio.
+In this definition we took the operads P˘ to be open. We can take them also
+to be closed, so that we have also P´ p0q “ t0´ u and P` p0q “ t0` u, and
+multiplication by 0˘ at any place j P t1, . . . , nu map P˘ pnq to P˘ pn ´ 1q.
+Similarly we can let 0¯ act on P˘ pnq, at any place j, mapping it to P˘ pn `
+                                                     „
+1q. With these 0˘ , and with an involution (P´ ÐÑ P` ), we get a structure
+equivalent to the one of [Har17].
+Remark 1.13. The monoids P´ p1q and P` p1q are connonically isomorphic
+via
+                                 „
+                      P´ p1q ÐÝÝÝÑ P` p1q
+                       f ´ ÞÝÝÝÝÝÑ f ´ Ý
+                                       Ñ̋ 1`
+                              1´1 Ð
+                                  Ý̋ f `                f`
+We use this as an identification: It identifies 1´ with 1` , and for p P P´ pnq,
+q P P` pnq, p Ý
+              Ñ̋ q is identified with p Ð
+                                        Ý̋ q.
+We will abuse notations and write ˝ for either Ð Ý̋ or Ý
+                                                       Ñ̋ .
+Example 1.14. Given a symmetric monoidal category E and an object X P E˝ ,
+we have the bio EndE pXq with
+          End´
+             E pXqpnq “ EpX
+                            bn
+                               , Xq        ,       End`
+                                                      E pXqpnq ” EpX, X
+                                                                        bn
+                                                                           q
+with all the compositions and actions given by the monoidal structure of E.
+Remark 1.15. Given a symmetric monoidal category E, we can replace Set
+everywhere by E and obtain the category BiopEq of bios in E.
+Remark 1.16. The category Bio has an involution
+       P “ pP´ , P` q ÞÝÝÝÝÝÑ pPop q´ ” P` , pPop q` ” P´ .
+                               `                         ˘
+
+It takes the monoid Pp1q to the opposite monoid P˝p p1q ” Pp1qop .
+We get the category Biot , with objects the bios P with an involution
+                                               „
+                              p ÞÑ pt : P Ý
+                                          Ñ          Pop ,
+and with maps preserving the involution.
+
+                                           4
+2       Rigs
+Definition 2.1. A Rig (” Ring without Negatives) is a set R with two opera-
+tions of addition and multiplication
+
+                                                                     x`y
+(2.2)                    RˆR ÑR                ,   px, yq ÞÝÝÑ           ,
+                                                                     x¨y
+
+both associative and unital
+                px ` yq ` z “ x ` py ` zq              ,   px ¨ yq ¨ z “ x ¨ py ¨ zq
+(2.3)
+                x`0“x“0`x                  ,       x¨1“x“1¨x
+
+with addition always commutative x ` y “ y ` x, and distributive
+
+         px1 ` x2 q ¨ y “ px1 ¨ yq ` px2 ¨ yq          ,   x ¨ py1 ` y2 q “ px ¨ y1 q ` px ¨ y2 q
+(2.4)
+         x¨0 “0 “ 0¨x
+
+
+    A rig with involution is a rig R with an involution
+
+             x ÞÑ xt : R ý ,       satisfying xtt “ x and 0t “ 0                 ,     1t “ 1
+(2.5)
+             px ` yqt “ xt ` y t      ,        px ¨ yqt “ y t ¨ xt
+
+A rig is commutative R P CRig if multiplication is commutative,
+
+                                           x¨y “y¨x
+
+A map of rigs ϕ : R Ñ R1 is a set map preserving the operations and constants
+(2.6)
+ϕp0q “ 0 , ϕp1q “ 1 , ϕpx ` yq “ ϕpxq ` ϕpyq , ϕpx ¨ yq “ ϕpxq ¨ ϕpyq
+
+and in the self-dual case Rigt , ϕ should also preserve the involution,
+
+                                          ϕpxt q “ ϕpxqt .
+
+Thus we have categories and functors
+
+                                                   U
+                               Rigt                           Rig
+
+(2.7)                                                       Ď
+                                                             CRig
+
+(for a commutative rig the identity is an involution).
+
+There is a similar diagram with Ring instead of Rig. The inclusion Ring ãÑ Rig
+
+                                                   5
+has the left adjoint functor K “ Grothendieck functor localizing addition.
+E.g. We have the commutative rigs
+(2.8)                   B “ t0, 1u                 I “ r0, 1s                R “ r0, 8s
+with the usual multiplication x ¨ y, and with the “tropical” addition
+                                                     def
+(2.9)                                      x ` y : “ max tx, yu .
+ For A P Rig we have the operad PA with PA´ pnq ” An , and with compositions
+
+(2.10)                               oi : An ˆ Am ÝÝÝÑ An`m´1
+pa1 , ¨ ¨ ¨ , ai , ¨ ¨ ¨ an q˝i pb1 , ¨ ¨ ¨ , bm q :“ pa1 , . . . , ai´1 , ai ¨b1 , ai ¨b2 ¨ ¨ ¨ ai ¨bm , ai`1 ¨ ¨ ¨ am q
+We have similarly the operad PA` ” PAop of column vectors PA` pnq ” An , with
+composition
+                                                          ¨          ˛
+                                                              b1
+                                               ¨ ˛
+                                                 b1       ˚ .. ‹
+                                                          ˚ . ‹
+                                      ¨ ˛ ˚ . ‹           ˚          ‹
+                                        a1     ˚ .. ‹     ˚ a1 ¨ b j ‹
+               An ˆ Am ÝÝÑ Am`n´1 , ˝ ... ‚˝j ˚                .. ‹
+                                                          ˚          ‹
+                                      ˚ ‹ ˚ ‹
+(2.11)                                           b   ‹ :“ ˚
+                                                          ˚ . ‹
+                                                   j      ˚          ‹
+                                               ˚ . ‹
+                                               ˚ ‹
+                                        an     ˝ .. ‚ ˚an ¨ bj ‹
+                                                          ˚
+                                                                     ‹
+                                                          ˚ . ‹
+                                                 bm       ˝ .. ‚
+                                                                                              bm
+Moreover, we have mutual actions, for 1 ď k ď m ď n,
+                      ÐÝ̋k : An ˆ Am´k`1 ÝÝÝÑ An´m`k
+                                                                            ¨        ˛
+                                                                       b0
+(2.12)                                                          ˘ Ý̋ ˚ b1
+                                                                     ˚               ‹
+                                   a1 ¨ ¨ ¨ ak ¨ ¨ ¨ am ¨ ¨ ¨ an Ð
+                                  `
+                                                                    k˚ .             ‹ :“
+                                                                                     ‹
+                                                                     ˝ ..            ‚
+        `                                                        bm´k                         ˘
+          a1 , ¨ ¨ ¨ ak´1 , ak ¨ b0 ` ¨ ¨ ¨ ` ak`j ¨ bj ` ¨ ¨ ¨ ` am ¨ bm´k , am`1 , ¨ ¨ ¨ an
+and similarly for Ý   Ñ̋ .
+This construction gives a full and faithful embedding
+(2.13)                            Rig              Bio ,        A ÞÝÝÝÑ PA .
+Moreover, when the rig A has an involution, the bio PA “ PA´ , PA` has an
+                                                        `         ˘
+
+involution
+                                                ¨ t˛
+                                                 a1
+                                            t   ˚ .. ‹
+(2.14)                    pa1 , ¨ ¨ ¨ , an q :“ ˝ . ‚
+                                                                      atn
+giving
+(2.15)                                    Rigt                       Biot
+
+                                                           6
+Remark 2.16. For any rig A the associated bio PA contains the sub-bio
+F Ď PA with
+
+             F´ pnq “ t0 “ p0, ¨ ¨ ¨ , 0q, δ1 “ p1, 0, ¨ ¨ ¨ , 0q, ¨ ¨ ¨ , δn “ p0, ¨ ¨ ¨ 0, 1qu
+                             $            ¨ ˛                   ¨ ˛,
+                           ¨ ˛              1                     0 /
+                             0
+                             ’
+(2.17)                                                          ˚ .. ‹/
+                             ’                                        /
+                             ’            ˚0‹
+             F` pnq “ 0t “ ˝ ... ‚, δ1t “ ˚ . ‹ , ¨ ¨ ¨ , δnt “ ˚ . ‹
+                             &                                        .
+                           ˚     ‹        ˚    ‹                ˚    ‹
+                     ’                    ˝ .. ‚                ˝0‚/
+                             0
+                     ’
+                     ’                                                /
+                                                                      /
+                                            0                     1
+                     %                                                -
+
+the (co)-vectors with at most one 1 coordinate (note that F is closed under the
+composition and action operations); we call F “the field with one element”.
+
+
+
+3      The ℓp bios and the real and complex “integers”
+   Fix p, q P r1, 8s, with 1{p ` 1{q “ 1.
+We have the operad Pℓp Ď PR´ , with
+(3.1)
+ Pℓp pnq :“ tpx1 , ¨ ¨ ¨ , xn q P PR pnq ” Rn , |x1 |p ` ¨ ¨ ¨ ` |xn |p ď 1u
+
+ px1 , ¨ ¨ ¨ , xn q ˝i py1 , ¨ ¨ ¨ , ym q :“ px1 , ¨ ¨ ¨ , xi´1 , xi ¨ y1 , . . . , xi ¨ ym , xi`1 , ¨ ¨ ¨ , xn q
+
+We write the elements of Pℓq as column vector, and we have the mutual actions
+induced from PR ,
+(3.2)                        ¨     ˛
+                               b0
+                             ˚ b1 ‹
+pa1 ¨ ¨ ¨ ak ¨ ¨ ¨ an q Ð
+                        Ý̋ k ˚
+                             ˚ .. ‹ :“ pa1 ¨ ¨ ¨ ak´1 , ak ¨b0 `¨ ¨ ¨`ak`j ¨bj `¨ ¨ ¨`am ¨bm´k , am`1 , ¨ ¨ ¨ , an q
+                                   ‹
+                             ˝ . ‚
+                              bm´k
+
+and similarly for Ý
+                  Ñ̋ . Thus we have a sub-bio pPℓ , Pℓ q Ď PR .
+                                                     p q
+The rig R, being commutative has an (identity) involution, hence PR has an
+involution
+                                               ¨ ˛
+                                                a1
+                                           t   ˚ .. ‹
+(3.3)                        pa1 ¨ ¨ ¨ an q :“ ˝ . ‚
+                                                                 an
+
+The sub-bio Pℓp , Pℓq Ď PR´ , PR` is stable under this involution iff p “ q “ 2,
+            `         ˘ `              ˘
+
+and we are in the self-dual case
+
+               Pℓ2 pnq ” px1 , ¨ ¨ ¨ , xn q P Rn , x21 ` ¨ ¨ ¨ ` x2n ď 1
+                                                                         (
+(3.4)
+
+the ℓ2 -unit ball.
+
+
+                                                       7
+The bio ZR :“ pPℓ2 , Pℓ2 q Ď PR is the “Real integers”, analogue at the “Real
+prime” of the p-adic integers Zp Ď Qp , p a prime. We similarly have the “complex
+integers” ZC Ď PC given by the unit ℓ2 complex balls.
+Contracting the inside of the unit ℓ2 -balls to a point we get quotient bios
+
+                   ZR ÝÝÑ
+                        Ñ FR            ,       F˘
+                                                 R pnq ” S
+                                                           n´1
+                                                               \ t0u
+(3.5)
+                   ZC ÝÝÑ
+                        Ñ FC            ,       F˘
+                                                 C pnq ” S
+                                                           2n´1
+                                                                \ t0u
+
+We now have a complete picture of the arithmetical bios
+
+                                                PC Ě ZC ÝÝÝÑ
+                                                           Ñ FC
+                                                Ď       Ď                Ď
+                                                PR Ě ZR ÝÝÝÑ
+                                                           Ñ FR
+(3.6)                                           Ď
+                                      PZ Ď PQ
+                                      Ď         Ď
+                    PFp Ð
+                        ÐÝÝÝ PZp Ď PQp
+
+
+4       Commutativity
+   We say the bio P “ pP´ , P` q is commutative if the actions and composi-
+tions interchange: for p̃ P P´ pℓq, q P P` pmq, p P P´ pnq,
+
+(4.1)               Ý̋j qq ˝j p ” pp̃ ˝ pp, ¨ ¨ ¨ , pqqσm,n Ð
+                 pp̃Ð                                       Ý̋ pq, ¨ ¨ ¨ , qq
+                                        loooomoooon            loooomoooon
+                                                m                        n
+
+and similarly,
+
+(4.2)                   Ñ̋j q̃q ” pp, ¨ ¨ ¨ , pq Ý
+                 q ˝j ppÝ                        Ñ̋ σn,m ppq, ¨ ¨ ¨ , q q ˝ q̃q
+                                   looomooon               looomooon
+                                            n                    m
+
+for q̃ P P` pℓq, p P P´ pmq, q P P` pnq.
+Pictorially,
+
+
+                                                                     p            q
+           p̃         q           p             ”        p̃          p
+                                                                     p            q
+
+
+
+
+                                                8
+Here σm,n P Sm¨n is the permutation:
+
+                               1                       1
+                               ..                      ..
+                                .                       .
+               1               j                       i                1
+                               ..                      ..
+                                .                       .
+                               n                       m
+                               1                       1
+                               ..                      ..
+                                .                       .
+               i               j                       i                j
+                                ..                      ..
+(4.3)                            .                       .
+                               n                       m
+
+                               1                       1
+                               ..                      ..
+                                .                       .
+              m                                                         n
+                               j                       i
+                                ..                      ..
+                                 .                       .
+                               n                       m
+                                             `              ˘
+                       pi ´ 1q ¨ n ` j “ σm,n pj ´ 1q m ` i
+
+We let CBio Ď Bio denote the full subcategory of commutative bios.
+For a commutative bio P the underlying (associative, unital) monoid Pp1q is
+commutative. Moreover, Pp1q acts centrally on P˘ pnq: for a P Pp1q
+
+(4.4) a ˝ p “ p ˝ pa, ¨ ¨ ¨ , aq , p P P´ pnq ; q ˝ a “ pa, ¨ ¨ ¨ aq ˝ q , q P P` pnq
+
+For a multiplicative subset S Ď Pp1q
+
+(4.5)                     s1 , s2 P S ùñ s1 ˝ s2 P S, 1 P S,
+
+we have the localization of P at S, S ´1P:
+
+                       S ´1P ” PrS ´1 s ” pS ´1P´ , S ´1P` q
+(4.6)
+                       S ´1P˘ “ P˘ ˆ S{ „
+
+with pP 2 , s2 q „ pP 1 , s1 q iff s ˝ s1 ˝ P 2 “ s ˝ s2 ˝ P 1 for some s P S; one writes
+P {s “ 1s ˝ P for the equivalence class pP, sq{ „.
+For a commutative rig A the bio PA is commutative; this is true in particular for
+commutative rings A, and we shall continue and define ideals, primes, spectrum,
+schemes etc. for commutative bios making sure that we get the right definitions
+for P “ PA , A P CRing.
+
+
+                                           9
+Remark 4.7. We denote by CT Bio Ď CBio the full sub-categorys consisting of
+the “totally-commutative” bios P “ pP´ , P` q, which, in addition to commuta-
+tivity, satisfy the Boardman-Vogt interchange: For p P P´ pnq, p1 P P´ pmq,
+                       p ˝ pp 1
+                                , ¨ ¨ ¨ , p1 q “ p1 ˝ pp,
+                            loooomoooon                   ¨ ¨ ¨ pq ˝ σm,n
+                                                       loomoon
+                                  n                          m
+                                 `             1        `
+and symmetrically, for q P P pnq, q P P pmq,
+                          1
+                            , ¨ ¨ ¨ , q 1 q ˝ q “ σn,m ˝ pq,
+                       pqloooomoooon                         ¨ ¨ ¨ qq ˝ q1
+                                                          loomoon
+                             n                                     m
+
+
+  We have the full subcategories
+(4.8)                 CRing Ď CRig Ď CT Bio Ď CBio Ď Bio
+They are all complete and co-complete. All limits are created in Sets. Also
+directed co-limits are created in Sets. These categories also have all co-limits,
+and in particular we have push-outs for a diagram
+
+                                          B                 A0
+
+
+
+                                          A1
+
+which will be denoted respectively by
+(4.9)     A0 b A1 ,    A0 b A1 ,          A0 bT A1 ,             A0 b A1 ,   A0 > A1
+              B             B                      B                  B         B
+
+for the categories of (4.8). We have
+                       ´        ¯C                                           ˆ        ˙T
+(4.10)       A0 bB A1 “ A0 > A1                         ,   A0 bT A1 “        A0 b A1    ,
+                                      B                           B              B
+
+where
+(4.11)                      Ñ AC
+                       A ÝÝÝÑ                               Ñ AT ,
+                                               , resp. A ÝÝÝÑ
+is the maximal (resp. totally) commutative quotient of A giving the left adjoint
+of the embedding CBio Ď Bio, resp. CT Bio Ď CBio.
+Remark 4.12. For (the initial object) Z P CRing Ď CRig, the “arithmetical
+surface”                                   ź
+             spec pPZ bF PZ q ” spec pPZ q      spec pPZ q
+                                                                 specpFq
+
+does not reduce to its diagonal, as it does in classical algebraic geometry where
+            ź
+    specpZq   specpZq “ specpZ b Zq “ specpZq “ tp0q; p2q, p3q, p5q, p7q ¨ ¨ ¨ u .
+
+
+
+                                                   10
+    Taking B “ F, Ai “ Z, in (4.9) we get
+                                                            ∇
+                                                            „
+                         Z > Z ÝÑ         Ñ Z bTF Z ÝÝÑ Z.
+                                Ñ Z bF Z ÝÑ
+                           F
+
+If we require total-commutativity the arithmetical surface again reduces ˆ      to ˙its
+                   T                                                       t      1
+diagonal, and ZbF Z “ Z. Indeed, Z is generated over F by v “ p1, 1q, v “             ,
+                                                                                  1
+(and p´1q), and total commutativity implies
+(4.13)                     `              ˘                            `              ˘
+ pv b 1q ˝ p1 b v, 1 b vq ˝ p1, 0q, p0, 1q “ p1 b vq ˝ pv b 1, v b 1q ˝ p1, 0q, p0, 1q
+
+              ùñ v b 1 “ 1 b v
+
+pictorially
+
+                                 1               1
+                                 0               0
+(4.14)                             ”               ùñ           ”
+                                 1               0
+                                 0               1
+
+
+5       The spectrum
+    We have the categories of “bios with zero”
+
+(5.1)                   F z CBio Ď CBiopSet0 q Ď CBio0 Ď CBio
+
+where P P CBio0 iff there exist 0 P Pp1q with 0 ˝ x “ 0 for all x P Pp1q; such an
+element 0 is unique; the maps ϕ in CBio0 are required to preserve it: ϕp0q “ 0.
+Fix P “ pP´ , P` q P CBio0 .
+Definition 5.2. An ideal is a subset a Ď Pp1q such that for a1 ¨ ¨ ¨ an P a,
+b P P´ pnq, d P P` pnq, the “linear combination”
+
+               tb, pai q, du “ pb ˝ pai qq Ð
+                                           Ý̋ d “ b Ý
+                                                    Ñ̋ ppai q ˝ dq P a is in a
+                           def
+(5.3)
+
+Note that intersection of ideals is again an ideal, so we can speak of the ideal a
+generated by a set tai uiPI Ď Pp1q; a is also given as the collection of all linear -
+combinations of the ai ’s (with repetition).
+A proper ideal p Ď Pp1q, with 1 R p, is called prime if Sp “ Pp1qzp is multi-
+plicative. The set of primes is denoted specpPq.
+The set specpPq is not empty: a maximal proper ideal 1 R p Ď Pp1q, which
+exists by Zorn’s lemma, is always prime. Indeed, if a, a1 P Pp1qzp, then for some
+linear combinations
+
+           tb, pai qiďn , du “ 1 “ b1 , pa1j qjďm , d1 , b, b1 P P´ , d, d1 P P` ,
+                                                      (
+
+
+                                            11
+ai P p or ai “ a, a1j P p or a1j “ a1 and by commutativity we have
+
+                             ppb ˝ pai qq Ð
+                                          Ý̋ dq ˝     b ˝ pa1j q Ð
+                                                    `` 1        ˘ Ý̋ 1 ˘
+        1“1˝1 “                                                     d
+                             ¨                 ˛                        ¨                    ˛
+
+                       “     ˝b ˝ pb1 , ¨ ¨ ¨ b1 q‚σ ˝ pai ˝ a1j q Ð
+                                                                   Ý̋ σ 1 ˝pd, ¨ ¨ ¨ , dq ˝ d1 ‚
+                                   loomoon                                  looomooon
+                                        n                                       m
+
+with ai ˝ a1j P p or ai ˝ a1j “ a ˝ a1 , and so a ˝ a1 R p.
+Moreover, specpPq is a (compact, sober”Zariski) topological space with respect
+to the Zariski topology with closed sets
+(5.4)
+ V paq :“ tp P specpPq, p Ě au , a Ď Pp1q ideal,
+
+ V paq X V pa1 q “ V pa ¨ a1 q ,         a ¨ a1 “ the ideal generated by ta ¨ a1 , a P a, a1 P a1 u;
+ Ť                ř               ř
+     V pai q “ V p ai q ,             ai the ideal generated by Yi ai ;
+ i                 i              i
+
+
+ V p0q “ specpPq ,            V p1q “ φ
+
+We have a basis for the topology by basic open sets
+
+                           Dpf q :“ tp P specpPq, p S f u          ,   f P Pp1q.
+
+(5.5)     Dpf1 q X Dpf2 q “ D pf1 ˝ f2 q            ,    Dp1q “ specpPq ,            Dp0q “ φ,
+                                                           Ť
+                                      specpPqzV paq “          f Pa Dpf q
+
+For a map of commutative bios ϕ P CBiopP, Qq, the pull back of a (prime) ideal
+is a (prime) ideal, and we obtain
+
+                            specpϕq “ ϕ˚ : specpQq ÝÑ specpPq
+(5.6)
+                           ϕ˚ pqq “ ϕ´1
+                                     1 pqq “ ta P Pp1q, ϕpaq P qu .
+
+It is a continuous map:
+                   ´1
+               ϕ˚        V paq “ q P specpQq, ϕ´1 pqq Ě a “ V ϕpaq
+                        `     ˘                          (   `    ˘
+(5.7)
+
+and similarly the pull back of basic open set is again basic open
+                 ´1
+              ϕ˚        pDpf qq “ q P specpQq, ϕ´1 pqq S f “ D ϕpf q .
+                                                          (   `     ˘
+(5.8)
+
+Thus we have a functor
+
+(5.9)                   spec : pCBio0 qop ÝÑ Top (compact, sober)
+
+
+
+                                                   12
+We have a Galois correspondence (” adjunction of order sets)
+
+                                           V
+(5.10)       ta Ď Pp1q idealu                         tZ Ď specpPq closedu
+                                           I
+                           č
+                                   p “: IpZq                   Z
+                           pPZ
+
+We have V IpZq “ Z, and
+                               #                                                    +
+                    č                                                                       ?
+(5.11)   IV paq “         p“   a P Pp1q, an “ a ˝ . . . ˝ a P a for n ąą 0
+                                              loooomoooon                               “    a
+                    pĚa                                 n
+
+We get induced bijections
+(5.12)
+                  ? (                      V
+     a Ď Pp1q, a “ a                       „             tZ Ď specpPq closed u
+                                           I
+          Ď                                                     Ď
+         specpPq                   „                tZ Ď specpPq closed irreducibleu
+
+For a multiplicative set S Ď Pp1q, let φS : P Ñ S ´1P, φS pP q “ P {1, be the
+canonical map, it induces a homeomorphism
+
+                                                        φ˚S
+(5.13)         tp P specpPq, p X S “ φu                 „           specpS ´1Pq
+                                                       S ´1
+                           (
+In particular, for Sf “ f N “ tf n , n ě 0u, f P Pp1q, we get
+                                       „                                  (´1
+(5.14)      specpPq Ě Dpf q ÐÝÝÑ specpPf q,                   Pf :“ f N         P
+
+For Sp “ Pp1qzp, p prime, we get
+                                               „
+(5.15)        tq P specpPq, q Ď pu ÐÝÝÑ specpPp q, Pp :“ Sp´1P
+
+i.e. Pp P CBioloc is a local bio in the sense that
+
+             mp :“ Pp p1qz x P Pp p1q, Dx´1 with x ˝ x´1 “ 1 “ Sp´1 ppq
+                                                            (
+(5.16)
+
+is the unique maximal ideal of Pp .
+We make CBioloc into a category by
+
+(5.17)    CBioloc pP, Qq “ tϕ P CBio0 pP, Qq, ϕ is local: ϕ˚ pmQ q “ mP u
+
+                                               13
+6       The structure sheaf OP
+   Fix P P CBio0 . For an open set U Ď specpPq define
+(6.1)        #                                                                +
+                        ž
+  ˘                           ˘              ˘
+OP p Uqpnq :“ f : U Ñ       Pp pnq, f ppq P Pp pnq, and f is a local fraction
+                             pP U
+
+                      for all p P U, there exists open p P Up Ď U, and
+f locally a fraction: Ť
+P P P˘ pnq, s P Pp1qz     q, such that for all q P Up we have f pqq ” P {s in
+                            qP Up
+Pq .                       ` ´    `
+                                        ˘
+Note that OP p Uq “ OP p Uq, OP     p Uq is a commutative bio, the operations
+of compositions and actions are defined pointwise (in each Pp ), and the “local
+fraction condition” is preserved. For open sets V Ď U Ď specpPq we have the
+restriction maps
+(6.2)                               ρU
+                                     V : Pp Uq Ñ Pp V q
+
+making U ÞÑ Pp Uq a pre-sheaf of bios over specpPq; by the local nature of the
+“locally-fraction-condition” it is clearly a sheaf.
+For p P specpPq, the stalk of OP at p is given by
+                                                        „
+                               OP,p :“ lim
+                                       ÝÑ OP p Uq Ý
+                                                  Ñ Pp
+                                            UQp
+(6.3)
+                                     p U, f q{« ÞÝÝÑ f ppq
+it is well defined, surjective, and injective.
+The global sections of OP are given by
+Theorem 1. For a basic open set Dpsq Ď specpPq, s P Pp1q,
+                                     „
+                   Ψ : Ps “ P 1s ÝÝÝÝÝÑ OP pDpsqq
+                               “ ‰
+
+
+                  Ψ pP {sn q :“ tf ppq ” P {sn in Pp for all p P Dpsqu .
+
+
+    For s “ 1 we obtain the global sections
+                                        „
+                                 P ÝÝÝÝÝÑ OP pspecpPqq
+Proof. The map Ψ which takes P {sn P Ps to the constant section f , f ppq ”
+P {sn , is a well defined map of bios. Take P P P´ pkq, the case P P P` pkq is
+similar.
+Ψ is injective: Assume Ψ pP1 {sn1 q “ ΨpP2 {sn2 q, and define
+        a :“ Ann psn2 ˝ P1 ; sn1 ˝ P2 q “ ta P Pp1q, a ˝ sn2 ˝ P1 “ a ˝ sn1 ˝ P2 u ;
+by commutativity it follows a is an ideal. We have
+                       P1 {sn1 “ P2 {sn2 in Pp for all p P Dpsq
+
+                                                  14
+ñ sp ˝ sn2 ˝ P1 “ sp ˝ sn1 ˝ P2 for some sp P Pp1qzp, all p P Dpsq.
+ñ a Ę p, all p P Dpsq
+                                                                       ?
+ñ V paq X Dpsq “ H ñ V paq Ď V psq ñ s P IV paq “                       a
+ñ sn P a for n ąą 0 ñ sn`n2 ˝ P1 “ sn`n1 ˝ P2 for n ąą 0
+ñ P1 {sn1 “ P2 {sn2 in Ps .
+Ψ is surjective: Fix f P OP pDpsqq´ pkq. Since Dpsq is compact we can cover
+it by finite collection of basic open sets
+                                  Dpsq “ Dps1 q Y ¨ ¨ ¨ Y DpsN q
+with                                                                         ď
+                  f ppq ” Pi {ti for p P Dpsi q ;            ti P Pp1qz               p.
+                                                                           pPDpsi q
+
+We have V pti q Ď V psi q, so sni i “ ci ˝ ti for some ci P Pp1q, and for p P Dpsi q,
+f ppq “ Pi {ti “ ci ˝ Pi {sni i . We can replace si by sni i , (Dpsi q “ Dpsni i q), and Pi
+by ci ˝ Pi , so
+                                f ppq ” Pi {si for p P Dpsi q.
+On the set Dpsi q X Dpsj q “ Dpsi ˝ sj q, the section f is given by both Pi {si and
+Pj {sj , and by the injectivity of Ψ
+                            psi ˝ sj qn ˝ sj ˝ Pi “ psi ˝ sj qn ˝ si ˝ Pj
+By finiteness we may assume one n works for all i, j.
+Replacing si by sn`1
+                 i   , and replacing sni ˝ Pi by Pi , we may assume
+                                 f ppq ” Pi {si     for all p P Dpsi q
+
+                                 sj ˝ Pi “ si ˝ Pj        all i, j.
+                        Dpsi q we have that some power sM is a linear-combination of
+                 Ť
+Since Dpsq Ď
+                    i
+the si
+         sM “ tb, pcj q, du “ b ˝ pcj q Ð
+                                        Ý̋ d         ,    cj “ sipjq   ,    b, d P P˘ pℓq ,
+
+                             i
+      j P t1, ¨ ¨ ¨ , ℓu Ý
+                         Ñ t1, ¨ ¨ ¨ , N u .
+Define P “ b ˝ pPipjq q Ð Ý̋ pd, . . . , dq.
+                              loomoon
+                                      k
+We have,
+                        b ˝ sj ˝ Pipjq Ð
+                                      ˘ Ý̋
+                                           pd, ¨ ¨ ¨ , dq ” b ˝ sipjq ˝ Pj Ð
+                           `                                   `          ˘ Ý̋
+       sj ˝ P   “                                                              pd, ¨ ¨ ¨ , dq
+
+                “       pb ˝ pcj ˝ Pj qq Ð
+                                         Ý̋ pd, ¨ ¨ ¨ , dq
+
+                “       ppb ˝ pcj qq Ð
+                                     Ý̋ dq ˝ Pj          by commutativity
+
+                “       sM ˝ Pj
+
+                                                   15
+Thus f ppq ” Pj {sj ” P {sM is constant.
+
+
+7    Generalized Schemes
+    For a topological space X, we have the category CBio{X of sheaves of CBio0
+over X, its maps are natural transformations ϕ “ tϕ U u, ϕ U P CBio0 pPp Uq, P1 p Uqq.
+Putting all these categories together we have the category CBio{Top: its ob-
+ject are pairs pX, Pq, X P Top, P P CBio{X, and its maps f : pX, Pq Ñ
+pX1 , P1 q are pairs f P ToppX, X1 q and f 6 P CBio{X1 pP1 , f˚Pq; explicitly, f
+                                             1
+is a continuous
+  6           ` 1 function,       ˘˘ U Ď X open, we have the map of bios
+                            and for
+                         ` ´1
+f U P CBio0 P p Uq, P f p Uq , these maps being compatible with restric-
+tions.
+Remark 7.1. For f P ToppX, X1 q we have adjunction
+
+                                              CBio{X
+
+                                        f˚              f˚
+    f ˚P1 “ sheaf associated                                       f˚Pp Uq “ Ppf ´1 Uq
+
+               to the pre-sheaf              CBio{X1
+    X Ě V ÞÝÝÝÑ       lim
+                      ÝÑ      P1 p Uq
+                    U Ď X1 open
+                    f p Vq Ď U
+
+
+For a map f P CBio{Top ppX, Pq, pX1 , P1 qq, and for a point x P X, we get an
+induced map of stalks
+(7.2)
+ fx6 : Pf1 pxq “ lim  1
+                 ÝÑ P p V q ÝÝÝÝÑ     lim         ´1
+                                      ÝÑ Ppf V q Ñ lim       ÝÑ Pp Uq “ Px
+              f pxqP V ĎX1               f pxqP V ĎX1                  xP UĎX
+
+
+Definition 7.3. The category of locally-bio-spaces CBioloc {Top , is the cat-
+egory with object pX, Pq P CBio{Top , such that for all x P X the stalk Px
+is a local bio with the unique maximal proper ideal mx Ď Px p1q; the maps
+f P CBioloc {Top ppX, Pq, pX1 , P1 qq                                 1   1
+                                   ´ are maps¯f P CBio{Top ppX, Pq, pX , P qq such
+that for all x P X, fx6 P CBioloc Pf1 pxq , Px      is a local map: fx6 pmf pxq q Ď mx .
+Theorem 2. We have the adjunction
+                                                             op
+                                             pCBioloc {Top q
+
+     specpPq :“ pspecpPq, OP q          spec                   Γ     ΓpX, Pq :“ PpXq
+                                                                   the global sections
+                                                  CBio0
+
+
+                                             16
+              CBioloc {Top pX, Pq, specpP1 q ” CBio0 P1 , PpXq
+                          `                 ˘       `         ˘
+
+
+
+Proof. For a point x P X, we have canonical map φx P CBio0 pPpXq, Px q,
+φx P “ P |x the stalk of the global section P at the point x, and we get a
+prime px :“ φ´1 x pmx q P spec pPpXqq, mx Ď Px p1q the maximal ideal. For a
+basic open set Dpsq Ď spec pPpXqq, s P PpXqp1q, we have tx P X, px P Dpsqu “
+tx P X, φx psq R mx u is open in X: if φx psq R mx , it is invertible in Px , ax ˝
+φx psq “ 1, ax P Px and there is an open Ux Q x, a P Pp Ux q with ax “ a|x ; tak-
+ing Ux smaller we have a˝s| Ux “ 1 already in Pp Ux q, and so φx1 psq R mx1 for all
+x1 P Ux . Thus the map x ÞÑ px is a continuous map p : X ÞÝÝÑ spec pPpXqq. The
+                                  ´1
+uniqueness of the
+         ´1
+                            ˘ ux q , shows these local inverses glue to a global
+                   inverse ps|
+                 ` ´1
+inverse s P P p pDpsqq and we get the map of CBio0
+                                         (´1
+              p6Dpsq : PpXqs ” sN              PpXq ÝÝÝÑ P p´1 pDpsqq
+                                                              `           ˘
+(7.4)
+
+These maps are compatible on intersections,   Dps1 q X Dps2 q “ ˘Dps1 ˝ s2 q, so
+by the sheaf property give p6U P CBio0 Ospec PpXq p Uq, Ppp´1 Uq for any open
+                                      `
+
+U Ď spec pPpXqq, compatible with restrictions, so
+(7.5)               p “ pp, p6 q P CBio{Top ppX, Pq, spec pPpXqqq
+
+For x P X, we get
+
+(7.6)               p6x “     lim
+                              ÝÑ        p6Dpsq P CBioloc pPpXqpx , Px q
+                            φx psqRmx
+
+is local, so p P CBioloc{Top ppX, Pq, spec pPpXqqq is the co-unit of adjunction.
+Given ϕ P CBio0 pA, PpXqq we get specpϕq ˝ p P CBioloc{Top ppX, Pq, specpAqq.
+Given f P CBioloc{Top ppX, Pq, specpAqq we get the global sections
+                                 6
+(7.7)                   Γpf q “ fspecpAq P CBio0 pA, PpXqq.
+
+One checks these are inverse bijections.
+Following the footsteps of Grothendieck we can define the category of
+Generalized Schemes GSch Ď CBioloc {Top to be the full subcategory of
+CBioloc {Top consistingŤof the object pX, OX q which are locally affine: we have
+some open cover X “ Ui , and p Ui , OX | Ui q – spec pOX p Ui qq.
+An open subset of a scheme is again a scheme.
+Schemes can be glued along open subsets and consistent glueing data.
+Since ordinary commutative rings A give commutative bios PA P CBio0 and
+since all our definitions reduce to their classical analogues for P “ PA , A P
+CRing, ordinary schemes embeds fully faithfully in generalized schemes,
+
+                         Sch ãÑ GSch, pX, OX q ÞÑ pX, POX q
+
+                                               17
+Theorem 3. The category GSch has fiber products, for fi P GSchpXi , Y q:
+                                                  ś
+                                            X0          X1
+                                                   Y
+
+
+
+
+                                  X0                                  X1
+                                   f0                           f1
+
+                                                  Y
+
+
+Proof. Exactly as for ordinary schemes. Write Y “ specpBi q, Xε “ specpAεj,i q,
+                                                      Ť          Ť
+                                                      i          i,j
+                `            ˘
+ε “ 0, 1 with fε specpAεj,i q Ď spec pBi q, and glue:
+                         ź              ž             ˆ                 ˙
+(7.8)               X0       X1 ”                 spec A0j0 ,i b A1j1 ,i .
+                                                                          Bi
+                         Y             i,j0 ,j1
+
+                                        ˜                             ¸C
+                                           A0j0 ,i          A1j1 ,i
+                                                       š
+Note that one uses the push-out                                                in CBio0
+                                                       Bi
+
+
+
+8       Pro-Schemes
+    We have the full-embeddings
+                                        op
+(8.1)               Aff ” pCBio0 q           Ď GSch Ď CBioloc {Top
+
+The category CBioloc {Top “ C is complete. Given tXi u P CI we have the
+topological space lim Xi , its points x “ pxi q are consistent sequences of points
+                   Ð
+                    I
+
+xi P Xi , and we have the structure sheaf O “ lim OXi over it (with local stalks: O
+                                                               Ñ
+                                                                I
+
+being the co-limit of local homomorphisms). The category Aff is also complete,
+as CBio0 is co-complete
+
+(8.2)                        lim specpAi q ” specplim Ai q
+                             Ð                                      Ñ
+                              I                                       I
+
+
+
+But the category GSch, the full sub-category of CBioloc {Top with objects the
+ones locally isomorphic to elements of Aff, is not complete: Given tXi u P
+pGSchqI , and given a point
+
+(8.3)                    x “ pxi q P lim Xi P CBioloc {Top
+                                            Ð
+                                             I
+
+
+
+
+                                                  18
+while for each i P I we have an affine neighborhood xi P specAi Ď X there need
+not be an affine neighborhood of x in lim Xi . Such is the case of the real prime.
+                                                Ð
+                                                I
+
+So we pass to the pro-category pro-GSchm. It has objects pJ, Xj q where J is a
+partially ordered set which is
+(8.4)          directed: @j1 , j2 P J, Dj P J, j ě j1 and j ě j2
+
+                   co-finite: @j P J, # ti P J, i ď ju ă 8
+(8.5)
+                   Xj P pGSchqJ :             j1 ě j0 ùñ Xj1 ÝÑ Xj0
+The maps in pro-GSch are given by
+(8.6)           pro-GSch ppJ, Xj q, pI, Yi qq “ lim lim GSch pXj , Yi q
+                                                       Ð    Ñ
+                                                       I    J
+
+
+We have a functor
+                      lim :        pro-GSch ÝÑ             CBioloc {Top
+                      ÐÝ
+(8.7)
+                                   pJ, Xj q         ÞÝÝÑ lim
+                                                          ÐÝ
+                                                             Xj
+                                                           J
+
+The category GSch embeds fully faithfully in pro-GSch; the category pro-GSch
+is closed under limits over directed co-finite posets.
+Example 8.8. Take
+(8.9)    J “ tn P N square freeu “ tp1 ¨ p2 ¨ ¨ ¨ pℓ , pi prime, i ­“ j ñ pi ­“ pj u
+with n1 ě n0 iff n0 divides n1 . We have the “compactified specpZq”
+                       $                                               ,
+                       ’                                ˆ  „         ˙/
+                       &                   ž                 1         .
+(8.10)     specpZq :“ Xn “ specpZq                  spec Z       X ZR
+                       ’                                     n         /
+                                       specpZr n
+                                               1
+                                                 sq
+                       %                                               -
+                                                                         nPJ
+
+Pictorially, the specialization picture of the underlying topological space Xn looks
+like
+                                                                           ηn
+          X n , n “ p1 ¨ p2 ¨ ¨ ¨ pℓ :
+                                         p1           pℓ                   pﬄn
+                                                ¨¨¨                  ¨¨¨    ¨¨¨
+(8.11)
+
+
+                                                            p0q
+
+
+
+
+                                                19
+  with ηn denoting the maximal ideal of Z n1 X ZR .
+                                            “ ‰
+
+The specialization picuture of the space lim Xn is
+                                               ÐÝ
+                                               J
+
+
+
+                            η    2    3              p
+                                               ¨¨¨       ¨¨¨
+(8.12)
+                                          p0q
+
+When n|m, the map Xm Ñ Xn is the identity on points, and for U Ď Xn open:
+OXn p Uq ” OXm p Uq; but there are more open neighborhood to ηm P Xm than
+there are for ηn P Xn .
+
+
+9       Valuations
+Definition 9.1. We say K P CBio0 is a field if
+
+            Kp1qz t0u ” K ˚ :“ a P Kp1q, Da´1 P Kp1q, a ˝ a´1 “ 1 .
+                                                                 (
+
+
+A sub-Bio0 B Ď K is than a domain: t0u is prime and the localization gives
+embedding
+
+(9.2)                            B Ď Bp0q Ď K
+
+We define
+
+                   B ` pnqK “ tp P K ´ pnq, p ˝ B ` pnq Ď Bp1qu
+(9.3)
+                   B ´ pnqK “ tq P K ` pnq, B ´ pnq ˝ q Ď Bp1qu
+
+For fields k Ď K P CBiot0 (with involution!) we define the valuation-sub-bios
+
+                             B P CBiot0 , k Ď B Ď Bp0q ” K,
+                          $                                      ,
+                          ’
+                          ’                                      /
+                                                                 /
+                          ’
+                          ’                                      /
+                                                                 /
+                          &                                      .
+(9.4)        ValpK{kq :“     B ˘ pnqK “ B ¯ pnq
+                          ’
+                          ’                                      /
+                                                                 /
+                          ’
+                          ’                                      /
+                                                                 /
+                             @x P K ˚ , x P Bp1q or x´1 P Bp1q
+                          %                                      -
+
+
+
+
+                                          20
+We define the real-valued valuations
+(9.5)
+                  | | “ | |n,˘ : K ˘ pnq ÝÑ r0, 8q
+              $                                                                                            ,
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+                  |x    ˝ x   |    “ |x   |   ¨ |x   |   ,   |x|    “  0  ô  x “   0.
+              ’                                                                                            /
+                     1      2   1       1  1       2  1         1
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’   ˇ            ˇ                                                                           /
+                   p  ˝ pp   q   ď  |p| ¨ max     |p    |;   |pq   q ˝ q| ď  |q| ¨ max    |q  |;
+              ’                                                                                            /
+                           i                          i          i                          i
+              ’
+              ’   ˇ            ˇ                                                                           /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              &                                                                                            /
+                                                                                                           .
+ValR pK{kq :“     |p ˝ pqi q| ď |p| ¨ max |qi |; |ppi q ˝ q| ď |q| ¨ max |pi |;
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+                              t
+                  |p|  “  |p    |;   @λ   P   k, |λ|    ď  1;
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+                                                                                 ´1
+                                                                                                         (
+                  |p|      “     sup t|p    ˝ q|   , |q|      ď  1u   “  inf  |d    |  , |d  ˝  p|   ď 1
+              ’                                                                                            /
+                      n,´                        1        n`                         1            n´
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’
+              ’                                                                                            /
+                                                                                                           /
+              ’                                                                                            /
+                                                                                                               {«
+              ’
+              ’                                                                                            /
+                                                                                                           /
+                                                                                 ´1
+                                                                                                        (
+                  |q|n,` “ sup t|p ˝ q|1 , |p|n´ ď 1u “ inf |d |1 , |q ˝ d|n` ď 1
+              %                                                                                            -
+
+
+where « is the equivalence relation given by
+                                         || « ||σ   ,    σ ą 0.
+
+
+   We have a map
+                         ValR pK{kq                 Val pK{kq
+(9.6)
+                                       | | ÞÝÝÝÑ B|| ” tp P K, |p| ď 1u
+and this map is a bijection if for all B P Val pK{kq the set K ˚ {B ˚ , which is
+partially-ordered by
+(9.7)                              x ď y ðñ x ˝ y ´1 P Bp1q
+is class one and there is an order preserving embedding | |1 : K ˚ {B ˚ ãÑ p0, 8q.
+Theorem 4 (Ostrowski Theorem). We have
+              Val pQ{Fq “ ValR pQ{Fq “ Q; Zppq “ Q X Zp , p prime; Q X ZR
+                                                                                               (
+(9.8)
+For a number field K we have
+              Val pK{Fq “ ValR pK{Fq
+
+(9.9)
+                                   #                                                    +
+                                       K; OK,p “ K X ÔK,p , p Ď OK prime;
+                               “
+                                       K X σ ´1 pZC q, σ : K ãÑ C, σ „ σ
+
+Proof. For a proof see [Har17]
+Remark 9.10. The requirement that B is preserved by the involution           of K,
+|pt | “ |p|, is crutial: without it we have also the ℓp -valuations Q X Pℓp , Pℓq ,
+                                                                       `         ˘
+
+cf. §3
+
+                                                    21
+10       Props
+Definition 10.1. A prop P is a strict-symmetric-monoidal category which is
+generated by one object x.
+
+Thus we have sets Pn,m “ P px‘m , x‘n q with an action of Sn ˆ Sm
+                                                                op
+                                                                   and com-
+position
+
+                           Pn,m ˆ Pm,ℓ ÝÝÝÑ Pn,ℓ
+(10.2)
+                                       f, g    ÞÝÝÝÑ f ˝ g
+
+which is Sm -invariant, Sn ˆ Sℓop -covariant, and associative
+
+(10.3)                        pf ˝ gq ˝ h “ f ˝ pg ˝ hq
+
+and unital
+
+(10.4)            1n ˝ f “ f “ f ˝ 1m , f P Pn,m , 1n P Pn,n
+
+We also assume P0,m “ t0u, Pn,0 “ t0u, and 0 is an initial and final object of
+P. The monoidal structure is given by
+                     Pn1 ,m1 ˆ Pn2 ,m2        ÝÝÝÑ Pn1 `n2 ,m1 `m2
+(10.5)
+                  f1 , f2 ÞÝÝÝÑ f1 ‘ f2
+
+It is Sn1 ˆ Sn2 Ď Sn1 `n2 and Sm1 ˆ Sm2 Ď Sm1 `m2 covariant, functorial
+
+                   pf1 ‘ f2 q ˝ pg1 ‘ g2 q “ pf1 ˝ g1 q ‘ pf2 ˝ g2 q
+(10.6)
+                                 1n`m “ 1n ‘ 1m
+
+strict monoidal
+                         pf1 ‘ f2 q ‘ f3 “ f1 ‘ pf2 ‘ f3 q
+(10.7)
+                              f ‘ id0 “ f “ id0 ‘ f
+
+and symmetric
+
+(10.8)                f2 ‘ f1 “ τn1 ,n2 ˝ pf1 ‘ f2 q ˝ τm2 ,m1
+
+with τn,m P Sn`m given by
+                                      $
+                                      & n`i       iďm
+(10.9)                      τ piq “
+                                          i´m iąm
+                                      %
+
+
+
+
+                                          22
+pictorially,
+
+                           1                                     1
+                           ..                                       ..
+                            .                                        .
+                           n                                     m
+
+(10.10)
+                        n`1                                   m`1
+                         ..                                    ..
+                          .                                     .
+
+                        n`m                                   m`n
+
+
+For props P and Q we put
+(10.11)
+              & fn,m P SetpPn,m , Qn,m q, f pσ ¨ p ¨ σ 1 q “ σ ¨ f ppq ¨ σ, f p0q “ 0,
+              $                                                                               ,
+                                                                                              .
+ProppP, Qq “
+                f pp1 ˝ p2 q “ f pp1 q ˝ f pp2 q, f p1q “ 1, f pp1 ‘ p2 q “ f pp1 q ‘ f pp2 q
+              %                                                                               -
+
+so that we have a category Prop.
+Remark 10.12. (cf. 1.14-1.16). Given a strict symmetric monoidal category
+E and object x P E0 we have the prop EndE pxq with
+(10.13)                        EndE pxqn,m :“ Epx‘m , x‘n q.
+Replacing everywhere Set by E we obtain the category of props in E : ProppEq.
+The category Prop has an involution P ÞÑ Pop with
+                                         op
+(10.14)                                 Pn,m :“ Pm,n
+                                                                             „
+                                                              Ñ Pm,n and the
+We have therefore the props with an ivnolution p ÞÑ pt , Pn,m Ý
+category Propt (with maps preserving the involutions).
+Definition 10.15. A prop P will be called central if the monoid P1,1 is com-
+mutative and central:
+                                n                 m
+(10.16)           a ¨ p :“ p‘ aq ˝ p ” p ˝ p‘ aq          for a P P1,1 , p P Pn,m .
+A prop P will be called commutative if it is central and we have for b P P1,k ,
+p P Pn,m , d P Pk,1
+                                    n                 k                  m
+(10.17)            pb ˝ dq ¨ p ” p‘ bq ˝ σn,k ¨ p‘ pq ˝ σk,m ˝ p‘ dq
+A prop P will be called totally-commuative if we have for p P Pp0 ,p1 ,
+q P Pq0 ,q1 ,
+                          q0                 p1                p0            q1
+(10.18)        p b q :“ p‘ pq ˝ σq0 ,p1 ˝ p‘ qq ” σq0 ,p0 p‘ qqσp0 ,q1 p‘ pqσq1 ,p1
+(here σn,m P Sn¨m is the permutation (4.3)).
+
+                                             23
+  We let
+
+                                    PT     P         PC        P
+(10.19)                   CT Prop Ď CProp Ď Prop
+
+
+denote the full subcategory of (resp. totally-) commutative props, and we let
+P ÝÝÑÑ PC (resp. P ÝÝÑ    Ñ PT ) denote the maximal (totally-) commutative
+quotient of P giving the left adjoints of the inclusions (10.19).
+
+                                                                        Prop
+
+
+                                                                    F      U
+                                               CProp
+                                                                        Bio0
+(10.20)                                    FC
+                    CT Prop                          U
+
+
+                    FT      U                  CBio0
+
+                     CT Bio0
+
+with the frogetfull functor U
+                          ´
+                   pU Pq pnq “ P1,n             ,    pU Pq` pnq “ Pn,1
+(10.21)
+                  p ˝ ppi q :“ p ˝ ‘pi , pqi q ˝ q :“ p‘qi q ˝ q           etc.
+
+The left adjoints FP give the free prop generated by the bio P. Note that when
+P is (totally) commutative, the elements of pFC Pqn,m , (resp. FT P), can be
+written, non-uniquely, as
+(10.22)                         ˆ          ˙         ˆ          ˙
+                                    n                    m
+                            “       ‘ pi       ˝σ˝       ‘ qj       ”
+                                i“1                      j“1
+
+
+    pi P P´ pki q, qj P P` pℓj q, σ P SL , L “ k1 ` ¨ ¨ ¨ ` kn “ ℓ1 ` ¨ ¨ ¨ ` ℓm .
+
+Moreover, we have
+                 ´n ¯       ´ m ¯ ´ n1 ¯         ´ m1 ¯
+(10.23)           ‘ pi ˝ σ ˝ ‘ qj » ‘ p1i ˝ σ 1 ˝ ‘ qj1
+
+           ` n              `m           ` n1          ` m1
+iff we have ‘ ϕppi q ˝ σ ˝ ‘ ϕpqj q “ ‘ ϕpp1i q ˝ σ 1 ˝ ‘ ϕpqj1 q for all
+                    ˘               ˘              ˘             ˘
+
+ϕ P BiopP, U Qq and all Q P CProp (resp. CT Prop).
+
+For a rig R we have the prop PR with pPR qn,m the n by m matrices with
+
+                                               24
+entries in R, composition is matrix multiplication, and ‘ is block-direct sum
+of matrices. When R has an involution PR has an involution; for A “ paij q
+in pPR qn,m we have At “ pbji q, bji “ atij . When R is commutative PR is
+totally-commutative and the diagram
+
+                                                       CT Prop
+
+
+                               CRig                   FT       U
+(10.24)
+
+                                                      CT Bio0
+
+
+
+is commutative.
+For a Prop P we have the groups of invertible elements
+
+               GLn pPq :“ a P Pn,n , Da´1 P Pn,n , a´1 ˝ a “ a ˝ a´1 “ 1n
+                                                                                            (
+(10.25)
+
+and homomorphisms
+
+                     GLn pPq ˆ GLm pPq               ÝÝÝÑ GLn`m pPq
+(10.26)
+                           a    ,     b              ÞÝÝÝÑ a ‘ b
+
+(10.27) E.g.
+
+ GLn pFq ” Sn Ď GLn pFr˘1sq ” p˘1qn ¸ Sn Ď GLn pZR q ” Opnq Ď GLpZC q ” U pnq
+
+11        Prop-Schemes
+  For a commutative prop P P CProp we have the compact sober topological
+space specpPq ” specpU Pq. Since P1,1 acts centrally on the sets Pn,m there is
+no problem with localizations with respect to multiplicative sets S Ď P1,1 and
+we get cannonical map
+
+(11.1)                          φS : P ÝÝÝÑ S ´1P
+
+In particular we have the localizations
+
+               Pp :“ Sp´1P ,        Sp “ P1,1 zp ,             p Ď P1,1 prime
+(11.2)
+               Pf :“ Sf´1P ,
+                                                                       (
+                                    Sf “ 1, f, f 2 , ¨ ¨ ¨ f n ¨ ¨ ¨       ,   f P P1,1 .
+
+Moreover, commutativity imply that there is a sheaf of commutative props OP
+over specpPq with stalks
+                                                           „
+(11.3)                     OP,p “ lim OPp Uq Ý
+                                             Ñ Pp
+                                          UQp
+
+
+                                                25
+and with global sections
+                                          „                `       ˘
+(11.4)                          Pf ÝÝÝÝÝÑ OP Dpf q .
+We get a functor
+
+                    spec : CPropqop ÝÝÝÑ CProploc {Top
+                          `
+(11.5)
+
+with CProploc {Top the category with objects pX, OX q, X P Top, OX a sheaf of
+commutative props with local stalks, and maps of prop-spaces inducing local
+maps on stalks. We get the category of Prop-Schemes PSch:
+
+(11.6)               pCPropqop Ď PSch Ď CProploc {Top,
+
+                       Ť of CProploc {Top consisting of pX, OX q such that for
+it is the full subcategory
+some open cover X “ Ui
+                      i
+                           `          ˇ       ˘                `       ˘
+(11.7)                         Ui , OX ˇ Ui – spec OX p Ui q
+
+The adjunction (10.20) prolongs to an adjunction, over Top, under Sch,
+
+                                              PSch
+
+
+                     Sch                  FC           U                Top
+(11.8)
+
+                                              GSch
+
+
+
+The rest of section §7 work verbatim for prop-schemes. Similarly, the discussion
+of limits in §8 works exactly the same with prop-schemes and we have the
+category of pro-Prop schemes
+
+                     PSch                                  CProploc {Top
+
+
+(11.9)                                                 lim
+                                                       ÐÝ
+
+
+                                  pro-PSch
+
+Example 11.10. Using the notations of (8.8), we have the “compactified
+specpZq” with the same underlying topological spaces as in (8.10), (8.11), but
+with the sheaf of props OZ with pOZ qn,m p Uq the n by m Q-valued matrices
+a “ paij q, aij P Q such that
+
+(11.11)                    a ˝ Zm    n
+                                p Ď Zp             ,       all p P U,
+
+                                                  26
+and moreover,
+
+(11.12)              a ˝ Zm
+                          R Ď ZR
+                                 n
+                                     if the real prime η P U
+
+(with ZnR “ pxi q P Rn , |xi |2 ď 1 the unit ℓ2 -balls). The global sections OZ pspecZqn,m
+                        ř          (
+
+are the n by m Z valued matrices satisfying (11.12), which are the matrices hav-
+ing in each column and in each raw at most one non-zero term with entry 1 or
+´1:
+
+(11.13)                          OZ pspecZq ” Fr˘1s
+
+
+12        The Witt ring and Frobenius correspondences
+   For a prop P P CProp we have the group GLn pPq of invertible elements
+of the monoid Pn,n and it acts on Pn,n by conjugation; we let rps denote the
+conjugacy class of p P Pn,n and we let rPn,n s denote the collection of these
+conjugacy classes. We have an embedding
+
+(12.1)            rPn,n s ÝÝÝÑ rPn`1,n`1 s , rps ÞÝÝÝÑ rp ‘ 0s,
+
+and we take the direct limit:
+
+(12.2)                            rPs :“ lim
+                                          Ñ
+                                             rPn,n s
+                                            n
+
+We have a commutative monoid structure on rPs via
+
+(12.3)                       rp1 s ` rp2 s :“ rp1 ‘ p2 s
+
+and applying K (Grothendieck localization of addition) we get an abelian group,
+the Witt group:
+
+(12.4)                           WpPq :“ K prPsq .
+
+This group has the Frobenius endomorphisms given by
+                                                  »                    ﬁ
+
+(12.5)          Fn : WpPq Ñ WpPq , Fn rps “ rpn s “ –p ˝ p ˝ ¨ ¨ ¨ ˝ pﬂ
+                                                     loooooomoooooon
+                                                                n
+
+We thus have a functor
+
+(12.6)                       W : Prop ÝÝÝÑ pAbqN
+
+When the prop P is totally commutative, we have multiplication on rPs via,
+cf. (10.18),
+
+(12.7)                          rp1 s ¨ rp2 s “ rp1 b p2 s
+
+
+                                           27
+making rPs into a commutative rig, and so WpPq is a commutative ring and
+the Fn ’s are ring endomorphisms:
+
+(12.8)                       W : CT Prop ÝÝÝÑ pCRingqN
+
+We can summarize our constructions in the following diagram:
+
+                                                             Γ                          op
+                                         CProp0                        pCProploc {Topq
+                                                            spec
+                                                     U
+                                               FC                           FC   U
+
+                    N`   W                                       Γ                     op
+          pCRingq              CT Prop0             CBio0              pCBioloc {Topq
+                                                              spec
+(12.9)                           FT
+                                          U
+
+                                         CT Bio0
+
+
+                                                             Γ         ´           M   ¯op
+                                              CRing                        CRingloc Top
+                                                            spec
+
+               N`
+Here pCRingq      is the category of commutative rings with an action of the
+multiplicative monoid N` of positive natural numbers (the free commutative
+monoid on the set of primes), and CRingloc {Top is the usual category of locally
+ringed spaces.
+Given a prop-scheme pX, OX q we can apply W to the props OX p Uq to obtain a
+sheaf of abelian groups WpOX q over X. When all the OX p Uq are totally com-
+mutative WpOX q is a sheaf of commutative rings with Frobenius endomorphisms.
+
+Given an ordinary commutative ring R P CRing, we have the associated totally-
+commutative prop PR P CT Prop and WpPR q is the ring of rational Witt vectors,
+cf. [Alm74],
+
+                             WpPR q                  1 ` x ¨ R rrxss
+(12.10)
+                                                    detp1´x¨p1 q
+                         rp1 s ´ rp2 s        ÞÝÝÝÑ detp1´x¨p2q
+                                                                 .
+
+           ` R, ˘with fraction field K, let K be an algebraic closure of K,
+For a domain
+GK “ Gal K{K , R the integral closure of R in K, than WpPR q is the free
+abelian group on monic irreducible polynomials f pxq ­“ x, via the correspon-
+dence
+(12.11)                                                 ˆ ˙
+                                                         1
+f pxq “ xn ` a1 xn´1 ` ¨ ¨ ¨ ` an ÐÑ f˜pxq “ xdeg f ¨ f     “ 1 ` a1 x ` ¨ ¨ ¨ ` an xn
+                                                         x
+
+
+                                               28
+Alternatively, WpPR q is the free abelian group on GK orbits in Rz t0u:
+
+(12.12)                      WpPR q “               ‘       Zrαs
+                                          rαsPpRzt0uq{GK
+
+with rαs “ tα “ α1 , ¨ ¨ ¨ , αn u the GK -conjugates of α. The multiplication in
+WpPR q is given by multiplying orbits:
+
+(12.13)         rαs ¨ rβs “ tα1 , ¨ ¨ ¨ , αn u ¨ tβ1 , ¨ ¨ ¨ , βm u “ tαi ¨ βj u
+
+
+13        The ring W “ WpspecZq
+   For the compactified specpZq “ specpZq Y tηu, the condition (11.12) at the
+real prime implies that all the eigenvalues of a are in the unit disc, hence the
+global sections WpspecpZqq is the free abelian group on GQ -orbits of algebraic
+integers rαs “ tα1 , ¨ ¨ ¨ , αn u with |αi | ď 1, hence they are roots of unity, and so
+
+(13.1)                   WpspecZq ” ‘ Z ¨ φn “ ‘ Zrµ˚n s
+                                         ně1              ně1
+
+with φn the cyclotomic polynomial with roots the primitive n-th roots of unity
+µ˚n ¨. The multiplication is given by
+
+(13.2)                    φn ¨ φm “ φn¨m        for pn, mq “ 1,
+
+(13.3)
+               & p1 ´ p´1 qpm ¨ φpn
+               $
+                                                                                   nąmě1
+ φpn ¨ φpm “
+                   p1 ´ p´1 qpn ¨ φpn ` φpn´1 ` ¨ ¨ ¨ ` φp ` φ1 ´ pn´1 ¨ φpn
+                                 “                             ‰
+                                                                                   n“mě1
+               %
+
+The algebra W “ WpspecZq is the union of its finite subalgebras
+                         ď
+(13.4)             W“        WN , WN “ ‘ Zφd
+                                                            d|N
+                                N ě1
+
+and is the tensor product over all primes (with respect to φ1 “ 1)
+
+(13.5)                  W “ bp Wp8         ,    Wp8 “ ‘ℓě0 Zφpℓ ,
+
+with Wpn {Wpn´1 being an integral quadratic extension (13.3).
+The Frobenius ring endomorphisms are completely multiplicative
+
+(13.6)                            Fm1 ˝ Fm2 “ Fm1 ¨m2
+
+and are given for p prime by
+                            $
+                            ’
+                            ’ φn                        p∤n
+                            ’
+                            ’
+                            &
+(13.7)              Fp φn “   p ¨ φn{p                  p2 | n
+                            ’
+                            ’
+                            ’
+                            ’
+                              pp ´ 1q ¨ φn{p            p | n , p2 ∤ n
+                            %
+
+
+                                               29
+or generally by
+(13.8)             ´                            ¯
+                           ź
+  Fm φn “ pm, nq ¨                    p1 ´ p´1 q ¨ φn{pm,nq , pm, nq “ gcdpm, nq
+                        p | pm, nq
+                       p ∤ n{pm, nq
+
+We have a cannonical ring homomorphism
+
+                                  t1 “ tr : W ÝÝÑ Z
+(13.9)
+                                        ras ÞÝÝÑ tr a
+
+and
+                                           ÿ
+(13.10)                       trpφn q “           ξ “ µpnq
+                                           ξPµ˚
+                                              n
+
+
+is the Möbius function. We obtain the homomorphisms
+
+                            tm “ tr ˝ Fm : W ÝÝÑ Z
+(13.11)
+                            ras ÞÝÝÑ trpam q
+
+and
+                                                    ÿ
+(13.12)                tm pφn q “ trpFm φn q “            ξ m “ Cnm
+                                                   ξPµ˚
+                                                      n
+
+
+with the Ramanujan sums
+                 ˆ        ˙
+           m         n          ϕpnq                                  ˚
+(13.13)   Cn “ µ            ¨      n     , n ě 1 , m P pZ{nZq { pZ{nZq
+                   pn, mq     ϕp pn,mq q
+
+Note that
+
+(13.14)            m”0        pmod nq ùñ Fm φn “ ϕpnq ¨ φ1
+
+and we get by continuity an action of the multiplicative monoid of “super-
+natural-number”
+                                   ź
+(13.15)                   Ẑ{Ẑ˚ “      pNYt8u
+                                        p prime
+
+by ring endomorphisms of W. In particular, we get the homomorphism
+
+(13.16)                    F0 “    lim Fm : W ÝÑ Z.
+                                  mÑ0PẐ
+
+We have F0 ˝ Fm “ F0 for all m, and
+
+(13.17)                        F0 φn “ #µ˚n “ ϕpnq
+
+
+                                           30
+is Euler’s function.
+The group of roots of unity µ8 give rise to the group-ring Z ¨ µ8 , which maps
+homomorphically onto the ring of cyclotomic integers Zrµ8 s, and also maps
+onto Z via the augmutation. Taking Ẑ˚ “ Autpµ8 q invariants we get
+
+                                                         Ẑ˚
+                                                  pZrµ8 sq     “Z
+                                         t1
+                                     ˚
+(13.18)            W “ pZ ¨ µ8 qẐ
+                                             F0
+                                                  Z
+
+
+Remark 13.19. We have
+
+                     CRingpW, Cq ” CRingpW, Zq ” Ẑ{Ẑ ˚
+
+Indeed, from (13.5) we obain
+                                         ź
+                      CRingpW, Cq ”           CRingpWp8 , Cq.
+                                         p
+
+From (13.3), we obtain for ψ P CRingpWp8 , Cq the implications for n ě 1,
+
+                     ψpφpn q ­“ 0
+
+                     ψpφpm q “ pm 1 ´ p´1 for m “ 1, 2, . . . , n ´ 1
+                                 `       ˘
+           ùñ
+
+                     ψpφpn q “ pn 1 ´ p´1 or ψpφpn q “ ´pn´1
+                                 `       ˘
+           ùñ
+
+From this it follows that ψ “ tr ˝ Fpn , n ě 0,
+                                    $
+                                    ’ 1               m“0
+                                      p p1 ´ p´1 q
+                                    ’
+                                    & m
+                                                      1ďmďn
+                  tr ˝ Fpn pφpm q “
+                                    ’
+                                    ’ ´pn             m“n`1
+                                      0               mąn`1
+                                    %
+
+or that ψ “ lim tr ˝ Fpn “ Fp8 “ F0 . Thus
+            nÑ8
+
+
+                           CRingpWp8 , Cq ” pNYt8u
+
+
+
+   We have as well the additive projection
+                    ż                 ż      "
+                                               1 n“1
+(13.20)                : WÑZ ,          φn “
+                                               0 ną1
+
+
+
+                                         31
+and we have
+                                             $
+                        ż                    & ϕpnq      n1 “ n2 “ n
+(13.21)                     pφn1 ¨ φn2 q “
+                                                 0       n1 ­“ n2
+                                             %
+
+We can extend scalar to C, and obtain the ring homomorphisms
+
+(13.22)                     tm “ tr ˝ Fm : WC “ C b W ÝÑ C.
+                 ş
+The projection       : WC Ñ C can be expanded using the tm ’s as
+                                ż                  M
+                                                1 ÿ
+(13.23)                             f”    lim         tm pf q.
+                                         MÑ0PẐ M m“1
+
+                                                            ş
+We can complete WC with respect to the state                    and obtain the Hilbert space
+                                                            ż
+(13.24)                       H “ ŴC        ,   xf, gy “       pf ¨ gq
+
+with orthogonal basis tφn uně1 , }φn }2 “ ϕpnq.
+The complete-multiplicativity of the Fm , (13.6), suggests considering
+(13.25)
+             ÿ 1           źˆ       1        1
+                                                             ˙ ź
+                                                                       1
+  ζpF, sq :“        F
+                   s m
+                        ”      1 `     F
+                                      s p
+                                          `     F
+                                              2s p
+                                                   2 ` ¨ ¨ ¨  ”          ´s F q
+             mě1
+                 m          p
+                                    p       p                   p
+                                                                  p1 ´ p     p
+
+                                         ˚
+The adoint of Fm , the “verschiebung” Fm    is the additive map given by
+  ˚                                  ˚     ˚       ˚
+Fm φn “ φm¨n . The multiplicativity Fm1 ˝ Fm 2
+                                               “ Fm  1 ¨m2
+                                                           suggest considering
+similarly
+                                    ÿ 1           ź       1
+(13.26)              ζpF ˚ , sq “         s
+                                            Fm
+                                              ˚
+                                                “          ´s F ˚ q
+                                                                    “ ζpF, sq˚
+                                    mě1
+                                        m         p
+                                                    p1 ´ p     p
+
+
+In terms of these zeta elements we can interpret Ramanujan’s sums
+                                                                ¨        ˛
+                                                ÿ Cm       1      ÿ
+(13.27) tm ζpF ˚ , tqφ1 “ tr Fm ζpF ˚ , tqφ1 “       n
+                                                                    d1´t ‚
+             `          ˘    `              ˘
+                                                      t
+                                                        “      ¨˝
+                                                ně1
+                                                    n     ζptq
+                                                                                 d|m
+
+
+                                                                  ¨ ˛
+                                          ÿ Cm           ÿ ´n¯
+                                            n
+(13.28)              tr pζpF, sqφn q “       s
+                                               “ ζpsq ¨ ˝ µ    d1´s ‚
+                                       mě1
+                                           m                d
+                                                                      d|n
+
+
+
+                                                     ÿ Cnm    ζpsq
+(13.29)        tr pζpF, sqζpF ˚ , tqφ1 q “              t s
+                                                            “      ¨ ζps ` t ´ 1q
+                                                 n,mě1
+                                                       nm     ζptq
+
+
+                                                 32
+with ζpsq the Riemann zeta function.
+                               M
+                            1 ř
+  The probability measure M       δm on Ẑ, converges as M Ñ 0 P Ẑ, to the
+                                      m“1
+Haar measure dz, and we get an isomorphism, the Fourier transform
+                                       „                              ˚
+               H “ ŴC         ÝÝÝÝÝÝÝÝÑ              L2 pẐ, dzqẐ
+
+                          f    ÞÝÝÝÝÝÝÝÝÝÑ fˆpzq :“ trpFz f q
+
+                     Fm        ÞÝÝÝÝÝÝÝÝÝÑ F̂m fˆpzq :“ fˆpmzq
+(13.30)
+                                             ˚ ˆ
+                      ˚
+                     Fm        ÞÝÝÝÝÝÝÝÝÝÑ F̂m f pzq :“ m ¨ fˆpz{mq
+                                            ż
+                              xf, gy “           fˆpzq ¨ ĝpzq dz
+                                            Ẑ
+
+   The ring W has a structure of a special-λ-ring, with λ-operations.
+(13.31)                                                           ÿ
+λn : W Ñ W , λ0 pxq “ 1 , λ1 pxq “ x , λn px1 `x2 q “                 λn1 px1 q¨λn2 px2 q
+                                                                                 n1 `n2 “n
+
+defined by
+                                      n n       n
+                          ř
+               λt pxq “       ně0 p´1q λ pxq ¨ t :            W ÝÝÝÑ 1` t ¨ Wr|t|srat
+(13.32)                                                     Ě                Ě
+                                           ‘ N ¨ φn ” W` ÝÝÝÑ 1` t ¨ Wrts
+                                        ně0
+
+
+
+                                ź                      ϕpnq
+                                                        ÿ
+(13.33)          λt pφn q “           p1 ´ rξstq “            λm pφn q ¨ p´tqm
+                               ξPµ˚
+                                  n
+                                                       m“0
+
+
+
+
+                                                 33
+(13.34) E.g.
+ λt pφ1 q “ 1 ´ t
+
+ λt pφ2 q “ 1 ´ t ¨ φ2
+
+ λt pφ3 q “ 1 ´ tφ3 ` t2
+
+ λt pφ4 q “ 1 ´ tφ4 ` t2
+
+ λt pφ5 q “ 1 ´ tφ5 ` t2 pφ5 ` 2φ1 q ´ t3 φ5 ` t4
+
+ λt pφ6 q “ 1 ´ tφ6 ` t2
+
+ λt pφ7 q “ 1 ´ tφ7 ` t2 p2 ¨ φ7 ` 3φ1 q ´ t3 p3φ7 ` 2φ1 q ` t4 p2φ7 ` 3φ1 q ´ t5 φ7 ` t6
+
+ λt pφ8 q “ 1 ´ tφ8 ` t2 pφ4 ` 2φ2 ` 2φ1 q ´ t3 φ8 ` t4
+
+ λt pφ9 q “ 1 ´ tφ9 ` t2 pφ9 ` 3φ3 ` 3φ1 q ´ t3 p3φ9 ` φ3 q ` t4 pφ9 ` 3φ3 ` 3φ1 q ´ t5 φ9 ` t6
+
+ λt pφ10 q “ 1 ´ tφ10 ` t2 pφ5 ` 2φ1 q ´ t3 φ10 ` t4
+We have,
+
+(13.35)                  λt pφn q “ tϕpnq ¨ λt´1 pφn q       for n ą 2
+
+                         `        ˘  ź
+(13.36)                tr λt pφn q “   p1 ´ ξ ¨ tq “ φ̃n ptq “ φn ptq
+                                       ξPµ˚
+                                          n
+
+
+
+
+                                 F0 λt pφn q “ p1 ´ tqϕpnq
+                                   `        ˘
+(13.37)
+
+(13.38)          ˆ ˙                                         ˆ      ˙
+                  k                                           k`n´1
+λn pk ¨ φ1 q “           satisfies p´1qn λn p´k ¨ φ1 q “              “ λn pk ` n ´ 1q
+                  n                                             n
+We denote the Grothendieck involution by
+                         „       
+                           1 0            t       1
+(13.39)           Dptq “           ptq “     “
+                           1 ´1          t´1   1 ´ t´1
+so that DDptq “ t, Dp0q “ 0, Dp1q “ 8, Dp2q “ 2, and in the notations of §3,
+1{p ` 1{q “ 1 ô q “ Dppq. We obtain Grothendieck’s gamma-operations
+(13.40)
+                 p´1qn γ n pxqtn : W ÝÝÑ 1 ` tWr|t|srat
+               ř
+      γt pxq “
+                 ně0
+
+
+      γt0 pxq “ 1,     ´γ 1 pxq “ x,     γ n px1 ` x2 q “               γ n1 px1 q ¨ γ n2 px2 q
+                                                               ř
+                                                            n1 `n2 “n
+
+
+                                              34
+by setting
+(13.41)      γt pxq “ λDptq pxq ô p´1qn γ n pxq “ λn px ` n ´ 1q , cf. ( 13.38)
+We have
+(13.42)          W “ Z ¨ φ1 ‘ I     ,   I “ ker F0 “ ‘ Zpφn ´ ϕpnq ¨ φ1 q
+                                                       ną1
+
+The gamma-filteration is given by I0 “ W, I1 “ I, and
+(13.43)                                                                         ÿ
+In ” additive subgroup of W generated by γ n1 pa1 q ¨ ¨ ¨ γ nℓ paℓ q, ai P I,       ni ě n
+It is a λ-filtration, and on the associated graded ring
+(13.44)                         grγ W ” ‘ In {In`1
+                                          ně0
+
+we have
+(13.45)                            Fm ” ‘ mn           c.f. [AT69] prop. 5.3.
+                                          ně0
+
+and also
+(13.46)                  p´1qm`1 λm ” ‘ mn´1             c.f. [AT69] prop. 5.5.
+                                          ně1
+
+Note that
+(13.47)                        γt : I ` ” ‘ N ¨ pφn ´ ϕpnqφn q ÝÝÑ 1 ` tWrts
+                                          ną1
+
+and
+                                          ź `            t ˘   ź `
+(13.48) γt pφn ´ϕpnqφ1 q “ p1´tqϕpnq ¨
+                                                                             ˘
+                                             1´rξs¨          “    1´p1´rξsqt
+                                                        t´1
+                                          ξPµ˚
+                                             n
+                                                                ˚
+                                                                  ξPµn
+
+i.e. passing from λm pφn q to γ m pφn ´ ϕp1qφ1 q amounts to passing from the m-th
+elementary symmetric function of the roots of unity µ˚n , to that of the “cyclomic
+units” 1 ´ rξs, ξ P µ˚n .
+Remark 13.49. One can proceed as in [Den18], inverting the Fn ’s to get an
+action of the multiplciative group of positive rational numbers Q` “ ‘pZ , the
+free abelian group on the primes, and extend scalars along Q` Ď R` ; the in-
+finitesimal generator of the R` action should give an interesting operation when
+acting on appropriate cohomology groups.
+Viewed from the perspective of the Fourier transform (13.30), “inverting the
+Fn ’s” amount to passing from Ẑ{Ẑ˚ to Q b Ẑ{Ẑ ˚ “ Afin {Ẑ˚ ; “extending scalars
+                                                 Z
+along Q` Ď R` ” amount essentially to the passage to Afin ‘ R{Ẑ˚ Q˚ “ A{Q˚ Ẑ˚ .
+This space and the action of A˚ {Q˚ Ẑ˚ ” R` on it, was first suggested by Weil
+[Wei66], and was farther studied in [Har91], [Har01], and by Connes [Con99].
+But note that for a curve X, over a finite field Fq , we do not have a proof
+of the Riemann-hypothesis by simply using the action of A˚K {K ˚ on AK {K ˚ ,
+K “ Fg pXq the function field of X; we realy need the intersection theory on the
+surface X ˆ X.
+
+                                          35
+References
+[Alm74] Gert Almkvist. The Grothendieck ring of the category of endomor-
+        phisms. Journal of Algebra, 28(3):375–388, 1974.
+
+[AT69]   M. F. Atiyah and D. O. Tall. Group representations, λ-rings and the
+         J-homomorphism. Topology, 8:253–297, 1969.
+[Con99] Alain Connes. Trace formula in noncommutative geometry and the
+        zeros of the Riemann zeta function. Selecta Mathematica, 5(1):29,
+        1999.
+[Den18] Christopher Deninger. Dynamical systems for arithmetic schemes.
+        arXiv preprint arXiv:1807.06400, 2018.
+[DG71]   Jean Dieudonné and Alexandre Grothendieck. Éléments de géométrie
+         algébrique, volume 166. Springer Berlin Heidelberg New York, 1971.
+[Har91] Shai Haran. Index theory, potential theory, and the Riemann hy-
+        pothesis. In L-functions and arithmetic (Durham, 1989), volume 153
+        of London Math. Soc. Lecture Note Ser., pages 257–270. Cambridge
+        Univ. Press, Cambridge, 1991.
+[Har01] M. J. Shai Haran. The mysteries of the real prime, volume 25 of London
+        Mathematical Society Monographs. New Series. The Clarendon Press,
+        Oxford University Press, New York, 2001.
+[Har07] Shai Haran. Non-additive geometry.          Compositio Mathematica,
+        143(3):618–688, 2007.
+[Har17] Shai Haran. New foundations for geometry: Two non-additive lan-
+        guages for arithmetical geometry, volume 246. Memoires of the Amer-
+        ican Mathematical Society, 2017.
+[Har22] Shai Haran.       Homotopy and arithmetic.            arXiv preprint
+        arXiv:2204.03107, 2022.
+[KS18]   Robert A. Kucharczyk and Peter Scholze. Topological realisations
+         of absolute galois groups. In James W. Cogdell, Günter Harder,
+         Stephen Kudla, and Freydoon Shahidi, editors, Cohomology of Arith-
+         metic Groups, pages 201–288, Cham, 2018. Springer International
+         Publishing.
+[Ram18] Srinivasa Ramanujan. On certain trigonometrical sums and their ap-
+        plications in the theory of numbers. Trans. Cambridge Philos. Soc,
+        22(13):259–276, 1918.
+
+[Wei66] André Weil. Fonction zêta et distributions.      Séminaire Bourbaki,
+        9(312):523–531, 1966.
+
+
+
+                                     36
+

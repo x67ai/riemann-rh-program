@@ -1,0 +1,1307 @@
+                                          The arithmetic Hodge index theorem for adelic
+
+
+
+
+arXiv:1304.3539v2 [math.NT] 23 Aug 2021
+                                             line bundles II: finitely generated fields
+                                                               Xinyi Yuan, Shou-Wu Zhang
+                                                                       August 24, 2021
+
+
+                                          Contents
+                                          1 Introduction                                                               1
+                                            1.1 Arithmetic Hodge index theorem . . . . . . . . . . . . . . . .         2
+                                            1.2 Preperiodic points of algebraic dynamics . . . . . . . . . . . .       4
+
+                                          2 Arithmetic Hodge index theorem                                              6
+                                            2.1 Review on adelic line bundles . . . . . . . . . . . . . . . . . .       6
+                                            2.2 The inequality . . . . . . . . . . . . . . . . . . . . . . . . . . .   10
+                                            2.3 Equality: vertical case . . . . . . . . . . . . . . . . . . . . . .    12
+                                            2.4 Equality: case of curves . . . . . . . . . . . . . . . . . . . . .     15
+                                            2.5 Equality: general case . . . . . . . . . . . . . . . . . . . . . .     16
+
+                                          3 Preperiodic points of algebraic dynamics                                 18
+                                            3.1 Review on admissible line bundles . . . . . . . . . . . . . . . . 18
+                                            3.2 Preperiodic points . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+
+                                          1    Introduction
+                                          This paper is a sequel to [YZ1], which lies in the fields of Arakelov geometry
+                                          and algebraic dynamics.
+                                             In [YZ1], we have proved a Hodge index theorem for adelic line bundles
+                                          over number fields, and applied it to prove a rigidity theorem of preperiodic
+                                          points of polarized algebraic dynamical systems over number fields. The
+
+
+                                                                                1
+treatment is based on the theory of adelic line bundles over projective vari-
+eties over number fields introduced in [Zh2]. In [YZ2], we have generalized
+the theory of [Zh2] to a theory of adelic line bundles over quasi-projective
+varieties over finitely generated fields. The goal of the current paper, based
+on the theory in [YZ2], is to extend the results of [YZ1] to projective va-
+rieties over finitely generated fields over Q. More precisely, we prove both
+the Hodge index theorem for adelic line bundles and the rigidity theorem of
+preperiodic points over finitely generated fields over Q.
+    As the treatment of [YZ1] over number fields is generalized to function
+fields of one variable by Carney [Ca1], the treatment of the current paper is
+generalized to finitely generated function fields by Carney [Ca2].
+    Throughout this paper, denote MQ = M ⊗Z Q for any abelian group M.
+Denote XQ = X ×Spec Z Spec Q for any scheme X over Z.
+
+1.1    Arithmetic Hodge index theorem
+In [YZ1], we have proved an arithmetic Hodge index theorem for adelic line
+bundles over a projective variety over a number field, which extends the
+previous results of Faltings [Fal], Hriljac [Hr] and Moriwaki [Mo2]. Here we
+describe the generalization to finitely generated fields.
+    We need the theory of adelic Q-line bundles over finitely generated fields
+in [YZ2]. We refer to §2.1 for a quick review of the theory. Namely, let X
+be a projective variety over a finitely generated field K over Q. Then we
+                 c
+have the group Pic(X)    of isomorphism classes of adelic Q-line bundles over
+                             c
+X. Note that the notation Pic(X)     in this paper is equivalent to the notation
+ c
+Pic(X/Z)Q in [YZ2].
+                                             c
+    Moreover, we have the sub-semigroup Pic(X)      nef of nef adelic Q-line bun-
+        c                           c
+dles in Pic(X), and the subgroup Pic(X)int of integrable adelic Q-line bundles
+    c
+in Pic(X).
+    There are two intersection pairings involved in our treatment. The first
+one is an absolute intersection product
+                               c      d+1
+                               Pic(K) int −→ R,
+
+and the second one is a Deligne pairing
+                             c
+                        π∗ : Pic(X) n+1    c
+                                    int −→ Pic(K)int .
+
+
+
+
+                                       2
+Here assume that K has transcendental degree d over Q, and X has dimension
+n, and π : X → Spec K denotes the structure morphism.
+    To state our Hodge index theorem, we introduce the following further
+positivity notions.
+Definition 1.1. Let K be a finitely generated field over Q of transcendental
+degree d. Let X be a projective variety over K. Let L, M ∈ c   Pic(X)int and
+     c
+H ∈ Pic(K)int . We define the following notions.
+(1) H  0 if H is pseudo-effective, i.e., the top intersection number H ·
+                                                   c
+    N 1 · · · N d ≥ 0 for any N 1 , · · · , N d in Pic(K) nef .
+
+(2) H ≡ 0 if H is numerically trivial, i.e., the top intersection number
+                                                       c
+    H · N 1 · · · N d = 0 for any N 1 , · · · , N d in Pic(K) int .
+
+                                                        c
+(3) L ≫ 0 if L is ample, and L − N is nef for some N ∈ Pic(Q)  with
+    d
+    deg(N) > 0. The adelic line bundle N is viewed as an element of
+    c
+    Pic(X) int by the natural pull-back map.
+
+(4) M is L-bounded if there is a rational number ǫ > 0 such that both L+ǫM
+    and L − ǫM are nef.
+
+    It is conventional that each of H 1  H 2 and H 2  H 1 means H 2 −H 1  0.
+Similar conventions apply to “≡” and “≫.” The main theorem of this paper
+is as follows.
+Theorem 1.2. Let K be a finitely generated field over Q, and π : X →
+Spec K be a normal, geometrically connected, and projective variety of di-
+mension n ≥ 1. Let M be an integrable adelic Q-line bundle on X, and
+L1 , · · · , Ln−1 be n − 1 nef adelic Q-line bundles on X where each Li is big
+on X. Assume M · L1 · · · Ln−1 = 0 on X. Then
+                                 2
+                           π∗ (M · L1 · · · Ln−1 )  0
+   c
+in Pic(K) int .
+   Moreover, if Li ≫ 0, and M is Li -bounded for each i, then
+                                 2
+                           π∗ (M · L1 · · · Ln−1 ) ≡ 0
+   c                              ∗c
+in Pic(K) int if and only if M ∈ π Pic(K)int .
+
+
+                                       3
+   When K is a number field, the theorem was proved in [YZ1, Theorem 3.2],
+the pre-sequel of this theorem. The proof of this theorem actually follows
+the line of that in [YZ1], replacing adelic line bundles of [Zh2] by those of
+[YZ2].
+   The theorem is generated to finitely generated fields K over a base field
+k by Carney [Ca1, Ca2].
+
+1.2    Preperiodic points of algebraic dynamics
+Let K be a field. A polarized algebraic dynamical system over K is a triple
+(X, f, L), where X is a projective variety over K, f : X → X is a K-
+morphism, and L ∈ Pic(X)Q is an ample Q-line bundle satisfying f ∗ L = qL
+from some rational number q > 1. We call L a polarization of f . Denote by
+Prep(f ) the set of preperiodic points, i.e.,
+   Prep(f ) := {x ∈ X(K) | f m (x) = f n (x) for some m, n ∈ N, m 6= n}.
+A well-known result of Fakhruddin [Fak] asserts that Prep(f ) is Zariski dense
+in X.
+   Fix a projective variety X over K. Denote by DS(X) the set of all
+morphism f : X → X over K that is polarizable; i.e., there is an ample
+Q-line bundle L ∈ Pic(X)Q such that (X, f, L) forms a polarized dynamical
+system. Note that we do not require elements of DS(X) to be polarizable
+by the same ample line bundle.
+Theorem 1.3. Let X be a projective variety over a field K of characteristic
+0. For any f, g ∈ DS(X), the following are equivalent:
+ (1) Prep(f ) = Prep(g);
+ (2) gPrep(f ) ⊂ Prep(f );
+ (3) Prep(f ) ∩ Prep(g) is Zariski dense in X.
+    When X = P1 , the theorem is independently proved by M. Baker and L.
+DeMarco [BD] during the preparation of this paper. Their treatment for the
+number field case is the same as our treatment in the earlier version, while
+the method for the general case is quite different.
+    Similar to Theorem 1.2, the theorem is treated in [YZ1] if K is a number
+field, and generalized to any field of positive characteristic by Carney [Ca1,
+Ca2].
+
+                                      4
+   Some consequences and questions related to the theorem can be found in
+[YZ1, §4.5]. Here we only list the following one, whose proof will be given at
+the end of this paper.
+
+Theorem 1.4. Let K be either C or Cp for some prime number p. Let X be
+a projective variety over K, and f, g ∈ DS(X) be two polarizable algebraic
+dynamical systems. If Prep(f ) ∩ Prep(g) is Zariski dense in X, then dµf =
+dµg .
+
+    Here dµf denotes the equilibrium measure of (X, f ) on the Berkovich
+space X Ber associated to X. It can be obtained from any initial “smooth”
+measure on X Ber by Tate’s limiting argument. By a proper interpretation, it
+satisfies f ∗ dµf = q dim X dµf and f∗ dµf = dµf .
+    The proof of Theorem 1.3 follows the idea in [YZ1], obtained as a conse-
+quence of Theorem 1.2. The Lefschetz principle allows us to assume that the
+base field K is a finitely generated field over Q. Then the problem sits in the
+framework of adelic line bundles and height theory over finitely generated
+fields in [YZ2].
+    As in an earlier draft of our paper, one may prove Theorem 1.3 without
+using the new theory of adelic line bundles over finitely generated fields in
+[YZ2]. The proof combines the height theory of [Mo3, Mo4], the equidistri-
+bution idea of [SUZ] and [Yu], and the results of [YZ1]. But the proof is very
+tricky and very technical due to many convergence problems of integrations
+and intersection numbers.
+
+Acknowlegement
+The authors would like to thank Xander Faber, Dragos Ghioca, Walter
+Gubler, Yunping Jiang, Barry Mazur, Thomas Tucker, Yuefei Wang, Chenyang
+Xu, Shing-Tung Yau, Yuan Yuan, Zhiwei Yun and Wei Zhang for many help-
+ful discussions during the preparation of this paper.
+    During the preparation of the paper, the first author was supported by
+the Clay Research Fellowship and the NSF award DMS-1330987 of the USA,
+and the second author was supported by the NSF awards DMS-0970100,
+DMS-1065839, and DMS-1700883 of the USA.
+
+
+
+
+                                      5
+2     Arithmetic Hodge index theorem
+The goal of this section is to prove Theorem 1.2. We will start with a review
+of the notion of adelic Q-line bundles in [YZ2], and then prove the theorem
+following the idea of [YZ1].
+
+2.1    Review on adelic line bundles
+Let us first recall the notion of adelic divisors and adelic line bundles over
+finitely generated fields over Q in [YZ2, §2.4,§2.5]. We will be concerned with
+only adelic Q-line bundles (instead of integral adelic line bundles), which
+is slightly simpler without treating mixed coefficients. We only need the
+arithmetic case (k = Z), which also avoids the uniform terminology of [YZ2,
+§1.6].
+
+Adelic divisors over a quasi-projective arithmetic variety
+Let us review the notion of adelic Q-divisors, as a slight variant of that in
+[YZ2, §2.4].
+    By a quasi-projective arithmetic variety (resp. projective arithmetic va-
+riety), we mean an integral scheme which is flat and quasi-projective (resp.
+projective) over Z. For a quasi-projective arithmetic variety U, a projec-
+tive model means a projective arithmetic variety X endowed with an open
+immersion U → X .
+    Let U be a quasi-projective arithmetic variety, and X be a projective
+                        d ) the group of arithmetic divisors over X , and
+model of U. Denote by Div(X
+    c ) the subgroup of principal arithmetic divisors over X . Here the
+by Pr(X
+Green’s functions are assumed to be continuous as in [YZ2, §2.1]. Projective
+models X of U form an inverse system. Using pull-back maps, define
+        d
+        Div(U) mod,Q := lim
+                            d )Q ,
+                            Div(X           c
+                                            Pr(U) mod,Q := lim
+                                                               c )Q .
+                                                               Pr(X
+                        −→                                 −→
+                          X                                 X
+
+                      d
+    An element of Div(U)     mod,Q is called effective if it is the image of an
+                                        d )Q . For any D, E ∈ Div(U)
+effective arithmetic divisor of some Div(X                          d     mod,Q ,
+we write D ≥ E or E ≤ D if D − E is effective in d     Div(U)mod,Q . This give a
+partial order in d Div(U)mod,Q .
+    Fix a boundary divisor (X0 , D0 ) of U, i.e, a projective model X0 of U and
+a strictly effective arithmetic divisor D 0 over X0 such that the support of the
+
+                                       6
+finite part D0 is exactly X0 \ U. We have a boundary norm
+                                 d
+                       k · kD0 : Div(U) mod,Q −→ [0, ∞]
+
+by
+                 kEkD0 := inf{ǫ ∈ Q>0 : −ǫD 0 ≤ E ≤ ǫD 0 }.
+Here the inequalities are defined in terms of effectivity. It further induces a
+                          d
+boundary topology over Div(U)   mod , which does not depend on the choice of
+(X0 , D 0 ).
+    Let d Div(U)Q be the completion of d
+                                       Div(U)mod,Q with respect to the bound-
+                                                d
+ary topology. By definition, an element of Div(U)       Q is represented by a
+                       d                                           d
+Cauchy sequence in Div(U)mod,Q , i.e., a sequence {E i }i≥1 in Div(U)     mod,Q
+satisfying the property that there is a sequence {ǫi }i≥1 of positive rational
+numbers converging to 0 such that
+                   −ǫi D 0 ≤ E i − E i′ ≤ ǫi D 0 ,   i′ ≥ i ≥ 1.
+The sequence {E i }i≥1 represents 0 in d
+                                       Div(U)Q if and only if there is a sequence
+{δi }i≥1 of positive rational numbers converging to 0 such that
+                         −δi D0 ≤ E i ≤ δi D0 ,      i ≥ 1.
+    An element of dDiv(U)Q is called an adelic Q-divisor over U. Define the
+class group of U to be
+                      [
+                      CaCl(U)      d        c
+                              Q := Div(U)Q /Pr(U)mod,Q .
+
+
+Category of Q-line bundles
+As a convention, categories of various line bundles (or Q-line bundles) are
+defined to be groupoids; i.e., the morphisms in them are defined to be iso-
+morphisms (or isometries) of the line bundles.
+                                  d ) and Pic(X
+    To illustrate the idea, take Pic(X         d )Q for a projective arith-
+metic variety X for example. Then an object of Pic(Xd ) is a hermitian line
+bundle over X (with a continuous metric), and a morphism of two such ob-
+jects is defined to be an isometry of hermitian line bundles. An object of
+Pic(X )Q is a pair (a, L) (or just written as aL) with a ∈ Q and L ∈ d
+d                                                                    Pic(X ),
+and a morphism of two such objects is defined to be
+                   Hom(aL, a′ L′ ) = lim Hom(amL, a′ mL′ ),
+                                     −→
+                                        m
+
+
+                                          7
+where m runs through positive integers such that am and a′ m are both
+                                                          d ), and “Hom”
+integers, so that amL and a′ mL′ are viewed as objects of Pic(X
+                                      d ).
+on the right-hand side are viewed in Pic(X
+    We refer to [YZ2, §2.1,§2.2] for more details on these categories.
+
+Adelic line bundles over a quasi-projective arithmetic variety
+Now we review the notion of adelic Q-line bundles, as a slight variant of that
+in [YZ2, §2.5].
+    Let U be a quasi-projective arithmetic variety. Let X be a projective
+model of U over k. In the spirit of [YZ2, §2.2], let d    Pic(X ) be the category
+of hermitian line bundles over X , and dPic(X )Q be the category of hermitian
+Q-line bundles over X . In the arithmetic case (that k = Z), d       Pic(X ) is the
+category of hermitian line bundles with continuous metrics over X . In the
+                                    d ) means the usual Pic(X ).
+geometric case (that k is a field), Pic(X
+    Define the category of adelic Q-line bundles Pic(U) d      Q over U as follows.
+              d
+An object of Pic(U)Q is a pair (L, (Xi , Li , ℓi )i≥1 ) where:
+
+(1) L is an object of Pic(U)Q , i.e., a Q-line bundle over U;
+
+(2) Xi is a projective model of U over Z;
+
+(3) Li is an object of d
+                       Pic(Xi )Q , i.e. a hermitian Q-line bundle over Xi ;
+
+(4) ℓi : L → Li |U is an isomorphism in Pic(U)Q .
+
+The sequence is required to satisfy the Cauchy condition that the sequence
+  c i ℓ−1 )}i≥1 is a Cauchy sequence in Div(U)
+{div(ℓ                                           d         mod,Q under the boundary
+          1
+topology.
+    A morphism from an object (L, (Xi , Li , ℓi )i≥1 ) of d   Pic(U)Q to another ob-
+                 ′ ′
+ject (L , (Xi , Li , ℓi )i≥1 ) of d
+        ′    ′
+                                  Pic(U)Q is an isomorphism ι : L → L′ of Q-line
+bundles over U such that the sequence { c      div(ℓ′i ℓ′−1    c      −1    c
+                                                        1 ) − div(ℓi ℓ1 ) + div(ι1 )}i≥1
+of d
+   Div(U)mod,Q converges to 0 in d     Div(U)Q under the boundary topology. Here
+               ′
+ι1 : L1 99K L1 denotes the rational map over U induced by ι, which induces
+               c 1 ) of Div(U)
+an element div(ι             d      mod,Q .
+                      d
+    An object of Pic(U)Q is called an adelic Q-line bundle over U. Define
+ c
+Pic(U)Q to be the group of isomorphism classes of objects of Pic(U)    d      Q . There
+
+
+
+
+                                           8
+is a canonical isomorphism
+
+                            [
+                            CaCl(U)      c
+                                    Q −→ Pic(U)Q .
+
+
+    An adelic Q-line bundle over U is called strongly nef if it is isomorphic
+to a Cauchy sequence (L, (Xi , Li , ℓi )i≥1 ) such that Li is nef over Xi for all
+i ≥ 1. An adelic Q-line bundle L over U is called nef if there exists a
+strongly nef adelic Q-line bundle M over U such that L + ǫM is strongly
+nef for all positive rational numbers ǫ. An adelic Q-line bundle over U is
+called integrable if it is isometric to L1 − L2 for two strongly nef adelic Q-line
+bundle L1 and L2 over U.
+
+Adelic line bundles over finitely generated fields
+Let K be a finitely generated field over Q of transcendental degree d. Let X
+be a quasi-projective variety over K of dimension n. By an quasi-projective
+arithmetic model of X, we mean a morphism i : X → U to a quasi-projective
+arithmetic variety U which is injective between the underlying spaces and
+induces isomorphisms between the local rings.
+    Define
+                          d
+                          Pic(X)  Q := lim
+                                           d
+                                           Pic(U) Q,
+                                       −→
+                                            U
+
+                           c
+                           Pic(X)Q := lim c
+                                          Pic(U)Q .
+                                      −→
+                                            U
+
+An object of d
+             Pic(X)Q is called an adelic Q-line bundle over X.
+   There are canonical forgetful maps
+              c
+              Pic(X) Q −→ Pic(X)Q ,
+                                            d
+                                            Pic(X) Q −→ Pic(X)Q .
+
+
+These are induced by the forgetful map
+              d
+              Pic(U) Q −→ Pic(U)Q ,      (L, (Xi , Li , ℓi )i≥1 ) 7−→ L.
+
+                                               d
+As a convention, we usually write an object of Pic(X) Q in the form L, where
+L is understood to be the image of L in Pic(X)Q . We often refer L as the
+underlying Q-line bundle of L, and refer L as an arithmetic extension of L.
+
+
+
+
+                                        9
+Simplified notations
+As mentioned at the end of [YZ2, §2.5], the groups d
+                                                   Div(·)Q , c
+                                                             Pic(·)Q and the
+         d Q are the base change to Q of their integral versions.
+category Pic(·)
+                                    c Q , so we will abbreviate
+   As this paper only concerns with Pic(·)
+      d
+      Div(U)   d
+             = Div(U) Q,
+                              c
+                              Pic(U)   c
+                                     = Pic(U) Q,
+                                                             d
+                                                             Pic(U)   d
+                                                                    = Pic(U) Q,
+
+and
+   d
+   Div(X)   d
+          = Div(X) Q,
+                              c
+                              Pic(X)   c
+                                     = Pic(X) Q,
+                                                             d
+                                                             Pic(X)   d
+                                                                    = Pic(X) Q.
+
+For convenience, we may call an (adelic) Q-line bundle simply an (adelic)
+line bundle.
+    By the direct limit, we have notions of nef adelic Q-line bundles and inte-
+                                                                      c
+grable adelic Q-line bundles over X. These gives a sub-semigroup Pic(X)     nef
+                  c            c
+and a subgroup Pic(X)int of Pic(X).
+                                                                     c
+    The definitions also work for X = Spec K. We will simply write Pic(Spec   K)
+    c               c                  c
+as Pic(K). Write Pic(Spec K)nef and Pic(Spec K)int similarly.
+
+Intersection theory
+By [YZ2, §4.1], there is an (absolute) intersection product
+           c      d+1
+           Pic(K) int −→ R,        (H 1 , · · · , H d+1 ) 7−→ H 1 · · · H d+1 ,
+
+and a relative intersection product
+      c
+      Pic(X) n+1    c
+             int −→ Pic(K)int ,       (L1 , · · · , Ln+1 ) 7−→ π∗ (L1 · · · Ln+1 ).
+
+The relative intersection product is defined as the limit of the Deligne pairing.
+
+2.2     The inequality
+We first deduce the inequality of Theorem 1.2 from that of [YZ1, Thm. 3.2].
+The goal is to prove
+                                2
+                          π∗ (M · L1 · · · Ln−1 )  0
+in c
+   Pic(K)int under the assumption
+
+                              M · L1 · · · Ln−1 = 0
+
+                                        10
+over X. Here M is integrable over X, L1 , · · · , Ln−1 are nef over X, and the
+underlying line bundles L1 , · · · , Ln−1 are big over X.
+     Our first step is to reduce it to the case that L1 , · · · , Ln−1 are strongly
+nef over X. This follows from the idea at the beginning of [YZ1, §3.3]. In
+                                                                    ′
+fact, let A be a nef and big line bundle over X such that Li = Li + ǫA is
+strongly nef for all rational numbers ǫ > 0 and for all i = 1, · · · , n − 1. Set
+   ′
+M = M + δA with underlying line bundle M ′ = M + δA. Here δ = δ(ǫ) is
+a number such that
+
+                M ′ · L′1 · · · L′n−1 = (M + δA) · L′1 · · · L′n−1 = 0.
+
+It determines
+                                     M · L′1 · · · L′n−1
+                              δ=−                        .
+                                     A · L′1 · · · L′n−1
+As ǫ → 0, we have δ → 0 since
+
+                    M · L′1 · · · L′n−1 −→ M · L1 · · · Ln−1 = 0
+
+and
+                    A · L′1 · · · L′n−1 −→ A · L1 · · · Ln−1 > 0.
+The last inequality uses the assumption that L1 , · · · , Ln−1 , A are big and nef
+over X.
+    Therefore, the inequality for (M, L1 , · · · , Ln−1 ) is implied by that for
+    ′   ′          ′
+(M , L1 , · · · , Ln−1 ). Thus we can assume that L1 , · · · , Ln−1 are strongly nef
+over X in the following.
+    As our second step, by approximation, it suffices to prove the following
+assertion.
+      Let π : X → B be a projective and flat morphism of projective arithmetic
+varieties. Write dim B = d + 1 and dim X = n + d + 1. Let M be a hermitian
+line bundle on X , (L1 , · · · , Ln−1 ) be nef hermitian line bundles on X with
+big generic fibers on X, and (H1 , · · · , Hd ) be nef hermitian line bundle on B.
+Assume that the generic fiber Li,η is big on the generic fiber Xη of X above
+the generic point η of B for every i = 1, · · · , n − 1. If
+
+                             Mη · L1,η · · · Ln−1,η = 0,
+
+then
+                        2
+                     M · L1 · · · Ln−1 · π ∗ H1 · · · π ∗ Hd ≤ 0.
+
+                                          11
+     Our third step is to apply the above (ǫ, δ)-trick again to get stronger
+positivity. In fact, we can assume that each Hj is ample on B since nef line
+bundles are limits of ample line bundles. For simplicity, denote Ln−1+j =
+π ∗ Hj for j = 1, · · · , d. Fix an ample hermitian line bundle A on X . Take
+                                            ′                  ′
+a small rational number ǫ > 0. Set M = M + δA and Li = Li + ǫA for
+i = 1, · · · d + n − 1. Here δ = δ(ǫ) is a number such that
+        M′Q · L′1,Q · · · L′d+n−1,Q = (MQ + δAQ ) · L′1,Q · · · L′d+n−1,Q = 0.
+It determines
+                              MQ · L′1,Q · · · L′d+n−1,Q
+                          δ=−                            .
+                              AQ · L′1,Q · · · L′d+n−1,Q
+As ǫ → 0, we have δ → 0 since
+
+  MQ · L′1,Q · · · L′d+n−1,Q −→ MQ · L1,Q · · · Ld+n−1,Q
+                                     = (Mη · L1,η · · · Ln−1,η )(H1,Q · · · Hd,Q ) = 0
+and
+
+  AQ · L′1,Q · · · L′d+n−1,Q −→ AQ · L1,Q · · · Ld+n−1,Q
+                                     = (Aη · L1,η · · · Ln−1,η )(H1,Q · · · Hd,Q ) > 0.
+The last inequality uses the assumption that Li,η is big and nef for each i.
+   Applying [YZ1, Thm. 3.2] to the arithmetic variety X over Z, we have
+                                ′2    ′        ′
+                             M · L1 · · · Ld+n−1 ≤ 0.
+Set ǫ → 0. We have
+                                2
+                             M · L1 · · · Ld+n−1 ≤ 0.
+It proves the result.
+
+2.3    Equality: vertical case
+                             c
+An adelic line bundle L ∈ Pic(X)    int is called vertical if the underlying line
+bundle L is isomorphic to the trivial line bundle OX . Denote by Pic(X)c      vert
+the group of vertical adelic line bundles on X.
+   Now we prove the equality part of the theorem in the vertical case. Recall
+that:
+
+                                          12
+   • K is a finitely generated field over Q of transcendental degree d ≥ 0;
+
+   • X is a normal projective variety of dimension n ≥ 1 over K;
+         c
+   • M ∈ Pic(X) vert is vertical;
+
+                         c
+   • L1 , · · · , Ln−1 ∈ Pic(X) int with Li ≫ 0;
+
+   • M is Li -bounded for each i;
+
+   • The equality
+                                        2
+                                 π∗ (M · L1 · · · Ln−1 ) ≡ 0
+               c
+      holds in Pic(K) int .
+
+                           c
+We need to prove M ∈ π ∗ Pic(K)   int .
+    By [YZ2, Lem. 2.3.3], there is a quasi-projective arithmetic model U → V
+of X → Spec K, i.e., a projective and flat morphism of quasi-projective
+arithmetic varieties with generic fiber X → Spec K, such that
+                                                   c
+                           M , L1 , · · · , Ln−1 ∈ Pic(U) int .
+
+
+For any horizontal closed integral subscheme W of V of dimension e + 1,
+we get a projective and flat morphism UW → W, and it defines the groups
+c W )int and Pic(W)
+Pic(U           c     int . There are natural pull-back maps
+
+
+               Pic(U)int → c
+               c           Pic(UW )int ,         Pic(V)int → c
+                                                 c           Pic(W)int .
+
+We first prove the following result.
+                                       c
+Lemma 2.1. For any H 1 , · · · , H e ∈ Pic(V) int , one has
+
+
+          (M|UW )2 · (L1 |UW ) · · · (Ln−1 |UW ) · (H 1 |W ) · · · (H e |W ) = 0.
+
+Proof. By induction, we can assume that W has codimension one in V. We
+need to prove
+
+         (M|UW )2 · (L1 |UW ) · · · (Ln−1 |UW ) · (H 1 |W ) · · · (H d−1 |W ) = 0.
+
+By approximation, we can assume that there is a projective model X → B
+                          c
+of U → V such that H i ∈ Pic(B) for every i = 1, · · · , d − 1. Denote by C the
+Zariski closure of W in B. Then XC → C is a projective model of UW → W.
+
+                                            13
+                                c
+   By assumption, for any H d ∈ Pic(B), we have I · H d = 0. Here we denote
+                                2
+                      I := M · L1 · · · Ln−1 · H 1 · · · H d−1 ,
+
+which is a formal notation to ease the burden of the notations and has con-
+crete meanings when intersecting it with other line bundles (or 1-cycles).
+Then the intersection of I with any vertical class of B is zero.
+    Now assume that the finite part Hd of H d is ample on BQ . After replacing
+H d by a multiple if necessary, we can assume that there is a section s of Hd
+vanishing on C. It follows that we can write
+                                        X
+                                        r
+                           div(s) =           ai Ci ,    ai ≥ 0.
+                                        i=0
+
+Here C0 = C and a0 > 0. By definition of intersection numbers,
+                                X
+                                r                   Z
+                     I · Hd =         ai I · Ci −              log kskωI .
+                                i=0                     B(C)
+
+
+Here the integral is a formal intersection of log ksk with I, which is zero
+since I has zero intersection with any vertical class. Furthermore, I · Ci = 0
+if Ci is vertical, and I · Ci ≤ 0 by the inequality part of Theorem 1.2. Hence,
+I ·H d = 0 forces I ·C = 0. It is exactly the equality that we need to prove.
+    Set dim W = 1 in the lemma. Then the function field of W is a number
+field. Apply the main theorem of [YZ1], we conclude that
+
+                                          c
+                              M |UW ∈ π ∗ Pic(W) int .
+
+                 c
+To imply M ∈ π ∗ Pic(K) int , we first re-interpret it in terms of Berkovich
+spaces.
+   By [YZ2, Proposition 3.5.1], we have canonical injections
+
+           c
+           Pic(X)    c r-an)Q ,
+                  ֒→ Pic(X                c
+                                          Pic(K)    c
+                                                 ֒→ Pic((Spec K)r-an)Q .
+
+Here X r-an is the disjoint union, over all places v of Q, of the Berkovich space
+Xvan associated to the scheme XQv = X ×Q Qv over the complete field Qv .
+                             c
+    We claim that M ∈ π ∗ Pic(K)                               ∗c
+                                   int is equivalent to M ∈ π Pic((Spec K)
+                                                                            r-an
+                                                                                 )Q .
+In fact, assume the later. If there is a rational point s ∈ X(K), then we
+
+                                              14
+                                                     c
+would have M = π ∗ M 0 where M 0 = s∗ M lies in Pic(K)        int . The identity
+                    c     r-an
+can be checked in Pic(X ). In general, taking any x ∈ X(K), we have
+                               c
+M = π ∗ hM (x) with hM (x) ∈ Pic(K) int .
+                                         c
+   Hence, it suffices to prove M ∈ π ∗ Pic((Spec K)r-an )Q . Fixing an isomor-
+phism from M to the trivial sheaf OX , the metric of M corresponds to a
+continuous function
+                          − log k1kM : X r-an −→ R.
+It suffices to prove that log k1kM is constant on the fiber of any point of
+(Spec K)r-an .
+     Let U → V and W be as above. Then log k1kM extends to U r-an . By
+              c
+M |UW ∈ π ∗ Pic(W)   int , we see that log k1kM is constant on the fibers of U
+                                                                               r-an
+                                                                                    →
+  r-an
+V      above wv for any closed point w of VQ and any place v of Q. Here wv
+denotes the finite subset of classical points of Vvr-an corresponding to the
+finite subset of closed points VQv determined by w. By the density of {wv }w
+in VQr-an
+       v
+          , we conclude that log k1kM is constant on any fiber of U r-an → V r-an .
+Then it is constant on any fiber of X r-an → (Spec K)r-an . It finishes the proof.
+
+2.4     Equality: case of curves
+For a curve over a finitely generated field, the most elegant Hodge index
+theorem should be a direct extension of the theorem of Faltings [Fal] and
+Hriljac [Hr], which gives an identity between arithmetic intersections and
+Neron–Tate heights. This task is finished in [YZ2, Thm. 6.5.1]. In this
+section, we will use this theorem to prove Theorem 1.2 for curves.
+    The following is the statement of [YZ2, Thm. 6.5.1], combined with the
+Northcott theorem of [YZ2, Thm. 5.3.1].
+Theorem 2.2. Let K be a finitely generated field over Q, and let π : X →
+Spec K be a smooth, projective, and geometrically connected curve. Let M ∈
+Pic(X)Q with deg M = 0.
+   Then there is an adelic line bundle M 0 ∈ c  Pic(X)int with underlying line
+bundle M such that π∗ (M 0 · V ) ≡ 0 for any V ∈ c Pic(X)vert .
+   Moreover, π∗ (M 0 · M 0 )  0 in c
+                                    Pic(K)int ; the equality π∗ (M 0 · M 0 ) ≡ 0
+holds if and only if M = 0 in Pic(X)Q .
+    It is easy to see that the theorem implies Theorem 1.2 for curves. In fact,
+              c
+define N ∈ Pic(X)    vert by
+                                  M = M0 + N.
+
+                                         15
+Note that π∗ (M 0 · N) ≡ 0. We have
+                   π∗ (M · M ) ≡ π∗ (M 0 · M 0 ) + π∗ (N · N)  0.
+Here π∗ (M 0 · M 0 )  0 by Proposition 2.2 and π∗ (N · N )  0 by the vertical
+case of Theorem 1.2.
+   If the equality holds, then M = 0 by Theorem 2.2. By the vertical case
+                                            c
+of Theorem 1.2, we conclude that M ∈ π ∗ Pic(K)    int .
+
+
+
+2.5       Equality: general case
+The proof of the equality part of Theorem 1.2 is almost identical to that in
+[YZ1]. We have already treated the case n = 1, so we assume n ≥ 2 in the
+following.
+
+Argument on the generic fiber
+Assume the conditions in the equality part of Theorem 1.2, which particularly
+includes
+                               2
+                          π∗ (M · L1 · · · Ln−1 ) ≡ 0.
+We first show that M is numerically trivial on X by the condition Ln−1 ≫ 0.
+                               ′
+   The condition asserts that Ln−1 = Ln−1 − N is nef for some N ∈ c  Pic(Q)
+     d
+with deg(N)  > 0. Then
+      2                                    2                ′
+π∗ (M · L1 · · · Ln−2 · Ln−1 ) = π∗ (M · L1 · · · Ln−2 · Ln−1 ) + (M 2 · L1 · · · Ln−2 ) N .
+                                                                           ′
+Applying the inequality of the theorem to (M, L1 , · · · , Ln−2 , Ln−1 ), we have
+                                 2                    ′
+                           π∗ (M · L1 · · · Ln−2 · Ln−1 )  0.
+By the Hodge index theorem on X in the geometric case, we have
+                                 M 2 · L1 · · · Ln−2 ≤ 0.
+Hence,
+                   2                   ′
+            π∗ (M · L1 · · · Ln−2 · Ln−1 ) ≡ 0,       M 2 · L1 · · · Ln−2 = 0.
+    On the variety X, we have
+               M · L1 · · · Ln−2 · Ln−1 = 0,        M 2 · L1 · · · Ln−2 = 0.
+By the Hodge index theorem on normal algebraic varieties, we conclude that
+M is numerically trivial. See [YZ1, Appendix 1].
+
+                                               16
+Numerically trivial case
+We have proved that M is numerically trivial on X, and now we continue to
+prove that M is a torsion line bundle. Then a multiple of M is vertical and
+has already been treated. As in [YZ1], the key is still the variational method.
+Lemma 2.3. Let M , L1 , · · · , Ln−1 be integrable adelic line bundles on X
+such that the following conditions hold:
+(1) M is numerically trivial on X;
+(2) M is Li -bounded for every i;
+           2
+(3) π∗ (M · L1 · · · Ln−1 ) ≡ 0.
+                                                         0
+Then for any nef adelic line bundles Li on X with underlying bundle L0i
+                                                                         ′
+numerically equivalent to Li , and any integrable adelic line bundle M with
+numerically trivial underlying line bundle M ′ , the following are true:
+                                           ′        0        0
+                               π∗ (M · M · L1 · · · Ln−1 ) ≡ 0,
+                                      2     ′       0        0
+                               π∗ (M · M · L1 · · · Ln−2 ) ≡ 0.
+Proof. The proof is similar to its counterpart in [YZ1]. For example for the
+first equality, it suffices to prove
+                                 ′   0          0
+                         M · M · L1 · · · Ln−1 · π ∗ H 1 · · · π ∗ H d = 0
+                                c
+for any nef H 1 , · · · , H d ∈ Pic(Spec K)int . For fixed H 1 , · · · , H d , the inter-
+section numbers still satisfy the Cauchy–Schwartz inequality. The proof can
+be carried here.
+    Go back to the equality part of Theorem 1.2. Apply Bertini’s theorem.
+Replacing Ln−1 by a positive multiple if necessary, there is a section s ∈
+H 0 (X, Ln−1 ) such that Y = div(s) is an integral subvariety of X, regular in
+codimension one. Then we have
+                     2                                           2
+               π∗ (M · L1 · · · Ln−2 · Ln−1 ) ≡ π∗ (M · L1 · · · Ln−2 · Y ).
+                                                                                      2
+In fact, the difference of two sides is the limit of the intersection of M ·
+L1 · · · Ln−2 with vertical classes, so it vanishes by the second equality of the
+lemma. Hence,
+                                 2
+                           π∗ (M · L1 · · · Ln−2 · Y ) ≡ 0.
+
+                                                    17
+By the Lefschetz hyperplane theorem, we can assume that Pic0 (X)Q →
+Pic0 (Y )Q is injective. It reduces the problem to Y . The proof is complete
+since we have already treated the case of curves.
+
+
+3     Preperiodic points of algebraic dynamics
+The goal of this section is to prove Theorem 1.3 on the rigidity of preperiodic
+points. The idea is very similar to the number field case in [YZ1].
+
+3.1    Review on admissible line bundles
+Let us first recall the theory of admissible adelic line bundles for polariz-
+able algebraic dynamical systems over finitely generated fields in [YZ2, §6.4],
+which generalizes the results of [Zh2, YZ1] over number fields.
+   Let K be a finitely generated field over Q. Let (X, f, L) be a polarized
+dynamical system over a K, i.e.,
+
+    • X is a projective variety over K;
+
+    • f : X → X is a morphism over K;
+
+    • L ∈ Pic(X)Q is an ample line bundle such that f ∗ L = qL from some
+      q > 1.
+
+We will further assume that X is normal, which can always achieved by
+taking the normalization of X.
+                                                                  c
+   By [YZ2, Thm. 6.1.1], there is an adelic Q-line bundle Lf ∈ Pic(X)    nef
+extending L and with f ∗ Lf = qLf . This still follows from Tate’s limiting
+argument. By [YZ2, Thm. 6.1.1(2)], Lf is actually strongly nef over X.
+   For any closed K-subvariety Z of X, we have the canonical height
+                                              dim Z+1
+                                     Lf |Ze               c
+           hf (Z) = hLf (Z) :=                          ∈ Pic(K) nef .
+                                                   e
+                                 (dim Z + 1) degL (Z)
+
+Here Ze is the image of Z in X. In particular, we have a height function
+                                       c
+                          hf : X(K) −→ Pic(K) nef .
+
+
+These heights can also be obtained by Tate’s limiting argument.
+
+                                       18
+    The height function hf is f -invariant. Moreover, for any point x ∈ X(K),
+hf (x) = 0 if and only if x is preperiodic under f .
+                            c
+    Fix H 1 , · · · , H d ∈ Pic(K) nef , where d is the transcendental degree of K
+over Q. For any closed K-subvariety Z of X, the Moriwaki height of Z with
+respect to L and (H 1 , · · · , H d ) is
+
+                                                              Lf |dim
+                                                                  e
+                                                                      Z+1
+                                                                          · H1 · · · Hd
+            hH 1 ,··· ,H d
+                           (Z) := hLf (Z) · H 1 · · · H d =       Z
+                                                                                        .
+             Lf
+                                                              (dim Z + 1) degL (Z)   e
+
+                                              c Z)
+Here the intersection numbers are taken in Pic(  e int . It gives a real-valued
+height function.
+   In [YZ2, Thm. 6.4.2], the notion of f -invariant adelic line bundles is
+extended to f -admissible adelic line bundles. Namely, the projection
+                                    c
+                                    Pic(X) −→ Pic(X)Q
+
+has a unique section
+                                           M 7−→ M f
+as f ∗ -modules.
+    Moreover, if M ∈ Picf (X)Q is f -pure of weight 2 and ample, then M f is
+nef. This generalizes the canonical height functions hLf and hH
+                                                              L
+                                                                1 ,··· ,H d
+                                                                            to hM f
+                                                                                  f
+       1 ,··· ,H d
+and hH
+     Mf
+                   .
+     Note that the projection
+
+                                    Pic(X)Q −→ NS(X)Q
+
+also has a unique f ∗ -equivariant section
+
+                                 ℓf : NS(X)Q −→ Pic(X)Q .
+
+Denote by
+                                  ℓbf : NS(X)Q −→ Pic(X).
+                                                  c
+
+the composition of the two sections.
+
+
+
+
+                                                19
+3.2    Preperiodic points
+The goal of this section is to prove Theorem 1.3. By Lefschetz principle, we
+can assume that K is finitely generated over Q. The following result refines
+the theorem. The condition of X being normal can be obtained by taking a
+normalization.
+
+Theorem 3.1. Let X be a normal projective variety over a finitely generated
+field K. For any f, g ∈ DS(X), the following are equivalent:
+
+ (1) Prep(f ) = Prep(g);
+
+ (2) gPrep(f ) ⊂ Prep(f );
+
+ (3) Prep(f ) ∩ Prep(g) is Zariski dense in X;
+
+ (4) ℓbf = ℓbg as maps from NS(X)Q to Pic(X).
+                                      c
+
+   As in the number field case, we prove (1) ⇒ (2) ⇒ (3) ⇒ (4) ⇒ (1).
+The proofs of the easy directions are similar to the number field case. In the
+implication (2) ⇒ (3), we need the finiteness of
+
+                  Prep(f, r) := {x ∈ Prep(f ) | deg(x) < r}.
+
+It is given by Northcott’s property of the Moriwaki height (cf. [YZ2, Thm.
+5.3.1]). In the following, we prove the hard implication (3) ⇒ (4).
+
+Applying the Hodge index theorem
+Assume that Prep(f ) ∩ Prep(g) is Zariski dense in X. As usual, write n for
+the dimension of X and d for the transcendental degree of K over Q. We
+need to prove ℓbf (ξ) = ℓbg (ξ) for any ξ ∈ NS(X)Q . By linearity, it suffices to
+assume that ξ is ample.
+   Denote L = ℓf (ξ) and M = ℓg (ξ). They are ample Q-line bundles on X.
+Then the admissible extensions Lf = ℓbf (ξ) and M g = ℓbg (ξ) are nef by [YZ2,
+Thm. 6.4.2].
+   Consider the sum N = Lf + M g , which is still nef. By the fundamental
+inequality in [YZ2, Thm. 5.3.2],
+
+                              λH           H
+                               1 (X, N) ≥ hN (X)
+
+
+
+                                       20
+               c
+for any H ∈ Pic(K)   nef satisfying the Moriwaki condition. Here H is said
+to satisfy the Moriwaki condition if it is induced by a nef hermitian line
+bundle on a projective model of K, the geometric top self-intersection number
+                                                             d+1
+H d > 0, and the arithmetic top self-intersection number H       = 0.
+     Note that the essential minimum λ1 (X, N) = 0 since hH
+                                          H
+                                                                 N
+                                                                    is zero on
+Prep(f ) ∩ Prep(g), which is assumed to be Zariski dense in X. It forces
+hHN
+    (X) = 0. Write in terms of intersections, we have
+                                                    d
+                             (Lf + M g )n+1 · H = 0.
+
+Expand it by the binomial formula. Note that every term is non-negative.
+It follows that
+                 i        n+1−i      d
+                Lf · M g          · H = 0,     ∀i = 0, 1, · · · , n + 1.
+
+It is true for any H satisfying the Moriwaki condition. We can remove the
+dependence on H by the following result.
+Lemma 3.2. Let Q ∈ c   Pic(K)nef be a nef adelic line bundle such that the
+                       d
+                                          c
+intersection number Q·H = 0 for any H ∈ Pic(K)   nef satisfying the Moriwaki
+condition. Then Q is numerically trivial.
+   We will prove the lemma later. With the lemma, we have
+                      i      n+1−i
+                π∗ (Lf · M g         ) ≡ 0,    ∀i = 0, 1, · · · , n + 1.
+
+Then the proof is similar to the number field case. In fact, we have
+
+                     π∗ ((Lf − M g )2 · (Lf + M g )n−1 ) ≡ 0.
+
+We still have
+                            (L − M) · (L + M)n−1 = 0
+since L − M ∈ Pic0 (X)Q is numerically trivial. Apply Theorem 1.2 to
+
+                               (Lf − M g , Lf + M g ).
+
+It is trivial that (Lf − M g ) is (Lf + M g )-bounded. To meet the condition
+                                       c
+Lf + M g ≫ 0, we can take any C ∈ Pic(Q)       with deg(C) > 0, and replace
+
+                               (Lf − M g , Lf + M g )
+
+                                          21
+by
+                         (Lf − M g , Lf + M g + π ∗ C).
+Then all the conditions are satisfied. The theorem implies that
+                                           c
+                            Lf − M g ∈ π ∗ Pic(K) int .
+
+By evaluating at any point x in Prep(f ) ∩ Prep(g), we see that
+
+                                  Lf − M g = 0
+
+   c
+in Pic(X) int . It proves the theorem.
+
+
+Local version
+Now we prove Theorem 1.4. It can be viewed as a local version of Theorem
+3.1. For that purpose, we first extend the notion of f -admissibility to the
+local setting.
+    Let K be either C or Cp . Let (X, f, L) be a polarizable dynamical system
+over K. Assume that X is normal of dimension n. The exact sequence
+
+              0 −→ Pic0 (X)Q −→ Pic(X)Q −→ NS(X)Q −→ 0.
+
+still has a natural splitting
+
+                          ℓf : NS(X)Q −→ Pic(X)Q .
+
+In fact, since NS(X) is a finitely generated Z-module, we can find a finitely
+generated subfield K of K such that (X, f ) and all elements of NS(X) are
+defined over K. Then the lifting ℓf is defined, and does not depend on the
+choice of K. We say that elements of Pic(X)Q in the image of ℓf are f -pure
+of weight 2.
+                c
+     Denote by Pic(X)  the group of line bundles L on X, with a continuous
+K-metric on the corresponding Berkovich space X Ber . Note that if K = C,
+it is the usual complex analytic space. As in the finitely generated case, we
+have a unique section
+
+                        ℓbf,K : NS(X)Q −→ Pic(X)
+                                          c      Q /R
+                                                      ×
+
+
+                                    c
+extending ℓf . The group R× acts on Pic(X) by scalar multiplication on the
+metrics.
+
+                                         22
+   For any M ∈ Pic(X)R which is f -pure of weight 2, denote by M f the
+image of the algebraic equivalence class of M under ℓbf . If M is furthermore
+ample, then the metric of M f is semipositive. In that case, the equilibrium
+measure
+                                     1
+                          dµf =           c1 (M f )n .
+                                 deg(M)
+In fact, by decomposing M into f -eigencomponents. It suffices to check
+                       1
+         dµf =                    c1 (M 1,f ) ∧ c1 (M 2,f ) ∧ · · · ∧ c1 (M n,f )
+                 M1 · M2 · · · Mn
+for eigenvectors M1 , · · · , Mn of f ∗ in Pic(X)C . The identity is understood in
+terms of linear functionals on the space of complex-value continuous functions
+on X Ber . It holds since both sides are f ∗ -invariant, and the uniqueness of dµf
+coming from Tate’s limiting method. The following theorem refines Theorem
+1.4.
+
+Theorem 3.3. Let K be either C or Cp for some prime p. Let X be a normal
+projective variety over K, and let f, g ∈ DS(X) be two polarizable algebraic
+dynamical system over X such that Prep(f ) ∩ Prep(g) is Zariski dense in X.
+Then ℓbf,K = ℓbg,K as maps from NS(X)Q to Pic(X)
+                                            c        ×
+                                                 Q /R .
+
+      Let us see how to obtain the result from Theorem 3.1. Let K be a finitely
+generated subfield of K such that (X, f, g) is defined over K; namely, (X, f, g)
+is isomorphic to the base change of a triple (X0 , f0 , g0 ) from K to K. We can
+further assume that NS(X) = NS(X0 ), which can be achieved by enlarging
+K since NS(X) is finitely generated.
+      Consider the inclusion η : K ֒→ K. The canonical absolute value on K
+                                                                           an
+induces a point η an of (Spec K)an . By definition, the fiber X0,η
+                                                                 an
+                                                                    an of X0  above
+  an                       Ber
+η is isomorphic to X . For any ξ ∈ NS(X0 )Q , by Theorem 3.1, we have
+ℓbf0 (ξ) = ℓbg0 (ξ) in Pic(X
+                       c 0 )int in the setting of finitely generated fields. The
+identity is viewed as an equality of metrics on X0an . Restricted to the fiber
+X Ber , we have ℓbf,K (ξ) = ℓbg,K (ξ). The result is proved.
+
+Moriwaki condition
+                                                                c
+It remains to prove Lemma 3.2. It takes a few steps. Assume Q ∈ Pic(V) int
+for some quasi-projective arithmetic model V of K.
+
+
+                                           23
+Step 1. Replacing V by an open subscheme if necessary, we can assume that
+there is a finite morphism ψ : V → V0 for some open subschemes V0 of PdZ .
+This follows from Noether’s normalization lemma. The goal of this step is
+to prove that the height function hQ on V(Q) associated to Q is identically
+0. Namely, for any horizontal closed integral subscheme W of dimension one
+                                c
+in V, the restriction Q|W ∈ Pic(W)      int has arithmetic degree 0.
+     We first treat the case that W has degree 1 over Z. By automorphism
+of PdZ , we can further assume that the image of WQ is exactly the rational
+point W0 = (0, · · · , 0, 1) of PdZ . Denote by W0 the Zariski closure of W0 in
+PdZ . Take the metrized line bundle H0 = (O(1), k · k0 ) on PdZ satisfying the
+dynamical property that the pull-back of H0 by the square map is isometric to
+                                                d             d+1
+2H0 . Note that the Moriwaki condition H0,Q         > 0 and H0 = 0 is satisfied.
+                                                       d
+By the coordinate sections of O(1), we see that H0 is represented by the
+arithmetic 1-cycle (W0 , g0 ) for some positive current g0 on Pd (C). Then we
+have
+                      d
+         0 = Q · ψ ∗ H0 = Q · ψ ∗ (W0 , g0 ) ≥ Q · ψ ∗ W0 ≥ Q · W ≥ 0.
+It follows that Q · W = 0. Here we used the nefness of Q, and the inequal-
+ities can be justified by approximating Q by nef hermitian line bundles on
+projective models.
+     If W has higher degree over Z, we take a base change from Z to a finite
+étale extension OF to split W. Then we can arrange such that ψOK : VOK →
+V0,OK maps WQ to W0 = (0, · · · , 0, 1) of PdOK . The proof still works.
+Step 2. Define Q e to be the image of Q under the canonical map Pic(V)   c   →
+ c
+Pic(VQ /Q). See [YZ2, §2.5.5] for the definition of this map, which is obtained
+applying the base change Spec Q → Spec Z to the arithmetic models of Q.
+The goal of this step is to prove that Q   e is numerically trivial in Pic(V
+                                                                       c Q /Q).
+In other words,
+                              e · A1 · · · Ad−1 = 0
+                              Q
+for any A1 , · · · , Ad−1 ∈ Pic(Bm,Q ) and any projective model Bm of V.
+    By definition, we can assume that Q is the limit of a sequence of nef
+hermitian line bundles Qm on projective models Bm of V. We can further
+assume that Bm dominates a projective model B of V, and there is an effective
+arithmetic divisor D = (D, gD ) whose finite part is supported on B \ V, such
+that
+                              −ǫm D ≤ Qm − Q ≤ ǫm D
+
+
+                                      24
+from some sequence ǫm → 0. Here the inequality is understood in terms of
+effectivity of divisors.
+    It follows that the height function associated to ǫm D − Qm is positive on
+V(Q). In particular, the height function is bounded below on any complete
+curve in Bm,Q which intersects VQ . Then the generic fiber ǫm DQ − Qm,Q is
+nef on such curves. This implies that ǫm DQ − Qm,Q is pseudo-effective.
+    By Bertini’s theorem, it is easy to have
+
+                      (ǫm DQ − Qm,Q ) · A1 · · · Ad−1 ≥ 0
+
+for any ample line bundles A1 , · · · , Ad−1 on Bm,Q . Set m → ∞ and use the
+nefness of Qm,Q . We have
+                             e · A1 · · · Ad−1 = 0.
+                             Q
+
+The result follows by taking linear combinations.
+Step 3. Let H be any ample hermitian line bundle on B. Recall the essential
+minimum
+               λ1 (H) = λ1 (VQ , H) = sup    inf hH (x).
+                                           V ′ ⊂VQ x∈V ′ (Q)
+
+The supremum runs through all open subschemes V ′ of VQ . Apply the fun-
+damental inequality in [YZ2, Thm. 5.3.3] to H + Q. We have
+                                        1
+                λ1 (H + Q) ≥                          (H + Q)d+1 .
+                                            e d
+                               (d + 1)(HQ + Q)
+By the previous two steps, we end up with
+                                     1
+                      λ1 (H) ≥           d
+                                           (H + Q)d+1 .
+                                 (d + 1)HQ
+
+Replacing Q by a positive multiple, we see that
+
+                                 (H + tQ)d+1
+
+is bounded for any t > 0. It particularly implies that
+                                       d
+                                 Q · H = 0.
+
+Step 4. It is formal to show that Q is numerically trivial from the property
+          d
+that Q · H = 0 for any ample hermitian line bundle H on B.
+
+                                      25
+   In fact, for any ample hermitian line bundles H1 , · · · , Hd on B, we have
+
+                           Q · (t1 H1 + · · · + td Hd )d = 0.
+
+It is true for all positive real numbers t1 , · · · , td , which forces
+
+                                 Q · H1 · · · Hd = 0.
+
+By linear combinations, it is true for any hermitian line bundles H1 , · · · , Hd
+on B. By varying B and taking limits, it is true for any H1 , · · · , Hd in
+c
+Pic(K) int .
+
+
+
+References
+[Ar]    S. J. Arakelov, Intersection theory of divisors on an arithmetic surface,
+        Math. USSR Izvest. 8 (1974), 1167–1180.
+
+[BD]    M. Baker, L. DeMarco, Preperiodic points and unlikely intersections,
+        Duke Math. J. 159 (2011), no. 1, 1-9.
+
+[Be]    V.G. Berkovich, Spectral theory and analytic geometry over non-
+        archimedean fields, Math. Surv. Monogr. 33, American Mathematical
+        Society, 1990.
+
+[Bl]    Z. Blocki, Uniqueness and stability for the complex Monge-Ampère
+        equation on compact Kähler manifolds. Indiana Univ. Math. J. 52
+        (2003), no. 6, 1697–1701.
+
+[Ca1] A. Carney, The Hodge-index theorem for arithmetic intersections over
+      function fields, to appear, Pacific Journal of Mathematics.
+
+[Ca2] A. Carney, Arithmetic heights and dynamics over finitely generated
+      fields, preprint, 2020.
+
+[De]    P. Deligne, Le déterminant de la cohomologie. Current trends in arith-
+        metical algebraic geometry (Arcata, Calif., 1985), 93–177, Contemp.
+        Math., 67, Amer. Math. Soc., Providence, RI, 1987.
+
+[Fal]   G. Faltings, Calculus on arithmetic surfaces, Ann. of Math. 119
+        (1984), 387–424.
+
+                                          26
+[Fak] N. Fakhruddin, Questions on self maps of algebraic varieties. J. Ra-
+      manujan Math. Soc. 18 (2003), no. 2, 109–122.
+
+[FRL] C. Favre, J. Rivera-Letelier, Théorie ergodique des fractions ra-
+      tionnelles sur un corps ultramétrique, Proc. Lond. Math. Soc. (3)
+      100 (2010), no. 1, p. 116–154.
+
+[Gi]   W. Gignac, Equidistribution of preimages over nonarchimedean fields
+       for maps of good reduction. Ann. Inst. Fourier (Grenoble) 64 (2014),
+       no. 4, 1737–1779.
+
+[GS1] H. Gillet, C. Soulé, Arithmetic intersection theory, Publ. Math. IHES,
+      72 (1990), 93-174.
+
+[GS2] H. Gillet, C. Soulé, Characteristic classes for algebraic vector bundles
+      with hermitian metric I, II, Annals of Math. 131 (1990), 163-203.
+
+[GTZ] D. Ghioca, T. Tucker, S. Zhang, Towards a dynamical Manin–
+      Mumford conjecture, Int. Math. Res. Not. IMRN 2011, no. 22, 5109-
+      5122.
+
+[Gu]   W. Gubler, Equidistribution over function fields, Manuscripta Math.
+       127 (2008), no. 4, p. 485–510.
+
+[Hr]   P. Hriljac, Heights and Arakelov’s intersection theory, Amer. J. Math.
+       107 (1985), 23–38.
+
+[Ka]   S. Kawaguchi, Height and arithmetic intersection for a family of semi-
+       stable curves. J. Math. Kyoto Univ. 39 (1999), no. 3, 469-492.
+
+[Ko]   S. Kolodziej, The Monge-Ampère equation on compact Kähler mani-
+       folds. Indiana Univ. Math. J. 52 (2003), no. 3, 667–686.
+
+[Mo1] A. Moriwaki, Arithmetic Bogomolov-GiesekerÕs inequality. Am. J.
+      Math. 117, 1325–1347 (1995).
+
+[Mo2] A. Moriwaki, Hodge index theorem for arithmetic cycles of codimen-
+      sion one. Math. Res. Lett. 3 (1996), no. 2, 173–183.
+
+[Mo3] A. Moriwaki, Arithmetic height functions over finitely generated
+      fields, Invent. Math. 140 (2000), no. 1, 101–142.
+
+
+                                      27
+[Mo4] A. Moriwaki, The canonical arithmetic height of subvarieties of an
+      abelian variety over a finitely generated field. J. Reine Angew. Math.
+      530 (2001), 33–54.
+
+[Mu]   D. Mumford, Abelian varieties. Tata Institute of Fundamental Re-
+       search Studies in Mathematics, Oxford University Press, London,
+       1970.
+
+[Ra]   M. Raynaud, Flat modules in algebraic geometry. Compos. Math. 24
+       (1972), 11–31.
+
+[Se]   J. -P. Serre, Lectures on the Mordell-Weil theorem. Aspects of Math-
+       ematics, E15. Friedr. Vieweg & Sohn, Braunschweig, 1989.
+
+[SUZ] L. Szpiro, E. Ullmo, S. Zhang, Équidistribution des petits points,
+      Invent. Math. 127 (1997) 337–348.
+
+[Yu]   X. Yuan, Big line bundle over arithmetic varieties, Invent. Math. 173
+       (2008), no. 3, 603–649.
+
+[YZ1] X. Yuan, S. Zhang, The arithmetic Hodge index theorem for adelic
+      line bundles, Math. Ann. 367 (2017), no. 3-4, 1123–1171.
+
+[YZ2] X. Yuan, S. Zhang, Adelic line bundles over quasi-projective varieties,
+      arXiv:2105.13587v3.
+
+[Zh1] S. Zhang, Positive line bundles on arithmetic varieties, Journal of the
+      AMS, 8 (1995), 187–221.
+
+[Zh2] S. Zhang, Small points and adelic metrics, J. Alg. Geometry 4 (1995),
+      281–300.
+
+
+
+
+                                     28
+

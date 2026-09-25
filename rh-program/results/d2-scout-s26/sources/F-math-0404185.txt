@@ -1,0 +1,789 @@
+                                                                      Schemes over F1
+
+
+
+
+arXiv:math/0404185v7 [math.NT] 26 Jul 2006
+                                                                          Anton Deitmar
+
+
+                                             Contents
+                                             1 Rings over F1                                                              3
+                                               1.1 Localization . . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+                                               1.2 Ideals and spectra . . . . . . . . . . . . . . . . . . . . . . . . .   4
+
+                                             2 Schemes over F1                                                            5
+                                               2.1 The structure sheaf . . . . . . . . . . . . . . . . . . . . . . . .    5
+                                               2.2 Monoidal spaces . . . . . . . . . . . . . . . . . . . . . . . . . .    6
+                                               2.3 Schemes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    8
+
+                                             3 Fibre products                                                             10
+
+                                             4 OX -modules                                                              11
+                                               4.1 Localization . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+                                               4.2 Coherent modules . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+                                             5 Chevalley Groups                                                        14
+                                               5.1 GLn . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+                                               5.2 On and Sp2n . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+                                             6 Zeta functions                                                             16
+
+
+
+
+                                                                                   1
+SCHEMES OVER F1                                                              2
+
+
+Introduction
+Jacques Tits wondered in [5] if there would exist a “field of one element” F1
+such that for a Chevalley group G one has G(F1 ) = W , the Weyl group of G.
+Recall the Weyl group is defined as W = N(T )/Z(T ) where T is a maximal
+torus, N(T ) and Z(T ) are the normalizer and the centralizer of T in G. He
+then showed that one would be able to define a finite geometry with W as
+automorphism group.
+    In this paper we will extend the approach of N. Kurokawa, H. Ochiai,
+and M. Wakayama [2] to “absolute Mathematics” to define schemes over the
+field of one element. The basic idea of the approach of [2] is that objects
+over Z have a notion of Z-linearity, i.e., additivity, and that the forgetful
+functor to F1 -objects therefore must forget about additive structures. A ring
+R for example is mapped to the multiplicative monoid (R, ×). On the other
+hand the theory also requires a base extension functor from objects over F1
+to objects over Z. Using the analogy of the finite extensions F1n as in [4], we
+are led to define the base extension of a monoid A as
+
+                             A ⊗F1 Z def
+                                     = Z[A],
+
+where Z[A] is the monoidal ring which is defined in the same way as a group
+ring, using the monoid structure to get a multiplication. Based on these two
+constructions we here lay the foundations of a theory of schemes over F1 . In
+[1], K. Kato constructs “fans”, which are special cases of schemes over F1 .
+Fans are used to give explicit desingularisations of toric varieties.
+    This paper was written during a stay at Kyushu University, Japan. I
+thank Masato Wakayama and his students for their inspiration and warm
+hospitality. I also thank Zoran Skoda for bringing the paper [1] into my
+attention.
+SCHEMES OVER F1                                                             3
+
+
+1     Rings over F1
+In this paper, a ring will always be commutative with unit element. Recall
+that a monoid is a set A with an associative composition that has a unit
+element. Homomorphisms of monoids are required to preserve units. In
+this paper all monoids will be commutative, so aa′ = a′ a for all a, a′ ∈ A.
+From now on in the rest of the paper the word ‘monoid’ will always mean
+‘commutative monoid’. For a monoid A we will write A× for the group of
+invertible elements.
+    The category of rings over F1 is by definition the category of monoids.
+For a monoid A we will also write FA to emphasize that we view A as a ring
+over F1 . Let F1 def
+                 = {1} be the trivial monoid.
+    For an F1 -ring FA we define the base extension to Z by
+
+                       FA ⊗ Z = FA ⊗F1 Z = Z[A].
+
+where Z[A] is the monoidal ring which is defined like a group ring with the
+monoid structure of A giving the multiplication.
+   In the other direction there is the forgetful-functor F which maps a ring
+R (commutative with one) to its multiplicative monoid (R, ×).
+
+Theorem 1.1 The functor of base extension · ⊗F1 Z is left adjoint to F , i.e.,
+for every ring R and every FA /F1 we have
+
+               HomRings (FA ⊗F1 Z, R) ∼
+                                      = HomF1 (FA , F (R)).
+
+Proof: Let ϕ be a ring homomorphism from FA ⊗F1 Z = Z[A] to R. Restrict-
+ing it to A yields a monoid morphism from A to (R, ×). So we get a map
+as in the theorem. Since a ring homomorphism from Z[A] is uniquely given
+by the restriction to A this map is injective. Since on the other hand every
+monoid morphism from A to (R, ×) extends to a unique ring homomorphism
+on Z[A] the claim follows.                                                
+
+1.1    Localization
+Let S be a submonoid of A.
+
+Lemma 1.2 For a given submonoid S of A there is a monoid S −1 A and a
+monoid homomorphism ϕ from A to S −1 A, determined up to isomorphism
+SCHEMES OVER F1                                                                4
+
+                                                 ×
+with the following property: ϕ(S) ⊂ (S −1 A) and ϕ is universal with this
+property, i.e., for every monoid B, composing with ϕ yields an isomorphism
+                     HomS→B× (A, B) ∼
+                                    = Hom(S −1 A, B),
+where the left hand side describes the set of all monoid homomorphisms ϕ
+from A to B with ϕ(S) ⊂ B × .
+
+Proof: Uniqueness is clear from the universal property. We show existence.
+Define S −1 A to be the set A × S modulo the equivalence relation
+               (m, s) ∼ (m′ , s′ ) ⇔ ∃s′′ ∈ S : s′′ s′ m = s′′ sm′ .
+The multiplication in S −1 A is given by (m, s)(m′ , s′ ) = (mm′ , ss′ ). We also
+write ms for the element [(m, s)] in S −1 A. The map ϕ : m 7→ m1 has the
+desired property.                                                              
+
+1.2    Ideals and spectra
+For two subsets S, T of a monoid A we write ST for the set of all st where
+s ∈ S and t ∈ T . An ideal is a subset a such that aA ⊂ a. For an ideal a
+in A the set Z[a] is an ideal in Z[A]. If ϕ : FA → FB is a morphism and a is
+an ideal of B, then its pre-image ϕ−1 (a) is an ideal of A. For a given subset
+T of A the set T A is the smallest ideal containing T . We call it the ideal
+generated by T .
+    An ideal a 6= A is called prime if xy ∈ a implies x ∈ a or y ∈ a.
+Equivalently, an ideal a is prime iff A ❳ a is a submonoid (compare [1]). We
+define the spectrum of FA to be the set Spec FA of all prime ideals in A. Note
+that this set is never empty, as the set A ❳ A× is always a prime ideal.
+    If p is a prime ideal, then the set Sp = A ❳ p is a submonoid. We define
+
+                                 Ap def −1
+                                    = Sp A
+
+to be the localization at p. Note that for the prime ideal c = A ❳ A× the
+natural map A → Ac is an isomorphism.
+   We now introduce a topology on Spec FA . The closed subsets are the
+empty set and all sets of the form
+
+                      V (a) def
+                            = {p ∈ Spec FA : p ⊃ a},
+SCHEMES OVER F1                                                                     5
+
+
+where
+T       a is any ideal.
+                   S      One checks that V (a) ∪ V (b) = V (a ∩ b), and that
+  i∈I V (ai ) = V ( i ai ). Thus the axioms of a topology are satisfied. The
+point η = ηA = ∅ is contained in every non-empty open set. On the other
+hand, the point c = cA = A ❳ A× is closed and contained in every non-empty
+closed set.
+
+Lemma 1.3 For every f ∈ A the set
+
+                        V (f ) def
+                               = {p ∈ Spec FA : f ∈ p}
+
+is closed.
+
+Proof: Let a = Af be the ideal generated by f . Then V (f ) = V (a).               
+
+
+2     Schemes over F1
+2.1     The structure sheaf
+Let FA be a ring over F1 . On the topological space Spec FA we define a sheaf
+                                      ` U ⊂ Spec FA we define O(U) to be
+of F1 -rings as follows. For an open set
+the set of functions sections s : U → p∈U Ap such that s(p) ∈ Ap for each
+p ∈ U, and such that s is locally a quotient of elements of A. This means
+that we require for each p ∈ U to exist a neighbourhood V of p, contained
+in U, and elements a, f ∈ A such that for every q ∈ V one has f ∈    / q and
+         a
+s(q) = f in Aq.
+
+Proposition 2.1 (a) For each p ∈ Spec FA the stalk Op of the structure
+    sheaf is isomorphic to the localization Ap.
+
+ (b) Γ(Spec FA , O) ∼
+                    = A.
+
+Proof: For (a) define a morphism ϕ from Op to Ap by sending each element
+(s, Us ) of Op to s(p). For the injectivity assume ϕ(s) = ϕ(s′ ). On some
+                                                         ′
+neighbourhood U of p we have s(q) = fa and s′ (q) = fa′ for some a, a′ , f, f ′ ∈
+A. This implies that there is f ′′ ∈ A with f ′′ ∈
+                                                 / p and f ′′ f ′ = f ′′ f a′ . Assume
+U to be small enough to be contained in the open set
+
+                        D(f ) = {p ∈ Spec FA : f ∈
+                                                 / p}.
+SCHEMES OVER F1                                                             6
+
+                              ′
+Then we conclude that fa = fa′ holds in Aq for every q ∈ U and hence s = s′ .
+For the surjectivity let fa ∈ Ap with a, f ∈ A, f ∈/ p. On U = D(f ) define
+                                 a
+a section s ∈ O(U) by s(q) = f ∈ Aq. Then ϕ(s) = s(p) = fa . Part (a) is
+proven.
+    For part (b) note that the natural map A → Ap for p ∈ Spec FA induces
+a map ψ : A → Γ(Spec FA , O). We want to sow that this map is bijective.
+For the injectivity assume ψ(a) = ψ(a′ ). Then in particular these sections
+must coincide on the closed point which implies a = a′ . For the surjectivity
+let s be a global section of O. For the closed point c we get an element of A
+by a = s(c) ∈ Ac = A. We claim that s = ψ(a). Since c is contained in every
+non-empty closed set, its only open neighbourhood is Spec FA itself. Since
+s(c) = a we must have s(p) = a on some neighbourhood of c, hence we have
+it on Spec FA , so s = ψ(a).                                                
+
+2.2    Monoidal spaces
+A morphism of monoids ϕ : A → B is called local if ϕ−1 (B × ) = A× . An
+monoidal space is a topological space X together with a sheaf OX of monoids.
+A morphism of monoidal spaces (X, OX ) → (Y, OY ) is a pair (f, f # ), where f
+is a continuous map f : X → Y and f # is a morphism of sheaves f # : OY →
+f∗ OX of monoids on Y . Such a morphism (f, f # ) is called local, if for each
+x ∈ X the induced morphism fx# : OY,f (x) → OX,x is local, i.e. satisfies
+                         (fx# )−1 OX,x
+                                    ×         ×
+                                       
+                                         = OY,f  (x) .
+
+A isomorphism of monoidal spaces is a morphism with a two-sided inverse.
+An isomorphism is always local.
+Proposition 2.2 (a) For a ring FA over F1 the pair (Spec FA , OA ) is a
+    monoidal space.
+ (b) If ϕ : A → B is a morphism of monoids, then ϕ induces a morphism
+     of monoidal spaces
+                           (f, f # ) : Spec FB → Spec FA ,
+      thus giving a functorial bijection
+                      Hom(A, B) ∼
+                                = Hom(Spec FB , Spec FA ),
+      where on the right hand side one only admits local morphisms.
+SCHEMES OVER F1                                                                7
+
+
+Proof: Part (a) is clear. For (b) suppose we are given a morphism ϕ : A →
+B. Define a map f : Spec FB → Spec FA that maps p to the prime ideal
+f (p) = ϕ−1 (p). For an ideal a we have f −1 (V (a)) = V (ϕ(a)), where ϕ(a)
+is the ideal generated by the image ϕ(a). Thus the map f is continuous.
+For every p ∈ Spec FB we localize ϕ to get a morphism ϕp : Aϕ−1 (p) → Bp.
+                                                       ×
+Since ϕp is the localization, it satisfies ϕ−1  ×
+                                            p (Bp ) = Aϕ−1 (p) . For any open set
+U ⊂ Spec FA we obtain a morphism
+
+                          f # : OA (U) → OB (f −1 (U))
+
+by the definition of O, composing with the maps f and ϕ. This gives a local
+morphism of local monoidal spaces (f, f # ). We have constructed a map
+
+                  ψ : Hom(A, B) → Hom(Spec FB , Spec FA ).
+
+We have to show that ψ is bijective. For injectivity suppose ψ(ϕ) = ψ(ϕ′ ).
+For p ∈ Spec FA the morphism fp# : OA,f (p) → OB,p is the natural localization
+ϕ : Aϕ−1 (p) → Bp and this coincides with the localization of ϕ′ . In particular
+for p = c the closed point we get ϕ = ϕ′ : A → B.
+    For surjectivity let (f, f # ) be a morphism from Spec FB to Spec FA . On
+global sections the map f # gives a monoid morphism
+
+       ϕ : A = OA (Spec FA ) → f∗ OB (Spec FB ) = OB (Spec FB ) = B.
+
+For every p ∈ Spec FB one has an induced morphism on the stalks OA,f (p) →
+OB,p or Af (p) → Ap which must be compatible with ϕ on global sections, so
+we have a commutative diagram
+                                         ϕ
+                                 A             ✲ B
+
+
+
+                                   ❄     fp#
+                                                ❄
+                                Af (p)       ✲ Bp
+
+
+Since f (p) = (fp# )−1 (p) it follows that fp# is the localization of ϕ and hence
+the claim. The last part follows since the first bijection preserves isomor-
+phisms by functoriality and an isomorphism on the spectral side preserves
+closed points and can thus be extended to an isomorphism of the full spec-
+tra.                                                                           
+SCHEMES OVER F1                                                                        8
+
+
+2.3    Schemes
+An affine scheme over F1 is a monoidal space which is isomorphic to Spec FA
+for some A.
+Lemma 2.3 Every open subset of an affine scheme is a union of affine
+schemes.
+Proof: Let U ⊂ Spec FA open. Then there is an ideal a such that
+                         U = D(a) = {p ∈ Spec FA : p /
+                                                     ⊃ a}.
+So U is the set of all p such that there exists f ∈ a with f ∈
+                                                             / p. For any
+f ∈ A let
+                            D(f ) def
+                                  = {p ∈ Spec FA : f ∈
+                                                     / p}
+
+Then we get                                   [
+                                      U =           D(f ).
+                                             f ∈a
+
+Let Af = f    −1
+                   A = Sf−1 A where Sf = {1, f, f 2, f 3 , . . . }.   One checks that the
+open set D(f ) is affine, more precisely,
+                              (D(f ), OA |D(f ) ) ∼
+                                                  = Spec FAf .
+The Lemma follows.                                                                     
+   A monoidal space X is called a scheme over F1 , if for every point x ∈ X
+there is an open neighbourhood U ⊂ X such that (U, OX |U ) is an affine
+scheme over F1 . A morphism of schemes over F1 is a local morphism of
+monoidal spaces.
+   A point η of a topological space such that η is contained in every non-
+empty open set, is called a generic point.
+Proposition 2.4 Every connected scheme over F1 has a unique generic point.
+Morphisms on connected schemes map generic points to generic points. If
+for an arbitrary scheme X over F1 we define
+
+                             X(F1 ) def
+                                    = Hom(Spec F1 , X),
+
+then we get
+                                     X(F1 ) ∼
+                                            = π0 (X),
+where the right hand side is the set of connected components of X.
+SCHEMES OVER F1                                                                          9
+
+
+Proof: The unique generic point of an affine scheme is given by the empty
+set. Since an arbitrary scheme is a union of open affine subschemes, it follows
+that every connected scheme has a unique generic point. The rest is clear.
+                                                                             
+
+    Let X be a scheme over F1 and let (f, f # ) be a morphism from X to an
+affine scheme Spec FA . Taking global sections the sheaf morphism f # : OA →
+f∗ OX induces a morphism ϕ : A → OX (X) of monoids.
+
+Proposition 2.5 The map ψ : (f, f # ) 7→ ϕ is a bijection
+
+                    Hom(X, Spec FA ) → Hom(A, Γ(X, OX )).
+
+Proof: Let ψ(f, f # ) = ϕ. For each p ∈ X one has a local morphism
+fp# : OA,f (p) → OX,p. Via the map OX (X) → OX,p the point p induces an
+ideal p̃ on OX (X) and f (p) = ϕ−1 (p̃). So f is determined by ϕ. Further,
+since fp# factorizes over Af (p) = Ap̃◦ϕ → OX (X)p̃ it follows that fp# ( as ) = ϕ(a)
+                                                                                 ϕ(s)
+and so f # also is determined by ϕ, so ψ is injective. For surjectivity reverse
+the argument.                                                                      
+
+    The forgetful functor from Rings to Monoids mapping R to (R, ×) extends
+to a functor
+                         Schemes/Z → Schemes/F1
+in the following way:SA scheme X over Z can be written as a union of
+affine schemes X = i∈I Spec Ai for some rings Ai . We then map it to
+S
+  i∈I Spec (Ai , ×), where we use the gluing maps from X.
+    Likewise the base change A 7→ A ⊗F1 Z extends to a functor
+
+                            Schemes/F1 → Schemes/Z
+                                                                         S
+by writing a scheme S  X over F1 as a union of affine ones, X = i∈I Spec Ai and
+then mapping it to i∈I Spec (Ai ⊗F1 Z), which is glued via the gluing maps
+from X. The fact that these constructions do not depend on the choices of
+affine coverings follows from Proposition 2.2, Lemma 2.3 and its counterpart
+for schemes over Z.
+    As an example for a scheme which is not affine let us construct the projec-
+tiove line P1 over F1 . Let C∞ = {. . . , τ −1 , 1, τ, . . . } be the infinite cyclic group
+with generator τ . Let C∞,+ = {1, τ, τ 2 , . . . } and C∞,− = {1, τ −1 , τ −2 , . . . }.
+The inclusions give maps from U = Spec C∞ to X = Spec C∞,+ and Y =
+SCHEMES OVER F1                                                              10
+
+
+Spec C∞,− identifying U with open subsets of the latter. We define a new
+space P1 by gluing X and Y along this common open subset. The space X
+has two points, cX , ηX , one closed and one open and likewise for Y . The
+space P1 has three points, cX , cY , η, two closed and one open. The structure
+sheaves of X, Y, U give a structure sheaf of P1 making it a scheme over F1 .
+
+
+3    Fibre products
+Let S be a scheme over F1 . A pair (X, fX ) consisting of an F1 -scheme X and
+a morphism fX : X → S is called a scheme over S
+
+Proposition 3.1 Let X, Y be schemes over S. There exists a scheme X×S Y
+over S, unique up to S-isomorphism and morphisms from X ×S Y to X and
+Y such that the diagram
+
+                              X ×S Y         ✲ X
+
+                                    ❅
+                                     ❅
+                                            fX
+                                      ❅
+                                       ❅
+                                  ❄     ❘ ❄
+                                        ❅
+                                 Y      ✲ S
+                                        fY
+
+is commutative and the composition with these morphisms induces a bijection
+for every scheme Z over S,
+
+            HomS (Z, X) × HomS (Z, Y ) → HomS (Z, X ×S Y ).
+
+This fibre product is compatible with Z extension and the usual fibre product
+of schemes, i.e., one has
+
+                 (X ×S Y ) ⊗ Z ∼
+                               = (X ⊗ Z) ×S⊗Z (Y ⊗ Z).
+
+Proof: This Proposition follows via the gluing procedure once it has been
+established in the affine case. So let’s assume that X, Y, S are all affine, say
+X = Spec A, Y = Spec B and S = Spec L. Then fX and fY give monoid
+morphisms ϕA : L → A and ϕB : L → B and we define
+
+                                  def
+                        X ×S Y    = Spec (A ⊗L B) ,
+SCHEMES OVER F1                                                                11
+
+
+where A ⊗L B is the monoid A × B/ ∼ and ∼ is the equivalence relation
+generated by (ϕA (l)m, n) ∼ (m, ϕB (l)n) for all m ∈ A, n ∈ B, and l ∈ L. In
+other words, A ⊗L B is the push-out of ϕA and ϕB and so X ×S Y has the
+desired properties.                                                       
+
+
+4     OX -modules
+For an F1 -ring FA , one defines an FA -module to be a set M together with
+an action A × M → M, (a, m) 7→ am such that 1s = s and (aa′ )s = a(a′ s)
+for every s ∈ S and all a, a′ ∈ A. One defines M ⊗ Z = Z[M] with the
+obvious FA ⊗ Z-module structure. The direct sum M ⊕ N of A-modules is
+the disjoint union and the tensor product M ⊗A N is the quotient M × N/ ∼,
+where ∼ is the equivalence relation generated by (am, n) ∼ (m, an) for all
+a ∈ A, m ∈ M, n ∈ N. Then M ⊗A N is an A-module via a[m, n] = [am, n].
+There are natural isomorphisms of FA ⊗ Z-modules
+
+                 (M ⊕ N) ⊗ Z       ∼
+                                   = (M ⊗ Z) ⊕ (N ⊗ Z)
+                (M ⊗A N) ⊗ Z       ∼
+                                   = (M ⊗ Z) ⊗A⊗Z (N ⊗ Z).
+
+    Let (X, OX ) be a monoidal space. We define an OX -module to be a
+sheaf F of sets on X together with the structure of an OX (U)-module on
+F (U) for each open set U ⊂ X such that for open sets V ⊂ U ⊂ X the
+restriction F (U) → F (V ) is compatible with the module structure via the
+map OX (U) → OX (V ). If F is an OX -module and U ⊂ X is open, then
+F |U is an OU = OX |U -module. A morphism of OX -modules ϕ : F → G
+is a morphism of sheaves such that for every open set U ⊂ X the map
+ϕ(U) : F (U) → G(U) is a morphism of OX (U)-modules. The category of
+OX -modules has kernels, cokernels, images, and internal Hom’s, as the pre-
+sheaf U 7→ HomOX (U ) (F (U), G(U)) is a sheaf called the sheaf Hom for any
+two given OX -modules F and G. This then is naturally an OX -module. The
+tensor product F ⊗OX G of two OX -modules F , G is the sheaf associated to
+the pre-sheaf U 7→ F (U) ⊗OX (U ) G(U). Note that F ⊗ OX ∼       = F . An OX -
+module is free if it is isomorphic to a direct sum of copies of OX . It is locally
+free if every x ∈ X has an open neighbourhood U such that F |U is free. In
+this case the rank of F at a point x is the number of copies of OX needed
+over any open neighbourhood of x over which F is free. If X is connected,
+then the rank is the same everywhere.
+SCHEMES OVER F1                                                           12
+
+
+   For a given OX -module F let F ∗ def
+                                    = Hom(F , OX ) be its dual module.
+There is a canonical morphism, called the trace,
+
+                            tr : F ⊗ F ∗ → OX ,
+
+given over an open set U by mapping f ⊗ α ∈ F (U) ⊗OX (U ) F ∗ (U) to α(f ) ∈
+OX (U).
+
+Lemma 4.1 If F is locally free of rank one, then the trace is an isomor-
+phism. So the set of isomorphism classes of locally free OX -modules of rank
+one forms a group, called the Picard group Pic(X) of X.
+
+Proof: Clear.                                                              
+
+
+Proposition 4.2 Let X be an affine scheme over F1 , then every locally free
+sheaf is free, so in particular, Pic(X) is trivial.
+
+Proof: There is a unique closed point c which is contained in every non-
+empty closed set, so the only open neighbourhood of c is the full space X,
+which implies that every locally free sheaf is free.                    
+
+
+Proposition 4.3 The Picard group of the projective line P1 is isomorphic
+to Z.
+
+Proof: The space P1 has three elements, cX , cY , and η. The non-trivial
+open sets are U = {η}, X = {η, cX }, and Y = {η, cy }. We have O(X) ∼      =
+C∞,+ , O(Y ) ∼= C∞,− and O(U) ∼   = C∞ with the inclusions as restriction
+maps. Since X and Y are affine, a given invertible sheaf F is trivial on
+X and on Y . We fix isomorphisms α : F |X → OX and β : F |Y → OY .
+The restriction of α and β gives two isomorphisms F (U) → O(U) = C∞ .
+These two differ by a C∞ -module automorphism of C∞ . The group of these
+automorphisms is isomorphic to Z. It is easy to see that this establishes the
+claimed isomorphism.                                                       
+
+    Let f : X → Y be a morphism of F1 -ringed spaces. If F is an OX -module,
+then f∗ F is an f∗ OX -module. The morphism f # : OY → f∗ OX thus makes
+f∗ F into an OY -module, called the direct image of F .
+SCHEMES OVER F1                                                             13
+
+
+   For an OY -module G the sheaf f −1 G is an f −1 OY -module. Recall that
+the functor f −1 is adjoint to f∗ , this implies that
+
+                 HomX (f −1 OY , OX ) ∼
+                                      = HomY (OY , f∗ OX ).
+
+So the map f # : OY → f∗ OX gives a map f −1 OY → OX . We define f ∗ G to
+be the tensor product
+                           f −1 G ⊗f −1 OY OX .
+So f ∗ G is an OX -module, called the inverse image of G. The functors, f∗
+and f ∗ are adjoint in the sense that
+
+                    HomOX (f ∗ G, F ) ∼
+                                      = HomOY (G, f∗ F ).
+
+4.1    Localization
+Let M be a module of the monoid A. Let S ⊂ A be a submonoid. We
+define the localization S −1 M to be the following module of S −1 A. As a set,
+S −1 M is the set of all pairs (m, s) = ms with m ∈ M and s ∈ S modulo the
+equivalence relation
+
+                   m  m′
+                     ∼ ′ ⇔ ∃s′′ ∈ S : s′′ s′ m = s′′ sm′ .
+                   s   s
+The S −1 A-module structure is given by
+                                a m    am
+                                 · ′ =     .
+                                s s    ss′
+A given A-module homomorphism ϕ : M → N induces an S −1 A-module
+homomorphism S −1 ϕ : S −1 M → S −1 N by S −1 ϕ( ms ) = ϕ(m)
+                                                           s
+                                                             . Note that S −1 ϕ
+is injective/surjective if ϕ is.
+    Given an A-module M we define an OFA -sheaf M̃ on X = Spec FA as
+follows. For each prime ideal p of A let Mp be the localization Sp−1 M at
+p. For any open set U ⊂ Spec FA we define the set M̃(U) to be the set
+of functions s : U → ∐p∈U Mp such that s(p) ∈ Mp for each p and such
+that s is locally a fraction, i.e., we require that for each p ∈ U there is a
+neighbourhood V ⊂ U of p and m ∈ M as well as f ∈ A with f ∈     / q for every
+                     m
+q ∈ V and s(q) = f in mq. Then M̃ is a sheaf with the obvious restriction
+maps. It is an OX -module. For each p ∈ X the stalk (M̃)p coincides with the
+SCHEMES OVER F1                                                               14
+
+
+localization Mp at p. For every f ∈ M the Af -module Ã(D(f )) is isomorphic
+to the localized module Mf . In particular, we have Γ(X, M̃ ) ∼
+                                                              = M. One also
+has (M ⊗A N)∼ ∼   = M̃ ×OX Ñ For a morphism f : Spec B → Spec A one has
+f∗ M̃ ∼
+      = (A M)∼ , where A M is M considered as A-module via the map A → B
+induced by f . Finally, we have f ∗ (Ñ ) ∼
+                                          = (B ⊗A N)∼ .
+
+4.2    Coherent modules
+Let (X, OX ) be a scheme over F1 . An OX -module F is called coherent if
+every x ∈ X has an affine neighbourhood U ∼= Spec FA such that F U is
+isomorphic to M̃ for some A-module M.
+
+Proposition 4.4 Let X be a scheme over F1 . An OX -module F is coherent
+if and only if for every open affine subset U = Spec A of X there is an
+A-module M such that F |U ∼= M̃.
+
+     S Let F be coherent and let U = Spec A be an affine open subset. Let
+Proof:
+X = i Spec Ai be a covering by affines such that F |Spec Ai ∼
+                                                            = M̃)i for some
+                                        ∼        ∼
+modules Mi . Let f ∈ Ai . Then F |D(f ) = (Mi,f ) . So X has a basis of the
+topology consisting of affines on which F comes from modules. It follows
+that F |U also is coherent, so we can reduce to the case when X is affine.
+Then F must come from a module in a neighbourhood of the closed point,
+so F comes from a module.                                                 
+
+
+5     Chevalley Groups
+5.1    GLn
+We first repeat the definition of GLn (F1 ) as in [2]. On rings the functor GLn ,
+which is a representable group functor, maps R to GLn (R) = AutR (Rn ). To
+define GLn (F1 ) we therefore have to define Fn1 , or more generally, modules
+over F1 . Since Z-modules are just additive abelian groups by forgetting the
+additive structure one simply gets sets. So F1 modules are sets. For an F1 -
+module S and a ring R the base extension is the free R-module generated by
+S: S ⊗F1 R = R[S] = R(S) . In particular, Fn1 ⊗ Z should be isomorphic to
+SCHEMES OVER F1                                                            15
+
+
+Zn , so Fn1 is a set of n elements, say Fn1 = {1, 2, . . . , n}. Hence
+
+                           GLn (F1 ) = AutF1 (Fn1 )
+                                     = Aut(1, . . . , n)
+                                     = Sn
+
+the symmetric group in n letters, which happens to be the Weyl group of
+GLn . We now extend this to rings over F1 . One would expect that FnA =
+Fn1 ⊗ FA = {1, . . . , n} × A. So we define an FA -module to be a set with an
+action of the monoid A and in particular FnA is a disjoint union of n-copies
+of A. We define
+                            GLn (FA ) def       n
+                                      = AutFA (FA ).
+
+This is compatible with Z-extension,
+
+                      GLn (FA ⊗ Z) = AutFA ⊗Z (FnA ⊗ Z)
+                                   = AutZ[A] (Z[A]n )
+                                   = GLn (Z[A])
+
+as required.
+    Note that GLn (FA ) can be identified with the group of all n × n matrices
+A over Z[A] with exactly one non-zero entry in each row and each column
+and this entry being in the group of invertible elements A× .
+
+Proposition 5.1 The group functor GL1 on Rings/F1 is represented by the
+infinite cyclic group C∞ . This is compatible with Z-extension as
+
+                       FC∞ ⊗ Z = Z[C∞ ] ∼
+                                        = Z[T, T −1 ]
+
+represents GL1 on rings.
+
+Proof: Choose a generator τ of C∞ . For any ring FA over F1 we have an
+isomorphism
+                  Hom(FC∞ , FA ) → A× = GL1 (FA )
+mapping α to α(τ ).                                                         
+
+   The functor GLn on rings over F1 cannot be represented by a ring FA
+over F1 since Hom(FA , F1 ) has only one element.
+SCHEMES OVER F1                                                                16
+
+
+Proposition 5.2 The functor GLn on rings over F1 is represented by a
+scheme over F1 .
+
+Proof: We will give the proof for GL2 . The general case will be clear from
+that. For FA /F1 the group GL2 (FA ) can be identified with the group of
+matrices                ×                           
+                         A                         A×
+                                      ∪                  .
+                               A×            A×
+We define a scheme X over F1 as the disjoint union X0 ∪ X1 and X0 ∼           =
+     ∼
+X1 = Spec ((C∞ × C∞ ), where C∞ is the infinite cyclic group. The group
+structure on Hom(Spec FA , X) for every FA /F1 comes via a multiplication
+map m : X ×F1 X → X defined in the following way. The scheme X ×F1 X
+has connected components Xi ×F1 Xj for i, j ∈ {0, 1}. The multiplication map
+splits into components mi,j : Xi ×F1 Xj → Xi+j (2) . Each mi,j in turn is given
+                                 2       2      2
+by a monoid morphism µi,j : C∞      → C∞   × C∞   , called the comultiplication.
+Here µi,j maps a to (ε (a), ε (a)), where ε (a) = a and ε1 (x, y) = (y, x). This
+                       i     j             0
+
+finishes the construction and the proof.                                      
+
+5.2    On and Sp2n
+The orthogonal group On is the subgroup of GLn consisting    of 
+                                                                 all matrices
+                                                              1
+A with AqAt = q, where q = diag(J, . . . , J, 1), and J =          . The last
+                                                            1
+1 only occurring if n is odd. A computation shows that
+
+                            On (F1 ) ∼
+                                     = Weyl group
+
+holds here as well. Finally Sp2l is the group of all A with ASAt = S, where
+S is the 2l × 2l matrix with anti-diagonal (1, . . . , 1, −1, . . . , −1) and zero
+elsewhere. Likewise, Sp2 l(F1 ) is the Weyl group. Both On and Sp2l are
+representable by F1 -schemes.
+
+
+6     Zeta functions
+Let X be a scheme over F1 . For FA /F1 we write as usual,
+
+                         X(FA ) = Hom(Spec FA , X)
+SCHEMES OVER F1                                                            17
+
+
+for the set of FA -valued points of X. After Weil we set for a prime p,
+                                        ∞
+                                                         !
+                              def
+                                       X   Tn
+                   ZX (p, T ) = exp           #(X(Fpn )) ,
+                                       n=1
+                                            n
+
+where, of course Fpn means the field of pn elements and X(Fpn ) stands for
+X((Fpn , ×)). For this expression to make sense (even as a formal power
+series) we must assume that the numbers #(X(Fpn )) are all finite.
+
+Proposition 6.1 The formal power series ZX (p, T ) defined above coincides
+with the Hasse-Weil zeta function of X ⊗F1 Fp = XFp .
+
+Proof: This is an immediate consequence of Theorem 1.1.                     
+
+    This type of zeta function thus does not give new insights. Recall that
+to get a zeta function over Z, one considers the product
+                                      Y
+                        ZX⊗Z (s) =        ZXFp (p−s )
+                                           p
+                                         Y
+                                     =         ZX (p, p−s ).
+                                           p
+
+As this product takes care of the fact that the prime numbers are the prime
+places of Z, over F1 there is only one place, so there should be only one
+such factor. Soulé [4], inspired by Manin [3], provided the following idea:
+Suppose there exists a polynomial N(x) ∈ Z[x] such that, for every p one
+has #X(Fpn ) = N(pn ). Then ZX (p, p−s ) is a rational function in p and p−s .
+One can then ask for the value of that function at p = 1. The (vanishing-)
+order at p = 1 of ZX (p, p−s )−1 is N(1), so the following limit exists
+
+                                        ZX (p, p−s )−1
+                        ζX (s) def
+                               =     lim               .
+                                     p→1 (p − 1)N (1)
+
+
+One computes that if N(x) = a0 + a1 x + · · · + an xn , then
+
+                     ζX (s) = sa0 (s − 1)a1 · · · (s − n)an .
+
+For example X = Spec F1 gives
+
+                               ζSpec F1 (s) = s.
+SCHEMES OVER F1                                                           18
+
+
+For the affine line A1 = Spec C∞,+ one gets N(x) = x and thus
+
+                              ζA1 (s) = s − 1.
+
+Finally, for GL1 one gets
+                                           s
+                             ζGL1 (s) =       .
+                                          s−1
+In our context the question must be if we can retrieve these zeta functions
+from the monoidal viewpoint without regress to the finite fields Fpn ? In the
+examples it indeed turns out that
+
+                            N(k) = #X(FDk ),
+
+where Dk is the monoid Ck−1 ∪ {0} and Ck−1 is the cyclic group with k − 1
+elements. Since (Fpn , ×) ∼
+                          = Dpn this comes down to the following question.
+Question. Let X be a scheme over F1 . Assume there is a polynomial N(x)
+with integer coefficients such that #X(Dpn ) = N(pn ) for every prime number
+p and every non-negative integer n. Is it true that #X(Dk ) = N(k) for every
+k ∈ N? Or, another question: is there a natural characterization of the class
+of schemes X over F1 for which there exists a polynomial NX with integer
+coefficients such that #X(Dk ) = NX (k) for every k ∈ N?
+SCHEMES OVER F1                                                                  19
+
+
+References
+   [1] Kato, K.: Toric singularities. Amer. J. Math. 116 (1994), no. 5,
+       1073-1099.
+
+   [2] Kurokawa, B.; Ochiai, H.; Wakayama, A.: Absolute Derivations
+       and Zeta Functions. Documenta Aath. Extra Volume: Kazuya Kato’s
+       Fiftieth Birthday (2003) 565-584.
+
+   [3] Manin, Y.: Lectures on zeta functions and motives (according to
+       Deninger and Kurokawa). Columbia University Number Theory Sem-
+       inar (New York, 1992). Astrisque No. 228, 4, 121-163 (1995).
+
+   [4] Soulé, C.: Les variétés sur le corps à un élément. preprint 2003.
+
+   [5] Tits, J.: Sur les analogues algébriques des groupes semi-simples com-
+       plexes.
+       1957 Colloque d’algèbre supérieure, Bruxelles du 19 au 22 décembre
+       1956 pp. 261–289
+       Centre Belge de Recherches Aathématiques Établissements Ceuter-
+       ick, Louvain; Librairie Gauthier-Villars, Paris.
+
+Mathematisches Institut, Auf der Morgenstelle 10, 72076 Tübingen, Germany,
+deitmar@uni-tuebingen.de
+

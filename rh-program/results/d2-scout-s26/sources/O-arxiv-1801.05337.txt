@@ -1,0 +1,1606 @@
+                                                                                F1 for everyone
+
+                                                                                   Oliver Lorscheid
+
+                                                  Abstract. This text serves as an introduction to F1 -geometry for the general math-
+                                                  ematician. We explain the initial motivations for F1 -geometry in detail, provide an
+                                                  overview of the different approaches to F1 and describe the main achievements of the
+                                                  field.
+
+
+
+
+arXiv:1801.05337v1 [math.AG] 16 Jan 2018
+                                                                                      Prologue
+                                           F1 -geometry is a recent area of mathematics that emerged from certain heuristics in
+                                           combinatorics, number theory and homotopy theory that could not be explained in the
+                                           frame work of Grothendieck’s scheme theory. These ideas involve a theory of algebraic
+                                           geometry over a hypothetical field F1 with one element, which includes a theory of
+                                           algebraic groups and their homogeneous spaces, an arithmetic curve Spec Z over F1
+                                           that compactifies the arithmetic line Spec Z and K-theory that stays in close relation to
+                                           homotopy theory of topological spaces such as spheres.
+                                              Starting in the mid 2000’s, there was an outburst of different approaches towards
+                                           such theories, which bent and extended scheme theory. Meanwhile some of the initial
+                                           problems for F1 -geometry have been settled and new applications have been found, for
+                                           instance in cyclic homology and tropical geometry.
+                                              The first thought that crosses one’s mind in this context is probably the question:
+
+                                                                     What is the “field with one element”?
+
+                                           Obviously, this oxymoron cannot be taken literally as it would imply a mathematical
+                                           contradiction. It is resolved as follows. First of all we remark that we do not need to
+                                           define F1 itself—what is needed for the aims of F1 -geometry is a suitable category of
+                                           schemes over F1 .
+                                              However, many approaches contain an explicit definition of F1 , and in most cases, the
+                                           field with one element is not a field and has two elements. Namely, the common answer
+                                           of many theories is that F1 is the multiplicative monoid {0, 1}, lacking any additive
+                                           structure.
+                                              Continuing the word plays, the protagonist F1 is also written as Fun , coming from the
+                                           French word “un” for 1, and it enters the title of the paper “Fun with F1 ” of Connes,
+                                           Consani and Marcolli ([CCM09]). In other sources, F1 -geometry disguises itself as
+                                           “non-additive geometry” or “absolute geometry”.
+
+                                           Content overview. The first chapter 1 of this text is dedicated to a description of the
+                                           main ideas that led to F1 -geometry. We explain the two leading problems in detail: Tits’
+                                           dream of explaining certain combinatorial geometries in terms of an algebraic geometry
+                                           over F1 in sections 1.1 and the ambitious programme to prove the Riemann hypothesis
+                                           in section 1.2.
+                                                                                           1
+2                                     Oliver Lorscheid
+
+  The second chapter 2 serves as an overview of the manifold approaches towards F1 -
+geometry. We will describe two prominent theories of F1 -schemes in detail: Deitmar’s
+theory of monoid schemes in section 2.1 and the author’s theory of blue schemes in
+section 2.2.
+  The third chapter 3 summarizes the impact of F1 -geometry on mathematics today.
+We spend a few words on developments around the Riemann hypothesis in section 3.1,
+describe in detail the realization of Tits’ dream via blue schemes in section 3.2 and
+outline promising recent developments in tropical geometry that involve F1 -schemes in
+section 3.3.
+
+
+                     1. Conception: the heuristics leading to F1
+The first mentioning of a “field of characteristic one” in the literature can be found in
+the 1957 paper [Tit57] by Jacques Tits. The postulation of such a field origins in his
+observation that certain projective geometries over finite fields Fq with q elements have
+a meaningful analogue for q = 1. Tits remarks that these latter geometries should have
+an explanation in terms of projective geometry over a field with one element.
+  In the modern literature on the topic, the analogue for q = 1 is often called the “limit
+q → 1”, a notion that finds its origin in the connections to quantum groups where q
+occurs indeed as a complex parameter.
+  For instance, the group of invertible matrices with coefficient in Fq converges towards
+the symmetric group Sn on n elements,
+
+                         GL(n, Fq )   −−→       GL(n, F1 ) = Sn ,
+                                       q→1
+
+compatible with the respective actions on Grassmannians Gr(k, n)(Fq ) and the family of
+k-subsets of {1, . . . , n}. This is explained in detail in section 1.1.
+   According to a private conversation with Cartier, Tits’ idea did not find much res-
+onance at the time—one has to bear in mind that this was at a moment in which the
+community struggled with a generalization of algebraic geometry from fields to other
+types of rings; Grothendieck’s clarifying invention of schemes was still several years
+ahead. In so far a geometry over the hypothetical object F1 was too far away from
+conceivable mathematics at the time.
+   As a consequence, it took more than three decades until the field with one element
+gained popularity, this time thanks to one of the most famous riddles in number theory,
+the Riemann hypothesis. Alexander Smirnov gave talks about how F1 -geometry could
+be involved in a proof of the Riemann hypothesis in the late 1980s. This idea finds its
+first mentioning in the literature in Manin’s influential lecture notes [Man95], which are
+based on his talks at Harvard, Yale, Columbia and MSRI in 1991/92.
+   In a nutshell, this ansatz postulates a completed arithmetical curve Spec Z over F1 ,
+which would allow one to mimic Weil’s proof for function fields. A particular ingredient
+of this line of thought is that Z is an algebra over F1 and that there is a base extension
+functor
+
+        − ⊗F1 Z : F1 -algebras / schemes                       Z-algebras / schemes .
+                                                            
+                                                     −→
+
+This is explained in more detail in section 1.2.
+                                            F1 for everyone                                         3
+
+   Around the same time, Smirnov explained another possible application of F1 -geometry
+in [Smi92]: conjectural Hurwitz inequalities for a hypothetical map
+                                      Spec Z       −→         P1F1
+from the completed arithmetical curve to the projective line over F1 would imply the
+abc-conjecture.
+   Soon after, Kapranov and Smirnov aim in the unpublished note [KS95] to calculate
+cohomological invariants of arithmetic curves in terms of cohomology over F1n . The
+unfinished text contains an outburst of different ideas: linear and homological algebra
+over F1n , distinguished morphisms as cofibrations, fibrations and equivalences (which
+might be seen as a first hint of the connections of F1 -geometry to homotopy theory),
+Arakelov theory modulo n and connections to class field theory and reciprocity laws,
+which can be seen in analogy to knots and links in 3-space.
+   In [Sou04], Soulé explains a connection to the stable homotopy groups of spheres, an
+idea that he attributes to Manin. Elaborating the formula GL(n, F1 ) = Sn , there should
+be isomorphisms
+            K∗ (F1 )    =     π∗ (B GL(∞, F1 )+ )        =       π∗ (BS∞ + )    ≃     π∗s (S)
+where the first equality is the definition of K-theory via Quillen’s plus construction,
+naively applied to the elusive field F1 . The second equality is derived from the hypothet-
+ical formula
+                 GL(∞, F1 )                 GL(n, F1 )                     Sn       S∞ .
+                                       [                             [
+                                 =                           =                  =
+                                      n⩾1                            n⩾1
+
+The last isomorphism is the Barratt-Priddy-Quillen theorem.
+
+1.1. Incidence geometry and F1 . In his seminal paper [Tit57] from 1957, Tits investi-
+gates analogues of homogeneous spaces for Lie groups over finite fields. In the following,
+we explain his ideas in the example of the general linear group GL(n) of invertible n × n-
+matrices acting by base change on a Grassmannian Gr(k, n) of k-dimensional subspaces
+of an n-dimensional vector space.1
+   We remark that all these thoughts should find a much more conceptual explanation
+within the theory of buildings that was introduced a few years later Tits; the interested
+reader will find more information on the developments of buildings in [Rou09]. However,
+we will refrain from such a reformulation in order to stay historically accurate and to
+avoid burdening the reader with an introduction to buildings.
+
+1.1.1. Tits’ notion of a geometry. The example of GL(n) acting on Gr(k, n) makes sense
+over the real or complex numbers as well as over a finite field Fq with q elements. In the
+latter case, we are concerned with the group G = GL(n, Fq ) and the Fq -rational points
+Gr(k, Fnq ) = Gr(k, n)(Fq ) of the Grassmannian.
+   Since the action of G on Gr(k, Fnq ) is transitive, Gr(k, Fnq ) stays in bijection to the left
+cosets of the stabilizer of a k-subspace V of Fnq in G. If we choose V to be spanned
+
+  1To be precise, Tits considers in [Tit57] only semi-simple algebraic groups and he considers PGL(n)
+in place of GL(n). However, we can illustrate Tits’ idea in the case of either group and we will allow
+ourselves this inaccuracy for the sake of a simplified account.
+4                                           Oliver Lorscheid
+
+by the first k standard basis vectors, then the stabilizer Pk = StabG (V ) consists of all
+matrices in G of the form
+                                            ∗. ··· ∗. ∗. ··· ∗.
+                                                  
+                                             ..     .. ..     ..
+                                           ∗ ··· ∗ ∗ ··· ∗ 
+                                           0. ··· 0. ∗. ··· ∗. 
+                                              ..     .. ..     ..
+                                            0 ··· 0 ∗ ··· ∗
+where the upper left block contains an invertible k × k-matrix and the lower right block
+contains an invertible (n − k) × (n − k)-matrix. Thus we obtain an identification of
+Gr(k, Fnq ) with G/Pk .
+   The containment relation V 0 ⊂ V of different subspaces of Fnq defines an incidence
+relation ι between the elements V 0 ∈ Gr(k0 , Fnq ) and V ∈ Gr(k, Fnq ) for different k0 and k.
+   Tits dubs a collection of various homogeneous spaces for a fixed group G together
+with an incidence relation a geometry. He investigates various properties that are satisfied
+by geometries coming from matrix groups over Fq , like the one described above or its
+analogues for symplectic groups or orthogonal groups.
+   The name “geometry” can be motivated in the above example. The points of the
+different Grassmannians Gr(1, Fnq ), Gr(2, Fnq ), . . . , Gr(n−1, Fnq ) correspond to the points,
+lines, . . . , (n − 2)-dimensional subspaces of the projective space Pn−1 (Fq ) = Gr(1, Fnq )
+and the action of G on the different Grassmannians corresponds to the permutation of
+linear subspaces by the action of G on Pn−1 (Fq ).
+
+1.1.2. The limit geometry. Note that every finite field Fq with q elements produces such
+a geometry. In other words, the geometry depends on the “parameter” q. The crucial
+observation that led Tits to postulate the existence of a field F1 with 1 element is that
+there is a meaningful limit of a geometry when q goes to 1. More precisely, for every
+geometry coming from a matrix group over Fq , there is a geometry satisfying the same
+aforementioned properties and which looks like the limit q → 1.
+   We explain this limit in our example of G = GL(n, Fq ) and the Grassmannians
+Gr(k, Fnq ) for various n. The group for the limit geometry is the symmetric group
+Sn on n elements. The homogeneous spaces are the families Σ(k, n) of all k-subsets of
+{1, . . . , n}. The incidence relation is defined in terms of the containment X 0 ⊂ X for
+different subsets X 0 and X of {1, . . . , n}. Note that the stabilizer of the subset {1, . . . , k}
+is Sk × Sn−k , thus we have Σ(k, n) = Sn /(Sk × Sn−k ).
+   As mentioned before, the geometry that consists of the homogeneous spaces Σ(k, n)
+of Sn satisfies analogous properties to the geometry of Grassmannians Gr(k, Fnq ).
+   A first link between these two geometries is laid in terms of the Weyl groups of GL(n)
+and the stabilizers Pk . To explain, the Weyl group of a matrix group G is defined as the
+quotient W = NormG (T )/T of the normalizer of the diagonal torus T in G by T itself.2
+In our case, the normalizer of T consists of all monomial matrices, i.e. matrices that
+have precisely one non-zero entry in each row and each column. The elements of the
+quotient W = NormG (T )/T can thus be represented by permutation matrices and we
+conclude that the Weyl group W of G is isomorphic to Sn . Similarly, the Weyl group of
+Pk is Sk × Sn−k .
+
+    2This is, again, slightly inaccurate. In general, one can consider the Weyl group for any torus of a
+matrix group. However, if the torus is not specified, it is assumed that the torus is of maximal rank. For
+G = GL(n), the diagonal torus is of maximal rank, but this is not true for all matrix groups.
+                                            F1 for everyone                                     5
+
+  The idea that the geometry of the Σ(k, n) should be thought as the limit q → 1 of
+the geometry of the Gr(k, Fnq ) is suggested by the behaviour of the invariants counting
+points, lines, et cetera.
+  To start with, these counts are immediate for the limit geometry:
+                                                                      n!          n
+                                                                                  
+   # Sn = n!, # Sk × Sn−k = k!(n − k)!, and # Σ(k, n) =                       =      .
+                                                                  k!(n − k)!      k
+The corresponding counts for the geometry of Grassmannians will employ the quantities
+              n−1                   n                                 [n]q !
+                                                       n
+       [n]q = ∑ q ,       [n]q ! = ∏[i]q ,
+                                                      h i
+                   i
+                                              and           =                    ,
+              i=0                  i=1
+                                                       k q      [k]q ![n − k]q !
+which are called the Gauss number, the Gauss factorial and the Gauss binomial, respec-
+tively, or sometimes quantum number, quantum factorial and quantum binomial because
+of their relevance in theoretical physics. Note that we recover the classical quantities in
+the limit q → 1:
+                                                                   n          n
+                                                                  h i        
+           lim [n]q = n,       lim [n]q ! = n!,     and      lim        =       .
+           q→1                 q→1                           q→1 k q          k
+The elements of G = GL(n, Fq ) correspond to ordered bases of Fnq . For the first basis
+vector, we have qn − 1 choices, for the second qn − q choices and so forth. Therefore we
+have
+                       n                       n                                  1
+     # GL(n, Fq ) = ∏(q − q              ) = ∏(q − 1)qi−1 [i]q = (q − 1)n q 2 (n −n) [n]q !
+                            n      i−1                                                2
+
+                      i=1                     i=1
+The elements of Pk decompose into four blocks, consisting of an invertible k × k-matrix,
+an arbitrary k × (n − k)-matrix, a zero matrix and an invertible (n − k) × (n − k)-matrix.
+Thus we obtain
+                                                                          1   2
+ #Pk = # GL(k, Fq ) # Mat(k × n, Fq ) # GL(n − k, Fq ) = (q − 1)n q 2 (n −n) [k]q ![n − k]q !
+Dividing the former two quantities yields
+                                   # GL(n, Fq )         [n]q !        n
+                                                                     h i
+                 # Gr(k, Fnq ) =                =                  =      .
+                                       #Pk        [k]q ![n − k]q !    k q
+Note that the limit q → 1 of the cardinalities of G and Pk is 0 due to the term (q − 1)n .
+But if we resolve this zero, i.e. if we divide by #T = (q − 1)n , then we obtain
+  lim #G/#T = #Sn ,         lim #Pk /#T = #Sk × Sn−k ,          lim # Gr(k, Fnq ) = #Σ(k, n).
+  q→1                       q→1                                 q→1
+
+   Based on these observations, Tits dreamt about the existence of a geometry over a
+field F1 with one element that is capable to explain these effects. Later, this idea has
+been summarized in hypothetical formulas such as
+                   GL(n, F1 ) = Sn            and       Gr(n, F1 ) = Σ(k, n).
+However, we caution the reader not to take these formulas too literal, for the reasons
+explained in [Lor16, Prologue].
+Example 1.1. We illustrate the ideas of Tits in the example of GL(3, Fq ). In this case,
+we consider the two Grassmannians Gr(1, F3q ) and Gr(2, F3q ), whose points corresponds
+6                                      Oliver Lorscheid
+
+to the points and lines in P2 (Fq ), respectively. The incidence relation consists of pairs
+of a point P and a line L such that P ∈ L. In the case q = 2, we calculate
+                            3                                         3
+                           h i                                       h i
+           # Gr(1, F32 ) =        = 7       and      # Gr(2, F32 ) =       = 7.
+                            1 q                                       2 q
+Moreover, note that every line contains q + 1 = 3 points and that every point is contained
+in q + 1 = 3 lines. The corresponding geometry is illustrated on the left hand side of
+Figure 1 where the dots correspond to the points in P2 (Fq ), the circles correspond to the
+lines in P2 (Fq ) and an edge between a dot and a circle indicates that the corresponding
+point is contained in the corresponding line.
+   Considering    the limit q → 1 yields the  geometry for S3 that consists of the sets
+Σ(1, 3) = {1}, {2}, {3} and Σ(2, 3) = {1, 2}, {1, 3}, {2, 3} . Note that every point
+           
+of this geometry, i.e. an one element subset of {1, 2, 3}, is contained in q+1 = 2 lines, i.e.
+a 2-subset of {1, 2, 3}. Similarly, every line contains q +1 = 2 points. The corresponding
+geometry is depicted on the right hand side of Figure 1 .
+
+
+
+
+                                                  q→1
+
+
+
+
+          Figure 1. The geometry of GL(3, Fq ) for q = 2 and its limit q → 1
+
+1.2. The Riemann hypothesis. One of the most profound problems in mathematics is
+the Riemann hypothesis. We refrain from alluding to its importance, but refer the reader
+to one of the numerous overview texts on the topic. A good start is the book [BCRW08].
+   Arguably, the most influential publication for shaping the area of F1 -geometry was
+Manin’s lecture notes [Man95], in which Deninger’s programme for a proof of the
+Riemann hypothesis ([Den91], [Den92], [Den92]) and Kurokawa’s work on absolute
+tensor products of zeta functions ([Kur92]) are combined with the idea to realize the
+integers as a curve over the elusive field F1 with one element.
+   In the following, we briefly review the Riemann hypothesis and explain how the proof
+of its analogue for function fields leads to the desire for algebraic geometry over F1 .
+1.2.1. The Riemann zeta function. The Riemann zeta function is defined by the formulas
+                                      1               1
+                          ζ(s) = ∑ s = ∏                   ,
+                                  n⩾1 n    p prime 1 − p
+                                                        −s
+
+both of which are expressions that converge absolutely in the half plane {s ∈ C|Re s > 1}.
+It extends to a meromorphic function on the whole complex plane with simple poles
+at 0 and 1 and it satisfies a certain functional equation. The zeros of the Riemann zeta
+function are more delicate and the protagonists of the Riemann hypothesis.
+                                        F1 for everyone                                                       7
+
+   Let us begin with explaining the functional equation. The Γ-function is defined in
+terms of the formula                   Z ∞
+                               Γ(t) =      xt−1 e−x dx,
+                                             0
+which converges on the half plane {t ∈ C|Re t > 0} and can be extended to a meromor-
+phic function on the whole complex plane. It has simple poles at all negative integers
+−1, −2, . . . and no zeros.
+  The completed zeta function is the meromorphic function
+                                ζ ∗ (s) = Γ(s/2) π −s/2 ζ(s)
+and it satisfies the functional equation
+                                     ζ ∗ (1 − s) = ζ ∗ (s).
+   It is immediate from the definition that ζ(s) does not have any zero for Re s > 1. The
+functional equation implies that ζ(s) compensates the poles of Γ(s/2) with simple zeros
+at the negative even integers −2, −4, . . . , which are called the trivial zeros of the zeta
+function. We see that all other zeros of ζ(s) lie on the critical strip {s ∈ C|0 ⩽ Re s ⩽ 1}.
+The Riemann hypothesis claims the following.
+Riemann hypothesis. Every non-trivial zero of ζ(s) has real part 1/2.
+  In other words, the Riemann hypothesis states that all zeros of completed zeta function
+ζ ∗ (s) lie on the critical line {s ∈ C|Re s = 1/2}. See Figure 2 for an illustration of the
+poles and zeros of ζ(s).
+
+                                                                  critical line
+
+                                                                         1/2 + i · 25.01 . . .
+                                                                         1/2 + i · 21.02 . . .
+
+                                                                         1/2 + i · 14.13 . . .
+                trivial zeros
+
+                                                          pole                     pole          nontrivial
+       −4                       −2                            0                    1               zeros
+
+
+                                                                         1/2 − i · 14.13 . . .
+
+                                                                         1/2 − i · 21.02 . . .
+                                                                         1/2 − i · 25.01 . . .
+
+                                                                  critical strip
+
+
+                           Figure 2. The poles and zeros of ζ(s)
+
+1.2.2. Absolute values. While the Riemann hypothesis is still an open problem, its
+function field analoguea has been proven by André Weil. In order to explain the analogy
+between the Riemann zeta function ζQ (s) = ζ(s) and the zeta function ζF (s) of a function
+field, we reinterpret the factors of the Euler product ζQ (s) = ∏(1 − p−s )−1 in terms of
+absolute values of Q.
+8                                      Oliver Lorscheid
+
+   An absolute value of a field F is a map v : F → R⩾0 to the non-negative real numbers
+that satisfies v(0) = 0, v(1) = 1, v(ab) = v(a)v(b) and v(a + b) ⩽ v(a) + v(b) for all
+a, b ∈ F.
+   We illustrate some examples. Every field F has a trivial absolute value, which is the
+absolute value v0 : F → R⩾0 that maps every nonzero element of F to 1. For F = Q, the
+usual absolute value or archimedean absolute value v∞ = | | : Q → R⩾0 is an absolute
+value. But there are other, substantially different absolute values for Q. Namely, for
+every prime number p, the p-adic absolute value is defined as the map v p : Q → R⩾0
+with v p (pi · ba ) = p−i if neither a nor b are divisible by p.
+   An absolute value v : F → R⩾0 is nonarchimedean if it satisfies the strong triangle
+inequality v(a + b) ⩽ max{v(a), v(b)} for all a, b ∈ F. In fact, most absolute values
+are nonarchimedean. By a theorem of Ostrowski, the only exceptions come from
+restricting the usual absolute value of C to a subfield, and possibly taking powers. If v is
+nonarchimedean, then the subsets
+           Ov = { a ∈ F | v(a) ⩽ 1 }         and        mv = { a ∈ F | v(a) < 1 }
+are a local ring, called the valuation ring of v, and its maximal ideal, respectively. We
+define the residue field of v as k(v) = Ov /mv . Examples of nonarchimedean places are
+the trivial absolute value v0 and the p-adic absolute value v p : Q → R⩾0 . The valuation
+ring of v p and its maximal ideal are
+             a                                                       a
+  Ov p = { ∈ Q | p does not divide b }           and      mv p = { ∈ Ov p | p divides a },
+             b                                                       b
+respectively. The residue field k(v p ) is isomorphic to the finite field F p with p elements.
+   Two absolute values v1 and v2 of F are equivalent if there is a t ∈ R⩾0 such that
+v2 (a) = v1 (a)t for all a ∈ F. A place of F is an equivalence class of nontrivial absolute
+values. Note that two equivalent nonarchimedean absolute values define the same subsets
+Ov and mv , and thus have the same residue field k(v).
+   By another theorem of Ostrowski, the places of Q are the archimedean place, rep-
+resented by v∞ , and the p-adic places, represented by v p , where p ranges through all
+prime numbers.
+   By a slight abuse of notation, we will denote a place represented by an absolute value
+v by the same symbol v. If v is nonarchimedean and k(v) is finite, then we define the
+local zeta factor at v as
+                                                   1
+                                    ζv (s) =              .
+                                               1 − #k(v)s
+If we define the zeta factor of the archimedean absolute value v∞ of Q as ζv∞ (s) =
+π −s/2 Γ(s/2), then the completed zeta function can be expressed as
+                                  ∗
+                                 ζQ (s) =       ∏           ζv (s)
+                                            places v of Q
+
+in the region of convergence, i.e. for Re s > 1. While the different shape of the factor
+ζ∞ at infinity has been the cause for much musing, the nonarchimedean factors have a
+direct analogue in the function field setting.
+1.2.3. Zeta functions for function fields. Let F be a global function field, i.e. a finite
+field extension of a rational function field Fq (T ) over a finite field Fq with q elements.
+For later reference, we assume that q is maximal with the property that F contains Fq (T )
+                                       F1 for everyone                                     9
+
+as a subfield. Every nontrivial absolute value of F is nonarchimedean and the residue
+field is a finite field extension of Fq and therefore finite. Thus the local zeta factors
+ζv (s) = (1 − #k(v)−s )−1 make sense, and we define the zeta function of F as
+                                ζF (s) =       ∏           ζv (s),
+                                           places v of F
+
+which is an expression that has analogous properties to the completed Riemann zeta
+function: it converges for Re s > 1 and has a meromorphic continuation to all s in C. It
+satisfies a functional equation of the form
+                            ζF (1 − s) = ±q(2g−2)(1−s) ζF (s)
+where g is the genus of F, a number which plays an analogue role as the genus of a
+Riemann surface. As explained below, the field F occurs indeed as the function field of
+a certain curve, but explaining the definition of the genus would lead us too far astray.
+   A particular property for the function field setting is that the zeta function can be
+expressed in terms of a rational function. Namely, ζF (s) = ZF (q−s ) for a function ZF (T )
+in T of the form
+                                                P(X)
+                              ZF (T ) =                     .
+                                          (1 − T )(1 − qT )
+                                            2πi
+This implies that ζF (s) is periodic modulo ln q , and it has simple poles in all complex
+                      2πi            2πi
+numbers of the form k ln q and 1 + k ln q with k ∈ Z; cf. the illustration in Figure 3 below.
+
+Example 1.2. To explain the analogy to Q in more detail below, we consider the example
+of a rational function field F = Fq (T ). Then F is the field of fraction of the polynomial
+ring Fq [T ].
+   The analogue of the p-adic absolute value of Q is the f -adic absolute value v f :
+Fq (T ) → R⩾0 where f is an irreducible polynomial in Fq [T ], i.e. f is a polynomial of
+positive degree d ⩾ 1 and does not equal the product of two polynomials of positive
+degree. Note that we can write every nonzero element of Fq (T ) in the form f i gh where
+i ∈ Z and g and h are polynomials that are not multiples of f by another polynomial.
+Then the f -adic valuation v f : Fq (T ) → R⩾0 is defined by the formula
+                                               g
+                                      v f ( f i ) = q−di .
+                                               h
+Note that, similar to the p-adic valuation, v f is nonarchimedean and we have
+              g                                                     g
+  Ov f = { ∈ Fq (T ) | f does not divide h } and mv f = { ∈ Ov f | f divides g }.
+              h                                                     h
+The residue field k(v f ) = Ov f /mv f is isomorphic to Fqd , the unique degree d-extension
+field of Fq .
+   Up to equivalence, the f -adic absolute values v f represent all places of Fq (T ), with
+the exception of the place at infinity. This latter place is represented by the absolute
+value v∞ , which is defined by
+                                         g
+                                   v∞ ( ) = qdeg h−deg g
+                                         h
+for nonzero polynomials g and h of respective degrees deg g and deg h. The absolute
+value v∞ is also nonarchimedean, in stark contrast to the situation for Q where the place
+10                                     Oliver Lorscheid
+
+at infinity is archimedean. We have
+               g                                              g
+   Ov∞ = { ∈ Fz (T ) | deg g ⩽ deg h } and mv∞ = { ∈ Ov∞ | deg g < deg h }.
+               h                                              h
+The residue field of v∞ is k(v∞ ) = Fq .
+   To conclude this example, we note that it is not too hard to show that the zeta function
+of F = Fq (T ) has the following form:
+                                             1                 1
+               ζF (s) =       ∏                     =
+                                                      (1 − q )(1 − q1−s )
+                                                                          .
+                          places v of F 1 − #k(v)
+                                                 −s         −s
+
+
+In particular, ζF (s) does not have any zero at all in this case.
+1.2.4. From the Hasse-Weil theorem to F1 . The analogue of the Riemann hypothesis for
+ζF (s) has been proven by Hasse ([Has36]) in the case of elliptic function fields and by
+Weil ([Wei48]) for all function fields. It is also known as the Hasse-Weil theorem.
+Theorem 1.3. Every zero of ζF (s) has real part 1/2.
+
+                                            zeros
+
+
+                                    pole              pole
+                                     2π i                 2π i
+                                     ln q             1 + ln q
+
+
+
+
+                                    pole              pole
+                                       0              1
+
+
+
+                                    pole              pole
+                                     2π i                 2π i
+                                   − ln q             1 − ln q
+
+
+
+                          Figure 3. The poles and zeros of ζF (s)
+
+Example 1.4. To give a few examples, the case of genus g = 0 is the case of a rational
+function field F = Fq (T ) where the curve C is a projective line over Fq . As we have
+seen before, the Hasse-Weil theorem is trivial in this case since ζF (s) does not have any
+zeroes. The case of genus g = 1 is the case of an elliptic curve, which has been treated
+                                                                               2πi
+by Hasse. In this case, the Riemann zeta function has two zeros modulo ln        q and the
+                                                               √                √
+Riemann hypothesis for F is equivalent to the estimate q − 2 q ⩽ h ⩽ q + 2 q where
+h is the number of places v of F with residue field k(v) equal to Fq .
+  In the following, we will explain a few of the key ingredients in the proof of the
+Hasse-Weil theorem and make clear how this leads to the postulation of F1 .
+  As mentioned before, F is the function field of a curve C over Fq . The points of C are,
+by definition, the places of F where we neglect the “generic point” in our description.
+The curve fibres over its “base point” Spec Fq .
+                                       F1 for everyone                                    11
+
+   We can embed the curve C diagonally into the fibre product C ×Spec Fq C. The Riemann
+hypothesis for ζF (s) can be tied to an estimate for the number of intersection points of the
+diagonally embedded curve C with its “Frobenius twist” inside the surface C ×Spec Fq C.
+This estimate can be established by an explicit calculation.
+   The analogies between number fields and function fields lead to the hope that one can
+mimic these methods for Q and approach the Riemann hypothesis. Grothendieck’s theory
+of schemes provides a satisfying framework to view the collection of all nonarchimedean
+places v p of Q as a curve, namely, as the arithmetic curve Spec Z, the spectrum of Z. In
+analogy to the function field setting, we would like to include the archimedean place v∞
+in a hypothetical completion Spec Z of Spec Z and we would like to have a base field
+for Spec Z, namely F1 , the field with one element.
+   In such a theory, we should have a base extension functor − ⊗F1 Z from F1 -schemes to
+usual schemes and we should be able to define the arithmetic surface Spec Z ×F1 Spec Z.
+
+                    2. Birth hour: F1 -varieties and their siblings
+The first person courageous enough to propose a notion of an F1 -variety was Cristophe
+Soulé who presented a first attempt [Sou99] at the Mathematische Arbeitstagung of the
+MPI in 1999. He published a refinement [Sou04] of his approach in 2004.
+   Soon after, ideas were blooming and the same decade saw more than a dozen different
+definitions for F1 -geometry. In the following, we give a brief and incomplete overview
+of such approaches. For more details and references, confer [LPL11a, Lor16].
+   Soulé’s approach underwent a number of further variations by himself in [Sou11] and
+by Connes and Consani in [CC11b, CC10b]. These approaches are closely related to the
+notion of a torified scheme as introduced by López Peña and the author in [LPL11b].
+   One of the most important approaches is Deitmar’s variation [Dei05] of Kato fans
+([Kat94]), which he calls F1 -schemes. It is the most minimalistic approach to F1 -
+geometry since it is included in every other theory about F1 . In this sense, Deitmar’s
+theory constitutes the very core of F1 -geometry. Subsequently, this theory has found
+various applications under the names of Deitmar schemes, monoid schemes or monoidal
+schemes.
+   Toën and Vaquié generalize in [TV09] the functorial viewpoint on scheme theory to
+any category C that looks sufficiently like a categories of modules over rings. Durov
+gains a notion of F1 -varieties in his unpublished approach [Dur07] to Arakelov theory.
+Borger defines in [Bor09] an F1 -variety as a scheme together with a lift of the Frobenius
+automorphisms for every prime number p. Haran has developed various approaches in
+[Har07, Har10, Har17].
+   Lescot develops in [Les11, Les12] an algebraic geometry over idempotent semirings,
+which he dubs F1 -geometry. Connes and Consani extend Lescot’s viewpoint to the
+context of Krasner’s hyperrings, which they promote as a geometry over F1 in [CC10a,
+CC11a]. This point of view has been extended by Jun in [Jun15].
+   Berkovich introduces a theory of congruence schemes for monoids ([Ber]), which can
+be seen as an enrichment of Deitmar’s F1 -geometry. Deitmar modifies this approach in
+[Dei11].
+   The author develops in [Lor12b, Lor12c, LPL12, Lor14, Lor17] (partly in collabo-
+ration with López Peña) a notion of F1 -geometry, based on the notion of a so-called
+blueprint.
+12                                            Oliver Lorscheid
+
+   We will examine Deitmar’s and the author’s approach to F1 -geometry in more detail
+in the following sections.
+2.1. Monoid schemes. In this section, we review a slight modification of Deitmar’s
+approach to F1 -schemes in [Dei05], which can be seen as the very core of F1 -geometry.
+It realizes the motto “non-additive geometry” literally and it forms a subclass of every
+other approach to varieties over F1 , up to some finiteness conditions in certain cases. We
+make the definitions approachable to the non-expert, but warn the inexperienced reader
+that a motivation for scheme theory lies outside the scope of this overview paper.
+2.1.1. Monoids. The underlying algebraic objects in [Dei05] are monoids, i.e. semi-
+groups with an identity element. For the purpose of F1 -geometry, it has been proven
+useful to consider monoids with zero, which are monoids A together with an absorbing
+element 0, i.e. 0 · a = 0 for all a ∈ A where we write the monoid multiplicatively. In this
+exposition, we will consider the variation of monoid schemes for monoids with zero.
+   In the following, we will agree that all of our monoids are commutative and with zero.
+A monoid morphism is a map f : A1 → A2 between monoids A1 and A2 with f (0) = 0,
+f (1) = 1 and f (ab) = f (a) f (b) for all a, b ∈ A1 .
+   There is a base extension functor − ⊗F1 Z that sends a monoid to a ring. Namely,
+given a monoid A, we define
+                                        A ⊗F1 Z = Z[A] / h0A i
+where Z[A] is the semigroup ring Z[A] = {∑ na a|na ∈ Z, almost all 0} of finite Z-linear
+combinations of elements of A and where h0A i is the ideal generated by the zero 0A of A.
+In other words, we identify the zero of the monoid A with the zero of the ring Z[A]. A
+monoid morphism f : A1 → A2 can be extended by linearity to a ring homomorphism
+A1 ⊗F1 Z → A2 ⊗F1 Z between the associated rings, which defines the base extension
+functor − ⊗F1 Z from monoids to rings.
+Example 2.1. We provide some first examples of monoids. The trivial monoid is the
+monoid with a single element 0 = 1. Its base extension {0} ⊗F1 Z is the trivial ring.
+   The smallest nontrivial monoid consists solemnly of two elements 0 and 1, and it is
+this monoid that we call F1 . Its base extension F1 ⊗F1 Z is Z.
+   The free monoid generated by a number of indeterminants T1 , . . . , Tn consists of all
+monomials T1e1 . . . Tnen in T1 , . . . , Tn together with a distinct element 0. We denote the
+free monoid in T1 , . . . , Tn by F1 [T1 , . . . , Tn ]. Its base extension F1 [T1 , . . . , Tn ] ⊗F1 Z is the
+polynomial ring Z[T1 , . . . , Tn ].
+   Note that every ring is a monoid if we omit its addition.
+2.1.2. The spectrum. Let A be a monoid. An ideal of A is a multiplicative subset I of A
+such that 0 ∈ I and IA = I. A prime ideal of A is an ideal p of A such that its complement
+S = A − p is a multiplicative subset, i.e. it contains 1 and is closed under multiplication.
+The spectrum Spec A of A is the set of all prime ideals of A together with a topology and
+a structure sheaf, which we will describe below.
+   The topology of Spec A is generated by the principal open subsets
+                                     Uh = { p ∈ Spec A | h ∈
+                                                           / p}
+where h ranges through all elements of A. Note that U1 = Spec A, that U0 = 0/ and that
+Ugh = Ug ∩Uh . Thus every open subset of Spec A is a union of principal open subsets.
+                                           F1 for everyone                                          13
+
+Example 2.2. We describe the topological spaces of some spectra of monoids. We begin
+with some general observations that are helpful in the calculation of the prime ideals.
+The unit group A× of a monoid A is the set of invertible elements and forms an abelian
+group. If a ∈ A× and p is a prime ideal, then a ∈      / p. Note that A − A× is always a prime
+ideal and that it contains every other prime ideal.
+   As a consequence, a monoid A with A× = A − {0} has a single prime ideal, which is
+{0}. In particular, Spec F1 consists of a single point.
+   The ideal I = (J) generated by a subset J of A is, by definition, the smallest ideal
+containing J. If A is generated by elements a1 , . . . , an as a monoid, i.e. every element of
+A is a finite product of these elements or 0, then every prime ideal of A is generated by a
+subset of the generators.
+   The free monoid F1 [T1 , . . . , Tn ] is generated by T1 , . . . , Tn . In this case, every subset of
+{T1 , . . . , Tn } generates a prime ideal. We illustrate the spectra of F1 [T ] and F1 [T1 , T2 ] in
+Figure 4. The labelled dots stay for the corresponding prime ideals, and a line between
+two different prime ideals indicates that the prime ideal on the bottom end is contained
+in the prime ideal on the top end.
+   Note that all our examples are topological spaces with finitely many points. In this
+case, the open subsets are precisely those that are closed from below with respect to the
+inclusion relation, and the closed subsets are those that are closed from above.
+
+                                                                      (T1 , T2 )
+                         (T )
+
+                                                     (T1 )                         (T2 )
+                         {0}
+                                                                      {0}
+
+
+                        Figure 4. The spectra of F1 [T ] and F1 [T1 , T2 ]
+
+
+2.1.3. The structure sheaf. It is somewhat more difficult to describe the structure sheaf
+OX of X = Spec A. It is an association that sends an open subset U of X to a monoid
+OX (U) and an inclusion V ⊂ U to a monoid morphism resU,V : OX (U) → OX (V ). We
+will restrict ourselves to an explicit description of its values on principal open subsets,
+which are given in terms of localizations.
+   Namely, let A be a monoid and S a multiplicative subset. The localization of A at S is
+the monoid
+                                        S−1 A = S × A/ ∼
+where ∼ is the equivalence relation on the Cartesian product S × A given by (s, a) ∼
+(s0 , a0 ) if and only if there exists a t ∈ S such that tsa0 = ts0 a. If we denote the equivalence
+class of (s, a) by as , then the multiplication of S−1 A is given by the rule as · bt = ab  st . The
+                           −1      1                  0
+identity element of S A is 1 and its zero is 1 . Note that the localization comes with a
+monoid morphism A → S−1 A, defined by a 7→ 1a , which sends every s ∈ S to an invertible
+element in S−1 A. To wit, the inverse of 1s is 1s .
+14                                            Oliver Lorscheid
+
+  Cases of particular importance are the localizations A[h−1 ] = S−1 A of A in an element
+h where S = {hi }i⩾0 and the localization Ap = S−1 A of A at a prime ideal p where
+S = A − p.
+Example 2.3. Let A = F1 [T ] be the free monoid in one indeterminate T . We denote the
+localization A[T −1 ] of F1 [T ] in T by F1 [T ±1 ], which consists in 0 and all integer powers
+T i of T . The base extension F1 [T ±1 ] ⊗F1 Z is the ring Z[T ±1 ] of Laurent polynomials
+over Z.
+  We are prepared to describe the structure sheaf for principal open subsets. Namely,
+we define OX (Uh ) = A[h−1 ]. It follows easily from the definitions that Ug ⊂ Uh if and
+only if g is divisible by h, i.e. we have g = f h for some f ∈ A. This observation lets us
+define the monoid morphism
+                     resUh ,Ug : OX (Uh ) = A[h−1 ] −→ A[g−1 ] = OX (Ug ).
+                                          a                    afi
+                                         hi
+                                                    7−→         gi
+For example, if h = 1, then Uh = Spec A and OX (Spec A) = A. In this case, the restriction
+map resUh ,Ug : A → A[g−1 ] is nothing else than the aforementioned map that sends a → a1 .
+   The structure sheaf OX of X = Spec A derives from our description on its values on
+principal open subsets due to the fact that this definition extends uniquely to a sheaf of
+monoids3 on Spec A. Thus Spec A is a monoidal space, i.e. a topological space together
+with a sheaf in monoids.
+2.1.4. Monoid schemes. A monoid scheme, or F1 -scheme in the terminology of [Dei05],
+is a monoidal space that has a covering by open subsets that are isomorphic to the spectra
+of monoids. We say that a monoid scheme is affine if it is isomorphic to the spectrum of
+a monoid.
+   The base extension functor − ⊗F1 Z extends to a functor from monoid schemes to
+usual schemes in terms of open coverings and the definition
+                          (Spec A) ⊗F1 Z = Spec A ⊗F1 Z .
+                                                              
+
+Example 2.4. In analogy to the affine space AnZ = Spec Z[T1 , . . . , Tn ] over Z, we define
+the affine space AnF1 over F1 as Spec F1 [T1 , . . . , Tn ]. We obtain AnF1 ⊗F1 Z = AnZ .
+   Similarly, we define the multiplicative group scheme Gm,F1 over F1 as Spec F1 [T ±1 ]
+in analogy to the multiplicative group scheme Gm,Z = Spec Z[T ±1 ] over Z. We obtain
+Gm,F1 ⊗F1 Z = Gm,Z . For details about the group law of Gm,F1 , see section 3.2.
+   This view on F1 -geometry is very appealing thanks to its simple and clean approach.
+However, it is often too limited for applications. Namely, the only varieties that are base
+extensions of monoid schemes are toric varieties. In more detail, Deitmar proves the
+following in [Dei08].
+Theorem 2.5. Let X be a monoid scheme such that X ⊗F1 Z is a connected, separated
+and flat scheme of finite type. Then X ⊗F1 Z is a toric variety over Z.
+Example 2.6. As a first example of a monoid scheme that is not affine, we consider the
+projective line PF11 over F1 . It consists of two closed points x0 and x1 and a so-called
+     3In order to avoid a digression into technicalities, we do not introduce sheaves. The reader can safely
+omit all details concerning sheaves.
+                                             F1 for everyone                                            15
+
+generic point η, which is contained in every non-empty open subset. It can be covered
+by the two open subsets U0 = {x0 , η} and U1 = {x1 , η}, which can be identified with
+affine lines Spec F1 [Ti ] over F1 where i ∈ {0, 1}. Their
+                                                         intersection is U01 = {η}, which
+coincides with Gm,F1 = Spec F1 [T0 , T1 ]/(T0 T1 = 1) . The restriction maps from Ui to
+U01 are the obvious inclusions
+                     resUi ,U01 : F1 [Ti ]    −→       F1 [T0 , T1 ]/(T0 T1 = 1).
+   The projective line P1F1 is illustrated on the left hand side of Figure 5 where we label
+the different points with homogeneous coordinates with coefficients in F1 . However, a
+coefficient 1 should be read as a generic value different from zero. This explains why
+[1 : 1] is the generic point.
+   In a similar vain, it is possible to define projective spaces or any toric variety as a
+monoid scheme. We illustrate the projective surface P2F1 over F1 on the right hand side
+of Figure 5.
+
+                                                [1 : 0 : 0]                 [0 : 1 : 0]   [0 : 0 : 1]
+     [1 : 0]                  [0 : 1]
+
+                                                [1 : 1 : 0]                 [1 : 0 : 1]   [0 : 1 : 1]
+                    [1 : 1]
+                                                                            [1 : 1 : 1]
+
+
+         Figure 5. The projective line P1F1 and the projective plane P2F1 over F1
+
+
+Remark 2.7. We see in these examples already a first relation to the incidence geome-
+tries considered by Tits. The homogeneous coordinates [x1 : · · · : xn ] of a point in Pn−1 F1
+defines a the subset I = {i|xi 6= 0} of {1, . . . , n} and thus a point in Σ(k, n) if k = #I. If
+we consider the action of Sn on PFn−1 1
+                                         that permutes the coordinates of points, then we
+obtain the limit geometry of Sn as considered in section 1.1.
+    We illustrate this relation in Figure 6. If we remove the generic point [1 : 1 : 1] from
+  2
+PF1 , which corresponds to the full subset of {1, 2, 3}, then we are left with the space
+illustrated on the left hand side of Figure 6 where we indicate the points corresponding
+to 2-subsets by circles. This is the same as the limit geometry from Figure 1, as repeated
+on the right hand side of Figure 6.
+
+
+
+
+                Figure 6. The relation of P2F1 to the Tits geometry of S3
+16                                       Oliver Lorscheid
+
+2.2. Blueprints and blue schemes. Since semi-simple algebraic groups are not toric
+varieties, Theorem 2.5 testifies that monoid schemes are not sufficient to realize Tits’
+dream of algebraic groups over F1 . This led to the refinement of monoid schemes in
+terms of blueprints.
+   As a leading example for the exposition in this section, we consider the special linear
+group SL(2). As a scheme over the integers, we have
+                SL(2)Z = Spec Z[T1 , T2 , T3 , T4 ] (T1 T4 − T2 T3 − 1) ,
+                                                                      
+
+which encodes all 2 × 2-matrices with coefficients T1 , . . . , T4 with determinant T1 T4 −
+T2 T3 equal to 1. We would like to make sense of the formula
+                SL(2)F1 = Spec F1 [T1 , T2 , T3 , T4 ] (T1 T4 = T2 T3 + 1) .
+                                                                          
+
+2.2.1. Semirings. In order to understand the concept of a blueprint, we have to review
+some facts about semirings. Although the axioms of a semiring are very similar to those
+of a ring—we just omit the axiom about additive inverses—, we will see that the theory
+of semirings shows certain effects that do not occur in ring theory.
+   A commutative semiring with 0 and 1, or for short a semiring, is a set R together with
+an addition +, a multiplication · and constants 0 and 1 such that (R, +) is a commutative
+semigroup with neutral element 0, such that (R, ·) is a commutative semigroup with
+neutral element 1 and with zero 0 and such that a(b + c) = ab + ac for all a, b, c ∈ R. A
+semiring homomorphism is an additive and multiplicative map between semirings that
+maps 0 to 0 and 1 to 1.
+Example 2.8. Commutative rings with 1 are semirings. Other examples are the natural
+numbers N and the non-negative real numbers R⩾0 together with the usual addition and
+multiplication.
+   Given a semiring R, we can form the polynomial semiring R[T1 , . . . , Tn ] in n inde-
+terminants T1 , . . . , Tn , which consists in all polynomials ∑ ae T e where e = (e1 , . . . , en )
+is a multi-index and T e = T1e1 · · · Tnen . Addition and multiplication of R[T1 , . . . , Tn ] are
+defined in the same way as for polynomial rings.
+   Given a multiplicative      monoid A with 0, then we define the monoid semiring as the
+set N[A] = ∑ ai ai ∈ A − {0} of finite formal sums of nonzero elements in A whose
+            
+product is inherited by the product of A. Note that if ab = 0 in A, then 1a · 1b equals the
+neutral element for addition of N[A], which is the empty sum. In other words, the zero
+of A is identified with the zero of N[A].
+   An example of a more exotic, or tropical, nature is the Boolean semifield B = {0, 1}
+where 1 + 1 = 1. Note that all other sums and products are determined by the semiring
+axioms. This definition extends to the semiring T whose underlying set are the non-
+negative numbers R⩾0 , whose multiplication is defined as usual and addition is defined
+as the maximum, i.e.
+                                      a + b = max{a, b}.
+This semiring is called the tropical semifield.
+   Note that the tropical semifield is typically described differently in the literature about
+tropical geometry. Namely, it takes the shape of the “max-plus-algebra” R ∪ {−∞} or
+the “min-plus-algebra” R ∪ {∞}. However, all the three semirings, T, R ∪ {−∞} and
+R ∪ {∞}, are isomorphic. For our purposes, it is least confusing to use the non-negative
+real numbers with usual multiplication as a model for the tropical numbers.
+                                         F1 for everyone                                    17
+
+   Given a semiring R, we can construct the ring RZ = R ⊗N Z of the formal differences
+of elements of R. In more detail, RZ is defined as follows. As a set, RZ = R × R/ ∼,
+where (x, y) ∼ (x0 , y0 ) if and only if x + y0 + z = x0 + y + z for some z ∈ R. We write x − y
+for the equivalence class of (x, y) in RZ . We can extend the addition and multiplication
+from R to RZ by the formulas
+  (x − y) + (z − t) = (x + z) − (y + t) and (x − y) · (z − t) = (xz + yt) − (xt + yz).
+Example 2.9. We have N ⊗N Z = Z, R⩾0 ⊗N Z = R, R[T1 , . . . , Tn ]Z = RZ [T1 , . . . , Tn ]
+and B ⊗N Z = T ⊗N Z = {0}.
+   We can extend the notion of an ideal from rings to semirings: an ideal of a semiring
+R is a subset I that contains 0, x + y and tx for all x, y ∈ I and t ∈ R.
+   In contrast to ring theory, there is, however, no perfect unison between ideals and
+quotient semirings. This leads to the notion of a congruence, which is an equivalence
+relation R on a semiring R such that the quotient set R/R is a semiring, i.e. we can
+define addition and multiplication on equivalence classes by evaluating unambiguously
+on representatives. More explicitly, a congruence is an equivalence relation R on R such
+that x ∼ y and z ∼ t imply
+                            x+z ∼ y+t             and       xz ∼ yt
+for all x, y, z,t ∈ R. For any set of relations xi ∼ yi between elements xi and yi of a
+semiring R, there is a smallest congruence R containing these relations. Thus we can
+define
+                                  R / hxi ∼ yi i = R / ∼ .
+Conversely, every morphism f : R1 → R2 of semirings has a congruence kernel, which is
+the congruence R on R1 that is defined by x ∼ y if and only if f (x) = f (y). In contrast,
+the kernel of f is the ideal ker f = {x ∈ R| f (x) = 0} of R1 .
+   Thus we gain two opposing constructions: we can associate with a congruence R on
+R the kernel of the quotient map R → R/R, and we can associate with an ideal I of R
+the congruence R = hx ∼ 0|x ∈ Ii. We write R/I for R/R in this case.
+   However, returning to our earlier remark, in general it is neither true that every
+congruence comes from an ideal nor that every ideal comes from a congruence. We call
+an ideal that occurs as the kernel of a morphism a k-ideal. Note that if R is a ring, then
+every ideal is a k-ideal.
+Example 2.10. Every semiring can be written as a quotient of a polynomial semiring
+over N, possibly in infinitely many indeterminants. For instance, we can define
+                          R = N[T1 , . . . , T4 ] / hT1 T4 ∼ T2 T3 + 1i.
+Then RZ = Z[T1 , . . . , T4 ]/(T1 T4 − T2 T3 − 1) is the coordinate ring of SL(2)Z .
+2.2.2. Blueprints. A blueprint is a pair B = (R, A) of a semiring R and a multiplicative
+subset A of R that contains 0 and 1 and that generates R as a semiring.
+   The last condition in this definition is equivalent with the fact that R is a quotient
+of the monoid semiring N[A] by a congruence R on N[A]. We also write A R for the
+blueprint B = (R, A). Note that R = N[A]/R is determined by A and R. Further, we
+write B• = A and B+ = R. We write x ≡ y if (x, y) ∈ R.
+   A blueprint morphism f : B1 → B2 is a semiring morphism f + : B+           +
+                                                                       1 → B2 such that
+ +    •      •                              •    •     •     +
+f (B1 ) ⊂ B2 . Note that the restriction f : B1 → B2 of f is necessarily a monoid
+morphism and that f + is uniquely determined by f • .
+18                                       Oliver Lorscheid
+
+Example 2.11. A monoid A can be identified with the blueprint (A, N[A]) and a semiring
+R can be identified with the blueprint (R, R). In this sense, blueprints are a simultaneous
+generalization of monoids and semirings. Note that if B = (A, N[A]), then the base
+extension functor − ⊗F1 Z from section 2.1 can be recovered in terms of the formula
+                                     A ⊗F1 Z = B+ ⊗N Z.
+   There are also a series of novel constructions for blueprints. One of these are the
+cyclotomic field extensions F1n of F1 , which are defined as follows for n ⩾ 2. Let Z[ζn ]
+be the ring of integers in the cyclotomic number field Q[ζn ] generated by a primitive n-th
+root ζn of unity and let µn,0 = {0} ∪ {ζni |i ∈ Z} be the submonoid generated by ζn . Then
+F1n = (µn,0 , Z[ζn ]) is a blueprint. It incorporates certain properties of the cyclotomic
+field Q(ζn ): we have F+  1n = Z[ζn ] and the Galois group of Q(ζn )/Q equals the group of
+automorphisms of F1n that fix F1 .
+   Of particular importance is the case n = 2: the “quadratic” extension F12 = {0, 1, −1}
+h1 + (−1) ≡ 0i of F1 contains an additive inverse of 1, which is important for several
+purposes. For instance, it is possible to define sheaf cohomology over F12 , cf. [FLS17].
+The blueprint F12 also plays a role in our approach to algebraic groups over F1 , see
+section 3.2.2.
+   Most interestingly for our purposes is that it is possible to define the blueprint
+                           B = F1 [T1 , . . . , T4 ] hT1 T4 ≡ T2 T3 + 1i.
+The coordinate ring of SL(2)Z can be recovered from this blueprints as B+
+                                                                        Z.
+2.2.3. The spectrum. Let B be a blueprint. We will not enter all details in the definition
+of the spectrum Spec B of B, but concentrate on the description of the topological space
+associated with Spec B. In fact, one can associate several topological spaces with Spec B,
+cf. [Lor15] for more details. The relevant one for a theory of algebraic groups over F1 is
+based on the notion of a k-ideal, which is an ideal of the monoid B• that spans a k-ideal
+in the semiring B+ .
+   More explicitly, a k-ideal of a blueprint B is a subset I of B• such that 0 ∈ I, ab ∈ I
+for all a ∈ I and b ∈ B• and c ∈ I whenever there are a1 , . . . , an , b, . . . , bm ∈ B• such that
+∑ ai + c = ∑ b j in R. A k-ideal p of B is prime if S = B• − p is a multiplicative subset of
+B• .
+   We define Spec B as the set of all prime ideals p of B together with the topology
+generated by the open subsets
+                               Uh = p ∈ Spec B h ∈
+                                       
+                                                        /p
+where h ranges through all elements of B• . It carries a structure sheaf in blueprints, but
+its definition is somewhat more involved and we omit these details from our account.
+Example 2.12. If B = (A, N[A]) is a monoid, then the last condition in the definition of a
+k-ideal is automatically satisfied. Thus Spec B equals the monoid spectrum Spec A. For
+an arbitrary blueprint B = (A, R), the spectrum Spec B is a subspace of Spec A, together
+with the subspace topology.
+   If B = (R, R) is a semiring, then a k-ideal of B is the same as a k-ideal of R. In
+particular if R is a ring, then the spectrum Spec B coincides with the usual spectrum
+Spec R of the ring R. For an arbitrary blueprint B = (A, R), we have a continuous map
+Spec RZ → Spec B, which is surjective if R = RZ is a ring. As a by-product, we obtain
+the notion of the spectrum of a semiring.
+                                        F1 for everyone                                       19
+
+   As the next case, we inspect the spectrum of our leading example, B = F1 [T1 , . . . , T4 ]
+hT1 T4 ≡ T2 T3 + 1i. As explained above, it is a subspace of Spec F1 [T1 , . . . , T4 ], whose
+prime ideals are of the from pI = (Ti )i∈I for any subset I of {1, . . . , 4}, cf. Example 2.2.
+In order to determine Spec B, we have to verify, for which I, the set pI satisfies the
+additive axiom of a prime ideal of B. This can be tested on the generators of the defining
+congruence of B, which is T1 T4 ≡ T2 T3 + 1.
+   This relation implies that if both T1 T4 and T2 T3 are in a prime ideal p, then 1 ∈ p,
+which is not the case for any prime ideal. Thus we conclude that either T1 T4 or T2 T3
+is not in p, which means that either T1 and T4 are not in p or T2 and T3 are not in p.
+Thus Spec B consists of the prime ideals {0}, (T1 ), . . . , (T4 ), (T1 , T4 ) and (T2 , T3 ). We
+illustrate Spec B in Figure 7.
+
+                         (T2 , T3 )                             (T1 , T4 )
+
+
+                     (T2 )                (T3 ) (T1 )                   (T4 )
+
+
+                                                    {0}
+
+              Figure 7. The spectrum of F1 [T1 , . . . , T4 ] hT1 T4 ∼ T2 T3 + 1i
+
+   We draw the reader’s attention to the fact that the two closed points (T2 , T3 ) and
+(T1 , T4 ) stay in bijection to the elements of the Weyl group W of SL(2), whose two
+elements are the subgroup T of diagonal matrices in SL(2) and the set of antidiagonal
+matrices. We shall investigate this fact in more depth in section 3.2.
+2.2.4. Blue schemes. We omit a rigorous definition of blue schemes, which would
+deviate into too heavy technicalities for the flavour of this overview paper. To give a
+taste, a blue scheme can be seen as a topological space together with a structure sheaf
+in blueprints that is locally isomorphic to the spectrum of a blueprint. This approach
+recovers monoid schemes and usual schemes as special cases; moreover, it provides a
+notion of semiring schemes.
+   We remark that there are other types of blue schemes, which are based on other types
+of prime ideals. These alternate approaches are relevant for different applications.
+   Meaningful variants are the following. The notion of a k-ideal, as considered above,
+yields blue schemes as introduced in [Lor12b]. The notion of an ideal of the underlying
+monoid B• of a blueprint B yields blue schemes that were dubbed subcanonical in
+[Lor17]. Another variant is based on congruences. This has not worked out in the full
+generality of blueprints, but for certain subcategories by Berkovich ([Ber]) and Deitmar
+([Dei11]).
+
+                     3. Growing up: achievements of F1 -geometry
+Most of the initial goals of F1 -geometry have been solved, with the exception of the
+most influential one, the Riemann hypothesis.
+  The abc-conjecture has been claimed to be proven by Mochizuki in his monumental
+work [Moc12]. There are claims that some mathematicians have verified all details of
+20                                     Oliver Lorscheid
+
+the proof, but the acceptance by the community at large is still not clear at the time of
+writing. Although Mochizuki’s proof follows a different line of thought, it contains ideas
+from F1 -geometry, cf. [Moc12, Remark III.3.12.4 (iii)] and [Moc15, Remark 5.10.2
+(iii)].
+    K-theory has been developed for monoids and monoid schemes by Deitmar in [Dei06]
+and by the author’s collaboration [CLS12] with Chu and Santhanam, respectively, and it
+has been shown that the K-theory of F1 coincides with the stable homotopy groups of
+the sphere.
+    Tits’ dream of algebraic groups over F1 has been realized by the author in [Lor12c],
+based on the blueprint approach to F1 .
+    Besides settling these old scores, F1 -geometry has found some further applications.
+Monoid schemes have been utilized by Cortiñas, Haesemeyer, Walker and Weibel
+([CHWW15]) to connect the algebraic K-theory of toric varieties to cyclic homology in
+characteristic p.
+    The Giansiracusa brothers have used in [GG16] F1 -schemes and semiring schemes to
+describe the tropicalization of a classical variety as a tropical scheme. This approach
+towards tropical geometry promises to be a major breakthrough in the field.
+    In the following, we explain some of these applications in more detail. In section
+3.1, we devote a few words to the progress that has been made towards the Riemann
+hypothesis. In section 3.2, we explain in a certain depth how blue schemes can be used
+to realize Tits’ dream of algebraic groups over F1 . Though we try to make this accessible
+to the general reader, we have to assume a certain familiarity with group schemes when
+stating our main results. In section 3.3, we describe the relevance of tropical scheme
+theory for tropical geometry.
+
+3.1. Steps towards the Riemann hypothesis. Several authors have considered com-
+pactifications Spec Z of Spec Z and the arithmetic surface Spec Z ×F1 Spec Z; for in-
+stance, see [Dur07], [Har07], [Lor14], [Tak12]. However, none of these ideas have been
+pursued further to the authors knowledge.
+   A somewhat different route, employing idempotent semirings, is taken by Connes and
+Consani who follow an ambitious programme around the Riemann hypothesis. Their
+research has already lead to a large number of publications; to name a few, cf. [CC15],
+[CC16], [CC17]. We are not attempting an outline of this programme, but refer the
+interested reader to Connes’ chapter in [NR16] for such a summary.
+
+3.2. Algebraic groups over F1 . In this section, we explain how we can make sense of
+Tits’ dream of algebraic groups over F1 in the language of blueprints and blue schemes.
+Let k be a ring and G be a group scheme over k, by which we mean a k-scheme G
+together with a group law µ : G × G → G, a unit  : Spec Z → G and an inversion
+ι : G → G, which are k-linear morphisms that satisfy the usual axioms of a group, i.e.
+the diagrams
+               id×µ                                                ∆         id×ι
+ G×G×G                G×G                        G×G        G          G×G          G×G
+                       µ             id×         µ                                   µ
+        µ×id
+                µ                           id                           
+     G×G               G         G                G       Spec k                     G
+                                         F1 for everyone                                        21
+
+commute where ∆ : G → G × G is the diagonal and the G → Spec k is the unique
+morphism to Spec k. As it is the case for usual groups, the unit  and the inversion ι are
+uniquely determined by G and µ.
+Example 3.1. As our main example that guides us through the concepts of this section,
+we will inspect the special linear group SL(2). As a scheme, SL(2)Z is defined as the
+spectrum of Z[T1 , . . . , T4 ]/(T1 T4 − T2 T3 − 1). We have already seen in Example 2.12 that
+SL(2)Z descends to F1 as a blue scheme.
+  The group law µZ : SL(2)Z × SL(2)Z → SL(2)Z is determined by the matrix multipli-
+cation
+                          0
+                            T1 T20
+                                      00
+                                          T1 T200
+                                                         0 00
+        T1 T2                                             T1 T1 + T20 T300 T10 T200 + T20 T400
+                                                                                               
+                   =                   ·              =
+        T3 T4               T30 T40       T300 T400       T30 T100 + T40 T300 T30 T200 + T40 T400
+of 2 × 2-matrices with determinant 1.
+   To put Tits’ idea of algebraic groups over F1 into modern language, we ask for the
+following: given a group scheme G (over Z) together with a group law µ : G × G → G,
+is there an F1 -scheme GF1 together with a group law µF1 : GF1 × GF1 → GF1 whose base
+extensions to usual schemes are G and µ, respectively?
+   While some approaches to F1 -geometry contain F1 -models GF1 for large classes of
+group schemes G it is a problem to descend the group law to a morphism of F1 -schemes.
+Heuristically speaking, the group law of most group schemes involves the addition of
+coordinates, as it is the case for SL(2)Z , cf. Example 3.1. Therefore it is not possible to
+consider such a morphism in a non-additive geometry.
+   There is a second, more subtle, problem concerning the formula G(F1 ) = W where
+G(F1 ) = Hom(Spec F1 , G) and where W is the Weyl group of G. Namely, if this
+equality was an identity of groups, then it would imply that the Weyl group W of G
+could be embedded as a subgroup of G(Z) such that each element of W lies in the
+coset representing it. But this leads already in the simplest case of G = SL(2) to a
+contradiction: its Weyl group is {±1}, but the coset of −1 is the anti-diagonal in
+SL(2, Z), which does not contain an element of order 2. For more details on this, cf.
+[Lor16].
+   Our conclusion is the following: we are required to alter the notion of a morphism
+to make it possible to descend group laws and we cannot take the formula G(F1 ) = W
+literally, but have to find an appropriate meaning for it. This has been done in [Lor12a],
+using torified schemes and F1 -schemes after Connes and Consani, and in [Lor12c],
+using blue schemes. We describe the latter approach in the upcoming paragraphs.
+
+3.2.1. Algebraic tori. Because of their central role for what is to come we begin with
+a description of (split) algebraic tori and their F1 -models. Algebraic tori are the only
+connected group schemes that fit easily into any concept of F1 -geometry. We examine
+the case of a torus of rank 1 from the perspective of blue schemes; the case of higher
+rank can be deduced easily from the following description.
+   Let B be a blueprint. We define the multiplicative group scheme Gm,B over B as
+Spec B[T ±1 ]. The multiplication µ : Gm,B × Gm,B → Gm,B is given by the morphism
+                          µ# : B[T ±1 ] −→ B[T ±1 ] ⊗B B[T ±1 ],
+                                 aT     7−→     aT ⊗ T
+22                                           Oliver Lorscheid
+
+the unit  : Spec B → Gm,B is given by the morphism
+
+                                        # : B[T ±1 ] −→ B
+                                               aT     7−→ a
+
+and the inversion ι : Gm,B → Gm,B is given by the morphism
+
+                                    ι# : B[T ±1 ] −→ B[T ±1 ].
+                                           aT     7−→ aT −1
+
+If B is F1 or F12 = {0, ±1} h1 + (−1) ≡ 0i, then the base extension of Gm,B to Z is the
+multiplicative group scheme Gm,Z over Z as a group scheme.4
+
+3.2.2. The rank space. A blueprint B is cancellative if ∑ ai + c ≡ ∑ b j + c implies
+∑ ai ≡ ∑ b j . Note that a blueprint B is cancellative if and only if the canonical morphism
+B → B+ Z is injective. A blue scheme is cancellative if its structure sheaf takes values in
+the class of cancellative blueprints.
+  Let X be a blue scheme and x ∈ X a point. As in usual scheme theory, every closed
+subset of X comes with a natural structure of a (reduced) closed subscheme of X, cf.
+[Lor12c, Section 1.4]. The rank rk x of x is the dimension of the Q-scheme x+       Q where x
+denotes the closure of x in X together with its natural structure as a closed subscheme.
+Define
+                                    r    =     min { rk x | x ∈ X }.
+For the sake of simplicity, we will make the following general hypothesis on X.
+      (H) The blue scheme X is connected and cancellative. For all x ∈ X with rk x = r,
+          the closed subscheme x of X is isomorphic to either Grm,F1 or Grm,F 2 .
+                                                                                          1
+
+This hypothesis allows us to surpass certain technical aspects in the definition of the
+rank space.
+  Assume that X satisfies (H). Then the number r is denoted by rk X and is called the
+rank of X. The rank space of X is the blue scheme
+
+                                 X rk =
+                                              a
+                                                  x,
+                                                        rk x=r
+
+and it comes together with a closed immersion ρX : X rk → X.
+  Note that Hypothesis (H) implies that X rk is the disjoint union of copies of tori Grm,F1
+and Grm,F 2 . Since the underlying set of both Grm,F1 and Grm,F 2 is the one-point set, the
+             1                                                            1
+underlying set of X rk is W (X) = {x ∈ X|rk x = r}.
+
+     4Please note that we face a clash of notation at this point: while we denote by G
+                                                                                     m,Z the spectrum of
+the polynomial ring Z[T ]+ , the very same notation is also used for the spectrum of the free blueprint
+({aT i }, Z[T ]+ ) in the definition of Gm,B in the case B = Z. However, for the sake of a more intuitive
+notation, we do not dissolve this contradiction, but refer the reader to [Lor12c] and [Lor16] for a more
+sophisticated treatment.
+                                            F1 for everyone                                     23
+
+
+                                                                                 rank
+               (T2 , T3 )                                     (T1 , T4 )          1
+
+
+            (T2 )                 (T3 ) (T1 )                            (T4 )    2
+
+
+                                               {0}                                3
+
+                       Figure 8. The ranks of the points of SL(2)F1
+
+
+  For a blue scheme Y , we denote by βY : YZ+ → Y the base extension morphism. We
+have XZrk,+ ≃ rk x=r Grm,Z and we obtain a commutative diagram
+             `
+
+
+                                                   ρ+
+                                                    X,Z
+                                    XZrk,+                    / X+
+                                                                Z
+                                           βX rk                    βX
+                                                               
+                                                   ρX
+                                     X rk                     /X .
+
+Example 3.2. We determine the rank space of our leading example SL(2) and its F1 -
+model SL(2)F1 . It is not hard to verify that SL(2)F1 is cancellative. As already explained
+in Example 2.12, the points of SL(2)F1 are of the form (Ti )i∈I where I is a subset of
+{1, 2, 3, 4} that does not contain elements of both {2, 3} and {1, 4}. The subscheme
+         +
+ (Ti )i∈I Q of SL(2)Q represents the set of 2 × 2-matrices TT13 TT24 with determinant 1 for
+                                                          +
+which Ti = 0 for all i ∈ I. For instance, (T2 , T3 )Q is the diagonal torus in SL(2)Q , which
+                              +                                                            +
+is one dimensional, (T1 , T4 )Q is the antidiagonal torus, also one dimensional, (T2 )Q is
+                                                                                                +
+the Borel subgroup of upper triangular matrices, which is of dimension 2, and {0}Q
+equals SL(2)Q . In Figure 8, we illustrate all points of SL(2)F1 , together with their ranks.
+  We conclude that (T2 , T3 ) and (T1 , T4 ) are the points of minimal rank. Since
+
+   (T2 , T3 ) = Spec F1 [T1 , T2 , T3 , T4 ] hT1 T4 ≡ T2 T3 + 1, T2 = T3 = 0i
+                                                                             
+
+              = Spec F1 [T1 , T4 ] hT1 T4 ≡ 1i
+                                                  
+                                                                               ≃ Gm,F1
+
+and
+
+  (T1 , T4 ) = Spec F1 [T1 , T2 , T3 , T4 ] hT1 T4 ≡ T2 T3 + 1, T1 = T4 = 0i
+                                                                            
+
+             = Spec F1 [T2 , T3 ] hT2 T3 + 1 ≡ 0i
+                                                    
+                                                                                   ≃ Gm,F12 ,
+
+we conclude that hypothesis (H) is satisfied by SL(2)F1 and its rank space is
+
+                    SL(2)rk
+                         F1 = (T2 , T3 ) q (T1 , T4 ) ≃ Gm,F1 q Gm,F12 .
+
+3.2.3. The Tits category and the Weyl extension. A Tits morphism ϕ : X → Y between
+two blue schemes X and Y is a pair ϕ = (ϕrk , ϕ+ ) of a morphism ϕrk : X rk → Y rk and a
+24                                    Oliver Lorscheid
+
+morphism ϕ+ : X + → Y + such that the diagram
+                                           ϕrk,+
+                                 XZrk,+     Z
+                                                      YZrk,+
+                               ρ+
+                                X,Z
+                                                            +
+                                                           ρY,Z
+                                             ϕ+
+                                  XZ+         Z
+                                                         YZ+
+                             rk,+
+commutes where ϕ+   Z and ϕZ      are the base extension of ϕ+ and ϕrk , respectively, to
+usual schemes. We denote the category of blue schemes together with Tits morphisms
+by SchT and call it the Tits category.
+   The Tits category comes together with two important functors. The Weyl extension
+W : SchT → Sets sends a blue scheme X to the underlying set W (X) = {x ∈ X|rk x = r}
+of X rk and a Tits morphism ϕ : X → Y to the underlying map W (ϕ) : W (X) → W (Y )
+of the morphism ϕrk : X rk → Y rk .
+   The base extension (−)+ : SchT → Sch+ sends a blue scheme X to its universal
+semiring scheme X + and a Tits morphism ϕ : X → Y to ϕ+ : X + → Y + . We obtain the
+following diagram of “base extension functors”
+
+           Sets                       SchZ                                      SchR
+
+                                             (−)+
+                                                Z                        (−)+
+                                                                            R
+
+                        W
+                                                               SchN
+
+                                                     (−)+
+                                      SchT
+
+from the Tits category SchT to the category Sets of sets, to the category Sch+
+                                                                             Z of usual
+                                +
+schemes and to the category SchR of semiring schemes over any semiring R.
+Theorem 3.3 ([Lor12c, Thm. 3.8]). All functors appearing in the above diagram
+commute with finite products. Consequently, all functors send (semi)group objects
+to (semi)group objects.
+Example 3.4. The group law µZ of SL(2)Z descends uniquely to a Tits morphism
+                   µF1 = (µ+ , µrk ) : SL(2)F1 × SL(2)F1 → SL(2)F1
+in SchT . To wit, µZ descends uniquely to a morphism µ+ : SL(2)N × SL(2)N → SL(2)N
+where
+           SL(2)N = SL(2)+       Spec           T    T    T        T    T  T    1)
+                                                                                  
+                            F1 =        N[T 1 ,  2 ,  3 ,  4 ]/(T1  4 ∼  2  3 +
+since µZ is defined by means of sums and products, without employing subtraction. The
+morphism µrk is determined by the commutativity of the diagram
+                                                   µrk,+
+                                   rk +
+                                                                          +
+                    SL(2)rk
+                         F1 × SL(2)F1 Z                           SL(2)rk
+                                                   Z
+                                                                       F1 Z
+
+
+                                                    µ+
+                     SL(2)N × SL(2)N Z                            SL(2)N Z .
+                                                    Z
+                                                                        
+                                       F1 for everyone                                     25
+
+The Weyl extension of SL(2)F1 consists of two points x23 and x14 , which are the respec-
+tive unique points of the components (T2 , T3 ) and (T1 , T4 ) of the rank space SL(2)rk
+                                                                                      F1 . The
+Weyl extension of µF1 endows W SL(2)F1 with the structure of a group with neutral
+                                              
+element x23 .
+3.2.4. Tits-Weyl models. A Tits monoid is a (not necessarily commutative) monoid in
+SchT , i.e. a blue scheme G together with an associative multiplication µ : G × G → G
+in SchT that has an identity  : Spec F1 → G. We often understand the multiplication µ
+implicitly and refer to a Tits monoid simply by G. The Weyl extension W (G) of a Tits
+monoid G is a unital associative semigroup. The base extension G+ is a (not necessarily
+commutative) monoid in SchN .
+   Given a Tits monoid G satisfying (H) with multiplication µ and identity , the image
+of  : Spec F1 → G consists of a closed point e of X. The closed reduced subscheme
+e = {e} of G is called the Weyl kernel of G.
+Lemma 3.5 ([Lor12c, Lemma 3.11]). The multiplication µ restricts to e, and with this,
+e is isomorphic to the torus Grm,F1 as a group scheme where r = rkX.
+   This means that e+                         r          +
+                     Z is a split torus T ≃ Gm,Z of G = GZ , which we call the canonical
+torus of G (w.r.t. G).
+   If G is an affine smooth group scheme of finite type, then we obtain a canonical
+morphism
+                              Ψe : Grk,+
+                                      Z /eZ
+                                            +
+                                                −→ W (T )
+of schemes where W (T ) = NormG (T )/ CentG (T ) is the Weyl group of G w.r.t. T (cf.
+[ABD+ 64b, XIX.6]). We say that G is a Tits-Weyl model of G if T is a maximal torus of
+G (cf. [ABD+ 64a, XII.1.3]) and Ψe is an isomorphism.
+Example 3.6. The blue scheme SL(2)F1 together with the Tits morphism µF1 is a Tits-
+Weyl model of SL(2)Z , which can be reasoned as follows. It can be easily seen that
+µF1 is an associative multiplication for SL(2)F1 in the Tits category, which has a unit
+ : Spec F1 → SL(2)F1 , which is the pair of the morphism + : Spec N → SL(2)N , given
+by TT13 TT24 7→ 10 01 , and the morphism rk : Spec F1 → (T2 , T3 ) ≃ Spec F1 [T1±1 ] , given
+                                                                                 
+
+by T1 7→ 1.
+   The Weyl kernel e of the Tits monoid SL(2)F1 is therefore (T2 , T3 ) ≃ Spec F1 [T1±1 ] ,
+                                                                                            
+and we have
+                             +
+         e+              T       Spec        T        T    1)  = T = CentSL(2)Z (T )
+                                                             
+           Z  =   (T 2 ,  3 )Z =      Z[T1 ,  4 ]/(T1  4 −
+where the canonical torus T is the diagonal torus, which is a maximal torus of SL(2)Z .
+Since the normalizer of T in SL(2)Z is the union of the diagonal torus T with the
+antidiagonal torus, we obtain an isomorphism
+                     rk,+        ∼
+      Ψe : SL(2)F1 Z /e+   Z    −→ NormSL(2)Z (T )/ CentSL(2)Z (T ) = W (T ).
+This shows that SL(2)F1 together with µF1 is a Tits-Weyl model of SL(2)Z .
+   We review some definitions, before we formulate the properties of Tits-Weyl models
+in Theorem 3.7 below. The ordinary Weyl group of G is the underlying group W of
+W (T ). The reductive rank of G is the rank of a maximal torus of G . For a split reductive
+group scheme, we denote the extended Weyl group or Tits group NormG (T )(Z) by W         e
+(cf. [Tit66] or [Lor12c, Section 3.3]).
+26                                    Oliver Lorscheid
+
+   For a blueprint B, the set GT(B) of Tits morphisms from Spec B to G inherits the
+structure of an associative unital semigroup. In case G has several connected components,
+we define the rank of G as the rank of the connected component of G that contains the
+image of the unit  : Spec F1 → G.
+Theorem 3.7 ([Lor12c, Thm. 3.14]). Let G be an affine smooth group scheme of finite
+type. If G has a Tits-Weyl model G, then the following properties hold true.
+       (i) The Weyl group W (G) is canonically isomorphic to the ordinary Weyl group W
+           of G .
+      (ii) The rank of G is equal to the reductive rank of G .
+     (iii) The semigroup HomT (Spec F1 , G) is canonically a subgroup of W (G).
+     (iv) If G is a split reductive group scheme, then HomT (Spec F12 , G) is canonically
+           isomorphic to the extended Weyl group W  e of G .
+
+  The following theorem is proven in [Lor12c] for a large class of split reductive group
+schemes G and their Levi- and parabolic subgroups. An additional idea of Reineke
+extended this result to all split reductive group schemes; cf. [Lor16].
+Theorem 3.8.          (i) Every split reductive group scheme G has a Tits-Weyl model G.
+    (ii) Let T be the canonical torus of G and M a Levi subgroup of G containing T .
+         Then M has a Tits-Weyl model M that comes together with a locally closed
+         embedding M → G of Tits-monoids that is a Tits morphism.
+   (iii) Let P a parabolic subgroup of G containing T . Then P has a Tits-Weyl model
+         P that comes together with a locally closed embedding P → G of Tits-monoids
+         that is a Tits morphism.
+   (iv) Let U be the unipotent radical of a parabolic subgroup P of GLn,Z that
+         contains the diagonal torus T . Then U , P and GLn,Z have respective Tits-Weyl
+         models U, P and GLn,F1 , together with locally closed embeddings U → P →
+         GLn,F1 of Tits-monoids that are Tits morphisms and such that T is the canonical
+         torus of P and GLn,Z .
+3.2.5. Tits’ dream. With the formalism developed in the previous sections, it is possible
+to make Tits’ idea precise: the combinatorial counterparts of geometries over Fq can be
+seen as geometries over F1 . This is explained in detail in [Lor16, section 6], using the
+language of buildings.
+   We explain how this works in the previously considered example GL(3), cf. Example
+1.1. Similar to the example of SL(2), the group scheme GL(3)Z has a Tits-Weyl model
+GL(3)F1 , which is a monoid in the Tits category. The Weyl extension of GL(3)F1 is the
+symmetric group S3 on three elements, which equals the Weyl group of GL(3).
+   The standard action of GL(3)Z on the Grassmannians Gr(k, 3)Z for k = 1, 2 descends
+to monoid actions of GL(3)F1 on the standard F1 -models Gr(k, 3)F1 of the Grassman-
+nians, considered as objects of the Tits category SchT . The Weyl extension of these
+actions corresponds to the action of S3 on the set Σ(1, 3) = {1, 2, 3} for k = 1 and to the
+action of S3 on the set Σ(2, 3) = {1, 2}, {1, 3}, {2, 3} for k = 2.
+   Replacing Hom(Spec F1 , X) by W (X) makes precise the heuristics
+               W (GL(3)F1 ) = S3         and      W (Gr(k, 3)) = Σ(k, 3).
+This example is generalized to all other classical groups in [Lor16, section 6].
+                                       F1 for everyone                                    27
+
+3.3. Applications to tropical geometry. An exciting new application of F1 -geometry
+lies in the field of tropical geometry. Such an application was already foreseen in various
+works on F1 -geometry, cf. [Dur07], [TV09] and [Lor12b], but it took until 2013 till
+Jeffrey and Noah Giansiracusa ([GG16]) used F1 -schemes and semiring schemes to
+underlay tropical varieties with the structure of a semiring scheme—at least in the case
+of the tropicalization of a classical scheme.
+   We will not dwell into this theory, but restrict ourselves to an explanation of the
+relevance of a scheme theoretic approach for tropical geometry and a description of the
+first results in this direction. For more details, we refer to Giansiracusas’ papers [GG14]
+and [GG16], to Maclagan and Rincón’s papers [MR14] and [MR16] as well as to the
+author’s paper [Lor15].
+
+3.3.1. Some history. Tropical geometry was born with Mikhalkin’s calculation ([Mik00])
+of Gromov-Witten invariants around twenty years ago. He was able to convert the classi-
+cal problem of counting the number of nodal algebraic curves passing through a given
+number of points to a counting problem of tropical curves, and to solve the latter problem
+by means of elementary combinatorics.
+   Since then tropical geometry has developed rapidly. While during the first decade
+of tropical geometry, researchers concentrated mainly on applications in the vein of
+Mikhalkin’s results, tropical geometry entered a second era with the fundamental works
+of Kajiwara ([Kaj08]) and Payne ([Pay09]) around 10 years ago. They provided an
+elegant framework for tropical geometry and tied it to nonarchimedean analytic geometry
+in the sense of Berkovich. Soon after these insights, tropical geometry found applications
+in Brill-Noether theory, moduli spaces, skeleta of Berkovich spaces and rational points.
+
+3.3.2. Tropical varieties. In order to explain the relevance of tropical scheme theory,
+we have to explain what a tropical variety is. To this end, it is easiest to work with the
+max-plus algebras R ∪ {−∞} as the tropical numbers T where addition is the maximum,
+a +trop b = max{a, b}, and its multiplication the usual addition, a ∗trop b = a + b, with
+the obvious extensions of these operations to −∞; cf. Example 2.8 for alternative
+descriptions of the tropical numbers. In this form, the multiplicative units of T are
+T× = R.
+   In its simplest incarnation, a tropical variety is a closed subset of (T× )n = Rn together
+with a subdivision into finitely many rational polyhedra and together with a weight
+function on the top dimensional polyhedra that satisfies a certain balancing condition.
+These definitions somewhat difficult to explain for higher dimensions—and we choose
+to omit them—, but in the case of dimension 1, they boil down to the following.
+   A tropical curve in Rn is a finite graph with possibly unbounded edges, embedded in
+  n
+R , together with a weight function in Z>0 on the edges such that all edges have rational
+slope and such that for every vertex p the following balancing condition is satisfied:
+given an edge e adjacent to p, let ve be primitive vector at p pointing in the direction of
+e, i.e. ve is the shortest vector in Z2 − {0} such that ve is contained in the ray generated
+by {q − p|q ∈ e} ⊂ R2 ; then we have
+                                        ∑            ve = 0.
+                                   e adjacent to p
+
+  The ties to classical algebraic geometry are given in terms of tropicalizations. Let k
+be an algebraically closed field together with a valuation v : k× → R with dense image.
+28                                                    Oliver Lorscheid
+
+
+          1
+              v1
+     1
+         v2    v3                                                         1
+                                                                              balancing condition
+                    1
+                         u1                                                   1v1 + 1v2 + 1v3 = 0
+                                                                     w3
+                              u3               2               w1
+                                                                              1u1 + 1u2 + 2u3 = 0
+                                                                    w2
+                         u2
+                                                                              2w1 + 3w2 + 1w3 = 0
+                    1                                           3
+
+
+                   Figure 9. A tropical curve in R2 and the balancing condition
+
+Let X be a closed subvariety of the algebraic torus (k× )n . Then the coordinatewise
+application of v defines a subset of Rn whose topological closure is defined as the
+tropicalization X trop of X. The structure theorem of tropical geometry asserts that X trop
+can be subdivided into finitely many polyhedra and that the classical variety X determines
+weights for the top dimensional polyhedra that satisfy the balancing condition. This can
+be extended to subvarieties of any toric variety, e.g. subvarieties of a projective space.
+
+
+
+                                             tropicalization
+ 1
+ 0                                       4
+−1                                   2
+                                 0
+         −2    0
+                     2         −2
+
+     Figure 10. Tropicalization of an elliptic curve, including its points at infinity
+
+The central problem. The definition of a tropical variety is problematic in several
+senses. First of all, the structure of a polyhedral complex of X trop is not determined by
+the classical variety, but involves choices. Thus strictly speaking, the tropicalization of a
+classical variety is not a tropical variety. Secondly, there is a discrepancy between the
+polynomial algebra over the tropical numbers and the functions determined by these
+polynomials: different polynomials can define the same function. These defects call for
+more sophisticated foundations of tropical geometry.
+3.3.3. Tropical scheme theory. The above mentioned problem has been overcome by
+the paradigm changing approach of Jeff and Noah Giansiracusa ([GG16]), in which they
+realize the tropicalization X trop of a classical variety X as the set of T-rational points
+of a T-scheme X , which is a semiring scheme with a structure morphism to Spec T.
+This development can be seen as the tropical analogue of the passage from classical
+algebraic geometry, where varieties were considered as point sets in an ambient affine or
+projective space, to modern algebraic geometry in the sense of Grothendieck.
+   Soon after the initial paper [GG16] appeared, Maclagan and Rincón ([MR14]) have
+shown that the balancing condition can be recovered from the structure as a T-scheme
+together with its embedding into an algebraic torus.
+                                          F1 for everyone                                         29
+
+   To complete the step from embedded varieties to abstract schemes, the author has
+developed in [Lor15] a coordinate-free theory of tropicalizations, which is based on
+blueprints and blue schemes. In more detail, the Giansiracusa tropicalization of a
+classical variety is not only a semiring scheme, but comes with the richer structure as
+a blue scheme. The structure of the tropicalization as a blue scheme is sufficient to
+determine the weights of the underlying tropical variety. This makes it possible to pass
+from embedded tropical schemes to abstract tropical schemes. The gain of this change
+of perspective is that it applies, under suitable conditions, to more general situations,
+such as skeleta of Berkovich spaces and tropicalizations of moduli spaces of curves.
+3.3.4. Future applications. At the time of writing, there are high hopes that this new
+approach to tropical geometry will lead to a realization of a conjectured tropical sheaf
+cohomology and subsequently allows for progress in Brill-Noether and Baker-Norine
+theory. It also might put tropical intersection theory on a new footing. Finally, we expect
+that tropical scheme theory will interplay with Connes and Consani’s program around
+the Riemann hypothesis, which is based on idempotent semirings as tropical scheme
+theory is.
+
+                                            References
+[ABD+ 64a] M. Artin, J. E. Bertin, M. Demazure, P. Gabriel, A. Grothendieck, M. Raynaud, and J.-P.
+           Serre. Schémas en groupes II: Groupes de Type Multiplicatif, et Structure des Schémas
+           en Groupes Généraux. Lecture Notes in Mathematics, Vol. 152. Springer-Verlag, Berlin,
+           1962/64.
+[ABD+ 64b] M. Artin, J. E. Bertin, M. Demazure, P. Gabriel, A. Grothendieck, M. Raynaud, and J.-P.
+           Serre. Schémas en groupes. III: Structure des schémas en groupes réductifs. Lecture Notes
+           in Mathematics, Vol. 153. Springer-Verlag, Berlin, 1962/64.
+[BCRW08] Peter Borwein, Stephen Choi, Brendan Rooney, and Andrea Weirathmueller, editors. The
+           Riemann hypothesis. CMS Books in Mathematics/Ouvrages de Mathématiques de la SMC.
+           Springer, New York, 2008. A resource for the afficionado and virtuoso alike.
+[Ber]      Vladimir G. Berkovich. Analytic geometry over F1 . Slides, 2011. Online available at
+           www.wisdom.weizmann.ac.il/~vova/Padova-slides_2011.pdf.
+[Bor09]    James Borger. Λ-rings and the field with one element. Preprint, arXiv:0906.3146, 2009.
+[CC10a]    Alain Connes and Caterina Consani. From monoids to hyperstructures: in search of an
+           absolute arithmetic. In Casimir force, Casimir operators and the Riemann hypothesis, pages
+           147–198. Walter de Gruyter, Berlin, 2010.
+[CC10b]    Alain Connes and Caterina Consani. Schemes over F1 and zeta functions. Compos. Math.,
+           146(6):1383–1415, 2010.
+[CC11a]    Alain Connes and Caterina Consani. The hyperring of adèle classes. J. Number Theory,
+           131(2):159–194, 2011.
+[CC11b]    Alain Connes and Caterina Consani. On the notion of geometry over F1 . J. Algebraic Geom.,
+           20(3):525–557, 2011.
+[CC15]     Alain Connes and Caterina Consani. Universal thickening of the field of real numbers. In
+           Advances in the theory of numbers, volume 77 of Fields Inst. Commun., pages 11–74. Fields
+           Inst. Res. Math. Sci., Toronto, ON, 2015.
+[CC16]     Alain Connes and Caterina Consani. Geometry of the arithmetic site. Adv. Math., 291:274–
+           329, 2016.
+[CC17]     Alain Connes and Caterina Consani. Geometry of the scaling site. Selecta Math. (N.S.),
+           23(3):1803–1850, 2017.
+[CCM09]    Alain Connes, Caterina Consani, and Matilde Marcolli. Fun with F1 . J. Number Theory,
+           129(6):1532–1561, 2009.
+[CHWW15] Guillermo Cortiñas, Christian Haesemeyer, Mark E. Walker, and Charles Weibel. Toric
+           varieties, monoid schemes and cdh descent. J. Reine Angew. Math., 698:1–54, 2015.
+30                                       Oliver Lorscheid
+
+[CLS12]    Chenghao Chu, Oliver Lorscheid, and Rekha Santhanam. Sheaves and K-theory for F1 -
+           schemes. Adv. Math., 229(4):2239–2286, 2012.
+[Dei05]    Anton Deitmar. Schemes over F1 . In Number fields and function fields—two parallel worlds,
+           volume 239 of Progr. Math., pages 87–100. Birkhäuser Boston, Boston, MA, 2005.
+[Dei06]    Anton Deitmar. Remarks on zeta functions and K-theory over F1 . Proc. Japan Acad. Ser. A
+           Math. Sci., 82(8):141–146, 2006.
+[Dei08]    Anton Deitmar. F1 -schemes and toric varieties. Beiträge Algebra Geom., 49(2):517–525,
+           2008.
+[Dei11]    Anton Deitmar. Congruence schemes. Preprint, arXiv:1102.4046, 2011.
+[Den91]    Christopher Deninger. On the Γ-factors attached to motives. Invent. Math., 104(2):245–261,
+           1991.
+[Den92]    Christopher Deninger. Local L-factors of motives and regularized determinants. Invent.
+           Math., 107(1):135–150, 1992.
+[Dur07]    Nikolai Durov. New approach to arakelov geometry. Thesis, arXiv:0704.2030, 2007.
+[FLS17]    Jaret Flores, Oliver Lorscheid, and Matt Szczesny. Čech cohomology over F12 . J. Algebra,
+           485:269–287, 2017.
+[GG14]     Jeffrey Giansiracusa and Noah Giansiracusa. The universal tropicalization and the Berkovich
+           analytification. Preprint, arXiv:1410.4348, 2014.
+[GG16]     Jeffrey Giansiracusa and Noah Giansiracusa. Equations of tropical varieties. Duke Math. J.,
+           165(18):3379–3433, 2016.
+[Har07]    M. J. Shai Haran. Non-additive geometry. Compos. Math., 143(3):618–688, 2007.
+[Har10]    Shai M. J. Haran. Invitation to nonadditive arithmetical geometry. In Casimir force, Casimir
+           operators and the Riemann hypothesis, pages 249–265. Walter de Gruyter, Berlin, 2010.
+[Har17]    M. J. Shai Haran. New foundations for geometry-two non-additive languages for arithmetic
+           geometry. Mem. Amer. Math. Soc., 246(1166):x+200, 2017.
+[Has36]    Helmut Hasse. Zur Theorie der abstrakten elliptischen Funktionenkörper III. Die Struktur des
+           Meromorphismenrings. Die Riemannsche Vermutung. J. Reine Angew. Math., 175:193–208,
+           1936.
+[Jun15]    Jaiung Jun. Algebraic geometry over hyperrings. Preprint, arXiv:1512.04837, 2015.
+[Kaj08]    Takeshi Kajiwara. Tropical toric geometry. In Toric topology, volume 460 of Contemp.
+           Math., pages 197–207. Amer. Math. Soc., Providence, RI, 2008.
+[Kat94]    Kazuya Kato. Toric singularities. Amer. J. Math., 116(5):1073–1099, 1994.
+[KS95]     Mikhail Kapranov and Alexander Smirnov. Cohomology determinants and reciprocity laws:
+           number field case. Unpublished preprint, 1995.
+[Kur92]    Nobushige Kurokawa. Multiple zeta functions: an example. In Zeta functions in geometry
+           (Tokyo, 1990), volume 21 of Adv. Stud. Pure Math., pages 219–226. Kinokuniya, Tokyo,
+           1992.
+[Les11]    Paul Lescot. Absolute algebra II—ideals and spectra. J. Pure Appl. Algebra, 215(7):1782–
+           1790, 2011.
+[Les12]    Paul Lescot. Absolute algebra III—the saturated spectrum. J. Pure Appl. Algebra,
+           216(5):1004–1015, 2012.
+[Lor12a]   Oliver Lorscheid. Algebraic groups over the field with one element. Math. Z., 271(1-2):117–
+           138, 2012.
+[Lor12b]   Oliver Lorscheid. The geometry of blueprints. Part I: Algebraic background and scheme
+           theory. Adv. Math., 229(3):1804–1846, 2012.
+[Lor12c]   Oliver Lorscheid. The geometry of blueprints. Part II: Tits-Weyl models of algebraic groups.
+           Preprint, arXiv:1201.1324, 2012.
+[Lor14]    Oliver Lorscheid. Blueprints—towards absolute arithmetic? J. Number Theory, 144:408–
+           421, 2014.
+[Lor15]    Oliver Lorscheid. Scheme theoretic tropicalization. Preprint, arXiv:1508.07949, 2015.
+[Lor16]    Oliver Lorscheid. A blueprinted view on F1 -geometry. In Absolute arithmetic and F1 -
+           geometry (edited by Koen Thas). European Mathematical Society Publishing House, 2016.
+[Lor17]    Oliver Lorscheid. Blue schemes, semiring schemes, and relative schemes after Toën and
+           Vaquié. J. Algebra, 482:264–302, 2017.
+                                            F1 for everyone                                          31
+
+[LPL11a]    Javier López Peña and Oliver Lorscheid. Mapping F1 -land: an overview of geometries over
+            the field with one element. In Noncommutative geometry, arithmetic, and related topics,
+            pages 241–265. Johns Hopkins Univ. Press, Baltimore, MD, 2011.
+[LPL11b] Javier López Peña and Oliver Lorscheid. Torified varieties and their geometries over F1 .
+            Math. Z., 267(3-4):605–643, 2011.
+[LPL12]     Javier López Peña and Oliver Lorscheid. Projective geometry for blueprints. C. R. Math.
+            Acad. Sci. Paris, 350(9-10):455–458, 2012.
+[Man95]     Yuri I. Manin. Lectures on zeta functions and motives (according to Deninger and Kurokawa).
+            Astérisque, (228):4, 121–163, 1995. Columbia University Number Theory Seminar.
+[Mik00]     Gregory Mikhalkin. Real algebraic curves, the moment map and amoebas. Ann. of Math.
+            (2), 151(1):309–326, 2000.
+[Moc12]     Shinichi Mochizuki. Inter-universal Teichmüller theory I–IV. Preprint, 2012.
+[Moc15]     Shinichi Mochizuki. Topics in absolute anabelian geometry III: global reconstruction algo-
+            rithms. J. Math. Sci. Univ. Tokyo, 22(4):939–1156, 2015.
+[MR14]      Diane Maclagan and Felipe Rincón. Tropical schemes, tropical cycles, and valuated matroids.
+            Preprint, arXiv:1401.4654, 2014.
+[MR16]      Diane Maclagan and Felipe Rincón. Tropical ideals. Preprint, arXiv:1609.03838, 2016.
+[NR16]      John Forbes Nash, Jr. and Michael Th. Rassias, editors. Open problems in mathematics.
+            Springer, [Cham], 2016.
+[Pay09]     Sam Payne. Analytification is the limit of all tropicalizations. Math. Res. Lett., 16(3):543–
+            556, 2009.
+[Rou09]     Guy Rousseau. Les immeubles, une théorie de Jacques Tits, prix Abel 2008. Gaz. Math.,
+            (121):47–64, 2009.
+[Smi92]     Alexander Smirnov. Hurwitz inequalities for number fields. Algebra i Analiz, 4(2):186–209,
+            1992.
+[Sou99]     Christophe Soulé. On the field with one element. Lecture notes from the Arbeitstagung 1999
+            of the Max Planck Institute for Mathematics. Online available at www.mpim-bonn.mpg.
+            de/preblob/175, 1999.
+[Sou04]     Christophe Soulé. Les variétés sur le corps à un élément. Mosc. Math. J., 4(1):217–244, 312,
+            2004.
+[Sou11]     Christophe Soulé. Lectures on algebraic varieties over F1 . In Noncommutative geometry,
+            arithmetic, and related topics, pages 267–277. Johns Hopkins Univ. Press, Baltimore, MD,
+            2011.
+[Tak12]     Satoshi Takagi. Compactifying Spec Z. Preprint, arXiv:1203.4914, 2012.
+[Tit57]     Jacques Tits. Sur les analogues algébriques des groupes semi-simples complexes. In Col-
+            loque d’algèbre supérieure, tenu à Bruxelles du 19 au 22 décembre 1956, Centre Belge de
+            Recherches Mathématiques, pages 261–289. Établissements Ceuterick, Louvain, 1957.
+[Tit66]     Jacques Tits. Normalisateurs de tores I. Groupes de Coxeter étendus. J. Algebra, 4:96–116,
+            1966.
+[TV09]      Bertrand Toën and Michel Vaquié. Au-dessous de Spec Z. J. K-Theory, 3(3):437–500, 2009.
+[Wei48]     André Weil. Sur les courbes algébriques et les variétés qui s’en déduisent. Actualités Sci.
+            Ind., no. 1041 = Publ. Inst. Math. Univ. Strasbourg 7 (1945). Hermann et Cie., Paris, 1948.
+   E-mail address: oliver@impa.br
+
+   I NSTITUTO NACIONAL DE M ATEMÁTICA P URA E A PLICADA , R IO DE JANEIRO , B RAZIL
+

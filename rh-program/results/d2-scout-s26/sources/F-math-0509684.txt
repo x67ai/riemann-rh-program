@@ -1,0 +1,2590 @@
+                                                                              Au-dessous de Spec Z
+
+
+                                                                                Bertrand Toën et Michel Vaquié
+
+
+
+
+arXiv:math/0509684v4 [math.AG] 5 Oct 2007
+                                                                                     Laboratoire Emile Picard
+                                                                                         UMR CNRS 5580
+                                                                                 Université Paul Sabatier, Toulouse
+                                                                                               France
+
+                                                                                            Octobre 2007
+
+
+                                                                                                Résumé
+                                                       Dans ce travail nous utilisons les théories de géométrie algébrique relative et de géométrie
+                                                  algébrique homotopique (voir [HAGII]) afin de construire plusieurs catégories de schémas
+                                                  définis au-dessous de Spec Z. Nous définissons ainsi les catégories de N-schémas, F1 -schémas,
+                                                  S-schémas, S+ -schémas, et S1 -schémas, où (d’un point de vue très intuitif) N est le semi-
+                                                  anneau des entiers naturels, F1 est le corps à un élément, S est l’anneau en spectres des entiers,
+                                                  S+ est le semi-anneau en spectres des entiers naturels et S1 est l’anneau en spectres à un
+                                                  élément. Ces catégories de schémas sont reliées entre elles à l’aide de foncteurs de changement
+                                                  de bases, et possèdent toutes un foncteur de changement de bases vers les Z-schémas. Nous
+                                                  montrons comment les groupes linéaires Gln et les variétés toriques peuvent-être définis
+                                                  comme certains objets de ces catégories.
+
+
+
+                                            Table des matières
+                                            1 Introduction                                                                                                  2
+
+                                            2 Géométrie algébrique relative                                                                               8
+                                              2.1 Construction de topologies de Grothendieck . . . . . . . . . . . . . . . . . . . . .                       8
+                                              2.2 La topologie fidèlement plate . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                  14
+                                              2.3 La topologie de Zariski . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 15
+                                              2.4 Schémas . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                17
+                                              2.5 Changements de bases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                    25
+
+                                            3 Trois exemples de géométries relatives                                                       28
+                                              3.1 Spec Z . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+                                              3.2 Spec N . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+                                              3.3 Spec F1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+
+
+                                                                                                    1
+4 Quelques exemples de schémas au-dessous de Spec Z                                                 31
+  4.1 Quelques schémas en groupes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         31
+  4.2 Variétés toriques . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    33
+
+5 Les modèles homotopiques                                                                          34
+  5.1 Rappel sur la géométrie algébrique homotopique . . . . . . . . . . . . . . . . . .          35
+  5.2 Spec S : La nouvelle géométrie algébrique courageuse . . . . . . . . . . . . . . . .        41
+  5.3 L’anneaux en spectres à un élément S1 . . . . . . . . . . . . . . . . . . . . . . . .       44
+  5.4 Le semi-anneau en spectres des entiers positifs S+ . . . . . . . . . . . . . . . . .           47
+
+
+
+1    Introduction
+Le but de ce travail est de construire plusieurs catégories de schémas qui sont définis sur des
+bases se trouvant au-dessous de Spec Z. Bien entendu, comme Z est l’anneau commutatif ini-
+tial, il est indispensable de sortir du cadre usuel des anneaux et de s’autoriser à utiliser des
+objets plus généraux mais qui ressemblent suffisamment à des anneaux commutatifs afin que la
+notion de schéma puisse être définie. Notre approche à cette question est basée sur la théorie
+de la géométrie algébrique relative, largement insipirée de [Ha]. Elle consiste à remarquer qu’un
+anneau commutatif n’est rien d’autre qu’un monoı̈de commutatif dans la catégorie monoı̈dale
+des Z-modules, et qu’en général pour une catégorie monoı̈dale symétrique (C, ⊗, 1) les monoı̈des
+commutatifs dans C peuvent être pensés comme des modèles pour les schémas affines relatifs
+à C. Il est remarquable qu’une approche si générale (voire simpliste) permette effectivement
+de définir une notion de schéma, et de plus de façon fonctorielle en C. Ainsi, en choisissant C
+munie d’un foncteur monoı̈dal symétrique C −→ Z − M od raisonnable, on trouve une notion de
+schéma relatif à C et un foncteur de changement de bases vers les Z-schémas, et donc une notion
+de schéma au-dessous de Spec Z. Dans cet article nous montrerons comment cette approche,
+ainsi que sa généralisation homotopique où C est de plus munie d’une structure de catégorie de
+modèles de Quillen, permettent de définir cinq catégories de schémas se trouvant en dessous de
+Spec Z.
+
+
+                                   Géométrie algébrique relative
+
+    Les idées générales de la géométrie algébrique relative remontent à [Ha], où des schémas
+relatifs au-dessus d’un topos annelé sont définis. Dans [D] le cas des schémas au-dessus d’une
+catégorie Tannakienne est aussi considéré. La théorie de géométrie algébrique relative que nous
+allons présenter est largement inspirée de ses deux références, bien que considérer des catégories
+de bases qui ne sont pas abéliennes, ni même additives, semble une nouveauté.
+    Donnons-nous une catégorie monoı̈dale symétrique (C, ⊗, 1) que l’on supposera complète,
+cocomplète et fermée (i.e. possède des Hom internes relatifs à la structure monoı̈dale ⊗). Il est
+bien connu que l’on dispose dans C d’une notion de monoı̈de, pour un tel monoı̈de A d’une notion
+de module et pour un morphisme de monoı̈des A −→ B d’un foncteur − ⊗A B de changement
+de bases des A-modules vers les B-modules (voir par exemple [Sa]). En particulier il existe
+une notion de monoı̈de commutatif (associatif et unitaire) dans C, et ils forment une catégorie
+
+
+                                                   2
+que l’on note Comm(C). On définit formellement la catégorie des schémas affines relatifs à C
+par Af fC := Comm(C)op . Tout ceci est pour le moment très formel, mais il se produit alors
+plusieurs miracles.
+
+   • Il existe une topologie de Grothendieck naturelle sur Af fC appelée la topologie plate. Les
+     familles couvrantes {Xi −→ X} pour cette topologie correspondent aux familles finies de
+     morphismes {A −→ Ai } dans Comm(C) telles que le foncteur de changement de bases sur
+     les catégories de modules
+                              Y                          Y
+                                 − ⊗A Ai : A − M od −→      Ai − M od
+                                   i                           i
+
+      soit exact et conservatif.
+
+   • La topologie plate sur Af fC ainsi définie est sous-canonique (i.e. les préfaisceaux représentables
+     sont des faisceaux).
+
+   • Il existe une notion d’ouvert de Zariski dans Af fC , qui par définition sont les morphismes
+     f : X −→ Y dont le morphisme A −→ B correspondant dans Comm(C) satisfait aux trois
+     conditions suivantes.
+
+        1. (f est un monomorphisme) Pour tout A′ ∈ Comm(C) le morphisme induit Hom(B, A′ ) −→
+           Hom(A, A′ ) est injectif.
+        2. (f est plat) Le foncteur de changement de bases
+
+                                       − ⊗A B : A − M od −→ B − M od
+
+           est exact.
+        3. (f est de présentation finie) Pour tout diagramme filtrant d’objets Ci ∈ A/Comm(C),
+           le morphisme naturel
+
+                        ColimHomA/Comm(C) (B, Ci ) −→ HomA/Comm(C) (B, ColimCi )
+
+           est bijectif.
+
+   • La notion d’ouvert de Zariski s’étend de façon naturelle aux morphismes entre faisceaux
+     quelconques (voir définition 2.12).
+
+   • Les ouverts de Zariski sont stables par compositions, isomorphismes et changements de
+     bases.
+
+   • Les ouverts de Zariski donnent lieu à une notion de topologie de Zariski, et celle-ci est
+     encore sous-canonique.
+
+    Les propriétés ci-dessus sont tout ce dont on a besoin pour définir une catégorie de schémas
+relatifs à (C, ⊗, 1). En effet, un schéma relatif est par définition un faisceau sur le site Af fC
+muni de la topologie de Zariski, et qui possède un recouvrement Zariski par des schémas affines
+(voir définition 2.15). La catégorie des schémas ainsi obtenue est notée Sch(C). C’est une sous-
+catégorie pleine, stable par produits fibrés et sommes disjointes, de la catégorie des faisceaux sur
+
+                                                  3
+Af fC . De plus, elle contient une sous-catégorie pleine de schémas affines, qui sont exactement
+les faisceaux représentables, et qui est naturellement équivalente à la catégorie Comm(C)op , op-
+posée de la catégorie des monoı̈des commutatifs dans C (voir §2.2). Enfin, la nature purement
+catégorique de la construction rend la catégorie Sch(C) fonctorielle en C, tout au moins pour
+des adjoints à gauches symétriques monoı̈daux (C, ⊗, 1) −→ (D, ⊗, 1) satisfaisant à quelques
+conditions faciles à vérifier dans la pratique (voir §2.3).
+
+
+                        Trois exemples de géométries algébriques relatives
+
+    Nous considèrerons trois exemples de géométries algébriques relatives, correspondant à trois
+choix pour (C, ⊗, 1). Tout d’abord on posera (C, ⊗, 1) = (Z−M od, ⊗, Z), la catégorie monoı̈dale
+symétrique des groupes abéliens (pour le produit tensoriel). La catégorie des schémas ainsi
+obtenue Z − Sch se trouve être équivalente à la catégorie des schémas au sens usuel. Ce fait
+justifie notre terminologie de schémas relatifs.
+    Notre deuxième exemple sera (C, ⊗, 1) = (N − M od, ⊗, N) la catégorie des monoı̈des com-
+mutatifs, ou encore des semi-groupes abéliens (pour la notion naturelle de produit tensoriel),
+que l’on pourrait aussi appeler des N-modules. La catégorie des schémas sera dans ce cas notée
+N − Sch, et la sous-catégorie des schémas affines est équivalente à la catégorie opposée de celle
+des semi-anneaux commutatifs. Elle est munie d’une adjonction
+
+                  i : Z − Sch −→ N − Sch           Z − Sch ←− N − Sch : − ⊗N Z,
+
+et l’adjoint à gauche i est pleinement fidèle. Le foncteur − ⊗N Z quant à lui est une global-
+isation du foncteur de complétion en groupes des semi-anneaux commutatifs vers les anneaux
+commutatifs.
+    Enfin, notre troisième exemple est (C, ⊗, 1) = (Ens, ×, ∗), la catégorie monoı̈dale symétrique
+des ensembles (pour le produit direct). La catégorie des schémas relatifs sera notée F1 − Sch,
+et l’on y pense comme des modèles pour des variétés définies sur le corps à un élément, au sens
+où cette notion apparait dans [So]. Par définition la sous-catégorie des F1 -schémas affines est
+équivalente à l’opposée de la catégorie des monoı̈des commutatifs. On dispose d’un foncteur de
+changement de bases
+                                   − ⊗F1 N : F1 − Sch −→ N − Sch,
+qui est une globalisation du foncteur qui envoit un monoı̈de commutatif M sur son semi-anneau
+en monoı̈des N[M ], analogue semi des anneaux en groupes. En composant avec le changement
+de base précédent, on obtient deux foncteurs
+
+                                          −⊗F1 N
+                              F1 − Sch         / N − Sch −⊗N Z / Z − Sch,
+
+que l’on peut représenter schématiquement par le diagramme
+
+                                 Spec Z        / Spec N      / Spec F1 .
+
+   Comme exemple de schémas relatifs, nous montrerons que les variétés toriques sont naturelle-
+ment définies sur F1 (voir §4.2). Ceci est très naturel car elles sont obtenues par recollements
+formels de monoı̈des commutatifs. Nous montrons aussi qu’il existe des schémas Gln,N ∈ N−Sch
+
+                                                   4
+et Gln,F1 ∈ F1 − Sch qui sont des versions du schéma en groupes linéaires. Cependant, bien que
+Gln,N ⊗N Z ≃ Gln,Z , il n’est pas vrai que Gln,F1 ⊗F1 Z soit isomorphe à Gln,Z (contrairement à
+ce que l’on pourrait attendre). Les schémas Gln,F1 et Gln,N ont ceci de remarquable que
+
+                                    Gln,F1 (F1 ) ≃ Gln,N (N) ≃ Σn ,
+
+ce qui montre que Gln,N (N) est une extension non-triviale de Gln,Z au-dessus de Spec N (i.e.
+i(Gln,Z ) ≇ Gln,N ). Cet exemple montre que la propriété d’être défini sur n’est pas très per-
+tinente (car tout Z-schéma est défini sur N), et le fait intéressant est en réalité que certains
+Z-schémas possèdent des modèles naturels définis sur N ou sur F1 . La situation est donc tout à
+fait comparable avec ce qu’il se passe en géométrie algébrique dérivée dont la pertinence réside
+dans le fait que les espaces de modules possèdent des extensions naturelles et non-triviales en
+des espaces de modules dérivés (voir [HAGDAG]).
+
+
+                            Géométrie algébrique relative homotopique
+
+    Dans une dernière section nous introduirons trois nouvelles catégories de schémas définies à
+l’aide du formalisme de la géométrie algébrique homotopique de [HAGII]. L’idée générale est que
+l’on peut généraliser la géométrie algébrique relative en supposant de plus que la catégorie C est
+munie d’une structure de modèles compatible avec sa structure monoı̈dale (le cas particulier de
+la géométrie algébrique relative non-homotopique se retrouve en prenant la structure de modèles
+triviale pour laquelle les équivalences sont les isomorphismes). Il se trouve que les notions de
+topologie plate et d’ouverts de Zariski gardent un sens, bien que dans le cas général nous ne
+savons pas montrer que la topologie plate est sous-canonique (nous le montrerons cependant
+pour les exemples qui nous intéressent). On dispose donc d’une notion de schémas relatifs à C,
+dont la catégorie sera notée Sch(C) (voir §5 pour plus de détails).
+    Ceci nous permettra de trouver trois nouvelles notions de schémas au-dessous de Spec Z en
+trouvant trois exemples de catégories de modèles monoı̈dales symétriques C munies de foncteurs
+de Quillen à gauche monoı̈daux C −→ Z − M od. Le premier de ces exemples est lorsque l’on
+pose (C, ⊗, 1) = (GS, ∧, S), la catégorie de modèles monoı̈dale des Γ-espaces très spéciaux. Cette
+catégorie de modèles est un modèle pour la théorie homotopique des spectres connectifs (i.e.
+sans homotopie négative), que l’on peut voir comme des analogues homotopiques des groupes
+abéliens. On dispose ainsi d’une catégorie de schémas relatifs à GS, que l’on notera S − Sch,
+où la notation S rappelle le spectre en sphère. Les S-schémas affines sont en correspondance
+avec les E∞ -anneaux en spectres connectifs (i.e. sans homotopie négative), qui souvent portent
+le nom de (commutative) brave new rings dans la littérature. Les objets de S − Sch peuvent
+donc s’appeler brave new schemes, ou encore d’après une suggestion amusante de J. Tapia des
+nouveaux schémas courageux.
+    Notre second exemple est (C, ⊗, 1) = (SEns, ×, ∗), la catégorie de modèles des ensembles
+simpliciaux munie de son produit direct. Les schémas que l’on obtient sont des versions homo-
+topiques des F1 -schémas, et seront appelés des S1 -schémas, la notation S1 signifiant intuitivement
+l’anneau en spectres à un élément, bien que S1 ne soit ni un anneau ni un spectre (mais ceci est
+compatible avec la terminologie de corps à un élément qui ne désigne pas un corps).
+    Enfin, notre dernier exemple est (C, ⊗, 1) = (MS, ∧, S+ ), la catégorie de modèles des Γ-
+espaces spéciaux. La catégorie de modèles MS est un modèle pour la théorie homotopique
+
+                                                   5
+des E∞ -monoı̈des simpliciaux. La catégorie des schémas relatifs sera notée S+ − Sch, et ses
+objets affines sont en correspondance avec les semi-anneaux en spectres commutatifs (bien que
+ceux-ci ne soient pas des spectres), ou encore des brave new commutative semi-rings, analogues
+homotopiques des semi-anneaux commutatifs. La notation S+ signifie intuitivement le semi-
+anneau en spectres des entiers positifs, et est une version homotopique du semi-anneau N.
+   Pour terminer, on dispose de foncteurs de changement de bases naturels entre toutes ces
+notions, et d’un diagramme commutatif
+
+                                          −⊗S1 S+                     −⊗S+ S
+                        S1 − Sch                    / S+ − Sch                      / S − Sch
+
+
+                     −⊗S1 F1                                 −⊗S+ N                      −⊗S Z
+
+
+                                                                                      
+                        F1 − Sch          −⊗F1 N
+                                                     / N − Sch
+                                                                      −⊗N Z
+                                                                                  / Z − Sch.
+
+
+Schématiquement on représente ce diagramme par le diagramme suivant
+
+                                   Spec Z           / Spec N          / Spec F1
+
+
+                                                                         
+                                   Spec S           / Spec S+         / Spec S1 .
+
+On montrera que Gln peut être défini sur S+ , et que les variétés toriques le sont sur S1 , et donc
+par changement de bases sur S+ et S.
+
+
+                                     Ce que nous n’avons pas fait
+
+    Notre but principal dans ce travail était d’amorcer une étude systématique de la notion de
+schémas définis au-dessous de Spec Z, et de montrer que les techniques de géométrie algébrique
+relative et de géométrie algébrique homotopique semblent bien adaptées pour aborder cette ques-
+tion. Cependant, nous convenons que ce texte ne contient que quelques prémisses de géométrie
+algébrique au-dessous de Spec Z, et nécessiterait de nombreux compléments afin d’aboutir à
+une théorie riche et intéressante. Dans cet ordre d’idées, signalons quelques questions que nous
+pensons importantes et qui ne sont pas traitées dans ce travail.
+    Pour commencer, nous ne nous sommes pas attaqués à la recherche d’une description plus
+explicite de la topologie de Zariski d’un schéma relatif (tel que présentée à la fin du paragraphe
+§2.2). Il devrait toute fois être possible de décrire l’espace topologique |Spec A|, sous-jacent à
+un schéma relatif affine, en des termes plus standards utilisant par exemple une notion d’idéal
+dans A (i.e. des sous-objets du A-module A), tout au moins si la catégorie de base C satis-
+fait à quelques hypothèses supplémentaires (mais raisonables). Dans le cadre de la géométrie
+algébrique homotopique cette question semble reliée de très près à la notion de topologie enrichie
+de [Ve]. Une telle description ne nous semble pas vraiment indispensable, mais elle permettrait
+de comparer plus facilement notre notion de schémas à celles déjà existantes, comme par exemple
+la notion de F1 -schémas de [De].
+
+                                                         6
+     De nombreux espaces de modules ne sont pas des schémas, mais des espaces algébriques voire
+des champs algébriques. Il nous semble donc capital de développer aussi une notion de champs
+algébriques relatifs afin de pouvoir constuire de nouveaux exemples d’objets géométriques définis
+au-dessous de Spec Z. Ceci nécessite bien évidemment une notion de morphismes étales et de
+morphismes lisses. Dans le cas où la catégorie de modèles C est additive (ou même additive
+à homotopie près), de telles notions ont été introduites et étudiées dans [HAGII], et dans ce
+cas on arrive à définir une notion intéressante de champs géométriques relatifs (voir [HAGII]
+pour des exemples de tels objets). Les deux seuls modèles présentés dans ce travail dont les
+catégories de bases sont additives sont les Z-schémas et les S-schémas. Ainsi, on dispose d’une
+notion raisonable de S-champs géométriques, et on peut montrer par exemple que les champs de
+modules de représentations de carquois possèdent des modèles naturels qui sont des S-champs
+géométriques. Plus généralement, on peut démontrer un théorème de représentabilité analogue
+à celui démontré dans [To-Va] qui fournit des exemples de S-champs géométriques associés à des
+catégories spectrales (catégories enrichies dans les spectres).
+     En dehors des deux modèles Spec Z et Spec S, les notions de morphismes étales et de mor-
+phismes lisses développées dans [HAGII] ne sont plus disponibles. Il nous semble crucial de
+chercher à développer de telles notions dans le cas non-additif, ce qui permettrait d’avoir accès
+à la notion de champs géométriques relatifs, et par exemple de montrer que les champs de mod-
+ules de représentations de carquois sont en fait définis sur Spec S+ . D’autres part, la notion de
+lissité semble aussi très importante si l’on souhaite définir une notion de motifs pour les schémas
+relatifs, qui comme il est expliqué dans [So] est largement souhaitée pour les F1 -schémas.
+     Nous n’avons pas étudié les notions de faisceaux quasi-cohérents et cohérents sur les schémas
+relatifs. La notion de faisceau quasi-cohérent est claire et facile à deviner. En contre partie,
+la notion de cohérence semble plus délicate car elle fait intervenir des conditions de finitudes
+qui ne parraissent pas évidentes à généraliser au cadre des schémas relatifs. Ces conditions de
+finitudes, et la notion de faisceaux cohérents qui en découle sont importantes par exemple pour
+pouvoir définir des groupes de K-théorie de schémas relatifs. Il serait par exemple intéressant
+de montrer que les calculs faits dans [Hu] donnent effectivement une description de la K-théorie
+de nos S-variétés toriques XS (∆) (voir §5.3), comme il est suggéré par l’auteur que cela est la
+cas si l’on sait définir ce qu’est un modèle sur S des variétés toriques.
+     Notre notion de N-schémas n’est peut-être pas sans relations avec la géométrie tropicale (voir
+par exemple [R-S-T]), qui elle aussi utilise de façon essentielle des semi-anneaux commutatifs. Il
+serait intéressant de trouver des relations précises entre la géométrie des N-schémas de type fini
+sur le semi-anneau tropical Rtrop et les variétés tropicales que l’on rencontre dans la littérature.
+
+   Remerciements: Nous remercions G. Vezzosi pour plusieurs conversations sur des sujets
+connexes au cours de ces dernières années. Nous remercions aussi J. Kock pour de ses remarques
+nombreuses, précises et utiles. Un grand merci enfin à M. Anel pour son intéret constant aux
+dessous en général et plus particulièrement à ceux de Spec Z.
+
+
+    Convention: Tous les monoı̈des considérés seront unitaires et associatifs. Tous les modules
+sur des monoı̈des seront alors unitaires. De même toutes les catégories monoı̈dales seront munies
+de contraintes d’unité et d’associativité.
+
+
+
+                                                  7
+   Nous négligerons les probèmes ensemblistes liés aux choix d’univers. Le lecteur pourra
+consulter [HAGI, HAGII] où il trouvera une façon de les résoudre.
+
+
+
+2     Géométrie algébrique relative
+Le but de cette première partie est de présenter la notion de schéma relatif à une catégorie
+symétrique monoı̈dale de base C. Nous commencerons par un procédé général de construction
+de topologies de Grothendieck à partir de préchamps en catégories vérifiant certaines conditions.
+Cela nous permettra par la suite de définir la topologie fidèlement plate et quasi-compacte, ainsi
+que la topologie de Zariksi dans des contextes très généraux. Nous définirons alors la notion de
+schéma relatif en recollant des objets affines à l’aide de la topologie de Zariski.
+
+2.1    Construction de topologies de Grothendieck
+Nous nous donnons une catégorie T qui possède des limites finies et un pseudo foncteur
+
+                                         M : T op −→ Cat
+                                              X 7−→ M (X)
+
+qui vérifie les conditions suivantes.
+
+Hypothèse 2.1      1. Pour tout X dans T la catégorie M (X) possède des limites et des col-
+    imites arbitraires.
+
+    2. Pour tout p : X ′ → X dans T le foncteur M (p) = p∗ : M (X) → M (X ′ ) possède un adjoint
+       à droite p∗ : M (X ′ ) → M (X) qui est conservatif (i.e. un morphisme u : x → y dans
+       M (X ′ ) est un isomorphisme si et seulement si le morphisme induit p∗ (u) : p∗ (x) → p∗ (y)
+       est un isomorphisme dans M (X)).
+
+    3. Pour tout diagramme cartésien dans T
+
+                                                              p′
+                                                   Y′              /Y
+
+                                                         q′             q
+                                                                   
+                                                   X′         p
+                                                                   /X
+
+
+       la transformation naturelle de changement de base
+
+                                                  p∗ q∗ ⇒ q∗′ p′∗
+
+       est un isomorphisme.
+
+    Un mot sur la condition (3) ci-dessus. La transformation naturelle en question est construite
+de la façon suivante: on dispose d’isomorphismes naturels
+
+                                 (q ′ )∗ p∗ ≃ (pq ′ )∗ = (qp′ )∗ ≃ (p′ )∗ q ∗
+
+
+                                                         8
+provenant de la structure de pseudo-foncteur de M . Cela nous donne en composant à droite
+par q∗ un isomorphisme naturel (q ′ )∗ p∗ q∗ ≃ (p′ )∗ q ∗ q∗ . En composant ce dernier avec la co-unité
+d’adjonction q ∗ q∗ ⇒ id on trouve une transformation naturelle
+
+                                          (q ′ )∗ p∗ q∗ ⇒ (p′ )∗ ,
+
+qui par adjonction nous donne la transformation naturelle de changement de base
+
+                                           p∗ q∗ ⇒ q∗′ (p′ )∗ .
+
+Remarque 2.2 L’exemple fondamental que nous avons en tête est le suivant: T est la catégorie
+des schémas affines, et pour X un tel schéma M (X) est la catégorie des faisceaux quasi-cohérents
+sur X.
+
+    Nous pouvons alors définir les notions de platitude et de fidèle platitude sur la catégorie T
+associées au pseudo foncteur M .
+
+Définition 2.3 Soit {pi : Xi → X}i∈I une famille de morphismes dans T .
+
+  1. La famille {pi : Xi → X}i∈I est M -couvrante s’il existe un ensemble fini J ⊂ I telle que
+     la famille de foncteurs
+                                    {p∗i : M (X) → M (Xi )}i∈J
+      soit conservative.
+
+  2. La famille {pi : Xi → X}i∈I est M -plate si tous les foncteurs p∗i : M (X) → M (Xi ) sont
+     exacts à gauche (i.e. commutent aux limites finies).
+
+  3. La famille {pi : Xi → X}i∈I est M -fidèlement plate si elle est à la fois M -couvrante et
+     M -plate.
+
+    Dans la suite, nous utiliserons aussi la terminologie de morphisme M -plat, qui, comme le
+lecteur peut le deviner, est un morphisme qui forme une famille (à un unique élément) M -plate
+au sens précédent. En d’autre termes, p : X ′ → X est M -plat si le foncteur p∗ est exact. Re-
+marquons par ailleurs que pour un morphisme M -plat p : X ′ → X le foncteur p∗ est en réalité
+exact. En effet l’existence de l’adjoint à droite implique que p∗ commute aux colimites arbitraires.
+
+    Comme la catégorie M (X) a des limites finies, un foncteur p∗ qui est à la fois exact à gauche
+et conservatif est fidèle, ce qui justifie la notion de M -fidèlement plat.
+
+Proposition 2.4 Les familles M -fidèlement plates définissent une prétopologie sur T .
+
+    Preuve: Il est immédiat que tout isomorphisme est M -fidèlement plat. De plus, de part
+l’existence des isomorphismes naturels (pq)∗ ≃ q ∗ p∗ on voit que si {Xi → X}i est une famille
+M -couvrante, et si pour tout i ∈ I, {Yi,j → Xi }j est une famille M -couvrante, alors la famille
+totale {Yi,j → X}i,j est encore M -couvrante.
+    Il nous reste à démontrer la stabilité des familles M -couvrantes par changements de bases.
+Soit {pi : Xi → X}i une famille M -couvrante et f : Y → X un morphisme. Notons {qi : Yi :=
+
+                                                     9
+Y ×X Xi → Y } la famille obtenue par changement de base. Pour montrer que cette famille est
+M -couvrante, nous considérons le foncteur
+                                  Y                  Y
+                                     qi∗ : M (Y ) −→   M (Yi )
+                                            i                  i
+
+dont nous cherchons à prouver le caractère conservatif. D’après l’hypothèse (2) 2.1 faite sur M
+il suffit pour cela de montrer que le foncteur
+                                Y                          Y
+                                    (fi )∗ qi∗ : M (Y ) −→   M (Xi )
+                                    i                              i
+
+est conservatif (où fi : Yi −→ Xi est la seconde projection). D’après 2.1 (3) ce morphisme est
+isomorphe au morphisme           Y                    Y
+                                ( p∗i )f∗ : M (Y ) −→     M (Xi ).
+                                        i                         i
+                                                           Q       ∗
+Comme f∗ est conservatif (d’après
+                               Q 2.1 (2)) et que               i pi est conservatif par hypothèse, il en est
+de même du foncteur composé ( i p∗i )f∗ . Ce la termine la preuve de la proposition.                     ✷
+
+    La topologie définie par la prétopologie précédente est appelée la topologie M -fidèlement
+plate sur T .
+
+    Le résultat principal de cette section est que M est toujours un champ pour la topologie
+M -fidèlement plate. Avant d’énoncer ce résultat rappelons qu’ici M est un pseudo foncteur en
+catégories et non en groupoı̈des et que la notion de champ est la suivante. On peut considérer
+M iso , le sous pseudo foncteur (non plein) de M qui possède les même objets et formé de tous les
+isomorphismes. Ce sous pseudo foncteur est un pseudo foncteur en groupoı̈des. De plus, pour
+deux objets x et y dans M (X), on dispose d’un préfaisceau de morphisme Hom(x, y): il s’agit
+du préfaisceau sur T /X qui à u : Y → X associe l’ensemble Hom(u∗ (x), u∗ (y)). Par définition,
+M est un champ si les deux conditions suivantes sont satisfaites.
+
+   1. Le pseudo foncteur en groupoı̈des M iso est un champ au sens de [La-Mo].
+   2. Pour tout X ∈ T et tout x, y des objets de M (X), le préfaisceau Hom(x, y) est un faisceau
+      sur T /X.
+
+    On peut aussi combiner ces deux conditions en une: pour un recouvrement {Ui → X}i dans
+T on dispose d’une catégorie de données de descente Desc(U/X, M ). Rappelons que les objets
+de cette catégorie sont les données de descentes {xi , φi,j }i,j , où les xi sont des objets xi ∈ M (Ui )
+et les φi,j : (xi )|Ui,j ≃ (xj )|Ui,j sont des isomorphismes dans M (Ui,j ) satisfaisant à la condition
+de cocycle usuelle φj,k ◦ φi,j = φi,k dans M (Ui,j,k ). Un morphisme {xi , φi,j }i,j → {yi , ψi,j }i,j
+entre de telles données de descente est une famille de morphismes fi : xi → yi dans M (Ui ),
+compatible aux φi,j et aux ψi,j au sens où ψi,j fi = fj φi,j dans M (Ui,j ). Avec ces notations, les
+deux conditions précédentes pour que M soit un champ expriment alors que le foncteur naturel
+                                            M (X) −→ Desc(U/X, M )
+est une équivalence pour tout recouvrement {Ui → X}i .
+
+
+                                                      10
+Théorème 2.5 Le pseudo foncteur M est un champ pour la topologie M -fidèlement plate.
+
+   Preuve: Pour commencer, le pseudo foncteur M peut-être strictifié, par le procédé standard
+qui consiste à lui associer le préfaisceau en catégories qui envoie X ∈ T sur la catégorie des
+pseudo transformations naturelles de Hom(−, X) vers M (voir par exemple [Hol, §3.3]). Les
+conditions 2.1 sont bien entendues préservées par ce procédé de strictification. Nous allons donc
+supposer que M est un préfaisceau en catégories.
+   On considère alors Gpd(T ) la catégorie des préfaisceaux en groupoı̈des sur T , ainsi que
+SP r(T ) la catégorie des préfaisceaux simpliciaux sur T . Rappelons qu’il existe une paire de
+foncteurs adjoints
+                            Π1 : SEns −→ Gpd          Gpd ←− SEns : N,
+où N est le foncteur nerf et Π1 est son adjoint à gauche qui envoie un ensemble simplicial sur
+son groupoı̈de fondamental. Cette adjonction identifie de plus Gpd à une sous-catégorie reflexive
+de SEns. Pour un ensemble simplicial K et une catégorie C, les foncteurs Π1 (K) → C sont en
+bijection naturelle avec les données suivantes:
+  1. une application f : K0 → Ob(C) de l’ensemble des 0-simplexes de K vers l’ensemble des
+     objets de C.
+
+  2. une application m : K1 → Iso(C) de l’ensemble des 1-simplexes de K vers l’ensemble des
+     isomorphismes de C telle que la source de m(k) soit d0 (k) et le but de m(k) soit d1 (k) et
+     avec m(s0 (x)) = idf (x) pour x ∈ K0 .
+
+  3. on demande de plus que pour tout l ∈ K2 on ait
+
+                                        m(d1 (l)) = m(d0 (l)d2 (l)).
+
+   En d’autres termes, Π1 (K) est le groupoı̈de librement engendré par le graphe unitaire K1 ⇒
+K0 avec les relations induites par le morphisme de bord K2 −→ K1 × K1 × K1 .
+   En passant aux préfaisceaux on trouve une paire de foncteurs adjoints
+
+                     Π1 : SP r(T ) −→ Gpd(T )         Gpd(T ) ←− SP r(T ) : N.
+
+Le foncteur Π1 commute aux produits finis et envoie l’ensemble simplicial ∆1 sur le groupoı̈de
+ayant deux objets et un unique isomorphisme entre eux. Cela implique en particulier que le
+foncteur Π1 envoie équivalences d’homotopie sur équivalences catégoriques. En passant aux
+préfaisceaux on voit de plus que Π1 envoie équivalence d’homotopie de préfaisceaux simpliciaux
+sur une équivalence de préfaisceaux en groupoı̈des possédant un quasi-inverse global (ce détail
+nous sera essentiel).
+
+   Soit
+     `maintenant {Ui → X}i un recouvrement dans T . On considère le préfaisceau d’ensembles
+U := i Ui (cette somme est prise dans les préfaisceaux et non dans T ), qui est muni d’une
+augmentation naturelle U → X. On définit N (U/X) ∈ SP r(T ) qui est le nerf du morphisme
+U −→ X:
+                       N (U/X)∗ : ∆op −→ P r(T )
+                                  [n] 7−→ U ×X U ×X · · · ×X U ,
+                                              |         {z        }
+                                                            n+1 f ois
+
+
+                                                 11
+où les faces et dégénérescences sont données par les différentes projections et diagonales. On
+pose
+                                         U/X := Π1 N (U/X),
+qui est encore muni d’une augmentation naturelle p : U/X → X dans Gpd(T ). Le préfaisceau en
+groupoı̈des U/X est construit de sorte à ce que la catégorie des morphismes de préfaisceaux (au
+sens strict) Hom(U/X, M ), s’identifie naturellement à la catégorie Desc(U/X, M ) des données
+de descentes de M pour le recouvrement {Ui → X}i (nous laissons le soin au lecteur de vérifier
+cela en utilisant la description des morphismes Π1 (K) → C donnée plus haut). Pour démontrer
+le théorème 2.5 il s’agit donc de montrer que le foncteur naturel
+
+                   p∗ : M (X) ≃ Hom(X, M ) −→ Hom(U/X, M ) ≃ Desc(U/X, M )
+
+est une équivalence.
+    En utilisant l’hypothèse 2.1 (1) et (2) on voit facilement que le foncteur
+
+                                        p∗ : M (X) −→ Desc(U/X, M )
+
+possède un adjoint à droite p∗ . Ce foncteur envoie une donnée de descente {xi , φi,j } sur l’objet
+                                                                                  
+                                             Y              Y
+                   p∗ ({xi , φi,j }) = Lim  (pi )∗ (xi ) ⇒  (pi,j )∗ ((xi )|Ui,j ) .
+                                                     i                   i,j
+
+Dans cette expression pi,j : Ui,j → X désigne la projection naturelle, et les deux morphismes
+                                                                                                         ∗ (x ))
+proviennent d’une part des morphismes naturels (pi )∗ (xi ) → (pi,j )∗ ((xi )|Ui,j ) ≃ (pi )∗ ((qi,j )∗ qi,j i
+(avec qi,j : Ui,j −→ Ui la première projection), et d’autre par le morphisme
+                                                                                     ∗
+                           (pi )∗ (xi ) → (pi,j )∗ ((xj )|Ui,j ) ≃ (pj )∗ ((qi,j )∗ qi,j (xi ))
+
+obtenu en composant (pi )∗ (xi ) → (pi,j )∗ ((xi )|Ui,j ) avec l’isomorphisme φi,j .
+    Comme le foncteur p∗ est conservatif (d’après la définition des familles M -couvrantes) il suffit
+de montrer la co-unité de l’adjonction p∗ p∗ ⇒ id est un isomorphisme. Pour cela, on considère
+le carré cartésien dans Gpd(T ) suivant
+
+                                                    Y          / U/X
+
+
+                                                                  
+                                                    U           / X.
+               `                                   `
+Comme U =          i Ui , on peut écrire Y =        i Yi avec des diagrammes cartésiens
+
+                                              Yi         /Y         / U/X
+
+
+                                                                        
+                                              Ui         /U            / X.
+
+
+
+
+                                                           12
+Par construction on voit que Yi → Ui est lui-même isomorphe au morphisme qi : Vi /Ui → Ui , où
+Vi désigne le recouvrement {Ui,j → Ui }i obtenu à partir de {Ui → X}i par changement de bases
+le long de Ui → X. Ces carrés cartésiens induit des diagrammes commutatifs de catégories
+
+                                       M (X)                / M (Ui )
+
+                                        p∗                        qi∗
+                                                                
+                                      M (U/X)             / M (Vi /Ui ),
+
+(où l’on note M (F ) pour Hom(F, M ) pour tout préfaisceau en groupoı̈des F ). Par définition
+de la topologie M -fidèlement plate les deux familles de foncteurs
+
+                          M (X) −→ M (Ui )           M (U/X) −→ M (Vi /Ui )
+
+sont conservatives. De plus, on dispose aussi de diagrammes commutatifs à isomorphisme prés
+
+                                        M (X)               / M (Ui )
+                                                 O               O
+                                        p∗                        (qi )∗
+
+                                      M (U/X)             / M (Vi /Ui )
+
+(on utilisera ici l’hypothèse 2.1 (3), la description explicite des adjoints p∗ et (qi )∗ en termes de
+limites finies, et la M -platitude des morphismes Ui → X). Ainsi, pour montrer que la co-unité
+d’adjonction p∗ p∗ ⇒ id est un isomorphisme il suffit de montrer que pour tout i la co-unité
+d’adjonction qi∗ (qi )∗ ⇒ id est un isomorphisme. En d’autres termes, on peut supposer qu’il
+existe un indice i avec X = Ui (et le morphisme Ui → X égal à l’identité).
+    Nous supposons donc qu’il existe i tel que Ui = X. Dans ce cas le morphisme U → X
+possède une section, et il est bien connu que cette section induit un inverse à homotopie près de
+la projection N (U/X) → X. Plus précisément, on construit une contraction de N (U/X) sur X
+
+                                   c : ∆1 × N (U/X) −→ N (U/X)
+
+de la façon suivante: pour m ∈ ∆op le morphisme
+
+                              cm : ∆1 (m) × N (U/X)m −→ N (U/X)m
+
+envoie symboliquement un morphisme u : [m] → [1] dans ∆ et un point (x0 , . . . , xm ) dans
+N (U/X)m sur le point (x0 , . . . , xi−1 , sp(xi ), . . . , sp(xm )), où i est tel que u(j) = 0 ⇔ j < i.
+En appliquant le foncteur Π1 on voit que la projection p : U/X → X possède un quasi-inverse
+global. Cela implique en particulier que pour tout préfaisceau en catégories M ′ le foncteur induit
+sur les catégories de morphismes
+
+                                 Hom(X, M ′ ) −→ Hom(U/X, M ′ )
+
+possède un quasi-inverse et est donc une équivalence. En prenant M ′ = M on trouve bien que
+le foncteur
+                 M (X) ≃ Hom(X, M ′ ) −→ Hom(U/X, M ) ≃ Desc(U/X, M )
+est une équivalence de catégories. Ceci termine la preuve du théorème 2.5.                         ✷
+
+
+                                                     13
+2.2   La topologie fidèlement plate
+Dans cette section nous allons utiliser le théorème général 2.5 pour construire la topologie
+fièlement plate et quasi-compacte sur la catégorie opposée des monoı̈des commutatifs dans une
+catégorie monoı̈dale symétrique quelconque. Cette topologie sera pour nous auxiliaire et nous
+la rafinerons en définissant la topologie de Zariski à la section suivante. C’est cette dernière qui
+sera utilisée pour la définition de schémas.
+
+   Tout au long de cette section (C, ⊗, 1) désignera une catégorie monoı̈dale symétrique avec 1
+comme objet unité. Nous supposerons de plus que C satisfait aux conditions suivantes.
+
+Hypothèse 2.6       1. La catégorie C possède des limites et des colimites.
+
+  2. La structure monoı̈dale ⊗ est fermée. En d’autres termes pour toute paire d’objets X et
+     Y dans C, le foncteur
+                                   C op −→          Ens
+                                    Z     7→ Hom(Z ⊗ X, Y )
+      est représentable par un objet Hom(X, Y ) ∈ C.
+
+    L’hypothèse (2) entraine que le produit tensoriel commute avec les colimites en chacune de
+ses variables. C’est ce que nous utiliserons implicitement tout au long de ce travail, et nous
+n’utiliserons pas les objets Hom(X, Y ).
+
+    Nous noterons tout au long de ce chapitre Comm(C) la catégorie des monoı̈des associatifs,
+unitaires et commutatifs dans (C, ⊗, 1). Nous noterons aussi Af fC := Comm(C)op la catégorie
+opposée de Comm(C). Pour un objet A ∈ Comm(C), nous noterons symboliquement Spec A
+l’objet correspondant dans Af fC .
+
+Définition 2.7 La catégorie des schémas affines sur C est Af fC .
+
+   Comme C possède tout type de limites et de colimites il en est de même de Comm(C), et
+donc de Af fC . De plus, le foncteur d’oubli Comm(C) −→ C possède un adjoint à gauche
+
+                                        L : C −→ Comm(C)
+
+qui envoit un objet M de C sur le monoı̈de commutatif libre L(M ) engendré par M .
+
+    Pour A ∈ Comm(C), on dispose d’une notion de A-module dans C, qui forme une catégorie
+notée A − M od. Cette catégorie possède aussi des limites et des colimites, et de plus le foncteur
+d’oubli A − M od −→ C y commute. Plus généralement, pour un morphisme A −→ B dans
+Comm(C), on dispose d’une adjonction
+
+                 − ⊗A B : A − M od −→ B − M od            A − M od ←− B − M od,
+
+dont l’adjoint B − M od −→ A − M od est le foncteur d’oubli évident. Ce foncteur possède aussi
+un adjoint à droite, et donc commute avec les limites et les colimites. Les morphismes dans
+A − M od entre deux objets M et N seront notés HomA (M, N ).
+
+                                                  14
+   Pour un diagramme de morphismes A′ o   A      / B dans Comm(C), il existe un iso-
+morphisme naturel dans B − M od
+                                   a
+                                A′   B −→ A′ ⊗A B,
+                                          A
+       `
+où A′ A B est la somme calculée dans Comm(C), et A′ ⊗A B est le changement de base du
+A-module A′ par le morphisme A −→ B. Lorsque A = 1 on trouve que la somme directe dans
+la catégorie Comm(C) est donnée par le produit tensoriel de monoı̈des commutatifs.
+    Enfin, pour A ∈ Comm(C), la catégorie A − M od est munie d’une structure monoı̈dale
+symétrique ⊗A , qui fait de A − M od une catégorie monoı̈dale fermée. Les monoı̈des commutat-
+ifs dans A − M od forment une catégorie équivalente à la catégorie A/Comm(C), des objets de
+Comm(C) en dessous de A. Les objets de A/Comm(C) seront appelés des A-algèbres commu-
+tatives.
+
+    Nous appliquons maintenant les résultats de la section précédente au cas où T := Af fC , et
+M est le pseudo foncteur qui envoie A ∈ Comm(C) sur la catégorie A − M od, et un morphisme
+Spec A → Spec B sur le foncteur − ⊗A B : A − M od → B − M od. Les conditions de l’hypothèse
+2.1 sont alors satisfaites. Noter que le point (3) provient précisément du fait que la somme
+amalgammée d’un diagramme B o          A      / C dans Comm(C) est B ⊗A C.
+
+Définition 2.8 Avec les notations ci-dessus, la topologie M -fidèlement plate sur Af fC sera
+appelée la topologie fidèlement plate et quasi-compacte (ou simplement fpqc).
+
+   On déduite directement du thèorème 2.5 que Spec A → A − M od est un champ pour la
+topologie fpqc.
+
+2.3   La topologie de Zariski
+Nous continuons avec une catégorie monoı̈dale symétrique (C, ⊗, 1) qui satisfait aux conditions
+de la section précédente. Dans ce paragraphe nous allons définir la topologie de Zariski sur
+la catégorie Af fC . Nous profiterons de l’occasion pour redonner de manière plus explicite la
+topologie fpqc définie dans la section précédente. Pour cela nous commençons par les définitions
+suivantes.
+
+Définition 2.9 Soit f : Y = Spec B −→ X = Spec A un morphisme dans Af fC .
+
+  1. Le morphisme f est plat si le foncteur
+
+                                   − ⊗A B : A − M od −→ B − M od
+
+      est exact (i.e. commute aux limites finies).
+
+  2. Le morphisme f est un épimorphisme si pour tout A′ ∈ Comm(C), le morphisme
+
+                                   f ∗ : Hom(B, A′ ) −→ Hom(A, A′ )
+
+      est injectif.
+
+                                                 15
+  3. Le morphisme f est de présentation finie, si pour tout diagramme filtrant d’objets A′i ∈
+     A/Comm(C), le morphisme naturel
+
+                   Colimi HomA/Comm(C) (B, A′i ) −→ HomA/Comm(C) (B, Colimi A′i )
+
+      est un isomorphisme.
+
+  4. Le morphisme f est un ouvert de Zariski (ou encore une immersion Zariski ouverte) si
+     le morphisme correspondant A −→ B dans Comm(C) est un épimorphisme plat et de
+     présentation finie.
+
+     A l’aide des définitions précédentes nous définissons les recouvrements fpqc et Zariski de la
+façon suivante.
+
+Définition 2.10      1. Une famille de morphismes
+
+                                   {Xi = Spec Ai −→ X = Spec A}i∈I
+
+      dans Af fC est un recouvrement fpqc (ou plus simplement recouvrement plat) si les deux
+      conditions suivantes sont satisfaites.
+
+       (a) Pour tout i ∈ I le morphisme Xi −→ X est plat.
+       (b) Il existe un sous ensemble fini J ⊂ I, tel que le foncteur
+                                 Y                             Y
+                                    − ⊗A Aj : A − M od −→         Aj − M od
+                                  j∈J                            j∈J
+
+           est conservatif (i.e. un morphisme u : M → N de A-modules est un isomorphisme
+           si et seulement si pour tout j ∈ J le morphisme induit M ⊗A Aj → N ⊗A Aj est un
+           isomorphisme).
+
+  2. Une famille de morphismes
+                                              {Xi −→ X}i∈I
+      dans Af fC est un recouvrement de Zariski si c’est un recouvrement plat et si tous les
+      morphismes Xi −→ X sont des ouverts de Zariski.
+
+    Il est facile de voir que les recouvrements fpqc et Zariski définissent deux prétopologies sur
+la catégorie Af fC . Les topologies de Grothendieck associées à ces deux prétopologies seront
+appelée respectivement la topologie fpqc (ou encore topologie plate) et la la topologie de Zariski.
+Nous nous intéresserons principalement à la topologie de Zariski, et la topologie fpqc sera utilisée
+que de manière auxiliaire (essentiellement pour le corollaire 2.11 ci-dessous).
+    On dispose donc d’une catégorie de préfaisceaux (d’ensembles) P r(Af fC ), ainsi que deux
+sous-catégories de faisceaux
+
+                           Shf pqc (Af fC ) ⊂ ShZar (Af fC ) ⊂ P r(Af fC ).
+
+Comme la catégorie qui nous intéressera principalement est ShZar (Af fC ) nous noterons sim-
+plement
+                                Sh(Af fC ) := ShZar (Af fC ).
+
+                                                  16
+De même, l’expression faisceau, sans plus de précision, fera toujours référence à la notion de
+faisceau pour la topologie de Zariski. Les objets de Shf pqc (Af fC ) seront eux appelés faisceaux
+fpqc.
+
+   On dispose bien entendu du plongement de Yoneda
+
+                                     h− : Af fC −→ P r(Af fC ),
+
+et on identifiera toujours Af fC avec la sous-catégorie pleine de P r(Af fC ) formée de l’image de
+h− .
+
+Corollaire 2.11    1. Pour tout X ∈ Af fC , le préfaisceau hX ∈ P r(Af fC ) est un faisceau
+    fpqc. Ce faisceau sera simplement noté X ∈ Shf pqc (Af fC ) ⊂ Sh(Af fC ).
+
+  2. Le pré-champ sur Af fC , qui à un schéma affine X = Spec A associe la catégorie A−M od,
+     et à un morphisme Y = Spec B −→ X = Spec A associe le foncteur − ⊗A B est un champ
+     pour la topologie fpqc.
+
+   Preuve: Le point (2) est une conséquence du théorème 2.5. Pour (1), il s’agit de montrer que
+pour tout recouvrement fpqc {Ui = Spec Bi −→ X = Spec B}I∈I , avec I fini, et tout B-module
+M ∈ B − M od, le diagramme
+                                 Y               Y
+                         M −→       M ⊗ B Bi ⇒       M ⊗B Bi ⊗B Bj
+                                      i                 i,j
+
+est exact dans C. Cela se déduit aussi du théorème 2.5 en utilisant l’équivalence
+
+                                      M (X) ⇆ Desc(U/X, M )
+
+ainsi que la forme explicite de l’adjoint à droite p∗ donnée dans la section §2.1.                   ✷
+
+    La proposition précédente nous dit d’une part que la topologie fqpc est sous-canonique,
+et d’autre part qu’elle satisfait la condition descente pour les modules. Comme la topologie
+de Zariski est moins fine que la topologie plate nous en déduisons que cela reste vrai pour la
+topologie Zariski.
+    A l’aide de la proposition précédente nous identifierons la catégorie Af fC avec son image
+dans Shf pqc (Af fC ), et donc comme une sous-catégorie pleine de Sh(Af fC ). Ainsi, un faisceau
+isomorphe à un objet de Af fC sera simplement appelé un schéma affine (au dessus de C si l’on
+veut préciser).
+
+2.4    Schémas
+Dans ce paragraphe nous présentons la définition principale de ce travail, à savoir celle de
+schéma au dessus de C. Pour cela, nous commencerons par introduire la notion d’ouvert et
+de recouvrement de Zariski dans Sh(Af fC ). Les schémas seront définis comme les faisceaux
+possédant un recouvrement ouvert Zariski par des schémas affines. Nous montrerons alors
+quelques propriétés de base des schémas (e.g. recollement, stabilité par produits fibrés et réunion
+disjointes).
+
+                                                   17
+Définition 2.12    1. Soit X un schéma affine et F ⊂ X un sous-faisceau de X. Nous dirons
+      que F est un ouvert de Zariski de X s’il existe une famille d’ouverts de Zariski {Xi −→
+      X}i∈I dans Af fC (au sens de la définition 2.9) tel que F soit l’image du morphisme de
+      faisceaux                            a
+                                               Xi −→ X.
+                                              i∈I
+
+  2. Un morphisme f : F −→ G dans Sh(Af fC ) est un ouvert de Zariski (ou encore une
+     immersion Zariski ouverte) si pour tout schéma affine X et tout morphisme X −→ G, le
+     morphisme induit
+                                          F ×G X −→ X
+      est un monomorphisme d’image un ouvert de Zariski de X.
+
+   On remarquera que l’on ne suppose pas l’ensemble d’indices I fini dans la définition précédente.
+On vérifie aisémment que les ouverts de Zariski sont des monomorphismes dans Sh(Af fC ).
+
+Lemme 2.13 Les ouverts Zariski sont stables par changements de bases et composition dans
+Sh(Af fC ).
+
+   Preuve: Ceci est immédiat.                                                                     ✷
+
+   Le lemme suivant montre de plus que la notion d’ouvert Zariski précédente est compatible
+avec celle définie dans la définition 2.9.
+
+Lemme 2.14 Soit f : Z −→ Y un morphisme de schémas affines. Le morphisme f est un
+ouvert Zariski au sens de la définition 2.9 si et seulement s’il est un ouvert de Zariski au sens
+de la définition 2.12 (2).
+
+    Preuve: Commençons par supposer que f soit un ouvert Zariski au sens de la définition
+2.9. Pour tout schéma affine X et tout morphisme X −→ Y on sait que le morphisme induit
+X ×Y Z −→ X est encore un ouvert Zariski au sens de la définition 2.9. Ceci montre que l’on
+peut prendre la famille réduite à un élément {X ×Y Z −→ X} dans la définition 2.12 (2), et
+donc que f est un ouvert de Zariski au sens de la définition 2.12 (2).
+    Inversement, si f est un ouvert de Zariski au sens de la définition 2.12 (2). On prend X = Y
+et X −→ Y l’identité. On voit alors que f est un monomorphisme et que son image est l’image
+d’un morphisme                               a
+                                                Yi −→ Y
+pour un recouvrement Zariski {Yi −→ Y } (que l’on peut supposer fini car Z est affine et donc
+quasi-compact par définition de la topologie de Zariski). Ainsi, Yi ≃ Yi ×Y X, et {Yi −→ X} est
+donc un recouvrement Zariski tel que chaque morphisme induit Yi −→ Y soit un ouvert Zariski.
+Tranduisant en termes de monoides commutatifs, si f : Z = Spec B −→ Y = Spec A, il existe
+une famille de morphismes {B −→ Bi } qui forme un recouvrement Zariski et tel que chaque
+morphisme A −→ Bi soit un ouvert Zariski. On voit facilement à l’aide des définitions que
+cela implique que A −→ B est un morphisme plat au sens de la définition 2.9. Le morphisme
+f étant un monomorphisme on trouve que le morphisme A −→ B est donc un épimorphisme
+
+                                                    18
+plat. Il nous reste à voir qu’il est de présentation finie. Pour cela, soit Bα′ ∈ A/Comm(C) un
+diagramme filtrant d’objets dans A/Comm(C), et montrons que le morphisme naturel
+
+              Colimα HomA/Comm(C) (B, Bα′ ) −→ HomA/Comm(C) (B, Colimα Bα′ )
+
+est bijectif. Comme A −→ B est un épimorphisme on voit que les ensembles source et but
+du morphisme précédent sont ou bien vides ou bien réduits à un point. Il nous suffit donc
+de montrer que si HomA/Comm(C) (B, Colimα Bα′ ) est non vide alors il en est de même de
+Colimα HomA/Comm(C) (B, Bα′ ), c’est à dire qu’il existe un α0 tel que HomA/Comm(C) (B, Bα′ 0 )
+soit non vide.
+    Notons B ′ := Colimα Bα′ et posons
+
+                              Bi′ := B ′ ⊗B Bi            ′
+                                                         Bi,α := Bα′ ⊗B Bi .
+
+On pose aussi pour deux indices i et j
+                                        ′
+                 Bij := Bi ⊗B Bj       Bij := B ′ ⊗B Bij             ′
+                                                                    Bij,α := Bα′ ⊗B Bij .
+
+On dispose de diagrammes dans A/Comm(C) (indexés par la catégorie ⇒)
+                          Y       Y        Y         Y
+                             Bi ⇒   Bij       Bi′ ⇒        ′
+                                                         Bij ,
+                               i            i,j                i    i,j
+
+et le morphisme B −→ B ′ induit un morphisme du premier vers le second. Comme chaque
+Bi et chaque Bij est de présentation finie dans A/Comm(C), ce morphisme de diagrammes se
+factorise par un morphisme vers le diagramme
+                                      Y           Y
+                                            ′        ′
+                                          Bi,α0
+                                                ⇒   Bij,α0
+                                         i                   i,j
+
+pour un certain indice α0 . En passant à la limite le long de la catégorie ⇒, et en appliquant
+le corollaire 2.11 (2) on trouve un morphisme B −→ Bα0 qui factorise le morphisme B −→ B ′
+dans A/Comm(C). Ceci termine la preuve du fait que f est un ouvert Zariski au sens de la
+définition 2.12 (2).                                                                         ✷
+
+   Nous sommes maintenant prêts pour définir la notion de schéma relatif.
+
+Définition 2.15 Un faisceau F ∈ Sh(Af fC ) est un schéma relatif à C (ou simplement un
+schéma si le contexte est clair) s’il existe une famille de schémas affines Xi et un morphisme
+                                               a
+                                            p:    Xi −→ F
+                                                  i∈I
+
+vérifiant les deux conditions suivantes.
+
+  1. Le morphisme p est un épimorphisme de faisceaux.
+
+  2. Pour tout i ∈ I le morphisme Xi −→ F est une immersion Zariski ouverte.
+
+
+                                                        19
+Une famille de morphismes {Xi −→ F } comme ci-dessus est appelé un recouvrement Zariski
+affine de F .
+    La catégorie des schémas relatifs à C est la sous-catégorie pleine de Sh(Af fC ) formée des
+schémas au sens ci-dessus. Nous la noterons Sch(C).
+
+   Une propriété fondamentale des schémas relatifs est la propriété de recollement suivante.
+
+Proposition 2.16 L’application qui à X ∈ Af fC associe la catégorie Sch(C)/X définit un
+sous-champ plein du champ des faisceaux sur Af fC (qui à X associe Sh(Af fC )/X).
+
+   Preuve: Pour cela il nous faut vérifier les deux assertions suivantes.
+
+  1. Soit
+                                                      F               /G
+
+
+                                                                       
+                                                      Y               /X
+
+        un diagramme cartésien de faisceaux avec X et Y des schémas affines. Si G est un schéma
+        alors F est un schéma.
+
+  2. Soit X un schéma affine et F −→ X un morphisme de faisceaux. S’il existe un recouvre-
+     ment Zariski affine {Xi −→ X} tel que F ×X Xi soit un schéma pour tout i, alors F est
+     un schéma.
+
+   Si
+                                             F                  /G
+
+
+                                                                 
+                                             Y                  /X
+                                                             `
+est un carré cartésien comme dans (1) ci-dessus, et si p : i∈I Xi −→ G est un morphisme
+comme dans la définition 2.15, les faisceaux Yi := Xi ×G F ≃ Xi ×X Y sont des schémas affines,
+et le morphisme induit                      a
+                                               Yi −→ F
+                                            i∈I
+
+est un épimorphisme tel que chaque morphisme Yi −→ F soit un ouvert Zariski (voir lemme
+2.13).
+    Soit F −→ X tel qu’au point (2) ci-dessus. Pour tout i, on choisit des schémas affines Uij
+et un recouvrement Zariski affine
+                                   a
+                                       Uij −→ F ×X Xi .
+                                        j
+
+On voit alors que le morphisme total
+                                            a
+                                                      Uij −→ F
+                                            i,j
+
+
+
+                                                           20
+est un épimorphisme. De plus, le lemme 2.13 et la factorisation
+
+                                    Uij −→ F ×X Xi −→ F
+
+montre que chaque Uij −→ F est un ouvert Zariski. Ceci montre que F est un schéma.              ✷
+
+   Notons aussi les deux faits suivants.
+
+Proposition 2.17       1. Soit F un schéma et F0 ⊂ F un ouvert de Zariski au sens de la
+    définition 2.12. Alors F0 est un schéma.
+
+  2. Soit f : F −→ G un morphisme entre schémas. Alors f est un ouvert de Zariski au sens
+     de la définition 2.12 si et seulement si f vérifie les deux conditions suivantes.
+
+      (a) Le morphisme f est un monomorphisme.
+      (b) Il existe un recouvrement Zariski affine {Xi −→ F } tel que chaque morphisme Xi −→
+          G soit un ouvert Zariski.
+
+    Preuve: (1) Soit {Xi −→ F } un recouvrement Zariski affine. Pour chaque i, on pose
+F0,i := F0 ×F X`i . Il existe donc une famille d’ouverts Zariski affine {Uij −→ Xi }, tel que F0,i
+soit l’image de j Uij −→ Xi . Les morphismes Uij −→ F0 sont des ouverts Zariski, et de plus
+                                           a
+                                                 Uij −→ F0
+                                           i,j
+
+est un épimorphisme. Ceci implique que F0 est un schéma.
+
+    (2) Supposons que f soit un ouvert Zariski. Soit {Yi −→ G} un recouvrement Zariski affine
+de G. Pour tout i soit {Xij −→ Yi ×G F } un recouvrement ouvert Zariski affine. A l’aide
+du lemme 2.13 on voit que la famille totale {Xij −→ F } est un recouvrement Zariski affine et
+chaque morphisme Xij −→ G est un ouvert Zariski.
+    Inversement, supposons que f vérifie les deux conditions de la proposition. Soit X un schéma
+affine et X −→ G un morphisme. On pose FX := F ×G X, qui est un sous-faisceau de X. Chaqun
+des morphismes Xi ×G X −→ X est un ouvert Zariski. Il existe donc pour tout i un recou-
+vrement Zariski affine {Uij −→  ` Xi ×G X}. Chaqun des morphismes Uij −→ X est un ouvert
+Zariski, et de plus l’image de i,j Uij −→ X est FX . Ceci montre que f est un ouvert Zariski
+au sens de la définition 2.12.                                                                  ✷
+
+   La proposition suivante donne certaines propriétés de stabilité des schémas.
+
+Proposition 2.18      1. La sous-catégorie Sch(C) de Sh(Af fC ) est stable par réunions dis-
+    jointes et par produits fibrés.
+
+  2. Un faisceau F ∈ Sh(Af fC ) est un schéma si et seulement s’il existe une relation d’équivalence
+     R ⊂ X × X dans Sh(C) vérifiant les propriétés suivantes.
+
+
+
+
+                                                   21
+      (a) On a                                                   a
+                                                            X≃          Ui
+                                                                  i∈I
+          avec Ui des schémas affines.
+      (b) Pour tout (i, j) ∈ I 2 , considérons le sous-faisceau Ri,j ⊂ Ui × Uj défini par le carré
+          cartésien suivant
+                                               Ri,j      / Ui × Uj
+
+
+                                                                       
+                                                       R           / X × X,
+                                   `
+          de sorte à ce que R ≃       i,j Ri,j . Alors chacun des morphismes induits
+
+                                                           Ri,j −→ Ui
+          est un ouvert Zariski.
+      (c) Pour tout i ∈ I, le sous-objet Ri,i ⊂ Ui × Ui est égal à l’image du morphisme diagonal
+          Ui −→ Ui × Ui .
+      (d) On a F ≃ X/R (i.e. F est isomorphe au faisceau quotient de X par la relation R).
+   Preuve: (1) Commençons par les sommes disjointes. Si {Fi } est une famille de schémas, et
+                                      a
+                                        Uij −→ Fi
+                                             j
+
+un morphisme comme dans la définition 2.15, le morphisme total
+                                       a
+                                          Uij −→ F
+                                             i,j
+
+est un épimorphisme. Pour montrer que chaque Uij −→ F est un ouvert Zariski on utilise la
+factorisation
+                                    Uij −→ Fi −→ F.
+On est donc ramenés à montrer que Fi −→ F est un ouvert Zariski. De façon plus générale on
+a le lemme suivant.
+Lemme 2.19 Soit {Fi }i∈I un famille de faisceaux. Pour tout i le morphisme
+                                                 a
+                                    Fi −→ F :=     Fi
+                                                                i∈I
+
+est un ouvert Zariski.
+   Preuve: Soit X un schéma affine et X −→ F un morphisme. Il existe un recouvrement
+Zariski {Xj −→ X}j∈J , que l’on peut supposer fini, et pour j ∈ J un élément a(j) ∈ I et des
+diagrammes commutatifs
+                                        Xj       /X
+
+
+                                                                  
+                                            Fa(j)               / F.
+
+
+                                                           22
+Notons J0 le sous-ensemble des j ∈ J avec a(j) = i, alors l’image du morphisme Fi ×F X −→ X
+est l’image du morphisme                a
+                                            Xj −→ X.
+                                            j∈J0
+
+Ceci montre que Fi −→ F est un ouvert Zariski et finit la preuve du lemme.                      ✷
+
+   Passons à la stabilité de Sch(C) ⊂ Sh(Af fC ) par produits fibrés. Soit
+
+                                                            F
+
+                                                              
+                                              G             /H
+
+un diagramme dans Sch(C), et considérons F ×H G ∈ Sh(Af fC ).
+
+Lemme 2.20 Soit F1 −→ F0 un morphisme de faisceaux avec F0 un schéma. S’il existe un
+recouvrement Zariski affine {Xi −→ F0 }i∈I tel que F1 ×F0 Xi soit un schéma pour tout i ∈ I,
+alors F1 est un schéma.
+
+   Preuve: C’est comme lors de la preuve de la proposition 2.16. Si pour tout i {Xij −→
+F1 ×F0 Xi } est un recouvrement Zariski affine, alors la famille totale {Xij −→ F1 } est un recou-
+vrement Zariski affine.                                                                         ✷
+
+    Le lemme précédent appliqué aux projections F ×H G −→ F et F ×H G −→ G permet de
+se ramener au cas où F et G sont des schémas affines. On peut alors trouver des recouvrements
+Zariski {Xi −→ X} et {Yi −→ Y } et des factorisations
+
+                                      Xi           / Zi o         Yi
+
+                                                                 
+                                       X           /Ho            Y,
+
+où chaque Zi est un schéma affine et Zi −→ H est un ouvert Zariski. Ainsi en appliquant une
+fois de plus le lemme aux projections de X ×H Y sur X et Y on peut supposer qu’il existe un
+schéma affine Z, un ouvert Zariski Z −→ H et des factorisations
+
+                                       XB           /Zo          Y
+                                             BB               }}
+                                               BB            }
+                                                 BB        }}
+                                                   B  ~}}}
+                                                   H.
+Mais comme le morphisme Z −→ H est un monomorphisme on a X ×H Y ≃ X ×Z Y qui est
+donc un schéma affine.
+
+     (2) La nécessité se voit facilement en considérant la relation d’équivalence induite par
+l’épimorphisme                            a
+                                              Xi −→ F
+                                              i
+
+
+                                                    23
+où {Xi −→ F } est un recouvrement Zariski affine.
+     Supposons maintenant qu’un faisceau F s’écrive comme X/R avec X et R comme dans
+l’énoncé de la proposition et montrons que F est un schéma. Le fait que chaque morphisme
+Ui −→ F soit un monomorphisme se déduit de la condition (c) sur les Ri,i . Comme le morphisme
+                                         a
+                                    X=      Ui −→ F = X/R
+
+est un épimorphisme il nous reste à voir que chaque morphisme Ui −→ F est un ouvert Zariski.
+    Soit Y un schéma affine, Y −→ F un morphisme et posons Yi := Y ×F Ui . On considère
+le morphisme Yi −→ Y , et on cherche à montrer que c’est un ouvert Zariski. Il existe un
+recouvrement Zariski affine {Zj −→ Y }j∈J , une application a : J −→ I et des factorisations
+
+                                                Zj         /Y
+
+
+                                                             
+                                            Ua(j)          / F.
+
+On a donc, pour tout j ∈ J
+                                    Yi ×Y Zj ≃ Ri,a(j) ×Ua(j) Zj .
+Comme Ri,a(j) −→ Ua(j) est un ouvert Zariski, on voit que le morphisme
+
+                                           Yi ×Y Zj −→ Y
+
+est un ouvert Zariski pour tout j ∈ J. Il existe donc une famille d’ouverts Zariski affine {Wijk −→
+Y }k∈K telle que l’image du morphisme
+                                           a
+                                              Wijk −→ Y
+                                            k
+
+soit égale à Yi ×Y Zj . On voit alors que la famille d’ouverts Zariski {Wijk −→ Y }(j,k)∈J×K est
+telle que l’image du morphisme             a
+                                               Wijk −→ Y
+                                            j,k
+
+est égale à Yi . Ceci montre que Yi −→ Y est un ouvert Zariski et donc que Ui −→ F est un
+ouvert Zariski. Ceci termine la preuve du fait que F est un schéma.                      ✷
+
+    Pour terminer ce paragraphe signalons un autre point de vue sur les schémas relatifs, que
+nous n’utiliserons pas, mais qui est plus proche de la notion usuelle de schéma en tant qu’espace
+annelé.
+    Soit X un schéma au dessus de C. On définit la catégorie Zar(X) des ouverts de Zariski de X
+comme étant la sous catégorie pleine de Sh(Af fC )/X formée des u : Y → X, avec Y un schéma
+et u une immersion Zariski ouverte. La catégorie Zar(X) est un lieu (locale en anglais, voir
+[Ma-Mo]), c’est à dire que c’est la catégorie sous-jacente à un ensemble partiellement ordonné
+qui possède des sup ainsi que des inf finis, et tel que les inf se distribuent sur les sup. En d’autres
+termes, Zar(X) est une catégorie qui se comporte comme la catégorie des ouverts d’un espace
+topologique. On dispose d’une topologie naturelle induite sur Zar(X), qui n’est autre que la
+
+                                                      24
+restriction de la topologie canonique de Sh(Af `
+                                               fC ). Ainsi, une famille de morphismes {Yi → Y }
+est couvrante dans Zar(X) si le morphisme         Yi −→ Y est un épimorphisme de faisceaux.
+La sous-catégorie pleine de Zar(X) formée des Y → X avec Y un schéma affine sera notée
+ZarAf f (X). Elle est aussi munie de la restriction de la topologie canonique de Sh(Af fC ). De
+plus, le foncteur d’inclusion ZarAf f (X) −→ Zar(X) est continu, et induit une équivalence sur
+les catégories de faisceaux
+                                Sh(Zar(X)) ≃ Sh(ZarAf f (X)).
+Par cette équivalence, nous identifierons souvent implicitement ces deux catégories. Nous la
+noterons simplement Sh(XZar ).
+     Nous savons que le site Zar(X) est un lieu, et que sa topologie est engendrée par une pré-
+topologie quasi-compacte (i.e. les familles couvrantes sont finies), à savoir le site ZarAf f (X).
+Ceci implique que Zar(X) est naturellement équivalent au lieu Ouv(|X|) des ouverts d’un es-
+pace topologique |X| (voir [Ma-Mo, Cor. IX.3.4, Cor IX.11.3]). L’espace topologique |X| est
+évidemment tel que le topos des faisceaux sur |X| est équivalent au topos des faisceaux sur
+Zar(X). Ainsi, nous verrons tout faisceau sur Zar(X) comme un faisceau sur |X|. Ainsi,
+Sh(XZar ) est équivalente à Sh(|X|), la catégorie des faisceaux sur l’espace topologique |X|.
+     Soit Y = Spec A −→ X un objet de ZarAf f (X). On lui associe l’objet correspondant
+A ∈ Comm(C). Lorsque Y varie dans ZarAf f (X) ceci définit un foncteur
+
+                               OX : ZarAf f (X)op −→ Comm(C)
+
+que l’on voit être un faisceau par le corollaire 2.11. On dispose ainsi d’un faisceau OX sur le
+topos Sh(XZar ) à valeurs dans Comm(C), ou de manière équivalente d’un espace |X| muni d’un
+faisceau OX à valeurs dans Comm(C). Le couple (|X|, OX ) joue dans notre situation le rôle des
+espaces annelés pour les schémas au sens usuel. On pourrait développer la théorie de schémas
+relatifs de ce point de vue, en définissant les schémas au dessus de C somme des espaces munis
+de faisceaux à valeurs dans Comm(C) et qui localement sont équivalents à un modèle affine.
+Ceci donne une version un peu plus géométrique des schémas relatifs, mais ceci dit équivalente
+à celle que nous donnons dans la définition 2.15. Il nous semble que ce point de vue n’apporte
+en réalité pas grand chose, d’autant plus que le point de vue fonctoriel nous serait indispensable
+par exemple pour pouvoir considérer les champs géométriques (notion que nous n’aborderons
+cependant pas dans ce travail).
+
+2.5   Changements de bases
+Supposons que (C, ⊗, 1) et (D, ⊗, 1) soient deux catégories monoı̈dales symétriques qui vérifient
+les conditions exposées en début de cette section. On se donne un foncteur monoı̈dal symétrique
+(unitaire et associatif)
+                                             f : C −→ D
+et l’on suppose qu’il possède un adjoint à droite
+
+                                           g : D −→ C.
+
+Cet adjoint à droite n’est plus monoı̈dal, mais on dispose de morphismes fonctoriels g(X) ⊗
+g(Y ) −→ g(X ⊗ Y ), qui sont associatifs, commutatifs et unitaires. Cela suffit pour que g induise
+des foncteurs sur les catégories de monoı̈des commutatifs et de modules.
+
+                                                 25
+    Le foncteur f induit un foncteur sur les catégories des monoı̈des commutatifs, et donc sur
+les catégories des schémas affines
+
+                                        f : Af fC −→ Af fD .
+
+Ce foncteur possède un adjoint à gauche
+
+                                        g : Af fD −→ Af fC
+
+induit par la foncteur g (nous garderons les mêmes notations pour les foncteurs induits sur les
+schémas affines).
+    On dispose ainsi d’une adjonction sur les catégories de préfaisceaux
+
+             g! : P r(Af fD ) −→ P r(Af fC )      P r(Af fD ) ←− P r(Af fC ) : g∗ = f! .
+
+Explicitement, pour F ∈ P r(Af fC ), et X ∈ Af fD on a f! (F )(X) = F (g(X)).
+    Rappelons qu’on dit que le foncteur f : Af fC −→ Af fD est continu pour la topologie
+Zariski (resp. fpqc) si le foncteur f ∗ : P r(Af fD ) −→ P r(Af fC ) préserve les sous-catégories de
+faisceaux Zariski (resp. fpqc). Dans ce cas, l’adjonction (f! , f ∗ ) descend en une adjonction sur
+les catégories de faisceaux
+
+               f!∼ : Sh(Af fC ) −→ Sh(Af fD )         Sh(Af fC ) ←− Sh(Af fD ) : f ∗ .
+
+Explicitement, le foncteur f!∼ = a ◦ f! est le composé de f! sur les préfaisceaux suivi du foncteur
+faisceau associé. Comme le foncteur f commute aux limites finies, il en est de même de f!∼ , et
+ainsi l’adjonction
+
+                f!∼ : Sh(Af fC ) −→ Sh(Af fD )        Sh(Af fC ) ←− Sh(Af fD ) : f ∗
+
+définit un morphisme géométrique de topos.
+
+Proposition 2.21 On garde les notations ci-dessus.
+  1. Le foncteur f : Af fC −→ Af fD préserve les monomorphismes et les limites finies.
+
+  2. Si le foncteur f : Af fC −→ Af fD est continu pour la topologie plate, et si de plus g :
+     D −→ C commute avec les colimites filtrantes, alors le foncteur f : Af fC −→ Af fD est
+     aussi continue pour la topologie de Zariski.
+
+    Preuve: (1) Le foncteur f : C −→ D préserve toutes les colimites car il possède un adjoint à
+droite. Ainsi, il en est de même pour f : Comm(C) −→ Comm(D), et donc le foncteur induit
+sur les catégories opposées préserve les limites et en particulier les limites finies. De ceci nous
+déduisons aussi que f : Af fC −→ Af fD préserve les monomorphismes, car X −→ Y est un
+monomorphisme si et seulement si le morphisme diagonal X −→ X ×Y X est un isomorphisme.
+
+    (2) Par le point (1) et l’hypothèse on sait déjà que f : Comm(C) −→ Comm(D) préserve les
+épimorphismes plats. Il nous reste donc à voir qu’il préserve aussi les morphismes de présentation
+finie. Mais ceci se voit immédiatement par adjonction.                                              ✷
+
+
+                                                 26
+Corollaire 2.22 On suppose que le foncteur g : D −→ C est conservatif et qu’il commute aux
+colimites filtrantes. On suppose de plus que pour tout morphisme plat A −→ B dans Comm(C),
+et tout N ∈ f (A) − M od, le morphisme naturel
+
+                                 g(N ) ⊗A B −→ g(N ⊗f (A) f (B))
+
+est un isomorphisme dans B − M od. Alors, f : Af fC −→ Af fD est continu pour la topologie
+de Zariski, et le foncteur
+                             f!∼ : Sh(Af fC ) −→ Sh(Af fD )
+préserve les sous-catégories des schémas et induit un foncteur
+
+                                Sch(C) −→     Sch(D)
+                                  X    7→ X ×C D := f!∼ (X).
+
+Pour tout schéma affine X au dessus de C f!∼ (X) est isomorphe au schéma affine f (X) ∈ Af fD .
+
+    Preuve: Commençons par montrer que le foncteur f : Af fC −→ Af fD est continu pour la
+topologie plate. Pour cela, montrons tout d’abord que pour un morphisme A −→ B plat dans
+Comm(C) le morphisme induit f (A) −→ f (B) est plat dans Comm(D). Par hypothèse, on
+dispose d’un diagramme commutatif (à isomorphisme près)
+                                                    g
+                                   f (A) − M od         / A − M od
+
+
+                                                             
+                                   f (B) − M od     g
+                                                        / B − M od,
+
+
+où les foncteurs verticaux sont les changements de bases. Comme le foncteur g est conservatif
+et que A −→ B est plat, on voit facilement que cela implique que f (A) −→ f (B) est plat.
+Le même argument montre que si {Xi −→ X} est un recouvrement plat dans Af fC alors
+{f (Xi ) −→ f (X)} est un recouvrement plat dans Af fD . Ceci fini de montrer que f : Af fC −→
+Af fD est continu pour la topologie plate. Par la proposition 2.21 (2) on voit que f est continu
+pour la topologie de Zariski.
+    Soit maintenant X un schéma au dessus de C. On sait d’après la proposition 2.18 que l’on
+peut l’écrire comme un quotient Y /R, où Y est une réunion disjointe de schémas affines et
+R ⊂ Y × Y une relation d’équivalence vérifiant les conditions de la proposition 2.21. Comme f!∼
+est un adjoint à gauche on trouve que f!∼ (X) est isomorphe au quotient f!∼ (Y )/f!∼ (R). Comme
+le foncteur f!∼ préserve clairement les schémas affines, on a bien que f!∼ (Y ) est une réunion
+disjointe de schémas affines. De plus, comme f!∼ préserve les épimorphismes (car il commute
+aux colimites et aux limites finies) et les ouverts Zariski (voir proprosition 2.21), on voit que la
+relation déquivalence f!∼ (R) −→ f!∼ (Y ) × f!∼ (Y ) vérifie les conditions de la proposition 2.18 et
+donc que f!∼ (X) est un schéma.                                                                     ✷
+
+   Pour un monoı̈de commutatif A ∈ Comm(C), on a un isomorphisme naturel
+
+                                     f!∼ (Spec A) ≃ Spec f (A).
+
+
+                                                  27
+En effet, par définition le foncteur f!∼ est le composé de f! , défini sur les préfaisceaux, et
+du foncteur faisceau associé. Il est facile de voir que f! (Spec A) ≃ Spec f (A), en tant que
+préfaisceau. Comme les préfaisceaux représentables par des schémas affines sont des faisceaux,
+ceci montre bien que f!∼ (Spec A) ≃ Spec f (A). De ceci on tire que pour tout schéma affine
+X = Spec A ∈ Af fC , le foncteur f!∼ (X) est donné par
+
+                                 Comm(C) −→     Ens
+                                    B     7→ Hom(A, g(B)).
+
+3     Trois exemples de géométries relatives
+Dans cette section nous présentons nos trois premiers exemples de catégories de schémas relatifs.
+
+3.1   Spec Z
+Posons (C, ⊗, 1) = (Z − M od, ⊗, Z), la catégorie monoı̈dale symétrique des groupes abéliens.
+Elle vérifie les conditions de la section précédente, donc on dispose d’une catégorie Sch(Z−M od)
+des schémas au dessus de Z − M od. On voit facilement en décanulant les définitions que les
+notions de topologie plate et d’ouverts de Zariski coincident avec les notions usuelles (il suffit
+de remarquer qu’un morphisme de schémas est une immersion ouverte si et seulement si c’est
+un monomorphisme plat et localement de présentation finie). Ainsi, on voit facilement que la
+catégorie Sch(Z − M od) est naturellement équivalente à la catégorie des schémas au sens usuel.
+
+Définition 3.1 La catégorie des Z-schémas est Sch(Z − M od). Elle sera notée Z − Sch.
+
+3.2   Spec N
+Posons maintenant (C, ⊗, 1) := (N − M od, ⊗, N), la catégorie des monoı̈des commutatifs (uni-
+taires et associatifs), munie de son produit tensoriel usuel. Nous appellerons les objets de
+N−M od aussi des N-modules, pour des raisons évidentes. Les conditions de la section précédente
+sont bien entendues vérifiées, et on dispose donc d’une catégorie Sch(N − M od) des schémas
+relatifs à N − M od.
+
+Définition 3.2 La catégorie des N-schémas est Sch(N − M od). Elle sera notée N − Sch.
+
+   Par définition la catégorie des N-schémas affines est équivalente à la catégorie opposée des
+semi-anneaux commutatifs.
+
+    On dispose d’un adjonction
+
+                   f : N − M od −→ Z − M od           N − M od ←− Z − M od : g,
+
+où g est le foncteur d’inclusion des groupes abéliens dans les monoı̈des abéliens, et f est le
+foncteur de complétion des monoı̈des abéliens vers les groupes abéliens. Le foncteur f est
+monoı̈dal symétrique.
+
+
+
+                                                 28
+Proposition 3.3 Le foncteur
+                                     f : N − M od −→ Z − M od
+vérifie les conditions du corollaire 2.22.
+    Preuve: Le fait que g soit conservatif et commute aux colimites filtrantes est clair. Pour un
+semi-anneau commutatif A, le foncteur g : f (A) − M od −→ A − M od est pleinement fidèle, et
+son image consiste en les A-modules N tel que le monoı̈de sous-jacent à N est un groupe. Il est
+alors immédiat de constater que pour un morphisme quelconque de semi-anneaux A −→ B, et
+tout f (A)-module N , le morphisme naturel
+                                  g(N ) ⊗A B −→ g(N ⊗f (A) f (B))
+est un isomorphisme (ceci est équivalent au fait que le monoı̈de sous-jacent à g(N ) ⊗A B est un
+groupe).                                                                                         ✷
+
+   D’après le corollaire 2.22 on trouve donc un foncteur de changement de bases
+                                  − ⊗N Z : N − Sch −→ Z − Sch.
+Proposition 3.4 Le foncteur
+                                   − ⊗N Z : N − Sch −→ Z − Sch
+possède un adjoint à gauche qui est pleinement fidèle.
+    Preuve: Revenons au foncteur de complétion f : N − M od −→ Z − M od, et à son adjoint
+à droite le foncteur d’inclusion g : Z − M od −→ N − M od. Ils induisent une adjonction sur les
+catégories de schémas affines
+                            g : Af fZ −→ Af fN        Af fZ ←− Af fN : f
+où f est maintenant l’adjoint à droite. On sait que f est continu pour la topologie Zariski, et
+que le foncteur induit
+                                  f!∼ : Sh(Af fN ) −→ Sh(Af fZ )
+préserve les sous-catégories de schémas. Il est facile de voir que g est aussi un foncteur continu
+pour la topologie Zariski, et que l’on a donc
+                                f!∼ ≃ g∗ : Sh(Af fN ) −→ Sh(Af fZ ).
+Le foncteur
+                                   g!∼ : Sh(Af fZ ) −→ Sh(Af fN )
+est alors un adjoint à gauche de f!∼ ≃ g∗ . De plus, g étant pleinement fidèle on voit facile-
+ment que g!∼ est aussi pleinement fidèle. Il nous reste donc à montrer que g!∼ préserve aussi les
+schémas. Pour cela il suffit d’utiliser, comme pour la preuve du corollaire 2.22, qu’il préserve la
+notion d’ouverts Zariski.                                                                          ✷
+
+   D’après la proposition 3.4 nous verrons la catégorie des Z-schémas plongée dans celle des
+N-schémas. Il faut comprendre la proposition 3.4 à travers le fait que le morphisme
+                                         Spec Z −→ Spec N
+est un monomorphisme.
+
+                                                 29
+3.3    Spec F1
+Nous posons maintenant (C, ⊗, 1) = (Ens, ×, ∗), la catégorie des ensembles munie de sa struc-
+ture monoı̈dale symétrique donnée par le produit direct. Cette catégorie vérifie les conditions de
+notre premier paragraphe, et on dispose donc d’une catégorie Sch(Ens) de schémas au dessus
+de Ens. Nous appellerons les objets de Sch(Ens) des F1 -schémas.
+
+Définition 3.5 La catégorie des F1 -schémas est Sch(Ens). Elle sera notée F1 − Sch.
+
+   Par construction, la catégorie Af fF1 des F1 -schémas affines est équivalente à la catégorie
+opposée de la catégorie des monoı̈des commutatifs (associatifs et unitaires).
+
+   On dispose d’une adjonction
+
+           f : F1 − M od = Ens −→ N − M od             F1 − M od = Ens ←− N − M od : g,
+
+où g est le foncteur d’oubli qui envoit un monoı̈de commutatif sur son ensemble sous-jacent. Le
+foncteur f envoit un ensemble X sur X ⊗ N le monoı̈de commutatif libre engendré par X. Le
+foncteur f est monoı̈dal symétrique et induit donc un foncteur sur les schémas affines
+
+                                          Af fF1 −→ Af fN .
+
+Ce foncteur est celui qui envoit un monoı̈de commutatif M sur le semi-anneau N[M ], analogue
+semi des anneaux en groupes.
+
+Proposition 3.6 Le foncteur
+
+                                    f : F1 − M od −→ N − M od
+
+vérifie les conditions du corollaire 2.22.
+
+   Preuve: Le fait que g soit conservatif et commute aux colimites filtrantes est clair. Soit
+A −→ B un morphisme plat dans Comm(F1 − M od). Considérons le morphisme de semi-
+anneaux induit N[A] −→ N[B]. On considère le diagramme de catégories et foncteurs
+                                                   g
+                                    N[A] − M od         / A − M od
+
+
+                                                  g          
+                                    N[B] − M od         / B − M od,
+
+dont on doit montrer qu’il commute à isomorphisme près (plus précisément que la transforma-
+tion naturelle entre les deux compositions possibles est un isomorphisme). On peut remarquer
+que le catégorie N[A] − M od s’identifie à la catégorie des monoides abéliens dans A − M od. De
+même, le catégorie N[B] − M od s’identifie à la catégorie des monoides abéliens dans B − M od.
+Le fait que le diagramme ci-dessus commute est alors un conséquence du fait que le foncteur de
+changement de bases A − M od −→ B − M od commute aux produits directs (qui lui-même est
+un conséquence du fait que A −→ B soit plat).                                                    ✷
+
+
+                                                  30
+    D’après le corollaire 2.22 on dispose donc d’un foncteur de changement de bases
+
+                                 − ⊗F1 N : F1 − Sch −→ N − Sch.
+
+En composant avec le changement de bases des N-schémas vers les Z-schémas on trouve un
+changement de bases
+                           − ⊗F1 Z : F1 − Sch −→ Z − Sch.
+
+
+4     Quelques exemples de schémas au-dessous de Spec Z
+4.1    Quelques schémas en groupes
+Soit M un groupe abélien, que l’on peut regarder comme un monoı̈de commutatif. On considère
+DF1 (M ) := Spec M ∈ F1 − Sch. On remarque immédiatement que
+
+                              DF1 (M ) ⊗F1 Z ≃ Spec Z[M ] ≃ D(M ),
+
+est le Z-schéma en groupes diagonalisable associé à M . On voit ainsi que tous les schémas en
+groupes diagonalisables sont définis sur F1 . En particulier, on pose Spec F1n := DF1 (Z/n). Ceci
+nous donne
+                                       Spec F1n ⊗F1 Z ≃ µn ,
+comme on doit s’y attendre.
+
+    Examinons maintenant le cas du groupe linéaire Gln . Revenons un moment au cas général
+d’une catégorie monoı̈dale symétrique (C, ⊗, 1) qui vérifie les conditions 2.6. Posons En =
+{1, . . . , n}, l’ensemble à n éléments. On définit un foncteur
+
+                             Gln,C : Comm(C) −→     Ens
+                                                    `
+                                        A    7→ Aut( En A),
+    `                                                                            `
+où En A est le A-module libre sur`En (i.e. le A-module libre de rang n), et Aut( En A) est
+le groupe des automorphismes de En A dans A − M od. Ce foncteur est un faisceau et sera
+considéré comme objet de Sh(Af fC ). Nous noterons
+
+                                    Gln,Z      Gln,N     Gln,F1
+
+pour les trois cas de (C, ⊗, 1) qui nous intéressent.
+
+Proposition 4.1     1. Le faisceau Gln,Z (resp. Gln,N , resp. Gln,F1 ) est représentable par un
+    Z-schéma affine (resp. un N-schéma affine, resp. un F1 -schéma).
+
+    2. Le morphisme naturel
+                                          Gln,N ⊗N Z −→ Gln,Z
+      est un isomorphisme.
+
+    3. Le Z-schéma Gln,F1 ⊗F1 Z est isomorphe au produit semi direct de Σn par Gnm .
+
+
+                                                 31
+  4. On a
+                         Gln,Z (Z) = Gln (Z)      Gln,N (N) = Gln,F1 (F1 ) = Σn .
+                                                                                     `
+   Preuve: (1) Commençons par noter Mn,C le faisceau des endomorphismes de              En A
+
+                            Mn,C : Comm(C) −→     Ens
+                                                   `
+                                      A     7→ End( En A).
+
+Supposons pour commencer que dans C les sommes directes sont aussi`des produits directs,
+c’est à dire que pour deux objets X et Y de C, le morphisme naturel X Y −→ X × Y est un
+isomorphisme. Ceci est le cas par exemple pour C = N − M od et pour C = Z − M od. Dans ce
+cas, on voit facilement que Mn,C est isomorphe au foncteur
+
+                                 Mn,C : Comm(C) −→ Ens
+                                                     2
+                                           A    7→ An .
+                                            2
+En d’autres termes, si l’on note B := L(1n ) ∈ Comm(C), le monoı̈de commutatif libre engendré
+               2
+par l’objet 1n , alors on a Mn,C ≃ Spec B. Ainsi, le faisceau Mn,C est représentable par un
+schéma affine. De plus, il existe des carrés cartésiens de faisceaux
+
+                                    Gln,C       / Mn,C × Mn,C
+
+                                                            m
+                                                       
+                                      •         / Mn,C × Mn,C ,
+                                            e
+
+où le morphisme m envoie symboliquement (u, v) sur (uv, vu), et où le morphisme e est le
+morphisme unité. Ceci montre donc que Gln,C est représentable par un schéma affine, toujours
+sous l’hypothèse que les sommes directes sont aussi des produits directs dans C. Ceci montre
+donc que Gln,N et Gln,Z sont tous deux des schémas affines.
+    Il nous reste
+             ` à traiter le cas de Gln,F1 . Mais, pour A ∈ Comm(Ens), on voit facilement que le
+groupe Aut( En A) est isomorphe au produit semi-direct du groupe symétrique Σn par le groupe
+A× des éléments inversibles dans le monoı̈de A. En d’autres termes, si l’on note Gm,F1 := Gl1,F1 ,
+on trouve que le faisceau en groupes Gln,F1 est isomorphe au produit semi-direct du faisceau
+constant Σn par le faisceau en groupes Gnm,F1 . Ainsi, en tant que faisceau d’ensembles Gln,F1
+est isomorphe à une réunion disjointe de Gnm,F1 . Il nous suffit donc de montrer que Gm,F1 est
+représentable par un schéma affine. Mais on voit facilement que
+
+                                     Gm,F1 ≃ Spec Z ≃ D(Z),
+
+où Z ici est considéré comme un monoı̈de pour la loi additive, et donc comme un objet de
+Comm(Ens) (ce Spec Z est un F1 -schéma et n’a évidemment rien à voir avec le Spec Z qui est
+un Z-schéma). Ceci termine la preuve du point (1).
+
+   (2) Ceci est évident car pour A ∈ Comm(Z − M od) un anneau commutatif, on a
+
+                                   Gln,N ⊗N Z(A) ≃ Gln,N (A),
+
+
+                                                32
+où A est aussi condidéré comme un semi-anneau (ceci est vrai car Gln,N est affine). Comme les
+A-modules dans Z − M od forment une sous-catégorie pleine des A-modules dans N − M od, on
+voit bien que
+                         Gln,N ⊗N Z(A) ≃ Gln,N (A) ≃ Gln (A) ≃ Gln,Z (A).
+   (3) Nous avons vu lors de la preuve de (1) que le faisceau en groupes Gln,F1 est le produit
+semi-direct de Σn par Gnm,F1 . Ainsi, Gln,F1 ⊗F1 Z est le produit semi-direct du faisceau constant
+Σn par (Gm,F1 ⊗F1 Z)n . Mais nous avons vu lors de la discussion sur les groupes de type
+multiplicatif que
+                               Gm,F1 ⊗F1 Z ≃ DF1 (Z) ⊗F1 Z ≃ Gm .
+     (4) Les valeurs de Gln,Z (Z) et Gln,F1 (F1 ) ont déjà été vues. Le groupe Gln,N (N) est par
+définition le groupe des automorphismes de Nn en tant que N-module. Il s’identifie donc au
+sous-groupe des matrices n × n à coefficients dans N qui possèdent un inverse qui soit aussi à
+coefficients dans N. Il s’agit donc du sous-groupe des matrices de permutation et donc de Σn .
+✷
+
+   La conclusion de la proposition 4.1 est que Gln,Z est défini sur N, mais pas sur F1 pour n > 1.
+
+4.2    Variétés toriques
+Soit ∆ un éventail au sens de [O]. Pour un élément σ ∈ ∆, on dispose d’un cone dual σ ∗ dont les
+points entiers forment un monoı̈de commutatif noté Mσ . Pour σ ′ ⊂ σ une face de σ, on dispose
+d’un morphisme de monoı̈des Mσ −→ Mσ′ . Si l’on pose Uσ := Spec Mσ ∈ F1 − Sch, alors le
+morphisme
+                                           Uσ′ −→ Uσ
+est un ouvert de Zariski. En effet, le morphisme de monoı̈des Mσ −→ Mσ′ est obtenu par
+inversion d’un nombre fini d’éléments de Mσ (voir Proposition 1.3 [O]).
+    On définit des faisceaux sur Af fF1
+                                      a                a
+                                X :=     Uσ     R :=       Uσ∩σ′ .
+                                       σ∈∆               σ,σ′ ∈∆
+
+Les deux morphismes naturels de R dans X définissent une relation d’équivalence
+
+                                             R ⊂ X × X.
+
+Cette relation d’équivalence vérifie les conditions de la proposition 2.18 (2), et on obtient ainsi
+un F1 -schéma
+                                    XF1 (∆) := X/R ∈ F1 − Sch.
+   On dispose aussi d’un Z-schéma XZ (∆), tel que par exemple présenté dans [O]. On voit
+immédiatement par construction que l’on a un isomorphisme
+
+                                      XF1 (∆) ⊗F1 Z ≃ XZ (∆).
+
+   Ainsi, les variétés toriques sont bien définies sur F1 . Elles sont donc aussi définies sur N, en
+posant XN (∆) := XF1 (∆) ⊗F1 N, ou encore par une construction directe.
+
+                                                  33
+5    Les modèles homotopiques
+Dans cette dernière section nous supposerons que (C, ⊗, 1) est une catégorie de modèles monoı̈dale
+symétrique au sens de [Ho]. Remarquer que par définition la catégorie monoı̈dale symétrique
+sous-jacente vérifie l’hypothèse 2.6. Nous supposerons de plus que les conditions suivantes sont
+satisfaites.
+
+Hypothèse 5.1
+La catégorie de modèles C est simpliciale et combinatoire au sens de [HAGI, Appendix A.2].
+La catégorie de modèles monoı̈dale symétrique (C, ⊗, 1) satisfait à l’axiome du monoı̈de de [S-S].
+L’objet 1 est cofibrant dans C.
+Les sources et buts des cofibrations et cofibrations triviales génératrices sont des objets cofibrants
+dans C.
+
+    Sous les hypothèse ci-dessus, nous pouvons considérer la catégorie Comm(C), des L-algèbres
+dans C, où L est (l’image dans C de) l’opérade des isométries linéaires (voir par exemple [Sp]).
+La catégorie Comm(C) est donc un modèle pour les E∞ -monoı̈des dans C, et ses objets seront
+donc simplement appelés des E∞ -monoı̈des dans C.
+    D’après l’hypothèse 5.1 et [Sp, Thm. 4.3,Cor. 9.7] on sait qu’elle est munie d’une structure
+de catégorie de modèles dont les fibrations et les équivalences sont définies sur les objets sous-
+jacents dans C. De plus, pour A ∈ Comm(C), on peut définir A − M od, une catégorie des
+A-modules dans C (voir [Sp]). Elle peut aussi se voir comme une catégorie de modules (à
+gauche) sur un monoı̈de U (A) dans C (voir [Sp]). Ainsi, d’après nos hypothèses 5.1, et d’après
+[S-S], la catégorie A − M od est aussi munie d’une structure de catégorie de modèles où les
+fibrations et les équivalences sont définies dans C. Enfin, pour un morphisme f : A −→ B entre
+objets dans Comm(C), on dispose d’une adjonction de Quillen
+
+                − ⊗A B : A − M od −→ B − M od            A − M od ←− B − M od : F,
+
+où F est le foncteur d’oubli naturel. Nous utiliserons la notation usuelle
+
+                            − ⊗LA B : Ho(A − M od) −→ Ho(B − M od)
+
+pour désigner le foncteur dérivé à gauche de − ⊗A B. Il est démontré dans [Sp, Prop. 9.10]
+que lorsque A et B sont cofibrants et que f : A −→ B est une équivalence alors l’adjonction
+de Quillen précédente est une équivalence de Quillen. Comme ceci ne semble plus vrai lorsque
+A et B ne sont plus tous deux cofibrants nous nous interdirons de considérer les catégories de
+modules sur des E∞ -monoı̈des qui ne sont pas cofibrants dans Comm(C).
+   Pour finir ces rappels, nous noterons M apC , ou simplement M ap si C est claire, les espaces
+de morphismes (mapping spaces en anglais) de la catégorie de modèles Comm(C), et M apA
+ceux de A − M od. Rappelons que comme les catégories de modèles Comm(C) et A − M od
+sont simpliciales, nous pourrons prendre comme modèles pour ces espaces de morphismes les
+ensembles simpliciaux de morphismes entre objets cofibrants et fibrants (voir [Ho]).
+
+
+
+
+                                                  34
+Définition 5.2 La catégorie de modèles des schémas affines sur C est la catégorie
+
+                                      Af fC := Comm(C)op
+
+opposée de la catégorie de modèles des E∞ -monoı̈des cofibrants.
+
+    On remarquera que lorsque la structure de modèle sur C est triviale (i.e. les équivalences
+sont les isomorphismes), et que l’on prend alors l’enrichissement
+                                                       `             simplicial trivial (i.e. pour K
+un ensemble simplicial et X ∈ C on pose K ⊗ X := π0 (K) X), alors la catégorie Comm(C) est
+naturellement équivalente à la catégorie des monoı̈des commutatifs dans C. Ainsi, Af fC définie
+ci-dessus coincide avec Af fC précédemment défini dans 2.7 (strictement parlant il faut supposer
+que C soit une catégorie localement présentable pour que la structure de modèles triviale soit
+combinatoire et satisfasse donc l’hypothèse 5.1, et cela sera toujours le cas pour les exemples
+considérés).
+
+5.1   Rappel sur la géométrie algébrique homotopique
+Nous commencerons par définir des topologies fpqc et de Zariski sur Af fC , on sens des topologies
+sur les catégories de modèles de [HAGI]. Il s’agit, bien entendu, d’une généralisation de la
+définition 2.9 que l’on retrouvera en prenant la structure de modèles triviale sur C.
+     Nous noterons comme auparavant Spec A ∈ Af fC l’objet correspondant à A ∈ Comm(C).
+Noter que Spec B −→ Spec A est une fibration dans Af fC si et seulement si A −→ B est une
+cofibration dans Comm(C).
+
+Définition 5.3 Soit f : Y = Spec B −→ X = Spec A un morphisme dans Af fC .
+  1. Nous dirons que le morphisme f est plat si le foncteur correspondant
+
+                       − ⊗LQ(A) Q(B) : Ho(Q(A) − M od) −→ Ho(Q(B) − M od)
+
+      commute aux produits fibrés homotopiques finis (ici Q(A) et Q(B) sont des modèles cofi-
+      brants dans Comm(C) pour A et B).
+
+  2. Le morphisme f est un épimorphisme si pour tout A′ ∈ Comm(C), le morphisme
+
+                           f ∗ : M apComm(C) (B, A′ ) −→ M apComm(C) (A, A′ )
+
+      est équivalent à une inclusion de composantes connexes (i.e induit un morphisme injectif
+
+                                  π0 (M ap(B, A′ )) ֒→ π0 (M ap(A, A′ )),
+
+      et pour tout i > 0 et tout u ∈ π0 (M ap(B, A′ )) des isomorphismes πi (M ap(B, A′ ), u) ≃
+      πi (M ap(A, A′ ), f ∗ (u)).).
+
+  3. Le morphisme f est de présentation finie, si pour tout diagramme filtrant d’objets A′i ∈
+     Q(A)/Comm(C), le morphisme naturel
+
+               Colimi M apQ(A)/Comm(C) (B, A′i ) −→ M apQ(A)/Comm(C) (B, Hocolimi A′i )
+
+      est un isomorphisme dans Ho(SEns) (ici Q(A) est un modèle cofibrant de A dans Comm(C)).
+
+                                                 35
+  4. Le morphisme f : X = Spec B −→ Y = Spec A dans Af fC est un ouvert de Zariski
+     (ou encore une immersion Zariski ouverte) si le morphisme correspondant A −→ B dans
+     Comm(C) est un épimorphisme plat et de présentation finie.
+
+     A l’aide des définitions précédentes nous définissons les recouvrements fpqc et Zariski de la
+façon suivante.
+
+Définition 5.4     1. Une famille de morphismes
+
+                                   {Xi = Spec Ai −→ X = Spec A}i∈I
+
+      dans Af fC est un recouvrement fpqc (ou plus simplement recouvrement plat) si les deux
+      conditions suivantes sont satisfaites.
+
+       (a) Pour tout i ∈ I le morphisme Xi −→ X est plat.
+       (b) Il existe un sous ensemble fini J ⊂ I, tel que le foncteur
+                      Y                                           Y
+                         − ⊗Q(A) Q(Aj ) : Ho(Q(A) − M od) −→          Ho(Q(Aj ) − M od)
+                     j∈J                                            j∈J
+
+           est conservatif.
+
+  2. Une famille de morphismes
+                                              {Xi −→ X}i∈I
+      dans Af fC est un recouvrement de Zariski si c’est un recouvrement plat et si tous les
+      morphismes Xi −→ X sont des ouverts de Zariski.
+
+    Il est facile de voir que les recouvrements fpqc et Zariski définissent deux prétopologies
+sur la catégorie de modèles Af fC , au sens de [HAGI, §4.3] (cela demande d’utiliser la for-
+mule du changement de base [Sp, Prop. 9.12]). Les topologies de Grothendieck associées à
+ces prétopologies seront appelées la topologie fpqc, ou plus simplement la topologie plate, et la
+topologie de Zariski. Comme il est démontré dans [HAGI] il s’agit de données de deux topologies
+de Grothendieck, au sens usuel, sur la catégorie Ho(Af fC ).
+
+    Comme il est expliqué dans [HAGI, §4.3], la catégorie de modèles Af fC munie de la topologie
+fpqc (resp. Zariski) forme un site de modèles, et on peut donc considérer la catégorie de modèles
+Af fC∼,f pqc (resp. Af fC∼,Zar ) des champs sur Af fC . Rappelons que Af fC∼,f pqc (resp. Af fC∼,Zar )
+est une localisation de Bousfield à gauche de la catégorie de modèles des préfaisceaux simpliciaux
+sur Af fC dont les objets locaux sont les foncteurs
+
+                                F : Af fCop = Comm(C) −→ SEns
+
+vérifiant les deux conditions suivantes.
+
+  1. Pour toute équivalence X −→ Y dans Af fC , le morphisme induit
+
+                                             F (Y ) −→ F (X)
+
+      est un équivalence faible d’ensembles simpliciaux.
+
+                                                 36
+  2. Pour tout hyper-recouvrement plat (resp. de Zariski) X∗ −→ X (voir [HAGI, §4.4]), le
+     morphisme naturel
+
+                           F (X) ≃ M ap(X, F ) −→ Holim[n]∈∆ M ap(Xn , F )
+
+      est un équivalence faible d’ensembles simpliciaux.
+
+Définition 5.5 La catégorie des champs au-dessus de C pour la topologie plate (resp. de
+Zariski) est la catégorie homotopique Ho(Af fC∼,f pqc) (resp. Ho(Af fC∼,Zar )). Comme précédemment
+nous adopterons les notations
+
+              Chf pqc (Af fC ) := Ho(Af fC∼,f pqc)       Ch(Af fC ) := Ho(Af fC∼,Zar ).
+
+Les objets de Ch(Af fC ) seront simplement appelés des champs au-dessus de C (ou simplement
+des champs si le contexte est clair).
+
+    Comme pour le cas non homotopique présenté précédemment nous nous intéresserons prin-
+cipalement aux champs pour la topologie de Zariski et les champs fpqc ne seront utilisés que de
+manière auxiliaire.
+
+     Il faut noter que lorsque la structure de modèles est triviale sur C alors Af fC∼,f pqc est la
+catégorie de modèles des préfaisceaux simpliciaux au sens de [Ja] (ou plus précisément sa ver-
+sion projective décrite dans [Bl]). Ainsi, la catégorie Ch(Af fC ) est la catégorie homotopique
+des préfaisceaux simpliciaux sur le site Af fC , qui s’identifie aussi à la catégorie homotopique
+des objets simpliciaux dans le topos Sh(Af fC ) des faisceaux sur Af fC . La catégorie Sh(Af fC )
+s’identifie alors à la sous-catégorie pleine de Ch(Af fC ) des préfaisceaux simpliciaux discrets
+(i.e. dont les valeurs sont des ensembles vus comme ensembles simpliciaux constants). Ceci
+nous permettra par la suite de voir les faisceaux sur Af fC comme des champs sur Af fC , et
+d’identifier la catégorie Sh(Af fC ) à son image dans Ch(Af fC ).
+
+    Venons-en maintenant à la définition de schémas relatifs à C. Pour cela nous aurons be-
+soin de la généralisation suivante de la définition 2.12. Rappelons que l’on peut définir une
+notion de h-monomorphisme dans Ch(Af fC ), qui sont les morphismes de champs F −→ G
+tel que le morphisme diagonal F −→ F ×hG F soit un isomorphisme dans Ch(Af fC ). Il s’agit
+d’une généralisation de nature homotopique de la notion usuelle de monomorphisme. Les h-
+monomorphismes dans Ch(Af fC ) sont aussi les morphismes qui induisent un monomorphisme
+sur les faisceaux π0 et des isomorphismes sur tous les faisceaux πi pour i > 0 (voir [HAGI] pour
+la définition des faisceaux d’homotopie). Cette notion de h-monomorphisme permet aussi de
+donner un sens à la notion de sous-objets d’un objet F de Ch(Af fC ), appelés sous-champs,
+comme classe d’isomorphisme de h-monomorphismes de but F .
+
+Définition 5.6    1. Soit X un schéma affine et F ⊂ X un sous-champ de X. Nous dirons que
+      F est un ouvert de Zariski de X s’il existe une famille d’ouverts de Zariski {Xi −→ X}i∈I
+      dans Af fC (au sens de la définition 5.3) tel que F soit l’image du morphisme de champs
+                                             a
+                                                Xi −→ X.
+                                              i∈I
+
+
+                                                    37
+  2. Un morphisme f : F −→ G dans Ch(Af fC ) est un ouvert de Zariski (ou encore une
+     immersion Zariski ouverte) si pour tout schéma affine X et tout morphisme X −→ G, le
+     morphisme induit
+                                          F ×G X −→ X
+      est un h-monomorphisme d’image un ouvert de Zariski de X.
+
+   On vérifie sans peine que les ouverts de Zariski se comportent comme on s’y attend (stabilité
+par équivalences, compositions et produits fibrés homotopiques dans Af fC .)
+   Comme il est expliqué dans [HAGI, §4.2] on dispose d’un plongement de Yoneda
+
+                                Rh− : Ho(Af fC ) −→ Ho(Af fC∧ ),
+
+qui permet d’identifier la catégorie Ho(Af fC ) à une sous-catégorie pleine de la catégorie ho-
+motopique des pré-champs Ho(Af fC∧ ). Malheureusement, nous ne savons pas montrer que la
+topologie plate est sous-canonique en général, et ainsi nous ne savons pas si l’analogue du corol-
+laire 2.11 reste valable (en réalité nous n’avons pas trouvé de version homotopique raisonable
+du théorème 2.5). En particulier nous ne pouvons pas déduire que le plongement de Yoneda
+ci-dessus se factorise par la sous-catégorie pleine Ch(Af fC ) ⊂ Ho(Af fC∧ ). Nous sommes donc
+obligés de rajouter l’hypothèse suivante.
+
+Hypothèse 5.7 La topologie plate sur Af fC est sous-canonique. En d’autres termes, pour tout
+X ∈ Af fC le pré-champ RhX est un champ.
+
+     L’hypothèse précédente implique que le plongement de Yoneda induit un foncteur pleinement
+fidèle
+                                    Rh− : Ho(Af fC ) −→ Ch(C).
+Ceci permet d’identifier la catégorie homotopique Ho(Af fC ) comme une sous-catégorie pleine
+de Ch(Af fC ). Les objets dans l’image de Rh− seront simplement appelés des schémas affines
+au-dessus de C (ou simplement schémas affines si C est claire).
+    Enfin, comme Af fC∼,f pqc est une catégorie de modèles on peut parler de limites et colimites
+homotopiques, et en particulier de produits fibrés homotopiques. Ces derniers seront notés
+− ×h− −. Remarquer que le produit direct dans Af fC∼,Zar ne préserve pas les équivalences en
+général, et donc que l’on a aussi une notion de produit homotopique noté − ×h −. Il s’agit bien
+entendu du produit direct dans la catégorie Ch(Af fC ).
+    On définit alors la notion de schéma relatif dans Af fC de la façon suivante.
+
+Définition 5.8 Un champ F est un schéma relatif à C (ou simplement schéma si le contexte
+est clair) existe une famille de schémas affines {Xi }i et un épimorphisme
+                                           a
+                                               Xi −→ F
+                                           i∈I
+
+tel que chaque morphisme Xi −→ F soit un ouvert Zariski.
+
+Définition 5.9 La catégorie des schémas relatifs à C est la sous-catégorie pleine de Ch(Af fC )
+formée des schémas au sens de la définition 5.8. Nous la noterons Sch(C).
+
+                                                 38
+   Tout comme pour le cas non homotopique on montre les propriétés de stabilité suivantes.
+
+Proposition 5.10 La sous-catégorie Sch(C) de Ch(Af fC ) est stable par réunions disjointes et
+par produits fibrés homotopiques.
+
+   Preuve: C’est la même que pour la proposition 2.18.                                           ✷
+
+   On montre de même la proposition suivante, analogue homotopique de la proposition 2.18 (2).
+Pour cela on renvoit à [HAGI, HAGII] pour la notion de groupoides de Segal dans une catégorie
+de modèles, qui est un analogue homotopique de la notion usuelle de relation d’équivalence.
+
+Proposition 5.11 Un champ F est un schéma si et seulement s’il existe un groupoide de Segal
+X∗ dans Af fC∼,Zar vérifiant les conditions suivantes.
+
+  1. On a                                               a
+                                                 X0 ≃         Ui
+                                                        i∈I
+
+      avec Ui des schémas affines.
+
+  2. Pour tout (i, j) ∈ I 2 , considérons le sous-champ Ri,j ⊂ Ui ×h Uj défini par la carré
+     homotopiquement cartésien suivant
+
+                                          Ri,j          / Ui ×h Uj
+
+
+                                                           
+                                           X1          / X ×h X .
+                                                          0    0
+
+      Alors chacun des morphismes
+                                                 Ri,j −→ Ui
+      est un ouvert Zariski.
+
+  3. Pour tout i ∈ I le morphisme Ri,i −→ Ui est un isomorphisme.
+
+  4. On a
+                                      F ≃ |X∗ | = Hocolimn∈∆op Xn .
+
+    Tout comme dans le cas que nous avons traité précédemment, on peut pour tout schéma X
+sur C au sens ci-dessus, définir un site de Grothendieck Zar(X) des ouverts de Zariski de X.
+Ce site possède des produits fibrés, il est engendré par une prétopologie quasi-compacte, et sa
+catégorie sous-jacente est un lieu. On en déduit donc que le topos des champs Ch(Zar(X)) est
+équivalent aux champs sur un espace topologique bien défini |X|. L’espace topologique |X| est
+appelé comme il se doit l’espace sous-jacent à X. Par construction, le site Ouv(X) des ouverts
+de X est équivalent au site Zar(X).
+    Sans entrer dans les détails signalons aussi que l’on peut construire un préfaisceau OX sur
+|X| à valeurs dans Comm(C). Notre hypothèse 5.7 implique que ce préfaisceau est un champ,
+au sens où il satisfait à une condition de descente pour les hyper-recouvrements. Ainsi, le couple
+(|X|, OX ) joue le rôle de l’espace annelé sous-jacent au schéma X, en un sens relatif à C. Nous
+
+                                                  39
+n’irons pas plus loin dans cette direction.
+
+   Pour terminer, signalons l’existence de foncteurs de changements de bases généralisant ceux
+du paragraphe §2.3. On se donne une adjonction de Quillen
+
+                    f : (C, ⊗, 1) −→ (D, ⊗, 1)        (C, ⊗, 1) ←− (D, ⊗, 1) : g
+
+avec f de Quillen à gauche et symétrique monoı̈dal. On en déduit une adjonction de Quillen sur
+les catégorie de E∞ -monoı̈des
+
+                f : Comm(C) −→ Comm(D)                Comm(C) ←− Comm(D) : g.
+
+Comme il est expliqué dans [HAGI, §4.8] cette adjonction de Quillen induit une adjonction sur
+les catégorie de pré-champs
+
+             Lf! : Ho(Af fC∧ ) −→ Ho(Af fD
+                                         ∧
+                                           )          Ho(Af fC∧ ) ←− Ho(Af fD
+                                                                            ∧
+                                                                              ) : Rf ∗ .
+
+Lorsque le foncteur f est continu (i.e. Rf ∗ préserve les sous-catégorie de champs) alors on
+obtient une adjonction sur les catégories de champs
+
+                     Lf!∼ : Ch(C) −→ Ch(D)            Ch(C) ←− Ch(D) : Rf ∗ .
+
+Enfin, pour A ∈ Comm(C) cofibrant, on dispose d’une adjonction de Quillen
+
+               f : A − M od −→ f (A) − M od           A − M od ←− f (A) − M od : g.
+
+Cette dernière adjonction est de plus compatible aux changements de bases (voir [Sp] pour les
+détails).
+
+   On dispose alors de l’énoncé analogue au corollaire 2.22.
+
+Proposition 5.12 On suppose que le foncteur dérivé
+
+                                     Rg : Ho(D) −→ Ho(C)
+
+est conservatif et qu’il commute aux colimites homotopiques filtrantes. On suppose de plus que
+pour tout morphisme plat A −→ B dans Comm(C), et tout N ∈ f (A) − M od, le morphisme
+naturel
+                              Rg(N ) ⊗LA B −→ Rg(N ⊗Lf (A) f (B))
+est un isomorphisme dans Ho(B − M od). Alors, le foncteur f : Af fC −→ Af fD est continu
+pour la topologie de Zariski, et le foncteur induit sur les catégories de champs
+
+                                Lf!∼ : Ch(Af fC ) −→ Ch(Af fD )
+
+préserve les sous-catégories des schémas et induit un foncteur
+                               Sch(C) −→     Sch(D)
+                                 X    7→ X ×C D := f!∼ (X).
+
+   Preuve: C’est essentiellement la même que pour le corollaire 2.22.                         ✷
+
+
+                                                 40
+5.2   Spec S : La nouvelle géométrie algébrique courageuse
+Dans ce paragraphe nous posons (C, ⊗, 1) = (GS, ∧, S), la catégorie de modèles monoı̈dales
+des Γ-espaces telle que présentée dans [S]. Rappelons que le catégorie sous-jacente à GS est la
+catégorie des foncteurs
+                                         F : Γ −→ SEns,
+où Γ est la catégorie des ensembles finis pointés, vérifiant F (∗) = ∗. Nous noterons n+ l’ensemble
+{0, . . . , n} pointés en 0. La structure de modèles sur GS est une localisation de la structure de
+modèles niveaux par niveaux (où fibrations et équivalences sont définies termes à termes), et dont
+les objets locaux sont les Γ-espaces très spéciaux, c’est à dire qui vérifient les deux conditions
+suivantes
+   1. Pour I et J deux ensembles finis pointés, le morphisme naturel
+
+                                        F (I ∨ J) −→ F (I) × F (J)
+
+      est une équivalence faible d’ensembles simpliciaux (ici I ∨ J désigne le coproduit de I et
+      J dans Γ).
+
+   2. D’après la condition ci-dessus, le digramme dans Ho(SEns)
+
+                                F (1+ ) × F (1+ )        F (2+ )      // F (1+ )
+
+      définit une structure de monoı̈de sur F (1+ ) dans la catégorie Ho(SEns). On demande
+      alors que le monoı̈de π0 (F (1+ )) soit une loi de groupes.
+    La catégorie Γ possède une structure monoı̈dale symétrique induite par le produits directs
+d’ensembles pointés. Par convolution ceci définit une structure monoı̈dale symétrique sur la
+catégorie GS, notée − ∧ −. L’objet neutre pour cette structure monoı̈dale est le Γ-espace en
+sphère S coreprésenté par 1+ ∈ Γ et donné par
+
+                               S(n+ ) = HomΓ (1+ , n+ ) = {0, . . . , n}.
+
+On montre que (GS, ∧, S) est une catégorie de modèles monoı̈dale symétrique qui vérifie les
+conditions 5.1 (voir [S, M-M-S-S]).
+    De façon générale il faut penser aux Γ-espaces trés spéciaux comme à des groupes simpliciaux
+commutatifs à homotopie de cohérences près. La structure monoı̈dale ∧ est alors l’analogue du
+produit tensoriel de groupes abéliens. Ceci se justifie en montrant que la catégorie monoı̈dal
+symétrique (Ho(GS), ∧L ) est naturellement équivalente à la catégorie homotopique des spectres
+symétriques connectifs (i.e. sans homotopie négative) munie du smash produit. On montre
+même que les théories homotopiques de monoı̈des, E∞ -monoı̈des et de modules associées sont
+équivalentes (voir [M-M-S-S] pour plus de détails). En conclusion, la théorie homotopique des
+Γ-espaces très spéciaux est équivalente à celle des spectres connectifs, et ce de façon compatible
+avec les constructions tensorielles. Ainsi, la catégorie de modèles Comm(GS) est un modèle
+pour la théorie homotopique des nouveaux anneaux commutatifs courageux (traduction, sim-
+pliste mais amusante, de brave new commutative rings), d’où notre terminologie de nouvelle
+géométrie algébrique courageuse.
+
+
+                                                    41
+   Pour un objet X ∈ GS on définit ses groupes d’homotopie stables par la formule
+
+                                      πi (X) := πi (RX(1+ )),
+
+où RX est un modèle fibrant de X dans GS, et RX(1+ ) est son ensemble simplicial sous-jacent.
+Pour tout i ≥ 0, πi (X) est toujours un groupe abélien.
+    Pour un objet A ∈ Comm(GS), les groupes d’homotopie πi (A) forment un anneau com-
+mutatif gradué que l’on notera π∗ (A). De même, pour A cofibrant dans A ∈ Comm(GS) et
+M ∈ A − M od, π∗ (M ) est naturellement un π∗ (A)-module gradué.
+
+Lemme 5.13 La catégorie de modèles monoı̈dale symétrique (GS, ∧, S) vérifie l’hypothèse 5.7.
+
+    Preuve: C’est essentiellement la même que pour le cas des anneaux simpliciaux commutatifs
+et des anneaux en spectres qui sont traités dans [HAGII, §2.2, §2.4] (on pourrait aussi utiliser
+essentiellement la même preuve que celle de la proposition 5.16). En deux mots, on commence
+par vérifier qu’un morphisme A −→ B dans Comm(CS) est est plat si et seulement s’il vérifie
+les deux conditions suivantes
+
+  1. Le morphisme induit π0 (A) −→ π0 (B) est un morphisme plat d’anneaux commutatifs.
+
+  2. Pour tout i > 0, le morphisme naturel
+
+                                     πi (A) ⊗π0 (A) π0 (B) −→ πi (B)
+
+      est un isomorphisme.
+
+Ensuite, si A −→ B∗ est un hyper-recouvrement plat, le morphisme induit π∗ (A) −→ π∗ (B)∗ est
+un hyper-recouvrement plat d’anneaux commutatifs gradués. Un argument de suite spectrale et
+la descente plate usuelle des anneaux implique alors que le morphisme
+
+                                      A −→ Holim[n]∈∆op Bn
+
+est une équivalence dans Comm(GS).                                                               ✷
+
+    Le lemme 5.13 et les considérations générales du paragraphe précédent nous donne une notion
+de schémas relatifs au-dessus de GS, dont la catégorie sera notée S − Sch.
+
+Définition 5.14 La catégorie des schémas relatifs à GS sera notée S − Sch. Ses objets seront
+appelés des S-schémas, ou si l’on veut rire des nouveaux schémas courageux.
+
+   Noter que Ho(Comm(GS)), qui est équivalente à la catégorie des S-schémas affines, est
+naturellement équivalente à la catégorie des S-algèbres commutatives connectives de [EKMM].
+Ceci justifie notre terminologie de S-schémas, ou encore de nouveaux schémas courageux.
+
+   Il existe une adjonction de Quillen
+
+                         π0 : GS −→ Z − M od         GS ←− Z − M od : j,
+
+
+                                                42
+qui est telle que π0 soit de plus un foncteur monoı̈dal symétrique. On voit facilement (par
+exemple à l’aide de la description des morphismes plats donnée lors de la preuve du lemme 5.13)
+que le foncteur induit
+                               π0 : Comm(C) −→ Comm(Z − M od)
+est continu pour la topologie Zariski et que j est conservatif (il est même pleinement fidèle)
+et commute avec les colimites filtrantes. La proposition 5.12 nous donne alors un foncteur de
+changement de bases
+                                − ⊗S Z : S − Sch −→ Z − Sch
+des S-schémas vers les Z-schémas. Ce foncteur possède en réalité un adjoint à droite
+
+                                     i : Z − Sch −→ S − Sch
+
+qui est pleinement fidèle, et la situation est donc très proche de celle du changement de bases
+de Spec Z −→ Spec N. Le morphisme naturel Spec Z −→ Spec S doit aussi être pensé comme
+un monomorphisme, et même comme une immersion fermée.
+    Nous définissons un S-schéma Gln,S de la façon suivante. Pour A ∈ Comm(GS) on considère
+QA un remplacement cofibrant de A, ainsi que QAn ∈ QA − M od le QA-module libre de rang n
+sur QA. L’objet QAn ∈ QA − M od est caratérisé par le fait qu’un morphisme de QA-modules
+QAn −→ M est la même chose qu’un morphisme d’ensemble simpliciaux En −→ M (1+ ), où
+En est l’ensemble fini à n éléments vu comme un ensemble simplicial discret, et M (1+ ) est
+l’ensemble simplicial sous-jacent à l’objet M ∈ GS. On définit alors un préfaisceau simplicial
+
+                         Gln,S : Comm(GS) −→      SEns
+                                    A     7→ AutQA−M od (QAn ),
+
+où AutQA−M od (QAn ) est le sous-ensemble simplicial de M apQA−M od(QAn , QAn ) consistant en
+les morphismes qui sont des équivalences (nous laissons le soin au lecteur de rendre cette con-
+struction rigoureusement fonctorielle, voir aussi [HAGII, §1.3.7] pour plus de détails). On voit
+que ce préfaisceau est un champ et on le considère alors comme un objet dans Ch(Af fGS ).
+
+Proposition 5.15        1. Le champ Gln,S est représentable par un S-schéma affine.
+
+  2. On a un isomorphisme
+                                          Gln,S ⊗S Z −→ Gln,Z .
+
+   Preuve: (1) C’est essentiellement la même que pour la proposition 4.1 (1).
+
+   (2) Il suffit de constater que pour tout A ∈ Comm(Z − M od), le foncteur de Quillen à droite
+
+                                   i : A − M od −→ i(A) − M od
+
+induit un foncteur pleinement fidèle
+
+                            Ri : Ho(A − M od) −→ Ho(i(A) − M od).
+
+                                                                                               ✷
+
+
+                                                 43
+    On remarque qu’il n’est pas vrai que i(Gln,Z ) soit isomorphe à Gln,S , où i : Z−Sch −→ S−Sch
+est le foncteur d’inclusion. En effet, Gln,S (S) est un S-schéma affine de la forme Spec A pour un
+certain A ∈ Comm(GS), qui vérifie que pour tout B ∈ Comm(GS) il existe un isomorphisme
+naturel
+                             π0 (M apComm(GS) (A, B)) ≃ Gln (π0 (B)).
+On peut voir que l’anneau Z[Tij , Det(Tij )−1 ], vu comme objet de Comm(GS) ne vérifie pas cette
+propriété universelle, car par exemple il n’existe pas de morphisme Z[Tij , Det(Tij )−1 ] −→ S dans
+Ho(Comm(GS)) (si l’on compose avec Z −→ Z[Tij , Det(Tij )−1 ] on trouverait une section de la
+projection S −→ Z = π0 (S) que l’on sait ne pas exister).
+
+
+5.3   L’anneaux en spectres à un élément S1
+Dans ce paragraphe nous posons (C, ⊗, 1) = (SEns, ×, ∗) la catégorie de modèles monoı̈dale
+symétrique des ensembles simpliciaux munis du produit direct. Elle vérifie évidemment les
+hypothèses de 5.1.
+
+Proposition 5.16 La catégorie de modèles monoı̈dale symétrique (SEns, ×, ∗) vérifie l’hypothèse
+5.7.
+
+    Preuve: Soit F∗ −→ X = Spec A un hyper-recouvrement plat et pseudo-représentable
+                                                                            `                   dans
+Af fC∼,f pqc, au sens de [HAGI, §4.4]. Par définition
+                                                     Q on peut écrire Fn =  α Spec Bn,α , avec tous
+les morphismes A −→ Bn,α plats. Posons Bn := α Bn,α pour tout n. Il nous faut montrer que
+le morphisme naturel
+                                       A −→ Holim[n]∈∆ Bn
+est un isomorphisme dans Ho(Comm(SEns)).
+    Pour démontrer cela nous allons utiliser les foncteurs de troncations B 7→ B≤k de Comm(SEns)
+dans elle-même. Rappelons qu’un objet B ∈ Comm(SEns) est k-tronqué si pour tout point
+x ∈ π0 (B) on a πi (B, x) = 0 pour i > k (i.e. l’ensemble simplicial sous-jacent à B est k-tronqué).
+On montre facilement (par exemple à l’aide des techniques de localisation de catégories de
+modèles) que le foncteur d’inclusion des objets k-tronqués
+
+                         Ho(Comm(SEns)≤k ) −→ Ho(Comm(SEns))
+
+posséde un adjoint à gauche
+
+                     (−)≤k : Ho(Comm(SEns)) −→ Ho(Comm(SEns)≤k ).
+
+On peut même réaliser cette adjonction comme l’adjonction dérivée d’une adjonction de Quillen
+
+         Comm(SEns) −→ Comm(SEns)≤k                   Comm(SEns) ←− Comm(SEns)≤k ,
+
+où la catégorie sous-jacente Comm(SEns)≤k est la même que celle de Comm(SEns), mais ses
+équivalences sont les k-équivalences (i.e. les morphismes induisant des isomorphismes sur les
+groupes d’homotopie πi pour i ≤ k).
+     On commence alors par remarquer le lemme suivant.
+
+                                                 44
+Lemme 5.17 Soit A −→ B un morphisme plat dans Comm(SEns), alors pour tout entier
+k ≥ 0 le morphisme induit
+                                A≤k −→ B≤k
+est un morphisme plat dans Comm(SEns).
+
+   Preuve du lemme: Tout d’abord, par platitude on voit facilement que le foncteur de change-
+ment de bases
+                       − ×LA B : Ho(A − M od) −→ Ho(B − M od)
+préserve les objets k-tronqués. Ainsi, si l’on forme le carré homotopiquement cocartésien dans
+Ho(Comm(SEns)) suivant
+                                              A       /B
+
+
+                                                           
+                                          A≤k            / B′,
+
+on voit que B ′ est k-tronqué. Ceci implique facilement que le morphisme naturel B≤k −→ B ′
+est un équivalence, et donc que le diagramme suivant
+
+                                           A              /B
+
+
+                                                           
+                                          A≤k            / B≤k
+
+est homotopiquement cocartésien. En particulier on voit que A≤k −→ B≤k est un morphisme
+plat.                                                                                  ✷
+
+     Pour tout objet B ∈ Comm(SEns), on dispose d’un isomorphisme naturel dans Ho(Comm(SEns))
+B ≃ Holimk B≤k . Ainsi, le lemme 5.17 permet de tronquer termes à termes l’hyper-recouvrement
+F∗ −→ X, et donc de se ramener au cas où il existe un entier k tel que A soit k-tronqué, ainsi
+que tous les Bn,α , et donc tous les Bn .
+     Dans ce cas, la limite homotopique Holim[n]∈∆ Bn se réduit en une limite homotopique finie,
+ce qui implique que l’on peut supposer que l’hyper-recouvrement F∗ est m-borné pour un certain
+entier m (au sens de [HAGI]), c’est à dire équivalent à son m-ème co-squelette. Un argument
+standard permet alors de se ramener au cas où l’hyper-recouvrement est 0-borné, c’est à dire où
+il s’agit du nerf d’un recouvrement plat
+
+                                     {Xi = Spec B0,i −→ X}
+
+(voir la preuve du théorème [HAGI, Lem. 3.4.2]).
+    Pour montrer que A −→ Holim[n]∈∆ Bn est alors un isomorphisme dans Ho(Comm(SEns)),
+on utilise le fait que {Xi −→ X} soit un recouvrement plat, et donc le fait qu’il suffise de montrer
+que pour tout i, le morphisme induit par le changement de bases − ×LA B0,i
+
+                                 B0,i −→ Holim[n]∈∆ Bn ×LA B0,i
+
+est un isomorphisme dans Ho(Comm(SEns)) (noter que la limite homotopique est finie et
+donc qu’elle commute au changement de bases par platitude). On se ramène ainsi au cas où
+
+                                                    45
+le recouvrement plat {Xi −→ X} possède une section X −→ Xi0 . Mais dans ce cas l’hyper-
+recouvrement F∗ −→ X est le nerf d’un morphisme qui possède une section, et donc induit une
+équivalence de préfaisceaux simpliciaux
+
+                                     Hocolim[n]∈∆ Fn −→ X
+
+est une équivalence dans la catégorie de modèles des pré-champs Af fC∧ . Ceci implique que pour
+tout Y ∈ Af fC , on a
+
+                        M apAf fC∧ (X, Y ) ≃ Holim[n]∈∆ M apAf fC∧ (Fn , Y ),
+
+ce que l’on voit, par le lemme de Yoneda, être équivalent au fait que le morphisme
+
+                                      A −→ Holim[n]∈∆ Bn
+
+soit un isomorphisme dans Ho(Comm(SEns)).                                                        ✷
+
+   La formalisme décrit au paragraphe §5.1 nous donne alors une notion de schéma au-dessus
+de SEns.
+
+Définition 5.18 La catégorie des schémas relatifs à SEns sera notée S1 − Sch. Ses objets
+seront appelés des S1 -schémas.
+
+   Le foncteur
+                                       π0 : SEns −→ Ens
+est de Quillen à gauche et monoı̈dal. Il satisfait aux conditions de la proposition 5.12, et donc
+induit un foncteur de changements de bases
+
+                               − ⊗S1 F1 : S1 − Sch −→ F1 − Sch.
+
+On remarque que ce foncteur possède un adjoint à gauche pleinement fidèle
+
+                                    i : F1 − Sch −→ S1 − Sch.
+
+On considère aussi le foncteur de Quillen à droite
+
+                                          GS −→ SEns
+
+qui envoit un objet F ∈ GS sur son ensemble simplicial sous-jacent F (1+ ) ∈ SEns (voir le
+paragraphe précédent pour les notations). Ce foncteur possède un adjoint à gauche
+
+                                          SEns −→ GS
+
+qui vérifie les conditions de la proposition 5.12. Ainsi, il définit un foncteur de changement de
+bases
+                                   − ⊗S1 S : S1 − Sch −→ S − Sch.
+
+
+
+                                                 46
+On remarquera que le diagramme suivant
+                                                −⊗S1 S
+                                   S1 − Sch              / S − Sch
+
+
+                                −⊗S1 F1                        −⊗S Z
+
+
+                                               −⊗F1 Z         
+                                   F1 − Sch              / Z − Sch
+
+est commutatif à isomorphisme naturel près. Ceci permet en quelque sorte de comparer les
+F1 -schémas et les S-schémas. Comme les F1 -schémas peuvent être naturellement considérés
+comme des S1 -schémas, ceci donne un foncteur de changement de bases des F1 -schémas vers les
+S-schémas
+                               i(−) ⊗S1 S : F1 − Sch −→ S − Sch.
+Par exemple, les variétés toriques XF1 (∆) définie en §4.2 donnent lieux à des S-schémas
+
+                                    XS (∆) := i(XF1 (∆)) ⊗S1 S.
+
+Bien entendu, on a
+                                      XS (∆) ⊗S Z ≃ XZ (∆),
+ce qui donne des variétés toriques définies sur S.
+    Prenons par exemple ∆ l’éventail ne contenant qu’un unique cone R+ ⊂ R. Dans ce cas,
+XS (∆) est S[N] la S-algèbre en groupes sur le monoı̈de N. Elle n’est pas isomorphe à Z[N], et
+ainsi les deux S-schémas i(XZ (∆)) et XS (∆) ne sont pas isomorphes. En règle générale XS (∆)
+est une extension non triviale de XZ (∆) sur S.
+
+5.4   Le semi-anneau en spectres des entiers positifs S+
+Dans ce paragraphe nous posons (C, ⊗, 1) = (MS, ∧, S+ ), la catégorie de modèles monoı̈dale
+symétrique des Γ-espaces spéciaux (et non très spéciaux comme dans §5.2) que nous allons
+maintenant décrire.
+    La catégorie MS est la catégorie GS des foncteurs F : Γ −→ SEns vérifiant F (∗) = ∗. La
+structure de modèles sur MS est une localisation de la structure de modèles niveaux par niveaux
+(fibrations et équivalences définies niveaux par niveaux) telle que ses objets locaux soient les
+foncteurs F : Γ −→ SEns tels que pour tout I et J dans Γ le morphisme naturel
+
+                                    F (I ∨ J) −→ F (I) × F (J)
+
+soit une équivalence faible d’ensembles simpliciaux. Il s’agit donc des Γ-espaces spéciaux et
+non très spéciaux. La catégorie de modèles GS est bien entendu une localisation de Bousfield à
+gauche de MS. Tout comme pour GS le smash produit fait de MS une catégorie de modèles
+monoı̈dale symétrique qui vérifie les conditions 5.1. Pour des raisons qui deviendrons claires
+nous noterons S+ l’unité de la structure monoı̈dale ∧ sur MS.
+    Enfin, comme pour le cas de MS nous noterons pour X ∈ MS
+
+                                     πi (X) := πi (RX(1+ ), e),
+
+                                                 47
+où RX est un modèle fibrant de X, et e ∈ RX(1+ ) est le point de base naturel.                 Plus
+généralement, pour x ∈ RX(1+ ) on pose
+
+                     π0 (X) := π0 (RX(1+ ))       πi (X, x) := πi (RX(1+ ), x).
+
+Proposition 5.19 La catégorie de modèles monoı̈dale symétrique (MS, ∧, S+ ) vérifie l’hypothèse
+5.7.
+
+   Preuve: C’est essentiellement la même que pour la proposition 5.16.                            ✷
+
+   Par le formalisme général de §5.1 nous obtenons ainsi une notion de schéma relatif à (MS, ∧, S+ ).
+
+Définition 5.20 La catégorie des schémas relatifs à MS sera notée S+ −Sch. Ses objets seront
+appelés des S+ -schémas.
+
+    Les objets de Comm(MS) peuvent être considérés comme des semi-anneaux en spectres.
+L’objet unité S+ doit alors être pensé comme le semi-anneau en spectres des entiers positifs.
+Noter qu’on a S+ = S, mais que leurs modèles fibrants pris dans MS et dans GS ne sont pas
+équivalents. Nous avons déjà mentioné que le modèle fibrant de S dans GS est un modèle du
+spectre en sphère, et en particulier que les groupes πi (S) sont les groupes d’homotopie stables
+des sphères.
+    En contre partie, on peut montrer qu’un modèle fibrant de S+ dans MS est donné par le nerf
+du groupoı̈de des ensembles finis. Plus précisément, le groupoı̈de des ensembles finis ES possède
+une structure monoı̈dale symétrique donnée par la somme disjointe. On peut alors construire
+un pseudo-foncteur
+                                          ES : Γ −→ Cat
+qui envoit n+ sur ES n et où les foncteurs de transitions sont donnés par la structure monoı̈dale.
+En appliquant le procédé de strictification usuelle on en déduit un foncteur (au sens strict)
+
+                                          ES : Γ −→ Cat
+
+qui composé avec le foncteur nerf N : Cat −→ SEns donne un foncteur
+
+                                      N (ES) : Γ −→ SEns,
+
+qui est un Γ-espace spécial. On montre alors que ce Γ-espace est un modèle fibrant de S+ dans
+MS. En particulier, les groupes d’homotopie de N (ES), sont donnés par
+
+         π0 (S+ ) := π0 (N (ES)(1+ )) ≃ N      π1 (S+ , n) ≃ Σn     πi (S+ , n) = 0 ∀ i > 1.
+
+On voit ainsi que S+ est un semi-anneau en spectres dont un modèle est le groupoı̈de des
+ensembles finis avec ses structures monoı̈dales données par le somme disjointe (l’addition) et le
+produit direct (la multiplication), et qui est donc une version homotopique des entiers naturels.
+L’anneau en spectres S est par construction l’anneau obtenu par complétion en groupes du
+semi-anneau S+ . On retrouve ici le théorème de Quillen-Priddy, affirmant que la complétion en
+groupes du groupoı̈des des ensembles finis est équivalent au spectre en sphère. Il est bienvenu
+de comparer le morphisme naturel S+ −→ S avec le morphisme naturel N −→ Z.
+
+                                                 48
+   On dispose d’un foncteur d’inclusion
+                                             N − M od −→ MS
+des monoı̈des commutatifs dans MS, qui est de Quillen à droite. Son adjoint à gauche est le
+foncteur de troncation
+                                π0 : MS −→ N − M od
+qui envoit un objet F sur π0 (RF (1+ ). On vérifie que les hypothèses de la proposition 5.12 sont
+satisfaites et donc que l’on obtient un foncteur de changement de bases
+                                − ⊗S+ N : S+ − Sch −→ N − Sch.
+Ce foncteur possède de plus un adjoint à gauche pleinement fidèle
+                                     i : N − Sch −→ S+ − Sch.
+   De plus, le foncteur identité
+                                               MS −→ GS
+est monoı̈dal symétrique et de Quillen à gauche. Son adoint à droite induit un foncteur pleine-
+ment fidèle
+                                     Ho(GS) −→ Ho(MS)
+dont l’image est formé des Γ-espaces spéciaux. On peut vérifier que les conditions de la propo-
+sition 5.12 sont satisfaites et que l’on obtient ainsi un foncteur de changement de bases
+                                       S+ − Sch −→ S − Sch
+qui possède encore un adjoint à gauche pleinement fidèle
+                                      S − Sch −→ S+ − Sch.
+Bien entendu on dispose d’un diagramme commutatif à isomorphisme naturel près
+                                                  −⊗S+ S
+                                    S+ − Sch               / S − Sch
+
+
+                                −⊗S+ N                           −⊗S Z
+
+
+                                                                
+                                    N − Sch                / Z − Sch,
+                                                  −⊗N Z
+
+ce qui permet de comparer les N-schémas et les S-schémas. Il faut noter que pour X ∈ N − Sch
+le morphisme naturel
+                                 i(X) ⊗S+ S −→ i(X ⊗N Z)
+n’est pas un isomorphisme en général. En effet, le foncteur − ⊗S+ S est donné par une version
+homotopique de la construction complétion en groupes, des semi-anneaux en spectres vers les
+anneaux en spectres, et l’on sait bien qu’appliqué à un semi-anneaux discret on peut obtenir un
+anneau en spectres non discret.
+    Tout comme pour le cas de S, on peut définir un S+ -schéma affine, classifiant les auto-
+équivalence du S+ -module libre de rang n. Nous le noterons Gln,S+ . On montre facilement que
+l’on a les deux propriétés suivantes
+
+                                                   49
+   • L’ensemble simplicial Gln,S+ (S+ ) est discret et équivalent à Σn .
+
+   • Le morphisme naturel
+                                                 Gln,S+ ⊗S+ S −→ Gln,S
+      est un isomorphisme de S-schémas affines.
+
+   On montre aussi, tout comme pour le cas de S que le morphisme naturel
+
+                                                Gln,S+ −→ i(Gln,N )
+
+n’est pas un isomorphisme dans S+ -Sch.
+    Enfin, le foncteur de Quillen à droite
+
+                                                  MS −→ SEns
+
+qui envoit F sur F (1+ ), dont l’adjoint à gauche vérifie les conditions de la proposition 5.12
+donne un foncteur de changements de base
+
+                                          S1 − Sch −→ S+ − Sch.
+
+On dispose alors d’un second diagramme commutatif à homotopie près
+
+                                                      −⊗S1 S+
+                                    S1 − Sch                      / S+ − Sch
+
+
+                                  −⊗S1 F1                                −⊗S+ N
+
+
+                                                                       
+                                    F1 − Sch                      / N − Sch.
+                                                      −⊗F1 N
+
+
+   En conclusion, on dispose d’un diagramme commutatif à isomorphisme naturel près
+
+                                         −⊗S1 S+                      −⊗S+ S
+                       S1 − Sch                      / S+ − Sch                     / S − Sch
+
+
+                    −⊗S1 F1                                  −⊗S+ N                      −⊗S Z
+
+
+                                                                                      
+                       F1 − Sch          −⊗F1 N
+                                                     / N − Sch
+                                                                      −⊗N Z
+                                                                                  / Z − Sch.
+
+
+Schématiquement on représente ce diagramme par le diagramme suivant
+
+                                  Spec Z            / Spec N          / Spec F1
+
+
+                                                                         
+                                  Spec S            / Spec S+         / Spec S1 .
+
+
+
+                                                        50
+Références
+[Bl] B. Blander, Local projective model structure on simpicial presheaves, K-theory 24 (2001)
+     No. 3, 283-301.
+
+[De] Deitmar, Schemes over F1 , dans Number fields and function fields—two parallel worlds,
+     87–100, Progr. Math. 239, Birkhuser Boston, Boston, MA, 2005.
+
+[D] P. Deligne, Catégories tannakiennes, The Grothendieck Festschrift, Vol. II, 111–195, Progr.
+    Math., 87, Birkhuser Boston, Boston, MA, 1990.
+
+[EKMM] A.D. Elmendorf, I. Kriz, M.A. Mandell, J.P. May, Rings, modules, and algebras in
+   stable homotopy theory, Mathematical Surveys and Monographs, vol. 47, American Math-
+   ematical Society, Providence, RI, 1997.
+
+[Ha] M. Hakim, Topos annelés et schémas relatifs, Ergebnisse der Mathematik und ihrer Gren-
+     zgebiete, Band 64. Springer-Verlag Berlin-New York, 1972.
+
+[Hol] S. Hollander, A homotopy theory for stacks, pré-publication math.AT/0110247.
+
+[Ho] M. Hovey, Model categories, Mathematical surveys and monographs, Vol. 63, Amer. Math.
+     Soc., Providence 1998.
+
+[Hu] T. Huettemann, Algebraic K-Theory of non-linear projective toric varieties, J. Pure Appl.
+    Algebra 170 (2002), no. 2-3, 185–242.
+
+[Ja] J. F. Jardine, Simplicial presheaves, J. Pure and Appl. Algebra 47 (1987), 35-87.
+
+[La-Mo] G. Laumon, L. Moret-Bailly, Champs algébriques, Ergebnisse der Mathematik und ihrer
+    Grenzgebiete, Band 39. Springer-Verlag Berlin, 2000.
+
+[Ma-Mo] S. Mac Lane, I. Moerdijk, Sheaves in geometry and logic. A first introduction to topos
+    theory, Universitext. Springer-Verlag, New York, 1994.
+
+[M-M-S-S] M. Mandel, P. May, S. Schwede, B. Shipley, Model categories of diagram spectra,
+    Proc. London Math. Soc. (3) 82 (2001), no. 2, 441–512.
+
+[Mi] Milne, Etale cohomology, Princeton Mathematical Series, 33. Princeton University Press,
+     Princeton, N.J., 1980. xiii+323.
+
+[O] T. Oda, Convex bodies and algebraic geometry, Ergebnisse der Mathematik und ihrer Gren-
+    zgebiete, Band 15. Springer-Verlag Berlin-New York, 1972.
+
+[R-S-T] J. Richter-Gebert, B. Sturmfels, T. Theobald, First steps in tropical geometry, Proc.
+    Conference on Idempotent Mathematics and Mathematical Physics, Vienna 2003 (G.L.
+    Litvinov and V.P. Maslov, eds.), Contemporary Mathematics, AMS.
+
+[Sa] N. Saavedra, Catégories Tannakiennes, Lecture Notes in Mathematics, Vol. 265 Springer-
+     Verlag, Berlin-New York, 1972. ii+418 pp.
+
+
+
+                                              51
+[S] S. Schwede, Stable homotopical algebra and Γ-spaces, Math. Proc. Cambridge Philos. Soc.
+    126 (1999), no. 2, 329–356.
+
+[S-S] S. Schwede, B. Shipley, Algebras and modules in monoidal model categories, Proc. London
+     Math. Soc. (3) 80 (2000), 491 − 511.
+
+[So] C. Soulé, Les variétés sur le corps à un élément, Mosc. Math. J. 4 (2004), no. 1, 217–244.
+
+[Sp] M. Spitzweck, Operads, algebras and modules in model categories and motives, Ph.D.
+     Thesis, Mathematisches Institüt, Friedrich-Wilhelms-Universität Bonn (2001), accessible
+     à http://www.uni-math.gwdg.de/spitz/.
+
+[To-Va] B. Toën, M. Vaquié, Moduli of objects in dg-categories, à parraitre aux Annales Sci. de
+    l’ENS, pré-publication math.AG/0503269.
+
+[HAGDAG] B. Toën, G. Vezzosi, From HAG to DAG: derived moduli stacks, in Axiomatic,
+   enriched and motivic homotopy theory, 173–216, NATO Sci. Ser. II Math. Phys. Chem.,
+   131, Kluwer Acad. Publ., Dordrecht, 2004.
+
+[HAGI] B. Toën, G. Vezzosi, Homotopical algebraic geometry I: Topos theory, Adv. Math. 193
+   (2005), no. 2, 257–372.
+
+[HAGII] B. Toën, G. Vezzosi, Homotopical algebraic geometry II: Geometric stacks and appli-
+   cations, à parraitre dans Memoires of the AMS, pré-publication math.AG/0404373.
+
+[Ve] G. Vezzosi, A sketchy note on enriched homotopical topologies and enriched homotopical
+     stacks, pré-publication math.CT/0507447.
+
+
+
+
+                                                 52
+

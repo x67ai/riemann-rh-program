@@ -1,0 +1,496 @@
+                                                          BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?
+
+
+
+
+arXiv:1204.3129v1 [math.AG] 14 Apr 2012
+                                                                                      OLIVER LORSCHEID
+
+                                                 A BSTRACT. One of the driving motivations to develop F1 -geometry is the hope to translate
+                                                 Weil’s proof of the Riemann hypothesis from positive characteristics to number fields, which
+                                                 might result in a proof of the classical Riemann hypothesis. The underlying idea is that the
+                                                 spectrum of Z should find an interpretation as a curve over F1 , which has a completion SpecZ
+                                                 analogous to a curve over a finite field. The hope is that intersection theory for divisors on the
+                                                 arithmetic surface Spec Z × SpecZ will allow to mimic Weil’s proof.
+                                                     It turns out that it is possible to define an object Spec Z from the viewpoint of blueprints that
+                                                 has certain properties, which come close to the properties of its analogs in positive characteristic.
+                                                 This shall be explained in the following note, which is a summary of a talk given at the Max
+                                                 Planck Institute in March, 2012.
+
+
+
+                                                                                        I NTRODUCTION
+                                          For a not yet systematically understood reason, many arithmetic laws have (conjectural) ana-
+                                          logues for function fields and number fields. While in the function field case, these laws often
+                                          have a conceptual explanation by means of a geometric interpretation, methods from algebraic
+                                          geometry break down in the number field case. The mathematical area of F1 -geometry can be
+                                          understood as a program to develop a geometric language that allows to transfer the geometric
+                                          methods from function fields to number fields.
+                                             A central problem of this kind, which lacks a proof in the number field case, is the Riemann
+                                          hypothesis. The Riemann zeta function is defined as the Riemann sum ζ(s) = ∑n≥1 n−1 , or,
+                                          equivalently, as the Euler product ∏ p prime (1 − p−s)−1 (these expressions converge for Re(s) >
+                                          1, but can be continued to meromorphic function on C). A more symmetric expression with
+                                          respect to its functional equation is given by the completed zeta function
+                                                                               s              1
+                                                         ζ ∗ (s) = π −s/2 Γ( ) · ∏               −s
+                                                                                                               (for Re(s) > 1)
+                                                                               2
+                                                                      | {z } p prime | {z }1 − p
+                                                                            ζ∞ (s)                    ζ p (s)
+
+                                          where we call the factor ζ p (s) the local zeta factor at p for p ≤ ∞. The meromorphic continua-
+                                          tion of ζ ∗(s) to C satisfies ζ ∗ (s) = ζ ∗(1 − s). The fundamental conjecture is the
+                                          Riemann hypothesis: If ζ ∗(s) = 0, then Re(s) = 1/2.
+                                            The analogueous statement for the function field of a curve X over a finite fields has been
+                                          proven by André Weil more than seventy years ago. Weyl’s proof uses intersection theory for
+                                          the self-product X × X and the Lefschetz fix-point formula for the absolute Frobenius action on
+                                          X resp. X ×X . There were several attempts to translate the geometric methods of this proofs into
+                                                                                                  1
+2                                                OLIVER LORSCHEID
+
+arithmetic arguments that would apply for number fields as well, but only with partial success
+so far.
+   A different approach, primarily due to Grothendieck, is the development of a theory of
+(mixed) motives, but such a theory relies on the solution of some fundamental problems. In
+particular, Deninger formulates in [2] a conjectural formalism for a big site T of motives that
+should contain a compactification Spec Z = Spec Z ∪ {∞} of the arithmetic line, and he conjec-
+tured that the formula
+                                                                     
+                                     det∞ 2π (s − Θ) H (Spec Z, OT )
+                                            1           1
+     ζ ∗ (s) =                                                                         
+                         1
+                   det∞ 2π (s − Θ) H 0 (Spec Z, OT ) · det∞ 2π1
+                                                                (s − Θ) H 2 (Spec Z, OT )
+
+holds true where det∞ denotes the regularized determinant, Θ is an endofunctor on T and
+H i (−, OT ) is a certain proposed cohomology. This description combines with Kurokawa’s
+work on multiple zeta functions ([6]) to the hope that there are motives h0 (“the absolute
+point”), h1 and h2 (“the absolute Tate motive”) with zeta functions
+                                         1                            
+                         ζhw (s) = det ∞     (s − Θ) H w (Spec Z, OT )
+                                          2π
+   The viewpoint of F1 -geometry is that Spec Z should be a curve over the elusive field F1 with
+one element1. A good theory of geometry over F1 might eventually allow to transfer Weil’s
+original proof to the number field case. Manin tied up this viewpoint with the motivic approach:
+he proposed in [10] to interpret the absolute point h0 as Spec F1 and the absolute Tate motive h2
+as the affine line over F1 .
+   Soulé made the first attempt to define a class of objects that should be thought of as varieties
+over F1 and he defines the zeta function of a variety over F1 (cf. [11]). Indeed, his candidates
+for the absolute point Spec F1 has the zeta function ζSpec F1 (s) = s and the zeta function of the
+affine line A1F1 over F1 has the zeta function ζSpec F1 (s) = s − 1, which fits Deninger’s formalism
+up to a factor 2π.                                                                      
+   However, the cohomological interpretation det∞ (s − Θ)/(2π) H i (Spec Z, OT ) of the mo-
+tivic zeta function is still mysterious. The first step is to make sense of the object Spec Z, and,
+indeed, there were several attempts to do so, for instance by Durov (cf. [3]) and Haran (cf.
+[5]). To transfer Weil’s proof of the Riemann hypothesis for function fields one needs to con-
+sider intersection theory on the arithmetic surface Spec Z ×F1 Spec Z. But in the approaches
+towards F1 -geometry so far2—even if one considers only the affine part Spec Z of Spec Z—the
+self-product Spec Z ×F1 Spec Z is either isomorphic to Spec Z itself or infinite-dimensional over
+Z.
+    1The origins of this idea are not completely clear to me. The first mentioning in literature is in the lecture notes
+[10] of Yuri Manin (the lectures were held in 1991 and 1992). Alexander Smirnov told me that he that this idea
+occured to him already in 1985.
+   2During the time of writing the preprint [12] appeared, in which Takagi introduces a new candidate for SpecZ.
+This approach seems to be close to the one explained in this note, but I do not yet understand the connection clearly.
+                           BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?                                    3
+
+  Aim of this note is to present a definition of Spec Z as a blueprinted space (see [8] and [9]),
+which is close to Arakelov geometry and whose self-product over F1 (or better over F12 , as
+explained in the following) is 2-dimensional.
+
+                               1. T HE NAIVE DEFINITION OF Spec Z
+In analogy to curves over finite fields, one might expect the compactification of Spec Z to be
+a sober topological space X that consists of a unique generic point η and a closed point p for
+every (non-trivial) place | | p of the “function field” Q of X = Spec Z. In other words, a closed
+point is either a (finite) prime p < ∞ or the archimedean place p = ∞, which we will also call
+the infinite prime. The closed sets of X are the finite sets of places {p1 , . . . , pn } and X . Further,
+there should be a structure sheaf OX , which associates to the open set U = X − {p1 , . . . , pn } the
+following set of rational functions:
+                                                                                     
+                                     a        a
+                 OX U         =         ∈Q          ≤ 1 for all q ∈
+                                                                  / {p1 , . . . , pn } .
+                                      b        b q
+As a consequence, the global sections are Γ(X , OX ) = OX (X ) = {0, ±1}, which should be
+thought of as the constants of Spec Z. The stalks of OX are
+                                                            
+                                             a         a
+                              OX,p =           ∈Q          ≤1 ,
+                                             b         b p
+with “maximal ideals”                                             
+                                                a        a
+                                 mp =              ∈Q         <1
+                                                b        b p
+for every prime p ≤ ∞. One observes that X is indeed an extension of the scheme Spec Z, i.e. the
+restriction of X to U = X − {∞} can be identified with Spec Z. The problem with this definition
+is that the sets OX X − {p1 , . . ., pn } are not subrings of Q if ∞ ∈
+                                                                     / {p1 , . . . , pn }, and neither is
+the stalk OX,∞ = [−1, 1] ∩ Q at infinity.
+   However, all of these sets are monoids, by which we mean in this note (multiplicatively
+written) commutative semigroups with identity 1 and absorbing element 0. One of the tasks
+of an F1 -geometry is to give this naive definition of Spec Z a precise meaning, i.e. making it a
+geometric object in a meaningful category. We will present one possible approach via blueprints
+in the following.
+
+                                           2. B LUEPRINTS
+The definition of a blueprint was initially motivated by Jacques Tits’ idea of descending Cheval-
+ley groups to F1 : there was a need to go beyond Deitmar’s F1 -geometry attached to monoids
+by including a relation on the formal sums in the elements of a monoid.
+   Meanwhile it became clear that blueprints not only yield a satisfactory answer to Tits’ prob-
+lem, with applications to (idempotent and tropical) semirings (cf. [9]), but provide the natural
+background to understand certain aspects of geometry: buildings and their apartments; canon-
+ical bases and total positivity; cluster algebras; moduli of quiver representations and quiver
+4                                       OLIVER LORSCHEID
+
+Grassmannians. In this note, we restrict our attention to the definition of Spec Z as a blueprinted
+space.
+  We recall the definition of a blueprint. We will follow the conventions of [9], i.e. we mean
+by a blueprint what was called a proper blueprint with 0 in [8].
+
+Definition 2.1. A blueprint B is a monoid A together with a pre-addition R, i.e. R is an equiv-
+alence relation on the semiring N[A] = {∑ ai |ai ∈ A} of finite formal sums of elements of A that
+satisfies the following axioms (where we write ∑ ai ≡ ∑ b j whenever (∑ ai , ∑ b j ) ∈ R):
+      (i) If ∑ ai ≡ ∑ b j and ∑ ck ≡ ∑ dl , then ∑ ai + ∑ ck ≡ ∑ b j + ∑ dl and ∑ ai ck ≡ ∑ b j dl .
+     (ii) The absorbing element 0 of A is identified with the zero of N[A], i.e. 0 ≡ (empty sum).
+    (iii) If a ≡ b, then a = b (as elements in A).
+A morphism f : B1 → B2 between blueprints is a multiplicative map f : A1 → A2 between the
+underlying monoids of B1 and B2 , respectively, with f (0) = 0 and f (1) = 1 such that for every
+relation ∑ ai ≡ ∑ b j in the pre-addition R1 of B1 , the pre-addition R2 of B2 contains the relation
+∑ f (ai ) ≡ ∑ f (b j ). Let Bl pr be the category of blueprints.
+   In the following, we write B = A R for a blueprint B with underlying monoid A and pre-
+addition R. We adopt the conventions used for rings: we identify B with the underlying monoid
+A and write a ∈ B or S ⊂ B when we mean a ∈ A or S ⊂ A, respectively. Further, we think of
+a relation ∑ ai ≡ ∑ b j as an equality that holds in B (without the elements ∑ ai and ∑ b j being
+defined, in general). Given a set S of relations, there is a smallest equivalence relation R on
+N[A] that contains S and satisfies (i) and (ii). If R satisfies also (iii), then we say that R is the
+pre-addition generated by S, and we write R = hSi. In particular, every monoid A has a smallest
+pre-addition R = h /0i.
+
+2.1. Relation to rings. The idea behind the definition of a blueprint is that it is a blueprint
+of a ring (in the literal sense): given a blueprint B = A R, one can construct the ring B+   Z =
+Z[A]/I(R) where I(R) is the ideal {∑ ai − ∑ b j ∈ Z[A]| ∑ ai ≡ ∑ b j in R}. This association is
+functorial by extending a blueprint morphism f : B1 → B2 linearly to a ring homomorphism
+fZ+ : B+       +                                +
+       1,Z → B2,Z , i.e. we obtain a functor (−)Z : Bl pr → Rings from blueprints to rings.
+   On the other hand, rings can be seen as blueprints: given a (commutative and unital) ring
+R, we can define the blueprint B = A R where A is the underlying multiplicative monoid of
+R and R = {∑ ai ≡ ∑ b j | ∑ ai = ∑ b j in R}. Under this identification, ring homomorphisms are
+nothing else than blueprint morphisms, i.e. we obtain a full embedding ιR : Rings → Bl pr.
+This allows us to identify rings with a certain kind of blueprints, and we can view blueprints as
+a generalization of rings. Accordingly, we call blueprints in the essential image of ιR rings.
+
+2.2. Relation to monoids. Another important class of blueprints are monoids. Namely, a
+monoid A defines the blueprint B = A h /0i. This defines a full embedding ιM : M → Bl pr of
+the category M of monoids into Bl pr. This justifies that we may call blueprints in the essential
+image of ιM monoids and that we identify in this case B and A.
+                         BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?                               5
+
+2.3. Cyclotomic field extensions and the archimedean valuation blueprint. We give some
+other examples, which are of interest for the purposes of this text. The initial object in Bl pr
+is the monoid F1 := {0, 1}, the so-called field with one element. More general, we define the
+cyclotomic field extension F1n of F1 as the blueprint B = A R where A = {0} ∪ µn is the union
+of 0 with a cyclic group µn = {ζni |i = 1, . . . , n} of order n with generator ζn and where R is
+                               n/d
+generated by the relations ∑i=0 ζndi ≡ 0 for every divisor d of n. The associated ring of F1n is
+the ring Z[ζn ] of integers of the cyclotomic field extension Q[ζn ] of Q that is generated by the
+n-th roots of 1. Note that this breaks with the convention of F1 -literature that F1n should be a
+monoid and its associated ring should be isomorphic to Z[T ]/(T n − 1).
+   Of particular importance for us will be the blueprint F12 = {0, ±1} h1 + (−1) ≡ 0i, which
+we can identify with Γ(X , OX ). Consequently, we can think of X = Spec Z as a curve defined
+over F12 , which is an alteration of the prominent viewpoint in F1 -geometry that Spec Z should
+be a curve over F1 = {0, 1}. This will be of importance for the definition of cohomology (cf.
+Section 6).
+   The stalk OeX,∞ = [−1, 1] ∩ Q has a natural blueprint structure in terms of the pre-addition
+R∞ = {∑ ai ≡ ∑ b j | ∑ ai = ∑ b j in Q}. We will see, however, that this blueprint does not fit our
+purpose of making Spec Z a well-behaved geometric object (cf. Section 4).
+
+
+
+                             3. L OCALLY BLUEPRINTED SPACES
+Let B = A R be a blueprint. An ideal of B is a subset I satisfying that IB ⊂ I and that for every
+additive relation of the form ∑ ai + c ≡ ∑ b j in B with ai , b j ∈ I, we have c ∈ I. The relation
+0 ≡ (empty sum) implies that every ideal I contains 0.
+    A multiplicative set is a subset S of B that is closed under multiplication and contains 1. An
+ideal p of B is a prime ideal if its complement in B is a multiplicative set. A maximal ideal is
+an ideal that is maximal for the inclusion relation and not equal to B itself. A blueprint is local
+if it has a unique maximal ideal. A morphism f : B1 → B2 between local blueprints is local if it
+maps the maximal ideal of B1 to the maximal ideal of B2 .
+    Note that if B is a ring, all the above definitions specialize to the corresponding definitions
+for rings. The same is true for monoids. The following well-known facts for rings generalize to
+blueprints: maximal ideals are prime ideals; if B is a local blueprint, then its maximal ideal is
+the complement of the group of units, i.e. the set of elements with a multiplicative inverse.
+    A blueprinted space is a topological space X together with a sheaf OX in Bl pr. A mor-
+phism of blueprinted spaces is a continuous map together with a sheaf morphism. Since the
+category Bl pr contains directed limits, the stalks OX,x in points x ∈ X exist, and a morphism
+of blueprinted spaces induces morphisms between stalks. A locally blueprinted space is a
+blueprinted space whose stalks OX,x are local blueprints with maximal ideal mx for all x ∈ X .
+A local morphism between locally blueprinted spaces is a morphism of blueprinted spaces that
+induces local morphisms of blueprints between all stalks. We denote the resulting category by
+LocBl prS p.
+6                                        OLIVER LORSCHEID
+
+   Note that we can define the residue field of a point x of a locally blueprinted space X as
+κ(x) = OX,x/mx . A local morphism of locally blueprinted spaces induces morphisms between
+residue fields.
+   The spectrum of a blueprint B is defined analogously to the case of rings or monoids: Spec B
+is the locally blueprinted space whose underlying set X is the set of all prime ideals of B,
+endowed with the Zariski topology, and whose structure sheaf OX consists of localizations of B.
+A blue scheme is a locally blueprinted space that is locally isomorphic to spectra of blueprints.
+We denote the full subcategory of LocBl prS p whose objects are blue schemes by SchF1 .
+   However, our definition of Spec Z will not be a blue scheme, but merely a locally blueprinted
+space. An important effect in the category of blueprints is that colimits and tensor products of
+rings inside Bl pr is, in general not a ring. This leads to a simpler structure of fibre products
+of blue schemes, which coincide with the fibre products in LocBl prS p. More precisely, we
+have:
+Theorem 3.1. The category LocBl prS p has fibre products. The fibre product X ×S Y is
+naturally a subset of the topological product X ×top Y , and it carries the subspace topology. In
+the case of S = Spec F12 , it has the explicit description
+                                    n                                                        o
+                                                   top     there are a field k and blueprint
+            X ×F12 Y        =          (x, y) ∈ X × Y morphisms κ(x)→k and κ(y)→k .
+If X , Y and S are blue schemes, then the fibre product X ×S Y in LocBl prS p coincides with
+the fibre product in SchF1 . In particular, X ×S Y is a blue scheme.
+
+                        4. Spec Z AS A LOCALLY BLUEPRINTED SPACE
+We investigate the spectrum of the blueprint OeX,∞ as defined in Section 2.3. The multiplicative
+structure of OeX,∞ = A∞ R∞ for the monoid A∞ = [−1, 1] ∩ Q and R∞ as in Section 2.3 implies
+that if an ideal I of OeX,∞ contains an element a, then it contains [−a, a] ∩ Q = aA∞ . Conse-
+quently, if I contains any non-zero element a, then it contains also elements a1 , . . . , an such that
+∑ ai ≡ 1. The additive axiom for ideals implies that 1 ∈ I. Thus (0) and (1) are the only ideals
+of OeX̃,∞ , and its spectrum consists of one single point η = (0).
+   In particular, the set m∞ = {a ∈ Q| |a|∞ < 1} is not an ideal, which prevents OeX,∞ to be a
+candidate for the stalk of Spec Z at infinity. However, if we endow the monoid [−1, 1] ∩ Q
+with a weaker pre-addition, then we obtain a useful blueprint. Namely, the set of ideals of the
+blueprint OX,x = A∞ h1 + (−1) ≡ 0i is, by the above considerations,
+          I∞     =    { (−a, a) ∩ Q | a ∈ (0, 1] }    ∐    { [−a, a] ∩ Q | a ∈ [0, 1] ∩ Q },
+and the prime ideals of OX,x are (0) and mx , in analogy to the spectrum of a discrete valuation
+ring.
+   This difference of the spectra of OeX,∞ and OX,∞ does not occur for finite primes p. Namely,
+the set of ideals of the blueprint OX,p = A p h1 + (−1) ≡ 0i is
+                                 Ip     =     { (pi ) | i ∈ N ∪ {∞}}
+                         BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?                                7
+
+where (p0 ) = OX,p, (p1 ) = m p and (p∞ ) = (0). This set is identical with the set of ideals of the
+ring OeX,p = Z(p) , which is the stalk of Spec Z at p. The spectrum of OX,p consists of the two
+points (0) and m p as desired.
+   We can define a sheaf OX on X = Spec Z that yields OX,p as the stalk for any (finite or infinite)
+prime p. Namely, we put
+                               na          a                                     o
+ OX X − {p1 , . . ., pn }   =        ∈Q         ≤ 1 for all q ∈
+                                                              / {p1 , . . ., pn }   h1 + (−1) ≡ 0i.
+                                   b        b q
+This makes X a locally blueprinted space over F12 , i.e. X comes together with a morphism
+X → Spec F12 . The underlying topological space of X is Noetherian and has dimension 1. Its
+structure sheaf is coherent in the sense that X has an open covering {Ui } such that for every
+V ⊂ Ui , the restriction map OX (Ui ) → OX (V ) is a localization.
+   Since for every prime p, the residue field κ(p) can embedded into fields of any characteristic,
+Theorem 3.1 implies the following.
+Proposition 4.1. The “arithmetic surface” X ×F12 X is a topological space of dimension 2. 
+
+Remark 4.2. The locally blueprinted space Spec Z comes together with a morphism ϕ Spec Z →
+Spec Z, which is a topological embedding. The image Y of ϕ (as a locally blueprinted space) is
+thus homeomorphic to Spec Z and the underlying monoids of the structure sheaf are the same,
+only hte pre-additions of Spec Z and Y differ. In fact, Y can be understood as a subspace of the
+blue scheme                                                       
+                           V = Spec (Z, ·) h1 + (−1) ≡ 0i ,
+which is an infinite-dimensional topological space. Then Y consists of the generic point η of
+V and all its codimesnsion 1 points, and the open sets of Y stay in one-to-one correspondence
+to the open sets of V . The structure sheaf of Y is isomorphic to the structure sheaf of V as a
+functor from the topology of Y resp. V to blueprints.
+   Similarly, we find blue schemes underlying other affine (i.e. proper) open subsets of X . This
+might serve as a better explanation why we say that the structure sheaf of X coherent.
+
+                     5. F ORMULAS FOR THE R IEMANN ZETA FUNCTION
+The completed Riemann zeta function ζ ∗ (s) can be written as certain integrals over spaces that
+are connected to Spec Z.
+
+5.1. The ideal space. Recall that I p denotes the set of all ideal of the stalk OX,p = A p h1 +
+(−1) ≡ 0i at p for every prime p ≤ ∞. We endow the sets I p with the following topologies and
+measures. For p < ∞, we define a basis of the topology as the sets
+                                 Ub,c    =    { (pl ) | b ≤ l ≤ c }
+where b, c ∈ N ∪ {∞} and b ≤ c, with the usual convention that (p∞ ) = (0). Then I p is nothing
+else than the one-point compactification of the discrete set of natural numbers. For every s ∈ C,
+8                                                   OLIVER LORSCHEID
+
+we define a measure µ p,s on I p by
+                                                                                c
+                                             µ p,s (Ub,c)           =          ∑ p−ls.
+                                                                               l=b
+
+For p = ∞, we define a basis of the topology on I∞ as the sets
+
+                 Ub,c           =     { (−a, a) | b ≤ a ≤ c } ∐ { [−a, a] | b < a < c }
+
+for 0 ≤ b ≤ c ≤ 1. Then the map a 7→ [−a, a] is a topological embedding of the interval [0, 1]
+into I∞ . For every s ∈ C, we define a measure µ∞,s on I∞ by
+                                                                        Zc            s/2−1
+                                                                −s/2
+                                 µ∞,s (Ub,c)        =       π                   − ln x       dx.
+                                                                        b
+
+Proposition 5.1. For p ≤ ∞ and Re(s) > 1, we have
+                                                                        Z
+                                               ζ p (s)      =                  dµ p,s.
+                                                                        Ip
+
+In particular, the integral on the right hand side converges.
+Proof. Let Re(s) > 1 and p < ∞. Then
+                                      Z                         ∞
+                                          dµ p,s        =       ∑ p−ls               =      ζ p (s).
+                                                            l=0
+                                     Ip
+
+Let p = ∞. Then the variable substitution t = − ln x yields
+Z                           Z1            s/2−1                                     Z∞
+                                                                                                                          s
+     dµ∞,s   =   π   −s/2
+                                    − ln x       dx         =          π   −s/2
+                                                                                          e−t t s/2−1 dt   =   π −s/2 Γ        =   ζ∞ (s).
+                                                                                                                          2
+I∞                          0                                                        0
+                                                                                                                               
+
+  If we define the ideal space I as the product space ∏ I p over all primes p ≤ ∞ and µs =
+(µ p,s) as the product measure on I , then we obtain as an immediate consequence that
+                                                                           Z
+                                                    ∗
+                                                   ζ (s)        =              dµs .
+                                                                        I
+
+   The ideal space can also be understood as an adelic version of the space of ideals IZ of
+the integers Z, and in fact, I can be endowed with the structure of a monoid. It seems to be
+interesting to work out the precise relationship of I to the Bost-Connes system Q[Q/Z] ⋊ IZ .
+                            BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?                           9
+
+5.2. Arakelov divisors. Let M be a pointed set. We denote the base point of M by ∗M or simply
+by ∗. A pre-addition on M is an equivalence relation P on the semigroup N[M] = {∑ ai |ai ∈ M}
+of finite formal sums in M with the following properties (as usual, we write ∑ mi ≡ ∑ n j if ∑ mi
+stays in relation to ∑ n j ):
+      (i) ∑ mi ≡ ∑ n j and ∑ pk ≡ ∑ ql implies ∑ mi + ∑ pk ≡ ∑ n j + ∑ ql ,
+     (ii) ∗ ≡ (empty sum), and
+    (iii) if m ≡ n, then m = n (in M).
+Let B = A R be a blueprint. A blue module on B is a set M together with a pre-addition P
+and a B-action B × M → M, which is a map (b, m) 7→ b.m that satisfies the following properties:
+      (i) 1.m = m, 0.m = ∗ and a.∗ = ∗,
+     (ii) (ab).m = a.(b.m), and
+    (iii) ∑ ai ≡ ∑ b j and ∑ mk ≡ ∑ nl implies ∑ ai .mk ≡ ∑ b j .nl .
+A blue OX -module M is a sheaf on X that associates to every open set U ⊂ X a blue OX (U )-
+module M (U ) satisfying the usual compatibility condition with respect to the restriction maps.
+A line bundle on X is an OX -module that is locally isomorphic to OX . As in the case of line
+bundles on a curve over a field, the tensor product induces a group structure on the set Pic X of
+isomorphism classes of line bundles, which we call the Picard group of X .
+   Given a line bundle L on X , we can fix isomorphisms between its stalks L p and OX,p for
+every prime p ≤ ∞, and between its generic stalks Lη and OX,η . The specialization maps yield
+embeddings
+                                             ∼                         ∼
+ϕp :   A p h1 + (−1) ≡ 0i = OX,p −→ L p −→ Lη −→ OX,η = (Q, ·) h1 + (−1) ≡ 0i
+for every p ≤ ∞. Define n p := ϕ p (1) p where |−| p is the usual p-adic absolute value of Q.
+Note that only finitely many n p are non-zero. This defines an Arakelov divisor
+                                                                             M
+                    D(L )     =      ∑ np · p               ∈   Div X =            pZ ⊕ R>0
+                                    p≤∞                                      p<∞
+
+This divisor is well-defined up to the choice of the isomorphism Lη → OX,η or, equivalently,
+up to the choice of a principal divisor, which is an Arakelov divisor D = ∑ n p · p of norm
+N(D) = ∏ n p = 1 (since the class number of Q is 1). Let P(X ) be the subgroup of all principal
+divisors and Cl X = Div X /P(X ) the Arakelov divisor class group of X . In its idelic topology,
+Cl X is a locally compact group. For a certain effectivity measure µeff on Cl X , Van der Geer and
+Schroof establish in [4] the formula3
+                                                      Z
+                                     ∗
+                                   ζ (s)       =            N(D)−s dµeff ,
+                                                     Cl X
+which is basically a reformulation of a Tate integral.
+  The association L 7→ D(L ) defines an inclusion
+                                             Pic X     ֒→       Cl X
+  3as pointed out to me by Bora Yalkinoglu
+10                                        OLIVER LORSCHEID
+
+of groups, whose image is the set of divisor classes of the form [∑ n p · p] with n∞ ∈ Q>0 . Note
+that Pic X is a dense subgroup of Cl X and the topologies of Cl X and Pic X generate the same
+σ-algebra. Therefore we might rewrite the above formula as
+                                                Z
+                                  ∗
+                                 ζ (s)    =           N(L )−s dµeff .
+                                               PicX
+
+
+
+                                      6. É TALE COHOMOLOGY ?
+In order to find a cohomological interpretation of the completed zeta function ζ ∗ (s), one might
+try to transfer the formalism of étale cohomology to the setting of this note. We spend these last
+paragraphs with a description of a possible definition of étale cohomology for X = Spec Z.
+    Since it is not clear what a “separable field extension” of the “residue fields” κ(x) for x ∈
+X should be (note that κ(x) is not a field), it is not clear what an unramified morphism of
+locally blueprinted spaces should be. Therefore, it is better to work with the notion of formally
+étale morphisms of finite presentation, which makes sense in the context of locally blueprinted
+spaces. This approach is, for instance, the same as used in non-archimedean analytic geometry
+and in log-geometry.
+    The various equivalent definitions of sheaf cohomology give rise to different theories for
+locally blueprinted spaces. Sheaf cohomology can be defined in terms of injective resolutions.
+This gives rise to a well-working formalism (see [1]). However, injective objects in the category
+of blue modules over a blueprint are very different in nature from injective objects in usual
+module categories. For example, the first cohomology group of the projective line P1F1 is infinite
+dimensional (see [7]), which stays in complete contrast to cohomology of the projective line
+over a ring. One might still hope that this cohomology helps in view towards the Riemann
+hypothesis since the first cohomology group of Spec Z is expected to infinite dimensional. But,
+morally speaking, The reason for the infinite dimensionality of H 1 (Spec Z, OT ) should not lie
+in the different behaviour of injective objects, but in the fact that Z is not finitely generated over
+F1 as a monoid.
+    Sheaf cohomology defined by extension groups gives also rise to infinite cohomology groups,
+which is due to the fact that there are infinite series of epimorphisms with the same kernel. In
+particular, epimorphisms of blue modules are, in general, not normal. If one restricts to nor-
+mal epimorphisms and monomorphisms to define extension groups, then cohomology becomes
+trivial since extensions of blue modules are always a wedge product of the modules. Morally
+speaking, one can say that objects over F1 rigidify in the sense that coordinates are fixed.
+    The only hopeful approach to sheaf cohomology seems to be Cech cohomology. For a gen-
+eralizaton of the definition of Cech cohomology, it is essential to be able to refer to the additive
+inverses of elements. In other words, we need the blue modules in question to have an action
+of F12 . Therefore, it is important to consider Spec Z as a curve over F12 . In the toy example
+P1F 2 , we obtain indeed the expected sheaf cohomology for line bundles, i.e. if hi (L ) denotes
+     1
+the dimension of H i (Spec Z, L ) over F12 and O(n) is (the F12 -model of) the twisted structure
+                            BLUEPRINTS - TOWARDS ABSOLUTE ARITHMETIC?                                      11
+
+sheaf of P1F 2 , then h0 (O(n)) = n + 1 for n ≥ 0 and h0 (O(n)) = 0 for n < 0, and similarly for
+             1
+h1 (O(n)).
+   A common (but questioned) opinion is that the algebraic closure of F1 resp. F12 is the union
+F1∞ of all “cyclotomic field extensions” F1n . The automorphism group of F1∞ is Z b × and its fixed
+subfield is F12 . Thus Zb × can be considered as the Galois group Gal(F1∞ /F 2 ) of F1∞ over F 2 ,
+                                                                               1                 1
+and the embedding of F1∞ into the maximal abelian extension Qab of Q induces an isomorphism
+Gal(F1∞ /F12 ) → Gal(Qab /Q).
+   The action of G = Gal(F1∞ /F12 ) on F1∞ defines an action on X = Spec Z ×F12 F1∞ by acting
+trivially on the points, but only acting arithmetically on the factor F1∞ of the structure sheaf.
+This action might play the role of the absolute Frobenius in the number field case.
+   Up to this point, we see that all necessary definitions to set up étale cohomology of Spec Z
+resp. X have a straight forward generalization from usual scheme theory. Whether this will
+result in a valuable theory with respect to the Riemann hypothesis (or other arithmetic problems)
+is not clear to me at this moment, but certainly requires further investigation.
+                                               R EFERENCES
+ [1] Anton Deitmar. Belian categories. Preprint, arXiv:1105.5290, 2011.
+ [2] Christopher Deninger. Local L-factors of motives and regularized determinants. Invent. Math., 107(1):135–
+     150, 1992.
+ [3] Nikolai Durov. A new approach to arakelov geometry. PhD thesis, arXiv:0704, 2007.
+ [4] Gerard van der Geer and René Schroof. Effectivity of arakelov divisors and the theta divisor of a number
+     field. Selecta Math., 6:377–398, 2000.
+ [5] M. J. S. Haran. Non-additive geometry. Compositio Math., 143:618–688, 2007.
+ [6] Nobushige Kurokawa. Multiple zeta functions: an example. In Zeta functions in geometry (Tokyo, 1990),
+     volume 21 of Adv. Stud. Pure Math., pages 219–226. Kinokuniya, Tokyo, 1992.
+ [7] Oliver Lorscheid. Calculation of sheaf cohomology over P1F1 by an injective resolution. Unpublished note,
+     http://wmaz.math.uni-wuppertal.de/lorscheid/p1.pdf, 2011.
+ [8] Oliver Lorscheid. The geometry of blueprints. Part I: algebraic background and scheme theory. Adv. Math.,
+     229:1804–1846, 2012.
+ [9] Oliver Lorscheid. The geometry of blueprints. Part II: Tits-Weyl models of algebraic groups. Preprint,
+     arXiv:1201.1324, 2012.
+[10] Yuri Manin. Lectures on zeta functions and motives (according to Deninger and Kurokawa). Astérisque,
+     (228):4, 121–163, 1995. Columbia University Number Theory Seminar (New York, 1992).
+[11] Christophe Soulé. Les variétés sur le corps à un élément. Mosc. Math. J., 4(1):217–244, 312, 2004.
+[12] Satoshi Takagi. Compactifying Spec Z. Preprint, arXiv:1203.4914, 2012.
+
+  I NSTITUTO NACIONAL DE M ATEM ÁTICA P URA E A PLICADA , E STRADA D ONA C ASTORINA 110, 22460-
+320 R IO DE JANEIRO , B RAZIL .
+  E-mail address: lorschei@impa.br
+

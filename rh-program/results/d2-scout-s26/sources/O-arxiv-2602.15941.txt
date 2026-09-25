@@ -1,0 +1,2770 @@
+                                                                        On the Jacobian of Spec Z
+                                                                         Alain Connes and Caterina Consani∗
+
+
+
+                                                                                         Abstract
+                                                   We interpret the structure of the adele class space of the rationals—and specifically
+
+
+
+
+arXiv:2602.15941v1 [math.NT] 17 Feb 2026
+                                                   its Riemann sector—as the natural monoidal extension of the Picard group of the
+                                                   arithmetic curve Spec Z. We identify the elements of this space with torsion-free
+                                                   rank-1 abelian groups L endowed with rigidifying data. In the Riemann sector, this
+                                                   data corresponds to a norm, extending the classical notion of metrized line bundles
+                                                   in Arakelov geometry. For the full adele class space, we replace the norm with a
+                                                   group morphism to R and a combinatorial datum: a parametrization of the roots of
+                                                   unity associated with the character dual of L. We show that the product of adeles
+                                                   is represented geometrically by the tensor product of these rank-1 groups and their
+                                                   rigidifying structures. The resulting monoid space generalizes the Picard group to
+                                                   the full adelic context by incorporating the singular strata required for the spectral
+                                                   realization of L-functions.
+
+                                                   Key Words. Adele class space, Riemann sector, Arakelov geometry, Picard and
+                                                   Jacobian monoids, torsion-free rank-1 groups, metrized line bundles, ideles and adeles,
+                                                   scaling action, arithmetic compactification.
+
+                                                   MSC 2020. 14G40, 11M55, 14C20, 11R42, 06F05.
+
+
+                                           Contents
+                                           1 Introduction                                                                                      3
+
+                                           2 Arithmetic divisors on Spec Z                                                                     9
+                                             2.1 Supernatural numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                9
+                                             2.2 Arithmetic divisors on Spec Z . . . . . . . . . . . . . . . . . . . . . . . . .              10
+                                             2.3 Linear equivalence and the Picard monoid . . . . . . . . . . . . . . . . . .                 11
+                                             2.4 Tensor product and addition of divisor classes . . . . . . . . . . . . . . . .               12
+                                             2.5 Adelic description of arithmetic divisors . . . . . . . . . . . . . . . . . . .              13
+                                             2.6 The arithmetic Abel–Jacobi map and boundary points . . . . . . . . . . .                     14
+
+                                           3 The arithmetic Picard monoid of Spec Z                                                           17
+                                             3.1 Arithmetic divisors on Spec Z . . . . . . . . . . . . . . . . . . . . . . . . .              17
+                                             3.2 Intrinsic product . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .            17
+                                             3.3 The Picard monoid Pic(Spec Z) . . . . . . . . . . . . . . . . . . . . . . . .                18
+                                             3.4 Adelic description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           18
+                                             3.5 The adelic invariant subgroup Ia . . . . . . . . . . . . . . . . . . . . . . .               19
+                                             3.6 Product of value spectra . . . . . . . . . . . . . . . . . . . . . . . . . . . .             21
+                                             ∗
+                                                 Partially supported by the Travel Support for Mathematicians n. 691493, Simons Foundation.
+
+
+
+
+                                                                                              1
+4 The arithmetic Jacobian Jac(Spec Z)                                                     21
+  4.1 Definition of Jac(Spec Z) . . . . . . . . . . . . . . . . . . . . . . . . . . . .   21
+  4.2 Structure of Jac(Spec Z) . . . . . . . . . . . . . . . . . . . . . . . . . . . .    22
+  4.3 Monoid structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    22
+  4.4 The extended Abel-Jacobi map . . . . . . . . . . . . . . . . . . . . . . . .        22
+
+5 Sheaves of modules on Spec Z                                                            23
+  5.1 The Structure sheaf . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     23
+  5.2 Sheaves associated to arithmetic divisors . . . . . . . . . . . . . . . . . . .     23
+
+6 Arithmetic pullbacks and the geometry of the Riemann sector                             24
+  6.1 The classical geometric prototype . . . . . . . . . . . . . . . . . . . . . . .     25
+  6.2 The arithmetic pullback . . . . . . . . . . . . . . . . . . . . . . . . . . . .     25
+  6.3 Group structure on the periodic orbits . . . . . . . . . . . . . . . . . . . .      26
+      6.3.1 Idempotence and the induced group law . . . . . . . . . . . . . . .           26
+      6.3.2 Identification with the circle group . . . . . . . . . . . . . . . . . .      26
+  6.4 The fiber at infinity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+      6.4.1 Absorption by the fixed point . . . . . . . . . . . . . . . . . . . . .       27
+  6.5 The generic fiber . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+      6.5.1 Description of the generic fiber . . . . . . . . . . . . . . . . . . . .      27
+      6.5.2 Density and topological meaning . . . . . . . . . . . . . . . . . . .         27
+
+7 The universal cover                                                                     28
+  7.1 The class field functor . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   28
+  7.2 Group structure of the fiber over a finite prime . . . . . . . . . . . . . . .      29
+  7.3 The fiber over the archimedean orbit . . . . . . . . . . . . . . . . . . . . .      30
+  7.4 The fiber over the generic point . . . . . . . . . . . . . . . . . . . . . . . .    30
+
+8 The geometric monoids PicF r (Spec Z) and PicRt (Spec Z)                                31
+  8.1 Framed arithmetic divisors . . . . . . . . . . . . . . . . . . . . . . . . . . .    31
+  8.2 The moduli space PicF r (Spec Z) . . . . . . . . . . . . . . . . . . . . . . .      33
+      8.2.1 The monoid structure . . . . . . . . . . . . . . . . . . . . . . . . .        33
+  8.3 Rooted arithmetic divisors and the moduli PicRt (Spec Z) . . . . . . . . . .        34
+      8.3.1 The Support of a divisor . . . . . . . . . . . . . . . . . . . . . . . .      34
+      8.3.2 The isomorphism condition . . . . . . . . . . . . . . . . . . . . . .         34
+  8.4 Tensor product of roots via character multiplication . . . . . . . . . . . .        35
+      8.4.1 The character pairing . . . . . . . . . . . . . . . . . . . . . . . . .       36
+      8.4.2 Product of roots . . . . . . . . . . . . . . . . . . . . . . . . . . . .      36
+      8.4.3 Automatic handling of singularities . . . . . . . . . . . . . . . . . .       37
+  8.5 Compatibility of duality with tensor products . . . . . . . . . . . . . . . .       38
+  8.6 Canonical monoid isomorphism . . . . . . . . . . . . . . . . . . . . . . . .        38
+
+9 Pic(Spec
+  f        Z) and spectral realization of zeros of L-functions                            39
+  9.1 The explicit formula as a trace formula . . . . . . . . . . . . . . . . . . . .     39
+  9.2 Geometric interpretation: isotropy and fibers . . . . . . . . . . . . . . . .       40
+  9.3 The semilocal trace formula . . . . . . . . . . . . . . . . . . . . . . . . . .     41
+  9.4 Sheaves over Spec Z . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     42
+
+
+
+
+                                             2
+A Adelic description of the dual of torsion free rank-1 groups                             42
+  A.1 Finite adeles and Hom(Q, Q/Z) . . . . . . . . . . . . . . . . . . . . . . . .        42
+  A.2 The dual of a rank-1 group . . . . . . . . . . . . . . . . . . . . . . . . . .       44
+  A.3 The torsion subgroup of the dual . . . . . . . . . . . . . . . . . . . . . . .       45
+  A.4 Consistency with Pontryagin duality . . . . . . . . . . . . . . . . . . . . .        46
+
+                                              N×
+B Pic(Spec Z) and the monoid of the points of b                                            47
+
+
+1    Introduction
+The starting point of this paper is the apparent paradox concerning the genus of the
+arithmetic curve Spec Z. On one hand, the classical Jacobian of Spec Z—its ideal class
+group—is trivial, suggesting a curve of genus zero. On the other hand, the spectral
+realization of the zeros of the Riemann zeta function [2], as well as the explicit formulas of
+Riemann-Weil [11], strongly suggest that Spec Z should be regarded as a curve of infinite
+genus. To resolve this tension, we extend the classical definitions of the Jacobian and
+Picard group of Spec Z to incorporate the infinite nature of the arithmetic curve (§2.3).
+The new arithmetic Jacobian is the natural ambient space for studying étale covers—both
+geometrically and adelically—via pullbacks using an analogue of the Abel-Jacobi map.
+The first step in this construction is P  to extend the notion of a divisor on Spec Z. A
+classical divisor is a formal sum D =       np [p] where the coefficients np are integers and
+vanish for all but finitely many p. To accommodate the expected infinite genus, we relax
+these conditions in two ways.
+1) We allow the coefficients np to take values in Z ∪ {∞}
+and
+2) We allow the support of a divisor to be infinite, imposing only the condition that np is
+negative for at most finitely many primes.
+This extended definition of divisors is justified by a canonical isomorphism with the Plattice
+of rank-1 subgroups of Q (Proposition 2.4). To any such generalized divisor D = np [p],
+one associates the module of global sections:
+
+                           L(D) = {q ∈ Q | vp (q) ≥ −np      ∀p}.
+
+Conversely, any rank-1 subgroup L ⊂ Q determines a divisor D by setting np =
+− inf{vp (x) | x ∈ L}, and one shows that L = L(D). In this framework, the classical
+notion of linear equivalence of divisors corresponds precisely to the isomorphism of the
+associated subgroups of Q. Furthermore, the addition of divisors corresponds to the tensor
+product of these groups: L(D1 + D2 ) ∼ = L(D1 ) ⊗Z L(D2 ).
+The Picard monoid of Spec Z is defined as the quotient monoid
+
+                       Pic(Spec Z) = Div(Spec(Z))/PDiv(Spec(Z)).
+
+The above identification in terms of subgroups of Q provides an algebraic description of
+Pic(Spec Z) as the (multiplicative) monoid of isomorphism classes of torsion-free rank-1
+groups. In turn, this algebraic description has two equivalent incarnations: adelic and
+geometric. First, in terms of adeles, there is a monoid isomorphism (Proposition 2.11)
+
+                                Pic(Spec Z) ∼
+                                            = Q× \Af /Z
+                                                      b ×,
+
+where Af is the ring of finite rational adeles. Here, the monoid structure on Pic(Spec Z)
+corresponds to the product of adeles. Second, Pic(Spec Z) can be identified with the
+
+                                              3
+set of points of the arithmetic topos N
+                                      b × [3], which is dual to the multiplicative monoid
+N of non-zero positive integers. The monoid structure on Pic(Spec Z) corresponds to
+  ×
+
+the product of points in the topos induced by the multiplication map N× × N× → N×
+(Appendix B).
+To capture the full geometry, we pass to the completion Spec Z, obtained by adjoining the
+archimedean place. In section 3 we extend the definition of divisors by including, as in
+Arakelov geometry, a norm on the associated real lattice L ⊗Z R. We name the resulting
+monoid of divisor classes, the arithmetic Picard Pic(Spec Z). This is the moduli space of
+arithmetic divisors D = (L, ∥ · ∥), where L is a torsion free rank 1 group, and ∥ · ∥ is a
+semi-norm on L ⊗Z R. The group R×    + acts on Pic(Spec Z) by rescaling of the norm.
+The monoid Pic(Spec Z) has an adelic interpretation in terms of the monoid
+
+                                    XQ = Q× \A/Z
+                                               b ×,                                     (1)
+
+the quotient of the rational adele class space YQ = Q× \A by the maximal compact
+subgroup Zb × ⊂ CQ = Q× \A× of the idele class group (§3.4):
+
+Theorem 1.1. The map which associates to a rational adele a = (af , a∞ ) the pair con-
+sisting of:
+
+- The group La := {q ∈ Q | af q ∈ Z},
+                                  b
+
+- The semi-norm ∥ · ∥a on La ⊗Z R defined by ∥v∥a = |a∞ | · |v| (via the canonical identi-
+  fication La ⊗ R ∼
+                  = R),
+induces a canonical monoid isomorphism
+
+                                    XQ ∼
+                                       = Pic(Spec Z)
+
+between the Riemann sector XQ of the adele class space (1) and the moduli space of
+isomorphism classes of arithmetic divisors D = (L, ∥ · ∥).
+
+The main feature of the above isomorphism is to give to the adelically defined space XQ
+a geometric meaning as a moduli space of arithmetic divisor classes.
+In section 4 we introduce the arithmetic Jacobian as the quotient
+
+                             Jac(Spec Z) = Pic(Spec Z)/R×
+                                                        +.
+
+This definition parallels the classical notion of the Jacobian of a curve as the quotient of
+its Picard group by the subgroup generated by a divisor of degree 1.
+The extended arithmetic Abel-Jacobi map Θ is defined in §4.4 by sending a prime p to the
+divisor ∞ · [p], the archimedean place ∞ to the divisor ∞ · [∞], and the generic point η
+to the zero divisor. In formulas one writes:
+
+                                                (Z[1/p], ∥ · ∥ ̸= 0) if x = p < ∞
+                                                
+                                                
+        Θ : Spec Z −→ Jac(Spec Z), Θ(x) = (Z, 0)                       if x = ∞
+                                                                       if x = η.
+                                                
+                                                   (Z, ∥ · ∥ ̸= 0)
+                                                
+
+The non-vanishing of the norm ensures the uniqueness of the arithmetic divisor class. This
+map extends canonically to the infinite symmetric power of Spec Z, mirroring the classical
+construction in algebraic geometry. In the function field case, the Abel-Jacobi map sends
+the g-th symmetric power of the curve to the Jacobian, which is an abelian variety of
+dimension g. Here, the arithmetic curve has infinite genus (g = ∞), and the target space
+
+                                             4
+is not an abelian variety but an idempotent semilattice. The extension yields a surjection
+from the infinite symmetric power onto the set of idempotents of Jac(Spec Z), realizing
+the boundary structure of the Picard monoid as the limit of the symmetric powers of the
+curve.
+In Section 5, we connect the abstract theory of the arithmetic Picard Pic(Spec Z) to the
+sheaf-theoretic framework of F1 -algebras as in [4].
+
+Theorem 1.2. An arithmetic divisor D = (L, ∥ · ∥) defines a sheaf of modules O(D) over
+the structure sheaf O of the absolute curve Spec Z.
+
+- At the finite primes, the sheaf O(D) is constructed using the Eilenberg-MacLane functor
+  H applied to the group of regular sections of L.
+
+- At the archimedean place, the metric ∥ · ∥ imposes the "unit ball" condition
+                                     X
+                                           ∥ϕ(x)∥ ≤ 1
+                                             x̸={∗}
+
+  on the sections.
+
+A key feature of this result is that it unifies the treatment of classical Arakelov divisors
+(i.e. with finite support) and the new arithmetic divisors (allowing infinite type). For the
+latter, the vanishing of the semi-norm implies that the metric constraint becomes vacuous,
+geometrically corresponding to allowing a pole of arbitrary order at infinity.
+The arithmetic Jacobian Jac(Spec Z) is the base of a tower of adelic coverings. At the top
+of this tower sits the adele class space YQ = Q× \A, carrying a natural action of the idele
+class group CQ , while XQ fits-in as an important intermediate cover.
+In section 6 we develop the construction of the corresponding coverings of Spec Z via the
+pullback1 of the adelic covers along the extended Abel-Jacobi map
+
+                                        XQ                   XQ
+
+
+                                                  Θ
+                                      Spec Z              Jac(Spec Z)
+
+The space XQ obtained by pullback of the adelic XQ along Θ coincides with what we
+termed in [5] the "visible part" of the Riemann sector XQ . It consists of the union of
+the periodic orbits of the flow over the finite primes, the fixed point over the archimedean
+place and the generic orbit R×  + over the generic point η. The fiber of the covering π over
+a finite prime p is the periodic orbit Cp , and the monoid structure of XQ ∼   = Pic(Spec Z)
+coincides with the group structure of Cp ∼  = R/(log p)Z.
+In Section 7 we move to the “universal level”. First, we describe the Galois correspondence
+between intermediate covers of Jac(Spec Z) and closed subgroups of CQ . The action of the
+"Galois group" CQ on these spaces is by "translation", which in this monoid context means
+multiplication by the invertible elements (ideles) acting on the space of adele classes.
+In §7.1 we first recall the construction (Theorem 7.2 in [5]) of a functor from finite abelian
+extensions of Q to finite covers of the space XQ . Then, in §7.2 we consider the pullback,
+   1
+     This construction is analogous to the classical geometric class field theory for a curve C over a finite
+field. There, one constructs abelian coverings of C by pulling back coverings of the Jacobian J(C).
+Specifically, one considers the quotient J(C) → J(C)/ℓn J(C), where the Galois group (the ℓn -torsion
+points) acts by translation on the Jacobian.
+
+
+                                                      5
+along the Abel-Jacobi map Θ, of the covering YQ → XQ . This adds a top layer to the
+previous tower, yielding a space Spec
+                                  ^Z that covers XQ
+
+                                                     Θ̃
+                                    Spec
+                                     ^Z                   YQ
+
+
+                                       XQ                 XQ
+
+The geometry of the universal cover Spec
+                                     ^Z over Cp ⊂ XQ (i.e. the fiber over Cp ) captures
+the interaction between the prime p ∈ Spec Z and all other primes ℓ ̸= p. Specifically, the
+restriction of Spec
+                ^Z to the orbit Cp is the mapping torus of the Frobenius automorphism
+acting on the local units away from p. Let K (p) = ℓ̸=p Z×ℓ be the group of units of the
+                                                   Q
+adeles omitting the component at p. Then the fiber over Cp is identified with the quotient:
+                                                              
+                       Tp = K (p) × R / (u, t) ∼ (pu, t + log p) .
+
+Here, the generator of the fundamental group of the orbit Cp acts on the fiber K (p) by
+multiplication by p. This action corresponds, via the Artin map, to the action of the
+Frobenius at p on the abelianized étale fundamental group of the curve Spec Z localized
+at p. Thus, the universal geometry over p encodes the linking of p with all other primes ℓ.
+The following commutative diagram of pullbacks helps to visualize the overall construction
+
+                                                Θ̃
+                                 Spec
+                                  ^Z                      YQ
+
+
+                                  XQ                      XQ                            (2)
+
+
+                                            Θ
+                                 Spec Z              Jac(Spec Z)
+
+The spaces Spec
+            ^Z and XQ in the left column, are defined as pullbacks of adelic quotients.
+
+Theorem 1.3. The monoid structure of the adelic covers XQ and YQ induces a canonical
+group structure on the fibers of the pullbacks of these covers along the arithmetic Abel-
+Jacobi maps Θ and Θ̃. The structure of these fibers for the intermediate cover XQ and the
+universal cover Spec
+                 ^Z is given as follows:
+
+                    x ∈ Spec Z     Fiber in XQ             Fiber in Spec
+                                                                     ^Z
+
+                        η                 R×
+                                           +                       CQ
+                      p<∞         Cp ∼
+                                     = R/Z log p               CQ /Q×
+                                                                    p
+
+                        ∞                 {1}             b× ∼
+                                                          Z  = Gal(Qab /Q)
+
+In Section 8 we establish a rigorous geometric realization of the adelic monoid YQ = Q× \A,
+transforming it from a purely adelic quotient into a moduli space of arithmetic objects
+equipped with rigidifying data. Our construction proceeds in two stages, revealing the
+“combinatorial skeleton” hidden within the adelic structure.
+First, we introduce the notion of framed arithmetic divisors. These are torsion free rank-
+1 groups L equipped with trivializations of their completions at both finite and infinite
+
+                                                6
+places: that is, a generator ξ of the Z-module
+                                      b                b and a homomorphism τ : L → R.
+                                               Hom(L, Z)
+This formulation places the archimedean and non-archimedean data on an equal footing
+and allows one to characterize the rigidity of the frame.
+Second, by applying Pontryagin duality to the finite frame, we pass to the dual descrip-
+tion of rooted arithmetic divisors. Here, the profinite data is replaced by a root i.e. a
+homomorphism ρ from the group of roots of unity Q/Z to the torsion of the dual group
+L∨ = Hom(L, Q/Z). This root map encodes the arithmetic position of the divisor by spec-
+ifying how the standard roots of unity map into the “arithmetic roots” of L. We show that
+the multiplicative structure of the adeles corresponds geometrically to the tensor product
+of these divisors. A key technical innovation is the definition of the tensor product of
+roots, which relies on a “hidden” coproduct structure on Q/Z arising from the limit of the
+ring structures of the levels Z/nZ.
+We denote by PicF r (Spec Z) the moduli space of framed arithmetic divisors (L, ξ, τ ) mod-
+ulo isomorphism, and by PicRt (Spec Z) the moduli space of rooted arithmetic divisors
+(L, ρ, τ ) modulo isomorphism.
+The central result arising from this analysis is the following uniformization theorem (The-
+orem 8.15)
+
+Theorem 1.4 (Geometric uniformization of the adelic monoid YQ ).
+
+  1. There is a canonical monoid isomorphism between the adelic monoid YQ and the
+     moduli space of framed arithmetic divisors:
+                               ∼
+                       F : YQ −
+                              → PicF r (Spec Z),          [a] 7−→ [(La , ξa , τa )].
+
+     Under this isomorphism, the product of adeles corresponds to the tensor product of
+     framed divisors:
+                                  F(ab) ∼
+                                        = F(a) ⊗ F(b).
+
+  2. The duality functor ξ 7→ ξ ∨ induces a canonical isomorphism of monoids between
+     framed and rooted arithmetic divisors:
+                                        ∼
+                D : PicF r (Spec Z) −
+                                    → PicRt (Spec Z),          (L, ξ, τ ) 7−→ (L, ξ ∨ , τ ).
+
+     This map respects the tensor structure, where the product of roots is defined via the
+     diagonal action on the system of finite rings Z/nZ.
+
+Consequently, the adelic monoid YQ classifies rooted arithmetic divisors, identifying the
+multiplication of adelic classes with the tensor product of systems of roots.
+The duality isomorphism D justifies the introduction of the following notation
+
+                     Pic(Spec
+                     f        Z) := PicF r (Spec Z) ∼
+                                                    = PicRt (Spec Z)                           (3)
+
+In Section 9, we draw a parallel with classical algebraic geometry, where the Jacobian and
+Picard varieties provide the intrinsic representation of cohomology. We re-interpret the
+diagram (2) as the key pullback diagram in the construction of étale covers in algebraic
+geometry
+                                            Θ̃
+                                Spec
+                                 ^Z                  Pic(Spec
+                                                     f        Z)
+                                   π̃                      π                                   (4)
+                                            Θ
+                                Spec Z               Jac(Spec Z)
+
+                                                 7
+We investigate in the arithmetic context over Spec Z, the role of the monoid Pic(Spec
+                                                                                  f         Z)
+as a geometric support for the cohomology of the arithmetic curve. The nature of this
+cohomology is revealed by the spectral realization of the zeros of L-functions [2]. In §9.1 we
+interpret Weil’s explicit formula as a Lefschetz trace formula for the translation action of
+the idele class group CQ on f  Pic(Spec Z), demonstrating that the geometric contributions
+of the periodic orbits localize precisely on the range of the universal Abel-Jacobi map
+Θ̃. This marks a decisive departure from the classical function field analogy. There, the
+spectral theory arises from the action of the Frobenius endomorphism on the Jacobian.
+Here, we rely on the action of the idèle class group acting by translations as the Galois
+group of a covering. While translations on a group possess no non-trivial fixed points,
+the adelic monoid Pic(Spec
+                     f         Z) carries a geometric structure where the action of CQ by
+translation admits fixed points, recovering the local terms of the explicit formula.
+In §9.2 we show that the geometric side of this trace formula decomposes according to the
+fibers of the projection π̃ : Spec
+                               ^Z → Spec Z described above. Precisely:
+The fibers over the closed points (places) v (p < ∞ and ∞) of Spec Z carry the local terms
+of the explicit formula. The local multiplicative groups Q× v appear as isotropy subgroups
+of the action, while the term |1−u|
+                                  1
+                                      in the generalized Weil’s explicit formula arises as the
+distributional trace of the scaling operator on the transverse space to the orbit.
+The fiber over the generic point η ∈ Spec Z contributes to the spectral side via the regular
+representation, manifesting as the "white light" divergence in the trace.
+To provide a rigorous formulation, we follow [2] and develop in §9.3 a semi-local trace
+formula. In §9.4 we introduce a sheaf of Schwartz algebras on Spec Z associated to finite
+products of local fields. The semi-local trace formula of [2] involves phase-space cutoffs
+Rλ acting on the associated Hilbert spaces, and contains a divergent term 2h(1) log λ (see
+(20)) while the finite remainder terms recover exactly the local integrals in Weil’s explicit
+formula. We interpret the divergent term as the contribution of the image Θ(η) = η̃ of
+the generic point η ∈ Spec Z by the Abel-Jacobi map. This suggests that the relevant
+cohomology is that of the pair ( f Pic(Spec Z), η̃).
+Finally, we emphasize that the passage from the classical geometry of Picard groups to that
+of Picard monoids (and likewise for Jacobians) should not be viewed as a mere generaliza-
+tion. Rather, it is a necessary step for incorporating boundary and singular phenomena
+into the geometric framework—precisely the features required for the spectral realization,
+including the “white light” and the distributional trace. This perspective is also consis-
+tent with developments in modern geometric representation theory and the Langlands
+program, where Vinberg monoids provide a natural and well-established precedent (see
+[10, 7]).
+In Appendix A, we give a self-contained analysis of the character dual L∨ = Hom(L, Q/Z)
+for torsion-free rank-1 groups. We then derive an explicit adelic presentation of this group
+as the quotient Af /L⊥ , where L⊥ denotes the annihilator of L in the ring of finite rational
+adeles. A key result identifies the torsion subgroup Tor(L∨ ) as the direct sum of the
+local components Qp /Zp over the primes where L is integral, regardless of the group’s
+behavior at singular primes. Finally, we clarify the relationship between L∨ and the
+classical Pontryagin dual L∗ = Hom(L, S 1 ), demonstrating that L∨ contains the essential
+torsion information required to define the system of roots.
+Appendix B develops the identification of Pic(Spec Z) with the monoid of the points of
+the arithmetic topos N b ×.
+
+
+
+
+                                              8
+2     Arithmetic divisors on Spec Z
+This section develops the divisor theory of Spec Z starting from supernatural numbers
+and valuation bounds. We define arithmetic divisors and their spaces of global sections
+L(D) ⊂ Q, obtaining a classification of rank-1 subgroups of Q and, modulo linear equiv-
+alence, an identification of Pic(Spec Z) with isomorphism classes of torsion-free rank-1
+groups. We then describe the induced tensor/monoid structure, give an adelic realiza-
+tion of Pic(Spec Z), and introduce an arithmetic Abel–Jacobi map landing on a boundary
+(idempotent) stratum.
+The structural results regarding rank-1 torsion-free abelian groups presented in this section
+are standard in the literature; specifically, the classification via “types” (which corresponds
+to our divisor classes) is treated in Rotman [8, Theorems 10.47 and 10.48]. However, to
+establish our specific geometric terminology and for the convenience of the reader, we
+provide self-contained proofs adapted to the language of arithmetic divisors.
+
+2.1    Supernatural numbers
+To motivate the definition of arithmetic divisors on Spec Z, we first recall the notion of
+supernatural numbers. These encode valuation bounds at all primes simultaneously and
+provide a natural language for describing divisor-like data with infinite support but finite
+negative part.
+
+Definition 2.1. The set of supernatural numbers Nsup consists of formal products:
+                                          Y
+                                     N=     pnp
+                                               p
+
+where the exponents satisfy np ∈ N ∪ {+∞}.
+
+To every supernatural number N ∈ Nsup , we associate a subgroup HN ⊂ Q:
+
+                       HN = {x ∈ Q | vp (x) ≥ −np for all primes p}
+
+Here, vp (x) is the standard p-adic valuation. The condition vp (x) ≥ −np can be interpreted
+geometrically as follows:
+
+      If np > 0, elements in HN may have poles of order at most np at p (i.e. denominators
+      divisible at most by pnp ).
+
+      If np = +∞, elements in HN may have poles of arbitrary order at p.
+
+The next statement explains why supernatural numbers are the natural parameters in this
+setting. They are equivalent to prescribing, prime by prime, the denominators that are
+allowed in a subgroup of Q containing Z (cf. [9], Chap. XIII, §2).
+
+Proposition 2.2. The map N 7→ HN defines a bijection between Nsup and the set of all
+subgroups of Q containing Z.
+
+Proof. For N = p pnp the set
+                Q
+
+                              HN = {x ∈ Q | vp (x) ≥ −np ∀p}
+
+is clearly an additive subgroup of Q and contains Z, so the map is well-defined.
+
+
+                                              9
+Conversely, let H ⊂ Q be a subgroup with Z ⊂ H. For each prime p set
+                                                            Y
+      np (H) = sup{−vp (x) | x ∈ H} ∈ N ∪ {+∞}, N (H) =       pnp (H) ∈ Nsup .
+                                                                        p
+
+Then H ⊆ HN (H) is immediate from the definition of np (H).
+For the reverse inclusion, take x ∈ HN (H) and write x = a/b in lowest terms, with
+b = p pkp and kp = −vp (x). The condition x ∈ HN (H) means kp ≤ np (H) for all p | b.
+     Q
+For each such p choose xp ∈ H with −vp (xp ) ≥ kp ; multiplying by a suitable integer
+(allowed since Z ⊂ H) we may assume xp = uQ    p /p
+                                                    kp with u ∈ Z and p ∤ u . Let S be the
+                                                             p             p
+finite set of primes dividing b, and put bS := p∈S pkp = b.
+Choose integers cp such that
+                                X              b
+                                      cp up       ≡a         (mod b).
+                                              pkp
+                                p∈S
+
+
+This is possible because each factor pkbp is invertible modulo pkp , hence one can solve
+the congruences modulo each pkp and combine them by the Chinese remainder theorem.
+Then, define                         X
+                                 y=     cp xp ∈ H.
+                                              p∈S
+
+By construction, y ≡ a/b (mod Z), i.e. y − ab ∈ Z ⊂ H, hence x = a/b ∈ H. Therefore
+HN (H) ⊆ H, so H = HN (H) .
+Finally, the assignments N 7→ HN and H 7→ N (H) are inverse to each other by construc-
+tion, so the correspondence is bijective.
+
+2.2   Arithmetic divisors on Spec Z
+We begin by extending the classical notion of a divisor to accommodate the "infinite
+genus" nature of Spec Z.
+
+Definition 2.3. An arithmetic divisor on Spec Z is a formal sum:
+                                         X
+                                    D=      np [p]
+                                                    p
+
+where the coefficients np belong to Z ∪ {+∞} and satisfy the condition that np < 0 for at
+most finitely many rational primes p.
+
+We denote by Div(Spec Z) the set of arithmetic divisors. An arithmetic divisor is called
+effective if np ≥ 0 for all p.
+The set of effective arithmetic divisors is naturally identified with the set of supernatural
+numbers Nsup , via the correspondence
+                                  Y              X
+                                      pnp ←→         np [p],
+                                      p                  p
+
+which amounts to passing from the multiplicative to the additive encoding of valuation
+data. This identification reflects the fact that both notions encode, for each prime p, the
+maximal allowed order of a pole, with no finiteness restriction on the positive part.
+
+
+
+                                                    10
+To every arithmetic divisor D, we associate the module of global sections of the corre-
+sponding line bundle. This is the subgroup L(D) ⊂ Q defined by:
+
+                     L(D) = {x ∈ Q | vp (x) ≥ −np for all primes p}.
+
+Here, vp (x) is the standard p-adic valuation. The condition vp (x) ≥ −np has a clear
+geometric interpretation:
+
+  If np > 0 (finite), sections in L(D) are allowed to have poles of order at most np at p.
+
+  If np = +∞, the sections are allowed to have poles of arbitrary order at p (essential
+  singularity).
+
+  If np < 0, the sections must have a zero of order at least |np | at p.
+
+As in the classical theory of divisors on curves, a divisor determines the space of global
+sections of the associated line bundle. In the present arithmetic setting, this assignment
+completely characterizes rank-1 subgroups of Q, as stated in the following proposition.
+
+Proposition 2.4. The map D 7→ L(D) defines a bijection between the set of generalized
+divisors Div(Spec Z) and the set of rank-1 subgroups of Q.
+
+Proof. The map is well-defined: for an arithmetic divisor D = p np [p], the set L(D) is
+                                                                  P
+clearly an additive subgroup of Q. Since np < 0 for only finitely many primes, there exists
+a nonzero x ∈ Q satisfying these inequalities, so L(D) has rank 1.
+Conversely, let H ⊂ Q be a rank-1 subgroup. For each prime p, define
+
+                         np := − inf{vp (x) | x ∈ H} ∈ Z ∪ {+∞},
+
+and set DH := p np [p]. Since H ⊂ Q, for any fixed p the set {vp (x) | x ∈ H} is bounded
+                P
+below, so np > −∞. Moreover, choose a nonzero element q ∈ H. Then for all but finitely
+many primes p we have vp (q) ≥ 0, which implies vp (x) ≥ 0 for all x ∈ H and hence np ≥ 0.
+Thus DH is an arithmetic divisor.
+By construction, an element x ∈ Q lies in L(DH ) if and only if vp (x) ≥ inf{vp (y) | y ∈ H}
+for all p, which is equivalent to x ∈ H. Hence L(DH ) = H, and the correspondence is
+bijective.
+
+Remark 2.5. Under the bijection stated in the proposition:
+
+- The effective divisors (supernatural numbers) correspond to subgroups H ⊂ Q such that
+  Z ⊆ H.
+
+- The classical divisors (finite support, integer coefficients) correspond to fractional ideals
+  of Z.
+
+- The divisor Dp = ∞ · [p] supported solely at p corresponds to the group Z[1/p].
+
+2.3   Linear equivalence and the Picard monoid
+A non trivial abelian group is isomorphic to a subgroup of the additive group Q if and only
+if it is torsion free and of rank-1. Moreover, two nonzero subgroups of Q are isomorphic
+if and only if they differ by multiplication by a nonzero rational number. Explicitly, for
+M, N ∈ Nsup :
+                      HM ∼ = HN ⇐⇒ ∃ q ∈ Q× such that HM = q HN .
+
+                                              11
+In valuation-theoretic terms, an element x ∈ Q belongs to qHN if and only if x/q ∈ HN ,
+that is,
+                          vp (x) − vp (q) ≥ −np for all primes p.
+Equivalently, the corresponding valuation bounds satisfy
+
+                                               mp = np − vp (q),
+
+with the convention ∞ + k = ∞. In divisor language,
+                                               P this is precisely the
+                                                                    P relation of linear
+equivalence. The two arithmetic divisors DM = p mp [p] and DN = p np [p] satisfy
+
+                                   DM ∼ DN ⇐⇒ DM = DN − div(q),
+
+where div(q) =             p vp (q)[p] denotes the principal arithmetic divisor associated to q ∈ Q .
+                                                                                                   ×
+                       P
+
+Definition 2.6. The arithmetic Picard monoid of Spec Z is the quotient
+                                               
+                     Pic(Spec Z) = Div(Spec Z) PDiv(Spec Z),
+
+where PDiv(Spec Z) denotes the subgroup of principal arithmetic divisors.
+Proposition 2.7. The assignment D 7→ L(D) induces a bijection between the arith-
+metic Picard monoid Pic(Spec Z) and the set of isomorphism classes of torsion-free rank-1
+abelian groups.
+Proof. This is an immediate consequence of the correspondence between arithmetic divi-
+sors and rank-1 subgroups of Q, together with the identification of linear equivalence with
+scaling by Q× .
+
+Remark 2.8. Assuming the Axiom of Choice, the set of isomorphism classes of torsion-
+free rank-1 abelian groups has cardinality equal to that of the continuum. Nevertheless,
+Proposition 2.7 shows that this space admits no effective classification by real-valued in-
+variants. More precisely, although its set-theoretic cardinality is that of R, the effective
+cardinality of this quotient is strictly larger than the continuum. This phenomenon is a
+consequence of the ergodic nature of the linear equivalence relation on Div(Spec Z). In-
+deed, one can equip Div(Spec Z) with a probability measure for which the linear equivalence
+relation is ergodic2 . It follows that any measurable map from the quotient space to R is
+almost everywhere constant, and therefore cannot separate equivalence classes.
+It follows that the moduli space of rank-1 torsion-free groups lies beyond the scope of
+classification by classical invariants.
+
+2.4         Tensor product and addition of divisor classes
+As in algebraic geometry addition of divisors induces a monoidal structure on divisor
+classes, in the present arithmetic setting this operation admits a concrete interpretation
+in terms of tensor products of rank-1 subgroups of Q.
+One defines the sum of two arithmetic divisors D = (np ) and D′ = (n′p ), by the rule
+
+                                            (D + D′ )p = np + n′p .
+
+This operation induces a monoid structure on Pic(Spec Z) that is interpreted in terms of
+the associated groups.
+     2
+         That is, any measurable subset of Div(Spec Z) that is a union of equivalence classes has measure 0 or
+1.
+
+
+                                                        12
+Proposition 2.9. Let D1 and D2 be arithmetic divisors on Spec Z, and let H1 , H2 ⊂ Q
+be the associated rank-1 subgroups. Then the subgroup associated to the sum D1 + D2 is
+
+                             HD1 +D2 = H1 · H2 ∼
+                                               = H1 ⊗Z H2 ,
+
+where the tensor product is canonically identified with the product inside Q.
+Proof. Recall that for an arithmetic divisor D = p np (D)[p] one has
+                                                   P
+
+                        HD = {x ∈ Q | vp (x) ≥ −np (D) for all p}.
+
+For rank-1 subgroups of Q, the tensor product over Z is canonically identified with the
+subgroup generated by products:
+                                         D                   E
+                H1 ⊗Z H2 ∼ = H1 · H2 := xy | x ∈ H1 , y ∈ H2 ⊂ Q.
+
+We first show the inclusion H1 · H2 ⊆ HD1 +D2 . Let x ∈ H1 and y ∈ H2 . For every prime
+p,
+                        vp (x) ≥ −np (D1 ),    vp (y) ≥ −np (D2 ),
+hence                                                        
+            vp (xy) = vp (x) + vp (y) ≥ − np (D1 ) + np (D2 ) = −np (D1 + D2 ).
+Since the p-adic valuation of a sum is bounded below by the minimum of the valuations
+of its summands, the same inequality holds for any finite Z-linear combination of such
+products. Thus H1 · H2 ⊆ HD1 +D2 .
+For the reverse inclusion, let z ∈ HD1 +D2 . Write z = ± p p−kp with kp = −vp (z). The
+                                                        Q
+condition z ∈ HD1 +D2 means
+
+                            kp ≤ np (D1 ) + np (D2 )     for all p.
+
+For each prime p, choose integers k1,p ≤ np (D1 ) and k2,p ≤ np (D2 ) such that kp = k1,p +k2,p
+(which is always possible, with the convention ∞ + k = ∞). Define
+                             Y                          Y
+                     x := ±     p−k1,p ∈ H1 ,      y :=     p−k2,p ∈ H2 .
+                              p                          p
+
+Then z = xy, so z ∈ H1 · H2 . This proves HD1 +D2 ⊆ H1 · H2 .
+Therefore HD1 +D2 = H1 · H2 ∼ = H1 ⊗Z H2 , and the addition of arithmetic divisors corre-
+sponds to the tensor product of the associated rank-one groups.
+
+2.5     Adelic description of arithmetic divisors
+Let Af denote the ring of finite rational adeles, and let Zb ⊂ Af be the compact subring
+of profinite integers, so that Z ×
+                                       p Zp . To a finite adele a = (ap ) ∈ Af we associate
+                                          ×
+                               b =  Q
+the family of valuations
+                                    Φ̃(a) := (vp (ap ))p ,
+with the convention vp (0) = ∞. Since ap ∈ Zp for almost all primes p (by definition of
+the restricted product in adeles), one has vp (ap ) ≥ 0 for almost all p, so Φ̃(a) defines an
+arithmetic divisor.
+Furthermore, multiplication by a unit u = (up ) ∈ Z    b × does not affect valuations, since
+vp (up ) = 0 for all p. Hence Φ̃ factors through the quotient and induces a map
+
+                               Φ : Af /Ẑ× −→ Div(Spec(Z)).                                (5)
+
+                                              13
+The map Φ is surjective: given an arithmetic divisor D = (np ), the adele a = (ap ) with
+ap = pnp (with the convention p∞ = 0) is a preimage. It is also injective because two
+elements of Qp with the same valuation differ by multiplication by a unit in Z×    p . It then
+follows that Φ is a bijection. Quotienting further by the diagonal action of Q× , one obtains
+a natural bijection
+                               ∼
+             Φ : Q× \Af /Ẑ× −−→ Div(Spec(Z))/PDiv(Spec Z) = Pic(Spec Z).                 (6)
+Remark 2.10. Let x = (xp ) ∈ Af . The rank-1 subgroup of Q associated to the divisor
+Φ(x) is
+                                   H = {q ∈ Q | xq ∈ b  Z}.
+Indeed, xq ∈ Z
+             b if and only if vp (xp ) + vp (q) ≥ 0 for all p.
+
+The ring Af is a commutative monoid under componentwise multiplication. This operation
+is compatible with the equivalence relation defined by the action of the group
+                                          G = Q× b×
+                                               +×Z ,
+
+and therefore it descends to a well-defined multiplication on the quotient:
+                                          [a] · [b] := [ab].
+We derive the following
+Proposition 2.11. The map Φ in (6) is an isomorphism of commutative monoids: mul-
+tiplication of finite adeles corresponds to addition of generalized divisors.
+Proof. For each prime p the valuation is additive,
+                                   vp (ap bp ) = vp (ap ) + vp (bp ),
+with the convention ∞ + x = ∞. Thus, if Da and Db are the divisors associated to finite
+adeles a and b, one has
+                              X                    
+                        Dab =   vp (ap ) + vp (bp ) [p] = Da + Db .
+                                   p
+
+
+
+
+2.6   The arithmetic Abel–Jacobi map and boundary points
+In classical algebraic geometry, the Abel-Jacobi map ϕ : C → Jac(C) sends a point P on a
+curve C to the isomorphism class of the line bundle O(P ) corresponding to the divisor [P ].
+On Spec(Z) however, the analogous assignment p 7→ [O(p)] is trivial, since the ideal pZ is
+isomorphic to Z as a rank-1 Z-module. Thus, in order to obtain a nontrivial arithmetic
+analogue of the Abel–Jacobi map, one must allow the image to lie at the boundary of the
+moduli space of torsion-free rank-1 groups.
+Definition 2.12 (Arithmetic Abel–Jacobi map). The arithmetic Abel–Jacobi map is the
+injection
+                            Θ : Spec(Z) −→ Pic(Spec Z)
+defined by
+                          Θ(p) = Hp := Z[1/p]              for a prime p,
+and
+                                             Θ(η) = Z,
+where η denotes the generic point of Spec Z.
+
+                                                  14
+In terms of generalized divisors, the map Θ sends the generic point η to the trivial divisor,
+and a prime p to the divisor with infinite coefficient at p,
+                                   p 7−→ D∞ (p) := ∞ · [p].
+Injectivity. For distinct primes p ̸= q, the groups Z[1/p] and Z[1/q] are not isomorphic:
+the former is p-divisible while the latter is not. Hence Θ separates points of Spec(Z).
+Boundary interpretation. Although the primes p are interior points of the scheme Spec(Z),
+their images under Θ correspond to arithmetic divisors with infinite multiplicity (repre-
+senting singularities or poles of infinite order), and therefore lie on the boundary of the
+Picard space.
+Let C be a smooth projective curve of genus g over a field k. Recall that the Jacobian
+variety J(C) classifies isomorphism classes of degree-zero line bundles on C. The relation
+between C and J(C) is governed by the Jacobi inversion theorem, which identifies the g-th
+symmetric power C (g) as a fundamental configuration space for the Abel–Jacobi map:
+                                      Σ : C (g) −→ J(C)
+                         {P1 , . . . , Pg } 7−→ O(P1 + · · · + Pg − gP0 )
+where P0 is a fixed base point.
+In our arithmetic setting, Spec Z should be regarded as a curve of infinite genus. Accord-
+ingly, one is led to replace the finite symmetric power C (g) by an infinite configuration
+space. We model this arithmetic configuration space as follows.
+Definition 2.13. Let P(Spec Z) be the set of all subsets S of prime numbers. This
+corresponds to the set of reduced effective divisors with infinite coefficients:
+                                                 X
+                                  S ←→ DS =         ∞ · [p]
+                                                    p∈S
+
+Definition 2.14 (Arithmetic Abel-Jacobi map on configurations). We define the map
+              Θ : P(Spec Z) → Pic(Spec Z)            Θ(S) = ZS = Z[1/p | p ∈ S]
+Theorem 2.15 (Tensor structure on configurations). The map Θ transforms the union of
+sets (addition of divisors) into the tensor product of points in the Jacobian (multiplication
+of subgroups):
+                                Θ(S1 ∪ S2 ) ∼
+                                            = Θ(S1 ) ⊗Z Θ(S2 )
+Proof. This follows from the universal property of localization:
+                           Z[S1−1 ] ⊗Z Z[S2−1 ] ∼
+                                                = Z[(S1 ∪ S2 )−1 ],
+which is the arithmetic analogue of the classical identity O(D1 +D2 ) ∼
+                                                                      = O(D1 )⊗O(D2 ).
+The map Θ can thus be viewed as the restriction of the Abel–Jacobi map to what we call
+the idempotent stratum of the arithmetic Jacobian. In other words:
+In Pic(Spec Z), the elements Hp = Z[1/p] are idempotent (Hp ⊗ Hp ∼       = Hp ).
+The map Θ sends a configuration of primes {p1 , . . . , pk } to the point Hp1 ⊗ · · · ⊗ Hpk .
+For a smooth projective curve C of genus g, the Abel–Jacobi map identifies the rational
+equivalence class of the symmetric power C (g) with the Jacobian J(C); in particular, it is
+surjective, as follows from the Riemann–Roch theorem. By contrast, in the arithmetic case
+the curve Spec Z should be regarded as having infinite genus, and the corresponding Abel–
+Jacobi map has image equal to the idempotent elements of the Picard monoid Pic(Spec Z).
+
+                                               15
+Theorem 2.16. The image of the map Θ : P(Spec Z) → Pic(Spec Z) is exactly the set
+of idempotent elements of the monoid Pic(Spec Z).
+                             Image(Θ) = Idem(Pic(Spec Z))
+Proof. We first show that the image of Θ consists of idempotents.
+Let S ⊆ Spec(Z) be a set of primes. Let H = Θ(S) = ZS = Z[S −1 ]. Since ZS is a subring
+of Q, it is closed under multiplication. Thus, the product of subgroups satisfies:
+                              H · H = {xy | x, y ∈ H} = H
+Since H ⊗ H ∼  = H · H, we have [H]2 = [H]. Thus, every element in the image of Θ is
+idempotent.
+Next, we check that every idempotent in Pic(Spec Z) is in the image of Θ.
+Let [H] ∈ Pic(Spec Z) be an idempotent element. Let D = (np ) be a generalized divisor
+representing H. The condition [H]2 = [H] implies that H⊗H ∼ = H. In terms of generalized
+divisors, this means: 2D ∼ D. By definition of linear equivalence, there exists a rational
+number q ∈ Q× such that:
+                                   2D = D + div(q)
+Looking at the coefficient for each prime p:
+                                      2np = np + vp (q)
+We analyze this equation for each p:
+  Case np = ∞. The equation 2(∞) = ∞ + vp (q) is satisfied for any finite vp (q).
+  Case np ∈ Z. We can subtract np from both sides (since it is finite), yielding:
+                                          np = vp (q)
+
+This implies that the divisor D splits into an infinite part and a principal part:
+                                  X              X
+                            D=         ∞ · [p] +      vp (q) · [p]
+                                 np =∞              np ∈Z
+
+                                      D = D∞ + div(q)
+where D∞ corresponds to the set S = {p | np = ∞}. Thus D is linearly equivalent to the
+divisor                      X
+                     D∞ =        ∞ · [p],   S = {p | np = ∞},
+                                p∈S
+
+and the corresponding subgroup is ZS . Hence [H] = Θ(S).
+
+The set of idempotents in a commutative monoid naturally forms a join-semilattice with
+the order e ≤ f ⇐⇒ ef = f . Keeping in mind that:
+  In P(Spec Z), the operation is the union S ∪ T .
+  In Idem(Pic(Spec Z)), the operation is the tensor product H1 ⊗ H2 ,
+it follows that the map Θ is an isomorphism of semilattices:
+                     Θ(S ∪ T ) = ZS∪T ∼
+                                      = ZS ⊗Z ZT = Θ(S) · Θ(T ).
+Remark 2.17. The range of the map Θ : P(Spec Z) → Pic(Spec Z) is a subset of
+Pic(Spec Z) whose effective cardinality is that of the continuum, and hence is strictly
+smaller than the effective cardinality of Pic(Spec Z) as explained in Remark 2.8.
+
+                                               16
+3     The arithmetic Picard monoid of Spec Z
+We extend the divisor-theoretic and Picard-theoretic constructions developed for Spec Z
+to its completion Spec Z, where the archimedean place is taken into account. The guiding
+principle is to give an intrinsic geometric description of the arithmetic Picard monoid that
+does not rely a priori on adeles, rather it generalizes the notion of a metrized line bundle
+familiar from Arakelov geometry. We introduce arithmetic divisors on Spec Z as rank-1
+torsion-free groups equipped with a (possibly degenerate) metric, define the corresponding
+arithmetic Picard monoid, and then relate this intrinsic picture to an adelic description. A
+key outcome is the construction of a canonical invariant subgroup of R attached to each
+arithmetic divisor, which allows one to reconstruct the divisor from its value spectrum
+when the semi-norm is a norm. We describe the natural commutative monoid structure
+on Pic(Spec Z) and show its compatibility at the intrinsic, adelic, and spectral levels.
+
+3.1     Arithmetic divisors on Spec Z
+We begin by defining arithmetic divisors on the completed curve Spec Z. These objects
+should be viewed as the natural analogues of metrized line bundles in Arakelov geometry,
+with the important distinction that we allow degenerate metrics.
+
+Definition 3.1. An arithmetic divisor on Spec Z is a pair D = (L, ∥ · ∥) where:
+
+     • L is a torsion-free abelian group of rank 1.
+
+     • ∥ · ∥ is a semi-norm on the real vector space LR = L ⊗Z R which is proportional to
+       the standard absolute value | · | on R (via any identification LR ∼
+                                                                         = R)
+                                                                                         ∼
+The condition on the semi-norm means that there exists an isomorphism ϕ : LR −
+                                                                             →R
+and a constant λ ≥ 0 such that ∥v∥ = λ|ϕ(v)| for all v ∈ LR .
+
+    If λ > 0, the metric is non-degenerate (Hermitian).
+
+    If λ = 0, the metric is singular (the zero semi-norm).
+
+3.2     Intrinsic product
+Let D1 = (L1 , ∥ · ∥1 ) and D2 = (L2 , ∥ · ∥2 ) be two arithmetic divisors on Spec Z. We define
+their product D1 · D2 as the pair (L, ∥ · ∥) where:
+
+- The group L is the tensor product: L = L1 ⊗Z L2 .
+
+- The semi-norm ∥ · ∥ on LR ∼   = (L1 )R ⊗ (L2 )R is the tensor product of the semi-norms.
+  Explicitly, for pure tensors v1 ⊗ v2 , we have:
+
+                                   ∥v1 ⊗ v2 ∥ = ∥v1 ∥1 · ∥v2 ∥2 .
+
+Since L1 , and L2 are rank-1 torsion-free groups, their tensor product is also a rank-1
+torsion-free group. The product of their semi-norms is well-defined and proportional to
+the standard absolute value on R.
+
+
+
+
+                                               17
+3.3   The Picard monoid Pic(Spec Z)
+Having defined arithmetic divisors on Spec Z, and their product, we now pass to their
+isomorphism classes. This leads to the arithmetic Picard monoid as the moduli space of
+these objects, which plays the role of the Picard group of the completed curve.
+
+Definition 3.2. Two arithmetic divisors D1 = (L1 , ∥ · ∥1 ) and D2 = (L2 , ∥ · ∥2 ) on Spec Z
+are isomorphic if there exists a group isomorphism ψ : L1 → L2 that is an isometry, i.e.
+for all x ∈ L1 , one has:
+                                     ∥ψ(x)∥2 = ∥x∥1 .
+Here, we implicitly extend ψ to the real vector spaces.
+
+Definition 3.3. The arithmetic Picard monoid Pic(Spec Z) is the set of isomorphism
+classes of arithmetic divisors on Spec Z endowed with the product D1 · D2 .
+
+3.4   Adelic description
+We next relate the intrinsic definition of Pic(Spec Z) to an adelic parametrization. This
+comparison clarifies how the finite and archimedean components jointly encode the arith-
+metic data of a divisor class.
+Let Λ be the map which associates to a rational adele a = (af , a∞ ) the pair consisting of:
+
+• The group La := {q ∈ Q | af q ∈ Z},
+                                  b
+
+• The semi-norm ∥ · ∥a on La ⊗Z R defined by ∥v∥a = |a∞ | · |v| (via the canonical
+  identification La ⊗ R ∼
+                        =Q⊗R∼ = R).
+
+We denote with XQ = Q× \A/Z   b × the Riemann sector of the adele class space A of the
+rationals, endowed with the monoid structure induced by the multiplication of adeles. We
+now prove Theorem 1.1.
+
+Theorem 3.4. The map Λ induces a canonical monoid isomorphism XQ ∼
+                                                                 = Pic(Spec Z).
+
+Proof. We proceed in four steps.
+1. Well-definedness. We show that given an adele a, a 7→ Λ(a) depends only on the class
+of a in XQ . First, let u ∈ Zb × . Since units do not affect integrality, we have Lua = La .
+As (ua)∞ = a∞ , the norms coincide, so Λ(ua) = Λ(a). Next, let r ∈ Q× and consider
+a′ = ra. The group La′ is defined by the condition q(ra)f ∈ Z,     b which is equivalent to
+qr ∈ La . Thus La′ = r La . The archimedean component transforms as a′∞ = ra∞ .
+                          −1
+
+Consider the multiplication map ψ : La′ → La defined by ψ(q) = rq. This is a group
+isomorphism satisfying:
+
+                    ∥ψ(q)∥a = |a∞ | |rq| = |ra∞ | |q| = |a′∞ | |q| = ∥q∥a′ .
+
+Thus, ψ defines an isomorphism of arithmetic divisors Λ(a′ ) ∼ = Λ(a). This confirms that
+Λ descends to the quotient XQ .
+2. Injectivity. Let a, b ∈ A be such that Λ(a) ∼
+                                               = Λ(b). Let ψ : La → Lb be an isomorphism
+compatible with the norms. Since La and Lb are rank-1 subgroups of Q, there exists
+a unique r ∈ Q× such that ψ(x) = rx for all x ∈ La . Define b′ = rb. As shown in
+step 1, the map ϕ(y) = r−1 y provides an isomorphism Λ(b) ∼    = Λ(b′ ). Consequently, the
+composition ρ = ϕ◦ψ is an automorphism of Λ(a) to Λ(b′ ) given by ρ(x) = x. The equality
+of the underlying groups La = Lb′ implies that the finite adeles af and b′f generate the
+
+
+                                              18
+same lattice, so there exists u ∈ Z b × such that af = ub′ . The equality of the norms
+                                                           f
+∥x∥a = ∥x∥b′ implies |a∞ ||x| = |b∞ ||x|, hence |a∞ | = |b′∞ |. Thus a∞ = ϵb′∞ for some
+                                    ′
+
+ϵ ∈ {±1}. It follows that a = (u, ϵ)b′ = (u, ϵ)rb, so a and b represent the same class in
+XQ .
+3. Surjectivity. This follows from Proposition 2.11. Given any arithmetic divisor (L, ∥ · ∥)
+with L ⊂ Q, there exists a finite adele af such that L = La . The norm on L ⊗ R ∼  = R is
+necessarily of the form ∥x∥ = λ|x| for some λ ≥ 0. Choosing a∞ such that |a∞ | = λ, we
+obtain Λ(a) ∼= (L, ∥ · ∥).
+4. Monoid Structure. Proposition 2.11 establishes that the map a 7→ La is a monoid
+homomorphism, identifying the product of adeles with the product of subgroups (which
+is isomorphic to the tensor product). For the norms, we observe:
+
+                ∥x ⊗ y∥ab = |(ab)∞ ||xy| = (|a∞ ||x|)(|b∞ ||y|) = ∥x∥a ∥y∥b .
+
+Thus, Λ preserves the tensor product structure.
+
+3.5   The adelic invariant subgroup Ia
+Let a = (af , a∞ ) ∈ A be a rational adele representing a divisor class in Pic(Spec Z) (in
+view of Theorem 3.4). While the group La ⊂ Q defined by the finite part af of the adele
+depends on the representative a ∈ A, we shall construct a canonical realization of this
+group inside R that serves as a complete invariant for the class.
+
+Definition 3.5. Given a rational adele a ∈ A, we define the subgroup Ia ⊂ R as the
+image of the group La ⊂ Q scaled by the archimedean component a∞
+
+                     Ia := a∞ La = {x ∈ R | x = a∞ q, and qaf ∈ b
+                                                                Z}.
+
+Theorem 3.6 (Invariance). The subgroup Ia ⊂ R depends only on the class of a ∈ A in
+the double quotient Q× \A/Z
+                          b ×.
+
+Proof. This follows directly from the calculations in the proof of Theorem 3.4. Invariance
+under Zb × is immediate as units do not affect the lattice La . For invariance under Q× , if
+a = ra with r ∈ Q× , we established that La′ = r−1 La and a′∞ = ra∞ . Consequently,
+ ′
+
+Ia′ = (ra∞ )(r−1 La ) = a∞ La = Ia . Alternatively, this invariance is a consequence of the
+intrinsic characterization of Ia via the value spectrum given in Lemma 3.8 below.
+
+Next, we reformulate the adelic invariant subgroup in intrinsic terms, using only the metric
+structure of an arithmetic divisor D = (L, ∥ · ∥) ∈ Pic(Spec Z). This leads to the notion
+of the value spectrum and allows for a reconstruction theorem.
+
+Definition 3.7. The value spectrum of an arithmetic divisor D = (L, ∥ · ∥) ∈ Pic(Spec Z)
+is the image of the group L under the following norm map:
+
+                             S(D) := {∥x∥ | x ∈ L} ⊂ [0, ∞).
+
+Let I(D) ⊂ R be the subgroup generated by the set S(D). If D is represented by an adele
+a ∈ A, then I(D) is precisely the invariant subgroup Ia = a∞ La defined previously.
+
+Lemma 3.8. Let a ∈ A be an adele representing a class D in Pic(Spec Z). Then the value
+spectrum S(D) coincides with the set of non-negative elements of the invariant subgroup
+Ia :
+                                 S(D) = Ia ∩ [0, ∞).
+
+                                             19
+Conversely, since the subgroup Ia ⊂ R is symmetric with respect to the origin, it is fully
+recovered from the spectrum:
+                                 Ia = S(D) ∪ (−S(D)).
+
+Proof. Let D = (L, ∥ · ∥) be the class represented by a = (af , a∞ ) ∈ A. By construction
+(cf. Definition 3.5), the finite component af determines a rank-1 subgroup
+
+                             La := {q ∈ Q | q af ∈ Z}
+                                                   b ⊂ Q,
+
+and the associated invariant subgroup of R is
+
+                                     Ia = a∞ La ⊂ R.
+
+Under the identification of LR with R coming from the chosen representative a (i.e. the
+embedding L ,→ Q and the scaling factor a∞ ), the norm is given by
+
+                                ∥q∥ = |a∞ q|      (q ∈ La ).
+
+Therefore the value spectrum of D is
+
+               S(D) = {∥q∥ | q ∈ La } = {|a∞ q| | q ∈ La } = {|x| | x ∈ Ia }.
+
+Since Ia is a subgroup of R, it is stable under x 7→ −x, hence
+
+                               {|x| | x ∈ Ia } = Ia ∩ [0, ∞),
+
+which proves the first identity.
+For the second statement, the symmetry Ia = −Ia implies that every element x ∈ Ia is
+either in Ia ∩ [0, ∞) or in its negative. Using the first part, this yields
+
+                 Ia = (Ia ∩ [0, ∞)) ∪ −(Ia ∩ [0, ∞)) = S(D) ∪ (−S(D)).
+
+
+
+The preceding lemma shows that an arithmetic divisor determines a canonical value spec-
+trum inside R. Next we show that this invariant is complete, provided the metric is not
+identically zero.
+
+Definition 3.9 (Non-degenerate divisor). An arithmetic divisor D = (L, ∥ · ∥) on Spec Z
+is non-degenerate if the semi-norm ∥ · ∥ is not identically zero.
+
+Remark 3.10. If D is represented by an adele a ∈ A, non-degeneracy corresponds to the
+condition a∞ ̸= 0. In this case, the map L → R induced by the norm is injective, and L
+is isomorphic to the subgroup I(D) ⊂ R.
+
+Theorem 3.11 (Reconstruction). Let D1 , D2 be two non-degenerate arithmetic divisors.
+Then, D1 and D2 are isomorphic if and only if their value spectra are identical:
+
+                            [D1 ] = [D2 ] ⇐⇒ S(D1 ) = S(D2 ).
+
+Proof. “⇒” Isomorphisms are isometries, thus they preserve the set of norms.
+“⇐” Suppose S(D1 ) = S(D2 ). By Lemma 3.8, the invariant subgroups generated by the
+spectra coincide:
+
+                 I(D1 ) := S(D1 ) ∪ −S(D1 ) = S(D2 ) ∪ −S(D2 ) = I(D2 ).
+
+                                            20
+Let I ⊂ R denote this common subgroup. Since the divisors are non-degenerate, I ̸= {0}.
+For k = 1, 2, the divisor Dk = (Lk , ∥ · ∥k ) is canonically isomorphic to the divisor (I, | · |std )
+defined by the subgroup I with the standard absolute value induced from R. Indeed, the
+norm ∥ · ∥k induces an embedding ιk : Lk ,→ R whose image is I. The map ιk constitutes
+an isomorphism of arithmetic divisors:
+                                                        ∼
+                                  ιk : (Lk , ∥ · ∥k ) −
+                                                      → (I, | · |std ).
+                                                                ∼
+Consequently, we have the isomorphism ι−1          → D2 .
+                                       2 ◦ ι1 : D1 −
+
+
+3.6    Product of value spectra
+Finally, we describe the product operation in terms of the invariant subgroups of R. Let
+I1 , I2 ⊂ R be the invariant subgroups associated to two arithmetic divisors on Pic(Spec Z).
+The invariant subgroup of the product is the subgroup generated by the product of the
+sets:
+                                I1 · I2 := ⟨xy | x ∈ I1 , y ∈ I2 ⟩.
+In terms of the value spectra Si = Ii ∩ [0, ∞), the spectrum of the product is the closure
+of the set of products under addition:
+
+                                 S(D1 · D2 ) = {|z| | z ∈ I1 · I2 }.
+
+This confirms that the reconstruction map
+
+                                  D 7→ I(D) = S(D) ∪ −S(D)
+
+is a monoid homomorphism from the arithmetic Picard Pic(Spec Z) to the monoid of
+subgroups of R (under the product operation).
+
+
+4     The arithmetic Jacobian Jac(Spec Z)
+We introduce the arithmetic Jacobian of the completed curve Spec Z. While the arith-
+metic Picard monoid Pic(Spec Z) parametrizes rank-1 torsion-free abelian groups endowed
+with a (possibly degenerate) metric at the archimedean place, the Jacobian is obtained by
+identifying divisors that differ only by a rescaling of this metric. From a geometric per-
+spective, this passage amounts to obtain the Jacobian by quotienting the Picard group by
+the subgroup generated by the divisor of degree 1 used to define the Abel-Jacobi map. In
+our set-up this is the subgroup R× + ⊂ Pic(Spec Z) and the quotient monoid Jac(Spec Z) is
+the space of orbits of the archimedean scaling flow. We describe the resulting structure ex-
+plicitly, endow it with a natural monoid law, and explain how the arithmetic Abel–Jacobi
+map extends to a map from Spec Z to Jac(Spec Z).
+
+4.1    Definition of Jac(Spec Z)
+The multiplicative group of positive real numbers R×  + acts naturally on the arithmetic
+Picard monoid Pic(Spec Z) by rescaling the metric at infinity. Explicitly, for an arithmetic
+divisor D = (L, ∥ · ∥) and λ ∈ R×
+                                + one sets
+
+                                    λ · (L, ∥ · ∥) := (L, λ∥ · ∥).
+
+Under the adelic identification, this action corresponds to multiplication of the
+archimedean component a∞ by λ.
+
+                                                   21
+Definition 4.1. The arithmetic Jacobian of Spec Z is the quotient
+
+                          Jac(Spec Z) = Pic(Spec Z) R×
+                                                    
+                                                        +.
+
+This construction fits into an exact sequence of commutative monoids
+
+                       1 → R×
+                            + → Pic(Spec Z) → Jac(Spec Z) → 1
+
+which is the arithmetic analogue of the classical decomposition of the Picard group of a
+complete curve over a finite field into its Jacobian part and a degree component.
+
+4.2   Structure of Jac(Spec Z)
+The structure of Jac(Spec Z) is governed by the behavior of the metric under the scaling
+action. Two qualitatively distinct cases arise.
+
+1. Finite type (flow lines). If the metric ∥ · ∥ is non-zero, its R×+ -orbit consists of all
+   non-zero metrics on the real line LR . After passing to the quotient, the resulting class
+   is determined solely by the isomorphism class of the underlying group L. We denote
+   such an element simply by L.
+
+2. Infinite type (fixed points). If the metric is the zero semi-norm, it is fixed by the R×
+                                                                                          +-
+   action. The corresponding class records both the group L and the degeneracy of the
+   metric. We denote such an element by L∞ .
+
+As a consequence, one obtains a canonical identification
+
+                          Jac(Spec Z) ∼
+                                      = Pic(Spec Z) × {0, ∞},
+
+where Pic(Spec Z) is the set of isomorphism classes of torsion-free rank-1 abelian groups.
+The second factor records the archimedean valuation: 0 for non-degenerate metrics and
+∞ for the degenerate (zero) metric.
+
+4.3   Monoid structure
+The commutative monoid structure on Pic(Spec Z) induced by tensor product descends
+naturally to Jac(Spec Z). On the group component it is given by tensor product, while
+the archimedean component n∞ ∈ {0, ∞} follows the logic of an absorbing value:
+
+- H · K = H ⊗Z K                                                                (0 + 0 = 0)
+
+- H · K∞ = (H ⊗Z K)∞                                                          (0 + ∞ = ∞)
+
+- H∞ · K∞ = (H ⊗Z K)∞                                                       (∞ + ∞ = ∞).
+
+Thus Jac(Spec Z) inherits a natural commutative monoid structure compatible with its
+interpretation as a quotient of the arithmetic Picard monoid.
+
+4.4   The extended Abel-Jacobi map
+The arithmetic Abel–Jacobi map constructed earlier (Definition 2.12) extends to the Ja-
+cobian Jac(Spec Z). From the adelic point of view, this map assigns to each point of the
+completed curve Spec Z the orbit it generates under the archimedean scaling action. In
+this way, points of Spec Z are classified by their reduced arithmetic invariants
+
+                                            22
+    Point in Spec Z    adelic representative   reduced element          geometric meaning
+     generic point η          (1f , 1∞ )              Z                generic orbit (flow line)
+         p<∞                  (ep , 1∞ )            Z[1/p]                periodic orbit Cp
+         p=∞                  (1f , 0∞ )             Z∞                archimedean singularity
+
+                 Table 1: The image of the curve in the arithmetic Jacobian
+
+In formulas one writes:
+
+                                                                           if x = p < ∞
+                                              
+                                              (Z[1/p], ∥ · ∥ ̸= 0)
+                                              
+         Θ : Spec Z −→ Jac(Spec Z),     Θ(x) = (Z, 0) = Z∞                 if x = ∞            (7)
+                                                                           if x = η.
+                                              
+                                               (Z, ∥ · ∥ ̸= 0)
+                                              
+
+
+5     Sheaves of modules on Spec Z
+In this section we relate the arithmetic Picard monoid Pic(Spec Z) to a sheaf-theoretic
+framework inspired by the theory of F1 -algebras developed in [4]. Our goal is to show
+that every arithmetic divisor on the completed curve Spec Z naturally determines a sheaf
+of modules over the structure sheaf of Spec Z. This construction extends the classical
+correspondence between divisors and invertible sheaves, while simultaneously encoding
+both the finite arithmetic data and the archimedean metric constraint.
+
+5.1     The Structure sheaf
+We regard Spec Z as a topological space whose open sets are complements of finite sets of
+closed points (finite primes and possibly the point at infinity). The structure sheaf OSpec Z
+corresponds to the trivial arithmetic divisor
+
+                                       1 = (Z, | · |∞ ),
+
+where | · |∞ denotes the standard absolute value on R.
+For an open subset U ⊂ Spec Z, the algebra of sections is defined as a sub-F1 -algebra of
+HQ as follows.
+
+• If ∞ ∈
+       / U , then
+                                      OSpec Z (U ) = HZU ,
+    where ZU = Z[S −1 ] is the localization of Z where the set of primes is S = Spec Z \ U .
+
+• If ∞ ∈ U , we impose the archimedean metric condition:
+                                                                               
+                                                     X                         
+              OSpec Z (U )(X) = ϕ ∈ HZU \{∞} (X)                     |ϕ(x)|∞ ≤ 1 .
+                                                                               
+                                                           x∈X\{∗}
+
+
+This definition recovers the structure sheaf introduced in [4], Proposition 6.3.
+
+5.2     Sheaves associated to arithmetic divisors
+We now extend the above construction to an arbitrary arithmetic divisor
+
+                                D = (L, ∥ · ∥) ∈ Pic(Spec Z).
+
+                                               23
+The finite part of the data is encoded in the subgroup L ⊂ Q, while the archimedean
+contribution is governed by the semi-norm ∥ · ∥.
+We first associate to L a sheaf of abelian groups L on the Zariski topology of Spec Z.
+For an open subset V ⊂ Spec Z, the group L(V ) consists of those elements of L that are
+regular on V , i.e. whose denominators involve only primes in the complement V c .
+
+Proposition 5.1. Let D = (L, ∥ · ∥) be an arithmetic divisor on Spec Z. The following
+construction defines a sheaf O(D) of OSpec Z -modules on Spec Z.
+
+    1. (Finite part) If an open set U does not contain ∞, set
+
+                                         O(D)(U ) := HL(U ).
+
+    2. (Infinite part) If U contains ∞, define
+                                                                                      
+                                                                    X                 
+                O(D)(U )(X) := ϕ ∈ HL(U ∩ Spec Z)(X)                         ∥ϕ(x)∥ ≤ 1 .
+                                                                                      
+                                                                x∈X\{∗}
+
+
+Proof. The functor HL(U ∩ Spec Z) provides the underlying Γ-set structure. It remains
+to check that the metric condition at infinity is compatible with the module structure over
+OSpec Z .
+Let ψ ∈ OSpec Z (U )(Y ) and ϕ ∈ O(D)(U )(X). Their smash product acts on z = (y, x) by
+multiplication. By definition of the semi-norm,
+
+                               ∥ψ(y)ϕ(x)∥ = |ψ(y)|∞ ∥ϕ(x)∥.
+
+Summing over the smash product yields
+                                                    !                !
+               X                     X                  X
+                      ∥ψ(y)ϕ(x)∥ =        |ψ(y)|∞           ∥ϕ(x)∥       ≤ 1 · 1 = 1.
+                y,x                  y                  x
+
+Thus the metric constraint is preserved, and O(D) defines a sheaf of OSpec Z -modules.
+
+Remark 5.2. This construction uniformly accounts for both finite and infinite types in
+the arithmetic Picard. Precisely:
+                                                                       P
+(Finite type) If the semi-norm ∥ · ∥ is non-degenerate, the condition     ∥ϕ(x)∥ ≤ 1 defines
+a unit ball of sections, generalizing the classical Arakelov metric condition.
+                                             P
+(Infinite type) If ∥ · ∥ = 0, the inequality    ∥ϕ(x)∥ ≤ 1 is automatically satisfied. Hence
+for a divisor of infinite type H∞ , the sheaf O(H∞ ) imposes no constraint at infinity,
+corresponding geometrically to allowing a pole of arbitrary order at ∞.
+
+
+6     Arithmetic pullbacks and the geometry of the Riemann
+      sector
+This section develops the arithmetic analogue of a classical geometric construction: the
+pullback of an abelian étale covering of a Jacobian along the Abel–Jacobi map. Our aim
+is to interpret the “visible part” XQ of the Riemann sector XQ as a geometric covering of
+the arithmetic curve Spec Z, and to describe its fibers in terms of arithmetic divisors.
+
+
+
+                                              24
+The guiding principle is that the arithmetic Picard monoid Pic(Spec Z) plays the role of a
+covering space of Jac(Spec Z), while the extended Abel–Jacobi map determines a pullback
+whose fibers encode the dynamical and group–theoretic features of the scaling action.
+We begin by recalling the classical geometric prototype over a finite field, and then trans-
+pose it to the arithmetic setting. The remainder of the section is devoted to a detailed
+analysis of the resulting fibers.
+
+6.1   The classical geometric prototype
+We briefly recall the standard construction of abelian unramified covers of a curve over a
+finite field, which will serve as a geometric template for the arithmetic case.
+Let C be a smooth projective curve of genus g over a finite field k. Let J = Jac(C) be its
+Jacobian variety. Class field theory for the function field k(C) establishes a correspondence
+between abelian unramified extensions of k(C) and isogenies of the Jacobian J.
+Fix a prime ℓ distinct from the characteristic of k. For any integer n ≥ 1, consider the
+multiplication by ℓn map on the Jacobian:
+                                 [ℓn ] : J −→ J,       x 7−→ ℓn x.
+This is a finite étale covering of degree ℓ2gn , whose Galois group is the group of ℓn –torsion
+points J[ℓn ](k), acting by translations:
+                            τ · x = x + τ,   for τ ∈ J[ℓn ], x ∈ J.
+To obtain a covering of the curve C, one pulls back this covering of the Jacobian along
+the Abel–Jacobi embedding α : C ,→ J defined with respect to a base point P :
+
+                                        Cn             J
+                                                           ×ℓn
+                                                 α
+                                        C              J
+The resulting curve Cn is an étale cover of C, which realizes the maximal abelian unram-
+ified covering of exponent ℓn .
+
+6.2   The arithmetic pullback
+We now transpose the preceding construction to the arithmetic curve Spec Z. Each ingre-
+dient of the geometric picture admits a natural arithmetic counterpart:
+- the Jacobian J is replaced by the arithmetic Jacobian Jac(Spec Z);
+- the isogeny [ℓn ] : J → J is replaced by the projection π : Pic(Spec Z) → Jac(Spec Z);
+- The role of the Galois group of translations J[ℓn ] is replaced by the continuous scaling
+  group R×+ , the connected component of the idele class group;
+
+- translations on the Jacobian are given by multiplicative scaling of arithmetic divisors.
+Pulling back the adelic covering along the extended Abel–Jacobi map Θ (7), we obtain
+the diagram:
+                                   XQ                 Pic(Spec Z)
+                                                                 π                         (8)
+                                             Θ
+                                 Spec Z               Jac(Spec Z)
+
+                                                 25
+The resulting space XQ will be referred to as the “visible part” of the Riemann sector XQ ,
+now realized geometrically as a covering of the arithmetic curve. Its fibers encode the
+periodic orbits and fixed points of the arithmetic flow, which we analyze next.
+
+6.3     Group structure on the periodic orbits
+We first study the fibers lying over closed points of Spec Z, which correspond to periodic
+orbits of the scaling action.
+Let p < ∞ be a finite prime, viewed as a closed point of Spec Z, and let
+                                          Hp = Z[1/p]
+be its image in the Jacobian under the Abel–Jacobi map Θ (7). The fiber of π (as
+in (8)) over Hp , denoted Cp , consists of all arithmetic divisors whose underlying group
+is isomorphic to Z[1/p] and whose metric is non–zero. By Theorem 3.11, this fiber is
+identified with
+                      Cp = { I ⊂ R | I ∼= Z[1/p] as abelian groups }.
+
+6.3.1    Idempotence and the induced group law
+The monoid structure of the arithmetic Picard induces a binary operation on each fiber
+Cp . On subgroups of R, this operation is given by
+                               I1 · I2 = ⟨xy | x ∈ I1 , y ∈ I2 ⟩.
+Proposition 6.1. The set Cp is an abelian group with respect to this operation.
+Proof. Let I1 , I2 ∈ Cp . Since I1 ∼
+                                   = I2 ∼
+                                        = Z[1/p], both are modules over the ring Z[1/p].
+Their product I1 · I2 is the image of the tensor product I1 ⊗Z I2 inside R. Using the
+idempotence of the localization Z[1/p] ⊗Z Z[1/p] ∼
+                                                 = Z[1/p], we see that I1 · I2 is again a
+rank-1 module over Z[1/p], hence isomorphic to Z[1/p]. Thus I1 · I2 ∈ Cp .
+Consider the canonical embedding I0 = Z[1/p] ⊂ R (corresponding to 1 7→ 1). Since I is
+a Z[1/p]-module, for any I ∈ Cp we have:
+                           I0 · I = {λx | λ ∈ Z[1/p], x ∈ I} = I.
+Thus I0 is the neutral element.
+Any I ∈ Cp is of the form I = λI0 for some λ ∈ R× . Let I −1 = λ−1 I0 . Then:
+                 I · I −1 = (λI0 ) · (λ−1 I0 ) = (λλ−1 )(I0 · I0 ) = 1 · I0 = I0 .
+Thus every element is invertible.
+
+6.3.2    Identification with the circle group
+The parametrization Iλ = λZ[1/p] defines a surjective homomorphism R× → Cp . Its
+kernel is the stabilizer of the neutral element I0 :
+          Stab(I0 ) = {λ ∈ R× | λZ[1/p] = Z[1/p]} = (Z[1/p])× = {±pk | k ∈ Z}.
+Restricting to positive scalars (that corresponds to the connected component of the iden-
+tity) yields a canonical isomorphism of topological groups
+                                 Cp ∼
+                                    = R×   Z ∼
+                                       + /p = R/(log p)Z,
+
+so that each fiber Cp is canonically a circle group, and the neutral element of the fiber is
+the specific point on the orbit corresponding to the standard embedding of the rational
+numbers.
+
+                                                26
+6.4     The fiber at infinity
+We now consider the fiber over the archimedean point ∞ ∈ Spec Z. Its image under Θ is
+the reduced element Z∞ , corresponding to the group Z equipped with the zero semi–norm.
+Accordingly, the fiber C∞ consists of arithmetic divisors with underlying group Z and
+vanishing metric. There is a unique such divisor:
+                                      C∞ = {(Z, 0)}.
+Geometrically, this point corresponds to the unique fixed point of the scaling flow.
+
+6.4.1    Absorption by the fixed point
+Let I∞ = {0} ⊂ R denote the subgroup corresponding to the point at infinity. For any
+p < ∞ and any Ip ∈ Cp , one has
+                       Ip · I∞ = ⟨xy | x ∈ Ip , y ∈ {0}⟩ = {0} = I∞ .
+Thus
+                                      Cp · C∞ = C∞ ,
+expressing the fact that the archimedean fiber is an absorbing element for the monoid
+structure. Dynamically, this reflects the role of ∞ as a sink for the scaling flow (i.e. the
+limit of the scaling action as λ → 0 leads to the zero semi-norm).
+
+6.5     The generic fiber
+Finally, we consider the fiber over the generic point η ∈ Spec Z. We define its image under
+Θ to be the identity element of the Jacobian:
+                                Θ(η) := [Z] ∈ Jac(Spec Z),
+corresponding to the principal adele (1f , 1∞ ).
+
+6.5.1    Description of the generic fiber
+The fiber Cη consists of arithmetic divisors (L, ∥ · ∥) with L ∼
+                                                               = Z and non–zero metric. By
+Theorem 3.11,
+                         Cη = { I ⊂ R | I ∼
+                                          = Z } = {λZ | λ ∈ R× }.
+Any such subgroup is of the form I = λZ for some λ ∈ R× . Thus, we have an isomorphism
+of topological groups:
+                                  Cη ∼
+                                     = R×       ∼ ×
+                                         + /{1} = R+ .
+Thus the fiber Cη is simply the multiplicative group of positive real numbers (which may
+be viewed as a single flow line).
+
+6.5.2    Density and topological meaning
+The generic point η is dense in the Zariski topology of Spec Z. Correspondingly, in the
+adelic topology of Pic(Spec Z) ∼= XQ , the fiber Cη consists of principal arithmetic divisors
+associated to ideles. By strong approximation, ideles are dense in the adeles, and therefore
+                                     Cη = Pic(Spec Z).
+This identifies Cη as the generic stratum of the arithmetic Picard space, linking algebraic
+density on Spec Z with analytic density in the adelic setting.
+
+                                             27
+7     The universal cover
+We construct and analyze the universal covering objects naturally associated to the adelic
+space YQ . The guiding idea is that finite abelian extensions of Q admit a geometric incar-
+nation as finite covers of XQ , in a way that faithfully reflects the Galois correspondence
+of class field theory. After introducing the class field functor and its basic properties, we
+analyze the group structure carried by the fibers of the universal cover over the various
+points of Spec Z: finite primes, the archimedean place, and the generic point.
+
+7.1     The class field functor
+We begin by recalling how finite abelian extensions of Q give rise to geometric covers of
+the adelic space XQ . This construction realizes class field theory directly at the level of
+topological spaces and dynamical systems.
+Let L be a finite abelian extension of Q, and let L G = Gal(L/Q) be its Galois group.
+Class field theory provides a canonical continuous surjection
+
+                                      χL : A×
+                                            f −→ L G
+
+
+which is trivial on Q×                                                    ×
+                     + . Restricting to the maximal compact subgroup Z ⊂ Af , we obtain
+                                                                     b×
+the reciprocity homomorphism
+                                            b × −→ L G.
+                                       χL : Z
+
+Definition 7.1. Let L be a finite abelian extension of Q defined by the character χL . The
+associated geometric cover γ(L) of XQ is the projection
+                                  χL
+                           πχL : XQ  −→ XQ ,         γ(L) := πχL ,
+
+where the total space is the balanced product
+                            χL
+                           XQ  := YQ ×Zb × L G = (YQ × L G)/ ∼ .
+
+                                                              b × : for u ∈ Z
+The equivalence relation is induced by the diagonal action of Z             b × , y ∈ YQ ,
+and g ∈ L G,
+                                  (yu, g) ∼ (y, χL (u)g).
+                                                  b × = XQ .
+The map πχL is induced by the projection YQ → YQ /Z
+
+This construction associates to the Z
+                                    b × –bundle YQ → XQ the corresponding L G–bundle
+via the class field homomorphism χL .
+The following theorem summarizes the fundamental properties of these covers, establishing
+a precise correspondence between arithmetic data of the extension L/Q and the topological
+                                      χL
+and dynamical features of the space XQ   (singularities, monodromy, orbit decomposition).
+
+Theorem 7.2 ([5, Theorem 3.12]). Let L be a finite abelian extension of Q with Galois
+group L G.
+
+    (i) Functoriality. The assignment L 7→ γ(L) defines a contravariant functor
+
+                                 γ : AbExt(Q) −→ Covab (XQ )
+
+       from finite abelian extensions of Q to finite abelian covers of XQ .
+
+
+                                             28
+ (ii) Ramification. The cover γ(L) is unramified except at a finite set of places R, con-
+      sisting of the archimedean place ∞ together with the finite primes that ramify in the
+      extension L/Q.
+(iii) Monodromy. If p ∈ / R, the fiber over the periodic orbit Cp ⊂ XQ is a disjoint union
+      of circles. The monodromy along Cp is given by the arithmetic Frobenius:
+                                        Mon(Cp ) = Frobp ∈ L G.
+
+ (iv) Decomposition. The connected components of πχ−1  L
+                                                         (Cp ) are covering circles of Cp , in
+      canonical bijection with the prime ideals p of L lying above p. The covering degree
+      of each component equals the residue degree f (p/p).
+
+7.2    Group structure of the fiber over a finite prime
+We now refine the description of the universal cover by analyzing the fiber over a finite
+periodic orbit Cp . While this fiber was previously described topologically as a mapping
+torus, we show here that the multiplicative structure of the adele class space YQ endows
+it with a natural group structure.
+Let π : YQ → XQ be the canonical projection. The fiber
+                                          Fp := π −1 (Cp )
+consists of adele classes [a] ∈ YQ such that the associated lattice La (cf. Lemma 3.8) is
+isomorphic to Z[1/p]. Equivalently,
+                             ap = 0,       av ∈ Z×
+                                                 v for all v ̸= p, ∞,
+with a∞ ∈ R× arbitrary.
+Proposition 7.3. The fiber Fp is a topological group under the multiplication of adele
+classes.
+Proof. Let ep ∈ A be the idempotent adele defined by (ep )p = 0 and (ep )v = 1 for v ̸= p.
+Its class [ep ] belongs to Fp . For any [a], [b] ∈ Fp , we have ap = bp = 0. Thus (ab)p = 0.
+For v ̸= p, av , bv are units, so av bv is a unit. Thus [ab] ∈ Fp . The element [ep ] acts as the
+identity: for any [a] ∈ Fp , aep = a (since 0 · 0 = 0 and x · 1 = x). Inverses exist because
+the components av for v ̸= p are units in Zv , and a∞ is invertible in R.
+Theorem 7.4. There is a canonical isomorphism of topological groups
+                                Fp ∼= CQ /ιp (Q× ),      p
+where ιp : Q×                                            ×    ×
+            p ,→ CQ is induced by the natural inclusion Qp → A mapping x to the idele
+with x at p and 1 elsewhere.
+Proof. Multiplication by ep defines a surjective homomorphism ψ : A× → Fp , ψ(u) =
+[u · ep ]. Its kernel consists of ideles u such that [uep ] = [ep ], i.e., uep = qep for some
+q ∈ Q× . The condition uep = qep means:
+      At v ̸= p: uv · 1 = q · 1 =⇒ uv = q.
+      At p: up · 0 = q · 0 (always true).
+Thus, u must be equal to the rational number q at all places except possibly p. This means
+u = q · (1, . . . , 1, up /q, 1, . . . ). In terms of classes in CQ = A× /Q× , the kernel is precisely
+                                                                                       ∼
+the image of the local group Q×            p . Thus ψ induces an isomorphism CQ /Qp −
+                                                                                     × →   Fp .
+Remark 7.5. This description recovers the mapping–torus picture: the quotient CQ /Q×
+                                                                                   p
+is the group of idele classes away from p modulo powers of p.
+
+                                                 29
+7.3   The fiber over the archimedean orbit
+We next analyze the fiber over the archimedean orbit C∞ . The base point corresponds to
+the reduced element Z∞ , represented by the idempotent adele e∞ = (1f , 0∞ ).
+Proposition 7.6. The fiber F∞ := π −1 (C∞ ) is a compact topological group.
+Proof. The elements of the fiber F∞ are adele classes [a] such that a∞ = 0 and La = Z.
+The condition La = Z implies that the finite part af of a is a unit in b
+                                                                       Z. The multiplication
+is inherited from that on A. The class [e∞ ] is the neutral element. Since Z b × is a group,
+every element is invertible.
+
+Theorem 7.7. There are canonical isomorphisms
+
+                           F∞ ∼
+                              = CQ /R× ∼ b× ∼     ab
+                                     + = Z = Gal(Q /Q).
+
+Proof. Consider the map ψ : A× → F∞ defined by u 7→ [ue∞ ]. This is a surjective
+homomorphism. The kernel consists of ideles u such that ue∞ = qe∞ for some q ∈ Q× .
+This condition implies uf = q · 1f , meaning u is rational at all finite places. Thus u lies in
+the image of R× (embedded as (1, . . . , 1, x) modulo Q× ), and CQ ∼    = A×      ×   ×
+                                                                            f × R+ /Q+ . The
+map ψ kills the R×                            ×
+                   + component and the Q+ action (since qe∞ = e∞ in the class). The
+                              ×      × ∼ b×
+result is thus isomorphic to Af /Q+ = Z .
+
+Remark 7.8. This result completes the geometric picture of class field theory.
+- Over a finite prime p, the fiber Fp carries the information inherent to local class field
+  theory of p (modulo global units).
+
+- Over the infinite prime, the fiber F∞ encodes the structure of the global Galois group
+  Gal(Qab /Q).
+The "singularity" at infinity thus contains the full arithmetic complexity of the abelian
+extensions of Q.
+
+7.4   The fiber over the generic point
+Finally, we consider the fiber Fη := π −1 ([Z]) over the generic point Θ(η) = [Z] of the
+Jacobian, corresponding to a principal lattice with nonzero metric.
+Precisely, a class [a] ∈ YQ if and only if its image in the Jacobian is the pair (Z, 0)
+(representing the group Z and a non-zero metric). This means:
+   1. a∞ ̸= 0 (finite type).
+
+   2. La ∼
+         = Z as groups (the underlying lattice is principal).
+Theorem 7.9. The fiber over the generic point is canonically isomorphic to the idele class
+group
+                                     Fη ∼= CQ .
+Proof. The condition a∞ ̸= 0 is satisfied by all ideles. The condition La ∼        = Z means
+that the fractional ideal generated by the finite part af is a principal ideal. Since Z is a
+principal ideal domain (class number 1), every rank-1 subgroup of Q is isomorphic to Z.
+Therefore, the condition La ∼ = Z is satisfied for all ideles a ∈ A× . Conversely, if [a] is in
+                    ∼
+the fiber, then La = Z implies La = qZ for some q, so (q −1 a)f ∈ Z     b × . Combined with
+a∞ ̸= 0, this implies a is an idele. Thus, the fiber is exactly the set of idele classes.
+
+                                              30
+Remark 7.10. The fibers thus assemble into the following coherent picture:
+
+• the generic fiber Fη recovers the idele class group CQ ;
+
+• over the closed points p and ∞ of Spec Z, we find the "ramified" fibers (mapping tori)
+  which are quotients of CQ by the local units.
+
+The overall construction adds a top layer to the previous tower (8), yielding a space Spec
+                                                                                       ^Z
+that covers XQ
+                                               Θ̃
+                                 Spec
+                                  ^Z                    YQ
+
+
+                                   XQ                  XQ                                 (9)
+
+
+                                           Θ
+                                 Spec Z             Jac(Spec Z)
+
+
+8     The geometric monoids PicF r (Spec Z) and PicRt (Spec Z)
+To establish a geometric interpretation of the adelic space YQ = Q× \A we identify its
+points with arithmetic divisors equipped with rigidifying data defined in terms of finite
+and infinite frames. We first introduce the notion of framed arithmetic divisors, as torsion
+free rank-1 groups L endowed with trivializations of their completions at both finite and
+infinite rational places. This formulation treats the archimedean and non-archimedean
+data symmetrically and realizes the adelic product as a tensor product. Subsequently, by
+applying Pontryagin duality to the finite frame, we derive the notion of rooted arithmetic
+divisors. This dual perspective interprets the profinite frame as a coherent system of roots
+of unity, offering a combinatorial description that characterizes the divisor through its
+interaction with the torsion of the dual group.
+
+8.1     Framed arithmetic divisors
+Definition 8.1. A framed arithmetic divisor is a triple (L, ξ, τ ) consisting of the following
+data:
+
+    1. A torsion-free rank-1 abelian group L.
+
+    2. A finite frame defined as a group homomorphism
+
+                                            ξ:L→Z
+                                                b
+
+       generating the module Hom(L, Z).
+                                    b
+
+    3. An infinite frame, namely a homomorphism
+
+                                            τ :L→R
+
+       of abelian groups.
+
+Remark 8.2. The infinite frame τ replaces the datum of a norm ∥ · ∥ on L ⊗Z R. Indeed:
+
+    The norm corresponds to the absolute value: ∥x∥ = |τ (x)|.
+
+
+                                               31
+  The map τ retains the sign information (orientation) that corresponds to the connected
+  components of the idele class group CQ .
+
+  τ = 0 corresponds to the singular fiber at infinity (i.e. a∞ = 0).
+The next lemma provides the adelic interpretation to a finite frame.
+Lemma 8.3. Let L ⊂ Q be a rank-1 group and ξ ∈ Hom(L, b       Z).
+(i) There exists a unique finite rational adele af ∈ Af such that
+
+                                   ξ(x) = af x, ∀x ∈ L.
+
+(ii) The following statements are equivalent:
+  1. ξ is a generator of the Z-module
+                             b        Hom(L, Z).
+                                             b
+
+  2. The following equality of groups holds: L = {q ∈ Q | af q ∈ b
+                                                                 Z}.
+
+Proof. (i) The tensor product decomposition Af = Q⊗Z Z
+                                                     b and the isomorphism Q⊗Z L ≃
+Q show that ξ extends uniquely to a group homomorphism
+
+                                        ξ˜ : Q → Af .
+
+Since Af is a Q-vector space, this determines uniquely an element af ∈ Af such that
+˜
+ξ(x) = af x, ∀x ∈ Q.
+(ii) By (i) a homomorphism ξ : L → Z    b is determined by a sequence of local multipliers
+αp ∈ Qp such that ξ(x)p = αp x. Let M = Hom(L, Z).       b We analyze the local structure
+Mp = Hom(L, Zp ).
+The structure of the module Mp . The condition for αp to define a map into Zp can be
+stated as follows:
+                      ∀x ∈ L, αp x ∈ Zp ⇐⇒ vp (αp ) + vp (x) ≥ 0.
+In terms of the arithmetic divisor     np [p] of L, the minimal valuation vp (x) for x ∈ L is
+                                    P
+−np , this requires:
+                           vp (αp ) − np ≥ 0 =⇒ vp (αp ) ≥ np .
+Two cases are possible:
+  If np < ∞, then Mp = {αp ∈ Qp | vp (αp ) ≥ np } = pnp Zp .
+
+  If np = ∞, then Mp = {0} (since no non-zero αp maps Qp into Zp ).
+
+The generator condition. ξ generates M as a b  Z-module if and only if for every p, αp
+generates Mp as a module over Zp . Again, two cases are possible:
+  If np < ∞: αp generates pnp Zp if and only if vp (αp ) = np .
+
+  If np = ∞: 0 generates {0}. This is always true.
+Thus, the statement 1. is equivalent to: vp (αp ) = np for all p.
+Statement 2. Let L′ = {q ∈ Q | af q ∈ b
+                                      Z}. It is defined by:
+
+                           L′ = {x ∈ Q | vp (x) ≥ −vp (αp ), ∀p}.
+
+Statement 2. requires L = L′ , which means the equality of the arithmetic divisors np =
+vp (αp ), ∀p. Thus, both statements 1. and 2. are equivalent to the equality of valuations
+vp (αp ) = np for all p.
+
+                                             32
+8.2     The moduli space PicF r (Spec Z)
+The multiplicative monoid of framed arithmetic divisors modulo isomorphism provides a
+first geometric interpretation of the adele class space YQ .
+Definition 8.4. The moduli space PicF r (Spec Z) is the set of framed arithmetic divisors
+modulo isomorphism. An isomorphism (L, ξ, τ ) ∼= (L′ , ξ ′ , τ ′ ) is a group isomorphism ϕ :
+  ∼   ′          ′              ′
+L−→ L such that ξ ◦ ϕb = ξ and τ ◦ ϕ = τ .
+Given a rational adele a = (af , a∞ ) ∈ A, one defines the map
+
+              F : A −→ {Framed arithmetic divisors}           F(a) = (La , ξa , τa )
+
+where:
+- La = {q ∈ Q | qaf ∈ Z}.
+                      b
+
+- ξa : La → Z
+            b is defined by ξa (x) = xaf .
+
+- τa : La → R is given by τa (x) = xa∞ .
+Theorem 8.5. The map F induces a canonical bijection between YQ = Q× \A and the
+moduli space PicF r (Spec Z) of framed arithmetic divisors.
+Proof. Descent to Quotient. Let q ∈ Q× . Consider the adele a′ = qa. The associated
+group is Lqa = q −1 La . The map ϕ : La → Lqa given by multiplication by q −1 is an
+isomorphism of groups.
+  Finite Frame: ξqa (ϕ(x)) = ξqa (q −1 x) = (q −1 x)(qa)f = xaf = ξa (x).
+
+  Infinite Frame: τqa (ϕ(x)) = τqa (q −1 x) = (q −1 x)(qa)∞ = xa∞ = τa (x).
+Thus, the triples are isomorphic, and F descends to YQ .
+We check the Bijectivity. Let (L, ξ, τ ) be a framed arithmetic divisor. Since L is rank-1
+torsion-free group, we can choose an embedding ι : L ,→ Q.
+By Lemma 8.3 (i), the map ξ extends to a map Af → Af , which is multiplication by some
+af ∈ Af . By Lemma 8.3 (ii) the generator condition ensures that L is recovered correctly.
+The map τ extends to a map Q ⊗ R → R, which is multiplication by some a∞ ∈ R.
+This yields an adele a = (af , a∞ ). Changing the embedding ι by a factor q ∈ Q× changes
+a to q −1 a, which preserves the class in YQ . Thus, the correspondence is one-to-one.
+
+8.2.1    The monoid structure
+The set of framed arithmetic divisors carries a natural tensor product structure. Given
+D1 = (L1 , ξ1 , τ1 ) and D2 = (L2 , ξ2 , τ2 ), we define D1 ⊗ D2 = (L, ξ, τ ) by:
+  L = L1 ⊗Z L2 .
+
+  ξ = ξ1 ⊗ ξ2 (product in b
+                          Z).
+
+  τ = τ1 ⊗ τ2 (product in R).
+Explicitly, for the infinite part one has: τ (x ⊗ y) = τ1 (x)τ2 (y).
+Theorem 8.6. The sets bijection YQ ∼   = PicF r (Spec Z) is an isomorphism of monoids. If
+a, b ∈ A correspond to arithmetic framed divisors Da , Db , then the product ab corresponds
+to the tensor product of arithmetic divisors Da ⊗ Db .
+
+                                               33
+Proof. Let a, b ∈ A. The product adele is ab = (af bf , a∞ b∞ ). The divisor for the product
+is defined by:
+
+  ξab (x) = x(af bf ).
+
+  τab (x) = x(a∞ b∞ ).
+
+Consider the tensor product Da ⊗ Db . The map La ⊗ Lb → Lab given by multiplication in
+Q is an isomorphism. Under this identification:
+
+  The finite frame acts as ξa (x)ξb (y) = (xaf )(ybf ) = (xy)(af bf ), matching ξab .
+
+  The infinite frame acts as τa (x)τb (y) = (xa∞ )(yb∞ ) = (xy)(a∞ b∞ ), matching τab .
+
+Thus, the structures coincide.
+
+8.3     Rooted arithmetic divisors and the moduli PicRt (Spec Z)
+Given a torsion free rank one group L we let L∨ := Hom(L, Q/Z) be its dual (see Appendix
+A). Given a frame ξ ∈ Hom(L, b  Z) the dual frame ξ ∨ ∈ Hom(Q/Z, L∨ ) specifies a coherent
+system of roots of unity, more precisely of torsion elements belonging to Tor(L∨ ). We
+introduce the notion of a rooted arithmetic divisor to reflect this fact.
+
+8.3.1    The Support of a divisor
+Definition 8.7. Let L be a torsion free rank one group. Let S be the set of primes where
+L is divisible (i.e. the singular primes). We define the subgroup of supported roots of unity
+as follows:                               M
+                                  µ(S) :=    Qp /Zp ⊂ Q/Z.
+                                            ∈S
+                                           p/
+
+Equivalently, µ(S) is the subgroup of roots of unity whose order is prime to all p ∈ S.
+
+8.3.2    The isomorphism condition
+Definition 8.8. A root on a torsion free rank one group L is a homomorphism
+
+                                      ρ : Q/Z −→ Tor(L∨ )
+
+satisfying the following two conditions:
+
+  1. Vanishing on singularities: ρ vanishes on the singular components:
+                                              M
+                                     ker(ρ) ⊇     Qp /Zp .
+                                                      p∈S
+
+
+  2. Isomorphism on support: The restriction of ρ to the supported subgroup induces an
+     isomorphism:
+                                              ∼
+                                              → Tor(L∨ ).
+                                ρ|µ(S) : µ(S) −
+
+Let ξ ∈ Hom(L, Z).b The Pontryagin dual ξ ∗ of ξ is a group homomorphism from the
+Pontryagin dual Q/Z of Zb to the Pontryagin dual L∗ of L. By Proposition A.7 of Appendix
+A, the range of ξ is contained in L∨ := Hom(L, Q/Z), thus this defines the dual map
+                 ∗
+
+
+                         ξ ∨ ∈ Hom(Q/Z, L∨ ), ξ ∨ (r) = ξ ∗ (r), ∀r ∈ Q/Z.                (10)
+
+                                                 34
+Proposition 8.9. Let ξ ∈ Hom(L, Z).
+                                b The following statements are equivalent:
+
+  1. ξ is a generator of the Z-module
+                             b        (i.e. ξ is a frame).
+  2. The dual map ξ ∨ satisfies the isomorphism condition 2. above.
+Proof. Let L ⊂ Q, D = (np ) its associated divisor, and S the set of all primes with
+np = ∞. Let a = (ap ) ∈ Af be a finite adele such that L = {q ∈ Q | aq ∈ Z}. b   By
+Proposition A.6 the torsion subgroup of the dual L is the subgroup :
+                                                   ∨
+                                        M
+                             Tor(L∨ ) =     Qp /ap Zp ⊂ L∨
+                                            ∈S
+                                           p/
+
+By Lemma 8.3, the map ξ is given locally at a prime p ∈   / S by multiplication by a non-zero
+element αp ∈ Qp and condition 1. is equivalent to vp (αp ) = np = vp (ap ) for all p ∈    / S.
+The map ξp : Qp /Zp → Qp /ap Zp is the multiplication by αp ∈ Qp . Thus, ξp is an
+           ∨                                                                           ∨
+
+isomorphism if and only if vp (αp ) = vp (ap ). This is precisely the condition for ξp to be a
+generator of Hom(L, Zp ).
+
+Definition 8.10. A rooted arithmetic divisor is a triple (L, ρ, τ ) consisting of a torsion
+free rank-1 group L equipped with a root ρ and a morphism τ : L → R.
+The term rooted associated to an arithmetic divisor refers to the action of the map ρ on
+the standard roots of unity. Let ζn = e2πi/n ∈ Q/Z be a primitive n-th root of unity. The
+map ρ assigns to ζn a character χn ∈ Hom(L, Q/Z). This character can be viewed as an
+arithmetic root of unity on the group L, where
+  For L = Z, ρ assigns a specific root of unity on the circle to the abstract generator of
+  the dual.
+  Over a periodic orbit (i.e. for L = Z[1/p]), ρ assigns roots for orders prime to p,
+  effectively rooting the divisor at the unramified places.
+In other words, a rooted arithmetic divisor is an arithmetic divisor where the phase am-
+biguity (Galois ambiguity) has been resolved by fixing a specific configuration of roots of
+unity.
+Let a = (af , a∞ ) ∈ A be a rational adele. We associate to it the triple
+                                     σ(a) = (La , ρa , τa ),                             (11)
+where:
+  1. La = {q ∈ Q | af q ∈ Z}.
+                          b
+
+  2. The morphism τa is defined as τa (q) = a∞ q ∈ R.
+  3. ρa = ξa∨ where ξa : La → Z,
+                              b ξa (x) = xaf .
+
+Proposition 8.9 shows that the duality functor D(ξ) := ξ ∨ gives a bijective correspondence
+between framed divisors and rooted divisors. We now investigate the meaning of the
+product in terms of rooted divisors.
+
+8.4   Tensor product of roots via character multiplication
+We formalize the tensor product of rooted divisors using the multiplicative structure of
+the finite rings Z/mZ. This approach naturally handles both the composition of frames
+and the vanishing on singular sets.
+
+                                               35
+8.4.1   The character pairing
+Let L1 , L2 be two torsion-free abelian groups. Fix an integer m ≥ 1. The ring structure
+of Z/mZ induces a canonical bilinear map:
+
+           Φm : Hom(L1 , Z/mZ) × Hom(L2 , Z/mZ) −→ Hom(L1 ⊗ L2 , Z/mZ)
+
+defined by the pointwise product of values:
+
+                      Φm (χ1 , χ2 )(x ⊗ y) := χ1 (x) · χ2 (y)   (mod m).
+
+(This is well-defined because the map (u, v) 7→ uv is bilinear over Z/mZ).
+
+8.4.2   Product of roots
+Recall that the torsion subgroup of the dual of a torsion-free abelian group L is the colimit
+of the finite levels:
+                              Tor(L∨ ) ∼
+                                       = lim Hom(L, Z/mZ).
+                                         −→
+                                            m
+
+A root ρ is determined by the family of characters ρ( m1
+                                                         ) ∈ Hom(L, Z/mZ). This family
+is consistent with the relations in the group Q/Z. Specifically, for any integers n and k,
+the element 1/n in Q/Z is equal to k · (1/nk). Therefore, any root ρ must satisfy the
+consistency condition:
+                                   ρ(1/n) = k · ρ(1/nk).                              (12)
+
+Proposition 8.11. Let (L1 , ρ1 ) and (L2 , ρ2 ) be two rooted divisors. The following equation
+defines a root ρ for the tensor product L1 ⊗ L2 by the pairing of the characters at each
+level m:                                               
+                              1                    1         1
+                          ρ        = Φm ρ1            , ρ2         .                      (13)
+                              m                   m          m
+Explicitly, for any x ∈ L1 , y ∈ L2 :
+                                     
+                     1                1          1
+                 ρ      , x ⊗ y = ρ1    , x · ρ2   , y ∈ Z/mZ.
+                    m                 m          m
+
+Proof. We verify that the definition (13) of the product root fulfills the consistency con-
+dition (12). We check that if ρ1 and ρ2 satisfy this condition, their product ρ (defined
+level-wise) also satisfies it. Let N = nk. We represent the values of the roots by elements
+in the finite rings: Let um ∈ Z/mZ represent the value ρ1 (1/m) (via the identification
+Hom(L, Z/mZ) ∼    = Z/mZ ⊗ L∨ . . . effectively treating them as scalars for this check). The
+condition ρ1 (1/n) = kρ1 (1/N ) translates to the congruence of representatives:
+        un    uN                      un   uN
+           ≡k         (mod 1) =⇒         ≡           (mod 1) =⇒ un ≡ uN     (mod n).
+        n     N                       n     n
+Thus, the sequence of values (um )m forms an element of the projective limit lim(Z/mZ) ∼
+                                                                                       =
+                                                                             ←−
+Z. Let (um ) and (vm ) be the sequences for ρ1 and ρ2 . We have:
+b
+
+                      un ≡ uN     (mod n) and vn ≡ vN           (mod n).
+
+The product root ρ is defined by the product in the ring Z/mZ:
+
+                                 wm := um · vm       (mod m).
+
+                                                36
+We must verify that wn ≡ wN (mod n). Compute the reduction of wN modulo n:
+
+        wN    (mod n) = (uN · vN )     (mod n) = (uN        (mod n)) · (vN   (mod n)).
+
+Using the hypothesis:
+                                       = un · vn = wn .
+Thus, the consistency condition holds.
+
+Remark 8.12. This calculation reveals that the transition maps relating the values at
+level N to level n are simply the canonical projections π : Z/N Z → Z/nZ. Since these
+projections are ring homomorphisms, they preserve the multiplicative structure defined at
+each level.
+
+8.4.3   Automatic handling of singularities
+Next formula automatically reproduces the filtering behavior of the singular sets.
+Let p be a singular prime for L1 (i.e. p ∈ S1 ). Then L1 is p-divisible, so for any power
+q = pk , there are no non-zero homomorphisms from L1 to Z/qZ:
+                                                      
+                                     k                 1
+                         Hom(L1 , Z/p Z) = 0 =⇒ ρ1          = 0.
+                                                       pk
+
+Consequently, the product character is zero:
+                                               
+                                  1              1
+                              ρ    k
+                                       = 0 · ρ2     = 0.
+                                 p               pk
+
+This confirms that if p ∈ S1 ∪ S2 , then the product root ρ vanishes on the p-power roots
+of unity. Thus, the support of the product root is exactly the intersection of the supports:
+
+                               Supp(ρ) = Supp(ρ1 ) ∩ Supp(ρ2 ).
+
+Remark 8.13 (The hidden coproduct structure). The definition of the product root ρ =
+ρ1 ⊗ ρ2 relies on the formula ρ(1/n) = ρ1 (1/n) · ρ2 (1/n), suggesting the existence of a
+diagonal coproduct ∆ on Q/Z satisfying ∆(1/n) = 1/n ⊗ 1/n.
+While such a map is ill-defined in the category of abelian groups (where Q/Z⊗Z Q/Z = 0),
+it finds a rigorous formulation in the category of Ind-rings. We view Q/Z as the direct limit
+of the finite rings Rn = Z/nZ. For each n, the multiplication map µn : Rn ⊗Z Rn → Rn
+is an isomorphism of rings. Its inverse provides a diagonal map:
+                           ∼
+                 ∆n : Rn −
+                         → Rn ⊗Z Rn ,        satisfying ∆n (1n ) = 1n ⊗ 1n .
+
+Identifying the element 1/n ∈ Q/Z with the unity 1n ∈ Rn , the tensor product of roots
+can be interpreted as the composition:
+
+                                      ρ = (ρ1 ⊗ ρ2 ) ◦ ∆,
+
+where ∆ = lim ∆n is the limit of these diagonal maps. This structural perspective explains
+            −→
+why the product is anchored at the generators 1/n (the multiplicative identities) and why
+it scales non-linearly for general elements k/n.
+
+
+
+
+                                              37
+8.5   Compatibility of duality with tensor products
+We prove that the duality functor D(ξ) = ξ ∨ transforms the product of frames into the
+tensor product of roots.
+Lemma 8.14. Let (L1 , ξ1 ) and (L2 , ξ2 ) be two framed arithmetic divisors. Let ξ = ξ1 ⊗ ξ2
+be the product frame on L1 ⊗ L2 . Let ρ1 = ξ1∨ and ρ2 = ξ2∨ be the associated roots. Then
+the root associated to the product frame is the tensor product of the roots:
+
+                                     (ξ1 ⊗ ξ2 )∨ = ξ1∨ ⊗ ξ2∨ .
+
+Proof. It suffices to verify the equality of the maps on the generators 1/n ∈ Q/Z acting
+on pure tensors x ⊗ y ∈ L1 ⊗ L2 .
+The dual of the product frame (LHS). Let ρ = ξ ∨ . By the definition of the dual frame, the
+pairing is given by the reduction of the frame value modulo n:
+
+                            ⟨ρ(1/n), x ⊗ y⟩ = ξ(x ⊗ y)      (mod n).
+
+By the definition of the product frame, ξ(x ⊗ y) is the product in the ring Z:
+                                                                            b
+
+                                   ξ(x ⊗ y) = ξ1 (x) · ξ2 (y).
+
+Let πn : Z
+         b → Z/nZ be the canonical projection. Since πn is a ring homomorphism:
+
+                ⟨ρ(1/n), x ⊗ y⟩ = πn (ξ1 (x) · ξ2 (y)) = πn (ξ1 (x)) · πn (ξ2 (y)).
+
+The product of the roots (RHS). Let ρ̃ = ρ1 ⊗ ρ2 . By the definition of the tensor product
+of roots (using the ring structure of Z/nZ) one has:
+
+            ⟨ρ̃(1/n), x ⊗ y⟩ = ⟨ρ1 (1/n), x⟩ · ⟨ρ2 (1/n), y⟩ (product in Z/nZ).
+
+Using the definition of the individual roots ρi = ξi∨ :
+
+                        ⟨ρ1 (1/n), x⟩ = ξ1 (x)    (mod n) = πn (ξ1 (x)),
+
+                        ⟨ρ2 (1/n), y⟩ = ξ2 (y)    (mod n) = πn (ξ2 (y)).
+Substituting these back:
+
+                           ⟨ρ̃(1/n), x ⊗ y⟩ = πn (ξ1 (x)) · πn (ξ2 (y)).
+
+Comparing the two expressions, we see they are identical for all n and all pure tensors.
+
+                    ⟨(ξ1 ⊗ ξ2 )∨ (1/n), x ⊗ y⟩ = ⟨(ξ1∨ ⊗ ξ2∨ )(1/n), x ⊗ y⟩.
+
+Thus, the duality map respects the tensor structure.
+
+8.6   Canonical monoid isomorphism
+Theorem 8.15. The duality functor D(ξ) = ξ ∨ induces a canonical isomorphism of
+monoids between moduli of framed and rooted arithmetic divisors:
+                                    ∼
+              D : PicF r (Spec Z) −
+                                  → PicRt (Spec Z),        (L, ξ, τ ) 7−→ (L, ξ ∨ , τ ).   (14)
+
+This map respects the tensor structure, where the product of roots is defined via the diagonal
+action on the system of finite rings Z/nZ.
+The map σ in (11) induces a canonical isomorphism of the adelic monoid YQ with the the
+rooted Picard monoid PicRt (Spec Z).
+
+                                                 38
+Proof. By Proposition 8.9, the duality functor D(ξ) = ξ ∨ gives the isomorphism (14). By
+Lemma 8.14 the duality functor preserves the monoid operation.
+
+The above duality isomorphism D justifies the introduction of the following definition:
+
+                      Pic(Spec
+                      f        Z) := PicF r (Spec Z) ∼
+                                                     = PicRt (Spec Z)                    (15)
+
+
+9     Pic(Spec
+      f        Z) and spectral realization of zeros of L-functions
+In this section we re-interpret the diagram (9) as the key pullback diagram
+
+                                           Θ̃
+                                 Spec
+                                  ^Z                 Pic(Spec Z)
+                                                     f
+                                   π̃                      π                             (16)
+                                           Θ
+                                 Spec Z              Jac(Spec Z)
+
+to explain the relationship between the geometric theory of Pic(Spec
+                                                                f        Z) and the spectral
+realization of the zeros of L-functions. We show that the trace formula of [2] admits a geo-
+metric reinterpretation as a Lefschetz trace formula for the action of the idèle class group
+on Pic(Spec
+    f        Z), viewed as supporting the cohomology of the arithmetic curve. Specifically,
+we show that the geometric side of Weil’s explicit formula is supported on the image of
+                                                        Θ̃
+the universal Abel-Jacobi (embedding) map Spec   ^Z ,→     Pic(Spec
+                                                           f        Z), with the local terms
+arising directly from the dynamics on the transverse space to the fibers of this embedding.
+At this point, it is essential to stress a fundamental difference between the approach
+pursued in this paper and the classical geometric theory of function fields. In the function
+field case, the Picard group is a discrete abelian group, and the spectral information is
+extracted from the action of the Frobenius endomorphism on the ℓ-torsion points of the
+Jacobian. The eigenvalues of the Frobenius acting on these finite dimensional vector spaces
+(transferred from Qℓ to C) are the zeros of the zeta function. The fixed points of iterates
+of the Frobenius on the curve correspond to prime divisors, yielding the zeta function via
+the Lefschetz trace formula.
+In the number field case, on the other hand, we work with the Picard monoid f    Pic(Spec Z)
+and consider the action of the idèle class group CQ by translations. If we were dealing with
+a group (like the classical Picard group), translations would have no fixed points (except for
+the identity), rendering a trace formula trivial. The key insight of this approach is instead
+that the adelic space f Pic(Spec Z) is not discrete but a geometric space with rich internal
+structure. The action of CQ by translation on this space is non-trivial and possesses fixed
+points located on the range of the Abel-Jacobi map.
+
+9.1    The explicit formula as a trace formula
+Noncommutative geometry offers powerful tools for analyzing the rich geometry of the
+adelic spaces YQ and XQ . This framework is especially compelling because it furnishes
+the analytic machinery required for the spectral realization of L-functions.
+Let α be a non-trivial character of the additive group A/Q, and α = v αv its decom-
+                                                                         Q
+position into local factors. Let h ∈ S(CQ ) be a Schwartz function with compact support
+on the idele class group CQ . The generalized Weil explicit formula relates the zeros of
+
+
+
+
+                                                39
+L-functions with Grössencharakter to a sum of local integrals. It takes the following form:
+                                 X X                 X Z ′ h(u−1 )
+                 ĥ(0) + ĥ(1) −         ĥ(χ̃, ρ) =                 d∗ u.             (17)
+                                                           × |1 − u|
+                                           ρ∈Zχ̃      v  Q v
+                                    χ∈C
+                                      \Q,1
+
+
+Here:
+
+   • The sum on the left runs over the non-trivial zeros ρ of L-functions associated to
+     characters χ of the compact group CQ,1 = CQ /R×    +.
+
+   • ĥ(χ, z) = CQ h(u)χ(u)|u|z d∗ u is the Mellin transform.
+               R
+
+                      R′
+   • The integral          on the right in (17) is normalized by the local factors αv following
+     Tate’s thesis.
+
+Weil’s explicit formula can be interpreted as the trace formula:
+                                              !
+                                                   XZ       h(u−1 ) ∗
+                            Z
+                                           ∗
+                    Trdistr      h(u)ϑ(u)d u =                      d u.
+                             CQ                     v   Q×v
+                                                            |1 − u|
+
+Here, ϑ(u) denotes the scaling action of an element u ∈ CQ on the space of functions on
+the adelic space YQ = A/Q× , defined by
+
+                                       ϑ(u)ξ(x) = ξ(u−1 x).
+
+9.2     Geometric interpretation: isotropy and fibers
+The geometric side of the trace formula (the right-hand side of (17)) is a sum over the places
+v of Q, which correspond to the closed points x ∈ Spec Z. In this geometric framework,
+these contributions are understood as localized on the range of the Abel-Jacobi map
+
+                                          Θ̃ f
+                                      ^Z −→
+                                     Spec    Pic(Spec Z).
+
+This range is the union of the fibers π −1 (x) of the projection π : Pic(Spec
+                                                                           f       Z) →
+Jac(Spec Z), and each fiber contributes to the geometric side of the trace formula by
+     h(u−1 ) ∗
+            d u. For each place v, the local multiplicative group Q×
+                                                                   v embeds as a subgroup
+R
+ Q×v |1−u|
+of the idele class group Qv ⊂ CQ . Geometrically, these subgroups appear as the isotropy
+                           ×
+
+groups of the action of CQ on Pic(Spec
+                                f         Z).
+The contribution of a place v to the trace formula arises from the action of the isotropy
+group Q×  v on the transverse space to the orbit at that point. This transverse space is
+identified with the local field Qv . The appearance of the term |1−u|  1
+                                                                          can be justified
+by a formal computation of the distributional trace of the scaling operator on the local
+transverse space.
+Consider the scaling operator T = ϑ(u−1 ) acting on functions on the line Qv (or R):
+
+                                          T ξ(x) = ξ(ux).
+
+We can represent this operator as an integral operator with a distributional kernel k(x, y):
+                        Z
+               T ξ(x) = k(x, y)ξ(y)dy,         where k(x, y) = δ(ux − y).
+
+
+                                                   40
+The distributional trace is then obtained by integrating the kernel along the diagonal
+x = y:                   Z              Z                Z
+             Trdistr (T ) =   k(x, x)dx =     δ(ux − x)dx =     δ((u − 1)x)dx.
+
+Using the scaling property of the delta distribution δ(λx) = |λ|
+                                                               1
+                                                                 δ(x), we obtain:
+                                               Z
+                                          1                  1
+                        Trdistr (T ) =           δ(x)dx =         .
+                                       |u − 1|            |u − 1|
+This calculation demonstrates that the geometric side of the explicit formula is a sum of
+local traces associated to the hyperbolic flow on the fibers over the arithmetic Jacobian.
+
+9.3   The semilocal trace formula
+In order to obtain a geometric proof of (17), one first notices that the functional analysis
+focuses on the locally compact rings
+                                             Y
+                                      AS :=      Qv
+                                               v∈S
+
+which are finite products of the local fields Qv over a finite set S of places containing
+the archimedean place ∞. Indeed, the function space associated with the adele class
+space YQ is represented as a cross product and consists of functions defined on the adeles,
+specifically belonging to the Bruhat–Schwartz space. These functions are characterized
+by their non-trivial dependence on only finitely many places. In other words one replaces
+the infinite product involved in the construction of adeles by a finite product of the local
+fields Qv . All the techniques and tools available in the global case have a natural analogue
+in this semilocal framework. The semilocal version of the group Q× is the group Z×       S of
+invertible elements in the ring ZS of S-integers, where each prime p ∈ S is inverted. One
+obtains the semilocal analogues of the global Bruhat–Schwartz algebra S(A) and its cross
+product with Q× ,
+                                    S(AS ), S(AS ) ⋊ Z×  S.                              (18)
+The key advantage of working in the semilocal framework is that for a finite product of
+local fields the Haar measures of the additive and multiplicative groups are comparable:
+this fails at the global level. One thus obtains a natural Hilbert space L2 (Z×S \AS ) of
+0-forms (that admits a Hochschild homological interpretation) and then investigates the
+                                                                   ×
+action θ of the semilocal idele class group CQ,S = Z×   ×
+                                                    S \AS on L (ZS \AS ):
+                                                                2
+
+
+                 (θ(u) ξ)(a) = ξ(u−1 a),    ∀a ∈ Z×             2  ×
+                                                  S \AS , ∀ξ ∈ L (ZS \AS ).             (19)
+The local to global inclusion of the multiplicative groups Q× v ⊂ CQ of the local fields Qv
+in the idele class group continues to make sense in the semilocal case and gives canonical
+inclusions Q×v ⊂ CQ,S for v ∈ S.
+To prove the finiteness of the trace, one performs a cutoff in phase space, i.e. by limiting
+both p, q to absolute value ≤ λ. To be more precise, let Pλ be the projection, in the
+Hilbert space L2 (Z× S \AS ) on the subspace of functions which vanish for |a| > λ, and Pλ
+                                                                                          c
+its conjugate by the Fourier transform. The cutoff is achieved by the operator Rλ = Pλ Pλ
+                                                                                       b
+where Pλ effects the cutoff |q| ≤ λ and Pbλ effects the cutoff |p| ≤ λ. The semilocal trace
+formula expresses the trace of the cutoff scaling
+                                              R action as follows. Let h be a test function
+with compact support on CQ,S and θ(h) := h(u)θ(u)d∗ u, then:
+                                                X Z ′ h(u−1 )
+                 Trace(θ(h)Rλ ) = 2h(1) log λ +                  d∗ u + o(1).           (20)
+                                                       × |1 − u|
+                                                     Qv
+                                                   v∈S
+
+
+                                              41
+This is the original formulation of the semilocal trace formula in [2]. The divergent term
+2h(1) log λ signals the presence of the white light coming from the (trace of the) regular
+representation. In the perspective of this paper this is the contribution of the image of
+the generic point η ∈ Spec Z by the Abel-Jacobi map.
+
+9.4   Sheaves over Spec Z
+The semilocal algebras S (AS ) ⋊ Z×S are constructed as the cross products of the Bruhat-
+Schwartz algebras S(AS ) of functions on semilocal adeles, by the multiplicative groups
+Z×S = Gm (S ). These are groups of sections of the sheaf Gm on the Zariski open set
+             c
+
+complement of the closed subset S ⊂ Spec Z. It is a remarkable fact that the semilocal
+algebras (18) form a sheaf of algebras over Spec Z. One thus obtains two sheaves O and
+O ⋊ Gm on Spec Z whose sections, for any finite set of places S ∋ ∞, are
+
+                    O(S c ) = S(AS ), (O ⋊ Gm ) (S c ) = S(AS ) ⋊ Z×
+                                                                   S.                (21)
+
+These sections encapsulate fully the semilocal framework, and one finds that the global
+algebras are simply given by the stalk of these sheaves at the generic point η ∈ Spec Z.
+We recall from [5] the following result which establishes the compatibility of the noncom-
+mutative geometric constructions with the algebraic geometry of Spec Z.
+
+Theorem 9.1. (1) The algebraic cross product O ⋊ Gm defines a sheaf of algebras on
+Spec Z such that for every finite set of places S ∋ ∞
+
+                             (O ⋊ Gm ) (S c ) = S (AS ) ⋊ Z×
+                                                           S.
+
+(2) The stalk of O ⋊ Gm at the generic point η ∈ Spec Z is the global cross product
+S (AQ ) ⋊ Q× .
+(3) The global sections of O ⋊ Gm on Spec Z form the cross product S(R) ⋊ {±1}.
+
+
+A     Adelic description of the dual of torsion free rank-1 groups
+A.1    Finite adeles and Hom(Q, Q/Z)
+Let Af = Q ⊗Z Zb be the ring of finite adeles and Z
+                                                  b = Q Zp its maximal compact subring.
+                                                       p
+We identify the quotient group Af /Z with Q/Z via the canonical projection:
+                                     b
+
+                                                 ∼
+                                 π : Af −→ Af /Z
+                                               b−→ Q/Z.                          (22)
+
+Explicitly, if a = (ap )p ∈ Af , then π(a) = p {ap }p (mod 1), where {x}p denotes the
+                                              P
+‘fractional part’ of the p-adic number x. Let
+
+             ψ : Af → Hom(Q, Q/Z) ψ(a)(q) = π(qa) for a ∈ Af , q ∈ Q.                (23)
+
+Lemma A.1. The map ψ is an isomorphism of topological groups.
+
+Proof. We proceed by establishing injectivity and surjectivity using the structural prop-
+erties of Af and Q.
+Injectivity. Suppose ψ(a) = 0 for some a ∈ Af . By definition, this means: π(qa) = 0 ∀q ∈
+Q. This implies that qa ∈ ker(π) = Zb ∀q ∈ Q. The following cases arise:
+
+  If q = 1, then a ∈ Z.
+                     b
+
+
+                                           42
+  If q = 1/n for an integer n, then a/n ∈ Z,
+                                          b which implies a ∈ nZ.
+                                                               b
+
+Thus, we conclude that a ∈ n∈Z\{0} n b
+                            T                   b∼
+                                       Z. Since Z = p Zp and k pk Zp = {0}, it follows
+                                                   Q          T
+that a = 0.
+Surjectivity. We compare the defining exact sequence of Af
+                                          π
+                             0 −→ Z
+                                  b −→ Af −
+                                          → Q/Z −→ 0                                   (24)
+
+with the exact sequence obtained by applying the functor Hom(−, Q/Z) to the defining
+sequence of Q
+                              0 → Z → Q → Q/Z → 0.
+Since Q/Z is divisible (injective in the category of abelian groups), the functor
+Hom(−, Q/Z) is exact, thus we have
+
+          0 −→ Hom(Q/Z, Q/Z) −→ Hom(Q, Q/Z) −→ Hom(Z, Q/Z) −→ 0                        (25)
+
+Let us analyze the terms in (25):
+
+  Hom(Z, Q/Z) ∼
+              = Q/Z (determined by the image of 1).
+
+  Hom(Q/Z, Q/Z) ∼    b This is the ring of endomorphisms of the torsion group Q/Z.
+                   = Z.
+  An element u ∈ Z acts by multiplication.
+                 b
+
+Thus, (25) becomes:
+
+                       0 −→ Z
+                            b −→ Hom(Q, Q/Z) −→ Q/Z −→ 0                               (26)
+
+The map ψ in (23) induces a morphism between (24) and (26):
+
+                                                        π
+     0                Z
+                      b                      Af                   Q/Z              0
+                       ψ|Z
+                         b                      ψ                   id
+
+     0        Hom(Q/Z, Q/Z)            Hom(Q, Q/Z)           Hom(Z, Q/Z)           0
+
+The right vertical arrow is the identity (canonical isomorphism): for a ∈ Af , restricting
+ψ(a) to Z gives n 7→ π(na), which is determined by π(a) ∈ Q/Z.
+The left vertical arrow maps u ∈ Z   b to the homomorphism x 7→ π(ux) on Q/Z. This is
+the canonical identification of Z with End(Q/Z).
+                                 b
+By the Short Five Lemma, since the outer vertical maps are isomorphisms, the middle
+map ψ is an isomorphism. Next, we consider the investigation of ψ in topological terms.
+Topology. Af carries the restricted product topology, making it a locally compact group,
+while Hom(Q, Q/Z) carries the compact-open topology. Since Q is discrete, this is the
+topology of pointwise convergence. The isomorphism ψ is a homeomorphism because it
+matches the compact open subgroups, namely:
+- The maximal compact subgroup of Af is b    Z.
+- The maximal compact subgroup of Hom(Q, Q/Z) is Hom(Q/Z, Q/Z) ∼           =Zb (those maps
+vanishing on Z).
+The filtration of Af by n−1 Z b corresponds exactly to the filtration of homomorphisms by
+the order of their restriction to Z.
+
+
+
+
+                                           43
+A.2    The dual of a rank-1 group
+We derive an explicit formula for the character dual L∨ of a rank-1 subgroup L ⊂ Q using
+the adelic annihilator.
+
+Lemma A.2. Let L ⊆ Q be a subgroup. Its character dual
+
+                                       L∨ = Hom(L, Q/Z)
+
+identifies canonically with the quotient of the finite adèle ring by the adelic annihilator of
+L,
+                                       L∨ ∼= Af /L⊥ .
+Here the adelic annihilator L⊥ is defined by
+
+           L⊥ = { a ∈ Af | aL ⊆ Z
+                                b } = { a ∈ Af | π(ha) = 0 for all h ∈ L }.
+
+Proof. Consider the short exact sequence of discrete groups:
+                                          i
+                               0 −→ L −
+                                      → Q −→ Q/L −→ 0.
+
+Since Q/Z is an injective Z-module (it is divisible), the functor Hom(−, Q/Z) is exact.
+Applying this functor yields the exact sequence of dual groups:
+                                  i∗                       π∗
+            0 ←− Hom(L, Q/Z) ←
+                             − Hom(Q, Q/Z) ←− Hom(Q/L, Q/Z) ←− 0
+
+Using the identification Hom(Q, Q/Z) ∼ = Af , we can identify the term Hom(Q/L, Q/Z)
+with the subgroup of Af consisting of elements that vanish on L (under the pairing).
+
+                 ker(i∗ ) = Image(π ∗ ) ∼
+                                        = {a ∈ Af | ψ(a)(h) = 0, ∀h ∈ L}.
+
+The condition ψ(a)(h) = 0 in Q/Z is equivalent to ah ∈ Z
+                                                       b in Af . Thus, ker(i∗ ) = L⊥ .
+By the First Isomorphism Theorem:
+
+                          L∨ = Image(i∗ ) ∼
+                                          = Af / ker(i∗ ) = Af /L⊥
+
+
+
+Let S be the set of primes p such that L is p-divisible (i.e., L ⊗ Zp ∼
+                                                                      = Qp ). This set S
+characterizes the "singularities" of the group L. Precisely, we have:
+
+  For L = Z, S = ∅.
+
+  For L = Z[1/p], S = {p}.
+
+  For L = Q, S = P (the set of all primes).
+
+We call the restricted product
+                                                Y′
+                                         AS =         Qp
+                                                p∈S
+
+the ring of S-adeles.
+
+
+
+
+                                              44
+Proposition A.3. Let a ∈ Af and L = {q ∈ Q | aq ∈ Z}.  b Let S be the set of all primes
+with ap = 0. The adelic annihilator of L is given by:
+                                             
+                                    Y
+                           L⊥ =        ap Zp  × {0}S ⊂ Af .
+                                       ∈S
+                                      p/
+
+The dual group decomposes as:
+                                                             
+                                                Y′
+                          L∨ ∼
+                             = Af /L⊥ ∼
+                                      =             Qp /ap Zp  × AS .                   (27)
+                                              ∈S
+                                             p/
+
+
+Proof. The condition x ∈ L⊥ means xh ∈ Z  b for all h ∈ L. This condition factorizes locally
+as: xp hp ∈ Zp for all hp ∈ Lp where Lp := L ⊗Z Zp . One sees that:
+
+       / S, then Lp ∼
+  If p ∈               p Zp . The condition xp Lp ⊂ Zp is equivalent to xp ∈ ap Zp . Thus
+                    = a−1
+  the local component is ap Zp .
+
+  If p ∈ S, then Lp ∼
+                    = Qp . The condition xp Qp ⊂ Zp implies xp = 0 (since Qp is
+  unbounded). Thus the local component is {0}.
+
+The quotient Af /L⊥ is the restricted product of its components, where:
+
+  For p ∈ S: Qp /{0} ∼
+                     = Qp . The product of these gives AS .
+                                                                    Q′
+  For p ∈
+        / S: Qp /ap Zp . The restricted product of these gives         ∈S Qp /ap Zp .
+                                                                      p/
+
+
+
+
+The restricted product ′p /∈S Qp /ap Zp contains the torsion group           ∈S Qp /ap Zp . The
+                         Q                                               L
+                                                                            p/
+group Qp /ap Zp is isomorphic, by multiplication by ap , to the p-torsion group Qp /Zp =
+µp∞ .
+
+                     not true in general that the restricted product ′p /∈S Qp /ap Zp is equal
+                                                                       Q
+Remark A.4. It is L
+to the torsion group p /∈S Qp /ap Zp . In fact, this fails as soon as there are infinitely many
+p ∈/ S such that np = v(ap ) > 0. Here Zp /ap Zp is non-trivial for infinitely many p.
+The restricted product allows for elements thatQhave non-zero entries in these finite groups
+for infinitely many primes. Consequently, ′p /∈S Qp /ap Zp is uncountable and contains
+elements of infinite order (e.g. a sequence (xp ) where xp ∈ Zp /ap Zp has order pv(ap ) , and
+these orders grow to infinity).
+
+A.3    The torsion subgroup of the dual
+Proposition A.5. Let L be a torsion-free abelian group. There is a canonical isomor-
+phism:
+                     Tor(Hom(L, Q/Z)) ∼ = lim  Hom(L, Z/nZ),
+                                           −→
+                                                     n
+
+where the limit is taken over the directed system of integers ordered by divisibility (n | m),
+with transition maps induced by the canonical inclusions Z/nZ ,→ Z/mZ (mapping 1 7→
+m/n).
+
+
+
+
+                                                45
+Proof. Recall that Q/Z is the directed union of its finite subgroups:
+                                   [ 1  
+                           Q/Z =          Z Z ∼  = lim   Z/nZ.
+                                        n           −→
+                                   n≥1                n
+
+
+Let ϕ ∈ Hom(L, Q/Z). The element ϕ belongs to the torsion subgroup if and only if there
+exists an integer n ≥ 1 such that n · ϕ = 0. The condition n · ϕ = 0 means that for all
+x ∈ L, nϕ(x) = 0 in Q/Z. This is equivalent to saying that the image of ϕ lies in the
+subgroup of elements of order dividing n:
+                                            1  ∼
+                                Im(ϕ) ⊆       Z Z = Z/nZ.
+                                            n
+Thus, a homomorphism is torsion if and only if it factors through one of the finite groups
+Z/nZ. The colimit limn Hom(L, Z/nZ) consists precisely of equivalence classes of such
+                   −→
+maps, which maps isomorphically to the set of maps into Q/Z with bounded image.
+
+Proposition A.6. Let a ∈ Af and L = {q ∈ Q | aq ∈ Z}.  b Let S be the set of all primes
+                                               ∨
+with ap = 0. The torsion subgroup of the dual L is the subgroup :
+                                        M
+                             Tor(L∨ ) =     Qp /ap Zp ⊂ L∨
+                                           ∈S
+                                          p/
+
+It is isomorphic to the group µ(S) of roots of unity of order prime to S.
+
+Proof. By (27) the dual group is the product of the two terms
+                                                  
+                                      Y′
+                             L∨ ∼=      Qp /ap Zp  × AS .
+                                       ∈S
+                                      p/
+
+Let x ∈ Tor(L∨ ) be such that nx = 0. Since AS is torsion free one has
+                                                    
+                                       Y′
+                                 x∈       Qp /ap Zp 
+                                          ∈S
+                                         p/
+
+and for primes q not dividing n the component xq is xq = 0 since Qq /aq Zq is isomorphic
+to Qq /Zq whose n torsion is 0. Thus x is a finite sum of elements of Qp /ap Zp for primes
+dividing n.
+
+A.4    Consistency with Pontryagin duality
+We clarify the relationship between the character dual L∨ = Hom(L, Q/Z) and the stan-
+dard Pontryagin dual L∗ = Hom(L, R/Z).
+Proposition A.7. Let H be a discrete abelian group.
+
+  1. There is a strict inclusion Tor(H∗ ) ⊆ H∨ ⊂ H∗ .
+
+  2. Any homomorphism from a torsion group into the Pontryagin dual factors through
+     the character dual. Specifically:
+
+                              Hom(Q/Z, H ∗ ) ∼
+                                             = Hom(Q/Z, H ∨ ).
+
+
+                                               46
+    3. Furthermore, the image of any such map lies in the torsion subgroup Tor(H∨ ).
+Proof. 1. Let χ ∈ H ∗ be a torsion element. Then nχ = 0 for some n, implying χ(H) ⊆
+n Z/Z ⊂ Q/Z. Thus χ ∈ H . However, H may contain elements of infinite order (e.g.,
+1                           ∨               ∨
+
+the Qp component when H = Z[1/p]), so L∨ is generally larger than Tor(H∗ ).
+2. Let Φ : Q/Z → H ∗ . For any z ∈ Q/Z, let n be its order. Then nΦ(z) = Φ(nz) = 0.
+Thus Φ(z) is a torsion element in H ∗ . By (1), Φ(z) ∈ H ∨ .
+3. Since Φ(z) has finite order, it belongs to Tor(H∨ ). In the case H = Z[1/p], where
+H∨ ∼= Tor(H∨ ) × Qp , this implies the map is zero on the Qp factor.
+
+
+B                                                 b×
+      Pic(Spec Z) and the monoid of the points of N
+We analyze the categorical structure of the topos associated with the multiplicative monoid
+N× , and we show that the arithmetic tensor product of rank-1 groups arises naturally from
+the multiplication of integers.
+Let M = N× be the monoid of non-zero natural numbers under multiplication. We
+consider Grothendieck’s presheaf topos b     N× = PSh(M op ), that is the category of sets
+equipped with a right action of M . A point of N  b × is a geometric morphism p : Set → Nb ×.
+By Diaconescu’s theorem, such points are classified by flat functors F : M → Set (or
+equivalently, flat left M -sets). Since M is a commutative cancellative monoid, the category
+of flat M -sets is equivalent to the category of ordered rank-1 abelian groups (viewed as
+direct limits of the free M -set). Thus, a point p of N     b × is uniquely determined, up to
+isomorphism, by a torsion free rank 1 group since the two orders on such a group are
+isomorphic by x 7→ −x.
+The multiplication of integers defines a monoid homomorphism: µ : M × M → M ,
+(m, n) 7→ mn.
+This map induces a geometric morphism between the corresponding toposes. On the level
+of points, this structure induces a product operation. Given two points L1 and L2 (viewed
+as flat M -sets), their external product L1 ⊠ L2 is a flat (M × M )-set. The product point
+L is obtained by the left Kan extension along µ:
+
+                                    L = Lanµ (L1 ⊠ L2 ).
+
+Algebraically, this Kan extension corresponds to the tensor product over the monoid ring
+Z[M ] (that acts on the sets via the integers): L ∼
+                                                  = L1 ⊗Z[M ] L2 .
+Since the action of M on these groups is compatible with the standard multiplication in Z,
+this tensor product over the monoid coincides with the standard tensor product of abelian
+groups L ∼ = L1 ⊗Z L2 . Thus, the monoidal structure on the topos N     b × induced by the
+multiplication of integers corresponds precisely to the tensor product of the rank-1 groups
+parametrizing its points.
+
+
+References
+[1] R. Baer, Abelian groups without elements of finite order. Duke Mathematical Journal
+    3, no. 1 (1937): 68–122.
+[2] A. Connes, Trace formula in noncommutative geometry and the zeros of the Riemann
+    zeta function, Selecta Math. (N.S.) 5 (1999), no. 1, 29–106.
+[3] A. Connes, C. Consani, Geometry of the Arithmetic Site. Adv. Math. 291 (2016),
+    274–329.
+
+                                             47
+[4] A. Connes, C. Consani, Absolute Algebra and Segal’s Γ-Rings: au Dessous de Spec Z,
+    J. Number Theory 162 (2016), 518-551.
+
+[5] A. Connes, C. Consani, Knots, primes and class field theory, to appear in Regulators
+    V proceedings, Contemporary Mathematics AMS., arXiv:2501.06560.
+
+[6] B. Mazur Notes on étale cohomology of number fields. Ann. Sci. École Norm. Sup. (4)
+    6 (1973), 521-552 (1974).
+
+[7] B.C. Ngô, On a certain sum of automorphic L-functions. In Automorphic Forms and
+    Related Geometry: Assessing the Legacy of I.I. Piatetski-Shapiro, volume 614 of Con-
+    temp. Math., pages 337-343. Amer. Math. Soc., Providence, RI, 2014.
+
+[8] J. J. Rotman An introduction to the theory of groups Fourth edition, Graduate texts
+    in mathematics, 138, Springer.
+
+[9] J. P. Serre, Corps locaux. (French) Publications de l’Institut de Mathématique de
+    l’Université de Nancago, VIII. Actualités Scientifiques et Industrielles No. 1296. Her-
+    mann, Paris, 1962.
+
+[10] E. B. Vinberg, On reductive algebraic semigroups, in Lie groups and Lie algebras: E.
+    B. Dynkin’s Seminar, Amer. Math. Soc. Transl. Ser. 2, 169 (1995), 145–182.
+
+[11] A. Weil, Sur les formules explicites de la théorie des nombres premiers, Comm. Sém.
+    Math. Univ. Lund, 1952, 252–265.
+
+ Alain Connes                                                             Caterina Consani
+ Collège de France                                              Department of Mathematics
+ 3 Rue d’Ulm                                                      Johns Hopkins University
+ 75005 Paris                                                          Baltimore, MD 21218
+ France                                                                              USA
+ alain@connes.org                                                        cconsan1@jhu.edu
+
+
+
+
+                                            48
+

@@ -1,0 +1,2090 @@
+                                                                 The geometry of blueprints
+
+
+
+
+arXiv:1103.1745v2 [math.AG] 5 Jan 2012
+                                                          Part I: Algebraic background and scheme theory
+
+                                                                                 Oliver Lorscheid∗
+
+
+                                                                                        Abstract
+                                                   In this paper, we introduce the category of blueprints, which is a category of algebraic
+                                               objects that include both commutative (semi)rings and commutative monoids. This general-
+                                               ization allows a simultaneous treatment of ideals resp. congruences for rings and monoids
+                                               and leads to a common scheme theory. In particular, it bridges the gap between usual
+                                               schemes and F1 -schemes (after Kato [15], Deitmar [8] and Connes-Consani [7]). Beside
+                                               this unification, the category of blueprints contains new interesting objects as “improved”
+                                               cyclotomic field extensions F1n of F1 and “archimedean valuation rings”. It also yields a
+                                               notion of semiring schemes.
+                                                   This first paper lays the foundation for subsequent projects, which are devoted to the
+                                               following problems: Tits’ idea of Chevalley groups over F1 , congruence schemes, sheaf
+                                               cohomology, K-theory and a unified view on analytic geometry over F1 , adic spaces (after
+                                               Huber), analytic spaces (after Berkovich) and tropical geometry.
+                                               Keywords: Monoids, semirings, F1 -geometry, congruences, schemes.
+
+
+
+
+                                            ∗ Department of Mathematics, The City College of New York, 160 Convent Ave., New York NY 10031, USA.,
+
+                                         phone +1-212-650-5120, olorscheid@ccny.cuny.edu.
+
+                                                                                            1
+Contents
+Introduction                                                                                                       3
+
+1   Blueprints                                                                                                      7
+    1.1 Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    7
+    1.2 First properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    9
+    1.3 Monoids . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    13
+    1.4 Semi-rings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   14
+    1.5 Rings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    14
+    1.6 Base extension from F1 to Z . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      15
+    1.7 Multiplicative maps into semirings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     16
+    1.8 Sesquiads . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    17
+    1.9 B1 -algebras . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   18
+    1.10 Cyclotomic field extensions of F1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     18
+    1.11 Archimedean valuation rings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     18
+    1.12 Free algebras . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   19
+    1.13 Localizations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   19
+    1.14 Limits and colimits . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   20
+
+2   Congruences and ideals                                                                                         23
+    2.1 Congruences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      23
+    2.2 Ideals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+    2.3 Ideals for blueprints with a zero . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    31
+    2.4 Congruences and ideals for monoids . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       32
+    2.5 Congruences and ideals for rings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     32
+    2.6 Congruences and ideals for semirings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       33
+    2.7 Prime congruences and prime ideals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       33
+    2.8 Maximal congruences and maximal ideals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         36
+
+3   Blue schemes                                                                                                   36
+    3.1 Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   36
+    3.2 Global sections and globalization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    39
+    3.3 Affine open subschemes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       43
+    3.4 Fibre products . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   45
+    3.5 Residue fields . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   46
+    3.6 Subcategories of BSch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      46
+    3.7 Monoidal schemes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       48
+    3.8 Grothendieck schemes and semiring schemes . . . . . . . . . . . . . . . . . . . . . . . . . . . .          48
+    3.9 Connes and Consani’s F1 -schemes revised . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       49
+
+References                                                                                                         50
+
+
+
+
+                                                          2
+Introduction
+In the last decade, a series of suggestions were made what an F1 -geometry should be. These
+approaches generalized scheme theory from different viewpoints: Soulé’s approach via endow-
+ing a complex algebra with descent data to F1 ([25]), Durov’s approach via monads ([10]),
+Toën-Vaquié’s approach via functors on the category of multiplicative monoids ([27]), Borger’s
+approach via endowing schemes with a Λ-structure ([3]), Haran’s approach via categories of co-
+herent sheaves ([11], [12]), Kato, Deitmar and Connes-Consani’s approach via a scheme theory
+associated to monoids ([15],[8],[7]), or the approach of Connes-Consani resp. of López Peña
+and the author via decomposition of schemes into tori ([7], [18]). For a more comprehensive
+overview, see [19].
+    What can be learned from all these generalizations of scheme theory is that the important
+operation for applying methods from algebraic geometry is the multiplicative structure while
+addition plays a subordinated role. Most of the named geometries are either too restrictive
+to cover an interesting class of objects or too artificial resp. too abstract to be applicable to
+standard methods from algebraic geometry. We follow a different approach in this text: a
+blueprint is a generalization of a commutative ring that is general enough to contain monoids
+and semirings, but close enough to conventional algebraic structures to develop a scheme theory
+in the vein of algebraic geometry after Grothendieck. To contrast the theory of blueprints to
+other generalizations of scheme theory, we avoid the name F1 -scheme in this text.
+    While the author’s initial interest was an investigation of Tits’ idea of Chevalley groups
+over F1 (cf. [26]; it has been realized in [20]), it turned out that the theory of blueprints has
+multiple connections to other theories and might be suitable for a deeper understanding of other
+geometric concepts. We first outline the definition of a blueprint and a blue scheme, before we
+explain these ideas.
+
+Summary of the theory
+For simplicity, we will restrict ourselves to proper blueprint with 0, which we briefly call
+blueprints in this exposition. See Lemma 1.9 for the connection with the axiomatic approach in
+the main text.
+     A blueprint is a pair B = (A, R) of a semiring R and a multiplicative subset A of R that
+contains 0 and 1 and that generates R as a semiring. A morphism f : B1 → B2 of blueprints
+is a semiring morphism fR : R1 → R2 that restricts to a multiplicative map fA : A1 → A2 . An
+ideal of a blueprint B = (A, R) is a subset I of A such that there is a morphism f : B → B′ with
+ fA−1 (0) = I. A prime ideal is an ideal p of B such that A − p is a multiplicative subset of A that
+contains 1. The localization of B = (A, R) at a multiplicative subset S ⊂ A that contains 1 is
+the blueprint S−1 B = (S−1 A, S−1 R) (cf. [7] for the definition of S−1 A). If S = A − p for a prime
+
+                                                 3
+ideal p of B, then we denote S−1 B by Bp .
+    These properties make it possible to define the spectrum of a blueprint B = (A, R) as the
+set Spec B of all prime ideals endowed with the topology generated by open subsets of the
+form Uh = {p ∈ Spec B|h ∈    / p} where h ranges through A together with a structure sheaf that is
+associated to the stalks Bp at p ∈ Spec B. A blue scheme is a topological space X together with
+a sheaf OX of blueprints that is locally isomorphic to spectra of blueprints. The usual definition
+of morphisms applies: morphisms of blue schemes are local morphisms of “locally blueprinted
+spaces”.
+    While most of the theory generalizes scheme theory in an obvious way, a discrepancy arises
+in the fact that the global sections ΓB = Γ(X , OX ) of X = Spec B are in general not equal to
+B. However, there is a canonical blueprint morphism B → ΓB, which induces an isomorphism
+Spec ΓB → Spec B of blue schemes (Theorem 3.12). This allows to prove properties of blue
+schemes analogous to usual schemes, e.g. that morphisms are locally algebraic.
+    We can consider a semiring R as a blueprint B = (R, R). This defines a fully faithful embed-
+ding of the category of semirings into the category of blueprints. In case of rings, a prime ideal
+of R is the same as a prime ideal of B, and the spectrum of R is the same as the spectrum of B.
+This leads to a fully faithful embedding of usual schemes into blue schemes. Additionally, we
+obtain the notion of a semiring scheme. Similarly, a monoid A with a zero 0 defines a blueprint
+B = (A, AZ ) where AZ = Z[A]/(0) and (0) is the ideal generated by 0 ∈ A ⊂ Z[A]. This leads
+to a fully faithful embedding of F1 -schemes (after Kato, Deitmar and Connes-Consani, cf. [7])
+into blue schemes. Also the recent theory of sesquiads and their Zariski schemes ([9]) embeds
+fully faithfully into the theory of blue schemes.
+
+Future prospects
+The paper lays the foundation for a number of projects, which we will describe in the following.
+Roughly speaking, these concern two main streams of ideas: making sense of Jacques Tits’
+dream of explaining thin geometries by an algebraic geometry over F1 (cf. [26]) and developing
+a unified view on algebraic geometry, F1 -geometry, tropical geometry and analytic geometry
+(in the sense of Berkovich and Huber).
+    Note that we forgo intentionally to give the term F1 -geometry a precise meaning. It can be
+understood, in a more strict sense, to mean the class of monoidal schemes (after Kato, [15],
+Deitmar, [8], and Connes-Consani, [7]), or, in a more lax way, to mean all kinds of geometric
+objects of a combinatorial nature. A posteriori, we can consider blue schemes over F1 as an F1 -
+geometry. This is a broad class of objects, which
+                                                includes next to monoidal schemes examples
+as the F1 -model Spec F1 [X ,Y ] hX 2 +Y 2 ≡ 1i of the unit circle or F1 -models of moduli spaces
+
+
+
+
+                                                4
+like, for instance, the projective line
+
+                   P1F1 − {0, 1, ∞}           Spec F1 [X ±1,Y ±1 ] hX ≡ Y + 1i
+                                                                                 
+                                          =
+
+over F1 with 0, 1 and ∞ omitted. Examples of a more arithmetic nature are “archimedean valu-
+ation rings” (see Section 1.11) or the “improved” cyclotomic field extensions F1n (see Section
+1.10) whose base extension to Z is contained in a cyclotomic field extension of Q. These prop-
+erties are important for a number theory of blueprints that incorporates a Frobenious action in
+“indefinite characteristics” and allows us to consider archimedean and non-archimedean places
+simultaneously.
+    Most of the papers on F1 -geometry address Chevalley groups over F1 in one or the other
+way (e.g. [6, 7, 8, 9, 14, 18, 20, 21, 22, 25, 27]). It became clear that the Weyl group W
+has an important meaning for the postulated geometry of a Chevalley group G over F1 . In
+particular, there are many ways, in which one can give meaning to the formula G(F1 ) = W .
+But all explanations so far are of a rather formal nature and withstand an explanation of thin
+geometries in terms of an algebraic geometry over F1 . In particular, while the role of the Weyl
+group is understood in a sufficient way, “the structure of the terms of higher order is [still] more
+mysterious” ([6, p. 25]).
+    It was indeed this problem that initially led to the definition of a blueprint: there was a need
+to give a meaning to expressions like F1 [X1 , . . . , X4]/(X1X4 = X2X3 + 1), e.a., which should play
+the role of the global sections of a Chevalley group over F1 (in this case SL2 ). With the theory
+of blue schemes, it is possible to explain the connection between the algebraic geometry of
+Chevalley groups and the combinatorial geometry of their Weyl groups. Moreover, the role of
+the additive structure will become clear, and it is possible to extend the group law of a Chevalley
+group to all blueprints, which, for instance, includes semirings. This might help to clarify the
+role of algebraic groups in tropical geometry along the connection that we mention below. All
+this will be explained in a subsequent paper, which is based on the methods developed in the
+present work.
+    The latter project is of a more extensive nature and involves several aspects. First of all, it
+seems to be necessary to establish congruence schemes in the generality of blueprints. There
+are treatments of congruence schemes in a more restricted setting by Berkovich (for monoids,
+cf. [1]) and Deitmar (for sesquiads, cf. [9]). The important class of congruence spectra of
+semirings is contained in neither approach. Before one can extend definitions (which differ
+in the named approaches) to the more general setting of blueprints, one has to answer certain
+technical questions, which arise around the definition of the structure sheaf. In particular, the
+analogue of Theorem 3.12 is desirable. In this paper, we provide all algebraic background on
+congruences, but we postpone to give the definition of a congruence scheme till the theory is
+settled enough to be formulated.
+
+                                                   5
+     With these tools at hands, a unified view on algebraic geometry, F1 -geometry, analytic ge-
+ometry and tropical geometry seems possible. We establish already in this paper a common
+approach to usual algebraic geometry, F1 -geometry and an algebraic geometry associated to
+semirings. Congruence schemes will add to this unified approach, and will be of particular
+importance when we encounter semiring schemes. For example, tropical schemes as defined
+by Mikhalkin (cf. [23]) seem to have a natural explanation as congruence schemes of tropical
+semirings.
+     Paugam introduced in [24] a category whose objects are ordered semirings such that valua-
+tions of fields resp. rings are morphisms in this category. This allows us to recover Berkovich’s
+and Huber’s analytic spaces from homomorphism sets of Paugam’s category. This category
+fits very naturally in the setting of (ordered) blueprints. Thus we can adopt Paugam’s idea and
+extend it to the geometric setting that is developed in this paper. As a byproduct, this yields the
+notion of an analytic space over F1 . Of particular interest is to compare this viewpoint with the
+theory of F1 -analytic spaces of Berkovich (cf. [1]), which is based on congruence schemes.
+     The explicit nature of blue schemes as topological spaces with structure sheaves makes
+it possible to extend sheaf theory of usual schemes and of monoidal schemes (as developed
+in [4]) to the more general setting of blue schemes. This enables us to give a unified approach
+towards K-theory for usual schemes and for F1 -schemes. We expect that K-theory finds its most
+naturally explanation within the framework of congruence schemes since the particular role that
+idempotent elements play for congruence schemes promises to dissolve the gap between locally
+projective and locally free sheaves that occurs in sheaf theory of F1 -schemes (cf. [4]). As a side
+result, this will define K-theory for tropical schemes and analytic spaces. Furthermore, the
+definition of Čech cohomology extends to blue schemes over F12 , which yields a definition for
+sheaf cohomology.
+
+Content overview
+We outline the structure of this paper. In Section 1, we introduce the notion of a blueprint
+and define certain full subcategories, including the subcategories of monoids (with and without
+zero), semirings and rings. We review the algebra behind F1 -geometry after Deitmar ([8],
+[9]) and Connes-Consani ([7]) from the perspective of blueprints. We define the cyclotomic
+field extensions F1n of F1 and discuss archimedean valuation rings. We conclude the section
+with certain constructions: free blueprints, localizations, small limits and finite resp. directed
+colimits.
+    In Section 2, we introduce the notions of a congruence and of an ideal of a blueprint. We
+give alternative characterizations of congruences and ideals for certain subclasses of blueprints:
+ideals in blueprints with a zero have a simpler description than in the general context; con-
+gruences and ideals for monoids coincide with the usual definitions; blueprint ideals for rings
+
+                                                6
+coincide with usual ideals, and every congruence arises from an ideal (which is the reason why
+there is no need for the congruences in ring theory); in the case of semirings, a blueprint ideal
+is what is called a k-ideal in semiring theory. We conclude the section by introducing prime and
+maximal congruences and ideals together with some basic facts.
+    In Section 3, we define locally blueprinted spaces and the spectrum of a blueprint. A blue
+scheme is a locally blueprinted space that is locally isomorphic to spectra of blueprints. We
+introduce the globalization B → ΓB where ΓB is the blueprint of global sections of Spec B,
+which is in general not an isomorphism (in contrast to usual scheme theory). We prove that the
+induced morphism Spec ΓB → Spec B is an isomorphism of blue schemes. This allows us to
+prove that the affine open subschemes of a blue scheme form a basis for its topology and that
+every morphism of blue schemes is locally algebraic. We define residue fields of points of a
+blue scheme. By restricting the category of blueprints to those that come from monoids or ring,
+we recover the notions of M -schemes (resp. M0 -schemes if we consider monoids with a zero)
+and usual schemes. Furthermore, we obtain the notion of a semiring scheme. We conclude this
+section with a comparison with F1 -schemes in the sense of Connes and Consani ([7]).
+
+Acknowledgements
+I would like to thank all those who took the time to discuss my ideas on blueprints with me. This
+includes, but does not restrict to, the following persons: Vladimir Berkovich, Ethan Cotterill,
+Anton Deitmar, Paul Lescot, Javier López Peña, Florian Pop, Matt Szczesny, Lucien Szpiro and
+Annette Werner. I would like to thank Gautam Chinta for receiving me as a research guest at
+CUNY and for his hospitality during this year.
+
+
+1 Blueprints
+1.1 Definition
+Throughout this text, a monoid is a (multiplicatively written) commutative semi-group A with
+a neutral element 1. A morphism f : A1 → A2 of monoids is a multiplicative map with f (1) =
+1. The semiring N[A] is defined as the (additive) semi-group of all finite formal sums ∑ ai ,
+where the ai are elements in A, possibly occurring multiple times in the sum. The empty sum,
+denoted by ø, is the neutral element for addition. The multiplication of N[A] is defined by linear
+extension of the multiplication of A, and 1, considered as formal sum in N[A], is the neutral
+element for the multiplication of N[A].
+    In the following, we will consider relations R ⊂ N[A] × N[A] on N[A], which should be
+thought of equalities of sums of elements in A. Therefore, we write intuitively ∑ ai ≡ ∑ b j for
+
+
+                                                7
+the condition that (∑ ai , ∑ b j ) is an element of R.
+Definition 1.1. A pre-addition for A is a relation R on N[A] that satisfies the following axioms
+for all ai , b j , ck , dl ∈ A.
+(A1) ∑ ai ≡ ∑ ai .                                                                          (reflexive)
+(A2) If ∑ ai ≡ ∑ b j , then ∑ b j ≡ ∑ ai .                                                (symmetric)
+(A3) If ∑ ai ≡ ∑ b j and ∑ b j ≡ ∑ ck , then ∑ ai ≡ ∑ ck .                                (transitive)
+(A4) If ∑ ai ≡ ∑ b j and ∑ ck ≡ ∑ dl , then ∑ ai + ∑ ck ≡ ∑ b j + ∑ dl .                    (additive)
+(A5) If ∑ ai ≡ ∑ b j and ∑ ck ≡ ∑ dl , then ∑ ai · ck ≡ ∑ b j · dl .                  (multiplicative)
+A pre-addition R on A may satisfy one of the following additional axioms.
+(A6) If ∑ ai + ∑ ck ≡ ∑ b j + ∑ ck , then ∑ ai ≡ ∑ b j .                                (cancellative)
+(A7) For every a ∈ A, there is a b ∈ A such that a + b ≡ ø.                                 (inverses)
+(A8) There is an a ∈ A such that a ≡ ø.                                                         (zero)
+(A9) If a ≡ b, then a = b as elements of A.                                                  (proper)
+We call a pre-addition R satisfying one of these additional axioms a cancellative pre-addition,
+a pre-addition with inverses, a pre-addition with a zero resp. a proper pre-addition.
+    Note that axioms (A1)–(A3) mean that a pre-addition is an equivalence relation on N[A], and
+that axioms (A4) and (A5) mean that a pre-addition is a sub-semiring of the product semiring
+N[A] × N[A].
+Definition 1.2. A blueprint is a pair (A, R) that consists of a monoid A and a pre-addition R
+on A. A morphism f : (A1 , R1) → (A2 , R2) of blueprints is a monoid morphism f˜ : A1 → A2
+such that the induced semiring morphism N[A1 ] × N[A1 ] → N[A2 ] × N[A2 ] maps R1 to R2 . We
+denote the category of blueprints by Bl pr.
+   A blueprint is cancellative, with inverses, with a zero or proper if R is so.
+    If A is a monoid and R a pre-addition on A, we denote the blueprint (A, R) by B = A R. We
+often write a ∈ B for a ∈ A and f (a) for f˜(a). In this terminology, a morphism of blueprints is a
+multiplicative map f : B1 → B2 with f (1) = 1 such that ∑ f (ai ) ≡ ∑ f (b j ) for all ∑ ai ≡ ∑ b j . A
+third characterization is that a morphism A1 R1 → A2 R2 of blueprints is a semiring morphism
+R1 → R2 that maps A1 ⊂ R1 (embedded as a ≡ a, by reflexivity) to A2 ⊂ R2 .
+Remark 1.3. Equivalently, one can define a blueprint to be a multiplicative map f : A → R
+from a monoid A to a semiring R. The reader might find this viewpoint more accessible on a
+first reading and is encouraged to have a look at this alternative viewpoint in Section 1.7.
+
+                                                    8
+1.2 First properties
+To begin with, we list first properties concerning the additional axioms (A6)–(A9). Beside some
+immediate implications from the axioms, we provide constructions that close a blueprint with
+respect to these additional axioms.
+     Motivated by the next lemma, we define the following subcategories of Bl pr. The category
+Bl prcanc is the full subcategory of Bl pr whose objects are cancellative blueprints; Bl prprop
+is the full subcategory of Bl pr whose objects are proper blueprints; Bl pr inv is the full subcat-
+egory of Bl pr whose objects are proper blueprints with inverses; Bl pr 0 is the full subcategory
+of Bl pr whose objects are proper blueprints with a zero.
+
+Lemma 1.4. Let B be a blueprint.
+
+  (i) If B is with inverses, then B is cancellative.
+
+ (ii) The blueprint B is with inverses if and only if 1 has an inverse, i.e. if there is an element
+      a ∈ B such that 1 + a ≡ ø.
+
+ (iii) If 1 + a ≡ ø, then a2 ≡ 1.
+
+ (iv) If B has a zero e ≡ ø, then ∑ b j + e ≡ ∑ b j for all b j ∈ B and e · b ≡ e for all b ∈ B.
+
+  (v) If B is proper, then B has at most one zero.
+
+ (vi) If B is proper, then inverses are unique and (−1)2 = 1 if −1 is the (unique) inverse of 1.
+
+(vii) If B has unique inverses, then B is proper.
+
+If a ∈ B has a unique inverse, we denote it by −a, and if B has a unique zero, we denote it by 0.
+
+Proof. Part (i) follows immediately from the additivity of the pre-addition. The inclusion of
+(ii) is clear and the reverse inclusion follows by multiplying 1 + a ≡ ø by b, which yields the
+inverse ab for b.
+     Part (iii) is obtained as follows. If 1 + a ≡ ø, then a + a2 ≡ ø after multiplying by a. Adding
+1 gives 1 + a + a2 ≡ 1 and using 1 + a ≡ ø with additivity yields the claim a2 ≡ 1.
+     The first statement of part (iv) follows from ∑ b j ≡ ∑ b j and e ≡ ø by additivity and the latter
+statement from b ≡ b and e ≡ ø by multiplicativity of the pre-addition.
+     Part (v) can be deduced as follows. If a and b are zeros of B, then by (iv), a ≡ ab ≡ b, which
+are equalities in B by properness.
+     Part (vi) is obtained as follows. If a + b ≡ ø ≡ a + c, then by additivity, a + b + b ≡ a + c + b
+and using a + b ≡ ø on both sides, we have b ≡ c. By properness, we have thus b = c. The
+
+
+                                                  9
+equation (−1)2 = 1 follows from (iii) by properness. For the last statement (vii) assume that
+a ≡ b. The relation a + (−a) ≡ ø yields b + (−a) ≡ ø by additivity. The uniqueness of the
+inverse of −a implies that a = b.
+
+1.5. Let A be a monoid. Every relation S on N[A] can be closed under the axioms of a pre-
+addition, i.e. there is a smallest pre-addition R for A that contains S. This is easily verified: the
+whole product N[A] × N[A] is a pre-addition and pre-additions are closed under intersections.
+We denote this smallest pre-addition by R = hSi and the generated blueprint by B(A, S) =
+A hSi. We say that B(A, S) is generated by S over A, or, that S is a set of generators for R. By
+abuse of notation, we write, for instance, R = ha ≡ b, c ≡ di or R = ha + a ≡ øia∈A for R = hSi
+where S ⊂ N[A] × N[A] equals {(a, b), (c, d)} resp. {(a + a, ø)|a ∈ A}.
+    Let f : A1 → A2 be a morphism of monoids. To see whether a pre-addition R1 for A1 is
+mapped to a pre-addition R2 for A2 , it is enough to verify whether a set of generators for R1 is
+mapped to R2 .
+    Similarly, there is a smallest pre-addition with axiom (A6) containing S. We denote this
+cancellative pre-addition by hSicanc and the generated blueprint by B(A, S)canc = A hSicanc . In
+particular, this defines Bcanc in Bl pr canc for every blueprint B = A R (take S = R). The natural
+inclusion B → Bcanc is a morphism of blueprints that satisfies the universal property that every
+morphism from B into a cancellative blueprint factors uniquely through Bcanc .
+    The other axioms (A7)–(A9) behave somewhat differently. We begin with the properness
+axiom (A9). Note that we do not include properness in the definition of a blueprint, but list it as
+an additional axiom, in spite of the fact that all blueprints of interest will be proper. The reason
+for this is that we emphasize the multiplicative structure of a blueprint and want to think of the
+pre-addition as a structure imposed on monoids, and the pre-addition should not be a restriction
+for the multiplication. We will see in the following that we have to pass to a quotient of the
+underlying monoid in order to obtain a proper blueprint.
+
+Lemma 1.6. Let B = A R be a blueprint. Then there is a blueprint Bprop = (Aprop , Rprop )
+and a morphism B → Bprop such that for every blueprint C in Bl pr prop and every morphism
+f : B → C, there is a unique morphism fprop : Bprop → C such that the diagram
+
+                                                      f
+                                          B                     /C
+                                                           ♣♣♣♣7
+                                                        ♣♣
+                                                    ♣♣♣
+                                               ♣♣♣♣ f prop
+                                        Bprop
+
+commutes. If B is cancellative, with inverses or with a zero, then Bprop is also cancellative, with
+inverses resp. with a zero.
+
+
+                                                   10
+Proof. For the construction of Bprop we have to pass to a quotient of A (see Section 2.1 for
+more details on the construction of quotients). Let ∼ be the restriction of R to A ⊂ N[A], i.e.
+the equivalence relation on A that is defined by a ∼ b if and only if a ≡ b. Then [a] · [b] = [ab]
+is a well-defined multiplication for the quotient set A/ ∼. Indeed, if a ≡ a′ and b ≡ b′ , then
+ab ≡ a′ b′ ; the class of 1 ∈ A is the neutral element of A/ ∼. Thus the quotient Aprop = A/ ∼ is
+a monoid. The relation Rprop defined by ∑[ai ] ≡ ∑[b j ] if ∑ ai ≡ ∑ b j in R is a pre-addition for
+Aprop : axioms (A1)–(A5) follow immediately from the corresponding axioms for R.
+    The blueprint Bprop = Aprop Rprop is proper by construction. Given a morphism f : B → C,
+we see that if a ≡ b in B, then f (a) ≡ f (b) in C and thus f (a) = f (b) by properness of C.
+Therefore we can define fprop on equivalence classes of ∼, which establishes the universal
+property of Bprop .
+    It is easily seen that Bprop satisfies (A7) resp. (A8) if they are satisfied by B. We present the
+slightly more involved case of the cancellation axiom (A6). If ∑[ai ] + ∑[ck ] ≡ ∑[b j ] + ∑[ck ] in
+Bprop , then ∑ ai + ∑ ck ≡ ∑ b j + ∑ c′k for certain c′k ≡ ck in B. By additivity, we have ∑ b j + ∑ c′k ≡
+∑ b j + ∑ ck and by cancellation in B, it follows from ∑ ai + ∑ ck ≡ ∑ b j + ∑ ck that ∑ ai ≡ ∑ b j
+and thus ∑[ai ] ≡ ∑[b j ], which proves cancellation for Bprop .
+    In the cases of axioms (A7) and (A8), we have to assume the uniqueness of inverses resp.
+the zero to make sense of a universal property as above.
+Lemma 1.7. Let B be a blueprint. Then there exist the following universal objects.
+  (i) For every blueprint B, there is a morphism B → Binv into a proper blueprint Binv with
+      inverses such that every morphism from B into a proper blueprint with inverses factors
+      uniquely through Binv .
+  (ii) For every blueprint B, there is a morphism B → B0 into a proper blueprint B0 with a zero
+       such that every morphism from B into a proper blueprint with a zero factors uniquely
+       through B0 .
+Proof. We only prove the first part of the lemma. The second statement is proved in a similar
+way.
+    The construction of Binv will be in two steps. First we enrich B with inverses, and then we
+take the proper quotient, which has inverses by Lemma 1.6. If 1 has an inverse in B, then B is
+with inverses by Lemma 1.4 (ii) and we define B̃inv as B.
+    If 1 does not have an inverse, then we define Ãinv as the union of A with the set of symbols
+−A = {−a|a ∈ A}. We extend the multiplication of A to Ãinv by the rules (−a) · b = −(ab) = a ·
+(−b) and (−a) · (−b) = ab. Further we define R̃inv as the pre-addition on Ãinv that is generated
+by S = R ∪ {a + (−a) ≡ ø |a ∈ A}. Define B̃inv as Ãinv R̃inv , which is a blueprint with inverses
+by construction.
+
+                                                   11
+      As mentioned before, the blueprint Binv = (B̃inv )prop is proper and with inverses by Lemma
+1.6. We show that it satisfies the universal property of the lemma. Let f : B → C be a morphism
+into a proper blueprint with inverses. First we extend f to a morphism f˜inv : B̃inv → C. If
+B̃inv = B, then there is nothing to show. If Ãinv = A ∪ −A, then the relations a + (−a) ≡ ø force
+ f˜inv to map −a to the (unique) inverse of f˜inv (a) = f (a) in C. This defines the unique extension
+of f to B̃inv . The rest of the proof follows by Lemma 1.6.
+    Finally, we show that colimits exist in the subcategories Bl prE if they exist in Bl pr (where
+E stays for one of the attributes canc, inv, 0 or prop) and that limits coincide while colimits are
+connected by the functor (−)E from Bl pr to Bl pr E . We make this precise in the following
+proposition. Note that the previous lemmas imply that the hypothesis of the proposition are
+satisfied for the inclusion ι : Bl prE → Bl pr as subcategory and G = (−)E .
+Proposition 1.8. Let ι : C → B be a functor with a left-adjoint G : B → C such that G ◦ ι is
+isomorphic to the identity functor idC on C . Let D be a diagram in C .
+  (i) If the limit lim ι(D) exists in B and lies in the essential image of ι, then the limit lim D
+      exists in C , and if the limit lim D exists, then lim ι(D) ≃ ι(lim D).
+
+ (ii) If the colimit colim ι(D) exists in B, then the colimit colim D exists in C and colim D ≃
+      G (colimι(D)).
+Proof. This proposition basically follows from the fact that left-adjoints preserve limits and
+right-adjoints preserve colimits. We execute the proof.
+    Assume that lim ι(D) is isomorphic to ι(B) for B in C . Since G ◦ ι ≃ idC , the category C is
+a full subcategory of B, and we have for every A in C that
+
+     HomC (A, B) ≃ HomB (ι(A), ι(B)) ≃ lim HomB (ι(A), ι(D)) ≃ lim HomC (A, D),
+
+which shows that B is the limit of D in C as desired. On the other hand, if B = lim D, then by
+the adjointness of ι and G , we have for all Ã in B that
+
+   HomB (Ã, ι(B)) ≃ HomC (G (Ã), B) ≃ lim HomC (G (Ã), D) ≃ lim HomB (Ã, ι(D)),
+
+which means that ι(lim D) ≃ lim ι(D).
+   Assume that A is the colimit colim ι(D) in B. Again, since C is a full subcategory of B
+and by the adjointness of ι and G , we have for every B in C that
+
+  HomC (G (A), B) ≃ HomB (A, ι(B)) ≃ colim HomB (ι(D), ι(B)) ≃ colim HomC (D, B),
+
+which shows that G (A) is the colimit of D in C as desired.
+
+                                                 12
+1.3 Monoids
+As a first class of examples of blueprints we consider the category of monoids, which we denote
+by M . It can be embedded as a full subcategory into Bl pr in the following way. Let A be a
+monoid, then B = A h /0i is the blueprint with the smallest possible pre-addition, which contains
+only the relations ∑ ai ≡ ∑ ai for ai ∈ A. If A1 → A2 is a monoid morphism, then it extends to a
+morphism between the associated blueprints A1 h /0i → A2 h /0i, and vice versa every blueprint
+morphism is a morphism between the underlying monoids. This establishes an embedding
+ιM : M ֒→ Bl pr of M as a full subcategory of Bl pr. Note that the image of this inclusion
+lies in both Bl prcanc and Bl pr prop . In the following, we call blueprints in the essential image
+of this embedding monoids. Note that a blueprint B = A R is a monoid if and only if R = h /0i.
+    The interest in the category M stems from Deitmar’s theory of F1 -schemes (cf. [8]), which
+are geometric objects associated to the category M . This theory will turn out to be a special case
+of the theory of blue schemes, as developed in this paper (cf. Section 3.7). Connes and Consani
+defined the category M0 of monoids with a zero (or, an absorbing element) and generalized
+Deitmar’s constructions to M0 , (cf. [7]). The terminology M0 -schemes established itself for
+the schemes associated to the category M0 ; more theory and a large class of examples of M0 -
+schemes can be found in [4]. We show that also the category M0 embeds into Bl pr and that
+M0 -schemes are a special kind of blue schemes (cf. Section 3.7).
+    We review the definition of M0 . A monoid with a zero is a monoid A with an element 0
+that has the property that 0 · a = 0 for all a ∈ A. A morphism between monoids with a zero
+is a multiplicative map that sends 1 to 1 and 0 to 0. To a monoid A with a zero, we associate
+the blueprint B = A h0 ≡ øi. A morphism in M0 is easily seen to define a morphism between
+the associated blueprints, and, vice versa, every morphism between the associated blueprints
+comes from a morphism between monoids with a zero. This establishes an embedding ιM0 :
+M0 ֒→ Bl pr of M0 as full subcategory of Bl pr. Note that the image of this embedding lies
+in both Bl prcanc and Bl pr0 . In the following, we call blueprints in the essential image of this
+embedding monoids with a zero. Note that a blueprint B = A R is a monoid with a zero if and
+only if R = ha ≡ øi for some a ∈ A.
+    The category M0 proved to have certain advantages in contrast to M , in particular if one
+considers modules and exact sequences of modules (cf. [4]). For this reason, we define F1 , the
+so-called field with one element, as the initial object in M0 , which is the monoid {0, 1} with a
+zero 0 ≡ ø. Note that this monoid with a zero, considered as a blueprint, is the initial object of
+Bl pr0 . The initial object of Bl pr, however, is equal to the initial object of M , which is the
+trivial monoid {1}.
+
+
+
+
+                                                13
+1.4 Semi-rings
+The next class of examples are blueprints that come from semirings.
+     In this text, a semiring has an associative and commutative addition with neutral element 0
+and an associative and commutative multiplication with neutral element 1, which is distributive
+over the addition and such that 0 · a = 0 for any element a of the semiring. A morphism of
+semirings is an additive and multiplicative map that maps 0 to 0 and 1 to 1. We denote the
+category of semirings by S Rings. To a semiring R, we associate the blueprint B(R) = A R
+where A is the multiplicative monoid of R and R = {∑ ai ≡ ∑ b j | ∑ ai = ∑ b j in R}. Then B(R)
+is a proper blueprint with a zero. It is clear that a morphism between semirings induces a
+morphism between the associated blueprints. This defines an embedding S Rings → Bl pr0 .
+In the following, we call blueprints in the essential image of this embedding semirings.
+     To show that S Rings is a full subcategory of Bl pr, we characterize those blueprints that
+are semirings. Namely, it is easily seen that B = A R is a semiring if and only if B is proper
+and with a zero and if for every a, b ∈ A, there is a c ∈ A such that a + b ≡ c. In particular, the
+pre-addition R of a semiring A R is generated by all relations of the form a + b ≡ c. From
+this it follows that a morphism f : A1 R1 → A2 R2 of blueprints that are semirings satisfies
+ f (a) + f (b) ≡ f (c) if a + b ≡ c. By properness, such a morphism comes from a morphism in
+S Rings, and S Rings is thus a full subcategory of Bl pr.
+     The embedding B : S Rings → Bl pr has a left-adjoint functor (−)N : Bl pr → S Rings.
+If B = A R is a blueprint, then we define BN as the quotient N[A]/R. Note that by additivity
+and multiplicativity of the pre-addition R, the addition and multiplication of the quotient BN =
+N[A]/R is well-defined and makes BN a semiring. The inclusion A → N[A] defines a canonical
+morphism ι : B → BN that satisfies the universal property that every morphism from B into a
+semiring R factors uniquely through ι : B → BN .
+     This implies that HomS Rings (BN , R) = HomBl pr (B, B(R)) for every blueprint B and every
+semiring R. Moreover, B(R)N ≃ R, which means that (−)N ◦ B ≃ idS Rings , and thus ι = B
+and G = (−)N satisfy the hypothesis of Proposition 1.8.
+
+1.5 Rings
+In this text, a ring is always a commutative ring with 1. Since the category Rings of rings is a
+full subcategory of S Rings, it can consequently be considered as a full subcategory of Bl pr.
+In the following, we call blueprints in the essential image of the embedding Rings ֒→ Bl pr
+rings. A blueprint is a ring if and only if it is with inverses and satisfies the conditions of a
+semiring, i.e. it is proper, with a zero and for every a, b ∈ B, there is a c ∈ B such that a + b ≡ c.
+    The embedding B : Rings → Bl pr has a left-adjoint functor (−)Z : Bl pr → Rings. If
+B = A R is a blueprint, then we define BZ as the quotient Z[A]/I (R) where I (R) = {∑ ai −
+
+
+                                                 14
+                    Bl pr                      Bl prprop
+
+                                          Bl pr inv              M
+
+
+                      Bl pr canc            Rings                M0
+
+                                            S Rings            Bl pr 0
+
+
+
+                   Figure 1: Overview of certain full subcategories of Bl pr
+
+
+
+∑ b j | ∑ ai ≡ ∑ b j in B} is an ideal of the semi-group ring Z[A] by properties (A1)–(A5) of the
+pre-addition R. The inclusion A → Z[A] defines a canonical morphism ι : B → BZ that satisfies
+the universal property that every morphism from B into a ring R factors uniquely through ι :
+B → BZ .
+    This implies that HomRings(BZ , R) = HomBl pr (B, B(R)) for every blueprint B and every
+ring R. Moreover, B(R)Z ≃ R, which means that (−)Z ◦ B ≃ idS Rings , and thus ι = B and
+G = (−)Z satisfy the hypothesis of Proposition 1.8. Note that (B)N = (B)Z if B is with inverses.
+    We summarize all the mentioned subcategories of Bl pr in Figure 1.
+
+1.6 Base extension from F1 to Z
+One particular aspect of F1 -geometry is that it is a geometry “below Spec Z”, which means that
+a category SchF1 of F1 -schemes should come with a functor − ⊗F1 Z : SchF1 → SchZ to the
+category of (usual) schemes, which is called the base extension from F1 to Z. In the case of
+M -schemes (cf. [19, Section 1.1]), this functor is defined in terms of affine coverings and the
+functor − ⊗F1 Z : M → Rings, which sends a monoid A to the semi-group ring Z[A]. This base
+
+
+
+
+                                               15
+extension functor is recovered in the theory of blueprints; namely, the diagram
+                                                  ιM
+                                    M ❙❙❙❙                      / Bl pr
+                                             ❙❙❙
+                                                ❙❙❙
+                                                    ❙❙❙                    (−)Z
+                                             −⊗F1 Z    ❙❙❙
+                                                          ❙❙)      
+                                                                Rings
+
+commutes (up to equivalence).
+   The variant for M0 -schemes (cf. [19, Section 1.6]) is the functor − ⊗F1 Z : M0 → Rings,
+which send a monoid A with a zero to the ring Z[A]/(0) where (0) is the ideal generated by
+0 ∈ A ⊂ Z[A]. This base extension functor is recovered in the theory of blueprints in the same
+way; namely, the diagram
+                                                  ιM0
+                                    M0 ❚❚❚                      / Bl pr
+                                            ❚❚❚❚
+                                                ❚❚❚
+                                                    ❚❚❚❚                   (−)Z
+                                             −⊗F1 Z     ❚❚❚❚           
+                                                            )
+                                                                Rings
+commutes (up to equivalence).
+   This means that both categories M and M0 together with their base extension functors
+−⊗F1 Z are special cases of blueprints and the functor (−)Z : Bl pr → Rings. For the analogous
+geometric situation, cf. Section 3.8.
+
+1.7 Multiplicative maps into semirings
+We give a description of blueprints in terms of multiplicative maps from monoids into semirings.
+     Let R be a semiring and f : A → R a multiplicative map from a monoid A into R that maps 1
+to 1. A morphism from f1 : A1 → R1 to f2 : A2 → R2 is a monoid morphism g : A1 → A2 such that
+every equality ∑ f1 (ai ) = ∑ f1 (b j ) in R1 where ai , b j ∈ A1 implies ∑ f2 (g(ai )) = ∑ f2 (g(b j )) in
+R2 . Let B be the category of all multiplicative maps f : A → R from a monoid A into a semiring
+R.
+     Note that the semiring of an object f : A → R in B plays a subordinated role: for instance,
+we can replace R by a semiring R′ that contains R and define f ′ : A → R′ as the composition of
+ f with the inclusion R ֒→ R′ . Then f and f ′ are isomorphic in B. In fact, only the sub-semiring
+of R that is generated by A is essential.
+     We can associate to each f : A → R in B the blueprint B( f ) = A RR where RR consists
+of the relations ∑ ai ≡ ∑ b j whenever ∑ f (ai ) = ∑ f (b j ) holds in R for ai , b j ∈ A. A morphism
+between objects in B defines naturally a morphism between the associated blueprints; thus we
+obtain a functor B : B → Bl pr.
+
+
+                                                    16
+   Conversely, let B = A R be a blueprint. Then the canonical map f : A → AN is an object
+of B. A morphism of blueprints gives rise to a morphism in B. This defines a functor F :
+Bl pr → B. The following is easy to see.
+
+Lemma 1.9. The functors
+
+                                              o    F
+                                        B                 /   Bl pr
+                                                   B
+
+are mutually inverse equivalences of categories. Let B = A R be a blueprint and f : A → AN
+the associated object F (B) in B. Then we have the following characterizations:
+
+  (i) B is proper if and only if f is injective;
+
+ (ii) B is with a zero if and only if 0 ∈ im f ;
+
+ (iii) B is cancellative if and only if f is isomorphic to a multiplicative map f ′ : A → R into a
+       ring R;
+
+ (iv) B is with inverses if and only if AN is a ring.
+
+    Note that the glued category MR that Connes and Consani use in their definition of an
+F1 -scheme (cf. [7]) has a natural realization as the full subcategory of Bl pr whose objects are
+either monoids with a zero or rings. For more details on the connection between Connes and
+Consani’s F1 -schemes and blue schemes (as developed in this paper), see Section 3.9.
+
+1.8 Sesquiads
+We review Deitmar’s theory of sesquiads (cf. [9]). A sesquiad is a submonoid A of a ring R that
+contains 0 ∈ R and that is endowed with a map Σk : Dk → A where Dk = {(ai ) ∈ An ⊂ Rn |b =
+∑ ki ai ∈ A} and Σ(ai ) = b for every k = (k1 , . . . , kn ) ∈ Zn and every n ≥ 2. A sesquiad morphism
+is a multiplicative map ϕ : A1 → A2 preserving 0 and 1 such that for all (ai ) ∈ Dk ⊂ An , we have
+ϕ(Σk (ai )) = Σk (ϕ(ai )). We can associate to a sesquiad the blueprint B = A R where R is the
+pre-addition generated by {∑ ai ≡ b|Σk (ai ) = b}. This defines a fully faithful embedding of the
+category of sesquiads into the category of blueprints. The essential image of this embedding is
+the subcategory of cancellative proper blueprints with a zero.
+     Furthermore, congruences and ideals of sesquiads coincide with congruences and ideals of
+blueprints as introduced in Section 2. Consequently, a Zariski scheme in the sense of [9] is
+nothing else than a blue scheme (to be defined in Section 3) that is locally isomorphic to spectra
+of sesquiads.
+
+                                                   17
+1.9 B1 -algebras
+Following Lescot’s paper [17], a B1 -algebra is a semiring R with 1 + 1 = 1. In particular, B1 is
+the semiring {0, 1} with 1 + 1 = 1 (all other sums and products are determined by the axioms
+of a semiring). The interest in B1 -algebras lies in a formal similarity with algebra over F1 . Paul
+Lescot develops the notions of ideals, congruences and schemes.
+    As a semiring, a B1 -algebra is in particular a blueprint. Lescot’s theory coincides with the
+theory of blueprints in spirit though there are some technical differences, e.g. in the definition
+of a (prime) congruence.
+
+1.10 Cyclotomic field extensions of F1
+Central objects in the theory of F1 are, besides F1 itself, the cyclotomic field extensions F1n of
+F1 . The “field” F1n is often defined as the group µn of n-th roots of unity, or, as the monoid
+{0} ∪ µn with a zero. However, these definitions have the following disadvantages: there are
+morphisms F1n → F1 , which are not injective and thus untypical for “field homomorphisms”;
+and the extension of µn to Z is the semi-group ring Z[µn ], which does not equal the ring of
+integers of the cyclotomic field extension Q[µn ] of Q unless n = 1. Therefore we propose the
+following alternative definition.
+     The n-th cyclotomic field extension F1n of F1 is the blueprint B = A R where A = {0} ∪ µn
+and R is generated by the equation 0 ≡ ø and ∑h∈H h ≡ 0 for all non-trivial subgroups H of µn .
+The blueprint F1n is proper, with a zero and cancellative for all n ≥ 1, and it is with inverses if
+and only if n is even.
+     This definition satisfies the desired properties mentioned above: every morphism F1k → F1n
+is injective. Consequently, µk is a subgroup of µn and k is a divisor of n.
+     The “base extension to Z”, i.e. the generated ring On = (F1n )Z , is isomorphic to the ring of
+integers of the cyclotomic number field Q[µn ]. Note that (F1n )Z ≃ (F12n )Z if n is odd. Note
+further that if n = q − 1 where q = pa is the a-th power of a prime p, then the inertia degree of a
+prime p over p in On is a, which means that On /p ≃ Fq . Thus we have a morphism of blueprints
+F1n → Fq , which is an isomorphism between the underlying monoids.
+
+1.11 Archimedean valuation rings
+Blueprints bridge the gap between archimedean and non-archimedean absolute values.
+     Let | | : K → R≥0 be an absolute value of a number field K with integers OK . Then
+A = {a ∈ K| |a| ≤ 1} is a submonoid of K. If | | is non-archimedean, the valuation ring of
+| | corresponds to the blueprint B(A, K) (by the means of Lemma 1.9). A first attempt is to
+define the “archimedean valuation ring” as B(A, K). However, the only ideal of this blueprint
+
+
+                                                18
+is the zero ideal (for the definition of ideals, see Section 2.2). A better definition is B = A R
+where R is the pre-addition generated by the relations 0 ≡ ø and ∑a∈H a ≡ 0 for all finite non-
+trivial subgroups H ⊂ A× . This is a proper blueprint with inverses and a zero. It has a unique
+maximal ideal, which is m = {a ∈ A| |a| < 1} (cf. Section 2.8), and the quotient A/m is isomor-
+phic to F1n [T1±1 , . . . , Tk±1 ] where n is the number of roots of unity in K and k is the rank of the
+group OK× of K-units (the blueprint F1n [T1±1 , . . . , Tk±1 ] is the localization of the free blueprint
+B = F1n [T1 , . . . , Tk ] over F1n at S = B − {0}, cf. Sections 1.12 and 1.13 for definitions).
+
+1.12 Free algebras
+Given a blueprint B = A R and a set S = {Ti }i∈I , we define the free blueprint over B generated
+by S as the blueprint B[S] = A[S] R[S] where
+
+                                     a ∏ Tini a ∈ B, (ni ) ∈
+                                   n                           M o
+                         A[S] =                                    N ,
+                                           i∈I                      i∈I
+
+which is a monoid with respect to the multiplication (a ∏ Tini ) · (b ∏ Timi ) = ab ∏ Tini +mi , and
+R[S] is the pre-addition on A[S] generated by
+
+                          ∑ k∏ i ∑ l∏ i ∑ k ∑ k .
+                        n                                              o
+                                     ni           ni
+                             a     T    ≡   b   T       a  ≡        b
+
+It satisfies the universal property of the free object over S: for every map f : S → C into a
+blueprint C, there is a unique morphism g : B[S] → C such that g(Ti ) = f (Ti ) for every i ∈ I. We
+also write B[Ti ]i∈I for B[S] or B[T1 , . . ., Tn ] if S = {T1 , . . . , Tn }.
+    If B is contained in Bl pr canc or M , then B[S] is so, too. If, however, B contains a relation
+of the form ∑ ak ≡ ø with a non-trivial sum ∑ ak , then B[S] is not proper since ∑ ak ∏ Tini ≡
+          m
+∑ ak ∏ Ti i , independently of (ni ) and (mi ). One sees easily that if B is contained in one of
+Bl prprop , Bl prinv , Bl pr 0 or M0 , then B[S]prop is so, too, and it is the free object over S in the
+corresponding subcategory. If B is a ring, then B[S] is not a ring unless S is empty, but B[S]Z is
+the free blueprint over R in the sense of rings. Similarly, if B is a semiring, then B[S]N is the
+free semiring over B generated by S.
+
+1.13 Localizations
+Let B = A R be a blueprint and S a multiplicative subset of B, i.e. a submonoid of A. We define
+S−1 A as the quotient of A × S by the equivalence relation ∼ given by (a, s) ∼ (a′ , s′ ) if and only
+if there is a t ∈ S such that tsa′ = ts′ a. We write as for the equivalence class of (a, s) in S−1 A.
+
+
+                                                  19
+We define S−1 R as the set
+                           ai   bj
+                        ∑ si ∑ r j                            ∑ i ∑ j
+                     n                                                         o
+        S−1 R =               ≡    there is a t ∈ S such that  ts i
+                                                                    a ≡ tr j
+                                                                             b
+
+                                            where      si = ∏ sk · ∏ r j    and    r j = ∏ si · ∏ rl .
+                                                            k6=i    j                      i    l6= j
+
+We leave the elementary proofs of that S−1 A is a monoid (with the multiplication inherited from
+A × S) and that S−1 R is a pre-addition for S−1 A to the reader. We define the localization of B
+at S as the blueprint S−1 B = S−1 A S−1 R.
+    The association a 7→ 1a defines an epimorphism B → S−1 B. It satisfies the universal property
+that every morphism f : B → C that maps S to the units of C factors uniquely through B → S−1 B.
+    It easy to see that if B is contained in one of the subcategories Bl prcanc , Bl prprop , Bl prinv ,
+Bl pr0 , M , M0 , S Rings or Rings, then S−1 B is so, too.
+
+1.14 Limits and colimits
+We prove the existence of small limits as well as finite and directed colimits. Recall that Bl pr
+has an initial object, namely, the blueprint {1} h /0i, and a terminal object, namely, the trivial
+blueprint {1} h1 ≡ øi. The trivial blueprint is contained in all the subcategories Bl pr canc ,
+Bl prprop , Bl pr inv , Bl pr 0 , M , M0 , S Rings and Rings, and is thus a terminal object of these
+subcategories. The initial object, which we denote simply by {1}, is contained in Bl pr canc ,
+Bl prprop , Bl prinv and M . The initial object of M0 and Bl pr 0 is the blueprint associated to
+the monoid {0, 1} with zero 0, the initial object of S Rings is the blueprint associated to the
+semiring N and the initial object of Rings is the blueprint associated to the ring Z.
+    Recall that the inclusions ι of Bl pr canc , Bl pr prop , Bl prinv , Bl pr 0 , S Rings and Rings
+into Bl pr have a left-adjoint G . So we can make use of Proposition 1.8 in the following proofs
+to describe limits and colimits in these subcategories in terms of the limits and colimits in Bl pr.
+Proposition 1.10. The category Bl pr contains small limits. Small limits in all the subcate-
+gories Bl pr canc , Bl pr prop , Bl pr inv , Bl pr0 , S Rings and Rings exist and coincide with the
+small limits in Bl pr.
+Proof. To prove that Bl pr contains small limits, it suffices to prove that Bl pr contains small
+products and equalizers (cf. [2, Thm. 2.8.1]). The product of a family of blueprints {Bi }i∈I is
+given by the Cartesian product ∏ Bi over I together with componentwise multiplication and the
+pre-addition
+
+               R     =    { ∑(ci,k )i∈I ≡ ∑(di,l )i∈I | ∑ ci,k ≡ ∑ di,l for all i ∈ I }.
+
+                                                  20
+The canonical projections of the product are the componentwise projection p j : ∏ Bi → B j . The
+universal property of a product is verified immediately for ∏ Bi . If C is one of the categories
+Bl prcanc , Bl prprop , Bl pr inv , Bl pr0 , S Rings or Rings and all the Bi are in C , then the
+product is also an object in C and satisfies the universal property of the product in C .
+     The equalizer of two morphisms f , g : B → C is the subblueprint eq( f , g) = A R where A
+is the monoid {a ∈ B | f (a) = g(a)} and R is the restriction of the pre-addition of B to A. Since
+ f (1) = 1 = g(1), the equalizer contains 1 and since f (ab) = f (a) f (b) = g(a)g(b) = g(ab) for
+all a, b ∈ A, the set A is multiplicatively closed and thus indeed a monoid. It is clear that the
+natural inclusion eq( f , g) → B satisfies the universal property of the equalizer of f and g. It is
+also easily verified for all subcategories C as in the theorem that eq( f , g) is in C if B and C are
+so.
+
+Remark 1.11. Note that there is a digression between the categorical product in Bl pr and
+in the subcategories M and M0 as the following basic example shows. Let A = {e, 1} be a
+monoid where e2 = e is an idempotent element and let B = A h /0i be the blueprint associated to
+A. Then the product B × B is the monoid A × A = {(e, e), (e, 1), (1, e), (1, 1)} together with the
+pre-addition generated by (e, 1) + (1, e) ≡ (e, e) + (1, 1). Consequently B × B is not a monoid
+and thus in particular not the blueprint associated to the monoid A × A. The analogous example
+for the monoid A = {0, e, 1} with zero 0 shows that also products in M0 fail to coincide with
+products in Bl pr.
+
+Proposition 1.12. Let γ : B → C and δ : B → D be morphisms of blueprints. Then the tensor
+product C ⊗B D exists in Bl pr. If C is one of the categories M or M0 and if B, C and D are
+in C , then C ⊗B D is in C and represents the tensor product in C . If C is one of the categories
+Bl prcanc , Bl prprop , Bl pr0 , Bl pr inv , S Rings or Rings and G : Bl pr → C is the left-adjoint
+to the usual embedding ι : C → Bl pr, then the tensor product in C equals G (C ⊗B D) provided
+B, C, and D are in C .
+
+Proof. We construct the tensor product C ⊗B D and prove that it represents the colimit of the
+diagram
+                                        CO
+                                               γ
+                                                B         /D
+                                                      δ
+
+in the following. For b ∈ B, c ∈ C and d ∈ D, we write b.c and b.d for the product γ(b) · c
+in C resp. δ(b) · d in D. Let ∼ be the equivalence relation on C × D that is generated by the
+relations (b.c, d) ∼ (c, b.d) where b ∈ B, c ∈ C and d ∈ D. The quotient A = B ×C/ ∼ inherits
+a multiplication from the product multiplication on B ×C since (b.c, d) · (c′, d ′ ) = (b.cc′ , dd ′ ) ∼
+(cc′ , b.dd ′ ) = (c, b.d) · (c′, d ′ ) for b ∈ B, c, c′ ∈ C and d, d ′ ∈ D. We write classes [(c, d)]in A as
+
+                                                     21
+c ⊗ d and endow A with the pre-addition R that is generated by the relations ∑ ck ⊗ 1 ≡ ∑ c′l ⊗ 1
+if ∑ ck ≡ ∑ c′l in C and ∑ 1 ⊗ dk ≡ ∑ 1 ⊗ dl′ if ∑ dk ≡ ∑ dl′ in D. We denote the blueprint A R
+by C ⊗B D. It comes together with the morphisms ιC : C → C ⊗B D with ιC (c) = c ⊗ 1 and
+ιD : D → C ⊗B D with ιD (d) = 1 ⊗ d. Note that ιC ◦ γ = ιD ◦ δ.
+    We prove that C ⊗B D together with ιC and ιD satisfies the universal property of the tensor
+product. Let
+                                                  f
+                                            CO        /E
+                                                        O
+                                           γ            g
+                                            B         /D
+                                                  δ
+
+be a commutative diagram. We have to show that there is a unique morphism h : C ⊗B D → E
+such that h ◦ ιC = f and h ◦ ιD = g. Since morphisms of blueprints are in particular multiplicative
+maps, it is clear that the only possible definition of h is h(c ⊗ d) = f (c) · g(d). Then h is indeed
+multiplicative and we have h ◦ ιC = f and h ◦ ιD = g as multiplicative maps. For to show that
+h maps R to the pre-addition on E, it satisfies to verify this condition for generators of R. Let
+∑ ck ⊗ 1 ≡ ∑ c′l ⊗ 1 with ∑ ck ≡ ∑ c′l in C. Then we can use that f is a morphism of blueprints to
+verify that
+
+  ∑ h(ck ⊗ 1) = ∑ f (ck ) · g(1) = ∑ f (ck ) ≡ ∑ f (c′l ) = ∑ f (c′l ) · g(1) = ∑ h(c′l ⊗ 1).
+ An analogous argument shows that ∑ h(ck ⊗1) ≡ ∑ h(c′l ⊗1), and thus C ⊗B D represents indeed
+the tensor product of C and D over B.
+    It is easily verified that C ⊗B D is in M or M0 if B, C and D are so. The statement about
+the tensor product in Bl prcanc , Bl prprop , Bl pr0 , Bl pr inv , S Rings and Rings follows from
+Proposition 1.8.
+    Since Bl pr has an initial object, the existence of finite colimits follows from the existence
+of tensor products.
+
+Corollary 1.13. The category Bl pr contains finite colimits.
+
+    Recall that a directed diagram in a category is a commutative diagram D where for every
+pair of objects Bi and B j in D, there are an object Bk and morphisms Bi → Bk and B j → Bk in
+D.
+
+Proposition 1.14. The category Bl pr contains colimits of directed diagrams. If D is a directed
+diagram in one of the subcategories M , M0 , Bl pr canc , Bl prprop , Bl prinv , Bl pr0 , S Rings
+or Rings, then the colimit of D in Bl pr is also in this subcategory of Bl pr and equals the
+colimit of D as a diagram in this subcategory.
+
+                                                 22
+Proof. Let D = {Bi }i∈I be a commutative diagram of blueprints and morphisms indexed by a
+directed set I, i.e. for every i, j ∈ I, there is a k ∈ I and (unique) morphisms fi : Bi → Bk and
+f j : B j → Bk in D. For i ∈ I, define J(i) as the cofinal directed subset {k ∈ I | ∃ f : Bi → Bk in D}
+of I, and let D(i) be the full subdiagram of D that contains precisely {Bi }i∈J(i) . Then the colimit
+of D can be represented by
+                           a                                                           
+           colim D =              (a j ) ∈ ∏ B j ∀ f : B j → Bk in D(i), ak = f (a j )        ∼
+                             i∈I            j∈J(i)
+
+where two elements (a j ) j∈J(i1 ) and (b j ) j∈J(i2 ) are equivalent if a j = b j for all j ∈ J(i1 ) ∩ J(i2 ).
+The pre-addition for colim D is defined by ∑(c j,k ) j∈J(i(k)) ≡ ∑(d j,l ) j∈J(i(l)) if and only if there
+is a j in the intersection of the J(i(k)) and J(i(l)) such that ∑ c j,k ≡ ∑ d j,l .
+    The canonical morphisms ιi : Bi → colim D maps ai ∈ Bi to ( f (ai ) | f : Bi → Bk in D(i)).
+Given a family of monoid morphisms gi : Bi → C that commute with all morphisms in D, the
+map g : colim D → B that sends an element (a j ) j∈J(i) to gi (ai ) is the unique morphism that
+satisfies the universal property of the colimit of D.
+    It is easily verified that the defining properties of the subcategories M , M0 , Bl pr canc ,
+Bl prprop , Bl pr inv , Bl pr 0 , S Rings and Rings are preserved under the above construction.
+Thus we have the second statement of the proposition.
+
+
+2 Congruences and ideals
+In this section, we introduce the notions of congruences and ideals. Since in the category of
+blueprints, like in the category of rings, the initial object is not isomorphic to the terminal
+object, we cannot define a categorical kernel as the difference kernel with the zero morphism,
+but have to invent a notion that represents quotients of blueprints. This desire will be fulfilled by
+congruences, which can be seen as a generalization of congruences of monoids. Congruences
+are accompanied by their absorbing ideals, which are sets of elements that map to a zero or,
+more generally, to an absorbing element (to be defined below) of the quotient. This leads to the
+definition of an ideal as an absorbing ideal of a congruence.
+
+2.1 Congruences
+Throughout this section, we let B = A R be a blueprint. We begin with introducing some
+preliminary notions. A subblueprint of B is a submonoid A′ of A together with the restriction
+R|A′ of R to A′ , i.e. the pre-addition
+
+                               R|A′     =     { ∑ a i ≡ ∑ b j | a i , b j ∈ A′ }
+
+                                                      23
+for A′ . We call A′ R|A′ the subblueprint over A′ . It satisfies the universal property that ev-
+ery morphism C → B whose image is contained in A′ factorizes uniquely through the natural
+inclusion A′ R|A′ ֒→ B.
+     We define the integral subblueprint of B as the subblueprint over Aint , which is the multi-
+plicative subset of integral elements of A, i.e. the subset of all a ∈ A such that multiplication by
+a defines an injective map A → A. We say that B is an integral blueprint if B is proper, if 1 /    ≡ø
+and if every a ∈ B is either integral or a zero. A blueprint B is said to be without zero divisors
+if the set S = {a ∈ B|a / ≡ ø} is a multiplicative subset of B. Every integral blueprint is without
+zero divisors, but the example of the monoid B = {0, e, 1} with a zero 0 ≡ ø and an idempotent
+e2 = e shows that blueprints without zero divisors do not have to be integral.
+     We define the units of B as the subblueprint over A× , which is the group of invertible ele-
+ments of A. We say that B is a blue field if B is proper, if 1 /≡ ø and if every a ∈ B is either a unit
+or a zero. If B is without zero divisors, then we define the quotient field Quot B of B as S−1 B
+where S = {a ∈ B|a /   ≡ ø}. It is clear that Quot B is a blue field.
+     A quotient of B = A R is a blueprint B′ = A′ R ′ together with a morphism B → B′ such
+that the map A → A′ between the underlying monoids is surjective and such that the image of
+R ′ in R generates R as a pre-addition. Note that the word “quotient” is used with different
+meanings: the quotient field of an integral blueprint B is not a quotient of B unless B is a blue
+field.
+     If f : A → A′ is a surjective morphism of monoids, then R ′ = h{∑ f (ai ) ≡ ∑ f (b j )| ∑ ai =
+∑ b j in B}i is called the quotient pre-addition for A′ . The blueprint B′ = A′ R ′ together with the
+induced morphism B → B′ is the unique quotient whose map between the underlying monoids
+is A → A′ . Thus quotients of B are characterized by surjections from A into other monoids.
+     If B is with inverses or with a zero, then a quotient of B has the same properties. This is in
+general not true for cancellative or proper blueprints. However, we will be mainly interested in
+proper quotients of blueprints. To characterize the proper quotients of a blueprint, we introduce
+the notion of a congruence.
+     For an equivalence relation ∼ on A, we define the linear extension ∼N of ∼ to N[A] as the
+equivalence relation on N[A] that is generated by ∑ ai ∼N ∑ bi if ai ∼ bi for all i. Further define
+the equivalence relation ∼R as the smallest equivalence relation containing both R and ∼N .
+
+Definition 2.1. A congruence on B is an equivalence relation ∼ on A that satisfies the following
+properties.
+
+(C1) The equivalence relation ∼N is a pre-addition.
+
+(C2) The restriction of ∼R to A equals ∼.
+
+   These axioms are equivalent to the following explicit conditions.
+
+                                                  24
+Lemma 2.2. An equivalence relation ∼ is a congruence if and only if it satisfies the following
+two conditions for all a, b, c, d ∈ A.
+(C1)∗ If a ∼ b and c ∼ d, then ac ∼ bd.
+(C2)∗ If there exists a sequence
+
+                   a ≡ ∑ c1,k ∼N ∑ d1,k ≡ ∑ c2,k ∼N                ···   ∼N ∑ dn,k ≡ b
+
+      with ci,k , di,k ∈ A, then a ∼ b.
+More precisely, axiom (C1) is equivalent to condition (C1)∗ and axiom (C2) is equivalent to
+condition (C2)∗ .
+Proof. We begin with the equivalence of axiom (C1) with condition (C1)∗ . Since the restriction
+of ∼N to A is ∼, it is clear that (C1)∗ follows from the multiplicativity of the pre-addition ∼N .
+Conversely, assume (C1)∗ . Note that ∼N satisfies axioms (A1)–(A4) by its definition. Thus we
+have only to verify the multiplicativity of ∼N . Let ∑ ai ∼N ∑ b j and ∑ ck ∼N ∑ dl . Then by
+(C1)∗ , ai ck ∼ b j dl and thus ∑ ai ck ∼N ∑ b j dl , which shows axiom (C1) of a congruence.
+   We proceed with the equivalence of axiom (C2) with condition (C2)∗ . By the definition of
+∼R , we have that a ∼R b if and only if there exists a sequence of the form
+
+               a ≡ ∑ c1,k ∼N ∑ d1,k ≡ ∑ c2,k ∼N              ···     ∼N ∑ dn,k ≡ b.
+
+Given a sequence as above, this means that a ∼R b, and thus, by axiom (C2), that a ∼ b. This
+shows that (C2) implies (C2)∗ . Notice that ∼R contains ∼ by its definition. Thus to show the
+converse implication, we have to deduce a ∼R b from a ∼ b. But this is clear: if a ∼R b, then
+there is a sequence as above and thus a ∼ b by (C2)∗ .
+Definition 2.3. Let f : B → C be a morphism of blueprints. The kernel of f is the relation ∼ f
+on B that is defined by a ∼ f b if and only if f (a) ≡ f (b).
+   The following two propositions show that kernels are congruences and, conversely, that
+congruences are kernels of a quotient map.
+Proposition 2.4. Let f : B → C be a morphism of blueprints. Then its kernel ∼ f is a congruence.
+Proof. Since ≡ is an equivalence relation, ∼ f is so, too. We show (C1)∗ . Let a ∼ f b and
+c ∼ f d, i.e. f (a) ≡ f (b) and f (c) ≡ f (d). Then f (ac) ≡ f (a) f (c) ≡ f (b) f (d) ≡ f (bd) by the
+multiplicativity of f and ≡, and thus ac ∼ f bd.
+   We show (C2)∗ . Consider a sequence
+
+                          a ≡ ∑ c1,k ∼ f ,N      ···   ∼ f ,N ∑ dn,k ≡ b,
+
+                                                 25
+then it follows that
+
+                       f (a) ≡ ∑ f (c1,k ) ≡     ···    ≡ ∑ f (dn,k ) ≡ f (b)
+
+and thus f (a) ≡ f (b). This shows that a ∼ f b as desired.
+    Conversely, we can divide by congruences. Let ∼ be a congruence of B. Then we define the
+quotient B/ ∼ as the blueprint (A/ ∼) R∼ where A/ ∼ is the quotient monoid and R∼ is the
+pre-addition generated by {∑[ai ] ≡ ∑[b j ]| ∑ ai ≡ ∑ b j in B}. Note that A/ ∼ is indeed a monoid
+since condition (C1)∗ guarantees that the multiplication on equivalence classes is well-defined.
+
+Proposition 2.5. Let ∼ be a congruence on B and let p : B → B/ ∼ be the canonical projection.
+Then ∑[ai ] = ∑[b j ] if and only if there is a sequence
+
+                       ∑ ai ≡ ∑ c1,k ∼N          ···    ∼N ∑ dn,k ≡ ∑ b j .
+
+Consequently, B/ ∼ is proper and ∼ is the kernel of p.
+
+Proof. Since R∼ is transitive, we have ∑[ai ] ≡ ∑[b j ] if there is a sequence of the form
+
+                       ∑ ai ≡ ∑ c1,k ∼N          ···    ∼N ∑ dn,k ≡ ∑ b j .
+
+If we show that the set R∼               ∑ i     ∑ j
+                           ′ of relations [a ] ≡ [b ] that come from such a sequence form a
+
+pre-addition, then it equals R∼ since R∼ is generated by a subset of R∼′ . It is clear that R ′ is
+                                                                                             ∼
+an equivalence relation. So we are left with showing additivity and multiplicativity.
+    Consider two sequences
+
+                        ∑ ai ≡ ∑ c1,k ∼N         ···    ∼N ∑ dn,k ≡ ∑ b j
+
+and
+                       ∑ ãĩ ≡ ∑ c̃1,k̃ ∼N      ···    ∼N ∑ d˜ñ,k̃ ≡ ∑ b̃ j˜.
+Since we have the trivial relations ∑ ai ≡ ∑ ai and ∑ ai ∼N ∑ ai , we may insert some trivial
+relations to make sure that the two sequences have the same length, this means, we may assume
+that ñ = n. Since both ≡ and ∼N are pre-additions, we can form the sequences
+
+       ∑ ai + ∑ ãĩ ≡ ∑ c1,k + ∑ c̃1,k̃ ∼N · · ·      ∼N ∑ dn,k + ∑ d˜n,k̃ ≡ ∑ b j + ∑ b̃ j˜
+
+and
+                  ∑ aiãĩ ≡ ∑ c1,k c̃1,k̃ ∼N · · ·    ∼N ∑ dn,k d˜n,k̃ ≡ ∑ b j b̃ j˜,
+                                                    ′ .
+which shows the additivity and multiplicativity of R∼
+
+                                                  26
+   We proceed to show that B/ ∼ is proper and that ∼ is the kernel of p : B → B/ ∼, i.e.
+we show that p(a) ≡ p(b) implies p(a) = p(b) and p(a) = p(b) implies a ∼ b, respectively.
+Since, conversely, p(a) ≡ p(b) follows from p(a) = p(b), and p(a) = p(b) follows from a ∼ b,
+everything is proven if we show that a ∼ b follows from p(a) ≡ p(b). By what we have shown
+above, p(a) ≡ p(b) implies that there is a sequence
+
+                           a ≡ ∑ c1,k ∼N       ···   ∼N ∑ dn,k ≡ b,
+
+and property (C2)∗ of a congruence implies in turn that a ∼ b, which completes the proof.
+   We prove some further properties of congruences.
+
+Lemma 2.6. If ∼ is a congruence on B, then it satisfies the following properties.
+
+  (i) If a ≡ b, then a ∼ b.
+
+ (ii) If a + ∑ ck ≡ b + ∑ dl and ck ∼ e ∼ dl where e ≡ ø is a zero of B, then a ∼ b.
+
+Proof. The first statement follows immediately from (C2)∗ . The second statement follows from
+(C2)∗ applied to the sequence
+
+                  a ≡ a + ∑ e ∼N a + ∑ ck ≡ b + ∑ dl ∼N b + ∑ e ≡ b.
+
+Example 2.7. Every blueprint has a maximal and a minimal congruence. The maximal congru-
+ence is the relation defined by a ∼ b for all a, b ∈ B. The relation ∼ is indeed a congruence since
+it is the kernel of the morphism B → {1} into the trivial blueprint with 1 ≡ ø (cf. Proposition
+2.4).
+     The minimal congruence is the equivalence relation on B defined by a ∼ b if and only if
+a ≡ b. We described the quotient B/ ∼ in Lemma 1.6, which is nothing else that Bprop . Since ∼
+is the kernel of the quotient map B → B/ ∼, it follows a posteriori that ∼ is a congruence. By
+Lemma 2.6, ∼ is contained in any other congruence on B.
+
+2.2 Ideals
+We introduce ideals of blueprints, led by the idea that ideals should coincide with the inverse im-
+ages of 0 under morphisms. Since not every blueprint has a zero, we have find a generalization
+of this definition. This will be motivated by the notion of an absorbing ideal of a congruence as
+defined below.
+
+
+
+
+                                                27
+Definition 2.8. Let ∼ be a congruence on B. The absorbing ideal of ∼ is the set
+
+                               I∼ = { e ∈ B | eb ∼ e for all b ∈ B }.
+
+Let f : B → C be a morphism of blueprints. The absorbing ideal of f is I f = I∼ f where ∼ f is
+the kernel of f .
+
+    We collect some immediate properties of I∼ .
+
+Lemma 2.9. The absorbing ideal I∼ is either empty or an equivalence class of ∼.
+
+Proof. If e, e′ ∈ I∼ , then e ∼ ee′ ∼ e′ and, conversely, if e ∈ I∼ and e ∼ e′ , then e′ b ∼ eb ∼ e ∼ e′
+for all b ∈ B, which means that e′ ∈ I∼ . Thus I∼ equals an equivalence class of ∼ if it is not
+empty.
+    An absorbing element of B is an element e ∈ B with the property that eb ≡ e for all b ∈ B.
+If e and e′ are absorbing elements, then e′ ≡ ee′ ≡ e. If e ≡ ø is a zero of B, then eb ≡ ø ≡ e,
+which implies that e is an absorbing element.
+
+Lemma 2.10. If B has an absorbing element e, then I∼ = p−1 (p(e)) where p : B → B/ ∼ is the
+canonical projection.
+
+Proof. By Lemma 2.9, I∼ equals the inverse image of precisely one element [a] in B/ ∼ if I∼ is
+not empty. Since eb ≡ e for all b ∈ B by the definition of an absorbing element and since eb ≡ e
+implies eb ∼ e by Lemma 2.6 (C1), it follows that e ∈ I∼ . Thus [e] = p(e) is the class whose
+inverse image is I∼ .
+   Let I ⊂ B be a subset. Let ∼I be the equivalence relation on A that is defined by a ∼I b if
+and only if a = b or a, b ∈ I, and ∼I be the restriction of ∼IR to A (cf. Definition 2.1). Recall
+from the proof of Lemma 2.2 that a ∼I b if and only if there exists a sequence
+
+                a ≡ ∑ c1,k ∼IN ∑ d1,k ≡ ∑ c2,k ∼IN             ···   ∼IN ∑ dn,k ≡ b
+
+where ∼IN is the linear extension of ∼I to N[A], i.e. ∑ ck ∼IN ∑ dk if ck ∼I dk for all k.
+
+Definition 2.11. An ideal of B is a subset I of B that satisfies the following properties.
+
+ (I1) If a ∈ I and b ∈ B, then ab ∈ I.
+
+ (I2) If e is a zero of B, then e ∈ I.
+
+ (I3) If a ∼I b and b ∈ I, then a ∈ I.
+
+                                                  28
+If I is an ideal, then ∼I is called the congruence generated by I.
+
+    Note that if B does not have a zero, then the empty set is an ideal of B. If B, however, has an
+absorbing element, the empty set cannot be an absorbing ideal. This digression is unavoidable
+if we want inverse images of ideals to be ideals (cf. Proposition 2.23). The following two
+propositions show that apart from this case, ideals and absorbing ideals coincide. In particular,
+in Bl pr0 , there is a complete analogy between ideals and absorbing ideals. Note that if I is
+non-empty, then I contains the absorbing elements of B.
+
+Proposition 2.12. Let I be an ideal that contains all absorbing elements of B. Then ∼I is the
+smallest congruence whose absorbing ideal is I.
+
+Proof. Once we have proven that ∼I is a congruence with vanishing ideal I, it is clear that it is
+the smallest congruence with this property by its definition.
+    We prove that ∼I is a congruence. First note that ∼I is multiplicative: given a ∼I b and
+c ∼I d, then either a = b and c = d or ac, bd ∈ I. In both cases it follows that ac ∼I bd. By
+Lemma 2.2 (C1)∗ , this implies that ∼IN is a pre-addition. Thus we can use the same argument
+as in the proof of Proposition 2.5 to show that ∼I satisfies property (C1)∗ .
+    We proceed to show that ∼I satisfies property (C2)∗ . Consider a sequence
+
+             a ≡ ∑ c1,k ∼I,N ∑ d1,k ≡ ∑ c2,k ∼I,N            ···   ∼I,N ∑ dn,k ≡ b.
+
+Unraveling the definition of ∼I,N , we see that ∑ ck ∼I,N ∑ dk if and only if for every k, there is
+a sequence
+                          ck ≡ ∑ e1,l ∼IN · · · ∼IN ∑ fm,l = dk .
+Adding up these sequences (both ≡ and ∼IN are additive) and inserting them into the sequence
+for a and b yields a sequence of the form
+
+               a ≡ ∑ c̃1,k̃ ∼IN ∑ d˜1,k̃ ≡ ∑ c̃2,k̃ ∼IN     ···    ∼IN ∑ d˜ñ,k̃ ≡ b.
+
+Thus a ∼I b, which completes the proof that ∼I is a congruence.
+    Let I∼I be the absorbing ideal of ∼I . We show that I∼I = I. Let a ∈ I, then ab ∈ I for any
+b ∈ B, or in other words, ab ∼I a. This implies ab ∼I a. Thus a ∈ I∼I , and we have shown that
+I ⊂ I∼I . Let, conversely, a ∈ I∼I , i.e. ab ∼I a for all b ∈ B. Assume that I contains an element e.
+Then a ∼I ae, where ae ∈ I by axiom (I1). By axiom (I3), also a ∈ I.
+    We have to exclude the case that I is empty while I∼I is not. If I is empty, then both ∼I
+and ∼I equal ≡. Therefore I∼I equals the set of the absorbing elements of B. By the hypothesis
+of the proposition, I contains all absorbing elements, which implies that I∼I is empty. This
+completes the proof of the proposition.
+
+                                                 29
+Proposition 2.13. The absorbing ideal of a congruence is an ideal.
+Proof. Let ∼ be a congruence on B and I∼ its absorbing ideal. We verify the axioms of an ideal.
+Let a ∈ I∼ and b ∈ B, then we have for all c ∈ B that (ab)c ∼ (ac)b ∼ ab and thus ab ∈ I∼ . This
+shows axiom (I1) of an ideal.
+    Let a be a zero of B. Then ab ≡ a for all b ∈ B. This implies ab ∼ b for all b ∈ B and thus
+a ∈ I∼ . This shows axiom (I2) of an ideal.
+    Let ∼I be the congruence generated by I = I∼ . Let a ∼I b and b ∈ I∼. We have to show that
+a ∈ I∼ . Since a ∼I b, there is a sequence
+                          a ≡ ∑ c1,k ∼I,N       ···    ∼I,N ∑ dn,k ≡ b,
+which implies
+                            a ≡ ∑ c1,k ∼N        ···   ∼N ∑ dn,k ≡ b
+since ∼I is the smallest congruence with absorbing ideal I∼ by Proposition 2.12. Let e ∈ B, then
+the multiplicativity of ≡ and ∼ yields
+                         ae ≡ ∑ c1,k e ∼N       ···    ∼N ∑ dn,k e ≡ be,
+which means that ae ∼ be by property (C2)∗ of a congruence. Thus we have that ae ∼ be ∼ b ∼ a
+for every e ∈ B and consequently a ∈ I∼ . This shows axiom (I3) of an ideal.
+   Define the quotient B/I as B/ ∼I for an ideal I of B. The following statements follow
+immediately from the above propositions.
+Corollary 2.14. Let I be an ideal that contains all absorbing elements of B. Then I equals
+p−1 (e) if p : B → B/I is the quotient map and e is an absorbing element of B/I. If B/I does not
+have an absorbing element, I is empty and p is an isomorphism. More generally, if f : B → C
+is a morphism of blueprints and C has an absorbing element e, then I f = f −1 (e).
+2.15. For a subset J of B, we define the equivalence relation ∼J on B by a ∼J b if and only if
+either a ≡ b or a, b ∈ JB = {c ∈ B|c ≡ md with m ∈ J, d ∈ B}. Let ∼JN be the linear extension
+to N[A]. The ideal generated by J is the set
+   hJiB = { b ∈ B | b ≡ ∑ c1,k ∼JN       ···   ∼JN ∑ dn,k ≡ a with a ∈ JB and ci,k , di,k ∈ B }.
+For a set J = {ai ∼ bi }i∈I , we define the equivalence relation ∼J on B by c ∼J d if and only
+if c ≡ d or c = f ai and d = f bi resp. c = f bi and d = f ai for some i ∈ I and f ∈ B. The
+congruence generated by J is the relation ∼J on B with a ∼J b if and only if there is a sequence
+a ≡ ∑ c1,k ∼JN · · · ∼JN ∑ dn,k ≡ b for some ci,k , di,k ∈ B.
+    We leave it to the reader to verify that hJiB is the smallest ideal of B that contains J and that
+∼J is the smallest congruence that contains J.
+
+                                                 30
+2.3 Ideals for blueprints with a zero
+Axiom (I3) of an ideal can be reformulated in a more convenient way if the blueprint has a zero.
+Lemma 2.16. Let B be a blueprint with a zero 0. Then a subset I ⊂ B is an ideal if and only if
+it satisfies the following three properties.
+  (i) IB ⊂ I.
+  (ii) 0 ∈ B.
+ (iii) If a + ∑ b j ≡ ∑ ck and b j , ck ∈ I, then a ∈ I.
+Proof. The first two properties coincide with the first two axioms of an ideal. We show that
+property (iii) implies axiom (I3). Consider a sequence
+                a ≡ ∑ c1,k ∼IN ∑ d1,k ≡ ∑ c2,k ∼IN               ···    ∼IN ∑ dn,k ≡ b
+with b ∈ I. Then we have for every i ∈ {1, . . ., n} that ∑ ci,k = ∑ fi, j + ∑ c̃i,l and ∑ di,k = ∑ fi, j +
+∑ d˜i,l for certain fi, j ∈ B and c̃i,l , d˜i,l ∈ I by the definition of ∼IN . Rewriting the above sequence
+yields
+
+  a    ≡    ∑ f1, j + ∑ c̃1,l     ∼IN   ∑ f1, j + ∑ d˜1,l    ≡      ∑ f2, j + ∑ c̃2,l ∼IN · · ·
+                                                               · · · ∼IN ∑ fn, j + ∑ d˜n,l ≡           b.
+This gives rise to a sequence of additive relations
+        a + ∑ d˜1,l + · · · + ∑ d˜n,l   ≡    ∑ f1, j + ∑ c̃1,l + ∑ d˜1,l + · · · + ∑ d˜n,l
+                                        ≡    ∑ f2, j + ∑ c̃1,l + ∑ c̃2,l + ∑ d˜2,l + · · · + ∑ d˜n,l
+                                        ..
+                                         .
+                                        ≡    ∑ fn, j + ∑ c̃1,l + · · · + ∑ c̃n,l + ∑ d˜n,l
+                                        ≡    ∑ b + ∑ c̃1,l + · · · + ∑ c̃n,l .
+
+We can apply property (iii) to the first and last term in this sequence to conclude that a ∈ I. This
+establishes axiom (I3).
+    To derive the converse implication, consider an additive relation a+ ∑ b j ≡ ∑ ck with b j , ck ∈
+I. Then axiom (I3) applied to the sequence
+                       a ≡ a + ∑ 0 ∼IN a + ∑ b j ≡ ∑ ck ∼IN ∑ 0 ≡ 0
+yields a ∈ I. This establishes property (iii).
+
+                                                    31
+2.4 Congruences and ideals for monoids
+Let B = A R be a monoid, i.e. R = {∑ ai ≡ ∑ ai |ai ∈ A} is the trivial pre-addition. Then I is
+an ideal of B if and only if I satisfies axiom (I1), i.e. if IB ⊂ I, since axioms (I2) and (I3) are
+automatically satisfied in the case of monoids. This is the same definition as in Deitmar’s ap-
+proach to F1 -schemes (cf. [8]). Since property (C2)∗ of a congruence is automatically satisfied
+by an equivalence relation, a congruence is the same as what is usually known as a congruence
+for semi-groups: a multiplicative equivalence relation (cf. [5]).
+    Let B = A R be a monoid with a zero, i.e. R = h0 ≡ øi. Then I is an ideal of B if and only
+if IB ⊂ I and 0 ∈ I since also in this case, axiom (I3) is automatically satisfied as can be seen
+easily from Lemma 2.16. Therefore our notion of an ideal coincides with the one introduced
+by Connes and Consani for monoids with a zero (cf. [7]). Also in the case of monoids with a
+zero, property (C2)∗ of a congruence is automatically satisfied and the notion of a congruence
+reduces to that of a multiplicative equivalence relation.
+
+2.5 Congruences and ideals for rings
+If B is a ring, then it is clear by Lemma 2.16 that the definition of an ideal defined in this text
+coincide with the usual definition of an ideal. Further, it is well-known that every quotient of
+a ring can be described as the quotient structure on the set of coset with respect to an ideal of
+R. Thus every congruence ∼ on a ring B is of the form ∼I for some ideal I of B. We have the
+following compatibility with the functor (−)Z : Bl pr → Rings.
+Lemma 2.17. Let B = A R be a blueprint and ∼ a congruence on B. Let i : B → BZ be the
+canonical map. Then
+             IZ (∼) = { a ∈ BZ | a = ∑ i(ck ) − ∑ i(dk ) for ck , dk ∈ B with ck ∼ dk }
+is an ideal of BZ and (B/ ∼)Z ≃ BZ /IZ (∼). If ∼=∼I for an ideal I of B, then IZ (∼I ) equals
+                      IZ = { a ∈ BZ | a = ∑ i(ck ) − ∑ i(dk ) with ck , dk ∈ I }.
+Proof. We verify that IZ (∼) is an ideal. It contains the zero 0 of BZ since 0 = i(1) − i(1). If
+a, a′ ∈ IZ (∼), i.e. a = ∑ i(ck ) − ∑ i(dk ) and a′ = ∑ i(c′k ) − ∑ i(dk′ ) with ck ∼ dk and c′k ∼ dk′ , then
+a − a′ = ∑ i(ck ) + ∑ i(dk′ ) − ∑ i(dk ) − ∑ i(c′k ) is an element of IZ (∼).
+    The equality (B/ ∼)Z ≃ BZ /IZ (∼) follows from the observation that both rings in question
+are quotients of Z[A] by the ideal generated by the elements of the form ∑ ai − ∑ b j where
+∑ ai ≡ ∑ b j and a − b where a ∼ b.
+    If ∼=∼I for an ideal I of B, then ck ∼ dk if and only if i(ck ) and i(dk ) represent the same
+coset of IZ , i.e. i(ck ) + IZ = i(dk ) + IZ . Therefore IZ (∼I ) is exhausted by differences ∑ i(ck ) −
+∑ i(dk ) with ck , dk ∈ I.
+
+                                                     32
+2.6 Congruences and ideals for semirings
+Let B be a semiring and 0 its zero. Since B is proper, we write = in place of ≡, and since B is a
+semiring, we identify a + b with c if c is the unique element such that a + b = c. The conditions
+stated in Lemma 2.16 coincide with the axioms of what is called a k-ideal in semiring theory—a
+semiring ideal in the usual sense is a subset I of B such that IB ⊂ I, 0 ∈ B and such that a + b ∈ I
+whenever a, b ∈ I (cf. [16]). For the purpose of scheme theory, however, the notion of a k-ideal
+is the appropriate one.
+     We can reformulate the axioms of a congruence in an easier shape.
+
+Lemma 2.18. Let B be a semiring. Then a relation ∼ on B is a congruence if and only if for all
+a, b, c, d ∈ B with a ∼ b and c ∼ d, we have ac ∼ bd and a + c ∼ b + d.
+
+Proof. The lemma is proven if we have shown that the property that a ∼ b and c ∼ d implies
+a + c ∼ b + d is equivalent to property (C2)∗ of a congruence. Assume ∼ is a congruence and
+let e = a + c and f = b + d. Then the sequence e = a + c ∼N b + d = f shows that e ∼ f .
+    Conversely, assume ∼ satisfies the properties of the lemma and consider a sequence
+
+                a = ∑ c1,k ∼N ∑ d1,k = ∑ c2,k ∼N              ···   ∼N ∑ dn,k = b.
+
+Since for i = 1, . . ., n − 1, there is a bi ∈ B such that ∑ d1,k = b1 = ∑ c2,k , we can break the above
+sequence into pieces of the form
+
+          a = ∑ c1,k ∼N ∑ d1,k = b1 ,             b1 = ∑ c2,k ∼N ∑ d2,k = b2            ... ,
+
+which reduces the proof to show that a = ∑ ck ∼N ∑ dk = b implies a ∼ b. But this follows easily
+by an induction on the number of summands in ∑ ck from the properties of the lemma.
+
+2.7 Prime congruences and prime ideals
+In this section, we introduce prime ideals and prime congruences. Let B = A R be a blueprint
+throughout this section.
+    An ideal I of B is proper if I 6= B. A congruence ∼ on B is proper if it has more than one
+equivalence classes.
+
+Lemma 2.19. A congruence ∼ is proper if and only if its absorbing ideal I∼ is proper.
+
+Proof. Since I∼ equals an equivalence class of ∼ if it is not empty, everything is clear once we
+showed that I∼ is not empty if ∼ is proper. Assume a ∼ b for all a, b ∈ B. Then also ab ∼ a for
+all a, b ∈ B and thus a ∈ I∼ .
+
+                                                  33
+Definition 2.20.
+
+  (i) A prime ideal is an ideal p of B such that the complement B − p is a multiplicative subset.
+
+ (ii) A prime congruence is a proper congruence ∼ on B such that the quotient B/ ∼ is an
+      integral blueprint.
+
+   The following reformulations of the definition of prime ideals and prime congruences are
+immediate.
+
+Lemma 2.21.
+
+  (i) An ideal I is prime if and only if for all a, b ∈ B such that ab ∈ I, either a ∈ I or b ∈ I.
+
+ (ii) A proper congruence ∼ is prime if and only if for all a, b, c ∈ B such that ab ∼ ac, either
+      b ∼ c or a ∼ e where e ≡ ø is a zero.
+
+Lemma 2.22. If ∼ is a prime congruence, then its absorbing ideal I∼ is a prime ideal.
+
+Proof. Let ab ∈ I∼ . Then ab ∼ a(ab) by the definition of the absorbing ideal. Since ∼ is prime,
+either b ∼ ab or a ∼ e with e ≡ ø. Since both ab and e, if it exists, are elements in I∼ , either a
+or b is so, too. This shows that B − I∼ is a multiplicative subset and thus that I∼ is prime.
+    Consequently, an ideal I is prime if the quotient B/I is an integral blueprint. More precisely,
+an ideal I is prime if and only if the quotient B/I is without (non-trivial) zero-divisors. An
+integral blueprint is clearly without zero divisors, but the contrary is not true, in contrast to the
+situation for rings: the monoid B = {0, e, 1} with zero 0 ≡ ø and idempotent element e2 = e is
+without zero divisors, but not integral. Moreover, I = {0} is a prime ideal, but ∼I is not a prime
+congruence.
+    Let f : B → C be a morphism of blueprints and ∼ a congruence on C. The inverse image of
+∼ is the relation ∼∗ = f −1 (∼) on B that is defined by a ∼∗ b if and only if f (a) ∼ f (b).
+
+Proposition 2.23. Let f : B → C be a morphism of blueprints.
+
+  (i) Let I be an ideal of C. Then f −1 (I) is an ideal of B. If I is prime, then f −1 (I) is prime.
+
+ (ii) Let ∼ be a congruence on C. Then f −1 (∼) is a congruence of B. If ∼ is prime and if
+      either B is with a zero or C is without a zero, then f −1 (∼) is prime.
+
+ (iii) Let ∼ be a congruence on C and I∼ its absorbing ideal. Assume that both B and C have
+       a zero. Then f −1 (I∼ ) equals the absorbing ideal of f −1 (∼).
+
+
+                                                 34
+    We need to make an additional assumption on the existence of zeros in parts (ii) and (iii)
+of the proposition as the following examples show. Concerning (ii), let A = {0, 1} and define
+B = A h /0i and C = A h0 ≡ øi. The identity morphism on A induces a morphism f : B → C of
+blueprints. Then the minimal congruence ∼ on C with two equivalence classes {0} and {1} is
+a prime congruence while f −1 (∼) is not. Concerning (iii), consider the inclusion {1} → {0, 1}
+of monoids and let ∼ be the minimal congruence on C. Then the vanishing ideal of ∼ is {0}
+while the vanishing ideal of its inverse image is {1}.
+Proof. We prove (i) of the proposition. We show that J = f −1 (I) satisfies the three axioms of
+an ideal. Let a ∈ J and b ∈ B, then f (ab) = f (a) f (b) ∈ I and thus ab ∈ J. This shows axiom
+(I1). If e ≡ ø is a zero of B, then f (e) ≡ ø is a zero of C and thus contained in I, which means
+that e ∈ J. This shows axiom (I2). Given a sequence
+
+                            a = ∑ c1,k ∼JN       ···   ∼JN ∑ dn,k = b
+
+in B with b ∈ J, then we have
+
+                     f (a) = ∑ f (c1,k ) ∼IN     ···   ∼IN ∑ f (dn,k ) = f (b)
+
+in C with f (b) ∈ I. Therefore f (a) ∈ I and a ∈ J. This shows axiom (I3).
+    Suppose that I is prime. If ab ∈ J, then f (ab) ∈ I and either f (a) ∈ I or f (b) ∈ I. This
+means that either a ∈ J or b ∈ J. Thus J is prime.
+    We proceed with (ii). Let ∼ be a congruence on C and let ∼∗ = f −1 (∼) be its inverse
+image. We verify the two axioms of a congruence. If a ∼∗ b and c ∼∗ d, then f (a) ∼∗ f (b)
+and f (c) ∼∗ f (d). Therefore f (ac) = f (a) f (c) ∼ f (b) f (d) = f (bd) and thus ac ∼∗ bd. This
+shows property (C1)∗ of a congruence. Given a sequence
+
+                            a = ∑ c1,k ∼∗N       ···   ∼∗N ∑ dn,k = b
+
+in B, then we have
+
+                     f (a) = ∑ f (c1,k ) ∼N      ···   ∼N ∑ f (dn,k ) = f (b)
+
+in C. Therefore f (a) ∼ f (b), which means that a ∼∗ b. This shows property (C2)∗ of a congru-
+ence.
+      Suppose that ∼ is prime and that B is with a zero or C is without a zero. If ab ∼∗ ac, then
+ f (a) f (b) = f (ab) ∼ f (ac) = f (a) f (c). Therefore either f (b) ∼ f (c) or f (a) ∼ e where e is a
+zero. In the former case, we have b ∼∗ c, in the latter case, B has a zero e′ by assumption, which
+maps to f (e′ ) ≡ ø ≡ e; this means that f (a) ∼ f (e′ ) and a ∼∗ e′ . Thus ∼∗ is prime.
+      We prove (iii). Let ∼∗ = f −1 (∼) be the inverse image of ∼. Then the absorbing ideal I∼∗ of
+    ∗
+∼ equals the equivalence class of a zero e ≡ ø. On the other hand, it is clear that the inverse
+
+                                                 35
+image of an equivalence class of ∼ is an equivalence class of ∼∗ . Since f (e) is a zero in C
+and therefore contained in ∈ I∼ , we have that f −1 (I∼) = I∼∗ . This completes the proof of the
+proposition.
+
+2.8 Maximal congruences and maximal ideals
+A maximal congruence is a proper congruence that is not contained in any larger proper con-
+gruence. A maximal ideal is a proper ideal that is not contained in any larger proper ideal.
+Proposition 2.24. A maximal ideal is a prime ideal. If B is with a zero, then a maximal con-
+gruence is a prime congruence.
+Proof. Let m be a maximal ideal and assume ab ∈ m, but a ∈/ m. We have to show that b ∈ m.
+Let J = m ∪ {a}, then hJiB = B by the maximality of m. Thus there is a sequence
+
+                           1 ≡ ∑ c1,k ∼JN         ···     ∼JN ∑ dn,k ≡ f
+
+where f ∈ JB = m ∪ aB. If c ∼J d, then bc ∼m bd since ab ∈ m. Thus multiplying the above
+sequence by b yields
+
+                         b ≡ ∑ bc1,k ∼m
+                                      N       ···         N ∑ bdn,k ≡ b f
+                                                         ∼m
+
+where b f ∈ m. This means that b ∈ m what we had to show. Thus m is prime.
+   Let e ≡ ø be a zero of B and ∼ a maximal congruence. Assume that ab ∼ ac, but b ≁ c. We
+have to show that a ∼ e. Let J = {d ∼′ d ′ |d ∼ d ′ or d = b and d ′ = c}. By the maximality of ∼,
+we have 1 ∼J e. Thus there is a sequence
+
+                           1 ≡ ∑ c1,k ∼JN         ···     ∼JN ∑ dn,k ≡ e.
+
+If d ∼J d ′ , then ad ∼ ad ′ since ab ∼ ac. Multiplying the above sequence by a yields
+
+                      a ≡ ∑ ac1,k ∼m
+                                   N        ···          N ∑ adn,k ≡ ae ≡ e
+                                                        ∼m
+
+and therefore a ∼ e, which was to be shown. Thus ∼ is a prime congruence.
+
+
+3 Blue schemes
+3.1 Definition
+As in classical scheme theory, we will define the spectrum of a blueprint to be a topological
+space together with a structure sheaf, which is a sheaf in Bl pr in this case. A blue scheme is a
+
+                                                  36
+space that is locally isomorphic to spectra of blueprints. We begin with defining the category of
+blueprinted spaces, in which we embed the category of spectra of monoids and the category of
+blue schemes.
+3.1. A blueprinted space is a topological space X together with a sheaf OX in Bl pr. A
+morphism of blueprinted spaces is a continuous map ϕ : X → Y together with a morphism
+ϕ# : OY → OX of sheaves.
+     By Proposition 1.14, colimits of directed systems of blueprints exist, and we can define the
+stalk OX,x of OX at x ∈ X as the colimit of all open subsets U of X that contain x together with
+the inclusion maps. A morphism ϕ : X → Y of blueprinted spaces induces blueprint morphisms
+ϕ#x : OY,ϕ(x) → OX,x between stalks for every x ∈ X .
+     A blueprinted space X is locally blueprinted, if all stalks are local blueprints, i.e. if OX,x
+has a unique maximal ideal mx for every x ∈ X . A morphism ϕ : X → Y of locally blueprinted
+spaces is local if for every x ∈ X and y = ϕ(x), the morphism ϕ#x : OY,y → OX,x between stalks
+maps the maximal ideal my of OY,y to the maximal ideal mx of OX,x .
+     For a prime ideal p of a blueprint B, we denote by Bp the localization of B at S = B − p.
+Definition 3.2. The spectrum Spec B of a blueprint B is the blueprinted space whose underlying
+set is Spec B = {p ⊂ B prime ideal}. The topology of Spec B is generated by the sets Uh = {p ∈
+Spec B|h ∈/ p} where h ranges through B. Note that U0 = /0 and U1 = Spec B. Since Uh ∩Ug =
+Ugh , the open sets Uh form a basis of the topology. The structure sheaf OX of X = Spec B is
+defined by
+                                                                                     
+                             a            For all p ∈ U, s(p) ∈ Bp and there are     
+        OX (U ) =     s:U →       Bp      h ∈ (B − p), a ∈ B and n ∈ N such that
+                                        Uh ⊂ U and for all q ∈ Uh, s(q) = han in Bq .
+                                                                                     
+                              p∈U
+
+for any open subset U of B where we apply the usual convention that OX ( /0) is the terminal
+object {0} h0 ≡ øi of Bl pr.
+3.3. In other words, OX (U ) is the set of locally represented sections on U . The sheaf OX is
+indeed a sheaf in Bl pr since OX (U ) caries the following structure for all open subsets U of
+X : for two sections s,t ∈ OX (U ), the section st sends p ∈ U to s(p) · t(p) in Bp , and we have
+∑ si ≡ ∑ t j in OX (U ) if and only if ∑ si (p) ≡ ∑ t j (p) in Bp for all p ∈ OX (U ).
+    It is clear that OX,p = Bp (the proof is completely analogous to the case of usual schemes, cf.
+[13, Prop. 2.2 (a)]). Since Bp is a local blueprint with maximal ideal pBp , the spectrum Spec B
+of B is a locally blueprinted space.
+Definition 3.4. An affine blue scheme is a locally blueprinted space that is isomorphic to the
+spectrum of a blueprint. A blue scheme is a locally blueprinted space that has a covering by
+
+                                                37
+affine blue schemes. An open subset that is isomorphic to an affine blue scheme is called an
+affine open subscheme. A morphism of (affine) blue schemes is a local morphism of locally
+blueprinted spaces. We denote the category of blue schemes by BSch.
+3.5. We need more insight into the structure of blue schemes to prove that the affine open
+subschemes of a blue scheme form a basis of the topology and that a morphism of blue schemes
+is locally described by morphisms of blueprints. We postpone the proof of these facts to Section
+3.3.
+     Note that as in the case of usual schemes, a subset V of Spec B is closed if and only if there
+is an ideal I of B such that V equals V (I) = {p ∈ Spec B|I ⊂ p} (cf. [13, p. 70]). In particular,
+the complement of Uh is V (hhi). If we define the radical of I as the ideal
+
+                           Rad(I) = { a ∈ B | ∃n ∈ N such that an ∈ I },
+
+then V (I) = V (Rad(I)).
+Lemma 3.6. For all h ∈ B, the subspace Uh of Spec B is compact.
+Proof. Let Uh = i∈I Ui be a covering. Since a basis of the topology is given by subsets of the
+                  S
+
+form Ug , we may assume that Ui = Uhi for certain elements hi ∈ B. By taking complements,
+the condition Uh = i∈I Ui becomes equivalent to V (h{hi }i∈I i) = i∈I V (hhi i) ⊂ V (hhi). This,
+                     S                                              T
+
+in turn, means nothing else than h ∈ Rad(h{hi }i∈I i) resp. hn ∈ h{hi }i∈I i for some n ∈ N. By
+the definition of the ideal generated by {hi }i∈I (cf. paragraph 2.15), this means that we have a
+sequence
+                            hn ≡ ∑ c1,k ∼JN · · · ∼JN ∑ dn,k ≡ b
+where J = {hi }i∈I B, b ∈ J and ci,k , di,k ∈ B. Since there are only finitely elements involved in
+this sequence, there is a finite subset {hi }i∈I0 of {hi }i∈I such that
+
+                            hn ≡ ∑ c1,k ∼JN0     ···   ∼JN0 ∑ dn,k ≡ b
+
+with J0 = {hi }i∈I0 B and b ∈ J0 . This means that hn ∈ h{hi }i∈I0 i and Uh =
+                                                                                S
+                                                                                i∈I0 Uhi . Thus Uh is
+compact.
+3.7. A morphism f : B → C of blueprints induces a morphism f ∗ : SpecC → Spec B of locally
+blueprinted spaces by taking the inverse image f ∗ (q) = f −1 (q) of prime ideals q of C. This map
+is continuous and induces a morphism of sheaves (cf. [13, Prop. 2.3] for the analogous case of
+usual schemes). In particular, if q ⊂ C is a prime ideal and p = f −1 (q) is the inverse image of q,
+then fq : Bp → Cq is a local morphism, i.e. f (pBp ) ⊂ qCq . This defines a contravariant functor
+                                                                          
+                                              locally blueprinted spaces
+                      Spec : Bl pr −→                                         .
+                                                 and local morphisms
+
+                                                38
+This functor is, in contrast to usual scheme theory, not full as the following example shows.
+More precisely, we see that the functor of global sections is in general not a left-inverse of
+Spec, and non-isomorphic blueprints can give rise to isomorphic spectra. We will investigate
+the precise connection between Spec and the functor of global sections in the next section.
+
+Example 3.8. Let B be the blueprint associated to the multiplicative subset A of Z[S, T ] that
+is generated by {T, 1 − T, T S, (1 − T )S} (cf. Section 1.7). We abbreviate: h1 = T , h2 = 1 − T ,
+a1 = T S and a2 = (1 − T )S. Then the underlying monoid A of B is F1 [h1 , h2 , a1 , a2 ]/ ∼ where
+F1 = {0, 1} and ∼ is the monoid congruence generated by a1 h2 = a2 h1 . The pre-addition of B
+is generated by h1 + h2 ≡ 1.
+    To determine the prime ideals of B, we note that a prime ideal of B is in particular a
+prime ideal of the monoid A (with a zero 0) and a prime ideal of A lifts to a prime ideal
+of F1 [h1 , h2 , a1 , a2 ]. Since prime ideals of F1 [h1 , h2 , a1 , a2 ] are all of the form hJi with J ⊂
+{h1 , h2 , a1 , a2 }, every prime ideal of B must also be generated by a subset of {h1 , h2 , a1 , a2 }.
+One easily verifies case by case that the set of prime ideals of B is Spec B = {(0), p1, p2 , pa }
+where p1 = (h1 , a1 ), p2 = (h2 , a2 ) and pa = (a1 , a2 ).
+    We construct the following global section. Consider the open subsets Uh1 = {(0),           ` pa , p2 }
+and Uh2 = {(0), pa, p1 }, which cover X = Spec B. We define the section s : X → p∈X Bp by
+s(p) = ha11 if p ∈ Uh1 and s(p) = ha22 if p ∈ Uh2 . Note that in both B(0) and Bpa , we have ah11 = ah22
+since a1 h2 = a2 h1 in B; thus s is indeed an element of OX (X ).
+    As we will verify in the following section, ΓB = OX (X ) caries the natural structure of a
+blueprint and the association a → (sa : p → b) defines an inclusion B → ΓB. In ΓB, we have the
+section s as constructed above. It satisfies s · sh1 = sa1 and s · sh2 = sa2 . But there is no b ∈ B
+such that bh1 = a1 and bh2 = a2 . Thus B → ΓB cannot be an isomorphism.
+    This shows that the global section functor is not a left-inverse of Spec. Moreover, we will see
+                                                                                                 ∼
+in the following section that the morphism B → ΓB induces an isomorphism Spec B → Spec B.
+Thus Spec is not full.
+
+3.2 Global sections and globalization
+As demonstrated in Example 3.8, the global sections ΓB = Γ(X , OX ) of X = Spec B are in
+general not equal to B. We will show in this section that Γ is an idempotent endofunctor on
+Bl pr, i.e. ΓΓB = ΓB. In particular, Spec restricts to a fully faithful functor from the essential
+image of Γ to the category of locally blueprinted spaces with local morphisms, and the global
+section functor is its left-inverse.
+
+3.9. Let B be a blueprint and h ∈ B. We define a map σh : B[h−1 ] → OX (Uh ) as follows. Since
+for all p ∈ Uh , h is invertible in Bp , we have canonical maps B[h−1 ] → Bp . An element of B[h−1 ]
+
+
+                                                   39
+is of the form han for some a ∈ B and n ∈ N, and we denote the image of han in Bp by the same
+symbol han . For an element b = han ∈ B[h−1] we define the section σh (b) = sb : Uh → p∈Uh as
+                                                                                     `
+sb (p) = han ∈ Bp .
+
+Lemma 3.10. Let B be a proper blueprint. Then the map σh : B[h−1 ] → OX (Uh ) is an injective
+morphism of blueprints for every h ∈ B.
+
+Proof. The proof is analogous to the case of usual schemes (cf. [13, Prop 2.2 (b)]).
+
+3.11. If B is not proper, then σh is not injective in general: for instance, the spectrum of a
+blueprint B = A R with R = N[A] × N[A] is the empty scheme whose global sections are the
+terminal blueprint {0} h0 ≡ øi, independently from A. If A contains more than one element,
+then σ1 is not injective. We saw also in Example 3.8 that σ1 is in general not surjective.
+     The functor Γ(−, O) of global sections associates to a blue scheme X its global sections
+Γ(X , OX ) = OX (X ) and to a morphism ϕ : X → Y the morphism ϕ# (Y ) : OY (Y ) → OX (X )
+between global sections. We denote the endofunctor on Bl pr given as the composition of Spec
+with Γ(−, O) by Γ. A blueprint B is called global if it contained in the essential image of Γ,
+i.e. if there is a blueprint C such that B ≃ ΓC. We call the morphism σ = σ1 : B → ΓB the
+globalization of B.
+     The most prominent examples of global blueprints are rings. Another class of global blue-
+prints are local blueprints B: indeed, the only open subset of Spec B that contains the maximal
+ideal of B is Spec B itself; thus B = ΓB. Since monoids (with a zero) are local blueprints (see
+[19, Section 1.1] resp. [4, Section 2.1.1]), they are global blueprints.
+
+Theorem 3.12. Let B be a blueprint and σ : B → ΓB its globalization. Then the induced mor-
+phism of spectra σ ∗ : Spec ΓB→ Spec B is an isomorphism.
+
+   Before we proceed to prove the theorem, we state the following immediate consequences.
+
+Corollary 3.13. Every morphism from a blueprint B into a global blueprint C factors uniquely
+through the globalization σ : B → ΓB. The blueprint B is global if and only if σ : B → ΓB is an
+isomorphism. In particular, Γ2 = Γ is an endofunctor on Bl pr.
+
+  Let Bl pr gl be the full subcategory of Bl pr whose objects are global blueprints and let
+LocBl prS p be the category of locally blueprinted spaces together with local morphisms.
+
+Corollary 3.14. The functor Spec : Bl pr → LocBl prS p restricts to a fully faithful embed-
+ding Spec : Bl prgl → LocBl prS p, and Γ(−, O) : LocBl prS p → Bl pr gl is a left-inverse
+of Spec.
+
+
+
+                                              40
+Proof. If we show that the global section functor is a left-inverse of Spec restricted to Bl prgl ,
+then it is clear that Spec is fully faithful. On the level of objects, this follows from Theorem
+3.12. On the level of morphisms, it is the same argument as for usual schemes (cf. [13, Prop.
+2.3]).
+    The rest of this section is dedicated to the proof of Theorem 3.12. The following technical
+statement is true for the same reasons as in usual scheme theory (cf. [13, Prop 2.2 (b)]).
+Lemma 3.15. Let h ∈ B, X = Spec B and s ∈ OX (Uh). Then there are finitely many elements
+h1 , . . . , hn , a1 , . . . , an ∈ B that satisfy the following properties:
+              Sn
+    • Uh =      i=1 Uhi ;
+
+    • s(p) = haii in Bp for all p ∈ Uhi and all i = 1, . . ., n;
+    • ai h j = a j hi for all i, j = 1, . . ., n.
+   Let X = Spec B. Recall that σ : B → ΓB maps a ∈ B to the section sa : X → p∈X Bp with
+                                                                               `
+σ(p) = a1 in Bp . The morphism σ ∗ : Spec ΓB → Spec B maps a prime ideal q of ΓB = OX (X ) to
+p = σ −1 (q). We will prove in the following that the map
+
+                         σ∗ : Spec B −→ Spec ΓB
+                                p    7−→ σ∗ (p) = { s ∈ ΓB | s(p) ∈ pBp }
+
+is an inverse of σ ∗ . It is easily verified that σ∗ (p) is indeed a prime ideal of ΓB. Clearly, we
+have σ −1 (σ∗ (p)) = p for every prime ideal p of B.
+Lemma 3.16. The maps σ ∗ and σ∗ are mutually inverse bijections.
+Proof. Since σ −1 (σ∗ (p)) = p, the map σ ∗ is surjective. We will show that q = σ∗ (p) is the only
+prime ideal of ΓB that satisfies σ −1 (q) = p. This implies that σ ∗ is injective and consequently
+bijective. The equality σ −1 (σ∗ (p)) = p proves in turn that σ∗ is the inverse of σ ∗ .
+    Let s ∈ ΓB, i.e. there are h1 , . . ., hn , a1 , . . . , an ∈ B such that X = ni=1 Uhi and such that
+                                                                                    S
+
+s(p′ ) = haii in Bp′ and ai h j = a j hi for all p′ ∈ Uhi and for all i, j = 1, . . ., n (see Lemma 3.15).
+We may assume that p ∈ Uh1 , i.e. h1 ∈       / p. Then (sh1 s)(p′ ) = h1 haii in B(p′ ) for all p′ ∈ Uhi . But
+   ai
+h1 hi = a1 since a1 hi = ai h1 , and thus sh1 s = sa1 = σ(a1 ).
+    If q′ is a prime ideal of ΓB with σ −1 (q′ ) = p, then s ∈ q′ if and only if sh1 s ∈ q′ since h1 ∈     /p
+by assumption and consequently sh1 ∈            ′              −1  ′                               ′
+                                            / q . Since σ (q ) = p, the condition sh1 s ∈ q is in turn
+equivalent to a1 = sa1 (p) = (sh1 s)(p) ∈ pBp , or, again since h1 ∈        / p, to ha11 = s(p) ∈ pBp . This
+shows that s ∈ q′ if and only if s ∈ σ∗ (p). Therefore q = σ∗ (p) is the only prime ideal of ΓB that
+satisfies σ −1 (q) = p, and the lemma is proven.
+
+                                                     41
+Lemma 3.17. Let X = Spec B, Y = Spec ΓB and ϕ = σ ∗ : Y → X .
+
+  (i) If h ∈ B, then ϕ−1 (Uh) = Ush .
+
+  (ii) For all s ∈ ΓB, there are h1 , . . . , hn such that ϕ(Us) =
+                                                                     Sn
+                                                                       i=1 Uhi .
+
+Consequently, ϕ is a homeomorphism.
+
+Proof. We know from Lemma 3.16 that ϕ is a continuous bijection. Part (ii) implies that ϕ is an
+open map. Thus it is clear that ϕ is homeomorphism once (ii) is proven. Part (i) follows from
+
+                 ϕ−1 (Uh) = { q ∈ Y | h ∈
+                                        / σ −1 (q) } = { q ∈ Y | sh ∈
+                                                                    / q } = Ush .
+
+   We prove part (ii). Let s ∈ ΓB, i.e. there are h1 , . . . , hn , a1 , . . . , an ∈ B such that X = ni=1 Uhi
+                                                                                                    S
+
+and such that s(p) = haii in Bp and ai h j = a j hi for all p ∈ Uhi and for all i, j = 1, . . . , n (see Lemma
+3.15). Then
+
+                Us = { q ∈ Y | s ∈
+                                 / q } = { q ∈ Y | s(p) ∈
+                                                        / pBp where p = ϕ(q) }.
+
+                                                                   / p and haii = s(p) ∈
+For i = 1, . . . , n, we have thus q ⊂ Ushi ∩ Us if and only if hi ∈                   / pBp where
+p = ϕ(q), or, equivalently, ai hi ∈/ p. Therefore ϕ(Ushi ∩Us ) = Uai hi and ϕ(Us ) = ni=1 Uai hi .
+                                                                                     S
+
+
+Lemma 3.18. Let X = Spec B, Y = Spec ΓB and ϕ = σ ∗ : Y → X . Let q ∈ Y and p = ϕ(q). Then
+the induced morphism of stalks ϕq : OX,p → OY,q is an isomorphism.
+
+Proof. Note that OX,p ≃ Bp and OY,q ≃ (ΓB)q . With these identifications, ϕq : OX,p → OY,q is
+nothing else than the localization σq : Bp → (ΓB)q of σ that maps a/h to sa /sh .
+    We show that ϕq is injective. Assume sa /sh = sa′ /sh′ in OY,q . Then there is an open neigh-
+bourhood U of q such that sa /sh = sa′ /sh′ in OY (U ). Applying σ −1 yields that a/h = a′ /h′ in
+OX (ϕ(U )), and thus a/h = a′ /h′ in OX,p.
+    We show that ϕq is surjective. Let s ∈ OY,q . Then there is an open neighbourhood U of q such
+that s ∈ OY (U ) and s(q′) = r(p′ )/t(p′) for all q′ ∈ U where p′ = ϕ(q′ ),r ∈ ΓB and t ∈ (ΓB − q).
+The sections r and t are in turn locally represented by elements of B, i.e. there are a, b ∈ B and
+g, h ∈ (B − p) such that r(p′ ) = a/h and t(p′ ) = b/g for all p in a suitably small neighbourhood
+V of p with ϕ−1 (V ) ⊂ U . This means that s = (sa /sh )/(sb /sg ) = sag /sbh in ϕ−1 (V ). Thus
+s = ϕq (ag/bh).
+    We have shown that σ ∗ : Spec ΓB → Spec B is a homeomorphism that induces isomorphisms
+on stalks. Therefore σ ∗ is an isomorphism of blue schemes. This completes the proof of Theo-
+rem 3.12.
+
+
+                                                     42
+3.3 Affine open subschemes
+Recall that an affine open subscheme of a blue scheme is an open subset that is isomorphic to
+the spectrum of a blueprint. In this section, we show that the affine open subschemes of a blue
+scheme form a basis for its topology. Consequently, we will see that every morphism of blue
+schemes is locally algebraic, i.e. induced by blueprint morphisms.
+     Let B be a blueprint and X = Spec B. For a multiplicative subset S of B, we denote the
+canonical morphism that sends a ∈ B to 1a ∈ S−1 B by ι : B → S−1 B. The induced morphism
+ι∗ : Spec S−1 B → X of blue schemes maps a prime ideal q of S−1 B to the prime ideal p = ι−1 (q)
+of B, which is a prime ideal that has empty intersection with S. Thus the image of ι∗ is contained
+in US = {p ∈ X |p ∩ S = /0}. Indeed, US equals the image of ι∗ as the following lemma shows.
+Lemma 3.19. Let S be a multiplicative subset of B and ι : B → S−1 B the canonical morphism.
+Then the induced map ι∗ : Spec S−1 B → US is a bijection.
+Proof. Let Y = Spec S−1 B and U = US . We will show that the map ι∗ : U → Y that maps p to
+ι∗ (p) = pS−1 B is an inverse of ι∗ . We make regular use of the fact that for a prime ideal p′ of a
+blueprint B′ and a unit s ∈ B× , an element a ∈ B is in p′ if and only if sa is in p′ .
+     We show that ι∗ is well-defined, i.e. that pS−1 B is a prime ideal of S−1 B. Let p be a prime
+ideal of B such that p ∩ S = /0. We verify the axioms of a prime ideal for q = pS−1 B. If a/s ∈ q
+and b/t ∈ S−1 B, then a ∈ p and thus (a/s) · (b/t) = ab/st ∈ pS−1 B = q. If S−1 has a zero
+e/s ≡ ø, then e ≡ ø in B and thus e ∈ p. Consequently e/s ∈ q. Given a sequence
+                          a      c1,k q                       dn,k    b
+                             = ∑      ∼         ···   ∼qN ∑         =
+                          sa     sc1,k N                      sdn,k   sb
+in S−1 B where b/sb ∈ q, then we can multiply the sequence with a common denominator s ∈ S
+and obtain the sequence
+                      asa = ∑ c1,k sc1,k ∼pN    ···   ∼pN ∑ dn,k sdn,k = bsb
+in B where the sx = s/sx are elements of S and bsb ∈ p. Consequently, asa ∈ p and a/sa ∈ q.
+This shows that q is an ideal. It is prime since (a/s) · (b/t) ∈ q if and only if ab ∈ p, which
+implies a ∈ p or b ∈ p and, consequently, a/s ∈ q or b/t ∈ q.
+    We show that ι−1 (ι∗ (p)) = p for every p ∈ U . Let q = ι∗ (p), then
+                                         a
+                    ι−1 (q) = { a ∈ B | ∈ q } = { a ∈ B | a ∈ p } = p.
+                                         1
+We show that ι∗ (ι (q)) = q for every q ∈ Y . Let p = ι−1 (q), then
+                  −1
+
+                    a          a a′ s                  a
+         ι∗ (p) = {   ∈ S−1 B | =     with a′ ∈ p } = { ∈ S−1 B | a ∈ p } = q.
+                    s          s  1t                   s
+This proves the lemma.
+
+                                                43
+    Let X = Spec B. Every open subset U of X inherits a blue scheme structure from X by
+restricting the topology and the structure sheaf of X to U , i.e. OU (V ) = OX (V ) for all open
+subsets V of U .
+
+Theorem 3.20. Let X = Spec B and h ∈ B. Then the canonical morphism ι : B → B[h−1 ] induces
+an isomorphism ι∗ : Spec B[h−1 ] → Uh .
+
+Proof. Let Y = Spec B[h−1 ]. Applying Lemma 3.19 to S = {hi }i≥0 yields that ϕ = ι∗ is a
+continuous bijection between the points of Y and Uh. Given a basis open Ua/hn of Y , we first
+note that Ua/hn = Ua/1 since 1/hn is invertible in B[h−1 ]. Using that ϕ : Y → Uh is a bijection,
+we obtain
+                                                a
+          ϕ(Ua/1 ) = { ϕ(q) ∈ Uh | q ∈ Y and      ∈
+                                                  / q } = { p ∈ Uh | a ∈
+                                                                       / p } = Ua
+                                                1
+which is an open subset of Uh . Thus ϕ is an open map and, consequently, a homeomorphism.
+     To complete the proof of the theorem, we have to show that ϕ# : OUh → OY is an isomor-
+phism of sheaves. This follows once we have shown that the morphisms ϕq : OUh ,p → OY,q are
+isomorphisms of stalks for all q ∈ Y and pϕ(q). Note that OUh ,p ≃ Bp and OY,q ≃ B[h−1 ]q
+in a canonical way and that ϕq is nothing else than the localization ιq : Bp → B[h−1 ]q of
+ι : B → B[h−1 ]. Since both Bp and B[h−1 ]q satisfy the universal property that every morphism
+g : B → C with g(B − p) ⊂ C× factors uniquely through B → Bp resp. B → B[h−1 ]q , the mor-
+phism ιq : Bp → B[h−1 ]q is an isomorphism.
+   This theorem has some immediate consequences.
+
+Corollary 3.21. Let h ∈ B. Then OX (Uh) ≃ ΓB[h−1 ].
+
+Corollary 3.22. The affine open subschemes of a blue scheme form a basis for its topology.
+
+Proof. Since the open subsets of the form Uh with h ∈ B form a basis for the topology of
+X = Spec B, the corollary is true for affine blue schemes. A basis of a blue scheme is given by
+the union of bases of an open affine covering of the blue scheme. Therefore, the collection of
+all affine open subschemes is a basis for its topology.
+   From this, we can conclude that morphisms between blue schemes are locally algebraic, i.e.
+we have the following statement.
+
+Theorem 3.23. Let ϕ : Y → X be morphism of blue schemes. Then there are open affine cover-
+ings X = i∈I Ui and Y = i∈I Vi of X resp. Y where Ui ≃ Spec Bi and Vi ≃ SpecCi for global
+          S               S
+
+blueprints Bi and Ci and morphisms fi : Bi → Ci of blueprints such that ϕ|Vi = fi∗ : Vi → Ui .
+
+
+                                               44
+Proof. Given an open affine covering X = i∈I Ui , we can cover each open ϕ−1 (Ui ) by affine
+                                                S
+
+open subschemes Vi, j of Y by Corollary 3.22. If we define Ui, j = Ui , then ϕ(Vi, j ) ⊂ Ui, j for each
+i and j. After replacing (i, j) by a new index i, we can assume thus that we have an open affine
+covering X = i∈I Ui of X and an open affine covering Y = i∈I Vi of Y with ϕ(Vi ) ⊂ Ui . Let
+               S                                                S
+
+Bi = OX (Ui ) and Ci = OY (Vi ), then these are global blueprints and we know from Corollary
+3.14 that Ui ≃ Spec Bi , that Vi ≃ SpecCi and that fi = ϕ# (Ui ) : Bi → Ci satisfies that ϕ|Vi = fi∗ :
+Vi → Ui .
+
+3.4 Fibre products
+In this section, we will show that the usual construction of fibre products of schemes is adaptable
+to blue schemes. We begin with explaining how to glue blue schemes along open subschemes.
+
+3.24. An open subscheme of a blue scheme X is an open subset U of X together with the relative
+topology and the restriction of structure sheaf OX to U . A morphism of blue schemes ϕ : Y → X
+is an open immersion if U = im ϕ is an open subscheme of X and if ϕ : Y → U is an isomorphism
+of blue schemes.
+    Let X be a blue scheme and U a based system of open subschemes, i.e. a family of open sub-
+schemes Ui of X together with the inclusion maps ϕi, j : Ui ֒→ U j , which are open immersions,
+such that for every Ui and U j , there are Uk1 , . . . ,Ukn such that Ui ∩U j = Uk1 ∪ · · · ∪Ukn (where
+the intersection and union are taken inside X ). Then X is the colimit of U in LocBl prS p. If,
+conversely, U is a system of blue schemes and open immersions, then the colimit X = colim U
+exists in LocBl prS p and U is a based system of open subschemes for X . In particular, the
+family of all affine open subschemes of X together with the inclusion maps is a based system of
+open subschemes.
+
+Lemma 3.25. Let X be a blue scheme. Then there is a morphism γ : X → Spec Γ(X , OX )
+of blue schemes such that every morphism ϕ : X → Y into an affine blue scheme Y ≃ Spec B
+factors uniquely through γ.
+
+Proof. By Theorem 3.23, there is a covering X = Ui by open affine subschemes Ui ≃ Spec Bi
+                                                         S
+
+of X and blueprint morphisms B → Bi such that ϕ|Ui = fi∗ : Spec Bi → Spec B. This means that
+we have commutative diagrams
+
+                             ϕ#
+              Γ(X , OX ) o               ♦B   and        Spec Γ(X , OX )             / Spec B
+                                      ♦♦♦                       O                 ❦❦❦5    O
+                                    ♦♦                                         ❦❦❦
+             resX |Ui           ♦♦                                           ❦❦             ϕ
+                             ♦♦♦ fi                                        ❦❦
+                                                                        ❦❦❦ fi∗
+                       w♦♦♦♦                                       ❦❦❦❦
+                   Bi                                          Ui            ⊂          X
+
+
+                                                    45
+for every i. Since X is covered by the open subschemes Ui , the morphisms Ui → Spec Γ(X , OX )
+glue to a morphism γ : X → Spec Γ(X , OX ), which satisfies the claimed properties of the lemma.
+
+
+Corollary 3.26. For every blue scheme X and for every blueprint B, we have Hom(X , SpecB) ≃
+Hom(B, Γ(X , OX ).
+
+   With these facts at hand, we can adopt the usual construction of fibre products to blue
+schemes (e.g. cf. [13, Thm. 3.3]).
+
+Proposition 3.27. Given two morphisms X → Z and Y → Z. Then the fibre product X ×Z Y exists
+in BSch. If X ≃ Spec B1 , Y ≃ Spec B2 and Z ≃ Spec B0 , then X ×Z Y ≃ Spec(B1 ⊗B0 B2 ).
+
+3.5 Residue fields
+In this section, we define the residue field of a point of a blue scheme.
+
+Lemma 3.28. Let p be a prime ideal of B and S = B − p. Then there is a unique morphism
+B → κ(p) into a blue field κ(p) such that every morphism B → C that maps p to a zero of C and
+S to the units of C factors through B → κ(p). The blue field κ(p) is isomorphic to both Bp /pBp
+and (B/p)(p) .
+
+Proof. It is clear that both Bp /pBp and (B/p)(p) together with their canonical epimorphisms
+B → Bp /pBp resp. B → (B/p)(p) satisfy the universal property of κ(p). Thus they are isomorphic
+to κ(p) and witness the existence of κ(p). It is clear that Bp /pBp is a blue field.
+    We call κ(p) the residue field of B at p. Let X is a blue scheme and x a point of X . Let mx
+be the maximal ideal of OX,x. Then we call κ(x) = OX,x/mx the residue field of X at x.
+
+3.6 Subcategories of BSch
+In this section, we define certain subcategories of BSch that come from the subcategories
+Bl prcanc , Bl pr prop , Bl prinv , Bl pr0 , M , M0 , S Rings and Rings of Bl pr. In particular,
+we will identify the categories of usual schemes, M -schemes and M0 -schemes with subcate-
+gories of Bl pr, as explained in more detail in the following two sections.
+
+3.29. Given a property E of blueprints that is stable under localization, we can define E -
+schemes as follows. A blue scheme X is an E -scheme if it has an open affine cover X = Ui
+                                                                                            S
+
+where Ui ≃ Spec Bi and all Bi have property E . This definition is not independent of the chosen
+cover since we did not ask E to hold for a blueprint if it holds for a localization (cf. Remark
+
+                                                46
+3.33). But every open affine cover of an E -scheme has a refinement by spectra of blueprints
+with property E . A blue scheme X is an E -scheme if and only if X has a basis of affine open
+subschemes that are spectra of blueprints with E .
+   If C is a full subcategory of Bl pr that contains all localizations, then a C -scheme is a
+blue scheme that has an open affine cover X = Ui where Ui ≃ Spec Bi and all Bi are in C .
+                                                   S
+
+This applies to all subcategories Bl prcanc , Bl prprop , Bl prinv , Bl pr 0 , M , M0 , S Rings resp.
+Rings of Bl pr.
+
+3.30. Let C be a full subcategory of Bl pr that contains all localizations and let ι : C → Bl pr
+be the inclusion functor. Assume that there is for every blueprint B a blueprint G (B) in C and a
+morphism f : B → G (B) such that every morphism from B into a blueprint in C factors uniquely
+through f . This defines a functor G : Bl pr → C , which is a left-adjoint of ι : C → Bl pr.
+
+Proposition 3.31. Let C and G be as above. Then we can associate to every blue scheme X a
+C -scheme G (X ) and a morphism β : G (X ) → X that satisfies the universal property that every
+morphism from a C -scheme into X factors uniquely through β.
+
+Proof. The C -scheme G (X ) is constructed as follows. Let U be the based system of all affine
+open subschemes Ui ≃ Spec Bi of X together with the inclusion maps ϕi, j : Ui → U j . The
+canonical morphisms fi : Bi → G (Bi ) define morphisms ψ = fi∗ : Spec G (Bi ) → Spec Bi of blue
+schemes. Note that open immersions are stable under base extensions, i.e. if ι : U → X is an
+open immersion and ϕ : Y → X is a morphism of blue schemes, then U ×X Y is ϕ−1 (ι(U )) and
+the inclusion ι′ : ϕ−1 (ι(U )) → Y is an open immersion. Thus the open immersions ϕi, j : Ui → U j
+define open immersions G (ϕi, j ) : G (Ui ) → G (U j ) and we obtain a system G (U ) of C -schemes
+and open immersions. Further we have commutative diagrams
+
+                                                  ψi
+                                      G (Ui )              / Ui ◆
+                                                                 ◆◆◆
+                                                                    ◆◆◆
+                                                                       ◆◆&
+                                 G (ϕi, j )             ϕi, j            8X
+                                                                    ♣♣♣♣♣
+                                                 ψj           ♣♣♣
+                                      G (U j )            / Uj ♣
+
+
+for every i and j such that there is an open immersion ϕi, j : Ui → U j . This defines a morphism
+β : colim G (U ) → X and we define G (X ) as colim G (U ), which is a C -scheme. The claimed
+universal property of β : G (X ) → X follows from Theorem 3.23.
+
+3.32. A blue scheme is called cancellative / proper / with inverses / with a zero if it has a cover
+by affine open subschemes that are spectra of blueprints that are cancellative / proper / with
+inverses / with a zero.
+
+                                                       47
+    We denote the full subcategory of cancellative blue schemes by BSchcanc . We have for every
+blueprint B a universal morphism B → Bcanc into a cancellative blueprint (cf. paragraph 1.5).
+Thus we can apply Proposition 3.31 to obtain for every blue scheme X a universal morphism
+Xcanc → X from a cancellative blue scheme Xcanc into X .
+    We denote the full subcategory of proper blue schemes by BSchprop . Since we have universal
+morphisms B → Bprop (cf. Lemma 1.6), Proposition 3.31 yields for every blue scheme X a
+universal morphism Xprop → X from a proper blue scheme Xprop into X .
+    We denote the full subcategory of proper blue schemes with inverses by BSchinv . Since we
+have universal morphisms B → Binv (cf. Lemma 1.7 (i)), Proposition 3.31 yields for every blue
+scheme X a universal morphism Xinv → X from a proper blue scheme Xinv with inverses into X .
+    We denote the full subcategory of proper blue schemes with a zero by BSch0 . Since we
+have universal morphisms B → B0 (cf. Lemma 1.7 (ii)), Proposition 3.31 yields for every blue
+scheme X a universal morphism X0 → X from a proper blue scheme X0 with a zero into X .
+
+3.7 Monoidal schemes
+A blue scheme X is called a monoidal scheme (with a zero) if it has an open affine cover X = Ui
+                                                                                            S
+
+where Ui ≃ Spec Bi for monoids Bi (with a zero). The embedding ιM : M → Bl pr of monoids
+into blueprints extends to an embedding of M -schemes (cf. [19, Section 1.1] for a definition)
+into blue schemes whose essential image is the full subcategory of monoidal schemes. Thus
+there is no confusion if we call monoidal schemes M -schemes in accordance with paragraph
+3.29. We denote the full subcategory of M -schemes by SchM .
+    Similarly, the category of M0 -schemes (cf. [19, Section 1.6] for a definition) embeds into
+BSch, and its essential image is the full subcategory of monoidal schemes with a zero. There-
+fore, we may call a monoidal scheme with a zero an M0 -scheme. We denote the full subcategory
+of M0 -schemes by SchM0 .
+
+Remark 3.33. Note that in general not every open affine subscheme of an M0 -scheme with
+a zero is a spectrum of a monoid with a zero. To see this, consider the following example.
+The disjoint union X = Spec F1 ∐ Spec F1 is a monoidal scheme with a zero since F1 = {0, 1}
+is a monoid with a zero. The global sections of X are Γ(X , OX ) = F1 × F1 , which is not a
+monoid with a zero since it contains the additive relation (0, 1) + (1, 0) ≡ (0, 0) + (1, 1). But
+X = Spec F1 × F1 is an affine blue scheme.
+
+3.8 Grothendieck schemes and semiring schemes
+A Grothendieck scheme is a blue scheme that has an open affine cover X = Ui where Ui ≃
+                                                                               S
+
+Spec Bi for rings Bi . This is the same as a Rings-scheme after paragraph 3.29. The embed-
+
+                                               48
+ding B : Rings → Bl pr of rings into blueprints extends to an embedding B : Sch → BSch
+of schemes (in the usual sense) into blue schemes whose essential image is the subcategory
+of Grothendieck schemes. Thus we may think of schemes as Grothendieck schemes, and
+we denote the category of Grothendieck schemes by Sch. Since every blueprint has a uni-
+versal morphism B → BZ to a ring, every blue scheme X has a universal morphism from a
+Grothendieck scheme XZ to X , following Proposition 3.31. In particular, we obtain the functor
+(−)Z : BSch → Sch, which is a right-adjoint to B : Sch → BSch.
+    Note that the composition (−)Z ◦ ιM : SchM → Sch coincides with the base extension func-
+tor − ⊗F1 Z in F1 -geometry (cf. [19, Section 1.1]). The same is true for (−)Z ◦ ιM0 : SchM0 →
+Sch (cf. [19, Section 1.6]).
+    Similar to the case of Grothendieck schemes, we define a semiring scheme as a blue scheme
+that can be covered by spectra of semirings. Since every blueprint has a universal morphism
+B → BN to a semiring, every blue scheme X has a universal morphism from a semiring scheme
+XN to X .
+    Note that there are familiar objects occurring in literature under a different name.
+    Toën and Vaquié apply their general machinery of associating a category of schemes to
+a symmetric monoidal category (with some extra properties, see [27]) to the category of N-
+modules. They call the objects in the resulting category N-schemes, and it seems likely that
+their category of N-schemes is equivalent to the category of semiring schemes. A proof of this
+is desirable.
+    Durov defines generalized schemes in [10], which is a generalization of scheme theory in
+a different direction by considering monads on a category. The resulting structures are called
+generalized rings, and it is possible to consider semirings as generalized rings. Therefore gen-
+eralized schemes in Durov’s sense cover semiring schemes.
+    As already mentioned in the introduction, Mikhalkin defines tropical schemes in [23]. I
+expect that the connection between tropical schemes and semiring schemes will be clarified by
+a rigorous theory of congruence schemes for blueprints.
+
+3.9 Connes and Consani’s F1 -schemes revised
+From the viewpoint on blueprints as multiplicative maps f : A → R from a monoid A to a
+semiring R (cf. Section 1.7), a familiarity with the concept of an F1 -scheme in the sense of
+Connes and Consani (see [7]) is visible. While blueprints are the fusion of a monoid with a
+semiring and a blue scheme is the geometric object associated to the glued algebraic object,
+Connes and Consani associate geometric objects to monoids (namely, M0 -schemes) and rings
+(namely, Grothendieck schemes) and combine two of those geometric objects to define an F1 -
+scheme in their sense. Though the ideas are very similar in thought, the resulting theories
+
+
+                                              49
+are very different. The a posteriori combination of both ideas seems to be important for later
+applications to zeta functions.
+    We review Connes and Consani’s F1 -schemes, for short, Connes-Consani schemes, within
+the framework of blue schemes. As usual in algebraic geometry, we denote by X (k) the mor-
+phism set Hom(Spec k, X ) where X is a blue scheme and k a blueprint. Note that if k is a ring,
+then every morphism Spec k → X factors through XZ ; thus X (k) = XZ (k). A Connes-Consani
+scheme is a morphism ϕ : XZ → Y where X is an M0 -scheme and Y a scheme such that the
+induced map ϕ(k) : X (k) = XZ (k) → Y (k) is a bijection for all fields k.
+    The importance of Connes-Consani schemes lies in the theory of their zeta functions, which
+exhibit information about the number of Fq -rational points (cf. [7, 21, 25]). The concept of
+Connes and Consani will apply to the more general class of blue Connes-Consani schemes, i.e.
+morphisms ϕ : XZ → Y of blue schemes where X is an M0 -scheme and X an arbitrary blue
+scheme such that the induces map X (k) → Y (k) is a bijection for all fields k.
+    It is an interesting problem how the combinatorial zeta functions of (blue) Connes-Consani
+schemes connect to the zeta functions of Grothendieck schemes. Is there a definition of a zeta
+function for blue schemes that reproduces both kinds of zeta functions?
+
+
+References
+ [1] V. Berkovich. Analytic geometry over F1 . Slides, 2011. Online at
+     http://www.wisdom.weizmann.ac.il/∼vova/Padova-slides 2011.pdf.
+
+ [2] F. Borceux. Handbook of categorical algebra. 2, volume 51 of Encyclopedia of Mathematics and
+     its Applications. Cambridge University Press, Cambridge, 1994.
+
+ [3] J. Borger. Λ-rings and the field with one element. Preprint, arXiv:0906.3146, 2009.
+
+ [4] C. Chu, O. Lorscheid and R. Santhanam. Sheaves and K-theory for F1 -schemes. To appear in Adv.
+     Math., arXiv:1010.2896, 2011.
+
+ [5] A. H. Clifford and G. B. Preston. The algebraic theory of semigroups. Vol. I. Mathematical Surveys,
+     No. 7. American Mathematical Society, Providence, R.I., 1961.
+
+ [6] A. Connes, C. Consani. On the notion of geometry over F1 . Preprint, arXiv:         0809.2926v2
+     [math.AG], 2008.
+
+ [7] A. Connes and C. Consani. Schemes over F1 and zeta functions. Compos. Math., 146(6):1383–
+     1415, 2010.
+
+ [8] A. Deitmar. Schemes over F1 . In Number fields and function fields—two parallel worlds, volume
+     239 of Progr. Math., pages 87–100. Birkhäuser Boston, Boston, MA, 2005.
+
+                                                  50
+ [9] A. Deitmar. Congruence schemes. Preprint, 2011. Online at arXiv:1102.4046.
+[10] N. Durov.   A New Approach to Arakelov Geometry.                     PhD Thesis, 2007. Online at
+     arXiv:0704.2030.
+[11] M. J. S. Haran. Non-additive geometry. Compos. Math. Vol.143 618–688, 2007.
+[12] M. J. S. Haran. Non-Additive Prolegomena. Preprint, arXiv:0911.3522, 2009.
+[13] R. Hartshorne. Algebraic Geometry. Grad. Texts in Math. 52, Springer-Verlag, New York, 1977.
+[14] M. Kapranov, A. Smirnov. Cohomology determinants and reciprocity laws: number field case.
+     Unpublished preprint.
+[15] K. Kato. Toric singularities. Amer. J. Math., Vol. 116, No. 5, 1073–1099, 1994.
+[16] D. R. LaTorre. On h-ideals and k-ideals in hemirings. Publ. Math. Debrecen, 12:219–226, 1965.
+[17] P. Lescot. Algèbre absolue. Ann. Sci. Math. Québec, Vol. 33, No. 1, 63–82, 2009.
+[18] J. López Peña and O. Lorscheid. Torified varieties and their geometries over F1 . Math. Z.,
+     267(3):605–643, 2011.
+[19] J. López Peña and O. Lorscheid. Mapping F1 -land: an overview of geometries over the field with
+     one element. To appear in Noncommutative Geometry, Arithmetic, and Related Topics. Johns
+     Hopkins University press, arXiv:0909.0069, 2009.
+[20] O. Lorscheid. Algebraic groups over the field with one element. To appear in Math. Z., Online at
+     arXiv:0907.3824, 2009.
+[21] O. Lorscheid. Functional equations for zeta functions of F1 -schemes. C. R. Acad. Sci. Paris, Ser. I
+     348, 1143-1146, 2010.
+[22] Y. Manin.Lectures on zeta functions and motives (according to Deninger and Kurokawa).Astrisque
+     No. 228 (1995), 4, 121–163.
+[23] G. Mikhalkin Tropical geometry. Unpublished notes. Online at
+     http://www.scribd.com/doc/47771116/Tropical-geometry-Grigory-Mikhalkin.
+[24] F. Paugam. Global analytic geometry. J. Number Theory, 129(10):2295–2327, 2009.
+[25] C. Soulé. Les variétés sur le corps à un élément. Mosc. Math. J., 4(1):217–244, 312, 2004.
+[26] J. Tits. Sur les analogues algébriques des groupes semi-simples complexes. In Colloque
+     d’algèbre supérieure, tenu à Bruxelles du 19 au 22 décembre 1956, Centre Belge de Recherches
+     Mathématiques, pages 261–289. Établissements Ceuterick, Louvain, 1957.
+[27] B. Toën and M. Vaquié. Au-dessous de Spec Z. Journal of K-Theory 1–64, 2008.
+
+
+                                                    51
+

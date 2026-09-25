@@ -1,0 +1,3166 @@
+                                             THE EULER PRODUCT EXPRESSIONS OF THE ABSOLUTE
+                                              TENSOR PRODUCTS OF THE DIRICHLET L-FUNCTIONS
+
+                                                                                HIDENORI TANAKA
+
+
+                                                    Abstract. In this paper, we calculate the absolute tensor square of the Dirich-
+
+
+
+
+arXiv:2008.07752v2 [math.NT] 11 Sep 2020
+                                                    let L-functions and show that it is expressed as an Euler product over pairs of
+                                                    primes. The method is to construct an equation to link primes to a series which
+                                                    has the factors of the absolute tensor product of the Dirichlet L-functions. This
+                                                    study is a generalization of Akatsuka’s theorem on the Riemann zeta function,
+                                                    and gives a proof of Kurokawa’s prediction proposed in 1992.
+
+
+
+
+                                                                                 1. Introduction
+                                             In 1992 Kurokawa [1] defined the absolute tensor products (Kurokawa tensor
+                                           products). The definition is given by
+                                                                               a
+                                                                               Y
+                                                      (Z1 ⊗ · · · ⊗ Zr )(s) :=   ((s − ρ1 − · · · − ρr ))µ(ρ1 ,··· ,ρr )
+                                                            F1     F1
+                                                                                  ρ1 ,··· ,ρr ∈C
+                                                                                                                      Q̀
+                                           for some zeta functions Zj (s) (j = 1, · · · , r), where the symbol , which was intro-
+                                           duced by Deninger [2], represents the zeta regularized product (see below) and the
+                                           integer µ(ρ1 , · · · , ρr ) is defined by
+                                                                                                 
+                                                                                                 1
+                                                                                                         (ℑ(ρ1 ), · · · , ℑ(ρr ) ≥ 0),
+                                                 µ(ρ1 , · · · , ρr ) := µ1 (ρ1 ) · · · µr (ρr ) × (−1)r−1
+                                                                                                          (ℑ(ρ1 ), · · · , ℑ(ρr ) < 0),
+                                                                                                 
+                                                                                                   0      (otherwise),
+                                                                                                 
+
+                                           where µj (ρ) denotes the order of ρ which is a zero of Zj (s); now, we regard the poles
+                                           of Zj (s) as the zeros with negative orders in this paper. Here the zeta regularized
+                                           products are defined by
+                                                                 ∞                                         
+                                                                 a
+                                                                 Y
+                                                                               bn               Za,b (w, s)
+                                                                    ((s − an )) := exp −Res
+                                                                n=1
+                                                                                            w=0     w2
+                                                                ∞
+                                           P∞ a := {an }n=1
+                                           where                   and b := {bn }∞
+                                                                                 n=1 are complex sequences such that Za,b (w, s) :=
+                                                                −w
+                                              n=1 b n (s − a n )   converges locally, uniformly and absolutely in some s-region in-
+                                           cluded in C − a for ℜ(w) > C with some     Q̀∞constant C ∈ R>0 and is a meromorphic
+                                           function of w at w = 0. If b ⊂ Z then n=1 ((s − an ))bn is a meromorphic function
+                                           of s in the whole C and has zeros only at s = an . The integer bn contributes to
+                                           the order of an . See [3] for more details concerning the zeta regularized products.
+                                           The factors of the zeta regularized products are derived from the summands of
+                                           Za,b (w, s), so we call Za,b (w, s) the “factors series” in this paper.
+                                              In [1] Kurokawa also predicted that the absolute tensor product of r arith-
+                                           metic zeta functions which have the expression by the Euler product over primes
+                                           would have the Euler product over r-tuples (p1 , · · · , pr ) of primes. The validity of
+                                           Kurokawa’s prediction has been confirmed in some cases, for example, the cases of
+                                           the Hasse zeta functions of finite fields by Koyama and Kurokawa [4] for r = 2, by
+
+                                              2010 Mathematics Subject Classification. Primary 11M06.
+                                              Key words and phrases. Dirichlet L-function; Absolute tensor product(Kurokawa tensor prod-
+                                           uct); Euler product.
+                                                                                              1
+2                                            H. TANAKA
+
+
+Akatsuka [5] for r = 3 and by Kurokawa and Wakayama [6] for general r. Also,
+the case of the Riemann zeta function for r = 2 was first proved by Koyama and
+Kurokawa [4], and then by Akatsuka [7] in a different way.
+   In this paper, according to Akatsuka’s method in [7], we will reach the Euler
+product expression of the absolute tensor product (Lχ1 ⊗ Lχ2 )(s), where Lχj (s) :=
+                                                                      F1
+L(s, χj ) (j ∈ Z>0 ) denotes the Dirichlet L-function corresponding to a primitive
+Dirichlet character χj to the modulus Nj with Nj ∈ Z≥2 . The key item which leads
+to our goal is an equation which links the “factors series” of (Lχ1 ⊗ · · · ⊗ Lχr )(s) to
+                                                                                  F1    F1
+r-tuples of prime numbers (see Theorem 4.1 below). We name such equation the
+“key equation”. Letting r = 1, where r is a parameter in the “key equation”, we
+obtain the zeta regularized product expression of L(s, χ1 ) :
+
+Theorem 1.1. Let ρχ1 denote the imaginary zeros of L(s, χ1 ) counted
+                                                                  with multi-
+                                                                           
+                     (0)                                            (0)                     (0)
+plicity, and let τχ1 be a possible real number with 0 < τχ1 < 12 and L                 1
+                                                                                       2 ± τχ1 , χ1   =
+0. Then L(s, χ1 ) has the following expression :
+                                           ∞                      
+                     Y
+                     a                    a
+                                          Y             3 + χ1 (−1)
+    L(s, χ1 ) =            ((s − ρχ1 ))        s + 2n −
+                                          n=1
+                                                             2
+                  ℑ(ρχ1 )6=0
+                               µχ1 (τχ(0) )             µχ1 (τχ(0) )      µ (0)
+                                                                            1 χ1
+                   
+                       1   (0)
+                                        1         1   (0)
+                                                                   1
+                  × s − − τχ1                  s − + τχ1                 s−          ,
+                       2                          2                         2
+                                                                                    (1.1)
+               (0)                                                  (0)
+where µχ1 (τχ1 ) and µχ1 (0) denote the order of 12 ± τχ1 and the order of 12 respec-
+tively.
+                                                                                
+                                         (0)          (0)                 (0)
+Remark 1.2. As Theorem 1.1, define τχj by 0 < τχj < 21 and L 21 ± τχj , χj =
+                                                                          (0)
+0 for j ∈ Z>0 . It is well known that the orders of 12 ± τχj are equal and at most
+                               (0)                      (0)
+one. For convenience, if µχj (τχj ) = 0 then we define τχj := 41 .
+
+   Let ρχj denote the imaginary zeros of L(s, χj ). From (1.1) and the definition
+of the absolute tensor products, we find that (Lχ1 ⊗ Lχ2 )(s) has the following
+                                                                    F1
+expression :
+
+      (Lχ1 ⊗ Lχ2 )(s)
+           F1
+              a
+              Y                                               a
+                                                              Y
+       =                       ((s − ρχ1 − ρχ2 ))−1                        ((s − ρχ1 − ρχ2 ))
+          ℑ(ρχ1 ),ℑ(ρχ2 )<0                             ℑ(ρχ1 ),ℑ(ρχ2 )>0
+                                   
+                                                                                
+                      Y                   a
+                                          Y                           3 + χb (−1)
+         ×                                            s − ρχa + 2n −
+                                                                           2
+             (a,b)∈{(1,2),(2,1)}    ℑ(ρχa )>0,n≥1
+                                                                     µχb (τχ(0) )
+                                          a
+                                          Y                    1   (0)
+                                                                                 b
+                                    ×                 s − ρχa − − τχb
+                                                               2
+                                        ℑ(ρχa )>0
+                                                                     µχb (τχ(0) )
+                                          Y
+                                          a                    1   (0)
+                                                                                 b
+                                    ×                 s − ρχa − + τχb
+                                                               2
+                                        ℑ(ρχa )>0
+                                                                µχb (0)
+                                          Y
+                                          a                     1
+                                    ×                 s − ρχa −
+                                                                2
+                                        ℑ(ρχa )>0
+                              EULER PROD. OF ABSOLUTE TENSOR PROD.                                         3
+
+                                                                              µχb (τχ )         (0)
+                                             Y 
+                                             a                χa (−1)                  b
+                                         ×       s + 2n − 2 −         − τχ(0)
+                                                                  2        b
+                                             n≥1
+                                                                            µχb (τχ )           (0)
+                                         a 
+                                         Y                   χa (−1)                 b
+                                                                        (0)
+                                      ×        s + 2n − 2 −          + τχb
+                                                                 2
+                                        n≥1
+                                                                               
+                                         a                         µχb (0)
+                                         Y                   χa (−1)
+                                      ×        s + 2n − 2 −                    
+                                                                 2
+                                         n≥1
+                                                                    
+                   Y
+                   a                                χ1 (−1) + χ2 (−1)
+             ×                  s + 2n1 + 2n2 − 3 −
+                                                            2
+                 n1 ,n2 ≥1
+              
+             × (s − 1 − τχ(0)
+                           1
+                              − τχ(0)
+                                   2
+                                      )(s − 1 − τχ(0)
+                                                   1
+                                                      + τχ(0)
+                                                           2
+                                                              )
+                                                                   µχ1 (τχ(0) )µχ2 (τχ(0) )
+                                      (0)             (0)     (0)
+                 × (s − 1 + τχ(0)
+                                                                            1           2
+                               1
+                                  − τχ2   )(s − 1 + τχ1   + τχ2   )
+                        Y                                              µχa (τχ(0)
+                                                                                 a
+                                                                                    )µχb (0)
+                                                                   (0)
+             ×                          (s − 1 − τχ(0)
+                                                    a
+                                                       )(s − 1 + τχ a
+                                                                       )
+                 (a,b)∈{(1,2),(2,1)}
+
+             × (s − 1)µχ1 (0)µχ2 (0) .
+Now, let p, q be primes and j, m, n be positive integers, and let α be any fixed
+number with 0 < α < 1. For the complex numbers τχj with ρχj = 21 + iτχj , we
+        (1)                                                              (1) (1)
+define τχj := min{ℜ(τχj ) > 0}; we fix εj arbitrarily with 0 < εj < min{τχj , τχ¯j }.
+Also, we define ε(r) := min {εj }. Define that
+                                  j∈{1,··· ,r}
+
+E1 (w, s, {χj }2j=1 )
+                              ∞
+          i(w + 1) X X
+ := −                    χ1 (pm )χ2 (pm )p−ms (m log p)w−2 (log p)2
+             2π    p m=1
+                             ∞
+          i(s − 2) X X
+   +                     χ1 (pm )χ2 (pm )p−ms (m log p)w−1 (log p)2 ,
+             2π    p m=1
+
+E2 (w, s, {χj }2j=1 )
+       i         X                      X          χa (pm )χb (q n )p−m(s−1) q −n (m log p)w log p
+:= −                                                                                               ,
+      2π                                                        n(m log p − n log q)
+             (a,b)∈{(1,2),(2,1)} p, m, q, n
+                                 pm 6= qn
+
+E3 (w, s, {χj }2j=1 )
+     1         X                    X χa (pm )χ¯b (q n )p−m(s+α) q −n(1+α)
+:=                                                                         (m log p)w log p,
+    2π                            p,m,q,n
+                                             n(m log p + n log q)
+           (a,b)∈{(1,2),(2,1)}
+
+E4 (w, s, {χj }2j=1 )
+       1         X                   X χa (−1)χb (pm )p−m(s+α) q −αnπi
+:= −                                                                                 (m log p)w−2 log p,
+      2π                                             n(im log p − nπ)
+             (a,b)∈{(1,2),(2,1)} p,m,n
+
+E5 (w, s, {χj }2j=1 )
+                                                                    
+                                                         1−χb (−1)
+      i           X              X χa (pm )p−m s−           2
+ :=                                                                      (m log p)w−1 log p,
+      2                                      sin(im log p)
+          (a,b)∈{(1,2),(2,1)} p,m
+
+E6 (w, s, {χj }2j=1 )
+4                                                       H. TANAKA
+
+                                       Z
+            i          X                                X
+    := −                                                     χa (pm )p−m(s−u) (m log p)w (log p)
+           2π                              S (2) (π→0) p,m
+                (a,b)∈{(1,2),(2,1)}
+
+                                                                                       × log L(u, χb )du,
+
+E7 (w, s, {χj }2j=1 )
+                                          χa (−1)Γ(1 + α)Naα G(χa )
+                                                                                      
+           X                    1                                                 2π   πi
+:=                                    log                             + γ + log      +
+                               2π                 (2π)1+α                         Na   2
+         (a,b)∈{(1,2),(2,1)}
+                             X
+                         ×           χb (pm )p−m(s+α) (m log p)w−2 log p
+                               p,m
+          2
+          X         1+α X
+     +            −           χa (pm )p−m(s+α) (m log p)w−1 log p
+          a=1
+                      4 p,m
+                     i X
+                  +        χa (pm )p−m(s+α) (m log p)w−1 log p
+                    2π p,m
+                     Z ∞
+                                   u + m(log p)(1 − e−αu )
+                                                              
+                            1
+                  ×              ·                         du   ,
+                      0  eu − 1         u + m log p
+E8 (w, s, {χj }2j=1 )
+                                     χb (pm )p−m(s− 2 −τχa ) (m log p)w−1 log p,
+           X                       X                1   (0)
+:=                    µχa (τχ(0)
+                              a
+                                 )
+         (a,b)∈{(1,2),(2,1)}                  p,m
+
+E9 (w, s, {χj }2j=1 )
+                                                    χb (pm )p−m(s− 2 +τχa ) (m log p)w−1 log p,
+                X                             X                         1   (0)
+    :=                         µχa (τχ(0)
+                                       a
+                                          )
+         (a,b)∈{(1,2),(2,1)}                  p,m
+
+E10 (w, s, {χj }2j=1 )
+                                                 χb (pm )p−m(s− 2 ) (m log p)w−1 log p,
+                                                                   1
+                X                          X
+    :=                         µχa (0)
+         (a,b)∈{(1,2),(2,1)}               p,m
+
+
+where S (r) := 1+α            (r)
+                                  sin ϕ + 1−α
+              
+                 2 cos ϕ + iε               2 | 0 ≤ ϕ ≤ π and γ, Γ(s) and G(χj )
+denote the Euler constant, the gamma function and the Gauss sum respectively,
+that is,
+                                      K
+                                                   !
+                                     X    1
+                      γ := lim              − log K ,
+                           K→∞            k
+                                     k=1
+                               Z ∞
+                      Γ(s) :=        e−t ts−1 dt (ℜ(s) > 0),
+                                                    0
+                                                    Nj
+                                                                  2πi
+                                                    X                   n
+                                     G(χj ) :=            χj (n)e Nj .
+                                                    n=1
+
+Then, letting r = 2 in the “key equation”, we can deduce the Euler product ex-
+pression of (Lχ1 ⊗ Lχ2 )(s) as follows :
+                        F1
+
+Theorem 1.3. In ℜ(s) > 2 we have
+                                                                10
+                                                                                        !
+                                                                X
+                             (Lχ1 ⊗ Lχ2 )(s) = exp                     Ek (s, {χj }2j=1 )   ,
+                                      F1
+                                                                k=1
+                             EULER PROD. OF ABSOLUTE TENSOR PROD.                                       5
+
+
+where Ek (s, {χj }2j=1 ) := Ek (0, s, {χj }2j=1 ), that is,
+
+E1 (s, {χj }2j=1 )
+        i X χ1 (pm )χ2 (pm )p−ms   i(s − 2) X χ1 (pm )χ2 (pm )p−ms log p
+:= −                             +                                       ,
+       2π p,m        m2               2π p,m               m
+E2 (s, {χj }2j=1 )
+           i           X                  X       χa (pm )χb (q n )p−m(s−1) q −n log p
+ := −                                                                                  ,
+          2π                                            n(m log p − n log q)
+                (a,b)∈{(1,2),(2,1)} p, m, q, n
+                                    pm 6= qn
+
+E3 (s, {χj }2j=1 )
+     1         X                   X χa (pm )χb (q n )p−m(s+α) q −n(1+α)
+:=                                                                       log q,
+    2π                           p,m,q,n
+                                            n(m log p + n log q)
+           (a,b)∈{(1,2),(2,1)}
+
+E4 (s, {χj }2j=1 )
+           1           X              X χa (−1)χb (pm )p−m(s+α) e−iαnπ
+ := −                                                                                     ,
+          2π                                     m2 n(im log p − nπ) log p
+                (a,b)∈{(1,2),(2,1)} p,m,n
+
+E5 (s, {χj }2j=1 )
+                                                                     
+                                                          1−χb (−1)
+      i            X            X χa (pm )p−m s−             2
+ :=                                                                       ,
+      2                                     m sin(im log p)
+          (a,b)∈{(1,2),(2,1)} p,m
+
+E6 (s, {χj }2j=1 )
+                                      Z
+        i          X                               X
+:= −                                                     p−m(s−u) (log p)χa (pm ) log L(u, χb )du,
+       2π                             S (2) (π→0) p,m
+                (a,b)∈{(1,2),(2,1)}
+
+E7 (s, {χj }2j=1 )
+                                      χa (−1)Γ(1 + α)Naα G(χa )
+                                                                                  
+     1         X                                                              2π   πi
+:=                                log                             + γ + log      +
+    2π                                        (2π)1+α                         Na   2
+           (a,b)∈{(1,2),(2,1)}
+                                X χb (pm )p−m(s+α)
+                            ×
+                                p,m
+                                            m2 log p
+          2
+          X           1 + α X χa (pm )p−m(s+α)
+    +             −
+          a=1
+                        4 p,m         m
+                                                    Z ∞                                       !
+                   i X χa (pm )p−m(s+α)                       1     u + m(log p)(1 − e−αu )
+                +                                                 ·                         du ,
+                  2π p,m    m2 log p                 0     eu − 1        u + m log p
+                                                                X χb (pm )
+                                                                                   p−m(s− 2 −τχa ) ,
+                                      X                                                       1   (0)
+E8 (s, {χj }2j=1 ) :=                            µχa (τχ(0) )
+                                                         a
+                                                                p,m
+                                                                              m
+                           (a,b)∈{(1,2),(2,1)}
+                                                                X χb (pm )
+                                                                                   p−m(s− 2 +τχa ) ,
+                                      X                                                   1   (0)
+E9 (s, {χj }2j=1 ) :=                            µχa (τχ(0) )
+                                                         a
+                                                                p,m
+                                                                              m
+                           (a,b)∈{(1,2),(2,1)}
+                                                            X χb (pm )
+                                                                                  p−m(s− 2 ) .
+                                      X                                                   1
+E10 (s, {χj }2j=1 ) :=                            µχa (0)
+                                                            p,m
+                                                                      m
+                            (a,b)∈{(1,2),(2,1)}
+
+   The proofs of Theorem 1.1 and Theorem 1.3 are given in Section 5 and Section
+6 respectively. The contents of the other sections are as follows. In Section 2 some
+lemmas are proved which are made use of in Section 3 or later. In Section 3 a series
+6                                     H. TANAKA
+
+
+is introduced which includes information on the zeros of the Dirichlet L-functions
+and some properties of the series is shown. In Section 4 the “key equation” is
+deduced.
+
+                               Acknowledgements
+I really thank Shin-ya Koyama for his giving me the opportunity to study this
+theme and much useful advice and Ki-ichiro Hashimoto for his special support. I
+also thank Hirotaka Akatsuka for his showing me the beneficial information for this
+study.
+
+                                      2. Lemmas
+    In this section, we prove some lemmas which are used later.
+Lemma 2.1. Let c ∈ C − {0} and δ ∈ R>0 be any fixed numbers.
+(i) Suppose that f (u) satisfies f (u) = O(1) (u → 0), O(u−δ ) (u → ∞) and is
+holomorphic on C − {0}. Define
+                                Z ∞
+                                       f (u)
+                      F1 (z) :=              du (ℑ(cz) < 0).
+                                 0    u − cz
+Then F1 (z) + f (cz) log z is a single-valued meromorphic function of z on C − {0}.
+(ii) Suppose that f (u) satisfies f (u) = O(1) (u → 0), O(u1−δ ) (u → ∞) and is
+holomorphic on C − {0}. Define
+                                Z ∞
+                                         f (u)
+                      F2 (z) :=        2 − (cz)2
+                                                 du (ℑ(cz) < 0).
+                                 0   u
+Then F2 (z) + f (cz)−f
+                    2cz
+                       (−cz)
+                             log z is a single-valued meromorphic function of z on
+C − {0}.
+Proof of Lemma 2.1. (i) If cz is in the fourth quadrant, then by Cauchy’s the-
+orem we have
+                                       f (u)
+                              Z
+                         lim                 du = 0,                     (2.1)
+                       X→∞ P ∪P u − cz
+                                 1  2
+
+where
+         P1 := {u ∈ R | 0 ≤ u ≤ X},
+                                    
+                    iϕ            3π
+         P2 := Xe       0≤ϕ≤           ∪ {u ∈ C | ℜ(u) = 0, −X ≤ ℑ(u) ≤ 0}
+                                   2
+for X ∈ R>0 and we go around the integral path in the counterclockwise direction.
+It follows from (2.1) that
+                                                  f (u)
+                                            Z
+                            F1 (z) = − lim              du.                 (2.2)
+                                       X→∞ P u − cz
+                                              2
+
+Since the integral path in the right-hand side of (2.2) doesn’t include the positive
+real axis, (2.2) remains holomorphic while cz moving from the fourth quadrant into
+the first one across that axis. Therefore, (2.2) gives the analytic continuation of
+F1 (z) with cz in the first quadrant. On the other hand, when cz is in the first
+quadrant, by Cauchy’s theorem we have
+                                      f (u)
+                               Z
+                           lim              du = 2πif (cz).
+                          X→∞ P ∪P u − cz
+                                 1  2
+
+From this and (2.2) it follows that
+                                               Z ∞
+                                                      f (u)
+                       F1 (z) = −2πif (cz) +                du.                (2.3)
+                                               0     u − cz
+                          EULER PROD. OF ABSOLUTE TENSOR PROD.                                              7
+
+
+The right-hand side of (2.3) is a holomorphic function of z if cz isn’t on the non-
+negative real axis, so we find that F1 (z) changes by −2πif (cz) when cz moves
+counterclockwise around the origin, making one complete circuit. Therefore F1 (z)+
+f (cz) log z is unchanged by the analytic continuation around the originso a single-
+valued on C − {0}.
+(ii)When cz moves counterclockwise around the origin, the poles u = cz and u =
+−cz of the integrand of F2 (z) cross the positive real axis by cz being moved from
+the fourth quadrant to the first one and by from the second one to the third one
+respectively. Therefore, we can show (ii) in a similar way as (i).                
+Remark 2.2. If ℑ(cz) > 0 then we have
+                                                           Z ∞
+                                        h(cz)                      h(u)
+                           F2 (z) = −πi       +                               du.
+                                         cz                0     u2 − (cz)2
+We use this in the proof of Lemma 2.6.
+  Define that
+                           Z ∞
+                      1               1         u − it(1 − e−αu )
+           H(t) :=                          ·                     du            (ℜ(t) < 0),             (2.4)
+                      t     0    eu − 1              u − it
+                                      1+χj (−1)
+                           Z ∞                  uu     t         t
+                                                                        
+                     1           ue              2 cos 2 − t sin 2
+                                         4
+           Ij (t) :=                                                        du (ℜ(t) > 0),              (2.5)
+                     t      0             (eu − 1)(u2 + 4t2 )
+                                  log t
+           Jj (t) := Ij (t) +                                                                           (2.6)
+                                 4 sin 2t
+for j ∈ Z>0 . For these functions, we show the following two lemmas : Lemma 2.4
+and Lemma 2.6.
+Remark 2.3. In the following, it is found that H(t), Ij (t) and Jj (t) has the analytic
+continuations, and let the same symbols denote those continuations respectively.
+Lemma 2.4. (i) H(t) has the following asymptotic behavior at t = 0 :
+                                                       1
+                                                e−i(α+ 2 )t
+                                H(t) = −                    log t + O(1).
+                                                 2 sin 2t
+             −i(α+ 1 )t
+(ii) H(t) + e 2 sin t2 log t is a single-valued meromorphic function on t ∈ C.
+                    2
+(iii) H(t) has the simple pole at t = 2nπ (n ∈ Z − {0}) with residue
+                                                           
+                                  −ωn ·2απi          1 − ωn
+                             ωn e            arg t −          ,
+                                                        2
+             n
+where ωn := |n| .
+
+Remark 2.5. If t ∈ C − iR≤0 and the argument lies in − π2 , 3π
+                                                               
+                                                             2 , it follows from
+                                                                                    −i(α+ 1 )t
+Lemma 2.4 (ii) that H(t) is a meromorphic function because e 2 sin t2                            log t is such
+                                                                   2
+one.
+Proof of Lemma 2.4. (i) (2.4) is equivalent to
+                Z 1 Z ∞ 
+                               1      u − it(1 − e−αu )
+        tH(t) =     +        u
+                                    ·                   du                          (ℜ(t) < 0).         (2.7)
+                  0   1     e −1           u − it
+The second integral is holomorphic on t ∈ C − iR≤−1 and particularly at t = 0
+becomes
+                                Z ∞
+                                        1
+                                      u
+                                           du.                           (2.8)
+                                 1   e −1
+8                                            H. TANAKA
+
+
+Next, we concider the first integral of the right-hand side of (2.7). For |u| < 2π, we
+have
+                                                   ∞
+                               u − it(1 − e−αu ) X
+                                                =     an (t)un                                 (2.9)
+                                    eu − 1        n=0
+
+and then by the binomial theorem the right-hand side of (2.9) becomes
+     ∞
+     X
+           an (t)(u − it + it)n
+     n=0
+         ∞                    ∞                        ∞              n−1
+                                                                      X      
+         X
+                        n
+                              X
+                                                n
+                                                       X                    n
+     =         an (t)(it) +         an (t)(u − it) +         an (t)            (u − it)n−k (it)k
+         n=0                  n=1                      n=2
+                                                                            k
+                                                                      k=1
+
+so
+
+               (the first integral of the right-hand side of (2.7))
+                   ∞               Z 1                  ∞         Z 1
+                  X                       1            X
+                =      an (t)(it)n             du +        an (t)     (u − it)n−1 du
+                  n=0               0  u −  it         n=1         0
+                      ∞         n−1
+                                                                                              (2.10)
+                     X          X n           Z   1
+                  +      an (t)          (it)k        (u − it)n−k−1 du.
+                    n=2
+                                      k           0
+                                k=1
+
+The third term of (2.10) is holomorphic for |t| < 1 and vanishes at t = 0. The
+second term of (2.10) is equal to
+                   Z 1X ∞                  Z 1           
+                                                   1    1
+                           an (0)un−1 du =            −     du            (2.11)
+                    0 n=1                   0   eu − 1 u
+
+at t = 0, where we use a0 (0) = 1 because we have
+                                              ∞
+                                        u     X
+                                            =    an (0)un
+                                      eu − 1 n=0
+
+from (2.9). Then, the first term of (2.10) is equal to
+            ∞
+            X                                           ite−iαt
+                an (t)(it)n (log(1 − it) − log(−it)) = − it     log t + th1 (t)
+            n=0
+                                                        e −1
+
+for |t| < 1, where h1 (t) is a power series which converges for |t| < 1. Noting that
+by Cramér [8, p. 117, (20)] it was shown that
+
+                        (the right-hand side of (2.11)) + (2.8) = 0,
+
+it follows that
+                                                                      1
+                        ie−iαt                    e−i(α+ 2 )t
+                H(t) = − it    log t + h2 (t) = −             log t + h2 (t),                 (2.12)
+                        e −1                       2 sin 2t
+
+where h2 (t) is a power series which converges in |t| < 1. The proof of (i) is complete.
+                                −i(α+ 1 )t
+(ii) We find that H(t) + e 2 sin t2 log t is holomorphic for |t| < 1 from (2.12) and
+                                  2
+is a single-valued function on t ∈ C − {0} from Lemma 2.1 (i). The proof of (ii) is
+complete.
+(iii) By (2.4) it is easily found that H(t) is holomorphic if arg t ∈ − π2 , 3π
+                                                                                
+                                                                              2 . From
+this and Lemma 2.4 (ii) we can obtain the desired result.                            
+                        EULER PROD. OF ABSOLUTE TENSOR PROD.                                          9
+
+
+Lemma 2.6. Jj (t) has the following properties :
+(i) Jj (t) is a single-valued meromorphic function on t ∈ C − {0},
+(ii) Jj (t) satisfies that for t ∈ C − iR≤0
+                                              χj (−1)
+                                         e− 2 it             iπ
+                                   −πi 2 sin t − 4 sin t (ℜ(t) < 0),
+                                   
+                                   
+                                   
+                                                                 2
+                Jj (t) + Jj (−t) =       χj (−1)
+                                                                                                 (2.13)
+                                                  it
+                                   
+                                      e     2           iπ
+                                   πi               +             (ℜ(t) > 0),
+                                   
+                                   
+                                         2 sin t       4 sin 2t
+where the argument lies in − π2 , 3π
+                                        
+                                      2 .
+
+Proof of Lemma 2.6. (i) We should use Lemma 2.1 (ii) as
+                                                       1+χj (−1)
+                                                                 u u     t         t
+                                                                                       
+                                                  ue               2 cos 2 − t sin 2
+                                                          4
+              c = −2i, z = t and f (u) =                                                   .
+                                                                t(eu − 1)
+                                                                         log t
+(ii) Let t ∈ C − iR≤0 and the argument lie in − π2 , 3π
+                                                         
+                                                        2 . Then, since 4 sin 2t is
+meromorphic, by Lemma 2.6 (i) we find that Ij (t) is as well.
+    Now, by Remark 2.2, for ℜ(t) < 0 we have
+                    1+χj (−1)           1+χj (−1)
+                                1 ∞ ue 4 u u2 cos 2t − t sin 2t
+                                                                
+                   e 2 it
+                                 Z
+      Ij (t) = −πi            +                                   du.      (2.14)
+                      sin t     t 0        (eu − 1)(u2 + 4t2 )
+Adding 4log t
+         sin t
+               to the both sides of (2.14), we obtain
+             2
+
+                                                                log t
+        Jj (t) = (the right-hand side of (2.14)) +                          (ℜ(t) < 0).          (2.15)
+                                                               4 sin 2t
+On the other hand, from (2.5) and (2.6) we can obtain the following equations : for
+ℜ(t) < 0
+                         log(−t)
+   Jj (−t) = Ij (−t) −
+                          4 sin 2t
+                              1+χj (−1)                                                          (2.16)
+                  Z ∞                   u
+                                        u     t         t
+                                                                
+              1          ue             2 cos 2 − t sin 2                  log t      iπ
+                                 4
+           =−                                                        du −       t −          .
+              t     0            (eu − 1)(u2 + 4t2 )                      4 sin 2   4 sin 2t
+From (2.15) and (2.16) it is follows that
+                                            e1+χj (−1) 4it      iπ
+              Jj (t) + Jj (−t) = −πi                       −                 (ℜ(t) < 0),         (2.17)
+                                                sin t        4 sin 2t
+which is (2.13) with R(t) < 0. By replacing t with −t in (2.17), we obtain (2.13)
+with ℜ(t) > 0.                                                                 
+   Lemma 2.7 was proved by Akatsuka [7].
+Lemma 2.7. (i) [7, Lemma 2.5] For any X, Y ∈ R>0 satisfying X < Y
+                                           Y −X
+                           log Y − log X ≥      .
+                                             Y
+                        ∞
+                     XX     p−m
+(ii) [7, Remark 2.1]                < ∞.
+                     p m=1
+                           m2 log p
+(iii) [7, p639, (4.4)] For any fixed δ ∈ R>0 and any A ∈ R
+                          ∞
+                         XX
+                                     p−m(1+δ) (m log p)A log p < ∞.
+                          p m=1
+
+   We prove a formula for the gamma function in the following lemma.
+10                                            H. TANAKA
+
+
+Lemma 2.8. Let any fixed ψ ∈ R satisfy − π2 < ψ < π2 and let arg ν ∈ (−ψ −
+π        π
+2 , −ψ + 2 ) and ℜ(w) > 0. Then, we have
+                                   Z ∞eiψ
+                            Γ(w)                 dt
+                               w
+                                 =        e−νt tw .
+                             ν      0             t
+Proof of Lemma 2.8. For any fixed ψ ∈ R satisfying − π2 < ψ < π2 , let arg ν =
+−ψ. Then, we have
+              Z ∞       w      Z ∞ν −1             Z ∞eiψ
+       Γ(w)         −t  t   dt            −νt w dt                 dt
+            =     e            =         e t       =        e−νt tw .
+        νw     0        ν    t    0              t    0             t
+When w is fixed in ℜ(w) > 0, the both sides are holomorphic in
+                                 n                π           π  o
+        {ν ∈ C | ℜ(νeiψ ) > 0} = ν ∈ C −ψ − < arg ν < − ψ .
+                                                  2            2
+This completes the proof.                                                                         
+
+      3. Properties of a series concerning the zeros of the Dirichlet
+                                        L-functions
+                                 −τ t
+                                      (ℜ(t) > 0) where τ ∈ C with ρ = 21 + iτ for the
+                       P
+   For a series θ(t) := ℜ(τ ) e
+imaginary zeros ρ of the Riemann zeta function, Cramér [8] deduced the explicit
+formula and then Guinand [9] obtained the meromorphic continuation and the
+poles by proving the functional equation and deduced the approximate behavior.
+                                             it
+Akatsuka [7] introduced θ∗ (t) := θ(t)−e− 2 (t ∈ C−iR≤0 ) and proved the properties
+on the basis of the results of Cramér and Guinand.
+   We define a following series :
+                                      X
+                        lχj (t) :=          e−τχj t (ℜ(t) > 0).                 (3.1)
+                                         ℜ(τχj )>0
+
+for j ∈ Z>0 . With reference to the methods of the above three mathematicians we
+research in this series.
+   We define the complete Dirichlet L-function L̂(s, χj ) by
+                          − s2 + 1−χj4(−1)
+                                            
+                                                                
+                          π                        s 1 − χj (−1)
+           L̂(s, χj ) :=                       Γ     +             L(s, χj )
+                          Nj                       2      4
+and define that
+                                                      
+                                                   1
+                             ξ(s, χj ) := L̂ s + , χj .
+                                                   2
+                        ξ′
+It is well known that      (s, χj ) satisfies the functional equation :
+                         ξ
+                                  ξ′               ξ′
+                                     (−s, χj ) = − (s, χ¯j ).
+                                  ξ                 ξ
+     First, we prove the meromorphy and the functional equation of lχj (t).
+Theorem 3.1. lχj (t) has a meromorphic continuation to C − iR≤0 for which
+   lχj (t) + lχ¯j (−t)
+                χj (−1)
+           ie− 2 it                 (0)     iτχ(0) t     −iτχ(0) t
+          −               − µ     (τ     )(e     j    + e       j ) − µ
+                                                                        χj (0)   (ℜ(t) < 0),
+       
+                             χ j    χ
+               2 sin t                j
+       
+       
+    =                                                                                          (3.2)
+           χj (−1)
+                    it
+        ie 2
+       
+                                        iτ (0) t      −iτ (0) t
+       
+                       − µχj (τχ(0)
+       
+                                    )(e χj + e χj ) − µχj (0)                    (ℜ(t) > 0),
+            2 sin t               j
+
+
+where the argument lies in (− π2 , 3π      2 ).
+                          EULER PROD. OF ABSOLUTE TENSOR PROD.                                                     11
+
+
+Proof of Theorem 3.1. If ℜ(t) > 0, then by Cauchy’s theorem we have
+                         1                   ξ′
+                            Z
+              lχj (t) =                  eist (s, χj )ds
+                        2πi C1 ∪C2,j ∪C3      ξ
+                                             Z !
+                         1                             ξ′
+                              Z     Z
+                      =           +        +      eist (s, χj )ds,                                              (3.3)
+                        2πi    C1     C2,j     C3      ξ
+where
+                                                                                     
+                                                            1
+                              C1 :=        s∈C      ℜ(s) = − , ℑ(s) ≥ 0
+                                                            2
+                                                                                         
+                                        1
+                              C2,j :=     cos ϕ + iεj sin ϕ 0 ≤ ϕ ≤ π
+                                        2
+                                                                 
+                                                        1
+                              C3 := s ∈ C ℜ(s) = , ℑ(s) ≥ 0 ,
+                                                        2
+and we go around the integral path in the counterclockwise direction.
+  First, we consider the integral of the path C1 . It becomes
+                       Z 0
+                                          ξ′
+                                                              
+                                                    1
+                 Z
+                            ei(− 2 +iy)t
+                                   1
+                     =                          − + iy, χj idy
+                  C1     ∞                ξ         2
+                                  Z 0         ′
+                                                              
+                            − it        −yt ξ       1
+                     = −ie     2      e               − iy, χ¯j dy
+                                    ∞        ξ 2
+                               Z ∞                      
+                          − it         −yt        1       π
+                     = ie   2        e        − log                                                             (3.4)
+                                 0                2       N j
+                                              1 Γ′ 3 − χj (−1) iy
+                                                                      
+                                          +                        −                                            (3.5)
+                                              2Γ             4       2
+                                                ′
+                                                               
+                                             L
+                                          + (1 − iy, χ¯j ) dy.                                                  (3.6)
+                                              L
+The term concerning (3.4) becomes
+                          Z ∞                         
+               i it        π                  i  it     π
+             − e− 2 log           e−yt dy = − e− 2 log     .
+               2           Nj   0            2t         Nj
+Concerning (3.5), since
+                                  Z ∞  −u
+                     Γ′                     e−(s−1)u
+                                                     
+                                       e
+                        (s) =              − u         du                      (ℜ(s) > 0),
+                     Γ             0     u   e −1
+it follows that
+                             1+χ (−1)       
+                                  j
+                                        + iy
+                                           2 u
+         i ∞ −yt ∞  e−u
+           Z      Z
+                           e      4
+                e        −                      dudy
+         2 0       0   u         eu − 1
+                     Z ∞               Z ∞                       1+χj (−1)     Z ∞                     !
+         i it                    e−u                         e      4      u
+        = e− 2                               e−yt dy −                               e(
+                                                                                      −t+ iu
+                                                                                           2   )y dy       du
+         2            0           u    0                         eu − 1        0
+                     Z ∞                         1+χj (−1)          !
+            i − it       e−u       e 4 u
+        =     e 2            − u                  du.                         (3.7)
+            2      0      ut    (e − 1) t − iu2
+
+Concerning (3.6), since the Euler product p (1−χj (p)p−s )−1 (= L(s, χj )) converges
+                                          Q
+
+uniformly on ℜ(s) = 1, we have
+                                     ∞
+                   Z ∞                                           !
+                it
+                                 XX
+            ie− 2       e−yt −          χ¯j (pm )(log p)p−m(1−iy) dy
+                          0                  p m=1
+12                                                 H. TANAKA
+
+                                   ∞                                  Z ∞
+                             it
+                                  XX
+                  = −ie− 2                    χ¯j (pm )p−m (log p)             e(−t+im log p)y dy
+                                   p m=1                                  0
+                                 ∞
+                             it
+                                XX χ¯j (pm )p−m (log p)
+                  = −ie− 2                                            .
+                                   p m=1
+                                                 t − im log p
+
+   Similarly, we can calculate the integral of the path C3 in (3.3) and obtain the
+following result :
+                   Z
+                           i it    π
+                       = − e 2 log
+                    C3    2t         N
+                               Z ∞                1+χj (−1)    !
+                          i it        e−u       e 4 u
+                         + e2             − u                  du           (3.8)
+                          2     0      ut    (e − 1) t + iu 2
+                                              ∞
+                                        it
+                                             XX χj (pm )p−m log p
+                                  − ie 2                                        .
+                                             p m=1
+                                                        t + im log p
+
+Noting that
+          (3.7) + (3.8)
+                                                            1+χj (−1)it       it
+                                                                                   ! !
+                  2 cos 2t
+                             Z ∞                  Z ∞                 u
+            i                       e−u                 e      4  e− 2       e2
+          =                             du −                             +          du
+            2        t     0         u        0     eu − 1       t − iu
+                                                                      2    t + iu2
+                                               Z ∞ 1+χj (−1) u         Z ∞ 1+χj (−1) !
+            i 2 cos 2t
+                            Z ∞ −u
+                                 e                  e 4                    e 4
+          =                             du −             u−1
+                                                                du +                 du
+            2        t       0     u            0      e                0    eu − 1
+                 Z ∞ 1+χj (−1) u                               !
+                         e 4           2t cos 2t + u sin 2t
+               −                    ·               2       du
+                   0      eu − 1             t2 + u4
+                                        1+χj (−1) !
+            i cos 2t ∞ e−u            e 4 u
+                     Z
+          =                      −                    du + 2iIj (t),
+               t       0      u          eu − 1
+
+we can deduce that for ℜ(t) > 0
+                                                                              1+χj (−1)   !
+              cos 2t           cos 2t ∞                        e−u   e 4 u
+                          
+                                                                                                     1
+                                     Z
+                          π
+  lχj (t) = −        log     +                                     −                          du +     Ij (t)
+               2πt        Nj    2πt 0                           u     eu − 1                         π
+                                    ∞                                                     ∞
+                 1 − it X X χ¯j (pm )p−m log p     1 it X X χj (pm )p−m log p
+              −    e 2                          −    e2
+                2π       p m=1
+                                   t − im log p   2π    p m=1
+                                                               t + im log p
+                 1                 ξ′
+                    Z
+              +                eist (s, χj )ds.
+                2πi C2,j (π→0)     ξ
+
+Adding 4πlog t
+          sin t
+                to the both sides, we have
+                  2
+
+                 log t
+                                                                                         
+     lχj (t) +                                                                           
+               4π sin 2t
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+                                                          1+χ j (−1)   !                 
+               t                        t Z ∞     −u                 u
+                                                                                         
+           cos 2                  cos
+                      
+                         π              2       e       e     4                1         
+                                                                                         
+     =−          log          +                      −                   du +    J   (t)
+                                                                                         
+                                                                                   j
+                                                                                         
+            2πt         Nj          2πt 0         u         u
+                                                           e −1                π
+                                                                                         
+                                                                                         
+                         ∞
+                    X X χ¯j (pm )p−m log p                          ∞                      (3.9)
+            1    it                                   1 it X X χj (pm )p−m log p 
+        − e− 2                                     −    e2                               
+                                                                                         
+           2π                    t − im log p        2π                    t + im log p
+                                                                                         
+                                                                                         
+                     p m=1                                     p m=1
+                                                                                         
+                                                                                         
+                                   ′
+                                                                                         
+            1
+               Z
+                             ist ξ
+                                                                                         
+                                                                                         
+        +                  e         (s, χj )ds
+                                                                                         
+                                                                                         
+           2πi C2,j (π→0)        ξ
+                                                                                         
+                          EULER PROD. OF ABSOLUTE TENSOR PROD.                             13
+
+
+because Jj (t) = Ij (t) + 4log t
+                            sin t
+                                  . Therefore, it is found by Lemma 2.6 that lχj (t) +
+                                        2
+ log t
+4π sin 2t
+             is a sigle-valued meromorphic function on t ∈ C − {0} and further if
+                                                                      log t
+arg t ∈ (− π2 , 3π2 ) then it follows from the meromorphy of 4π sin 2t that lχj (t) is
+also a meromorphic function. It implies the former statement of Theorem 3.1. In
+the following, the argument lies in (− π2 , 3π
+                                             2 ).
+   Now, let ℜ(t) < 0. Replacing t and χj with −t and χ¯j respectively in (3.9), we
+have
+                  log(−t)
+                                                                                 
+     lχ¯j (−t) −                                                                 
+                  4π sin 2t
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 
+                                                   1+χj (−1)   !                 
+              t                   t   ∞    −u                u
+                                                                                 
+          cos 2               cos 2
+                        
+                                                                      1
+                                    Z
+                      π                  e        e 4                            
+                                                                                 
+     =          log         −                 −                  du +   J   (−t)
+                                                                                 
+                                                                          j
+                                                                                 
+           2πt        N        2πt         u        eu − 1            π
+                                                                                 
+                                                                                 
+                         j                     0
+                         ∞                                                    ∞
+               1 it X X χj (pm )p−m log p               1 − it X X χ¯j (pm )p−m log p 
+            + e2                                     +    e 2                         
+                                                                                      
+              2π                t +  im   log   p      2π              t − im log p
+                                                                                      
+                                                                                      
+                    p   m=1                                    p m=1
+                                                                                      
+                                                                                      
+                                      ′
+                                                                                      
+               1
+                 Z
+                                    ξ
+                                                                                      
+                                                                                      
+                               −ist
+            +                e          (s, χ¯j ds).
+                                                                                      
+                                                                                      
+              2πi C2,j (π→0)
+                                                                                      
+                                    ξ
+                                                                                      (3.10)
+The second term of the left-hand side of (3.10) is equal to
+                                                  log t        i
+                                             −          t −          .
+                                                 4π sin 2   4 sin 2t
+By Lemma 2.6 (ii), the third term of the right-hand side of (3.10) is equal to
+                                            χj (−1)
+                                        e− 2 it        i      1
+                                   −i             −          − Jj (t).
+                                          2 sin t   4 sin 2t  π
+By replacing s with −s, we find that the last term of the right-hand side of (3.10)
+becomes
+                              ′
+       1                                           1                  ξ′
+          Z                                          Z
+                        ist ξ
+                      e         (−s, χ¯j )(−ds) =                 eist (s, χj )ds,
+      2πi C4,j (0→−π)       ξ                     2πi C4,j (0→−π)     ξ
+where
+                                                                              
+                                   1
+                     C4,j :=         cosϕ + iεj sin ϕ         ϕ ∈ R, −π ≤ ϕ ≤ 0 .
+                                   2
+Hence, adding (3.9) and (3.10), it follows that
+                            χj (−1)
+                         ie− 2 it      1                         ξ′
+                                         Z
+ lχj (t) + lχ¯j (−t) = −            +                        eist (s, χj )ds. (3.11)
+                           2 sin t    2πi C2 (π→0)∪C4 (0→−π)     ξ
+By residue theorem, the second term of the right-hand side of (3.11) becomes
+                                            iτ (0) t              −iτχ(0) t
+                        −µχj (τχ(0)
+                                 j
+                                    )e χj − µχj (τχ(0)
+                                                    j
+                                                       )e                j    − µχj (0).
+Hence, we obtain (3.2) for ℜ(t) < 0. We can obtain (3.2) for ℜ(t) > 0 by replacing
+t with −t in (3.2) for ℜ(t) < 0. This completes the proof.                      
+
+   Next, we deduce the explicit formula, the approximate behavior and the poles
+of lχj (t).
+Theorem 3.2. Define Sj := 1+α                           1−α
+                                
+                                   2 cos ϕ + iεj sin ϕ + 2 | 0 ≤ ϕ ≤ π .
+(i) lχj (t) has the following expression for ℜ(t) > 0 :
+   lχj (t)
+14                                        H. TANAKA
+
+
+                                               e−i(α+ 2 )t
+                     ∞                                1             ∞
+         it it X X χj (pm )p−m                                  XX      χ¯j (pm )p−m(1+α)
+     =−     e2                              +                it
+        2π       p m=1
+                         m(t + im log p)           2π           p m=1
+                                                                         m(t − im log p)
+            ∞
+                χj (−1)m e−αmπi               χj (−1)Γ(1 + α)Njα G(χj )
+                                                                          
+           X                                                                      (1 + α)π
+      − it                          + i log                  1+α
+                                                                               −
+           m=1
+                    m(t + mπ)                           (2π)                          2
+                                       Z ∞                          −αu
+                                                                                  
+        1               2π       πi      1          1      u + it(1 − e      )
+      −      γ + log         +        +                  ·                     du
+        t               Nj        2      t 0 eu − 1             u + it
+                  Z
+          t − it
+      −     e 2             eist log L(s, χj )ds.
+        2π         Sj (π→0)
+
+(ii) lχj (t) has the following expression for t ∈ C − iR≤0 :
+ lχj (t)
+                                                                                             
+                                                                                             
+                                            ei(α+ 2 )t
+                    ∞                             1              ∞                           
+       it − it X X χ¯j (pm )p−m                                     χj (pm )p−m(1+α)
+                                                             XX                              
+                                                                                             
+ =− e                                   −
+                                                                                             
+             2                                            it                                 
+                                                                                             
+       2π       p m=1
+                        m(t − im log p)        2π             p m=1
+                                                                     m(t + im log p)         
+                                                                                             
+                                                                                             
+                                                                                             
+          ∞                                                  α
+                                                                                             
+         X χj (−1)e−αmπi             
+                                       χj (−1)Γ(1 + α)Nj G(χ¯j )
+                                                                     
+                                                                           (1 + α)π
+                                                                                             
+                                                                                             
+                                                                                             
+    −it                      + i log                   1+α
+                                                                        −
+         m=1
+               m(t  − mπ)                        (2π)                          2             
+                                      
+       1             2π
+                                                        Z
+                            πi                  t it2
+                                                                                             
+                                                                                             
+                                                                  e−ist log L(s, χ¯j )ds
+                                                                                             
+    +      γ + log        +       − H(t) −        e                                          
+                                                                                             
+       t            Nj       2                 2π
+                                                                                             
+                                                         Sj (π→0)
+                                                                                             
+                                                                                             
+          χj (−1)
+                                                                                             
+                                                                                             
+       ie− 2 it
+                                                                                             
+                                 iµ (τ (0) )t −iµ (τ (0) )t
+                                                                                             
+                 − µχj (τχ(0) )(e χj χj + e χj χj ) − µχj (0).
+                                                                                             
+     −                                                                                       
+         2 sin t           j
+
+                                                                                       (3.12)
+(iii) lχj (t) has the following approximate behavior at t = 0 :
+                                                           
+                             log t    1       2π          3πi
+                 lχj (t) = −       −      log      +γ+          + O(1).
+                              2πt    2πt      Nj           2
+(iv) lχj (t) has simple poles in C − iR≤0 only at the following points :
+                                   (
+                                     t = im log p,
+                                     t = −mπ,
+where m ∈ Z≥1 .
+  In (ii) - (iv), the argument lies in − π2 , 3π
+                                                 
+                                               2 .
+
+Proof of Theorem 3.2. (i) If ℜ(t) > 0, then by Cauchy’s theorem
+                           1                       L′
+                             Z
+                                         ei(s− 2 )t (s, χj )ds,
+                                               1
+                lχj (t) =                                                              (3.13)
+                          2πt R1 ∪Sj ∪R2           L
+where
+                           R1 := {s ∈ C | ℜ(s) = −α, ℑ(s) ≥ 0},
+                           R2 := {s ∈ C | ℜ(s) = 1, ℑ(s) ≥ 0},
+and we go around the integral path in the counterclockwise direction. By the partial
+integration, (3.13) becomes
+                                 Z      Z     Z !
+                          t − it
+              lχj (t) = − e 2         +     +       eist log L(s, χj )ds.     (3.14)
+                         2π       R1     Sj    R2
+
+By using the functional equation
+                      Nj−s                   πi                 πi
+     L(s, χj ) =        1−s
+                            G(χj )Γ(1 − s)(e− 2 (1−s) + χj (−1)e 2 (1−s) )L(1 − s, χ¯j ),
+                    (2π)
+                          EULER PROD. OF ABSOLUTE TENSOR PROD.                                  15
+
+
+the integral of the path R1 becomes
+         Z      Z 0
+             =      ei(−α+iy)t log L(−α + iy, χj )idy
+           R1      ∞
+                              Z 0       α
+                                             Nj G(χj )
+                                                       
+                       −iαt         −yt
+                = ie             e      log                                                 (3.15)
+                               ∞             (2π)1+α
+                                             
+                                             2π
+                                   + iy log                                                 (3.16)
+                                             Nj
+
+                                    + log Γ(1 + α − iy)                                     (3.17)
+
+                                               πi                       πi
+                                    + log(e− 2 (1+α−iy) + χj (−1)e 2 (1+α−iy) )             (3.18)
+                                                             
+                                    + log L(1 + α − iy, χ¯j ) dy.                           (3.19)
+
+The integrals concerning (3.15) and (3.16) become
+                Z 0            α                      α
+                               Nj G(χj )               Nj G(χj )
+                                                                
+                      −yt                        1
+                    e     log              dy = − log                                       (3.20)
+                 ∞             (2π)1+α           t     (2π)1+α
+and
+                            Z 0                     
+                              2π                 i      2π
+                        i log       ye−yt dy = − 2 log     .                                (3.21)
+                              Nj ∞              t       Nj
+respectively. By the partial integration the integral concerning (3.17) is equal to
+   Z 0
+       e−yt log Γ(1 + α − iy)dy
+      ∞
+                               0
+                                    i 0 −yt Γ′
+       
+        1 −yt
+                                     Z
+   = − e      log Γ(1 + α − iy)   −      e     (1 + α − iy)dy
+        t                       ∞   t ∞      Γ
+      1                 iγ 0 −yt       i 0 −yt ∞ 1 − e(−α+iy)u
+                           Z            Z       Z
+   = − log Γ(1 + α) +         e dy −       e                   dudy                         (3.22)
+      t                  t ∞           t ∞       0      eu − 1
+because
+                                          Z ∞
+                        Γ′                          1 − eu(1−s)
+                           (s) = −γ +                           du (ℜ(s) > 0).
+                        Γ                  0          eu − 1
+The integral in the third term of (3.22) becomes
+                    Z ∞             Z 0
+                              1
+                             u−1
+                                        (e−yt − e−αu+(−t+iu)y )dydu
+                      0    e         ∞
+                        Z ∞
+                                                 e−αu
+                                                      
+                                  1        1
+                     =                   −    +          du
+                         0     eu − 1      t    t − iu
+                          1 ∞ 1              u + it(1 − e−αu )
+                             Z
+                     =−             u
+                                           ·                   du.
+                           t 0 e −1               u + it
+Hence,
+                                                     Z ∞
+                1              iγ   i                         1     u + it(1 − e−αu )
+      (3.22) = − log Γ(1 + α) − 2 + 2                             ·                   du.   (3.23)
+                t               t  t                  0    eu − 1        u + it
+The integral concerning (3.18) is equal to
+               Z 0
+                              πi                    πi
+                   e−yt log(e− 2 (1+α−iy) + χj (−1)e 2 (1+α−iy) )dy
+                   ∞
+16                                                H. TANAKA
+
+                       Z 0                                Z 0
+                                                             πi
+                   =         e   −yt
+                                       log χj (−1)dy +          (1 + α − iy)e−yt dy
+                        ∞                                  ∞ 2
+                           Z 0                                                          (3.24)
+                                     −yt                      −πi(1+α−iy)
+                       +         e         log(1 + χj (−1)e                 )dy.
+                             ∞
+Since the third term of (3.24) becomes
+     ∞                               Z 0                  ∞
+    X   (−1)m−1          m −imπ(1+α)       −(t+mπ)y
+                                                         X   χj (−1)m e−iαmπ
+                  χj (−1) e              e          dy =                     ,
+    m=1
+            m                          ∞                 m=1
+                                                                m(t + mπ)
+we have
+                                                  ∞
+                   1              (1 + α)πi   π  X   χj (−1)m e−imα
+         (3.24) = − log χj (−1) −           − 2+                    .                   (3.25)
+                   t                  2t     t   m=1
+                                                       m(t + mπ)
+The integral concerning (3.19) becomes
+                                            ∞
+                                               χ¯j −m(1+α) 0 (−t+im log p)y
+   Z 0                                   XX               Z
+         −yt
+       e     log L(1 + α − iy, χ¯j )dy =          p          e              dy
+     ∞                                   p m=1
+                                               m           ∞
+                                                          ∞
+                                                         XX χ¯j (pm )p−m(1+α)
+                                                  =−                                .   (3.26)
+                                                         p m=1
+                                                                  m(t − im log p)
+The integral of the path R2 of (3.14) becomes
+ Z ∞                                            ∞
+                                                   χj (pm ) −m ∞ −(t+im log p)y
+                                             XX               Z
+      ei(1+iy)t log L(1 + iy, χj )idy = ieit               p     e              dy
+  0                                          p m=1
+                                                      m        0
+
+                                                         X ∞
+                                                           X    χj (pm )p−m
+                                                = ieit                         .        (3.27)
+                                                         p m=1
+                                                               m(t + im log p)
+    Applying (3.20), (3.21), (3.23), (3.25), (3.26) and (3.27) to (3.14), we obtain the
+desired result.
+(ii) By Theorem 3.2 (i), we find that for ℜ(t) < 0
+     lχ¯j (−t)
+                                               ei(α+ 2 )t
+                        ∞                            1            ∞
+           it − it X X χ¯j (pm )p−m                            XX     χj (pm )p−m(1+α)
+     =−       e 2                           +               it
+          2π         p m=1
+                           m(t − im log p)        2π           p m=1
+                                                                       m(t + im log p)
+              ∞
+             X χj (−1)m eiαmπ              χj (−1)Γ(1 + α)Njα G(χ¯j )
+                                                                      
+                                                                             (1 + α)π
+        − it                     + i log                  1+α
+                                                                          −
+             m=1
+                    m(t − mπ)                       (2π)                         2
+                                        
+          1             2π
+                                                          Z
+                               πi                  t it2
+        +      γ + log      +        − H(t) +        e            e−ist log L(s, χ¯j )ds.
+          t             Nj      2                 2π       S(π→0)
+
+    By using the equation for lχj (t) deduced in Theorem 3.1, we obtain (3.12) for
+ℜ(t) < 0. Since the right-hand   side of (3.12) is meromorphic for t ∈ C − iR≤0 if
+the argument lies in − π2 , 3π2 , the proof of (ii) is completed.
+    In the following, let t ∈ C − iR≤0 and the argument lie in − π2 , 3π
+                                                                         
+                                                                       2 .
+(iii) By Theorem 3.2 (ii) and Lemma 2.4 (i), we find that
+                                                             χj (−1)
+                                                         ie− 2 it
+                                      
+                1             2π      πi       log t
+  lχj (t) = −       γ + log         +      −           −             + O(1) (t → 0)
+              2πt             Nj       2     4π sin 2t     2 sin t
+                                               
+              log t    1              2π     3πi
+          =−        −       γ + log        +         + O(1) (t → 0).
+               2πt    2πt             Nj       2
+(iv) By (3.1), we find trivially that lχj (t) is holomorphic for ℜ(t) > 0. From this
+and the expression obtained in Theorem 3.2 (ii), the desired result follows.      
+                                 EULER PROD. OF ABSOLUTE TENSOR PROD.                                                          17
+
+
+  We consider the bounds of lχj (t) which is needed later.
+Lemma 3.3. (i) For ℜ(t) ≥ 1
+                                                                                     1
+                                              lχj (t) = O(e−εj ℜ(t)+ 2 |ℑ(t)| ).
+(ii) For ℜ(t) ≤ −1
+                                              χj (−1)
+                                         e− 2 it                1           τ (0) |ℑ(t)|
+                     lχj (t) =            it  −it
+                                                  + O(eεj ℜ(t)+ 2 |ℑ(t)| + e χj          ).
+                                         e −e
+(iii) If t = σ + iU with U ≥ 2 and −U ≤ σ ≤ U , then
+                       it − it         χj (pm¯)p−m
+                                                     + O(U e(εj + 2 )U ).
+                                                                  1
+                                X
+             lχj (t) =    e 2
+                       2π            m(t − im log p)
+                                                    p, m
+                                                  pm < e2U
+
+Proof of Lemma 3.3. (i) If ℜ(t) ≥ 1, then we have
+                                     X
+                         lχj (t) =         e−τχj t
+                                                                 ℜ(τχj )>εj
+
+from (3.1). Since
+
+             X                                    X                                  X
+                     e−τχj t ≤                               |e−τχj t | =                      e−ℜ(τχj )ℜ(t)+ℑ(τχj )ℑ(t)
+       ℜ(τχj )>εj                          ℜ(τχj )>εj                             ℜ(τχj )>εj
+                                              1
+                                                               X             −ℜ(τχj )ℜ(t)
+                                        ≤e    2 |ℑ(t)|                   e
+                                                            ℜ(τχj )>εj
+                                              1
+                                                                             X
+                                        = e 2 |ℑ(t)| e−εj ℜ(t)                           e−(ℜ(τχj )−εj )ℜ(t)
+                                                                     ℜ(τχj )>εj
+
+                                                    −εj ℜ(t)+ 12 |ℑ(t)|
+                                        = O(e                                ),
+we obtain the desired result.
+(ii) For ℜ(t) ≤ −1, we have
+   lχj (t)
+                                    χj (−1)
+                           ie− 2 it                  iτ (0) t −iτ (0) t
+   = −lχ¯j (−t) −                    − µχj (τχ(0) )(e χj + e χj ) − µχj (0)
+                             2 sin t           j
+
+                                                  χj (−1)
+               X               τχ¯j t    e− 2 it                  iτ (0) t −iτ (0) t
+   =−                      e            + it      − µχj (τχ(0) )(e χj + e χj ) − µχj (0)                                   (3.28)
+                                         e − e−it           j
+         ℜ(τχ¯j )>εj
+
+by Theorem 3.1. Concerning the first and third term of the right-hand side of
+(3.28), we have
+
+                X                                  X                                X
+                           eτχ¯j t ≤                          |eτχ¯j t | =                    eℜ(τχ¯j )ℜ(t)−ℑ(τχ¯j )ℑ(t)
+             ℜ(τχ¯j )>εj                    ℜ(τχ¯j )>εj                       ℜ(τχ¯j )>εj
+                                              1
+                                                                X             ℜ(τχ¯j )ℜ(t)
+                                         ≤e   2 |ℑ(t)|                    e
+                                                            ℜ(τχ¯j )>εj
+                                              1
+                                                                          X
+                                         = e 2 |ℑ(t)| eεj ℜ(t)                           e(ℜ(τχ¯j )−εj )ℜ(t)
+                                                                    ℜ(τχ¯j )>εj
+
+                                                     εj ℜ(t)+ 12 |ℑ(t)|
+                                         = O(e                            )
+18                                                       H. TANAKA
+
+
+and
+                      iτ (0) t        −iτχ(0) t         −τχ(0) ℑ(t)         τ (0) ℑ(t)                 τ (0) |ℑ(t)|
+                   |e χj + e                j     |≤e       j         + e χj             = O(e χj                     )
+respectively. Hence, we obtain the desired result.
+(iii) When t = σ + iU with U ≥ 2 and −U ≤ σ ≤ U , we have
+                                                     ∞
+                                  it − it X X χ¯j (pm )p−m
+                                                                + O(U e( 2 +εj )U )
+                                                                         1
+                  lχj (t) =          e 2                                                                                        (3.29)
+                                  2π      p m=1
+                                                m(t − im log p)
+
+by estimating trivially each term of the right-hand side of (3.12) in Theorem 3.2
+except the first term.
+   If pm ≥ e2U , then U ≤ m log
+                             2
+                                p
+                                  , so m log p − U ≥ m log
+                                                        2
+                                                           p
+                                                             . Therefore, we have
+                                  i
+                                                    X               χ¯j (pm )p−m
+               (σ + iU )e− 2 (σ+iU)
+                                                                m(σ + iU − im log p)
+                                                    p, m
+                                                  pm ≥ e2U
+
+                          U
+                                   X                p−m                U
+                                                                                                   X           p−m
+               ≤ 2U e 2                                         ≤ 4U e 2
+                                                m(m log p − U )                                               m2 log p
+                                 p, m                                                          p, m
+                               pm ≥ e2U                                                      pm ≥ e2U
+
+                          U
+                              X    p−m              U
+               ≤ 4U e 2             2 log p
+                                            = O(U e 2 ).
+                              p,m
+                                  m
+
+In the last equation, we use Lemma 2.7 (ii). This completes the proof.                                                              
+     Now, we fix θj arbitrarily with 0 < θj < π4 and tan θj < εj .
+Corollary 3.4. (i) For u ≥ cos1 θj
+                                                                        u
+                                         lχj (ue−iθj ) = O(e− 2 sin θj ),                                                       (3.30)
+                                                                            τχ(0) u sin θj
+                                         lχj (uei(π−θj ) ) = O(e               j             ).                                 (3.31)
+(ii) If R ≥ 1 and −R tan θj ≤ y ≤ R tan θj then
+                                                                                 y
+                                lχj (R + iy) = O(e 2 ).
+(iii) If σ ∈ R, M ∈ Z≥100 and U := log M + 21 then
+                                                      
+                                     U
+
+                               O(e )                      (σ ≥ 1),
+                                     2
+
+                                      2 (εj + 21 )U
+                lχj (σ + iU ) = O(U e               )      (−1 ≤ σ ≤ 1),
+                                                     (0)
+                                                   τ     U
+                                         U
+                                 O(eεj σ+ 2 + e χj ) (σ ≤ −1).
+                               
+
+Proof of Corollary 3.4. (i) First, by Lemma 3.3 (i) we find
+                                                                            )+ 21 |ℑ(ue−iθj )|
+                                 lχj (ue−iθj ) = O(e−εj ℜ(ue
+                                                                       −iθj
+                                                                                                         )
+                                                            −u(εj cos θj − 21 sin θj )
+                                                   = O(e                                     )
+                                                            − 12 u sin θj
+                                                   = O(e                    ).
+In the last equation we use the fact that 12 sin θj < εj cos θj − 12 sin θj because
+tan θj < εj . Hence, (3.30) has been proved.
+   Next, by Lemma 3.3 (ii) we have
+                                           χj (−1)
+                                                   iuei(π−θj )
+               i(π−θj )               e−      2
+     lχj (ue              )=          i(π−θj )              i(π−θj )
+                                 eiue             − e−iue                                                                       (3.32)
+                                         εj ℜ(uei(π−θj ) )+ 12 |ℑ(uei(π−θj ) )|                   τχ(0) |ℑ(uei(π−θj ) )|
+                                 + O(e                                                   +e          j                     ).
+                          EULER PROD. OF ABSOLUTE TENSOR PROD.                                                    19
+
+
+Now,
+                     | (the first term of the right-hand side of (3.32)) |
+                                  1
+                                  e 2 u sin θj                1
+                     ≤      u sin θ        −u  sin θ
+                                                       = O(e− 2 u sin θj ).
+                          e         j −e             j
+
+
+Hence, we can deduce
+                                         1                                   1           τ (0) u sin θj
+           lχj (uei(π−θj ) ) = O(e− 2 u sin θj + e−u(εj cos θj − 2 sin θj ) + e χj                        )
+                                      τχ(0) u sin θj
+                              = O(e      j             ),
+
+where in the last equation we use the fact that εj cos θj − 21 sin θj > 0 because
+tan θj < εj . Hence, (3.31) holds.
+(ii) From Lemma 3.3 (i) and tan θj < εj , we can easily deduce the desired result.
+(iii) If σ ≥ 1 (respectively σ ≤ −1) then we can trivially deduce the desired result
+from Lemma 3.3 (i) (respectively Lemma 3.3 (ii)).
+    If −1 ≤ σ ≤ 1 then we can derive
+     lχj (σ + iU )
+           i(σ + iU ) − i (σ+iU)                            χ¯j (pm )p−m
+                                                                             + O(U e(εj + 2 )U )
+                                                                                          1
+                                          X
+       =             e 2
+               2π                                       m(σ + iU − im log p)
+                                         p, m
+                                       pm < e2U
+
+from Lemma 3.3 (iii). Concerning the first term of the right-hand side, we find that
+                     i                        U
+       (σ + iU )e− 2 (σ+iU) = O(U e 2 ),
+            X            χ¯j (pm )p−m                               X             p−m
+                                          ≤
+                     m(σ + iU − im log p)                                    | U − m log p |
+          p, m                                                    p, m
+        pm < e2U                                                pm < e2U
+               X               p−m                                  X                   p−m
+       =                                +                                                                     (3.33)
+                            U − m log p                                              m log p − U
+               p, m                                         p, m
+            pm < M + 12                           M + 12 ≤ pm < M + 12 2
+                                                                      
+
+
+and that by Lemma 2.7 (i)
+                                                                                          p−m
+                                                    
+                                                   1                        X
+       (the first term of (3.33))             ≤ M+
+                                                   2                                   M + 21 − pm
+                                                                         p, m
+                                                                      pm < M + 21
+                                                       M
+                                                      1 X        1
+                                              ≤    M+
+                                                      2 n=2 n M + 21 − n
+                                                                         
+
+                                                  M                 M
+                                                  X 1               X            1
+                                              =                 +
+                                                  n=2
+                                                            n       n=2
+                                                                          M + 21 − n
+                                   ≪ log M ≪ U,
+                                             X                                            p−m
+       (the second term of (3.33)) ≤
+                                                                                       m log p − U
+                                                                 p, m
+                                                       M + 12 ≤ pm < M + 21 2
+                                                                           
+
+                                                                     X                         1
+                                              ≤
+                                                                                               M + 21
+                                                                                                      
+                                                                                       pm −
+                                                                 p, m
+                                                       M + 12 ≤ pm < M + 21 2
+                                                                           
+20                                                   H. TANAKA
+
+                                                       2
+                                                     M
+                                                     X            1
+                                                 ≤                            ≪ U.
+                                                     n=1
+                                                         (n + M ) − (M + 21 )
+Hence, we can obtain
+                                                 U                      1                           1
+                   lχj (σ + iU ) = O(U 2 e 2 + U e(εj + 2 )U ) = O(U 2 e(εj + 2 )U ).
+This completes the proof.                                                                                                 
+
+                                     4. The “key equation”
+   In this section, we prove an equation we name the “key equation” which links
+the “factors series” of (Lχ1 ⊗ · · · ⊗ Lχr )(s) to r-tuples of prime numbers (r ∈ Z≥1 ).
+                                    F1      F1
+     Define that
+                                          θ(r) :=               min     {θj },
+                                                       j∈{1,··· ,r}
+
+
+                                         τr(0) :=           max {τχ(0)
+                                                                    j
+                                                                       },
+                                                     j∈{1,··· ,r}
+               n             r                  (r)
+                                                                      o
+Dθ(r) ,τr(0) := (w, z) ∈ C2 − sin θ(r) < ℜ(ze−iθ ) < −rτr(0) sin θ(r)
+                             2
+               n
+                          2  r                                                  o
+             = (w, z) ∈ C   − tan θ(r) < ℜ(z) + ℑ(z) tan θ(r) < −rτr(0) tan θ(r) ,
+                             2
+                                           Z ∞e−iθ(r)                   r
+      (1)                          1                                    Y
+     Lθ(r) (w, z, {χj }rj=1 ) :=                                 e−zt         lχj (t)tw−1 dt,                        (4.1)
+                                 Γ(w)       0                           j=1
+      (2)
+     Lθ(r) (w, z, {χj }rj=1 )
+                              −iθ(r)       r              ∞
+                     πiw Z ∞e                                         χ (−1)
+               r−1 e
+                                                                            
+                                                               − 2n−1− j 2     it
+                                          Y              X
+                                       zt
+     := (−1)                         e        lχ¯j (t) +     e
+                   Γ(w) 0                 j=1            n=1
+                                                                                                            !
+                                                      iτχ(0) t                      −iτχ(0) t
+                                 + µχj (τχ(0)
+                                           j
+                                              )e            j     + µχj (τχ(0)
+                                                                            j
+                                                                               )e        j      + µχj (0) tw−1 dt,
+
+                                                                                                                     (4.2)
+                                                                                                    r
+                                    2πi                           X                                 Y
+     Rθ(r) (w, z, {χj }rj=1 ) :=         lim                                      Res        e−zt         lχj (t)tw−1 .
+                                   Γ(w) N →∞                                   t=im log p
+                                                                                                    j=1
+                                                            p, m
+                                                        pm < N + 1/2
+
+Then, we show
+Theorem 4.1 (The “key equation”). Let (w, z) ∈ Dθ(r) ,τr(0) satisfy ℑ(z) <
+−( 21 + ε(r) )r and Re(w) > r. Then,
+             (1)                         (2)
+            Lθ(r) (w, z, {χj }rj=1 ) + Lθ(r) (w, z, {χj }rj=1 ) = Rθ(r) (w, z, {χ}rj=1 ).                            (4.3)
+Proof of Theorem 4.1. Let λ be any fixed real number with 0 < λ < log 2 and
+we define
+                                                         r
+                                          1
+                                            Z           Y
+                            r
+          Fθ(r) (w, z, {χj }j=1 ; λ) :=            e−zt     lχj (t)tw−1 dt,
+                                        Γ(w) V (r)      j=1           λ,θ
+
+
+where Vλ,θ(r) is the union of V1 (∞ → λ), V2 (π − θ(r) → −θ(r) ) and V3 (λ → ∞)
+when
+                                                      (r)
+                               V1 := {νei(π−θ               )
+                                                                | ν ≥ λ},
+                                            iϕ              (r)
+                               V2 := {λe         | −θ             ≤ ϕ ≤ π − θ(r) },
+                             EULER PROD. OF ABSOLUTE TENSOR PROD.                                                                               21
+
+                                                            (r)
+                                 V3 := {νe−iθ                      | ν ≥ λ}.
+   By Corollary 3.4 (i), for large enough u
+                         (r)                   u            (r)                          (r)                  (0)             (r)
+          lχj (ue−iθ           ) = O(e− 2 sin θ                   ), lχj (uei(π−θ              )
+                                                                                                   ) = O(eτr u sin θ                ).
+Therefore, Fθ(r) (w, z, {χj }rj=1 ; λ) converges absolutely and uniformly on any com-
+pact subset of Dθ(r) ,τr(0) .
+  Now, when (w, z) ∈ Dθ(r) ,τr(0) and 0 < η < λ, we have
+
+                         Fθ(r) (w, z, {χj }rj=0 ; λ) − Fθ(r) (w, z, {χj }rj=1 ; η)
+                                                      r
+                                1
+                                    Z                 Y
+                         =                      e−zt     lχj (t)tw−1 dt = 0
+                            Γ(w) W          (r)      j=1
+                                               η,λ,θ
+
+
+by Theorem 3.2 (iv) and Cauchy’s theorem, where
+                                                                                                     (r)
+      Wη,λ,θ(r) :={λeiϕ | − θ(r) ≤ ϕ ≤ π − θ(r) } ∪ {νe−iθ                                                 | η ≤ ν ≤ λ}
+                                                                                                             (r)
+                        ∪ {ηeiϕ | − θ(r) ≤ ϕ ≤ π − θ(r) } ∪ {Rei(π−θ                                               )
+                                                                                                                       | η ≤ ν ≤ λ}
+and we go around the integral path in the counterclockwise direction. If ℜ(w) > r,
+then by Theorem 3.2 (iii) we have
+                       Fθ(r) (w, z, {χj }rj=1 ; λ) = lim Fθ(r) (w, z, {χj }rj=1 ; η)
+                                                                        η↓0
+                                    Z 0                                  r
+                               1                                        Y
+                       =                                         e−zt          lχj (t)tw−1 dt
+                             Γ(w)           (r)
+                                     ∞ei(π−θ )                           j=1
+                                      Z ∞e−iθ(r)                                                                                          (4.4)
+                                                                             r
+                                1                                            Y
+                             +                                    e−zt             lχj (t)tw−1 dt.
+                               Γ(w)       0                                  j=1
+
+By replacing t with −t, using Theorem 3.1 and taking note of
+                                               χ (−1)         
+                       χj (−1)                     j
+                               it                            −1 it                  ∞          χ (−1)
+                  ie                      e            2
+                                                                                                     
+                           2                                                            − 2n−1− j 2     it
+                                                                                    X
+                                    =−                                       =−       e                    ,
+                    2 sin t                    1 − e−2it                           n=1
+
+we find that the first term of (4.4) is equal to
+                 πiw   Z ∞e−iθ(r)              r                        ∞          χ (−1)
+        r−1 e
+                                                                                         
+                  2                                                         − 2n−1− j 2     it
+                                               Y                        X
+                                          zt
+   (−1)                               e                      lχ¯j (t) +   e
+            Γ(w)         0                     j=1                            n=1
+                                                                                                                               !
+                                                                                                       (0)
+                                                                  iτχ(0) t                  −iτ t
+                                    + µχj (τχ(0)
+                                              j
+                                                 )e                   j      + µχj (τχ(0)
+                                                                                       j
+                                                                                          )e χj + µχj (0)                            tw−1 dt.
+
+Hence, we have
+                                                           (1)                                       (2)
+       Fθ(r) (w, z, {χj }rj=1 ; λ) = Lθ(r) (w, z, {χj }rj=1 ) + Lθ(r) (w, z, {χj }rj=1 ).
+   Next, we define that U := log M + 21 for M ∈ Z≥100 and let (w, z) ∈ Dθ(r) ,τr(0)
+                                              
+
+with ℑ(z) < − 12 + ε(r) r and R ∈ R with R tan θ(r) ≥ U . By Theorem 3.2 (iv)
+                           
+
+and the residue theorem, we have
+  Z                Yr                              X                          r
+                                                                              Y
+             e−zt     lχj (t)tw−1 dt = 2πi                      Res e−zt          lχj (t)tw−1 ,
+    P1 ∪P2 ∪P3                                                                                 t=im log p
+                        j=1                                                   p, m                                      j=1
+                                                                         m
+                                                                        p     < M + 12
+                                                                                                                                          (4.5)
+22                                            H. TANAKA
+
+
+where
+                                                                                            
+                                                           U
+                    P1 :=    −u + iu tan θ(r)                    ≤ u ≤ λ cos θ(r)
+                                                        tan θ(r)
+                           ∪ {λeiϕ | − θ(r) ≤ ϕ ≤ π − θ(r) }
+                           ∪ {u − iu tan θ(r) | λ cos θ(r) ≤ u ≤ R},
+                    P2 := {R + iy | − R tan θ(r) ≤ y ≤ U },
+                                                       
+                                         U
+                    P3 := σ + iU −             ≤  σ ≤ R
+                                      tan θ(r)
+and we go around the integral path in the counterclockwise direction. First, we
+consider the limit of (4.5) as R → ∞. Concerning the integral of the path P2 , we
+have
+              Z U                   r
+                                    Y
+                          e−z(R+iy)   lχj (R + iy)(R + iy)w−1 idy
+                    −R tan θ (r)            j=1
+                                             Z U
+                                                                           r
+                ≪r,w Rℜ(w)−1 e−ℜ(z)R                            e(ℑ(z)+ 2 )y dy
+                                               −R tan θ (r)
+                                         Z R tan θ(r)
+                                                                       r
+                ≤ Rℜ(w)−1 e−ℜ(z)R                          e(ℑ(z)+ 2 )y dy
+                                           −R tan θ (r)
+                                                   r            (r)                r             (r)
+                                         e(ℑ(z)+ 2 )R tan θ       − e−(ℑ(z)+ 2 )R tan θ
+                = Rℜ(w)−1 e−ℜ(z)R
+                                                                ℑ(z) + 2r
+                        Rℜ(w)−1 −(ℜ(z)+ℑ(z) tan θ(r) + r tan θ(r) )R
+                ≤−                e                    2             ,                                 (4.6)
+                        ℑ(z) + r2
+where in the last inequality we use the fact that ℑ(z) + 2r < 0. From ℜ(z) +
+ℑ(z) tan θ + 2r tan θ > 0 because (w, z) ∈ Dθ(r) ,τr(0) , it follows that (4.6) vanishes as
+R → ∞. Hence, we have
+ Z             Yr                         X                           Yr
+         e−zt     lχj (t)tw−1 dt = 2πi                    Res e−zt       lχj (t)tw−1 , (4.7)
+     P4 ∪P5                                                           t=im log p
+                j=1                               p, m                                 j=1
+                                               pm < M + 12
+
+where
+                                                                                            
+                                                           U
+                    P4 := −u + iu tan θ(r)                       ≤ u ≤ λ cos θ(r)
+                                                        tan θ(r)
+                            ∪ {λeiϕ | − θ(r) ≤ ϕ ≤ π − θ(r) }
+                         ∪ {u − iu tan θ(r) | u ≥ λ cos θ(r) },
+                                                   
+                                               U
+                    P5 := σ + iU σ ≥ −
+                                           tan θ(r)
+and we go around the integral path in the counterclockwise direction. Next, we
+consider the limit of (4.7) as M → ∞. Concerning the integral of the path P5 , we
+have
+      Z        Z − U (r)            r
+                   tan θ
+                                    Y
+           =              e−z(σ+iU)   lχj (σ + iU )(σ + iU )w−1 dσ
+          P5        ∞                       j=1
+
+                    Z ∞                                r
+                                                       Y
+               ≪w                  e−ℜ(z)σ+ℑ(z)U             lχj (σ + iU ) max{|σ|, U }ℜ(w)−1 dσ
+                           U
+                      −                                j=1
+                        tan θ(r)
+                           EULER PROD. OF ABSOLUTE TENSOR PROD.                                                                             23
+
+               Z −1                   Z 1        Z ∞
+           =                     +           +             .                                                                             (4.8)
+                        U
+                 −                     −1            1
+                     tan θ(r)
+
+
+About the first term of (4.8), by using Corollary 3.4 (iii) we can deduce
+             Z −1
+
+                      U
+               −
+                   tan θ(r)
+                     Z −U
+                                                                          (r)                         (0)
+                                                                                σ+ U
+                                                                                   2 )r
+             ≪r                       e−ℜ(z)σ+ℑ(z)U (e(ε                                      + eτr Ur )(−σ)ℜ(w)−1 dσ
+                              U
+                       −
+                           tan θ(r)
+                      Z −1
+                                                                  (r)                         (0)
+                                                                        σ+ U
+                                                                           2 )r
+                 +              e−ℜ(z)σ+ℑ(z)U (e(ε                                    + eτr Ur )U ℜ(w)−1 dσ
+                       −U
+                 Z −1
+                                                                        (r)                         (0)
+                                                                              σ+ U
+             ≤                     e−ℜ(z)σ+ℑ(z)U (e(ε                            2 )r    + eτr Ur )(−σ)ℜ(w)−1 dσ
+                          U
+                     −
+                       tan θ(r)
+                      Z −1
+                                                                              (r)                         (0)
+                                                                                    σ+ U
+                                                                                       2 )r
+                 +                     e−ℜ(z)σ+ℑ(z)U (e(ε                                     + eτr Ur )U ℜ(w)−1 dσ
+                              U
+                       −
+                           tan θ(r)
+                                                ℜ(w)−1
+                    ℑ(z)U             U
+             ≤e
+                                   tan θ(r)
+                           Z −1
+                                                 (r)                                                        (0)
+                                                         r−ℜ(z))σ+ U
+                      ×                    (e(ε                    2 r              + e−ℜ(z)σ+τr Ur )dσ
+                                   U
+                              −
+                                tan θ(r)
+                                                     Z −1
+                                                                               (r)                                              (0)
+                                                                                     r−ℜ(z))σ+ U
+                 + eℑ(z)U U ℜ(w)−1                                   (e(ε                      2 r              + e−ℜ(z)σ+τr Ur )dσ
+                                                             U
+                                                      −
+                                                          tan θ(r)
+                                                                             ℜ(w)−1 !
+                                                                  U
+             = eℑ(z)U              U ℜ(w)−1 +
+                                                               tan θ(r)
+                      Z −1                                                                                                               (4.9)
+                                           (ε(r) r−ℜ(z))σ+ U
+                                                           2 r                       −ℜ(z)σ+τr(0) Ur
+                 ×                    (e                                      +e                                  )dσ.
+                              U
+                       −
+                           tan θ(r)
+
+
+Since
+                                                                         
+                         
+                          1                                     (A > 0), 
+                                                                          
+    Z −1                  U
+                                                                         
+                                                                                U
+                eAσ dσ ≪A tan θ(r)                               (A = 0),   ≪
+                                                                                              −A U
+                                                                                        (1 + e tan θ(r) ),
+          U                                                                   tan θ (r)
+     −                                                                   
+       tan θ(r)
+                                                                         
+                          −A tanUθ(r)
+                                                                         
+                           e                                     (A < 0)
+                                                                          
+
+we have
+                                                                 ℜ(w)−1 !                                    
+                              ℜ(w)−1                    U                                        U
+          (4.9) ≪         U                +
+                                                     tan θ(r)                                 tan θ(r)
+                                  ℜ(z)+ℑ(z) tan θ (r) + r2 tan θ (r) −εr )
+               × e(ℑ(z)+ 2 )U + e(
+                        r                                                    U
+                                                                           tan θ(r)
+
+
+                                                                ℜ(z)+ℑ(z) tan θ (r) +τr(0) r tan θ (r) )
+                      + e(ℑ(z)+τr r)U + e(
+                                           (0)                                                                              U
+                                                                                                                                    
+                                                                                                                         tan θ(r)
+
+
+               → 0 (M → ∞),
+
+where in the last limit we use the fact that
+                                                                                        r
+                                       ℑ(z) + τr(0) r < ℑ(z) +                            <0                                            (4.10)
+                                                                                        2
+24                                              H. TANAKA
+
+
+and
+                   (                           r
+                        ℜ(z) + ℑ(z) tan θ(r) +   tan θ(r) − ε(r) r < 0,
+                                               2
+                        ℜ(z) + ℑ(z) tan θ(r) + rτr(0) tan θ(r) < 0
+because (w, z) ∈ Dθ(r) ,τr(0) and tan θ(r) < ε(r) . About the second term of (4.8), by
+using Corollary 3.4 (iii) we have
+               Z 1       Z 1
+                                                     (r) 1
+                   ≪r          e−ℜ(z)σ+ℑ(z)U (U 2 e(ε + 2 )U )r U ℜ(w)−1 dσ
+                  −1          −1
+                                                        1   (r)
+                         ≪z U ℜ(w)+2r−1 e(ℑ(z)+( 2 +ε             )r)U
+
+                         → 0 (M → ∞),
+where in the last limit we use ℑ(z) + ( 12 + ε(r) )r < 0. About the third term of (4.8),
+by Corollary 3.4 (iii) we have
+   Z ∞      Z ∞
+                                 U
+        ≪r       e−ℜ(z)σ+ℑ(z)U e 2 r max{|σ|, U }ℜ(w)−1 dσ
+    1         1
+                                                                            !
+                         Z         U                  Z              ∞
+                    r
+          = e(ℑ(z)+ 2 )U               e−ℜ(z)σ U ℜ(w)−1 dσ +             e−ℜ(z)σ σ ℜ(w)−1 dσ   (4.11)
+                               1                                    U
+                     r
+          ≪ e(ℑ(z)+ 2 )U (U ℜ(w)−1 + 1)                                                        (4.12)
+          →0     (M → ∞),
+where in transforming (4.11) into (4.12) we use ℜ(z) > −(ℑ(z) + r2 ) tan θ(r) > 0
+because (w, z) ∈ Dθ(r) ,τr(0) , and in the last limit we use (4.10). Hence, we obtain
+                        Fθ(r) (w, z, {χj }rj=1 ; λ) = Rθ(r) (w, z, {χj }rj=1 ).
+     This completes the proof.                                                                     
+    In the following sections, it is necessary that the left-hand side of (4.3) be a
+meromorphic function of w at w = 0. To obtain the property we show a lemma. It
+is the generalization of the lemma proved by Hirano, Kurokawa and Wakayama [10,
+Lemma 1].
+    Let ψ ∈ (−π, π] be any fixed real number and f (t) be a locally integrable function
+on {reiψ |r ∈ (0, ∞) }. We define
+                                         Z ∞eiψ
+                           Mψ [f : w] :=        f (t)tw−1 dt.
+                                                    0
+Now, assume that f (t) satisfies
+                                           (
+                                               O(t−a+ε ) (t → 0),
+                               f (t) =
+                                               O(t−b−ε ) (t → ∞eiψ )
+for a, b ∈ R with a < b and Mψ [f : w] converges absolutely, so is an analytic
+function, in a < ℜ(w) < b. Then, the following lemma holds.
+Lemma 4.2. Suppose that f (t) has the following approximate behaviors as t → 0
+and t → ∞etψ :
+                    
+                     ∞ NX
+                      X   1 (k)
+
+                                A1 (n, k)(log t)n ta1 (k) (t → 0),
+                    
+                    
+                    
+                    
+                    
+                    k=0 n=0
+            f (t) ∼                                                      (4.13)
+                    
+                     ∞ NX
+                      X   2 (k)
+
+                                A2 (n, k)(log t)n ta2 (k) (t → ∞eiψ ),
+                    
+                    
+                    
+                    
+                    
+                             k=0 n=0
+                        EULER PROD. OF ABSOLUTE TENSOR PROD.                                              25
+
+
+where Ni (k) are non-negative and finite integers for each k and a1 (k) and a2 (k)
+are complex sequences with ℜ(a1 (k)) and ℜ(a2 (k)) monotonically increasing. Then
+Mψ [f : w] has a meromorphic continuation into w ∈ C with poles at w = −a1 (k)
+and w = −a2 (k) for each k. Especially the poles at s = −ai (k) are simple if
+Ni (k) = 0.
+Proof of Lemma 4.2. First we define fm (t) as
+
+                                            X N1
+                                            m  X (k)
+                      fm (t) := f (t) −                      A1 (n, k)(log t)n ta1 (k) .
+                                            k=0 n=0
+
+Then, in a < ℜ(w) < b, we have
+                  Z eiψ                                X N1
+                                                  Z eiψ m X (k)
+                                    w−1
+   Mψ [f : w] =           fm (t)t          dt +                        A1 (n, k)(log t)n ta1 (k)+w−1 dt
+                   0                               0         k=0 n=0
+                      Z ∞eiψ
+                  +            f (t)tw−1 dt.
+                       eiψ
+                                                                                                    (4.14)
+The first and third terms of the right-hand side of (4.14) are analytic function of w
+in −ℜ(a1 (m + 1)) < ℜ(w) and in ℜ(w) < b respectively. The second term becomes
+                        m N1
+                        X  X (k)                  Z eiψ
+                                    A1 (n, k)                (log t)n ta1 (k)+w−1 dt,
+                        k=0 n=0                    0
+
+and then by partial integration we can transform it into
+      m N1 (k) n
+      X  X    X                    (−1)r n(n − 1) · · · (n − r + 1)(iψ)n−r eiψ(w+a1 (k))
+                       A1 (n, k)                                                         .
+                                                      (w + a1 (k))r+1
+      k=0 n=0 r=0
+
+Hence, we see that Mψ [f : w] is a meromorphic function of w with having poles
+at w = −a1 (k) in −ℜ(a1 (m + 1)) < ℜ(w) < b, especially the orders of which at
+s = −a1 (k) are simple if N1 (k) = 0. Since ℜ(a1 (m + 1)) → ∞ (m → ∞), it is
+shown that the meromorphy of Mψ [f : w] in the left half plane ℜ(w) < b.
+   In a similar way, we can obtain a meromorphic continuation into the right half
+plane b ≤ ℜ(w).                                                                
+
+   From Lemma 4.2 the meromophy of the left-hand side of (4.3) follows.
+                                 
+                              (0)
+Corollary 4.3. If 12 + τr           r tan θ(r) < ℜ(s) tan θ(r) − ℑ(s) < r tan θ(r) and
+                            (1)
+ℜ(s) > r(1 + ε(r) ), then Lθ(r) w, −i s − 2r , {χj }rj=1 and
+                                                         
+ (2)
+Lθ(r) w, −i s − 2r , {χj }rj=1 are meromorphic functions of w on the whole C.
+                               
+
+Proof of Corollary 4.3. By the consideration about Fθ(r) (w, z, {χj }rj=1 ; λ) in
+                                     (1)                                   (2)
+the proof of Theorem 4.1, Lθ(r) (w, z, {χj }rj=1 ) and Lθ(r) (w, z, {χj }rj=1 ) are holo-
+morphic functions of w under the assumption that
+                                                       
+                                                1
+             (w, z) ∈ Dθ(r) ,τr(0) , ℑ(z) < −     + ε(r) r and ℜ(w) > r.
+                                                2
+We can remove ℜ(w) > r because it follows from Theorem 3.2 (iii) that
+                                                       r
+                                                       Y
+                                             e−zt            lχj (t)
+                                                       j=1
+26                                                  H. TANAKA
+
+
+and
+                      r                    ∞         χ (−1)
+                                                             
+                                               − 2n−1− j 2     it
+                      Y                    X
+                ezt          lχj (t) +       e
+                      j=1                 n=1
+                                                                                  !
+                                                    (0)                     (0)
+                                             iτ t               −iτ t
+                              + µχj (τχ(0)
+                                        j
+                                           )e χj + µχj (τχ(0)
+                                                           j
+                                                              )e χj + µχj (0)
+
+                       (i)
+which appear in Lθ(r) (w, z, {χj }rj=1 ) (i = 1, 2) satisfy the condition concerning t → 0
+in (4.13). By putting z = −i s − 2r we obtain the desired results.
+                                        
+                                                                                        
+
+            5. The zeta regularized product expression of L(s, χ1 )
+   Our goal in this section is to prove Theorem 1.1. We obtain an equation which
+links the “factors series” of L(s, χ1 ) to prime numbers by calculating the both sides
+of (4.3) with r = 1 and then prove Theorem 1.1 .
+
+5.1. The “key equation” for r = 1.
+Lemma 5.1. Let (w, z) ∈ Dθ(1) ,τ (0) satisfy ℑ(z) < −( 21 + ε(1) ) and ℜ(w) > 1.
+                                1
+Then,
+       (1)
+                          X          1
+      Lθ(1) (w, z, χ1 ) =                   ,
+                               (z + τχ1 )w
+                                    ℜ(τχ1 )>0
+           (2)
+          Lθ(1) (w, z, χ1 )
+                      
+                                                  ∞
+                πiw 
+                             X          1        X                 1
+           =e                                  +
+                                  (τχ¯1 − z)w n=1 −z + 2n − 1 − χ1 (−1) i w
+                                                                          
+                       ℜ(τχ¯1 )>0                                        2
+                                                                        
+                                    (0)                 (0)
+                              µχ1 (τχ1 )          µχ1 (τχ1 )     µχ (0)
+                       +                 w +              w + 1 w  .
+                            −z − iτ
+                                      (0)
+                                                 −z + iτ
+                                                         (0)     (−z)
+                                          χ1                      χ1
+
+
+Proof of Lemma 5.1. Since (w, z) ∈ Dθ(1) ,τ (0) and ℜ(τχ1 ) > ε(1) > tan θ(1) , we
+                                           1
+have
+             ℜ(z + τχ1 ) + ℑ(z + τχ1 ) tan θ(1) > ε(1) − tan θ(1) > 0,
+and from this we find arg(z + τχ1 ) ∈ θ(1) − π2 , θ(1) + π2 . Therefore, by using
+                                                             
+
+Lemma 2.8 as ψ = −θ(1) we obtain
+                                                    (1)
+
+            (1)                  1  X Z ∞e−iθ
+           Lθ(1) (w, z, χ1 ) =                          e−(z+τχ1 )t tw−1 dt
+                               Γ(w)          0     ℜ(τχ1 )>0
+                                               X           1
+                                     =                            .
+                                                      (z + τχ1 )w
+                                          ℜ(τχ1 )>0
+
+                                    (1)
+     In a similar way as Lθ(1) (w, z, χ1 ) we can reach the desired result concerning
+ (2)
+Lθ(1) (w, z, χ1 ).                                                                      
+                              (0)
+Lemma 5.2. If ( 12 + τ1 ) tan θ(1) < ℜ(s) tan θ(1) − ℑ(s) < tan θ(1) , ℜ(s) > 1 + ε(1)
+and ℜ(w) > 1 then we have
+                                
+          (1)              1             πiw
+                                               X           1
+        Lθ(1) w, −i s −        , χ1 = e 2                          ,             (5.1)
+                           2                          (s − ρχ¯1 )w
+                                                               ℑ(ρχ¯1 )<0
+                      EULER PROD. OF ABSOLUTE TENSOR PROD.                              27
+
+                                
+           (2)            1
+          Lθ(1) w, −i s −     , χ1
+                          2
+                   
+                                          ∞
+               πiw
+                     X          1        X            1
+          =e 2                      w
+                                       +                        w
+                          (s − ρχ¯1 )
+                                            
+                                                      3+χ1 (−1)
+                     ℑ(ρχ¯1 )>0          n=1 s + 2n −                  2
+                                                                                    (5.2)
+                                     (0)                   (0)
+                               µχ1 (τχ1 )            µχ1 (τχ1 ) µχ1 (0) 
+                     +              w +                w +         w ,
+                             1   (0)
+                        s − 2 − τχ1             1     (0)
+                                            s − 2 + τχ1         s − 21
+
+where the argument lies in − π2 , π2 . The serieses in (5.1) and (5.2) converge
+                                      
+
+absolutely, locally and uniformly in the given (w, s)-region above.
+Proof of Lemma 5.2. Putting z = −i(s − 21 ) in Lemma 5.1, we obtain the con-
+ditions concerning (w, s) and have
+                          
+     (1)             1              X                1
+   Lθ(1) w, −i s −       , χ1 =
+                     2                      (−i(s − 21 ) + τχ1 )w
+                                  ℜ(τχ1 )>0
+                                                         
+                                                1                 π         π
+                               : arg −i s −         + τχ1 ∈ θ(1) − , θ(1) +
+                                                2                 2         2
+                                                   πiw
+                                    X            e 2
+                               =                 1
+                                            (s − 2 + iτχ1 )w
+                                  ℜ(τχ1 )>0
+                                                   
+                                            1
+                               : arg s − + iτχ1 ∈ (θ(1) , θ(1) + π)
+                                            2
+                                   πiw
+                                          X            1
+                               =e 2
+                                                 (s − ρχ¯1 )w
+                                            ℑ(ρχ¯1 )<0
+
+                                    : arg(s − ρχ¯1 ) ∈ (θ(1) , θ(1) + π).
+Now, since ℜ(s−ρχ¯1 ) > ε(1) > 0 is derived from ℜ(s) > 1+ε(1) and 0 < ℜ(ρχ¯1 ) < 1,
+we find
+                                             π  π π
+                      arg(s − ρχ¯1 ) ∈ θ(1) ,   ⊂ − ,      .
+                                              2       2 2
+   In the same way, we obtain (5.2).
+   The absolute and locally uniform convergences of the serieses in (5.1) and (5.2)
+in ℜ(s) > 1 and ℜ(w) > 1 are easily derived from
+                       ♯{ρχ1 | ℑ(ρχ1 ) ∈ (T, T + 1]} = O(log T ).
+The desired convergency follows immediately from ℜ(s) > 1 and ℜ(w) > 1 including
+the given (w, s)-region.                                                       
+                         (0)
+Lemma 5.3. If ( 21 + τ1 ) tan θ(1) < ℜ(s) tan θ(1) − ℑ(s) < tan θ(1) , ℜ(s) > 1 + ε(1)
+and ℜ(w) > 1 then we have
+                                 πiw
+                     1              e 2 X
+  Rθ(1) w, −i s −        , χ1 = −            χ¯1 (pm )p−ms (m log p)w−1 log p. (5.3)
+                     2             Γ(w) p,m
+The series converges absolutely and uniformly on any compact subset of {(w, s) ∈
+C2 | ℜ(s) > 1}.
+Proof of Lemma 5.3. By Theorem 3.2 (ii) and (iv), we find that the residue in
+Rθ(1) w, −i s − 12 , χ1 is equal to
+                             
+
+                                                              it − it χ¯1 (pm )p−m
+                                                                                    
+             i(s− 12 )t                          i(s− 12 )t
+     Res e              lχ1 (t)t w−1
+                                     = Res e                     e 2                   tw−1
+  t=im log p                          t=im log p              2π     m(t − im log p)
+28                                     H. TANAKA
+
+
+                                     iw−1
+                                =−        χ¯1 (pm )p−ms (m log p)w−1 log p.
+                                      2π
+From this (5.3) follows.
+  From Lemma 2.7 (iii) it follows that the series in (5.3) converges absolutely and
+uniformly on any compact subset of {(w, s) ∈ C2 | ℜ(s) > 1}.                      
+
+     By using the above three lemmas we derive the desired equation.
+                         (0)
+Theorem 5.4. If ( 12 +τ1 ) tan θ(1) < ℜ(s) tan θ(1) −ℑ(s) < tan θ(1) , ℜ(s) > 1+ε(1)
+and ℜ(w) > 1, we have
+                                        ∞                               
+               X              1         X               1
+                                     +
+                                                                        
+                                                                        
+                        (s − ρχ1 )w n=1 s + 2n − 3+χ1 (−1) w 
+                                                                      
+                                                                        
+             ℑ(ρχ1 )6=0
+                                                                        
+                                                            2           
+                                                                        
+                                                                        
+                           (0)                  (0)
+                                                                        
+                    µχ1 (τχ1 )            µχ1 (τχ1 )          µχ1 (0) 
+                                                                        
+             +                  w +                w +            w        (5.4)
+                                                              s − 21
+                                                                     
+                             (0)                  (0)
+                s − 21 − τχ1            s − 21 + τχ1                    
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                     1 X
+                                                                        
+                                                                        
+                                    m −ms             w−1               
+             =−                χ1 (p )p    (m log p)      log p.        
+                                                                        
+                  Γ(w)
+                                                                        
+                                                                        
+                          p,m
+
+Proof of Theorem 5.4. We put r = 1 and z = −i s − 21 in Theorem 4.1 and
+                                                                      
+
+then by applying Lemma 5.2 and 5.3 we have
+                                            ∞
+                                                                            
+                X               1          X                1
+                                         +
+                                                                            
+                                       w
+                                                                      w   
+                          (s − ρχ¯1 )
+                                               
+                                                            3+χ1 (−1)
+                                                                            
+                                           n=1 s + 2n −
+                                                                            
+              ℑ(ρχ¯1 )6=0
+                                                                            
+                                                                2           
+                                                                            
+                                                                            
+                             (0)                    (0)
+                                                                            
+                      µχ1 (τχ1 )              µχ1 (τχ1 )          µχ1 (0) 
+                                                                            
+              +                   w +                  w +            w   (5.5)
+                                                                  s − 21
+                                                                         
+                               (0)                    (0)
+                  s − 21 − τχ1              s − 21 + τχ1                    
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                       1   X                                                
+                                                                            
+                                       m −ms              w−1               
+              =−                 χ¯1 (p )p     (m log p)      log p,        
+                                                                            
+                    Γ(w) p,m
+                                                                            
+                                                                            
+
+under the conditions that
+                        
+                  (0)  1
+                τ1 +       tan θ(1) < ℜ(s) tan θ(1) − ℑ(s) < tan θ(1) ,
+                       2
+                ℜ(s) > 1 + ε(1) and ℜ(w) > 1.
+
+Then, replacing χ¯1 with χ1 in (5.5), we obtain (5.4).                                 
+
+5.2. Proof of Theorem 1.1.
+
+Proof. The left-hand side of (5.4) is a meromorphic function of w on the whole C
+by Corollary 4.3. Hence, by using the definition of the zeta regularized product we
+have
+                                               
+                    the left-hand side of (5.4)
+     exp −Res
+            w=0                  w2
+                             ∞                          
+          a
+          Y                 a
+                            Y                3 + χ1 (−1)
+     =           (s − ρχ1 )        s + 2n −
+                            n=1
+                                                  2
+       ℑ(ρχ1 )6=0
+                                                                                    (5.6)
+                         µχ1 (τχ(0) )             µχ1 (τχ(0) )      µχ1 (0)
+                 1                 1        1                 1        1
+       × s − − τχ(0)                     s − + τχ(0)                s−            .
+                 2     1
+                                            2     1
+                                                                       2
+                              EULER PROD. OF ABSOLUTE TENSOR PROD.                                29
+
+                             1
+  On the other hand, since Γ(w) = w + O(w2 ) (w → 0), we have
+                                                                           !
+              
+                 the right-hand side of (5.4)
+                                                       X χ1 (pm )p−ms
+    exp −Res                                     = exp
+           w=0                w2                         p,m
+                                                                  m
+                                                   Y
+                                                 =    (1 − χ1 (p)p−s )−1 .
+                                                                            p
+
+By the property of the zeta regularized products, (5.6) is a meromorphic function
+on the whole C. Hence (1.1) holds.                                              
+
+              6. The Euler product expression of (Lχ1 ⊗F1 Lχ2 )(s)
+  In a similar way as section 5, we show Theorem 1.3.
+6.1. The “key equation” for r = 2.
+                               (0)
+Lemma 6.1. If (2τ2 + 1) tan θ(2) < ℜ(s) tan θ(2) − ℑ(s) < 2 tan θ(2) , ℜ(s) >
+2(1 + ε(2) ) and ℜ(w) > 2 then we have
+   (1)                               πiw
+                                         X              1
+ Lθ(2) (w, −i(s − 1), {χj }2j=1 ) = e 2                            ,
+                                               (s − ρχ¯1 − ρχ¯2 )w
+                                                     ℑ(ρχ¯1 ),ℑ(ρχ¯2 )<0
+   (2)
+ Lθ(2) (w, −i(s − 1), {χj }2j=1 )
+             
+        πiw
+                       X                    1
+ = −e 2 
+                                   (s − ρχ¯1 − ρχ¯2 )w
+               ℑ(ρχ¯1 ),ℑ(ρχ¯2 )>0
+                           
+                                        ∞
+              X                  X X                   1
+    +                                                             w
+                                                          3+χb (−1)
+       (a,b)∈{(1,2),(2,1)} ℑ(ρχ¯a )>0 n=1 s − ρχ¯a + 2n −    2
+                                (0)                                 (0)
+           X             µχa (τχa )            X             µχa (τχa )
+    +                                  w +                               w
+                               1    (0)                            1    (0)
+         ℑ(ρχ¯b )>0 s − ρχ¯b − 2 − τχa       ℑ(ρχ¯b )>0 s − ρχ¯b − 2 + τχa
+                                            ∞                  (0)
+           X               µχa (0)         X            µχa (τχa )
+    +                                  w +                                  w
+                        s − ρχ¯b − 21
+                                             
+                                                             χb (−1)    (0)
+         ℑ(ρχ¯b )>0                        n=1 s + 2n − 2 −          − τχ       2         a
+                                                                                              
+         ∞                                 (0)                 ∞
+         X                     µχa (τχa )                      X                    µχa (0)
+    +                                     w +                           w 
+                           χb (−1)     (0)                         χb (−1)
+         n=1  s + 2n − 2 −     2   + τχa        n=1   s + 2n − 2 −     2
+         ∞ X
+           ∞
+         X                                       1
+    +                                                                     w
+         n1 =1 n2 =1        s + 2n1 + 2n2 − 3 − χ1 (−1)+χ
+                                                       2
+                                                         2 (−1)
+
+
+                      (0)            (0)                 (0)         (0)
+       µχ (τχ )µχ2 (τχ2 )       µχ (τχ )µχ2 (τχ2 )
+    + 1 1               w +  1 1               w
+               (0)   (0)                (0)   (0)
+      s − 1 − τχ1 − τχ2        s − 1 − τχ1 + τχ2
+                      (0)            (0)                 (0)         (0)
+         µχ (τχ )µχ2 (τχ2 )              µχ (τχ )µχ2 (τχ2 )
+    + 1 1                     w +  1 1                   w
+                    (0)    (0)                   (0)    (0)
+        s − 1 + τχ1 − τχ2               s − 1 + τχ1 + τχ2
+                                                                                    
+                                   (0)                  (0)
+             X              µ   (τχ    )µ   (0)   µ  (τχ    )µ
+                            χa a χb w +  χa a χb w  + χ1   (0)   µ  (0)µ χ2 (0)
+    +                                                                           w
+                                                                                      .
+                             s − 1 − τχa
+                                         (0)
+                                                   s − 1 + τχa
+                                                              (0)        (s − 1)
+      (a,b)∈{(1,2),(2,1)}
+
+The serieses which appear here converge absolutely, locally and uniformly in the
+given (w, s)-region above.
+30                                                   H. TANAKA
+
+
+Proof of Lemma 6.1. In a similar way as Lemma 5.1 and 5.2 we can prove these.
+                                                                           
+
+
+                             (0)
+Lemma 6.2. If (2τ2 + 1) tan θ(2) < ℜ(s) tan θ(2) − ℑ(s) < 2 tan θ(2) , ℜ(s) >
+2(1 + ε(2) ) and ℜ(w) > 2 then we have
+
+                                                                πiw     10
+                                                               e 2 X
+                Rθ(2) (w, −i(s − 1), {χj }2j=1 ) =                   Ek (w, s, {χ¯j }2j=1 ).            (6.1)
+                                                               Γ(w)
+                                                                        k=1
+
+
+Proof of Lemma 6.2. Let p and m be any fixed prime number and positive in-
+teger respectively. By Theorem 3.2 (ii) we have
+
+
+     lχ1 (t) · lχ2 (t)
+                                               it
+                                                           !2
+               m         m            ite− 2 p−m
+     = χ¯1 (p )χ¯2 (p )
+                                   2πm(t − im log p)
+                                          it
+                   X               ite− 2 χ¯a (pm )p−m              it − it2     X         χ¯b (q n )q −n
+        +                                                       −      e
+                                   2πm(t − im log p)                2π                    n(t − in log q)
+            (a,b)∈{(1,2),(2,1)}                                                  q, n
+                                                                               pm 6= qn
+
+          ei(α+ 2 )t
+                   1
+                            X χb (q n )q −n(1+α)                    ∞
+                                                         X χb (−1)e−iαmπ
+        −                it                         − it
+              2π            q,n
+                                 n(t + in log q)         n=1
+                                                                 n(t − nπ)
+                                        α
+                                                
+                  χb (−1)Γ(1 + α)Nb G(χ¯b )             (1 + α)π
+        + i log                   1+α
+                                                     −
+                              (2π)                          2
+                                            1 ∞ 1               u − it(1 − e−αu )
+                                                                                 
+          1                 2π
+                                              Z
+                                    πi
+        +     γ + log            +        −                   ·                   du
+          t                 Nb       2      t 0 eu − 1                 u − it
+                                                               χ (−1)
+                  Z                                          − b2     it
+            t it2                                         ie
+        −     e                 e−ist log L(s, χ¯b )ds −
+          2π        S (2) (π→0)                              2 sin t
+                                                                  !
+                                    (0)                  (0)
+        − µχb (τχ(0)
+                  b
+                     )(eiµχb (τχb )t + e−iµχb (τχb )t ) − µχb (0)
+
+        + (the holomorphic parts at t = im log p).
+
+
+Applying this to
+
+                                                     2πi X
+     Rθ(2) (w, −i(s − 1), {χj }2j=1 ) =                        Res (ei(s−1)t lχ1 (t) · lχ2 (t)tw−1 )
+                                                    Γ(w) p,m t=im log p
+
+
+leads to (6.1).                                                                                             
+
+
+   In the following lemma we show the convergencies of Ek (w, s, {χj }2j=1 ) which
+can be proved in almost the same way as Akatsuka’s method used in [7, Theorem
+1.2]
+                      EULER PROD. OF ABSOLUTE TENSOR PROD.                            31
+
+
+Lemma 6.3. For k ∈ {1, 2, · · · , 10}, Ek (w, s, {χj }2j=1 ) converges absolutely and
+uniformly on any compact subset of {(w, z) ∈ C2 | ℜ(s) > βk }, where
+                     
+                     
+                      1                                (k = 1),
+                       2                                (k = 2, 6),
+                     
+                     
+                     
+                     
+                     
+                       1−α                              (k = 3, 4, 7),
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                          n                      o
+                     max 1−χ1 (−1) , 1−χ2 (−1)
+                     
+                                                        (k = 5),
+                     
+                                  2         2
+                βk =
+                            (0)
+                      3
+                       2 + τ2                           (k = 8),
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                            (0)
+                     
+                       3
+                       2 − τ2                           (k = 9),
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     3
+                       2                                (k = 10).
+
+Proof of Lemma 6.3. The desired results follow from Lemma 2.7 (iii) immedi-
+ately except for E2 (w, s, {χj }2j=1 ), E3 (w, s, {χj }2j=1 ) and E4 (w, s, {χj }2j=1 ).
+   Concerning E4 (w, s, {χj }2j=1 ), we can easily prove its absolute and locally uni-
+form convergence by Lemma 2.7 (iii).
+   We consider E3 (w, s, {χj }2j=1 ). Let (w, s) ∈ C2 satisfy ℜ(s) > 1 − α + δ and
+A ≤ ℜ(w) ≤ B for any fixed real numbers ε, A and B with δ > 0 and A < B.
+Then, for any prime numbers p, q and any m, n ∈ Z≥1 we have
+                 χa (pm )χ¯b (q n )p−m(s+α) q −n (m log p)w log p
+                               n(m log p + n log q)
+                   
+                       −(1+δ) −n
+                     2         q (log 2)A+1
+                                                         (p = 2, m = 1),
+                   
+                   
+                   
+                   
+                             n2 log q
+                 ≤
+                     p−m(1+δ) q −n (m log p)B log p
+                   
+                   
+                                                         (otherwise),
+                   
+                   
+                                   n2 log q
+                   
+
+where (a, b) ∈ {(1, 2), (2, 1)}. From Lemma 2.7 (ii) we have
+                               X 2−(1+δ) q −n (log 2)A+1
+                                                                < ∞.
+                               q,n
+                                            n2 log q
+
+From Lemma 2.7 (ii), (iii) we have
+                      X         p−m(1+ε) q −n (m log p)B log p
+                                           n2 log q
+                  p, m, q, n
+                   pm ≥ 3
+                                                            !                  !
+                      X
+                                −m(1+ε)           B
+                                                                X     q −n
+                  ≤         p             (m log p) log p             2
+                      p,m                                        q,n
+                                                                     n log q
+                  < ∞.
+Hence, we find that E3 (w, s, {χj }2j=1 ) converges absolutely and uniformly on any
+compact subset of {(w, s) ∈ C2 | ℜ(s) > 1 − α}.
+  We consider E2 (w, s, {χj }2j=1 ). Let (w, s) ∈ C2 satisfy ℜ(s) > 2 + δ and A ≤
+ℜ(w) ≤ B for any fixed real numbers δ, A and B with δ > 0 and A < B. Then, for
+any prime numbers p, q and any m, n ∈ Z≥1 we have
+                  χa (pm )χb (q n )p−m(s−1) q −n (m log p)w log p
+                               n(m log p − n log q)
+32                                                H. TANAKA
+
+                       
+                         2−(1+δ) q −n (log 2)A+1
+                                                                    (p = 2, m = 1),
+                       
+                       
+                       
+                        n(n log q − log 2)
+                       
+                   ≤
+                       
+                        p−m(1+δ) q −n (m log p)B log p
+                                                                    (otherwise),
+                       
+                       
+                             n|m log p − n log q|
+                       
+
+where (a,b) ∈ {(1, 2), (2, 1)}. In the case of (p, m) = (2, 1), from log x − log 2 ≥
+
+  1 − log 2
+      log 3 log x for any x ∈ R≥3 and Lemma 2.7 (ii) it follows that
+
+           X       2−(1+δ) q −n (log 2)A+1   2−(1+δ) (log 2)A+1 X q −n
+                                           ≤                                 < ∞.
+           q, n
+                     n(n log q − log 2)          1 − log   2
+                                                       log 3    q,n
+                                                                    n2 log q
+          qn ≥ 3
+
+In the case of (p, m) 6= (2, 1), we have
+                        X        p−m(1+δ) q −n (m log p)B log p
+                                                 n|m log p − n log q|
+                            p, m, q, n
+                             pm ≥ 3
+                            qn 6= pm
+                                  X          p−m(1+δ) q −n (m log p)B log p
+                           ≤
+                                                 n|m log p − n log q|
+                                p, m, q, n
+                                qn 6= pm
+                                  X                     X                 X
+                           =                 +                      +                .             (6.2)
+                                p, m, q, n           p, m, q, n         p, m, q, n
+                                qn < pm           pm < qn < p2m         qn ≥ p2m
+
+Concerning the third term of (6.2), we have n log q − m log p ≥ n log    2
+                                                                           q
+                                                                              because
+2m log p ≤ n log q. Therefore, from Lemma 2.7 (ii), (iii) we have
+                                                               !              !
+                                X                                X q −n
+                                       −m(1+δ)          B
+(the third term of (6.2)) ≤ 2        p         (m log p) log p                  < ∞.
+                                 p,m                             q,n
+                                                                     n2 log q
+                                                                                                   (6.3)
+Concerning the second term of (6.2), from Lemma 2.7 (i) we have
+         X                q −n               X                qn
+                                        ≤              q −n n
+                   n|m log p − n log q|                    q − pm
+           q, n                                                  q, n
+      pm < qn < p2m                                         pm < qn < p2m
+
+                                                            p2m −pm
+                                                               X −1           1
+                                                        ≤                             ≪ m log p.
+                                                                        (pm + l) − pm
+                                                              l=1
+Hence, from Lemma 2.7 (iii) we find
+                                   X
+      (the second term of (6.2)) ≪   pm(1+δ) (m log p)B+1 log p < ∞.                               (6.4)
+                                                  p,m
+
+Concerning the first term of (6.2), from Lemma 2.7 (i) we have
+        X               q −n
+                   n|m log p − n log q|
+         q, n
+       qn < pm
+                                                   pm −1                  pm −1          pm −1
+             X
+                           −n     pm         m
+                                               X     1       X 1   X   1
+      ≤                q                 ≤ p               =     +
+                                pm − q n         l(pm − l)     l     pm − l
+             q, n                                   l=1                    l=1           l=1
+           qn < pm
+
+      ≪ m log p.
+                           EULER PROD. OF ABSOLUTE TENSOR PROD.                                       33
+
+
+Hence, from Lemma 2.7 (iii) we find
+                                    X
+          (the first term of 6.2) ≪   p−m(1+δ) (m log p)B+1 log p < ∞.                             (6.5)
+                                                  p,m
+
+From (6.3), (6.4) and (6.5) it follows that (6.2) converges. This completes the
+proof.                                                                       
+
+   From Lemma 6.1, Lemma 6.2 and Lemma 6.3 we derive the “key equation” for
+r = 2.
+                              (0)
+Theorem 6.4. If (2τ2 + 1) tan θ(2) < ℜ(s) tan θ(2) − ℑ(s) < 2 tan θ(2) , ℜ(s) >
+2(1 + ε(2) ) and ℜ(w) > 2 then the following equation holds :
+              X                   1                  X                  1
+     −                                    w
+                                            +
+                          (s − ρχ1 − ρχ2 )                      (s − ρχ1 − ρχ2 )w
+       ℑ(ρχ1 ),ℑ(ρχ2 )<0                      ℑ(ρχ1 ),ℑ(ρχ2 )>0
+                           
+                                      ∞
+              X                X X                       1
+     +                                                               w
+                                                             3+χb (−1)
+       (a,b)∈{(1,2),(2,1)} ℑ(ρχa )>0 n=1 s − ρχa + 2n −          2
+                                      (0)                                              (0)
+          X                   µχa (τχa )                       X          µχa (τχa )
+    +                                            w +                                   w
+                                            (0)                                       (0)
+        ℑ(ρχb )>0       s − ρχb − 12 − τχa               ℑ(ρχb )>0  s − ρ χb −  1
+                                                                                2 + τχa
+                                         ∞                  (0)
+          X              µχa (0)        X            µχa (τχa )
+    +                               w +                                  w
+                      s − ρχb − 21
+                                          
+                                                          χb (−1)    (0)
+        ℑ(ρχb )>0                       n=1 s + 2n − 2 −          − τχ         2         a
+                                                                                               
+        ∞                             (0)                      ∞
+        X                    µχa (τχa )                        X                   µχa (0)
+    +                                                  w +                            w 
+                                                  (0)
+        n=1       s + 2n − 2 − χb (−1)
+                                   2   + τχa                   n=1  s + 2n − 2 − χb (−1)
+                                                                                     2
+        ∞ X
+          ∞
+        X                                         1
+    +                                                                    w
+        n1 =1 n2 =1       s + 2n1 + 2n2 − 3 − χ1 (−1)+χ
+                                                     2
+                                                       2 (−1)
+
+
+                    (0)         (0)                      (0)        (0)
+           µχ1 (τχ1 )µχ2 (τχ2 )       µχ (τχ )µχ2 (τχ2 )
+    +                         w +  1 1               w
+                    (0)    (0)                (0)   (0)
+          s − 1 − τχ1 − τχ2          s − 1 − τχ1 + τχ2
+                    (0)         (0)                      (0)        (0)
+         µχ1 (τχ1 )µχ2 (τχ2 )            µχ (τχ )µχ2 (τχ2 )
+    +                         w +  1 1                    w
+                    (0)    (0)                   (0)     (0)
+        s − 1 + τχ1 − τχ2               s − 1 + τχ1 + τχ2
+                                                                      
+                                   (0)                   (0)
+             X              µ χ
+                           a a(τχ    )µ χ  (0)  µ χ (τχ    )µ χ  (0)   µχ (0)µχ2 (0)
+    +                                      b
+                                             w +  a a          b
+                                                                   w  + 1
+                             s − 1 − τχa
+                                         (0)
+                                                   s − 1 + τχa
+                                                               (0)         (s − 1)w
+      (a,b)∈{(1,2),(2,1)}
+
+                    10
+        1 X
+    =−      Ek (w, s, {χj }2j=1 ).
+       Γ(w)
+                    k=1
+
+Proof of Theorem 6.4. We put r = 2 and z = −i(s − 1) in Theorem 4.1 and
+then by applying Lemma 6.1 and Lemma 6.2 and replacing χ̄ with χ we obtain the
+desired result.                                                             
+
+6.2. Proof of Theorem 1.3.
+
+Proof. The left-hand side of the formula in Theorem 6.4 is a meromorphic function
+of w on the whole C by Corollary 4.3. Hence, by using the definition of zeta
+34                                            H. TANAKA
+
+
+regularized products we have
+                                                                
+                 the left-hand side of the formula in Theorem 6.4
+      exp −Res
+           w=0                            w2
+            a
+            Y                                  a
+                                               Y
+      =              ((s − ρχ1 − ρχ2 ))−1              ((s − ρχ1 − ρχ2 ))
+        ℑ(ρχ1 ),ℑ(ρχ2 )<0                               ℑ(ρχ1 ),ℑ(ρχ2 )>0
+                                  
+                                                                                 
+                    Y                     a
+                                          Y                            3 + χb (−1)
+        ×                                              s − ρχa + 2n −
+                                                                            2
+            (a,b)∈{(1,2),(2,1)}     ℑ(ρχa )>0,n≥1
+                                                                      µχb (τχ(0) )
+                                          Y
+                                          a                    1                  b
+                                    ×                 s − ρχa − − τχ(0)
+                                                               2     b
+                                        ℑ(ρχa )>0
+                                                                     µχb (τχ(0) )
+                                          Y
+                                          a                    1   (0)
+                                                                                 b
+                                    ×                 s − ρχa − + τχb
+                                                               2
+                                        ℑ(ρχa )>0
+                                                                µχb (0)
+                                          Y
+                                          a                     1
+                                    ×                 s − ρχa −
+                                                                2
+                                        ℑ(ρχa )>0
+                                                                         µχb (τχ )      (0)
+                                        a 
+                                        Y                χa (−1)                  b
+                                    ×       s + 2n − 2 −         − τχ(0)
+                                                             2        b
+                                        n≥1
+                                                                       µχb (τχ )        (0)
+                                    a 
+                                    Y                   χa (−1)                 b
+                                                                   (0)
+                                 ×        s + 2n − 2 −          + τχb
+                                                            2
+                                   n≥1
+                                                                          
+                                    a                         µχb (0)
+                                    Y                   χa (−1)
+                                 ×        s + 2n − 2 −                    
+                                                            2
+                                    n≥1
+                                                               
+              a
+              Y                                χ1 (−1) + χ2 (−1)
+        ×                  s + 2n1 + 2n2 − 3 −
+                                                       2
+            n1 ,n2 ≥1
+         
+        × (s − 1 − τχ(0)
+                      1
+                         − τχ(0)
+                              2
+                                 )(s − 1 − τχ(0)
+                                              1
+                                                 + τχ(0)
+                                                      2
+                                                         )
+                                                              µχ1 (τχ(0) )µχ2 (τχ(0) )
+                                 (0)             (0)     (0)
+            × (s − 1 + τχ(0)
+                                                                       1           2
+                          1
+                             − τχ2   )(s − 1 + τχ1   + τχ2   )
+                    Y                                             µχa (τχ(0) )µχb (0)
+                                                              (0)           a
+        ×                          (s − 1 − τχ(0)
+                                               a
+                                                  )(s − 1 + τχ a
+                                                                  )
+            (a,b)∈{(1,2),(2,1)}
+
+        × (s − 1)µχ1 (0)µχ2 (0)
+      = (Lχ1 ⊗ Lχ2 )(s).
+               F1
+
+                                                         1
+  On the other hand, by Theorem 6.4 and noting that Γ(w)    = w + O(w2 ) (w → 0),
+we have
+                                                                     
+                     the right-hand side of the formula in Theorem 6.4
+       exp −Res
+              w=0                            w2
+                10
+                                        !
+               X
+        = exp      Ek (0, s, {χj }2j=1 )
+                    k=1
+
+
+for ℜ(s) > 2. This completes the proof.                                                         
+                       EULER PROD. OF ABSOLUTE TENSOR PROD.                                    35
+
+
+                                         References
+ [1] N. Kurokawa, Multiple zeta functions: an example, Adv. Stud. Pure Math. 21 (1992), 219-
+     226.
+ [2] C. Deninger Local L-factors of motives and regularized, Invent. Math. 107 (1992), 135-150.
+ [3] N. Kurokawa and M. Wakayama, Zeta Regularizations, Acta Appl. Math. 81 (2004), 147-166.
+ [4] S. Koyama and N. Kurokawa, Multiple Euler products, Amer. Math. Soc. Transl. Ser. 2 218
+     (2006), 101-140.
+ [5] H. Akatsuka, Euler product expression of triple zeta functions, Internat. J. Math. 16 (2005),
+     111-136.
+ [6] N. Kurokawa and M. Wakayama, Absolute Tensor Products, Int. Math. Res. Not. 2004(5)
+     (2004), 249-260.
+ [7] H. Akatsuka, The double Riemann zeta function, Commun. Number Theory Phys. vol. 3,
+     no. 4 (2009), 619-653.
+ [8] H. Cramér, Studien über die Nulstellen der Riemannschen Zetafunktion, Math. Z. 4 (1919),
+     104-130.
+ [9] A. P. Guinand, Fourier reciprocities and the Riemann zeta-function, Proc. London Math.
+     Soc. (2) 51 (1950), 401-414.
+[10] M. Hirano, N. Kurokawa and M. Wakayama, Half zeta function, J. Ramanujan Math. Soc.
+     18 (2003), 195-209.
+

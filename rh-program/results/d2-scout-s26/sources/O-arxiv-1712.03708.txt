@@ -1,0 +1,1637 @@
+                                                                          p-ADIC GEOMETRY
+
+
+                                                                                PETER SCHOLZE
+
+
+
+
+arXiv:1712.03708v1 [math.AG] 11 Dec 2017
+                                                   Abstract. We discuss recent developments in p-adic geometry, ranging from
+                                                   foundational results such as the degeneration of the Hodge-to-de Rham spectral
+                                                   sequence for “compact p-adic manifolds” over new period maps on moduli
+                                                   spaces of abelian varieties to applications to the local and global Langlands
+                                                   conjectures, and the construction of “universal” p-adic cohomology theories.
+                                                   We finish with some speculations on how a theory that combines all primes p,
+                                                   including the archimedean prime, might look like.
+
+
+
+
+                                                                               1. Introduction
+                                               In this survey paper, we want to give an introduction to the world of ideas which
+                                           the author has explored in the past few years, and indicate some possible future
+                                           directions. The two general themes that dominate this work are the cohomology of
+                                           algebraic varieties, and the local and global Langlands correspondences. These two
+                                           topics are classically intertwined ever since the cohomology of the moduli space of
+                                           elliptic curves and more general Shimura varieties has been used for the construction
+                                           of Langlands correspondences. Most of our work so far is over p-adic fields, where
+                                           we have established analogues of the basic results of Hodge theory for “compact
+                                           p-adic manifolds”, have constructed a “universal” p-adic cohomology theory, and
+                                           have made progress towards establishing the local Langlands correspondence for
+                                           a general p-adic reductive group by using a theory of p-adic shtukas, and we will
+                                           recall these results below.
+                                               However, here we wish to relay another, deeper, relation between the cohomology
+                                           of algebraic varieties and the structures underlying the Langlands corresondence, a
+                                           relation that pertains not to the cohomology of specific algebraic varieties, but to
+                                           the very notion of what “the” cohomology of an algebraic variety is. Classically,
+                                           the study of the latter is the paradigm of “motives” envisioned by Grothendieck;
+                                           however, that vision has still only been partially realized, by Voevodsky, [Voe00],
+                                           and others. Basically, Grothendieck’s idea was to find the “universal” cohomology
+                                           as the universal solution to a few basic axioms; in order to see that this has the
+                                           desired properties, one however needs to know the existence of “enough” algebraic
+                                           cycles as encoded in the standard conjectures, and more generally the Hodge and
+                                           Tate conjectures. However, little progress has been made on these questions. We
+                                           propose to approach the subject from the other side and construct an explicit co-
+                                           homology theory that practically behaves like a universal cohomology theory (so
+                                           that, for example, it specializes to all other known cohomology theories); whether
+                                           or not it is universal in the technical sense of being the universal solution to certain
+                                           axioms will then be a secondary question.
+                                               This deeper relation builds on the realization of Drinfeld, [Dri80], that in the
+                                           function field case, at the heart of the Langlands correspondence lie moduli spaces of
+                                           shtukas. Anderson, [And86], Goss, [Gos96], and others have since studied the notion
+                                                                                         1
+2                                     PETER SCHOLZE
+
+
+of t-motives, which is a special kind of shtuka, and is a remarkable function field
+analogue of motives, however without any relation to the cohomology of algebraic
+varieties. What we are proposing here is that, despite extreme difficulties in making
+sense of this, there should exist a theory of shtukas in the number field case, and
+that the cohomology of an algebraic variety, i.e. a motive, should be an example of
+such a shtuka.
+   This picture has been essentially fully realized in the p-adic case. In the first
+sections of this survey, we will explain these results in the p-adic case; towards the
+end, we will then speculate on how the full picture over Spec Z should look like,
+and give some evidence that this is a reasonable picture.
+   Acknowledgments. This survey was written in relation to the author’s lec-
+ture at the ICM 2018. Over the past years, I have benefitted tremendously from
+discussions with many mathematicians, including Bhargav Bhatt, Ana Caraiani,
+Gerd Faltings, Laurent Fargues, Ofer Gabber, Eugen Hellmann, Lars Hesselholt,
+Kiran Kedlaya, Mark Kisin, Arthur-César le Bras, Akhil Mathew, Matthew Mor-
+row, Wieslawa Niziol, Michael Rapoport, Richard Taylor, and many others. It is
+a great pleasure to thank all of them for sharing their insights, and more gener-
+ally the whole mathematical community for being so generous, inviting, supportive,
+challenging, and curious. I feel very glad and honoured to be part of this adventure.
+
+                                2. p-adic Hodge theory
+   Let us fix a complete algebraically closed extension C of Qp . The analogue of a
+compact complex manifold in this setting is a proper smooth rigid-analytic variety
+X over C.1 Basic examples include the analytification of proper smooth algebraic
+varieties over C, or the generic fibres of proper smooth formal schemes over the
+ring of integers OC of C. More exotic examples with no direct relation to algebraic
+varieties are given by the Hopf surfaces
+                               X = ((A2C )rig \ {(0, 0)})/q Z ,
+where q ∈ C is an element with 0 < |q| < 1 acting via diagonal multiplication
+on A2 . Recall that their complex analogues are non-Kähler, as follows from the
+asymmetry in Hodge numbers, H 0 (X, Ω1X ) = 0 while H 1 (X, OX ) = C. On the
+other hand, some other non-Kähler manifolds such as the Iwasawa manifolds do
+not have a p-adic analogue.
+   The basic cohomological invariants of a compact complex manifold also exist in
+                                                                            i
+this setting. The analogue of singular cohomology is étale cohomology Hét   (X, Z` ),
+which is defined for any prime `, including ` = p. If ` 6= p, it follows for example
+from work of Huber, [Hub96, Proposition 0.5.3], that this is a finitely generated
+Z` -module. For ` = p, this is also true by [Sch13a, Theorem 1.1], but the argument
+is significantly harder.
+                                                         i
+   Moreover, one has de Rham cohomology groups HdR         (X/C) and Hodge coho-
+                   i     j
+mology groups H (X, ΩX ), exactly as for compact complex manifolds. These are
+
+   1Rigid-analytic varieties were first defined by Tate, [Tat71], and alternative and more gen-
+eral foundations have been proposed by various authors, including Raynaud, [Ray74], Berkovich,
+[Ber93], Fujiwara-Kato, [FK06], and Huber, [Hub96]. We have found Huber’s setup to be the most
+natural, and consequently we will often implicitly regard all schemes, formal schemes and rigid
+spaces that appear in the following as adic spaces in the sense of Huber; his category naturally
+contains all of these categories as full subcategories.
+                                  p-ADIC GEOMETRY                                      3
+
+                                                                         i
+finite-dimensional by a theorem of Kiehl, [Kie67]. By the definition of HdR (X/C)
+as the hypercohomology of the de Rham complex, one finds an E1 -spectral sequence
+                           E1ij = H j (X, ΩiX ) ⇒ HdR
+                                                   i+j
+                                                       (X/C)
+called the Hodge-to-de Rham spectral sequence. In complex geometry, a basic
+consequence of Hodge theory is that this spectral sequence degenerates at E1 if X
+admits a Kähler metric. This assumption is not necessary in p-adic geometry:
+Theorem 2.1 ([Sch13a, Corollary 1.8], [BMS16, Theorem 13.12]). For any proper
+smooth rigid-analytic space X over C, the Hodge-to-de Rham spectral sequence
+                           E1ij = H j (X, ΩiX ) ⇒ HdR
+                                                   i+j
+                                                       (X/C)
+degenerates at E1 . Moreover, for all i ≥ 0,
+         i
+         X
+               dimC H i−j (X, ΩjX ) = dimC HdR
+                                            i                 i
+                                               (X/C) = dimQp Hét (X, Qp ) .
+         j=0
+
+    Fortunately, the Hodge-to-de Rham spectral sequence does degenerate for the
+Hopf surface – and the examples of nondegeneration such as the Iwasawa manifolds
+do not have p-adic analogues.
+                                                                            i
+    Over the complex numbers, the analogue of the equality dimC HdR            (X/C) =
+          i
+dimQp Hét (X, Qp ) follows from the comparison isomorphism between singular and
+de Rham cohomology. In the p-adic case, the situation is slightly more complicated,
+and the comparison isomorphism only exists after extending scalars to Fontaine’s
+field of p-adic periods BdR . If X is only defined over C, it is nontrivial to formulate
+the correct statement, as there is no natural map C → BdR along which one can
+extend scalars; the correct statement is Theorem 6.3 below.
+    There is however a different way to obtain the desired equality of dimensions.
+This relies on the Hodge-Tate spectral sequence, a form of which is implicit in
+Faltings’s proof of the Hodge-Tate decomposition, [Fal88].
+Theorem 2.2 ([Sch13b, Theorem 3.20], [BMS16, Theorem 13.12]). For any proper
+smooth rigid-analytic space X over C, there is a Hodge-Tate spectral sequence
+                     E2ij = H i (X, ΩjX )(−j) ⇒ Hét
+                                                 i+j
+                                                     (X, Zp ) ⊗Zp C
+that degenerates at E2 .
+   Here, (−j) denotes a Tate twist, which becomes important when one wants
+to make everything Galois-equivariant. Note that the Hodge cohomology groups
+appear in the other order than in the Hodge-to-de Rham spectral sequence.
+Remark 2.3. If X is the base change of a proper smooth rigid space defined over a
+discretely valued field K ⊂ C, then everything in sight carries a Galois action, and
+it follows from the results of Tate, [Tat67], that there is a unique Galois-equivariant
+splitting of the abutment filtration, leading to a Galois-equivariant isomorphism
+                                             i
+                          (X, Qp ) ⊗Qp C ∼
+                                             M
+                      i
+                     Hét                =         H i−j (X, ΩjX )(−j) ,
+                                             j=0
+
+answering a question of Tate, [Tat67, Section 4.1, Remark]. However, this isomor-
+phism does not exist in families. This is analogous to the Hodge decomposition
+over the complex numbers that does not vary holomorphically in families.
+4                                  PETER SCHOLZE
+
+
+  An interesting question is whether Hodge symmetry could still hold under some
+condition on X. Such an analogue of the Kähler condition has recently been pro-
+posed by Li, [Li17]. In joint work with Hansen, [HL17], they state the following
+conjecture that they prove in the case i + j = 1.
+Conjecture 2.4. Let X be a proper smooth rigid-analytic variety that admits a
+formal model X whose special fibre is projective. Then for all i, j ≥ 0, one has
+dimC H i (X, ΩjX ) = dimC H j (X, ΩiX ).
+   The condition is indeed analogous to the Kähler condition; in Arakelov theory,
+the analogue of a metric is a formal model, and the positivity condition on the
+Kähler metric finds a reasonable analogue in the condition that the special fibre is
+projective.
+   Note that in particular it follows from the results of Hansen-Li that for any
+proper formal model X of the Hopf surface (which exist by Raynaud’s theory of
+formal models), the special fibre is a non-projective (singular) proper surface.
+   From the Hodge-to-de Rham and the Hodge-Tate spectral sequence, one obtains
+abutments filtrations that we call the Hodge-de Rham filtration and the Hodge-
+Tate filtration. Their variation in families defines interesting period maps as we
+will recall in the next sections.
+
+                 3. Period maps from de Rham cohomology
+    First, we recall the more classical case of the period maps arising from the
+variation of the Hodge filtration on de Rham cohomology. For simplicity, we will
+discuss the moduli space M/Z of elliptic curves. If E is a an elliptic curve over
+the complex numbers, then H 0 (E, Ω1E ) = (Lie E)∗ is the dual of the Lie algebra,
+H 1 (E, OE ) = Lie E ∗ is the Lie algebra of the dual elliptic curve E ∗ (which, for
+elliptic curves, is canonically isomorphic to E itself), and the Hodge-de Rham
+filtration is a short exact sequence
+                    0 → (Lie E)∗ → HdR
+                                    1
+                                       (E/C) → Lie E ∗ → 0 ,
+       1
+where HdR (E/C) ∼  1
+                = Hsing (E, Z) ⊗Z C. The classical period map takes the form
+
+                                   M
+                                   f
+                            w                   *
+                     M(C)                    H± = P1 (C) \ P1 (R)
+
+where M  f → M(C) is the GL2 (Z)-torsor parametrizing trivializations of the first
+singular cohomology of the elliptic curve. Given an elliptic curve E/C with such a
+trivialization H 1 (E, Z) ∼
+                          = Z2 , the Hodge filtration (Lie E)∗ ⊂ Hsing
+                                                                  1
+                                                                       (E, Z)⊗Z C ∼
+                                                                                  = C2
+                     1       1
+defines a point of P (C) \ P (R) as
+                1
+               Hsing (E, Z) ⊗Z C ∼  1
+                                 = HdR (E/C) ∼
+                                             = (Lie E)∗ ⊕ (Lie E)∗ .
+   If now E is an elliptic curve over the algebraically closed p-adic field C, then we
+still have the identifications H 0 (E, Ω1E ) = (Lie E)∗ , H 1 (E, OE ) = Lie E ∗ and the
+Hodge-de Rham filtration
+                    0 → (Lie E)∗ → HdR
+                                    1
+                                       (E/C) → Lie E ∗ → 0 .
+                                  p-ADIC GEOMETRY                                     5
+
+
+To construct period maps, we need to fix a point x ∈ M(Fp ). Let Q̆p be the
+completion of the maximal unramified extension of Qp , and consider the rigid space
+
+                                     M̆ = Mrig
+                                           Q̆
+                                               .
+                                               p
+
+
+Let Ux ⊂ M̆ be the tube of x, i.e. the open subspace of all points specializing
+to x. This is isomorphic to an open unit ball D = {z | |z| < 1}. Then the
+crystalline nature of de Rham cohomology (in particular, the connection) imply
+                                  i
+that the de Rham cohomology HdR     (Ex̃ ) is canonically identified for all x̃ ∈ Ux .
+Now the variation of the Hodge filtration defines a period map
+                           πx : Ux ∼
+                                   = D → P̆1 = (P1Q̆ )rig .
+                                                     p
+
+
+   There are two cases to consider here. If x corresponds to an ordinary elliptic
+curve, then there is an identification Ux ∼
+                                          = D such that the map πx is given by the
+logarithm map
+                z 7→ log(1 + z) : Ux = D = {z | |z| < 1} → Ă1 ⊂ P̆1 .
+
+This map is an étale covering map onto Ă1 , and the geometric fibres are given by
+copies of Qp /Zp ; for example, the fibre over 0 is given by all p-power roots of unity
+minus 1, i.e. z = ζpr − 1. Note that this implies in particular that (A1Cp )rig has
+interesting (non-finite) étale coverings, contrary both to the scheme case and the
+case over the complex numbers.
+   If x corresponds to a supersingular elliptic curve, then πx becomes a map
+                                 πx : Ux ∼
+                                         = D → P̆1 .
+In this case, the map is known as the Gross-Hopkins period map, [HG94]. It
+is an étale covering map of P̆1 whose geometric fibres are given by copies of
+GL2 (Qp )1 /GL2 (Zp ), where GL2 (Qp )1 ⊂ GL2 (Qp ) is the open subgroup of all
+g ∈ GL2 (Qp ) with det g ∈ Z×p.
+   It is important to note that these maps πx for varying x cannot be assembled into
+a single map from M̆ towards P̆1 , contrary to the case over the complex numbers.
+We will however see a global period map in the next section.
+   These examples are the basic examples of local Shimura varieties, which are
+associated with local Shimura data, [RV14]:
+     (i) A reductive group G over Qp .
+    (ii) A conjugacy class of minuscule cocharacters µ : Gm → GQp , defined over
+         the reflex field E (a finite extension of Qp ).
+   (iii) A σ-conjugacy class b ∈ B(G, µ).
+   We will say something about datum (iii) in Theorem 6.5 below. In our example,
+we have G = GL2 , and µ is the conjugacy class of t 7→ diag(t, 1). In this case,
+B(G, µ) contains exactly two elements, corresponding to the cases of ordinary and
+supersingular elliptic curves, respectively.
+   Let Ĕ be the completion of the maximal unramified extension of E. Correspond-
+ing to G and µ, one gets a flag variety F̆`G,µ over Ĕ, which we consider as an adic
+space; in our example, this is P̆1 . The following theorem on the existence of local
+Shimura varieties proves a conjecture of Rapoport-Viehmann, [RV14].
+6                                        PETER SCHOLZE
+
+
+Theorem 3.1 ([SW17]). There is a natural open subspace F`aG,µ ⊂ F`G,µ , called
+the admissible locus, and an étale covering map
+                            M(G,b,µ),K → F`aG,µ ⊂ F`G,µ
+with geometric fibres G(Qp )/K for any compact open subgroup K ⊂ G(Qp ).
+Remark 3.2. The geometric fibres differ from the examples above. In the exam-
+ples, M(G,b,µ),GL2 (Zp ) is a certain disjoint union of various Ux for x ranging through
+a p-power-isogeny class of elliptic curves.
+    The (towers of) spaces (M(G,b,µ),K )K⊂G(Qp ) are known as local Shimura va-
+rieties; their cohomology is expected to realize local Langlands correspondences,
+cf. [RV14]. This is one of our primary motivations for constructing these spaces.
+    In hindsight, one can say that in [RZ96], Rapoport-Zink constructed these local
+Shimura varieties in many examples, by explicitly constructing M(G,b,µ),K as a
+moduli space of p-divisible groups with extra structures such as endomorphisms
+and polarization, together with a quasi-isogeny to a fixed p-divisible group. An
+advantage of this approach is that, at least for special choices of K such as parahoric
+subgroups, one actually constructs formal schemes whose generic fibre is the local
+Shimura variety, and it is often easier to understand the formal scheme.
+    We will explain our construction of local Shimura varieties in Section 6, and in
+Section 7 we will deal with integral models of local Shimura varieties.
+
+                   4. Period maps from étale cohomology
+   A different period map known as the Hodge-Tate period map parametrizes the
+variation of the Hodge-Tate filtration in families, and has been defined for general
+Shimura varieties of Hodge type in [Sch15].
+   If E is an elliptic curve over the algebraically closed p-adic field C, the Hodge-
+Tate filtration is given by a short exact sequence
+               0 → Lie E ∗ → Hét
+                              1
+                                  (E, Zp ) ⊗Zp C → (Lie E)∗ (−1) → 0 .
+Note that the Lie algebra terms here appear in opposite order when compared to
+the situation over C. To obtain the period map, we need to trivialize the middle
+term. Thus, using the space M̆ = (MQ̆p )rig as in the last section, we consider the
+diagram
+
+                                      M̆
+                                      f
+                                                   πHT
+                                     y                &
+                                M̆                        P̆1 .
+
+Here M̆ → M̆ parametrizes isomorphisms Hét   1
+                                                (E, Zp ) ∼
+                                                         = Z2p ; this defines a GL2 (Zp )-
+      f
+torsor. An essential difficulty here is that this space will be very big, and in par-
+ticular highly nonnoetherian. By [Sch15], it gives a basic example of a perfectoid
+space in the sense of [Sch12].
+   Now M̆ admits the Hodge-Tate period map
+         f
+
+                                         πHT : M̆ → P̆1
+                                               f
+                                                             1
+sending a pair of an elliptic curve E/C with an isomorphism Hét (E, Zp ) ∼
+                                                                          = Z2p to
+                    ∗     1                ∼  2
+the filtration Lie E ⊂ Hét (E, Zp ) ⊗Zp C = C .
+                                           p-ADIC GEOMETRY                                 7
+
+
+   The geometry of this map is very interesting. When restricted to Drinfeld’s
+upper half-plane Ω̆2 = P̆1 \ P1 (Qp ), the map is a pro-finite étale cover, while the
+fibres over points in P1 (Qp ) are curves, so that the fibre dimension jumps. Let us
+discuss these two situations in turn.
+   If we fix a supersingular elliptic curve x ∈ M(Fp ), then we can restrict the
+Hodge-Tate period map to
+                                   ex = Ux × M̆
+                                   U
+                                                 f
+                                                    ,
+                                              M̆
+
+and arrive at the following picture:
+                                                      U
+                                                      ex
+                                                 u              πHT
+                                      πx    Ux                    $
+                                  u
+                            P̆1                                       Ω̆2 .
+
+Here, the map U ex → Ux is a GL2 (Zp )-torsor, while Ux → P̆1 has geometric fibers
+                                         ex → P̆1 is a GL2 (Qp )1 -torsor. To restore full
+GL2 (Qp )1 /GL2 (Zp ); in fact, in total U
+GL2 (Qp )-equivarience, we consider the perfectoid space
+                                  ex ×GL2 (Qp )1 GL2 (Qp ) ∼
+                                                             G
+                     MLT,∞ = U                             =    U
+                                                                ex ,
+                                                                           Z
+
+which is known as the Lubin-Tate tower at infinite level, cf. [SW13], [Wei16]. On the
+other hand, Uex → Ω̆2 turns out to be an O× -torsor, where D/Qp is the quaternion
+                                           D
+algebra. Here, the OD -action arises from the identification OD = End(Ex ) ⊗Z Zp ,
+where Ex is the supersingular elliptic curve corresponding to x; by functoriality,
+this acts on the deformation space of x, and thus also on Ux and U    ex . In terms of
+the Lubin-Tate tower,
+                                       πHT : MLT,∞ → Ω̆2
+is a D× -torsor.
+   We see that MLT,∞ has two different period morphisms, corresponding to the
+Hodge-de Rham filtration and the Hodge-Tate filtration. This gives the isomor-
+phism between the Lubin-Tate and Drinfeld tower at infinite level, [Fal02], [FGL08],
+
+                      GL2 (Qp )       MLT,∞           MDr,∞           D×
+                      1 t                                                      +
+                     P̆                                                            Ω̆2 .
+   A similar duality theorem holds true for any local Shimura variety for which b
+is basic. The local Shimura datum (G, b, µ) then has a dual datum ( b
+                                                                   G, bb, µ
+                                                                          b), where
+                                       −1               −1
+G = Jb is the σ-centralizer of b, b = b ∈ Jb , and µ
+ b                                b                b = µ under the identification
+GQp ∼=G  b .
+          Qp
+
+Theorem 4.1 ([SW13], [SW17]). There is a natural isomorphism
+                          lim     M(G,b,µ),K ∼
+                                             =         lim      M(G,      b .
+                          ←−                           ←−         bb b,b
+                                                                       µ),K
+                     K⊂G(Qp )                        K⊂ b
+                                                     b G(Qp )
+
+Remark 4.2. This proves a conjecture of Rapoport-Zink, [RZ96, Section 5.54].
+One has to be careful with the notion of inverse limits here, as inverse limits in adic
+spaces do not exist in general. One interpretation is to take the inverse limit in the
+category of diamonds discussed below.
+8                                        PETER SCHOLZE
+
+
+   On the other hand, we can restrict the Hodge-Tate period map to P1 (Qp ). In
+this case, the fibres of πHT are curves. More precisely, consider the Igusa curve
+Ig parametrizing ordinary elliptic curves E in characteristic p together with an
+isomorphism E[p∞ ]ét ∼= Qp /Zp of the of the étale quotient E[p∞ ]ét of the p-divisible
+group E[p ]. Its perfection Igperf lifts uniquely to a flat formal scheme Ig over Z̆p ,
+           ∞
+                                        −1
+and then, modulo boundary issues, πHT      (x) is the generic fibre of Ig.
+   Let us state these results about the Hodge-Tate period map for a general Shimura
+variety of Hodge type.
+Theorem 4.3 ([Sch15], [CS17]). Consider a Shimura variety ShK , K ⊂ G(Af ), of
+Hodge type, associated with some reductive group G/Q and Shimura data, including
+the conjugacy class of cocharacters µ with field of definition E. Let F`G,µ = G/Pµ
+be the corresponding flag variety.2 Fix a prime p and a prime p of E dividing p.
+     (i) For any compact open subgroup K p ⊂ G(Apf ), there is a unique perfectoid
+         space ShK p over Ep such that
+                            ShK p ∼       lim      (ShKp K p ⊗ Ep )rig .
+                                          ←−
+                                      Kp ⊂G(Qp )
+
+    (ii) There is a G(Qp )-equivariant Hodge-Tate period map
+                                    πHT : ShK p → F`G,µ ,
+          where we consider the right-hand side as an adic space over Ep .
+    (iii) There is a Newton stratification
+                                           G
+                               F`G,µ =          F`bG,µ
+                                                b∈B(G,µ)
+
+         into locally closed strata.
+    (iv) If the Shimura variety is compact and of PEL type, then if x ∈ F`bG,µ is
+                                       −1
+         a geometric point, the fibre πHT (x) is the canonical lift of the perfection of
+         the Igusa variety associated with b.
+  We note that the Newton strata in (iii) are only defined on the adic space:
+sometimes they are nonempty but have no classical points!
+
+                    5. Applications to Langlands reciprocity
+    The geometry of the Hodge-Tate period map has been used to obtain new results
+on the Langlands conjectures relating automorphic forms and Galois representa-
+tions, especially in the case of torsion coefficients.
+    Let us first recall the results obtained in [Sch15]. For any reductive group G over
+Q and a congruence subgroup Γ ⊂ G(Q), one can look at the locally symmetric
+XΓ = Γ\X, where X is the symmetric space for G(R). To study Hecke operators,
+it is more convenient to switch to the adelic formalism, and consider
+                                XK = G(Q)\(X × G(Af )/K)
+for a compact open subgroup K ⊂ G(Af ), assumed sufficiently small from now on.
+The cohomology H i (XK , C) with complex coefficients can be computed in terms
+of automorphic forms. By the Langlands correspondence, one expects associated
+Galois representations. Much progress was made on these questions in case X is
+   2There are actually two choices for this flag variety; we refer to [CS17] for a discussion of which
+one to choose.
+                                    p-ADIC GEOMETRY                                       9
+
+
+a hermitian symmetric space, so that the XK are algebraic varieties over number
+fields, and their étale cohomology gives Galois representations. However, the groups
+G = GLn for n > 2 are not of this type.
+    It was conjectured by Grunewald in the 70’s and later more precisely Ash,
+[Ash92], that this relation between cohomology and Galois representations ex-
+tends to the full integral cohomology groups H i (XK , Z), including their torsion
+subgroups, which can be enormous, especially in the case of hyperbolic 3-manifolds,
+cf. [BV13].
+Theorem 5.1 ([Sch15]). Assume that G = ResF/Q GLn for some totally real or
+CM field F . Consider the abstract Hecke algebra L T acting on XK , generated by
+Hecke operators at good primes, and let TK ⊂ End( i H i (XK , Z)) be the image of
+T. For any maximal ideal m ⊂ TK , there is a continuous semisimple representation
+                            ρm : Gal(F /F ) → GLn (TK /m)
+which is unramified at good primes, with Frobenius eigenvalues determined in terms
+of Hecke operators. If ρm is absolutely irreducible, then there is a nilpotent ideal
+Im ⊂ TK,m in the m-adic completion TK,m of TK whose nilpotence degree is bounded
+in terms of n and [F : Q], such that there is a continuous representation
+                           ρm : Gal(F /F ) → GLn (TK,m /Im )
+which is unramified at good primes, with the characteristic polynomials of Frobenius
+elements determined in terms of Hecke operators.
+   In particular, for all cohomological automorphic representations π of G, there ex-
+ists a corresponding continuous semisimple Galois representation ρπ : Gal(F /F ) →
+GLn (Q` ) unramified at good primes.
+    The final part of this theorem was proved previously by Harris-Lan-Taylor-
+Thorne, [HLTT16]. The general strategy is to realize XK as a boundary compo-
+nent of the Borel-Serre compactification of a Shimura variety X̃K̃ associated with
+a quasisplit symplectic or unitary group, and use the known existence of Galois
+representations for cusp forms on that space. The key part of the argument then
+is to show that all torsion cohomology classes on X̃K̃ can be lifted to characteristic
+0, which is done using certain subtle results from p-adic Hodge theory in [Sch15].
+    For applications, one needs a precise understanding of the behaviour of the Galois
+representations at bad primes as well, in particular for primes dividing `. To attack
+such questions, a better understanding of the torsion in X̃K̃ is necessary. This has
+been obtained recently in joint work with Caraiani.
+Theorem 5.2 ([CS]). Let Te be the Hecke algebra acting on the cohomology of X̃ .
+                                                                              K̃
+                              m⊂T
+Assume that the maximal ideal e    e is generic. Then
+
+                                    Hci (X̃K̃ , Z` )m
+                                                    e =0
+
+for i > d = dimC X̃K̃ .
+
+   Essentially by Poincaré duality, this implies that also H i (X̃K̃ , Z` )m
+                                                                            e = 0 for i < d,
+and that H d (X̃K̃ , Z` )m
+                         e is `-torsion free. From the realization of XK in the boundary
+of X̃K̃ , one gets a long exact sequence
+                                          0
+      . . . → H d (X̃K̃ , Z` )m    d
+                              e → H ((XK ) , Z` )m
+                                                      d+1
+                                                 e → Hc               m = 0 → ... ,
+                                                          (X̃K̃ , Z` ) e
+10                                    PETER SCHOLZE
+
+
+where (XK )0 is a torus bundle over XK , and the source is `-torsion free. Now the
+general strategy is to move any cohomology class in H i (XK , Z` )m to H d ((XK )0 , Z` )m
+                                                                                         e
+by using the torus bundle to shift cohomological degrees, lift it to H d (X̃K̃ , Z` )m  e,
+and then use that this group injects into its rationalization, which can be expressed
+in terms of automorphic forms on G̃.
+   Let us comment on the proof of Theorem 5.2. The result works for more general
+Shimura varieties,3 so let us change the notation. Let (ShK )K⊂G(Af ) be a Shimura
+variety corresponding to a reductive group G over Q together with some extra data,
+including a conjugacy class of minuscule cocharacters µ : Gm → G, defined over
+the reflex field E. Fix a prime p 6= ` so that a certain genericity condition on the
+fixed maximal ideal of the Hecke algebra holds true at p, and a (sufficiently small)
+tame level K p ⊂ G(Apf ). We get (the minimal compactification of) the perfectoid
+Shimura variety at infinite level,
+                             Sh∗K p ∼ lim(Sh∗Kp K p ⊗ Ep )rig ,
+                                      ←−
+                                       Kp
+
+where p is a prime of E dividing p. We have the Hodge-Tate period map
+                                  πHT : Sh∗K p → F`G,µ .
+The strategy now is to rewrite RΓc (ShK p , Z` ) as RΓ(F`G,µ , RπHT ∗ j! Z` ), where
+j : ShK p → Sh∗K p is the open immersion. The Hecke operators away from p act
+trivially on the flag variety, so one can also rewrite
+                    RΓc (ShK p , Z` )m = RΓ(F`G,µ , (RπHT ∗ j! Z` )m ) .
+The task is now to understand the sheaf (RπHT ∗ j! Z` )m . The first observation is
+that, with a suitable definition, it lies in p D≤d for the perverse t-structure; this
+uses that RπHT ∗ is simultaneously affine and partially proper (but still has fibres
+of positive dimension – a phenomenon only possible in this highly nonnoetherian
+setup). The other observation is that its fibres are given by the cohomology of
+Igusa varieties, by using Theorem 4.3. The cohomology of Igusa varieties has been
+computed by Shin, [Shi10], but only with Q` -coefficients and in the Grothendieck
+group. Under the genericity condition, one finds that this always gives zero ex-
+cept if the point lies in F`G,µ (Qp ) ⊂ F`G,µ . One can now play off these obser-
+vations, which gives the conclusion that (RπHT ∗ j! Z` )m is concentrated on the 0-
+dimensional space F`G,µ (Qp ). Thus, there is no higher cohomology, and the bound
+(RπHT ∗ j! Z` )m ∈ p D≤d implies that RΓc (ShK p , Z` )m = RΓ(F`G,µ , (RπHT ∗ j! Z` )m )
+is in degrees ≤ d.
+    One nice aspect of this strategy is that it describes the cohomology of Shimura
+varieties in terms of the cohomology of certain sheaves on the flag varieties F`G,µ ,
+and it becomes an interesting question to understand those sheaves themselves.
+This leads to a relation to the geometrization of the local Langlands correspondence
+conjectured by Fargues, cf. Section 6.
+    Finally, let us mention that these results have led to the following applications.
+Theorem 5.3 ([ACC+ 17]). Let F be a CM field.
+  (1) For any elliptic curve E over F , the L-function L(E, s) has meromorphic
+      continuation to C. Moreover, E satisfies the Sato-Tate conjecture.
+
+     3
+     The compact case has appeared in [CS17].
+                                    p-ADIC GEOMETRY                                    11
+
+
+    (2) For any cuspidal automorphic representation π of GL2 (AF ) whose archimedean
+        component is of parallel weight 2, the Ramanujan-Petersson conjecture
+        holds true at all places.
+   Theorem 5.3 is proved by establishing the potential automorphy of E and of
+all symmetric powers of E resp. π; here “potential” means after base change to
+(many) extensions F̃ /F , as in [BLGHT11] where the case of totally real F is proved.
+Thus, the second part follows Langlands’s strategy for establishing the Ramanujan-
+Petersson conjecture in general, and it is the first time that this conjecture has been
+proved in a case where the associated motive (or some closely related motive) is
+not known to exist, and in particular the proof does not invoke Deligne’s theorem
+on the Weil conjectures.
+   For the proof of Theorem 5.3, one wants to see that “all” Galois representations
+arise via Theorem 5.1. This follows Wiles’ strategy [Wil95]; more precisely, we use
+the variant proposed by Calegari-Geraghty, [CG17].
+
+                            6. p-adic twistor theory
+   Further developments in p-adic geometry arose from the realization that the
+structures arising from the cohomology of proper smooth rigid-analytic varieties
+over the algebraically closed p-adic field C can be naturally organized into a modi-
+fication of vector bundles on the Fargues-Fontaine curve in a way closely resembling
+a reinterpretation of Hodge theory in terms of vector bundles on the twistor-P1 .
+   Let us first recall the statements over C. Consider the twistor-P1 , i.e. the nonsplit
+real form P f1 of P1 , which we will take to be given as the descent of P1 to R via
+             R                                                                C
+z 7→ − 1 . We fix the point ∞ ∈ P
+       z
+                                   f1 (C) corresponding to {0, ∞} ⊂ P1 . There is an
+                                     R                                   C
+action of the nonsplit real torus U (1) (that we consider as an algebraic group) on
+f1 fixing ∞.
+P R
+
+Proposition 6.1 (Simpson, [Sim97, Section 5]). The category of U (1)-equivariant
+                             f1 is equivalent to the category of pure R-Hodge struc-
+semistable vector bundles on P R
+tures.
+   Let us briefly recall the proof of this result. As the action of the algebraic group
+U (1) on Pf1 \ {∞} is simply transitive (as after base change to C, it is the simply
+           R
+transitive action of G on itself), U (1)-equivariant vector bundles on P   f1 \ {∞} are
+                      m                                                      R
+equivalent to R-vector spaces V . Thus, given a U (1)-equivariant vector bundle E
+   f1 , we get an R-vector space V such that
+on P R
+
+                            E|f1     ∼
+                                     = V ⊗R Of1
+                                  PR \{∞}          PR \{∞}
+
+equivariantly for the U (1)-action. Identifying the completion of P   f1 at ∞ with
+                                                                        R
+Spf C[[t]], we get at the completion at ∞ a U (1)-equivariant C[[t]]-lattice Λ ⊂
+V ⊗R C((t)). However, this is equivalent to a decreasing filtration Fili VC ⊂ VC , via
+the Rees construction
+                          X
+                      Λ=      t−i (Fili VC )[[t]] ⊂ V ⊗R C((t)) .
+                            i∈Z
+
+One then checks that E is semistable precisely when (V, Fili VC ) defines a pure
+Hodge structure.
+12                                 PETER SCHOLZE
+
+
+   Thus, a description of the inverse functor is that one starts with a pure R-Hodge
+structure (V, Fili VC ) and the trivial vector bundle E 0 = V ⊗R OPf1 , and modifies it
+                                                                    R
+at ∞ via the lattice Λ defined above to obtain a new vector bundle E which is still
+U (1)-equivariant.
+   A very similar formalism exists in the p-adic case. Associated with the alge-
+braically closed p-adic field C, there is the Fargues-Fontaine curve FFC , which is a
+regular noetherian scheme over Qp of Krull dimension 1 with a distinguished point
+                                                                                 +
+∞ ∈ FFC . The completed local ring of FFC at ∞ is Fontaine’s period ring BdR        ,a
+complete discrete valuation ring with residue field C and fraction field BdR .
+Theorem 6.2 (Fargues-Fontaine, [FF17]). All residue fields of FFC at closed points
+are algebraically closed nonarchimedean extensions of Qp . Any vector bundle on
+FFC is a direct sum of stable vector bundles, and there is a unique stable vector
+bundle OFFC (λ) for every rational slope λ = rs ∈ Q, which is of rank r and degree
+s (if r and s are chosen coprime with r > 0).
+                                             f1 , but only half-integral slopes λ ∈ 1 Z
+   Note that a similar result holds true for PR                                     2
+occur in that case.
+   Given a proper smooth rigid-analytic space X over C, one can form the trivial
+vector bundle
+                                   i
+                            E = Hét (X, Zp ) ⊗Zp OFFC .
+                                                                             +
+Theorem 6.3 ([BMS16, Theorem 13.1, Theorem 13.8]). There is a functorial BdR   -
+lattice
+                         i        +        i
+                   Ξ = Hcrys (X/BdR  ) ⊂ Hét (X, Zp ) ⊗Zp BdR .
+                                                                 i
+          ˆ K C for some discretely valued subfield K ⊂ C, then Hcrys     +
+If X = X0 ⊗                                                           (X/BdR )=
+   i              +
+HdR (X0 /K) ⊗K BdR and the inclusion comes from the de Rham comparison iso-
+morphism.
+   Thus, one can form a modification E 0 of E along ∞. The new vector bundle will
+in general be related to the (log-)crystalline cohomology of a (log-)smooth formal
+model. In other words, the comparison isomorphism between étale and crystalline
+cohomology can be understood in terms of a modification of vector bundles on the
+Fargues-Fontaine curve.
+   In fact, contrary to étale cohomology that is infinite-dimensional for spaces like
+the unit disc, it should be possible to define this modified vector bundle much more
+generally, without properness and without using formal models. The following
+conjecture arose from discussions of the author with Arthur-César le Bras, and is
+related to results of Colmez–Niziol, [CN17], [Niz16].
+                                                    i
+Conjecture 6.4. There is a cohomology theory HFF      C
+                                                        (X) for quasicompact sep-
+arated smooth rigid spaces X over C taking values in vector bundles on FFC . If
+X has an overconvergent model X † (for example, if X is affinoid), then the fi-
+         i
+bre of HFF C
+             (X) at ∞ is the overconvergent de Rham cohomology HdR    i
+                                                                        (X † /C) in
+                                                               i
+the sense of Große-Klönne, [GK04], and the completion of HFFC (X) at ∞ is the
+                                                   +
+                                        i
+overconvergent crystalline cohomology Hcrys (X † /BdR ) defined following [BMS16,
+Section 13].
+                                                                         +
+   In other words, not only does de Rham cohomology lift naturally to BdR    along
+                +
+the surjection BdR → C as can be explained in terms of a version of crystalline
+cohomology, but it does actually deform into a vector bundle on all of FFC .
+                                  p-ADIC GEOMETRY                                     13
+
+
+ Now we define for any local Shimura datum (G, b, µ) the local Shimura variety
+M(G,b,µ),K in terms of modifications of G-torsors on the Fargues-Fontaine curve.
+Theorem 6.5 (Fargues, [Far17]). For any reductive group G over Qp , there is a
+natural bijection b 7→ Eb between Kottwitz’ set B(G) of σ-conjugacy classes and the
+set of G-torsors on FFC up to isomorphism. Moreover, b ∈ B(G, µ) ⊂ B(G) if and
+only if Eb can be written as a modification at ∞ of type µ of the trivial G-torsor E1 .
+  The final statement appears in [Rap17]. Now we define
+                        M(G,b,µ),∞ (C) = lim M(G,b,µ),K (C)
+                                         ←−
+                                            K
+to be the set of all modifications E1 99K Eb at ∞ of type µ. The group G(Qp ) is
+the group of automorphisms of E1 , and thus acts on this inverse limit; then for all
+K ⊂ G(Qp ),
+                        M(G,b,µ),K (C) = M(G,b,µ),∞ (C)/K .
+In order to make M(G,b,µ),K into a rigid space, we need to define it as a moduli
+problem. For the rest of this section, we make extensive use of the theory of
+perfectoid spaces, and assume that the reader is familiar with it, cf. [Sch14]; some
+of the structures that appear now will however be motivated in the next section.
+We use that for any perfectoid space S of characteristic p together with an untilt
+S ] over Qp , one can construct a relative Fargues-Fontaine curve FFS that is an adic
+space over Qp and comes with a section ∞ : Spa S ] → FFS . Then M(G,b,µ),∞ (S)
+parametrizes modifications E1 |FFS 99K Eb |FFS at ∞ of type µ as before. This defines
+a structure of a diamond, [Sch17b]:
+Definition 6.6. Let Perf be the category of perfectoid spaces of characteristic p. A
+diamond is a pro-étale sheaf Y on Perf that can be written as a quotient Y = X/R
+of a perfectoid space X by a pro-étale equivalence relation R ⊂ X × X.
+   An example of a diamond is given by the sheaf Spd Qp that attaches to any per-
+fectoid space S of characteristic p the set of all untilts S ] over Qp . More generally,
+if X is an adic space over Qp , one can define a diamond X ♦ whose S-valued points
+are given by an untilt S ] over Qp together with a map S ] → X.
+Theorem 6.7 ([SW17]). For any nonarchimedean field L/Qp , the functor X 7→
+X ♦ defines a fully faithful functor from the category of seminormal rigid spaces
+over L to the category of diamonds over Spd L = (Spa L)♦ .
+   The diamond M(G,b,µ),K = M(G,b,µ),∞ /K over Spd Ĕ is the image of a smooth
+rigid space over Ĕ under this functor.
+   The proof makes use of the results of Kedlaya, [Ked10], and Kedlaya-Liu, [KL15],
+on families of vector bundles on the Fargues-Fontaine curve.
+   From here, it becomes natural to consider much more general spaces, parametriz-
+ing modifications of arbitrary G-bundles at several points with modifications of
+arbitrary type, not necessarily minuscule. Such spaces live over the base space
+Spd Qp × . . . × Spd Qp parametrizing the points of modification: These products
+give good meaning to the non-existent products Spec Qp ×Spec F1 . . .×Spec F1 Spec Qp .
+The resulting spaces are now in general just diamonds. The purpose of the foun-
+dational manuscript [Sch17b] is to develop a solid theory of étale cohomology for
+diamonds with the aim of using these spaces to obtain a general local Langlands
+correspondence.
+14                                PETER SCHOLZE
+
+
+   These spaces are naturally organized into Hecke stacks acting on the stack BunG
+of G-bundles on the Fargues-Fontaine curve. Fargues realized that this gives rise to
+a picture perfectly resembling the geometric Langlands correspondence for classical
+smooth projective curves, [Far16], [Far18], [FS]. This in particular involves perverse
+`-adic sheaves on BunG whose pullback to the flag varieties F`G,µ should arise
+globally from the construction RπHT ∗ Z` sketched in the previous section.
+   It is too early to state the expected theorems about the applications to the local
+Langlands correspondence, but let us mention that recently Kaletha-Weinstein,
+[KW17], have used the étale cohomology of diamonds as developed in [Sch17b] to
+prove Kottwitz’ conjecture, [Rap95], about the realization of the Jacquet-Langlands
+correspondence in the cohomology of local Shimura varieties.
+Remark 6.8. As the theory of diamonds is critical to the foundations, as is the
+possibility of defining Spd Qp × Spd Qp , let us quickly give a description of the
+product Spd Qp × Spd Qp . Consider the open unit disc DQp = {z | |z| < 1} as
+embedded in the multiplicative group via z 7→ 1 + z; then DQp itself is a group
+object. Let De Q be the inverse limit of DQ along z 7→ (1 + z)p − 1. Then D e Q is
+                p                          p                                   p
+(pre)perfectoid, and admits a natural Qp -action. Now
+                                         e Q \ {0})♦ /Z× .
+                      Spd Qp × Spd Qp = (D  p          p
+
+On the right-hand side, one factor of Spd Qp arises from the structure map D  eQ →
+                                                                                 p
+Spa Qp , but the other factor gets realized in terms of the perfectoid punctured unit
+disc, and thus has become geometric.
+   These constructions in fact lead to a description of the absolute Galois group of
+Qp as a geometric fundamental group:
+Theorem 6.9 ([Wei17]). For any algebraically closed nonarchimedean field C/Qp ,
+                                 e C \ {0})/Q× agrees with the absolute Galois group
+the étale fundamental group of (D           p
+of Qp .
+    A search for a hypothetical space Spec Z × Spec Z thus seems closely related to
+a realization of the absolute Galois group of Q as a geometric fundamental group.
+For a step in this direction, let us mention the following result, which uses the ring
+of rational Witt vectors Wrat (R) ⊂ Wbig (R). For all r ∈ R, there is the Teichmüller
+lift [r] ∈ Wrat (R).
+Theorem 6.10 ([KS16]). Let L be a field of characteristic 0 that contains all roots
+of unity, and fix an embedding Q/Z ,→ L× , 1/n 7→ ζn . Then the category of finite
+extensions of L is equivalent to the category of connected finite coverings of the
+topological space
+                            X(L) ⊂ (Spec Wrat (L))(C)
+that is the connected component singled out by the condition that [ζn ] maps to
+e2πi/n ∈ C for all n ≥ 1.
+   In fact, X(L) has a deformation retract to a compact Hausdorff space, which
+gives a realization of the absolute Galois group of L as the profinite fundamental
+group of a compact Hausdorff space! This formally implies that the absolute Galois
+group of L is torsion-free, cf. [KS16, Proposition 7.10].
+   The space X(L) gives rise to certain non-profinitely complete structures on nat-
+ural arithmetic invariants. If L is the cyclotomic extension of Q, one can show
+                                    p-ADIC GEOMETRY                                    15
+
+
+that the actual fundamental group of X(L) given by topological loops is a proper
+dense subgroup of the absolute Galois group. Moreover, it acts naturally on the set
+                                                                                 ×
+log Q ⊂ C of logarithms of algebraic numbers, compatibly with exp : log Q → Q .
+                                                                         i
+Similarly, for general L as in the theorem, the Čech cohomology groups H (X(L), Z)
+give certain torsion-free non-profinitely completed abelian groups with
+                       H i (X(L), Z)/n = H i (Gal(L/L), Z/nZ)
+for all n ≥ 1, cf. [KS16, Theorem 1.8].
+
+                                   7. p-adic shtukas
+   Going further, one can reinterpret the linear-algebraic structures that appeared
+in the last section in terms of a p-adic analogue of shtukas. Let us first recall the
+basic definition of a shtuka from the function field case. There is a version of the
+following definitions for any reductive group G obtained by replacing vector bundles
+by G-torsors.
+Definition 7.1. Let X be a smooth projective curve over Fp and let S be a scheme
+over Fp . A shtuka over S relative to X with legs at x1 , . . . , xn : S → X is a vector
+bundle E over S ×Fp X together with an isomorphism
+                    (Frob∗S E)|S×Fp X\Sni=1 Γxi ∼
+                                                = E|S×Fp X\Sni=1 Γxi ,
+where Γxi : S ,→ S ×Fp X is the graph of xi .
+   Drinfeld used moduli spaces of shtukas with two legs to prove the global Lang-
+lands correspondence for GL2 , [Dri80]. This was generalized to GLn , still using
+moduli spaces with two legs, by L. Lafforgue, [Laf02]. Recently, V. Lafforgue has
+used all moduli spaces with an arbitrary number of legs simultaneously to prove
+the automorphic to Galois direction of the global Langlands correspondence for any
+reductive group G, [Laf12].
+   There is a corresponding notion of local shtuka, where one works with the local
+curve X = Spf Fp [[t]]. The legs are now parametrized by maps x1 , . . . , xn : S →
+X = Spf Fp [[t]], i.e. locally nilpotent elements ti ∈ OS (S). As this contains no
+topological information, we pass to the world of rigid geometry. For simplicity,
+we discuss the case of geometric points, and so assume that S = Spa C for some
+complete algebraically closed nonarchimedean field C of characteristic p; we will
+later allow more general base spaces again. The legs are maps S → X, which are
+parametrized by topologically nilpotent elements ti ∈ C, i.e. |ti | < 1. The fibre
+product S ×Fp X becomes the open unit ball DC = {t ∈ C | |t| < 1}, and the legs
+give rise to points xi ∈ DC . There is a Frobenius FrobC acting on DC , coming from
+the Frobenius on C. This is not a map of rigid spaces over C, but it does exist in
+the category of adic spaces.
+Definition 7.2. A (local) shtuka over S = Spa C relative to X = Spf Fp [[t]] with
+legs at x1 , . . . , xn : S → X given by elements ti ∈ C, |ti | < 1, is a vector bundle E
+over DC = S ×Fp X together with an isomorphism
+                       (Frob∗C E)|DC \{t1 ,...,tn } ∼
+                                                    = E|DC \{t1 ,...,tn }
+that is meromorphic along the ti .
+16                                         PETER SCHOLZE
+
+
+   The main observation of [SW17] is that it is possible to give a mixed-characte-
+ristic version of this definition, where X = Spf Zp . As a geometric point, one still
+takes S = Spa C where C is a complete algebraically closed nonarchimedean field
+of characteristic p. Naively, there are now no interesting maps S = Spa C → X =
+Spf Zp ; there is exactly one, which factors over Spec Fp . We will see momentarily
+how to solve this problem. But let us first face the other problem of defining a
+reasonable fibre product “S × X”, where the product should be over Spec Fp . The
+basic insight is that for any perfect ring R, “ Spec R × Spf Zp ” should be given by
+Spf W (R) with the p-adic topology on W (R). If R is itself an adic ring with the
+I-adic topology, then “ Spf R × Spf Zp = Spf W (R)”, where W (R) is equipped with
+the (p, [I])-adic topology.
+   In particular, we should set “ Spf OC ×Spf Zp ” = Spf(W (OC )). The ring W (OC )
+plays an important role in p-adic Hodge theory, and is traditionally called Ainf there.
+If $ ∈ C is a topologically nilpotent unit, then passing from Spf OC to its generic
+fibre Spa C amounts to inverting $. Thus, we define the open subspace
+                     “ Spa C × Spa Zp ” = {[$] 6= 0} ⊂ Spa(W (OC )) ,
+which is a well-defined adic space. The following proposition shows that this be-
+haves very much like a classical smooth rigid curve, except that it does not live over
+any base field.
+Proposition 7.3 ([FF17], [Ked16]). For any connected open affinoid subspace
+                           U = Spa(R, R+ ) ⊂ “ Spa C × Spa Zp ” ,
+the ring R is a principal ideal domain. For any maximal ideal m ⊂ R, the quotient
+Cm = R/m is a complete algebraically closed nonarchimedean field. Moreover, there
+is a canonical isomorphism
+                                  lim OCm /p ∼
+                                             = OC ,
+                                  ←−
+                                 x7→xp
+
+i.e. C ∼
+       = Cm[
+              is the tilt of Cm in the terminology of [Sch12]. Conversely, for any
+complete algebraically closed nonarchimedean field C ] with an isomorphism (C ] )[ ∼
+                                                                                   =
+C, there is a unique maximal ideal m ⊂ R (for any large enough open subset U )
+such that C ] = R/m, compatibly with the identification of (C ] )[ with C.
+  In other words, “classical points” of “ Spa C × Spa Zp ” parametrize untilts of C.
+This shows that we should reinterpret the data of the maps xi : S = Spa C → X =
+Spa Zp as the data of untilts C1] , . . . , Cn] of C.
+Definition 7.4. A (local/p-adic) shtuka over S = Spa C relative to X = Spf Zp
+with legs at x1 , . . . , xn given by untilts C1] , . . . , Cn] of C, is a vector bundle E over
+“ Spa C × Spa Zp ” together with an isomorphism
+           (Frob∗ E)|“ Spa C×Spa Z ”\{x ,...,x } ∼
+                    C                  p     1    n   = E|“ Spa C×Spa Z ”\{x ,...,x }
+                                                                         p    1     n
+
+that is meromorphic along the xi .
+  In the case of one leg, these structures are closely related to the structures that
+appeared in the last section, by the following theorem of Fargues.
+Theorem 7.5 (Fargues, [SW17]). Assume that C ] is an untilt over Qp , let ∞ :
+Spec C ] → FFC be the corresponding point of the Fargues-Fontaine curve,4 and
+     4The Fargues-Fontaine curve depends only on the tilt of C ] , but the point ∞ depends on C ] .
+                                   p-ADIC GEOMETRY                                      17
+
+       +       +
+let BdR    = BdR  (C ] ) be the complete local ring at ∞ with quotient field BdR . The
+following categories are equivalent.
+      (i) Shtukas over S = Spa C relative to X = Spf Zp with one leg at C ] .
+     (ii) Pairs (T, Ξ), where T is a finite free Zp -module and Ξ ⊂ T ⊗Zp BdR is a
+            +
+          BdR -lattice.
+    (iii) Quadruples (F1 , F2 , β, T ), where F1 and F2 are two vector bundles on the
+          Fargues-Fontaine curve FFC , β : F1 |FFC \{∞} ∼ = F2 |FFC \{∞} is an isomor-
+          phism, and T is a finite free Zp -module such that F1 = T ⊗Zp OFFC is the
+          corresponding trivial vector bundle.
+    (iv) Breuil-Kisin-Fargues modules, i.e. finite free Ainf = W (OC )-modules M
+          together with a ϕ-linear isomorphism M [ ϕ−11(ξ) ] ∼
+                                                             = M [ 1ξ ], where ξ ∈ Ainf is
+          a generator of ker(Ainf → OC ] ).
+    Note that local Shimura varieties are parametrizing data of type (iii). The
+equivalence with (i) shows that one can regard local Shimura varieties as moduli
+spaces of shtukas, and it gives a possibility of formulating an integral model for the
+local Shimura varieties that we will now discuss.
+    In [SW17], we construct moduli spaces of shtukas with any number of legs.
+However, already the case of one leg has important applications, so let us focus on
+this case. In addition to the group G over Qp , we need to fix a model G of G over Zp ,
+and the most important case is when G is parahoric. To define the moduli problem,
+we need to bound the modification at the leg; this leads to a version of the affine
+Grassmannian. Here, Spd Zp denotes the functor on Perf taking any perfectoid
+space S of characteristic p to the set of untilts S ] over Zp . If S = Spa(R, R+ ) is
+                                                                  +
+affinoid, then S ] = Spa(R] , R]+ ), and there is a natural ring BdR (R] ) that surjects
+         ]                                                           +
+onto R with kernel generated by some nonzerodivisor ξ ∈ BdR            (R] ) such that
+  +     ]
+BdR (R ) is ξ-adically complete. This interpolates between the following cases:
+    (1) If R] = C ] is an untilt over Qp of an algebraically closed nonarchimedean
+                                               +
+        field R = C of characteristic p, then BdR (C ] ) is Fontaine’s ring considered
+        previously.
+                                                    +
+    (2) If R] = R is of characteristic p, then BdR      (R] ) = W (R) is the ring of
+        p-typical Witt vectors.
+Definition 7.6. Let G be a parahoric group scheme over Zp . The Beilinson-Drin-
+feld Grassmannian
+                             GrG,Spd Zp → Spd Zp
+is the moduli problem on Perf taking an affinoid perfectoid space S = Spa(R, R+ )
+of characteristic p to the set of untilts S ] = Spa(R] , R]+ ) over Zp together with a
+                 +
+G-torsor over BdR  (R] ) that is trivialized over BdR (R] ).
+   In the following, we make use of the following proposition to identify perfect
+schemes or formal schemes as certain pro-étale sheaves. In both cases, one can
+define a functor X 7→ X ♦ , where X ♦ parametrizes untilts over X.
+Proposition 7.7. The functor X 7→ X ♦ defines a fully faithful functor from the
+category of perfect schemes to the category of pro-étale sheaves on Perf. Similarly,
+for any nonarchimedean field L over Qp , the functor X 7→ X ♦ from normal and
+flat formal schemes locally formally of finite type over Spf OL to pro-étale sheaves
+over Spd OL is fully faithful.
+18                                  PETER SCHOLZE
+
+
+   The proof of the second part relies on a result of Lourenço, [Lou17], that recovers
+formal schemes as in the proposition from their generic fibre and the perfection of
+their special fibre, together with the specialization map.
+Theorem 7.8 ([Zhu17], [BS17], [SW17]). The special fibre of GrG,Spd Zp is given by
+the Witt vector affine Grassmannian GrW G constructed in [Zhu17] and [BS17] that
+can be written as an increasing union of perfections of projective varieties along
+                                                           +
+closed immersions. The generic fibre of GrG,Spd Zp is the BdR -affine Grassmannian
+of G, and can be written as an increasing union of proper diamonds along closed
+immersions.
+   For a conjugacy class of minuscule cocharacters µ defined over E, there is a
+natural closed immersion
+                          F`♦
+                            G,µ ,→ GrG,Spd Zp ×Spd Zp Spd E .
+
+     We let
+                          Mloc
+                           (G,µ) ⊂ GrG,Spd Zp ×Spd Zp Spd OE
+
+be the closure of F`♦G,µ . We conjecture that it comes from a normal and flat projec-
+tive scheme over Spec OE under Proposition 7.7. This would give a group-theoretic
+definition of the local model in the theory of Shimura varieties, cf. e.g. [Pap18].
+Definition 7.9. Given local Shimura data (G, b, µ) and a parahoric model G, let
+                                  Mint
+                                   (G,b,µ) → Spd ŎE
+
+be the moduli problem taking S ∈ Perf to the set of untilts S ] over ŎE together with
+a G-shtuka over “S × Spa Zp ” with one leg at S ] that is bounded by Mloc (G,µ) , and a
+trivialization of the shtuka at the boundary of “S × Spa Zp ” by Eb .
+     For a precise formulation of the following result, we refer to [SW17].
+Theorem 7.10 ([SW17]). This definition recovers Rapoport-Zink spaces.
+   Using this group-theoretic characterization of Rapoport-Zink spaces, we can ob-
+tain new isomorphisms between different Rapoport-Zink spaces.
+Corollary 7.11. The conjectures of Rapoport-Zink, [RZ17], and Kudla-Rapoport-
+Zink, [KRZ], on alternative descriptions of the Drinfeld moduli problem hold true.
+   In particular, by [KRZ], one gets an integral version and moduli-theoretic proof
+of Čerednik’s p-adic uniformization theorem, [Cer76].
+   To prove Theorem 7.10, one needs to see that p-adic shtukas are related to
+the cohomology of algebraic varieties or p-divisible groups. This is the subject of
+integral p-adic Hodge theory that we will discuss next.
+
+                        8. Integral p-adic Hodge theory
+     The following question arises naturally from Theorem 7.5. As it is more natural
+in this section, let us change notation, and start with an algebraically closed p-adic
+field C and consider shtukas over its tilt C [ with one leg at the untilt C of C [ . Given
+                                                                     i
+a proper smooth rigid-analytic space X over C, consider T = Hét       (X, Zp )/(torsion)
+                         +                    i        +
+with the finite free BdR -module Ξ = Hcrys (X/BdR ) ⊂ T ⊗Zp BdR from Theo-
+rem 6.3. By Theorem 7.5, there is a corresponding Breuil-Kisin-Fargues module
+   i
+HA   inf
+         (X); we normalize it here so that the Frobenius is an isomorphism after in-
+verting ξ resp. ϕ(ξ). Can one give a direct cohomological construction of this?
+                                       p-ADIC GEOMETRY                                            19
+
+
+                 Spec Zp
+
+
+                               Spec W (k)
+                                crystalline
+
+
+
+                                                 Spec OC
+                                          de Rham
+                                                           étale
+
+
+                                                       Spec W (C [ )
+                                                                         Spec OC [
+
+     Figure 1. A picture of some parts of Spec Ainf = “ Spec OC [ × Spec Zp ”.
+
+
+   We expect that without further input, the answer is no; in fact, Fargues’s equiv-
+alence is not exact, and does manifestly not pass to the derived category. However,
+in joint work with Bhatt and Morrow, [BMS16], we show that it is possible once a
+proper smooth formal model X of X is given.5
+Theorem 8.1 ([BMS16]). Let X be a proper smooth formal scheme over Spf OC
+with generic fibre X. There is a perfect complex RΓAinf (X) of Ainf -modules together
+with a ϕ-linear map ϕ : RΓAinf (X) → RΓAinf (X) that becomes an isomorphism
+                                          i
+after inverting ξ resp. ϕ(ξ). Each HA       inf
+                                                (X) is a finitely presented Ainf -module
+                              1
+that becomes free over Ainf [ p ] after inverting p. Moreover, one has the following
+comparison results.
+                                                       L
+     (i) Crystalline comparison: RΓAinf (X) ⊗Ainf W (k) ∼    = RΓcrys (Xk /W (k)), ϕ-
+         equivariantly, where k is the residue field of OC .
+                                             L
+    (ii) De Rham comparison: RΓAinf (X) ⊗Ainf OC ∼     = RΓdR (X/OC ).
+   (iii) Étale comparison: RΓAinf (X) ⊗Ainf W (C [ ) ∼= RΓét (X, Zp ) ⊗Zp W (C [ ), ϕ-
+         equivariantly.
+                i
+Moreover, if Hcrys (Xk /W (k)) is p-torsion free6, then HA
+                                                         i
+                                                           inf
+                                                               (X) is finite free over
+                        i                           7
+Ainf , and agrees with HA inf
+                              (X) as defined above.
+   The theorem implies a similar result for p-divisible groups, which is the key
+input into the proof of Theorem 7.10. On the other hand, the theorem has direct
+consequences for the behaviour of torsion under specialization from characteristic
+0 to charateristic p.
+
+   5All of these results were recently extended to the case of semistable reduction by Česnavičius-
+Koshikawa, [CK17].
+  6Equivalently, H i (X/O ) is p-torsion free, cf. [BMS16, Remark 14.4].
+                   dR       C
+  7In that situation, part (iii) implies that also H i (X, Z ) is p-torsion free.
+                                                    ét     p
+20                                      PETER SCHOLZE
+
+                                            i                   i
+Corollary 8.2. For any i ≥ 0, one has dimk HdR (Xk /k) ≥ dimFp Hét (X, Fp ), and
+                              i                               i
+                 lengthW (k) Hcrys (Xk /W (k))tor ≥ lengthZp Hét (X, Zp )tor .
+   For example, for an Enriques surface X over C, so that it has a double cover by a
+K3 surface, there is 2-torsion in the second étale cohomology group. By the theorem,
+this implies that for all Enriques surfaces in characteristic 2 (all of which deform
+to characteristic 0), one has 2-torsion in the second crystalline cohomology, or
+                1
+equivalently HdR  6= 0, contrary to the situation in any other characteristic. This is a
+well-known “pathology” of Enriques surfaces in characteristic 2 that finds a natural
+explanation here. In this case, one actually has equality in the corollary; however,
+in [BMS16] we give an example of a projective smooth surface over Z2 whose étale
+cohomology is torsionfree while there is torsion in crystalline cohomology.
+   The construction of the Ainf -cohomology given in [BMS16] was the end result
+of a long detour that led the author to study topological Hochschild and cyclic
+homology. This started with the paper [Hes06] of Lars Hesselholt that computes
+THH(OC ). This is an E∞ -ring spectrum with an action by the circle group T = S 1 .
+In particular, one can form the homotopy fixed points TC− (OC ) = THH(OC )hT to
+get another E∞ -ring spectrum.
+Theorem 8.3 (Hesselholt, [Hes06]). The homotopy groups of the p-completion of
+TC− (OC ) = THH(OC )hT are given by Ainf in all even degrees, and 0 in all odd
+degrees. The generators in degree 2 and −2 multiply to ξ ∈ Ainf .
+   If now X is a proper smooth (formal) scheme over OC , it follows that the p-
+completion of TC− (X) is a perfect module over the p-completion of TC− (OC ),
+and in particular its homotopy groups are Ainf -modules. Moreover, topological
+Hochschild homology comes with a T-equivariant Frobenius operator THH(X) →
+THH(X)tCp , where Cp ⊂ T is the cyclic group of order p and S tCp = cone(Nm :
+ShCp → S hCp ) denotes the Tate construction. This gives rise to the desired Frobe-
+nius on TC− by passing to homotopy T-fixed points. In the classical formulation,
+THH has even more structure as encoded in the structure of a cyclotomic spec-
+trum. However, in joint work with Nikolaus, we proved that this extra structure is
+actually redundant.
+Theorem 8.4 ([NS17]). On respective subcategories of bounded below objects, the
+∞-category of cyclotomic spectra (in the sense of Hesselholt-Madsen, [HM97], and
+made more precise by Blumberg-Mandell, [BM15]) is equivalent to the ∞-category
+of naively T-equivariant spectra S together with a T-equivariant map ϕp : S → S tCp
+for all primes p.8
+   The only issue with this construction of the Ainf -cohomology theory (besides its
+heavy formalism) is that one gets an essentially 2-periodic cohomology theory. To
+get the desired cohomology theory itself, one needs to find a filtration on TC− (X)
+and then pass to graded pieces; this is similar to the “motivic” filtration on algebraic
+K-theory with graded pieces given by motivic cohomology, and the existence of such
+a filtration was first conjectured by Hesselholt. Using perfectoid techniques, it is
+possible to construct the desired filtration on TC− ; this is the content of [BMS].
+On the other hand, in the original paper [BMS16], we were able to build the theory
+independently of THH. We refer to [BMS16] and the surveys [Bha16], [Mor16] for
+details on this construction.
+     8No compatibility between the different ϕ
+                                             p is required.
+                                      p-ADIC GEOMETRY                                          21
+
+
+                                  9. Shtukas for Spec Z
+   Roughly, the upshot of the Ainf -cohomology theory is that the “universal” p-
+adic cohomology theory is given by a shtuka relative to Spf Zp . Currently, the
+author is trying to understand to what extent it might be true that the “universal”
+cohomology theory is given by a shtuka relative to Spec Z. It seems that this is a
+very fruitful philosophy.
+   Let us phrase the question more precisely. Given a proper smooth scheme X over
+a base scheme S, what is “the” cohomology of X? Experience in arithmetic and
+algebraic geometry shows that there is no simple answer, and that in fact there are
+many cohomology theories: singular, de Rham, étale, crystalline, etc.9 It helps to
+organize these cohomology theories according to two parameters: First, they may
+only defined for certain (geometric) points s ∈ S, and their coefficients may not be
+Z but only Z/nZ or Z` or R.
+   This makes it natural to draw a picture of a space “S × Spec Z”, where at a point
+(s, `) we put “H i (Xs , Z/`Z)”, whatever we want this to mean. Note that inside
+this space, we have the graph of S, taking any s ∈ S to (s, char(s)) where char(s) is
+the characteristic of s. For simplicity, we assume that S = Spec Z in the following;
+then the graph is given by the diagonal Spec Z ⊂ “ Spec Z × Spec Z”. We will use p
+to denote a point of p ∈ S = Spec Z, and ` to denote a point of the vertical Spec Z.
+   Thus, let X be a proper smooth scheme over S = Spec Z.10 We include the
+following cohomology theories in the picture:
+                                   i
+     (i) Singular cohomology Hsing     (X(C), Z). This gives a vertical line over the
+         infinite point of Spec Z.
+                                     i
+    (ii) De Rham cohomology HdR        (X/Z). Note that (up to torsion problems)
+                            i                   i
+                           HdR (X/Z) ⊗Z Z/`Z = HdR (XFp /Fp )
+                                              i
+         for p = `, so a horizontal fibre of HdR (X/Z) agrees with a vertical fibre.
+         Thus, it sits on the diagonal. It meets singular cohomology, via the com-
+         parison isomorphism
+                         i
+                        HdR (X/Z) ⊗Z C ∼  i
+                                       = Hsing (X(C), Z) ⊗Z C .
+                              i
+   (iii) Étale cohomology Hét (Xs , Z/`m Z), which is defined for all geometric points
+         s ∈ Spec Z \ {`}. This gives a horizontal line with a hole at `, and in
+         fact an infinitesimal neighborhood of the horizontal line. It meets singular
+         cohomology via the comparison isomorphism
+                         i
+                        Hét (XC , Z/`m Z) ∼  i
+                                           = Hsing (X(C), Z/`m Z) .
+                                i
+   (iv) Crystalline cohomology Hcrys (XFp /Zp ). This sits in a vertical fibre over p,
+        and extends de Rham cohomology infinitesimally.
+
+    9We use the word “cohomology theory” in a loose sense, but it should be of Weil type and
+compatible with base change, so for example H 1 of an elliptic curve should be of rank 2 over
+some ring, and base changing the elliptic curve should amount to a corresponding base change of
+its H 1 along an associated map of rings. In particular, “absolute” cohomologies such as motivic
+cohomology or syntomic cohomology are disregarded.
+    10The known examples are not too interesting, so the reader may prefer to take S = Spec Z[ 1 ]
+                                                                                              N
+for some N to get more interesting examples. He should then remove the vertical fibres over p|N
+from the picture.
+22                                     PETER SCHOLZE
+
+
+         ∞
+
+
+
+
+Spec Z                                                                de Rham
+
+
+
+         7
+
+                                                                    étale
+     `                                                                            singular
+         5
+                                           crystalline
+
+
+         3
+
+
+
+         2
+
+
+
+
+                       2         3           5           7                       ∞
+                                                                    Spec Z
+                                                 p
+
+                   Figure 2. A picture of known cohomology theories.
+
+
+
+
+   If we zoom in near a point (p, p) in this picture, we arrive at a picture that looks
+exactly like Figure 1 depicting the Ainf -cohomology theory! And indeed, one can
+use the Ainf -cohomology theory to fill in this part of the picture.
+   The picture bears a remarkable similarity with the following equal-characteristic
+structure.
+
+Definition 9.1 (Anderson, Goss, [And86], [Gos96]). For a scheme S = Spec R
+over Spec Fp [T ] sending T to t ∈ R, a t-motive is a finite projective R[T ]-module
+M together with an isomorphism
+
+                               ϕM : Frob∗R M [ t−T
+                                                1
+                                                   ]∼      1
+                                                    = M [ t−T ].
+
+     Let us briefly discuss the similar specializations.
+
+         (i) If R = K is an algebraically closed field mapping to the infinite point of
+             Spec Fp [T ] (which, strictly speaking, is not allowed – but we can compactify
+                                    p-ADIC GEOMETRY                                        23
+
+
+         Spec Fp [T ] into P1Fp ) we get a vector bundle on P1K together with an isomor-
+         phism with its Frobenius pullback.11 These are equivalent to vector bundles
+         on P1Fp , and by restricting back to Spec Fp [T ], we get an Fp [T ]-module.
+    (ii) Restricting along R[T ] → R sending T to t we get a finite projective R-
+         module. Moreover, ϕM gives rise to a R[[t−T ]]-lattice in M ⊗R[T ] R((t−T )),
+         which gives rise to a filtration of M ⊗R[T ] R similarly to the discussion in
+                        +
+         the case of BdR   -lattices or C[[t]]-lattices in Section 6.12
+   (iii) Restricting modulo a power of T (or T − a, a ∈ Fp ), the pair
+                      (Mn , ϕMn ) = (M ⊗R[T ] R[t−1 , T ]/T n , ϕM )
+        is equivalent to an étale Fp [T ]/T n -local system on Spec R[t−1 ] by taking
+                           ϕ    =1
+        the étale sheaf Mn Mn .
+   (iv) Restricting to the fibre t = 0 (or t = a, a ∈ Fp ) and taking the T -adic
+        completion, M ⊗R[T ] (R/t)[[T ]] with ϕM defines a structure resembling
+        crystalline cohomology.
+    (v) Similarly, by the analogy between local shtukas and local p-adic shtukas,
+        the picture near (t, T ) = (0, 0) resembles the picture of the Ainf -cohomology
+        theory.
+   An interesting question is what happens in vertical fibres, i.e. for S = Spec Fp .
+In the function field case, we get generically the following structure.
+Definition 9.2. A (generic) shtuka over Spec Fp relative to Spec Fp (T ) is a finite-
+dimensional Fp (T )-vector space V together with a FrobFp -semilinear isomorphism
+ϕV : V ∼
+       =V.
+  Amazingly, Kottwitz [Kot14] was able to define an analogue of this category for
+number fields.
+Construction 9.3 (Kottwitz). For any local or global field F , there is an F -linear
+⊗-category KtF , constructed as the category of representations of a gerbe banded by
+an explicit (pro-)torus which is constructed using (local or global) class field theory.
+Moreover, one has the following identifications.
+     (i) If F = Fp ((T )), then KtF is the category of finite-dimensional Fp ((T ))-
+         vector spaces V with a semilinear isomorphism V ∼   =V.
+    (ii) If F = Fp (T ), then KtF is the category of finite-dimensional Fp (T )-vector
+         spaces V with a semilinear isomorphism V ∼   =V.
+   (iii) If F = Qp , then KtF is the category of finite-dimensional W (Fp )[ p1 ]-vector
+         spaces V with a semilinear isomorphism V ∼   =V.
+   (iv) If F = R, then KtF is the category
+                                         L     of finite-dimensional   C-vector spaces
+         V together with a grading V = i∈Z Vi and a graded antiholomorphic iso-
+         morphism α : V ∼  = V such that α2 = (−1)i on Vi .
+Remark 9.4. In the local cases (i) and (iii), one can replace Fp with any alge-
+braically closed field of characteristic p without changing the category. However,
+in the global case (ii), the equivalence holds only for Fp ; for this reason, we fix this
+choice.
+   11One might think that one has to allow a pole at ∞, but the analogy seems to suggest that
+it is in fact not there.
+    12A subtle point is that M ⊗
+                                 R[T ],T 7→t R is the analogue of Hodge(-Tate) cohomology, and
+de Rham cohomology corresponds to the specialization M ⊗R[T ],T 7→tp R.
+24                                 PETER SCHOLZE
+
+
+                                        twistor
+         ∞
+                                                                               Hodge theory
+
+
+
+Spec Z                            KtQ                           de Rham
+
+
+
+         7
+                                                        Integral p−adic
+                                                        Hodge theory
+     `                                                                       singular
+         5
+
+                                                              étale
+
+         3
+
+
+
+         2
+
+
+
+
+                     2        3         5           7                      ∞
+                                                              Spec Z
+                                            p
+
+             Figure 3. A picture of the known, and some unknown, cohomol-
+             ogy theories.
+
+   It is an important problem to find a linear-algebraic description of KtQ . There
+are natural global-to-local maps, so there are functors KtQ → KtQp and KtQ →
+KtR . The analogy between cohomology theories and shtukas suggests the following
+conjecture.
+                                                         i
+Conjecture 9.5. There is a Weil cohomology theory HKt      Q
+                                                             (X) for varieties X over
+Fp taking values in KtQ . Under the functor KtQ → KtQp , this maps to crystalline
+cohomology, and under the functor KtQ → KtQ` for ` 6= p, this maps to étale
+cohomology (considered as an object of KtQ` via the fully faithful embedding of
+finite-dimensional Q` -vector spaces into KtQ` ). Under the restriction KtQ → KtR ,
+                                      i
+it gives a Weil cohomology theory HKt   R
+                                          (X) with values in KtR .
+   This conjecture is known to follow from the conjunction of the standard conjec-
+tures and the Tate conjecture (over Fp ) and the Hodge conjecture (for CM abelian
+varieties) by the work of Langlands-Rapoport, [LR87]. In fact, Langlands-Rapoport
+show that these conjectures imply that the category of motives over Fp can be de-
+scribed as the category of representations of an explicit gerbe, and it is clear by
+                                    p-ADIC GEOMETRY                                  25
+
+
+inspection that there is a surjective map from Kottwitz’ gerbe (which is independent
+of p!) to Langlands-Rapoport’s gerbe. In particular, KtQ conjecturally contains the
+category of motives over Fp as a full subcategory, for all p.
+    It may be interesting to note how Serre’s objection to a 2-dimensional R-cohomology
+                                                              i
+theory is overcome by the R-linear cohomology theory HKt        R
+                                                                  , in an essentially min-
+                                                                           1
+imal way: For a supersingular elliptic curve E/Fp , its associated HKt       R
+                                                                               (E) will be
+given by a 2-dimensional C-vector space V = V1 together with an antiholomorphic
+isomorphism α : V ∼      = V such that α2 = −1, so α does not give rise to a real
+structure; instead, it gives rise to a quaternionic structure. But the endomorphism
+algebra of E, which is a quaternion algebra over Q that is nonsplit over R, can of
+course act on the Hamilton quaternions!
+    It is also interesting to note that there are functors from the category of isocrys-
+tals KtQp to the category of vector bundles on the Fargues-Fontaine curve, and
+similarly from the category KtR to the category of vector bundles on the twistor-
+P1 , which in both cases induce a bijection on isomorphism classes. This gives
+another strong indication of the parallel between the Fargues-Fontaine curve and
+the twistor-P1 , and how Kottwitz’ categories play naturally into them.
+    In particular, one can also draw a horizontal line at ` = ∞, where for all s ∈ S
+one gets a vector bundle on the twistor-P1 (via the previous conjecture in finite
+characteristic, and via the twistor interpretation of Hodge theory in characteristic
+0). In other words, the complex variation of twistor structures must, in a suitable
+sense, be defined over the scheme S (which is a general scheme over Spec Z, not
+necessarily over C).
+
+                           10. q-de Rham cohomology
+   One may wonder what the completion of “ Spec Z × Spec Z” along the diagonal
+looks like; in the picture of cohomology theories, this should combine p-adic Hodge
+theory for all primes p with usual Hodge theory. One proposal for how this might
+happen was made in [Sch17a]. This paper builds on the following observation on the
+Ainf -cohomology theory. Namely, one can write down explicit complexes computing
+this cohomology on affines. For example, if R = OC hT i is the p-adic completion of
+OC [T ], then one looks at the following complex:
+                          ∇q
+                Ainf hT i −→ Ainf hT i : T n 7→ ∇q (T n ) = [n]q T n−1 ,
+                                          n
+                                        −1
+where [n]q = 1 + q + . . . + q n−1 = qq−1   is Gauß’s q-integer, and q = [] ∈ Ainf
+is a certain element of Ainf . This is precisely the q-de Rham complex studied by
+Aomoto, [Aom90]; it sends a general function f (T ) to the Jackson q-derivative
+                                               f (qT ) − f (T )
+                               (∇q f )(T ) =                    .
+                                                   qT − T
+Unfortunately, the q-de Rham complex depends heavily on the choice of coordinates,
+and it is not clear how to see the independence of the Ainf -cohomology from the
+choice of coordinates using this picture.
+   However, in recent work with Bhatt, [BS], we were able to prove the following
+theorem, proving a conjecture of [Sch17a].
+Theorem 10.1 ([BS]). There is a Z[[q − 1]]-linear q-de Rham cohomology theory
+for smooth schemes over Spec Z that for any smooth Z-algebra R with a choice of an
+26                                     PETER SCHOLZE
+
+
+étale map Z[T1 , . . . , Tn ] → R is computed by a q-deformation qΩ•R of the de Rham
+complex Ω•R . For example,
+                                  ∇q
+        qΩ•Z[T ] = Z[T ][[q − 1]] −→ Z[T ][[q − 1]] : T n 7→ ∇q (T n ) = [n]q T n−1 .
+After base change along Z[[q − 1]] → Ainf via q 7→ [], this recovers the Ainf -
+cohomology theory.
+   In particular, this suggests that the completion of “ Spec Z × Spec Z” along the
+diagonal is related to Spf Z[[q − 1]].
+   Previous progress towards this result was made by Pridham, [Pri16], and Cha-
+tzistamatiou, [Cha], and announced by Masullo. In particular, Chatzistamatiou
+was able to write down explicitly the quasi-automorphism of qΩ•Z[T ] for an auto-
+morphism of Z[T ], like T 7→ T + 1; this is a highly nontrivial result!13
+   Unfortunately, the proof of Theorem 10.1 proceeds by first constructing such
+complexes after p-adic completion, and then patching them together in some slightly
+artificial way, so we believe that there is still much more to be understood about
+what exactly happens along the diagonal.
+   In fact, the prismatic cohomology defined in [BS] gives in the p-adic case a
+Breuil-Kisin variant14 of the Ainf -cohomology theory for varieties over OK where
+K is a finite extension of Qp . This Breuil-Kisin module contains some slightly
+finer information than the q-de Rham cohomology and is in some sense a Frobenius
+descent of it, but it is not clear how to combine them for varying p. This is
+related to the observation that in the analogy with t-motives, the diagonal T =
+t corresponds to Hodge(-Tate) cohomology, while the Frobenius-twisted diagonal
+T = tp corresponds to de Rham cohomology. In this picture, the q-de Rham
+cohomology would sit at the completion at T = tp , while the prismatic picture
+seems more adapted to a picture corresponding to the completion at the diagonal
+T = t.
+
+                                        References
+[ACC+ 17] P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton,
+          P. Scholze, R. Taylor, and J. Thorne, Potential automorphy over CM fields, in prepa-
+          ration.
+[And86]   G. W. Anderson, t-motives, Duke Math. J. 53 (1986), no. 2, 457–502.
+[Aom90]   K. Aomoto, q-analogue of de Rham cohomology associated with Jackson integrals. I,
+          Proc. Japan Acad. Ser. A Math. Sci. 66 (1990), no. 7, 161–164.
+[Ash92]   A. Ash, Galois representations attached to mod p cohomology of GL(n, Z), Duke
+          Math. J. 65 (1992), no. 2, 235–255.
+[Ber93]   V. G. Berkovich, Étale cohomology for non-Archimedean analytic spaces, Inst.
+          Hautes Études Sci. Publ. Math. (1993), no. 78, 5–161 (1994).
+[Bha16]   B. Bhatt, Specializing varieties and their cohomology from characteristic 0 to char-
+          acteristic p, arXiv:1606.01463.
+[BLGHT11] T. Barnet-Lamb, D. Geraghty, M. Harris, and R. Taylor, A family of Calabi-Yau
+          varieties and potential automorphy II, Publ. Res. Inst. Math. Sci. 47 (2011), no. 1,
+          29–98.
+[BM15]    A. J. Blumberg and M. A. Mandell, The homotopy theory of cyclotomic spectra,
+          Geom. Topol. 19 (2015), no. 6, 3105–3147.
+
+   13It is virtually impossible to follow the constructions of [BMS16] to get an explicit quasi-
+isomorphism over Ainf .
+   14Taking values in Breuil-Kisin modules as defined in [Kis06].
+                                   p-ADIC GEOMETRY                                          27
+
+
+[BMS]     B. Bhatt, M. Morrow, and P. Scholze, Integral p-adic Hodge theory and topological
+          Hochschild homology, in preparation.
+[BMS16]           , Integral p-adic Hodge theory, arXiv:1602.03148.
+[BS]      B. Bhatt and P. Scholze, Prisms and prismatic cohomology, in preparation.
+[BS17]            , Projectivity of the Witt vector affine Grassmannian, Invent. Math. 209
+          (2017), no. 2, 329–423.
+[BV13]    N. Bergeron and A. Venkatesh, The asymptotic growth of torsion homology for arith-
+          metic groups, J. Inst. Math. Jussieu 12 (2013), no. 2, 391–447.
+[Cer76]   I. V. Cerednik, Uniformization of algebraic curves by discrete arithmetic subgroups
+          of PGL2 (kw ) with compact quotient spaces, Mat. Sb. (N.S.) 100(142) (1976), no. 1,
+          59–88, 165.
+[CG17]    F. Calegari and D. Geraghty, Modularity Lifting Theorems beyond the Taylor-Wiles
+          Method, to appear in Invent. Math.
+[Cha]     A. Chatzistamatiou, q-de Rham-Witt cohomology, in preparation.
+[CK17]    K. Cesnavičius and T. Koshikawa, The Ainf -cohomology in the semistable case,
+          arXiv:1710.06145.
+[CN17]    P. Colmez and W. Niziol, Syntomic complexes and p-adic nearby cycles, Invent.
+          Math. 208 (2017), no. 1, 1–108.
+[CS]      A. Caraiani and P. Scholze, On the generic part of the cohomology of noncompact
+          unitary Shimura varieties, in preparation.
+[CS17]            , On the generic part of the cohomology of compact unitary Shimura varieties,
+          Ann. of Math. (2) 186 (2017), no. 3, 649–766.
+[Dri80]   V. G. Drinfeld, Langlands’ conjecture for GL(2) over functional fields, Proceedings
+          of the International Congress of Mathematicians (Helsinki, 1978), Acad. Sci. Fennica,
+          Helsinki, 1980, pp. 565–574.
+[Fal88]   G. Faltings, p-adic Hodge theory, J. Amer. Math. Soc. 1 (1988), no. 1, 255–299.
+[Fal02]           , A relation between two moduli spaces studied by V. G. Drinfeld, Algebraic
+          number theory and algebraic geometry, Contemp. Math., vol. 300, Amer. Math. Soc.,
+          Providence, RI, 2002, pp. 115–129.
+[Far16]   L. Fargues, Geometrization of the local Langlands correspondence: an overview,
+          arXiv:1602.00999.
+[Far17]           , G-torseurs en théorie de Hodge p-adique, to appear in Comp. Math.
+[Far18]           , La courbe, Proceedings of the ICM 2018, https://webusers.imj-
+          prg.fr/∼laurent.fargues/Rio.pdf.
+[FF17]    L. Fargues and J.-M. Fontaine, Courbes et fibrés vectoriels en théorie de Hodge p-
+          adique, 2017,
+          https://webusers.imj-prg.fr/∼laurent.fargues/Courbe fichier principal.pdf.
+[FGL08]   L. Fargues, A. Genestier, and V. Lafforgue, L’isomorphisme entre les tours de Lubin-
+          Tate et de Drinfeld, Progress in Mathematics, vol. 262, Birkhäuser Verlag, Basel,
+          2008.
+[FK06]    K. Fujiwara and F. Kato, Rigid geometry and applications, Moduli spaces and arith-
+          metic geometry, Adv. Stud. Pure Math., vol. 45, Math. Soc. Japan, Tokyo, 2006,
+          pp. 327–386.
+[FS]      L. Fargues and P. Scholze, Geometrization of the local Langlands correspondence, in
+          preparation.
+[GK04]    E. Große-Klönne, De Rham cohomology of rigid spaces, Math. Z. 247 (2004), no. 2,
+          223–240.
+[Gos96]   D. Goss, Basic structures of function field arithmetic, Ergebnisse der Mathematik
+          und ihrer Grenzgebiete (3), vol. 35, Springer-Verlag, Berlin, 1996.
+[Hes06]   L. Hesselholt, On the topological cyclic homology of the algebraic closure of a local
+          field, An alpine anthology of homotopy theory, Contemp. Math., vol. 399, Amer.
+          Math. Soc., Providence, RI, 2006, pp. 133–162.
+[HG94]    M. J. Hopkins and B. H. Gross, Equivariant vector bundles on the Lubin-Tate moduli
+          space, Topology and representation theory (Evanston, IL, 1992), Contemp. Math.,
+          vol. 158, Amer. Math. Soc., Providence, RI, 1994, pp. 23–88.
+[HL17]    D. Hansen and S. Li, Line bundles on rigid varieties and Hodge symmetry,
+          arXiv:1708.08506.
+28                                   PETER SCHOLZE
+
+
+[HLTT16]   M. Harris, K.-W. Lan, R. Taylor, and J. Thorne, On the rigid cohomology of certain
+           Shimura varieties, Res. Math. Sci. 3 (2016), Paper No. 37, 308.
+[HM97]     L. Hesselholt and I. Madsen, On the K-theory of finite algebras over Witt vectors of
+           perfect fields, Topology 36 (1997), no. 1, 29–101.
+[Hub96]    R. Huber, Étale cohomology of rigid analytic varieties and adic spaces, Aspects of
+           Mathematics, E30, Friedr. Vieweg & Sohn, Braunschweig, 1996.
+[Ked10]    K. S. Kedlaya, Relative p-adic Hodge theory and Rapoport-Zink period domains,
+           Proceedings of the International Congress of Mathematicians. Volume II, Hindustan
+           Book Agency, New Delhi, 2010, pp. 258–279.
+[Ked16]            , Noetherian properties of Fargues-Fontaine curves, Int. Math. Res. Not.
+           IMRN (2016), no. 8, 2544–2567.
+[Kie67]    R. Kiehl, Der Endlichkeitssatz für eigentliche Abbildungen in der nichtarchimedis-
+           chen Funktionentheorie, Invent. Math. 2 (1967), 191–214.
+[Kis06]    M. Kisin, Crystalline representations and F -crystals, Algebraic geometry and num-
+           ber theory, Progr. Math., vol. 253, Birkhäuser Boston, Boston, MA, 2006, pp. 459–
+           496.
+[KL15]     K. S. Kedlaya and R. Liu, Relative p-adic Hodge theory: foundations, Astérisque
+           (2015), no. 371, 239.
+[Kot14]    R. Kottwitz, B(G) for all local and global fields, arXiv:1401.5728.
+[KRZ]      S. Kudla, M. Rapoport, and T. Zink, On Čerednik uniformization, in preparation.
+[KS16]     R. Kucharczyk and P. Scholze, Topological realizations of absolute Galois groups,
+           arXiv:1609.04717.
+[KW17]     T. Kaletha and J. Weinstein, On the Kottwitz conjecture for local Shimura varieties,
+           arXiv:1709.06651.
+[Laf02]    L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math.
+           147 (2002), no. 1, 1–241.
+[Laf12]    V. Lafforgue, Chtoucas pour les groupes réductifs et paramétrisation de Langlands
+           globale, arXiv:1209.5352.
+[Li17]     S. Li, On rigid varieties with projective reduction, arXiv:1704.03109.
+[Lou17]    J. Lourenço, The Riemannian Hebbarkeitssätze for pseudorigid spaces,
+           arXiv:1711.06903.
+[LR87]     R. P. Langlands and M. Rapoport, Shimuravarietäten und Gerben, J. Reine Angew.
+           Math. 378 (1987), 113–220.
+[Mor16]    M. Morrow, Notes on the Ainf -cohomology of integral p-adic Hodge theory,
+           arXiv:1608.00922.
+[Niz16]    W. Niziol, Geometric syntomic cohomology and vector bundles on the Fargues-
+           Fontaine curve, arXiv:1605.07216.
+[NS17]     T. Nikolaus and P. Scholze, On topological cyclic homology, arXiv:1707.01799.
+[Pap18]    G. Pappas, Arithmetic models for Shimura varieties, Proceedings of the ICM 2018.
+[Pri16]    J. Pridham, On q-de Rham cohomology via Λ-rings, arXiv:1608.07142.
+[Rap95]    M. Rapoport, Non-Archimedean period domains, Proceedings of the ICM, Vol. 1, 2
+           (Zürich, 1994), Birkhäuser, Basel, 1995, pp. 423–434.
+[Rap17]            , Accessible and weakly accessible period domains, Appendix to “On the p-
+           adic cohomology of the Lubin-Tate tower” by P. Scholze, to appear in Annales de
+           l’ÉNS.
+[Ray74]    M. Raynaud, Géométrie analytique rigide d’après Tate, Kiehl,· · · , 319–327. Bull.
+           Soc. Math. France, Mém. No. 39–40.
+[RV14]     M. Rapoport and E. Viehmann, Towards a theory of local Shimura varieties, Münster
+           J. Math. 7 (2014), no. 1, 273–326.
+[RZ96]     M. Rapoport and T. Zink, Period spaces for p-divisible groups, Annals of Mathemat-
+           ics Studies, vol. 141, Princeton University Press, Princeton, NJ, 1996.
+[RZ17]             , On the Drinfeld moduli problem of p-divisible groups, Camb. J. Math. 5
+           (2017), no. 2, 229–279.
+[Sch12]    P. Scholze, Perfectoid Spaces, Publ. Math. de l’IHES 116 (2012), no. 1, 245 – 313.
+[Sch13a]           , p-adic Hodge theory for rigid-analytic varieties, Forum Math. Pi 1 (2013),
+           e1, 77.
+[Sch13b]           , Perfectoid spaces: a survey, Current developments in mathematics 2012,
+           Int. Press, Somerville, MA, 2013, pp. 193–227.
+                                     p-ADIC GEOMETRY                                            29
+
+
+[Sch14]            , Perfectoid spaces and their applications, Proceedings of the ICM 2014, Seoul.
+           Vol. II: Invited lectures, Seoul: KM Kyung Moon Sa, 2014, pp. 461–486.
+[Sch15]            , On torsion in the cohomology of locally symmetric varieties, Ann. of Math.
+           (2) 182 (2015), no. 3, 945–1066.
+[Sch17a]           , Canonical q-deformations in arithmetic geometry, to appear in
+           Ann. Sci. Fac. Toulouse.
+[Sch17b]           , Étale cohomology of diamonds, arXiv:1709.07343.
+[Shi10]    S. W. Shin, A stable trace formula for Igusa varieties, J. Inst. Math. Jussieu 9 (2010),
+           no. 4, 847–895.
+[Sim97]    C. Simpson, The Hodge filtration on nonabelian cohomology, Algebraic geometry—
+           Santa Cruz 1995, Proc. Sympos. Pure Math., vol. 62, Amer. Math. Soc., Providence,
+           RI, 1997, pp. 217–281.
+[SW13]     P. Scholze and J. Weinstein, Moduli of p-divisible groups, Camb. J. Math. 1 (2013),
+           no. 2, 145–237.
+[SW17]             , Berkeley lectures on p-adic geometry, notes from lecture course at UC Berke-
+           ley, Fall 2014, www.math.uni-bonn.de/people/scholze/Berkeley.pdf.
+[Tat67]    J. Tate, p-divisible groups, Proc. Conf. Local Fields (Driebergen, 1966), Springer,
+           Berlin, 1967, pp. 158–183.
+[Tat71]            , Rigid analytic spaces, Invent. Math. 12 (1971), 257–289.
+[Voe00]    V. Voevodsky, Triangulated categories of motives over a field, Cycles, transfers, and
+           motivic homology theories, Ann. of Math. Stud., vol. 143, Princeton Univ. Press,
+           Princeton, NJ, 2000, pp. 188–238.
+[Wei16]    J. Weinstein, Semistable models for modular curves of arbitrary level, Invent. Math.
+           205 (2016), no. 2, 459–526.
+[Wei17]            , Gal(Qp /Qp ) as a geometric fundamental group, Int. Math. Res. Not. IMRN
+           (2017), no. 10, 2964–2997.
+[Wil95]    A. Wiles, Modular elliptic curves and Fermat’s last theorem, Ann. of Math. (2) 141
+           (1995), no. 3, 443–551.
+[Zhu17]    X. Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic,
+           Ann. of Math. (2) 185 (2017), no. 2, 403–492.
+
+  Mathematisches Institut der Universität Bonn, Endenicher Allee 60, 53115 Bonn,
+Germany
+  E-mail address: scholze@math.uni-bonn.de
+

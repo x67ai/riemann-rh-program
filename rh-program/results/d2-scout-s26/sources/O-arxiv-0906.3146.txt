@@ -1,0 +1,1640 @@
+                                                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT
+
+                                                                                 JAMES BORGER
+
+
+
+
+arXiv:0906.3146v1 [math.NT] 17 Jun 2009
+                                                   Abstract. The theory of Λ-rings, in the sense of Grothendieck’s Riemann–
+                                                   Roch theory, is an enrichment of the theory of commutative rings. In the
+                                                   same way, we can enrich usual algebraic geometry over the ring Z of integers
+                                                   to produce Λ-algebraic geometry. We show that Λ-algebraic geometry is in a
+                                                   precise sense an algebraic geometry over a deeper base than Z and that it has
+                                                   many properties predicted for algebraic geometry over the mythical field with
+                                                   one element. Moreover, it does this is a way that is both formally robust and
+                                                   closely related to active areas in arithmetic algebraic geometry.
+
+
+
+
+                                                                                  Introduction
+                                              Many writers have mused about algebraic geometry over deeper bases than the
+                                          ring Z of integers. Although there are several, possibly unrelated reasons for this,
+                                          here I will mention just two. The first is that the combinatorial nature of enumer-
+                                          ation formulas in linear algebra over finite fields Fq as q tends to 1 suggests that,
+                                          just as one can work over all finite fields simultaneously by using algebraic geome-
+                                          try over Z, perhaps one could bring in the combinatorics of finite sets by working
+                                          over an even deeper base, one which somehow allows q = 1. It is common, follow-
+                                          ing Tits [60], to call this mythical base F1 , the field with one element. (See also
+                                          Steinberg [58], p. 279.) The second purpose is to prove the Riemann hypothesis.
+                                          With the analogy between integers and polynomials in mind, we might hope that
+                                          Spec Z would be a kind of curve over Spec F1 , that Spec Z ⊗F1 Z would not only
+                                          make sense but be a surface bearing some kind of intersection theory, and that we
+                                          could then mimic over Z Weil’s proof [64] of the Riemann hypothesis over function
+                                          fields.1 Of course, since Z is the initial object in the category of rings, any theory
+                                          of algebraic geometry over a deeper base would have to leave the usual world of
+                                          rings and schemes.
+                                              The most obvious way of doing this is to consider weaker algebraic structures
+                                          than rings (commutative, as always), such as commutative monoids, and to try us-
+                                          ing them as the affine building blocks for a more rigid theory of algebraic geometry.
+                                          This has been pursued in a number of papers, which I will cite below. Another nat-
+                                          ural approach is motived by the following question, first articulated by Soulé [57]:
+
+                                              Date: November 26, 2024. 22:24.
+                                              This is a preliminary version, made available in advance of the Frobenius Lifts workshop at
+                                          the Lorentz Center, Leiden, 2009 October 5–9. I hope to include the toric uniformization theorem
+                                          in the final version.
+                                              This work was partly supported by Discovery Project DP0773301, a grant from the Australian
+                                          Research Council.
+                                              1The origins of this idea are unknown to me. Manin [48] mentions it explicitly. According to
+                                          Smirnov [56], the idea occurred to him in 1985 and he mentioned it explicitly in a talk in Shafare-
+                                          vich’s seminar in 1990. It may well be that a number of people have had the idea independently
+                                          since the appearance of Weil’s proof.
+                                                                                          1
+2                                      J. BORGER
+
+
+Which rings over Z can be defined over F1 ? Less set-theoretically, on a ring over
+Z, what should descent data to F1 be?
+   The main goal of this paper is to show that a reasonable answer to this question
+is a Λ-ring structure, in the sense of Grothendieck’s Riemann–Roch theory [31].
+More precisely, we show that a Λ-ring structure on a ring can be thought of as
+descent data to a deeper base in the precise sense that it gives rise to a map from
+the big étale topos of Spec Z to a Λ-equivariant version of the big étale topos of
+Spec Z, and that this deeper base has many properties expected of the field with
+one element. Not only does the resulting algebraic geometry fit into the supple
+formalism of topos theory, it is also arithmetically rich—unlike the category of sets,
+say, which is the deepest topos of all. For instance, it is closely related to global
+class field theory, complex multiplication, and crystalline cohomology.
+   So let us define an F1 -algebra to be a Λ-ring. (The language of F1 will quickly
+feel silly, but for most of this paper, it will be useful as an expository device.) More
+generally, define an F1 -scheme to be a scheme equipped with a Λ-structure. The
+theory of Λ-structures on schemes was introduced in Borger [6][7]. (Although see
+Grothendieck [34], p. 506.) Defining a Λ-structure on a general scheme X takes
+some time, as it does on a general ring. But when X is flat over Z, there is a simple
+equivalent definition: it is a commuting family of endomorphisms ψp : X → X,
+indexed by the set of prime numbers p, such that each ψp agrees with the p-th
+power Frobenius map on the special fiber X ×Spec Z Spec Fp . It is also true that
+any reduced Λ-scheme is flat over Z. Keeping these two facts in mind, it is possible
+to read most of this paper without knowing the definition in general.
+   If we take this F1 -to-Λ dictionary seriously, then the functor that removes the
+Λ-structure from a Λ-scheme should be thought of as removing the descent data,
+and hence as the base-change functor from F1 to Z. So for instance, F1 itself should
+be defined to be Z with its unique Λ-structure, where each ψp is the identity map.
+It is the initial object in the category of Λ-rings.
+   As indicated above, the definition of a Λ-structure extends not just to the cat-
+egory of schemes but to the entire ambient topos. By this, I mean the big étale
+topos over Z, by definition the category of sheaves of sets on the category of affine
+schemes equipped with the étale topology. It is therefore natural to define the
+big étale topos over F1 to be the category of such sheaves with Λ-structure. The
+base-change functor v ∗ that strips off the Λ-structure then induces a well-defined
+map
+                                v : Spec Z −→ Spec F1 ,
+not on the level of schemes, which would of course be meaningless, but on the level
+of big étale toposes.
+    The functor v ∗ has not only a right adjoint v∗ , as required, but also a left adjoint
+v! . If we think of v ∗ as the base-change functor, we should think of v∗ as the Weil
+restriction of scalars functor and v! as the base-forgetting functor. In terms of
+definitions rather than interpretations, v∗ sends a space to its arithmetic jet space,
+which is a multi-prime, algebraic version of Buium’s p-jet space [9], which is in
+turn a formal p-adic lift of the Greenberg transform [29][30]. On the other hand,
+v! sends a space to its space of big Witt vectors. Both of these are given their
+natural Λ-structures. These constructions are exotic by the standards of algebraic
+geometry over fields, but even in the arithmetically local case, where we consider p-
+adic schemes with only one Frobenius lift ψp , they have proven very useful. See, for
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                             3
+
+
+example, Buium [9] for applications of the first and Illusie [37] for the second. (In
+fact, Buium has had similar ideas regarding Frobenius lifts and the field with one
+element. See [10], the preface of [9], or Buium–Simanca [11]. Manin [47] has also
+recently interpreted Witt vectors as being related to the field with one element.)
+   For applications to usual, non-Λ arithmetic algebraic geometry, the most inter-
+esting spaces over F1 are those obtained from schemes over Z. Whether we produce
+them by applying v! or v∗ , the result is almost never a scheme of finite type over
+F1 . So from the perspective of algebraic geometry over Z, the spaces of principal
+interest over F1 are not those of finite type. In fact, as has been expected, there
+appear to be very few schemes of finite type over Z that descend to F1 at all. But
+their infrequency is so extreme that they become interesting on their own terms.
+For example, it might be possible to describe the category of algebraic spaces of
+finite type over F1 in purely combinatorial terms, without any mention of algebraic
+geometry or Λ-structures.
+   This question is probably within reach, and the second purpose of this paper is
+to take some steps in that direction. For example, we prove the following theorem,
+stated here under restricted hypotheses:
+
+0.1. Theorem. Let X be a smooth proper scheme over Z[1/M ], for some integer
+M ⩾ 1. If X descends to F1 (i.e., admits a Λ-structure), then is has the following
+properties:
+                                                                           n
+   (a) The action of Gal(Q̄/Q) on any p-adic étale cohomology group Hét    (XQ̄ , Qp )
+       factors through its abelianization.
+   (b) There is an integer N , all of whose prime divisors divide M p, such that the
+                                           n
+       restriction of the representation Hét (XQ̄ , Qp ) to Gal(Q̄/Q(ζN )) is isomor-
+       phic to a sum of powers of the cyclotomic character.
+   (c) The (i, j) Hodge number of the mixed Hodge structure on the singular co-
+       homology H n (X an , C) is zero when i 6= j.
+
+   Another way to express this theorem is that only abelian Artin–Tate motives
+can be defined over F1 . (Compare Soulé [57], 6.4, question 4.) While this means
+there are no motivically interesting F1 -schemes of finite type, the argument that
+shows this is rather interesting. In the zero-dimensional case, it is an elementary
+consequence of the Kronecker–Weber theorem and Chebotarev’s density theorem.
+(See Borger–de Smit [4].) In the higher-dimensional case, the argument also uses
+the Lefschetz theorem and the proper base change theorem for étale cohomology,
+on the one hand, and on the other, p-adic Hodge theory, including the potentially
+semi-stable theorem for arbitrary varieties proved by Kisin [41], following the work
+of many others.
+   The theorem above attests to the predicted combinatorial nature of schemes of
+finite type over F1 . I emphasize once again that the combinatorial nature is not built
+into the foundations of the theory—it is a consequence of hard arithmetic results
+in the presence of finiteness conditions. Indeed, I expect that the cohomological
+theory of infinite-dimensional spaces over F1 contains, via v! and de Rham–Witt
+theory, the full theory of motives, and even in a visible way. It is hard to imagine
+a theory defined in combinatorial terms having this property.
+   As strong as the cohomological restrictions above are, they are far from being
+sharp. In a future version of this paper, I hope to show that all examples of finite
+type come from toric varieties, in a certain precise sense. Here is a partial result in
+4                                     J. BORGER
+
+
+this direction whose proof does appear in the present version. It is probably even
+a necessary step in the proof of the full classification theorem.
+0.2. Theorem. Let X be a Λ-scheme which is of finite type over Z. Then X has
+a point with coordinates in a cyclotomic field. When X is proper, there is even a
+Λ-morphism Spec Z → X.
+   In other words, every F1 -scheme of finite type has a cyclotomic point and, if
+proper, has an F1 -point. I believe that this result had not been predicted. Observe
+that in the affine case, the theorem is a new result about Λ-rings, which can be
+stated independently of the theory. It says that every Λ-ring which is finitely
+generated as a ring admits a ring map to some cyclotomic field. Even in this case,
+the proof uses all the deep arithmetic results above.
+   If we apply theorem 0.1 and the Lefschetz fixed-point formula at various primes
+p, we obtain the following result, which was essentially predicted (implicitly by the
+followers of Tits [60], and by definition in Kurokawa [44]):
+0.3. Corollary. Let X be a smooth proper scheme over Z[1/M ], for some integer
+M ⩾ 1. If X descends to F1 , then there is an integer N ⩾ 1 divisible only by the
+primes dividing M such that for all prime powers q > 1 with q ≡ 1 mod N , the
+number Pof Fq -valued points of X is P (q), where P is the Hodge polynomial of X:
+P (t) = i,n (−1)n ri,n ti , where ri,n is the (i, i) Hodge number of Hcn (X an , C).
+   In particular, if X is smooth and proper over Z, the number of such points is
+given by the polynomial P (q) for all prime powers q > 1.
+    Let us now consider F1 -points. It is not difficult to show, when X is separated
+and of finite type over F1 , that X(F1 ) is finite. So it is tempting to hope that the
+number of F1 -valued points would be P (1), the Euler characteristic of X. This is
+typically false, but if we restrict to complemented points—those whose complement
+is an open sub-F1 -scheme of X—then it is true in many situations. For instance,
+it is true for toric varieties, when given a certain natural, “toric” Λ-structure. But
+it is not always true. It fails for the toric varieties A1 and P1 if they are given the
+Chebychev Λ-structure (6.7). On the other hand, if all Λ-varieties can indeed be
+built from toric varieties with the toric Λ-structure, it might be possible to salvage
+the formula X(F1 ) = P (1) = χ(X) by cleverly reinterpreting the definitions.
+    Our final purpose is to consider variations on the definition of Λ-structure, such
+as function-field analogues. For example, instead of working over Spec Z, we can
+work over a smooth curve S over a finite field k. Then our family of commuting
+Frobenius lifts would be indexed by the closed points of S, and the same procedure
+as over Z gives the notion of a ΛS -structure, a topos of FS1 -spaces, and a topos
+map vS : S −→ Spec FS1 . Having invented an absolute algebraic geometry relative
+to S, we can ask how it relates to the usual absolute algebraic geometry relative
+to S, that is, algebraic geometry over k. The answer is that the structure map
+s : S → Spec k factors naturally as a composition of topos maps:
+                                      vS
+                           S EE                   / Spec FS
+                                                          1
+                               EE s                 s
+                                 EE           f s
+                                   EE          s
+                                     E"      s
+                                          ys
+                                    Spec k.
+The map f is not an equivalence, but it is not far from being one. For example,
+f ∗ embeds the category of reduced algebraic spaces over k fully faithfully into the
+                   Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           5
+
+
+category of spaces over FS1 , but there can be schemes defined over FS1 (given by
+certain rank-one Drinfeld modules) that do not descend to k. As a check to see if
+this could lead to a proof of the Riemann hypothesis for Z, one might examine the
+translation of Weil’s proof of the Riemann hypothesis for S from algebraic geometry
+over k to that over FS1 . But since the current version of our theory says nothing
+about the archimedean place of Q, it is hard to imagine this succeeding without
+further ideas. Even so, it should be done.
+   Let us now list the contents of this paper. In section 1, we recall the foundations
+of the theory of spaces over F1 (that is, Λ-spaces). In section 2, we give examples
+of F1 -schemes. In section 3, we discuss sub-F1 -spaces and in particular F1 -valued
+points. In section 4, we discuss function spaces over F1 and especially GLn . In
+section 5, we show that abelian motives are Artin–Tate. This is a result in usual,
+non-Λ number theory needed in the following section. In section 6, we discuss the
+p-adic étale cohomology of F1 -schemes of finite type and implications for point
+counting. And in section 7, we consider variations on our approach to F1 for
+function fields and number fields larger than Q.
+
+                                   Other work
+    In the early days of this project, I was greatly inspired by Manin’s exposition [48],
+Soulé’s paper [57], and Deninger’s program, for example [25]. In a strict mathe-
+matical sense, this paper does not owe them much, but their spiritual effect has
+been deep.
+    There are, of course, many approaches to absolute algebraic geometry which I
+did not mention above. Here are some I know about. One is that an F1 -algebra
+should be some kind of algebraic structure that is set-theoretically weaker than a
+commutative ring, for example a commutative monoid. From this point a view
+an F1 -vector space is often taken to be a set, perhaps with some additional weak
+structure. One could investigate the K-theory that comes out of this, and even
+aspire to see the place at infinity by incorporating archimedean information in
+these structures. Another approach has been to pursue notions of ζ-functions over
+F1 , perhaps independently of any formal definition of F1 . A final approach is to
+find and prove analogues over number fields of basic geometric results over function
+fields.
+    For these approaches see the following references: Baez [3], Connes–Consani [13],
+Connes–Consani–Marcoli [14], Deitmar [19][18][20], Diers [26], Durov [27], Ha-
+ran [36] [35], Kapranov [38], Kapranov–Smirnov [39], Kurokawa [42][43][44], Kurokawa–
+Ochiai–Wakayama [45], Smirnov [55], Tate–Voloch [59], and Toën–Vaquié [61]. Sev-
+eral of these writers have other papers on the subject, but I believe these are rep-
+resentative of their approaches.
+
+                               Acknowledgments
+   My focused work on Λ-algebraic geometry began on October 22, 2003, when I
+read an email from Ivan Fesenko asking if there were relations between my paper [5]
+with Ben Wieland and the field with one element. That question instantly gave
+direction to some scattered thoughts about Λ-algebraic geometry and the p-adic
+absolute point (7.10). My interests at the time were arithmetically local, and as
+obvious as the global connection is in retrospect, it had not occurred to me before
+that day. So I thank him greatly.
+6                                     J. BORGER
+
+
+    I would also like to thank Mark Kisin for many conversations about this project
+over several years. Most of his influence on this project is on forthcoming work, but
+even with this paper, if he had not insisted that I begin writing up what I knew
+in the case of Λ-varieties of finite type over Z, I never would have uncovered much
+of what is here. And since the foundational papers [6][7] owe their existence to the
+present paper, perhaps they also owe some of it to him.
+    I did some of this work in 2004–2005 at the Institut des Hautes Études Scien-
+tifiques and the Max-Planck-Institut für Mathematik. It is a pleasure to thank
+them for their generous support and nearly ideal working environments. I did more
+work on this topic in January 2006, as a visitor at the University of Chicago. I
+thank Alexander Beilinson and Vladimir Drinfeld for making that possible.
+    I have given a number of lectures on this material, and this paper has benefited
+from questions many people have asked, especially Alexandru Buium, Jordan El-
+lenberg, and Kirsten Wickelgren. I would particularly like to thank Wickelgren for
+some questions that directly inspired the material in section 4.
+
+                                     Contents
+    Introduction                                                                     1
+    Other work                                                                       5
+    Acknowledgments                                                                  5
+    1. Λ-spaces                                                                      6
+    2. Examples                                                                      8
+    3. Sub-Λ-spaces                                                                 11
+    4. Function spaces                                                              13
+    5. Aside: abelian motives are potentially cyclotomic                            16
+    6. p-adic étale cohomology                                                     19
+    7. Variants                                                                     24
+    References                                                                      29
+
+
+
+                                    1. Λ-spaces
+1.1. General Λ-spaces. Let us quickly review [7]. Let W ∗ = W∞            ∗
+                                                                            denote the
+infinite-length big Witt vector functor from the category of spaces to itself. (The
+category of spaces is, by definition, the category of sheaves of sets on the category
+of affine schemes under the étale topology.) Then W ∗ carries a monad structure,
+and a Λ-structure on a space X is by definition an action of W ∗ on X. Note that
+if X is an algebraic space, then the space W ∗ (X) is ind-algebraic but typically not
+algebraic. This is just the familiar fact that the ring of infinite-length Witt vectors
+is naturally a projective limit of rings.
+   Here are some important examples. If A is a ring, then we have W ∗ (Spec A) =
+colimn Spec Wn (A), where Wn denotes the functor of (big) Witt vectors of length n.
+Therefore a Λ-structure on the space Spec A is the same as a Λ-ring structure on A
+in the usual sense. If X is a flat algebraic space over Z, then Λ-structure on X is the
+same as a commuting family of endomorphisms ψp : X → X, one for each prime p,
+such that ψp agrees with the p-th power Frobenius map on X ×Spec Z Spec Fp . If a
+reduced algebraic space admits a Λ-structure, then it must be flat over Z. Finally,
+if X is a Λ-algebraic space, then Xred is a closed Λ-algebraic subspace. (Because
+                     Λ-RINGS AND THE FIELD WITH ONE ELEMENT                          7
+
+
+a Λ-structure is given by a monad action, a subspace of a Λ-space can have at
+most one compatible Λ-structure.) Non-reduced Λ-algebraic spaces appear only
+sporadically in this paper.
+    The functor W ∗ has a right adjoint W∗ = W∞∗ , the arithmetic jet space functor,
+which is a generalized version of Buium’s p-jet space functor [9]. If A is a ring, then
+W∗ (Spec A) = Spec Λ ⊙ A, where Λ ⊙ A denotes the Λ-ring freely generated by A.
+For example, W∗ (A1Z ) = Spec Λ, where Λ is the free Λ-ring on one generator, the
+ring of symmetric functions in infinitely many variables.
+    Let S = Spec Z, and let SpS = SpZ denote the category of spaces. Let SpS/Λ
+denote the category of Λ-spaces (with Λ-equivariant, or rather W ∗ -equivariant,
+morphisms). This can also be described using W∗ . By adjunction, W∗ inherits a
+comonad structure from the monad structure on W ∗ . The category of Λ-spaces is
+the same as the category of spaces equipped with an action of the comonad W∗ . It
+is therefore a topos, like SpS .
+
+1.2. Categorical structure. Let v ∗ : SpS/Λ → SpS denote the functor that simply
+strips off the Λ-structure. The point of this paper is that v ∗ can also be thought
+of as the functor that strips off the descent data from Z to F1 , and hence that it
+can be thought of as the base-change functor from F1 to Z. Therefore, we have the
+following equation:
+                       SpS                              SpZ
+                         O                                O
+
+                                              forget              Weil
+                v!       v∗    v∗      =               S×F1 −
+                                              base               restrict
+
+                           ~                                 ~
+                      SpS/Λ                            SpF1 .
+
+This means that the structure on the right is defined to be that on the left, or that
+we think of the precisely defined left-hand side using the geometric language of the
+right-hand side. Each functor is the left adjoint of the one to its right. The left
+adjoint v! of v ∗ sends X to its Witt space W ∗ (X) with the natural Λ-structure,
+and the right adjoint v∗ sends X to its arithmetic jet space W∗ (X), again with
+the natural Λ-structure. As always the left adjoint of a base-change functor is
+called base-forgetting, and the right adjoint is called Weil restriction of scalars. In
+particular, if one accepts the premise of this paper, the space Spec Z×Spec F1 Spec Z
+must be defined to be the Witt space W ∗ (Spec Z).
+   These three adjoint functors form, by definition, an essential topos map v : SpZ →
+SpF1 . This is what one would would hope to have with any algebraic geometry over
+a deeper base than Spec Z. Similarly, the base-forgetting functor v! is faithful but
+not full. (See [6], 12.2.)
+   Yet another way of expressing the point of this paper, in the playful tradition
+of the field with one element, is the nonsense formula “Λ = Z[Gal(Z/F1 )]”. The
+meaning of this is that if descent from Z to F1 were controlled by a finite group,
+one would call it Gal(Z/F1 ). In that case, descent for rings would alternatively
+be controlled by the plethory Z[Gal(Z/F1 )] whose underlying ring would be the
+polynomial ring freely generated by the set Gal(Z/F1 ). (See Borger–Wieland [5].)
+But the plethory that actually controls this is Λ. So while the group Gal(Z/F1 )
+does not exist, the polynomial algebra it would generate if it did exist does.
+8                                      J. BORGER
+
+
+   Note that everything above extends to the case where S is the spectrum of the
+ring of integers of any number field or any smooth curve over a finite field. Thus for
+any such S, there is a topos SpFS1 = SpS/ΛS , the topos of spaces over the S-variant
+of the field with one element. These toposes are all related as S varies, and as one
+would expect, S = Spec Z, as above, gives the deepest one. We will return to this
+in section 7.
+1.3. Λ-modules. An important topic we will not discuss in this paper is the Λ-
+analogue of a quasi-coherent sheaf. The non-linear nature of Λ-structures makes
+module theory slightly subtler than it is in equivariant algebraic geometry un-
+der actions of monoids or Lie algebras, or more generally in the context of Toën–
+Vaquié [61]. The reason for this, in the language of Borger–Wieland [5], is that the
+additive bialgebra of the plethory Λ does not agree with the cotangent algebra of
+Λ. Therefore one cannot properly speak about modules without specifying certain
+extra information. In the case of Λ, these are essentially the slopes of the Frobenius
+operators. I mention this here only because F1 -modules are a frequent concern in
+papers on the field with one element and I will not address them.
+
+                                     2. Examples
+2.1. The point. The ring Z has a unique Λ-structure—each ψp is the identity.
+Under this structure, it is the initial object in the category of Λ-rings. It is therefore
+reasonable to denote it F1 and call Spec Z, viewed as a Λ-space, the absolute point.
+2.2. Monoid algebras. If M is any commutative monoid, the monoid algebra Z[M ]
+has a natural Λ-action induced by ψp : m 7→ mp for any m ∈ M , and so Spec Z[M ]
+descends naturally to F1 . I will call this Λ-action the toric Λ-action. For example,
+given a choice of coordinates, Ar × Gsm equals Spec Z[Nr × Zs ], which descends
+naturally to F1 .
+   In fact, we have even more: the monoid scheme structure on Spec Z[M ] also
+descends to F1 , as does the group structure if M is a group. Indeed, the coalgebra
+structure on Z[M ] given by m 7→ m ⊗ m for all m ∈ M is a map of Λ-rings. The
+same is true of the counit and, if M is a group, the antipode m 7→ m−1 . For
+example, all split tori can be thought of as group schemes over F1 . The group
+scheme µn = Spec Z[x]/(xn − 1) = Spec Z[Z/nZ] also descends to F1 . Following
+Kapranov–Smirnov [39], Soulé calls this the base change to Z of F1n , the field with
+1n elements [57].
+2.3. Limits and colimits. The category of Λ-rings has products and coproducts,
+and their underlying rings agree with the same constructions taken in the category
+of rings. In fact, this is true for all limits and colimits—in particular pull-backs,
+push-outs, direct limits, and inverse limits. This is because the forgetful functor
+RingΛ → RingZ has a left and a right adjoint.
+   Since it is a topos, SpS/Λ also has all limits and colimits. And since v ∗ has a left
+and a right adjoint, the space underlying any limit, or colimit, of Λ-spaces agrees
+with the limit, or colimit, or the underlying spaces. Further, since algebraization is a
+left adjoint, it commutes with W ∗ . Therefore the algebraization of a Λ-space is an
+algebraic Λ-space. In particular, given a system of algebraic spaces with Λ-actions,
+the colimit taken in the category of algebraic spaces has a unique compatible Λ-
+action. (The analogous fact for limits is true simply because the subcategory of
+SpS consisting of algebraic spaces is closed under limits.)
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                                 9
+
+
+  For the same reason, the affinization of an algebraic Λ-space is an affine Λ-space.
+2.4. Toric varieties. A toric variety is a colimit of spectra of monoid rings, where
+the maps in the system are open immersions induced by maps of the monoids.
+Therefore the colimit in SpS is an algebraic space (and even a scheme). By 2.2
+and 2.3, they carry natural Λ-actions. Thus toric varieties descend to F1 . (Compare
+Soulé [57].) In particular, projective spaces Pn do, once we choose homogeneous
+coordinates. Then the Frobenius lifts are given by
+                           ψp : [x0 , . . . , xn ] 7→ [xp0 , . . . , xpn ].
+2.5. The Chebychev line. Clauwens [12] has used Ritt’s work [51][52] to argue that,
+up to isomorphism, the affine line Spec Z[x] has exactly one Λ-structure besides the
+toric one of 2.2. It can be described as follows. The ring Z[t±1 ], endowed with the
+toric Λ-action, has a Λ-involution t 7→ t−1 . By 2.3, the fixed subring is naturally a
+Λ-ring. It is freely generated as a ring by x = t + t−1 , and this gives the other Λ-
+action on Z[x]. It also has a simple K-theoretic interpretation as the representation
+ring of the algebraic group SL2 , but in this paper we are regarding the connection
+between Λ-rings and K-theory as a curiosity. The polynomials ψp (x) are Chebychev
+polynomials:
+        ψ2 (x) = x2 − 2,    ψ3 (x) = x3 − 3x,             ψ5 (x) = x5 − 5x3 + 5x,   ....
+  More generally, any subgroup of GLn (Z) acts on the toric Λ-ring Z[x±1           ±1
+                                                                      1 , . . . , xn ],
+and the invariant subrings give more examples of Λ-rings. For example, if we take
+the permutation representation Sn → GLn (Z) of the n-th symmetric group, the
+invariant subring is isomorphic to Z[λ1 , . . . , λn−1 , λ±1
+                                                          n ] and thus gives a non-toric
+Λ-action on An−1 × Gm .
+   It would be interesting to generalize Clauwens’ results. For example, are there
+only finitely many isomorphism classes of Λ-structures on A2 ?
+2.6. Singular lines. We can divide out, not just by group actions, as in 2.5, but
+also by any Λ-equivalence relation, whether we take the quotient in the category of
+affine Λ-spaces, algebraic Λ-spaces, or all Λ-spaces. For instance, on Gm with the
+toric Λ-action, we can identify 1 and −1 to make a nodal line
+                        A = {f (z) ∈ Z[t±1 ] | f (−1) = f (1)},
+or we can identify 1 with itself to order two to make a cuspidal line
+                           A′ = {f (z) ∈ Z[t±1 ] | f ′ (1) = 0}.
+It is easy to check that these subrings of Z[t±1 ] are sub-Λ-rings.
+   Observe that we can identify the points 1, q ∈ Gm only when q = ±1—otherwise,
+the ψp operators would fail to descend to the quotient. But if we use Λ-algebraic
+parameter spaces, there are non-discrete moduli. For instance, in the family
+                                             1       pr
+                                    Gm × Gm −→ Gm ,
+we can identify the diagonal section ∆ and the identity section idGm × 1, to get the
+family of nodal lines Gm /(1 ∼ q) parameterized by q ∈ Gm . The result is a perfectly
+legitimate Λ-algebraic family of nodal Λ-quotients of Gm . The reason why before
+q could only lie in a finite set is that there we insisted that the endomorphisms ψp
+act trivially on the parameter space. We will see below that an algebraic Λ-space of
+finite type over Z has only finitely many points (with coordinates in C, say) fixed
+by the ψp operators (3.2). Therefore in any Λ-algebraic family, only finitely many
+10                                   J. BORGER
+
+
+of the fibers will be stable under the ψp . In particular this will be true for any
+universal family, assuming the Λ-moduli space is of finite type. So the finiteness
+phenomenon above is rather general.
+   We can also contract any Λ-invariant modulus on Gm . If f (x) is a product of
+polynomials the form xn − 1, then the two maps
+                              Z[x±1 ] ⇒ Z[x±1 ]/(f (x)),
+one given by x 7→ x and the other by x 7→ 1, are Λ-ring maps. Therefore their
+equalizer is a Λ-ring. Its spectrum is Gm with the zero locus of f (x) contracted to
+a point.
+   Last, these constructions can be used to make Λ-schemes that cannot be covered
+by open affine Λ-schemes. In particular, it is inaccurate to say that Λ-schemes are
+formed by gluing Λ-rings together in the Zariski topology, though it is generally the
+right idea. The following example is due to Ben Wieland. Consider P1 with the
+toric Λ-structure, and let X be the quotient by the Λ-equivalence relation 0 ∼ ∞.
+Then there is no open immersion j : U → X which has the following properties: U
+is an affine Λ-scheme, j is a Λ-map, and the nodal point 0 = ∞ is in the image.
+Indeed, if there were such a neighborhood U , then since it would be affine, the set
+U (C) would be the complement in X(C) of a finite nonempty subset T of Gm (C).
+But U ∩ Gm would also be a sub-Λ-space of Gm . Since ψn on Gm is the n-th power
+map, T would have to be closed under the extraction of n-th roots, which is not
+the case for any finite nonempty subset of C∗ .
+
+2.7. Zero-dimensional varieties. As shown in Borger–de Smit [4], it follows from
+class field theory that every Λ-ring which is both finite over Z and reduced is
+contained in a product of cyclotomic fields. It is in fact isomorphic to a sub-Λ-ring
+of a product of toric Λ-rings of the form Z[x]/(xn − 1). This can be viewed as an
+integral version of the Kronecker–Weber theorem. Thus even zero-dimensional Λ-
+algebraic geometry is somewhat interesting. In fact, the proofs of several theorems
+about higher-dimensional Λ-varieties use the zero-dimensional theory in key ways.
+
+2.8. Non-example: flag varieties. It follows from a theorem of Paranjape and
+Srinivas [50] that no flag varieties besides projective spaces Pn admit even one
+Frobenius lift ψp . Therefore, besides Pn , flag varieties are not defined over F1 .
+   In 6.2 below, we show that there are strong motivic conditions on a variety for
+it to descend to F1 . But in the case of flag varieties, the obstruction is not in the
+motive. Indeed, flag varieties are paved by affine spaces and are therefore indistin-
+guishable from them from the point of view of motives. It would be interesting to
+know whether flag varieties admit a weakened version of a Λ-structure but which
+is still stronger than being paved by Λ-varieties.
+
+2.9. Non-example: curves of genus g ⩾ 1. Let CQ be a connected smooth proper
+curve over Q of genus g ⩾ 1. Choose in integer M ⩾ 1 such that CQ has a a
+connected smooth proper model C over Z[1/M ]. Then C has no Λ-structure. One
+can see this as follows.
+   If g ⩾ 2, let p be a prime number such that p ∤ M . Then since g ⩾ 2, the map
+ψp cannot be a constant map on the fiber over Q because it is not on the fiber over
+Fp . Therefore it must be an automorphism on the fiber over Q. Further, there
+must exist an integer n ⩾ 1 such that ψp◦n is the identity on the fiber over Q. But
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           11
+
+
+as CQ is dense in C, we see that ψp◦n is the identity. This contradicts the fact that
+ψp is the Frobenius map on CFp , which is a nonempty curve.
+   If g ⩾ 1, then for any prime p ∤ M , there is a finite extension K of Qp and
+point e ∈ C(K) = C(OK ), where OK denote the integral closure of Zp in K. Let
+us now take the group law on COK to be the one for which e is the identity, and
+let E denote the endomorphism ring End(CQ̄p ). By enlarging K, we may assume
+E = End(CK ). Note that E is an integral domain of rank 1 or 2 over Z.
+   Then there is an element ϕ ∈ E such that ψp (x) = ψp (e) + ϕ(x), for all points
+x. Therefore on each fiber of COK over OK , the degree of ψp is ϕϕ̄ ∈ Z. But on
+the fiber over the residue field of OK , the map ψp agrees with the base-change of
+the p-th power Frobenius map, which has degree p. Therefore, we have ϕϕ̄ = p.
+This rules out E = Z. To rule out the other case, observe that the same equation
+implies p is not inert in E. But since p was allowed to be any sufficiently large
+prime, this is impossible.
+
+                                  3. Sub-Λ-spaces
+3.1. Periodic primes. Let X be a Λ-space. Let us say that a prime number p is
+periodic if there exists an integer m ⩾ 1 such that the endomorphism ψp◦m of X is
+the identity. We also say that m a period of p. (Also see Davydov [16].)
+3.2. Proposition. Let X be a separated algebraic Λ-space of finite type over Z with
+infinitely many periodic primes. Then X is affine and quasi-finite over Z.
+Proof. Let us consider quasi-finiteness first. It suffices to assume X is reduced and,
+hence, flat over Z. (See [7].) Therefore it is enough to show that X ×Spec Z Spec Q
+is finite over Spec Q.
+    Let p be one of the given primes, and let Xp denote the fiber of X over p.
+Then ψp is periodic, and therefore the p-th power Frobenius map on Xp is periodic.
+By 3.3 below, the fiber Xp is finite over Fp . Because there are infinitely many such
+p, X is finite over Z at a dense set of scheme-theoretic points. And because X is
+of finite type, its fiber over Q is finite. (See EGA IV (9.2.6.2) [33].)
+    Affineness follows from quasi-finiteness. Since X is separated, of finite type, and
+quasi-finite over Z, Zariski’s Main Theorem [32], III 4.4.3, implies it is an open
+subscheme of a scheme which is finite over Z, and any such scheme is affine.          
+
+3.3. Lemma. Let X be an algebraic space of finite type over Fp , and let FrX denote
+the p-th power Frobenius map on X. If Fr◦nX is the identity map, then X is a finite
+disjoint union of spaces of the form Spec F , where F is a field of degree at most n
+over Fp .
+Proof. Let U = Spec B be an affine étale cover of X. Then Fr◦n     U is the identity
+map on U . In particular, B is reduced and is hence a subring of a finite product of
+fields. Because the p-th power map on B has period n, the image in each field is
+a field of degree at most n over Fp . Since U is a finite disjoint union of spectra of
+finite fields, and since U covers X, X is also such a space.                        
+
+3.4. Proposition. Let X and Y be separated algebraic Λ-spaces of finite type over
+Z. Assume that X is reduced and has infinitely many periodic primes. Then
+HomΛ (X, Y ) is finite.
+12                                      J. BORGER
+
+
+Proof. Since X is reduced, we can assume Y is reduced. We can also assume that
+Y satisfies the same periodicity conditions as X. Indeed, let p be a periodic prime
+                                                                        ◦m
+of X, and let mp denote its minimal period. Then the equalizer Yp of ψp p and the
+identity map is a closed sub-Λ-space of Y . Therefore, so is the reduced subspace of
+Y ′ = ∩p Yp , where p runs over all periodic primes of X. But any map X → Y factors
+through Y ′ , which as a closed subspace of Y is of finite type over Z. Therefore it
+is enough to assume Y = Y ′ , which is to say that Y satisfies the same periodicity
+conditions as X.
+   By 3.2, there are generically finite rings A and B such that X = Spec A and
+Y = Spec B. Because A and B are reduced Λ-rings, they are torsion free, and thus
+               HomΛ (X, Y ) = Hom(B, A) ⊆ Hom(Q ⊗Z B, Q ⊗Z A).
+By Galois theory, there are only finitely many ring maps between two finite étale
+algebras over a field; so HomΛ (X, Y ) is finite.                               
+
+3.5. Corollary. Let X be a separated algebraic space of finite type over F1 . Then
+there are only finitely many Λ-maps µn → X, where µn is defined in (2.2). In
+particular, X has only finitely many F1 -valued points.
+3.6. Primitive Λ-spaces and complemented sub-Λ-spaces. Let f : Y → X be a map
+of Λ-algebraic spaces which is a closed (resp. open) immersion. Then Y (or better,
+f ) is said to be complemented if the complementary open (resp. reduced closed)
+algebraic subspace T admits a Λ-structure such that the map T → X is a Λ-map.
+(Compare SGA 4 IV 9.1.13c [1].) Note that because T → X is a monomorphism,
+the Λ-structure on T , when it exists, must be unique.
+    We also say that a Λ-space X is primitive if it is nonempty and its only nonempty
+complemented closed sub-Λ-space is itself.
+    Observe that if X ′ → X is a Λ-morphism and Y is a complemented closed (resp.
+open) algebraic subspace of X, then its preimage X ′ ×X Y is a complemented closed
+(resp. open) algebraic subspace of X ′ . Also it is clear that finite intersections of
+complemented closed (resp. open) Λ-algebraic subspaces are again complemented.
+Therefore the same is true for finite unions.
+    For example, consider A1 with the toric Λ-structure. The Z-valued Λ-points of
+   1
+A are in bijection with HomΛ (Z[x], Z), which agrees with
+                      {x ∈ Z | xp = x for all primes p} = {0, 1}.
+So 0 and 1 are the only F1 -valued points of the toric A1 . The point 0 is com-
+plemented, because its complement is the toric Gm . But the point 1 is not com-
+plemented, because the preimage of 1 under ψ2 , say, is µ2 , which is not contained
+in {1}. More generally, the set of F1 -valued points of Ad is {0, 1}d, but the only
+complemented point is the origin.
+
+3.7. Proposition. The Λ-space Gdm is primitive, for any integer d ⩾ 0.
+Proof. Let Z be a nonempty complemented closed sub-Λ-space of Gdm . Since Zred
+is flat over Z ([7]) and nonempty, the space Z has a C-valued point z. Write
+z = (ew1 , . . . , ewd ) for some numbers w1 , . . . , wd ∈ C. For each integer s ⩾ 1, the
+point
+                                zs = (ew1 /s , . . . , ewd /s )
+                       Λ-RINGS AND THE FIELD WITH ONE ELEMENT                                      13
+
+
+satisfies ψs (zs ) = z ∈ Z. Because Z is complemented, we then have zs ∈ Z. But in
+the analytic topology we have
+                                       lim zs = (1, . . . , 1).
+                                      s→∞
+
+Since Z is closed (in the Zariski and hence analytic topology), it contains (1, . . . , 1),
+and because it is complemented, it must contain ψn−1 (1, . . . , 1) = µdn for any integer
+n ⩾ 1. On the other hand, ∪n µn is Zariski dense in Gm . Therefore ∪n µdn is Zariski
+dense in Gdm , and so we have Z = Gdm .                                                  
+
+3.8. Proposition. Let X be a toric variety. Then a closed sub-Λ-space is comple-
+mented if and only if it is a union of closures of torus orbits.
+  For background on toric varieties, see Fulton’s notes [28], especially sections 2.1
+and 3.2.
+
+Proof. Let Z be a closed sub-Λ-space of X. Suppose Z is a union of closures Zi of
+torus orbits. Then each Zi is the toric subvariety corresponding to a fan, and is
+therefore complemented. Since there are only finitely many torus orbits, the union
+Z of the Zi is complemented.
+   Now assume instead that Z is complemented. Then its intersection with any
+torus orbit Y is either Y or ∅, by 3.7. Therefore Z is a union of torus orbits. Since
+Z is closed, it is also a union of their closures.                                 
+
+3.9. Corollary. The complemented F1 -points of a toric variety X are the fixed
+points of the torus action. In particular, the number of complemented F1 -points is
+the Euler characteristic.
+   For example, the only complemented F1 -valued point of the toric An is the
+origin. The toric Pn has exactly n+1 complemented points with values in F1 . They
+are [1, 0, . . . , 0], [0, 1, 0, . . . , 0], and [0, . . . , 0, 1]. These facts have been predicted in
+earlier speculations on the field with one element [60], p. 285.
+
+                                     4. Function spaces
+   In this section, we discuss GLn over F1 . The group scheme GLn does not descend
+to F1 . (See Buium [8].) But we can realize GLn as the automorphism group of
+something that does descend to F1 . This might be surprising, because formation
+of function spaces commutes with base change. Indeed, that is one important way
+in which the topos map v : SpZ → SpF1 is not like a true map of spaces.
+   For discussion of GLn in other approaches to F1 , see for example Connes–
+Consani [13] and Toën–Vaquié [61].
+   This section was directly inspired by some questions Kirsten Wickelgren asked
+me.
+
+4.1. Let X and Y be objects of SpF1 . Write HomF1 (X, Y ) for the set of maps
+from X to Y , and write HomZ (X, Y ) for the set of maps v ∗ X → v ∗ Y between the
+underlying objects of SpZ . Let HomF1 (X, Y ) denote the usual SpF1 -object of maps
+from X to Y . It is defined by
+                        HomF1 (X, Y ) : T 7→ HomT (X × T, Y × T ),
+for any space T ∈ SpF1 . We define HomZ (X, Y ) similarly.
+14                                         J. BORGER
+
+
+     Then we have a map
+(4.1.1)                    HomF1 (X, Y ) −→ v∗ (HomZ (X, Y )),
+which sends an F1 -map a : X × T → Y × T to its underlying Z-map v ∗ (a). This
+map is clearly injective.
+  Adjunction then gives another map
+(4.1.2)                 v ∗ : v ∗ (HomF1 (X, Y )) −→ HomZ (X, Y ).
+Note that this map is generally neither a monomorphism nor an epimorphism. This
+is one way in which the topos map v : SpZ → SpF1 is different from one induced by
+a true map of spaces. For example, if X = W (Spec Q), then (4.1.2) is identified
+with the map Y Z → Y N , which is rarely a monomorphism. On the other hand, if
+X = Y = A1F1 , then the map is not an epimorphism.
+    Recall that an endomorphism An → An is a linear transformation if and only if
+it is equivariant under the action of Gm on An given by scalar multiplication:
+                                    x 7→x ⊗z
+                   Z[x1 , . . . , xn ] i −→i   Z[x1 , . . . , xn ] ⊗Z Z[z, z −1 ].
+Now observe that if we give Gm and An their toric Λ-structures, then this action
+morphism is Λ-equivariant. Therefore it is reasonable to define
+(4.1.3)                       Mn/F1 = HomGm /F1 (An , An ),
+where for general F1 -spaces X, Y with Gm -actions, we define HomGm /F1 (X, Y ) to
+be the sub-F1 -space of HomF1 (X, Y ) consisting of the Gm -equivariant maps. Let
+us also set
+(4.1.4)                          GLn/F1 = AutGm /F1 (An ),
+to be locus of Mn/F1 consisting of invertible maps. Of course, Mn/F1 is a monoid
+object in SpF1 and GLn/F1 is a group object. In 4.3 below, we will describe them
+concretely.
+   Note that because v ∗ is faithful, we can view v ∗ HomGm /F1 (X, Y ) as a subspace
+                                                                       
+
+of HomGm (v ∗ X, v ∗ Y ). Consider this when X = An and Y = A1 , both with the
+toric Λ-structures. Then for any ring B, a B-valued point of HomGm (An , A1 ) is
+just a B-module homomorphism B n → B, or simply a 1 × n matrix (b1 , . . . , bn )
+with entries in B. This furnishes an identification
+(4.1.5)               HomGm (An , A1 ) = Spec Z[b1 , . . . , bn ] = An
+4.2. Proposition. Under the identification (4.1.5), the subspace of An correspond-
+ing to the subspace HomGm /F1 (An , A1 ) of HomGm (An , A1 ) is the union of the axes
+                          Z = Spec Z[b1 , . . . , bn ]/(bi bj : i 6= j).
+Further the operators on Z induced by ψp take each coordinate bi to bpi .
+Proof. We just calculate the B-valued points of v ∗ HomGm /F1 (An , A1 ) for any ring
+B. We have
+       (v ∗ HomGm /F1 (An , A1 ))(Spec B) = (HomGm /F1 (An , A1 ))(v! (Spec B)).
+But since HomGm /F1 (An , A1 ) sits inside HomGm (An , A1 ), which is affine, any
+map v! (Spec B) → HomGm /F1 (An , A1 ) factors through the affinization Spec W (B)
+of v! (Spec B). Therefore we have
+       (v ∗ HomGm /F1 (An , A1 ))(Spec B) = (HomGm /F1 (An , A1 ))(Spec W (B)).
+                     Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           15
+
+
+If we think of points of An as n-dimensional column vectors, then it is natural to
+think of the points of HomGm (An , A1 ) as 1 × n matrices. Given such a matrix
+                                 (a1 , . . . , an ) ∈ W (B)n ,
+the corresponding map in HomGm (An , A1 )(Spec W (B)) is an F1 -map if and only
+if the ring map
+(4.2.1)                    ϕ : Z[t] −→ Z[x1 , . . . , xn ] ⊗ W (B)
+                      P
+determined by t 7→ j xj ⊗ aj is a Λ-ring map, where Z[x1 , . . . , xn ] has the toric
+Λ-structure.
+    Thus to finish the proof, it suffices to show that necessary and sufficient condi-
+tions for ϕ to be a Λ-ring map are, first, that each element aj is the Teichmüller
+lift of some element bj ∈ B and, second, that bi bj = 0 for all i 6= j.
+    Let us first show the necessity. So assume ϕ is a Λ-ring map. Consider, for each
+i, the map
+                         πi : Z[x1 , . . . , xn ] ⊗ W (B) −→ W (B)
+given by xj 7→ δij and by the identity on W (B). Then πi ◦ ϕ is a Λ-ring map under
+which the image of t is ai .
+    It follows that ai must be a Teichmüller lift. Indeed, giving a Λ-map Z[t] →
+W (B) is by adjunction the same as giving a ring map Z[t] → B. This in turn is
+the same as an element of bi ∈ B. Tracing through these identifications shows that
+ai = [bi ], and thus the necessity of the first condition above.
+    To see the necessity of the second condition, use the operator λ2 ∈ Λ:
+                                                   X              X
+       0 = ϕ(0) = ϕ(λ2 (t)) = λ2 (ϕ(t)) = λ2            xj ⊗ [bj ] =  xi xj ⊗ [bi ][bj ].
+                                                   j                 i<j
+
+Thus for i 6= j, we have [bi bj ] = [bi ][bj ] = 0 and hence bi bj = 0.
+  Sufficiency is similar. Suppose ϕ is defined by
+                                              X
+                                   ϕ(t) =         xj ⊗ [bj ]
+                                             j
+
+with bi bj = 0 for all i 6= j. To show ϕ is a Λ-ring map, it is enough to show it
+commutes with P λn for n ⩾ 2. But we have that λn (xj ⊗ [bj ]) = 0 for all n ⩾ 2.
+Therefore λn ( j xj ⊗[bj ]) is the n-th elementary symmetric function in the xj ⊗[bj ].
+Because bi bj = 0 for i 6= j, each of the elementary monomials is zero when n ⩾ 2.
+Therefore we have
+                             X              
+             λn (ϕ(t)) = λn        xj ⊗ [bj ] = λn (0) = ϕ(0) = ϕ(λn (t)),
+                                 j
+
+for n ⩾ 2. Thus ϕ is a map of Λ-rings.                                                 
+4.3. Corollary. We have the following equalities of subspaces of Mn :
+(4.3.1)             Mn/F1 = Z n        and         GLn/F1 = Sn ⋉ Gnm .
+Proof. The first equality follows from the universal property of products and 4.2:
+                                                            n
+              HomGm /F1 (An , An ) = HomGm /F1 (An , A1 ) = Z n .
+For the second equality, recall that a morphism of Λ-spaces is an isomorphism if
+and only if it becomes one after applying v ∗ . Therefore we have
+                          GLn/F1 = GLn ∩ Mn/F1 = Sn ⋉ Gnm .
+16                                          J. BORGER
+
+
+                                                                                                
+
+4.4. Corollary.     (a) Mn/F1 (F1 ) is the set of n × n matrices with the property
+       that every entry is either 0 or 1 and every row has at most one 1.
+   (b) GLn/F1 (F1 ) = Sn .
+4.5. Remarks. Note that none of the F1 -valued points of GLn/F1 are comple-
+mented. Also note that the determinant map GLn/F1 → Gm is not a Λ-map,
+because it fails to commute with ψ2 . It does commute with the other ψp though.
+
+            5. Aside: abelian motives are potentially cyclotomic
+   Let p be a prime number. The purpose of this section is to establish the result
+(5.3) in usual, non-Λ algebraic geometry that abelian p-adic Galois representations
+of geometric origin are Artin–Tate. The proof is an result in p-adic Hodge theory.
+It is well within the scope of established techniques, but to my knowledge, it is
+not actually in the literature. For results of a similar flavor, see Wang [63], Kisin–
+Lehrer [40], and van dan Bogaart–Edixhoven [62].2
+5.1. Proposition. Let X be a separated scheme of finite type over Z[1/p]. Let
+f : X → Spec Z[1/p] denote the structure map. Then Rn f! (Qp ) is lisse away from
+a finite set of primes. If X is smooth and proper over Z[1/M ], then the sheaf is
+lisse at all primes not dividing M .
+   Recall that we can define cohomology with compact support because, by Na-
+gata’s theorem, any separated morphism of finite type between noetherian schemes
+is compactifiable. (See Conrad [15], theorem 4.1. Actually, according to a forth-
+coming paper of Conrad–Lieblich–Olsson, the scheme-theoretic hypotheses can be
+removed.)
+
+Proof. The sheaf Rn f! (Z/pZ) is constructible (Deligne SGA 4 1/2 [21] [Arcata] IV
+(6.2)) and hence lisse away from a finite set T of primes. For m ⩾ 0, if Rn f! (Z/pm Z)
+is lisse, then all subsheaves and quotient sheaves of Rn f! (Z/pm Z) are lisse away from
+T . On the other hand, by the long exact sequence of cohomology, Rn f! (Z/pm+1 Z)
+is an extension of a subsheaf of Rn f! (Z/pZ) by a quotient sheaf of Rn f! (Z/pm Z)
+and is therefore also lisse away from T . By induction Rn f! (Z/pm Z) is lisse away
+from T for all m. Therefore Rn f! (Zp ) and hence Rn f! (Qp ) are lisse away from T .
+    The final statement follows from Deligne, SGA 4 1/2 [21] [Arcata] V (3.1). 
+
+5.2. Cyclotomic representations. Let E be a finite extension of Qp . Let K be
+a finite extension of Q or Qp , and let V be a d-dimensional continuous E-linear
+representation of Gal(K̄/K). Let us say that V is cyclotomic if there exist integers
+j1 , . . . , jd such that V is isomorphic to E(j1 ) ⊕ · · · ⊕ E(jd ). Let us say that V
+is potentially cyclotomic if there exists a finite extension L of K such that V is
+cyclotomic as a representation of Gal(K̄/L).
+    Observe that these concepts are independent of E in the sense that for any finite
+extension E ′ of E, we have
+(5.2.1)           E ′ ⊗E V is (potentially) cyclotomic if and only if V is.
+
+     2The style of this section is somewhat clumsy. I hope to improve it in a future version.
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                            17
+
+
+5.3. Theorem. Let X be a separated scheme of finite type over Q. Suppose that
+                       n
+Gal(Q̄/Q) acts on Hét,c  (XQ̄ , Qp ) through its abelianization. Then there is an in-
+                                             n
+teger N ⩾ 1 such that the restriction of Hét,c  (XQ̄ , Qp ) to Gal(Q̄/Q(ζN )) is cyclo-
+tomic.
+   If X has a smooth and proper model over Z[1/M ], then N can be taken such that
+all its prime divisors are divisors of M p.
+                                                              n
+Proof. By the main theorem of p-adic Hodge theory, Hét,c       (XQ̄ , Qp ) is a poten-
+tially semi-stable representation of Gal(Q̄p /Qp ). (This is the work of many people.
+See [41] for the final form of the theorem.) By 5.1, the set of ramified primes is
+finite, and if X has a smooth proper model over Z[1/M ], it contains only primes
+dividing M p. The theorem is then an immediate consequence of 5.4.                   
+5.4. Theorem. Let E be a finite extension of Qp . Let T be a finite set of prime
+numbers containing p, and let V be a finite-dimensional representation of GQ sat-
+isfying the following properties:
+    (a) GQ acts on V through its abelianization,
+    (b) V is unramified away from T ,
+    (c) V is potentially semi-stable at p.
+Then there is an integer N divisible only by the primes in T such that the restriction
+of V to Gal(Q̄/Q(ζN )) is cyclotomic.
+Proof. By the Kronecker–Weber theorem, there is an integer n ⩾ 1, divisible only
+by primes in T , such that the action of GQ,S on V factors through the cyclotomic
+character GQ,S → (Z/nZ)∗ × Z∗p . Let H be the torsion subgroup of (Z/nZ)∗ × Z∗p .
+Let us show that it is enough to consider the case where H acts trivially on V .
+  Let G denote the quotient (Z/nZ)∗ × Z∗p /H. Since G ∼  = Zp , we have
+                                     ∗    ∗ ∼
+                             (Z/nZ) × Z = G × H.
+                                            p
+
+By (5.2.1), we can assume every irreducible E-linear representation of H is one-
+dimensional. For each character ρ : H → E ∗ , let Vρ denote the summand of V on
+which H acts via ρ. Since G × H is abelian, Vρ is stable under G × H. Therefore
+we have a decomposition of Galois representations
+                                       M
+                                   V =     Vρ .
+                                            ρ
+
+It is enough to show each Vρ is potentially cyclotomic. On the other hand, because
+each Vρ satisfies (a)–(c), it is enough to assume V = Vρ for some ρ. Now observe
+that ρ, viewed as a Galois representation by the composition
+                                                ρ
+                                G × H −→ H −→ E ∗ ,
+is potentially cyclotomic, since it is potentially trivial. Therefore it is enough to
+show V ⊗ ρ−1 is potentially cyclotomic. Similarly, ρ−1 satisfies (a)–(c) above, and
+hence so does V ⊗ ρ−1 . But H acts trivially on V ⊗ ρ−1 . Therefore it is indeed
+enough to consider the case where H acts trivially on V .
+   Let g be a pro-generator of G/H. By (5.2.1), it is sufficient to assume that E
+contains all the eigenvalues of g acting on V . Then V has a g-stable filtration
+                             0 = V0 ⊆ V1 ⊆ · · · ⊆ Vd = V
+by sub-E-vector spaces such that dimE (Vi /Vi−1 ) = 1, for i = 1, . . . , d. Because g
+is a pro-generator of G/H, the filtration is G/H-stable.
+18                                    J. BORGER
+
+
+   Because V is potentially semi-stable, so is each subquotient Vi /Vi−1 . For each
+i, the lemma 5.5 implies there is finite extension Ki of Qp in Qp (ζp∞ ) such that
+the action of Gal(Qp (ζp∞ )/Ki ) on Vi /Vi−1 is an integral power of the cyclotomic
+character. Take an integer r ⩾ 0 such that Qp (ζpr ) contains K1 , . . . , Kd . Then the
+action of Gal(Q(ζp∞ )/Qp (ζpr )) on Vi /Vi−1 is an integral power of the cyclotomic
+character. In other words, V is an iterated extension of Gal(Q(ζp∞ )/Qp (ζpr ))-
+representations of the form E(j). But by 5.6, it must then be a direct sum of such
+representations. Thus it is cyclotomic as a representation of Gal(Q(ζp∞ )/Qp (ζpr )).
+But because the natural map
+                  Gal(Qp (ζp∞ )/Qp (ζpr )) −→ Gal(Q(ζp∞ )/Q(ζpr ))
+is an isomorphism, V is cyclotomic as a representation of GQ(ζpr ) .                  
+
+5.5. Lemma. Let E be a finite extension of Qp , and let V be a one-dimensional
+E-vector space with a continuous E-linear action of Gal(Qp (ζp∞ )/Qp ). Assume
+further that V is potentially semi-stable (as a Qp -representation of GQp ). Then
+there is a finite extension K of Qp such that for some integer i, we have V ∼
+                                                                            = E(i)
+as representations of Gal(K(ζp∞ )/K).
+Proof. Let d = [E : Qp ]. Let M be the weakly admissible module associated to V .
+Then M inherits from V an action of E. That is, every e ∈ E acts as a morphism of
+weakly admissible modules. Therefore the Hodge filtration on M is a filtration by
+sub-E-modules and the Frobenius and monodromy operators are E-linear. Because
+dimE (M ) = dimQp (M )/d = 1, there is an integer j such that F j M = M and
+F j+1 M = 0, and there is an element α ∈ E such that the endomorphism ϕ of M
+is multiplication by α. Therefore the the Hodge number of detQp (M ) is dj and the
+slope is dvQp (α). Because M is weakly admissible, these two must be equal, and
+so we have vQp (α) = j. Replacing M by M (−j), it suffices to assume j = 0. We
+now want to show that M becomes trivial after a finite extension.
+   Let k denote the residue field of K. Let M ′ = M ⊗W (k) W (k̄). Then M ′ is
+a one-dimensional potentially semi-stable weakly admissible E-module over W (k̄)
+with j = 0. Let us show that M ′ is isomorphic to the trivial weakly admissible
+module.
+   Let us now show that we can change basis of M ′ so that α = 1. (This is
+a consequence of Manin’s theorem when E = Qp .) The ring E ⊗ W (k̄) has an
+endomorphism id ⊗ σ. The ratio of this with the identity map gives a group endo-
+morphism f of (E ⊗ W (k̄))∗ sending a ⊗ x 7→ a ⊗ σ(x)/x. We need to show this is
+a surjection. Define a filtration Ai of (E ⊗ W (k̄))∗ by setting Ai
+                         (A ⊗ W (k̄))∗ −→ (E/mi ⊗ W (k̄))∗ ,
+where m is the maximal ideal of E. Because the ring E ⊗ W (k̄) is m-adically
+complete, the group (E ⊗ W (k̄))∗ is complete with respect to this filtration. There-
+fore it is enough to show f is surjective on the associated graded abelian group.
+We have gr0 A = (E/m ⊗ k̄)∗ and for i ⩾ 1, we have gri A ≡ (mi /mi+1 ⊗ k̄) by
+the map x 7→ x − 1. The map f becomes x 7→ xp−1 on gr0 A, and it becomes
+a ⊗ x 7→ a ⊗ (xp − x) on gri A for i ⩾ 1. Because k̄ is algebraically closed, both
+these maps are surjective.
+   Let us now show that the monodromy operator N is zero. But this holds be-
+cause ϕ and N are two E-linear endomorphisms of a one-dimensional vector space
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           19
+
+
+satisfying ϕN = pN ϕ and ϕ 6= 0. And so the weakly admissible module associated
+to the GQ⊗W (k̄) -representation V is trivial.
+   Therefore there is a finite extension L of Q ⊗ W (k̄) such that GL acts trivially
+on V . Therefore there is a finite extension K of Qp such that the inertia group
+IK of GK acts trivially on V . Since the action of GQp on V factors through
+Gal(Qp (ζp∞ )/Qp ), the action of GK .                                            
+
+5.6. Lemma. Let E and K be finite extensions of Qp , and let V be a finite-
+dimensional continuous E-representation of Gal(K(ζp∞ )/K(ζpb )). If V is Hodge–
+Tate and has a semi-simplification which is isomorphic to a sum of cyclotomic
+representations, then V itself is isomorphic to a sum of cyclotomic representations.
+Proof. Let G denote Gal(K(ζp∞ )/K(ζpb )). Giving a representation of G is the
+same as giving a representation of its Lie algebra, which is one-dimensional; and so
+this is the same as giving a matrix θ. We have assumed that θ is upper-triangular
+with only integers on the diagonal. One can change basis to make θ a block-
+diagonal matrix, where each block is upper-triangular and has a single integer on
+the diagonal. Therefore it is enough to assume θ has is upper triangular and has a
+single integer on the diagonal. Twisting by a cyclotomic character, we can assume
+θ is nilpotent.
+   Thus it suffices to assume that V has a trivial semi-simplification. By induction
+on dimE (V ), we need only prove that any Hodge–Tate extension W of the trivial
+representation by itself is split. Therefore the representation is given by a group
+map G → E into the upper-right corner of the matrix. Since the Hodge–Tate
+weights of W are both 0, it must in fact be Cp -admissible. Therefore by Sen’s
+theorem, it factors through finite quotient of G. But the only group map G → E
+with this property is the trivial map. Therefore V is a split extension.           
+
+                          6. p-adic étale cohomology
+  Let X be a separated Λ-scheme of finite type over Z. Let rm,n denote the Hodge
+number hm,m of Hcn (X an , C), where X an is the complex-analytic space underlying
+X. (See Deligne [23], (2.3.7), for the definition of the Hodge numbers of a mixed
+Hodge structure and Deligne [22] for the fact that Hcn (X an , C) carries a natural
+mixed Hodge structure.) Let us write
+                                  X
+                          P (t) =    (−1)n rm,n tm ∈ Z[t].
+                                   m,n
+
+Finally, let us fix an algebraic closure Q̄ of Q.
+                                                                 n
+6.1. Theorem. For any integer s > 0, the action of Gal(Q̄/Q) on Hét,c (XQ̄ , Z/sZ)
+                         ab
+factors through Gal(Q̄/Q) .
+Proof. By Deligne [21], [Arcata] IV (6.2), the sheaf Rn f! (Z/sZ) is constructible.
+Therefore, there exists a finite Galois extension K/Q and an integer N > 0 such
+that the restriction of Rn f! (Z/sZ) to Spec OK [1/N ] is the constant sheaf associated
+to an abelian group V . Here, OK denotes the ring of integers of K. By functoriality
+V has an action of G = Gal(K/Q). Let us also assume that N is a multiple of the
+discriminant of K. By the base-change theorem, we have an isomorphism
+                                 n
+                                Hét,c (XQ̄ , Z/sZ) ∼
+                                                    =V
+20                                     J. BORGER
+
+
+of representation of Gal(Q̄/Q) (which acts on V via the map to G). Therefore it
+is enough to show the action of G on V is through its abelianization.
+   Let p be a prime not dividing N . Let p be a prime of K over p, let kp denote
+OK /p, and let D denote the decomposition subgroup of G corresponding to p.
+Because p ∤ N , the map D → Gal(kp /Fp ) is an isomorphism. By the proper
+base-change theorem, we have an isomorphism
+                              V ∼
+                                = H n (X , Z/sZ)
+                                        ét,c   F̄p
+
+of representations of Gal(F̄p /Fp ). Further, the endomorphism ψp∗ of V (induced
+by the endomorphism ψp of X) corresponds to the endomorphism Fr∗p of the right-
+hand side. By generalities about the Frobenius map, Fr∗p acts on Hét,c
+                                                                    n
+                                                                        (XF̄p , Z/sZ)
+as the inverse of the residual arithmetic Frobenius element Frobp ∈ D/I, the auto-
+morphism defined by Frobp (x) = xp . Therefore ψp∗ acts on V in the same way as
+Frob−1
+     D where FrobD is the element of D mapping to Frobp .
+   On the other hand, the endomorphisms ψp of X commute with each other as p
+                                                n
+varies. Therefore the endomorphisms ψp∗ of Hét,c   (XQ̄ , Z/sZ) commute with each
+other. By the above, the action of any Frobenius elements FrobD for p ∤ N , commute
+with each other. By Chebotarev’s theorem (see Neukirch [49], V (6.4)), every
+element of G is such a Frobenius element. Therefore G acts on V through its
+abelianization.                                                                    
+6.2. Corollary. For any prime number p, there is an integer N ⩾ 1 such that there
+is an isomorphism of representations of Gal(Q̄/Q(ζN )):
+                              (XQ̄ , Qp ) ∼
+                                            M
+                         n
+(6.2.1)                Hét,c             =   Qp (−m)rm,n .
+                                                m
+
+If X is smooth and proper over Z[1/M ], for some integer M > 0, then N can be
+taken such that all its prime divisors are divisors of M p.
+     Let us call an integer N > 0 satisfying the conclusion of 6.2 a conductor of X.
+                                                                         n
+Proof. By 6.1 and 5.3, there exists an integer N ⩾ 1 such that Hét,c       (XQ̄ , Qp ) is
+a cyclotomic representation of Gal(Q̄/Q(ζN )). The fact that the multiplicities are
+                                                     n
+given by Hodge numbers as shown is because Hét,c       (XQ̄ , Qp ) is potentially semi-
+stable. See Kisin [41] (3.2).
+   Last, when X is smooth and proper over Z[1/M ], the Galois representation
+  n
+Hét,c (XQ̄ , Qp ) is unramified at primes not dividing M p, by 5.1. Then 5.3 implies
+that N can be taken as asserted.                                                        
+6.3. Remark. Note that the cohomology of the nodal curve of 2.6 when q = −1 is
+non-pure mixed Tate, but the extension class is q = −1 ∈ Q∗ , which being torsion
+vanishes when coefficients are taken in Qp . Therefore the Qp -cohomology is pure
+mixed Tate, and there is no contradiction. On the other hand, the previous theorem
+would be false with cohomology with coefficients in Z2 . It would be interesting to see
+which other mixed Tate motives with torsion classes can be realized in Λ-algebraic
+geometry.
+6.4. Corollary. Let N be a conductor for X. Then there is a finite set T of prime
+numbers such that for any finite field k whose cardinality q is relatively prime to
+every element of T and satisfies q ≡ 1 mod N , the number of k-valued points of X
+is P (q).
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                                        21
+
+
+   More precisely, the set T can be taken such that it contains only prime numbers
+p with the property that for every prime ℓ 6= p the sheaf Rn f! (Qℓ ) is not lisse at p,
+where f denotes the map
+                             X × Spec Z[1/ℓ] → Spec Z.
+Proof. Fix a prime number ℓ 6= p. Let T denote the set of prime numbers at which
+Rn f! (Qℓ ) is not lisse. By 5.1, T is finite.
+  Because of the restrictions on q, we have a factorization
+                               a                             b
+                       Spec k −→ Spec Z[ζN , T −1 ] −→ Spec Z.
+Let Da denote a decomposition group in Gal(Q̄/Q(ζN )) at the point a, and let
+k̄ denote the corresponding algebraic closure of k. Then since b∗ Rn f! (Qℓ ) is lisse,
+the proper base change theorem implies
+                           H n (X , Qℓ ) ∼
+                                   k̄    = H n (X , Qℓ )Q̄
+
+as representations of Da , where Da acts on the left side through Gal(k̄/k). In par-
+ticular, the trace of the geometric Frobenius element F ∈ Gal(k̄/k) on H n (Xk̄ , Qℓ )
+agrees with the trace of the inverse of an arithmetic Frobenius element Froba of
+Gal(Q̄/Q(ζN )) on H n (XQ̄ , Qℓ ).
+   Therefore by the Lefschetz fixed-point formula (Houzel, SGA 5, exp. XV [2])
+and 6.2, the number of Fq -valued points of X is
+     X                                       X
+         (−1)n tr(F | Hét,c
+                         n
+                             (XF̄q , Qℓ )) =   (−1)n tr(Frob−1   n
+                                                            a | Hét,c (XQ̄ , Qℓ ))
+      n                                     n
+                                            X                                 M
+                                        =       (−1)n tr(Frob−1
+                                                             a |                  Qℓ (−m)rm,n )
+                                            n                                 m
+                                            X           X
+                                                    n                     m
+                                        =       (−1)             rm,n q       = P (q).
+                                            n            m
+                                                                                                  
+6.5. Corollary. Let X be a smooth proper Λ-scheme over Z[1/M ]. Then there is
+an integer N divisible only by the primes dividing M such that for all prime powers
+q > 1 with q ≡ 1 mod N , the number of Fq -valued points of X is P (q).
+                                n
+Proof. The representation Hét,c  (XQ̄ , Qp ) of Gal(Q̄/Q) is unramified away from M ,
+and so there is an integer N satisfying the property of 6.2 and such that it has the
+same prime divisors as M .
+   Now let q > 1 be a prime power with q ≡ 1 mod N . Let p be the prime number
+dividing q, let ℓ 6= p be another prime number. Observe that p ∤ M ℓ.
+   The map
+                          f : X × Spec Z[1/ℓ] → Spec Z[1/M ℓ]
+is smooth and proper, and so by Deligne (SGA 4 1/2, [Arcata] V (3.1) [21]), the
+sheaf Rn f∗ (Qℓ ) is lisse. In particular, it is lisse at p. Therefore by 6.4, there is
+a set of primes T not containing p such that the conclusion of 6.4 holds. Since
+q ≡ 1 mod N , the number of Fq -valued points of X is P (q).                         
+6.6. Corollary. Let X be a smooth proper scheme over F1 . Then for all prime
+powers q > 1, the number of Fq -valued points of X is P (q).
+Proof. This is 6.5 in the case M = 1.                                                             
+22                                   J. BORGER
+
+
+6.7. Remark. The number of complemented F1 -valued points of X equals P (1)
+when X = An or X = Pn , with their toric Λ-structures. On the other hand, if X is
+the Chebychev line (2.5), it has no complemented F1 -valued points, but P (1) = 1.
+6.8. Remark. Some conditions on q of the kind in 6.4 are necessary. For example,
+let X = Spec Z[ζN , 1/N M ]. For primes p dividing N M , let ψp = id; and for all
+other p, let ψp be the unique Frobenius lift.
+   Then r0,0 = φ(N ) and all other rm,n are zero. Therefore P (t) = φ(N ). On
+the other hand, there are φ(N ) points in X(Fq ) if and only if both N M ∈ F∗q
+and q ≡ 1 mod N . Furthermore the sheaf Rn f! (Qℓ ) is lisse exactly at the prime
+numbers that do not divide N M .
+6.9. Proposition. Let X be a nonempty separated Λ-scheme of finite type over Z.
+Let P (t) and N be as in 6.1. Then for every prime p ≫ 0 and every integer r ⩾ 1
+with pr ≡ 1 mod N , there is an Fq -valued point of X.
+Proof. By 6.4, for every prime p not in set T supplied and for every integer r with
+pr ≡ 1 mod N , the number of Fpr -valued points of X is P (pr ).
+   On the other hand, it follows from general facts about Hodge numbers of varieties
+proved by Deligne [24], (8.2.4), that P (t) → ∞ as t → ∞. Indeed, since XC
+is nonempty, its dimension d is non-negative, the degree of P (t) is 2d, and the
+coefficient of t2d is the number of connected components of XC , which is positive.
+   Thus for sufficiently large p and all r as above, we see that the number of Fpr -
+valued points is P (pr ) and that P (pr ) is positive.                            
+6.10. Theorem. Let X be a nonempty separated Λ-scheme of finite type over Z.
+Then there is a nonempty closed Λ-subscheme Z of X which is étale over Z.
+Proof. Let us first reduce to the case where X is reduced and quasi-finite over
+Z. Define a sequence X0 ⊇ X1 ⊇ · · · of nonempty closed sub-Λ-schemes of X
+recursively as follows: Let X0 = X. For n ⩾ 0, assume Xn has already been
+defined. Then let p = pn+1 be a prime number distinct from p1 , . . . , pn such that
+Xn has an Fp -valued point x. This exists by 6.9. (For definiteness, we can take
+p to be the smallest such prime, say.) Let Xn+1 be the fixed locus of Xn under
+ψp , which is to say the equalizer in the category of Λ-spaces of ψp : Xn → Xn and
+the identity map. Because Xn is separated, Xn+1 is a closed sub-Λ-scheme of Xn .
+Because x is an Fp -valued point of Xn , it is fixed by the Frobenius map on the
+special fiber of Xn over p. Therefore it is fixed by ψp , and so x is also a point of
+Xn+1 . In particular,
+            T         Xn+1 is nonempty.
+   Let Z = n⩾0 Xn . Because X is of finite type over Z, it is noetherian. Therefore
+there is an integer n ⩾ 0 such that Z = Xn . It follows that Z is nonempty
+and, by 3.2, it is also affine and quasi-finite over Z. Therefore we can assume
+X = Z = Spec B, where B is quasi-finite over Z. Since the reduced subscheme
+of any nonzero Λ-ring of finite type over Z is the same, we can also assume B is
+reduced.
+   Now let us show that B has a quotient Λ-ring which is étale over Z. Suppose
+B is not étale over Z at some prime p. For each integer m ⩾ 1, let Im denote the
+kernel of ψm : B → B. The Λ-ideals Im are ordered by divisibility on m, and the
+ordering is cofinal. Let I denote the Λ-ideal ∪m Im , and let C denote the quotient
+of B/I by the ideal of torsion elements. Then C is a Λ-ring quotient of C and,
+hence, of B. Note that 1 6∈ I, so B/I is a nonzero Λ-ring. But 1 is not a torsion
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                            23
+
+
+element in any nonzero Λ-ring. Therefore C is nonzero and is flat, quasi-finite, and
+of finite type over Z. Let us finally show that C is actually étale over Z.
+   For each integer m ⩾ 1, the endomorphism ψm of C is injective. Indeed, if b is
+a lift to B of any element of the kernel, then nψm (b) = 0 for some integer n ⩾ 1.
+Therefore ψm (nb) = 0 and hence nb = 0 and hence b is torsion. Therefore the
+image of b in C is 0.
+   Now let p be a prime. Since ψp is an injective endomorphism of C, it induces an
+injective endomorphism of Q⊗Z C. Since Q⊗Z C is finite over Q, this endomorphism
+is in fact an automorphism of finite order. Since C is flat over Z, we have C ⊆
+Q⊗Z C, and so ψp is an automorphism of C. Therefore the Frobenius endomorphism
+of C/pC is an automorphism. Thus C/pC is reduced, and so C is étale at p.         
+
+6.11. Corollary. Let X be a nonempty proper scheme over F1 . Then X(F1 ) 6= ∅.
+Proof. The scheme Z supplied by 6.10 is proper and étale over Z. Therefore each of
+its finitely many connected components must be Spec Z, by Minkowski’s theorem.
+But the only Λ-structure on such a space is the disjoint-union Λ-structure. Indeed,
+it is flat over Z, so it suffices to show that every Frobenius lift ψp is the identity.
+But the Frobenius map on each special fiber is the identity. Since Z is a disjoint
+union of copies of Spec Z, each ψp must be the identity.
+    Therefore Z, as a nonempty disjoint union of copies of Spec F1 , has an F1 -valued
+point, and hence so does X.                                                          
+
+6.12. Corollary. Let U a nonempty open Λ-subscheme of a Λ-scheme X which is
+proper over Z. Then U has a Q-valued Λ-point.
+Proof. By the theorem above, there is a nonempty closed Λ-subscheme Z of U which
+is étale over Z. Let Y denote the closure of Z in X with the reduced subscheme
+structure. Then Y is a closed Λ-subscheme of X. (Basic property of Λ-ideals.)
+Because Y is reduced, it is flat. Because it is the closure of Z it is generically finite
+over Z. A closed subscheme of X, it is therefore finite over Z. By 6.11, it has an
+Z-valued Λ-point, and hence a Q-valued Λ-point. Since we have
+             Spec Q ×Spec Z Y = Spec Q ×Spec Z Z ⊆ Spec Q ×Spec Z U,
+we see that U has a Q-valued Λ-point.                                                  
+
+6.13. Remark. The condition that such a compactification X exists cannot be
+dropped. For example, for any integer n > 0, we can make Z[ζn , 1/n] a Λ-ring by
+taking ψp to be anything for p | n, and to be the unique choice ζn 7→ ζnp for p ∤ n.
+But this ring has no maps to Q.
+
+6.14. For any F1 -valued point x of X, let Zx denote the closure of the pre-images
+of x under the maps ψp , viewed as a reduced closed subscheme. Then Zx is a
+complemented closed Λ-subspace of X. Therefore the assignment x 7→ Zx defines
+a function
+     {F1 -points of X} −→ {complemented reduced closed Λ-subspaces of X}.
+6.15. Corollary. Let X be a proper Λ-scheme over Z. Assume that X is irreducible
+as a scheme. Then there is a Z-valued Λ-point x such that Zx = X.
+24                                           J. BORGER
+
+
+Proof. Since the set X(F1 ) is finite and complementary closed Λ-subschemes are
+stable under finite union, the union
+                                         [
+                                  Z=         Zx ,
+                                              x∈X(F1 )
+
+with its reduced scheme structure is a complementary closed Λ-subscheme. By
+construction, there are no Q-valued Λ-points of X − Z. Therefore by 6.12, this is
+only possible if X = Z. Finally since Z is irreducible, we must have Zx = X for
+some x ∈ X(F1 ).                                                               
+
+                                            7. Variants
+  One of the motivations behind work on the field with one element has been to
+imitate over number fields the theory of function fields over a finite field k, where we
+can work over the absolute point Spec k. But Λ-algebraic geometry works perfectly
+well over function fields, too. So we can compare k-algebras to the function-field
+analogues of F1 -algebras.
+7.1. ΛS,E -spaces. Let S be a scheme of finite type over Z, and let E be a set of
+regular closed points of codimension 1. For each point s ∈ E, let qs denote the
+cardinality of s. Let X be a flat algebraic space over S. We can then define a ΛS,E -
+action on X just as we define Λ-actions, but now we use commuting endomorphisms
+ψs : X → X, one for each point s ∈ E, such that ψs agrees with the qs -power
+Frobenius operator on the fiber Xs . (See [7].) If E is the set of all regular closed
+points of codimension 1, then we write ΛS = ΛS,E . For example, if S = Spec Z,
+then a ΛS -space is just a Λ-space.
+   The general theory works just as well when S is arbitrary. Thus we get a topos
+SpFS,E , whose objects we call spaces over the generalized field with one element
+      1
+
+FS,E      ′      ′                                               ′
+  1 . If S and E are another instance of this data, and a : S → S is a map such
+             ′
+that a(E) ⊆ E , we have a diagram of toposes
+                                                v
+(7.1.1)                             SpS              / Sp S,E
+                                                          F1
+
+                                       a                      b
+
+                                               v′
+                                                          
+                                    SpS ′            / Sp S′ ,E′
+                                                         F1
+
+rendered commutative by a certain invertible 2-morphism. Here b is as in [7].
+   In particular, SpF1 is the deepest.
+7.2. Function fields. Let q denote the cardinality of k, and let S be a smooth
+geometrically connected curve over k. We will now construct a factorization of
+topos maps
+                                                v            / SpFS
+(7.2.1)                       SpS                                 1
+                                    HH                      u
+                                      HH s              f u
+                                        HH               u
+                                           HH          u
+                                             H#    zu
+                                            SpSpec k .
+     Let us first define f ∗ (T ) for affine (or algebraic) T . As a space, set
+                                       f ∗ (T ) = S ×k T.
+                   Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           25
+
+
+Since S ×k T is flat over S, giving a ΛS -action on S ×k T , is the same as giving
+a commuting family of Frobenius lifts. For any maximal ideal m of OS , define
+ψm : S ×k T → S ×k T by ψm = idS × Frm                  m
+                                            T , where FrT denotes the endomorphism
+                                  qm
+of T which on OT acts as x 7→ x , where qm denotes the cardinality of the residue
+field OS /m. It is clear the ψm commute with each other and lift the appropriate
+Frobenius maps.
+    The functor Aff S → SpFS1 just defined preserves covering families. Indeed, a map
+U → V in SpFS1 is an epimorphism if and only if the induced map v ∗ U → v ∗ V is.
+But v ∗ f ∗ preserves covering families. Therefore f ∗ does.
+    For a similar reason, f ∗ sends products to products. Therefore it extends
+uniquely to a topos map f : SpFS1 → SpSpec k , which yields the commutative di-
+agram (7.2.1).
+    In fact, f is essential, meaning that f ∗ has a left adjoint, denoted f! . We let
+f! (U ) be the colimit of the coequalizers of the diagrams
+                                            Frm
+                                              U
+                                                  /
+                                       U          /U
+                                            ψm
+
+over all m. In other words, f! (U ) is the largest quotient U ′ of U on which each ψm
+                                                     ∗
+acts as Frm
+          U ′ . This is clearly the left adjoint of f .
+
+7.3. f is not an isomorphism of toposes. For example, let T be an affine space
+over S, the unit of the adjunction f! ⊣ f ∗ at v! (T ) is
+(7.3.1)                    v! (T ) −→ f ∗ f! v! (T ) = f ∗ s! (T )
+which, by definition, is a map
+(7.3.2)                           WS (T ) −→ S ×k T,
+where WS := WS,E is the E-typical Witt vector functor over S. (See [7].) The
+composition            a      γ
+                           T −→ WS (T ) −→ S ×k T.
+                           N(E)
+with the ghost map γ is the map that, on the component n ∈ N(E) , is simply
+                                      (pr,Frn
+                                            T)
+                                  T               / S ×k T
+
+where pr denotes the structure map T → S, and FrnT is the Frobenius map defined
+                          deg(n)
+on functions by x 7→ xq
+                                                       P
+                                 , where deg(n) denotes m nm [OS /m : k], the degree
+of the effective divisor corresponding to n.
+   In particular, if T = S, then the image of this map is the union in S ×k S of
+the graphs of all powers of the Frobenius map on S. These components are not
+disjoint. For instance, let x and y be two distinct closed points of S with the same
+residue field. Then the the components of WS (S) of indices x and y are distinct
+but have the same image in S ×k S. So (7.3.1) is not a monomorphism. Therefore
+f! is not faithful, and hence f is not an isomorphism of toposes. One can also show
+that (7.3.1) is not an epimorphism.
+   But the image of (7.3.2), or equivalently (7.3.1), does see much of the geometry
+of S ×k T . Another way of expressing the point of this paper is that it is reasonable
+to think of it as being almost an isomorphism. For example, we have the following
+result.
+26                                    J. BORGER
+
+
+7.4. Proposition. The map
+                                 WS (T ) −→ S ×k T
+of (7.3.2) has Zariski dense image.
+Proof. Let m be a maximal ideal of OS with residue cardinality r. It suffices to
+show the image of the composition
+                     N × T −→ N(E) × T −→ WS (T ) −→ S ×k T
+                                                    
+is dense. The map satisfies (n, t) 7→ h(t), Frrn (t) .
+    We may assume S and T are affine. Indeed, it suffices to show density locally.
+Therefore we can replace S with an affine open subscheme S ′ and replace T with
+T ′ = S ′ ×S T . We can then replace T ′ with an affine scheme T ′′ mapping to T ′ by
+an étale map.
+    Let us then write S = Spec R and T = Spec B, where R is a Dedekind domain
+and B is an R-algebra. In terms of rings, the map in question is
+(7.4.1)                       R ⊗k B −→ B × B × . . .
+                                          2
+and is defined by a ⊗ b 7→ hab, abr , abr , . . .i. We need to show that any element of
+its kernel is nilpotent.
+            Pd
+   So let j=1 aj ⊗bj be an element of its kernel. Assume without loss of generality
+that the elements aj are linearly independent over k. Then for every m ∈ N, we have
+          rm
+P
+   j aj b j  = 0. Applying various powers of Frr , we have the system of equations
+                                    d
+                                    X         i   d
+                                          arj brj = 0
+                                    j=1
+
+where i = 0, . . . , d − 1. This can be expressed as the matrix equation
+                                          i       d
+                                       arj ij · brj j = 0.
+                                                                        i
+Since the family a1 , . . . , ad is linearly independent, the matrix arj has nonzero
+determinant. (This is the Moore matrix from the theory of function fields. The
+vanishing of its determinant is equivalent to the linear dependence of the aj . The
+proof is by a degree argument, just as for the familiar, analogous result about
+                                                        d
+Vandermonde matrices.) Therefore we have brj = 0 for all j. It follows that the
+element
+                                        X  d          r d
+                                              aj ⊗ b j
+                                      j=1
+is zero. So every element of the kernel of (7.4.1) is nilpotent.                     
+7.5. Corollary. Let X and Y be separated reduced algebraic spaces over k. Then
+any map f! f ∗ X → Y factors uniquely through the map f! f ∗ X → X.
+Proof. Consider the composite map
+                              S × X −→ f! f ∗ X −→ Y,
+and let Γ = (S × X) ×Y (S × X) denote the induced equivalence relation on S × X.
+Recall that f! f ∗ X is defined to be the quotient of S × X by the equivalence relation
+Γ′ generated by the image of W (S × X) in S × S × X under the map (7.3.2) when
+T = S ×k X. Therefore Γ contains Γ′ . On the other hand, by 7.4, Γ′ is dense in
+                    Λ-RINGS AND THE FIELD WITH ONE ELEMENT                           27
+
+
+Γ′′ = S × S × X = (S × X) ×X (S × X). Therefore Γ agrees with Γ′′ , and so the
+map S × X → Y factors uniquely through the quotient of S × X by Γ′′ , which is
+just X.                                                                     
+7.6. Corollary. The functor f ∗ : Spk → SpFS1 is faithful, and it embeds the full sub-
+category of separated reduced algebraic spaces over k fully faithfully in the category
+SpFS1 .
+   Some restriction on nilpotent elements is necessary. For example, suppose S =
+Spec R. Let A be a non-reduced k-algebra. Choose a square-zero element a ∈ A
+and an element r in R but not in k. Then the element r ⊗ a of R ⊗k A does not lie
+in the subring A. On the other hand, we have (r ⊗ a)qm = 0 = r ⊗ aqm = ψm (r ⊗ a)
+for any maximal ideal m of R. Therefore the map f! f ∗ Spec A → Spec A is not an
+isomorphism, because r ⊗ a is a function on the affinization of f! f ∗ Spec A that does
+not come from A.
+7.7. Analogy. It is rare for the pull-back functor for a map of spaces to be fully
+faithful. So let us consider a similar, but more familiar situation where this happens.
+Let S be a complex algebraic space and let Γ be an equivalence relation on S which
+is Zariski dense in S × S. For instance, Γ could be given by the action of a discrete
+group with a dense orbit or, if S is connected, by the formal neighborhood of the
+diagonal. Then algebraic spaces (perhaps under some mild conditions) form a full
+subcategory of the category of Γ-equivariant spaces over S. The condition for a
+Γ-equivariant algebraic space X over S to descend to the point is then a property
+on X, rather than a structure. We might then say the Γ-action is uniform, or
+constant.
+    Therefore, following the previous corollary, it is natural to interpret a descent
+datum on a reduced algebraic space X over S to the point Spec k as being a descent
+datum to FS1 with a similar algebraic uniformity property. So, objects of FS1 are
+generalized—but not weakened—versions of separated reduced algebraic spaces over
+the point Spec k. Of course this makes essential use of equal characteristic. The
+corresponding interpretation of Λ-spaces in the usual sense, over Z, would be that
+while it is possible to say what it means to descend an algebraic space to F1 —that
+is, to give it a Λ-action—we do not know if there is a uniformity property, which is
+what we would need to create a true arithmetic analogue of the base point Spec k.
+    (Buium has come to similar ideas independently. He proposed in conversation
+that it might be reasonable to consider a Λ-structure on a scheme as being an
+isotrivialization relative to F1 .)
+7.8. Drinfeld modules. Using the theory of Drinfeld modules, we can give examples
+of objects of SpFS1 that do not descend to Spk .
+   Let C be a connected smooth projective curve over Fp , let ∞ ∈ C be a closed
+point, and let A = Γ(C − {∞}, OC ). Let S be a smooth Fp -curve over which there
+is a Drinfeld A-module
+                                 ϕ : A → EndS (Ga )
+of rank 1 and of generic characteristic. (See Laumon [46] section (1.2), say.)
+   Then for any closed point s of S, the fiber of ϕ over s gives a Drinfeld R-module
+ϕs over s of rank 1. Because of the assumption that ϕ has generic characteristic, the
+characteristic of ϕs is s. A basic result of Drinfeld’s ([46] (2.2.2)(ii)) then implies
+that there is a unique element Πs ∈ A such that ϕs (Πs ) is the qs -th power Frobenius
+28                                   J. BORGER
+
+
+endomorphism of Ga over s, where qs denotes the residue cardinality of s. If we
+set ψs = ϕ(Πs ), then the various ψs are commuting endomorphisms of Ga over S,
+each agreeing with the qs -power Frobenius map on the fiber over s. This gives a
+ΛS -structure on Ga (which also respects the group structure).
+   For example, the Carlitz module is defined when A = Fp [t] and S = Spec A by
+ρ(t) = t + τ , where τ is the Frobenius map of Ga . Then for each maximal ideal m
+of k[t], the operator ψm is ρ(f (t)), where f (t) denotes the monic generator of m.
+   Observe that none of these “Drinfeld ΛS -structures” on A1S descends from SpFS1
+to Spk . Indeed, for every object in the image of f ∗ , the operators ψs act as zero
+on the conormal sheaf of the identity section S ⊂ Ga . But ϕ was assumed to have
+generic characteristic. Therefore every Πs acts faithfully on the conormal sheaf,
+and hence so does every ψs .
+   Another important use of the construction S × X is in the study of shtukas, also
+due to Drinfeld. Indeed, it is possible to mimic this using WS (X) instead of S × X.
+And this concept can be translated to number fields. This paper is not, however,
+the place to discuss this in any detail.
+
+
+7.9. Complex multiplication by number fields. Let R be a Dedekind domain whose
+field of fractions is a number field. Assume that there is an abelian scheme X over
+R of dimension d having the property that Q ⊗ EndR (X) contains a field F of
+degree 2d over Q.
+    As above, X has a natural ΛR -structure. For each maximal ideal m of R, there
+is a unique element πm ∈ F ∩ EndR (X) such that πm induces the qm -th power
+Frobenius map on the fiber of X over m. (See Serre–Tate [54].) Because each πm
+lies in F , they all commute. Therefore putting ψm = πm is a ΛR -structure on X.
+    Observe that we can modify X to make ΛR -varieties that are not CM varieties
+in the usual sense. For instance, let G is a finite subgroup of AutR (X). Be-
+cause every automorphism commutes with the complex multiplications, G acts
+ΛR -equivariantly on X. Therefore the quotient X/G is also a ΛR -space. (Because
+G is finite, the quotient is an algebraic space, by Artin’s theorem.) For instance,
+if X is an elliptic curve and G = Aut(X), then X/G is a projective line.
+    In particular, it seems likely that explicit class field theory for imaginary qua-
+dratic fields could be expressed in terms of ΛR -structures on P1 , just like in the
+case of Q and function fields.
+    Suppose instead that R is a Dedekind domain whose field of fractions is a real
+quadratic number field. In light of Ritt’s work [51][52], it seems unlikely that there
+are ΛR -actions on P1 which do not come from ΛZ -actions. It might, however, be
+possible to find such ΛR -actions on surfaces or higher-dimensional varieties, and
+any example would without a doubt lead to another example of an explicit class
+field theory. Of course, it would only be interesting if it could see more than the
+maximal cyclotomic extension of R. On the other hand, it would also be interesting
+to prove that no such examples exist.
+    Here are some precise questions. Is there an algebraic ΛR -space X of finite type
+over R with the property that for any abelian étale R-algebra R′ , the ΛR -space
+Spec R′ ×Spec R X is not isomorphic as a ΛR -space to one of the form Spec R′ ×Spec Z
+Y , for any algebraic ΛZ -space Y ? (Abelian here means that Q ⊗Z R′ is a product of
+abelian extensions of Q ⊗Z R.) Are there any algebraic ΛR -spaces X of finite type
+over R whose generic fiber is geometrically connected and which do not descend to
+                      Λ-RINGS AND THE FIELD WITH ONE ELEMENT                                    29
+
+
+ΛZ -spaces? I do not even know if many particular varieties can be ruled out: are
+there any ΛR -structures on X = P2R with this property?
+
+7.10. Local number fields. Let S = Spec Z, let p be a prime number, and let
+E = {p}. Let us write ΛS,E = Λp . The corresponding Witt functor Wn∗ = WS,E,n     ∗
+
+is, up to re-indexing, the p-typical Witt vector functor defined by Witt [65] in 1936.
+Of course, Λp -rings and p-typical Witt vectors are now ubiquitous in work on p-adic
+cohomology. (See [17] or [37], say.)
+    Now let A be a complete discrete valuation ring with perfect residue field k of
+characteristic p. If A is of equal characteristic, then the map A → k has a unique
+section. Now suppose A has mixed characteristic. Of course A → k cannot have
+a section defined over Z, but remarkably, it does have a unique section defined
+over FS,E
+        1 , the p-typical field with one element, and hence over F1 . By definition,
+this means that the map W (A) → W (k) of Λp -rings has a unique section. Indeed,
+because k is perfect, there is a unique ring map W (k) → A compatible with the
+projections to k. (See [53], say.) By adjointness, this then lifts to a unique map
+W (k) → W (A) of Λp -rings, which is easily seen to be a section of the map in
+question.
+
+                                         References
+ [1] Théorie des topos et cohomologie étale des schémas. Tome 1: Théorie des topos. Springer-
+     Verlag, Berlin, 1972. Séminaire de Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4),
+     Dirigé par M. Artin, A. Grothendieck, et J. L. Verdier. Avec la collaboration de N. Bourbaki,
+     P. Deligne et B. Saint-Donat, Lecture Notes in Mathematics, Vol. 269.
+ [2] Cohomologie l-adique et fonctions L. Lecture Notes in Mathematics, Vol. 589. Springer-
+     Verlag, Berlin, 1977. Séminaire de Géometrie Algébrique du Bois-Marie 1965–1966 (SGA 5),
+     Edité par Luc Illusie.
+ [3] John     Baez.     This    week’s    finds    in    mathematical      physics   (week    184).
+     http://www.math.ucr.edu/home/baez/week184.html.
+ [4] James Borger and Bart de Smit. Galois theory and integral models of Λ-rings. Bulletin of the
+     London Mathematical Society. To appear.
+ [5] James Borger and Ben Wieland. Plethystic algebra. Adv. Math., 194(2):246–283, 2005.
+ [6] James M. Borger. The basic geometry of Witt vectors. arXiv:0801.1691v2.
+ [7] James M. Borger. Sheaves in Λ-algebraic geometry. To appear.
+ [8] Alexandru Buium. Differential subgroups of simple algebraic groups over p-adic fields. Amer.
+     J. Math., 120(6):1277–1287, 1998.
+ [9] Alexandru Buium. Arithmetic differential equations, volume 118 of Mathematical Surveys
+     and Monographs. American Mathematical Society, Providence, RI, 2005.
+[10] Alexandru Buium. Geometry of Fermat adeles. Trans. Amer. Math. Soc., 357(3):901–964
+     (electronic), 2005.
+[11] Alexandru Buium and Santiago R. Simanca. Arithmetic Laplacians. Adv. Math., 220(1):246–
+     277, 2009.
+[12] F. J. B. J. Clauwens. Commuting polynomials and λ-ring structures on Z[x]. J. Pure Appl.
+     Algebra, 95(3):261–269, 1994.
+[13] Alain Connes and Caterina Consani. On the notion of geometry over F1 .
+     arXiv:math/0809.2926, version dated 2008/09/17.
+[14] Alain Connes, Caterina Consani, and Matilde Marcoli. Fun with F1 . arXiv:math/0806.2401,
+     version dated 2008/06/14.
+[15] Brian Conrad. Deligne’s notes on Nagata compactifications. J. Ramanujan Math. Soc.,
+     22(3):205–257, 2007.
+[16] A. A. Davydov. Periodic λ-rings and periods of finite groups. Mat. Sb., 188(8):75–82, 1997.
+[17] A. J. de Jong. Barsotti-Tate groups and crystals. In Proceedings of the International Congress
+     of Mathematicians, Vol. II (Berlin, 1998), number Extra Vol. II, pages 259–265 (electronic),
+     1998.
+30                                          J. BORGER
+
+
+[18] Anton Deitmar. F1 -schemes and toric varieties. arXiv:0608.5179, version dated 2007/11/29.
+[19] Anton Deitmar. Schemes over F1 . In Number fields and function fields—two parallel worlds,
+     volume 239 of Progr. Math., pages 87–100. Birkhäuser Boston, Boston, MA, 2005.
+[20] Anton Deitmar. Remarks on zeta functions and K-theory over F1 . Proc. Japan Acad. Ser.
+     A Math. Sci., 82(8):141–146, 2006.
+[21] P. Deligne. Cohomologie étale. Lecture Notes in Mathematics, Vol. 569. Springer-Verlag,
+     Berlin, 1977. Séminaire de Géométrie Algébrique du Bois-Marie SGA 4 21 , Avec la collabora-
+     tion de J. F. Boutot, A. Grothendieck, L. Illusie et J. L. Verdier.
+[22] Pierre Deligne. Théorie de Hodge. I. In Actes du Congrès International des Mathématiciens
+     (Nice, 1970), Tome 1, pages 425–430. Gauthier-Villars, Paris, 1971.
+[23] Pierre Deligne. Théorie de Hodge. II. Inst. Hautes Études Sci. Publ. Math., (40):5–57, 1971.
+[24] Pierre Deligne. Théorie de Hodge. III. Inst. Hautes Études Sci. Publ. Math., (44):5–77, 1974.
+[25] Christopher Deninger. Evidence for a cohomological approach to analytic number theory. In
+     First European Congress of Mathematics, Vol. I (Paris, 1992), volume 119 of Progr. Math.,
+     pages 491–510. Birkhäuser, Basel, 1994.
+[26] Yves Diers. Categories of commutative algebras. Oxford Science Publications. The Clarendon
+     Press Oxford University Press, New York, 1992.
+[27] Nikolai Durov. New approach to arakelov geometry. arXiv:0704.2030, version dated
+     2007/04/16.
+[28] William Fulton. Introduction to toric varieties, volume 131 of Annals of Mathematics Studies.
+     Princeton University Press, Princeton, NJ, 1993.
+[29] Marvin J. Greenberg. Schemata over local rings. Ann. of Math. (2), 73:624–648, 1961.
+[30] Marvin J. Greenberg. Schemata over local rings. II. Ann. of Math. (2), 78:256–266, 1963.
+[31] Alexander Grothendieck. La théorie des classes de Chern. Bull. Soc. Math. France, 86:137–
+     154, 1958.
+[32] Alexander Grothendieck. Éléments de géométrie algébrique. III. Étude cohomologique des
+     faisceaux cohérents. I. Inst. Hautes Études Sci. Publ. Math., (11):167, 1961.
+[33] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. III. Inst. Hautes Études Sci. Publ. Math., (28):255, 1966.
+[34] Alexander Grothendieck. Pursuing stacks. Written 1983. Unpublished.
+[35] M. J. Shai Haran. The mysteries of the real prime, volume 25 of London Mathematical Society
+     Monographs. New Series. The Clarendon Press Oxford University Press, New York, 2001.
+[36] M. J. Shai Haran. Non-additive geometry. Compos. Math., 143(3):618–688, 2007.
+[37] Luc Illusie. Finiteness, duality, and Künneth theorems in the cohomology of the de Rham-
+     Witt complex. In Algebraic geometry (Tokyo/Kyoto, 1982), volume 1016 of Lecture Notes in
+     Math., pages 20–72. Springer, Berlin, 1983.
+[38] M. Kapranov. Some conjectures on the absolute direct image. 1995 May 26. Unpublished.
+[39] M. Kapranov and A. Smirnov. Cohomology determinants and reciprocity laws: number field
+     case. Unpublished.
+[40] M. Kisin and G. I. Lehrer. Equivariant Poincaré polynomials and counting points over finite
+     fields. J. Algebra, 247(2):435–451, 2002.
+[41] Mark Kisin. Potential semi-stability of p-adic étale cohomology. Israel J. Math., 129:157–173,
+     2002.
+[42] Shin-ya Koyama and Nobushige Kurokawa. Multiple zeta functions: the double sine function
+     and the signed double Poisson summation formula. Compos. Math., 140(5):1176–1190, 2004.
+[43] Nobushige Kurokawa. Multiple zeta functions: an example. In Zeta functions in geometry
+     (Tokyo, 1990), volume 21 of Adv. Stud. Pure Math., pages 219–226. Kinokuniya, Tokyo,
+     1992.
+[44] Nobushige Kurokawa. Zeta functions over F1 . Proc. Japan Acad. Ser. A Math. Sci.,
+     81(10):180–184 (2006), 2005.
+[45] Nobushige Kurokawa, Hiroyuki Ochiai, and Masato Wakayama. Absolute derivations and
+     zeta functions. Doc. Math., (Extra Vol.):565–584 (electronic), 2003. Kazuya Kato’s fiftieth
+     birthday.
+[46] Gérard Laumon. Cohomology of Drinfeld modular varieties. Part I, volume 41 of Cambridge
+     Studies in Advanced Mathematics. Cambridge University Press, Cambridge, 1996. Geometry,
+     counting of points and local harmonic analysis.
+[47] Yuri Manin. Cyclotomy and analytic geometry over F1 . arXiv:0809.1564, version dated
+     2008/09/09.
+                       Λ-RINGS AND THE FIELD WITH ONE ELEMENT                                       31
+
+
+[48] Yuri Manin. Lectures on zeta functions and motives (according to Deninger and Kurokawa).
+     Astérisque, (228):4, 121–163, 1995. Columbia University Number Theory Seminar (New York,
+     1992).
+[49] Jürgen Neukirch. Class field theory, volume 280 of Grundlehren der Mathematischen Wis-
+     senschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag, Berlin,
+     1986.
+[50] K. H. Paranjape and V. Srinivas. Self-maps of homogeneous spaces. Invent. Math., 98(2):425–
+     444, 1989.
+[51] J. F. Ritt. Permutable rational functions. Trans. Amer. Math. Soc., 25(3):399–448, 1923.
+[52] J. F. Ritt. Errata: “Permutable rational functions”. Trans. Amer. Math. Soc., 26(4):494,
+     1924.
+[53] Jean-Pierre Serre. Corps locaux. Hermann, Paris, 1968. Deuxième édition, Publications de
+     l’Université de Nancago, No. VIII.
+[54] Jean-Pierre Serre and John Tate. Good reduction of abelian varieties. Ann. of Math. (2),
+     88:492–517, 1968.
+[55] A. L. Smirnov. Hurwitz inequalities for number fields. Algebra i Analiz, 4(2):186–209, 1992.
+[56] Alexandr L. Smirnov. Letter to Y. Manin. September 29, 2003.
+[57] Christophe Soulé. Les variétés sur le corps à un élément. Mosc. Math. J., 4(1):217–244, 312,
+     2004.
+[58] R. Steinberg. A geometric approach to the representations of the full linear group over a
+     Galois field. Trans. Amer. Math. Soc., 71:274–282, 1951.
+[59] John Tate and José Felipe Voloch. Linear forms in p-adic roots of unity. Internat. Math. Res.
+     Notices, (12):589–601, 1996.
+[60] J. Tits. Sur les analogues algébriques des groupes semi-simples complexes. In Colloque
+     d’algèbre supérieure, tenu à Bruxelles du 19 au 22 décembre 1956, Centre Belge de Recherches
+     Mathématiques, pages 261–289. Établissements Ceuterick, Louvain, 1957.
+[61] Bertrand Toën and Michel Vaquié. Au-dessous de Spec Z. arXiv:math/0509684, version dated
+     2007/10/05.
+[62] Theo van den Bogaart and Bas Edixhoven. Algebraic stacks whose number of points over finite
+     fields is a polynomial. In Number fields and function fields—two parallel worlds, volume 239
+     of Progr. Math., pages 39–49. Birkhäuser Boston, Boston, MA, 2005.
+[63] Chin-Lung Wang. Cohomology theory in birational geometry. J. Differential Geom.,
+     60(2):345–354, 2002.
+[64] André Weil. On the Riemann hypothesis in functionfields. Proc. Nat. Acad. Sci. U. S. A.,
+     27:345–347, 1941.
+[65] Ernst Witt. Zyklische Körper und Algebren der Charakteristik p vom Grad pn . Struktur
+     diskret bewerter perfekter Körper mit vollkommenem Restklassen-körper der charakteristik
+     p. J. Reine Angew. Math., (176), 1937.
+
+   Australian National University, Canberra
+   E-mail address: borger@maths.anu.edu.au
+

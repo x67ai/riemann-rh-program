@@ -1,0 +1,2504 @@
+                                                     THE BASIC GEOMETRY OF WITT VECTORS, I
+                                                                THE AFFINE CASE
+
+                                                                                     JAMES BORGER
+
+
+                                                   Abstract. We give a concrete description of the category of étale algebras
+
+
+
+
+arXiv:0801.1691v6 [math.AG] 14 Dec 2015
+                                                   over the ring of Witt vectors of a given finite length with entries in an arbitrary
+                                                   ring. We do this not only for the classical p-typical and big Witt vector functors
+                                                   but also for certain analogues over arbitrary local and global fields. The basic
+                                                   theory of these generalized Witt vectors is developed from the point of view
+                                                   of commuting Frobenius lifts and their universal properties, which is a new
+                                                   approach even for the classical Witt vectors. The larger purpose of this paper
+                                                   is to provide the affine foundations for the algebraic geometry of generalized
+                                                   Witt schemes and arithmetic jet spaces. So the basics here are developed
+                                                   somewhat fully, with an eye toward future applications.
+
+
+
+
+                                                                                     Introduction
+                                             Witt vector functors are certain functors from the category of (commutative)
+                                          rings to itself. The most common are the p-typical Witt vector functors W , for
+                                          each prime number p. Given a ring A, one traditionally defines W (A) as a set to
+                                          be AN and then gives it the unique ring structure which is functorial in A and such
+                                          that the set maps
+                                                                             w
+                                                                   W (A) −→ AN
+                                                                                                         2
+                                                            (x0 , x1 , . . .) 7→ hx0 , xp0 + px1 , xp0 + pxp1 + p2 x2 , . . .i
+                                          are ring homomorphisms for all rings A, where the target has the ring structure
+                                          with componentwise operations. For example, we have
+                                                                                                              p−1
+                                                                                                              X 1 p
+                                                 (x0 , x1 , . . .) + (y0 , y1 , . . .) = (x0 + y0 , x1 + y1 −         xi0 y0p−i , . . .)
+                                                                                                              i=1
+                                                                                                                  p i
+                                                  (x0 , x1 , . . .) · (y0 , y1 , . . .) = (x0 y0 , xp0 y1 + x1 y0p + px1 y1 , . . .).
+
+
+                                          Observe that the four polynomials in x0 , y0 , x1 , y1 displayed on the right-hand side
+                                          have integer coefficients, as they must if they are to define operations on W (A) for
+                                          all rings A. Conversely, to prove that the desired functorial ring structure on W
+                                          exists, it is enough to prove that the polynomials sitting in the higher components
+                                          have integer coefficients too. This is Witt’s theorem.
+                                             On the other hand, the polynomials at the component of index n depend only
+                                          on the variables x0 , y0 , . . . , xn , yn . This is clear by induction. It follows that the
+                                          quotient set A[0,n] = {(x0 , . . . , xn )} of W (A) = AN is a quotient ring, which we
+                                          denote by Wn (A). (It is traditionally denoted Wn+1 (A). The shift in indexing is
+                                          preferable for reasons discussed in 2.5.)
+
+                                             Date: October 22, 2018. 17:40.
+                                             Mathematics Subject Classification (2010): 13F35.
+                                             This work was partly supported by Discovery Project DP0773301, a grant from the Australian
+                                          Research Council.
+                                                                                               1
+2                                     J. BORGER
+
+
+    In some cases, the rings W (A) and Wn (A) are isomorphic to familiar rings. For
+example, W (Z/pZ) is isomorphic to the ring Zp of p-adic integers, and Wn (Z/pZ)
+is isomorphic to Z/pn+1 Z. If p is invertible in A, then w is a bijection and so the
+Witt vector rings become product rings: Wn (A) ∼      = A[0,n] and W (A) ∼
+                                                                         = AN . But in
+most cases, W (A) is not a familiar ring.
+    While this traditional approach to Witt vectors is adequate for many purposes,
+it has two shortcomings. The first is that it is not clear how we should think about
+the affine scheme Spec Wn (A) geometrically. Indeed, I am not aware of a truly
+geometric description of Spec Wn (A) in any nontrivial case in the literature. If we
+want to fully incorporate Witt vectors into arithmetic algebraic geometry (and we
+do), it is important to have a thorough understanding of their geometry. The main
+point here and in the following paper [4] is to set up a framework for that. The
+geometry in this paper is however limited to the basic results in the affine case
+needed for the general treatment in [4].
+    The second shortcoming of the traditional approach is that it does not explain
+what the defining purpose of Witt vectors is. The answer, at least for this paper, is
+that they control Frobenius lifts—ring endomorphisms which reduce to the Frobe-
+nius map modulo p. Here we are following Borger–Wieland [5], 12.3–4, which in
+turn followed Joyal [18][19]. Motivated by this perspective, we will define Witt vec-
+tor functors relative to primes in any global or local field. This generality includes
+not only the p-typical functors above but also the so-called big Witt vector functor
+and less common variants of the p-typical ones due to Drinfeld and to Hazewinkel
+([10], Proposition 1.1; [16], (18.6.13)). It also includes many variants unstudied till
+now. We will work with these generalized functors throughout the paper. In fact,
+this will take no more effort once we establish some basic reduction results.
+  Let us now discuss the contents in more detail.
+  Section 1 introduces our generalized Witt vectors. Given a Dedekind domain R
+and a set E of maximal ideals of R with finite residue fields, we will define a functor
+WR,E from the category RingR of R-algebras to itself:
+                               WR,E : RingR → RingR .
+(In fact, we will work with slightly more general R and E.) We call WR,E the E-
+typical Witt vector functor. When R = Z and E consists of a single maximal ideal
+pZ, our functor will agree with the p-typical Witt vector functor above; when E
+consists of all maximal ideals of Z, our functor will agree with the big Witt vector
+functor. The definition of WR,E is in two steps. First we define a functor
+                                fl
+                               WR,E : RingflR → RingflR ,
+
+where RingflR is the full subcategory of RingR consisting of R-algebras which are
+m-torsion free for all ideals m ∈ E. We call such algebras E-flat. Then we define
+                                              fl
+WR,E to be a certain natural extension of WR,E     to all of RingR .
+   Let N(E) denote the commutative monoid E N, where N is {0, 1, . . .} under
+                                                 L
+
+addition. Given an action of N(E) on an R-algebra B, let ψm denote the endomor-
+phism of B given by the m-th element of the standard basis of N(E) . Let us say
+that such an action is a ΛR,E -structure if for each m ∈ E, the map ψm reduces
+to the Frobenius endomorphism x 7→ x[R:m] on B/mB. Now, for any R-algebra A,
+                              (E)
+the monoid N(E) acts on AN through its translation action on itself in the expo-
+                                     fl
+nent. When A is E-flat, we define WR,E   (A) to be the largest of the sub-R-algebras
+         (E)
+B ⊆ AN      having the properties that B is stable under the action of N(E) and
+that the induced action on B is a ΛR,E -structure. It is elementary to check that a
+                            fl
+maximal such subalgebra WR,E   (A) exists.
+                      THE BASIC GEOMETRY OF WITT VECTORS, I                               3
+
+
+    This definition can be expressed as a universal property. Let RingflΛR,E denote
+the following category: the objects are E-flat R-algebras equipped with a ΛR,E -
+structure, and the morphisms are N(E) -equivariant R-algebra maps. Then WR,E           fl
+                                                                                           ,
+                              fl       fl
+viewed as a functor RingR → RingΛR,E , is the right adjoint of the evident forgetful
+functor.
+                                                                     fl
+    One then defines WR,E to be the left Kan extension of WR,E            , now viewed as a
+              fl
+functor RingR → RingR . This amounts to the following. It is not hard to show that
+                 fl
+the functor WR,E     is representable, that is, there exists an E-flat R-algebra ΛR,E and
+                       fl                                                               fl
+an isomorphism WR,E         (−) = Hom(ΛR,E , −), as set-valued functors. Because WR,E
+takes values in R-algebras, ΛR,E carries the structure of a co-R-algebra object in
+RingflR . Because such a structure is described using maps between certain coproducts
+of ΛR,E with itself, and because RingflR is a full subcategory of RingR closed under
+coproducts, ΛR,E continues to be a co-R-algebra object when viewed as an object
+of RingR . Therefore it represents an R-algebra-valued functor, and this functor is
+what WR,E is defined to be.
+                                                     fl
+    Since the definition of WR,E in terms of WR,E        is of a purely category-theoretic
+nature, one should view the E-flat case as the central one. This is in contrast to
+the common point of view that the purpose of Witt vector functors is to lift rings
+from positive characteristic to characteristic zero.
+    As in the E-flat setting, WR,E is the right adjoint of the forgetful functor
+RingΛR,E → RingR , but to make sense of this, it is necessary to know the what
+a ΛR,E -structure on a general R-algebra is. Unfortunately, it is not easy to state
+the definition, and so we will leave it to the body of the paper. In the E-flat setting,
+it is equivalent to a commuting family of Frobenius lifts indexed by E, as above;
+but in general, it is a slightly stronger structure that is better behaved. When R
+is Z and E consists of all maximal ideals of Z, a ΛR,E -structure is equivalent to
+a λ-ring structure in the sense of Grothendieck’s Riemann–Roch theory, but this
+does not admit a simple definition either.
+    In addition to the right adjoint WR,E , the forgetful functor RingΛR,E → RingR
+has a left adjoint, which we denote by A 7→ ΛR,E ⊙ A. It has a smaller presence
+in this paper, but it is very important—even in the p-typical case, as the work of
+Buium [7][8] makes clear.
+    Section 2 defines functors WR,E,n , which are truncations of WR,E in the same
+way that the functors Wn above are truncations of W . For any A ∈ RingflR and
+n ∈ N(E) , let WR,E,n
+                    fl
+                           (A) denote the image of the subring WR,E    fl
+                                                                           (A) ⊆ AN under
+the canonical projection
+                                          (E)
+                                       AN → A[0,n] ,
+where
+                        [0, n] = {i ∈ N(E) | im ⩽ nm for all m ∈ E}.
+         fl
+Then WR,E,n   is a functor RingflR → RingflR . It is representable by an E-flat R-algebra
+ΛR,E,n , and we extend it to a functor
+                                WR,E,n : RingR → RingR
+by taking its left Kan extension, as above. These truncated functors are related to
+the original one by the formula
+                              WR,E (A) = lim WR,E,n (A).
+                                             n
+   Even in the p-typical case, this approach to defining the Witt vectors has the
+advantage over the traditional one that universal properties are emphasized and
+the particulars of explicit constructions are played down. But this comes at a cost.
+For instance, it is not obvious that WR,E,n preserves surjectivity of maps. To prove
+4                                             J. BORGER
+
+
+this and other basic facts, it appears necessary to bring back the Witt components
+(x0 , x1 , . . .) above, at least in some form. To define them, the ideals of E must be
+principal; the purpose of section 3 is to define them in the minimal case we will
+need, which is when E consists of a single principal ideal m. A version of the proof
+of Witt’s theorem then shows there is a unique functorial bijection AN → WR,E (A)
+such that when A is E-flat, the composition AN → WR,E (A) ⊆ AN satisfies
+                                                                2
+              (x0 , x1 , x2 , . . .) 7→ hx0 , xq0 + πx1 , xq0 + πxq1 + π 2 x2 , . . .i
+where q = [R : m] and π is a fixed generator of m. We can similarly identify
+WR,E,n (A) with the quotient A[0,n] consisting of vectors (x0 , . . . , xn ). Let me em-
+phasize that the components (x0 , x1 , . . .) depend on the choice of generator π ∈ m
+in a complex, non-multilinear way. But we can use them to define Verschiebung
+operators
+                    Vmj : mj ⊗R WR,E,n (A) −→ WR,E,n+j (A)
+                           π j ⊗ (x0 , . . . , xn ) 7→ (0, . . . , 0, x0 , . . . , xn ),
+which are independent of the choice of the generator π. Making that so is the
+purpose the tensor factor mj .
+   When E consists of a single ideal m (possibly nonprincipal), section 4 describes
+WR,E,n in terms of the case where m is principal, which is covered by section 3.
+This is done by working Zariski locally on R. Using the same technique, we will
+show that the Verschiebung maps as above can be defined when m is not assumed to
+be principal. In fact, there is a unique functorial family of such maps agreeing with
+the maps defined above. The image of Vmj is the kernel of the canonical projection
+WR,E,n+j (A) → WR,E,j (A).
+   Similarly, section 5 gives a description of WR,E,n when E is general in terms
+of the case where E consists of a single ideal, which is covered by section 4: if
+m1 , . . . , mr are the ideals in the support of n, then there is a natural isomorphism
+                                    ∼
+(0.0.1)                 WR,E,n −→ WR,mr ,nmr ◦ · · · ◦ WR,m1 ,nm1 .
+Such a description also holds for WR,E , though some care must be taken when E is
+infinite. It is also possible to describe the functor ΛR,E ⊙ −, as well as its truncated
+variants ΛR,E,n ⊙ −, in terms of the case where E consists of a single ideal.
+   Section 6 gives several ring-theoretic facts about WR,E,n which we will need later.
+For example, this is where we prove that WR,E,n preserves surjectivity. Most of the
+arguments there appear to require the use of Witt components and the reduction
+techniques of sections 4 and 5.
+
+  Sections 7–9 prove the main results, which relate Witt vector functors and étale
+maps. Suppose E consists of a single ideal m. For any ring A and any integer n ⩾ 1,
+we have a diagram
+                                                                      s◦pr1
+                                   αn
+                                                                              / A/mn A.
+                                         / WR,E,n−1 (A) × A                    /
+(0.0.2)          WR,E,n (A)
+                                                                      t◦pr2
+
+When m is principal, the maps αn , s, and t can be defined in terms of the Witt
+components relative to a fixed generator π ∈ m as follows:
+                                                             n      n−1
+         αn : (a0 , . . . , an ) 7→ (a0 , . . . , an−1 ), aq0 + πa1q    . . . + π n an
+                                                                                       
+                                          n
+           s : (a0 , . . . , an−1 ) 7→ (aq0 + . . . + π n−1 aqn−1 ) mod mn A
+                           t : a 7→ a mod mn A.
+If A is m-torsion free, (0.0.2) is an equalizer diagram. Figure 1 shows the induced
+diagram of schemes in the p-typical case when n = 1.
+                    THE BASIC GEOMETRY OF WITT VECTORS, I                               5
+
+
+
+
+                                                                Frobenius
+
+
+
+
+                                                                identity
+
+
+
+
+         Spec W1 (A)                 Spec(A × A)                            Spec A/pA
+
+        Figure 1. As a topological space, Spec W1 (A) (traditionally de-
+        noted W2 (A)) is two copies of Spec A glued along Spec A/pA. This
+        is also true as schemes if we assume that A is p-torsion free and we
+        glue transversely and with a Frobenius twist, as indicated. There
+        is a similar description of Spec Wn (A) as Spec Wn−1 (A) glued with
+        Spec A along Spec A/pn A. See the diagram (0.0.2).
+
+  Now let C denote the following category: an object is a pair (B, ϕ), where B is
+an étale (WR,E,n−1 (A) × A)-algebra and ϕ is an isomorphism of A/mn A-algebras
+                                                ϕ
+                       A/mn A ⊗t◦pr2 B −→ A/mn A ⊗s◦pr1 B
+and where a morphism (B1 , ϕ1 ) → (B2 , ϕ2 ) is a (WR,E,n−1 (A) × A)-algebra map
+f : B1 → B2 such that
+                 ϕ2 ◦ (A/mn A ⊗t◦pr2 f ) = (A/mn A ⊗s◦pr1 f ) ◦ ϕ1 .
+In other words, C is the category of algebras equipped with gluing data relative to
+the diagram (0.0.2), or equivalently C is the (weak) fiber product of the category
+of étale Wn−1 (A)-algebras and the category étale A-algebras over the category of
+étale A/mn A-algebras via the evident functors.
+Theorem A. The base-change functor from the category of étale WR,E,n (A)-algebras
+to C is an equivalence. If A is m-torsion free, then a quasi-inverse is given by send-
+ing (B, ϕ) to the equalizer of the two maps
+                                1⊗idB
+                                           /
+                          B                    / A/mn A ⊗s◦pr1 B.
+                              ϕ◦(1⊗idB )
+
+   The first statement can be expressed succinctly in geometric terms; it says that
+the map αn satisfies effective descent for étale algebras and that descent data is
+equivalent to gluing data with respect to the diagram (0.0.2). Using theorem A and
+induction on n, it is in principle possible to reduce questions about étale Wn (A)-
+algebras to questions about étale A-algebras. This is still true when E consists of
+more than one ideal, but now by (0.0.1) and induction on r.
+   Section 9 generalizes van der Kallen’s theorem [24], (2.4), to arbitrary R and E:
+Theorem B. Let f : A → B be an étale morphism of R-algebras. Then the map
+WR,E,n (f ) : WR,E,n (A) → WR,E,n (B) of R-algebras is étale.
+   This theorem is fundamental in extending Witt constructions beyond affine
+schemes and will be used often in [4]. Van der Kallen’s argument, which has an
+6                                    J. BORGER
+
+
+infinitesimal flavor, could be extended to our setting with only minor modifications.
+Instead we deduce theorem B from theorem A, and so our argument has a glob-
+ally geometric flavor. (Note that, until recently, van der Kallen’s paper [24] had
+escaped the notice of many workers in de Rham–Witt theory, to whom theorem B
+was unknown even for the p-typical Witt vectors.)
+   Last, I would like to thank Amnon Neeman for helpful discussions on some
+technical points and Lance Gurney for some comments on earlier versions of this
+paper.
+
+
+
+                                     Contents
+    Introduction                                                                    1
+    1. Generalized Witt vectors and Λ-rings                                         6
+    2. Grading and truncations                                                     16
+    3. Principal single-prime case                                                 19
+    4. General single-prime case                                                   22
+    5. Multiple-prime case                                                         25
+    6. Basic affine properties                                                     26
+    7. Some general descent                                                        29
+    8. Ghost descent in the single-prime case                                      35
+    9. W and étale morphisms                                                      38
+    References                                                                     41
+
+
+
+
+                 1. Generalized Witt vectors and Λ-rings
+   The purpose of this section is to define our generalized Witt vectors and Λ-rings.
+It is largely an expansion in more concrete terms of Borger–Wieland [5], or rather
+of the parts about Witt vectors and Λ-rings. The approach here will allow us to
+avoid much of the abstract language of operations on rings, as first introduced in
+Tall–Wraith [23].
+   For the traditional way of defining Λ-rings and Witt vectors, see §1 of chapter
+IX of Bourbaki [6] and especially the exercises for that section. One can also see
+Witt’s original paper [26] on the p-typical Witt vectors (reprinted in [27]) and his
+notes on the big Witt vectors [27], pp. 157–163.
+
+1.1. Supramaximal ideals. Let us say that an ideal m of a ring R is supramaximal
+if either
+    (a) R/m is a finite field, Rm is a discrete valuation ring, and m is finitely pre-
+        sented as an R-module, or
+    (b) m is the unit ideal.
+By far the most important example is a maximal ideal with finite residue field in a
+Dedekind domain. (In fact, all phenomena in this paper occur already over R = Z,
+and this case covers the classical Witt vectors and λ-rings.) The reason we allow
+the unit ideal is only so that a supramaximal ideal remains supramaximal after any
+localization.
+   Note that a supramaximal ideal m is invertible as an R-module. Indeed, locally
+at m it is the maximal ideal of a discrete valuation ring, and away from m it is the
+unit ideal.
+                       THE BASIC GEOMETRY OF WITT VECTORS, I                         7
+
+
+1.2. General notation. Fix a ring R and a family (mα )α∈E of pairwise coprime
+supramaximal ideals of R indexed by a set E. Note that because the unit ideal is
+coprime to itself, it can be repeated any number of times; otherwise the ideals mα
+are distinct. For each α ∈ E, let qα denote the cardinality of R/mα . We will often
+abusively speak of mα rather than α as being an element of E, especially when mα
+is maximal, in which case it comes from a unique α ∈ E.
+   Let R[1/E] denote the R-algebra whose spectrum is the complement of E in
+Spec R. It is the universal R-algebra in which every mα becomes the unit ideal. It
+also has the more concrete description
+                                         O
+                               R[1/E] =     R[1/mα],
+                                           α∈E
+
+where the tensor product is over R and R[1/mα ] is defined to be the coequalizer of
+the maps
+                                         / Sym(m−1
+                                          /
+                             Sym(R)               α )
+
+of symmetric algebras, where m−1α is the dual of mα , one of the maps is Sym applied
+to the canonical map R → m−1 α  , and the other is the map induced by the R-module
+map R → Sym(m−1   α ) that sends  1 ∈ R to the element 1 ∈ Sym(m−1  α ) in degree zero.
+   Finally, we write N for the monoid {0, 1, 2, . . .} under addition and write RingR
+for the category of R-algebras.
+1.3. E-flat R-modules. Let us say that an R-module M is E-flat if for all maximal
+ideals m in E, the following equivalent conditions are satisfied:
+    (a) Rm ⊗R M is a flat Rm -module,
+   (b) the map m ⊗R M → M is injective.
+The equivalence of these two can be seen as follows. Condition (b) is equivalent to
+the statement TorR1 (R/m, M ) = 0, which is equivalent to
+
+                             TorR
+                                1 (R/m, Rm ⊗R M ) = 0.
+                                  m
+
+
+
+Since Rm is a discrete valuation ring, this is equivalent to the Rm -module Rm ⊗R M
+being torsion free and hence flat.
+   We say an R-algebra is E-flat if its underlying R-module is. Let RingflR denote
+the full subcategory of RingR consisting of the E-flat R-algebras.
+1.4. Proposition. Any product of E-flat R-modules is E-flat, and any sub-R-
+module of an E-flat R-module is E-flat.
+Proof. We will use condition (b) above. Let (Mi )i∈I be a family of E-flat R-modules.
+We want to show that for each maximal ideal m in E, the composition
+                         Q
+                     m ⊗ i Mi         / Q m ⊗ Mi         / Q Mi
+                                         i                  i
+
+is injective. Because each Mi is E-flat, the right-hand map is injective, and so it is
+enough to show the left-hand map is injective.
+    Since m is assumed to be finitely presented as an R-module, we can express it as
+a cokernel of a map N ′ → N of finite free R-modules. Then we have the following
+diagram with exact rows
+            N ′ ⊗R i Mi
+                   Q            / N ⊗R Q Mi         / m ⊗R Q Mi        /0
+                                          i                 i
+
+                   ∼                   ∼
+           Q ′                       
+                                / Q N ⊗R Mi
+                                                          
+                                                    / Q m ⊗R Mi         / 0.
+            i N ⊗R Mi              i                   i
+
+The left two vertical maps are isomorphisms because N ′ and N are finite free.
+Therefore the rightmost vertical map is an injection (and even an isomorphism).
+8                                        J. BORGER
+
+
+   Now suppose M ′ is a sub-R-module of an E-flat R-module M . Since m is an
+invertible R-module, m ⊗R M ′ maps injectively to m ⊗R M . Since M is E-flat,
+m ⊗R M ′ further maps injectively to M , and hence to M ′ .                
+1.5. Ψ-rings. Let A be an R-algebra. Let us define a ΨR,E -action, or a ΨR,E -ring
+structure, on A to be a commuting family of R-algebra endomorphisms     ψα indexed
+by α ∈ E. This is the same as an action of the monoid N(E) = E N on A. For
+                                                                  L
+
+any element n ∈ N(E) , we will also write ψn for the endomorphism of A induced
+by n. A morphism of ΨR,E -rings is defined to be an N(E) -equivariant morphism of
+rings.
+                                                              (E)
+   The free ΨR,E -ring on one generator e is ΨR,E = R[e]⊗R N , where N(E) acts
+on ΨR,E through its action on itself in the exponent. In particular, ΨR,E is freely
+generated as an R-algebra by the elements ψn (e), where n ∈ N(E) . Then it is
+natural to write ψn = ψn (e) ∈ ΨR,E and ψα = ψbα ∈ ΨR,E , where bα ∈ N(E)
+denotes the α-th standard basis vector, and e = ψ0 ∈ ΨR,E for the identity operator.
+   For any ΨR,E -ring A, there is a unique set map
+                                                    ◦
+(1.5.1)                               ΨR,E × A −→ A
+with the property that for all α ∈ E, r ∈ R, f1 , f2 ∈ ΨR,E , a ∈ A we have
+(1.5.2)                               ψα ◦ a = ψα (a)
+and
+(1.5.3)    r ◦ a = r,   (f1 + f2 ) ◦ a = (f1 ◦ a) + (f2 ◦ a),   (f1 f2 ) ◦ a = (f1 ◦ a)(f2 ◦ a).
+Taking A = ΨR,E , we get a binary operation ◦ on ΨR,E called composition or
+plethysm. One can check that this makes ΨR,E a monoid (noncommutative unless
+R = 0) with identity e and that (1.5.1) is a monoid action.
+   In the language of plethystic algebra [5], we can interpret ΨR,E as the free R-
+plethory Rhψα |α ∈ Ei on the R-algebra endomorphisms ψα . Then a ΨR,E -action
+in the sense above is the same as a ΨR,E -action in the sense of abstract plethystic
+algebra. In particular, ΨR,E can be viewed as the ring of natural unary opera-
+tions on ΨR,E -rings, and the composition operation ◦ above agrees with the usual
+composition of unary operations. (Compare with 1.18 below)
+1.6. E-flat Λ-rings. Let A be an R-algebra which is E-flat. Define a ΛR,E -action,
+or a ΛR,E -ring structure, on A to be a ΨR,E -action with the following Frobenius lift
+property: for all α ∈ E, the endomorphism id ⊗ ψα of R/mα ⊗R A agrees with the
+Frobenius map x 7→ xqα . A morphism of E-flat ΛR,E -rings is simply defined to be
+a morphism of the underlying ΨR,E -rings. Let us denote this category by RingflΛR,E .
+1.7. The ghost ring. Since an action of ΨR,E on an R-algebra A is the same as
+an action (in the category of R-algebras) of the monoid N(E) , the forgetful functor
+from the category of ΨR,E -rings to that of R-algebras has a right adjoint given by
+                                     Y           (E)
+                               A 7→      A = AN ,
+                                         N(E)
+          (E)            N(E)
+where N      acts on A      through its action on itself in the exponent. (This is a
+                                                                                 (E)
+general fact about monoid actions in any category with products.) For a ∈ AN
+and n, n′ ∈ N(E) , the n-th component of ψn′ (a) is the (n + n′ )-th component of a.
+                      (E)
+   One might call AN the cofree ΨR,E -ring on the R-algebra A. It has tradition-
+ally been called the ring of ghost components or ghost vectors. By 1.4, it is E-flat
+if A is.
+   When |E| = 1, there is the possibility of confusing the ghost ring AN , which
+has the product ring structure, with the usual ring AN of Witt components (see
+                    THE BASIC GEOMETRY OF WITT VECTORS, I                            9
+
+
+3.5), which has an exotic ring structure. To prevent this, we will use angle brackets
+ha0 , a1 , . . .i for elements of the ghost ring.
+                                                                       fl
+1.8. Witt vectors of E-flat rings. Let us now construct the functor WR,E  . We will
+show in 1.9 that it is the right adjoint of the forgetful functor from the category
+of E-flat ΛR,E -rings to that of E-flat R-algebras. (Further, the flatness will be
+removed in 1.12.)
+                                                                            (E)
+   Let A be a E-flat R-algebra. Let U0 (A) denote the cofree ΨR,E -ring AN . For
+any i ⩾ 0, let
+          Ui+1 (A) = {b ∈ Ui (A) | ψα (b) − bqα ∈ mα Ui (A) for all α ∈ E}.
+                                 (E)
+This is a sub-R-algebra of AN . Indeed, it is the intersection over α ∈ E of the
+equalizers of pairs of R-algebra maps
+                                      /
+                            Ui (A)      / R/mα ⊗R Ui (A)
+given by x 7→ 1 ⊗ ψα (x) and by x 7→ (1 ⊗ x)qα .
+   Now define
+                                           \
+                                fl
+(1.8.1)                       WR,E  (A) =     Ui (A).
+                                                  i⩾0
+
+This is the ring of E-typical Witt vectors with entries in A. It is a sub-R-algebra
+      (E)                               (E)
+                           fl
+of AN . Observe that WR,E     (A) = AN      if A is an R[1/E]-algebra.
+                                                                     (E)
+                               fl
+1.9. Proposition.       (a) WR,E  (A) is a sub-ΨR,E -ring of AN .
+                                         fl
+   (b) This ΨR,E -ring structure on WR,E    (A) is a ΛR,E -ring structure.
+                                      fl
+   (c) The induced functor A 7→ WR,E (A) from E-flat R-algebras to E-flat ΛR,E -
+       rings is the right adjoint of the forgetful functor.
+Proof. (a): Let us first show by induction that each Ui (A) is a sub-ΨR,E -ring of
+   (E)                                     (E)
+AN . For i = 0, we have U0 (A) = AN , and so it is clear. For i ⩾ 1, we use
+the description of Ui+1 (A) as the intersection of the equalizers of the pairs of ring
+maps
+                                         /
+                           Ui (A)       / R/mα ⊗R Ui (A)
+given in 1.8. Observe that both these ring maps become ΨR,E -ring maps if we give
+R/mα ⊗R Ui (A) a ΨR,E -action by defining ψβ : a ⊗ x 7→ a ⊗ ψβ (x), for all β ∈ E.
+Since limits of ΨR,E -rings exist and their underlying rings agree with the limits
+                                                                        (E)
+taken in the category of rings, Ui+1 (A) is a sub-ΨR,E -ring of AN . Therefore
+                                                                            (E)
+   fl
+WR,E   (A), the intersection of the Ui (A), is also a sub-ΨR,E -ring of AN .
+    (b): It is enough to verify
+                                                          \
+                                           fl
+                     ψα (x) − xqα ∈ mα WR,E    (A) = mα     Ui (A),
+                                                               i⩾0
+                       fl
+for all α ∈ E and x ∈ WR,E (A). For any i ⩾ 0, we know
+                              ψα (x) − xqα ∈ mα Ui (A),
+             fl
+because x ∈ WR,E (A) ⊆ Ui+1 (A). Therefore we know
+                                        \
+                         ψα (x) − xqα ∈    mα Ui (A).
+                                                  i⩾0
+
+So, it is enough to show
+                                 \                \
+(1.9.1)                     mα         Ui (A) =         mα Ui (A).
+                                 i⩾0              i⩾0
+10                                      J. BORGER
+
+
+Since mα is finitely generated, it is a quotient of a finite free R-module N . Consider
+the induced diagram
+                                            h
+                     mα ⊗R limi Ui (A)          / limi mα ⊗R Ui (A)
+                             O                            O
+                                                        g
+
+                                            f
+                      N ⊗R limi Ui (A)          / limi N ⊗R Ui (A)
+
+Since N is finite free, f is an isomorphism; since mα is projective, the map N → mα
+has a section and hence so does g. Therefore g ◦ f is surjective and hence so is h,
+which implies (1.9.1).
+   (c): Let A be an E-flat R-algebra, let B be an E-flat ΛR,E -ring, and let γ̄ : B → A
+                                                      (E)
+be an R-algebra map. By the cofree property of AN , there is a unique ΨR,E -ring
+                    (E)
+map γ : B → AN          lifting γ̄. We now only need to show that the image of γ is
+                 fl
+contained in WR,E     (A). By induction, it is enough to show that if im(γ) ⊆ Ui (A),
+then im(γ) ⊆ Ui+1 (A).
+   Let b be an element of B. Then for each α ∈ E, we have
+      ψα γ(b) − γ(b)qα = γ ψα (b) − bqα ∈ γ(mα B) ⊆ mα im(γ) ⊆ mα Ui (A).
+                                          
+
+Therefore, by definition of Ui+1 (A), the element γ(b) lies in Ui+1 (A).             
+
+1.10. Exercises. Let R = Z. If E consists of the single ideal pZ, then W fl (Z)
+agrees with the subring of the ghost ring ZN consisting of vectors a = ha0 , a1 , . . .i
+that satisfy
+                               an ≡ an+1 mod pn+1
+for all n ⩾ 0. In particular, the elements are p-adic Cauchy sequences and the rule
+a 7→ limn→∞ an defines a surjective ring map W fl (Z) → Zp .
+   We can go a step further with W fl (Zp ). Let I denote the ideal pZp × p2 Zp × · · ·
+                 fl
+in ZNp . Then W (Zp ) is isomorphic to the ring Zp ⊕ I with multiplication defined
+by the formula (x, y)(x′ , y ′ ) = (xx′ , xy ′ + yx′ + yy ′ ).
+   Now suppose that E consists of all the maximal ideals of Z, and identify N(E)
+with the set of positive integers, by unique factorization. Then W fl (Z) consists of
+the ghost vectors ha1 , a2 , . . .i that satisfy
+                               aj ≡ apj mod p1+ordp (j)
+for all j ⩾ 1 and all primes p.
+
+1.11. Representing W fl . Let us construct a flat R-algebra ΛR,E representing the
+          fl
+functor WR,E  . First we will construct objects ΛiR,E representing the functors Ui .
+For i = 0, it is clear: U0 is represented by Λ0R,E = ΨR,E . Now assume ΛiR,E has
+been constructed and that it is a sub-R-algebra of R[1/E] ⊗R ΨR,E satisfying
+                        R[1/E] ⊗R ΛiR,E = R[1/E] ⊗R ΨR,E .
+Then let Λi+1                    i
+            R,E denote the sub-ΛR,E -algebra of R[1/E] ⊗R ΨR,E generated by all
+                          qα                                      i
+elements π ⊗ (ψα (f ) − f ), where π ∗ ∈ m−1
+            ∗
+                                             α ⊆ R[1/E], f ∈ ΛR,E , and α ∈ E.
+Then ΛiR,E is flat over R. Indeed, it is E-flat because it is a sub-R-algebra of
+R[1/E] ⊗R ΨR,E , and it is flat away from E because R[1/E] ⊗R ΛR,E agrees with
+the free R[1/E]-algebra R[1/E] ⊗R ΨR,E . It also clearly represents Ui .
+   Finally, we set
+                                [
+(1.11.1)               ΛR,E =      ΛiR,E ⊆ R[1/E] ⊗R ΨR,E .
+                                  i⩾0
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                             11
+
+                                                                                    fl
+It is flat over R because it is a colimit of flat R-algebras, and it represents WR,E
+because each ΛiR,E represents Ui . As an example, if E = E ′ ∐ E ′′ , where E ′′ con-
+sists of only copies of the unit ideal, then ΛR,E agrees with the monoid algebra
+            ′′
+ΛR,E ′ [N(E ) ]. We will often use the shortened forms ΛE or, when E = {m}, Λm .
+   Since ΛR,E represents W fl , which takes values in R-algebras, ΛR,E carries the
+structure of a co-R-algebra object in RingflR . Because RingflR is closed under coprod-
+ucts (the tensor product of flat modules being flat), a co-ring structure consists in
+morphisms
+
+(1.11.2)          ∆+ , ∆× : ΛR,E −→ ΛR,E ⊗R ΛR,E ,               ε+ , ε× : ΛR,E −→ R
+corresponding to addition, multiplication, the additive identity, and the multiplica-
+                               fl                                 fl
+tive identity on the functor WR,E  . The R-linear structure on WR,E   corresponds to
+a morphism
+                                                Y
+(1.11.3)                      β : ΛR,E → RR =       R.
+                                                      R
+
+All these structure maps satisfy the opposite of the R-algebra axioms. (In the
+language of schemes, one would say this makes Spec ΛR,E an R-algebra scheme
+over R; or in the language of [5], it makes ΛR,E an R-R-biring.)
+
+1.12. Definition of W in general. We can view ΛR,E as an object of RingR , instead
+of RingflR . Then define WR,E as a set-valued functor on RingR by
+
+(1.12.1)                  WR,E (A) = HomRingR (ΛR,E , A).
+
+The structure maps (1.11.2)–(1.11.3) give WR,E the structure of a functor with
+values in R-algebras:
+
+(1.12.2)                      WR,E : RingR −→ RingR .
+
+(Note that here we really use the fact the the coproduct in RingflR agrees with that
+in RingR . In 1.11, it was used only to justify the symbol ⊗ for the coproduct.)
+   For any A ∈ RingR , let us call the WR,E (A) the R-algebra of E-typical Witt
+vectors with entries in A. Its restriction to RingflR agrees with WR,E
+                                                                   fl
+                                                                       because RingflR
+is a full subcategory of RingR .
+   We will often write WE or W for WR,E when there is no risk of confusion. When
+E consists of a single ideal m, we will also write WR,m or Wm .
+
+1.13. Remark: Kan extensions. In categorical terms, WR,E is the left Kan exten-
+             fl
+sion of i ◦ WR,E along the inclusion functor i:
+
+                                           i
+(1.13.1)                         RingflR        / RingR
+                                    O                O✤
+                                fl
+                               WR,E
+                                                        ✤ WR,E
+                                                         ✤
+                                           i
+                                 RingflR       / Ring .
+                                                           R
+
+(See Borceux [2], 3.7, for example, for the general theory of Kan extensions.) I
+mention this only to emphasize that the passage from the E-flat case to the general
+case is by a purely category-theoretic process, and hence the heart of the theory lies
+in the E-flat case. This is in contrast to the common point of view that the purpose
+of Witt vector functors is to lift rings from positive characteristic to characteristic
+zero.
+12                                      J. BORGER
+
+
+1.14. Ghost map w. The ghost map
+                                                    Y
+                                w : WR,E (A) −→            A
+                                                    N(E)
+
+is the natural map induced by theQ universal property of Kan extensions applied to
+                      fl
+the inclusion maps WR,E  (A) → N(E) A, which are functorial in A. Equivalently,
+it is the morphism of functors induced by the map
+                                 ΨR,E = Λ0R,E −→ ΛR,E
+of representing objects. When A is E-flat, it is harmless to identify w with the
+inclusion map.
+
+1.15. Example: p-typical and big Witt vectors. Suppose R is Z. If E consists of the
+single ideal pZ, then W agrees with the classical p-typical Witt vector functor [26].
+Indeed, for p-torsion free rings A, this follows from Cartier’s lemma, which says that
+the traditionally defined p-typical Witt vector functor restricted to the category of
+p-torsion-free rings has the same universal property as W fl . (See Bourbaki [6],
+IX.44, exercise 14 or Lazard [20], VII§4.) Therefore, they are isomorphic functors.
+For A general, one just observes that that the traditional functor is represented by
+the ring Z[x0 , x1 , . . .], which is p-torsion free, and so it is the left Kan extension of
+its restriction to the category of p-torsion-free rings. Therefore it agrees with W as
+defined here.
+   Another proof of this is given in 3.5. It makes a direct connection with the
+traditional Witt components, rather than going through the universal property.
+   Suppose instead that E is the family of all maximal ideals of Z. Then W agrees
+with the classical big Witt vector functor. As above, this can be shown by reducing
+to the torsion-free case and then citing the analogue of Cartier’s lemma. (Which
+version of Cartier’s lemma depends on how we define the classical big Witt vector
+functor. If we use generalized Witt polynomials, then we need Bourbaki [6], IX.55,
+exercise 41b. If it is defined as the cofree λ-ring functor, as in Grothendieck [11],
+then we need Wilkerson’s theorem [25], proposition 1.2.)
+   Finally, we will see below (3.5) that when R is a complete discrete valuation
+ring and E consists of the maximal ideal of R, then W agrees with Hazewinkel’s
+ramified Witt vector functor [16], (18.6.13).
+
+1.16. Comonad structure on W . The functor W fl : RingflR → RingflR is naturally
+a comonad, being the composition of a functor (the forgetful one) with its right
+adjoint, and this comonad structure prolongs naturally to WR,E . The reason for
+this can be expressed in two ways—in terms of Kan extensions or in terms of
+representing objects.
+   The first way is to invoke the general fact that WR,E , as the Kan extension of
+                 fl
+the comonad WR,E    , has a natural comonad structure. This uses the commutativity
+of (1.13.1) and the fullness and faithfulness of i. The other way is to translate the
+structure on W fl of being a comonad into a structure on its representing object
+ΛR,E . One then observes that this is exactly the structure for the underlying R-
+algebra i(ΛR,E ) to represent a comonad on RingR . (This is called an R-plethory
+structure in [5].)
+
+1.17. Λ-rings. The category RingΛR,E of ΛR,E -rings is by definition the category
+of coalgebras for the comonad WR,E , that is, the category of R-algebras equipped
+                                                                 fl
+with a coaction of the comonad WR,E . Since WR,E extends WR,E       , a ΛR,E -ring
+structure on an E-flat R-algebra A is the same as a commuting family of Frobenius
+lifts ψα .
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                            13
+
+
+   When R = Z and E is the family of all maximal ideals of Z, then a Λ-ring
+is the same as a λ-ring in the sense of Grothendieck’s Riemann–Roch theory [11]
+(and originally called a “special λ-ring”). In the E-flat case, this is Wilkerson’s
+theorem ([25], proposition 1.2). The proof is an exercise in symmetric functions,
+but the deeper meaning eludes me. The general case follows from the E-flat case
+by category theory, as in 1.15.
+1.18. Free Λ-rings and Λ ⊙ −. Since WR,E is a representable comonad on RingR ,
+the forgetful functor from the category of ΛR,E -rings to the category of R-algebras
+has a left adjoint denoted ΛR,E ⊙ −. This follows either from the adjoint functor
+theorem in category theory (3.3.3 of Borceux [2]), or by simply writing down the
+adjoint in terms of generators and relations, as in 1.3 of Borger–Wieland [5]. The
+second approach involves the R-plethory structure on ΛR,E , and is similar to the de-
+scription of tensor products, free differential rings, and so on in terms of generators
+and relations.
+   The functor ΛR,E ⊙ −, viewed as an endofunctor on the category of R-algebras,
+is naturally a monad, simply because it is the left adjoint of the comonad WR,E .
+Further, the category of algebras for this monad is naturally equivalent to RingΛR,E .
+This can be proved using Beck’s theorem (4.4.4 of Borceux [3]), and is the same
+as the fact that the category of K-modules, for any ring K, can be defined as the
+category of algebras for the monad K ⊗− or coalgebras for the comonad Hom(K, −).
+   We can interpret elements of ΛR,E as natural operations on ΛR,E -rings. Indeed,
+a ΛR,E -ring structure on a ring A is by definition a (type of) map A → WR,E (A).
+It therefore induces a set map
+           ΛR,E × A −→ ΛR,E × WR,E (A) = ΛR,E × HomR (ΛR,E , A) −→ A,
+which is functorial in A. In particular, if we take A = ΛR,E , we get a set map
+                                               ◦
+(1.18.1)                        ΛR,E × ΛR,E −→ ΛR,E .
+It agrees with the restriction of the composition map ◦ on ΨR[1/E],E = R[1/E] ⊗R
+ΨR,E given in 1.5. In particular, it is associative with identity e.
+   In fact, all natural operations on ΛR,E -rings come from ΛR,E in this way. See
+[5] for an abstract account from this point of view.
+1.19. Remark: identity-based approaches. It is possible to set up the theory of ΛR,E -
+rings more concretely using universal identities rather than category theory. (See
+Buium, Buium–Simanca, and Joyal [7][9][18][19], for example.) In this subsection, I
+will say something about that point of view and its relation to the category-theoretic
+one, but it will not be used elsewhere in this paper.
+   First suppose that for each α ∈ E, the ideal mα is generated by a single element
+πα . For any ΛR,E -ring A and any element a ∈ A, there exists an element δα (a) ∈ A
+such that
+                               ψα (a) = aqα + πα δα (a).
+If we now assume that A is E-flat, then the element δα (a) is uniquely determined
+by this equation, and therefore δα defines an operator on A:
+                                          ψα (a) − aqα
+                                δα (a) =               .
+                                               πα
+Observe that if the integer qα maps to 0 in R, for example when R is a ring of
+integers in a function field, then δα is additive; but otherwise it essentially never is.
+(Also note that δα is the same as the operator θπα ,1 defined in 3.1 below.)
+   Conversely, if A is an E-flat R-algebra, equipped with with operators δα , then
+there is at most one ΛR,E -ring structure on A whose δα -operators are the given ones.
+To say when such a ΛR,E -ring structure exists, we only need to express in terms
+14                                      J. BORGER
+
+
+of the operators δα the condition that the operators ψα be commuting R-algebra
+homomorphisms. After dividing by any accumulated factors of πα , this gives the
+identities of Buium–Simanca [9], definition 2.1:
+                                r − rqα
+(1.19.1)               δα (r) =         , for r ∈ R,
+                                   πα
+(1.19.2)           δα (a + b) = δα (a) + δα (b) + Cα (a, b),
+(1.19.3)             δα (ab) = δα (a)bqα + aqα δα (b) + πα δα (a)δα (b),
+                                                                       
+(1.19.4)         δα ◦ δα′ (a) = δα′ ◦ δα (a) + Cα,α′ a, δα (a), δα′ (a) ,
+where
+                                                     qX
+                                                      α −1
+                           xqα + y qα − (x + y)qα
+                                                              
+                                                            1 qα qα −i i
+(1.19.5)       Cα (x, y) =                        =−             x    y,
+                                     πα               i=1
+                                                           πα i
+
+                             Cα′ (xqα , πα y) Cα (xqα′ , πα′ z)
+(1.19.6) Cα,α′ (x, y, z) =                   −
+                                   πα              πα′
+                                                           δα (πα′ ) qα δα′ (πα ) qα′
+                                                        −           z +          y .
+                                                              πα′         πα
+One can easily check that the coefficients of these polynomials are elements of R.
+    For any R-algebra A, let us define a δR,E -structure on A to be a family of op-
+erators δα satisfying the axioms above. Thus, if A is an E-flat R-algebra, then a
+ΛR,E -structure—by definition a commuting family of Frobenius lifts indexed by E—
+is equivalent to a δR,E -structure. The point of all this, then, is that if we no longer
+require A to be E-flat, a δR,E -structure is generally stronger than having a com-
+muting family of Frobenius lifts, but it is still equivalent to having a ΛR,E -structure.
+This offers another point of view on the difference between a ΛR,E -structure and
+a commuting family of Frobenius lifts: A δR,E -structure is well behaved from the
+point of view of universal algebra (and hence so is a ΛR,E -structure) because it is
+given by operators δα whose effect on the ring structure is described by universal
+identities, as above; but the structure of a commuting family of Frobenius lifts does
+not have this property because of the existential quantifier hidden in the word lift.
+    The equivalence between δR,E -structures and ΛR,E -structures can be seen as
+follows. For E-flat R-algebras A, it was explained above. For general A, the equiv-
+alence can be shown by checking that the cofree δR,E -ring functor is represented
+by an E-flat R-algebra (in fact, a free one). It therefore agrees with the left Kan
+extension of its restriction to the category of E-flat algebras, and hence agrees with
+WR,E .
+    We could extend the identity-based approach to the case where the ideals mα
+are not principal, but then we would need operators
+(1.19.7)                      δα,πα∗ (x) = πα∗ (ψα (x) − xqα )
+for every element πα∗ ∈ mα −1
+                              , or at least for those in a chosen generating set of m−1
+                                                                                     α ,
+and we would need additional axioms relating them. A particularly convenient
+                     −1
+generating set of mα     is one of the form {1, πα∗ }, which always exists. Further,
+for each α ∈ E, it is enough to use the operators ψα and δα,πα∗ instead of δα,1
+and δα,πα∗ , because δα,1 can be expressed in terms of ψα , by (1.19.7). Therefore if
+we fix elements πα∗ ∈ m−1α which S are R-module generators modulo 1, the relations
+needed for the generating set α∈E {ψα , δα,πα∗ } of operators are those in (1.19.1)–
+(1.19.6) but one needs to make the following changes: for each α ∈ E, replace each
+occurrence of πα−1 with πα∗ , and add axioms that ψα is an R-algebra homomorphism,
+that ψα commutes with all ψα′ and all δα′ ,πα∗ ′ , and that (1.19.7) holds.
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                            15
+
+
+   When R is an Fp -algebra for some prime number p, the polynomials Cα (x, y)
+are zero and the axioms above simplify considerably. In particular, the operators
+δα are additive, and so it is possible to describe a ΛR,E -structure using a cocommu-
+tative twisted bialgebra, the additive bialgebra of the plethory ΛR,E . (See Borger–
+Wieland [5], sections 2 and 10.)
+
+1.20. Localization of the ring R of scalars. Let R′ be an E-flat R-algebra such
+that the structure map R → R′ is an epimorphism of rings. (For example, the map
+Spec R′ → Spec R could be an open immersion.) Then the family (mα )α∈E induces
+a family (m′α )α∈E of ideals of R′ , where m′α = mα R′ . By the assumptions on R′ ,
+each m′α is supramaximal. Let us write E ′ = E and use the notation E ′ for the
+index set of the m′α .
+   Let us construct an isomorphism:
+                                                ∼
+(1.20.1)                        R′ ⊗R ΛR,E −→ ΛR′ ,E ′ .
+   The category RingflΛR′ ,E′ (see 1.6) is a subcategory of the category of RingflΛR,E .
+Indeed, any object A′ ∈ RingflΛR′ ,E′ is an R-algebra with endomorphisms ψmα , for
+each α ∈ E. These endomorphisms are again commuting Frobenius lifts, simply
+because A′ /m′α A′ = A′ /mα A′ . Since A′ is E ′ -flat (and by the assumptions on R′ ),
+A′ is E-flat. Therefore, it can be viewed as a ΛR,E -ring.
+   Further, RingflΛR′ ,E′ agrees with the subcategory of RingflΛR,E consisting of objects
+A whose structure map R → A factors through R′ , necessarily uniquely. Now con-
+sider the underlying-set functor on this category. From the definition of RingflΛR′ ,E′ ,
+this functor is represented by the right-hand side of (1.20.1), and from the second
+description, it is represented by the left-hand side. Let (1.20.1) be the induced
+isomorphism on representing objects. It sends an element r′ ⊗ f to r′ f.
+   The isomorphism of represented functors which is induced by (1.20.1) gives nat-
+ural maps
+                                            ∼
+(1.20.2)                      WR′ ,E ′ (A′ ) −→ WR,E (A′ ),
+for R′ -algebras A′ .
+   Finally, let us show that for any R′ -algebra B ′ , the following canonical map is
+an isomorphism:
+                                           ∼
+(1.20.3)                     ΛR,E ⊙ B ′ −→ ΛR′ ,E ′ ⊙ B ′ .
+It is enough to show that for any R′ -algebra A′ , the induced map
+                 HomR′ (ΛR′ ,E ′ ⊙ B ′ , A′ ) −→ HomR′ (ΛR,E ⊙ B ′ , A′ )
+is a bijection. Since RingR′ is a full subcategory of RingR , the right-hand side agrees
+with HomR (ΛR,E ⊙ B ′ , A′ ), and so the map above is an isomorphism by (1.20.2).
+
+1.21. Teichmüller lifts. Let A be an R-algebra, let A◦ denote the commutative
+monoid of all elements of A under multiplication, and let R[A◦ ] denote the monoid
+algebra on A◦ . Then for each α ∈ E, the monoid endomorphism a 7→ aqα of A◦
+induces an R-algebra endomorphism ψα of R[A◦ ] which reduces to the qα -th power
+map modulo mα . Since R[A◦ ] is free as an R-module, it is flat. And since the
+various ψα commute with each other, they provide R[A◦ ] with a ΛR,E -structure.
+Combined with the R-algebra map R[A◦ ] → A given by the counit of the evident
+adjunction, this gives, by the right-adjoint property of WR,E , a ΛR,E -ring map
+t : R[A◦ ] → WR,E (A). We write the composite monoid map
+                                unit            t◦
+                             A◦ −→ R[A◦ ]◦ −→ WR,E (A)◦
+16                                    J. BORGER
+
+
+as simply a 7→ [a]. It is a section of the R-algebra map w0 : WR,E (A) → A and is
+easily seen to be functorial in A. The element [a] is called the Teichmüller lift of a.
+
+                         2. Grading and truncations
+2.1. Ordering on Z . For two elements n′ , n ∈ Z(E) = E Z, write n′ ⩽ n if we
+                     (E)
+                                                     L
+have n′α ⩽ nα for all α ∈ E. Also put
+                             [0, n] = {n′ ∈ N(E) | n′ ⩽ n}.
+2.2. Truncations. We have the following decomposition of ΨR,E :
+                   OO                 O
+           ΨR,E =          R[ψα◦i ] =      R[ψn ] = R[ψn |n ∈ N(E) ].
+                      α∈E i∈N             n∈N(E)
+                       (E)
+(Thus, ΨR,E is an N -indexed coproduct in the category of R-algebras, much
+like graded rings are monoid-indexed coproducts in the category of modules. One
+might say that ΨR,E is an N(E) -graded plethory. This point of view will not be
+used below.) For each n ∈ Z(E) , put
+                   O O                   O
+                              R[ψα◦i ] =    R[ψn′ ] = R ψn′ |n′ ∈ [0, n] .
+                                                                       
+         ΨR,E,n =
+                    α∈E 0⩽i⩽nα             n′ ∈[0,n]
+
+Then ΨR,E,n represents the RingR -valued functor that sends A to the product ring
+                                            (E)
+A[0,n] , which is naturally a quotient of AN .
+   Define a similar filtration on ΛR,E by
+                                                          
+(2.2.1)                 ΛR,E,n = ΛR,E ∩ R[1/E] ⊗R ΨR,E,n .
+We will often use the shortened forms ΛE,n , ΨE,n , Λm,n , Ψm,n , and so on.
+2.3. Proposition.      (a) For each n ∈ N(E) , the R-scheme Spec ΛR,E,n admits
+       a unique structure of an R-algebra object in the category of R-schemes such
+       that the map Spec ΛR,E → Spec ΛR,E,n induced by the inclusion ΛR,E,n ⊆
+       ΛR,E is a homomorphism of R-algebra schemes over R.
+   (b) For each m, n ∈ N(E) , we have
+(2.3.1)                      ΛR,E,m ◦ ΛR,E,n ⊆ ΛR,E,m+n ,
+          where ◦ denotes the composition map of (1.18.1).
+Proof. (a): Write Λ = ΛR,E , Λn = ΛR,E,n , and so on. First observe that, for any
+integer i ⩾ 0, all the maps in the diagram
+                                            ai
+                       R[1/E] ⊗R Ψn⊗R i          / R[1/E] ⊗R Ψ⊗R i
+                              O                           O
+                                                        ci
+
+                                            bi
+                             Λn⊗R i                    / Λ ⊗R i
+
+are injective. Indeed, ai clearly is; the vertical maps are because they become
+isomorphisms after base change to R[1/E] and because Λn and Λ are E-flat; and it
+follows formally that bi is injective. Then the uniqueness of the desired R-algebra
+scheme structure on Spec Λn , follows from the injectivity of b2 .
+   Now consider existence. Let
+                      ∆ : R[1/E] ⊗R Ψ −→ R[1/E] ⊗R Ψ ⊗R Ψ
+denote the ring map that induces the addition (resp. multiplication) map on the ring
+scheme Spec R[1/E] ⊗R ΨR . To show that the desired addition and multiplication
+maps on Spec Λn exist, it is enough to show
+(2.3.2)                           ∆(Λn ) ⊆ Λn ⊗R Λn .
+                    THE BASIC GEOMETRY OF WITT VECTORS, I                           17
+
+
+In fact, once we do this, we will be done: because each ci ◦ bi is injective, the ring
+axioms (associativity, distributivity, . . .) will follow from those on Spec R[1/E] ⊗R
+Ψ.
+   The map ∆ sends ψα to ψα ⊗ 1 + 1 ⊗ ψα (resp. ψα ⊗ ψα ). Therefore we have
+                    ∆(R[1/E] ⊗R Ψn ) ⊆ R[1/E] ⊗R Ψn ⊗R Ψn ,
+and hence
+                   ∆(Λn ) ⊆ Λ⊗R 2 ∩ R[1/E] ⊗R Ψn⊗R 2 = Λn⊗R 2 .
+                                                    
+
+This establishes (2.3.2) and hence completes the proof of (a).
+  (b): Combine the definition (2.2.1) with the inclusion
+             (R[1/E] ⊗R Ψm ) ◦ (R[1/E] ⊗R Ψn ) ⊆ (R[1/E] ⊗R Ψm+n )
+and the inclusion Λm ◦ Λn ⊆ Λ.                                                      
+2.4. Witt vectors of finite length. Let WR,E,n denote the functor RingR → RingR
+represented by ΛR,E,n :
+(2.4.1)                   WR,E,n (A) = HomR (ΛR,E,n , A).
+We call WR,E,n the E-typical Witt vector functor of length n. As in 1.12, we will
+often write WE,n or Wn ; when E = {m}, we will also write WR,m,n or Wm,n . We
+then have
+(2.4.2)                     WR,E (A) = limn WR,E,n (A).
+(Note that it is often better to view WR,E (A) as a pro-ring than to actually take
+the limit. If we preferred topological rings to pro-rings, we could take the limit and
+endow it with the natural pro-discrete topology.) It follows from 4.4 and (5.4.2)
+below that the maps in this projective system are surjective.
+   The (truncated) ghost map
+(2.4.3)                     w⩽n : WR,E,n (A) −→ A[0,n] ,
+is the one induced by the inclusion ΨR,E,n ⊆ ΛR,E,n of representing objects. For
+any i ∈ [0, n], the composition w⩽n with the projection onto the i-th factor gives
+another natural map
+(2.4.4)                        wi : WR,E,n (A) −→ A.
+Also the containment (2.3.1) induces an R-algebra map
+                                                       
+(2.4.5)               WR,E,m+n (A) −→ WR,E,n WR,E,m (A)
+which sends an element a : ΛR,E,m+n → A of WR,E,m+n (A) to the map γ 7→ [β 7→
+a(β ◦ γ)], for variables γ ∈ ΛR,E,n and β ∈ ΛR,E,m . We will call (2.4.5) co-plethysm.
+It agrees with the map of functors induced by the map
+(2.4.6)          ΛR,E,m ⊙ ΛR,E,n −→ ΛR,E,m+n ,       β ⊙ γ 7→ β ◦ γ
+on representing objects, where β ⊙ γ is defined as in [5].
+  Finally, observe that for any element f ∈ ΛR,E,n the natural ΛR,E -ring operation
+                              f : WR,E (A) → WR,E (A)
+(a map of sets) descends to a map f : WR,E,m+n (A) → WR,E,m (A). Indeed, it is
+the composition
+                    (2.4.5)              
+(2.4.7) WR,E,m+n (A) −→ WR,E,n WR,E,m (A) = Hom(ΛR,E,n , WR,E,m (A))
+                                                                  −(f )
+                                                                  −→ WR,E,m (A),
+18                                      J. BORGER
+
+
+where −(f ) denotes the map that evaluates at f . Particularly important is the
+example f = ψn , where the induced map
+(2.4.8)                     ψn : WR,E,m+n (A) → WR,E,m (A)
+is a ring homomorphism.
+
+2.5. Remark: traditional versus normalized indexing. Consider the p-typical Witt
+vectors, where R is Z and E consists of the single ideal pZ. Let Wn′ denote Witt’s
+functor, as defined in [26]. So, for example, Wn′ (Fp ) = Z/pn Z. In 3.5, we will
+construct an isomorphism Wn+1  ′   ∼
+                                   = Wn . Thus, up to a normalization of indices, our
+truncated Witt functors agree with Witt’s.
+   The reason for this normalization is to make the indexing behave well under
+plethysm. By (2.3.1) and (2.4.5), the index set has the structure of a commutative
+monoid, and so it is preferable to use an index set with a familiar monoid structure.
+If we were to insist on agreement with Witt’s indexing, we would have to replace
+the sum m + n in (2.3.1) and (2.4.5) with m + n − (1, 1, . . .), where this would be
+computed in the product group ZE . The reason why this has not come up in earlier
+work is that the plethysm structure has traditionally been used only through the
+Frobenius maps ψα . In other words, only the shift operator on the indexing set
+was used. Thus the distinction between N and Z⩾1 was not so important because
+the shift operator n 7→ n + 1 is written the same way on both. But making the
+identification of N and Z⩾1 a monoid isomorphism would involve the unwelcome
+addition law m + n − 1 on Z⩾1 .
+   It is different with the big Witt vectors, where R is Z and E consists of all
+maximal ideals (1.15). They are also traditionally indexed by the positive integers
+([16], (17.4.4)), but here the positive integers are used multiplicatively rather than
+additively. In particular, the monoid structure that is required is the obvious one;
+so the traditional indexing is in agreement with the normalized one: the big Witt
+ring Wpn (A) (using traditional multiplicative indexing) is naturally isomorphic to
+                                              ′
+our p-typical ring Wn (A) and to Witt’s Wn+1     (A).
+
+2.6. Localization of the ring R of scalars. Let R′ be an E-flat R-algebra such that
+the structure map R → R′ is an epimorphism of rings, as in 1.20.
+   Then for each n ∈ N(E) , we have
+             R′ ⊗R ΛR,E,n = R′ ⊗R ΛR,E ∩ (R[1/E] ⊗R ΨR,E,n )
+                                                                  
+                            ∼
+                            → R′ ⊗R ΛR,E ∩ (R′ [1/E] ⊗R′ ΨR′ ,E ′ ,n ).
+                                            
+
+(We only need to check that the displayed map is an isomorphism along E, in which
+case it is is true because R′ is E-flat over R.) By (1.20.1), this gives an isomorphism
+of R′ -algebras
+                                                  ∼
+(2.6.1)                        R′ ⊗R ΛR,E,n −→ ΛR′ ,E ′ ,n .
+The induced isomorphism of represented functors gives natural maps
+                                              ∼
+(2.6.2)                      WR′ ,E ′ ,n (A′ ) −→ WR,E,n (A′ ),
+for R′ -algebras A′ . If A is an R-algebra, the inverse of this map induces a map
+(2.6.3)                R′ ⊗R WR,E,n (A) −→ WR′ ,E ′ ,n (R′ ⊗R A)
+We will see in 6.1 that this is an isomorphism.
+  As with (1.20.3), the map (2.6.2) induces an isomorphism
+                                            ∼
+(2.6.4)                      ΛR,E,n ⊙ B ′ −→ ΛR′ ,E ′ ,n ⊙ B ′ ,
+for any R′ -algebra B ′ ,
+                       THE BASIC GEOMETRY OF WITT VECTORS, I                                        19
+
+
+2.7. Proposition. Let A be an E-flat R-algebra. Then the ghost map
+                                  w⩽n : WR,E,n (A) −→ A[0,n]
+is injective. If A is an R[1/E]-algebra, it is an isomorphism.
+   Recall that the analogous facts for infinite-length Witt vectors are also true,
+either by construction (1.8) or by the universal property (1.9).
+Proof. If every ideal in E is the unit ideal, then ΛR,E = ΨR,E , and hence we have
+ΛR,E,n = ΨR,E,n . The statement about R[1/E]-algebras then follows from (2.6.1).
+The statement about E-flat R-algebras follows by considering the injection A →
+R[1/E] ⊗R A and applying the previous case to R[1/E] ⊗R A.                      
+
+                             3. Principal single-prime case
+   For this section, we will restrict to the case where E consists of one ideal m
+generated by an element π. Our purpose is to extend the classical components of
+Witt vectors from the p-typical context (where R is Z and E consists of the single
+ideal pZ) to this slightly more general one. The reason for this is that the Witt
+components are well-suited to calculation. In the following sections, we will see how
+to use them, together with 4.1, 5.4, and 6.1, to draw conclusions when E is general.
+   In fact, the usual arguments and definitions in the classical theory of Witt vectors
+carry over as long as one modifies the usual Witt polynomials by replacing every p
+in an exponent with qm , and every p in a coefficient with π. Some things, such as
+the Verschiebung operator, depend on the choice of π, and others do not, such as
+the Verschiebung filtration.
+   Let n denote an element of N. Let us abbreviate Λm = ΛR,E , Λm,n = ΛR,E,n ,
+Wm = WR,E , q = qm , ψ = ψm , and so on.
+3.1. θ operators. Define elements θπ,0 , θπ,1 , . . . of
+                               R[1/π] ⊗R Λm = R[1/π] ⊗R Ψm
+recursively by the generalized Witt polynomials
+                                        n             n−1
+                                     q       q
+(3.1.1)                      ψ ◦n = θπ,0 + πθπ,1 + · · · + π n θπ,n .
+(Note that the exponent on the left side means iterated composition, while the
+exponents on the right mean usual exponentiation, iterated multiplication.) As
+in 1.5, we can view the elements θπ,i as natural operators on ΨR[1/π],m -rings. We
+will often write θi = θπ,i when π is clear.
+3.2. Lemma. We have
+                               q
+(3.2.1)            ψ ◦ θπ,n = θπ,n + πθπ,n+1 + πP (θπ,0 , . . . , θπ,n−1 ),
+for some polynomial P (θπ,0 , . . . , θπ,n−1 ) with coefficients in R.
+Proof. It is clear for n = 0. For n ⩾ 1, we will use induction. Recall the general
+implication
+                                              j    j
+                      x ≡ y mod m =⇒ xq ≡ y q mod mj+1 ,
+for j ⩾ 1, which itself is easily proved by induction. Together with the formula
+(3.2.1) for ψ ◦ θπ,i with i < n, this implies
+                       n
+                       X                      n−i
+          ψ ◦ ψ ◦n =         π i (ψ ◦ θi )q
+                       i=0
+                                       n−1
+                                                             n−i
+                                               π i (θiq )q
+                                       X
+                   ≡ π n ψ ◦ θn +                                  mod mn+1 R[θ0 , . . . , θn−1 ]
+                                       i=0
+20                                           J. BORGER
+
+
+When this is combined with the defining formula (3.1.1) for ψ ◦(n+1) , we have
+                π n ψ ◦ θn ≡ π n θnq + π n+1 θn+1 mod mn+1 R[θ0 , . . . , θn−1 ].
+Dividing by π n completes the proof.                                                       
+
+3.3. Proposition. The elements θπ,0 , θπ,1 , . . . of R[1/π] ⊗R Λm lie in Λm , and they
+generate Λm freely as an R-algebra. Further, the elements θπ,0 , . . . , θπ,n lie in Λm,n ,
+and they generate Λm,n freely as an R-algebra.
+     This is essentially Witt’s theorem 1 [26].
+
+Proof. By induction, the elements θ0 , . . . , θn generate the same sub-R[1/π]-algebra
+of R[1/π] ⊗R Λm as ψ ◦0 , . . . , ψ ◦n , and are hence algebraically independent over
+R[1/π]. Since R ⊆ R[1/π], they are also algebraically independent over R.
+   LetSBn be the sub-R-algebra of R[1/π] ⊗R Λm generated by θ0 , . . . , θn , and let
+B = n Bn . To show Λm ⊇ B, we may assume by induction that Λm ⊇ Bn and
+then show Λm ⊇ Bn+1 . By 3.2 and because Λm is a Λm -ring, we have
+                     πθn+1 ∈ ψ ◦ θn − θnq + mΛm,n ⊆ mΛm .
+                                               
+
+Dividing by π, we have θn+1 ∈ Λm , and hence Λm ⊇ Bn [θn+1 ] = Bn+1 .
+  On the other hand, by 3.2 again, we have
+                                   ψ ◦ θn ≡ θnq mod mBn+1
+for all n. Therefore B, since it is generated by the θn , is a sub-Λm -ring of R[1/π]⊗R
+Λm . It follows that B ⊇ Λm ◦e = Λm and hence that B = Λm .
+   Last, the equality Λm,n = Bn follows immediately from the above:
+                                                                          
+              Λm,n = Λm ∩ R[1/π] ⊗R Ψm,n = B ∩ R[1/π] ⊗R Ψm,n
+                     = R[θ0 , . . .] ∩ R[1/π][θ0 , . . . , θn ]
+                     = R[θ0 , . . . , θn ] = Bn .
+                                                                                           
+
+3.4. Example: Presentations of Λm,n ⊙ A. Using 3.3, we can turn a presentation
+of an R-algebra A into a presentation of Λm,n ⊙ A. We have
+                           Λm,n ⊙ R[x] ∼
+                                       = Λm,n = R[θ0 , . . . , θn ],
+where θk is short for θπ,k , which corresponds to the element θπ,k (x) = θπ,k ⊙ x.
+   Because the functor Λm,n ⊙ − preserves coproducts and coequalizers, we have
+                                                          
+(3.4.1)      Λm,n ⊙ R[x1 , . . . , xr ]/(f1 , . . . , fs ) = R[θi (xj )]/(θi (fk )),
+where 0 ⩽ i ⩽ n, 1 ⩽ j ⩽ r, and 1 ⩽ k ⩽ s. Here each expression θi (xj ) is a single
+free variable, and θi (fk ) is understood to be the polynomial in the variables θi (xj )
+that results from expanding θi (fk ) using the sum and product laws for θi . Because
+Λm,n ⊙ − preserves filtered colimits, we can give a similar presentation of Λm,n ⊙ A
+for any R-algebra A. Similarly, we can take the colimit over n to get a presentation
+for Λm ⊙ A.
+     In the E-typical case, where E is finite, one can write down a presentation of
+ΛR,E ⊙ A by iterating (3.4.1), according to 5.3 below. We can pass from the case
+where E is finite to the case where it is arbitrary by taking colimits, as in 5.1.
+     The method above is not particular to the θ operators—it works for any subset
+of Λm,n that generates it freely as an R-algebra. For example, we can use the δ
+operators of 1.19. Let δ i ∈ Λm denote the i-th iterate of δπ . Then the elements
+δ 0 , . . . , δ n lie in Λm,n and freely generate it as an R-algebra. (As in 3.3, this follows
+                        THE BASIC GEOMETRY OF WITT VECTORS, I                                   21
+
+
+by induction, but in this case, there are no subtle congruences to check.) Therefore
+we have
+             Λm,n ⊙ R[x1 , . . . , xr ]/(f1 , . . . , fs ) = R[δ i (xj )]/(δ i (fk )),
+                                                          
+(3.4.2)
+where 0 ⩽ i ⩽ n, 1 ⩽ j ⩽ r, and 1 ⩽ k ⩽ s. We interpret the expressions δ i (xj )
+and δ i (fk ) as above. The general E-typical case can be handled as above. (See
+Buium–Simanca [9], proof of proposition 2.12.)
+3.5. Witt components. It follows from 3.3 that, given π, we have a bijection
+                                              ∼
+(3.5.1)                           Wm (A) −→ A × A × · · · ,
+which sends a map f : Λm → A to the sequence (f (θπ,0 ), f (θπ,1 ), . . .). To make
+the dependence on π explicit, we will often write (x0 , x1 , . . .)π for the image of
+(x0 , x1 , . . .) under the inverse of this map. If R = Z and π = p, then this identifies
+Wm (A) with the ring of p-typical Witt vectors as defined traditionally. Similarly,
+when R is a complete discrete valuation ring, we get an identification of Wm (A) with
+                                                    R
+Hazewinkel’s ring of ramified Witt vectors Wq,∞        (A). (See [16], (18.6.13), (25.3.17),
+and (25.3.26)(i).) We call the xi the Witt components (relative to π) of the element
+(x0 , . . .)π ∈ W (A).
+   Similarly, using the free generating set θπ,0 , . . . , θπ,n of Λm,n , we have a bijection
+                                                    ∼
+(3.5.2)                               Wm,n (A) −→ A[0,n] .
+As above, we will write (x0 , . . . , xn )π for the image of (x0 , . . . , xn ) under the inverse
+of this map. This identifies Wm,n (A) with the traditionally defined ring of p-typical
+Witt vectors of length n + 1. (For remarks on the +1 shift, see 2.5.)
+   Note that the Witt components do not depend on the choice of π in a simple,
+multilinear way. For example, if u is an invertible element of R and we have
+                               (x0 , x1 , . . .)π = (y0 , y1 , . . .)uπ ,
+then we have
+            x0 = y0 ,       x1 = uy1 ,         x2 = u2 y2 + π −1 (u − uq )y1q ,   ....
+                                                              0    1
+    As in 3.4, we could use the free generating set δ , δ , . . . of Λm instead of θ0 , θ1 , . . ..
+This would give a different bijection between Wm (A) and the set AN , and hence an
+R-algebra structure on the set AN which is isomorphic to Witt’s but not equal to
+it. The truncated versions agree up to A × A, but differ after that. This is simply
+because δ 0 = θ0 and δ 1 = θ1 , but δ 2 6= θ2 . (See Joyal [19], p. 179.)
+3.6. The ghost principle. It follows from the descriptions (3.5.1) and (3.5.2) that
+Wm and Wm,n preserve surjectivity. On the other hand, every R-algebra is a quo-
+tient of an m-flat R-algebra (even a free one). Therefore to prove any functorial
+identity involving rings of Witt vectors when m is principal, it is enough to restrict to
+the m-flat case. Further, any m-flat R-algebra A is contained in an R[1/m]-algebra,
+such as R[1/m] ⊗R A. Since Wm and Wm,n , being representable functors, preserve
+injectivity, it is even enough to check functorial identities on R[1/m]-algebras A, in
+which case rings of Witt vectors agree with the much more tractable rings of ghost
+components. An example with details is given in 3.7.
+3.7. Verschiebung. For any R-algebra A define an operator Vπ , called the Ver-
+schiebung (relative to π), on Wm (A) by
+                                             
+(3.7.1)                 Vπ (y0 , y1 , . . .)π = (0, y0 , y1 , . . .)π .
+This is clearly functorial in A. Define another, identically denoted operator on the
+ghost ring AN by the formula
+                                             
+(3.7.2)                  Vπ hz0 , z1 , . . .i = h0, πz0 , πz1 , . . .i.
+22                                           J. BORGER
+
+
+These operators are compatible in that we have w(Vπ (y)) = Vπ (w(y)) for all y ∈
+Wm (A), and the operator Vπ on the ghost ring is clearly R-linear. It follows by the
+ghost principle that the operator Vπ on Wm (A) is R-linear. Here is the argument
+in some detail.
+    We need to check the identities rVπ (y) = Vπ (ry) and Vπ (x + y) = Vπ (x) + Vπ (y),
+for r ∈ R, x, y ∈ Wm (A). Write x = (x0 , x1 , . . .)π and y = (y0 , y1 , . . .)π . If A is a
+E-flat, the ghost map w : Wm (A) → AN is injective. Therefore Vπ is R-linear on
+Wm (A), by the R-linearity of Vπ on the ghost ring.
+    The general case then follows from E-flat case. Fix an E-flat R-algebra Ã with
+a surjective R-algebra map Ã → A. For each i, let ỹi be a pre-image of yi , and
+set ỹ = (ỹ0 , . . .)π ∈ Wm (A). The induced map f : Wm (Ã) → Wm (A) then satisfies
+f (ỹ) = y. Therefore we have
+               Vπ (ry) = Vπ (rf (ỹ)) = Vπ (f (rỹ)) = f (Vπ (rỹ))
+                       = f (rVπ (ỹ)) = rf (Vπ (ỹ)) = rVπ (f (ỹ)) = rVπ (y).
+The additivity axiom follows similarly.
+
+3.8. Example. WR,m,n (R) has a presentation
+                      R[x1 , . . . , xn ]/(xi xj − π i xj | 1 ⩽ i ⩽ j ⩽ n),
+where the element xi corresponds to Vπi (1).
+
+3.9. Teichmüller lifts. Under the composition
+                              a7→[a]                   w
+                          A             / W (A)               / A× A × ···
+                                             2
+(see 1.21), the image of a is ha, aq , aq , . . .i. It follows from the ghost principle that
+                                  [a] = (a, 0, 0, . . .)π ∈ W (A).
+Multiplication by Teichmüller lifts also has a simple description in terms of Witt
+components:
+                                                                 i
+(3.9.1)                    [a](. . . , bi , . . .)π = (. . . , aq bi , . . .)π .
+Again, this follows from the ghost principle.
+
+                           4. General single-prime case
+   Assume E consists of a single ideal m, possibly not principal. Let n be an element
+of N. Let us write WR,m,n = WR,E,n and so on.
+   Let Km denote Rm [1/m]. If m is the unit ideal, we understand Rm , and hence
+Km , to be the zero ring. Otherwise, Rm is a discrete valuation ring and Km is its
+fraction field. In particular, m becomes principal in R[1/m], Rm , and Km . The
+following proposition then allows us to describe WR,m,n (A) in terms of the case
+where m is principal, and hence in terms of Witt components.
+4.1. Proposition. For R′ = R[1/m], Rm , Km , write WR′ ,m,n = WR′ ,mR′ ,n . Then
+for any R-algebra A, the ring WR,m,n (A) is the equalizer of the two maps
+                                                         /
+   WR[1/m],m,n R[1/m] ⊗R A × WRm ,m,n Rm ⊗R A                / WKm ,m,n (Km ⊗R A)
+induced by projection onto the two factors and the bifunctoriality of W−,m,n (−).
+Proof. The diagram
+                                                                 pr1
+                                                                        /
+                              R         / R[1/m] × Rm                  / Km
+                                                                 pr2
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                             23
+
+
+is an equalizer diagram. Since Km is m-flat, so is any sub-R-module of Km . It
+follows that for any R-algebra A, the induced diagram
+                                        
+                                                      /
+                   A      / R[1/m] × Rm ⊗R A         / Km ⊗R A
+
+is an equalizer diagram. Since WR,m,n is representable, it preserves equalizers, and
+so the induced diagram (writing Wn = WR,m,n )
+                                                             /
+      Wn (A)       / Wn R[1/m] ⊗R A × Wn Rm ⊗R A                 / Wn (Km ⊗R A)
+is also an equalizer diagram. Then (2.6.2) completes the proof.                        
+4.2. Verschiebung in general. We can define Verschiebung maps
+(4.2.1)                    V j : mj ⊗R WR,m (A) −→ WR,m (A).
+To do this, it is enough, by 4.1, to restrict to the case where m is principal, as long
+as our construction is functorial in A and R. So, choose a generator π ∈ m and
+define
+(4.2.2)                              V j (π j ⊗ y) = Vπj (y),
+for all y ∈ WR,m (A). On ghost components it satisfies
+                    V j (x ⊗ hz0 , z1 , . . .i) = h0, . . . , 0, xz0 , xz1 , . . .i,
+where the number of leading zeros is j. In particular, it is independent of the choice
+of π, by the ghost principle.
+   If we write WR,m (A)(j) for WR,m (A) viewed as a WR,m (A)-algebra by way of the
+map ψj : WR,m (A) → WR,m (A), then the map
+(4.2.3)                  V j : mj ⊗R WR,m (A)(j) −→ WR,m (A),
+is WR,m (A)-linear, as is easily checked using the ghost principle. Expressed as a
+formula, it says
+(4.2.4)                         V j (x ⊗ yψj (z)) = V j (x ⊗ y)z.
+In particular, the image V j WR,m (A) of V j is an ideal of WR,m (A).
+   Let us also record the identities
+                                ψj V j (x ⊗ y) = xy
+                                              
+(4.2.5)
+and
+(4.2.6)       V j (x ⊗ y)V j (x′ ⊗ y ′ ) = xV j (x′ ⊗ yy ′ ) ∈ mj V j WR,m (A).
+Again, one checks these using the ghost principle.
+  Finally, for any n ∈ N, the map V j descends to a map
+(4.2.7)              V j : mj ⊗R WR,m,n (A)(j) −→ WR,m,n+j (A),
+and the obvious analogues of the identities above hold here.
+
+4.3. Remark. We can define Verschiebung maps even if we no longer      assume there
+is only one ideal in E. For any j ∈ N(E) , let J denote the ideal α mjαα of R. Then
+                                                                 Q
+V j would be a map J ⊗R WR,E (A) → WR,E (A). The identities above, suitably
+interpreted, continue to hold. We will not need this multiple-prime version.
+4.4. Proposition. The sequence
+                                                 Vj
+(4.4.1)      0 −→ mj ⊗R WR,m,n (A)(j) −→ WR,m,n+j (A) −→ WR,m,j (A) −→ 0
+is exact.
+24                                                  J. BORGER
+
+
+Proof. Write WR′ ,n = WR′ ,mR′ ,n when R′ is an R-algebra such that the ideal mR′
+is supramaximal.
+    First consider the case where m is principal. Let π ∈ m be a generator. Us-
+ing (3.7.1), it is clear that V j is injective and that its image is the set of Witt
+vectors whose Witt components (relative π) are 0 in positions 0 to j − 1. By 3.5,
+the pre-image of 0 under the map WR,n+j (A) → WR,j (A) is the same subset, and
+the map WR,n+j (A) → WR,j (A) is surjective.
+    Now consider the general case. Augment the diagram (4.4.1) by expressing each
+term of (4.4.1) as an equalizer as in 4.1. Here we use that m is R-flat. It then
+follows from the principal case and the snake lemma that (4.4.1) is left exact.
+    It remains to prove that the map WR,n+j (A) → WR,j (A) is surjective. By
+induction, we can assume n = 1. By 4.1, for any i ∈ N we have
+      WR,i (A) = WRm ,i (Rm ⊗R A) ×WKm ,i (Km ⊗R A) WR[1/m],i (R[1/m] ⊗R A).
+Now let π denote a generator of the maximal ideal of Rm , and suppose two elements
+          y = (y0 , . . . , yj )π ∈ WRm ,j (Rm ⊗R A),
+          z = hz0 , . . . , zj i ∈ (R[1/m] ⊗R A)j+1 = WR[1/m],j (R[1/m] ⊗R A)
+have the same image in WKm ,j (Km ⊗R A). To lift the corresponding element of
+Wj (A) to Wj+1 (A), we need to find elements
+                    yj+1 ∈ Rm ⊗R A                   and zj+1 ∈ R[1/m] ⊗R A
+such that in Km ⊗R A, we have
+                                        j+1
+(4.4.2)                           y0q         + · · · + π j+1 yj+1 = zj+1 .
+So, choose an element zj+1 ∈ A whose image under the surjection
+                      A −→ A/(mA)j+1 = Rm /(mRm )j+1 ⊗R A
+                                   j+1
+agrees with the image of y0q                  + · · · + π j yj . It follows that the element
+                            j+1
+                      y0q         + · · · + π j yjq − 1 ⊗ zj+1 ∈ Rm ⊗R A
+lies in π j+1 (Rm ⊗R A). It thus equals π j+1 yj+1 for some element yj+1 ∈ Rm ⊗R A.
+And so yj+1 and zj+1 satisfy (4.4.2).                                            
+
+4.5. Corollary. For any R-algebra A, we have
+                                       ∼
+                      M
+(4.5.1)                    mi ⊗R A(i) −→ grV WR,m,n (A),
+                            i∈[0,n]
+
+where A(i) denotes A viewed as a Wn (A)-module via the ring map wi : Wn (A) → A.
+4.6. Reduced ghost components. We can define infinitely many ghost components
+for Witt vectors of finite length n if we are willing to settle for answers modulo
+mn+1 .
+   First assume m is generated by some element π. By examining the Witt polyno-
+mials (3.1.1), we can see that for any i ⩾ 0, the composition
+                                                    w
+                                            i
+                                  WR,m (A) −→ A −→ A/mn+1 A
+vanishes on V n+1 WR,m (A). It therefore factors through WR,m,n (A), giving a map
+w̄i from WR,m,n (A) to A/mn+1 A.
+    When m is not assumed to be principal, we define w̄i by localizing at m:
+                                                        w̄
+                                     i
+WR,m,n (A) −→ WRm ,mRm ,n (Rm ⊗R A) −→ (Rm ⊗R A)/mn+1 (Rm ⊗R A) = A/mn+1 A,
+                    THE BASIC GEOMETRY OF WITT VECTORS, I                            25
+
+
+where the middle map is w̄i as constructed above in the principal case. We call the
+composition
+                                           w̄
+(4.6.1)                                   i
+                              WR,m,n (A) −→ A/mn+1 A
+the i-th reduced ghost component map.
+
+                             5. Multiple-prime case
+   The purpose of this section is to give some results on reducing the family E
+(of 1.2) to simpler families. The first reduces from the case where E is arbitrary to
+the case where it is finite, and the second reduces from the case where it is finite to
+the case where it has a single element. We will often write WE = WR,E , ΛE = ΛR,E ,
+and so on, for short.
+5.1. Proposition. The canonical maps
+(5.1.1)                        colimE ′ ΛR,E ′ −→ ΛR,E ,
+(5.1.2)                     colimE ′ ΛR,E ′ ,n′ −→ ΛR,E,n ,
+are isomorphisms. Here E ′ runs over the finite subfamilies of E, and n′ is the
+restriction to E ′ of a given element n ∈ N(E) .
+Proof. Consider (5.1.1) first. Since each map ΛE ′ → ΛE is an injection, (5.1.1) is
+an injection. Therefore, since ΛE is freely generated as a ΛE -ring by the element
+e = ψ0 , it is enough to show the sub-ΨE -ring colimE ′ ΛE ′ of ΛE is a sub-ΛE -ring.
+Since it is flat, we only need to check the Frobenius lift property. So, suppose m ∈ E.
+For any element x of the colimit, there is a finite family E ′′ such that x ∈ ΛE ′′ and
+m ∈ E ′′ . But ΛE ′′ is a ΛE ′′ -ring. So we have ψm (x) ≡ xqm modulo mΛE ′′ , and
+hence modulo m(colimE ′ ΛE ′ ). Therefore the Frobenius lift property holds for the
+colimit ring.
+   Then (5.1.2) follows:
+   ΛE,n = (R[1/E] ⊗R ΨE,n ) ∩ ΛE = (colimE ′ R[1/E] ⊗R ΨE ′ ,n′ ) ∩ colimE ′ ΛE ′
+                                               
+        = colimE ′ (R[1/E] ⊗R ΨE ′ ,n′ ) ∩ ΛE ′ = colimE ′ ΛE ′ ,n′ .
+                                                                                     
+
+5.2. Corollary. For any R-algebra A, the canonical maps
+(5.2.1)                     WR,E (A) −→ lim WR,E ′ (A),
+                                          ′ E
+(5.2.2)                    WR,E,n (A) −→ lim WR,E ′ ,n′ (A)
+                                           ′E
+
+are isomorphisms, where E ′ , n, and n′ are as in 5.1.
+5.3. Proposition. Let E ′ ∐ E ′′ be a partition of E. Then the canonical maps
+(5.3.1)                        ΛR,E ′ ⊙R ΛR,E ′′ −→ ΛR,E
+(5.3.2)                   ΛR,E ′ ,n′ ⊙R ΛR,E ′′ ,n′′ −→ ΛR,E,n
+are isomorphisms, where n′ and n′′ denote the restrictions to E ′ and E ′′ of a given
+element n ∈ N(E) .
+Proof. It is enough to show each map becomes an isomorphism after base change
+to R[1/E ′ ] and R[1/E ′′ ]. So, by (1.20.1), we can assume every element in either E ′
+or E ′′ is the unit ideal.
+   In the second case, we have
+                                                ′′               ′′
+               ΛE ′ ⊙R ΛE ′′ = ΛE ′ ⊙R R[N(E ) ] = ΛE ′ [N(E ) ] = ΛE
+26                                           J. BORGER
+
+                                                                                       ′′
+The argument for (5.3.2) is the same, but we replace the generating set N(E ) with
+[0, n′′ ].
+    Now suppose every element in E ′ is the unit ideal. Then a ΛE ′ -ring is the same
+as a ΨE ′ -ring. So we have
+                                                           ′
+                              ΛE ′ ⊙R ΛE ′′ = ΛE ′′ [N(E ) ] = ΛE .
+                          ′
+For (5.3.2), replace N(E ) with [0, n′ ], as above.                                         
+
+5.4. Corollary. Let E ′ ∐ E ′′ be a partition of E. Then for any R-algebra A, the
+canonical maps
+                                                       
+(5.4.1)               WR,E (A) −→ WR,E ′′ WR,E ′ (A)
+                                                             
+(5.4.2)             WR,E,n (A) −→ WR,E ′′ ,n′′ WR,E ′ ,n′ (A)
+are isomorphisms, where n, n′ , n′′ are as in 5.3.
+5.5. Remark. By the results above, it is safe to say that expressions such as
+(5.5.1)           Λm 1 ⊙R · · · ⊙ R Λm r        and     Wmr ◦ · · · ◦ Wm1 (A)
+are independent of the ordering of the mi , assuming the mi are pairwise coprime.
+(Note that it is not generally true that P ⊙ P ′ ∼  = P ′ ⊙ P for plethories P and P ′ .
+See [5], 2.8.)
+    If we ask that the expressions in (5.5.1) be independent only up to isomorphism,
+then it is not even necessary that the mα ∈ E be pairwise coprime (1.2). But
+invariance up to isomorphism is not a such a useful property, and most of the time
+coprimality really is necessary. For example, we could look at rings with more than
+one Frobenius lift at a single maximal ideal, but we would not be able to reduce to
+the case of a single Frobenius lift. Indeed, if E consists of a single maximal ideal
+m, the two endomorphisms ψW W (A) and W (ψW (A) ) of W W (A) commute, and the
+first is clearly a Frobenius lift, but the second is generally not. Therefore W W (A)
+cannot be the cofree ring with two commuting Frobenius lifts at m.
+    In fact, I believe this is the only place where we use the coprimality assumption
+directly. The rest of our results depend on it only through 5.3. Although I know of
+no applications, it would be interesting to know whether the abstract set up of this
+paper, and then the main results, hold when we allow more than one Frobenius lift
+at each maximal ideal.
+
+                               6. Basic affine properties
+   This section provides some basic results about the commutative algebra of Witt
+vectors. They are just the ones needed to be able to prove the main theorems in
+sections 8 and 9 and to set up the global theory in [4]. There are other basic results
+that could have been included here, but which I have put off to [4], where they will
+be proved for all algebraic spaces.
+   We continue with the notation of 1.2. Fix an element n ∈ N(E) . We will often
+write Wn = WE,n = WR,E,n and so on, for short. By 5.2, we may assume that E
+agrees with the support of n, and in particular that it is finite.
+6.1. Proposition. Let R′ be an E-flat R-algebra such that the structure map R →
+R′ is a ring epimorphism (as in 1.20). Then the composition
+                              (2.6.3)
+                                        / WR,E,n (R′ ⊗R A)(2.6.2) / WR′ ,E ′ ,n (R′ ⊗R A)
+                                                                   −1
+
+      R′ ⊗R WR,E,n (A)                                         ∼
+
+is an isomorphism, where E ′ is as in 1.20.
+                      THE BASIC GEOMETRY OF WITT VECTORS, I                               27
+
+
+Proof. We may assume by 5.4 that E consists of a single ideal m. Using 4.1 and
+the flatness of R′ over R, we are reduced to showing that the functors WR[1/m],m,n ,
+WRm ,m,n , and WKm ,m,n commute with the functor R′ ⊗R −. Therefore we may
+assume that the ideal m is principal.
+   Write Wn = WR,m,n . The result is clear for n = 0, because W0 is the identity
+functor. So assume n ⩾ 1. By 4.4, we have the following map of exact sequences
+                                             1
+
+ 0         / R′ ⊗R m ⊗R Wn−1 (A) idR′ ⊗V / R′ ⊗R Wn (A)              / R ′ ⊗R A        /0
+
+
+                                       V1
+                                                     
+ 0         / m ⊗R Wn−1 (R′ ⊗R A)             / Wn (R′ ⊗R A)          / R ′ ⊗R A        / 0,
+
+where the vertical maps are given by (2.6.3). By induction the leftmost vertical
+arrow is an isomorphism. Therefore the inner one is, too.                     
+
+6.2. Proposition. For any ideal I in an R-algebra A, let WR,E,n (I) denote the
+kernel of the canonical map WR,E,n (A) → WR,E,n (A/I). Then we have
+                          WR,E,n (I)WR,E,n (J) ⊆ WR,E,n (IJ)
+for any ideals I, J in A.
+Proof. Let us first show that we may assume E consists of a single ideal m. In doing
+this, it will be convenient to prove the following equivalent form of the statement:
+if IJ ⊆ K, where K is an ideal in A, then Wn (I)Wn (J) ⊆ Wn (K). Suppose
+E = E ′ ∐ {m}. Let n′ be the restriction of n to E. Let I ′ = WE ′ ,n′ (I), J ′ =
+WE ′ ,n′ (J), and K ′ = WE ′ ,n′ (K). By 5.4, we have WE,n = Wm,nm ◦ WE ′ ,n′ , and
+hence WE,n (I) = Wm,nm (I ′ ) and so on. By induction, we have I ′ J ′ ⊆ K ′ , and then
+applying the result in the single-ideal case gives
+        WE,n (I)WE,n (J) = Wm,nm (I ′ )Wm,nm (J ′ ) = Wm,nm (K ′ ) = WE,n (K).
+So we will assume E = {m} and drop E from the notation.
+    By 6.1, the statement is Zariski local on R, and so we may assume the ideal m
+is generated by some element π. We will work with Witt components relative to π.
+    We need to show that for any elements x = (x0 , . . . , xn )π ∈ Wn (I) and y =
+(y0 , . . . , yn )π ∈ Wn (J), the product xy is in Wn (IJ). So it is sufficient to show this
+in the universal case, where A is the free polynomial algebra R[x0 , y0 , . . . , xn , yn ],
+I is the ideal (x0 , . . . , xn ), and J is the ideal (y0 , . . . , yn ).
+    Consider the following commutative diagram
+                                             w⩽n
+                               Wn (A)                 / A[0,n]
+
+
+                                            w⩽n
+                                                          
+                             Wn (A/IJ)             / (A/IJ)[0,n] .
+
+We want to show that the image of xy in Wn (A/IJ) is zero. Since A/IJ is flat
+(even free) over R, the lower map w⩽n is injective, and so it is enough to show the
+image of xy in (A/IJ)[0,n] is zero. But by the naturality of the ghost map, we have
+w⩽n (x) ∈ I [0,n] and w⩽n (y) ∈ J [0,n] . Therefore w⩽n (xy) lies in (IJ)[0,n] , which
+maps to zero in (A/IJ)[0,n] .                                                       
+
+6.3. Remark. Although the proof of 6.2 given above uses some properties specific
+to Witt vector functors, the result is true for any representable ring-valued functor.
+See Borger–Wieland [5], 5.5.
+28                                     J. BORGER
+
+
+6.4. Corollary. Let I be an ideal in an R-algebra A. If I m = 0, then WR,E,n (I)m =
+0.
+6.5. Proposition. Let ϕ : A → B be a map of R-algebras. If it is surjective, then
+so is the map WR,E,n (ϕ) : WR,E,n (A) → WR,E,n (B).
+Proof. By 5.4, we may assume E consists of one ideal m. Since surjectivity can be
+checked Zariski locally on R, it is enough by 6.1 to assume m is principal. Then
+using the Witt components, we can identify the set map underlying WR,E,n (ϕ) with
+the map ϕ[0,n] : A[0,n] → B [0,n] , which is clearly surjective.               
+
+6.6. Corollary. If ϕ : A → B is surjective, then
+                                 Wn (pr1 )              Wn (ϕ)
+                                            /
+               WR,E,n (A ×B A)             / WR,E,n (A)        / WR,E,n (B)
+                                 Wn (pr2 )
+
+is a coequalizer diagram.
+Proof. The functor Wn is representable, and hence commutes with limits. (See 2.4.)
+Therefore Wn (A ×B A) agrees with Wn (A) ×Wn (B) Wn (A), which is an equivalence
+relation on Wn (A), the quotient by which is the image of Wn (ϕ). By 6.5, this is all
+of Wn (B).                                                                         
+
+6.7. Remark. This result is particularly appealing when A is E-flat and B is not.
+Then we can describe Wn (B) in terms of Wn (A) and Wn (A ×B A), which are
+directly accessible because A and A ×B A are E-flat.
+6.8. Proposition. Suppose E consists of one ideal m, and let A be an R-algebra.
+For any i ⩾ 0, the map Spec(id ⊗ w̄i ) of schemes induced by the ring map
+                id ⊗ w̄i : R/m ⊗R WR,E,n (A) −→ R/m ⊗R A/mn+1
+is a universal homeomorphism. For i = 0, it is a closed immersion defined by a
+square-zero ideal.
+Proof. Write Wn = WR,E,n and so on. Consider the diagram
+                                          id⊗w̄i
+                   R/m ⊗R Wn (A)                      / R/m ⊗R A/mn+1 A
+
+                            id⊗w0                       r⊗a7→ra ∼
+                                                qi            
+                                          x7→x
+                        A/mA                               / A/mA.
+
+To show it commutes, it is enough to assume m is principal, generated by π. Then
+commutativity follows from the obvious congruence
+                            i       i−1                        i
+                 wi (a) = aq0 + πa1q      + . . . + π i ai ≡ aq0 mod mA,
+for any element a = (a0 , a1 , . . .)π ∈ W (A).
+   Therefore, id ⊗ w̄i is the composition of a map whose kernel is a nil ideal and
+a power of the Frobenius map. The scheme maps induced by both of these are
+universal homeomorphisms.
+   Now let us show that id ⊗ w0 (which equals id ⊗ w̄0 ) is a surjection with square-
+zero kernel. The map id⊗w0 is surjective by 1.21 (or 4.4). So let us show the square
+of its kernel is zero. By 4.4, the kernel of the map Wn (A) → R/m ⊗R A is the ideal
+                                                                2
+V 1 Wn (A) + mWn (A). Hence it is enough to show V 1 Wn (A) ⊆ mWn (A). This
+follows from (4.2.6).                                                              
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                           29
+
+
+6.9. Proposition. Let (Bi )i∈I be a family of A-algebras such that the induced map
+`
+  i Spec Bi → Spec A is surjective. Then the induced map
+                    a
+                        Spec WR,E,n (Bi ) → Spec WR,E,n (A)
+                        i
+is surjective.
+Proof. By 5.4, it is enough to assume E consists of one ideal m. Further, it is
+enough to show surjectivity after base change to R[1/m] and to R/m. For R[1/m],
+it follows from 6.1 and the equality Wn (C) = C [0,n] , when m is the unit ideal.
+Now consider base change to R/m. By 6.8, the ring Wn (A)/mWn (A) is a nilpotent
+extension
+      ` of A/mA, and likewise for each Bi , and so we are reduced to showing
+that i Spec Bi /mBi → Spec A/mA is surjective. This is true since base change
+distributes over disjoint unions and preserves surjectivity.                  
+6.10. Proposition. The R-algebra ΛR,E,n is finitely presented, and the functor
+WR,E,n preserves filtered colimits of R-algebras.
+Proof. Since WR,E,n is represented by ΛR,E,n , the two statements to be proved are
+equivalent. By 5.4, we may assume E consists of a single ideal m. By EGA IV
+2.7.1 [13], the first statement can be verified fpqc locally on R, and in particular
+after base change to R[1/m] and to Rm . Therefore by (2.6.1), we can assume m is
+generated by a single element π. But by 3.3, the R-algebra ΛR,E,n is generated by
+the finite set θπ,0 , . . . , θπ,n .                                              
+
+                            7. Some general descent
+    The purpose of this section is to record some facts about descent of étale algebras
+which we will use to prove the main theorem (9.2). The results mention nothing
+about Witt vectors or anything else in this paper. So it would be reasonable to
+skip this section and refer back to it only as needed.
+    More precisely, we do the following. First, we set up some language and notation
+for descent. This is essentially a repetition of parts of Grothendieck’s TDTE I [15].
+(It could not be anything but.) Second, we prove an abstract result (7.10) relating
+gluing data and descent data for certain simple gluing constructions. Third, we
+recall Grothendieck’s theorem (7.11) on integral descent of étale maps. Finally, we
+prove 7.12, which provides the plan of the proof of 9.2. Aside from the language of
+descent, only these three results will be used outside this section.
+
+Language
+
+7.1. Fibered categories. Let C be a category with fibered products. Let E be a
+category fibered over C. (See [15], A.1.1, or [1], VI.6.1.) For any object S of C,
+let ES denote the fiber of E over S. Let us say that a map q : T → S in C is
+an E-equivalence if q ∗ : ES → ET is an equivalence of categories, and let us say
+that q is a universal E-equivalence if for any map S ′ → S in C, the base change
+q ′ : S ′ ×S T → S ′ is an E-equivalence.
+     For the applications in the next section, the reader can take
+            C = the category of affine schemes,
+(7.1.1)     E = the fibered category over C where ES is the category of affine
+                 étale S-schemes and the functors q ∗ are given by base change.
+Then any closed immersion defined by a nil ideal is a universal E-equivalence (EGA
+IV 18.1.2 [14]).
+30                                      J. BORGER
+
+
+7.2. Composition notation. Let S be an object of C, and let CS×S denote the
+category of objects over S × S. That is, an object of CS×S is a pair (T, πT ), where
+T is an object of C and πT is a map T → S × S, called its structure map; a
+morphism is a morphism in C commuting with the maps to S × S. For such an
+object, let πT,1 , πT,2 denote the composition of the structure map T → S × S with
+the projections pr1 , pr2 : S × S → S. (πT,1 is the ‘source,’ and πT,2 is the ‘target’.)
+We will often abusively leave πT implicit and say that T is an object of C.
+   Let 1S denote the object (S, ∆) of CS×S , where ∆ : S → S × S is the diagonal
+map.
+   Given two objects T, U ∈ CS×S , define T U ∈ CS×S as follows. As an object of
+C, it is the fibered product
+                                             pr1
+(7.2.1)                             TU                 /T
+                                  pr2                       πT ,2
+                                           πT ,1         
+                                     U                 / S.
+
+We give T U the structure of an object of CS×S with the map
+
+                                          (πT ,1 ◦pr1 ,πU,2 ◦pr2 )
+(7.2.2)              T U = T ×S U                                    / S × S.
+
+
+7.3. Category objects and equivalence relations. A category object over S is an
+object R ∈ CS×S together with maps
+
+(7.3.1)                     eR : 1S → R,           cR : RR → R
+
+in CS×S (called identity and composition) satisfying the usual identity and associa-
+tivity axioms in the definition of a category.
+   A morphism f : R → R′ of such category objects defined to be a morphism in
+CS×S satisfying the functor axioms, that is, such that
+
+                      f ◦ eR = eR ◦ f      and cR′ ◦ f f = f ◦ cR ,
+
+where f f denotes the map RR → R′ R′ induced by f .
+   A category-object structure on a subobject R ⊆ S × S is a property of R in that
+when it exists, it is unique. One might say that R is a reflexive transitive relation
+on S. We say R is an equivalence relation on S if, in addition, the endomorphism
+(pr2 , pr1 ) of S × S that switches the two factors restricts to a map
+
+                                        s: R → R
+
+(which is of course unique when it exists).
+
+7.4. Pre-actions (gluing data). Let T be an object of CS×S . A pre-action of T on
+an object X ∈ ES is defined to be an isomorphism
+                                    ∗           ∗  ∼
+(7.4.1)                        ϕ : πT,2 (X) −→ πT,1 (X)
+
+in ET . A pre-action is also called a gluing datum on X relative to the pair of maps
+(πT,1 , πT,2 ). (Actually, Grothendieck [15], A.1.4, calls ϕ−1 the gluing datum.) Let
+PreAct(T, X) denote the set of pre-actions of T on X. Any map T → T ′ in CS×S
+naturally induces a map
+
+                          PreAct(T ′ , X) −→ PreAct(T, X).
+                        THE BASIC GEOMETRY OF WITT VECTORS, I                                               31
+
+
+   If f : X → X ′ is a morphism in ES between objects X, X ′ with pre-actions ϕ, ϕ′ ,
+then we say f is T -equivariant if the following diagram commutes:
+                                                   ∗
+                                                  πT ,2 (f )
+                                  ∗                            / π ∗ (X ′ )
+                                 πT,2 (X)                         T,2
+
+                                        ϕ                              ϕ′
+
+                                                  ∗                  
+                                                  πT ,1 (f )
+                                  ∗                            / π ∗ (X ′ ).
+                                 πT,1  (X)                        T,1
+
+In this way, the objects of ES equipped with a pre-action of T form a category.
+
+7.5. Actions. Now let R be a category object over S. An action of R on X is
+defined to be a pre-action ϕ of R on X such that the diagram
+                                                     ∗
+                                                      e (ϕ)
+                               e∗ πR,2
+                                   ∗
+                                       (X)                         / e∗ π ∗ (X)
+                                                                           R,1
+                                        ❄
+                                        ❄❄❄❄                            ⑧⑧
+                                           ❄❄❄❄                        ⑧⑧
+                                              ❄❄❄❄                   ⑧⑧⑧
+                                                 ❄❄❄❄          ⑧
+                                                               ⑧⑧⑧⑧⑧⑧
+                                                    ❄❄❄       ⑧
+                                                          ⑧⑧⑧⑧⑧
+                                                       ∗
+                                                    idS (X)
+
+and the diagram
+                                                   c∗ (ϕ)
+                                 c∗ πR,2
+                                       ∗
+                                          (X)                  / c∗ π ∗ (X)
+                                                                     R,1
+                                qq                                         ▼▼▼▼
+                            qqqq                                                ▼▼
+                                                                                   ▼▼▼
+                      qqqqq                                                            ▼▼▼
+                     q                                                                    ▼▼▼▼▼
+                 qqqq
+      pr∗2 πR,2
+            ∗
+                (X)                                                                         pr∗1 πR,1
+                                                                                                  ∗
+                                                                                                      (X)
+                  ▼▼▼                                                                      q q8
+                      ▼▼▼pr∗ (ϕ)                                                 ∗
+                                                                              pr1 (ϕ) qq q
+                         ▼▼2▼                                                       qq
+                             ▼▼▼
+                                 ▼▼&                                         qq qqq
+                                                                          qq
+                                 pr∗2 πR,1
+                                        ∗
+                                           (X)                 pr∗1 πR,2
+                                                                      ∗
+                                                                         (X),
+
+commute. Here, pr1 and pr2 denote the projections RR → R onto the first and sec-
+ond factors, and the morphisms represented by equality signs are the isomorphisms
+                                                    ∼
+induced by the canonical structure maps (g ◦ f )∗ → f ∗ ◦ g ∗ (notated cf,g in [15],
+A.1.1(ii)) of the fibered category E corresponding to the equalities
+
+                                     πR,2 ◦ e = idS = πR,1 ◦ e
+
+and
+
+        πR,2 ◦ c = πR,2 ◦ pr2 ,       πR,1 ◦ pr2 = πR,2 ◦ pr1 ,             πR,1 ◦ c = πR,1 ◦ pr1 .
+
+We will often use the following more succinct, if slightly abusive, expressions of the
+commutativity of the diagrams above:
+
+(7.5.1)                    e∗ (ϕ) = idX ,        c∗ (ϕ) = (pr∗1 ϕ) ◦ (pr∗2 ϕ).
+
+   Let Act(R, X) denote the set of actions of R on X. A morphism R → R′ of
+category objects induces a map
+
+                                    Act(R′ , X) −→ Act(R, X)
+
+in the obvious way.
+32                                        J. BORGER
+
+
+     Last, note that if R is an equivalence relation, then the diagram
+
+                                             s∗ (ϕ)
+                            s∗ πR,2
+                                ∗
+                                    (X)               / s∗ π ∗ (X)
+                                                            R,1
+
+
+
+
+                              ∗               ϕ−1
+                             πR,1 (X)                     / π∗ .
+                                                             R,2
+
+
+commutes. This follows immediately from (7.5.1). The abbreviated version is
+
+(7.5.2)                                  s∗ (ϕ) = ϕ−1 .
+
+7.6. Descent data. Let q : S ′ → S be a map in C, and put
+
+                                  R(S ′ /S) = S ′ ×S S ′ .
+
+View R(S ′ /S) as an object in CS ′ ×S ′ by taking πR(S ′ /S) to be the evident monomor-
+phism
+                           R(S ′ /S) = S ′ ×S S ′ −→ S ′ × S ′
+Then R(S ′ /S) is an equivalence relation on S ′ . An action ϕ of R(S ′ /S) on an
+object X ′ of ES ′ is also called a descent datum on X ′ from S ′ to S. (Again, it is
+actually ϕ−1 that is called the descent datum in [15].) We might call R(S ′ /S) the
+descent, or Galois, groupoid of the map q : S ′ → S.
+    Because the two compositions R(S ′ /S) = S ′ ×S S ′ ⇒ S ′ → S are equal, for any
+object X ∈ ES , the object q ∗ (X) of ES ′ has a canonical pre-action of R(S ′ /S), and
+it is easy to check that this is an action. We say that q is a descent map for the
+fibered category E if the functor from ES to the category of objects of ES ′ with an
+R-action is fully faithful. We say it is an effective descent map if it is an equivalence.
+
+7.7. When gluing data is descent data. Now suppose we have a diagram
+
+                                  S ′′        / S′
+                                               /
+(7.7.1)                                                   /S
+
+in C such that the two compositions S ′′ ⇒ S are equal. The universal property of
+products gives a map
+                             S ′′ −→ S ′ ×S S ′ = R(S ′ /S).
+For any object X ′ ∈ ES ′ , this map induces a function
+
+                        Act(R(S ′ /S), X ′ ) −→ PreAct(S ′′ , X ′ ).
+
+Let us say that gluing data on X ′ is descent data relative to the diagram (7.7.1)
+when this map is a bijection.
+
+Gluing two objects
+
+   Here we spell out in perhaps excessive detail some basic facts about equivalence
+relations on disjoint unions which are E-trivial (though not necessarily trivial) on
+each factor.
+   From now on, let C denote the category of affine schemes, schemes, or algebraic
+spaces. (We only need some weak hypotheses on coproducts in C, but let us not
+bother to determine which ones we need.)
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                             33
+
+
+7.8. Equivalence relations on a disjoint union. Suppose S is a coproduct Sa + Sb
+of two objects Sa , Sb ∈ C. (We use the symbols a, b to index the summands only
+to emphasize their distinction from the symbols 1, 2 that index the factors in the
+product S × S.) Let R be an equivalence relation on S, and let Rij denote R ×S×S
+(Si × Sj ), for any i, j ∈ {a, b}. Let πRij ,1 denote the evident composition
+                                                     1       pr
+                            Rij = R ×S×S (Si × Sj ) −→ Si
+and πRij ,2 the analogous map Rij → Sj . We will sometimes view Rij as an object
+of CS×S using the induced map Rij → Si × Sj → S × S.
+   Let ei : Si → Rii and cijk : Rij Rjk → Rik and sij : Rij → Rji denote the evident
+restrictions of e and c and s.
+7.9. Actions over a disjoint union. For any object X over S, write Xa = Sa ×S X
+and Xb = Sb ×S X.
+   For any pre-action
+                                       ∗         ∗
+(7.9.1)                           ϕ : πR,2 X −→ πR,1 X,
+of R on X, let us write ϕij for the restriction of ϕ to Rij . In order for this pre-action
+to be an action, it is necessary and sufficient that for all i, j, k ∈ {a, b} we have
+(7.9.2)                       e∗i (ϕii ) = idXi and
+(7.9.3)                     c∗ijk (ϕik ) = pr∗1 (ϕij ) ◦ pr∗2 (ϕjk ).
+This is just a restatement of (7.5.1), summand by summand. In that case, 7.5.2
+becomes
+(7.9.4)                               s∗ij (ϕji ) = ϕ−1
+                                                     ij .
+
+7.10. Proposition. Let R be an equivalence relation on S = Sa + Sb such that for
+i = a, b, the map ei : Si → Rii is a universal E-equivalence. Then for any object
+X ∈ ES , the map
+                                    ϕ7→ϕba
+                        Act(R, X)          / PreAct(Rba , X)
+is a bijection.
+Proof. Let us first show injectivity. Let ϕ and ϕ′ be actions of R on X such that
+ϕba = ϕ′ba . We need to show that this implies ϕij = ϕ′ij for all i, j ∈ {a, b}.
+Consider each case separately. For ij = ba, it is true by assumption. When ij = ab,
+equation (7.9.4) and the given equality ϕba = ϕ′ba , imply
+                        ϕab = s∗ba (ϕab )−1 = s∗ba (ϕ′ab )−1 = ϕ′ab .
+When i = j, since ei is an E-equivalence, it is enough to show e∗i (ϕii ) = e∗i (ϕ′ii ).
+But by (7.9.2), we have
+                            e∗i (ϕii ) = idXi = e∗i (ϕ′ii ).
+                ′
+Therefore ϕ = ϕ , which proves injectivity.
+  Now consider surjectivity. Let ϕba be a pre-action of Rba on X. Define
+(7.10.1)                             ϕab = s∗ab (ϕba )−1
+and for i = a, b define ϕii to be the map such that
+(7.10.2)                              e∗i (ϕii ) = idXi ,
+which exists and is unique because ei is an E-equivalence. We need to check that
+the pre-action ϕ = ϕaa + ϕab + ϕba + ϕbb of R on X is actually an action. To do
+this, we will verify the relations (7.9.2) and (7.9.3).
+   The identity axiom (7.9.2) holds because it is the defining property (7.10.2) of
+ϕii .
+34                                             J. BORGER
+
+
+   Now consider the associativity axiom (7.9.3) for the various possibilities for ijk.
+Since i, j, k ∈ {a, b}, two of i, j, k must be equal.
+   If i = j, the composition f
+                                      pr−1
+                                        2                 ej ×id
+                               Rjk        ∼
+                                              / Sjj Rjk            / Rjj Rjk
+
+is an E-equivalence, because it is a base change of the universal E-equivalence ej .
+Therefore it is enough to show
+(7.10.3)                  f ∗ c∗jjk (ϕjk ) = f ∗ pr∗1 (ϕjj ) ◦ f ∗ pr∗2 (ϕjk ).
+By the equality pr1 ◦ f = ej ◦ πRjk ,1 and (7.10.2), we have
+                    f ∗ pr∗1 (ϕjj ) = πR
+                                       ∗
+                                              e∗ (ϕjj ) = πR
+                                         jk ,1 j
+                                                           ∗
+                                                             jk ,1
+                                                                   (idXj ) = id.
+On the other hand, by cjjk ◦ f = idRjk = pr2 ◦ f , we have f ∗ c∗jjk (ϕjk ) = f ∗ pr∗2 (ϕjk ).
+Equation (7.10.3) then follows.
+  The case j = k is similar to the case i = j. (Or apply s to the case i = j.)
+  Last, suppose i = k. The following diagram is easily checked to be cartesian:
+                                                (idRij ,sij )
+(7.10.4)                              Rij                       / Rij Rji
+
+                                πRij ,1                                  ciji
+
+                                                    ei                
+                                      Si                            / Rii .
+
+(This is just another expression of the existence and uniqueness of inverses in a
+groupoid.) Since ei is a universal E-equivalence, (idRij , sij ) is an E-equivalence. So
+it is enough to show axiom (7.9.3) after applying (idRij , sij )∗ , that is, to show
+(7.10.5)      (idRij , sij )∗ c∗iji (ϕii ) = (idRij , sij )∗ pr∗1 (ϕij ) ◦ (idRij , sij )∗ pr∗2 (ϕji ).
+By the commutativity of (7.10.4) and (7.10.2), we have
+               (idRij , sij )∗ c∗iji (ϕii ) = πR
+                                               ∗
+                                                      e∗ (ϕii ) = πR
+                                                 ij ,1 i
+                                                                   ∗
+                                                                     ij ,1
+                                                                           (idXi ) = id.
+Combining this with the equation ϕji = s∗ji (ϕij )−1 , equation (7.10.5) reduces to
+                     (idRij , sij )∗ pr∗1 (ϕij ) = (idRij , sij )∗ pr∗2 s∗ji (ϕij ).
+But this holds because we have
+             pr1 ◦ (idRij , sij ) = idRij = sji ◦ sij = sji ◦ pr2 ◦ (idRij , sij ).
+   Therefore the equations in (7.9.3) hold for all i, j, k, and so the pre-action is an
+action.                                                                               
+
+
+Grothendieck’s theorem
+   Recall that a map Spec B → Spec A of affine schemes is said to be integral if the
+corresponding ring map A → B is integral (and not necessarily injective).
+7.11. Theorem. Every surjective integral map Y → X of affine schemes is an
+effective descent map for the fibered category E over C of (7.1.1).
+   This theorem is proven in SGA 1 IX 4.7 [1] up to two details. First, the argument
+given there covers only morphisms Y → X which are finite and of finite presentation;
+and second, the statement there has no affineness in the assumptions or in the
+conclusion. The first point can be handled by a standard limiting argument (or
+one can apply Theorem 5.17 plus Remark 2.5(1b) in Rydh [22]). The second point
+can be handled with Chevalley’s theorem; the form most convenient here would the
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                            35
+
+
+final one, Rydh’s [21] Theorem (8.1), which is free of noetherianness, separatedness,
+finiteness, and scheme-theoretic assumptions.
+
+Gluing and descent of étale algebras
+
+7.12. Proposition. Consider a diagram of rings
+                                                      h1
+                                       d       / B′         /
+(7.12.1)                         BO               O        / BO ′′
+                                                      h2
+                                e              e′               e′′
+                                                      g1
+                                               / A′         /
+                                 A
+                                       f
+                                                           / A′′
+                                                      g2
+
+such that hi ◦ e′ = e′′ ◦ gi , for i = 1, 2. Also assume the following properties are
+satisfied:
+    (a) the two parallel right-hand squares are cocartesian,
+    (b) both rows are equalizer diagrams,
+    (c) relative to the lower row, gluing data on any étale A′ -algebra is descent data,
+    (d) f satisfies effective descent for the fibered category of étale algebras, and
+    (e) e′ is étale.
+Then e is étale and the left-hand square is cocartesian.
+   Note that when we use the language of descent in the category of rings (as in
+(c) and (d)), we understand that it refers to the corresponding statements in the
+opposite category.
+Proof. Property (a) equips the étale A′ -algebra B ′ with gluing data ϕ relative to
+(g1 , g2 ). Indeed, take ϕ to be the composition
+                                           ∼          ∼
+                        A′′ ⊗g1 ,A′ B ′ −→ B ′′ −→ A′′ ⊗g2 ,A′ B ′ .
+By property (c), this gluing data comes from unique descent data relative to f .
+Therefore by (d) and (e), the A′ -algebra B ′ descends to an étale A-algebra C.
+   Now apply the functor C ⊗A − to the lower row of diagram (7.12.1). By (a) and
+the definition of descent, the result can be identified with the sequence
+                                                      h1
+                                               / B′         /
+                                 C                         / B ′′ .
+                                                      h2
+
+This sequence is also an equalizer diagram, because the lower row of (7.12.1) is an
+equalizer diagram, by (b), and because C is étale over A and hence flat. Again
+by (b), the upper row of (7.12.1) is an equalizer diagram, and so we have C = B.
+Therefore, B is an étale A-algebra and the left-hand square is cocartesian.      
+
+                 8. Ghost descent in the single-prime case
+  We return to the notation of 1.2. Suppose E consists of a single maximal ideal m,
+and fix an integer n ⩾ 1. Write Wn = WR,m,n , and so on. Let A be an R-algebra,
+and let αn denote the map
+                                           α
+(8.0.2)                       Wn (A) −−n→ Wn−1 (A) × A
+given by the canonical projection on the factor Wn−1 (A) and the n-th ghost com-
+ponent wn on the factor A. Let In (A) denote the kernel of αn . For example, if m
+is generated by π, then in terms of the Witt components, we have
+(8.0.3)              In (A) = {(0, . . . , 0, a)π ∈ A[0,n] | π n a = 0}.
+8.1. Proposition. We have the following:
+36                                         J. BORGER
+
+
+      (a) αn is an integral ring homomorphism.
+      (b) The kernel In (A) of αn is a square-zero ideal.
+      (c) If A is m-flat, then αn is injective.
+      (d) The diagram
+                                             w̄n
+                                Wn−1 (A)         / A/mn A
+                                      OO              OO
+
+                                                  wn
+                                    Wn (A)               / A,
+          where the vertical maps are the canonical ones, is cocartesian.
+      (e) View A as a Wn (A)-algebra by the map wn : Wn (A) → A. Then every
+          element of the kernel of the multiplication map
+                                       A ⊗Wn (A) A −→ A
+          is nilpotent.
+      (f) In the diagram
+                                                          w̄n ◦pr1
+                                  αn
+                                                                  / A/mn A,
+                                       / Wn−1 (A) × A              /
+(8.1.1)                 Wn (A)
+                                                            pr2
+
+          where pr2 denotes the reduction of pr2 modulo mn , the image of αn agrees
+          with the equalizer of w̄n ◦ pr1 and pr2 .
+Proof. (a): It is enough to show that each factor of Wn−1 (A) × A is integral over
+Wn (A). The first factor is a quotient ring, and hence integral. Now consider an
+                           n
+element a ∈ A. Then aq is the image in A of the Teichmüller lift [a] ∈ Wn (A).
+(See 1.21.) Therefore the second factor is also integral over Wn (A).
+   (b): It suffices to show this after base change to R[1/m] × Rm . Therefore, by 6.1,
+we may assume m is generated by a single element π. Then an element of the kernel
+of αn will be of the form Vπn [a] = (0, . . . , 0, a)π , where π n a = 0. On the other hand,
+by (4.2.6) we have
+                  (Vπn [a])(Vπn [b]) = π n Vπn [ab] = (0, . . . , 0, π n ab)π = 0.
+   (c): We have (w⩽n−1 × idA ) ◦ αn = w⩽n . Since A is m-flat, the map w⩽n is
+injective (2.7), and hence so is αn .
+   (d): As above, it is enough by 6.1 to assume m is generated by a single element
+π. Then we have
+      A ⊗Wn (A) Wn−1 (A) = A ⊗Wn (A) Wn (A)/V n Wn (A) = A/wn (V n Wn (A))A.
+Examining the Witt polynomials (3.1.1) shows wn (V n Wn (A)) = π n A.
+   (e): Again, by 6.1 we may assume m is generated by a single element π. To show
+every element x ∈ I is nilpotent, it is enough to restrict x to a set of generators.
+                                                     n
+Therefore it is enough to show (1 ⊗ a − a ⊗ 1)q = 0 for every element a ∈ A.
+   Now suppose that, for j = 0, . . . , q n , we could show
+                                 n
+                                   q
+(8.1.2)                                   aj ∈ im(wn ).
+                                    j
+Then we would have
+                                    n
+                    n      X         q         n
+     (1 ⊗ a − a ⊗ 1)q =        (−1)j    aj ⊗ aq −j
+                           j
+                                      j
+                                              n
+                                   X          q        n                     n
+                                 =   (−1)j ⊗      aj aq −j = (1 ⊗ a − 1 ⊗ a)q = 0,
+                                   j
+                                               j
+
+which would complete the proof. So let us show (8.1.2).
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                             37
+
+
+   Let f = ordp (q) and i = ordp (j). Then we have
+                      n                        n        
+                      q             n −1          q −1
+                ordp      = ordp (q j ) + ordp                ⩾ nf − i.
+                       j                           j−1
+                  n
+It follows that qj aj is an R-linear multiple of π nf −i aj . Since wn is an R-algebra
+map, it is therefore enough to show
+(8.1.3)                             π nf −i aj ∈ im(wn ).
+                                                            s
+   Now, for b ∈ A and s = 0, . . . , n, we have π n−s bq = wn (Vπn−s [b]), and therefore
+  n−s qs
+π     b is in the image of wn . So to show (8.1.3), it is enough to find an integer
+                                                   s
+s and an element b ∈ A such that π n−s bq is an R-linear divisor of π nf −i aj . In
+                                                           s
+particular, it is sufficient for b and s to satisfy bq = aj and n − s ⩽ nf − i.
+   Take s to be the greatest integer at most if −1 . Then we have q s | j; so if we
+             s                     s
+set b = aj/q ∈ A, we have bq = aj . It remains to show n − s ⩽ nf − i. This is
+equivalent to n − if −1 ⩽ nf − i, which is in turn equivalent to (1 − f )(n − if −1 ) ⩽ 0.
+And this holds because 1 − f ⩽ 0 and n − if −1 ⩾ 0. (Recall that j ⩽ q n .) This
+completes the proof of (e).
+   (f): As above, we may assume that m can be generated by a single element π.
+For any element a = (a0 , . . . , an )π ∈ Wn (A), we have
+                                                 n
+                                                                               
+               αn (a) = (a0 , . . . , an−1 ), aq0 + · · · + π n−1 aqn−1 + π n an .
+                                               
+Therefore an element (a0 , . . . , an−1 ), b ∈ Wn−1 (A) × A lies in the image of αn if
+and only if
+                          n
+                        aq0 + · · · + π n−1 aqn−1 ≡ b mod mn A,
+which is exactly what we needed to show.                                               
+
+8.2. Corollary. For any R-algebra A, the ghost map
+                                w⩽n : Wn (A) −→ A[0,n]
+                                            n
+is integral, and its kernel J satisfies J 2 = 0.
+Proof. By 8.1 and induction on n.                                                      
+
+8.3. Theorem.        (a) The map αn is an effective descent map for the fibered
+       category of étale algebras.
+   (b) Relative to the diagram
+                                                      w̄n ◦pr1
+                               αn
+                                                                / A/mn A,
+                                                                 /
+(8.3.1)              Wn (A)          / Wn−1 (A) × A
+                                                        pr2
+
+        gluing data on any étale Wn−1 (A) × A-algebra is descent data (7.7).
+    (c) If A is m-flat, then for any A′ -algebra B ′ equipped with gluing data ϕ, the
+        descended A-algebra is the subring B of B ′ on which the following diagram
+        commutes:
+                                       A/mn A ⊗w̄n ◦pr1 B ′
+                                 1⊗idB ′ ♥♥♥
+                                            ♥6     O
+                                    ♥ ♥♥
+                                   ♥
+                                ♥♥♥
+                            B ′ PP               ϕ
+                                  PPP
+                                     PPP
+                                          P
+                                 1⊗idB ′ PPP
+                                               (
+                                         A/mn A ⊗pr2 B ′ .
+38                                      J. BORGER
+
+
+Proof. (a): This follows from Grothendieck’s theorem 7.11 and 8.1(a)–(b).
+    (b): We will use 7.10, where C and E are as in (7.1.1). In the notation of 7.8, put
+Sa = Spec Wn (A) and Sb = Spec A. Let Γ be the equivalence relation S ×Spec Wn (A)
+S on S. By 8.1(d), we have Γba = Spec A/mn A. The map ea is an isomorphism
+because Wn−1 (A) is a quotient ring of Wn (A). The map eb is a nil immersion,
+by 8.1(e), and hence is an E-equivalence. Thus we can apply 7.10, which says that
+a Γ-action is the same as a Γba pre-action. In other words, gluing data is descent
+data.
+    (c): This will follow from 7.12 once we verify the hypotheses. 7.12(a)–(b) are
+clear; 7.12(c) follows from (b) above; 7.12(d) follows from (a) above; and 7.12(e)
+follows from the definition of B, for the top row of (7.12.1), and from 8.1(c) and
+(f), for the bottom row.                                                             
+8.4. Remark. For any ring C, let EtAlgC denote the category of étale C-algebras.
+Then another way of expressing part (b) of this theorem is that the induced functor
+                  EtAlgWn (A) −→ EtAlgWn−1 (A) ×EtAlgA/mn A EtAlgA
+is an equivalence. (Of course, the fibered product of categories is taken in the weak
+sense.) In particular, we can prove things about étale Wn (A)-algebras by induction
+on n. This is the main technique in the proof of 9.2. But it also seems interesting
+in its own right and will probably have applications beyond the present paper.
+8.5. Remark. If we let W̄n (A) denote the image of αn , then the induced diagram
+                                                      w̄n ◦pr1
+                                                                / A/mn A.
+                                                                 /
+                     W̄n (A)      / Wn−1 (A) × A
+                                                          pr2
+
+satisfies all the conclusions of the theorem above, regardless of whether A is m-flat.
+   Indeed, it is an equalizer diagram by 8.1(f) and the definition of W̄n (A); it is
+an effective descent map by 8.3 and 8.1(b). Last, because W̄n (A) is the image of
+αn , gluing (resp. descent) data relative to W̄n (A) agrees with gluing (resp. descent)
+data relative to Wn (A). In particular, gluing data relative to W̄n (A) is descent
+data.
+
+                           9. W and étale morphisms
+   We return to the general context of 1.2. In particular, E is no longer required
+to consist of one ideal.
+9.1. Lemma. Consider a commutative square of affine schemes (or any schemes)
+                                           g
+                                     Xo        X′
+                                    f                f′
+                                                
+                                           h
+                                     Y o       Y ′,
+and let U be an open subscheme of Y . Suppose the following hold
+   (a) f and f ′ are étale,
+   (b) the square above becomes cartesian after the base change U ×Y −,
+   (c) g and h become surjective and universally injective after the base change
+        (Y − U ) ×Y −.
+Then the square above is cartesian.
+Proof. Let e denote the induced map (g, f ′ ) : X ′ → X ×Y Y ′ . It is enough to
+show e is étale, surjective, and universally injective (EGA IV (17.9.1) [14]). The
+composition of e with pr2 : X ×Y Y ′ → Y ′ is f ′ . Because f is étale, so is its base
+                     THE BASIC GEOMETRY OF WITT VECTORS, I                             39
+
+
+change pr2 . Combining this with the étaleness of f ′ implies that e is étale (EGA
+IV 17.3.4 [14]).
+    The surjectivity and universal injectivity of e can be checked after base change
+over Y to U and to Y − U . By assumption e becomes an isomorphism after base
+change to U . In particular, it becomes surjective and universally injective.
+    Let ē, ḡ, h̄ denote the maps e, g, h pulled back from Y to Y − U . Let h̄′ denote
+the base change of h̄ from Y to X. Then, as above, we have ḡ = h̄′ ◦ ē. Since h̄
+is universally injective, so is h̄′ . Combining this with the fact that ḡ is universally
+injective, implies that ē is as well (EGA I 3.5.6–7 [12]). Finally ē is surjective since
+h̄′ is injective and ḡ is surjective.                                                  
+
+9.2. Theorem. For any étale map ϕ : A → B and any element n ∈ N(E) , the
+induced map WR,E,n (ϕ) : WR,E,n (A) → WR,E,n (B) is étale.
+
+Proof. By 5.4, it is enough to assume E consists of a single maximal ideal m. Also,
+it will simplify notation if we assume m is principal, generated by an element π.
+We may do this by by 6.1 and because it is enough to show étaleness after applying
+Rm ⊗R − and R[1/m] ⊗R −. Let us write Wn = WR,E,n .
+   We will reason by induction on n, the case n = 0 being clear because W0 is the
+identity functor. So from now on, assume n ⩾ 1.
+   Let W̄n (A) denote the image of αn : Wn (A) → Wn−1 (A) × A, and let ᾱn denote
+the induced injection W̄n (A) → Wn−1 (A)×A. Define W̄n (B) and ᾱn for B similarly.
+   Step 1: W̄n (B) is étale over W̄n (A).
+   To do this, it suffices to verify conditions (a)–(e) of 7.12 for the following diagram
+
+                                                         w̄n ◦pr1
+                               ᾱn
+                                                                    / B/mn B
+                                                                     /
+                     W̄n (B)         / Wn−1 (B) × B
+                         O                   O             pr2           O
+
+                                                         w̄n ◦pr1
+                               ᾱn
+                                                                 / A/mn A,
+                                     / Wn−1 (A) × A               /
+                     W̄n (A)
+                                                           pr2
+
+
+where the vertical maps are induced by ϕ and functoriality. We know 7.12(a) holds
+by induction. Conditions 7.12(c)–(d) hold by 8.3 (or 8.5). Condition 7.12(e) was
+shown already in 8.1(f). Now consider 7.12(b). It is clear that the square of pr2
+maps is cocartesian. So, all that remains is to check that the square of w̄n ◦ pr1
+maps is cocartesian. By induction, Wn−1 (B) is étale over Wn−1 (A), and so this
+follows from 9.1, which we can apply by 6.1 and 6.8.
+   Step 2: Wn (B) is étale over Wn (A).
+   By 8.1(b), the kernel In (A) of the map αn : Wn (A) → W̄n (A) has square zero.
+Therefore by EGA IV 18.1.2 [14], there is an étale Wn (A)-algebra C and an isomor-
+phism f : C ⊗Wn (A) W̄n (A) → W̄n (B). Now consider the square
+
+                                     CO ❏            / W̄n (B)
+                                          ❏                OO
+                                              ❏ d
+                                                ❏
+                                                    ❏❏
+                                                       %
+                                 Wn (A)              / Wn (B),
+
+where the upper map is the one induced by f and where d will soon be defined.
+By 8.1(b), the kernel In (B) of the right-hand map has square zero. Therefore since
+C is étale over Wn (A), there exists a unique map d making the diagram commute.
+Let us now show that d is an isomorphism.
+40                                        J. BORGER
+
+
+   Because C is étale and hence flat over Wn (A), we have a commutative diagram
+with exact rows:
+        0            / In (B)             / Wn (B)                        / W̄n (B)                  /0
+                           O                   O                                O
+                       e                     d                                 f ∼
+
+
+        0       / C ⊗W (A) In (A)            /C                 / C ⊗W (A) W̄n (A)                   / 0.
+                      n                                                    n
+
+
+So to show d is an isomorphism, it is enough to show e is an isomorphism. Because
+In (A) is a square-zero ideal, the action of Wn (A) on it factors through W̄n (A).
+Therefore, e factors as follows:
+
+     C ⊗Wn (A) In (A) = C ⊗Wn (A) W̄n (A) ⊗W̄n (A) In (A)
+                                                       f ⊗id                                     g
+                                                       −→ W̄n (B) ⊗W̄n (A) In (A) −→ In (B),
+Since f is an isomorphism, it is enough to show g is an isomorphism.
+   Using the description (8.0.3) of In , the map g can be extended to the following
+commutative diagram with exact rows:
+                                                                ·π n           / πn B
+        0           / In (B)                     /B
+                                                   O                               O
+                                                                                                      /0
+                          O
+                      g             (pr2 ◦ᾱn )·ϕ                                    (pr2 ◦ᾱn )·ϕ
+                                                                    n
+                                                               ·π       / W̄n (B) ⊗ π n A,
+        0      / W̄n (B) ⊗ In (A)       / W̄n (B) ⊗ A                                                 /0
+
+where ⊗ denotes ⊗W̄n (A) , for short. Therefore it is enough to show the right two
+vertical maps are isomorphisms, and to do this, it is enough to show the right-hand
+square in the diagram
+                                                               pr2 ◦ᾱn
+                           Wn (B)           / / W̄n (B)                     /B
+                              O                     O                         O
+
+
+                                                               pr2 ◦ᾱn
+                           Wn (A)           / / W̄n (A)                     /A
+
+is cocartesian. We will do this by applying 9.1, with U = Spec R[1/m] ⊗R W̄n (A).
+   By step 1, condition 9.1(a) holds. Now consider conditions 9.1(b)–(c). By 8.3(b),
+the horizontal maps in the left-hand square have square-zero kernel. In particular,
+the scheme maps they induce are universal homeomorphisms. And by 6.1, they
+become isomorphisms after applying R[1/m] ⊗R −. Therefore it is enough to show
+9.1(b)–(c) hold for the perimeter of the diagram above. In this case, 9.1(b) follows
+from 6.1, and 9.1(c) follows from 6.8.                                            
+
+9.3. Remark. Observe that when A is E-flat, the proof terminates after step 1,
+which is just an application of 7.12. Thus in the central case, the argument is not
+much more than 8.1 and some general descent theory.
+9.4. Corollary. Let B an étale A-algebra, and let C be any A-algebra. Then for
+any n ∈ N(E) , the induced diagram
+                           WR,E,n (B)               / WR,E,n (B ⊗A C)
+                               O                              O
+
+
+                           WR,E,n (A)                  / WR,E,n (C)
+
+is cocartesian.
+                        THE BASIC GEOMETRY OF WITT VECTORS, I                                     41
+
+
+Proof. By 5.4, we can assume E consists of a single ideal m. The proof will be
+completed by 9.1, once we check its hypotheses are satisfied. Condition (a) of 9.1
+holds by 9.2, condition (b) holds by 6.1 and 2.7, and condition (c) holds by 6.8. 
+9.5. Wn does not generally commute with coproducts. Almost anything is an exam-
+ple. For instance, with the p-typical Witt vectors, W1 (A ⊗Z A) is not isomorphic
+to W1 (A) ⊗W1 (Z) W1 (A), when A is Fp [x] or Z[x].
+9.6. W does not generally preserve étale maps. Let W denote p-typical Witt func-
+tor (non-truncated), and let ϕ denote the evident inclusion Q[x] → Q[x±1 ], which
+is étale. While W (ϕ) is best viewed as a map of pro-rings, it is possible to view
+it as a map of ordinary rings, and ask whether it is étale. It is not: W (ϕ) can be
+identified with ϕN : Q[x]N → Q[x±1 ]N , which is not étale because Q[x±1 ]N is not
+finitely generated as an Q[x]N -algebra. This is an elementary exercise.
+9.7. Other truncation sets for the big Witt vectors. Some writers have considered
+more general systems of truncations for the big Witt functor (1.15). See Hesselholt–
+Madsen [17], subsection 4.1, for example. Given a finite set T of positive integers
+closed under extraction of divisors, they define an endofunctor WT of the category
+of rings. When T consists of all the divisors of some integer d ⩾ 1, then WT agrees
+with our WZ,E,n , where E consists of the maximal ideals m ⊂ Z that contain d and
+where nm = ordm (d). Thus the two systems of truncations are cofinal with respect
+to each other.
+    The functors WT also preserve étale maps. Indeed, it is enough to show that
+the base change to Z[1/T ] and to Z(p) , for each prime p ∈ T , is étale. (See EGA
+IV (17.7.2)(ii).) Applying the identity WT (A)[1/p] = WT (A[1/p]), which can be
+established by looking at the graded pieces of the Verschiebung filtration, it is
+enough to consider Z[1/T ]-algebras and Z(p) -algebras. In the either case, WT (A)
+is simply a product of p-typical Witt rings Wn (A) for various primes p and lengths
+n (see [17], (4.1.10)), in which case the result follows from 9.2, or van der Kallen’s
+original theorem [24], (2.4).
+
+                                          References
+ [1] Revêtements étales et groupe fondamental (SGA 1). Documents Mathématiques (Paris), 3.
+     Société Mathématique de France, Paris, 2003. Séminaire de géométrie algébrique du Bois
+     Marie 1960–61. Directed by A. Grothendieck, With two papers by M. Raynaud, Updated
+     and annotated reprint of the 1971 original [Lecture Notes in Math., 224, Springer, Berlin].
+ [2] Francis Borceux. Handbook of categorical algebra. 1, volume 50 of Encyclopedia of Mathe-
+     matics and its Applications. Cambridge University Press, Cambridge, 1994. Basic category
+     theory.
+ [3] Francis Borceux. Handbook of categorical algebra. 2, volume 51 of Encyclopedia of Mathe-
+     matics and its Applications. Cambridge University Press, Cambridge, 1994. Categories and
+     structures.
+ [4] James Borger. Basic geometry of Witt vectors, II: Spaces. To appear.
+ [5] James Borger and Ben Wieland. Plethystic algebra. Adv. Math., 194(2):246–283, 2005.
+ [6] N. Bourbaki. Éléments de mathématique. Algèbre commutative. Chapitres 8 et 9. Springer,
+     Berlin, 2006. Reprint of the 1983 original.
+ [7] Alexandru Buium. Geometry of p-jets. Duke Math. J., 82(2):349–367, 1996.
+ [8] Alexandru Buium. Arithmetic differential equations, volume 118 of Mathematical Surveys
+     and Monographs. American Mathematical Society, Providence, RI, 2005.
+ [9] Alexandru Buium and Santiago R. Simanca. Arithmetic Laplacians. Adv. Math., 220(1):246–
+     277, 2009.
+[10] V. G. Drinfeld. Coverings of p-adic symmetric domains. Funkcional. Anal. i Priložen.,
+     10(2):29–40, 1976.
+[11] Alexander Grothendieck. La théorie des classes de Chern. Bull. Soc. Math. France, 86:137–
+     154, 1958.
+[12] Alexander Grothendieck. Éléments de géométrie algébrique. I. Le langage des schémas. Inst.
+     Hautes Études Sci. Publ. Math., (4):228, 1960.
+42                                           J. BORGER
+
+
+[13] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. II. Inst. Hautes Études Sci. Publ. Math., (24):231, 1965.
+[14] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas IV. Inst. Hautes Études Sci. Publ. Math., (32):361, 1967.
+[15] Alexander Grothendieck. Technique de descente et théorèmes d’existence en géometrie
+     algébrique. I. Généralités. Descente par morphismes fidèlement plats. In Séminaire Bourbaki,
+     Vol. 5, pages Exp. No. 190, 299–327. Soc. Math. France, Paris, 1995.
+[16] Michiel Hazewinkel. Formal groups and applications, volume 78 of Pure and Applied Mathe-
+     matics. Academic Press Inc. [Harcourt Brace Jovanovich Publishers], New York, 1978.
+[17] Lars Hesselholt and Ib Madsen. Cyclic polytopes and the K-theory of truncated polynomial
+     algebras. Invent. Math., 130(1):73–97, 1997.
+[18] André Joyal. δ-anneaux et λ-anneaux. C. R. Math. Rep. Acad. Sci. Canada, 7(4):227–232,
+     1985.
+[19] André Joyal. δ-anneaux et vecteurs de Witt. C. R. Math. Rep. Acad. Sci. Canada, 7(3):177–
+     182, 1985.
+[20] Michel Lazard. Commutative formal groups. Springer-Verlag, Berlin, 1975. Lecture Notes in
+     Mathematics, Vol. 443.
+[21] D. Rydh. Noetherian approximation of algebraic spaces and stacks. arXiv:0904.0227v1.
+[22] D. Rydh. Submersions and effective descent of étale morphisms. Bull. Soc. Math. France. To
+     appear.
+[23] D. O. Tall and G. C. Wraith. Representable functors and operations on rings. Proc. London
+     Math. Soc. (3), 20:619–643, 1970.
+[24] Wilberd van der Kallen. Descent for the K-theory of polynomial rings. Math. Z., 191(3):405–
+     415, 1986.
+[25] Clarence Wilkerson. Lambda-rings, binomial domains, and vector bundles over CP (∞).
+     Comm. Algebra, 10(3):311–328, 1982.
+[26] Ernst Witt. Zyklische Körper und Algebren der Charakteristik p vom Grad pn . Struktur
+     diskret bewerteter perfekter Körper mit vollkommenem Restklassen-körper der charakteristik
+     p. J. Reine Angew. Math., (176), 1937.
+[27] Ernst Witt. Collected papers. Gesammelte Abhandlungen. Springer-Verlag, Berlin, 1998. With
+     an essay by Günter Harder on Witt vectors, Edited and with a preface in English and German
+     by Ina Kersten.
+
+     Australian National University
+     E-mail address: james.borger@anu.edu.au
+
