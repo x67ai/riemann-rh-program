@@ -13,3 +13,10 @@ for L in sorted(set(r['L'] for r in rows)):
     w = max(rs, key=lambda r: r['dW_vs_job1']); wo = max(rs, key=lambda r: r['dW_vs_replayO'])
     print(f"L = {L:g}: {len(rs)} points; PASS {sum(r['PASS'] for r in rs)}; worst |dW| vs Job 1 {w['dW_vs_job1']:.3e} at t = {w['t_exact']} (tol there {w['tolerance']:.3e}, ratio {w['dW_vs_job1']/w['tolerance']:.1e}); worst |dW| vs replayO {wo['dW_vs_replayO']:.3e} at t = {wo['t_exact']}; bit-identical W {sum(r['bit_identical_W_vs_replayO'] for r in rs)}/{len(rs)}; max ratio dW/(line) where line>0 {max(r['dW_vs_job1']/r['phase_line_eps_proven_l1_job1'] for r in rs):.2e}")
 print(f"ALL: {len(rows)} points, FAIL {sum(not r['PASS'] for r in rows)}; worst |dW| vs Job 1 {max(r['dW_vs_job1'] for r in rows):.3e}")
+# the order-dependence of the dd accumulator: the low word of P between my launch and the earlier replay of the same binary
+mx = (0, None)
+for r in rows:
+    A = json.load(open(os.path.join(HERE, '..', r['replay_json']))); B = json.load(open(os.path.join(HERE, '..', r['earlier_replay'])))
+    d = abs((A.get('P_lo') or 0) - (B.get('P_lo') or 0)); mx = max(mx, (d, r['t_exact'] + ' L' + ('%g' % r['L'])))
+print(f"P_hi bit-identical to the earlier replay at {sum(json.load(open(os.path.join(HERE, '..', r['replay_json'])))['P'] == json.load(open(os.path.join(HERE, '..', r['earlier_replay'])))['P'] for r in rows)}/{len(rows)}; max |P_lo(own) - P_lo(earlier)| = {mx[0]:.3e} at {mx[1]}; ARCH identical {sum(r['ARCH_identical_vs_replayO'] for r in rows)}/{len(rows)}")
+print('wall per tier-2 point (s):', [(r['t_exact'], round(r['wall_s'])) for r in rows if r['L'] == 28.35])

@@ -310,7 +310,7 @@ C2 (new row under line 118):
 
 Script `checker-O/lint_check.py`, log `checker-O/logs/lint_check_run.log`.
 
-* **10(g) lint** ("clearly / obviously / easy to see / well known / trivially"): **0 hits in the note, 0 in this file** at the time of the scan.
+* **10(g) lint** (the five words of KICKSTART 10(g), the regex in `lint_check.py`): **0 hits in the note; 0 hits in this file** (re-run after the last section; the word list is kept out of this file so that the scan does not find its own list).
 * **U.S. English in the note:** 0 candidates. The scan covered -ise/-yse forms (with a whitelist of true -ise words), -our forms (excluding four/hour/your/…), -re forms, and the usual British spellings (towards, programme, modelling, labelled, behaviour, colour, analyse, …).
 * **Standing order 7.** The scan looked for novelty, priority and prior-art words in the note: novel, first to, not previously, priority, prior art, new mathematical, ….
   * **No novelty or priority claim exists.**
@@ -325,3 +325,194 @@ Script `checker-O/lint_check.py`, log `checker-O/logs/lint_check_run.log`.
 
 Sources of the web search: [Timothy Trudgian (Wikipedia)](https://en.wikipedia.org/wiki/Timothy_Trudgian); [The Riemann Hypothesis: A 2026 Status Report (mathlumen)](https://www.mathlumen.com/articles/riemann-hypothesis-2026-status-report).
 
+## §B My own Control-1 launches (the two-producer rule) — 20 points, all PASS, bit-identical W to Job 1's runs of the same binary
+
+**The runner and the rules.**
+* The runner is `checker-O/replayOB.py`. Log: `checker-O/logs/replayOB_run.log`, plus `logs/replayOB_tier2_nohup.log` for the tier-2 batch.
+* Per point it writes `checker-O/out/replayOB_t<t>_L<L>.json` (twsumO's output) and `checker-O/out/replayOB_cmp_t<t>_L<L>.json` (the comparison). The table below is printed by `checker-O/replayOB_table.py`, log `checker-O/logs/replayOB_table_run.log`.
+* The binary is `checker-O/twsumO`, d57080a8…, asserted before each batch. Threads: 8. **Strictly one launch at a time:** the tier-1 batch (16:23:59–16:25:09 IST), then the tier-2 batch (16:25:16–18:19:24 IST).
+* Before each launch the runner logged `ps -Ao pcpu,comm | awk '$1>50'`, and it would have waited if a twsumO, d4_twisted_sum or d4_point process was running. None of the 20 pre-launch readings shows a process of the program. 17 show nothing above 50 %. Three each show one single-threaded process that is not the program's: a Chrome renderer at 55 %, fileproviderd at 86 % and duetexpertd at 95 %. That is below KICKSTART item 5's heavy-job count, and none is an 8-thread compute job.
+* **Thermal.** `pmset -g therm` was read before AND after every point (the "Pre/Post" column). On this Apple-silicon machine it prints **no `CPU_Speed_Limit` line**: "No thermal warning level has been recorded / No performance warning level has been recorded / No CPU power status has been recorded". It read the same at all 40 readings (20 before, 20 after). **Stop line (5) does not fire**, and every replay ran at 8 threads. The tier-2 wall times, 1 044–1 242 s, match Job 1's runs of the same binary (1 040–1 260 s), so there is no sign of throttling.
+* One SHARED row per launch and per landing was appended by the runner, in Job 1's Control-1 row format.
+* **Tolerance:** 10⁻¹⁰ + ε_proven·t·ℓ¹ (ℓ¹ = Job 1's `l1_norm`), as `control1_*.json` states it. PASS requires |ΔP| and |ΔW| against Job 1's harness AND |ΔW| against the earlier replay to be within it.
+* **The sample.** All 6 tier-2 points. At L = 22, 14 points:
+  * k = 0 (the PT height itself);
+  * k = 120 (9.49·10¹⁹);
+  * the tier-1 minimum t = 40007981065365 (k = 18);
+  * both covered-range controls, 2513274122900000 and 15202440115920748544;
+  * nine ladder heights: k = 8, 16, 32, 48, 64, 80, 96, 104 and 112, from 9.5·10¹² to 3.0·10¹⁹.
+
+| t | L | terms (same as Job 1?) | wall s (thr) | W_O (own launch) | \|ΔW\| vs Job 1 harness | \|ΔW\| vs earlier replayO | bit-identical to replayO (W; P hi+lo; ARCH) | tol | CPU_Speed_Limit | verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 3000175332800 | 22 | 171148332 (same) | 5 (8) | +3.61092708780648974e-02 | 1.80e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 9487387431502 | 22 | 171148332 (same) | 5 (8) | +4.45889923527165166e-02 | 1.80e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 30001753328000 | 22 | 171148332 (same) | 5 (8) | +4.28609490907245552e-02 | 1.18e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 40007981065365 | 22 | 171148332 (same) | 5 (8) | +2.52902930115506547e-02 | 3.82e-17 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 300017533280000 | 22 | 171148332 (same) | 5 (8) | +5.75336150537268942e-02 | 2.64e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 2513274122900000 | 22 | 171148332 (same) | 5 (8) | +4.95387229168980023e-02 | 1.80e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 3000175332800000 | 22 | 171148332 (same) | 5 (8) | +6.09385642440862171e-02 | 2.22e-16 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 30001753328000000 | 22 | 171148332 (same) | 5 (8) | +5.25288148398683555e-02 | 2.29e-16 | 0.00e+00 | True; False; True | 1.01e-10 | None/None | PASS |
+| 300017533280000000 | 22 | 171148332 (same) | 5 (8) | +6.30226680948071660e-02 | 4.72e-16 | 0.00e+00 | True; False; True | 1.07e-10 | None/None | PASS |
+| 3000175332800000000 | 22 | 171148332 (same) | 5 (8) | +6.88293213005007065e-02 | 1.48e-15 | 0.00e+00 | True; False; True | 1.67e-10 | None/None | PASS |
+| 9487387431501672448 | 22 | 171148332 (same) | 5 (8) | +6.90556878569648924e-02 | 1.30e-15 | 0.00e+00 | True; False; True | 3.12e-10 | None/None | PASS |
+| 15202440115920748544 | 22 | 171148332 (same) | 5 (8) | +7.26155582978567637e-02 | 1.47e-15 | 0.00e+00 | True; False; True | 4.40e-10 | None/None | PASS |
+| 30001753328000000000 | 22 | 171148332 (same) | 5 (8) | +6.47390754065960694e-02 | 7.48e-15 | 0.00e+00 | True; False; True | 7.72e-10 | None/None | PASS |
+| 94873874315016716288 | 22 | 171148332 (same) | 5 (8) | +7.09387419538002467e-02 | 6.05e-14 | 0.00e+00 | True; False; True | 2.22e-09 | None/None | PASS |
+| 3000175332900 | 28.35 | 75148949134 (same) | 1057 (8) | +2.22665059983847939e-02 | 1.26e-15 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 100000000000000 | 28.35 | 75148949134 (same) | 1044 (8) | +2.40327530297537000e-02 | 1.25e-15 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 10000000000000000 | 28.35 | 75148949134 (same) | 1075 (8) | +1.84337907672646253e-02 | 1.21e-15 | 0.00e+00 | True; False; True | 1.02e-10 | None/None | PASS |
+| 1000000000000000000 | 28.35 | 75148949134 (same) | 1191 (8) | +3.26830545503376813e-02 | 1.39e-15 | 0.00e+00 | True; False; True | 2.51e-10 | None/None | PASS |
+| 15202440115920748544 | 28.35 | 75148949134 (same) | 1239 (8) | +3.74731402730603125e-02 | 7.17e-15 | 0.00e+00 | True; False; True | 2.39e-09 | None/None | PASS |
+| 61609351296641974272 | 28.35 | 75148949134 (same) | 1242 (8) | +3.41904740040834959e-02 | 5.39e-14 | 0.00e+00 | True; False; True | 9.39e-09 | None/None | PASS |
+
+Summary lines printed by the script:
+* L = 22: 14 points; PASS 14; worst |dW| vs Job 1 6.048e-14 at t = 94873874315016716288 (tol there 2.224e-09, ratio 2.7e-05); worst |dW| vs replayO 0.000e+00 at t = 3000175332800; bit-identical W 14/14; max ratio dW/(line) where line>0 2.69e+00
+* L = 28.35: 6 points; PASS 6; worst |dW| vs Job 1 5.392e-14 at t = 61609351296641974272 (tol there 9.395e-09, ratio 5.7e-06); worst |dW| vs replayO 0.000e+00 at t = 3000175332900; bit-identical W 6/6; max ratio dW/(line) where line>0 2.78e+00
+* ALL: 20 points, FAIL 0; worst |dW| vs Job 1 6.048e-14
+* P_hi bit-identical to the earlier replay at 20/20; max |P_lo(own) - P_lo(earlier)| = 2.833e-30 at 3000175332900 L28.35; ARCH identical 20/20
+* wall per tier-2 point (s): [('3000175332900', 1057), ('100000000000000', 1044), ('10000000000000000', 1075), ('1000000000000000000', 1191), ('15202440115920748544', 1239), ('61609351296641974272', 1242)]
+
+**Reading.**
+* **No FAIL. The worst |ΔW| against Job 1's harness is 6.048·10⁻¹⁴ (L = 22, k = 120; tolerance 2.22·10⁻⁹, a ratio of 2.7·10⁻⁵).** At L = 28.35 it is 5.392·10⁻¹⁴ (k = 117; tolerance 9.39·10⁻⁹).
+* **Against the earlier record (Job 1's `out/replayO_*.json`, or part A's `checker-O/out/zetaO_t3000175332900_L28.35.json` at the PT edge): W is bit-identical at 20/20, P's high word at 20/20 and ARCH at 20/20.** Only P's low word differs, by at most 2.8·10⁻³⁰ (the PT edge).
+* That spread is exactly the order dependence of dynamic segment scheduling with double-double accumulation: the threads pick segments in a different order on each run, the dd sum rounds differently in its low word, and the high word (P) and hence W come out identical. The spread is twenty orders below the tolerance.
+* So the two producers' runs of the second implementation agree bit for bit in W, and Job 1's Control-1 rows are confirmed from my own launches at all 20 sampled points. Every term count equals Job 1's harness and the earlier replay: 171 148 332 at L = 22 and 75 148 949 134 at L = 28.35.
+* The script's "max ratio dW/(line) ≈ 2.7–2.8" occurs at the lowest heights, where the phase line (≈ 10⁻¹⁶) is below the double-rounding level of |ΔW| (≈ 10⁻¹⁶–10⁻¹⁵). The 10⁻¹⁰ floor of the tolerance covers it. It is not a phase effect.
+
+**§B verdict: CLEAN. Stop line (1) does not fire.**
+
+## §C.8 Verdict per section of the note, the overall line, and the sentence for STATUS
+
+No fix below changes a computed value, a W, a verdict, a control or the silence. They correct stated bounds, one visibility sentence, one measure, labels and one file reference. The orchestrator applies them. I edited nothing.
+
+| note § | verdict | the exact fix (details in the section named) |
+|---|---|---|
+| §0 | **FIX-FIRST** (label) + MINOR | §0.3: add the δ_vis extrapolation label to "at visible depths δ_vis = 0.10–0.19" (C.5). MINOR: §0.4 "The silence is not evidence (zoo IV.9)" → "not evidence for RH (zoo IV.9); it is a floating-point record of no sign flip at 129 heights for orbits of depth ≥ δ_vis within the kernel's reach"; §0.2 "none containing a sweep height" → "none containing a non-control sweep height" |
+| §1 | CLEAN | — |
+| §2 | CLEAN | (§A: the mandatory flag, the hashing at launch and the binary calls, verified at the file) |
+| §3 | **FIX-FIRST** (3 numbers) + MINOR | the tier-2 interpolation "8.7·10⁻¹³" → "8.5·10⁻¹³"; the tier-1 quadrature "≤ 10⁻¹⁶" → "≤ 5.6·10⁻¹⁶"; bracket "≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰ (worst 2.73·10⁻²⁰ at t = 533 515 002 082 491, L = 22)". MINOR: add the Neumaier row (≤ 6.3·10⁻¹⁸) and the weight-rounding row (4u·ℓ¹: 9.7·10⁻¹⁵ / 6.5·10⁻¹⁴; the minima become 1.5·10⁻¹³ / 9.6·10⁻¹³); "≤ 2.12·10⁻⁹" → "≤ 2.13·10⁻⁹" wherever a bound is meant; quote the sweep's own pole bounds (10^{−1 008 780}, 10^{−1 145 152}) (C.2) |
+| §4 | MINOR | §4.3: "(02:18–02:48 IST)" → "(02:18–02:48 IST, then Job 2's PT-edge replay 02:49–03:19 IST)" (C.4) |
+| §5 | **FIX-FIRST** (1 number) + MINOR | "Total measure 2.75·10⁹ in t" → "Total measure (union) 2.72·10⁹ in t (the plain sum 2.75·10⁹ counts the five Odlyzko 1992 sets that overlap Gourdon's windows twice)"; the fraction 2.7·10⁻¹¹ stands. MINOR: the edge-precision wording above 10¹⁸ (C.3); the ladder formula "t_k = float(round(PT·10^{k/16})) in double arithmetic" (C.1); the prior-art label on "(a)" and "Rigorous coverage above PT's height: none" (C.7) |
+| §6 | CLEAN | 133 rows × 27 checks, 0 discrepancies (C.1) |
+| §7 | **FIX-FIRST** (1 sentence + label) + MINOR | "δ = 0.1 is visible at L = 28.35 only up to ≈ 3·10¹² (…) and at no point of tier 1" → "δ = 0.1 is visible at no sweep point: δ_vis(t, 28.35) = 0.1 at t ≈ 1.5·10¹², below PT's height (δ_vis = 0.1013 at the PT edge, rising to 0.1276 at the ceiling; 0.0993 at the (10¹², 28.35) rehearsal point, inside PT's range)" (C.4); add the δ_vis extrapolation label to both paragraphs (C.5). MINOR: the δ = ¼ band caveat; the L* ≈ 1267 context "(at (0.1, 10⁶))"; the kernel-reach wording "within |γ − t| of a few times 1/L (1/L = 0.045 at L = 22) [inferred]"; the ladder formula |
+| §8 | CLEAN | — |
+| §9 | MINOR | F3 carries §5's measure fix; the sequencing wording of the last line (C.4) |
+| §10 | **FIX-FIRST** | "Inferred: none load-bearing" → list "δ_vis(t, L) above t = 10⁶ (the law's extrapolation; §7)"; stop line (6) "≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰"; "Not run: … Job 2's own part-B launches" → "Job 2 part B ran its own launches at 20 points (all six tier-2, 14 tier-1), all PASS, W bit-identical to Job 1's runs of twsumO (CHECK-O-B.md §B)" |
+| 10(n) | CLEAN | — |
+| §11 | **FIX-FIRST** | the B2 row cites `check-O.md` → `CHECK-O-A.md` (gate) and `CHECK-O-B.md` (parts B/C); the δ_vis label (B2); the C2 row's checker-O "line ≈ 5·10⁻¹⁴" → "a MEASURED error of 3.5·10⁻¹⁶ rad at 10²⁰ (sample max over 5 000 n; no proven bound derived)". MINOR: the "↳ [EXTENSION …]" tag; repository paths; drop "the certified-refutation arm's only mechanism-seeking search to date"; credit CHECK-O-A §2(b) for ε; "(L ≥ 20)" on the sampled maxima. The corrected rows are in C.6, verbatim |
+| §12 | **FIX-FIRST** + MINOR | S2: "δ = 0.1 visible only at L = 28.35 up to ≈ 3·10¹²" → "δ = 0.1 visible at no sweep point (at L = 28.35 only below t ≈ 1.5·10¹², inside PT's range)", with the δ_vis label; stop line (6) "≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰"; IV.9 "computed per point" → "computed per point from the campaign's law, extrapolated beyond its measured range (§7)". MINOR: "budget (≤ 2.1·10⁻⁹ at L = 22" → "≤ 2.13·10⁻⁹"; the δ = ¼ band caveat |
+
+**Part A re-check (§A): (b) CLEAN, (f) CLEAN. Part B (§B): CLEAN, 20/20 PASS.**
+
+**Overall: FIX-FIRST (small).** Eight items, all wording, labels, stated bounds or a file reference:
+* three budget numbers (§3, repeated in §10 and §12);
+* one measure (§5 and §9 F3);
+* one visibility sentence (§7 and §12 S2);
+* one unlabeled inference, δ_vis extrapolated beyond the law's measured range (§0, §7, §10, §12, §11);
+* one wrong file reference and one sample-for-bound label (§11).
+
+None touches a computed value. The silence at all 129 points, the ceiling 6.63·10¹⁹, the two-implementation agreement and both controls are confirmed by independent scripts and by my own launches. No stop line of the brief fired: (1) no FAIL; (2) 694/694 hashes match; (3) the evaluator hashes match, with no rebuild; (4) no §6 W differs from its JSON; (5) no throttling reported. The Instruments rows may be appended in the corrected form of C.6 once the fixes are applied.
+
+**The one sentence for STATUS:**
+
+"D4 closed SILENT and dual-checked (Job 2 parts B/C, `CHECK-O-B.md`, FIX-FIRST on wording, labels and stated bounds only): at 129 heights at and above Platt–Trudgian's 3 000 175 332 800 — 123 at L = 22 up to 9.49·10¹⁹ and 6 at L = 28.35 up to the pipeline's proven phase ceiling 6.63·10¹⁹ (ε = 1.027·10⁻³⁰) — W_ζ(f_{t,L}) is positive at every point, a silence that claims nothing about RH (IV.9); the two implementations agree to ≤ 6.8·10⁻¹⁴ at all 129 points, and Job 2's own launches at 20 of them reproduce Job 1's runs of its evaluator bit for bit in W; found nothing, correctly."
+
+## Honesty block
+
+* **Read at the page:**
+  * the brief; CHECK-O-A;
+  * the note §0–§5, §7–§12, with §6 by script;
+  * SHARED.md's checkpoints and close block;
+  * `harness/eps_phi.json`, `sweep_plan.json`, `d4_twisted_sum.rs` (the lines named in the header), `d4_point.py` (lines 26, 49–50, 77, 111, 116–128, 139–149), `d4_plan.py` line 64, `d4_run_tier.py` lines 60–95, `d4_note_table.py`;
+  * the five sidecars;
+  * Odlyzko 1992 PDF pp. 8 and 140, and Odlyzko 2001 PDF p. 3, as page images rendered this session; Gourdon lines 1834–1859;
+  * `BARRIER-ZOO.md` IV.9 (line 429 onward), IV.19 (line 539 onward) and the V.2/V.4 headings;
+  * B2 lines 99–112, D1 lines 163–186, C2 lines 93–130;
+  * KICKSTART Part 2 items 3 and 5 and 10(k);
+  * `m6-rung1-note.md` §3 (the budget template).
+* **Computed** (scripts under `checker-O/`, logs named in each section): every number in §A, §B and C.1–C.7.
+* **Inferred:**
+  * the weight-rounding count "≈ 3.5u + 0.5u per term" (C.2), from reading `add_term` line 295, not from a proof;
+  * the reading of the plan's 2.75·10⁹ as a plain sum. It is confirmed exactly: Σ(t_hi − t_lo) = 2 748 240 445.46 (`logs/plan_measure_sum_run.log`);
+  * the explanation of the P_lo spread as scheduling order. The mechanism is in the source (atomic segment counter, `twsumO.go` line 439); the spread itself is measured.
+* **Recalled, unverified:** none load-bearing.
+* **Not done:**
+  * replays of the other 109 tier-1 points by my own launches (the brief asks for ≥ 12; I ran 14);
+  * a rebuild of twsumO (not needed; the hashes match);
+  * an exhaustive literature search (one web search, C.7);
+  * any edit of Job 1's files.
+* **A correction to my own part A**, recorded here: CHECK-O-A §2(b) called checker-O's 3.5·10⁻¹⁶ rad at 10²⁰ a "phase line ≈ 5·10⁻¹⁴". That is a sample maximum, not a bound (C.6). CHECK-O-A itself is not edited.
+
+## SHA-256 of every file created in this job
+
+The manifest is `checker-O/logs/checkOB_manifest_sha256.txt`, written by `shasum -a 256` at the close. It has 65 files: 8 scripts, 13 logs, 4 check outputs and 40 replay JSONs (20 twsumO outputs + 20 comparisons).
+
+```
+491e33afb9055fa7bf8d8a856b59d50e4fc88475bd6b849f5d12766cb18c8017  checker-O/replayOB.py
+9d85a3d281c12e9ff9aeeee22ca504d1cf1d1f0ecd398f2461e5d374de5fae47  checker-O/replayOB_table.py
+155fcb3b9adb4a0560c909d3763e870478615a0b7270673d33333e560fe4c224  checker-O/partA_recheck.py
+1f6ac7a6e6ad3a3c354639a3cea7e30e294c3d636b0642ad0cf4eaeab4ff7fea  checker-O/table_check.py
+17969b78a7c05876e4251a8bb79c1086d422aa278976011f8942dd9fbbd0da0b  checker-O/budget_check.py
+1d3743e9364f2c18937aee14eda824ba85eeb6cef7ecb58c7b1acfced8732b6b  checker-O/coverage_check_B.py
+d7fe36197a37d33037e8698a6ebcdf4181e5fb95c7b6393f80a49ef030a44199  checker-O/numbers_check.py
+1fd58c780e2a41ea68d225b9c107d96336afe0f050006075a2e7a20fbb6ee2e2  checker-O/lint_check.py
+0d2b3f399a18584482ec9e1bd3e7e9c61d449409a6e93456c1ddfd1d6860a836  checker-O/logs/replayOB_run.log
+2259e40c922da5c3ed09dfdf6ce7de5b82eb9fa8f4344d83981f718616e43542  checker-O/logs/replayOB_tier2_nohup.log
+7ea75a5d64cb658553c78d4e88e7d4c9b2dd913b74167d79326ba97ba77d5305  checker-O/logs/replayOB_table_run.log
+b8494b7ec7b5f875b59a9ed8ff3030ed5b68f2e77e31153cd87d8da77c535067  checker-O/logs/partA_recheck_run.log
+56a5bb75ae2f244baa17a314e309104197ef2e2c8c544f23d8b7ad135fab639f  checker-O/logs/table_check_run.log
+2f854700756dad02fc35e97d1becb37cfe366591fba4d891857bd49f3c8d59cb  checker-O/logs/ladder_diff_run.log
+3792f66493098565cc3aedca05a61e3fbb06532ae9e006b8b97d479a0e79ab19  checker-O/logs/budget_check_run.log
+efff107401e783fd138aaf9c5c3381f5c68ec177fd86d5b87316675051ad22fa  checker-O/logs/bracket_tier2_run.log
+1825323eb0eb723c0743071de7cb9516b3e249e5398b86fc44b0250416488ed1  checker-O/logs/coverage_check_B_run.log
+5b9ad0ac26ac2229be380c5503d4d743cc6243eb61d6ec1e69e7eea4e5b08264  checker-O/logs/plan_measure_sum_run.log
+9505111e33a3ebd9b01c8607770992d430a32545c63177fc0cd8743f8f190ccc  checker-O/logs/numbers_check_run.log
+f974a7a46865e13175312bf41da2e1dfad3c18ef269fab89ed3bdde10b0de90f  checker-O/logs/selftest_max_run.log
+6337114603d79631d93bfaadf920ca1724f650eba9c2d86344180a74a7530ffe  checker-O/logs/lint_check_run.log
+d0ddfd4702ac2aea73865bc56012f9376ed916b0dc7410e18c1c12845db5a14e  checker-O/out/partA_recheck.json
+bb8e0d3314237684f934988dc0ced6c379e3f65885a890feb78302e08c569c38  checker-O/out/table_check.json
+bfca37355a68729578a60f262eedc261e842c23435c7bd36fd2f133e9eaa9711  checker-O/out/budget_check.json
+b9ed5d36304d39a2471189a05fdef200d412b42292d438f6d8007ee5a13ee848  checker-O/out/coverage_check_B.json
+0fa6e7d64a2a4464b5093a0318c561ea858fbc1e66bb75cafdde77cb369f6205  checker-O/out/replayOB_cmp_t100000000000000_L28.35.json
+89de5421a0c056256f5f67411fa63b5dcc8489e106254eedcb19159e71da5cbf  checker-O/out/replayOB_cmp_t10000000000000000_L28.35.json
+efd8645df3d4ca41b15eaa4a5e9541a05b189963aed288ebb1fb7d1adf3230bc  checker-O/out/replayOB_cmp_t1000000000000000000_L28.35.json
+a9bebcf8c3c542e14ff33194563afe845b93bf7f5b864ac6a0aeed26ba7c27b8  checker-O/out/replayOB_cmp_t15202440115920748544_L22.json
+d38a9ea7310399d5e9ddee7805914e1fa888680fef3cc2ec959f1fd3cbdaca45  checker-O/out/replayOB_cmp_t15202440115920748544_L28.35.json
+33cc8d0dcbf356213d713d23cfa3dcff403b8b9c7635cbf5d5476abde2f62e5b  checker-O/out/replayOB_cmp_t2513274122900000_L22.json
+d43b81a67d28fee3cc6f995829a24cd842bb2785035a3cee817dbaaa762ee50e  checker-O/out/replayOB_cmp_t3000175332800_L22.json
+2323fefb304b9574b406ee7d401d84deea68da37034b1d70f2533abfbc7eb03e  checker-O/out/replayOB_cmp_t30001753328000_L22.json
+c81677a2b58361995b0b0cc88e9fe0eb05822f5f528bb3be6823dfedd957deb7  checker-O/out/replayOB_cmp_t300017533280000_L22.json
+694a40c92015099eddeb8766274c1a83eaca4d8f9e457f82105ffc8c3f05b0bb  checker-O/out/replayOB_cmp_t3000175332800000_L22.json
+4cbf66d6b83919e793382a429da533f013e19863a006cfba1833e50804a70ee6  checker-O/out/replayOB_cmp_t30001753328000000_L22.json
+b1c2abd20972170c2cb09afa8ab9ac48b35da9eedf39779f94516846a67488ff  checker-O/out/replayOB_cmp_t300017533280000000_L22.json
+846621e86b6e635e67e7f556a7e5ba5e7385dcac3d0a52d2b1b8499fc5dcd1e7  checker-O/out/replayOB_cmp_t3000175332800000000_L22.json
+2240cfac85926742bd7017a4bb2feec4bddb27fa3563204d174e0a5e2907996f  checker-O/out/replayOB_cmp_t30001753328000000000_L22.json
+9825630f39d97a855a96556c0fb83b0031f52a34971c1e9b42ef65c096314f2e  checker-O/out/replayOB_cmp_t3000175332900_L28.35.json
+213dba140e3e2b73ae1659bc10ffdbae344a020e3c228b401db34b758bb63dab  checker-O/out/replayOB_cmp_t40007981065365_L22.json
+2bae9179c693dc1367ad897f1a9e99d40f038845dc1e3bda369b9d23f73a9abe  checker-O/out/replayOB_cmp_t61609351296641974272_L28.35.json
+1edbf617275bda92f673c130d30188c9cb338c68f335b86863b7c8833d23c6ca  checker-O/out/replayOB_cmp_t94873874315016716288_L22.json
+d82f0e8ba706545085c49c9d827f988718571cd6afd8e0ce0acba17080dc42bc  checker-O/out/replayOB_cmp_t9487387431501672448_L22.json
+8c13f175ff4203d3bd38d4dae0bd232fbebf4c05c22f1863e93b837bbf53ae2f  checker-O/out/replayOB_cmp_t9487387431502_L22.json
+cbcf4c038b44e04d755f1c63074ea103486aa4eff3eedf2a1eba0104c577000b  checker-O/out/replayOB_t100000000000000_L28.35.json
+20d4bcf7e76709884349abdc2f3eb60207bbd201691c6ee3357f4e9edb3c0323  checker-O/out/replayOB_t10000000000000000_L28.35.json
+eb8c65635817518814194459116b610a10d96e02e1c1a2796b1061ddd46386c3  checker-O/out/replayOB_t1000000000000000000_L28.35.json
+1a20cecc343965c730ce617625d7b0e48bd5b81bda2844fed15daf4879ac4f83  checker-O/out/replayOB_t15202440115920748544_L22.json
+a1410df5e30eebe3507e1843c6caa6ceb636cbfecd742b181278de21d738e7f3  checker-O/out/replayOB_t15202440115920748544_L28.35.json
+9457fc4184b415fa1dc992015f4c04047193fa03c98786086d0e7391f2ecee28  checker-O/out/replayOB_t2513274122900000_L22.json
+3ba6219d35af1c7ab9194dd94197a214ad6d83b6dc56f23b61dcc703fb152ebc  checker-O/out/replayOB_t3000175332800_L22.json
+7055995c9276e3732e4b0f380fbbe14a4859ca8d398cd318b787536f0dffa134  checker-O/out/replayOB_t30001753328000_L22.json
+5b063531812b5bb8020e9af034866c71a8477b8880d7be858e3a90dcf8f79dfd  checker-O/out/replayOB_t300017533280000_L22.json
+ae129ee43978f4a0b4a3042f3a8dd8a121a657e57e3ee493fbcc9bf679ac0e6e  checker-O/out/replayOB_t3000175332800000_L22.json
+56c42df7a704657645807711abe083a40b0cdff8994193395d7935532cf20479  checker-O/out/replayOB_t30001753328000000_L22.json
+f93b9c455075551253e588a607c241b35dfc014fbe720ba6ca851b027bf2c7de  checker-O/out/replayOB_t300017533280000000_L22.json
+91f925326a982f0bd6687c934b0d3b7fe940a9c66cfa1215add443d44a072bec  checker-O/out/replayOB_t3000175332800000000_L22.json
+106a8d0a92d9e4b1c5e1af3b25ae36aaa7eb3a32ab47cbbc628676d79745ebef  checker-O/out/replayOB_t30001753328000000000_L22.json
+9e4553340fa20c5245d45ea22a2b0ab8355f2b8f6fd650f4415366a311062b39  checker-O/out/replayOB_t3000175332900_L28.35.json
+1db3540d46c590175521a1f6ec34161ebda14f319bd0c64817e8ed0d0d521ab3  checker-O/out/replayOB_t40007981065365_L22.json
+83d1cc30ee4b3db7fab1f2648a27c7f6d9c356379e47a43d860df96777c0d9e1  checker-O/out/replayOB_t61609351296641974272_L28.35.json
+799583fcb6f1863c56cbc365e0df5be856eeb69382e6385940a2f3f6796aebe3  checker-O/out/replayOB_t94873874315016716288_L22.json
+7537266fdf24709ba4d5ec846cb962684a6e09122496547de7df05958c1de43d  checker-O/out/replayOB_t9487387431501672448_L22.json
+72bcaa27ea79f17630d6fa6ce8cf288f5b8bc4b71026e4885db28f37fd0a5ac9  checker-O/out/replayOB_t9487387431502_L22.json
+```
+
+*Closed Fri Sep 25 18:22:30 IST 2026 (machine clock). The SHA-256 of this file is printed in the last row of `SHARED.md`.*
