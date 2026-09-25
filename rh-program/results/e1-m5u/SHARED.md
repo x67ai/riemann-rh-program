@@ -14,3 +14,26 @@
 - Clause 4: the soft-windowed datum at height T is a continuous PD function (Krein–Langer Thm 4.4 applies exactly) and is indeterminate at every (T, L) outside countably many T; integrality is invisible to it linearly. H4(c)'s first obstacle named.
 - Clauses 5–7 and the dependency chain (no cycles); H2 restated with (i)–(iv) decided.
 - Next: §3 ladder (rung-1 exact pair, rung-3 cyclic cubic pair + LMFDB confirmation, ζ has no partner).
+
+## Block 3 — §3 landed (Sat Sep 26 01:58:45 IST 2026)
+- Rung 1: NEW exact ghost pair at m = 1 < g = 2 over F_7 (two actual curves, same N₁ = 1, P differing at t²) — D1(b) Untried line 2's rung-1 item DONE. Every N₁ ∈ {1..15} carries ≥ 2 distinct P(t).
+- Rung 3: the cyclic cubic pair of conductor 229·367 (|d| = 7063225849), p₀ = 19; LMFDB fields 3.3.7063225849.1 (K₂) and .2 (K₁) confirm every splitting type at 2..17 (all inert in both) and the first difference at 19. Datum equality argued from Yoshida (1.6) p. 284 (conductor in δ₀, Gamma factors in r₁V₁ + 2r₂V₂). Pair is an exact FREE-stratum ghost (α ≥ ½ only for T ≤ 0.023); it cannot reach the determined stratum.
+- ζ has no partner: KP 1999 p. 210 read; ghosts of ζ are not L-function zero sets.
+- Stop line (ii) fires (does not stop the slot). Next: §4 the positivity step and the DECISION.
+
+## Block 4 — §4 landed (Sat Sep 26 02:00:01 IST 2026)
+- DECISION: STOP at stop line (iii). (a) Krein determinacy REFUTED (indeterminate at every L, §2.3); (b) hard-window Toeplitz rejected (no finite system; leakage is an RvM-size infinite measure); (c) soft-windowed taper REFUTED as a YES-route (indeterminate at every (T, L), §2.4) but RETAINED as the contract's localized form; (d) M2 clause 7 rejected (pairs vs doubles; on-line ghosts); (e) crystalline-measure literature rejected at hypotheses (gap vs discrete spectrum; unit-mass constructions point the other way; [recalled, unverified], SPONSOR-FETCH candidate); (f) the arithmetic shape — first obstacle: the ghost has ζ's prime side by definition, so ζ's arithmetic is exhausted by the class's definition.
+- Next: §5 E7 (H5 confirmed; proposed §4.2 correction), §6 zoo protocol + rider on II.1.
+
+## Block 5 — §5–§6 landed (Sat Sep 26 02:01:32 IST 2026)
+- H5 CONFIRMED at the page: E7 theorem proved from Krein–Langer 2014 Thm 5.1/Cor 5.2 (p. 34) + Suzuki 2023 Prop 3.1 (p. 10) and −g″ = Ψ″ = W (p. 11); the mollifier-limit gap is bypassed (the λ⁻² of the screw representation absorbs the divergent mass). Proposed §4.2 CORRECTION paragraph written in exact words (§5.2). C2 Untried line 3 leaves into this file.
+- §6: zoo §0 items 1–7 run; proposed rider on II.1 in exact words; no Group-IV block.
+- Next: §7 close, §8 C2 lines, §9 honesty + lint, closing hashes.
+
+## Block 6 — §7–§9 landed; CLOSED (Sat Sep 26 02:04:27 IST 2026)
+- §7: verdict table (H1 CONFIRMED+strengthened; H2 CONFIRMED as restated, 3 sub-clauses decided; H3 CONFIRMED with 2 precisions; H4 DECIDED — STOP at (iii), (a) and (c) refuted by theorem; H5 CONFIRMED at the page). The three 10(c) closes written; 10(m) labels; 10(o): 0 slots wasted; record corrections (Bombieri Thm 10 at p. 221, trichotomy = Corollary p. 224; Poltoratski not under c2-m5b; KL files in fetched-r2; r-22a irrelevant).
+- §8: three Instruments rows; Untried lines 1–2 updated, line 3 LEFT into this file; work-log line; frontier sentence. §9: honesty + lint (banned words only inside the Lapidus quotation).
+- Lint grep at close: only line 54 (verbatim Lapidus quote) and the lint sentence itself.
+- FINAL HASHES: FORMULATION.md 7d7d00726e20c6876a44d5540d055614159e0041a4320056f2a559b245e40343; scripts and logs in verify/hashes.txt (rung1_ghost_pair.py c16d03bb…, rung3_cubic_pair.py abc963b5…, h1_strip_test_check.py 32bdab98…); sources: lapidus 85e2e128…, LMFDB .1 b54339d3…, .2 eb056078….
+- Reader's hardest checks: (1) §2.1 identity (2.2) and the strip positivity (the whole of clause 1 rests on it); (2) §2.3(b)'s use of G_X = ∞ (record, RH) and the symmetrization steps; (3) §3.3(a) datum equality via Yoshida (1.6) — the conductor in δ₀ only; (4) §5.1 step (2), the passage from mean-zero smooth tests to Krein–Langer's kernel-PD definition; (5) §4's dismissals, adversarially.
+- Files present: FORMULATION.md (no read-O.md yet) → launch the reader.
