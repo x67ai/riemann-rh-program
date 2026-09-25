@@ -1,0 +1,2542 @@
+                                                     SPECTRAL GAPS FOR SETS AND MEASURES
+
+
+
+
+arXiv:0908.2079v2 [math.CV] 20 Aug 2009
+                                                                                A. POLTORATSKI
+
+
+                                                  Abstract. If X is a closed subset of the real line, denote by GX the supremum
+                                                  of the size of the gap in the Fourier spectrum, taken over all non-trivial finite
+                                                  complex measures supported on X. In this paper we attempt to find GX in
+                                                  terms of metric properties of X.
+
+
+
+
+                                                                               1. Introduction
+                                            Let µ be a non-zero finite complex measure on the real line. By µ̂ we denote its
+                                          Fourier transform
+                                                                             Z
+                                                                      µ̂(z) = exp(−izt)dµ(t).
+                                              Various properties of the Fourier transform of a measure have been studied by
+                                          harmonic analysts for more than a century. One of the reasons for such a prolonged
+                                          interest is the natural physical sense of the quantity µ̂(t). For instance, in quantum
+                                          mechanics, if µ is a spectral measure of a Hamiltonian then |µ̂(t)|2 represents the
+                                          so-called survival probability of the particle, i.e. the probability to find the particle
+                                          in its initial state at the moment t. The problems considered in the present paper
+                                          belong to the area of the Uncertainty Principle in Harmonic Analysis, whose name
+                                          itself suggests relations and similarities with physics.
+                                              The Uncertainty Principle in Harmonic Analysis, as formulated in [12], says that
+                                          a measure (function, distribution) and its Fourier transform cannot be simultane-
+                                          ously small. This broad statement gives rise to a multitude of exciting mathematical
+                                          problems, each corresponding to a particular sense of ”smallness.”
+                                              One of such problems is the well-known Gap Problem. Here the smallness of µ
+                                          and µ̂ is understood in the sense of porosity of their supports. The statement that
+                                          one hopes to obtain is that if the support of µ̂ has a large gap then the support
+                                          of µ cannot be too ”rare.” As usual, the ultimate challenge is to obtain quantative
+                                          estimates relating the two supports, something that we will attempt to do in this
+                                          paper.
+                                              Beurling’s Gap Theorem says that if the sequence of gaps in the support of µ
+                                          is long, in the sense given by (5.2), then the support of µ̂ cannot have any gaps,
+                                          unless µ is trivial, see [3]. The proof used some of the methods of an earlier gap
+                                          theorem by Levinson [18]. In [7] de Branges proved that existence of a measure
+                                          with a given spectral gap is equivalent to existence of a certain entire function of
+                                          exponential type. We discuss a version of this result in section 8. For further results
+                                          and references concerning the gap problem we refer the reader to [3, 2, 14, 18].
+                                              Our goal in this paper is to find an ”if and only if” condition for a closed set
+                                          X on the real line to support a non-trivial complex measure with a given size of
+
+                                            The author is supported by N.S.F. Grant No. 0800300.
+                                                                                         1
+2                                  A. POLTORATSKI
+
+
+the spectral gap. To this end we introduce a new metric characteristic of a closed
+set, CX , see section 5 for the definition. Our main result is theorem 2 in section
+6 that says that the supremum of the lengths of the spectral gaps, taken over all
+non-trivial measures supported on X, is equal to 2πCX .
+   The definition of CX contains two conditions that, for the purposes of this paper,
+we call the density condition and the energy condition. As discussed in section 5,
+the density condition is similar to some of the definitions of densities used in this
+area. The physical flavor of the energy condition seems to suggest new connections
+for the gap problem that are yet to be fully understood.
+   As discussed in section 2, the gap problem can be equivalently reformulated
+as follows. Let µ be a finite complex measure on R. Find the supremum, over
+all non-trivial f ∈ L1 (|µ|), of the size of the spectral gap of the measure f µ.
+If one replaces L1 with L2 in this statement, one obtains (via simple duality)
+another famous problem, the problem of Wiener and Kolmogorov on completness of
+families of exponentials in L2 (µ), see [16] or [10]. In [16] the problem is formulated
+in the language of Krein strings. Since for finite measures L2 ⊂ L1 , our result
+gives an upper estimate for the Wiener-Kolmogorov problem. The L∞ -version was
+considered by Koosis, see [14].
+   Via duality the gap problem admits a reformulation in terms of Bernstein’s
+weighted approximation. From that point of view, 2πCX is the minimal size of
+the interval such that continuous functions on X admit weighted approximation by
+trigonometric polynomials with frequencies from that interval, see section 3. The
+”approximative” relatives of the gap problem and connections with other classical
+areas, such as stationary Gaussian processes, are discussed in [11, 15, 14, 17].
+   Our methods are based on the approach developed by N. Makarov and the author
+in [19] and [20]. We utilize close connections between most problems from this area
+of harmonic analysis and the problem of injectivity of Toeplitz operators. In the
+case of the gap problem, this connection is expressed by theorem 1 below. The
+Toeplitz approach for similar problems was first suggested by Nikolski in [23], see
+also [24]. Our main proof utilizes several important ideas of the Beurling-Malliavin
+theory [4, 5, 20], including its famous multiplier theorem.
+   One of the advantages of the Toeplitz approach is that it reveals hidden connec-
+tions between various problems of analysis and mathematical physics, see [19]. The
+relations between the gap problem and the Beurling-Malliavin theory on complete-
+ness of exponentials in L2 on an interval have been known to experts, at a rather
+intuitive level, for several decades. Now we can see this connection formulated in
+precise mathematical terms. Namely, the Beurling-Malliavin problem is equivalent
+to the problem of triviality of the kernel of a Toeplitz operator with the symbol
+                                  φ = exp(−iax)θ,
+for a suitable meromorphic inner function θ, whereas the gap problem is equivalent
+to the triviality of the kernel of the Toeplitz operator with the symbol
+                                   φ̄ = exp(iax)θ̄,
+see [19] section 4.6 and theorem 1 below.
+
+
+    The paper is organized as follows:
+                     SPECTRAL GAPS FOR SETS AND MEASURES                             3
+
+
+     • In section 2 we discuss an alternative formulation of the gap problem and
+       show that the maximal size of the gap for a fixed measure taken over all
+       possible densities is a property of the support of the measure.
+     • In section 3 we look at the gap problem from the point of view of Bern-
+       stein’s weighted approximation of continuous functions by trigonometric
+       polynomials.
+     • In section 4 we restate the gap problem in terms of kernels of Toeplitz
+       operators and introduce the approach that will be used in the main proof.
+     • Section 5 contains the main definition and its discussion. For a closed real
+       set X we define a metric characteristic CX that determines the maximal
+       size of the gap over all non-zero complex measures supported on X.
+     • Section 6 contains the main result and its proof.
+     • In section 7 we prove several technical lemmas and corollaries used in sec-
+       tions 5 and 6.
+     • Section 8 can be viewed as an appendix. It contains a Toeplitz version of
+       the statement and proof of theorem 66 from [7].
+
+
+              2. Spectral gap as a property of the support
+
+   Let M be a set of all finite Borel complex measures on the real line. If X is a
+closed subset of the real line denote
+
+ GX = sup{a | ∃ µ ∈ M, µ 6≡ 0, supp µ ⊂ X, such that µ̂ = 0 on [0, a]}. (2.1)
+  Now let µ ∈ M . Denote
+
+            Gµ = sup{a | ∃ f ∈ L1 (|µ|) such that fcµ = 0 on [0, a]}.            (2.2)
+
+
+Proposition 1.
+                                   Gµ = Gsupp µ .                                (2.3)
+
+
+Proof. Obviously, Gsupp µ ≥ Gµ . To prove the opposite inequality, notice that by
+lemma 8 there exists a finite discrete measure
+                               X
+                          ν=       αn δxn , {xn } ⊂ supp µ,
+such that µ̂ has a gap of the size greater than Gsupp µ − ε. Around each xn choose
+a small neighborhood Vn = (an , bn ) so that for any sequence of points
+                                   Y = {yn }, yn ∈ Vn
+                                              P
+there exists a non-trivial measure ηY =          βn δyn such that η̂ has a gap of the
+size greater than Gsupp η − ε. The existence of such a collection of neighborhoods
+follows from the results of [2] (for some sequences), from [6] as well as from theorem
+2 below.
+   Now one can choose a family of finite measures ητ , τ ∈ [0, 1] with the following
+properties:
+4                                  A. POLTORATSKI
+
+
+       • for each τ ,                      X
+                                    ητ =            βnτ δynτ
+         such that ynτ ∈ Vn and η̂τ has a gap of the size greater than Gsupp η − ε
+         centered at 0;
+       • the measure                   Z        1
+                                     γ=             ητ dτ
+                                            0
+          is non-trivial and absolutely continuous with respect to µ.
+    It remains to notice that then γ̂ has a gap of the size greater than Gsupp η −ε. 
+
+
+       3. Approximation of continuous functions by trigonometric
+            polynomials: Bernstein’s version of the gap problem
+
+Definition 1. Let X ⊂ R be a closed set. A weight is any lower semicontinuous
+function W : R → [1, ∞) that tends to ∞ as x → ±∞. For any given weight W we
+define C0 (W, X) to be the space of all continuous functions on X satisfying
+
+                                                    f (x)
+                                    lim                     = 0.
+                               x∈X, x→±∞ W (x)
+
+   (If X is bounded from below or from above, the corresponding limit is dropped
+from the definition. In particular, for bounded X, C0 (W, X) is just C(X).)
+   We define the norm in C0 (W, X) as
+
+                                  ||f || = ||f W −1 ||∞ .
+   As usual, we say that a system of functions is complete in a space if finite linear
+combinations of functions from that system are dense in the space.
+   If a > 0 we denote by Ea the set of complex exponentials with frequencies between
+0 and a:
+
+                             Ea = { exp(iλt) | λ ∈ [0, a]}.
+Definition 2. If X ⊂ R is a closed set, define the approximative capacity of X,
+AX , as
+
+          AX = inf{ a | Ea is complete in C0 (W, X) for any weight W }
+or ∞ if the set is empty.
+   The same quantity can be defined in a different way. Denote by C0 (X) the
+space of all continuous functions on X tending to 0 at infinity, with the usual sup-
+norm. If one now wants to discuss approximation by trigonometric polynomials in
+C0 (X), he encounters a small problem: exponential functions are no longer inside
+the space. The solution is to consider ”linear combinations” of exponentials, e.g.
+the Payley-Wiener space
+
+                             P Wa = {fˆ | f ∈ L2 ([0, a]},
+    and define
+                     SPECTRAL GAPS FOR SETS AND MEASURES                              5
+
+
+
+
+                      AX = inf{ a | P Wa is dense in C0 (X)}
+or ∞ if the set is empty.
+   It is not difficult to show that the above definitions of AX are equivalent.
+  The following statement is a product of the standard duality argument.
+
+Proposition 2.
+                                     AX = GX .
+
+  Together with theorem 2, this statement gives a formula for AX .
+
+
+ 4. Model spaces and Clark measures. The Toeplitz version of the
+                           gap problem
+
+   By H 2 we denote the Hardy space in the upper half-plane C+ . We say that an
+inner function θ(z) in C+ is meromorphic if it allows a meromorphic extension to
+the whole complex plane. The meromorphic extension to the lower half-plane C−
+is given by
+                                           1
+                                  θ(z) = # .
+                                         θ (z)
+   Each inner function θ(z) determines a model subspace
+                                  Kθ = H 2 ⊖ θH 2
+of the Hardy space H 2 (C+ ). These subspaces play an important role in complex
+and harmonic analysis, as well as in operator theory, see [24].
+   Each inner function θ(z) determines a positive harmonic function
+                                         1 + θ(z)
+                                     ℜ
+                                         1 − θ(z)
+and, by the Herglotz representation, a positive measure σ such that
+                                  Z
+               1 + θ(z)         1       ydσ(t)
+             ℜ          = py +                      ,    z = x + iy,              (4.1)
+               1 − θ(z)         π    (x − t)2 + y 2
+for some p ≥ 0. The number p can be viewed as a point mass at infinity. The
+measure σ is singular, supported on the set where non-tangential limits of θ are
+equal to 1 and satisfies        Z
+                                   dσ(t)
+                                          < ∞.                             (4.2)
+                                   1 + t2
+The measure σ+pδ∞ on R̂ is called the Clark measure for θ(z). (Following standard
+notations, we will often denote the Clark measure defined in (4.1) by σ1 .)
+   Conversely, for every positive singular measure σ satisfying (4.2) and a number
+p ≥ 0, there exists an inner function θ(z) determined by the formula (4.1).
+   Every function f ∈ Kθ can be represented by the formula
+                             Z                             Z
+               p                                 1 − θ(z)     f (t)
+      f (z) =     (1 − θ(z)) f (t)(1 − θ(t))dt +                    dσ(t).    (4.3)
+              2πi                                   2πi       t−z
+6                                  A. POLTORATSKI
+
+
+If the Clark measure does not have a point mass at infinity, the formula is simplified
+to
+                                     1
+                            f (z) =     (1 − θ(z))Kf σ
+                                    2πi
+where Kf σ stands for the Cauchy integral
+                                        Z
+                                            f (t)
+                             Kf σ(z) =            dσ(t).
+                                           t−z
+This gives an isometry of L2 (σ) onto Kθ . In the case of meromorphic θ(z), every
+function f ∈ Kθ also has a meromorphic extension in C, and it is given by the
+formula (4.3). The corresponding Clark measure is discrete with atoms at the
+points of {θ = 1} given by
+                                                2π
+                                   σ({x}) = ′         .
+                                              |θ (x)|
+    For more details on Clark measures the reader may consult [26] or the references
+therein.
+    Each meromorphic inner function θ(z) can be written as θ(t) = eiφ(t) on R, where
+φ(t) is a real analytic and strictly increasing function. The function φ(t) = arg θ(t)
+is the continuous argument of θ(z).
+    Recall that the Toeplitz operator TU with a symbol U ∈ L∞ (R) is the map
+                         TU : H 2 → H 2 ,      F 7→ P+ (U F ),
+where P+ is the orthogonal projection in L2 (R) onto the Hardy space H 2 =
+H 2 (C+ ).
+   We will use the following notation for kernels of Toeplitz operators (or Toeplitz
+kernels in H 2 ):
+                                       N [U ] = kerTU .
+For example, N [θ̄] = Kθ if θ is an inner function. Along with H 2 -kernels, one may
+consider Toeplitz kernels N p [U ] in other Hardy classes H p , the kernel N 1,∞ [U ] in
+the ”weak” space H 1,∞ = H p ∩ L1,∞ , 0 < p < 1, or the kernel in the Smirnov class
+N + (C+ ):
+                        N + [U ] = {f ∈ N + ∩ L1loc (R) : Ū f¯ ∈ N + }.
+For more on such kernels see [19, 20].
+   For any inner function θ in the upper half-plane we denote by specθ the set
+{θ = 1}, the set of points on the line where the non-tangential limit of θ is equal
+to 1, plus the infinite point if the corresponding Clark measure has a point mass at
+infinity, i.e. if p in (4.1) is positive. If specθ ⊂ R like in the next definition, then
+p in (4.1) is 0. Throughout the paper, S stands for the exponential inner function
+S(z) = exp(iz).
+Definition 3. If X ⊂ R is a closed set, denote
+
+     TX = sup{ a | N [θ̄S a ] 6= 0 for some meromorphic inner θ, specθ ⊂ X}.
+   The following theorem shows the connection between the gap problem and the
+problem of triviality of Toeplitz kernels. This connection will be used throughout
+the paper.
+
+Theorem 1.
+                                      TX = GX .
+                      SPECTRAL GAPS FOR SETS AND MEASURES                              7
+
+
+  We call a sequence of real points discrete if it has no finite accumulation points.
+Note that specθ is discrete if and only if θ is meromorphic.
+Proof. Let TX = d. Then for any ε > 0 there exists a discrete sequence Λ ⊂ X such
+that the kernel N [θ̄S a ] is non-trivial for some/any meromorphic inner θ, specθ = Λ
+and a = d − ε (if the kernel is non-trivial for some θ1 with a = d − ε/2 then it is
+non-trivial for any θ2 , specθ1 = specθ2 , with a = d − ε, see [19]). Let f ∈ N [θ̄S a ].
+Then h = S a f ∈ Kθ and by the Clark formula
+                                     1
+                                h=      (1 − θ)Khσ1 ,
+                                    2πi
+where σ1 is the Clark measure corresponding to θ. Notice that the function 1 − θ
+decays at most as y −1 along the positive y-axis. Hence the Cauchy integral Khσ1
+decays as exp(−ay) as y → ∞. Hence the measure ν = hσ1 satisfies supp ν =
+supp σ1 = specθ ⊂ X.
+   The function θ can be chosen so that σ1 is finite: one can start by choosing any
+finite positive σ1 supported by Λ and then simply take θ corresponding to that
+measure. Then ν is finite as well. It remains to observe that ν has a spectral gap
+of the size at least d − ε and GX ≥ d (see, for instance, lemma 7).
+   In the opposite direction, if G = d then, by lemma 4, for any ε > 0 there exists
+a finite measure ν with a spectral gap at least d − ε concentrated on a discrete
+subset of X. Let θ be the inner function corresponding to |ν|. Then the function
+h = (1−θ)Kν belongs to Kθ and can be represented as h = S a−ε f for some f ∈ H 2 .
+Hence f ∈ N [θ̄S a−ε ] and TX ≥ d.                                                
+
+
+                              5. The main definition
+
+  Let Λ = {λ1 , ..., λn } be a finite set of points on R. Consider the quantity
+                                         X
+                             E(Λ) =            log |λk − λl |.                  (5.1)
+                                      λk ,λj ∈Λ
+
+
+Physical interpretation:
+   According to the 2-dimensional Coulomb’s law, E(Λ) is the energy of a system
+of ”flat” electrons placed at the points of Λ. The 2D Coulomb-gas formalism corre-
+sponds to the planar potential theory with logarithmic potential and assumes the
+potential energy at infinity to be equal to −∞, see for instance [9, 22, 27].
+   Physically, the 2D Coulomb’s law can be derived from the standard 3D law via
+a method of ”reduction.” According to this method, one replaces each electron in
+the plane with a uniformly charged string orthogonal to the plane. After that one
+applies the 3D law and a renormalization procedure.
+
+Key example:
+  Let I ⊂ R be an interval, Λ = I ∩ Z = {n + 1, ..., n + k}. Then
+                              E(Λ) = k 2 log |I| + O(|I|2 )
+as follows from Stirling’s formula. Here |I| stands for the length of I and the
+notation O(|I|2 ) corresponds to the direction |I| → ∞.
+8                                    A. POLTORATSKI
+
+
+Remark 1. The uniform distribution of points on the interval does not maximize
+the energy E(Λ), but comes within O(|I|2 ) from the maximum, which is negligible
+for our purposes, see the main definition and its discussion below. It is interesting
+to observe that the maximal energy for k points is achieved when the points are
+placed at the endpoints of I and the zeros of the Jacobi polynomial of degree k − 2,
+see for instance [13].
+
+   We call a sequence of disjoint intervals {In } on the real line long (in the sense
+of Beurling and Malliavin) if
+                                X         |In |2
+                                                        = ∞.                                    (5.2)
+                                 n
+                                     1 + dist2 (0, In )
+If the sum is finite we call {In } short.
+   Let
+
+                        ... < a−2 < a−1 < a0 = 0 < a1 < a2 < ...
+be a two-sided sequence of real points. We say that the intervals In = (an , an+1 ]
+form a short partition of R if |In | → ∞ as n → ±∞ and the sequence {In } is short.
+
+Main definition:
+
+  Let Λ = {λn } be a sequence of real points. We write CΛ ≥ a if there exists a
+short partition {In } such that
+
+                      ∆n ≥ a|In | for all n (density condition)                                 (5.3)
+and
+        X
+             [∆2n log |In | − En ]/(1 + dist2 (0, In )) < ∞ (energy condition)                  (5.4)
+         n
+where
+                                                               X
+        ∆n = #(Λ ∩ In ) and En = E(Λ ∩ In ) =                                 log |λk − λl |.
+                                                       λk ,λl ∈In , λk 6=λl
+
+    If X is a closed subset of R we put
+
+       CX = sup{a | there exits a sequence Λ ⊂ X such that CΛ ≥ a}                              (5.5)
+
+
+
+Remark 2. Notice that the series in the energy condition is positive. Indeed, every
+term in the sum defining En is at most log |In | and there are precisely ∆2n terms.
+   The example before the definition shows that the numerator in the energy condi-
+tion is (up to lower order terms) the difference between the energy of the optimal
+configuration, when the points are spread uniformly on In , and the energy of Λ ∩ In .
+Thus the energy condition is a requirement that the placement of the points of Λ
+is close to uniform, in the sense that the difference between the energies must be
+summable with respect to the Poisson weight.
+                     SPECTRAL GAPS FOR SETS AND MEASURES                                          9
+
+
+Remark 3. The simple inequality log |In | − log |λk − λj | > 0, that holds for any
+λk , λj ∈ In , also implies that if a sequence Λ satisfies the energy condition (5.4)
+then any subsequence of Λ also satisfies (5.4) on {In }. A deletion of points from Λ
+will eliminate some of such positive terms from the numerator in (5.4) which can
+only make the sum smaller.
+Remark 4. We say that a partition {In } is monotone if |In | ≤ |In+1 | for n ≥ 0
+and |In+1 | ≤ |In | for n < 0. Corollary 3 shows that in the above definition the words
+”short partition” can be replaced with ”short monotone partition.” Since monotone
+partitions are easier to work with, this modified definition will be used in the proof
+of theorem 2.
+Remark 5. The requirement that the partition In = (an , an+1 ] satisfied |In | → ∞
+is not essential and can be omitted if one slightly changes the definitions of ∆n and
+En in (5.4). One could, for instance, use
+                                                               X
+∆n = #(Λ ∩ (an − 1, an+1 + 1]) and         En =                                      log |λk − λl |.
+                                                  λk ,λl ∈(an −1,an+1 +1], λk 6=λl
+
+
+
+Remark 6. The density condition says simply that the lower (interior) density of
+the sequence in the sense of Beurling and Malliavin, is at least a. Such a density
+can be defined in several different ways:
+     • If Λ is a real sequence define d1 (Λ) to be the supremum of all a such that
+       there exists a short monotone partition In satisfying (5.3).
+
+     • Denote by d2 (Λ) the supremum of all a such that there exists a short (not
+       necessarily monotone) partition In satisfying (5.3).
+
+     • Define d3 (Λ) to be the supremum of all a such that there exists a subsequence
+       of Λ whose counting function n(x) satisfies
+                                Z
+                                   |n − ax|
+                                            dx < ∞.
+                                    1 + x2
+        This notion of lower density is used in [7].
+
+     • Finally, define d4 (Λ) to be the infimum of all a such that there exists a long
+       sequence of disjoint intervals In satisfying
+                                  #Λ ∩ In < a|In |.
+        This definition is used in [21].
+
+
+  One can easily show that all these definitions are equivalent, i.e.
+                          d1 (Λ) = d2 (Λ) = d3 (Λ) = d4 (Λ).
+Such a density (with a definition similar to the last one) was introduced in [5], where
+it was called interior density. A closely related notion of exterior density appears
+in the Beurling-Malliavin Theorem on completeness of exponential functions in L2
+on an interval, see [5] or [21].
+10                                    A. POLTORATSKI
+
+
+Example 1. As discussed above,P if the points of the sequence are spread uniformly
+over the interval then En = λi ,λj ∈In log |λi − λj | is roughly (up to O(|In |2 ) which
+is small for short sequences of In ) equal to ∆2n log |In | as follows from Stirling’s
+formula. This happens for instance when the sequence Λ is separated, i.e. satisfies
+|λn − λn+1 | > δ > 0 for all n. Thus for separated sequences Λ the energy condition
+disappears and
+
+                                      GΛ = di (Λ)
+  where di , i = 1, 2, 3, 4 is any of the equivalent densities defined in the previous
+remark. This is one of the results of [21].
+Example 2. Let Λ be a real sequence such that the density condition (5.3) holds for
+some a > 0 and some partition {In } that satisfies a stronger shortness condition:
+                                X |In |2 log |In |
+                                                     < ∞.
+                                n
+                                  1 + dist2 (0, In )
+Then we will automatically have that
+                                  P
+                 X ∆2n log |In | − λi ,λj ∈In log+ |λi − λj |
+                                                                < ∞.
+                   n
+                                     1 + dist2 (0, In )
+   Hence condition (5.4) will be significantly simplified and one will only need to
+check that
+                             X         log− |λi − λj |
+                                                       <∞
+                                           1 + λ2j
+                           λi ,λj ∈Λ, λi 6=λj
+to conclude that CΛ ≥ a.
+
+
+                                6. The main theorem
+
+Theorem 2.
+                                        GX = 2πCX .
+
+
+    Before starting the proof, let us discuss some of the notations. If f is a function
+on R and I ⊂ R we denote by f |I the function that is equal to f on I and to 0 on
+R \ I.
+    In our estimates we write a(n) . b(n) if a(n) < Cb(n) for some positive constant
+C, not depending on n, and large enough |n|. Similarly, we write a(n) ≍ b(n)
+if ca(n) < b(n) < Ca(n) for some C ≥ c > 0. Some formulas will have other
+parameters in place of n or no parameters at all.
+    By Π we denote the Poisson measure dx/(1 + x2 ) on the real line. In particular,
+  p
+LΠ = Lp (R, dx/(1 + x2 )).
+    We will denote by D(R) the standard Dirichlet space on R (in C+ ). Recall
+that the Hilbert space D(R) consists of functions h ∈ L1Π such that the harmonic
+extension u = u(z) of h to C+ has a finite gradient norm,
+                                            Z
+                                        def
+                        khk2D ≡ kuk2∇ =         |∇u|2 dA < ∞,
+                                                C+
+                     SPECTRAL GAPS FOR SETS AND MEASURES                              11
+
+
+where dA is the area measure. If h ∈ D(R) is a smooth function, then we also have
+                                       Z
+                               khk2D =   h̄ h̃′ dx,
+                                              R
+
+where h̃ denotes a harmonic conjugate function.
+
+Proof:
+                            1
+I) First suppose that CX > 2π . We will show that GX ≥ 1.
+                         1                                                1
+  Choose ε > 0. If CX > 2π , there exists a sequence Λ = {λn } ⊂ X, CΛ > 2π . Let
+                                    In = (an , an+1 )
+be the corresponding short monotone partition, see remark 4. WLOG
+                           1                       1
+                             |In | < #(Λ ∩ In ) ≤     |In | + 1
+                          2π                      2π
+(otherwise just delete some of the points from Λ, see remark 3). We will assume
+that |In | >> 1/ε >> 1 for all n.
+   By lemma 1 and corollary 2 we can assume that the lengths of the intervals
+(λn , λn+1 ) are bounded from above. It will be convenient for us to assume that the
+endpoints of In belong to Λ, i.e. that In = (λkn , λkn+1 ] for some λkn , λkn+1 ∈ Λ.
+We will also include the endpoints of the intervals into the energy condition by
+defining En as
+                                      X
+                      En =                           log |λk − λl |             (6.1)
+                            λkn ≤λk ,λl ≤λkn+1 , λk 6=λl
+
+and assuming that (5.4) is satisfied with these En . Such an assumption can be
+made because if the sum in (5.4) becomes infinite with En defined by (6.1) one can,
+for instance, delete the first point, λnk +1 , from Λ on all In for large n. After the
+addition of λkn and deletion of λnk +1 in the sum defining En , each term in (5.4)
+will become smaller and the sum will remain finite. At the same time, since
+                               |In | ≍ #{Λ ∩ In } → ∞,
+the subsequence will still have more than |In | points on each In and will satisfy the
+density condition.
+   Our goal is to show that GΛ ≥ 1 by producing a measure on Λ with spectral gap
+of the size arbitrarily close to 1. Due to connections discussed in section 4, existence
+of such a measure will follow from non-triviality of a certain Toeplitz kernel.
+   Since the lengths of (λn , λn+1 ) are bounded from above, we can apply lemma 5.
+Denote by θ the corresponding meromorphic inner function with specθ = Λ.
+   Let u = arg(θS̄) = arg θ − x. First, we choose a larger partition Jn = (bn , bn+1 )
+and a small ”correction” function v so that u − v becomes an atom on each Jn :
+
+Claim 1. There exists a subsequence {bn } of the sequence {an } and smooth func-
+tions v1 , v2 such that:
+  1) |v1′ | < ε/2 and u − v1 = 0 at all an ;
+  2) Jn = (bn , bn+1 ) is a short monotone partition;
+  3) R|v2′ | < ε/2 and u − v = u − (v1 + v2 ) = 0 at all bn ;
+  4) Jn (u − v)dx = 0 for all n;
+12                                  A. POLTORATSKI
+
+
+     5) ũ − ṽ ∈ L1Π .
+
+Proof of claim. First, choose a smooth function v1 satisfying 1. Such a function
+exists because
+                                                              ε
+                                 |2π∆n − |In || ≤ 2π << |In |.
+                                                              2
+Notice that because the sequence In is short and
+                                                            ε
+                                       (u − v1 )′ > −1 − ,
+                                                            2
+1 implies
+                                           u − v1 ∈ L1Π .                            (6.2)
+   Choose b0 = a0 = 0. Choose b1 = an1 > b0 to be the smallest element of {ak }
+satisfying
+                              Z an 1
+                                                       ε
+                                      (u − v1 )dx < (an1 − b0 )2 .
+                                b0                     8
+Notice that because of (6.2) such an an1 will always exist. After that proceed
+choosing b2 , b3 , ... in the following way: If bi is chosen, choose bi+1 = ani+1 to be
+the smallest element of {ak } satisfying ani+1 > bi ,
+                             Z an
+                                   i+1                  ε
+                                       (u − v1 )dx < (ani+1 − bi )2                  (6.3)
+                              bi                        8
+and
+                                     ani+1 − bi ≥ bi − bi−1 .
+Choose bk , k < 0 in the same way.
+   We claim that the resulting sequence Jk = (bk−1 , bk ) forms a short monotone
+partition.
+   Let k be positive. By our construction, Ink is the last (rightmost) among the
+intervals In contained in Jk . Notice that because of monotonicity Ink is the largest
+interval among the intervals In contained in Jk . We will show that for each k
+                                                       
+                                                10
+                                    |Jk | <         + 1 |Ink |                       (6.4)
+                                                 ε
+where [·] stands for the entire part of a real number.
+   This can be proved by induction. The basic step: By our construction b1 = an1
+and
+                            Z an1 −1
+                                                       ε
+                                      (u − v1 )dx ≥ (an1 −1 − b0 )2 .
+                             b0                        8
+   Since (u − v1 )′ > −1 − ε and u − v1 = 0 at all an , |u − v1 | ≤ (1 + ε)|In1 −1 | on
+(b0 , an1 −1 ). Hence
+                                              Z an1 −1
+                                                                    ε
+           (1 + ε)|In1 −1 |(an1 −1 − b0 ) ≥            (u − v1 )dx ≥ (an1 −1 − b0 )2
+                                                b0                  8
+   and
+                                                  1+ε
+                             (an1 −1 − b0 ) ≤ 8       |Imk |.
+                                                   ε
+     It follows that
+                       SPECTRAL GAPS FOR SETS AND MEASURES                                 13
+
+
+
+                                                                      10
+           |J1 | = (an1 −1 − b0 ) + |In1 | ≤ 9ε−1 |In1 −1 | + |In1 −1 | ≤|In1 −1 | (6.5)
+                                                                       ε
+  (if ε is small enough) . For the inductional step, assume that (6.4) holds for
+k = l − 1. For Jl = (bl−1 , bl ), bl = anl there are two possibilities:
+                         Z an −1
+                              l                    ε
+                                   (u − v1 )dx ≥     (anl −1 − bl−1 )2
+                           bl−1                    8
+or
+
+                                anl −1 − bl−1 < bl−1 − bl−2 .
+In the first case we prove (6.5) in the same way as in the basic step. In the
+second case we notice that by monotonicity of In the number of intervals In
+inside (bl−1 , anl −1 ) is at most (anl −1 − bl−1 )/|Inl−1 | which is strictly less than
+|Jl−1 |/|Inl−1 | ≤ [10/ε] + 1. Hence the number of intervals in (bl−1 , anl −1 ) is at most
+[10/ε]. Therefore the number of intervals in Jl = (bl−1 , bl ) is at most [10/ε] + 1.
+Now, since Inl is the largest interval in Jl we again get (6.4), which implies shortness
+of Jn . The monotonicity follows from our construction.
+   Now define the function v2 on each Jk in the following way. First consider the
+tent function Tk defined on R as
+                                           ε
+                                  Tk (x) = dist(x, R \ Jk ).
+                                           4
+   Notice that because of (6.3), for each k there exists a constant Ck , |Ck | ≤ 1 such
+that
+                               Z
+                                    [(u − v1 ) − Ck Tk ] dx = 0.
+                                 Jk
+                                                 P
+   Now define v2 as a smoothed-out sum             Ck Tk that satisfies |v2′ | < ε/2 and still
+has the properties that v2 (bk ) = 0 and
+                                  Z
+                                      [(u − v1 ) − v2 ] dx = 0
+                                   Jk
+for each k. Finally, let v = v1 + v2 . The last condition of the claim will be satisfied
+because the restrictions (u − v)|Jk form a collection of atoms with a finite sum of
+L1Π -norms:
+                                                     |Jk |2
+                           ||(u − v)|Jk ||L1Π .
+                                                1 + dist2 (0, Jk )
+(for more on atomic decompositions see [8]).                                          △
+
+   The function v from the last claim is a smooth function satisfying |v ′ | ≤ ε.
+Therefore it can be represented as v = v+ − v− where v± are smooth growing
+                ′
+functions, 0 ≤ v± ≤ ε. Hence one can choose two meromorphic inner functions I±
+satisfying
+
+                             {arg I± = kπ} = {arg v± = kπ}
+     and
+
+                                             ′
+                                           |I± |.ε
+14                                      A. POLTORATSKI
+
+
+   (the existence of such I± follows, for instance, from lemma 5 or from the lemma
+in section 6.1 of [20]).
+   Note that then, automatically, | arg(I¯+ I− ) − v| < 2π. The harmonic conjugate
+of arg(θS̄I+ I¯− ) still belongs to L1Π .
+   WLOG arg(θS̄I+ I¯− ) = 0 at 0.
+
+
+Claim 2. The function arg(θ(x)S̄I+ (x)I¯− (x))/x belongs to the Dirichlet class
+D(R).
+
+
+Proof of claim. We will actually prove that w/x, w = arg θ − x − v ∈ D instead
+(again, WLOG w(0) = 0 with large multiplicity). The difference between −v and
+arg(I+ I¯− ) is a bounded function with bounded derivative that obviously belongs
+to D.
+   Let q(z) be the harmonic extension of w/x to the upper half plane. We need to
+show that the gradient norm of q + iq̃ in C+ is finite, i.e. that
+                                          Z
+                                  2
+                         kq + iq̃k∇ = lim         qdq̃ < ∞,
+                                             r→∞           ∂D(r)
+
+where D(r) is the semidisc {|z| < r} ∩ C+ .
+  We first prove that the integrals over ∂D(r) ∩ R are uniformly bounded from
+above, i.e. that
+                                   Z
+                                      qdq̃ < ∞.
+                                             R
+                                                              w̃
+                                                                     
+                                                                    w ′     ′
+   First, notice that the harmonic conjugate of w       x is x and x    = wx − xw2 , where
+ w                                    ′
+x2 is a bounded function since w is bounded and has a zero at zero. Hence
+                                    Z          Z
+                                                        dx
+                                        qdq̃ ≍     w′ w̃ 2
+                                     R           R      x
+and we can estimate the last integral instead.
+   If I is an interval then 2I denotes the interval with the same center as I satisfying
+|2I| = 2|I|.
+   Put wn = w|Jn . Then
+                            Z                       Z
+                                    dx X X                       dx
+                               w′ w̃ 2 =                 w′ w̃k 2 .
+                             R      x        n        Jn         x
+                                                           k
+
+  To estimate the last integral, first let us consider the case when the intervals Jn
+and Jk are far from each other:
+
+                              max(|Jn |, |Jk |) ≤ dist(Jn , Jk ).
+In this case
+                       Z                     Z
+                                      dx                           |Jk |3     dx
+                             w′ w̃k      .            |w′ |                      .
+                        Jn            x2         Jn            dist2 (Jk , x) x2
+                                        3              Z
+                                  |Jk |                         dx
+                                                                          .          (6.6)
+                             1 + dist2 (Jn , 0)         Jn dist2
+                                                                 (Jk , x)
+                       SPECTRAL GAPS FOR SETS AND MEASURES                             15
+
+
+Here we used the property that each wk is an atom supported on Jk whose
+L1 -norm is . |Jk |2 and employed the standard estimates from the theory of atomic
+decompositions, see [8]. In the last inequality we used the property
+                                Z
+                                    |w′ (x)|dx . |Jn |.                       (6.7)
+                                    Jn
+   Now let us consider the ”mid-range” case when
+
+                  min(|Jn |, |Jk |) ≤ dist(Jn , Jk ) < max(|Jn |, |Jk |).
+Assume that 0 < k < n. Then by monotonicity |Jk | ≤ |Jn |. In this case
+             Z                                    Z
+                        dx            |Jk |2                    |Jk |
+                    ′
+                  w w̃k 2 .              2            |w′ |     2         dx ≤
+               Jn        x      1 + dist (Jk , 0) Jn        dist (Jk , x)
+                                                Z
+                   |Jk |2            |Jk |                       |Jk ||Jn |
+                                                    |w′ | .                     .   (6.8)
+             1 + dist2 (Jk , 0) dist2 (Jk , Jn ) Jn          1 + dist2 (Jk , 0)
+  Finally, the last case is
+
+                               dist(Jn , Jk ) < min(|Jn |, |Jk |).
+Again we assume that n, k > 0. Then by monotonicity either n = k or |n − k| = 1,
+i.e. the intervals are either the same or adjacent. The estimates in this case are
+more complicated and will be done differently. First, integrating by parts we get
+                       Z                  Z        Z           
+                                   dx                    w(t)dt dx
+                            w′ w̃k 2 =          w′                    =
+                         Jn        x        Jn        Jk t − x     x2
+                              Z       Z                       
+                                                                  dx
+                          −       w′        log |t − x|w′ (t)dt 2 .
+                               Jn        Jk                       x
+    Next we would like to conclude that, for k ≤ n,
+                            Z        Z                       
+                                   ′                    ′        dx
+                         −       w         log |t − x|w (t)dt 2 .
+                              Jn        J                        x
+                                 Z Z k                                           
+                     1                                     ′     ′              2
+           −                                  log |t − x|w (x)w (t)dxdt + |Jn |     (6.9)
+              1 + dist2 (Jn , 0)      Jn ×Jk
+and work with the latter integral instead of the former. Since dist(0, Jn ) < |x| for
+x ∈ |Jn |, this estimate would be obvious if the function under the integral were
+negative. In our case, however, it will require some work.
+    To prove the last relation denote
+
+                          Jn+ = {w′ > 0}, Jn− = {w′ ≤ 0}.
+            R
+   Since − Jk log |t − x|w′ (t)dt = w̃k (x) and wk is an atom,
+                     Z
+                                                        |Jk |2
+                         log |t − x|w′ (t)dt    .                    .
+                      Jk                     L1   1 + dist2 (Jk , 0)
+                                                Π
+
+   Since {Jn } is a short sequence, |Jn | ≤ dist(Jn , 0) for large enough n. For the rest
+of the proof we will assume that this holds for all n 6= 0, −1. Since w′ is bounded
+from below and
+                            dist2 (Jn , 0) ≤ x2 ≤ 2dist2 (Jn , 0)
+16                                           A. POLTORATSKI
+
+
+on Jn ,                      Z              Z                
+                                                                dx
+                         −            w′   log |t − x|w′ (t)dt 2 .
+                               −
+                              Jn        Jk                      x
+         Z      Z                        
+                                                   dx              |Jk |2
+       −     w′       log |t − x|w′ (t)dt                     +                  . (6.10)
+           −
+          Jn       Jk                       1 + dist (Jn , 0) 1 + dist2 (Jk , 0)
+                                                     2
+
+     To deal with the integral over Jn+ notice, that w̃k is ”almost” positive on Jn , i.e.
+                                 Z
+                              −      log |t − x|w′ (t)dt & −|Jn |                  (6.11)
+                                       Jk
+for any x ∈ Jn . Indeed
+       Z                        Z                                        Z
+     −                 ′
+           log |t − x|w (t)dt =                                 ′
+                                                 log− |t − x|w (t)dt −             log+ |t − x|w′ (t)dt,
+           Jk                               Jk                            Jk
+where
+Z                         Z                                          Z
+   log− |t − x|w′ (t)dt =             log− |t − x|(arg θ)′ (t)dt −            log− |t − x|(x + v)′ (t)dt ≥
+ Jk                              Jk                                      Jk
+                    Z                  Z
+                      (arg θ)′ (t)dt −     (1 + ε)dt ≥ −ε|Jk | + const.
+                  Jk                    Jk
+                                    R
+Here we used the property that Jk (arg θ)′ (t)dt = |Jk | + const. Also
+  Z                          Z                                 Z
+−    log+ |t − x|w′ (t)dt =       log+ |t − x|(x + v)′ (t)dt −   log+ |t − x|(arg θ)′ (t)dt.
+      Jk                              Jk                                      Jk
+Recall that Jk = (bk , bk+1 ] and x ∈ Jn , n ≥ k. If n > k, sing lemma 6 part 6 we
+obtain
+  Z                                          Z                        Z
+−                ′
+      log+ |t−x|w (t)dt ≥ (log+ |bk −x|−C)           ′
+                                                (1+v )dx−log+ |bk −x|    (arg θ)′ dx & −|Jk |,
+      Jk                                                   Jk                                  Jk
+which establishes (6.11). For n = k the same relation can be obtained using lemma
+6 part 5.
+   To finish the proof of (6.9) notice that
+                            Z      Z                        
+                                                               dx
+                          −     w′       log |t − x|w′ (t)dt 2 =
+                             Jn       Jk                       x
+   Z        Z                                 Z        Z                        
+                                         dx                                          dx
+        w′ −       log |t − x|w′ (t)dt 2 +           w′ −       log |t − x|w′ (t)dt 2 =
+    Jn+
+                Jk                       x         −
+                                                  Jn         Jk                      x
+                 Z                 Z                            
+                                                                        dx
+                      w′ (x) max −           log |t − x|w′ (t)dt , 0       +
+                    +
+                   Jn                     Jk                            x2
+                 Z                 Z                           
+                                                                        dx
+                      w′ (x) min −           log |t − x|w′ (t)dt , 0       +
+                    +
+                   Jn                     Jk                            x2
+                          Z        Z                         
+                                                                dx
+                               w′ −        log |t − x|w′ (t)dt 2 .
+                             −
+                            Jn         Jk                        x
+    Regarding the last three integrals, if one replaces dx                  dx
+                                                               x2 with 1+dist2 (Jn ,0) in the
+first integral, it will get & than before because the function under the integral is
+positive and x2 & 1 + dist2 (Jn , 0). Under the same operation, the second integral
+will decrease at most by
+                                  Z
+                                           dx       |Jn ||Jk |
+                           C|Jk |     |w′ | 2 .
+                                   Jn      x    1 + dist2 (Jn , 0)
+                                SPECTRAL GAPS FOR SETS AND MEASURES                                                          17
+
+
+because of (6.11). Finally, the last integral is estimated in (6.10). Since dist(0, Jk ) ≍
+dist(0, Jn ) and |Jk | ≤ |Jn |, this finishes (6.9).
+
+
+    To estimate the integral in the right-hand side of (6.9), denote p = arg θ−x−v1 =
+w + v2 where the functions v1 , v2 are from claim 1. Also denote pn = p|Jn and
+v2n = v2 |Jn . The key properties of v1 that we will use are that arg θ − x − v1 = 0 at
+the endpoints of all In , v2 = 0 at the endpoints of Jn and that |v1′ |, |v2′ | < ε. Then
+       ZZ                                        ZZ
+     −           log |t − x|w′ (x)w′ (t)dxdt = −          log |t − x|p′ (x)p′ (t)dxdt−
+         Jn ×Jk                                                                   Jn ×Jk
+                                                Z
+                                            +             (p̃n v2′ + ṽ2n p′ + ṽ2n v2′ )dx.
+                                                     Jn
+   Notice that
+                            Z                                                       p
+                                     p̃n v2′ dx ≤ ε||p̃n ||1 ≤ ε||pn ||2             |Jn | . ε|Jn |2
+                            Jn
+
+because |pn | . |Jn |. Also,
+                 Z                                   Z
+                      p′ ṽ2n dx = | < p, v2n >D | =                                    p̃n v2′ dx . |Jn |2 .
+                       Jn                                                          Jn
+
+Similarly to the first integral,
+                                                     Z
+                                                             ṽ2n v2′ dx . ε2 |Jn |2 .
+                                                      Jn
+
+Hence
+  ZZ                                                                 ZZ
+−                                ′
+              log |t−x|w (x)w (t)dxdt = −   ′
+                                                                                   log |t−x|p′ (x)p′ (t)dxdt+O(|Jn |2 ).
+     Jn ×Jk                                                               Jn ×Jk
+                                                                                                                         (6.12)
+  For the last integral we have
+  ZZ                                    X X ZZ
+                      ′    ′
+−         log |t − x|p (x)p (t)dxdt = −                                                             log |t − x|p′ (x)p′ (t)dxdt.
+     Jn ×Jk                                                         Ii ⊂Jk Ij ⊂Jn          Ii ×Ij
+
+                                                                                                                         (6.13)
+   To estimate
+                                                ZZ
+                                         −                    log |t − x|p′ (x)p′ (t) =
+                                                     Ii ×Ij
+         ZZ                                                         ZZ
+                       log− |t − x|p′ (x)p′ (t) −                                 log+ |t − x|p′ (x)p′ (t)               (6.14)
+              Ii ×Ij                                                     Ii ×Ij
+  we consider 3 cases. First, to estimate the integral in the case when i = j, notice
+that, since 1 + v1′ is bounded,
+                         Z
+                            log− |x − t|(1 + v1′ (x))dx < const
+                                       Ij
+
+for any t ∈ Ij . Once again, the positive functions arg′ θ and v1′ + 1 satisfy
+                 Z          Z
+                   arg′ θ =    (v1′ + 1) = 2π∆l + O(1) = |Il | + O(1).                                                   (6.15)
+                       Il                       Il
+18                                                     A. POLTORATSKI
+
+
+Hence                                   ZZ
+                                     log− |t − x|p′ (x)p′ (t) =
+                                              Ij ×Ij
+ZZ                                            ZZ
+                          ′            ′
+         log− |t−x|(arg θ) (x)(arg θ) (t)−2             log− |t−x|(1+v1′ (x))(arg θ)′ (t)+
+  Ij ×Ij                                         Ij ×Ij
+ZZ                                           ZZ
+                        ′          ′
+         log− |t−x|(1+v1 (x))(1+v1 (t)) =             log− |t−x|(arg θ)′ (x)(arg θ)′ (t)+O(|Ij |).
+     Ij ×Ij                                                            Ij ×Ij
+For the last integral we have
+                      ZZ
+                             log− |t − x|(arg θ)′ (x)(arg θ)′ (t) =
+                                     Ij ×Ij
+                           X              X             Z λl+1 Z λm+1
+                                                                             (arg θ)′ (x)(arg θ)′ (t).
+                        λl ,λl+1 ⊂Ij λm ,λm+1 ⊂Ij           λl        λm
+
+     Using the properties that
+                                                      Z λs+1
+                                                                 arg θ′ = 2π
+                                                       λs
+and
+                arg θ′ . [min(|Is−1 |, |Is |, |Is+1 |)]−2 on (λs , λs+1 ),
+  for all s, we can apply lemma 6, parts 1-3. Assuming that λl ≤ λm we conclude
+that
+                            Z λl+1 Z λm+1
+                                                  log− |t − x|(arg θ)′ (x)(arg θ)′ (t) .
+                                λl     λm
+
+
+log− (λm − λl+1 ) if λm > λl+1
+  max(log− (λl−1 − λl ), log− (λl − λl+1 ), log− (λl+1 − λl+2 )) + 1 if                                  λm = λl+1
+
+
+  max(log− (λl−1 − λl ), log− (λl − λl+1 ), log− (λl+1 − λl+2 )) + 1 if                                  λm = λl ,
+
+which implies
+                                     ZZ
+                                                  log− |t − x|p′ (x)p′ (t)dxdt .
+                                         Ij ×Ij
+                                              X
+                                                                      log− |λk − λl | + |Ij |.                 (6.16)
+                                 λkn ≤λk ,λl ≤λkn+1 , λk 6=λl
+
+     To estimate the integral of log+ , first notice that by lemma 6, part 5, and (6.15),
+                 Z
+                    log+ |x − t|(1 + v1′ (x))dx = |Ij | log+ |Ij | + O(|Ij |)
+                           Ij
+
+for any t ∈ Ij .
+   Together with part 4 of lemma 6 and (6.15) we get :
+         ZZ                                                      ZZ
+                                          ′
+                        log+ |t − x|p (x)p (t) =  ′
+                                                                           log+ |t − x| arg′ θ(x) arg′ θ(t)−
+               Ij ×Ij                                             Ij ×Ij
+    ZZ                                                                ZZ
+2              log+ |t− x|(v1′ (x)+ 1) arg′ θ(t)+                               log+ |t− x|(v1′ (x)+ 1)(v1′ (t)+ 1) =
+      Ij ×Ij                                                           Ij ×Ij
+                                   SPECTRAL GAPS FOR SETS AND MEASURES                                       19
+
+        X        Z λl+1 Z λm+1
+                                        log+ |t − x| arg′ θ(x) arg′ θ(t) − |Ij |2 log |Ij | + O(|Ij |2 ) ≥
+  λl ,λm ∈Ij       λl         λm
+                                    X
+                          4π 2                 log+ |λl − λm | − |Ij |2 log |Ij | + O(|Ij |2 )         (6.17)
+                                  λl ,λm ⊂Ij
+
+
+   Next, let us consider the case when i 6= j and the intervals Ii , Ij are not adjacent.
+This estimate is similar to (6.8), but we will do it using a different technique.
+Assume for instance that j > i + 1. For log− , recalling that |Ik | > 1 for all k, we
+get
+                         ZZ
+                      −          log− |t − x|p′ (x)p′ (t)dxdt = 0.                 (6.18)
+                                            Ii ×Ij
+  For log+ we have
+       ZZ                                  Z ai+1 Z aj+1
+    −         log+ |t − x|p′ (x)p′ (t) = −               log+ |t − x|p′ (x)p′ (t) =
+                 Ii ×Ij                                              ai        aj
+                 Z ai+1 Z aj+1
+             −                        log+ |t − x|(arg θ − x − v1 )′ (x)(arg θ − x − v1 )′ (t) ≤
+                  ai         aj
+    Z                Z                           Z              
+  −    log |ai+1 − t|   arg′ θ(x)dx − log |ai − t| (v1′ + 1)(x)dx arg′ θ(t)dt+
+        Ij                             Ii                                           Ii
+ Z              Z                            Z             
+    log |ai − t|   arg θ(x)dx − log |ai+1 − t| (v1 + 1)(x)dx (v1′ + 1)(t)dt ≤
+                      ′                          ′
+   Ij                         Ii                                               Ii
+
+                                                            2|Ii ||Ij |                                (6.19)
+Here we used the properties that dist(Ii , Ij ) ≥ |Ii | by monotonicity and (6.15).
+
+   In the case when Ii and Ij are adjacent, i.e. j = i + 1, the estimate can be done
+differently. Note that pn = pn |In is a compactly supported function with bounded
+derivative (the bound depends on n). Therefore it belongs to the Dirichlet space
+D. The estimates (6.16) and (6.17) yield
+
+                                                      1
+                                    ||pn ||2D .           |In |2 log |In | − En + |In |2 .
+                                                     4π 2
+Hence
+             ZZ
+                             log |t − x|p′ (x)p′ (t) =< pi , pi+1 >D ≤ ||pi ||2 + ||pi+1 ||2 .
+                  Ii ×Ii+1
+                                                                                               
+                         1                                          1
+                             |Ii |2 log |Ii | − Ei         +                   2
+                                                                        |Ii+1 | log |Ii+1 | − Ei+1 +
+                        4π 2                                       4π 2
+                                                        |Ii |2 + |Ii+1 |2 .                            (6.20)
+  Now we can return to estimating
+                                Z
+                                                                          dx
+                                                                w′ w̃k
+                                                           Jn             x2
+in the case when |k − n| ≤ 1. Using the estimates (6.9), (6.12) and (6.13) we obtain
+20                                                A. POLTORATSKI
+
+
+
+     Z                     P            P                RR                      ′    ′                 2
+          ′   dx   −           Ii ⊂Jk           Ij ⊂Jn        Ii ×Ij log |t − x|p (x)p (t)dxdt + O(|Jn | )
+         w w̃k 2 =                                                                                         .
+      Jn      x                                                  1 + dist2 (0, Jn )
+The estimates (6.16 – 6.20) yield
+                    X X ZZ
+                 −                                            log |t − x|p′ (x)p′ (t)dxdt .
+                        Ii ⊂Jn Ij ⊂Jk                Ii ×Ij
+
+                   X                                                   X
+                          1         2                          2
+                            2
+                              |Ii |   log  |I i | − Ei + |Ii |     +            |Ii ||Ij | ≤
+                         4π
+              Ii ⊂Jk ∪Jn                                             Ii ,Ij ⊂Jn
+
+                       X  1                                 
+                                       |Ii | log |Ii | − Ei + |Jn |2 + |Jk |2 .
+                                            2
+                                4π 2
+                    Ii ⊂Jk ∪Jn
+
+All in all, in the case |n − k| ≤ 1, we have
+                                     Z
+                                                dx
+                                          w′ w̃k 2 .
+                                       Jn       x
+                        "                                                    #
+              1            X  1
+                                             2                      2       2
+                                        |Ii | log |Ii | − Ei + |Jn | + |Jk | .                             (6.21)
+     1 + dist2 (0, Jn )            4π 2
+                           Ii ⊂Jk ∪Jn
+
+  Combining the estimates (6.16), (6.17), (6.18), (6.19), (6.20) with (6.13), (6.12)
+and (6.9) we get
+                            XXZ               dx
+                                        w′ w̃k 2 =
+                             n       Jn       x
+                                 k
+                                                      
+                     X                 X
+                                                      +
+                                  n         k : max(|Jk |,|Jn |≤dist(Jk ,Jn ))
+                                                                                        
+                       X                                       X
+                                                                                        +
+                       n       k : min(|Jk |,|Jn |)≤dist(Jk ,Jn )<max(|Jk |,|Jn |)
+                                                                                
+                                X                              X
+                                                                                =
+                                  n         k : dist(Jk ,Jn )<min(|Jk |,|Jn |)
+
+
+                                                      I + II + III.
+For the first sum, by (6.6), we get
+                                                                                                     
+             X             X                                                     Z
+                                                  |Jk |3                                    dx       ≤
+       I.
+               k    n : n>k, dist(J ,J )>|J |
+                                              1 + dist2 (Jn , 0)                            2
+                                                                                     Jn dist (Jk , x)
+                                            k    n       k
+
+                   X        |Jk |       3
+                                           1      X      |Jk |2
+                                                =                      < ∞.                                (6.22)
+                   k
+                       1 + dist2 (Jk , 0) |Jk |   k
+                                                    1 + dist2 (Jk , 0)
+     For the second sum, by (6.8),
+                        SPECTRAL GAPS FOR SETS AND MEASURES                                  21
+
+
+                                                                                 
+                    X                           X                    |Jk ||Jn |
+             II .                                                                  .
+                    n       k : k6=n, dist(J ,J )<max(|J |,|J |)
+                                                                 1 + dist2 (Jn , 0)
+                                                k    n       k   n
+
+   Recall that by our assumption |Jn | ≤ dist(Jn , 0) for all n 6= 0, −1. We can also
+assume that |J−1 | = |J0 |. Then in each term in the last sum k and n have the same
+sign. Let us estimate the part of the sum with non-negative k, n.
+                                                                              
+             X                     X                            |Jk ||Jn |
+                                                                              =
+             n≥0 k≥0 : k6=n, dist(Jk ,Jn )<max(|Jk |,|Jn |)
+                                                            1 + dist2 (Jn , 0)
+                                                        
+    X              X                      |J k ||J n |           X          |Jn |2
+  2                                                     ≤4                             < ∞.
+                                                2
+    n≥0 k≥0 : k<n, dist(J ,J )<|J |
+                                    1 + dist (Jn , 0)            n≥0
+                                                                      1 + dist2 (Jn , 0)
+                             k   n      n
+
+   The negative terms can be estimated similarly to conclude that
+                                        X            |Jn |2
+                                 II .                              < ∞.
+                                            n
+                                                1 + dist2 (Jn , 0)
+   Finally, for the third sum by (6.21),
+                                           "                                                          #
+       X           X           1                 X  1                               
+III .   
+                                2                                |I |2 log |Ii | − Ei + |Jn |2 + |Jk |2  .
+                                                                2 i
+      n
+                      1 + dist    (0, J n )                 4π
+          k : |k−n|≤1                        Ii ⊂Jk ∪Jn
+                              "                                                  #
+        X          1             X          1        2                           2
+                                                |Ii | log |Ii | − Ei + |Jn | < ∞
+        n
+           1 + dist2 (0, Jn )        Ii ⊂Jn
+                                           4π 2
+Because Λ satisfies the energy condition on In . Altogether these estimates give us
+                                 Z
+                                        dx
+                                    w̃w′ 2 < ∞.
+                                  R      x
+
+
+   The integrals over the circular part of ∂D(r) can be estimated like in [20], section
+5.3. We need to show that the integrals
+              Z                                       Z
+                                                    1 π 2        
+                                   ′
+                        q dq̃ = rI (r),     I(r) :=       q reiφ dφ,
+                ∂D(r)\R                             2 0
+do not tend to +∞ as r → ∞. In fact, it is enough to show
+                                                    I(r) 6→ ∞,
+               ′                        ′
+because if rI (r) → +∞, then I (r) ≥ 1/r for all r ≫ 1, and we have I(r) → ∞.
+  As we will see shortly, I(r) 6→ ∞ for any q ∈ L1 (1 + |x|−1 ). It will be more
+convenient for us to prove an equivalent statement in the unit disk D.
+  Let q + iq̃ be an analytic function in D such that
+                                  q(ζ)
+                                         ∈ L1 (∂D).
+                                 1 − |ζ|
+Define
+                              1+z
+                      h(z) =        (q(z) + iq̃(z)),  z ∈ D,
+                              1−z
+22                                          A. POLTORATSKI
+
+
+and denote by hM (ζ), ζ ∈ ∂D, the angular maximal function. Then ℑh ∈ L1 (∂D)
+and by the Hardy-Littlewood maximal theorem,
+                                            hM ∈ L1,∞ (∂D).                          (6.23)
+Let us show that as ǫ → 0,
+                Z
+              1
+                    |q + iq̃|2 |dz| 6→ ∞,                 Cǫ := {|1 − z| = ǫ} ∩ D.
+              ǫ Cǫ
+We have               Z                     Z
+                  1                                            2        2
+                           |q + iq̃|2 ≤ ǫ         |h|2 . ǫhM (ζ) + ǫhM (ζ̄) ,
+                  ǫ   Cǫ                     Cǫ
+where ζ ∈ ∂D, |1 − ζ| = ǫ. The right-hand side cannot tend to infinity because
+otherwise, for all small ǫ, we would have
+                                                   1
+                                hM (ζ) + hM (ζ̄) ≫
+                                                   ǫ
+on an interval of length ǫ, which would contradict (6.23).                  △
+
+     Let
+                                       φ = arg(θS̄I+ I¯− )/2.
+Recall that φ̃ ∈ L1Π .
+                    By the last claim φ/x belongs to the Dirichlet class. Hence,
+by the Beurling-Malliavin multiplier theorem, see for instance [20], there exists a
+smooth function m on R satisfying
+                           m′ < ε, m̃ ∈ L1Π         and m̃ ≥ max(0, −φ̃).
+     In other words, if Φ and M are outer functions,
+                             Φ = exp(iφ − φ̃), M = exp(im − m̃),
+then ΦM is bounded in C+ .
+   Since m′ < ε, εx − m is an increasing function. There exists a meromorphic
+inner function J such that
+                                {J = ±1} = {2(εx − m) = kπ}.
+Denote
+                              d1 = 2(εx − m) and d2 = arg J.
+Then the difference
+                                d = 2(εx − m) − arg J = d1 − d2
+satisfies |d| < π.
+   Put
+                                       2εx − arg J
+                                       l(x) =      .
+                                            2
+Notice that l̃ ∈ L1Π because 2l = d + 2m where d is bounded and m̃ ∈ L1Π .
+  Consider an outer function Ψ = exp(il − ˜l). Then
+                                                S̄ 2ε Ψ = J¯Ψ̄
+or equivalently
+                                                S̄ 2ε JΨ = Ψ̄
+on R. Thus Ψ ∈ N + [S̄ 2ε J].
+                       SPECTRAL GAPS FOR SETS AND MEASURES                                      23
+
+                                                  
+                                                  ˜
+  Moreover, the ratio Ψ/M is equal to exp i d2 − d2 . Since |d| < π, Ψ/M belongs
+to any LpΠ , p < 1. Our next goal is to construct another ”small” outer multiplier
+function k so that kΨ/M ∈ L2Π .
+   Consider the step function
+                                                     
+                                   π 5          π 5
+                           α(x) =        d1 −         d2 ,
+                                    5 π         5 π
+   where [·] again denotes the entire part of a real number. Then
+
+                                                2π
+                                          |d − α| < .                    (6.24)
+                                                 5
+   Since d1 = d2 = πn at the points {cn } = {J = ±1}, the function α only takes
+values k π5 , k = −4, −3, ..., 4. Therefore α can be represented as
+                                         4         8
+                                                        !
+                                    π X          X
+                                α=          βn −      βn ,
+                                    5 n=1        n=5
+  where βn are elementary step functions, each taking only two values, 0 and 1,
+and making at most one positive and one negative jump on each interval [cn , cn+1 ].
+For each n = 1, 2, ..., 8 one can choose an inner function Qn so that
+
+                                    1 − Qn
+                                           = const eπKβn .
+                                    1 + Qn
+  Notice that then
+                                        v
+                                        u 4             8
+                                        u Y 1 + Qn Y       1 − Qn
+                                        t
+                exp(−iπα + π α̃) = const 5                        .
+                                           n=1
+                                               1 − Q n n=5
+                                                           1 + Qn
+  Because of (6.24) we have
+                                        v
+          4                8            u 4             8
+          Y                Y            u Y 1 + Qn Y       1 − Qn
+            (1 + Qn )    (1 − Qn )Ψ/M . t
+                                        10
+                                                                  Ψ/M
+         n=1          n=5                  n=1
+                                               1 − Q n n=5 1 + Qn
+
+                                             "   #
+                                           d˜ α̃
+                               = const exp   −     ∈ L2Π (R)
+                                           2   2
+and since the function M Φ is bounded,
+
+     4
+     Y               8
+                     Y                     4
+                                           Y                 8
+                                                             Y               Ψ
+         (1 + Qn )       (1 − Qn )ΨΦ =           (1 + Qn )       (1 − Qn )     M Φ ∈ L2Π (R).
+    n=1              n=5                   n=1               n=5
+                                                                             M
+                                +    2ε
+   Now notice that since N [S̄ J] 6= 0, the set {cn } = {J = ±1} has Beurling-
+Malliavin density at most 2ε, see section 7 or [19]. By our construction the Beurling-
+Malliavin density of each of the sets {Q    Qn = ±1} is the same as that of {cn }, i.e.
+at most 2ε. Hence the kernel N ∞ [S̄ 17ε n Qn ] contains a non-zero function τ , see
+section 7 or [19].
+   Similarly, since the Beurling-Malliavin density of {I+ = 1} is less than ε, the
+kernel N ∞ [S̄ ε I+ ] is infinite-dimensional. Hence it contains a non-trivial function η
+24                                                A. POLTORATSKI
+
+
+with at least one zero a in C+ . Then the function κ = η/(z − a) also belongs to
+N ∞ [S̄ ε I+ ] and satisfies |κ| . (1 + |x|)−1 on R.
+   Therefore
+                                      4
+                                      Y           8
+                                                  Y
+                         θ̄S 1−20ε κτ   (1 + Qn )    (1 − Qn )ΨΦ =
+                                             n=1             n=5
+                                   4               8
+                                                                     !
+                                  Y               Y                                             
+           ε
+          S̄ I+ κ       S̄   17ε
+                                       (1 + Qn )        (1 − Qn )τ       S̄ 2ε Ψ       θ̄S 1 I¯+ Φ ∈ H̄ 2 .
+                                   n=1             n=5
+     Hence the space Kθ contains the function
+                                                  4
+                                                  Y               8
+                                                                  Y
+                                     1−20ε
+                             f =S            κτ       (1 + Qn )       (1 − Qn )ΨΦ.
+                                                  n=1             n=5
+   Now we could simply refer to theorem 1 to conclude this part of the proof. For
+the convenience of those readers who skipped theorem 1, we also present a direct
+argument.
+   By the Clark representation formula
+
+                                f = (1 + θ)Kf σ1
+  where σ1 is the Clark measure corresponding to θ concentrated on {θ = 1} =
+Λ. Since 1 + θ is bounded in the upper half-plane and f decreases faster than
+exp[−(1 − 21ε)y] along the positive y-axis, so does Kf µ. Hence f µ is the measure
+concentrated on Λ with the spectral gap at least (1 − 21ε).
+
+                                            1
+II) Now suppose that GX > 1 but CX < 2π       .
+   By corollary 4 there exists a discrete increasing sequence Λ = {λn }n∈Z ⊂ X and
+a measure ν, supp ν = Λ such that ν has a spectral gap of the size 1 and Kν does
+not have any zeros in C.
+   Similarly to the previous part, we assume that supn (λn − λn−1 ) < ∞. The
+general case is discussed at the end of the proof. If supn (λn − λn−1 ) < ∞, we can
+apply lemma 5 and consider the inner function θ corresponding to Λ. A function
+f ∈ N [φ] is called purely outer if f is outer in the upper half-plane and φf = ḡ is
+outer in the lower half plane. Since Kν is divisible by S, the function
+                                         f = S −1 (1 − θ)Kν ∈ Kθ1,∞
+is a purely outer element of N 1,∞ [θ̄S], see section 8. Note that f = exp(iφ − φ̃) in
+C+ , where 2φ = arg θ − x.
+
+   Denote by Γn the middle one-third of the interval (λn , λn+1 ). Our plan is to
+calculate the integral
+                                     Z
+                                                dx
+                                           φ′ φ̃ 2                            (6.25)
+                                       ∪Γn      x
+in two different ways and arrive at a contradiction by obtaining two different an-
+swers.
+   First let us choose a short monotone partition {In } of R such that Λ satisfies
+                                        1
+the density condition (5.3) with a = 2π    on that partition:
+   Put a0 = 0. Choose a1 > a0 to be the smallest point such that #Λ ∩ (a0 , a1 ] ≥
+ 1
+2π (a1 −a0 ). Note that such a point always exists because Λ supports a measure with
+                         SPECTRAL GAPS FOR SETS AND MEASURES                                                 25
+
+
+a spectral gap greater than 1: otherwise we would be able to choose a long sequence
+                                                     1
+of intervals satisfying (7.1) in lemma 2 with a = 2π     and arrive at a contradiction.
+After ai , i ≥ 1 is chosen, choose ai+1 > ai as the smallest point such that
+                               1
+          #Λ ∩ (ai , ai+1 ] ≥    (ai+1 − ai ) and (ai+1 − ai ) ≥ (ai − ai−1 ).
+                              2π
+Choose ai , i < 0 in a similar way. Put In = (an , an+1 ]. Again by lemma 2, {In }
+has to be short.
+                                                    1
+   In what follows we will assume, WLOG, that 2π       |In | = #Λ ∩ In .
+   Note that since CX < 1, the sum in the energy condition (5.4) has to be infinite.
+At the same time, a part of that sum has to be finite:
+
+Claim 3.
+                                   X log− (λn+1 − λn )
+                                                                    < ∞.
+                                     n
+                                                  λ2n
+
+
+Proof of claim. Suppose that the sum is infinite. Put µ = |ν| and let Φ be the inner
+function corresponding to µ. Let ψ = arg Φ − x.
+   Define the intervals Jn and the function v like in part I) of the proof, with Φ
+replacing θ. Put w = ψ − v = arg Φ − x − v. Let again wn = |Jn , wn∗ = w − wn .
+Then w̃ ∈ L1Π because wn are atoms with summable L1Π -norms.
+   Like in part I) we can use ”atomic” estimates to show that if dist(Jk , Jn ) >
+max(|Jk |, |Jn |) and x ∈ Jn then
+
+                                          |Jk |3
+                                      |w̃k (x)| .    .
+                                      dist2 (x, Jk )
+  By monotonicity and shortness of Jk we conclude that
+
+    X |w̃k (λi )|   X                                        Z
+                         |w̃k (λi )|              1                 |Jk |3
+                  .                      .                                      dx.
+          λ2i         1 + dist2 (0, Jn )   1 + dist2 (0, Jn ) Jn dist2 (x, Jk )
+   λi ∈Jn                λi ∈Jn
+
+  Hence, similarly to (6.22),
+                                                              "                          #
+              X                          X                          X |w̃k (λi )|
+                                                                                             =
+                    n
+                                                                                  λ2i
+                          k : dist(Jk ,Jn )>max(|Jk |,|Jn |)       λi ∈Jn
+                                                                    "                         #
+                X                        X                                X |w̃k (λi )|
+            2                                                                                 .
+                n
+                                                                                        λ2i
+                        k : k<n, dist(Jk ,Jn )>max(|Jk |,|Jn |)          λi ∈Jn
+                                                                                                   
+  X                       X                                                  Z
+                                                1                                     |Jk |3
+                                                                                                  dx < ∞.
+   n  k : k<n, dist(J ,J )>max(|J |,|J |)
+                                          1 + dist2 (0, Jn )                            2
+                                                                                 Jn dist (x, Jk )
+                         k   n           k   n
+
+  In other words, on each Jn
+                                             X
+                                                                     |w̃k∗ | ≤ g1
+                              k : dist(Jk ,Jn )>max(|Jk |,|Jn |)
+  where g1 is a positive function satisfying
+26                                                      A. POLTORATSKI
+
+
+
+                                                    X g1 (λn )
+                                                                        < ∞.
+                                                        n
+                                                              1 + λ2n
+     Also for any x ∈ Jn
+                                        Z                               Z
+                                             dt
+                       w̃k (x) =                wk (t) = −                    log |t − x|w′ (t)dt.
+                                            t−x                          Jk
+     If k < n then                              Z
+                                            −               log |t − x|w′ (t)dt ≥
+                                                    Jk
+     Z                                              Z
+ −                                  ′
+           log+ |t − x|(arg Φ) (t)dt +                       log+ |t − x|(1 + v ′ )(t)dt − const & −|Jk |. (6.26)
+      Jk                                                Jk
+Here we applied lemma 6, part 6, to the second integral in the second line and used
+the estimate
+               Z                                           Z
+             −                       ′
+                  log+ |t − x|(arg Φ) (t)dt ≥ − log(x − b)    (arg Φ)′ ,
+                       Jk                                                                 Jk
+where b is the left endpoint of Jk , for the first integral.
+  Thus for x ∈ Jn
+                                                    X
+                                                                              w̃k (x) ≥ g2 (x),
+                            k : k6=n, dist(Jk ,Jn )<max(|Jk |,|Jn |)
+where again
+                                                    X |g2 (λn )|
+                                                                        < ∞.
+                                                        n
+                                                              1 + λ2n
+     Also, for x ∈ Jn                           Z
+                                            −           log+ |x − t|w′ (t)dt =
+                                                Jn
+     Z                                              Z
+ −                              ′
+                                   log+ |x − t|(1 − v ′ )(t)dt − const & −|Jn |. (6.27)
+           log+ |x − t| arg Φ(t)dt +
+      Jn                                            Jn
+                                      R              R
+Here we again used the property that Jn arg′ Φ = Jn (v ′ − 1) = |Jn | + O(1) and
+applied lemma 6, part 5, to the second integral in the second line.
+  Hence for any x ∈ R
+                               Z
+                      w̃(x) ≥ log− |x − t|w′ (t)dt + g(x)
+for some function g satisfying
+                                                    X |g(λn )|
+                                                                        < ∞.
+                                                        n
+                                                              1 + λ2n
+     Therefore,
+                                                                  R λn +1
+                      X w̃(λn )                               X    λn −1
+                                                                            log− |λn − x|w′ dx
+                                    ≥ const +                                                        ≥
+                      n
+                            1 + λ2n           n
+                                                                               1 + λ2n
+                       R λn                        ′
+                X         λn−1 log− |λn − x|(arg Φ) dx
+                                                                 X log− |λn − λn−1 |
+      const +                                          ≥ const +                     .
+                  n
+                                     1 + λ2n                     n
+                                                                        1 + λ2n
+                        SPECTRAL GAPS FOR SETS AND MEASURES                                        27
+
+
+   Let f = (1 + Φ)Kν. Then f is an outer function in C+ that belongs to H 2 and
+satisfies                                      !
+                                       ψ ψ̃
+                            f = exp i −          .
+                                        2    2
+
+Since |f (λn )| = |ν({λn })|/µ({λn }) = 1, we have that log |f (λn )| = 2ψ̃(λn ) = 0 for
+all n.
+   Recall that w̃(λn ) = ψ̃(λn ) + ṽ(λn ) = ṽ(λn ). It is left to show that
+
+                                               X ṽ(λn )
+                                                                  < ∞.
+                                                n
+                                                        1 + λ2n
+
+   Recall that v ∈ L1Π , ṽ = w̃ − ψ̃ = w̃ − log |f |/2 ∈ L1Π and v ′ is bounded on R.
+Therefore the harmonic extension of v into C+ has a bounded x-derivative in C+ .
+Hence ṽy is bounded in C+ as well.
+   On each interval Jn choose λkn so that v(λkn ) = maxλi ∈Jn v(λi ). If the last sum
+is positive infinite then so is
+
+                                           X                ṽ(λkn )
+                                               |Jn |                       .
+                                           n
+                                                        1 + dist2 (0, Jn )
+  Because of the boundedness of ṽy , ṽ(λkn + i|Jn |) ≥ ṽ(λkn ) − C|Jn | and therefore
+
+                                   X                ṽ(λkn + i|Jn |)
+                                           |Jn |                      = ∞.
+                                       n
+                                                   1 + dist2 (0, Jn )
+                    M
+  Denote by (ṽ) the maximal non-tangential function of ṽ in C+ . The last
+equation implies that (ṽ)M 6∈ L1Π . But that contradicts the property that both ṽ
+and v belong to L1Π .                                                           △
+
+  Now notice that if x ∈ Γn then
+                                                    Z
+                                                          1
+   |f (x)| = |(1 − θ(x))Kν(x)| ≤ 2                           dν(t) ≤ 6||ν|| |λn+1 − λn |−1 .   (6.28)
+                                                         t−x
+Hence           Z                    Z
+                       dx X 1
+                        φ′ φ̃
+                           .              arg′ θ log+ |f |dx + const .
+                 ∪Γn   x2      n
+                                  λ2
+                                   n   Γn
+
+                  X 1 Z
+                      2
+                             arg′ θdx log− |λn+1 − λn | + const .
+                   n
+                     λn   Γn
+
+                             X 1
+                                           log− |λn+1 − λn | + const < ∞.                      (6.29)
+                               n
+                                   λ2n
+  It follows that
+                        Z                    Z                 Z
+                                   ′dx               ′ dx                 dx
+                                w w̃ 2 =          φ φ̃ 2 −           φ′ ṽ 2 −
+                            ∪Γn     x         ∪Γn      x         ∪Γn      x
+                                Z                 Z
+                                            dx                dx
+                                      v ′ φ̃ 2 +        v ′ ṽ 2 < ∞.                          (6.30)
+                                 ∪Γn        x       ∪Γn       x
+28                                                         A. POLTORATSKI
+
+
+  Indeed, arguing like at the end of the proof of the last claim, from the property
+that (ṽ)M ∈ L1Π we deduce that
+                           X         supx∈Jn |ṽ(x)|
+                              |Jn |                    < ∞.
+                            n
+                                    1 + dist2 (0, Jn )
+     Therefore
+        Z                               Z
+                                 dx                                   supx∈Jn |ṽ(x)|                          supx∈Jn |ṽ(x)|
+                     φ′ ṽ          ≤                      |φ′ |dx                               ≍ |Jn |
+         ∪Γk ∩Jn                 x2     ∪Γk ∩Jn                      1 + dist2 (0, Jn )                    1 + dist2 (0, Jn )
+     and summing over all n we get
+                                 Z
+                                           dx
+                                                < ∞.               φ′ ṽ
+                                    ∪Γk    x2
+    The second integral on the right-hand side of (6.30) is finite because v ′ is bounded
+and φ̃ = log |f | is in L1Π . The last integral is finite because v ′ is bounded and
+ṽ = φ̃ − w̃ ∈ L1Π .
+    Denote
+            Ln = ∪dist(Jk ,Jn )<max(Jk |,|Jn|) Jk , qn = w|Ln                                    and q∗n = w − qn .
+     Then
+                 Z                                    Z                                     Z               
+                          dx X                                                    dx                      dx
+                                                                                                           ′
+                      w w̃ 2 =   ′
+                                                                           w′ q̃n∗ 2 +               w q̃n 2 .
+                  ∪Γk     x    n                             ∪Γk ∩Jn                 x       ∪Γk ∩Jn      x
+The first integral can be, once again, estimated like in (6.6), i.e. using the property
+that each wi is an atom, and the sum of such integrals shown to be finite. For
+the second integral, applying similar arguments that were used in the first part to
+prove (6.9) we obtain
+                                   Z
+                                                    dx
+                                             w′ q̃n 2 &
+                                     ∪Γk ∩Jn        x
+                     Z               "       Z                                    #
+           1                            X
+ −                            w′ (x)              log |x − t|w′ (t)dt − |Jn ||Jl | dx. (6.31)
+   1 + dist2 (Jn , 0) ∪Γk ∩Jn          J ⊂L   J l
+                                                               l     n
+
+Furthermore, because of (6.26),
+                                 Z                       "                                            #
+                                                              X Z
+                             −                  w′ (x)                          log |x − t|w′ (t)dt dx &
+                                 ∪Γk ∩Jn                     Jl ⊂Ln        Jl
+                     Z                           Z                                X
+                −                    w′ (x)                log |x − t|w′ (t)dt dx −   |Jl ||Jn |.
+                      ∪Γk ∩Jn                         Jn                                           Jl ⊂Ln
+     Let us remark right away that
+                                      X                 1           X
+                                                         2              |Jl ||Jn | .
+                                        n
+                                                 1 + dist (Jn , 0) J ⊂L
+                                                                                 l       n
+
+                             X             |Jl ||Jn |          X       |Jn |
+                                                 2           .           2          < ∞.
+        l<n, dist(J ,J )<max(J |,|J |)
+                                       1 + dist    (J n , 0)   n
+                                                                 1 + dist  (Jn , 0)
+                         l   n              l     n
+                               SPECTRAL GAPS FOR SETS AND MEASURES                                 29
+
+
+  To continue the estimates let us split the last integral:
+                    Z              Z                       
+                  −         w′ (x)       log |x − t|w′ (t)dt dx =
+                                ∪Γk ∩Jn                   Jn
+                  Z                                 Z                       
+                                 (arg θ)′ (x)  log |x − t|(v ′ (t) + 1)(t)dt dx
+                  ∪Γk ∩Jn                  J
+                  Z                      Zn                                  
+               −           (arg θ)′ (x)          log |x − t|(arg θ)′ (t)(t)dt dx
+                   ∪Γ ∩J                     J
+                   Z k n                   Zn                               
+                −            (v ′ (x) + 1)         log |x − t|(v ′ (t) + 1)dt dx
+                    ∪Γk ∩Jn                    J
+                Z                       Z n                                 
+              +           (v ′ (x) + 1)        log |x − t|(arg θ)′ (t)(t)dt dx =
+                     ∪Γk ∩Jn                             Jn
+                            I + II + III + IV.
+  To estimate III and IV denote by C the constant satisfying
+                        Z
+                               (v ′ (x) + 1)dx = C|Jn |.
+                                     ∪Γk ∩Jn
+                                                           R            R
+   Notice that because 1 − 2ε < v ′ + 1 < 1 + 2ε and Jn v ′ + 1 = Jn (arg θ)′ = |Jn |,
+for any y ∈ Jn ,
+                 Z
+                    log |y − t|(v ′ (t) + 1)dt = |Jn | log |Jn | + O(|Jn |)    (6.32)
+                      Jn
+and
+          Z                          Z                                   
+                           ′                                    ′
+III = −               (v (x)+1)                log |x − t|(v (t) + 1)dt dx = −C|Jn |2 log |Jn |+O(|Jn |2 ).
+            ∪Γk ∩Jn                       Jn
+  To estimate IV observe that for any t ∈ Jn , if dist(t, (λk , λk+1 )) ≥ 1 then
+                       Z
+                           (v ′ (x) + 1) log+ |x − t|dx ≥
+                                     Γk
+              Z                           R λk+1
+                       ′                       λk        log+ |x − t|dx
+                     (v (x) + 1)dx                    − (λk+1 − λk ) log 3
+                Γk                  λk+1 − λk
+   (recall that Γk is the middle one-third of (λk , λk+1 )). Consider a positive step
+function α(x) defined on each (λk , λk+1 ) as
+                                 R     ′
+                                  Γk (v (x) + 1)dx
+                                                    .
+                                     λk+1 − λk
+Then |α − 1| ≤ ε on Jn . Hence one can apply lemma 6 part 5 to conclude that, for
+any t ∈ Jn ,
+                        Z
+                                 (v ′ (x) + 1) log+ |x − t|dx ≥
+                         ∪Γk ∩Jn
+      Z                                        Z         
+         α(x) log+ |x − t|dx − const|Jn | ≥          α(x) log |Jn | − const|Jn | =
+       Jn                                                           Jn
+                                       C|Jn | log |Jn | − const|Jn |.
+Therefore
+30                                            A. POLTORATSKI
+
+
+                      Z                            Z                                    
+               IV =                (v ′ (x) + 1)             log |x − t|(arg θ)′ (t)(t)dt dx ≥
+                       ∪Γk ∩Jn                          Jn
+       Z              
+               (arg θ)′ (C|Jn | log |Jn | − const|Jn |) = C|Jn |2 log |Jn | − const|Jn |2 .
+          Jn
+     Combining the estimates we get
+
+                                            III + IV & −|Jn |2 .
+     To estimate II notice that
+                 X Z                                         X     Z λj+1
+         II = −          (arg θ)′ (x)dx                                       log |x − t|(arg θ)′ (t)dt.
+                   Γk ⊂Jn    Γk                     λj ,λj+1 ∈Jn     λj
+
+If t ∈ (λj , λj+1 ) and x ∈ Γk then
+                                   
+                                   
+                                   log |λj − λk+1 | if j < k
+                      log |x − t| ≥ log |λk − λj+1 | if j > k .
+                                   
+                                   
+                                      log |λj+1 − λj | if j = k
+             R         ′
+Put αk = Γk (arg θ) . Then
+                              X           X
+                     II ≥ −        αk            2π log |λk − λj | + An
+                                   Γk ⊂Jn      λj ∈Jn ,j6=k
+
+where the constants An satisfy
+                            X                     |An |
+                                                                < ∞.
+                                        n
+                                             1 + dist2 (0, Jn )
+     Using (6.32), I can be rewritten as
+                   X Z                 Z                                                  
+                                  ′                                       ′
+             I=            (arg θ) (x)                       log |x − t|(v (t) + 1)(t)dt dx =
+                    Γk ⊂Jn    Γk                        Jn
+                                                    !
+                                        X
+                                               αk        |Jn | log |Jn | + Bn
+                                      Γk ⊂Jn
+where again
+                                       X          |Bn |
+                                                                < ∞.
+                                        n
+                                             1 + dist2 (0, Jn )
+By the left-hand side of the inequality in part 2) of lemma 5,
+                                   Z
+                              αk =     (arg θ)′ > c > 0
+                                                   Γk
+                                       1
+for all k. Therefore, since there are 2π |Jn | intervals Γk in Jn ,
+                                                !
+                                      X
+                         I + II =          αk |Jn | log |Jn |−
+                                               Γk ⊂Jn
+                          X             X
+                               αk                  2π log |λk − λj | + An + Bn &
+                      Γk ⊂Jn        λj ∈Jn ,j6=k
+                       SPECTRAL GAPS FOR SETS AND MEASURES                                          31
+
+                 1                           X
+                   |Jn |2 log |Jn | −                   2π log |λk − λj | + An + Bn .
+                2π
+                                           λj ,λk ∈Jn
+  Now, going back to (6.31), we obtain
+                             XZ                                   dx
+                                                         w′ w̃n      &
+                                      n      ∪Γk ∩Jn              x2
+                                 P
+    X 4π1 2 |Jn |2 log |Jn | −       λj ,λk ∈Jn log |λk − λj | − |Jn |
+                                                                         2
+                                                                             + An + Bn
+                                                                                         + const.
+     n
+                                       1 + dist2 (Jn , 0)
+It remains to notice that the sum on right-hand side is positive infinite because
+otherwise Λ would satisfy the energy condition (5.4) and CX would be at least 1.
+This contradicts (6.30).
+   It remains to discuss the case when supn (λn − λn−1 ) = ∞. If Λ is such a
+sequence, choose a large constant C and consider the set of all gaps Rk of Λ of the
+size larger than C:
+                         Rk = (λnk , λnk +1 ), λnk +1 − λnk > C.
+After that one can add a separated set of points in every Rk and consider a slightly
+larger sequence Λ′ = {λ′n } ⊃ Λ that satisfies supn (λ′n − λ′n−1 ) ≤ C and
+                                     inf         (λ′n − λ′n−1 ) ≥ C/2.
+                            λ′n ,λ′n−1 ∈Λ′ \Λ
+
+Since CΛ < 1, for large enough C the sequence Λ′ will still satisfy CΛ′ < 1.
+   The inner function θ should then be chosen for the sequence Λ′ instead of Λ.
+Consider the outer function
+                                     h = (1 − θ)Kν ∈ Kθ1,∞ .
+Then h is divisible by S and has zeros at Υ = Λ′ \ Λ. Since Υ is a separated
+sequence, there exists an inner function I, specI = Υ such that (arg I)′ is bounded,
+see for instance lemma 16 in [7]. If C is large enough, |(arg I)′ | << ε. The function
+
+                                                         Ih
+                                                g=
+                                                        1−I
+  is divisible by S and satisfies
+
+                                      Ih           1
+                                     θ̄g = θ̄
+                                           = θ̄h
+                                     1−I         1 − I¯
+on R. Therefore g ∈ Kθ+ . At the same time, g no longer has zeros on R. Denote
+f = g/IS. Then f ∈ N + [θ̄S] is an outer function whose argument on R is equal to
+(arg θ − x − arg I)/2. Now we can apply claim 1 to u = arg θ − x − arg I to obtain
+functions v = v1 + v2 satisfying the properties 1-5.
+   If one denotes by Γn the middle one-third of (λ′n , λ′n+1 ), then similarly to (6.28),
+
+             |S −1 (x)h(x)| = |(1 − θ(x))Kν(x)| ≤ 6||ν|| |λ′n+1 − λ′n |−1 .
+The argument of the function h/S is arg θ − x. Note that claim 3 still holds with
+Λ′ in place of Λ, because Υ is separated. Hence (6.29) still holds for φ = arg θ − x.
+   After that, using the property that |(arg I)′ | << ε, one can ”absorb” arg I into
+v1 and replace v1 with y = v1 + arg I. The rest of the estimates of the integral in
+(6.25) can be done in the same way as before, with v = y +v2 in place of v = v1 +v2 .
+
+32                                  A. POLTORATSKI
+
+
+                               7. Used technicalities
+
+     This section contains several lemmas and corollaries used in previous sections.
+     If Λ is a real sequence we define its Beurling-Malliavin density as
+
+          dBM (Λ) = sup{d | ∃ long {In } such that #Λ ∩ In ≥ d|In | ∀n}
+if Λ is discrete and as ∞ otherwise.
+   An equivalent definition is given in [19]:
+
+                         dBM (Λ) = sup{a : N [S̄ 2πa θ] = 0},
+where θ(z) denotes some/any meromorphic inner function with specθ = Λ.
+   Note that the Beurling-Malliavin multiplier theorem implies that N [S̄ 2πa θ] in
+the above definition can be replaced with any N p [S̄ 2πa θ], 0 < p ≤ ∞, the kernel in
+the Hardy space H p , or with N + [S̄ 2πa θ], the kernel in the Smirnov class.
+
+Lemma 1. Let X ⊂ R be a closed set and let Λ be a discrete sequence. Then
+
+                              GX∪Λ ≤ GX + 2πdBM (Λ).
+
+
+Proof. Let dBM (Λ) = d1 , GX = d2 and GX∪Λ = d3 . Let ε > 0 be a small number.
+By theorem 1, N [θ̄S d3 −ε ] 6= 0 for some meromorphic inner θ, specθ ⊂ X ∪ Λ. Let
+f ∈ N [θ̄S d3 −ε ]. Let I be an inner function such that specI = Λ.
+   By the above definition of the Beurling-Malliavin density, there exists a function
+g ∈ N ∞ [S̄ 2πd1 +ε I]. Then the function h = (1 − I)g belongs to N ∞ [S̄ 2πd1 +ε ] and is
+equal to 0 on Λ. The function f h belongs to N [θ̄S d3 −2πd1 −2ε ] and is zero on Λ (obvi-
+ously, we assume that d3 − 2πd1 − 2ε > 0). Finally, the function l = S d3 −2πd1 −2ε f h
+belongs to N [θ̄] = Kθ and is still zero on Λ. By the Clark representation
+                                         1
+                                    l=      (1 − θ)Klσ
+                                        2πi
+where σ is the Clark measure for θ, supp σ = specθ ⊂ Λ ∪ X. Since l is divisible
+by S d3 −2πd1 −2ε in C+ and (1 − θ) is an outer function in C+ , Klσ is divisible by
+S d3 −2πd1 −2ε in C+ . Equivalently, the measure lσ has a spectral gap of the size
+d3 − 2πd1 − 2ε. Since l is zero on Λ, the measure lσ is supported on X. Hence
+
+                   GX ≥ d3 − 2πd1 − 2ε = GX∪Λ − 2πdBM (Λ) − 2ε.
+                                                                                        
+
+   The following statement can be viewed as a version of the first Beurling-Malliavin
+theorem, see [19, 20].
+
+Lemma 2. Let Λ be a real sequence. Suppose that there exists a long sequence of
+intervals In such that
+
+                                   #(Λ ∩ In ) ≤ a|In |                              (7.1)
+     for all n, for some a ≥ 0. Then GΛ ≤ 2πa.
+                      SPECTRAL GAPS FOR SETS AND MEASURES                               33
+
+
+Proof. Suppose that GΛ = 2πa+3ε for some ε > 0. Then by theorem 1, N [θ̄S 2πa+2ε ] 6=
+0 for some inner function θ, specθ ⊂ Λ. But (7.1) implies that the argument of
+the symbol increases greatly on In , which leads to a contradiction. More precisely,
+denote
+                     γ = arg(θ̄S 2πa+2ε ) = (2πa + 2ε)x − arg θ.
+For each In = (an , an+1 ] denote
+                                    δn = inf  γ − sup γ,
+                                          In
+                                           ′′
+                                                   In
+                                                    ′
+
+
+where
+                              ε|In |                                ε|In |
+         In′ = (an , an +             )   and In′′ = (an+1 −                , an+1 ).
+                            6(πa + ε)                             6(πa + ε)
+Then (7.1) implies that δn ≥ 3ε |In |. Hence by a theorem in [19], section 4.4,
+N [θ̄S a+2ε ] has to be trivial.                                             
+
+
+Lemma 3. Let I = [a, b] be an interval on R and let Λ = {λ1 , ..., λN }, a ≤ λ1 <
+... < λN ≤ b be a set of points on I. Let C > 1 be a constant and suppose that for
+some subinterval J = [c, d] ⊂ I,
+                                         |J|
+                                    #Λ ∩ J ≤ − 1.
+                                          C
+  Then one can spread the points of Λ on J without a large decrease in the energy
+E(Λ). More precisely, if
+                      Γ = {γ1 , ..., γN }, a ≤ γ1 < ... < γN ≤ b
+is another set of points on I with the properties that
+  1) γk = λk for all k such that λk 6∈ J and
+  2) |γk − γj | ≥ C for all γk , γj ∈ J, γk 6= γj
+then
+                                                 log C
+                               E(Γ) ≥ E(Λ) −           |J|N.
+                                                   C
+where E is defined by (5.1)
+
+                     P
+Proof. Notice that       γk ,γj ∈J log− |γk − γj | = 0 and that
+
+                       log+ |γk − γj | ≥ log+ |λk − λj | − log+ C
+  for all k, j.                                                                         
+
+
+Corollary 1. Let Λ be a sequence of real points that satisfies the density (5.3) and
+energy (5.4) conditions for some partition In and d > 0. Let C > 1. Let Jk be a
+sequence of disjoint intervals such that for every k, Jk ⊂ In for some n and
+                                             |Jk |
+                                 #Λ ∩ Jk ≤         −1
+                                              C
+for all k. Let Γ be a sequence of points obtained from Λ by spreading the points
+on each interval Jk like in the last lemma. Then Γ satisfies the density and energy
+conditions with the same partition In and d.
+34                                    A. POLTORATSKI
+
+
+Corollary 2. Let Λ = {λn } be a monotone sequence of real points such that CΛ ≥
+d > 0. Then for any ε > 0 there exists a monotone sequence Γ = {γn } such that
+     1) CΓ ≥ d,
+     2) dBM (Γ \ Λ) < ε and
+     3) supn (γn+1 − γn ) < ∞.
+
+
+
+Proof. Choose C > 0 so that 1/C << d and 1/C << ε. Let [λnk , λnk +1 ] be a
+sequence of all ”gaps” of Λ satisfying λnk +1 − λnk > C.
+   Since CΛ ≥ d, there exists a partition In such that Λ satisfies (5.3) and (5.4) for
+In and d. One can choose a sequence of disjoint intervals Jk such that for every k,
+Jk ⊂ In for some n,
+
+                                     |Jk |              |Jk |
+         ∪[λnk , λnk +1 ] ⊂ ∪Jk   and      ≤ #Λ ∩ Jk ≤        − 1 for all k
+                                      2C                 C
+(the choice of Jk can be made by a version of the ”shading” algorithm, see for
+instance [14]), volume 2, pp 507–508. Let Γ be a sequence of points obtained from
+Λ by spreading the points on each interval Jk like in lemma 3. Then 1) is satisfied
+by the previous corollary and the supremum in 3) is at most 2C. Since the distances
+between the points of Γ on ∪Jk are at least C,
+                                  dBM (Γ \ Λ) ≤ C −1 < ε.
+                                                                                      
+
+
+
+Lemma 4. Let Λ be a sequence of real points and let {In } be a short partition such
+that Λ satisfies
+                              a|In | < #Λ ∩ In
+for all n with some a > 0 and the energy condition (5.4) on {In }. Then for any
+short partition {Jn }, there exists a subsequence Γ ⊂ Λ that satisfies
+                                  #(Λ \ Γ) ∩ Jn = o(|Jn |)
+as n → ±∞, and the energy condition (5.4) on {Jn }.
+
+
+
+Proof. To simplify the estimates we will assume that the endpoints of In belong
+to Λ, i.e. that In = (λkn , λkn+1 ] for each n, and that the energy condition (5.4) is
+satisfied on In with En defined by (6.1), see the explanation there.
+   (To include the endpoints in En one may need to compensate by deleting a point
+on each In , as explained in the beginning of the proof of theorem 2. This is where
+one may need to pass from Λ to a subsequence Γ. Since |In | → ∞, Γ will satisfy
+#(Λ \ Γ) ∩ Jn = o(|Jn |).)
+   We will also assume that #Λ ∩ In = |In | for all n. In this case one can choose
+Γ = Λ.
+   Fix n and suppose that the intervals Il , ..., Il+N cover Jn . To estimate the energy
+expression for Jn let us first consider the case when and ∪l+N   l  Ij = Jn . Denote by
+                                    SPECTRAL GAPS FOR SETS AND MEASURES                                                    35
+
+
+u a piecewise linear continuous function on R that is zero outside of Jn and grows
+linearly by 1 between λn and λn+1 for each λn , λn+1 ∈ Jn . Denote
+                       (
+                         u(x) − x + λkl on Jn = (λkl , λkl+N +1 ]
+               p(x) =                                               .
+                         0 on R \ Jn
+Then p(λkn ) = 0 for all l ≤ n ≤ l + N + 1. Denote by pn the restriction pn |In .
+   On each (λi , λi+1 ) the function u′ satisfies the same estimates as |θ′ | from the
+statement of lemma 5, parts 2 and 3. Therefore for the function p one can apply the
+same argument as in the first part of the proof of theorem 2, where p was defined
+as arg θ − x − v2 (we will simply assume that v2 ≡ 0).
+   First, one can show that
+                           ZZ
+                         −          log |t − x|p′ (t)p′ (x)dtdx =
+                                                 Jn ×Jn
+                                                          X
+                      2
+                |Jn | log |Jn | −                                               log |λi − λj | + const|Jn |2 .
+                                          λkl ≤λi ,λj ≤λkl+N +1 , λi 6=λj
+
+    To estimate the last integral rewrite it as
+    ZZ                                                        X X                    ZZ
+                                      ′      ′
+−                    log |t − x|p (t)p (x)dtdx =                                −                log |t − x|p′ (t)p′ (x)dtdx.
+         Jn ×Jn                                            Ii ⊂Jn Ij ⊂Jn                Ii ×Ij
+
+    For the last integral, when i = j by (6.16) and (6.17) we have
+            ZZ
+          −          log |t − x|p′ (t)p′ (x)dtdx . |Ii |2 log |Ii | − Ei + const|Ii |2 .
+                          Ii ×Ii
+   If Ii does not intersect 2Ij we can apply (6.18) and (6.19) (where we used that
+dist(Ij , Ik ) ≥ |Ij |) to obtain
+                          ZZ
+                        −         log+ |t − x|p′ (t)p′ (x)dtdx . |Ii ||Ij |.
+                                          Ii ×Ij
+   For the case when Ii intersects 2Ij but not contained in 2Ij , or when Ii is adjacent
+to Ij , (note that there are at most four of such Ii for each Ij ) we can estimate the
+integral like in (6.20) to conclude that
+                           ZZ
+                         −        log+ |t − x|p′ (t)p′ (x)dtdx .
+                                                 Ii ×Ij
+                                                                        
+                            |Ii |2 log |Ii | − Ei + |Ij |2 log |Ij | − Ej + |Ii |2 + |Ij |2 .
+    Finally, in the case when Ii ⊂ 2Ij , j > i + 1, notice that for any x ∈ Ii and any
+s, t ∈ Ij , t > s, log+ |s − t| < log+ |x − t|. Hence (we assume that dist(x, Ij ) ≥
+|Ii+1 | > 1 to skip the estimates of log− )
+
+    ZZ                                                          Z λk            Z λk
+                                                                       j+1            j+1
+−                                     ′      ′
+                  log+ |s − t|p (t)p (s)dtds = −2                                           log+ |s − t|p′ (t)p′ (s)dtds =
+         Ij ×Ij                                                  λkj             s
+        Z λk         Z λk                                     Z λk         Z λk
+               j+1          j+1                                      j+1          j+1
+    2                              log+ |s − t|dtds − 2                                   log+ |s − t|u′ (t)u′ (s)dtds ≥
+         λkj          s                                        λkj          s
+36                                                        A. POLTORATSKI
+
+                                                          Z                                !
+                                                                                   ′
+                                  2
+                     2 |Ij | log |Ij | − |Ij |                     log+ |x − t|u (t)dt         + const|Ij |2 .
+                                                              Ij
+     Also for any x ∈ Ii
+                   Z                   Z
+                      log+ |x − t|dt −   log+ |x − t|u′ (t)dt & −|Ij |.
+                             Ij                                    Ij
+     Therefore
+                                           ZZ
+                                       −                 log+ |t − x|p′ (t)p′ (x)dtdx ≤
+                                                Ii ×Ij
+        Z                   Z                                      Z                                         !
+                ′                                                                      ′
+              |p (x)|                 log+ |x − t|dt −                   log+ |x − t|u (t)dt + const|Ij | dx ≤
+         Ii                   Ij                                    Ij
+                                                    Z                                  !
+                                                                               ′
+                    2|Ii | |Ij | log |Ij | −                  log+ |x − t|u (t)dt          + const|Ii ||Ij | ≤
+                                                         Ij
+                                  ZZ
+                          |Ii |
+                      −                         log+ |s − t|p′ (t)p′ (s)dtds + const|Ii ||Ij | =
+                          |Ij |        Ij ×Ij
+                                 |Ii |
+                                       ||pj ||D + const|Ii ||Ij | .
+                                 |Ij |
+                            |Ii |                       
+                                   |Ij |2 log |Ij | − Ej + |Ii ||Ij |.
+                            |Ij |
+     Combining the estimates and using the shortness of {Jn }, we obtain that Λ
+satisfies the energy condition on {Jn }.
+     In the case when the intervals Il , ..., Il+N cover Jn but ∪l+N   l Ij 6= Jn , i.e. when
+Il , Il+N ∩Jn 6= ∅ but at least one of Il , Il+N is not a subset of Jn , denote Il∗ = Il ∩Jn
+        ∗
+and Il+N    = Il+N ∩ Jn . Notice that by remark 3 and the fact that log |Il∗ | < log |Il |,
+
+                                       |Il∗ |2 log |Il∗ | − El∗ ≤ |Il |2 log |Il | − El .
+     Similarly,
+
+                 ∗
+               |Il+N |2 log |Il+N
+                              ∗        ∗
+                                  | − El+N ≤ |Il+N |2 log |Il+N | − El+N .
+     Now we can use the previous case with Il∗ , Il+N
+                                                  ∗
+                                                        in place of Il , Il+N .                                  
+
+
+Corollary 3. Let Λ be a sequence of real points and let {In } be a short partition
+such that Λ satisfies the density condition (5.3) with some a > 0 and the energy
+condition (5.4). Then for any ε > 0 there exists a subsequence Γ ⊂ Λ and a short
+monotone partition Jn such that Γ satisfies (5.3), with d − ε in place of d, and (5.4)
+on Jn .
+
+
+Proof. One can choose a short monotone partition {Jn } satisfying
+                                                   (a − ε)|Jn | ≤ #Λ ∩ Jn
+for all n. Such a partition can be constructed in the same way as in the second
+part of the proof of theorem 2, see the second paragraph before claim 3. Then Γ
+can be found by lemma 4.                                                      
+                       SPECTRAL GAPS FOR SETS AND MEASURES                               37
+
+
+Lemma 5. Let A = {an }n∈Z be a real sequence satisfying
+                             an < an+1 , an+1 − an < C < ∞
+and an → ±∞ as n → ±∞. Denote In = (an , an+1 ). Then there exists an inner
+function θ satisfying
+  1) specθ = A,
+  2) |In |−1 . |θ′ | . |In |−2 on the middle one-third of In , for all n;
+                                           −1
+  3) |θ′ | . [min(|In−1 |, |In |, |In+1 |)] on the rest of In , for all n.
+
+
+Proof. Define a second sequence B as the sequence of midpoints of complimentary
+intervals of A in R: bn = (an + an+1 )/2.
+   Define the inner function θ to satisfy
+
+                                     1−θ
+                                         = const eKu ,                                (7.2)
+                                     1+θ
+  where u = 1E − 1/2,
+                                                ∞
+                                                [
+                                     E=             (ak , bk ),
+                                           k=−∞
+and Ku is the improper integral
+                                       Z
+                                           u(t) dt
+                            Ku(z) =                ,        (z ∈ C+ ).
+                                            t−z
+The integral converges since u is a convergent sum of atoms u|[an ,an+1 ] .
+   (Formulas similar to (7.2) are often used in perturbation theory. In those set-
+tings, u is the Krein-Lifshits shift function and θ is the characteristic function of
+the perturbed operator, see for instance [25, 28])
+   Let µ1 , µ−1 be the Clark measures for θ defined by the Herglotz representation
+                              Z                   
+                  1+θ       1         1        t
+                        =                 −          dtµ1 (t) + const,
+                  1−θ      πi R t − z       1 + t2
+                              Z                   
+                  1−θ      1         1        t
+                        =                 −          dµ−1 (t) + const.
+                  1+θ      πi R t − z       1 + t2
+The measures µ1 , µ−1 have the following form:
+                              X                       X
+                       µ1 =      αn δan ,     µ−1 =       βn δbn
+for some positive numbers αn , βn . (It is easy to see that µ±1 {∞} = 0 although we
+don’t actually need this fact.)
+   Put δn = an+1 − an . We claim that
+                                        δn2 . βn . δn .                               (7.3)
+  Assuming that this estimate holds, we could finish as follows. Since
+                               2                                  2
+                 |θ′ | ≍ |1 − θ| |(Sµ1 )′ | ,       |θ′ | ≍ |1 + θ| |(Sµ−1 )′ | ,
+we have
+                             X                 X                 
+             ′                        αn             βn
+           |θ (x)| ≍ min                      ,                       ,    (x ∈ R).
+                                   (x − an )2     (x − bn )2
+38                                               A. POLTORATSKI
+
+
+    Now if x belongs to the middle one-third of one of the intervals (am , am+1 ), then
+|θ′ (x)| can be estimated as
+                              X    αn        X       αn          −1
+                   |θ′ (x)| ≍            2
+                                           ≍                 = βm
+                                (x − an )        (bm − an )2
+and the estimate follows from (7.3). On the rest of the interval |θ′ (x)| can be
+             P βn
+estimated by     (x−bn )2 which together with the right half of (7.3) gives the desired
+estimate.
+   It remains to prove (7.3). As follows from (7.2),
+                                            βn = const Resbn e−Ku .
+     Denote
+                              Z an+1          p
+                                      u(t) dt    (an − z)(an+1 − z)
+                 gn (z) = exp −                =                    ,
+                                an     t − z          bn − z
+and                                     ( Z                                    )
+                                                                     u(t) dt
+                                An = exp −                                         ,
+                                                       R\(an ,an+1 ) t − bn
+so
+                                                                1
+                        Resbn e−Ku = An Resbn gn ,                |Resbn gn | =
+                                                                  δn .
+                                                                2
+   To prove the right half of (7.3) notice that An . 1. Indeed, to the right from
+an+1 , on each (aj , aj+1 ) the function u is positive on the half of the interval that
+is closer to bn and negative on the half that is further from it. Thus
+                                             Z
+                                                           u(t) dt
+                                        −                          < 0.
+                                                 (an+1 ,∞) t − bn
+
+Similarly
+                                             Z
+                                                         u(t) dt
+                                                                 < 0.
+                                              (−∞,an )   t − bn
+   To prove the left half of (7.3) one needs to show that δn . An . Notice that,
+since δn < C,
+
+                                 X                 Z
+                                                                u(t) dt
+                    −                                                   > const > −∞.
+                        dist(bn , (aj ,aj+1 ))≥1    (aj ,aj+1 ) t − bn
+
+     As for the remaining part,
+
+                     X                  Z                           Z 1+C
+                                                    u(t) dt                    dx
+       −                                                    >−                    = log δn + const.
+           0<dist(bn , (aj ,aj+1 ))≤1   (aj ,aj+1 ) t − bn            δn /2     x
+
+                                                                                                      
+
+
+     Our last lemma in this section can be easily verified. We state it without a proof.
+                     SPECTRAL GAPS FOR SETS AND MEASURES                              39
+
+
+Lemma 6. Let a1 < a2 and b1 < b2 be points on the real line. Let α and β be non-
+negative functions on the intervals (a1 , a2 ) and (b1 , b2 ) correspondingly satisfying
+                     Z a2         Z b2
+                             α=          β = 1, α < A    and   β<B
+                       a1          b1
+  where A, B > 1. Then
+                      Ra Ra                                    1
+  1) log− (a2 − a1 ) ≤ a12 a12 log− (x − y)α(x)α(y)dxdy ≤ log− A + 1.
+  2) If a2 < b1 then
+                            Z a2 Z b2
+       log− (b2 − a1 ) ≤                log− (x − y)α(x)β(y)dxdy ≤ log− (b1 − a2 ).
+                             a1   b1
+
+  3) If a2 = b1 then
+         Z a2 Z b2
+                                                      1      1
+                   log− (x − y)α(x)β(y)dxdy ≤ min(log− , log− ) + 1.
+           a1  b1                                     A      B
+
+  4) If a2 ≤ b1 then
+                            Z a2 Z b2
+       log+ (b1 − a2 ) ≤                log+ (x − y)α(x)β(y)dxdy ≤ log+ (b2 − a1 ).
+                             a1   b1
+
+  5) If A/2 ≤ α(x) ≤ A on (a1 , a2 ) then for any y ∈ (a1 , a2 )
+                              Z a2
+        log+ |a2 − a1 | − C ≤      log+ (x − y)α(x)dx ≤ log+ |a2 − a1 | + C
+                                   a1
+  for some absolute constant C.
+  6) If A/2 ≤ α(x) ≤ A on (a1 , a2 ) then for any y > a2
+                                Z a2
+           log+ |y − a1 | − C ≤      log+ (x − y)α(x)dx ≤ log+ |y − a1 |
+                                        a1
+  for some absolute constant C.
+
+
+
+            8. De Branges’ Theorem 66 in the Toeplitz form
+
+   In this section we discuss a Toeplitz version of theorem 66 from [7]. For reader’s
+convenience we include the proofs.                         R
+   We say that a finite measure µ on R annihilates Kθ if f dµ = 0 for a dense set
+of f ∈ Kθ . Note that the integral always exists for a dense set of functions since,
+for instance, the disk algebra is dense in every Kθ .
+   We say that the Cauchy integral Kµ is divisible by an inner function θ if Kµ/θ =
+Kη in C \ R for some finite complex measure η on R.
+
+Lemma 7. [1] Let µ be a finite complex measure on R and let θ be an inner function
+in C+ . Then the following statements are equivalent:
+  (i) µ annihilates Kθ ;
+  (ii) The Cauchy integral of the conjugate measure µ̄, K µ̄, is divisible by θ.
+40                                       A. POLTORATSKI
+
+
+Proof. (i)⇒(ii). We will assume that the reproducing kernels of Kθ belong to
+the dense set annihilated by µ (otherwise one needs to use a standard limiting
+procedure). If λ ∈ C+ then
+                       Z
+                          1 − θ̄(λ)θ(z)
+                  0=                    dµ(z) = θ(λ)K θ̄ µ̄(λ) − K µ̄(λ)
+                              λ̄ − z
+which implies the statement.
+    (ii)⇒(i). Let J be the inner function whose Clark measure is |µ|. Then the
+function f = (1 − J)K µ̄ belongs to KJ and is divisible by θ. Let f = θg. We will
+assume that θ(i) = 0. The general case can be treated similarly.
+    Let
+                                              z−i
+                                      θ = θ∗      .
+                                              z+i
+If I is an inner divisor of θ∗ then Ig/(z + i) also belongs to Kj and is summable on
+the real line. Recall that the integral over R of a function from H 1 (C+ ) is 0. At
+the same time, by the Clark representation, for each function h from KJ ,
+                               Z            Z
+                                  h(x)dx = h(x)d|µ|(x).
+                                    R
+Hence
+
+          Z                  Z                       Z                              Z
+              (Ig)(x)            (Ig)(x)                 I(x)θ̄(x)f (x)                  θI¯
+     0=               dx =               d|µ|(x) =                      d|µ(x)| =            dµ.
+               x+i                x+i                        x+i                        x−i
+                        θ
+     Since functions I(z−i) are complete in Kθ , we obtain the statement.                          
+
+
+  Like in de Branges’ proof of theorem 66, we will use the Krein-Milman theorem
+on the existence of extreme points in a convex set to obtain the following lemma:
+
+Lemma 8. Let θ be an inner function in C+ . Let µ be a finite complex measure
+whose Cauchy integral Kµ is divisible by θ (or, equivalently, µ̄ annihilates Kθ ).
+Then there exists a finite complex measure ν such that
+     1) supp ν ⊂ supp µ;
+     2) Kν is divisible by θ (ν̄ annihilates Kθ );
+     3) Kν has no zeros outside of supp ν, except the zeros of θ in C+ ;
+     4) if θ is a meromorphic inner function then ν is concentrated on a discrete set.
+
+
+Proof. First, let us symmetrize µ. Since together with any f ∈ Kθ , θf¯ ∈ Kθ ,
+the measure θ̄µ, just like µ̄, annihilates Kθ and Kθµ̄ is divisible by θ. Consider
+η = µ + θµ̄. WLOG ||η|| ≤ 1.
+   Denote Σ = supp µ. Let AθΣ be the set of all finite complex measures σ such that
+||σ|| ≤ 1, supp σ ⊂ Σ, the Cauchy integral of σ is divisible by θ and
+                                             θσ̄ = σ.                                        (8.1)
+     Since η ∈ AθΣ , this set is not empty.
+                                         It is also convex. By the Krein-Milman
+theorem it contains a non-zero extremal point ν. We claim that this is the desired
+measure.
+                      SPECTRAL GAPS FOR SETS AND MEASURES                              41
+
+
+    First, let us show that the set of real L∞ (|ν|)-functions h such that Khν is
+divisible by θ is one-dimensional, and therefore h = c ∈ R. (This is equivalent to
+the statement that the closure of Kθ in L1 (|ν|) has deficiency 1, i.e. the space of
+its annihilators is one dimensional)
+    Let there be a bounded real h such that Khν is divisible by θ. WLOG h ≥ 0,
+since one can add constants, and ||hν|| = 1. Choose 0 < α < 1 so that |αh| < 1.
+Consider probability measures ν1 = hν and ν2 = (1 − α)−1 (ν − ν1 ). Then both of
+them belong to AθΣ and ν = αν1 + (1 − α)ν2 which contradicts the extremality of ν.
+    Now let us show that ν is a singular
+                                      R     measure. Let g be a continuous compactly
+supported real function such that gdν = 0. By the previous part, there exists a
+sequence fn ∈ Kθ , fn → g in L1 (|ν|) (otherwise the defect is larger than 1). Since
+ν̄ annihilates Kθ and (fn (z) − fn (w))/(z − w) ∈ Kθ for every fixed w ∈ C \ R,
+                    Z
+                       fn (z) − fn (w)
+                0=                     dν̄(z) = Kfn ν̄(w) − fn (w)K ν̄(w)
+                            z−w
+    and therefore
+
+                                             Kfn ν̄
+                                      fn =          .
+                                              K ν̄
+Taking the limit,
+                                                     Kg ν̄
+                                  f = lim fn =             .
+                                                     K ν̄
+Since all of fn have pseudocontinuations, one can show that the limit function f
+must have one as well. Since the numerator is analytic outside the compact support
+of h, the measure in the denominator must be singular (Cauchy integrals of non-
+singular measures have jumps at the real line on the support of the a.c. part).
+   Moreover, f must be analytically continuable through the real line outside of
+clos specθ , like all of fn . In particular, if θ is meromorphic, the zero set of f has to
+be discrete. Since ν is singular, Kν tends to ∞ at ν-a.e. point and f = 0 at ν-a.e.
+point outside of the support of g. Choosing two different g with disjoint supports
+we prove that if θ is meromorphic, then ν is concentrated on a discrete set.
+   Now let us show that Kν does not have any zeros in C \ supp ν other than the
+zeros of θ. Let J be the inner function corresponding to |ν| (|ν| is the Clark measure
+for J). Denote G = (1 − J)Kν ∈ KJ . Since Kν is divisible by θ and K|ν| is outer,
+G is divisible by θ. Let us first show that G/θ does not have an inner component in
+the upper half-plane. Suppose that G = θU H for some inner U . Then θ(1 + U )2 H
+also belongs to KJ . Denote
+                                  γ = θ(1 + U )2 H|ν|.
+Then γ = hν for a bounded non-constant function h = (1 + U )2 /U . The Cauchy
+integral of γ is divisible by θ because (1 − J)Kγ = θ(1 + U )2 H. We obtain a
+contradiction with the property that the space of annihilators is one dimensional.
+   Thus G/θ ∈ KJ is outer in C+ . By (8.1),
+                                    Gθ̄|ν| = θ̄ν = ν̄
+and the Clark representation formula implies
+
+                     ¯
+                     JG = (1 − J)K ν̄ = (1 − J)KGθ̄|ν| = G/θ,
+  so the pseudocontinuation of G does not have zeros in C− .
+42                                     A. POLTORATSKI
+
+
+     If G has a zero at x = a ∈ R outside of specJ then
+                                          G
+                                             ∈ KJ
+                                         x−a
+and the measure
+                                          G
+                                        γ=   |ν|
+                                        x−a
+leads to a similar contradiction with the property that the space of annihilators is
+one-dimensional, since (x − a)−1 is bounded on the support of ν. Since
+                                   G = (1 − J)Kν ∈ KJ ,
+Kν does not have any extra zeros.                                                             
+
+  Our last statement is a Toeplitz version of theorem 66. Recall that a function
+f ∈ N [φ] is called purely outer if f is outer in the upper half-plane and φf = ḡ is
+outer in the lower half plane.
+
+Corollary 4. Let I, θ be inner functions in C+ . Suppose that the kernel N [ ¯   Iθ] is
+non-trivial.
+   Then there exists an inner function J in C+ such that specJ ⊂ specI and the
+kernel N [ ¯Jθ] contains a purely outer function f that does not have any zeros on
+R \ specJ . If σ1 is the Clark measure of J then f is also non-zero σ1 -a.e. on specJ .
+   If θ is a meromorphic function, then J can be chosen as a meromorphic function.
+
+
+Proof. In the statement of lemma 8, consider I to be the inner function whose Clark
+measure is |µ| and let J be the inner function whose Clark measure is |ν|.       
+
+
+
+
+                                        References
+ [1] Alexandrov, A. Isometric embeddings of coinvariant subspaces of the shift operator, Zap.
+     Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov. (POMI) 232 (1996), Issled. po Linein
+     Oper. i Teor. Funktsii. 24, 5–15, 213; translation in J. Math. Sci. (New York) 92 (1998),
+     no. 1, 3543–3549
+ [2] Benedicks, M. The support of functions and distributions with a spectral gap, Math. Scand.,
+     55 (1984), 285–309
+ [3] Beurling, A. On quasianalyticity and general distributions, Mimeographed lecture notes,
+     Summer institute, Stanford University (1961)
+ [4] Beurling, A., Malliavin, P. On Fourier transforms of measures with compact support,
+     Acta Math. 107 (1962), 291–302
+ [5] Beurling, A., Malliavin, P. On the closure of characters and the zeros of entire functions,
+     Acta Math. 118 (1967), 79–93
+ [6] Borichev, A. and Sodin, M.Private communications
+ [7] De Branges, L. Hilbert spaces of entire functions. Prentice-Hall, Englewood Cliffs, NJ, 1968
+ [8] Coifman, R.R., Weiss, G. Extensions of Hardy spaces and their use in analysis, Bull. AMS
+     83 (1977), 569–645
+ [9] Cornu, F. and Jancovici, B. On the two-dimensional Coulomb gas, Journal of statistical
+     physics, 49:1-21-2, 33-56, Springer, 1987.
+[10] Dym, H. On the span of trigonometric sums in weighted L2 spaces, Linear and Complex
+     Analysis Problem Book 3, Part II, Lecture Notes in Math., Springer, 1994, 87 – 88
+                        SPECTRAL GAPS FOR SETS AND MEASURES                                     43
+
+
+[11] Dym H, McKean H.P. Gaussian processes, function theory and the inverse spectral problem
+     Academic Press, New York, 1976
+[12] Havin, V., Jöricke, B. The uncertainty principle in harmonic analysis. Springer-Verlag,
+     Berlin, 1994.
+[13] Kerov, S. V. Equilibrium and orthogonal polynomials, Algebra i Analiz, 12:6 (2000), 224237
+[14] Koosis, P. The logarithmic integral, Vol. I& II, Cambridge Univ. Press, Cambridge, 1988
+[15] Krein, M. G. On an interpolation problem of A. N. Kolmogorov, Dokl. Akad. Nauk SSSR 46
+     (1945), 306–309 (Russian).
+[16] Krein, M. G. On a basic approximation problem of the theory of extrapolation and filtration of
+     stationary random processes, Doklady Akad. Nauk SSSR (N.S.) 94, (1954), 13–16 (Russian).
+[17] Levin, B. Lectures on entire functions AMS, Providence, RI, 1996
+[18] Levinson, N. Gap and density theorems, AMS Colloquium Publications, 26 (1940)
+[19] Makarov, N., Poltoratski, A. Meromorphic inner functions, Toeplitz kernels, and the
+     uncertainty principle, in Perspectives in Analysis, Springer Verlag, Berlin, 2005, 185–252
+[20] Makarov, N., Poltoratski, A. Beurling-Malliavin theory for Toeplitz kernels, preprint,
+     arXiv:math/0702497
+[21] Mitkovski, M. and Poltoratski, A. Polya sequences, Toeplitz kernels and gap theorems,
+     preprint, arXiv:0903.4499
+[22] Nienhuis, B. Coulomb gas formulation of two-dimensional phase transitions, Phase transi-
+     tions and critical phenomena, vol. 11, C. Domb and J.L. Lebowitz, eds. (Academic, 1987.)
+[23] Nikolskii, N.K. Bases of exponentials and the values of reproducing kernels, Dokl. Acad.
+     Nauk SSSR 252, (1980), 1316–1320
+[24] Nikolskii, N. K. Treatise on the shift operator, Springer-Verlaag, Berlin (1986)
+[25] Poltoratski, A. Kreı̆n’s spectral shift and perturbations of spectra of rank one, Algebra i
+     Analiz, 10 (1998), no. 5, 143–183; translation in St. Petersburg Math. J. 10 (1999), no. 5,
+     833–859
+[26] Poltoratski, A. and Sarason, D. Aleksandrov-Clark measures, Recent advances in
+     operator-related function theory, 1–14, Contemp. Math., 393, Amer. Math. Soc., Providence,
+     RI, 2006
+[27] Samaj L. The statistical mechanics of the classical two-dimensional Coulomb gas is exactly
+     solved, J. Phys. A36:5913-5920, 2003
+[28] Simon, B. Spectral analysis of rank one perturbations and applications, Mathematical quan-
+     tum theory. II. Schroedinger operators (Vancouver, BC, 1993), 109–149, CRM Proc. Lecture
+     Notes, 8, Amer. Math. Soc., Providence, RI, 1995
+
+  Texas A& M University, Department of Mathematics, College Station, TX 77843,
+USA
+  E-mail address: alexeip@@math.tamu.edu
+

@@ -1,0 +1,894 @@
+                           DETERMINACY FOR MEASURES
+
+                       MISHKO MITKOVSKI† AND ALEXEI POLTORATSKI‡
+
+       Abstract. For a given finite positive measure we determine the minimal information that
+       is needed from its Fourier transform to determine the measure completely. In particular,
+       we show that if the support of a measure doesn’t contain a sequence of Beurling-Malliavin
+       interior density d > 0 then the interval of determinacy for this measure must be of length
+       larger than πd. As a consequence, we provide a sharp lower estimate of the rate of oscillation
+       of high pass signals in terms of their spectral gap. This gives a considerably shorter and
+       more informative proof of the estimate previously obtained by A. Eremenko and D. Novikov.
+
+
+
+                                          1. Introduction
+   We say that a positive finite measure µ is a-determinate if there exists no other positive
+finite measure ν such that their Fourier transforms coincide on [−a, a], i. e.,
+                                  Z             Z
+                          µ̂(x) = e dµ(t) = eixt dν(t) = ν̂(x)
+                                     ixt
+
+
+for all x ∈ [−a, a]. It is easy to see that this definition does not depend on the interval [−a, a],
+but only on its length. One of the main problems that we consider here is the following.
+Problem 1.1. Suppose that we are given a finite positive measure µ. For a given a > 0,
+how can we tell whether µ is a-determinate?
+This is the analog of the determinacy part of the classical moment problem. The later
+problem has received a lot of attention throughout the years. Still it appears that no explicit
+solution is known yet even in the classical polynomial case.
+   The first solution that we offer here, in essence, goes back to M. Riesz who proved the
+corresponding result for the moment problem. A weaker version of it appeared recently
+in [13].
+Theorem 1.2. A positive finite measure µ is a-determinate if and only if
+                                Z log mµ (x)
+                                        a/2
+                                              dx = ∞,
+                                     1 + x2
+where
+        mµa/2 (w) := sup{|F (w)| : F ∈ span{eixt : t ∈ [−a/2, a/2]} and kF kL2 (µ) ≤ 1}.
+This result by itself, although definitive, is not very revealing since it crucially depends on
+the quantity m(w) which is usually not easy to compute (or estimate). However, in some
+special cases estimates are possible. These estimates allowed us to deduce the following
+strengthening of the classical Beurling’s gap theorem [1].
+  Key words and phrases. Determinacy, spectral gap, Fourier transform, moment problem.
+  † Research supported in part by National Science Foundation DMS grant # 1101251.
+  ‡ Research supported in part by National Science Foundation DMS grant # 1101278.
+                                                     1
+2                             M. MITKOVSKI AND A. POLTORATSKI
+
+Corollary 1.3. If µ is a positive finite measure which is supported on a set whose complement
+is long then µ is a-determinate for every a > 0.
+As usual we say that a union of open intervals ∪(an , bn ) is long if
+                                  X  bn − an 2
+                                                  = ∞.
+                                   n
+                                          an
+This corollary says that a Fourier transform of a non-zero signed measure cannot vanish on
+any interval of positive length if its positive part is supported on a set whose complement
+is long. Notice that we don’t require anything about the support of the negative part. This
+implies that if µ is a-indeterminate for some a > 0 then µ must contain a sequence of positive
+interior Beurling-Malliavin density in its support. It is natural to expect that a more precise
+relation between the density of the support of µ and the determinacy of µ exists. Our next
+result makes this observation precise.
+Theorem 1.4. Let µ be a positive finite measure. If µ is a-indeterminate, then the support
+of µ must contain an a/π-uniform sequence.
+The precise definition of a d-uniform sequence will be given in the next section. Vaguely
+speaking d-uniform sequences are those sequences which are in certain sense similar to arith-
+metic progressions with a difference term equal to 1/d.
+  We actually prove a more general result. Namely, for a general regular de Branges space
+BE we show that a positive measure µ whose support is sufficiently sparse (in certain precise
+sense) is uniquely determined by its action on the space, meaning that there is no other
+positive measure ν such that
+                                Z              Z
+                                   F (t)dµ(t) = F (t)dν(t),
+
+for all F ∈ BE .
+   Clearly, every a-indeterminate measure is a positive part of a signed measure σ with a
+spectral gap (−a, a), i. e., such that σ̂(x) = 0, for x ∈ (−a, a). Conversely, every non-
+zero measure σ with a spectral gap (−a, a) gives a rise to two a-indeterminate measures σ +
+and σ − . Therefore, the determinacy problem is closely related to the gap problem which
+was recently solved by the second author in [11]. Even though these two problems are not
+completely equivalent they are very much related. We prove the following result that gives
+a precise quantitive relation between them. Recall that for a closed set X ⊂ R its gap
+characteristic is defined by
+G(X) = sup{a : there exists a signed measure µ supported on Xwith spectral gap (−a, a)}.
+Define the determinacy characteristic of X by
+              Det(X) = inf{a > 0 : all µ supported on X are a-determinate}.
+
+Theorem 1.5. For any closed set X ⊂ R the determinacy characteristic of X is equal to
+its gap characteristic, i. e.,
+                                 Det(X) = G(X).
+  A typical property of signed measures with a spectral gap is their oscillation. Our next
+result gives a precise oscillation rate of measures with a spectral gap (high-pass signals).
+                               DETERMINACY FOR MEASURES                                      3
+
+Theorem 1.6. Let A and B be disjoint closed subsets of R. Let Ma (A, B) be the class of all
+finite signed measures σ with a spectral gap (−a, a) such that supp σ + ⊂ A and supp σ − ⊂ B
+The following equality holds
+sup{a > 0 : Ma (A, B) 6= {0}} = π sup{d ≥ 0 : ∃{λn } d-uniform, {λ2n } ⊂ A, {λ2n+1 } ⊂ B}
+  As an easy consequence, we give the following improvement of the celebrated Eremenko-
+Novikov gap result [7, 8].
+Theorem 1.7. If σ is a nonzero signed measure with a spectral gap (−a, a) then there
+exists an a/π-uniform sequence {λn } such that σ has at least one sign change in every
+(λn − n , λn+1 + n+1 ), where n > 0 are arbitrary.
+
+                                     2. Preliminaries
+   As usual throughout the paper we will denote by Ca the Cartwright class of entire functions
+of exponential type no greater than a such that such that log |F (t)|/(1 + t2 ) ∈ L1 (R). We
+will also use the standard notation PWa for the Paley-Wiener class, and Ba for the Bernstein
+class consisting of entire function of type at most a which are bounded on R. Finally, we
+will denote by Ka the Krein class consisting of entire functions F (z) of exponential type no
+greater  that a with only simple real zeros {λn } such that F (iy) = O(eT |y| ) and such that
+          0
+P
+   n 1/|F (λn )| < ∞. By a well known theorem of M. Krein each function from Ka belongs
+in Ca and satisfies
+                                    1     X         1
+                                        =               0 (λ )
+                                                               .
+                                  F (z)    n
+                                             (z − λn )F     n
+
+   Besides the Paley Wiener PWa space we will also consider other regular de Branges spaces.
+We will say that a de Branges space BE is regular if
+     (i) BE ⊂ Ca
+    (ii) If F ∈ E and F (a) = 0, then (F (z) − F (a))/(z − a) ∈ E (as a function of z).
+   Every de Branges function E(z) gives a rise to an inner function Θ(z) := E # (z)/E(z) and
+a model space KΘ that this inner function generates. There exists a well known isometric
+isomorphism between BE and KΘ given by F → F/E.
+   Each inner function Θ(z) determines a family of positive measures µα on R indexed by
+|α| = 1 in the following way
+                                                         Z
+                               α + Θ(z)               1     dµα (t)
+                             <           = pα =z +                  ,                    (2.1)
+                               α − Θ(z)              =z    |t − z|2
+for some pα ≥ 0. The numbers pα can be viewed as a point mass at infinity for µα . Each
+measure µα is singular, supported on the set {Θ = α}, and is Poisson summable. They are
+usually called the Clark measures for Θ(z). Throughout the paper when we say that Θ(z)
+corresponds to a measure µ we will always assume that p = 0 and α = 1.
+   If Θ(z) comes from a de Branges function, then p = 0. In this case, each function f ∈ KΘ
+                                                   1
+can be represented by the Clark formula f (z) = 2πi   K(f dµ)(z), where K(f dµ) stands for the
+Cauchy integral                                Z
+                                                   f (t)
+                                  K(f dµ)(z) =           dµ(t).
+                                                   t−z
+This formula gives an isometry between KΘ and L2 (µ). In this case, all the Clark measures
+µα are moreover discrete and their point masses can be computed by µα (λ) = 2π/ |Θ0 (λ)|
+4                            M. MITKOVSKI AND A. POLTORATSKI
+
+for λ ∈ {Θ = α}. We will call these measures µα spectral measures of the corresponding
+de Branges space.
+   Each inner Θ(z) coming from a de Branges function can be written as Θ(t) = eiθ(t) for
+t ∈ R, where θ(t) is real analytic strictly increasing function. We will call such θ(t) a
+continuous argument of Θ(z). The phase function of the corresponding de Branges space is
+defined by φ(t) = θ(t)/2.
+   Next we recall the definition of the densities that will be used in our work. As usual we
+will say that the family of disjoint intervals {In } on the real line is long if
+                                  X                     2
+                                             |In |
+                                                            = ∞.
+                                   n
+                                        1 + dist(0, In )
+                                                                                    S
+Otherwise, we will say that the family is short. In the case when {In } is short and In = R
+we will call the family {In } a short partition.
+Definition 2.1. A sequence Λ = {λn } with no finite accumulation point is said to be regular
+with density d > 0 if there exists a short partition {In } such that
+                          R              R
+                           In
+                              dnΛ (t) − In dnZ/d (t)
+                                                     → 0 as |n| → ∞
+                                      |In |
+                                                            −
+Definition 2.2. The interior Beurling-Malliavin density DBM    (X) of a closed set X ⊂ R is
+defined to be the supremum of all d > 0 for which there exists a regular subsequence Λ ⊂ X
+                                               −
+with density d. If no such subsequence exists DBM  (X) = 0.
+                                                                                  +
+Similarly, for real sequences Λ one defines (the more famous) exterior density DBM   (Λ).
+   The famous result of Beurling and Malliavin [2] says that the zero set of every function
+F (z) ∈ Caπ with type exactly aπ must be regular with density a. Conversely, for every regular
+sequence of density a and every k > a there exists non-zero F (z) ∈ Ckπ which vanishes at
+that sequence. However, F (z) might have additional zeros.
+   In [11] it was proved that a very similar theorem holds about the zeros of functions in the
+Krein class. It turns out that in this case the regularity notion above needs to be refined
+to take into account a certain delicate separation condition. Namely, for any finite interval
+I ⊂ R and a Borel measure µ we define the energy of µ, EI (µ) by
+                                       ZZ
+                             EI (µ) =       log |x − y|dµ(x)dµ(y).
+                                        I,I
+
+This is just the usual energy of the compactly supported 1I (x)dµ(x).
+Definition 2.3. We say that a real sequence Λ = {λn } with no finite accumulation point is
+said to be uniformly distributed if there exists a short partition {In } such that
+                              X EIn (dnZ/a ) − EIn (dnΛ )
+                                                       2
+                                                           < ∞.
+                               n
+                                      1 +  dist(0, In )
+
+Definition 2.4. A real sequence Λ = {λn } with no finite accumulation point is said to be
+d-uniform if it is regular with density d and is uniformly distributed.
+Notice that every separated sequence must be uniformly distributed. Therefore, for separated
+sequences the notion of regular sequences with density d coincides with the notion of d-
+uniformness.
+                                DETERMINACY FOR MEASURES                                       5
+
+  One of the main results in [11] implies that the zero set of every function F (z) ∈ Kaπ in
+the Krein class with type exactly aπ must be a-uniform. Conversely, for every a-uniform
+sequence and every k > a there exist non-zero F (z) ∈ Kkπ which vanishes at that sequence.
+However, this function might have additional zeros.
+  Another property that was proved in [11] which will be useful for us is that a sequence
+Λ is d-uniform if and only if nΛ (x) − dx is equal to a Hilbert transform of some function in
+L1 (dt/(1 + t2 )).
+
+                 3. M. Riesz-type criterion and its consequences
+  For a given set of functions A we will say that a positive measure µ is A-determinate if
+there is no other positive measure ν 6= µ such that
+                                Z               Z
+                                   f (t)dµ(t) = f (t)dν(t),
+
+for all f ∈ A. Otherwise, we say that µ is A-determinate. We will study determinacy on
+linear spaces of entire functions E satisfying the following properties:
+   (E1) If F (z) ∈ E, then F # (z) := F (z̄) ∈ E,
+   (E2) If F (z) ∈ E and F (a) = 0, then (F (z) − F (a))/(z − a) ∈ E (as a function of z).
+   (E3) There exists a ≥ 0 such that E ⊂ Ca .
+   There are many examples of sets E that satisfy (E1)-(E3). The set of all polynomials P
+is one such example. Other examples that we will use include the Bernstein class Ba , the
+Paley-Wiener space PWa , and other regular de Branges spaces (those de Branges spaces
+which satisfy (E2) and(E3)).
+   It is not hard to see that a positive finite measure µ is a-determinate if and only if it is
+Ba -determinate or equivalently PWa -determinate.
+   The next result gives a criterion for determinacy which generalizes the classical M. Riesz
+criterion for determinacy in the moment problem. Our proof will also rely on the M. Riesz
+original idea. However, we will use the de Branges spaces as a substitute for the Gauss
+quadrature formula. We will use the following notation
+                                        n
+                                        X
+                     E ∗ E = {F : F =          Gi Hi , for some Gi , Hi ∈ E}.
+                                         i=1
+
+Theorem 3.1. Let E be a set which satisfy (E1)-(E3) and let µ be a positive measure such
+that E ⊂ L1 (µ) ∩ L2 (µ). The following are equivalent:
+    (a) µ is E ∗ E-indeterminate
+   (b) The L2 (µ)-closure of E is a de Branges space.
+    (c) The majorant m(x) := sup{|F (x)| : F ∈ E, kF kL2 (µ) ≤ 1} satisfies
+                                    Z
+                                       log m(x)
+                                                dx < ∞,
+                                        1 + x2
+Proof. First we prove that the integrability of log m(x)/(1+x2 ) implies that the L2 (µ) closure
+of E is a de Branges space. We will denote this closure by B(µ).
+   Each function F in E is in the Cartwright class Ca . Therefore
+                                                 |=z|   log+ |F (t)|
+                                                      Z
+                         log |F (z)| ≤ a|=z| +                       dt.
+                                                  π       |t − z|2
+6                            M. MITKOVSKI AND A. POLTORATSKI
+
+Taking a supremum over all F (z) ∈ E with norm no greater than 1 we first obtain
+                                                 |=z|    log+ m(t)
+                                                      Z
+                           log |F (z)| ≤ a|=z| +                    dt,                 (3.1)
+                                                  π        |t − z|2
+for all non-real z. Using the simple estimate
+                                           t−i      1 + |z|
+                                      sup        ≤          ,
+                                       t∈R t − z     |=z|
+which is valid for all z ∈
+                         / R, we obtain
+                                                        (1 + |z|)2
+                              log |F (z)| ≤ a|=z| + C              ,                    (3.2)
+                                                           |=z|
+where
+                                          log+ m(t)
+                                        Z
+                                      1
+                                C=                    dt < ∞.
+                                      π      1 + t2
+This immediately shows that m(z) is bounded on compact sets that don’t intersect the real
+axis. Standard application of the Levinson’s log log theorem shows that m(z) is also bounded
+on compact sets that intersect the real axis.
+  Let now {Fn } be a sequence of functions in E which converges in L2 (µ) to some limit
+f ∈ L2 (µ). The goal is to show that f is actually a restriction of some entire function
+F ∈ E(µ). To see this notice that {Fn } being Cauchy and the inequality
+                           |Fk (z) − Fl (z)| ≤ m(z)kFk − Fl kL2 (µ) ,
+together with the fact that m(z) is locally bounded imply that {Fn } converges uniformly on
+compact sets to some entire function F which agrees with f a.e. µ. It remains to show that
+this F (z) ∈ Ca . But this follows immediately from the fact that F also satisfies (3.1).
+  Let F ∈ BT (µ) and let Fn ∈ E be a sequence that converges to F . Since Fn (z) converges
+to F (z) uniformly on compact sets, we have that for any w ∈ C
+                              |F (w)|       |Fn (w)|
+                                      = lim          ≤ m(w).                            (3.3)
+                               kF k     n→∞  kFn k
+Therefore, non-real point evaluations are bounded in B(µ). It is trivial to see that F ∈ B(µ)
+implies F # ∈ B(µ). So, by a well known criterion of de Branges it remains to show that
+F (z)(z − z̄0 )/(z − z0 ) ∈ B(µ) for all F ∈ B(µ) and z0 ∈
+                                                         / R such that F (z0 ) = 0. Since
+                                  z − z̄0                        F (z)
+                           F (z)          = F (z) − (z0 − z̄0 )        ,
+                                  z − z0                        z − z0
+it is enough to show that F (z)/(z − z0 ) ∈ B(µ). Let Fn ∈ E be a sequence that converges to
+F . We have            Z                    2
+                            F (t)    Fn (t)              1               2
+                                   −          dµ(t) ≤        2 kFn − F k .
+                           t − z0 t − z0               |=z0 |
+Thus, by (E2) it follows that F (z)/(z − z0 ) ∈ B(µ). So B(µ) is a de Branges space.
+   If B(µ) is a de Branges space pick any spectral measure ν of B(µ) which is different from
+µ (in case µ is one of them). Let F ∈ E ∗ E be arbitrary. Then by definition F = GH for
+some G, H ∈ E. Since B(µ) is isomorphic to L2 (ν) and is isometrically contained in L2 (µ)
+we obtain that
+       Z              Z X                         XZ                        Z
+                                     #                              #
+         F (t)dµ(t) =        Gi (t)Hi (t)dµ(t) =         Gi (t)Hi (t)dν(t) = F (t)dν(t).
+                                  DETERMINACY FOR MEASURES                                           7
+
+Thus, µ is E ∗ E-indeterminate.
+  Next we show that if µ is E ∗ E-indeterminate then
+                                    Z
+                                      log m(x)
+                                               dx < ∞.
+                                       1 + x2
+                                                                                         R
+R µ is E-indeterminate there exists another positive finite measure ν 6= µ such that
+If                                                                                           F (t)dµ(t) =
+   F (t)dν(t) for all F ∈ E ∗ E. This implies
+                                Z                Z
+                                  |F (t)| dµ(t) = |F (t)|2 dν(t),
+                                         2
+                                                                                                 (3.4)
+
+for all F (z) ∈ E.
+   Consider σ = µ − ν. We have that
+                                         F (t) − F (z)
+                                     Z
+                                                       dσ(t) = 0,
+                                             t−z
+for every function F (z) ∈ E and every z ∈     / R. This implies that
+                                                    Z
+                                                1      F (t)
+                                   F (z) =                   dσ(t),
+                                              G(z)     t−z
+where G(z) = dσ(t)
+                R
+                   t−z
+                       . In particular, for z = x + i with x ∈ R we have,
+                                   Z                                Z                1/2
+                            1                                C                2
+         |F (x + i)| ≤                 |F (t)|d|σ|(t) ≤                |F (t)| d|σ|(t)     .
+                        |G(x + i)|                      |G(x + i)|
+Now since |σ| ≤ µ + ν we obtain,
+                                         √        Z              1/2
+                                           2C               2
+                         |F (x + i)| ≤               |F (t)| dµ(t)     ,
+                                       |G(x + i)|
+for every F (z) ∈ E. Consequently,
+                                                      C0
+                                      m(x + i) ≤              .
+                                                   |G(x + i)|
+The fact that G(z + i), as a function of z, is of exponential type and bounded on R implies
+that
+                                              log− |G(x + i)|
+                     Z                     Z
+                        log m(x + i)
+                                     dx  ≤                    dx + C 00 < ∞.
+                           1 + x2                 1 + x2
+   Now, let F (z) be arbitrary element of E with norm no greater than 1. Then F (z + i) as
+a function of z is in the Cartwright class Ca . Therefore, for all x ∈ R we have
+                                                   log+ |F (t + i)|
+                                                Z
+                                              1
+                            log |F (x)| ≤ a +                       dt.
+                                              π     (t − x)2 + 1
+Taking a supremum over all such F (z) we first obtain
+                                                log+ |m(t + i)|
+                                            Z
+                                          1
+                        log |F (x)| ≤ a +                       dt,
+                                          π       (t − x)2 + 1
+and then again by taking a supremum on the left we deduce
+                                             log+ |m(t + i)|
+                                           Z
+                                         1
+                          log m(x) ≤ a +                     dt.
+                                         π     (t − x)2 + 1
+8                             M. MITKOVSKI AND A. POLTORATSKI
+
+Finally,
+                                              log+ |m(t + i)| 1
+                  Z                     Z Z
+                  log m(x)      aπ 1
+                           dx ≤    +                                dtdx
+                   1 + x2        2    π         (t − x)2 + 1 1 + x2
+                                     Z
+                                        2 log m(x + i)
+                              = aπ +                   dx < ∞.
+                                            4 + x2
+This completes the proof.
+                                                                                                 
+   Notice that the set of all polynomials P satisfies P ∗ P = P, so we derive the classical
+M. Riesz criterion as a special case. In the case E = Ba we obtain Theorem 1.2 from the
+introduction.
+   As we mentioned in the introduction, the usefulness of the criterion above depends on
+the possibility to estimate the majorant m(w). Below we consider some cases when this is
+doable.
+Corollary 3.2. Let µ be a positive finite measure. If there exists a non negative uniformly
+continuous function w(t) on R satisfying ew(t) ∈ L1 (µ) and
+                                     Z
+                                         w(t)
+                                               dt = ∞,
+                                        1 + t2
+then µ is a-determinate for every a > 0.
+Proof. First note that we may replace the uniform continuity assumption on w(t) by the
+stronger one that w(t) is uniformly Lipschitz (see [9, pg. 96]). Next notice that every entire
+function
+R           F (z) of exponential type at most a for which F (t)/ew(t)/2 ≤ 1 on R must also satisfy
+   |F (t)|2 dµ(t) ≤ 1. Therefore, by combining the corollary in [9, pg. 236] (for W (t) = ew(t)/2 )
+with Theorem 1.2 we obtain
+                                          log mµa (t)
+                                        Z
+                                                      dt = ∞,
+                                            1 + t2
+for every a > 0. The result now follows from Theorem 3.1. It should be noted that the idea
+illustrated here is due to de Branges.                                                          
+    We next prove a strengthening of Levinson’s gap result [10].
+Corollary 3.3. Let µ be a positive finite measure. If there exists a non negative function
+w(t) on R which is increasing on [0, ∞) and satisfies ew(t) ∈ L1 (µ) and
+                                    Z ∞
+                                         w(t)
+                                               dt = ∞,
+                                     1  1 + t2
+then µ is a-determinate for every a > 0.
+Proof. Let v(t) be the largest minorant of w(t) which is uniformly Lipschitz with Lipschitz
+constant 1. Then (see the lemma in [9, pg. 239])
+                                      Z
+                                         v(t)
+                                               dt = ∞,
+                                        1 + t2
+and the result follows from the previous corollary.                                      
+    Finally, we prove a strengthening of the Beurling’s gap result.
+                                DETERMINACY FOR MEASURES                                       9
+
+Corollary 1.3. If µ is a positive finite measure which is supported on a set whose complement
+is long then µ is a-determinate for every a > 0.
+Proof. Define w(t) to be a function which is zero outside of the intervals (an , bn ) and on
+each of those intervals let the graph of w(t) be a right isosceles triangle with hypothenuse
+(an , bn ). This function is clearly non negative, uniformly continuous and satisfies ew(t) ∈
+L1 (µ). Moreover, the assumption that ∪(an , bn ) is long yields that
+                                       Z
+                                           w(t)
+                                                 dt = ∞.
+                                          1 + t2
+The result now follows from Corollary 3.2.                                                    
+
+                  4. Extreme measures in the indeterminate case
+   Let A be a set of functions on R. For a given positive measure
+                                                          R       µ with RA ⊂ L1 (µ) denote
+by MA (µ) the set of all positive measures ν such that F (t)dµ(t) = F (t)dν(t) for all
+F ∈ A. Clearly, this set is convex and therefore it is interesting to describe its extreme
+points. The following result, which in essence goes back to M. Naimark, gives a description
+of the extreme points of MA (µ).
+Theorem 4.1. A positive finite measure ν ∈ MA (µ) is an extreme point of MA (µ) if and
+only if the span of the set A is dense in L1 (ν).
+Proof. Assume that ν ∈ MA (µ) is not an extreme point of MA (µ). Then ν = αν1 +(1−α)ν2
+for some ν1 , ν2 ∈ MA (µ) and 0 < α < 1. It is easy to see that
+                                   Z               Z
+                            φ(f ) = f (t)dν(t) − f (t)dν1 (t),
+
+is a non trivial bounded linear functional on L1 (ν) which vanishes on the set A. Therefore,
+the span of A cannot be dense in L1 (ν).
+   Conversely, assume that the span of A is not dense in L1 (ν). Then there exists a nontrivial
+bounded linear functional φ on L1 (ν) whichR vanish identically on A. WeR can assume that
+its norm is 1. In this case both φ1 (f ) = f (t)dν(t) − φ(f ) and φ2 (f ) = f (t)dν(t) + φ(f )
+are nonnegative linear functionals on C0 (R) in the sense that both φ1 (f ) ≥ 0 and φ2 (f ) ≥ 0
+whenever f (t)R ≥ 0 on R. Therefore, there R   exist positive finite measures ν1 and ν2 such
+that φ1 (f ) = f (t)dν1 (t) and φ2 (f ) = f (t)dν2 (t) for all f ∈ L1 (ν). Notice that φ 6= 0
+implies
+R        that φ1 R6= φ 6= φ2 andR hence ν1 6= ν 6= ν2 . Also for all F ∈ A we have that
+   F (t)dν1 (t) = F (t)dν(t) = F (t)dν2 (t) and therefore ν1 , ν2 ∈ MA (µ). Finally, since
+clearly
+                                             1     1
+                                         ν = ν1 + ν2
+                                             2     2
+we obtain that ν cannot be an extreme point for MA (µ).                                      
+  Next, we consider the set of finite signed measure which annihilate a given de Branges space
+BE . Notice that their positive and negative variations are BE -indeterminate. Conversely,
+every BE indeterminate measure is a positive part of an annihilating signed measure. It will
+be crucial for us to examine the properties of the extreme points of the set of all annihilating
+measures of a given de Branges space BE . Our approach is based on de Branges’ extreme
+point method [3–6].
+10                           M. MITKOVSKI AND A. POLTORATSKI
+
+   Let A and B be two disjoint closed subsets of R. Denote by ME (A, B) the set of all
+signed Radon measures σ of total variation kσk ≤ 1, which annihilate BE , and such that
+supp σ + ⊂ A, supp σ − ⊂ B. Here, as usual, σ + and σ − denote the positive and negative
+parts of σ in the canonical Jordan decomposition σ = σ + − σ − .
+Lemma 4.2. The set ME (A, B) is weak-* compact and convex. In particular, it has nonzero
+extreme points.
+Proof. Convexity part is obvious. To show that ME (A, B) is weak-* compact it is enough
+to show that it is weak-* closed. Let νn ∈ ME (A, B) be a sequence of measures that
+converges to some measure ν in the weak-* sense. It is clear that ν is another Radon signed
+measure with totalR variation no greater than 1. Moreover, the fact that each νn annihilates
+BE implies that F (t)dνn (t) = 0 for every function F in BE . Since each such function F
+is continuous
+      R       on the real line and vanishes at infinity, the weak-* convergence on νn implies
+that F (t)dν(t) = 0. Therefore, ν must also annihilate BE . So, it remains to show that
+supp ν + ⊂ A and supp ν − ⊂ B.
+   Suppose that there exists a Borel set S disjoint from A such that ν + (S) > 0. Without loss
+of generality we can assume that ν − (S) = 0 because otherwise we can take S to be S ∩ P .
+Inner regularity of ν + implies that there exists a compact set K ⊂ S with ν + (K) > ν + (S)/2.
+Similarly, outer regularity of ν − implies existence of an open set G such that S ⊂ G ⊂ Ac
+and ν − (G) < ν − (S) + ν + (S)/4 = ν + (S)/4. By Urysohn’s lemma there exists a continuous
+function f which vanishes at infinity and such that f = 1 on K, f = 0 outside of G and
+0 ≤ f ≤ 1 everywhere. Now, it is easy to see that
+                           Z
+                              f dν ≥ ν + (K) − ν − (G) ≥ ν + (S)/4 > 0.
+
+On the other hand for all n ∈ N we have f dνn = f dνn− ≤ 0. We have a contradiction.
+                                             R          R
+The proof that supp ν − ⊂ B is similar.
+   The Krein-Milman theorem now implies that ME (A, B) is a closed convex hull of its
+extreme points, and clearly some of them must be non-zero since ME (A, B) contains a
+non-zero element.
+                                                                                             
+Lemma 4.3. Let ν be an extreme point in ME (A, B). Then any function f ∈ L1 (|ν|) which
+is not in the L1 (|ν|)-closure of BE must satisfy
+                                       Z
+                                          f (t)dν(t) 6= 0.
+
+Moreover, the space of all bounded linear functionals on L1 (|ν|) which vanish on BE is one-
+dimensional.
+Proof. Let f ∈ L1 (|ν|) be a non-zero function which is not in the L1 (|ν|)-closure of BE . Then
+there exists a bounded linear functional which is zeroR on BE and non-zero at f . Each such
+                                                                                          ∞
+functional L on L1 (|ν|)
+                      R can be represented as L(f ) = f (t)h(t)d|ν|(t)Rfor some h ∈ L (|ν|).
+Therefore, we have F (t)h(t)d|ν|(t) = 0, for every F ∈ BE and f (t)h(t)d|ν|(t) 6= 0.
+Let dν(t) = b(t)d|ν|(t) be the polar decomposition of ν. Using the fact that F ∈ BE
+implies F # ∈ BE we can assume with no loss in generality that h/b is real valued. Also, by
+adding a constant if necessary, we may assume that h/b is a nonnegative function. Choose
+λ ∈ (0, 1) such that λh/b is bounded by 1 on the real line. Then ν1 = λhd|ν| and ν2 =
+                                DETERMINACY FOR MEASURES                                      11
+
+(ν − λhd|ν|)/(1 − λ) are both members of Ma (µ) such that ν = λν1 + (1 − λ)ν2 . Since ν is
+an extreme point and clearly ν1 6= 0 we must have that ν2 = 0. Therefore, ν = λh|ν| and
+hence                                Z
+                                          f (t)dν(t) 6= 0.
+                                                                                 R
+For the second part, notice that ν = λh|ν| implies λh = b and therefore L(f ) = λ f (t)dν(t).
+                                                                                           
+Lemma 4.4. Let ν be a finite measure and let BE be a regular de Branges space such that
+BE ⊂ Ca . Then for every function f ∈ L1 (|ν|) which is in the L1 (|ν|)-closure of BE there
+exists an entire function F in the Cartwright class Ca such that F = f a.e. |ν|.
+Proof. The proof is very similar to the proof of Theorem 3.1. Let
+                    m(w) = sup{|F (w)| : F ∈ PWa and kF kL1 (|ν|) ≤ 1}.
+Using the fact that ν annihilates BE it follows that
+                                       F (t) − F (z)
+                                   Z
+                                                     dν(t),
+                                           t−z
+for all F ∈ PWa and non-real z. Then clearly
+                                      Z
+                                         dν(t)     1
+                                m(z)           ≤      .
+                                         t−z     |=z|
+Exactly as in the proof of Theorem 3.1 this implies that m(t) is Poisson summable, that
+m(w) is locally bounded, and that
+                                            |=w|    log+ m(t)
+                                                 Z
+                        log m(w) ≤ a|=w| +                    dt,
+                                              π      |t − w|2
+for all non-real w. Let now {Fn (z)} be a sequence of functions in BE which converges in
+L1 (|ν|) to some limit f ∈ L1 (|ν|). Then {Fn } being Cauchy and the inequality
+                           |Fk (z) − Fl (z)| ≤ m(z)kFk − Fl kL1 (|ν|) ,
+together with the fact that m(z) is locally bounded imply that {Fn } converges uniformly in
+compact sets to some entire function F which agrees with f a.e. µ. Finally, it is then easy
+to see that F ∈ Ca .                                                                     
+Lemma 4.5. The support of any extreme point ν ∈ ME (A, B) is a discrete set (with no
+finite accumulation points).
+Proof. Since |ν|(R) = 1 and ν(R) = 0, the support of ν contains more than one point. Let
+(a, b) be any finite interval that contains at least two points of the support
+                                                                             R     of ν. There
+existsR a function f ∈ L1 (|ν|) which vanishes outside of (a, b) such that |f (t)|d|ν|(t) = 1
+and f (t)dν(t) = 0. By Lemma 4.3 and Lemma 4.4, there exists an entire function F ∈ Ca
+such that F = f a.e. |ν|. It follows that the support of ν outside of (a, b) must be contained
+in the zeros of F . Since F is non zero, the support of ν outside of (a, b) cannot have a finite
+accumulation point. Finally, since (a, b) was arbitrary, the whole support of ν must be a
+discrete set.                                                                                 
+12                           M. MITKOVSKI AND A. POLTORATSKI
+
+   To summarize, we obtained that there always exists a non-zero extreme measure ν ∈
+ME (A, B). Moreover, this ν is discrete and has the property that the only (up to
+                                                                                R a constant)
+bounded linear functional on L1 (|ν|) which annihilates BE is given by L(f ) = f (t)dν(t).
+   Let Θ = E # /E be the inner function that corresponds to the de Branges function E. If ν
+annihilates BE , then Edν annihilates and hence the Cauchy integral of Ēdν is divisible by
+Θ. In particular, if ν ∈ ME (A, B) is an extreme point, then, by Lemma 4.3, the only (up
+to a constant) bounded
+                    R    linear functional on L1 (|ν|) which annihilates the model space KΘ
+is given by L(f ) = f (t)E(t)dν(t). Therefore, there is no non-constant bounded function h
+for which the Cauchy integral K(hĒdν) is divisible by Θ. We will use this observation in
+the proof of our next result.
+
+Theorem 4.6. Let BE be a regular de Branges space and let φ(t) be the corresponding phase
+function. If µ is a BE -indeterminate measure, then the support of µ contains a sequence Λ
+                                                                            dt
+whose counting function satisfies πnΛ (t) − φ(t) = h̃(t) for some h ∈ L1 ( 1+t 2 ).
+
+
+Proof. Let µ1 be another BE -indeterminate measure. Then σ = µ − µ1 is a finite signed
+measure which annihilates BE and (after scaling) σ ∈ ME (A, B) for A := supp σ + , B =
+supp σ − . Notice that clearly A ⊂ supp µ and B ⊂ supp µ1 . By Lemma 4.2 there exists an
+extreme measure ν ∈ ME (A, B) which has to be discrete by Lemma 4.5.
+   Let Θ = E # /E be the inner function that corresponds to the de Branges function E.
+Then Θ(t) = e2iφ(t) . Let Ψ be the inner function corresponding to the Clark measure |E| |ν|.
+The goal is to show that there exists an outer function h ∈ ker TΨ̄Θ such that ΨΘ̄h̄ = h is
+also outer.
+   Define g = (1 − Ψ)K(Ēν). Then clearly Ēdν = g|E||dν| and g ∈ KΨ . Moreover, the fact
+that ν is real and annihilates BE implies that K(Ēν) is divisible by Θ. Therefore, g = Θh
+for some h ∈ H2 . Assume that h is not outer, i. e., there exists an inner function Φ such
+that h = Φk for some k ∈ H2 . Then Θ(1 + Φ)k ∈ KΨ and hence, by Clark’s formula
+
+                        Θ(1 + Φ)k = (1 − Ψ)K(Θ(1 + Φ)k|E||dν|).
+
+So, the Cauchy integral of the measure Θ(1 + Φ)k|E||dν| is also divisible by Θ. However,
+                                                        1+Ψ
+                              Θ(1 + Φ)k|E||dν| =            Ēdν.
+                                                         Ψ
+Thus, we obtained a non-constant bounded function (1 + Ψ)Ψ̄ such that the Cauchy integral
+of (1 + Ψ)Ψ̄Ēdν is also bounded by Θ. This is in contradiction with the fact that ν is an
+extreme point. Therefore, h is outer.
+   To show that ΨΘ̄h̄ = h is simple. Just notice that
+
+     ΨΘ̄h̄ = Ψḡ = (1 − Ψ)K(Θ̄Ēν) = (1 − Ψ)K(Θ̄g|E||dν|) = (1 − Ψ)K(h|E||dν|) = h.
+
+Therefore,
+                                                   ¯
+                                                  h(t)   eh(t)−ih̃(t)
+                   ei(ψ(t)−2φ(t)) = Ψ̄(t)Θ(t) =        =               = e−2ih̃(t) ,
+                                                  h(t)   eh(t)+i h̃(t)
+
+where ψ(t) denotes the increasing argument of the inner function Ψ. Thus, ψ(t) − 2φ(t) ∈
+       dt
+L̃1 ( 1+t 2 ).
+                                DETERMINACY FOR MEASURES                                       13
+
+  Let Λ := supp ν ⊂ A. Then {Ψ = 1} = Λ and hence |2πnΛ (t) − ψ(t)| ≤ 2π. So, we also
+                                   dt
+have that 2πnΛ (t) − ψ(t) ∈ L̃1 ( 1+t 2 ) and we get the desired conclusion
+                                                               
+                                                     1
+                                                           dt
+                                 πnΛ (t) − φ(t) ∈ L̃              .
+                                                         1 + t2
+                                                                                               
+  In the case BE = PWa we have the following more precise result.
+Theorem 1.4. Let µ be a positive finite measure. If µ is a-indeterminate, then the support
+of µ must contain an a/π-uniform sequence.
+Proof. If µ is a-indeterminate, then the previous theorem implies that the support of µ
+contains a sequence Λ whose counting function satisfies πnΛ (t) − at = h̃(t) for some h ∈
+      dt
+L1 ( 1+t 2 ). As mentioned in the introduction, it was proved in [11] that this is equivalent to
+
+the fact that Λ is a/π-uniform.
+                                                                                              
+  As we mentioned in the introduction there is a strong connection between the determinacy
+and the gap problems.
+Theorem 1.5. For any closed set X ⊂ R the determinacy characteristic of X is equal to
+its gap characteristic, i. e.,
+                                 Det(X) = G(X).
+Proof. Let Det(X) = d. By definition, for any  > 0 there exists a (d − )-indeterminate
+measure µ with a support included in X. By Theorem 1.4 we have that supp µ contains a
+(d−)/π-uniform sequence. Therefore, by the gap theorem in [11] we have that G(X) ≥ d−.
+So, since  > 0 is arbitrary we obtain that G(X) ≥ Det(X).
+   To prove the other inequality let G(X) = a. By definition, for any  > 0 there exists a
+finite signed measure σ with a spectral gap (−a + , a − ). Its positive part σ + is (a − )-
+indeterminate measure supported on X as well. Therefore, Det(X) ≥ a −  and hence
+Det(X) ≥ G(X).                                                                              
+Lemma 4.7. Let BE ⊂ Ca . If ν ∈ ME (A, B) is extreme, then
+                                               1
+                                       G=          ∈ Ka .
+                                              Kdν
+The location of the zeroes of G(z) coincides with the support of ν. Moreover, the supports
+of ν + and ν − are interlaced, i.e., for any two points a, b in the support of ν + there exists a
+point c from the support of ν − such that a < c < b and vice versa.
+Proof. The proof of the first part is the same as the proof of Theorem 66 in [6]. Therefore,
+we prove only the second part. Clearly, the function G(z) must vanish at every point c in
+the support of ν, and for all such c, G0 (c) = 1/ν(c). For any two consecutive zeros a and b
+of G(z), the following inequality trivially must hold G0 (a)G0 (b) < 0. Therefore, ν(a)ν(b) < 0
+for any two consecutive points in the support of ν. Thus, the supports of ν + and ν − must
+be interlaced.                                                                               
+  The following result represents a refinement of de Branges Theorem 66 in [6].
+14                              M. MITKOVSKI AND A. POLTORATSKI
+
+Theorem 4.8. Let A and B be disjoint closed subsets of R. The necessary and sufficient
+condition for Ma (A, B) to contain a non-zero measure, is that there exists an entire function
+G(z) in the Krein class Ka with zero set Λ = {λn } satisfying {λ2n } ⊂ A, {λ2n+1 } ⊂ B.
+Proof. Assume that Ma (A, B) contains a non-zero measure. It follows from Theorem 4.7
+that there exists an entire function G(z) in the Krein class Ka with zero set Λ = {λn }
+satisfying {λ2n } ⊂ A, {λ2n+1 } ⊂ B. Conversely, if such function exists define a signed
+discrete measure σ supported on Λ simply by σ({λn }) = 1/G0 (λn ). Using the properties of
+G(z) it is easy to show that this measure (or perhaps −σ) belongs in Ma (A, B).         
+   To prove our oscillation result below we will need the following technical lemma. It
+basically says that any subsequence of real zeros of a given function F ∈ PWa can be
+replaced by double zeroes without changing the exponential type and still keeping some
+integrability properties on the real line.
+Lemma 4.9. Let F ∈ PWa with infinitely many real zeros and let Λ = {λn } be a subsequence
+of the real zeros of F indexed so that
+                              · · · < λ−2 < λ−1 < 0 < λ1 < λ2 < . . .
+Then there exists c ∈ R and a sequence Γ := {γn } such that γn ∈ (λ2n , λ2n+1 ) for n positive
+and γn ∈ (λ2n+1 , λ2n ) for n negative such that the entire function G(z) defined by
+                                                       2 2z
+                                                      z
+                                                            e− γ
+                                          Q
+                                            γ∈Γ 1 − γ
+                              G(z) = e−cz Q             z
+                                                           − z F (z)
+                                             λ∈Λ 1 − λ e
+                                                              λ
+
+
+satisfies
+                                            |G(x)|
+                                         Z
+                                                   dx < ∞.
+                                            1 + x2
+                                          p                                              p
+Proof. For each n positive let γn := λ2n−1 λ2n and for n negative γn := − λ2n+1 λ2n .
+Clearly, this sequence Γ = {γn } satisfies γn ∈ (λ2n , λ2n+1 ) for n positive and γn ∈ (λ2n+1 , λ2n )
+for n negative. Define
+                                          2nΓ (t) − nΛ (t)
+                                      Z
+                                 c :=                       dt < ∞.
+                                                 t2
+On the real line we have
+                                               1 2nΓ (t) − nΛ (t)
+                                         Z
+                                       2
+                 log |G(x)| = −cx + x                               dt + log |F (x)| .
+                                             x−t           t2
+Simple algebra implies
+                         2nΓ (t) − nΛ (t)         2nΓ (t) − nΛ (t)        2nΓ (t) − nΛ (t)
+                       Z                      Z                        Z
+ log |G(x)| = −cx+x                       dt+                      dt+                     dt+log |F (x)| .
+                                t2                        t                    x−t
+                              R                                                                 (4.1)
+By the choice of Γ we have (2nΓ (t) − nΛ (t))/tdt = 0. Therefore,
+                                  log |G(x)| = ũ(x) + log |F (x)| ,
+where u(x) = 2nΓ (x) − nΛ (x). Since kuk∞ ≤ 1 < π/2 by the Smirnov-Kolmogorov estimate
+                                        eũ(x)
+                                     Z
+                                               dx < ∞.
+                                       1 + x2
+                                 DETERMINACY FOR MEASURES                                       15
+
+Therefore, using the fact that F is bounded on R we obtain
+                                           Z ũ(x)
+                              |G(x)|               |F (x)|
+                           Z
+                                             e
+                                    2
+                                      dx =                 dx < ∞.
+                              1+x               1 + x2
+                                                                                                
+  Now we can prove our main result stated in the introduction.
+Theorem 1.6. Let A and B be disjoint closed subsets of R. Let Ma (A, B) be the class of all
+finite signed measures σ with a spectral gap (−a, a) such that supp σ + ⊂ A and supp σ − ⊂ B
+The following equality holds
+sup{a > 0 : Ma (A, B) 6= {0}} = π sup{d ≥ 0 : ∃{λn } d-uniform, {λ2n } ⊂ A, {λ2n+1 } ⊂ B}
+Proof. Assume that Ma (A, B) contains a non-zero measure. By the previous theorem, it then
+must contain a non-zero extreme measure ν with discrete support {λn } such that {λ2n } ⊂
+A, {λ2n+1 } ⊂ B. It follows from Theorem 1.4 that the supports of the indeterminate measures
+ν + and ν − must be a/π-uniform sequences. Since supp ν + = {λ2n }, supp ν − = {λ2n+1 } we
+are done with one of the inclusions.
+   In the opposite direction, let Λ = {λn } be d-uniform sequence with {λ2n } ⊂ A, {λ2n+1 } ⊂
+B. Let  > 0 be arbitrary small number. We will construct a finite signed measure σ ∈
+Mπd−2 (A, B) which will finish the proof. From [11] we know first that there exists a finite
+signed measure σ1 with a spectral gap πd − . Using the extreme point procedure above
+if needed we can assume that this measure σ1 oscillates between consecutive points in its
+support. More precisely, if we denote the support of σ1 by Λ0 := {λ0n } ⊂ Λ, we have
+σ1 (λ0n )σ1 (λ0n+1 ) < 0 for all n. This measure however may not be in Mπd− (A, B) since we
+don’t know that Λ0 = Λ.
+   Consider the intervals (λ0n , λ0n+1 ) which contain odd number of points from Λ. These
+are exactly the bad intervals since in this case λ0n and λ0n+1 are both in A or both in B
+even though σ1 has opposite sign at these points. To fix this form a sequence Γ by picking
+one point from Λ in each such interval. Since Λ \ Λ0 is (d − /2)-uniform it is clear that
+   +             +
+DBM    (Γ) ≤ DBM     (Λ \ Λ0 ) = /2. Let ξ ∈ / Γ be an arbitrary fixed real number not in Γ. This
+number ξ will be useful in the end. By the Beurling-Malliavin theorem there exists an entire
+function F (z) ∈ PW which vanishes at Γ and has a double zero at ξ. We may assume that
+F is real on the real line (otherwise take F + F # ). If the real zero set of F (z) is exactly Γ,
+then we will be done by taking dσ := F dσ1 . However, F (z) may have additional real zeros.
+Denote by Γ0 these zeroes. If Γ0 is finite, then we can divide them out and still remain with
+an entire function F1 (z) ∈ PW which will make do for us. In the case when Γ0 is infinite
+we index it so that
+                                 · · · < γ−2 < γ−1 < 0 < γ1 < γ2 < . . .
+If there are finitely many positive (negative) terms in Γ we divide them out and work with
+the negative (positive) terms only. Form the sequence ∆ = {δn } from the geometric means
+                                                                      √
+of consecutive pairs in Γ0 or more precisely for n positive δn := γ2n−1 γ2n and for n negative
+           √
+δn := − γ2n+1 γ2n . We can now apply the previous lemma to F (z) and obtain an entire
+function G(z) ∈ C such that
+      (i) The zero set of G is Λ0 ∪ ∆ ∪ ξ and G has double zeros on ∆ ∪ {ξ}.
+     (ii)
+                                               |G(x)|
+                                            Z
+                                                      dx < ∞.
+                                               1 + x2
+16                            M. MITKOVSKI AND A. POLTORATSKI
+
+Consider H(z) = G(z)/(z + ξ)2 . This H is an entire function form C which is real on the
+real line. Moreover, by (ii) H is integrable and hence must be bounded on R. Consider the
+measure dσ = Hdσ1 . Since H is bounded this is a finite signed measure.The fact that H is
+of exponential type no greater than  implies that dσ has a spectral gap d − 2. In addition,
+in each of the bad intervals (λ0n , λ0n+1 ) the function H has exactly one zero and the rest of its
+zeroes are double zeroes. Therefore, σ has equal sign point masses at λ0n and λ0n+1 and has
+the same good behavior as σ1 on the rest of Λ0 . Thus, σ ∈ Mπd−2 (A, B) which is exactly
+what we needed.                                                                                  
+4.1. Sign changes of measures with spectral gap. If σ is an absolutely continuous
+signed measure with continuous density f then it is clear what the sign change of σ mean.
+The sign change will occur exactly at the places where f has zeros (of odd order). Therefore
+we can count the number of sign changes by counting these zeros. For general signed measures
+it is not immediately clear how to define sign changes. One natural definition, that was used
+in [7], is as follows.
+Definition 4.10. The number of sign changes of σ on an interval (a, b) is defined to be the
+minimal degree of a polynomial p for which pdσ is a positive measure on [a, b].
+     The following lemma follows immediately from this definition.
+Lemma 4.11. A signed measure σ has at least one sign change on an interval (a, b) if there
+exist Borel sets P, N ⊂ (a, b) such that σ(P ) > 0 and σ(N ) < 0.
+ As a consequence of our oscillation theorem we obtain the following improvement of the
+main result in [7, 8] stated in the introduction.
+Theorem 1.7. If σ is a nonzero signed measure with a spectral gap (−a, a) then there
+exists an a/π-uniform sequence {λn } such that σ has at least one sign change in every
+(λn − n , λn+1 + n+1 ), where n > 0 are arbitrary.
+Proof. Let A = supp σ + , B = supp σ − . Here, as usual, σ + and σ − denote the positive
+and negative parts of σ in the canonical Jordan decomposition σ = σ + − σ − . Then σ ∈
+Ma (A, B). It follows from Lemma 4.2 that Ma (A, B) contains an extreme point (measure).
+By Theorem 1.6 this measure is discrete and supported on a/π-uniform sequence {λn } such
+that {λ2n } ⊂ A, {λ2n+1 } ⊂ B or vice versa. It is clear now that on any double-sided
+enlargement (λn − n , λn+1 + n+1 ) of (λn , λn+1 ) the conditions from the previous lemma
+hold. Therefore, σ has at least one sign change on each of these intervals.               
+  Next, we show how to deduce the main result from [7, 8] as a simple corollary of Theo-
+rem 1.7.
+Theorem 4.12. If σ is a nonzero signed measure with a spectral gap (−a/2, a/2) then the
+number of sign changes s(r, σ) of σ on the interval (0, r) satisfies
+                                               s(r, σ)     a
+                                      lim inf          ≥     .
+                                        r→∞       r       2π
+Proof. Let Λ = {λn } be the a/2π-uniform sequence from Theorem 1.7. It is clear that
+s(r, σ) ≥ nΛ (r), where nΛ (r) is the usual counting function that counts the number of
+elements in the set Λ ∩ (0, r). The fact that Λ is a/2π-uniform sequence immediately implies
+that
+                                              nΛ (r)     a
+                                         lim         =     .
+                                        r→∞     r       2π
+                                      DETERMINACY FOR MEASURES                                                17
+
+We are done.                                                                                                  
+Remark. Notice that we don’t need to use Beurling-Malliavin result to deduce the previ-
+ous theorem. The much more elementary Levinson’s theorem on distribution of zeros of
+Cartwright class functions is also sufficient. We want to stress this to illustrate how shorter
+and simpler our proof is in comparison to the original proof offered in [7].
+                                                References
+ [1] A. Beurling, On quasianalyticity and general distributions, Mimeographed lecture notes, Summer Insti-
+     tute, Stanford, 1961. ↑1
+ [2] A. Beurling and P. Malliavin, On the closure of characters and the zeros of entire functions, Acta Math.
+     118 (1967), 79–93. ↑4
+ [3] L. de Branges, The Stone-Weierstrass theorem, Proc. Amer. Math. Soc. 10 (1959), 822–824. ↑9
+ [4]         , The Bernstein problem, Proc. Amer. Math. Soc. 10 (1959), 825–832. ↑9
+ [5]         , Some applications of spaces of entire functions, Canad. J. Math. 15 (1963), 563–583. ↑9
+ [6]         , Hilbert spaces of entire functions, Prentice Hall, Englewood Cliffs, 1968. ↑9, 13
+ [7] A. Eremenko and D. Novikov, Oscillation of Fourier integrals with a spectral gap, J. de Math. Pures
+     Appl. 83 (2004), 313–365. ↑3, 16, 17
+ [8]         , Oscillation of Fourier integrals with a spectral gap, Proc. Acad. Nat. Sci. 101 (2004), 5872–5873.
+     ↑3, 16
+ [9] P. Koosis, The logarithmic integral I, Vol. 21, Cambridge University Press, Cambridge, 1992. ↑8
+[10] N. Levinson, Gap and density theorems, American Mathematical Society, New York, 1940. ↑8
+[11] A. Poltoratski, Spectral gaps for sets and measures, Acta Math. 208 (2012), 313–365. ↑2, 4, 5, 13, 15
+[12]         , Problem on completeness of exponentials, Ann. Math. 178 (2013), 983–1016. ↑
+[13] M. Sodin, de Branges spaces, Unpublished lecture notes, CRM Institute, Barcelona, 2011. ↑1
+
+  Mishko Mitkovski, Department of Mathematical Sciences, Clemson University, Clemson,
+SC USA
+  E-mail address: mmitkov@clemson.edu
+  URL: http://people.clemson.edu/∼mmitkov
+
+  Alexei Poltoratski, Department of Mathematics, Texas A&M University, College Sta-
+tion, TX USA
+  E-mail address: alexeip@math.tamu.edu
+  URL: www.math.tamu.edu/∼alexeip
+

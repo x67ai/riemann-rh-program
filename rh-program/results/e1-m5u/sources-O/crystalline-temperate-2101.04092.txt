@@ -1,0 +1,668 @@
+                                           CRYSTALLINE TEMPERATE DISTRIBUTIONS WITH UNIFORMLY
+                                                     DISCRETE SUPPORT AND SPECTRUM
+
+                                                                              NIR LEV AND GILAD RETI
+
+
+                                                  Abstract. We prove that a temperate distribution on R whose support and spectrum
+
+
+
+
+arXiv:2101.04092v2 [math.CA] 27 Apr 2021
+                                                  are uniformly discrete sets, can be obtained from Poisson’s summation formula by a
+                                                  finite number of basic operations (shifts, modulations, differentiations, multiplication
+                                                  by polynomials, and taking linear combinations).
+
+
+
+
+                                                                                  1. Introduction
+
+                                             By a crystalline measure on R (or Rd ) we mean a pure point measure µ which is a
+                                           temperate distribution and whose distributional Fourier transform µ
+                                                                                                             b is also a pure point
+                                           measure,
+                                                                         X                  X
+                                                                      µ=     a(λ)δλ , µ b=      b(s)δs ,                      (1.1)
+                                                                               λ∈Λ                   s∈S
+
+                                           where the support Λ and the spectrum S are locally finite sets [Mey16]. This notion
+                                           may be considered as a mathematical model for quasicrystals, i.e. atomic arrangements
+                                           having a discrete diffraction pattern (see [Mey95], [Lag00]).
+                                             A classical example of a crystalline measure is
+                                                                                     X
+                                                                                  µ=     δλ ,                                                (1.2)
+                                                                                            λ∈L
+
+                                           where L is a lattice. Indeed, by the Poisson summation formula, the Fourier transform µb
+                                                                                            ∗
+                                           is the sum of equal masses on the dual lattice L . By applying a finite number of shifts,
+                                           modulations, and taking linear combinations, one can construct more general examples
+                                           of crystalline measures µ whose supports are contained in finite unions of translates of
+                                           the lattice L, while the spectra contained in finite unions of translates of L∗ .
+                                              However there exist also examples of crystalline measures µ on R, such that the
+                                           support Λ is not contained in any finite union of translates of a lattice. Constructions
+                                           of such examples, using different approaches, were given in [LO16], [Kol16], [Mey16],
+                                           [Mey17], [RV19], [KS20], [Mey20], [OU20].
+                                             On the other hand, it was proved in [LO13], [LO15] that if the support Λ and the
+                                           spectrum S of a crystalline measure µ on R are uniformly discrete sets, then the measure
+                                           can be obtained from Poisson’s formula by a finite number of shifts, modulations, and
+                                           taking linear combinations.
+
+                                             Date: April 27, 2021.
+                                             2010 Mathematics Subject Classification. 30D15, 42A38, 52C23.
+                                             Key words and phrases. Quasicrystals, Poisson’s summation formula, temperate distributions.
+                                             Research supported by ISF Grant No. 227/17 and ERC Starting Grant No. 713927.
+                                                                                             1
+2                                 NIR LEV AND GILAD RETI
+
+   One can introduce a more general notion of a crystalline temperate distribution, which
+is by definition a temperate distribution α whose support Λ is a locally finite set and
+such that the spectrum S (the support of the Fourier transform α b) is also a locally finite
+set. See [Pal17], [Fav18], [LR20] where distributions of this type were studied.
+   Examples of crystalline temperate distributions which are not crystalline measures
+may be constructed by starting from a crystalline measure µ and applying, in addition
+to the operations mentioned above, also a finite number of differentiations and multi-
+plication by polynomials. The main result of the present paper is that any temperate
+distribution on R whose support and spectrum are uniformly discrete sets, can be
+obtained from Poisson’s summation formula by these basic operations:
+Theorem 1.1. Let α be a temperate distribution on R such that Λ = supp(α) and
+S = supp(b
+         α) are uniformly discrete sets. Then α can be represented in the form
+                             X                  X            (p)
+                       α=         c(τ, ω, l, p)   λl e2πiλω δλ+τ               (1.3)
+                               (τ,ω,l,p)             λ∈L
+
+where L is a lattice, (τ, ω, l, p) goes through a finite set of quadruples such that τ, ω are
+real numbers and l, p are nonnegative integers, and c(τ, ω, l, p) are complex numbers.
+
+  Conversely, if α is a distribution of the form (1.3) then its support Λ and spectrum
+S are uniformly discrete sets. In fact, Λ is contained in a finite union of translates of
+the lattice L, while S is contained in a finite union of translates of the dual lattice L∗ .
+   The proof of Theorem 1.1 is based on the approach developed in [LO13], [LO15] which
+is generalized from the context of measures to temperate distributions.
+
+                                      2. Preliminaries
+
+  In this section we briefly recall some preliminary background in the theory of Schwartz
+distributions (see [Rud91] for more details).
+   The Schwartz space S(R) consists of all infinitely smooth functions ϕ on R such that
+for each n, k ⩾ 0, the norm
+                                                       k
+                                                       X
+                           kϕkn,k := sup(1 + |x|)n               |ϕ(j) (x)|            (2.1)
+                                           x∈R             j=0
+
+is finite. A temperate distribution on R is a linear functional on the Schwartz space
+which is continuous with respect to the topology generated by this family of norms.
+  We use α(ϕ) to denote the action of a temperate distribution α on a Schwartz function
+ϕ. For each temperate distribution α there exist n and k such that
+                              |α(ϕ)| ⩽ Ckϕkn,k ,       ϕ ∈ S(R),                       (2.2)
+where C = C(α, n, k) is a constant which does not depend on ϕ.
+    If ϕ is a Schwartz function then its Fourier transform is defined by
+                                         Z
+                                 ϕ(t) =
+                                 b         ϕ(x) e−2πitx dx.                            (2.3)
+                                                 R
+If α is a temperate distribution then its Fourier transform is defined by α
+                                                                          b(ϕ) = α( b
+                                                                                   ϕ).
+    We denote by supp(α) the closed support of a temperate distribution α.
+                        CRYSTALLINE TEMPERATE DISTRIBUTIONS                               3
+
+   If α is a temperate distribution and if ϕ is a Schwartz function, then the product α · ϕ
+is a temperate distribution defined by (α · ϕ)(ψ) = α(ϕ · ψ), ψ ∈ S(R). If ϕ does not
+vanish at any point of supp(α) then we have supp(α · ϕ) = supp(α).
+  The convolution α ∗ ϕ of a temperate distribution α and a Schwartz function ϕ is
+an infinitely smooth function which is also a temperate distribution, and whose Fourier
+transform is α b· b
+                  ϕ. If ϕ has compact support then supp(α ∗ ϕ) is contained in the
+Minkowski sum supp(α) + supp(ϕ).
+Lemma 2.1. Let α be a temperate distribution whose support Λ is a uniformly discrete
+set. Then α has the form
+                                  X k X
+                                                  (p)
+                             α=            ap (λ)δλ                            (2.4)
+                                          p=0 λ∈Λ
+
+where the coefficients ap (λ) satisfy the condition
+                           k
+                           X
+                                  |ap (λ)| ⩽ C(1 + |λ|)n ,       λ ∈ Λ,               (2.5)
+                            p=0
+
+for certain constants n and C.
+
+  For a proof see e.g. [Pal17, Proposition 2] or [Fav18, Proposition 3.1].
+
+                            3. Spectral gap and density
+
+  We say that a temperate distribution γ has a spectral gap of size a > 0, if its Fourier
+transform γb vanishes on an interval of length a. There is a well-known principle stating
+that if a set Γ ⊂ R supports a nonzero measure, or a distribution, with a spectral gap,
+then Γ cannot be “too sparse”. Several concrete versions of this general principle can
+be found in [KM58, Proposition 7], [MP10], [Pol12], [LO15, Section 4].
+  Let Γ ⊂ R be a locally finite set (that is, a set with no finite accumulation points)
+and consider a distribution γ of the form
+                                          k X
+                                          X               (p)
+                                     γ=             cp (λ)δλ ,                        (3.1)
+                                          p=0 λ∈Γ
+
+where the coefficients cp (λ) are assumed to satisfy the condition
+                                    k X
+                                    X
+                                               |cp (λ)| < +∞.                         (3.2)
+                                     p=0 λ∈Γ
+
+The condition (3.2) implies in particular that the sum in (3.1) converges in the space
+of temperate distributions.
+  We define the density D(Γ) of the set Γ to be
+                                              Z R
+                                           1      nΓ (r)
+                          D(Γ) := lim inf                dr,                          (3.3)
+                                   R→+∞ 2R 1        r
+where we denote nΓ (r) := #(Γ ∩ [−r, r]). We have the following result:
+4                               NIR LEV AND GILAD RETI
+
+Theorem 3.1. Let Γ ⊂ R be a locally finite set, and let γ be a nonzero distribution
+of the form (3.1) and such that condition (3.2) is satisfied. If the Fourier transform γ
+                                                                                       b
+vanishes on an interval of length a, then we must have
+                                     D(Γ) ⩾ a/(k + 1).                             (3.4)
+
+  The result actually holds under more general assumptions, where instead of conditions
+(3.1) and (3.2) one merely assumes that γ is a nonzero distribution with supp(γ) ⊂ Γ
+and satisfying the condition |γ(ϕ)| ⩽ Ckϕkn,k , ϕ ∈ S(R), where n, k and C do not
+depend on ϕ. However we will not use this more general version in the paper and we
+do not give its proof. The proof of Theorem 3.1 given below is based on a classical
+approach which involves an application of Jensen’s formula to the Cauchy transform of
+the distribution γ, see [KM58, p. 73].
+    We note that the estimate (3.4) is sharp, see Example 3.2 below.
+
+Proof of Theorem 3.1. Consider the Fourier transform γb of the distribution γ,
+                                     k
+                                     X               X
+                           γb(t) =         (2πit)p         cp (λ)e−2πiλt .         (3.5)
+                                     p=0             λ∈Γ
+
+Then γb is a continuous function satisfying the estimate
+                                      γ (t)| ⩽ K(1 + |t|)k ,
+                                     |b                                            (3.6)
+where K is a certain constant which does not depend on t. Define the function
+                                  Z ∞
+                       f (z) := −     γb(t) e2πizt dt, Im(z) > 0,                  (3.7)
+                                      0
+
+and                                 Z 0
+                         f (z) :=          b(t) e2πizt dt,
+                                           γ                   Im(z) < 0.          (3.8)
+                                     −∞
+The integrals in (3.7) and (3.8) converge absolutely, due to the estimate (3.6).
+   The function f is called the Fourier-Carleman transform of the distribution γ. It
+follows from the uniqueness property of the Fourier transform that the function γ
+                                                                                b, and
+hence also the distribution γ, are uniquely determined by f . In particular, since γ is
+assumed to be nonzero, it follows that f does not vanish identically.
+   If we substitute (3.5) into (3.7) and (3.8) and exchange the order of summation and
+integration (which is justified using (3.2) and the dominated convergence theorem) then
+we obtain
+                                          k
+                                     1 XX               p!(−1)p
+                            f (z) =             cp (λ)                             (3.9)
+                                    2πi p=0 λ∈Γ        (z − λ)p+1
+for every z ∈ C \ R. Using again the assumption (3.2) this implies that f can be
+extended to a meromorphic function in C whose poles are contained in Γ, and such that
+the multiplicity of each pole is at most k + 1.
+  The right hand side of (3.9) is called the Cauchy transform of the distribution γ. The
+equality in (3.9) states a well-known relation between the Cauchy transform and the
+Fourier-Carleman transform, see e.g. [Ben84, Section 3].
+                        CRYSTALLINE TEMPERATE DISTRIBUTIONS                                 5
+
+   We now use the assumption that γ  b vanishes on an interval of length a. By applying
+a translation we may assume, with no loss of generality, that γb vanishes on the interval
+(−a/2, a/2). Using this together with (3.6), (3.7) and (3.8) we obtain
+                              Z ∞
+             |f (x + iy)| ⩽ K     (1 + tk )e−2π|y|t dt = K|y|−k−1pk (|y|)e−πa|y| , (3.10)
+                                a/2
+
+where pk is a polynomial of degree k whose coefficients depend on k and a but do not
+depend on x and y. This implies the estimate
+
+                |f (x + iy)| ⩽ C(|y|−k−1 + |y|−1)e−πa|y| ,    x ∈ R,   y 6= 0,        (3.11)
+
+where C is a constant not depending on x and y.
+  Finally we apply Jensen’s formula (see e.g. [Lan99, Chapter XII, Section 1] or [Lev96,
+Sections 2.4 and 2.5]) to the function f . It yields that for R ⩾ 1 we have
+                Z R                             Z 2π
+                     nf (r, 0) − nf (r, ∞)                          dθ
+                                           dr =      log |f (Reiθ )| + cf ,        (3.12)
+                  1             r                0                  2π
+where nf (r, 0) is the number of zeros (counted with multiplicities) of f in the disk
+{z : |z| ⩽ r}, nf (r, ∞) is the number of poles in the same disk (again counted with
+multiplicities), and cf is a constant which depends on f but does not depend on R.
+  The estimate (3.11) implies that
+                  Z 2π
+                                       dθ
+                       log |f (Reiθ )|    ⩽ −2aR + o(R),       R → +∞.                (3.13)
+                   0                   2π
+We also have
+                                 nf (r, ∞) ⩽ (k + 1)nΓ (r),                           (3.14)
+since the poles of f are contained in Γ and the multiplicity of each pole is at most k + 1.
+It then follows from (3.12), (3.13) and (3.14) that
+                             Z R
+                                 nΓ (r)
+                     (k + 1)            dr ⩾ 2aR − o(R), R → +∞.                    (3.15)
+                              1    r
+If we now divide both sides of (3.15) by 2(k + 1)R and take the lim inf as R → +∞, we
+arrive at (3.4). This concludes the proof of Theorem 3.1.                           
+
+Example 3.2. The following example shows that the estimate (3.4) is sharp. Let
+Γ := Z, then D(Γ) = 1. Given ε > 0 we construct a nonzero distribution γ satisfying
+(3.1) and (3.2), and such that the Fourier transform γb vanishes on an interval of length
+                           Pk        P     (p)
+a = k + 1 − ε. Let α := p=0 ap λ∈Z δλ , where we choose the coefficients {ap } so
+               P
+that P (t) := kp=0 ap (2πit)p is a nonzero polynomial vanishing on the set {1, 2, . . . , k}.
+Then α is a nonzero temperate distribution, supp(α) ⊂ Γ, and α     b vanishes on the open
+interval (0, k + 1). We then let γ := α · ϕ, where ϕ is a Schwartz function such that
+|ϕ| > 0 and supp( b  ϕ) ⊂ (−ε, 0). Then the distribution γ is nonzero, it satisfies the
+conditions (3.1) and (3.2), and γb vanishes on the interval [0, k + 1 − ε].
+6                                 NIR LEV AND GILAD RETI
+
+                     4. Arithmetic structure of the support
+
+    In this section our goal is to prove the following result:
+Theorem 4.1. Let α be a temperate distribution on R such that Λ = supp(α) and
+S = supp(b α) are both uniformly discrete sets. Then Λ is contained in a finite union of
+translates of some lattice.
+   The result was proved in [LO13], [LO15] in the case where α and α b are measures, and
+it is generalized here to the context of temperate distributions. Theorem 4.1 constitutes
+the first step in the proof of Theorem 1.1, where the next step consists of showing that
+the distribution α must be of the form (1.3).
+
+4.1. Recall that a set Λ ⊂ R is said to be uniformly discrete if there is δ > 0 such that
+|λ′ − λ| ⩾ δ for any two distinct points λ, λ′ in Λ. The maximal constant δ with this
+property is called the separation constant of Λ, and will be denoted by δ(Λ).
+  One can check that if Λ is a uniformly discrete set then D(Λ) ⩽ 1/δ(Λ). In particular,
+the density D(Λ) is finite.
+   We say that a set Λ ⊂ R is relatively dense if there is a > 0 such that any interval
+[x, x + a] contains at least one point from Λ.
+    If Λ is uniformly discrete and also relatively dense, then Λ is called a Delone set.
+
+4.2. Let Λ ⊂ R, and for each h ∈ Λ − Λ denote
+                         Λh := Λ ∩ (Λ − h) = {λ ∈ Λ : λ + h ∈ Λ}.                      (4.1)
+Then Λh is a nonempty subset of Λ. We will use the following key result:
+Theorem 4.2 ([LO13], [LO15]). Let Λ ⊂ R be a Delone set, and suppose that there
+exists a constant c = c(Λ) > 0 such that D(Λh ) ⩾ c for every h ∈ Λ − Λ. Then Λ is
+contained in a finite union of translates of a certain lattice.
+  This was actually proved in [LO13], [LO15] with the density
+                                                #(Λh ∩ [−r, r])
+                            D# (Λh ) := lim inf                                        (4.2)
+                                         r→+∞        2r
+instead of D(Λh ) in the statement, but both the result and its proof are valid for either
+one of these densities. The proof, see [LO15, Sections 5, 6], involves the concept of Meyer
+sets and is based on a characterization of these sets that is due to Meyer [Mey72].
+
+4.3. The following result can be found in [KM58, Proposition 7].
+Lemma 4.3. Let α be a nonzero temperate distribution whose spectrum S = supp(b α)
+is uniformly discrete. Then the support Λ = supp(α) is a relatively dense set.
+
+Proof. Suppose that [x, x + a] is an interval of length a disjoint from the support Λ. Let
+ϕ be a Schwartz function supported on a sufficiently small neighborhood of the origin
+so that α ∗ ϕ vanishes on [x, x + a]. It follows from Lemma 2.1 (applied to the Fourier
+transform αb of α) that the distribution γ := α    b·ϕb satisfies the conditions (3.1) and
+(3.2) with Γ = S and with k that does not depend on ϕ. If we choose ϕ such that also
+ϕ
+b > 0, then γ is a nonzero distribution whose Fourier transform vanishes on an interval
+of length a. Theorem 3.1 then yields that a cannot be greater than (k + 1)D(S).          
+                         CRYSTALLINE TEMPERATE DISTRIBUTIONS                              7
+
+4.4. We now use the previous results in order to prove Theorem 4.1.
+
+Proof of Theorem 4.1. By Lemma 4.3 the support Λ is relatively dense, so Λ is a Delone
+set. Due to Theorem 4.2 it will therefore suffice to show that there is c > 0 such that
+D(Λh ) ⩾ c for every h ∈ Λ − Λ. We know from Lemma 2.1 that there exist n and k
+such that the distribution α has the form (2.4) and that (2.5) is satisfied. We will prove
+that the condition
+                                 D(Λh ) ⩾ δ(S)/(k + 1)                                (4.3)
+holds for every h ∈ Λ − Λ.
+  To prove (4.3) we will show that given any h ∈ Λ − Λ and any r > 0 one can find a
+nonzero distribution
+                                    Xk X
+                                                     (p)
+                               γh =         cp,h (λ)δλ                         (4.4)
+                                             p=0 λ∈Λh
+such that the coefficients cp,h (λ) satisfy
+                                  k
+                                  XX
+                                                |cp,h (λ)| < +∞,                      (4.5)
+                                  p=0 λ∈Λh
+
+and such that the Fourier transform γ
+                                    bh vanishes on the set
+                               U := R \ [(S − S) + (−r, r)].                          (4.6)
+Observe that the last property implies that the distribution γh has a spectral gap of
+size δ(S) − 2r, and so it follows from Theorem 3.1 that D(Λh ) ⩾ (δ(S) − 2r)/(k + 1).
+Since r may be chosen arbitrarily small, this yields (4.3).
+   In order to construct the distribution γh we use the approach in [LO13, Section 2.1].
+We fix r > 0 and choose a Schwartz function ϕ > 0 such that supp( b   ϕ) ⊂ (−r/2, r/2).
+It follows from (2.5) that the product α · ϕ has the form
+                                               k X
+                                               X                  (p)
+                                  α·ϕ=                   bp (λ)δλ                     (4.7)
+                                               p=0 λ∈Λ
+
+where the coefficients bp (λ) satisfy
+                                     k X
+                                     X
+                                                |bp (λ)| < +∞.                        (4.8)
+                                      p=0 λ∈Λ
+
+(The coefficients bp (λ) depend on the function ϕ, but k does not.)
+   Let f be the Fourier transform of the distribution α · ϕ. Then we have f = α  b∗ϕb
+and hence f is an infinitely smooth function vanishing outside the (r/2)-neighborhood
+of the set S. On the other hand, by (4.7) we have
+                                      k
+                                      X               X
+                            f (x) =         (2πix)p          bp (λ)e−2πiλx .          (4.9)
+                                      p=0              λ∈Λ
+
+Let g(x, u) := f (x)f (x − u), then using (4.9) and opening the brackets we obtain
+                                     2k
+                                     X                X
+                         g(x, u) =          (2πix)l           Ah,l (u)e−2πihx ,     (4.10)
+                                      l=0             h∈Λ−Λ
+8                                      NIR LEV AND GILAD RETI
+
+where the coefficients Ah,l (u) are given by
+                      X                         X
+                                   p+j p
+       Ah,l (u) =             (−1)        (2πiu)j     bq (λ + h)bp (λ)e−2πiλu                (4.11)
+                                        j         λ∈Λ
+                    (p,q,j)∈J(k,l)                                h
+
+
+and where J(k, l) denotes the finite set of all triples (p, q, j) ∈ Z3 satisfying
+                          0 ⩽ p, q ⩽ k,        0 ⩽ j ⩽ p,      p + q − j = l.                (4.12)
+
+    We observe that g(x, u) is, as a function of x, the Fourier transform of the distribution
+                                              2k
+                                              X  X                    (l)
+                                      βu =                Ah,l (u)δh ,                       (4.13)
+                                              l=0 h∈Λ−Λ
+
+and the coefficients Ah,l (u) satisfy
+                                      2k
+                                      X       X
+                                                  |Ah,l (u)| < +∞.                           (4.14)
+                                      l=0 h∈Λ−Λ
+
+On the other hand, for every u ∈ U the function g(x, u) vanishes identically with respect
+to x. It follows from the uniqueness of the representation (4.13) that Ah,l (u) = 0, u ∈ U.
+    For each h ∈ Λ − Λ and 0 ⩽ l ⩽ 2k we now define
+                           X               X
+                                       p+j p                        (j)
+                  γh,l :=         (−1)            bq (λ + h)bp (λ) δλ .                      (4.15)
+                                           j λ∈Λ
+                             (p,q,j)∈J(k,l)                   h
+
+
+The fact that
+                       X
+                             |bq (λ + h)bp (λ)| < +∞,          (p, q, j) ∈ J(k, l),          (4.16)
+                      λ∈Λh
+
+ensures that the sum (4.15) converges in the space of temperate distributions. Moreover,
+the distribution γh,l has the form (4.4), (4.5), since the condition (p, q, j) ∈ J(k, l) implies
+that j ⩽ k. Moreover, due to (4.11) we have γbh,l (u) = Ah,l (u), u ∈ R, which yields
+                                         γbh,l (u) = 0,    u ∈ U.                            (4.17)
+
+    It thus remains to show that for each h ∈ Λ − Λ there is at least one l0 = l0 (h) such
+that the distribution γh,l0 is nonzero. Indeed, given such h we choose λ0 ∈ Λ such that
+λ0 + h is also in Λ. Since ϕ > 0 we have supp(α · ϕ) = Λ, hence by (4.7) there is a
+largest integer j0 such that the coefficient bj0 (λ0 ) is nonzero, and there is also at least
+one integer l0 such that bl0 (λ0 + h) is nonzero (in particular we have 0 ⩽ l0 ⩽ k). Let
+us show that for this choice of l0 the distribution γh,l0 is nonzero. It would suffice to
+verify that there is precisely one triple (p, q, j) ∈ J(k, l0 ) with j = j0 and such that
+bq (λ0 + h)bp (λ0 ) is nonzero, since this would imply that in the sum (4.15) the coefficient
+      (j )
+of δλ00 is nonzero. Indeed, if (p, q, j) is such a triple then we have p ⩽ j0 due to the
+maximality of j0 . But at the same time p ⩾ j = j0 , so p = j0 . Since p + q − j = l0 , this
+implies in turn that q = l0 . It follows that (j0 , l0 , j0 ) is the unique triple in J(k, l0 ) with
+the properties above, and the coefficient bl0 (λ0 + h)bj0 (λ0 ) is indeed nonzero. We thus
+obtain that the distribution γh,l0 is nonzero which concludes the proof.                          
+                        CRYSTALLINE TEMPERATE DISTRIBUTIONS                               9
+
+                5. Poisson type structure of the distribution
+
+  In this section we complete the proof of Theorem 1.1 by establishing the following:
+Theorem 5.1. Let α be a temperate distribution on R. Suppose that Λ = supp(α) is
+contained in a finite union of translates of a lattice L, and that S = supp(b
+                                                                            α) is a locally
+finite set. Then α can be represented in the form (1.3).
+
+  Theorem 1.1 follows as a consequence of Theorem 4.1 and Theorem 5.1.
+   The representation (1.3) implies that the distribution α can be obtained from the
+Poisson summation formula by a finite number of basic operations: shifts, modulations,
+differentiations, multiplication by polynomials, and taking linear combinations.
+
+5.1. We will use the following two lemmas.
+Lemma 5.2. Let z1 , . . . , zN be distinct nonzero complex numbers, let k1 , . . . , kN be
+positive integers, and let K = k1 + · · · + kN . For each integer m, 0 ⩽ m ⩽ K − 1, and
+for each pair of integers (j, l) satisfying 1 ⩽ j ⩽ N, 0 ⩽ l ⩽ kj − 1, we denote
+                                  Mm,j,l := (2πim)l zjm .                             (5.1)
+Let M be a K × K matrix whose rows are indexed by m and columns indexed by pairs
+(j, l), such that the entry at row m and column (j, l) is Mm,j,l . Then M is invertible.
+
+   This is due to the fact that the matrix M can be obtained by a finite number of
+elementary column operations from a confluent Vandermonde matrix (sometimes also
+referred to as a generalized Vandermonde matrix) which is known to be invertible, see,
+for instance, [Kal84]. This type of matrix arises e.g. in the linear interpolation problem
+asking to find a polynomial p(z) of degree not greater than K − 1 such that at each
+node zj the values p(zj ), p′ (zj ), . . . , p(kj −1) (zj ) are prescribed.
+Lemma 5.3. Let M(t) be a (k + 1) × (k + 1) matrix with entries Mp,l (t), 0 ⩽ p, l ⩽ k,
+defined by                              
+                                        p
+                            Mp,l (t) =    (2πit)p−l , l ⩽ p,                      (5.2)
+                                        l
+and Mp,l (t) = 0, p < l. Then the matrix M(t) is invertible, and the entries of the
+inverse matrix M −1 (t) are polynomials in t.
+
+  This lemma is obvious since M(t) is a triangular matrix whose nonzero entries are
+polynomials in t, and whose entries on the main diagonal are all equal to 1.
+
+5.2. Next we prove Theorem 5.1. The approach is inspired by [LO15, Section 7].
+
+Proof of Theorem 5.1. By assumption we have Λ ⊂ L + {τ1 , . . . , τN }, where L ⊂ R is a
+lattice and the τj are real numbers. We may suppose that the τj are distinct modulo
+the lattice L. Moreover, by rescaling it would suffice to consider the case L = Z.
+  By Lemma 2.1 the distribution α can be represented in the form
+                                        k X
+                                        X N
+                                                   (p)
+                               α(x) =             µj,p (x − τj )                      (5.3)
+                                        p=0 j=1
+10                                  NIR LEV AND GILAD RETI
+
+where each µj,p is a measure supported on Z,
+                                        X
+                                 µj,p =    aj,p (λ)δλ ,                                  (5.4)
+                                                 λ∈Z
+
+and where the masses aj,p (λ) satisfy
+                          k X
+                          X N
+                                    |aj,p (λ)| ⩽ C(1 + |λ|)n ,             λ ∈ Z,        (5.5)
+                          p=0 j=1
+
+for certain constants n and C.
+     It follows from (5.5) that each measure µj,p is a temperate distribution. We have
+                                      k
+                                      X                N
+                                                       X
+                            α
+                            b(t) =          (2πit)p           bj,p(t)e−2πitτj
+                                                              µ                          (5.6)
+                                      p=0               j=1
+
+according to (5.3). Since µj,p is a measure supported on Z, its Fourier transform µ
+                                                                                  bj,p is
+a Z-periodic distribution. This implies that for every m ∈ Z we have
+                                       k
+                                       X                     N
+                                                             X
+                                                         l
+                         α
+                         b(t + m) =           (2πim)               βj,l (t)e−2πimτj ,    (5.7)
+                                        l=0                  j=1
+
+where βj,l denotes the temperate distribution defined by
+                                             Xk  
+                                                 p
+                        βj,l (t) := e−2πitτj
+                                                    (2πit)p−l µ
+                                                              bj,p(t)                    (5.8)
+                                             p=l
+                                                 l
+
+for 1 ⩽ j ⩽ N and 0 ⩽ l ⩽ k.
+  If we now apply (5.7) with m = 0, 1, 2, . . . , (k + 1)N − 1 then we obtain a system of
+(k + 1)N equations. We consider this as a linear system with unknowns βj,l . We then
+invoke Lemma 5.2 with zj := e−2πiτj (which are distinct nonzero complex numbers) and
+with kj := k + 1 (1 ⩽ j ⩽ N). It follows from the lemma that the system is invertible,
+and hence there exist coefficients bj,l,m such that
+                                           (k+1)N −1
+                                               X
+                              βj,l (t) =                bj,l,m α
+                                                               b(t + m).                 (5.9)
+                                              m=0
+
+In other words, each βj,l is a finite linear combination of integer translates of α
+                                                                                  b.
+   Next we apply (5.8) with l = 0, 1, . . . , k and consider the obtained k + 1 equations as
+a linear system with unknowns µ    bj,p(t) e−2πitτj (0 ⩽ p ⩽ k). By Lemma 5.3, this system
+is invertible and the coefficients of the inverse system are polynomials in t. We conclude
+that there exist polynomials χp,l (t) such that
+                                                       k
+                                                       X
+                                              2πitτj
+                              µ
+                              bj,p (t) = e                   χp,l (t) βj,l (t).         (5.10)
+                                                       l=0
+
+  Now we use the assumption that S = supp(b      α) is a locally finite set. This together
+with (5.9) and (5.10) implies that the distribution µ
+                                                    bj,p is supported on the locally finite
+                        CRYSTALLINE TEMPERATE DISTRIBUTIONS                               11
+
+set S − {0, 1, 2, . . . , (k + 1)N − 1}. At the same time, we know that µ
+                                                                        bj,p is a Z-periodic
+distribution. Hence µ      bj,p must have the form
+                                                       X
+                                         µ
+                                         bj,p = νj,p ∗   δλ                           (5.11)
+                                                     λ∈Z
+
+where νj,p is a distribution with finite support. In turn this implies that
+                                          X
+                                   µj,p =    νbj,p (−λ)δλ ,                          (5.12)
+                                           λ∈Z
+
+that is, the masses aj,p(λ) in (5.4) are given by
+                               aj,p (λ) = νbj,p (−λ),      λ ∈ Z.                    (5.13)
+
+  Finally we combine (5.3) and (5.12) to conclude that
+                                       N X
+                                     k X
+                                     X                        (p)
+                              α=                   νbj,p (−λ)δλ+τj .                 (5.14)
+                                     p=0 j=1 λ∈Z
+
+We also observe that each one of the functions νbj,p (x) is a finite linear combination of
+products of polynomials and complex exponentials. Hence (1.3) follows from (5.14). 
+
+                                        6. Remarks
+
+6.1. We say that a set Λ ⊂ R has bounded density if it satisfies the condition
+                               sup #(Λ ∩ [x, x + 1)) < +∞.                             (6.1)
+                               x∈R
+
+This holds if and only if Λ is the union of a finite number of uniformly discrete sets.
+  One can prove the following version of Theorem 1.1, where the support Λ is not
+assumed to be uniformly discrete but only to have bounded density:
+Theorem 6.1. Let α be a temperate distribution on R satisfying (2.4) and (2.5), such
+that the support Λ = supp(α) has bounded density, while the spectrum S = supp(bα) is
+uniformly discrete. Then the conclusion of Theorem 1.1 holds.
+
+   This is an extension of [LO17, Theorem 2.2] where the result was proved in the case
+where α and its Fourier transform αb are measures. The proof is based on the fact that
+Theorem 4.2 remains valid under the weaker assumption that Λ is a relatively dense set
+of bounded density (not assumed to be uniformly discrete), see [LO17, Lemma 6.3].
+
+6.2. There is an interesting question as to whether the result in Theorem 1.1 holds in
+several dimensions. The problem is open even for measures:
+  Let Λ, S be two uniformly discrete sets in Rd , d > 1. Suppose that there is a measure µ,
+supp(µ) = Λ, whose distributional Fourier transform µ   b is also a measure, supp(bµ) = S.
+Does it follow that Λ can be covered by a finite union of translates of several lattices?
+   It was proved in [LO15] that the answer is affirmative if µ is a positive measure, and
+in this case the support Λ can in fact be covered by a finite union of translates of a
+single lattice. However an example in [Fav16, Section 2] shows that for signed measures
+µ the support need not be contained in a finite union of translates of a single lattice.
+12                                   NIR LEV AND GILAD RETI
+
+                                            References
+[Ben84]    M. Benedicks, The support of functions and distributions with a spectral gap. Math. Scand.
+           55 (1984), no. 2, 285–309.
+[Fav16]    S. Yu. Favorov, Fourier quasicrystals and Lagarias’ conjecture. Proc. Amer. Math. Soc. 144
+           (2016), no. 8, 3527–3536
+[Fav18]    S. Yu. Favorov, Tempered distributions with discrete support and spectrum. Bull. Hellenic
+           Math. Soc. 62 (2018), 66–79.
+[KM58]     J.-P. Kahane, S. Mandelbrojt, Sur l’équation fonctionnelle de Riemann et la formule som-
+           matoire de Poisson. Ann. Sci. École Norm. Sup. 75 (1958), 57–80.
+[Kal84]    D. Kalman, The generalized Vandermonde matrix. Math. Mag. 57 (1984), no. 1, 15–21.
+[Kol16]    M. N. Kolountzakis, Fourier pairs of discrete support with little structure. J. Fourier Anal.
+           Appl. 22 (2016), no. 1, 1–5.
+[KS20]     P. Kurasov, P. Sarnak, Stable polynomials and crystalline measures. J. Math. Phys. 61
+           (2020), no. 8, 083501, 13 pp.
+[Lag00]    J. C. Lagarias, Mathematical quasicrystals and the problem of diffraction. Directions in
+           mathematical quasicrystals, 61–93, CRM Monogr. Ser., 13, Amer. Math. Soc., Providence,
+           RI, 2000.
+[Lan99]    S. Lang, Complex analysis. Fourth edition. Springer-Verlag, 1999.
+[LO13]     N. Lev, A. Olevskii, Measures with uniformly discrete support and spectrum. C. R. Math.
+           Acad. Sci. Paris 351 (2013), no. 15-16, 599–603.
+[LO15]     N. Lev, A. Olevskii, Quasicrystals and Poisson’s summation formula. Invent. Math. 200
+           (2015), no. 2, 585–606.
+[LO16]     N. Lev, A. Olevskii, Quasicrystals with discrete support and spectrum. Rev. Mat. Iberoam.
+           32 (2016), no. 4, 1341–1352.
+[LO17]     N. Lev, A. Olevskii, Fourier quasicrystals and discreteness of the diffraction spectrum. Adv.
+           Math. 315 (2017), 1–26.
+[LR20]     N. Lev, G. Reti, Poisson summation formulas involving the sum-of-squares function. Israel
+           J. Math., to appear, arXiv:2002.02324.
+[Lev96]    B. Ya. Levin, Lectures on entire functions. American Mathematical Society, 1996.
+[Mey72]    Y. Meyer, Algebraic numbers and harmonic analysis. North-Holland, Amsterdam, 1972.
+[Mey95]    Y. Meyer, Quasicrystals, Diophantine approximation and algebraic numbers. Beyond qua-
+           sicrystals (Les Houches, 1994), 3–16, Springer, Berlin, 1995.
+[Mey16]    Y. Meyer, Measures with locally finite support and spectrum. Proc. Natl. Acad. Sci. USA
+           113 (2016), no. 12, 3152–3158.
+[Mey17]    Y. Meyer, Measures with locally finite support and spectrum. Rev. Mat. Iberoam. 33 (2017),
+           no. 3, 1025–1036.
+[Mey20]    Y. Meyer, Curved model sets and crystalline measures. To appear in Applied and Numerical
+           Harmonic Analysis, Springer.
+[MP10]     M. Mitkovski, A. Poltoratski, Pólya sequences, Toeplitz kernels and gap theorems. Adv.
+           Math. 224 (2010), 1057–1070.
+[OU20]     A. Olevskii, A. Ulanovskii, A simple crystalline measure, arXiv:2006.12037.
+[Pal17]    V. P. Palamodov, A geometric characterization of a class of Poisson type distributions. J.
+           Fourier Anal. Appl. 23 (2017), no. 5, 1227–1237.
+[Pol12]    A. Poltoratski, Spectral gaps for sets and measures. Acta Math. 208 (2012), no. 1, 151–209.
+[RV19]     D. Radchenko, M. Viazovska, Fourier interpolation on the real line. Publ. Math. Inst. Hautes
+           Études Sci. 129 (2019), 51–81.
+[Rud91]    W. Rudin, Functional analysis, Second edition. McGraw-Hill, New York, 1991.
+
+     Department of Mathematics, Bar-Ilan University, Ramat-Gan 5290002, Israel
+     Email address: levnir@math.biu.ac.il
+
+     Department of Mathematics, Bar-Ilan University, Ramat-Gan 5290002, Israel
+     Email address: gilad.reti@gmail.com
+
