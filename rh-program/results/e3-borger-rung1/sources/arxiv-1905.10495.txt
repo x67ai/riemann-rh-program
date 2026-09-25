@@ -1,0 +1,2936 @@
+arXiv:1905.10495v3 [math.NT] 11 Sep 2020
+
+CANONICAL LIFTS AND δ-STRUCTURES
+JAMES BORGER AND LANCE GURNEY
+
+Abstract. We extend the Serre–Tate theory of canonical lifts of ordinary
+abelian varieties to arbitrary unpolarised families of ordinary abelian varieties
+parameterised by a p-adic formal scheme S. We show that the canonical lift
+is the unique lift to W (S) which admits a δ-structure in the sense of Joyal,
+Buium, and Bousfield. We prove analogous statements for families of ordinary
+p-groups and p-divisible groups.
+
+Contents
+Introduction
+1. δ-structures and Witt vectors
+2. Further properties of δ-structures and Witt vectors
+3. Group schemes, torsors and extensions with δ-structures
+4. Canonical lifts of ordinary p-groups
+5. Canonical lifts of ordinary abelian schemes
+6. Duality and algebraisation
+References
+
+1
+4
+12
+22
+27
+32
+36
+39
+
+Introduction
+Let p be a prime number. Serre and Tate proved that any ordinary abelian
+variety A over a perfect field k of characteristic p admits a distinguished lift to
+e over W (k), the ring of Witt vectors with entries in k. It is
+an abelian scheme A
+in fact the unique lift, up to unique isomorphism, which admits an endomorphism
+ϕ reducing to the Frobenius morphism modulo p and lying over the Frobenius
+endomorphism of W (k). The original reference for this is Messing’s book [25], p.
+177.
+The purpose of this paper is to extend this to (unpolarised) ordinary abelian
+schemes over any p-adic base S:
+Theorem A. Let A be an ordinary abelian scheme over S. Then A has a unique
+e over W (S) admitting a δW (S) -structure compatible with
+lift to an abelian scheme A
+its group structure.
+
+The meaning of the terms in this theorem will be explained precisely in the body
+of the paper. But we can say a few words now informally. The δ-structures referred
+to are those of Joyal, Buium, and Bousfield, generalised to our setting. To a first
+approximation, a δ-structure is equivalent to a lift of the Frobenius endomorphism,
+but δ-structures are better in that they repair certain problems that Frobenius lifts
+have in the presence of p-torsion. (They also happen to be a p-typical analogue
+1
+
+2
+
+JAMES BORGER AND LANCE GURNEY
+
+of the λ-ring structures of algebraic K-theory and have other names that reflect
+this, such as p-typical λ-structures, Λp -structures, and θp -structures, but we will
+not make use of this.) A δW (S) -structure is simply a δ-structure compatible with
+the canonical δ-structure on W (S)
+The term p-adic above means that the map S → Spec(Z) factors through
+Spf(Zp ) → Spec(Z). So if S is affine, it means that p is nilpotent on S. In
+general, we allow S to be any sheaf of sets on the category of affine schemes with
+respect to the étale topology. In particular, S can be any p-adic formal scheme.
+Note however that the passage from S affine to S arbitrary is purely formal. So the
+reader can take S to be affine with no real loss in generality. But as usual, allowing
+S to be arbitrary from the outset allow us some flexibility at no cost.
+Finally, our Witt vector construction W (S) is a certain ind-object colimn Wn (S).
+For example, if S = Spec(R), then W (S) is the ind-scheme colimn Spec(Wn (R)). In
+that case, an abelian scheme A over W (S) can be identified with a compatible family
+of abelian schemes An over the truncated Witt vector rings Wn (R), as n varies, and
+a δW (S) -structure on A can be expressed entirely in terms of the compatible family
+of An instead of the limiting ind-scheme A. In the special case where R is a perfect
+Fp -algebra, W (Spec(R)) can be identified with the usual p-adic formal scheme
+e can be viewed as a p-adic formal scheme over Spf(W (R)).
+Spf(W (R)) and then A
+e will not be p-adic formal schemes.
+But in general W (Spec(R)) and A
+A consequence of the theorem above is the following one:
+
+Theorem B. The category of ordinary abelian schemes over S is equivalent to the
+category of ordinary abelian schemes over W (S) equipped with a δW (S) -structure
+compatible with the group structure.
+This confirms the philosophy (explicitly stated in [6] and implicit in much of
+Buium’s work going back to [11]) that a δW (S) -structure can be viewed as descent
+data for the non-existent map W (S) → S.
+The proof goes by proving an analogous statement, theorem 4.2.3, for ordinary
+p-groups. The corresponding statement for p-divisible groups (remark 4.2.4) is
+a formal consequence of this, and then we prove the theorem above by applying
+the theorem of Serre and Tate equating deformations of an abelian variety with
+deformations of its p-divisible group.
+The study of canonical lifts in families began with the papers of Finotti [16],
+answering a question of Mazur and Tate, and Erdoğan [14]. In our earlier paper [9],
+we observed that in the case of elliptic curves, the canonical lift construction extends
+rather formally to arbitrary families. It is worth recalling the approach we took
+there in order to contrast it to the one of the present paper.
+First, given a δ-structure on a ring A, the universal property of Witt vectors
+discovered by Joyal gives a bijection between maps Spec(R) → Spec(A) and δequivariant maps Spec(W (R)) → Spec(A). Viewing Spec(A) as a moduli space X,
+one could say that a δ-structure on X provides a theory of canonical lifts for the
+objects parametrised by X. (One could reasonably take this as a definition of a
+theory of canonical lifts.) Second, if X is flat over Z locally at p, then giving a
+δ-structure on X is equivalent to giving a lift ϕ : X → X of the Frobenius map.
+Putting the two together, we see that on a moduli space which is flat over Z at p, a
+Frobenius lift on the moduli space formally gives rise to a theory of canonical lifts
+in arbitrary families.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+3
+
+This generalises to non-affine moduli spaces X, once one extends the definitions.
+It even works without any real complications when X is a stack, still assumed
+flat at p, if it admits an étale cover by affine schemes equipped with lifts of the
+Frobenius, at least given the étale descent theorems quoted in section 1.5 below.
+In particular, if X is the moduli stack of polarised ordinary abelian p-adic formal
+schemes, then every such abelian scheme A admits a canonical subgroup CA ⊂
+A lifting the the kernel of the Frobenius endomorphism (cf. Adreatta–Gasbarri
+[4] where more general canonical subgroups are constructed without the ordinary
+hypothesis, generalising earlier work of Katz [19] in the case of elliptic curves). The
+functor
+X → X : A 7→ A/CA ,
+which sends an ordinary polarised abelian scheme to the quotient by the canonical
+subgroup is then a lift of the Frobenius, and so the flatness of X implies the existence
+of a theory of canonical lifts. This is the approach taken in [9] for the moduli of
+elliptic curves. So if we were only interested in canonical lifts of families of polarised
+abelian varieties, as in section 6, we could argue as in [9] and dispense with much
+of this paper.
+But this no longer holds for unpolarised families of abelian varieties because the
+moduli stack X is not algebraic. While a δ-structure on X does give a theory
+of canonical lifts (once δ-structures on stacks are defined), it is not clear how to
+upgrade a Frobenius lift on a non-algebraic stack to a δ-structure. One could
+attempt a descent from the moduli stack X pol of polarised abelian varieties to the
+moduli stack X of unpolarised abelian varieties. But as far as we know, the map
+X pol → X does not have any good descent-theoretic properties which would allow
+for a shorter argument than the one we have given here. Indeed, it is certainly far
+from being anything like flat in the case of abelian schemes of dimension g > 1: the
+tangent spaces of X pol have dimension 12 g(g + 1) while those of X have dimension
+g2.
+So we construct the δ-structure on X by hand. That said, we prefer to come
+full circle and use the more direct language of canonical lifts instead of the more
+abstract but equivalent language of δ-structures on the moduli stack. In these
+e
+terms, the canonical lift A/W
+(S) is singled out as simply the unique lift admitting
+a δ-structure. Note that this property can be stated without having to refer to the
+moduli space, or to any families at all besides the given one. This is in contrast
+to the approach of [9] with elliptic curves. There the uniqueness property is only
+e where A and S must be allowed to variable.
+proved for the functor A 7→ A,
+There are essentially two technical points in the proof of our theorem. The first
+is an analysis of the deformation theory of ordinary p-divisible groups G/S along
+the map S → W (S), which allows us to conclude the existence of canonical lifts of
+ordinary abelian schemes from the usual Serre–Tate theorem. The second involves
+showing that these canonically lifted abelian schemes, which come with a lift of the
+Frobenius by construction, actually have a unique δW (S) -structure.
+It is perhaps worth mentioning other possible approaches to the first point
+above and the problems that arise when one attempts to use them. First, pdivisible groups are often understood in terms of associated linear algebraic gadgets:
+Dieudonné crystals in de Jong–Messing [12] or Lau [22], or slightly different ones
+such as the displays and so on used by Zink [30], [31] and Lau [21]. Indeed, such gadgets are much simpler to work with and it is often substantially easier to construct
+
+4
+
+JAMES BORGER AND LANCE GURNEY
+
+canonical lifts of the linear algebraic incarnation of ordinary objects. However,
+the relationship between p-divisible groups and the linear algebraic gadgets mentioned above is never perfect. In order to obtain an equivalence of categories, and
+hence have anything usable, one must place restrictions either on the base, e.g.
+Fp -algebras with bounded nilpotents properties, or on the p-divisible groups, e.g.
+formal groups only.
+A second approach might be to consider extending the canonical coordinates
+on the groups of extensions of multiplicative p-divisible groups by étale p-divisible
+groups as in [19]. Indeed, if S is a scheme on which p is nilpotent and Gét and Gmult
+are étale and multiplicative p-divisible groups over S, then there is a canonical map
+HomS (Tp (Gét ), Gmult ) → ExtS (Gét , Gmult ).
+
+(1)
+
+It is easy to construct canonical lifts of Gét and Gmult to p-divisible groups schemes
+over W (S) equipped with δW (S) -structures. This combined with the functoriality of
+(1) shows that any extension in its image can be ‘canonically lifted’ to a p-divisible
+group over W (S). However, (1) is often not surjective as its image consists only of
+extensions which are split on Sred . Of course, one might try to work locally and
+descend to this case, but as the Witt vector functor is only compatible with étale
+covers and not more general ones (e.g. flat covers) this approach never really gets
+off the ground.
+One final possible approach is the direct, deformation theoretic method following Nori–Srinivas in the appendix to [24]. However, when one works over general rings A, e.g. any ring which is not a perfect Fp -algebra, the Witt vectors are
+substantially less well behaved. For instance, the kernels of the projection maps
+Wn+1 (A) → Wn (A) are no longer generated by powers of p, nor are they even
+principal, which leaves several of the elementary observations of [24] without any
+obvious or useful generalisations. These problems aside, the main lifting result of
+[24] relies on projectivity assumptions which we do not make here.
+In the final section of the paper, we show that the canonical lift functor is
+compatible with duality and polarisations. From this it follows that, in the polarised
+situation, the canonical lift can be algebraised:
+Theorem C. Let S = Spec(R), where R is a ring in which p is nilpotent, and
+e algebraises to a unique
+let A/S be an ordinary polarised abelian scheme. Then A
+ealg over Spec(W (R)). It is the unique lifting of A/S to
+polarised abelian scheme A
+Spec(W (R)) equipped with a δSpec(W (R)) -structure compatible with its group structure.
+This reduces to Messing’s characterisation of the canonical lift cited above when
+R is a perfect field, because for p-torsion free schemes every Frobenius lift comes
+from a unique δ-structure. As mentioned above, the second assertion in the theorem
+could no doubt be proved directly without developing the general, unpolarised
+theory of the rest of the paper. Also note that the affineness assumption on S is
+not so much a restriction but an assumption needed to make sense of the question.
+Without it, it would not be clear what should play the role of the completed Witt
+vector construction Spec(W (R)).
+1. δ-structures and Witt vectors
+The primary purpose of this section is to define δ-structures on abelian schemes
+over Witt vector ind-schemes, or more generally on any sheaf of sets. This is done
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+5
+
+in 1.7. Before that, we recall the basic notions we will need in the theory of Witt
+vectors and δ-rings from [18],[11],[10],[7],[8].
+The generality in which we work, especially Witt vectors of sheaves of sets,
+might strike some readers as excessive. The reason we do it is mainly to give
+ourselves a convenient, well-behaved category in which we can perform all limit
+constructions without any worries. In principle it would be routine to replace all
+limit constructions by compatible systems of schemes. But we have found that the
+bookkeeping needed for this is a bigger mental burden than broadening our scope
+a bit and using sheaf theory. And at least the sheaf theory keeps the paper shorter.
+This is discussed in more detail in the first paragraphs of §2 of [9].
+1.1. δ-rings. A δ-ring is a pair (R, δ) where R is a ring (commutative) and δ : R →
+R is a map satisfying the following identities:
+
+Pp−1
+(1) δ(x + y) = δ(x) + δ(y) − i=1 p1 pi xi y p−i
+(2) δ(xy) = xp δ(y) + δ(x)y p + pδ(x)δ(y)
+(3) δ(1) = 0
+A homomorphism of δ-rings (R, δ) → (R′ , δ ′ ) is a homomorphism α : R → R′ such
+that δ ′ ◦ α = α ◦ δ. This structure was introduced by Joyal [18] in his alternative
+approach to the Witt vectors, which we follow here, and later by Buium [11] and
+Bousfield [10], independently and for different purposes.
+If (R, δ) is a δ-ring, then the map ϕ : R → R defined by
+ϕ(x) = xp + pδ(x)
+
+(2)
+
+is a Frobenius lift, i.e., a ring homomorphism which reduces modulo p to the p-th
+power map. If R is p-torsion free, then the two structures determine each other:
+given any Frobenius lift ϕ′ : R → R, there exists a unique δ-ring structure on R
+such that ϕ = ϕ′ ; and a ring homomorphism between two p-torsion free δ-rings is
+a morphism of δ-rings if and only if it commutes with the Frobenius lifts.
+But in the presence of p-torsion, a Frobenius lift is not a well-behaved structure—
+for instance, the category of rings with Frobenius lift does not have equalisers. The
+δ-ring structure repairs such flaws and gives an intelligent generalisation of the
+structure of a Frobenius lift to all rings. Some evidence for this is the fact that the
+forgetful functor (R, δ) 7→ R from δ-rings to rings admits both a right adjoint
+R 7→ (W (R), δW (R) )
+
+(3)
+
+and a left adjoint
+R 7→ (J(R), δJ(R) ).
+(4)
+In fact, more is true. This forgetful functor is comonadic, meaning that the category
+of δ-rings agrees with the category of coalgebras for W , viewed as a comonad on
+the category of rings. It is also monadic: δ-rings are algebras for the monad J.
+1.2. Witt vectors. The ring W (R) is in fact the usual ring of p-typical Witt
+vectors with entries in R, and the corresponding Frobenius lift ϕ is the Witt vector
+Frobenius, more commonly denoted F . For formal reasons, W (R) has the following
+description, which is not the traditional one. As sets, we have W (R) = R × R ×
+R × · · · and δ(x0 , x1 , . . . ) = (x1 , x2 , . . . ). The ring structure is given by laws
+(x0 , x1 , . . . ) + (y0 , y1 , . . . ) = (S0 , S1 , . . . )
+(x0 , x1 , . . . ) · (y0 , y1 , . . . ) = (P0 , P1 , . . . )
+
+6
+
+JAMES BORGER AND LANCE GURNEY
+
+where Sn is the polynomial Sn (x0 , y0 , . . . , xn , yn ) with integer coefficients giving
+the Leibniz rule for the operation δ ◦n with respect to addition, in the sense that
+
+δ ◦n (x + y) = Sn x, y, δ(x), δ(y), . . . , δ ◦n (x), δ ◦n (y) ,
+
+and Pn is similarly the polynomial giving the Leibniz rule for δ ◦n with respect
+to multiplication. The existence of such polynomials can be seen by applying the
+basic Leibniz rules (1)–(3) above repeatedly, and the uniqueness can be seen by
+reducing to the case of p-torsion-free rings, where a δ-structure is equivalent to a
+Frobenius lift. The additive and multiplicative neutral elements are (0, 0, 0, . . . )
+and (1, 0, 0, . . . ).
+There is a canonical isomorphism between W (R) as defined above and Witt’s
+original construction [29], as recalled for example in Serre’s book [27]. This follows
+from the fact that the original construction satisfies the universal property of ours.
+For a proof of this, one can see p. 215 of Lazard’s book [23], keeping in mind that
+it is enough to restrict to rings R which are p-torsion free since both functors are
+represented by rings which are p-torsion free—in fact by polynomial rings.
+Beware however that the canonical isomorphism between our construction and
+Witt’s is not the identity! It is the identity on the components x0 and x1 but
+not on x2 and the higher components. One could say that there are two different
+coordinate systems on the same functor—the ones above, which we call the Buium–
+Joyal components, and the traditional ones, which we call the Witt components. The
+Buium–Joyal components are directly connected to a simple universal property, as
+above, and hence are usually better for conceptual purposes. For example, the
+comonad structure map (or coplethysm or Artin–Hasse map)
+∆ : W (R) → W (W (R))
+does not have a simple explicit description in terms of the Witt components, but
+in terms of the Buium–Joyal components it does:
+∆ : (x0 , x1 , . . . ) 7→ ((x0 , x1 , . . . ), (x1 , x2 , . . . ), (x2 , x3 , . . . ), . . . ).
+On the other hand, the Witt components are closer to the Verschiebung operator
+and are sometimes more convenient for computations.
+1.3. Truncations. It also follows from the construction of W (R) above that for
+any integer n ≥ 0, the quotient
+Wn (R) = Rn+1
+of W (R) consisting of truncated vectors (x0 , . . . , xn ) is a quotient ring. Indeed, the
+Leibniz rules for δ ◦n depend only on the operators δ ◦i for i ≤ n. Then W (R) is
+naturally identified with the limit of the projective system of rings
+τ
+
+τ
+
+τ
+
+· · · −→ Wn (R) −→ · · · −→ W1 (R) −→ W0 (R)
+given by the truncation maps τ : (x0 , . . . , xn ) 7→ (x0 , . . . , xn−1 ).
+For n ≥ 0 the Verschiebung ideal V n+1 W (R) is defined to be the kernel of the
+truncation map:
+0 → V n+1 W (R) → W (R) → Wn (R) → 0.
+It can also be expressed as the image of the n-th iterate of the usual Verschiebung
+operator V : W (R) → W (R), but since it is not effortless to define V in terms of
+the Buium–Joyal components and since we will not need it, we can ignore this.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+7
+
+The operator δ : W (R) → W (R) descends to the truncations but only at the
+expense of a shift in degree: we have a set map δ : Wn (R) → Wn−1 (R) given by
+δ(x0 , . . . , xn ) = (x1 , . . . , xn ).
+Similarly, the Frobenius map ϕ : W (R) → W (R) descends to a ring homomorphism
+Wn (R) → Wn−1 (R) given by ϕ(x) = τ (x)p + pδ(x).
+The comonad structure map also descends to the truncations in a degree-shifting
+sense. It becomes a family of maps
+∆ : Wm+n (R) → Wn (Wm (R))
+
+(5)
+
+which send a truncated Witt vector (x0 , . . . , xm+n ) to
+
+
+(x0 , x1 , . . . , xm ), (x1 , x2 , . . . , xm+1 ), . . . , (xn , xn+1 , . . . , xm+n ) .
+
+(6)
+
+1.4. Ghost and coghost maps. Given a δ-ring (R, δ), we have an associated pair
+(R, ϕ) of a ring with an endomorphism, where ϕ is the Frobenius lift defined in (2).
+This defines a functor from the category of δ-rings to the category of rings with an
+endomorphism.
+The forgetful functor from the category of rings with endomorphism to rings also
+has a right adjoint R 7→ (Π(R), ϕΠ(R) ), where Π(R) is R × R × · · · with, now, the
+product ring structure and where ϕΠ(R) is defined by shifting:
+ϕΠ(R) : hz0 , z1 , . . . i 7→ hz1 , z2 , . . . i.
+The induced map of rings with endomorphism
+w : W (R) → Π(R)
+is the so-called ghost map. In coordinates, it sends a Witt vector (x0 , x1 , . . . )
+in Buium–Joyal components to hZ0 , Z1 , . . . i, where Zn is the integral polynomial
+Zn (x0 , . . . , xn ) which expresses ϕ◦n in terms of the iterates of δ:
+ϕ◦n = Zn (id, δ, δ ◦2 , . . . , δ ◦n ).
+Once again, such polynomials exist because we can apply the Leibniz rules (1)–(3)
+repeatedly, and one can show they are unique by considering the case of p-torsionfree rings. (The polynomials Zn have no simple closed-form description. This is
+one drawback of the Buium–Joyal components, compared to the Witt components,
+where the analogous polynomials are the usual Witt polynomials.) Finally, the
+ghost map descends to a homomorphism on the truncations:
+wn : Wn (R) → Rn+1 ,
+where the target has the product ring structure.
+1.5. Witt vectors and jet spaces of sheaves. The functor Wn on rings defines
+a functor on the category Aff of affine schemes, which we also denote by Wn :
+W
+
+n
+Aff
+Aff −→
+
+Spec(B) 7→ Spec(Wn (B)).
+To pass to non-affine schemes, we need to know this functor is well behaved with
+respect to localisation. This is provided by the following theorem:
+Theorem 1.5.1. If a morphism R → R′ of rings is étale, then so is the induced
+map Wn (R) → Wn (R′ ). If in addition R → S is an arbitrary ring map, then the
+canonical map Wn (R′ ) ⊗Wn (R) Wn (S) → Wn (R′ ⊗R S) is an isomorphism.
+
+8
+
+JAMES BORGER AND LANCE GURNEY
+
+For a proof, see 9.2 and 9.4 of [7]. We will only need this for rings in which p
+is nilpotent, in which case it was proved earlier in the appendix of Langer–Zink
+[20]. (For the so-called big Witt vectors, it was proved even earlier in van der
+Kallen [28].)
+Let us now equip Aff with the étale topology (SGA4 [1], exp. VII) and let Sh
+denote the corresponding category of sheaves of sets. Given any sheaf X ∈ Sh,
+define the n-th arithmetic jet space (or Greenberg transform) J n (X) : Aff op → Set
+by
+J n (X) : T 7→ X(Wn (T )).
+This is in fact a sheaf:
+Theorem 1.5.2. The presheaf J n (X) on Aff is a sheaf in the étale topology. The
+resulting functor J n : Sh → Sh has a left adjoint Wn : Sh → Sh. The functor Wn
+agrees with the usual Witt vector functor on the category of affine schemes:
+∼
+
+Wn (Spec(R)) −→ Spec(Wn (R))
+This follows by general sheaf theory from theorem 1.5.1.
+Theorem 1.5.3. If X is a scheme (or an algebraic space), then so are J n (X) and
+Wn (X).
+Proof. See 12.1, 15.1, 15.6 of [8].
+
+
+
+We pass to n = ∞, by taking a limit:
+
+
+J(X)(T ) := lim J n (X)(T ) = lim X(Wn (T ))
+n
+
+n
+
+So for a ring C, a C-point of J(X) is a compatible family of Wn (C)-points of X.
+In the affine case, X = Spec(R), we have
+J(Spec(R))(Spec(C)) = lim Hom(R, Wn (C)) = Hom(R, W (C)) = Hom(J(R), C),
+n
+
+where J(R) denotes the free δ-ring on R, as in (4). Thus we have a canonical
+identification
+J(Spec(R)) = Spec(J(R)),
+and so the functor J we just defined on sheaves agrees with the one already defined
+on rings.
+The truncation maps τ : Wn+1 (R) → Wn (R) on rings induce functorial projections
+u : J n+1 (X) → J n (X),
+(7)
+for X ∈ Sh. They in turn induce functorial maps Wn (X) → Wn+1 (X) for X ∈ Sh,
+and hence an inductive system
+W0 (X) → W1 (X) → · · · .
+We then define
+W (X) = colim Wn (X).
+n
+
+Observe that it does not matter whether we take this colimit in the category
+of sheaves or presheaves, since every object of Aff is quasi-compact and quasiseparated in the étale topology. Also, we emphasise that generally one has
+W (Spec(R)) 6= Spec(W (R)),
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+9
+
+unlike the case for Wn with n finite. For example, if R = Z/pZ, this becomes the
+familiar fact Spf(Zp ) 6= Spec(Zp ).
+Similarly, the maps ϕ : Wn (R) → Wn−1 (R) induce maps ϕ : J n (X) → J n−1 (X)
+whose limit
+ϕJ(X) : J(X) → J(X)
+(8)
+under the projections u is a lift of the Frobenius. We also obtain a lift of the
+Frobenius on the Witt vectors
+ϕW (X) : W (X) → W (X).
+The ghost maps wn : Wn (C) → C n+1 induce maps on sheaves
+a
+wn :
+X → Wn (X)
+n+1
+
+which we also call the ghost maps. In the colimit, they become a map
+a
+w:
+X → W (X).
+N
+
+The map X → W (X) obtained by restricting w along the inclusion X →
+corresponding to 0 ∈ N is called the first ghost component.
+Finally, we also have coghost maps which are dual to the ghost maps:
+
+`
+
+NX
+
+γn : J n (X) → X n+1 ,
+On C-points, γn is defined to be the map
+X(wn )
+
+J n (X)(C) = X(Wn (C)) −→ X(C n+1 ) = X n+1 (C).
+The coghost maps are compatible with the projections u and hence pass to a map
+γ : J(X) → X N
+in the limit.
+Theorem 1.5.4 (cf. 15.2, 15.3 of [8]). Let Y = colimi Yi be an ind-algebraic space
+and let X → Y be a morphism which is representable (by algebraic spaces) and
+étale. Then for all m, n ≤ ∞, the following hold:
+(i) The induced map Wn (X) → Wn (Y ) is representable and étale.
+(ii) The induced map
+Wn (X) → Wn+m (X) ×Wn+m (Y ) Wn (Y )
+is an isomorphism.
+(iii) For all morphisms Y ′ → Y where Y ′ is an algebraic space the natural map
+Wn (X ×Y Y ′ ) → Wn (X) ×Wn (Y ) Wn (Y ′ )
+is an isomorphism.
+Proof. First observe that the case where m, n < ∞ implies the general case. Indeed,
+(ii) and (iii) follow from the finite case by taking colimits; then (i) then follows from
+(ii) and (iii) and the finite case. So it is enough to assume m, n < ∞.
+Second observe that if X, Y, Y ′ are algebraic spaces, this the theorem is 15.2 and
+15.3 of [8].
+Now write Xi = X ×Y Yi . Then Xi is an algebraic space because X is representable over Y .
+
+10
+
+JAMES BORGER AND LANCE GURNEY
+
+(iii) If Y ′ is quasi-compact and quasi-separated, then Y ′ → Y factors through
+Yi → Y for some i. So we have
+Wn (X ×Y Y ′ ) = Wn (Xi ×Yi Y ′ ) = Wn (Xi ) ×Wn (Yi ) Wn (Y ′ ),
+since the result holds for algebraic spaces. Hence we obtain the commutative diagram
+Wn (X ×Y Y ′ )
+
+/ Wn (X) ×W (Y ) Wn (Y ′ )
+
+Wn (Xi ) ×Wn (Yi ) Wn (Y ′ )
+
+/ (Wn (X) ×W (Y ) Wn (Yi )) ×W (Y ) Wn (Y ′ ).
+
+n
+
+n
+
+n
+
+i
+
+Therefore, it is enough to show that
+Wn (Xi ) → Wn (X) ×Wn (Y ) Wn (Yi )
+is an isomorphism. However, this is nothing but the colimit of the maps
+Wn (Xi ) → Wn (Xj ) ×Wn (Yj ) Wn (Yi )
+for j ≥ i, which are isomorphisms by 15.2 of [8].
+For general Yλ′ , we can reduce to the case where Y ′ is quasi-compact and quasiseparated by taking an affine cover Yλ′ → Y ′ . For we then have
+Wn (X ×Y Y ′ ) ×Wn (Y ′ ) Wn (Yλ′ )
+
+=
+
+Wn (X ×Y Yλ′ )
+
+∼
+
+−→ Wn (X) ×Wn (Y ) Wn (Yλ′ )
+=
+
+(Wn (X) ×Wn (Y ) Wn (Y ′ )) ×Wn (Y ′ ) Wn (Yλ′ )
+
+and so the map
+Wn (X ×Y Y ′ ) −→ Wn (X) ×Wn (Y ) Wn (Y ′ )
+is an isomorphism.
+(ii) The map in question is the filtered colimit over i of the maps
+Wn (Xi ) → Wn+m (Xi ) ×Wn+m (Yi ) Wn (Yi )
+which are isomorphisms by 15.4 of [8].
+(i) The family (Wn (Yi ) → Wn (Y ))i is a cover in Sh and a morphism being
+representable by algebraic spaces and étale is local in the étale topology, so that it
+is enough to show the claim after base change along each Wn (Yi ) → Wn (Y ). The
+map
+Wn (X) ×Wn (Y ) Wn (Yi ) → Wn (Yi )
+under the isomorphism
+∼
+
+Wn (X) ×Wn (Y ) Wn (Yi ) −→ W (Xi )
+of (iii) is just the natural map Wn (Xi ) → Wn (Yi ) which is étale by 15.4 of [8]. 
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+11
+
+1.6. δ-structures on sheaves. The monad structure on the ring functor R 7→
+J(R) of (4) prolongs naturally to a comonad structure on the sheaf functor J : Sh →
+Sh, as we now explain. The truncated comonad maps of (5) induce maps between
+iterated truncated jet spaces:
+νm,n : J m+n (X) → J m (J n (X))
+
+(9)
+
+and hence in the limit
+ν : J(X) → J(J(X))
+This is the comultiplication map J → J ◦ J for the comonad structure. The co-unit
+is given by the projection u : J(X) → J 0 (X) = X. We also note that since W is
+the left adjoint of J, it inherits a monad structure from the comonad structure on
+J.
+We define a δ-structure on a sheaf X to be a co-action of the comonad J on X.
+This means a map α : X → J(X) such that the following diagrams commute:
+X
+
+α
+
+/ J(X)
+
+ν
+
+
+/ J(J(X))
+
+α
+
+
+J(X)
+
+α
+
+/ J(X)
+X❈
+❈❈
+❈❈
+❈
+u
+idX ❈❈❈
+! 
+X
+
+J(α)
+
+(10)
+
+This definition could equivalently be given as an action of the monad W on X and
+we shall often use this definition instead.
+If X is affine, this definition of δ-structure agrees with the one in section 1.1
+above: there is a canonical bijection between the set of δ-structures on Spec(R)
+and the set of δ-structures on R. The category of δ-sheaves and δ-morphisms will
+be denoted by Shδ .
+Finally, if X is a δ-sheaf, writing ϕX : X → X for the composition
+α
+
+ϕJ(X)
+
+u
+
+X −→ J(X) −→ J(X) −→ X.
+we find that ϕX : X → X is a lift of the Frobenius. (Note that when X = J(Y ), this
+map ϕX agrees with the previously defined map ϕJ(Y ) .) Therefore, every δ-sheaf
+is equipped with a lift of the Frobenius and all δ-morphisms are compatible with
+these lifts.
+1.7. Relative δ-structures. Let S be a sheaf with a δ-structure and denote by
+ShδS the slice category of Shδ over S. Just as Shδ is comonadic over Sh, the relative analogue ShδS is comonadic over ShS (although no longer by definition). The
+comonad is
+X 7→ JS (X) := J(X) ×J(S) S
+where the map S → J(S) implicit in the product is the δ-structure map α on S.
+Since both α and the map J(X) → J(S) are morphisms of δ-sheaves, JS (X) inherits
+a canonical δ-structure and is the fibre product in the category of δ-sheaves. As in
+the absolute setting, we have truncations
+JSn (X) = J n (X) ×J n (S) S
+and comultiplication maps
+νm,n : JSm+n (X) −→ JSm JSn (X)
+
+(11)
+
+induced by the absolute comultiplication maps, which we abusively also denote by
+νm,n .
+
+12
+
+JAMES BORGER AND LANCE GURNEY
+
+It is also true that ShδS is monadic over Sh. The monad is just X 7→ W (X)
+again, but here W (X) is viewed as an object of ShδS via the composition
+W (X) −→ W (S) −→ S
+via the adjunct W (S) → S of the δ-structure map α. So with some abuse of
+notation, we will still use W to denote this monad on ShδS .
+Given a δS -sheaf X, the Frobenius lift ϕX : X → X does not lie over the identity
+map on S but over the Frobenius lift ϕS : S → S. Therefore, we obtain a relative
+Frobenius lift
+ϕX/S : X → ϕ∗S (X)
+(12)
+which is a morphism in ShδS .
+The absolute coghost maps γn : J n (S) → S n+1 and γn : J n (X) → X n+1 induce
+relative coghost maps
+γX/S,n : JSn (X) = J n (X) ×J n (S) S → X n+1 ×S n+1 S =
+
+n
+Y
+
+ϕ◦i∗
+S (X),
+
+i=0
+
+and taking the limit of these maps, a relative coghost map in the infinite-length
+setting:
+γX/S : JS (X) → X N ×S N S.
+(13)
+Since the forgetful functor ShδS → ShS is both monadic and comonadic, all limits
+and colimits exist in ShδS , and the underlying S-sheaf of a limit or colimit can be
+computed in ShS . In particular, a group structure on an object X ∈ ShδS is the same
+as a group structure on the underlying S-sheaf such that the structure morphisms
+(multiplication, identity, and inverse) are morphisms of δS -sheaves.
+2. Further properties of δ-structures and Witt vectors
+The purpose of this section is to establish some basic results about δ-structures
+and Witt vectors. They are only used in the proofs of the main theorems. None
+of them is needed to make sense of the theorems themselves. So this section can
+safely be skipped and referred back to as needed.
+2.1. Relative δ-structures are δ-local with respect to the base. Let S be a
+δ-sheaf and let X be an S-sheaf. Then for each δS -sheaf S ′ we can consider the set
+δX/S (S ′ ) := {δS ′ -structures on X ×S S ′ }.
+If S ′′ → S ′ is a morphism of δS -sheaves and X ×S S ′ is equipped with a δS ′ -structure
+then the fibre product (X ×S S ′ )×S ′ S ′′ = X ×S S ′′ is a δS ′′ -sheaf, or in other words,
+we are given a δS ′′ -structure on X ×S S ′′ . This gives a map
+δX/S (S ′ ) → δX/S (S ′′ )
+which makes the assignment S ′ 7→ δX/S (S ′ ) a presheaf on ShδS .
+Lemma 2.1.1. The functor δX/S is a sheaf (for the canonical topology on ShδS ).
+Proof. Let S ′′ → S ′ be an epimorphism of δS -sheaves and write S ′′′ = S ′′ ×S ′ S ′′ .
+Then
+/ X ×S S ′
+// X ×S S ′′
+X ×S S ′′′
+is a coequaliser diagram in the category of S-sheaves.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+13
+
+If X ×S S ′′′ is given a δS ′′′ -structure and X ×S S ′′ is given a δS ′′ -structure such
+that the two maps X ×S S ′′′ ⇒ X ×S S ′′ are δS ′′ -maps then the S ′ -sheaf underlying
+the coequaliser of the two maps X ×S S ′′′ ⇒ X ×S S ′′ in the category of δS ′ sheaves is X ×S S ′ , because ShδS ′ is comonadic over ShS ′ . Hence, X ×S S ′ admits a
+unique δS ′ -structure making the map X ×S S ′′ → X ×S S ′ a δS ′ -morphism. This is
+equivalent to the functor δX/S being a sheaf for the canonical topology on ShδS . 
+2.2. δ-structures on p-adic sheaves. Let us say that a sheaf S ∈ Sh is p-adic if
+the structure map S → Spec(Z) factors through
+Spf(Zp ) = colim Spec(Z/pn ) ⊂ Spec(Z).
+n
+
+For example, an affine scheme Spec(R) is p-adic if and only if p is nilpotent in R.
+Proposition 2.2.1. If S is a p-adic scheme, then so is Wn (S) and the natural
+maps
+Wn (S) → Wn+m (S)
+are nilpotent immersions.
+Proof. Using theorem 1.5.4, we may pass to an affine cover of S and therefore
+assume that S = Spec(R), where p is nilpotent on R. So we are reduced to showing
+that the kernels of the truncation maps Wn+m (R) → Wn (R) are nilpotent. It is
+further enough to take m = 1. Then the kernel V Wn (R) of Wn+1 (R) → Wn (R)
+satisfies (V Wn (R))2 ⊂ pWn (R), and so it is enough to show that p is nilpotent in
+Wn (R). However, as R is a Z/pi+1 Z-algebra for some i, and Z/pi+1 Z = Wi (Fp ) it
+follows that Wn (R) is a Wn (Wi (Fp ))-algebra. Therefore it is enough to show that
+p is nilpotent in Wn (Wi (Fp )). But the comonad comultiplication map
+Wn+i (Fp ) → Wn (Wi (Fp ))
+makes Wn (Wi (Fp )) an algebra over the ring Wn+i (Fp ) = Z/pn+i+1 Z, in which p
+is indeed nilpotent.
+
+For any sheaf S let EtS denote the category of relatively representable étale
+algebraic spaces over S. If S also has a δ-structure write EtδS for the category of
+relatively representable étale δS -sheaves.
+Proposition 2.2.2. If S is a p-adic ind-scheme, the functor
+EtδW (S) −→ EtS ,
+
+Z 7→ Z ×W (S) S
+
+is an equivalence of categories with quasi-inverse W .
+Proof. First, observe that we may assume S is a p-adic scheme because if S =
+colimi Si , the categories in question are the 2-limits of the categories EtSi and
+EtδW (Si ) respectively.
+Now the functor in question factors:
+EtδW (S) ֒→ EtW (S) → EtS .
+The second functor is an equivalence because of the equivalences
+∼
+
+EtWn (S) −→ EtS
+for all n ≥ 0, which follow from proposition 2.2.1. Further W : EtS → EtW (S)
+is a right quasi-inverse of the functor EtW (S) → EtS , by theorem 1.5.4. But W
+has essential image in the subcategory EtδW (S) . Therefore EtδW (S) ֒→ EtS is an
+equivalence and W is a two-sided quasi-inverse.
+
+
+14
+
+JAMES BORGER AND LANCE GURNEY
+
+Proposition 2.2.3. Let S = Spec(A), where A is a ring in which p is nilpotent.
+Then the category of finite locally free δW (S) -schemes is equivalent to the category
+of finite locally free δW (A) -algebras.
+Proof. As W (A) = limn Wn (A) and the transition maps are surjective with nilpotent kernels, by proposition 2.2.1, it follows that the categories of finite locally free
+W (S)-schemes and finite locally free W (A)-schemes are equivalent, with the W (A)scheme Spec(B) corresponding to the W (S)-scheme colimn Spec(Wn (A) ⊗W (A) B)
+and the W (S)-scheme T corresponding to the W (A)-scheme Spec(limn Bn ), where
+Spec(Bn ) = T ×W (S) Wn (S). (We leave the argument to the reader.)
+Now, to give a δW (A) -structure on B is equivalent to giving a W (A)-morphism
+B → W (B) satisfying certain properties. However, this is also equivalent to giving
+a family of morphisms
+Bm+n → Wn (Bm )
+for n, m ≥ 0 which in turn is equivalent to giving morphisms
+Wn (Tm ) → Tn+m
+for n, m ≥ 0 whose colimit defines a W (S)-morphism
+W (T ) → T.
+Tracing through these equivalences, we see that to give a δS -structure on T is
+equivalent to giving a δW (A) -structure on B.
+
+e and H
+e be two δW (S) -groups over
+Lemma 2.2.4. Let S be a p-adic sheaf and let G
+e is relatively representable and étale over W (S), then the natural map
+W (S). If H
+H, e
+G) → HomS (H, G)
+HomδW (S) ( e
+
+from δW (S) -homomorphisms to S-homomorphisms is bijective.
+e ×W (S) S lifts by adjunction to a unique δW (S) Proof. Any map f : H → G = G
+e However, H
+e = W (H) and the functor W commutes with
+map fe: W (H) → G.
+e →G
+e is
+étale fibre products (by proposition 2.2.2), from which it follows that fe: H
+a homomorphism if and only if f : H → G is a homomorphism.
+
+
+2.3. The sufficiency of J 1 for ind-affine sheaves. Putting a δ-ring structure
+on a ring is equivalent to putting an action of the comonad W on it. This is true
+nearly by definition, namely our definition of W . The purpose of this section is
+to prove the analogous result for ind-affine sheaves, where it appears to require
+proving something.
+We will also work in the relative setting. So fix a δ-sheaf S. Let (Aff S,ind )δ
+denote the full subcategory of ShδS consisting of the objects which are ind-affine.
+Let C denote the category of pairs (X, β), where X is an ind-affine sheaf over S and
+β : X → JS1 (X) is a section of the projection u : JS1 (X) → X and where a morphism
+(X, β) → (X ′ , β ′ ) is a morphism f : X → X ′ of ShS compatible with the sections
+in the evident sense: β ′ ◦ f = JS1 (f ) ◦ β.
+Consider the functor
+(Aff S,ind )δ −→ C ,
+
+X 7→ (X, α1 )
+
+(14)
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+15
+
+where α1 is the composition
+α
+
+u
+
+α1 : X −→ JS (X) −→ JS1 (X)
+and where α is the structure map of the δS -structure on X.
+Proposition 2.3.1. The functor (14) is an equivalence of categories.
+One might say that W , viewed as a monad on ind-affine sheaves, is freely generated by the pointed functor W1 . Before we prove it, we will need some preliminary
+results.
+Lemma 2.3.2. For any n ≥ 1 and any ring R, the diagram
+∆
+
+Wn+1 (R)
+
+τ
+
+/ Wn W1 (R)
+
+/
+
+/ Wn−1 W1 (R)
+
+∆◦Wn (τ )
+
+is an equaliser diagram.
+Proof. This is immediate in Buium–Joyal components. Consider a Witt vector
+
+z = (x0 , y0 ), (x1 , y1 ), . . . , (xn , yn ) ∈ Wn W1 (R).
+
+Then we have
+and
+
+
+τ (z) = (x0 , y0 ), (x1 , y1 ), . . . , (xn−1 , yn−1 )
+
+
+∆ ◦ Wn (τ )(z) = ∆(x0 , . . . , xn ) = (x0 , x1 ), (x1 , x2 ), . . . , (xn−1 , xn ) .
+
+These two Witt vectors are equal if and only if
+y0 = x1 ,
+
+y1 = x2 ,
+
+...,
+
+yn−1 = xn .
+
+But by the explicit description of ∆ : Wn+1 (R) → Wn W1 (R) given in (6), this is
+precisely the condition for z to lie in the image of ∆ and, second, ∆ is a monomorphism.
+
+Remark 2.3.3. The map ∆ : Wn+1 (R) → Wn W1 (R) even has a functorial retraction.
+In ghost components, it is given by
+ha0 , b0 i, . . . , han , bn i 7→ ha0 , a1 , . . . , an−1 , an , bn i.
+Proposition 2.3.4. If X is ind-affine, the diagram
+ν1,n
+
+JSn+1 (X)
+
+1
+JS
+(u)
+
+/ J 1 J n (X)
+S S
+
+/
+/ JS1 JSn−1 (X)
+
+ν1,n−1 ◦u
+
+is an equaliser diagram.
+Proof. For any affine S-scheme Spec(R), the diagram of R-points is
+X(Wn+1 (R))
+
+∆
+
+/ X(Wn W1 (R))
+
+τ
+
+/
+/ X(Wn−1 W1 (R)) .
+
+∆◦Wn (τ )
+
+It is enough to show that this is an equaliser diagram. If X is affine, this is
+an immediate consequence of lemma 2.3.2. If X is ind-affine, the result follows
+formally from the affine case and the fact that for filtered colimits we have
+
+(colim Xi )(C) = colim Xi (C)
+i
+
+i
+
+for any ring C and the fact that finite limits are preserved by filtered colimits.
+
+
+
+16
+
+JAMES BORGER AND LANCE GURNEY
+
+Proof of proposition 2.3.1. First consider the category C ′ consisting of pairs (X, β),
+where X ∈ ShS and β is any morphism X → JS1 (X), and where a morphism
+(X, β) → (X ′ , β ′ ) is any morphism X → X ′ compatible with β and β ′ . (This is the
+category of so-called co-algebras for the functor JS1 .) Then
+Q C is a full subcategory of
+C ′ , and C ′ is comonadic over ShS with comonad X 7→ n (JS1 )◦n (X). Therefore it
+is enough to show that for any object (X, β) of C and for any n ≥ 1, the composition
+J 1 (β)
+
+β
+
+S
+βn : X −→ JS1 (X) −→
+JS1 JS1 (X) −→ · · · −→ (JS1 )◦n (X)
+
+factors through the monomorphism
+νn : JSn (X) −→ (JS1 )◦n (X)
+obtained by iterating the maps ν1,m−1 : JSm (X) → JS1 JSm−1 (X) starting at m = n
+and going down to m = 2. We do this by induction, the case n = 1 being clear. So
+assume βn factors through νn , yielding a map αn : X → JSn (X).
+′
+First, let βn+1
+denote the composition
+β
+
+J 1 (αn )
+
+X −→ JS1 (X) S−→ JS1 JSn (X),
+and let
+′
+νn+1
+: JSn+1 (X) −→ JS1 JSn (X)
+denote the comultiplication map ν1,n . When composed with the monomorphism
+′
+′
+JS1 (νn ) : JS1 JSn (X) → (JS1 )◦(n+1) (X), the map βn+1
+becomes βn+1 and νn+1
+becomes
+′
+′
+νn+1 . Therefore we have νn ◦ αn = βn , since νn ◦ αn = βn .
+Now, to prove that βn+1 factors through νn+1 , it is certainly enough to prove
+′
+′
+that βn+1
+factors through νn+1
+. This will then follow from proposition 2.3.4 by the
+universal property of equalisers, once we verify the equation
+
+JS1 (u) ◦ (JS1 (αn ) ◦ β) = νn′ ◦ u ◦ (JS1 (αn ) ◦ β)
+But this holds because both sides equal βn′ :
+JS1 (u) ◦ JS1 (αn ) ◦ β = JS1 (αn−1 ) ◦ β = βn′
+and
+νn′ ◦ u ◦ JS1 (αn ) ◦ β = νn′ ◦ αn ◦ u ◦ β = νn′ ◦ αn = βn′ .
+
+2.4. δ-structures on ind-affine sheaves. Let S be a ind-affine sheaf. We say
+that S is p-torsion free if it is of the form colimi Spec(Ri ), where the pro-abelian
+group (Ri [p])i∈I is isomorphic to the zero pro-abelian group, where Ri [p] denotes
+the group of p-torsion elements in Ri . This is equivalent to saying that for any
+i ∈ I, there exists a j ≥ i such that the map Rj [p] → Ri [p] is zero.
+Proposition 2.4.1. The forgetful functor from the category of p-torsion free indaffine δ-sheaves to the category of p-torsion free ind-affine sheaves equipped with a
+lift of the Frobenius is an equivalence.
+Proof. Let S = colimi∈I Spec(Ri ), where (Ri )i∈I is a p-torsion free pro-ring. First
+we show that the functor is essentially surjective, that any Frobenius lift on S comes
+from a unique δ-structure on S.
+Let W 1 (Ri ) ⊂ Ri × Ri denote the image of the ghost map W1 (Ri ) → Ri × Ri .
+So we have W 1 (Ri ) = {hx0 , x1 i ∈ Ri2 | x1 ≡ xp0 mod pRi }. Therefore sections of
+the projection W 1 (Ri ) → Ri are in natural bijection to Frobenius lifts on Ri .
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+17
+
+We now show that this also holds for pro-rings. Suppose we have a Frobenius
+lift ϕ on (Ri )i . So given any index i ∈ I, there is an index j ≥ i and a map
+ϕi,j : Rj → Ri such that for all x ∈ Rj , we have ϕi,j (x) ≡ x̄p mod pRi , where
+x̄ denotes the image of x under the structure map Rj → Ri . Therefore the ring
+homomorphism Rj → Ri × Ri defined by x 7→ hx̄, ϕi,j (x)i has image in W 1 (Ri ),
+and hence on the pro-rings it defines a map s : (Ri )i → (W 1 (Ri ))i which is a
+section of the projection onto the left-hand component. Observe further that its
+composition (Ri )i → (W 1 (Ri ))i → (Ri )i with the projection onto the right-hand
+component is indeed the given Frobenius lift ϕ and that s is the only section with
+this property, since W 1 (Ri ) is a subset of Ri × Ri . In this way, sections of the
+projection (W1 (Ri ))i → (Ri )i are in natural bijection to Frobenius lifts on (Ri )i .
+Since the analogous result for δ-structures and W1 is true by proposition 2.3.1,
+all that remains is to show that the map of pro-rings (W1 (Ri ))i → (W 1 (Ri ))i is
+a pro-isomorphism. So for any j ≥ i, consider the commutative diagram of exact
+sequences:
+0
+
+0
+
+/ Rj [p]
+
+/ Ri [p]
+
+V
+
+V
+
+w1
+
+/ W1 (Rj )
+ yt
+/ W1 (Ri )
+
+t
+
+t
+w1
+
+t
+
+/ W 1 (Rj )
+t
+
+/0
+
+
+/ W 1 (Ri )
+
+/ 0,
+
+where V (x) = (0, x). As (Ri )i is p-torsion free, for any index i there exists an index
+j ≥ i such that the map Rj [p] → Ri [p] is zero. It follows that for such j there exists a
+unique map W 1 (Rj ) → W1 (Ri ) such that both the triangles in the diagram above
+commute. It therefore defines a morphism of pro-rings (W 1 (Ri ))i → (W1 (Ri ))i
+which is an inverse of the map (W1 (Ri ))i → (W 1 (Ri ))i on both the left and the
+right.
+
+Remark 2.4.2. If S = colimi Spec(Ri ) is a p-torsion free ind-affine sheaf then:
+(i) W (S) is a p-torsion free ind-affine sheaf. Indeed, it is enough to show that
+the pro-ring (Wn (Ri ))i∈I is p-torsion free for each n, but this is true because
+the kernel of the n-th ghost map
+wn : Wn (R) → Πn (R)
+is the set of Witt vectors with Witt components (x0 , x1 , . . . , xn ) such that
+pi xi = 0 for 0 ≤ i ≤ n. (Note that it does not matter whether we use the
+Buium–Joyal components or the Witt components here. This is because
+the statement admits a coordinate-free formulation. It is equivalent to the
+element lying in the kernel of the map Wn (R) → Wj (R/(pj -torsion)) for all
+j ≤ n. The proof, however, does seem to be easier in the Witt coordinates.)
+(ii) If X → S is relatively representable, flat and affine then X is a p-torsion
+free ind-affine sheaf. Indeed, if X = colim Spec(Bi ), where Spec(Bi ) =
+X ×S Spec(Ri ), then each Bi is flat over Ri and so Bi [p] = Ri [p] ⊗Ri Bi
+and hence for each i there is a j ≥ i such that Ri [p] ⊗Ri Bi → Ri [p] ⊗Ri Bi
+is zero.
+
+18
+
+JAMES BORGER AND LANCE GURNEY
+
+Proposition 2.4.3. Let S = colim Si be an ind-affine δ-sheaf, let X → S be a
+relatively affine δS -sheaf and let E be a δS -equivalence relation on X in the category
+of fpqc-sheaves.1 If the equivalence relation E is one of the following:
+(a) smooth,
+(b) finite locally free,
+then the quotient X/E in the category of fpqc-sheaves over S admits a unique
+δS -structure compatible with the quotient map X → X/E.
+Proof. (a) If the equivalence relation is smooth then the quotient X/E in the category of fpqc sheaves coincides with the quotient in the category of étale sheaves
+which then coincides with the quotient in the category of δS -sheaves.
+(b) Now assume that the equivalence relation is finite locally free. Write Ei =
+E ×S Si , Xi = X ×S Si , and X/E and Xi /Ei for the quotients in the category
+of fpqc sheaves. Then X/E ×S Si = Xi /Ei is an affine scheme over Si (by usual
+descent, cf. Corollaire 7.6 Exposé VIII [3]) and hence X/E is a relatively affine
+scheme over S. It remains to show that X/E admits a unique δS -structure for
+which the map X → X/E is a δS -map.
+As the functor Wn preserves equalisers of rings and E ⇒ X is a δS -equivalence
+relation, for each i, n, there is a j ≥ i and a diagram of solid arrows
+Wn (Ei )
+
+// W (X )
+
+/ Wn (Xi /Ei )
+
+
+Ej
+
+
+// X
+
+
+/ Xj /Ej
+
+n
+
+i
+
+j
+
+whose rows are coequalisers in the category of (absolutely) ind-affine sheaves over
+S and which is commutative in the evident sense. Therefore, we obtain a unique
+morphism Wn (Xi /Ei ) → Xj /Ej , as shown, compatible with the rest of the diagram.
+Moreover, the diagrams above are compatible as i and j vary, so that we may take
+the colimit to obtain a morphism ρn : Wn (X/E) → X/E. These morphisms are
+compatible as n varies and hence define a morphism ρ : W (X/E) → X/E.
+To show that ρ is a δS -structure on X/E, it is enough to check that the ρn satisfy
+a certain associativity property (which will be recalled below). To do this, consider
+the diagram
+Wn (Wm (E))
+
+// W (W (X))
+n
+m
+
+/ Wn (Wm (X/E))
+
+ 
+Wn+m (E)
+
+// W
+
+ 
+
+ 
+/ Wn+m (X/E)
+
+
+E
+
+n+m (X)
+
+
+// X
+
+
+/ X/E.
+
+defined as follows. The horizontal morphisms are the obvious ones, the lower vertical maps ρm+n : Wm+n (∗) → ∗ come from the δS -structure or, in the case of
+1We note that as S and W (S) are ind-affine sheaves it follows that they are sheaves on Aff for
+the fpqc topology and that all relatively affine sheaves (for the étale topology) over them are also
+sheaves on Aff the fpqc topology.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+19
+
+∗ = X/E, were constructed above. The vertical parallel pairs are given, on the left,
+by the coplethysm map (5), and on the right by
+Wn (Wm (∗))
+
+inclusion
+
+→
+
+Wn+m (Wm (∗))
+
+Wn+m (ρm )
+
+→
+
+Wn+m (∗).
+
+The associativity property we need to show is that the two compositions down the
+right column agree for every m and n.
+However, the two compositions down each of the other columns agree because X
+and E are δS -sheaves. Additionally, the rows are still coequalisers in the category
+of absolutely ind-affine sheaves over S, as they are colimits of such. Then because
+the diagram commutes (in the evident sense), it follows from a diagram chase that
+the map ρm+n : Wn+m (X/E) → X/E is equalised by the pair of maps above it. 
+2.5. δ-structures on p-torsion free schemes. The aim of this section is to prove
+that a Frobenius lift on a p-torsion free scheme is equivalent to a δ-structure. Note
+that this does not automatically reduce to the affine case as the Frobenius lift in
+general will not act as the identity on the underlying topological spaces.
+Lemma 2.5.1. Let X be a scheme (or algebraic space) equipped with a lift of the
+Frobenius ϕ : X → X. Then the two compositions
+i
+
+X ×Spec(Z) Spec(Z/pn+1 Z)
+
+/X
+
+wn+1
+wn ◦ϕ
+
+// Wn+1 (X)
+
+agree.
+Proof. Because the diagram is functorial in X, we may assume that X lies over
+Spec(Z/pn+1 Z), in which case we are reduced to showing that the maps
+X
+
+wn+1
+wn ◦ϕ
+
+// W
+
+n+1 (X)
+
+agree. However, the Frobenius lift ϕ : X → X restricts to a unique Frobenius lift
+on any affine étale neighbourhood Spec(A) → X. So we may reduce further to the
+case where X = Spec(A) is affine.
+We now let (a0 , . . . , an+1 ) ∈ Wn+1 (A) in Witt coordinates and just compute:
+ϕ(wn (a0 , . . . , an+1 )) =
+
+n
+
+ϕ(ap0 + · · · + pn an )
+n
+
+=
+
+ϕ(a0 )p + · · · + pn ϕ(an )
+
+=
+
+ap0
+
+=
+
+wn+1 (a0 , . . . , an ),
+
+n+1
+
++ · · · + pn apn
+
+where the last two equalities hold because A is a Z/pn+1 Z-algebra.
+
+
+
+Proposition 2.5.2. The forgetful functor from the category of p-torsion free algebraic spaces equipped with a δ-structure to the category of p-torsion free algebraic
+spaces equipped with a lift of the Frobenius is an equivalence.
+Proof. We will show essential surjectivity first. Let X be a p-torsion free algebraic
+space and let ϕ : X → X be a lift of the Frobenius. We will show that there is a
+unique δ-structure on X inducing ϕ.
+We will first prove that for each n ≥ 0 there is a unique map µn : Wn (X) → X
+such that wi ◦ µn = ϕ◦i for 0 ≤ i ≤ n. For n = 0, we take µ0 = idX . Then
+by induction, we may construct µn+1 , assuming µn has been constructed. So it
+
+20
+
+JAMES BORGER AND LANCE GURNEY
+
+is enough to prove there exists a unique map µn+1 : Wn+1 (X) → X such that
+µn+1 |Wn (X) = µn and µn+1 ◦ wn+1 = ϕ◦(n+1) .
+Now consider the diagram
+i1 ◦w̄n+1
+
+X × Spec(Z/pn+1 Z)
+
+i2 ◦i
+
+// Wn (X) ∐ X
+
+µn ∐ϕ◦n+1
+
+/ Wn+1 (X)
+µn+1
+
+ w
+X,
+where i1 and i2 denote the summand inclusions, i is as in lemma 2.5.1, and w̄n+1
+denotes the reduced (n + 1)-st ghost map of section 17.1 in [8]. The two properties
+we require µn+1 to satisfy are equivalent to the commutativity of the right-hand
+triangle. Thus it is enough to prove the existence and uniqueness of the map µn+1
+as shown making the triangle commute.
+The top row is however a coequaliser in the category of algebraic spaces by
+theorem 17.3 of [8]. So the existence and uniqueness of our map µn+1 is equivalent
+to the vertical map µn ∐ ϕ◦n+1 coequalising the two left horizontal arrows. In other
+words, it is equivalent to the equality µn ◦ w̄n+1 = ϕ◦(n+1) ◦ i. But this follows
+immediately from the equality µn ◦ wn = ϕ◦n , which holds by induction, and the
+equality w̄n+1 = wn ◦ ϕ ◦ i, which is the statement of lemma 2.5.1.
+In the limit, the maps µn : Wn (X) → X induce a map µ : W (X) → X. To show
+that this is in fact an action of the comonad W , we must show that the two induced
+maps W (W (X)) ⇒ X agree. However we know that their compositions with the
+ghost maps N × N × X → W (W (X)) agree. This is just the associativity property
+of the action of N on X induced by the endomorphism ϕ. Therefore it is enough
+to observe that the ghost morphisms wn : ∐n+1 X → Wn (X) are epimorphisms
+in the category of algebraic spaces. This holds because wn is surjective and the
+induced map on structure sheaves OWn (X) → wn∗ O∐n+1 X is injective, which can
+be shown by applying the étale localisation theorem 1.5.1 to reduce to X affine and
+then invoking the fact that the ghost map Wn (R) → Rn+1 is injective and integral
+when R is a p-torsion free ring. (The epimorphism property can also be proved by
+the applying the coequaliser property in diagram above inductively.)
+Therefore the functor in question essentially surjective. It is obviously faithful.
+It remains to show that it is full. So let X and Y be two p-torsion free algebraic
+spaces equipped with lifts of the Frobenius, and let f : X → Y be a morphism
+compatible with these lifts. Showing that f is a δ-morphism amounts to showing
+that two maps W (X) ⇒ Y agree. However their compositions with the ghost map
+w : N × X → W (X) agree because f is ϕ-equivariant. Now we can again invoke the
+fact that the ghost maps wn are epimorphisms when X is a p-torsion free algebraic
+space to conclude that the original maps W (X) ⇒ Y do agree.
+
+2.6. Affineness of the coghost map. We collect here a handful of affineness
+results concerning the coghost maps. The main application of these results is to
+prove certain uniqueness results for δ-structures on abelian schemes.
+Lemma 2.6.1. Let X be a scheme with the property that every finite set of points
+of X is contained in an open affine subscheme of X. Then for each n ≥ 0 the
+coghost map
+γn : J n (X) → X n+1
+is affine.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+21
+
+Proof. The property satisfied by X implies that there is an open affine cover (Xi )i∈I
+of X such that (Xin+1 )i∈I is an open cover of X n+1 . However, the diagram
+J n (Xi )
+
+γn
+
+/ X n+1
+i
+
+(15)
+
+J n (X)
+
+γn
+
+
+
+/ X n+1
+
+is cartesian by proposition 12.2 of [8] (where it is also assumed that the open
+immersions Xi → X are closed but the proof that the diagram (15) is cartesian
+does not use this assumption) and the top morphisms is affine. As (Xin+1 )i∈I is a
+cover of X n+1 it follows that the bottom row of (15) is affine.
+
+Lemma 2.6.2. Let S = colimi∈I Si be an ind-affine sheaf equipped with a δstructure and let f : X → S be sheaf over S. If, setting Xi = X ×S Si , the coghost
+maps
+γn : J n (Xi ) → Xin+1
+are affine for all i then the relative coghost map
+γX/S,n : JSn (X) → X n+1 ×S n+1 S
+is affine.
+Proof. The morphism γX/S,n is affine if and only if the morphisms
+γX/S,n ×S Si
+are affine for each i ∈ I. Fixing such an i, since Si is quasi-compact and quasiseparated there is some j ∈ I such that the composition Si → S → J n (S) factors
+through J n (Sj ) → J n (S). Therefore, we have
+JSn (X) ×S Si = J n (X) ×J n (S) Si = J n (Xj ) ×J n (Sj ) Si .
+It also follows that Si → S → S n+1 factors through Sj → S n+1 and hence we also
+have
+X n+1 ×S n+1 Si = Xjn+1 ×S n+1 Si .
+j
+
+We can now express γX/S,n ×S Si as the composition along the top row in the
+diagram
+J n (Xj ) ×J n (Sj ) Si
+
+/ J n (Xj ) ×S n Si
+
+
+J n (Sj )
+
+
+/ J n (Sj ) ×S n J n (Sj )
+
+∆
+
+j
+
+/ X n × S n Si
+j
+
+j
+
+j
+
+The square in this diagram is cartesian, which shows that the top left arrow is affine.
+Since the top right arrow is affine by hypothesis, their composition γX/S,n ×S Si is
+affine, and hence so is γX/S,n .
+
+We end this section with an application of the affineness results above which
+will have applications to the existence and uniqueness of δ-structures on abelian
+schemes.
+Proposition 2.6.3. Let S be a δ-sheaf and suppose we have the following:
+
+22
+
+JAMES BORGER AND LANCE GURNEY
+
+(a) X is an anti-affine2 δS -sheaf equipped with a δS -point S → X,
+(b) G is a δS -group such that the relative coghost map
+γG/S : JS (G) → GN ×S N S
+of (13) is affine, and
+(c) f : X → G is an S-pointed morphism.
+Then f is a δS -morphism if (and only if ) it is compatible with the relative Frobenius
+lifts on X and G.
+Proof. Let the δS -structures on X and G be given by the S-morphisms
+αX/S : X → JS (X)
+
+and
+
+αG/S : G → JS (G).
+
+Since f : X → G commutes with the relative Frobenius maps on X and G, the
+difference
+g := αG/S ◦ f − JS (f ) ◦ αX/S : X → JS (G)
+factors through the kernel of the relative coghost homomorphism γG/S .
+As X and G are equipped with δS -points so are JS (X) and JS (G), and the
+morphisms composing g are S-pointed, hence so is g. However, the kernel of γG/S
+is S-affine by hypothesis and X is S-anti-affine, so that g factors through the
+structure morphism X → S:
+X → S → JS (G).
+As the morphism g is S-pointed, it follows that g = 0. So we have αG/S ◦ f =
+JS (f ) ◦ αX/S and thus f is a δS -morphism.
+
+3. Group schemes, torsors and extensions with δ-structures
+Let S be an object of Sh, assumed to be ind-affine and p-adic beginning in
+section 3.2. The sole purpose of this section is to prove corollary 3.2.8, which relates
+extensions of étale group schemes over S to extensions of their lifts to W (S).
+3.1. Background on torsors and extensions. Let G and H be a pair of relatively flat and affine commutative group schemes over S. We will write eG : S → G
+and µG : G ×S G → G for the identity and multiplication maps (and similarly for
+all other groups). Then S, G and H are all sheaves for the fpqc topology, and we
+denote by T orS (G) the fibred category of G-torsors over Aff S for the fpqc topology. It is a stack for the fpqc topology. We recall the following constructions for
+torsors (for those over S, with the obvious extension to any base).
+(i) If f : G → H is a homomorphism, we have a morphism of stacks
+T orS (G) → T orS (H) : X 7→ X ⊗G H := (X ×S H)/G
+where G acts on X ×S H via the restriction of the action of G ×S H along
+G → G ×S H : g 7→ (g, f (g −1 )).
+(ii) If G and H are a pair of sheaves of abelian groups over S then the morphism
+T orS (G ×S H) → T orS (G) ×S T orS (H) : X 7→ (X/H, X/G)
+is an equivalence of stacks.
+2An S-sheaf X is anti-affine if every morphism from X to a relatively affine S-sheaf factors
+through the structure map X → S.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+23
+
+(iii) If X is a G-torsor then the dual X ∨ of X is the G-torsor whose underlying
+sheaf is X with G acting via the inverse of the given action. It is canonically
+isomorphic to the construction X 7→ X ⊗G G in (i) for the homomorphism
+G → G : g 7→ g −1 .
+(iv) The monoidal structure on T orS (G) is given by
+T orS (G) ×S T orS (G) → T orS (G)
+(X1 , X2 ) 7→ X1 ⊗G X2 := (X1 ×S X2 )/G
+where the quotient by G is via the restriction of the action of G ×S G
+along G 7→ G ×S G : g 7→ (g, g −1 ) and the G-action on the quotient is via
+either of the (equal) residual actions on X1 and X2 . This monoidal structure is symmetric and for all pairs of G-torsors X1 , X2 we have canonical
+isomorphisms
+∼
+
+∨
+HomG
+S (X1 , X2 ) −→ X2 ⊗G X1 .
+
+3.1.1. Let f : G → H be a homomorphism with relatively representable affine and
+flat kernel ker(f ) = K. We define T orS [f ] to be the fibred category whose sections
+are given by the category of pairs (X, ρ) where X is a G-torsor and ρ : H → X ⊗G H
+is a trivialisation, i.e., an isomorphism of H-torsors. There is a natural functor
+T orS (K) → T orS [f ] : X 7→ (X ⊗K G, ρ)
+where ρ is the trivialisation induced by
+X ⊗K H = (X ×S H)/K = (X/K) ×S H = H.
+This functor is an equivalence of stacks with quasi-inverse given by sending (X, ρ)
+to the equaliser of the two morphisms X ⇒ X ⊗G H given by the compositions
+X× e
+
+S H
+X ×S H → X ⊗G H
+X −→
+
+and
+
+e
+
+ρ
+
+H
+H → X ⊗G H.
+X→S→
+
+3.1.2. An extension of H by G is a short exact sequence of commutative group
+schemes over S
+0 → G → E → H → 0.
+A morphism of extensions E → E ′ is a homomorphism E → E ′ compatible with the
+identity maps on G and H. This yields the moduli stack of extensions E xtS (H, G)
+over Aff S .
+The group structure on H induces on Aff H the structure of a symmetric monoidal
+stack over Aff S , as follows. The product of two affine S-schemes T1 and T2 is
+the Cartesian product T1 ×S T2 viewed as an object of Aff H via the composition
+T1 ×S T2 → H ×S H → H with the product map. (So if T1 = T2 = S, then this
+reduces to the usual group law on H(S).) This defines a monoidal structure on the
+category of affine schemes over H, and since it is compatible with base change in
+S, it induces a monoidal structure on the stack Aff S .
+So we may also consider the Hom stack
+H om⊗
+S (H, T orS (G))
+whose fibre over S is the category of symmetric monoidal morphisms
+e : Aff H → T orS (G)
+over Aff S .
+
+24
+
+JAMES BORGER AND LANCE GURNEY
+
+There is a natural equivalence of stacks (cf. proposition 1.4.23 of exposé XVIII
+in [2])
+E xtS (H, G) → H om⊗
+S (H, T orS (G))
+sending an extension
+0→G→E→H →0
+to the symmetric monoidal functor η : Aff H → T orS (G) whose value on T →
+H is the G-torsor E ×H T (the symmetric monoidal structure on this functor is
+induced by the commutative group structure on E). A quasi-inverse is given by
+sending a symmetric monoidal functor η : Aff H → T orS (G) to the G-torsor E :=
+η(idH : H → H), which inherits the structure of an extension of G by H via the
+symmetric monoidal structure on η. Indeed, the addition law on E is obtained via
+the composition
+∼
+
+∼
+
+E ×S E −→ p∗1 (E) ×(H×S H) p∗2 (E) → p∗1 (E) ⊗G p∗2 (E) −→ µ∗H (E) → E,
+where pi are the projections H ×S H → H and µH is the multiplication. The rest
+we leave to the reader.
+3.2. Torsors and extensions with δ-structures. Let e
+G/W (S) be a flat and
+affine group scheme over W (S) such that either of the following two conditions
+hold:
+e is smooth over W (S),
+(a) G
+e
+(b) G is finite locally free over W (S).
+
+e ×W (S) S along the first ghost component. (Later we
+Write G for the pull-back G
+e which are canonical lifts of a given group G, but
+will primarily consider groups G
+e
+for now G can be an arbitrary lift satisfying the properties above, although this is
+some abuse of notation).
+e has a δW (S) -structure. A δW (S) -G-torsor
+e
+e
+Now assume that G
+is a G-torsor
+over
+e
+W (S) equipped with a δW (S) -structure compatible with the G-action. We denote
+G) the fibred category over Aff S whose fibre over an affine S-scheme
+by T orδW (S) ( e
+e is a
+e W (T ) -torsors. The fibred category T orδ
+(G)
+T is the groupoid of δW (T ) -G
+W (S)
+stack for the étale topology and the constructions (i)–(iv) of section 3.1 for usual
+torsors work just as well for the fibred categories of δW (S) -torsors using proposition
+2.4.3 combined with the assumptions (a) and (b) above.
+We denote by gGe the symmetric monoidal functor
+ge
+
+G
+G) −→
+T orS (G)
+T orδW (S) ( e
+X 7→ X ×W (S) S.
+
+Proposition 3.2.1. The functor gGe is fully faithful. If G/S is smooth, then it is
+an equivalence.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+25
+
+e1 and X
+e2 are a pair of δW (S) -G-torsors,
+e
+Proof. If X
+then we have
+e
+
+e e
+HomG
+δW (S) (X1 , X2 )
+
+e
+
+e e
+e −1
+= HomG
+e X1 )
+δW (S) (G, X2 ⊗G
+
+e2 ⊗ e X
+e −1 ))
+= HomδW (S) (W (S), X
+1
+G
+= HomS (S, X2 ⊗G X1−1 )
+
+−1
+= HomG
+S (G, X2 ⊗G X1 )
+
+= HomG
+S (X1 , X2 )
+whence the full faithfulness.
+If G is smooth, then with respect to the étale topology, every G-torsor is locally
+trivial so that the fully faithful functor gGe is locally essentially surjective. As both
+e and T orS (G) are stacks for the étale topology it follows that g e is
+T orδW (S) (G)
+G
+an equivalence.
+
+3.2.2. Consider an exact sequence of relatively flat and affine δW (S) -group schemes
+fe
+
+e →G
+e→ e
+0→K
+H,
+
+and denote its pull-back along the first ghost component by
+f
+
+0 → K → G → H.
+We define T orδW (S) [fe] to be the fibred category over Aff S whose fibre over an affine
+e ρe) where X
+e is a G-torsor
+e
+S-scheme T is the groupoid of pairs (X,
+over W (T ) and
+e
+e
+e
+e
+ρe: H → X ⊗Ge H is an isomorphism of δW (S) -H-torsors together with the obvious
+notion of morphism. We denote by gfe the functor
+gfe
+
+T orδW (S) [fe] −→ T orS [f ]
+(e
+X, ρe) 7→ (X, ρ),
+
+where ρ denotes the pull-back of ρe along the first ghost component map S → W (S).
+
+Proposition 3.2.3. If gGe is an equivalence of categories, then so is gfe.
+
+e1 , ρe1 ) and (X
+e2 , ρe2 ) be a pair of objects of T orδ
+[fe] over some
+Proof. Let (X
+W (S)
+affine S-scheme. Given a morphism θ : (X1 , ρ1 ) → (X2 , ρ2 ), the full faithfulness of
+e1 → X
+e2 lifting θ. The faithfulness of
+gGe implies that there exists a unique θe: X
+e
+e
+e
+e2 , ρe2 ), and so g e is fully
+gHe shows that θ is in fact a morphism θ : (X1 , ρe1 ) → (X
+f
+faithful.
+Now let (X, ρ) be a section of T orS [f ]. Since gGe is an equivalence, there exists
+e lifting X. As g e is fully faithful, it follows that there exists a unique
+a unique X
+H
+e
+e ⊗e H
+e lifting ρ. Therefore g e is essentially surjective and hence an
+ρe: H → X
+G
+f
+equivalence.
+
+Proposition 3.2.4. If gGe is an equivalence of categories, then so is
+e → T orS (K).
+gKe : T orδW (S) (K)
+
+Proof. As in 3.1.1, we can define a functor
+
+e ρe),
+e 7→ (X
+e ⊗ e G,
+e → T orδ
+[fe] : X
+T orδW (S) (K)
+W (S)
+K
+
+26
+
+JAMES BORGER AND LANCE GURNEY
+
+and as before it is an equivalence. We then obtain a 2-commutative diagram
+e
+T orδW (S) (K)
+
+∼
+
+/ T orδ
+
+W (S)
+
+gfe
+
+gK
+f
+
+
+T orS (K)
+
+∼
+
+[fe]
+
+
+/ T orS [f ].
+
+The top and bottom arrows are equivalences and the right arrow is an equivalence
+by proposition 3.2.3. So the left arrow is also an equivalence.
+
+e be a flat affine δW (S) -group scheme over W (S) satisfying either of
+3.2.5. Let G
+the conditions (a) and (b) of section 3.2, and let H be an affine étale group scheme
+e := W (H) is the unique affine étale
+over S. Then proposition 2.2.2 implies H
+δW (S) -group scheme lifting H.
+e G)
+e the fibred category over Aff S whose fibre over an
+Denote by E xtδW (S) (H,
+e by e
+affine S-scheme T is the groupoid of δW (T ) -extensions of G
+H, by which we
+mean short exact sequences (in the sense of sheaves in the fpqc topology) of δW (T ) group schemes
+e W (T ) → E
+e→H
+e W (T ) → 0,
+0→G
+
+e and H.
+e Denote by
+with morphisms δW (T ) -morphisms inducing the identity on G
+e
+H om⊗
+S (H, T orδW (S) (G))
+
+the fibred category whose fibre over an affine S-scheme T is the groupoid of symmetric monoidal functors (over Aff S )
+e
+η : Aff HT → T orδW (S) (G).
+
+Such a functor η is determined up to equivalence by its value at the universal point
+e = η(HT → HT ),
+E
+
+e over W (HT ), together with the δW (H × H ) - e
+which is a δW (HT ) - e
+G-torsor E
+GT
+T
+T
+isomorphism
+∼
+W (p1 )∗ ( e
+E) ⊗ e W (p2 )∗ ( e
+E) −→ W (µ)∗ ( e
+E),
+(16)
+G
+
+coming from the monoidal structure on η.
+By theorem 1.5.4, we have
+
+e W (T ) ×W (T ) H
+e W (T ) .
+W (HT ×T HT ) = W (HT ) ×W (T ) W (HT ) = H
+
+Under this identification W (p1 ), W (p2 ) and W (µ) correspond to the usual projece W (T ) ×W (T ) H
+e W (T ) → H
+e W (T ) respectively, and the
+tions and multiplication map H
+e
+isomorphism (16) corresponds to a δHeW (T ) ×W (T ) HeW (T ) -G-isomorphism
+∼
+e ⊗ e p∗2 (E)
+e −→
+e
+p∗1 (E)
+µ∗ (E).
+G
+
+e W (T ) by G
+eW (T ) on E
+e and so
+This induces the structure of a δW (T ) -extension of H
+(as for usual torsors) we obtain an equivalence of stacks
+e e
+e
+H om⊗
+S (H, T orδW (S) (G)) → E xtδW (S) (H, G).
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+27
+
+Theorem 3.2.6. If gGe is an equivalence, then
+is also an equivalence.
+
+e G)
+e → E xtS (H, G)
+E xtδW (S) (H,
+
+Proof. We have the 2-commutative diagram
+e
+H om⊗
+S (H, T orδW (S) (G))
+
+∼
+
+/ E xtδ
+
+W (S)
+
+≀
+
+
+H om⊗
+(H,
+T orS (G))
+S
+
+∼
+
+(e
+H, e
+G)
+
+
+/ E xtS (H, G)
+
+in which the left arrow (composition with the equivalence gGe ) is an equivalence.
+The bottom arrow is an equivalence, as explained in 3.1.2. Similarly, the top arrow
+is an equivalence, as just explained in 3.2.5.
+
+Remark 3.2.7. This theorem can be viewed as a derived analogue of lemma 2.2.4.
+e be a
+Corollary 3.2.8. Let H be an affine étale group scheme over S, and let G
+e is
+flat and affine δW (S) -group scheme satisfying (a) or (b) of section 3.2. If G
+isomorphic to the kernel of a δW (S) -homomorphism of flat and affine δW (S) -group
+f1 → G
+f2 with G1 smooth over S, then the functor
+schemes G
+e G)
+e → E xtS (H, G)
+(H,
+E xtδ
+W (S)
+
+is an equivalence.
+
+Proof. This follows immediately from proposition 3.2.4, proposition 3.2.1, and theorem 3.2.6.
+
+4. Canonical lifts of ordinary p-groups
+4.1. δ-structures on étale and multiplicative p-groups. By a p-group over a
+p-adic sheaf S we mean any finite locally free group scheme G locally of p-power
+degree. We say that G is étale if G → S is étale, and we say that G is multiplicative
+if G is the Cartier dual of an étale p-group.
+By an ordinary p-group over S we mean a p-group E for which there exists a
+short exact sequence of sheaves of groups
+0→G→E→H →0
+where G is a multiplicative p-group scheme and H an étale p-group scheme. (See
+remark 4.1.1 for an alternative characterisation.)
+If E is an ordinary p-group over S, then G and H are uniquely determined (as
+sub and quotient groups of E) and are compatible with base change. Indeed, the
+inclusion G → E is both an open and closed immersion (being the pull back of the
+open and closed immersion S → H along E → H) and is therefore smallest open
+and closed sub-sheaf containing the identity section of E. We will write G = Emult
+and H = Eét and note that the assignments E 7→ Emult and E 7→ Eét are functorial
+in ordinary p-groups E to multiplicative and étale p-groups respectively.
+It follows from the above that if E is a p-group over S which is fpqc locally
+an ordinary p-group then it is itself an ordinary p-group and the fibred category
+Ord over Aff Spf(Zp ) , whose fibre over each p-adic affine scheme S is the groupoid
+of ordinary p-groups, is a stack for the fpqc topology.
+
+28
+
+JAMES BORGER AND LANCE GURNEY
+
+We note that every homomorphism G → E, from a multiplicative p-group to an
+ordinary p-group, factors through the inclusion Emult → E. In particular, there are
+no non-trivial homomorphisms from a multiplicative p-group to an étale p-group.
+Remark 4.1.1. A p-group G over S is ordinary in the sense above if and only if:
+(i) for all s ∈ S the p-group Gs is ordinary, and
+(ii) the degree of (Gs )mult is a locally constant function on S.
+As follows from lemma 4.8 of [25]. In particular, if A/S is an abelian scheme such
+that As is ordinary for all s ∈ S then A[pn ] is ordinary for all n ≥ 0.
+Proposition 4.1.2. Let S be p-adic sheaf.
+(i) Every étale (resp. multiplicative) p-group over W (S) admits a unique δW (S) structure compatible with its group structure.
+(ii) Every homomorphism of such groups is a δW (S) -homomorphism.
+(iii) The category of étale (resp. multiplicative) δW (S) -p-groups is equivalent, via
+base change along the first ghost component, to the category of étale (resp.
+multiplicative) p-groups over S.
+Proof. (i): For étale groups this follows from proposition 2.2.2.
+For multiplicative groups, we first note that there is one and only one way to lift
+e
+a multiplicative group G/S to a multiplicative group G/W
+(S) (forgetting about
+δW (S) -structures). Indeed, the only possible option is to take the Cartier dual of
+the unique lift of the Cartier dual of G (which is an étale group). In particular,
+it follows that every multiplicative p-group e
+G/W (S) is, after base change along a
+morphism W (S ′ ) → W (S) with S ′ → S étale and surjective, of the form
+r
+Y
+(17)
+µpni .
+i=1
+
+Using the étale local nature of δW (S) -structures on sheaves over W (S), as given by
+e is of the form (17) and show that it admits a
+lemma 2.1.1, we may assume that G
+unique δW (S) -structure compatible with its group structure. It is enough to show
+existence and uniqueness locally in the étale topology so that we may also assume
+that S = Spec(A) is affine. By proposition 2.2.3 we can instead show that the
+W (A)-Hopf algebra
+r
+O
+n1
+nr
+ni
+W (A)[T ]/(T p − 1) = W (A)[T1 , . . . , Tr ]/(T1p − 1, . . . , T1p − 1)
+R :=
+i=1
+
+admits a unique δW (A) -structure compatible with its W (A)-Hopf algebra structure.
+It is clear that R admits at least one such δW (A) -structure given by δR (Ti ) = 0 for
+i = 1, . . . , r. So we will show that this is the only one.
+Consider a δW (A) -structure δR on R. Set P = Πri=1 {0, . . . , pni − 1} and for
+I = (a1 , . . . , ar ) ∈ P write T I = T1a1 · · · Trar so that {T I : I ∈ P } forms a basis for
+R as W (A)-module. The operator δR is completely determined by its values
+X
+δR (Ti ) =
+aI,(i) T I
+I∈P
+
+on the elements Ti for 1 ≤ i ≤ r. The compatibility of δR with the Hopf algebra
+structure on R is by definition equivalent to the equality of set maps
+∆R ◦ δR = δR⊗W (A) R ◦ ∆R ,
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+29
+
+which is in turn equivalent to the equalities for 1 ≤ i ≤ r:
+∆R (δR (Ti )) = δR⊗W (A) R (∆R (Ti )).
+These equalities expand to
+X
+∆R (
+aI,(i) T I ) = δR⊗W (A) R (Ti ⊗ Ti )
+I∈P
+
+and then, applying the product rule to δR⊗W (A) R ((Ti ⊗ 1)(1 ⊗ Ti )), to
+X
+X
+X
+
+aI,(i) T I ⊗ T I =
+aI,(i) Tip ⊗ T I + T I ⊗ Tip +
+paI,(i) aJ,(i) T I ⊗ T J .
+I∈P
+
+I∈P
+
+I,J∈P
+
+I
+
+I
+
+Equating the coefficients of T ⊗ T we find that aI,(i) = pa2I,(i) unless I =
+(0, . . . , p, . . . , 0) with p in the ith position, where we find that aI,(i) = 2aI,(i) +pa2I,(i) .
+Regardless, we find that aI,(i) (1 ± paI,(i)) = 0 which, as p is topologically nilpotent,
+in W (R) shows that aI,(i) = 0. Hence δR (Ti ) = 0 for 1 ≤ i ≤ r and the only
+δW (A) -structure on R compatible with its Hopf algebra structure is the one with
+δ(Ti ) = 0.
+(ii): By additivity we are reduced to showing that all W (S)-group scheme homomorphisms
+µpm → µpn
+are δW (S) -morphisms or, again using proposition 2.2.3, that every Hopf algebra
+homomorphism
+n
+
+m
+
+θ : W (A)[T ]/(T p − 1) → W (A)[T ]/(T p − 1)
+is a δW (A) -homomorphism. As δ(T ) = 0 (on both sides) it is enough to show that
+δ(θ(T )) = 0.
+As θ is a Hopf algebra homomorphism, we must have
+n
+
+θ(T ) =
+
+p
+X
+
+ai T i
+
+i=1
+
+where the ai ∈ W (A) are orthogonal idempotents (i.e. ai aj = δij ai and a2i = ai ). As
+n
+W (A)[T ]/(T p −1) is p-adically complete and the ai are orthogonal and idempotent,
+it follows from lemma 4.1.3 below that
+!
+pn
+pn
+pn
+X
+X
+X
+i
+i
+ai δ(T i ) = 0
+δ(ai T ) =
+ai T
+=
+δ(θ(T )) = δ
+i=1
+
+i=1
+
+i=1
+
+i
+
+(as δ(T ) = 0, it follows immediately that δ(T ) = 0). Therefore, θ is a δW (A) homomorphism.
+(iii): Since the functor is essentially surjective, by (i), it is enough to prove
+it is full and faithful. The category étale p-groups over W (S) is equivalent, by
+proposition 2.2.2, to that over S. The same is true for multiplicative p-groups
+by Cartier duality. Therefore for any étale (resp. multiplicative) p-groups G and
+H over W (S), every homomorphism G ×W (S) S → H ×W (S) S lifts to a unique
+homomorphism G → H. By (ii), it is necessarily a δW (S) -morphism.
+
+Lemma 4.1.3. Let R be a p-adically complete δ-ring.
+(i) If r ∈ R is idempotent, then δ(r) = 0 and δR (rr′ ) = rδ(r′ ) for all r′ ∈ R.
+(ii) If r1 , r2 ∈ R satisfy r1 r2 = 0, then δ(r1 + r2 ) = δ(r1 ) + δ(r2 ).
+
+30
+
+JAMES BORGER AND LANCE GURNEY
+
+Proof. (i) As δ(rr′ ) = rp δ(r′ ) + r′p δ(r) + pδ(r)δ(r′ ) and rp = r it is enough to
+show that δ(r) = 0. For this, note that δ(r) = δ(r2 ) = 2rp δ(r) + pδ(r)2 and hence
+δ(r)(2r − 1 + pδ(r)) = 0. But 2r − 1 is a unit as (2r − 1)2 = 1 and hence so is
+2r − 1 + pδ(r) as R is p-adically complete. Therefore δ(r) = 0.
+(ii) This follows immediately from the addition law for δ.
+
+4.1.4. Given (for now) a multiplicative or étale p-group G over S, we refer to the
+unique δW (S) -p-group over W (S) lifting G as its canonical lift. We will typically
+e This does conflict with our earlier convention of allowing G
+e to denote
+denote it G.
+any lift of G to W (S), but we believe this will not cause any confusion.
+4.2. δ-structures on ordinary p-groups. By an ordinary δW (S) -p-group we mean
+e over W (S) equipped with a δW (S) -structure compatible
+an ordinary p-group E
+with its group structure. In this case, the multiplicative and étale group schemes
+e := E
+emult and H
+e := E
+eét are both uniquely δW (S) -groups, by proposition 4.1.2.
+G
+Further, the morphisms in the short exact sequence
+e→E
+e→H
+e →0
+0→G
+
+e →E
+e is an open immersion (of p-adic sheaves),
+are δW (S) -morphisms. Indeed, G
+e
+e
+e
+e is
+and E → H, being the quotient of E by the finite locally free δW (S) -group G,
+a δW (S) -morphism, by proposition 2.4.3. We denote by Ordδ the fibred category
+over Aff Spf(Zp ) whose fibre over a p-adic affine scheme S is the groupoid of ordinary
+δW (S) -p-group schemes. The étale-local nature of δW (S) -structures shows that this
+is a stack for the étale topology.
+Lemma 4.2.1. Let G and H be a multiplicative and an étale p-group over Spf(Zp )
+respectively. Then base change along the first ghost component induces an equivalence:
+H, e
+G) → E xtSpf(Zp ) (H, G).
+(18)
+E xtδW (Spf(Zp )) ( e
+
+Proof. Since the source and target of the functor are stacks, it is enoughQto show
+equivalence locally on the base Spf(Zp ). Therefore we may assume G = ni=1 µpri
+and hence
+n
+Y
+e=
+µpri /W (Spf(Zp )) .
+G
+i=1
+
+e is the kernel of a homomorphism between relatively affine and smooth
+Then G
+group schemes
+r1
+
+rn
+
+(p ,...,p
+e → Gn
+−→
+0→G
+m/W (Spf(Zp ))
+
+)
+
+Gnm/W (Spf(Zp )) .
+
+Further if Gm/W (Spf(Zp )) is given its usual δW (S) -structure, these maps are δW (S) equivariant, by proposition 4.1.2. Corollary 3.2.8 then implies the functor (18) is
+an equivalence.
+
+Proposition 4.2.2. The functor
+Ordδ → Ord : e
+E/W (S) 7→ E/S
+
+induced by pull-back along the first ghost component is an equivalence of groupoids.
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+31
+
+Proof. First, as G and H vary over all multiplicative and étale p-groups over
+Spf(Zp ) the maps
+
+E xtSpf(Zp ) (H, G) → Ord (G,H)
+
+form a cover of Ord. Indeed, an ordinary p-group over a p-adic affine scheme S is
+locally an extension of a split étale group H by a split multiplicative group G, and
+all such groups defined over Spf(Zp ). The claim will then follow if we can show
+that for each pair (G, H), the map E → E xtSpf(Z) (H, G) is an equivalence where
+E is the fibre product
+E
+
+/ E xtSpf(Z ) (H, G)
+
+
+Ordδ
+
+
+/ Ord.
+
+p
+
+The sections of E over a p-adic affine scheme S are triples
+∼
+e ×W (S) S −→
+(e
+E, E ′ , ρ : E
+E′)
+
+e is an ordinary δW (S) -p-group and E ′ /S is an extension of GS by HS . To
+where E
+show that
+E → E xtSpf(Zp ) (H, G)
+is an equivalence we will instead show that the natural map
+e G)
+e →E :E
+e 7→ (E,
+e E
+e ×W (S) S, id e
+(H,
+)
+E xtδ
+E×W (S) S
+
+W (Spf (Zp ))
+
+is an equivalence, from which the claim follows, as the composition
+e G)
+e → E → E xtSpf(Z ) (H, G)
+(H,
+E xtδ
+p
+
+W (Spf(Zp ))
+
+is isomorphic to the equivalence (18).
+∼
+e E′, ρ : E
+e ×W (S) S −→
+e adIf (E,
+E ′ ) is a section of E over S, then we claim that E
+e
+e
+mits a unique structure of an extension of GW (S) by HW (S) lifting the corresponding
+e ×W (S) S induced by ρ. But this is obvious, as the isomorphisms
+structure on E
+∼
+′
+eét ×W (S) S −→
+E
+Eét
+= HS
+
+and
+
+∼
+′
+emult ×W (S) S −→
+E
+Emult
+= GS
+
+induced by ρ lift uniquely to isomorphisms
+∼ e
+∼ e
+emult −→
+eét −→
+GW (S)
+HW (S) and E
+E
+
+e the structure of a δW (S) -extension of H
+e W (S) by
+by proposition 4.1.2, which gives E
+e
+GW (S) and so the map in question is essentially surjective.
+Moreover, if
+e1 , E1′ , ρ1 ) → (E
+e2 , E2′ , ρ2 )
+(fe, f ′ ) : (E
+is any isomorphism of sections of E over S then it is easy to check that the induced
+map of δW (S) -p-groups
+e1 → E
+e2
+fe: E
+e W (S) by G
+e W (S) and so
+is a morphism of the corresponding δW (S) -extensions of H
+the functor in question is also full and therefore an equivalence.
+
+Theorem 4.2.3. For each p-adic affine scheme S, the category of ordinary δW (S) p-groups is equivalent, via base change along the first ghost component, to the category of ordinary p-groups over S.
+
+32
+
+JAMES BORGER AND LANCE GURNEY
+
+Proof. By proposition 4.2.2, this functor induces an equivalence of the groupoids.
+In particular, it is essentially surjective, and so we need only show that it is fully
+faithful.
+First, the categories under consideration are exact, with admissible epimorphisms
+those which are epimorphisms of fpqc sheaves, and the functor, pull-back along the
+e and E
+e ′ of ordinary δW (S) first ghost component, is exact. Hence, fixing a pair E
+p-groups we obtain a morphism of exact sequences where the rightmost column
+denotes the groups of Yoneda extensions:
+e′ , e
+/ / Homδ
+e′ , e
+(E
+E)
+HomδW (S) (E
+W (S)
+ét E)
+
+′
+HomS (Eét
+, E) /
+
+
+/ HomS (E ′ , E)
+
+/ Homδ
+
+W (S)
+
+e′ , e
+(E
+mult E)
+
+
+/ HomS (E ′
+
+mult , E)
+
+/ Extδ
+
+W (S)
+
+e′ , e
+(E
+ét E)
+
+
+/ ExtS (E ′ , E).
+ét
+
+By proposition 2.2.4, the first vertical arrow is bijective; by proposition 4.1.2, the
+e′
+e
+third arrow is bijective (noting that any δW (S) -homomorphism E
+mult → E fac′
+e
+e
+tors uniquely as a δW (S) -homomorphism Emult → Emult , and any homomorphism
+′
+Emult
+→ E factors uniquely as a homomorphism Emult → Emult ); and by corollary 3.2.8, the fourth vertical arrow is bijective. Hence by the Five Lemma, the
+second vertical arrow is bijective and we are done.
+
+Remark 4.2.4. It follows from this theorem that the corresponding categories of
+ind-objects are equivalent—the the category of ordinary ind-p-groups is equivalent
+to that of ordinary ind-δW (S) -p-groups. In particular, the category of ordinary
+δW (S) -p-divisible groups is equivalent to the category of ordinary p-divisible groups
+over S.
+Therefore we have a canonical-lift functor for ordinary p-divisible groups over
+any base S. This will allow us to define canonical lifts of ordinary abelian schemes
+using the theorem of Serre–Tate.
+5. Canonical lifts of ordinary abelian schemes
+We refer the reader to chapter 1 of Faltings–Chai [15] for a concise review of
+the theory of abelian schemes in the language we will use. We emphasise that by
+Raynaud’s theorem ([15], p. 5), an abelian-scheme structure is étale-local on the
+base. So we may safely speak of abelian schemes over any sheaf.
+5.1. δ-structures on abelian schemes. Before we consider canonical lifts of ordinary abelian schemes we will need several lemmas on δ-structures and abelian
+schemes over ind-schemes S (which need not be p-adic).
+Lemma 5.1.1. Let S be an ind-scheme, let f : A → B be a homomorphism of
+abelian schemes over S and let S0 → S be a nilpotent immersion. If f ×S S0 = 0
+then f = 0. In other words, HomS (A, B) is formally unramified.
+Proof. We may assume that S is an affine scheme. If f ×S S0 = 0 then it follows
+that the homomorphism f : A → B factors through the formal completion of the
+identity section of B:
+b → B.
+A→B
+b
+However, B is the colimit of the infinitesimal neighbourhoods of the zero section
+in B, each of which is affine over S, so that as A is quasi-compact over S the
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+33
+
+homomorphism A → B factors through one of these infinitesimal neighbourhoods.
+But these neighbourhoods are all S-affine, and as A is an S-abelian scheme, it is
+anti-affine. Therefore this a map factors further through the structure map A → S.
+In other words, it is the zero homomorphism.
+
+Proposition 5.1.2. Let S be an ind-affine δ-sheaf, and let A and B be a pair
+of abelian schemes over S with δS -structures (not necessarily compatible with the
+group structures). Let f : A → B be an S-homomorphism. If f commutes with the
+relative Frobenius lifts on A and B, then it is a δS -morphism.
+Proof. Write S = colimi∈I Si as a filtered colimit of affine schemes. By theorem 1.9
+of chapter I of [15], for each i ∈ I the Si -scheme B ×S Si satisfies the hypotheses
+of lemma 2.6.1 so that we may apply lemma 2.6.2 and deduce that the relative
+coghost homomorphism
+γB/S,n : JSn (B) → B n+1 ×S n+1 S
+is affine. Taking the limit over n, we see for general reasons that
+γB/S : JS (B) → B N ×S N S
+is also affine.
+At the same time, A is a relative abelian scheme over S and hence is S-anti-affine.
+The claim then follows from proposition 2.6.3.
+
+Corollary 5.1.3. Let S be an ind-affine δ-sheaf, and let A/S be a relative abelian
+scheme over S. Then the following hold:
+(i) Two δS -structures on A are equal if and only if their relative Frobenius lifts
+ϕA/S (defined in (12)) agree.
+(ii) A δS -structure on A is compatible with the group law if and only if the
+relative Frobenius lift ϕA/S is a group homomorphism.
+Proof. (i) Apply proposition 5.1.2 to the morphism id : A → A, where the source
+has one δS -structure and the target has the other.
+(ii) Apply proposition 5.1.2 to the group law A ×S A → A.
+
+5.2. Canonical lifts. We now fix an ind-affine p-adic sheaf S. As pointed out in
+remark 4.2.4, we have a theory of canonical lifts for ordinary p-divisible groups over
+S. This allows us to define canonical lifts of ordinary abelian schemes using the
+theorem of Serre–Tate, which we recall below.
+Let S0 → S be a nilpotent thickening of p-adic sheaves and denote by DS0 /S
+the category whose objects are triples (G, A0 , h) where G/S is a p-divisible group,
+∼
+A0 /S0 is an abelian variety and h : G ×S S0 −→ A0 [p∞ ] is an isomorphism. A mor′
+′
+′
+phism (G, A0 , h) → (G , A0 , h ) is a homomorphism G → G′ and a homomorphism
+A0 → A′0 compatible with h and h′ in the evident sense.
+Theorem 5.2.1 (Serre–Tate). The functor from the category of abelian schemes
+over S to DS0 /S given by
+A/S 7→ (A[p∞ ], A ×S S0 , id)
+is an equivalence of categories.
+Proof. When S is affine, see 1.2.1 of [19] or the appendix of [13] or the original
+reference, theorem (2.3) on p. 166 of [25]. The general case then follows for formal
+reasons.
+
+
+34
+
+JAMES BORGER AND LANCE GURNEY
+
+Now, if A/S is an ordinary abelian scheme there exists a unique ordinary abelian
+scheme e
+A/W (S) with the property that e
+A[p∞ ]/W (S) is the unique ordinary δW (S) e
+p-divisible group lifting A[p∞ ]/S. We call A/W
+(S) the canonical lift of A/S.
+It also follows from theorem 5.2.1 that the abelian scheme e
+A/W (S) admits a
+unique lift of the Frobenius
+which is a homomorphism.
+
+∗
+e
+e
+ϕe
+A/W (S) : A → ϕW (S) (A)
+
+e
+Theorem 5.2.2. There is a unique δW (S) -structure on A/W
+(S) compatible with its
+group structure. Moreover, e
+A/W (S) is the unique deformation of A/S admitting a
+δW (S) -structure compatible with its group structure.
+
+e
+Proof. As A/W
+(S) admits a lift of the relative Frobenius which is a group homoe inducing this relative Frobenius
+morphism, uniqueness of a δW (S) -structure on A
+lift follows from corollary 5.1.3, which also shows that such a δW (S) -structure must
+be compatible with the group law.
+Moreover, any deformation of A/S along S → W (S) which admits a δW (S) structure compatible with the group law induces a δW (S) -structure on the corresponding p-divisible group, which must therefore be isomorphic to the p-divisible
+e
+group of A/W
+(S) in a unique way, and so such a deformation must also be isomore in a unique way.
+phic to A
+e
+It remains to show that there exists a δW (S) -structure on A/W
+(S) inducing the
+given relative Frobenius lift. For this we may first assume that S = Spec(R) is
+affine. We can then write R = colimi Ri as a filtered colimit of finitely presented
+Zp -algebras. By passage to the limit, any abelian scheme A/ Spec(R) comes from an
+abelian scheme Ai / Spec(Ri ) so that we may assume that R is a finitely presented
+Zp -algebra. Then R is of the form Zp [T1 , . . . , Tr ]/I where I is a finitely generated
+ideal containing some power of p. Since the deformation theory abelian schemes
+is unobstructed (see 8.5.24.(a) of [17]), we can find a compatible family of abelian
+schemes An / Spec(Zp [T1 , . . . , Tr ]/I n ) for n ≥ 1 with A1 = A, or in other words, an
+abelian scheme A′ over the p-adic formal scheme colimn Spec(Zp [T1 , . . . , Tr ]/I n ).
+Note that A′ is ordinary as A is and that colimn Spec(Zp [T1 , . . . , Tr ]/I n ) is a ptorsion free ind-affine sheaf. Therefore, in order to show that the relative Frobenius
+lift on the canonical lift of an ordinary abelian scheme comes from a δW (S) -structure,
+it is enough to do so for ordinary abelian schemes defined over p-torsion free indaffine schemes S of the form colimn Spec(Zp [T1 , . . . , Tr ]/I n ) where I contains some
+power of p.
+As the transition maps in the system S = colimn Spec(Zp [T1 , . . . , Tr ]/I n ) are
+ei →
+nilpotent immersions, it follows that we can find a representable open cover (A
+e
+e
+A)i where each Ai is a relatively affine and smooth W (S)-scheme. In particular they
+are p-torsion free ind-affine sheaves, as explained in remark 2.4.2. The Frobenius lift
+e
+e
+ϕe
+A/S restricts to each Ai (because A is p-adic and the Frobenius map is topologically
+ei with a unique δW (S) -structure by proposition 2.4.1.
+the identity) and equips each A
+Because of this uniqueness, the δW (S) -structures glue to give a δW (A) -structure on
+e itself which by construction induces the given Frobenius lift.
+A
+
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+35
+
+Theorem 5.2.3. Let S be a p-adic scheme. Then the category of ordinary δW (S) abelian schemes is equivalent, via base change along the first ghost component, to
+the category of ordinary abelian schemes over S.
+Proof. By theorem 5.2.2 every ordinary abelian scheme over S can be lifted to an
+ordinary abelian scheme over W (S) equipped with a compatible δW (S) -structure.
+Therefore, the functor in question is essentially surjective. Moreover, it is faithful
+by lemma 5.1.1, as S → W (S) is a nilpotent immersion.
+For fullness, let f : A → B be a homomorphism of ordinary abelian schemes over
+S. The restriction of f to the associated p-divisible groups lifts to a unique δW (S) morphism between the associated canonical lifts (of the p-divisible groups). By the
+Serre–Tate theorem (5.2.1), it follows that f itself lifts to a unique morphism
+e → B.
+e
+fe: A
+
+As the restriction of fe to the p-divisible groups is a δW (S) -homomorphism it follows
+that
+e
+e → ϕ∗
+fe ◦ ϕAe − ϕAe′ ◦ ϕ∗W (S) (fe) : A
+W (S) (B)
+
+is trivial on the p-divisible groups and is therefore trivial itself. Hence fe commutes
+e and B
+e is a δW (S) -homomorphism, by lemma 5.1.2. 
+with the Frobenius lifts on A
+
+5.3. Iterated canonical lifts. Since W (S) is also p-adic, we may iterate the
+canonical lift construction. However it follows from theorem 5.2.2 that there is
+a unique isomorphism
+ee ∼
+e
+A
+−→ W (W (S)) ×W (S) A
+
+of δW (W (S)) -abelian schemes lifting the identity map on A, where the implicit morphism W (W (S)) → W (S) in the product is the colimit of the maps Wn (Wm (S)) →
+Wm+n (S) induced by (5).
+One should view this as expressing the fact that the canonical lift functors equip
+moduli stack of ordinary abelian schemes over p-adic with a δ-structure, in the
+following sense.
+If M denotes the moduli stack in question, then we may formally take the jet
+space J(M ) := M ◦ W : an S-point of J(X) is an ordinary abelian scheme over
+e
+W (S). The canonical lift functor A/S 7→ A/W
+(S) is then a morphism
+α : M → J(M )
+
+such that the composition with the projection u : J(M ) → M is canonically
+isomorphic to the identity of M . The compatibility of iterated canonical lifts
+described above, then says that the left square below also commutes up to canonical
+isomorphism:
+M
+
+α
+
+/ J(M )
+
+ν
+
+
+/ J(J(M ))
+
+α
+
+
+J(M )
+
+J(α)
+
+α
+
+/ J(M )
+X❉
+❉❉
+❉❉
+❉❉
+❉❉ u
+idM
+" 
+M
+
+The reader may now compare with diagram (10) of 1.6 defining δ-structures on
+sheaves. Thus, the structure on M above is clearly a stack theoretic incarnation of
+that. However, the authors warn that δ-structures on stacks certainly require more
+than the simple commutativity (up to canonical isomorphism) of the diagrams
+
+36
+
+JAMES BORGER AND LANCE GURNEY
+
+above, and exactly which approach is best in this case will be left to others to
+consider.
+Thus, with the provisos mentioned above, we may view the canonical lift functor
+e as a δ-structure on the Spf(Zp )-stack of ordinary abelian varieties, even
+A 7→ A
+though it is not algebraic when g > 1.
+6. Duality and algebraisation
+6.1. Duality and polarisations. Let S be a p-adic sheaf and let A/S be an
+ordinary abelian scheme. It is easily checked that kernel of the relative Frobenius
+∗
+e
+e
+ϕA/W
+e
+(S) : A → ϕW (S) (A)
+
+e mult ⊂ A[p]
+e so that we can factor the multiplication-by-p map as
+is A[p]
+e
+A
+
+ϕA/W
+e
+(S)
+
+−→
+
+v
+
+e
+A/W
+(S)
+e
+ϕ∗W (A) ( e
+A) −→ A.
+
+It is immediate from the definition that the homomorphism
+∗
+e
+e
+ve
+A/W (S) : ϕW (S) (A) → A
+
+lifts the relative Verschiebung homomorphism. The dual of the relative Verschiebung
+is the relative Frobenius, and hence the dual of v e
+A/W (S)
+e∨
+e∨ → ϕ∗
+v ∨e
+:A
+W (S) (A )
+A/W (S)
+
+e∨ .
+defines a lift of the the relative Frobenius on the dual abelian scheme A
+
+e is compatible with duality.
+Proposition 6.1.1. The canonical lift functor A 7→ A
+∨ ∼ f
+∨
+e
+That is, there is a unique isomorphism A −→ A lifting the identity map on A∨ .
+
+Proof. By the uniqueness of theorem 5.2.2, it is enough to show that for an abelian
+e∨ of the canonical lift admits a δW (S) -structure compatible
+scheme A/S, the dual A
+with its group structure. As the canonical lift and the dual are compatible with
+base change we may, as in the proof of theorem 5.2.2, assume that S is a p-torsion
+e∨ admits a lift of the relative
+free ind-affine sheaf. We now need only show that A
+Frobenius which is compatible with its group structure, but by the remarks above
+we may take ϕAe∨ /W (S) := v ∨e
+.
+
+A/W (S)
+Corollary 6.1.2. Let λ : A → A∨ be a polarisation. Then its canonical lift
+e −→ A
+f∨ = (A)
+e∨
+λ̃ : A
+
+is a polarisation, locally of the same degree.
+
+Proof. This holds because being a polarisation is a property of the fibres λs over
+geometric points s of S, and W (S) is a ind-nilpotent thickening of S.
+
+Remark 6.1.3. As in section 5.3, we may therefore view the canonical lift functor
+e as a δ-structure on the algebraic Spf(Zp )-stack of ordinary abelian varieties
+A 7→ A
+of dimension g and with a polarisation of degree d2 . Because the stack is algebraic,
+this could no doubt be constructed more directly, as we did in [9].
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+37
+
+6.2. Algebraisation. Often the canonical lift of an abelian variety over a perfect
+field k is understood to be an abelian scheme over the affine scheme Spec(W (k))
+instead of the formal scheme Spf(W (k)). The following algebraisation theorem
+extends this to canonical lifts of families parametrised by a p-adic formal affine
+schemes S = colimm Spec(Rm ) whose transition maps are nilpotent immersions.
+Let us fix this notation for the remainder of this section, along with R = limm Rm .
+Theorem 6.2.1. Let A be a polarised ordinary abelian scheme over S. Then the
+e which is a polarised abelian scheme over the ind-scheme W (S), is
+canonical lift A,
+ealg over the affine scheme Spec(W (R)).
+algebraisable to a polarised abelian scheme A
+ealg admits a unique lift of the
+It is unique up to unique isomorphism. Moreover, A
+e
+Frobenius extending that on A.
+
+If we regard the canonical lift Ã as a map from W (S) to the moduli stack of
+polarized abelian varieties, the theorem says that this map prolongs to Spec(W (R)),
+uniquely up to unique isomorphism. We will prove it by invoking algebraisation
+results available in the literature, namely those in Bhatt’s paper [5].
+Proof. Let d2 denote the degree of the given polarisation of A. For any N ≥ 1,
+let AN denote the moduli stack of abelian varieties of dimension dimS (A) with full
+level-N structure and a polarisation of degree d2 . It follows from geometric invariant
+theory (theorem 7.9 of [26], p. 139) that AN is quasi-projective for sufficiently large
+N . Now fix such an N which is further not a multiple of p. Then AN is not
+only quasi-projective but also finite étale and G-Galois over the stack A1 = A /G,
+where G denotes the group controlling change of level structure. The existence of
+ealg now follows from lemma 6.2.2 below.
+the algebraisation A
+ealg . First, if f : A → B is a
+We now show that the Frobenius lift extends to A
+finite locally free homomorphism of ordinary abelian schemes over S and Aalg and
+B alg denote their algebraisations then there is a unique f alg : Aalg → B alg whose
+pull back to S is f . Indeed, we may assume that the degree of f is constant and
+equal to N , as the degree of is locally constant of S (i.e. for each N ≥ 1, the subsheaf SN ⊂ S where deg(f ) = N is both open and closed). Therefore, if A[f ] ⊂ A
+denotes the kernel of f then A[f ] ⊂ A[N 2 ] and so A[f ] algebraises uniquely to some
+A[f ]alg ⊂ Aalg [N ] by the equivalence of categories of finite locally free schemes over
+S and Spec(W (R)). It follows that Aalg /Aalg [f ] is an algebraisation of B = A/A[f ]
+∼
+and hence there is a unique isomorphism Aalg /Aalg [f ] −→ B alg and f alg is the
+composition:
+∼
+Aalg → Aalg /Aalg [f ] −→ B alg .
+Therefore, returning to the case at hand, we find a unique map
+ealg → ϕ∗ (A
+ealg ),
+ϕAealg : A
+
+e We now show that ϕ ealg is in
+whose pull-back to S is the Frobenius lift ϕAe of A.
+A
+fact a Frobenius lift.
+Let us write W (S)alg = Spec(W (R)), W (S)alg
+= W (S)alg ×Spec(Zp ) Spec(Fp ),
+p
+alg
+alg
+alg
+e ×W (S)alg W (S) and ϕ ealg = ϕ ealg ×W (S)alg W (S)alg .
+e =A
+A
+p
+p
+p
+A
+Ap
+
+alg
+The closed immersion W (S)alg
+induces a bijection on closed points,
+p → W (S)
+alg
+and each closed point of W (S) factors through W (S) → W (S)alg . It follows that
+ealg
+)→A
+− FrAealg
+at each closed point. Therefore, ker(ϕAealg
+agrees with FrAealg
+ϕAealg
+p
+p
+p
+p
+p
+
+38
+
+JAMES BORGER AND LANCE GURNEY
+
+ealg → Spec(W (R)/p) is smooth, it follows that
+is a nilpotent immersion. As A
+p
+h = ϕAealg
+− FrAealg
+is equal to the zero morphism after base change along the
+p
+p
+alg
+reduction (W (S)alg
+p )red → W (S)p . Finally, as h is finitely presented it follows
+that there is a nilpotent closed immersion Z → W (S)alg
+Z=0
+p such that h ×W (S)alg
+p
+and it now follows by rigidity that h = ϕA − FrA = 0 and therefore ϕAealg is a lift
+of the Frobenius.
+
+Lemma 6.2.2. Let Γ ⇒ X be a finite étale groupoid in schemes with X quasicompact and quasi-separated over Spec(Zp ). If Y denotes the quotient stack X/Γ,
+then the canonical functor
+∼
+
+Y (W (R)) −→ lim Y (Wn (Rm ))
+m,n
+
+is an equivalence.
+Proof. For any sheaf S the groupoid Y (S) is equivalent to the category of [Γ ⇒ X]torsors over S, where we recall that the category of [Γ ⇒ X]-torsors is given by the
+category of finite étale surjective maps S ′ → S equipped with a cartesian map of
+groupoids
+/Γ
+S ′ ×S S ′
+ 
+ 
+/X
+S′
+with the obvious notion of morphism.
+This description of Y (S) combined with the facts that 1) the categories of finite
+étale sheaves over Spec(W (R)) and over W (S) are equivalent and 2) the maps
+∼
+
+X(W (R)) −→ lim X(Wn (Rm ))
+m,n
+
+∼
+
+and Γ(W (R)) −→ lim Γ(Wn (Rm ))
+
+are bijective (remark 4.3 of [5]) gives the claim.
+
+m,n
+
+
+
+Corollary 6.2.3. If S is p-torsion free, then there is a unique δSpec(W (R)) -structure
+ealg / Spec(W (R)) extending that on A/W
+e
+on the algebraisation A
+(S).
+
+ealg . It then follows from
+Proof. Since S is p-torsion free, so are Spec(W (R)) and A
+alg
+e
+2.5.2 that A
+has a unique δSpec(W (R)) -structure inducing compatible with its
+Frobenius lift.
+
+
+Theorem 6.2.4. If S = Spec(R), where p is nilpotent in R, then there is a unique
+ealg / Spec(W (R)) extending that on
+δSpec(W (R)) -structure on the algebraisation on A
+e
+A/W (S).
+Proof. Since the moduli space of ordinary polarised abelian schemes is smooth and
+locally finitely presented, it follows that there exists a p-torsion free formal affine
+scheme S ′ = colimn Spec(Bn ), an ordinary polarised abelian scheme A′ /S ′ and a
+morphism S → S ′ such that A ∼
+= A′ ×S ′ S. (See the proof of 5.2.2.) As the
+ealg / Spec(W (R))
+algebraisation is functorial it follows that the algebraisation of A
+also admits a unique δSpec(W (R)) -structure.
+
+
+Remark 6.2.5. The theorem stated in the introduction follows from that above.
+Indeed, A/R is an ordinary abelian scheme and if A′ /W (R) is any abelian scheme
+
+CANONICAL LIFTS AND δ-STRUCTURES
+
+39
+
+lifting A/R and equipped with a δW (R) -structure compatible with its group struce
+ture then A′ ×Spec(W (R)) W (S) must be isomorphic to A/W
+(S) by 5.2.3 and so it
+′
+alg
+e by 6.2.1. Moreover, these isomorphisms
+follows that A must be isomorphic to A
+are compatible with the Frobenius lifts and hence with the δ-structures by 5.1.2.
+References
+[1] Théorie des topos et cohomologie étale des schémas. Tome 2. Springer-Verlag, Berlin, 1972.
+Séminaire de Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4), Dirigé par M. Artin,
+A. Grothendieck et J. L. Verdier. Avec la collaboration de N. Bourbaki, P. Deligne et B.
+Saint-Donat, Lecture Notes in Mathematics, Vol. 270.
+[2] Théorie des topos et cohomologie étale des schémas. Tome 3. Springer-Verlag, Berlin, 1973.
+Séminaire de Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4), Dirigé par M. Artin,
+A. Grothendieck et J. L. Verdier. Avec la collaboration de P. Deligne et B. Saint-Donat,
+Lecture Notes in Mathematics, Vol. 305.
+[3] Revêtements étales et groupe fondamental (SGA 1). Documents Mathématiques (Paris), 3.
+Société Mathématique de France, Paris, 2003. Séminaire de géométrie algébrique du Bois
+Marie 1960–61. Directed by A. Grothendieck, With two papers by M. Raynaud, Updated
+and annotated reprint of the 1971 original [Lecture Notes in Math., 224, Springer, Berlin].
+[4] F. Andreatta and C. Gasbarri. The canonical subgroup for families of abelian varieties. Compositio Mathematica, 143(3):566602, 2007.
+[5] Bhargav Bhatt. Algebraization and Tannaka duality. Camb. J. Math., 4(4):403–461, 2016.
+[6] James Borger. Λ-rings and the field with one element. arXiv:0906.3146v1.
+[7] James Borger. The basic geometry of Witt vectors, I: The affine case. Algebra Number Theory,
+5(2):231–285, 2011.
+[8] James Borger. The basic geometry of Witt vectors. II: Spaces. Math. Ann., 351(4):877–933,
+2011.
+[9] James Borger and Lance Gurney. Canonical lifts of families of elliptic curves. Nagoya Math.
+J., 233:193–213, 2019.
+[10] A. K. Bousfield. On λ-rings and the K-theory of infinite loop spaces. K-Theory, 10(1):1–30,
+1996.
+[11] Alexandru Buium. Differential characters of abelian varieties over p-adic fields. Invent. Math.,
+122(2):309–340, 1995.
+[12] Aise Johan De Jong and William Messing. Crystalline Dieudonné theory over excellent
+schemes. Bulletin de la Société Mathématique de France, 127(2):333–348, 1999.
+[13] V. G. Drinfeld. Coverings of p-adic symmetric domains. Funkcional. Anal. i Priložen.,
+10(2):29–40, 1976.
+[14] Altan Erdoğan. A universal formula for the j-invariant of the canonical lifting. Journal of
+Number Theory, 150:26–40, 2015.
+[15] Gerd Faltings and Ching-Li Chai. Degeneration of abelian varieties, volume 22 of Ergebnisse
+der Mathematik und ihrer Grenzgebiete (3). Springer-Verlag, Berlin, 1990. With an appendix
+by David Mumford.
+[16] Luı́s R. A. Finotti. Lifting the j-invariant: questions of Mazur and Tate. J. Number Theory,
+130(3):620–638, 2010.
+[17] Luc Illusie. Grothendieck’s existence theorem in formal geometry. In Fundamental algebraic
+geometry, volume 123 of Math. Surveys Monogr., pages 179–233. Amer. Math. Soc., Providence, RI, 2005. With a letter (in French) of Jean-Pierre Serre.
+[18] André Joyal. δ-anneaux et vecteurs de Witt. C. R. Math. Rep. Acad. Sci. Canada, 7(3):177–
+182, 1985.
+[19] N. Katz. Serre-Tate local moduli. In Algebraic surfaces (Orsay, 1976–78), volume 868 of
+Lecture Notes in Math., pages 138–202. Springer, Berlin-New York, 1981.
+[20] Andreas Langer and Thomas Zink. De Rham-Witt cohomology for a proper and smooth
+morphism. J. Inst. Math. Jussieu, 3(2):231–314, 2004.
+[21] Eike Lau. Displays and formal p-divisible groups. Inventiones mathematicae, 171(3):617–628,
+2008.
+[22] Eike Lau. Divided Dieudonné crystals. arXiv preprint arXiv:1811.09439, 2018.
+
+40
+
+JAMES BORGER AND LANCE GURNEY
+
+[23] Michel Lazard. Commutative formal groups. Lecture Notes in Mathematics, Vol. 443.
+Springer-Verlag, Berlin-New York, 1975.
+[24] Vikram B Mehta and Vasudevan Srinivas. Varieties in positive characteristic with trivial
+tangent bundle. Compositio Mathematica, 64(2):191–212, 1987.
+[25] William Messing. The crystals associated to Barsotti-Tate groups: with applications to abelian
+schemes. Lecture Notes in Mathematics, Vol. 264. Springer-Verlag, Berlin-New York, 1972.
+[26] D. Mumford, J. Fogarty, and F. Kirwan. Geometric invariant theory, volume 34 of Ergebnisse
+der Mathematik und ihrer Grenzgebiete (2) [Results in Mathematics and Related Areas (2)].
+Springer-Verlag, Berlin, third edition, 1994.
+[27] Jean-Pierre Serre. Local fields, volume 67 of Graduate Texts in Mathematics. Springer-Verlag,
+New York, 1979. Translated from the French by Marvin Jay Greenberg.
+[28] Wilberd van der Kallen. Descent for the K-theory of polynomial rings. Math. Z., 191(3):405–
+415, 1986.
+[29] Ernst Witt. Zyklische Körper und Algebren der Charakteristik p vom Grad pn . Struktur
+diskret bewerteter perfekter Körper mit vollkommenem Restklassen-körper der charakteristik
+p. J. Reine Angew. Math., (176), 1937.
+[30] Thomas Zink. Windows for displays of p-divisible groups. In Moduli of abelian varieties,
+pages 491–518. Springer, 2001.
+[31] Thomas Zink. The display of a formal p-divisible group. Astérisque, 278:127–248, 2002.
+Mathematical Sciences Institute, Australian National University, Canberra, Australia
+E-mail address: james.borger@anu.edu.au
+
+

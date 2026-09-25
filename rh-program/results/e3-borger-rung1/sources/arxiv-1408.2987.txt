@@ -1,0 +1,616 @@
+An approach to F1 via the theory of Λ-rings
+
+arXiv:1408.2987v1 [math.NT] 13 Aug 2014
+
+by Stanislaw Betley
+
+0. Introduction.
+This note is devoted to the preliminary study of the concept of Borger from [B], that
+the decent data from Z to F1 for commutative rings is the Λ-structure. More precisely, he
+claims, that the category of rings over F1 should consist of Λ-rings and the restriction of
+scalars from Z to F1 takes any commutative ring R to its ring of Witt vectors W (R) with
+the canonical Λ-structure. In this approach the mythical field F1 is equal to the ring of
+integers Z with the canonical Λ-structure. We will denote it as Zλ or just F1 throughout
+the sections 1-4.
+In [Be] we proved that the categorical ζ-function of the category of commutative
+monoids calculates the Riemann ζ-function of the integers. This was done in order to
+support the idea, that while trying to view Z as a variety over the field with one element
+we should consider integers as multiplicative monoid without addition. The idea that Z
+treated as a variety over F1 should live in the category of monoids is well described in
+the literature, see for example [KOW] or [D]. But, because category of monoids is too
+rigid, most authors instead of working with monoids directly extend their field of scalars
+from F1 to Z (or other rings), assuming that scalar extension from F1 to Z should take a
+monoid A to its monoid ring Z[A]. This agrees well with the expectation that rings should
+be treated in the category of monoids as monoids with ring multiplication as a monoidal
+operation. Then the forgetful functor from rings to monoids and the scalar extension as
+described above give us the nice pair of adjoint functors. But this approach carries one
+disadvantage. It takes us quickly from formally new approach via monoids to the classical
+world of rings and modules over them or to other abelian categories. Working with Λ-rings
+seems to be a good way of overcoming this disadvantage. We will preserve monoidal point
+of view but our approach will allow to use more algebra-geometric methods then the ones
+which are at hand in the world of monoids.
+The definition of F1 as above does describe this object almost like a field. If Λoperations are part of the structure then the ideals in our rings should be preserved by
+them. It is easy to observe that in Zλ there are no proper ideals preserved by Λ-operations.
+We will try to justify the following point of view that in the category of Λ-rings we can
+calculate the Riemann ζ of the integers in two ways. One - as the ζ-function of the category
+of modules over Zλ and the other (geometric) via calculating numbers of fixed points of
+the action of the Frobenius morphism on the affine line over the algebraic closure of Zλ .
+In order to show that our program works we will try first of all to answer the question
+what is the algebraic closure of F1 . Then we show that the ζ-function of the affine line
+over F1 calculated by the generating function is the same as the ζ-function of integers.
+Next we have to find the proper category of modules over F1 and calculate its categorical
+1
+
+ζ function. At the end we prove that the categorical ζ-function of the category of modules
+over F1 is equal to the ζ-function of the integers.
+I. F1 and the category of commutative monoids.
+Let Mab denote the category of commutative monoids with unit and unital maps.
+This section is devoted only to the rough description of certain features of Mab which are
+crucial for our approach in the next sections. They are either obvious or well described
+elsewhere so we are very brief here.
+Let us start from a some piece of notation. We will denote by N∗ the multiplicative
+monoid of natural numbers. The symbol N+ denotes the monoid of natural numbers with
+addition. Observe that any monoid M ∈ Mab carries natural action of N∗ by identifying
+k ∈ N∗ with ψ k : M → M where ψ k (m) = mk . This structure is obvious in Mab and adds
+very little while studying monoids, but should be reflected always, when we want to induce
+structures from Mab to other (abelian) categories. This action will be addressed as an
+action of Adams operations on M . We can also interpret it as an action of the powers of the
+Frobenius endomorphism. Observe that in characteristic p the Frobenius endomorphism
+acts by rising an element to the pth power. We propose to view the Frobenius action in a
+uniform, characteristic free way. In any structure by Frobenius action we mean an action
+of N∗ where k ∈ N∗ acts by rising an element to the kth power if this gives a morphism
+in the considered structure or k acts as identity.
+In [D] Deitmar developed the algebraic geometry in the setting of monoids, associating
+to M ∈ Obj(Mab ) a topological space with a sheaf of monoids which resembles a spectrum
+of prime ideals of a commutative ring with its structural sheaf. In his language F1 is the
+one element monoid consisting only of the unit.
+Definition 1.1: For any unital monoid M we define the polynomial ring over M by
+M [X] = M × N+ .
+We write axn for the element (a, n) with convention (a, 0) = a. The evaluation of axn at
+the point b ∈ M equals abn .
+Remark 1.2: Our definition agrees with the general expectation ( compare [D], [S])
+that scalar extension from F1 to Z should take any monoid A to its integral monoid ring
+Z[A]. Indeed we have an isomorphism of rings
+Z[M × N+ ] → Z[M ][X]
+given by the formula
+n
+
+Σ zi (ai , ni ) 7→ Σzi ai X i
+
+i∈I
+
+Since we know what is the polynomial ring over a monoid we can try to imagine what
+is the algebraic closure of F1 .Typically, when we want to close algebraically a field K we
+2
+
+have to add to it, at least, all roots of elements of K (this is sufficient in the finite field
+case). In other words we can say that K̄ is the minimal field which contains all roots of
+the elements of K and has no algebraic extensions. This second condition is equivalent to
+saying that all roots of elements of K̄ are contained in K̄. So it is not surprising to say:
+Remark 1.3: F̄1 = Q/Z
+For any monoid M we write M+ for M with 0 added to it. This is important when we
+want to talk about geometric points of varieties over F1 . In [D] prime ideals in M are given
+by subsets of M satisfying obvious for ideals conditions. Empty set is a good prime ideal,
+and it is necessary to consider it at least in order to have one point in Spec(F1 ). When we
+have a variety M over F1 (a monoid) and B is an extension of F1 we can talk about M (B),
+the B-points of M . They are equal(following [D]) to HomMab (M+ , B+ ). Here we have to
+add zeros to monoids because a map cannot have an empty value on some element.
+We can calculate the number of points of N+ , treated as an affine line over F1 , in
+F̄1 . The Frobenius action on Q/Z extends to the action on Q/Z-points of N+ . We easily
+calculate that for k ∈ N∗ we have the following formula for the order of the set of fixed
+points:
+|(N+ (Q/Z))k | = k
+If we view the Weil zeta function for varieties over Fp as a way of keeping track of
+the numbers of their points over F̄p fixed by the action of the powers of the Frobenius
+morphisms then we get the formula for the Riemann zeta function ζR in the similar spirit
+in Mab :
+∞
+
+ζ(N+ , s) = Σ |(N+ (Q/Z))k |−s
+k=1
+
+As we said in the introduction the geometry in Mab is too weak to expect that we
+can fulfill Deligné’s program there and approach the Riemann conjecture. But the picture
+described above is very basic and leads to the correct ζ function. This implies that we
+want to see our more sophisticated structures of F1 -objects as the structures induced from
+the picture described above.
+II. Preliminaries on Λ-rings.
+Our rings are always commutative with units. Following [Y, Definition 1.10] we have:
+Definition 2.1: A λ-ring is a ring R together with functions
+λn : R → R
+satisfying for any x, y ∈ R:
+(1) λ0 (x) = 1,
+(2) λ1 (x) = x,
+(3) λn (1) = 0 for n ≥ 2,
+3
+
+(n ≥ 0)
+
+P
+(4)λn (x + y) = i+j=n λi (x)λj (y),
+(5) λn (xy) = Pn (λ1 (x), ..., λn(x); λ1 (y), ..., λn(y)),
+(6) λn (λm (x)) = Pn,m (λ1 (x), ..., λnm(x)).
+Above Pn and Pn,m are certain universal polynomials with integer coefficients obtained
+via symmetric functions theory (see [Y, Example 1.9 and 1.7]). By a homomorphism of
+Λ-rings we mean a ring homomorphism which commutes with Λ-operations. We say that
+x ∈ R is of degree k, if k is the largest integer for which λk (x) 6= 0. If such finite k does
+not exist we say that x is of infinite degree. Observe that (by formula 4) the map
+R ∋ x 7→ Σ λi (x)ti
+i≥0
+
+is a homomorphism from the additive group of R to the multiplicative group of power
+series over R with constant term 1. We will denote this map as λt (x). Observe also that
+λt (0) = 1 and hence λt (−r) = λt (r)−1 .
+Ring of integers Z carries the unique, canonical Λ-ring structure described by the
+. Similarly all integral monoid rings Z[M ] will be considered with
+formula λn (m) = m
+n
+the Λ structure defined for any m ∈ M by formulas
+λ1 (m) = m
+λi (m) = 0 for i > 1.
+We will always considered integral monoid rings with such Λ-structure, because it corresponds well with the monoidal point of view on the field with one elements.
+Lemma 2.2: Let R be equal to the monoidal Λ-ring Z[M ] with the Λ-structure
+defined above. Then in R only generators m ∈ M ⊂ Z[M ] are of degree 1.
+Proof. We know that the elements of M are of degree 1. By separating positive and
+negative coefficients we get Z[M ] ∋ r = Σki=1 ai mi − Σlj=1 bj mj , where all ai s and bj s
+belong to Z and are greater than 0. Observe that the assumption that r is of degree 1
+implies that λt (r) = 1 + bt for a certain b ∈ Z[M ]. We can easily calculate λt -functions in
+the case of monoidal rings. Let m ∈ M and a be a positive integer. Then
+λt (am) = λt (m)a = (1 + mt)a
+Hence we easily get
+k
+
+l
+
+i=1
+
+j=1
+
+λt ( Σ ai mi − Σ bj mj ) =
+
+k
+Y
+
+ai
+
+(1 + mi t) /
+
+l
+Y
+
+(1 + mj t)bj
+
+j=1
+
+i=1
+
+If r is of degree 1 we have equality
+(∗)
+
+k
+Y
+
+(1 + mi t)
+
+ai
+
+= (1 + bt)
+
+i=1
+
+l
+Y
+
+(1 + mj t)bj
+
+j=1
+
+4
+
+From this, by comparing coefficients at the highest degree of t we get
+b=
+
+k
+Y
+
+ai
+
+(mi ) /
+
+i=1
+
+l
+Y
+
+(mj )bj
+
+j=1
+
+and hence b ∈ M . On the other hand, when we calculate the coefficient at the first degree
+in the equality (*) we get
+k
+
+l
+
+i=1
+
+j=1
+
+Σ ai mi = b + Σ bj mj
+
+But by the definition of ai s and bj s this is possible only when r = b ∈ M .
+Let Mab denote the category of commutative monoids with unit and Ring λ stands for
+the category of commutative unital rings with Λ-structure. We have:
+Proposition 2.3: The functor Mab → Ring λ , which takes a monoid M to the Λ-ring
+Z[M ] with the Λ-structure defined above has a right adjoint Ring λ → Mab which takes a
+Λ-ring R to the multiplicative monoid R1 of its elements of degree not exceeding 1.
+Proof. By [Y, Proposition 1.13] we know that in any Λ-ring the product of 1dimensional elements is again 1-dimensional (or equal to 0). Hence R1 is a well defined multiplicative submonoid of R considered here as the multiplicative monoid. If
+f ∈ M orRing λ (R, S) then f carries 1 dimensional elements of R to 1 dimensional elements
+of S or to 0 by the definition of a Λ-homomorphism. Hence our right adjoint is well defined.
+The rest of the proof is obvious.
+The Λ-operations on a ring R define on it the sequence of Adams operations ψ k : R →
+R which are natural ring homomorphisms. They can be defined by the Newton formula:
+ψ k (x) − λ1 (x)ψ k−1 (x) + ... + (−1)k−1 λk−1 (x)ψ 1 (x) = (−1)k−1 kλk (x)
+For their properties see [Y, chapter 3]. It is straightforward to check that the canonical
+λ-structure on Z defines trivial Adams operations and the formula m 7→ mk for m ∈ M
+determines the kth Adams operation on the monoidal ring Z[M ]. Adams operations can
+be viewed always as an action on a considered structure by the multiplicative monoid
+N∗ of natural numbers. Every object M of Mab has naturally such a structure as was
+described in Section 1. So proposition 2.3 can be viewed as a statement about adjoint
+functors between categories with objects carrying the action of N∗ . It is easy to check
+that the N∗ action on Z[M ] given by k(m) = mk while treated as the action of Adams
+operations forces to have λ-structure on Z[M ] satysfying λi (m) = 0 for i > 1.
+Observe that if we consider natural numbers N+ as a monoid with addition, then for
+any ring R we have a description of the polynomial ring over R via the formula
+R[x] = R[N+ ] = R ⊗ Z[N+ ].
+Hence we will consider Z[N+ ] as polynomial ring over F1 in the rest of the paper, with
+Λ-structure defined like for any other monoidal ring. Moreover, for any Λ-ring R we
+5
+
+have well defined Λ-structure on R[x] because tensor product of rings inherits it from the
+Λ-structures of the factors.
+Definition 2.4: Let R be a Λ-ring and I is an ideal in R. We will call it a Λ-ideal if
+it is preserved under the action of λk , for any k > 0.
+It is straightforward to check that if we divide a Λ-ring by a Λ-ideal then R/I carries
+the induced Λ-structure and the quotient homomorphism R → R/I is a homomorphism
+of Λ-rings. Of course the opposite is also true: a kernel of the Λ-rings homomorphism is
+a Λ-ideal. For computations important is that an ideal I in a Λ-ring R with Z-torsion
+free quotient is a Λ-ideal if and only if it is preserved by the Adams operations (see [Y,
+Corollary 3.16]).
+III. Algebraic extensions of F1 and its algebraic closure F̄1 .
+As we said in the introduction, the Λ-ring Zλ (our hypothetical F1 ) can be treated
+as a field because it contains no proper Λ-ideals. We have defined the ring of polynomials
+over F1 . On the other hand we can always view an algebraic closure of a field via the ring
+of polynomials and its quotients. If K is a field we know that every algebraic extension
+of K should be contained in K̄. We know that every algebraic extension of K is build
+out of simple extensions K ⊂ K(a) where a is a root of a non-decomposable polynomial
+fa ∈ K[x]. Moreover, for simple extensions we have the formula K(a) = K[x]/(fa ). It
+means that we can view K̄ as a sum of the fields of the form L[x]/(f ) where L is an
+algebraic extension of K or even as a sum of simple extensions K[x]/(f ). We will try to
+use this point of view in our context but remembering all the time about the Λ-structures
+on our objects. Let us start from the following lemma:
+Lemma 3.1: Every monic polynomial f , which generates the principal Λ-ideal in
+F1 [x] has only roots of unity or 0 as his roots in C. If f (µn ) = 0, where µn is the prime
+root of 1 of degree n, then xn − 1 | f (and hence n ≤ deg(f )).
+Proof. Because our polynomials are monic the quotients of F1 [x] by ideals generated
+by them are torsion free. Hence instead of working with λ-operations we can assume that
+our ideals are preserved by all Adams operations. Assume that an ideal I is generated by
+a polynomial f (x) = an xn + an−1 xn−1 + ... + a0 . Then ψ k (an xn + an−1 xn−1 + ... + a0 ) =
+an xkn + an−1 xk(n−1) + ... + a0 . This formula implies that if a is a root of f then ak is also
+a root of f for any natural k, when we calculate roots in the field of complex numbers. To
+see this observe that the evaluation at a map ea : F1 [x] → C is a homomorphism of rings.
+Let I = ker(ea ) then (f ) ⊂ I and because ψ k ((f )) ⊂ (f ) then ψ k (f ) ∈ (f ) ⊂ I. But for a
+polynomial f the statement that if a is a root of f then ak is also a root for any natural
+k implies directly that a is a root of 1 or a = 0. Hence all the zeros of f are the roots of
+unity or are equal to 0. On the other hand if a is a primitive root of 1 of degree s and
+f (a) = 0 then all the other roots of unity of degree s are among the zeros of f , again by
+the argument with Adams operations. This implies immediately our statement.
+6
+
+Definition 3.2: Let K be a Λ-ring. We will say that f ∈ K[x] is non-decomposable
+if the principal ideal (f ) is preserved by the Λ-operations and there is no decomposition
+f = f1 · f2 such that deg(f1 ) > 0, deg(f2 ) > 0 and both ideals (f1 ) and (f2 ) are preserved
+by the Λ-operations.
+Lemma 3.1 describes what are the non-decomposable polynomials in F1 [x]. In our
+approach we would like to take the following definition for an algebraic extension in the
+category of Λ-rings (field extensions of F1 ).
+Definition 3.3: Let F be a Λ-ring without nilpotent elements. We say that:
+i. K ⊃ F is a simple algebraic extension of F if K is isomorphic to F [x]/(f ) for some
+non-decomposable f ∈ F [x] and K has no nontrivial Λ-quotients except F itself.
+ii. K is an algebraic extension of F of finite degree if there is a sequence of simple
+extensions F ⊂ K1 ⊂ ... ⊂ Ks ⊂ K.
+iii. K is an algebraic extension of F if every k ∈ K is contained in a finite degree
+algebraic extension Lk of F , which is contained in K.
+We say that L is an algebraic closure of K, L = K̄, if L is an algebraic extension of K,
+for any finite degree algebraic extension K ֒→ L1 we have a factorization K ֒→ L1 ֒→ L and
+L is minimal with respect to this property. We care only about monic f ’s because otherwise
+F1 [x]/(f ) contains torsion elements which are always nilpotent in any Λ-structure. Some
+explanation why we have to accept that a field has a nontrivial quotient is contained in
+Remark 3.5.
+Proposition 3.4: F̄1 = F1 [Q/Z].
+Proof. Observe first that the simple algebraic extension of F1 is isomorphic to
+F1 [x]/(xp − 1) for some prime number p. This follows directly from 3.1 because if our
+extension is of positive degree and has presentation as F1 [x]/(f ) then 3.1 implies that
+xk − 1 divides f for a certain positive k. But then either our extension has the forbidden
+quotient F1 [x]/(xk −1) (we will say in the future that f has a forbidden factor) or f = xp −1
+for a prime p. So we see that every simple algebraic extension of F1 is isomorphic to F1 [µp ]
+for a prime number p which can also be interpreted as a group ring Z[Cp ] for a cyclic group
+Cp of order p.
+Now assume that K is a simple algebraic extension of F1 [µn ]. We know that K has
+a presentation as F1 [µn ][x]/(f ) for a certain non-decomposable f ∈ F1 [µn ][x]. Observe,
+that for any a ∈ F1 [µn ] , ψ n (a) ∈ Z. Moreover for any g ∈ F1 [µn ][x] , ψ n (g) ∈ F1 [x]
+by the description of Adams operations. We are using here first of all the fact that the
+F1 [µn ][x] = F1 [µn ] ⊗Z F1 [x] and the Λ-operations on the tensor product are induced from
+those on the factors. Secondly, Adams operations are fully described by Λ-operations and
+they are natural ring homomorphisms.
+So we know that ψ n (f ) ∈ F1 [x]. We can apply to it the same procedure as in the
+proof of 3.1 and get that if a is a root of ψ n (f ) then all its powers have also this property.
+So any root of ψ n (f ) is a root of 1 or 0 and the statement of 3.1 is fulfilled for ψ n (f ).
+Because f |ψ n (f ) we know that all roots of f are roots of 1 of degree not exceeding nk,
+7
+
+where k = deg(f ) (zero can be excluded from our considerations). The polynomial f
+cannot have any root of 1 of degree n. If this would be the case then, because xn − 1
+is fully decomposable in F1 [µn ][x], f would have a forbidden quotient. Consider first the
+special case and assume that f has a root of prime degree p, and (n, p) = 1. This implies
+that xp − 1|ψ n (f ). But f |ψ n (f ) and f and xp − 1 have a common root. Moreover xp − 1
+has no root besides 1 in F1 [µn ]. Hence xp − 1|f and this implies that f = xp − 1 or f
+has forbidden quotient. Now we can consider the general case. Let a be a root of f . We
+know that ank = 1 and an 6= 1. This implies that a is a root of 1 of degree ns and s|k. So
+ans = (as )n = 1 and hence as is a root of 1 of degree n. By the same considerations as in
+the special case we get now that f = xp − µin ∈ F1 [µn ][x] and p = s is a prime.
+Observe that with n and p as in the special case we have
+F1 [µn ][x]/(xp − 1) = Z[Cn ][Cp ] = Z[Cn × Cp ] = Z[Cnp ] = F1 [µnp ]
+In the general case observe that aµn is of degree pn and freely generates F1 [µn ][x]/(xp −µin )
+over Z so we can write:
+F1 [µn ][x]/(xp − µin ) = Z[Cnp ] = F1 [µnp ]
+This implies directly our proposition.
+Remark 3.5: Unlike F1 all field extensions of F1 have nontrivial quotients so they
+contain ”ideals”. Obviously (x − 1)|(xn − 1) and this implies that there is a λ-ring map
+F1 [µn ] → F1 given by augmentation. This is caused by the fact that we induce our
+structures from the category Mab where one point monoid 1 is a zero object. It means
+that beside the map 1 → M for any M ∈ Mab we have also M → 1 and this should be
+reflected in the category of λ-rings. Moreover in Mab we have a notion of a quotient object,
+the quotient map there commutes always with the action of N∗ so we have to allow the
+existence of quotients of our ”fields”.
+Since we have the algebraic closure of F1 we can look for the ”powers of the Frobenius
+morphism”. Recall the well known fact from algebraic geometry over finite fields. If F̄p is
+an algebraic closure of FP and X is a variety over Fp then
+X(Fpn ) = X(F̄p )n
+Here X(K) denotes the K-points of X and Y n denotes the fixed points of the nth power
+of the Frobenius morphism action on Y . We would like to have the similar formula over
+F1 . For the points of the variety over different fields we have universal solution. If R is a
+Λ-ring and X is a variety over F1 then
+X(R) = M or(R, X)
+where the morphism set is taken in the category of varieties. In the affine case, but what
+we mean X is described by another Λ-ring S (X = spec(S)) we have as usual
+M or(R, X) = HomΛ−rings (S, R)
+8
+
+Affine case R = Z[M ] with M - monoid is crucial for us and in this case we can give
+precise meaning to the superscript n. A Λ-ring structure on R implies that there is a
+homomorphism i : R → W (R), where W (R) is a ring of big Witt vectors over R. For any
+n we have a Frobenius morphism fn : W (R) → W (R). If we wiew W (R) as invertible
+formal power series in indeterminant t with addition given by series multiplication and
+multiplication coming from ghost coordinates then i(r) = 1 + rt for any r ∈ R of degree
+one. For such elements
+fn (1 + rt) = (1 + r n t) = ψ n (1 + rt)
+Hence we can assume that Frobenius action of n ∈ N on Z[M ] is realized by rising monoidal
+generators to the nth power. In other words it means this action is realized by the Adams
+operations.
+Let now X = Z[x]. Then X(F̄1 ) = HomΛ−rings (Z[x], F1 [Q/Z]). Observe that every
+Λ-homomorphism from Z[x] is determined by the image of x which should be contained in
+elements of degree not exceeding 1. In the case of monoidal rings
+HomΛ−rings (Z[x], Z[M ]) = M+
+because as an image of x can be taken any element of M or 0 and by 2.2 that is all. As
+usual M+ = M ∪ {0}. The Frobenius action is realized by Adams operations. Hence we
+calculate that the set X(F̄1 )n consists of the roots of unity of degree n − 1 plus additional
+element 0 so has cardinality n. From this we get the following formula for the ordinary
+Riemann ζ-function ζR :
+∞
+ζR = Σ 1/X(F̄1 )n
+n=1
+
+where X is an affine line over F1 equal to Z[x].
+IV. Categorical ζ function over F1 .
+Let us start from recalling after Kurokawa (compare [K]) the definition of the zeta
+function of a category with 0. If C is a category with 0 we say that X ∈ Ob(C) is simple if
+for any object Y the set HomC (X, Y ) consists only of monomorphisms and 0. Let N (X),
+the norm of X, denote the cardinality of the set EndC (X). We say that an object X is
+finite if N (X) is finite. We denote by P (C) the isomorphism classes of all finite simple
+objects of C. Then we define the zeta function of C as
+Y
+ζ(s, C) =
+(1 − N (P )−s )−1
+P ∈P (C)
+
+In [K] Kurokawa studied the properties of such zeta functions but for us the crucial
+is:
+Remark 4.1: Let Ab denote the category of abelian groups and ζR stands for the
+Riemann zeta function of the integers. Then
+ζ(s, Ab) = ζR
+9
+
+The following observation was the starting point for our considerations and it underlines the role of the category of abelian monoids. Recall that Mab denote the category of
+abelian monoids with unit and unital maps. In [Be] we proved:
+Theorem 4.2:
+ζR · (1 − 2−s )−1 = ζ(s, Mab )
+Hence the category of monoids carries all the information needed for calculating the
+Riemann ζ-function of the integers. We want to look at its categorical calculation from 4.1
+in a slightly different way, which is suitable for generalizations. First of all we underline
+that we are working in the category of Z-modules. There are good analogs of the category
+of modules over an object X of an abstract category C which has 0 and all finite limits.
+Beck in [Bec] defined them as abelian group objects in the category of objects over X
+(see also [H, chapter 2] ). As is shown in [H] the category of abelian group objects in the
+category of rings over a given ring R is equivalent to the category of R-modules, where an
+R-module X defines the square zero extension of R with X as a square-zero ideal. In the
+case of R = Z we get, as expected, the category of abelian groups. An abelian group X
+corresponds to the square zero extension Z ⊲ X. The finite simple objects in the category
+of rings over Z are easily seen to come from the simple abelian groups (finite cyclic groups
+Cp of prime order p). For a given p we see that N (Cp ) is equal to the cardinality of the
+set HomRings/Z (Z[x], Z ⊲ Cp ). The polynomial ring Z[x] is treated as a ring over Z via
+the map which takes x to 0. All this means that we have the geometrical method for
+calculating the categorical ζ of integers. We just have to count the Z ⊲ Cp -points of the
+affine line over Z.
+We can perform the calculation as above for any commutative ring R because finite
+simple objects in the category of R-modules correspond to the maximal ideals I ⊂ R with
+finite quotient and one checks immediately that the cardinality of HomRings/R (R[x], R ⊲
+R/I) is the same as the cardinality of HomR−mod (R/I, R/I). Moreover this cardinality is
+the same as the number of elements of the residue field at the closed point corresponding
+to I in Spec(R) so we are really calculating the classical ζ-function of an affine variety
+Spec(R).
+Observe that we can perform the same calculations in the category Mab , where the
+role of integers is played by the field of one element in the sense of [D]. But this gives us
+no new insight because in the world of monoids the field of one element is represented by
+one point monoid 1 consisting of 1 only, so we have equality of categories Mab /1 = Mab .
+The affine line over 1 is equal to the monoid of natural numbers with addition.
+We want to promote here the point of view that calculations of categorical ζ function
+should have geometric meaning. By this we mean that if in a category C we have ”ground
+field A” related to it such that all objects in C have the A-structure and moreover we know
+what is the affine line A[x] in C then categorical ζ-function of C should be defined in a
+geometrical way. But of course in such generality we can expect to have artificial objects
+in C. To exclude them we will call a finite simple object P in C geometrically finite if
+n(P ) = |M orC (A[x], P )| is finite. Then we define the geometrical ζ-function of C by the
+formula
+10
+
+ζg (s, C) =
+
+Y
+
+(1 − n(P )−s )−1
+
+P ∈P ′ (C)
+
+where P ′ (C) denote the set of isomorphism classes of geometrically finite objects of C with
+n(P ) > 1. Geometrically finite simple object P with n(P ) > 1 will be called as nondegenerate objects of C. These are the only objects which are meaningful for calculating
+the geometrical Riemann ζ-function of C. Observe that in Mab or R − mod finite simple
+objects are geometrically finite and hence in this cases ζg = ζ. But this is not the case of
+the category of modules over a λ-ring, as we will see below.
+Our aim is to apply the described above strategy for calculating ζ and ζg functions for
+the category of Λ-modules over F1 . We know what is the polynomial ring over a Λ-ring,
+so we can use affine line F1 [x] in our constructions. We show below that the categorical ζfunction of F1 agrees with the results of chapter 3, where we calculated it via the algebraic
+closure and the Frobenius action.
+First we should describe the category of modules over F1 . This is done in full details
+in [H, chapter 2] for any Λ-ring. The constructions uses the functor W from unital commutative rings to Λ-rings which takes any ring R to its ring of Witt vectors W (R). Originally
+the functor W was defined for rings with multiplicative unit. But the universal polynomials which define addition, multiplication and opposite in W (R) do not use multiplicative
+unit so using the same formulas one can define the value of W on the non-unital rings.
+If R is a Λ-ring then it comes with the Λ-ring map λR : R → W (R) which is defined
+by lambda operations on R. More precisely, if Λ(R) denote the ring of invertible formal
+power series over R then λR = E ◦ λt where E is the Artin-Hasse exponential isomorphism
+of Λ(R) and W (R) (see [Y, chapter 4]) and
+∞
+
+λt (r) = Σ λi (r)ti
+i=0
+
+As it is proved in [H] the category of modules over a Λ-ring R, by which we mean the
+category (Ring λ/R)+ of abelian group objects in Ring λ /R, is equivalent to the category
+R − modλ of Λ-modules over R. A Λ-module over R is an R module M with a map
+λM : M → W (M ) which is equivariant with respect to the Λ-structure of R. Here
+W (X) denotes the Witt ring construction applied to the non-unital ring X with trivial
+multiplication. It is easy to check that in this case W (M ) has also trivial multiplication
+and additively is equal to the infinite product of M . It is shown in [H, Lemma 2.2] that
+we have an isomorphism of rings
+i : W (R) ⊲ W (M ) → W (R ⊲ M )
+which is induced by the canonical inclusions of R and M into R ⊲ M . A Λ-module M
+corresponds in the equivalence of (Ring λ/R)+ and R − modλ to the Λ-ring R ⊲ M with
+the Λ-ring structure defined by the composition
+R⊲M
+
+λR ⊕λM
+
+i
+
+−→ W (R) ⊲ W (M ) −→ W (R ⊲ M )
+11
+
+We have another description of the category R − modλ (see [H, Remark 2.6]). If
+M is an object of this category and λM : M → W (M ) Q
+is a structural map then it has
+components λM,n : M → M because as sets W (M ) = N M . Easy calculation shows
+λM,n is ψR,n equivariant, where ψR,n is the nth Adams operation of R. This gives us
+description of the category R − modλ as a category of left modules over a twisted monoid
+algebra Rψ [N ] where the multiplicative monoid N acts on any object M through the maps
+λM,n .
+With the understanding of the category R − modλ presented above we can come back
+to our situation and analyze the category F1 − modλ . Observe that the Newton formula
+which relates Adams and λ-operations implies ψF1 ,n = id for any natural n. This implies
+that λM,1 = id and for n > 1, λM,n : M → M is any (additive) group homomorphism. So
+we have:
+Lemma 4.3: Every object (M, λM ) in F1 − modλ consists of an abelian group M and
+a sequence of group homomorphisms λM,n : M → M satisfying λM,n ◦ λM,m = λM,mn and
+λM,1 = id. Morphisms (M, λM ) → (P, λP ) are given as group homomorphisms f : M → P
+which satisfy f ◦ λM,n = λP,n ◦ f for any natural n. An object (M, λM ) is simple and finite
+if M is a cyclic group of prime order.
+Proof. The description of F1 − modλ was achieved before the statement of the lemma.
+Observe that an endomorphism f : M → M of a cyclic group satisfies: for any subgroup
+P < M , f (P ) ⊂ P . This implies immediately, that simple objects are as described.
+Lemma 4.4: Every non-degenerate object in F1 − modλ is of the form (Cp , λCp ),
+where λCp ,n = 0 for n > 1.
+Proof. First of all, every non-degenerate object (M, λM ) in F1 − modλ has to be
+finite and simple. Hence it is of the form (Cp , λCp ). But (M, λM ) is non-degenerate if
+additionally we have
+1 < n(Z ⊲ M ) = |HomRings/F1 (Z[x], Z ⊲ M )| < ∞.
+So we have to check when the number of Λ-ring maps Z[x] → Z ⊲ M over F1 is finite
+but bigger 1 (we always have a zero morphism), where (M, λM ) is of the form (Cp , λCp ).
+Observe that if ϕ ∈ HomRings/F1 (Z[x], Z ⊲ M ) then ϕ(x) = (0, m) for a certain m ∈ M .
+Because ϕ is a Λ-ring homomorphism it has to commute with Λ-operations on the source
+and the target. Recall that in Z[x], λn (x) = 0 for n > 1. Hence for n > 1 we calculate
+4.1.1
+0 = ϕ(λn (x)) = λn (ϕ(x)) = λn ((0, m)).
+It means that we are looking for such objects (Cp , λCp ) which give us vanishing of higher
+λ-operations on elements (0, m) ∈ Z ⊲ Cp . Observe that in general λM is related to the
+Λ-operations on Z ⊲ M via the Artin-Hasse isomorphism so we have to check that formulas
+λn ((0, m)) = 0 imply λCp ,n = 0 for n > 1.
+We are going to use now the calculation from [H, Addendum 2.3], where the relation
+between the sequence λM,n and λR⊲M is calculated in full generality. We get that
+12
+
+λZ⊲Cp ((0, m)) = ((0, λCp ,1 (m)), (0, λCp ,2 (m)), (0, λCp ,3 (m)), ...)
+Now we can use the general observation
+about the Artin-Hasse invariant. If f (t) =
+Q
+1 + Σai ti ∈ Λ(R) then we write f (t) = (1 − (−1)i bi ti ) and the Artin-Hasse isomorphism
+E : Λ(R) → W (R) takes f to the sequence (b1 , b2 , b3 , ...). Observe that if
+(∗) bi · bj = 0 for any i and j
+then up to sign (b1 , b2 , b3 , ...) = (a1 , a2 , a3 , ...).
+Coming back to 4.4.1 we get that up to sign:
+0 = λn ((0, m)) = (0, λCp ,n (m))
+This implies that in our case λCp ,n = 0 for n > 1, as desired.
+Corollary 4.5: Recall that ζR denotes the Riemann ζ-function of integers. We have
+ζR = ζg (s, F1 − modλ )
+
+FINAL REMARK. It seems that the success of the Deligne’s approach to Weil conjectures was caused by the fact that for an affine variety over a finite field we have two ways of
+calculations the ζ function. One is classical (categorical) via looking at finite simple objects
+in corresponding category. The second is via algebraic closure, rich geometric structure
+and calculation of the same function via counting fixed points of the Frobenius action. In
+the present paper we tried to justify the statement that in the category of Λ-rings the same
+two approaches should work.
+
+13
+
+V. Bibliography:
+[Bec] - J. M. Beck: Triples, algebras and cohomology. Reprints in Theory and Applications
+of Categories 2 (2003) 1-59.
+[Be] - S. Betley: Riemann zeta via the category of monoids. Kodai Math. Journal 36 (3)
+(2013) 487-490.
+[B] - J. Borger: Λ-rings and the field with one element. Preprint, 2009.
+[BS] - J. Borger, B. de Smit: Galois theory and integral models of Λ-rings. Bull. London
+Math. Soc. 40 (2008) 439-446.
+[C] - A. Connes, C. Consani, M. Marcolli: Fun with F1 . J. Number Theory 129 (2009)
+1532-1561.
+[D] - A. Deitmar: Schemes over F1 . Progr. Math 239 (2005) 87-100.
+[H] - L. Hesselholt: The big de Rham-Witt complex. Preprint 2010.
+[K] - N.Kurokawa: Zeta Functions of Categories. Proc. Japan Acad. 72 (1996) 221-222.
+[KOW] - N.Kurokawa, H. Ochiai, M.Wakayama: Absolute derivations and zeta functions.
+Doc. Math., Extra Volume for Kazuya Kato’s 50 Birthday, (2003) 565-584.
+[S] - C.Soule: Les variétés sur le corps a un élément. Mosc. Math. J. 4 (2004), 217–244.
+[Y] - D. Yau: Lambda-Rings. World Scientific 2010.
+Instytut Matematyki, University of Warsaw
+ul.Banacha 2, 02-097 Warsaw, Poland
+e-mail: betley@mimuw.edu.pl
+
+14
+
+
