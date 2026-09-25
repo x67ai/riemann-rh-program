@@ -1,0 +1,1413 @@
+                                                                                      On the metaphysics of F1
+                                                                                      Alain Connes and Caterina Consani∗
+
+                                                                                         To Yuri Ivanovich Manin, in memory.
+
+
+
+
+arXiv:2307.06748v1 [math.NT] 13 Jul 2023
+                                                                                                        Abstract
+                                                      In the present paper, dedicated to Yuri Manin, we investigate the general notion of rings of 𝕊[𝜇𝑛,+ ]–
+                                                      polynomials and relate this concept to the known notion of number systems. The Riemann-Roch theorem
+                                                      for the ring ℤ of the integers that we obtained recently uses the understanding of ℤ as a ring of polynomials
+                                                      𝕊[𝑋] in one variable over the absolute base 𝕊, where 1 + 1 = 𝑋 + 𝑋 2 . The absolute base 𝕊 (the categorical
+                                                      version of the sphere spectrum) thus turns out to be a strong candidate for the incarnation of the mysterious
+                                                      𝔽1 .
+
+                                                      Key Words. Riemann-Roch, Number systems, Adeles, Zeta function, Sphere spectrum, Witt vectors. .
+
+                                                      Mathematics Subject Classification 2010:
+
+                                                      Mathematics Subject Classification 2010: 14C40, 14G40, 14H05, 11R56, 13F35, 18G60, 19D55.
+
+
+                                           1        Introduction
+                                                      Les mathématiciens du xvi-ème siècle avaient coutume de parler de la “métaphysique du calcul
+                                                      infinitésimal", de la “métaphysique de la théorie des équations". Ils entendaient par là un ensemble
+                                                      d’analogies vagues, difficilement saisissables et difficilement formulables, qui néanmoins leur
+                                                      semblaient jouer un rôle important à un moment donné dans la recherche et la découverte
+                                                      mathématiques.                    (A. Weil, De la métaphysique aux mathématiques, 1960, [33])
+
+                                           Yuri Manin, to whose memory we dedicate this article, first recognized in [23] the importance of developing
+                                           a theory of “absolute coefficients” in arithmetic geometry, independently of the early ideas proposed by R.
+                                           Steinberg [30] and J. Tits [31] in the context of Chevalley groups. In arithmetic, for number fields, the goal
+                                           is to provide the geometric counterpart to the construction that A. Weil used in his proof of the Riemann
+                                           hypothesis for function fields. The search for a close analogy between number fields and function fields of
+                                           curves in positive characteristic induced Manin to postulate the existence of the absolute point “Spec 𝔽1 ,” over
+                                           which one could apply Weil’s strategy to the study of the Riemann zeta function. For the algebraic scheme
+                                           Spec ℤ, one would then use the spectrum of the tensor product “ℤ ⊗𝔽1 ℤ” as a substitute for the self-product
+                                           of a curve over (the spectrum of) a finite field.
+                                           Manin always advocated the fruitfulness of unexpected interactions between different approaches to a mathe-
+                                           matical problem. In Sections 2 and 3 we shall discuss two of such unexpected occurrences, in fact two pillars
+                                           of our joint work in the past fifteen years. Section 2 is about the hypothetical curve1 𝐂 that we propose as
+                                               ∗
+                                                   Partially supported by the Simons Foundation collaboration grant n. 691493
+                                               1
+                                                   we reserve throughout the symbol 𝐂 for this entity
+
+
+                                                                                                             1
+1. Introduction                                                                                                        2
+
+
+
+the absolute geometric entity. Section 3 concerns instead the absolute coefficients. The aim of this paper
+is to sponsor 𝕊 the most basic combinatorial form of the sphere spectrum and of an 𝕊-algebra, as the most
+natural candidate for the absolute coefficients (aka 𝔽1 ). We claim that this algebra is the absolute “field” of
+constants over which ℤ becomes a ring of polynomials in one variable. This point of view is supported by
+the Riemann-Roch theorem for the ring ℤ recently proved in [14], whose formula shows that the genus of
+Spec ℤ is zero. In an earlier result on the same topic [13], the integers were considered as polynomials over
+𝕊[±1] with generator 𝑋 = 3. This fact is based on the balanced ternary numeral system2 which provides a
+balanced signed-digit representation of the integers as finite sums of powers of the “variable” 𝑋 = 3 with
+coefficients in the set {−1, 0, 1} underlying the pointed multiplicative monoid 𝜇2,+ of quadratic roots of unity.
+The new version of the Riemann-Roch theorem for the ring ℤ in [14] simplifies the earlier version [13] and
+it also reconciles the formula (and our understanding of this subject) with the classical number theoretic
+viewpoint. Indeed, in the analogy between number fields and curves over finite fields, the field ℚ has genus
+zero [32] and it is singled out as the only field contained in any other number field. The view of ℤ as a ring of
+polynomials over the absolute base 𝕊 selects the generator 𝑋 = −2. The key fact is that any integer can be
+uniquely written as a sum of powers of −2 [20].
+The above special cases of generators 𝑋 for rings over finite spherical 𝕊-algebras justify a systematic and
+broader study of rings of 𝕊[𝜇𝑛,+ ]–polynomials. In Section 5 we introduce the general notion of rings of
+𝕊[𝜇𝑛,+ ]–polynomials in one and several variables. Let 𝑛 > 0 be an integer, 𝜇𝑛 the multiplicative group of
+𝑛-th roots of 1 and 𝕊[𝜇𝑛,+ ] the spherical 𝕊-algebra of the (pointed) monoid 𝜇𝑛,+ = 𝜇𝑛 ∪ {0}. We recall that
+morphisms of 𝕊-algebras 𝕊[𝜇𝑛,+ ] → 𝐻𝑅 (𝑅 being a ring) correspond bijectively to group homomorphisms
+                                                             (         )ℕ
+𝜄 ∶ 𝜇𝑛 → 𝑅× [11]. Let (𝜇𝑛 ) be the subset of the set 𝜇𝑛 ∪ {0} of sequences with only finitely many
+non-zero terms. By definition, an element 𝑋 ∈ 𝑅 is an 𝕊[𝜇𝑛,+ ]-generator if and only if the evaluation map
+                              ∑
+𝜎 ∶ (𝜇𝑛 ) → 𝑅, 𝜎((𝛼𝑗 )) = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 is bijective. Proposition 5.8 shows that the pair (𝑅, 𝑋) of a ring of
+𝕊[𝜇𝑛,+ ]–polynomials in one variable is uniquely specified, up to isomorphism, by the map ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ),
+which, in turn, is uniquely defined by the equality 𝜎(ℎ(𝜉)) = 𝜄(𝜉) + 1. In Section 6 we give several examples
+of rings of 𝕊[𝜇𝑛,+ ]–polynomials based on some known number systems. We refer to [2] for a survey on
+systems of numerations and for references therein contained, but we claim no exhaustiveness. Conceptually,
+the examples of rings of 𝕊[𝜇𝑛,+ ]-polynomials discussed in this article provide an explicit bridge between
+the 𝑝-adic and the complex world. At the geometric level, the rings of polynomials are naturally related to
+the projective line ℙ1 , and the evaluation at the points 0 and ∞ of ℙ1 yields, after completion, the following
+refinement (the lower line) of a classical diagram (upper line). In the upper line, 𝐾 is the field of fractions of
+the 𝑝-typical Witt ring of the algebraic closure of 𝔽𝑞 (𝑞 = 𝑝𝓁 ) and 𝐾 is its algebraic closure.
+                                       𝜋
+                                 𝔽 𝑞 ↞ 𝑊 (𝔽 𝑞 ) ↪                 𝐾         ⊃        ℚ        ⊂    ℂ
+                                 ⊂             ⊂                  ⊂                 ⊂             =
+                                       𝜋
+                                 𝔽𝑞    ↞ 𝑊 (𝔽𝑞 ) ↪ 𝑊 (𝔽𝑞 )[𝜂] ↩ 𝑅[𝑋 −1 ] ↪ ℂ
+
+In the lower line, 𝑋 is a 𝕊[𝜇𝑛,+ ]-generator of the ring 𝑅 where 𝑛 + 1 = 𝑞. 𝑅[𝑋 −1 ] is the ring of Laurent
+polynomials; the map to ℂ is the inclusion of 𝑅[𝑋 −1 ] in ℂ by specialization of 𝑋, obtained by solving the
+equations 𝜎(ℎ(𝜉)) = 𝜄(𝜉) + 1, 𝜉 ∈ 𝜇𝑛 , and using the canonical embedding 𝜇𝑛,+ ⊂ ℂ. The map from 𝑅[𝑋 −1 ]
+to the finite extension 𝑊 (𝔽𝑞 )[𝜂] is obtained from the canonical inclusion of 𝑅 in the projective limit lim 𝑅𝑛
+                                                                                                         ←←←←←←
+(see Proposition 5.8).
+The general theory of rings of 𝕊[𝜇𝑛,+ ]-polynomials, together with the role of the absolute base 𝕊 in the
+formulation of the Riemann-Roch theorem [14], suggest the following refinement of the definition of the
+Arithmetic Site. Originally, this space was defined by the pair of the arithmetic topos ℕ ̂× and the structure
+sheaf given by the Frobenius action of ℕ on the tropical semiring ℤmax [9]. The role of the field of constants
+                                           ×
+
+   2
+       An early occurrence of this numeral system is found in the 1544 book “Arithmetica integra" of Michael Stifel.
+3                                                                                    2. Adelic and topos theoretic incarnation of 𝐂
+
+
+
+is here played by the Boolean semifield 𝔹. The development of this paper evidently hints to a replacement
+of the structure sheaf ℤmax by the sheaf of 𝕊-algebras obtained from the Frobenius action 𝑋 ↦ 𝑋 𝑛 of ℕ×
+on the spherical algebra 𝕊[𝑋]. This new version of 𝕊-arithmetic site provides simultaneously a natural
+base both at the coefficients and at the geometric levels. The topos ℕ   ̂× is the geometric incarnation of the
+𝜆-operations in the theory of 𝜆-rings [3] in the context of geometry over 𝔽1 . We expect that throughout a
+suitable understanding of the “algebraic closure" 𝔽 1 of the absolute coefficients one may relate the space of
+points of the 𝕊-arithmetic site over 𝔽 1 with the (points of the) curve 𝐂 whose structure is recalled in Section
+2.
+    Finally, these results also point out to the open and interesting question of the classification of rings of
+𝕊[𝜇𝑛,+ ]–polynomials in several variables which pursues the intuitive statement of Yuri Manin [23]:
+
+          The central question we address can be provocatively put as follows: if numbers are similar
+          to polynomials in one variable over a finite field, what is the analog of polynomials in several
+          variables? Or, in more geometric terms, does there exist a category in which one can define
+         “absolute Descartes powers” Spec ℤ × ⋯ × Spec ℤ?
+
+
+2        Adelic and topos theoretic incarnation of 𝐂
+A first connection between Manin’s point of view on 𝔽1 and a seemingly unrelated topic takes place as a
+by-product of the relations between C. Soulé perspective on varieties over 𝔽1 (named “Critical Realism” in
+[24]) – motivated by Manin [23] (cf. §1.5) – and the work of the first author [5] on the trace formula in
+noncommutative geometry and the zeros of the Riemann zeta function. In [29], Soulé introduced the following
+zeta function of a variety 𝑋 over 𝔽1
+
+                                        𝜁𝑋 (𝑠) ∶= lim 𝑍(𝑋, 𝑞 −𝑠 )(𝑞 − 1)𝑁(1) ,            𝑠∈ℝ                                (2.1)
+                                                    𝑞→1
+
+
+using the polynomial counting function 𝑁(𝑥) ∈ ℤ[𝑥] associated with 𝑋 and the Hasse-Weil exponential
+series                                            (                 )
+                                                    ∑           𝑇 𝑟
+                                  𝑍(𝑋, 𝑇 ) ∶= exp       𝑁(𝑞 𝑟 )       .                       (2.2)
+                                                    𝑟≥1
+                                                                 𝑟
+
+All the examples of varieties considered in op.cit. are rational. Thus, the existence of an underlying curve
+𝐂 related, in a similar manner, to the Riemann zeta function is subordinated to finding a function 𝑁(𝑞)
+(highly non-polynomial!) that produces, through the use of (2.1), the complete Riemann zeta function
+𝜁ℚ (𝑠) = 𝜋 −𝑠∕2 Γ(𝑠∕2)𝜁 (𝑠). This is a non-trivial problem since classically, 𝑁(1) in the above formula inputs
+the Euler characteristic of the geometric space. Thus one might be induced to expect3 that since for the
+Riemann zeta-function one ought to have 𝑁(1) = −∞, the use of (2.1) should be precluded, and with it
+also the expectation that 𝑁(𝑞) ≥ 0 for 𝑞 ∈ (1, ∞). There is, in fact, a natural way to by-pass this problem
+by applying the logarithmic derivatives to both sides of (2.1) and then observing that the right-hand side
+determines the Riemann sums of an integral [7, 8]. In this way, in place of (2.1) one considers the equation:
+𝜕𝑠 𝜁𝑁 (𝑠)       ∞
+ 𝜁𝑁 (𝑠)
+          = − ∫1 𝑁(𝑢) 𝑢−𝑠 𝑑 ∗ 𝑢, where 𝑑 ∗ 𝑢 ∶= 𝑑𝑢∕𝑢. This integral formula produces the following one for the
+sought for counting function 𝑁(𝑞) associated with 𝐂:
+
+                                                 𝜕𝑠 𝜁ℚ (𝑠)       ∞
+                                                           =−      𝑁(𝑢) 𝑢−𝑠 𝑑 ∗ 𝑢.                                           (2.3)
+                                                  𝜁ℚ (𝑠)      ∫1
+    3
+        the number of zeros of 𝜁ℚ is infinite, and so is the dimension of the (mysterious) cohomology 𝐻 1 (𝐂)
+2. Adelic and topos theoretic incarnation of 𝐂                                                                                4
+
+
+
+The above equation admits a meaningful solution expressable in terms of the distribution
+                                    𝑑                             ∑
+                            𝑁(𝑢) =    𝜑(𝑢) + 𝜅(𝑢),      𝜑(𝑢) ∶=       𝑛 Λ(𝑛),                                           (2.4)
+                                   𝑑𝑢                             𝑛<𝑢
+
+where 𝜅(𝑢) is the distribution that appears in the Riemann-Weil explicit formula
+                      ∞                           ∞
+                                                      𝑢2 𝑓 (𝑢) − 𝑓 (1) ∗                        1
+                          𝜅(𝑢)𝑓 (𝑢)𝑑 ∗ 𝑢 =                            𝑑 𝑢 + 𝑐𝑓 (1) ,         𝑐 = (log 𝜋 + 𝛾).
+                 ∫1                          ∫1            𝑢2 − 1                               2
+One shows that the distribution 𝑁(𝑢) is positive on (1, ∞), and when written in terms of the non-trivial zeros
+𝜌 ∈ 𝑍 of the Riemann zeta function, it is given, in complete analogy with its counterpart holding in the
+function field case, by                          (                    )
+                                              𝑑 ∑                𝑢𝜌+1
+                                𝑁(𝑢) = 𝑢 −              order(𝜌)        + 1,                             (2.5)
+                                              𝑑𝑢 𝜌∈𝑍             𝜌+1
+                                                                                                            ∑                𝑢𝜌+1
+where the derivative is taken in the sense of distributions. The value at 𝑢 = 1 of the term 𝜔(𝑢) =                order(𝜌)
+                                                                                                            𝜌∈𝑍
+                                                                                                                             𝜌+1
+                     log 4𝜋 ′ (−1)
+is given by 12 + 𝛾2 + 2 − 𝜁𝜁(−1)   .
+
+                                120
+
+
+                                100
+
+
+                                 80                        JHuL = à NHuL â u
+                                                                                    Jm HuL
+                                 60
+
+
+                                 40
+
+
+                                 20
+
+
+                                      2           4         6         8        10   12       14
+
+
+
+Figure 1: Graph of a primitive 𝐽 (𝑢) of the counting distribution 𝑁(𝑢). One has 𝐽 (𝑢) → −∞ when 𝑢 → 1.
+The wiggly graph is the approximation of 𝐽 (𝑢) obtained using the symmetric set 𝑍𝑚 of the first 2𝑚 zeros to
+                           2  ∑               𝜌+1
+perform the sum 𝐽𝑚 (𝑢) = 𝑢2 − 𝑍𝑚 order(𝜌) 𝑢𝜌+1 + 𝑢.
+
+   The tension between the positivity of the distribution 𝑁(𝑞) for 𝑞 > 1, and the expectation that its value
+𝑁(1) ought to be 𝑁(1) = −∞ is resolved by implementing the theory of distributions. Indeed, even though
+𝑁(𝑢) is finite as a distribution, when one looks at it as a function, its value at 𝑞 = 1 is formally given by
+                                                 𝜔(1 + 𝜖) − 𝜔(1)    1                                  1
+                             𝑁(1) = 2 − lim                      ∼ − 𝐸 log 𝐸,                     𝐸=
+                                             𝜖→0        𝜖           2                                  𝜖
+thus, it is −∞, and this fact reflects, when 𝜖 → 0, the density of the zeros of the zeta function.
+    We emphasize that the role of the Riemann-Weil explicit analytic formulas in the process of overcoming
+the initial difficulty through a solution defined by a positive distribution 𝑁(𝑞), directly connects the original
+(classical geometric) viewpoint with the trace formula in [5], thus providing a first geometric description for
+the points of 𝐂 in terms of the double quotient
+                                                        𝑋ℚ ∶= ℚ× ∖𝔸ℚ ∕ℤ
+                                                                      ̂×                                                (2.6)
+5                                                                                   2. Adelic and topos theoretic incarnation of 𝐂
+
+
+
+of the adele class space of the rationals by the maximal compact subgroup ̂  ℤ× of the idele class group.
+The main key player in this construction is the scaling action of ℝ×+ which provides4 the above counting
+distribution 𝑁(𝑢), 𝑢 ∈ [1, ∞), that determines, in turn, the complete Riemann zeta function via a limiting
+procedure as 𝑞 → 1, operated on the Hasse-Weil formula. Noncommutative geometry plays a crucial role in
+this development mainly by implementing the noncommutative space 𝑋ℚ which naturally arises as the dual
+of the BC-system [4].
+    To achieve a more classical geometric understanding of the adele class space 𝑋ℚ with its scaling action,
+in analogy with the action of the Frobenius automorphism on the points of a curve over the algebraic closure
+of a ground field, one needs to push further the search of other unexpected interactions... This geometric
+understanding comes in fact from the interplay among three a priori unrelated theories
+    1. Noncommutative Geometry
+    2. Grothendieck topoi
+    3. Tropical Geometry.
+The natural starting point is the topos ℕ  ̂× , defined in [9] as the Grothendieck presheaf topos dual to the
+multiplicative monoid ℕ of non-zero positive integers. This space is in fact the geometric incarnation of
+                          ×
+
+ℕ× -actions on sets. These actions often occur in global instances of Frobenius endomorphisms: for 𝜆-rings
+they were advocated in [3] in the context of varieties over 𝔽1 ("Futurism" in Manin’s interpretation, [24]).
+Special 𝜆-rings 𝑅 ([1] Proposition 5.2), belong naturally to the topos ℕ  ̂× since the Adams operations 𝜓𝑛 turn
+𝑅 into a sheaf of rings on the topos ℕ̂× .
+At a very basic algebraic level, a fundamental example of Frobenius action of ℕ× occurs in the theory
+of semirings (i.e. when one drops the existence of the additive inverse in rings). For a semifield5 𝑅 of
+“characteristic one” (aka idempotent: i.e. such that 1 + 1 = 1), the map 𝑥 ↦ 𝑥𝑛 = Fr 𝑛 (𝑥) is an injective
+endomorphism [17], for any integer 𝑛 ∈ ℕ× . Thus, one obtains a canonical action of the semigroup ℕ× on any
+such 𝑅. For this reason it is natural to work with the topos ℕ   ̂× endowed with an action of ℕ× . Furthermore,
+one also knows that there is a unique semifield6 ℤmax whose multiplicative group is infinite cyclic and it is of
+characteristic one. Given these facts, it is natural to introduce the following space
+Definition 2.7 ([9]). The Arithmetic Site 𝒜 = (ℕ      ̂× , ) is the topos ℕ
+                                                                           ̂× endowed with the structure sheaf
+ ∶= ℤmax , viewed as a semiring in the topos and with the action of ℕ× by Frobenius endomorphisms.
+The semifield ℤmax and its companion ℝmax +    (whose multiplicative group is ℝ∗+ ), are familiar objects in
+tropical geometry where the maximum substitutes the usual addition.
+By implementing a straightforward generalization in semi-ringed toposes of the understanding of a point in
+algebraic geometry, one obtains the following result which determines a bridge connecting noncommutative
+geometry with (Grothendieck) topos theory
+Theorem 2.8 ([9]). The set of points of the arithmetic site 𝒜 over ℝmax
+                                                                    +   is canonically isomorphic to
+         ×       ̂ ×                                                max
+𝑋ℚ = ℚ ∖𝔸ℚ ∕ℤ . The action of the Frobenius automorphisms Fr 𝜆 of ℝ+ on these points corresponds to
+                                                    ̂ ×.
+the action of the idele class group on 𝑋ℚ = ℚ× ∖𝔸ℚ ∕ℤ
+This theorem sheds new light on a geometric intuition of the curve 𝐂, in particular, it displays the noncom-
+mutative space 𝑋ℚ as the set of points of 𝐂 over the semifield ℝmax + , with the scaling action understood as
+the action of the Galois group Aut 𝔹 (ℝmax ) of ℝ max over the Boolean semifield7 𝔹. It also suggests that ℝmax
+                                       +          +                                                         +
+    4
+       To remove the divergent logarithmic term from the trace formula [5] one needs to remove from 𝑋ℚ the orbit of the unit adele 1,
+i.e. equivalently to subtract the regular representation of ℝ×+ as in [25].
+     5
+       A semifield is a semiring whose non-zero elements form a group under multiplication
+     6
+       As a multiplicative monoid ℤmax is obtained by adjoining the zero element −∞ to the infinite cyclic group ℤ while the operation
+which plays the role of addition in the semifield is (𝑥, 𝑦) ↦ max(𝑥, 𝑦)
+     7
+       𝔹 ∶= {0, 1} with 1 + 1 = 1
+3. The absolute coefficients, spectra and 𝕊.                                                                     6
+
+
+
+ought to be involved in the construction of the “algebraic closure” of 𝔽1 , and that the combinatorial core
+underlying 𝐂 is countable since both ℕ× and ℤmax are so. We find quite remarkable that while the Arithmetic
+Site is a combinatorial object of countable nature, it comes nonetheless endowed with a one-parameter
+semigroup of “correspondences” which can be viewed as congruences on the square of this site [9].
+    The countable set of places of ℚ (the points of the Arakelov compactification Spec ℤ), is the (classically)
+visible analog of the set of the orbits of the Frobenius automorphism in the function field case. One obtains a
+better view of the points of 𝐂 by considering the periodic orbits 𝐶𝑝 (parameterized by primes 𝑝) as they occur
+among the points of the Arithmetic Site 𝒜 over ℝmax   + . One shows that the points of 𝐶𝑝 form a circle whose
+elements are rank-one subgroups of the multiplicative group of ℝmax + of the form
+                                                            𝑛
+                                               𝐻𝜇 ∶= {𝜇 𝑝𝑘 ∣ 𝑛 ∈ ℤ, 𝑘 ∈ ℕ}.                                  (2.9)
+
+This subgroup is unchanged if one replaces 𝜇 with 𝜇 𝑝 , and the Frobenius action of Aut 𝔹 (ℝmax+ ) = ℝ+ , 𝜇 ↦ 𝜇 ,
+                                                                                                        ∗         𝜆
+
+induces the transitive action of the quotient group ℝ∗+ ∕𝑝ℤ . The length of this periodic orbit is log 𝑝, and their
+full collection plays a key role in the trace formula interpretation of the Riemann-Weil explicit formulas in
+[5]. Moreover, each 𝐶𝑝 inherits, as a subspace of the Scaling Site (obtained from the Arithmetic Site by
+extension of scalars), a structure sheaf (of characteristic one) which turns each periodic orbit into the analog
+of a classical elliptic curve [10]. In this way, one can still apply several key tools of algebraic geometry, such
+as rational functions, divisors, etc. A striking new feature of the geometry of a periodic orbit is that the degree
+of a divisor is a real number. For any divisor 𝐷 in 𝐶𝑝 , there is a corresponding Riemann-Roch problem with
+solution space 𝐻 0 (𝐷). The continuous dimension8 Dimℝ (𝐻 0 (𝐷)) of this ℝmax   + -module is defined by the limit
+                                                                                          𝑛
+                                       Dimℝ (𝐻 0 (𝐷)) ∶= lim 𝑝−𝑛 dimtop (𝐻 0 (𝐷)𝑝 )                         (2.10)
+                                                                𝑛→∞
+                  𝑛
+where 𝐻 0 (𝐷)𝑝 is a naturally defined filtration and dimtop () denotes the topological dimension of an ℝmax
+                                                                                                         + -
+module . The following Riemann-Roch formula holds
+
+Theorem 2.11 ([10]). (𝑖) Let 𝐷 ∈ Div(𝐶𝑝 ) be a divisor with deg(𝐷) ≥ 0. Then the limit in (2.10) converges
+and one has
+                                      Dimℝ (𝐻 0 (𝐷)) = deg(𝐷).
+(𝑖𝑖) The following Riemann-Roch formula holds
+
+                           Dimℝ (𝐻 0 (𝐷)) − Dimℝ (𝐻 0 (−𝐷)) = deg(𝐷)                 ∀𝐷 ∈ Div(𝐶𝑝 ).
+
+    In view of these results and the leading role played by the Boolean semifield 𝔹 among algebraic idempotent
+structures9 , one might be (wrongly) induced to think of 𝔹 as the natural incarnation of 𝔽1 . However, this
+cannot be the case for the straightforward reason that10 :
+                                           The ring ℤ is not an algebra over 𝔹.
+
+
+3       The absolute coefficients, spectra and 𝕊.
+The above undeniable fact led us, once again, to compare Manin’s ideas on 𝔽1 with another a priori unrelated
+topic: this is the world of homotopy theory spectra. Topological spectra greatly generalize cohomology
+theories; many important invariants in algebraic topology, like ordinary cohomology and K-theory, can be
+    8
+       In analogy with von-Neumann’s continuous dimensions of the theory of type II factors
+    9
+       𝔹 is, in particular, the only finite semifield that is not a field cf. [17]
+    10
+       algebras over 𝔹 are of characteristic one
+7                                                                           3. The absolute coefficients, spectra and 𝕊.
+
+
+
+reformulated in terms of spectra, which thus provide a unified treatment for “generalized coefficients”. One
+fundamental discovery in the topological context is that “ring spectra” generalize rings, and in particular,
+the “sphere spectrum” 𝕊 becomes more basic than the ring ℤ, because the latter can be seen as an algebra
+over the former. This theory of “brave new rings” has proved to be the right framework for cyclic homology;
+in particular, the theory of Γ-spaces is known to provide a workable model of connective spectra [15]. One
+usually works at the homotopy level, so it is crucial to handle Kan complexes to obtain a good model structure.
+However, to take full advantage of this theory for the development of Manin’s ideas on 𝔽1 in number theory,
+we believe that Γ-spaces ought to be viewed in their most basic form, namely as simplicial objects in the
+category of Γ-sets, so that homotopy theory can play the role of homological algebra corresponding to the
+“absolute algebra” over the base Γ-ring 𝕊 [11]. This Γ-ring is the categorical starting point in the construction
+of the sphere spectrum 𝕊, together with the natural functor from Γ-spaces to spectra, and its is exactly this
+basic combinatorial nature that makes it closer to the sought for 𝔽1 . The category Γ𝔖𝔢𝔱𝔰∗ of pointed Γ-sets
+(aka 𝕊-modules 𝔐𝔬𝔡(𝕊)) can be directly described as follows. One starts with the small category Γop as a full
+subcategory of the category of finite pointed sets whose objects are the pointed finite sets11 𝑘+ ∶= {0, … , 𝑘},
+for 𝑘 ≥ 0. In particular, 0+ is both initial and final in Γop , making Γop a pointed category. A Γ-set is defined
+as a (covariant) functor Γop ⟶ 𝔖𝔢𝔱𝔰∗ between pointed categories, and the morphisms in this category are
+natural transformations. One lets 𝕊 ∶ Γop ⟶ 𝔖𝔢𝔱𝔰∗ be the inclusion functor. The internal hom functor is
+defined by
+                              Hom𝕊 (𝑀, 𝑁) ∶= {𝑘+ ↦ Hom𝕊 (𝑀, 𝑁(𝑘+ ∧ −))}.
+This formula uniquely defines the smash product of Γ-sets by applying the adjunction
+
+                                      Hom𝕊 (𝑀1 ∧ 𝑀2 , 𝑁) = Hom𝕊 (𝑀1 , Hom𝕊 (𝑀2 , 𝑁)).
+
+The basic construction of 𝕊-modules associates to an abelian monoid 𝐴 with a zero element, the Eilenberg-
+MacLane functor 𝑀 = 𝐻𝐴
+
+                                       𝐻𝐴(𝑘+ ) = 𝐴𝑘 ,    𝐻𝑓 ∶ 𝐻𝐴(𝑘+ ) → 𝐻𝐴(𝑛+ ),
+                                                               ∑
+                                                  𝐻𝑓 (𝑚)(𝑗) ∶=    𝑚𝓁 ,
+                                                                𝑓 (𝓁)=𝑗
+
+where 𝑚 = (𝑚1 , … , 𝑚𝑘 ) ∈ 𝐻𝐴(𝑘+ ), and the zero element of 𝐴 gives meaning to the empty sum. An 𝕊-algebra
+ is an 𝕊-module  ∶ Γop ⟶ 𝔖𝔢𝔱𝔰∗ endowed with an associative multiplication 𝜇 ∶  ∧  →  and a
+unit 1 ∶ 𝕊 → .
+An ordinary semiring 𝑅 gives rise to the 𝕊-algebra 𝐻𝑅, and the corresponding embedding of categories is
+fully faithful so that no information is lost. In contrast, the basic 𝕊-algebra 𝕊 now lies under 𝐻𝑅 for any
+semiring 𝑅.
+Given a multiplicative monoid 𝑀 with a zero element 0 ∈ 𝑀 such that 0 × 𝑥 = 𝑥 × 0 = 0 for all 𝑥 ∈ 𝑀,
+one defines the spherical 𝕊-algebra 𝕊[𝑀] which associates to the pointed set 𝑋 the smash product 𝑋 ∧ 𝑀,
+where the base point of 𝑀 is 0 ∈ 𝑀. One identifies 𝕊[𝑀][1+ ] = 1+ ∧ 𝑀 with 𝑀 by sending the base point
+of 1+ ∧ 𝑀 to 0 ∈ 𝑀, and 𝑎 ∧ 𝑚 where 𝑎 ∈ 1+ ⧵ {∗} and 𝑚 ∈ 𝑀 ⧵ {0} to 𝑚. To avoid confusion we write
+2+ = {∗, 𝑎, 𝑏}. Besides the base point the elements of 𝕊[𝑀][2+ ] = 2+ ∧ 𝑀 are given by pairs of the form
+(𝑎, 𝑚) or (𝑏, 𝑚) where 𝑚 ∈ 𝑀 ⧵ {0}. One has three natural pointed maps 𝑓 ∶ 2+ → 1+ , which are
+
+                                  𝜙(𝑎) = 𝑎, 𝜙(𝑏) =∗, 𝜓(𝑎) =∗, 𝜓(𝑏) = 𝑎, 𝜌(𝑎) = 𝜌(𝑏) = 𝑎.
+
+Let 𝑚 ∈ 𝑀 ⧵ {0} and consider the pair 𝑧 = (𝑏, 𝑚) ∈ 𝕊[𝑀][2+ ]. One has 𝜙∗ (𝑧) =∗= 0 and 𝜓∗ (𝑧) = 𝑚.
+Moreover one has 𝜌∗ (𝑧) = 𝑚. This means that for the partially defined addition in 𝕊[𝑀][1+ ] = 𝑀, one has
+    11
+         where 0 is the base point.
+3. The absolute coefficients, spectra and 𝕊.                                                                                          8
+
+
+
+0 + 𝑚 = 𝑚 for all 𝑚 ∈ 𝑀.
+Thus both ordinary rings and monoids fit fully faithfully and naturally [11] (Proposition 3.5), in the category
+of 𝕊-algebras yielding a strong argument for viewing 𝕊 as the natural candidate for 𝔽1 . Nonetheless one
+needs to test this idea in various ways. For instance, one sees op.cit. that the tensor square of 𝐻ℤ over 𝕊 is
+non-isomorphic to 𝐻ℤ, and this result provides more ground to the original intuition of Manin in [23]. One
+may also wonder which advancements this point of view may produce to the understanding of the ring ℤ and
+its algebraic spectrum Spec ℤ. We shall now move to a detailed discussion of this topic.
+     Let Spec ℤ be the Arakelov compactification of Spec ℤ obtained by adding the archimedean place with
+associated symbol ∞. Then, the new point of view described above provides a natural extension of the
+classical structure sheaf of Spec ℤ to the Arakelov compactification. The crucial points concerning the quest
+for the curve 𝐂 are two: firstly, this extended structure sheaf  is still a subsheaf of the constant sheaf ℚ; the
+second interesting point is that the global sections of  form a finite algebra extension of 𝕊. This extension is
+identifiable with the extension by the two roots of unity inside ℚ that we used in [6] in the process of showing
+that Chevalley groups are varieties over 𝔽12 in the sense of Soulé12 . The condition that restricts the elements
+of 𝐻ℚ at the archimedean place is simple to formulate when one views the functor 𝐻ℚ as assigning to a
+finite pointed set 𝐹 the ℚ-valued divisors on 𝐹 . The restriction is then stated by writing that the sum of
+the absolute values of the involved rational numbers is ≤ 1. One checks that this condition is stable under
+push-forwards and products and hence it defines a sub-𝕊-algebra of 𝐻ℚ. This sub-𝕊-algebras, defined using
+a norm, also applies in the context of the adeles of a global field and allows one to transpose the approach due
+to A. Weil of the Riemann-Roch theorem for function fields to the number field ℚ [13].
+                                                        ∏
+A divisor 𝐷 on Spec ℤ defines a compact subset 𝐾 = 𝐾𝑣 ⊂ 𝔸ℚ of the locally compact ring of adeles. When
+𝑝 is a non-archimedean prime, each 𝐾𝑝 ⊂ ℚ𝑝 is an additive subgroup, in contrast, the compact subset 𝐾∞ ⊂ ℝ
+is just a symmetric interval whose lack of additive structure prevents one to use Weil’s original construction
+involving the addition map 𝜓 ∶ ℚ × 𝐾 → 𝔸ℚ . On the other hand, one also quickly notices that 𝜓 retains its
+meaning in the context of 𝕊-modules, giving rise to a short complex. Using the Dold-Kan correspondence in
+the context of 𝕊-algebras, one then introduces a Γ-space 𝐻(𝐷) which encodes the homological information
+of the divisor 𝐷 and only depends upon the linear equivalence class of 𝐷 (i.e. the divisor class is unchanged
+under the multiplicative action of ℚ× on 𝔸ℚ ). As a by-product, one obtains a Riemann-Roch formula for
+Arakelov divisors on Spec ℤ of an entirely novel nature that relies on the introduction of three new key
+notions: (integer) dimension, cohomologies (𝐻 0 (𝐷), 𝐻 1 (𝐷)) (attached to a divisor 𝐷), and Serre duality.
+More precisely, the Riemann-Roch formula equates the integer-valued Euler characteristic with a simple
+modification of the traditional expression (i.e. the degree of the divisor plus log 2).
+Theorem 3.1 ([13]). Let 𝐷 be an Arakelov divisor on Spec ℤ. Then
+                                                         ⌈           ⌉
+                               0                  1
+                    dim𝕊[±1] 𝐻 (𝐷) − dim𝕊[±1] 𝐻 (𝐷) = deg3 𝐷 + log3 2 − 𝟏𝐿 .                                                      (3.2)
+
+Here, ⌈𝑥⌉ denotes the odd function on ℝ that agrees with the ceiling function on positive reals, and 𝟏𝐿 is the
+characteristic function of an exceptional set13 of finite Lebesgue measure.
+                                                                                                 ∑
+In (3.2), the neperian logarithm that is traditionally used to define the degree of a divisor 𝐷 = 𝑗 𝑎𝑗 {𝑝𝑗 } +
+𝑎{∞} in Arakelov geometry, is replaced by the logarithm in base 3. This alteration is equivalent to the
+division by log 3 i.e. deg3 (𝐷) ∶= deg(𝐷)∕ log 3, log3 2 = log 2∕ log 3.
+The number 3 appears unexpectedly in the computation of the dimension of the cohomology of the 𝕊[±1]-
+modules by determining their minimal number of linear generators. For dim𝕊[±1] 𝐻 0 (𝐷) one finds that the
+   12
+      Another convincing argument in favor of 𝕊-algebras is that the ad-hoc category we introduced in [7] to simplify Soulé’s definition
+of varieties over 𝔽1 , is naturally (see [12]) a full subcategory of the category of 𝕊-algebras
+                                                                         𝑘     𝑘
+   13
+      𝐿 ⊂ ℝ is the union, for 𝑘 ≥ 0, of the intervals deg(𝐷) ∈ (log 32 , log 3 2+1 )
+9                                                                                     4. The ring of integers as a ring of polynomials
+
+
+
+most economical way of writing the elements of a symmetric interval ℤ ∩ 𝐾∞ involves writing integers as
+polynomials of the form               ∑
+                                         𝛼𝑗 3𝑗 , 𝛼𝑗 ∈ {−1, 0, 1}.                                 (3.3)
+                                                      𝑗≥0
+
+Similarly, in the case of dim𝕊[±1] 𝐻 1 (𝐷), one finds that the best way to approximate elements of the circle
+ℝ∕ℤ is to use Laurent polynomials of the form
+                                         ∑
+                                             𝛼𝑗 3𝑗 , 𝛼𝑗 ∈ {−1, 0, 1}.                                   (3.4)
+                                                      𝑗<0
+                                                                  ∑
+The key fact here is that the addition14 of polynomials 𝑃 (𝑋) = 𝑗≥0 𝛼𝑗 𝑋 𝑗 , 𝛼𝑗 ∈ {−1, 0, 1} with coefficients
+in 𝕊[±1] is identical to the addition of (truncated) Witt vectors for the finite field 𝔽3 . One finds that the
+addition 𝑃 + 𝑄 of two polynomials of degree ≤ 𝑛 gives a polynomial of degree ≤ 𝑛 + 1, and that the only
+non-obvious rule one has to prescribe is the sum: 1 + 1 ∶= 𝑋 − 1. Conceptually, the fundamental point is
+that the image of the Teichmuller lift for 𝔽3 sits inside ℤ. At the same time, the Witt vectors with only finitely
+many non-zero components form a subring of the Witt ring, and this subring is ℤ!
+
+
+4         The ring of integers as a ring of polynomials
+There is another way to represent the integers as polynomials in one variable, and in this description, the
+“coefficients” belong to the absolute base 𝕊. This representation is known as the negabinary representation of
+numbers                                      ∑
+                                        𝑛=      𝛼𝑗 (−2)𝑗 , 𝛼𝑗 ∈ {0, 1}.                                  (4.1)
+The number 𝑋 = −2 is remarkably unique, making the representation of an integer 𝑛 possible as polynomial
+𝑃 (𝑋) with coefficients 𝛼𝑗 ∈ {0, 1}. By following the same steps that led us to Theorem 3.1, but working now
+over the absolute base 𝕊, one obtains the following new and simplified version of the Riemann-Roch formula
+which now involves the logarithm in base 2
+Theorem 4.2 ([14]). Let 𝐷 be an Arakelov divisor on Spec ℤ. Then
+                                                          ⌈      ⌉′
+                                    0              1
+                            dim𝕊 𝐻 (𝐷) − dim𝕊 𝐻 (𝐷) = deg2 𝐷 + 1                                                                (4.3)
+
+where ⌈𝑥⌉′ is the right continuous function which agrees with ceiling(𝑥) for 𝑥 > 0 non-integer and with
+−ceiling(−𝑥) for 𝑥 < 0 non-integer.
+This version of the Riemann-Roch Theorem improves on Theorem 3.1 for the following reasons:
+     1. The term 𝟏𝐿 involving the exceptional set 𝐿 in the original statement (see [13]) has now disappeared
+        from the formula.
+
+     2. The formula (4.3) is in perfect analogy with the Riemann-Roch theorem for curves of genus 0.
+
+     3. The canonical divisor 𝐾 = −2{2} has integral degree deg2 (𝐾) = −2.
+Theorem 4.2 fits now perfectly with the tri-lingual text suggested by A. Weil, that supports the analogy
+between Riemann’s transcendental theory of algebraic functions of one variable in the first column, the
+algebraic geometry of curves over finite fields, in the middle column, and the theory of algebraic number
+fields in the third column. Indeed, according to Weil
+    14
+         once the addition is defined, the product follows uniquely using 𝑋 𝑗 𝑋 𝑘 = 𝑋 𝑗+𝑘
+5. Rings of 𝕊[𝜇𝑛,+ ]-polynomials                                                                              10
+
+
+
+       Mais on peut, je crois, en donner une idée imagée en disant que le mathématicien qui étudie
+       ces problèmes, a l’impression de déchiffrer une inscription trilingue. Dans la première colonne
+       se trouve la théorie riemannienne des fonctions algébriques au sens classique. La troisième
+       colonne c’est la théorie arithmétique des nombres algébriques. La colonne du milieu est celle
+       dont la découverte est la plus récente : elle contient la théorie des fonctions algébriques sur
+       un corps de Galois. Ces textes sont l’unique source de nos connaissances sur les langues dans
+       lesquels ils sont écrits; de chaque colonne, nous n’avons bien entendu que des fragments ; la
+       plus complète et celle que nous lisons le mieux, encore à présent, c’est la première. Nous savons
+       qu’il y a de grandes différences de sens d’une colonne à l’autre, mais rien ne nous en avertit à
+       l’avance. Á l’usage, on se fait des bouts de dictionnaire, qui permettent de passer assez souvent
+       d’une colonne à la colonne voisine.
+
+In Weil’s vision there is, in the middle column (that of function fields), a geometric understanding of the
+zeta function as the generating function of the number of points of the curve over extensions of the field of
+constants. In section 2 we translated in this dictionary the Hasse-Weil formula, thus leading one to the first
+encounter with the “the curve” 𝐂 and the action of ℝ∗+ on 𝐂, analogous to a Galois action. Theorem 4.2
+indicates that the role of the field of constants is played by the absolute coefficient ring 𝕊. Since the boolean
+semifield 𝔹 can be viewed as a 𝕊-algebra, this translation suggests to descend the structures of the Arithmetic
+and Scaling Sites discussed in section 2 from 𝔹 to 𝕊.
+
+
+5    Rings of 𝕊[𝜇𝑛,+ ]-polynomials
+Let 𝑛 > 0 be an integer, 𝜇𝑛 the multiplicative group of 𝑛-th roots of 1 and 𝕊[𝜇𝑛,+ ] the spherical 𝕊-algebra of
+the (pointed) monoid 𝜇𝑛,+ = 𝜇𝑛 ∪ {0}. We recall that morphisms of 𝕊-algebras 𝕊[𝜇𝑛,+ ] → 𝐻𝑅 correspond
+(bijectively) to group homomorphisms 𝜄 ∶ 𝜇𝑛 → 𝑅× [11]. In this section, we introduce the notion of rings of
+𝕊[𝜇𝑛,+ ]-polynomials in one (Definition 5.1) and several variables (Remark 5.2) which might play a key role
+in the search of the “absolute Descartes powers” among ordinary rings. We show that the pair (𝑅, 𝑋) of a
+ring 𝑅 and an 𝕊[𝜇𝑛,+ ]-generator of 𝑅 is uniquely characterized, up to isomorphism, by the map from 𝜇𝑛 to
+polynomials with coefficients in the pointed monoid 𝜇𝑛,+ , that encodes the addition of 1 into elements of 𝜇𝑛 .
+
+Definition 5.1. Let 𝑅 be a ring, 𝜄 ∶ 𝜇𝑛 → 𝑅× be an injective group homomorphism. An element 𝑋 ∈ 𝑅
+is an 𝕊[𝜇𝑛,+ ]-generator of 𝑅 if and only if every element 𝑧 ∈ 𝑅 can be written uniquely as a polynomial
+     ∑
+𝑧 = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 with coefficients 𝛼𝑗 ∈ 𝜇𝑛 ∪ {0}.
+
+Remark 5.2. More generally, a finite set {𝑋𝑖 ∣ 𝑖 ∈ {1, … , 𝑘}}, 𝕊[𝜇𝑛,+ ]-generates 𝑅 if and only if every
+                                                               ∑
+element 𝑧 ∈ 𝑅 can be written uniquely as a polynomial 𝑧 = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 with coefficients 𝛼𝑗 ∈ 𝜇𝑛 ∪ {0},
+                                                             ∏ 𝑗
+where 𝑗 is a multi-index 𝑗 = (𝑗1 , … , 𝑗𝑘 ) ∈ ℕ𝑘 , and 𝑋 𝑗 ∶= 𝑋𝑖 𝑖 .
+                                      (         )ℕ
+   Let (𝜇𝑛 ) be the subset of the set 𝜇𝑛 ∪ {0} of sequences with only finitely many non-zero terms. Let
+𝑋 ∈ 𝑅, then the map 𝜎 ∶ (𝜇𝑛 ) → 𝑅, given by
+                                                      ∑
+                                          𝜎((𝛼𝑗 )) ∶=   𝜄(𝛼𝑗 ) 𝑋 𝑗                                 (5.3)
+                                                         𝑗
+                                                        ∑
+is well defined since for 𝛼 = (𝛼𝑗 ) ∈ (𝜇𝑛 ) the sum 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 defines an element of 𝑅. It follows from
+Definition 5.1 that if 𝑋 is an 𝕊[𝜇𝑛,+ ]-generator, the map 𝜎 is a bijection of (𝜇𝑛 ) with 𝑅.
+The simplest instance of a 𝕊[𝜇𝑛,+ ] generator, with 𝑛 + 1 a prime power 𝑞, is provided by the following example.
+
+Example 5.4. The ring 𝑅 = 𝔽𝑞 [𝑋] of polynomials over the finite field 𝔽𝑞 has the variable 𝑋 as 𝔽𝑞× -generator.
+11                                                                                  5. Rings of 𝕊[𝜇𝑛,+ ]-polynomials
+
+
+
+Next proposition shows that the 𝑚-th root of an 𝕊[𝜇𝑛,+ ]-generator 𝑋 of a ring 𝑅 is a 𝕊[𝜇𝑛,+ ]-generator of the
+𝑅-algebra extension 𝑅[𝑌 ]∕(𝑌 𝑚 − 𝑋), hence providing an infinite source of examples.
+
+Proposition 5.5. Let 𝑅 be a ring, 𝜄 ∶ 𝜇𝑛 → 𝑅× be an injective group homomorphism, 𝑋 ∈ 𝑅 an 𝕊[𝜇𝑛,+ ]-
+generator of 𝑅 and 𝑚 ∈ ℕ be a positive integer. Then 𝑌 ∈ 𝑅[𝑌 ]∕(𝑌 𝑚 − 𝑋) is an 𝕊[𝜇𝑛,+ ]-generator of
+𝑅[𝑌 ]∕(𝑌 𝑚 − 𝑋).
+                                                                       ∑
+Proof. Any element 𝑧 of 𝑅[𝑌 ]∕(𝑌 𝑚 − 𝑋) can be written uniquely as 𝑧 = 𝑚−1
+                                                                         𝑗=0 𝑎𝑗 𝑌 , with 𝑎𝑗 ∈ 𝑅 written
+                                                                                 𝑗
+                 ∑
+uniquely as 𝑎𝑗 = 𝑗,𝑘 𝜄(𝛼𝑗,𝑘 ) 𝑋 𝑘 where 𝛼𝑗,𝑘 ∈ 𝜇𝑛 ∪ {0}. Since 𝑌 𝑚 = 𝑋 one obtains the unique finite
+decomposition                       ∑
+                               𝑧=      𝜄(𝛼𝑗,𝑘 )𝑌 𝑗+𝑚𝑘 , 𝛼𝑗,𝑘 ∈ 𝜇𝑛 ∪ {0}.
+                                        𝑗,𝑘
+
+
+
+
+    The following example is a straightforward generalization of the fact that 3 is an 𝕊[±1] = 𝕊[𝜇2,+ ]-generator
+of the ring ℤ of integers.
+Example 5.6. Let 𝑚 ∈ ℕ be a positive integer, and 𝜖 = ±1. Then 𝑋 = (3𝜖)1∕𝑚 is an 𝕊[±1]-generator of the
+subring 𝑅 = ℤ[𝑋] of the number field ℚ((3𝜖)1∕𝑚 ).
+Indeed, the polynomial 𝑋 𝑚 − 3𝜖 is irreducible, thus every element 𝑧 ∈ 𝑅 can be written uniquely as a sum
+
+                                                   ∑
+                                                   𝑚−1
+                                              𝑧=         𝑎𝑗 𝑋 𝑗 ,   𝑎𝑗 ∈ ℤ.
+                                                   𝑗=0
+
+                                                    ∑
+In turns, every 𝑎𝑗 can be uniquely written as 𝑎𝑗 = 𝑗,𝑘 𝛼𝑗,𝑘 (3𝜖)𝑘 , where 𝛼𝑗,𝑘 ∈ {−1, 0, 1}. Since 3𝜖 = 𝑋 𝑚
+one obtains the unique decomposition
+                                    ∑
+                                 𝑧=      𝛼𝑗,𝑘 𝑋 𝑗+𝑚𝑘 ,  𝛼𝑗,𝑘 ∈ {−1, 0, 1}.
+                                        𝑗,𝑘
+
+                                                                         √
+An interesting case is for 𝑚 = 2 and 𝜖 = −1 √ since then the ring 𝑅 = ℤ[   −3] is an order of the ring of
+integers of the imaginary quadratic field ℚ( −3).
+      Notice that in the Example 5.6 the addition is specified by an equality of the following form
+                                                       ∑
+                          1 + 1 = 𝑃 (𝑋),      𝑃 (𝑋) =       𝛼𝑗 𝑋 𝑗 ,   𝛼𝑗 ∈ {−1, 0, 1},                       (5.7)
+                                                                𝑗
+
+with 𝑃 (𝑋) = 𝜖 𝑋 𝑚 − 1. A simple algebraic presentation of the form (5.7) holds when working over 𝜇𝑛,+ for
+𝑛 = 1, 2.
+The following result states the uniqueness of a similar polynomial presentation in the general case.
+Proposition 5.8. Let 𝑅 be a ring, 𝜄 ∶ 𝜇𝑛 → 𝑅× be an injective group homomorphism, 𝑋 ∈ 𝑅 an 𝕊[𝜇𝑛,+ ]-
+                                                       ∑
+generator of 𝑅. For a polynomial decomposition 𝑧 = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 ∈ 𝑅, let deg(𝑧) be the smallest integer 𝑚
+such that 𝛼𝑗 = 0 for all 𝑗 > 𝑚. Then, the following results hold
+
+      (i) Let 𝑚 ∈ ℕ, and 𝐽𝑚 = ⟨𝑋 𝑚 ⟩ ⊂ 𝑅 be the ideal generated by 𝑋 𝑚 . Any element 𝑧 ∈ 𝑅 admits a unique
+          decomposition as 𝑧 = 𝑎 + 𝑏 where deg(𝑎) < 𝑚 and 𝑏 ∈ 𝐽𝑚 .
+                                                                                         ∑
+     (ii) The quotient 𝑅𝑚 ∶= 𝑅∕𝐽𝑚 is a finite ring whose elements are uniquely written as 𝑚−1          𝑗
+                                                                                           𝑗=0 𝜄(𝛼𝑗 ) 𝑋 , with
+          𝛼𝑗 ∈ 𝜇𝑛,+ = 𝜇𝑛 ∪ {0}.
+5. Rings of 𝕊[𝜇𝑛,+ ]-polynomials                                                                                 12
+
+
+
+ (iii) The quotient 𝑅1 ∶= 𝑅∕𝐽1 is a finite field with 𝑛 + 1 elements and 𝜄 ∶ 𝜇𝑛,+ → 𝑅 is a multiplicative
+       section of the quotient map 𝑅 → 𝑅1 .
+
+ (iv) The canonical ring homomorphism 𝜋 ∶ 𝑅 → lim 𝑅𝑚 is injective.
+                                                      ←←←←←←
+  (v) The pair (𝑅, 𝑋) is uniquely specified, up to isomorphism, by the map ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ) which is uniquely
+      defined by the equality 𝜎(ℎ(𝜉)) = 𝜄(𝜉) + 1.
+                   ∑
+Proof. (𝑖) Let 𝑧 = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 . By writing 𝑧 as
+
+                                            ∑
+                                            𝑚−1
+                                                                  ∑
+                                                                 deg(𝑧)
+                                       𝑧=         𝜄(𝛼𝑗 ) 𝑋 𝑗 +            𝜄(𝛼𝑗 ) 𝑋 𝑗 = 𝑎 + 𝑋 𝑚 𝑐               (5.9)
+                                            𝑗=0                   𝑗=𝑚
+
+one obtains the required decomposition with 𝑏 = 𝑋 𝑚 𝑐. The uniqueness of such decomposition then follows
+from the uniqueness of the decomposition as in Definition 5.1.
+(𝑖𝑖) Follows from (𝑖). In particular, one easily checks that 𝑅𝑚 has cardinality #(𝑅𝑚 ) = (𝑛 + 1)𝑚 .
+(𝑖𝑖𝑖) By construction the map 𝜄 ∶ 𝜇𝑛,+ → 𝑅 is a multiplicative section of the quotient map 𝑅 → 𝑅1 . It follows
+that the non-zero elements of 𝑅1 form the multiplicative group 𝜇𝑛 so that 𝑅1 is a field with 𝑛 + 1 elements.
+                                ∑
+(𝑖𝑣) The components of 𝑧 = 𝑗 𝜄(𝛼𝑗 ) 𝑋 𝑗 ∈ 𝑅 are uniquely determined by 𝜋(𝑥).
+(𝑣) Let (𝑅′ , 𝑋 ′ ) be a second pair corresponding to the same map ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ). Let 𝜌 ∶ 𝑅 → 𝑅′ be the
+bijective map defined by
+                               (∑             )   ∑
+                             𝜌      𝜄(𝛼𝑗 ) 𝑋 𝑗 ∶=    𝜄′ (𝛼𝑗 ) 𝑋 ′𝑗 , 𝛼𝑗 ∈ 𝜇𝑛 ∪ {0}.
+                                   𝑗                        𝑗
+
+One has by construction
+
+                            deg(𝑎) < 𝑚 ⟹ 𝜌(𝑎 + 𝑋 𝑚 𝑏) = 𝜌(𝑎) + (𝑋 ′ )𝑚 𝜌(𝑏),                       ∀𝑏.       (5.10)
+
+In particular one also has 𝜌(𝐽𝑚 ) = 𝐽𝑚′ for all 𝑚. Thus 𝜌 induces a bijection 𝜌𝑚 ∶ 𝑅𝑚 → 𝑅′𝑚 . By (𝑖𝑖𝑖), to show
+that 𝜌 is a ring homomorphism, it is enough to verify that each 𝜌𝑚 is a ring homomorphism.
+To show that 𝜌𝑚 is additive it is enough to show that one can compute all the components of a sum
+
+                                            ∑
+                                            𝑚−1
+                                                            ∑
+                                                            𝑚−1
+                                                                                ∑
+                                                                                𝑚−1
+                                                  𝛼𝑗 𝑋 +𝑗                  𝑗
+                                                                      𝛽𝑗 𝑋 =          𝛾𝑗 𝑋 𝑗                 (5.11)
+                                            𝑗=0                 𝑗=0             𝑗=0
+
+using only the map ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ). To do this one first determines a map 𝐹 from 𝑘-tuples of elements of
+elements of 𝜇𝑛,+ to pairs (𝑥, 𝑍) where 𝑥 ∈ 𝜇𝑛,+ and where 𝑍 is a (𝑘 − 1)-tuple of elements of (𝜇𝑛 ). The
+map ℎ determines uniquely a symmetric map
+
+                        𝐻 ∶ 𝜇𝑛,+ × 𝜇𝑛,+ → 𝜇𝑛,+ × (𝜇𝑛 ), 𝐻(𝜉, 𝜂) = (𝜉 + 𝜂, 0) if 𝜉 𝜂 = 0
+
+                   𝐻(𝜉, 𝜂) = (𝐻0 (𝜉, 𝜂), 𝑃 (𝜉, 𝜂)), 𝐻0 (𝜉, 𝜂) + 𝑋𝑃 (𝜉, 𝜂) = 𝜂 ℎ(𝜉 𝜂 −1 ) if 𝜂 ≠ 0            (5.12)
+To define 𝐹 one proceeds by induction on 𝑘. For 𝑘 = 1 one lets 𝐹 (𝑥) = 𝑥. For 𝑘 = 2 one lets 𝐹2 = 𝐻. We
+denote the two components of 𝐹𝑘 ∶ 𝜇𝑛,+𝑘−1 × 𝜇                       𝑘−1 as 𝐹 (1) and 𝐹 (2) . To pass from 𝑘 − 1 to 𝑘
+                                              𝑛,+ → 𝜇𝑛,+ × (𝜇𝑛 )            𝑘         𝑘
+one lets
+                                        (1)
+                  𝐹𝑘(1) (𝛼, 𝜂) ∶= (𝐻0 (𝐹𝑘−1 (𝛼), 𝜂), 𝐹𝑘(2) (𝛼, 𝜂) ∶= (𝐹𝑘−1
+                                                                        (2)          (1)
+                                                                            (𝛼), 𝑃 (𝐹𝑘−1 (𝛼), 𝜂))
+                                                          (1)                      (2)
+where in the last expression we append the polynomial 𝑃 (𝐹𝑘−1 (𝛼), 𝜂) to the list 𝐹𝑘−1 (𝛼), thus obtaining a list
+of 𝑘 − 1 polynomials.
+13                                                                                           5. Rings of 𝕊[𝜇𝑛,+ ]-polynomials
+
+
+
+To compute the components 𝛾𝑗 of the sum (5.11), we build by induction on 𝑘, two lists. The first 𝑅(𝑘) is
+the list of the coefficients already computed and it is the single list given by (𝛾0 , 𝛾1 , … , 𝛾𝑘−1 ). The second
+𝐶(𝑘), (called the carry), is a list of polynomials with coefficients in 𝜇𝑛,+ and it is encoded as the list of their
+coefficients. Each such list 𝓁 of coefficients has 𝑚 − 𝑘 terms, all in 𝜇𝑛,+ . We denote by 𝑓 (𝓁) ∈ 𝜇𝑛,+ the first
+term of the list 𝓁 and by 𝑡(𝓁) the list obtained by dropping the first element of the list 𝓁, it has 𝑚 − 𝑘 − 1
+terms. The step to obtain 𝑅(𝑘 + 1), 𝐶(𝑘 + 1) from 𝛼, 𝛽, 𝑅(𝑘), 𝐶(𝑘) is
+
+                                      𝑅(𝑘 + 1) ∶= 𝐹 (1) (𝛼𝑘 , 𝛽𝑘 , (𝑓 (𝓁))𝓁∈𝐶(𝑘) )
+
+and
+                               𝐶(𝑘 + 1) ∶= (𝑡(𝓁))𝓁∈𝐶(𝑘) , 𝐹 (2) (𝛼𝑘 , 𝛽𝑘 , (𝑓 (𝓁))𝓁∈𝐶(𝑘) )
+
+where one replaces each element of 𝐹 (2) (𝛼𝑘 , 𝛽𝑘 , (𝑓 (𝓁))𝓁∈𝐶(𝑘) ) by the list of its first 𝑚 − 𝑘 coefficients.
+More concretely one first obtains 𝛾0 = 𝐹2(1) (𝛼0 , 𝛽0 ) while the carry over delivers the polynomial 𝑃 (𝛼0 , 𝛽0 ) =
+𝐹2(2) (𝛼0 , 𝛽0 ). Thus 𝑅(1) = (𝛾0 ), 𝐶(1) has one element which is the list of the first 𝑚 − 1 coefficients of
+𝑃 (𝛼0 , 𝛽0 ). One then trims the elements 𝛼, 𝛽 to and considers the sum
+
+                                        ∑
+                                        𝑚−1
+                                                         ∑
+                                                         𝑚−1
+                                              𝛼𝑗 𝑋 𝑗 +         𝛽𝑗 𝑋 𝑗 + 𝑋𝑃 (𝛼0 , 𝛽0 )                                 (5.13)
+                                        𝑗=1              𝑗=1
+
+All terms in (5.13) are divisible by 𝑋 and one can use 𝐹3 to compute the sum of the three terms 𝛼1 , 𝛽1 , 𝑝0
+where 𝑝0 is the constant term of 𝑃 (𝛼0 , 𝛽0 ). This operation delivers the next term
+
+                                                  𝛾1 = 𝐹3(1) (𝛼1 , 𝛽1 , 𝑝0 )
+
+of (5.11), and adjoins the two polynomials of the list 𝐹3(2) (𝛼1 , 𝛽1 , 𝑝0 ) to the list of carry over consisting of
+the single polynomial 𝑃 (𝛼0 , 𝛽0 ) with its first term 𝑝0 deleted. The carry over list consists now of three terms
+𝓁1 , 𝓁2 , 𝓁3 . One then uses 𝐹5 to compute the sum of the 5 terms : 𝛼2 , 𝛽2 and the three terms 𝑓 (𝓁1 ), 𝑓 (𝓁2 ), 𝑓 (𝓁3 )
+from the carry over. This adds 4 terms to the list of carry over which has now 7 terms, where the three
+previous ones have been trimmed by deleting their lowest term. After 𝑘 such steps the carry over list has
+2𝑘 − 1 elements and one proceeds as follows. One uses 𝐹2𝑘 +1 to compute the sum of the 2𝑘 + 1 terms given
+by 𝛼𝑘 , 𝛽𝑘 together with the terms 𝑓 (𝓁) of the carry over list. This operation delivers 𝛾𝑘 and adjoins 2𝑘 terms
+to the carry over list which now consists of 2𝑘+1 − 1 terms. This process terminates when 𝑘 = 𝑚 and 𝑅(𝑚)
+delivers universal formulas for the terms 𝛾𝑗 , 0 ≤ 𝑗 ≤ 𝑚 − 1 using only 𝛼, 𝛽 and the map ℎ.
+The fact that the coefficients 𝛾𝑗 can be computed using only 𝛼, 𝛽 and the map ℎ proves that 𝜌 is additive
+since one can use the same formula to compute 𝛼 + 𝛽 in 𝑅𝑚 and 𝜌𝑚 (𝛼) + 𝜌𝑚 (𝛽) in 𝑅′𝑚 . The multiplicativity
+of 𝜌 follows by bilinearity from 𝜌(𝛼𝑋 𝑛 × 𝛽𝑋 𝑚 ) = 𝜌(𝛼𝑋 𝑛 )𝜌(𝛽𝑋 𝑚 ). This shows that 𝜌 ∶ 𝑅 → 𝑅′ is a ring
+isomorphism and by construction one has 𝜌(𝑋) = 𝑋 ′ .
+
+Definition 5.14. The map
+                                     ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ),              𝜎(ℎ(𝜉)) = 𝜄(𝜉) + 1                                 (5.15)
+
+which characterizes the pair (𝑅, 𝑋) (by Proposition 5.8) is called the hold of the pair (𝑅, 𝑋).
+
+Corollary 5.16. Let 𝑛 be such that there exists a polynomial ring in one generator over 𝕊[𝜇𝑛,+ ], then 𝑛 + 1 is
+a prime power.
+
+Proof. This follows from Proposition 5.8 (𝑖𝑖𝑖).
+6. Examples                                                                                                    14
+
+
+
+Remark 5.17. The proof of Proposition 5.8 (𝑣) is stated so that one can, by following it, write a computer
+program which can be used to test the additive structure of the ring 𝑅𝑚 . This will be relevant in section 6 to
+determine in the various examples the rings 𝑅𝑚 .
+The map ℎ ∶ 𝜇𝑛 → (𝜇𝑛 ) of (5.15) determines the addition 𝐻 ∶ 𝜇𝑛,+ × 𝜇𝑛,+ → 𝜇𝑛,+ × (𝜇𝑛 ), (5.12), of pairs
+of elements of 𝜇𝑛,+ using the compatibility with multiplication by elements of 𝜇𝑛 .
+Proposition 5.8 shows that a pair (𝑅, 𝑋), where 𝑋 is an 𝕊[±1]-generator of 𝑅, i.e. 𝑛 = 2, is uniquely
+characterized by the polynomial 𝑃 (𝑋) as in (5.7). The polynomial 𝑃 (𝑋) = −1 produces the pair (𝔽3 [𝑋], 𝑋),
+while 𝑃 (𝑋) = 𝑋 − 1 determines the pair (ℤ, 3).
+When 𝑛 = 2, the constant term of the polynomial 𝑃 (𝑋) in (5.7) is necessarily equal to −1. Indeed, had the
+constant term be 0 or 1, one would contradict the uniqueness of the decomposition of Definition 5.1 by the
+equality 1 = 𝑃 (𝑋) − 1. This also shows that 𝑅1 = 𝔽3 .
+Remark 5.18. It is not true that a random choice of a polynomial with coefficients in 𝕊[±1] and constant
+coefficient −1 corresponds to a pair. A simple case is with 𝑃 (𝑋) = −1 + 𝑋 + 𝑋 2 . Indeed, in the following
+lines we show that 5 is not represented by any polynomial. With this rule, one has 1 + 1 + 1 + 1 = 1 + 𝑋 + 𝑋 2 .
+Adding 1 to both sides gives
+         1 + 1 + 1 + 1 + 1 = −1 + 𝑋 + 𝑋 2 + 𝑋 + 𝑋 2 = −1 + 𝑋(−1 + 𝑋 + 𝑋 2 ) + 𝑋 2 (−1 + 𝑋+
+          + 𝑋 2 ) = −1 − 𝑋 + 𝑋 3 + 𝑋 3 + 𝑋 4 = −1 − 𝑋 + 𝑋 3 (−1 + 𝑋 + 𝑋 2 ) + 𝑋 4 =
+          = −1 − 𝑋 − 𝑋 3 + 𝑋 4 + 𝑋 4 + 𝑋 5 .
+Then, when working in 𝑅𝑛 (i.e. modulo 𝑋 𝑛 ) the number 5 is represented by
+                              5 = −1 − 𝑋 − 𝑋 3 − 𝑋 4 − 𝑋 5 − ⋯ − 𝑋 𝑛−1 ∈ 𝑅𝑛
+and this expression is of degree 𝑛 − 1 for any 𝑛 and thus does not correspond to a finite sum of powers of 𝑋.
+
+
+
+6    Examples
+In this section we give examples of polynomial rings (𝑅, 𝑋) in one generator 𝑋 over 𝕊[𝜇𝑛,+ ] where 𝑅 is
+of characteristic zero. The ring 𝑅 is embedded as a subring of ℂ by solving for 𝑋 ∈ ℂ the equations
+𝜎(ℎ(𝜉)) = 𝜄(𝜉) + 1, 𝜉 ∈ 𝜇𝑛 , using the canonical embedding 𝜇𝑛,+ ⊂ ℂ. The projective limit lim 𝑅𝑛 is, in these
+                                                                                           ←←←←←←
+examples, a finite extension of the ring of 𝑝-adic integers ℤ𝑝 . While one can use the axiom of choice to
+show the existence of an embedding of the 𝑝-adic field ℚ𝑝 in the field of complex numbers, such embeddings
+have the status of a chimera. Indeed, the continuity of measurable characters of compact groups applied to
+the additive group ℤ𝑝 shows that an embedding of the 𝑝-adic field ℚ𝑝 in the field of complex numbers is
+automatically non-measurable. On the other hand, next examples will show that polynomial rings (𝑅, 𝑋)
+in one generator 𝑋 over 𝕊[𝜇𝑛,+ ] provide instances of explicit interactions of 𝑝-adic fields (and their finite
+extensions) with the complex numbers. These interactions are given by pairs of embeddings with dense ranges
+                                𝜋
+                           𝔽𝑞 ↞ 𝑊 (𝔽𝑞 ) ↪ 𝑊 (𝔽𝑞 )[𝜂] ↩ 𝑅[𝑋 −1 ] ↪ ℂ
+of the ring of Laurent polynomials 𝑅[𝑋 −1 ]. The left embedding in the above diagram is in a finite algebraic
+extension 𝑊 (𝔽𝑞 )[𝜂] of the Witt ring 𝑊 (𝔽𝑞 ). The field of fractions of the ring 𝑊 (𝔽𝑞 )[𝜂] is a finite extension
+of the 𝑝-adic field. Most of these examples come from known number systems and have their origin in the
+search of optimal manners of encoding numbers [20]. In each case, the quotient 𝑅1 = 𝑅∕(𝑋𝑅) is the finite
+field 𝔽𝑞 , 𝑞 = 𝑛 + 1, and the multiplicative semi-group isomorphism 𝑗 ∶ 𝔽𝑞 ∼ 𝜇𝑛,+ ⊂ ℂ serves as a guide,
+using the addition in the finite field 𝔽𝑞 , for the terms of degree 0 in the construction of the map ℎ. Note that
+the choice of 𝑗 for 𝔽̄𝑞 plays a key role in the construction by Quillen [27] of the relation between the algebraic
+𝐾-theory of 𝔽𝑞 and the Adams operations.
+15                                                         6.1   Polynomial rings in one generator over 𝕊 = 𝕊[𝜇1,+ ]
+
+
+
+6.1     Polynomial rings in one generator over 𝕊 = 𝕊[𝜇1,+ ]
+When working over 𝕊 = 𝕊[𝜇1,+ ] there is no cancellation since there is no minus sign available. Thus starting
+from two non-zero elements 𝑥, 𝑦 the equality 𝑥 + 𝑦 = 0 can only be verified in the projective limit lim 𝑅𝑚 .
+                                                                                                     ←←←←←←
+We compute this projective limit in the next examples.
+
+6.1.1   The polynomial ring (ℤ, −2)
+The ring ℤ admits the generator 𝑋 = −2 over 𝕊. The hold is given by 1 + 1 = 𝑃 (𝑋) = 𝑋 + 𝑋 2 . The values
+of the polynomials of degree 𝑛, at 𝑋 = −2 are reported for the first values of 𝑛 in the following table
+                                           𝑛 {𝑝(−2) ∶ deg 𝑝 = 𝑛}
+                                           0        [0, 1] ∩ ℤ
+                                           1     [−2, −1] ∩ ℤ
+                                           2        [2, 5] ∩ ℤ
+                                           3    [−10, −3] ∩ ℤ
+                                           4       [6, 21] ∩ ℤ
+                                           5   [−42, −11] ∩ ℤ
+                                           6      [22, 85] ∩ ℤ
+Let us look, for example, at the computation of 1 + 1 + 𝑋. One gets
+                                1 + 1 + 𝑋 = 𝑋 + 𝑋 2 + 𝑋 = 𝑋(1 + 1 + 𝑋)
+and iterating this step one gets that 1 + 1 + 𝑋 ∈ 𝐽𝑚 = ⟨𝑋 𝑚 ⟩𝑅, ∀𝑚. This shows that 1 + 1 + 𝑋 = 0 in lim 𝑅𝑚 .
+                                                                                                     ←←←←←←
+Next we relate the degree of the polynomial 𝑝(𝑋) with the absolute value of the integer 𝑝(−2). Let
+                                        1       1        1
+                                 𝑗(𝑛) ∶= (−2)𝑛 − (−1)𝑛 +              𝑛 ∈ ℕ.                                  (6.1)
+                                        3       2        6
+The degree 𝑛 of a polynomial 𝑝(𝑋) with coefficients in {0, 1} specifies the sign of the integer 𝑝(−2) as (−1)𝑛
+and provides lower and upper bounds on the modulus |𝑝(−2)| as follows
+                                      |𝑗(𝑛 − 1)| < |𝑝(−2)| ≤ |𝑗(𝑛 + 1)|.
+Given an integer 𝑚 ∈ ℤ, the first inequality provides the following bound, on the degree of the polynomial 𝑝
+such that 𝑝(−2) = 𝑚
+                                        deg(𝑝) ≤ log2 (3|𝑚| + 2) + 1.
+The projective limit lim 𝑅𝑚 is here the ring ℤ2 of 2-adic integers, and the elements of ℤ inside ℤ2 are
+                      ←←←←←←
+characterized by the fact that their sequence of digits is eventually constant.
+     Next, we turn to quadratic fields for which the study of number systems in [18, 19] provides an exhaustive
+list of examples. One easily deduces from op.cit. the following
+Proposition 6.2. The quadratic fields 𝐾 whose ring of integers admit an 𝕊-generator are
+        √                                √                  √
+   • ℚ( −1) with generator 𝑋 = −1 + −1 of the ring ℤ[ −1] of integers of 𝐾.
+        √                           √                  √
+   • ℚ( −2) with generator 𝑋 = −2 of the ring ℤ[ −2] of integers of 𝐾.
+        √                            (    √ )
+   • ℚ( −7) with generator 𝑋 = 12 1 + −7 of the ring of integers of 𝐾.
+
+Proof. The norm 𝑁(𝛼) of an 𝕊-generator is equal to 2, thus the set 𝑁0 (𝛼) ∶= {0, … , 𝑁(𝛼) − 1} defining a
+canonical number system in the sense of [18, 19] is {0, 1} and the result follows from Theorem 1 of [19] in
+the complex case and Satz 1 of [18] in the real case.
+6.1     Polynomial rings in one generator over 𝕊 = 𝕊[𝜇1,+ ]                                                    16
+
+
+
+6.1.2     The polynomial ring (ℤ[𝑖], −1 + 𝑖)
+
+Here, we consider the ring 𝑅 = ℤ[𝑖] of Gaussian integers (sometimes called binarions; see [22]) with
+𝑋 = −1 + 𝑖 as 𝕊[𝜇1,+ ] = 𝕊-generator. Indeed, every Gaussian integers can be written uniquely as a finite
+sum of powers of 𝑋 ([16, 28] and Figure 2). One has the equality 1 + 1 = 𝑃 (𝑋) = 𝑋 2 + 𝑋 3 , which allows
+one to compute the sum of any pair of polynomials with coefficients in {0, 1}.
+
+
+
+
+                            Figure 2: Gaussian integers as 𝕊-polynomials in degree ≤ 12
+
+
+Proposition 6.3. Let 𝑅 = ℤ[𝑖], 𝑋 = −1 + 𝑖.
+(𝑖) The ideal of 𝑅 = ℤ[𝑖] generated by 𝑋 2 is the same as the ideal generated by 2.
+(𝑖𝑖) The ring 𝑅𝑚 for 𝑚 = 2𝑘 is ℤ∕(2𝑘 ℤ)[𝑋] where 𝑋 2 = −2 − 2𝑋.
+(𝑖𝑖𝑖) The ring 𝑅𝑚 for 𝑚 = 2𝑘 + 1 is ℤ∕(2𝑘+1 ℤ) ⊕ ℤ∕(2𝑘 ℤ) 𝑋 where 𝑋 2 = −2 − 2𝑋.
+(𝑖𝑣) The projective limit lim 𝑅𝑚 is the ring ℤ2 [𝑖] ∼ ℤ2 [𝑋] where 𝑋 2 = −2 − 2𝑋.
+                          ←←←←←←
+
+Proof. (𝑖) The element 𝑈 = (1 + 𝑋) ∈ 𝑅 is a unit since 𝑈 4 = 1 and one has
+
+                                  𝑋 2 = −2 − 2𝑋 ∈ 2𝑅, 2 = −(1 + 𝑋)−1 𝑋 2 ∈ 𝑋 2 𝑅
+
+(𝑖𝑖) By (𝑖) the ideal 𝑋 2𝑘 𝑅 is equal to 2𝑘 𝑅. One has 𝑅 = ℤ[𝑖] and 𝑅∕(2𝑘 𝑅) = ℤ∕(2𝑘 ℤ)[𝑖] = ℤ∕(2𝑘 ℤ)[𝑋]
+with 𝑋 2 = −2 − 2𝑋, thus one gets (𝑖𝑖).
+(𝑖𝑖𝑖) Let 𝑚 = 2𝑘 + 1. Any element of 𝑅 is of the form 𝑧 = 𝑎 + 𝑏𝑋 where 𝑎, 𝑏 ∈ ℤ. In 𝑅 one has
+2𝑘+1 ∈ 𝑋 2𝑘+2 𝑅 ⊂ 𝐽𝑚 and 2𝑘 𝑋 ∈ 𝑋 2𝑘+1 𝑅 = 𝐽𝑚 . Thus the homomorphism ℤ[𝑋] → 𝑅𝑚 induces a surjective
+homomorphism from ℤ∕(2𝑘+1 ℤ) ⊕ ℤ∕(2𝑘 ℤ) 𝑋 to 𝑅𝑚 . It is bijective since the cardinalities are equal.
+(𝑖𝑣) The extension ℚ2 [𝑖] is totally ramified of index 𝑒 = 2 (see [28], 4.2). The polynomial 𝑋 2 + 2𝑋 + 2 is an
+Eisenstein polynomial which defines ℚ2 [𝑖] as its splitting field. The valuation of 𝑋 is one half of the valuation
+of 2.
+
+                             ( √     √ )
+6.1.3     The polynomial ring ℤ[ −2], −2
+                    √                                                             √
+ The element 𝑋 ∶= −2 is an 𝕊[𝜇1,+ ] = 𝕊-generator of the ring of integers ℤ[ −2] of the imaginary
+                  √
+quadratic field ℚ( −2). This follows directly from §6.1.1 and Proposition 5.5. The hold is given by the
+polynomial 𝑃 (𝑋) = 𝑋 4 + 𝑋 2 . A straightforward analogue of Proposition 6.3 holds.
+17                                                              6.2    Polynomial rings in one generator over 𝕊[±1]
+
+
+                            (    √             √   )
+6.1.4    The polynomial ring (ℚ( −7)), 12 (1 + −7)
+                      (    √ )                                                    √
+The element 𝑋 ∶= 12 1 + −7 is an 𝕊[𝜇1,+ ] = 𝕊-generator of the ring (ℚ( −7)) of integers of the
+                            √
+imaginary quadratic field ℚ(√ −7). The hold is given by the polynomial 𝑃 (𝑋) = 𝑋 3 + 𝑋. Let 𝐹 be the
+fundamental domain of (ℚ( −7)) given by the parallelogram with vertices 0, 1, 𝑋, 𝑋 + 1. Figure 3 shows
+the neighborhood of 0 ∈ ℂ obtained as the union of the translations 𝐹 + 𝑝(𝑋) by polynomials 𝑝(𝑋) of degree
+≤ 11.
+
+
+
+
+                                          X 11
+
+                                                                X 10
+
+
+
+                                                        X9
+
+
+                                                                      (   √ )
+                       Figure 3: Polynomials of degree ≤ 11 for 𝑋 = 12 1 + −7
+
+                                   √              (     √ )
+Proposition 6.4. Let 𝑅 = (ℚ( −7)), 𝑋 = 21 1 + −7 .
+(𝑖) The ring 𝑅𝑚 is ℤ∕(2𝑚 ℤ).
+(𝑖𝑖) The projective limit lim 𝑅𝑚 is the ring ℤ2 .
+                           ←←←←←←
+(𝑖𝑖𝑖) The element 𝑋 ∈ lim 𝑅𝑚 = ℤ2 is the only solution divisible by 2 in the ring ℤ2 for the equation
+                            ←←←←←←
+2 + 𝑋 + 𝑋 2 = 0.
+                                                                                 (             )
+Proof. The hold is given by 𝑃 (𝑋) = 𝑋 3 + 𝑋 and one has 𝑃 (𝑋) − 2 = (𝑋 − 1) 𝑋 2 + 𝑋 + 2 . By Hensel’s
+Lemma, the equation 2 + 𝑋 + 𝑋 2 = 0 admits a unique solution 𝛼 in ℤ2 of the form 𝛼 = 1 + 2𝜖 and a
+unique solution
+          (      of the form 𝛽 = 2(1 + 2𝜖(′ ). (In fact one))
+                                                            has 𝛼𝛽 = 2 and 𝛼 + 𝛽 = −1. The homomorphism
+        1
+               √ )                           1
+                                                     √
+𝜌 ∶ ℤ[ 2 1 + −7 ] → ℤ2 given by 𝜌 2 1 + −7                    = 𝛽 is well defined since 𝛽 is a solution of the
+                                                                                                      √
+equation 2 + 𝑋 + 𝑋 2 = 0. Moreover 𝛽 is the product of 2 by a unit of ℤ2 (but this fails in 𝑅 = (ℚ( −7))).
+The projection 𝑋𝑚 of 𝛽 in ℤ2 ∕(2𝑚 ℤ2 ) = ℤ∕(2𝑚 ℤ) fulfills 𝑃 (𝑋𝑚 ) = 2 and 𝑋𝑚 is the product of 2 by a unit.
+Thus the ideals generated by powers of 𝑋𝑚 are the same as those generated by powers of 2. This proves the
+three assertions (𝑖), (𝑖𝑖), (𝑖𝑖𝑖).
+
+6.2     Polynomial rings in one generator over 𝕊[±1]
+6.2.1    The polynomial ring (ℤ, 3)
+ The case of the 𝕊[±1]-generator 3 ∈ ℤ is particularly relevant because, as shown in [13], the addition
+coincides with that of the Witt vectors in 𝑊 (𝔽3 ) = ℤ3 .
+Proposition 6.5. Let 𝑅 = ℤ, 𝑋 = 3 is an 𝕊[±1]-generator of 𝑅. The hold is 𝑃 (𝑋) = −1 + 𝑋.
+(𝑖) The ring 𝑅𝑚 is ℤ∕(3𝑚 ℤ).
+6.2   Polynomial rings in one generator over 𝕊[±1]                                                                  18
+
+
+
+(𝑖𝑖) The projective limit lim 𝑅𝑚 is the ring 𝑊 (𝔽3 ) = ℤ3 .
+                           ←←←←←←
+(𝑖𝑖𝑖) The set of Witt vectors with only finitely many non-zero components forms a subring of 𝑊 (𝔽3 ) isomorphic
+to ℤ.
+
+   In order to organize the next examples we give the list of imaginary quadratic field extensions of ℚ
+generated by rings of 𝕊[±1]-polynomials in one variable.
+
+Proposition 6.6. The imaginary quadratic fields 𝐾 generated by rings of 𝕊[±1]-polynomials in one variable
+are
+        √                             √                   √
+    • ℚ( −2) with generator 𝑋 = 1 + −2 of the ring ℤ[ −2] of integers of 𝐾.
+        √                         √           √
+    • ℚ( −3) with generator 𝑋 = −3 of ℤ[ −3] (not a UFD).
+        √                                  √
+    • ℚ( −11) with generator 𝑋 = 12 (1 + −11) of the ring of integers of 𝐾.
+                              ∑
+Proof. Let 𝑃 (𝑋) = −1 + 𝑛−1     𝑗=1 𝑎(𝑗)𝑋 + 𝜖𝑋 , 𝜖 ∈ {±1}, 𝑎(𝑗) ∈ {−1, 0, 1}, be the carry leading to an
+                                         𝑗       𝑛
+
+imaginary quadratic extension. The roots of the polynomial 𝑃 (𝑋) − 2 are algebraic integers, and we assume
+that one of them, say 𝛼, is quadratic imaginary. Let 𝑞(𝑥) = 𝑥2 − 𝑏𝑥 + 𝑐 be its minimal polynomial. It has
+integral coefficients so 𝑏, 𝑐 ∈ ℤ, and by definition, it divides 𝑃 (𝑋) − 2. The constant coefficient 𝑐 must be
+equal to 3. Indeed it divides the constant coefficient −3 of 𝑃 (𝑋) − 2 and since 𝑏2 − 4𝑐 < 0 it is positive. It
+cannot be equal to 1 since in that case one would get 𝑏 ∈ {−1, 0, 1}, and 𝛼 ∈ {𝑖, 𝑗, −𝑗} which contradicts
+                                                                                                         √ the
+injectivity of the map 𝜎. For 𝑐 = 3 the possible
+                                            (      values   of 𝑏 are 𝑏 = 0 which gives the solution 𝛼 = −3,
+                                          1
+                                                   √ )                                                    √
+𝑏 = ±1 which gives the solutions 𝛼 = 2 ±1 ± 𝑖 11 , 𝑏 = ±2 which gives the solutions 𝛼 = ±1 ± 𝑖 2,
+                                                                                 (       √ )
+and finally 𝑏 = ±3. We shall now show that this last choice which gives 𝛼 = 12 ±3 ± 𝑖 3 does not give a
+solution. To prove this it is enough to show that the polynomial 3 + 3𝑋 + 𝑋 2 cannot divide a polynomial
+𝑃 (𝑋) − 2 with 𝑃 of the above form. We thus assume an equality of the form
+                              ( 𝑛−2               )
+                               ∑                               ∑
+                                                               𝑛−1
+                          2                   𝑗
+            (3 + 3𝑋 + 𝑋 )             𝑏(𝑗)𝑋           = −3 +         𝑎(𝑗)𝑋 𝑗 + 𝜖𝑋 𝑛 , 𝜖 ∈ {±1}, 𝑎(𝑗) ∈ {−1, 0, 1}
+                                𝑗=0                            𝑗=1
+
+
+Since the coefficients of 𝑃 − 2 are integers and the leading coefficient of 3 + 3𝑋 + 𝑋 2 is 1 the coefficients
+𝑏(𝑗) are integers. We get 𝑏(0) = −1, 3𝑏(1) − 3 = 𝑎(1), but 𝑎(1) ∈ {−1, 0, 1} and thus working modulo 3
+one gets 𝑎(1) = 0 and hence 𝑏(1) = 1. Considering the coefficient of 𝑋 2 we get 3𝑏(1) + 3𝑏(2) − 1 = 𝑎(2)
+which gives 𝑎(2) = −1 and 𝑏(2) = −𝑏(1) = −1. We can now work by induction to show that 𝑏(𝑗) = (−1)𝑗+1 .
+Indeed the coefficient of 𝑋 𝑗 is 𝑏(𝑗 − 2) + 3𝑏(𝑗 − 1) + 3𝑏(𝑗) = 𝑎(𝑗) and if we know that 𝑏(𝑗 − 2) = (−1)𝑗−1
+and 𝑏(𝑗 − 1) = (−1)𝑗 we get 𝑎(𝑗) = 𝑏(𝑗 − 2) and 3𝑏(𝑗 − 1) + 3𝑏(𝑗) = 0 so that 𝑏(𝑗) = (−1)𝑗+1 . This works for
+𝑗 ≤ 𝑛 − 2. The coefficient of 𝑋 𝑛−1 is 𝑏(𝑛 − 3) + 3𝑏(𝑛 − 2) = 𝑎(𝑛 − 1) and this gives a contradiction since one
+gets 𝑎(𝑛 − 1) = 𝑏(𝑛 − 3) (working modulo 3) which contradicts the fact that 𝑏(𝑛 − 2) ≠ 0.
+
+                                  √         (   √   )
+6.2.2    The polynomial ring ((ℚ[ −11]), 21 1 + −11 )
+                                                           (   √     )
+ This section is dedicated to a detailed proof that 𝑋 ∶= 12 1 + −11 is an 𝕊[±1]-generator of the ring of
+                                 √
+integers of the number field ℚ( −11). The reason for providing the details of the proof is because we want
+to emphasize that in such a case, and unlike working over 𝕊, one can explicitly control the cancellations in
+the computations.
+19                                                                       6.2   Polynomial rings in one generator over 𝕊[±1]
+
+
+                                                                     √
+Proposition(6.7. Let )be the ring of integers of the number field ℚ( −11).
+                  √
+(𝑖) 𝑋 ∶= 12 1 + −11 is an 𝕊[±1]-generator of . The hold of (, 𝑋) is 𝑃 (𝑋) = −1 + 𝑋 − 𝑋 2 .
+(𝑖𝑖) The projective limit lim 𝑅𝑚 is the ring 𝑊 (𝔽3 ) = ℤ3 .
+                          ←←←←←←
+
+
+
+
+                                                     1
+                                                         (1+   11 )
+                                                     2
+
+
+
+
+                                                                          1
+
+
+
+
+                                Figure 4: Fundamental domain of the lattice 
+
+
+
+The proof requires a preliminary lemma. We
+                                         √first recall some classical results concerning the ring of integers
+ of the imaginary quadratic field 𝐾 = ℚ( −11).(The discriminant
+                                                             )       of 𝐾 is 𝑑 = −11. Thus since −11 ∼ 1
+                                               1
+                                                        √
+modulo 4, the lattice  is ℤ + ℤ𝑋 where 𝑋 ∶= 2 1 + −11 . By construction one has
+
+
+
+                                    1 + 1 = 𝑃 (𝑋),          𝑃 (𝑋) = −1 + 𝑋 − 𝑋 2 .                                   (6.8)
+
+
+                                                                                               ∑
+One wants to show that every element 𝑧 ∈  can be written uniquely as a polynomial 𝑧 = 𝑗 𝛼𝑗 𝑋 𝑗 , with
+𝛼𝑗 ∈ {−1, 0, 1}. Figure 4 shows the translates of the fundamental domain of the lattice, while the next figures
+provide a sketch of a few steps of the process of representing elements of  in terms of polynomials of degree
+≤ 𝑛, showing those described by polynomials of degree = 𝑛 with a new color.
+
+
+
+
+                                                                                   -1    0    1
+
+
+
+
+          -1         0          1
+
+         (a) First step, polynomials of degree 0                       (b) Second step, polynomials of degree ≤ 1
+
+                                           Figure 5: The first two steps
+6.2   Polynomial rings in one generator over 𝕊[±1]                                                                  20
+
+
+
+
+                                                                                              -1 0 1
+                       -1    0   1
+
+
+
+
+         (a) Third step, polynomials of degree ≤ 2                    (b) Fourth step, polynomials of degree ≤ 3
+
+                                              Figure 6: The third and fourth steps
+
+
+
+
+                                                                                X7                     X6
+
+
+
+                                 -10 1                                                                  X5
+
+
+
+
+            (a) Fifth step, polynomials of degree ≤ 4                 (b) Eigth’s step, polynomials of degree ≤ 7
+
+                                               Figure 7: The fifth and eighth steps
+
+By comparing Figures 5a, 5b, 6a, 6b, 7a, 7b, one notices that the translation 𝑧 ↦ 𝑧 + 1 does not increase the
+degree of the polynomial by more than 2 units. Next lemma provides a formal proof of this fact.
+                      ∑
+Lemma 6.9. Let 𝑧 = 𝑛𝑗=0 𝛼𝑗 𝑋 𝑗 ∈ , 𝛼𝑗 ∈ {−1, 0, 1}. Then there exist coefficients 𝛽𝑗 ∈ {−1, 0, 1}, with
+                                ∑
+0 ≤ 𝑗 ≤ 𝑛 + 2, such that 𝑧 + 1 = 𝑛+2       𝑗
+                                  𝑗=0 𝛽𝑗 𝑋 .
+
+Proof. We proceed by induction on the integer 𝑛. For 𝑛 = 0, the result follows from (6.8). Let us assume that
+the result is proved up to 𝑛 − 1, then there exists coefficients 𝛾𝑗 ∈ {−1, 0, 1} such that
+                                 ( 𝑛−1              )                        ( 𝑛+1            )
+                                  ∑                                           ∑
+                            𝑧=             𝛼𝑗 𝑋 𝑗       + 𝛼𝑛 𝑋 𝑛 ⟹ 𝑧 + 1 =           𝛾𝑗 𝑋 𝑗       + 𝛼𝑛 𝑋 𝑛 .
+                                     𝑗=0                                       𝑗=0
+
+
+Let us consider a sum such as 𝛾𝑛 𝑋 𝑛 + 𝛾𝑛+1 𝑋 𝑛+1 + 𝛼𝑛 𝑋 𝑛 and express it without going beyond 𝑋 𝑛+2 . If 𝛾𝑛+1 = 0
+this follows again from (6.8). We can thus assume that 𝛾𝑛+1 = ±1 and also that both 𝛾𝑛 and 𝛼𝑛 are non-zero
+and equal since otherwise the sum 𝛾𝑛 𝑋 𝑛 + 𝛼𝑛 𝑋 𝑛 would have degree at most 𝑛. The only case to exclude then
+is when 𝛾𝑛 , 𝛼𝑛 , and 𝛾𝑛+1 are all equal (and non-zero), since only in that case would one get a term in 𝑋 𝑛+3
+21                                                                6.2   Polynomial rings in one generator over 𝕊[±1]
+
+
+
+from the sum
+
+                      𝑋 𝑛 + 𝑋 𝑛 + 𝑋 𝑛+1 = 𝑋 𝑛 (1 + 1 + 𝑋) = 𝑋 𝑛 (−1 + 𝑋 + 𝑋 − 𝑋 2 ) =
+                       = 𝑋 𝑛 (−1 − 𝑋 + 𝑋 2 − 𝑋 2 − 𝑋 3 ) = −𝑋 𝑛 − 𝑋 𝑛+1 − 𝑋 𝑛+3 .
+
+To exclude this case, one adds to the induction hypothesis the condition that if the last term 𝛽𝑛+2 of the
+polynomial of degree 𝑛 + 2 representing 𝑧 + 1 is non-zero, then the term 𝛽𝑛+1 is zero or of the opposite sign.
+This condition is fulfilled for 𝑛 = 0, and if we assume it for 𝑛 − 1, it holds also for 𝑛. Indeed, the only cases
+when 𝛽𝑛+2 ≠ 0 arise when either 𝛾𝑛+1 = 0, in which case 𝛽𝑛+1 and 𝛽𝑛+2 have opposite signs, or 𝛾𝑛+1 = 𝜖 = ±1
+in which case 𝛾𝑛 = 𝛼𝑛 = −𝜖, which gives
+
+                      𝛾𝑛 𝑋 𝑛 + 𝛾𝑛+1 𝑋 𝑛+1 + 𝛼𝑛 𝑋 𝑛 = −𝜖𝑋 𝑛 (1 + 1 − 𝑋) = 𝜖𝑋 𝑛 + 𝜖𝑋 𝑛+2 ,
+
+implying that 𝛽𝑛+1 = 0 in this case. Thus the induction hypothesis still holds for 𝑛, and this concludes the
+proof.
+
+
+Proof. (of Proposition 6.7) Lemma 6.9 holds for the abstract law of addition defined using (6.8) on the
+projective limit of the 𝑅𝑛 . The proof shows that elements of this limit, which have only a finite number of
+non-zero coordinates, are stable under the addition of 1. Using (5.10), it follows that they are also stable
+under the addition of any monomial and hence that they form an additive group 𝐴. Thus, it remains to show
+that the map 𝜌 ∶ 𝐴 → ℂ defined by
+
+                             (∑       )   ∑                          (    √    )
+                                                                   1
+                            𝜌   𝛼𝑗 𝑋 𝑗 ∶=   𝛼𝑗 𝑧𝑗 ,           𝑧=       1 + −11
+                                 𝑗               𝑗
+                                                                   2
+
+                  ∑                        ∑
+is injective. Let 𝑗 𝛼𝑗 𝑋 𝑗 ∈ ker 𝜌, then 𝑗 𝛼𝑗 𝑧𝑗 = 0 and thus 𝑧 fulfills an equation 𝐸(𝑧) = 0 with integral
+coefficients whose leading coefficient is 1 and the constant term is ±1. The polynomial 𝐸 is thus a multiple of
+the minimal polynomial 𝑧2 − 𝑧 + 3 of the field extension. The quotient polynomial has integral coefficients;
+thus, one gets a contradiction using the product of constant terms.
+
+
+                           ( √     √ )
+6.2.3   The polynomial ring ℤ[ −3], −3
+                     √                                                   √
+The element 𝑋 ∶=       −3 is an 𝕊[𝜇2,+ ] = 𝕊[±1]-generator of the ring ℤ[ −3] and the latter is a maximal
+                                                                 √
+order in the ring of integers of the imaginary quadratic field ℚ( −3). This follows directly from §6.1.1
+and Proposition 5.5. The hold is given by the polynomial 𝑃 (𝑋) = −1 − 𝑋 2 . A straightforward analogue of
+Proposition 6.3 holds.
+
+
+                           (    √         √ )
+6.2.4   The polynomial ring (ℚ( −2)), 1 + −2
+                                                                                                              √
+One obtains similarly that 𝑃 (𝑋) = −1 − 𝑋 + 𝑋 2 − 𝑋 3 is the
+                                                           √ hold associated to the 𝕊[±1] generator 1 +           −2
+of the ring of integers of the imaginary quadratic field ℚ( −2)
+6.3   Polynomial rings in one generator over 𝕊[𝜇3,+ ]                                                           22
+
+
+
+
+                                                    X9
+                                                           X8
+
+
+
+
+                                                                                √
+                               Figure 8: Polynomials of degree ≤ 9 for 𝑋 = 1 + 𝑖 2
+
+                                                                             √
+Proposition 6.10.
+              √      Let   be   the ring of integers of the number field ℚ(   −2).
+(𝑖) 𝑋 ∶= 1 + −2 is an 𝕊[±1]-generator of . The hold of (, 𝑋) is 𝑃 (𝑋) = −1 − 𝑋 + 𝑋 2 − 𝑋 3 .
+(𝑖𝑖) The projective limit lim 𝑅𝑚 is the ring 𝑊 (𝔽3 ) = ℤ3 .
+                          ←←←←←←
+Figure 8 reproduces the pattern obtained by inputting polynomials of degree ≤ 9. In this case, the analog of
+Lemma 6.9 holds with the bound 𝑛 + 3 instead of 𝑛 + 2.
+
+
+6.3    Polynomial rings in one generator over 𝕊[𝜇3,+ ]
+In the next example the field 𝑅1 is the finite field 𝔽4 . One lets 𝜇3,+ ⊂ ℂ be the solutions of 𝑥(𝑥3 − 1) = 0,
+𝑗 = exp(2𝜋𝑖∕3) and ℤ(𝑗) ⊂ ℚ(𝑗) be the ring of integers of the quadratic imaginary field ℚ(𝑗).
+
+Proposition 6.11. (𝑖) The number −2 ∈ ℤ(𝑗) is an 𝕊[𝜇3,+ ]-generator of the ring 𝑅 = ℤ(𝑗).
+(𝑖𝑖) The hold is given by
+
+                                ℎ(1) = 𝑋 + 𝑋 2 , ℎ(𝑗) = 𝑗 2 𝑋 + 𝑗 2 , ℎ(𝑗 2 ) = 𝑗𝑋 + 𝑗
+
+(𝑖𝑖𝑖) The field 𝑅1 is the finite field 𝔽4 .
+(𝑖𝑣) The projective limit lim 𝑅𝑚 is the Witt ring 𝑊 (𝔽4 ) and the ring 𝑅𝑚 is the quotient of 𝑊 (𝔽4 ) by 2𝑚 𝑊 (𝔽4 ).
+                           ←←←←←←
+
+Proof. Let 𝐽 = 2ℤ(𝑗) ⊂ ℤ(𝑗), then 𝐽 𝑛 is the ideal generated by 𝑋 𝑛 where 𝑋 = −2. Let 𝜎 ∶ (𝜇3 ) → 𝑅 =
+ℤ(𝑗) be the map defined by (5.3). For each 𝑛 the composition 𝜋𝑛 ◦𝜎, from the subset  𝑛−1 (𝜇3 ) ⊂ (𝜇3 )
+formed of polynomials of degree < 𝑛 to the quotient ring 𝑅𝑛 = 𝑅∕𝐽 𝑛 , is surjective and hence injective since
+the cardinalities of source and target are the same. It follows that the map 𝜎 ∶ (𝜇3 ) → 𝑅 = ℤ(𝑗) is injective.
+To show that it is surjective one uses the general method involving the limit of the subsets
+                                                     (                 )
+                                         𝑍𝑛 ∶= (−2)−𝑛 𝜎( 𝑛 (𝜇3 ) + 𝐹 ) ⊂ ℂ
+
+where 𝐹 is a fundamental domain for ℤ(𝑗). One observes that passing from 𝑛 to 𝑛 + 1 only alters 𝑍𝑛 on its
+boundary and that 𝑍𝑛 contains an open disk centered at 0.
+23                                                             6.4   Polynomial rings in one generator over 𝕊[𝜇4,+ ]
+
+
+
+
+                             Figure 9: Polynomials of degree ≤ 7 for 𝑋 = −2
+
+
+6.4   Polynomial rings in one generator over 𝕊[𝜇4,+ ]
+Proposition 6.12. (𝑖) The number 𝑋 = 1 + 2𝑖 is an 𝕊[𝜇4,+ ]-generator of the ring 𝑅 = ℤ(𝑖).
+(𝑖𝑖) The hold is given by ℎ(0) = 1 and
+
+                            ℎ(1) = 𝑖 − 𝑖 𝑋, ℎ(𝑖) = −𝑖 + 𝑋, ℎ(−𝑖) = −1 − 𝑖 𝑋
+
+(𝑖𝑖𝑖) The field 𝑅1 is the finite field 𝔽5 .
+(𝑖𝑣) The projective limit lim 𝑅𝑚 is the Witt ring 𝑊 (𝔽5 ) = ℤ5 and the ring 𝑅𝑚 is the quotient of 𝑊 (𝔽5 ) by
+                            ←←←←←←
+5𝑚 𝑊 (𝔽5 ).
+
+Proof. In the 𝑝-adic field ℤ5 there exists a unique square root of −1 equal to 2 modulo 5 (see [28], §6.7).
+Let 𝜌 ∶ ℤ(𝑖) → ℤ5 be the unique morphism such that, modulo 5, one has 𝜌(𝑖) = 2. Then 𝜌(𝑋) = 5𝑢
+where 𝑢 is a unit in ℤ5 . The morphism 𝜌 restricted to 𝜇4,+ = {0, 1, 𝑖, −1, −𝑖} gives a multiplicative section
+of the quotient map 𝑅 → 𝑅∕𝑋𝑅. One has ℤ5 ∕𝜌(𝑋)𝑚 ℤ5 = ℤ∕5𝑚 ℤ and the morphism 𝜌 induces an
+isomorphism 𝑅𝑚 ≃ ℤ5 = ℤ∕5𝑚 ℤ. Statements (𝑖𝑖𝑖) and (𝑖𝑣) follow, as well as the injectivity of the map
+𝜎 ∶ (𝜇4 ) → 𝑅 = ℤ(𝑖). One can prove the surjectivity of 𝜎 as for Proposition 6.11 using Figure 10.
+Statements (𝑖) and (𝑖𝑖) follow.
+
+
+
+
+                           Figure 10: Polynomials of degree ≤ 4 for 𝑋 = 1 + 2𝑖
+6.5   Polynomial rings in one generator over 𝕊[𝜇6,+ ]                                                    24
+
+
+
+6.5     Polynomial rings in one generator over 𝕊[𝜇6,+ ]
+Proposition 6.13. (𝑖) The number 𝑋 = 2 − 𝑗 is an 𝕊[𝜇6,+ ]-generator of the ring 𝑅 = ℤ(𝑗).
+(𝑖𝑖) The hold is given by ℎ(𝑗) = 𝑗 + 1, ℎ(𝑗 2 ) = 𝑗 2 + 1, ℎ(0) = 1 and
+
+                              ℎ(1) = 𝑋 + 𝑗, ℎ(−𝑗 2 ) = −𝑗 2 𝑋 + 𝑗 2 , ℎ(−𝑗) = −1 + 𝑋
+
+(𝑖𝑖𝑖) The field 𝑅1 is the finite field 𝔽7 .
+(𝑖𝑣) The projective limit lim 𝑅𝑚 is the Witt ring 𝑊 (𝔽7 ) = ℤ7 and the ring 𝑅𝑚 is the quotient of 𝑊 (𝔽7 ) by
+                            ←←←←←←
+7𝑚 𝑊 (𝔽7 ).
+      The proof can be easily deduced from [28], §4.6.
+
+
+
+
+                                                                                  √
+                              Figure 11: Polynomials of degree ≤ 2 for 𝑋 = 25 − 𝑖 2 3
+
+
+References
+[1] M. F. Atiyah, D.O Tall, Group representations, 𝜆-rings and the 𝐽 -homomorphism. Topology 8 1969
+    253–297. 2
+
+[2] G. Barat, V. Berthé, P. Liardet, J. Thuswaldner, Dynamical directions in numeration, Ann. Inst. Fourier
+    (Grenoble) 56 (2006), no. 7, 1987–2092. 1
+
+[3] J. Borger, Λ-rings and the field with one element, arXiv:0906.3146 1, 2
+
+[4] J.B. Bost, A. Connes, Hecke algebras, Type III factors and phase transitions with spontaneous symmetry
+    breaking in number theory, Selecta Math. (New Series) Vol.1 (1995) N.3, 411–457. 2
+
+[5] A. Connes, Trace formula in noncommutative geometry and the zeros of the Riemann zeta function.
+    Selecta Math. (N.S.) 5 (1999), no. 1, 29–106. 2, 2, 4, 2
+
+[6] A. Connes, C. Consani On the notion of geometry over 𝔽1 , Journal of Algebraic Geometry 20 n. 3 (2011),
+    525–557. 3
+
+[7] A. Connes, C. Consani, Schemes over 𝔽1 and zeta functions, Compositio Mathematica 146 (6), (2010)
+    1383–1415. 2, 12
+
+[8] A. Connes, C. Consani, From monoids to hyperstructures: in search of an absolute arith- metic, in
+    Casimir Force, Casimir Operators and the Riemann Hypothesis, de Gruyter (2010), 147–198. 2
+25                                                                                            REFERENCES
+
+
+
+[9] A. Connes, C. Consani, Geometry of the Arithmetic Site. Adv. Math. 291 (2016), 274–329. 1, 2, 2.7, 2.8,
+    2
+
+[10] A. Connes, C. Consani, Geometry of the Scaling Site, Selecta Math. (N.S.) 23 (2017), no. 3, 1803–1850.
+    2, 2.11
+
+[11] A. Connes, C. Consani, Absolute algebra and Segal’s Gamma sets, J. Number Theory 162 (2016),
+    518–551. 1, 3, 5
+
+[12] A. Connes, C. Consani, On Absolute Algebraic Geometry, the affine case, Advances in Mathematics,
+    390, Paper No. 107909 (2021), 44 pp. 12
+
+[13] A. Connes, C. Consani, Riemann-Roch for Spec ℤ. Bulletin des Sciences Mathématiques 187 (2023). 1,
+    3, 3.1, 1, 6.2.1
+
+[14] A. Connes, C. Consani, Riemann-Roch for the ring ℤ. Comptes Rendus Mathématique (to appear)
+    (2023) 1, 4.2
+
+[15] B. Dundas, T. Goodwillie, R. McCarthy, The local structure of algebraic K-theory. Algebra and Appli-
+    cations, 18. Springer-Verlag London, Ltd., London, 2013. 3
+
+[16] W. Gilbert, Radix representation of quadratic fields. Journal of Mathematical Analysis and Applications.
+    83, 264–274, (1981). 6.1.2
+
+[17] J. Golan, Semi-rings and their applications, Updated and expanded version of The theory of semi-rings,
+    with applications to mathematics and theoretical computer science [Longman Sci. Tech., Harlow, 1992.
+    Kluwer Academic Publishers, Dordrecht, 1999. 2, 9
+
+[18] I. Katai, B. Kovacs, Kanonische Zahlensysteme in der Theorie der quadratischen algebraischen Zahlen.
+    Acta Sci. Math. (Szeged) 42 (1980), no. 1-2, 99–107. 6.1.1, 6.1.1
+
+[19] I. Katai, B. Kovacs, Canonical number systems in imaginary quadratic fields. Acta Math. Acad. Sci.
+    Hungar. 37 (1981), no. 1–3, 159–164. 6.1.1, 6.1.1
+
+[20] D. Knuth, The art of computer programming. Vol. 2: Seminumerical algorithms. Third Edition, Addison-
+    Wesley, 1998. 1, 6
+
+[21] S. Lang, Algebraic Number Theory. Addison Wesley, 1970.
+
+[22] https://en.wikipedia.org/wiki/Complex-base_system 6.1.2
+
+[23] Yu.I. Manin, Lectures on zeta functions and motives (according to Deninger and Kurokawa). Columbia
+    University Number Theory Seminar (New York, 1992). Astérisque No. 228 (1995), 4, 121–163. 1, 2, 3
+
+[24] Yu.I. Manin, Cyclotomy and Analytic Geometry over F1 . Quanta of maths, 385–408, Clay Math. Proc.,
+    11, Amer. Math. Soc., Providence, RI, 2010. 2, 2
+
+[25] R. Meyer, On a representation of the idele class group related to primes and zeros of 𝐿-functions. Duke
+    Math. J. Vol.127 (2005), N.3, 519–595. 4
+
+[26] J. Neukirch, Algebraic number theory. Translated from the 1992 German original and with a note by
+    Norbert Schappacher. With a foreword by G. Harder. Grundlehren der mathematischen Wissenschaften
+    [Fundamental Principles of Mathematical Sciences], 322. Springer-Verlag, Berlin, 1999.
+REFERENCES                                                                                               26
+
+
+
+[27] D. Quillen, On the cohomology and K-theory of the general linear groups over a finite field. Ann. of
+    Math. (2) 96 (1972), 552–586. 6
+
+[28] A. Robert, A course in p-adic analysis. Graduate Texts in Mathematics, 198. Springer-Verlag, New York,
+    2000. 6.1.2, 6.1.2, 6.4, 6.5
+
+[29] C. Soulé, Les variétés sur le corps à un élément. Mosc. Math. J. 4 (2004), no. 1, 217–244. 2
+
+[30] R. Steinberg, A geometric approach to the representations of the full linear group over a Galois field,
+    Transactions of the AMS, Vol. 71, No. 2 (1951), pp. 274–282. 1
+
+[31] J. Tits, Sur les analogues algébriques des groupes semi-simples complexes. Colloque d’algèbre
+    supérieure, Bruxelles 19–22 décembre 1956, Centre Belge de Recherches Mathématiques Établissements
+    Ceuterick, Louvain; Librairie Gauthier-Villars, Paris (1957), 261–289. 1
+
+[32] A. Weil Sur l’analogie entre les corps de nombres algébriques et les corps de fonctions algébriques,
+    Oeuvres scientifiques/Collected papers I. 1926–1951. Springer, Heidelberg, 2014. 1
+
+[33] A. Weil De la métaphysique aux mathématiques, Oeuvres scientifiques/Collected papers II. 1951–1964.
+    Springer, Heidelberg, 2014. 1
+
+[34] A. Weil Basic number theory. Reprint of the second (1973) edition. Classics in Mathematics. Springer-
+    Verlag, Berlin, 1995
+
+[35] http://solbakkn.com/math/triadic-nums.htm
+
+
+   Alain Connes                                                     Caterina Consani
+   COLLÈGE DE FRANCE                                                Department of Mathematics
+   3 Rue d’Ulm                                                      T HE JOHNS H OPKINS U NIVERSITY
+   F-75005 Paris, France                                            3400 N Charles Street
+   IHES                                                             Baltimore MD 21218, USA
+   35 Rte de Chartres                                               Email: cconsan1@jhu.edu
+   91440 Bures-sur-Yvette, France
+   Email: alain@connes.org
+

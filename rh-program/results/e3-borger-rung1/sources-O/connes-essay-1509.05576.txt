@@ -1,0 +1,1650 @@
+                                                           An essay on the Riemann Hypothesis
+                                                                                      Alain Connes∗
+                                                                                    October 24, 2019
+
+
+
+
+arXiv:1509.05576v1 [math.NT] 18 Sep 2015
+                                                                                           Abstract
+                                                     The Riemann hypothesis is, and will hopefully remain for a long time, a great moti-
+                                                 vation to uncover and explore new parts of the mathematical world. After reviewing its
+                                                 impact on the development of algebraic geometry we discuss three strategies, working
+                                                 concretely at the level of the explicit formulas. The first strategy is “analytic" and is based
+                                                 on Riemannian spaces and Selberg’s work on the trace formula and its comparison with
+                                                 the explicit formulas. The second is based on algebraic geometry and the Riemann-Roch
+                                                 theorem. We establish a framework in which one can transpose many of the ingredients
+                                                 of the Weil proof as reformulated by Mattuck, Tate and Grothendieck. This framework
+                                                 is elaborate and involves noncommutative geometry, Grothendieck toposes and tropical
+                                                 geometry. We point out the remaining difficulties and show that RH gives a strong moti-
+                                                 vation to develop algebraic geometry in the emerging world of characteristic one. Finally
+                                                 we briefly discuss a third strategy based on the development of a suitable “Weil coho-
+                                                 mology", the role of Segal’s Γ-rings and of topological cyclic homology as a model for
+                                                 “absolute algebra" and as a cohomological tool.
+
+
+
+                                                 Contents
+                                                 1   Introduction                                                                             2
+
+                                                 2   RH and algebraic geometry                                                                4
+                                                     2.1 The Riemann-Weil explicit formulas, Adeles and global fields . . . . . .             4
+                                                         2.1.1 The case of ζ . . . . . . . . . . . . . . . . . . . . . . . . . . . .          4
+                                                         2.1.2 Adeles and global fields . . . . . . . . . . . . . . . . . . . . . .           5
+                                                         2.1.3 Weil’s explicit formulas . . . . . . . . . . . . . . . . . . . . . .           5
+                                                     2.2 RH for function fields . . . . . . . . . . . . . . . . . . . . . . . . . . . .       6
+                                                     2.3 The proof using Riemann-Roch on C̄ × C̄ . . . . . . . . . . . . . . . . .            7
+                                                     2.4 Grothendieck and the notion of topos . . . . . . . . . . . . . . . . . . . .         8
+
+
+
+                                              ∗ Collège de France, 3 rue d’Ulm, Paris 75005 France. IHÉS, 35 Route de Chartres, Bures sur Yvette and
+                                           Ohio State University, Columbus, Ohio; email : alain@connes.org
+
+
+                                                                                               1
+       3   Riemannian Geometry, Spectra and trace formulas                                            9
+           3.1 The Selberg trace formula . . . . . . . . . . . . . . . . . . . . . . . . .           10
+           3.2 The minus sign and absorption spectra . . . . . . . . . . . . . . . . . . .           11
+           3.3 The adele class space and the explicit formulas . . . . . . . . . . . . . .           12
+
+       4   The Riemann-Roch strategy: A Geometric Framework                                          13
+           4.1 The limit q → 1 and the Hasse-Weil formula . . . . . . . . . . . . . . . .            14
+           4.2 The world of characteristic 1 . . . . . . . . . . . . . . . . . . . . . . . .         16
+                4.2.1 Optimization, Jacobi . . . . . . . . . . . . . . . . . . . . . . . .           16
+                4.2.2 Idempotent analysis . . . . . . . . . . . . . . . . . . . . . . . .            17
+                4.2.3 Tropical geometry, Riemann-Roch theorems and the chip firing
+                       game . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          18
+           4.3 The arithmetic and scaling sites . . . . . . . . . . . . . . . . . . . . . . .        18
+                4.3.1 The arithmetic site and Frobenius correspondences . . . . . . . .              18
+                4.3.2 The scaling site and Riemann-Roch theorems . . . . . . . . . . .               20
+
+       5   Absolute Algebra and the sphere spectrum                                                  22
+           5.1 Segal’s Γ-rings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         22
+           5.2 Topological cyclic homology . . . . . . . . . . . . . . . . . . . . . . . .           24
+           5.3 Final remarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         25
+
+
+       1     Introduction
+       Let π(x) := #{p | p ∈ P, p < x} be the number of primes less than x with 21 added when
+       x is prime. Riemann [96] found for the counting function 1
+                                                       1    1
+                                             f (x) := ∑ π(x n ),
+                                                       n
+
+       the following formula involving the integral logarithm function Li(x) = 0x logt
+                                                                                   dt        R
+                                                                                       ,
+
+                                                                    1      dt
+                                                            Z ∞
+                                                    ρ
+                            f (x) = Li(x) − ∑ Li(x ) +                             − log 2          (1)
+                                             ρ               x    t 2 − 1 t logt
+
+       in terms2 of the non-trivial zeros ρ of the analytic continuation (shown as well as two
+       proofs of the functional equation by Riemann at the beginning of his paper) of the Euler
+       zeta function
+                                                        1
+                                             ζ (s) = ∑ s
+                                                        n
+       Reading Riemann’s original paper is surely still the best initiation to the subject. In his
+       lecture given in Seattle in August 1996, on the occasion of the 100-th anniversary of the
+       proof of the prime number theorem, Atle Selberg comments about Riemann’s paper: [99]
+
+
+
+    1 Similar counting functions were already present in Chebyshev’s work
+                                                  1           1
+                                                                      
+    2 More precisely Riemann writes
+                                   ∑ℜ(α)>0 Li(x 2 +αi ) + Li(x 2 −αi ) instead of ∑ρ Li(xρ ) using the symmetry
+ρ → 1 − ρ provided by the functional equation, to perform the summation.
+
+
+                                                        2
+         It is clearly a preliminary note and might not have been written if L. Kronecker
+         had not urged him to write up something about this work (letter to Weierstrass,
+         Oct. 26 1859). It is clear that there are holes that need to be filled in, but also
+         clear that he had a lot more material than what is in the note3 . What also
+         seems clear : Riemann is not interested in an asymptotic formula, not in the
+         prime number theorem, what he is after is an exact formula!
+       The Riemann hypothesis (RH) states that all the non-trivial zeros of ζ are on the line
+   1
+   2 + iR. This hypothesis has become over the years and the many unsuccessful attempts at
+   proving it, a kind of “Holy Grail" of mathematics. Its validity is indeed one of the deepest
+   conjectures and besides its clear inference on the distribution of prime numbers, it admits
+   relations with many parts of pure mathematics as well as of quantum physics.
+       It is, and will hopefully remain for a long time, a great motivation to uncover and
+   explore new parts of the mathematical world. There are many excellent texts on RH, such
+   as [12] which explain in great detail what is known about the problem, and the many
+   implications of a positive answer to the conjecture. When asked by John Nash to write
+   a text on RH4 , I realized that writing one more encyclopedic text would just add another
+   layer to the psychological barrier that surrounds RH. Thus I have chosen deliberately to
+   adopt another point of view, which is to navigate between the many forms of the explicit
+   formulas (of which (1) is the prime example) and possible strategies to attack the problem,
+   stressing the value of the elaboration of new concepts rather than “problem solving".
+      • RH and algebraic geometry
+         We first explain the Riemann-Weil explicit formulas in the framework of adeles
+         and global fields in §2.1. We then sketch in §2.3 the geometric proof of RH for
+         function fields as done by Weil, Mattuck, Tate and Grothendieck. We then turn to
+         the role of RH in generating new mathematics, its role in the evolution of algebraic
+         geometry in the XX-th century through the Weil conjectures, proved by Deligne,
+         and the elaboration by Grothendieck of the notions of scheme and of topos.
+      • Riemannian Geometry, Spectra and trace formulas
+         Besides the proof of analogues of RH such as the results of Weil and of Deligne,
+         there is another family of results that come pretty close. They give another natural
+         approach of RH using analysis, based on the pioneering work of Selberg on trace
+         formulas. These will be reviewed in Section 3 where the difficulty arising from the
+         minus sign in front of the oscillatory terms will be addressed.
+      • The Riemann-Roch strategy: A Geometric Framework
+         In Section 4, we shall describe a geometric framework, established in our joint work
+         with C. Consani, allowing us to transpose several of the key ingredients of the geo-
+         metric proof of RH for function fields recalled in §2.3. It is yet unclear if this is the
+         right set-up for the final Riemann-Roch step, but it will illustrate the power of RH as
+         an incentive to explore new parts of mathematics since it gives a clear motivation for
+         developing algebraic geometry in characteristic 1 along the line of tropical geome-
+         try. This will take us from the world of characteristic p to the world of characteristic
+
+3 See [52] Chapter VII for detailed support to Selberg’s comment
+4 My warmest thanks to Michael Th. Rassias for the communication
+
+
+
+                                                  3
+           1, and give us an opportunity to describe its relation with semi-classical and idempo-
+           tent analysis, optimization and game theory5 , through the Riemann-Roch theorem
+           in tropical geometry [4, 56, 92].
+       • Absolute Algebra and the sphere spectrum
+           The arithmetic and scaling sites which are the geometric spaces underlying the
+           Riemann-Roch strategy of Section 4 are only the semiclassical shadows of a more
+           mysterious structure underlying the compactification of Spec Z that should give a co-
+           homological interpretation of the explicit formulas. We describe in this last section
+           an essential tool coming from algebraic topology: Segal’s Γ-rings and the sphere
+           spectrum, over which all previous attempts at developing an absolute algebra or-
+           ganize themselves. Moreover, thanks to the results of Hesselholt and Madsen in
+           particular, topological cyclic homology gives a cohomology theory suitable to treat
+           in a unified manner the local factors of L-functions.
+
+
+   2       RH and algebraic geometry
+   I will briefly sketch here the way RH, once transposed in finite characteristic, has played
+   a determining role in the upheaval of the very notion of geometric space in algebraic
+   geometry culminating with the notions of scheme and topos due to Grothendieck, with the
+   notion of topos offering a frame of thoughts of incomparable generality and breadth. It is
+   a quite remarkable testimony to the unity of mathematics that the origin of this discovery
+   lies in the greatest problem of analysis and arithmetic.
+
+
+   2.1      The Riemann-Weil explicit formulas, Adeles and global fields
+   Riemann’s formula (1) is a special case of the “explicit formulas" which establish a duality
+   between the primes and the zeros of zeta. This formula has been extended by Weil in the
+   context of global fields which provides a perfect framework for a generalization of RH
+   since it has been solved, by Weil, for all global fields except number fields.
+
+   2.1.1     The case of ζ
+   Let us start with the explicit formulas (cf. [11,93,113,115]). We start with a function F(u)
+   defined for u ∈ [1, ∞), continuous and continuously differentiable except for finitely many
+   points at which both F(u) and F 0 (u) have at most a discontinuity of the first kind, 6 and
+   such that, for some ε > 0, F(u) = O(u−1/2−ε ). One then defines the Mellin transform of
+   F as                                        Z ∞
+                                      Φ(s) =       F(u) us−1 du                             (2)
+                                                   1
+   The explicit formula then takes the form
+                                               ∞
+                   1       1           1
+                 Φ( ) + Φ(− ) − ∑ Φ(ρ − ) = ∑ ∑ log p p−m/2 F(pm )+                             (3)
+                   2       2   ρ∈Zeros 2    p m=1
+
+
+5 one of the topics in which John Nash made fundamental contributions
+6 and at which the value of F(u) is defined as the average of the right and left limits there
+
+
+
+                                                       4
+                          γ log π           ∞ t 3/2 F(t) − F(1)
+                                                  Z
+                        +( +      )F(1) +                       dt
+                          2   2           1        t(t 2 − 1)
+where γ = −Γ0 (1) is the Euler constant, and the zeros are counted with their multiplicities
+i.e. ∑ρ∈Zeros Φ(ρ − 21 ) means ∑ρ∈Zeros order(ρ)Φ(ρ − 21 ).
+
+2.1.2   Adeles and global fields
+By a result of Iwasawa [76] a field K is a finite algebraic number field, or an algebraic
+function field of one variable over a finite constant field, if and only if there exists a semi-
+simple (i.e. with trivial Jacobson radical [78]) commutative ring R containing K such that
+R is locally compact, but neither compact nor discrete and K is discrete and cocompact in
+R. This result gives a conceptual definition of what is a “global field" and indicates that
+the arithmetic of such fields is intimately related to analysis on the parent ring R which is
+called the ring of adeles of K [104, 114]. It is the opening door to a whole world which
+is that of automorphic forms and representations, starting in the case of GL1 with Tate’s
+thesis [104] and Weil’s book [114]. Given a global field K, the ring AK of adeles of K is
+the restricted product of the locally compact fields Kv obtained as completions of K for the
+different places v of K. The equality dax = |a|dx for the additive Haar measure defines
+the module Mod : Kv → R+ , Mod(a) := |a| on the local fields Kv and also as a group
+homomorphism Mod : CK → R∗+ where CK = GL1 (AK )/K× is the idele class group. The
+kernel of the module is a compact subgroup CK,1 ⊂ CK and the range of the module is a
+cocompact subgroup Mod(K) ⊂ R∗+ . On any locally compact modulated group, such as
+CK or the multiplicative groups K∗v , one normalizes the Haar measure d ∗ u uniquely so that
+the measure of {u | 1 ≤ |u| ≤ Λ} is equivalent to log Λ when Λ → ∞.
+
+2.1.3   Weil’s explicit formulas
+As shown by Weil, in [115], adeles and global fields give the natural framework for the
+explicit formulas. For each character χ ∈ Cd K,1 one chooses an extension χ̃ to CK and one
+lets Zχ̃ be the set (with multiplicities and taken modulo the orthogonal of Mod(K), i.e.
+{s ∈ C | qs = 1, ∀q ∈ Mod(K)}) of zeros of the L-function associated to χ̃. Let then α be
+a nontrivial character of AK /K and α = ∏ αv its local factors. The explicit formulas take
+the following form, with h ∈ S (CK ) a Schwartz function with compact support:
+
+                                                                       h(u−1 )
+                                                                 Z 0
+                    ĥ(0) + ĥ(1) −     ∑ ∑ ĥ(χ̃, ρ) = ∑ K |1 − u| d ∗ u
+                                                                   ∗
+                                                                                            (4)
+                                      χ∈Cd  Z                v     v
+                                         K,1 χ̃
+
+
+where the principal value K0 ∗v is normalized by the additive character αv (cf. [27] Chapter
+                            R
+
+II, 8.5, Theorem 2.44 for the precise notations and normalizations) and for any character
+ω of CK one lets
+                                    Z
+                      ĥ(ω, z) :=       h(u) ω(u) |u|z d ∗ u, ĥ(t) := ĥ(1,t)              (5)
+
+For later use in §4.1 we compare (3) with the Weil way (4) of writing the explicit formulas.
+                                                                1
+Let the function h be the function on CQ given by h(u) := |u|− 2 F(|u|) (with F(v) = 0 for
+v < 1). Then ĥ(ω, z) = 0 for characters with non-trivial restriction to CQ,1 = Ẑ× , while
+
+
+
+                                                  5
+ĥ(1, z) = Φ(z − 12 ). Moreover note that for the archimedean place v of K = Q one has,
+disregarding the principal values for simplicity,
+
+                                    h(u−1 ) ∗               h(u)
+                               Z                   Z
+                                            d u=                    d∗u
+                                K∗v |1 − u|         R∗   |1 − u−1 |
+                                                                   Z ∞ 3/2
+                   1                  1        1              dt        t F(t)
+                       Z ∞
+                 =           h(t)          +                     =                     dt
+                   2    1         |1 − t | |1 + t −1 |
+                                        −1                    t      1    t(t 2 − 1)
+where the 12 comes from the normalization of the multiplicative Haar measure of R∗
+viewed as a modulated group. In a similar way, the normalization of the multiplicative
+Haar measure on Q∗p shows that for the finite place associated to the prime p one gets the
+term ∑∞           −m/2 F(pm ).
+      m=1 log p p
+
+
+2.2     RH for function fields
+When the module Mod(K) of a global field is a discrete subgroup of R∗+ it is of the form
+Mod(K) = qZ where q is a prime power, and the field K is the function field of a smooth
+projective curve C over the finite field Fq .
+    Already at the beginning of the XX-th century, Emil Artin and Friedrich Karl Schmidt
+have generalized RH to the case of function fields. We refer to the text of Cartier [18]
+where he explains how Weil’s definition of the zeta function associated to a variety over
+a finite field slowly emerged, starting with the thesis of E. Artin where this zeta function
+was defined for quadratic extensions of Fq [T ], explaining F. K. Schmidt’s generalization
+to arbitrary extensions of Fq [T ] and the work of Hasse on the “Riemann hypothesis" for
+elliptic curves over finite fields.
+    When the global field K is a function field, geometry comes to the rescue. The prob-
+lem becomes intimately related to the geometric one of estimating the number N(qr ) :=
+#C(Fqr ) of points of C rational over a finite extension Fqr of the field of definition of C.
+The analogue of the Riemann zeta function is a generating function: the Hasse-Weil zeta
+function                                                                 !
+                                                                       r
+                                    −s                             r T
+                    ζC (s) := Z(C, q ), Z(C, T ) := exp ∑ N(q )                           (6)
+                                                           r≥1        r
+
+     The analogue of RH for ζC was proved by André Weil in 1940. Pressed by the circum-
+stances (he was detained in jail) he sent a Comptes-Rendus note to E. Cartan announcing
+his result. Friedrich Karl Schmidt and Helmut Hasse had previously been able to transpose
+the Riemann-Roch theorem in the framework of geometry over finite fields and shown its
+implications for the zeta function: it is a rational fraction (of the variable T ) and it satisfies
+a functional equation. But it took André Weil several years to put on solid ground a gen-
+eral theory of algebraic geometry in finite characteristic that would justify his geometric
+arguments and allow him to transpose the Hodge index theorem in the form due to the
+Italian geometers Francesco Severi and Guido Castelnuovo at the beginning of the XX-th
+century.
+
+
+
+
+                                                6
+2.3    The proof using Riemann-Roch on C̄ × C̄
+Let C be a smooth projective curve over the finite field Fq . The first step is to extend the
+scalars from Fq to an algebraic closure F̄q . Thus one lets
+                                       C̄ := C ⊗Fq F̄q                                     (7)
+This operation of extension of scalars does not change the points over F̄q , i.e. one has
+C̄(F̄q ) = C(F̄q ). The Galois action of the Frobenius automorphism of F̄q raises the coor-
+dinates of any point x ∈ C(F̄q ) to the q-th power and this transformation of C(F̄q ) coincides
+with the relative Frobenius Frr := FrC × Id of C̄, where FrC is the absolute Frobenius of
+C (which is the identity on points of the scheme and the q-th power map in the structure
+sheaf). The relative Frobenius Frr is F̄q -linear by construction and one can consider its
+graph in the surface X = C̄ ×F̄q C̄ which is the square of C̄. This graph is the Frobenius
+correspondence Ψ. It is important to work over an algebraically closed field in order to
+have a good intersection theory. This allows one to express the right hand side of the
+explicit formula (4) for the zeta function ζC as an intersection number D.∆, where ∆ is the
+diagonal in the square and D = ∑ ak Ψk is the divisor given by a finite integral linear com-
+bination of powers of the Frobenius correspondence. The terms ĥ(0), ĥ(1) in the explicit
+formula are also given by intersection numbers D.ξ j , where
+                                  ξ0 = e0 × C̄ , ξ1 = C̄ × e1                              (8)
+where the e j are points of C̄. One then considers divisors on X up to the additive subgroup
+of principal divisors i.e. those corresponding to an element f ∈ K of the function field
+of X. The problem is then reduced to proving the negativity of D.D (the self-intersection
+pairing) for divisors of degree zero. The Riemann-Roch theorem on the surface X gives
+the answer. To each divisor D on X corresponds an index problem and one has a finite
+dimensional vector space of solutions H 0 (X, O(D)) over F̄q . Let
+                                  `(D) = dim H 0 (X, O(D))                                 (9)
+The best way to think of the sheaf O(D) is in terms of Cartier divisors, i.e. a global
+section of the quotient sheaf K × /OX× , where K is the constant sheaf corresponding to
+the function field of X and OX is the structure sheaf. The sheaf O(D) associated to a
+Cartier divisor is obtained by taking the sub-sheaf of K whose sections on Ui form the
+sub OX -module generated by fi−1 ∈ Γ(Ui , K × ) where the fi represent D locally. One has
+a “canonical" divisor K and Serre duality
+                          dim H 2 (X, O(D)) = dim H 0 (X, O(K − D))                       (10)
+Moreover the following Riemann-Roch formula holds
+                      2
+                                                    1
+                     ∑(−1) j dim H j (X, O(D)) = 2 D.(D − K) + χ(X)                       (11)
+                      0
+
+where χ(X) is the arithmetic genus. All this yields the Riemann-Roch inequality
+                                            1
+                           `(D) + `(K − D) ≥ D.(D − K) + χ(X)                             (12)
+                                            2
+One then applies Lemma 2.1 to the quadratic form s(D, D0 ) = D.D0 using the ξ j of (8).
+One needs three basic facts ( [62])
+
+                                              7
+  1. If `(D) > 1 then D is equivalent to a strictly positive divisor.
+  2. If D is a strictly positive divisor then
+
+                                              D.ξ0 + D.ξ1 > 0
+
+  3. One has ξ0 .ξ1 = 1 and ξ j .ξ j = 0.
+One then uses (12) to show (see [62]) that if D.D > 0 then after a suitable rescaling by
+n > 0 or n < 0 one gets `(nD) > 1 which shows that the hypothesis (2) of the following
+simple Lemma 2.1 is fulfilled, and hence that RH holds for ζC ,
+Lemma 2.1. Let s(x, y) be a symmetric bilinear form on a vector space E (over Q or R).
+Let ξ j ∈ E, j ∈ {0, 1}, be such that
+  1. s(ξ j , ξ j ) = 0 and s(ξ0 , ξ1 ) = 1.
+  2. For any x ∈ E such that s(x, x) > 0 one has s(x, ξ0 ) 6= 0 or s(x, ξ1 ) 6= 0.
+Then one has the inequality
+
+                               s(x, x) ≤ 2s(x, ξ0 )s(x, ξ1 ) , ∀x ∈ E                  (13)
+
+    The proof takes one line but the meaning of this lemma is to reconcile the “naive
+positivity" of the right hand side of the explicit formula (4) (which is positive when h ≥ 0
+vanishes near u = 1) with the negativity of the left hand side needed to prove RH (cf. §3.1
+(17) below).
+
+  At this point we see that it is highly desirable to find a geometric framework for the
+  Riemann zeta function itself, in which the Hasse-Weil formula (6), the geometric
+  interpretation of the explicit formulas, the Frobenius correspondences, the divisors,
+  principal divisors, Riemann-Roch problem on the curve and the square of the curve
+  all make sense.
+
+    Such a tentative framework will be explained in Section 4. It involves in particular the
+refinement of the notion of geometric space which was uncovered by Grothendieck and to
+which we now briefly turn.
+
+
+2.4    Grothendieck and the notion of topos
+The essential ingredients of the proof explained in §2.3 are the intersection theory for
+divisors on C̄ × C̄, sheaf cohomology and Serre duality, which give the formulation of
+the Riemann-Roch theorem. Both owe to the discovery of sheaf theory by J. Leray and
+the pioneering work of J. P. Serre on the use of sheaves for the Zariski topology in the
+algebraic context, with his fundamental theorem comparing the algebraic and analytic
+frameworks. The next revolution came from the elaboration by A. Grothendieck and M.
+Artin of etale `-adic cohomology. It allows one to express the Weil zeta function of a
+smooth projective variety X defined over a finite field Fq i.e. the function Z(X,t) given by
+(6) with t = q−s which continues to make sense in general, as an alternate product of the
+form
+                               2 dimX
+                                                                      j+1
+                     Z(X,t) = ∏ det(1 − tF ∗ | H j (X̄et , Q` ))(−1)                    (14)
+                                     j=0
+
+
+                                                  8
+where F ∗ corresponds to the action of the Frobenius on the `-adic cohomology and ` is a
+prime which is prime to q. This equality follows from a Lefschetz formula for the number
+N(qr ) of fixed points of the r-th power of the Frobenius and when X = C is a curve the
+explicit formulas reduce to the Lefschetz formula. The construction of the cohomology
+groups H j (X̄et , Q` ) is indirect and they are defined as :
+
+                            H j (X̄et , Q` ) = lim H j (X̄et , Z/`n Z) ⊗Z` Q`
+                                                                      
+                                               ←−
+                                         n
+
+where X̄et is the etale site of X̄. Recently the etale site of a scheme has been refined [5]
+to the pro-etale site whose objects no longer satisfy any finiteness condition. The co-
+homology groups H j (X̄proet , Q̄` ) are then directly obtained using the naive interpretation
+(without torsion coefficients). One needs to pay attention in (14) to the precise definition
+of F, it is either the relative Frobenius Frr or the Geometric Frobenius Frg which is the
+inverse of the Arithmetic Frobenius Fra . The product Fra ◦ Frr = Frr ◦ Fra is the absolute
+Frobenius Fr which acts trivially on the `-adic cohomology. To understand the four differ-
+ent incarnations of “the Frobenius" it is best to make them explicit in the simplest example
+of the scheme Spec R where R = F̄q [T ] is the ring of polynomials P(T ) = ∑ a j T j , a j ∈ F̄q
+                                             1/q
+   • Geometric Frobenius: ∑ a j T j 7→ ∑ a j T j
+   • Relative Frobenius: P(T ) 7→ P(T q )
+   • Absolute Frobenius: P(T ) 7→ P(T )q
+   • Arithmetic Frobenius: ∑ a j T j 7→ ∑ aqj T j
+The motivation of Grothendieck for developing etale cohomology came from the search
+of a Weil cohomology and the Weil conjectures which were solved by Deligne in 1973
+( [45]).
+    In his quest Grothendieck uncovered several key concepts such as those of schemes
+and above all that of topos, in his own words:
+      C’est le thème du topos, et non celui des schémas, qui est ce “lit”, ou cette
+      “rivière profonde”, où viennent s’épouser la géométrie et l’algèbre, la topolo-
+      gie et l’arithmétique, la logique mathématique et la théorie des catégories, le
+      monde du continu et celui des structures “discontinues” ou “discrètes”. Si
+      le thème des schémas est comme le cœur de la géométrie nouvelle, le thème
+      du topos en est l’enveloppe, ou la demeure. Il est ce que j’ai conçu de plus
+      vaste, pour saisir avec finesse, par un même langage riche en résonances
+      géométriques, une “essence” commune à des situations des plus éloignées les
+      unes des autres, provenant de telle région ou de telle autre du vaste univers
+      des choses mathématiques.
+
+
+3 Riemannian Geometry, Spectra and trace formu-
+las
+Riemannian Geometry gives a wealth of “spectra" of fundamental operators associated to
+a geometric space, such as the Laplacian and the Dirac operators.
+
+
+
+                                               9
+   3.1     The Selberg trace formula
+   In the case of compact Riemann surfaces X with constant negative curvature −1, the Sel-
+   berg trace formula [97], takes the following form where the eigenvalues of the Laplacian
+   are written in the form7 λn = −( 14 + rn2 ). Let δ > 0, h(r) be an analytic function in the
+   strip |ℑ(r)| ≤ 12 + δ and such that h(r) = h(−r) and with (1 + r2 )1+δ |h(r)| being bounded.
+   Then [69, 97, 98], with A the area of X,
+                          A                                             log N(T0 )
+                               Z ∞
+            ∑ h(rn ) =               tanh(πr)h(r)rdr + ∑                                 g(log N(T ))   (15)
+                         4π                                              1
+                                                                                  −1
+                                −∞                            {T } N(T ) 2 − N(T ) 2
+
+                                                                       1 ∞        −irs dr. The
+                                                                                         R
+   where g is the Fourier transform of h, i.e. more precisely g(s) = 2π   −∞ h(r)e
+   log N(T ) are the lengths of the periodic orbits of the geodesic flow with log N(T0 ) being
+   the length of the primitive one. Already in 1950-51, Selberg saw the striking similarity of
+   his formula with (3) which (cf. [69]) can be rewritten in the following form, with h and g
+   as above and the non-trivial zeros of zeta expressed in the form ρ = 12 + iγ,
+
+                         i         i      1
+                                                    Z ∞
+                                                                                             1
+             ∑ h(γ) = h( 2 ) + h(− 2 ) + 2π               ω(r)h(r)dr − 2 ∑ Λ(n)n− 2 g(log n)            (16)
+             γ                                       −∞
+
+   where
+                  Γ0                           Γ0           1 − t s−1
+                                                      Z 1
+                             1    r
+           ω(r) =              +i     − log π,    (s) =               dt − γ , ∀s, ℜ(s) > 0
+                  Γ          4    2            Γ         0    1−t
+
+   and Λ(n) is the von-Mangoldt function with value log p for powers p` of primes and zero
+   otherwise. Moreover Selberg found that there is a zeta function which corresponds to (15)
+   in the same way that ζ (s) corresponds to (16). The role of Hilbert space is crucial in the
+   work of Selberg to ensure that the zeros of his zeta function satisfy the analogue of RH.
+   This role of Hilbert space is implicit as well in RH which has been reformulated by Weil
+   as the positivity of the functional W (g) defined as both sides of (16). More precisely the
+   equivalent formulation is that W (g ? g∗ ) ≥ 0 on functions g which correspond to Fourier
+   transforms of analytic functions h as above (i.e. even and analytic in a strip |ℑz| ≤ 21 + δ )
+   where for even functions one has g∗ (s) := g(−s) = g(s). Moreover by [13, 17], it is
+   enough, using Li’s criterion (cf. [13,83]), to check the positivity on a small class of explicit
+   real valued functions with compact support. In fact for later purposes it is better to write
+   this criterion as
+                                                          Z                 Z
+                                                                    ∗
+                     RH ⇐⇒ s( f , f ) ≤ 0 , ∀ f |             f (u)d u =        f (u)du = 0             (17)
+
+   where for real compactly supported functions on R∗+ , we let s( f , g) := N( f ? g̃) where ?
+   is the convolution product on R∗+ , g̃(u) := u−1 g(u−1 ), and
+                    ∞                  Z ∞ 2
+                                          u h(u) − h(1) ∗                1
+         N(h) := ∑ Λ(n)h(n) +                 2
+                                                       d u + c h(1) , c = (log π + γ)                   (18)
+                  n=1                   1      u −1                                  2
+
+      The Selberg trace formula has been considerably extended by J. Arthur and plays a
+   key role in the Langland’s program. We refer to [1] for an introduction to this vast topic.
+7 where the argument of r
+                            n is either 0 or −π/2
+
+
+                                                      10
+3.2    The minus sign and absorption spectra
+The Selberg trace formula [97, 98] for Riemann surfaces of finite area, acquires additional
+terms which make it look e.g. in the case of X = H/PSL(2, Z) (where H is the upper
+half plane with the Poincaré metric) even more similar to the explicit formulas, since the
+parabolic terms now involve explicitly the sum
+                                      ∞
+                                        Λ(n)
+                                    2∑       g(2 log n)
+                                     n=1 n
+
+Besides the square root in the Λ(n) terms in the explicit formulas (16)
+                                          ∞
+                                              Λ(n)
+                                   −2 ∑         1    g(log n)
+                                       n=1    n2
+there is however a striking difference which is that these terms occur with a positive sign
+instead of the negative sign in (16), as discussed in [69] §12. This discussion of the minus
+sign was extended to the case of the semiclassical limit of Hamiltonian systems in physics
+in [6]. In order to get some intuition of what this reveals, it is relevant to go back to the
+origin of spectra in physics, i.e. to the very beginning of spectroscopy. It occurred when
+Joseph Von Fraunhofer (1787-1826) could identify, using self-designed instruments, about
+500 dark lines in the light coming from the sun, decomposed using the dispersive power of
+a spectroscope such as a prism (cf. Figure 1). These dark lines constitute the “absorption
+spectrum" and it took about 45 years before Kirchhoff and Bunsen noticed that several
+of these Fraunhofer lines coincide (i.e. have the same wave length) with the bright lines
+of the “emission" spectrum of heated elements, and showed that they could be reobtained
+by letting white light traverse a cold gas. In his work on the trace formula in the finite
+covolume case, Selberg had to take care of a superposed continuous spectrum due to the
+presence of the non-compact cusps of the Riemann surface.
+
+
+Figure 1: The three kinds of spec-
+tra occuring in spectroscopy: 1) The
+top one is the “continuous spectrum"
+which occurs when white light is de-
+composed by passing through a prism.
+                                                                ���������� ��������
+2) The middle one is the “emission
+spectrum" which occurs when the light
+emitted by a heated gas is decom-
+posed by passing through a prism and
+gives shining lines-a signature of the
+gas-over a dark background. 3) The                               �������� ��������
+third one is the “absorption spectrum"
+which occurs when white light tra-
+verses a cold gas and is then decom-
+posed by passing through a prism. It
+appears as dark lines in a background
+continuous spectrum. The absorption                             ���������� ��������
+lines occur at the same place as the
+emission lines.
+
+                                               11
+3.3    The adele class space and the explicit formulas
+I had the chance to be invited at the Seattle meeting in 1996 for the celebration of the
+proof of the prime number theorem. The reason was the paper [14] (inspired from [79]) in
+which the Riemann zeta function appeared naturally as the partition function of a quantum
+mechanical system (BC system) exhibiting phase transitions. The RH had been at the
+center of discussions in the meeting and I knew the analogy between the BC-system and
+the set-up that V. Guillemin proposed in [64] to explain the Selberg trace formula using
+the action of the geodesic flow on the horocycle foliation. To a foliation is associated a
+von Neumann algebra [22], and the horocycle foliation on the sphere bundle of a compact
+Riemann surface gives a factor of type II∞ on which the geodesic flow acts by scaling
+the trace. An entirely similar situation comes canonically from the BC-system at critical
+temperature and after interpreting the dual system in terms of adeles, I was led by this
+analogy to consider the action of the idele class group of Q on the adele class space, i.e.
+the quotient Q× \AQ of the adeles AQ of Q by the action of Q× . I knew from the BC-
+system that the action of Q× , which preserves the additive Haar measure, is ergodic for
+this measure and gives the same factor of type II∞ as the horocycle foliation. Moreover
+the dual action scales the trace in the same manner.
+    Let K be a global field and CK = GL1 (AK )/K× the idele class group. The module
+Mod : CK → R∗+ being proper with cocompact range, one sees that the Haar measure on
+the Pontrjagin dual group of CK is diffuse. Since a point is of measure 0 in a diffuse
+measure space there is no way one can see the absorption spectrum without introducing
+some smoothness on this dual which is done using a Sobolev space Lδ2 (CK ) of functions
+on CK which (for fixed δ > 1) is defined as
+                             Z
+                 ||ξ ||2 =        |ξ (x)|2 ρ(x) d ∗ x, ρ(x) := (1 + log |x|2 )δ /2      (19)
+                             CK
+
+Definition 3.1. Let K be a global field, the adele class space of K is the quotient XK =
+AK /K× of the adeles of K by the action of K× by multiplication.
+     We then consider the codimension 2 subspace SR (AK )0 of the Bruhat-Schwartz space
+S (AK ) (cf. [15]) given by the conditions f (0) = 0 , f dx = 0 The Sobolev space Lδ2 (XK )0
+is the separated completion of S (AK )0 for the norm with square
+                                          Z
+                             || f ||2 =       | ∑ f (qx)|2 ρ(x) |x|d ∗ x                (20)
+                                          CK q∈K∗
+
+
+Note that by construction all functions of the form f (x) = g(x) − g(qx) for some q ∈ K×
+belong to the radical of the norm (20), which corresponds to the operation of quotient of
+Definition 3.1. In particular the representation of ideles on S (AK ) given by
+
+                    (ϑ (α)ξ )(x) = ξ (α −1 x) ∀ α ∈ GL1 (AK ) , x ∈ AK                  (21)
+
+induces a representation ϑa of CK on Lδ2 (XK )0 . One has by construction a natural isometry
+E : Lδ2 (XK )0 → Lδ2 (CK ) which intertwines the representation ϑa with the regular represen-
+tation of CK in Lδ2 (CK ) multiplied by the square root of the module. This representation
+restricts to the cokernel of the map E, which splits as a direct sum of subspaces labeled
+by the characters of the compact group CK,1 = Ker Mod and its spectrum in each sector
+gives the zeros of L-functions with Grössencharakter. The shortcoming of this construc-
+tion is in the artificial weight ρ(x), which is needed to see this absorption spectrum but
+
+                                                   12
+only sees the zeros which are on the critical line and where the value of δ artificially cuts
+the multiplicities of the zeros (cf. [24]).
+    This state of affairs is greatly improved if one gives up trying to prove RH but retreats
+to an interpretation of the explicit formulas as a trace formula. One simply replaces the
+above Hilbert space set-up by a softer one involving nuclear spaces [90]. The spectral side
+now involves all non-trivial zeros and, using the preliminary results of [16,24,25] one gets
+that the geometric side is given by:
+
+                                                            h(w−1 ) ∗
+                              Z                       Z
+                                            ∗
+                      Trdistr    h(w)ϑ (w)d w = ∑ ×                  d w                 (22)
+                                                      v Kv |1 − w|
+
+We refer to [24,27,90] for a detailed treatment. The subgroups K×v ⊂ CK = GL1 (AK )/GL1 (K)
+                                                             h(w−1 )
+arise as isotropy groups. One can understand why the terms           occur in the trace for-
+                                                             |1 − w|
+mula by computing, formally as follows, the trace of the scaling operator T = ϑw−1 when
+working on the local field Kv completion of the global field K at the place v, one has
+                                                        Z
+                                 T ξ (x) = ξ (wx) =         k(x, y)ξ (y)dy
+
+so that T is given by the distribution kernel k(x, y) = δ (wx − y) and its trace is
+
+                                                                   1                          1
+                         Z                  Z                             Z
+        Trdistr (T ) =       k(x, x) dx =       δ (wx − x) dx =               δ (z) dz =
+                                                                |w − 1|                    |w − 1|
+
+    When working at the level of adeles one treats all places on the same footing and thus
+there is an overall minus sign in front of the spectral contribution. Thus the Riemann
+spectrum appears naturally as an absorption spectrum from the adele class space. As
+such, it is difficult to show that it is “real". While this solves the problem of giving
+a trace formula interpretation of the explicit formulas, there is of course still room for
+an interpretation as an emission spectrum. However from the adelic point of view it is
+unnatural to separate the contribution of the archimedean place.
+
+
+4 The Riemann-Roch strategy: A Geometric Frame-
+work
+In this section we shall present a geometric framework which has emerged over the years
+in our joint work with C. Consani and seems suitable in order to transpose the geometric
+proof of Weil to the case of RH. The aim is to apply the Riemann-Roch strategy of §2.3.
+The geometry involved will be of elaborate nature inasmuch as it relies on the following
+three theories:
+  1. Noncommutative Geometry.
+  2. Grothendieck topoi.
+  3. Tropical Geometry.
+
+
+
+
+                                                     13
+4.1    The limit q → 1 and the Hasse-Weil formula
+In [102] (cf. §6), C. Soulé, motivated by [89] (cf. §1.5) and [46, 47, 80, 81, 103, 106],
+introduced the zeta function of a variety X over F1 using the polynomial counting function
+N(x) ∈ Z[x] associated to X. The definition of the zeta function is as follows
+
+                         ζX (s) := lim Z(X, q−s )(q − 1)N(1) ,           s∈R                   (23)
+                                       q→1
+
+where Z(X, q−s ) denotes the evaluation at T = q−s of the Hasse-Weil exponential series
+                                                            !
+                                                          r
+                                                     r T
+                             Z(X, T ) := exp ∑ N(q )                                (24)
+                                              r≥1        r
+
+For instance, for a projective space Pn one has N(q) = 1 + q + . . . + qn and
+                                                                           1
+                      ζPn (F1 ) (s) = lim (q − 1)n+1 ζPn (Fq ) (s) =
+                                       q→1                             ∏n0 (s − k)
+It is natural to wonder on the existence of a “curve” C suitably defined over F1 , whose zeta
+function ζC (s) is the complete Riemann zeta function ζQ (s) = π −s/2 Γ(s/2)ζ (s) (cf. also
+[89]). The first step is to find a counting function N(q) defined for q ∈ [1, ∞) and such
+that (23) gives ζQ (s). But there is an obvious difficulty since as N(1) represents the Euler
+characteristic one should expect that N(1) = −∞ (since the dimension of H 1 is infinite).
+This precludes the use of (23) and also seems to contradict the expectation that N(q) ≥ 0
+for q ∈ (1, ∞). As shown in [30, 31] there is a simple way to solve the first difficulty by
+passing to the logarithmic derivatives of both terms in equation (23) and observing that
+the Riemann sums of an integral appear from the right hand side. One then gets instead of
+(23) the equation:
+                                ∂s ζN (s)
+                                              Z ∞
+                                          =−      N(u) u−s d ∗ u                         (25)
+                                 ζN (s)        1
+
+Thus the integral equation (25) produces a precise equation for the counting function
+NC (q) = N(q) associated to C:
+
+                                    ∂s ζQ (s)      ∞Z
+                                              =−     N(u) u−s d ∗ u                            (26)
+                                     ζQ (s)      1
+
+One finds that this equation admits a solution which is a distribution and is given with
+ϕ(u) := ∑n<u n Λ(n), by the equality
+                                                 d
+                                        N(u) =      ϕ(u) + κ(u)                                (27)
+                                                 du
+where κ(u) is the distribution which appears in the explicit formula (3),
+                                  Z ∞ 2
+                                     u f (u) − f (1) ∗                          1
+        Z ∞
+              κ(u) f (u)d ∗ u =           2
+                                                    d u + c f (1) ,          c = (log π + γ)
+         1                         1         u −1                               2
+The conclusion is that the distribution N(u) is positive on (1, ∞) and is given by
+                                                              !
+                                      d                 uρ+1
+                        N(u) = u −        ∑ order(ρ) ρ + 1 + 1                                 (28)
+                                      du ρ∈Z
+
+                                                    14
+where the derivative is taken in the sense of distributions, and the value at u = 1 of the
+                           uρ+1                                   0 (−1)
+term ω(u) = ∑ order(ρ)           is given by 12 + 2γ + log24π − ζζ (−1)  .
+            ρ∈Z           ρ +1
+
+
+Figure 2:        This repre-
+                                    120
+sents a function J(u) which
+is a primitive of the count-        100
+ing distribution N(u). This
+function is increasing and           80                   JHuL = à NHuL â u
+tends to −∞ when u →                                                                Jm HuL
+1. The wiggly graph rep-             60
+resents the approximation
+of J(u) obtained using the           40
+symmetric set Zm of the first
+                         2           20
+2m zeros, by Jm (u) = u2 −
+               ρ+1
+∑Zm order(ρ) uρ+1 + u Note
+that J(u) → −∞ when u →                   2        4       6         8        10    12          14
+
+1+.
+                            2
+    The primitive J(u) = u2 − ω(u) + u of N(u) is an increasing function on (1, ∞), but
+tends to −∞ when u → 1+ while its value J(1) is finite. The tension between the positivity
+of the distribution N(q) for q > 1 and the expectation that its value N(1) should be N(1) =
+−∞ is resolved by the theory of distributions: N is finite as a distribution, but when one
+looks at it as a function its value at q = 1 is formally given by
+                                 ω(1 + ε) − ω(1)    1                         1
+               N(1) = 2 − lim                    ∼ − E log E,            E=
+                           ε→0          ε           2                         ε
+which is −∞ and in fact reflects, when ε → 0, the density of the zeros. Note that this holds
+independently of the choice of the principal value in the explicit formulas. This subtlety
+does not occur for function fields K since their module Mod(K) is discrete so that dis-
+tributions and functions are the same thing. There is one more crucial nuance between
+the case K = Q and the function fields: the distribution κ(u) which is the archimedean
+contribution to N(u) in (27), does not fulfill the natural inequality N(q) ≤ N(qr ) expected
+of a counting function. This is due to the terms |1 − u|−1 in the Weil explicit formula,
+which as explained in §2.1.3 contribute non-trivially at the archimedean place, and indi-
+cate that the counting needs to take into account an ambient larger space and transversality
+factors as in [64]. In fact, we have seen in Section 3.3 that the noncommutative space of
+adele classes of a global field provides a framework to interpret the explicit formulas of
+Riemann-Weil in number theory as a trace formula, and that the geometric contributions
+give the right answer. In [31], we showed that the quotient
+
+                                    XQ := Q× \AQ /Ẑ×                                    (29)
+
+of the adele class space Q× \AQ of the rational numbers by the maximal compact subgroup
+Ẑ× of the idele class group, gives by considering the induced action of R×+ , the above
+counting distribution N(u), u ∈ [1, ∞), which determines, using the Hasse-Weil formula
+in the limit q → 1, the complete Riemann zeta function. The next step is to understand
+
+                                              15
+   that the action of R×
+                       + on the space XQ is in fact the action of the Frobenius automorphisms
+   Frλ on the points of the arithmetic site– an object of algebraic geometry–over Rmax  + . To
+   explain this we first need to take an excursion in the exotic world of “characteristic one".
+
+
+   4.2     The world of characteristic 1
+   The key words here are: Newton polygons, Thermodynamics, Legendre transform, Game
+   theory, Optimization, Dequantization, Tropical geometry. One alters the basic operation
+   of addition of positive real numbers, replacing x + y by x ∨ y := max(x, y). When endowed
+   with this operation as addition and with the usual multiplication, the positive real numbers
+   become a semifield Rmax+ . It is of characteristic 1, i.e. 1 ∨ 1 = 1 and contains the smallest
+   semifield of characteristic 1, namely the Boolean semifield B = {0, 1}. Moreover, Rmax    +
+   admits non-trivial automorphisms and one has
+                                         ∗                                ∗
+             GalB (Rmax           max                   λ        max
+                    + ) := AutB (R+ ) = R+ , Frλ (x) = x , ∀x ∈ R+ , λ ∈ R+
+
+   thus providing a first glimpse of an answer to Weil’s query in [112] of an algebraic frame-
+   work in which the connected component of the idele class group would appear as a Galois
+   group. More generally, for any abelian ordered group H we let Hmax = H ∪ {−∞} be
+   the semifield obtained from H by the max-plus construction, i.e. the addition is given by
+   the max, and the multiplication by +. In particular Rmax is isomorphic to Rmax    + by the
+   exponential map (cf. [57]). Historically, and besides the uses of Rmax in idempotent anal-
+   ysis and tropical geometry which are discussed below, an early use of Rmax occurred in
+   the late fifties in the work of R. Cuninghame-Green in Birmingham, who established the
+   spectral theory of irreducible matrices with entries in Rmax (cf. [41]) and in the sixties, in
+   Leningrad, where Vorobyev used the Rmax formalism in his work motivated by combina-
+   torial optimization, and proved a fundamental covering theorem. A systematic use of the
+   Rmax algebra was developed by the INRIA group at the beginning of the 80’s in their work
+   on the modelization of discrete event systems [20]. We refer to [57,58] for a more detailed
+   history of the subject, and for overwhelming evidence of its relevance in mathematics. We
+   shall just give here a sample of this evidence starting by a really early occurrence in the
+   work of C.G.J. Jacobi8 and hoping to convince the reader that it would be a mistake to
+   dismiss this algebraic formalism and the analogy with ordinary algebra as trivial.
+
+   4.2.1    Optimization, Jacobi
+   One of the early instances, around 1840, of the use of matrices over Rmax is the work of
+   C.G.J. Jacobi [77] on optimal assignment problems, where he states
+                                            Problema
+                                       (i)
+        Disponantur nn quantitates hk quaecunque in schema Quadrati, ita ut habean-
+        tur n series horizontales et n series verticales, quarum quaeque est n termino-
+        rum. Ex illis quantitatibus eligantur n transversales, i.e. in seriebus horizon-
+        talibus simul atque verticalibus diversis positae, quod fieri potest n! modis; ex
+        omnibus illis modis quaerendus est is, qui summam n numerorum electorum
+        suppeditet maximam.
+
+
+8 I am grateful to S. Gaubert for pointing out this early occurrence
+
+
+
+                                                    16
+                                                           (i)
+   In other words, given a square matrix mik = hk he looks for the maximum over all per-
+   mutations σ of the quantity ∑ m jσ ( j) . Using the algebraic rules of Rmax one checks that he
+   is in fact computing the analogue of the determinant for the matrix mik . In fact the perfect
+   definition of the determinant is more subtle and was obtained in the work of Gondran-
+   Minoux [61], instead of max ∑ m jσ ( j) where σ runs over all permutations, one uses the
+   signature of permutations and considers the pair
+                    (det+ (mik ), det− (mik )), det± (mik ) = max      ∑         m jσ ( j)
+                                                                    sign(σ )=±
+
+   The remarkable fact is that the Cayley-Hamilton theorem now holds, as the equality of
+   two terms P+ (m) = P− (m) corresponding to the characteristic polynomial P = (P+ , P− ).
+   Each of the terms P± (m) ∈ Mn (Rmax ) is computed from the original matrix m ∈ Mn (Rmax )
+   using the rules of matrices with entries in Rmax which turn Mn (Rmax ) into a semiring.
+
+   4.2.2   Idempotent analysis
+   The essence of the theory of semiclassical analysis in physics rests in the comparison of
+   quantum systems with their semiclassical counterpart, [6, 54, 63, 65, 66]. In the eighties
+   V. P. Maslov and his collaborators developed a satisfactory algebraic framework which
+   encodes the semiclassical limit of quantum mechanics. They called it idempotent analysis.
+   We refer to [82, 84] for a detailed account and just mention briefly some salient features
+   here. The source of the variational formulations of mechanics in the classical limit is the
+   behavior of sums of exponentials
+                                        Sj       inf S j
+
+                                 ∑ e−   h̄   ∼ e− h̄ , when h̄ → 0
+   which are, when h̄ → 0, dominated by the contribution of the minimum of S. The starting
+   observation is that one can encode this fundamental principle by simply conjugating the
+   addition of numbers by the power operation x 7→ xε and passing to the limit when ε → 0.
+   The new addition of positive real numbers is
+                                          1 ε
+                                  1       
+                              lim x ε + y ε = max{x, y} = x ∨ y
+                               ε→0
+
+   and one recovers Rmax
+                     + as the natural home for semiclassical analysis. The superposition
+   principle of quantum mechanics, i.e. addition of vectors in Hilbert space, now makes
+   sense in the limit and moreover the “fixed point argument" proof of the Perron-Frobenius
+   theorem works over Rmax + and shows that irreducible compact operators have one and only
+                   9
+   one eigenvalue , thus reconciling classical determinism with the quantum variability. But
+   the most striking discovery of this school of Maslov, Kolokolstov and Litvinov [82, 84]
+   is that the Legendre transform which plays a fundamental role in all of physics and in
+   particular in thermodynamics in the nineteenth century, is simply the Fourier transform in
+   the framework of idempotent analysis!
+       The contact between the INRIA school and the Maslov school was established in 92
+   when Maslov was invited in the Seminar of Jacques Louis Lions in College de France.
+   At the BRIMS HP-Labs workshop on Idempotency in Bristol (1994) organized by J. Gu-
+   nawardena, several of the early groups of researchers in the field were there, and an ani-
+   mated discussion took place on how the field should be named. The names “max-plus",
+   “exotic", “tropical", “idempotent" were considered, each one having its defaults.
+9 as mentioned above, this result was obtained already for matrices in 1962 by R. Cuninghame-Green
+
+
+
+                                                   17
+   4.2.3    Tropical geometry, Riemann-Roch theorems and the chip firing game
+   The tropical semiring Nmin = N ∪ {∞} with the operations min and + was introduced by
+   Imre Simon in [101] to solve a decidability problem in rational language theory. His work
+   is at the origin of the term “tropical" used in tropical geometry which is a vast subject,
+   see e.g. [53, 59, 87, 91]. We refer to [108] for an excellent introduction starting from the
+   sixteenth Hilbert problem. In its simplest form (cf. [56]) a tropical curve is given by a
+   metric graph Γ (i.e. a graph with a usual line metric on its edges). The natural structure
+   sheaf on Γ is the sheaf O of real valued functions which are continuous, convex, piecewise
+   affine with integral slopes. The operations on such functions are given by the pointwise
+   operations of Rmax -valued functions, i.e. ( f ∨ g)(x) = f (x) ∨ g(x) for all x ∈ Γ and similar
+   for the product which is given by pointwise addition. One also adjoins the constant −∞
+   which plays the role of the zero element in the semirings of sections. One proceeds as in
+   the classical case with the construction of the sheaf K of semifields of quotients and finds
+   the same type of functions as above but no longer convex. Cartier divisors make sense and
+   one finds that the order of a section f of K at a point x ∈ Γ is given by the sum of the
+   (integer valued) outgoing slopes. The conceptual explanation of why the discontinuities
+   of the derivative should be interpreted as zeros or poles is due to Viro, [109] who showed
+   that it follows automatically if one understands that10 the sum x ∨ x of two equal terms
+   in Rmax should be viewed as ambiguous with all values in the interval [−∞, x] on equal
+   footing. In their work Baker and Norine [4] proved in the discrete set-up of graphs (where
+   g is the genus and K the canonical divisor) the Riemann-Roch equality in the form
+
+                                    r(D) − r(K − D) = Deg(D) − g + 1                          (30)
+
+   where by definition r(D) := max{k | H 0 (D − τ) 6= {−∞} , ∀τ ≥ 0, Deg(τ) = k} and
+   H 0 (D) is the Rmax -module of global sections f of the associated sheaf OD i.e. sections of
+   K such that D+( f ) ≥ 0. The essence of the proof of [4] is that the inequality Deg(D) ≥ g
+   for a divisor implies H 0 (D) 6= {−∞}. Once translated in the language of the chip firing
+   game (op.cit.), this fact is equivalent to the existence of a winning strategy if one assumes
+   that the total sum of dollars attributed to the vertices of the graph is ≥ g where g is the
+   genus. We refer to [56, 92] for variants of the above Riemann-Roch theorem, and to
+   [10, 48, 94] for early occurrences of these ideas in a different context (including sandpile
+   models and parking functions!).
+
+
+   4.3     The arithmetic and scaling sites
+   4.3.1    The arithmetic site and Frobenius correspondences
+   The arithmetic site [37, 38] is an object of algebraic geometry involving two elaborate
+   mathematical concepts: the notion of topos and of (structures of) characteristic 1 in al-
+   gebra. A nice fact (cf. [60]) in characteristic 1 is that, provided the semiring R is multi-
+   plicatively cancellative (i.e. equivalently if it injects in its semifield of fractions) the map
+   x 7→ xn = Frn (x) is, for any integer n ∈ N× , an injective endomorphism Frn of R. One thus
+   obtains a canonical action of the semigroup N× on any such R and it is thus natural to
+   work in the topos N c× of sets endowed with an action of N× .
+
+
+10 as seen when using R
+                          max as the target of a valuation
+
+
+                                                       18
+Definition 4.1. The arithmetic site A = (N c× , Zmax ) is the topos N
+                                                                    c× endowed with the
+structure sheaf O := Zmax viewed as a semiring in the topos using the action of N× by the
+Frobenius endomorphisms.
+
+    The topological space underlying the arithmetic site is the Grothendieck topos of sets
+endowed with an action of the multiplicative monoïd N× of non-zero positive integers. As
+we have seen above the semifield Rmax+ of tropical real numbers admits a one parameter
+group of Frobenius automorphisms Frλ , λ ∈ R×                                  max
+                                               + , given by Frλ (x) = x ∀x ∈ R+ . Using
+                                                                       λ
+
+a straightforward extension in the context of semi-ringed topos of the classical notion of
+algebraic geometry of a point over a ring, one then gets the following result which gives
+the bridge between the noncommutative geometry and topos points of view:
+
+Theorem 4.2. [37, 38] The set of points of the arithmetic site A over Rmax + is canon-
+ically isomorphic with XQ = Q× \AQ /Ẑ× . The action of the Frobenius automorphisms
+Frλ of Rmax
+          + on these points corresponds to the action of the idele class group on XQ =
+Q× \AQ /Ẑ× .
+
+    The square of the arithmetic site is the topos N
+                                                   d ×2 endowed with the structure sheaf de-
+
+fined globally by the multiplicatively cancellative semiring associated to the tensor square
+Zmin ⊗B Zmin over the smallest Boolean semifield of characteristic one. In this way one
+obtains the semiring whose elements are Newton polygons and whose operations are given
+by the convex hull of the union and the sum. The points of the square of the arithmetic
+site over Rmax
+            + coincide with the product of the points of the arithmetic site over R+ .
+                                                                                        max
+
+Then, we describe the Frobenius correspondences Ψ(λ ) as congruences on the square
+parametrized by positive real numbers λ ∈ R×    +.
+
+
+  The remarkable fact at this point is that while the arithmetic site is constructed as
+  a combinatorial object of countable nature it possesses nonetheless a one parameter
+  semigroup of “correspondences" which can be viewed as congruences in the square
+  of the site.
+
+    In the context of semirings, the congruences i.e. the equivalence relations compatible
+with addition and product, play the role of the ideals in ring theory. The Frobenius corre-
+spondences Ψ(λ ), for a rational value of λ , are deduced from the diagonal of the square,
+which is described by the product structure of the semiring, by composition with the
+Frobenius endomorphisms. We interpret these correspondences geometrically, in terms of
+the congruence relation on Newton polygons corresponding to their belonging to the same
+half planes with rational slope λ . These congruences continue to make sense also for ir-
+rational values of λ and are described using the best rational approximations of λ , while
+different values of the parameter give rise to distinct congruences. The composition of the
+Frobenius correspondences is given for λ , λ 0 ∈ R×                0 / Q by the rule [37, 38]
+                                                    + such that λ λ ∈
+
+                                 Ψ(λ ) ◦ Ψ(λ 0 ) = Ψ(λ λ 0 )                            (31)
+
+The same equality still holds if λ and λ 0 are rational numbers. When λ , λ 0 are irrational
+and λ λ 0 ∈ Q one has
+                              Ψ(λ ) ◦ Ψ(λ 0 ) = Idε ◦ Ψ(λ λ 0 )                         (32)
+where Idε is the tangential deformation of the identity correspondence.
+
+                                             19
+4.3.2   The scaling site and Riemann-Roch theorems
+The Scaling Site Aˆ, [40], is the algebraic geometric space obtained from the arithmetic
+site A of [37, 38] by extension of scalars from the Boolean semifield B to the tropical
+             + . The points of A are the same as the points A (R+ ) of the arithmetic
+semifield Rmax                     ˆ                                    max
+
+site over R+ . But A inherits from its structural sheaf a natural structure of tropical
+            max         ˆ
+curve, in a generalized sense, allowing one to define the sheaf of rational functions and to
+investigate an adequate version of the Riemann-Roch theorem in characteristic 1. In [40],
+we tested this structure by restricting it to the periodic orbits of the scaling flow, i.e. the
+points over the image of Spec Z under the canonical morphism of toposes Θ : Spec Z →
+A (cf. [38], §5.1). We found that for each prime p the corresponding circle of length
+log p is endowed with a quasi-tropical structure which turns this orbit into the analogue
+Cp = R∗+ /pZ of a classical elliptic curve C∗ /qZ . In particular rational functions, divisors,
+etc all make sense. A new feature is that the degree of a divisor can now be any real
+number. The Jacobian of Cp (i.e. the quotient J(Cp ) of the group of divisors of degree
+0 by principal divisors) is a cyclic group of order p − 1. For each divisor D there is
+a corresponding Riemann-Roch problem with solution space H 0 (D) and the continuous
+dimension DimR (H 0 (D)) of this Rmax -module is defined as the limit
+                                                                    n
+                        DimR (H 0 (D)) := lim p−n dimtop (H 0 (D) p )                     (33)
+                                           n→∞
+               n
+where H 0 (D) p is a natural filtration and dimtop (E ) is the topological dimension of an
+Rmax -module E . One has the following Riemann-Roch formula [40],
+
+Theorem 4.3. (i) Let D ∈ Div(Cp ) be a divisor with deg(D) ≥ 0. Then the limit in (33)
+converges and one has DimR (H 0 (D)) = deg(D).
+(ii) The following Riemann-Roch formula holds
+
+               DimR (H 0 (D)) − DimR (H 0 (−D)) = deg(D) , ∀D ∈ Div(Cp )
+
+    The appearance of arbitrary positive real numbers as continuous dimensions in the
+Riemann-Roch formula is due to the density in R of the subgroup Hp ⊂ Q of fractions
+with denominators a power of p. This outcome is the analogue in characteristic 1 of what
+happens for modules over matroid C∗ -algebras and the type II normalized dimensions as
+in [49].
+  At this point, what is missing is an intersection theory and a Riemann-Roch theorem
+  on the square of the arithmetic site. One expects that the right hand side of the
+  Riemann-Roch formula will be of the form 12 D.D = s( f , f ) when the divisor D is of
+  the form                                Z
+                                D( f ) = Ψ(λ ) f (λ )d ∗ λ
+
+
+     Here f (λ ) is a real valued function with compact support of the variable λ ∈ R∗+ and
+s( f , f ) is as in (17). More precisely D.D should be obtained as the intersection number
+of D ◦ D̃ (defined using composition of correspondences) with the diagonal ∆ and hence
+as a suitably defined distributional trace as for the counting function N(u) of §4.1 so that
+1
+2 D( f ).D( f ) = s( f , f ) with the notations of (17). So far the Riemann-Roch formula in
+tropical geometry is limited to curves and there is no Serre duality or good cohomological
+
+
+                                              20
+   version of H j for j 6= 0, but in the above context one can hope that a Riemann-Roch
+   inequality of the type (12), i.e. of the form
+                                                             1
+                           DimR (H 0 (D)) + DimR (H 0 (−D)) ≥ D.D
+                                                             2
+   would suffice to apply the strategy of Section 2.3 to prove the key inequality (17).
+
+
+                      Table 1: Here are a few entries in the analogy:
+
+
+          C curve over Fq                       Arithmetic Site A = (N
+                                                                     c× , Zmax ) over B
+
+
+         Structure sheaf OC                                Structure sheaf Zmax
+
+
+           C̄ = C ⊗Fq F̄q                    Scaling Site Aˆ = ([0, ∞) o N× , O) over Rmax
+                                                                                       +
+
+
+
+          C(F̄q ) = C̄(F̄q )                              A (Rmax
+                                                              + ) = A (R+ )
+                                                                     ˆ max
+
+
+       Galois action on C(F̄q )                         Galois action on A (Rmax
+                                                                             + )
+
+
+
+         Structure sheaf OC̄                      Structure sheaf O = Zmax ⊗ˆ B Rmax
+                                                                                  +
+          of C̄ = C ⊗Fq F̄q                piecewise affine convex functions, integral slopes
+
+
+  Sheaf K of rational functions C̄               Sheaf K of piecewise affine functions
+         on C̄ = C ⊗Fq F̄q                               with integral slopes
+
+
+Cartier divisors = sections of K /O ∗                       Sections of K /O ∗
+
+
+             X = C̄ × C̄                                            Aˆ × Aˆ
+
+
+            D = ∑ ak Ψk                                    D = Ψ(λ ) f (λ )d ∗ λ
+                                                                R
+
+    Frobenius correspondence Ψ                            Correspondences Ψ(λ )
+
+
+
+
+                                               21
+    5      Absolute Algebra and the sphere spectrum
+    Even if the Riemann-Roch strategy of Section 4 happened to be successful, one should
+    not view the arithmetic and scaling sites for more than what they are, namely a semiclas-
+    sical shadow of a still mysterious structure dealing with compactifications of Spec Z. An
+    essential role in the unveiling of this structure should be played, for the reasons briefly ex-
+    plained below, by the discovery made by algebraic topologists in the 80’s (see [50]) that in
+    their world of “spectra" (in their sense) the sphere spectrum is a generalized ring S which
+    is more fundamental than the ring Z of integers, while the latter becomes an S-algebra.
+    Over the years the technical complications of dealing with spaces “up to homotopy" have
+    greatly been simplified, in particular for the smash product of spectra. For the purpose of
+    arithmetic applications, Segal’s Γ-rings provide a very simple algebraic framework which
+    succeeds to unify several attempts pursued in recent times in order to define the mean-
+    ing of “absolute algebra". In particular it contains the following three possible categories
+    that had been considered previously to handle this unification: namely the category M of
+    monoïds as in [31, 33, 42, 43], the category H of hyperrings of [32, 34, 35] and finally the
+    category S of semirings as in [26, 37, 38, 40]. Thanks to the work of L. Hesselholt and I.
+    Madsen briefly explained below in §5.2 one now has at disposal a candidate cohomology
+    theory in the arithmetic context: topological cyclic homology.
+
+
+    5.1     Segal’s Γ-rings
+    Let Γop be the small, full subcategory of the category of finite pointed sets whose objects
+    are the the pointed finite sets11 k+ := {0, . . . , k}, for k ≥ 0. The object 0+ is both initial
+    and final so that Γop is a pointed category. The notion of a discrete Γ-space, i.e. of a Γ-set
+    is as follows:
+    Definition 5.1. A Γ-set F is a functor F : Γop −→ Sets∗ between pointed categories from
+    Γop to the category of pointed sets.
+        The morphisms HomΓop (M, N) between two Γ-sets are natural transformations of func-
+    tors. The category ΓSets∗ of Γ-sets is a symmetric closed monoidal category (cf. [50],
+    Chapter II). The monoidal structure is given by the smash product (denoted X ∧Y ) of Γ-
+    sets which is a Day product. The closed structure property is shown in [86] (cf. also [50]
+    Theorem 2.1.2.4). The specialization of Definition 2.1.4.1. of [50] to the case of Γ-sets
+    yields the following
+    Definition 5.2. A Γ-ring A is a Γ-set A : Γop −→ Sets∗ endowed with an associative
+    multiplication µ : A ∧ A → A and a unit 1 : S → A , where S : Γop −→ Sets∗ is the
+    inclusion functor.
+        Thus Γ-rings12 make sense and the sphere spectrum corresponds to the simplest pos-
+    sible Γ-ring: S. One can then easily identify the category ΓSets∗ of Γ-sets with the cate-
+    gory Mod(S) of S-modules. In [51], N. Durov developed a geometry over F1 intended for
+    Arakelov theory applications by using monads as generalizations of classical rings. While
+    in the context of [51] the tensor product Z ⊗F1 Z produces an uninteresting output isomor-
+    phic to Z, we showed in [39] that the same tensor square, re-understood in the theory of
+11 where 0 is the base point.
+12 equivalently S-algebras
+
+
+
+                                                  22
+S-algebras, provides a highly non-trivial object. The Arakelov compactification of Spec Z
+is endowed naturally with a structure sheaf of S-algebras and each Arakelov divisor pro-
+vides a natural sheaf of modules over the structure sheaf. This new structure of Spec Z
+over S endorses a one parameter group of weakly invertible sheaves whose tensor product
+rules are the same as the composition rules (31), (32) of the Frobenius correspondences
+over the arithmetic site [37, 38]. The category Mod(S) of S-modules is not an abelian
+category and thus the tools of homological algebra need to be replaced along the line of
+the Dold-Kan correspondence, which for an abelian category A gives the correspondence
+                                                                                  op
+between chain complexes in ≥ 0 degrees and simplicial objects i.e. objects of A ∆ .
+
+  At this point one has the following simple but very important observation that Γ-
+  spaces should be viewed as simplicial objects in ΓSets∗ ≡ Mod(S), so that homo-
+  topy theory should be considered as the homological algebra corresponding to the
+  “absolute algebra" taking place over S.
+
+     We refer to Table 2 for a short dictionary. The category of Γ-spaces is the central tool
+of [50], while the relations between algebraic K-theory and topological cyclic homology
+is the main topic.
+
+
+                   Table 2: Short dictionary homology–homotopy
+
+                                                                      op
+                       X ∈ Ch≥0 (A )                 M ∈ Mod(S)∆
+
+
+                           Hq (X)                          πq (M)
+
+
+                  Hq ( f ) : Hq (X) ≃ Hq (Y )     πq ( f ) : πq (M) ≃ πq (N)
+
+                    quasi-isomorphism                weak equivalence
+
+
+                                 ⊂
+                        fn : Xn → Yn                    cofibration
+                   + projective cokernel                 (stable)
+
+
+                        fn : Xn → Yn                        stable
+                     surjective if n > 0                  fibration
+
+
+
+
+                                             23
+5.2    Topological cyclic homology
+As shown in [39] the various attempts done in recent times to develop “absolute algebra"
+are all unified by means of the well established concept of S-algebra, i.e. of Γ-rings. More-
+over (cf. [50]) this latter notion is at the root of the theory of topological cyclic homology
+which can be understood as cyclic homology over the absolute base S, provided one uses
+the appropriate Quillen model category. In particular, topological cyclic homology is now
+available to understand the new structure of Spec Z using its structure sheaf and modules.
+The use of cyclic homology in the arithmetic context is backed up by the following two
+results:
+   • At the archimedean places, and after the initial work of Deninger [46, 47] to recast
+     the archimedean local factors of arithmetic varieties [100] as regularized determi-
+     nants, we showed in [36] that cyclic homology in fact gives the correct infinite
+     dimensional (co)homological theory for arithmetic varieties. The key operator Θ in
+     this context is the generator of the λ -operations Λ(k) [85, 110, 111] in cyclic the-
+     ory. More precisely, the action uΘ of the multiplicative group R×  + generated by Θ
+     on cyclic homology, is uniquely determined by its restriction to the dense subgroup
+     Q×      ×
+       + ⊂ R+ where it is given by the formula
+
+                           kΘ |HCn = Λ(k) k−n , ∀n ≥ 0, k ∈ N× ⊂ R×
+                                                                  +                           (34)
+
+      Let X be a smooth, projective variety of dimension d over an algebraic number field
+      K and let ν|∞ be an archimedean place of K. Then, the action of the operator Θ on
+      the archimedean cyclic homology HCar (cf. [36]) of Xν satisfies
+                                                               1
+                                                  w    det∞ ( 2π (s − Θ)|HCod
+                                                                           ar (X ) )
+                              Lν (H w (X), s)(−1) =
+                                                                                ν
+                       ∏                                       1
+                                                                                              (35)
+                     0≤w≤2d                            det∞ ( 2π (s − Θ)|HCevar (Xν ) )
+
+      The left-hand side of (35) is the product of Serre’s archimedean local factors of
+      the complex L-function of X (cf. [100]). On the right-hand side, det∞ denotes the
+      regularized determinant and one sets
+                                 M                                      M
+                   ar
+                 HCev (Xν ) =            HCnar (Xν ), HCod
+                                                        ar
+                                                           (Xν ) =              HCnar (Xν )
+                                n=2k≥0                               n=2k+1≥1
+
+
+   • L. Hesselholt and I. Madsen have shown (cf. e.g. [70–72]) that the de Rham-Witt
+     complex, an essential ingredient of crystalline cohomology (cf. [8, 74]), arises nat-
+     urally when one studies the topological cyclic homology of smooth algebras over
+     a perfect field of finite characteristic. One of the remarkable features in their work
+     is that the arithmetic ingredients such as the Frobenius and restriction maps are
+     naturally present in the framework of topological cyclic homology. Moreover L.
+     Hesselholt has shown [73] how topological periodic cyclic homology with its in-
+     verse Frobenius operator may be used to give a cohomological interpretation of the
+     Hasse-Weil zeta function of a scheme smooth and proper over a finite field in the
+     form (cf. [73]):
+                                                   1
+                                           det∞ ( 2π (s − Θ)|T Pod (X) )
+                                ζ (X, s) =         1
+                                                                                        (36)
+                                           det∞ ( 2π (s − Θ)|T Pev (X) )
+
+
+
+                                                24
+      The similarity between (35) and (36) (applied to a place of good reduction) suggests
+      the existence of a global formula for the L-functions of arithmetic varieties, involving
+      cyclic homology of S-algebras, and of a Lefschetz formula in which the local factors
+      appear from the periodic orbits of the action of R∗+ .
+
+
+        One of the stumbling blocks in order to reach a satisfactory cohomology theory is the
+    problem of coefficients. Indeed, the natural coefficients at a prime p for crystalline coho-
+    mology are an extension of Q p and it is traditional to relate them with complex numbers
+    by an embedding of fields. Similarly, (36) uses an embedding of the Witt ring W (Fq ) → C.
+    To an analyst it is clear that since such embeddings cannot be measurable13 they will never
+    be effectively constructed. This begs for a better construction, along the lines of Quillen’s
+    computation of the algebraic K-theory of finite fields, which instead would only involve
+    the ingredient of the Brauer lifting, i.e. a group injection of the multiplicative group of F̄ p
+    as roots of unity in C.
+
+
+    5.3     Final remarks
+    The Riemann hypothesis has been extended far beyond its original formulation to the
+    question of localization of the zeros of L-functions. There are a number of constructions
+    of L-functions coming from three different sources, Galois representations, automorphic
+    forms and arithmetic varieties. André Weil liked to compare (cf. [12] §12 and also [117]
+    vol. 1, p. 244–255 and vol. 2, p. 408–412), the puzzle of these three different writings
+    to the task of deciphering hieroglyphics with the help of the Rosetta Stone. In some sense
+    the L-functions play a role in modern mathematics similar to the role of polynomials in
+    ancient mathematics, while the explicit formulas play the role of the expression of the
+    symmetric functions of the roots in terms of the coefficients of the polynomial. If one
+    follows this line of thought, the RH should be seen only as a first step since in the case of
+    polynomials there is no way one should feel to have understood the zeros once one proves
+    that they are, say, real numbers. In fact Galois formulated precisely the problem as that
+    of finding all numerical relations between the roots of an equation, with the trivial ones
+    being given by the symmetric functions, while the others, when determined, will reveal
+    a complete understanding of the zeros as obtained, in the case of polynomials, by Galois
+    theory. In a fragment, page 103, of the complete works of Galois [55] concerning the
+    memoir of February 1830, he delivers the essence of his theory:
+          Remarquons que tout ce qu’une équation numérique peut avoir de particulier,
+          doit provenir de certaines relations entre les racines. Ces relations seront ra-
+          tionnelles c’est-à-dire qu’elles ne contiendront d’irrationnelles que les coeffi-
+          cients de l’équation et les quantités adjointes. De plus ces relations ne devront
+          pas être invariables par toute substitution opérée sur les racines, sans quoi on
+          n’aurait rien de plus que dans les équations littérales. Ce qu’il importe donc
+          de connaître, c’est par quelles substitutions peuvent être invariables des rela-
+          tions entre les racines, ou ce qui revient au même, des fonctions des racines
+          dont la valeur numérique est déterminable rationnellement.14
+13 A measurable group homomorphism from Z× to C× cannot be injective
+                                              p
+14 In 2012 I had to give, in the French academy of Sciences, the talk devoted to the 200-th anniversary of the
+
+
+
+                                                   25
+       Acknowledgement
+       I am grateful to J. B. Bost for the reference [105], to J. B. Bost, P. Cartier, C. Consani,
+       D. Goss, H. Moscovici, M. Th. Rassias, C. Skau and W. van Suijlekom for their de-
+       tailed comments, to S. Gaubert for his help in Section 4.2 and to Lars Hesselholt for his
+       comments and for allowing me to mention his forthcoming paper [73].
+
+
+       References
+        [1] J. Arthur, An introduction to the trace formula. Harmonic analysis, the trace formula,
+            and Shimura varieties, 1–263, Clay Math. Proc., 4, Amer. Math. Soc., Providence,
+            RI, 2005.
+        [2] M. Artin, A. Grothendieck, J-L. Verdier, eds. (1972), SGA4 , LNM 269-270-305,
+            Berlin, New York, Springer-Verlag.
+        [3] M.F. Atiyah, R. Bott, A Lefschetz fixed point formula for elliptic complexes: I, An-
+            nals of Math. Vol. 86 (1967) 374–407.
+        [4] M. Baker, S. Norine, Riemann-Roch and Abel-Jacobi theory on a finite graph, Ad-
+            vances in Mathematics 215 (2007), 766–788.
+        [5] B. Bhatt, P. Scholze, The pro-etale topology for schemes Preprint (2013),
+            arXiv:1309.1198
+        [6] M. Berry, Riemann’s zeta function: a model of quantum chaos, Lecture Notes in
+            Physics, Vol.263, Springer-Verlag, 1986.
+        [7] M. Berry and J. Keating, H = qp and the Riemann zeros, “Supersymmetry and Trace
+            Formulae: Chaos and Disorder”, edited by J.P. Keating, D.E. Khmelnitskii and I.V.
+            Lerner, Plenum Press.
+        [8] P. Berthelot, Cohomologie cristalline des schémas de caractéristique p > 0, Lecture
+            Notes in Math., vol. 407, Springer-Verlag, New York, 1974.
+        [9] A. Beurling, A closure problem related to the zeta function, Proc. Nat. Ac. Sci. 41
+            (1955), 312-314.
+       [10] A. Bjorner, L. Lovasz, P. W. Shor, Chip-firing games on graphs, European J. Com-
+            bin., 12(4), (1991), 283–291.
+       [11] E. Bombieri, Problems of the Millenium: The Riemann Hypothesis, Clay mathemat-
+            ical Institute (2000).
+       [12] E. Bombieri, The classical theory of Zeta and L-functions, Milan J. Math. Vol. 78
+            (2010) 11–59.
+       [13] E. Bombieri, J. Lagarias Complements to Li’s criterion for the Riemann hypothesis.
+            J. Number Theory 77 (1999), no. 2, 274–287.
+
+
+
+birth of Evariste Galois. On that occasion I read for the n + 1-th time the book of his collected works and was
+struck by the pertinence of the above quote in the analogy with L-functions. In the case of function fields one is
+dealing with Weil numbers and one knows a lot on their Galois theory using results such as those of Honda and
+Tate cf. [105].
+
+
+                                                       26
+[14] J.B. Bost, A. Connes, Hecke algebras, Type III factors and phase transitions with
+     spontaneous symmetry breaking in number theory, Selecta Math. (New Series) Vol.1
+     (1995) N.3, 411–457.
+[15] F. Bruhat, Distributions sur un groupe localement compact et applications à l’étude
+     des représentations des groupes p-adiques. Bull. Soc. Math. France, 89 (1961), 43–
+     75.
+[16] J.F. Burnol, The explicit formula and the conductor operator, math.NT/9902080.
+[17] J.F. Burnol, Sur les formules explicites. I. Analyse invariante. C. R. Acad. Sci. Paris
+     Sér. I Math., 331 (2000), 423–428.
+[18] P. Cartier, Des nombres premiers à la géométrie algébrique (une brève histoire de la
+     fonction zêta). Analyse diophantienne et géométrie algébrique, 51–77, Cahiers Sém.
+     Hist. Math. Sér. 2, 3, Univ. Paris VI, Paris, 1993.
+[19] P. Cartier, A Voros, Une nouvelle interprétation de la formule des traces de Selberg.
+     The Grothendieck Festschrift, Vol. II, 1–67, Progr. Math., 87, Birkhauser Boston,
+     Boston, MA, 1990.
+[20] G. Cohen, S. Gaubert, R. Nikoukhah, J.P. Quadrat, Convex analysis and spectral
+     analysis of timed event graphs, Decision and Control, 1989, Proceedings of the 28th
+     IEEE Conference.
+[21] A. Connes, Spectral sequence and homology of currents for operator algebras,
+     Mathematisches Forschunginstitut oberwolfach, Tagungsbericht 42/81.
+[22] A. Connes, A survey of foliations and operator algebras. In “Operator algebras and
+     applications”, Part I (Kingston, Ont., 1980), pp. 521–628, Proc. Sympos. Pure Math.,
+     38, Amer. Math. Soc., Providence, R.I., 1982.
+[23] A. Connes, Cohomologie cyclique et foncteurs Extn . C. R. Acad. Sci. Paris Sér. I
+     Math. 296 (1983), no. 23, 953–958.
+[24] A. Connes, Trace formula in noncommutative geometry and the zeros of the Riemann
+     zeta function. Selecta Math. (N.S.) 5 (1999), no. 1, 29–106.
+[25] A. Connes, Formules explicites, formules de trace et réalisation spectrale des zéros
+     de la fonction zéta, Course at Collège de France, 1999.
+[26] A. Connes, The Witt construction in characteristic one and Quantization. Noncom-
+     mutative geometry and global analysis, 83–113, Contemp. Math., 546, Amer. Math.
+     Soc., Providence, RI, 2011.
+[27] A. Connes, M. Marcolli, Noncommutative Geometry, Quantum Fields, and Motives,
+     Colloquium Publications, Vol.55, American Mathematical Society, 2008.
+[28] A. Connes, C. Consani, M. Marcolli, Noncommutative geometry and motives: the
+     thermodynamics of endomotives, Advances in Mathematics, Vol.214 (2007) N.2,
+     761–831.
+[29] A. Connes, C. Consani, M. Marcolli, Weil’s proof and the geometry of the adeles
+     class space, Algebra, arithmetic, and geometry: in honor of Yu. I. Manin. Vol. I,
+     339–405, Progr. Math., 269, Birkhauser Boston, Inc., Boston, MA, 2009.
+[30] A. Connes, C. Consani, Schemes over F1 and zeta functions, Compositio Mathemat-
+     ica 146 (6), (2010) 1383–1415.
+
+                                            27
+[31] A. Connes, C. Consani, From monoids to hyperstructures: in search of an absolute
+     arith- metic, in Casimir Force, Casimir Operators and the Riemann Hypothesis, de
+     Gruyter (2010), 147–198.
+[32] A. Connes, C. Consani, The hyperring of adèle classes, Journal of Number Theory
+     131 (2011) 159–194.
+[33] A. Connes, C. Consani On the arithmetic of the BC-system, J. Noncommut. Geom.
+     8 (2014), no. 3, 873–945.
+[34] A. Connes, C. Consani, Characteristic one, entropy and the absolute point, “ Non-
+     commutative Geometry, Arithmetic, and Related Topics”, the Twenty-First Meeting
+     of the Japan-U.S. Mathematics Institute, Baltimore 2009, JHUP (2012), 75–139.
+[35] A. Connes, C. Consani, The universal thickening of the field of real numbers, Ad-
+     vances in the Theory of Numbers, Fields Institute Communications 77 (2015).
+[36] A. Connes, C. Consani, Cyclic homology, Serre’s local factors and the λ -operations;
+     J. K-Theory 14 (2014), no. 1, 1–45.
+[37] A. Connes, C. Consani, The Arithmetic Site, Comptes Rendus Mathématiques Ser. I
+     352 (2014), 971–975.
+[38] A. Connes, C. Consani, Geometry of the Arithmetic Site, ArXiv: 1502.05580.
+[39] A. Connes, C. Consani, Absolute algebra and Segal’s Γ-rings ArXiv: 1502.05585
+[40] A. Connes, C. Consani, The Scaling Site, ArXiv: 1507.05818
+[41] R. Cuninghame-Green, Minimax algebra, Lecture Notes in Economics and Mathe-
+     matical Systems, Volume 166, Springer, 1979.
+[42] A. Deitmar, Schemes over F1 , in Number Fields and Function Fields, Two Parallel
+     Worlds. Ed. by G. van der Geer, B. Moonen, R. Schoof. Progr. in Math, vol. 239,
+     2005.
+[43] A. Deitmar, F1 -schemes and toric varieties, Contributions to Algebra and Geometry
+     Vol. 49, No. 2, pp. 517-525 (2008).
+[44] P. Deligne, Valeurs de fonctions L et périodes d’intégrales, Proc. Symp. Pure Math.
+     Vol.33 (1979) part II, 313–346.
+[45] P. Deligne, La conjecture de Weil. I. Publ. Math. Inst. Hautes Études Sci. No. 43
+     (1974), 273–307.
+[46] C. Deninger, On the Γ-factors attached to motives, Invent. Math. 104 (1991) 245–
+     261.
+[47] C. Deninger, Motivic L-functions and regularized determinants, in “Motives”, Pro-
+     ceedings of Symposia in Pure Mathematics, Vol. 55 (1994) Part I, 707–743.
+[48] D. Dhar, Self-organized critical state of sandpile automaton models. Phys. Rev. Lett.,
+     64(14):1613– 1616, Apr 1990.
+[49] J. Dixmier, On some C∗ -algebras considered by Glimm. J. Functional Analysis, 1,
+     (1967), 182–203.
+[50] B. Dundas, T. Goodwillie, R. McCarthy, The local structure of algebraic K-theory.
+     Algebra and Applications, 18. Springer-Verlag London, Ltd., London, 2013.
+
+
+                                            28
+[51] N. Durov, New approach to Arakelov Geometry. arXiv:0704.2030.
+[52] H.M. Edward, Riemann’s zeta function, Dover, 2001.
+[53] M. Einsiedler, M. Kapranov, D. Lind, Non-Archimedean amoebas and tropical vari-
+     eties. (English summary) J. Reine Angew. Math. 601 (2006), 139–157.
+[54] M. V. Fedoriuk, V. P. Maslov, Semiclassical approximation in quantum mechanics.
+     Translated from the Russian by J. Niederle and J. Tolar. Mathematical Physics and
+     Applied Mathematics, 7. Contemporary Mathematics, 5. D. Reidel Publishing Co.,
+     Dordrecht-Boston, Mass., 1981.
+[55] E. Galois, Oeuvres de Galois, Gauthier-Villars, Paris (1962).
+[56] A. Gathmann and M. Kerber, A Riemann-Roch theorem in tropical geometry. Math.
+     Z., 259(1):217–230, 2008.
+[57] S. Gaubert, Methods and applications of (max, +) linear algebra, STACS 97
+     (Lubek), Lecture Notes in Comput. Sci., vol. 1200, Springer, Berlin, (1997), 261–
+     282.
+[58] S. Gaubert, Two lectures on the max-plus algebra. Proceedings of the 26th Spring
+     School of Theoretical Computer Science, (1998), 83–147.
+[59] I. Gelfand, M. Kapranov, A Zelevinsky, Discriminants, resultants, and multidimen-
+     sional determinants. Mathematics: Theory and Applications. Birkhauser Boston,
+     Inc., Boston, MA, 1994.
+[60] J. Golan, Semi-rings and their applications, Updated and expanded version of The
+     theory of semi-rings, with applications to mathematics and theoretical computer sci-
+     ence [Longman Sci. Tech., Harlow, 1992. Kluwer Academic Publishers, Dordrecht,
+     1999.
+[61] M. Gondran, M. Minoux, L’indépendance linéaire dans les dioides. (French) Bull.
+     Direction Etudes Rech. Sér. C Math. Inform. 1978, no. 1, 67–90.
+[62] A. Grothendieck, Sur une note de Mattuck-Tate J. reine angew. Math. 200, 208-215
+     (1958).
+[63] V. Guillemin, S. Sternberg, Geometric asymptotics, Math. Surveys Vol. 14, Ameri-
+     can Mathematical Society, 1977.
+[64] V. Guillemin, Lectures on spectral theory of elliptic operators, Duke Math. J., Vol.
+     44, 3 (1977), 485-517.
+[65] M. Gutzwiller, Classical Quantization of a Hamiltonian with Ergodic Behavior,
+     Physical Review Letters 45 (1980) 150-153.
+[66] M. Gutzwiller, Chaos in classical and quantum mechanics, Interdisciplinary Applied
+     Mathematics, 1. Springer-Verlag, New York, 1990.
+[67] S. Haran, Riesz potentials and explicit sums in arithmetic, Invent. Math., 101 (1990),
+     697-703.
+[68] R. Hartshorne, Algebraic Geometry, Graduate Texts in Mathematics 52, Springer-
+     Verlag, New York Heidelberg Berlin 1977.
+[69] D. Hejhal, The Selberg trace formula and the Riemann zeta function. Duke Math. J.
+     43 (1976), no. 3, 441–482.
+
+                                            29
+[70] L. Hesselholt, On the p-typical curves in Quillen’s K-theory. Acta Math. 177 (1996),
+     no. 1, 1–53.
+[71] L. Hesselholt, On the topological cyclic homology of the algebraic closure of a local
+     field, An Alpine Anthology of Homotopy Theory: Proceedings of the Second Arolla
+     Conference on Algebraic Topology (Arolla, Switzerland, 2004), Contemp. Math.,
+     vol. 399, Amer. Math. Soc., Providence, RI, 2006, pp. 133–162.
+[72] L. Hesselholt, I. Madsen, On the K-theory of finite algebras over Witt vectors of
+     perfect fields. Topology 36 (1997), no. 1, 29–102.
+[73] L. Hesselholt, Periodic topological cyclic homology and the Hasse-Weil zeta func-
+     tion
+[74] L. Illusie, Complexe de de Rham-Witt et cohomologie cristalline, Ann. Scient. Ec.
+     Norm. Sup. (4) 12 (1979), 501–661.
+[75] A. Ingham, The distribution of prime numbers With a foreword by R. C. Vaughan.
+     Cambridge Mathematical Library. Cambridge University Press, Cambridge, 1990.
+[76] K. Iwasawa, On the rings of valuation vectors Ann. of Math. (2) 57, (1953). 331–
+     356.
+[77] C.G.J. Jacobi, De investigando ordine systematis aequationum differentialium vul-
+     garium cujuscunque C.G.J. Jacobi’s gesammelte Werke, funfter Band, heraus-
+     gegeben von K. Weierstrass, Berlin, Bruck und Verlag von Georg Reimer, 1890,
+     p. 193-216.
+[78] N. Jacobson, The radical and semi-simplicity for arbitrary rings. Amer. J. Math. 67,
+     (1945). 300–320.
+[79] B. Julia, Statistical theory of numbers, Number Theory and Physics, Springer Pro-
+     ceedings in Physics, 47 (1990).
+[80] M. Kapranov and A. Smirnov, Cohomology determinants and reciprocity laws Pre-
+     publication.
+[81] N. Kurokawa, Multiple zeta functions: an example in Zeta functions in geometry
+     (Tokyo, 1990) Adv. Stud. Pure Math. Vol. 21 (1992), 219–226
+[82] V. Kolokoltsov, V. P. Maslov, Idempotent analysis and its applications. Mathematics
+     and its Applications, 401. Kluwer Academic Publishers Group, Dordrecht, 1997.
+[83] X. J. Li, The positivity of a sequence of numbers and the Riemann hypothesis, J.
+     Number Theory 65 (1997), 325–333.
+[84] G. Litvinov, Tropical Mathematics, Idempotent Analysis, Classical Mechanics and
+     Geometry. Spectral theory and geometric analysis, 159–186, Contemp. Math., 535,
+     Amer. Math. Soc., Providence, RI, 2011.
+[85] J.L. Loday, Cyclic homology. Grundlehren der Mathematischen Wissenschaften,
+     301. Springer-Verlag, Berlin, 1998.
+[86] M. Lydakis, Smash products and Γ-spaces, Math. Proc. Cambridge Philos. Soc. 126
+     (1999) 311–328.
+[87] D Maclagan, B. Sturmfels, Introduction to tropical geometry. Graduate Studies in
+     Mathematics, 161. American Mathematical Society, Providence, RI, 2015.
+
+
+                                           30
+[88] S. Mac Lane, I Moerdijk, Sheaves in geometry and logic. A first introduction to
+     topos theory. Corrected reprint of the 1992 edition. Universitext. Springer-Verlag,
+     New York, 1994.
+[89] Yu.I. Manin, Lectures on zeta functions and motives (according to Deninger and
+     Kurokawa). Columbia University Number Theory Seminar (New York, 1992).
+     Astérisque No. 228 (1995), 4, 121–163.
+[90] R. Meyer, On a representation of the idele class group related to primes and zeros
+     of L-functions. Duke Math. J. Vol.127 (2005), N.3, 519–595.
+[91] G. Mikhalkin, Enumerative tropical algebraic geometry in R2 . J. Amer. Math. Soc.
+     18 (2005), no. 2, 313–377.
+[92] G. Mikhalkin and I. Zharkov, Tropical curves, their Jacobians and theta functions.
+     In Curves and abelian varieties, volume 465 of Contemp. Math., p 203–230. Amer.
+     Math. Soc., Providence, RI, 2008.
+[93] S. Patterson, An introduction to the theory of the Riemann Zeta-function, Cambridge
+     Univ. Press, 1988.
+[94] A. Postnikov and B. Shapiro, Trees, parking functions, syzygies, and deformations
+     of monomial ideals. Trans. Amer. Math. Soc., 356(8):3109–3142 (electronic), 2004.
+[95] B. Riemann, Mathematical Werke, Dover, New York (1953).
+[96] B. Riemann, Über die Anzahl der Primzahlen unter einer gegebenen Grösse, Monat
+     der Königl. Preuss. Akad. der Wissen. zu Berlin aus der Jahre 1859 (1860) 671–680.
+     (English translation in M.H.Edwards “Riemann’s zeta function”, Dover 2001.)
+[97] A. Selberg, Harmonic analysis and discontinuous groups in weakly symmetric Rie-
+     mannian spaces with applications to Dirichlet series, Journal of the Indian Mathe-
+     matical Society 20 (1956) 47-87.
+[98] A. Selberg, Collected Papers, Springer, 1989.
+[99] A. Selberg, The history of the prime number theorem. Lecture given in Seattle,
+     Monday August 12, 1996, 5-6pm. Prime Number Theorem, A SYMPOSIUM on
+     the Riemann Hypothesis, Seattle, Washington, August 12 15, 1996. In “publica-
+     tions.ias.edu/sites/default/files/seattle.pdf"
+[100] J. P. Serre, Facteurs locaux des fonctions zêta des variétés algébriques (définitions
+     et conjectures). Sém. Delange-Pisot-Poitou, exp. 19, 1969/70.
+[101] I. Simon, Limited subsets of the free monoid. Proc. of the 19-th Annual Symposium
+     on computer Science (1978), 143–150.
+[102] C. Soulé, Les variétés sur le corps à un élément. Mosc. Math. J. 4 (2004), no. 1,
+     217–244.
+[103] R. Steinberg, A geometric approach to the representations of the full linear group
+     over a Galois field, Transactions of the AMS, Vol. 71, No. 2 (1951), pp. 274–282.
+[104] J. Tate, Fourier analysis in number fields and Hecke’s zeta-function, Ph.D. The-
+     sis, Princeton, 1950. Reprinted in J.W.S. Cassels and A. Frölich (Eds.) “Algebraic
+     Number Theory”, Academic Press, 1967.
+[105] J. Tate, Classes d’isogénie des variététs abéliennes sur un corps fini, d’après T.
+     Honda, Séminaire Bourbaki, 21-ème année, 352, 1968-1969.
+
+                                            31
+[106] J. Tits, Sur les analogues algébriques des groupes semi-simples complexes. Col-
+     loque d’algèbre supérieure, Bruxelles 19–22 décembre 1956, Centre Belge de
+     Recherches Mathématiques Établissements Ceuterick, Louvain; Librairie Gauthier-
+     Villars, Paris (1957), 261–289.
+[107] B. Toën, M. Vaquié, Au-dessous de Spec Z. (French) [Under SpecZ] J. K-Theory 3
+     (2009), no. 3, 437–500.
+[108] O. Viro, From the sixteenth Hilbert problem to tropical geometry. Jpn. J. Math. 3
+     (2008), no. 2, 185–214.
+[109] O. Viro, On basic concepts of tropical geometry. (Russian) Tr. Mat. Inst. Steklova
+     273 (2011), Sovremennye Problemy Matematiki, 271–303; translation in Proc.
+     Steklov Inst. Math. 273 (2011), no. 1, 252–282
+[110] C. Weibel, Cyclic Homology for schemes. Proc. Amer. Math. Soc. 124 (1996), no.
+     6, 1655–1662.
+[111] C. Weibel, The Hodge filtration and cyclic homology. K-Theory 12 (1997), no. 2,
+     145–164.
+[112] A. Weil, Sur la théorie du corps de classes J. math. Soc. Japan, t. 3, 1951, p. 1-35.
+[113] A. Weil, Sur les "formules explicites” de la théorie des nombres premiers. (French)
+     Comm. Sém. Math. Univ. Lund, (1952). Tome Supplémentaire, 252–265.
+[114] A. Weil, Basic Number Theory, Reprint of the second (1973) edition. Classics in
+     Mathematics. Springer-Verlag, 1995.
+[115] A. Weil, Sur les formules explicites de la théorie des nombres premiers, Izv. Mat.
+     Nauk., (Ser. Mat.) Vol.36 (1972) 3–18. (in Oeuvres complètes, Vol. 2, 48–62.)
+[116] A. Weil, Fonction zeta et distributions, Séminaire Bourbaki, Vol. 9 (1966), Exp.
+     No. 312, 523–531.
+[117] A. Weil, Oeuvres scientifiques/Collected papers, I. II. III. Springer Collected Works
+     in Mathematics. Springer, Heidelberg, 2014.
+[118] D. Zagier, Eisenstein series and the Riemannian zeta function, Automorphic Forms,
+     Representation Theory and Arithmetic, Tata, Bombay (1979), 275-301.
+
+
+
+
+                                            32
+

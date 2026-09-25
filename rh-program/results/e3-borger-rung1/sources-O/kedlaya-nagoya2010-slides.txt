@@ -1,0 +1,985 @@
+  The arithmetic curve, Witt vectors, and zeta
+            jt work with C. Consani
+
+– The counting function and the adèle class space.
+– The BC-system, Witt vectors and p-adic representa-
+  tions.
+– First hints of the arithmetic curve.
+
+
+
+
+                                               1
+              Hasse-Weil zeta function
+
+For an irreducible, smooth and projective algebraic curve
+X over a ﬁnite ﬁeld Fq , the Hasse-Weil zeta function is
+of the form
+                                                 
+                               ∑
+            Z(q, T ) = exp          N (q r )T r /r 
+                               r≥1
+where the counting function N (q r ) is the number #X(Fq r )
+of points over Fq r .
+
+
+
+
+                                                        2
+          Soulé’s limit deﬁnition for q → 1
+
+N (q) given, and deﬁned for q ∈ [1, ∞)
+                                                  
+                                ∑
+             Z(q, T ) = exp          N (q r )T r /r 
+                                r≥1
+
+      ζN (s) = lim (q − 1)χ Z(q, q −s) ,        χ = N (1)
+                q→1
+
+
+Problem :
+
+Can one ﬁnd N (q) such that ζN (s) is the complete Rie-
+mann zeta function :
+
+            ζN (s) = ζQ(s) = π −s/2Γ(s/2)ζ(s)
+
+                                                            3
+                  Two diﬃculties
+
+N (1) = −∞ does not allow one to use the limit deﬁni-
+tion and seems to contradict the positivity of N (q).
+
+Lemma :
+                         ∫∞
+             ∂sζN (s)
+                      =−    N (u)u−sd∗u
+              ζN (s)     1
+
+
+From the lemma one gets
+                       ∫ ∞
+            ∂sζQ(s)
+                    =−     N (u) u−sd∗u .
+             ζQ(s)      1
+
+
+
+                                                4
+                    Theorem (CC)
+
+(1) The counting function N (q) satisfying the above
+requirements exists as a distribution and is given by the
+formula
+                                             
+                    d ∑              q ρ+1
+                                        +1
+        N (q) = q −        order(ρ)
+                    dq ρ∈Z          ρ+1
+where Z is the set of non-trivial zeros of the Riemann
+zeta function and the derivative is taken in the sense
+of distributions.
+
+(2) The function N (q) is positive (as a distribution) for
+q > 1.
+
+(3) The value N (1) is equal to −∞ and reﬂects precisely
+the distribution of the zeros of zeta in E log E.
+                                                    5
+According to Soulé the value N (1) of the counting
+function is the Euler characteristic of the hypotheti-
+cal “curve” C over F1. Since C has inﬁnite genus one
+thus gets a priori that
+                      N (1) = −∞
+hence creating a tension with the expected positivity of
+N (q) for q > 1. This tension is resolved by the Theorem,
+since the distribution N (q) is positive for q > 1 but its
+value at q = 1 is given formally by
+                            ω(1 + ϵ) − ω(1)
+            N (1) = 2 − lim
+                        ϵ→0        ϵ
+                   1              1
+                ∼ − E log E , E =
+                   2              ϵ
+whose behavior when ϵ → 0 even reﬂects the density of
+zeros.
+                                                    6
+              JHuL=Ù NHuLâu, Jm HuL
+120
+
+
+100
+
+
+ 80
+
+
+ 60
+
+
+ 40
+
+
+ 20
+
+
+      2   4    6        8      10     12   14
+
+
+                                           7
+                  Curve C = Spec Z ?
+
+While the counting function associated to an algebraic
+variety deﬁned over a ﬁnite ﬁeld takes only integer va-
+lues this is no more the case for the counting function
+N (q) described above. In the function ﬁeld case the
+counting function N (q) counts the number of rational
+points of the associated curve ﬁxed under the action
+of the corresponding power of the arithmetic Frobenius
+and for this reason one ﬁnds that N (q k ) ≤ N (q ℓ) when k
+divides ℓ. This is no longer the case for the distribution
+N (u) which has a contribution of the form
+                              u2
+                      κ(u) = 2
+                            u −1
+
+                                                     8
+             Explicit Formulas (Riemann)
+
+One lets
+                             ∫ ∞
+                   ĝ(s) =           g(u) usd∗u
+                             1
+The explicit formula then takes the form
+                                 ∑
+              ĝ(0) + ĝ(1) −          order(ρ)ĝ(ρ)
+                                 ρ∈Z
+
+                        ∞
+                      ∑ ∑
+                  =             log p g(pm)+
+                      p m=1
+
+                                 ∫
+                              ∞ t2 g(t) − g(1)
+            γ  log π                            ∗t
+           ( +       )g(1) +                   d
+            2    2           1      t2 − 1
+
+                                                       9
+Let us apply this formula with the function gx determi-
+ned by
+
+    gx(u) = u for u ∈ [1, x] ,   gx(u) = 0 for u > x
+The left-hand side of the explicit formula gives, up to
+a constant
+                 x2     ∑            x1+ρ
+          J(x) =    +x−     order(ρ)
+                 2      ρ∈Z          1+ρ
+Thus the left-hand side of the explicit formula gives a
+natural primitive J(x) of the counting function N (x).
+
+
+
+                                                   10
+It is thus natural to diﬀerentiate formally the family gx
+with respect to x and see what the right-hand side of
+the explicit formula looks like. One gets
+
+                     ∂xgx = uδ(u − x)
+It is characterized as a distribution by
+                 ∫
+                     b(u)gx(u)d∗u = b(x)
+
+This equality means that the distributional trace of
+∫
+  gx(u)ϑud∗u is the distributional trace of ϑx since
+                     ∫
+                         gx(u)ϑud∗u = ϑx
+
+Thus we can express N (u) as an intersection number
+provided we can interpret the explicit formulas as trace
+formulas.
+                                                   11
+                Explicit Formulas (Weil)
+
+Let K be a global ﬁeld, α a nontrivial character of AK/K
+          ∏
+and α =     αv its local factors. Let h ∈ S(CK) have
+compact support. Then
+                     ∑     ∑                ∑ ∫ ′ h(u−1)
+  ĥ(0) + ĥ(1) −               ĥ(χ̃, ρ) =                d∗u
+                                               K ∗ |1 − u|
+                                            v
+                  χ∈Cd      Zχ̃                  v
+                       K,1
+       ∫
+where ′ is normalized by αv and
+                           ∫
+              ĥ(χ, z) = h(u) χ(u) |u|z d∗u.
+
+
+
+                                                           12
+         Fixed points of CK on M = AK/K∗
+
+Let (x, u) ∈ M × CK | u x = x, with u ̸= 1. There exists
+v ∈ ΣK with
+
+               x ∈ pv = {x ∈ M | xv = 0}
+The isotropy group of any x ∈ pv contains
+
+       K∗v ⊂ CK ,   K∗v = {(kw ) | kw = 1 ∀w ̸= v}
+
+
+
+
+                                                     13
+   Trace of the action of K∗v on Kv
+
+
+                          ∫
+        (T ξ) (x) =           k(x, y) ξ(y) dy
+                              ∫
+         Trdistr (T ) =           k(x, x) dx .
+
+   T ξ(x) = ξ(λx) , k(x, y) = δ(λx − y)
+                 ∫                    ∫
+Trdistr (T ) =       k(x, x) dx =         δ(λx − x) dx
+                      ∫
+            1                             1
+       =                  δ(z) dz =
+         |λ − 1|                       |λ − 1|
+
+
+            (with z = (λ − 1)x)
+                                                         14
+     Trace of the action of CK on M = AK/K∗
+
+The transverse space to pv ⊂ M is the local ﬁeld Kv .
+The isotropy group Iv = K∗v acts as K∗v on Kv by multi-
+plication
+                     ϑ(u)ξ(x) = ξ(u−1x)
+               (∫                 )       ∑∫     h(u−1) ∗
+     Trdistr        h(u)ϑ(u)d∗u       =                  d u
+                                          v   Kv |1 − u|
+                                               ∗
+
+
+
+
+                                                               15
+         Algebraic structure of M = AK/K∗
+
+At ﬁrst M = AK/K∗ was used as a (noncommutative)
+space but the following structures gradually emerged :
+
+– AK/K∗ is a monoid, and one can apply the geometry
+  of monoids going back to Kato → spectral realization
+  on H 1(P1F1 , Ω).
+– AK/K∗ is a hyperring over the Krasner hyperﬁeld K,
+  this gives Πab  (X) ′ ∼ P (H ) in positive characteristic.
+                1             K
+
+
+
+
+                                                      16
+         Spectral realization and H 1(P1
+                                       F , Ω)      1
+
+
+Theorem (CC) : The cohomology H 1(P1      F1 , Ω) gives the
+spectral realization of zeros of L-functions. The spec-
+trum of the action of CK on H 1(P1      , Ω)   by  ϑ[− 1 ] is
+                                      F      1         2
+invariant by the symmetry χ(g) 7→ χ(g −1) of Grössen-
+charakters of K.
+
+              1 ] is that of half-densities :
+The sheaf Ω[− 2
+                          1            1       1
+                                           ∗
+                f (x)|dx| 2 ∼ f (x)|x| 2 |d x| 2
+
+
+
+                                                       17
+       The BC-system as a Hecke algebra
+
+One considers the inclusion PZ+ ⊂ PQ+
+                                      where the “ax+b”
+algebraic group P is viewed as the functor which to any
+abelian ring R assigns the group PR of 2 by 2 matrices
+over R of the form
+              {(      )                           }
+                1 b
+       PR =               ; a, b ∈ R , a invertible   .
+                0 a
+
+Here Γ0 = PZ+ and Γ = PQ   +
+                             denote the restrictions to
+a > 0. This inclusion Γ0 ⊂ Γ is such that the orbits of
+the left action of Γ0 on Γ/Γ0 are all finite. The same
+clearly holds for orbits of Γ0 acting on the right on
+Γ0\Γ.
+
+                                                          18
+                  Hecke algebra HQ
+
+The Hecke algebra HQ(Γ, Γ0) is by deﬁnition the convo-
+lution algebra of functions of ﬁnite support
+                     f : Γ0\Γ → Q,
+which fulﬁll the Γ0-invariance condition
+          f (γγ0) = f (γ),       ∀γ ∈ Γ, ∀γ0 ∈ Γ0,
+The convolution product is then deﬁned by the formula
+                             ∑
+          (f1 ∗ f2)(γ) =          f1(γγ1−1)f2(γ1) .
+                           Γ0\Γ
+
+                           +
+                  HQ = HQ(PQ , PZ+)
+
+
+It contains the group ring Q[Q/Z].
+                                                      19
+One lets e(r) ∈ Z[Q/Z], be the canonical generators for
+r ∈ Q/Z. For each n ∈ N, one deﬁnes endomorphisms
+σn of the group ring Z[Q/Z] by σn(e(γ)) = e(nγ) and
+additive maps ρ̃n by
+                                             ∑
+    ρ̃n : Z[Q/Z] → Z[Q/Z] ,   ρ̃n(e(γ)) =             e(γ ′).
+                                            nγ ′ =γ
+
+
+
+
+                                                            20
+                    Presentation
+
+The integral BC-algebra HZ = Z[Q/Z]oρ̃ N is the algebra
+generated by the group ring Z[Q/Z], and by the elements
+µ̃n and µ∗n, with n ∈ N, which satisfy the relations :
+                   µ̃nxµ∗n = ρ̃n(x)
+                   µ∗nx = σn(x)µ∗n
+                   xµ̃n = µ̃nσn(x),
+where ρ̃m, m ∈ N as above, as well as the relations
+             µ̃nm = µ̃nµ̃m ,   ∀n, m
+             µ∗nm = µ∗nµ∗m ,   ∀n, m
+             µ∗nµ̃n = n
+             µ̃nµ∗m = µ∗mµ̃n   (n, m) = 1.
+
+                                                  21
+                    Time evolution
+
+Regular representation of the Hecke algebra HC(Γ, Γ0)
+in ℓ2(Γ/Γ0), and canonical time evolution.
+
+The time evolution is given by the following one-parameter
+group of automorphisms of the algebra HC :
+
+           σt(µ̃n) = nitµ̃n,   σt(µ∗n) = n−itµ∗n,
+
+                     σt(e(r)) = e(r).
+
+
+
+
+                                                    22
+                    KMS Condition
+
+
+
+
+         Im z = β
+                             iβ      F(t + iβ) = ϕ(σt(b)a)
+
+
+
+
+                                         F(t) = ϕ(aσt(b))
+         Im z = 0            0
+
+
+
+
+Fx,y (t) = φ(xσt(y)), Fx,y (t + iβ) = φ(σt(y)x),             ∀t ∈ R.
+
+                                                              23
+            Phase transition with SSB
+
+The unique KMS state above critical temperature is
+                                          (              )
+                               ∏              1 − pβ−1
+       φβ (e(a/b)) = b−β                                     ,
+                           p prime, p|b
+                                              1 − p−1
+and the extremal KMS states below critical temperature
+are
+                         Tr(πρ(e(a/b))e−βH )
+          φβ,ρ(e(a/b)) =
+                             Tr(e−βH )
+                        ∞
+                   1 ∑
+                =          n−β ρ(ζa/b
+                                  n ),
+                  ζ(β) n=1
+where πρ is the representation of the algebra A on the
+Hilbert space H = ℓ2(N) given by
+     πρ(µn)ϵm = ϵnm,                         m )ϵ ,
+                           πρ(e(a/b))ϵm = ρ(ζa/b m
+                                                                 24
+where ρ ∈ Ẑ∗ determines an embedding in C of the
+cyclotomic ﬁeld Qcycl generated by the abstract roots
+of unity.
+
+
+
+
+                                                25
+                Three Witt functors
+
+
+
+             W0(A) = K0(EndA)/K0(A).
+The key additional structures are given by
+1. The Teichmüller lift which is a multiplicative map
+   τ : A → W0(A).
+2. The Frobenius endomorphisms Fn for n ∈ N.
+3. The Verschiebung (shift) additive functorial endo-
+   morphisms Vn, n ∈ N.
+4. The ghost components ghn : W0(A) → A for n ∈ N.
+
+                                                26
+            The BC-system and W0(F̄p)
+
+
+To each σ : F̄×
+              p ∼µ
+                   (p) ⊂ µ ⊂ C× , corresponds a canoni-
+
+cal isomorphism σ̃
+                  σ̃                   r=id⊗ϵ
+        W0(F̄p) −→ Z[µ(p)] ⊂ Z[µ] −→ Z[µ(p)]
+The Frobenius Fn and Verschiebung maps Vn of W0(F̄p)
+are obtained by restriction of the endomorphisms σn and
+maps ρ̃n of Z[µ] = Z[Q/Z] by the formulas
+
+          σ̃ ◦ Fn = σn ◦ σ̃ ,   σ̃ ◦ Vn = r ◦ ρ̃n ◦ σ̃
+
+
+
+                                                         27
+This Theorem shows that the integral BC-system with
+its full structure is, if one drops the p-component, com-
+pletely described as W0(F̄p). As a corollary one gets
+a representation πσ of the integral BC-system HZ on
+W0(F̄p),
+
+  πσ (x)ξ = σ̃ −1(r(x)) ξ ,   πσ (µ∗n) = Fn ,   πσ (µ̃n) = Vn
+for all ξ ∈ W0(F̄p), x ∈ Z[Q/Z] and n ∈ N.
+
+
+
+
+                                                         28
+                           W(A)
+
+
+
+     L(τ (f )) = (1 − tf )−1 ∈ Λ(A) := 1 + tA[[t]]
+             ∑                  ∑
+      (1 +       antn) ⋆ (1 +       bntn) = 1 + a1b1t+
+         (                         )
+       + a1b1 − a2b1 − a1b2 + 2a2b2 t2 + . . .
+          2 2      2    2
+
+                                                    ∏
+φA : W(A) → Λ(A),         x = (xn)n∈N 7→ fx(t) =         (1−xntn)−1
+                                                     N
+
+
+
+
+                                                         29
+                       Wp∞ (A)
+
+Wp∞ is the Witt functor using the set of powers of the
+prime p.
+                W(F̄p) = (Wp∞ (F̄p))I(p)
+where I(p) ⊂ N is the set of integers which are prime to
+p. Let Qun
+        p ⊂ Cp be the completion of the maximal unra-
+miﬁed extension Qunp of p-adic numbers. Then Wp∞ (F̄p )
+is the completion Zun
+                    p ⊂ Qp of the subring generated
+                           un
+
+by roots of unity.
+
+
+
+                                                  30
+W(F̄p) and p-adic representations of the BC-system
+
+Let σ ∈ Xp and ρ : Qcycl,p → Cp the associated embed-
+ding. The representation πσ of the integral BC-system
+HZ extends to W(F̄p). For n ∈ I(p), the πσ (µn) and for
+x ∈ Z[Q/Z], the πσ (x) are Zun
+                            p -linear operators such that
+
+πσ (µn)ϵm = ϵnm,                      m )ϵ ,
+                   πσ (e(a/b))ϵm = ρ(ζa/b       ∀n ∈ N, m, b ∈ I(p).
+                                          m
+
+Moreover
+                     πσ (µp) = Fr−1
+is the inverse of the Frobenius automorphism, acting
+componentwise as a skew linear operator.
+
+                                                   31
+     Partition function and p-adic L-functions
+
+
+
+                a        ∑
+              Z( , β) =           m ) m−β
+                               ρ(ζa/b
+                b       m∈I(p)
+
+                                     ∞ ( )
+                                     ∑  s
+         ⟨c⟩p−1 = cp−1 ,   ⟨c⟩s :=           (⟨c⟩ − 1)j
+                                     0   j
+
+                                          ∞ (
+  a        1      ∑
+                              c    ⟨c⟩1−β ∑   1 − β ) bp j
+Z( , β) :=                 ρ(ζa/b)                   ( ) Bj
+  b        bq 1≤c<bq, c /
+                       ∈pN
+                                    β−1 0       j      c
+
+
+
+
+                                                          32
+The formula
+                              ∞
+                              ∑
+                   ℓβ (z) =         n−β z n
+                              n=1
+deﬁnes the multiple logarithm and fulﬁlls
+
+                  z∂z ℓβ (z) = ℓβ−1(z) .
+For β = 0 the sum gives the rational fraction ℓ0(z) =
+  z
+1−z and this shows that when β ∈ −N is a negative
+integer ℓβ (z) is a rational fraction. Thus it makes sense
+over any ﬁeld. For β a negative odd integer of the form
+β = 1 − m = 1 − k(p − 1), one has
+              −β     −1   a
+       (1 − p Fr) Z( , β) = ℓβ (ρ(ζa/b)) ∈ Qcyc
+                          b
+which is formally independent of the prime p.
+
+                                                    33
+                  KMS at a prime p
+
+Since when β ∈ −N is a negative integer ℓβ (z) is a
+rational fraction, one can prove identities for arbitrary
+β ∈ D by checking them on these special values. For
+any m ∈ N and ζm a primitive m-th root of unity, one
+has
+             1 m−1
+                ∑
+                        j x) = m−β ℓ (xm)
+                   ℓβ (ζm           β
+             m j=0
+One can show the analogue of the KMSβ condition for
+the Cp-valued functionals on the integral BC-system HZ
+such that, in particular,
+                             1      a
+             φβ,ρ(e(a/b)) =      Zρ( , β).
+                            Z(β)    b
+                                                   34
+First hints towards the “curve” for the global ﬁeld Q
+
+In the case of number ﬁelds, the groupoid of prime
+elements of the hyperring HK still makes sense and the
+issue is to construct, in characteristic zero, a geometric
+model similar to the curve and its abelian cover in the
+function ﬁeld case. Let K be a function ﬁeld, i.e. a
+global ﬁeld of characteristic p > 1 and let Fq ⊂ K be
+the ﬁeld of constants. The abelian cover of the curve
+is obtained by the following steps
+
+(1) One considers the maximal abelian extension Kab ⊃
+K of K.
+
+                                                    35
+(2) One considers inside Kab the ﬁnite extensions E ⊃
+F̄p ⊗Fq K of F̄p ⊗Fq K.
+
+(3) For each such extension E the space of (discrete)
+valuations is turned into a scheme with non-empty open
+sets given by complements of ﬁnite subsets and struc-
+ture sheaf given by the intersection of the valuation
+rings inside E.
+                   The space Valp(Qcyc)
+
+The space Valp(Qcyc), of valuations on Qcyc exten-
+ding the p-adic valuation of Q is canonically isomor-
+phic to the quotient Σp of the space Xp of isomor-
+phisms σ : F̄×
+             p →µ
+                    (p) , by the action of the Galois group
+
+Gal(F̄p : Fp) acting by composition on the right. One
+can describe Σp concretely by looking at the corres-
+ponding addition on µ̃(p) = {0} ∪ µ(p) which is inherited
+from the given isomorphism with F̄p. It suﬃces to spe-
+cify the addition with 1 and this shows that Σp is the
+set of bijections s of µ̃(p) = {0} ∪ µ(p) which commute
+with all their conjugates under rotations by elements of
+µ(p), and fulﬁll s(0) = 1, s ◦ s ◦ . . . ◦ s = id with p factors.
+
+                                                          36
+                   Mapping torus Yp
+
+But the comparison with the adèle class space shows
+that the space Σp is not what one wants as a ﬁber over
+p and one expects a ﬁner space, which is the mapping
+torus Yp of the action of the Frobenius on Xp. More
+concretely Yp is the quotient
+
+                  Yp = (Xp × (0, 1)) /θZ
+of the product Xp × (0, 1) of Xp by the open interval
+(0, 1) ⊂ R by θ where
+
+      θ(σ, ρ) = (σ ◦ Fr, ρp) ,   ∀σ ∈ Xp, ρ ∈ (0, 1).
+
+
+                                                        37
+               Gluing together the Yp
+
+A. Weil showed how to construct the Weil group which
+compensates, at the Galois level, the absence of the
+connected component of identity in the idèle class group.
+We face here a similar problem at the level of the
+“curve”. One should then perform the gluing of the
+ﬁbers Yp for diﬀerent primes since as explained earlier,
+one needs to embed all these ﬁbers in the same non-
+commutative space to account for the transversality
+factors in the explicit formulas.
+
+
+
+                                                   38
+             The endomotive F1∞ ⊗F1 Q
+
+Following a proposal of Soulé for F1n ⊗F1 Z, we noted
+that
+                 F1∞ ⊗F1 Q = Q[Q/Z]
+is the abelian part of the BC-system. What matters
+is that, with this description of the BC-system as an
+endomotive E, one can consider its points over any ring
+A and for a Q-algebra this is just
+
+               E(A) = Hom(Q[Q/Z], A) .
+
+
+
+                                                 39
+One can describe the space Xp as
+
+     Xp = Hom(Qcycl,p, Qun
+                        p ) = Hom(Q
+                                   cycl,p, C ) .
+                                            p
+
+One obtains in this way, for each p the inclusions
+
+      Xp ⊂ Hom(Q[Q/Z], Qun
+                        p ) = E(Qp ) = E(Cp) .
+                                 un
+
+By comparison with the adèle class space HQ, one ﬁnds
+that the natural noncommutative space in which the
+above ﬁber Yp embeds naturally is the quotient
+
+                  (E(Cp) × (0, 1]) /N
+where the action of n (in the semi-group N) is the pro-
+duct of the action of the n-th Frobenius of the endo-
+motive by the map x 7→ xn in the interval (0, 1] ⊂ R.
+
+                                                     40
+                   Characteristic 1
+
+A commutative semi-ring is called multiplicatively can-
+cellative when the multiplication by any non-zero ele-
+ment is injective. Characteristic 1 means
+
+                    x + x = x,    ∀x
+
+
+Let R be a multiplicatively-cancellative commutative
+semi-ring of characteristic 1, then for any integer n ∈ N,
+the map x 7→ xn is an injective endomorphism of R.
+
+A multiplicatively-cancellative commutative semi-ring
+of characteristic 1 is called perfect if the endomorphism
+R → R, x 7→ xn is surjective for all n.
+                                                    41
+                  Fractional powers
+
+
+
+        ϑα : R → R,       ϑα(x) = xα ,   ∀α ∈ Q∗+.
+Then, by construction, the ϑα’s are automorphisms ϑα ∈
+Aut(R) for α ∈ Q∗+ and they fulﬁll the following proper-
+ties
+
+
+• ϑn(x) = xn for all n ∈ N and x ∈ R.
+
+
+• ϑλ ◦ ϑµ = ϑλµ for all λ, µ ∈ Q∗+.
+
+
+• ϑλ(x)ϑµ(x) = ϑλ+µ(x) for all λ, µ ∈ Q∗+ and x ∈ R.
+
+                                                     42
+               Witt in characteristic p
+
+R a strict p-ring with S = R/pR and let τ be the
+Teichmüller lift τ : S → R. We consider the ring S[[T ]]
+of formal series in T with coeﬃcients in S.
+                          Fp[[T ]] ⊂ S[[T ]]
+We use τ to get a bijection of S[[T ]] with R,
+                     ∑                ∑
+              τ̃ (       sn T n ) =       τ (sn)pn ∈ R
+where the sum is p-adically convergent.
+
+Theorem :
+
+For any x, y ∈ S one has
+                                      ∑
+          τ (x) + τ (y) = τ̃ (               wp(α)xαy 1−α)
+                                      α∈Ip
+
+                                                             43
+      Coeﬃcients w(α) in characteristic one
+
+To obtain the analogue of the Witt construction in cha-
+racteristic 1, one looks for w(α) for α ∈ I = Q ∩ [0, 1]
+giving associative and commutative operation
+                          ∑
+               x +′ y =         w(α)xαy 1−α
+                          α∈I
+Besides
+                   w(1 − α) = w(α)
+one needs
+                                            α(1 − β)
+    w(α)w(β)α = w(αβ)w(γ)(1−αβ) ,        γ=          .
+                                             1 − αβ
+
+                                                    44
+                  Positive solution
+
+Let G be a uniquely divisible ordered abelian group such
+that x 7→ xα extends to an action of R×. Let w : I → G
+be a solution such that
+
+                  w(α) ≥ 1 ,   ∀α ∈ I
+Then there exists ρ ∈ G, ρ ≥ 1 such that
+
+       w(α) = ρ−α log α−(1−α) log(1−α) ,   ∀α ∈ I
+
+
+
+
+                                                    45
+               Entropy
+
+
+
+  S(α) = −α log α − (1 − α) log(1 − α)
+
+log(ea + eb) = sup S(x) + xa + (1 − x)b
+              x∈[0,1]
+
+
+
+
+                                          46
+          2.0
+
+
+          1.8
+
+
+          1.6
+
+
+          1.4
+
+
+          1.2
+
+
+
+                0.2   0.4   0.6   0.8   1.0
+
+
+
+
+Graph of Exp(S(α)) = α−α(1 − α)−(1−α)
+One considers the semiring R+ ⊃ B with addition
+
+                 (x, y) 7→ max(x, y)
+and the one-parameter group θλ ∈ Aut(Rmax
+                                      + ), θλ (x) =
+xλ.
+
+
+                                                  47
+                     Towards Run
+
+To eliminate ρ it is natural to allow all values of ρ, i.e.
+to introduce a parameter T ≥ 0,
+
+                ρ = eT ∈ Rmax
+                          + ,            ρ≥1
+w(α) depends on T as it does in the Witt case :
+
+             w(α, T ) = α−T α(1 − α)−T (1−α)
+This means that one works with functions
+
+                       f (T ) ∈ Rmax
+                                 +
+with the usual pointwise product and the new addition
+                         ∑
+      (f1 +w f2)(T ) =          w(α, T )f1(T )αf2(T )1−α
+                         α∈I¯
+
+                                                           48
+                       Lemma
+
+The addition +w is given by
+
+       (f1 +w f2)(T ) = (f1(T )1/T + f2(T )1/T )T
+for T > 0 and by
+
+          (f1 +w f2)(0) = sup(f1(0), f2(0))
+The sum of n terms xj independent of T is given by
+                                (∑      )T
+                                    1/T
+            x1 +w · · · +w xn =    xj
+
+               1 +w 1 +w · · · +w 1 = nT
+
+
+                                                    49
+                  Teichmüller lift
+
+The constant functions T 7→ x are the analogue of the
+Teichmüller representatives
+
+                 τ (x)(T ) = x           ∀T
+One has
+                            ∑
+          τ (x) + τ (y) =          w(α, T ) xαy 1−α
+                            α∈I¯
+where the sum in the right hand side is computed in
+Rmax
+ + .
+
+
+
+                                                      50
+                Residue morphism
+
+The evaluation at T = 0 is by construction a morphism
+
+                 ϵ : f 7→ f (0) ∈ Rmax
+                                   +
+We view this morphism as the analogue of the canonical
+map which exists for any strict p-ring
+
+          ϵp : Wp(K) → K = Wp(K)/pWp(K)
+
+
+
+
+                                                51
+          The automorphisms αλ ∈ Aut(Run)
+
+One has a natural one parameter group of automor-
+phisms αλ which corresponds to the θλ ∈ Aut(Rmax
+                                             + ). It
+is given by
+            αλ(f )(T ) = f (T /λ)λ      ∀λ ∈ R×
+                                              +
+One has
+                   ϵ ◦ αλ = θλ ◦ ϵ ,   ∀λ
+and
+                  αλ ◦ τ = τ ◦ θλ ,    ∀λ.
+Moreover the ﬁxed points of αλ are of the form
+                        f (T ) = aT
+and they give the semi-ﬁeld R+.
+                                                  52
+   Characters and representation by functions
+
+For each T > 0 the algebraic operations on the value
+f (T ) are the same as in the semi-ﬁeld R+ using the
+evaluation f (T )1/T . Thus there is a uniquely associated
+character χT which is such that
+
+                    χT (f ) = f (T )1/T
+and we use the characters χT to represent the elements
+of the extension Run as functions of T with the ordinary
+operations of pointwise sum and product.
+
+
+
+                                                    53
+                 The extension Run
+
+This shows that after symmetrization and passing to
+the ﬁeld of quotients Run contains at least the fractions
+of the form (in the χ representation)
+                      (∑                )       (∑                )
+        χ(f )(T ) =        λj e−sj /T       /        µj e−tj /T
+
+
+
+
+                                                                      54
+           Deformation parameter T = ~
+
+The key example is given by the functional integral in
+the Euclidean formulation of Quantum Field Theory.
+Indeed the generating function of Euclidean Green’s
+functions is given by
+                  ∫       (                         )
+                              S(ϕE ) − ⟨JE , ϕE ⟩
+     Z(JE ) = N       exp −                             D[ϕE ]
+                                      ~
+where S(ϕE ) is the Euclidean action, in terms of the
+Euclidean classical ﬁelds ϕE , the source JE is an element
+of the linear space dual to that of Euclidean classical
+ﬁelds and the normalization factor N is the inverse of
+                  ∫      (           )
+                            S(ϕE )
+                      exp −              D[ϕE ]
+                              ~
+                                                                 55
+Such integrals are typical sums involving +w where w
+is the function of ~ given by
+
+             w(α, ~) = α−~α(1 − α)−~(1−α)
+but since the sums are inﬁnite one needs to extend the
+entropy from ﬁnite partitions of 1 to inﬁnite partitions.
+
