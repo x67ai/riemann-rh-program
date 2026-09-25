@@ -1,0 +1,17 @@
+(A) identity (2.2)
+  x= 0.00 y=0.00  quad=6.283185306942  formula=6.283185307180  diff=-2.38e-10
+  x= 1.30 y=0.00  quad=0.211542425505  formula=0.211542425513  diff=-8.01e-12
+  x= 1.30 y=0.25  quad=0.149667910547  formula=0.149667910552  diff=-5.67e-12
+  x= 1.30 y=0.45  quad=0.033129160264  formula=0.033129160267  diff=-2.04e-12
+  x= 4.00 y=0.30  quad=0.000025758652  formula=0.000025758652  diff=-1.76e-15
+  x=-2.20 y=0.10  quad=0.011906604958  formula=0.011906604959  diff=-7.33e-13
+(B) min over x in [0,40] of Re ghat(x+iy) (sech family) and Re khat(x+iy) (plain family)
+  y=0.00: sech-family min=+2.963e-10 at x=39.20;  plain min=+9.523e-14 at x=32.80
+  y=0.25: sech-family min=+2.275e-10 at x=39.15;  plain min=-1.024e-04 at x=6.90
+  y=0.45: sech-family min=+6.140e-11 at x=39.15;  plain min=-4.547e-04 at x=6.65
+  y=0.49: sech-family min=+1.335e-11 at x=39.10;  plain min=-5.823e-04 at x=6.60
+  y=0.50: sech-family min=+9.523e-14 at x=32.80;  plain min=-6.175e-04 at x=6.60
+  cross-check x=3.0 y=0.25: direct=0.29827299  (2pi)^-1(|psihat|^2*P_y)=0.29827299
+  cross-check x=6.5 y=0.45: direct=0.00084023  (2pi)^-1(|psihat|^2*P_y)=0.00084023
+elapsed 1.4s
+Sat Sep 26 02:17:08 IST 2026
