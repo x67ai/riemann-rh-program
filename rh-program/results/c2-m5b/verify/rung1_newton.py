@@ -125,10 +125,14 @@ for g, f in curves.items():
                         rest = 2*g - 2*sum(eQ) - 4*sum(eF)
                         if rest < 0: continue
                         for ep in range(0, rest+1): patterns.append((eQ, eF, ep, rest-ep))
-        best = {"circle": None, "strip": None}; feas_list = []
-        Bgrid = [sp.Rational(k, 4) for k in range(-32, 33)]; Rgrid = [sp.Rational(k, 4) for k in range(5, 28)]
+        patterns.sort(key=lambda p: 2*len(p[0]) + 4*len(p[1]) + (p[2] > 0) + (p[3] > 0))
+        best = {"circle": None, "strip": None}; feas_list = []; infeas = []
+        import numpy as np
+        Bgrid = np.linspace(-8.0, 8.0, 161); Rgrid = np.linspace(1.05, 6.95, 60)
         for (eQ, eF, ep, em) in patterns:
             Nd = 2*len(eQ) + 4*len(eF) + (ep > 0) + (em > 0)
+            if time.time() - t0 > 420: print('     [wall-clock guard: search stopped at', (eQ, eF, ep, em), ']'); break
+            if best["circle"] is not None and best["strip"] is not None and Nd > max(best["circle"][0], best["strip"][0]): break
             bs = sp.symbols(f'b0:{len(eQ)}', real=True); bf = sp.symbols(f'c0:{len(eF)}', real=True); rf = sp.symbols(f'r0:{len(eF)}', positive=True)
             P = sp.Integer(1)
             for i, e in enumerate(eQ): P *= (1 - bs[i]*t + q*t**2)**e
@@ -142,25 +146,30 @@ for g, f in curves.items():
             else:
                 try: sols = sp.solve(eqs, unknowns, dict=True)
                 except Exception: sols = []
+            found_on = found_strip = False
             for sol in sols:
                 free = [u for u in unknowns if u not in sol]
+                exprs = [sp.sympify(sol.get(u, u)) for u in unknowns]
+                fn = sp.lambdify(free, exprs, 'numpy') if free else (lambda: [complex(v) for v in exprs])
                 grids = [Rgrid if str(u).startswith('r') else Bgrid for u in free]
                 for vals in (itertools.product(*grids) if free else [()]):
-                    cand = dict(zip(free, vals)); num = {}
-                    okc = True
-                    for u in unknowns:
-                        v = sp.N(sp.sympify(sol.get(u, u)).subs(cand), 30)
-                        if abs(sp.im(v)) > 1e-20: okc = False; break
-                        num[u] = float(sp.re(v))
-                    if not okc: continue
-                    on = all(abs(num[b]) < 2*q**0.5 - 1e-12 for b in bs) and not eF
-                    strip = all(abs(num[b]) < 2*q**0.5 - 1e-12 or (2*q**0.5 + 1e-12 < abs(num[b]) <= q + 1 + 1e-12) for b in bs) and \
-                            all(1 + 1e-12 < num[r] < q - 1e-12 and abs(num[r] - q**0.5) > 1e-9 and abs(num[b]) < 2*num[r] - 1e-12 for b, r in zip(bf, rf))
-                    if on and (best["circle"] is None or Nd < best["circle"][0]): best["circle"] = (Nd, (eQ, eF, ep, em), {str(k): round(v, 6) for k, v in num.items()})
-                    if strip and (best["strip"] is None or Nd < best["strip"][0]): best["strip"] = (Nd, (eQ, eF, ep, em), {str(k): round(v, 6) for k, v in num.items()})
-                    if on or strip: feas_list.append((Nd, (eQ, eF, ep, em), 'circle' if on else 'strip'))
-        seen = sorted(set((Nd, pat, w) for Nd, pat, w in feas_list))
-        print(f"     feasible patterns (N_d, (eQ, eF, e+, e-), where): {seen}")
+                    try: out = fn(*vals)
+                    except Exception: continue
+                    out = [complex(v) for v in out]
+                    if any(abs(v.imag) > 1e-9 for v in out): continue
+                    num = {u: v.real for u, v in zip(unknowns, out)}
+                    on = all(abs(num[b]) < 2*q**0.5 - 1e-9 for b in bs) and not eF
+                    strip = all(abs(num[b]) < 2*q**0.5 - 1e-9 or (2*q**0.5 + 1e-9 < abs(num[b]) <= q + 1 + 1e-9) for b in bs) and \
+                            all(1 + 1e-9 < num[r] < q - 1e-9 and abs(num[r] - q**0.5) > 1e-6 and abs(num[b]) < 2*num[r] - 1e-9 for b, r in zip(bf, rf))
+                    if on and best["circle"] is None: best["circle"] = (Nd, (eQ, eF, ep, em), {str(k): round(v, 6) for k, v in num.items()})
+                    if strip and best["strip"] is None: best["strip"] = (Nd, (eQ, eF, ep, em), {str(k): round(v, 6) for k, v in num.items()})
+                    found_on |= on; found_strip |= strip
+                    if found_on and found_strip: break
+                if found_on and found_strip: break
+            if found_on or found_strip: feas_list.append((Nd, (eQ, eF, ep, em), 'circle' if found_on else 'strip'))
+            else: infeas.append((Nd, (eQ, eF, ep, em)))
+        print(f"     patterns searched in ascending N_d: infeasible = {infeas}")
+        print(f"     feasible (N_d, (eQ, eF, e+, e-), where): {feas_list}")
         for w in ("circle", "strip"):
             b = best[w]
             print(f"     exact minimum of N_d {w.upper():6s}: N_d = {b[0] if b else None} of {2*g} -> N_d/N = {sp.Rational(b[0], 2*g) if b else None}; pattern {b[1] if b else None}; parameters {b[2] if b else None}")
