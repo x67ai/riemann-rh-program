@@ -1,8 +1,29 @@
 # Zoo stream `zoo-s27`, Session 27 — READER report (Opus 5, independent second model, standing order 7)
 
-**Opened Fri Sep 25 20:49:47 IST 2026 (machine clock, `date`).** IN PROGRESS — sections land one at a time; the verdict table is written last.
+**Opened Fri Sep 25 20:49:47 IST 2026 (machine clock, `date`).** **Finished Fri Sep 25 21:00:46 IST 2026.** Sections landed on disk one at a time (§1, §4 first; §4 before the writer's finding 7 was opened); the verdict table was written last.
 **Brief:** `results/zoo-s27/BRIEF.md` (`cf239a80…`, recomputed, matches), section "The reader (Opus 5)". FORMAT precedent `results/zoo-s25/zoo-entries-read-O.md`.
 **Writer's deliverables checked:** `results/zoo-s27/zoo-entries-proposed.md` `38986446…` (recomputed, matches); `scripts/zoo-insert-s27.py`; `results/zoo-s27/SHARED.md`; `results/zoo-s27/dryrun-BARRIER-ZOO.md`; the writer's `prior-art/` folder and finding 7 were NOT opened until §4 (my own search) was on disk.
+
+---
+
+---
+
+## Verdicts, one table
+
+| row | verdict | what I checked, in one line |
+|---|---|---|
+| `i5` (I.5) | **CLOSES** (label flip A1) | byte-identical to s26; Wintner p. 269, O–tR pp. 139/141/142, zoo 84/86/108–110/161, check-O 308 at the page/line; 96/104/6·10⁻²⁹/199 recomputed by my own script |
+| `iv4` (IV.4) | **CLOSES** (label flip A2) | byte-identical to s26; CGG pp. 499–500 and O–tR p. 142 as images; adjudication-B1 line 12; B1 94 / B3 89; 108 changes, [−0.5065π, +0.5063π] recomputed |
+| `ra` (III.20) | **CLOSES** after A3–A6 | CC 1805.10501 pp. 17–18, Haran 0911.3522 PDF 88 (folio 87), Haran 1991 p. 259, B–U p. 1 — all images; HARVEST lines 3, 28; C3 221, C1 89; "every printed" bounded to the scouted pool |
+| `ra_ptr` (IV.1) | **CLOSES** after A7–A8 | "the observable IS the Weil test" exact for CC and Haran 1991; Haran 2009 zero-side, B–U no prime side |
+| `rb` (IV.10) | **CLOSES** after A9–A17 | Borger 0906.3146 pp. 1/5/6/7/8, 0801.1691 pp. 5/10/12, 1006.0092 pp. 5/31/39; W^fl = W (§1.15); III.21 cite replaced; gluing cited to Fig. 1; prior art adjudicated |
+| `xref` | **CLOSES** | heading 596, the two Session-24 rows; cells as the brief's |
+| packaging sentence (D3 note §0) | **CLOSES** | clauses (1)–(3) re-derived; 200-zero run reproduced; implication holds with its scope words "first-order data" and "M6 normalization"; no printed statement found → dual-model |
+| Witt computation | **CLOSES** (third model) | own proof via the Z-basis v_d = (d·[d \| n]) of the ghost lattice ⇒ I_n = gcd{d \| n, d > 1}·Z; own script (formula to n = 20 000; random Witt vectors via the ghost map, n ≤ 40); 11 → 11Z, 13 → 13Z; hand proofs settle all n |
+| prior art | **SPLIT, adjudicated at the page** | the case n = p is PRINTED (Borger 0801.1691 p. 5 Fig. 1; 1006.0092 p. 5); the all-n Λ(n) statement NOT FOUND by either model → `[novelty: dual-model check, 2026-09-25]` |
+| Group-IV decision | **NO** | the statement is III.20 (B)'s precondition, entering as IV.10's HOST-DIMENSION check; no IV.20 BLOCK |
+
+**Amendments: 17 exact OLD → NEW pairs (§6; machine-readable in `verify-O/amendments_O.py`), plus a two-line widening of the insert script's label-flip constants that A1–A2 need (§6, tested).** Hashes: 47 / 47 of the writer's `verification` block match (§9). Dry run reproduced byte for byte; zoo untouched (§9).
 
 ---
 
@@ -227,7 +248,7 @@ NEW:
 
 **`ra_ptr` (IV.1) — CLOSES after A7–A8.** The pointer's claim that the observable "IS the classical Weil test with multiplier 1" is exact at the page for Connes–Consani (s(f, g) := N(f ⋆ g̃), p. 17) and Haran 1991 (⟨f, g⟩ = W(f ∗ g*), p. 259); A7 says how the other two differ.
 
-**`rb` (IV.10) — CLOSES after A9–A17.** At the page (images or full-text extraction with the page located): 0906.3146 p. 1 ("a surface bearing some kind of intersection theory"), p. 5 ("since the current version of our theory says nothing about the archimedean place of Q … Even so, it should be done"), p. 6 (W*(Spec A) = colim_n Spec W_n(A), W_n "(big) Witt vectors of length n"), p. 7 ("must be defined to be the Witt space W*(Spec Z)"), p. 8 ("the absolute point") — all exact; End = Hom_Λ(Z, Z) = {id} follows from "initial object" on p. 8. 0801.1691 p. 10 (1.10) — exact (W^fl, A9); p. 5 Figure 1 — the gluing (A12). 1006.0092 Prop. 16.5(d) (p. 31) and its proof ("integral and surjective on spectra … which is d"), Thm. 17.3 (p. 39) and diagram (17.1.1) — exact (A13, A14 add the pages). The Witt proof in the block is correct (my §3 re-derives it differently); the orchestrator's log numbers quoted in the block are exactly the logs' (read in full). The HOST-DIMENSION addition is stated as an addition and the existing EXECUTABLE TEST line (451's entry, line 448) is untouched in the dry run. Two sentences needed their citations repaired (A11: III.21 does not carry the Arakelov convention; A16: the Λ_S equation is inferred), and the prior-art sentence is replaced by the adjudicated one (A15). The claim that the component intersections carry "no quadratic form with a sign to be negative on a fiber-orthogonal part" is the scouts' agreed reading (HARVEST adjudication paragraph) and a derivation, not a quotation; it stands as written.
+**`rb` (IV.10) — CLOSES after A9–A17.** At the page (images or full-text extraction with the page located): 0906.3146 p. 1 ("a surface bearing some kind of intersection theory"), p. 5 ("since the current version of our theory says nothing about the archimedean place of Q … Even so, it should be done"), p. 6 (W*(Spec A) = colim_n Spec W_n(A), W_n "(big) Witt vectors of length n"), p. 7 ("must be defined to be the Witt space W*(Spec Z)"), p. 8 ("the absolute point") — all exact; End = Hom_Λ(Z, Z) = {id} follows from "initial object" on p. 8. 0801.1691 p. 10 (1.10) — exact (W^fl, A9); p. 5 Figure 1 — the gluing (A12). 1006.0092 Prop. 16.5(d) (p. 31) and its proof ("integral and surjective on spectra … which is d"), Thm. 17.3 (p. 39) and diagram (17.1.1) — exact (A13, A14 add the pages). The Witt proof in the block is correct (my §3 re-derives it differently); the orchestrator's log numbers quoted in the block are exactly the logs' (read in full). The HOST-DIMENSION addition is stated as an addition and the existing EXECUTABLE TEST line (line 449) survives unchanged in both dry runs. Two sentences needed their citations repaired (A11: III.21 does not carry the Arakelov convention; A16: the Λ_S equation is inferred), and the prior-art sentence is replaced by the adjudicated one (A15). The claim that the component intersections carry "no quadratic form with a sign to be negative on a fiber-orthogonal part" is the scouts' agreed reading (HARVEST adjudication paragraph) and a derivation, not a quotation; it stands as written.
 
 **`xref` — CLOSES, no amendment.** The table's heading (line 596) and the two Session-24 rows (624–625, scouted corners closed by blind pairs) admit a scouted-corner row; the cells are the brief's; the pointers III.20 / IV.10 / V.5 are the harvest's.
 
@@ -252,4 +273,4 @@ NO: the candidate statement ("a one-dimensional doubled object carries no Hodge-
 
 ## §11 Files written by the reader (nothing else touched; nothing committed)
 
-`results/zoo-s27/zoo-entries-read-O.md` (this file); `results/zoo-s27/verify-O/`: `zeros200_O.py` (c4ca3ecf…) + `zeros200_O_run.log` (819d1ce2…), `witt_diag_O.py` + `witt_diag_O_run.log`, `amendments_O.py`, `proposed-amended-O.md` (scratch), `zoo-insert-s27-flipsim-O.py` (scratch copy of the insert script with the two label lines widened and `PROPOSED` redirected), `dryrun-O.md`, `dryrun-amended-O.md`, `pa/` (my prior-art fetches with text extractions and the page images I read); a dated block in `results/zoo-s27/SHARED.md`. The proposed file, the insert script, the zoo and every direction file are untouched. Lint: none of "clearly / obviously / easy to see / well known" in this file or in any NEW text (checked by script, below in SHARED).
+`results/zoo-s27/zoo-entries-read-O.md` (this file); `results/zoo-s27/verify-O/`: `zeros200_O.py` (c4ca3ecf…) + `zeros200_O_run.log` (819d1ce2…), `witt_diag_O.py` (e970dc55…) + `witt_diag_O_run.log` (25c84272…), `amendments_O.py` (c9df4065…), `proposed-amended-O.md` (scratch), `zoo-insert-s27-flipsim-O.py` (scratch copy of the insert script with the two label lines widened and `PROPOSED` redirected), `dryrun-O.md`, `dryrun-amended-O.md`, `pa/` (my prior-art fetches with text extractions and the page images I read); a dated block in `results/zoo-s27/SHARED.md`. The proposed file, the insert script, the zoo and every direction file are untouched. Lint: none of the five 10(g) phrases in this file or in any NEW text (checked by `results/zoo-s27/verify/lint_s27.py` and by `amendments_O.py`).
