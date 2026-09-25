@@ -16,3 +16,8 @@
 [Fri Sep 25 17:18:12 IST 2026] pre-launch ps (>50% CPU): none
 [Fri Sep 25 17:18:12 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
 [Fri Sep 25 17:18:12 IST 2026] LAUNCH twsumO -mode zeta -t 1000000000000000000 -L 28.35 -threads 8 -out checker-O/out/replayOB_t1000000000000000000_L28.35.json
+[Fri Sep 25 17:38:02 IST 2026] twsumO rc=0, wall 1190.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 17:38:02 IST 2026] 1000000000000000000 L=28.35: W_OB +3.26830545503376813e-02; dW vs Job1 1.39e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 2.51e-10 -> PASS
+[Fri Sep 25 17:38:02 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 17:38:02 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 17:38:02 IST 2026] LAUNCH twsumO -mode zeta -t 15202440115920748544 -L 28.35 -threads 8 -out checker-O/out/replayOB_t15202440115920748544_L28.35.json
