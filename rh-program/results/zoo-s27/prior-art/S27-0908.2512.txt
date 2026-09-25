@@ -1,0 +1,1688 @@
+                                               DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES
+
+
+
+
+arXiv:0908.2512v1 [math.NT] 18 Aug 2009
+                                                                JAMES BORGER AND ALEXANDRU BUIUM
+
+
+
+
+                                                  Abstract. We study derivations and differential forms on the arithmetic jet
+                                                  spaces of smooth schemes, relative to several primes. As applications we give
+                                                  a new interpretation of arithmetic Laplacians and we discuss the de Rham
+                                                  cohomology of some specific arithmetic jet spaces.
+
+
+                                                                             1. Introduction
+                                             Arithmetic jet spaces with respect to a single prime p (also called p-jet spaces)
+                                          were introduced in [6] and further studied in a series of papers; see [8] and the bib-
+                                          liography therein. A multiple-prime generalization of these spaces was introduced
+                                          independently in [9] and [3]. As explained in [8, 9], these arithmetic jet spaces can
+                                          be viewed as an arithmetic analogue of usual jet spaces in differential geometry and
+                                          classical mechanics; the role of the derivatives with respect to various directions
+                                          is played, in the arithmetic setting, by Fermat quotient operators with respect to
+                                          various primes. In particular the functions on arithmetic jet spaces with respect to
+                                          several primes can be viewed as arithmetic analogues of classical partial differential
+                                          equations on manifolds. See [9], for instance, for an arithmetic analogue of Lapla-
+                                          cians. Alternatively, arithmetic jet spaces can be viewed as a realization, within
+                                          classical algebraic geometry, of what one might call absolute geometry, or geometry
+                                          over the field with one element. See [3, 2] or the introduction to [8].
+                                             As explained in [8], pp. 88-100, in the case of one prime, the tangent (and
+                                          cotangent) bundles of arithmetic jet spaces carry some remarkable structures that
+                                          are analogous to structures appearing in classical mechanics. In this paper we
+                                          extend this to the case of several primes and then, as applications, we give a new
+                                          interpretation of the arithmetic Laplacians in [9], and we discuss the de Rham
+                                          cohomology of certain specific arithmetic jet spaces.
+                                             Indeed in the paper [9], one considers arithmetic jet spaces Y = JrP (X) of order
+                                          r ∈ Zd≥0 attached to smooth schemes X over Z, with respect to a finite set of primes
+                                          P = {p1 , . . . , pd }, and in case X is a one dimensional group scheme, one constructs
+                                          arithmetic analogues of Laplacians. These arithmetic Laplacians are constructed
+                                          as families (f1 , . . . , fd ) where each fk is a formal function on the completion of Y
+                                          along Ypk := Y ⊗ (Z/pk Z); these formal functions are required to be “analytically
+                                          continued” along the zero section Z of X in the sense that there exists a formal
+                                          function f0 on the completion of Y along Z such that f0 and fk coincide on the
+                                          completion of Y along Z ∩ Ypk for each k. In this paper we want to revisit the idea
+                                          of analytic continuation between different primes. Indeed we will show that:
+                                          Theorem 1.1. The arithmetic Laplacians (f1 , . . . , fd ) of [9] have the property that
+                                          the 1-forms df1 , . . . , dfd extend to 1-forms defined on the whole of Y and these
+                                          extended 1-forms all coincide.
+                                                                                       1
+2                     JAMES BORGER AND ALEXANDRU BUIUM
+
+
+   See Theorems 6.3 and 7.2 below, and the discussion preceding them, for the
+precise statement of the result and the precise definitions of arithmetic Laplacians.
+So the arithmetic Laplacians appear as primitives, existing only on formal neigh-
+borhoods of certain divisors, of a 1-form that exists on the whole of the arithmetic
+jet space Y . This provides an alternative view on analytic continuation between
+different primes and has a global flavor, as opposed to the formally local flavor of
+the one in [9].
+   Here is the plan of the paper. In section 2 we formulate this concept of analytic
+continuation based on globally defined differential forms; this makes sense on any
+scheme Y , not necessarily on arithmetic jet spaces. In section 3 we review and
+complement the main concepts in [9, 3] related to arithmetic jet spaces. In sections
+4 and 5 we extend the discussion in [8] on the tangent and cotangent bundles of
+arithmetic jet spaces from the case of one prime to the case of several primes. In
+sections 6, 7, and 8 we apply these concepts to the case when X is, respectively,
+the multiplicative group, an affine open set of an elliptic curve, or an affine open
+set of a K3 surface attached, via the Kummer construction, to a product of elliptic
+curves. We will perform “analytic continuation” on the arithmetic jet spaces of
+such schemes X, between various primes, based on globally defined differential
+forms, and as a by-product, we will derive various de Rham-style consequences for
+the arithmetic jet spaces in question. We have chosen to restrict ourselves to the
+case when X is affine because this simplifies the exposition and also captures the
+essential points of the theory. However our theory can be extended to the case
+when X is not necessarily affine.
+Remark 1.2. One should call the attention upon the fact that our arithmetic jet
+spaces are objects completely different from Vojta’s [13]; indeed Vojta’s jet spaces
+are constructed using Hasse-Schmidt derivations (which are morally “differentia-
+tions in the geometric direction”) while our jet spaces are constructed using Fermat
+quotients (which are morally “differentiations in the arithmetic directions”.)
+
+   Acknowledgment While writing this paper the first author was partially sup-
+ported by ARC grant DP0773301, and the second was partially supported by NSF
+grants DMS-0552314 and DMS-0852591. We are indebted to D. Bertrand and J-B.
+Bost for useful conversations on transcendence and formal functions.
+
+
+
+    2. Analytic continuation between primes via differential forms
+   For any ring B (respectively scheme Y ) we denote by ΩB (respectively ΩY ) the
+B-module (respectively the sheaf on Y ) of Kähler differentials of B (respectively
+Y ) over Z. We denote by
+                        TB = HomB (ΩB , B) = Der(B, B)
+the dual of ΩB ; we denote by TY the dual sheaf of ΩY , which we refer to as the
+tangent sheaf of Y . Also for i ≥ 0 we let ΩiB = ∧i ΩB , ΩiY = ∧i ΩY denote the
+exterior powers of ΩB , ΩY respectively. Elements of H 0 (Y, ΩiY ) are referred to as
+i-forms on Y . Also we have at our disposal de Rham complexes (Ω∗B , d) and (Ω∗Y , d)
+respectively and we have the usual notions of closed and exact forms. Recall that if
+B, Y are smooth over Z (or more generally over a ring of fractions of Z) of relative
+                  DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                         3
+
+                                                                      
+                                                        m
+dimension m then ΩiB , ΩiY are locally free of rank         ; by a volume form on
+                                                        i
+Y we will mean an m-form on Y that is invertible (i.e. is a basis of ΩmY ). Volume
+forms are, of course, closed.
+   If M is a module over a ring B and if I is an ideal in B we denote by
+                                             b
+                                        M I = lim M/I n M
+                                                  ←
+the I-adic completion of M . We say that M is I-adically complete if the map M →
+   b
+M I is an isomorphism. For any Noetherian scheme Y and any closed subscheme
+                         b
+Z ⊂ Y we denote by Y Z the formal scheme obtained by completing Y along Z. If
+                                               b               b
+I is the ideal sheaf of Z in Y we also write Y I in place of Y Z . We let Zn ⊂ Y be
+                                  n
+the closed subscheme with ideal I . We let
+                               ΩiY Ib = lim ΩiZn ,     TY Ib = lim TZn .
+                                         ←                             ←
+                   0      b                                            b                     b
+   Elements of H       (Y I , ΩiY Ib ) are referred to as i-forms on Y I . Of course, H 0 (Y I , Ω0Y Ib )
+                                                     Ib
+is just the space of formal functions O(Y ). Again, we have at our disposal an ob-
+vious deRham complex and a notion of closed and exact forms. If Y is smooth over
+Z (or a ring of fractions of Z) we have a concept of volume form.
+    We will use the following basic terminology:
+                                                            b
+Definition 2.1. An (i − 1)-form η ∈ H 0 (Y I , Ωi−1
+                                                  Ib
+                                                     ) is an I-adic primitive of an
+                                                                   Y
+                                                   b
+i-form ν ∈ H 0 (Y, ΩiY ) if ν = dη in H 0 (Y I , ΩiY Ib ). An i-form ν ∈ H 0 (Y, ΩiY ) is called
+I-adically exact if it has a I-adic primitive.
+   In what follows, throughout the paper, we consider a finite set of primes P =
+{p1 , ..., pd } ⊂ Z and we will denote by A0 = S −1 Z a ring of fractions of Z with
+respect to a multiplicative system S of integers coprime to the primes in P.
+   Let Y be a smooth affine scheme of finite type over A0 . We will be interested in
+the following examples of subschemes Z ⊂ Y . As before we denote by I the ideal
+defining Z.
+   1) Vertical case: Z is defined by the ideal I = (p1 ...pd ). In this case
+                                                       d
+                                                       a
+                                         Y p1\
+                                             ...pd
+                                                   =         Y pck
+                                                       k=1
+and hence
+                                                           d
+                                                           Y
+                        H 0 (Y p1\
+                                 ...pd
+                                       , ΩiY p\
+                                              1 ...pd
+                                                      )=         H 0 (Y pck , ΩiY pck ).
+                                                           k=1
+In this case we shall use the phrases P-adically exact and P-adic primitive in place
+of I-adically exact and I-adic primitive respectively. If Y is smooth over A0 then
+ΩiY pck are locally free.
+   2) Horizontal case: Z is the image in Y of an A0 -point P ∈ Y (A0 ), i.e. of a
+section P : Spec A0 → Y of Y → Spec A0 . In this case the ideal I is the kernel
+of P ∗ : O(Y ) → A0 ; by abuse of notation we denote the ideal I, again, by P . If
+S ⊂ Y (A0 ) is a set of points we use the phrase S-addically exact to mean P -adically
+exact for all P ∈ S. Let now P ∈ Y (A0 ) be a uniform point (in the sense of [9],
+Definition 2.25); recall that this means that there exists a Zariski open set Y1 ⊂ Y
+containing the image of P and possessing an étale morphism Y1 → AN to an affine
+4                       JAMES BORGER AND ALEXANDRU BUIUM
+
+
+space AN = Spec A0 [T ], where T = {Tj } is a tuple of variables. If this is the
+case then one can choose Y1 and T such that the ideal in O(Y1 ) of the image of
+P : Spec A0 → Y1 , i.e. the kernel of P ∗ : O(Y1 ) → A0 , is generated by T ; we then
+say that T are uniform coordinates on Y1 . It then follows that the sheaves ΩiY Pb are
+free and
+                        b
+                                       M
+                 H 0 (Y P , ΩiY Pb ) =      A0 [[T ]]dTj1 ∧ ... ∧ dTji .
+                                       j1 <...<ji
+
+    3) Case Z = Z ∩ Z where the ideal of Z ′ is generated by pk for some k and Z ′′
+                   ′     ′′
+
+is the image in Y of a point P ∈ Y (A0 ); hence Z is defined by the ideal I = (pk , P ).
+In this case
+                      \                         M
+              H 0 (Y (pk ,P ) , Ωi (p\ ,P )
+                                            ) =   Zpk [[T ]]dTj1 ∧ ... ∧ dTji .
+                              Y      k
+                                           j1 <...<ji
+
+
+   Corresponding to examples 1) and 2) above one can introduce more terminology
+as follows. Assume Y is a smooth affine scheme over A0 with irreducible geometric
+fibers, let P ∈ Y (A0 ) be a point, and let ω be a 1-form on Y .
+   1) If ω is P-adically exact then there is a unique P-adic primitive
+
+(2.1)      f = (fk )k = (f1 , ..., fd ) ∈ O(Y p1\
+                                                ...pd
+                                                      ) = O(Y pc1 ) × ... × O(Y pcd )
+of ω with fk (P ) = 0 for all k = 1, ..., d. (Here fk (P ) is the image of fk via the map
+O(Y pck ) → Zpk defined by P .) We shall refer to f = (fk )k as the P-adic primitive
+of ω normalized along P .
+                                                                                       b
+   2) If ω is P -adically exact then there is a unique P -adic primitive f0 ∈ O(Y P )
+                                                                                  b
+of ω such that f0 (P ) = 0. (Here f0 (P ) is the image of f0 via the map O(Y P ) → A0
+defined by P .) We shall refer to f0 as the P -adic primitive of ω normalized along
+P.
+
+Remark 2.2. The concepts above are directly related to the concept of analytic
+continuation between primes considered in [9]. Indeed assume Y is a smooth affine
+scheme over A0 with irreducible geometric fibers, let P ∈ Y (A0 ) be a uniform point,
+and let ω be a 1-form on Y . Assume that ω is both P-adically exact and P -adically
+exact. (This will be often the case in the main examples to be encountered later
+in the paper.) Let f = (fk ) and f0 be the P-adic and    Lthe P -adic primitives of ω
+normalized along P respectively. Since dfk = df0 in j Zpk [[T ]]dTj and fk (P ) =
+f0 (P ) in Zpk it follows that fk = f0 in Zpk [[T ]] which shows that f is analytically
+continued along P and is represented by f0 in the sense of [9], Definition 2.23.
+Remark 2.3. The concepts above can be used to define a certain type of integration
+(and periods) of 1-forms in the arithmetic setting as follows. Indeed assume again
+that Y is a smooth affine scheme over A0 with irreducible geometric fibers and
+let S ⊂ Y (A0 ) be a non-empty set of points. (In our applications S will be the
+whole of Y (A0 ).) By an elementary chain we will understand a pair (P1 , P2 ) of
+points P1 ∈ Y (Zpk1 ), P2 ∈ Y (Zpk2 ) such that either 1) k1 = k2 =: k or 2) k1 6= k2
+and there exists P12 ∈ S inducing both P1 and P2 . In case 1) we say (P1 , P2 ) is
+vertical and we let P1 P2 denote the ideal (pk ) in O(Y ). In case 2) we say (P1 , P2 )
+is horizontal and denote by P1 P2 the ideal P12 ⊂ O(Y ). By a chain we understand
+a tuple Γ := (P1 , ..., PN ) where (P1 , P2 ), ..., (PN −1 , PN ) are elementary chains. A
+                DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                         5
+
+
+chain as above is called a cycle if P1 = PN . We define the group of abstract periods
+                                             Ld
+                                               k=1 Zpk
+                       Π :=                          P             .
+                             {(a1 , ..., ad ) ∈ Ad0 ; dk=1 ak = 0}
+For each k the natural morphism Zpk → Π is injective, and we shall view it as an
+inclusion. Now let ω be a 1-form on Y which is both P-adically exact and S-adically
+exact. Then one can define the integral of ω along a chain Γ = (P1 , ..., PN ) by the
+formula
+                       Z        N
+                                X −1
+(2.2)                     ω :=      (fj (Pj+1 ) − fj (Pj )) ∈ Π,
+                         Γ         j=1
+
+where fj is any Pj Pj+1 -adic primitive of ω. (Here, if (Pj , Pj+1 ) is horizontal,
+then fj (Pj ) and fj (Pj+1 ) are defined as the corresponding images of fj via the
+                       d                             d
+homomorphisms O(Y P12 ) → A0 ⊂ Zpkj and O(Y P12 ) → A0 ⊂ Zpkj+1 defined by
+P12 so they are equal; hence, in the sum (2.2) the terms corresponding to horizontal
+elementary chains are
+                    L equal to 0. Also, note that summation above gives Ra well-
+defined element of k Zpk , not only of Π.) If Γ is a cycle we may refer to Γ ω as
+a period. Note that if ω is exact on Y then its periods
+                                                     L vanish. (Indeed, for ω exact
+on Y the summation (2.2) viewed as an element of k Zpk , although generally not
+zero, becomes zero in Π.)
+   In the main examples to be later encountered in the paper the periods will be
+typically non-zero. In contrast with this phenomenon, in the projective (as opposed
+to the affine) case, and under certain Arakelov-style conditions at infinity, forms
+that are P-adically and S-adically exact should be expected to be exact; cf. [5],
+where arithmetic analogues of the Hironaka-Matsumura theorems [11] from formal
+geometry are proved.
+
+           3. Arithmetic jet spaces: review and complements
+  In this section we review some of the concepts introduced in [6, 8, 9, 3] and
+provide some complements to that theory.
+   Let Cp (X, Y ) ∈ Z[X, Y ] be the polynomial with integer coefficients
+                                         X p + Y p − (X + Y )p
+                        Cp (X, Y ) :=                          .
+                                                   p
+A p−derivation from a ring A into an A−algebra ϕ : A → B is a set map δ : A → B
+such that
+(3.1)                  δ(1) = 0,
+(3.2)             δ(x + y) = δx + δy + Cp (x, y),
+(3.3)                δ(xy) = ϕ(xp ) · δy + ϕ(y p ) · δx + p · δx · δy,
+for all x, y ∈ A. Given a p−derivation we always denote by φ : A → B the map
+(3.4)                           φ(x) = ϕ(x)p + pδx;
+then φ is a ring homomorphism. Conversely, if p is not a zero divisor in B and if
+φ : A → B is a ring homomorphism satisfying the Frobenius lift property φ(x) ≡
+ϕ(x)p mod pB for all x ∈ A, then there is a unique p-derivation δ : A → B satisfying
+(3.4).
+6                           JAMES BORGER AND ALEXANDRU BUIUM
+
+
+   For any two distinct rational primes p1 , p2 consider the polynomial Cp1 ,p2 in the
+ring Z[X0 , X1 , X2 ] defined by
+(3.5)
+                           Cp2 (X0p1 , p1 X1 ) Cp1 (X0p2 , p2 X2 ) δp1 p2 p1 δp2 p1 p2
+Cp1 ,p2 (X0 , X1 , X2 ) :=                    −                   −      X2 +      X1 .
+                                  p1                  p2            p2         p1
+Let P = {p1 , . . . , pd } be a finite set of primes in Z. A δP -ring is a ring A equipped
+with pk -derivations δpk : A → A, k = 1, . . . , d, such that
+
+(3.6)                      δpk δpl a − δpl δpk a = Cpk ,pl (a, δpk a, δpl a)
+
+for all a ∈ A, k, l = 1, . . . , d. A homomorphism of δP -rings A and B is a homo-
+morphism of rings ϕ : A → B that commutes with the pk -derivations in A and
+B, respectively. If φpk (x) = xpk + pk δpk x is the homomorphism associated to δpk ,
+condition (3.6) implies that
+
+(3.7)                                 φpk φpl (a) = φpl φpk (a)
+
+for all a ∈ A. Conversely, if the commutation relations (3.7) hold, and the numbers
+pk are not zero divisors in A, then conditions (3.6) hold, and we have that φpk δpl a =
+δpl φpk a for all a ∈ A. If A is a δP -ring then for all k, the pk -adic completions Apck
+are δP -rings in a natural way.
+    For a relation between these concepts and the theory of λ-rings we refer to [3]
+and the references therein.
+    We let Z≥0 = {0, 1, 2, 3, . . .}, and let Zd≥0 be given the product order. We let ek
+be the element of Zd≥0 all of whose components are zero except the k-th, which is
+                  P
+1. We set e =           ek = (1, . . . , 1). For i = (i1 , . . . , id ) ∈ Zd≥0 we set Pi = pi11 · · · pidd
+and δP i
+         = δpi11 ◦ · · · ◦ δpidd and φiP = φPi = φip11 ◦ · · · ◦ φipdd . A δP -prolongation system
+A = (Ar ) is an inductive system of rings Ar indexed by r ∈ Zd≥0 , provided with
+  ∗
+                                          ′                                   ′
+transition maps ϕrr′ : Ar → Ar for any pair of indices r, r such that r ≤ r′ , and
+equipped with pk -derivations
+
+                                         δpk : Ar → Ar+ek ,
+
+k = 1, . . . , d, such that (3.6) holds for all k, l, and such that
+                                                                           ′
+                         ϕr+ek ,r′ +ek ◦ δpk = δpk ◦ ϕrr′ : Ar → Ar +ek
+
+for all r ≤ r′ and all k. A morphism of prolongation systems A∗ → B ∗ is a system
+of ring homomorphisms ur : Ar → B r that commute with all the maps ϕrr′ and
+the δpk of A∗ and B ∗ .
+   Any δP -ring A induces a δP -prolongation system A∗ where Ar = A for all r and
+ϕ is the identity map. Conversely, if (Ar ) is a δP -prolongation system then the ring
+
+                                            A∞ := lim Ar
+                                                      →
+
+has a natural structure of δP -ring.
+   Let us say that a δP -prolongation system (Ar ) is faithful if the primes in P are
+                                                                                     ′
+non-zero divisors in all the rings Ar and if all the homomorphisms ϕrr′ : Ar → Ar
+                                                                                     ′
+are injective. When this is the case we will usually view ϕrr′ as inclusions Ar ⊂ Ar
+and the primes in P are non-zero divisors in A∞ .
+                 DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                           7
+
+
+   If A∗ = (Ar ) is a δP -prolongation system then for each pk ∈ P the system
+of pk -adic completions ((Ar )pck )r is easily seen to have a unique structure of δP -
+prolongation system with the property that the natural maps Ar → (Ar )pck define
+a morphism of prolongation systems. Further, the operators δpk are continuous.
+   Let us say that a δP -ring A is δP -generated by a subring A0 ⊂ A if A is generated
+as an A0 -algebra by the set {δP s
+                                   a; a ∈ A0 , s ≥ 0}.
+   For any affine scheme of finite type X over A0 = S −1 Z one can define a system
+of schemes of finite type, JrP (X) over A0 , called the δP -jet spaces of X (or P-typical
+jet spaces in the language of [3]); if X = Spec A0 , with A0 = A0 [T ]/(f ), T a tuple
+of variables, and f a tuple of polynomials, then JrP (X) = Spec Ar , where
+(3.8)                     Ar = A0 [δP
+                                    i              i
+                                      T ; i ≤ r]/(δP f ; i ≤ r).
+               i
+Here, each δP    T is to be interpreted as a tuple of free variables, and each relation
+  i                                                                   i
+δP f is interpreted as a polynomial expression in the variables δP      T by expanding
+                                                  r
+it using the rules (3.1)–(3.3). The family (A )r forms a δP -prolongation system
+          i          i+ek
+by δpk (δP  T ) := δP     T . In the case where P consists of a single prime p, formal
+p-adic versions of these spaces were introduced in [6]. In the multiple-prime case
+considered here, they were introduced (independently) in [9] and [3]. In [3] the
+spaces JrP (X) were denoted by Wr∗ (X); the notation here follows   [9].
+    The prolongation system (Ar ), where Ar is still O JrP (X) , has the following
+universal property: for any δP -prolongation system (B r ), each ring map A0 → B 0
+extends uniquely to a map (Ar ) → (B r ) of δP -prolongation systems. Let us now
+apply this in the case where B r is the constant inductive system A0 , where each
+B r is A0 and each ϕrr′ the identity map. Since A0 has a unique δP -ring structure,
+this system has a unique δP -prolongation structure. By the universal property, any
+ring map A0 → A0 extends to a unique map Ar → B r = A0 of δP -prolongation
+systems, and hence defines a map X(A0 ) → JrP (X)(A0 ) for each r. We call the
+image of a point P ∈ X(A0 ) under this map its canonical lift (to JrP (X)). We will
+often denote it by P r (because of its relation with the map (3.10) below).
+    For A0 -algebras C, there is a functorial isomorphism
+(3.9)            HomA0 (Spec C, JrP (X)) = HomA0 (Spec Wr (C), X)
+Here Wr (C) denotes the A0 -algebra of P-typical Witt vectors of length r with
+entries in C. If P consists of a single prime p, then Wr (C) is the usual ring of
+p-typical Witt vectors of length r (length r + 1 in the traditionally more common
+numbering) with entries in C. In [3], the equation (3.9) is taken to be the definition
+of JrP (X), or rather of its functor of points. This lets us define JrP (X) for rather
+general X, such as algebraic spaces. We will not need this generality here, but we
+will make use of (3.9), as well as some results in [3] proved using this functorial
+point of view, such as the following:
+Proposition 3.1. Let f : X ′ → X be a smooth (respectively étale) morphism.
+Then the induced morphism g : JrP (X ′ ) → JrP (X) is smooth (respectively étale). If
+f is also surjective, then so is g.
+  The rings Ar = O(JrP (X)) form a δP -prolongation system with A∞ being δP -
+generated by A0 . If Y ⊂ X is a principal
+                                      Q      open set of X, O(Y ) = O(X)f then
+O(JrP (Y )) ≃ O(JrP (X))fr where fr = i≤r φiP (f ). In particular, the induced mor-
+phism JrP (Y ) → JrP (X) is an open immersion.
+8                         JAMES BORGER AND ALEXANDRU BUIUM
+
+
+   In corollary 3.6, we will show that if X/A0 smooth and JrP (X) = Spec Ar then
+the prolongation system (Ar ) is faithful.
+   Let us note that the homomorphisms
+                                         ϕsr ◦ φsP : A0 → Ar
+for s ≤ r induce morphisms JrP (X) → X, and hence a natural morphism
+                                        κ≤r Y
+(3.10)                          JrP (X) −→    X.
+                                                       s≤r
+
+This map becomes an isomorphism after tensoring with Z[1/p1 , . . . , 1/pk ].
+Proposition 3.2. If X is a group scheme, then the maps JsP (X) → JrP (X) and
+JsP (X) → X induced by ϕsr and φsP are group homomorphisms.
+Proof. It is enough to show that each map induces a group homomorphism on B-
+valued points for each A0 -algebra B. We can describe these maps simply using
+(3.9). For ϕsr , it can be identified with the map
+                                       X(Ws (B)) → X(Wr (B))
+induced by a map Ws (B) → Wr (B) (namely, the natural projection map). For φsP ,
+it can be identified with the map
+                                         X(Ws (B)) → X(B)
+induced by a map Ws (B) → B (namely, the s-th ghost component map). In
+particular, each map is a group homomorphism.                       
+
+RemarkS 3.3. Let X be a smooth scheme over A0 and consider an affine open cover
+X = Xi . Let p be a prime and let r ≥ 0 be an integer. Then one can glue the
+formal schemes Jr{p} (Xi )pb along the formal schemes Jr{p} (Xi ∩ Xj )pb to construct a
+formal scheme that we denote by Jpr (X). This latter formal scheme does not depend
+on the covering we chose for X and will be referred to as the p-jet space of X of order
+r. After base change to Ẑurp (the completion of the maximum unramified extension
+of Zp ), Jpr (X) becomes equal to the p-jet space of X considered in [6, 8]. Note that
+taking formal completions here is needed for this approach to work. Otherwise, one
+would use the method of [3].
+Proposition 3.4. Let X be a smooth affine scheme over A0 , and let r, s ∈ Zd≥0 be
+elements with r ≤ s. Then the map JsP (X) → JrP (X) induced by ϕsr is smooth and
+surjective.
+Proof. First, let us reduce to the case where the number d of primes in P is 1. The
+case d = 0 is trivial. Now assume the theorem when d = 1, and suppose d ≥ 2.
+Let P′ denote the set {p1 , . . . , pd−1 }, let s′ denote (s1 , . . . , sd−1 ), and let r′ denote
+(r1 , . . . , rd−1 ). Then we have the following factorization of the map in question:
+
+                      JsP (X)                                        // Jr (X)
+                                                                       P
+
+                            ∼                                                   ∼
+                                                                         
+                                ′       a   // Jsd Jr′′ (X)   b   // Jrd Jr′′ (X).
+                  Js{pd d } JsP′ (X)            {pd } P               {pd } P
+                   DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                    9
+
+                                                ′                                  ′
+By proposition 3.1, the space JrP′ (X) is smooth over JrP′ (Spec A0 ) = Spec A0 .
+Therefore by the case d = 1, the map b is smooth and surjective. And by in-
+                      ′         ′
+duction, the map JsP′ (X) → JrP′ (X) is smooth and surjective. By [3] (7.2(c)), the
+map a is then smooth and surjective, and therefore b ◦ a is.
+   Thus it suffices to assume d = 1. Let us write p = p1 , J = J{p} and so on. We
+can further assume s = r + 1 with r ≥ 0, again by induction. Let ϕ denote the map
+Jr+1 (X) → Jr (X).
+   To show ϕ is smooth, we need to show it is formally smooth and locally of finite
+presentation. Finite presentation is clear: by (3.8), both Jr+1 (X) and Jr (X) are of
+finite type over A0 , which is Noetherian.
+   Let us now show that ϕ is formally smooth. Let g : B → A be a surjection of
+rings with square-zero kernel. By definition, we need to show that the evident map
+                    Jr+1 (X)(B) −→ Jr+1 (X)(A) ×Jr (X)(A) Jr (X)(B)
+is a surjection. By (3.9), we can identify this map with the evident map
+                 X(Wr+1 (B)) −→ X(Wr+1 (A)) ×X(Wr (A)) X(Wr (B)).
+Since X is affine, this map can be identified with the evident map
+                     X(Wr+1 (B)) −→ X(Wr+1 (A) ×Wr (A) Wr (B)).
+Thus, since X is formally smooth over Z, we only need to show that the evident
+ring map
+(3.11)                     Wr+1 (B) −→ Wr+1 (A) ×Wr (A) Wr (B)
+is surjective with nilpotent kernel. Using the usual Witt components, we can iden-
+tify this with the map
+                             B r+2 −→ Ar+2 ×Ar+1 B r+1 ,
+defined by                                                                                  
+                                                                        
+                  (b0 , . . . , br+1 ) 7→       g(b0 ), . . . , g(br+1 ) , (b0 , . . . , br ) .
+This map can further be identified with the map
+(3.12)                                B r+2 −→ B r+1 × A
+                                                             
+defined by (b0 , . . . , br+1 ) 7→ b0 , . . . , br , g(br+1 ) . Since g is surjective, so is (3.12),
+and hence so is (3.11). On the other hand, the kernel of (3.12) is the set of elements
+(0, . . . , 0, b), where b ∈ ker(g). This kernel then has square zero, since we have
+(3.13)                (0, . . . , 0, b)(0, . . . , b′ ) = (0, . . . , 0, pr+1 bb′ ) = 0
+and ker(g)2 = 0. Therefore (3.11) has square-zero kernel. It follows that ϕ is
+formally smooth.
+   Let us finally show that Jr+1 (X) → Jr (X) is surjective. It suffices to show this
+after base change to Z[1/p] × Fp . Over Z[1/p], the map can be identified with the
+projection X r+2 → X r+1 , which is surjective.
+   For the base change to Fp , we will show the stronger property that for any
+Fp -algebra A, the map
+                             Jr+1 (X)(A) −→ Jr (X)(A)
+is surjective. By (3.9), this can be identified with the map
+                                  X(Wr+1 (A)) −→ X(Wr (A)).
+10                      JAMES BORGER AND ALEXANDRU BUIUM
+
+
+But this map is surjective because X is formally smooth and because the map
+Wr+1 (A) → Wr (A) is a surjection with nilpotent kernel, again by (3.13). 
+Remark 3.5. Proposition 3.4 holds, more generally, for X an arbitrary smooth
+algebraic space over A0 (See [3] for the definition of arithmetic jet spaces of algebraic
+spaces.) The proof is as follows: by general étale localization properties of JrP , it
+is enough to replace X with an affine étale cover, and in this case the result was
+shown above. We will not need the non-affine version in this paper.
+Corollary 3.6. If JrP (X) = Spec Ar then the δP -prolongation systems (Ar ) and
+((Ar )pck ) are faithful.
+   Proof. By proposition 3.4 the transition maps As → Ar are faithfully flat and
+hence injective. Also since A0 is flat over Z the primes in P are not zero divisors
+in any of the rings Ar . Hence (Ar ) is faithful. Now the primes in P continue to be
+non-zero divisors in (Ar )pck . Moreover the maps As /pk As → Ar /pk Ar are faithfully
+flat hence injective. It follows that the maps (As )pck → (Ar )pck are injective. So
+((Ar )pck ) is faithful.                                                            
+
+     We also have the following useful result:
+                                                                            S
+Proposition 3.7. Let X be a smooth affine scheme over A0 and let X = i Xi be
+a covering with principal affine open sets. Then, for each r, the closed set
+                                          [
+(3.14)                           JrP (X) \ JrP (Xi )
+                                              i
+
+has codimension ≥ 2 in JrP (X).
+                   S
+   Proof. Let U = i JrP (Xi ) and Y = JrP (X). It is enough to show that for any
+prime p, the complement (Y ⊗ Fp ) \ (U ⊗ Fp ) has codimension ≥ 2 in Y ⊗ Fp and
+that (Y ⊗ Q) \ (U ⊗ Q) has codimension ≥ 2 in Y ⊗ Q. This follows exactly as in
+the proof of Proposition 2.22 in [9].                                          
+Remark 3.8. We will later need the following consequence of [3], Proposition 8.2
+(cf. [9], Remark 2.27). Let X be a smooth affine scheme over A0 with connected
+geometric fibers and let P ∈ X(A0 ) be a uniform point with uniform coordinates
+T in X. Let Y = JrP (X) and let P r ∈ Y (A0 ) be the canonical lift of P , as defined
+above. Then P r is a uniform point of Y with uniform coordinates (δP   i
+                                                                         T ; i ≤ r) in
+Y.
+
+               4. The tangent bundle of arithmetic jet spaces
+   In this section we extend the theory in [8], pp. 88-100, from the case where P
+consists of one prime to the case where it consists of several primes.
+   Let A be a δP -ring in which the primes in P are non-zero divisors and let A0 ⊂ A
+be a subring. Let ∂ : A0 → A0 be a derivation and let r ∈ Zd≥0 . A derivation
+∂r : A → A will be called an r-conjugate of ∂ on A if for any s ∈ Zd≥0 we have
+(4.1)                     ∂r ◦ φsP = δrs · Pr · φsP ◦ ∂ : A0 → A,
+where δrs is the Kronecker symbol.                            Q
+   In other words, let X = Spec A0 , let κ : JP (X) −→ r X denote the             Q limit of
+the maps κ≤r of (3.10), let ∂ ′ denote the vector field (. . . , Pr ∂, . . . )r on r X, and
+                 DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                           11
+
+                                   Q
+let ∂ ′′ denote the vector field on r X with values in A induced by ∂ ′ . Then an
+r-conjugate of ∂ is an extension of ∂ ′′ to a vector field ∂r on X = Spec A.
+   A system of derivations (∂r )r , ∂r : A → A, indexed by multi-indices r ∈ Zd≥0 ,
+will be called a complete system of conjugates of ∂ on A if for any r the derivation
+∂r is an r-conjugate of ∂ on A.
+   Clearly we have the following uniqueness result:
+
+Proposition 4.1. Assume A is a δP -ring in which the primes in P are non-zero
+divisors and assume A is δP -generated by a subring A0 ⊂ A. Let ∂ : A0 → A0 be
+a derivation. Then, for each r, there is at most one r-conjugate ∂r of ∂ in A. In
+addition we have ∂r An = 0 for r 6≤ n.
+
+  On the other hand we have the following existence result.
+
+Proposition 4.2. Let X = Spec A0 be an affine smooth scheme over A0 and let
+JrP (X) = Spec Ar be its δP -jet spaces. Let ∂ : A0 → A0 be a derivation. Then
+there exists a complete system of conjugates (∂r )r of ∂ in A∞ (which is unique by
+Proposition 4.1). Moreover if, by Corollary 3.6, we view each An as a subset of
+A∞ , then we have ∂r An ⊂ An for all r, n.
+
+  We denote by ∂r|n : An → An the restriction of ∂r to An .
+
+   Proof. Let A0 = A0 [T ]/(f ) where T is a tuple of indeterminates Ta and f is a
+tuple of polynomials fb . Lift ∂ to a derivation ∂ : A0 [T ] → A0 [T ] and, for any n
+                                s
+define the derivation ∂r on Q[δP  T ; s ≥ 0] = Q[φsP T ; s ≥ 0] as the unique derivation
+satisfying
+(4.2)                         ∂r (φsP Ta ) = δrs · Pr · φsP (∂Ta ).
+                                         s
+Clearly (4.1) holds and ∂r sends each Q[δP T ; s ≤ n] into itself. Set ∂r = 0 for
+     d    d
+r ∈ Z \ Z≥0 .
+                                             s
+  Claim 1. ∂r ◦ φpk = pk · φpk ◦ ∂r−ek on Q[δP T ; s ≤ n].
+   Indeed the difference between the left hand side and the right hand side of the
+above equality is a derivation that vanishes on the set of generators {φsP T ; s ≤ n}
+      s
+of Q[δP T ; s ≤ n]; for, using (4.2), we have
+                                          s+ek
+               (∂r φpk )(φsP Ta )   = ∂r φP    Ta
+                                                      s+ek
+                                    = δr,s+ek · Pr · φP    ∂Ta
+
+                                    = δr−ek ,s · Pr · φpk (φsP (∂Ta ))
+
+                                    = pk · φpk (Pr−ek · δr−ek ,s · φsP (∂Ta ))
+
+                                    = (pk · φpk ◦ ∂r−ek )(φsP Ta ).
+
+                        s
+  Claim 2. ∂r maps A0 [δP T ; s ≤ n] into itself.
+                                         s             s
+   Indeed it is enough to show that ∂r (δP Ta ) ∈ A0 [δP T ; s ≤ n] for all s ≤ n and all
+a. We proceed by induction on the sum of the components of r + s. The statement
+12                             JAMES BORGER AND ALEXANDRU BUIUM
+
+
+is clearly true for s = 0 so for r + s = 0. Now assume r + s arbitrary. We may
+assume s 6= 0 so we may assume there exists k such that sk ≥ 1. Then
+                   s                      s−ek
+              ∂r (δP Ta ) =      ∂r (δpk δP    Ta )
+                                               s−ek        s−e
+                                                                         
+                                          φpk (δP    Ta )−(δP k Ta )pk
+                          =      ∂r                    pk
+
+
+                                             s−ek          s−ek                s−ek
+                          =      φpk ∂r−ek (δP    Ta ) − (δP    Ta )pk −1 ∂r (δP    Ta ),
+                                       s
+by Claim 1. The latter belongs to A0 [δP T ; s ≤ n] by the induction hypothesis.
+                                    rs                    s
+       Claim 3. ∂r maps the ideal (δP  f ; s ≤ n) of A0 [δP T ; s ≤ n] into itself.
+       Indeed one can repeat the argument in the proof of Claim 2 with Ta replaced by
+fb .
+  Now Claims 2 and 3 imply that ∂r induce derivations A∞ → A∞ satisfying (4.1)
+which ends our proof.                                                       
+Remark 4.3. The proof above shows that we have the commutation relations:
+(4.3)                          ∂r ◦ φsP = Ps · φsP ◦ ∂r−s : A∞ → A∞
+for all r, s. (Here, as usual, ∂r−s = 0 if s 6≤ r.)
+Remark 4.4. Under the assumption of Proposition 4.1 fix k and consider the deriva-
+tion (still denoted by ) ∂ on (A0 )pck induced by ∂. Then the system of conjugates
+(∂r )r on A∞ induces a complete system of conjugates of ∂ : (A0 )pck → (A0 )pck on
+                                                        r pc
+                                             A∞
+                                              k := lim(A )
+                                                           k
+                                                       →
+
+which we continue to denote by (∂r )r . Recall from Corollary 3.6 that (An )pck ⊂ A∞
+                                                                                   k
+for all n. Note that we have
+                                           ∂r ((An )pck ) ⊂ (An )pck .
+Remark 4.5. Under the assumptions of Proposition 4.2 we have the following for-
+mula:
+                           (a · ∂)r = φrP (a) · ∂r ,
+for any a ∈ A. This follows from the uniqueness in Proposition 4.1.
+Proposition 4.6. Let X = Spec A0 be smooth over A0 and assume (∂ a )1≤a≤m
+is a basis for the tangent sheaf TX of X over A0 . Then the family of conjugates
+   a
+(∂r|n )1≤a≤m, 0≤r≤n is a basis for the tangent sheaf TJnP (X) .
+  Proof. Assume first X has étale coordinates, i.e. there is an étale map X →
+Am = Spec A0 [T ], where T is a family of indeterminates Tb . Note that, by (4.1),
+        Pr · φrP (∂ a Tb ) =    ∂ra (φrP Tb )
+
+                         =      ∂ra (Pr · δP
+                                           r                      s
+                                             Tb + (polynomial in δP T with s ≤ r, s 6= r))
+
+                         =      ∂ra (Pr · δP
+                                           r
+                                             Tb )
+
+                         =      Pr · ∂ra (δP
+                                           r
+                                             Tb )
+                   DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                13
+
+
+Hence
+(4.4)                              ∂ra (δP
+                                         r
+                                           Tb ) = φrP (∂ a Tb ).
+Similarly we get
+(4.5)                                   ∂ra (δP
+                                              s
+                                                Tb ) = 0
+for s ≤ r, s 6= r. Since JnP (X) → JnP (Am ) is étale we know that
+                                          
+                                      ∂
+                                      sT )
+                                   ∂(δP  b   1≤b≤m, s≤n
+
+is a basis of TJnP (X) . So we may write
+                                         m
+                                       X X                   ∂
+                              ∂ra =               αsb
+                                                   ra ·      s T ),
+                                                          ∂(δP  b
+                                      0≤s≤n b=1
+
+with αsb    n       n
+      ra ∈ A = O(JP (X)). Now order the multiindices (r, a) by the lexicographic
+order. Then, by (4.4) and (4.5) the matrix α := (αsb
+                                                  ra ) consists of m × m blocks
+such that all blocks under the diagonal are 0 and the diagonal blocks are of the
+form φrP β, where β = (∂ a Tb ). Therefore the matrix α is invertible which ends our
+proof in case X has étale coordinates.
+    Assume now X does not necessarily have étale coordinates. Take a finite affine   `
+open cover X = ∪Xi such that each Xi has étale coordinates and let X ′ := Xi
+be the disjoint union. Then X ′ has étale coordinates and is an étale cover of X.
+By [3], Propositions 7.2 and 7.4 the map π r : JrP (X ′ ) → JrP (X) is an étale cover,
+in particular it is faithfully flat. Consider the homomorphism u : ON      JrP (X) → TJP (X)
+                                                                                       r
+
+defined by the collection of sections ∂ra of TJrP (X) (where N is the cardinality of
+this collection). The pull-back of u to JrP (X ′ ) coincides with the homomorphism
+u ′ : ONJrP (X ′ ) → TJP (X ′ ) defined by the collection of corresponding sections (still
+                       r
+
+denoted by) ∂ra of TJrP (X ′ ) ; this follows from the uniqueness in Proposition 4.1 plus
+the fact that π r is étale. By the first part of the proof u′ is an isomorphism. Since π r
+is faithfully flat it follows that u itself is an isomorphism. This ends the proof. 
+
+             5. The cotangent bundle of arithmetic jet spaces
+Lemma 5.1. Let X = Spec A0 be smooth over A0 and let ω ∈ ΩiA0 be a i-form on
+                ir  i
+X. Then φr∗
+         P ω ∈ P · ΩA r .
+
+  Proof. It is enough to show that φ∗pk η ∈ pk · ΩAr+ek for any η ∈ ΩAr . But if
+η = f dg with f, g ∈ Ar then
+φ∗pk η = (f pk + pk δpk f )d(g pk + pk δpk g) = (f pk + pk δpk f )(pk g pk −1 dg + pk d(δpk g)),
+and we are done.                                                              
+  Since, for X/A0 smooth, the primes in P are non-zero divisors in all the rings
+Ar (and hence in ΩAr ), we may define, for any i-form ω ∈ ΩiA0 , the i-forms
+                                      φr∗
+                                       P ω
+(5.1)                                 ωr :=∈ ΩiAr .
+                                       Pir
+Furthermore, for n ≥ r we consider the forms ϕ∗rn ωr ∈ ΩiAn ; when n is clear from
+the context we simply denote these forms, again, by ωr . Also, for m := Pr we write
+(5.2)                                     ω[m] := ωr .
+14                     JAMES BORGER AND ALEXANDRU BUIUM
+
+
+Note that if ω ∈ ΩiA0 and η ∈ ΩjA0 then
+(5.3)                            (ω ∧ η)r = ωr ∧ ηr
+for all r. Since the exterior derivative d : ΩiAr → Ωi+1               r∗
+                                                     Ar commutes with φP , we have
+
+(5.4)                             (dω)r = Pr d(ωr )
+In particular, ω ∈ ΩiA0 is closed then the forms ωr ∈ ΩiAr are also closed for all r.
+   Finally, let us record the formula
+                        φ∗p                                  
+(5.5)                       (xdy) = φp (x) y p−1 dy + d(δp y) ,
+                        p
+for p ∈ P.
+Remark 5.2. Of course, it is possible to take (5.5) as the definition of φ∗p /p. We
+could then define φr∗  r                                                      ∗
+                   P /P as compositions of the single-prime operators φpk /pk .
+This approach has the benefit that it works in general, without any smoothness
+assumptions on X. (See [4], 12.5 and 12.8, where φ∗ /p is denoted θ.)
+Remark 5.3. Also these operators can be viewed as “universal lifts” of the inverse
+Cartier operator on the corresponding forms. To explain this assume for simplicity
+that P = {p} and consider the case of 1-forms. We recall the definition of the inverse
+Cartier operator [10]. Assume B is a smooth Fp -algebra. For any B-module M
+defined by B × M → M , (b, m) 7→ bm we denote by F∗ M the additive group M
+viewed as a B-module under B × F∗ M → F∗ M , (b, m) 7→ b · m := bp m. Then the
+deRham complex
+                                      d          d
+                      F∗ Ω∗B = (F∗ B → F∗ ΩB → F∗ Ω2B → · · ·)
+is a complex of B-modules, in particular H 1 (F∗ Ω∗B ) is a B-module. The map
+B → H 1 (F∗ Ω∗B ), b 7→ [bp−1 db] (where [ ] means class in H 1 ) is a derivation so it
+induces a B-module homomorphism C −1 : ΩB → H 1 (F∗ Ω∗B ), called the inverse
+Cartier operator; it satisfies
+                       C −1 (adb) = a · C −1 (db) = [ap bp−1 db].
+   Now if X = Spec A0 and Ar are as in the discussion before this remark and
+ω ∈ ΩA0 then ω1 ∈ ΩA1 . Let φ0 : (A0 )pb → (A0 )pb be any lift of Frobenius. There
+is an induced section s : X pb → Jp1 (X) of the projection Jp1 (X) → X pb so we may
+                                                                                  φ∗ ω
+consider the pull-back s∗ ω1 ∈ ΩX pb which is of course nothing but s∗ ω1 = 0p .
+Denoting by upper bars reduction mod p a trivial computation shows that the class
+[s∗ ω1 ] of s∗ ω1 ∈ ΩA0 ⊗Fp in H 1 (F∗ Ω∗A0 ⊗Fp ) equals C −1 (ω), image of ω ∈ ΩA0 ⊗Fp
+under the inverse Cartier operator. (Cf. also [10] for the relation between the
+Cartier operator and lifts of Frobenius.)
+Proposition 5.4. Let X = Spec A be smooth over A0 of relative dimension m and
+assume (∂ a )1≤a≤m is a basis for the tangent sheaf TX of X over A0 . Let (ω a )1≤a≤m
+be the dual basis for ΩX (i.e. hω a , ∂ b i = δab ). Then (ωra )1≤a≤m, 0≤r≤n is a basis
+                              a
+for ΩAn , dual to the basis (∂r|n )1≤a≤m,0≤r≤n .
+
+  Proof. As in the proof of Proposition 4.6 weP
+                                              may assume there is an étale map
+X → Am = Spec A0 [T ]. So we may write ∂ b = b′ αbb′ ∂T∂ ′ , with αbb′ ∈ A. Hence
+                                                              b
+                DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                    15
+
+     P
+ω a = a′ βaa′ dTa′ with (βab ) the transposed of the inverse of (αab ). We get, using
+Remark 4.5, that
+                      P                                 P s                 
+                                                                         ∂
+      hωra , ∂sb i = h a′ φrP (βaa′ )P−r φr∗
+                                          P  (dT a ′ ),
+                                                         b′ φP (αbb′)
+                                                                        ∂T ′   i
+                                                                                   b   s
+                        P P                                   −r              s    ∂
+                  =        a′
+                                        r         s
+                                    b′ φP (βaa′ )φP (αbb′ )hP    d(φr∗
+                                                                    P Ta′ ), P ∂(φsP Tb′ ) i
+
+                              P P           r         s
+                  =     δrs     a′      b′ φP (βaa′ )φP (αbb′ )δa′ b′
+
+                  =     δrs δab ,
+which ends the proof.                                                                          
+Corollary 5.5. AssumeVX is a smooth affine scheme over A0 possessing a volume
+form ω. Then the form r≤n ωr is a volume form on JnP (X).
+
+                          V
+Remark 5.6. The form r≤n ωr is clearly well defined up to a sign. In fact, if we
+                                                                     V
+interpret it in the following way, it is completely well defined. Let r≤n ΩX denote
+                                                                V
+the module determined by the property that a linear map r≤n ΩX → M is the
+                                     Q                        Q
+same as an alternating linear map r≤n ΩX → M , where r≤n ΩX denotes the set
+of functions {r; r ≤ n} → ΩV  X . Observe that we do not need to choose an ordering
+on {r; r ≤ n}. Then define r≤n ωr to be the image of the function r 7→ ωr under
+                                 Q            V
+the universal alternating map r≤n ΩX → r≤n ΩX .
+
+   Proof of Corollary 5.5. By Corollary 3.6 JnP (X) is smooth over A0 . Let N be its
+relative dimension over A0 . Then
+                                             N
+                                             ^
+                                                 ΩJnP (X)
+                                                  V
+is a locally free sheaf of rank one and the form r≤n ωr is a section of this sheaf.
+           S
+Let X = i Xi be a covering with principal
+                                        V     affine open sets such that ΩXi is free
+for each i. Then by Proposition 5.4 r≤n ωr is a volume form on each JnP (Xi )
+                          S
+and hence on the union i JnP (Xi ). But by Proposition 3.7V the complement of this
+union in JnP (X) has codimension ≥ 2. This implies that r≤n ωr is a volume form
+on the whole of JnP (X).                                                          
+Remark 5.7. Let S be an abelian scheme or a K3 surface over A0 (i.e. a smooth
+projective scheme of relative dimension 2 with H 1 (S, O) = 0 and trivial canonical
+bundle Ω2S ) and fix a volume form ω on S. (So ω is well defined up to multiplication
+by a an element of A×   0 .) Let X ⊂ S be V an affine open set. Then and one can
+consider on each JnP (X) the volume form r≤n ωr . The latter will be referred to
+as the canonical volume form on JnP (X) and (once ω has been fixed) is well defined
+up to sign.
+Corollary 5.8. Assume the hypotheses of Proposition 5.4. For any f ∈ An =
+O(JnP (X)) we have the following formula in ΩAn :
+                                   X X
+(5.6)                       df =             (∂ra f )ωra .
+                                         1≤a≤m 0≤r≤n
+16                      JAMES BORGER AND ALEXANDRU BUIUM
+
+
+Remark 5.9. By continuity the formula (5.6) continues to hold in Ω(An )pck , for any
+f ∈ (An )pck .
+     Finally we will need the following:
+Proposition 5.10. Let Y → X be an étale finite Galois cover of affine smooth
+schemes over A0 with Galois group Γ, let p be a prime, and let n, i ≥ 0 be integers.
+Let ω be an i-form on the p-jet space Jpn (Y ) which is Γ-invariant. Then ω is the
+pull-back of a unique i-form on the p-jet space Jpn (X).
+
+Remark 5.11. Proposition 5.10 fails to be true if the p-jet spaces Jpn (X) = Jn{p} (X)pb
+and Jpn (Y ) = Jn{p} (Y )pb are replaced by the arithmetic jet spaces Jn{p} (X) and
+Jn{p} (Y ) respectively. An example is given by A0 = Z, p 6= 2, Y = Spec Z[y, y −1 ],
+X = Spec Z[x, x−1 ], x 7→ y 2 and the 0-form ω := yy ′ , where y ′ = δp y. Indeed yy ′ is
+invariant under y 7→ −y but yy ′ does not belong to the image of
+                              O(J1{p} (X)) → O(J1{p} (Y )),
+as one can easily see by tensoring with Q. On the other hand yy ′ belongs to the
+image of
+                             O(Jp1 (X)) → O(Jp1 (Y )),
+as one can see directly from the formula
+                      X  1/2          ′ n
+                                         x
+      yy ′ = x(p+1)/2             pn−1        ∈ Zp [x, x′ , x−1 ]pb = O(Jp1 (X)).
+                            n            xp
+                      n≥2
+
+    Also Proposition 5.10 fails to be true if the p-jet spaces Jpn (X) = Jn{p} (X)pb and
+Jpn (Y ) = Jn{p} (Y )pb are replaced by the spaces JnP (X)pb and JnP (Y )pb respectively,
+where P consists of at least 2 primes one of which is p.
+   Proof of Proposition 5.10. ForSi = 0 this was proved in [8], Proposition 3.27. So
+we may assume i ≥ 1. Let Y = j Yj be an affine open cover such that ΩYj is free
+                                                                         S
+for each j, and let Xj be the preimage of Yj in X. Since Jpn (X) = j Jpn (Xj ) it
+is sufficient to prove the Proposition for Xj → Yj for each j. Replacing Y be Yj
+we may assume ΩY is free. Let η 1 , ..., η m be a basis of ΩY and ω 1 , ..., ω m be the
+pull-back of this basis on X which is a basis of ΩX . By Proposition 5.4 we may
+write
+                                  X
+                             ω=        aα1 ...αi ω α1 ...ω αi ,
+                                      α1 ...αi
+
+for unique aα1 ...αi ∈ O(Jpn (Y )).Since ω and ω 1 , ..., ω m are Γ-invariant it follows
+that aα1 ...αi are Γ-invariant hence (by the i = 0 case of the Proposition) they are
+pull-backs of unique functions in O(Jpn (X)), which ends our proof.                   
+
+                            6. The multiplicative group
+   In this section we let A0 = S −1 Z where S is the multiplicative system of all
+integers coprime to p1 , . . . , pd . Assume X = Gm = Spec A0 , A0 := A0 [x, x−1 ], is
+the multiplicative group scheme over A0 . Then the origin is a uniform point of X
+with uniform coordinate T = x − 1 in X. Let ω = dx     x ∈ ΩGm /A0 . Clearly ω is
+                  DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                        17
+
+
+closed but not exact on Gm . Recall that we set e = (1, . . . , 1) ∈ Zd≥0 and define
+the 1-form
+                          X
+(6.1)           ω (e) = −    (−1)|r| ωr ∈ H 0 (JeP (Gm ), ΩJeP (Gm ) ),
+                             0≤r≤e
+
+where |r| is, as usual, the sum of the components of r and ωr are defined as in (5.1).
+Note that
+                             Yd           !        X
+                  (e)
+                                      φ∗pk
+                 ω =−             1−          ω=−          µ(m)ω[m] ,
+                                      pk
+                             k=1                            m|p1 ···pd
+
+where µ is the Moebius function and ω[m] are as in (5.2).
+  Consider now the elements
+                          ψp1k ∈ (Aek )pck = Zpk [x, x−1 , δpk x]pck ,
+
+                         1         δp x  δpk x pk  δpk x 2
+              ψp1k :=      log 1 + p pk   = p −                − ··· .
+                        pk          x k     x k  2 xpk
+Symbolically, one might write ψp1k = p−1
+                                      k log φpk (x)−log x. We pass to the multiple-
+prime case by defining the elements
+                             Y              
+                                        φpl  1
+                                d 
+(6.2)                 fk :=         1−        ψpk ∈ (Ae )pck .
+                               l=1
+                                         p l
+                                    l6=k
+
+Note that the vector
+                                      e
+(6.3)                                ψm := (f1 , . . . , fd )
+is the arithmetic Laplacian of Gm introduced in [9]. Also consider the logarithm of
+the formal multiplicative group
+                                           ∞
+                                           X             Tn
+                          lGm (T ) =           (−1)n−1      ∈ Q[[T ]]
+                                           n=1
+                                                         n
+
+and the series
+                             Y              
+                                        φpl 
+                              d 
+                  e                                          i
+(6.4)            ψm,0 := −           1−       lGm (T ) ∈ Q[[δP T ; i ≤ e]].
+                                        pl
+                              l=1
+
+                    e           i
+(In fact, we have ψm,0  ∈ A0 [[δP T ; i ≤ e]]. See the proof of Theorem 3.3 in [9].)
+                                                                     e
+   As discussed in the introduction, we can think of the fk and ψm,0    as being series
+                                          Qd          φp l
+expansions of the formal expression − l=1 (1 − pl ) · log(x) in different regions of
+the A0 -scheme Gm . In [9], it was shown that the expansions agree on what could
+be interpreted as the intersection these regions. In Theorem 6.3 below, we show
+that they are solutions to a common differential equation.
+                              φ∗
+                                  
+Lemma 6.1. dψp1k = − 1 − ppkk ω.
+
+   Essentially this was given in [8], Proposition 7.26, but for the convenience of the
+reader, we will include a simple proof here.
+18                      JAMES BORGER AND ALEXANDRU BUIUM
+
+
+Proof. Let us abbreviate p = pk . Then we have
+                        pdψp1 = d log(1 + px−p δp x)
+                            d(1 + px−p δp x)
+                              =
+                              1 + px−p δp x
+                            d(1 + px−p δp x) d(xp )    dx
+                         =          −p
+                                             +    p
+                                                    −p
+                              1 + px δp x        x      x
+                            d(xp + pδp x)     dx
+                         =                 −p
+                              xp + pδp x      x
+                            dφp (x)      dx
+                         =          −p
+                             φp (x)      x
+                                    dx
+                         = (φ∗p − p) .
+                                     x
+Dividing by p then completes the proof.                                                
+     Let us say that a 1-form ω̃ on some space JnP (Gm ) is invariant if
+                                  µ∗ ω̃ = pr1∗ ω̃ + pr2∗ ω̃,
+where
+                    µ, pr1 , pr2 : JnP (Gm ) × JnP (Gm ) → JnP (Gm )
+are the multiplication and the 2 projections respectively. (This agrees with the
+standard definition of invariance of 1-forms because we are in a situation when our
+group scheme is commutative.)
+Lemma 6.2. The A0 -module consisting of the invariant 1-forms on JnP (Gm ) is free
+with basis {ωr | r ≤ n}. Furthermore, any invariant 1-form on JnP (Gm ) is closed.
+                                                                                  r∗
+Proof. Let us first show each ωr is invariant. By definition, we have ωr = ϕ∗nr φPr (ω).
+And by Proposition 3.2, both ϕnr and φr∗ are group homomorphisms. Since ω is an
+invariant differential on Gm , we have that ωr is an invariant differential on JnP (Gm ).
+   By Proposition 5.4, the set {ωr | r ≤ n} is a basis of the O(JnP (Gm ))-module of
+global 1-forms on JnP (Gm ). In particular, it is A0 -linearly independent. It remains
+to show every invariant differential
+                             P         is in its A0 -linear span. Let ω̃ be an invariant
+differential, and write ω̃ = r≤n ar ωr with ar ∈ O(JnP (Gm )). Since ω̃ and the ωr
+are invariant, each function ar is invariant. Therefore ar ∈ A0 .
+   Finally, since ω is closed, so is each ωr , by (5.4). It then follows from the above
+that every invariant 1-form is closed.                                                
+    Let P ∈ Gm (A0 ) be the origin and let S := JeP (Gm )(A0 ). The canonical lift
+P ∈ S is the origin of JeP (Gm ). Since P is uniform, P e is also uniform. Since
+ e
+
+JeP (Gm ) is a group all points in S are uniform. Here is our main result on Gm :
+Theorem 6.3.
+   1) ω (e) is invariant and hence closed;
+   2) ω (e) is not exact;
+                                     e
+   3) The arithmetic Laplacian ψm       (of (6.3)) is the P-adic primitive of ω (e) nor-
+malized along P , and ψm,0 (of (6.4)) is the P e -adic primitive of ω (e) normalized
+                  e        e
+
+along P e . In particular ω (e) is P-adically exact and S-adically exact.
+   4) If ω̃ is a 1-form on JeP (Gm ) that is invariant and P-adically exact then ω̃ is
+an A0 -multiple of ω (e) .
+                  DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                            19
+
+
+   Proof. Assertion 1) follows from Lemma 6.2 and the definition (6.1) of ω (e) .
+   To prove assertion 2) consider the isomorphism
+                                             Y
+(6.5)                       JeP (Gm ) ⊗ Q −→    Gm/Q .
+                                                            s≤e
+
+induced by κ≤e of (3.10). Under this map, ωs corresponds to the differential
+P−s pr∗s (ω) on the right-hand side. In particular, if i denotes the inclusion of Gm
+into the factor s = 0 (and 1 on all other factors), then i∗ applied to the differential
+corresponding to ω (e) is ω, which is not exact. And so ω (e) cannot be exact.
+   To prove the first assertion in 3), we must prove, first, that if fk is as in (6.2),
+then we have dfk = ω (e) for all k = 1, . . . , d and, second, that dψm,0
+                                                                      e
+                                                                          = ω (e) . By
+Lemma 6.1, we have
+                                Y                     !
+                                   d 
+                                            φ∗pl  1
+                       dfk = d         1−           ψpk
+                                  l=1
+                                             pl
+                                           l6=k
+                                Y                     
+                                 d 
+                                                 φ∗pl 
+                            =                 1−         dψp1k
+                                  l=1
+                                                 pl
+                                 l6=k
+                                 Y                        
+                                  d 
+                                                     φ∗pl      φ∗p 
+                            =−                    1−         · 1− k ω
+                                       l=1
+                                                     pl          pk
+                                       l6=k
+                                 Y                           
+                                  d 
+                                                       φ∗pl 
+                            =−                    1−           ω
+                                                       pl
+                                       l=1
+                                 (e)
+                            =ω         .
+                        e
+   The statement about ψm,0 follows in the same way. To prove the second assertion
+in 3) we use the translation by points in S to reduce to the case of the origin.
+   To prove assertion 4) embed
+                                   Ak := O(JeP (Gm ))pck
+into
+                                              r
+                               Bk := Zpk [[δP   T ; r ≤ e]]
+for each k. By hypothesis ω̃ = dgk , with gk ∈ Ak for all k. We may assume that
+the gk , viewed as elements of Bk , have no constant term. Since ω̃ is defined over A0
+                                                  r
+it follows that each gk belongs to B0 := Q[[δP      T ; r ≤ e]] and that the gk are equal
+to some g0 ∈ B0 . So g0 ∈ A0 [[δP T ; r ≤ e]]. Since µ∗ ω̃ = pr1∗ ω̃ + pr2∗ ω̃ and g0 has no
+                                r
+
+constant term, it follows that
+(6.6)                             µ∗ g0 = pr1∗ g0 + pr2∗ g0 ,
+where
+               µ∗ , pr1∗ , pr2∗ : A0 [[δP
+                                        r                     r
+                                          T ; r ≤ e]] → A0 [[δP        r
+                                                                T 1 , δP T2 ; r ≤ e]]
+in (6.6) are induced by the formal group law and the 2 projections respectively. We
+conclude that the tuple (gk ) is a δP -character on Gm in the sense of Definition 2.33
+in [9]. Since the order of (gk ) is e, which is also the order of (fk ), Theorem 3.4 in
+[9] implies there exists ρ ∈ A0 such that gk = ρ · fk . Hence ω̃ = ρ · ω (e) and we are
+done.                                                                                 
+20                       JAMES BORGER AND ALEXANDRU BUIUM
+
+                                                           V
+  Consider next, for any multi-index n, the volume form r≤n ωr on JnP (Gm ). (See
+Corollary 5.5.) It will be referred to as the canonical volume form on JnP (Gm ).
+Corollary 6.4. If n ≥ e, the canonical volume form on JnP (Gm ) is P-adically exact
+and S-adically exact but not exact.
+                          V                   V          
+   Proof. Indeed we have r≤n ωr = ω (e) ∧       06=r≤n ωr , which is P-adically exact
+and S-adically exact because ω (e) is P-adically exact and S-adically exact, by The-
+orem 6.3. Assume now that the canonical volume form on JnP (Gm ) is exact and let
+us derive a contradiction. Using the isomorphism (6.5) we deduce that the form
+                                            dx1         dxN
+                                      ν=        ∧ ··· ∧
+                                             x1          xN
+                     ±          ±
+on GNm/Q = Spec Q[x1 , . . . , xN ] (where N is the number of elements r that are ≤ n)
+is exact. So ν = dη,
+                              N
+                              X                     d
+                                         dx1        dxi        dxN
+                         η=         fi       ∧ ···∧     ∧··· ∧     ,
+                              i=1
+                                         x1          xi        xN
+
+fi ∈ Q[x±            ±
+        1 , . . . , xN ]. Hence
+                                      N
+                                      X                ∂fi
+                                            (−1)i xi       = 1.
+                                      i=1
+                                                       ∂xi
+                                                                  ∂fi
+But this is impossible because none of the Laurent polynomials xi ∂x i
+                                                                       has a constant
+term.                                                                              
+Remark 6.5. We expect that if n 6≥ e then the canonical volume form on JnP (Gm )
+is not P-adically exact. In any case this form is not exact (cf. the proof above that
+applies to any N ).
+                                              d
+Corollary 6.6. Consider the derivation ∂ = x dx : O(Gm ) → O(Gm ) and let ∂r be
+the r-conjugates of ∂. Then
+                                ∂r fk = (−1)|r|
+for all k = 1, . . . , d and r ≤ e.
+     Proof. By assertion 3) in Theorem 6.3 and Remark 5.9 we have
+                       X                            X
+                          (−1)|r|ωr = ω (e) = dfk =   (∂r fk )ωr .
+                       r≤n                                     r≤n
+
+By Proposition 5.4, the ωr form a basis. Thus ∂r fk = (−1)|r| .                     
+Remark 6.7. Using arguments from [9] it is easy to show that the 1-form ω (e) on
+JeP (Gm ) typically has non-zero periods. Indeed consider the cycle
+                                  Γ = (P1e , P2e , P3e , P4e , P1e )
+on JeP (Gm ), where Pje ∈ JeP (Gm )(A0 ) ⊂ JeP (Gm )(Zpkj ) are the canonical lifts of
+Pj ∈ Gm (A0 ), k1 = k2 6= k3 = k4 , P2 and P3 are induced by the identity section
+P23 = 1 ∈ Gm (A0 ) = A×                                                         ×
+                         0 , and P1 and P4 are induced by a section P14 ∈ A0 . If
+P14 = ±1, then                      Z
+                                                  ω (e) = 0.
+                                              Γ
+                    DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                          21
+
+
+Indeed, each of the pkj -adic primitives fkj for ω (e) gives a group homomorphism
+JeP (Gm )(Zpkj ) → Ga (Zpkj ). But the target is torsion free, and P14e
+                                                                        is a torsion
+                          e
+point. So we have fkj (P14 ) = 0.
+    However, if P14 6= ±1, we have that
+                         Z
+                                          e            e
+                            ω (e) = fk1 (P14 ) − fk4 (P14 ) 6= 0.
+                             Γ
+                                                                         e
+This follows from [9], proof of Theorem 3.4. (The argument is that fk1 (P14 ) is a non-
+zero rational number times the pk1 -adic logarithm of an element in 1+pk1 Zpk1 \{1};
+but the latter logarithm is not in Q by Mahler’s p-adic analogue [12, 1] of the
+Hermite-Lindeman theorem.)
+
+                                     7. Elliptic curves
+  Again we let A0 = S −1 Z where S is the multiplicative system of all integers
+coprime to p1 , . . . , pd . Assume all primes in P are ≥ 5. Consider an elliptic curve
+over A0 ,
+             E := Ea,b := Proj A0 [x0 , x1 , x2 ]/(x0 x22 − x31 − ax1 x20 − bx30 ),
+with a, b ∈ A0 and −4a3 − 27b2 ∈ A×               dx    0               x1       x2
+                                     0 . Let ω = y ∈ H (E, ΩE ), x := x0 , y := x0 ,
+      x
+T = 2y . Let X ⊂ E be the affine open set where x2 is invertible. The origin
+P = [0, 0, 1] is uniform with uniform coordinate T . We continue to denote by ω
+the image of ω in H 0 (X, ΩX ). Clearly ω is closed but not exact on X; indeed any
+non-zero exact form on X must have a pole in E \ X. Let apk be the trace of
+Frobenius on E ⊗ Fpk . (So E has 1 − apk + pk points with coordinates in Fpk .) Also
+we extend this definition by setting
+                                         am := aip11 · · · aipdd
+for m = pi11 · · · pidd |p1 · · · pd , ij ∈ {0, 1}. Consider the form
+                           d 
+                                                          !
+                          Y                φ∗pl     φ∗p2                           
+            (2e)
+         ω         :=              1 − apl      + pl 2 l
+                                                            ω ∈ H 0 J2e
+                                                                     P (X), ΩJ2e (X) .
+                                            pl       pl                       P
+                       l=1
+
+One can write                                X
+                             ω (2e) =                  µ(m′ )m′′ am′ ω[m] ,
+                                        m|p21 ···p2d
+                ′   ′′ 2         ′      ′′
+where m = m (m ) with m , m square free and coprime; µ is the Moebius func-
+tion; and ω[m] is as in (5.2). It follows from [8], Theorem 7.22 and Corollary 7.28,
+plus [7] Theorem 1.10, that there exist elements
+                                         ψp2k ∈ O(Jp2k (E))
+(where Jp2k (E) denotes the formal scheme defined in Remark 3.3) such that ψp2k
+vanish at 0 and
+                                        ∗       ∗ 2 !
+                                      φ p       φpk
+(7.1)                 dψp2k = 1 − apk k + pk            ω.
+                                       pk        pk
+
+Clearly ψp2k are unique with the above properties. We continue to denote by ψp2k
+the image of this element in O(Jp2k (X)) = O(J2e    c
+                                                    p
+                                              P (X) ). (N.B. The superscript 2
+                                                k    k
+22                      JAMES BORGER AND ALEXANDRU BUIUM
+
+
+in ψp2k is not an exponent; it merely indicates that the order of that element is 2.)
+Following [9] consider the elements
+                                                
+                       Yd                      
+                                  φp      φp2                    c
+               fk :=       1 − apl l + pl 2l  ψp2k ∈ O(J2e       p
+                                                             P (X) ).
+                                                                    k
+
+                       l=1
+                                   p l      p l
+                       l6=k
+
+The vector
+                                   2e
+(7.2)                             ψE  := (f1 , . . . , fd )
+
+is the (restriction to X of the) arithmetic Laplacian of E introduced in [9]. Moreover
+we may consider
+                     " d
+                       Y                          2 !#
+              2e                    φpl        φpl                     i
+(7.3)       ψE,0 :=         1 − apl     + pl             lE (T ) ∈ Q[[δP T ; i ≤ 2e]],
+                                    pl         pl
+                      l=1
+
+where lE (T ) ∈ Q[[T ]] is the logarithm of the formal group of E. By [9], proof of
+Theorem 3.7, we have
+                                2e          i
+                               ψE,0 ∈ A0 [[δP T ; i ≤ 2e]].
+     Let µ : E × E → E be the multiplication map and let
+
+                        X (2) := (X × X) ∩ µ−1 (X) ⊂ E × E.
+
+Let us say that a 1-form ω̃ on some space JnP (X) is invariant if
+
+                                  µ∗ ω̃ = π1∗ ω̃ + π2∗ ω̃,
+
+where µ, π1 , π2 : JnP (X (2) ) → JnP (X) come from the multiplication and the 2 pro-
+jections. (Again this agrees with the standard definition of invariance of 1-forms
+because we are in a commutative situation.)
+
+Lemma 7.1. The A0 -module consisting of the invariant 1-forms on JnP (X) is free
+with basis {ωr | r ≤ n}. Furthermore, any invariant 1-form on JnP (X) is closed.
+
+Proof. Exactly as in the case of Gm .                                                   
+
+   Since the origin P = [0, 0, 1] ∈ X(A0 ) is uniform so is its canonical lift P 2e ∈
+JP (X)(A0 ); cf. section 3. Let S = J2e
+ 2e                                                     2e
+                                     P (X)(A0 ). Since JP (X) is a group all points
+in S are uniform.
+
+Theorem 7.2.
+   1) ω (2e) is invariant and hence closed;
+   2) ω (2e) is not exact;
+                                     2e
+   3) The arithmetic Laplacian ψE       (of (7.2)) is the P-adic primitive of ω (2e) nor-
+malized along P and ψE,0 (of (7.3)) is the P 2e -adic primitive of ω (2e) normalized
+                  2e       2e
+
+along P 2e . In particular ω (2e) is P-adically exact and S-adically exact.
+   4) Assume E has ordinary reduction at all the primes in P and ω̃ is a 1-form on
+                                                                                    (2e)
+J2e
+ P (X) that is invariant and P-adically exact. Then ω̃ is an A0 -multiple of ω           .
+
+     Proof. Assertions 1) and 2) follow exactly as in Theorem 6.3.
+                       DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                      23
+
+
+   To prove assertion 3) we must prove, as in the case of Gm , that dfk = ω (2e) for
+                           2e
+all k = 1, . . . , d and dψE,0 = ω (2e) . By (7.1) we have
+                                                          
+                      Yd                         2 !
+                               φp          φpl        1 
+      dfk = d           1 − apl l + pl                ψpk 
+                      l=1
+                                 p l          p l
+                        l6=k
+                                      
+           Yd          ∗       ∗ 2 !
+                     φp       φpl      1
+        =     1 − apl l + pl           dψpk
+           l=1
+                      p l       p l
+                l6=k
+                                                                                                  
+            d                  ∗ 2                   !                                      2 !
+         Y           φ∗p      φpl                                        φ∗p           φ∗pk       
+        =     1 − apl l + pl                              ·       1 − apk k + pk                  ω
+           l=1
+                      pl        pl                                        pk            pk
+                l6=k
+             d
+             Y                                      2 !!
+                                φ∗p           φ∗pl
+        =                1 − apl l + pl                        ω
+                                pl            pl
+             l=1
+             (2e)
+        =ω          .
+                                                            2e
+   A similar computation proves the statement about ψE,0       .
+   To prove assertion 4) we proceed exactly as in the proof of assertion 4) in The-
+orem 6.3; instead of Theorem 3.4 in [9] we need to use Theorem 3.8 in [9] in
+conjunction with Lemma 7.33 in [8].                                                 
+                                                               V
+   Consider next, for any multi-index n, the volume form r≤n ωr on JnP (X). (See
+Corollary 5.5.) It will be referred to as the canonical volume form on JnP (Gm ). Also
+let S = JnP (X)(A0 ).
+Corollary 7.3. If n ≥ 2e the canonical volume form on JnP (X) is P-adically exact
+and S-adically exact but not exact.
+   Proof. The same argument as for Gm . To prove non-exactness it is enough
+to prove, as in the case of Gm , that if we view E and X as schemes over Q and
+ν ∈ H 0 (E N , ΩN        N    N
+                E N ) ⊂ HDR (E ) is a volume form (where N ≥ 1 is an integer) then
+the image of ν via the restriction map
+                                    N
+                                   HDR (E N ) → HDR
+                                                 N
+                                                    (X N )
+                                  1                   1
+is non-zero. But ν lies in the HDR   (E) ⊗ · · · ⊗ HDR  (E) Künneth summand of
+   N    N                          N     N                1                 1
+HDR (E ) so the image of ν in HDR (X ) lies in the HDR       (X) ⊗ · · · ⊗ HDR (X)
+                        N     N
+Künneth summand of HDR (X ). So we are reduced to show that the restriction
+       1          1
+map HDR   (E) → HDR  (X) is injective, which is true.                            
+Remark 7.4. We expect that if n 6≥ 2e then no invariant volume form on JnP (X)
+is P-adically exact. In any case no such form is exact (cf. the proof above that
+applies to any N ).
+Remark 7.5. Let S be an abelian scheme or a K3 surface over A0 and let X ⊂ S be
+an affine open set. It is natural to ask if the canonical volume forms (cf. Remark
+5.7) on the various jet spaces JnP (X) are P-adically exact. We are not able to treat
+this question in general. Note however that by Theorem 7.2 the answer to this
+question is positive for abelian schemes of the form S = E1 × · · · × Em with Ej
+24                      JAMES BORGER AND ALEXANDRU BUIUM
+
+
+elliptic curves as in this section and X = X1 × · · · × Xm with Xj ⊂ Ej affine open
+sets. A special case of K3 surfaces will be treated in the next section.
+                                                    ∂
+Corollary 7.6. Consider the derivation ∂ = y ∂x         : O(X) → O(X) and let ∂r be the
+r-conjugates of ∂. Then
+                                    ∂r fk = µ(m′ )m′′ am′
+for all k = 1, . . . , d and r ≤ 2e, m = Pr .
+  Proof. As in the Corollary 6.6, this follows from assertion 3) in Theorem 7.2 and
+Remark 5.9.                                                                       
+Remark 7.7. As in the case of Gm , using arguments from [9], it is easy to show
+that the 1-form ω (2e) on J2e
+                           P (X) typically has non-zero periods. Indeed consider the
+cycle
+                            Γ = (P12e , P22e , P32e , P42e , P12e )
+on JP (X), where Pj ∈ J2e
+     2e                2e                        2e
+                              P (X)(A0 ) ⊂ JP (X)(Zpkj ) are the canonical lifts of
+Pj ∈ X(A0 ), k1 = k2 6= k3 = k4 , P2 and P3 are induced by the identity section of
+E(A0 ) and P1 and P4 are induced by a section P14 ∈ X(A0 ). As with Gm , if P14
+is torsion then                     Z
+                                         ω (2e) = 0.
+                                       Γ
+However, if P14 is non-torsion, we have that
+                        Z
+                                          2e           2e
+                           ω (2e) = fk1 (P14 ) − fk4 (P14 ) 6= 0.
+                           Γ
+                                                                                  2e
+This follows from the proof of Theorem 3.8 in [9]. (The argument is that fk1 (P14    )
+is a non-zero rational number times the pk1 -adic elliptic logarithm of an element in
+pk1 Zpk1 \ {0}; but the latter logarithm is not in Q by Bertrand’s p-adic analogue
+[1] of the Hermite-Lindeman theorem.)
+
+                                    8. K3 surfaces
+    In this section we consider our theory for a special class of K3 surfaces, namely for
+Kummer surfaces attached to products of two elliptic curves over Q. For simplicity
+we will only discuss P-adic exactness; an analysis of S-adic exactness can be done
+but requires a slight generalization of the discussion in the previous section (in
+which sections are replaced by multisections) so it will be omitted here.
+    Again we let A0 = S −1 Z where S is the multiplicative system of all integers
+coprime to p1 , . . . , pd and assume that all primes in P are ≥ 5. Consider two
+elliptic curves E = Ea,b and Ẽ = Ẽã,b̃ over A0 , as in the previous section, defined
+by cubics with coefficients a, b ∈ A0 and ã, b̃ ∈ A0 respectively. Denote by ω and ω̃
+the corresponding 1-forms on E and Ẽ and denote by apk and ãpk the corresponding
+traces of Frobenius. For each k = 1, . . . , d we have at our disposal the functions
+ψp2k ∈ O(Jp2k (E)) and ψ̃p2k ∈ O(Jp2k (Ẽ)) respectively. Consider the abelian scheme
+A = E × Ẽ. We view ω and ω̃ as 1-forms on A via pull-back. Then α := ω ∧ ω̃
+is a volume form on A. We also view ψp2k and ψ̃p2k as elements of O(Jp2 (A)) via
+pull-back.
+    Let T ⊂ E and T̃ ⊂ Ẽ be the kernels of [2] (the multiplication by 2) on E and Ẽ
+respectively and assume that T and T̃ are unions of sections of our elliptic curves
+over A0 (in other words we assume that the cubics x3 + ax + b and x̃3 + ãx̃ + b̃ have
+                  DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                         25
+
+
+all their roots in A0 ). Let S = Km(A) be the Kummer surface attached to A, i.e.,
+S = B/i where B is the blow up of A at T × T̃ and i : B → B is the involution
+lifting of the multiplication by −1, [−1] : A → A. We have a diagram
+                                             ǫ       π
+                                       A ←− B −→ S.
+Recall that
+                                                            16
+                                                            [
+                                 π(ǫ−1 (T × T̃ )) =              Lj
+                                                         j=1
+
+where Lj are P1 s on S with self-intersection −2. Let σ be the volume form on S
+normalized such that π ∗ σ = ǫ∗ α on B.
+   Let U ⊂ A be an affine open set that is symmetric (i.e. [−1]U = U ) and disjoint
+from T × T̃ . Moreover let Y = ǫ−1 (U ) and X = Y /i. So we have a diagram
+                                             ǫ       π
+                                       U ←− Y −→ X
+where the first map is an isomorphism and the second is a finite étale Galois cover
+with group hii.                                                         V
+    For any multi-index n ∈ Zd≥0 consider the canonical volume form r≤n σr on
+JnP (X).
+Theorem 8.1. Let n ≥ 2e. Then the canonical volume form on JnP (X) is P-adically
+exact. Moreover if U = (E \ T ) × (Ẽ \ T̃ ), then the canonical volume form on JnP (X)
+is not exact.
+
+   In order to prove our Theorem we need to introduce certain 1-forms. Indeed, for
+each k = 1, . . . , d consider the 1-form
+(8.1)                             ηk := ψp2k ω̃0 = ψp2k ω̃
+on Jp2k (A) and hence on Jp2k (U ). Note that
+(8.2)         dηk = dψp2k ∧ ω̃0 = ω0 ∧ ω̃0 − apk ωek ∧ ω̃0 + pk ω2ek ∧ ω̃0 .
+Clearly [−1]∗ ψp2k = −ψp2k and [−1]∗ ω̃0 = −ω̃0 on Jp2k (A) so [−1]∗ ηk = ηk and hence
+i∗ (ǫ∗ ηk ) = ǫ∗ ηk on Jp2k (Y ). By Proposition 5.10
+(8.3)                                      ǫ∗ ηk = π ∗ θk
+on Jp2k (Y ) for some 1-form θk on Jp2k (X).
+   Proof of Theorem 8.1. Let us still denote by θk the induced 1-form on JnP (X)pck .
+We claim that
+                   ^                 ^                 ^      
+(8.4)                 σr = dθk ∧         σr = d θk ∧        σr
+                     r≤n               06=r≤n                         06=r≤n
+                                       V
+on JnP (X)pck . This will prove that                                   n
+                                        r≤n σr is P-adically exact on JP (X). The second
+equality in (8.4) is clear because σ is closed and hence each σr is closed. To check
+the first equality in (8.4), it is enough to prove that the left-hand side and the
+right-hand side become equal when pulled back by π, since π is étale. Now on the
+one hand, we have
+             ^          ^            ^            ^              ^ 
+          π∗      σr =        π ∗ σr =   (π ∗ σ)r =   (ǫ∗ α)r = ǫ∗     αr .
+              r≤n          r≤n             r≤n               r≤n               r≤n
+26                     JAMES BORGER AND ALEXANDRU BUIUM
+
+
+Similarly
+                               V                V          
+(8.5)                     π∗    06=r≤n σr   = ǫ ∗
+                                                    06=r≤n αr   .
+On the other hand we have
+             V                                          V             
+  π ∗ dθk ∧     06=r≤n σr    =          d(π ∗ θk ) ∧ π ∗      06=r≤n σr
+
+                                                         V             
+                                    =   d(ǫ∗ ηk ) ∧ ǫ∗      06=r≤n αr         by (8.5)
+                                                V                     
+                                    =   ǫ∗ dηk ∧   06=r≤n (ω r ∧ ω̃ r )
+                                                     V                  
+                                    =   ǫ∗ ω0 ∧ ω̃0 ∧  06=r≤n (ωr ∧ ω̃r )     by (8.2)
+                                             V       
+                                    =   ǫ∗     r≤n αr   ,
+which ends the proof of the P-adic exactness assertion in the Theorem. To proveV the
+second assertion of the Theorem, let us assume for a contradiction that r≤n σr
+                                                          V
+is exact on JnP (X). Pulling back by π, we get that r≤n αr is exact on JnP (U ).
+Tensoring with Q, we get that the volume form on E N × Ẽ N over Q restricted to
+(E \ T )N × (Ẽ \ T̃ )N is exact for some N . But this cannot be the case, by the same
+argument as in the proof of Theorem 7.2.                                             
+
+   Of course the affine scheme X ⊂ S we have been considering is disjoint from the
+       S16
+union j=1 Lj of the 16 lines on S. On the other hand we expect that if X ′ ⊂ S
+                                        S16                               V
+is an affine open set which intersects j=1 Lj , then the volume form r≤2e σr on
+      ′
+J2e
+  P (X ) is not P-adically exact. We can only prove a partial result in this direction;
+see Theorem 8.2 below.
+   By the way each 1-form θk extends to a 1-form on
+                                                 
+                                            16
+                                            [
+                                  Jp2k S \    Lj 
+                                                  j=1
+                    S16
+simply because S \ j=1 Lj can be covered by open subsets X of the type we have
+been considering. Now if the 1-forms θk could be extended to 1-forms on the whole
+of Jp2k (S) then it would follow (as in the proof of Theorem 8.1) that the canonical
+volume form on J2e       ′                                               ′
+                    P (X ) is P-adically closed for any affine open set X ⊂ S. As
+mentioned above we do not expect this to be true. And indeed the extension
+property for θk does not hold, as shown by the following Theorem. Let us fix k in
+{1, . . . , d}
+                                            S16     
+Theorem 8.2. The 1-form θk on Jp2k S \ j=1 Lj cannot be extended to a 1-form
+on the whole of Jp2k (S).
+  Proof. Let us write write p = pk , ψp2 = ψp2k , η = ηk , θ = θk (cf. (8.3)), etc.
+Assume θ can be extended to a 1-form on Jp2 (S). Let z = x/y z̃ = x̃/ỹ. Then the
+completion of A along the origin has ring (of global sections) A0 [[z, z̃]]. There is a
+point P on B, lying above the origin of A such that the completion of B along P
+                        DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                                                          27
+
+
+has ring A0 [[z, v]] where z̃ = zv. Then the completion of S along the image of P
+has ring A0 [[u, v]], with u = z 2 . Note that there is a natural identification
+                                                                                                 2       2
+                        Qp [[z, z̃, z ′ , z̃ ′ , z ′′ , z̃ ′′ ]] = Qp [[z, z̃, z φ , z̃ φ , z φ , z̃ φ ]],
+                                                                                                     2
+where z ′ = δp z, z ′′ = δp2 z, etc., and z φ = φp (z) = z p + pz ′ , z φ = φ2p (z), etc. So we
+have natural inclusions
+                          2      2                                           2           2                           2   2
+ Qp [[z, z̃, z φ , z̃ φ , z φ , z̃ φ ]] → Qp [[z, v, z φ , v φ , z φ , v φ ]] ← Qp [[u, v, uφ , v φ , uφ , v φ ]].
+     P
+Let n≥1 cn z n be the logarithm of the formal group of E with respect to z and let
+P            n
+  n≥1 c̃n z̃ be defined similarly. (So c1 = c̃1 = 1.) Then
+                                            1                          X
+                                       ψp2 = (φ2 − ap φ + p)(              cn z n )
+                                            p
+                    2
+in Qp [[z, z φ , z φ ]] and similarly for ψ̃p2 . So we have
+                X                                                  X                
+                            n  ap X                 1X        φ2 n
+(8.6) η =               cn z −              φ n
+                                       cn (z ) +         cn (z )    ×   nc̃n z̃ n−1 dz̃ .
+                               p                    p
+Since we assumed that θ extends to Jp2 (S) it follows that there exist series
+                                                                                             2       2
+                          f0 , f1 , f2 , g0 , g1 , g2 ∈ Qp [[u, v, uφ , v φ , uφ , v φ ]]
+such that
+                                                                   2                                         2
+(8.7)               η = f0 du + f1 duφ + f2 duφ + g0 dv + g1 dv φ + g2 dv φ .
+Replacing z̃ by zv in (8.6) and u by z 2 in (8.7), expressing η as a linear combination
+of                                            2                 2
+                               dz, dz φ , dz φ , dv, dv φ , dv φ ,
+and picking out the coefficient of dz we get
+   X                                                    X                     
+                 ap X                1X              2
+        cn z n −        cn (z φ )n +          cn (z φ )n ×         nc̃n z n−1 v n = f0 × 2z
+                 p                   p
+                                              2       2                                                          2
+of series in Qp [[z, v, z φ , v φ , z φ , v φ ]]. Picking out the coefficient of z φ v we get
+1
+p = 0, a contradiction.                                                                    
+Remark 8.3. Note that the form θk is just one of six 1-forms
+(8.8)                                             θk , θk′ , θk′′ , θ̃k , θ̃k′ , θ̃k′′
+on Jp2k (X) that one could consider and that could be used in the proof of Theorem
+8.1 in the same way in which θk was used. These six 1-forms are the unique 1-forms
+on Jp2k (X) such that
+                 π ∗ θk = ǫ∗ (ψp2k ω̃0 ), π ∗ θk′ = ǫ∗ (ψp2k ω̃ek ), π ∗ θk′′ = ǫ∗ (ψp2k ω̃2ek ),
+(8.9)
+             π ∗ θ˜k = ǫ∗ (ψ̃p2k ω0 ), π ∗ θ̃k′ = ǫ∗ (ψ̃p2k ωek ), π ∗ θ̃k′′ = ǫ∗ (ψ̃p2k ω2ek ).
+                                              S
+They can all be extended to Jp2k (S \ 16        j=1 Lj ). On the other hand, as before, none
+                                     2
+of them can be extended to Jpk (S).
+   It would be interesting to know if the spaces JnP (X) (where X is as above) possess
+non-zero 2-forms that are P-adically exact. For instance one can ask the following
+question: is there a non-trivial A0 -linear combination of the σr s (with r ≤ 2e) on
+J2e
+ P (X) which is P-adically exact? The answer to the latter question is yes in case E
+and Ẽ have supersingular reduction at all the primes in P; see Theorem 8.4 below.
+28                       JAMES BORGER AND ALEXANDRU BUIUM
+
+
+But we expect that the answer to this question is no in case E and Ẽ have ordinary
+reduction at the primes in P. Again, see the comments below.
+    Indeed it is a trivial exercise in linear algebra to show that if E and Ẽ have ordi-
+nary reduction at pk (hence apk 6= 0, ãpk 6= 0) then no non-zero 2-form on JP2ek (X)
+that is a A0 -linear combination of σ0 , σek , σek can be a Zpk -linear combination of
+the forms
+                                 dθk , dθk′ , dθk′′ , dθ̃k , dθ̃k′ , dθ̃k′′
+on Jp2k (X).
+    On the other hand, if E and Ẽ have supersingular reduction at pk (hence apk =
+ãpk = 0), then
+                                        1
+(8.10)                σ0 − p2k σ2ek = (dθk − pk dθk′′ − dθ̃k + pk dθ̃k′′ ).
+                                        2
+This can be checked by a straight-forward computation using (7.1) and the defining
+formulas (8.9).
+     In the next Theorem we consider the 2-form
+                            Y
+                             d 
+                                   φ∗2        X
+                                     pk
+                  σ (2e)
+                         :=      1− 2     σ=                        µ(m)m2 σ[m]
+                                    pk
+                               k=1                     m|p1 ···pd
+
+on J2e
+    P (X), where µ is the Moebius function and σ[m] are defined as in (5.2).
+
+Theorem 8.4. Assume E and Ẽ have supersingular reduction at all primes in P.
+Then the 2-form σ (2e) on J2e  P (X) is P-adically exact. Moreover if U = (E \ T ) ×
+(Ẽ \ T̃ ) this 2-form is not exact.
+   Proof. Exactly as in the proof of Theorems 6.3 and 7.2, using (8.10), one shows
+that σ (2e) = dβl for each l = 1, . . . , d, where βl are the 1-forms
+                                               
+                             d
+                                              !
+                       1 Y                ∗2
+                                         φp 
+                 βl :=          1 − 2k  (θk − pk θk′′ − θ̃k + pk θ̃k′′ )
+                       2 k=1              pk
+                              k6=l
+          pbl
+on J2e
+     P (X)    and P-adic exactness follows. Non-exactness follows as in Theorem
+8.1.                                                                          
+
+                                         References
+ 1. D. Bertrand, Sousgroupes à un paramètre p-adiques de variétés de groupes, Invent. Math. 40
+    (1977), pp. 171-193.
+ 2. Borger, J., Λ-rings and the field with one element, arXiv:math/0906.3146
+ 3. Borger, J., The basic geometry of Witt vectors, arXiv:math/0801.1691.
+ 4. Borger, J., Wieland, B., Plethystic algebra, Adv. Math. 194 (2005), 2, pp. 246-283.
+ 5. Bost, J-B, Chambert-Loir, A., Analytic curves in algebraic varieties over number fields,
+    arxiv:math/0702593v3, 2 Oct 2008.
+ 6. Buium, A.: Differential characters of Abelian varieties over p−adic fields, Invent. Math. 122,
+    309-340 (1995).
+ 7. Buium, A.: Differential characters and characteristic polynomial of Frobenius, J. reine angew.
+    Math. 485 (1997), 209-219.
+ 8. Buium, A.: Arithmetic Differential Equations. Math. Surveys and Monographs 118, AMS
+    (2005)
+ 9. Buium, A., Simanca, S.R.: Arithmetic Laplacians, Advances in Math. 220 (2009), pp. 246-277.
+10. Deligne, P., Illusie, L.: Revetements modulo p2 et décomposition de complexe de deRham,
+    Inventiones Math.98 (1987), 247-270.
+                  DIFFERENTIAL FORMS ON ARITHMETIC JET SPACES                             29
+
+
+11. Hironaka, H., Matsumura, H., Formal functions and formal embeddings, J. Math. Soc. Japan
+    20 (1968), 52-82.
+12. K. Mahler, Ein Beweis der Transzendenz der p-adische Exponenzialfunkzion, J. reine angew.
+    Math. 169 (1932), pp. 61-66.
+13. P. Vojta, Jets via Hasse-Schmidt derivations, in: Diophantine geometry, pp. 335-361, CRM
+    Series, 4, U. Zannier Ed., Sc. Norm., Pisa, 2007.
+
+   The Australian National University, Canberra, ACT 0200, Australia
+   E-mail address: james.borger@anu.edu.au
+
+   University of New Mexico, Albuquerque, NM 87131, USA
+   E-mail address: buium@math.unm.edu
+

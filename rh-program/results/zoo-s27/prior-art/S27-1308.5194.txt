@@ -1,0 +1,1765 @@
+                                                      DIFFERENTIAL CALCULUS WITH INTEGERS
+
+
+
+
+arXiv:1308.5194v1 [math.NT] 23 Aug 2013
+                                                                            ALEXANDRU BUIUM
+
+
+
+
+                                                             University of New Mexico, Albuquerque, USA
+
+                                                  Abstract. Ordinary differential equations have an arithmetic analogue in
+                                                  which functions are replaced by numbers and the derivation operator is re-
+                                                  placed by a Fermat quotient operator. In this survey we explain the main
+                                                  motivations, constructions, results, applications, and open problems of the
+                                                  theory.
+
+
+
+                                             The main purpose of these notes is to show how one can develop an arithmetic
+                                          analogue of differential calculus in which differentiable functions x(t) are replaced
+                                          by integer numbers n and the derivation operator x 7→ dx   dt is replaced by the Fer-
+                                                                              p
+                                          mat quotient operator n 7→ n−n    p   , where p is a prime  integer. The Lie-Cartan
+                                          geometric theory of differential equations (in which solutions are smooth maps) is
+                                          then replaced by a theory of “arithmetic differential equations” (in which solutions
+                                          are integral points of algebraic varieties). In particular the differential invariants
+                                          of groups in the Lie-Cartan theory are replaced by “arithmetic differential invari-
+                                          ants” of correspondences between algebraic varieties. A number of applications to
+                                          diophantine geometry over number fields and to classical modular forms will be
+                                          explained.
+                                             This program was initiated in [11] and pursued, in particular, in [12]-[35]; for
+                                          an exposition of some of these ideas we refer to the monograph [16]. We shall
+                                          restrict ourselves here to the ordinary differential case. For the partial differential
+                                          case we refer to [20, 21, 22, 7]. Throughout these notes we assume familiarity with
+                                          the basic concepts of algebraic geometry and differential geometry; some of the
+                                          standard material is being reviewed, however, for the sake of introducing notation,
+                                          and “setting the stage”. The notes are organized as follows. The first section
+                                          presents some classical background, the main concepts of the theory, a discussion
+                                          of the main motivations, and a comparison with other theories. The second section
+                                          presents a sample of the main results. The third section presents a list of open
+                                          problems.
+                                             Acknowledgement. The author is indebted to HIM for support during part of
+                                          the semester on Algebra and Geometry in Spring 2013. These notes are partially
+                                          based on lectures given at the IHES in Fall 2011 and MPI in Summer 2012 when
+                                          the author was partially supported by IHES and MPI respectively. Partial support
+                                          was also received from the NSF through grant DMS 0852591.
+
+                                                                            1. Main concepts
+                                          1.1. Classical analogies. The analogies between functions and numbers have
+                                          played a key role in the development of modern number theory. Here are some
+                                                                                      1
+2                                ALEXANDRU BUIUM
+
+
+classical analogies. All facts in this subsection are well known and entirely classical;
+we review them only in order to introduce notation and put things in perspective.
+1.1.1. Polynomial functions. The ring C[t] of polynomial functions with complex
+coefficients is analogous to the ring Z of integers. The field of rational functions
+C(t) is then analogous to the field of rational numbers Q. In C[t] any non-constant
+polynomial is a product of linear factors. In Z any integer different from 0, ±1 is
+up to a sign a product of prime numbers. To summarize
+                                     C ⊂ C[t] ⊂ C(t)
+are analogous to
+                                     {0, ±1} ⊂ Z ⊂ Q
+1.1.2. Regular functions. More generally rings O(T ) of regular functions on complex
+algebraic affine non-singular curves T are analogous to rings of integers OF in
+number fields F . Hence curves T themselves are analogous to schemes Spec OF .
+Compactifications
+        T ⊂ T = T ∪ {∞1 , ..., ∞n } ≃ (compact Riemann surface of genus g)
+are analogous to “compactifications”
+                                                              Hom(F, C)
+                   Spec OF ⊂ Spec OF = (Spec OF ) ∪
+                                                              conjugation
+1.1.3. Formal functions. The inclusions
+                                 C ⊂ C[[t]] ⊂ C((t))
+(where C[[t]] is the ring of power series and C((t)) is the ring of Laurent series) are
+analogous to the inclusion
+                      {0} ∪ µp−1 = {c ∈ Zp ; cp = c} ⊂ Zp ⊂ Qp
+(where Zp is ring of p-adic integers and Qp = Zp [1/p]). Recall that
+                                          ∞
+                                          X
+                    Zp = lim Z/pn Z = {         ci pi ; ci ∈ {0} ∪ µp−1 }
+                          ←
+                                          n=0
+So {0} ∪ µp−1 plays the role of “constants” in Zp . Sometimes we need more “con-
+stants” and we are led to consider, instead, the inclusions:
+                               [
+                         {0} ∪             d
+                                  µpν −1 ⊂ Z ur ⊂ Zdur [1/p]
+                                             p      p
+                                 ν
+where
+                                                 ∞
+                                                 X                          [
+                         ν
+          d
+          Zur = Z [ζ; ζ p −1 = 1, ν ≥ 1]ˆ = {
+                 p                                     ci pi ; ci ∈ {0} ∪       µpν −1 }.
+           p
+                                                 i=0                        ν
+Here the upper hat on a ring A means its p-adic completion:
+                                     b := lim A/pn A.
+                                     A
+                                           ←
+                                             S
+So in the latter case the monoid {0} ∪ ν µpν −1 should be viewed as the set of
+“constants” of Z d ur ; this is consistent with the “philosophy of the field with one
+                   p
+element” to which we are going to allude later. Let us say that a ring is a local
+p-ring if it is a discrete valuation ring with maximal ideal generated by a prime
+p ∈ Z. Then Zp and Z    dur are local p-rings. Also for any local p-ring R we denote by
+                         p
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                               3
+
+
+k = R/pR the residue field and by K = R[1/p] the fraction field of R. Sometimes we
+will view local p-rings as analogues of rings C{x} of germs of analytic functions on
+Riemann surfaces and even as analogues of rings of global analytic (respectively C ∞
+functions) on a Riemann surface T (respectively on a 1-dimensional real manifold
+T , i.e. on a circle S 1 or R).
+1.1.4. Topology. Fundamental groups of complex curves (more precisely Deck trans-
+formation groups of normal covers T ′ → T of Riemann surfaces) have, as analogues,
+Galois groups G(F ′ /F ) of normal extensions number fields F ⊂ F ′ . The genus of a
+Riemann surface has an analogue for number fields defined in terms of ramification.
+All of this is very classical. There are other, less classical, topological analogies like
+the one between primes in Z and nodes in 3-dimensional real manifolds [60].
+1.1.5. Divisors. The group of divisors
+                                          X
+                            Div(T ) = {          nP P ; nP ∈ Z}
+                                          P ∈T
+
+on a non-singular complex algebraic curve T is analogous to the group of divisors
+                       X
+     Div(Spec OF ) = {    νP P ; νP ∈ Z if P is finite, νP ∈ R if P is infinite}
+
+One can attach divisors to rational functions f on T (Div(f ) is the sum of poles
+minus the sum of zeroes); similarly one can attach divisors to elements f ∈ F . In
+both cases one is lead to a “control” of the spaces of f s that have a “controlled”
+divisor (the Riemann-Roch theorem). One also defines in both settings divisor class
+groups. In the geometric setting the divisor class group of T is an extension of Z
+by the Jacobian
+                        Jac(T ) = Cg /(period lattice of T )
+where g is the genus of T . In the number theoretic setting divisor class groups
+can be interpreted as “Arakelov class groups”; one recaptures, in particular, the
+usual class groups Cl(F ). Exploring usual class groups “in the limit”, when one
+adjoins roots of unity, leads to Iwasawa theory. We will encounter Jacobians later in
+relation, for instance, to the Manin-Mumford conjecture. This conjecture (proved
+by Raynaud) says that if one views T as embedded into Jac(T ) (via the “Abel-
+Jacobi map”) the the intersection of T with the torsion group of Jac(T ) is a finite
+set. This particular conjecture does not seem to have an analogue for numbers.
+1.1.6. Families. Maps
+                                        M →T
+of complex algebraic varieties, complex analytic, or real smooth manifolds, where
+dim T = 1, are analogous to arithmetic schemes i.e. schemes of finite type
+                                     X → Spec R
+where R is either the ring of integers OF in a number field F or a complete local
+p-ring respectively. Note however that in this analogy one “goes arithmetic only
+half way”: indeed for X → Spec R the basis is arithmetic yet the fibers are still
+geometric. One can attempt to “go arithmetic all the way” and find an analogue of
+M → T for which both the base and the fiber are “arithmetic”; in particular one
+would like to have an analogue of T ×T which is “arithmetic” in two directions. This
+is one of the main motivations in the search for F1 , the “field with one element”.
+4                                ALEXANDRU BUIUM
+
+
+1.1.7. Sections. The set of sections
+                         Γ(M/T ) = {s : T → M ; π ◦ σ = 1}
+
+of a map π : M → T is analogous to the set
+                        X(R) = {s : Spec R → X; π ◦ s = 1}
+of R-points of X where π : X → Spec R is the structure morphism. This analogy
+suggests that finiteness conjectures for sets of the form X(R), which one makes in
+Diophantine geometry, should have as analogues finiteness conjectures for sets of
+sections Γ(M/T ). A typical example of this phenomenon is the Mordell conjecture
+(Faltings’ theorem) saying that if X is an algebraic curve of “genus” ≥ 2, defined
+by polynomials with coefficients in a number field F , then the set X(F ) is finite.
+Before the proof of this conjecture Manin [55] proved a parallel finiteness result for
+Γ(M/T ) where M → T is a “non-isotrivial” morphism from an algebraic surface
+to a curve, whose fibers have genus ≥ 2. Manin’s proof involved the consideration
+of differential equations with respect to vector fields on T . Faltings’ proof went
+along completely different lines. This raised the question whether one can develop
+a theory of differential equations in which one can differentiate numbers.
+  All these examples of analogies are classical; cf. work of Dedekind, Hilbert,
+Hensel, Artin, Weil, Lang, Tate, Iwasawa, Grothendieck, and many others.
+
+1.2. Analogies proposed in [11]-[35]. One thing that seems to be missing from
+the classical picture is a counterpart, in number theory, of the differential calcu-
+lus (in particular of differential equations) for functions. Morally the question is
+whether one can meaningfully consider (and successfully use) “arithmetic differen-
+tial equations” satisfied by numbers. In our research on the subject [11] - [35] we
+proposed such a theory based on the following sequence of analogies:
+
+                                                 d
+1.2.1. Derivatives. The derivative operator δt = dt : C[t] → C[t] is analogous to the
+                                                a−ap
+Fermat quotient operator δ = δp : Z → Z, δp a = p . More generally the derivative
+               d
+operator δt = dt  : C ∞ (R) → C ∞ (R) (with t the coordinate on R) is analogous to
+                                                                            p
+the operator δ = δp : R → R on a complete local p-ring R, δp α = φ(α)−α  p    (where
+φ : R → R is a fixed homomorphism lifting the p-power Frobenius map on R/pR).
+The map δ = δp above is, of course, not a derivation but, rather, it satisfies the
+following conditions:
+                     δ(1)     = 0
+                     δ(a + b) = δ(a) + δ(b) + Cp (a, b)
+                     δ(ab)    = ap δ(b) + bp δ(a) + pδ(a)δ(b),
+
+where Cp (x, y) ∈ Z[x, y] is the polynomial Cp (x, y) = p−1 (xp + y p − (x + y)p ). Any
+set theoretic map δ : A → A from a ring A to itself satisfying the above axioms
+will be referred to a p-derivation; such operators were introduced independently in
+[49, 11] and they implicitly arise in the theory of Witt rings. For any such δ, the map
+φ : A → A, φ(a) = ap + pδa is a ring homomorphism lifting the p-power Frobenius
+on A/pA; and vice versa, given a p-torsion free ring A and a ring homomorphism
+                                                                 p
+φ : A → A lifting Frobenius the map δ : A → A, δa = φ(a)−a    p    is a p-derivation.
+                       DIFFERENTIAL CALCULUS WITH INTEGERS                                5
+
+
+1.2.2. Differential equations. Differential equations F (t, x, δt x, ..., δtn x) = 0 (with
+F smooth) satisfied by smooth functions x ∈ C ∞ (R) are replaced by arithmetic
+differential equations F (α, δp α, ..., δpn α) = 0 with F ∈ R[x0 , x1 , ..., xn ]ˆ satisfied
+by numbers α ∈ R. As we shall see it is crucial to allow F to be in the p-adic
+completion of the polynomial ring rather than in the polynomial ring itself; indeed
+if one restricts to polynomial F ’s the main interesting examples of the theory are
+left out.
+1.2.3. Jet spaces. More generally, the Lie-Cartan geometric theory of differential
+equations has an arithmetic analogue which we explain now. Let M → T be a
+submersion of smooth manifolds with dim T = 1, and let
+                       J n (M/T ) = {Jtn (s); s ∈ Γ(M/T ), t ∈ T }
+be the space of n-jets Jtn (s) of smooth sections s of M → T at points t ∈ T . Cf.
+[1, 48, 61] for references to differential geometry. If M = Rd × R, T = R, M → T
+is the second projection, and x = (x1 , ..., xd ), t are global coordinates on Rd and R
+respectively then J n (M/T ) = R(n+1)d × R with jet coordinates x, x′ , ..., x(n) , t. So
+for general M → T the map J n (M/T ) → M is a fiber bundle with fiber Rnd where
+d + 1 = dim(M ). One has the total derivative operator
+                       δt : C ∞ (J n (M/T )) → C ∞ (J n+1 (M/T ))
+which in coordinates is given by
+                                        n X
+                                        X   d
+                                    ∂           (j+1) ∂
+                             δt =     +        xi      (j)
+                                                           .
+                                    ∂t j=0 i=1       ∂x       i
+
+In the arithmetic theory the analogues of the manifolds J n (M/T ) are certain formal
+schemes (called arithmetic jet spaces or p-jet spaces) J n (X) = J n (X/R) defined as
+follows. Assume X is affine, X = Spec R[x]   (f ) with x, f tuples; the construction
+that follows is easily globalized to the non-affine case. Let x′ , ..., x(n) , ... be new
+tuples of variables, consider the polynomial ring R{x} := R[x, x′ , x′′ , ...], let φ :
+R{x} → R{x} be the unique ring homomorphism extending φ on R and sending
+φ(x) = xp + px′ , φ(x′ ) = (x′ )p + px′′ ,..., and let
+                                 δ = δp : R{x} → R{x}
+be the p-derivation
+                                           φ(F ) − F p
+                                    δF =               .
+                                                p
+Then one defines
+                                            R[x, x′ , ..., x(n) ]ˆ
+                            J n (X) = Spf                          .
+                                             (f, δf, ..., δ n f )
+1.2.4. Differential equations on manifolds. Usual differential equations are defined
+geometrically as elements of the ring C ∞ (J n (M/T )); alternatively such elements
+are referred to as (time dependent) Lagrangians on M . Their analogue in the arith-
+metic theory, which we call arithmetic differential equations [16], are the elements
+of the ring On (X) := O(J n (X)). For group schemes the following concept [11]
+plays an important role: if G is a group scheme of finite type over R then we may
+consider the R-module Xn (G) = Homgr (J n (G), G  b a ) ⊂ On (G).
+   Going back to arbitrary schemes of finite type X/R note that δp : R{x} → R{x}
+induces maps δ = δp : On (X) → On+1 (X) which can be viewed as arithmetic
+6                                 ALEXANDRU BUIUM
+
+
+analogues of the total derivative operator δt : C ∞ (J n (M/T )) → C ∞ (J n+1 (M/T )).
+The latter is a “generator” of the Cartan distribution defined by dxi − x′i dt, dx′i −
+x′′i dt, etc. Note however that the forms in differential geometry defining the Cartan
+distribution do not have a direct arithmetic analogue; for one thing there is no form
+“dp” analogous to dt. On the other hand in the arithmetic case we have induced
+ring homomorphisms φ : On (X) → On+1 (X) which have no analogue in differential
+geometry.
+
+1.2.5. Differential functions. Any differential equation F ∈ C ∞ (J n (M/T )) defines
+a natural differential function F∗ : Γ(M/T ) → C ∞ (T ); in coordinates sections s ∈
+Γ(M/T ) correspond to functions x = x(t) and then F∗ sends x(t) into F∗ (x(t)) =
+F (x(t), δt x(t), ..., δtn x(t)). Analogously any arithmetic differential equation f ∈
+O(J n (X)) defines a map of sets f∗ : X(R) → R, referred to as a δ-function, which
+in affine coordinates sends α ∈ X(R) ⊂ RN into f∗ (α) := F (α, δp α, ..., δpn α) ∈ R
+if F ∈ R[x, x′ , ..., x(n) ]ˆ represents f . If X = G is in addition a group scheme and
+ψ ∈ Xn (G) then ψ∗ : G(R) → Ga (R) = R is a group homomorphism called a
+δ-character of G. For X/R smooth and R/pR algebraically closed f is uniquely
+determined by f∗ so one can identify f with f∗ and ψ with ψ∗ .
+
+1.2.6. Prolongations of vector fields. For any vertical vector field
+                                         d
+                                         X                  ∂
+                                 ξ :=          ai (t, x)
+                                         i=1
+                                                           ∂xi
+
+on M/T one can consider the canonical prolongations
+                                      n X
+                                      X d
+                                                                   ∂
+                           ξ (n) :=             (δtj ai (t, x))     (j)
+                                      j=0 i=1                     ∂xi
+on J n (M/T ). The map
+                      ξ (n) : C ∞ (J n (M/T )) → C ∞ (J n (M/T ))
+is the unique R-derivation whose restriction to C ∞ (M ) is ξ and which commutes
+with the total derivative operator δt . The above construction has an arithmetic
+analogue that plays a key technical role in the development of the theory. Indeed
+for any affine smooth X/R and any R-derivation ξ : O(X) → O(X) the canonical
+prolongation
+                         ξ (n) : On (X)[1/p] → On (X)[1/p]
+is defined as the unique K = R[1/p]-derivation whose restriction to O(X) is ξ and
+which commutes with φ. This construction then obviously globalizes.
+
+1.2.7. Infinitesimal symmetries of differential equations. Some Galois theoretic con-
+cepts based on prolongations of vector fields have arithmetic analogues. Indeed
+recall that if L ⊂ C ∞ (J n (M/T )) is a linear subspace of differential equations
+then a vertical vector field ξ on M/T is called an infinitesimal symmetry of L if
+ξ (n) L ⊂ L; it is called a variational infinitesimal symmetry if ξ (n) L = 0. Simi-
+larly given an R-submodule L ⊂ On (X) an infinitesimal symmetry of L is an R-
+derivation ξ : O(X) → O(X) such that ξ (n) L ⊂ L[1/p]. One says ξ is a variational
+infinitesimal symmetry of L if ξ (n) L = 0.
+                     DIFFERENTIAL CALCULUS WITH INTEGERS                             7
+
+
+1.2.8. Total differential forms on manifolds. Recall that a total differential form
+([61], p. 351) on M/T is an expression that in coordinates looks like a sum of
+expressions
+                          F (t, x, x′ , ..., x(n) )dxj1 ∧ ... ∧ dxji ,
+It is important to introduce an arithmetic analogue of this which we now explain.
+We consider the case of top forms (i = d) which leads to what we will call δ-
+line bundles. Denote by On the sheaf U 7→ On (U ) on X for the Zariski topology.
+Define a δ-line bundle of order n on X to be a locally free On -module of rank
+1. Integral powers of bundles need to be generalized as follows. Set      P W s= Z[φ]
+(ring of polynomials
+            P           with Z-coefficients in the symbolP φ).   For w =    as φ write
+deg(w) =       as . Also let W+ be the set of all w =       as φs ∈ W Pwith as ≥ 0 for
+                                                                         n
+all s. If L is a line bundle on X given by a cocycle (gij ) and w = s=0 as φs ∈ W ,
+                                                   w                               w
+w 6= 0, an 6= 0, then define a δ-line bundle L of order n by the cocycle (gij        ),
+  w
+       Q s         as
+gij = s φ (gij ) . With all these definitions in place we may define the following
+rings which, by the way, are the main objects of the theory:
+                                           M
+                            Rδ (X, L) =          H 0 (X, Lw ).
+                                       06=w∈W+
+
+Note that the above is a graded ring without unity. The homogeneous elements of
+Rδ (X, L) can be viewed as arithmetic analogues of Lagrangian densities and can
+also be referred to as arithmetic differential equations [16].
+
+1.2.9. Differential forms on jet spaces and calculus of variations. The spaces
+                                    Λi↑ (J n (M/T ))
+of vertical smooth i-forms on J n (M/T ) (generated by i-wedge products of forms
+dx, dx′ , ..., dx(n) ) play an important role in the calculus of variations [61]. These
+spaces fit into a deRham complex where the differential is the vertical exterior
+differential
+                            d↑ : Λi↑ (J n (M/T )) → Λi+1 n
+                                                     ↑ (J (M/T ))
+
+with respect to the variables x, x′ , ..., x(n) . On the other hand we have unique
+operators
+                     δt : Λi↑ (J n (M/T )) → Λi↑ (J n+1 (M/T ))
+that commute with d↑ , induce a derivation on the exterior algebra, and for i = 0 co-
+incide with the total derivative operators. Then one can define spaces of functional
+forms ([61], p. 357)
+                                              Λi↑ (J n (M/T ))
+                           Λi∗ (J n (M/T )) =
+                                                   Im(δt )
+and the (vertical part of the) variational complex ([61], p. 361) with differentials
+                       d : Λi∗ (J n (M/T )) → Λi+1 n
+                                               ∗ (J (M/T )).
+                                                                   R
+The class of ω ∈ Λi↑ (J n (M/T )) in Λi∗ (J n (M/T )) is denoted by ωdt. For i = 0,
+                            R          R
+ω = F , have the formula d( F dt) = EL(F )dt in Λi∗ (J 2n (M/T )) where EL(F ) =
+Pd
+  i=1 Fi dxi is the Euler-Lagrange total differential form,
+                                    n
+                                                         !
+                                   X              ∂F
+                                             j j
+                             Fi =      (−1) δt       (j)
+                                                           .
+                                   j=0           ∂xi
+8                                 ALEXANDRU BUIUM
+
+
+Noether’s theorem then says that for any vertical vector field ξ on M/T we have
+the formula
+                              hξ, EL(F )i − ξ (n) (F ) = δt G
+for some G ∈ C ∞ (J 2n−1 (M/T )); G is unique up to a constant. If ξ is a variational
+infinitesimal symmetry of F then G is referred to as the conservation law attached
+to this symmetry; in this case if x(t) is a solution of all Fi = 0 then G evaluated at
+x(t) will be a constant. Analogously, for X/R smooth and affine, one can consider
+the modules ΩiOn (X)/R (exterior powers of the inverse limit of the Käher differentials
+ΩOn (X)⊗(R/pn R)/(R/pn R) ), and the exterior differential
+                             d : ΩiOn (X)/R → Ωi+1
+                                               On (X)/R .
+
+Also one may consider the operators
+                            φ∗ : ΩiOn (X)/R → ΩiOn+1 (X)/R ;
+again φ∗ and d commute. Also note that any element in the image of φ∗ is uniquely
+divisible by pi ; for any ω ∈ ΩiOn (X)/R and r ≥ 0 we then set ωr = p−ir φ∗r ω. The
+operation p−ir φ∗r is a characteristic zero version of the inverse Cartier operator.
+For any element µ ∈ R (which we refer to as eigenvalue) one can define groups
+                                               ΩiOn (X)/R
+                             Λi∗ (J n (X)) =
+                                            Im(φ∗ − µ)
+that fit into a variational complex with differentials
+                           d : Λi∗ (J n (X)) → Λi+1 n
+                                                ∗ (J (X)).
+                                                          R
+The class of ω ∈ ΩiOn (X)/R in Λi∗ (J n (X)) is denoted by ωdp. For i = 0, µ =
+                                R           R Pd
+1, ω = F ∈ On (X) we have d( F dp) = { i=1 Fi ωni }dp in Λ1∗ (J 2n (X)) where
+Fi ∈ O2n (X), ω i is a basis of ΩO(X)/R , and ωni = p−n φ∗n ω i . Also an analogue
+                                                           Pd
+of the Noether theorem holds in this context with ǫ(F ) := i=1 Fi ωni playing the
+role of the Euler-Lagrange form; indeed for any vector field ξ on X there exists
+G ∈ O2n−1 (X) such that
+                          hξ (n) , ǫ(F )i − ξ (n) (F ) = Gφ − G.
+If ξ is a variational infinitesimal symmetry of F then G can be referred to as a
+conservation law; in this case if P ∈ X(R) is a point which is a solution to all
+Fi∗ (P ) = 0 then G∗ (P )φ = G∗ (P ). Part of the formalism above can be used to
+introduce an arithmetic analogue of the Hamiltonian formalism for which we refer
+to [31].
+1.2.10. “Category of differential equations”. A categorical framework for differen-
+tial equations on manifolds can be introduced (cf. [1], for instance). In one variant
+of this the objects are locally isomorphic to projective systems of submanifolds of
+J n (M/T ) compatible with the total derivative operator and morphisms are smooth
+maps between these, again compatible with the total derivative operator. This
+categorical framework has an arithmetic analogue as follows. Note first that φ
+acts naturally on Rδ (X, L) but δ does not. Nevertheless for any homogeneous
+s ∈ Rδ (X, L) of degree v the ring Rδ (X, L)hsi of all fractions f /sw with f homo-
+geneous of degree wv has a natural p-derivation δ on it. This inductive system
+Xδ (L) = (Rδ (X, L)hsi , δ)s of rings equipped with p-derivations δ is an object of
+a natural category underlying a geometry more general than algebraic geometry
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                              9
+
+
+which we refer to as δ-geometry [16]. This geometry is an arithmetic analogue of
+the categorical setting in [1] and also an arithmetic analogue of the Ritt-Kolchin δ-
+algebraic geometry [52, 9]. If one restricts to étale maps of smooth schemes we have
+a functor X 7→ Xδ = Xδ (K ν ) from “algebraic geometry” to our “δ-geometry” by
+taking L = K ν to be a fixed power of the canonical bundle; the natural choice later
+in the theory turns out to be the anticanonical bundle L = K −1 . In δ-geometry
+Xδ should be viewed as an infinite dimensional object.
+1.2.11. Differential invariants. Recall the concept of differential invariant which
+plays a key role in the “Galois theoretic” work of Lie and Cartan. Assume that
+a group G acts on M and T such that M → T is G-equivariant. (In this dis-
+cussion assume d := dim T is arbitrary.) Then G acts on J n (M/T ) and the ring
+C ∞ (J n (M/T ))G of G-invariant elements in the ring C ∞ (J n (M/T )) is called the
+ring of differential invariants. There are two extreme cases of special interest: the
+case when G acts trivially on T and the case when G acts transitively on T . A spe-
+cial case of the first extreme case mentioned above is that in which M = F ×T , with
+G a Lie group acting trivially on T and transitively on F ; this leads to the context of
+Cartan’s moving frame method and of Cartan connections. For dim T = 1, T is the
+“time” manifold, F is the “physical space”, and sections in Γ(M/T ) correspond to
+particle trajectories. A special case of the second extreme case mentioned above is
+the situation encountered in the study of “geometric structures” and in the formu-
+lation of field theories, in which G is the group Diff(T ) of diffeomorphisms of T , T is
+viewed as the “physical space” or “physical space-time”, and M is a natural bundle
+over T , i.e. a quotient M = Γ\Repn (T ) of the bundle Repn (T ) → T of n-jets of
+frames (Rd , 0) → T by a Lie subgroup Γ of the group Autn (Rd , 0) of n-jets of diffeo-
+morphisms of (Rd , 0); cf. [1], pp. 150-153 and 183. (E.g. the Riemannian metrics
+on T identify with the sections in Γ(M1,O(d) /T ) where O(d) < GL(d) = Aut1 (Rd , 0)
+is the orthogonal group.) In the case when the action of G on T is trivial the ring of
+differential invariants above turns out to have an interesting arithmetic analogue,
+namely the ring of δ-invariants of a correspondence; cf. the discussion below. The
+special case of Cartan connections has also an arithmetic analogue: the arithmetic
+logarithmic derivative attached to a δ-flow. The latter has a flavor different from
+that of δ-invariants of correspondences and will be discussed later. There are also
+interesting candidates for arithmetic analogues of the situation when G = Diff(T );
+cf. our discussion of Lie groupoids below.
+    We next explain the ring of δ-invariants of a correspondence. Pursuing an anal-
+ogy with usual geometric invariant theory assume we are given (X, L), a correspon-
+dence on X (i.e. a morphism σ = (σ1 , σ2 ) : X̃ → X × X), and a linearization of L
+(i.e. an isomorphism β : σ1∗ L ≃ σ2∗ L). Then we may define the ring of δ-invariants
+of σ by
+                       Rδ (X, L)σ = {f ∈ Rδ (X, L); βσ1∗ f = σ2∗ f }.
+(This ring, again, has no unity!) The homogeneous elements s of Rδ (X, L)σ can be
+viewed as arithmetic analogues of total differential forms invariant under appropri-
+ate symmetries. The inductive system of rings
+                                    (Rδ (X, L)σhsi , δ)
+equipped with p-derivations δ can be viewed as an incarnation of the quotient
+space “Xδ /σδ ” in δ-geometry (and, under quite general hypotheses, is indeed the
+categorical quotient of Xδ by σδ ); note that, in most interesting examples (like the
+10                               ALEXANDRU BUIUM
+
+
+ones in Theorem 2.6 below), the quotient X/σ does not exist in usual algebraic
+geometry (or rather the categorical quotient in algebraic geometry reduces to a
+point).
+   It is worth revisiting the sequence of ideas around differential invariants. Clas-
+sical Galois theory deals with algebraic equations (satisfied by numbers). Lie and
+Cartan extended Galois’ ideas, especially through the concept of differential invari-
+ant, to the study of differential equations (satisfied by functions); roughly speaking
+they replaced numbers by functions. In the theory presented here functions are
+replaced back by numbers. But we did not come back to where things started
+because we have added new structure, the operator δ = δp . In particular the δ-
+invariants mentioned above, although arithmetic in nature, and although attached
+to algebraic equations (defining X, X̃, σ), are nevertheless not “Galois theoretic”
+in any classical sense.
+
+
+
+1.2.12. Lie groupoids. Let us go back to the (interrelated) problems of finding arith-
+metic analogues of T × T and of Diff(T ). The arithmetic analogue of S := T × T is
+usually referred to as the hypothetical tensor product “Z⊗F1 Z” over the “field with
+one element”; cf. [57] for some history of this. The arithmetic analogue of Diff(T )
+could be thought of as the Galois group “Gal(Q/F1 )”. According to a suggestion
+of Borger [6] one should take “Z ⊗F1 Z” to be, by definition, the big Witt ring of Z.
+Since we are here in a local arithmetic situation it is convenient, for our purposes,
+to take, as an arithmetic analogue of S = T × T , the schemes Σm = Spec Wm (R),
+where Wm is the p-typical functor of Witt vectors of length m + 1 (we use Borger’s
+indexing) and R is a complete local p-ring. On the other hand an infinitesimal
+analogue of Diff(T ) is the Lie groupoid of T defined as the projective system of
+groupoids Gn (T ) := J n (S/T )∗ (where the upper ∗ means taking “invertible” ele-
+ments and S = T × T → T is the second projection.) So an arithmetic analogue of
+the system J n (S/T )∗ (which at the same time would be an infinitesimal analogue
+of “Gal(Q/F1 )”) would be the system J n (Σm ) equipped with the natural maps
+induced by the comonad map. This system is a rather non-trivial object [29]. It
+is worth noting that a good arithmetic analogue of J n (S/T )∗ could also be the
+“usual” jet spaces (in the sense of [8]) of Wm (R)/R (which in this case can be con-
+structed directly from the module of Käher differentials ΩWm (R)/R ). By the way
+ΩWm (R)/R is also the starting point for the construction of the deRham-Wit com-
+plex [44]. However Ω involves usual derivations (rather than Fermat quotients) so
+taking Ω as a path to an arithmetic analogue of J n (S/T )∗ seems, again, like “going
+arithmetic halfway”. On the contrary taking the system J n (Σm ) as the analogue
+of J n (S/T )∗ seems to achieve, in some sense, the task of “going arithmetic all the
+way”.
+   We end by remarking that if we denote π1 and π2 the source and target projec-
+tions from Gn (T ) into T then there are natural “actions” ρ of the groupoids Gn (T )
+on all natural bundles Mn,Γ := Γ\Repn (T ) → T fitting into diagrams:
+
+                                                 ρ
+                          Mn,Γ ×T,π1 Gn (T ) −→ Mn,Γ
+                                       p2 ↓      ↓
+                                              π2
+                                     Gn (T ) −→  T
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                             11
+
+
+where p2 is the second projection. The above induce “actions”
+                                                    ρ
+                   J n (Mn,Γ /T ) ×T,π1 Gn (T ) −→ J n (Mn,Γ /T )
+                                          p2 ↓      ↓
+                                                 π2
+                                        Gn (T ) −→  T
+where p2 is again the second projection. One can consider rings of differential
+invariants
+          C ∞ (J n (Mn,Γ /T ))ρ := {F ∈ C ∞ (J n (Mn,Γ /T )); F ◦ ρ = F ◦ p1 }
+where p1 : J n (Mn,Γ /T ) ×T,π1 Gn (T ) → J n (Mn,Γ /T ) is the fist projection. There
+should be arithmetic analogues of the above “actions” and rings of differential in-
+variants. One can argue that the analogue of Repn (T ) is, again, the system J n (Σm ).
+Then for Γ = 1 the analogue of J n (Mn,Γ /T ) might be J n (J n (Σm )); the analogue,
+for Γ = 1, of the “action” ρ above could then be the map J n (J n (Σm′ ,m′′ )) →
+J n (J n (Σm′ +m′′ )) where Σm′ ,m′′ = Spec Wm′ (Wm′′ (R)). A challenge would then
+be to find arithmetic analogues of non-trivial Γs.
+
+1.2.13. Differential Galois theory of linear equations. This subject is best explained
+in a complex (rather than real) situation. Classically (following Picard-Vessiot and
+Kolchin [51]) one starts with a differential field F of meromorphic functions on a
+domain D in the complex plane C and one fixes an n × n matrix A ∈ gln (F) in the
+Lie algebra of the general linear group GLn (F). The problem then is to develop a
+“differential Galois theory” for equations of the form
+                                     δz U = A · U
+where U ∈ GLn (G), G a field of meromorphic functions on a subdomain of D, and
+z a coordinate on D. The start of the theory is as follows. One fixes a solution
+U and introduces the differential Galois group GU/F of U/F as the group of all
+F−automorphisms of the field F(U ) that commute with d/dz. One can ask for
+an arithmetic analogue of this theory. There is a well developed difference algebra
+analogue of linear differential equations [64]; but the arithmetic differential theory is
+still in its infancy [33, 34, 35]. What is being proposed in loc. cit. in the arithmetic
+theory is to fix a matrix α ∈ gln (R) and define δ-linear equations as equations of
+the form
+                                      δu = α · u(p)
+where u = (uij ) ∈ GLn (R), δu := (δuij ), and u(p) := (upij ). Note that the above
+equation is equivalent to φ(u) = ǫ · u(p) where ǫ = 1 + pα which is not a difference
+equation for φ in the sense of [64]; indeed difference equations for φ have the form
+φ(u) = ǫ · u. To define the δ-Galois group of such an equation start with a δ-subring
+O ⊂ R and let u ∈ GLn (R) be a solution of our equation. Let O[u] ⊂ R the ring
+generated by the entries of u; clearly O[u] is a δ-subring of R. We define the δ-
+Galois group Gu/O of u/O as the subgroup of all c ∈ GLn (O) for which there exists
+an O-algebra automorphism σ of O[u] such that σ ◦ δ = δ ◦ σ on O[u] and such that
+σ(u) = uc. The theory starts from here.
+
+1.2.14. Cartan connections. The Maurer-Cartan connection attached to a Lie group
+G is a canonical map T (G) → L(G) from the tangent bundle T (G) to the Lie alge-
+bra L(G); for G = GLn it is given by the form dg · g −1 and its algebraic incarnation
+is Kolchin’s logarithmic derivative map [51] GLn (G) → gln (G), u 7→ δz u · u−1 . In
+12                                ALEXANDRU BUIUM
+
+
+our discussion of linear equations above the arithmetic analogue of the Kolchin
+logarithmic derivative map is the map GLn (R) → gln (R),
+                                  u 7→ δu · (u(p) )−1 .
+                                                                  [n → GL
+This map is naturally attached to the lift of Frobenius φGLn ,0 : GL      [n whose
+                     [n ) = R[x, det(x) ]ˆ is φGLn ,0 (x) = x . The latter lift of
+effect on the ring O(GL                  −1                     (p)
+
+Frobenius behaves well (in a precise sense to be explained later) with respect to the
+maximal torus T ⊂ GLn of diagonal matrices and with respect to the Weyl group
+W ⊂ GLn of permutation matrices but it behaves “badly” with respect to other
+subgroups like the classical groups SLn , SOn , Spn . (This phenomenon does not
+occur in the geometry of Lie groups where the Maurer-Cartan form behaves well
+with respect to any Lie subgroup of GLn , in particular with respect to the classical
+groups.) In order to remedy the situation one is lead to generalize the above
+                                                                        [n → GL
+constructions by replacing φGLn ,0 with other lifts of Frobenius φGLn : GL      [n
+that are adapted to each of these classical groups. Here is a description of the
+resulting framework.
+   First we define an arithmetic analogue of the Lie algebra gln of GLn as the
+set gln of n × n matrices over R equipped with the non-commutative group law
++δ : gln × gln → gln given by
+                                a +δ b := a + b + pab,
+where the addition and multiplication in the right hand side are those of gln , viewed
+as an associative algebra. There is a natural “δ-adjoint” action ⋆δ of GLn on gln
+given by
+                            a ⋆δ b := φ(a) · b · φ(a)−1 .
+    Assume now one is given a ring endomorphism φGLn of O(GL  [n ) lifting Frobenius,
+i.e. a ring endomorphism whose reduction mod p is the p-power Frobenius on
+O(GLn )ˆ/(p) = k[x, det(x)−1 ]; we still denote by φGLn : GL[n → GL  [n the induced
+morphism of p-formal schemes and we refer to it as a lift of Frobenius on GL  [n or
+                          [
+simply as a δ-flow on GLn . Consider the matrices Φ(x) = (φGLn (xij )) and x(p) =
+(xpij ) with entries in O(GLn )ˆ; then Φ(x) = x(p) + p∆(x) where ∆(x) is some matrix
+with entries in O(GLn )ˆ. Furthermore given a lift of Frobenius φGLn as above one
+                                                                           φ  (f )−f p
+defines, as usual, a p-derivation δGLn on O(GLn )ˆ by setting δGLn (f ) = GLn p        .
+    Assume furthermore that we are given a smooth closed subgroup scheme G ⊂
+GLn . We say that G is φGLn -horizontal if φGLn sends the ideal of G into itself;
+in this case we have a lift of Frobenius endomorphism φG on G,     b equivalently on
+O(G)ˆ.
+    Assume the ideal of G in O(GLn ) is generated by polynomials fi (x). Then recall
+that the Lie algebra L(G) of G identifies, as an additive group, to the subgroup of
+the usual additive group (gln , +) consisting of all matrices a satisfying
+                                 “ǫ−1 ”fi (1 + ǫa) = 0,
+                     (φ)
+where ǫ2 = 0. Let fi be the polynomials obtained from fi by applying φ to the
+coefficients. Then we define the δ-Lie algebra Lδ (G) as the subgroup of (gln , +δ )
+consisting of all the matrices a ∈ gln satisfying
+                                      (φ)
+                                 p−1 fi (1 + pa) = 0.
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                             13
+
+
+   The analogue of Kolchin’s logarithmic derivative (or of the Maurer-Cartan con-
+nection) will then be the map, referred to as the arithmetic logarithmic derivative,
+lδ : GLn → gln , defined by
+                   1                  
+            lδa :=     φ(a)Φ(a)−1 − 1 = (δa − ∆(a))(a(p) + p∆(a))−1 .
+                   p
+For G a φGLn -horizontal subgroup lδ above induces a map lδ : G → Lδ (G). Now
+any α ∈ Lδ (G) defines an equation of the form lδu = α, with unknown u ∈ G;
+such an equation will be referred to as a δ-linear equation (with respect to our
+δ-flow). Later in the paper we will explain our results about existence of δ-flows on
+GLn compatible with the classical groups. These δ-flows will produce, as explained
+above, corresponding δ-linear equations.
+
+1.3. Main task of the theory. At this point we may formulate the main technical
+tasks of the theory. Let, from now on, R = Zdur . First given a specific scheme X (or
+                                             p
+group scheme G) the task is to compute the rings On (X) (respectively the modules
+Xn (G)). More generally given a specific pair (X, L) we want to compute the ring
+Rδ (X, L). Finally given (X, L), a correspondence σ on X, and a linearization of L,
+we want to compute the ring Rδ (X, L)σ . The main applications of the theory (cf.
+the subsection below on motivations) arise as a result of the presence of interest-
+ing/unexpected elements and relations in the rings On (X), Rδ (X, L), Rδ (X, L)σ .
+
+1.4. Motivations of the theory. There are a number of motivations for devel-
+oping such a theory.
+
+1.4.1. Diophantine geometry. Usual differential equations satisfied by functions can
+be used to prove diophantine results over function fields (e.g. the function field ana-
+logues of the Mordell conjecture [55] and of the Lang conjecture [8]). In the same
+vein one can hope to use “arithmetic differential equations” satisfied by numbers
+to prove diophantine results over number fields. This idea actually works in cer-
+tain situations, as we will explain below. Cf. [12, 19]. The general strategy is as
+follows. Assume one wants to prove that a set S of points on an algebraic variety
+is finite. What one tries to do is find a system of arithmetic differential equations
+Fi (α, δp α, ..., δpn α) = 0 satisfied by all α ∈ S; then one tries, using algebraic op-
+erations and the “differentiation” δp , to eliminate δp α, ..., δpn α from this system to
+obtain another system Gj (α) = 0 satisfied by all α ∈ S, where Gj do not involve
+the “derivatives” anymore. Finally one proves, using usual algebraic geometry that
+the latter system has only finitely many solutions.
+
+1.4.2. “Impossible” quotient spaces. If X is an algebraic variety and σ : X̃ → X ×X
+is a correspondence on X then the categorical quotient X/σ usually reduces to a
+point in the category of algebraic varieties. In some sense this is an illustration of
+the limitations of classical algebraic geometry and suggests the challenge of creating
+more general geometries in which X/σ becomes interesting. (The non-commutative
+geometry of A. Connes [38] serves in particular this purpose.) As explained above
+we proposed, in our work, to replace the algebraic equations of usual algebraic ge-
+ometry by “arithmetic differential equations”; the resulting new geometry is called
+δp -geometry (or simply δ-geometry). Then it turns out that important class of
+quotients X/σ that reduce to a point in usual algebraic geometry become inter-
+esting in δ-geometry (due to the existence of interesting δ-invariants). A general
+14                                ALEXANDRU BUIUM
+
+
+principle seems to emerge according to which this class coincides with the class of
+“analytically uniformizable” correspondences. Cf. [16].
+
+1.4.3. “Impossible” liftings to characteristic zero. A series of phenomena belonging
+to algebraic geometry in characteristic p, which do not lift to characteristic 0 in
+algebraic geometry, can be lifted nevertheless to characteristic 0 in δ-geometry.
+This seems to be a quite general principle with various incarnations throughout the
+theory (cf. [15, 16, 25]) and illustrates, again, how a limitation of classical algebraic
+geometry can be overcome by passing to δ-geometry.
+
+1.5. Comparison with other theories. It is worth noting that the paradigm of
+our work is quite different from the following other paradigms:
+    1) Dwork’s theory of p-adic differential equations [41] (which is a theory about
+δt acting on functions in Qp [[t]] and not about δp acting on numbers; also Dwork’s
+theory is a theory of linear differential equations whereas the theory here is about
+analogues of non-linear differential equations),
+    2) Vojta’s jet spaces [65] (which, again, although designed for arithmetic pur-
+                                                                             1 n
+poses, are nevertheless constructed from Hasse-Schmidt derivations “ n!       δt ” acting
+on functions and not from operators acting on numbers),
+    3) Ihara’s differentiation of integers [47] (which, although based on Fermat quo-
+tients, goes from characteristic zero to characteristic p and hence, unlike our δp ,
+cannot be iterated),
+    4) the point of view of Kurokawa et. al. [53] (which uses an operator on numbers
+very different from δp namely ∂α  ∂p := np
+                                            n−1
+                                                β for α = pn β ∈ Z, p 6 |β),
+    5) the theory of Drinfeld modules [39](which is entirely in characteristic p),
+    6) the difference geometry in the work of Cohn, Hrushovski-Chatzidakis [37],
+and others (in which the jet spaces are n-fold products of the original varieties as
+opposed to the jet spaces in our work which are, as we shall see, bundles over the
+original varieties with fibers affine spaces),
+    7) Raynaud’s deformation to Witt vectors W2 (k) over a field k of characteristic
+p [63] (which again leads to operators from characteristic zero to characteristic p
+which cannot be iterated; loosely speaking W2 (k) in Raynaud’s approach is replaced
+in our theory by W2 (W (k))).
+    8) the work of Soulé, Deitmar, Connes, and many others on the “geometry over
+the field F1 with one element”. (In their work passing from the geometry over
+Z to the geometry over F1 amounts to removing part of the structure defining
+commutative rings, e.g. removing addition and hence considering multiplicative
+monoids instead of rings. On the contrary our approach (cf. the Introduction to
+[16]), and Borger’s [3], can be seen as a way of passing from Z to F1 by adding
+structure to the commutative rings, specifically adding the operator(s) δp ).
+    9) the work of Joyal [49] on the Witt functor (which is a right adjoint to the
+forgetful functor from “δ-rings” to rings as opposed to our arithmetic jet functor
+which is a left adjoint to the same forgetful functor. As it is usually the case the
+left and right stories turn out to be rather different.)
+    10) the theory of the Greenberg transform, cf. Lang’s thesis and [42] (which
+attaches to a scheme X/R varieties Gn (X) over k; one can show [12] that Gn (X) ≃
+J n (X) ⊗R k so the arithmetic jet spaces are certain remarkable liftings to charac-
+teristic zero of the Greenberg transforms. The operators δ on On (X) do not survive
+after reduction mod p as operators on the Greenberg transforms.)
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                              15
+
+
+   11) the work on the deRham-Witt complex, cf., e.g. [44] (which has as its starting
+point the study of Kähler differential of Witt vectors; on the contrary, what our
+research suggests, cf. [29], is to push arithmetization one step further by analyzing
+instead the arithmetic jet spaces of Witt vectors.)
+   12) the theory φ-modules (which is a theory about linear equations as opposed
+to the theory here which is non-linear).
+
+                                   2. Main results
+   We present in what follows a sample of our results. We always set A = A⊗Z Fp =
+A/pA, X = X ⊗Z Fp for any ring A and any scheme X respectively. Recall that
+we denote by Ab the p-adic completion of A; for X Noetherian we denote by X b the
+p-adic completion of X. Also, in what follows, R := Z   d
+                                                        ur , k := R/pR. We begin
+                                                        p
+with completely general facts:
+
+2.1. Affine fibration structure of p-jet spaces.
+Theorem 2.1. [11]
+   1) If X/R is a smooth scheme of relative dimension d then X has an affine
+covering Xi such that J n (Xi ) ≃ X ci × Ad nd in the category of p-adic formal schemes.
+
+   2) If G/R is a smooth group scheme of relative dimension d, with formal group
+law F ∈ R[[T1 , T2 ]]d (T1 , T2 d-tuples), then the kernel of J n (G) → G b is isomorphic
+   d
+to A with composition law obtained from the formal series
+     nd
+
+                                                        (n)    (n)
+                       δF, ..., δ n F ∈ R[[T1 , T2 , ..., T1 , T2 ]]d
+by setting T1 = T2 = 0.
+   Note that after setting T1 = T2 = 0 the series δ n F become restricted i.e. elements
+                        (n)  (n)
+of (R[T1′ , T2′ , ..., T1 , T2 ]ˆ)d so they define morphisms in the category of p-adic
+formal schemes. Assertion 1) in the theorem makes p-jet spaces resemble the usual
+jet spaces of the Lie-Cartan theory. Note however that, even if G is commutative,
+the kernel of J n (G) → G        b is not, in general the additive group raised to some
+power. Here is the idea of the proof of 1) for n = 1. We may assume X =
+Spec A, A = R[x]/(f ), and there is an étale map R[T ] ⊂ A with T a d-tuple
+of indeterminates. Consider the unique ring homomorphism R[T ] → W1 (A[T ′ ])
+sending T 7→ (T, T ′ ) where W1 is the functor of Witt vectors of length 2 and T ′ is
+a d-tuple of indeterminates. Using the fact that R[T ] ⊂ A is formally étale and the
+fact that the first projection W1 (A[T ′ ]/(pn )) → A[T ′ ]/(pn ) has a nilpotent kernel,
+one constructs a compatible sequence of homomorphisms A → W1 (A[T ′ ]/(pn )),
+T 7→ (T, T ′ ). Hence one gets a homomorphism A → W1 (A[T ′ ]ˆ), a 7→ (a, δa).
+Then one defines a homomorphism R[x, x′ ]ˆ/(f, δf ) → A[T ′ ]ˆ by sending x 7→
+a := class(x) ∈ A, x′ 7→ δa. Conversely one defines a homomorphism A[T ′ ]ˆ →
+R[x, x′ ]ˆ/(f, δf ) by sending T ′ 7→ δT . The two homomorphisms are inverse to each
+other which ends the proof of 1) for n = 1.
+
+2.2. δ-functions and δ-characters on curves. The behavior of the rings On (X)
+for smooth projective curves X depends on the genus of X as follows:
+Theorem 2.2. [11, 12, 32] Let X be a smooth projective curve over R of genus g.
+  1) If g = 0 then On (X) = R for all n ≥ 0.
+16                                 ALEXANDRU BUIUM
+
+
+   2) Let g = 1. If X is not a canonical lift then O1 (X) = R (hence X1 (X) = 0)
+and X2 (X) is a free module of rank 1; in particular O2 (X) 6= R. If, on the other
+hand, X is a canonical lift then O1 (X) = O(Ac1 ) and X1 (X) is free of rank one.
+   3) If g ≥ 2 then J n (X) is affine for n ≥ 1; in particular O1 (X) separates the
+points of X(R).
+   The proof of 1) is a direct computation. The idea of proof of the statements about
+Xn in 2) is as follows. Let N n = Ker(J n (X) → X).  b Then one first proves (using
+                              n b
+Theorem 2.1) that Hom(N , Ga ) has rank at least n over R and one computes the
+ranks of Xn (X) by looking at the exact squence
+                  Hom(J 2 (X), G b a ) → Hom(N 2 , G
+                                                   b a ) → H 1 (X, O).
+Here Hom = Homgr . The proof of 3) is based on representing J 1 (X) as P(E)\D
+where E is a rank 2 vector bundle on X, and D is an ample divisor.
+   If g = 1 and X is not a canonical lift then a basis ψ for X2 (X) can be viewed
+as an analogue of the “Manin map” of an elliptic fibration [55]. Also note that
+assertion 3) in Theorem 2.2 implies the effective version of the Manin-Mumford
+conjecture [12]. Indeed Manin and Mumford conjectured that if X is a complex
+curve of genus ≥ 2 embedded into its Jacobian A then X ∩ Ators is a finite set. This
+was proved by Raynaud [63]. Mazur later asked [58] if ♯(X ∩ Ators ) ≤ C(g) where
+C(g) is a constant that depends only on the genus g of X. Using 3) in Theorem
+2.2 one can prove:
+Theorem 2.3. [12] For a smooth projective complex curve X in its Jacobian A we
+have ♯(X ∩ Ators ) ≤ C(g, p) where C(g, p) is a constant that depends only on the
+genus g and (in case X is defined over Q) on the smallest prime p of good reduction
+of X.
+    Roughly speaking the idea of proof is as follows. First one can replace the
+complex numbers by R and Ators by its prime to p torsion subgroup Γ < A(R).
+Then one embeds X(R) ∩ Γ (via the “jet map”) into the the set of k-points of
+J 1 (X) ∩ pJ 1 (A). But the latter is a finite set because J 1 (X) is affine, pJ 1 (A) is
+projective, and both are closed in J 1 (A). Moreover the cardinality of this finite set
+can be bounded using Bézout’s theorem.
+    One can ask for global vector fields on a smooth projective curve X/R that are
+infinitesimal symmetries for given δ-functions on X. The only non-trivial care is
+that of genus 1 (elliptic curves); indeed for genus 0 there are no non-constant δ-
+functions (cf. Theorem 2.2) while for genus ≥ 2 there are no non-zero vector fields.
+Here is the result:
+Theorem 2.4. [11, 16] Let X be an elliptic curve over R with ordinary reduction.
+   1) If X has Serre-Tate parameter q(X) 6≡ 1 mod p2 then there exists a non-zero
+global vector field on X which is a variational infinitesimal symmetry for all the
+modules Xn (X), n ≥ 1.
+   2) If X is a canonical lift (equivalently has Serre-Tate parameter q(X) = 1) then
+there is no non-zero global vector field on X which is a variational infinitesimal
+symmetry of X1 (X).
+     Finally here is a computation of differentials of δ-characters.
+Theorem 2.5. [13, 16] Assume X is an elliptic curve over R which is not a canon-
+ical lift and comes from an elliptic curve XZp over Zp . Let ap ∈ Z be the trace of
+                        DIFFERENTIAL CALCULUS WITH INTEGERS                                  17
+
+
+Frobenius of the reduction mod p of XZp and let ω be a basis for the global 1-forms
+on XZp . Then there exists an R-basis ψ of X2 (X) such that
+
+                                p · dψ = (φ∗2 − ap φ∗ + p)ω.
+In particular for the eigenvalue µ = 1 we have
+                           Z                      Z
+                       p·d      ψdp = (1 − ap + p) · ωdp.
+
+   A similar result holds in case X is a canonical lift.
+
+2.3. δ-invariants of correspondences. Here is now a (rather roughly stated)
+result about δ-invariants of correspondences on curves; for precise statements we
+refer to [16].
+Theorem 2.6. [16] The ring Rδ (X, K −1 )σ is “δ-birationally equivalent” to the
+ring Rδ (P1 , O(1)) if the correspondence σ on X “comes from” one of the following
+cases:
+   1) (spherical case) The standard action of SL2 (Zp ) on P1 .
+   2) (flat case) A dynamical system P1 → P1 which is post-critically finite with
+(orbifold) Euler characteristic zero.
+   3) (hyperbolic case) The action of a Hecke correspondence on a modular (or
+Shimura) curve.
+   Here by saying that σ “comes from” a group action on X (respectively from
+an endomorphism of X) we mean that (“up to some specific finite subschemes”
+for which we refer to [16]) X̃ is the disjoint union of the graphs of finitely many
+automorphisms generating the action (respectively X̃ is the graph of the endomor-
+phism). Also δ-birational equivalence means isomorphism (compatible with the
+actions of δ) between the p-adic completions of the rings of homogeneous frac-
+tions of degree zero with denominators not divisible by p. The proofs behind the
+spherical case involve direct computations. The proofs behind the flat case use the
+arithmetic Manin map, i.e. the space X2 (X) in Theorem 2.2, plus an induction in
+which canonical prolongations of vector fields play a crucial role. The proofs behind
+the hyperbolic case of Theorem 2.6 are based on a theory of δ-modular forms which
+we quickly survey next.
+
+2.4. δ-modular forms. Cf. [15, 2, 16, 26, 17, 25]. Let X1 (N ) be the complete
+modular curve over R of level N > 4 and let L1 (N ) → X1 (N ) be the line bundle
+with the property that the sections of its various powers are the classical modular
+forms on Γ1 (N ) of various weights. Let X be X1 (N ) minus the cusps and the
+supersingular locus (zero locus of the Eisenstein form Ep−1 of weight p − 1). Let
+L → X be the restriction of the above line bundle and let V be L with the zero
+section removed. So L2 ≃ K. The elements of M n = On (V ) are called δ-modular
+functions. Set M ∞ = ∪M n . The elements of On (X) are called δ-modular forms
+of weight 0. For w ∈ W , w 6= 0, the elements of H 0 (X, Lw ) ⊂ M ∞ are called
+δ-modular forms of weight w. We let σ = (σ1 , σ2 ) : X̃ → X × X be the union of all
+the (prime to p) Hecke correspondences. Any δ-modular function f ∈ M n has a “δ-
+Fourier expansion” in R((q))[q ′ , ..., q (n) ]ˆ; setting q ′ = q ′′ = ... = 0 in this δ-Fourier
+expansion one gets a series in R((q))ˆ called the Fourier expansion of f . Finally let
+18                                      ALEXANDRU BUIUM
+
+
+a4 and a6 be variables; then consideration of the elliptic curve y 2 = x3 + a4 x + a6
+yields an R-algebra map
+                               R[a4 , a6 , ∆−1 ] → M 0
+where ∆ = ∆(a4 , a6 ) is the discriminant polynomial. By universality we have
+induced homomorphisms
+                                               (n)    (n)
+                             R[a4 , a6 , ..., a4 , a6 , ∆−1 ]ˆ → M n
+that are compatible with δ.
+                               P
+Example 2.7. [17, 19] For f = an q n a classical newform over Z of weight 2, we
+get a δ-modular form of weight 0 and order 2
+                                                          J 2 (Φ)             ψ
+                                                                  ca
+                      f ♯ : J 2 (X) ⊂ J 2 (X1 (N )) → J 2 (Ef ) → G
+where Φ : X1 (N ) → Ef is the Eichler-Shimura map to the corresponding elliptic
+curve Ef (assumed for simplicity to be non-CM), and ψ the “unique” δ-character
+of order 2. Then the δ-Fourier expansion of f ♯ is congruent mod p to
+             X an             X          q ′ X            2
+                                                                 q ′ p
+                     q n − ap     am q mp p +         am q mp             ;
+                   n                       q                       qp
+            (n,p)=1
+                                                                             P            an n
+hence the Fourier expansion of f ♯ is congruent mod p to                          (n,p)=1 n q .
+
+Example 2.8. [15] There exists a unique δ-modular form f 1 ∈ H 0 (X, L−φ−1 ) with
+δ-Fourier expansion
+                    X                 ′ n
+                           n−1 p
+                                 n−1
+                                       q       q′
+                      (−1)                  =     + p (...) .
+                                  n    qp     qp
+                         n≥1
+
+Hence the Fourier expansion of f 1 is 0. By the way the above δ-Fourier expansion
+has the same shape as a certain function playing a role in “explicit” local class field
+theory. Here is the rough idea for the construction of f 1 . One considers the universal
+                     S
+elliptic curve E = Ui → Spec M ∞ , one considers sections si : U        bi → J 1 (Ui ) of
+the projection, one considers the differences
+                                          bi ∩ U
+                                si − sj : U               b a,
+                                               bj → N 1 ≃ G
+
+and one considers the cohomology class [si − sj ] ∈ H 1 ( b
+                                                         E, O) = H 1 (E, O). Then
+f 1 ∈ M ∞ is defined as the cup product of this class with the canonical generator
+of the 1-forms; in fact f 1 is the image of some element
+                        f 1 (a4 , a6 , a′4 , a′6 ) ∈ R[a4 , a6 , a′4 , a′6 , ∆−1 ]ˆ.
+By the way it is a result of Hurlburt [45] that
+                                     2ap4 a′6 − 3ap6 a′4
+           f 1 (a4 , a6 , a′4 , a′6 ) ≡ Ep−1             + f0 (a4 , a6 ) mod p
+                                             ∆p
+where f0 ∈ R[a4 , a6 , ∆−1 ] and we recall that Ep−1 is the Eisenstein form of weight
+p − 1. (The polynomial f0 is related to the Kronecker modular polynomial mod p2 .)
+This plus the δ-Fourier expansion of f 1 should be viewed as an arithmetic analogue
+of the fact (due to Ramanujan) that
+                                     2a4 da6 − 3a6 da4    dq
+                                                       7→
+                                             ∆            q
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                              19
+
+
+via the map between the Kähler differentials induced by the Fourier expansion map
+C[a4 , a6 , ∆−1 ] → C((q)).
+
+Example 2.9. [2] There exists unique δ-modular forms f ∂ ∈ H 0 (X, Lφ−1 ) and
+f∂ ∈ H 0 (X, L1−φ ) with δ-Fourier expansions 1 (and hence Fourier expansions 1).
+They satisfy f ∂ · f∂ = 1. The form f ∂ is constructed by applying the “top part” of
+the canonical prolongation of the “Serre operator” to the form f 1 . More precisely
+f ∂ is a constant times the image of
+
+                          ∂               ∂
+             (72φ(a6 )      ′ − 16φ(a4 )2 ′ − p · φ(P ))(f 1 (a4 , a6 , a′4 , a′6 ))
+                         ∂a4             ∂a6
+
+                             −1
+where P ∈ R[a4 , a6 , ∆−1 , Ep−1 ]ˆ is the Ramanujan form.
+
+Theorem 2.10. [2, 15, 16] The ring Rδ (X, K −1 )σ is “δ-generated” by f 1 and f ∂ .
+
+    Note that f 1 and f ∂ do not actually belong to Rδ (X, K −1 ) so the above theorem
+needs some further explanation which we skip here; essentially, what happens is that
+f 1 and f ∂ belong to a ring slightly bigger than Rδ (X, K −1 ) and they “δ-generate”
+that ring. We also note the following structure theorem for the kernel and image
+of the δ-Fourier expansion map, in which the forms f 1 and f ∂ play a key role:
+
+Theorem 2.11. [25]
+   1) The kernel of the Fourier expansion map M ∞ → R((q))ˆ is the p-adic closure
+of the smallest δ-stable ideal containing f 1 and f ∂ − 1.
+   2) The p-adic closure of the image of the Fourier expansion map M ∞ → R((q))ˆ
+equals Katz’ ring W of generalized p-adic modular forms.
+
+   The proof of the Theorem above is rather indirect and heavily Galois-theoretic.
+Statement 2) in Theorem 2.11 says that all Katz’ divided congruences between
+classical modular forms can be obtained by taking combinations of “higher p-
+derivatives” of classical modular forms. Statement 1) above is a lift to charac-
+teristic zero of the Serre and Swinnerton-Dyer theorem about the kernel of the
+classical Fourier expansion map for classical modular forms mod p. Theorem 2.10
+can also be viewed as a lift to characteristic zero of results of Ihara [46] about the
+Hasse invariant in characteristic p. These mod p results do not lift to characteristic
+zero in usual algebraic geometry but do lift, as we see, to characteristic zero in
+δ-geometry.
+   We mention the following remarkable infinitesimal symmetry property; recall
+the classical Serre operator ∂ : O(V ) → O(V ). Also consider the Euler deriva-
+tion operator D : O(V ) → O(V ) given by multiplication by the degree on each
+graded component of O(V ). Finally let P be the Ramanujan form (in the degree 2
+component of O(V )) and let θ : O(V ) → O(V ) be the derivation θ = ∂ + P D.
+
+Theorem 2.12. [16] The operator θ is an infinitesimal symmetry of the R-module
+generated by f 1 , f ∂ , and f∂ in M 1 = O1 (V ). Also θ is a variational infinitesimal
+symmetry of the R-module generated by f ∂ and f∂ in M 1 = O1 (V ).
+
+  Here is a calculation of differentials of the forms f 1 , f ∂ , f∂ .
+20                                 ALEXANDRU BUIUM
+
+
+Theorem 2.13. [16] Let ω, α be the basis of ΩO(V )/R dual to θ, D. Then
+
+                 d(f ∂ ) = f ∂ · (φ∗ α − α)
+
+                 d(f∂ ) = −f∂ · (φ∗ α − α)
+
+                 d(f 1 ) = −f 1 · (φ∗ α + α) − f∂ · ω + f ∂ · p−1 φ∗ ω.
+In particular, for the eigenvalue µ = 1 we have
+                          Z              Z
+                             d(f ∂ )        d(f∂ )
+                            { ∂ }dp = {            }dp = 0.
+                               f              f∂
+   By the way, the forms f ♯ and f 1 introduced above can be used to prove some
+interesting purely diophantine results. For instance we have the following:
+Theorem 2.14. [19] Assume that Φ : X = X1 (N ) → A is a modular parametriza-
+tion of an elliptic curve. Let p be a sufficiently large “good” prime and let Q ∈ X(R)
+be an ordinary point. Let S be the set of all rational primes that are inert in the
+imaginary quadratic field attached to Q. Let C be the S-isogeny class of Q in X(R)
+(consisting of points corresponding to isogenies of degrees only divisible by primes
+in S). Then there exists a constant c such that for any subgroup Γ ≤ A(R) with
+r := rank(Γ) < ∞ the set Φ(C) ∩ Γ is finite of cardinality at most cpr .
+   Other results of the same type (e.g. involving Heegner points) were proved in
+[19]. In particular an analogue of the above Theorem is true with C replaced by
+the locus CL of canonical lifts. To have a rough idea about the arguments involved
+assume we want to prove that Φ(CL) ∩ Γ is finite (and to bound the cardinality
+of this set) in case Γ is the torsion group of A(R). One considers the order 2 δ-
+modular form f ♯ : X1 (N )(R) → R and one constructs, using f 1 , a δ-function of
+order 1, f ♭ : X(R) → R, on an open set X ⊂ X1 (N ) which vanishes exactly on
+CL ∩ X(R). Then any point P in the intersection X(R) ∩ Φ(CL) ∩ Γ satisfies the
+system of “differential equations of order ≤ 2 in 1 unknown”
+                                    (
+                                      f ♯ (P ) = 0
+                                      f ♭ (P ) = 0
+One can show that this system is “sufficiently non-degenerate” to allow the elimi-
+nation of the “derivatives” of the unknown; one is left with a differential equation
+f 0 (P ) = 0 “of order 0” which has, then, only finitely many solutions (by Krasner’s
+theorem). By that theorem one can also bound the number of solutions.
+    We end the discussion here by noting that the main players in the theory above
+enjoy a certain remarkable property which we call δ-overconvergence. Morally this
+is a an overconvergence property (in the classical sense of Dwork, Monsky, Wash-
+nitzer) “in the direction of the variables x′ , x′′ , ..., x(n) ” (but not necessarily in the
+direction of x). We prove:
+Theorem 2.15. [27] The δ-functions f ♯ , f 1 , f ∂ are δ-overconvergent.
+2.5. δ-Hecke operators. Next we discuss the Hecke action on δ-modular forms.
+For (n, p) = 1 the Hecke operators Tm (n) act naturally on δ-series (i.e. series in
+R((q))[q ′ , ..., q (r) ]ˆ) by the usual formula that inserts roots of unity of order prime
+to p which are all in R. However no naive definition of Tm (p) seems to work.
+                            DIFFERENTIAL CALCULUS WITH INTEGERS                                                 21
+
+
+Instead we consider the situation mod p and make the following definition. Let
+x be a p-tuple x1 , ..., xp of indeterminates and let s be the p-tuple s1 , ..., sp of
+fundamental symmetric polynomials in x. An element f ∈ k[[q]][q ′ , ..., q (r) ] is called
+δ-p-symmetric mod p if the sum
+                                   (r)
+                    f (x1 , ..., x1 ) + ... + f (xp , ..., x(r)           ′
+                                                            p ) ∈ k[[x]][x , ..., x
+                                                                                   (r)
+                                                                                       ]
+is the image of an element
+                                                     (r)
+                   f(p) = f(p) (s1 , ..., sp , ..., s1 , ..., s(r)           ′
+                                                               p ) ∈ k[[s]][s , ..., s
+                                                                                       (r)
+                                                                                           ].
+For f that is δ-p-symmetric mod p define
+“pTm (p)”f = f(p) (0, ..., 0, q, ..., 0, ..., 0, q (r)) + pm f (q p , ..., δ r (q p )) ∈ k[[q]][q ′ , ..., q (r) ].
+Eigenvectors of “pTm(p)” will be automatically understood to be δ-p-symmetric.
+Also let us say that a series in k[[q]][q ′ , ..., q (r) ] is primitive if the series in k[[q]]
+obtained by setting q ′ = ... = q (r) = 0 is killed by the classical U -operator. Then
+one can give a complete description (in terms of classical Hecke eigenforms mod
+p) of δ-“eigenseries” mod p of order 1 which are δ-Fourier expansions of δ-modular
+forms of arbitrary order and weight:
+Theorem 2.16. [26] There is a 1 − 1 correspondence between:
+   1) Series in k[[q]] which are eigenvectors of all Tm+2 (n), Tm+2 (p), (n, p) = 1, and
+which are Fourier expansions of classical modular forms over k of weight ≡ m + 2
+mod p − 1.
+   2) Primitive series in k[[q]][q ′ ] which are eigenvectors of all nTm (n), “pTm (p)”,
+(n, p) = 1, and which are δ-Fourier expansions of δ-modular forms of some order
+≥ 0 with weight w, deg(w) = m.
+   Note that the δ-Fourier expansion of the form f ♯ discussed in Example 2.7 is an
+example of series in 2) of Theorem 2.16. (Note that f ♯ has order 2 although its
+δ-Fourier expansion reduced mod p has order 1!) More generally the series in 1)
+and 2) of Theorem 2.16 are related in an explicit way, similar to the way f and f ♯ of
+Example 2.7 are related. The proof of Theorem 2.16 involves a careful study of the
+action of δ-Hecke operators on δ-series plus the use of the canonical prolongations
+of the Serre operator acting on δ-modular forms.
+
+2.6. δ-functions on finite flat schemes. The p-jet spaces of finite flat schemes
+over R seem to play a key role in many aspects of the theory. These p-jet spaces are
+neither finite nor flat in general and overall they seem quite pathological. There
+are two remarkable classes of examples, however, where some order seems to be
+restored in the limit; these classes are finite flat p-group schemes that fit into p-
+divisible groups and finite length p-typical Witt rings. Recall that for any ring A
+we write A = A/pA. Then for connected p-divisible groups we have:
+Theorem 2.17. [28] Let F be a formal group law over R in one variable x, assume
+F has finite height, and let F[pν ] be the kernel of the multiplication by pν viewed as
+a finite flat group scheme over R. Then
+                                                        k[x, x′ , x′′ , ...]
+                              lim On (F[pν ]) ≃
+                               →
+                               n                     (x , (x′ )pν , (x′′ )pν , ...)
+                                                        pν
+
+
+sending x, δx, δ x, ... into the classes of x, x′ , x′′ , ....
+                     2
+22                               ALEXANDRU BUIUM
+
+
+    A similar result is obtained in [28] for the divisible group E[pν ] of an ordinary
+elliptic curve; some of the components of J n (E[pν ]) will be empty and exactly which
+ones are so is dictated by the valuation of q − 1 where q is the Serre-Tate parameter.
+The components that are non-empty (in particular the identity component) behave
+in the same way as the formal groups examined in Theorem 2.17 above.
+    In the same spirit one can compute p-jet spaces of Witt rings. Let us consider
+the ring Wm (R) of p-typical Witt vectors of length m + 1, m ≥ 1, and denote by
+Σm = Spec Wm (R) its spectrum. Set vi = (0, ..., 0, 1, 0, ..., 0) ∈ Wm (R), (1 preceded
+by i zeroes, i = 1, ..., m), set π = 1 − δv1 ∈ O1 (Σm ), and let Ωm = {1, ..., m}. The
+following is a description of the identity component of the limit of p-jet spaces mod
+p:
+
+Theorem 2.18. [29] For n ≥ 2 the image of π p in On (Σm ) is idempotent and we
+have an isomorphism
+                                             (r)
+                                         k[xi ; i ∈ Ωm ; r ≥ 0]
+                  lim On (Σm )π ≃             (r)
+                   →
+                    n               (xi xj , (xi )p ; i, j ∈ Ωm , r ≥ 1)
+                                                     (r)
+sending each δ r vi into the class of the variable xi .
+   A similar description is obtained in [29] for the p-jet maps induced by the Witt
+comonad maps. We recall that the data consisting of On (Σm ) and the maps in-
+duced by the comonad maps should be viewed as an arithmetic analogue of the Lie
+groupoid of the line.
+
+2.7. δ-Galois groups of δ-linear equations. Recall that for any solution u ∈
+GLn (R) of a δ-linear equation
+                                     δu = α · u(p)
+(where α ∈ gln (R)) and for any δ-subring O ⊂ R we defined the δ-Galois group
+Gu/O ⊂ GLn (O). We want to explain a result proved in [34]. Consider the max-
+imal torus T ⊂ GLn (R) of diagonal matrices, the Weyl group W ⊂ GLn (R) of
+permutation matrices, the normalizer N = W T = T W of T in GLn (R), and the
+subgroup N δ of N consisting of all elements of N whose entries are in the monoid
+of constants Rδ . We also use below the notation K a for the algebraic closure of
+the fraction field K of R; the Zariski closed sets Z of GLn (K a ) are then viewed
+as varieties over K a . The next result illustrates some “generic” features of our
+δ-Galois groups; assertion 1) of the next theorem shows that the δ-Galois group is
+generically “not too large”. Assertions 2) and 3) show that the δ-Galois group are
+generically “as large as possible”. As we shall see presently, the meaning of the
+word generic is different in each of the 3 situations: in situation 1) generic means
+outside a Zariski closed set; in situation 2) generic means outside a thin set (in the
+sense of diophantine geometry); in situation 3) generic means outside a set of the
+first category (in the sense of Baire category).
+Theorem 2.19.
+   1) There exists a Zariski closed subset Ω ⊂ GLn (K a ) not containing 1 such that
+for any u ∈ GLn (R)\Ω the following holds. Let α = δu · (u(p) )−1 and let O be a
+δ-subring of R containing α. Then Gu/O contains a normal subgroup of finite index
+which is diagonalizable over K a .
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                              23
+
+                                                       2                           2
+   2) Let O = Z(p) . There exists a thin set Ω ⊂ Qn such that for any α ∈ Zn \Ω
+there exists a solution u of the equation δu = αu(p) with the property that Gu/O is
+a finite group containing the Weyl group W .
+   3) There exists a subset Ω of the first category in the metric space
+                         X = {u ∈ GLn (R); u ≡ 1 mod p}
+such that for any u ∈ X\Ω the following holds. Let α = δu · (u(p) )−1 . Then
+there exists a δ-subring O of R containing Rδ such that α ∈ gln (O) and such that
+Gu/O = N δ .
+   The groups W and N δ should be morally viewed as “incarnations” of the groups
+“GLn (F1 )” and “GLn (Fa1 )” where “F1 ” and “Fa1 ” are the “field with element” and
+“its algebraic closure” respectively [6]. This suggests that the δ-Galois theory we
+are proposing here should be viewed as a Galois theory over “F1 ”.
+2.8. δ-flows for the classical groups. The main results in [34] concern the exis-
+                             [n that are adapted, in a certain precise sense, to the
+tence of certain δ-flows on GL
+various classical subgroups GLn , SLn , SOn , Spn .
+   Let G = GLn and let H be a smooth closed subgroup scheme of G. We say that
+a δ-flow φG is left (respectively right) compatible with H if H is φG -horizontal and
+the left (respectively right) diagram below is commutative:
+                    b ×G
+                    H    b → G
+                             b                   Gb×H b           b
+                                                                → G
+                 φH × φG ↓   ↓ φG             φG × φH ↓           ↓ φG
+                    b ×G
+                    H    b → G
+                             b                   Gb×H b           b
+                                                                → G
+where φH : H b →H  b is induced by φG and the horizontal maps are given by multi-
+plication.
+   Next by an involution on G we understand a morphism of schemes † : G → G
+over R, x 7→ x† , such that x†† = x and (xy)† = y † x† . By a quadratic map on
+G we mean a morphism of schemes H : G → G over R such that there exists an
+involution † : G → G and an element q ∈ G with the property that H(x) = x† qx.
+Given a quadratic map H one can define a map H2 : G × G → G by the formula
+H2 (x, y) = H(x)x−1 y = x† qy. One can also define a closed subgroup scheme S of
+G as the connected component H−1 (q)◦ of the group scheme H−1 (q); we say that
+S is defined by H.
+   Let us fix now a lift of Frobenius φG,0 on Gb such that q is φG,0 -horizontal (i.e.
+the ideal of q in O(G)ˆ is sent by φG,0 into itself). For a lift of Frobenius φG on
+Gb we say that H is horizontal (respectively symmetric) with respect to φG , φG,0 if
+the left (respectively right) diagram below is commutative:
+                       φG                             φG,0 ×φG
+                 b
+                 G    −→     b
+                             G                  Gb         −→     b×G
+                                                                  G    b
+                H↓           ↓H        φG × φG,0 ↓                ↓ H2
+                      φG,0                                 H
+                 b
+                 G    −→     b
+                             G              b×G
+                                            G    b          2
+                                                           −→     b
+                                                                  G
+   Note that if H is horizontal with respect to φG , φG,0 and q is φG,0 -horizontal then
+the group S defined by H is φG -horizontal; in particular there is an induced lift of
+Frobenius φS on S. b Also note that if we set φG,0 (x) = x(p) , viewing H as a matrix
+H(x) with entries in R[x, det(x)−1 ]ˆ, we have that horizontality of H with respect
+to φG , φG,0 is equivalent to the condition that δG H = 0, which can be interpreted
+as saying that H is a prime integral for our δ-flow φG .
+24                               ALEXANDRU BUIUM
+
+
+   The basic split classical groups GLn , SOn , Spn are defined by quadratic maps
+on G = GLn as follows. We start with GLn itself which is defined by H(x) = 1; in
+this case x† = x−1 , q = 1. We call H the canonical quadratic map defining GLn .
+We also recall that T ⊂ G is the maximal torus of diagonal matrices and W ⊂ G is
+the Weyl subgroup of GLn of all permutation matrices. Throughout our discussion
+                                            [n defined by φG,0 (x) := x(p) ; one can
+we let φG,0 (x) be the lift of Frobenius on GL
+                                                            b that is left and right
+prove that this φG,0 (x) is the unique lift of Frobenius on G
+compatible with T and W and extends to a lift of Frobenius on glcn (where we view
+[                        c
+GLn as an open set of gln ). On the other hand the groups Sp2r , SO2r , SO2r+1 are
+defined by the quadratic map on G = GLn given by H(x) = xt qx where q is equal
+to                                                            
+                                                1 0 0
+                     0     1r        0 1r
+                                 ,             ,  0 0 1r  ,
+                    −1r 0            1r 0
+                                                    0 1r 0
+n = 2r, 2r, 2r + 1 respectively, x† = xt is the transpose, and 1r is the r × r identity
+matrix. We call this H the canonical quadratic map defining Sp2r , SO2r , SO2r+1
+respectively. All these groups are smooth over R.
+Theorem 2.20. Let S be any of the groups GLn , SOn , Spn and let H be the canon-
+ical quadratic map on G = GLn defining S. Then the following hold.
+    1) (Symmetry and horizontality.) There exists a unique lift of Frobenius φG on
+Gb such that H is horizontal and symmetric with respect to φG , φG,0 .
+    2) (Compatibility with torus and Weyl group.) φG is right compatible with T and
+W ; also φG is left compatible with TS := T ∩ S and WS := W ∩ S. In particular
+if lδ : GLn → gln is the arithmetic logarithmic derivative associated to φG then for
+all a ∈ TS WS and b ∈ GLn (alternatively for all a ∈ GLn and b ∈ T W ) we have
+                             lδ(ab) = a ⋆δ lδ(b) +δ lδ(a).
+   3) (Compatibility with root groups.) If χ is a root of S (which is not a shortest
+root of SOn with n odd) then the corresponding root group Uχ ≃ Ga is φGLn -
+horizontal.
+   Note that a similar result can be proved for SLn ; the involution † lives, in this
+case, on a cover of GLn rather than on GLn itself. Note also that the exception in
+assertion 3 of the Theorem (occurring in case χ is a shortest root of SOn with n
+odd) is a curious phenomenon which deserves further understanding.
+
+                                    3. Problems
+Problem 3.1. Study the arithmetic jet spaces J n (X) of curves X (and more gen-
+eral varieties) with bad reduction.
+   This could be applied, in particular, to tackle Mazur’s question [58] about bound-
+ing the torsion points on curves unifromly in terms of the genus; in other words
+replacing C(g, p) by C(g) in Theorem 2.3. Our proof in [12] is based on the study
+of the arithmetic jet space of J 1 (X) at a prime p of good reduction. A study of the
+arithmetic jet space of curves at primes of bad reduction might lead to dropping
+the dependence of C(g, p) on p. Evidence that arithmetic jet spaces can be handled
+in the case of bad reduction comes in particular from the recent paper [27].
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                             25
+
+
+Problem 3.2. Study the δ-modular forms that vanish on arithmetically interesting
+Zariski dense subsets of Shimura varieties (such as CM loci or individual non-CM
+isogeny classes). Compute δ-invariants of higher dimensional correspondences.
+
+    This could be applied to extend results in [19], e.g. Theorem 2.14 above. A
+deeper study of differential modular forms may allow one, for instance, to replace
+S-isogeny class with the full isogeny class. The arguments might then be extended
+to higher dimensional contexts and to the global field rather than the local field
+situation. That such a deeper study is possible is shown by papers like [25], for
+instance. For the higher dimensional case the theory in [3] might have to be further
+developed to match the one dimensional theory in [15, 16]. In a related direction one
+might attempt to use the methods in [19] to tackle Pink’s conjectures in [62]. In [19]
+it was shown that behind finiteness theorems in diophantine geometry one can have
+reciprocity maps that are somehow inherited from δ-geometry (and that provide
+effective bounds); a similar picture might hold for (cases of) Pink’s conjecture. The
+first case to look at for such reciprocity maps would be in the case of the intersection
+between a multisection X of an abelian (or semiabelian) scheme G → S over a
+curve S with the set of torsion points lying in special (CM or otherwise) fibers;
+more general situations, in which torsion points are replaced by division points of
+a group generated by finitely many sections, can be considered. Results of André,
+Ribet, and Bertrand are pertinent to this question.
+
+Problem 3.3. Compare the δ-geometric approach to quotient spaces with the ap-
+proach via non-commutative geometry.
+
+   The quotients X/σ for the correspondences appearing in Theorem 2.6 do not
+exist, of course, in usual algebraic geometry. As Theorem 2.6 shows these quotients
+exist, however, and are interesting in δ-geometry. Remarkably such quotients also
+exist and are interesting in non-commutative geometry [59]. More precisely the 3
+cases (spherical, flat, hyperbolic) of Theorem 2.6 are closely related to the following
+3 classes of examples studied in non-commutative geometry:
+                    P1 (R)
+   1) (spherical) SL  2 (Z)
+                            , non-commutative boundary of the classical modular curve;
+               1
+               S
+   2) (flat) he2πiτ i (θ ∈ R\Q): non-commutative elliptic curves;
+   3) (hyperbolic) Non-commutative space Shnc containing the classical Shimura
+variety Sh (2-dimensional analogue of Bost-Connes systems).
+   It would be interesting to understand why these 3 classes appear in both contexts
+(δ-geometry and non-commutative geometry); also one would like to see whether
+there is a connection, in the case of these 3 classes, between the 2 contexts.
+   Note that non-commutative geometry can also tackle the dynamics of ratio-
+nal functions that are not necessarily post-critically finite of Euler characteristic
+zero. It is conceivable that some post-critically finite polynomials of non-zero Eu-
+ler characteristic possess δ-invariants for some particular primes (with respect to
+the anticanonical bundle or other bundles). A good start would be to investigate
+the δ-invariants of σ(x) = x2 − 1. Another good start would be to investigate
+δ-invariants of post-critically finite polynomials with Euler characteristic zero that
+are congruent modulo special primes to post-critically finite polynomials with Euler
+characteristic zero.
+26                                ALEXANDRU BUIUM
+
+
+Problem 3.4. Study the de Rham cohomology of arithmetic jet spaces. Find arith-
+metic analogues of Kähler differentials Ω and D-modules. Find an object that is to
+D what O1 is to Sym(Ω).
+   The study of de Rham cohomology of arithmetic jet spaces was started in [7]
+where it is shown that the de Rham cohomology of J n (X) carries information
+about the arithmetic of X. The de Rham computations in [7] are probably shadows
+of more general phenomena which deserve being understood. Also the de Rham
+setting could be replaced by an overconvergent one; overconvergence is known to
+give an improved picture of the de Rham story and, on the other hand, as already
+mentioned, it was proved in [27] that most of the remarkable δ-functions occurring in
+the theory possess a remarkable overconvergence property in the “δ-variables” called
+δ-overconvergence. Finally one is tempted to try to relate the de Rham cohomology
+of arithmetic jet spaces J n (X) to the de Rham-Witt complex of X in characteristic p
+and in mixed characteristic. Note further that since the arithmetic jet space J 1 (X)
+is an analogue of the (physical) tangent bundle T (X) of X it follows that the sheaf
+O1 is an arithmetic analogue of the sheaf Sym(ΩX/R ), symmetric algebra on the
+Kähler differentials. But there is no obvious arithmetic analogue of the sheaf ΩX/R
+itself. Also there is no obvious arithmetic analogue of the sheaf DX of differential
+operators on X and of DX -modules. The absence of immediate analogues of Ω and
+D is of course related to the intrinsic non-linearity of p-derivations. It would be
+interesting to search for such analogues. It is on the other hand conceivable that
+there is a sheaf in the arithmetic theory that is to D what O1 is to Sym(Ω). Recall
+that the associated graded algebra of D is canonically isomorphic to the algebra
+of functions on the (physical) cotangent bundle O(T ∗ (X)) (and not on the tangent
+bundle); this looks like a discrepancy but actually the arithmetic jet space J 1 (X)
+has a sort of intrinsic self-duality (cf. [16]) that is missing in the classical algebro-
+geometric case where the tangent bundle T (X) and the cotangent bundle T ∗ (X)
+and not naturally dual (unless, say, a symplectic structure is given).
+   The δ-overconvergence property mentioned in Problem 3.4 may hold the key to:
+Problem 3.5. Define and study the/a maximal space of δ-modular forms on which
+Atkin’s U operator can be defined.
+   Indeed the Hecke operators T (n) with p 6 |n are defined on δ-modular forms and
+have a rich theory in this context [15]. In contrast to this T (p) and hence U are still
+mysterious in the theory of δ-modular forms. An step in understanding U was taken
+in [26] where the theory mod p for series of order 1 was given a rather definitive
+treatment. However the theory in characteristic zero seems elusive at this point.
+There are two paths towards such a theory so far. One path is via δ-symmetry
+[24, 26]; this is a characteristic 0 analogue of the concept of δ-p-symmetry mod p
+discussed above. Another path is via δ-overconvergence [27]. The two paths seem
+to lead into different directions and this discrepancy needs to be better understood.
+Assuming that a good theory of U is achieved, this might lead to a Hida-like
+theory of families of differential modular forms, including Galois representations
+attached to such forms. It is conceivable that families in this context are not power
+series but Witt vectors. Part of the quest for a U theory of δ-modular forms is to
+seek a δ-analogue of Eisentein series. It is conceivable that the rings On (X1 (N ))
+contain functions that do not vanish at the cusps and are eigenvectors of the Hecke
+operators; such functions could be viewed as “δ-Eisenstein” forms of weight zero.
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                              27
+
+
+Problem 3.6. Interpret information contained in the arithmetic jet spaces J n (X)
+as an arithmetic Kodaira-Spencer “class” of X.
+    Indeed some of these arithmetic Kodaira-Spencer classes (e.g in the case of elliptic
+curves or, more generally, abelian schemes) were studied in [15, 16] and lead to
+interesting δ-modular forms. For general schemes (e.g for curves of higher genus)
+these classes were explored in Dupuy’s thesis [40]. They are non-abelian cohomology
+classes with values in the sheaf of automorphisms of p-adic affine spaces A b d (in the
+case of curves d = 1). These classes arise from comparing the local trivializations
+of arithmetic jet spaces. In this more general case these classes may hold the key to
+a “deformation theory over the field with one element”. On the other hand Dupuy
+proved in [40] that if X is a smooth projective curve of genus ≥ 2 over R then
+J 1 (X) is a torsor for some line bundle over X; this is rather surprising in view of
+the high non-linearity of the theory. One should say that the line bundle in question
+is still mysterious and deserves further investigation.
+Problem 3.7. Further develop the partial differential theory in [20, 21, 22].
+    Indeed in spite of the extensive work done in [20, 21, 22] the arithmetic partial
+differential theory is still in its infancy. The elliptic case of that theory [20] (which,
+we recall, involves operators δp1 and δp2 corresponding to two primes p1 and p2 ) is
+directly related to the study of the de Rham cohomology of arithmetic jet spaces
+[7]; indeed one of the main results in [7] shows that the arithmetic Laplacians in
+[20] are formal primitives (both p1 -adically and p2 -adically) of global 1-forms on
+the arithmetic jet spaces (these forms being not exact, although formally exact, and
+hence closed). By the way analogues of these results in [7] probably exist in the case
+of modular curves; in the one prime case a beginning of such a study was undertaken
+in [16], where some of the main δ-modular forms of the theory were shown to satisfy
+some remarkable systems of Pfaff equations. The hyperbolic/parabolic case of the
+theory [21, 22] (which, we recall, involves a p-derivation δp with respect to a prime
+p and a usual derivation operator δq ) could be further developed as follows. One
+could start by “specializing” the variable q in δq to elements π in arbitrarily ramified
+extensions of Zp . This might push the theory in the “arbitrarily ramified direction”
+which would be extremely desirable for arithmetic-geometric applications. Indeed
+our ordinary arithmetic differential theory is, at present, a non-ramified (or at
+most “boundedly ramified”) theory. A further idea along these lines would be
+to use the solutions of the arithmetic partial differential equations in [21, 22] to
+let points “flow” on varieties defined over number fields. Some of the solutions
+in [21, 22] have interesting arithmetic features (some look like hybrids between
+quantum exponentials and Artin-Hasse exponentials, for instance) so the “flows”
+defined by them might have arithmetic consequences. The challenge is to find (if at
+all possible) “special values” of these solutions that are algebraic. One should also
+mention that the arithmetic hyperbolic and parabolic equations in [21, 22] have, in
+special cases, well defined “indices” that seem to carry arithmetic information; the
+challenge would be to make the index machinery work in general situations and to
+study the variation of indices in families.
+Problem 3.8. Find an arithmetic analogue of Sato hyperfunction solutions of both
+“ordinary” and “partial” arithmetic differential equations.
+   Indeed Sato’s hyperfunctions, in their simplest incarnation, are pairs (f (x), g(x))
+of functions on the unit disk (corresponding to the distribution f (x) − g(x−1 ))
+28                                ALEXANDRU BUIUM
+
+                                                                df          dg
+modulo (c, c), c a constant. The derivative of a pair is then ( dx (x), −x2 dx (x)).) One
+could then try to consider, in the arithmetic case, pairs (P, Q) of points of algebraic
+groups with values in δ-rings modulo an appropriate equivalence relation and with
+an appropriate analogue of differentiation with respect to p; this framework could
+be the correct one for “non-analytic” solutions of the equations in [20, 21, 22].
+Problem 3.9. Construct p-adic measures from δ-modular forms.
+   Indeed one of the main ideas in Katz’s approach to p-adic interpolation [50] was
+to lift some of the remarkable Zp -valued (p-adic) measures of the theory to W-
+valued measures where W is the ring of (generalized) p-adic modular forms. One
+can hope that some of these W-valued measures of Katz can be further lifted to
+measures with values in the p-adic completion of the ring of δ-modular functions
+M ∞ . Indeed recall from Theorem 2.11 that there is a canonical homomorphism
+M ∞ → W whose image is p-adically dense, hence the “lifting” problem makes
+sense. These lifted M d ∞ -valued measures could then be evaluated at various elliptic
+
+curves defined over δ-rings to obtain new Zp -valued measures (and hence new p-
+adic interpolation results) in the same way in which Katz evaluated his measures
+at special elliptic curves. Another related idea would be to interpret the solutions
+in Zp [[q]] of the arithmetic partial differential equations in Problem 3.7 above as
+measures (via Iwasawa’s representation of measures as power series). There is a
+discrepancy in this approach in that the derivation of interest in Iwasawa’s theory
+            d                                                         d
+is (1 + q) dq  whereas the derivation of interest in Problem 3.7 is q dq ; nevertheless
+one should pursue this idea and understand the discrepancy.
+Problem 3.10. Find arithmetic analogues of classical theorems in the theory of
+differential algebraic groups and further develop the δ-Galois theory in [35].
+   Indeed the theory of groups defined by (usual) differential equations (“differential
+algebraic groups”) is by now a classical subject: it goes back to Lie and Cartan
+and underwent a new development, from a rather new angle, through the work
+of Cassidy and Kolchin [36, 52]. It is tempting to seek an arithmetic analogue
+of this theory: one would like to understand, for instance, the structure of all
+subgroups of GLn (R) that are defined by arithmetic differential equations. The
+paper [14] proves an arithmetic analogue of Cassidy’s theorem about Zariski dense
+subgroups of simple algebraic groups over differential fields; in [14] the case of
+Zariski dense mod p groups is considered. But Zariski dense groups such as GLn (Zp )
+are definitely extremely interesting (and lead to interesting Galois theoretic results
+such as in [16], Chapter 5). So a generalization of [14] to the case of Zariski dense
+(rather than Zariski dense mod p) groups, together with a generalization of the
+Galois theoretic results in [16], would be very desirable. For instance it would be
+interesting to classify all δ-subgroups of the multiplicative group Gm (R) = R×
+(or more generally of GL2 (R)) and find the invariants of such groups acting on
+  \
+R{x}                             ′ ′′
+      (p) (where R{x} = R[x, x , x , ...]). Also remark that, as in the case of usual
+derivations, there are interesting (“unexpected”) homomorphisms in δ-geometry
+between GL1 = Gm and GL2 , for instance
+                                                               
+                                                    a aψ∗ (a)
+                    Gm (R) → GL2 (R),        a 7→
+                                                    0      a
+where ψ∗ is a δ-character, i.e. ψ ∈ Xn (Gm ). Cf. [43] for interesting developments
+into this subject. The main open problem in the δ-Galois theory of GLn [35] seems
+                      DIFFERENTIAL CALCULUS WITH INTEGERS                               29
+
+
+at this point to decide if the δ-Galois groups always contain a subgroup of the
+diagonal matrices as a subgroup of finite index. Other problems are: to establish
+a Galois correspondence; to understand the relation (already hinted at in [35])
+between δ-Galois groups and Galois problems arising from the dynamics on Pn ; to
+generalize the theory by replacing GLn with an arbitrary reductive group.
+Problem 3.11. Compose some of the basic δ-functions of the theory in [16] (e.g.
+the δ-modular forms on Shimura curves) with p-adic uniformization maps (e.g. with
+Drinfeld’s uniformization map of Shimura curves).
+   Indeed this might shed a new light (coming from the analytic world) on δ-
+geometry. These composed maps would belong to a “δ-rigid geometry” which has
+yet to be developed in case these maps are interesting enough to require it. By the
+way it is not at all clear that the functor that attaches to a formal p-adic scheme
+its arithmetic jet space can be prolonged to a functor in the rigid category. The
+problem (which seems to boil down to some quite non-trivial combinatorially fla-
+vored calculation) is to show that the arithmetic jet space functor sends blow-ups
+with centers in the closed fiber into (some version of) blow-ups.
+   In the spirit of the last comments on Problem 3.11 one can ask:
+Problem 3.12. Study the morphisms J n (X) → J n (Y ) induced by non-étale finite
+flat covers of smooth schemes X → Y .
+    Indeed note that if X → Y is finite and étale then it is well known that
+J n (X) → J n (Y ) are finite and étale; indeed J n (X) ≃ J n (Y ) ×Y X. But note
+that if X → Y is only finite and flat then J n (X) → J n (Y ) is neither finite nor flat
+in general. One of the simplest examples which need to be investigated (some par-
+tial results are available [28], cf. Theorem 2.17) is that of the covers [pν ] : G → G of
+smooth group schemes (or formal groups) given by multiplication by pν . The geom-
+etry of the induced endomorphisms of the arithmetic jet spaces is highly complex
+and mysterious. Understanding it might be, in particular, another path towards
+introducing/understanding the Atkin operator U on δ-modular forms referred to
+in Problem 3.5. An obviously closely related problem is to understand the p-jet
+spaces of p-divisible groups; cf. Theorem 2.17. Yet another example of interest is
+the study of J n (X) → J n (X/Γ) for Γ a finite group acting on a smooth X; even the
+case X = Y n with Y a curve and Σ = Sn the symmetric group acting naturally is
+still completely mysterious. This latter case is related to the concept of δ-symmetry
+mentioned in Problem 3.5 and appeared in an essential manner in the paper [24]:
+the failure of invariants to commute with formation of jet spaces (in the ramified
+case) is directly responsible for the existence (and indeed abundance) of δ-functions
+on smooth projective curves which do not arise from δ-characters of the Jacobian.
+Problem 3.13. Understand which analytic functions X(Zp ) → Zp for smooth
+schemes X/Zp are induced by δ-functions.
+   Indeed it was proved in [23] that a function f : Zp → Zp is analytic if, and only if,
+there exists m such that f can be represented as f (x) = F (x, δx, . . . , δ m x), where
+F ∈ Zp [x0 , x1 , ..., xm ]ˆ is a restricted power series with Zp -coefficients in m + 1
+variables. This can be viewed as a “differential interpolation result”: indeed f (x)
+is given by a finite family of (unrelated) power series Fi (x) convergent on disjoint
+balls Bi that cover Zp and the result says that one can find a single power series
+F (x, δx, ..., δ m x) that equals Fi (x) on Bi for each i. One can ask for a generalization
+30                                ALEXANDRU BUIUM
+
+
+of this by asking which analytic functions f : X(Zp ) → Zp defined on the Zp -points
+of a smooth scheme X/Zp come from a δ-function f˜ ∈ On (X) (i.e. f = f˜∗ ); of course
+such a f˜ cannot be, in general, unique. If X = A1 is the affine line then the result
+in [23] says that any f comes from some f˜. This is probably still the case if X is any
+affine smooth scheme. On the other hand this fails if X = P1 is the projective line
+simply because there are no non-constant δ-functions in On (P1 ) [12] but, of course,
+there are plenty of non-constant analytic functions P1 (Zp ) → Zp . There should
+be a collection of cohomological obstructions to lifting f to some f˜ that should
+reflect the global geometry of X. This seems to us a rather fundamental question
+in understanding the relation between p-adic analytic geometry and δ-geometry.
+   In the light of Theorem 2.17 one can ask:
+Problem 3.14. Let α0 , ..., αν be elements in the algebraic closure of the fraction
+field of R which are integral over R. Let Xi = Spec R[αi ] be viewed as a closed
+subscheme of the line A1 over R. Compute/understand the arithmetic jet spaces
+J n (∪νi=0 Xi ).
+    This is a problem “about the interaction” of algebraic numbers. Indeed the case
+ν = 0 is clear; for instance if R[α] is totally ramified over R (and 6= R) then the
+arithmetic jet spaces are empty: J n (Spec R[α]) = ∅ for n ≥ 1. However, for ν ≥ 1,
+an interesting new phenomenon occurs. Indeed if αi = ζpi (primitive pi -th root
+of unity) then although J n (Spec R[ζpi ]) = ∅ for n ≥ 1 and i ≥ 1 we have that
+J n (∪νi=0 Spec R[ζpi ]) = J n (µpν ) is non-empty and indeed extremely interesting; cf.
+Theorem 2.17.
+Problem 3.15. Find arithmetic analogues of Hamiltonian systems and of alge-
+braically completely integrable systems. Find arithmetic analogues of the formal
+pseudo-differential calculus.
+   This problem is motivated by the link (due to Fuchs and Manin [56]) between
+the Painlevé VI equation (which has a Hamiltonian structure) and the Manin map
+of an elliptic fibration. Painlevé VI possesses an arithmetic analogue whose study
+was begun in [31]; this study is in its infancy and deserves further attention. More
+generally there is an intriguing possibility that other physically relevant differential
+equations (especially arising in Hamiltonian contexts, especially in the completely
+integrable situation, both finite and infinite dimensional) have arithmetic analogues
+carrying arithmetic significance. Finally it is conceivable that a meaningful arith-
+metic analogue of the formal pseudo-differential calculus in one variable [61]. p.
+318 can be developed; in other words one should be able to bring into the picture
+negative powers of the p-derivation δ : On (X) → On+1 (X) in the same way in which
+formal pseudo-differential calculus brings into the picture the negative powers of
+the total derivative operator acting on functions on jet spaces.
+Problem 3.16. Find an arithmetic analogue of the differential groupoids/Lie pseu-
+dogroups in the work of Lie, Cartan, Malgrange [39].
+   Indeed recall that one can view the p-jet spaces J n (Σm ) of Σm = Spec Wm (R)
+and the jet maps induced by the comonad maps as an arithmetic analogue of the
+Lie groupoid J n (R × R/R)∗ of the line; cf. [29] and Theorem 2.18 above for results
+on this. It would be interesting to investigate subobjects of the system J n (Σm )
+that play the role of analogues of differential sub-groupoids and to find arithmetic
+analogues of the differential invariants of diffeomorphism groups acting on natural
+                        DIFFERENTIAL CALCULUS WITH INTEGERS                                      31
+
+
+bundles arising from frame bundles. A theory of J n (Σm ), suitably extended to other
+rings and to arithmetic analogues of poly-vector fields, could also be interpreted
+as an arithmetic analogue of the theory of the deRham-Witt complex [44] because
+it would replace the usual Kähler differentials Ω by constructions involving the
+operators δp .
+Problem 3.17. Compute On (T(N, κ)) where T(N, κ) is the Hecke Z-algebra at-
+tached to cusp forms on Γ1 (N ) of level κ.
+   This could lead to a way of associating differential modular forms f ♯ to classical
+newforms f of weight 6= 2. (Cf. Theorem 2.16.) This might also lead to a link
+between δ-geometry and Galois representations. The problem may be related to
+the study of double coset sets of GL2 (or more generally GLn ) and a link of this to
+the study in [33, 34, 35] is plausible.
+   We end by stating two of the most puzzling concrete open problems of the theory.
+Problem 3.18. Compute On (X) for an elliptic curve X.
+   Note that O1 (X) and Xn (X) have been computed (Theorem 2.2) and one expects
+Xn (X) to “generate” On (X). In particular assume X is not a canonical lift and ψ
+is a basis of X2 (X); is it true that On (X) = R[ψ, δψ, ..., δ n−1 ψ]ˆ? The analogue of
+this in differential algebra is true; cf. [9].
+Problem 3.19. Compute Xn (G) for G an extension of an elliptic curve by Gm .
+   One expects that this module depends in an arithmetically interesting way on
+the class of the extension. The problem is directly related to that of understanding
+the cohomology of arithmetic jet spaces.
+
+                                         References
+  [1] D. V. Alexeevski, V. V. Lychagin, A. M. Vinogradov, Basic ideas and concepts of differential
+      geometry, in: Geometry I, R. V. Gamkrelidze, Ed., Encyclopedia of Mathematical Sciences,
+      Volume 28, Springer 1991.
+  [2] M.Barcau, Isogeny covariant differential modular forms and the space of elliptic curves up
+      to isogeny, Compositio Math., 137 (2003), 237-273.
+  [3] M. Barcau, A. Buium, Siegel differential modular forms, International Math. Res. Notices,
+      2002, No. 28, pp.1459-1503.
+  [4] J. Borger, The basic geometry of Witt vectors, I: the affine case, Algebra and Number
+      Theory 5 (2011), no. 2, pp 231-285.
+  [5] Borger, J., The basic geometry of Witt vectors, II: Spaces, Mathematische Annalen 351
+      (2011), no. 4, pp 877-933.
+  [6] J. Borger, Λ-rings and the field with one element, arXiv:0906.3146v1
+  [7] J. Borger, A. Buium, Differential forms on arithmetic jet spaces, Selecta Math., 17, 2 (2011),
+      pp. 301-335.
+  [8] A.Buium, Intersections in jet spaces and a conjecture of S.Lang, Annals of Math. 136 (1992)
+      557-567.
+  [9] A. Buium, Differential algebra and diophantine geometry, Hermann, 1994.
+ [10] A. Buium, On a question of B.Mazur, Duke Math. J., 75, 3, (1994), 639-644.
+ [11] A. Buium, Differential characters of Abelian varieties over p-adic fields, Invent. Math., 122
+      (1995), pp. 309-340.
+ [12] A. Buium, Geometry of p-jets, Duke J. Math. 82, (1996), 2, pp. 349-367.
+ [13] A. Buium, Differential characters and characteristic polynomial of Frobenius, Crelle J. 485
+      (1997), 209-219.
+ [14] A. Buium, Differential subgroups of simple algebraic groups over p-adic fields, Amer. J.
+      Math. 120 (1998), 1277-1287.
+32                                     ALEXANDRU BUIUM
+
+
+ [15] A. Buium, Differential modular forms, J. reine angew. Math., 520, (2000), pp. 95-167.
+ [16] A. Buium, Arithmetic Differential Equations, Math. Surveys and Monographs, 118, Amer-
+      ican Mathematical Society, Providence, RI, 2005. xxxii+310 pp.
+ [17] A. Buium, Differential eigenforms, J. Number Theory, 128 (2008), 979-1010.
+ [18] A. Buium, B. Poonen, Independence of points on elliptic curves arising from special points
+      on modular and Shimura curves, I: global results, Duke Math. J., 147, 1 (2009), 181-191.
+ [19] A. Buium, B. Poonen, Independence of points on elliptic curves arising from special points
+      on modular and Shimura curves, II: local results, Compositio Math., 145 (2009), 566-602.
+ [20] A. Buium, S.R. Simanca, Arithmetic Laplacians, Adv. Math. 220 (2009), pp. 246-277.
+ [21] A. Buium, S.R. Simanca, Arithmetic partial differential equations, I, Advances in Math.
+      225 (2010), 689-793.
+ [22] A. Buium, S.R. Simanca, Arithmetic partial differential equations II, Advances in Math.,
+      225 (2010), 1308-1340.
+ [23] A. Buium, C. Ralph, S.R. Simanca, Arithmetic differential operators on Zp , J. Number
+      Theory 131 (2011), pp. 96-105.
+ [24] A. Buium, Differential characters on curves, in: Number Theory, Analysis and Geometry:
+      In Memory of Serge Lang, D. Goldfeld et al. Editors, Springer, 2011, pp. 111-123.
+ [25] A. Buium, A. Saha, The ring of differential Fourier expansions, J. of Number Theory 132
+      (2012), 896-937.
+ [26] A. Buium, A. Saha, Hecke operators on differential modular forms mod p, J. Number Theory
+      132 (2012), 966-997
+ [27] A. Buium, A. Saha, Differential overconvergence, in: Algebraic methods in dynamical sys-
+      tems; volume dedicated to Michael Singer’s 60th birthday, Banach Center Publications, Vol
+      94, 99-129 (2011).
+ [28] A. Buium, p-jets of finite algebras, I: p-divisible groups, Documenta Math., 18 (2013) 943–
+      969.
+ [29] A. Buium, p-jets of finite algebras, II: p-typical Witt rings, Documenta Math., 18 (2013)
+      971–996.
+ [30] A. Buium, Galois groups arising from arithmetic differential equations, to appear in: Pro-
+      ceedings of a Conference in Luminy, Seminaires et Congrès, Soc. Math. France.
+ [31] A. Buium, Yu. I. Manin, Arithmetic differential equations of Painlevé VI type,
+      arXiv:1307.3841
+ [32] A. Buium, A. Saha, The first p-jet space of an elliptic curve: global functions and lifts of
+      Frobenius, arXiv:1308.0578.
+ [33] A. Buium, T. Dupuy, Arithmetic differential equations on GLn , I: differential cocycles,
+      arXiv:1308.0748v1.
+ [34] A. Buium, T. Dupuy, Arithmetic differential equations on GLn , II: arithmetic Lie theory,
+      arXiv:1308.0744.
+ [35] A. Buium, T. Dupuy, Arithmetic differential equations on GLn , III: Galois groups,
+      arXiv:1308.0747
+ [36] P. Cassidy, Differential algebraic groups, Amer. J. Math 94 (1972), 891-954.
+ [37] Z. Chatzidakis, E. Hrushovski, Model theory of difference fields, Trans. AMS, 351 (1999),
+      2997-3071.
+ [38] A. Connes, Non-commutative Geometry, Academic Press, 1994.
+ [39] V. G. Drinfeld, Elliptic modules, Math. Sbornik 94 (1974), 594-627.
+ [40] T. Dupuy, Arithmetic deformation theory of algebraic curves, PhD Thesis (UNM).
+ [41] B. Dwork, G. Gerotto, F. J. Sullivan, An introduction to G-functions. Annals of Mathematics
+      Studies, 133. Princeton University Press, Princeton, NJ, 1994. xxii+323 pp.
+ [42] M.Greenberg, Schemata over local rings, Annals of Math. 73 (1961), 624-648.
+ [43] A. Herras-Llanos, PhD thesis (UNM), in preparation.
+ [44] L. Hesselholt, The big deRham-Witt complex, preprint, 2011.
+ [45] C. Hurlburt, Isogeny covariant differential modular forms modulo p, Compositio Math. 128,
+      (2001), 1, pp. 17-34.
+ [46] Y. Ihara, An invariant multiple differential attached to the field of elliptic modular functions
+      of characteristic p, Amer. J. Math., XCIII, 1, (1971), 139-147.
+ [47] Y. Ihara, On Fermat quotient and differentiation of numbers, RIMS Kokyuroku 810 (1992),
+      324-341, (In Japanese). English translation by S. Hahn, Univ. of Georgia preprint.
+                        DIFFERENTIAL CALCULUS WITH INTEGERS                                      33
+
+
+[48] T. A. Ivey, J. M. Landsberg, Cartan for beginners: differential geometry via moving frames
+     and exterior differential systems, GTM 61, AMS 2003.
+[49] A. Joyal, δ−anneaux et vecteurs de Witt, C.R. Acad. Sci. Canada, Vol. VII, No. 3, (1985),
+     177-182.
+[50] N. Katz, p-adic interpolation of real Eisenstein series, Ann. of Math. 104 (1976), 459-571.
+[51] E.R. Kolchin, Differential algebra and algebraic groups. Pure and Applied Mathematics,
+     Vol. 54. Academic Press, New York-London, 1973. xviii+446 pp.
+[52] E.Kolchin, Differential Algebraic Groups, Academic Press, 1985.
+[53] N. Kurokawa, H. Ochiai, M. Wakayama, Absolute derivations and zeta functions, Docu-
+     menta Math.,Extra Volume Kato (2003), 565-584.
+[54] B. Malgrange, Le groupoı̈de de Galois d’un feuilletage, Monographie 28 Vol 2,
+     L’enseignement Mathématique (2001).
+[55] Yu. I. Manin, Rational points on algebraic curves over function fields, Izv. Acad. Nauk
+     USSR, 27 (1963), 1395-1440.
+[56] Yu. I. Manin, Sixth Painlevé equation, universal elliptic curve, and mirror of P2 , arXiv:alg-
+     geom/9605010.
+[57] Yu. I. Manin, Cyclotomy and analytic geometry over F1 , arXiv:0809.1564.
+[58] B.Mazur, Arithmetic on curves, Bull. Amer. Math. Soc. 14, 2 (1986), 207-259.
+[59] M.Marcolli, Lectures on Arithmetic Non-commutative Geometry, Univ. Lecture Series 36,
+     AMS, 2005.
+[60] M. Morishita, Knots and primes, Springer, 2012.
+[61] P. J. Olver, Appications of Lie Groups to Differential Equations, GTM 107, Springer, 2000.
+[62] R. Pink, A combination of the conjectures of Mordell-Lang and André-Oort, in: Progress
+     in Math 235, Birkhauser 2005, pp. 251-282.
+[63] M.Raynaud, Courbes sur une variété abélienne et points de torsion, Invent. Math. 71 (1983),
+     207-235.
+[64] M. Singer, M. van der Put, Galois theory of difference equaltions, LNM, Springer 1997.
+[65] P. Vojta, Jets via Hasse-Schmidt derivations, in: Diophantine geometry, pp. 335-361, CRM
+     Series, 4, U. Zannier Ed., Sc. Norm., Pisa, 2007.
+

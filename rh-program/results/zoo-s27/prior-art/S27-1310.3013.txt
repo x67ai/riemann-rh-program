@@ -1,0 +1,2825 @@
+                                         Witt vectors, semirings, and total positivity
+
+                                         James Borger∗
+
+
+
+                                         Abstract. We extend the big and p-typical Witt vector functors from commutative rings
+                                         to commutative semirings. In the case of the big Witt vectors, this is a repackaging of some
+
+
+
+
+arXiv:1310.3013v2 [math.CO] 9 Sep 2015
+                                         standard facts about monomial and Schur positivity in the combinatorics of symmetric
+                                         functions. In the p-typical case, it uses positivity with respect to an apparently new
+                                         basis of the p-typical symmetric functions. We also give explicit descriptions of the big
+                                         Witt vectors of the natural numbers and of the nonnegative reals, the second of which
+                                         is a restatement of Edrei’s theorem on totally positive power series. Finally we give
+                                         some negative results on the relationship between truncated Witt vectors and k-Schur
+                                         positivity, and we give ten open questions.
+
+                                         2010 Mathematics Subject Classification. Primary 13F35, 13K05; Secondary 16Y60,
+                                         05E05, 14P10.
+                                         Keywords. Witt vector, semiring, symmetric function, total positivity, Schur positivity.
+
+
+
+                                         Contents
+                                         1   Commutative algebra over N, the general theory                                      281
+                                             1.1 The category of N-modules . . . . . . . . . . . . . . . . . . . . . .           281
+                                             1.2 Submodules and monomorphisms . . . . . . . . . . . . . . . . . . .              281
+                                             1.3 Products, coproducts . . . . . . . . . . . . . . . . . . . . . . . . . .        281
+                                             1.4 Internal equivalence relations, quotients, and epimorphisms . . . .             282
+                                             1.5 Generators and relations . . . . . . . . . . . . . . . . . . . . . . . .        282
+                                             1.6 Hom and ⊗ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         282
+                                             1.7 N-algebras . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      283
+                                             1.8 Commutativity assumption . . . . . . . . . . . . . . . . . . . . . .            283
+                                             1.9 A-modules and A-algebras . . . . . . . . . . . . . . . . . . . . . . .          283
+                                             1.10 HomA and ⊗A . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          284
+                                             1.11 Limits and colimits of A-modules and A-algebras . . . . . . . . . .            284
+                                             1.12 Warning: kernels and cokernels . . . . . . . . . . . . . . . . . . . .         284
+                                             1.13 Base change, induced and co-induced modules . . . . . . . . . . . .            284
+                                             1.14 Limits and colimits of A-algebras . . . . . . . . . . . . . . . . . . .        284
+                                             1.15 Base change for algebras . . . . . . . . . . . . . . . . . . . . . . . .       285
+                                             1.16 Flat modules and algebras . . . . . . . . . . . . . . . . . . . . . . .        285
+                                             1.17 Examples of flat modules . . . . . . . . . . . . . . . . . . . . . . .         285
+                                            ∗ Supported the Australian Research Council under a Discovery Project (DP120103541) and
+
+                                         a Future Fellowship (FT110100728).
+274                                                                           J. Borger
+
+
+2   The flat topology over N                                                         285
+    2.1 Flat covers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    286
+    2.2 The fpqc topology . . . . . . . . . . . . . . . . . . . . . . . . . . .      286
+    2.3 Faithfully flat descent . . . . . . . . . . . . . . . . . . . . . . . . .    286
+    2.6 Algebraic geometry over N . . . . . . . . . . . . . . . . . . . . . . .      287
+    2.7 Extending fibered categories to nonaffine schemes . . . . . . . . . .        288
+    2.8 Additively idempotent elements . . . . . . . . . . . . . . . . . . . .       288
+    2.9 Cancellative modules . . . . . . . . . . . . . . . . . . . . . . . . . .     288
+    2.10 Strong and subtractive morphisms . . . . . . . . . . . . . . . . . .        289
+    2.11 Additively invertible elements . . . . . . . . . . . . . . . . . . . . .    289
+
+3   Plethystic algebra for N-algebras                                                290
+    3.1 Models of co-C objects in AlgK . . . . . . . . . . . . . . . . . . . .       290
+    3.2 Co-L-algebra objects in AlgK . . . . . . . . . . . . . . . . . . . . .       290
+    3.3 Plethystic algebra . . . . . . . . . . . . . . . . . . . . . . . . . . . .   291
+    3.4 Example: composition algebras and endomorphisms . . . . . . . .              292
+    3.5 Models of co-C objects in AlgK . . . . . . . . . . . . . . . . . . . .       292
+    3.6 Flat models of co-C-objects in AlgK . . . . . . . . . . . . . . . . .        292
+    3.7 Models of composition algebras . . . . . . . . . . . . . . . . . . . .       293
+
+4   The composition structure on symmetric functions over N                          293
+    4.1 Conventions on partitions . . . . . . . . . . . . . . . . . . . . . . .      293
+    4.2 ΨK . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   294
+    4.3 Symmetric functions . . . . . . . . . . . . . . . . . . . . . . . . . .      294
+    4.4 Remark: ΛN is not free as an N-algebra . . . . . . . . . . . . . . .         294
+    4.5 Elementary and Witt symmetric functions . . . . . . . . . . . . . .          295
+    4.8 Explicit description of a ΛN -action . . . . . . . . . . . . . . . . . .     297
+    4.9 Example: the toric ΛN -structure on monoid algebras . . . . . . . .          298
+    4.10 Example: the Chebyshev line . . . . . . . . . . . . . . . . . . . . .       298
+    4.11 Flatness for ΛN -semirings . . . . . . . . . . . . . . . . . . . . . . .    298
+    4.12 Example: convergent exponential monoid algebras . . . . . . . . .           298
+    4.13 Example: convergent monoid algebras . . . . . . . . . . . . . . . .         299
+    4.14 Remark: non-models for ΛZ over N . . . . . . . . . . . . . . . . . .        299
+
+5   The Schur model for ΛZ over N                                                    300
+    5.1 Schur functions and ΛSch . . . . . . . . . . . . . . . . . . . . . . .       300
+    5.3 Remark . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     301
+    5.4 Remark: ΛSch is not free as an N-algebra . . . . . . . . . . . . . .         301
+    5.5 Remark: explicit description of a ΛSch -action . . . . . . . . . . . .       302
+    5.6 Example . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    302
+    5.7 Example . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    302
+    5.8 Frobenius lifts and p-derivations . . . . . . . . . . . . . . . . . . .      302
+    5.9 Remark: the necessity of nonlinear operators . . . . . . . . . . . .         303
+    5.10 Remark: composition algebras over number fields . . . . . . . . . .         303
+    5.11 Remark: representation theory and K-theory . . . . . . . . . . . .          304
+Witt vectors, semirings, and total positivity                                         275
+
+
+6   Witt vectors of N-algebras                                                        305
+    6.1 W and W Sch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       305
+    6.2 The ghost map and similar ones . . . . . . . . . . . . . . . . . . . .        306
+    6.4 Remark . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      307
+    6.5 Coordinates for Witt vectors of rings . . . . . . . . . . . . . . . . .       307
+    6.6 Witt vectors for semirings contained in rings . . . . . . . . . . . .         308
+    6.7 Example: some explicit effectivity conditions . . . . . . . . . . . .         308
+    6.8 Coordinates for Witt vectors of semirings . . . . . . . . . . . . . .         309
+    6.9 Topology and pro-structure . . . . . . . . . . . . . . . . . . . . . .        309
+    6.10 Teichmüller and anti-Teichmüller elements . . . . . . . . . . . . . .      310
+    6.11 The involution and the forgotten symmetric functions . . . . . . .           310
+    6.12 Example: the map N → W Sch (A) is injective unless A = 0 . . . . .           311
+
+7   Total positivity                                                                  311
+    7.2 Total positivity . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    312
+    7.6 Remark: W (R+ ) and W Sch (R+ ) as convergent monoid algebras . .             313
+    7.7 Remark: W (R+ ) and entire functions . . . . . . . . . . . . . . . .          313
+    7.9 Remark . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      314
+    7.10 Counterexample: W does not preserve surjectivity . . . . . . . . .           314
+    7.11 Remark . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     314
+
+8   A model for the p-typical symmetric functions over N                              314
+    8.1 p-typical Witt vectors and general truncation sets . . . . . . . . . .        314
+    8.2 Positive p-typical symmetric functions . . . . . . . . . . . . . . . .        315
+    8.5 p-typical Witt vectors and Λ-structures for semirings . . . . . . . .         317
+    8.6 Remark: a partition-like interpretation of the bases . . . . . . . . .        318
+    8.7 Relation to the multiple-prime theory . . . . . . . . . . . . . . . .         318
+    8.8 Some explicit descriptions of W(p),k (A) . . . . . . . . . . . . . . . .      319
+    8.9 W(p),k (A) when A is contained in a ring . . . . . . . . . . . . . . .        319
+    8.10 Counterexample: The canonical map W(p),k+1 (A) → W(p),k (A) is
+         not generally surjective . . . . . . . . . . . . . . . . . . . . . . . . .   320
+    8.11 Semirings and the infinite prime . . . . . . . . . . . . . . . . . . .       320
+
+9   On the possibility of other models                                                321
+
+10 k-Schur functions and truncated Witt vectors                                  321
+   10.1 k-Schur functions and ΛSch
+                                k    . . . . . . . . . . . . . . . . . . . . . . 322
+   10.3 Remark . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 323
+   10.4 Truncated Schur–Witt vectors for semirings . . . . . . . . . . . . . 323
+   10.5 Counterexample: ΛSch
+                           k  is not a co-N-algebra object . . . . . . . . . 323
+
+11 Remarks on absolute algebraic geometry                                             324
+276                                                                             J. Borger
+
+
+Introduction
+Witt vector functors are certain functors from the category of rings (always com-
+mutative) to itself. They come in different flavors, but each of the ones we will
+consider sends a ring A to a product A × A × · · · with certain addition and multi-
+plication laws of an exotic arithmetic nature. For example, for each prime p, there
+is the p-typical Witt vector functor W(p),n of length n ∈ N ∪ {∞}. As sets, we
+have W(p),n (A) = An+1 . When n = 1, the ring operations are defined as follows:
+                                                               p−1  
+                                                               X   1 p i p−i
+             (a0 , a1 ) + (b0 , b1 ) = (a0 + b0 , a1 + b1 −            a b )
+                                                               i=1
+                                                                   p i 0 0
+                (a0 , a1 )(b0 , b1 ) = (a0 b0 , ap0 b1 + a1 bp0 + pa1 b1 )
+                                  0 = (0, 0)
+                                1 = (1, 0).
+
+For n ≥ 2, the formulas in terms of coordinates are too complicated to be worth
+writing down. Instead we will give some simple examples:
+
+           W(p),n (Z/pZ) ∼
+                         = Z/pn+1 Z,
+                           
+              W(p),n (Z) ∼
+                         = hx0 , . . . , xn i ∈ Zn+1 | xi ≡ xi+1 mod pi+1 .
+
+In the second example, the ring operations are performed componentwise; in par-
+ticular, the coordinates are not the same as the coordinates above. For another
+example, if A is a Z[1/p]-algebra, then W(p),n (A) is isomorphic after a change of
+coordinates to the usual product ring An+1 . This phenomenon holds for other
+kinds of Witt vectors—when all relevant primes are invertible in A, then the Witt
+vector ring of A splits up as a product ring.
+    The p-typical Witt vector functors were discovered by Witt in 1937 [46] and
+have since become a central construction in p-adic number theory, especially in
+p-adic Hodge theory, such as in the construction of Fontaine’s period rings [16]
+and, via the de Rham–Witt complex of Bloch–Deligne–Illusie, in crystalline coho-
+mology [20]. Also notable, and related, is their role in the algebraic K-theory of
+p-adic rings, following Hesselholt–Madsen [19].
+    There is also the big Witt vector functor. For most of this chapter, we will
+think about it from the point of view of symmetric functions, but for the moment,
+what is important is that it is formed by composing all the p-typical functors in
+an inverse limit:
+
+               W (A) = lim W(p1 ),∞ (W(p2 ),∞ (· · · (W(pn ),∞ (A)) · · · )),     (0.0.1)
+                            n
+
+where p1 , . . . , pn are the first n primes, and the transition maps are given by
+projections W(p),∞ (A) → A onto the first component. (A non-obvious fact is that
+the p-typical functors commute with each other, up to canonical isomorphism;
+so in fact the ordering of the primes here is unimportant.) This has an adelic
+flavor, and indeed it is possible to unify the crystalline cohomologies for all primes
+Witt vectors, semirings, and total positivity                                       277
+
+
+using a (“relative”) de Rham–Witt complex for the big Witt vectors. However the
+cohomology of this complex is determined by the crystalline cohomologies and the
+comparison maps to algebraic de Rham cohomology; so the big de Rham–Witt
+cohomology does not, on its own, provide any new information.
+    But because of this adelic flavor, it is natural to ask whether the infinite prime
+plays a role. The answer is yes—big Witt vectors naturally accommodate positiv-
+ity, which we will regard as p-adic integrality at the infinite prime. On the other
+hand, we will have little to say about other aspects of the infinite prime, such as
+archimedean norms or a Frobenius operator at p = ∞.
+    To explain this in more detail, we need to recall some basics of the theory of
+symmetric functions. The big Witt vector functor is represented, as a set-valued
+functor, by the free polynomial ring ΛZ = Z[h1 , h2 , . . . ]. So as sets, we have
+
+                      W (A) = HomAlgZ (ΛZ , A) = A × A × · · · .
+
+If we think of ΛZ as the usual ring of symmetric functions in infinitely many formal
+variables x1 , x2 , . . . by writing
+                                        X
+                                   hn =    xi1 · · · xin ,
+                                      i1 ≤···≤in
+
+then the ring operations on W (A) are determined by two well-known coproducts
+in the theory of symmetric functions. The addition law is determined byP the
+coproduct ∆+ on ΛZ for which the power-sum symmetric functions ψn = i xni
+are primitive,
+                          ∆+ (ψn ) = ψn ⊗ 1 + 1 ⊗ ψn ,
+and the multiplication law is determined by the coproduct for which the power
+sums are group-like,
+
+                       ∆× (ψn ) = (ψn ⊗ 1)(1 ⊗ ψn ) = ψn ⊗ ψn .
+
+This is also a fruitful point of view for the p-typical functors: W(p),∞ is rep-
+resentable by the free subring ΛZ,(p) = Z[θ1 , θp , θp2 , . . . ] of p-typical symmetric
+functions, where the θn ∈ ΛZ are the Witt symmetric functions, which are defined
+recursively by the relations          X n/d
+                                 ψn =     dθd .
+                                            d|n
+
+The ring operations on the p-typical Witt functors are equivalent to coproducts on
+ΛZ,(p) , and these are compatible with the two coproducts on ΛZ . In fact, ΛZ can
+be reconstructed from all the ΛZ,(p) as a kind of Euler product:
+
+                         ΛZ = ΛZ,(2) ⊙ ΛZ,(3) ⊙ ΛZ,(5) ⊙ · · · ,                 (0.0.2)
+
+where ⊙ is the operation that on representing objects corresponds to composi-
+tion on functors. This is in fact just another expression of formula (0.0.1), or
+alternatively of Wilkerson’s theorem [45].
+278                                                                           J. Borger
+
+
+     Now, the relation of all this to the infinite prime is that there is a well-known
+positivity structure on ΛZ . This is the subset ΛN consisting of symmetric functions
+that have nonnegative coefficients when viewed as series in the formal variables
+x1 , x2 , . . . . It is closed under addition and multiplication and contains 0 and 1;
+so it is a semiring, or more plainly, an N-algebra. It is also well known that the
+coproducts ∆+ and ∆× above are induced by coproducts on ΛN , and so one might
+hope to use them to extend the big Witt construction to all N-algebras, and hence
+to incorporate some positivity information in the usual theory of Witt vectors.
+This is indeed possible and the primary purpose of this chapter is to write it all
+down in some detail.
+     In fact, there is another such model over N, which is also well known. It is
+the sub-N-algebra ΛSch consisting of symmetric functions which have nonnegative
+coordinates with respect to the basis of Schur symmetric functions.
+Theorem A. The functors HomAlgN (ΛN , −) and HomAlgN (ΛSch , −) extend the big
+Witt vector functor W from Z-algebras to N-algebras. Each has a unique comonad
+structure compatible with that on W .
+    In terms of actual mathematical content, this is just a repackaging of some
+standard positivity facts in the theory of symmetric functions. Thus a large part of
+this chapter is expository. Its goal is to convince the reader that there is interesting
+mathematics where Witt vectors, combinatorial positivity, and semiring theory
+meet. To this end, I have included a number of open questions, which I hope will
+serve to focus readers’ minds and stimulate their interest. Most of the questions
+are precise, of the yes/no variety, and some are no doubt well within reach.
+    To give an example of something from this territory, I will report one new
+observation, which is that there is also a positive model for the p-typical Witt
+vector functors.
+Theorem B. There is a representable comonad on the category of N-algebras
+which agrees with the p-typical Witt vector functor W(p),∞ on Z-algebras.
+   As with theorem A, the representing object is given by a positivity condition
+with respect to a Z-basis, in this case of ΛZ,(p) . Write dp = −θp = (ψ1p − ψp )/p.
+Consider the (finite) monomials of the form
+                                 Y
+                                     (ψp◦i ◦ d◦j
+                                              p )
+                                                 mij
+                                                     ,
+                                  i,j≥0
+
+where ◦ denotes the plethysm operation on ΛZ , and where mij < p. Then this
+family of monomials is a Z-basis for ΛZ,(p) . Its N-linear span ΛN,(p) is a sub-N-
+algebra of ΛZ , and the functor on N-algebras it represents admits a unique comonad
+structure compatible with that of W(p),∞ . To my knowledge, this basis of ΛZ,(p)
+has not been considered before.
+    In one way, the theory around theorem B is more satisfactory than that around
+theorem A. This is that it also works for the p-typical Witt vectors of finite length.
+I initially hoped that bases of k-Schur functions of Lapointe–Lascoux–Morse (see
+the book [25]) would allow us to define N-algebras of big Witt vectors of finite
+Witt vectors, semirings, and total positivity                                        279
+
+
+length, but this turned out to be false. See section 10 for some details on this
+negative result.
+    There is also a larger purpose to this chapter, which is to show that the for-
+malism of (commutative) semirings—and more broadly, scheme theory over N—is
+a natural and well-behaved formalism, both in general and in its applications to
+Witt vectors and positivity. It has gotten almost no attention from people working
+with scheme theory over Z, but it deserves to be developed seriously—and inde-
+pendently of any applications, which are inevitable in my view. Let me conclude
+with some words on this.
+    Arithmetic algebraic geometry can be regarded as the study of systems of poly-
+nomials equations over Z. Such a system is equivalent to a presentation of a Z-
+algebra; so one could say that arithmetic algebraic geometry is the study of the
+category of Z-algebras. Of course, arithmetic algebraic geometers study many
+other objects, such as nonaffine schemes over Z, line bundles over them, and so on,
+but let us consider these as objects of derived interest, as tools for understanding
+polynomial equations. In fact, many such concepts are formally inevitable once we
+allow ourselves the category of Z-algebras and some general category theory.
+    Let me recall how this works for algebraic spaces. The category of affine schemes
+is defined to be the opposite of the category of rings. It has a Grothendieck topology
+on it, the fppf topology, where covers are given by fppf algebras, those that are
+faithfully flat and finitely presentable. The category of all algebraic spaces over Z
+(a slight enlargement of the category of schemes) is what one gets by taking the
+closure of the category of affine schemes under adjoining arbitrary coproducts and
+quotients by fppf equivalence relations.
+    This is a completely formal process. (For instance, see Toën–Vaquié [43, 44].)
+Given a category C that looks enough like the opposite of the category of rings and
+a well-behaved class of equivalence relations, we can produce an algebraic geometry
+from C by gluing together objects of C using the given equivalence relations. In
+particular, we can do this with the category of N-algebras and produce a category
+that could be called the category of schemes over N. This brings positivity into
+algebraic geometry at a very basic level. In arithmetic algebraic geometry today,
+and specifically in global class field theory, positivity is treated in an ad hoc manner,
+much it seems as integrality was before the arrival of scheme theory in the 1950s.
+    On the other hand, as it appears to me, most people working on semiring theory
+follow a tradition close to general algebra or even computer science. Scheme theory
+has had little influence. As someone raised in that tradition, I find this unaccept-
+able. The category of rings is the same as the category of semirings equipped with
+a map from Z. In other words, one might say that arithmetic algebraic geometry
+is nothing more than semiring theory over Z. One would therefore expect an ac-
+tive interest in finding models over N, or the nonnegative reals, of as many of the
+objects of usual algebraic geometry over Z as possible, just as one always tries to
+find models for objects of classical algebraic geometry, such as moduli spaces, over
+Z. Yet such an effort seems to be nearly nonexistent. Perhaps one reason for this
+is that most existing expositions of scheme theory begin by considering spectra of
+prime ideals, and it is less clear how to mimic this approach over N. Or perhaps
+280                                                                              J. Borger
+
+
+people are more interested in designing foundations for specific applications, such
+as tropical algebraic geometry, rather than developing general tools. Whatever the
+case, it is important to get beyond this.
+    So in the first two sections, I give a category-theoretic account of the very
+basics of semiring theory and algebraic geometry over N. It is largely expository. I
+hope it will demonstrate to people who are skeptical that the basic constructions of
+scheme theory extend to N, and demonstrate to semiring theorists a point of view
+on their subject that emphasizes macroscopic ideas, such as flatness, base change,
+and descent, more than what is common. So at least the general formalism over N
+can be brought up closer to that over Z.
+    If arithmetic algebraic geometry provides the motivation here and semiring
+theory provides the formalism, then algebraic combinatorics provides us with the
+positivity results. These are needed to define Witt vectors of semirings that do
+not contain −1; they could be viewed as the analogues at the infinite prime of
+the slightly subtle p-adic congruences needed to define the p-typical Witt vectors
+for rings that do not contain 1/p. But I also hope that combinatorialists will find
+something fresh in our emphasis on Witt vectors rather than symmetric functions.
+While the two are equivalent, they often suggest different questions. For instance,
+the coproduct ∆× on ΛZ has gotten much less attention than ∆+ . But these are
+just the co-operations that induce the multiplication and addition operations on
+Witt vectors. Although it is not without interest to view Witt vectors only as
+abelian groups, the real richness of the theory and their role in arithmetic alge-
+braic geometry comes when we remember their full ring structure (or even better,
+their Λ-ring structure). So to a specialist in Witt vectors, ignoring ∆× might feel
+like missing the whole point. Also, aspects of symmetric functions related to the
+finite primes seem under-studied in the algebraic combinatorics community. For
+instance, the ring ΛZ,(p) = Z[θ1 , θp , . . . ] of p-typical symmetric functions is, it ap-
+pears to me, nearly unknown there. (The symmetric function θp does appear in
+Macdonald [33] as −ϕp on p. 120.)
+    I would like to thank Thomas Lam and Luc Lapointe for some helpful cor-
+respondence, especially on k-Schur functions. I would also like to thank Lance
+Gurney, Lars Hesselholt, and especially Darij Grinberg for making some observa-
+tions that I have included. All automated computation I did for this paper was
+done in the software system Sage [40], especially using the algebraic combinatorics
+features developed by the Sage-Combinat community [37].
+    Finally, I should mention that Connes and Consani [12] have developed a theory
+of Witt vectors for certain algebras over the Boolean algebra {0, 1}. It would be
+interesting to know if there is any relation with our theory.
+
+
+Conventions
+The word positive will mean > 0, and negative will mean < 0. For any subset A
+of the field R of real numbers, we will write
+
+                                A+ := {x ∈ A | x ≥ 0}.
+Witt vectors, semirings, and total positivity                                                     281
+
+
+The set N of natural numbers is {0, 1, 2, . . . }. The ring Zp of p-adic integers is
+limn Z/pn Z, and the field Qp of p-adic numbers is Zp [1/p].
+   For any category C, we will write C(X, Y ) = HomC (X, Y ) for short.
+
+
+
+1. Commutative algebra over N, the general theory
+The primary purpose of this section and the next one is to collect the definitions
+and formal results of commutative algebra and scheme theory over N that we will
+need. The reader is encouraged to skip them at first and refer back only when
+necessary.
+   A general reference to the commutative algebra is Golan’s book [17]. While
+everything here is essentially the same, there are some small differences. For in-
+stance, I have preferred to drop the prefix semi wherever possible and do not want
+to assume 0 6= 1. I have also followed the categorical method and used its termi-
+nology, because it gives the development a feeling of inevitability that I think is
+absent from the more element-centric approaches.
+
+1.1. The category of N-modules. The category ModN of N-modules is by def-
+inition the category of commutative monoids, which we typically write additively.
+Thus an N-module is a set M with a commutative binary operation + = +M and
+an identity element 0 = 0M , and a homomorphism M → P is function f : M → P
+such that f (0M ) = 0P and f (x +M y) = f (x) +P f (y) for all x, y ∈ M . As usual,
+the identity element is unique when it exists; so we will often leave to the reader
+the task of specifying it.
+    For example, N itself is an N-module under usual addition. It represents the
+identity functor on ModN in an evident (and unique) way.
+
+1.2. Submodules and monomorphisms. A subset P of an N-module M is
+said to be a sub-N-module if it admits an N-module structure making the inclusion
+P → M a homomorphism. Because a map of N-modules is injective if and only if
+it is a monomorphism, we will usually identify monomorphisms and submodules.
+     The dual statement is false—there are nonsurjective epimorphisms, for instance
+the usual inclusion N → Z.
+                                                                        Q
+1.3. Products, coproducts. The category has all products:                 i∈I Mi is the
+usual product set with identity (. . . , 0, . . . ) and componentwise addition
+
+                 (. . . , mi , . . . ) + (. . . , m′i , . . . ) := (. . . , mi + m′i , . . . ).
+                            L                                  Q
+It also has all coproducts:   i∈I Mi is the sub-N-module of       i∈I Mi consisting of
+the vectors (mi )i∈I such that mi = 0 for all but finitely many i ∈ I.
+    In particular, we can construct
+                            L       free objects: given any set S and P any set map
+f : S → M , the morphism       s∈S N  →  M   defined
+                                                  L  by  (n  )
+                                                            s s∈S  →
+                                                                   7     s∈S ns f (s) is
+the unique extension of f to an N-module map i∈S N → M .
+282                                                                          J. Borger
+
+
+1.4. Internal equivalence relations, quotients, and epimorphisms. A sub-
+set E ⊆ M ×M is said to be a ModN -equivalence relation if it is both an equivalence
+relation on M and a sub-N-module of M × M .
+    Given any homomorphism f : M → M ′ of N-modules, the induced equivalence
+relation M ×M ′ M is clearly a ModN -equivalence relation. Conversely, given any
+ModN -equivalence relation E on M , the set M/E of equivalence classes has a
+unique N-module structure such that the projection M → M/E sending x to the
+equivalence class [x] of x is a homomorphism of N-modules. In other words, the
+rules [x] + [y] = [x + y] and 0 = [0] give a well-defined N-module structure on M/E.
+
+
+1.5. Generators and relations. Let R be a subset of M × M . The ModN -
+equivalence relation E generated by R is the minimal ModN -equivalence relation on
+M containing R. It exists because any intersection of submodules is a submodule
+and any intersection of equivalence relations is an equivalence relation. It can
+be constructed explicitly by taking the transitive closure of the sub-N-module of
+M × M generated by R, the transpose of R, and the diagonal. Note the contrast
+with the theory of modules over a ring, where taking the transitive closure is
+unnecessary. This gives the theory of modules over N a dynamical feel which is
+absent when over a ring.
+    We can construct N-modules in terms of generators and relations by combining
+this with free construction above. Clearly, much of this works in much more
+general categories, especially categories of algebras, as defined below. We will use
+such generalizations without comment. In the present case and others, we will
+often write M/(. . . , mi = ni , . . . ) for M/E if R = {. . . , (mi , ni ), . . . }.
+
+
+1.6. Hom and ⊗. The set Hom(M, P ) = ModN (M, P ) of N-module homomor-
+phisms M → P is itself an N-module under pointwise addition:
+
+                   (f + g)(x) := f (x) +P g(x),        0(x) := 0P .            (1.6.1)
+
+We will also use the notation HomN (M, P ). It is functorial in M (contravariant)
+and P (covariant). For any fixed N-module M , the functor Hom(M, −) has a left
+adjoint, which we write M ⊗ −, or M ⊗N − for clarity. In other words, M ⊗ M ′ is
+characterized by the property that a homomorphism M ⊗ M ′ → P is the same as
+set map h−, −i : M × M ′ → P which is N-bilinear in that it is an N-module map
+in each argument if the other argument is fixed. It follows that if we denote the
+image of an element (m, m′ ) under the universal bilinear map M × M ′ → M ⊗ M ′
+by m⊗ m′ , then M ⊗ M ′ is the commutative monoid generated by symbols m⊗ m′ ,
+for all m ∈ M and m′ ∈ M ′ , modulo all relations of the form
+
+           (m1 +M m2 ) ⊗ m′ = m1 ⊗ m′ + m2 ⊗ m′ ,            0M ⊗ m′ = 0,
+           m ⊗ (m′1 +M ′ m′2 ) = m ⊗ m′1 + m ⊗ m′2 ,         m ⊗ 0M ′ = 0.
+
+Then ⊗ makes ModN into a symmetric monoidal category with identity N.
+Witt vectors, semirings, and total positivity                                        283
+
+
+1.7. N-algebras. An N-algebra (soon to be understood to be commutative) is
+defined to be a monoid in ModN with respect to the monoidal structure ⊗. Thus
+an N-algebra is a set A with two associative binary operations +, × and respective
+identity elements 0, 1 such that + is commutative and × distributes over + and
+satisfies 0 × x = x × 0 = 0. We usually write xy = x × y. We will sometimes use
+the term semiring as a synonym for N-algebra.
+    A morphism A → B of N-algebras is a morphism of monoids in the monoidal
+category ModN . In other words, it is a function f : A → B which satisfies the
+identities
+
+       f (0) = 0,   f (x + y) = f (x) + f (y),   f (1) = 1,   f (xy) = f (x)f (y).
+
+The category formed by N-algebras and their morphisms is denoted AlgN .
+    For example, the N-module N admits a unique N-algebra structure; multipli-
+cation is usual integer multiplication. It is the initial object in AlgN . Likewise, 0
+with its unique N-algebra structure is the terminal object. For any subring A ⊆ R,
+the subset A+ := {x ∈ A | x ≥ 0} is a sub-N-algebra of A.
+    The category of rings is equivalent in an evident way to the full subcategory of
+AlgN spanned by objects in which 1 has an additive inverse.
+
+
+1.8. Commutativity assumption. From now on in this paper, all N-algebras
+will be understood to be commutative under × unless stated otherwise. However
+for much of the rest of this section, this is just for convenience.
+    Also for the rest of this section, A will denote an N-algebra.
+
+
+1.9. A-modules and A-algebras. One defines A-modules and A-algebras in the
+obvious way. An A-module (also called an A-semimodule in the literature) is an
+N-module equipped with an action of A with respect to the monoidal structure ⊗.
+So it is an N-module M equipped with an N-module map A ⊗ M → M , written
+a ⊗ m 7→ am, such that the following identities are satisfied:
+
+                            1m = m,         (ab)m = a(bm).
+
+A morphism of A-modules M → P is an N-linear map f : M → P satisfying the
+identity f (am) = af (m). The category of A-modules is denoted ModA . We will
+sometimes write HomA (M, P ) = ModA (M, P ) for the set of A-module morphisms.
+Observe when A = N, the category just defined agrees with that defined in (1.1).
+    An A-algebra is an N-algebra B equipped with a morphism iB : A → B. A
+morphism B → C of A-algebras is a morphism f : B → C of N-algebras such that
+f ◦ iB = iC . The category of A-algebras is denoted AlgA . As with modules, when
+A = N, the category of N-algebras as defined here agrees with that defined in (1.7).
+    Also observe that if A is a ring, then these definitions of A-module and A-
+algebra agree with the usual ones in commutative algebra. In particular, a Z-
+module is the same as an abelian group, and a Z-algebra is the same as a ring.
+284                                                                        J. Borger
+
+
+1.10. HomA and ⊗A . The set HomA (M, P ) has a natural A-module struc-
+ture given by pointwise operations. In other words, it is a sub-N-module of
+HomN (M, P ), and its A-module structure is given by the identity (af )(x) = af (x).
+Of course, this uses the commutativity of multiplication on A.
+   For any fixed A-module M , the functor HomA (M, −) has a left adjoint, which
+we write M ⊗A −:
+
+                HomA (M ⊗A M ′ , N ) = HomA (M ′ , HomA (M, N )).
+
+(Again, when A = N this agrees with the functor M ⊗ − defined above.) As above,
+an A-linear map M ⊗A M ′ → P is the same a set map h−, −i : M × M ′ → P which
+is A-bilinear in the sense that it is an A-module map in each argument when the
+other argument is held fixed. Thus M ⊗A M ′ equals the quotient of M ⊗N M ′ by
+all relations of the form
+                             (am) ⊗ m′ = m ⊗ (am′ ),                    (1.10.1)
+with its A-module structure given by a(m ⊗ m′ ) = am ⊗ m′ = m ⊗ am′ .
+
+1.11. Limits and colimits of A-modules and A-algebras. The category
+ModA has all limits and colimits. Limits, coproducts, and filtered colimits can
+be constructed as when A is a ring, but coequalizers might be less familiar.
+Given a pair of maps f, g : M → P in ModA , the coequalizer can be constructed
+as the quotient of P by the ModA -equivalence relation generated by the subset
+{(f (x), g(x)) | x ∈ M } ⊆ P × P .
+
+1.12. Warning: kernels and cokernels. There are reasonable notions of kernel
+and cokernel, but we will not need them. The kernel of a map f : M → N of A-
+modules is defined to be the pull-back M ×N (0) → M , and the cokernel is the
+push-out N → N ⊕M (0). Many familiar properties of kernels and cokernels from
+abelian categories fail to hold for modules over semirings. For instance the sum
+map N ⊕ N → N has trivial kernel and cokernel, but it is not an isomorphism.
+So kernels and cokernels play a less prominent role here than they do in abelian
+categories. Equalizers and coequalizers are more useful.
+
+1.13. Base change, induced and co-induced modules. Let B be an A-
+algebra, and let M be an A-module. Then B ⊗A M and HomA (B, M ) are B-
+modules in the evident ways. These constructions give the left and right adjoints
+of the forgetful functor U from B-modules to A-modules. They are called the
+B-modules induced and coinduced by A. It is also clear that the forgetful functor
+U is both monadic and comonadic.
+
+1.14. Limits and colimits of A-algebras. Like ModA , the category AlgA also
+has all limits and colimits. Limits, coproducts, and filtered colimits can again be
+constructed as when A is a ring. In particular, coproducts are tensor products:
+
+                                 B ∐ C = B ⊗A C.
+Witt vectors, semirings, and total positivity                                          285
+
+
+More generally, the coproduct of any family (Bi )i∈I is the tensor product of all
+Bi over A. And as with modules, the coequalizer of two A-algebra morphisms
+f, g : B ⇒ C is C/R, where R is the equivalence relation internal to AlgA on C
+generated by the relation {(f (x), g(x)) ∈ C × C | x ∈ B}.
+
+1.15. Base change for algebras. For any A-algebra B, the forgetful functor
+AlgB → AlgA has a left adjoint. It sends C to B ⊗A C, where the B-algebra
+structure is given by the map b 7→ b ⊗ 1.
+
+1.16. Flat modules and algebras. Let M be an A-module. Because the func-
+tor M ⊗A − : ModA → ModA has a right adjoint, it preserves all colimits. Since
+finite products and coproducts agree, it also preserves finite products. If it pre-
+serves equalizers, we say M is flat . In this case, M ⊗A − preserves all finite limits.
+     Observe that while not all monomorphisms are equalizers, it is nevertheless true
+that tensoring with a flat module preserves monomorphisms. Indeed f : N → P is
+a monomorphism if and only if the diagonal map N → N ×P N is an isomorphism,
+and this property is preserved by tensoring with a flat module.
+     Flatness is preserved under base change. An A-algebra is said to be flat if it
+is flat when regarded as an A-module. If A → B and B → C are flat, then so is
+the composition A → C. More generally, if B is a flat A-algebra, and M is a flat
+B-module, then M is flat as an A-module.
+
+1.17. Examples of flat modules. Any free module is flat. Any filtered colimit
+of flat modules is flat. We will see in (2.5) below that flatness is a flat-local property.
+So for example a module is flat if it is flat-locally free.
+     It is a theorem of Govorov and Lazard that any flat module over a ring can be
+represented as a filtered colimit of free modules. This continues to hold for modules
+over any N-algebra. As over rings, this is tantamount to an equational criterion
+for flatnessPfor modules
+                       P over N-algebras, but now we must consider   P all relations of
+the form i ai xi = i bi xi instead of just those of the form i ai xi = 0, as one
+usually does over rings. See Katsov [22].
+     If S is a multiplicative subset of A, let A[1/S] denote the initial A-algebra
+in which every element of S becomes multiplicatively invertible. Then A[1/S] is
+flat because it can be represented as colims∈S A, where for all s, t ∈ S there is a
+transition map A → A from position s to position st given by multiplication by t.
+     But it is completely different if we adjoin additive rather than multiplicative
+inverses. We will see in (2.12) below that Z is not a flat N-module. In fact, 0 is
+the only Z-module that is flat over N. It is also the only R-vector space that is flat
+over R+ .
+
+
+2. The flat topology over N
+The purpose of this section is to give some idea of scheme theory over N. It is the
+point of view I prefer for the mathematics of this chapter, but I will not use it in
+a serious way.
+286                                                                           J. Borger
+
+
+    Scheme theory and the flat topology over N were apparently first considered in
+Toën–Vaquié [44]. Lorscheid has considered a different but related approach [31]
+(or see his chapter in this volume). In recent years, positivity structures in algebraic
+geometry have appeared in some interesting applications, although in an ad hoc
+way. For example, let us mention the work of Lusztig [32], Fock–Goncharov [15],
+and Rietsch [36].
+
+2.1. Flat covers. Let us say that a family (Bi )i∈I of flat A-algebras is faithful
+if the family of base change functors
+                              Y
+                    ModA −→      ModBi , M 7→ (Bi ⊗A M )i∈I                (2.1.1)
+                               i∈I
+
+reflects isomorphisms, that is, a map M → N of A-modules is an isomorphism if
+(and only if) for every i ∈ I the induced map Bi ⊗A M → Bi ⊗A N is. Let us say
+that a family of flat A-algebras is an fpqc cover if it has a finite subfamily that is
+faithful.
+
+2.2. The fpqc topology. For any N-algebra K, let Aff K denote the opposite
+of the category of K-algebras. For any K-algebra A, write Spec(A) for the cor-
+responding object in Aff K . The fpqc covers form a pretopology on Aff K , in the
+usual way. See Toën–Vaquié, proposition 2.4 [44]. The resulting topology is called
+the fpqc topology or, less formally, the flat topology.
+    One might also like to define an fppf topology topology by requiring that each
+Bi be finitely presented as an A-algebra. The following question is then natural:
+
+Question 1. Let (Bi )i∈I be a faithful family of flat A-algebras. If each Bi is
+finitely presented as an A-algebra, is there a finite faithful subfamily?
+
+    When K is Z, it is a fundamental fact from scheme theory that the answer is
+yes. To prove it one combines quasi-compactness in the Zariski topology with the
+fact that faithfully flat morphisms of finite presentation have open image.
+
+2.3. Faithfully flat descent. Let (Bi )i∈I be a faithful family of flat A-algebras.
+Then the family of base change functors (2.1.1) is comonadic. As usual, this is just
+an application of Beck’s theorem in category theory. (See Borceux [2], theorem
+4.4.4, p. 212. See also theorem 2.5 of Toën–Vaquié [44].) Thus the fibered category
+of modules satisfies effective descent in the comonadic sense. If the family (Bi )i∈I
+is finite, or more generally an fpqc cover, then the comonadic approach to descent
+agrees with the Grothendieck’s original one. So in either sense, in the fpqc topology,
+the fibered category of modules satisfies effective descent, or it is a stack.
+     Thus descent allows us to recover the category of A-modules from that of
+modules over the cover. As usual, this allows us to recover A itself:
+
+2.4. Proposition. Let A be an N-module, and let E denote the N-algebra (possibly
+noncommutative, a priori) of natural endomorphisms of the identity functor on
+ModA . Then the canonical map A → E is an isomorphism.
+Witt vectors, semirings, and total positivity                                    287
+
+
+Proof. Let ϕ be such a natural endomorphism. Set a = ϕA (1). Then for any
+M ∈ ModA , the map ϕM : M → M is multiplication by a. Indeed, for any m ∈ M ,
+consider the map f : A → M determined by f (1) = m. Then we have ϕM (m) =
+ϕM (f (1)) = f (ϕA (1)) = f (a) = am.
+
+2.5. Proposition. Let B be an N-algebra, and let (Ci )i∈I be a faithful family of
+flat B-algebras.
+
+ (1) For any finite diagram (Mj )j∈J of B-modules, a map M → limj Mj is an
+     isomorphism if and only if each map Ci ⊗B M → limj Ci ⊗B Mj is an
+     isomorphism.
+
+ (2) Suppose B is an A-algebra, for some given N-algebra A. Then B is flat over
+     A if and only if each Ci is.
+
+ (3) A B-module N is flat if and only if each Ci ⊗B N is flat as a Ci -module.
+
+Proof. (1): First, because the family (Ci )i∈I is faithful, the map M → limj Mj is
+an isomorphism if and only if each map Ci ⊗B M → Ci ⊗B limj Mj is. Second,
+because each Ci is flat, we have Ci ⊗B limj Mj = limj (Ci ⊗B Mj ). Combining
+these two statements proves (1).
+   (2): Consider a finite diagram (Mj )j∈J of A-modules. Suppose each Ci is flat
+over A. Then the induced maps Ci ⊗A limj Mj → limj (Ci ⊗A Mj ) are isomorphisms,
+and hence so are the maps
+
+                    Ci ⊗B B ⊗A lim Mj → lim(Ci ⊗B B ⊗A Mj ).
+                                   j            j
+
+Therefore by part (1), the map B ⊗A limj Mj → limj (B ⊗A Mj ) is an isomorphism,
+and hence B is flat over A.
+    The converse holds because flatness is stable under composition.
+    (3): Suppose each Ci ⊗B N is flat over Ci , and hence over B. Then for any
+finite diagram (Mj )j∈J of B-modules, the maps
+
+                    Ci ⊗B N ⊗B lim Mj → lim(Ci ⊗B N ⊗B Mj )
+                                    j           j
+
+are isomorphisms. Therefore by part (1), the map N ⊗B limj Mj → limj (N ⊗B Mj )
+is an isomorphism, and so N is flat over B.
+    The converse holds because flatness is stable under base change.
+
+2.6. Algebraic geometry over N. We can then define the basic objects of
+algebraic geometry over any N-algebra K in a formal way, as in Toën–Vaquié [44].
+A map f : Spec(B) → Spec(A) is Zariski open if the corresponding map A → B is
+a flat epimorphism of finite presentation. One then defines K-schemes by gluing
+together affine K-schemes along Zariski open maps. In Toën–Vaquié, all this takes
+place in the category of sheaves of sets on Aff K in the Zariski topology.
+    Presumably one could define a category of algebraic spaces over N by adjoining
+quotients of fppf or étale equivalence relations, under some meaning of these terms,
+288                                                                               J. Borger
+
+
+as for example in Toën–Vaquié, section 2.2 [43]. But there are subtleties whether
+one uses fppf maps, as in the question above, or étale maps, where it is not clear
+that the first definition that comes to mind is the best one. So some care seems to
+be needed before we can have complete confidence in the definition. In any case,
+we will certainly not need this generality.
+
+2.7. Extending fibered categories to nonaffine schemes. Because we have
+faithfully flat descent for modules, we can define the category ModX of X-modules
+(i.e., quasi-coherent sheaves) over any K-scheme X. More generally, any fibered
+category over Aff K for which we have effective descent extends uniquely (up to some
+appropriate notion of equivalence) to such a fibered category over the category of
+K-schemes. For example, flat modules have this property by (2.5)(3). So we can
+make sense of a flat module over any N-scheme.
+    Similarly, using (2.5)(2), there is a unique way of defining flatness for morphisms
+X → Y of K-schemes that is stable under base change on Y and fpqc-local on X.
+    We will conclude this section with some examples of flat-local constructions
+and properties.
+
+2.8. Additively idempotent elements. An element m of an A-module M is
+additively idempotent if 2m = m. The set I(M ) of such elements is therefore the
+equalizer
+                                           x7→x /
+                            I(M )     /M          / M.
+                                                        x7→2x
+
+Thus I has a flat-local nature. Indeed, for any flat A-algebra B, the induced map
+B ⊗A I(M ) → I(B ⊗A M ) is an isomorphism of B-modules, and if (Bi )i∈J is an
+fpqc cover of A, then the induced map
+                            Y                            /Y
+            I(M )       /        I(Bi ⊗A M )             /  I(Bj ⊗A Bj ′ ⊗A M )
+                            i                             j,j ′
+
+
+is an equalizer diagram. It follows that, given an N-scheme X, this defines an X-
+module I(M ) for any X-module M . Thus the functor I prolongs to a morphism
+of fibered categories I : ModX → ModX .
+
+2.9. Cancellative modules. An A-module M is additively cancellative if the
+implication
+                      x+y =x+z ⇒ y =z
+holds in M . This is equivalent to the following being an equalizer diagram:
+
+                                (x,y)7→(x,y,y)          (x,y,z)7→x+y
+                      M2                         / M3                   /
+                                                                       / M.
+                                                        (x,y,z)7→x+z
+
+
+Therefore, by (2.5), additive cancellativity is a flat-local property.
+Witt vectors, semirings, and total positivity                                                  289
+
+
+    Multiplicative cancellation works similarly. For any a ∈ A, let us say that M
+is a-cancellative if the implication
+
+                                  ax = ay       ⇒       x=y
+
+holds in M . This is equivalent to the following being an equalizer diagram:
+
+                                  x7→(x,x)             (x,y)7→ax
+                          M                  / M2                      /
+                                                                           /M
+                                                       (x,y)7→ay
+
+
+Then a-cancellativity is also a flat-local property.
+
+2.10. Strong and subtractive morphisms. A morphism M → N of A-modules
+induces two diagrams:
+                              +                                                 +
+                  M ×M             /M                    M ×M                       /M
+
+
+                             +                                               +      
+                   N ×N            /N                     M ×N                      / N.
+
+We say it is strong if the first diagram is Cartesian, and subtractive if the second
+is. So a submodule M ⊆ N is subtractive if and only if it closed under differences
+that exist in N . Both properties are flat-local.
+
+2.11. Additively invertible elements. For any N-algebra A and any A-module
+M , consider the subset of additively invertible elements:
+
+                       V (M ) := {x ∈ M | ∃y ∈ M, x + y = 0}.                              (2.11.1)
+
+Then V (M ) is a sub-A-module of M . The resulting functor is the right adjoint of
+the forgetful functor ModZ⊗N A → ModA , and so we have
+
+                              V (M ) = HomA (Z ⊗N A, M ).
+
+It can also be expressed as an equalizer:
+
+                                    x7→(x,−x)              0
+                          V (M )                / M2               /
+                                                                       /M                  (2.11.2)
+                                                           +
+
+
+Therefore V has a local nature, and so we can define an X-module V (M ) for
+any module M over any N-scheme X. In fact, since V (M ) is a group under
+addition, V (M ) is an (X×Spec(Z))-module, and so V can be viewed as a morphism
+ModX → f∗ (ModX×Spec(Z) ) of fibered categories, where f denotes the canonical
+projection X × Spec(Z) → X.
+    Golan [17] says M is zerosumfree if V (M ) = 0, or equivalently if (0) is a
+strong submodule. The remarks above imply that being zerosumfree is a flat-local
+property.
+290                                                                         J. Borger
+
+
+2.12. Corollary. Let A be a zerosumfree N-algebra, and let M be a flat A-algebra.
+Then M is zerosumfree. In particular, the zero module (0) is the only flat A-module
+which is a group under addition, and the map A → Z ⊗N A is flat if and only if
+Z ⊗N A = 0.
+
+Proof. Since M is flat, we have V (M ) = M ⊗A V (A) = M ⊗A 0 = 0.
+
+    It follows formally that the only Z-scheme that is flat over a given zerosumfree
+scheme is the empty scheme. Thus we would expect some subtleties in the spirit
+of derived functors when passing from algebraic geometry over N to that over Z,
+or from R+ to R.
+
+
+3. Plethystic algebra for N-algebras
+Let K, K ′ , L be N-algebras.
+
+3.1. Models of co-C objects in AlgK . Let C be a category of the kind consid-
+ered in universal algebra. Thus an object of C is a set with a family of multinary
+operations satisfying some universal identities. For example, C could be the cat-
+egories of groups, monoids, L-algebras, L-modules, Lie algebras over L, loops,
+heaps, and so on.
+    Let us say that a covariant functor AlgK → C is representable if its underlying
+set-valued functor is. Let us call the object representing such a functor a co-
+C object in AlgK . For example, a co-group structure on a K-algebra A is the
+same as a group scheme structure on Spec(A) over Spec(K). Likewise, a co-L-
+algebra structure on A is the same as a L-algebra scheme structure on Spec(A)
+over Spec(K).
+
+3.2. Co-L-algebra objects in AlgK . Unpacking this further, we see a co-L-
+algebra object of AlgK is a K-algebra P together with K-algebra maps
+
+                                ∆+ : P −→ P ⊗K P
+                                                                              (3.2.1)
+                                ∆× : P −→ P ⊗K P
+
+subject to the condition that for all A ∈ AlgK , the set HomK (P, A) equipped with
+the binary operations + and × induced by ∆+ and ∆× is an N-algebra, plus an
+N-algebra map
+                               β : L −→ AlgK (P, K).                        (3.2.2)
+These properties can of course be expressed in terms of P itself, without quantifying
+over any variable algebras, as above with A. For example, ∆+ and ∆× must be
+cocommutative and coassociative, and ∆× should codistribute over ∆+ , and so on.
+   Similarly, the (unique) elements 0 and 1 in the N-algebras HomK (P, A) corre-
+spond to K-algebra morphisms
+
+                           ε+ : P → K,       ε× : P → K.                      (3.2.3)
+Witt vectors, semirings, and total positivity                                                   291
+
+
+We will need these later.
+    We will often use the term K-L-bialgebra instead of co-L-algebra object of AlgK .
+This is not meant to suggest any relation to the usual meaning of the term bialgebra
+in the theory of Hopf algebras. (Every K-L-bialgebra has two bialgebra structures
+in the usual sense—∆+ and ∆× —but this is just a coincidence of terminology.)
+    Let AlgK,L denote the category of K-L-bialgebras. A morphism P → P ′ of
+AlgK,L is a K-algebra map compatible with the co-operations ∆+ , ∆× , and β.
+In other words, the induced natural transformation of set-valued functors must
+prolong to a natural transformation of L-algebra-valued functors.
+
+3.3. Plethystic algebra. In the case where K and L are Z-algebras, the the-
+ory of K-L-bialgebras was initiated in Tall–Wraith [41] and developed further in
+Borger–Wieland [8]. It is clear how to extend the general theory developed there
+to N-algebras. In almost all cases, the relevant words from [8] work as written;
+at some places, obvious changes are needed. The reader can also refer to Stacey–
+Whitehouse [39], where the general theory is written down for general universal-
+algebraic categories. (Also, see Bergman–Hausknecht [1] for many fascinating case
+studies taken from different categories, such as Lie algebras, monoids, groups, pos-
+sibly noncommutative rings, and many more.)
+    Let us list some of the main ideas we will need.
+  (1) The composition product is a functor − ⊙L − : AlgK,L × AlgL → AlgK . It is
+      characterized by the adjunction
+
+                            AlgK (P ⊙L A, B) = AlgL (A, AlgK (P, B)).
+
+  (2) It has an extension to a functor − ⊙L − : AlgK,L × AlgL,K ′ → AlgK,K ′
+  (3) This gives a monoidal structure (not generally symmetric) on the category
+      AlgK,K of K-K-bialgebras. The unit object is K[e], the one representing the
+      identity functor.
+  (4) A composition K-algebra 1 is defined to be a monoid with respect to this
+      monoidal structure. The operation is denoted ◦ and the identity is denoted
+      e.
+  (5) An action of a composition K-algebra P on a K-algebra A is defined to be
+      an action of the monoid object P , or equivalently of the monad P ⊙K −. We
+      will write f (a) for the image of f ⊙ a under the action map P ⊙K A → A. A
+      P -equivariant K-algebra is a K-algebra equipped with an action of P . When
+      K = N, we will also use the term P -semiring.
+  (6) For any K-L-bialgebra P , we will call the functor it represents its Witt vector
+      functor: WP = AlgK (P, −). It takes K-algebras to L-algebras. When K = L,
+    1 It is called a biring triple in [41], a plethory in [8], a Tall-Wraith monad object in [1], and
+
+a Tall-Wraith monoid in [39]. The term composition algebra is both plain and descriptive; so I
+thought to try it out here. It does however have the drawback in that it already exists in the
+literature with other meanings.
+292                                                                           J. Borger
+
+
+      a composition structure on P is then equivalent to a comonad structure on
+      WP . When P has a composition structure, then WP (A) has a natural action
+      of P , and in this way WP can be viewed as the right adjoint of the forgetful
+      functor from P -equivariant K-algebras to K-algebras.
+
+3.4. Example: composition algebras and endomorphisms. An element ψ
+of a composition K-algebra P is K-algebra-like if for all K-algebras A with an
+action of P , the self map x 7→ ψ(x) of A is a K-algebra map. This is equivalent to
+requiring
+
+      ∆+ (ψ) = ψ ⊗ 1 + 1 ⊗ ψ,         ∆× (ψ) = ψ ⊗ ψ,          β(c)(ψ) = c,     (3.4.1)
+
+for all c ∈ K. (For comparison, one could say d ∈ P is K-derivation-like if it acts
+as a K-linear derivation on any K-algebra. This can also be expressed directly by
+saying d is primitive under ∆+ and it satisfies the Leibniz rule ∆× (d) = d⊗e+e⊗d
+and the K-linearity identity β(c)(d) = 0.)
+    Now let G be a monoid. Let P be the K-algebra freely generated (as an algebra)
+by the symbols ψg , for all g ∈ G. Then P has a unique composition structure such
+that each ψg is K-algebra-like and we have
+
+                                    ψg ◦ ψh = ψgh
+
+for all g, h ∈ G. Then an action of P on an algebra A, in the sense of (5) of
+3.3, is the same as an action of G on A, in the usual sense of a monoid map
+G → AlgK (A, A).
+    In this case, the Witt functor is simply WP (A) = AG , where AG has the usual
+product algebra structure.
+
+3.5. Models of co-C objects in AlgK . Let C be a category of the kind con-
+sidered above. Let K → K ′ be an N-algebra map, and let P ′ be a co-C object in
+AlgK ′ . Then a model for P ′ over K (or a K-model ) is a co-C object P in AlgK
+together with an isomorphism K ′ ⊗K P → P ′ of co-C objects of AlgK ′ . Then for
+any K ′ -algebra A′ , we have
+                                             ∼
+               WP ′ (A′ ) = AlgK ′ (P ′ , A′ ) −→ AlgK (P, A′ ) = WP (A′ ).
+
+So the Witt vector functor of P extends WP ′ from AlgK ′ to AlgK . Conversely, any
+such extension to a representable functor comes from a unique model of P ′ .
+
+3.6. Flat models of co-C-objects in AlgK . We will be especially interested
+in finding K-models of P ′ that are flat (over K). Of course, these can exist only
+when P ′ is flat over K ′ , but this will be the case in all our examples. Further we
+will only consider the case where the structure map K → K ′ is injective.
+    Under these assumptions, the composition P → K ′ ⊗K P → P ′ is injective.
+Conversely, if a subset P ⊂ P ′ admits a flat model structure, then it does so in a
+unique way. Indeed, since the induced maps P ⊗K n → P ′⊗K ′ n are injective, each
+co-operation ∆ on P ′ restricts to at most one on P . One might then say that being
+Witt vectors, semirings, and total positivity                                       293
+
+
+a flat model (when K ⊆ K ′ ) is a property of a given subset of P ′ , rather than a
+structure on it.
+    The case where C = AlgL will be of particular interest to us. Then a flat model
+is just a subset P ⊆ P ′ such that the following properties hold:
+
+ (1) P is a flat sub-K-algebra of P ′ ,
+
+ (2) the induced map K ′ ⊗K P → P ′ is a bijection,
+
+ (3) ∆+ (P ) ⊆ P ⊗K P and ε+ (P ) ⊆ K,
+
+ (4) ∆× (P ) ⊆ P ⊗K P and ε× (P ) ⊆ K,
+
+ (5) β(L) ⊆ AlgK (P, K), where AlgK (P, K) is regarded as a subset of AlgK ′ (P ′ , K ′ ).
+
+When L = N, the last condition is always satisfied. (Alternatively, the conditions
+on the co-units ε+ and ε× are also redundant but not in the absence of (5).)
+   For other categories C, it is usually clear how to modify these conditions. For
+example, if C = ModN , one would drop (4) and (5).
+
+3.7. Models of composition algebras. When P ′ is a composition K ′ -algebra,
+we will usually want to descend the composition structure as well. Then a K-model
+of P ′ (as a composition algebra) is a composition K-algebra P together with an
+action of P on K ′ and an isomorphism K ′ ⊗K P → P ′ of composition K ′ -algebras.
+Giving such a model is equivalent to extending WP ′ to a representable comonad
+on AlgK .
+    A flat model (when K ⊆ K ′ ) is then just a flat sub-K-algebra P ⊆ P ′ satisfying
+conditions (1)–(5) above plus
+
+ (6) P ◦ P ⊆ P and e ∈ P .
+
+So again, if P admits such a structure, it does so in a unique way.
+
+
+4. The composition structure on symmetric functions over N
+The purpose of this section is to give two different N-models of ΛZ , the composition
+ring of symmetric functions. Since ΛZ represents the usual big Witt vector functor,
+these give extensions of the big Witt vector functor to N-algebras.
+    Our treatment is broadly similar to Macdonald’s [33]. He discusses the co-
+additive structure in example 25 of I.5, the co-multiplicative structure in example
+20 of I.7, and plethysm in I.8.
+    Let K be an N-algebra.
+
+4.1. Conventions on partitions. We will follow those of Macdonald, p. 1 [33].
+So, a partition is an element
+
+                            λ = (λ1 , λ2 , . . . ) ∈ N ⊕ N ⊕ · · ·
+294                                                                                    J. Borger
+
+
+such that λ1 ≥ λ2 ≥ · · · . As is customary, we will allow ourselves to omit any num-
+ber of zeros, brackets, and commas and to use exponents to represent repetition.
+So for example we have (3, 2, 2, 1, 0, . . . ) = 322 10 = 322 1 and (0, . . . ) = 0.
+P The length of λ is the smallest i ≥ 0 such that λi+1 = 0. The weight of λ is
+  i λi and is denoted |λ|. We also say λ is a partition of its weight.
+
+4.2. ΨK . Let ΨK denote the composition K-algebra associated to the multi-
+plicative monoid of positive integers. So ΨK = K[ψ1 , ψ2 , . . . ], where each ψn is
+K-algebra-like and we have ψm ◦ ψn = ψmn .
+    We will be interested in (flat) models of ΨQ over smaller subalgebras, especially
+Q+ , Z and N. There are the obvious models ΨQ+ , ΨZ , and ΨN , but we will be
+more interested in larger ones.
+
+4.3. Symmetric functions. Let ΛK denote the usual K-algebra of symmetric
+functions in infinitely many variables x1 , x2 , . . . with coefficients in K. (See Mac-
+donald, p. 19 [33].) More precisely, ΛK is the set of formal series f (x1 , x2 , . . . ) such
+that the terms of f have bounded degree and for all n, the series f (x1 , . . . , xn , 0, 0, . . . )
+is a polynomial which is invariant under permuting the variables x1 , . . . , xn .
+    It is clear that ΛK is freely generated as a K-module by the monomial sym-
+metric functions mλ , where λ ranges over all partitions and where
+                                      X
+                                 mλ =      xα 1 α2
+                                            1 x2 · · ·
+                                               α
+
+where α runs over all permutations of λ in N∞ . In particular, we have K ⊗N ΛN =
+ΛK . When K = N, this is the unique basis of ΛN , up to unique isomorphism on
+the index set.
+   It is well known that when K is a ring, ΛK is freely generated as a K-algebra
+by the complete symmetric functions h1 , h2 , . . . , where
+                               X                       X
+                       hn :=         xi1 · · · xin =        mλ .
+                                  i1 ≤···≤in               |λ|=n
+
+Alternatively, if we write
+                                    ψn = xn1 + xn2 + · · · ,
+then the induced map
+                                ΨK = K[ψ1 , ψ2 , . . . ] −→ ΛK                           (4.3.1)
+is an injection when K is a flat Z-algebra and is a bijection when K is a Q-algebra.
+In particular, ΛN and ΛZ are models for ΨQ = ΛQ . The elements ψn have several
+names: the Adams, Frobenius, and power-sum symmetric functions.
+
+4.4. Remark: ΛN is not free as an N-algebra. Indeed, all mλ are indecompos-
+able additively and, one checks, multiplicatively—except m0 , which is invertible.
+Therefore any generating set of ΛN as an N-algebra must contain all the mλ but
+m0 . But they are not algebraically independent, because any monomial in them
+is a linear combination of the others. For example m21 = m2 + 2m1,1 .
+Witt vectors, semirings, and total positivity                                                      295
+
+
+4.5. Elementary and Witt symmetric functions. At times, we will use other
+families of symmetric functions, such as the elementary symmetric functions
+
+
+                                                X
+                                       en =                xi1 · · · xin .
+                                              i1 <···<in
+
+
+
+
+and the less well-known Witt symmetric functions θ1 , θ2 , . . . , which are determined
+by the relations
+
+
+                                                   X          n/d
+                                           ψn =            dθd ,                                (4.5.1)
+                                                    d|n
+
+
+
+
+for all n ≥ 1. Probably the most concise way of relating them all is with generating
+functions in 1 + tΛQ [[t]]:
+
+
+      Y                  −1            X ψj  X          X          −1
+            1 − θ d td         = exp        tj = h i ti =   ei (−t)i     .                      (4.5.2)
+                                          j
+      d≥1                               j≥1                 i≥0                i≥0
+
+
+
+                                                                       Q                 −1
+Indeed, one can check that each expression equals                            j (1 − xj t)   .
+
+   One notable consequence of (4.5.2) is that the θd generate ΛZ freely as a ring:
+
+
+                                         ΛZ = Z[θ1 , θ2 , . . . ].
+
+
+Another is that we have
+
+
+                                       Q+ [h1 , h2 , . . . ] ⊆ ΨQ+ .                            (4.5.3)
+
+
+
+Note that such a containment is a special property of the complete symmetric
+functions hn ; it is not shared by the elementary symmetric functions en .
+
+   The Witt symmetric functions are rarely encountered outside the literature on
+296                                                                                       J. Borger
+
+
+Witt vectors. The following are some decompositions in more common bases:
+
+      θ1 = ψ1 = m1 = e1 = h1 = s1
+      θ2 = (−ψ12 + ψ2 )/2 = −m12 = −e2 = −h21 + h2 = −s12
+      θ3 = (−ψ13 + ψ3 )/3 = −2m13 − m21 = −e2 e1 + e3 = −h2 h1 + h3 = −s21
+      θ4 = (−3ψ14 + 2ψ2 ψ12 − ψ22 + 2ψ4 )/8 = −9m14 − 4m212 − 2m22 − m31
+        = −e2 e21 + e3 e1 − e4 = −h41 + 2h2 h21 − h22 − h3 h1 + h4
+        = −s14 − s212 − s22 − s31
+      θ5 = (−ψ15 + ψ5 )/5 = −24m15 − 12m213 − 6m22 1 − 4m312 − 2m32 − m41
+        = −e2 e31 + e22 e1 + e3 e21 − e3 e2 − e4 e1 + e5
+        = −h2 h31 + h22 h1 + h3 h21 − h3 h2 − h4 h1 + h5
+        = −s213 − s22 1 − s312 − s32 − s41
+      θ6 = (−13ψ16 − 9ψ2 ψ14 + 9ψ22 ψ12 − 3ψ23 + 8ψ3 ψ13 − 4ψ32 + 12ψ6 )/72
+        = −130m16 − 68m214 − 35m22 12 − 18m23 − 24m313 − 12m321 − 4m32
+          − 6m412 − 3m42 − m51
+        = −e2 e41 + e22 e21 + e3 e31 − e3 e2 e1 − e4 e21 + e4 e2 + e5 e1 − e6
+        = −h22 h21 − h3 h31 + 3h3 h2 h1 − h23 + h4 h21 − h4 h2 − h5 h1 + h6
+        = −s22 12 − s23 − 2s313 − 3s321 − s32 − 2s412 − 2s42 − s51
+
+Observe that the coefficients in some bases are noticeably smaller than in others.
+It would be interesting to make this precise.
+4.6. Proposition. Consider the composition algebra structure on ΛQ induced by
+the isomorphism ΨQ → ΛQ of (4.3.1). Then the structure maps on ΛQ satisfy the
+following:
+
+                    ∆+ : f (. . . , xi , . . . ) 7→ f (. . . , xi ⊗ 1, 1 ⊗ xi , . . . )
+                    ∆× : f (. . . , xi , . . . ) 7→ f (. . . , xi ⊗ xj , . . . )
+                     ε+ : f (. . . , xi , . . . ) 7→ f (0, 0, . . . )
+                     ε× : f (. . . , xi , . . . ) 7→ f (1, 0, 0, . . . )
+                                        f ◦ g = f (y1 , y2 , . . . ),
+
+for all f ∈ ΛQ and g ∈ ΛN , where g = y1 + y2 + · · · with each yj a monomial in
+the variables xi with coefficient 1.
+Proof. The maps ∆+ , ∆× , ε+ , ε× displayed above are manifestly Q-algebra maps.
+Therefore to show they agree with the corresponding structure maps, it is enough
+to consider elements f that run over a set of generators, such as the ψn . In this
+case, one can calculate the image of ψn under the maps displayed above and observe
+that it agrees with the image of ψn under the structure maps, by (3.4.1).
+    Similarly, for any fixed g ∈ ΛN , the map f 7→ f ◦ g displayed above is a Q-
+algebra map. So it is again enough to assume f = ψm . Then ψm ◦ g 7→ g is an
+Witt vectors, semirings, and total positivity                                    297
+
+
+N-algebra map ΛN → ΛQ , and to show this map agrees with the rule displayed
+above, it is enough to do so after allowing coefficients in Q, since ΛN is free. Then
+the ψn are generators, and so it is enough to assume g = ψn . We are left to check
+ψm ◦ ψn = ψmn , which is indeed the composition law on ΨQ .
+
+4.7. Corollary. ΛN and ΛZ are models of the composition algebra ΛQ in a unique
+way.
+
+Proof. Since both ΛN and ΛZ are free, it is enough to check properties (1)–(6)
+of (3.6) and (3.7). It is immediate from (4.6) that all the structure maps preserve
+ΛN , which finishes the proof for it.
+    It is also clear that all the structure maps preserve ΛZ , with the exception of
+the one expressing that ΛZ is closed under composition. We will now show this.
+Because ΛN is a composition algebra and we have ΛZ = Z ⊗N ΛN , it is enough to
+show f (Z) ⊆ Z for all f ∈ ΛZ , and hence f (−1) ∈ Z for all such f . To do this, it
+is enough to restrict to the case where f ranges over a set of algebra generators,
+such as the hn . But since ψn (−1) = −1, the identity (4.5.2) implies hn (−1) = 0
+for n ≥ 2 and h1 (−1) = −1. So we have hn (−1) ∈ Z for all n.
+
+4.8. Explicit description of a ΛN -action. For the convenience of the reader,
+let us spell out what it means for the composition algebra ΛN to act on an N-algebra
+A in elementary terms.
+    For each partition λ, there is a set map
+
+                                      mλ : A −→ A
+
+such that the following identities hold
+
+                      m0 (x) = 1
+                (mλ mµ )(x) = mλ (x)mµ (x)
+                      mλ (0) = ε+ (mλ )
+                                                    X
+                 mλ (x + y) = ∆+ (mλ )(x, y) :=            λ
+                                                          qµν mµ (x)mν (y)
+                                                    µ,ν
+                                 ×
+                      mλ (1) = ε (mλ )
+                                                    X
+                     mλ (xy) = ∆× (mλ )(x, y) :=           λ
+                                                          rµν mµ (x)mν (y)
+                                                    µ,ν
+
+                      m1 (x) = x
+                mλ (mµ (x)) = (mλ ◦ mµ )(x).
+
+The notation here requires some explanation. The expression (mλ mµ )(x), or more
+generally f (x), is defined by
+                                         X
+                               f (x) =       fν mν (x) ∈ A,
+                                         ν
+298                                                                            J. Borger
+
+
+                                                            P           λ
+where the numbers fν ∈ N are defined by the equation f = ν fν mν ; and qµν and
+ λ
+rµν are the structure coefficients in N for the two coproducts:
+                                             X
+                             ∆+ (mλ ) =              λ
+                                                    qµν mµ ⊗ mν
+                                              µ,ν
+                                             X
+                                ×                    λ
+                             ∆ (mλ ) =              rµν mµ ⊗ mν .
+                                              µ,ν
+
+
+4.9. Example: the toric ΛN -structure on monoid algebras. Let A be a
+commutative monoid,P  written multiplicatively. The monoid algebra N[A] is the set
+                       n
+of finite formal sums i=1 [ai ], where each ai ∈ A, and multiplication is the linear
+map satisfying the law [a][b] = [ab]. Then for any f ∈ ΛN define
+                          n
+                          X
+                       f ( [ai ]) := f ([a1 ], . . . , [an ], 0, 0, . . . ).     (4.9.1)
+                          i=1
+
+The right-hand side denotes the substitution xi = [ai ] into the symmetric function
+f . To show this law defines an action of ΛN on N[A], it is enough to observe
+that (4.9.1) is the restriction of an action of a larger composition algebra on a larger
+N-algebra. By (4.6), it is the restriction of the action of ΛQ on Q[A] := Q ⊗N N[A]
+determined by ψn ([a]) = [an ] for all a ∈ A, n ≥ 1.
+    We call the ΛN -structure on N[A] the toric ΛN -structure because Spec(Z[A]) is
+a toric variety and the ΛN -structure extends in a canonical way to any nonaffine
+toric variety, once this concept is defined. (See [3], for example.)
+
+4.10. Example: the Chebyshev line. When A = Z above, we have N[A] =
+N[x±1 ]. Let B denote the subalgebra of N[A] spanned by 1, x + x−1 , x2 + x−2 , . . . .
+Then B is the set of invariants under the involution ψ−1 of N[x±1 ] defined by
+x 7→ x−1 . Since ψ−1 is a ΛN -morphism and since the category of ΛN -algebras has
+all limits, B is a sub-ΛN -semiring. It is a model over N of the ΛZ -ring Z[x + x−1 ]
+called the Chebyshev line in [3], but it is not isomorphic to the N-algebra N[y]. In
+fact, it is not even finitely generated as an N-algebra.
+
+4.11. Flatness for ΛN -semirings. In [6], De Smit and I proved some classifica-
+tion results about reduced Λ-rings that are finite flat over Z. It would be interesting
+to know if there are similar results over N. As D. Grinberg pointed out to me, it is
+not hard to construct non-toric ΛN -semirings which are flat and finitely presented
+over N. One example is the sub-N-algebra of ψ−1 -invariants of the monoid algebra
+N[x]/(x3 = 1). It is isomorphic to N[y]/(y 2 = y + 2), via the map y 7→ x + x2 .
+
+4.12. Example: convergent exponential monoid algebras. Let B be a
+submonoid of C under addition, and let N[eB ]b denote
+P                                                          P the    set of formal series
+  ∞      bi                                                     bi
+  i=1 [e    ], where b i ∈ B, such that the complex series  i e    converges absolutely.
+(Of course, e now denotes the base of the natural logarithm.) We identify series
+that are the same up to a permutation of the terms. More formally, N[eB ]b is the
+Witt vectors, semirings, and total positivity                                        299
+
+                                                                P
+set of elements (. . . , nb , . . . ) ∈ NB such that the sums b∈S nb |eb | are bounded as
+S ranges over all finite subsets of B. (Also, note that the notation is slightly abu-
+sive in that N[eB ]b depends on B itself and not just its image under the exponential
+map.) It is a sub-N-module of NB and has a multiplication defined by
+                          X                X        X           
+                                    [ebi ]      [ecj ] =   [ebi +cj ] ,
+                           i                j               i,j
+
+
+under which it becomes an N-algebra. It is the unique multiplication extending
+that on the monoid algebra N[B] which is continuous, in some suitable sense.
+   For integers n ≥ 1, define
+                               X        X
+                            ψn    [ebi ] =    [enbi ].
+                                        i               i
+
+
+This is easily seen to be an element of N[eB ]b, and hence the ψn form a commuting
+family of N-algebra endomorphisms of N[eB ]b. The induced endomorphisms of
+Q ⊗N N[eB ]b prolong to a unique action of ΛQ . It follows that for any symmetric
+function f ∈ ΛQ , we have
+                          X         
+                      f        [ai ] = f ([a1 ], [a2 ], . . . ) ∈ Q ⊗N NB .     (4.12.1)
+                          i
+
+Indeed, it is true when f = ψn ; then by the multiplication law above, it is true
+when f is a monomial in the ψnP    , and hence for any f ∈ ΨQ = ΛQ . It follows that
+for any f ∈ ΛN , the element f ( i [ai ]) lies in NB ∩ (Q ⊗N N[eB ]b) = N[eB ]b. So
+N[eB ]b inherits an action of ΛN from Q ⊗N N[eB ]b.
+    Observe that if B is closed under multiplication by any real t ≥ 1, then we
+have operators ψt , for all t ≥ 1:
+                                    X         X tbi
+                               ψt      [ebi ] =   [e ].
+                                        i               i
+                  P                                 P
+Indeed the series i etbi is absolutely convergent if i ebi is. Thus Spec(A) has a
+flow interpolating the Frobenius operators. For further remarks, see (8.11).
+
+4.13. Example: convergent monoid algebras. Now let A be a submonoid of
+the positive real numbers under multiplication, and let log A = {b ∈ R | eb ∈ A}.
+Then define
+                              N[A]b = N[elog A ]b.
+
+4.14. Remark: non-models for ΛZ over N. The N-algebra N[e1 , . . . ] is a
+model for ΛZ as a co-N-module object because the expression
+                                       X
+                           ∆+ (en ) =      ei ⊗ ej
+                                                i+j=n
+300                                                                          J. Borger
+
+
+has no negative coefficients. But it is not a model as a co-N-algebra object because
+the analogous expression for ∆× does at places have negative coefficients:
+
+                      ∆× (e2 ) = e2 ⊗ e21 + e21 ⊗ e2 − 2e2 ⊗ e2 .
+
+   The complete symmetric functions
+                                  X
+                          hn =                    xi1 · · · xin
+                                     i1 ≤···≤in
+
+behave similarly. The N-algebra N[hP    1 , . . . ] is a model for ΛZ over N as a co-N-
+module object, because ∆+ (hn ) =          i+j=n hi ⊗ hj , but not as a co-N-algebra
+object, because ∆× (h2 ) = h21 ⊗ h21 − h21 ⊗ h2 − h2 ⊗ h21 + 2h2 ⊗ h2 .
+   For Witt symmetric functions, we have
+                                                     p−1
+                                                     X      
+                                                         1 p i
+                  ∆+ (θp ) = θp ⊗ 1 + 1 ⊗ θp −                θ1 ⊗ θ1p−i
+                                                     i=1
+                                                         p  i
+                  ∆× (θp ) = θp ⊗ θ1p + θ1p ⊗ θp + pθp ⊗ θp ,
+
+for any prime p. So N[θ1 , . . . ] is not even a model as a co-N-module object. Using
+−θp instead of θp , removes the sign from the first formula but adds one in the
+second. We will see in section 8 that it is possible to circumvent this problem, at
+least if we care only about a single prime.
+
+
+5. The Schur model for ΛZ over N
+5.1. Schur functions and ΛSch . For any partition λ = (λ1 , . . . , λr ), put
+
+                              sλ := det(hλi −i+j ) ∈ ΛZ ,                       (5.1.1)
+
+where as usual h0 = 1 and hn = 0 for n < 0. For example,
+                                                  
+                                      h3 h4 h5
+                         s321 = det  h1 h2 h3  .                              (5.1.2)
+                                      0    1   h1
+Such symmetric functions are called Schur functions. They have simple interpre-
+tations in terms of representation theory of general linear and symmetric groups,
+and several of the results we use below are usually proved using such an interpre-
+tation. But it is enough for us just to cite the results, and so we will ignore this
+interpretation. This is discussed more in (5.11) below.
+    Write                                 M
+                                  ΛSch :=     Nsλ ,                          (5.1.3)
+                                              λ
+where λ runs over all partitions. The Schur functions are well known to form a
+Z-linear basis for ΛZ . (See p. 41 (3.3) of Macdonald’s book [33].) Therefore ΛSch
+is an N-model for ΛZ as a module, by way of the evident inclusion ΛSch → ΛZ .
+Witt vectors, semirings, and total positivity                                        301
+
+
+5.2. Proposition. ΛSch is an N-model of ΛZ as a composition algebra, in a unique
+way. We also have ΛSch ⊆ ΛN .
+Proof. Since ΛSch is free, it is enough to check properties (1)–(6) of (3.6) and (3.7).
+These all reduce to standard facts about Schur functions, for which we will refer
+to chapter 1 of Macdonald’s book [33].
+    We have ΛSch ⊆ ΛN because of the equality
+                                         X
+                                    sλ =     Kλµ mµ                             (5.2.1)
+                                            µ
+
+where the Kλµ are the Kostka numbers, which are in N, by Macdonald, p. 101
+(6.4).
+    The fact that ΛSch is a sub-N-algebra follows from the equations
+                                               X
+                           1 = s0 ,   sλ sµ =     cνλµ sν ,
+                                                      ν
+
+where the cνλµ are the Littlewood–Richardson coefficients, which are in N, by Mac-
+donald, pp. 113–114, (7.5) and (7.3).
+   By Macdonald, p. 72 (5.9) and p. 119 (7.9), we have
+                                       X
+                            ∆+ (sλ ) =   cλµν sµ ⊗ sν                            (5.2.2)
+                                            µν
+                                            X
+                               ∆× (sλ ) =         λ
+                                                 γµν sµ ⊗ sν ,                   (5.2.3)
+                                            µν
+
+                                                                            λ
+where the cνλµ are again the Littlewood–Richardson coefficients and the γµν     are
+the Kronecker coefficients, which are in N by pp. 114–115 of Macdonald. It follows
+that ΛSch is closed under the co-addition and comultiplication maps.
+   The containments ε+ (ΛSch ), ε× (ΛSch ) ⊆ N follow from ΛSch ⊆ ΛN .
+   Finally, we have                       X
+                                sλ ◦ sµ =    aνλµ sν ,
+                                                 ν
+
+where aνλµ ∈ N, by Macdonald, p. 136 (8.10). So we have sλ ◦ sµ ∈ ΛSch . It follows
+      Sch                                      Sch
+that Λ     is closed under composition, since Λ    is an N-N-bialgebra. Last, it
+contains the compositional identity element e because e = s1 .
+
+5.3. Remark. The three models of ΨQ over N we have seen are ΨN , ΛN , and
+ΛSch . The largest of the three is ΛN . The other two are incomparable, even over
+Q+ . Indeed, we have s11 = (ψ12 − ψ2 )/2 and ψ2 = s21 − 2s11 .
+
+5.4. Remark: ΛSch is not free as an N-algebra. As in (4.4), any generating
+set of ΛSch contains all Schur functions that cannot be written as monomials with
+coefficient 1 in the other Schur functions. This is true of s1 = h1 , s2 = h2 , and
+s11 = h21 − h2 because they are irreducible in ΛZ = Z[h1 , h2 , . . . ]. But they are not
+algebraically independent: s21 = s2 + s11 .
+302                                                                          J. Borger
+
+
+5.5. Remark: explicit description of a ΛSch -action. This is the same as
+in (4.8), but with operators sλ . Now the identities are the following:
+
+                      s0 (x) = 1
+                  (sλ sµ )(x) = sλ (x)sµ (x)
+                      sλ (0) = ε+ (sλ )
+                                                   X
+                  sλ (x + y) = ∆+ (sλ )(x, y) :=         cλµν sµ (x)sν (y)
+                                                   µ,ν
+                                 ×
+                      sλ (1) = ε (sλ )
+                                                   X
+                     sλ (xy) = ∆× (sλ )(x, y) :=          λ
+                                                         γµν sµ (x)sν (y)
+                                                   µ,ν
+
+                      s1 (x) = x
+                                                   X
+                  sλ (sµ (x)) = (sλ ◦ sµ )(x) :=       aνλµ sµ (x)sν (y),
+                                                   ν
+
+where cλµν , γµν
+              λ
+                 , and aλµν are the Littlewood–Richardson, Kronecker, and Schur
+plethysm coefficients, as in the proof of (5.2).
+    In these terms, a ΛN -action gives rise to a ΛSch -action by the formula (5.2.1).
+
+5.6. Example. Since we have ΛSch ⊆ ΛN , any ΛN -semiring is a ΛSch -semiring.
+For example, in a monoid N-algebra N[M ] with the toric ΛN -structure, we have
+                                   
+                                     [m]l if λ = (l)
+                        sλ ([m]) =                                        (5.6.1)
+                                     0     otherwise
+
+5.7. Example. Consider the monoid Z-algebra Z[x]/(x2 −1) with the ΛZ -structure
+defined by ψn (x) = xn , and let A denote the sub-N-algebra generated by η = −x.
+So we have a presentation
+                                 A = N[η]/(η 2 = 1).
+Then A is a sub-ΛSch-semiring. Indeed, for any partition λ of r, we have
+                                         
+                               r            (−x)r if λ = (1r )
+                sλ (−x) = (−1) sλ′ (x) =
+                                            0       otherwise
+
+by (5.6.1), where λ′ is the partition conjugate to λ.
+
+5.8. Frobenius lifts and p-derivations. For each integer n ≥ 1, we have ψn =
+mn ∈ ΛN . Therefore every ΛN -semiring A has a natural endomorphism ψn . It is
+called the Adams or Frobenius operator . When n is a prime p, the induced map
+on Fp ⊗N A is the Frobenius map x 7→ xp . To see this, one can reduce to the case
+of rings, or one can simply observe that we have
+                                       1 p
+                               dp :=    (ψ − ψp ) ∈ ΛN
+                                       p 1
+Witt vectors, semirings, and total positivity                                         303
+
+
+and hence ψp (x) + pdp (x) = xp . The operator −dp = θp is a p-derivation in the
+language of Buium, p. 31 [11].
+   It is different for ΛSch-semirings. Since ψn 6∈ ΛSch for n ≥ 2, we do not generally
+have Frobenius lifts. However we do have the operators dn := −θn for n ≥ 2.
+Indeed Scharf–Thibon [38] and Doran [13] proved a conjecture of Reutenauer [35]
+that
+                               −θn ∈ ΛSch for n ≥ 2.
+    Of course, for n = 1 we have the opposite: +θ1 ∈ ΛSch. This irksome exception
+suggests the perspective here might not be the most fundamental one. For ex-
+ample, it is a standard result in the theory of p-typical Witt vectors (tantamount
+to the Cartier–Dieudonné–Dwork lemma) that the ring Z[dpn |n ≥ 0] of p-typical
+symmetric functions agrees with Z[d◦n p | n ≥ 0], the composition Z-algebra gener-
+ated by the iterated p-derivations. The families of generators dpn and d◦n p agree
+for n ≤ 1 but not for n = 2.
+Question 2. Do the symmetric functions dpn − d◦n p lie in Λ
+                                                            Sch
+                                                                ? More generally,
+do dpm+n − dp ◦ dp ? If not, do they lie in ΛN ?
+             m    n
+
+
+
+    If the answers are yes, it would suggest that the operators d◦n     p are more fun-
+damental from the point of view of positivity than the dpn . In other words, up to
+some signs, the iterated p-derivations generate a larger sub-N-algebra than the Witt
+symmetric functions. Computations have shown that the answer to the stronger
+question above is yes when p = 2, m + n ≤ 3; p = 3, m + n = 2; and p = 5,
+m + n = 2.
+    The obvious generalization drs −dr ◦ds ∈ ΛSch is not always true. Computations
+have shown it is true for (r, s) = (2, 3), (2, 5), (3, 5), (5, 3) but false for (3, 2) and
+(5, 2).
+
+5.9. Remark: the necessity of nonlinear operators. Observe that neither
+ΛN nor ΛSch is generated by linear operators, even after base change to R+ . Indeed,
+because we have m11 = e2 = s11 , any generating set of ΛR+ or R+ ⊗N ΛSch would
+have to contain a nonzero multiple of e2 , which is nonadditive element. So an
+action of ΛZ or ΛSch on an N-algebra cannot be expressed entirely in terms of
+additive operators.
+    It appears to be the case that over Z or Zp , any composition algebra that cannot
+be generated by linear operators can trace its origin to the dp operators—in other
+words, to lifting Frobenius maps to characteristic 0. There are probably theorems
+to this effect. (For example, Buium [10] classifies ring scheme structures on the
+plane A2Zp , which is perhaps the first test case, and he is able to prove such a result
+there.) Could it be that the existence of nonlinear composition algebras over R+ is
+due to a similarly identifiable phenomenon? It seems optimistic to hope that the
+answer is yes, but if it were, the importance would be so great that the question
+should not be dismissed.
+
+5.10. Remark: composition algebras over number fields. The composition
+ring ΛZ has analogues over rings of integers in general number fields. We will not
+304                                                                                  J. Borger
+
+
+really use them in this chapter, but they will appear in a several remarks and open
+questions.
+    Let K be a number field, let OK denote its ring of integers, and let E denote
+a family of maximal ideals of OK . Let ΛOK ,E denote the composition OK -algebra
+characterized by the property that an action on any flat OK -algebra A is the same
+as a commuting family of OK -algebra endomorphisms (ψp )p∈E such that each ψp
+reduces to the Frobenius map x 7→ x[OK :p] on A/pA. This construction and the
+associated Witt vector functor WOK ,E are discussed in much more detail in section
+1 of my paper [4]. When K = Q, it reduces to a special case of the construction
+of (8.1), as is explained there, but otherwise there is no overlap between the two.
+
+5.11. Remark: representation theory and K-theory. The standard way
+of looking at ΛSch is from the point of view of polynomial functors, or equiva-
+lently representations of GLn . (See Macdonald [33], ch. 1, app. A.) Let F denote
+the category of polynomial functors from the category of finite-dimensional vector
+spaces over, say, C to itself. Then for any polynomial functor F , the polynomial
+tr(F (diag(x1 , . . . , xn ))) in Z[x1 , . . . , xn ] is symmetric, and as n varies, these poly-
+nomials define a compatible sequence and hence an element of the inverse limit
+ΛZ . This defines a group homomorphism χ : K(F) → ΛZ , where K(F) denotes the
+Grothendieck group of F, and one proves this map is bijection.
+    Under this bijection the irreducible polynomial functors correspond to the Schur
+functions. Indeed, given a partition λ of n, let Vλ be the corresponding irreducible
+Q-linear representation of Sn . Then the functor Sλ (E) := HomQ[Sn ] (Vλ , E ⊗n ) is
+a polynomial functor. Further, the Sλ are precisely the irreducible polynomial
+functors, and each Sλ corresponds to the Schur function sλ under χ. Therefore
+χ induces an isomorphism K+ (F) → ΛSch of N-modules, where K+ (−) denotes
+the subset of the Grothendieck group consisting of effective classes, rather than
+just virtual ones. Then each of the structure maps in the composition-algebra
+structure on ΛSch corresponds to something transparent on F: the operations +,
+×, and plethysm on ΛSch correspond to ⊕, ⊗, and composition on F. The co-
+operation ∆+ corresponds to the rule that sends a polynomial functor F to the
+polynomial functor F (E ⊕E ′ ) in two variables E and E ′ ; similarly ∆+ corresponds
+to F (E ⊗ E ′ ). The positivity properties of ΛSch used in the proof of (5.2) below
+then hold because the (co-)operations on ΛSch correspond to (co-)operations on F,
+and hence they preserve effectivity.
+    This point of view is also a good way of approaching the λ-ring structure on
+Grothendieck groups. Given an amenable linear tensor category C, we can define
+functors Sλ : C → C by Sλ (E) = HomQ[Sn ] (Vλ , E ⊗n ). This defines an action of
+the monoid K+ (F) = ΛSch under composition on K+ (C), and this is essentially by
+definition an action of the composition N-algebra ΛSch on the N-algebra K+ (C).
+This, in turn, induces an action of ΛZ on K(C), which is the usual λ-ring structure
+on Grothendieck groups.
+    While this is a more conceptual way of thinking about positivity properties
+on ΛSch , the deeper meaning of the connection with Witt vectors still eludes me.
+From an arithmetic point of view, it is not clear why one would should consider
+Witt vectors, semirings, and total positivity                                    305
+
+
+the Witt vector functor associated to the composition algebra made by assembling
+all this representation-theoretic data into the algebraic gadget ΛZ . Indeed, the
+composition algebras ΛOK ,E of (5.10) and the corresponding Witt functors WOK ,E
+also have arithmetic interest (for instance in the theory of complex multiplication
+when K is an imaginary quadratic field), but no representation theoretic interpre-
+tation of ΛOK ,E is known. In fact, no interpretation in terms of something similar
+to symmetric functions is known.
+    At the time of this writing, there is still a tension between the following three
+observations: (1) the connection between Frobenius lifts and the representation
+theory of GLn appears to be a coincidence, merely an instance of a fundamental
+algebraic object arising in two unrelated contexts; (2) to define ΛSch and W Sch one
+needs the positivity results established with representation theory; (3) ΛSch and
+W Sch have some arithmetic interest, as in section 7 below. The situation with ΛN
+and W is perhaps less mysterious—they seem more important from the arithmetic
+point of view and also require no nontrivial positivity results from representation
+theory. Perhaps the resolution will be that ΛSch and W Sch are of arithmetic interest
+only through their relation to ΛN and W .
+    Whatever the case, this is why I have ignored K-theory and used the represen-
+tation theory as a black box. However this point of view does suggest the following
+question:
+Question 3. Let Bp denote the subset of ΛZ consisting of the characters of poly-
+nomial functors over an infinite field of characteristic p > 0. Is Bp a model for ΛZ
+as a composition algebra?
+    The structure of Bp is apparently much subtler than that of its analogue ΛSch
+in characteristic 0. Nevertheless I expect the answer to this question to be yes
+for formal reasons, as with ΛSch above. It would be interesting to make a more
+detailed study of the Bp from the point of view of plethystic algebra.
+
+
+6. Witt vectors of N-algebras
+For the classical theory of Witt vectors for rings, one can see Bergman’s lecture 26
+in Mumford’s book [34], or chapter III of Hazewinkel’s book [18], or §1 of chapter
+IX of Bourbaki [9] and especially the exercises there. One can also see Witt’s
+original writings, [46] and pp. 157–163 of [47].
+
+6.1. W and W Sch . For any N-algebra A, define the N-algebra of Witt vectors
+with entries in A by
+                         W (A) := AlgN (ΛN , A),
+and define the N-algebra of Schur–Witt vectors with entries in A by
+
+                              W Sch (A) := AlgN (ΛSch , A).
+
+The N-algebra structures are inherited from the N-N-bialgebra structure on ΛN
+and ΛSch , as explained in section 3. Since both ΛN and ΛSch are models of ΛZ over
+306                                                                                  J. Borger
+
+
+N, both Witt functors agree up to canonical isomorphism with the usual big Witt
+vector functor on rings.
+    Since ΛN is a composition algebra, W (A) has a natural ΛN -action. It is defined,
+for a ∈ W (A) and f ∈ ΛN , by
+
+                                f (a) : g 7→ a(g ◦ f )                                 (6.1.1)
+
+for all g ∈ ΛN . Equivalently, the comonad structure map W (A) → W (W (A)) is
+given by a 7→ [g 7→ a(g ◦ f )]. The analogous statements hold for W Sch and ΛSch .
+    Finally, the two functors W and W Sch are related: the inclusion ΛSch ⊆ ΛN of
+composition algebras induces a map
+
+                                W (A) −→ W Sch (A)
+
+of ΛSch -semirings which is natural in A.
+
+6.2. The ghost map and similar ones. Consider the diagram
+
+                                   ΛSch
+                                     O
+                                        /                / ΛN
+                                                            O
+
+                                      O                    O
+                              N[h1 , h2 , . . . ] /❴ ❴ ❴/ ΨN
+
+of sub-N-algebras of ΛZ , where the bottom map is dashed to indicate that it is
+defined only after base change to Q+ . If we apply the functor AlgN (−, A) to this
+diagram, we get the following diagram of Witt vectors:
+                                                v
+                               W Sch (A) o            W (A)
+                                  σ                        w                           (6.2.1)
+                                           σgh   
+                              1 + tA[[t]] o❴ ❴ ❴ A∞
+
+where in the bottom row we have made use of the following identifications
+                                        ∼
+                                                            X
+              AlgN (N[h1 , . . . ], A) −→ 1 + tA[[t]], a 7→   a(hi )ti
+                                                                   i
+                                      ∼     ∞
+                     AlgN (ΨN , A) −→ A ,           a 7→ ha(ψ1 ), a(ψ2 ), . . . i.
+
+The dashed arrow indicates that A needs to be a Q+ -algebra for σgh to be defined.
+Recall from (4.14) that 1 + tA[[t]] is in general only a commutative monoid, under
+usual power-series multiplication; but the other three are N-algebras.
+6.3. Proposition. (1) v is a morphism of ΛSch -semirings, and w is a morphism
+     of ΨN -semirings, and σ and σgh are morphisms of N-modules: σ∗ (x + y) =
+     σ∗ (x)σ∗ (y), σ∗ (0) = 1.
+ (2) If A is a Z-algebra, then v and σ are bijections. If A is contained in a
+     Z-algebra, then v and σ are injections.
+Witt vectors, semirings, and total positivity                                        307
+
+
+ (3) If A is a Q-algebra, then w and σgh are bijections. If A is contained in a
+     Q-algebra, then w and σgh are injections.
+Proof. (1): The first statement holds because the inclusions ΛSch → ΛN and ΨN →
+ΛN are morphisms
+           P        of composition algebras. The second follows from the equations
+∆+ (hn ) = i+j=n hi ⊗ hj and ε+ (hn ) = 0 for n ≥ 1.
+   (2): This holds because ΛN , ΛSch , and N[h1 , . . . ] are models for ΛZ over N.
+   (3): Similarly, this holds because ΛN , ΨN , and N[h1 , . . . ] are models for ΨQ over
+N.
+
+6.4. Remark. The map v : W (A) → W Sch (A) can fail to be injective when A is
+not contained in a ring. For example, it is not injective when A is the Boolean
+semiring N/(1 + 1 = 1). See the forthcoming work with Darij Grinberg [7].
+
+6.5. Coordinates for Witt vectors of rings. When A is a ring, the bijection
+σ of (6.2.1) allows us to identify Witt vectors and power series. In other words,
+the complete symmetric functions give a free set of coordinates on the Z-scheme
+W = Spec(ΛZ ).
+   Note that there are three other common conventions for identifying Witt vectors
+and power series. Given any two signs ε1 , ε2 ∈ {+1, −1}, the map
+                                         ∼
+                           σεε12 : W (A) −→ 1 + tA[[t]]
+                                            X                 ε2                (6.5.1)
+                                       a 7→     a(ei )(ε1 t)i
+                                                 i
+                                                           −
+is an isomorphism of N-modules. We have taken σ = σ−          as our convention. It has
+one advantage over the others, which is that σgh can be defined over Q+ rather
+than just Q. Equivalently, the complete symmetric functions can be written as
+polynomials in the power sums with nonnegative coefficients. This is not true with
+the elementary symmetric functions, even if we allow ourselves to change the signs
+of half of them. I am not aware of any other convincing reason to prefer one of
+these sign conventions to the others.
+    The presentation ΛZ = Z[θ1 , . . . ] gives another set of full coordinates:
+                               ∼
+                       W (A) −→ A∞ ,         a 7→ (a(θ1 ), a(θ2 ), . . . )
+We will call the elements a(θ1 ), · · · ∈ A the Witt components or Witt coordinates of
+a. Addition does not have a simple closed form in these coordinates, unlike in the
+series coordinates above. But the Witt coordinates do have two advantages over the
+series coordinates. First, they are related to the power sums by a simple, closed-
+form expression (4.5.1). Second, they behave well with respect to localization.
+More precisely, let E be a set of prime numbers. Then we have a free presentation
+                         ΛZ[1/E] = Z[1/E][. . . , θm ◦ ψn , . . . ],
+where m runs over the positive integers whose prime divisors do not lie in E, and
+n runs over those whose prime divisors all do. (See the isomorphisms (1.20.1) and
+(5.3.1) in [4], for example.)
+308                                                                                J. Borger
+
+
+   The components of the image of a under the map
+
+                      w : W (A) → A∞ ,       a 7→ ha(ψ1 ), a(ψ2 ), . . .i
+
+are its ghost components. Their advantage is that all algebraic structure is com-
+pletely transparent—addition and multiplication are performed componentwise
+and Frobenius operations are given by scaling the indices. When A is a Q-algebra,
+w is a bijection, and so the ghost components have no deficiencies over Q. When
+A is a torsion-free ring (i.e. a flat Z-algebra), w is an injection, and the ghost coor-
+dinates are still useful there. We write the ghost components with angle brackets
+to avoid any confusion with the Witt components.
+
+6.6. Witt vectors for semirings contained in rings. A Witt vector is de-
+termined by its series coordinates when A is contained in a ring. Indeed, a map
+ΛN → A is equivalent to a map a : ΛZ → Z ⊗N A subject to the effectivity condition
+a(mλ ) ∈ A for all partitions λ. Therefore we have
+                   X i                       X µ
+         W (A) =         ai t ∈ 1 + tA[[t]] |  Mλ aµ1 aµ2 · · · ∈ A ,       (6.6.1)
+                        i                        µ
+
+where M is the transition matrix from the monomial basis (mλ )λ to the basis of
+monomials in the complete symmetric functions hn :
+                                 X µ
+                           mλ =      Mλ hµ1 hµ2 · · · .
+                                         µ
+
+Formula (6.6.1) also holds for W Sch (A), but then M must be the transition matrix
+from the Schur basis to this h basis.
+   Similar statements hold for the ghost components when A is contained in a
+Q-algebra. For example, we have
+                                             X µ
+         W Sch (A) = ha1 , a2 , . . .i ∈ A∞ |   Nλ aµ1 aµ2 · · · ∈ A ,      (6.6.2)
+                                                 µ
+
+where N is the transition matrix from the Schur basis to the basis of monomials
+in the power sums:               X µ
+                           sλ =      Nλ ψµ1 ψµ2 · · · .
+                                        µ
+
+In this particular case, the matrix N has a well-known description: the block where
+|λ| = |µ| = n is the inverse of the character table of the symmetric group Sn . See
+Macdonald, (7.8) p. 114 [33].
+
+6.7. Example: some explicit effectivity conditions. Let us write out the
+effectivity conditions on ghost components for W Sch (A) and W (A) up to weight 4.
+If a ghost vector ha1 , . . . , a4 i ∈ A4 lies in the image of W Sch (A), then the following
+eleven elements of Q ⊗N A are contained in A:
+
+              a1 ,   (a21 ± a2 )/2,   (a31 ± 3a1 a2 + 2a3 )/6,    (a31 − a3 )/3,
+Witt vectors, semirings, and total positivity                                               309
+
+
+                           (a41 ± 6a21 a2 + 3a22 + 8a1 a3 ± 6a4 )/24,
+             (3a41 ± 6a21 a2 − 3a22 ∓ 6a4 )/24,         (2a41 + 6a22 − 8a1 a3 )/24.
+These are all the conditions corresponding to sλ with |λ| ≤ 4.
+   In the case of W (A), the following elements are required to be in A:
+                                   a1 ,   a2 ,   a3 ,    a4 ,
+                                (a21 − a2 )/2, a1 a2 − a3 ,
+                 (a1 − 3a1 a2 + 2a3 )/6, a1 a3 − a4 , (a22 − a4 )/2,
+                    3
+
+       (a21 a2 − a22 − 2a1 a3 + 2a4 )/2, (a41 − 6a21 a2 + 3a22 + 8a1 a3 − 6a4 )/24
+These are all the conditions corresponding to mλ with |λ| ≤ 4.
+
+6.8. Coordinates for Witt vectors of semirings. For general semirings, there
+is no purely vector-like description of W (A) or W Sch (A). Indeed, for any set T , the
+functor A 7→ AT is represented by the free N-algebra on T , but by (4.4) and (5.4),
+neither ΛN nor ΛSch is free as an N-algebra.
+    Instead Witt vectors are cut out of infinite-dimensional affine space by quadratic
+relations determined by the structure constants of multiplication in the relevant
+basis. Let P denote the set of partitions. For any λ, µ ∈ P , write
+                               X                        X
+                    mλ mµ =        bνλµ mν ,    sλ sµ =     cνλµ sν .
+                                  ν∈P                                 ν∈P
+
+Then we have
+                                                                       X
+                     W (A) = {a ∈ AP | a0 = 1, aλ aµ =                      bνλµ aν }
+                                                                        ν
+                                                                       X
+                     Sch                  P
+                 W         (A) = {a ∈ A | a0 = 1, aλ aµ =                   cνλµ aν }.
+                                                                        ν
+
+Addition and multiplication are then defined using the structure constants for the
+coproducts ∆+ and ∆× with respect to the basis in question.
+
+6.9. Topology and pro-structure. It is often better to view W (A) and W Sch (A)
+as pro-sets, or pro-discrete topological spaces, as when A is a ring. We do this as
+follows. Let (Pi )i∈I denote the filtered system of finitely generated sub-N-algebras
+of ΛN . Then we have
+                  W (A) = Hom(colimi∈I Pi , A) = lim Hom(Pi , I).                        (6.9.1)
+                                                                i∈I
+
+So W (A), and similarly W Sch (A), has the natural structure of a pro-set. When
+A is a ring, W (A) can be expressed as an inverse limit of rings. I do not know,
+however, whether the analogous statement holds over N:
+Question 4. Are W (A) and W Sch (A) pro-objects in the category of N-algebras?
+More naturally, is this true as representable functors? Equivalently, can ΛN and
+ΛSch be expressed as filtered colimits colimi Pi , where each Pi is a co-N-algebra
+object in AlgN which is finitely generated as an N-algebra?
+   For a stronger form of this question, see (8.1).
+310                                                                         J. Borger
+
+
+6.10. Teichmüller and anti-Teichmüller elements. For any N-algebra A,
+consider the monoid algebra N[A] with the toric ΛN -structure. By the adjunction
+property of W , the N-algebra map N[A] → A defined by [a] 7→ a lifts to a unique
+ΛN -equivariant map
+                                N[A] −→ W (A).
+For a ∈ A, the image of [a] in W (A) is called the Teichmüller lift of a and is also
+denoted [a]. Explicitly, [a] is the N-algebra map ΛN → A determined by
+                                         (
+                                           ar if λ = (r)
+                             [a] : mλ −→                                    (6.10.1)
+                                           0 otherwise
+
+The Teichmüller map a 7→ [a] is a map of monoids A → W (A) under multiplication.
+   For the anti-Teichmüller elements, consider the N-algebra
+
+                                 N[η]/(η 2 = 1) ⊗N N[A];
+
+this has an action of ΛSch . On the first factor, ΛSch acts as in (5.7). On the second
+factor, it acts through the toric action of ΛN . Then the N-algebra map
+
+                            N[η]/(η 2 = 1) ⊗N N[A] −→ A
+
+determined by η 7→ 1 and [a] 7→ a for all a ∈ A lifts by adjunction to a unique
+ΛSch -equivariant map
+
+                       N[η]/(η 2 = 1) ⊗N N[A] −→ W Sch (A).
+
+For any a ∈ A, define the anti-Teichmüller lift {a} ∈ W Sch (A) to be the image of
+η ⊗ a. So in W (Z ⊗N A) we have
+
+                                     {a} = −[−a].                            (6.10.2)
+
+We also have                              (
+                                              ar   if λ = (1r )
+                           {a} : sλ −→                                       (6.10.3)
+                                              0    otherwise
+and
+                [a]{b} = {ab},       {a}{b} = [ab],         {a} = {1}[a].    (6.10.4)
+                                                                  Sch
+Observe that the anti-Teichmüller lifts exist only in W (A) and not generally
+in W (A). For example, the element {1} ∈ W Sch (N) is not in the sub-N-algebra
+W (N). Indeed, its ghost vector h1, −1, 1, −1, . . .i is not even in N∞ .
+
+6.11. The involution and the forgotten symmetric functions. Let
+
+                                     ω : ΛZ −→ ΛZ
+
+denote the ring map determined by ω(hn ) = en for all n. Then we have
+
+                                      ω(sλ ) = sλ′
+Witt vectors, semirings, and total positivity                                      311
+
+
+for all λ, where λ′ denotes the conjugate partition. (See Macdonald, p. 23 (2.9)′ [33].)
+Therefore we have
+                                   ω(ΛSch) = ΛSch ,
+and so ω induces a functorial set map
+
+                         W Sch (A) −→ W Sch (A),   a 7→ a ◦ ω.
+
+In fact, this map is simply multiplication by {1}. Indeed, it follows from the
+identities of (4.5.2) that
+                             ω(ψn ) = (−1)n+1 ψn
+for all n; now combine this with the equality {1} = h1, −1, 1, −1, . . .i.
+    The symmetric functions fλ := ω(mλ ) are sometimes called the forgotten sym-
+metric functions. Their span Λfor := ω(ΛN ) contains ΛSch . It represents the functor
+
+                              AlgN (Λfor , A) = {1}W (A),
+
+which is the free W (A)-module generated by the symbol {1}. The induced map
+
+                                  {1}W (A) −→ W Sch (A)
+
+is a W (A)-module map, but {1}W (A) cannot be given an N-algebra structure
+making the map an N-algebra map. In particular, Λfor is not a model for ΛZ as
+co-N-algebra object.
+
+6.12. Example: the map N → W Sch (A) is injective unless A = 0. In
+fact, the map ϕ from N to any nonzero ΛSch -semiring is injective. For if m, n ∈ N
+have the same image and m < n, then we have
+                                                        
+                     m                                     n
+             0 = ϕ(     ) = s1n (ϕ(m)) = s1n (ϕ(n)) = ϕ(       ) = 1.
+                     n                                     n
+So ϕ is injective unless it is the map to the zero ring. In particular, the map from
+N to any nonzero ΛN -semiring is injective.
+   On the other hand, the ΛSch -equivariant map N[η]/(η 2 = 1) → W Sch (A)
+sending η → {1} is not always injective. Indeed, when A = Z/2Z, we have
+[−1] = [1] = 1 and hence 1 + η 7→ 0.
+
+
+7. Total positivity
+In this section, we will give explicit descriptions of W (R+ ) and W Sch (R+ ) and
+then use this to describe W (N). These are very rich objects, and there is much
+more to say about them than we can here.
+                                                                   +
+    We will find it convenient to use the series normalization σ+    of (6.5), as well
+                           −
+as our standard one σ = σ− . By (4.5.2), we have
+                           X                         X
+                                             +
+                    σ(x) =     x(hi )ti ,   σ+ (x) =    x(ei )ti .
+                              i                           i
+312                                                                                  J. Borger
+
+
+The two are related by the involution f (t) 7→ f (−t)−1 . In other words, we have
+                                          +
+                                         σ+ (x) = σ({1}x).                             (7.0.1)
+
+7.1. Proposition. For any Witt vector x ∈ W (R+ ), write 1 + a1 t + a2 t2 + · · · for
+            +
+the series σ+ (x) ∈ 1 + tR+ [[t]]. Then for all n, we have
+
+                                                      an1
+                                               an ≤       .                            (7.1.1)
+                                                      n!
+                            P            n
+In particular, the series       n an t       converges to an entire function on C.
+
+Proof. Since m2,1n−2 = en−1 e1 − nen , we have an−1 a1 − nan ≥ 0. Then (7.1.1)
+follows by induction.
+                                               P
+7.2. Total positivity. A formal series n an tn ∈ 1 + tR[[t]] is said to be totally
+positive if all (finite) minors of the infinite matrix (ai−j )ij are ≥ 0. (To be clear, we
+understand a0 = 1 and an = 0 for n < 0. Other authors allow more general series.)
+For example, up to the 2 × 2 minors these inequalities amount to the following:
+
+                            an ≥ 0,            an an+i−j ≥ an+i an−j .
+
+Chapter 8 of Karlin’s book [21] has an extensive treatment.
+
+7.3. Proposition. A Witt vector x ∈ W (R) lies in W Sch (R+ ) if and only if the
+series corresponding to x under the bijection σ : W (R) → 1 + tR[[t]] is totally
+                                              +
+positive. The same is true for the bijection σ+ .
+
+Proof. First consider the universal series 1 + h1 t + h2 t2 + · · · ∈ ΛZ [[t]]. Then it is
+a standard fact in algebraic combinatorics that the minors of the matrix (hi−j )ij
+generate ΛSch as an N-module. (The minors are the so-called skew Schur functions
+sλ/µ , by Macdonald, p. 70 (5.4) [33]. Their N-span contains ΛSch because every
+Schur function is a skew Schur function. For the other containment, see (9.1) and
+the following text on p. 142 of Macdonald.) Therefore x, viewed as a ring map
+ΛZ → R, sends ΛSch to R+ if and only if the corresponding series is totally positive.
+    For the second statement, combine the above with (7.0.1) and the fact that {1}
+is an element of W Sch (A) and is invertible.
+
+7.4. Theorem (Edrei [14], Thoma [42]). The totally positive series in 1 + tR[[t]]
+are precisely those of the form
+                                     Q∞
+                                  γt Qi=1 (1 + αi t)
+                                e     ∞              ,                    (7.4.1)
+                                      i=1 (1 − βi t)
+                              P          P
+where γ, αi , βi ≥ 0 (and both i αi and i βi converge), and every such represen-
+tation is unique.
+
+   For a proof, see Karlin’s book [21], in which the result is theorem 5.3, p. 412.
+Witt vectors, semirings, and total positivity                                      313
+
+
+7.5. Corollary. Consider a Witt vector x ∈ W (R). Then x lies in W Sch (R+ ) if
+             +
+and only if σ+ (x) is of the form
+                                     Q∞
+                                  γt     (1 + αi t)
+                                 e Qi=1
+                                      ∞              ,                  (7.5.1)
+                                      i=1 (1 − βi t)
+
+                                                                   +
+where γ, αi , βi ≥ 0. Similarly, x lies in W (R+ ) if and only if σ+ (x) is of the form
+                                            ∞
+                                            Y
+                                      eγt       (1 + αi t),                     (7.5.2)
+                                            i=1
+
+where γ, αi ≥ 0.
+Proof. The first part follows from (7.3) and (7.4).
+   Now consider the second part. The first part and (7.1) imply that for every Witt
+                                +
+vector x ∈ W (R+ ), the series σ+ (x) is of the form (7.5.2). Conversely, because we
+                +
+have 1 + αt = σ+ ([α]) and
+                                                          γt n
+                                eγt = lim             1+         ,
+                                         n→∞               n
+                                                                           +
+any series of the form (7.5.2) is a limit of finite products of series in σ+ (W (R+ )).
+                     +
+Now observe that σ+ identifies W (R+ ) with a submonoid of 1 + tR+ [[t]]. Further
+it is a closed subset because it is defined by a family of nonnegativity conditions,
+                                                                                    +
+as in (6.6.1). Therefore any series of the form (7.5.2) lies in the image of σ+       .
+(Compare Kingman [23, 24].)
+
+7.6. Remark: W (R+ ) and W Sch (R+ ) as convergent monoid algebras.
+Equivalently, the subset W Sch (R+ ) consists of the Witt vectors in W (R) that can
+be represented (necessarily uniquely) in the form
+                               ∞
+                               X               ∞
+                                               X
+                                     [αi ] +         {βi } + [γ]ξ,
+                               i=1             i=1
+                              P            P
+where γ, αi , βi ≥ 0 (and both i αi and i βi converge) and where ξ is the Witt
+vector with ghost components h1, 0, 0, . . .i, or equivalently such that σ(ξ) = et .
+Another interpretation is that the evident map is an isomorphism
+                                                                 ∼
+                 N[R+ ]b ⊗N (N[η]/(η 2 = 1)) ⊕ R+ ξ −→ W Sch (R+ ).
+
+Similarly, we have W (R+ ) = N[R+ ]b ⊕ R+ ξ.
+
+7.7. Remark: W (R+ ) and entire functions. If we view (7.5.2) as a Hadamard
+factorization, then we see that yet another interpretation of W (R+ ) is that it is
+the set of entire functions f on C of order at most 1 such that f (0) = 1, the zeros
+of f are negative real numbers, and p = 0 in the notation of lecture 4 of Levin’s
+book [30].
+314                                                                            J. Borger
+
+
+                                                                    +
+7.8. Corollary. W (N), viewed as a subset of 1+tZ[[t]] by the map σ+  , agrees with
+the set of polynomials in 1 + tZ[t] whose complex roots are all real and negative.
+In particular, W (N) is countable.
+Proof. We have W (N) = W (Z ∩ R+ ) = W (Z) ∩ W (R+ ). By (7.5), elements on
+the right-hand side correspond to series of the form (7.5.2) with coefficients in Z.
+Certainly this includes all the polynomials in 1+tZ[t] with only negative real roots.
+Conversely, the coefficients of such a series tend to 0, by (7.1); so all such series
+are polynomials.
+
+7.9. Remark. We can reinterpret this in a way that treats the finite and infinite
+places of Q as similarly as possible. A monic p-adic polynomial has coefficients
+in Zp if and only if all its roots are integral over Zp . Therefore W (N), viewed
+                                   +
+as
+Q a subset of 1 + tQ[[t]] via σ+ , is the set of polynomials that when written as
+   i (1 + αi t), have the property that every αi is integral at each finite place and is
+real and positive at the infinite place.
+      Rephrasing again, if Otp
+                             Q̄
+                                denotes the multiplicative monoid of algebraic numbers
+which are integral at all finite places and which are real and positive at all infinite
+places, then we have
+                                 W (N) = N[OtpQ̄
+                                                 ]Gal(Q̄/Q) .                    (7.9.1)
+
+7.10. Counterexample: W does not preserve surjectivity. Indeed, N sur-
+jects onto a nonzero ring, for instance Z/2Z. But W (N) is countable while W
+applied to any nonzero ring is uncountable. Of course, W does preserve surjectiv-
+ity for maps between rings, by (6.5).
+    In fact, W Sch (N) is also countable. This will be shown in forthcoming work
+with Darij Grinberg [7]. It follows that W Sch does not preserve surjectivity either.
+
+7.11. Remark. There is a multi-dimensional generalization of (7.8). Let A be a
+discrete subring of Rn , for some n ≥ 0, and write A+ = A ∩ Rn+ . Then W (A+ ),
+viewed as a subset of W (A) = 1 + tA[[t]], consists of the polynomials which split
+completely over Rn+ . In particular, this applies to any totally real number field K,
+in which case we have the following generalization of (7.9.1):
+
+                             W (OK,+ ) = N[Otp
+                                            Q̄
+                                               ]Gal(Q̄/K) .                     (7.11.1)
+
+In particular, there are countably many Witt vectors with entries in the algebra
+of algebraic integers that are real and nonnegative at all infinite places.
+
+
+8. A model for the p-typical symmetric functions over N
+8.1. p-typical Witt vectors and general truncation sets. Following Bergman
+(lecture 26 of [34]), let us say a set S of positive integers is a truncation set if it is
+closed under taking divisors. For any truncation set S, write
+
+                     ΛZ,S := Z[θd | d ∈ S] ⊆ Z[θ1 , θ2 , . . . ] = ΛZ ,
+Witt vectors, semirings, and total positivity                                            315
+
+
+where the θd are the Witt symmetric functions of (4.5). For any ring A, write
+                                WS (A) := AlgZ (ΛZ,S , A)
+for the corresponding ring of Witt vectors.
+    The induced map W (A) → WS (A) is surjective for all A. Indeed, any retraction
+ΛZ → ΛZ,S gives a functorial section. The quotient WS (A) of W (A) is in fact a
+quotient ring, or equivalently ΛZ,S is a sub-Z-Z-algebra of ΛZ . One can show this
+as follows: By induction on S, the ring Q ⊗Z ΛZ,S agrees with Q[ψd | d ∈ S], which
+is a sub-Q-Z-algebra of ΨQ ; therefore ∆+ (ΛZ,S ) is contained in Λ⊗2Z ∩(Q⊗Z ΛZ,S )
+                                                                                    ⊗2
+             ⊗2
+and hence ΛZ,S .
+    This functor WS : AlgZ → AlgZ then agrees with the usual one in Bergman [34],
+at least up to canonical isomorphism. Similarly, it agrees with the Witt vector
+functors of [4], as long as S is of the form {d | d divides m} for some integer
+m ≥ 1. (The functors in [4] are defined only in that context. Note however that
+such truncation sets form a cofinal family.) More precisely, WS and ΛZ,S agree with
+the objects WZ,E,n and ΛZ,E,n defined in [4], section 1, where E denotes the set of
+prime divisors of m, and n ∈ NE is the vector with components np = ordp (m).
+    When S = {1, p, . . . , pk } for some prime p, the functor WS is the p-typical Witt
+vector functor of length k (or more traditionally k+1) discussed in the introduction.
+In this case, we will write W(p),k (A) and ΛZ,(p),k instead of WS and ΛZ,S . When
+k = ∞, we will also write W(p) and ΛZ,(p) .
+Question 5. Does ΛZ,S have a model ΛN,S over N as a co-N-algebra object? If so,
+are there models such that ΛN,S ◦ ΛN,S ′ ⊆ ΛN,SS ′ , where SS ′ = {ss′ | s ∈ S, s′ ∈
+S ′ }?
+   The purpose of this section is to show the answers are yes in the p-typical case,
+when S and S ′ contain only powers of a single prime p.
+
+8.2. Positive p-typical symmetric functions. Let p be a prime number. Re-
+call the notation
+                    ep − ψp
+            dp :=           = mp−1,1 + · · · + (p − 1)!m1p ∈ ΛN ∩ ΛZ,(p),1 .
+                       p
+Let ΛN,(p),k denote the sub-N-algebra of ΛZ,(p),k generated by the set {ψp◦i ◦d◦j
+                                                                               p | i+
+j ≤ k}, and write
+       Ak = N[xi,j | 0 ≤ i + j ≤ k]/(xpi,j = xi+1,j + pxi,j+1 | i + j ≤ k − 1).
+                                                                                    k(k+1)
+So Ak is an algebra over N[xi,j | i + j = k]; as a module, it is free of rank p        2     .
+8.3. Lemma. The N-algebra map N[xi,j | i + j ≤ k] → ΛN,(p),k sending xi,j to
+ψp◦i ◦ d◦j
+        p factors through Ak , and the induced map is an isomorphism
+                                         ∼
+                                    Ak −→ ΛN,(p),k .                               (8.3.1)
+In particular, N[ψp◦i ◦ d◦j
+                         p | i + j = k] is freely generated as an N-algebra by the
+                                                                     k(k+1)
+k + 1 elements ψp◦i ◦ d◦j
+                       p , and ΛN,(p),k is a free module of rank p
+                                                                        2     over it.
+316                                                                                   J. Borger
+
+
+Proof. A morphism ϕ : Ak → ΛN,(p),k sending xi,j to ψp◦i ◦ d◦j
+                                                            p exists because we
+have
+                      (ψp◦i ◦ d◦j p   p    ◦i   ◦j
+                               p ) = e ◦ (ψp ◦ dp )
+
+                                        = (ψp + pdp ) ◦ (ψp◦i ◦ d◦j
+                                                                 p )                    (8.3.2)
+                                                                 ◦(j+1)
+                                        = ψp◦(i+1) ◦ d◦j    ◦i
+                                                      p + pψp ◦ dp      .
+
+since ψp commutes under composition with every element. Also, ϕ is clearly sur-
+jective.
+    Let us now show injectivity. Since Ak is a free N-module, it is enough to do so
+after tensoring with Q. Consider the diagram
+
+                Q[x0,0 , . . . , xk,0 ] /
+                                            incl   / Q ⊗N Ak id⊗ϕ / Q ⊗N ΛN,(p),k .
+
+Observe that the composition is injective because it sends the xi,0 to the ψp◦i ,
+which are algebraically independent elements of Q ⊗Z ΛZ,(p),k (and in fact are free
+Q-algebra generators). Therefore it is enough to show that the first inclusion is
+an equality. That is, it is enough to show that the elements x0,0 , . . . , xk,0 generate
+Q ⊗N Ak as a Q-algebra.
+    This is follows directly from the relations xpi,j = xi+1,j + pxi,j+1 . Indeed they
+imply that, for any j, if all xi,j lie in a given sub-Q-algebra, then so do all xi,j+1 .
+Therefore, the sub-Q-algebra generated by all xi,0 contains all xi,1 , and hence all
+xi,2 , and so on. Therefore it consists of all of Q ⊗N A.
+
+8.4. Proposition.         (1) ΛN,(p),k is free as an N-module.
+
+ (2) It is an N-model for ΛZ,(p),k as a co-N-algebra object in a unique way.
+
+ (3) We have ΛN,(p),k ◦ ΛN,(p),k′ ⊆ ΛN,(p),k+k′ .
+
+Proof. (1): This follows from (8.3).
+    (2): The induced map Z ⊗N ΛN,(p),k → ΛZ,(p),k is an injection, and it is a
+surjection because ΛZ,(p),k is generated as a Z-algebra by e, dp , . . . , d◦k
+                                                                            p , all of which
+are contained in ΛN,(p),k . Therefore ΛN,(p),k is a model for ΛZ,(p),k as an algebra.
+    To show it is a model as a co-N-algebra object, it is enough to show
+
+                                   ∆(x) ∈ ΛN,(p),k ⊗N ΛN,(p),k                          (8.4.1)
+
+as x runs over a set of N-algebra generators for ΛN,(p),k , and as ∆ runs over the
+two coproducts ∆+ , ∆× .
+   First consider the case k = 1, where we have the generators e, ψp , dp . Since e
+and ψp are both N-algebra-like elements, (8.4.1) holds for them. For dp , it follows
+from the positivity of the coefficients in the following equalities:
+
+                        ∆+ (dp ) = dp ⊗ 1 + 1 ⊗ dp + e ⊗ e
+                        ∆× (dp ) = dp ⊗ ψp + ψp ⊗ dp + pdp ⊗ dp .
+Witt vectors, semirings, and total positivity                                        317
+
+
+   Now consider the general case. Since ΛN,(p),1 is a co-N-algebra object in AlgN ,
+we can form (ΛN,(p),1 )⊙k . Consider the map
+
+                         (ΛN,(p),1 )⊙k −→ (ΛZ,(p),1 )⊙k −→ ΛZ,(p),k
+
+of co-N-algebra objects defined by f1 ⊙ · · · ⊙ fk 7→ f1 ◦ · · · ◦ fk . Then its image is
+equal to ΛN,(p),k . Indeed, ΛN,(p),1 is generated by e, ψp , dp , all of which commute
+with each other under composition; so the image is the sub-N-algebra generated
+by all ◦-words in e, ψp , dp of length k, which is ΛN,(p),k . Thus we have a surjection
+
+                                 (ΛN,(p),1 )⊙k −→ ΛN,(p),k                       (8.4.2)
+
+of co-N-algebra objects, and hence a diagram
+
+                          (ΛN,(p),1 )⊙k                      / ΛZ,(p),k
+
+                                 ∆                                 ∆
+                                                                
+                (ΛN,(p),1 )⊙k ⊗N (ΛN,(p),1 )⊙k       / ΛZ,(p),k ⊗N ΛZ,(p),k
+
+Therefore ∆(ΛN,(p),k ) is contained in the image of (ΛN,(p),1 )⊙k ⊗N (ΛN,(p),1 )⊙k ,
+which is contained in ΛN,(p),k ⊗N ΛN,(p),k . Therefore ΛN,(p),k is a model as a co-N-
+algebra object.
+   (3): Because (8.4.2) is surjective, ΛN,(p),k ◦ ΛN,(p),k′ equals the image of
+                                                      ′
+                          (ΛN,(p),1 )⊙k ⊙ (ΛN,(p),1 )⊙k −→ ΛZ,(p)
+
+which is ΛN,(p),k+k′ .
+
+8.5. p-typical Witt vectors and Λ-structures for semirings. We can put
+everything above together in what should now be a familiar way.
+   Define
+                            ΛN,(p) := colimk ΛN,(p),k .
+It is a flat model for ΛZ,(p) over N, as composition algebra. Write
+
+                               W(p) (A) := AlgN (ΛN,(p) , A)
+
+for its Witt vector functor. The truncated version is
+
+                             W(p),k (A) := AlgN (ΛN,(p),k , A),
+
+and we have
+                                W(p) (A) = lim W(p),k (A).
+                                             k
+
+These Witt functors take values in N-algebras. If A is a ring, then they agree with
+the usual p-typical Witt vector rings.
+318                                                                             J. Borger
+
+
+   Giving an action of ΛN,(p) on an N-algebra A is equivalent to giving an N-algebra
+endomorphism ψp : A → A and a set map dp : A → A satisfying the identities
+
+                ψp (dp (x)) = dp (ψp (x))
+          ψp (x) + pdp (x) = xp
+                                                  p−1
+                                                  X     
+                                                      1 p i p−i
+                dp (x + y) = dp (x) + dp (y) +            xy
+                                                  i=1
+                                                      p i                         (8.5.1)
+                   dp (xy) = dp (x)ψp (y) + ψp (x)dp (y) + pdp (x)dp (y)
+                    dp (0) = 0
+                    dp (1) = 0.
+
+    Observe that if A is flat over N, then ψp determines dp , assuming it exists.
+This is because additive cancellativity and p-cancellativity are flat-local proper-
+ties, by (2.9). Thus giving a ΛN,(p) -structure on a flat N-algebra is equivalent to
+giving an N-algebra endomorphism ψp lifting the Frobenius map on Z/pZ ⊗N A
+and satisfying ψp (x) ≤ xp for all x. Here we write a ≤ b if there exists an element
+c ∈ A such that a + c = b.
+
+8.6. Remark: a partition-like interpretation of the bases. It is possible
+to give an interpretation of the bases of ΛN,(p),k and ΛN,(p) in the language of
+partitions. For simplicity of notation, let us write ΛN,(p),∞ = ΛN,(p) and hence
+allow k = ∞.
+     Over Z, there is a basis of ΛZ,(p),k given by monomials in the d◦i
+                                                                      p or the θpi ,
+where i ≥ 0. They can be indexed by usual partitions λ that are p-typical in the
+sense that all parts λj are powers of p. For example, one could use the family
+Q
+   j θλj . Equivalently, we could index them by the p-typical multiplicity vectors
+      L
+m ∈ i≥0 N, where mi is the number of j such that λj = pi .
+     On the other hand, the N-basis of ΛN,(p),k consists of monomials
+                                    Y
+                                          (ψp◦i ◦ d◦j
+                                                   p )
+                                                      mij
+                                                          ,
+                                  i+j≤k
+
+such that when i + j < k, we have mij < p. Observe that such a monomial remains
+a basis element in ΛN,(p),k+1 if and only if   Lmij < p when i + j = k.
+   We might think of the vector m ∈                i,j≥0 N as the multiplicity vector of a
+2-dimensional
+           P      p-typical    partition.  Such   a  partition would be an expression of
+                         i+j
+the form      i,j m ij p     . The   basis for Λ N,(p),k would then be indexed by all 2-
+dimensional p-typical partitions subject to the conditions that there are less than
+p parts (i, j) when i + j < k, and no parts (i, j) when i + j > k.
+
+8.7. Relation to the multiple-prime theory. Since ψp , dp ∈ ΛN , we have
+ΛN,(p) ⊆ ΛN . This induces canonical algebra maps W (A) → W(p) (A) for all N-
+algebras A. In particular, for each a ∈ A, there is a Teichmüller lift [a] ∈ W(p) (A).
+It is the image of the usual Teichmüller lift [a] ∈ W (A).
+Witt vectors, semirings, and total positivity                                                   319
+
+
+   On the other hand, we have ΛN,(p) 6⊆ ΛSch , simply because ψp 6∈ ΛSch . In
+particular, there is no functorial map W Sch (A) → W(p) (A) that agrees with the
+usual one for rings.
+
+
+8.8. Some explicit descriptions of W(p),k (A). The presentation (8.3.1) trans-
+lates directly into finite descriptions of the Witt vectors of finite length:
+                
+    W(p),k (A) = (ai,j ) ∈ A{(i,j) | i+j≤k} | api,j = ai+1,j + pai,j+1 for i + j < k .
+
+For example,
+                                  
+                      W(p),1 (A) = (a00 , a10 , a01 ) | ap00 = a10 + pa01
+
+                                                                   (k+2)
+In general, W(p),k = Spec(ΛN,(p),k ) is the locus in the N-scheme AN 2 defined by
+        
+the k+1
+      2   relations in the algebra Ak of (8.2).
+    As usual with Witt vectors, the algebraic structure is not transparent when
+expressed in coordinates. The simplest nontrivial example is W(p),1 (A), where we
+have
+                                                                                   p−1
+                                                                                   X     
+                                                                                       1 p i p−i
+(a00 , a10 , a01 ) + (b00 , b10 , b01 ) = (a00 + b00 , a10 + b10 , a01 + b01 +             a b )
+                                                                                   i=1
+                                                                                       p i 00 00
+   (a00 , a10 , a01 )(b00 , b10 , b01 ) = (a00 b00 , a10 b10 , a10 b01 + a01 b10 + pa01 b01 )
+                                     0 = (0, 0, 0)
+                                      1 = (1, 1, 0).
+
+This is just another expression of the formulas of (8.5.1).
+
+
+8.9. W(p),k (A) when A is contained in a ring. In this case, we can ignore
+the relations in the presentation (8.3.1) and instead describe W(p),k (A) in terms
+of the usual p-typical Witt vector ring W(p),k (Z ⊗N A) and effectivity conditions
+corresponding to the generators ψp◦i ◦ d◦j
+                                         p . Indeed, a morphism ΛN,(p),k → A is
+equivalent to a morphism a : ΛZ,(p),k → Z ⊗N A such that a(ψp◦i ◦ d◦j
+                                                                    p ) ∈ A for all
+i, j. Thus we have
+                     
+         W(p),k (A) = a ∈ W(p),k (Z ⊗N A) | a(ψp◦i ◦ d◦j
+                                                      p ) ∈ A for i + j ≤ k .
+
+
+For instance, if A is contained in a Q-algebra, then this permits a recursive de-
+scription in terms of ghost components: W(p),k (A) is the set of ghost vectors
+ha0 , . . . , ak i ∈ Ak+1 satisfying the following property:
+
+                                      D ap − a             apk−1 − ak E
+                                        0        1
+                ha1 , . . . , ak i,                  ,...,              ∈ W(p),k−1 (A).
+                                            p                   p
+320                                                                            J. Borger
+
+
+Thus the conditions are that for all i ≥ 0, the elements
+
+                   1  api − ai+1 p 1  ai+1 − ai+2 
+                                          p
+ api − ai+1
+            ,                       −                  ,
+      p            p        p          p      p
+                                         !                                    !
+1 1  ap − a         p 1  ap − a  p 1 1  ap − a  p 1  ap − a 
+          i     i+1           i+1    i+2              i+1   i+2     i+2   i+3
+                       −                    −                   −
+p     p       p           p       p           p p         p       p     p
+
+and so on lie in A.
+   For example, W(p),1 (R+ ) is the set of ghost vectors hx, yi in R2+ with y ≤ xp .
+Similarly one can show that W(p),2 (R+ ) is the set of ghost vectors in R3+ of the
+                 2
+form ha, ap x, ap yi, where
+
+                                                        (1 − x)p
+                         x≤1      and    0 ≤ xp − y ≤            .
+                                                          pp−1
+
+Thus the pre-image of 1 under the projection W(p),2 (R+ ) → R+ onto the first
+coordinate is the 2-simplex bounded by the curves y = xp , y = xp − (1 − x)p /pp−1
+and y = 0 in the xy-plane.
+
+8.10. Counterexample: The canonical map W(p),k+1 (A) → W(p),k (A) is
+not generally surjective. It is surjective when A is a ring or when k = 0. But
+when k ≥ 1 and A is general, it is not. It is enough to check this in the universal
+case, when A = ΛN,(p),k . In other words, it is enough to show the inclusion
+ΛN,(p),k → ΛN,(p),k+1 has no retraction in the category AlgN . So suppose ϕ is such
+a retraction. By (8.3.2), we have
+                                                      ◦i   ◦(j+1)
+                      (ψp◦i ◦ d◦j p   ◦(i+1)
+                               p ) = ψp      ◦ d◦j
+                                                p + pψp ◦ dp      .
+
+Now suppose i + j = k. Then since ϕ is a retraction, we have
+
+          (ψp◦i ◦ d◦j p     ◦i   ◦j p     ◦(i+1)
+                   p ) = ϕ(ψp ◦ dp ) = ϕ(ψp      ◦ d◦j        ◦i   ◦(j+1)
+                                                    p ) + pϕ(ψp ◦ dp      ).
+
+But by (8.3), the left-hand side is additively indecomposable in ΛN,(p),k , and so
+                                                              ◦(j+1)
+both terms on the right-hand side vanish. So we have ϕ(ψp◦i ◦dp      ) = 0 whenever
+i + j = k. Taking i = k − 1 and j = 1 gives
+
+                ϕ(ψp◦(k−1) ◦ dp )p = ϕ(ψp◦k ◦ dp ) + pϕ(ψp◦(k−1) ◦ d◦2
+                                                                    p ) = 0.
+
+But this is impossible because ϕ is a retraction.
+
+8.11. Semirings and the infinite prime. In the theory of Λ-rings, a finite
+prime p allows us to speak of two things: p-adic integrality, which is a property,
+and Frobenius lifts at p, which are structures. The fundamental point of this
+chapter is that it is reasonable for some purposes to think of positivity as p-adic
+integrality at the place p = ∞. So the infinite prime plays the first role here but
+not the second. This is meager when compared to the rich role the infinite prime
+Witt vectors, semirings, and total positivity                                         321
+
+
+plays elsewhere in number theory, such as the theory of automorphic forms, but
+our approach does have the virtue that it allows us to treat the first role purely
+algebraically, and hence scheme-theoretically, as we can for finite primes.
+    But it is natural to wonder whether there is some analogue of the second role
+for p = ∞ and whether there is an ∞-typical theory that can be isolated from the
+rest of the primes. One might hope that flows will appear here.
+
+
+9. On the possibility of other models
+So far, we have not been concerned with whether our N-models are the most
+natural ones—their existence has been interesting enough. The purpose of this
+short section is to raise some questions in this direction.
+    As discussed in (5.11), the connection between symmetric functions and arith-
+metic algebraic geometry is explained by Wilkerson’s theorem, which we interpret
+as saying that ΛZ is the composition ring that controls commuting Frobenius lifts.
+It is natural to ask whether there are similar, arithmetically satisfying descriptions
+of the composition algebras over N we have considered. As explained in (8.5),
+there is a such a description in the p-typical case. It would be interesting to find
+one for ΛN or ΛSch . A less satisfying alternative would be to single out ΛN and
+ΛSch among all N-models by some general properties, and at least this form of the
+question admits a precise expression:
+Question 6. Are ΛN , ΛSch , and possibly the Bp (of question 3 in 5.11) the only
+flat models for ΛZ over N? If not, is ΛSch the minimal one? Is ΛN the maximal
+one? Is ΛN,(p) the only flat model for ΛZ,(p) over N?
+    Whether we ask for models as composition algebras or models as co-N-algebra
+objects, I do not know the answer. I do not even know the answer to analogous
+questions about integrality at the finite primes. For instance, is ΛZ,(p) the maximal
+integral model for Z[1/p] ⊗Z ΛZ,(p) ?
+Question 7. Over Q+ , there is another model for ΛQ , namely ΨQ+ . Is there still
+another?
+Question 8. Let K be a number field, and let T be a set of embeddings K → R.
+Do the composition algebras ΛOK ,E of (5.10) have models over the sub-N-algebra
+of OK consisting of elements that are nonnegative under all σ ∈ T ?
+   We have seen that if K = Q and T consists of the unique embedding, the
+answer is yes in two cases: when E consists of all maximal ideals of Z or when it
+consists of only one. I do not know the answer in any other case, unless T or E is
+empty.
+
+
+10. k-Schur functions and truncated Witt vectors
+Let ΛZ,k denote Z[h1 , . . . , hk ]. Thus, in the notation of (8.1), we have ΛZ,k = ΛZ,S ,
+where S is the truncation set {1, 2, . . . , k}. The purpose of this section is to show
+322                                                                         J. Borger
+
+
+how k-Schur functions, a recent development in the theory of symmetric functions,
+allow us to give an N-model ΛSch k   for ΛZ,k which approaches ΛSch as k tends to
+infinity. Unfortunately, ΛSch
+                           k  is only  a model as a co-N-module object, and not as
+a co-N-algebra object. This would seem to be fatal for any application of k-Schur
+functions to Witt vectors as objects of arithmetic algebraic geometry. But they do
+have several properties that are good from the point of view of Witt vectors, and
+there are several parallels with the p-typical N-models of section 8. The purpose
+of this humble section is just to enter the details into the literature, in case they
+can be of use to anyone else.
+
+10.1. k-Schur functions and ΛSch   k . It is not possible to make a Z-basis for
+ΛZ,k out of usual Schur functions. This is because there are only finitely many
+Schur functions in any given ΛZ,k . But Lapointe–Lascoux–Morse [28] discovered
+certain symmetric functions that form a basis for ΛZ,k and are similar to Schur
+                                                                                 (k)
+functions in many ways. They call them k-Schur functions and denote them sλ ,
+where λ runs over all partitions (λ1 , . . . ) which are k-bounded in the sense that
+λ1 ≤ k.
+    Our reference for k-Schur functions will be the book [25] by Lam et al., in
+particular part 2, which was written by Morse, Schilling, and Zabrocki and is
+based on lectures by Lapointe and Morse. They consider more than one definition
+of k-Schur function but conjecture that they all agree. For definiteness, we will
+take
+                                 (k)         (k)
+                                sλ := sλ [X; 1]
+                          (k)
+as our definition, where sλ [X; t] is defined there in equation (3.16), p. 81. See pp.
+83–84 for a discussion of the relations with the other definitions.
+    Define                                 M (k)
+                                 ΛSch
+                                   k   :=      Nsλ .
+                                           λ
+
+                                                        (k)
+As explained in part 2, section 4.5 of [25], the family sλ forms a Z-basis for ΛSch
+                                                                                 k .
+In other words, ΛSch
+                 k   is free over N  and  is a model  for Λ Z,k over N as a module.
+
+10.2. Proposition. For k ≥ 0, we have
+
+ (1) ΛSch
+      k   is a model for ΛZ,k as a co-N-module object in AlgN ,
+       (k)
+ (2) sλ = sλ , if k ≥ λ1 + l − 1, where l is the length of λ,
+
+ (3) ΛSch
+      k   ⊆ ΛSch      Sch
+             k+1 and Λk   ⊆ ΛSch,
+
+ (4) ΛSch
+      k   is finitely presented as an N-algebra.
+
+Proof. These are mostly just restatements of results collected in part 2, chapter 4
+of the book [25].
+    (1): This follows from corollaries 8.1 and 8.2 of Lam [27]. See sections 4.7 and
+4.8 of part 2 of [25].
+Witt vectors, semirings, and total positivity                                       323
+
+
+    (2): This is property
+                  P       39 of Lapointe–Morse [29]. The result under the stronger
+assumption k ≥ i λi is discussed in part 2, section 4.1 of [25].
+    (3): The first statement is theorem 2 of Lam–Lapointe–Morse–Shimozono [26].
+See section 4.10 of part 2 of [25]. The second statement follows from the first,
+together with part (2).
+    (4): This follows from the multiplication rule established in theorem 40 of
+Lapointe–Morse [29]. See section 4.6 of part 2 of [25]. As a module over the N-
+algebra generated by the k k-rectangular k-Schur functions, ΛSch
+                                                              k  is freely generated
+by the k! k-irreducible k-Schur functions. Further, the k-rectangular k-Schur func-
+tions are algebraically
+                       independent. So ΛSch
+                                           k   can be generated by k! + k elements
+       k!+1
+with 2 quadratic relations.
+
+10.3. Remark. There are some similarities between ΛSch k   and ΛN,(p),k . Compare
+the preceding proposition with section 8, and especially the presentation of ΛSch
+                                                                              k
+mentioned in the proof of (4) above with the presentation of (8.3.1).
+
+10.4. Truncated Schur–Witt vectors for semirings. For any N-algebra A,
+define
+                      WkSch (A) := AlgN (ΛSch
+                                          k , A).
+
+It follows from (10.2)(4) that WkSch (A) can be described as the subset of a finite-
+dimensional affine space AN satisfying a finite list of equations.
+    By (10.2)(2)–(3), we have ΛSch = colimk ΛSch
+                                               k   and W Sch (A) = limk WkSch (A).
+                                    Sch
+    It follows from (10.2)(1) that Wk (A) inherits an N-module structure and that
+WkSch (A) = Wk (A) when A is a ring. Unlike in the case when A is a ring, WkSch (A)
+does not generally inherit an N-algebra structure.
+
+10.5. Counterexample: ΛSch   k   is not a co-N-algebra object. It is for k ≤ 2,
+                                               (3)
+but as Luc Lapointe informed me, we have ∆× (s22 ) 6∈ ΛSch
+                                                        3  ⊗ ΛSch
+                                                              3 , and so it fails
+for k = 3. This can be checked by hand using the following equalities:
+                             (3)
+                         12s22 = ψ14 + 3ψ22 − 4ψ1 ψ3
+                                    (3)          (3)     (3)     (3)
+                             ψ14 = s1111 + 2s211 + 2s22 + s31
+                                    (3)          (3)     (3)     (3)
+                             ψ22 = s1111 − 2s211 + 2s22 + s31
+                                    (3)         (3)    (3)     (3)
+                          ψ1 ψ3 = s1111 − s211 − s22 + s31 .
+
+                            (3)
+On the other hand, ∆× (s22 ) is contained in ΛSch   4   ⊗ ΛSch
+                                                           4 . This is just because it
+is an N-linear combination of elements of the form sλ ⊗ sµ , where λ and µ are
+                                              (4)           (4)
+partitions of 2 + 2 = 4; so we have sλ = sλ and sµ = sµ for all λ, µ in question.
+                                 Sch    Sch     Sch
+    It is also not true that Λk ◦ Λl ⊆ Λkl for all k, l. According to my com-
+putations, it is true if k, l ≤ 3 and (k, l) 6= (3, 3). But for k = l = 3, it fails: the
+                (9)          (3)    (3)
+coefficient of s6331111 in s22 ◦ s22 is −1. In fact, we have ΛSch3  ◦ ΛSch
+                                                                       3   6⊆ ΛSch
+                                                                                11 and
+ΛSch
+  3   ◦ Λ Sch
+          3   ⊆ Λ Sch
+                  12  .
+324                                                                         J. Borger
+
+
+11. Remarks on absolute algebraic geometry
+This volume is a collection of contributions on the theme of the mythical field
+with one element. One can see this chapter from that point of view, although I
+have so far avoided making the connection. There are two natural approaches to
+rigidifying the category of rings—one can look for models over N, or one can add
+structure, such as a ΛZ -ring structure, which we think of as descent data to the
+absolute point [3]. In this chapter, we have combined the two. I do not have much
+more to say about the philosophy of the field with one element than I already have
+said in [3], but this way of thinking does suggest some mathematical questions.
+Question 9. Is it possible to extend the constructions W and W Sch to non-affine
+N-schemes? What about their adjoints A 7→ ΛN ⊙ A and A 7→ ΛSch ⊙ A?
+     Over Z, this was done in my paper [5], but there are several complications over
+N. The most important is that over Z I used Witt vectors of finite length, because
+it is better to think of W (A) as a projective system of discrete rings, rather than
+actually taking the limit. But there is not yet any finite-length version of the big
+Witt vector functor for N-algebras. On the other hand, we do have finite-length p-
+typical functors for N-algebras available; so it is probably easier to make immediate
+progress there.
+     A similar question is whether the concept of a ΛN -structure or ΛSch -structure
+can be extended to nonaffine N-schemes. Over Z, this is done using the functor
+W ∗ = colimn Wn∗ , where Wn∗ is the extension of Wn to nonaffine schemes. (One
+could also use its right adjoint W∗ = limn Wn∗ .) So the two questions are indeed
+closely related. The following question is a natural guide:
+Question 10. Let X be a ΛN -scheme that is flat and locally of finite presentation
+over N. Does there exist a toric variety Y over N and a surjective ΛN -morphism
+Y → X?
+
+    This requires some explanation. By a toric variety over N, I mean an N-scheme
+that can be formed by gluing together affine N-schemes of the form Spec(N[M ]),
+where M is a commutative monoid, along other schemes of the same form, where all
+the gluing maps are induced by maps of the monoids. Surjectivity of a morphism
+of N-schemes can be understood in the sense of the Zariski topos. Finally, while a
+ΛN -structure has at the moment no precise meaning for nonaffine X, it is possible
+to strengthen the question to a precise one that is still open. For instance, we can
+require only that the base change of X to Z admit a ΛZ -structure.
+Witt vectors, semirings, and total positivity                                         325
+
+
+References
+ [1] G. M. Bergman and A. O. Hausknecht, Co-groups and co-rings in categories of
+     associative rings, volume 45 of Mathematical Surveys and Monographs. American
+     Mathematical Society, Providence, RI, 1996.
+ [2] F. Borceux, Handbook of categorical algebra. 2, volume 51 of Encyclopedia of Math-
+     ematics and its Applications. Cambridge University Press, Cambridge, 1994. Cate-
+     gories and structures.
+ [3] J. Borger, Λ-rings and the field with one element. arXiv:0906.3146v1.
+ [4] J. Borger, The basic geometry of Witt vectors, I: The affine case. Algebra Number
+     Theory 5 (2011), 231–285.
+ [5] J. Borger, The basic geometry of Witt vectors. II: Spaces. Math. Ann. 351 (2011),
+     877–933.
+ [6] J. Borger and B. de Smit, Galois theory and integral models of Λ-rings. Bull. Lond.
+     Math. Soc. 40 (2008), 439–446.
+ [7] J. Borger and D. Grinberg. Boolean Witt vectors and an integral Edrei-Thoma
+     theorem. arXiv:1311.5031v2
+ [8] J. Borger and B. Wieland, Plethystic algebra. Adv. Math. 194 (2005), 246–283.
+ [9] N. Bourbaki, Éléments de mathématique. Algèbre commutative. Chapitres 8 et 9.
+     Springer, Berlin, 2006. Reprint of the 1983 original.
+[10] A. Buium, Arithmetic analogues of derivations. J. Algebra 198 (1997), 290–299.
+[11] A. Buium, Arithmetic differential equations, volume 118 of Mathematical Surveys
+     and Monographs. American Mathematical Society, Providence, RI, 2005.
+[12] A. Connes and C. Consani, Characteristic 1, entropy and the absolute point Non-
+     commutative geometry, arithmetic, and related topics. Johns Hopkins Univ. Press,
+     Baltimore, MD (2011), 75–139
+[13] W. F. Doran, IV, A proof of Reutenauer’s −q(n) conjecture. J. Combin. Theory Ser.
+     A 74 (1996), 342–344.
+[14] A. Edrei, On the generating functions of totally positive sequences. II. J. Analyse
+     Math. 2 (1952), 104–109.
+[15] V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichmüller
+     theory. Publ. Math. Inst. Hautes Études Sci. 103 (2006), 1–211.
+[16] J.-M. Fontaine, Le corps des périodes p-adiques. Astérisque 223 (1994), 59–111.
+     With an appendix by Pierre Colmez, Périodes p-adiques (Bures-sur-Yvette, 1988).
+[17] J. S. Golan, The theory of semirings with applications in mathematics and theoretical
+     computer science, volume 54 of Pitman Monographs and Surveys in Pure and Applied
+     Mathematics. Longman Scientific & Technical, Harlow, 1992.
+[18] M. Hazewinkel, Formal groups and applications, volume 78 of Pure and Applied
+     Mathematics. Academic Press Inc. [Harcourt Brace Jovanovich Publishers], New
+     York, 1978.
+[19] L. Hesselholt and I. Madsen, On the K-theory of local fields. Ann. of Math. (2) 158
+     (2003), 1–113.
+[20] L. Illusie, Complexe de de Rham-Witt et cohomologie cristalline. Ann. Sci. École
+     Norm. Sup. (4) 12 (1979), 501–661.
+326                                                                              J. Borger
+
+
+[21] S. Karlin, Total positivity. Vol. I. Stanford University Press, Stanford, Calif, 1968.
+[22] Y. Katsov, On flat semimodules over semirings. Algebra Universalis 51 (2004),
+     287-299.
+[23] J. F. C. Kingman, The representation of partition structures. J. London Math. Soc.
+     (2) 18 (1978), 374–380.
+[24] J. F. C. Kingman, The coalescent. Stochastic Process. Appl. 13 (1982), 235–248.
+[25] T. Lam, L. Lapointe, J. Morse, A. Schilling, M. Shimozono, and M. Zabrocki, k-schur
+     functions and affine schubert calculus. arXiv:1301.3569v1.
+[26] T. Lam, L. Lapointe, J. Morse, and M. Shimozono, k-shape poset and branching of
+     k-schur functions. Mem. Amer. Math. Soc. To appear.
+[27] T. Lam, Schubert polynomials for the affine Grassmannian. J. Amer. Math. Soc.
+     21 (2008), 259–281.
+[28] L. Lapointe, A. Lascoux, and J. Morse, Tableau atoms and a new Macdonald posi-
+     tivity conjecture. Duke Math. J. 116 (2003), 103–146.
+[29] L. Lapointe and J. Morse, A k-tableau characterization of k-Schur functions. Adv.
+     Math. 213 (2007), 183–204.
+[30] B. Ya. Levin, Lectures on entire functions, volume 150 of Translations of Mathe-
+     matical Monographs. American Mathematical Society, Providence, RI, 1996. In col-
+     laboration with and with a preface by Yu. Lyubarskii, M. Sodin and V. Tkachenko,
+     Translated from the Russian manuscript by Tkachenko.
+[31] O. Lorscheid, The geometry of blueprints: Part I: Algebraic background and scheme
+     theory. Adv. Math. 229 (2012), 1804–1846.
+[32] G. Lusztig, A survey of total positivity. Milan J. Math. 76 (2008), 125–134.
+[33] I. G. Macdonald, Symmetric functions and Hall polynomials. Oxford Mathemati-
+     cal Monographs. The Clarendon Press Oxford University Press, New York, second
+     edition, 1995. With contributions by A. Zelevinsky, Oxford Science Publications.
+[34] D. Mumford, Lectures on curves on an algebraic surface. With a section by G.
+     M. Bergman. Annals of Mathematics Studies, No. 59. Princeton University Press,
+     Princeton, N.J., 1966.
+[35] C. Reutenauer, On symmetric functions related to Witt vectors and the free Lie
+     algebra. Adv. Math. 110 (1995), 234–246.
+[36] K. Rietsch, Totally positive Toeplitz matrices and quantum cohomology of partial
+     flag varieties. J. Amer. Math. Soc. 16 (2003), 363–392.
+[37] The Sage-Combinat community,      Sage-Combinat:               enhancing Sage as
+     a toolbox for computer exploration in algebraic                combinatorics, 2013.
+     http://combinat.sagemath.org.
+[38] T. Scharf and J.-Y. Thibon, On Witt vectors and symmetric functions. Algebra
+     Colloq. 3 (1996), 231–238.
+[39] A. Stacey and S. Whitehouse, Tall–wraith monoids. arXiv:1102.3549v1.
+[40] W. A. Stein et al, Sage Mathematics Software (Version 5.4). The Sage Development
+     Team, 2013. http://www.sagemath.org.
+[41] D. O. Tall and G. C. Wraith, Representable functors and operations on rings. Proc.
+     London Math. Soc. (3) 20 (1970), 619–643.
+Witt vectors, semirings, and total positivity                                        327
+
+
+[42] E. Thoma, Die unzerlegbaren, positiv-definiten Klassenfunktionen der abzählbar
+     unendlichen, symmetrischen Gruppe. Math. Z. 85 (1964), 40–61.
+[43] B. Toën and M. Vaquié, Algébrisation des variétés analytiques complexes et
+     catégories dérivées. Math. Ann. 342 (2008), 789–831.
+[44] B. Toën and M. Vaquié, Au-dessous de Spec Z. J. K-Theory 3 (2009), 437–500.
+[45] C. Wilkerson, Lambda-rings, binomial domains, and vector bundles over CP (∞).
+     Comm. Algebra 10 (1982), 311–328.
+[46] E. Witt, Zyklische Körper und Algebren der Charakteristik p vom Grad pn . Struk-
+     tur diskret bewerteter perfekter Körper mit vollkommenem Restklassen-körper der
+     charakteristik p. J. Reine Angew. Math. 176 (1937), 126–140.
+[47] E. Witt, Collected papers. Gesammelte Abhandlungen. Springer-Verlag, Berlin, 1998.
+     With an essay by Günter Harder on Witt vectors, Edited and with a preface in
+     English and German by Ina Kersten.
+328   J. Borger
+Witt vectors, semirings, and total positivity                                         329
+
+
+James Borger, Mathematical Sciences Institute, Australian National University, Can-
+berra ACT 0200, Australia
+E-mail: james.borger@anu.edu.au
+

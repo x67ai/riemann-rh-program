@@ -1,0 +1,1497 @@
+                                                                        HOMOTOPY TYPES
+
+
+
+
+arXiv:1806.10801v2 [math.AG] 25 Aug 2018
+                                                               AND GEOMETRIES BELOW Spec Z
+
+                                                                  Yuri I. Manin, Matilde Marcolli
+
+                                              Abstract. After the first heuristic ideas about “the field of one element” F1 and
+                                           “geometry in characteristics 1” (J. Tits, C. Deninger, M. Kapranov, A. Smirnov et
+                                           al.), there were developed several general approaches to the construction of “geome-
+                                           tries below Spec Z”. Homotopy theory and the “the brave new algebra” were taking
+                                           more and more important places in these developments, systematically explored by
+                                           B. Toën and M. Vaquié, among others.
+                                              This article contains a brief survey and some new results on counting problems in
+                                           this context, including various approaches to zeta–functions and generalised scissors
+                                           congruences.
+
+                                              Keywords: Weil numbers, Bost–Connes systems, zeta functions, motivic in-
+                                           tegration, geometries below Spec Z, assemblers.
+                                             AMS 2010 Mathematics Subject Classification: 11M26, 14G40, 14G15.
+
+                                                             1. Brief summary and plan of exposition
+                                              1.1. Geometries below Spec Z: a general categorical framework. Fol-
+                                           lowing [ToVa09], Sec. 2.2 – 2.5, we start with a symmetric monoidal category with
+                                           unit (C, ⊗, 1).
+                                              The category of commutative associative unital monoids Comm (C) will play the
+                                           role of commutative rings; accordingly, the opposite category Af fC := Comm (C)op
+                                           will be an analogue of the category of affine schemes.
+                                              In order to be able to define more general schemes, objects of a category SchC ,
+                                           we must introduce upon Af fC a Grothendieck topology by giving a collection of
+                                           sieves (covering families) defined for each object of Af fC .
+                                              It is shown in [ToVa09] that if (C, ⊗, 1) is complete, cocomplete and closed,
+                                           then there are several natural topologies upon Af fC , whose names encode the
+                                           similarities between them and respective topologies on the category of usual affine
+                                           schemes (spectra of commutative rings), in particular, Zariski topology. Starting
+                                           with monoidal symmetric category of abelian groups (Z–Mod, ⊗Z , Z) one comes to
+                                           the usual category of schemes SchZ .
+                                                                                      1
+2
+
+   The version of F1 –schemes SchF1 suggested in [ToVa09] is embodied in the final
+stretch of the similar path starting with (Sets, ×, {∗}).
+   Finally, some pairs of categories (SchC , SchD ) can be related by two functors
+going in reverse directions and satisfying certain adjointness properties. Intuitively,
+one of them describes appropriate descent data upon certain objects XC of SchC
+necessary and sufficient to define an object XD lying under XC . One of the most
+remarkable examples of such descent data from SchZ to SchF1 was developed by
+J. Borger, cf. [Bo11a], [Bo11b]: roughly speaking, it consists in lifting all Frobenius
+morphisms to the respective Z–scheme. In a weakened form, when only a sub-
+set of Frobenius morphisms is lifted, it leads to geometries below Spec Z but not
+necessarily over F1 .
+   1.2. Schemes in the brave new algebra. In a very broad sense, the invasion
+of homotopy theory to mathematics in general started with radical enrichment of
+Cantorian intuition about what are natural numbers N: they are cardinalities of
+not just arbitrary finite sets, but rather of sets of connected components π0 of
+topological spaces.
+   The multiplication and addition in N have then natural lifts to the world of
+stable homotopy theory, the ring of integers being enriched by passing to sphere
+spectrum, where it becomes the initial object, in the same way as Z itself is an initial
+object in the category of commutative rings, etc. More details and references are
+given in the Section 4 of this article.
+   Moreover, “counting functions”, such as numbers of Fq –points of a scheme re-
+duced modulo a prime p, with q = pa , can be generalized to the world of scissors
+congruences where they become the basis for study of zeta–functions.
+   1.3. The structure of the article. (A). Sec. 2 is dedicated to a categorification
+in homotopy theory of a class of schemes in characteristics 1 admitting the following
+intuitive description: 1–Frobenius morphisms acting upon their cohomology have
+eigenvalues that are roots of unity.
+   Here are some more details. The main arithmetic invariant of an algebraic mani-
+fold V defined over a finite field Fq , is its zeta–function Z(V, s) counting the numbers
+of its points card V (Fq n ) over finite extensions of Fq .
+   Assuming for simplicity that V is irreducible and smooth, we can identify Z(V, s)
+with a rational function of q −s which is an alternating product of polynomials whose
+roots are characteristic numbers of the Frobenius endomorphism F rq of V acting
+                             ∗
+upon étale cohomology Het     (V ) of V .
+                                                                                     3
+
+   In various versions of F1 –geometry, the structure consisting of cohomology with
+action of a Frobenius upon it is conspicuously missing, although it is clearly lurking
+behind the scene (see e. g. a recent survey and study [LeBr17]).
+  Our homotopical approach here develops the analogy between Frobenius maps
+and Morse–Smale diffeomorphisms.
+  In the remaining part of the article, we focus upon another ”counting formalism”
+and its well developed homotopical environment.
+  Namely, on the Fq – schemes of finite type, non–necessarily smooth and proper
+ones, the function c : V 7→ card V(Fq ) satisfies the following “scissors identity”: if
+X ⊂ V is a Zariski closed subscheme, Y := V \ X, then
+
+                                 c(V) = c(X) + c(Y )
+
+and also c(V1 × V2 ) = c(V1 )c(V2 ). In other words, c becomes a ring homomorphism
+of the Grothendieck ring K0 of the category of Fq –schemes.
+
+   (B). In Sec. 3 we consider a lift to the equivariant Grothendieck ring K0Ẑ (V)
+of the integral Bost–Connes system, described in [CCMar09] in the context of F1 -
+geometry. We obtain endomorphisms σn and additive maps ρ̃n that act on K0Ẑ (V)
+and map to the corresponding maps of the integral Bost–Connes system through
+the equivariant Euler characteristic. We obtain in this way a noncommutative
+enrichment KẐ 0 (V) of the Grothendieck ring and an Euler characteristic, which is
+a ring homomorphism to the integral Bost–Connes algebra. After passing to Q–
+coefficients, both algebras become semigroup crossed products by the multiplicative
+semigroup of positive integers,
+
+                           KẐ            Ẑ
+                            0 (V) ⊗Z Q = K0 (V)Q ⋊ N,
+
+
+with K0Ẑ (V)Q = K0Ẑ (V) ⊗Z Q and target of the Euler characteristic the rational
+Bost–Connes algebra Q[Q/Z] ⋊ N.
+    (C). In Sec. 4, we revisit the construction of the previous section, by further
+lifting it from the level of the Grothendieck ring to the level of spectra. We use the
+approach based on assemblers, developed in [Za17a, [Za17b].
+   We recall briefly the general formalism of [Za17a] and present a small modifica-
+tion of the construction of [Za17c] of the assembler and spectrum associated to the
+4
+
+Grothendieck ring of varieties, which will be useful in the following, namely the case
+of the equivariant Grothendieck ring K Ẑ (V) considered in the previous section.
+   We then prove that the lift of the integral Bost–Connes algebra to the level of
+the Grothendieck ring described in the previous section can further be lifted to the
+level of spectra.
+  (D). In Sec. 5 we discuss the construction of quantum statistical mechanical
+expectation values on the Grothendieck ring K0Ẑ (V) based on motivic measures
+and the expectation values of the Bost–Connes system.
+    (E). Finally, in Sec. 6 we revisit the construction discussed in the previous section
+in a setting where, instead of considering varieties with a good Ẑ-action, we consider
+a “dynamical” model of F1 -structure based on the existence of an endomorphism
+f : X → X that induces a quasi–unipotent map f∗ in homology. Our purpose here
+is to show a compatibility between this proposal about F1 -structures and the idea
+of [CCMar09] of F1 -geometry encoded in the structure of the integral Bost–Connes
+algebra, through its relation to cyclotomic fields.
+    This also returns us to the framework of Sec. 2, thus closing the circle.
+
+                       2. Roots of unity as Weil numbers
+   2.1. Local zetas and homotopy. In this section we are developing the idea,
+sketched in the subsection 0.2 of [Ma10]: namely, that a q = 1 replacement of
+                       k
+the structure (F rq , Het (V )) is a pair (f∗k , Hk (M, Z)) where f∗k is the action of
+a Morse–Smale diffeomorphism f : M → M of a compact manifold M upon its
+homology Hk (M, Z).
+   In particular, in this model characteristic roots of f∗ acting upon (co)homology
+groups are roots of unity, as might be expected from “Weil numbers in characteristic
+1”.
+    We start with basic definitions and references.
+   2.2. Morse–Smale diffeomorphisms. Below M always means a compact
+smooth manifold, and f : M → M its diffeomorphism. A point x ∈ M is called
+non–wandering, if for any neighborhood U of x, there is n > 0 such that U ∩f n (U ) 6=
+∅.
+    2.2.1. Definition. f is called a Morse–Smale diffeomorphism, if
+    (i) The number of non–wandering points of f is finite.
+                                                                                       5
+
+  (ii) f is structurally stable that is, any small variation of f is isotopic to f .
+   This short definition appears in [Gr81]; for a more detailed discussion of geom-
+etry, see [FrSh81].
+
+   2.3. Action of Morse–Smale diffeomorphisms on homology. For any
+compact manifold M , its homology groups Hk (M, Z) are finitely generated abelian
+groups. Any diffeomorphism f : M → M induces automorphisms f∗k of these
+groups. According to [ShSu75], if f is Morse–Smale, then each f∗k is quasi–
+unipotent, that is, its eigenvalues are roots of unity.
+   However, generally this condition is not sufficient. An additional necessary condi-
+tion is vanishing of a certain obstruction, described in [FrSh81] and further studied
+in [Gr81].
+   Namely, consider the category QI whose objects are pairs (g, H), where H is a
+(finitely generated) abelian group, and g : H → H is a quasi–idempotent endo-
+morphism of H (by definition, this means that eigenvalues of g are zero or roots of
+unity.) Morphisms in QI are self–evident.
+  The abelian group K0 (QI) admits a morphism onto its torsion subgroup G.
+Denote by ϕ : K0 (QI) → G be such a morphism.
+   2.3.1. Theorem ([FrSh81]). Let f : M → M be a diffeomorphism such that
+each f∗k : Hk (M, Z) → Hk (M, Z) is quasi–unipotent. Let [f∗k ] be the class in
+K0 (QI) of the pair (f∗k , Hk (M, Z)). Then
+                                            P
+   (i) If f is Morse–Smale, then χ(f∗ ) := k (−1)k ϕ([f∗k ]) ∈ G is zero.
+  (ii) If in addition M is simply connected, and dim M > 5, then vanishing of
+χ(f∗ ) implies that f is isotopic to a Morse–Smale diffeomorphism.
+
+  2.4. Passage from (f∗k , Hk (M, Z)) to a scheme over F1 . In this subsection,
+we sketch a final step from homotopy to F1 –geometry.
+   One should keep in mind, however, that there might be many divergent paths,
+starting at this point, because there are several different versions of “geometries
+over F1 ”.
+   We will choose here a version developed in James Borger’s paper [Bo11a] (and
+continued in [Bo11b]). Roughly speaking, in order to define an affine scheme over
+F1 , one should give a (commutative) ring with λ–structure and then treat this
+λ–structure as “descent data” from the base Spec Z to the base Spec F1 .
+6
+
+   2.4.1. From (f∗k , Hk (M, Z)) to a λ–ring. Consider for simplicity only the
+case (ii) of Theorem 3.1. Then for each k, Hk (M, Z)) is a free Z–module of finite
+rank, and f∗k is its quasi–unipotent automorphism. Fix such a k.
+   Introduce upon Hk (M, Z)) the structure of Z[T, T −1 ]–module, where T acts as
+f∗k .
+   We can consider the minimal subcategory C of Z[T, T −1 ]–modules, containing
+Hk (M, Z) and closed with respect to direct sums, tensor products, and exterior
+powers, and then produce the Grothendieck λ–ring K0 (C) using exterior powers to
+define the relevant λ–structure (cf. [At61], p. 26, and [Le81]).
+   2.4.2. Definition. The F1 –scheme, whose Borger’s lift to Spec Z is K0 (C), is
+the representative of (f∗k , Hk (M, Z)) in F1 –geometry.
+   2.4.3. Remark. It seems that another short path from (f∗k , Hk (M, Z)) to an
+F1 –scheme defined differently might lead to one of Le Bruyn’s spaces in [LeBr17].
+   2.5. Cases when eigenvalues of conjectural Frobenius maps are not
+roots of unity. Here I will briefly discuss possible extensions of the picture above,
+leading to various geometries “below Spec Z” but generally not over Spec F1 .
+   The most interesting new virtual zeta–functions of this type were discovered only
+recently under the generic name “zeta–polynomials”: cf. [Ma16], [JiMaOnSo16],
+[OnRoSp16].
+   In [Ma16], it was described how to produce such polynomials from period polyno-
+mials of any cusp form over SGL(2, Z) which is an eigenform for all Hecke operators:
+this passage is a kind of “discrete Mellin transform”. It was also proved that zeroes
+of period polynomials lie on the unit circle of the complex plane, but generally are
+not roots of unity.
+   Both this construction and the results about zeroes were generalised in [Ji-
+MaOnSo16], [OnRoSp16] to the case of cusp newforms of even weight for Γ0 (N ). It
+turned out that, with appropriate scaling, zeroes of period polynomials lie on the
+                   1
+circle {z | |z| = √ }.
+                   N
+   2.5.1. Problem. Make explicit geometries under Spec Z in which one can
+accommodate the respective “motives”.
+         3. The Bost–Connes system and the Grothendieck ring
+   3.1. Ẑ-equivariant Grothendieck ring ([Lo99]). We recall the following
+definitions from [Lo99]. Let G be an affine algebraic group acting upon an algebraic
+                                                                                    7
+
+variety X. We say that this action is good, if each G–orbit is contained in an affine
+open subset of X.
+   The Grothendieck ring K0G (V) is generated by isomorphism classes [X] of pairs,
+consisting of varieties with good G–action. Upon these pairs the inclusion–exclusion
+relations are imposed: [X] = [Y ] + [X r Y ] where Y ֒→ X and X r Y ֒→ X are
+G–equivariant embeddings. Multiplication in K0G (V) is induced by the diagonal
+G–action on the product.
+   In the main special case considered in [Lo99],
+
+                                G = Ẑ = ←
+                                         lim
+                                           − Z/nZ.
+                                            n
+
+
+One defines K0Ẑ (V) as the Grothendieck ring of varieties with an action of Ẑ that
+factors through a good action of some finite quotient Z/nZ.
+   In this section, we first consider varieties defined over the field C of complex
+numbers and classes in the Grothendieck ring correspondingly taken in K0 (VC )
+and the equivariant K0Ẑ (VC ). We then consider the case of varieties defined over Q
+with the equivariant Grothendieck ring K0Ẑ (VQ ). In the first case the target of the
+equivariant Euler characteristic consists of the abelian part Z[Q/Z] of the integral
+Bost–Connes algebra, while in the second case it is a subring spanned by the range
+projectors of the Bost–Connes algebra.
+   As observed in [Lo99], there is an Euler characteristic ring homomorphism
+
+                              χẐ : K0Ẑ (VC ) → K0Ẑ (C),
+
+to the Grothendieck ring of finite dimensional representations. Since the character
+group is Hom (Ẑ, Gm ) = Q/Z, the latter is identified with the group ring
+
+                                 K0Ẑ (C) = Z[Q/Z].
+
+   3.2. Equivariant Euler characteristics. Since we are considering varieties
+with a good action of Ẑ that factors through some finite quotient, the Euler char-
+acteristic above can be obtained as in [Ve73], for an action of a finite group G,
+by replacing the alternating sum of dimensions of the cohomology groups with a
+sum in the ring R(G) of representations of G of the classes of cohomology groups,
+viewed as G-modules.
+8
+
+   As observed in [Gu-Za17], one can also define an equivariant Euler characteristic,
+for good actions on varieties of a finite group G, as a ring homomorphism χG :
+K0G (V) → A(G), where A(G) is the Burnside ring of G, the Grothendieck ring of
+the category of finiteP  G-sets. In this case the equivariant Euler characteristic is
+              G
+defined as χ (X) = k≥0 [Xk ] where X has a simplicial decomposition with k–
+skeleton Xk , such that G acts by simplicial maps which map each k–simplex either
+identically to itself or to another simplex, so that it makes sense to consider the
+classes [Xk ] in A(G). It is shown in [Gu-Za17] that the result is independent of
+the choice of such a simplicial decomposition. It is also shown that any invariant
+with values in a commutative ring R, defined on varieties with a good G–action
+homeomorphic to locally closed unions of cells in finite CW-complexes with G acting
+by cell maps, which satisfies inclusion-exclusion (on G-invariant decompositions)
+and multiplicativity on products is necessarily a composition
+                                K0G (V) → A(G) → R
+of χG with a ring homomorphism ϕ : A(G) → R. In particular, this is the case
+for the Euler characteristic K0G (V) → R(G) obtained by composing χG : K0G (V) →
+A(G) with the natural ring homomorphism ϕ : A(G) → R(G) that sends G–sets to
+their space of functions.
+   When considering the profinite group Ẑ = ←
+                                             lim
+                                               −n Z/nZ, the Burnside rings A(Z/nZ)
+form a projective system with limit
+                                Â(Ẑ) = lim
+                                         ←− A(Z/nZ),
+                                           n
+
+the completed Burnside ring of Ẑ, which is the Grothendieck ring of almost finite
+Ẑ-spaces, namely those Ẑ-spaces that are discrete and essentially finite, that is,
+such that for every open subgroup H the set of points fixed by all elements of H
+is finite, see Section 2 of [DrSi88]. The Burnside ring A(Ẑ) of finite Ẑ-spaces sits
+as a dense subring of Â(Ẑ). Moreover, there is an identification of this completed
+Burnside ring with the Witt ring Â(Ẑ) = W (Z), see Corollary 1 of [DrSi88].
+   3.3. Lifting the integral Bost–Connes system. Consider now the endo-
+morphisms σn : Z[Q/Z] → Z[Q/Z] given by σn (e(r)) = e(nr) on the standard basis
+{e(r) : r ∈ Q/Z} of Z[Q/Z]. The integral Bost–Connes algebra AZ introduced in
+[CCMar09] is generated by the group ring Z[Q/Z] together with elements µ̃n and
+µ∗n satisfying the relations
+          µ̃nm = µ̃n µ̃m ,   µ∗nm = µ∗n µ∗m ,   µ∗n µ̃n = n,   µ̃n µ∗n = µ∗n µ̃n ,   (3.1)
+                                                                                         9
+
+where the first two relations hold for arbitrary n, m ∈ N, the third for arbitrary
+n ∈ N and the fourth for n, m ∈ N satisfying (n, m) = 1, and the relations
+              xµ̃n = µ̃n σn (x)  µ∗n x = σn (x)µ∗n , µ̃n xµ∗n = ρ̃n (x), (3.2)
+                                        P
+for any x ∈ Z[Q/Z], where ρ̃n (e(r)) = nr′ =r e(r ′ ).
+   The maps ρ̃n and the endomorphisms σn satisfy the compatibility conditions,
+for all x, y ∈ Z[Q/Z] (see Proposition 4.4 of [CCMar09])
+           ρ̃n (σn (x)y) = xρ̃n (y),        σn (ρ̃m (x)) = (n, m) · ρ̃m′ (σn′ (x)),   (3.3)
+where (n, m) = gcd{n, m} and n′ = n/(n, m) and m′ = m/(n, m).
+   3.3.1. Lemma. The endomorphisms σn : Z[Q/Z] → Z[Q/Z] lift to endomor-
+phisms σn : K0Ẑ (VC ) → K0Ẑ (VC ) such that the following diagram commutes
+
+                                               χẐ
+                               K0Ẑ (VC )            / Z[Q/Z]
+
+                                       σn                 σn
+                                                         
+                                Ẑ             χẐ
+                               K0 (VC )              / Z[Q/Z].
+
+These endomorphisms define a semigroup action of the multiplicative semigroup N
+on the Grothendieck ring K0Ẑ (VC ).
+   Proof. Let X be a variety with a good Ẑ-action, which factors through some
+finite quotient Z/N Z. Let α : Ẑ × X → X denote the action. The endomorphisms
+σn : Z[Q/Z] → Z[Q/Z] given by σn (e(r)) = e(nr) have an equivalent description
+as the action on the group of roots of unity of all orders given by raising to the
+n–th power σn : ζ 7→ ζ n . One can then obtain an action αn : Ẑ × X → X given by
+αn = α ◦ σn . Thus, we assign to a pair (X, α) of a variety with a good Ẑ–action
+the pair (X, αn) of the same variety with the action αn . This assignment respects
+isomorphism classes and is compatible with the relations, hence it determines en-
+domorphisms of K0Ẑ (VC ), with σnm = σn ◦ σm , namely a semigroup action of the
+multiplicative semigroup N on the Grothendieck ring K0Ẑ (VC ). 
+  The maps ρ̃n : Z[Q/Z] → Z[Q/Z] of the form
+                                        X
+                           ρ̃n (e(r)) =    e(r ′ )                                    (3.4)
+                                                 nr′ =r
+10
+
+are not ring homomorphisms but only morphisms of abelian groups. After tensoring
+with Q, one obtains the group algebra Q[Q/Z] = Z[Q/Z]  P     ⊗Z Q on which the
+ρ̃n induce endomorphisms of the form ρn (e(r)) = n−1 nr′ =r e(r ′ ) satisfying the
+           n ρn (x) = x and ρn σn (x) = πn x, for x ∈ Q[Q/Z] and the idempotent
+relations σP
+        −1
+πn = n       ns=0 e(s). The arithmetic Bost–Connes algebra is the crossed product
+Q[Q/Z] ⋊ N generated by Q[Q/Z] and µn , µ∗n with the crossed-product action of
+N implemented by µn xµ∗n = ρn (x), see [CCMar09]
+   Once one considers varieties defined over Q, the Grothendieck ring K0Ẑ (Q) can
+be characterized as follows.
+                                            Ẑ
+   3.3.2. Lemma. The Grothendieck ring K0P     (Q) can be identified with the subring
+of Z[Q/Z] generated by the elements nπn = ns=0 e(s).
+                                            P
+   Proof. As noted in [Lo99], the element ns=0 e(s) in Z[Q/Z] is the image of
+the irreducible representation of Z/nZ given by the cyclotomic field Q(ζn ) seen as
+a Q-vector space, and these representations give a basis of K0Ẑ (Q). 
+    3.3.3. Remark. According to the Corollary 4.5 in [CCMar09], the range of the
+maps ρ̃n in (3.4) is an ideal in Z[Q/Z]. This follows from the relation ρ̃n (σn (x)y) =
+xρ̃n (y) of (3.3). PIf r ′ an element of the set En (r) = {r ′ ∈ Q/Z : nr ′ = r}, we have
+ρ̃n (e(r)) = e(r ′ ) ns=0 e(s).
+
+   3.3.4. Lemma. There are endomorphisms σn : K0Ẑ (Q) → K0Ẑ (Q) induced
+by the endomorphisms σn : Z[Q/Z] → Z[Q/Z]. They lift to endomorphisms σn :
+K0Ẑ (VQ ) → K0Ẑ (VQ ) given by σn (X, α) = (X, α ◦ σn ) as in Lemma 3.3.1.
+
+   Proof. By identifying K0Ẑ (Q) with a subring of Z[Q/Z] as in Lemma 3.3.2.
+we see that the endomorphisms σn : Z[Q/Z] → Z[Q/Z] induce endomorphisms of
+K0Ẑ (Q) by the relations σn (ρ̃m (x)) = (n, m) · ρ̃m′ (σn′ (x)) as in (3.3.3). Since we
+have nπn = ρ̃n (1), we see that the endomorphisms σn map the subring K0Ẑ (Q) to
+itself. The lift to σn : K0Ẑ (VQ ) → K0Ẑ (VQ ) is obtained by by the same argument as
+in Lemma 3.3.1. Namely, the map σn (X, α) = (X, α ◦ σn) defines an endomorphism
+of K0Ẑ (VQ ) which satisfies σn ◦ χẐ = χẐ ◦ σn , with χẐ : K0Ẑ (VQ ) → K0Ẑ (Q) the
+Euler characteristic. 
+  In order to lift the maps ρ̃n to the level of the Grothendieck ring K0Ẑ (VQ ), we
+put
+                          Vn := [Zn , γn ] ∈ K0Ẑ (VQ ),                       (3.5)
+                                                                                    11
+
+where Zn is a zero–dimensional variety over Q with #Zn (Q̄) = n. Any such
+variety with a smooth model over Spec Z can be identified with Zn = Spec (Qn ). It
+is endowed with the natural action γn : Ẑ × Zn → Zn that factors through Z/nZ.
+  Given a variety X with a good Ẑ-action α : Ẑ × X → X, let
+
+                             Φn (α) : Ẑ × X × Zn → X × Zn
+
+be given by
+                    Φn (α)(ζ, x, ai) = (x, γn(ζ, ai )) for       i = 1, . . . ,
+                         and     (α(ζ, x), γn(ζ, an )) for      i = n.            (3.6)
+  Notice that (3.6) is just a form of the Verschiebung map: for ζ the generator of
+Z/nZ we have
+
+                 Φn (α)(ζ, x, ai) = (x, ai+1 ) for       i = 1, . . . , n − 1,
+                             and     (α(ζ, x), a1) for      i = n.
+
+  3.3.5. Proposition. The maps
+
+                               ρ̃n [X, α] := [X × Zn , Φn (α)]                    (3.7)
+
+define a homomorphism of the Grothendieck group K0Ẑ (VQ ) that satisfies
+
+                                 σn ◦ ρ̃n [X, α] = [X, α]⊕n                       (3.8)
+
+and
+                    ρ̃n ◦ σn [X, α] = ρ̃n [X, α ◦ σn ] = [X, α] · [Zn , γn ].     (3.9)
+
+
+  Proof. Given a variety X with a good Ẑ-action α : Ẑ × X → X, consider the
+product [X, α]·Vn in K0Ẑ (VQ ). This class has a representative [X ×Zn , (α×γn )◦∆],
+where ∆ : Ẑ → Ẑ × Ẑ is the diagonal. We have
+
+              σn ◦ ρ̃n [X, α] = σn [X × Zn , Φn (α)] = [X × Zn , Φn (α) ◦ σn ].
+
+We also have
+                                Φn (α) ◦ σn = (α × 1) ◦ ∆,
+12
+
+since
+            Φn (α) ◦ σn (ζ, x, ai) = Φn (α)(ζ n , x, ai) = (Φn (α)(ζ))n (x, ai ),
+where we write Φn (α)(ζ) : X × Zn → X × Zn for the action of ζ ∈ Ẑ, with
+Φn (α)(ζ1 · · · ζn ) = Φn (α)(ζ1 ) ◦ · · · ◦ Φn (α)(ζn ), and the n-fold composition gives
+
+                   Φn (α)(ζ) ◦ · · · ◦ Φn (α)(ζ)(x, ai) = (α(ζ, x), ai).
+
+This shows (3.8).
+  The second relation is obtained similarly. We have
+
+               ρ̃n ◦ σn [X, α] = ρ̃n [X, α ◦ σn ] = [X × Zn , Φn (α ◦ σn )],
+
+where
+                Φn (α)(ζ, x, ai) = (x, ai+1 ) for     i = 1, . . . , n − 1,
+                           and    (α(ζ n , x), a1 ) for   i = n.
+Now α(ζ n , x) = α(ζ)n (x), hence we have Φn (α ◦ σn )(ζ)(x, ai) = Φn (α(ζ)n )(x, ai).
+The usual relations Vn (Fn (a)b) = aVn (b) between Frobenius Fn and Verschebung
+Vn (see Proposition 2.2 of [CC14]) holds in this case as well in the form Φn (α(ζ)n ) =
+α(ζ)Φn (1) where Φn (1)(x, ai) = (x, ai+1 ) is the cyclic permutation action of Z/nZ
+on Zn . Thus, we obtain Φn (α ◦ σn ) = (α × γn ) ◦ ∆. This gives (3.9). 
+    The relation (3.8) corresponds to σn ◦ ρ̃n (x) = nx, and (3.9) to ρ̃n ◦σn (x) = nπn x,
+for x ∈ Z[Q/Z]. They are geometric manifestations of the same relation between
+the maps σn and ρ̃n of the integral Bost–Connes system and the Frobenius and
+Verschiebung described in [CC14]. For other occurrences of the same relation see
+also [MaRe17], [MaTa17].
+    3.4. A non–commutative extension of the Grothendieck ring. Let
+K0 (VQ ) be the non-commutative ring generated by K0Ẑ (VQ ) and elements µ̃n ,
+   Ẑ
+
+µ∗n for n ∈ N satisfying the relations (3.1) for all n, m ∈ N, and (3.2) for all
+x = [X, α] ∈ K0Ẑ (VQ ) and all n ∈ N.
+   3.4.1. Lemma. The Euler characteristic χẐ : K0Ẑ (VQ ) → K0Ẑ (Q) ֒→ Z[Q/Z]
+extends to a ring homomorphism χ : KẐ    0 (VQ ) → AZ to the integral Bost–Connes
+algebra. After tensoring with Q, we obtain a homomorphism of semigroup crossed
+product rings
+                        χ : K0Ẑ (VQ )Q ⋊ N → Q[Q/Z] ⋊ N,
+                                                                                    13
+
+                       Ẑ                   Ẑ           Ẑ
+where KẐ
+       0 (VQ ) ⊗Z Q = K0 (VQ )Q ⋊ N with K0 (VQ )Q = K0 (VQ ) ⊗Z Q, and
+AZ ⊗Z Q = AQ = Q[Q/Z] ⋊ N is the rational Bost–Connes algebra.
+   Proof. We define the map χ as χẐ on elements of K0Ẑ (VQ ) and the identity on
+the extra generators χ(µ̃n ) = µ̃n and χ(µ∗n ) = µ∗n . By Lemma 3.3.4 and Proposition
+3.3.5, this map is compatible with the relations in KẐ     0 (VQ ) and in AZ . After
+tensoring with Q, the algebra KẐ   0 (VQ ) ⊗Z Q can be identified with a semigroup
+crossed product by taking as generators the elements of K0Ẑ (VQ ) and µn = n−1 µ̃n
+and µ∗n , which satisfy the relations
+
+µ∗n µn = 1,   µnm = µn µm ,    µ∗nm = µ∗n µ∗m , ∀n, m ∈ N, µn µ∗m = µ∗m µn if (n, m) = 1
+
+                                                        1
+                     µn xµ∗n = ρn (x) with ρn (x) =       ρ̃n (x),
+                                                        n
+with σn ρn (x) = x, for all x = [X, α] ∈ K0Ẑ (VQ ). The semigroup action in the
+crossed product K0Ẑ (VQ )Q ⋊ N is given by x 7→ ρn (x) = µn xµ∗n . The target algebra
+is the rational Bost–Connes algebra AZ ⊗Z Q = Q[Q/Z] ⋊ N. Again the map given
+by χẐ on elements of K0Ẑ (VQ ) and by χ(µn ) = µn and χ(µ∗n ) = µ∗n determines a
+homomorphism of crossed-product algebras. 
+
+                              4. From Rings to Spectra
+   4.1. Spectra. We give a brief review of spectra, with the purpose of recalling
+a construction of Segal [Se74] that constructs spectra from Γ–spaces. We then
+review the notion of assembler categories [Za17a] and how they can be used to
+construct a Γ–space and an associated spectrum whose π0 realises certain abstract
+scissor–congruence relations.
+   The construction of spectra from Γ–spaces was first developed in the context of
+the Bousfield–Friedlander spectra, see Definition 2.1 of [BousFr78].
+   In this setting, one considers the simplicial category ∆, which has an object [n]
+for each n ∈ N given by the finite totally ordered set [n] = {0 < 1 < . . . < n − 1},
+with morphisms the face and degeneracy maps δin and σin satisfying the simplicial
+relations.
+   A simplicial object is a contravariant functor S : ∆op → C from ∆ to a given
+category C. It is determined by a sequence of objects X(n) of C with morphisms
+corresponding to faces and degeneracies. We denote by ∆(C) the resulting category
+14
+
+of simplicial objects in C. In particular, a simplicial set is a simplicial object in
+the category of sets and we will use the notation ∆ = ∆(Sets ) for the category of
+simplicial sets.
+   Similarly, a bisimplicial object is a functor BS : ∆op × ∆op → C, or equivalently
+a simplicial object in the category of simplicial objects ∆(C). The diagonal of a
+bisimplicial object BS is the simplicial object obtained by precomposition of BS
+with the diagonal functor ∆op → ∆op × ∆op .
+  The category S of Bousfield–Friedlander spectra has objects X given by se-
+                                                                          1
+quences of simplicial sets X = {Xn }n≥0 endowed with structure maps ϕX
+                                                                     n : S ∧
+Xn → Xn+1 for all n ≥ 0, and morphisms given by maps fn : Xn → Yn with
+commutative diagrams
+                                          ϕX
+                                           n
+                              S 1 ∧ Xn         / Xn+1
+
+                                   1S 1 ∧fn            fn+1
+                                         ϕY       
+                                           n
+                               S 1 ∧ Yn        / Yn+1 .
+
+  The sphere spectrum S has Sn = S 1 ∧ · · · ∧ S 1 , the n–fold smash product, and
+ϕn the identity map.
+   Let γnX : Xn → ΩXn+1 be the maps induced by the adjoints of the structure
+maps. An Ω-spectrum is a spectrum where the maps γnX are weak equivalences for
+all n.
+     The homotopy groups πk (X) of spectra are given by
+
+                              πk (X) = −
+                                       lim
+                                        → πk+n (Xn )
+                                          n
+
+
+over the maps πk+n (Xn ) → πk+n (ΩXn+1 ) ≃ πn+k+1 (Xn+1 ), induced the γnX . A
+spectrum is n–connected if πk (X) = 0 for all k ≤ n and connective if it is −1-
+                                                                     1
+connected. A spectrum X is cofibrant if all the structure maps φX
+                                                                n : S ∧ Xn →
+Xn+1 are cofibrations.
+   However, a problem with the Bousfield–Friedlander spectra is that they do not
+have a homotopically good smash product. Constructions of categories of spectra
+with smash products were developed in the ’90s, in particular, the S–modules model
+of [EKMM97] and the symmetric spectra model of [HSS00]. In a more modern
+approach, it is therefore preferable to work with symmetric spectra for the Segal
+                                                                                       15
+
+construction. Indeed, the Γ–spaces, SW-categories and Waldhausen categories that
+occur in relation to the spectra underlying the Grothendieck ring of varieties and
+its variants naturally give rise to symmetric spectra.
+    A symmetric spectrum consists of a sequence of pointed spaces (pointed simpli-
+cial sets) X = {Xn }n≥0 together with a left action of the symmetric group Sn on
+                                                                   1
+Xn for all n ≥ 0 and structure maps given by based maps ϕX   n : S ∧Xn → Xn+1 for
+all n ≥ 0, with the condition that, for all n, m ≥ 0 the composition ϕX             X
+                                                                      n+m−1 ◦· · ·◦ϕn
+
+   ϕX                X    m
+    n+m−1 ◦ · · · ◦ ϕn : S ∧ Xn → S
+                                    m−1
+                                        ∧ Xn+1 → · · · S 1 ∧ Xn+m−1 → Xn+m
+is Sn × Sm -equivariant.
+   A morphism of symmetric spectra is a collection of Sn –equivariant based maps
+fn : Xn → Yn such that fn+1 ◦ ϕX          Y
+                                 n = ϕn ◦ (fn ∧ IdS 1 ), for all n ≥ 0. A sym-
+metric spectrum is ring spectrum if it is also endowed with Sn × Sm –equivariant
+multiplication maps
+                           Mn,m : Xn ∧ Xm → Xn+m
+and unit maps ι0 : S 0 → X0 and ι1 : S 1 → X1 . They must satisfy the associativity
+laws consisting of commutative squares
+                                            Id∧Mm,r
+                          Xn ∧ Xm ∧ Xr               / Xn ∧ Xm+r
+
+                         Mn,m ∧Id                                 Mn,m+r
+                                           Mn+m,r            
+                            Xn+m ∧ Xr                  / Xn+m+r
+
+the unit relations
+              Mn,0 ◦ (Id ∧ ι0 ) = Id : Xn ≃ Xn ∧ S 0 → Xn ∧ X0 → Xn
+and similarly M0,n ◦ (ι0 ∧ Id) = Id for all n ≥ 0, as well as χn,1 ◦ (Mn,1 ◦ (Id ∧ ι1 )) =
+(M1,n ◦ (ι1 ∧ Id)) ◦ τ with τ : Xn ∧ S 1 → S 1 ∧ Xn and χn,m ∈ Sn+m the shuffle
+permutation moving the first n elements past the last m. Commutativity of a
+symmetric ring spectrum is expressed by the commutativity of the diagrams
+
+                               Xn ∧ Xm              / Xm ∧ Xn
+
+                              Mn,m                           Mm,n
+                                                        
+                                Xn+m                  / Xm+n
+                                             χn,m
+16
+
+with the twist as the first map. For a detailed introduction to symmetric spectra
+we refer the reader to [Schw12].
+   4.2. Γ–spaces. We recall the setting of Γ–spaces used in the Segal’s construc-
+tion of spectra from categorical data. The notion of Γ–spaces and its relation to
+connective spectra formalises the intuition that spectra are a natural homotopy-
+theoretic generalisation of abelian groups.
+     Let Γ0 denote the category of finite pointed sets, with objects
+
+                                      n = {0, 1, 2, . . . , n}
+
+and morphisms f ∈ Γ0 (n, m) given by functions
+
+               f : {0, 1, 2, . . . , n} → {0, 1, 2, . . . , m},   with f (0) = 0.
+
+Let Γ denote the opposite category.
+   A pointed category C is a category with a chosen object that is both initial and
+final. A pointed functor F : Γ0 → C is called a Γ–object in C.
+   Given a pointed category C, the category ΓC has objects the pointed functors
+F : Γ0 → C and morphisms the natural transformations between these functors.
+   Γ–spaces are objects of the category ΓC, in the case where C = ∆∗ is the category
+of pointed simplicial sets.
+   Given a Γ–space F : Γ0 → ∆∗ , the morphisms fj : n → 1 that map the j-th
+element to 1 and the rest to 0 induce, for each n ≥ 1, a morphism
+
+                                                  Y
+                                                  n
+                                       F (n) →          F (1).                      (4.1)
+                                                  j=1
+
+
+   The special Γ–spaces (or Segal Γ–spaces) are Γ–spaces F as above, where all
+the maps (4.1) are weak equivalences. For special Γ–spaces the weak equivalence
+F (2) ≃ F (1) × F (1) induces a monoid
+
+                     π0 (F (1)) × π0 (F (1)) → π0 (F (2)) → π0 (F (1)).
+
+Such a Γ–space is called very special when this monoid is an abelian group.
+                                                                                   17
+
+   The Γ–space S : Γ0 → ∆∗ is given by the inclusion of the category Γ0 into ∆∗
+mapping a finite pointed set to the corresponding discrete pointed simplicial set.
+As shown in [Se74] (Barratt–Priddy–Quillen theorem), the associated spectrum is
+the sphere spectrum, which we also denote by S.
+   The category Γ0 of finite pointed sets has a smash product functor ∧ : Γ0 ×Γ0 →
+Γ0 , with (n, m) 7→ n ∧ m, which extends to a smash product of arbitrary pointed
+(simplicial) sets.
+   The smash product of Γ-spaces constructed in [Ly99] is obtained by first associ-
+                                                            ∧F ′ : Γ0 × Γ0 → ∆∗
+ating to a pair F, F ′ : Γ0 → ∆∗ of Γ–spaces a bi–Γ–space F ˜
+
+                              ∧F ′ )(n, m) = F (n) ∧ F ′ (m)
+                           (F ˜
+
+and then defining
+
+                                                    ˜ F ′ )(k, ℓ),
+                      (F ∧ F ′ )(n) = colimk∧ℓ→n (F ∧
+
+where k ∧ ℓ is the smash product ∧ : Γ0 × Γ0 → Γ0 . It is shown in [Ly99] that,
+up to natural isomorphism, this smash product is associative and commutative and
+with unit given by the Γ–space S, and that the category of Γ–spaces is symmetric
+monoidal with respect to this product.
+
+   4.3. From Γ–spaces to connective spectra. The construction of [Se74], and
+more generally [BousFr78], assigns a connective spectrum to a Γ–space in such a
+way as to obtain an equivalence between the homotopy category of Γ–spaces and
+the homotopy category of connective spectra. The construction of spectra from
+Γ–spaces can be performed in the modern setting of symmetric spectra, rather
+than in the original Bousfield–Friedlander formulation of [BousFr78], see Chapter I,
+Section 7.4 of [Schw12].
+   If X is a simplicial set, one denotes by X∗ the pointed simplicial set obtained by
+adding a disjoint base point. Given a Γ-space F : Γ0 → ∆∗ and a pointed simplicial
+set X, one obtains a new Γ-space X ∧ F , which maps n ∈ Γ0 to X ∧ F (n) in ∆∗ .
+                                                               R C∈C
+   Recall that, given a functor F : C op × C → D, the coend            F (C, C) is the
+initial cowedge, where a cowedge to an object X in C is a family of morphisms
+hA : A → X, for each A ∈ C, such that, for all morphisms f : A → B in C the
+18
+
+following diagrams commute
+
+                                           F (f,A)
+                                F (B, A)          / F (A, A)
+
+                                     F (B,f )           hA
+                                            hB         
+                               F (B, B)              / X.
+
+
+   The key step in the construction of a connective spectrum associated to a Γ–
+space consists of extending a Γ–space F to an endofunctor of the category of pointed
+simplicial sets. This endofunctor is defined in [BousFr78] (see also [Schw99]) as the
+functor (still denoted by F ) that maps a pointed simpliciat set K ∈ ∆∗ to the
+coend                                 Z     op
+                                           n∈Γ
+                            F : K 7→              K n ∧ F (n),
+
+with natural assembly maps K ∧ F (K ′ ) → F (K ∧ K ′ ).
+   The spectrum associated to F , which we denote by F (S), is then given by the
+sequence of pointed simplicial sets F (S)n = F (S n = S 1 ∧ · · · ∧ S 1 ), with the maps
+S 1 ∧ F (S n ) → F (S n+1 ).
+   The smash product of Γ–spaces is compatible with the smash product of spectra:
+in [Ly99] it is shown that if F, F ′ : Γ0 → ∆∗ are Γ–spaces with F (S) and F ′ (S) the
+corresponding spectra, then there is a map of spectra
+
+                             F (S) ∧ F ′ (S) → (F ∧ F ′ )(S)
+
+which is natural in (F, F ′ ), and a weak equivalence if one of the factors is cofibrant.
+   This gives rise to a notion of ring spectra (see [Schw99]) defined as the monoids
+in the symmetric monoidal category of Γ–spaces with the smash product of [Ly99]
+recalled above. One refers to these as Γ–rings. Namely, a Γ–ring is a Γ–space F en-
+dowed with unit and multiplication maps S → F and F ∧ F → F with associativity
+and unit properties (Sec VII.3 of [MacL71]). The associated connective spectrum of
+a commutative Γ–ring is a commutative symmetric ring spectrum. However, not all
+connective commutative symmetric ring spectra come from a commutative Γ–ring,
+see [La09]. For a comparative view of the settings of Γ-rings and symmetric ring
+spectra, see the discussion in Section 2 of [Schw99].
+                                                                                            19
+
+   If G is an abelian group, there is an associated Γ-space HG given on objects by
+
+                                HG(n) = G ⊗ Z[n] ≃ Gn ,
+
+where Z[n] is the free abelian group on the finite set n. If f : n → m is a morphism
+in Γ0 , then the associated morphism H(f ) : HG(n)    P → HG(m) maps          P an n-tuple
+                                     n
+(g1 , . . . , gn ) (with g0 = 0) in G to the m–tuple ( j∈f −1 (1) gj , . . . , j∈f −1 (n) gn ).
+This Eilenberg–MacLane Γ–space HG maps to the Eilenberg–MacLane spectrum of
+G, which we still denote by HG. If R is a simplicial ring, then HR is an S–algebra
+with multiplication HR ∧ HR → H(R ⊗ R) → HR and unit S → HZ → HR.
+    4.4. Assemblers, spectra, and the Grothendieck ring. We pass now to a
+brief survey of the construction of a spectrum associated to the Grothendieck ring
+of varieties developed in [Z17a] and [Z17c].
+    I. Zakharevich developed in [Z17a] and [Z17b] a very general formalism for
+scissor–congruence relations. The abstract form of scissor–congruence consists of
+categorical data called assemblers, which in turn determine a homotopy–theoretic
+spectrum, whose homotopy groups embody scissor–congruence relations. This for-
+malism is applied in [Z17c] in the framework producing an assembler and a spectrum
+whose π0 recovers the Grothendieck ring of varieties. This is used to obtain a char-
+acterisation of the kernel of multiplication by the Lefschetz motive, which provides
+a general explanation for the observations of [Bor14], [Mart16] on the fact that the
+Lefschetz motive is a zero divisor in the Grothendieck ring of varieties.
+   A sieve in a category C is a full subcategory C ′ that is closed under precompo-
+sition by morphisms in C. A Grothendieck topology on a category C consists of the
+assignment of a collection J (X) of sieves in the over category C/X, for each object
+X in C, with the following properties:
+   (i) the over category C/X is in the collection J (X);
+   (ii) the pullback of a sieve in J (X) under a morphism f : Y → X is a sieve in
+J (Y );
+   (iii) given C ′ ∈ J (X) and a sieve T in C/X, if for every f : Y → X in C ′ the
+pullback f ∗ T is in J (Y ) then T is in J (X).
+   Let C be a category with a Grothendieck topology. A collection of morphisms
+{fi : Xi → X}i∈I in C is a covering family if the full subcategory of C/X that
+contains all the morphisms of C that factor through the fi ,
+
+                {g : Y → X | ∃i ∈ I h : Y → Xi such that fi ◦ h = g},
+20
+
+is in the sieve collection J (X).
+    In a category C with an initial object ∅ two morphisms f : Y → X and g : W →
+X are called disjoint if the pullback Y ×X W exists and is equal to ∅. A collection
+{fi : Xi → X}i∈I in C is disjoint if fi and fj are disjoint for all i 6= j ∈ I.
+    An assembler category C is a small category endowed with a Grothendieck topol-
+ogy, which has an initial object ∅ (with the empty family as covering family), and
+where all morphisms are monomorphisms, with the property that any two finite
+disjoint covering families of X in C have a common refinement that is also a finite
+disjoint covering family.
+    A morphism of assemblers is a functor F : C → C ′ that is continuous for the
+Grothendieck topologies and preserves the initial object and the disjointness prop-
+erty, that is, if two morphisms are disjoint in C their images are disjoint in C ′ .
+                                                        W
+    For X a finite set, the coproduct of assemblers x∈X Cx is a category whose
+objects are the initial object ∅ and all the non–initial objects of the assemblers Cx .
+Morphisms of non–initial objects are induced by those of Cx .
+    The abstract scissor congruences consist of pairs of an assembler C and a sieve D
+in C. Given such a pair, one has an associated assembler C r D defined as the full
+subcategory of C that contains all the objects that are not non–initial objects of D.
+The assembler structure on C r D is determined by taking as covering families in
+C r D those collections {fi : Xi → X}i∈I with Xi , X objects in C r D that can be
+completed to a covering family in C, namely such that there exists {fj : Xj → X}j∈J
+with Xj in D such that {fi : Xi → X}i∈I ∪ {fj : Xj → X}j∈J is a covering family
+in C. There is a morphism of assemblers C → C rD that maps objects of D to ∅ and
+objects of C r D to themselves and morphisms with source in C r D to themselves
+and morphisms with source in D to the unique morphism to the same target with
+source ∅. The data C, D, C r D are an abstract scissor congruence.
+    The construction of spectra from assembler categories uses the general construc-
+tion of spectra from categorical data is provided by the Segal construction [Se74]
+of spectra from Γ–spaces, that we recalled in section 4.2 above.
+    The main construction of [Za17a] associates to an assembler C a homotopy–
+theoretic spectrum, whose homotopy groups provide a family of associated topo-
+logical invariants satisfying versions of scissor congruence relations. The main steps
+of the construction can be summarized as follows (see [Za17a]):
+    (1) One associates to an assembler C a category W(C) with objects {Ai }i∈I ,
+collections of non–initial objects Ai of C indexed by a finite set I, and morphisms
+                                                                                   21
+
+f : {Ai }i∈I → {Bj }j∈J given by a map of finite sets f : I → J and morphisms
+fi : Ai → Bf (i) such that {fi : Ai → Bj : i ∈ f −1 (j)} is a disjoint covering family
+for all j ∈ J.
+
+                W pointed set (X, x0 ) and an assembler C, one considers the assem-
+   (2) For a finite
+bler X ∧ C := x∈Xr{x0 } C. The assignment X 7→ N W(X ∧ C), where N is the
+nerve, is a Γ–space in the sense of [Se74] recalled above, hence it defines a spectrum
+K(C) by
+                                 Xn = N W(S n ∧ C)
+with structure maps S 1 ∧ Xn → Xn+1 determined by the maps
+
+                           X ∧ N W(C) → N W(X ∧ C).
+
+   (3) The group K0 (C) := π0 K(C) is the free abelian
+                                                   P group generated by objects
+of C modulo the scissor–congruence relations [A] = i∈I [Ai ] for each finite disjoint
+covering family {Ai → A}i∈I .
+  (4) Given a morphism ϕ : C1 → C2 of assemblers, there is an assembler C2 /ϕ and
+a morphism ι : C2 → C2 /ϕ such that the diagram
+
+                    K(ι) ◦ K(ϕ) : K(C1 ) → K(C2 ) → K(C2 /ϕ)
+
+is a cofiber sequence.
+   4.5. Assembler for the equivariant Grothendieck ring. As we have seen
+in the previous section, the equivariant version of the Grothendieck ring K0Ẑ (VK )
+is generated by isomorphism classes of varieties with a “good” Ẑ-action, where as
+before good means that each orbit is contained in an affine open subvariety of X
+and that the action factors through some finite level Z/N Z. The scissor congruence
+relations in K0Ẑ (VK ) are of the form [X] = [Y ] + [X r Y ] where Y ֒→ X and
+X r Y ֒→ X are Ẑ-equivariant embeddings. The product is given by the Cartesian
+product endowed with the induced diagonal Ẑ-action.
+
+   4.5.1. Lemma. The category C Ẑ with objects that are varieties X with a good Ẑ-
+action and morphisms that are equivariant locally closed embeddings, endowed with
+the Grothendieck topology generated by the covering families {Y ֒→ X, X r Y ֒→
+X} of Ẑ-equivariant embeddings, is an assembler category. The spectrum K Ẑ (V)
+22
+
+
+determined by the assembler C Ẑ has π0 given by the equivariant Grothendieck ring
+K0Ẑ (V).
+   Proof. The first part of the statement follows as in Example 1 of sec. 1 of
+[Za17c]. The empty set is the initial object. Finite disjoint covering families are
+Ẑ-equivariant maps fi : Xi ֒→ X where Xi = Yi r Yi−1 for a chain of Ẑ-equivariant
+embeddings ∅ = Y0 ֒→ Y1 ֒→ · · · ֒→ Yn = X. The property that any two finite
+disjoint covering families have a common refinement follows since the category has
+pullbacks, [Zak1]. Morphisms are compositions of closed and open Ẑ-equivariant
+embeddings, hence they are all monomorphisms. For the second part, by Theorem
+2.3 of [Za17a], if K(C) is the spectrum determined by an assembler C, then π0 K(C)
+is generated, as an abelian group, by the objects of C with the scissor–congruence
+relations determined by disjoint covering families. In this case this means that
+K(C Ẑ ) is generated by the pairs (X, α) of a variety X with a good Ẑ-action α
+with relations [X] = [Y ] + [X r Y ] for the covering families given by Ẑ-equivariant
+embeddings {Y ֒→ X, X r Y ֒→ X}. The ring structure is coming from the
+symmetric monoidal structure on the category of assemblers, which induces an
+E∞ –ring structure on the spectrum K(C). In this case it induces the product on
+K0Ẑ (V) given by the Cartesian product of varieties with the diagonal Ẑ-action (see
+also Theorem 1.4 of [Ca15]. The ring structure is induced by an E∞ –ring spectrum
+structure on K(C) which is in turn induced by a symmetric monoidal structure on
+the category of assembler, cf. [Za17a]. 
+   Following Theorem 4.25 of [Ca15], the ring structure on K0Ẑ (V) can also be
+seen, as in the case of the ordinary Grothendieck ring K0 (V), as induced on π0 by
+an E∞ –ring spectrum structure obtained from the fact that the cartesian product
+of varieties determines a biexact symmetric monoidal structure on V, seen as an
+SW–category (a subtractive Waldhausen category).
+  4.6. Lifting the Bost–Connes algebra to spectra. We will now show
+how to lift the maps σn and ρ̃n of the Bost–Connes system from the level of the
+Grothendieck ring K0Ẑ (V) to the level of the spectrum K Ẑ (V).
+  4.6.1. Proposition. The maps σn (X, α) = (X, α ◦ σn ) and ρ̃n (X, α) =
+(X × Zn , Φn (α)) on K0Ẑ (V) determine endofunctors of the assembler category C Ẑ .
+The endofunctors σn are compatible with the monoidal structure induced by the
+Cartesian product of varieties with diagonal Ẑ–action.
+     Proof. The endofunctors σn of C Ẑ map an object (X, α) to (X, α ◦ σn ) and a
+                                                                                    23
+
+pair of Ẑ-equivariant embeddings
+
+                       (Y, α|Y ) ֒→ (X, α) ←֓ (X r Y, α|XrY )
+
+to the pair of embedding
+
+               (Y, α|Y ◦ σn ) ֒→ (X, α ◦ σn ) ←֓ (X r Y, α|XrY ◦ σn ).
+
+This determines the functor σn on both objects and morphisms of C Ẑ . The com-
+patibility with the monoidal structure comes from the compatibility with Cartesian
+products σn (X, α)×σn(X ′ , α′ ) = (X ×X ′ , (α×α′ )◦∆◦σn) = σn ((X, α)×(X ′, α′ )).
+The group homomorphisms ρ̃n of K0Ẑ (V) are also induced by endofunctors of C Ẑ ,
+which map objects by ρ̃n (X, α) = (X × Zn , Φn (α)) and pairs of Ẑ–equivariant
+embeddings
+                      (Y, α|Y ) ֒→ (X, α) ←֓ (X r Y, α|XrY )
+to pair of embedding
+
+     (Y × Zn , Φn (α|Y )) ֒→ (X × Zn , Φn (α)) ←֓ ((X r Y ) × Zn , Φn (α|XrY ))
+
+where Φn (α|Y ) = Φn (α)|Y and Φn (α|XrY ) = Φn (α)|XrY . The functors ρ̃n , how-
+ever, are not compatible with the monoidal structure, and this reflects the fact
+that they only induce group homomorphisms on K0Ẑ (V) rather than ring homo-
+morphisms. 
+   One can obtain a similar argument working with subtractive Waldhausen cate-
+gories as in [Ca15] in place of assemblers as in [Za17a].
+   4.7. The Kontsevich–Tschinkel Burnside ring. In a similar way, instead
+of working with the Grothendieck ring K0Ẑ (V), we can consider the refinement of
+the Grothendieck ring constructed in [KoTsch17]. We discuss here briefly how to
+adapt the previous construction to this case.
+   In [KoTsch17] a refinement of the Grothendieck ring of varieties is introduced,
+which is based on birational equivalence. More precisely, for K a field of characteris-
+tic zero, the Burnside semiring Burn + (K) is defined as the set of equivalence classes
+of smooth K-varieties under the K-birational equivalence relation, with addition
+and multiplication are given by disjoint union and product over K (Definition 2 of
+[KoTsch17]). The Burnside ring Burn (K) is the Grothendieck ring generated by
+24
+
+the semiring Burn + (K). Equivalently, the Burnside ring Burn (K) is generated by
+isomorphism classes [X] of smooth varieties over K with the equivalence relation
+[X] = [U ] for U ֒→ X an open embedding with dense image.
+   To construct an assembler and an associated spectrum that recovers the Burnside
+ring Burn (K) as its zeroth homotopy group, we proceed again as in [Za17a].
+   4.7.1. Lemma. Let CBurn be the category with non–initial objects given by the
+smooth K-varieties X and morphisms given by the open embeddings U ֒→ X with
+dense image. Consider the Grothendieck topology which is generated by the open
+dense embeddings U ֒→ X. The category CBurn is an assembler and the associated
+spectrum K(CBurn ) has π0 K(CBurn ) = Burn (K).
+   Proof. The initial object is the empty scheme. If X is irreducible, a disjoint
+covering family consists of a single dense open set U ֒→ X and the common refine-
+ment of two disjoint covering families U1 ֒→ X and U2 ֒→ X is the dense open set
+U1 ∩U2 ֒→ X. Morphisms are monomorphisms given by compositions of open dense
+embeddings. This shows that the category CBurn is an assembler. As an abelianP
+group, π0 K(CBurn ) is generated by the objects of CBurn with relations [X] = i [Xi ]
+for {fi : Xi → X} a finite disjoint covering family. In this case this means identi-
+fying [X] = [U ] for any dense open embedding U ֒→ X, which is the equivalence
+relation of Burn (K). 
+   It is shown in [KoTsch17] that the Burnside ring Burn (K) with the grading given
+by the transcendence degree, maps surjectively to the associated graded object
+gr K0 (VK ) with respect to the filtration of K0 (VK ) by dimension
+
+                              Burn (K) → gr K0 (VK ).                             (4.2)
+
+   As we did in the case of the Grothendieck ring, we can also consider an equivari-
+ant version of the Kontsevich–Tschinkel Burnside ring Burn (K) with respect to the
+group Ẑ, see sec. 5 of [KoTsch17]. The corresponding assembler and spectrum are
+obtained as a modification of the case discussed above. The following statement
+can be proved by arguments as in Lemma 4.7.1 and Lemma 4.5.1.
+
+   4.7.2. Lemma.Let Burn Ẑ (K) be generated by equivalence classes of smooth K-
+varieties with a good Ẑ-action with respect to the equivalence relation [X] = [U ] for
+                                                                 Ẑ
+U ֒→ X a Ẑ-equivariant dense open embedding. The category CBurn       with objects the
+                                                                                 25
+
+smooth K–varieties X with a good Ẑ–action and and morphisms the Ẑ–equivariant
+                                                        Ẑ
+dense open embeddings U ֒→ X is an assembler with π0 K(CBurn ) = Burn Ẑ (K).
+                 Ẑ
+  We refer to K(CBurn ) as the Ẑ–equivariant Burnside spectrum.
+   The notion of an epimorphic assembler with a sink was introduced in Section 4 of
+[Za17a]. It denotes an assembler C with a sink object S such that Hom (X, S) 6= ∅
+for all other objects X ∈ C, and with the properties that all morphisms f : X → Y
+in C with non–initial X are epimorphisms with the set {f : X → Y } a covering
+family, and for X, Y 6= ∅ no two morphisms X → Z and Y → Z are disjoint. There
+is a group GC associated to epimorphic assembler with a sink, whose elements are
+the equivalence classes of pairs of morphisms f1 , f2 : X → S from a non–initial
+object to the sink, where the equivalence [f1 , f2 : X → S] = [g1 , g2 : Y → S] is
+determined by the existence of an object Z and maps hX : Z → X and hY : Z → Y
+such that the following diagram commutes
+
+                                              Y
+                                            ⑦⑦ O ❅❅❅
+                                     g1    ⑦        ❅❅g2
+                                       ⑦ ⑦⑦hY         ❅❅
+                                    ⑦⑦                 ❅
+                                 S _❅         Z            S
+                                      ❅❅               ⑦⑦?
+                                         ❅❅h          ⑦
+                                      f1
+                                           ❅❅X ⑦⑦⑦f2
+                                                ⑦
+                                              X
+
+Composition of morphisms is given by any (equivalent) completion to a commuta-
+tive diagram of the form
+
+                                              W
+                                            ⑥⑥ ❆❆❆
+                                           ⑥        ❆❆
+                                       ⑥ ⑥⑥           ❆❆
+                                          h      h      ❆
+                                   ~⑥⑥ 1           2
+
+                                 X                        Y
+                               ⑦⑦ ❇❇❇                  ⑥ ⑥ ❄❄❄
+                              ⑦         ❇❇            ⑥        ❄❄
+                           ⑦⑦⑦f      f
+                                           ❇❇     ⑥ ⑥⑥g1    g 2
+                                                                 ❄❄
+                        ⑦⑦ 1          2     ❇ ~⑥⑥                 ❄
+                      S                       S                       S
+
+It is shown in Theorem 4.8 of [Za17a] that any choice of a morphism fX : X → S
+from each object of C to the sink object S determines a morphism of assemblers
+26
+
+C → SG , where SG is the assembler with objects ∅ and ⋆, a non-invertible morphism
+∅ → ⋆ and invertible morphisms Aut (⋆) = G, which has spectrum K(SG ) = Σ∞   + BG
+(see Example 3.2 of [Za17a]). This morphism of assemblers C → SG induces an
+equivalence on K–theory.
+                                Ẑ
+   4.7.3. Lemma. The assembler CBurn is a coproduct of epimorphic assemblers
+with sinks                        _
+                         Ẑ           Ẑ
+                        CBurn =      CBurn (X, α)
+                                        [X,α]
+
+where
+                         Ẑ
+                      K(CBurn (X, α)) ≃ Σ∞     Ẑ
+                                         + BAut (K(X, α)).
+
+Here Aut Ẑ (K(X, α)) is the group of Ẑ–equivariant birational automorphisms of X
+with a good Ẑ–action α.
+   Proof. For an irreducible smooth projective variety X with a good Ẑ–action
+                                              Ẑ
+α : Ẑ×X → X, consider the assembler CBurn        (X, α) whose objects (U, αU ) ֒→ (X, α)
+are the Ẑ-equivariant dense open embeddings, with α, αU the compatible good ac-
+tions of Ẑ on X and U , respectively. Arguing as in Theorem 5.3 of [Za17a] for
+                                               Ẑ
+the non–eqiuvariant case, we see that CBurn        (X) satisfies the conditions of an epi-
+morphic assembler with sink. The associated group GẐ        (X,α) consists of equivalence
+classes of pairs f1 , f2 : (U, αU ) → (X, α), and the fi are equivariant with respect to
+these actions. The group GẐ                                                Ẑ
+                                (X,α) is therefore given by the group Aut (K(X, α)) of
+Ẑ-equivariant birational automorphisms of the variety with good Ẑ action (X, α).
+We then have K(CBurnẐ
+                         (X, α)) ≃ Σ∞        Ẑ
+                                     + BAut (K(X, α)). Moreover, we can identify
+                 Ẑ
+the assembler CBurn    with the coproduct over equivalence classes [X, α] of the as-
+            Ẑ                                              Ẑ
+semblers CBurn (X, α) as above, since the morphisms of CBurn     between non–initial
+                                         Ẑ                              Ẑ
+objects come from morphisms of the CBurn     (X, α) and the objects of CBurn   consist
+                                                           Ẑ
+of an initial object ∅ and the non–initial objects of the CBurn (X, α) for a choice of
+representatives of the classes [X, α]. 
+
+   The relation between the Kontsevich–Tschinkel Burnside ring Burn Ẑ (K) and
+the equivariant Grothendieck ring K0Ẑ (VK ) can then be formulated at the level of
+assemblers and spectra in a form similar to Theorem 5.2 of [Za17a], using the same
+                                                     Ẑ,(ℓ)
+argument, adapted to the equivariant case. Let CK             denote the full sub–assembler
+                                                                                            27
+
+                  Ẑ
+of the assembler CK  of Lemma 4.5.1 above, consisting of varieties of dimension at
+most n with good Ẑ-action.
+   4.7.4. Proposition.Let BnẐ denote the set of birational isomorphism classes
+of varieties of dimension n with good Ẑ-action, through Ẑ-equivariant birational
+isomorphisms. The coproduct assembler
+                                      _
+                          Ẑ                  Ẑ
+                         CBurn ,n :=        CBurn (X, α)
+                                                 Ẑ
+                                          [X,α]∈Bn
+
+
+satisfies
+                    _                                             Ẑ,(n−1)         Ẑ,(n)
+   Ẑ
+K(CBurn ,n ) ≃               Σ∞     Ẑ
+                              + BAut (K(X, α)) ≃ hocofib(K(CK                ) → K(CK       )).
+                        Ẑ
+                 [X,α]∈Bn
+
+
+
+   4.8. Burnside spectrum and Bost–Connes endomorphisms. The same
+procedure we used to lift the Bost–Connes maps σn and ρ̃n to the Grothendieck
+ring K0Ẑ (V) and the spectrum K Ẑ (V) can be adapted to lift the same maps to the
+Kontsevich–Tschinkel Burnside ring Burn Ẑ (K) and the spectrum K(CBurn Ẑ
+                                                                            ).
+    4.8.1. Proposition. The maps σn and ρ̃n of the integral Bost–Connes algebra
+                                                Ẑ
+lift to endofunctors of the assembler category CBurn , with the σn compatible with
+the monoidal structure induced by the Cartesian product. These endofunctors in-
+duce the corresponding maps σn and ρ̃n on the Kontsevich–Tschinkel Burnside ring
+Burn Ẑ (K).
+                                                                      Ẑ
+  Proof. We argue as in Proposition 4.6.1. The endofunctors σn of CBurn  map an
+object (X, α) to (X, α ◦ σn ) and a Ẑ-equivariant dense open embedding
+
+                                     (U, α|U ) ֒→ (X, α)
+
+to the Ẑ–equivariant dense open embedding
+
+                                (U, α|U ◦ σn ) ֒→ (X, α ◦ σn ).
+
+                                                                       Ẑ
+This determines the functor σn on both objects and morphisms of CBurn      . As in
+Proposition 4.6.1 one sees the σn are compatible with Cartesian products and induce
+28
+
+
+ring homomorphisms of Burn Ẑ (K). The ρ̃n map objects by ρ̃n (X, α) = (X ×
+Zn , Φn (α)) and Ẑ-equivariant dense open embeddings (U, α|U ) ֒→ (X, α) by
+
+                      (U × Zn , Φn (α|U )) ֒→ (X × Zn , Φn (α))
+
+with Φn (α|U ) = Φn (α)|U . The ρ̃n are not compatible with the monoidal structure
+and only induce group homomorphism on Burn Ẑ (K). 
+
+      5. Expectation values, motivic measures, and zeta functions
+   5.1. The Bost–Connes expectation values. In the case of the original Bost–
+Connes system, one considers representations π of the Bost–Connes algebra (either
+the integral AZ or the rational AQ = Q[Q/Z] ⋊ N) on a Hilbert space H = ℓ2 (N)
+and associates to the algebra and the representation a dynamical system, namely
+the one–parameter group of automorphism σ : R → Aut (A) of the C ∗ -algebra
+generated by AQ , seen as an algebra of bounded operators on H. The time evolution
+satisfies the covariance condition
+
+                            π(σt (a)) = eitH π(a)e−itH ,
+
+where H is an (unbounded) linear operator on H, the Hamiltonian of the system.
+In the Bost–Connes case the time evolution is determined by σt (µn ) = nit µn and
+σt (x) = x for x ∈ Q[Q/Z]. The Hamiltonian acts on the standard orthonormal
+basis of ℓ2 (N) as Hǫn = log(n) ǫn and the partition function Z(β) = Tr(e−βH ) is
+the Riemann zeta function, [BC]. For any element a ∈ AQ the expectation value
+with respect to the Bost–Connes dynamics is then given by
+                                                  X
+             haiβ = ζ(β)−1 Tr(π(a)e−βH ) = ζ(β)−1    hǫn , π(a)e−βH ǫn i.    (5.1)
+                                                   n∈N
+
+We can similarly construct Bost–Connes expectation values associated to the non-
+commutative ring KẐ0 (V) defined in sec. 3.4.
+
+   5.2. The equivariant Euler characteristic. As we discussed above, the
+equivariant Euler characteristic χ : K0Ẑ (VQ ) → K0Ẑ (Q) induces a ring homomor-
+phism KẐ0 (VQ ) → AZ where AZ is the integral Bost–Connes algebra. After tensor-
+ing with Q, one obtains a morphism of crossed product algebras KẐ     0 (VQ ) ⊗ Q =
+  Ẑ                                            Ẑ            Ẑ
+K0 (VQ )Q ⋊ N → AQ = Q[Q/Z] ⋊ N, with K0 (VQ )Q = K0 (VQ ) ⊗ Q.
+                                                                                       29
+
+   5.2.1. Proposition. Let π be a representation of the Bost–Connes algebra
+AQ on the Hilbert space H = ℓ2 (N) with π(µn )ǫm = ǫnm and π(e(r))ǫn = ζrn ǫn
+for r → ζr an embedding of Q/Z as the group of roots of unity in C∗ . Then π
+determines a one–parameter family of group homomorphism ϕβ : K0Ẑ (VQ ) → C,
+with β ∈ R∗+ , such that for all [X, α] ∈ K0Ẑ (VQ ) the product ζ(β) · h[X, α]iβ , with
+ζ(β) the Riemann zeta funciton, is a Z-combination of values at roots of unity of
+the polylogarithm function Liβ (x).
+   Proof. For the generators a = e(r) of Z[Q/Z] the expectation value (5.1) is
+a polylogarithm function evaluated at a root of unity normalized by the Riemann
+zeta function,
+                                      X             Liβ (ζr )
+                     he(r)iβ = ζ(β)−1     ζrn n−β =           ,
+                                                      ζ(β)
+                                          n≥1
+
+where π(e(r))ǫn = ζrn ǫn with r 7→ ζr an embedding of Q/Z as the roots of unity
+    ∗
+in C . Given a representation π of the Bost–Connes algebra, we compose the
+equivariant Euler characteristic KẐ           Ẑ
+                                  0 (VQ )⊗Q = K0 (VQ )Q ⋊N → AQ = Q[Q/Z]⋊N
+with the Bost–Connes expectation value ϕ(X, α) = hχ(X, α)iβ . 
+   5.3. Expectation values of motivic measures. Other examples can be con-
+structed using other motivic measures. For example, one can         P consider the mixed
+Hodge motivic measure h : K0 (VC ) → K0 (HS) with h(X) = r (−1)r [Hcr (X, Q)] ∈
+K0 (HS). This is a refinement of the Hodge–Deligne       P polynomial motivic measure
+P : K0 (VC ) → Z[u, v, u−1 , v −1 ] with P (X, u, v) = p,q dim H p,q up v q . In the case
+of complex varieties with a good Ẑ-action that factors through a finite quotient
+Z/nZ, the graded pieces H p,q are Ẑ-modules. The equivariant Hodge–Deligne poly-
+nomial is then defined as the polynomial in Z[Q/Z][u, v] given by P Ẑ ((X, α), u, v) =
+P        p,q
+                                              P
+   p,q E     (X, α)uq v q with E p,q (X, α) =           k p,q
+                                                  k (−1) H      (Hck (X, C)), with the Ẑ-
+module structure determined by the actoin α. The equivariant weight polynomial
+is given by W Ẑ (X, w) = P Ẑ (X, w, w) while evaluation at w = 1 recovers the equi-
+variant Euler characteristic. The associated expectation values are then of the
+form                                      X
+                             ϕβ (X, α) =    hE p,q (X, α)iβ uq v q
+                                        p,q
+
+   5.4. Zeta functions and assemblers. Passing from the level of Grothendieck
+rings to assemblers, spectra, and K-theory, as in [Za17a]–[Za17c], also provides pos-
+sible methods for lifting the zeta functions at the level of K–theory. One approach,
+30
+
+currently being developed [Za18], directly uses assemblers and the construction of
+a map of assemblers between the assemblers underlying the Grothendieck ring (and
+its equivariant version as discussed above) and an assembler of almost–finite G–
+sets, by mapping a variety X to the almost–finite set X(K̄). Another approach to
+the lifting of zeta functions was developed in [CaWoZa17], using étale cohomology
+and SW-categories. We will return to discussing zeta functions and the lifts of the
+Bost–Connes system to assemblers and spectra in the second part of this paper (in
+preparation).
+   Following the approach being developed in [Za18], one can show that the equi-
+variant Euler characteristic
+
+                               χẐ : K0Ẑ (V) → Z[Q/Z]
+
+discussed above in sections 3.1–3.2 lifts to a map of assembler by considering, as in
+section 3.2, the morphism
+
+                           χG : K0G (V) → A(G) → R(G)
+
+with A(G) the Burnside ring, for a finite group G, with the P      equivariant Euler
+                                                         G
+characteristics defined as in [Gu-Za17] as mapping χ (X) =           k [Xk ] with [Xk ]
+the classes in A(G) of the k-skeleta. In the case of Ẑ one considers the completion
+Â(Ẑ) = ←lim
+            − A(Z/nZ) as discussed in section 3.2, where the complete Burnstein ring
+Â(Ẑ) is seen as the Grothendieck ring of almost–finite Ẑ–sets [DrSi88].
+   According to [Za18], there is a construction of an assembler of almost–finite
+G–sets, which we denote by AF G . The equivariant Euler characteristic
+
+                                χG : K0G (V) → A(G)
+
+then lifts to a morphism of assemblers
+
+                                  χG : C G → AF G
+
+since the assignment of X to the union of the Xk as G–sets and G–equivariant
+embeddings Y ֒→ X and X r Y ֒→ X to the corresponding maps of the skeleta as
+G–sets maps disjointness morphisms in the assembler C G to disjoint morphisms in
+the assembler AF G . In particular, the equivariant Euler characteristic
+
+                                χẐ : K0Ẑ (V) → Â(Ẑ)
+                                                                                       31
+
+can be lifted to a morphism of assemblers
+
+                                   χẐ : C Ẑ → AF Ẑ .
+
+
+        6. Dynamical F1 -structures and the Bost–Connes algebra
+   6.1. The spectrum as Euler characteristic. The point of view we adopt
+here is similar to [EbGu–Za17]. We consider the Grothendieck ring K0Z (VC ) of pairs
+(X, f ) of a complex quasi-projective variety X with an automorphism f : X → X,
+such that f∗ in homology is quasi-unipotent. The addition is given by disjoint union
+and the product by the Cartesian product.
+   The quasi-unipotent condition ensures that the spectrum of the induced action
+f∗ : H∗ (X, Z) → H∗ (X, Z) is contained in the set of roots of unity. We can then
+consider the spectrum of f∗ as an Euler characteristic.
+   6.1.1. Lemma. The spectrum of the induced map on homology determines a
+ring homomorphism
+                         σ : K0Z (VC ) → Z[Q/Z].                     (6.1)
+
+
+   Proof. To a pair (X, f ) we associate the spectrum of the map f∗ : H∗ (X, Z) →
+H∗ (X, Z), seen as a subset Σ(f∗ ) ⊂ Q/Z P of roots of unity counted with integer
+multiplicities. Thus, we have σ(X, f ) = λ∈Σ(f∗ ) mλ λ. The spectrum of a tensor
+product is given by the set of products of eigenvalues of the two matrices, hence
+the compatibility with the ring structure of K0Z (VC ). 
+   Under suitable assumptions on the induced map on H ∗ (X, C) and its Hodge
+decomposition, one can also consider other kinds of motivic measures associated to
+the spectrum Σ, for example generalizations of the Hodge–Deligne polynomial, see
+[EbGu–Za17].
+    6.2. Lifting the Bost–Connes algebra to dynamical F1 -structures. Let
+Zn be a zero-dimensional variety with #Zn (C) = n. Then, for a given (X, f ) ∈
+K0Z (VC ), the Verschiebung pair (X ×Zn , Φn (f )) consists of the variety X ×Zn with
+the automorphism Φn (f )(x, ai) = (x, ai+1 ) for i = 1, . . . , n − 1 and Φn (f )(x, an) =
+(f (x), a1).
+  6.2.1. Lemma. The induced map in homology Φn (f )∗ : H∗ (X × Zn , Z) →
+H∗ (X × Zn , Z) is the Verschiebung map.
+32
+
+   Proof. We have Hk (Zn , Z) = Zn for k = 0 and zero otherwise, hence we can
+identify H∗ (X ×Zn , Z) ≃ H∗ (X, Z)⊕n . Then the action Φn (f )(x, ai) = (x, ai+1 ) for
+i = 1, . . . , n − 1 and Φn (f )(x, an) = (f (x), a1) induces the action Φn (f )∗ = V (f∗ )
+in homology. 
+   6.3. Proposition. The maps σn (X, f ) = (X, f n ) and ρ̃n (X, f ) = (X ×
+Zn , Φn (f )) lift the maps σn and ρ̃n of the integral Bost–Connes algebra to the
+Grothendieck ring K0Z (VC ), compatibly with the spectrum Euler characteristic σ :
+K0Z (VC ) → Z[Q/Z].
+   Proof. The argument is analogous to the case of Ẑ-actions analyzed in the
+previous section. Because of the relations between Frobenius Fn (f ) = f n and
+Verschiebung Vn (f ) we have
+
+σn ◦ ρ̃n (X, f ) = σn (X ×Zn , Φn (f )) = (X ×Zn , Φn (f )n ) = (X ×Zn , f ×1) = (X, f )⊕n
+
+        ρ̃n ◦ σn (X, f ) = ρ̃n (X, f n ) = (X × Zn , Φn (f n )) = (X, f ) × (Zn , γ),
+with γ = Φn (1) : ai 7→ ai+1 and an 7→ a1 , where as before we used the relation
+Vn (Fn (a)b) = aVn (b), which gives Φn (f n ) = f Φn (1). Under the spectrum Euler
+characteristic map σ : K0Z (VC ) → Z[Q/Z] we then see that we have commutative
+diagrams
+                                          σ
+                              K0Z (VC )       / Z[Q/Z]
+
+                                      σn                σn
+                                                      
+                                  Z          σ    / Z[Q/Z]
+                                 K0 (VC )
+and where σn are ring homomorphism and ρ̃n are group homomorphisms. 
+   Thus, we can consider a non-commutative version of the Grothendieck ring
+K0Z (VC ).
+   6.4. Definition. Let KZ                                                     Z
+                            0 (VC ) be the non-commutative ring generated by K0 (VC )
+                                     ∗
+together with generators µ̃n and µn satisfying the relations (3.1) for all n, m ∈ N,
+and (3.2) for all x = (X, f ) ∈ K0Z (VC ) and all n ∈ N.
+   Consider then the algebra K0Z (VC )Q = K0Z (VC ) ⊗Z Q. As in the Ẑ–equivariant
+case analyzed in the previous section, the maps σn and ρ̃n induce endomorphisms
+σn and ρn of K0Z (VC )Q , which determine a non-commutative semigroup crossed
+product algebra. The spectrum Euler characteristic (6.1) extends to an algebra
+homomorphism to the rational Bost–Connes algebra.
+                                                                                    33
+
+   6.5. Proposition. The algebra KZ   0 (VC ) ⊗Z Q is isomorphic to a semigroup
+                           Z
+crossed product algebra K0 (VC )Q ⋊ N with the semigroup action given by x 7→
+n−1 ρ̃n (x). The spectrum Euler characteristic (6.1) extends to an algebra homo-
+morphism σ : KZ  0 (VC ) ⊗Z Q → AQ , where AQ = Q[Q/Z] ⋊ N is the rational
+Bost–Connes algebra.
+  Proof. The algebra KZ                                                   Z
+                          0 (VC ) ⊗Z Q is generated by the elements of K0 (VC )Q
+                                  −1         ∗
+and additional generators µn = n µ̃n and µn , which satisfy the relations
+
+µ∗n µn = 1,   µnm = µn µm ,   µ∗nm = µ∗n µ∗m , ∀n, m ∈ N,   µn µ∗m = µ∗m µn if (n, m) = 1
+
+                                                        1
+                     µn xµ∗n = ρn (x) with ρn (x) =       ρ̃n (x),
+                                                        n
+with σn ρn (x) = x, for all x = (X, f ) ∈ K0Z (VC ). The semigroup action in the
+crossed product algebra K0Z (VC )Q ⋊ N is given by x 7→ ρn (x) = µn xµ∗n , hence
+one obtains an identification of these two algebras. The morphism σ : KZ   0 (VC ) ⊗Z
+Q → AQ is the map given by the spectrum Euler characteristic on elements of
+K0Z (VC ), extended to Q-coefficients, and it maps χ(µn ) = µn and χ(µ∗n ) = µ∗n . By
+Proposition 6.3, it determines a homomorphism of crossed–product algebras. 
+    6.6. Assembler and Bost–Connes endofuntors. First we consider an as-
+                    Z
+sembler category CC   associated to the ring K0Z (VC ) and the associated Γ–space and
+spectrum K Z (VC ) with π0 K Z (VC ) = K0Z (VC ), then we show that the maps σn and
+                                            Z
+ρ̃n define endofunctors of the assembler CC   , hence they induce maps of spectra and
+induced map of the homotopy groups that recover the Bost–Connes map on π0 .
+                                 Z
+    6.6.1. Proposition Let CC       be the following category. Its objects the pairs
+(X, f ) of a complex quasi–projective variety X with an automorphism f : X → X,
+such that the induced map f∗ in homology is quasi–unipotent. Its morphisms ϕ :
+(Y, h) ֒→ (X, f ) are given by embeddings Y ֒→ X of components preserved by the
+map f and h = f |Y . This is an assembler category, and the associated spectrum
+K Z (VC ) := K(CCZ
+                   ) has π0 K(CCZ
+                                  ) = K0Z (VC ). The maps σn and ρ̃n on K0Z (VC ) lift
+                                    Z
+to endofunctors of the assembler CC   , in which σn also compatible with the monoidal
+structure.
+    Proof. The argument is similar to the Ẑ-equivariant case we discussed before.
+                      Z
+In the category CC      the Grothendieck topology is generated by the covering fam-
+ilies {(X1 , f |X1 ) ֒→ (X, f ), (X2, f |X2 ) ֒→ (X, f )} with X = X1 ⊔ X2 and the Xi
+are preserves by the map f : X → X. The empty X is the initial object. The
+34
+
+finite disjoint covering families are given by embeddings ϕi : (Xi , f |Xi ) ֒→ (X, f ),
+where the Xi are unions of components preserved by the map, f |Xi = f ◦ ϕi .
+Any two finite disjoint families have a common refinement since the category has
+pullbacks, [Zak1] and morphisms are compositions of embeddings hence monomor-
+                                                     Z
+phisms. The abelian group structure on π0 K(CC         ) is determined by the relation
+(X, f ) = (X1 , f |X1 ) + (X1 , f |X2 ) for each decomposition X = X1 ⊔ X2 that is
+preserved by the map f : X → X. The product is determined by the symmetric
+monoidal structure induced by the Cartesian product. Thus, we obtain the ring
+K0Z (VC ). The endofunctors σn map objects by σn (X, f ) = (X, f n ) and maps pairs
+of embeddings with X = X1 ⊔ X2
+                         {(X1 , f |X1 ) ֒→ (X, f ) ←֓ (X2 , f |X2 )}
+to pairs of embeddings
+                      {(X1 , f n |X1 ) ֒→ (X, f n ) ←֓ (X2 , f n |X2 )}
+These functors are compatible with Cartesian products, hence with the monoidal
+structure. The endofunctore ρ̃n act on objects as ρ̃n (X, f ) = (X × Zn , Φn (f )) and
+map a pair of embeddings as above to the pair
+       {(X1 × Zn , Φn (f )|X1 ) ֒→ (X × Zn , Φn (f )) ←֓ (X2 × Zn , Φn (f )|X2 )},
+where Φn (f )|Xi = Φn (f |Xi ). The functors ρ̃n are not compatible with the monoidal
+                                                                 Z
+structure hence they induce group homomorphisms of π0 K(CC         ). 
+   Note that, unlike the Ẑ-equivariant cases considered in the previous sections,
+                   Z
+the spectrum K(CC    ) is not so interesting topologically, since in the assembler we
+are only using decompositions into connected components. The reason for wanting
+only this type of scissor-congruence relations in K0Z (VC ) is the spectrum Euler
+characteristic σ : K0Z (VC ) → Z[Q/Z], which should map a splitting X = X1 ⊔ X2
+compatible with f : X → X to a corresponding splitting H∗ (X, Z) = H∗ (X1 , Z) ⊕
+H∗ (X2 , Z) with quasi-unipotent maps f∗ |Xi , so that the spectrum as an element of
+Z[Q/Z] satisfies σ(X, f ) = σ(X1 , f1 ) + σ(X2 , f2 ).
+
+   Acknowledgment. The second named author is partially supported by NSF
+grant DMS-1707882, and by NSERC Discovery Grant RGPIN-2018-04937 and Ac-
+celerator Supplement grant RGPAS-2018-522593.
+   We thank Inna Zakharevich for several useful suggestions that were incorporated
+in the final version of the article.
+                                                                                  35
+
+                                    References
+   [At61] M. Atiyah. Characters and cohomology of finite groups. Publ. Math. IHÉS,
+t. 9 (1961), pp. 23–64.
+  [Bo11a] J. Borger. The basic geometry of Witt vectors, I: The affine case. J.
+Algebra and Number Theory, vol. 5 (2011), no. 2, pp. 231–285.
+   [Bo11b] J. Borger. The basic geometry of Witt vectors, II: Spaces. Math. Ann.,
+vol. 351 (2011), no. 2, pp. 877–933.
+   [Bor14] L. Borisov, The class of the affine line is a zero divisor in the Grothen-
+dieck ring. arXiv:1412.6194.
+   [BoCo95] J.B. Bost, A. Connes. Hecke algebras, type III factors and phase tran-
+sitions with spontaneous symmetry breaking in number theory. Selecta Math. (N.S.)
+1 (1995) no. 3, pp. 411–457.
+   [BousFr78] A. K. Bousfield, E. M. Friedlander. Homotopy theory of Γ–spaces,
+spectra, and bisimplicial sets. In “Geometric applications of homotopy theory II”,
+Lecture Notes in Math. 658 (1978), pp. 80–130.
+  [Ca15] J. A. Campbell, The K–theory spectrum of varieties. arXiv:1505.03136v2
+   [CaWoZa17] J. Campbell, J. Wolfson, I. Zakharevich, Derived ℓ-adic zeta func-
+tions. arXiv:1703.09855
+  [CC14] A. Connes, C. Consani. On the arithmetic of the BC-system. J. Non-
+commut. Geom. vol. 8 (2014), no. 3, pp. 873–945.
+  [CCMar09] A. Connes, C. Consani, M. Marcolli. Fun with F1 . J. Number
+Theory, vol. 129 (2009) no. 6, pp. 1532–1561.
+  [De02] P. Deligne. Catégories tensorielles, Mosc. Math. J. 2 (2002), no. 2,
+pp. 227–248.
+  [DrSi88] A. W. M. Dress, C. Siebeneicher. The Burnside ring of profinite groups
+and the Witt vector construction. Advances in Math., vol. 70 (1988), no. 1, pp. 7–
+132.
+  [EbGu-Za17] W. Ebeling, S.M. Gusein–Zade. Higher–order spectra, equivariant
+Hodge–Deligne polynomials, and Macdonald–type equations. In “Singularities and
+computer algebra”, pp. 97–108, Springer, 2017.
+   [EKMM97] A.D. Elmendorf, I. Kriz, M.A. Mandell, J.P. May, with an appendix
+by M. Cole. Rings, modules, and algebras in stable homotopy theory. Mathematical
+Surveys and Monographs, Vol. 47, American Mathematical Society, 1997.
+36
+
+  [FrSh81] J. Franks, M. Shub. The existence of Morse–Smale diffeomorphisms.
+Topology, vol. 20 (1981), no. 4, pp. 273–290.
+  [Gr81] D. Grayson. SK1 of an interesting principal ideal domain. Journ. Pure
+and Applied Algebra, vol. 20 (1981), pp. 157–163.
+   [Gu-Za17] S. M. Gusein-Zade. Equivariant analogues of the Euler characteristic
+and Macdonald type equations. Russian Math. Surveys, vol. 72, no. 1 (2017), pp. 1–
+32.
+  [HSS00] M. Hovey, B. Shipley, J. Smith. Symmetric spectra. J. Amer. Math.
+Soc. vol.13 (2000), 149–208.
+   [JiMaOnSo16] S. Jin, W. Ma, K. Ono, K. Soundararajan. The Riemann hypoth-
+esis for period polynomials of Hecke eigenforms. Proc. Nat. Ac. Sci. USA, vol. 113
+(2016), no. 10, pp. 2603–2608. Preprint arXiv:1601.03114
+  [KoTsch17] M. Kontsevich, Yu. Tschinkel. Specialisation of birational types.
+arXiv:1708.05699
+   [La09] T. Lawson. Commutative Γ–rings do not model all commutative ring
+spectra. Homology Homotopy Appl. 11 (2009) , no. 2, pp. 189–194.
+  [Le81] H. Lenstra, Jr. Grothendieck groups of abelian group rings. Journ. of
+Pure and Applied Algebra, vol 20 (1981), pp. 173–193.
+   [LeBr17] L. Le Bruyn. Linear recursive sequences and Spec Z over F1 . Commu-
+nications in Algebra, vol. 45, no. 7 (2017), pp. 3150–3158.
+   http://dx.doi.org/10.180/00927872.2016.1236116
+  [Lo99] E. Looijenga, Motivic measures. Séminaire N. Bourbaki, 1999-2000, exp.
+no 874, pp. 267–297.
+   [Ly99] M. Lydakis. Smash products and Γ-spaces. Math. Proc. Cam. Phil. Soc. 126
+(1999), pp. 311–328.
+  [MacL71] S. MacLane. Categories for the working mathematician. Springer,
+1971.
+   [Ma10] Yu. Manin. Cyclotomy and analytic geometry over F1 . In: Quanta of
+Maths. Conference in honor of Alain Connes. Clay Math. Proceedings, vol. 11
+(2010), pp. 385–408. arXiv:0809.2716. 28 pp.
+  [Ma16] Yu. Manin. Local zeta factors and geometries under Spec Z. Izvestiya:
+Mathematics, vol. 80:4 ( 2016), pp. 751–758. DOI 10.1070/IM8392 . arXiv:1407.4969
+                                                                                  37
+
+   [MaRe17] M. Marcolli, Z. Ren, q–Deformations of statistical mechanical systems
+and motives over finite fields. p-Adic Numbers Ultrametric Anal. Appl. 9 (2017)
+no. 3, pp. 204–227.
+   [MaTa17] M. Marcolli, G. Tabuada, Bost–Connes systems, categorification, quan-
+tum statistical mechanics, and Weil numbers. J. Noncommut. Geom. 11 (2017)
+no. 1, pp. 1–49.
+   [Mart16] N. Martin. The class of the affine line is a zero divisor in the Grothen-
+dieck ring: an improvement. C. R. Math. Acad. Sci. Paris 354 (2016), no. 9,
+pp. 936–939.
+   [OnRoSp16] K. Ono, L. Rolen, F. Sprung. Zeta–polynomials for modular form
+periods. Preprint arXiv:1602.00752
+   [Schw99] S. Schwede, Stable homotopical algebra and Γ–spaces. Math. Proc.
+Cam. Phil. Soc. vol.126 (1999), pp. 329–356.
+   [Schw12] S. Schwede, Symmetric spectra. Preprint 2012, https://www.math.uni-
+bonn.de/∼schwede/SymSpec-v3.pdf
+   [Se74] G. Segal. Categories and cohomology theories. Topology, vol. 13 (1974),
+pp. 293–312.
+   [ShSu75] M. Shub, D. Sullivan. Homology theory and dynamical systems. Topol-
+ogy, vol.14 (1975), pp. 109–132.
+   [ToVa09] B. Toën, M. Vaquié. Au–dessous de SpecZ. Journ. of K–theory: K-
+theory and its Applications to Algebra, Geometry, and Topology, 2009, 3 (03),
+pp.437–500. 10.1017/is008004027jkt048. arXiv:0509684
+   [Ve73] J. L. Verdier. Caractéristique d’Euler-Poincaré. Bull. Soc. Math. France,
+vol. 101 (1973), pp. 441–445.
+   [Za17a] I. Zakharevich. The K–theory of assemblers. Adv. Math. 304 (2017),
+pp. 1176–1218.
+   [Za17b] I. Zakharevich. On K1 of an assembler. J. Pure Appl. Algebra 221
+(2017), no. 7, pp. 1867–1898.
+   [Za17c] I. Zakharevich. The annihilator of the Lefschetz motive. Duke Math. J.
+166 (2017), no. 11, pp. 1989–2022.
+  [Za18] I. Zakharevich. Private communication. July 2018.
+38
+
+     Max–Planck–Institute for Mathematics,
+     Vivatsgasse 7, Bonn 53111, Germany.
+     manin@mpim-bonn.mpg.de
+     California Institute of Technology, USA
+     Perimeter Institute for Theoretical Physics, Canada
+     University of Toronto, Canada
+     matilde@caltech.edu
+

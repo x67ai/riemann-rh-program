@@ -1,0 +1,1180 @@
+arXiv:0809.1564v2 [math.AG] 23 Mar 2009
+                                                                            CYCLOTOMY
+                                                           AND ANALYTIC GEOMETRY OVER F1
+                                                                             Yuri I. Manin
+                                                        Max–Planck–Institut für Mathematik, Bonn, Germany,
+                                                           and Northwestern University, Evanston, USA
+
+                                             Abstract. Geometry over non–existent “field with one element” F1 conceived
+                                          by Jacques Tits [Ti] half a century ago recently found an incarnation, in several
+                                          related but different guises. In this paper I analyze the crucial role of roots of unity
+                                          in this geometry and propose a version of the notion of “analytic functions” over
+                                          F1 . The paper combines a focused survey of various approaches with some new
+                                          constructions.
+
+                                                                                 To Alain Connes, for his sixtieth anniversary
+                                                            0. Introduction: many faces of cyclotomy
+                                             0.1. Roots of unity and field with one element. The basics of algebraic
+                                          geometry over an elusive “field with one element F1 ” were laid down recently in
+                                          [So], [De1], [De2], [TV], fifty years after a seminal remark by J. Tits [Ti]. There
+                                          are many motivations to look for F1 ; a hope to imitate Weil’s proof for Riemann’s
+                                          zeta is one of them, cf. [CCMa3], [Ku], [Ma1].
+                                             An important role in the formalization of F1 –geometry was played by the sugges-
+                                          tion made in [KS] that one should simultaneously consider all the “finite extensions”
+                                          F1n . This resulted in the approach of [So], where a geometric object, say a scheme,
+                                          V over F1 , acquired flesh after a base extension to Z, and the F1 – geometry of V
+                                          was reflected in (and in fact, formally defined in terms of) the geometry of “cyclo-
+                                          tomic” points of an appropriate ordinary scheme VZ . In [De1] and [TV], schemes
+                                          over F1 are defined in categorical terms independently of cyclotomy, but the latter
+                                          reappears soon: see the Definition 1.7.1 below and the following discussion.
+                                             All these ideas are interrelated but lead to somewhat different versions of basic
+                                          definitions, and develop the initial intuition in different directions, so that their
+                                          divergence can be fruitfully exploited. With this goal in mind, I have chosen the
+                                          topics to be discussed in sec. 1, where four approaches to the definition of F1 –
+                                          geometry are sketched and compared.
+                                             Of course, roots of unity appear naturally in many different geometric contexts,
+                                          not motivated by geometry over F1 : some of these contexts are reviewed below in
+                                                                                     1
+2
+
+the subsections 0.2–0.6 of this Introduction. I have compiled a sample of them with
+an explicit goal: to guess how the insights gained within these contexts could help
+develop F1 –geometry.
+  Seemingly, a similar desire moved the authors of [CCMa2] to put the theory of
+Bost–Connes in the framework of F1 –geometry.
+  I show in sec. 2 and sec. 3 that the results of [Ha1], the preparatory part to
+K. Habiro’s work on Witten–Reshetikhin–Turaev invariants of homology spheres
+[Ha2], and discoveries about these invariants made in [Law] and [LawZ], can be
+naturally viewed as a contribution to the rudiments of analytic geometry over F1 .
+   Finally, in sec. 4 I discuss Witt vectors and a series of F1 –models of moduli
+spaces.
+   Acknowledgements. V. Golyshev’s note [Go] prompted me to think about cyclo-
+tomy in the F1 context. K. Habiro read a preliminary version of this paper and
+suggested several complements and simplifications. H. Lenstra kindly refered me to
+[van D] and other useful sources on profinite numbers. A. Connes and C. Consani
+sent me a copy of their new paper [CC] which was being written during the same
+weeks as the first version this article.
+   When this first version appeared in arXiv on Sept. 09, 2008, I received several
+messages commenting upon and developing the framework involving roots of unity
+in F1 –geometry.
+   Matilde Marcolli used the multivariable Habiro ring in [Marc] in order to gener-
+alize the Bost–Connes system.
+   James Borger drew my attention to the fact that my treatment of the cyclotomic
+coordinates on Witt schemes perfectly matches his remarkable basic idea that “a
+lambda–ring structure (in the sense of Grothendieck–Riemann–Roch) on a ring
+R should be thought of as descent data for R from Z to F1 ” (message of Sept.
+11, 2008). Borger’s approach promises to be a significant breakthrough in our
+understanding of F1 –geometry, and I have added a brief discussion of it in this new
+version.
+   Finally, a totally anonymous referee provided a list of useful remarks and sug-
+gestions.
+    I deeply appreciate their interest and help.
+
+   0.2. Roots of unity and Morse–Smale diffeomorphisms. This aspect of
+cyclotomy is described by D. Grayson in [Gr].
+                                                                                     3
+
+   Let M be a compact smooth manifold, f a diffeomorphism of M . It is called
+Morse–Smale, if it is structurally stable, and only a finite number of points x are
+non–wandering. (A point x is called non–wandering, if for any neighborhood U of
+x, we have U ∩ f n (U ) 6= ∅ for some n > 0).
+   Assume that all eigenvalues of the action of f on integral cohomology of M are
+roots of unity and put the question: when f is isotopic to a Morse–Smale map?
+   There is an obstruction to this, lying in the group SK1 (R), where R is the
+ring obtained by localizing Z[q] with respect to Φ0 (q) := q and all cyclotomic
+polynomials                             Y
+                              Φn (q) :=    (q − η)
+                                            η
+
+where η runs over all primitive roots of unity of degree n ≥ 1.
+    This ring turns out to be a principal ideal domain. The reason for this is that
+each closed point (a prime ideal of depth two) of the “arithmetical plane” Spec Z[q]
+is situated on an arithmetic curve Φn (q) = 0, n ≥ 0, because all finite fields consist
+of roots of unity and zero.
+  Localization cuts all these curves off, and all closed points go with them. The
+remaining prime ideals are of height one, and they are principal.
+   The same effect can be achieved by localizing wrt all primes p ∈ Z, thus getting
+the principal ideal domain Q[q]. This localization cuts away the closed fibers of the
+projection Spec Z[q] → Spec Z, and all the closed points with them.
+   This suggests that the union of cyclotomic arithmetic curves Φn (q) = 0 can be
+imagined as the union of closed fibers of the projection Spec Z[q] → Spec F1 [q], and
+the arithmetic plane itself as the product of two coordinate axes, arithmetic one
+Spec Z and geometric one, Spec F1 [q], over the “absolute point” Spec F1 .
+   In sec. 1 below, I review several versions of algebraic F1 –geometry where this
+intuition can be made precise.
+   0.2.1. Question. Is there a context in which diffeomorphisms f , acting on
+integral cohomology of M with eigenvalues roots of unity, could be interpreted as
+“Frobenius maps in caracteristic 1”, and their fixed (or non–wandering) points in
+a Morse–Smale situation as F1n –points of an appropriate variety?
+   0.3. Roots of unity and the Witten–Reshetikhin–Turaev invariants.
+An apparently totally different line of thought led to the consideration of comple-
+tions of Z[q] with respect to various linear topologies generated by the cyclotomic
+polynomials Φn (q). Namely, it turned out that the invariants of 3–dimensional
+4
+
+homology spheres, introduced first by E. Witten by means of path integrals, and
+mathematically constructed by Reshetikhin and Turaev, can be unified into objects
+lying in completions of the kind described above.
+   0.3.1. Question. Can these completions be interpreted in a framework of F1 –
+geometry?
+   We try to answer this question affirmatively in sec. 2 and 3 below.
+   (Similar completions Q  along the arithmetical axis produce for example direct prod-
+ucts of p–adic integers       Zpi and the ring lim
+                                               ←−N Z/(p1 . . . pN ), in which Z can be
+embedded.)
+   We suggest two interpretations, one in the framework of Soulé’s axiomatics, and
+another more in the spirit of Toën–Vaquié and Deitmar’s definitions. Here are brief
+explanations.
+   Soulé’s definition of an F1 –scheme X involves, besides XZ , a C–algebra AX , and
+each cyclotomic point of XZ coming from X must assign “values” to the elements
+of AX . His choice of AX for the multiplicative group Gm,F1 is that of continuous
+functions on the unit circle in C (cf. [So], 5.2.2). For the affine line he uses
+holomorhic functions in the open unit circle continuous on the boundary.
+   We suggest to consider respectively the ring of Habiro’s analytic functions and
+the ring of Habiro’s functions admitting an analytic continuation in the open unit
+disc. The first one consists of formal series
+                                      ∞
+                                      X
+                       f (q) = a0 +         an (1 − q) . . . (1 − q n ).          (0.1)
+                                      n=1
+
+where an are polynomials in q of degree ≤ n − 1. At any root of unity, only a finite
+number of terms do not vanish, so f is a well defined function on cyclotomic points.
+   The second option consists in considering holomorphic functions ϕ(q) in the unit
+circle, such that for any root of unity ζ, a radial limit limr→1− rζ exists, and the
+family of such limits can be given by the series (0.1).
+   Versions of this choice might involve functions holomorphic inside variable rings
+with outer boundary |q| = 1 admitting radial limits at roots of unity, or even pairs
+of functions ϕ− , resp. ϕ+ , holomorphic inside narrow rings with outer, resp. inner,
+boundary unit circle, which restrict to a C ∞ –function on all small radial intervals
+(1 − εζ , 1 + εζ ) · ζ containg roots of unity ζ. In particular, they must satisfy
+
+                             lim ϕ− (rζ) = lim ϕ+ (rζ)
+                            r→1−                 r→1+
+                                                                                    5
+
+The limit values should admit the representation (0.1).
+   The fact that there exist highly nontrivial and interesting examples of such func-
+tions, was discovered in the theory of Witten–Reshetikhin–Turaev invariants: cf.
+[Law], [LawZ]. Don Zagier says that ϕ± “leak through” roots of unity.
+   On the other hand, if AX is not a part of the definition of a F1 –scheme, as in the
+versions of [TV] and [De1], one can still imagine that a ring of the type discussed
+above would form a part of the structure of analytic F1 –varieties when F1 –geometry
+becomes mature enough to include analytic geometry.
+   [CCMa2] also suggests that time is ripe for such generalizations.
+   0.4. Roots of unity and the Bost–Connes system. In the paper [BoCo]
+roots of unity appear in the following setting. Consider the Hecke algebra H with
+involution over Q given by the following presentation. The generators are denoted
+µn , n ∈ Z+ , and e(γ), γ ∈ Q/Z. The relations are
+
+            µ∗n µn = 1,     µmn = µm µn ,      µ∗m µn = µn µ∗m for (m, n) = 1;
+
+                     e(γ)∗ = e(−γ),  e(γ1 + γ2 ) = e(γ1 ) e(γ2 );
+                                                     1 X
+                   e(γ)µn = µn e(nγ), µn e(γ)µ∗n =           e(δ).
+                                                     n
+                                                              nδ=γ
+
+The idèle class group b
+                       Z∗ of Q acts upon H in a very explicit and simple way: on
+e(γ)’s the action is induced by the multiplication b
+                                                   Z∗ × Q/Z → Q/Z, whereas on
+µn ’s it is identical.
+   The algebra H admits an involutive representation ρ in l2 (Z+ ): denoting by {ǫk }
+the standard basis of this space, we have
+
+                          ρ(µn ) ǫk = ǫnk ,   ρ(e(γ))ǫk = e2πikγ ǫk .
+
+From this, one can produce the whole Gal (Qab /Q)–orbit {ρg } of such representa-
+tions, applying g ∈ Gal (Qab /Q) to all roots of unity occuring at the right hand
+sides of the expressions for ρ(e(γ))ǫk . All these representations can be canoni-
+cally extended to the C ∗ –algebra completion C of H constructed from the regular
+representation of H. Let us denote them by the same symbol ρg .
+   To formulate the main theorem of [BoCo], we need some more explanations.
+The algebra C admits a canonical action of R, which can be interpreted as time
+evolution represented on the algebra of observables. This is a general (and deep)
+6
+
+fact in the theory of C ∗ –algebras, but for C the action of R can be quite explicitly
+described on the generators. Let us denote by σt the action of t ∈ R. A KMSβ
+state at inverse temperature β on (C, σt ) is defined as a state ϕ on C such that for
+any x, y ∈ C there exists a bounded holomorphic function Fx,y (z) defined in the
+strip 0 ≤ Im z ≤ β and continuous on the boundary, satisfying
+
+                   ϕ(xσt (y)) = Fx,y (t), ϕ(σt (y)x) = Fx,y (t + iβ).
+
+Now denote by H the positive operator on l2 (Z+ ): Hǫk = (log k) ǫk . Then for
+any β > 1, g ∈ Gal (Qab /Q) one can define a KMSβ state ϕβ,g on (C, σt ) by the
+following formula:
+
+                   ϕβ,g (x) := ζ(β)−1 Trace (ρg (x) e−βH ),   x∈C
+
+where ζ is the Riemann zeta–function. The map g 7→ ϕβ,g (x) is a homeomorphism
+of Gal (Qab /Q) with the space of extreme points of the Choquet simplex of all
+KMSβ states.
+   To the contrary, for β < 1 there is a unique KMSβ state. This is a remarkable
+“arithmetical symmetry breaking” phenomenon.
+   The description of the Hecke algebra above involves denominators in the last
+relation. In [CCMa2], the authors construct Z–models of finite layers of this object
+and natural morphisms between them, and show that the resulting system is a lift
+to Z of an F1 –tower.
+    This picture is generalized to the multivariable case in [Marc].
+   0.5. Witt vectors. It is desirable to consider the arithmetical axis Spec Z as
+an F1 –space as well, but in the current framework it is certainly not a scheme of
+finite type. In fact, its base extension to Z is elusive, being precisely what we would
+like to see as the spectrum of Z ⊗ Z.
+   Nevertheless, in a certain sense primes can be considered as cyclotomic points
+of Spec Z, at which the “cyclotomic coordinates”, all integers, take values that are
+roots of unity or zero.
+   In fact, roots of unity of degree q = pn − 1 (and zero), considered together with
+their embedding into a fixed unramified extension Znr  p of Zp rather than C, appear
+as natural coefficients of p–adic expansions discovered by Teichmüller and Witt.
+Namely, each residue class in Znr p /(p) has a unique (Teichmüller) representative ζ
+which is either a root of unity or 0 in Znr
+                                          p , so that an element of such an extension
+                                                                                         7
+
+                                         P∞
+can be written as a well defined series i=0 ζi pi . Moreover, coefficients of a sum
+or a product of two such series are given by Witt’s universal polynomials in the
+coefficients of the summands/factors in the following sense: one must reduce Witt’s
+coefficients modulo p, apply these polynomials (which are defined over Z), and lift
+results back to roots of unity.
+   This can be generalized to the so called “big Witt ring” and interpreted in the
+following way. On affine spaces AkZ = Spec Z [u1 , u2 , . . . , uk ] there exists a natural
+system of “cyclotomic coordinates” (in the p–adic context sometimes called “ghost
+coordinates”). In terms of these coordinates, one can define an F1 –gadget à la Soulé,
+requiring that in the subfunctor of points, these coordinates took cyclotomic values
+(including zero). However, Witt’s addition/multiplication becomes well defined
+only after extension to Z, unless the notion of morphism over F1 is drastically
+extended.
+   To me, this looks like a strong argument for considering options for such an
+extension.
+   We supply some more details in sec. 4.
+   0.6. Roots of unity and the analogy between Hilbert polynomials and
+zeta functions. There were several suggestions that Hilbert polynomials H(n),
+say, of graded commutative rings behave like toy zeta functions.
+   Rather precise recent observations by V. Golyshev in [Go] can be summarized
+as follows.
+   a) The comparison to zetas becomes most striking if one restricts oneself to the
+following Hilbert polynomials of projective smooth manifolds X:
+   (i) If X is of general type or Fano: consider H−KX (n) := χ(−nKX ).
+   (ii) If X is a Calabi–Yau manifold embedded as an anticanonical section in
+a Fano manifold: consider the Euler characteristic of the powers of the induced
+anticanonical sheaf.
+   b) With this normalization, the Serre duality leads to a functional equation for
+the Hilbert polynomial of the s 7→ −1 − s type.
+   c) In many cases, the well known inequalities for Chern numbers of X imply
+that all roots of H(s) lie in the critical strip −1 < Re s < 0, and sometimes even
+more precise statements. For example, Yau’s inequality c31 ≥ 8/3c1 c2 for Fano’s
+threefolds shows this fact for them.
+  0.6.1 Question. Is there a systematic relationship between Hilbert polynomials
+and zeta functions of schemes (or more general spaces) over F1 ?
+8
+
+   The existence of such zeta functions and their structure in certain cases was
+heuristically suggested in [Ma1] (cf. also [Ku]). They make precise sense for some
+specimens in Soulé’s category, and are indeed polynomials; see also [CC] for essential
+complements. An obvious attack on question 0.6.1 might start with comparing the
+counting of F1n –points with counting of monomials in cyclotomic coordinates.
+   Roots of unity appear in this context via the following beautiful observation due
+to F. Rodriguez–Villegas, [RV].
+   Consider first an arbitrary polynomial H(q) ∈ Z[q]. Define another polynomial
+P (t) such that
+                                X∞
+                                                 P (t)
+                                    H(n)tn =
+                                n=0
+                                               (1 − t)d
+
+where P (1) 6= 0. Let d := deg H + 1, e := deg P.
+   Rodriguez–Villegas proves that if all roots of P lie on the unit circle, then H(q)
+has simple roots at q = −1, . . . , e + 1 − d and possible additional roots at the middle
+                              e−d
+of this critical strip Re q =         .
+                                2
+   This result can be applied to the case when H(n) = dim An is the Hilbert
+polynomial of a graded algebra ⊕∞       n=0 An generated by A1 , of Krull dimension d,
+complete intersection of polydegree (n1 , . . . , ns ).
+                                                        Qs
+   It turns out that e = n1 + · · · + ns and P (t) = j=1 (1 + t + · · · + tnj ) so that all
+roots of P are in fact roots of unity.
+   The critical strip in [Go] has width 1, because Golyshev differently normalizes
+the grading via −KX . However, the Rodriguez–Villegas grading agrees with the
+motivic philosophy involving weights and Tate’s motives over F1 , see [Ma1].
+   0.7. Summary. We are guided by the following heuristics. Each time that
+roots of unity appear in a certain context, we try to interpret the functions whose
+values are these roots of unity as cyclotomic coordinates on a relevant F1 –scheme,
+in the sense of the Definition 1.7.1 below, or a version thereof.
+   An appropriate version of (big) Witt vectors must furnish the basic F1 –analytic
+(or formal) approximation to the arithmetic line Spec Z.
+
+                        1. Geometry over F1 : generalities
+   This section sketches and compares four approaches to the definition of F1 –
+geometry. Preparing a colloquium talk in Paris, I have succumbed to the temptation
+to associate them with some dominant trends in the history of art.
+                                                                                 9
+
+   1.1. Affine schemes over F1 according to Toën and Vaquié (Abstract
+Expressionism). Affine schemes over F1 arise in the most straightforward (and al-
+lowing vast generalizations) manner in the framework of [TV], according to which
+algebraic geometry over F1 is a special case of algebraic geometry relative to a
+monoidal symmetric category (C, ⊗, 1), which is assumed to be complete, cocom-
+plete, and to admit internal Hom’s.
+   Such a category C gives rise to the category of commutative, associative and
+unitary monoids Comm (C) which serves as a substitute for the category of ordinary
+commutative rings. Each object A of Comm (C) determines the category of A–
+modules A–M od consisting of pairs (M, µ) where M is an object of C together
+with action µ : A ⊗ M → M and satisfying the usual formalism.
+   The opposite category Af fC := Comm (C)opp is called the category of C–affine
+schemes, and the tautological functor Comm (C) → Af fC is called Spec.
+   Florian Marty in [Mart2] defines and studies the notion of smoothness in the
+Toën–Vaquié geometry. This requires passing to the homotopical algebra in appro-
+priate simplicial categories.
+  According to [TV], we obtain F1 –geometry as the geometry relative to the
+monoidal category of sets and direct products (Ens, ×, ∗).
+   Commutative rings relative to (Ens, ×, ∗) are just the ordinary commutative
+(associative, unital) monoids written multiplicatively: this explains the popular
+motto that to do F1 –algebra one must forget the additive structure: cf. [Har].
+This structure is restored when one applies the functor “base change” ⊗F1 Z: a
+monoid M turns into the commutative associative unital ring Z[M ]. The opposite
+to monoids category will be denoted Af fF1 .
+  More generally, any commutative ring R determines the base extension functor
+
+                      ⊗F1 R : Af fF1 → Af fR , M 7→ R[M ],
+
+from affine schemes over F1 to affine schemes over Spec R.
+    Elements of monoids M will be called cyclotomic coordinates on the respective
+affine scheme. The same term will refer to their images in R[M ]. On more general
+schemes, we may speak about local cyclotomic coordinates.
+   1.2. Deitmar’s affine schemes (Minimalism). A. Deitmar in [De1] adopts the
+same definition of the category Af fF1 . Moreover, he associates to a monoid M a
+topological space which we will denote spec M (to distinguish it from the spectrum
+of prime ideals of a ring Spec (∗)), and which is endowed with a structure sheaf.
+10
+
+Points of this space are prime ideals P ⊂ M : such submonoids that xy ∈ P implies
+x ∈ P or y ∈ P . Basic open sets and the structure (pre)sheaf of monoids are deter-
+mined via localization, just as in the classical case of commutative rings. Moreover,
+Deitmar characterizes morphisms in Af fF1 in terms of appropriate morphisms of
+topological spaces spec with structure sheaves.
+  1.3. Examples. (i) Affine F1 –schemes associated to abelian groups. Let M be
+an abelian group considered as a monoid in Ens. We have
+                             spec M ⊗F1 Z = Spec Z[M ].
+In particular, [TV] define F1n as the monoid (group) Z/nZ, and its spectrum after
+lifting to Z becomes
+              spec F1n ⊗F1 Z := Spec Z[q]/(q n − 1) = Spec Z[q]/{n}q .            (1.1)
+In [So], the study of Z[q]/{n}q –points of an a priori given ordinary scheme X gives
+clues to finding its F1 –forms identified with certain subfunctors of F1n –points.
+   In our paper, formula (1.1) motivates the introduction of analytic functions on
+(certain) F1 –schemes via Habiro’s formalism: morally, they are functions that are
+defined at all F1n –points, but nowhere else. (In fact, the latter stricture should not
+be taken too literally: some functions have very interesting p–adic, and sometimes
+complex, arguments and values as well).
+   (ii). Affine scheme Gm,F1 . Over F1 , it is represented by the spectrum of the
+infinite cyclic group Z. Lifted to Z, it becomes the ordinary Gm = Spec Z[q, q −1 ].
+   1.4. Affine spaces. Affine line A1F1 is the spectrum of the infinite cyclic monoid
+N. Its lift to Z is A1Z := Spec Z[q]. Similarly, AkF1 is the spectrum of Nk , k ≥ 1.
+   The space spec N consists of one closed point (q) and one generic point.
+   One can also consider N× that is, the free monoid freely generated by all primes.
+Its lift to Z is the ring of polynomials in infinitely many variables indexed by primes.
+   1.5. Affine scheme GL(n)F1 . According to [TV], Proposition 4.1, the natural
+sheaf (in the Grothendieck flat topology, see [TV] and 1.6 below) of automorphisms
+of a free module of rank n is represented, after lifting to Z, by the semidirect
+product of Gnm and Sn (the symmetric group).
+   In the more down–to–earth language of [De1], sec. 5, this is expressed as follows.
+Let A be a commutative monoid. Define the (set–theoretic) group of “A–valued
+points of GL(n)F1 ” as
+                             GL(n)F1 (A) := AutA (An ).
+                                                                                    11
+
+This can be identified with the group of (n, n) matrices with entries in A ⊂ Z[A],
+having exactly one non–zero element in each row and each column. This is precisely
+the description of [TV] quoted above.
+    The reader should be warned that, unlike to what happened with Ak and Gm ,
+after lifting GL(n)F1 to Z we do not get the usual GL(n)Z . This caused a difficulty
+in the framework of [So], where it was not obvious how to choose “cyclotomic points
+of GL(n)Z .” In fact, according to [TV], Proposition 4.1, GL(n)Z for n > 1 is not a
+lift of an F1 –scheme in their sense.
+
+   1.6. General schemes over F1 . Glueing general schemes from affine ones is
+defined differently in [TV] and [De1] respectively.
+   For Deitmar, an F1 –scheme is a topological space with a sheaf of monoids that
+is everywhere locally affine, that is, locally isomorphic to some spec M .
+   Toën and Vaquié endow the category Af fC with a natural Grothendieck’s topol-
+ogy, which is called the flat topology. Using it, one can defined general schemes rela-
+tive to C, as functors that can be obtained from disjoint unions of affine schemes X
+by taking the quotient with respect to an equivalence relation R ⊂ X ×X such that
+projections R → X are local Zariski isomorphisms. Such schemes form a category
+denoted Sch (C).
+   Florian Marty in [Mart1] presents a thorough study of Zariski topology on the
+category of commutative monoids in C and applies it to the comparison of Deitmar’s
+schemes with Toén–Vaquié’s ones.
+
+   1.7. Schemes over F1 à la Soulé (Critical Realism). The idea of Soulé’s
+definitions in [So] can be succintly formulated as the project of direct reconstruction
+of F1 –schemas X of finite type from certain schemes XZ over Z endowed with some
+kind of descent data from Z to F1 .
+   However, more than only descent data to F1 is required: Soulé’s spaces come
+with an additional data AX which is a C–algebra, morally an algebra of functions
+on the “∞–adic completion” of X.
+   This latter structure embeds F1 –geometry into a wider context, potentially con-
+taining also rich structures of Arakelov, or ∞–adic geometry. Some hints that this
+should be necessary and possible can be glimpsed in the remark made in [Ma1],
+1.7. Namely, in [Ma1] it was suggested that the zeta function of PkF1 must be
+(2π)−(k+1) s(s − 1) . . . (s − k).
+  Combining this with Deninger’s representation of the basic Euler Γ–factor at
+12
+
+arithmetical infinity as a regularized product
+
+                                          (2π)s   Y s+n
+                            ΓC (s)−1 :=         =
+                                           Γ(s)      2π
+                                                  n≥0
+
+
+we see that this gamma–factor should be understood as the zeta–function of the
+(motivic dual of) an infinite dimensional projective space over F1 .
+   However, the existing framework is too narrow to make sense of this statement:
+although the zeta of PkF1 is now defined in [So] and agrees with expectations of
+[Ma1] (up to a power of 2π), the infinite–dimensional case and its connections with
+∞–adic geometry still elude us. A promising approach extensively elaborated in the
+thesis by N. Durov (cf. [Du]) might pave the road to this unification. The treatment
+of the Bost–Connes dynamical system in [CCMa2] provides another bridge between
+F1 –geometry and the archimedean world.
+     Returning to [So], we will now sketch his version of F1 –schemes of finite type.
+     The data defining such a scheme X consist of:
+     (i) A Z–scheme of finite type XZ .
+   (ii) A subfunctor X(R) of the functor of points of XZ from a category of rings
+to the category of sets:
+
+                             XZ (R) := Hom(Spec R, XZ ).
+
+ Here R runs over rings that are direct summands of ⊗i Z[q]/({ni }q ), and each X(R)
+is required to be a finite set. We will call elements of X(R) “cyclotomic points”.
+  (iii) A C–algebra AX , and an assignement of complex values to each element
+f ∈ AX at each pair consisting of point of X(R) and a ring homomorphism R → C.
+  We will not spell out here the compatibility requirements between these data,
+which are pretty straightforward.
+   Morphisms of schemes over F1 are pairs, consisting of functor morphisms of cy-
+clotomic points and contravariant homomorphisms of function algebras, compatible
+with the rest of the data.
+   It is natural to call an F1 –scheme X affine, if XZ is affine. But without further
+restrictions, one would get many schemes over Z into which the cyclotomic points
+could be embedded as a subfunctor. The restriction that restores the uniqueness of
+XZ once X is known declares that XZ must be the initial object in the category of
+                                                                                  13
+
+such embeddings (see [So], sec. 4, Definition 3, for a precise statement). A similar
+universality requirement defines general F1 –schemes (loc. cit., Definition 5).
+   We will now formally define the notion of cyclotomic coordinates on Soulé’s F1 –
+schemes. Let X be an affine F1 –scheme, XZ = Spec A.
+   1.7.1. Definition. A cyclotomic coordinate on the affine F1 –scheme X in the
+sense of Soulé is any element f ∈ A whose values at all cyclotomic points X(R)
+are either 0, or roots of unity.
+   Clearly, cyclotomic coordinates in this sense form a commutative monoid with
+unit. If the scheme X is not affine, local cyclotomic coordinates can be defined,
+forming a (pre)sheaf of commutative monoids.
+   Recall that in the framework of [TV] and [De1], where Z–lifts of F1 –spaces
+are patched from spectra of monoid ring Z [S], the elements of S themselves were
+called cyclotomic coordinates. However, since these versions of F1 –schemes are not
+equivalent to Soulé’s one, we should use this term being aware of its context.
+   Notice also that
+   a) To reconstruct cyclotomic coordinates in the sense 1.7.1, it is sufficient to
+know XZ and the functor R → X(R) ⊂ XZ (R). This is a part of the structure of
+a gadget, as Soulé’s truc was translated in [CCMa2]).
+   b) The rings R used by Soulé to probe schemes over F1 are essentially group
+rings of finite abelian groups.
+   Conceivably, one could replace finite abelian groups by finite commutative unital
+monoids, thus narrowing the gap between [So] and [TV], [De].
+   c) Moreover, one could sketch rudiments of supergeometry over F1 , by requiring
+Z2 –grading of our monoids, a structure subgroup {±1}, and the anticommutation
+rule for odd elements.
+   The following example from [So] serves as a good illustration of similarities and
+differences between affine schemes in the sense of [So] and [TV] respectively, and of
+relationships of F1 to Arakelov geometry.
+   1.7.2. Arakelov vector bundles over Spec Z as affine F1 –schemes. An
+Arakelov vector bundle Λ̄ over Spec Z is defined as a pair consisting of a free
+abelian group Λ of finite rank and an hermitean norm || · || on ΛC := Λ ⊗ C,
+“integral structure at arithmetical infinity”. The global sections of Λ̄ over the
+“compactification” Spec Z∪∞ are defined as B∩Λ, where B := {x ∈ ΛC | ||x|| ≤ 1}.
+   In order to produce a Soulé’s affine scheme X(Λ̄) out of Λ̄, make an additional
+choice (of which the final product will not depend): choose a finite subset Φ ⊂
+14
+
+B ∩ Λ \ {0} such that if v ∈ B ∩ Λ \ {0}, then exactly one element of the pair
+{v, −v} belongs to Φ. Let Λ0 be the sublattice of Λ generated by Φ, Λt0 the dual
+lattice.
+     Now we can define the structure data.
+     (i) X(Λ̄)Z := Z[Λt0 ].
+     (ii) The points of X(Λ̄)(R) are given by the following prescription:
+                                   X
+              X(Λ̄)(R) := {x =           v ⊗ ζv | x ∈ Λ ⊗Z R, ζv ∈ µ(R) ∪ {0} }.
+                                   v∈Φ
+
+
+Equivalently, coefficients at v ∈ Φ are cyclotomic coordinates.
+   (iii) AX(Λ̄) is defined as the algebra of functions holomorphic and continuous on
+the boundary of the following domain:
+
+                              C := {x ∈ Λ0 ⊗ C | ||x|| ≤ card Φ}.
+
+Given a homomorphism σ : R → C, a cyclotomic R–valued point x and a function
+f ∈ Z[Λt0 ], we get its value at (x, σ) in an obvious way.
+   Comparing this example to the definitions of [TV] and [De1], we see that the
+algebra X(Λ̄)Z := Z[Λt0 ] fits in their framework, but that other elements of the
+structure significantly change morphisms and points.
+   1.7.3. A non–affine case: toric varieties. The treatment of this case in
+[TV], [De1] and [So] leads to essentially the same object (although Soulé produces
+his C–algebra only in the smooth case i. e. for regular fans).
+   Let ∆ be a fan. Each element σ ∈ ∆ determines the dual cone σ ∗ . Let Mσ be the
+commutative monoid of integer points of σ ∗ , Uσ is its spectrum as F1 –scheme. If τ
+is a face of σ, we get a morphism of monoids Mσ`→ Mτ . The respective morphism
+of schemes Uτ → Uσ is Zariski open. Put X := σ∈∆ Uσ . `      According to [TV], 4.2,
+the quotient of X × X modulo equivalence relation R := σ,τ ∈∆ Uσ∩τ defines an
+F1 –scheme X(∆)F1 . Lifting it to Z, we get the classical toric scheme X(∆).
+  In [De1], the same quotient is straightforwardly interpreted as a glueing of
+monoid spectra. In [So] the picture is enhanced by an appropriate C–algebra.
+   1.8. Tits’s problem and Connes–Consani schemes. Tits remarked that
+one can substitute q = 1 in the classical formulas for the number of Fq points of
+a projective space Pn−1 (resp. Grassmanian Gr (n, j)) and get formulas for the
+                                                                                        15
+
+cardinality of {1, . . . , n} (resp. of the set of subsets of cardinality j in it). Thus we
+get a version of classical combinatorial projective geometry, in which each line has
+two points, each plane has three points etc. Tits asked in [Ti] how to extend this
+to Chevalley groups and respective homogeneous spaces: it would be a version of
+geometry of homogeneous spaces “over a field of characteristic 1” as he put it then.
+   This project was realized only in 2008, when A. Connes and C. Consani adapted
+Soulé’s definition to this problem in [CC]. Their main innovation consists in con-
+sidering the functor of cyclotomic points X(R) as taking values in the category of
+graded sets. Only components of degree zero are taken in account in various point
+counting contexts. After clarifying this issue they find out that Chevalley schemes
+have F12 as a natural field of definition, rather than F1 .
+    1.9. Lambda–rings and Borger’s project (Futurism). As I have already
+mentioned, the key idea of James Borger consists in a totally new conception of
+Z–to–F1 descent data: namely, a restricted λ–ring structure in the sense of Grothen-
+dieck.
+    According to [BorS], one can think about such a structure on a ring without
+additive torsion R as a family ψp : R → R of commuting ring endomorphisms
+indexed by primes such that ψp (x) − x ∈ pR for all x, p.
+    More generally, as is sketched in [Bor2], we may consider the category of “spaces”
+SpZ , defined as sheaves of sets on the category of affine schemes with étale topology.
+It is endowed with the endofunctor W ∗ of infinite big Witt vectors (cf. the definition
+in 4.1 below). This endofunctor carries a canonical monad structure. A Λ–structure
+on a space X is defined as an action of W ∗ on X. Λ–spaces with W ∗ –equivariant
+morphisms form a category SpZ/Λ . The functor forgetting the Λ–structure is called
+v ∗ : SpZ/Λ → SpZ . It admits a left adjoint v! and a right one v∗ . The first one
+must be thought of as (geometric) forgetting the base, and the second one as Weil’s
+restriction of scalars functor.
+    Using the general topos formalism, Borger looks at algebraic geometry of Λ–rings
+as a lifted algebraic geometry over F1 , represented by the big etale topos over F1 .
+    In particular, the ring W (Z) of big Witt vectors with entries in Z should be
+thought of as (a completed version of) Z ⊗F1 Z.
+    Varieties of finite type over F1 (in this sense) are very rigid, combinatorial objects.
+They are essentially quotients of toric varieties by toric equivalence relations. In
+particular, only Tate motives descend to F1 .
+    Non–finite–type schemes over F1 are more interesting. The big de Rham–Witt
+cohomology of X “is” the de Rham cohomology of X ”viewed as an F1 –scheme”.
+16
+
+It should contain the full information of the motive of X and is probably a concrete
+universal Weil cohomology theory.
+   The Weil restriction of scalars from Z to F1 is an arithmetically global version
+of Buium’s p–jet space.
+   1.10. A summary. Deitmar’s definition of the category of schemes over F1 is,
+as he himself stresses in the opening paragraph of [De2], a minimalistic one. It is
+quite transparent, but obviously does not allow one to treat some more sophisticated
+situations, such as Soulé’s scheme 1.7.2. In fact, the Theorem 4.1 of [De2] shows
+that if X is a connected integral F1 –scheme of finite type, then its lift to C, XC
+consists of a finite union of mutually isomorphic toric varieties.
+   The richness of Toën and Vaquié’s definition becomes apparent, when it is ap-
+plied to other basic symmetric monoidal categories. Especially remarkable is the
+extension of F1 –geometry S1 –Sch which is the category of schemes relative to the
+category (SEns, ×, ∗) of simplicial sets with direct product. There is a canonical
+functor “base extension” S1 –Sch → F1 -Sch, so that this geometry lies “below”
+F1 –geometry, in the same sense as F1 –geometry lies below Z–geometry. Another
+extension with great future is the algebraic geometry over “brave new rings”.
+   One outstanding problem is to extend cyclotomy to the homotopical framework.
+   This is an appropriate place to stress that in a wider context of [TV], or even-
+tually in noncommutative F1 –geometry, the spectrum of F1 loses its privileged
+position of a final object of a geometric category. For example, in noncommutative
+geometry, or in an appropriate category of stacks, the quotient of this spectrum
+modulo the trivial action of a group must lie below this spectrum.
+   Soulé’s algebras AX are a very important element of the structure, in particular,
+because they form a bridge to Arakelov geometry. Soulé uses concrete choices
+of them in order to produce “just right” supply of morphisms, without a priori
+constraining these choices formally.
+   However, these algebras appear as an ad hoc and somewhat arbitrary supplement
+to the natural F1 –algebraic objects. Perhaps, a way to think about them is to
+imagine a possible definition of 1–adic numbers.
+   Borger’s context might lead to a progress in this direction.
+
+             2. Habiro’s analytic functions of many variables:
+                           statements of results
+   2.1. Notations. Rings in this and the next sections are associative, commu-
+tative and unital, unless a context suggests otherwise. Ring homomorphisms are
+                                                                                         17
+
+unital. Letters R, R0 , R1 . . . denote rings, q, q0 , q1 ... are independent commuting
+variables.
+    Let R be a ring, I = {Iα } a family of ideals filtered by inclusion. The ring
+projective limit ←  −α R/Iα is called the completion of R with respect to I and
+                  lim
+denoted R  bI or some version of this notation. When I is (cofinal to) the family of
+powers of one ideal I, the respective limit is called the I–adic completion.
+    We say that R is I– (resp. I–adically) separated, if ∩α Iα = ∅. Equivalently, the
+canonical homomorphism R → R        bI is injective. Example: R = Z, I any infinite
+filtering system.
+    When q is considered as a “quantization parameter”, our quantized (Gaussian)
+versions of integers and factorials are, as in [Ha2],
+
+                {N }q := q N − 1, {N }q ! := {N }q {N − 1}q . . . {1}q .              (2.1)
+
+   Fix an integral domain R0 of characteristic zero and put Rn := R0 [q0 , . . . , qn ],
+with natural embeddings R0 ⊂ R1 ⊂ R2 ⊂ . . .
+   Denote by In,N ⊂ Rn the ideal ({N }q1 !, . . . , {N }qn !), N ≥ 1. Clearly, In,N ⊂
+                           (N)
+In,N+1 so that the rings Rn := Rn /In,N , n ≥ 1 being fixed, form an inverse
+system.
+   2.2. Definition. The ring of Habiro’s analytic functions of n variables over R0
+is defined as
+                                bn := lim R(N) .
+                                R     ←− n
+                                             N
+
+  2.3. Taylor series of analytic functions. Choose a vector of roots of unity
+ζ = (ζ1 , . . . , ζn ) such that all ζi are in R0 . For any integer M > 0, there exists
+N0 = N0 (ζ, M ) such that In,N ⊂ (q1 − ζ1 , . . . , qn − ζn )M for all N ≥ N0 . In fact,
+{N }qi ! is divisible by any fixed monomial (qi − ζ)M , ζ ∈ µ, if N is large enough.
+                                                      M
+  The completion ← −M Rn /(q1 − ζ1 , . . . , qn − ζn ) is R[[q1 − ζ1 , . . . , qn − ζn ]].
+                 lim
+  Therefore we obtain a ring homomorphism “Taylor expansion at the point ζ”:
+
+                               bn → R0 [[q1 − ζ1 , . . . , qn − ζn ]].
+                      Tn (ζ) : R
+
+   2.3.1. Theorem. If R0 is an integral domain, p–adically separated for all
+                                    bn , and the Habiro–Taylor homomorphism
+primes p, then the same is true for R
+Tn (ζ) is injective.
+18
+
+   More generally, let F = {F1 , . . . , Fn } ∈ Z[q] be a family of monic polynomials
+in R0 [q] whose all roots are roots of unity. Denote by (F ) the ideal generated
+F1 (q1 ), . . . , Fn (qn ) in Rn . In place of the formal series ring above, we can consider
+the completion
+                                        RbF := lim Rn /(F )M
+                                                ←−
+                                           M
+and the respective Taylor expansion homomorphism:
+                                             bn → R
+                                   Tn (F ) : R    bF .
+
+   2.3.2. Theorem. If R0 is an integral domain, p–adically separated for all p,
+R[[F ]] is as well p–adically separated, and the homomorphism Tn (F ) is injective.
+   K. Habiro proved these results, as well as their generalizations, for n = 1, and
+we build upon his proof.
+   2.3.3. Differential calculus. Divided powers of partial derivatives with re-
+spect to qk are continuous in the linear topologies generated by In,N , resp. by all
+all (q1 − ζ1 , . . . , qn − ζn )M . Hence these derivatives make sense in R    bn , and their
+values at (ζ1 , . . . , ζn ) are the Taylor coefficients of the respective series.
+   (In order to check the continuity with respect to In,N it suffices to notice that as
+N tends to infinity, {N }q ! as a polynomial of q vanishes at a growing set of roots of
+unity with infinitely growing multiplicity at each root of unity. Taking a derivative
+of such a sequence of polynomials does not destroy this property).
+   Thus we can develop for R         bn the conventional formalism of tangent and cotangent
+modules, differential forms etc.
+   2.4. Elements of R            bn as functions on roots of unity. Let R′ ⊃ R0 be an
+                                                                               0
+integral domain flat over R0 and containing all roots of unity (that is, all cyclotomic
+polynomials q n − 1 completely split in R0′ ). Denote by µ the set of all roots of unity
+in R0′ . Choose ζ := (ζ1 , . . . , ζn ) ∈ µn . Any element of Rn , being a polynomial in
+(q1 , . . . , qn ), takes a certain value at ζ belonging to R0′ . If N ≥ N0 (ζ), all elements
+of In,N vanish at ζ. Hence any element f ∈ R              bn defines a map f¯ : µn → R′ .
+                                                                                           0
+This map is R0 –linear and compatible with pointwise addition and multiplication
+of functions.
+   Besides assuming that R0 is p–adically separated for all primes p, impose the
+following separatedness condition: for any infinite sequence of pairwise distinct
+primes p1 , . . . , pk , . . . , we have
+                                 ∩∞
+                                  m=1 Rp1 . . . pm = {0}.                              (2.2)
+                                                                                    19
+
+  2.4.1. Theorem. Under these assumptions, the map f 7→ f¯ is injective.
+   One can also formulate this statement without adjoining to R0 roots of unity.
+                                             Q
+   2.4.2. Theorem. The natural map R   bn → ∞ R     b
+                                               m=1 n mod (Φm (q1 ), . . . , Φm (qn ))
+is injective.
+  For n = 1, these results were established by K. Habiro. He has also shown that
+vanishing of f¯ on certain sufficiently large subsets of µ suffices to establish the
+vanishing of f .
+   More precisely, Habiro’s topology on the set µ of all roots of unity is defined as
+follows (cf. [Ha2], 1.2).
+   Two roots of unity ξ, η are called adjacent, if ξη −1 is of order pm , m ∈ Z, p a
+prime; or equivalently, if ξ − η is not a unit (as an algebraic number). Clearly, the
+action of Gal (Q/Q) preserves adjacency.
+   2.4.3. Definition. A subset U ⊂ µ is called open, if for any point ξ ∈ U , all
+except of finitely many η ∈ µ , adjacent to ξ, belong to U .
+   The Galois action is continuous in this topology, in marked contrast to the
+topology induced from C.
+   Let now µ′ be an infinite set of roots of unity. A point ξ ∈ µ′ is a limit point
+of µ′ , if for any open neighborhood U of ξ we have µ′ ∩ (U \ ξ) 6= ∅. In Habiro’s
+topology, this means that µ′ contains infinitely many points, adjacent to ξ.
+   2.4.4. Theorem. Under the notations and assumptions of Theorem 2.3.1, let
+                                                                                   bn .
+ν = ν1 × · · ·× νn ⊂ µn be a set, such that each νi ⊂ µ has a limit point. Let f ∈ R
+If the restriction f¯|ν is identical zero, then f = 0.
+   In the next section, we will prove this last result; Theorems 2.4.1 and 2.4.2 follow
+from it.
+  2.5. Analogs of Habiro’s functions on the arithmetic axis and analytic
+continuation. The Habiro ring of one variable ← −N Z[q]/({N }q !) “is” the lift to
+                                              lim
+Z of an imaginary ring ← −N F1 [q]/({N }q !).
+                       lim
+   Along the arithmetical axis, the straightforward analog of the latter exists: this
+                                              b := lim Z/(N !). Its elements can
+is the topological ring of profinite integersPZ
+                                               ∞
+                                                     ←−N
+be uniquely represented by infinite series     n=1 cn n! where cn are integers with
+0 ≤ cn ≤ n, cf. [van D].
+   H. Lenstra in [Le] discusses profinite Fibonacci numbers: continuous extrapola-
+            b of the Fibonacci function n 7→ un .
+tion to n ∈ Z
+20
+
+                                                  P∞             n
+   An analog of the profinite number 1 +             n=1 (−1)        n! is the remarkable example
+of Habiro function of one variable
+                       ∞
+                       X                            ∞
+                                                    X
+                                 n
+                  1+         (−1) {n}q ! = 1 +            (1 − q) . . . (1 − q n ).
+                       n=1                          n=1
+
+As a function on roots of unity, it emerged in a work of M. Kontsevich on Feynman
+integrals (talk at MPIM, 1997). Don Zagier in [Za] proved that its values, as well
+as values of its derivatives, are radial limits of the function (resp. its derivatives)
+holomorphic in the unit circle
+                                     ∞
+                                  1X             2
+                                        nχ(n)q (n −1)/24 ,
+                                  2 n=1
+
+where χ is the quadratic character of conductor 12.
+   2.6. Habiro’s functions on F1 –schemes. Let X be an F1 –scheme in the
+sense of one of the definitions from sec. 1. Let (x1 , . . . , xn ) be a finite family
+of local cyclotomic coordinates on X. For any ring R as in 1.7. (ii), denote by
+U (R) ⊂ X(R) the set of cyclotomic points, at which all xi are defined and take
+non–zero values.
+                                     bn in the sense of Habiro. This function then
+   Consider an analytic function f ∈ R
+defines a map
+                  fR : U (R) → R, fR (r) := f¯(x1 (r), . . . , xn (r)),
+with evident functorial properties.
+   In an appropriate setting such functions must be local sections of a global sheaf.
+I hope to return to this problem in another paper. Here I will restrict myself to the
+following observations.
+                                                                   b1 , and hence each
+   (i) We have to exclude zero values, because q1 is invertible in R
+            m1     mn
+monomial q . . . qn is invertible in R bn . In fact,
+            1
+
+                                            ∞
+                                            X
+                               q −1 = 1 +         (−1)n q n {n}q !,
+                                            n=1
+
+see [Ha1], Proposition 7.1.
+   (ii) From the perspective of this paper, it seems quite natural to consider lo-
+calizations with respect to functions such as q1m1 . . . qnmn − 1, deleting sets of roots
+                                                                                                  21
+
+of unity closed in Habiro’s topology. However, such functions are generally not
+cyclotomic coordinates. This runs counter the spirit of Toën–Vaqué’s definitions,
+and requires rethinking of their framework.
+
+                3. Habiro’s analytic functions of many variables:
+                                proofs and generalizations
+   3.1. The case n = 1. Assuming that a ring R is I–separated for each member
+I of some set of filters SR , we can deduce that the ring R[q], and certain its
+completions, are separated with respect to the members of another set of filters,
+say SR[T ] . Results of this type are collected and proved in [Ha1]. They will allow
+us to perform inductive steps, passing from n to n + 1,
+   3.2. Proof of the Theorem 2.3.1. We will perform induction on n, using
+Habiro’s theorem for n = 1 ([Ha1], Theorem 5.2) as the basis of induction.
+   Assuming the theorem proved for R     bn , we will proceed by decomposing the Taylor
+           bn+1 → R0 [[q1 − ζ1 , . . . , qn − ζn , qn+1 − ζn+1 ]] into the product of two
+series map R
+ring homomorphisms and checking injectivity of each one:
+
+             α b                   β
+        bn+1 →
+        R      Rn [[qn+1 − ζn+1 ]] → R0 [[q1 − ζ1 , . . . , qn − ζn ]] [[qn+1 − zn+1 ]]
+
+   Now we will define the arrows α, β and check their properties.
+   The arrow β is continuous in (qn+1 − ζn+1 )–adic topology, acts identically on
+qn+1 − ζn+1 , and sends each element of R         bn to its Taylor series at (ζ1 , . . . , ζn ). In
+view of the inductive assumption, β is injective.
+   To define α, consider an element g ∈ R       bn+1 . It can be represented as the limit of
+a sequence of polynomials g1 , g2 , . . . , gN , . . . , where gi ∈ R0 [q1 , . . . , qn+1 ] such that
+gN+1 ≡ gN mod In+1,N .
+   From the definition it follows that
+
+                          In+1,N = In,N [qn+1 ] + Rn+1 · {N }qn+1 !
+
+Therefore,
+                              gN+1 = gN + iN + rN · {N }qn+1 !,                                (3.1)
+where
+                                iN ∈ In,N [qn+1 ], rN ∈ Rn+1 .
+22
+
+     Now consider a point (ζ1 , . . . , ζn+1 ) as above. Clearly,
+
+                              In,N [qn+1 ] = In,N [qn+1 − ζn+1 ].
+
+   Write gN , iN , {N }qn+1 ! as polynomials in qn+1 − ζn+1 with coefficients in Rn .
+When N becomes large enough, {N }qn+1 ! starts with arbitrary large power of qn+1 −
+ζn+1 . Therefore for any given M , the coefficient at (qn+1 − ζn+1 )M in gN+1 is the
+same as in gN + iN if N ≥ N1 (M, ζ). Hence the sequence of these coefficients (M
+being fixed and N growing) converges to a certain element aM ∈ R    bn .
+                   P∞                       M
+   Put α(g) :=       M =0 aM (qn+1 − ζn+1 ) . One can routinely check that α(g)
+depends only on g ∈ R    bn+1 and not on the system (gN ) chosen to represent g.
+Moreover, we get a ring homomorphism
+
+                                 bn+1 → R
+                              α: R      bn [[qn+1 − ζn+1 ]].                       (3.2)
+
+   Let us check that α is injective. In fact, take a nonzero element g = lim gN .
+Then there exist arbitrarily large N such that gN ∈    / In+1,N . Representing gN as a
+polynomial in qn+1 − ζn+1 with coefficients in Rn , we can find in this polynomial a
+coefficient, not belonging to In,N . In the limit, it will produce a nonvanishing aM .
+   Finally, β ◦ α = Tn+1 (ζ) by construction.
+
+   3.3. Proof of the Theorem 2.4.4. We first remark, that the case n = 1
+is essentially covered by the Theorem 6.1 of [Ha1], if one weakens the assumption
+R0 ⊂ Q̄ in the statement of this Theorem. In fact, this assumption is used only at
+the end of the proof, in order to ensure the validity of the separatedness condition
+(2.2). Instead, we will simply postulate (2.2) for R0 , and then deduce it for each
+Rbn using the Taylor embedding of Rn into R0 [[q1 − ζ1 , . . . , qn+1 − ζn+1 ]].
+   To pass from n to n + 1, I will start with the following remarks.
+   Let R be a ring endowed with a filtering family of ideals I = {Iα }. Consider the
+following two families of ideals in the polynomial ring R[q]:
+   (i) I1 := {Iα [q] + ({N }q !) | α, N arbitrary}.
+   (ii) I2 := {({N }q !) | N arbitrary}.
+     Denote by R[q]e (resp. R[q]b) the completion of R[q] with respect to I1 (resp. I2 .
+     For any N and α, we have natural surjections
+
+                         R[q]/({N }q !) → R[q]/(Iα [q] + ({N }q !)).
+                                                                                       23
+
+Passing to the limit, we get a canonical surjection
+
+                                    ϕ : R[q]b → R[q]e.
+
+                                       bn , I = {Ibn,N ) where
+   3.3.1. Lemma. Consider the case R = R
+
+                         Ibn,N := ({N }q1 !, . . . , {N }qn !) ⊂ R
+                                                                 bn .
+
+Then the homomorphism
+
+                             bn [qn+1 ]b → R
+                          ϕ: R             bn [qn+1 ]e = R
+                                                         bn+1
+
+is an isomorphism.
+   Proof. It suffices to check that Ker ϕ = {0}. In fact, as in 3.2, we have an
+injection
+                          α: Rbn [qn+1 ]e → R
+                                            bn [[qn+1 − 1]]
+
+and an one–variable Taylor series injection
+
+                               bn [qn+1 ]b → R
+                           T : R             bn [[qn+1 − 1]].
+
+By construction, α ◦ ϕ = T , hence ϕ is an injection as well.
+  3.3.2. End of proof of the Theorem 2.4.4. Suppose now that g ∈ R                   bn+1
+vanishes at all points (ζ1 , . . . , ζn+1 ), ζi ∈ νi ⊂ µ, each of νi having a limit point.
+To simplify notation, assume that all roots of unity are in R0 .
+  The evaluation of g at (ζ1 , . . . , ζn+1 ) can be decomposed into the composition of
+two arrows:
+                     ev(ζ1 ,...,ζn ) ◦ evζn+1 : Rbn+1 → Rb n → R0 ,
+
+where the first arrow evζn+1 is obtained by taking the constant term in α(g), (3.2),
+and the second one is the evaluation at (ζ1 , . . . , ζn ).
+                                                                                   bn+1
+   First, fix (ζ1 , . . . , ζn ) and vary ζn+1 ∈ νn+1 . We have already identified R
+with Rbn [qn+1 ]b in a way which is clearly compatible with evaluation maps.
+   From the Habiro Theorem 6.1, [Ha1], we obtain that
+
+                                    ev(ζ1 ,...,ζn ) (g) = 0
+24
+
+for all
+                                (ζ1 , . . . , ζn ) ∈ ν1 × · · · × νn .
+By the inductive assumption, g = 0. This finishes the proof.
+   3.4. General monoids, coordinate independence, and functorality. Let
+M be a commutative monoid with unit.
+   We can consider the completion R0′ [M ] of R0 [M ] with respect to the system of
+ideals IN , where IN is generated by all elements {N }m ! := (mn − 1) . . . (m − 1) for
+m ∈ M.
+   Obviously, any morphism ψ : M → N induces the respective morphism of the
+completed rings. In particular, the diagonal morphism M → M × M produces a
+structure of Hopf algebra on R0 [M ] and its completed version on R0′ [M ].
+   As K. Habiro noticed in a message to the author (Aug. 23, 2008), applying this
+construction to M = Zn , we get precisely R           bn (if qi corresponds to the basic vector
+                                                                                bn , we could as
+(0, . . . , 1, 0, . . . , 0), with 1 at i–th place.) Since qi are invertible in R
+                                 −1           −1
+well start with R0 [q1 , q1 , . . . , qn , qn ], but it seemed more natural to me to deduce
+the invertibility at the end of the construction.
+
+               4. Schemes with natural cyclotomic coordinates:
+                       Witt vectors and moduli spaces
+   In this section we treat two disjoint constructions.
+   4.1. Witt functors. The (big) Witt ring scheme W can be defined as an
+infinite dimensional affine space Spec Z[u1 , u2 , u3 , . . . ], whose polynomial algebra
+of functions A is endowed with two homomorphisms A → A ⊗ A, “coaddition” α
+and “comultiplication” µ.
+   The functor
+             Q∞of its R–points, for a variable commutative ring R, set theoretically
+is W (R) = k=1 R where the k–th coordinate of the product is the value of uk
+at the respective R–point. The maps α and µ induce on W (R) the structure of
+commutative ring, functorial in R. This structure can be described quite explicitly,
+if we use in place of {uk } the “ghost coordinates”
+                                                X       n/d
+                                       qn :=          dud .
+                                                d|n
+
+
+In this coordinates, α and µ induce respectively componentwise addition and mul-
+tiplication (cf. [Haz], sec. 9 and 14, in particular (14.3)).
+                                                                                    25
+
+   The N –truncated Witt scheme W (N) is obtained if we apply this to the subring
+Z[u1 , . . . , uN ] with induced αN and µN . For a prime p, the scheme Wp is obtained
+                                                                                  (N)
+by taking the subring generated by all upk , k ≥ 0. The truncated version Wp
+jumps only at powers of p as well. In this way we get quotient functors of the Witt
+functor, valued in commutative algebras.
+   In place of subrings, one can consider quotients by the ideals generated by the
+complementary coordinates.
+   4.1.1. Definition. The (truncated) Witt gadget W (N) is defined by the following
+data:
+            (N)
+   (i) WZ := W (N) .
+                                                                             (N)
+   (ii) For a ring R as in 1.7, (ii), the subfunctor of cyclotomic points WZ (R) of
+   (N)
+W      (R) is defined as consisting of points, whose ghost coordinates are 0 or roots
+of unity.
+   Thus, ghost coordinates are cyclotomic coordinates in the sense of 1.7.1.
+   4.2. Moduli spaces L0;2,B . In an ideal world, not only schemes allowing “finite
+combinatorial” description ([So], p. 217) must be extensions of objects over F1 , but
+perhaps “all” rigid structures as well. An obvious challenge is presented by M 0,n ,
+moduli spaces of stable curves of genus zero with n marked points forming the basic
+operad of quantum cohomology.
+   As the first approximation, we look in this subsection to some moduli spaces
+introduced in [LoMa1] and studied further in [LoMa2] and [Ma2]. Generally, they
+parametrize curves of genus g, with marked points, a part of which (carrying “black”
+labels) being allowed to merge between them, although not with singular or “white
+labeled” points. There is an appropriate notion of stability and a representability
+theorem. (Both were vastly generalized in the study [BaMa].)
+   Here we will focus on the case of genus zero, two white points and arbitrary
+(≥ 1) number of black points. The resulting moduli spaces turn out to be toric,
+based upon permutohedral fans. Therefore they are certainly lifts to Z of toric
+F1 –schemes. We discuss which of the canonical morphisms between them descend
+to F1 .
+   It is convenient to label the black points by elements of a finite set B, carrying
+no additional structure (rather than, say, by {1, . . . , n}, which suggests a complete
+order on labels).
+   Below we will give a toric description of the respective moduli space that we will
+now denote LB . For proofs, see [LoMa1].
+26
+
+   4.3. Partitions. A partition {σ} of a finite set B is a totally ordered set of non–
+empty subsets of B whose union is B and whose pairwise intersections are empty.
+If a partition consists of N subsets, it is called N –partition. If its components are
+denoted σ1 , . . . , σN , or otherwise listed, this means that they are listed in their
+structure order.
+   Let τ be an N + 1–partition of B. If N ≥ 1, it determines a well ordered family
+of N 2–partitions σ (a) :
+             (a)                         (a)
+           σ1      := τ1 ∪ · · · ∪ τa , σ2     := τa+1 ∪ · · · ∪ τN+1 , a = 1, . . . , N .       (4.1)
+
+In reverse direction, call a family of 2–partitions (σ (i) ) good if for any i 6= j we
+                                (i)     (j)    (j)   (i)
+have σ (i) 6= σ (j) and either σ1 ⊂ σ1 , or σ1 ⊂ σ1 . Any good family is naturally
+                                 (i)     (j)
+well–ordered by the relation σ1 ⊂ σ1 , and we will consider this ordering as a part
+of the structure. If a good family of 2–partitions consists of N members, we will
+usually choose superscripts 1, . . . , N to number these partitions in such a way that
+ (i)     (j)
+σ1 ⊂ σ1 for i < j.
+   Such a good family produces one (N + 1)–partition τ :
+
+             (1)            (2)    (1)                    (N)      (N−1)              (N)
+     τ1 := σ1 , τ2 := σ1 \ σ1 , . . . , τN := σ1                \ σ1       , τN+1 = σ2       .   (4.2)
+
+This correspondence between good N –element families of 2–partitions and (N +1)–
+                                           (i)
+partitions is one–to–one, because clearly σ1 = τ1 ∪ · · · ∪ τi for 1 ≤ i ≤ N.
+   4.4. The fan FB . Now we will describe a fan FB in the space NB ⊗ R,
+where NB := Hom (Gm , TB ), TB := GB     m /Gm . Clearly, NB can be canonically
+identified with ZB /Z, the latter subgroup being embedded diagonally. Similarly,
+NB ⊗R = RB /R. We will write the vectors of this space (resp. lattice) as functions
+B → R (resp. B → Z) considered modulo constant functions. For a subset β ⊂ B,
+let χβ be the function equal 1 on β and 0 elsewhere.
+  4.4.1. Definition. The fan FB consists of the following l–dimensional cones
+C(τ ) labeled by (l + 1)–partitions τ of B.
+   If τ is the trivial 1–partition, C(τ ) = {0}.
+   If σ is a 2–partition, C(σ) is generated by χσ1 , or, equivalently, −χσ2 , modulo
+constants.
+   Generally, let τ be an (l + 1)–partition, and σ (i) , i = 1, . . . , l, the respective good
+family of 2–partitions (4.1). Then C(τ ) as a cone is generated by all C(σ (i) ).
+                                                                                     27
+
+   4.5. Toric varieties LB and forgetful morphisms. We denote by LB the
+variety associated with the fan FB . It is smooth and proper, in fact projective.
+                                                                         ′
+   Assume that B ⊂ B ′ . Then we have the projection morphism ZB → ZB which
+                            ′
+induces the morphism f B ,B : NB′ → NB . It satisfies the following property: for
+                                                                           ′
+each cone C(τ ′ ) ∈ FB′ , there exists a cone C(τ ) ∈ FB such that f B ,B (C(τ ′ )) ⊂
+C(τ ). In fact, τ is obtained from τ ′ by deleting elements of B ′ \ B and then deleting
+the empty subsets of the resulting partition of B.
+                                         ′
+   Therefore, we have a morphism f∗B ,B : LB′ → LB which we will call forgetful
+one (it forgets elements of B ′ \ B).The forgetful morphism is flat, because locally
+in toric coordinates it is described as adjoining variables and localization.
+   4.6. LB as families of curves with two white and B black points. This
+structure can be defined in terms of forgetful morphisms forgetting just one point
+B. Let B ⊂ B ′ , card B ′ \ B = 1.
+  We start with describing structure sections.
+   In order to define the two white sections of the forgetful morphism, consider two
+partitions (B ′ \ B, B) and (B, B ′ \ B) of B ′ and the respective closed strata. The
+forgetful morphism restricted to these strata identifies them with LB . We will call
+them x0 and x∞ respectively.
+   Finally, to define the j–th black section, j ∈ B, consider the morphism of lattices
+sj : NB → NB′ which extends a function χ on B to the function sj (χ) on B ′
+taking the value χ(j) at the forgotten point. This morphism satisfies the following
+condition: each cone C(τ ) from FB lands in an appropriate cone C(τ ′ ) from FB′ .
+Hence we have the induced morphisms sj∗ : LB → LB′ which obviously are sections.
+Moreover, they do not intersect x0 and x∞ .
+  4.6.1. Proposition. With the notations and assumptions above, the forgetful
+morphism is a universal family of (painted stable) marked curves of genus zero with
+two white points and B black points.
+   In order to see the structure of fibers of the forgetful morphism, one should notice
+that the inverse image of any point x ∈ Lτ is acted upon by the multiplicative
+group Gm = Ker (TB′ → TB ). This action breaks the fiber into a finite number of
+orbits which coincide with the intersections of this fiber with various Lτ ′ described
+above. When τ ′ is obtained by adding the forgotten point to one of the parts, this
+intersection is a torsor over the kernel, otherwise it is a point. As a result, we get
+that the fiber is a chain of P1 ’s, whose components are labeled by the components
+of τ and singular points by the neighboring pairs of components.
+28
+
+   4.7. Clutching morphisms. They are morphisms of the type LB1 × LB2 →
+LB1 ‘ B2 whose fiberwise description is this: glue ∞ of the first curve to 0 of the
+second curve. They admit an obvious toric description.
+     About their operadic role, see [Ma2].
+   4.8. Proposition. Forgetful and clutching morphisms descend to the F1 –models
+of the toric varieties LB .
+
+                                     References
+  [BaMa] A. Bayer, Yu. Manin. Stability conditions, wall–crossing and weighted
+Gromov–Witten invariants. e-print math.AG/0607580
+     [Bor1] J. Borger. The basic geometry of Witt vectors. e-print math.AG/0801.1691
+  [Bor2] J. Borger. Λ–rings and the field with one element. Preliminary version.
+Preprint, 2009.
+  [BorS] J. Borger, B. de Smit. Galois theory and integral models of Λ–rings.
+Bull. Lond. Math. Soc., 40 (2008), 439–446. e–print arXiv:0801.2352
+   [BoCo] J. Bost, A. Connes. Hecke algebras, type III factors and phase transitions
+with spontaneous symmetry breaking in number theory. Selecta Math., 3 (1995),
+411–457.
+  [CC] A. Connes, C. Consani. On the notion of geometry over F1 . e–print
+arXiv:0809.2926
+  [CCMa1] A. Connes, C. Consani, M. Marcolli. Noncommutative geometry and
+motives: the thermodynamics of endomotives. Advances in Math., 214 (2) (2007),
+761–831.
+     [CCMa2] A. Connes, C. Consani, M. Marcolli. Fun with F1 . e–print
+     math.AG/0806.2401
+   [CCMa3] A. Connes, C. Consani, M. Marcolli. The Weil proof and the geometry
+of the adèles class space. To appear in “Algebra, arithmetic and Geometry – Manin
+Festschrift”, Progress in Math., Birkháuser, 2009. e-print math/0703392
+  [De1] A. Deitmar. Schemes over F1 . In: Number Fields and Function Fields –
+Two Parallel Worlds. Ed. by G. van der Geer, B. Moonen, R. Schoof. Progr. in
+Math, vol. 239, 2005 . e-print math.NT/0404185
+     [De2] A. Deitmar. F1 –schemes and toric varieties. e-print math.NT/0608179
+  [De3] A. Deitmar. Remarks on zeta functions and K–theory over F1 . Proc. Jap.
+Ac. Sci, ser. A, vol. 82:8 (2007), 141–146.
+                                                                                 29
+
+   [Du] N. Durov. New approach to Arakelov geometry. e-print math/0704.2030
+   [Go] V. Golyshev. The canonical strip I. Preprint, May 2008.
+   [Gr] D. Grayson. SK1 of an interesting principal ideal domain. Journ. of Pure
+and Appl. Algebra, 20 (1981), 157–163.
+   [Ha1] K. Habiro. Cyclotomic completions of polynomial rings. Publ. RIMS,
+Kyoto Univ., 40 (2004), 1127–1146.
+   [Ha2] K. Habiro. A unified Witten–Reshetikhin–Turaev invariant for integral
+homology spheres. Inv. Math., 171 (2008), 1–81.
+   [Har] S. Haran. Non–additive geometry. Comp. Math., 143 (2007), 618–688.
+   [Haz] M. Hazewinkel. Witt vectors. Part I. e-print math/0804.3888
+   [Ka] M. Kapranov. Some conjectures on the absolute direct image. Letter, May
+1995.
+   [KaS]. M. Kapranov, A. Smirnov. Cohomology determinants and reciprocity
+laws: number field case. Unpublished manuscript, 15 pp.
+   [Ku] N. Kurokawa. Zeta functions over F1 . Proc. Jap. Ac. Sci., Ser. A, vol. 81
+(2005), 180–184.
+   [Law] R. J. Lawrence. Witten–Reshetikhin–Turaev invariants of 3–manifolds as
+holomorphic functions. In: Geometry and Physics (Aarhus, 1995), LN in Pure and
+Appl. Math., 184 (1997), Dekker, NY.
+   [LawZ] R. J. Lawrence, D. Zagier. Modular forms and quantum invariants of
+3–manifolds. Asian J. Math., 3 (1999), 93–107.
+   [Le] H. Lenstra. Profinite Fibonacci numbers. Nieuw Arch. Wiskd. (5) 6 (2005),
+no. 4, 297–300.
+   [LoMa1] A. Losev, Y. Manin. New moduli spaces of pointed curves and pencils
+of flat connections. Fulton’s Festschrift, Michigan Journ. of Math., vol. 48, 2000,
+443–472. e-print math.AG/0001003
+   [LoMa2] A. Losev, Y. Manin. Extended modular operad. In: Frobenius Mani-
+folds, ed. by C. Hertling and M. Marcolli, Vieweg & Sohn Verlag, Wiesbaden, 2004,
+181–211. e-print math.AG/0301003
+   [Ma1] Yu. Manin. Lectures on zeta functions and motives (according to Deninger
+and Kurokawa). Astérisque 228:4 (1995), 121–163.
+  [Ma2] Yu. Manin. Moduli stacks Lg,S . Moscow Math. Journal, 4:1 (2004), 181–
+198. e–print math.AG/0206123
+  [Marc] M. Marcolli. Cyclotomy and endomotives. e–print arXiv:0901.3167
+30
+
+     [Mart1] F. Marty. Relative Zariski open objects. Preprint.
+     [Mart2] F. Marty. Smoothness in relative geometry. Preprint.
+  [RV] F. Rodriguez–Villegas. On the zeroes of certain polynomials. Proc. AMS,
+130:8 (2002), 2251–2254.
+   [Sm1] A. L. Smirnov. Hurwitz inequalities for number fields. (Russian). Algebra
+i Analiz 4 (1992), no. 2, 186–209; translation in St. Petersburg Math. J. 4 (1993),
+no. 2, 357–375.
+   [Sm2] A. L. Smirnov. Absolute determinants and Hilbert symbols. Preprint MPI
+94/72, Bonn, 1994.
+   [So] C. Soulé. Les variétés sur le corps à un élément. Mosc. Math. J. 4:1 (2004),
+217–244.
+   [Ti] J. Tits. Sur les analogues algébriques des groupes semi–simples complexes.
+Colloque d’algèbre supérieure, Centre Belge de Recherches Mathématiques, Établi-
+ssement Ceuterick, Louvain, 1957, 261–289.
+   [TV] B. Toën, M. Vaquié. Au–dessous de Spec Z. e-print math.AG/0509684
+   [van D] D. van Danzig. Nombres universels ou ν!–adiques avec une introduction
+sur l’algèbre topologique. Ann. Sci. de l’ ÉNS, 3e série, tome 53 (1936), 275–307.
+   [Za] D. Zagier. Vassiliev invariants and a strange identity related to the Dedekind
+eta–function. Topology, 40 (2001), 945–960.
+

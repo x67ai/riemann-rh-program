@@ -1,0 +1,2698 @@
+                                                    THE BASIC GEOMETRY OF WITT VECTORS, II
+                                                                   SPACES
+
+                                                                                 JAMES BORGER
+
+
+                                                   Abstract. This is an account of the algebraic geometry of Witt vectors and
+
+
+
+
+arXiv:1006.0092v2 [math.AG] 14 Dec 2015
+                                                   arithmetic jet spaces. The usual, “p-typical” Witt vectors of p-adic schemes of
+                                                   finite type are already reasonably well understood. The main point here is to
+                                                   generalize this theory in two ways. We allow not just p-typical Witt vectors
+                                                   but those taken with respect to any set of primes in any ring of integers in any
+                                                   global field, for example. This includes the “big” Witt vectors. We also allow
+                                                   not just p-adic schemes of finite type but arbitrary algebraic spaces over the
+                                                   ring of integers in the global field. We give similar generalizations of Buium’s
+                                                   formal arithmetic jet functor, which is dual to the Witt functor. We also give
+                                                   concrete geometric descriptions of Witt spaces and arithmetic jet spaces and
+                                                   investigate whether a number of standard geometric properties are preserved
+                                                   by these functors.
+
+
+
+
+                                                                                 Introduction
+                                             Let p be a prime number. For any integer n ⩾ 0 and any (commutative) ring
+                                          A, let Wn (A) denote the ring of p-typical Witt vectors of length n with entries in
+                                          A. This construction gives a functor Wn from the category of rings to itself. It is
+                                          an important tool in number theory, especially in the cohomology of varieties over
+                                          p-adic fields. For example, it is used in the definition of Fontaine’s period rings [18]
+                                          and in the definition of the de Rham–Witt complex, which is an explicit complex
+                                          that computes crystalline cohomology [31].
+                                             The functor Wn has a left adjoint, which we denote by A 7→ Λn ⊙ A:
+                                          (0.0.1)                Hom(Λn ⊙ A, B) ∼    = Hom(A, Wn (B)).
+                                          This adjunction was first considered by Greenberg [20][21], but he restricted himself
+                                          to the case where B is an Fp -algebra, and so he only constructed the special fiber
+                                          Fp ⊗Z (Λn ⊙ A). The construction of the full functor had to wait until Joyal [32]
+                                          and, independently, Buium [9]. It also has applications in number theory, most
+                                          notably in the study of p-adic points on varieties. For example, see Buium [9] and
+                                          Buium–Poonen [11] (as well as Buium’s earlier work [8] for applications of analogous
+                                          constructions in complex algebraic geometry). These two adjoint constructions see
+                                          different sides of the arithmetic of A—the ring Wn (A) sees certain maps into A,
+                                          and the ring Λn ⊙ A sees certain maps out of it.
+                                             This paper is part of a general program to analyze varieties over global fields
+                                          using global analogues of these functors, such as the “big” Witt functors. The first
+                                          issue one faces is that, even in the p-typical case above, the schemes Spec Wn (A)
+                                          and Spec Λn ⊙ A are not familiar geometric constructions, and it is important that
+                                          we be able to handle them with ease. The purpose of this paper is to demonstrate
+                                          that this is possible. The first part [5] developed the affine theory, and this part
+                                          extends it to arbitrary schemes and algebraic spaces.
+
+                                             Mathematics Subject Classification (2010): 13F35, 14F30, 14F20, 18F20.
+                                             This work was partly supported by Discovery Project DP0773301, a grant from the Australian
+                                          Research Council.
+                                                                                          1
+2                                     J. BORGER
+
+
+    Let us go over the contents in more detail. We will work throughout with certain
+generalizations of the classical p-typical and big Witt functors. These are the E-
+typical Witt functors WR,E,n defined in [5]. These functors depend on a ring R,
+a set E of finitely presented maximal ideals m of R with the property that each
+localization R  m is discrete valuation ring with finite residue field, and an element
+n ∈ N(E) = E N. Then WR,E,n is a functor from the category of R-algebras to
+              L
+itself. We recover the p-typical Witt functor when E consists of the single maximal
+ideal pZ of Z, and we recover the big Witt functor when E consists of all the
+maximal ideals of Z. When E consists of the maximal ideal of the valuation ring of a
+local field, we recover a variant of the p-typical Witt functor due to Drinfeld [14] and
+to Hazewinkel [29], (18.6.13). While the general E-typical functors are necessary
+for future applications, all phenomena in this paper occur already in the p-typical
+case. This is because for foundational questions, the general methods of [5] usually
+allow one to reduce matters to the case where E consists of a single principal ideal,
+and in this case, the classical p-typical functor is a representative example.
+    As in the p-typical case above, the functor WR,E,n has a left adjoint, which in
+general we will denote by A 7→ ΛR,E,n ⊙ A. But let us write Λn ⊙ A = ΛR,E,n ⊙ A
+and Wn = WR,E,n , for short. The first concern of this paper is to extend both
+of these functors to the category of algebraic spaces over R, including for example
+all R-schemes. In fact, as explained in Grothendieck–Verdier (SGA 4, exp. III [1]),
+there is a general way of doing this—we only need to verify that Wn satisfies certain
+properties. The method is as follows. Let Aff S denote the category of affine schemes
+over S = Spec R. Then Wn induces a functor Aff S → Aff S , which we also denote
+by Wn . So we have Wn (Spec A) = Spec Wn (A). This functor has two important
+properties. First, if U → X and V → X are étale maps in Aff S , then the induced
+map
+                       Wn (U ×X V ) −→ Wn (U ) ×Wn (X) Wn (V )
+is an isomorphism. Second, if (Ui → X)i∈I      is a covering family of étale maps, then
+so is the induced family Wn (Ui ) → Wn (X) i∈I . Both of these are consequences of
+van der Kallen’s theorem for E-typical Witt functors, which says that Wn preserves
+étale maps of R-algebras ([5], theorem B).
+    It then follows from general sheaf theory that if X is a sheaf of sets on Aff S in
+the étale topology, then so is the functor Wn∗ (X) = X ◦ Wn , thus giving a functor
+Wn∗ from the category SpS of sheaves of sets on Aff S to itself. By another general
+theorem, this functor Wn∗ : SpS → SpS has a left adjoint Wn∗ satisfying
+                               Wn∗ (X) = colim Wn (U ),
+                                            U
+where U runs over the category of affine schemes equipped with a map to X and
+where we identify the affine scheme Wn (U ) with the object of SpS it represents.
+These functors extend the affine functors Wn and Λn ⊙ − to SpS :
+(0.0.2)       Wn∗ (Spec A) = Spec Wn (A),         Wn∗ (Spec A) = Spec Λn ⊙ A.
+They are the extensions we will consider. In fact, by the discussion above, they are
+the unique extensions satisfying certain natural properties.
+Theorem A. If X ∈ SpS is an algebraic space, then so are Wn∗ (X) and Wn∗ (X).
+If X is a scheme, then so are Wn∗ (X) and Wn∗ (X).
+   We call Wn∗ (X) the E-typical Witt space of X of length n, and we call Wn∗ (X)
+the E-typical arithmetic jet space of X of length n. In certain cases, they have
+been constructed before. In their appendix, Langer and Zink [35] constructed the
+p-typical Witt space of a general Zp -scheme X. For earlier work see Bloch [4],
+Lubkin [36], and Illusie [30]. Buium [9] has constructed the p-typical arithmetic
+jet space of a formal Zp -scheme, extending Greenberg’s construction of the special
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                             3
+
+
+fiber [20][21]. When R is Z and E is arbitrary, Buium and Simanca have con-
+structed the arithmetic jet spaces for affine schemes and have constructed certain
+approximations to it for general schemes [12] (Defintion 2.16).
+    For the reader who does not have a mind for abstract sheaf theory, let us rein-
+terpret theorem A in the language of covers. The most obvious way of defining the
+Witt space of a separated scheme X is to choose an affine open cover (Ui )i∈I of X
+and to define Wn∗ (X) to be the result of gluing the affine schemes Wn (Ui ) along
+the affine schemes Wn (Ui ×X Uj ). It is not hard to check that this gives a scheme
+which is independent of the cover. (If X is arbitrary, then Ui ×X Uj is separated,
+and so we can define Wn∗ (X) in general by doing this procedure twice.) This is in
+Langer–Zink [35] in the p-typical case, and the general E-typical case is no harder.
+When
+`       X is an algebraic space and (Ui )i∈I is an étale`cover, we need to know that
+   i,j Wn (Ui ×X Uj ) is an étale equivalence relation on  i Wn (Ui ). This requires van
+der Kallen’s theorem and a more sophisticated gluing argument, but the principle
+is the same. Instead the approach of this paper is to define Wn∗ (X) as an object of
+SpS and to prove later that it is a scheme or an algebraic space. If one cares about
+Wn∗ only for schemes and algebraic spaces, then the difference is mostly a matter
+of organization.
+    This method does not work as well with Wn∗ , because it is rarely the case that the
+Wn∗ (Ui ) cover Wn∗ (X). Indeed, generically over Spec R, the space Wn∗ (X) agrees
+with a certain cartesian power X N , and of course one cannot usually construct
+X N by gluing the UiN together. For p-adic formal schemes in the p-typical case,
+the generic fiber is empty and this method does actually   ` work, but in general it
+does not. Instead we must use the total space U = i Ui of the cover. We will
+prove below that Wn∗ (U ×X U ) is an étale equivalence relation on Wn∗ (U ), and
+the quotient is Wn∗ (X). If X is quasi-compact and separated, we can assume U
+and U ×X U are affine, and then Wn∗ (X) becomes the quotient of a known affine
+scheme by a known affine étale equivalence relation. And so we could avoid abstract
+sheaf theory for such X by taking this to be the definition of Wn∗ (X), although it
+would still take a small argument to prove that Wn∗ is the right adjoint of Wn∗ and
+that it sends schemes to schemes, rather than just algebraic spaces. It would also
+take some work to remove the assumption that X is quasi-compact and separated,
+but of course it could be done. Instead we will define Wn∗ (X) in one stroke as an
+object of SpS and then prove the representability properties later.
+    Another benefit to working with the whole category SpS is that is allows us to
+make the infinite-length constructions
+(0.0.3)         W ∗ (X) = colim Wn∗ (X),       W∗ (X) = lim Wn∗ (X).
+                              n                            n
+
+These constructions are ind-algebraic spaces (resp. pro-algebraic spaces) but are
+generally not algebraic spaces. While it would be possible to remain in the cate-
+gory of schemes or algebraic spaces by treating them as inductive systems (resp.
+projective systems), it is convenient to be able to pass to the limit in SpS . We
+will only consider the finite-length constructions in this paper, but it is in fact the
+infinite-length ones that are of ultimate interest. Further, we will eventually want
+to consider iterated constructions, such as W ∗ W ∗ (X), and so it is convenient to
+have W ∗ (X) defined when X ind-algebraic, and to have W∗ (X) defined when X is
+pro-algebraic. At this point, it becomes easier just to let X be any object of SpS .
+
+Preservation of properties by Wn∗
+  We will spend some time looking at whether common properties of algebraic
+spaces and maps are preserved by Wn∗ . Rather than state the results formally, I
+have arranged them into tables 1 and 2. (Note that we use normalized indexing
+4                                    J. BORGER
+
+
+            Property of algebraic spaces Preserved   Reference or
+                                          by Wn∗ ? counterexample
+            quasi-compact                   yes          16.1
+            quasi-separated                 yes          16.8
+            affine                          yes          10.7
+            a scheme                        yes          15.6
+            of Krull dimension d            yes          16.5
+            separated                       yes          16.8
+            reduced and flat over S         yes          16.5
+            reduced                          no        W1 (Fp )
+            regular, normal                  no        W1 (Z)
+            (locally) noetherian            yesb     16.6 + 16.5
+            Sk (Serre’s property)           yesb        16.19
+            Cohen–Macaulay                  yesb        16.19
+            Gorenstein                       no        W2 (Z)
+            local complete intersection      no        W2 (Z)
+
+        Table 1. This table indicates whether the given property of al-
+        gebraic spaces X over S is preserved by Wn∗ in general. The su-
+        perscript b means that X is assumed to be locally of finite type
+        over S and that S is assumed to be noetherian. In the counterex-
+        amples, Wn denotes the p-typical Witt vectors over Z of length n
+        (traditionally denoted Wn+1 ).
+
+throughout. So our p-typical Witt functor Wn is what is traditionally denoted
+Wn+1 . The reasons for this are explained in [5], 2.5.)
+   Several results in the p-typical case are folklore or have appeared elsewhere.
+See, for example, Bloch [4], Illusie [30], or Langer–Zink [35]. Perhaps the most
+interesting of them is that while smoothness over S and regularity are essentially
+never preserved by Wn∗ , being Cohen–Macaulay always is. As with the work of
+Ekedahl and Illusie on p-typical Witt vectors of Fp -schemes [16][17][31], this has
+implications for Grothendieck duality and de Rham–Witt theory, but we will not
+consider them here.
+
+Preservation of properties by Wn∗
+   Preservation results for Wn∗ are typically easier to establish. This is because
+many common properties of morphisms are naturally expressed in terms of the
+functor of points, and the functor of points of Wn∗ (X) is described simply in terms
+of that of X. For the same reason, many of these results extend readily beyond
+algebraic spaces to the category SpS ; this is unlike with Wn∗ , where we usually need
+to make representability assumptions.
+   A number of the results are displayed in table 3. Because we have Wn∗ (S) = S,
+the preservation of properties relative to S is a special case of the preservation of
+properties of morphisms. This is unlike the case with Wn∗ , where we have the right-
+hand pair of columns in table 2. I have mostly ignored whether absolute properties,
+such as regularity, are preserved by Wn∗ . This is because such properties are usually
+not preserved by products over S, and in that case they would fail to be preserved
+by Wn∗ for the trivial reason that Wn∗ is a product functor away from the ideals
+of E. This is like the case with Wn∗ : properties that are not preserved by disjoint
+unions, such as connectedness, are not listed in table 1.
+
+Geometric descriptions
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           5
+
+
+       Property P of maps          Must Wn∗ (f ) have    When Y = S, must
+       f : X → Y of algebraic        property P ?         Wn∗ (X) → S have
+       spaces                                                property P ?
+       étale                     yes           15.2      no         Z
+       an open immersion          yes           15.6      no         Z
+       quasi-compact              yes          16.11     yes        16.7
+       quasi-separated            yes          16.11     yes        16.8
+       affine                     yes           16.4     yes      + 16.10
+       integral                   yes           16.4     yes      + 16.10
+       a closed immersion         yes           16.4      no         Z
+       finite étale              yes           16.4      no         Z
+       separated                  yes          16.11     yes        16.8
+       surjective                 yes          16.11     yes      + 16.10
+       universally closed         yes          16.11     yes      + 16.10
+       locally of finite type     yesa     16.13 + 16.6 yes         16.5
+       of finite type             yesa     16.13 + 16.6 yes         16.7
+       finite                     yesa     16.13 + 16.6 yes         16.9
+       proper                     yesa     16.13 + 16.14 yes      + 16.10
+       flat                        no           Z[x]     yes        16.5
+       faithfully flat             no           Z[x]     yes        16.9
+       Cohen-Macaulay              no           Z[x]     yesb      16.19
+       Sk (Serre’s property)       no           Z[x]     yesb      16.19
+       smooth                      no           Z[x]      no         Z
+                                                 √
+       finite flat                 no          Z[ p]     yes        16.9
+
+        Table 2. This table indicates whether the given property P of
+        morphisms of algebraic spaces over S is preserved by Wn∗ in gen-
+        eral. The central two columns indicate whether P is preserved by
+        Wn∗ and give either a reference to the main text or a counterex-
+        ample. The right columns indicate whether the structure map
+        Wn∗ (X) → S must satisfy P when the structure map X → S does.
+        The superscript a means that X and Y are assumed to be locally
+        of finite type over S; and b means that also S is assumed to be
+        noetherian. The counterexamples are for W1∗ , the p-typical Witt
+        functor of length 1, with X the spectrum of the given ring and
+        Y = Spec Z.
+
+    As explained above, both Wn∗ (X) and Wn∗ (X) can be described in terms of the
+case where X is affine by using charts. But under some flatness restrictions on X,
+it is possible to construct Wn∗ (X) and Wn∗ (X) in purely geometric terms without
+mentioning Witt vectors or arithmetic jet spaces at all. I will give the descriptions
+here in the p-typical case when n = 1; the general case is in the body of the paper.
+    Let us first consider the Witt space W1∗ (X). Assume that X is flat over Z locally
+at p. Let X0 denote the special fiber X ×Spec Z Spec Fp . Then the theorem is that
+W1∗ (X) is the coequalizer in the category of algebraic spaces of the two maps
+                                         i1 ◦F
+                                                  /
+                                  X0             / X ∐ X,
+                                          i2
+
+where ij : X0 → X ∐ X denotes the canonical closed immersion into the j-th com-
+ponent of X ∐ X and where F is the absolute Frobenius endomorphism of X0 . For
+general n, the space Wn∗ (X) can be constructed by gluing n+ 1 copies of X together
+in a similar but more complicated way along their fibers modulo p,. . . ,pn . See 17.3.
+6                                    J. BORGER
+
+
+         Property of maps of                  Preserved  Reference or
+         algebraic spaces                     by Wn∗ ? counterexample
+         (formally) étale, smooth, unram.       yes         11.1
+         a monomorphism                          yes         11.4
+         an open immersion                       yes     11.1 + 11.4
+         quasi-compact                           yes        11.10
+         quasi-separated                         yes        11.10
+         epimorphism in SpS                      yes         11.4
+         affine                                  yes         13.3
+         a closed immersion                      yes         13.3
+         integral, finite                        no         Z×Z
+         finite étale, finite flat              no         Z×Z
+         (locally) of finite type/pres.          yes         13.3
+         separated                               yes         13.3
+         smooth and surjective                   yes         13.3
+                                                              √
+         surjective                              no         Z[ p]
+         proper, universally closed              no         Z×Z
+         smooth and proper                       no         Z×Z
+         flat                                    no     Z[x]/(x2 − px)
+         faithfully flat                         no     Z[x]/(x2 − px)
+         Cohen-Macaulay                          no     Z[x]/(x2 − px)
+         Sk (Serre’s property)                   no     Z[x]/(x2 − px)
+
+        Table 3. This table indicates whether the given property of maps
+        of algebraic spaces over S is preserved by Wn∗ in general. The
+        counterexamples are for the p-typical jet functor W1∗ applied to
+        the map Spec A → Spec Z, where A is the given ring. See 13.4.
+
+   For the arithmetic jet space W1∗ (X), we need to assume that X is smooth over
+Z locally at p. Let I denote the ideal sheaf on X × X defining the graph of the
+Frobenius map on the special fiber X0 , and let B denote the sub-OX×X -algebra of
+OX×X [1/p] generated by the subsheaf p−1 I. Then the theorem is that W1∗ (X) is
+naturally isomorphic to the relative spectrum Spec(B) over X × X. (One might
+hope that it is also worth studying the full blow up of X ×X along I.) In particular,
+the map W1∗ (X) → X × X is affine and is an isomorphism outside the fiber over p.
+For general n, the space Wn∗ (X) can be constructed by taking a similar but more
+complicated affine modification of X n+1 . See 18.3.
+
+Absolute algebraic geometry
+   Let us end with a few words on how the Witt and jet functors relate to the
+philosophy of absolute algebraic geometry. The first hope of this philosophy is that
+there exists a category whose relationship to the category of schemes over Z is
+analogous to the relationship of Fp to Fp [t]. It is sometimes called the category of
+absolute schemes, or schemes over F1 . The second hope is that this category would
+suggest ways of transporting results in algebraic geometry over Fp (t) to Q.
+   There are a number of proposed definitions of this category. One of the general
+themes is that an absolute scheme could be defined to be a scheme together with
+some additional structure, which should be interpreted as descent data from Z to
+F1 . One precise proposal for this structure is a so-called Λ-structure [6]. If X is a
+flat scheme over Z, then a Λ-structure is equivalent to a commuting family of maps
+ψp : X → X, where p runs over the prime numbers, such that each ψp agrees with
+the Frobenius map on the fiber of X over p. And if X is affine, then a Λ-structure
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                             7
+
+
+is equivalent to a (special) λ-ring structure on the corresponding ring, in the sense
+of Grothendieck’s Riemann–Roch theory [22].
+   From this point of view, the functor that forgets the Λ-structure should be
+thought of as base change from F1 to Z. Therefore its left adjoint should be thought
+of as the base-forgetting functor, and its right adjoint the Weil restriction of scalars.
+In fact, it is possible to say explicitly what these adjoints are. Let E be the set of
+all maximal ideals of Z. Then for any space X ∈ SpZ , the infinite-length Witt and
+jet spaces W ∗ (X) and W∗ (X) of (0.0.3) carry natural Λ-structures, and hence give
+functors from spaces over Z to those over F1 . The first is the left adjoint of base
+change and the second is the right adjoint. Thus it is natural to interpret the Witt
+space W ∗ (X) ∈ SpS as X ×F1 Spec Z and the arithmetic jet space W∗ (X) ∈ SpS
+as the base change to Z of the Weil restriction of scalars of X to F1 . One would
+interpret the truncated versions Wn∗ (X) and Wn∗ (X) as approximations.
+   This theme is discussed in more detail in the preprint [6] and will developed in
+forthcoming work.
+
+   I thank William Messing, Amnon Neeman, and Martin Olsson for some helpful
+discussions on technical points, and Alexandru Buium and Lance Gurney for mak-
+ing some helpful comments on earlier versions of this paper. In particular, Buium’s
+questions led to 12.8 and all of section 18.
+
+                                       Contents
+  Introduction                                                                         1
+  Conventions                                                                          7
+  10. Sheaf-theoretic foundations                                                      8
+  11. Sheaf-theoretic properties of Wn∗                                               13
+  12. Wn∗ and algebraic spaces                                                        17
+  13. Preservation of geometric properties by Wn∗                                     20
+  14. The inductive lemma for Wn∗                                                     22
+  15. Wn∗ and algebraic spaces                                                        25
+  16. Preservation of geometric properties by Wn∗                                     29
+  17. Ghost descent and the geometry of Witt spaces                                   38
+  18. The geometry of arithmetic jet spaces                                           41
+  References                                                                          44
+
+
+
+
+                                             11    / 12
+                                                           ❉❉❉ 13
+                                                                    /
+                                         ③③③< ❉❉❉❉            ❉
+                                      ③③          ❉  "         ❉"
+                                   10 ❉                17O        / 18
+                                       ❉❉❉
+                                          ❉"
+                                             14     / 15           / 16
+
+                      Figure 1. Dependence between sections
+
+
+                                    Conventions
+   This paper is a continuation of [5]. When we need to refer to results in [5], we
+will generally not mention the paper itself and instead simply refer to the subsection
+or equation number. There is no risk of confusion because the numbering of this
+8                                           J. BORGER
+
+
+paper is a continuation of the numbering of [5] (see Fig. 1). We will also keep the
+general conventions of [5].
+
+                           10. Sheaf-theoretic foundations
+   The purpose of this section is to set up the basic global definitions. The approach
+is purely sheaf theoretic in the style of SGA 4 [1].
+
+10.1. Spaces. Let Aff denote the category of affine schemes equipped with the étale
+topology: a family (Xi → X) is a covering family if each Xi → X is étale and their
+images cover X. Let Sp denote the category of sheaves of sets on Aff. We will
+call its objects spaces.1 Any scheme represents a contravariant set-valued functor
+on Aff, and this functor is a sheaf. In this way, the category of schemes can be
+identified with a full subcategory of Sp.
+   For any object S ∈ Sp, let SpS denote the subcategory of objects over S and
+let Aff S denote the full subcategory of SpS consisting of objects X over S, where
+X is affine. When S is a scheme, define AffRelS to be the full subcategory of Aff S
+consisting of objects X whose structure map X → S factors through an affine open
+subscheme of S. Observe that the inclusion AffRelS → SpS induces an equivalence
+between SpS and the category of sheaves of sets on AffRelS , and for convenience, we
+will typically identify the two. (The reason for using the site AffRelS , rather than
+the more common one Aff S , is that the E-typical Witt functors WR,E,n are defined
+in terms of the base R; so it is more convenient to use a generating site in which
+the objects have an affine base available.) In the important special case where S
+itself is affine, S = Spec R, we will often write AffRelR and SpR , and of course we
+have AffRelS = Aff S .
+
+10.2. Supramaximal ideals. For the rest of this paper, S will denote a separated
+scheme. (In all applications, S will be an arithmetic curve. The extra generality
+we work in will not create any more work.) Define a supramaximal ideal on S to
+be a finitely presented ([23], 0 (5.3.1)) ideal sheaf m in OS corresponding to either
+    (a) a closed point whose local ring OS,m is a discrete valuation ring with finite
+        residue field, or
+    (b) the empty subscheme.
+When S is affine, this agrees with the earlier definition in 1.2.
+   We will generally fix the following notation: Let (mα )α∈E denote a family of
+supramaximal ideals of S which are pairwise coprime, that is, for all α, β ∈ E with
+α 6= β, we have mα + mβ = OS . For each α, let qα be the cardinality of the ring
+OS,mα /mα . Finally, n will be an element of N(E) = E N.
+                                                       L
+
+                        ∗
+10.3. Definition of WS,E,n  (X) and WS,E,n∗ (X). Let X = Spec A be an object
+of AffRelS , and let Spec R be an affine open subscheme of S which contains the
+image of the structure map X → S. Then WR,E,n (A) is independent of R, up to
+a coherent family of canonical isomorphisms. (Here we abusively conflate E and n
+with their restrictions to R.) Indeed, let Spec R′ be another such subscheme of S.
+
+   1As always with large sites, there are set-theoretic subtleties. So, precisely, let Υ be a universe
+containing the universe of discourse. The term presheaf will mean a functor from AffRelS to the
+category of Υ-small sets, and the term sheaf will mean a presheaf satisfying the sheaf condition.
+Because AffRelS is an Υ-small category, we can sheafify presheaves. On the other hand, the cate-
+gories of sheaves and presheaves are not true categories because their hom-sets are not necessarily
+true sets, but only Υ-small sets. A possible way of avoiding set-theoretic issues would be to con-
+sider only sheaves subject to certain set-theoretic smallness conditions, but to my knowledge, no
+one has pursued this.
+                     THE BASIC GEOMETRY OF WITT VECTORS, II                                9
+
+
+Since S is separated, we can assume Spec R′ ⊆ Spec R and can then apply (2.6.2).
+Thus we can safely define
+                            WS,E,n (X) = Spec WR,E,n (A).
+    Now we will pass from X ∈ AffRelS to X ∈ SpS . The functor WS,E,n preserves
+étale fiber products. Indeed, let f : Spec A′ → Spec A and g : Spec A′′ → Spec A be
+étale maps in AffRelS , and let Spec R be an affine open subscheme of S containing
+the image of Spec A, and hence those of Spec A′ and Spec A′′ ; then by 9.4, we have
+             WR,E,n (A′ ⊗A A′′ ) = WR,E,n (A′ ) ⊗WR,E,n (A) WR,E,n (A′′ ).
+Similarly, WS,E,n preserves covering families, by 9.2 and 6.9. It follows from general
+sheaf theory (see the footnote to SGA 4 III 1.6 [1], say) that for any sheaf X, the
+presheaf X ◦ WS,E,n is a sheaf. Let us write
+                                 WS,E,n∗ : SpS −→ SpS
+for the functor X 7→ X ◦ WS,E,n. Again by general sheaf theory (SGA 4 III 1.2 [1]),
+the functor WS,E,n∗ has a left adjoint
+                                   ∗
+                                  WS,E,n : SpS −→ SpS
+constructed in the usual way. For any affine open subscheme Spec R of S and any
+R-algebra A, it satisfies
+                    ∗
+(10.3.1)           WS,E,n (Spec A) = WS,E,n (Spec A) = Spec WR,E,n (A).
+By the adjunction between Wn and Λn ⊙ −, we further have
+(10.3.2)                WS,E,n∗ (Spec A) = Spec(ΛR,E,n ⊙ A),
+for R and A as above.
+              ∗
+   We call WS,E,n  (X) the E-typical Witt space of X of length n and WS,E,n∗ (X)
+the E-typical (arithmetic) jet space of X of length n. We will often use shortened
+                 ∗
+forms such as WS,n  , Wn∗ , and so on.
+                ∗
+   (Note that WS,E,n does not generally commute with finite products. For example,
+                                        ∗
+see 9.5. So, despite the notation, WS,E,n    is essentially never the inverse-image
+functor in a map of toposes.)
+10.4. Restriction of S. Let j : S ′ → S be a flat monomorphism of schemes (espe-
+cially an open immersion or a localization at a point). There are certain isomor-
+phisms of functors
+                                            ∼
+(10.4.1)                       WS∗′ ,n ◦ j ∗ −→ j ∗ ◦ WS,n
+                                                       ∗
+
+                                            ∼
+(10.4.2)                       WS,n∗ ◦ j∗ −→ j∗ ◦ WS ′ ,n∗
+                                            ∼
+(10.4.3)                          ∗
+                                 WS,n ◦ j! −→ j! ◦ WS∗′ ,n
+                                            ∼
+(10.4.4)                      WS ′ ,n∗ ◦ j ∗ −→ j ∗ ◦ WS,n∗
+                                            ∼
+(10.4.5)                       j! ◦ WS ′ ,n∗ −→ WS,n∗ ◦ j!
+which we will find useful. The map (10.4.1) restricted to the site AffRelS was con-
+structed in (2.6.3); and it was shown to be an isomorphism in 6.1. It therefore
+induces an isomorphism (10.4.2) on the whole sheaf category SpS ′ and, by adjunc-
+tion, (10.4.1) on SpS . Similarly, (10.4.3) was constructed on AffRelS ′ in (2.6.2); and
+this induces (10.4.4) on the sheaf category SpS and, by adjunction, (10.4.3) on SpS ′ .
+   Finally (10.4.5) is defined to be the composition
+                  ∼                           (10.4.1)
+   j! ◦ WS ′ ,n∗ −→ j! ◦ WS ′ ,n∗ ◦ j ∗ ◦ j! −−−−−−→ j! ◦ j ∗ ◦ WS,n∗ ◦ j! −→ WS,n∗ ◦ j!
+where the first map is induced by the unit of the adjunction j! ⊣ j ∗ and the last
+by the counit. Let us show the last map isomorphism. It is enough to show
+10                                           J. BORGER
+
+
+that, for any X ′ ∈ SpS ′ , the structure map WS,n∗ (j! (X ′ )) → S factors through
+S ′ . To do this, it is enough to assume X ′ = S ′ , and in this case, we will show
+WS,n∗ (S ′ ) = j! (WS ′ ,n∗ (S ′ )). It suffices to show this locally on S, by (10.4.4), and
+so we can assume S is affine. Since S is separated, S ′ is also affine, in which case
+we can apply (2.6.4).
+     It will be convenient to refer to the following simplified expressions of the iso-
+morphisms above:
+(10.4.6)                      WS∗′ ,n (S ′ ×S X) = S ′ ×S WS,n
+                                                           ∗
+                                                               (X)
+                                              ′
+                               WS,n∗ j∗ (X ) = j∗ WS ′ ,n∗ (X ′ ))
+                                                
+(10.4.7)
+(10.4.8)                             ∗
+                                    WS,n (X ′ ) = WS∗′ ,n (X ′ )
+(10.4.9)                 WS ′ ,n∗ (S ′ ×S X) = S ′ ×S WS,n∗ (X)
+(10.4.10)                         WS ′ ,n∗ (X ′ ) = WS,n∗ (X ′ )
+for X ∈ SpS , X ′ ∈ SpS ′ .
+10.5. Restriction of E. Observe that if we let E ′ denote the support in E of
+n ∈ N(E) , then we have WS,E ′ ,n = WS,E,n , and hence WS,E   ∗           ∗
+                                                                 ′ ,n = WS,E,n and
+
+WS,E ,n∗ = WS,E,n∗ . So without loss of generality, we can assume that E equals
+     ′
+
+the support of n and hence that E is finite. (This is no longer true in the infinite-
+length case, but that does not appear in this paper.)
+10.6. Natural maps. Natural transformations between Witt vector functors for
+rings extend naturally to natural transformations of their sheaf-theoretic variants
+and, by adjunction, of the arithmetic jet spaces.
+   For example, for any partition E = E ′ ∐ E ′′ , the natural isomorphism (5.4.2)
+induces natural isomorphisms
+                         ∗             ∗                  ∼
+                                                          ∗
+(10.6.1)                WS,E ′′ ,n′′ (WS,E ′ ,n′ (X)) −→ WS,E,n (X),
+
+                                        ∼
+(10.6.2)              WS,E,n∗ (X) −→ WS,E ′ ,n′ ∗ (WS,E ′′ ,n′′ ∗ (X)),
+for any X ∈ SpS .
+   Similarly, the natural projections Wn+i (A) → Wn (A), induced by the inclusion
+Λn ⊆ Λn+i , induce natural maps
+                                                   rn,i
+(10.6.3)                            Wn∗ (X) −−−→ Wn+i
+                                                  ∗
+                                                      (X),
+                                                   sn,i
+(10.6.4)                         Wn+i∗ (X) −−−→ Wn∗ (X),
+which we usually just call the natural inclusion and projection; and the natural
+transformations ψi of (2.4.8) induce natural maps
+                                                   ψi
+(10.6.5)                          Wn+i∗ (X) −−→ Wn∗ (X),
+                                                   ψi
+(10.6.6)                             Wn∗ (X) −−→ Wn+i
+                                                  ∗
+                                                      (X).
+   The affine ghost maps wi : Wn (A) → A (for i = 0, . . . , n) and w⩽n : Wn (A) →
+A[0,n] of (2.4.3) and (2.4.4) induce general ghost maps
+                                               w
+(10.6.7)                                        i
+                                            X −−→ Wn∗ (X),
+                                     a         w⩽n
+(10.6.8)                                    X −−−−→ Wn∗ (X),
+                                    [0,n]
+
+and, by adjunction, the co-ghost maps
+                                              i    κ
+(10.6.9)                            Wn∗ (X) −−→ X,
+                                                   κ⩽n
+(10.6.10)                           Wn∗ (X) −−−→ X [0,n] .
+                       THE BASIC GEOMETRY OF WITT VECTORS, II                               11
+
+
+Observe that if every ideal in E is the unit ideal, then w⩽n and κ⩽n are isomor-
+phisms, simply because they are induced by isomorphisms between the site maps,
+by for example 2.7.
+  When E consists of a single ideal m, the reduced affine ghost maps w̄n : Wn (A) →
+A/mn+1 A of (4.6.1) extend similarly to natural maps
+                                               w̄
+(10.6.11)                                    → Wn∗ (X),
+                                             n
+                                   Sn ×S X −−−
+where Sn = Spec OS /mn+1 . Indeed, both sides commute with colimits in X, and
+so, since every X ∈ SpS is the colimit of the objects of AffRelS mapping to it, the
+maps in the affine case naturally induce maps in general.
+   Let κ̄n denote the reduced co-ghost map
+                                               w̄                   ε
+(10.6.12)                                    → Wn∗ Wn∗ (X) −→ X,
+                                             n
+                       κ̄n : Sn ×S Wn∗ (X) −−−
+where ε is the counit of the evident adjunction.
+  Finally, we have natural plethysm and co-plethysm maps
+                                              µX
+(10.6.13)                       ∗
+                               Wm Wn∗ (X) −−−→ Wm+n
+                                                ∗
+                                                    (X),
+(10.6.14)                      Wm+n∗ (X) −→ Wn∗ Wm∗ (X),
+which are induced by (2.4.5).
+10.7. Proposition. If X is affine, then so is Wn∗ (X).
+Proof. First observe that when S is affine, this was established already in (10.3.1).
+    For general S, we will apply Chevalley’s theorem (in the final form, due to
+Rydh [38], Theorem (8.1)),     to the ghost map w⩽n of (10.6.8). To apply it, it is
+enough to verify that [0,n] X is affine, that Wn∗ (X) is a scheme, and that w⩽n is
+                        `
+
+integral and surjective.
+    The first statement is clear. Let us check the  ` second. ∗Let (Si )i∈I be an open
+                           ∗
+affine cover of S. Since W n (X) is the quotient of  i Si ×S Wn (X) by the equivalence
+relation j,k Sj ×S Sk ×S Wn∗ (X), it is enough to show that each of the summands
+          `
+in each expression is affine. And since S is separated, it is enough to show the single
+statement that, for any affine open subscheme S ′ of S, the space S ′ ×S Wn∗ (X) is
+affine. By (10.4.6), we have S ′ ×S Wn∗ (X) = WS∗′ ,n (S ′ ×S X). Further, because X
+and S ′ are affine and S is separated, S ′ ×S X is affine. Therefore WS∗′ ,n (S ′ ×S X)
+is affine, by the case mentioned in the beginning, and hence so is S ′ ×S Wn∗ (X).
+    Now let us check that w⩽n is integral and surjective. It is enough to show this
+for each base-change ` map Si ×S w⩽n . By (10.4.6) again, this map can be identified
+with the ghost map [0,n] (Si ×S X) → WS∗i ,n (Si ×S X). In other words, we may
+assume S is affine, in which case we can conclude by applying 10.8 below.            
+10.8. Lemma. Suppose S is affine, S = Spec R. For any R-algebra A, the map
+                                                                   N
+w⩽n : WR,n (A) → A[0,n] is integral, and its kernel I satisfies I 2 = 0, where N =
+P
+  m nm .
+
+Proof. We may assume that E equals the support of n, which is finite, and then
+reason by induction on the cardinality of E. When E is empty, w⩽n is an isomor-
+phism. Now suppose E contains an element m. Write E ′ = E − {m} and let n′
+denote the restriction of n to E ′ . Then the map w⩽n factors as follows:
+                                               w⩽n                            ′
+                 WE,n (A)                                          / A[0,nm ] [0,n ]
+                                                                           O
+               (5.4.2) ∼                                                w⩽n′
+                                w⩽nm
+                                      / WE ′ ,n′ (A)[0,nm ]   ∼   / WE ′ ,n′ (A[0,nm ] ).
+            Wm,nm (WE ′ ,n′ (A))
+12                                     J. BORGER
+
+
+So it is enough to show w⩽nm and w⩽n′ are integral and their kernels are nilpotent
+of the appropriate degree. For w⩽n′ , it follows by induction on E. For a, it follows
+by induction on the integer nm , using 8.1(a)–(b).                                 
+
+10.9. Algebraic spaces. We will define the category of algebraic spaces to be the
+smallest full subcategory of SpZ which contains Aff Z and which is closed under
+arbitrary (set indexed) disjoint unions and quotients by étale equivalence relations.
+This obviously exists. It also agrees with the category of algebraic spaces as defined
+in Toën–Vaquié [39], section 2. This follows from Toën–Vezzosi [40], Corollary
+1.3.3.5, as does the fact that this category is closed under finite limits. (Note
+that [40] is written in the homotopical language of higher stacks, but it is possible
+to translate the arguments by substituting the word space for stack and so on.)
+Indeed, as mentioned in their Remark 2.6, their category has the defining closure
+property of ours.
+    It will be convenient to use their concept of an algebraic space X being m-
+geometric, m ∈ Z. For m ⩽ −1, the space X is m-geometric if and only if it is
+affine, it is 0-geometric if and only if its diagonal map is affine, and every algebraic
+space is m-geometric for m ⩾ 1. (Again, see [39], Remark 2.6. Note that they
+require m ⩾ −1, but it will be convenient for us to allow m < −1.) In particular,
+for m ⩾ 0, every m-geometric algebraic space is the quotient of a disjoint union of
+affine schemes by an étale equivalence relation which is a disjoint union of (m − 1)-
+geometric algebraic spaces. (Note however that the converse is not true: over a field
+of characteristic 0, the quotient group Ga /Z is 1-geometric but not 0-geometric.)
+Let AlgSpm denote the full subcategory of SpZ consisting of all disjoint unions of m-
+geometric algebraic spaces. A map X → Y of spaces is said to be m-representable
+if for every affine scheme T and every map T → Y , the pull back X ×Y T is an
+m-geometric algebraic space.
+    This definition of algebraic space also agrees with that of Raynaud–Gruson [37].
+Indeed, the category of Raynaud–Gruson algebraic spaces contains affine schemes
+and is closed under disjoint unions and quotients by étale equivalence relations.
+(See Conrad–Lieblich–Olsson [13], A.1.2.) And conversely, any algebraic space in
+the sense of Raynaud–Gruson is the quotient of a disjoint union of affine schemes
+by an étale equivalence relation which is a scheme, necessarily separated; therefore
+it is 1-geometric.
+    The difference between these two approaches is that Raynaud–Gruson [37] use
+schemes as the intermediate class of algebraic spaces, and Toën–Vaquié use algebraic
+spaces with affine diagonal. The advantage of the second approach is that the two
+steps—going from affine schemes to the intermediate category, and going from that
+to general algebraic spaces—are two instances of a single procedure. Thus we can
+prove results by induction on the geometricity m, and so we do not need to consider
+the intermediate case separately. Note however that the induction is rather meager
+in that it terminates after two steps.
+    Finally, a space is algebraic in the sense of Knutson [33] if and only if it is
+quasi-separated and algebraic in the sense above.
+
+10.10. Smoothness properties of maps. Let us say a map f : X → Y in Sp is for-
+mally étale (resp. formally unramified, resp. formally smooth) if the usual nilpotent
+lifting properties (EGA IV 17.1.2 (iii) [28]) hold: for all nilpotent closed immersions
+T̄ → T of affine schemes, the induced map
+
+(10.10.1)                    X(T ) −→ X(T̄ ) ×Y (T̄ ) Y (T )
+
+is a bijection (resp. injection, resp. surjection).
+                      THE BASIC GEOMETRY OF WITT VECTORS, II                            13
+
+
+    Also, let us say that f is locally of finite presentation if for any cofiltered system
+(Ti )i∈I of Y -schemes, each of which is affine, the induced map
+(10.10.2)               colim HomY (Ti , X) −→ HomY (lim Ti , X)
+                          i                                  i
+is a bijection. This definition agrees with the usual one if X and Y are schemes
+(EGA IV 8.14.2.c [27]).
+   We call a map étale (resp. unramified, resp. smooth) if it is locally of finite
+presentation and formally étale (resp. formally unramified, resp. formally smooth).
+When X and Y are schemes, all these definitions agree with the usual ones.
+10.11. E-flat and E-smooth algebraic spaces. Let us say that an algebraic space
+X over S is E-flat (resp. E-smooth) if, for all maximal ideals m ∈ E, the algebraic
+space X ×S Spec OS,m is flat (resp. smooth) over Spec OS,m , where OS,m is the local
+ring of S at m. If E = {m}, we will often write m-flat instead of E-flat.
+
+                     11. Sheaf-theoretic properties of Wn∗
+   We continue with the notation of 10.2.
+11.1. Proposition. The functor Wn∗ : SpS → SpS preserves the following proper-
+ties of maps:
+    (a) locally of finite presentation,
+    (b) formally étale, formally unramified, formally smooth,
+    (c) étale, unramified, smooth.
+Proof. (a): Let (Ti )i∈I be a cofiltered system in Aff S mapping to Wn∗ (Y ), as
+in (10.10.2). The following chain of equalities, which we will justify below, consti-
+tutes the proof:
+            HomWn∗ (Y ) (limi Ti , Wn∗ (X)) = HomY (Wn∗ (limi Ti ), X)
+                                            1
+                                            = HomY (limi Wn∗ (Ti ), X)
+                                            2
+                                            = colimi HomY (Wn∗ (Ti ), X)
+                                            = colimi HomWn∗ (Y ) (Ti , Wn∗ (X)).
+Equality 2 holds because each Wn∗ (Ti ) is affine (10.7) and because f : X → Y is
+locally of finite presentation.
+   To show equality 1, it is enough to show
+(11.1.1)                        Wn∗ (lim Ti ) = lim Wn∗ (Ti ).
+                                      i          i
+Let (Sj )j∈J be an affine open cover of S. Then it is enough to show (11.1.1)
+after applying each functor Sj ×S −. We can then reduce to the case S = Sj , by
+using (10.4.6), the fact that Sj ×S − commutes with limits, and the fact that each
+Sj ×S Ti is affine (S being separated). In other words, we may assume S is affine,
+in which case (11.1.1) follows from 6.10 and (10.3.1).
+   (b): By definition, the map Wn∗ (X) → Wn∗ (Y ) is formally étale (resp. formally
+unramified, resp. formally smooth) if for any closed immersion T̄ → T of affine
+schemes defined by a nilpotent ideal sheaf, the induced map
+                  Wn∗ (X)(T ) −→ Wn∗ (X)(T̄ ) ×Wn∗ (Y )(T̄ ) Wn∗ (Y )(T ).
+is bijective (resp. injective, resp. surjective). But this map is the same, by adjunc-
+tion, as the map
+                   X(Wn∗ (T )) −→ X(Wn∗ (T̄ )) ×Y (Wn∗ (T̄ )) Y (Wn∗ (T )).
+Because f : X → Y is formally étale (resp. . . .), to show this map is bijective (resp.
+. . .), it is enough to check that the induced map Wn (T̄ ) → Wn (T ) is also a nilpotent
+14                                      J. BORGER
+
+
+immersion of affine schemes. Affineness follows from 10.7. On the other hand, to
+show nilpotence, we may work locally. So by (10.4.6), we may assume S and T are
+affine (since S is separated). We can then apply 6.4.
+    (c): This follows from (a) and (b) by definition.                         
+11.2. Proposition. Suppose E consists of one ideal m, and set S0 = Spec OS /m.
+Let f : X → Y be a map in SpS which is formally étale (resp. formally unramified,
+resp. formally smooth). Then the map
+                                    idS0 ×(Wn∗ (f ),κ0 )
+(11.2.1)         S0 ×S Wn∗ (X)                             / S0 ×S Wn∗ (Y ) ×κ0 ,Y X
+
+is an isomorphism (resp. monomorphism, resp. presheaf epimorphism).
+Proof. Let Z be an affine S0 -scheme. Then Z is an object of AffRelS . We have the
+following commutative diagram:
+                                    a         / HomS (Z, Wn∗ (Y ) ×Y X)
+       HomS (Z, Wn∗ (X))
+               c ∼                                            d ∼
+                             b
+                                                         
+       HomS (Wn∗ (Z), X)          / HomS (W ∗ (Z), Y ) ×Hom (Z,Y ) HomS (Z, X),
+                                              n                   S
+
+
+where a is induced by (11.2.1), and c and d are given by the evident universal prop-
+erties. The map w0 : Z → Wn (Z) is a closed immersion defined by a nilpotent ideal,
+by 6.8 and (10.3.1). Therefore, since f is formally étale (resp. formally unramified,
+resp. formally smooth), b is bijective (resp. injective, resp. surjective), and hence so
+is a. In other words, the map in question is an isomorphism (resp. monomorphism,
+resp. presheaf epimorphism).                                                          
+11.3. Corollary. Let E and S0 be as in 11.2. Let (Ui → X)i∈I be an epimorphic
+family of étale maps in SpS . Then the induced family
+                                                       
+                        S0 ×S Wn∗ (Ui ) −→ S0 ×S Wn∗ (X)
+                                                                      i∈I
+is an epimorphic family of étale maps.
+Proof. By 11.1, we only need to show the family is epimorphic. By 11.2, each
+square
+                     S0 ×S Wn∗ (Ui )    / S0 ×S Wn∗ (X)
+
+                                  κ0 ◦pr2                     κ0 ◦pr2
+                                                  
+                             Ui                  /X
+is cartesian. The lower arrows are assumed to form a covering family indexed by
+i ∈ I, and hence so do the upper arrows.                                     
+11.4. Proposition. The functor Wn∗ : SpS → SpS preserves epimorphisms and
+monomorphisms.
+Proof. The statement about monomorphisms follows for general reasons from the
+fact that Wn∗ has a left adjoint.
+   Let us now consider the statement about epimorphisms. By (10.6.2), it suffices
+to assume E consists of one maximal ideal m. Let f : X → Y be an epimorphism
+in SpS .
+   First consider the case where X and Y lie in AffRelS and f is étale. The
+map Wn∗ (f ) : Wn∗ (X) → Wn∗ (Y ) is also an étale map between objects of AffRelS ,
+by 11.1 and (10.3.2). Being epimorphic is then equivalent to being surjective, which
+can be checked after base change to s = Spec OS /m and to S − s. For S − s, the
+base change of Wn∗ (X) → Wn∗ (Y ) agrees, by (10.4.9), with that of X [0,n] → Y [0,n] ,
+                            THE BASIC GEOMETRY OF WITT VECTORS, II                                   15
+
+
+which is surjective. On the other hand, over s the map Wn∗ (f ) : Wn∗ (X) → Wn∗ (Y )
+is a base change of the map f : X → Y , by 11.2, which is also surjective.
+    Now consider the general case, where f : X → Y is any epimorphism of spaces. It
+is enough to show that for any object V ∈ AffRelS , any given map a : V → Wn∗ (Y )
+lifts locally on V to Wn∗ (X). Since f is an epimorphism and Wn∗ (V ) is affine, and
+hence quasi-compact, there exists a commutative diagram
+                                                      b
+(11.4.1)                               Xo                        Z
+                                            f                    c
+                                                              
+                                                      a
+                                       Y o                 Wn∗ (V ),
+where Z ∈ AffRelS , c is an étale cover, and b is some map. Consider the commutative
+diagram
+                                  Wn∗ (b)                            pr1
+(11.4.2)        Wn∗ (X) o                         Wn∗ (Z) o                Wn∗ (Z) ×Wn∗ Wn∗ (V ) V
+             Wn∗ (f )                                  Wn∗ (c)                         pr2
+                                Wn∗ (a)                                  η          
+                Wn∗ (Y ) o                      Wn∗ Wn∗ (V ) o                       V,
+
+where η is the unit of the evident adjunction. By the argument above, Wn∗ (c) is
+an étale epimorphism between objects of AffRelS . Therefore pr2 is the same, and
+hence the map V → Wn∗ (Y ) lifts locally to Wn∗ (X).                            
+
+11.5. Corollary. Let (π1 , π2 ) : Γ → X ×S X be an equivalence relation on a space
+X ∈ SpS . Then the map
+                 (Wn∗ (π1 ), Wn∗ (π2 )) : Wn∗ (Γ) → Wn∗ (X) × Wn∗ (X)
+is an equivalence relation on Wn∗ (X), and the induced map
+                                 Wn∗ (X)/Wn∗ (Γ) −→ Wn∗ (X/Γ)
+is an isomorphism.
+Proof. By 11.4, the map Wn∗ (X) → Wn∗ (X/Γ) is an epimorphism of spaces. On
+the other hand, since Wn∗ has a left adjoint, we have
+             Wn∗ (X) ×Wn∗ (X/Γ) Wn∗ (Γ) = Wn∗ (X ×X/Γ X) = Wn∗ (Γ),
+and so the equivalence relation inducing the quotient Wn∗ (X/Γ) is Wn∗ (Γ).                          
+
+11.6. Remark. These results allow us to present Wn∗ (X) using charts, but not in
+the sense that might first come to mind. For while Wn∗ preserves covering maps (by
+11.4), it does not generally preserve covering
+                                             `families. That is, if (Ui )i∈I is an étale
+covering family `of X,  then the space W n∗ (   i Ui ) covers Wn∗ (X), but it is usually
+not true that i Wn∗ (Ui ) covers it. For example, consider the p-typical
+                                                                    `         case with
+n = 1. On the generic fiber, W1∗ (X) is just X ×X; and of course i Ui ×Ui does not
+generally cover X × X. In particular, Wn∗ (X) cannot be constructed using charts
+by gluing the spaces Wn∗ (Ui ) together along the overlaps Wn∗ (Uj ×X Uk ). This is
+just a general property of products and not a particular property of Frobenius lifts.
+   On the other hand, if X is an algebraic space over Spec OS /mj , for some integer
+j ⩾ 0, this naive gluing method does work. This is because for any étale cover
+(Ui )i∈I of X, the family Wn∗ (Ui ) i∈I is an étale cover of Wn∗ (X). This is true by
+11.1 and 11.3. See 12.8 for the implications this has for Buium’s p-jet spaces.
+11.7. Proposition. The functor Wn∗ : SpS → SpS commutes with filtered colimits.
+16                                      J. BORGER
+
+
+Proof. By adjunction, this is equivalent to the statement that for any filtered system
+(Xi )i∈I and any T ∈ AffRelS the map
+               colimi Hom Wn∗ (T ), Xi −→ Hom Wn∗ (T ), colimi Xi
+                                                                    
+
+is an isomorphism. Because Wn∗ (T ) is affine (10.3.1), it is quasi-compact and quasi-
+separated, and so the proposition follows from SGA 4 VI 1.23(ii) [2].              
+11.8. Lemma. Let (St )t∈T be an open cover of S, let X be an object of SpS , and
+let (Ui )i∈I be a cover of X by objects `
+                                        of SpS . Let J denote the set of finite subsets
+of I, and for each j ∈ J, write Vj = i∈j Ui . Then (St ×S Vj )(t,j)∈T ×J is a cover
+                                              
+of X with the property that Wn∗ (St ×S Vj ) (t,j)∈T ×J is a cover of Wn∗ (X).
+
+     It is clear that (St ×S Vj )t,j is a cover of X. Let us show that Wn∗ (St ×S
+Proof.
+Vj ) t,j is a cover of Wn∗ (X). By (10.4.9) and (10.4.10), it is enough to consider
+the case where (St )t∈T is the trivial cover consisting of S itself. Thus it is enough
+to show that Wn∗ (Vj ) j is a cover of Wn∗ (X).
+    Observe that we have a natural isomorphism
+                                 a
+(11.8.1)                             Ui = colimj∈J Vj ;
+                                  i∈I
+
+indeed, both sides have the same universal property. Now consider the commutative
+diagram
+                                            a
+          a
+              Wn∗ (Vj )                                         / Wn∗ (X)
+                                                                     O
+          j∈J
+
+                                                                                 b
+
+                
+                              ∼                                 ∼
+                                                                               a       
+       colimj∈J Wn∗ (Vj )            / Wn∗ colimj∈J Vj                  / Wn∗         Ui ,
+                            (11.7)                           (11.8.1)
+                                                                                i∈I
+
+where a and b are the maps induced by the covering maps Vj → X and Ui → X.
+Then a is an epimorphism because b is, which is true by 11.4.           
+11.9. Wn∗ -stable covers. It is useful to have covers (Xk )k∈K of X that are Wn∗ -
+stable, meaning that (Wn∗ (Xk ))k∈K is a cover of Wn∗ (X). While general covers
+are not Wn∗ -stable (see 11.6), some are. Any singleton cover is, by 11.4, but it is
+not always enough to have this because there can fail to be singleton covers with
+desirable properties. For instance, if X is not quasi-compact, it cannot be covered
+by a single affine scheme. But it often suffices to know only that Wn∗ -stable covers
+with certain desirable properties exist, and we can sometimes use 11.8 to make
+them. For instance, we can produce a Wn∗ -stable cover with each Xk affine by
+taking K = T × J and X(t,j) = St ×S Vj in 11.8, where the Ui and St are affine.
+If we refine the cover (St )t∈T so that each ideal in the support of n is principal on
+each St , then we further have that the image of each Xk in S is contained in an
+affine open subscheme of S on which each ideal in the support of n is principal. If
+X is an algebraic space, we can even further arrange for each Xk to be étale over
+X by taking (Ui )i∈I to be an étale cover of X.
+11.10. Proposition. The functor Wn∗ : SpS → SpS preserves
+   (a) quasi-compactness of objects,
+   (b) quasi-separatedness of objects,
+   (c) quasi-compactness of maps,
+   (d) quasi-separatedness of maps.
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           17
+
+
+Proof. Let X be an object in SpS .
+    (a): Suppose X is quasi-compact. Let (Ui )i∈I be a finite family in AffRelS which
+covers X. (Such a family exists, because the large family of all morphisms from
+objects of AffRelS to X covers to X, and therefore
+                                                 `      has a finite subcover, because
+X is quasi-compact.) Then the space U = i∈I Ui is affine. By 11.4, the map
+Wn∗ (U ) → Wn∗ (X) is an epimorphism. Since Wn∗ (U ) is affine, it is quasi-compact.
+It follows that Wn∗ (X) is quasi-compact (SGA 4 VI 1.3[2]).
+    (b): Suppose X is quasi-separated. Then for any cover (Ui )i∈I of X, with each
+Ui ∈ AffRelS , each space Ui ×X Uj is quasi-compact. Therefore, by (a), each space
+Wn∗ (Ui ) ×Wn∗ (X) Wn∗ (Uj ) = Wn∗ (Ui ×X Uj ) is quasi-compact. By SGA 4 VI
+1.17 [2], this implies that Wn∗ (X) is quasi-separated as long as we can choose the
+cover (Ui )i∈I such that (Wn∗ (Ui ))i∈I is a cover of Wn∗ (X). This is possible by 11.9.
+    (c): Let f : X → Y be a quasi-compact map of spaces. As above, by 11.9, there
+exists a cover (Ui )i∈I of Y , with each Ui ∈ AffRelS , such that (Wn∗ (Ui ))i∈I is an
+affine cover of Wn∗ (Y ). It is then enough to show that each Wn∗ (Ui ) ×Wn∗ (Y )
+Wn∗ (X) is quasi-compact (SGA 4 VI 1.16 [2]), but this agrees with Wn∗ (Ui ×Y X).
+Now apply (a).
+    (d): Let f : X → Y be a quasi-separated map of spaces. By definition, its
+diagonal map ∆f is quasi-compact. By (c), so is the map Wn∗ (∆f ), and this agrees
+with the diagonal map of Wn∗ (f ).                                                   
+
+                         12. Wn∗ and algebraic spaces
+   We continue with the notation of 10.2.
+12.1. Theorem. Let X be an algebraic space over S. Then Wn∗ (X) is an algebraic
+space. If X is a scheme, then so is Wn∗ (X).
+   For the proof, see 12.5 below. Observe that when X is quasi-compact and
+has affine diagonal (e.g. is separated), as is often the case in applications, the
+algebraicity of Wn∗ (X) follows immediately from 11.5 and 11.1. Thus, for the part
+of the theorem asserting that Wn∗ (X) is an algebraic space, all the work below is
+in removing these assumptions.
+12.2. Proposition. For any spaces X, Y ∈ SpS , the diagram
+                                        Wn∗ (j)
+                          Wn∗ (X)                 / Wn∗ (X ∐ Y )
+
+                                  κ⩽n                      κ⩽n
+                                                         
+                                        j [0,n]
+                           X [0,n]                / (X ∐ Y )[0,n] ,
+
+where j : X → X ∐ Y denotes the canonical summand inclusion, is cartesian.
+Proof. It is enough to show that for any object T ∈ AffRelS , the functor Hom(T, −)
+takes the diagram above to a cartesian diagram. By adjunction, this is equivalent
+to the existence of a unique dashed arrow making the diagram
+                              a           w⩽n
+                                   T             / W ∗ (T )
+                                                      n
+                             [0,n]
+                                                 q
+                                         ∃!? q
+                                               q
+                                          q
+                                        q
+                                  xq q    j            
+                                X                  / X ∐Y
+commute, for any given vertical arrows making the square commute. It is therefore
+enough to show Wn∗ (T ) ×X ∐ Y Y = ∅.
+18                                        J. BORGER
+
+
+  To do this, we will show that if there exists a map U → Wn∗ (T ) ×X ∐ Y Y , where
+U is an affine scheme, then U is empty. Pulling back such a map by w⩽n , we get a
+map
+               a                    a 
+                  T ×Wn∗ (T ) U −→       T ×Wn∗ (T ) Wn∗ (T ) ×(X ∐ Y ) Y.
+              [0,n]                       [0,n]
+
+By the commutativity of the square above, the right-hand side is empty. Therefore
+the left-hand side is empty. But since w⩽n is a surjective map of (affine) schemes
+(by 10.8 and (10.3.2)), U must be empty.                                           
+                                          `                                   `
+12.3. Remark. It follows from 12.2 that i Wn∗ (Xi ) is a summand of Wn∗ ( i Xi ).
+In all but the most trivial cases, the two will not be equal. See 11.6, for example.
+12.4. Lemma. If X is a disjoint union in SpS of objects in AffRelS , then so is
+Wn∗ (X).
+Proof. Let (Xi )i∈I be a family of objects in AffRelS such that X ∼
+                                                                    `
+                                                                  = i∈I Xi . For
+any function h : [0, n] → I, write
+                                       Y
+                                 Xh =        Xh(m) .
+                                               m∈[0,n]
+
+Then we have                                        a
+                                       X [0,n] =           X h,
+                                                     h
+where h runs over all maps [0, n] → I. Therefore it is enough to show that the
+pre-image of each X h under the map κ⩽n : Wn∗ (X) → X [0,n] is a disjoint union in
+SpS of objects in AffRelS .
+   Since this preimage lies over X h , and hence over Xh(0) , it lies over an affine open
+subscheme S ′ of S. Therefore it is enough to show that this preimage is affine.
+   Let us first do this when I is finite. Because X h lies over S ′ , we have
+                 X h ×X [0,n] Wn∗ (X) = X h ×X [0,n] Wn∗ (X) ×S S ′ .
+                                                                       
+(12.4.1)
+Since I is finite, X is affine, and hence so is X h . On the other hand, Wn∗ (X) ×S S ′
+is affine, by (10.4.9) and (10.3.2). Therefore the left-hand side of (12.4.1) `
+                                                                              is affine.
+   Now suppose I is arbitrary. Let J denote the image of h, and write Y = i∈J Xi .
+Then the map X h → X [0,n] factors through the map j [0,n] : Y [0,n] → X [0,n] induced
+by the summand inclusion j : Y → X. Therefore by 12.2, the right-hand square in
+the digram
+                                         pr2                      Wn∗ (j)
+               X h ×Y [0,n] Wn∗ (Y )            / Wn∗ (Y )                     / Wn∗ (X)
+
+                          pr1                              κ⩽n                           κ⩽n
+                                                                     [0,n]
+                                                                                     
+                                                                   j
+                       Xh                         / Y [0,n]                     / X [0,n]
+
+is cartesian. Thus X h ×X [0,n] Wn∗ (X) agrees with X h ×Y [0,n] Wn∗ (Y ), which is
+affine by the case proved above and the fact that Y is affine.                   
+
+12.5. Proof of 12.1. It is enough to show that S ′ ×S Wn∗ (X) is an algebraic space,
+or a scheme when X is, for all sufficiently small affine open subschemes S ′ of S.
+Therefore by (10.4.9), we may assume that S = Spec R for some ring R, and that
+the ideal m of R is generated by a single element π.
+   Let us first show that Wn∗ (X) is an algebraic space. We will show by induction
+on m that if X is m-geometric, then Wn∗ (X) is an algebraic space. If m = −1,
+then X is affine and so we can apply (10.3.1). Now assume m ⩾ 0.
+                     THE BASIC GEOMETRY OF WITT VECTORS, II                            19
+
+
+   Let (Ui → X)i∈I be an `
+                         affine étale cover for which each map Ui → X is (m − 1)-
+representable. Write U = i∈I Ui . Consider the diagrams
+                                              /
+                              U ×X U          /U       / X.
+
+and
+                                           /
+                    Wn∗ (U ×X U )         / Wn∗ (U )      / Wn∗ (X).
+
+By 11.5 and 11.1, the space Wn∗ (U ×X U ) is an étale equivalence relation on
+Wn∗ (U ) with quotient Wn∗ (X). Since the category of algebraic spaces is closed
+under quotients by étale equivalence relations, it is sufficient to show that Wn∗ (U )
+and Wn∗ (U ×X U ) are algebraic spaces. This holds because of two facts. First,
+U (resp. U ×X U ) is a disjoint union of −1-geometric (resp. (m − 1)-geometric)
+algebraic spaces. Second, for k ⩽ m − 1, the functor Wn∗ applied to a disjoint
+union of k-geometric algebraic spaces is an algebraic space. Indeed, if k = −1, this
+follows from 12.4; if k ⩾ 0, then a disjoint union of k-geometric algebraic spaces is
+itself a k-geometric algebraic space, and so it follows by induction.
+    Now suppose X is a scheme. To show that Wn∗ (X) is a scheme, we may assume,
+by (10.6.2), that E consists of a single ideal m. Since Wn∗ (X) is an algebraic space,
+it is enough to show it has an affine open cover.
+    Let (Vi )i∈I be an affine open cover of X. For any S-space Y , write Y ′ = Y ×S
+Spec R[1/π]. Then each Vi′ is an affine open subscheme of X. Further, the schemes
+Vi′0 ×S · · · ×S Vi′n cover the product (X ′ )[0,n] = X ′ ×S . . . ×S X ′ , which agrees
+with Wn∗ (X ′ ) and hence Wn∗ (X)′ (by (10.4.9)–(10.4.10)). So all that remains is to
+show the fiber of Wn∗ (X) over m can be covered by open subspaces that are affine
+schemes.
+    Since each Vi is affine, each Wn∗ (Vi ) is affine, by 10.3.2. Since each map Vi → X is
+an étale monomorphism, each map Wn∗ (Vi ) → Wn∗ (X) is an étale monomorphism,
+by 11.1 and 11.4. Therefore these maps are open immersions, and by 11.3 they
+cover the fiber of Wn∗ (X) over m.                                                      
+12.6. Corollary. Let X be an E-smooth (10.11) algebraic space over S. Then
+Wn∗ (X) is an E-smooth algebraic space over S. In particular, it is E-flat.
+Proof. By 12.1, we know Wn∗ (X) is an algebraic space. Now let us show it is
+smooth locally at all maximal ideals of E. By (10.4.9), we may assume that X
+is smooth over S. Then apply 11.1 and the fact that smoothness for a map of
+algebraic spaces implies flatness.                                         
+
+12.7. Wn∗ does not generally preserve flatness. For example, consider the p-typical
+jets of length 1. Let A = Z[x]/(x2 − px), which is flat over Z (and happens to be
+isomorphic to W1 (Z)). Then
+      Z[1/p] ⊗Z (Λ1 ⊙ A) = Λ1 ⊙ (Z[1/p] ⊗ A) = (Z[1/p] ⊗ A)⊗2 = Z[1/p]2×2 .
+But a short computation using 3.4 shows
+            Λ1 ⊙ A = Z[x, δ]/(x2 − px, 2xp δ + pδ 2 − xp − pδ + pp−1 xp ),
+and hence
+                           Fp ⊗Z (Λ1 ⊙ A) = Fp [x, δ]/(x2 ).
+So Spec(Λ1 ⊙ A) has one irreducible component lying over Spec Fp . In particular,
+it is not flat locally at p.
+    It would be interesting to find a reasonable condition on X that is weaker than
+smoothness over S but still implies flatness of Wn∗ (X) over S.
+20                                     J. BORGER
+
+
+12.8. Relation to Greenberg’s and Buium’s spaces. In the case S = Spec Zp and
+E = {pZp }, our arithmetic jet space is closely related to previously defined spaces,
+the Greenberg transform and Buium’s p-jet space.
+   Let X be a scheme locally of finite type over Z/pn+1 Z. Then the Greenberg
+transform Grn+1 (X) is a scheme over Fp . (See [20][21], or for a summary in modern
+language, [7] p. 276.) It is related to Wn∗ (X) by the formula
+(12.8.1)                Grn+1 (Y ) = Wn∗ (Y ) ×Spec Zp Spec Fp .
+This is simply because they represent, almost by definition, the same functor.
+   On the other hand, for smooth schemes Y over the completion R̃ of the maximal
+unramified extension of Zp , Buium has defined p-jet spaces J n (Y ), which are formal
+schemes over R̃. (See [9], section 2, or [10], section 3.1.) His jet space is related to
+ours by the formula
+(12.8.2)                           J n (Y ) = Wn∗ (Ŷ ),
+where Ŷ denotes the colimit of the schemes Y ×Spec Z Spec Z/pm Z, taken over m
+and in the category SpS . Indeed it is true when Y is affine, by 3.4, and it holds
+when Y is any smooth scheme over R̃ by gluing. As mentioned in 11.6, the gluing
+methods used to define Wn∗ and J n are not the same in general, but here Ŷ is
+p-adically formal; so they agree by the discussion in 11.6.
+   The following consequence of (12.8.2) is also worth recording: if X is a smooth
+scheme over Zp , then we have
+(12.8.3)           J n (X ×Spec Zp Spec R̃) = Wn∗ (X̂) ×Spf Zp Spf R̃.
+
+              13. Preservation of geometric properties by Wn∗
+     We continue with the notation of 10.2.
+13.1. Étale-local properties. Recall that a property P of algebraic spaces over S is
+said to be étale-local if the following hold: whenever X satisfies P , then so does
+any algebraic space Y which admits an étale map to X; and if (Ui )i∈I is an étale
+cover of X such that each Ui satisfies P , then so does X.
+    A property P of maps of algebraic spaces is said to be étale-local on the target
+if for any map f : X → Y the following hold: whenever f satisfies P , then so does
+any base change fV : X ×Y V → V with V → Y étale; and if (Vj )j∈J is an étale
+cover of Y such that each base change fVj satisfies P , then so does f .
+    Such a property is said to be étale-local on the source if, in addition, the following
+hold: whenever f satisfies P , then so does any composition U → X → Y with
+U → X étale; and if (Ui )i∈I is an étale cover of X such that each composition
+Ui → X → Y satisfies P , then so does f .
+13.2. Proposition. Let P be a property of maps f : X → Y of algebraic spaces
+which is étale-local on the target. For Wn∗ to preserve property P , it is sufficient
+that it do so when E consists of one principal ideal, S is affine, and Y is affine.
+   If property P is also étale-local on the source, then we may further restrict to the
+case where X is affine.
+    The argument is the same as the one given below for 16.3, except that one takes
+affine étale covering families of the kind given by 11.9, and one uses the easy fact
+that Wn∗ preserves fiber products instead of the more difficult 15.2(c). Since the
+details are given in 16.3, let us omit them here.
+13.3. Proposition. The following properties of maps (étale-local on the target) are
+preserved by Wn∗ :
+   (a) affine,
+                      THE BASIC GEOMETRY OF WITT VECTORS, II                                 21
+
+
+    (b) a closed immersion,
+    (c) locally of finite type,
+    (d) locally of finite presentation,
+    (e) of finite type,
+    (f) of finite presentation,
+    (g) separated,
+    (h) smooth and surjective.
+Proof. Let f : X → Y be such a map. By 13.2, we may assume S = Spec R,
+Y = Spec A.
+   (a)–(b): These are affine properties; so we have X = Spec B, for some A-algebra
+B. By (10.3.2), we have Wn∗ (X) = Spec Λn ⊙ B, which is affine. This proves (a). If
+the structure map A → B is surjective, then so is the induced map Λn ⊙A → Λn ⊙B,
+which proves (b).
+   (c)–(d): These properties are étale-local on the source, and so we may assume
+X = Spec B, where B is a finitely generated A-algebra. Take an integer m ⩾ 0
+such that there exists a surjection A[x]⊗m → B. Then the induced map
+            (Λn ⊙ A) ⊗R (Λn⊗m ) = Λn ⊙ (A ⊗R R[x1 , . . . , xm ]) −→ Λn ⊙ B
+is surjective. Therefore it is enough to show that Λn is finitely generated as an
+R-algebra. This was proved in 6.10.
+   Now suppose that B is finitely presented. Then there exist finitely generated
+A-algebras A′ and A′′ and a coequalizer diagram
+                                A′′
+                                        / ′
+                                         /A     / B.
+
+This then induces a coequalizer diagram
+                      Λn ⊙ A′′        / Λn ⊙ A′
+                                    /                       / Λn ⊙ B.
+
+By (c), the first two terms are finitely generated A-algebras; therefore the last term
+is finitely presented. This proves (d).
+    (e)–(f): These follow from (c)–(d) and 11.10(c), by definition.
+    (g): Since the diagonal map ∆f : X → X ×Y X is a closed immersion, (b) implies
+Wn∗ (∆f ) is a closed immersion. This map can be identified with the diagonal map
+Wn∗ (X) → Wn∗ (X) ×Wn∗ (Y ) Wn∗ (X), and so the result follows.
+    (h): By 11.1, the map Wn∗ (f ) is smooth. By 11.2, it is surjective over S0 =
+Spec O/m, and by (10.4.8), it can be identified away from S0 with the product map
+X [0,n] → Y [0,n] , which is surjective. Therefore Wn∗ (f ) is, too.                 
+
+13.4. Counterexamples. Consider the p-typical case: R = Z, E = {pZ}, where p is
+a prime number. Then a short computation using 3.4 shows
+                        Λ1 ⊙ (Z × Z) ∼
+                                     = Z × Z × Z[1/p] × Z[1/p].
+So Wn∗ does not generally preserve any property which the map Z → Z×Z has and
+which is at least as strong as integrality: integral, finite, finite flat, finite étale,. . . .
+   Also, Wn∗ does not generally preserve surjectivity (of schemes), because we have
+           Λ1 ⊙ Zp [x]/(x2 − p) = Zp [x, δ]/(x2 − p, pδ 2 + 2xp δ + pp−1 − 1)
+                                ∼     √           √
+                                = Qp ( p) × Qp ( p)
+(by 3.4 again) but also Λ1 ⊙ Zp = Zp .
+   Finally, as shown in 12.7, the map Z → Z[x]/(x2 − px) becomes non-flat after
+the application of Λ1 ⊙ −. So Wn∗ does not generally preserve any property which
+the map Z → Z[x]/(x2 − px) has and which is at least as strong as flatness: flat,
+faithfully flat, Cohen–Macaulay, Sk ,. . . .
+22                                         J. BORGER
+
+
+                         14. The inductive lemma for Wn∗
+   We continue with the notation of 10.2, but we restrict to the case where E consists
+of only one ideal m. The purpose of this section is to establish the following lemma:
+14.1. Lemma. Let X be an object of AlgSpm , with m ∈ Z.
+   (a) Wn∗ (X) is an algebraic space; and for any (m − 1)-representable étale sur-
+       jection g : U → X, where U is a disjoint union of affine schemes, the space
+       Wn∗ (U ×X U ) is an étale equivalence relation on Wn∗ (U ) with respect to the
+       map
+(14.1.1)       (Wn∗ (pr1 ), Wn∗ (pr2 )) : Wn∗ (U ×X U ) −→ Wn∗ (U ) ×Wn∗ (X) Wn∗ (U ),
+         and the induced map
+                           Wn∗ (U )/Wn∗ (U ×X U ) −→ Wn∗ (X)
+         is an isomorphism. In particular, (14.1.1) is an isomorphism.
+     (b) For any map g as in (a), the diagram
+                                                g
+                                   U                       /X
+
+                                w0                            w0
+                                            Wn∗ (g)         
+                                Wn∗ (U )               / W ∗ (X)
+                                                          n
+
+         is cartesian.
+     (c) The map
+                                           w0 ×id
+(14.1.2)                    X × S S0                / W ∗ (X) ×S S0
+                                                       n
+
+         is a closed immersion defined by a square-zero ideal sheaf, where S0 denotes
+         Spec OS /m.
+     (d) For any object X ′ ∈ AlgSpm and any étale map f : X ′ → X, the map
+                              Wn∗ (f ) : Wn∗ (X ′ ) → Wn∗ (X)
+         is étale; and for any algebraic space Y over X, the map
+(14.1.3)      (Wn∗ (pr1 ), Wn∗ (pr2 )) : Wn∗ (X ′ ×X Y ) −→ Wn∗ (X ′ ) ×Wn∗ (X) Wn∗ (Y )
+         is an isomorphism.
+Proof. We will prove all parts at once by induction on m. For clarity, write (a)m
+for the statement (a) above, and so on.
+   First consider the case where m ⩽ −1. Here we use the fact that Wn∗ preserves
+coproducts together with the analogous affine results: (a)m follows from (10.3.1),
+9.2, 6.9, and 9.4; (c)m follows from 6.8; and (d)m follows from 9.2 and 9.4.
+   It remains to prove (b)m . It is enough to assume U and X are affine. Consider
+the map
+                           a = (g, w0 ) : U −→ X ×Wn∗ (X) Wn∗ (U ).
+By assumption, the source is étale over X, and by 9.2 so is the target. Therefore a
+itself is étale, and so to show it is an isomorphism, it is enough by 14.3 below to show
+that the maps (S ′ ×S a)red and (S0 ×S a)red are isomorphisms, where S ′ = S − S0 .
+On the one hand, S ′ ×S a agrees, by (10.4.6), with S ′ ×S − applied to the evident
+map
+                                 U −→ X ×(`[0,n] X)
+                                                     a
+                                                           U,
+                                                           [0,n]
+which is an isomorphism. On the other hand, by 6.8, the map (S0 × a)red agrees
+with bred , where b is the evident map S0 ×S U → S0 ×S (X ×X U ). Since b is an
+isomorphism, so is (S0 × a)red . This proves (b)m and hence the lemma for m ⩽ −1.
+                       THE BASIC GEOMETRY OF WITT VECTORS, II                          23
+
+
+   From now on, assume m ⩾ 0.
+   (a)m : First, observe that it follows from the rest of (a) that Wn∗ (X) is an algebraic
+space. Indeed, because X is in AlgSpm , there exists a map g as in (a). Assuming
+the rest of (a), we have
+                             Wn∗ (X) ∼
+                                     = Wn∗ (U )/Wn∗ (U ×X U ),
+and so it is enough to show that Wn∗ (U ) and Wn∗ (U ×X U ) are algebraic spaces.
+This follows from (a)m−1 because U, U ×X U ∈ AlgSpm−1 .
+  The diagram
+                                                pr1            f
+                                                      /
+                                      U ×X U              /U           /X
+                                                pr2
+
+is a coequalizer diagram and, since Wn∗ commutes with colimits, so is
+                                         Wn∗ (pr1 )         Wn (f )∗
+
+                        Wn∗ (U ×X U )            / Wn∗ (U )         / Wn∗ (X).
+                                                  /
+(14.1.4)
+                                         Wn∗ (pr2 )
+
+Thus, all that remains is to show that Wn∗ (U ×X U ) is an étale equivalence relation
+on Wn∗ (U ) under the structure map (14.1.1). By (d)m−1 , the projections Wn∗ (pri )
+in (14.1.4) are étale. Let us now show that Wn∗ (U ×X U ) is an equivalence relation.
+   Let t denote the map (14.1.1). Let us first show that t is a monomorphism. We
+can view this as a map of algebraic spaces over Wn∗ (U ) by projecting onto the first
+factor, say. Then since Wn∗ (U ×X U ) is étale over Wn∗ (U ), it is enough, by 14.2
+below, to show that t ×S S ′ and (t ×S S0 )red , are monomorphisms. For t ×S S ′ , we
+may assume m is the unit ideal, by (10.4.6); then t agrees with the evident map
+                         a              a           a 
+                             U ×X U −→        U ×S        U ,
+                          [0,n]                   [0,n]                 [0,n]
+
+which is a monomorphism. On the other hand, by (c)m−1 , the map (t ×S S0 )red
+can be identified with ured , where u is the evident map
+                             U ×X U ×S S0 −→ U ×S U ×S S0 ,
+which is a monomorphism. This proves t is a monomorphism.
+   Now let us show that Wn∗ (U ×X U ) is an equivalence relation on Wn∗ (U ). It is
+reflexive and symmetric, simply because Wn∗ is a functor and U ×X U is reflexive
+and symmetric relation on U . Let us show transitivity.
+   Write
+                 Γ1 = U ×X U and Γ2 = Wn∗ (U ) ×S Wn∗ (U ).
+Then by definition, Wn∗ (Γ1 ) is transitive if and only if there exists a map c′ making
+the right-hand square in the diagram
+                                  ′
+           Wn∗ (Γ1 ×U Γ1 )
+                            t    / Wn∗ (Γ1 ) ×W ∗ (U) Wn∗ (Γ1 ) t×t / Γ2 ×W ∗ (U) Γ2
+                       ❚❚❚❚                       n                          n
+                                                  ✤
+                           ❚❚❚❚                     ✤ c′
+                                 ❚❚❚                                           c2
+                           Wn∗ (c1 ) ❚❚❚❚❚           ✤
+                                            )                 t
+                                                                             
+                                              Wn∗ (Γ1 ) /                 / Γ2
+
+commute, where each ci is the transitivity map for the equivalence relation Γi . If
+we define t′ = (Wn∗ (pr1 ), Wn∗ (pr2 )), then the perimeter commutes. Therefore it is
+enough to show that t′ is an isomorphism. This follows from (d)(m−1) , which we
+can apply because we have Γ1 , U ∈ AlgSpm−1 , as discussed above.
+  (b)m : To show that the map
+                              (g, w0 ) : U −→ X ×Wn∗ (X) Wn∗ (U )
+24                                          J. BORGER
+
+
+is an isomorphism, it suffices to do so after applying U ×X −. We can do that as
+follows:
+                                  1
+                    U ×X U = U ×Wn∗ (U) Wn∗ (U ×X U )
+                                  2
+                                 = U ×Wn∗ (U) Wn∗ (U ) ×Wn∗ (X) Wn∗ (U )
+                                  = U ×Wn∗ (X) Wn∗ (U ).
+Equality 2 follows from (a)m . Thus it suffices to show equality 1.
+   Let h : V → U ×X U be an (m− 2)-representable étale cover, where V ∈ AlgSp−1 ;
+this exists because U ×X U ∈ AlgSpm−1 . Consider the following diagram:
+                                  h                                   pr1
+                    V                       / U ×X U                              /U
+
+                        w0                              w0                             w0
+                               Wn∗ (h)                             pr1             
+                 Wn∗ (V )                 / Wn∗ (U ×X U )                      / Wn∗ (U ).
+
+By (b)m−1 , the left-hand square is cartesian, since U ×X U ∈ AlgSpm−1 . Further,
+the perimeter is cartesian; this is because U and V are disjoint unions of affine
+schemes, and so we can apply (b)−1 on each component. Therefore the induced
+map
+(14.1.5)                     U ×X U −→ U ×Wn∗ (U) Wn∗ (U ×X U )
+becomes an isomorphism when we apply the functor −×Wn∗ (U×X U) Wn∗ (V ). But the
+map Wn∗ (V ) → Wn∗ (U ×X U ) is an étale cover, by (a)m−1 . So this implies (14.1.5)
+is an isomorphism.
+   (c)m : Let g : U → X be an (m−1)-representable étale cover, where U ∈ AlgSp−1 .
+Then Wn∗ (g) is an étale cover, by (a)m . Therefore it is enough to show that (14.1.2)
+becomes a closed immersion defined by a square-zero ideal after base change from
+Wn∗ (X) to Wn∗ (U )—indeed, this is an étale-local property. But by (b)m , this map
+can be identified with
+                         w0 × idS0 : U ×S S0 −→ Wn∗ (U ) ×S S0 ,
+which has the required property by (c)−1 .
+  (d)m : Let u′ : U ′ → X ′ and u : U → X be (m − 1)-representable étale covers,
+where U ′ , U ∈ AlgSp−1 , such that the map f : X ′ → X lifts to a map h : U ′ → U ,
+necessarily étale. Then we have a commutative diagram
+                                                Wn∗ (u′ )
+                                   Wn∗ (U ′ )                / Wn∗ (X ′ )
+
+                                Wn∗ (h)                             Wn∗ (f )
+                                               Wn∗ (u)             
+                                   Wn∗ (U ′ )                / Wn∗ (X).
+
+By (a)m , all the spaces in this diagram are algebraic, and the horizontal maps are
+étale covers. By (d)−1 , the map Wn∗ (h) is étale. Therefore Wn∗ (f ) is étale.
+    Let us now show that (14.1.3) is an isomorphism. The map
+                        pr2 : Wn∗ (X ′ ) ×Wn∗ (X) Wn∗ (Y ) −→ Wn∗ (Y )
+is étale, because it is a base change of Wn∗ (f ). The map
+                             Wn∗ (pr2 ) : Wn∗ (X ′ ×X Y ) −→ Wn∗ (Y )
+is also étale. Indeed, by the above, we only need to verify X ′ ×X Y ∈ AlgSpm . This
+holds because AlgSpm is stable under pull back, by [40], Corollary 1.3.3.5.
+   Therefore, we can view (14.1.3), which we will denote t, as a map of étale alge-
+braic spaces over Wn∗ (Y ). So, to show t is an isomorphism, it is enough by 14.3
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           25
+
+
+below to show (t ×S S ′ )red and (t ×S S0 )red are isomorphisms. This can be done
+as in the proof of (b): for t ×S S ′ , use (10.4.6) to reduce the question to one about
+ghost components; for (t ×S S0 )red , use (c)m .                                     
+14.2. Lemma. Consider a commutative diagram of algebraic spaces
+                                            f
+                                X❅                        /Y
+                                  ❅❅                    ⑦⑦
+                                    ❅❅g               ⑦⑦
+                                      ❅❅            ⑦⑦
+                                        ❅        ⑦⑦
+                                            Z,
+where g is étale. Then the following hold:
+   (a) f is a monomorphism if and only if fred is.
+   (b) Let Z0 be a closed algebraic subspace of Z, and let Z ′ be its complement.
+       Then f is a monomorphism if and only if f ×Z Z0 and f ×Z Z ′ are.
+Proof. The only-if parts of both statements follow immediately from the fact that
+both closed and open immersions are monomorphisms.
+   (a): It is enough to show that for any affine scheme T and any maps a, b : T → X
+such that f ◦ a = f ◦ b, we have a = b. Then we have fred ◦ ared = fred ◦ bred . Since
+fred is assumed to be a monomorphism, we have ared = bred . Since X is étale over
+Z, we have a = b (EGA IV 18.1.3 [28]).
+   (b): Again, let T be an affine scheme with maps a, b : T → X such that f ◦a = f ◦b.
+Let T̄ denote the equalizer of a and b. It is an algebraic subspace of T . By the
+assumptions on f , we have T̄ ×Z Z0 = T ×Z Z0 and T̄ ×Z Z ′ = T ×Z Z ′ . Therefore
+T̄ is a closed subscheme of T defined by a nil ideal. As above, since X is étale
+over Z, there is at most one extension of the Z-morphism T̄ → X to T . Therefore
+a = b.                                                                              
+14.3. Lemma. Let f : X → Y be an étale map of algebraic spaces, and let Y0 be a
+closed algebraic subspace of Y with complement Y ′ . Then f is an isomorphism if
+and only if (f ×Y Y0 )red and (f ×Y Y ′ )red are.
+Proof. The only-if statement is clear. Now consider the converse. It follows from
+14.2 that f is a monomorphism, and so it is enough to show that f is an epimorphism.
+To do this, it is enough to show that any étale map V → Y , with V affine, lifts to a
+map V → X. Thus, by changing base to V and relabeling Y = V , we may assume
+Y is affine. (The property of being an isomorphism after applying (−)red is stable
+under base change.) Now let (Ui )i∈I be an étale cover of X, where each Ui is an
+affine scheme. Then each composition Ui → X → Y is an étale morphism of affine
+schemes,
+      ` and the union of images of these maps covers Y . Therefore the induced
+map i Ui → Y is an epimorphism, and hence so is f .                                 
+
+                         15. Wn∗ and algebraic spaces
+   The purpose of this section is to give a number of useful consequences of the
+inductive lemma in the previous section. We continue with the notation of 10.2.
+15.1. Theorem. Let X be an algebraic space over S. Then Wn∗ (X) is an algebraic
+space.
+Proof. By (10.6.1), we may assume E consists of one ideal, in which case we can
+apply 14.1(a).                                                                
+15.2. Theorem. Let f : X ′ → X be an étale map of algebraic spaces over S. Then
+the following hold.
+    (a) The induced map Wn∗ (f ) : Wn∗ (X ′ ) → Wn∗ (X) is étale.
+26                                        J. BORGER
+
+
+     (b) If f is surjective, then so is Wn∗ (f ).
+     (c) For any algebraic space Y over X, the map (Wn∗ (pr1 ), Wn∗ (pr2 ))
+                       Wn∗ (X ′ ×X Y ) −→ Wn∗ (X ′ ) ×Wn∗ (X) Wn∗ (Y )
+         is an isomorphism.
+Proof. By (10.6.1), we may assume E consists of one ideal. Then parts (a) and (c)
+follow from 14.1(d). For part (b), it is enough, by passing to an étale cover of X ′ , to
+assume X ′ ∈ AlgSp−1 . Then we can apply 14.1(a), because f is 1-representable. 
+
+               Let (Ui )i∈I be an étale cover of an algebraic space X over S.
+15.3. Corollary.
+Then Wn∗ (Ui ) i∈I is an étale cover of Wn∗ (X), and for each pair (i, j) ∈ I 2 , the
+map
+                     Wn∗ (Ui ×X Uj ) −→ Wn∗ (Ui ) ×Wn∗ (X) Wn∗ (Uj )
+given by Wn∗ (pr1 ), Wn∗ (pr2 ) is an isomorphism.
+                               
+
+     In other words, Wn∗ (X) can be constructed by charts in the étale topology.
+
+Proof. Because Wn∗ is`a left adjoint, it preserves disjoint unions. Then apply 15.1(b)
+to the induced map i Ui → X and 15.1(c) to Ui ×X Uj .                               
+
+15.4. Corollary. Let f : X → Y be an étale map of algebraic spaces. Then the
+following diagrams are cartesian, where the horizontal maps are the ones defined
+in 10.6:
+     (a) for i ∈ N(E) ,
+                                             ψi
+                                 Wn∗ (X)               / W ∗ (X)
+                                                          n+i
+
+
+                                            ψi
+                                                             
+                                 Wn∗ (Y )              / W ∗ (Y );
+                                                          n+i
+
+     (b) for i = N(E) ,
+                                             rn,i
+                                 Wn∗ (X)               / W ∗ (X)
+                                                          n+i
+
+
+                                            rn,i            
+                                 Wn∗ (Y )              / W ∗ (Y );
+                                                          n+i
+
+     (c) for i ∈ [0, n],
+                                            wi
+                                     X            / Wn∗ (X)
+
+
+                                           wi
+                                                        
+                                     Y            / Wn∗ (Y );
+
+     (d) when E = {m} and i ∈ N,
+                                                 w̄i
+                                 X × S Sn               / W ∗ (X)
+                                                           n
+
+
+                                                w̄i
+                                                              
+                                 Y × S Sn               / W ∗ (Y ),
+                                                           n
+
+         where Sn = Spec OS /mn+1 .
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                            27
+
+
+Proof. By (10.6.1), we may assume E consists of one ideal m. All four parts are
+proved by the same method. Let us give the details for (a) and leave the rest to
+the reader.
+   We want to show that the induced map
+                     g : Wn∗ (X) −→ Wn∗ (Y ) ×Wn+i
+                                               ∗
+                                                         ∗
+                                                   (Y ) Wn+i (X)
+
+is an isomorphism. By 15.2, this is a map of étale algebraic spaces over Wn∗ (Y ).
+Therefore, to show it is an isomorphism, it is enough by 14.3 to show that (g ×S S0 )red
+and (g ×S S ′ )red are isomorphisms, where S0 = Spec OS /m and S ′ = S − S0 .
+    It is easy check that g ×S S ′ is an isomorphism. Write X0 = X ×S S0 , Y0 = Y ×S
+S0 , and let F denote the q-th power Frobenius map. Then the map (g ×S S0 )red ,
+can be identified with hred , where h : X0 → Y0 ×F i ,Y0 X0 is the map induced by the
+diagram
+                                           Fi
+                                     X0         / X0
+
+
+                                          Fi
+                                                   
+                                      Y0        / Y0 .
+This diagram is cartesian (SGA 5 XV §1, Proposition 2(c)[3]), and so h and hred
+are isomorphisms.                                                            
+15.5. Corollary. Let X be an algebraic space over S.
+   (a) Let
+                                              /
+                             U        /Y        /Z
+        be an equalizer diagram of algebraic spaces over X. If Z is étale over X,
+        then the induced diagram
+                        Wn∗ (U )     / W ∗ (Y )    / Wn∗ (Z)
+                                                    /
+                                        n
+
+       is also an equalizer diagram.
+   (b) Let (Yi )i∈I be a finite diagram of étale algebraic X-spaces. Then the follow-
+       ing natural map is an isomorphism:
+                                           ∼
+                          Wn∗ (limi∈I Yi ) −→ limi∈I Wn∗ (Yi ).
+        Here the limits are taken in the category of X-spaces.
+Proof. (a): Since the structure map Z → X is étale, so is the diagonal map Z →
+Z ×X Z. And since U is Y ×Z×X Z Z, we have by 15.2(c)
+                  Wn∗ (U ) = Wn∗ (Y ) ×Wn∗ (Z×X Z) Wn∗ (Z)
+                           = Wn∗ (Y ) ×(Wn∗ (Z)×W ∗ (X) Wn∗ (Z)) Wn∗ (Z)
+                                                    n
+
+Thus Wn∗ (U ) is the equalizer of the two induced maps Wn∗ (Y ) ⇒ Wn∗ (Z).
+   (b): To show a functor preserves finite limits, it is sufficient to show it preserves
+finite products and equalizers of pairs of arrows. The first follows from 15.2(c), and
+the second from part (a) above.                                                       
+15.6. Corollary. Let j : U → X be an open immersion of algebraic spaces. Then
+the map Wn∗ (j) : Wn∗ (U ) → Wn∗ (X) is an open immersion. If X is a scheme, then
+so is Wn∗ (X).
+Proof. An open immersion is the same as an étale monomorphism. By 15.2, Wn∗ (j)
+is étale, and so we only need to show it is a monomorphism or, equivalently, that
+its diagonal map is an isomorphism. By 15.2(c), the diagonal map of Wn∗ (j) agrees
+with Wn∗ (∆j ), where ∆j is the diagonal map U → U ×X U of j. Because j is a
+28                                         J. BORGER
+
+
+monomorphism, ∆j is an isomorphism, and hence so is Wn∗ (∆j ). Therefore the
+diagonal map of Wn∗ (j) is an isomorphism, and so Wn∗ (j) is a monomorphism.
+   Now suppose X is a scheme. Let (Ui )i∈I be an open cover of X. By 15.3,
+Wn∗ (X) is an algebraic space covered by the Wn∗ (Ui ), and by the above, each map
+Wn∗ (Ui ) → Wn∗ (X) is an open immersion. Therefore X is a scheme.               
+
+15.7. Corollary. Let X be an algebraic space over S.
+   (a) The map w⩽n : [0,n] X → Wn∗ (X) is surjective and integral, and the kernel
+                       `
+
+       I of the induced map
+                          OWn∗ (X) → w⩽n∗ O`[0,n] X
+                                                    
+
+                      N
+         satisfies I 2 = 0, where N = m nm .
+                                     P
+     (b) The map w0 : X → Wn∗ (X) is a closed immersion.
+Proof. All the properties in question are étale-local on Wn∗ (X), and hence S. There-
+fore, we may assume that S is affine, by (10.4.6), and that X is affine, by 15.4(b).
+In this case, (a) was proved in 10.8, and (b) follows from the surjectivity of the
+map w0 : Wn (A) → A, which follows from the existence of the Teichmüller section
+(1.21), say.                                                                        
+
+15.8. Corollary. The functor Wn∗ : AlgSp → AlgSp is faithful.
+Proof. The map w0 is easily seen to be equal to the composition
+                                   ε               κ
+                              X −→ Wn∗ Wn∗ X −→
+                                              0
+                                                Wn∗ X,
+where ε is the unit of the evident adjunction, and κ0 is as in (10.6.4). Therefore
+by 15.7(b), the map ε is a monomorphism. Equivalently, Wn∗ is faithful.         
+
+15.9. Wn∗ is generally not full. For example, if we consider the usual p-typical Witt
+vectors over Z of length n, and if A and B are Z[1/p]-algebras, then we have
+      HomWn (Z) (Wn (A), Wn (B)) = HomZ[0,n] (A[0,n] , B [0,n] ) = Hom(A, B)[0,n] ,
+which is usually not the same as Hom(A, B). To be sure, the entire point of the
+theory is in applying W to rings where p is not invertible.
+15.10. Corollary. Let f : X → Y be an étale map of algebraic spaces over S. Then
+the diagram
+                              ∗               µX
+(15.10.1)                    Wm Wn∗ (X)            / W∗
+                                                       m+n (X)
+
+                          ∗                                    ∗
+                         Wm Wn∗ (f )                          Wm+n (f )
+                                             µY
+                                                          
+                              ∗
+                             Wm Wn∗ (Y )              ∗
+                                                   / Wm+n (Y )
+
+is cartesian, where µX and µY are the plethysm maps of (10.6.13).
+Proof. We use the usual method, as in 15.4. Let us assume that E consists of one
+ideal m. This is sufficient by 15.2, (10.6.1), and a short argument we we leave to
+the reader.
+   By 15.2, the map
+                        ∗              g                  ∗  ∗
+(15.10.2)              Wm Wn∗ (X) −→ Wm+n
+                                      ∗
+                                          (X) ×Wm+n
+                                                ∗   (Y ) Wm Wn (Y )
+
+is étale, and so we only need to show g ×S S ′ and (g ×S S0 )red are isomorphisms,
+where S0 = Spec OS /m and S ′ = S − S0 .
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           29
+
+
+   Consider g ×S S ′ first. By (10.4.6), we may assume m is the unit ideal. Then
+diagram (15.10.1) can be identified with the diagram
+                             a a          µX   a
+                                     X       /      X
+                             [0,m] [0,n]                [0,m+n]
+
+
+
+                                                        a
+                              a a              µY
+                                           Y        /             Y,
+                             [0,m] [0,n]                [0,m+n]
+
+where each map µ sends component (i, j) ∈ [0, m] × [0, n] identically to component
+i + j ∈ [0, m + n]. Since this diagram is cartesian, g ×S S ′ is an isomorphism.
+   Now consider (g ×S S0 )red . Write (−)′ for the functor T 7→ (S0 ×S T )red ; thus
+we want to show g ′ is an isomorphism. Consider the commutative diagram
+                 ∗            g′                                        ′
+               Wm  Wn∗ (X)′            ∗
+                                  / Wm+n   (X) ×Wm+n
+                                                  ∗
+                                                               ∗  ∗
+                                                        (Y ) Wm Wn (Y )
+                           ❯❯❯❯
+                                ❯❯❯❯ b
+                                    ❯❯❯❯               c
+                                         ❯❯❯❯
+                                             ❯❯*     
+                                     ∗
+                                   Wm+n   (X)′ ×Wm+n
+                                                  ∗
+                                                               ∗  ∗     ′
+                                                        (Y )′ Wm Wn (Y ) ,
+
+where c is the evident map induced by the universal property of products. Since the
+functor (−)′ sends étale maps to étale maps, c is étale; also cred is an isomorphism,
+and so c is an isomorphism. Therefore it is enough to show that b is isomorphism—
+in other words, that diagram (15.10.1) becomes cartesian after applying (−)′ .
+   To do this, it is enough to show that for T = X, Y (or any algebraic space
+over S), the map µ′T : Wm ∗
+                            Wn∗ (T )′ → Wm+n
+                                          ∗
+                                              (T )′ is an isomorphism. Consider the
+commutative diagram
+                                         T ❖❖❖
+                               w0 qqq
+                                     qqq       ❖❖❖
+                                   q              ❖❖w❖0
+                                qqq                   ❖❖❖
+                             xqq                         ❖'
+                     Wn∗ (T ) w0 / Wm  ∗
+                                         Wn∗ (T ) µT / Wm+n ∗
+                                                              (T ).
+If we apply S0 × − to this diagram, all maps labeled w0 become closed immersions
+defined by square-zero ideals, by 14.1(c). Thus they all become isomorphisms after
+applying (−)′ , and therefore so does µT .                                      
+
+             16. Preservation of geometric properties by Wn∗
+   We continue with the notation of 10.2.
+Sheaf-theoretic properties
+
+16.1. Proposition. Let X be a quasi-compact object of SpS . Then Wn∗ (X) is quasi-
+compact.
+Proof. Since X`is quasi-compact, it has a finite cover (Ui )i∈I by affine schemes.
+Therefore Wn∗ ( i Ui ) is affine, and since Wn∗ (X) is covered by this space, it must
+be quasi-compact.                                                                  
+
+General localization
+
+16.2. Proposition. Let P be an étale-local property of algebraic spaces X over S.
+For Wn∗ to preserve property P , it is sufficient that it do so when E consists of one
+principal ideal and both X and S are affine schemes.
+30                                     J. BORGER
+
+
+Proof. When E is empty, Wn∗ is the identity functor. Therefore by (10.6.1), it is
+enough to consider the case where E consists of one ideal m.
+   Let X be an algebraic space satisfying property P , and let (Ui )i∈I be an étale
+cover of X such that each Ui is affine and lies over an affine open subscheme Si of
+S over which m is principal. Because P is étale local, each Ui satisfies P ; and since
+            ∗
+we have WS,n  (Ui ) = WS∗i ,n (Ui ), by (10.4.8), so does each Wn∗ (Ui ). But the spaces
+Wn (Ui ) form an affine étale cover of Wn∗ (X), by 15.2. Therefore Wn∗ (X) satisfies
+   ∗
+
+P.                                                                                    
+
+16.3. Proposition. Let P be a property of maps f : X → Y of algebraic spaces
+which is étale-local on the target. For Wn∗ to preserve property P , it is sufficient
+that it do so when E consists of one principal ideal, S is affine, and Y is affine.
+   If property P is also étale-local on the source, then we may further restrict to the
+case where X is affine.
+
+Proof. Let f : X → Y be a map satisfying P . As in the proof of 16.2, it is enough
+to consider the case where E consists of one ideal m.
+   Let us show the first statement. Let (Vj )j∈J be an étale cover of Y such that each
+Vj is affine and lies over anaffine open subscheme subscheme Sj of S on which m
+is principal. Then Wn∗ (Vj ) j∈J is an étale cover of Wn∗ (Y ), by 15.2(b). Therefore
+Wn∗ (f ) satisfies P if its base change to each Wn∗ (Vj ) does. By 15.2(c), this base
+change can be identified with
+
+                        Wn∗ (fVj ) : Wn∗ (Vj ×Y X) −→ Wn∗ (Vj ).
+
+Since fVj satisfies P , so does WS∗′ ,n (fVj ), by the assumptions of the proposition.
+By (10.4.8), we have Wn∗ (fVj ) = WS∗′ ,n (fVj ), and so Wn∗ (fVj ) also satisfies P .
+   Now suppose property P is also étale-local on the source. By what we just
+proved, we may assume Y and S are affine. Let (Ui )i∈I be an étale cover of X,
+with each Ui affine. Then each composition Ui → X → Y satisfies P . Therefore
+so does each composition Wn∗ (Ui ) → Wn∗ (X) → Wn∗ (Y ). But again by 15.2(b), the
+spaces Wn∗ (Ui ) form an étale cover of Wn∗ (X). Since P is local on the source, Wn∗ (f )
+satisfies P .                                                                          
+
+
+
+Affine properties of maps
+
+
+16.4. Proposition. The following (affine) properties of maps of algebraic spaces
+are preserved by Wn∗ :
+     (a) affine,
+     (b) a closed immersion,
+     (c) integral,
+     (d) finite étale.
+
+Proof. Let f : X → Y be a map satisfying one of these properties. In particular,
+f is affine. Because the properties are local on the target, it is enough, by 16.3,
+to assume that both Y and S are affine and that E consists of one ideal m. But
+because f is affine, X must also be an affine scheme. In other words, it is enough
+to show Wn∗ preserves these properties for maps of affine schemes. For (a), there is
+nothing to prove, and (b) is true by 6.5.
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                            31
+
+
+   Let us prove (c). Write S = Spec R. Let A be an R-algebra, and let B be an
+integral A-algebra. Consider the induced diagram
+                                              w⩽n
+                                 Wn (B)             / B [0,n]
+                                    O                    O
+
+
+                                              w⩽n
+                                 Wn (A)             / A[0,n] .
+
+Since B is integral over A, we know that B [0,n] is integral over A[0,n] . By 8.2, A[0,n]
+is integral over Wn (A), and hence so is B [0,n] , and hence so is the image of the ghost
+map w⩽n . But the kernel of w⩽n is nilpotent; so Wn (B) is integral over Wn (A). 
+
+Absolute properties and properties relative to S
+
+16.5. Proposition. The following (étale local) properties of algebraic spaces over
+S are preserved by Wn∗ :
+   (a) locally of finite type over S,
+   (b) flat over S,
+   (c) flat over S and reduced,
+   (d) of Krull dimension d.
+Proof. Because these are étale-local properties, by 16.2 we can write S = Spec R,
+X = Spec A, and E = {πR} with π ∈ R.
+   (a): Let T be a finite subset of A generating it as an R-algebra, and let B denote
+the sub-R-algebra of Wn (A) generated by the set {[t] : t ∈ T } of Teichmüller lifts
+(3.9). It is enough to show that Wn (A) is finitely generated as a B-module. By
+induction, we may assume Wn−1 (A) is finitely generated. Therefore it is enough
+to show that V n Wn (A) is finitely generated. We will do this by showing that the
+subset
+                     n hY i                                    o
+(16.5.1)        T = Vπn        tat | 0 ⩽ at < q n for all t ∈ T ⊆ V n Wn (A),
+                           t∈T
+
+where [x] denotes the Teichmüller lift of x, generates V n Wn (A) as a B-module.
+Indeed, for any monomial t t , write ct = bt q n + at with 0 ⩽ at < q n . Then we
+                          Q ct
+have by (3.9.1)
+                         hY i Y               hY i
+                     Vπn    tc t =       [t]bt Vπn    tat .
+                             t            t                      t
+
+   (b): Since A is flat over R, the ghost map w⩽n : Wn (A) → A[0,n] is injective
+(2.7). Since A[0,n] is m-flat (10.11), so is Wn (A). But R[1/π] ⊗R Wn (A) is also flat,
+because it agrees with (A[1/π])[0,n] , by (10.4.6). Therefore Wn (A) is flat over R.
+   (c): By (b), we only need to show if A is flat and reduced over R, then Wn (A)
+is reduced. Since A is flat over R, the ghost map w⩽n : Wn (A) → A[0,n] is injec-
+tive (2.7). And since A is also reduced, so is Wn (A).
+   (d): The ghost map w⩽n : Wn (A) → A[0,n] is integral and surjective on spectra;
+so the Krull dimension of Wn (A) agrees with that of A[0,n] , which is d. (See EGA
+0, 16.1.5 [25].)                                                                     
+16.6. Counterexamples with relative finite conditions and noetherianness. It is not
+true that Wn∗ preserves relative finite generation or presentation in general. For
+example, consider the usual p-typical Witt vectors. Let A = Z[x1 , x2 , . . .], and let
+B = A[t]. It is then a short exercise to show that W1 (B) is not a finitely generated
+W1 (A)-algebra.
+32                                        J. BORGER
+
+
+   For another, perhaps more extreme example, let C = A[t]/(t2 ). Then C is finite
+free as an A-module, but W1 (C) is not finitely generated as a W1 (A)-algebra.
+   Noetherianness is also not preserved. If k is a field of characteristic p, then W1 (k)
+is a local ring with residue field k and maximal ideal isomorphic to k 1/p . Therefore
+W1 (k) is noetherian if and only if k has a finite p-basis.
+16.7. Corollary. The following properties of algebraic spaces over S are preserved
+by Wn∗ :
+   (a) quasi-compact over S,
+   (b) finite type over S.
+Proof. Because these properties are étale local on S, we can assume S is affine,
+by (10.4.6).
+  (a): Since the structure map X → S is quasi-compact and S is affine, X is
+quasi-compact. Then Wn∗ (X) is quasi-compact, by 16.1. Therefore the structure
+map Wn∗ (X) → S is quasi-compact, since S is affine. (See SGA 4 VI 1.14 [2], say.)
+  (b): By (a) and 16.5(a).                                                      
+16.8. Proposition. The following properties of algebraic spaces over S are pre-
+served by Wn∗ :
+    (a) quasi-separated over S,
+   (b) 0-geometric over S (see 10.9),
+    (c) separated over S,
+   (d) separated.
+Proof. (a): Consider the diagram
+                      `          a / `           `         
+(16.8.1)                [0,n] X        [0,n] X ×S   [0,n] X
+
+                      c=w⩽n                                b=w⩽n ×w⩽n
+                                                      
+                                      d
+                         Wn∗ (X)             / Wn∗ (X) ×S Wn∗ (X),
+
+where the horizontal maps are the diagonal maps. Because X is quasi-separated, a
+is quasi-compact, and by 15.7, so is b. Therefore b ◦ a is quasi-compact, and hence
+so is d ◦ c. Now let U be an affine scheme mapping to Wn∗ (X) ×S Wn∗ (X), and let
+(Vi )i∈I be an étale cover of the pull back d∗ (U ). Since d ◦ c is quasi-compact, there
+is a finite subset J ⊆`I such that (c∗ Vj )j∈J is a cover of c∗ d∗ (U ). In other words,
+the induced map v : j∈J Vj → d∗ (U ) becomes surjective after base change by the
+map c. Because c is surjective (15.7), v must also be.
+    (b): Recall that a map is 0-geometric if and only if its diagonal map is affine
+(10.9). This is equivalent to requiring the existence of an étale cover (Ui )i∈I of X,
+with each Ui affine,such that Ui ×X Uj is affine. Fix such a cover of X. By 15.3,
+the family Wn∗ (Ui ) i∈I is an étale cover of Wn∗ (X). Therefore it is enough to show
+that Wn∗ (Ui ) ×Wn∗ (X) Wn∗ (Uj ) is affine, for all i, j ∈ I. By 15.2(c), this agrees with
+Wn∗ (Ui ×X Uj ). Because X has affine diagonal, Ui ×X Uj is affine. Therefore, by
+10.7, so is Wn∗ (Ui ×X Uj ).
+    (c): Let us first assume that X is of finite type over S. Consider diagram (16.8.1)
+above. To show that d is a closed immersion, it is enough to show that it is a finite
+monomorphism. (It is a general fact the a finite monomorphism of algebraic spaces
+is a closed immersion. To prove it, it is enough to work étale locally, which reduces
+us to the affine case, where it follows from Nakayama’s lemma.) Since d has a
+retraction, it is a monomorphism. Therefore it suffices to show that d is finite. On
+the other hand, by 16.7(b), the structure map Wn∗ (X) → S is of finite type, and
+hence so is d. Therefore it is enough to show that d is integral.
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                            33
+
+
+   Since X is separated, a is a closed immersion and, in particular, is integral. Since
+b is integral (by 15.7), b ◦ a is integral and, hence, so is d ◦ c. By part (b), the map
+d is affine. Therefore, by 15.7, the maps c and d can be written étale-locally on
+Wn∗ (X) ×S Wn∗ (X) as
+                                    c             d
+                           Spec C −→ Spec B −→ Spec A,
+where the induced ring map B → C has nilpotent kernel. We showed above that C
+is integral over A. Therefore B is integral over A. This proves X is separated over
+S when it is of finite type.
+    Now consider the general case. Let us show that we can assume X is quasi-
+compact. To prove that d is a closed immersion, it is enough to work étale locally.
+Therefore, it is enough (by 15.2(b)) to show that for any affine schemes U, V with
+étale maps to X, the base change
+                                             d′
+                   Wn∗ (U ) ×Wn∗ (X) Wn∗ (V ) −→ Wn∗ (U ) ×S Wn∗ (V )
+of d is a closed immersion. By 15.2(c), the source of d′ agrees with Wn∗ (U ×X V ).
+Therefore, d′ does not change if we replace X with the union of the images of U
+and V . So in particular, we can assume X is quasi-compact.
+   Then there exists an affine S-map h : X → X0 , where X0 is some separated alge-
+braic space of finite type over S. Indeed, since X is quasi-compact and separated,
+by Conrad–Lieblich–Olsson [13], Theorem 1.2.2, there is an affine map h′ : X → X0′ ,
+where X0′ is a separated algebraic space of finite type over Z. Put X0 = S ×Z X0′ .
+Then the induced map h : X → X0 factors as
+                             X −→ S ×Z X −→ S ×Z X0′ .
+The first map is a base change of the diagonal map S → S ×Z S, which is a closed
+immersion, since S is separated. The second map is a base change of h′ , which is
+affine. Therefore both maps in the factorization above are affine, and hence so is
+the composition h.
+    Since X0 is of finite type over S, we can apply the argument above to see that
+Wn∗ (X0 ) is separated. But Wn∗ (X) is affine over Wn∗ (X0 ), by 16.4(a). Therefore
+Wn∗ (X) is also separated.
+    (d): This follows from (c) because S is assumed to be separated.             
+16.9. Proposition. The following properties are preserved by Wn∗ :
+   (a) finite over S,
+   (b) faithfully flat over S.
+Proof. These are local properties on the target S. So, by (10.4.6) and (10.6.1), we
+can write assume S = Spec R and E = {m}, for some ring R and ideal m. Away
+from m, the properties are clearly true. Therefore we only need to work locally near
+m, and in particular we can assume m is not the unit ideal. By (10.4.6) again, we
+may further assume R agrees with Rm , which is a discrete valuation ring.
+   Let X be an algebraic space over S having the property in question.
+   (a): Write X = Spec A. Then Wn (A) is a subring of A[0,n] , which is finite over
+R because A is. Since R is a discrete valuation ring, this implies that Wn (A) is
+finite over R.
+   (b): The composition
+                            a       w⩽n
+                                X        / W ∗ (X)    /S
+                                            n
+                            [0,n]
+
+is surjective because X → S is. Therefore the map Wn∗ (X) → S is surjective. It is
+flat by 16.5.                                                                   
+34                                    J. BORGER
+
+
+16.10. Corollary. The structure map Wn∗ (S) → S finite and faithfully flat.
+
+Relative properties
+
+16.11. Proposition. The following properties of maps (étale-local on the target)
+of algebraic spaces are preserved by Wn∗ .
+    (a) quasi-compact,
+    (b) universally closed,
+    (c) quasi-separated,
+    (d) separated,
+    (e) surjective.
+Proof. Let f : X → Y be the map in question. By 16.3, we may write S = Spec R
+and E = {m} and we may assume that Y is affine.
+   (a): Since f is quasi-compact and Y is affine, X is quasi-compact. Then Wn∗ (X)
+is quasi-compact, by 16.1. Since Wn∗ (Y ) is affine (10.7), Wn∗ (f ) is quasi-compact.
+(SGA 4 VI 1.14 [2])
+   (b): Consider the following square:
+                                       wX
+                                            / Wn∗ (X)
+                             `
+(16.11.1)                      [0,n] X
+
+                               ∐f                     Wn∗ (f )
+
+                              `          wY
+                                                     
+                                               / W ∗ (Y ),
+                                [0,n] Y           n
+
+                                                                                   ∗
+where wX and wY denote the ghost maps w⩽n for X and Y . To show W                `n (f )
+is universally closed, it is enough to show that wX is surjective and wY ◦ f is
+universally closed. (See EGA II 5.4.3(ii) and 5.4.9 [24].)
+   But we know wX is surjective by 15.7; and wY ◦ f is universally closed because
+f is universally closed and because wY is integral, by 15.7, and hence universally
+closed. (See EGA II 6.1.10 [24].)
+   (c)–(d): Because Y is affine, so is Wn∗ (Y ), by (10.3.1). Therefore being separated
+or quasi-separated over Wn∗ (Y ) is equivalent to being so over S. Thus the results
+then follow from 16.8,
+   (e): Consider  diagram (16.11.1).
+                                 ` By 15.7, the map wY is surjective. Since f is
+too, so is f . Therefore wY ◦ f and hence Wn∗ (f ).
+          `
+                                                                                     
+16.12. Flatness properties. With the p-typical Witt vectors, say, W1 (Z[x]) is not
+flat over W1 (Z). So if P is a property of morphisms which is stronger than flatness
+and which is satisfied by the map Z → Z[x], then it is not generally preserved by
+Wn . Examples: flat, faithfully flat, smooth, Cohen–Macaulay, and so on.
+16.13. Proposition. Let f : X → Y be a map of algebraic spaces having one of
+the following properties:
+    (a) locally of finite type,
+    (b) of finite type,
+    (c) finite,
+    (d) proper.
+Then Wn∗ (f ) : Wn∗ (X) → Wn∗ (Y ) has the same property, as long as Y is locally of
+finite type over S.
+Proof. (a): The composition X → Y → S is locally of finite type because the factors
+are. Therefore, Wn∗ (X) is locally of finite type over S, by 16.5. In particular, it is
+locally of finite type over Wn∗ (Y ).
+   (b): Part (a) above plus 16.11(a).
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           35
+
+
+   (c): Part (b) above plus 16.4(c).
+   (d): Part (b) above plus 16.11(b),(e).                                            
+16.14. Wn∗ and properness. Some hypotheses on Y are needed in 16.13. For ex-
+ample, let f be the canonical projection P1Y → Y , where Y = Spec Z[x1 , x2 , . . .].
+Then f is proper, but W1∗ (f ) (with p-typical Witt vectors, say) is not, because it is
+not of finite type. Indeed, the map W1∗ (A1Y ) → W1∗ (P1Y ) is étale (15.2), and hence
+of finite type, but the map W1∗ (A1Y ) → W1∗ (Y ) is not (16.6).
+Depth properties
+
+16.15. Proposition. Suppose that S = Spec R for some ring R and that E consists
+of a single maximal ideal m of R. Let A be a local R-algebra whose maximal ideal
+contains m. Then Wn (A) is a local ring with maximal ideal w0−1 (m), where w0
+denotes the usual projection map Wn (A) → A.
+Proof. Let I denote w0−1 (m); it is a maximal ideal because w0 is surjective (1.21).
+Let us show that it is the unique maximal ideal.
+  Let J be a maximal ideal of Wn (A). By 8.2, the map
+                               w⩽n : Wn (A) −→ A[0,n]
+is integral and its kernel is nilpotent. Therefore, J is the pre-image of a maximal
+ideal of A[0,n] . But every maximal ideal of A[0,n] contains m, because the maximal
+ideal of A does. Therefore J contains m. But I is the only maximal ideal of Wn (A)
+containing m, because by 6.8, every element of I is nilpotent modulo mWn (A).
+Therefore J = I.                                                                 
+16.16. Proposition. Let S, R, E, m be as in 16.15. Let A be an R-algebra, and let
+p be a prime ideal of Wn (A).
+    (a) If p does not contain m, then there is a unique integer i ∈ [0, n] and a unique
+        prime ideal q of A such that wi−1 (q) = p. For this i and q, the map
+(16.16.1)                            Aq −→ Wn (A)p
+       induced by wi is an isomorphism.
+   (b) If p does contain m, then there is a unique prime ideal q of A such that
+       w0−1 (q) = p. For this q, there is a unique map of Wn (A)-algebras
+(16.16.2)                       Wn (A)p −→ Wn (Aq ),
+        and this map is an isomorphism.
+Proof. (a): This holds because the map w⩽n is an isomorphism away from m, by 6.1.
+   (b): Any such prime ideal q contains m. Therefore to show such a prime ideal q
+exists and is unique, it is enough to show the map
+                      id ⊗ w0 : R/m ⊗R Wn (A) −→ R/m ⊗R A
+induces a bijection on prime ideals. This holds because id ⊗ w0 is surjective with
+nilpotent kernel, by 8.2.
+   Now consider the diagram
+
+                                OA
+                                              / Aq
+                                                 O
+                                w0                   w0
+
+
+                               Wn (A)        / Wn (Aq ).
+
+By 16.15, the ring Wn (Aq ) is a local ring. So, to show there is a unique map of
+Wn (A)-algebras as in (16.16.2), it is enough to that p is the pre-image in Wn (A)
+36                                     J. BORGER
+
+
+of the maximal ideal w0−1 (m) of Wn (Aq ). This holds by the commutativity of the
+diagram above.
+   Now let us show that (16.16.2) is an isomorphism. By induction, we may assume
+that the map
+                             Wn−1 (A)p −→ Wn−1 (Aq )
+is an isomorphism. By 4.4, it is therefore enough to show that the maps
+                          A(n) ⊗Wn (A) Wn (A)p −→ (Aq )(n)
+are isomorphisms. Write Tp = Wn (A) − p and Tq = A − q. Then this map can be
+identified with the following map of localizations:
+(16.16.3)                       wn (Tp )−1 A −→ Tq−1 A.
+Thus it is enough to show that Tq becomes invertible in wn (Tp )−1 A. It is therefore
+                        n
+enough to show (Tq )qm ⊆ wn (Tp ), which holds by the following.
+    We have [Tq ] ⊆ Tp , where [−] denotes the Teichmüller section (of 1.21); indeed,
+if [x] ∈ p = w0−1 (q), then x = w0 ([x]) ∈ q. Therefore, we have
+                                                          n
+                            wn (Tp ) ⊇ wn ([Tq ]) = (Tq )qm .
+                                                                                      
+ 16.17. Remark. In either case of 16.16, the prime ideal q is the pre-image of p un-
+ der the Teichmüller map t : A → Wn (A), t(a) = [a]. In fact, the induced function
+“Spec t” : Spec Wn (A) → Spec A is continuous in the Zariski topology. Even fur-
+ther, if we view the structure sheaves on these schemes as sheaves of commutative
+monoids under multiplication, then the usual Teichmüller map gives “Spec t” the
+structure of a map of locally monoided topological spaces. If R is an Fp -algebra, for
+ some prime number p, then t is a ring map, and “Spec t” agrees with the scheme
+ map Spec t; but otherwise “Spec t” will not generally be a scheme map. These
+statements can in fact be promotied to the étale topology, but there it is necessary
+to work with maps of toposes instead of maps of topological spaces.
+16.18. Proposition. Let S, R, E, m, A be as in 16.15. Let a1 , . . . , ad ∈ mA be a
+regular sequence for A. Then [a1 ], . . . , [ad ] lie in the maximal ideal of Wn (A) and
+form a regular sequence for Wn (A).
+Proof. By 16.15, the maximal ideal of Wn (A) is w0−1 (mA ), which contains the se-
+quence [a1 ], . . . , [ad ]. It remains to show that the sequence is regular.
+   By (10.4.6), we can assume R agrees with Rm , and hence that the ideal m is gener-
+ated by an element π. The argument will now go by induction on n. For n = 0, there
+is nothing to prove; so assume n ⩾ 1. For any Wn (A)-module M , let KWn (A) (M )
+denote the Koszul complex of M with respect the sequence [a1 ], . . . , [ad ] ∈ Wn (A).
+If this sequence is regular for M , then H d−1 (KWn (A) (M )) = 0, and the converse
+holds if M is finitely generated and nonzero. (See Eisenbud [15], Corollary 17.5
+and Theorem 17.6.)
+   In particular, it is enough to show H d−1 (KWn (A) (Wn (A))) = 0. Considering the
+exact sequence (4.4.1) of Wn (A)-modules
+                                 Vn
+                                 π
+                      0 −→ A(n) −→ Wn (A) −→ Wn−1 (A) −→ 0,
+we see it is even sufficient to show
+               H d−1 (KWn (A) (A(n) )) = H d−1 (KWn (A) (Wn−1 (A))) = 0.
+Observe that we have
+            H d−1 KWn (A) (Wn−1 (A)) = H d−1 KWn−1 (A) (Wn−1 (A)) = 0,
+                                                                
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                           37
+
+
+by induction. Therefore, it is enough to prove H d−1 (KWn (A) (A(n) )) = 0, and
+                                                                              
+
+hence that [a1 ], . . . , [ad ] is regular for A(n) . This is equivalent to the sequence
+   n             n
+aq1 , . . . , aqd ∈ A being regular for A—indeed, the product [a] · x, where x ∈ A(n) ,
+                                                n
+is by definition wn ([a])x, which equals aq x. We complete the argument with the
+general fact that any power of a regular sequence for a finitely generated module is
+again regular ([15], Corollary 17.8).                                                 
+16.19. Proposition. Let k be an integer. Let X be an algebraic space over S such
+that both X and Wn∗ (X) are locally noetherian. Suppose X satisfies one of the
+following properties:
+    (a) Cohen–Macaulay,
+    (b) Cohen–Macaulay over S,
+    (c) Sk (Serre’s condition),
+    (d) Sk over S.
+Then Wn∗ (X) satisfies the same property.
+16.20. Remark. See EGA IV (5.7.1), (6.8.1) [26] for the definition of Cohen–
+Macaulay and Sk . Typically, these concepts are discussed only for noetherian rings,
+but because Wn∗ does not preserve noetherianness, we must assume Wn∗ (X) is noe-
+therian. I do not know if it is possible to remove this assumption by extending the
+concept of depth beyond the noetherian setting. If so, maybe even the noetherian
+hypotheses on X could be removed.
+   Note that, by 16.5(a), the assumptions hold if S is noetherian and X is locally
+of finite type over S.
+16.21. Proof of 16.19. The properties are all étale-local (EGA IV (6.4.2) [26]). So
+by 16.2, we can write S = Spec R, E = {m}, m = πR, and X = Spec A.
+   (a)–(b): These follow from (c) and (d).
+   (c): At a prime ideal of Wn (A) not containing π, the local ring agrees with a local
+ring of A (by 16.16), which satisfies Sk by assumption; so there is nothing to prove.
+Now let p be a prime ideal of Wn (A) containing π. Let q be the corresponding
+prime ideal of A given by 16.16. Then we have Wn (A)p = Wn (Aq ), so it suffices to
+assume that A is a local ring with maximal ideal q. We can therefore also assume
+that R is a discrete valuation ring with maximal ideal
+   By 16.18 and 16.5, we have
+                  depth Wn (A) ⩾ depth A,      dim Wn (A) = dim A.
+By the definition of Sk , depth A is at least k or dim A. Therefore depth Wn (A) is
+at least k or dim Wn (A). In other words, Wn (A) also satisfies Sk .
+   (d): By 16.5, Wn∗ (A) is flat over R. Away from m, we have Wn∗ (A) = A[0,n] ,
+the fibers over S of which satisfy Sk . So it suffices to consider the fiber over m.
+Therefore, by 16.16, we can assume that A is a local R-algebra whose maximal
+ideal contains m. By (10.4.6), we can further assume that R is a discrete valuation
+ring. We need to show that Wn (A)/πWn (A) satisfies Sk .
+   Since A and Wn (A) are flat over R, the element π is not a zero divisor in A or
+Wn (A). Therefore we have
+    depth Wn (A)/πWn (A) = depth Wn (A) − 1 ⩾ depth A − 1 = depth A/πA,
+by 16.18 (and EGA 0 (16.4.6)(ii) [25], say). Further, by 16.5, we have
+         dim Wn (A)/πWn (A) = dim Wn (A) − 1 = dim A − 1 = dim A/πA.
+Because A/πA satisfies Sk , depth A/πA is at least k or dim A/πA. Therefore
+depth Wn (A)/πWn (A) is at least k or dim Wn (A)/πWn (A). In other words, the
+fiber Wn (A)/πWn (A) satisfies Sk .                                        
+38                                        J. BORGER
+
+
+16.22. Gorenstein, regular, normal. Consider the p-typical Witt vectors. Then we
+have
+(16.22.1)            Wn (Z) = Z[x1 , . . . , xn ]/(xi xj − pi xj | 1 ⩽ i ⩽ j ⩽ n),
+with the element xi corresponding to Vpi (1), where Vp denotes the usual Ver-
+schiebung operator. (See 3.8.)
+   This presentation gives some easy counterexamples. The ring W1 (Z) agrees with
+Z[x]/(x2 − px), which is not normal. So Wn does not generally preserve regularity
+or normality.
+   The property of being Gorenstein is also not preserved by Wn . Indeed, we have
+               Fp ⊗Z Wn (Z) = Fp [x1 , . . . , xn ]/(xi xj | 1 ⩽ i ⩽ j ⩽ n).
+Therefore the socle of Fp ⊗Z Wn (Z) (that is, the annihilator of its maximal ideal)
+is the vector space
+                           Fp x1 ⊕ · · · ⊕ Fp xn if n ⩾ 1,
+and is Fp if n = 0. Since the sequence {p} of length 1 is a system of parameters in
+Wn (Z) at the prime ideal p containing p, the ring Wn (Z) is Gorenstein at p if and
+only if the dimension of the socle is 1. This holds if and only if n = 0, 1. When
+n = 1, it is even a complete intersection, but it is not normal. (A basic treatment
+of these concepts is in Kunz’s book [34] (VI 3.18), for example.)
+
+            17. Ghost descent and the geometry of Witt spaces
+   The purpose of this section is to describe the Witt space Wn∗ (X) of a flat algebraic
+space
+`      X as a certain quotient, in the category of algebraic spaces, of the ghost space
+  [0,n] X. We continue with the notation of 10.2.
+
+17.1. Reduced ghost components. Suppose E consists of one ideal m, consider the
+diagram
+                                 i1 ◦w̄n+1
+                                                             αn
+                                             / Wn∗ (X) ∐ X          / W∗
+                                              /
+(17.1.1)             Sn × S X                                          n+1 (X),
+                                    ı̄2
+
+where
+      w̄n+1 : Sn ×S X → Wn∗ (X) is as in (10.6.11),
+      i1 : Wn∗ (X) → Wn∗ (X) ∐ X is the inclusion into the first component,
+      ı̄2 is the closed immersion of Sn ×S X into the second component, and
+      αn is rn,1 on Wn∗ (X) and wn+1 on X, in the notation of (10.6.3).
+When X is affine, this is the same as the diagram in (8.1.1).
+17.2. Proposition. Let X be an algebraic space over S. Then the map αn is an
+effective descent map for the fibered category of algebraic spaces which are both étale
+and affine over their base. In this case, descent data is equivalent to gluing data
+with respect to the diagram (17.1.1).
+Proof. Given an étale map U → X with U affine, consider the following three
+                                                                   ∗
+categories: the category of affine étale algebraic spaces over Wn+1   (U ), that of affine
+                                 ∗
+étale algebraic spaces over Wn (U ) ∐ U with descent data with respect to αn , and
+that of affine étale algebraic spaces over Wn∗ (U ) ∐ U with gluing data with respect
+to the diagram (17.1.1). As U varies, there are obvious transition functors, and
+these give rise to three fibered categories over the small étale topology of X.
+    There are also evident morphisms between these fibered categories, and the
+statement of the corollary is that, for U = X, these morphisms are equivalences.
+    By 15.1, all these fibered categories satisfy effective descent in the étale topology.
+Thus it is enough (by Giraud [19], II 1.3.6, say) to assume X is affine, in which case
+the equivalence follows from 8.3.                                                        
+                    THE BASIC GEOMETRY OF WITT VECTORS, II                         39
+
+
+17.3. Theorem. If X is m-flat (10.11), then (17.1.1) is a coequalizer diagram in
+the category of algebraic spaces.
+
+Proof. For any space Z over S, write Zn = Sn ×S Z.
+  Let us first reduce to the case where X is affine. Write
+
+(17.3.1)                              X = colim Ui ,
+                                               i∈I
+
+
+where (Ui )i∈I is a diagram of affine schemes mapping by étale maps to X. Then
+ (Ui )n i∈I is a diagram of affine schemes mapping by étale maps to Xn . We also
+have
+
+(17.3.2)                           Xn = colim(Ui )n ,
+                                               i
+
+
+because the functor Sn ×S − : SpS → SpSn has a right adjoint, and hence preserves
+colimits. In particular, both colimit formulas (17.3.1) and (17.3.2) hold in the
+category of algebraic spaces, as well as in SpS . Therefore, assuming the theorem in
+the affine case, we can make the following formal computation in the category of
+algebraic spaces:
+
+    coeq Xn ⇒ Wn∗ (X) ∐ X = coeq colimi (Ui )n ⇒ colimi Wn∗ (Ui ) ∐ colimi Ui
+                                                                           
+
+                           = coeq colimi (Ui )n ⇒ colimi (Wn∗ (Ui ) ∐ Ui )
+                                                                          
+
+                           = colimi coeq (Ui )n ⇒ Wn∗ (Ui ) ∐ Ui
+                                                                
+                                         ∗
+                               = colimi Wn+1 (Ui )
+                                  ∗
+                               = Wn+1 (colimi Ui )
+                                  ∗
+                               = Wn+1 (X).
+
+Hence we can assume X is affine.
+                                             ∗
+   Let Y be an algebraic space, and let d : Wn−1 (X) ∐ X → Y be a map such that
+the two compositions in the diagram
+
+                                i1 ◦w̄n+1
+                                                                 d
+                                             / Wn∗ (X) ∐ X
+                                              /
+                    Sn × S X                                         /Y
+                                    ı̄2
+
+
+agree. We want to show that d factors through αn . Because Wn∗ (X) ∐ X is affine,
+by 10.7, there is a quasi-compact open algebraic subspace containing the image of
+d. Since we can replace Y with it, we may assume Y is quasi-compact.
+    Take m ⩾ −1 such that Y ∈ AlgSpm . We will argue by induction on m. When
+m = −1, the space Y is a quasi-compact disjoint union of affine schemes; therefore
+it is affine. The result then follows because (17.1.1) is a coequalizer diagram in the
+category of affine schemes, by 8.1.
+    Now suppose m ⩾ 0. Let e : Y ′ → Y be an étale surjection, where Y ′ is an affine
+scheme. Then there is a étale surjection g : X ′ → X, with X ′ affine, such that d
+lifts to a map d′ as follows:
+
+                                                     d′
+                                  Wn∗ (X ′ ) ∐ X ❴ ❴ ❴/ Y ′
+                               Wn∗ (g) ∐ g                   e
+                                                           
+                                                      d
+                                   Wn∗ (X) ∐ X            / Y.
+40                                                    J. BORGER
+
+
+
+                             /                                      c′′
+ Xn′ ×Xn Xn′                / Wn∗ (X ′ ×X X ′ ) ∐ (X ′ ×X X ′ )               ∗
+                                                                          / Wn+1  (X ′ ×X X ′ )
+                                                  ▼▼▼                           q
+                                                      ▼▼d▼′′                  q
+                                                          ▼▼▼               q
+                                                             ▼&          q a′′
+                                                                      xq
+     pr1   pr2                                               Y ′ ×Y Y ′
+                                                                                     ∗              ∗
+                               Wn∗ (pr1 ) ∐ pr1              Wn∗ (pr2 ) ∐ pr2       Wn+1 (pr1 )    Wn+1 (pr2 )
+
+                                                           pr1     pr2               
+                                         /
+       Xn′                            / Wn∗ (X ′ ) ∐▼X ′                              ∗
+                                                                                  / Wn+1  (X ′ )
+                                                     ▼▼▼ ′                 c′       q
+                                                         ▼d▼▼                 q ′q
+                                                             ▼▼▼            q
+                                                                ▼&   xq q a
+           gn                       Wn∗ (g) ∐ g                    Y′                        ∗
+                                                                                            Wn+1 (g)
+
+
+                                                                                e
+                                            /                                     c
+                                                                                                  
+       Xn                                        / Wn∗ (X) ∐▼X                                  ∗
+                                                                                             / Wn+1 (X)
+                                                                ▼▼▼
+                                                                   ▼▼d▼                     qq
+                                                                       ▼▼▼           q qa
+                                                                          ▼▼&  xq q
+                                                                             Y
+
+                                                      Figure 2.
+
+Indeed, the existence of such a map d′ is equivalent to the existence of a lift f ′
+                                                 f′
+                                 X ′ ❴ ❴ ❴/ Wn∗ (Y ′ ) ×S Y ′
+                                    g                               Wn∗ (e)×e
+                                                              
+                                                  f
+                                  X                    / Wn∗ (Y ) ×S Y,
+
+where f is the left adjunct of d. This exists because Wn∗ (e) × e is an epimorphism
+of spaces, which is true by 11.4.
+   Now let us construct the diagram in figure 2. The rows are diagrams of the form
+(17.1.1); to get d′′ , take the product of d′ with itself over Wn∗ (X) ∐ X and then
+apply 15.2(c). The maps a, a′ , a′′ have not been constructed yet.
+   Since X ′ and X are affine, so is X ′ ×X X ′ ; and since X ′ is étale over X, which
+is m-flat, X ′ and X ′ ×X X ′ are also m-flat. Also, since Y ∈ AlgSpm , we have
+                                  Y ′ , Y ′ ×Y Y ′ ∈ AlgSpm−1 .
+So, by induction, there are unique maps a′ and a′′ such that d′ = a′ ◦ c′ and
+d′′ = a′′ ◦ c′′ .
+    Now let us show a′ ◦ Wn+1
+                          ∗
+                              (pri ) = pri ◦ a′′ , for i = 1, 2. It is enough to show
+                             a′ ◦ Wn+1
+                                   ∗
+                                       (pri ) ◦ c′′ = pri ◦ a′′ ◦ c′′ .
+Indeed, by induction the coequalizer universal property holds for the top row. Show-
+ing this equality is a straightforward diagram chase.
+   Therefore we have
+           e ◦ a′ ◦ Wn+1
+                     ∗
+                         (pr1 ) = e ◦ pr1 ◦ a′′ = e ◦ pr2 ◦ a′′ = e ◦ a′ ◦ Wn+1
+                                                                            ∗
+                                                                                (pr2 )
+So, by the universal property of coequalizers applied to the rightmost column, there
+exists a unique map a such that
+                                             ∗
+(17.3.3)                                a ◦ Wn+1 (g) = e ◦ a′ .
+                   THE BASIC GEOMETRY OF WITT VECTORS, II                         41
+
+
+Finally, let us verify the equality d = a ◦ c. Because Wn∗ (g) ∐ g is an epimorphism,
+it is enough to show
+
+                         d ◦ Wn∗ (g) ∐ g = a ◦ c ◦ Wn∗ (g) ∐ g .
+                                                             
+
+This follows from (17.3.3) and a diagram chase which is again left to the reader. 
+
+17.4. Remark. It is typically not true that (17.1.1) is a coequalizer diagram in the
+                                                        √
+category SpS . For example, if we take X = Spec Zp [ p] and consider the usual,
+p-typical Witt vectors, then α1 is not an epimorphism in SpS .
+
+
+                18. The geometry of arithmetic jet spaces
+   The main purpose of the section is to prove 18.3. We continue with the notation
+of 10.2. Let X be an algebraic space over S.
+
+18.1. Single-prime notation. Suppose that E consists of one maximal ideal m. Let
+                                                f
+                           Wn+1∗ (X) −→ Wn∗ (X) ×S X
+denote the map (sn,1 , κn+1 ) (in the notation of 10.6), and let I denote the ideal
+sheaf of OWn∗ (X)×S X defining the closed immersion
+
+(18.1.1)           (pr2 , κ̄n ) : Sn ×S Wn∗ (X) −→ Wn∗ (X) ×S X.
+
+Let B denote the sub-OWn∗ (X)×S X -algebra of OS ′ ⊗OS OWn∗ (X)×S X generated by
+the subsheaf m−n−1 ⊗OS I. Observe that B is m-flat and satisfies
+
+(18.1.2)              mn+1 B ⊇ mn+1 (m−n−1 ⊗OS I)B = IB.
+
+When necessary, we will write fX , IX , BX to be clear.
+
+18.2. Proposition. Suppose that E consists of one maximal ideal m. Let T be an
+m-flat algebraic space over Wn∗ (X) ×S X. Then there exists at most one map g̃
+                                           g̃
+                               T ❑
+                                 ❴ ❴ ❴ ❴/ Wn+1∗ (X)
+                                  ❑❑
+                                    ❑❑ g
+                                      ❑❑        f
+                                        ❑❑
+                                          ❑❑
+                                            % 
+                                       Wn∗ (X) ×S X
+
+lifting the structure map g. Such a lift exists if and only if IOT ⊆ mn+1 OT .
+                                                                      ∗
+Proof. Giving a map g̃ : T → Wn+1∗ (X) is equivalent to giving a map Wn+1 (T ) →
+X. Such maps can be described using the diagram
+
+                                       / Wn∗ (T ) ∐ T                 ∗
+                                        /
+                    Sn × S T                                       / Wn+1 (T ),
+
+because it is a coequalizer diagram in the category of algebraic spaces, by 17.3.
+Therefore giving a map T → Wn+1∗ (X) is equivalent to giving maps a : T →
+Wn∗ (X) and b : T → X such that the diagram
+                                                    pr2
+                                Sn × S T                  /T
+
+                                 w̄n                           b
+                                                            
+                                                    a′
+                                Wn∗ (T )                  / X,
+42                                      J. BORGER
+
+
+where a′ is the left adjunct of a, commutes. The commutativity of this diagram is
+equivalent to that of
+                                                   pr2
+(18.2.1)                        Sn × S T                       /T
+
+                                id×a                           b
+                                                    κ̄n      
+                             Sn ×S Wn∗ (X)                 / X.
+
+This is because the following diagram commutes:
+                                id×a
+                  Sn × S T           / Sn ×S Wn∗ (X)
+                                                   ❄❄
+                                                     ❄
+                        w̄n                      w̄n ❄❄❄
+                                                         ❄❄
+                            Wn∗ (a)                      ❄ κ̄n
+                    ∗                      ∗
+                   Wn (T ) ❳❳❳❳         / Wn Wn∗ (X) ❄❄❄
+                               ❳❳❳❳❳                 ❖ ❖❖❖ ❄❄
+                                       ❳❳❳❳❳a′
+                                             ❳❳❳❳❳ ❖❖ε❖❖❖ ❄❄❄
+                                                      ❳❳❳❳❳ ❖❖ ❄❄
+                                                             ❳❳❳❳❳❖❖' 
+                                                                   ❳+
+                                                                        X,
+where ε is the counit of the evident adjunction. (And this diagram commutes by
+the naturalness of w̄n and the definitions of a′ and κ̄n .)
+    Let us now apply this in the case where we take (a, b) to be g. Then the map
+g̃ required by the lemma is unique, and it exists if and only if (18.2.1) commutes.
+The commutativity of (18.2.1) is equivalent to that of
+                                               pr2
+(18.2.2)                     Sn × S T                      /T
+
+                     id×(pr1 ◦g)                           g
+                                                          
+                                               h
+                        Sn ×S Wn∗ (X)              / Wn∗ (X) ×S X,
+
+where h denotes the map (pr2 , κ̄n ) of (18.1.1). Because h is a closed immersion,
+the commutativity of (18.2.2) is equivalent to requiring that the ideal I defining
+h pull back to the zero ideal on Sn ×S T , which is equivalent to the containment
+IOT ⊆ mn+1 OT .                                                                  
+
+18.3. Theorem. Suppose that E consists of one maximal ideal m and that Wn+1∗ (X)
+is m-flat (10.11). Let B be as in 18.1. Then the unique (Wn∗ (X) ×S X)-map
+                                          g̃
+                                Spec B −→ Wn+1∗ (X),
+of 18.2 is an isomorphism.
+18.4. Remark. In other words, we have
+(18.4.1)         Wn+1∗ (X) = Spec OWn∗ (X)×S X [m−n−1 ⊗OS I],
+which gives a concrete recursive description of Wn+1∗ (X) when it is m-flat. Note
+that, by 12.6, this flatness condition is satisfied when X is E-smooth.
+
+18.5. Proof of 18.3. Fix, for the moment, an étale algebraic X-space U . Let
+YU denote Wn∗ (U ) ×S U , and let ZU denote Spec BU . Let CU denote the full
+subcategory of algebraic spaces over YU consisting of objects T which are m-flat
+and satisfy
+(18.5.1)                           IU OT ⊆ mn+1 OT ,
+where IU is the ideal sheaf defined in 18.1; let Caff
+                                                  U denote the full subcategory of
+CU consisting of objects which are affine over YU .
+                           THE BASIC GEOMETRY OF WITT VECTORS, II                                          43
+
+
+   First, observe that Wn+1∗ (U ) is the terminal object of CU . Indeed, by 18.2, it
+is enough to show that Wn+1∗ (U ) is m-flat; this is true because, by 11.1, it is étale
+over Wn+1∗ (X), which is m-flat by assumption.
+   Second, observe that ZU is the terminal object of Caff  U : it is an object of CU
+                                                                                     aff
+
+by 18.1.2, and it is terminal by the definition of generated.
+   Because of these two terminal properties, the theorem is equivalent to the state-
+ment that there exists a map Wn+1∗ (X) → ZX of YX -spaces, which is what we will
+prove.
+   Let D be a diagram of étale algebraic spaces U over X (as above) such that each
+space U in the diagram is an object of AffRelS and such that the induced map
+(18.5.2)                         colim Wn+1∗ (U ) −→ Wn+1∗ (X)
+                                 U∈D
+
+is an isomorphism. The existence of D follows from 11.9. (One can in fact take
+D to consist of all such spaces U .) Then, for any map b : V → U of D, the space
+Wn+1∗ (V ) is an object of Caff
+                            U . Indeed, the induced map Wn+1∗ (V ) → YU is affine,
+because both the source and the target are affine schemes (10.3.2); and (18.5.1) is
+satisfied because we have IU OYV ⊆ IV .
+   Therefore, by the terminal property of ZU , for any such map b : V → U , there
+is a unique map F (b) : Wn+1∗ (V ) → ZU of YU -spaces. In particular, the induced
+diagram
+                                                          F (idV )
+                                         Wn+1∗ (V )                  / ZV
+
+                                  Wn+1∗ (b)
+                                                         F (idU )      
+                                         Wn+1∗ (U )                  / ZU
+commutes. In particular, the compositions
+                                               F (idU )
+                                 Wn+1∗ (U ) −−−−−→ ZU −→ ZX
+form a compatible family of YX -maps, as U runs over D. This induces a YX -map
+                                    colim Wn+1∗ (U ) → ZX .
+                                     U∈D
+
+On other hand, (18.5.2) is an isomorphism of YX -spaces. Thus there exists a map
+Wn+1∗ (X) → ZX of YX -spaces, which completes the proof.                       
+
+18.6. Non-smooth counterexample. We cannot remove the assumption above that
+Wn+1∗ (X) is m-flat. Indeed, the example in 12.7 shows that the locus of Wn∗ (X)
+over the complement of Spec OS /m can fail to be dense in Wn∗ (X).
+18.7. Corollary. If X is E-smooth, then the co-ghost map
+                                                  κ⩽n
+                                       Wn∗ (X)              / X [0,n]
+
+is affine. It is an isomorphism away from E.
+  It would be interesting to know whether this is true for arbitrary algebraic spaces
+X over S.
+Proof. If E is empty, then κ⩽n is an isomorphism. If not, write E = E ′ ∐ E ′′ ,
+where E ′′ consists of a single element. Let n′ and n′′ denote the projections of n
+          ′          ′′
+onto N(E ) and N(E ) . Then by (10.6.2), the map κ⩽n can be identified with the
+composition
+                                                                                  ′′
+                                 κ⩽n′′                 ′′              (κ⩽n′ )[0,n ]           ′′
+                                           / Wn′ ∗ (X) [0,n ]                       / X [0,n′ ] [0,n ] .
+                             
+      W    n′′ ∗   W
+                   n′ ∗   (X)
+44                                          J. BORGER
+
+
+By 11.1 and (10.4.9), the space Wn′ ∗ (X) is E-smooth. Therefore, by induction, the
+second map above is affine and is an isomorphism away from E. Thus to show the
+first map is affine and is an isomorphism away from E, it is enough to prove the
+corollary itself in the case where E consists of a single element.
+    In that case, κ⩽n factors as follows
+             f                        f ×idX
+                                               Wn−2∗ (X) ×S X ×S X −→ · · · −→ X [0,n] .
+                                                             
+ Wn∗ (X) −→ Wn−1∗ (X) ×S X −→
+Since X is E-smooth, each Wi∗ (X) is E-smooth and hence E-flat. Thus, by 18.3,
+each of these maps is affine and an isomorphism away from E. Therefore so is their
+composition κ⩽n .                                                               
+
+                                          References
+ [1] Théorie des topos et cohomologie étale des schémas. Tome 1: Théorie des topos. Springer-
+     Verlag, Berlin, 1972. Séminaire de Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4),
+     Dirigé par M. Artin, A. Grothendieck, et J. L. Verdier. Avec la collaboration de N. Bourbaki,
+     P. Deligne et B. Saint-Donat, Lecture Notes in Mathematics, Vol. 269.
+ [2] Théorie des topos et cohomologie étale des schémas. Tome 2. Springer-Verlag, Berlin, 1972.
+     Séminaire de Géométrie Algébrique du Bois-Marie 1963–1964 (SGA 4), Dirigé par M. Artin,
+     A. Grothendieck et J. L. Verdier. Avec la collaboration de N. Bourbaki, P. Deligne et B.
+     Saint-Donat, Lecture Notes in Mathematics, Vol. 270.
+ [3] Cohomologie l-adique et fonctions L. Lecture Notes in Mathematics, Vol. 589. Springer-
+     Verlag, Berlin, 1977. Séminaire de Géometrie Algébrique du Bois-Marie 1965–1966 (SGA
+     5), Edité par Luc Illusie.
+ [4] Spencer Bloch. Algebraic K-theory and crystalline cohomology. Inst. Hautes Études Sci. Publ.
+     Math., (47):187–268 (1978), 1977.
+ [5] James Borger. Basic geometry of Witt vectors, I: The affine case. arXiv:0801.1691v5.
+ [6] James Borger. Λ-rings and the field with one element. arXiv:0906.3146v1.
+ [7] Siegfried Bosch, Werner Lütkebohmert, and Michel Raynaud. Néron models, volume 21 of
+     Ergebnisse der Mathematik und ihrer Grenzgebiete (3). Springer-Verlag, Berlin, 1990.
+ [8] A. Buium. Intersections in jet spaces and a conjecture of S. Lang. Ann. of Math. (2),
+     136(3):557–567, 1992.
+ [9] Alexandru Buium. Geometry of p-jets. Duke Math. J., 82(2):349–367, 1996.
+[10] Alexandru Buium. Arithmetic differential equations, volume 118 of Mathematical Surveys
+     and Monographs. American Mathematical Society, Providence, RI, 2005.
+[11] Alexandru Buium and Bjorn Poonen. Independence of points on elliptic curves arising from
+     special points on modular and Shimura curves. II. Local results. Compos. Math., 145(3):566–
+     602, 2009.
+[12] Alexandru Buium and Santiago R. Simanca. Arithmetic Laplacians. Adv. Math., 220(1):246–
+     277, 2009.
+[13] Brian Conrad, Max Lieblich, and Martin Olsson. Nagata compactification for algebraic spaces.
+     arXiv:0910.5008.
+[14] V. G. Drinfeld. Coverings of p-adic symmetric domains. Funkcional. Anal. i Priložen.,
+     10(2):29–40, 1976.
+[15] David Eisenbud. Commutative algebra, volume 150 of Graduate Texts in Mathematics.
+     Springer-Verlag, New York, 1995. With a view toward algebraic geometry.
+[16] Torsten Ekedahl. On the multiplicative properties of the de Rham-Witt complex. I. Ark. Mat.,
+     22(2):185–239, 1984.
+[17] Torsten Ekedahl. On the multiplicative properties of the de Rham-Witt complex. II. Ark.
+     Mat., 23(1):53–102, 1985.
+[18] Jean-Marc Fontaine. Le corps des périodes p-adiques. Astérisque, (223):59–111, 1994. With
+     an appendix by Pierre Colmez, Périodes p-adiques (Bures-sur-Yvette, 1988).
+[19] Jean Giraud. Cohomologie non abélienne. Springer-Verlag, Berlin, 1971. Die Grundlehren der
+     mathematischen Wissenschaften, Band 179.
+[20] Marvin J. Greenberg. Schemata over local rings. Ann. of Math. (2), 73:624–648, 1961.
+[21] Marvin J. Greenberg. Schemata over local rings. II. Ann. of Math. (2), 78:256–266, 1963.
+[22] Alexander Grothendieck. La théorie des classes de Chern. Bull. Soc. Math. France, 86:137–
+     154, 1958.
+[23] Alexander Grothendieck. Éléments de géométrie algébrique. I. Le langage des schémas. Inst.
+     Hautes Études Sci. Publ. Math., (4):228, 1960.
+                        THE BASIC GEOMETRY OF WITT VECTORS, II                                      45
+
+
+[24] Alexander Grothendieck. Éléments de géométrie algébrique. II. Étude globale élémentaire de
+     quelques classes de morphismes. Inst. Hautes Études Sci. Publ. Math., (8):222, 1961.
+[25] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. I. Inst. Hautes Études Sci. Publ. Math., (20):259, 1964.
+[26] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. II. Inst. Hautes Études Sci. Publ. Math., (24):231, 1965.
+[27] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas. III. Inst. Hautes Études Sci. Publ. Math., (28):255, 1966.
+[28] Alexander Grothendieck. Éléments de géométrie algébrique. IV. Étude locale des schémas et
+     des morphismes de schémas IV. Inst. Hautes Études Sci. Publ. Math., (32):361, 1967.
+[29] Michiel Hazewinkel. Formal groups and applications, volume 78 of Pure and Applied Mathe-
+     matics. Academic Press Inc. [Harcourt Brace Jovanovich Publishers], New York, 1978.
+[30] Luc Illusie. Complexe de de Rham-Witt et cohomologie cristalline. Ann. Sci. École Norm.
+     Sup. (4), 12(4):501–661, 1979.
+[31] Luc Illusie. Finiteness, duality, and Künneth theorems in the cohomology of the de Rham-
+     Witt complex. In Algebraic geometry (Tokyo/Kyoto, 1982), volume 1016 of Lecture Notes in
+     Math., pages 20–72. Springer, Berlin, 1983.
+[32] André Joyal. δ-anneaux et vecteurs de Witt. C. R. Math. Rep. Acad. Sci. Canada, 7(3):177–
+     182, 1985.
+[33] Donald Knutson. Algebraic spaces. Springer-Verlag, Berlin, 1971. Lecture Notes in Mathe-
+     matics, Vol. 203.
+[34] Ernst Kunz. Introduction to commutative algebra and algebraic geometry. Birkhäuser Boston
+     Inc., Boston, MA, 1985. Translated from the German by Michael Ackerman, With a preface
+     by David Mumford.
+[35] Andreas Langer and Thomas Zink. De Rham-Witt cohomology for a proper and smooth
+     morphism. J. Inst. Math. Jussieu, 3(2):231–314, 2004.
+[36] Saul Lubkin. Generalization of p-adic cohomology: bounded Witt vectors. A canonical lifting
+     of a variety in characteristic p 6= 0 back to characteristic zero. Compositio Math., 34(3):225–
+     277, 1977.
+[37] Michel Raynaud and Laurent Gruson. Critères de platitude et de projectivité. Techniques de
+    “platification” d’un module. Invent. Math., 13:1–89, 1971.
+[38] D. Rydh. Noetherian approximation of algebraic spaces and stacks. arXiv:0904.0227v1.
+[39] Bertrand Toën and Michel Vaquié. Algébrisation des variétés analytiques complexes et
+     catégories dérivées. Math. Ann., 342(4):789–831, 2008.
+[40] Bertrand Toën and Gabriele Vezzosi. Homotopical algebraic geometry. II. Geometric stacks
+     and applications. Mem. Amer. Math. Soc., 193(902):x+224, 2008.
+
+   Australian National University
+   E-mail address: james.borger@anu.edu.au
+

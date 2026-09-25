@@ -1,0 +1,2485 @@
+                                          Absolute geometry and the Habiro topology
+
+                                          Lieven Le Bruyn
+
+
+                                                ”One can postulate, of course, that Spec(F1 ) is the absolute point, but
+                                                the real problem is to develop non-trivial consequences of this point of
+                                                view.”
+                                                Mikhail Kapranov and Alexander Smirnov in [20]
+
+
+
+
+arXiv:1304.6532v1 [math.RA] 24 Apr 2013
+                                                ”Analogies, it is true, decide nothing, but they can make one feel more
+                                                at home.”
+                                                Sigmund Freud, The Essentials of Psycho-Analysis
+
+
+                                              Ever since the work of Richard Dedekind and Leopold Kronecker the striking
+                                          similarities between number fields and function fields of smooth projective curves
+                                          over finite fields have served as a powerful analogy to transport results and conjec-
+                                          tures from number theory to these function fields. Using the powerful machinery
+                                          of geometry one could prove results on the function field side for which the corre-
+                                          sponding number theoretic result still remains conjectural. Most noteworthy are
+                                          Andre Weil’s proof of the Riemann hypothesis for function fields in the 40ties and,
+                                          more recently, the proof of the ABC-conjecture for function fields.
+                                              Since the mid 80ties, attempts have been made to mimic Weil’s approach to the
+                                          Riemann hypothesis by trying to imagine the integral prime spectrum Spec(Z) to
+                                          be a ’curve’ over the absolute point , that is Spec(F1 ) where F1 is the elusive field
+                                          with one element, and subsequently to study intersection theory on the ’surface’
+                                          Spec(Z) ×F1 Spec(Z), which is part of Weil’s approach to the Riemann hypoth-
+                                          esis. Since he could not invent what this ’surface’ might be, Alexander Smirnov
+                                          decided to study intersection theory on the easier ’surface’ P1F1 ×F1 Spec(Z), and
+                                          in particular to investigate the graphs of ’maps’
+
+                                                                q : Spec(Z)     - P1F       where q ∈ Q
+                                                                                        1
+
+
+                                          which should exist by analogy with the function field case as Q should be thought
+                                          of as the function field of the ’curve’ Spec(Z). Smirnov dreamed up the following
+                                          definitions for both geometric objects and of the maps between them (see [38]):
+
+                                             • The absolute projective line , P1F1 , should have as its schematic points the set
+
+                                                                          {[0], [∞]} ∪ {[n] | n ∈ N0 }
+
+                                                where the degree of the point [n] should be φ(n) for n ∈ N0 and equal to 1 for
+                                                [0] and [∞]. The schematic point [n] should be thought of as corresponding
+                                                to the set of geometric points being the primitive n-th roots of unity.
+2                                                                   Lieven Le Bruyn
+
+
+    • The completed prime spectrum , Spec(Z) should have as its schematic points
+      the set
+                          {(p) | p a prime number} ∪ {∞}
+      where the degree of ∞ is equal to one and the degree of (p) should be log(p).
+
+    • If q = ab ∈ Q with (a, b) = 1, the map
+
+                                 q : Spec(Z)      - P1F
+                                                          1
+
+
+      should send the point (p) to [0] if p is a prime factor of a, to [∞] if p is a
+      prime factor of b and, in the remaining cases, to [n] if n is the order of the
+      image of ab in the finite group F∗p . Finally, ∞ should be send to [0] if a < b
+      and to [∞] if a > b.
+
+Here’s part of the graph of the map q = 2 (for primes p < 1000) in the ’surface’
+P1F1 × Spec(Z)
+
+
+
+
+It is easy to verify that these maps are finite but showing that they are actually
+covers for most values of q relies upon a result of Zsigmondy’s [45]. In [38] Alexan-
+der Smirnov was able to deduce the ABC-conjecture for Z provided one would be
+able to develop an absolute geometry, admitting suitable versions of Spec(Z) and
+P1F1 and such that one can prove an analogue of the Riemann-Hurwitz formula
+Absolute geometry and the Habiro topology                                           3
+
+
+for maps such as q. Since then, numerous proposals for a geometry over F1 have
+been made, all of them allowing objects such as P1F1 and similar combinatorial de-
+fined varieties such as affine and projective spaces, Grassmannians etc., but almost
+none of them containing objects having the desired properties of Spec(Z). For an
+overview of these attempts and the connections between them we refer to [28].
+Perhaps the most promising approach was put forward by Jim Borger and is based
+on the notion of λ-rings, [3]. For our purposes, a λ-ring is a Z-algebra R without
+additive torsion admitting a commuting family of endomorphisms {Ψn : n ∈ N0 }
+such that for prime numbers p the map Ψp is a lift of the Frobenius morphism on
+R ⊗Z Fp . Borger interprets this family of endomorphisms as descent data from Z
+to F1 , and conversely views the forgetful functor, stripping off the λ-structure, as
+base-extension − ⊗F1 Z. In this approach, P1F1 would then be the usual integral
+scheme P1Z equipped with the toric λ-ring structure induced by the endomorphisms
+Ψn (x) = xn on Z[x], giving us the fanciful identity
+
+                               P1F1 ×Spec(F1 ) Spec(Z) = P1Z
+
+where on the right-hand side we forget the λ-structure on the integral projective
+line P1Z , giving us a concrete proposal for Smirnov’s plane. Unlike other approaches,
+Borger’s proposal allows us define how an integral scheme XZ should be viewed
+over F1 . Indeed, the forgetful-functor (that is, base-extension − ⊗F1 Z) has a
+right-adjoint functor
+                                w : rings      - rings
+                                                         λ
+
+
+assigning to a Z-algebra A a close relative of the ring of Big Witt vectors, w(A) =
+1 + tA[[t]], equipped with a new addition ⊕ being the ordinary multiplication of
+power series, and a new multiplication ⊗ induced functorially by the condition
+that
+                                 1           1          1
+                          (           )⊗(         )=
+                              1 − a.t     1 − b.t    1 − ab.t
+
+for all a, b ∈ A. This functor can then be viewed as Weil-restriction from integral
+schemes to F1 -schemes. Hence, in particular, this proposal allows us to define
+Spec(Z)/F1 as the F1 -geometric object corresponding to the ring w(Z) which is
+isomorphic to the completed Burnside-ring B̂(C) of the infinite cyclic group C, by
+[14]. In these notes we will explore how Smirnov’s maps Spec(Z) -    - P1 fit into
+                                                                         F1
+Borger’s proposal.
+    A second theme of these notes is to explore the origins of a new topology on
+the roots of unity µ ∞ introduced and studied by Kazuo Habiro in [17] in order to
+unify invariants of 3-dimensional homology spheres, introduced first by Ed Witten
+by means of path integrals and rigorously constructed by Reshitikhin and Turaev.
+Habiro calls two roots of unity adjacent to each other whenever their quotient is
+of pure prime power order. For example below we depict the adjacency relation
+on 60-th roots of unity where we used different colors for different prime powers
+4                                                                       Lieven Le Bruyn
+
+
+(2-powers are colored yellow, 3- and 5-powers respectively blue and red).
+
+
+
+
+The Habiro topology on µ ∞ is then defined by taking as its open sets those subsets
+U ⊂ µ ∞ having the property that for every α ∈ U all except finitely many β ∈ µ ∞
+adjacent to α also belong to U . The Galois action is continuous in this topology
+which is in sharp contrast to the induced analytic topology. The Habiro topology is
+best understood by applying techniques from noncommutative algebraic geometry
+to objects like P1F1 . Recall that the schematic point [n] of P1F1 corresponds to the set
+of primitive n-th roots of unity and hence corresponds to the closed subscheme of
+P1Z defined by the n-th cyclotomic polynomial Φn (x). For n 6= m the corresponding
+ideals do not have to be co-maximal (that is, the closed subschemes can intersect
+over some prime numbers p) and, in fact, whenever m            k
+                                                        n = p for some prime number
+                                            −1
+p there are non-split extensions of Z[x, x ]-modules
+
+                      0    - Z[ζn ]    - E      - Z[ζm ]     - 0
+
+In noncommutative algebraic geometry such situations are interpreted as saying
+that the corresponding points [m] and [n] lie infinitely close to each other as they
+share some common tangent information. This then is the origin of the Habiro
+topology on µ∞ . So in the above picture one should view two roots of unity to be
+infinitely close whenever they are connected by a colored line, giving us a horrible
+topological space. The tools of noncommutative geometry allow us to study such
+bad spaces by associating noncommutative algebras to them and in this case, the
+Bost-Connes algebra Λ is naturally arises from it. More generally, one assigns to
+a λ-ring A a noncommutative algebra, the skew-monoid algebra A ∗ N×     0 where the
+skew-action is determined by the family of endomorphisms Ψn . Therefore, one
+might argue that F1 -geometry is essentially of a noncommutative nature. In these
+notes we will explore this line of thoughts and show in particular that the Habiro
+topology on P1Z is a proper refinement of the Zariski- (that is, cofinite-) topology
+Absolute geometry and the Habiro topology                                5
+
+
+and is no longer compact. We can then also define an exotic new topology on
+Spec(Z) by demanding that all the Smirnov-maps q : Spec(Z) - P1F1 should
+be continuous with respect to the Habiro topology on P1F1 .
+
+
+Contents
+1   Mumford’s drawings of A1Z and P1Z                                    6
+
+2   The vertical axis P1F1                                               9
+
+3   The Habiro topology on P1F1                                         13
+
+4   The étale site of F1                                               17
+
+5   What is P1F1 ?                                                      21
+
+6   Conway’s big picture                                                25
+
+7   Exotic topology on Spec(Z)                                          29
+
+8   Witt and Burnside rings                                             34
+
+9   What is Spec(Z) over F1 ?                                           40
+
+10 What is the map from Spec(Z) to P1F1 ?                               44
+6                                                                    Lieven Le Bruyn
+
+
+1. Mumford’s drawings of A1Z and P1Z
+Let us start with the iconic drawing of the ’arithmetic surface’, that is of the prime
+spectrum A1Z = Spec(Z[x]), by David Mumford in the original version of his Red
+Book [34, p. 141]. Subsequent more polished versions of the drawing can be found
+in the reprinted Red Book [35, p. 75] and in a.o. [36, p.24] and [15, p. 85].
+
+
+
+
+It was believed to be the first depiction of one of Grothendieck’s prime spectra
+having a real mixing of arithmetic and geometric properties, and as such was
+influential for generations of arithmetic geometers. Clearly, A1Z = Spec(Z[x]), that
+is the set of all prime ideals of Z[x], contains the following elements
+
+    • (0) depicted as the generic point [(0)]
+
+    • principal prime ideals (f ), where f is either a prime number p (giving the
+      vertical lines V((p)) = Spec(Fp [x])) or a Q-irreducible polynomial written so
+      that its coefficients have greatest common divisor 1 (the horizontal ’curves’
+      in the picture such as [(x2 + 1)]
+
+    • maximal ideals (p, f ) where p is a prime number and f is a monic polynomial
+      which remains irreducible modulo p, the ’points’ in the picture.
+
+Mumford’s drawing focusses on the vertical direction as the vertical lines V((p)) are
+the fibers of the projection Spec(Z[x]) -- Spec(Z) associated to the structural
+map Z ⊂ - Z[x]. This is consistent with Mumford’s drawing of Spec(Z) in [34,
+p. 137] where he writes ”Z is a principal ideal domain like k[x], and Spec(Z) is
+Absolute geometry and the Habiro topology                                          7
+
+
+usually visualized as a line :
+
+
+
+
+There is one closed point for each prime number, plus a generic point [(0)].” I’ve
+emphasized the word ’usually’ as Mumford knew at the time he was writing the
+Red Book perfectly well that there were other, and potentially better, descriptions
+of Spec(Z) than this archaic prime number line.
+   In july 1964 David Mumford attended the Woods-Hole conference, which be-
+came famous for producing the Atiyah-Bott fixed point theorem. On july 10th
+there were three talks on the hot topic at the time emerging from Grothendieck’s
+Parisian seminar : Etale cohomology. Mike Artin spoke on ’Etale cohomology of
+schemes’ [1], Jean-Louis Verdier on ’A duality theorem in the etale cohomology of
+schemes’ [42] and John Tate on ’Etale cohomology over number fields’ [41]. Later
+in the conference, Mike Artin and Jean-Louis Verdier ran a ’Seminar on étale
+cohomology of number fields’ [2] in which they proved their famous duality result
+
+        r
+       Het (Spec(Z), F) × Ext3−r
+                             Spec(Z) (F, Gm )
+                                                    3
+                                                 - Het (Spec(Z), F) ≃ Q/Z
+
+
+for Abelian constructible sheaves F, suggesting a 3-dimensional picture of Spec(Z).
+    Combining this with the fact that the étale fundamental group of Spec(Z) is
+trivial (and that of Spec(Fp ) is the profinite completion of π1 (S 1 ) = Z), Mumford
+dreamed-up the analogy between prime number and knots in S 3 , see for example
+the opening paragraph of the unpublished preprint by Barry Mazur ’Remarks on
+the Alexander polynomial’ [31]: ”Guided by the results of Artin and Tate applied
+to the calculation of the Grothendieck Cohomology Groups of the schemes
+
+                             Spec(Z/pZ) ⊂ - Spec(Z)
+
+Mumford has suggested a most elegant model as a geometric interpretation of the
+above situation : Spec(Z/pZ) is like a one-dimensional knot in Spec(Z) which
+is like a simply connected three-manifold.” This analogy between prime numbers
+and knots has led in the past decades to the field of ’Arithmetic Topology’, a good
+introduction to which can be found in the lecture notes by Masanori Miyashita
+[32].
+   However, the arithmetic plane wasn’t the first attempt by Mumford to draw
+an arithmetic scheme. In his Harvard ’Lectures on curves on an algebraic surface’
+8                                                                   Lieven Le Bruyn
+
+
+[33] there’s on page 28 this drawing of P1Z = Proj(Z[X, Y ])
+
+
+
+
+This drawing has at the same time a more classical touch to it, separating the
+different elements of Proj(Z[X, Y ]) (that is the graded prime ideals of Z[X, Y ] not
+containing in (X, Y )) according to codimension, as well as being more modern in
+that there is a 3-dimensional feel to it (the closed subschemes V(X 2 + Y 2 ) and
+V(5X − Y ) have over- and undercrossings). The points of Proj(Z[X, Y ]) are
+
+    • The graded ideal 0 corresponding to the unique codimension zero point, the
+      generic point,
+
+    • The graded prime ideals of height one which are either the vertical fibers
+      V((p)) = P1Fp = Proj(Fp [X, Y ]) or the horizontal subschemes corresponding
+      to the homogenization (with respect to Y ) of a Q-irreducible polynomial in
+      Z[X] written such that the greatest common divisor of its coefficients equals
+      1, the codimension one points, and,
+
+    • The codimension two points, which correspond to the graded ideals (p, F )
+      where F is a homogeneous element of Z[X, Y ] such that its reduction modulo
+      p remains irreducible.
+
+For example, the point marked ∗ in the drawing is the point (13, X − 8Y ). This
+picture resembles that of A1Z and is in fact the gluing of two such drawings over
+their intersection, the first is obtained by removing the ∞-section (that is V(Y ))
+and is Spec(Z[x]) with x = X   Y whereas the second is obtained by removing the 0-
+section V(X) and is Spec(Z[x−1 ]). They are glued together over their intersection
+Spec(Z[x, ux−1 ]).
+    Influential as these drawings have been, there are a couple of obvious problems
+with them which will lead us unavoidably to the concept of the absolute point
+Spec(F1 ), that is, the geometric object associated to the elusive field with one
+element F1 .
+Absolute geometry and the Habiro topology                                           9
+
+
+ (1) what is the vertical axis? These drawings of A1Z and P1Z as arithmetic
+     ’planes’ suggest that, apart from the ’horizontal axis’ Spec(Z), coming from
+     the structural morphisms Z ⊂ - Z[x± ], there should also be a ’vertical axis’
+     and corresponding projection, so what is it?
+
+ (2) what is the correct topology? The drawing of the horizontal curves
+     suggests a natural identification between vertical fibers P1Fq ↔ P1Fq for primes
+     p 6= q, so is there one? And what is the correct topology on these fibers, and
+     on Spec(Z)?
+
+
+2. The vertical axis P1F1
+We have seen that the ’points’ correspond to maximal ideals of Z[x] which are all
+of the form m = (p, F ) where p is a prime number and F is a monic irreducible
+polynomial such that its reduction F ∈ Fp [x] remains irreducible. Clearly m lies on
+a unique vertical ruling V((p)) and we wonder whether there exists an appropriate
+set of horizontal rulings containing all points m. We know that the quotient
+
+                                Z[x]   Fp [x]
+                                     ≃        ≃ Fpd
+                                 m      (F )
+
+is the finite field Fpd where d is the degree of F and that its multiplicative group
+of units is the cyclic group Cpd −1 and hence Fpn consists of roots of unity together
+with zero.
+    This observation led Yuri I. Manin in [30] to consider the ring Z[x]S which is the
+localization of Z[x] at the multiplicative system S generated by the polynomials
+Φ0 (x) = x together with the cyclotomic polynomials
+                                           µ(n)
+                                           Y
+                                Φn (x) =         (x − i )
+                                           i=1
+
+where i runs over all primitive roots of unity of order n, of which there are exactly
+φ(n) where φ is the Euler-function φ(n) = #{1 ≤ j < n : (j, n) = 1}. It follows
+that the above point m lies on the ’curve’ [(Φpd −1 (x))] in the arithmetic plane
+Spec(Z[x]). Hence, localizing at S removes all these curves [(Φn (x))] together
+with all the points lying on them. That is, Spec(Z[x]S ) has no height two prime
+ideals and so consists of (0) and the remaining height one prime ideals, all of which
+are principal. We conclude that the localized ring Z[x]S is a principal ideal domain.
+    This is completely analogously to the more classical setting in which we localize
+Z[x] at the multiplicative system S 0 generated by all prime numbers p, thus getting
+the principal ideal domain Q[x]. Here the localization removes all the vertical
+rulings V((p)) from the arithmetic plane together with all the points m lying on
+them. Hence, this suggests to take the ’curves’ [(Φn (x))] = V((Φn (x))) as a set
+of horizontal rulings, and then indeed the point m lies on the intersection of the
+vertical ruling V((p)) and the horizontal ruling V((Φpd −1 (x))).
+10                                                                                       Lieven Le Bruyn
+
+
+                                ?
+                                ?            PZ1
+                              PF11
+                                                                      P1Fp
+
+
+
+                         ∞
+
+
+
+
+       GEOMETRIC AXIS
+                         n                                                               Φn
+
+
+
+
+                        3 2 1 0
+
+                                                                                              P1Z
+
+                                                                                            ?
+                                                                                            ?
+                                                                                          Spec(Z)
+                        Spec(F1 ) (2) (3) (5) (7)                     (p)
+
+                                                    ARITHMETIC AXIS
+
+
+                                        Figure 1. The extended Mumford drawing
+
+
+    Manin writes : ”This suggests that the union of cyclotomic arithmetic curves
+Φn (x) = 0 can be imagined as the union of closed fibers of the projection
+                                                        - Spec(F1 [x])
+                                             Spec(Z[x]) -
+and the arithmetic plane itself as the product of two coordinate axes, an arith-
+metic one, Spec(Z), and a geometric one, Spec(F1 [x]), over the ’absolute point’
+Spec(F1 ).”
+    Clearly we can repeat the same argument for Spec(Z[x−1 ]) and we obtain as
+Manin’s proposal for a set of horizontal rulings on P1Z the set of codimension one
+closed subschemes determined by the irreducible homogeneous polynomials
+                                                              µ(n)
+                                                              Y
+                                  {Φ0 = X, Φ∞ = Y } ∪ {Φn =          (X − i Y ) : n ∈ N0 }
+                                                              i=0
+
+That is, we can extend in Figure 1 Mumford’s drawing of P1Z with an horizontal
+projection such that every codimension two point of P1Z lies on the intersection of
+a vertical and an horizontal ruling But, you may wonder, what is this elusive ’field
+with one element’ F1 , and what do we mean with geometric objects defined over
+it?
+Absolute geometry and the Habiro topology                                          11
+
+
+    Two papers mark the beginning of this subject, one by Alexander L. Smirnov,
+”Hurwitz inequalities for number fields” [38] and one by Yuri I. Manin, ”Lectures
+on zeta functions and motives” [29], both originating from the fall of 1991. But,
+you will search in vein for any mention of the ’field with one element’ in either
+paper. Manin introduces the ’absolute motive’ and Smirnov ’an object that par-
+tially replaces the projective line over the constant field’ in the number field case.
+Information about the historical origins and motivation behind these two papers
+can be gleaned from two letters from A.L. Smirnov to Y.I. Manin [39] and an
+unpublished preprint by Smirnov and Mikhail Kapranov [20].
+    It is an old idea to interpret the combinatorics of finite sets as the limit case
+of linear algebra over finite fields Fq when q goes to 1. This led to a folklore ob-
+ject, the ’field with one element’, F1 , vector spaces over which are just sets V or
+pointed sets V• = V ∪ {0} if we want to add a zero-vector. The dimension of the
+vector space V is its cardinality #V and an F1 -linear map between vector spaces
+V     - W is just a map of sets (or a map of pointed sets V•          - W• mapping
+the distinguished element of V (the zero vector) to that of W ). Consequently, one
+should interpret the general linear group GLn (F1 ) as the group of all permutations
+on a set with n elements, that is GLn (F1 ) = Sn . The analog of the usual determi-
+nant det : GLn (F1 ) - F∗1 is then the sign groupmorphism sgn : Sn - {±1}
+and hence one should view the alternating group An as the special linear group
+SLn (F1 ). As an example of the slogan that linear algebra over F1 is the same
+as the combinatorics of finite sets consider an n-dimensional vector space V /F1
+(that is, #V = n), then the k-element subsets of V should be viewed as points
+in the Grassmannian Grass(k, n)(F1 ) and hence its cardinality is the limit of the
+cardinalities of the actual Grassmannians Grass(n, k)(Fq ) over actual finite fields
+                            
+                             n
+                                  = lim # Grass(k, n)(Fq )
+                             k      q→1
+
+One can play for some time exploring similar analogies, but quickly one feels that
+the setting lacks flexibility. In order to resolve this Alexander L. Smirnov intro-
+duced finite field extensions of F1 . By analogy with the genuine finite field case
+one should have just one field-extension F1n of degree n up to isomorphism and
+Smirnov proposed to take the monoid
+
+                                   F1n = {0} ∪ µ n
+
+where µn is the group of all roots of unity of order n. Vector spaces over F1n can
+then be taken to be pointed sets V• = {0} ∪ V where V is a set having a free
+action of µn , the dimension being the number of µn -orbits. Linear maps are then
+maps of pointed sets which are also maps of µn -sets. Therefore, the Galois group
+Gal(F1n /F1 ) should be the multiplicative group (Z/nZ)∗ consisting of the power
+maps µ 7→ µd for all (d, n) = 1. Taking limits, the algebraic closure of the field
+with one element should be considered as the pointed set,or monoid F1 = {0} ∪µ ∞
+consisting of zero together with all roots of unity.
+    Smirnov and Kapranov remark in [20] that the idea of adjoining roots of unity
+as analogously to extension of the base field at least goes back to a letter by
+12                                                                      Lieven Le Bruyn
+
+
+Andre Weil to Emil Artin [43] in which Weil writes : ”Our proof of the Riemann
+hypothesis (in the function field case) depended upon the extension of the function-
+fields by roots of unity, i.e. by constants; the way in which the Galois group of
+such extensions operates on the classes of divisors in the original field and its
+extensions gives a linear operator, the characteristic roots (i.e. the eigenvalues) of
+which are the roots of the zeta-function. On a number field, the nearest we can
+get to this is by adjunction of l-th roots of unity, l being fixed; the Galois group
+of this infinite extension is cyclic, and defines a linear operator on the projective
+limit of the (absolute) class groups of those successive finite extensions; this should
+have something to do with the roots of the zeta-function of the field. However,
+our extensions are ramified (but only at a finite number of places, viz. the prime
+divisors of l). Thus a preliminary study of similar problems in function-fields might
+enable one to guess what will happen in number-fields.”
+    Smirnov’s proposal was then to take as the schematic points of P1F1 to be the
+set
+                          {[0], [∞]} ∪ {[1], [2], [3], [4], [5], . . .}
+the set of all positive integers N together with a point at infinity. He also declares
+the degree of the point n ∈ N0 to be the Euler function φ(n), whereas the points
+[0] and [∞] have degree one. Here’s why. The geometric points of P1Fp are of course
+                                                                             ∗
+         P1Fp (Fp ) = {[0] = [0 : 1], [∞] = [1 : 0]} ∪ {[α] = [α : 1] : α ∈ Fp }
+
+The Galois group Gal(Fp /Fp ) = Ẑ+ acts on this set by fixing the points [0] and [∞]
+and sending σ([α] = [σ(α)]. The schematic points of P1Fp are then the Galois-orbits
+for this action and the degree of a schematic point is the size of the corresponding
+orbit. If we assign to an orbit O the polynomial
+                                     Y
+                                         (x − α)
+                                     [α]∈O
+
+
+we see that the schematic points of P1Fp consist of [∞] together with the set of
+all monic irreducible polynomials in Fp [x] and that the notion of degree of the
+schematic point coincides with the usual degree of the corresponding polynomial.
+    Here’s an alternative description. We claim that we can identify the multiplica-
+tive group of the non-zero elements of the algebraic closure
+                                        ∗
+                                       Fp ≃ µ (p)
+
+with the group µ (p) of all roots of unity having order prime to p. Clearly, if
+α ∈ F∗pn then the order of α is a divisor of pn − 1 and hence a number prime to p.
+Conversely, if (m, p) = 1 then the residue class p ∈ Z/mZ is a unit and therefore for
+some integer n we must have pn ≡ 1 mod m. But then, m|pn − 1 and the primitive
+m-th roots of unity can be identified with a subgroup of the multiplicative group
+                                                   ∗
+F∗pn . However, describing the correspondence Fp ↔ µ (p) explicitly from a given
+construction Fp is very challenging and we will address it later.
+Absolute geometry and the Habiro topology                                                 13
+
+
+   By analogy we can therefore define the geometric points of P1F1 with
+
+                                P1F1 (F1 ) = {[0], [∞]} ∪ µ(1)
+
+with µ (1) the set of all roots of unity with order prime to 1, that is, the group µ ∞
+of all roots of unity, leading to the proposal that
+
+                                       F1 = {0} ∪ µ ∞
+
+The schematic points of P1F1 are then the orbits of this set under the action of the
+Galois group Gal(Q(µ ∞ )/Q) = Ẑ∗ . Clearly, these orbits are classified by
+
+                           {[0], [∞]} ∪ {[1], [2], [3], [4], [5], . . .}
+
+where [n] is the orbit consisting of all primitive n-th roots of unity, and hence the
+degree of the schematic point [n] must be equal to the number of primitive n-th
+roots of unity, that is, to φ(n).
+
+
+3. The Habiro topology on P1F1
+
+The additive structure of the profinite integers Ẑ as well as its multiplicative group
+of units Ẑ∗ have already made their appearance as (absolute) Galois groups. As we
+will encounter them often, let us formally define these profinite integers following
+Hendrik Lenstra’s account in [27].
+    Recall that any positive integer n has a unique representation of the form
+
+                     n = ck .k! + ck−1 .(k − 1)! + . . . + c2 .2! + c1 .1!
+
+where the ’digits’ ci are integers such that 0 ≤ ci ≤ i for all 1 ≤ i ≤ k and ck 6= 0.
+We then write n in the factorial number system as n = (ck ck−1 . . . c2 c1 )! , so for
+example 25 = (1001)! . Profinite integers arise if we allow the sequences of digits
+to extend indefinitely to the left to get expressions such as (. . . c4 c3 c2 c1 )! . One can
+then identify positive integers N to be those profinite integers with ci = 0 for i >>.
+Also the negative integers −N0 can be characterized as those profinite integers such
+that ci = i for all but finitely many i. For example, −1 = (. . . 654321)! , that is
+ci = i for all i.
+    To add two profinite integers, one adds them digitwise, proceeding from the
+right and if the sum of the two i-th digits is larger than i, one substracts i + 1
+from it and adds a carry of 1 to the sum of the i + 1-th digits. With this rule
+we have indeed that −1 (as above) +1 = 0. To multiply two profinite integers we
+use the rule that the first k digits of the product s × t depend only on the first k
+digits of s and t, thereby reducing the problem of computing products to the case
+of ordinary positive integers. These operations make the profinite integers Ẑ into a
+commutative ring with unit element 1. Those in the know will have observed that
+all we did was work out the ring-rules for the projective limit Ẑ = lim Z/n!Z.
+                                                                             ←
+14                                                                    Lieven Le Bruyn
+
+
+    But let us return to P1F1 . We have defined, following Smirnov, that the schematic
+points of P1F1 are the orbits of µ ∞ under the action of the multiplicative group of
+profinite integers Ẑ∗ which is the Abelian Galois group Gal(Q(µ ∞ )/Q). We would
+now like to define a topology on µ ∞ compatible with this action, and clearly the
+induced analytic topology does not satisfy this condition.
+    In [18] Kazuo Habiro introduced a new topology on µ ∞ in order to unify invari-
+ants of 3-dimensional homology spheres, introduced first by Ed Witten by means
+of path integrals and rigorously constructed by Reshitikhin and Turaev. Two roots
+of unity α, β ∈ µ ∞ are said to be adjacent if their quotient αβ −1 is of pure prime
+power order pm for m ∈ Z and p a prime number, or equivalently, if the difference
+α − β is not a unit in the integral closure of Z in Q(α, β). Clearly, the action of the
+absolute Galois group Gal(Q/Q) and of Ẑ∗ = Gal(Q(µ ∞ )/Q) preserves adjacency.
+
+
+
+
+Above we indicated adjacency of 32-nd roots of unity under increasing powers 2k ,
+respectively k ≤ 2, 3, 4 and finally 5.
+   The Habiro topology on µ ∞ is then defined by taking as its open sets those
+subsets U ⊂ µ ∞ having the property that for every α ∈ U all except finitely many
+β ∈ µ ∞ adjacent to α also belong to U . The Galois action is continuous in this
+Absolute geometry and the Habiro topology                                          15
+
+
+topology which is in sharp contrast to the induced analytic topology. Further,
+any cofinite subset is clearly open in the Habiro topology, but we will soon see
+that there are plenty of other open subsets. In fact we will show that the Habiro
+topology is not locally compact on µ ∞ .
+    But let us first explain the F1 -origins of the Habiro topology. Our depic-
+tion of P1Z as the product of the arithmetic and the geometric axis was an over-
+simplification. Whereas the vertical fibers V(p) (the red lines) are clearly disjoint,
+this is not necessarily the case for the blue lines V(Φn ), because the height one
+prime ideals (Φn (x)) and (Φm (x)) do not have to be comaximal and whenever
+(Φn (x), Φm (x)) 6= Z[x] there will be a point lying on both curves, so the ’lines’
+will intersect over certain prime numbers. This must happen as we know that the
+prime spectrum of the integral group ring SpecZCn is connected, see for example
+[37]. Hence, its minimal prime ideals which are all of the form V(Φd (x)) for d|n
+will intersect. For cyclotomic polynomials we have complete information about
+potential comaximality:
+
+   • If m      k
+        n 6= p for some prime number p, then (Φm (x), Φn (x)) = Z[x] so these
+     cyclotomic prime ideals are comaximal and the corresponding blue lines will
+     not intersect, however
+
+   • if m     k                                                  d
+        n = p for some prime number p, then Φm (x) ≡ Φn (x) mod p for some
+     integer d and hence these cyclotomic prime ideals are not comaximal and the
+     corresponding blue lines will intersect over p.
+
+In the second case we have non-split extensions as Z[x, x−1 ]-modules
+                   (
+                       0    - Z[ζn ]   - E     - Z[ζm ]    - 0
+                       0    - Z[ζm ]   - F     - Z[ζn ]    - 0
+
+In fact, Fritz-Erdmann Diederichsen, a student of Zassenhaus, calculated already
+in 1940 that there are exactly pµ(min(m,n)) such extensions, in either direction [11]
+(see also [10, Thm. 25.26]).
+    In noncommutative algebraic geometry we are very familiar with such situa-
+tions. If S and T are two finite dimensional simple representations of a C-algebra A
+such that Ext1A (S, T ) 6= 0, we say that their annihilating maximal ideals belong to
+the same ’clique’ and know that we should think of S and T as two noncommuta-
+tive points lying infinitely close together, or equivalently, that S and T share some
+tangent information. Using this noncommutative intuition we therefore define a
+clique- or adjacency relation on pairs of natural numbers
+
+                                                     m
+                           m∼n     if and only if      = p±a
+                                                     n
+
+for some prime number p. It is this clique-relation which lies behind the definition
+of the Habiro topology on µ ∞ . Below, we depict the inter-weaving patters of the
+16                                                                         Lieven Le Bruyn
+
+
+horizontal lines Φ1 , Φp , Φq , Φp2 and Φpq for prime numbers p < q.
+
+
+
+
+                  pq
+
+                  p2
+                   q
+
+
+                   p
+
+
+
+
+                   1
+                                  (p)     (q)
+
+The Habiro topology on P1F1 = {[n] : n ∈ N×   0 } ∪ {[0], [∞]} is therefore defined as
+follows. An open set is then a subset of P1F1 of the form
+
+     U   or U 0 = U ∪ {[0]}      or U ∞ = U ∪ {[∞]}         or U 0∞ = U ∪ {[0], [∞]}
+where U has the property that if [m] ∈ U then all but finitely [n] such that m ∼ n
+also belong to U . Clearly, all cofinite subsets of P1F1 are open, but there are more.
+For a prime number p define the set
+                              Up = {[n] | if p|n then p2 |n}
+then Up is open for if [n] ∈ Up and p - n then there is all [m] ∈ Up if n ∼ m except
+for the one point [pn] and if n = pk n0 then again all [m] ∈ Up when m ∼ n except
+for the one point [pn0 ]. But still, the complement of Up is infinite as
+                       P1F1 − Up = {[pa] | (p, a) = 1} ∪ {[0], [∞]}
+
+More generally, if m = pk11 . . . pkl l then the set
+
+                    Um = {[n] | ∀ 1 ≤ i ≤ l : if pi |n then pki i +1 |n}
+is open in the Habiro topology and we have relations such as Um ∩ Un = Ulcm(m,n) .
+    A striking feature is that P1F1 is not compact in the Habiro topology. Indeed,
+as [n] ∈ Uq for all primes q such that q - n we have that
+                                          [
+                                  P1F1 =       Up0∞
+                                            p prime
+
+                                                 / Up0∞
+but no finite sub-cover exists as [p1 . . . pk ] ∈    1
+                                                        ∪ . . . ∪ Up0∞
+                                                                     k
+                                                                       .
+Absolute geometry and the Habiro topology                                             17
+
+
+4. The étale site of F1
+Until now our exposition has been pretty intuitive and we would like to have a
+solid framework to give formal definitions for these elusive objects as well as to
+perform actual calculations. Such a proposal was put forward by Jim Borger in
+2009 in [3] and streamlined a plethora of previous attempts, all giving more or less
+the same class of examples. For a map of F1 -land before Borger we refer to [28].
+    Borger’s approach is based on the notion of λ-rings in the sense of Grothendieck’s
+Riemann-Roch theory [16]. For us, a λ-ring will be a commutative ring R with
+identity without additive torsion equipped with a collection of maps λn : R - R
+for n ∈ N satisfying an unwieldy list of axioms, see for example [21, Chapter 1].
+By [44], assuming our no-torsion assumption, R is a λ-ring if and only if there
+is a collection of commuting ring-endomorphisms ψ p : R           - R for all prime
+                        p
+numbers p such that ψ is a lift of the Frobenius-automorphism on R ⊗Z Fp , that
+is, we have a commuting diagram for all prime numbers p
+                                            ψp
+                                     R             - R
+
+
+
+                                    ?
+                                    ?             ?
+                                                  ?
+                                           F rob
+                                  R/pR        - R/pR
+
+Borger’s proposal is to define F1 -algebras as Z-algebras with a λ-ring structure,
+the idea being that one can interpret the collection of commuting endomorphisms
+{ψ p } as descent data from Z-algebras to F1 -algebras. F1 -algebra maps are then
+morphisms of λ-rings, that is, ringmorphisms commuting with the Frobenius lifts
+ψ p . Accepting this proposal it then follows that base ring extension − ⊗F1 Z can
+be viewed formally as the operation of forgetting the λ-ring structure, that is, of
+stripping off the F1 -structure.
+     In this way we can define F1 to be Z with its unique λ-ring structure in which
+all ψ p = idZ . Similarly, the polynomial ring F1 [x] can be defined to be the integral
+polynomial ring Z[x] equipped with the λ-ring structure defined by ψ p (x) = xp
+which is indeed a Z-endomorphism lift of the Frobenius automorphism on Fp [x] by
+little Fermat and the binomial theorem. The field F1n should then be taken to be
+the integral groupring Z[µ n ] with λ-rings structure induced by ψ p (µ) = µp . This
+gives the fanciful identities
+         F1n ⊗F1 Z = Z[µ n ]      F1 [x] ⊗F1 Z = Z[x]    and P1F1 ⊗F1 Z = P1Z
+where on the right hand sides we forget about the λ-structures.
+   If G is a finite group and let χ1 , . . . , χh be its irreducible characters, then the
+Grothendieck ring of finite dimensional C[G]-representations
+                               R(G) = Zχ1 ⊕ . . . ⊕ Zχh
+has a λ-ring structure defined by ψ p (χ) = χ0 where χ0 is the class function χ0 (g) =
+χ(g p ) for all g ∈ G, see for example [37, §9.1]. If p does not divide the order of
+18                                                                            Lieven Le Bruyn
+
+
+G, then ψ p is an automorphism permuting the irreducible characters. As the ψ p
+commute we can define operations ψ n = (ψ p1 )◦a1 ◦ . . . ◦ (ψ pk )◦ak if n = pa1 1 . . . pnk k .
+The ψ n are the Adams operations and they give an action of the multiplicative
+monoid N×0 on R(G). On the other hand we have that
+
+                        Q(µ ∞ ) ⊗Z R(G) ≃ Q(µ ∞ ) × . . . × Q(µ ∞ )
+                                          |         {z           }
+                                                           h
+
+
+and hence there is a Galois action by Ẑ∗ = Gal(Q(µ ∞ )/Q) on Q(µ ∞ ) ⊗Z R(G).
+This Galois action is compatible with the action by Adams operations on R(G)
+via the embedding N×   0
+                          ⊂ -
+                                Ẑ∗ , see for example [37, §12.4].
+    James Borger and Bart De Smit vastly generalized this example in [4] to include
+all reduced λ-rings R which are finite projective Z-modules, allowing us to describe
+the Galois (or étale) site of F1 .
+    Let us first consider the case when K = R ⊗Z Q is a λ-ring and a finite étale
+Q-algebra. By Grothendieck’s version of Galois theory we have an anti-equivalence
+of categories between the category of finite étale Q-algebras and the category of
+finite discrete sets equipped with a continuous action of the absolute Galois group
+G = Gal(Q/Q), assigning to K the set
+
+                                        S = algQ (K, Q)
+
+on which σ ∈ G acts by left composition, that is, σ.s = σ ◦ s. If we have in addition
+a λ-ring structure, that is a commuting family of Q-endomorphisms Ψn on K, then
+we have also an action of the monoid N×     0 on S acting by composition on the right,
+that is n.s = s ◦ Ψn . Consequently, the category of rational λ-algebras which are
+finite étale over Q is the category of finite discrete sets equipped with a continuous
+action of the monoid Gal(Q/Q) × N×                  ×
+                                        0 where N0 is given the discrete topology.
+    The Galois action on S gives us a groupmorphism
+
+                           Gal(Q/Q)        - perm(S) ⊂ maps(S)
+
+where perm(S) are all permutations on S and maps(S) are all set-maps from S to
+                                                             N
+itself. The kernel N gives us a finite Galois extension L = Q of Q with Galois
+group G = Gal(Q/Q)/N and as R ⊗Z Q = K = L1 × . . . × Lk , all Li are subfields of
+L and hence every σ ∈ G induces an automorphism on Li . Let OL be the integral
+closure of Z in L, then by Galois theory we have
+
+                     S = algQ (K, Q) = algQ (K, L) = algZ (R, OL )
+
+and we have the action by (σ, n) ∈ G × N×
+                                        0 on S via
+
+                                                s        /
+                                      RO                8 OL
+                                   ψn                      σ
+                                                        & 
+                                      R                  OL
+Absolute geometry and the Habiro topology                                            19
+
+
+By Chebotarev’s theorem there are infinitely many prime numbers p such that
+there exists a prime ideal P / OL lying over p with σ a lift of the Frobenius-
+automorphism on OL /P , so we can choose a prime p not dividing the discriminant
+∆(R). Note that if p - ∆(R) there is a unique lift of the Frobenius-map which
+is automatically an automorphism by the category equivalence between étale Fp -
+and étale Ẑp -algebras. But then, the restriction of σ to R via the embedding s is
+equal to Ψp and we have σ ◦ s = s ◦ Ψp on R. As this holds for any σ ∈ G we
+have that the image of G        - perm(S) ⊂ maps(S) is contained in the image of
+  ×                            ×
+N0     -   maps(S). But, as N0 is an Abelian monoid, it follows that the image in
+perm(S) is Abelian and hence that L/Q is an Abelian Galois extension!
+    But now we can invoke the Kronecker-Weber theorem asserting that L ⊂ Q(µ c )
+where c in only divisible by primes p which ramify in L and as L is the common
+Galois extension of the components of R ⊗Z Q those p must also divide ∆(R).
+That is, there exists c ∈ N with all its prime factors dividing the discriminant
+∆(R) such that the Galois action on S = algZ (R, OL ) factorizes through the
+cyclotomic character
+
+                              - (Z/cZ)∗ = Gal(Q(µ c )/Q)
+                     Gal(Q/Q) -
+
+and for all p - ∆(R) the action op p ∈ N×       0 on S is equal to that of p mod c ∈
+Gal(Q(µ c )/Q).
+    So far, we have factorized the Gal(Q/Q) × N×                            ∗    ×
+                                                       0 -action on S via Ẑ × N0 and
+                                                               ∗    ×         ×
+now we want to factorize it further through the map Ẑ × N0              - Ẑ via the
+                                                      ×
+natural embeddings of both factors and where Ẑ is the multiplicative monoid of
+the profinite integers Ẑ.
+    We can apply the foregoing for every d ∈ N×                               d
+                                                      0 on the sub λ-ring Ψ (R) ⊂ R
+with corresponding finite set d.S. That is, there exists cd ∈ N0 such that the
+Galois-action on d.S factorizes through (Z/cd Z)∗ and such that the action of any
+n with nd.S = d.S is the same as the action of n mod cd . For every prime number
+p let ap be the smallest power such that pap +1 .SQ= aap .S and as ap > 0 only
+for those p|∆(R) we have a finite number r0 = p|∆(R) pap which satisfies the
+property that for all n ∈ N0 we have that n.S = gcd(n, r0 ).S. Now let r be the
+least common multiple of all d.cd where d|r0 , then we claim that the above action
+factorizes through the multiplicative monoid (Z/cd Z)× , that is, we have to show
+that if d1 ≡ d2 mod r that the actions of d1 and d2 on S coincide. As r0 |r we
+have gcd(d1 , r0 ) = gcd(d2 , r0 ) = d whence d1 .S = d.S = d2 .S. If we write di = dd0i
+this entails that (d0i , cd ) = 1 but then d1 = dd01 ≡ dd02 = d2 mod dcd . But then,
+d01 ≡ d02 mod cd and so they act the same on d.S whence d1 and d2 act the same
+on S!
+    This then is the main result of Borger and De Smit [4] that a necessary and
+sufficient condition for the existence of an integral λ-ring R which is finite and
+projective over Z contained in the λ-ring R ⊗Z Q = K is that the action of the
+monoid Gal(Q/Q) × N×      0 on the finite set S describing K factors through an action
+of the monoid Ẑ× . It follows that the category of all such λ-rings is anti-equivalent
+to the category of finite discrete sets with a continuous action of the monoid Ẑ×
+20                                                                                 Lieven Le Bruyn
+
+
+and that every such λ-ring is contained as λ-ring in a product of cyclotomic fields,
+generalizing the case of the Grothendieck ring R(G) of a finite group G.
+    Motivated by Grothendieck’s interpretation of Galois theory we have the fan-
+ciful picture of the absolute Galois monoid of the field with one element F1
+                                      Gal(F1 /F1 ) ≃ Ẑ×
+Because the subset 0.S ⊂ S is Galois invariant it corresponds to a factor Q in K,
+so K can never be a field unless K = Q. In particular, whereas Z[µ n ] is an integral
+λ-ring, the subring Z[ζn ] of the cyclotomic field Q(ζn ) where ζn is a primitive n-th
+root of unity is not.
+    For example, let us work out the λ-ring structure on R(S3 ), the representation
+ring of the symmetric group S3 and its associated finite Ẑ-set. For any finite group
+G let X be the set of conjugacy classes in G, then we can identify this set with
+ S = algZ (R(G), C) = {x : R(G)                - C | x(Vi ) = χVi (x) ∀ Vi ∈ irreps(G)}
+                                                                                        #X
+                                                                  (#G)
+Moreover, one knows in general that the discriminant ∆(R(G)) = Q           . Spe-
+                                                                   x∈X #x
+cializing to the case when G = S3 we have that ∆(R(S3 )) = 36 and recall that the
+character table of S3 is
+                               x = [1]          [2]                     [3]
+                                    ()         (1, 2)                (1, 2, 3)
+                                V1  1            1                       1
+                                V2  1           −1                       1
+                                V3  2            0                     −1
+The Frobenius lifts (aka Adams operators) send a class-function χ to the class-
+function Ψn (χ)(g) = χ(g n ). As ()n = () for all n, (1, 2)n = () for even n and
+= (1, 2) for odd n and (1, 2, 3)n = () for n a multiple of 3 and is conjugated to
+(1, 2, 3) otherwise. Therefore, if χi is the character-function of Vi and computes
+from the character-table that for prime numbers p we have
+     • Ψp (χ1 ) = χ1 , ∀p
+     • Ψ2 (χ2 ) = χ1 and Ψp (χ) = χ2 , ∀p 6= 2
+     • Ψ2 (χ3 ) = χ1 + χ3 − χ2 , Ψ3 (χ3 ) = χ1 + χ2 and Ψp (χ3 ) = χ3 , ∀p 6= 2, 3
+which determines the λ-ring structure on R(S3 ). The action of n ∈ N×     0 on the
+algebra map [i] ∈ algZ (R(S3 ), C) is given by n.[i] = [i] ◦ Ψn and hence it follows
+from the above that p.[i] = [i] for all primes p 6= 2, 3 and one verifies that the
+action of 2 and 3 is given by the following maps on S = {[1], [2], [3]}
+                                           2   $                 z   3
+                                                       [1]
+                                                   ?         _
+                                           2                         3
+
+
+                                 [2]                                     [3]
+                                       W                                       W
+                                  3                                      2
+Absolute geometry and the Habiro topology                                           21
+
+
+From this it follows that 2.S = 22 .S = {[1], [3]} and 3.S = 32 .S = {[1], [2]} whereas
+6.S = 12.S = 18.S = {[1]}. Further, the Galois action on R(G) and any of its sub
+λ-rings is trivial. With the notations used before we therefore get that r0 = 6 and
+all cd = 1 showing that the Ẑ× -action on S factorizes through the multiplicative
+monoid action of (Z/6Z)× as indicated in the above colored graph.
+
+
+5. What is P1F1 ?
+Now that we have a formal definition of F1 -algebras, namely those Z-rings without
+additive torsion which are λ-rings, it makes sense to define for any such λ-ring R
+its λ-spectrum which is the collection of all kernels of λ-ring morphisms from R to
+reduced λ-rings
+                             φ
+    Specλ (R) = {ker(R       - A) | A a reduced λ-ring and φ ∈ alg (R, A) }
+                                                                        λ
+
+which is clearly functorial.
+    The geometric or F1 -points in the λ-spectrum then correspond to kernels of
+λ-ringmorphisms R - A where A is one of the integral λ-rings described in the
+previous section, that is a finite projective Z-ring with λ-structure such that A⊗Z Q
+is an étale Q-algebra. We have seen that such rings are of the form A = AS where
+S is a finite set with a continuous monoid action by Ẑ× . As these sets are ordered
+by inclusions S ⊂ T compatible with the Ẑ× -action and via the anti-equivalence
+this corresponds to λ-ring epimorphisms AT -       - AS , it makes sense to define the
+maximal λ-spectrum of R to be
+                         φ
+                         - A) | A étale over F1 and φ ∈ alg (R, A) }
+       maxλ (R) = {ker(R -                                  λ
+
+As this space may still be too hard to compute in specific examples, we often reduce
+to the subset of all cyclotomic points (or in Manin-parlance of [30], the cyclotomic
+coordinates ) which is the set
+                              φ
+         maxcycl (R) = {ker(R -
+                              - Z[µ n ]) | n ∈ N, φ ∈ alg (R, Z[µ n ]) }
+                                                         λ
+
+For the λ-ring Z[x] we have that
+
+    Specλ (Z[x]) = {0} ∪ maxλ (Z[x])    and maxcycl (Z[x]) = {(Φn (x)) | n ∈ N}
+
+as any λ-ring epimorphism Z -      - Z[µ n ] must map x to xi with (i, n) = 1, that is,
+to a primitive n-th root of unity. Hence, we now finally have a formal definition of
+P1F1 : it is the set of cyclotomic points of P1Z , equipped with the Habiro topology.
+     One can again use methods from noncommutative algebraic geometry to obtain
+’geometric objects’ and their associated ’rings of functions’ and apply this to the
+setting of F1 -geometry to arrive at a similar description.
+     In [22] Maxim Kontsevich and Yan Soibelman introduce a noncommutative thin
+scheme (over the complex numbers) to a covariant functor X : fd-algC - sets
+22                                                                             Lieven Le Bruyn
+
+
+from finite dimensional (not necessarily commutative) C-algebras to sets, commut-
+ing with finite projective limits. They show that such thin schemes are represented
+by a coalgebra CX which they call the coalgebra of distributions on X and its dual
+algebra CX∗ is then called the algebra of function O(X) on X. We will be interested
+in affine thin schemes, that is to a C-algebra we associate its representation functor
+
+                 repA : fd-algC           - sets         B 7→ algC (A, C)
+
+By Kostant duality (see for example [40, Chapter VI]) this thin scheme is repre-
+sented by the dual coalgebra Ao which consists of all linear functionals on A which
+factor through a finite dimensional algebra quotient of A
+
+               Ao = {f ∈ A∗ | Ker(f ) ⊃ I / A : dimC (A/I) < ∞}
+
+and hence its corresponding ring of functions is (Ao )∗ . One can use the A∞ -
+structure on Yoneda-Ext algebras to describe the structure of the dual coalgebra
+Ao for general A, see [24].
+    The motivating example being X a commutative (complex) affine variety, when
+the dual coalgebra C[X]o decomposes over the points of X as distinct maximal
+ideals mx are comaximal
+                                           M
+                            CX = C[X]o =       CX,x
+                                                   x∈X
+
+where CX,x is a subcoalgebra of the enveloping coalgebra U (TX,x ) of the Abelian
+Lie algebra on the Zariski tangent space TX,x = (mx /m2x )∗ . Consequently, the ring
+of functions also decomposes over the points
+                                            Y
+                                (C[X]o )∗ =    Ôm
+                                                 x∈X
+
+
+where Ôm is the mx -adic completion of the local ring Omx . Hence, the dual coal-
+gebra contains a lot of geometric information: the points of X can be recovered
+from it as the simple factors of the coradical corad(C[X]o ) and its dual algebra
+gives us the basics of the étale topology on X.
+    Let us illustrate this in the case of interest, that is when X = A1C with
+coordinate ring C[x]. Every cofinite dimensional ideal of C[x] is of the form
+I = ((x − α1 )e1 . . . (x − αk )ek )) and as the different factors are comaximal, lin-
+ear functionals on C[x]/I split over the distinct factors
+
+                    C[x] ∗       C[x]                          C[x]
+                (       ) =(                )∗ ⊕ . . . ⊕ (                )∗
+                     I       ((x − α1 )e1 )                ((x − αk )ek )
+Each of these factors is the dual coalgebra of a truncated polynomial ring and if
+we take z i to be the basis dual to the y i we have
+                                                  (
+                                                    ∆(z k ) = i+j=k z i ⊗ z j
+                                                               P
+      C[y] ∗                         n−1
+     ( n ) = C1 + Cz + . . . + Cz           with
+      (y )                                          (z i ) = δ0i
+Absolute geometry and the Habiro topology                                           23
+
+
+that is the structure of the truncated enveloping algebra. Hence we have proved
+that               M                                      Y
+          C[x]o =      U (TA1C ,α ) and hence (C[x]o )∗ =    C[[x − α]]
+                   α∈A1C                                       α∈A1C
+
+the natural inclusion C[x] ⊂ - (C[x]o )∗ sending a polynomial to its Taylor-series
+expansion in every point α ∈ A1C .
+   An intermediate step in arriving at F1 -geometry would be to extend this com-
+plex coalgebra approach to integral schemes Spec(R) where R is a finitely generated
+Z-algebra, without additive torsion. In [23] it was shown that in this case we still
+have Kostant duality, which asserts that for all Z-algebras R and all Z-coalgebras
+C there is a natural one-to-one correspondence
+
+                            algZ (R, C ∗ ) ↔ coalgZ (C, Ro )
+
+if we take as the modified dual coalgebra Ro the set of all g ∈ R∗ = HomZ (R, Z)
+such that Ker(g) contains a twosided ideal I / R such that R/I is a finitely gen-
+erated projective Z-module.
+    The crucial difference with the complex case is that now that the relevant ideals
+I no longer need to be comaximal and that there is no longer decomposition of
+the dual coalgebra. In our example when R = Z[x] the relevant ideals are those
+generated by a monic polynomial f which can be decomposed in irreducible monic
+polynomials f = g1e1 . . . gkek . But, as it may happen that (gi , gj ) 6= Z[x] we have
+
+                             Z[x]     Z[x]            Z[x]
+                                  6=         ⊕ ... ⊕
+                             (f )    (g1 )e1         (gk )ek
+
+and we can no longer decompose the dual coalgebra Z[x]o over the codimension
+one points V(gi ). Hence, we must recourse to describe the dual coalgebra as a
+direct limit
+                                           Z[x] ∗
+                             Z[x]o = lim (      )
+                                      →    (f )
+where the limit is considered with respect to divisibility of monic polynomials, as
+there are canonical inclusions of Z-coalgebras
+
+                        Z[x] ∗ ⊂ - Z[x] ∗
+                    (        )    (     )        whenever       f |g
+                        (f )        (g)
+
+But then, also the Z-algebra of distribution must be described as an inverse limit
+and we have a canonical ringmorphism
+
+                                                        Z[x]
+                            Z[x] ⊂ - (Z[x]o )∗ = lim
+                                                    ←   (f )
+
+Finally, to get at F1 -geometry via this coalgebra approach we start with a λ-ring
+R and define the λ-dual coalgebra
+
+             Rλo = {g ∈ R∗ | ∃I ⊂ ker(g) | R/I λ-ring finite over Z }
+24                                                                           Lieven Le Bruyn
+
+
+which is indeed a coalgebra as the tensor product of λ-rings is again a λ-ring, or
+                                                            o
+specialize even further to the cyclotomic dual coalgebra Rcycl  on the sub-coalgebra
+of Rλo spanned by the maps g having in their kernel an ideal I such that R/I ≃
+Z[x]/(φ1 ) × . . . × Z[x]/(φk ) where the φi are products of cyclotomic polynomials
+Φn (x).
+    For example, the (cyclotomic) coalgebra representing P1F1 would then be
+
+                                                     Z[x] ∗
+                          CP1F = Z[tx ] ⊕ lim (          ) ⊕ Z[tx−1 ]
+                               1               →     (φ)
+where the φ run in the multiplicative system generated by the cyclotomic polyno-
+mials Φn (x) with n ∈ N0 , the other two factors which are the enveloping coalgebras
+of the one-dimensional Lie algebra correspond to the points [0] and [∞]. Its corre-
+sponding algebra of distributions is then
+                                                           −1
+                                   Z[[x]] ⊕ Z[x]
+                                            d
+                                                Hab ⊕ Z[[x    ]]
+
+where Z[x]
+       d
+           Hab is the Habiro ring or the cyclotomic completion of Z[x] introduced
+and studied by Kazuo Habiro in [17].
+    The Habiro ring is the straightforward generalization along the geometric axis
+of the profinite integers Ẑ along the arithmetic axis. For we can write it as
+
+                   Z[x, x−1 ]
+     Z[x]
+     d
+         Hab = lim                      with       [n!]x = (xn − 1)(xn−1 − 1) . . . (x − 1)
+                ←    [n!]x
+Its elements have a unique description as formal Laurent polynomials over Z of
+the form
+              ∞
+              X
+                    an (x)[n!]x ∈ Z[[x, x−1 ]]        with      deg(an (x)) < n
+              n=0
+
+and hence can be evaluated at every root of unity (but possibly nowhere else).
+    Some of its elements had been discovered before. For example Maxim Kont-
+sevichPobserved in his investigations on Feynman integrals that the formal power
+        ∞
+series n=0 (−1)n [n!]x is defined in all roots of unity and Don Zagier subsequently
+proved the hilarious identity
+                         ∞                           ∞
+                         X                         1X          (n2 −1)
+                               (−1)n [n!]x = −           nχ(n)x 24
+                         n=0
+                                                   2 n=1
+
+where χ is the quadratic character of conductor 12, whereas the functions on both
+sides never makes sense simultaneously. The right hand side converges only within
+the unit circle, but still if one approaches a root of unity radially, the limit of the
+function values on the right coincide with the value on the left. Such functions are
+said to ’leak through’ roots of unity.
+    The Habiro topology was introduced to describe the properties of the Habiro
+ring Z[x] Hab . For example if U is an infinite set of roots of unity having α ∈ µ ∞
+      d
+Absolute geometry and the Habiro topology                                           25
+
+
+as a limit-point, meaning that U contains infinitely many elements adjacent to α,
+then if f ∈ Z[x]
+            d
+                Hab evaluates to zero in all roots β ∈ U then f = 0. For any subset
+S ⊂ N0 define the completion
+                                               Z[x, x−1 ]
+                            Z[x, x−1 ]S = lim
+                                           ←
+                                          φ∈Φ∗
+                                                  (φ)
+                                               S
+
+
+where Φ∗S is the multiplicative set of all monic polynomials generated by all cy-
+clotomic polynomials Φn (x) for n ∈ S. Among the many precise results proved in
+[17] we mention these two
+   • If S 0 ⊂ S with the property that every component of S with respect to the
+     nearness relation contains an element of S 0 , then the natural map between
+     the completions in an inclusion
+                                                                 0
+                           ρSS 0 : Z[x, x−1 ]S ⊂ - Z[x, x−1 ]S
+
+   • If S is a saturated subset of N0 , which means that for all n ∈ S also its divisor
+     set hni = {m|n} is contained in S, then we have
+                                  \                   \
+                   Z[x, x−1 ]S =      Z[x, x−1 ]hni =     \
+                                                        Z[x, x−1 ](xn −1)
+                                 n∈S                 n∈S
+
+     where the right-hand terms are the I-adic completions of Z[x, x−1 ] with re-
+     spect to the ideals I = (xn − 1).
+
+
+6. Conway’s big picture
+In [9], John H. Conway investigates Q-projectivity classes of lattices commensu-
+rable with the standard 2-dimensional lattice L1 = he 1 , e 2 i = Ze 1 + Ze 2 and he
+shows that any such lattice has a unique form
+                                             g
+                             LM, hg = hMe 1 + e 2 , e 2 i
+                                             h
+with rational numbers M > 0 and 0 ≤ hg < 1. Lattices LM,0 = LM are called
+number-like and if, in addition, M ∈ N0 we just call them numbers .
+   We will now define a metric on the set of (equivalence classes) of lattices. For
+two lattices L = LM, hg and L0 = LN, ji consider the matrix
+
+                                           g         i −1
+                                                    
+                                   M       h
+                                                N    j
+                           DLL0 =             .
+                                    0      1     0   1
+and let α be the smallest positive rational number such that all entries of the
+matrix αDLL0 are integers. The hyper-distance between the lattices L and L0 is
+then defined to be the integer
+
+                            δ(L, L0 ) = det(α.DLL0 ) ∈ Z
+26                                                                      Lieven Le Bruyn
+
+
+One can show that the hyper-distance is symmetric and that log(δ(L.L0 )) is an
+ordinary metric on the projectivity classes of commensurable lattices.
+     Conway’s big picture B is the graph with vertices the (classes of) lattices com-
+mensurable with L1 and there is ad edge between the lattices L and L0 if and only
+if δ(L, L0 ) = p, a prime number. Conway shows that the sub-graph consisting of
+all lattices whose hyper-distance to L1 is a power of p is the infinite p-adic tree Tp ,
+that is a (p + 1)-valent tree, since for example the p-neighbors of L1 are the lattices
+Lp and L 1 , k for 0 ≤ k < p. It must be a tree as the first step of the shortest path
+            p p
+to L1 from Lpj must be to Lpj−1 as the other possibilities Lpj+1 and Lpj k all have
+                                                                             p
+
+hyperdistance pj+1 from L1 . Further he shows that the big picture is the product
+B = ∗p Tp . Here’s part of the 2-tree
+
+                       1 5             1 1      1 1           1 3
+                       8, 8            8, 8     4, 8          4, 8
+
+                              1 1                      1 1
+                              4, 4                     2, 4
+
+        1 3                                                                 1 3
+        8, 8                                                                4, 8
+
+               1 3            1 1
+               4, 4           2, 2                     1 12          1 3
+                                                                     2, 4
+
+        1 7                                                                 1 5
+        8, 8                                                                4, 8
+
+                                        1        2
+        1 1
+        8, 4                                                                1 34
+               1 1              1
+               4, 2             2                       4            2 21
+        1 3
+        8, 4                                                                1 14
+                                1
+                                4                       8
+                       1 1              1
+                       8, 2             8       16            4 12
+
+Sometimes it is helpful to choose another normalization for the lattice L by swap-
+ping the vectors e 1 and e 2 . Let v 1 = Me 1 + hg e 2 and v 2 = e 2 be the standard
+generators of L = LM, hg then L is also generated by the vectors
+
+                                                                      1
+               hvv 1 − gvv 2 = hMee1   and g 0v 1 − h0v 2 = g 0 Mee1 + e2
+                                                                      h
+where g 0 , h0 ∈ Z such that gg 0 − hh0 = 1. Dividing by hM we get the reversed
+normalized form for LM, hg
+
+                                      1    g0
+                               L = h 2 e2 + e1, e1i
+                                    h M    h
+Absolute geometry and the Habiro topology                                         27
+
+
+So we get an involution on the vertices of the big picture
+
+                                  g       1 g0
+                               (M, ) ↔ ( 2 , )
+                                  h     h M h
+where g 0 is the inverse of g modulo h.
+   The vertices of the big picture correspond to couples (M, hg ) so are elements
+of Q0 × Q/Z and we can identify each of the factors Q/Z (additively) with µ ∞
+(multiplicatively). One quickly verifies that the hyperdistance
+
+                                  δ(LM , LM, hg ) = h2
+
+So the cyclic subgroup µ n corresponding to M is contained in a ball B(LM , n2 )
+around the lattice LM with hyper-distance n2 . In particular, the non-identity
+elements of cyclic group µ p for p a prime number have hyper-distance p2 from LM
+and are the p − 1 vertices in the p-tree connected to LpM .
+   The lattices Ln with n ∈ N0 form the big cell in this picture, which is the
+product of graphs of type A+  ∞ , one for each prime number p
+
+
+        A∞ : 1          /p        / p2       / ...       ...      / pk   / ...
+
+and can be identified with N×     1
+                            0 = PF1 − {[0], [∞]}. But then, we can extend the
+Habiro topology to Conway’s big picture by calling two lattices related
+
+                         L ∼ L0          ⇔       δ(L, L0 ) = pa
+
+if their hyper-distance is a pure prime-power. An open set is then a subset U
+of vertices of the big picture having the property that for each L ∈ U the set
+{L0 ∼ L | L0 ∈/ U } is finite. Clearly, the restriction of the Habiro topology on the
+big picture restricts to the usual Habiro topology on the big cell N×  0.
+    ZB, the free Z-module on the vertices of B, is the playground of several opera-
+tions on B. Some well-known classical ones such as the Hecke operators Tn which
+takes the vertex representing the lattice L to the sum of all vertices corresponding
+to lattices L0 with δ(L, L0 ) = n, that is Tp replaces the center of each ball of hy-
+perradius n by its periphery. These Hecke operators clearly satisfy for a > 1 the
+relation
+                               Tp ◦ Tpa = pTpa−1 + Tpa+1
+as the left-hand takes a vertex to the sum of all neighbors of vertices at hyperdis-
+tance pa from it, but in this sum each vertex of hyperdistance pa−1 occurs p times
+and each point of hyperdistance pa+1 just once, giving the right-hand side.
+    More operators come from the action of a certain noncommutative algebra on
+ZB, the Bost-Connes algebra Λ, see for example [6]. If Λ hadn’t been constructed
+years before (in [5]) it would have arisen naturally from F1 -geometry by a con-
+struction well-known in noncommutative algebraic geometry.
+    If X is an affine C-variety with a linear action by a finite group G, then the
+coordinate ring of its quotient variety C[X/G] = C[X]G is Morita equivalent (that
+28                                                                     Lieven Le Bruyn
+
+
+is, have equivalent module categories) to the skew group algebra C[X] ∗ G which
+as a C-vectorspace is the group-algebra C[X]G but with multiplication induced by
+f.eg = eg .φg (f ). That is, one way to get at the descended algebra C[X]G is by
+considering the noncommutative skew group algebra C[X] ∗ G.
+    In Borger’s proposal for F1 -geometry this approach may be very helpful as
+an F1 -algebra is a Z-algebra R together with descent data given by the action
+of the monoid N×                                 n
+                    0 by the endomorphisms {Ψ }. But now we cannot directly
+                                   N×
+construct the invariant algebra R 0 (which would be our elusive F1 -algebra) but
+we can still construct the skew-monoid algebra R ∗ N×    0 which, as before, as Z-
+module is RG = ⊕n∈N× Ren but with noncommutative multiplication induced by
+                        0
+r.en = en .Ψn (r).
+    For example, let us try to understand the algebraic closure F1 by considering
+the associated skew monoid algebra. The λ-algebra corresponding to F1 is the
+group-algebra Z[µ ∞ ] with Frobenius-lifts Ψn induced by sending a root of unity
+ω to ω n . If we write the group-law additively instead of multiplicative we get the
+group-algebra Z[Q/Z] with Ψn (e( hg )) = e( ngh mod 1). The corresponding skew-
+monoid algebra is then
+                              M                         g                 g
+           Z[Q/Z] ∗ N×
+                     0 =            Z[Q/Z]en     with e( ).en = en .Ψn (e( ))
+                                                        h                 h
+                             n∈N×
+                                0
+
+
+Noncommutative algebraic geometers would then study properties of this ring to
+get insight into F1 . Noncommutative differential geometers however work with ∗-
+algebras, so they have to construct the minimal ∗-algebra generated by Z[Q/Z]∗N×
+                                                                               0
+and therefore consider the algebra
+                                          M
+                     Z[Q/Z] ./ N×
+                                0 =                 e∗m Z[Q/Z]en
+                                         m,n∈N×
+                                              0 ,(m,n)=1
+
+
+
+in which the generators e∗m , en and e( hg ) satisfy the following multiplication rules
+
+                               en .e( hg ).e∗n = ρn (e( hg ))
+                             
+                             
+                             
+                               e∗n .e( hg ) = Ψn (e( hg ))e∗n
+                             
+                             
+                             
+                             
+                             
+                                   g               n      g
+                             e( h ).en = en .Ψ (e( h )
+                             
+                             
+                             
+                               en .em = enm
+                               e∗n .e∗m = e∗nm
+                             
+                             
+                             
+                             
+                             
+                               e∗ .en = n
+                             
+                             
+                              n ∗
+                             
+                             
+                             
+                               en .em = e∗m .en if (m, n) = 1
+
+where ρn (e( hg )) = n. i = g e( ji ). This algebra Z[Q/Z] ./ N×
+                    P
+                        j   h
+                                                               0 is then the (integral
+version of the) Bost-Connes algebra Λ constructed in [6] where it is also shown
+that there is an action of Λ and ZB given by the rules
+
+     • en .L dc , hg = L nc  m g
+                         d ,ρ ( h )
+                                    where m = (n, d)
+Absolute geometry and the Habiro topology                                                          29
+
+
+   • e∗n .L dc , hg = (n, c)L c ,Ψ m
+                                   n g
+                                     ( )
+                                         where m = (n, c)
+                                    nd          h
+
+
+   •   e( ab ).L dc , hg = L dc ,Ψc ( ab ) hg
+with ρn and Ψn defined on hg as they were defined before on e( hg ). So far, we
+have identified P1F1 (equipped with the adjacency relation among its schematic
+points) with the big cell in the Conway picture. It is believed that this bigger
+picture will play an ever increasing role of importance in future developments in
+F1 -geometry and will illuminate surprise appearances of the Bost-Connes algebra
+Λ as a generalized symmetry on geometric F1 -objects, see for example [7].
+
+
+7. Exotic topology on Spec(Z)
+Now that we have a formal definition of P1F1 let’s try to make sense of the ultimate
+question in F1 -geometry : what (if any) geometric object is Spec(Z) over F1 ?
+Again, we will start with an intuitive proposal due to A. L. Smirnov [38] and later
+try to formalize it using λ-rings.
+    Smirnov proposes to take as the set of schematic points of Spec(Z) the set
+
+                               {[2], [3], [5], [7], [11], [13], [17], . . .} ∪ {[∞]}
+
+of all prime numbers together with a point at infinity.                           The degrees of these
+schematic points are then taken to be
+
+                             deg([p]) = log(p)             and        deg([∞]) = 1
+
+To understand this proposal, recall that if C is a smooth projective curve over Fp ,
+then a schematic point P ∈ C corresponds to a discrete valuation ring OP in the
+function field Fp (C) with maximal ideal mP = (tP ) where tP is a uniformizing
+parameter. The degree of the schematic point P ∈ C, deg(P ), is defined to be n
+if and only if OP /mP = Fpn . A rational function f ∈ F1 (C) is said to be regular
+in P if and only if f ∈ OP and the order of f in P is the valuation of f , that is,
+ordP (f ) = k if and only if f ∈ mkP − mk+1
+                                        P    for a unique k ∈ Z. The divisor of the
+rational function f ∈ Fp (C)
+                                        X
+                              div(f ) =     ordP (f )P
+                                                         P ∈C
+
+then has degree zero, that is
+                                                           X
+                                0 = deg(div(f )) =                ordP (f )deg(P )
+                                                           P ∈C
+
+By analogy, we may take the schematic points of Spec(Z) to be the different
+discrete valuation rings in the corresponding ’function field’ Q. By Ostrovski’s
+theorem they are either the p-adic valuations
+                                                                     r
+                                vp (q) = n          if     q = pn      and p - r.s
+                                                                     s
+30                                                                                Lieven Le Bruyn
+
+
+for every prime number p together with the real valuation
+
+                                      v∞ (q) = −log(|q|)
+
+the minus sign arrises because of the convention that v∞ (0) = ∞. But then, if
+      e
+     p 1 ...per
+q = ± 1f1 ers its corresponding divisor must be
+      q1 ...qs
+
+                                r
+                                X                  s
+                                                   X
+                     div(q) =         ei [pi ] −         fj [qj ] − log(|q|)[∞]
+                                i=1                j=1
+
+
+The proposal for the degrees of the schematic points of Spec(Z) is then the only
+one possible (up to a common multiple) such that the degrees of all these principal
+divisors are equal to zero. Any non-constant rational function f ∈ Fp (C) deter-
+mines a cover map f : C -      - P1 . Smirnov defines as the constant rational
+                                    Fp
+numbers the intersection Q∩F1 = {0}∪{1, −1} = F12 . Therefore, we would expect
+by analogy a rational numbers q = ab ∈ Q with (a, b) = 1 to determine a cover
+
+                                             - P1F
+                                 q : Spec(Z) -     1
+
+
+Smirnov’s proposal in [38] is to define a map by
+                       
+                       [0] if p|a
+                       
+                 [p] 7→ [∞] if p|b
+                                            −1
+                         [n] if p - ab and ab has order n in F∗p
+                       
+
+and by sending                         (
+                                        [0] if a < b
+                                [∞] 7→
+                                        [∞] if a > b
+
+    To motivate this definition let us again look at the function-field case. Any
+rational function f ∈ Fp (C) defines a map between the geometric points
+                                                    (
+                          - P1F (Fp )                [f (P ) : 1] if f ∈ OP
+                 C(Fp )        p
+                                               P 7→
+                                                     [∞]          if f ∈
+                                                                       / OP
+
+with f (P ) = f ∈ OP /mP = Fp . Because f ∈ Fp (C) we have for all P ∈ C(Fp )
+and all σ ∈ Gal(Fp /Fp ) that σ(f (P )) = f (σ(P )) and hence this map induces a
+map between the schematic points C - P1Fp sending a schematic point (a Galois
+orbit of a geometric point P ) to the Frobenius-orbit of the root of unity f (P ) (or
+its corresponding monic irreducible polynomial in Fp [x]). Returning to the above
+map given by a rational number q = ab it is clear that q([p]) = [0] for all prime
+factors p of a and that q([p]) = [∞] for all factors of b. To understand the other
+                      −1
+images note that if ab has order n in F∗p , there exists a prime ideal P in the ring
+Absolute geometry and the Habiro topology                                           31
+
+
+of cyclotomic integers Z[] (for  a primitive n-th root of unity) lying over (p), that
+is P ∩ Z = (p) with corresponding discrete valuation ring OP such that
+                                 a
+                                   −  ∈ P OP = mP
+                                 b
+
+and therefore ab (P ) = (P ), explaining why the schematic point [p] is send to the
+Galois orbit of  which is precisely the schematic point [n] of P1F1 .
+    In the function-field case we have for every non-constant rational function f ∈
+Fp (C) − Fp that the map C -      - P1 is surjective with finite fibers. Let us first
+                                       Fp
+verify finiteness for the map q = ab , that is, for every [n] we must show that there
+are only finitely many primes p for which
+
+                                   a
+                                  ( )n = 1    in F∗p
+                                   b
+
+This is clearly equivalent to p|an − bn and p - am − bm for all m < n, so q −1 ([n])
+is a subset of the finite number of prime factors of an − bn . Surjectivity of the
+map q is less clear as there seems to be no reason why there should be always a
+prime factor of an − bn not dividing the number am − bm for all m < n. In fact,
+surjectivity is not always true.
+32                                                                      Lieven Le Bruyn
+
+
+For example, the map q = 21 has no prime mapping to [6]. The above picture gives
+a portion of the graph of the map 2 in the Smirnov-plane P1F1 × Spec(Z), where we
+have used a logarithmic scale on the prime-number axis and determined the full
+fibers of all [n] ∈ P1F1 for n < 330. The points on the ’diagonal’ are the first few
+Mersenne prime numbers, that is primes p such that Mp = 2p − 1 is again a prime
+number.
+    Perhaps surprisingly we can determine all rational numbers q for which the
+map Spec(Z)        - P1 fails to be surjective, as well the schematic points [n] of
+                         F1
+P1F1 for which q −1 ([n]) = ∅. The crucial result needed is Zsigmondy’s theorem [45].
+Consider positive integers 1 ≤ b < a with (a, b) = 1. Then, for every n > 1 there
+exist prime numbers p|an − bn such that p - am − bm for all m < n unless we are
+in one of the following two cases:
+
+ (1) a = 2, b = 1 and n = 6, or
+
+ (2) a + b = 2k and n = 2
+
+   Smirnov’s interest in these maps is that the ABC-conjecture would follow pro-
+vided one can prove a suitable analogue of theRiemann-Hurwitz formula for the
+maps q. Recall that if f : C -       - P1 is a non-constant cover from a smooth
+                                         k
+projective curve C over a field k, then the Riemann-Hurwitz formula asserts that
+                                           X
+                 2gC − 2 ≥ −2deg(f ) +         (ef (P ) − 1)deg(P )
+                                            scheme
+
+where gC is the genus of C and ef (P ) is the ramification of a schematic point
+P ∈ C of degree deg)P ). If we define the defect δP of a schematic point P ∈ C to
+                    (e (P )−1)deg(P )
+be the number δP = f deg)f )          ≥ 0, then the Riemann-Hurwitz formula can
+be rewritten as
+                              X               2 − 2gC
+                                    δP ≤ 2 −
+                                              deg(f )
+                               scheme
+
+and we note that this inequality still holds if we sum over a sub-selection of the
+schematic points P ∈ C. Again, we want to define via analogy the ramification
+index eq (p) and the arithmetic defect δ(p) for any prime number p with respect
+to a cover q : Spec(Z) -     - P1 . If q = a , then Smirnov proposes to take for
+                                  F1          b
+eq (p) the largest power of p dividing a (provided p ∈ q −1 ([0])), the largest power
+dividing b (provided p ∈ q −1 ([∞])) and if p ∈ q −1 ([n]) to take as eq (p) = k if pk is
+the largest power dividing an − bn . With this definition of the ramification index,
+het then proposes to define the arithmetic defect
+
+                                        (eq (p) − 1)log(p)
+                               δ(p) =
+                                              log(a)
+
+which coincides with the classical definition (given our proposal for the degree of p)
+provided we define the degree of the map q to be log(a). Let us try to motivate this
+proposal in the case when a >> b. Take [p] ∈ P1F1 for p a prime number, then the
+Absolute geometry and the Habiro topology                                                       33
+
+
+divisor of q −1 ([p]) = i ni qi if i qini = ap − bp , whence i ni log(qi ) ≈ p.log(a),
+                       P          Q                         P
+and as we took deg([p]) = φ(p) = p − 1 it follows that indeed
+                                 P
+                                   i ni deg(qi )
+                                                 ≈ log(a)
+                                   deg([p])
+
+For any schematic point [d] ∈ P1F1 let us define the defect of [d] to be
+                                          X
+                              δ([d]) =           δ(p)
+                                              p∈q −1 ([d])
+
+
+Now, if a = pe11 . . . pekk and b = q1f1 . . . qsfs we define a0 = p1 . . . pk and b0 = q1 . . . qs
+and a1 = a/a0 , b1 = b/b0 . Then, with the above proposals it is easy to work out
+that
+             log(a1 )                   log(b1 ) + log(q) − 1                    log((a − b)1 )
+  δ([0]) =            ,     δ([∞]) =                          ,       δ([1]) =
+              log(a)                            log(a)                              log(a)
+
+as q −1 ([1]) = {p | a−b} and where in the middle term log(q)−1 is the contribution
+of ∞ in the defect. If we would be able to prove a variant of the Riemann-Hurwitz
+formula in F1 -geometry for all covering maps q : Spec(Z) -           - P1 and if we
+                                                                          F1
+assume the constant γ = 2gSpec(Z) − 2 ≥ 0, then it would follow that (limiting to
+points lying in the fibers of [0], [1] and [∞] that δ([0]) + δ([1]) + δ([∞]) =
+       1                                                                        γ
+           (log(a1 ) + log((a − b)1 ) + log(b1 ) + log(a) − log(b) − 1) ≤ 2 +
+    log(a)                                                                    log(a)
+
+Now, let’s turn to the ABC-conjecture . Suppose A+B = C with (A, B, C) = 1 and
+take a = C and b = min(A, B) and consider the cover q = ab : Spec(Z) -    - P1
+                                                                             F1
+                            a
+and clearly we have a − b ≥ 2 . Then, we can rewrite the above inequality as
+
+                                   log(a0 .b0 .(a − b)0   log(C 0 )
+                             1≤                         +
+                                         log(a)            log(a)
+
+where log(C 0 ) = γ + log(2) + 1, but then a ≤ C 0 (a0 .b0 .(a − b)0 ) or in other words
+that
+                               C ≤ C 0 (rad(A.B.C))
+which is a (too strong) formulation of the ABC-conjecture.
+   Now that we have a family of non-constant cover-maps for all q ∈ Q
+
+                                   q : Spec(Z)         - P1F
+                                                               1
+
+
+and have the Habiro topology on P1F1 we can define the exotic topology on Spec(Z)
+to be the coarsest topology with the property that all maps q are continuous with
+respect to the Habiro topology on P1F1 . As the covers are finite and the Habiro
+topology is finer than the cofinite topology we have that the exotic topology refines
+the usual, that is cofinite, topology on Spec(Z). Again, this topology is no longer
+compact.
+34                                                                         Lieven Le Bruyn
+
+
+8. Witt and Burnside rings
+Surprisingly, the forgetful functor from f : ringsλ - rings has a right adjoint
+(a left adjoint is the common situation), that is there is a functor
+
+      w : rings      - rings
+                                 λ    such that algλ (A, w(B)) = alg(f (A), B)
+
+for all λ-rings A and all rings B. We will recall the construction of this ’witty
+functor’ (it is closely related to the functor of Big Witt vectors).
+    For any ring A let w(A) = 1 + tA[[t]] be the set of all formal power series with
+coefficients in A and with constant term equal to 1. We will turn this set into a
+rings with addition ⊕ and multiplication ⊗ to distinguish these operations from
+the usual ones on the formal power series ring A[[t]]. The addition ⊕ on w(A) will
+be the usual multiplication of formal power series, that is
+
+       u(t) ⊕ v(t) = u(t).v(t)       and hence    0 =1       and      u(t) = u(t)−1
+
+Multiplication is enforced by functoriality and the rule that for all a, b ∈ A we
+demand that
+        1      1         1                                    1
+            ⊗       =                   and hence     1 =        = 1 + t + t2 + . . .
+      1 − at 1 − bt   1 − abt                                1−t
+What we mean by this is that for any u(t) ∈ w(A) there exists unique ai ∈ A such
+that
+                                               ∞
+                                              Y      1
+                                      u(t) =
+                                              i=1
+                                                  1 − ai ti
+                                 √
+For each n, denote αn = n an and let Q          ζn be a primitive n-th root of unity, so
+                                                  n
+that for all n we have that 1 − an tn = i=0 (1 − ζni αn ). But then, over the ring
+A[µ ∞ ][α1 , α2 , . . .] we can write u(t) as
+
+                                                  1         1                   1
+u(t) = A1 ⊕ A2 ⊕ A3 ⊕ . . .   with An =                ⊕            ⊕...⊕
+                                               1 − αn t 1 − ζn αn t       1 − ζnn−1 αn t
+
+If we similarly write the power series v(t) = B1 ⊕ B2 ⊕ B3 ⊕ . . ., then the product
+must be
+                                                         M
+           u(t) ⊗ v(t) = C1 ⊕ C2 ⊕ . . . with Ci+1 =             Aj ⊗ B k
+                                                               j+k=i+1
+
+and by construction and symmetric function theory one verifies that the formal
+power series u(t)⊗v(t) has all its coefficients in A. In this way we see that w(A) is a
+commutative ring with zero-element the constant power series 1 and multiplicative
+unit the power series 1 + t + t2 + . . .. In addition, w(A) becomes a λ-ring with the
+Frobenius lifts induced by the rule that
+                                          1          1
+                                 ψp (          )=
+                                        1 − at    1 − an t
+Absolute geometry and the Habiro topology                                                  35
+
+
+and extended additively so that if u(t) = A1 ⊕ A2 ⊕ . . . then ψ p (u(t)) = ψ p (A1 ) ⊕
+ψ p (A2 ) ⊕ . . .. The Frobenius lifts are also multiplicative by functoriality and the
+calculation that
+                    1      1         1              1               1
+           ψp (         ⊗       )=     p p
+                                           = ψp (        ) ⊗ ψp (        )
+                  1 − at 1 − bt    1−a b t        1 − at          1 − bt
+Clearly, the endomorphisms ψ n , n ∈ N commute with each other and ψ p is a
+Frobenius lift as
+                    1                1                1              1
+             (            ⊕ ... ⊕          )⊗p − (      p ⊕ ... ⊕           )
+                 1 − a1 t         1 − ak t         1 − a1 t       1 − apk t
+is divisible by p by the binomial formula. There is an additional family of additive-
+group endomorphisms Vn on w(A), the Verschiebungs-operators which are defined
+by Vn (s(t)) = s(tn ) and finally there is the [n] operator which maps s(t) to s(t)n =
+s(t) ⊕ . . . ⊕ s(t) (n times). These maps satisfy the following relations
+          Vn ◦ Vm = Vm ◦ Vn           Ψm ◦ Ψn = Ψn ◦ Ψm                Ψn ◦ Vn = [n]
+and Ψn ◦ Vm = Vm ◦ Ψn if (m, n) = 1. This witty construction is functo-
+rial because for any ring-morphism φ : A        - B we have a ringmorphism
+Φ : w(A)       - w(B) compatible with the Frobenius lifts, induced by the rule
+that
+                                 1           1
+                            Φ(        )=
+                               1 − at    1 − φ(a)t
+which gives us that Φ(1 + a1 t + a2 t2 + . . .) = 1 + φ(a1 )t + φ(a2 )t2 + . . .. We now
+define maps γn : w(A) - A via the formula
+                                           ∞
+                                    tu0   X
+                                        =     γn (u)tn
+                                     u    n=1
+                                                       0
+where we have used the logarithmic derivative uu which transforms multiplication
+                                          1
+in addition. If we work this out for u = 1−at then u0 = (1−at(
+                                                           a
+                                                              2 and hence
+
+
+                               tu0
+                                   = at + a2 t2 + a3 t3 + . . .
+                                u
+                1
+whence γn ( 1−at  ) = an and is therefore multiplicative in a. Again, using functori-
+ality it is then easy to conclude that all the maps γn : w(A) - A are in fact
+ringmorphisms.
+    If A is in addition a λ-ring with commuting family of endomorphisms Ψn gener-
+ated by the Frobenius lifts, then there is a λ-ring morphism σt making the diagram
+below commute
+                                                           w(A) = 1 + tA[[t]]
+                                                           2
+                                       σt
+                                                                       (γ1 ,γ2 ,γ3 ,...)
+                                                                   
+             A                                         / Aω = (A, A, A, . . .)
+                                Ψ=(Ψ1 ,Ψ2 ,Ψ3 ,...)
+36                                                                         Lieven Le Bruyn
+
+
+where σt is defined via the formula
+                                            Z         ∞
+                                                    1X n
+                            σt (a) = exp(                 Ψ (a)tn )
+                                                    t n=1
+
+Again, it is easy to verify that σt (a+b) = σt (a)⊕σt (b) and slightly more difficult to
+prove that σt (a.b) = σt (a) ⊗ σt (b), whence σt is a ringmorphism and is compatible
+with the Ψn -endomorphisms, so is a λ-ringmorphism.
+   From these facts the right-adjointness of the witty functor with respect to
+the forgetful functor follows. If A is a λ-ring and φ is a ringmorphism f (A) =
+A - B, then we get a λ-ring morphism
+                                   σt                 Φ
+                               A    - w(A)             - w(B)
+
+Conversely, a λ-ring morphism A      - w(B) composed with the ringmorphism
+γ1 : w(B)       - B gives a ringmorphism A      - B and one verifies both con-
+structions are each other inverses.
+    If one accepts Borger’s proposal that F1 -algebras are just λ-rings without
+additive torsion, where we interpret the commuting family of endomorphisms
+{Ψn : n ∈ N0 } as descent data from Z to F1 , then the forgetful functor
+
+                    f = − ⊗F1 Z : algF1 = ringsλ                 - rings
+
+that is, stripping off the descent data, can be interpreted as the base-extension
+functor from F1 to Z. But then, as a right adjoint to base-extension, the witty
+functor w can be interpreted as the Weil descent from Z-rings to F1 -algebras.
+Hence, we finally know what Spec(Z) should be over the elusive field F1 : it must
+be the geometric object associated to the λ-algebra w(Z)!
+   We will now make the connection between the construction of w(A) and the
+more classical notion of the ring of Big Witt vectors W (A). For much more detail
+we refer to the lecture notes of Michiel Hazewinkel [19]. Let us take W (A) = Aω =
+(A, A, A, . . .) and consider the diagram
+
+                          W (A)
+                                                γ
+                                                             / w(A)
+                             O
+                           =                                       u0
+                                                                   u
+                                                                  
+                            Aω                               / tA[[t]]
+                                                =
+
+
+where γ is the map sending (a1 , a2 , a3 , . . .) to i 1−a1 i ti and which can be used to
+                                                    Q
+define a ringstructure on the Big Witt vectors W (A) by transport of structure.
+    Before we describe the geometry, let us give a combinatorial interpretation of
+w(Z) due to Andreas Dress and Christian Siebeneicher [14].
+    Let C = C∞ = hci be the infinite cyclic group, written multiplicatively. A C-
+set X is called almost finite if X has no infinite orbits and if the number of orbits
+of size n is finite for every n ∈ N0 . A motivating example is the set of geometric
+points X(Fp ) of an Fp -variety X on which c acts as the Frobenius morphism.
+Absolute geometry and the Habiro topology                                                37
+
+
+    If X and Y are almost finite C-sets, then so are their disjoint union X t Y and
+their Cartesian product X × Y . These operations define an addition + = t and
+multiplication . = × on the isomorphism classes B̂(C) of all almost-finite C-sets,
+called the Burnside ring . For any almost finite C-set X define
+                          φC n (X) = #{x ∈ X : cn .x = x}
+that is, the number of elements lying in a C-orbit of sizes a divisor of n and
+hence this number is finite. Moreover, the φC n take disjoint unions (resp. prod-
+ucts) to sums (resp. products) of the corresponding numbers and so all maps
+φC n : B̂(C) - Z are ringmorphisms. This gives us a collective ringmorphism
+                          Y
+                    φ̂ =     φC n : B̂(C) - Zω = gh(C)
+                            n
+
+where gh(C) is the ghost ring , that is all maps N         - Z with componentwise
+addition and multiplication. One verifies that φ̂ is injective but not surjective. We
+can extend the diagram of the previous section
+
+                                          N r(Z)
+                                                 itp
+                                               
+                          W (Z)
+                                      τ   / B̂(C)      st
+                                                            / w(Z)
+
+                           Φ                φ̂                   Lz
+                          Q          obv /
+                                                      idn /
+                                                                
+                               nZ           gh(C)            tZ[[t]]
+
+where N r(Z) is called the necklace algebra , that is, the set Zω with compo-
+nentwise addition but multiplication defined as follows: if b = (b1 , b2 , . . .) and
+b0 = (b01 , b02 , . . .) then            X
+                              (b.b0 )n =    (i, j)bi b0j
+                                          lcm(i,j)=n
+
+The interpretation map itp, which  P∞ is a ringmorphism, sends b = (b1 , b2 , . . .) to
+the element of B̂(C) given by         n=1 bn [Cn ] (where Cn is the C-orbit of length
+n) and can thus be written as the difference [X+ ] − [X− ] of two almost-finite C-
+sets, X+ corresponding to the positive bn and X− to minus the negative bn . The
+composition of the interpretation map with φ̂ is the ghost map gh : b 7→ d where
+dn = φC n (X(b)) = φC n (X+ (b)) − φC n (X− (b)) and the sequence of integers d is
+related to that of b via the formula
+                        ∞                       Z X ∞
+                        Y      1     bn
+                           (      n
+                                    )   =  exp(        dn tn−1 dt)
+                       n=1
+                             1 − t                 n=1
+                                  P
+that is, gh(b) = b̂ where b̂n =     i|n ibi . If X is an almost-finite C-set then so is its
+n-th symmetric power
+                                                                       X
+         S n X = {g : X     - N | g has finite support and                   g(x) = n}
+                                                                       x∈X
+38                                                                               Lieven Le Bruyn
+
+
+on which C acts via (c.g)(x) = g(c−1 .x). Dress and Siebeneicher prove in [14] that
+the map induced by
+st : B̂(C)     - w(Z)      [X] 7→ st (X) = 1 + fix(S 1 (X))t + fix(S 2 (X))t2 + . . .
+                                                   P∞
+is an isomorphism of rings and if st (X(b)) = 1 + n=1 an tn = sa (t) then we have
+that
+                           ∞                      ∞
+                          Y       1     bn
+                                                 X
+                             (       n
+                                       )   = 1 +     an tn
+                          n=1
+                               1 −  t            n=1
+This allows us in the case of w(Z) to compute the product combinatorial. If
+st (X(b)) = sa (t) and st (X(d)) = sc (t) then we have in w(Z) that
+                          sa (t) ⊗ sc (t) = st (X(b) × X(d))
+If m ∈ N define the congruence maps
+m(C) = {g : C     - {1, 2, . . . , m} | ∃n ∈ N : z1 .z −1 ∈ C n = hcn i ⇒ g(z1 ) = g(z2 )}
+                                                        2
+
+Observe that m(C) is again an almost finite C-set under the action c.g(z) = g(c−1 .z)
+and one verifies that φC n (m(C) ) = mn . The map m 7→ m(C) from N0 to B̂(C)
+extends to a map Z           - B̂(C) and φ̂(m(C) ) = (m, m2 , m3 , . . .). We will now
+extend this map to a map W (Z) - B̂(C). If X is an almost finite C-set and n ∈
+N then we define its induction with respect to the n-th power map σn : C - C
+given by c 7→ cn , indn (X) as the set of C-orbits in C × X under the action
+c.(c0 , x) = (c0 c−n , c.x). Again, indn (X) becomes an almost finite C-set via the
+action c.O(c0 , x) = O(c.c0 , x) and one verifies that
+          indn (X1 t X2 ) = indn (X1 ) t indn (X2 )         and indn (Ci ) = Cni
+and have that φC m (indn (X)) = n.φC m/n (X) if n|m and is zero otherwise. This
+then gives a ring-isomorphism
+                                                                    ∞
+                                                                    X
+           τ : W (Z)      - B̂(C)        q = (q1 , q2 , . . .) 7→         indn (qn(C) )
+                                                                    n=1
+
+If τ (q) = X(b) then the sequences of integers q and b are related via the formula
+                           ∞                  ∞
+                           Y       1         Y       1
+                                         n
+                                           =     (       n
+                                                           )bn
+                           n=1
+                               1 − q n t     n=1
+                                                   1 − t
+
+    If X is an almost-finite C-set, then resn (X) is the restriction to the subgroup
+hcn i. that is, X = resn (X) but with a new action         defined by c x = cn .x.
+Clearly, resn is compatible with disjoint union and direct product and hence is an
+endomorphism
+                             resn : B̂(C) - B̂(C)
+which are the Adams operations on B̂(C) and this family of commuting endomor-
+phisms of B̂(C) corresponds to the family of commuting endomorphisms Ψn on
+w(Z). Similarly, the Verschiebungs additive maps on w(Z) are given by induction
+from the subgroup hcn i. Induction and restriction satisfy the following properties
+Absolute geometry and the Habiro topology                                                        39
+
+
+   • resn (Cm ) = (n, m)C[n,m]/n , where [n, m] = lcm(n, m)
+   • indn (Cm ) = Cnm
+   • ker(resn ) = {x ∈ B̂(C) | φC m (x) = 0 ∀n|m}
+   • im(indn ) = {x ∈ B̂(C) | φC m (x) = 0 ∀n - m}
+Similarly, one can make Frobenius and Verschiebungs operators explicit on the
+necklace algebra N r(Z). Define the Frobenius ringmorphisms fn : N r(Z) - N r(Z)
+by                                        X            X
+                 fn (b1 , b2 , . . .) = (   (n, i)bi ,   (n, i)bi , . . .)
+                                          [n,i]=n              [n,i]=2n
+
+and the Verschiebungs additive morphisms vn : N r(Z)                              - N r(Z) via
+
+                    vn (b1 , b2 , . . .) = (0, . . . , 0, b1 , 0, . . . , 0, b2 , . . .)
+                                            | {z }             | {z }
+                                                 n−1               n−1
+
+and these Frobenius and Verschiebungs operations fn and vn commute with in-
+duction and restriction maps indn and resn on B̂(C).
+    In retrospect, the appearance of Burnside rings in F1 -geometry is not surprising.
+Remember from the Smirnov-Kapranov paper [20] that GLn (F1 ) ≃ Sn , so for any
+group G an n-dimensional representation of G over F1 would be a group-morphism
+G     - Sn , that is, a permutation representation of G, or equivalently, a finite
+G-set. If G is an infinite discrete group, this says that any finite dimensional
+F1 -representation of G factors as a permutation representation though a finite
+group-quotient and hence determines an element in the Burnside-ring B(Ĝ) of
+the profinite completion of G. In the special case when G = C we can write C
+additively (that is, C = Z) and its C-representations are of course all 1-dimensional
+and parametrized by C∗ . The F1 -representations are then the representations of the
+profinite completion Ẑ+ and its C-points are precisely the roots of unity! Further,
+for completed Burnside rings we have B̂(G) = B̂(Ĝ) so in our case w(Z) = B̂(C) =
+B̂(Z) = B̂(Ẑ).
+    In [13] Andreas Dress and Christian Siebeneicher have extended the Witt con-
+struction to the profinite completion Ĝ of an arbitrary discrete group G (and in
+fact even to arbitrary profinite groups). Let cosg(Ĝ) be the set of conjugacy classes
+of open subgroups of Ĝ (that is, the conjugacy classes of subgroups of G of finite
+index), then one can consider the covariant functor
+
+                    WG : rings               - rings               A 7→ Acosg(Ĝ)
+
+and they show that with respect to this functor we have an isomorphism between
+WG (Z) and the Burnside ring B̂(Ĝ) of almost finite G-sets. Moreover, the rings
+WG (R) all have Frobenius-like and Verschiebungs-like morphisms to (and from)
+WU (R), for any subgroup U of G of finite index. The Frobenius and Verschiebung
+maps
+                        ΨU                           VU
+               WG (R) - WU (R) and WU (R) - WG (R)
+40                                                                     Lieven Le Bruyn
+
+
+are defined by restriction resp. induction. Clearly, in the case when G = Z all cofi-
+nite subgroups are isomorphic to Z giving rise to the Frobenius-lifts endomorphisms
+and corresponding Verschiebungs-operations on w(R).
+    This raises the exciting prospect of extending or modifying Borger’s λ-rings
+approach to F1 -geometry to other categories ringsG of commutative rings with
+suitable morphisms to/from a collection of rings (for any conjugacy class of a
+cofinite subgroup of G) such that the Dress-Siebeneicher-Witt functor WG is a
+right adjoint functor to the forgetful functor ringsG         - rings. We expect
+such an approach to be fruitful when one starts with the braid group B3 or its
+quotient the modular group P SL2 (Z), which may also clarify the role of Conway’s
+big picture, which after all was intended to better understand cofinite subgroups
+of the modular group.
+
+
+9. What is Spec(Z) over F1 ?
+So we can compute explicitly with w(Z) and know that Spec(Z)/F1 is the geometric
+object associated to w(Z), but what is this object and can we make sense of
+Smirnov’s covering maps Spec(Z) -   - P1 ?
+                                         F1
+   We have a candidate for the geometric object, namely the λ-spectrum of w(Z)
+
+      Spec(Z)F1 = Specλ (w(Z)) = {ker(w(Z)          - A) | A reduced λ-ring }
+
+If Spec(Z) would behave as a ’curve’ over F1 , one would expect the λ-spectrum to
+contain many geometric points over F1 . However, we will soon see that
+
+                         maxλ (w(Z)) = ∅ = maxcycl (w(Z))
+
+In fact a similar result holds for any w(R).
+    The fact we will use is that the Verschiebungs-operators survive λ-ring quotients
+A = w(R)/I which have no additive torsion. I thank Jim Borger for communicating
+this to me. Clearly, there are additive maps
+                                         Vn
+                          vn : w(R)       - w(R) -
+                                                 - A
+
+and we have to show that ker(vn ) ⊂ I. Because the Ψp are lifts of the Frobenius,
+there is a unique map d on w(R) such that for all s(t) ∈ w(R) we have the identity
+
+                          (s(t))⊗p + [p]d(s(t)) = Ψp (s(t))
+
+and hence any λ-ideal I must be preserved by d. Assume s(t) ∈ ker(vnp ), that is
+Vnp (s(t)) ∈ I, then from the identities
+
+(Vnp (s(t))⊗p + [p]d(Vnp (s(t))) = Ψp (Vnp (s(t))) = Ψp ◦ Vp (Vn (s(t))) = [p]Vn (s(t))
+
+it follows that the left-hand side is contained in I so must be the right-hand side
+and because A = w(R)/I has no additive torsion it follows that Vn (s(t)) ∈ I,
+so vn (s(t)) ∈ ker(vn ). As we can repeat this process for any prime factor p of
+Absolute geometry and the Habiro topology                                           41
+
+
+m = np it follows that if s(p) ∈ ker(vm ) then s(t) ∈ ker(v1 ) = I. Thus, if A is
+a λ-ring quotient of w(R) without additive torsion, A is equipped not only with
+ring-endomorphisms Ψn but also with additive morphisms vn satisfying all the
+properties the Frobenius and Verschiebungs operators satisfy on w(R), indicating
+that A must itself be close to a witty ring.
+    Now assume that A is étale over F1 and hence of finite rank over Z. Recall
+from [26] that we can also define the ringstructure of w(R) as the inverse limit
+        w(R) = lim wn (R)        with wn (R) = ker((R[t]/(tn+1 )∗     - R∗ )
+                   ←
+
+As A is finite over Z. the ringmorphism w(R) -       - A factors through a wn (R)
+for some n ∈ N. But this means that Vn (w(R)) is contained in the ideal I, in
+particular vn (1) ∈ I but then from the argument given before we conclude that
+1 ∈ I and hence that A = 0. That is, witty rings w(R) do not have torsion-free
+λ-ring quotients, finite over Z.
+    That is, λ-spectra of witty rings do not have geometric points and hence behave
+very unlike F1 -geometric objects of finite dimension. Still, the λ-spectrum has
+many other points, in fact we can identify the usual prime spectrum Spec(R) with
+a subset of witty points in Specλ (w(R))
+     Spec(R) ≃ Specw (w(R)) = {ker(w(R)            - w(Q(R/p)) | p ∈ Spec(R)}
+
+where Q(R/p) denotes the field of fractions of the domain R/p.
+    Let us work out what the witty ring w(F ) of a field F is. If F is alge-
+braically closed, then by construction we have an inclusion of multiplicative groups
+  ∗
+F ⊂ - w(F )∗ determined by a 7→ 1−at       1
+                                             which extends to a ringmorphism on the
+                              ∗   L
+group-algebraQof F , Z[F ]      ⊂  - w(F ) with image the set of all rational formal
+                           ei
+                i (1−αi t)
+                                  P          P
+power series  Q
+                  (1−β t)fj
+                              = L( j fj βj − i ei αi ). In other words, we have a suit-
+               j       j
+                                                                               ∗
+ably dense subring of w(F ) isomorphic to the integral group-algebra Z[F ]. The
+absolute Galois group G = Gal(F /F ) acts on both rings giving an inclusion of
+rings
+                        ∗
+                    Z[F ]G = Div(P1F − {0, ∞}) ⊂ - w(F )
+where Div(P1F − {0, ∞}) is theP  Abelian group of divisors on P1F − {0, ∞}, that is
+all formal finite combinations    ni [fi ] with ni ∈ Z and the fi irreducible monic
+polynomials in F [x, x−1 ] and it gets an induced multiplication (and even λ-ring
+                                                    ∗                               ∗
+structure) from the group-algebra structure Z[F ]. The Frobenius lifts on Z[F ]
+are the linearizations of the multiplicative group endomorphisms sending a 7→ an
+             ∗
+for all a ∈ F .
+    In the special case of Fp we have seen before that we can identify the multi-
+                  ∗
+plicative group Fp with the group of all roots of unity µ (p) of order prime to p and
+hence we get a dense subring
+
+                       Z[µ (p) ]Ẑ+ = Div(P1Fp − {0, ∞}) ⊂ - w(Fp )
+
+and hence a surprise guest re-appearance of the fiber P1Fp of the structural map
+P1Z -- Spec(Z) in the description of the witty point in Spec (w(Z)) determined
+                                                             λ
+42                                                                          Lieven Le Bruyn
+
+
+by the λ-ring morphism w(Z) -     - w(Fp ), somewhat closing the circle of thoughts
+we began by looking at Mumford’s drawings!
+    Still, there’s the eternal problem of finding a natural identification between
+  ∗
+Fp and µ (p) . We will briefly sketch how this can be done ’in principle’ using
+ordinal numbers. In [8] John H. Conway identified the algebraic closure of F2
+                                                     ω
+with the set of all ordinal numbers smaller than ω ω equipped with nim-addition
+and multiplication. Later Joseph DiMuro extended this to identify the algebraic
+                       ω
+closure of Fp with ω ω in [12]. We will recall the characteristic two case and refer
+to [12] for the general case.
+    To distinguish the nim-rules from addition and multiplication of ordinal num-
+bers, we will denote the later ones enclosed in brackets. So, for example [ω 2 ] will
+be the ordinal number, whereas ω 2 will be the square of the ordinal number [ω] in
+nim-arithmetic. These nim-rules can be defined on all ordinals as follows
+
+       α + β = mex(α0 + β, α + β 0 )        and α.β = mex(α0 .β + α.β 0 − α0 .β 0 )
+
+where α0 (resp. β 0 ) ranges over all ordinals less than α (resp. than β) and mex
+stands for ’minimal excludent’ of the given set, that is the smallest ordinal not
+contained in the set. Observe that these definitions allow us compute with ordinals
+inductively. Computing the sum of two ordinals is easy: write each one uniquely
+as sum of ordinal numbers α = [2α0 + 2α1 + . . . + 2αk ] then to compute α + β
+we delete powers appearing in each factor and take the Cantor ordinal sum of the
+remaining sum (for finite ordinals this is the common nim-addition ’adding binary
+expressions without carry’). To compute multiplication of ordinals, introduce the
+following special elements
+                          n−1                                         k   n−1
+              κ2n = [22         ]   and for primes p > 2   κpn = [2ω .p         ]
+
+where k is the number of primes strictly smaller than p. Because [2α0 +. . .+2αk ] =
+                                                           ω
+[2α0 ] + . . . + [2αk ] we can multiply two ordinals < [ω ω ] if we know how to compute
+                α    β                 ω
+products [2 ].[2 ] with α, β < [ω ]. Each such α, β can be expressed uniquely as
+
+                       [ω t .nt + ω t−1 .nt−1 + . . . + ω.n1 + n0 ]
+
+with t and all nk natural numbers.
+                                 P If we write nk is base p where p is the k + 1-
+st prime number, that is nk = [ j pj .m(j, k)] for 0 ≤ m(j, k) < p then we can
+                                   ω                                  Q m(q)
+write any 2-power smaller than [ω ω ] as a decreasing finite product [ q κq ] with
+                                                                        Q m(q)
+0 ≤ m(q) < p and q a power of p. Conway has shown that for these [ q κq ] =
+Q m(q)
+  q κq    which allows us to compute all products except when [m(q) + m0 (q)] ≥ p
+for some q appearing. Thus it remains to specify the ordinals κq )p and here Conway
+proved the rules
+                            Y
+           (κ2n )2 = κ2n +      κ2i (κp )p = αp and (κpn )p = κpn−1
+                                1≤i≤n
+
+for p an odd prime and n ≥ 2. Conway calculated the first few αp , for example
+α3 = 2, α5 = 4, α7 = [2ω ] + 1 etc. and then Hendrik Lenstra [25] gave an explicit
+Absolute geometry and the Habiro topology                                           43
+
+
+algorithm to compute the αp and managed to determine then for all p ≤ 43. Today
+we know all αp for p ≤ 293 with only a few exceptions. In principle this allows us
+to determine the ordinal number corresponding to any realistic occurring element
+                                                                         ω
+in F2 . Similarly, DiMuro proved that Fp can be identified with [ω ω ] and listed
+the values for the αq in those cases for primes q ≤ 43 and p ≤ 11.
+    Using this correspondence we can now construct a one-to-one correspondence
+  ∗
+Fp ↔ µ (p) , which we will illustrate in the case p = 2. Conway showed that
+                n
+the ordinals [22 ] form a subfield isomorphic to F22n and so there is a consistent
+embedding of the quadratic closure of F2 into roots of unity by starting with [2]
+being the smallest ordinal generating the multiplicative group of the subfield [22 ]
+(of order 3) and taking it to be e2πi 3, for the next subfield [216 ] we have to look
+for the smallest ordinal [k] such that [k]5 = 2, which turns out to be [4] which
+then corresponds to e2πi/15 and the correspondence between F24 ↔ µ 15 is depicted
+below (together with the addition and multiplication tables of [16] to verify the
+claims).
+
+
+
+
+and we have indicated the different orbits under the Frobenius x 7→ x2 with dif-
+ferent colors. There are two orbits of size one : {0} corresponding to x and {1}
+corresponding to x+1. One orbit {2, 3} of size two corresponding to the irreducible
+polynomial (x − 2)(x − 3) = x2 + x + 1 and three orbits of size four corresponding
+to the three irreducible monic polynomials in F2 [x] of degree four, for example
+{4, 6, 5, 7} ↔ x4 + x + 1. Iterating this procedure we get an explicit embedding of
+the quadratic closure of F2 into roots of unity (the relevant generators for the next
+stages are 32 then 1051 then 1361923 and 1127700028470). Having obtained an ex-
+plicit identification of the quadratic closure of F2 in the roots of unity we can then
+proceed by associating to [ω] to root e2πi/9 as [ω]3 = [2], mapping [ω ω ] to e2πi/75
+                                                      ∗
+as [ω ω ]5 = [4] and so on until we have identified F2 with µ (2) . This then allows us
+to associate to a schematic point of A1F2 , that is an irreducible monic polynomial
+in F2 [x] the root of unity corresponding to the smallest ordinal in the Frobenius-
+orbit associated to the polynomial. So, for example, to x4 + x3 + x2 + x + 1 one
+44                                                                      Lieven Le Bruyn
+
+
+assigns e12πi/15 as the roots of the polynomial are the ordinals {[8], [10], [13], [14]}.
+Once again, one can repeat these arguments for the algebraic closures Fp using the
+results from [12].
+
+
+10. What is the map from Spec(Z) to P1F1 ?
+In the foregoing sections we have recalled some of the successes of Borger’s ap-
+proach to absolute geometry via λ-rings. For example, the identification of the
+étale site of F1 with the category of finite sets equipped with an action of the
+monoid Ẑ× is one of the most convincing theories around vindicating Smirnov’s
+proposal that one should interpret µ ∞ as the algebraic closure of F1 . Further, with
+this λ-ring approach we obtain roughly the same class of examples provided by all
+other approaches to F1 -geometry, such as affine- and projective spaces, Grass-
+mannians, toric varieties, among others. In addition, we can associate a space of
+geometric points as well as a new topology to such an F1 -geometric object X. For,
+assume that X is locally controlled by a λ-ring R, then locally its geometric points
+correspond to kernels of λ-ring morphisms R -       - S where S is étale over F1 ,
+among which are the cyclotomic coordinates which are the special points obtained
+by taking S = Z[x]/(xn − 1) = Z[µ n ]. But, as S is finite projective over Z, these
+kernels are not maximal ideals of the λ-ring R, but rather sub-maximal ones, en-
+tailing that two such kernels no longer have to be co-maximal. This then leads to
+a adjacency- (or clique-) relation among the corresponding geometric points which
+gives us the Habiro topology on maxλ (R). This new topological feature encodes the
+fact that the closed subschemes of the usual integral affine scheme Spec(R) cor-
+responding to the kernels of the two geometric points intersect over certain prime
+numbers p. As an example, we have seen that the cyclotomic points of P1Z (for the
+toric λ-structure) give us indeed the proposal that
+
+                          P1F1 = {[0], ∞]} ∪ {[n] : n ∈ N0 }
+
+where two cyclotomic points [n] and [m] are adjacent if and only if their quotient
+is a pure prime power, leading to the Habiro topology on the roots of unity µ ∞ .
+Further, the λ-ring structure, that is the commuting family of endomorphisms
+{Ψn : n ∈ N0 } can be viewed as descent data from Spec(Z) to Spec(F1 ), and
+hence conversely we can view the process of forgetting the λ-ring structure as the
+base-extension functor − ×Spec(F1 ) Spec(Z). In particular we can now make sense
+of the identity
+                           P1F1 ×spec(F1 ) Spec(Z) = P1Z
+where the right-hand side is the usual integral scheme P1Z , without emphasis on
+the toric λ-structure.
+   But Borger’s proposal really shines in that it allows us to make sense of what
+the Weil restriction to Spec(F1 ) is of any integral scheme. Indeed, the witty functor
+w : rings - ringsλ is the right adjoint of the forgetful functor (which we have
+seen is base-extension) and hence if the integral scheme X is locally of the form
+Spec(R), then X/F1 is locally the geometric object corresponding to the λ-ring
+Absolute geometry and the Habiro topology                                         45
+
+
+w(R). However, such rings do not have geometric points as before, so we have a
+dichotomy among the geometric F1 -objects which resembles that in noncommuta-
+tive algebraic geometry between algebras having plenty of finite dimensional repre-
+sentations, and algebras that have no such representations. Geometric F1 -objects
+are either the restricted class of combinatorial controlled integral schemes allowing
+a λ-structure, or the class of infinite dimensional objects corresponding to Witt
+schemes of integral schemes. Still, the ordinary integral scheme structure survives
+this witty-fication as Spec(R) can be embedded in the λ-spectrum Specλ (w(R)) via
+the kernels of the λ-ring maps w(R) - w(R/P ) - w(Q(R/P )) for any prime
+ideal P of R. As an example, Spec(Z) is the F1 -geometric object corresponding to
+the Burnside ring w(Z) = B̂(C) which does indeed contain the proposal that
+
+                     Spec(Z)/F1 = {(p) : p a prime number}
+
+where we view the prime number p as corresponding to the λ-ring morphism
+
+                     w(Z)    - w(Fp ) ≈ Div(P1F − {[0], [∞]})
+                                                     p
+
+
+Although these two classes of geometric F1 -objects are quite different, we can still
+make sense of morphisms between them, as they have to be locally given by λ-
+ring morphisms. In particular, let us investigate whether we can make sense of
+Smirnov’s maps
+                                a
+                            q=    : Spec(Z) - P1F1
+                                b
+in Borger’s λ-rings approach to F1 -geometry, that is, this map should locally be
+determined by a λ-ring morphism. With P1F1 we mean the cyclotomic points of
+the integral scheme P1Z equipped with the toric λ-ring structure. Because (a, b) =
+1, we can cover P1Z with the prime spectra of two λ-rings P1Z = Spec(Zb [x]) ∪
+Spec(Za [x−1 ]), and therefore
+
+                    P1F1 = Speccycl (Zb [x]) ∪ Speccycl (Za [x−1 ])
+
+Further, we have seen that Spec(Z)/F1 should be viewed as Specλ (w(Z)) which we
+can cover as Specλ (w(Zb )) ∪ Specλ (w(Za )). Now, consider the λ-ring morphisms
+
+                                                 x 7→ 1−1a t
+                    (
+                     Zb [x] - w(Zb )
+                                                         b
+
+                     Za [x−1 ] - w(Za )          x−1 7→ 1b     1− a t
+
+which coincide on the intersection with the λ-morphism Zab [x, x−1 ] - w(Zab )
+determined by x 7→ 1−1a t . So, in order to investigate the associated geometric map
+                         b
+
+
+                 Spec(Zb ) ≃ Specw (w(Zb ))        - Spec
+                                                            cycl (Zb [x])
+
+we have to look for any prime p not dividing b to the composition Zb [x]    - w(Fp )
+which maps x to 1−1a t and hence for every n ∈ N0
+                     b
+
+
+                                              1
+                                  xn 7→
+                                          1 − ( ab )n t
+46                                                                      Lieven Le Bruyn
+
+
+If a/b has order n in Fp this says that xn maps to 1/(1 − t) = 1 ∈ w(Fp )
+                                  1
+and if p|a then x is mapped to 1−0t   = 1 = 0 ∈ w(Fp ). Further, if p|b we
+get in the composition Za [x−1 ] - w(Fp ) that x−1 is mapped to 1 = 1 =
+                                                                           1−0t
+0 ∈ w(Fp ). So, if we write [p] for the witty-point corresponding to the kernel of
+w(Z) -- w(Fp ) we get indeed that
+                 
+                 [0] if p|a
+                 
+           [p] 7→ [∞] if p|b
+                 
+                   [n] if n is minimal such that an − bn ≡ 1 mod p
+                 
+
+which indeed coincides with Smirnov’s proposal.
+
+Acknowledgements : I thank Jim Borger and Jack Morava for several illumi-
+nating emails. These notes are based on a rather chaotic master course given in
+Antwerp in 2011/12. I thank the students for their patience and inspiring enthusi-
+asm and, in particular, Pieter Belmans for pointing me to Mumford’s P1Z -picture as
+well as for generous help with Sage/TikZ in order to produce some of the pictures.
+
+
+References
+ [1] Michael Artin, Etale cohomology of schemes, in ’Lecture Notes Prepared in Connec-
+     tion With the Summer Institute on Algebraic Geometry held at the Woods Estate,
+     Woods Hole, Massachusetts, July 6 - July 31, 1964’, American Mathematical Society
+     (1964)
+ [2] Michael Artin and Jean-Louis Verdier, Seminar on étale cohomology of number
+     fields’, in Woods Hole Lecture Notes, see [1], American Mathematical Society (1964)
+ [3] James Borger, λ-rings and the field with one element, arXiv:0906.3146 (2009)
+ [4] James Borger and Bart De Smit, Galois theory and integral models of Λ-rings,
+     arXiv:0801.2352 (2008)
+ [5] Jean-Benoit Bost and Alain Connes, Hecke algebras, type III factors and phase tran-
+     sitions with spontaneous symmetry breaking in number theory, Selecta Math. (N.S.)
+     1 (1995) 411-457
+ [6] Alain Connes, Caterina       Consani   and   Matilde   Marcolli,   Fun   with   F1 ,
+     arXiv:0806.2401 (2008)
+ [7] Alain Connes and Caterina Consani, On the arithmetic of the BC-system,
+     arXiv:1103.4672 (2011)
+ [8] John H. Conway, On numbers and games, 2nd edition, A.K. Peters Ltd. (2001)
+ [9] John H. Conway, Understanding groups like Γ0 (N ), in ”Groups, Difference Sets and
+     the Monster” Edited by K.T. Arasu & Co, Walter de Gruyter, Berlin New-York
+     (1996) 327-343
+[10] Curtis and Reiner, Methods of Representation Theory I, (1981)
+[11] Fritz-Erdmann Diederichsen, Ueber die Ausreduktion ganzzahliger Gruppendarstel-
+     lungen bei arithmetischen Äquivalenz, Hamburg Abh. 14 (1940) 357-412
+Absolute geometry and the Habiro topology                                               47
+
+
+[12] Joseph DiMuro, On Onp , arXiv:1108.0962 (2011)
+[13] Andreas Dress and Christian Siebeneicher, The Burnside ring of profinite groups and
+     the Witt construction, Adv. Math. 70 (1988) 87-132
+[14] Andreas Dress and Christian Siebeneicher, The Burnside ring of the infinite cyclic
+     group and its relation to the necklace algebra, λ-rings and the universal ring of Witt
+     vectors, Adv. in Math. 78 (1989) 1-41
+[15] David Eisenbud and Joe Harris, The Geometry of Schemes, Springer Graduate Texts
+     in Mathematics 197 (2000)
+[16] Alexander Grothendieck, La théorie des classes de Chern, Bull. Soc. Math. France
+     86 (1958) 137-154
+[17] Kazuo Habiro, Cyclotomic completions of polynomial rings, arXiv:0209.324 (2002)
+[18] Kazuo Habiro, A unified Witten-Reshitikhin-Turaev invariant for integral homology
+     spheres, Invent. Math. 171 (2008) 1-81
+[19] Michiel Hazewinkel, Witt vectors, Part I arXiv:0804.3888 (2008)
+[20] Mikhail Kapranov and Alexander L. Smirnov, Cohomology determinants and reci-
+     procity laws: Number field case, unpublished preprint (1996)
+[21] Donald Knutson, λ-rings and the representation theory of the symmetric group,
+     Springer Lect. Notes in Math. 308 (1973)
+[22] Maxim Kontsevich and Yan Soibelman, Notes on A∞ -algebras, A∞ -categories and
+     non-commutative geometry I, math.RA/0606241 (2006)
+[23] Lieven Le Bruyn, Universal bialgebras associated with orders, Comm. Alg. 10 (1982)
+     457-478
+[24] Lieven Le Bruyn, Noncommutative geometry and dual coalgebras, arXiv:0805.2377
+     (2008)
+[25] Hendrik Lenstra, On the algebraic closure of two, Proc. Kon. Ned. Akad. Wet. Series
+     A 80 (1977) 389-396
+[26] Hendrik Lenstra, Construction of the ring of Witt vectors, UC Berkeley (2002) Notes
+     by John Voigt
+[27] Hendrik Lenstra, Profinite Fibonacci numbers, NAW 5/6 (2005) 297-300
+[28] Javier Lopez Pena and Oliver Lorscheid, Mapping F1 -land: An overview of geome-
+     tries over the field with one element, arXiv:0909.0069
+[29] Yuri I. Manin, Lectures on zeta functions and motives (according to Deninger
+     and Kurokawa), Columbia University Number Theory Seminar (New-York 1992),
+     Astérisque No. 228 (1995), 4, 121-163
+[30] Yuri I. Manin, Cyclotomy and analytic geometry over F1 , arXiv:0809.1564 (2008)
+[31] Barry Mazur, Remarks on the Alexander polynomial, unpublished preprint, available
+     from the author’s website (1965)
+[32] Masanori Miyashita, Knots and Primes, An Introduction to Arithmetic Topology
+     Springer Universitext (2009)
+[33] David Mumford, Lectures on curves on an algebraic surface, Princeton University
+     Press (1966)
+[34] David Mumford, Introduction to algebraic geometry, preliminary version of first 3
+     chapters, mimeographed notes (1967)
+48                                                                     Lieven Le Bruyn
+
+
+[35] David Mumford, The Red Book of Varieties and Schemes, Springer Lect. Notes in
+     Mathematics 1358 (1999)
+[36] Miles Reid, Undergraduate Commutative Algebra, London Math. Society Student
+     Texts 29 (1995)
+[37] Jean-Pierre Serre, Linear representations of finite groups, Springer Graduate Texts
+     in Math. 42 (1977)
+[38] Alexander L. Smirnov, Hurwitz inequalities for number fields, Algebra i Analiz, vol
+     4, issue 2 (1992) (translated in St. Petersburg Math. J., 4 no. 2 (1993), 357-375
+[39] Alexander L. Smirnov, Letters to Yuri I. Manin, dated September 29th 2003 and
+     November 29th 2003
+[40] Moss E. Sweedler, Hopf algebras, W.A. Benjamin Inc. New-York (1969)
+[41] John Tate, Etale cohomology over number fields, in Woods Hole Lecture Notes, see
+     [1], American Mathematical Society (1964)
+[42] Jean-Louis Verdier, A duality theorem in the etale cohomology of schemes, in Woods
+     Hole Lecture Notes, see [1], American Mathematical Society (1964)
+[43] Andre Weil, Lettre a E. Artin, July 10th 1942, Oeuvres Vol 1 (1942)
+[44] Clarence Wilkerson, Lambda-rings, binomial domains and vector bundles over
+     CP (∞), Comm. Algebra 10(3) (1982) 311-328
+[45] K. Zsigmondy, Zur Theorie der Potenzreste, Journal Monatshefte für Mathematik 3
+     (1892) 265-284
+Index
+λ-rings, 17                       noncommutative thin scheme, 21
+λ-spectrum, 21                    number lattice, 25
+                                  number-like lattice, 25
+ABC-conjecture, 33
+absolute Galois monoid, 20        profinite integers, 13
+absolute point, 1
+absolute projective line, 1       ramification index, 32
+Adams operations, 38              Riemann-Hurwitz formula, 32
+arithmetic defect, 32
+                                  saturated subset, 25
+big picture, 26
+Big Witt vectors, 36              Verschiebung, 35
+Bost-Connes algebra, 27
+                                  witty functor, 34
+Burnside ring, 37
+                                  Zsigmondy’s theorem, 32
+completed prime spectrum, 2
+congruence maps, 38
+cyclotomic completion, 24
+cyclotomic coordinates, 21, 44
+cyclotomic dual coalgebra, 24
+cyclotomic points, 21
+cyclotomic polynomial, 9
+
+defect, 32
+dual coalgebra, 22
+
+exotic topology, 33
+
+geometric point, 44
+ghost map, 37
+ghost ring, 37
+
+Habiro ring, 24
+Habiro topology, 14, 16, 44
+Hecke operators, 27
+hyper-distance, 25
+
+induction, 38
+
+logarithmic derivative, 35
+
+maximal λ-spectrum, 21
+
+necklace algebra, 37
+
+
+                                 49
+50                                                 Lieven Le Bruyn
+
+
+Lieven Le Bruyn
+Department of Mathematics, University of Antwerp
+Middelheimlaan 1, B-2012 Antwerp, Belgium
+E-mail: lieven.lebruyn@ua.ac.be
+
