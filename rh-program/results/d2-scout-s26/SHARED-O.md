@@ -13,3 +13,18 @@ P1 Borger: instrument (square = W*(Spec Z), 1-dimensional; computed from Borger 
 
 ## 2026-09-25 19:07:30 IST — §3 P3–P6 LANDED
 P3 THH/derived square: instrument ((A)-side only, finite fields; Z⊗_S Z appears only as a coefficient ring, Scholze analytic lectures p.94). P4 Haran: dead-end (surface exists, no pairing; totally commutative quotient = diagonal, Memoirs Thm 2.9.1). Brief pointer corrected: math/0512210 is Nuida (Coxeter groups); Compositio 2007 opened at the publisher (open access). P5 Deitmar/Lorscheid: dead-end (monoid square = point; Lorscheid 2014 surface is a 2-dim topological space with nothing on it). P6 ζ⊗ζ: dead-end as doubled object (instantiates on DH by construction; IV.1/III.20 diagonal shadow).
+
+## 2026-09-25 19:09:25 IST — §3 P7–P9 LANDED (pool closed)
+P7 engines: instrument (no surviving object has a relative-dimension>=1 variety over a product-formula base for the engine to act on). P8: inside K4 (local Spd Qp x Spd Qp; global square 'hypothetical', Scholze ICM p.14). P9 added: a CCM07 adele-class-space square (inside K1: principal divisors missing p.4; only inequality = RH, Prop 7.2); b Haran 1991 (pairing defined as W: diagonal shadow); c Durov (Z⊗_F1 Z = Z by theorem); d Lorscheid 2014 (as P5); e Takagi (Z^⊗n not defined, p.4); f Banaszak–Uetake (existence ⟺ RH); g toric Λ-surface (closed on record, m0 §3.2); h Kucharczyk–Scholze X(L) (not doubled); i Arakelov surfaces over Spec O_K (engine host; Spec Z is base, not fiber).
+
+## 2026-09-25 19:13:03 IST — §4 LANDED
+Return NONE, dated record sentence written with one internal clause per candidate. Scout finding flagged for harvest (single-check): in W*(Spec Z), deg(Γ_1 ∩ Γ_n) = Λ(n) for all n ≥ 2 (from Borger 0801.1691 p.10 congruences); log p clause satisfiable outside K1, dimension fails. first_interface = Borger's own named next step (0906.3146 p.5): Weil's proof for S/F_q in the Λ_S-formalism (rung 1).
+
+## 2026-09-25 19:13:57 IST — §5, §6 LANDED
+Zoo gate run in full for P1 (fails III.20 at item 2; passes IV.10 Hom + log p halves; I.7 both clauses pass), briefly for K1/P9a. access_failures: none (Kurokawa 1992 recovered via Firecrawl, 1 request). Three recalled_unverified items, none load-bearing.
+
+## 2026-09-25 19:15:34 IST — §7, §8, §9 LANDED
+§7: 17 verdict sentences quoted and labeled — all INTERNAL; return sentence labeled RECORD FACT (return form); three absence sentences met in sources listed as split off. §8: (i) fired; (ii) fired for P4, P5, P9g (+ III.21 for P6, P7); (iii) fired for P3, P4, P5, P9e, P6, P9b, P9f, P9g; (iv), (v) not fired. Proposed IV.10 rider (single-check): check host dimension, since a 1-dim F1-square passes the log p clause.
+
+## 2026-09-25 19:17:30 IST — APPENDIX LANDED
+[Q1]–[Q37] (with sub-letters) written from the extraction files; Q36 trimmed by one word to keep the 10(g) lint clean ('[...]' marked). Correction to the 19:00 P1/P2 block: the complex-lift loss of item 4 is 1805.10501 p. 22 (not p. 23) — fixed in scout-O.md.
