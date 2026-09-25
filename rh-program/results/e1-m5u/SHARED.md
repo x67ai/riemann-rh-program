@@ -1,0 +1,16 @@
+# SHARED — E1 (M5-U formulation slot, E7 folded in), writer Fable 5.1, Session 28
+
+## Block 1 — §0–§1 landed (Sat Sep 26 01:51:26 IST 2026)
+- Brief hash verified 52dc5420…dcc4e. Directory scaffolded (verify/, sources/). Lapidus 1505.01548 fetched to sources/ (SHA-256 85e2e128…). LMFDB pages for the rung-3 pair being fetched (sources/).
+- §0: conventions unchanged from D1(b) §0.1; new object: the strip test family g_ψ = (ψ⋆ψ̃)/cosh(u/2) (0.1), which makes H1 hold on the strip.
+- §1: sources at the page. Findings that change the record: (a) Yoshida 1992 p. 322 PRINTS "ζ_k's zero set is a uniqueness set for entire functions of exponential type" (D1(b) P3's recalled sentence, now at the page); Yoshida Prop. 7 pp. 322–324 is a printed unique-continuation theorem for the datum side (nearest neighbor of F1(b)). (b) Suzuki JLMS 2023 p. 11 prints −g″ = Ψ″ = W (the Weil distribution is the accelerant of the screw function g = −Ψ); Krein–Langer 2014 Theorem 5.1 (p. 34) is the extension theorem for screw functions with a positive (1+λ²)^{-1}-tempered measure — together they close D1(b) §4.2's gap (H5, §5). (c) Krein–Langer's uniqueness criterion is printed in three forms (p. 29 operator; pp. 29–30 completeness, necessary not sufficient; p. 40 Theorem 6.1 via a_f = ∫det H_f; p. 41 Krein's log-integral sufficient condition for indeterminacy). (d) Bombieri's Theorem 10 is at p. 221 and the trichotomy is the Corollary at p. 224 (the brief's "p. 228" is wrong); the Example p. 224 and Bourgain's remark p. 225 read as the brief expected (ℓ²-complex coefficients; nothing on integer weights). (e) Kaczorowski–Perelli 1999 p. 210 read for I.7. (f) Poltoratski is NOT on disk under c2-m5b (used from the record, dual-model).
+- Computations so far (verify/): rung1_ghost_pair.py (1.2 s) — an exact genus-2 ghost pair over F_7 at m = 1 (answers Untried line 2's rung-1 item); rung3_cubic_pair.py — the cyclic cubic pair of conductor 229·367, p₀ = 19; h1_strip_test_check.py running (numerical sanity check of (0.1)).
+- Next: §2 the contract theorem.
+
+## Block 2 — §2 landed (Sat Sep 26 01:56:23 IST 2026)
+- Clause 1 (H1) PROVED on the STRIP via g_ψ = (ψ⋆ψ̃)/cosh(u/2): the orbit sum is (2π)⁻¹(|ψ̂|² ∗ P_y)(x) with P_y(x) = 2π cosh(πx)cos(πy)/|cosh(π(x−iy))|² > 0 for |y| < ½ (checked to 10 digits); the plain family goes negative off the line (−6·10⁻⁴ at x = 6.5, y = ½) — Weil's mechanism, evaded.
+- Clause 2: both parts of a ghost nonzero, infinite, and BALANCED at every scale ≥ 1/L (inequality (2.3)); μ₋ finite ⟹ μ = 0 (via F1(b)); sparse ⟺ sparse. Answers H2's "can μ₋ be sparse".
+- Clause 3 (THEOREM, under RH): the real-weighted relaxation ℛ_L(Λ) contains ν_ζ + t·m (m finite real even on ζ's zeros with a gap [−L, L], from G_X = ∞) for every L — Krein INDETERMINATE at every bandwidth; a_g = +∞ for Suzuki's screw function. H4(a) decided NO; "integrality is the whole content".
+- Clause 4: the soft-windowed datum at height T is a continuous PD function (Krein–Langer Thm 4.4 applies exactly) and is indeterminate at every (T, L) outside countably many T; integrality is invisible to it linearly. H4(c)'s first obstacle named.
+- Clauses 5–7 and the dependency chain (no cycles); H2 restated with (i)–(iv) decided.
+- Next: §3 ladder (rung-1 exact pair, rung-3 cyclic cubic pair + LMFDB confirmation, ζ has no partner).
