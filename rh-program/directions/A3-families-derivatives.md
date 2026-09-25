@@ -2,7 +2,7 @@
 
 **Status:** SURVIVES-WITH-REPAIRS (Phase 4, both lenses agree)
 **Track:** A (advance machinery)
-**Last touched:** 2026-08-11
+**Last touched:** 2026-09-25 (Session 27; the 2026-08-11 date stood unedited until the s27 digest flagged it — Instruments/Untried populated 2026-09-24; the work log is the record)
 **Designer confidence (first theorem provable ~2y):** 0.8
 
 ## Proposal (Phase 3, immutable)
