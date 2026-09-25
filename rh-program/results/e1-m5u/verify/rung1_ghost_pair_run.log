@@ -1,0 +1,23 @@
+rung-1 rehearsal: genus-2 curves y^2 = f(x), f monic squarefree quintic over F_7; grouped by N_1 (datum s_1) and by P(t)
+N_1 =  1 (s_1 = +7): 2 distinct P(t) among 42 curves
+N_1 =  2 (s_1 = +6): 3 distinct P(t) among 105 curves
+N_1 =  3 (s_1 = +5): 7 distinct P(t) among 378 curves
+N_1 =  4 (s_1 = +4): 6 distinct P(t) among 567 curves
+N_1 =  5 (s_1 = +3): 14 distinct P(t) among 1344 curves
+N_1 =  6 (s_1 = +2): 9 distinct P(t) among 1407 curves
+N_1 =  7 (s_1 = +1): 22 distinct P(t) among 2268 curves
+N_1 =  8 (s_1 = +0): 12 distinct P(t) among 2184 curves
+N_1 =  9 (s_1 = -1): 22 distinct P(t) among 2268 curves
+N_1 = 10 (s_1 = -2): 9 distinct P(t) among 1407 curves
+N_1 = 11 (s_1 = -3): 14 distinct P(t) among 1344 curves
+N_1 = 12 (s_1 = -4): 6 distinct P(t) among 567 curves
+N_1 = 13 (s_1 = -5): 7 distinct P(t) among 378 curves
+N_1 = 14 (s_1 = -6): 3 distinct P(t) among 105 curves
+N_1 = 15 (s_1 = -7): 2 distinct P(t) among 42 curves
+
+EXACT GHOST PAIR at m = 1 (bandwidth one count), N_1 = 1, s_1 = +7:
+  y^2 = x^5 + 0x^4 + 3x^3 + 6x^2 + 0x + 3  :  N_1 = 1, N_2 = 49,  P(t) = 1 + (-7)t + (24)t^2 + (-49)t^3 + (49)t^4
+  y^2 = x^5 + 0x^4 + 1x^3 + 5x^2 + 5x + 5  :  N_1 = 1, N_2 = 51,  P(t) = 1 + (-7)t + (25)t^2 + (-49)t^3 + (49)t^4
+Both configurations have 4 points on |alpha| = sqrt(7) (RH, Weil), integer marks, the same s_1 (the datum at m = 1),
+different s_2: the difference mu = nu_1 - nu_2 is a nonzero symmetric integer-atomic measure with s_1(mu) = 0 (the gap at n = 1) and s_2(mu) != 0.
+elapsed 1.17 s

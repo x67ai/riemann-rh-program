@@ -1,0 +1,28 @@
+search q_1 < q_2 <= 400, q_i = 1 mod 3 (37 primes, 666 pairs); top pairs by p_0 (first prime non-cube mod both):
+  q_1 =  229, q_2 =  367, f =   84043, |d_K| = f^2 =   7063225849, p_0 = 19
+  q_1 =  307, q_2 =  337, f =  103459, |d_K| = f^2 =  10703764681, p_0 = 13
+  q_1 =   43, q_2 =  367, f =   15781, |d_K| = f^2 =    249039961, p_0 = 13
+  q_1 =  367, q_2 =  397, f =  145699, |d_K| = f^2 =  21228198601, p_0 = 11
+  q_1 =  307, q_2 =  367, f =  112669, |d_K| = f^2 =  12694303561, p_0 = 11
+  q_1 =  307, q_2 =  313, f =   96091, |d_K| = f^2 =   9233480281, p_0 = 11
+  q_1 =  283, q_2 =  367, f =  103861, |d_K| = f^2 =  10787107321, p_0 = 11
+  q_1 =  277, q_2 =  367, f =  101659, |d_K| = f^2 =  10334552281, p_0 = 11
+
+CHOSEN PAIR: conductor f = 229*367 = 84043; K_1 <-> chi_1 = chi_229 chi_367, K_2 <-> chi_2 = chi_229 chi_367^-1; p_0 = 19
+datum Lambda_{K_i}(n) / log p for prime powers n = p^k < p_0 (both fields), then at n = p_0:
+  n =    2 = 2^1: Lambda_K1 = 0 log 2, Lambda_K2 = 0 log 2   [inert-inert]
+  n =    3 = 3^1: Lambda_K1 = 0 log 3, Lambda_K2 = 0 log 3   [inert-inert]
+  n =    4 = 2^2: Lambda_K1 = 0 log 2, Lambda_K2 = 0 log 2   [inert-inert]
+  n =    5 = 5^1: Lambda_K1 = 0 log 5, Lambda_K2 = 0 log 5   [inert-inert]
+  n =    7 = 7^1: Lambda_K1 = 0 log 7, Lambda_K2 = 0 log 7   [inert-inert]
+  n =    8 = 2^3: Lambda_K1 = 3 log 2, Lambda_K2 = 3 log 2   [split-split]
+  n =    9 = 3^2: Lambda_K1 = 0 log 3, Lambda_K2 = 0 log 3   [inert-inert]
+  n =   11 = 11^1: Lambda_K1 = 0 log 11, Lambda_K2 = 0 log 11   [inert-inert]
+  n =   13 = 13^1: Lambda_K1 = 0 log 13, Lambda_K2 = 0 log 13   [inert-inert]
+  n =   16 = 2^4: Lambda_K1 = 0 log 2, Lambda_K2 = 0 log 2   [inert-inert]
+  n =   17 = 17^1: Lambda_K1 = 0 log 17, Lambda_K2 = 0 log 17   [inert-inert]
+agreement for all prime powers n < p_0 = 19: True
+  n =   19 = 19^1: Lambda_K1 = 0 log 19, Lambda_K2 = 3 log 19   [DIFFER: the ghost pair's first mismatch]
+hence nu_K1, nu_K2 both lie in K_L(Lambda_K) for every L <= log p_0 = 2.9444, with the same A_K (degree 3, r1 = 3, |d| = 7063225849).
+count strata at L = log p_0: alpha >= 1 for T <= 0.0087; alpha >= 1/2 for T <= 0.0233; free by count (alpha < 1/2) for T > 0.0233.
+elapsed 0.00 s
