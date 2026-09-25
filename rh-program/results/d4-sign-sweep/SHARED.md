@@ -338,3 +338,4 @@
 | Fri Sep 25 11:10:14 IST 2026 | Job 1 | alive — running Control-1 replay of (15202440115920748544, 28.35) tier 2 covered-range control: the double 1275.4 above the 1e20-th zero (8 592 |
 | Fri Sep 25 11:27:35 IST 2026 | Job 1 running Job 2's twsumO (d57080a8eeee7da8) | 15202440115920748544 | 28.35 | terms 75148949134 (same) | P_O = -6.593474888001556e-03 | ARCH_O = 3.087966538505876e-02 | — | **W_O = +3.747314027306031e-02** | \|ΔP\| = 7.2e-15, \|ΔW\| = 7.2e-15 | tol 2.39e-09 (line 2.29e-09) | — | — | — | sum 1240 s, 8 thr | **Control 1 PASS** | 9185066ed2d68fc0 |
 | Fri Sep 25 11:40:15 IST 2026 | Job 1 | alive — running (61609351296641974272, 28.35) tier 2 the ceiling: ladder k = 117, the largest planned height whose phase li |
+| Fri Sep 25 12:10:15 IST 2026 | Job 1 | alive — running (61609351296641974272, 28.35) tier 2 the ceiling: ladder k = 117, the largest planned height whose phase li |
