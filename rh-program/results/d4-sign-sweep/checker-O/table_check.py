@@ -45,7 +45,7 @@ def agrees(s, v, slack=0.5000001):
     m = re.fullmatch(r'([+-]?)(\d+)(?:\.(\d+))?(?:e([+-]?\d+))?', s)
     if not m: return None
     x = float(s); nd = len(m.group(3) or ''); ex = int(m.group(4) or 0)
-    return abs(x - v) <= slack * 10.0 ** (ex - nd) + 1e-300
+    return abs(x - v) <= slack * 10.0 ** (ex - nd) + 2 * math.ulp(v) + 1e-300   # half a unit of the last printed digit, plus 2 ulp of the double
 def lsign(t): return 22.4 * (math.log(t) / math.log(1e6)) ** (1 / 3)
 issues = []; seen = set(); wmax = (0, None)
 for line in rows:
