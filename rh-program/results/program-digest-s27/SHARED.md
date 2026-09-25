@@ -1,0 +1,3 @@
+
+## [Fri Sep 25 22:39:53 IST 2026] §0 landed (digest agent, Fable 5.1)
+§0 appended to `results/program-digest-s27.md`: goal; the amendment, criterion and standing-order-6 fallback quoted from STATUS.md lines 33 and 35; the s25 definitions verbatim; the four closures at their files (D4 note §12 line 291; D3 note §0 line 9; D2 HARVEST line 3; FORMULATION §7.2 line 322 + read-O lines 24, 87); the DIRECTION STATUS BOARD checked against every direction file (all labels correct; B2 frontier and B2/D1 headers stale; A4 zoo anchors stale; D1 D4-row pointers stale — all to §A(vii)); 10(d) by the letter: no trigger in Sessions 25–27. Lines so far: 45.
