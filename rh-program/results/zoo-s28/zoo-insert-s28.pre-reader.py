@@ -121,7 +121,7 @@ if sorted(c2_map) != ["i3", "ii1", "iv7"]:
 
 OLD_TAIL = ("Executable test: any brief proposing a finite or windowed configuration program with explicit-formula EQUALITY rows is returned by (a)–(b) before design cost; "
             "inequality (cone) rows on finite configurations are not excluded by this rider (they are IV.18's and PRICING §1.2's business). Logged numbers")
-SCOPE_RE = re.compile(r"Scope: first-order EQUALITY rows with a free positive prime datum \(rider B reaches further on PERIODIC hosts: its two-tooth rows \(1\.4\) are strip-positive cone rows, that is, inequalities\) — .*? inequality \(cone\) rows on finite configurations are not excluded by this rider — they are IV\.18's and PRICING §1\.2's business\. ")
+SCOPE_RE = re.compile(r"Scope, as rider B's: first-order EQUALITY rows with a free positive prime datum — .*? inequality \(cone\) rows on finite configurations are not excluded by this rider — they are IV\.18's and PRICING §1\.2's business\. ")
 NEW_TEST = "Executable test: any brief proposing a finite or windowed configuration program with explicit-formula EQUALITY rows is returned by (a)–(b) before design cost. Logged numbers"
 
 for k in ("i3", "ii1", "iv7"):
@@ -172,7 +172,7 @@ if "`[novelty: dual-model check 2026-09-25]`" not in split_head(blocks["iv7"])[0
     sys.exit("iv7 head lacks the read-O §12 label")
 if "[novelty: single-check]" in blocks["iv7"] or "until the reader" in blocks["iv7"]:
     sys.exit("iv7 still carries the single-check / until-the-reader clause")
-if "`[printed: Lagarias–Rodgers 2020, Theorem 2.4 p. 3, §3 p. 4, Theorem 4.7 p. 9]`" not in split_head(blocks["i3"])[0]:
+if "`[printed: Lagarias–Rodgers 2020 = `fetched/w-09`, Theorem 2.4 p. 3, §3 p. 4, Theorem 4.7 p. 9]`" not in split_head(blocks["i3"])[0]:
     sys.exit("i3 head lacks the read-O §12 row-6 label")
 if "[novelty: single-check]" in blocks["ii1"] or "[novelty: single-check]" in blocks["i3"]:
     sys.exit("a single-check label survives in ii1 / i3")
