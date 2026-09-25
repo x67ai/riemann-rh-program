@@ -1,0 +1,466 @@
+[Fri Sep 25 16:23:59 IST 2026] pre-launch ps (>50% CPU): ['95.4 /usr/libexec/duetexpertd']
+[Fri Sep 25 16:23:59 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:23:59 IST 2026] LAUNCH twsumO -mode zeta -t 3000175332800 -L 22 -threads 8 -out checker-O/out/replayOB_t3000175332800_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.04197922740436973,
+ "ARCH_H2000_panel1": 0.04197922740436959,
+ "L": 22,
+ "P": 0.005869956526304837,
+ "P_hi": 0.005869956526304837,
+ "P_lo": 7.84983887700589e-20,
+ "W": 0.0361092708780649,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.097377,
+ "date": "Fri Sep 25 16:23:59 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.118711583,
+ "sum_s": 2.546265917,
+ "t_bits": "0x4285d443146e0000",
+ "t_exact": "3000175332800",
+ "threads": 8,
+ "wall_s": 4.762393541
+}
+[Fri Sep 25 16:24:04 IST 2026] twsumO rc=0, wall 4.8 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:04 IST 2026] 3000175332800 L=22: W_OB +3.61092708780648974e-02; dW vs Job1 1.80e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:04 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:04 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:04 IST 2026] LAUNCH twsumO -mode zeta -t 9487387431502 -L 22 -threads 8 -out checker-O/out/replayOB_t9487387431502_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.04377644235666663,
+ "ARCH_H2000_panel1": 0.043776442356666515,
+ "L": 22,
+ "P": -0.0008125499960498831,
+ "P_hi": -0.0008125499960498831,
+ "P_lo": -3.258551074172255e-20,
+ "W": 0.04458899235271652,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.138963292,
+ "date": "Fri Sep 25 16:24:04 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.124375625,
+ "sum_s": 2.538961375,
+ "t_bits": "0x42a141e8b7249c00",
+ "t_exact": "9487387431502",
+ "threads": 8,
+ "wall_s": 4.802311417
+}
+[Fri Sep 25 16:24:09 IST 2026] twsumO rc=0, wall 4.8 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:09 IST 2026] 9487387431502 L=22: W_OB +4.45889923527165166e-02; dW vs Job1 1.80e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:09 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:09 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:09 IST 2026] LAUNCH twsumO -mode zeta -t 30001753328000 -L 22 -threads 8 -out checker-O/out/replayOB_t30001753328000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.045573657308963365,
+ "ARCH_H2000_panel1": 0.04557365730896332,
+ "L": 22,
+ "P": 0.00271270821823881,
+ "P_hi": 0.00271270821823881,
+ "P_lo": -1.6678499309414197e-19,
+ "W": 0.042860949090724555,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.244808459,
+ "date": "Fri Sep 25 16:24:09 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.119363333,
+ "sum_s": 2.610662625,
+ "t_bits": "0x42bb4953d9898000",
+ "t_exact": "30001753328000",
+ "threads": 8,
+ "wall_s": 4.97484725
+}
+[Fri Sep 25 16:24:14 IST 2026] twsumO rc=0, wall 5.0 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:14 IST 2026] 30001753328000 L=22: W_OB +4.28609490907245552e-02; dW vs Job1 1.18e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:14 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:14 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:14 IST 2026] LAUNCH twsumO -mode zeta -t 40007981065365 -L 22 -threads 8 -out checker-O/out/replayOB_t40007981065365_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.04602296104703761,
+ "ARCH_H2000_panel1": 0.046022961047037514,
+ "L": 22,
+ "P": 0.020732668035486956,
+ "P_hi": 0.020732668035486956,
+ "P_lo": -7.717597356907735e-19,
+ "W": 0.025290293011550655,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.24825975,
+ "date": "Fri Sep 25 16:24:14 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.122471792,
+ "sum_s": 2.620596917,
+ "t_bits": "0x42c2318abff24a80",
+ "t_exact": "40007981065365",
+ "threads": 8,
+ "wall_s": 4.991336583
+}
+[Fri Sep 25 16:24:19 IST 2026] twsumO rc=0, wall 5.0 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:19 IST 2026] 40007981065365 L=22: W_OB +2.52902930115506547e-02; dW vs Job1 3.82e-17; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:19 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:19 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:19 IST 2026] LAUNCH twsumO -mode zeta -t 300017533280000 -L 22 -threads 8 -out checker-O/out/replayOB_t300017533280000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.04916808721355713,
+ "ARCH_H2000_panel1": 0.049168087213557005,
+ "L": 22,
+ "P": -0.008365527840169761,
+ "P_hi": -0.008365527840169761,
+ "P_lo": -5.453904707593285e-19,
+ "W": 0.057533615053726894,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.106762709,
+ "date": "Fri Sep 25 16:24:19 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.121868375,
+ "sum_s": 2.604292917,
+ "t_bits": "0x42f10dd467f5f000",
+ "t_exact": "300017533280000",
+ "threads": 8,
+ "wall_s": 4.832961291
+}
+[Fri Sep 25 16:24:23 IST 2026] twsumO rc=0, wall 4.8 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:23 IST 2026] 300017533280000 L=22: W_OB +5.75336150537268942e-02; dW vs Job1 2.64e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:23 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:23 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:23 IST 2026] LAUNCH twsumO -mode zeta -t 2513274122900000 -L 22 -threads 8 -out checker-O/out/replayOB_t2513274122900000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.0524860811015179,
+ "ARCH_H2000_panel1": 0.05248608110151787,
+ "L": 22,
+ "P": 0.0029473581846199024,
+ "P_hi": 0.0029473581846199024,
+ "P_lo": -2.068245221898181e-19,
+ "W": 0.049538722916898,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.167996875,
+ "date": "Fri Sep 25 16:24:24 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.116595375,
+ "sum_s": 2.809375917,
+ "t_bits": "0x4321db9e76a32440",
+ "t_exact": "2513274122900000",
+ "threads": 8,
+ "wall_s": 5.093977959
+}
+[Fri Sep 25 16:24:29 IST 2026] twsumO rc=0, wall 5.1 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:29 IST 2026] 2513274122900000 L=22: W_OB +4.95387229168980023e-02; dW vs Job1 1.80e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:29 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:29 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:29 IST 2026] LAUNCH twsumO -mode zeta -t 3000175332800000 -L 22 -threads 8 -out checker-O/out/replayOB_t3000175332800000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.05276251711815082,
+ "ARCH_H2000_panel1": 0.052762517118150734,
+ "L": 22,
+ "P": -0.0081760471259354,
+ "P_hi": -0.0081760471259354,
+ "P_lo": -1.6712466797531537e-19,
+ "W": 0.06093856424408622,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.073853333,
+ "date": "Fri Sep 25 16:24:29 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.118380542,
+ "sum_s": 2.644592083,
+ "t_bits": "0x4325514981f36c00",
+ "t_exact": "3000175332800000",
+ "threads": 8,
+ "wall_s": 4.836863
+}
+[Fri Sep 25 16:24:33 IST 2026] twsumO rc=0, wall 4.8 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:33 IST 2026] 3000175332800000 L=22: W_OB +6.09385642440862171e-02; dW vs Job1 2.22e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.00e-10 -> PASS
+[Fri Sep 25 16:24:33 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:33 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:33 IST 2026] LAUNCH twsumO -mode zeta -t 30001753328000000 -L 22 -threads 8 -out checker-O/out/replayOB_t30001753328000000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.05635694702274456,
+ "ARCH_H2000_panel1": 0.05635694702274445,
+ "L": 22,
+ "P": 0.0038281321828762048,
+ "P_hi": 0.0038281321828762048,
+ "P_lo": -7.439588907400911e-20,
+ "W": 0.052528814839868355,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.1890985,
+ "date": "Fri Sep 25 16:24:34 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.120320916,
+ "sum_s": 2.643208458,
+ "t_bits": "0x435aa59be2704700",
+ "t_exact": "30001753328000000",
+ "threads": 8,
+ "wall_s": 4.952653291
+}
+[Fri Sep 25 16:24:38 IST 2026] twsumO rc=0, wall 5.0 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:38 IST 2026] 30001753328000000 L=22: W_OB +5.25288148398683555e-02; dW vs Job1 2.29e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.01e-10 -> PASS
+[Fri Sep 25 16:24:38 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:38 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:38 IST 2026] LAUNCH twsumO -mode zeta -t 300017533280000000 -L 22 -threads 8 -out checker-O/out/replayOB_t300017533280000000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.05995137692733822,
+ "ARCH_H2000_panel1": 0.05995137692733814,
+ "L": 22,
+ "P": -0.0030712911674689487,
+ "P_hi": -0.0030712911674689487,
+ "P_lo": -1.1243031321775185e-19,
+ "W": 0.06302266809480717,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.14307825,
+ "date": "Fri Sep 25 16:24:39 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.119306292,
+ "sum_s": 2.6408409170000002,
+ "t_bits": "0x4390a7816d862c60",
+ "t_exact": "300017533280000000",
+ "threads": 8,
+ "wall_s": 4.903246167
+}
+[Fri Sep 25 16:24:43 IST 2026] twsumO rc=0, wall 4.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:43 IST 2026] 300017533280000000 L=22: W_OB +6.30226680948071660e-02; dW vs Job1 4.72e-16; dW vs replayO 0.00e+00 (bit-identical True); tol 1.07e-10 -> PASS
+[Fri Sep 25 16:24:43 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:43 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:43 IST 2026] LAUNCH twsumO -mode zeta -t 3000175332800000000 -L 22 -threads 8 -out checker-O/out/replayOB_t3000175332800000000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.06354580683193174,
+ "ARCH_H2000_panel1": 0.06354580683193162,
+ "L": 22,
+ "P": -0.005283514468568961,
+ "P_hi": -0.005283514468568961,
+ "P_lo": -3.4230370572937733e-19,
+ "W": 0.0688293213005007,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.185684583,
+ "date": "Fri Sep 25 16:24:43 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.116740208,
+ "sum_s": 2.611907833,
+ "t_bits": "0x43c4d161c8e7b778",
+ "t_exact": "3000175332800000000",
+ "threads": 8,
+ "wall_s": 4.9143539579999995
+}
+[Fri Sep 25 16:24:48 IST 2026] twsumO rc=0, wall 4.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:48 IST 2026] 3000175332800000000 L=22: W_OB +6.88293213005007065e-02; dW vs Job1 1.48e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 1.67e-10 -> PASS
+[Fri Sep 25 16:24:48 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:48 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:48 IST 2026] LAUNCH twsumO -mode zeta -t 9487387431501672448 -L 22 -threads 8 -out checker-O/out/replayOB_t9487387431501672448_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.06534302178422866,
+ "ARCH_H2000_panel1": 0.06534302178422859,
+ "L": 22,
+ "P": -0.003712666072736243,
+ "P_hi": -0.003712666072736243,
+ "P_lo": -1.3861256316990164e-20,
+ "W": 0.06905568785696489,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.088966917,
+ "date": "Fri Sep 25 16:24:48 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.121748083,
+ "sum_s": 2.6779302080000003,
+ "t_bits": "0x43e0753f1348a536",
+ "t_exact": "9487387431501672448",
+ "threads": 8,
+ "wall_s": 4.888661333
+}
+[Fri Sep 25 16:24:53 IST 2026] twsumO rc=0, wall 4.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:53 IST 2026] 9487387431501672448 L=22: W_OB +6.90556878569648924e-02; dW vs Job1 1.30e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 3.12e-10 -> PASS
+[Fri Sep 25 16:24:53 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:24:53 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:53 IST 2026] LAUNCH twsumO -mode zeta -t 15202440115920748544 -L 22 -threads 8 -out checker-O/out/replayOB_t15202440115920748544_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.06607904120964088,
+ "ARCH_H2000_panel1": 0.06607904120964077,
+ "L": 22,
+ "P": -0.0065365170882158855,
+ "P_hi": -0.0065365170882158855,
+ "P_lo": 1.6436245539186194e-19,
+ "W": 0.07261555829785676,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.142787916,
+ "date": "Fri Sep 25 16:24:53 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.118054417,
+ "sum_s": 2.605026584,
+ "t_bits": "0x43ea5f3d57a99358",
+ "t_exact": "15202440115920748544",
+ "threads": 8,
+ "wall_s": 4.865893583
+}
+[Fri Sep 25 16:24:58 IST 2026] twsumO rc=0, wall 4.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:24:58 IST 2026] 15202440115920748544 L=22: W_OB +7.26155582978567637e-02; dW vs Job1 1.47e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 4.40e-10 -> PASS
+[Fri Sep 25 16:24:58 IST 2026] pre-launch ps (>50% CPU): ['55.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)']
+[Fri Sep 25 16:24:58 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:24:58 IST 2026] LAUNCH twsumO -mode zeta -t 30001753328000000000 -L 22 -threads 8 -out checker-O/out/replayOB_t30001753328000000000_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.0671402367365255,
+ "ARCH_H2000_panel1": 0.06714023673652536,
+ "L": 22,
+ "P": 0.002401161329929435,
+ "P_hi": 0.002401161329929435,
+ "P_lo": -1.3748683123210607e-19,
+ "W": 0.06473907540659607,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.60098225,
+ "date": "Fri Sep 25 16:24:58 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.12171175,
+ "sum_s": 2.666767041,
+ "t_bits": "0x43fa05ba3b21a556",
+ "t_exact": "30001753328000000000",
+ "threads": 8,
+ "wall_s": 5.389471167
+}
+[Fri Sep 25 16:25:04 IST 2026] twsumO rc=0, wall 5.4 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:25:04 IST 2026] 30001753328000000000 L=22: W_OB +6.47390754065960694e-02; dW vs Job1 7.48e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 7.72e-10 -> PASS
+[Fri Sep 25 16:25:04 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:25:04 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:25:04 IST 2026] LAUNCH twsumO -mode zeta -t 94873874315016716288 -L 22 -threads 8 -out checker-O/out/replayOB_t94873874315016716288_L22.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.06893745168882237,
+ "ARCH_H2000_panel1": 0.06893745168882218,
+ "L": 22,
+ "P": -0.0020012902649778792,
+ "P_hi": -0.0020012902649778792,
+ "P_lo": -1.1993792573766922e-20,
+ "W": 0.07093874195380025,
+ "X": 3584912846,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.074499625,
+ "date": "Fri Sep 25 16:25:04 IST 2026",
+ "l1": 21.807415922058,
+ "mode": "zeta",
+ "n_prime_powers": 6435,
+ "n_primes_or_nonzero": 171141897,
+ "n_terms": 171148332,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.123662208,
+ "sum_s": 2.6535914160000003,
+ "t_bits": "0x4414928ed81ace83",
+ "t_exact": "94873874315016716288",
+ "threads": 8,
+ "wall_s": 4.8517695
+}
+[Fri Sep 25 16:25:09 IST 2026] twsumO rc=0, wall 4.9 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 16:25:09 IST 2026] 94873874315016716288 L=22: W_OB +7.09387419538002467e-02; dW vs Job1 6.05e-14; dW vs replayO 0.00e+00 (bit-identical True); tol 2.22e-09 -> PASS
+[Fri Sep 25 16:25:09 IST 2026] batch L=22 complete: 14 points
+[Fri Sep 25 16:25:16 IST 2026] pre-launch ps (>50% CPU): none
+[Fri Sep 25 16:25:16 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 16:25:16 IST 2026] LAUNCH twsumO -mode zeta -t 3000175332900 -L 28.35 -threads 8 -out checker-O/out/replayOB_t3000175332900_L28.35.json
