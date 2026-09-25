@@ -1,0 +1,43 @@
+LMFDB .1: poly disc = 74933763032041 = 7063225849 * 10609
+LMFDB .2: poly disc = 9669556187281 = 7063225849 * 1369
+p   : roots(.1) roots(.2)  -> types
+  2 : 0 0  inert  inert  
+  3 : 0 0  inert  inert  
+  5 : 0 0  inert  inert  
+  7 : 0 0  inert  inert  
+ 11 : 0 0  inert  inert  
+ 13 : 0 0  inert  inert  
+ 17 : 0 0  inert  inert  
+ 19 : 3 0  split  inert  DIFFER
+ 23 : 0 3  inert  split  DIFFER
+ 29 : 0 0  inert  inert  
+ 31 : 0 3  inert  split  DIFFER
+ 37 : 0 2  inert  ?2     DIFFER
+ 41 : 0 3  inert  split  DIFFER
+ 43 : 0 0  inert  inert  
+ 47 : 0 0  inert  inert  
+ 53 : 0 0  inert  inert  
+ 59 : 0 0  inert  inert  
+first prime with different splitting (poly check): 19
+character side (a,b) and predicted types for p<60:
+  p= 2 a=0 b=1 same_type=True
+  p= 3 a=1 b=0 same_type=True
+  p= 5 a=2 b=0 same_type=True
+  p= 7 a=2 b=0 same_type=True
+  p=11 a=0 b=1 same_type=True
+  p=13 a=0 b=1 same_type=True
+  p=17 a=0 b=1 same_type=True
+  p=19 a=2 b=2 same_type=False
+  p=23 a=1 b=2 same_type=False
+  p=29 a=1 b=0 same_type=True
+  p=31 a=2 b=1 same_type=False
+  p=37 a=1 b=2 same_type=False
+  p=41 a=2 b=1 same_type=False
+  p=43 a=0 b=2 same_type=True
+  p=47 a=2 b=0 same_type=True
+  p=53 a=0 b=2 same_type=True
+  p=59 a=2 b=0 same_type=True
+pairs searched: 666  top p0: [(19, 229, 367), (13, 307, 337), (13, 43, 367), (11, 367, 397), (11, 307, 367), (11, 307, 313)]
+T(alpha>=1/2) = 0.023317459866210536   T(alpha>=1) = 0.008738362111782777
+elapsed 0.00s
+Sat Sep 26 02:12:51 IST 2026
