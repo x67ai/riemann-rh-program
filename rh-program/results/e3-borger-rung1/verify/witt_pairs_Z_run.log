@@ -1,0 +1,14 @@
+Sat Sep 26 00:39:20 IST 2026
+pairs 1 <= m < n <= 24: basis formula vs closed form: 0 mismatches; definition samples vs basis: 0 mismatches
+  (Gamma_1, Gamma_2): I = 2Z, deg = log 2
+  (Gamma_1, Gamma_4): I = 2Z, deg = log 2
+  (Gamma_2, Gamma_4): I = 4Z, deg = log 4
+  (Gamma_2, Gamma_3): I = 1Z, deg = log 1  [brief's H5 said log 6: CORRECTED to 0]
+  (Gamma_2, Gamma_6): I = 3Z, deg = log 3
+  (Gamma_4, Gamma_6): I = 1Z, deg = log 1
+  (Gamma_3, Gamma_9): I = 9Z, deg = log 9
+  (Gamma_1, Gamma_6): I = 1Z, deg = log 1
+  (Gamma_6, Gamma_12): I = 4Z, deg = log 4
+  (Gamma_4, Gamma_8): I = 8Z, deg = log 8
+done in 0.3s
+python3 witt_pairs_Z.py 24  0.27s user 0.00s system 99% cpu 0.277 total

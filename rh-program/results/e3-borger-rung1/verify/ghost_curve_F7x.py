@@ -59,12 +59,18 @@ def irreducibles(dmax):
     for d in range(1, dmax + 1):
         for coeffs in itertools.product(range(p), repeat=d):
             f = list(coeffs) + [1]
-            if any(gcd(f, g) != [1] and len(gcd(f, g)) > 1 for g in out if len(g) - 1 <= d // 2): continue
+            if any(divmod_(f, g)[1] == [] for g in out if len(g) - 1 <= d // 2): continue
             out.append(f)
     return out
-E = irreducibles(DMAX)
+E_all = irreducibles(DMAX)
+a_d = {d: sum(1 for f in E_all if len(f) - 1 == d) for d in range(1, DMAX + 1)}
+print(f"R = F_7[x]: closed points of degree d <= {DMAX}: a_d = {a_d}")
+# the lattice is computed on the sub-box of indices supported on three chosen closed points
+# (x), (x + 1), (x^2 + 1) [x^2 + 1 irreducible: -1 is a non-square mod 7]; clipping to a sub-box is surjective (NOTE.md 3.2)
+E = [[0, 1], [1, 1], [1, 0, 1]]
 degs = [len(f) - 1 for f in E]
-print(f"R = F_7[x], E = closed points of degree <= {DMAX}: {len(E)} points, degrees {sorted(degs)}")
+assert all(f in E_all for f in E)
+print(f"index sub-box on E' = {{(x), (x+1), (x^2+1)}}, degrees {degs}, 0 <= n_P <= {BOX}")
 # index box
 F = list(itertools.product(range(BOX + 1), repeat=len(E)))
 idx = {n: i for i, n in enumerate(F)}
@@ -117,10 +123,9 @@ def ideal_gen(m, n):
     for v in K: g = gcd(g, sub(comp(v, m), comp(v, n)))
     return g
 def predicted(m, n):
-    g = [1]
-    for j, P in enumerate(E):
-        if m[j] != n[j]: g = mul(g, powpoly(P, 1 + min(m[j], n[j])))
-    return g
+    diff = [j for j in range(len(E)) if m[j] != n[j]]
+    if len(diff) != 1: return [1]            # two or more differing points: the sum of coprime ideals is R
+    j = diff[0]; return powpoly(E[j], 1 + min(m[j], n[j]))
 def pstr(f):
     if not f: return "0"
     return " + ".join(f"{c}x^{i}" if i else f"{c}" for i, c in enumerate(f) if c)
@@ -139,6 +144,6 @@ for n in F:
     print(f"  n = {n}  |n| = {absn}  I_0,n = ({pstr(g)})  deg/log7 = {len(g)-1}")
 # H3 count on A^1 (P^1 minus infinity): sum_{|n|=N} deg = sum_{d|N} d a_d = 7^N (all n of degree N supported at one point)
 for N in range(1, DMAX + 1):
-    s = sum(degs[j] for j in range(len(E)) if N % degs[j] == 0)   # n = (N/deg P) e_P, needs N/deg P <= BOX
-    print(f"  N = {N}: sum over |n| = N supported at one point of deg(Gamma_0 cap Gamma_n)/log 7 = {s}; #A^1(F_7^{N}) = {7**N}")
+    s = sum(d * a_d[d] for d in a_d if N % d == 0)   # one index n = (N/deg P) e_P per closed point P with deg P | N, each of degree deg P
+    print(f"  N = {N}: sum over |n| = N of deg(Gamma_0 cap Gamma_n)/log 7 = sum_(d|N) d a_d = {s}; #A^1(F_7^{N}) = {7**N}  {'OK' if s == 7**N else 'FAIL'}")
 print(f"done in {time.time()-t0:.1f}s")

@@ -1,0 +1,12 @@
+Sat Sep 26 00:40:58 IST 2026
+d = 1: N_1 = #S(F_7^1) = 5 (brute force); a_1 = #closed points of degree 1 = 5  [0.0s]
+d = 2: N_2 = #S(F_7^2) = 55 (brute force); a_2 = #closed points of degree 2 = 25  [0.0s]
+d = 3: N_3 = #S(F_7^3) = 380 (brute force); a_3 = #closed points of degree 3 = 125  [0.3s]
+d = 4: N_4 = #S(F_7^4) = 2475 (brute force); a_4 = #closed points of degree 4 = 605  [22.1s]
+H3 check: sum_{|n| = N, n = k e_m} deg(Gamma_0 cap Gamma_n)/log 7 = sum_{d | N} d a_d  vs  N_N:
+  N = 1: 5 vs N_N = 5  OK
+  N = 2: 55 vs N_N = 55  OK
+  N = 3: 380 vs N_N = 380  OK
+  N = 4: 2475 vs N_N = 2475  OK
+H3 numerical check on g = 1 over F_7: PASS (22.1s)
+python3 curve_g1_points.py 4  22.05s user 0.04s system 99% cpu 22.098 total
