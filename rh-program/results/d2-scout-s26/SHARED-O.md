@@ -28,3 +28,6 @@ Zoo gate run in full for P1 (fails III.20 at item 2; passes IV.10 Hom + log p ha
 
 ## 2026-09-25 19:17:30 IST — APPENDIX LANDED
 [Q1]–[Q37] (with sub-letters) written from the extraction files; Q36 trimmed by one word to keep the 10(g) lint clean ('[...]' marked). Correction to the 19:00 P1/P2 block: the complex-lift loss of item 4 is 1805.10501 p. 22 (not p. 23) — fixed in scout-O.md.
+
+## 2026-09-25 19:19:10 IST — §1 LANDED; SCOUT O COMPLETE
+scout-O.md final: SHA-256 b911d3471cd9e0fd2d15a65087066ae4f1ad02a4370cd625bc954ae294f06b69 (103083 bytes). Return: NONE (record sentence in §1 and §4). Per-candidate: P1 instrument; P2 = K1 (record grade stands); P3 instrument; P4 dead-end; P5 dead-end; P6 dead-end as doubled object; P7 instrument; P8 inside K4; P9a inside K1; P9b, P9c, P9d, P9f, P9g dead-end; P9e, P9h not doubled objects; P9i instrument. Stop lines: (i) fired; (ii), (iii) fired for named candidates; (iv), (v) not fired. access_failures: none. 10(g) lint: zero hits.
