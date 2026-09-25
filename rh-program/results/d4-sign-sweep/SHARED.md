@@ -318,3 +318,4 @@
 * Control 2 zero side: rel. diff ≤ 6.6·10⁻¹⁶ at every point; DH regression FIRES at every point (W = −0.269812074). δ_vis(t, 22) from 0.1482 (PT's height) to 0.1875 (9.49·10¹⁹); band factor 1.837.
 * Files: `out/zeta_t*_L22.json` (123), `out/replayO_t*_L22.json` (123), `out/control1_t*_L22.json` (123), rows above; hashes appended to `hashes.txt`; note §6 regenerated (`harness/d4_note_table.py`), `out/sweep_summary.json`.
 * **Tier 2 launched Fri Sep 25 05:40:50 IST 2026:** `harness/d4_run_tier.py --tier 2` (pid 30780; log `harness/d4_run_tier2_run.log`): 10¹⁴, 10¹⁶, 10¹⁸, the control 15202440115920748544, ladder k = 117 (61609351296641974272) at L = 28.35, one 8-thread process at a time, the twsumO replay after each; the PT-edge point recognized as landed with Job 2's PASS (not recomputed).
+| Fri Sep 25 06:10:08 IST 2026 | Job 1 | alive — running (100000000000000, 28.35) tier 2 1e14 |
