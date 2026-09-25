@@ -1,0 +1,41 @@
+zeros n = 3000..3039: T = 3552.792, ell = log(T/2pi) = 6.3376, window length W = 39.186, mean gap 1.00476 vs 2pi/ell = 0.99141
+zetazero time 12.1 s; envelope Nyquist spacing pi/(W/2) = 0.1603; grid spacing 0.02
+
+=== configuration 26s+7d: N_d = 33, mass 40, N_d/N = 0.8250 ===
+  L =  0.500 (alpha = 0.079; count LW/pi =    6.2 vs 33 positions): min RMS |E| = 1.808e-09  (RMS S = 14.611; relative 1.238e-10; off-grid max |E| = 7.629e-09; grid 25)   [13 s]
+  L =  1.000 (alpha = 0.158; count LW/pi =   12.5 vs 33 positions): min RMS |E| = 2.293e-08  (RMS S = 10.998; relative 2.085e-09; off-grid max |E| = 8.174e-08; grid 45)   [15 s]
+  L =  1.500 (alpha = 0.237; count LW/pi =   18.7 vs 33 positions): min RMS |E| = 1.195e-07  (RMS S = 9.284; relative 1.287e-08; off-grid max |E| = 3.369e-07; grid 65)   [16 s]
+  L =  2.000 (alpha = 0.316; count LW/pi =   24.9 vs 33 positions): min RMS |E| = 4.748e-05  (RMS S = 8.323; relative 5.705e-06; off-grid max |E| = 2.496e-04; grid 84)   [17 s]
+  L =  2.500 (alpha = 0.394; count LW/pi =   31.2 vs 33 positions): min RMS |E| = 6.842e-02  (RMS S = 7.597; relative 9.007e-03; off-grid max |E| = 2.389e-01; grid 104)   [18 s]
+  L =  3.000 (alpha = 0.473; count LW/pi =   37.4 vs 33 positions): min RMS |E| = 3.619e-01  (RMS S = 7.189; relative 5.034e-02; off-grid max |E| = 1.679e+00; grid 125)   [19 s]
+  L =  3.500 (alpha = 0.552; count LW/pi =   43.7 vs 33 positions): min RMS |E| = 4.936e-01  (RMS S = 6.832; relative 7.225e-02; off-grid max |E| = 9.196e-01; grid 145)   [20 s]
+  L =  4.000 (alpha = 0.631; count LW/pi =   49.9 vs 33 positions): min RMS |E| = 8.615e-01  (RMS S = 6.612; relative 1.303e-01; off-grid max |E| = 2.375e+00; grid 167)   [21 s]
+  L =  5.000 (alpha = 0.789; count LW/pi =   62.4 vs 33 positions): min RMS |E| = 1.096e+00  (RMS S = 6.264; relative 1.749e-01; off-grid max |E| = 3.119e+00; grid 208)   [22 s]
+  L =  6.338 (alpha = 1.000; count LW/pi =   79.1 vs 33 positions): min RMS |E| = 1.959e+00  (RMS S = 6.027; relative 3.251e-01; off-grid max |E| = 5.009e+00; grid 261)   [23 s]
+  L =  8.000 (alpha = 1.262; count LW/pi =   99.8 vs 33 positions): min RMS |E| = 3.258e+00  (RMS S = 6.200; relative 5.255e-01; off-grid max |E| = 7.201e+00; grid 319)   [24 s]
+  L = 12.000 (alpha = 1.893; count LW/pi =  149.7 vs 33 positions): min RMS |E| = 3.546e+00  (RMS S = 6.191; relative 5.728e-01; off-grid max |E| = 1.056e+01; grid 471)   [27 s]
+
+=== configuration 28s+6d: N_d = 34, mass 40, N_d/N = 0.8500 ===
+  L =  0.500 (alpha = 0.079; count LW/pi =    6.2 vs 34 positions): min RMS |E| = 1.232e-09  (RMS S = 14.611; relative 8.434e-11; off-grid max |E| = 5.166e-09; grid 25)   [28 s]
+  L =  1.000 (alpha = 0.158; count LW/pi =   12.5 vs 34 positions): min RMS |E| = 9.176e-09  (RMS S = 10.998; relative 8.344e-10; off-grid max |E| = 3.594e-08; grid 45)   [30 s]
+  L =  1.500 (alpha = 0.237; count LW/pi =   18.7 vs 34 positions): min RMS |E| = 4.768e-08  (RMS S = 9.284; relative 5.136e-09; off-grid max |E| = 2.087e-07; grid 65)   [32 s]
+  L =  2.000 (alpha = 0.316; count LW/pi =   24.9 vs 34 positions): min RMS |E| = 3.774e-05  (RMS S = 8.323; relative 4.535e-06; off-grid max |E| = 1.641e-04; grid 84)   [33 s]
+  L =  2.500 (alpha = 0.394; count LW/pi =   31.2 vs 34 positions): min RMS |E| = 6.632e-02  (RMS S = 7.597; relative 8.730e-03; off-grid max |E| = 2.288e-01; grid 104)   [34 s]
+  L =  3.000 (alpha = 0.473; count LW/pi =   37.4 vs 34 positions): min RMS |E| = 3.319e-01  (RMS S = 7.189; relative 4.617e-02; off-grid max |E| = 2.019e+00; grid 125)   [35 s]
+  L =  3.500 (alpha = 0.552; count LW/pi =   43.7 vs 34 positions): min RMS |E| = 4.378e-01  (RMS S = 6.832; relative 6.408e-02; off-grid max |E| = 8.014e-01; grid 145)   [37 s]
+  L =  4.000 (alpha = 0.631; count LW/pi =   49.9 vs 34 positions): min RMS |E| = 6.938e-01  (RMS S = 6.612; relative 1.049e-01; off-grid max |E| = 1.482e+00; grid 167)   [38 s]
+  L =  5.000 (alpha = 0.789; count LW/pi =   62.4 vs 34 positions): min RMS |E| = 9.781e-01  (RMS S = 6.264; relative 1.561e-01; off-grid max |E| = 2.454e+00; grid 208)   [39 s]
+  L =  6.338 (alpha = 1.000; count LW/pi =   79.1 vs 34 positions): min RMS |E| = 1.786e+00  (RMS S = 6.027; relative 2.963e-01; off-grid max |E| = 4.191e+00; grid 261)   [40 s]
+  L =  8.000 (alpha = 1.262; count LW/pi =   99.8 vs 34 positions): min RMS |E| = 2.996e+00  (RMS S = 6.200; relative 4.832e-01; off-grid max |E| = 6.163e+00; grid 319)   [41 s]
+  L = 12.000 (alpha = 1.893; count LW/pi =  149.7 vs 34 positions): min RMS |E| = 3.266e+00  (RMS S = 6.191; relative 5.275e-01; off-grid max |E| = 9.724e+00; grid 471)   [44 s]
+
+=== control (zoo V.4): 40 simple marks, perturbed start (sigma = 0.15) ===
+  L =  1.000 (count   12.5 vs 40): min RMS |E| = 1.815e-07; off-grid max |E| = 6.856e-07; max |tau - gamma| = 2.23e-01   <- OTHER positions with the same band envelope (free regime)
+  L =  2.000 (count   24.9 vs 40): min RMS |E| = 3.042e-08; off-grid max |E| = 1.138e-07; max |tau - gamma| = 1.46e-01   <- OTHER positions with the same band envelope (free regime)
+  L =  3.000 (count   37.4 vs 40): min RMS |E| = 0.000e+00; off-grid max |E| = 0.000e+00; max |tau - gamma| = 0.00e+00   <- positions recovered
+  L =  3.500 (count   43.7 vs 40): min RMS |E| = 0.000e+00; off-grid max |E| = 0.000e+00; max |tau - gamma| = 0.00e+00   <- positions recovered
+  L =  5.000 (count   62.4 vs 40): min RMS |E| = 0.000e+00; off-grid max |E| = 0.000e+00; max |tau - gamma| = 0.00e+00   <- positions recovered
+  L =  6.338 (count   79.1 vs 40): min RMS |E| = 0.000e+00; off-grid max |E| = 0.000e+00; max |tau - gamma| = 0.00e+00   <- positions recovered
+  L = 12.000 (count  149.7 vs 40): min RMS |E| = 0.000e+00; off-grid max |E| = 0.000e+00; max |tau - gamma| = 0.00e+00   <- positions recovered
+
+total 47.1 s

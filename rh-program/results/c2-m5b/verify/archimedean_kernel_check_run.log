@@ -1,0 +1,12 @@
+(a) u-side form of A_inf against the direct tau-integral (T0 = 200; tail bound below)
+  g1(u) = (1-u^2)^3 on |u|<1: direct = -1.71873149323, u-side = -1.71873149397, diff = 7.38e-10, tail bound = 0.0533
+  g2(u) = cos(pi u/2)^4 on |u|<1: direct = -1.46833597749, u-side = -1.46833597651, diff = -9.82e-10, tail bound = 0.0633
+  c1 = int_0^inf (e^(u/2)-1)/sinh u du = 2.26394350735484;  c_A = log(4pi)+gamma_E+c1 = 5.37218341922567
+(b) dilation law: A(g_eps) - g(0) log(1/eps) for g = g1 (g(0) = 1)
+  eps = 0.5: A(g_eps) = -0.0004055450289,  A(g_eps) - log(1/eps) = -0.6935527256
+  eps = 0.1: A(g_eps) = 0.9642396806,  A(g_eps) - log(1/eps) = -1.338345412  (change -0.645)
+  eps = 0.02: A(g_eps) = 2.445599253,  A(g_eps) - log(1/eps) = -1.466423753  (change -0.128)
+  eps = 0.005: A(g_eps) = 3.807891436,  A(g_eps) - log(1/eps) = -1.490425931  (change -0.024)
+  eps = 0.001: A(g_eps) = 5.41092922,  A(g_eps) - log(1/eps) = -1.496826059  (change -0.0064)
+  eps = 0.0002: A(g_eps) = 7.019087127,  A(g_eps) - log(1/eps) = -1.498106064  (change -0.00128)
+done in 87.7 s
