@@ -1,0 +1,15 @@
+every JSON budget line re-derived from its definition (133 points): {'phase_ok': True, 'interp_ok': True, 'quad_ok': True, 'pole_ok': True, 'cos_ok': True, 'total_ok': True}
+tier 1, L = 22: 123 points; max budget (proven eps) 2.1242e-09 at t = 94873874315016716288; min budget 1.4095e-13 at t = 4620049577808; max phase line 2.1241e-09 at t = 94873874315016716288
+   interp line 1.258e-13 .. 1.258e-13 (max A-interp error 3.197e-14); cos line 5.016e-15; quad <= 5.55e-16; pole bound log10 <= -1008780 (at t = 3000175332800); bracket two-path worst 2.731e-20
+   NOT in the budget: Neumaier 2u|P| + 4nu^2 l1 <= 6.26e-18; the weight roundings and the product w*cos (4u l1) = 9.68e-15; budget with them, max 2.1242e-09, min 1.5064e-13 (relative change at the minimum-budget point 6.9%)
+   min |W|/budget(with unlisted lines) = 3.340e+07
+tier 2, L = 28.35: 6 points; max budget (proven eps) 9.2956e-09 at t = 61609351296641974272; min budget 8.9220e-13 at t = 3000175332900; max phase line 9.2947e-09 at t = 61609351296641974272
+   interp line 8.479e-13 .. 8.479e-13 (max A-interp error 3.197e-14); cos line 3.380e-14; quad <= 6.94e-17; pole bound log10 <= -1145152 (at t = 3000175332900); bracket two-path worst 2.616e-20
+   NOT in the budget: Neumaier 2u|P| + 4nu^2 l1 <= 2.12e-18; the weight roundings and the product w*cos (4u l1) = 6.53e-14; budget with them, max 9.2957e-09, min 9.5746e-13 (relative change at the minimum-budget point 7.3%)
+   min |W|/budget(with unlisted lines) = 3.678e+06
+bracket two-path worst over ALL 133 points (incl. rehearsal): 2.731e-20 at t = 533515002082491
+  point (1000000000000, 20): budget in run 8.5317e-14, with proven eps 8.5322e-14; pole log10 -555280.4940997175
+  point (1000000000000, 28.35): budget in run 8.9188e-13, with proven eps 8.9194e-13; pole log10 -661116.515875185
+  point (1000000, 10): budget in run 1.9574e-14, with proven eps 1.9574e-14; pole log10 -370.44360113689146
+  point (1000000, 20): budget in run 8.5309e-14, with proven eps 8.5309e-14; pole log10 -530.622617152393
+  point (3000175332900, 28.35): budget in run 8.9203e-13, with proven eps 8.9220e-13; pole log10 -1145152.1227350838

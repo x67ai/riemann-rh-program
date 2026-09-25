@@ -65,3 +65,107 @@ Script `checker-O/partA_recheck.py`, log `checker-O/logs/partA_recheck_run.log`,
 
 **§A verdict: (b) CLEAN, (f) CLEAN.** The fix pass did what CHECK-O-A asked. One wording point, for C.8 and not blocking: the brief's "all 129 = 2be891b6…" should read "128 = 2be891b6…, and the PT edge = f6256ded… (the build that ran it)".
 
+## §C.1 The §6 table against the JSONs and `hashes.txt` — CLEAN (one MINOR wording point on the ladder formula)
+
+Script `checker-O/table_check.py`, log `checker-O/logs/table_check_run.log`, output `checker-O/out/table_check.json`. Ladder detail: `checker-O/logs/ladder_diff_run.log`.
+
+**(i) `hashes.txt`.** The file has 701 hash lines over 694 distinct paths.
+* **Every path's latest entry matches the file on disk: 694/694. 0 mismatches, 0 missing files.** Stop line (2) does not fire.
+* Seven earlier lines are superseded by a later line for the same path, and in each case the later line matches: the second-build source and binary (lines 2–3, superseded at 39–40), `d4_point.py`, `d4_plan.py`, `sweep_plan.json` and `eps_phi.json` (lines 8, 9, 12, 13, superseded in the fix-pass block), and the (10¹², 28.35) JSON (line 26, superseded at line 29 after the annotation). This is the file's append-only convention, not a defect.
+* One correction to the brief: **the note's own hash IS in `hashes.txt`**, in the close block, line 696: 80a14ea2…, which matches the note on disk.
+
+**(ii) The §6 rows.** 133 rows were parsed, with 27 checks per row. Printed numbers were compared with the JSON value to within half a unit of the last printed digit plus 2 ulp of the double. The derived columns were recomputed by me: X = ⌊e^L⌋ (mpmath), W₁ = pole + ARCH − P₁, |W₁ − W₂| from the replay JSON itself, tol = 10⁻¹⁰ + ε_proven·t·ℓ¹, the budget total as the sum of its lines, δ_vis from the law 0.1·(22.4(log t/log 10⁶)^{1/3}/L)^{3/2}, and the band as δ_vis/1.5^{3/2} and δ_vis·1.5^{3/2}. Cross-file checks:
+* Each control1 JSON's P/W equals the replay JSON it names.
+* Each control1 JSON's `replay_json_sha256` and `job1_json_sha256` equal the files on disk, and its twsumO hash is d57080a8….
+* The term counts are equal between the harness and the replay.
+* Control 2 equals its `out/planted_*` file (pair value, expected value, pass flag, δ = δ_vis).
+* The DH column equals its `out/dhreg_*` file (P_dd within 10⁻¹² of 0.339995468928925, W = ARCH_DH − P < 0).
+* The two hash prefixes equal the SHA-256 of the zeta JSON and of the replay JSON.
+* The verdict is "silent (W > 0)" exactly when W > 0.
+
+**Result: 0 discrepancies in 133 × 27 checks.** No §6 W differs from its JSON, so stop line (4) does not fire.
+
+**(iii) Counts.**
+* **133 zeta JSONs = 4 rehearsal + 129 sweep.** Of the sweep, 123 are at L = 22 and 6 at L = 28.35. **128 are strictly above PT's height**, 1 is at it (k = 0) and none is below. Every JSON has a row.
+* control1 JSONs 129, replayO JSONs 128 (the PT edge uses part A's own `zetaO` run), planted 136, dhreg 133.
+* At all 129 points W > 0, the verdict is silent, `controls_pass` is true and `stop_line` is null.
+* **The ladder.** The plan's heights are exactly `float(round(PT * 10**(k/16)))` **evaluated in double arithmetic** (`harness/d4_plan.py` line 64), for all 121. Recomputed exactly (60-digit decimal, round, then the nearest double), **99 of 121 agree. The other 22 differ by one unit below 2⁵³ or by less than one ulp of the double above it**, at k = 38, 44, 50, 54–59, 67, 72, 78, 88, 90, 97, 98, 102, 108, 109, 113, 119, 120. The largest relative difference is 1.4·10⁻¹⁵. The JSONs record the doubles actually used, and C.3 checks those heights against the windows, so no result moves.
+* **MINOR (wording, §5 (a), §7, §12, §11 B2 row):** "t_k = round(3 000 175 332 800·10^{k/16}) as a double" → "t_k = float(round(3 000 175 332 800·10^{k/16})) evaluated in double arithmetic (`d4_plan.py` line 64), within one unit or one ulp of the exactly rounded value; the exact doubles are in `sweep_plan.json` and §6".
+
+## §C.2 §3, the budget — FIX-FIRST (three numbers stated as bounds are exceeded by the record; no conclusion moves) + MINOR
+
+Script `checker-O/budget_check.py`, log `checker-O/logs/budget_check_run.log`, output `checker-O/out/budget_check.json`.
+
+**Every per-point budget line re-derived from its definition, at all 133 points: all agree.**
+* phase = ε_used·t·ℓ¹;
+* interpolation = 3·max|A_interp error|/A(0)·ℓ¹, from the sum JSON's `A_interp_check`;
+* quadrature = 10(|conv_h| + |conv_H|), from the arch JSON;
+* pole = 10^{log₁₀ Lemma-G bound};
+* cos = 2.3·10⁻¹⁶·ℓ¹;
+* total = the sum of these + 10⁻¹⁴.
+
+**The per-tier maxima from the JSONs**, with the proven ε:
+* **L = 22: budget ≤ 2.1242·10⁻⁹** (k = 120, 9.49·10¹⁹; phase line 2.1241·10⁻⁹), minimum 1.41·10⁻¹³;
+* **L = 28.35: ≤ 9.2956·10⁻⁹** (k = 117; line 9.2947·10⁻⁹), minimum 8.92·10⁻¹³ at the PT edge.
+* The brief's "≤ 9.3·10⁻⁹" is confirmed. **"≤ 2.1·10⁻⁹" (§12) and "≤ 2.12·10⁻⁹" (§3 table, phase row; also §9 F1 and §3 "largest line 2.12·10⁻⁹") are rounded down: the value is 2.124·10⁻⁹.** MINOR: write "≤ 2.13·10⁻⁹" wherever a bound is meant.
+
+**Line by line** (the note §3 table against the record):
+* **Sieve / Λ exactness, 0.** Integers. It is corroborated independently: the harness and twsumO use two different sieves (a segmented sieve, and my odd-only byte sieve with dynamic segments), and they give the same term count at all 129 points (C.1). CLEAN.
+* **Summation (Neumaier). There is no row in §3.** I derived the Kahan–Babuška bound |E| ≤ 2u|P| + 4n·u²·ℓ¹, which includes the 8-thread merge. It gives **≤ 6.3·10⁻¹⁸ at L = 22 and ≤ 2.1·10⁻¹⁸ at L = 28.35**: negligible, and below the 10⁻¹⁴ floor. MINOR: add the row, or say that the floor covers it.
+* **The weight's own roundings: also no row.** The §3 "cos in double" row, 2.3·10⁻¹⁶·ℓ¹, covers the cosine only. `add_term` (`d4_twisted_sum.rs` line 295) forms w = λ/√n·2·a/L³ with about 3.5u of relative rounding (λ, √, ÷, ×a, L³, ÷), and the product w·cos adds 0.5u. So there is a worst-case **4u·ℓ¹ line not in the budget: 9.7·10⁻¹⁵ at L = 22 and 6.5·10⁻¹⁴ at L = 28.35**.
+  * With it, the minimum budgets rise by 6.9 % (L = 22) and 7.3 % (L = 28.35). The maxima are unchanged, since the phase line dominates there.
+  * min |W|/budget is still 3.3·10⁷ at L = 22 and 3.7·10⁶ at L = 28.35.
+  * The measured two-implementation agreement at low t (1.3·10⁻¹⁵ at the PT edge, 28.35) sits 50 times below this worst case, as a random walk would.
+  * MINOR: add the row "weights and product (4u·ℓ¹): 9.7·10⁻¹⁵ | 6.5·10⁻¹⁴", and raise the budget minima to 1.5·10⁻¹³ and 9.6·10⁻¹³.
+* **A(v) interpolation. FIX-FIRST (number):** the tier-2 cell reads 8.7·10⁻¹³; **the record is 8.479·10⁻¹³** (3 × 3.197·10⁻¹⁴/16.622 × 146.95; the note's own formula with 3.2/16.6 also gives 8.50·10⁻¹³). Fix: "8.7·10⁻¹³" → "8.5·10⁻¹³". The tier-1 value 1.3·10⁻¹³ is right (1.258·10⁻¹³).
+* **Archimedean quadrature. FIX-FIRST (number):** the tier-1 cell reads "≤ 10⁻¹⁶"; **the record's maximum at L = 22 is 5.55·10⁻¹⁶** (10 × |conv_H| = 10 × 5.55·10⁻¹⁷). Fix: tier-1 cell "≤ 10⁻¹⁶" → "≤ 5.6·10⁻¹⁶". The tier-2 cell is right (≤ 6.9·10⁻¹⁷).
+* **Bracket two-path check. FIX-FIRST (number):** the note says "≤ 2.6·10⁻²⁰ (r = 85.7 … 10²⁰)". **The record's worst over the 133 points is 2.731·10⁻²⁰, at t = 533 515 002 082 491 (k = 36, L = 22)**. The tier-2 worst is 2.616·10⁻²⁰, over 13 nodes per point. Stop line (6)'s threshold 10⁻¹² is not approached. Fix in three places:
+  * §3 table: "≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰ (worst 2.73·10⁻²⁰ at t = 533 515 002 082 491, L = 22)";
+  * §10, stop line (6): "≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰";
+  * §12, stop line (6): "two-path bracket ≤ 2.6·10⁻²⁰" → "≤ 2.8·10⁻²⁰". §4.3's "≤ 2.6·10⁻²⁰" is a PT-edge statement and is right there.
+* **Pole terms.** Both cells are true but point at rehearsal points. "≤ 10^{−555 280} at 10¹²" is the (10¹², 20) rehearsal, and "≤ 10^{−661 116}" is (10¹², 28.35). The sweep's own worst cases are **10^{−1 008 780}** (L = 22, k = 0) and **10^{−1 145 152}** (L = 28.35, the PT edge). MINOR: quote the sweep's values.
+* **The phase line.** It equals ε_proven·t·ℓ¹ at every point (§A). CLEAN.
+
+**§3 verdict: FIX-FIRST** (the three number fixes above; each changes a stated bound, not a result), plus the MINOR rows. The ceiling paragraph and the priced-not-built paragraph are CLEAN (re-derived in §A).
+
+## §C.3 §5, the coverage map — CLEAN for the gate (no height in any window; both controls inside); FIX-FIRST (one number) + MINOR
+
+Script `checker-O/coverage_check_B.py` (part A's `coverage_check.py`, extended to the landed heights and the measure), log `checker-O/logs/coverage_check_B_run.log`, output `checker-O/out/coverage_check_B.json`. The plan's measure as a plain sum: `checker-O/logs/plan_measure_sum_run.log`.
+
+**The sources, re-read at the page this session** (page images rendered with `pdftoppm` from the PDFs in `prior-art/`):
+* **Odlyzko 1992, PDF p. 140 (Table 1.1 and Table 1.2).** Eight sets. N: count, first:
+  * 10⁶: "1, 000, 1052", N + 1;
+  * 10¹²: 1,592,196, N − 6,032;
+  * 10¹⁴: 1,685,452, N − 736;
+  * 10¹⁶: 16,480,973, N − 5,946;
+  * 10¹⁸: 16,671,047, N − 8,839;
+  * 10¹⁹: 16,749,725, N − 13,607;
+  * 10²⁰: 175,587,726, N − 30,769,710;
+  * 2·10²⁰: 101,305,325, N − 633,984.
+  * The table also gives the approximate height of zero N. The 10¹²-th zero is at 2.677·10¹¹, below PT's height.
+* **Odlyzko 1992, PDF p. 8 (= p. 5):** "The entry for N = 10²⁰, for example, means that 175,587,726 zeros were computed, starting with zero number 10²⁰ − 30,769,710, and ending with zero number 10²⁰ + 144,818,015". So last = first + count − 1. **My script derives the note's six end offsets from that rule and matches all six:** +1,684,715; +16,475,026; +16,662,207; +16,736,117; +144,818,015; +100,671,340.
+* **Odlyzko 2001, PDF p. 3:** "1, 006, 374, 896 zeros of the zeta function starting with zero # 13, 048, 994, 265, 258, 476 (at height approximately 2.51327412288·10¹⁵)", at the page.
+* **Gourdon 2004** `prior-art/…txt` lines 1846–1859: the offsets as the note quotes them (10¹⁴: 3 … 2·10⁹; 10¹⁵: 0 … 2·10⁹ − 1; 10¹⁶: 1 … 2·10⁹ − 1; 10¹⁷: 0 … 2·10⁹; 10¹⁸: 1 … 2·10⁹ − 1; 10¹⁹: 0 … 2·10⁹ + 1; 10²⁰: 4 … 2·10⁹ − 1).
+
+**The fourteen windows: confirmed.** Seven Gourdon, six Odlyzko 1992 inside the range, one Odlyzko 2001. Their widths match the note's §5 list (4.35·10⁸ … 2.97·10⁸; 3.7·10⁵, 3.1·10⁶, 2.8·10⁶, 2.6·10⁶, 2.6·10⁷, 1.5·10⁷; 1.88·10⁸).
+
+**No landed height in any window.** All 126 non-control points (the 121 ladder heights and the tier-2 heights 3 000 175 332 900, 10¹⁴, 10¹⁶, 10¹⁸ and 61609351296641974272) lie outside every window, even with each window padded by 1 000 mean spacings. The closest is ladder t = 22 498 141 090 488, **7.5·10¹⁰ mean spacings** from the edge of the Gourdon 10¹⁴ window. Stop line (5) does not fire. CLEAN.
+
+**The controls, as the gate states them: both confirmed.**
+* **15202440115920748544** is 8 592.2 mean spacings above the page value of zero #10²⁰. So it is zero #10²⁰ + 8 592, inside Odlyzko 1992's #10²⁰ − 30,769,710 … #10²⁰ + 144,818,015 and inside Gourdon's #10²⁰ + 4 … #10²⁰ + 2·10⁹ − 1.
+* **2513274122900000** is 2.0000·10⁴ in t above the page's 12-digit start 2.51327412288·10¹⁵ (19 968.5 above my R-vM start, 1.07·10⁵ zeros), and 1.88·10⁸ in t below the window's end.
+
+**FIX-FIRST (one number): the covered measure.**
+* **The note says "Total measure 2.75·10⁹ in t". That is the plain sum of the fourteen window lengths:** `sweep_plan.json`'s `covered_measure_in_t` = 2 748 240 445.46 equals Σ(t_hi − t_lo) exactly. But five Odlyzko 1992 sets (N = 10¹⁴, 10¹⁶, 10¹⁸, 10¹⁹, 10²⁰) overlap the Gourdon windows, so the sum counts them twice.
+* **The covered measure (the union) is 2.718·10⁹, from my windows and from Job 1's plan windows alike (2.71788·10⁹ against 2.71789·10⁹).** The fraction is 2.718·10⁻¹¹, so "2.7·10⁻¹¹" stands.
+* **Fix**, in §5 (map bullet 2) and §9 F3:
+  * "Total measure 2.75·10⁹ in t" → "Total measure (union) 2.72·10⁹ in t (the plain sum 2.75·10⁹ counts the five Odlyzko 1992 sets that overlap Gourdon's windows twice)";
+  * `sweep_plan.json` `covered_measure_in_t` should be the union in a v3, or the key renamed `sum_of_window_lengths` (the orchestrator's call; the plan is Job 1's file).
+* Correcting my part A: CHECK-O-A's "the covered measure changes by less than 10⁻³ of itself" was about adding the four windows; I did not compute the union then.
+
+**MINOR: the precision of the plan's window edges.**
+* §5 says the R-vM heights carry an "error a few units of t", and the plan pads each window by ±100.
+* But the plan stores `t_lo`/`t_hi` as doubles. Above 10¹⁸ their ulp is 256–4 096. Against my 40-digit inversion the plan's edges differ by up to 773 (Gourdon 10²⁰ `t_lo`), 3 029 (its `t_hi`) and 3 874 / 5 849 (the 2·10²⁰ set). At several edges the plan's window is narrower than the unpadded window.
+* No conclusion moves: the nearest non-control height is 7.5·10¹⁰ spacings away, and the control is 1 275 in t above zero #10²⁰, which is 2.2·10⁷ inside the window.
+* MINOR wording in §5: "error a few units of t" → "error a few units of t below 10¹⁸; above it the double storage of the edges (ulp up to 4 096) dominates, irrelevant at the sweep's margins (≥ 7.5·10¹⁰ spacings)".
+
