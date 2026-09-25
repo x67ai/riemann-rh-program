@@ -32,8 +32,8 @@ ZOO = ROOT / "BARRIER-ZOO.md"
 PROPOSED = ROOT / "results" / "zoo-s27" / "zoo-entries-proposed.md"
 S26 = ROOT / "results" / "zoo-s26" / "zoo-entries-proposed.md"
 ZOO_HASH_BEFORE = "576dbd4410ffbb3166c06c38628bf27c487a910dac83295e27cc6a76cd8f8836"
-LABEL_OLD = "`[novelty: single-check]`"
-LABEL_NEW_RE = re.compile(r"`\[dual-model check, \d{4}-\d{2}-\d{2}: Opus reader, results/zoo-s27/zoo-entries-read-O\.md\]`")
+LABEL_OLD = "`[novelty: single-check]` until this stream's Opus reader has read the note."
+LABEL_NEW_RE = re.compile(r"`\[dual-model check, \d{4}-\d{2}-\d{2}: Opus reader, results/zoo-s27/zoo-entries-read-O\.md\]`\.")
 
 args = sys.argv[1:]
 allow_flip = False
