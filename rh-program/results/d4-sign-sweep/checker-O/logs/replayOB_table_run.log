@@ -14,5 +14,14 @@
 | 15202440115920748544 | 22 | 171148332 (same) | 5 (8) | +7.26155582978567637e-02 | 1.47e-15 | 0.00e+00 | True; False; True | 4.40e-10 | None/None | PASS |
 | 30001753328000000000 | 22 | 171148332 (same) | 5 (8) | +6.47390754065960694e-02 | 7.48e-15 | 0.00e+00 | True; False; True | 7.72e-10 | None/None | PASS |
 | 94873874315016716288 | 22 | 171148332 (same) | 5 (8) | +7.09387419538002467e-02 | 6.05e-14 | 0.00e+00 | True; False; True | 2.22e-09 | None/None | PASS |
+| 3000175332900 | 28.35 | 75148949134 (same) | 1057 (8) | +2.22665059983847939e-02 | 1.26e-15 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 100000000000000 | 28.35 | 75148949134 (same) | 1044 (8) | +2.40327530297537000e-02 | 1.25e-15 | 0.00e+00 | True; False; True | 1.00e-10 | None/None | PASS |
+| 10000000000000000 | 28.35 | 75148949134 (same) | 1075 (8) | +1.84337907672646253e-02 | 1.21e-15 | 0.00e+00 | True; False; True | 1.02e-10 | None/None | PASS |
+| 1000000000000000000 | 28.35 | 75148949134 (same) | 1191 (8) | +3.26830545503376813e-02 | 1.39e-15 | 0.00e+00 | True; False; True | 2.51e-10 | None/None | PASS |
+| 15202440115920748544 | 28.35 | 75148949134 (same) | 1239 (8) | +3.74731402730603125e-02 | 7.17e-15 | 0.00e+00 | True; False; True | 2.39e-09 | None/None | PASS |
+| 61609351296641974272 | 28.35 | 75148949134 (same) | 1242 (8) | +3.41904740040834959e-02 | 5.39e-14 | 0.00e+00 | True; False; True | 9.39e-09 | None/None | PASS |
 L = 22: 14 points; PASS 14; worst |dW| vs Job 1 6.048e-14 at t = 94873874315016716288 (tol there 2.224e-09, ratio 2.7e-05); worst |dW| vs replayO 0.000e+00 at t = 3000175332800; bit-identical W 14/14; max ratio dW/(line) where line>0 2.69e+00
-ALL: 14 points, FAIL 0; worst |dW| vs Job 1 6.048e-14
+L = 28.35: 6 points; PASS 6; worst |dW| vs Job 1 5.392e-14 at t = 61609351296641974272 (tol there 9.395e-09, ratio 5.7e-06); worst |dW| vs replayO 0.000e+00 at t = 3000175332900; bit-identical W 6/6; max ratio dW/(line) where line>0 2.78e+00
+ALL: 20 points, FAIL 0; worst |dW| vs Job 1 6.048e-14
+P_hi bit-identical to the earlier replay at 20/20; max |P_lo(own) - P_lo(earlier)| = 2.833e-30 at 3000175332900 L28.35; ARCH identical 20/20
+wall per tier-2 point (s): [('3000175332900', 1057), ('100000000000000', 1044), ('10000000000000000', 1075), ('1000000000000000000', 1191), ('15202440115920748544', 1239), ('61609351296641974272', 1242)]
