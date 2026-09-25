@@ -1,4 +1,4 @@
-zeros recomputed in 12.7 s; max |gamma - writer's gamma| = 0.00e+00
+zeros recomputed in 12.9 s; max |gamma - writer's gamma| = 0.00e+00
 T = 3552.792, ell = 6.3376, W = 39.186, W*ell/2pi = 39.53
 
 === (4) Jacobian singular values at zeta's 40 positions (simple marks) ===
@@ -16,13 +16,13 @@ T = 3552.792, ell = 6.3376, W = 39.186, W*ell/2pi = 39.53
   L = 12.000  count LW/pi =  149.7  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 3.55e-01
 
 === 26s+7d (N_d = 33, N_d/N = 0.825) ===
-  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 2.065e-11, relative 1.502e-12 (writer 1.238e-10); off-grid max|E| 3.186e-11
-  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 2.010e-11, relative 2.084e-12 (writer 2.085e-09); off-grid max|E| 1.535e-10
-  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 8.130e-09, relative 1.003e-09 (writer 1.287e-08); off-grid max|E| 7.100e-07
-  L =  2.000 (alpha 0.316, count   24.9): best RMS|E| = 2.050e-04, relative 2.859e-05 (writer 5.705e-06); off-grid max|E| 8.554e-04
-  L =  2.500 (alpha 0.394, count   31.2): best RMS|E| = 6.619e-02, relative 1.005e-02 (writer 9.007e-03); off-grid max|E| 2.597e-01
-  L =  3.000 (alpha 0.473, count   37.4): best RMS|E| = 3.853e-01, relative 6.127e-02 (writer 5.034e-02); off-grid max|E| 1.004e+00
-  L =  3.500 (alpha 0.552, count   43.7): best RMS|E| = 4.891e-01, relative 8.128e-02 (writer 7.225e-02); off-grid max|E| 1.119e+00
+  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 1.269e-13, relative 9.232e-15 (writer 1.238e-10); off-grid max|E| 1.518e-10
+  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 5.286e-13, relative 5.480e-14 (writer 2.085e-09); off-grid max|E| 6.594e-11
+  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 7.546e-09, relative 9.312e-10 (writer 1.287e-08); off-grid max|E| 7.822e-07
+  L =  2.000 (alpha 0.316, count   24.9): best RMS|E| = 2.050e-04, relative 2.859e-05 (writer 5.705e-06); off-grid max|E| 4.001e+00
+  L =  2.500 (alpha 0.394, count   31.2): best RMS|E| = 6.619e-02, relative 1.005e-02 (writer 9.007e-03); off-grid max|E| 4.259e+00
+  L =  3.000 (alpha 0.473, count   37.4): best RMS|E| = 3.853e-01, relative 6.127e-02 (writer 5.034e-02); off-grid max|E| 4.846e+00
+  L =  3.500 (alpha 0.552, count   43.7): best RMS|E| = 4.891e-01, relative 8.128e-02 (writer 7.225e-02); off-grid max|E| 4.811e+00
   L =  4.000 (alpha 0.631, count   49.9): best RMS|E| = 8.789e-01, relative 1.486e-01 (writer 1.303e-01); off-grid max|E| 2.243e+00
   L =  5.000 (alpha 0.789, count   62.4): best RMS|E| = 1.162e+00, relative 2.041e-01 (writer 1.749e-01); off-grid max|E| 3.016e+00
   L =  6.338 (alpha 1.000, count   79.1): best RMS|E| = 1.943e+00, relative 3.503e-01 (writer 3.251e-01); off-grid max|E| 6.079e+00
@@ -31,12 +31,12 @@ T = 3552.792, ell = 6.3376, W = 39.186, W*ell/2pi = 39.53
   [writer's grid 0.02 + exclusion 0.1/n] L =  2.000: relative 2.168e-05
   [writer's grid 0.02 + exclusion 0.1/n] L =  3.000: relative 4.630e-02
   [writer's grid 0.02 + exclusion 0.1/n] L =  6.338: relative 3.199e-01
-  [49 s]
+  [29 s]
 
 === 28s+6d (N_d = 34, N_d/N = 0.850) ===
-  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 1.100e-11, relative 8.003e-13 (writer 8.434e-11); off-grid max|E| 1.655e-11
-  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 1.292e-11, relative 1.339e-12 (writer 8.344e-10); off-grid max|E| 2.855e-10
-  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 4.205e-09, relative 5.188e-10 (writer 5.136e-09); off-grid max|E| 3.850e-07
+  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 7.442e-14, relative 5.414e-15 (writer 8.434e-11); off-grid max|E| 2.931e-12
+  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 2.823e-13, relative 2.926e-14 (writer 8.344e-10); off-grid max|E| 9.481e-12
+  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 3.111e-09, relative 3.839e-10 (writer 5.136e-09); off-grid max|E| 3.908e-07
   L =  2.000 (alpha 0.316, count   24.9): best RMS|E| = 1.133e-04, relative 1.580e-05 (writer 4.535e-06); off-grid max|E| 5.410e-04
   L =  2.500 (alpha 0.394, count   31.2): best RMS|E| = 6.313e-02, relative 9.588e-03 (writer 8.730e-03); off-grid max|E| 2.473e-01
   L =  3.000 (alpha 0.473, count   37.4): best RMS|E| = 3.746e-01, relative 5.957e-02 (writer 4.617e-02); off-grid max|E| 1.110e+00
@@ -49,25 +49,25 @@ T = 3552.792, ell = 6.3376, W = 39.186, W*ell/2pi = 39.53
   [writer's grid 0.02 + exclusion 0.1/n] L =  2.000: relative 1.349e-05
   [writer's grid 0.02 + exclusion 0.1/n] L =  3.000: relative 4.617e-02
   [writer's grid 0.02 + exclusion 0.1/n] L =  6.338: relative 2.931e-01
-  [91 s]
+  [49 s]
 
 === (5) control (V.4): 40 simples ===
-  sigma 0.15, L =  1.000 (count   12.5): best RMS = 6.636e-09, max|tau - gamma| = 2.534e-01, nfev 3000, bitwise equal to gamma: False
-  sigma 0.15, L =  2.000 (count   24.9): best RMS = 1.744e-10, max|tau - gamma| = 5.301e-02, nfev 3000, bitwise equal to gamma: False
-  sigma 0.15, L =  2.500 (count   31.2): best RMS = 9.292e-13, max|tau - gamma| = 4.229e-10, nfev 402, bitwise equal to gamma: False
-  sigma 0.15, L =  3.000 (count   37.4): best RMS = 0.000e+00, max|tau - gamma| = 0.000e+00, nfev 8, bitwise equal to gamma: True
-  sigma 0.15, L =  3.500 (count   43.7): best RMS = 0.000e+00, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
-  sigma 0.15, L =  5.000 (count   62.4): best RMS = 0.000e+00, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
-  sigma 0.15, L =  6.338 (count   79.1): best RMS = 0.000e+00, max|tau - gamma| = 0.000e+00, nfev 8, bitwise equal to gamma: True
-  sigma 0.15, L = 12.000 (count  149.7): best RMS = 0.000e+00, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
-  sigma 0.5, L =  1.000 (count   12.5): best RMS = 3.927e-08, max|tau - gamma| = 6.379e-01, nfev 3000, bitwise equal to gamma: False
-  sigma 0.5, L =  2.000 (count   24.9): best RMS = 1.421e-07, max|tau - gamma| = 2.891e-01, nfev 3000, bitwise equal to gamma: False
-  sigma 0.5, L =  2.500 (count   31.2): best RMS = 8.453e-13, max|tau - gamma| = 1.774e-11, nfev 914, bitwise equal to gamma: False
-  sigma 0.5, L =  3.000 (count   37.4): best RMS = 2.473e-16, max|tau - gamma| = 0.000e+00, nfev 14, bitwise equal to gamma: True
-  sigma 0.5, L =  3.500 (count   43.7): best RMS = 3.657e-16, max|tau - gamma| = 0.000e+00, nfev 15, bitwise equal to gamma: True
-  sigma 0.5, L =  5.000 (count   62.4): best RMS = 6.426e-01, max|tau - gamma| = 1.283e+00, nfev 33, bitwise equal to gamma: False
-  sigma 0.5, L =  6.338 (count   79.1): best RMS = 6.432e-01, max|tau - gamma| = 7.596e-01, nfev 27, bitwise equal to gamma: False
-  sigma 0.5, L = 12.000 (count  149.7): best RMS = 3.117e+00, max|tau - gamma| = 1.000e+00, nfev 114, bitwise equal to gamma: False
+  sigma 0.15, L =  1.000 (count   12.5): best RMS = np.float64(1, max|tau - gamma| = 3.035e-01, nfev 4000, bitwise equal to gamma: False
+  sigma 0.15, L =  2.000 (count   24.9): best RMS = np.float64(4, max|tau - gamma| = 4.506e-02, nfev 4000, bitwise equal to gamma: False
+  sigma 0.15, L =  2.500 (count   31.2): best RMS = np.float64(8, max|tau - gamma| = 6.048e-11, nfev 2577, bitwise equal to gamma: False
+  sigma 0.15, L =  3.000 (count   37.4): best RMS = np.float64(0, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
+  sigma 0.15, L =  3.500 (count   43.7): best RMS = np.float64(0, max|tau - gamma| = 0.000e+00, nfev 8, bitwise equal to gamma: True
+  sigma 0.15, L =  5.000 (count   62.4): best RMS = np.float64(0, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
+  sigma 0.15, L =  6.338 (count   79.1): best RMS = np.float64(0, max|tau - gamma| = 0.000e+00, nfev 8, bitwise equal to gamma: True
+  sigma 0.15, L = 12.000 (count  149.7): best RMS = np.float64(0, max|tau - gamma| = 0.000e+00, nfev 7, bitwise equal to gamma: True
+  sigma 0.5, L =  1.000 (count   12.5): best RMS = np.float64(2, max|tau - gamma| = 4.907e-01, nfev 4000, bitwise equal to gamma: False
+  sigma 0.5, L =  2.000 (count   24.9): best RMS = np.float64(8, max|tau - gamma| = 2.780e-01, nfev 4000, bitwise equal to gamma: False
+  sigma 0.5, L =  2.500 (count   31.2): best RMS = np.float64(7, max|tau - gamma| = 7.276e-12, nfev 2161, bitwise equal to gamma: False
+  sigma 0.5, L =  3.000 (count   37.4): best RMS = np.float64(3, max|tau - gamma| = 0.000e+00, nfev 25, bitwise equal to gamma: True
+  sigma 0.5, L =  3.500 (count   43.7): best RMS = np.float64(3, max|tau - gamma| = 0.000e+00, nfev 16, bitwise equal to gamma: True
+  sigma 0.5, L =  5.000 (count   62.4): best RMS = np.float64(0, max|tau - gamma| = 1.816e+00, nfev 61, bitwise equal to gamma: False
+  sigma 0.5, L =  6.338 (count   79.1): best RMS = np.float64(1, max|tau - gamma| = 1.310e+00, nfev 26, bitwise equal to gamma: False
+  sigma 0.5, L = 12.000 (count  149.7): best RMS = np.float64(3, max|tau - gamma| = 1.184e+00, nfev 133, bitwise equal to gamma: False
 
-total 108.1 s
-python3 -u window_residual_O.py  241.27s user 10.52s system 232% cpu 1:48.37 total
+total 60.2 s
+python3 -u window_residual_O.py  61.00s user 0.10s system 101% cpu 1:00.44 total
