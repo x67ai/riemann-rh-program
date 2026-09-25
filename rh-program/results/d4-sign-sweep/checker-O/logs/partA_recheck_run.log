@@ -1,0 +1,57 @@
+== (b) eps governance ==
+eps_phi.json eps_phi_per_t = 1.0266395604864687e-30 | equals proven: True
+  basis starts: PROVEN a-priori bound on the dd log of harness/d4_twisted_su | contains BINDING: True | contains PROVEN: True
+  measured_sample_max: {'job1_1000n_x8_selftests': 6.392019332313393e-31, 'job2_200000n_at_1e20': 6.686e-31, 'note': 'sample maxima over the n sampled, NOT bounds; kept as measurements beside the proven figure'}
+  retired: {'brief_constant': 2.2e-31, 'v1_sampled': 6.392019332313393e-31, 'v1_apriori_estimate': 2.1e-30}
+binary run with NO arguments (no --eps-phi): exit code 2 | stderr: --eps-phi is mandatory: pass the governing per-unit-t phase bound explicitly (the proven bound is EPS_PHI_PER_T = 1.0266395604864687e-30; harness/eps_phi.json; checker-O/job1_ddlog_bound.py) | stdout bytes 0 | files written: []
+binary run with --t 1e6 --L 10 --out x.json, no --eps-phi: exit code 2 | stderr: --eps-phi is mandatory: pass the governing per-unit-t phase bound explicitly (the proven bound is EPS_PHI_PER_T = 1.0266395604864687e-30; harness/eps_phi.json; checker-O/job1_ddlog_bound.py) | files written: []
+source EPS_PHI_PER_T = 1.0266395604864687e-30 | equals proven: True
+binary on disk 2be891b6088871cbbac4c3a5d31a2dd5af19d1e8ababea7c389ea00d7aad46bc | source on disk 7893f32e6f739df517a1d33289b9d0b4a1ebb6e07dc8abfd9e2d32ee45a3c480
+hashes.txt fix-pass block header: # --- fix pass (Fri Sep 25 03:43:55 IST 2026; CHECK-O-A.md (b), (c), (e), (f)): third build of the h
+    7893f32e6f739df517a1d33289b9d0b4a1ebb6e07dc8abfd9e2d32ee45a3c480  harness/d4_twisted_sum.rs
+    2be891b6088871cbbac4c3a5d31a2dd5af19d1e8ababea7c389ea00d7aad46bc  harness/d4_twisted_sum
+    f6256dedf9a7d1e667cf1ab8da07af68feb5e6c98bea2d87a6f00ececfc2c2a4  harness/d4_twisted_sum.v2
+    aa5e22eeb323137e395b6d37333a8f06f566e02d3061a982cf9ff1bd76437d36  harness/d4_point.py
+    03fe239f59077283b01e4a5400bac7c4c5d1e54d743d3ab4b356849c2890ebf1  harness/d4_point.v1.py
+    9b360e83c95417dd53206170e10469720f6f8bfe9c3845e0b8a16fc1cb0e3947  harness/d4_plan.py
+    ece1f52d40b3d338a478321475bbc0190d0756f83b2838156e338797c97881e4  harness/d4_plan.v1.py
+    809b7ba6a2dfa4e0599ab22d9cfb785cc9deaaf6524e9481c5017e8845da054c  harness/sweep_plan.json
+    4f0ba4805fbe2bbcdc13924f342e0881b23e0c0e5be37c26d674e4b7001703cf  harness/eps_phi.json
+    0c4afb758bcd2b2e4d30718287924b66114aeefe15827a51b9df017d1d0ee1b4  harness/d4_sidecar_eps_proven.py
+    cdbcc07ed8b2ed7e96674fc263c967c96e6c1b4dcd2cd1092752589e9c07a308  harness/d4_run_tier.py
+binary in fix-pass block: True | source in block: True
+own l1(L = 20) = 12.539725546518047 (twsumO, exact sum of |w_n| over n <= X) -> t_ceil = 1e-8/(eps*l1) = 7.7677e+20
+own l1(L = 22) = 21.807415922058 (twsumO, exact sum of |w_n| over n <= X) -> t_ceil = 1e-8/(eps*l1) = 4.4666e+20
+own l1(L = 28.35) = 146.95060754424256 (twsumO, exact sum of |w_n| over n <= X) -> t_ceil = 1e-8/(eps*l1) = 6.6284e+19
+  plan l1_used: {'22': 21.809509312819866, '28.35': 146.95060754424162} | plan t_ceil: {'22': 4.466178844686461e+20, '28.35': 6.628429152739855e+19}
+plan tier1 entries with phase_line_L22 and accepted: 121 / 121 ; accepted 121
+plan tier1 controls with line and accepted: [('2513274122900000', 5.627347695424498e-14, True), ('15202440115920748544', 3.4039031226901095e-10, True)]
+plan tier2 entries: [('3000175332900', '4.526e-16', True), ('100000000000000', '1.509e-14', True), ('10000000000000000', '1.509e-12', True), ('1000000000000000000', '1.509e-10', True), ('15202440115920748544', '2.294e-09', True), ('61609351296641974272', '9.295e-09', True)]
+plan tier2_refused: [('100000000000000000000', '1.509e-08', False)]
+ladder k = 117: t = 61609351296641974272; own line at L = 28.35 = 9.2947e-09 -> accepted
+ladder k = 118: t = 71145368965766258688; own line at L = 28.35 = 1.0733e-08 -> REFUSED
+t = 1e20 at L = 28.35: own line 1.5087e-08 -> REFUSED
+largest own tier-1 line at L = 22: 2.1241e-09
+ladder recomputed round(PT*10^(k/16)) -> nearest double, k = 0..120: mismatches [(38, 711453689657663, '711453689657662'), (44, 1687122572450149, '1687122572450148'), (50, 4000798106536533, '4000798106536534'), (54, 7114536896576626, '7114536896576625'), (55, 8215739037575134, '8215739037575135'), (56, 9487387431501672, '9487387431501674'), (57, 10955864087667324, '10955864087667322'), (58, 12651634475144432, '12651634475144430'), (59, 14609879568772856, '14609879568772858'), (67, 46200495778080840, '46200495778080848'), (72, 94873874315016736, '94873874315016720'), (78, 224981410904879360, '224981410904879328'), (88, 948738743150167296, '948738743150167168'), (90, 1265163447514443008, '1265163447514443264'), (97, 3464548425227139584, '3464548425227140096'), (98, 4000798106536533504, '4000798106536532992'), (102, 7114536896576625664, '7114536896576626688'), (108, 16871225724501485568, '16871225724501487616'), (109, 19482587526283669504, '19482587526283665408'), (113, 34645484252271398912, '34645484252271394816'), (119, 82157390375751352320, '82157390375751335936'), (120, 94873874315016732672, '94873874315016716288')]
+-- landed JSONs: eps_phi_per_t_used and phase_line = eps*t*l1_norm --
+landed zeta JSONs: 133 | sweep (tier 1/2): 128 | other (rehearsal): 5 [(1000000000000, 20.0), (1000000000000, 28.35), (1000000, 10.0), (1000000, 20.0), (3000175332900, 28.35)]
+sweep JSONs with eps_phi_per_t_used == proven: 128 ; not: []
+all 133: phase_line == eps_used*t*l1_norm (rel 1e-12): 133 / 133 ; failures []
+all 133: proven line present (in the JSON or its sidecar) and equal to eps_proven*t*l1_norm: 133 / 133 ; failures []
+binary-printed phase line (sum JSON, 6 digits) equals the JSON line to 6 digits: 129 / 133 ; no sum line: 0 ; failures [(1000000000000, 20.0, 2.75874e-18, 8.01539256933429e-18), (1000000000000, 28.35, 3.232913e-17, 9.393111243179907e-17), (1000000, 10.0, 3.205099e-25, 9.312270341658384e-25), (1000000, 20.0, 2.75874e-24, 8.01539256933429e-24)]
+sum JSON eps_phi_per_t values over the sweep: ['1.02664e-30']
+-- sidecars --
+zeta_t1000000000000_L20.sidecar.json: of-sha matches file True; eps_run 6.3920e-31 == JSON True; line_proven 1.2874e-17 (own 1.2874e-17); refused False; budget run/proven 8.5317e-14/8.5322e-14 (rel change 5.7e-05); W == JSON True; tol 1.0000001287e-10; binary annotation keys ['binary_sha256_in_json', 'note']
+zeta_t1000000000000_L28.35.sidecar.json: of-sha matches file True; eps_run 6.3920e-31 == JSON True; line_proven 1.5087e-16 (own 1.5087e-16); refused False; budget run/proven 8.9188e-13/8.9194e-13 (rel change 6.4e-05); W == JSON True; tol 1.0000015087e-10; binary annotation keys ['fix', 'binary_sha256_in_json', 'meaning_of_binary_sha256_in_json', 'binary_that_ran', 'meaning_of_binary_that_ran', 'reader_rule']
+zeta_t1000000_L10.sidecar.json: of-sha matches file True; eps_run 6.3920e-31 == JSON True; line_proven 1.4957e-24 (own 1.4957e-24); refused False; budget run/proven 1.9574e-14/1.9574e-14 (rel change 2.9e-11); W == JSON True; tol 1.0000000000e-10; binary annotation keys ['binary_sha256_in_json', 'note']
+zeta_t1000000_L20.sidecar.json: of-sha matches file True; eps_run 6.3920e-31 == JSON True; line_proven 1.2874e-23 (own 1.2874e-23); refused False; budget run/proven 8.5309e-14/8.5309e-14 (rel change 5.7e-11); W == JSON True; tol 1.0000000000e-10; binary annotation keys ['binary_sha256_in_json', 'note']
+zeta_t3000175332900_L28.35.sidecar.json: of-sha matches file True; eps_run 6.3920e-31 == JSON True; line_proven 4.5262e-16 (own 4.5262e-16); refused False; budget run/proven 8.9203e-13/8.9220e-13 (rel change 1.9e-04); W == JSON True; tol 1.0000045262e-10; binary annotation keys ['binary_sha256_in_json', 'note']
+== (f) binary_sha256 ==
+sweep JSONs by binary_sha256: Counter({'2be891b6088871cb': 128})
+sweep JSONs whose binary_sha256 != 2be891b6...: []
+sweep JSONs with binary_hashed_at "launch...": 128 ; sum_reused True: []
+rehearsal JSONs: [(1000000000000, 20.0, 'f97fc582a5463647', ''), (1000000000000, 28.35, 'f6256dedf9a7d1e6', 'f97fc582a5463647'), (1000000, 10.0, 'f97fc582a5463647', ''), (1000000, 20.0, 'f97fc582a5463647', ''), (3000175332900, 28.35, 'f6256dedf9a7d1e6', '')]
+d4_point.py line 49: bin_sha_launch = sha(BIN); src_sha_launch = sha(os.path.join(HERE, 'd4_twisted_sum.rs'))   # fix (f): hashed at launch, before the sum -- the binary that RUNS
+d4_point.py line 50: out(f"[{now()}] d4_point.py start: t = {t_str}, L = {L}, threads = {A.threads}, eps_phi/t = {eps:.3e} (governing: proven bound), tier = {A.tier} {A.label}; binary at laun
+d4_point.py line 145: binary_sha256=bin_sha_launch, binary_hashed_at='launch, before the sum: the binary that ran (fix (f))', binary_sha256_at_assembly=sha(BIN), source_sha256=src_sha_launch, 
+d4_point.py line 111 (a binary call): r = subprocess.run([BIN, '--mode', 'dh', '--t', T85, '--L', '10', '--threads', '2', '--eps-phi', repr(eps), '--out', dh_json], capture_output=True, te
