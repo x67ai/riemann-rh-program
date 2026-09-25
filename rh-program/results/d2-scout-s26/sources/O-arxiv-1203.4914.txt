@@ -1,0 +1,1233 @@
+                                                              Compactifying Spec Z
+
+
+
+
+arXiv:1203.4914v2 [math.AG] 23 Mar 2012
+                                                                        Satoshi Takagi
+
+                                                                              Abstract
+                                                   In this paper, we introduce a new algebraic type of ‘convexoid
+                                               rings’, and we give the definition of (weak) convexoid schemes, which
+                                               share similar properties with ordinary schemes. As a result, we give a
+                                               purely-algebraic construction of the compactification Spec Z = Spec Z∪
+                                               {∞}, which is realized as the Zariski-Riemann space of Spec Z in the
+                                               category of weak convexoid schemes.
+
+
+                                          Contents
+                                          0 Introduction                                                                 1
+
+                                          1 Preliminary Observations                                                     4
+
+                                          2 Convexoids                                                                   7
+
+                                          3 Ostrowski’s Theorem                                                         13
+
+                                          4 Convexoid schemes                                                           16
+
+                                          5 Graded convexoid rings and Proj                                             18
+
+                                          6 Weak convexoid schemes                                                      21
+
+                                          7 Appendix: Embedding of Proj R0                                              25
+
+
+                                          0    Introduction
+                                          In this paper, we give a purely-algebraic construction of the compactification
+                                          Spec Z = Spec Z ∪ {∞}.
+
+                                                                                 1
+    The philosophy of Arakelov tells that the correct compactification of
+Spec Z should be the space which consists of finite places together with the
+infinite place ∞. However, the conventional theories could not obtain this
+space canonically, since Spec Z is the final object in the category of schemes.
+Therefore, Arakelov geometers and number theorists had to give ad hoc def-
+inition for the desired spaces: in Arakelov geometry, we endow an hermitian
+metric on vector bundles, as a substitute for the information on the infinite
+place; in number theory, places (finite or infinite) are defined by valuations,
+and is not defined algebraically.
+    Here it might be valuable to ask why these concepts and definitions behave
+so nicely, not how. Also, we might ask why the infinite place cannot be
+realized within the category of schemes.
+    The key point is simple. Here, we give a new type of algebra which
+we call convexoid rings: these have two binary operators ⊞ and ×, and
+are (commutative) monoids with respect to ×: however, we do not assume
+the associativity of ⊞. The category of convexoid rings contains that of
+rings as a full subcategory (and also, multiplicative monoids with absorbing
+elements), and we can consider ‘convexoid schemes’ as a generalization of
+schemes. We can go further, and define ‘weak convexoid schemes’ so that
+we can treat Zariski-Riemann spaces properly. As a corollary, we obtain the
+main theorem:
+Theorem 0.1. The compactification Spec Z = Spec Z∪{∞} of Spec Z can be
+realized as a weak convexoid scheme. It is defined by the universal property,
+namely the Zariski-Riemann space of Spec Z over Proj R0 , where R0 is the
+initial object in the category of convexoid rings. The stalk O∞ of Spec Z at
+the infinity place is the valuation convexoid ring DQ, which is the unit disk
+in Q consisting of rationals the absolute value of which is not more than 1.
+    This theorem can also be extended to the ring of integers OK of any
+algebraic field K.
+    We remark that the set Γ(Spec Z, O) of global sections is {0, ±1}, which
+some F1 -geometers denote by F12 . This does not have the ⊞-structure, but
+only the multiplicative monoid structure as expected. We dare not say that
+we have obtained the correct definition of F1 (or F12 ); many people are hoping
+for too many dreams on F1 , and we just gave a partial answer for this.
+    We also remark that this compactification of Spec Z is almost identical
+to that of Haran’s [H], or even that of Durov’s [Du]; of course they are not
+mentioning the convexoid structure, but at least the stalks of the structure
+
+                                      2
+sheaves on the infinite places coincide as a multiplicative monoid. However,
+we emphasize the fact that the construction given in this paper canonically
+induces the archimedean norm structure from the algebraic structure, and
+therefore Spec Z is determined by the universal property; while the other
+two bring the archimedean norm structure outside the algebraic world and
+therefore their definitions are ad hoc.
+    This paper is organized as follows: In §1, we illustrate how we come
+up with convexoids, since the reader may wonder why he or she has to be
+involved with it instead of sticking to the classical world of rings.
+    In §2, we give the definition of multi-convexoids and multi-convexoid
+rings, and see that their behaviour is quite similar to those of rings.
+    In §3, we prove a variant of the classical Ostrowski’s theorem. The crucial
+difference is that it is formulated in completely algebraic terms, and this
+theorem lies at the heart of the main result of this paper.
+    In §4, we give the definition of convexoid schemes. It is already assured
+that we can define them analogously as the theory of ordinary schemes [T1].
+However to reach the goal, we must weaken the condition of what a ‘patching’
+should be, by admitting certain kinds of twists, or in other words, weak
+homomorphisms. A twist does not affect the semiring of ideals, hence we
+can safely run the construction of the underlying space of the spectrum. We
+also give the construction of the ‘fake closure’ of Spec Z: this is a convexoid
+scheme with the underlying space homeomorphic to Spec Z, and is close to
+our answer. Still, it is mal-behaved on the infinite place, hence we will seek
+for further improvement in the latter sections.
+    In §5, we give the definition of graded convexoid rings, and the convex-
+oid schemes Proj A for a graded convexoid ring A. These constructions are
+completely analogous to those of rings, and we claim that the above ‘fake
+closure’ can be expressed as Proj R0 , which turns out to be a very natural
+object.
+    In §6, we define the notion of weak convexoid schemes, which is a variant
+of weak C -schemes introduced in [T1]. This enables us to treat Zariski-
+Riemann spaces, and as a result, we finally reach the correct definition of
+Spec Z.
+    The last section §7 is an appendix, which shows that the analogy of
+linear systems and projective morphisms in algebraic geometry is also valid
+for Spec R0 , and that we have an immersion Proj R0 → P, where P is a
+proprojective space over F12 . The concepts and statements introduced in this
+section are by no means precise: these will be affirmed in the forthcoming
+
+                                      3
+papers.
+    Notation and conventions: Any ring is unital. We denote by (CMnd0 )
+(resp. (CRing)) the category of commutative monoids with absorbing ele-
+ments (resp. commutative rings) and their homomorphisms. For any subring
+R of C, we denote by DR the unit disk {x ∈ R | |x| ≤ 1}. This has a struc-
+ture of a convexoid ring (see Definition 2.1 and Theorem 3.1). When given a
+commutative (convexoid) ring R, we denote by Ω(R) the distributive lattice
+of finitely generated ideals of R modulo√the congruence
+                                               √         a2 = a. Two ideals
+a and b is equal in Ω(R) if and only if a = b.
+    We frequently use the terminologies of category theory, based on the
+textbook [CWM]. The theory of convexoid schemes shares most of the part
+with the one already exposited in [T1] and [T2]; we will not repeat the
+argument here, and many basic facts will be referred to the above mentioned
+articles.
+
+
+1    Preliminary Observations
+The development of the theory of schemes over F1 arose recently, motivated
+by the Riemann hypothesis.
+   Weil’s conjecture, which is an analogy of the Riemann hypothesis for the
+positive characteristic case, has been proved by Deligne [Del], by considering
+the multiple zeta function on the n-fold product
+
+                           X ×Fq X ×Fq · · · ×Fq X
+
+of the given projective variety X over Fq .
+    Many people are hoping to imitate this method to prove the original
+Riemann hypothesis up to now. The essential part is to find a correct ‘base
+field’ F1 , which is called the field with one element, so that we can regard
+Spec Z as an open curve defined over F1 , and consider the n-fold object
+
+                        Z⊗n = Z ⊗F1 Z ⊗F1 · · · ⊗F1 Z
+
+with a multiple zeta function defined over it. Although Z⊗n is not defined
+appropriately yet, the preferred multiple zeta function is constructed [K].
+   Also, we would like to obtain the compactification of Spec Z over F1 so
+that we could formulate Lefschetz-type formula for the complete zeta function
+
+
+                                      4
+[Den]:
+                         2                                         (−1)i+1
+                         Y                   1
+               ζ̂(s) =          det∞           (s − Θ)|H i (X, R)              .
+                         i=0
+                                            2π
+Connes has shown the determinantal representation of the Riemann zeta
+function [C1], and furthermore gave a geometric representation, by consid-
+ering a function space on a projective line over F1 [C2].
+     These results are suggesting the importance of the theory of schemes over
+F1 , apart from the philosophy of Arakelov. However, the definition of F1 has
+not reached a full agreement yet. See [PL] for the survey in this topic.
+     Let us go back to try for the compactification of Spec Z.
+     Recall that, when we are given a (non-compact) smooth curve X over
+a base field k, we can construct its universal compactification as a Zariski-
+Riemann space ZR(X, k) , namely the spaces of valuation rings over k:
+
+                               Spec k(X)            // X = ZR(X, k)
+                                                        ♥♥
+                                                 ♥♥♥♥♥
+                                              ♥♥♥
+                                       vv♥♥♥
+                                Spec k
+
+Therefore, if we wish some analogy to hold, Spec Z should then be the Zariski-
+Riemann space of Spec Z over F1 :
+
+                     Spec Z               // Spec Z = ZR(Spec Z, F1 )
+                                                  ❦❦❦
+                                         ❦  ❦❦❦❦❦❦
+                                        ❦
+                                uu❦❦❦❦
+                    Spec F1 .
+
+However, since Z is the initial object in the category of rings, we cannot have
+a ‘base field’ F1 in the category of rings; we must widen our perspectives.
+    Some experts say that F1 -algebras should be regarded as a monoid, and
+schemes over F1 is a geometric object constructed from monoids. One way
+to look at is that F1 is the initial element in the category of commutative
+monoids with absorbing elements: F1 = {0, 1}. (We can further attach an
+idempotent additive structure so that F1 becomes a Boolean algebra, but this
+is not essential.) However, it is doubtful that we can recover the infinite place,
+only by considering the multiplicative monoid structure: indeed, we can
+define and consider Zariski-Riemann spaces for a morphism of commutative
+monoids. When applying this to F1 → Z, we obtain a ‘proper space’ X
+
+                                                 5
+over Spec F1 . However, this has infinitely many infinite places. This happens
+since we ignore the additive structure, and hence also the archimedean norm
+structure of Z.
+    This observation shows that we cannot totally abandon the additive struc-
+ture.
+    Let us look more closely. On a finite place p of Z, we obtain a local ring
+(more precisely, a discrete valuation ring) Z(p) , and by completion we obtain
+the ring Zp of p-adic integers. This is the ‘unit disk’ {x ∈ Qp | |x|p ≤ 1}
+of of the p-adic field Qp . If we wish to have an analogy of this for the
+infinite place, then the objects corresponding to Z(p) (resp. Zp , Qp ) should
+be DQ = {x ∈ Q | |x|∞ ≤ 1}, (resp. DR = {x ∈ R | |x|∞ ≤ 1}, R).
+However, we run into a problem since the unit disks DQ and DR are not
+rings: they are multiplicative monoids, but are not closed under addition.
+    This is the central motivation of introducing a new algebra in this paper:
+we want to have an algebraic type V with a multiplicative monoid structure
+such that,
+
+ (1) V -algebras share good properties with those of rings, and
+
+ (2) the category of V -algebras includes the unit disks DQ, DR shown
+     above.
+
+The V -algebras are what we call convexoid rings in this paper.
+    Let us review DQ. This multiplicative monoid is not closed under ad-
+dition; however, we can always think of taking the mean value (a + b)/2
+of two elements a, b ∈ DQ. This binary operation (a, b) 7→ (a + b)/2 will
+be denoted by ⊞. This operation does not satisfy associativity. However,
+the distribution law holds, and its behaviour resembles to that of rings very
+much. Moreover, we can think of convexoid ring spectra and schemes, just
+as in the case of rings. This is because the general scheme theory does not
+require associativity of the underlying operators [T1], such as ⊞.
+    Fortunately, the theorem of Ostrowski (Theorem 3.1) tells that we can
+obtain the preferred valuations of Q only by assuming the condition 1 ⊞ 1 ∈
+R× , where R is the valuation convexoid ring corresponding to the valuation.
+This condition corresponds to the triangular inequality: |a + b| ≤ |a| + |b|.
+Hence, if we denote by R0 the initial object of convexoid rings, then the
+compactification Spec Z can be obtained over R0 [(1 ⊞ 1)−1 ], except for the
+finite place p = 2, which is the antipode of the infinite place.
+
+
+                                      6
+     Until now, we don’t need multi-convexoid rings. However, some problem
+arise when considering projective convexoid schemes. Let us review the con-
+struction Proj A for a commutative ring A. Proj A is covered by the open
+sets of the form D+ (f ), where f is a homogeneous element of A, and D+ (f )
+is isomorphic to
+                           Spec A(f ) = {a/f n | deg a = n deg f }.
+When we try to apply this theory to graded convexoid rings, we cannot
+give an appropriate convexoid structure on A(f ) when deg f > 1, but only a
+multi-convexoid structure. This is why we introduced the notion of multi-
+convexoids. However, multi-convexoids still behave fairly well, and does not
+bother when constructing schemes.
+    This is the rough idea of the theory introduced in this paper.
+
+
+2       Convexoids
+An algebraic type V is commutative (in the sense of [T1]), if for any m-ary
+operator φ and any n-ary operator ψ, the following holds:
+
+    φ(ψ(x11 , · · · , x1n ), · · · , ψ(xm1 , · · · , xmn ))
+                                          = ψ(φ(x11 , · · · , xm1 ), · · · , φ(x1n , · · · , xmn )).
+Definition 2.1. Let d be a positive integer. A d-convexoid is a quadruple
+(G, ⊞d , −, 0) where G is a set, ⊞d (resp. −, 0) is a 2d -ary (resp. unary,
+constant) operator on G such that
+(a) G is commutative,
+(b) ⊞d is symmetric, namely
+                             ⊞d (aσ(1) , · · · , aσ(2d ) ) = ⊞d (a1 , · · · , a2d )
+      for any element σ of the symmetric group S2d .
+(c) ⊞d (a1 , · · · , a2d−1 , −a1 , · · · , −a2d−1 ) = 0 for any element a1 , · · · , a2d−1 ∈
+    G.
+We denote by (Cxdd ) the category of d-convexoids and its homomorphisms.
+When d = 1, we simply say ‘convexoids’ and drop the superscript. Also, we
+write a ⊞ b instead of ⊞1 (a, b) = ⊞(a, b).
+
+                                                    7
+   By the commutativity, the Hom set (Cxdd )(M, N) canonically becomes
+a convexoid for any convexoid M, N, and the composition becomes bilinear.
+Also, we can define the tensor product M ⊗ (−) : (Cxdd ) → (Cxdd ) for
+any convexoid M as the left adjoint of (Cxdd )(M, −). This gives a closed
+symmetric monoidal structure on (Cxdd ). When we do not specify d, we
+merely say multi-convexoids instead of d-convexoids.
+   A d-convexoid ring is a monoid object in (Cxdd ). We denote by (CxdRingd )
+the category of d-convexoid rings and their homomorphisms.
+
+Definition 2.2. Let A be a d-convexoid ring.
+
+ (1) The constant γA = ⊞d (1, 0, · · · , 0) is the fundamental constant of A.
+     Note that this is in the center of A.
+
+ (2) A is normalized, if γA = 1.
+
+   This fundamental constant plays the key role in this algebra.
+   Let (A, ⊞d ) be a d-convexoid ring, and u ∈ A be any element. Then, we
+can define another d-convexoid structure ⊞˜ d by setting
+                        d
+                      ˜
+                      ⊞ (a1 , · · · , a2d ) = u · ⊞d (a1 , · · · , a2d ).
+
+This means that, we have many choices of a ⊞d -structure on a convexoid ring
+A and it is crucial to preserve this flexibility when we consider convexoid
+schemes.
+
+Definition 2.3. (1) A map f : A → B between two d-convexoid rings is
+     a weak homomorphism if
+
+     (a) f is a homomorphism of multiplicative monoids,
+     (b) γB f (⊞d (a1 , · · · , a2d )) = f (γA ) ⊞d (f (a1 ), · · · , f (a2d )), and
+     (c) γB and f (γA ) generates the same ideal in B.
+
+ (2) Two d-convexoid structures ⊞d1 and ⊞d2 on a d-convexoid ring A are
+     equivalent, if the identity map (A, ⊞d1 ) → (A, ⊞d2 ) is a weak isomor-
+     phism.
+
+   It is easy to see that weak homomorphisms are closed under compositions.
+
+Proposition 2.4. Let A be a d-convexoid ring.
+
+                                              8
+ (1) A is equivalent to a normalized d-convexoid ring if and only if γA is
+     invertible.
+
+ (2) In particular if d = 1, then A is equivalent to a ring if and only if γA is
+     invertible.
+
+Proof. (2) It suffices to show that a normalized convexoid ring is a ring.
+      Associativity of ⊞ is given by
+
+        (a ⊞ b) ⊞ c = (a ⊞ b) ⊞ (1 ⊞ 0)c = (a ⊞ b) ⊞ (c ⊞ 0)
+                                          = (a ⊞ 0) ⊞ (b ⊞ c) = a ⊞ (b ⊞ c).
+
+      Also, 0 is the unit with respect to ⊞:
+
+                               a = (1 ⊞ 0)a = a ⊞ 0.
+
+
+
+Corollary 2.5. The left adjoint of the underlying functor U : (Ring) →
+(CxdRing) is given by R 7→ R/ ≡, where ≡ is the congruence generated by
+1 ⊞ 0 = 1.
+
+Corollary 2.6. Let A be a convexoid ring. Then, A[γA−1 ] is equivalent to a
+ring.
+
+   This implies that, rings are in a sense, ‘localizations’ of convexoid rings.
+
+Corollary 2.7. The initial object of (CxdRing) can be realized as the
+smallest subset R0 of the polynomial ring Z[γ] satisfying
+
+(a) 0, 1 ∈ R0 , and
+
+(b) f, g ∈ R0 ⇒ f g, γ(f + g), −f ∈ R0 .
+
+The natural functor F : (CxdRing) → (Ring) gives a surjective convexoid
+ring homomorphism R0 → Z between the initial objects defined by γ 7→ 1.
+
+Lemma 2.8. (1) mγ n ∈ R0 for any non-negative integers m, n such that
+   |m| ≤ 2n .
+
+ (2) In particular, the homomorphism R0 → DZ[1/2] (γ 7→ 1/2) is surjec-
+     tive.
+
+                                       9
+    This is an easy calculation, and the proof is left to the reader.
+
+Proposition 2.9. Let (Mnd0 ) be the category of (multiplicative) monoids
+with absorbing elements. For M ∈ (Mnd0 ), we can define the trivial d-
+convexoid structure on M by ⊞d (a1 , · · · , a2d ) ≡ 0 for any a1 , · · · , a2d ∈ M.
+Hence, we have a fully faithful functor (Mnd0 ) → (CxdRingd ).
+
+    This proposition shows that, any monoid can be regarded as a convexoid
+ring. However, the ⊞-structure has no information in this case.
+    Next, we will compare d-convexoid rings and e-convexoid rings, where e is
+a divisor of d. Let (A, ⊞e ) be an e-convexoid ring. Then we can canonically
+define a d-convexoid structure by induction on d:
+
+  ⊞d (a1 , · · · , a2d ) = ⊞e (⊞d−e (a1 , · · · , a2d−e ), · · · , ⊞d−e (a2d −2d−e +1 , · · · , a2d )).
+
+Proposition 2.10. Suppose d = er for some positive integers e, r. Let
+(A, ⊞d ) be a d-convexoid ring, and suppose the fundamental constant γA is
+a r-th power of an invertible element µ. Then, we can define el-convexoid
+structure on A for 1 ≤ l ≤ r by an descending induction on l:
+
+               ⊞el (a1 , · · · , a2el ) = µ−1 ⊞e(l+1) (a1 , · · · , a2el , 0, · · · , 0).
+
+                                    ˜ d induced from ⊞e coincides with ⊞d .
+Moreover, the d-convexoid structure ⊞
+
+    Note that
+
+                  ⊞el (a1 , · · · , ael ) = µl−r ⊞d (a1 , · · · , a2el , 0, · · · , 0).
+
+Proof. It is a straightforward calculation that ⊞el gives a el-convexoid struc-
+ture on A. We will see that ⊞ ˜ d coincides with ⊞d by induction:
+
+    d
+  ˜
+  ⊞ (a1 , · · · , a2d )
+                  = µ1−r ⊞d (µ−1 ⊞d (a1 , · · · , a2e(r−1) , 0, · · · , 0), · · · ,
+                  µ−1 ⊞d (a2d −2e(r−1) +1 , · · · , a2d , 0, · · · , 0), 0, · · · , 0)
+                          = µ−r ⊞d (⊞d (a1 , · · · , a2d ), 0, · · · , 0) = ⊞d (a1 , · · · , a2d ).
+
+
+
+
+                                                  10
+Definition 2.11. Suppose e is a divisor of a positive integer d. Let A, B be
+an e-convexoid ring and a d-convexoid ring, respectively. A map f : A → B
+is a weak homomorphism if f decomposes into a sequence of maps
+                                    f˜        j
+                                  A → B′ → B
+
+such that
+
+ (1) B ′ is a d-convexoid ring,
+
+ (2) j is a weak isomorphism in the sense of Definition 2.3,
+
+ (3) the d-convexoid structure of B ′ is induced by an e-convexoid structure
+     ⊞eB , and
+
+ (4) f˜ is a weak homomorphism (in the sense of Definition 2.3) with respect
+     to this e-convexoid structure.
+
+A d-convexoid structure ⊞d and an e-convexoid structure ⊞e on A are equiv-
+alent, if the identity maps (A, ⊞e ) → (A, ⊞m ) and (A, ⊞d ) → (A, ⊞m ) are a
+weak isomorphisms for some m-convexoid structure ⊞m , with m a common
+multiple of d and e.
+
+   We can verify that a composition of two weak homomorphism becomes
+again a weak homomorphism.
+   With the aid of Corollary 2.6, we obtain:
+
+Corollary 2.12. Let (A, ⊞d ) be a d-convexoid ring. Then, A[γA−1 ] is equiv-
+alent to a ring.
+
+   Next, we will investigate the spectrum for commutative convexoid rings.
+Here, we will restrict our attention to the Zariski topology.
+   In the sequel, we assume that any convexoid ring is commutative, and its
+fundamental constant is a non-zero divisor.
+                                                                      ˜d
+Proposition 2.13. Let (R, ⊞d ) be a commutative d-convexoid ring, and ⊞
+another d-convexoid structure on R.
+
+ (1) Suppose ⊞ ˜ d is defined by ⊞
+                                 ˜ d = Lu ◦ ⊞d for some u ∈ R, where Lu is the
+     left multiplication of u. Then, there is an immersion Spec R → Spec R̃.
+
+
+                                         11
+                   d
+ (2) If ⊞d and ˜⊞ are equivalent in the sense of Definition 2.3, then ideals
+             d                           ˜ d ). In particular, Spec(R, ⊞d ) and
+     of (R, ⊞ ) are exactly those of (R, ⊞
+     Spec(R, ⊞˜ d ) are canonically homeomorphic.
+
+In particular for a commutative ring R we have immersions
+
+             Spec(Ring) R → Spec(Cxd) (R, ⊞) → Spec(CMnd0 ) R,
+
+where a ⊞ b = u(a + b) is the convexoid structure on R defined by a constant
+u ∈ R, and Spec(Cxd) (R, ⊞) (resp. Spec(CMnd0 ) R) is the spectrum obtained
+by regarding R as a convexoid ring (resp. commutative monoid with an
+absorbing element).
+Proof. (1) We have a natural map Ω(R̃) → Ω(R), sending a to the ideal
+      generated by a. This is a surjective lattice homomorphism, hence in-
+      duces an immersion Spec R → Spec R̃ of the corresponding morphism
+      of coherent spaces.
+
+ (2) Let γ, γ̃ be the fundamental constants of (R, ⊞d ), (R, ⊞     ˜ d ), respectively.
+     Since ⊞ and ⊞  ˜ are equivalent, R[γ −1 ] and R[γ̃ −1 ] are equal, and γ = uγ̃
+     for some u ∈ R. Suppose a is an ideal of (R, ⊞d ), and a1 , · · · , a2d ∈ a.
+     Then,
+
+                                                            ˜ d (a1 , · · · , a2d ).
+                                       X          X
+            ⊞d (a1 , · · · , a2d ) = γ   ai = uγ̃   ai = u⊞
+                                     i             i
+
+                                               ˜
+     This shows that a is also an ideal of (R, ⊞).
+
+
+Proposition 2.14. Let e be a divisor of a positive integer d = er, (A, ⊞e )
+an e-convexoid ring, and and ⊞d the d-convexoid structure induced by ⊞e .
+Then, the natural map
+
+                              Ω(A, ⊞e ) → Ω(A, ⊞d )
+
+is an isomorphism. Its inverse is given by a 7→ hai, where hai is the ideal
+generated by a.
+   This shows that the underlying topological space of the spectrum of a
+multi-convexoid ring is invariant under weak isomorphisms (in the sense of
+Definition 2.11).
+
+                                         12
+Proof. Let a ∈ Ω(A, ⊞d ) be an finitely generated ideal. It suffices to show
+that                       √
+                             a = {a ∈ A | an ∈ a (∃n)}
+                                                                       √
+is an ideal in (A, ⊞e ), hence equal to hai. For any a1 , · · · , a2e ∈ a, set
+
+                     b = ⊞e (a1 , · · · , a2e )r = ⊞d (ap )p ∈ a,
+                                                                    Q2e   #p−1 (i)
+where p runs through all maps {1, · · · , r} → 2e and ap =           i=1 ai        . This
+shows that bN ∈ a for sufficiently large N.
+
+
+3     Ostrowski’s Theorem
+A commutative convexoid ring is integral, if 0 is a prime ideal. As in the case
+of rings, we can define the fractional field Q(R) of an integral convexoid ring
+R. A commutative integral convexoid ring R is a valuation convexoid ring, if
+for any non-zero element x of the fractional field K = Q(R), either x or x−1
+is in R. As in the case of rings, the set I(R) of R-submodules of K becomes
+totally ordered by the inclusion relations. We have a group homomorphism
+
+                       | · | : K × → I(R) \ 0 (a 7→ aR),
+
+and this satisfies the following properties:
+ (1) ker | · | = R× , and
+
+ (2) |a ⊞ b| ≤ max{|a|, |b|}.
+
+    The following theorem is a variant of the classical Ostrowski’s theorem:
+Theorem 3.1. Let R be a non-trivial valuation convexoid ring with Q(R)
+weak-isomorphic to Q and 1 ⊞ 1 invertible. Then, R is either
+ (1) the local ring Z(p) at the finite place p 6= 2 with ⊞ = +, or
+
+ (2) the unit disk DQ = {x ∈ Q | |x|∞ ≤ 1}, with a ⊞ b = ±(a + b)/2.
+
+Proof. Let | · | be the valuation corresponding to R. Since R is a subring
+of Q, the value group I(R) is automatically archimedean. Hence, we may
+regard I(R) as a multiplicative submonoid of positive real numbers. Also,
+note that | · | is determined by the value on N.
+
+                                         13
+• Case |N| ≤ 1: We will show that R is equal to Z(p) for some prime p.
+  It suffices to show that there is a unique prime p such that |p| < 1.
+  First, we will show the uniqueness: suppose there exist two primes p, q
+  such that |p|, |q| < 1. Then |p|e , |q|e < |1/2| for sufficiently large integer
+  e. Also, there are two integers m, n such that
+
+                       γ −1 (mpe ⊞ nq e ) = mpe + nq e = 1
+
+  since pe and q e are coprime. Since 2γ = 1 ⊞ 1 is invertible, we have
+
+    |1| = |2||1/2γ||mpe ⊞ nq e | ≤ |2| max{|m||p|e , |n||q|e}
+                                     ≤ |2| max{|p|e , |q|e} < |2||1/2| = |1|,
+
+  a contradiction. Hence such a prime p is unique.
+  Since R is non-trivial, there exists an integer n with |n| < 1. Hence,
+  there is a prime divisor p of n such that |p| < 1.
+                                      m
+• Case |N| 6≤ 1: Let ⊞m : R2 → R be the m-convexoid structure
+  induced from ⊞. For three integers a, b, n ∈ N bigger than 1, bn can be
+  expanded in the form             X
+                            bn =         ci ai ,
+                                          0≤i<2m
+
+  where m is an integer satisfying |2|m−1 ≤ n loga b < |2|m , and ci =
+  {0, 1, · · · , a − 1} and is zero for i ≥ j for some j ≤ n loga b + 1. Note
+  that |2| > 1 from the assumption |N| 6≤ 1. Also, there is an integer l
+  such that a ≤ 2l . Then
+
+            bn = 2m (2γ)−m ⊞m (c1 a, c2 a2 , · · · , cj−1aj−1 , 0, · · · 0),
+
+  and |ci | ≤ |2|l . These yield
+
+    |bn | ≤ |2|m max |ci ai | ≤ |2|m+l max{|a|j , 1}
+                  i
+                                          ≤ (n loga b) · |2|l+1 max{|a|n loga b , 1}.
+
+  Taking the n-th root of both sides, we obtain
+
+                  |b| ≤ (n loga b · |2|l+1 )1/n max{|a|loga b , 1}.
+
+
+                                      14
+     Taking the limit n → ∞, we have |b| ≤ max{|a|loga b , 1}. Now, take b
+     as |b| > 1. Then |a| must also be bigger than 1, hence log |b|/ log b ≤
+     log |a|/ log a. By symmetry, this inequality is in fact equal. Hence, the
+     valuation | · | is equivalent to the absolute norm, and |2γ| = 1 shows
+     that γ = ±1/2.
+
+
+
+Theorem 3.2. The above Ostrowski’s theorem is valid for any algebraic
+field: let K be an algebraic field, and R be a non-trivial valuation convexoid
+ring with 1 ⊞ 1 invertible. Then, R is either
+
+ (1) the local ring OK,p , where the characteristic of the residue field κ(p) is
+     not 2, or
+
+ (2) Dσ K = {x ∈ K | |σ(x)| ≤ 1}, where σ : K → C is an immersion of
+     fields.
+
+Proof. Here, we will only check the key points which are different from the
+proof of original Ostrowski’s theorem. (cf. [BS], pp. 278-280) Let | · | be the
+valuation associated to R.
+
+ (1) The valuation ν associated to R is non-trivial on Q. Indeed, suppose
+     the valuation is trivial on Q, and let b1 , · · · , bn be a basis of K over Q.
+     Then it turns out that ν(x) ≤ 2n maxi ν(bi ) for any x ∈ K, which is a
+     contradiction since a non-trivial valuation is never bounded.
+
+ (2) Let R be a valuation convexoid ring of C, which satisfies R ∩ R = DR.
+     Then R = DC. Indeed, suppose ν(z) > 1 for some z ∈ C such that
+     |z| = 1. Then for any n,
+                                            √                  √
+           ν(z n ) ≤ 2 max{ℜ(z), |ℑ(z)| · ν( −1)} ≤ 2 max{1, ν( −1)}
+
+     which is a contradiction since ν(z n ) → ∞ as n → ∞. For general
+     0 6= z ∈ C, we have
+
+                             ν(z) = ν(|z|)ν(z/|z|) = |z|.
+
+The remaining part of the proof is completely identical to the original one,
+hence we will omit it.
+
+
+                                       15
+4    Convexoid schemes
+The main goal of this paper is to obtain the compactification Spec Z =
+Spec Z ∪ {∞} in the form of Zariski-Riemann space.
+    We can consider (weak) ‘convexoid ring schemes’ in the sense of [T1]; the
+definitions are analogous to those of schemes and weak C -schemes.
+    However, this is not sufficient for our purpose, since we need to admit
+weak isomorphisms for restriction maps and transition maps.
+
+Definition 4.1. A convexoid scheme is a pair (X, OX ) such that X is a
+coherent space and OX is a (CMnd0 )-valued sheaves, such that
+
+ (1) X is locally isomorphic (as a monoid-valued space) to the spectrum of a
+     multi-convexoid ring: namely, there is a finite open covering X = ∪i Ui
+     and isomorphisms φi : Spec(Cxd) Ri → Ui of monoid-valued spaces,
+     where Ri is a commutative multi-convexoid ring.
+
+ (2) If φ−1                                                         −1
+         i (V ) is affine for some open subset V of Ui ∩ Uj , then φj (V ) is
+     also affine, and the transition map
+
+                                σji : φ−1        −1
+                                       i (V ) → φj (V )
+
+     is a weak isomorphism.
+
+ (3) σkj σji = σki for any i, j, k.
+
+A morphism f : X → Y of convexoid schemes is a morphism of monoid-
+valued spaces such that the induced homomorphism
+
+                                 OY,f (x) → OX,x
+
+is a weak homomorphism of multi-convexoid rings and is local for any x ∈ X,
+namely the inverse image of the maximal ideal of OX,x coincides with that
+of OY,f (x) .
+
+    Here, we defined the appropriate notion of convexoid schemes for our
+purpose. Note that for the set of sections OX (U) for an open set U of a
+convexoid scheme X may not be a multi-convexoid ring, but only a multi-
+plicative monoid.
+
+
+
+                                       16
+    Before we construct the compactification Spec Z, we need to define the
+base convexoid scheme S0 . Let R0 be the initial object of (CxdRing), and
+set
+                 U1 = Spec R0 [γ −1 ], U2 = Spec R0 [(2γ)−1 ].
+These are open subsets of Spec R0 . Note that R0 [γ −1 ] has a ring structure,
+isomorphic to Z[γ ±1 ].
+   There is an automorphism on
+          U1 ∩ U2 = Spec(Cxd) R0 [(2γ 2 )−1 ] ≃ Spec(Cxd) Z[1/2][γ ±1 ]
+induced by the automorphism
+                 φ : Z[1/2][γ ±1 ] → Z[1/2][γ ±1 ] (γ 7→ γ/2).
+We have a diagram of open immersions
+                                           φ∗
+                       U1 ← U1 ∩ U2 → U1 ∩ U2 → U2 ,
+which gives a ‘twist’ patching S of U1 and U2 , namely S is defined by the
+pushout diagram
+                              U1 ∩ U2     // U1
+
+                                 φ∗
+                                                  
+                                  U2            // S0 .
+
+We have a closed immersion f : Spec Z → U1 defined by
+                      R0 [γ −1 ] ≃ Z[γ ±1 ] → Z (γ 7→ 1).
+   If we stick to convexoid schemes, we obtain a ‘fake closure’ of Spec Z: we
+have a homomorphism
+                  R1 = R0 [(2γ)−1 ] → DZ[1/2] (γ 7→ 1/2)
+which is surjective by Lemma 2.8. This induces a morphism g : Spec DZ[1/2] →
+U2 , which is a closed immersion since the complement of the image is
+              Spec R1 [(γ ⊞ (−1/2))−1 ] = Spec R1 [(γ − 1/2)−1 ].
+Lemma 4.2. The underlying space of the spectrum Spec DZ[1/2] is set-
+theoretically isomorphic to Spec Z[1/2] ∪ {∞}, where ∞ is the pullback of
+the maximal ideal {a ∈ Q | |a| < 1} of DQ. As a coherent space, ∞ is the
+unique closed point.
+
+                                           17
+Proof. The inclusion Spec Z[1/2] ∪ {∞} ⊂ Spec DZ[1/2] is obvious. Let p
+be a prime ideal of Spec DZ[1/2]. If p does not contain 1/2, then p is a
+pullback of a prime ideal of Z[1/2]. Suppose p contain 1/2. Then p contains
+any a ∈ DZ[1/2] such that |a| ≤ 1/2. For any element a ∈ DZ[1/2] with its
+absolute value less than 1, we have |an | < 1/2 for sufficiently large n. Since
+p is prime, a must be in p. It is obvious that this p is the unique maximal
+ideal, since its complement is the unit group {±1}.
+    Using the above lemma, we define Y0 by the pushout:
+                           Spec Z[1/2]         // Spec Z
+
+
+                                                    
+                          Spec DZ[1/2]            // Y0 .
+
+We have a commutative diagram
+                                         f
+                          Spec Z[1/2]        // U1 ∩ U2
+
+                                                         φ∗
+                                                    
+                          Spec Z[1/2]    g
+                                             // U1 ∩ U2 ,
+
+which shows that f and g patch up to give a closed immersion Y0 → S0 .
+This can be regarded as the closure of Spec Z in S0 with its reduced induced
+subscheme structure.
+Remark 4.3. The monoid of sections OY0 (U) for an open set U of Y0 becomes
+a convexoid ring, if and only if U does not contain both two points 2 and ∞: 2
+and ∞ are antipodes to each other. In particular, Γ(Y0 , OY0 ) = F12 = {0, ±1}
+is only a multiplicative monoid. This happens since the local fundamental
+constant 1/2 and 1 (they are defined on Spec DZ[1/2] and Spec Z, respec-
+tively) cannot be extended globally.
+    However, since the infinity place ∞ of Spec DZ[1/2] is the maximal ideal,
+we cannot have DQ on the stalk OY0 ,∞ ; we have DZ[1/2] instead. This is
+not what we want.
+
+
+5     Graded convexoid rings and Proj
+In the previous section, we gave an ad hoc definition of the ‘fake closure’ Y0
+of Spec Z. At first sight, this seems to be a very artificial object. But some
+
+                                        18
+reader may have noticed that it resembles to the construction of projective
+line P1 in algebraic geometry. Indeed, Y0 can be realized as Proj R0 , under a
+suitable definition.
+
+Definition 5.1.     (1) A convexoid ring A is (N-)graded, if:
+
+        (a) B = A[γA−1 ] is a (Z-)graded ring: say B = ⊕d∈Z Bd , where Bd is
+            the degree d part.
+       (b) A is in the positive part: A ⊂ ⊕d≥0 Bd .
+                                                                  P
+        (c) For any a ∈ A, ad is also in A for any d, where a =     d ad is the
+            homogeneous decomposition of a in B.
+
+       We will denote A ∩ Bd by Ad , and the set of homogeneous elements of
+       A by Ah . Note that Ad 6= A ∩ Bd in general.
+
+ (2) An ideal a of a graded convexoid
+                                  P ring is homogeneous, if a ∈ a implies
+     ad ∈ a for any d, where a =     ad is the homogeneous decomposition
+     of a.
+
+ (3) For any graded convexoid ring A, set A+ = A ∩ (⊕d>0 Bd ).
+
+     We will assume the following convention for any graded convexoid ring
+A:
+
+          A+ is finitely generated as a homogeneous ideal of A.           (5.1)
+
+For a homogeneous element a, its degree will be denoted by |a|.
+
+Definition 5.2. Let A be a commutative graded convexoid ring.
+
+ (1) Proj A is the set of all homogeneous prime ideals of A which does not
+     contain A+ . The open basis of Proj A is given by the form
+
+                           D+ (f ) = {p ∈ Proj A | f ∈
+                                                     / p},
+
+       where f is a homogeneous element of A. Then Proj A becomes a co-
+       herent space, and has a finite open covering Proj A = ∪f ∈Ah D+ (f ), by
+       the assumption (5.1).
+
+
+
+
+                                      19
+ (2) For f ∈ Ad , a d-convexoid ring A(f ) is defined by
+
+           A(f ) = a/f n ∈ A[f −1 ] | a is homogeneous of degree dn .
+                   
+
+
+      The d-convexoid structure on A(f ) is given by
+                                     
+              d    a1             a2d     1
+            ⊞       n
+                        , · · · , n d = N +|γ | ⊞dA (a1 f m1 , · · · , a2d f m2d ),
+                  f   1          f  2   f    A
+
+
+                    P2d
+      where N =        i=1 ni and mi = N − ni .
+
+ (3) We have a homeomorphism D+ (f ) → Spec A(f ) given by p 7→ {a/f n ∈
+     A(f ) | a ∈ p}. Its inverse is given by q 7→ q̃, where q̃ is the homogeneous
+     ideal of A generated by a ∈ Ah such that a|f | /f |a| ∈ q.
+
+ (4) We can define a monoid-valued sheaf O on Proj A, so that (D+ (f ), O|D+(f ) )
+     is isomorphic to Spec A(f ) as a monoid-valued space. This is well
+     defined, since we have a natural isomorphism ϕ : A(f ) [f |g| /g |f | ] ≃
+     A(g) [g |f | /f |g| ] of multiplicative monoids for any two homogeneous el-
+     ements f, g ∈ Ah . Also, (Proj A, O) becomes a convexoid scheme, since
+     ϕ is a weak isomorphism of multi-convexoid rings.
+
+Remark 5.3. Note that A(f ) does not have a convexoid structure in general
+when |f | > 1, since the ⊞-operation shifts the degree.
+
+    We will apply Proj to the initial object R0 . Note that R0 is graded, by
+setting deg γ = 1.
+
+Lemma 5.4. The degree 1 part (R0 )1 of R0 consists of ±γ, ±2γ. Also, (R0 )+
+is generated by (R0 )1 .
+
+   Again, this is an easy exercise, and the proof is left to the reader.
+   By the above lemma, Proj R0 is covered by two affines
+
+                              D+ (γ) ≃ Spec A(γ) ≃ Spec Z,
+                      D+ (2γ) ≃ Spec A(2γ) ≃ Spec DZ[1/2].
+
+It is obvious to see that the patching of D+ (γ) and D+ (2γ) coincides with that
+of Y0 introduced in the previous section, which shows that Y0 is isomorphic
+to Proj R0 .
+
+
+                                           20
+Remark 5.5. As we have mentioned in Remark 4.3, the global section
+Γ(Proj R0 , O) of Proj R0 is F12 , which is only a monoid. We might want to
+formulate a morphism π : Proj A → Spec F12 in some sense and say that π is
+proper, but there lies a technical difficulty: since ∞ is the unique closed point
+in Spec DZ[1/2], there are two homomorphisms Spec Z(p) → Spec DZ[1/2]
+for odd prime p, sending the closed point to either ∞ or (p) ∈ Z[1/2]. This
+shows that we cannot say that Proj A is proper.
+
+
+6     Weak convexoid schemes
+The appropriate compactification Spec Z is realized only as a more general
+object, the construction of which is given by an analogue of that of A -
+schemes [T2].
+   For a coherent space X, we denote by Ω(X) the distributive lattice of
+quasi-compact open subsets of X. There is a natural (DLat)-valued sheaf
+τX on X defined by U 7→ Ω(U) for each quasi-compact open U.
+Definition 6.1. (1) A weak convexoid scheme is a quadruple (X, OX , U, βX )
+     where X is a coherent space, OX is a sheaf of commutative multiplica-
+     tive monoids on X, and U = {(Ui , ⊞di i )}i is a set of pairs of a quasi-
+     compact open subset Ui of X and a di -convexoid ring structure ⊞di i on
+     OX (Ui ), such that
+       (a) U is a covering of X, namely ∪U ∈U U = X, and
+      (b) U is a lower set, namely if V ⊂ U and U ∈ U, then V ∈ U and
+          Γ(U) → Γ(V ) is a weak homomorphism.
+      We can define a (DLat)-valued sheaf ΩOX as follows: recall that the
+      correspondence R 7→ Ω(R) (see the end of §0 for the definition) gives
+      a functor Ω : (CxdRing) → (DLat), where (DLat) is the category of
+      distributive lattices. Note that Ω(R) does not change when we replace
+      the ⊞ by another equivalent multi-convexoid structure by Proposition
+      2.13 and Proposition 2.14.
+      For an open subset V of X, let UV be the subset of U consisting of all
+      quasi-compact open subsets contained in V . Then ΩOX (V ) is defined
+      as the equalizer of
+                       Y                Y
+                          ΩΓ(U, OX ) ⇒        ΩΓ(U1 ∩ U2 ).
+                       U ∈U                 U1 ,U2 ∈U
+
+
+                                       21
+     βX is a morphism ΩOX → τX of (DLat)-valued sheaves on X, which
+     satisfies the following: for any inclusion V ⊂ U of open subsets of
+     X, the restriction map OX (U) → OX (V ) factors through T −1 OX (U),
+     where T is the multiplicative system of OX (U) defined by
+
+                             T = {f | βX (U)(f ) ≥ V }.
+
+     Here, f is identified with the principal ideal (f ) ∈ ΩOX (U) generated
+     by f . We refer to βX as the support morphism of X.
+ (2) For a weak convexoid scheme X and a point x ∈ X, the stalk OX,x
+     need not have a canonical choice of a ⊞-structure. However, we can
+     define the notion of a finitely generated radical ideal of OX,x : it is
+     independent of the choice of the ⊞-structure. Also, OX,x [γx−1 ] has a
+     natural structure of a commutative ring, where γx is the fundamental
+     constant of any OX (U), x ∈ U. (This constant depends on the choice
+     of U, but the localization OX,x [γx−1 ] is independent. Hence, we will call
+     γx the fundamental constant of OX,x .) Then OX,x becomes local, in the
+     sense that the complement of the set of units forms the maximal ideal.
+ (3) A morphism f : X → Y of weak convexoid schemes is a morphism of
+     monoid-valued spaces such that for any x ∈ X,
+      (a) fx : OY,f (x) → OX,x induces a ring homomorphism OY,f (x) [γf−1
+                                                                        (x) ] →
+                 −1
+          OX,x [γx ], and
+      (b) fx is local : fx−1 (mx ) = mf (x) where mx (resp. mf (x) ) is the unique
+          maximal ideal of OX,x (resp. OY,f (x) ).
+   We will first recall what a Zariski-Riemann space should be.
+Definition 6.2. (1) A morphism f : X → S of convexoid schemes is
+     proper, if it satisfies the following condition: for any commutative
+     square
+                                  Spec K      // X
+                                                ;;
+                                                       f
+                                                
+                                   Spec R       // S
+
+     where R is a valuation convexoid ring and K its fraction field, there
+     exist a unique morphism Spec R → X making the whole diagram com-
+     mutative.
+
+                                           22
+ (2) Let X be a (weak) convexoid scheme over a base (weak) convexoid
+     scheme S. The Zariski-Riemann space of X over S is a S-morphism
+     X → ZR(X, S) where ZR(X, S) is a proper (weak) convexoid scheme
+     over S and is universal: namely, any S-morphism f : X → Y with
+     Y → S proper factors uniquely through ZR(X, S):
+
+                                            f
+                                     X          :: Y
+                                                  //
+
+
+                                      
+                                 ZR(X, S)
+
+    If the Zariski-Riemann space exists, then it is unique up to isomorphism.
+However, this may not be constructed within the category of (weak) convex-
+oid schemes.
+    Let OK be the integer ring of an algebraic field K. Note that the Zariski-
+Riemann space ZR(Spec K, Spec Z) is isomorphic to Spec OK . Since Spec Z is
+a closed subscheme of U1 , we see that ZR(Spec K, U1 ) coincides with Spec OK .
+    We will prove the following:
+
+Theorem 6.3. The Zariski-Riemann space
+
+     X = ZR(Spec K, S0 ) = ZR(Spec OK , S0 ) = ZR(Spec OK , Proj R0 )
+
+exists as a weak convexoid scheme. Its underlying space is set-theoretically
+isomorphic to Spec Z ∪ {∞σ }σ , where ∞σ is the absolute valuation corre-
+sponding to an immersion σ : K → C of fields. The stalk OX,∞ is isomorphic
+to Dσ K = {x ∈ K | |σ(x)|∞ ≤ 1}.
+
+   This is what we wanted to construct.
+
+Remark 6.4. Let A be the algebraic type of commutative rings. In the cat-
+egory of (profinite) A -schemes, the existence of the Zariski-Riemann space is
+assured [T2]. However, we do not have a general theory of Zariski-Riemann
+spaces for convexoid schemes. Therefore, we will content ourselves by con-
+structing the Zariski-Riemann space X explicitly for this specific case.
+
+Proof. First, we will construct X. We only have to construct its restriction
+X2 to the fiber on U2 , since Zariski-Riemann spaces are local with respect to
+the base. Let |X2 | be the set of all valuation convexoid rings of K such that
+
+
+                                      23
+2γ = 1 ⊞ 1 is invertible. We endow a topology on |X2 | which is generated by
+the open basis of the form
+
+                          U(S) = {R ∈ |X2 | | S ⊂ R},
+
+where S is any finite subset of K.
+   The theorem of Ostrowski 3.2 tells that any valuation convexoid ring in
+|X2 | is either
+
+(a) the trivial one,
+
+(b) the (non-complete) discrete valuation ring OK,(p) such that the charac-
+    teristic of the residue field κ(p) is not 2,
+
+(c) the disk Dσ K associated to an immersion σ : K → C of fields.
+
+The above topology makes |X2 | into a coherent space: a non-empty open
+subset U of |X2 | is a subset whose complement is a finite set not containing
+the trivial valuation ring.
+   The structure sheaf OX |X2 is defined by
+
+                       U 7→ {a ∈ K | a ∈ R (∀R ∈ U)}.
+
+The support morphism βX : ΩOX |X2 → τX |X2 is defined by
+
+                   (f1 , · · · , fn ) 7→ {R ∈ U | fi ∈ mR (∀i)}c .
+
+It is straightforward to see that βX is well defined and that X2 = (|X2 |, OX |X2 , βX )
+becomes a weak convexoid scheme. Let us denote by ∞σ the point of X2
+corresponding to Dσ K. Then we see that X2 \ {∞σ }σ is isomorphic to
+Spec OK [1/2]. Therefore, we obtain X by the pushout
+
+                             Spec OK [1/2]         // X2
+
+
+                                                     
+                                Spec OK            // X.
+
+We have a convexoid ring homomorphism
+
+                R0 [(2γ)−1 ] → Γ(X2 , OX ) = ∩σ:K→C Dσ OK [1/2]
+
+
+                                          24
+by γ 7→ 1/2. This induces a morphism X2 → U2 , and patches up with
+Spec OK → U1 to give the morphism ν : X → S0 . We see that ν is proper,
+since ν|Spec OK is a closed immersion, and ν|X2 is obviously proper from the
+construction.
+    Finally, we will see that X has the universal property. It suffices to
+show that X2 → U2 satisfies the property. Let f : Spec OK [1/2] → Y be
+a U2 -morphism, where Y is a weak convexoid scheme, proper over U2 . For
+each valuation convexoid ring R ∈ |X2 |, we have the following commutative
+diagram
+                               Spec K       // Y
+                                              ;;
+
+                                             
+                              Spec R       // U2 ,
+
+and the properness of Y tells that there is a unique arrow Spec R → Y
+making the whole diagram commutative. This gives a unique set-theoretic
+map f˜ : |X2 | → |Y |. This becomes continuous, since it is continuous on
+X2 \ {∞σ }σ → Y . It remains to construct the morphism between the
+structure sheaves. We only have to consider OY (U) → OX2 (f˜−1 U), when
+f˜−1 U contains some infinite places ∞σ . Since ∞σ ∈ f˜−1 U implies that
+the map OY (U) → K factors through Dσ K, this weak homomorphism also
+factors through OX2 (f˜−1 U). Therefore, we have constructed the morphism
+f˜ : X2 → Y of monoid-valued spaces, and it is straightforward to check that
+this is indeed a morphism of weak convexoid schemes. The uniqueness of f˜
+is obvious from the construction.
+
+
+7    Appendix: Embedding of Proj R0
+As we have seen, the initial object R0 in the category of convexoid rings has
+a natural grading structure, and the convexoid scheme Proj R0 is the ‘fake
+closure’ of Spec Z.
+    Once we have a projective scheme, algebraic geometers would ask what
+the projective embedding associated to a very ample line bundle might be.
+We will seek for an analogy of the projective embedding for Proj R0 . This
+can be realized, and the result can be summarized as follows:
+
+Theorem 7.1. Let R0 be the initial object in the category of convexoid rings
+and d a positive integer.
+
+
+                                      25
+                                                                              d
+ (1) Each line bundle O(d) of Proj R0 gives a morphism Proj R0 → P2F −1
+                                                                    12
+     of monoid-valued spaces.
+
+ (2) In particular, we have an immersion Proj R0 → P into a proprojective
+     space P over F12 .
+
+    Before we proceed, we will review what the projective space PnF1 (or,
+PnF12 ; the construction is essentially the same) is. As we have mentioned
+in the introduction, F1 -algebras are regarded as a monoid: for example, a
+polynomial ring F1 [x1 , · · · , xn ] over F1 is a free commutative monoid Nn ∪{0}
+with an absorbing element 0, generated by x1 , · · · , xn . In this sense, we know
+that schemes over F1 (namely, ‘monoid schemes’) can be constructed, and
+there is an adjunction
+
+                     Spec : (CMnd0 ) ⇄ (Sch/F1 )op : Γ.
+
+(cf. [T1]). In the sequel, we only consider coherent schemes and quasi-
+compact morphisms. We have a left adjoint of the underlying functor U :
+(CRing) → (CMnd0 ), which we denote by Z[·]/0: for M ∈ (CMnd0 ),
+Z[M]/0 is the monoid ring Z[M] divided by the ideal generated by the ab-
+sorbing element 0M of M. The functor Z[·]/0 patches up to give a functor
+
+                        Z ×F1 (−) : (Sch/F1 ) → (Sch).
+
+The unit morphism M → Z[M]/0 induces a morphism Spec Z[M]/0 →
+Spec M, and this extends to give a natural morphism
+
+                              πX : Z ×F1 X → X
+
+of monoid-valued spaces.
+    For example, a fan (in the sense of toric geometry [O]) ∆ together with
+an absorbing element gives a scheme Spec ∆ over F1 , and X = Z ×F1 Spec ∆
+is just the toric scheme over Z associated to the fan ∆. The F1 -scheme
+Spec ∆ has its underlying space as a subset of X consisting of the generic
+points of the images of T-invariant sections Spec Z → X, where T is the
+maximal torus of X. In particular, for each fiber F of X → Spec Z, the points
+of Spec ∆ correspond to T-invariant points of F . The natural morphism
+πX : X → Spec ∆ sends each point x of X to the generic point of the closure
+of the T-orbit of {x}.
+
+
+                                       26
+                                                (x0 , x2 )
+
+
+                                       (x2 )                 (x0 )
+                                                   (0)
+
+
+                              (x1 , x2 )          (x1 )              (x0 , x1 )
+
+                 Figure 1: Configuration of the points of P2F1 .
+
+
+    In particular, the projective space PnF1 corresponds to the fan ∆ repre-
+senting the projective space Pn , and its points correspond to prime ideals
+generated by monomials over homogeneous coordinates; therefore, the con-
+figuration of points can be described as a n-simplex; each l-dimensional face
+of the n-simplex corresponds to a l-dimensional point of PnF1 (Figure 1).
+    If we replace F1 by F12 , then the underlying space does not change, but
+only the structure sheaf becomes the sheaf of F12 -algebras, namely each sec-
+tion admits its minus.
+    Now, we go back to Proj R0 . We will imitate the construction of projec-
+tive morphisms in algebraic geometry, with an exception that we forget the
+additive structures.
+    The set Ld = (R0 )d of homogeneous elements of R0 ⊂ Z[γ] of degree d
+consists of
+                        0, ±γ d , ±2γ d , ±3γ d · · · , ±2d γ d .
+Unlike the case of rings, this set does not have an additive structure, but
+only the F12 = (R0 )0 -action; namely, Ld is an F12 -module. However, we can
+still regard it as a linear system, and consider the line bundle O(d) and even
+a rational map, associated to Ld as follows.
+     The line bundle O(d) is a OProj R0 -submodule of the locally constant sheaf
+  ∗
+Q , generated by
+
+                      mγ d /nγ d = m/n (1 ≤ m, n ≤ 2d ).
+
+Indeed, this canonically becomes a line bundle, and Ld can be regarded as
+the set of global sections of O(d). In other words, O(d) is globally generated.
+    The linear system Ld is free as an F12 -module, hence we will fix a basis
+γ , 2γ d , · · · , 2d γ d to construct the morphism associated to Ld in the sequel.
+ d
+
+
+
+                                           27
+    Let F12 [x1 , · · · , x2d ] be a polynomial ring (in fact, a monoid) with coeffi-
+cients in F12 , with the canonical grading. For each 1 ≤ n ≤ 2d , we have a
+morphism of monoids
+
+              F12 [x1 , · · · , x2d ] → (R0 )(nγ d )   (xl 7→ lγ d /nγ d = l/n),
+
+which extends to F12 [x1 /xn , · · · , x2d /xn ] → (R0 )(nγ d ) . These patch up to give
+                                         d
+a morphism fd : Proj R0 → P2F −1              of monoid-valued spaces. For a finite place
+                                         12
+p ∈ Spec Z ⊂ Proj R0 , fd sends p to the point corresponding to the prime
+                                                                                d
+(xp , x2p , · · · , x[2d /p]p ), where {xi }i are homogeneous coordinates of P2 −1 . The
+infinity place ∞ goes to the point corresponding to (x1 , · · · , x2d −1 ), which is
+                                        d
+one of the closed points of P2 −1 .
+    Note that fd never becomes an immersion, since a finite place p goes to the
+                            d
+generic point of P2 −1 when p is larger than 2d . This is just one translation
+of the fact that the multiplicative monoid Z \ {0} is not finitely generated.
+    However, we can consider the infinite product
+                                                 1           2
+                                 Y d
+                           P=       P2 −1 = P2F −1 2
+                                                     ×F12 PF2 −1
+                                                               2
+                                                                 ×F12 · · ·
+                                               1            1
+                             d
+
+and a morphism f : Proj R0 → P in the category of weak schemes over F1
+(cf. [T1]). Then, f becomes an immersion.
+    Acknowledgements: I was partially supported by the Grant-in-Aid for
+Young Scientists (B) # 23740017.
+
+
+References
+[BS] Borevich, V.I., Shafarevich, I.R.: Number theory, Pure and Applied
+    Math 20 (1966) Academic Press, New York
+
+[C1] Connes, A.: Trace formula in noncommutative Geometry and the zeros
+     of the Riemann zeta function, Selecta Math. (N.S.) 5 no.1 (1999) 29-106
+
+[C2] Connes, A., Consani, C.: Schemes over F1 and zeta functions, Compos.
+     Math. 146 no. 6 (2010) 1383-1415
+
+[CWM] Maclane, S.: Categories for the working mathematician. 2nd edition,
+   Graduate Texts in Math., 5 (1998) Springer-Verlag
+
+
+                                                28
+[Del] Deligne, P.: La conjecture de Weil. I., I.H.É.S. Publ. Math. No. 43
+     (1974) 273-307
+
+[Den] Deninger, C.: Motivic L-functions and regularized determinants. II.
+    Arithmetic geometry (Cortona, 1994), Sympos. Math., XXXVII (1997)
+    138-156
+
+[Du] Durov, A new approach to Arakelov geometry,              PhD thesis,
+    arXiv:math.AG/0704.2030
+
+[H] Haran, M.J.S.: Non-additive geometry, Compositio Math. 143 (2007)
+    618-688
+
+[K] Kurokawa, N.: On some Euler products I, Proceedings of the Japan
+    Academy, 60A no. 9 (1984) 335-338
+
+[O] Oda, T.: Convex bodies and algebraic geometry: An introduction to the
+    theory of toric varieties, Ergebnisse der Mathematik und ihrer Grenzge-
+    biete 3 (1988) Springer-Verlag
+
+[PL] Peña, J.L., Lorscheid, O.: Mapping F1 -land: An overview of geometries
+    over the field with one element, preprint, arXiv: math.AG/0909.0069
+
+[T1] Takagi, S.: Universality of the category of schemes, preprint, arXiv:
+     math.AG/1202.5085
+
+[T2] Takagi, S.: A -schemes and Zariski-Riemann spaces, preprint arXiv:
+     math.AG/1101.2796, to appear in Rendiconti del Seminario Matematico
+     della Università di Padova
+
+S. Takagi: Department of Mathematics, Faculty of Science, Ky-
+oto University, Kyoto, 606-8502, Japan
+   E-mail address: takagi@math.kyoto-u.ac.jp
+
+
+
+
+                                    29
+
