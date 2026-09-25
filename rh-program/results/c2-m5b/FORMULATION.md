@@ -77,3 +77,70 @@ where fp[·] is the finite part regularized by subtracting g(0) (as displayed). 
 
 Scope: **instrument** (digest §E rank 3: "its NO is a barrier"); a proportion-scope statement would be the YES, a Group-IV candidate the NO; no full-RH claim anywhere in this note. The orchestrator's hypotheses H1–H5 (brief, each `I infer` there) are decided in §1–§5 respectively and tabulated in §7; none is accepted on the brief's word.
 
+---
+
+## §1 The localization theorem (H1): THEOREM F1, proved in full — and its numerical companion
+
+**Verdict on H1: PROVED, in a form stronger and simpler than the brief's.** The brief's (a) is right for the right reason (the u = 0 singularity is the density at infinity, §0.2), its (b) is right and its reduction to even tests loses nothing (Lemma 0), and (b) holds at EVERY bandwidth L > 0 — not from some L on — and also for the height-modulated test family alone. Stop line (1) does not fire. Constants: none. Slack ledger: empty (every step is an identity, a limit, or a linear-independence statement).
+
+### §1.1 Statement
+
+**THEOREM F1 (no finite, windowed or periodic host for the conservation system).** Fix the archimedean functional A of §0.1 (axiom FE) and a bandwidth L > 0.
+
+**(a) (Finite configurations.)** Let ν be a finite configuration (finitely many points of the closed strip, any marks, both symmetries). Then for every atomic datum π on {±log n} (positive or not), ν ∉ 𝒦_L(π): the system (0.1) fails on the dilated even bumps g_ε (§0.2) for every ε < min(L, log 2, 1), quantitatively
+
+      |W_ν(g_ε)| ≤ ε·e^{ε/2}‖g‖₁·ν(S)   while   A(g_ε) − ∫g_ε dπ = A(g_ε) = g(0)·log(1/ε) + a(g) + o(1).
+
+More generally, every ν ∈ 𝒦_L(π) satisfies W_ν(g_ε) = g(0)log(1/ε) + a(g) + o(1) as ε → 0: **membership in the class is a statement about the configuration at infinity** (its counting function must carry the archimedean density), read off at small u.
+
+**(b) (Finite modifications of a solution are excluded at every bandwidth.)** Let ν₀ ∈ 𝒦_L(π₀) — for instance ζ's zero measure ν_ζ = Σ_ρ m_ρδ_{(ρ−½)/i} with π₀ = Λ, which lies in 𝒦_L(Λ) for every L > 0 by the Riemann–Weil explicit formula (C2 line 14 "For zeta this is the Riemann-Weil formula" `[record]`; the formal input is `EF_lit_zetaZeroConfig`, `Zeta23/WeilEF/Main.lean` 270, at g ∈ C²_c, zoo IV.18 clause (1) `[record]`). Let ν be a configuration such that μ := ν − ν₀ is a finite signed integer-atomic measure (finitely many points added, deleted, moved or re-marked, anywhere in the strip, the two symmetries kept), and let π be any atomic datum on {±log n}. If ν ∈ 𝒦_L(π), then **μ = 0 and Λ_π(n) = Λ_{π₀}(n) for every n with log n < L.** In particular the window-replacement configurations of the brief's H1(b) — ζ's zeros outside [T, T + W] together with any finite marked configuration inside — belong to no class 𝒦_L(π), for any L > 0 and any π, unless the inside configuration is ζ's own zeros with their marks.
+
+**(b′) (The modulated family suffices.)** The conclusion of (b) holds if (0.1) is required only for the height-modulated tests g(u) = h(u)cos(Tu), h even ∈ C²_c(−L, L), at ONE height T (the reading of PRICING (1.2) with equality), with the weaker prime-side conclusion Λ_π(n) = Λ_{π₀}(n) for every n with log n < L and cos(T log n) ≠ 0.
+
+**(c) (Periodic hosts.)** An N-periodic configuration is excluded by PRICING §1.2(b) `[record]`: "first-order rules read the Fourier SUPPORT of the counting measure (its transform must equal archimedean − π̂, supported on {± log n}), while a periodic configuration's support is the lattice {kℓ/N}, disjoint from {log n} except by coincidence" — the two-tooth rows force every lattice mode c_k, 1 ≤ k ≤ NL/ℓ, to vanish; banked as rider B on zoo IV.7, `[novelty: dual-model check 2026-09-10]` (BARRIER-ZOO.md line 422 read block) `[record]`. Nothing is added here; (c) is cited, not re-proved.
+
+### §1.2 Proofs
+
+*(a).* Let ν be finite with total mass ν(S) = Σm_γ. For the dilated bump g_ε(u) = g(u/ε), ĝ_ε(z) = εĝ(εz), and by the Paley–Wiener bound of §0.1 with supp g_ε ⊂ [−ε, ε] and |Im γ| ≤ ½: |ĝ_ε(γ)| ≤ εe^{ε/2}‖g‖₁. Summing, |W_ν(g_ε)| ≤ εe^{ε/2}‖g‖₁ν(S) → 0. On the right of (0.1), ∫g_ε dπ = 0 for ε < log 2 (the comb's first atoms sit at ±log 2), and A(g_ε) = g(0)log(1/ε) + a(g) + o(1) by the dilation law (0.3) (`[derivation]` in §0.2, `[computed]` in `verify/archimedean_kernel_check_run.log` (b): A(g_ε) − log(1/ε) = −0.694, −1.338, −1.466, −1.490, −1.4968, −1.4981 at ε = 0.5, 0.1, 0.02, 0.005, 0.001, 0.0002 for g = (1 − u²)³, the increments shrinking like ε). For g(0) = 1 the right side tends to +∞ and the left to 0, so (0.1) fails for all small ε. The "more generally" clause is (0.1) itself read on g_ε. ∎
+
+*(b).* Subtract the system of ν₀ from that of ν: for every even g ∈ C²_c(−L, L),
+
+      ⟨E_μ, g⟩ = W_ν(g) − W_{ν₀}(g) = [A(g) − ∫g dπ] − [A(g) − ∫g dπ₀] = ∫g d(π₀ − π) = Σ_{log n < L} c_n·2g(log n),   c_n := (Λ_{π₀}(n) − Λ_π(n))n^{−1/2}.
+
+Both sides are even distributions on (−L, L), so by Lemma 0 the identity holds against every φ ∈ C_c^∞(−L, L): **E_μ = Σ_n c_n(δ_{log n} + δ_{−log n}) on (−L, L).** Now μ is finite, so E_μ(u) = Σ_{γ∈supp μ} μ({γ})cos(γu) is an entire function of u (§0.1), real and even. Test against φ supported in the open set U := (−L, L) ∖ {±log n : log n < L}: ∫E_μφ = 0 for all such φ, hence E_μ = 0 on U; U is dense in (−L, L) and E_μ is continuous, hence E_μ = 0 on (−L, L). Then, for φ ∈ C_c^∞(−L, L) peaked at log n (and, by evenness, at −log n) and vanishing at the other atoms, 0 = ⟨E_μ, φ⟩ = 2c_nφ(log n), so c_n = 0 for every n with log n < L: Λ_π(n) = Λ_{π₀}(n) there. Finally E_μ is entire and vanishes on an interval, so E_μ ≡ 0 on ℝ. Write E_μ(u) = Σ_{γ∈Γ} n_γcos(γu) with Γ ⊂ {Re γ ≥ 0, and Im γ ≥ 0 if Re γ = 0} a set of representatives of the sign classes {γ, −γ} in supp μ and n_γ ∈ ℤ the net integer weight of the class (the symmetry γ ↦ −γ of both ν and ν₀ makes μ symmetric, so this is well defined). Since 2cos(γu) = e^{iγu} + e^{−iγu} and the exponents {±γ : γ ∈ Γ} are pairwise distinct complex numbers, the functions e^{iλu} being linearly independent over ℂ for distinct λ (a nonzero finite exponential polynomial has isolated zeros — or: apply the differential operator Π_{λ′≠λ}(d/du − iλ′) to isolate one coefficient), every n_γ = 0: μ = 0. ∎
+
+*Where marks enter.* A double at γ against two simples at γ, γ′ differ by μ = δ_γ − δ_{γ′} (with the symmetric images), E_μ = 2cos(γu) − 2cos(γ′u) ≢ 0. Nothing in the proof uses the positivity of π, the strip, or axiom RvM: finite modification is excluded for the purely analytic reason that a finite exponential sum is entire while the prime side is atomic. That is why the brief's (b), which invoked "linear independence of cos(λu) for distinct λ ≥ 0", needed no extra case: for complex γ the same independence holds, and the reflection symmetry only reduces the index set to sign classes.
+
+*(b′).* With g = h(u)cos(Tu) the left side is ⟨E_μ·cos(T·), h⟩ and the right side Σ_n c_n cos(T log n)·2h(log n); E_μ(u)cos(Tu) is again a real even entire function, so the argument of (b) gives E_μ(u)cos(Tu) = 0 on (−L, L), hence E_μ = 0 on (−L, L) minus the zeros of cos(Tu) (isolated), hence on (−L, L), hence identically, hence μ = 0; and c_n cos(T log n) = 0 for log n < L. ∎
+
+*(c).* Cited. ∎
+
+### §1.3 What Theorem F1 does to the bilinear program of PRICING §1.1(v)
+
+PRICING §1.1(v) `[record]`: "That is a bilinear program in (Λ_π(n) ≥ 0, positions, marks), not a filter on the A4 dictionary". Any instance of such a program has finitely many position/mark variables. Its configuration is then (a) finite — infeasible at every L > 0; (b) a finite modification of a fixed global solution (ζ's zeros outside a window, free inside) — feasible only at μ = 0, so the feasible set is the single point {ν₀|window, π₀} and the "optimum" is ν₀'s own N_d/N on the window (for ζ: 1, all simple, as far as computed); or (c) periodic — degenerate. **Corollary F1-C: the honest class has no finite instance; the bilinear program of PRICING §1.1(v) cannot be written with finitely many configuration variables; any non-uniqueness of 𝒦_L(π) — the only thing that could make "min N_d/N over the class" a question — is a property of INFINITE configurations, i.e. of E_ν outside the band and of the configuration at infinity.** `[derivation]` This is IV.7 rider B's statement one level up, as the brief anticipated: rider B kills the periodic host by SUPPORT (lattice against primes), F1(a) kills the finite host by the SINGULARITY at u = 0 (density at infinity), F1(b) kills the windowed host by ANALYTICITY (entire against atomic). `[novelty: single-check]` for the packaging; the mathematics of (a)–(b) is elementary and is not claimed as new (the brief's own (b) sketch; the literature's "finite exponential sums are entire" is folklore) — its consequence for the M5 program is what is new to the record.
+
+### §1.4 The numerical companion — `verify/window_residual.py` → `window_residual_run.log`, `window_residual_out.json` `[computed]`
+
+*Design (and a correction of the first version, recorded).* Zeros n = 3000…3039 by `mpmath.zetazero` (T = 3552.792 — the 40-zero mean; PRICING's 3630.9 was the 198-zero mean — ℓ = 6.3376, window length W = 39.186, mean gap 1.0048 against 2π/ℓ = 0.9914). The window's transform is c(u) = Σ_k e^{−iγ_ku} = e^{−iTu}S_ζ(u) with the ENVELOPE S_ζ(u) := Σ_k e^{−i(γ_k − T)u} band-limited to |ξ| ≤ W/2 (Nyquist spacing π/(W/2) = 0.160 in u), while c itself oscillates on the scale 2π/T = 0.0018. The first version of the script fitted c on a 0.013-grid — aliased — and excluded fixed 0.03-windows around every log n, which empties the grid beyond u ≈ 2.8 because the atoms log n become dense; its V.4 control then reported "positions 0.2 off with residual 10⁻¹⁰" — an artifact of an effectively L ≈ 2.8 fit of 40 free positions (under-determined by the count below), caught by the control and by an off-grid check (max |E| = 3.85 at a fit whose grid residual was 2.5·10⁻⁸). The version on disk fits the envelope: E(u) := S_c(u) − S_ζ(u), S_c(u) = Σ_j m_je^{−i(τ_j − T)u} for a marks-{1, 2} configuration of the same mass 40 with 7 doubles (N_d/N = 33/40 = 0.825, the nearest realization of 5/6 at N = 40) and with 6 doubles (0.85); grid spacing 0.02 on (0, L], excluding |u − log n| < 0.1/n (a fixed fraction of the local atom spacing, where a free positive π_L could absorb a mismatch); scipy `least_squares` (trf, analytic Jacobian), 12 starts per cell (8 merge-starts from ζ's own zeros, 4 random); every fit re-checked OFF the grid on a 0.005-grid including the excluded windows. Theorem F1(b) says E cannot vanish on any interval; the script measures how far from zero the best fit stays. 47 s.
+
+*Result — the floor tracks the Slepian count.* With LW/π the number of real degrees of freedom of a function on a window of length W band-limited to (−L, L) (= 2αN in PRICING's units, since W = 2πN/ℓ) against the 33 (resp. 34) free positions:
+
+| L | α = L/ℓ | count LW/π | 26s+7d: min RMS \|E\| (relative to RMS S) | off-grid max \|E\| | 28s+6d: relative |
+|---|---|---|---|---|---|
+| 0.5 | 0.079 | 6.2 | 1.8·10⁻⁹ (1.2·10⁻¹⁰) | 7.6·10⁻⁹ | 8.4·10⁻¹¹ |
+| 1.0 | 0.158 | 12.5 | 2.3·10⁻⁸ (2.1·10⁻⁹) | 8.2·10⁻⁸ | 8.3·10⁻¹⁰ |
+| 1.5 | 0.237 | 18.7 | 1.2·10⁻⁷ (1.3·10⁻⁸) | 3.4·10⁻⁷ | 5.1·10⁻⁹ |
+| 2.0 | 0.316 | 24.9 | 4.7·10⁻⁵ (5.7·10⁻⁶) | 2.5·10⁻⁴ | 4.5·10⁻⁶ |
+| 2.5 | 0.394 | 31.2 | 6.8·10⁻² (9.0·10⁻³) | 0.24 | 8.7·10⁻³ |
+| 3.0 | 0.473 | 37.4 | 0.36 (5.0·10⁻²) | 1.7 | 4.6·10⁻² |
+| 3.5 | 0.552 | 43.7 | 0.49 (7.2·10⁻²) | 0.92 | 6.4·10⁻² |
+| 4.0 | 0.631 | 49.9 | 0.86 (0.13) | 2.4 | 0.10 |
+| 5.0 | 0.789 | 62.4 | 1.10 (0.17) | 3.1 | 0.16 |
+| 6.338 = ℓ | 1.000 | 79.1 | 1.96 (0.33) | 5.0 | 0.30 |
+| 8.0 | 1.262 | 99.8 | 3.26 (0.53) | 7.2 | 0.48 |
+| 12.0 | 1.893 | 149.7 | 3.55 (0.57) | 10.6 | 0.53 |
+
+*Control (zoo V.4), 40 simple marks from a perturbed start (σ = 0.15):* at L = 1, 2 (count 12.5, 24.9 < 40) the fit finds OTHER positions (max deviation 0.22, 0.15 from ζ's zeros) with residual 1.8·10⁻⁷, 3.0·10⁻⁸ on and off the grid — the free regime, exhibited; at L = 3, 3.5, 5, ℓ, 12 (count 37.4 … 149.7) the ζ positions are recovered EXACTLY (residual 0.0, deviation 0.0): the instrument fires where it should and is silent where it should.
+
+*Reading (`I infer` where marked).* (i) The theorem's "not zero" is 10⁻⁹–10⁻⁵ relative below the count and 1 %–57 % above it: **in a finite window the band data at α < ½ leave the marks free to all practical precision, and at α ≥ ½ they exclude a 1/6-doubles configuration by a margin that grows to more than half the transform's size at α ≥ 1.** (ii) The transition sits at count ≈ number of free positions — PRICING §1.1(iv)'s "2αN real numbers against N positions" `[record]` made visible: pinning by count at α = ½, not at α = 1. (iii) None of this is an honest instance (F1: the windowed system has no exact solution at any L); it is the count of §2, run on real zeros, and it is the shape the global question inherits height by height. (iv) The floor's smallness below the count is the prolate-spheroidal eigenvalue decay (§2.2, Landau–Pollak–Slepian): not a defect of the optimizer, a property of band-limited data (`I infer` the identification; the eigenvalues were not computed).
+
