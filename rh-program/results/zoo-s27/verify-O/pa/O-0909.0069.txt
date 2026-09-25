@@ -1,0 +1,1228 @@
+                                                                         MAPPING F1 -LAND:
+                                                                   AN OVERVIEW OF GEOMETRIES
+                                                                 OVER THE FIELD WITH ONE ELEMENT
+
+                                                                    JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+
+
+arXiv:0909.0069v1 [math.AG] 1 Sep 2009
+                                                   A BSTRACT. This paper gives an overview of the various approaches towards F1 -geometry.
+                                                   In a first part, we review all known theories in literature so far, which are: Deitmar’s
+                                                   F1 -schemes, Toën and Vaquié’s F1 -schemes, Haran’s F-schemes, Durov’s generalized
+                                                   schemes, Soulé’s varieties over F1 as well as his and Connes-Consani’s variations of this
+                                                   theory, Connes and Consani’s F1 -schemes, the author’s torified varieties and Borger’s Λ-
+                                                   schemes. In a second part, we will tie up these different theories by describing functors
+                                                   between the different F1 -geometries, which partly rely on the work of others, partly de-
+                                                   scribe work in progress and partly gain new insights in the field. This leads to a commu-
+                                                   tative diagram of F1 -geometries and functors between them that connects all the reviewed
+                                                   theories. We conclude the paper by reviewing the second author’s constructions that lead
+                                                   to realization of Tits’ idea about Chevalley groups over F1 .
+
+
+
+
+                                                                                        C ONTENTS
+                                            Introduction                                                                                         2
+                                            1. The building bricks of F1 -geometries                                                             4
+                                            1.1. M-schemes after Kato and Deitmar                                                                4
+                                            1.2. Schemes over F1 in the sense of Toën and Vaquié                                               5
+                                            1.3. Haran’s non-additive geometry                                                                   6
+                                            1.4. Durov’s generalized schemes                                                                     7
+                                            1.5. Varieties over F1 in the sense of Soulé and its variations                                     8
+                                            1.6. Schemes over F1 in the sense of Connes and Consani                                             10
+                                            1.7. Torified varieties                                                                             11
+                                            1.8. Λ-schemes after Borger                                                                         12
+                                            2. Paths and bridges                                                                                12
+                                            2.1. Toric varieties as M-schemes                                                                   13
+                                            2.2. Comparison of M-schemes with TV-schemes                                                        14
+                                            2.3. M-schemes as M0 - and CC-schemes                                                               14
+                                            2.4. M- and M0 -schemes as F-schemes                                                                15
+                                            2.5. M0 -schemes as generalized schemes with zero                                                   15
+                                            2.6. Relation between Durov’s generalized rings with zero and Haran’s F-rings                       15
+                                            2.7. M-schemes as Λ-schemes                                                                         16
+                                            2.8. Toric varieties and affinely torified varieties                                                16
+                                            2.9. Relation between affinely torified varieties, S-varieties and its variations                   16
+                                            2.10. Generalized torified schemes and CC-schemes                                                   17
+                                            2.11. The map of F1 -land                                                                           18
+                                            2.12. Algebraic groups over F1                                                                      18
+                                            References                                                                                          20
+
+                                             J. López Peña was supported by the EU Marie-Curie fellowship PIEF-GA-2008-221519 at Queen Mary Uni-
+                                         versity of London.
+                                             O. Lorscheid was supported by the Max-Planck-Institut für Mathematik in Bonn.
+                                                                                               1
+2                           JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+                                       I NTRODUCTION
+    The hour of birth to the field with one element was given in Jacques Tits’ paper [40]
+from 1956, in which he indicated that the analogy between the symmetric group Sn and
+the Chevalley group GLn (Fq ) (as observed by Robert Steinberg in [38] in 1951) should
+find an explanation by interpreting Sn as a Chevalley group over the “field of characteristic
+one”. Though Tits’ idea was not taken serious at that time, it is one of the guiding thoughts
+in the development of F1 -geometry today. For a recent treatment of Steinberg’s paper, see
+[37], and for an overview of what geometric objects over Fq should become if q = 1, see
+[5].
+    It took more than 35 years that the field of one element reoccurred in mathematical liter-
+ature. In an unpublished note ([21]), Mikhail Kapranov and Alexander Smirnov developed
+the philosophy that the set of the n-th roots should be interpreted as F1n , a field extension
+of F1 in analogy to the field extension Fpn of Fp . A scheme that contains the n-th roots of
+unity should be thought of as a scheme over F1n . The tensor product F1n ⊗F1 Z should be
+the group ring Z[Z/nZ].
+    In the early nineties, Christoph Deninger published his studies ([13], [14], [15], et
+cetera) on motives and regularized determinants. In his paper [14], Deninger gave a de-
+scription of conditions on a category of motives that would admit a translation of Weil’s
+proof of the Riemann hypothesis for function fields of projective curves over finite fields
+Fq to the hypothetical curve Spec Z. In particular, he showed that the following formula
+would hold:
+                   s
+   2−1/2 π −s/2 Γ( )ζ(s) =
+                   2                                                 
+                                         1          1
+                                det∞    2π (s − Θ) H (Spec Z, OT )
+                                                                                       
+                       1          0                               1          2
+           det∞       2π (s − Θ) H (Spec Z, OT )      det∞       2π (s − Θ) H (Spec Z, OT )
+
+where det∞ denotes the regularized determinant, Θ is an endofunctor that comes with the
+category of motives and H i (Spec Z, OT ) are certain proposed cohomology groups. This
+description combines with Nobushige Kurokawa’s work on multiple zeta functions ([23])
+from 1992 to the hope that there are motives h0 (“the absolute point”), h1 and h2 (“the
+absolute Tate motive”) with zeta functions
+                                          1                              
+                     ζhw (s) = det ∞          (s − Θ) H w (Spec Z, OT )
+                                           2π
+for w = 0, 1, 2. Deninger computed that ζh0 (s) = s/2π and that ζh2 (s) = (s − 1)/2π. It
+was Yuri Manin who proposed in [30] the interpretation of h0 as Spec F1 and the interpre-
+tation of h2 as the affine line over F1 . The quest for a proof of the Riemann hypothesis was
+from now on a main motivation to look for a geometry over F1 . Kurokawa continued his
+work on zeta functions in the spirit of F1 -geometry in the collaboration [24] with Hiroyuki
+Ochiai and Masato Wakayama and in [25].
+    In 2004, Christophe Soulé proposed a first definition of an algebraic variety over F1 in
+[36], based on the observation that the extension of the base field of a scheme can be char-
+acterized by a universal property. His suggestion for a variety over F1 is an object involving
+a functor, a complex algebra, a scheme and certain morphisms and natural transformations
+such that a corresponding universal property is satisfied. Shortly after that, many different
+approaches to F1 -geometry arose.
+    Anton Deitmar reinterpreted in [9] the notion of a fan as given by Kazuya Kato in
+[22] as a scheme over F1 . He calculated zeta functions for his F1 -schemes ([10]) and
+showed that the F1 -schemes whose base extension to C are complex varieties correspond
+to toric varieties ([11]). Bertrand Töen and Michel Vaquié associated to any symmetric
+monoidal category with certain additional properties a category of geometric objects. In
+the case of the category of sets together the cartesian product, the geometric objects are
+                AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                     3
+
+
+locally representable functors on monoids, which are F1 -schemes in the sense of Toën
+and Vaquié. Florian Marty developed theory on Zariski open objects ([33]) and smooth
+morphisms ([34]) in this context.
+    Shai Haran (cf. [20]) proposed using certain categories modeled over finite sets as a
+replacement for rings, and actually produced a candidate for the compactification Spec Z
+of Spec Z in his framework. Nikolai Durov developed in [16] an extension of classical
+algebraic geometry within a categorical framework that essentially implied replacing rings
+by a certain type of monads. As a byproduct of his theory he obtained a definition of F1
+and an algebraic geometry attached to it. See [17] for a summary.
+    In 2008, Alain Connes, Katia Consani and Matilde Marcolli showed ([6]) that the Bost-
+Connes system defined in [4] admits a realization as a geometric object in the sense of
+Soulé. The suggestion of Soulé to consider a variation of the functor in his approach and
+other ideas, led to Connes and Consani the variation of Soulé’s approach as presented in
+[7]. That paper contains a first contribution to Tits’ idea of Chevalley groups over F1 ,
+namely, Connes and Consani define them as varieties over F12 . Soulé himself wrote only
+later a text with his originally suggested modification. It can be found in this volume ([37]).
+    Yuri Manin proposed in [31] a notion of analytic geometry over F1 . The key idea is
+that one should look for varieties having “enough cyclotomic points”, an thought that re-
+lates to Kazuo Habiro’s notion ([19]) of the cyclotomic completion of a polynomial ring,
+which finds the interpretation as the ring of analytic functions on the set of all roots of
+unity. Matilde Marcolli presents in [32] an alternative model to the BC-system for the
+noncommutative geometry of the cyclotomic tower. For that purpose, she uses the mul-
+tidimensional analogues to the Habiro ring defined by Manin, and constructs a class of
+multidimensional BC-endomotives. Marcolli’s endomotives turn out to be closely related
+to Λ-rings, in the sense of [2].
+    Aiming at unifying the different notions of varieties over F1 (after Soulé and Connes-
+Consani) as well as establishing new examples of F1 -varieties, the authors of this text
+introduced in [26] the notion of torified varieties. Of particular interest were Grassmann
+varieties, which are shown to be torified varieties and to provide candidates of F1 -varieties.
+However, these candidates fail to satisfy the constraints of Soulé’s and Connes-Consani
+F1 -geometries. Independently of this work, Connes and Consani introduced in [8] a new
+notion of scheme over F1 , which simplified the previous approaches by Soulé and them-
+selves by merging Deitmar’s and Toën-Vaquies viewpoints into it. We will show in this
+paper that this notion is closely related to torified varieties. The second author showed in
+[27] that Connes-Consani’s new notion of F1 -geometry is indeed suitable to realize Tits’
+original ideas on Chevalley groups over F1 .
+    Another promising notion of F1 -geometry was given recently by James Borger in [3],
+who advocates the use of Λ-ring structures as the natural descent data from Z to F1 .
+    The aim of this paper is to give an overview of the new land of geometries over the field
+with one element. Firstly, we review briefly the different developments and building bricks
+of F1 -geometries. Secondly, we tie up and lay paths and bridges between the different F1 -
+geometries by describing functors between them. This will finally lead to a commutative
+diagram of F1 -geometries and functors between them that can be considered as a first map
+of F1 -land.
+    The paper is organized as follows. In part 1, we review the different notions of F1 -
+geometries. We describe a theory in detail where it seems important to gain an insight
+into its technical nature, but we will refrain from a detailed treatment in favor of a rough
+impression where technicalities lead too far for a brief account. In these cases, we provide
+the reader with references to the literature where the missing details can be found.
+    In the order of the paper, the following approaches towards F1 -geometries are reviewed:
+Deitmar’s F1 -schemes (which we call M-schemes in the following) are described in sec-
+tion 1.1, Toën and Vaquié’s F1 -schemes in section 1.2, Haran’s F-schemes in section 1.3
+4                          JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+and Durov’s generalized schemes in section 1.4. In section 1.5, we give a taste of Soulé’s
+definition of a variety over F1 and describe his and Connes-Consani’s variations on this
+notion. In section 1.6, we present Connes and Consani’s new proposal of F1 -geometry
+including the notion of an M0 -scheme. In section 1.7, we review the authors’ definition
+of a torified variety. Finally, we give in section 1.8 an insight into Borger’s Λ-schemes.
+    In part 2, we review and construct functors between the categories introduced in the
+first part of the paper. The very central objects of F1 -geometries are toric varieties. As
+we will see, these can be realized in all considered F1 -geometries. We begin in section
+2.1 with recalling the definition of a toric variety and following Kato ([22]) to show that
+toric varieties are F1 -schemes after Deitmar, i.e. M-schemes. In section 2.2 we describe
+Florian Marty’s work on comparing Deitmar’s and Toën-Vaquié’s notions of F1 -schemes.
+    In section 2.3, we lay the path from M-schemes to M0 -schemes and Connes-Consani’s
+F1 -schemes. In section 2.4, we recall from Haran’s paper [20] that M-schemes and
+M0 -schemes are F-schemes. In section 2.5, we see that the same result holds true for
+Durov’s generalized schemes (with 0) in place of F-schemes. In section 2.6, we review
+Peter Arndt’s work in progress about comparing Haran’s and Durov’s approaches towards
+F1 -geometry. In section 2.7, we refer to Borger’s paper [3] to establish M-schemes as
+Λ-schemes.
+    In section 2.8, we recall from the authors’ previous paper [26] that toric varieties are
+affinely torified. In section 2.9, we give an idea of why affinely torified varieties define
+varieties over F1 (after Soulé resp. Connes and Consani). In section 2.10, we extend the
+definition of a torified variety to a generalized torified scheme in order to show that the idea
+behind the notion of a torified variety and an F1 -scheme after Connes and Consani are the
+same. All these categories and functors between them will be summarized in the diagram
+in Figure 1 of section 2.11.
+    We conclude the paper with a review of the realization of Tits’ ideas on Chevalley
+groups over F1 by the second author in section 2.12.
+    Acknowledgments: The authors thank the organizers and participants of the Nashville
+conference on F1 -geometry for a very interesting event and for numerous inspiring dis-
+cussions that finally lead to an overview as presented in the present text. In particular, the
+authors thank Peter Arndt, Pierre Cartier, Javier Fresán, Florian Marty, Andrew Salch and
+Christophe Soulé for useful discussions and openly sharing the pieces of their unpublished
+works with us. The authors thank Susama Agarwala, Snigdhayan Mahanta, Jorge Plazas
+and Bora Yakinoglu for complementing the authors’ research on F1 with many other valu-
+able aspects.
+
+                     1. T HE BUILDING BRICKS OF F1 - GEOMETRIES
+    In this first part of the paper, we present an introduction to several different approaches
+to F1 -geometry. Some of the original definitions have been reformulated in order to unify
+notation, simplify the exposition or make similarities with other notions apparent. In what
+follows–unless explicitly mentioned otherwise–all rings will be assumed to be commu-
+tative rings with 1. Monoids are commutative semi-groups with 1 and will be written
+multiplicatively. Schemes are understood to be schemes over Z, and by variety, we will
+mean a reduced scheme of finite type.
+1.1. M-schemes after Kato and Deitmar. In [9], Deitmar proposes the definition of a
+geometry over the field with one element by following ideas of Kato (cf. [22]) of mimick-
+ing classical scheme theory but using the category M of commutative monoids (abelian
+multiplicative semigroups with 1) in place of the usual category of (commutative and uni-
+tal) rings. To a far extent, this idea leads to a theory that is formally analogous to algebraic
+geometry.
+    Given a monoid A, an ideal of A is a subset a such that aA ⊆ a. An ideal a is prime if
+whenever xy ∈ a, then either x ∈ a or y ∈ a (or equivalently, if the set A\a is a submonoid
+               AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                  5
+
+
+of A). The set spec A of all the prime ideals of the monoid A can be endowed with the
+Zariski topology, for which a set V ⊆ spec A is closed if there is an ideal a ⊆ A such that
+V = V (a) = {q ∈ spec A| a ⊆ q}. A commutative monoid always contains a minimal
+prime ideal, the empty set, and a unique maximal prime ideal, mA := A \ A× , where A×
+is the group of units of A. For any submonoid S ⊆ A the localization of A at S is defined
+by S −1 A = { as | a ∈ A, s ∈ S}/ ∼, where a/s ∼ b/t if there exists some u ∈ S such
+that uta = usb. The localization Quot A := A−1 A is called the total fraction monoid of
+A. The monoid A is integral (or cancellative) if the natural map A → Quot A is injective.
+For each prime ideal p ⊆ A we construct the localization at p as Ap := (A \ p)−1 A.
+    Let X = spec A be endowed with the Zariski topology. Given an open set U ⊆ X,
+define
+                                                                                      
+                          a                                                           
+   OX (U ) := s : U →          Ap | s(p) ∈ Ap and s is loc. a quotient of elements in A
+                                                                                      
+                         p∈U
+
+where s is locally a quotient of elements in A if s(q) = a/f for some a, f ∈ A with
+f ∈ / q for all q in some neighborhood of p. We call OX the structure sheaf of X. The
+stalks are OX,p := limp∈U OX (U ) ∼   = Ap . Taking global sections yields OX (X) =
+                       −→
+                  ∼
+Γ(spec A, OX ) = A.
+    A monoidal space is a pair (X, OX ) where X is a topological space and OX is a sheaf
+of monoids. A morphism of monoidal spaces is a pair (f, f # ) where f : X → Y is a
+continuous map and f # : OY → f∗ OX is a morphism of sheaves. The morphism (f, f # )
+                                                ×        ×
+is local if for each x ∈ X, we have (fx# )−1 (OX,x ) = OY,f (x) . For every monoid A and
+X = spec A, the pair (X, OX ) is a monoidal space, called an affine M-scheme, and every
+morphism of monoids ϕ : A → B induces a local morphism between the corresponding
+monoidal spaces. A monoidal space (X, OX ) is called a M-scheme (over F1 ) if for all
+x ∈ X there is an open set U containing x such that (U, OX |U ) is an affine M-scheme.
+    Let Z[A] denote the semi-group ring of A. The base extension functor − ⊗F1 Z that
+sends spec A to Spec Z[A] has a right-adjoint given by the forgetful functor from rings to
+monoids ([9, Theorem 1.1]). Both functors extend to functors between M-schemes and
+schemes over Z ([9, section 2.3]). We will often write XZ for X ⊗F1 Z.
+
+1.2. Schemes over F1 in the sense of Toën and Vaquié. Toën and Vaquié introduce in
+their paper [41] F1 -schemes as functors on monoids that can be covered by representable
+functors. To avoid confusion with the other notions of F1 -schemes in the present text, we
+will call the F1 -schemes after Toën and Vaqiué “TV-schemes”. We will explain the notion
+of a TV-scheme in this section.
+   As in the previous section, we let M be the category of monoids. Then the category
+of affine TV-schemes is by definition the opposite category Mop . If A is a monoid in M,
+then we write SpecT V A for the same object in the opposite category. The category of
+presheaves Psh(Mop ) on Mop consists of functors Mop → Sets as objects and natural
+transformations between them as morphisms. The affine TV-scheme X = SpecT V A
+can be regarded as a presheaf X : Mop → Sets by sending Y = SpecT V B to X(Y ) =
+Hom(Y, X) = Hom(A, B). This defines an embedding of categories Mop ֒→ Psh(Mop ).
+   For a monoid A, let A-Mod be the category of sets with A-action together with equi-
+variant maps. A homomorphism f : A → B of monoids is flat if the induced functor
+                            − ⊗A B : A-Mod −→ B-Mod
+commutes with finite limits.
+   Let X = SpecT V A and Y = SpecT V B. A morphism ϕ : Y → X in Mop is
+called Zariski open if the dual morphism f : A → B is an flat epimorphism of finite
+presentation. A Zariski cover of X = SpecT V A is a collection {Xi → X}i∈I of Zariski
+6                          JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+open morphisms in Mop such that there is a finite subset J ⊂ I with the property that the
+functor             Y                                Y
+                        − ⊗A Aj : A-Mod −→               Aj -Mod
+                        j∈J                             j∈J
+
+is conservative. This defines the Zariski topology on Spec A. The category Sh(Mop ) of
+sheaves is the full subcategory of Psh(Mop ) whose objects satisfy the sheaf axiom for the
+Zariski topology. Toën and Vaquié show that Spec A is indeed a sheaf for every monoid
+A.
+    Let F : Mop → Sets be a subsheaf of an affine TV-scheme X = Spec A. Then F ⊂ X
+is Zariski open if there exists a family {Xi → X}i∈I of Zariski open morphisms in Mop
+such that F is the direct image of
+                                         a
+                                           Xi → X
+                                        i∈I
+as a sheaf. Let F be a subsheaf of a sheaf G : Mop → Sets. Then F ⊂ G is Zariski open
+if for all affine TV-schemes X = Spec A, the natural transformation F ×G X → X is a
+monomorphism in Sh(Mop ) with Zariski open image.
+    Let F : M → Sets be a functor. An open cover of F is a collection {Xi ֒→ F }i∈I of
+Zariski open subfunctors such that
+                                       a
+                                           Xi → F
+                                        i∈I
+                              op
+is an epimorphism in Sh(M ).
+    A TV-scheme is a sheaf F : Mop → Sets that has an open cover by affine TV-schemes.
+    Given an affine TV-scheme X = SpecT V A, we define its base extension to Z as the
+scheme XZ = Spec Z[A]. This extends to a base extension functor
+                       − ⊗F1 Z : {TV-schemes} −→ {schemes}.
+Remark 1.1. In their paper [41], Toën and Vaquié define schemes w.r.t. any cosmos, that
+is, a symmetric closed-monoidal category that admits small limits and small colimits. It is
+possible to speak of monoids in such a category. In the case of the category Sets, we obtain
+M as monoids and the schemes w.r.t. Sets are TV-schemes as described above. The cate-
+gory of Z-modules yields commutative rings with 1 as monoids, and the schemes w.r.t. the
+category of Z-modules are schemes in the usual sense. There are several other interesting
+categories obtained by this construction that can be found in [41], also cf. Remark 1.2.
+1.3. Haran’s non-additive geometry. In [20], Haran proposes an “absolute geometry” in
+which the field with one element and rings over F1 are realized as certain categories.
+    Haran’s definition of the field with one element is the category whose objects are pointed
+finite sets and together with morphisms that are maps ϕ : X → Y such that f|X\ϕ−1 (0Y )
+is injective (where 0Y is the base point of Y ).
+    Neglecting the base point yields an equivalence of this category with the category F of
+finite sets together with partial bijections, i.e. the morphism set from X to Y is
+                                                    ∼
+               FY,X = HomF (X, Y ) := {ϕ : U −→ V | U ⊆ X, V ⊆ Y }.
+   The category F is endowed with two functors ⊕ (disjoint union) and ⊗ (cartesian prod-
+uct). These functors induce two structures (F, ⊕, [0] = ∅) and (F, ⊗, [1] = {∗}) of sym-
+metric monoidal categories on F. An F-ring is a category A with objects Ob(A) = Ob(F)
+being finite sets, endowed with a faithful functor F → A that is the identity on objects, and
+two functors ⊕, ⊗ : A × A → A extending the ones in F and each making A into a sym-
+metric monoidal category. For example, every ring together with the matrix algebras with
+coefficients in the ring is an F-ring. This embeds the category of rings into the category of
+F-rings.
+                 AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                           7
+
+
+  An ideal of an F-ring A is a collection of subsets {IY,X ⊆ AY,X }X,Y ∈|F| that is closed
+under the operations ◦, ⊕, ⊗, i.e
+                      A ◦ I ◦ A ⊆ I,         A⊗I ⊆ I         and I ⊕ I ⊆ I.
+An ideal a ⊆ A is called homogeneous if it is generated by a[1],[1] . A subset A ⊆ A[1],[1] is
+called an H-ideal if for all a1 , . . . , an ∈ A, b ∈ A[1],[n] , b′ ∈ A[n],[1] we have b ◦ (a1 ⊕ · · ·⊕
+an ) ◦ b′ ∈ A. If a is a homogeneous ideal, then a[1],[1] is an H-ideal, and conversely every
+H-ideal A generates a homogeneous ideal a such that a[1],[1] = A. An H-ideal p ⊆ A[1],[1]
+is prime if its complement A[1],[1] \p is multiplicatively closed. The set Spec A of all prime
+H-ideals can be endowed with the Zariski topology in the usual way. Localization of an
+F-ring A with respect to a multiplicative subset S ⊆ A[1],[1] also works exactly as classical
+localization theory for commutative rings, with the localization functor having all the nice
+                                                                            −1
+properties we might expect. We will denote by Ap = A[1],[1] \ p                 A the localization of
+A with respect to the complement of a prime H-ideal p.
+    As in Deitmar’s geometry, we can use this localization theory to build structure sheaves.
+Let A be an F-ring and U ⊆ Spec A an open set. For X, Y ∈ |F| let OA (U )Y,X denote
+the set of functions                                a
+                                        s : U −→       (Ap )Y,X
+                                                  p∈U
+
+such that s(p) ∈ (Ap )Y,X and s is locally a fraction, i.e. for ` all p ∈ U , there is a neigh-
+borhood V of p in U , an a ∈ AY,X and an f ∈ A[1],[1] \ q∈V q such that s(q) = a/f
+for all q ∈ V . This construction yields a sheaf OA of F-rings, which is called the structure
+sheaf of A. For each H-prime p the stalk OA,p := limp∈U OA (U ) is isomorphic to Ap .
+                                                          −→
+Moreover, the F-ring Γ(Spec A, OA ) of global sections is isomorphic to A.
+    An F-ringed space is a pair (X, OX ) where X is a topological space and OX is a
+sheaf of F-rings. An F-ringed space (X, OX ) is F-locally ringed if for each p ∈ X the
+stalk OX,p is local, i.e. contains a unique maximal H-ideal mX,p . A (Zariski) F-schemeS
+is an F-locally ringed space (X, OX ) such that there is an open covering X = i∈I Ui
+for which the canonical maps Pi : (Ui , OX |Ui ) → Spec OX (Ui ) are isomorphisms of
+F-locally ringed spaces. The category of F-schemes is the category of inverse systems (or
+pro-objects) in the category of Zariski F-schemes.
+    For F-rings A, B, C and morphisms A → B and A → C, we can construct the (relative)
+tensor product B ⊚A C. Using this construction, it follows that the category of (Zariski) F-
+schemes contains fibered sums. In particular, we can take A = F and C = F(Z), in order
+to obtain an extension of scalars from F to F(Z); however, the category of F(Z)-algebras
+is not equivalent to the category of rings (this is pretty much due to the existence of F-rings
+which are not matrix rings, cf. [1] for details), so this functor does not provide an extension
+of scalars from F-schemes to usual schemes.
+    The embedding of the category of rings inside the category of F-rings show that every
+scheme can be regarded as an F-scheme. A similar construction allows to produce an
+F-ring out of a monoid, providing a relation with M-schemes, cf. section 2.4 for further
+details. It is worth noting that all the examples mentioned here are what Haran calls rings
+of matrices; there are examples (cf. [20, §2.3, Examples 3 and 5] of more exotic F-rings
+that are not rings of matrices. Haran succeeds (cf. [20, §6.3]) in defining the completion
+Spec Z of the spectrum of Z, which is one step in Deninger’s program to prove the Riemann
+hypothesis.
+
+1.4. Durov’s generalized schemes. In [16], Durov introduces a generalization of classi-
+cal algebraic geometry, into that Arakelov geometry fits naturally. As a byproduct of his
+theory of generalized rings, he obtains a model for the field with one element and a notion
+of a geometry over F1 . Here, we outline Durov’s construction briefly. For full details, cf.
+[16], or consider [17] for a summary.
+8                          JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+   Any ring R can be realized as the endofunctor in the category of sets that maps a set
+X to RX , the free R-module generated by X. The ring multiplication and unit translate
+into properties of this functor, making it into a monad that commutes with filtered direct
+limits (cf. for instance [39] or [28, Chapter VI]). Motivated by this fact, Durov defines a
+generalized (commutative) ring as an monad in the category of sets that is commutative
+(cf. [16, §5.1] for the precise notion of commutativity) and commutes with filtered direct
+limits. If the set A([0]) = A(∅) is not empty, A is said to admit a constant, or we say
+that A is a generalized ring with zero (cf. [16, §5.1]). There is a natural notion of a module
+over a monad, which allows to construct the category of modules over any generalized ring
+A. Every generalized ring A has an underlying monoid |A| := A([1]), so we can define
+a prime ideal of A as any A-submodule p of |A| such that the complement |A| \ p is a
+multiplicative system. The set Spec A of all the prime ideals in A can be endowed with the
+Zariski topology in the usual way.
+   The notions of localization, presheaves and sheaves of generalized rings are defined
+analogously to the usual theory of schemes resp. to the theory of the former sections. We
+can talk about generalized ringed spaces (X, OX ) consisting of a topological space X with
+a sheaf of generalized rings OX . A generalized ringed space is local if for every p ∈ X
+the generalized ring OX,p has a unique maximal ideal. Every generalized ring defines
+a locally generalized ringed space (Spec A, OA ), which is called the generalized affine
+scheme associated to A. A generalized scheme is then a locally generalized ringed space
+which is locally isomorphic to a generalized affine scheme. In this setting, the category
+of F1 -schemes consists precisely of those generalized schemes (X, OX ) for that the set
+Γ(X, OX (0)) is not empty, also called generalized schemes with zero (cf. [16, §6.5.6]).
+   Examples of generalized schemes in the sense of Durov include usual schemes via the
+aforementioned realization of a ring as a generalized ring, as well as schemes over the
+spectrum of monoids or semi-rings, in particular in Durov’s theory it is possible to speak
+about schemes over the natural numbers, the completion Z∞ or the tropical semi-ring T.
+As Haran does in the context of his non-additive geometry, Durov defines the completion
+Spec Z of the spectrum of Z as a generalized scheme with zero. However, Durov’s con-
+struction forces the fibered product Spec Z ×F1 Spec Z to be isomorphic again to Spec Z,
+making it unsuitable to pursue Deninger’s program.
+
+
+
+1.5. Varieties over F1 in the sense of Soulé and its variations. The first suggestion of a
+category that realizes a geometry over F1 was given by Soulé in [36]. This notion found
+several variations ([37], [7]) that finally lead to the notion of F1 -schemes as given by
+Connes and Consani in [8], cf. the following section. We do not give the formal definitions
+from [36], [37] and [7] in its completeness, but try to give an overview of how ideas
+developed.
+
+
+
+1.5.1. S-varieties. We begin with the notion of varieties over F1 as given in [36]. To avoid
+confusion, we will call these varieties over F1 “S-varieties”. For a precise definition, cf.
+[36] or [26].
+   An affine S-variety X consists of
+
+      • a functor X : {finite flat rings} → {finite sets},
+      • a complex (non necessarily commutative) algebra AX ,
+      • an affine scheme XZ = Spec A of finite type,
+      • a natural transformation evX : X ⇒ Hom(AX , − ⊗Z C),
+      • an inclusion of functors ι : X ⇒ Hom(A, −) and
+      • an injection ιC : A ⊗Z C ֒→ AX
+               AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                     9
+
+
+such that the diagram
+                                           ι(R)
+(1.1)                   X(R)                              / Hom(A, R)
+
+                  evX (R)                                            −⊗Z C
+                                           ι∗                   
+                                             C
+               Hom(AX , R ⊗Z C)                    / Hom(A ⊗Z C, R ⊗Z C)
+
+commutes for all finite flat rings R and such that a certain universal property is satisfied.
+This universal property characterizes XZ together with ι and ιC as the unique extension of
+the triple (X, AX , evX ) to an affine S-variety. We define XZ as the base extension of X to
+Z.
+   A morphism X → Y between affine S-varieties consists of
+       • a natural transformation X → Y ,
+       • a C-linear map AY → AX and
+       • a morphism XZ → YZ of schemes
+such that they induce a morphism between the diagrams (1.1) corresponding to X and Y .
+   The idea behind the definition of global S-varieties is to consider functors on affine
+S-varieties. More precisely, an S-variety X consists of
+       • a functor X : {affine S-varieties} → {finite sets},
+       • a complex algebra AX ,
+       • a scheme XZ of finite type with global sections A,
+       • a natural transformation evX : X ⇒ Hom(AX , A(−) ),
+       • an inclusion of functors ι : X ⇒ Hom((−)Z , XZ ) and
+       • an injection ιC : A ⊗Z C ֒→ AX
+such that the diagram
+                                           ι(V )
+                         X(V )                        / Hom(VZ , XZ )
+
+                    evX (V )                                    global
+                                                               sections
+                                           ι∗              
+                                             C
+                    Hom(AX , AV )                  / Hom(A ⊗Z C, AV )
+
+commutes for all finite flat rings R and such that a certain universal property is satisfied.
+This universal property plays the same rôle as the universal property in the definition of an
+affine S-variety. We define XZ as the base extension of X to Z. Morphisms of S-varieties
+are defined analogously to the affine case.
+    A remarkable property of these categories is that the dual of the category of finite
+flat rings embeds into the category of affine S-varieties and that the category of affine
+S-varieties embeds into the category of S-varieties. The essential image of the latter em-
+bedding are those S-varieties whose base extension to Z is an affine scheme. Furthermore,
+a system of affine S-varieties ordered by inclusions that is closed under intersections can
+be glued to an S-variety.
+    In his paper, Soulé constructs for every smooth toric variety an S-variety whose base
+extension to Z is isomorphic to the toric variety. This result was extended in [26, Theorem
+3.11], also cf. section 2.9.
+    The paper contains a definition of a zeta function for those S-varieties X that admit a
+polynomial counting function, i.e. that the function q 7→ #XZ (Fq ) on prime powers q is
+given by a polynomial in q with integer coefficients. This provides, up to a factor 2π, a
+first realization of Deninger’s motivic zeta functions of h0 and h2 (as in the introduction)
+as zeta functions of the “absolute point Spec F1 ” and the “affine line over F1 ”.
+1.5.2. S∗ -varieties. In [37], Soulé describes the first modification of this category. The
+idea is to exchange the functor on finite flat rings by a functor on finite abelian groups.
+Correspondingly, the functors Hom(AX , − ⊗Z C) and Hom(A, −) in the definition of
+10                          JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+an affine S-variety are exchanged by Hom(AX , C[−]) and Hom(A, Z[−]), respectively,
+where Z[D] and C[D] are the group algebras of a finite abelian group D. We call the ob-
+jects that satisfy the definition of an affine S-variety with these changes affine S∗ -varieties.
+Morphisms between affine S∗ -varieties and the base extension to Z is defined analogously
+to the case of affine S-varieties. Also the definition of S∗ -varieties and morphisms between
+S∗ -varieties are defined in complete analogy to the case of S-varieties.
+    Soulé proves similar results for S∗ -varieties as for S-varieties: Affine S∗ -varieties are
+S -varieties. A system of affine S∗ -varieties ordered by inclusions that is closed under
+  ∗
+
+intersections can be glued to an S∗ -variety. Every smooth toric variety has a model as an
+S∗ -variety (see also section 2.9). The definition of zeta functions transfers to this context.
+
+1.5.3. CC-varieties. In [7], Connes and Consani modify the notion of an S∗ -variety in
+the following way. They endow the functor X from finite abelian groups to finite sets
+with a grading,
+           `      i.e. for every finite abelian group D, the set X(D) has a decomposition
+X(D) = n∈N X n (D) into a disjoint union of sets. Secondly, they exchange the complex
+algebra by a complex variety. We call the objects that satisfy the definition of an affine S∗ -
+variety with these changes affine CC-varieties. Morphisms between affine CC-varieties
+and the base extension to Z are defined analogously to the case of affine S-varieties and
+S∗ -varieties.
+    The category of affine CC-varieties is embedded into a larger category that plays the
+rôle of the category of locally ringed spaces in the theory of schemes. CC-varieties are
+defined as those objects in the larger category that admit a cover by affine CC-varieties.
+    The definition of zeta functions transfers to this context. Connes and Consani show
+certain examples of CC-schemes, where the zeta function can be read off from the graded
+functor of the CC-scheme.
+    The main application of this paper is the construction of models of split reductive groups
+as CC-varieties over “F12 ”. This is a first construction of objects in F1 -geometry that
+contributes to Tits’ ideas from [40]. These results were extended in [26]; in particular,
+they also hold in the context of S-varieties and S∗ -varieties, cf. section 2.9. However, these
+categories are not suitable to define a group law for any split reductive group over F1 , cf.
+[7, p. 25] and [26, Section 6.1]. For how this can be done in the context of CC-scheme, see
+section 2.12 of the present text.
+
+1.6. Schemes over F1 in the sense of Connes and Consani. In their paper [8], Connes
+and Consani merge Soulé’s idea and its variations with Kato’s resp. Deitmar’s monoidal
+spaces and Toën and Vaquié’s sheaves on monoids. Roughly speaking, a scheme over F1
+in the sense of Connes and Consani, which we call “CC-scheme” to avoid confusion, is a
+triple consisting of a locally representable functor on monoids, a scheme and an evaluation
+map. Unlike Kato/Deitmar and Toën-Vaquié, all monoids are considered together with a
+base point as in Haran’s theory ([20])–the locally representable functor is a functor from
+M0 (see section 1.3) to Sets.
+    We make these notions precise. First of all, we can reproduce all steps in the construc-
+tion of M-schemes as in section 1.1 to define M0 -schemes. Namely, an ideal of a monoid
+A with 0 is a subset I ⊂ A containing 0 such that IA ⊂ I. A prime ideal is an ideal p ⊂ A
+such that A − p is a submonoid of A. As in section 1.1, we can define localizations and
+the Zariski topology on SpecM0 A = {prime ideals of A}, the spectrum of A.
+    A monoidal space with 0 is a topological space together with a sheaf in M0 . Together
+with its Zariski topology and its localizations, Spec A is a monoidal space with 0. A
+geometric M0 -scheme is a monoidal space with 0 that has an open covering by spectra of
+monoids with 0.
+    Similar to section 1.2, M0 -schemes are defined as locally representable functors on
+M0 . In detail, an M0 -functor is a functor from M0 to Sets. Every monoid A with 0
+defines an M0 -functor X = SpecM0 A by sending a monoid B with 0 to the set X(B) =
+                AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                      11
+
+
+Hom(SpecM0 B, SpecM0 A) = Hom(A, B). An affine M0 -scheme is a M0 -functor that
+is isomorphic to SpecM0 A for some monoid A with 0.
+    A subfunctor Y ⊂ X of an M0 -functor X is called an open subfunctor if for all
+monoids A with 0 and all morphisms ϕ : Z = SpecM0 A → X, there is an ideal I of
+A such that for all monoids B with 0 and for all ρ ∈ Z(B) = Hom(A, B),
+                         ϕ(ρ) ∈ Y (B) ⊂ X(B) ⇐⇒ ρ(I)B = B.
+
+` open cover of X is a collection {Xi → X}i∈I of open subfunctors such that the map
+An
+   i∈I Xi (H) → X(H) is surjective for every monoid H that is a union of a group with 0.
+An M0 -scheme is an M0 -functor that has an open cover by affine M0 -schemes.
+    If X is an M0 -scheme, then the stalk at x is OX,x = lim X(U ), where U runs through
+                                                           →
+all open neighborhoods of x. A morphism of M0 -schemes ϕ : X → Y is a natural
+transformation of functors that is local, i.e. for every x ∈ X and y = ϕ(x), the induced
+                                                                        ×         ×
+morphism ϕ♯x : OY,y → OX,x between the stalks satisfies that (ϕ♯x )−1 (OX,x ) = OY,y .
+    Connes and Consani claim that the M0 -functor Hom(SpecM0 −, X) is a M0 -scheme
+for every geometric M0 -scheme X and that, conversely, every M0 -scheme is of this form
+([8, Prop. 3.16]). For this reason, we shall make no distinction between geometric M0 -
+schemes and M0 -schemes from now on.
+    The association
+                                                            
+                                A → Z[A]/1 · 0A − 0Z[A]
+where 0A is the zero of A and 0Z[A] is the zero of Z[A] extends to the base extension
+functor
+                   − ⊗M0 Z : {M0 − schemes} −→ {schemes}.
+We denote the base extension of an M0 -scheme X to Z by XZ = X ⊗M0 Z.
+    The ideas from sections 1.5.1–1.5.3 find now a simplified form. A CC-scheme is a
+        e X, evX ) where X
+triple (X,                 e is an M0 -scheme, X is a scheme, viewed as a functor on the
+category of rings, and evX : XeZ ⇒ X is a natural transformation that induces a bijection
+evX (k) : XeZ (k) → X(k) for every field k. The natural notion of a morphism between CC-
+           e                e X, evX ) is a pair ( e
+schemes (Y , Y, evY ) and (X,                     ϕ, ϕ) where ϕe : Ye → Xe is a morphism
+of M0 -schemes and ϕ : Y → X is a morphism of schemes such that the diagram
+                                               eZ
+                                               ϕ
+                                     eZ
+                                     X                 / Ye
+                                                          Z
+
+                                  evX                         evY
+                                              ϕ          
+                                     X                  /Y
+
+commutes. The base extension of X = ( e
+                                     X, X, evX ) to Z is XZ = X.
+Remark 1.2. The definition of an M0 -scheme is in the line of thoughts of Toën and
+Vaquié’s theory as described in section 1.2. Indeed, monoid objects in the category of
+pointed sets are monoids with 0. It seems to be likely, but it is not obvious, that the notion
+a scheme w.r.t. the category of pointed sets are M0 -schemes. Andrew Salch is working on
+making this precise. Furthermore, Salch constructs a cosmos such that monoid objects on
+this category correspond to triples ( e
+                                     X, X, eX ) where X e is an M0 -functor, X is a functor
+                    e
+on rings and eX : XZ ⇒ X is a natural equivalence.
+   It is however questionable whether CC-schemes have an interpretation as schemes w.r.t.
+some category in the sense of Toën and Vaquié since it is not clear what an affine CC-
+scheme should be. See Remark 2.5 for a more detailed explanation.
+1.7. Torified varieties. Torified varieties and schemes were introduced by the authors of
+this text in [26] in order to establish examples of varieties over F1 in the sense of Soulé (cf.
+section 1.5.1) and Connes-Consani (cf. section 1.5.3).
+12                          JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+
+` A torified    scheme is a scheme X endowed with a torification eX : T → X, i.e. T =
+         di
+  i∈I  G m  is a disjoint union of split tori and eX is a morphism of schemes such that the
+restrictions eX |Gdi are immersions and eX (k) : T (k) → X(k) is a bijection for every field
+                   m
+k. Examples of torified schemes include (cf. [26, §1.3] or [27]):
+       • Toric varieties, with torification given by the orbit decomposition.
+       • Grassmann and Schubert varieties, where the torification is induced by the Schu-
+          bert cell decomposition.
+       • Split reductive groups, with torification coming from the Bruhat decomposition.
+                                                                       `
+   Let X and Y be torified schemes with torifications eX : T = i∈I Gdmi → X and
+            `        f
+eY : S = j∈J Gmj → Y , respectively. A torified morphism (X, T ) → (Y, S) consists of
+a pair of morphisms ϕ : X → Y and eϕ : T → S such that the diagram
+                                               ϕ
+                                       XO              /Y
+                                                         O
+                                   eX                        eY
+                                               eϕ
+                                        T               /S
+commutes and such that for every i ∈ I there is a j ∈ J such that the restriction eϕ |Gdi :
+                                                                                             m
+          f
+Gdmi → Gmj is a morphism of algebraic groups.
+   A torified scheme (X, T ) is affinely torified if there is an affine open cover {Uj } of X
+                                                                                `        d
+that respects the torification, i.e. such that for each j there is a subset Tj = i∈Ij Gmj such
+that the restriction eX |Tj is a torification of Uj . A torified morphism is affinely torified if
+there is an affine open cover {Uj } of X respecting the torification and such that the image
+of each Uj is an affine subscheme of Y . An (affinely) torified variety is an (affinely) torified
+scheme that is reduced and of finite type over Z.
+   Toric varieties and split reductive groups are examples of affinely torified varieties, cf.
+[26, §1.3], whilst the torifications associated to Grassmann and Schubert varieties are in
+general not affine.
+1.8. Λ-schemes after Borger. An approach that is of a vein different to all the other F1 -
+geometries is Borger’s notion of a Λ-scheme (see [3]). A Λ-scheme is a scheme with an
+additional decoration, which is interpreted as descent datum to F1 . In order to give a quick
+impression, we restrict ourselves to introduce only flat Λ-schemes in this text.
+   A flat Λ-scheme is a flat scheme X together with a family Φ = {ϕp : X → X}p prime
+of pairwise commuting endomorphism of X such that the diagram
+                                             Frobp
+                              X ⊗ Z Fp                 / X ⊗ Z Fp
+
+
+                                              ϕp              
+                                  X                          /X
+commutes for every primes number p. Here, Frobp : X ⊗Z Fp → X ⊗Z Fp is the Frobenius
+morphism of the reduction of X modulo p.
+   The base extension of this flat Λ-scheme is the scheme X. In particular every reduced
+scheme X that has a family Φ as described above is flat.
+   Examples of Λ-schemes are toric varieties. For more examples, consider [3, sections 2]
+or section 2.7 of this text.
+
+                                  2. PATHS AND BRIDGES
+   In this second part of the paper, we review and construct various functors between the
+different F1 -geometries. In some central cases, we will describe functors in detail, in other
+cases, we will give a reference. We will also describe some work in progress by Arndt and
+Marty on such functors. All these functors are displayed in the large diagram in Figure 1.
+                AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                        13
+
+
+2.1. Toric varieties as M-schemes. In this section, we recall the definition of a toric
+variety, describe the reformulation of toric varieties in terms of a fan of monoids as done
+by Oda ([35]) and relate them to M-schemes as done by Kato ([22]). For more details on
+toric varieties, consider [18] and [29].
+                                                n                                   n
+            P convex and rational) cone (inn R ) isn an additive semi-group τ ⊂ R of the
+    A (strictly
+form τ = i∈I ti R≥0 where {t     Pi }i∈I ⊂ Q ⊂ R is a linearly independent set. A face σ
+of τ is a cone of the form σ = i∈J ti R≥0 for some subset J ⊂ I. A fan is a non-empty
+collection ∆ of cones in Rn such that
+     (1) each face of a cone τ ∈ ∆ is in ∆ and
+     (2) for all cones τ, σ ∈ ∆, the intersection τ ∩ σ is a face of both τ and σ.
+In particular, the face relation makes ∆ into a partially ordered set.
+    If τ is a cone in Rn , we define Aτ as the intersection τ ∨ ∩ Zn of the dual cone τ ∨
+with the lattice Zn ⊂ Rn . Since the generators ti of τ have rational coordinates, Aτ is a
+finitely generated (additively written) monoid. An inclusion σ ⊂ τ of cones induces an
+open embedding of schemes Spec Z[Aσ ] ֒→ Spec Z[Aτ ]. A toric variety (of dimension n)
+is a scheme X together with a fan ∆ (in Rn ) such that
+                                    X ≃ lim
+                                        −→
+                                            Spec Z[Aτ ].
+                                           τ ∈∆
+
+    A morphism ψ : ∆ → ∆ of fans is map ψe between partially ordered sets together with
+                              ′
+
+a direct system of semi-group morphisms ψτ : τ → e        ψ(τ ) (with respect to the inclusion
+of cones). The dual morphisms induce monoid homomorphisms ψτ∨ : A e              ψ(τ ) → Aτ .
+                                                                            ∨
+Taking the direct limit over the system of scheme morphisms Spec Z[ψτ ] : Spec Z[Aτ ] →
+                                                 ′
+Spec Z[Aψ(τ e ) ] yields a morphism ϕ : X → X between toric varieties. Such a morphism
+is called a toric morphism.
+    Note that a toric variety is determined by its fan and a toric morphism between toric
+varieties is determined by the morphism between the fans. This leads to a completely
+combinatorial description of the category of toric varieties in terms of monoids as follows
+(cf. [22, section 9]).
+    Recall the definition of the quotient group Quot A and of an integral monoid from
+section 1.1. The monoid A is saturated if it is integral and if for all a ∈ A, b ∈ Quot A
+and n > 0 such that bn = a, we have that b ∈ A. A fan in Zn is a collection ∆ of (additive)
+submonoids A ⊂ Zn such that
+     (1) all A ∈ ∆ are finitely generated and saturated, A× = 1 and Zn / Quot A is
+          torsion-free,
+     (2) for all A ∈ ∆ and p ∈ SpecM A, we have A \ p ∈ ∆, and
+     (3) for all A, B ∈ ∆, we have A ∩ B = A \ p = B \ q for some p ∈ SpecM A and
+          q ∈ SpecM B.
+In particular, ∆ is a diagram of monoids via the inclusions A \ p ֒→ A.
+    This yields the following alternative description: a toric variety is a scheme X together
+with a fan ∆ in Zn such that
+                                    X ≃ lim
+                                        −→
+                                            Spec Z[A].
+                                            A∈∆
+
+Note that Spec Z[A] is the base extension of the M-scheme SpecM A to Z, and that for
+                                    e = lim SpecM A,
+                                    X   −→
+                                            A∈∆
+
+XeZ ≃ X. We introduce some further definitions to state Theorem 2.1 where we follow
+ideas from [11, section 4].
+   An M-scheme is connected if its topological space is connected. An M-scheme is
+integral / of finite type / of exponent 1 if all its stalks are integral / of finite type / (multi-
+plicatively) torsion-free.
+14                        JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+Theorem 2.1 ([26, Thm. 4.1]). The association as described above extends to a functor
+                        K : {toric varieties} −→ {M-schemes}
+that induces an equivalence of categories
+                                                                            
+                                    ∼      connected integral M-schemes
+         K:      toric varieties    −→
+                                            of finite type and of exponent 1
+with − ⊗F1 Z being its inverse.
+2.2. Comparison of M-schemes with TV-schemes. A project of Florian Marty is the
+investigation of the connection between M-schemes and TV-schemes. In the second arXiv
+version of his paper [33], one finds partial results. From a private communication, we get
+the following picture.
+   It is possible to associate to each affine TV-scheme X = SpecT V A a topological space
+Y whose locale is the locale of X (defined by the Zariski open subsheaves as introduced
+in section 1.2) and such that Y is homeomorphic to the topological space SpecM A as
+considered in section 1.1. More precisely, this construction yields a functor
+                 M1 : {affine TV-schemes} −→ {affine M-schemes}
+that is an equivalence of categories with inverse M2 : SpecM A 7→ Hom(A, −). More-
+over, Marty also proves in [33] that the notions of open immersions for M-schemes and
+TV-schemes coincide.
+   It seems to be likely, but it is not obvious, that the functors M1 and M2 extend to an
+equivalence of categories
+                                               M1
+                      {TV-schemes} o__ __ __ __ __ __/ {M-schemes} .
+                                               M2
+
+2.3. M-schemes as M0 - and CC-schemes. The category of M-schemes embeds into
+the category of CC-schemes. We proceed in two steps.
+    Firstly, we construct a functor from M-schemes to M0 -schemes. Consider the fully
+                      +0
+faithful functor M −→ M0 that associates to a monoid A the monoid A+0 = A ∪ {0}
+with 0 whose multiplication is extended by 0 · a = 0 for every a ∈ A+0 . This induces a
+faithful functor
+                                          +0
+                  {monoidal spaces} −→ {monoidal spaces with 0},
+that we denote by the same symbol, by composing the structure sheaf OX of a monoidal
+                      +0
+space X with M −→ M0 . We reason in the following that this functor restricts to a
+functor from the category of M-schemes to the category of M0 -schemes.
+    The prime ideals of a monoid A (cf. section 1.1) coincide with the prime ideals of A+0
+(cf. section 1.6) since we asked a prime ideal of a monoid with 0 to contain 0. Recall that
+localizations, the Zariski topology, monoidal spaces (without and with 0) for M-schemes
+and M0 -schemes are defined in complete analogy. Thus the above functor restricts to a
+faithful functor
+                                           +0
+                            {M-schemes} −→ {M0 -schemes}.
+    Secondly, we define the functor
+                        F : {M0 -schemes} −→ {CC-schemes}
+as sending an M0 -scheme X to the CC-scheme (X, XZ , idXZ ). A morphism ϕ : Y → X
+of M0 -schemes defines the morphism (ϕ, ϕZ ) of CC-schemes. The condition that
+                                               ϕZ
+                                     YZ             / XZ
+
+                                  idYZ                  idXZ
+                                              ϕZ      
+                                     YZ             / XZ
+               AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                   15
+
+
+commutes is trivially satisfied and shows that F is faithful. The composition of the functors
++0 and F yields a functor
+                           {M-schemes} −→ {CC-schemes}.
+2.4. M- and M0 -schemes as F-schemes. Let M be a monoid with 0. We can define an
+F-ring FhM i by setting FhM iY,X = HomFhMi (X, Y ), that is, the set of Y × X matrices
+with values in M with at most one nonzero entry in every row and column. This is an F-
+ring with composition defined by matrix multiplication. This is possible because all sums
+that occur in the product of two matrices with at most one non-zero entry in every row and
+column range over at most one term. This construction yields a faithful functor
+                                Fh−i : M0 −→ {F-rings}
+(cf. [20, §2.3, Example 2]), which has a right adjoint functor, namely, the functor −[1],[1]
+that takes any F-ring A to the monoid A[1],[1] = HomA ([1], [1]). Composition with the
+functor +0 from section 2.3 yields a faithful functor from M to the category of F-rings,
+which admits a right adjoint given by composing −[1],[1] with the forgetful functor.
+   Since ideals, localization and gluing in the category of F-rings are defined in terms of
+the underlying monoid A[1],[1] , which is in complete analogy to the construction of M0 -
+schemes, we obtain a faithful functor
+                        Fh−i : {M0 -schemes} −→ {F-schemes}.
+Composing with +0 yields a faithful functor from the category of M-schemes to the cate-
+gory of F-schemes.
+2.5. M0 -schemes as generalized schemes with zero. In this section we mention some
+relations between the category of M-schemes and the one of Durov’s generalized schemes
+with zero. What follows is based on a work in progress by Peter Arndt (cf. [1]).
+    Associated to any monoid with zero M , we can construct the monad TM : Sets → Sets
+that takes any set X into TM (X) := (M × X)/∼, where we identify all the elements of
+the form (0, x) and assume that if X = ∅ the quotient consists of one element (the empty
+class). This monad is algebraic since cartesian products commute with filtered colimits, so
+we have a functor T− from M0 to the category of generalized rings with 0. The functor
+T− has as a right adjoint, namely, the functor | − | that associates to a generalized ring A
+its underlying monoid |A| := A([1]).
+    The functor T− commutes with localizations because localizations in generalized rings
+are defined in terms of localizations of the underlying monoids. Thus it naturally extends
+to an embedding of categories
+                T− : {M0 -schemes} −→ {Generalized schemes with 0}.
+2.6. Relation between Durov’s generalized rings with zero and Haran’s F-rings. In
+this section, we explain the relation between the categories of generalized rings with zero
+defined by Durov and the one of F-rings defined by Haran, following some remarks by
+Durov (cf. [16, §5.3.25]) and a work in progress by Peter Arndt (cf. [1]).
+   Given a generalized ring with zero T , we can construct the F-ring T D defined by the
+sets of morphisms
+                 D
+                TY,X = HomT A (X, Y ) := {T (f )| f ∈ HomSets (X, Y )}
+obtained by applying T to set maps between X and Y . This construction yields a functor
+                      D : {Generalized rings with 0} −→ {F-rings},
+admitting a left adjoint A, where for every F-ring R the monad AR is defined by AR ([n]) :=
+R[1],[n] .
+   It is worth noting that the functor D that sends generalized rings to F-rings is not
+monoidal. This is due to the fact that the product ⊚ in the category of F-rings is not
+16                         JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+compatible with the tensor product of generalized rings, cf. [20, Remark 7.19] and [1] for
+further details.
+   It seems to be likely that the pair of functors above lift to the corresponding categories
+of schemes, providing an adjunction
+                                                       D       / {F-schemes} .
+                {Generalized schemes with 0} o
+                                                       A
+
+   One of the interesting applications of the functor A is that we can define a base change
+functor from F-rings to usual rings by composing A with Durov’s base change functor.
+This extension of scalars is left adjoint to the inclusion of rings into F-rings. Complete
+details on this extension of scalars functor and its properties will be given in [1].
+
+2.7. M-schemes as Λ-schemes. In [3], Borger describes different examples of (flat) Λ-
+schemes. We will recall his constructions briefly to explain, why the category of M-
+schemes embeds into the category of Λ-schemes.
+   Given a monoid A, we can endow the (flat) scheme X = Spec Z[A] with the following
+Λ-scheme structure Φ = {ϕp : X → X}p prime : for each prime p, the endomorphism
+ϕp : X → X is induced by the algebra map Z[A] → Z[A] given by a → ap for every a ∈
+A. Every morphism of monoids A → B induces therefore a morphism of the associated
+Λ-schemes Spec Z[B] → Spec Z[A].
+   Borger remarks in [3, section 2.3] that all small colimits and limits of Λ-schemes exist
+and that they commute with the base extension to Z. Every M-scheme X has an open
+cover by affine M-schemes Xi . By definition of the base extension to Z this yields an
+open cover of XZ by Xi,Z . Since the Xi,Z have a structure of a Λ-scheme and XZ is the
+limit over the Xi,Z and their intersections, X inherits the structure of a Λ-scheme. This
+yields the functor
+                         B : {M-schemes} −→ {Λ-schemes}.
+  Note, however, that B is not essentially surjective as certain quotients of Λ-schemes are
+Λ-schemes that are not induced by an M-scheme. See [3, sections 2.5 and 2.6] for details.
+
+2.8. Toric varieties and`affinely torified varieties. As it was mentioned in section 1.7,
+the orbit decomposition τ ∈∆ Tτ = Spec Z[A×       τ ] −→ X provides an affine torification of
+a toric variety X with fan ∆ (for details, cf. [26, §1.3.3]). Moreover, every toric morphism
+between toric varieties induces a morphism between the corresponding affinely torified
+varieties.
+   In other words, we obtain an embedding of categories
+                   ι : {Toric varieties} −→ {Affinely torified varieties}.
+
+2.9. Relation between affinely torified varieties, S-varieties and its variations. The
+relation between affinely torified varieties and S-varieties or CC-varieties is established in
+[26, §2.2, §3.3]. Theorems 3.11 and 2.10 in loc. cit. provide embeddings S and L of the
+category of affinely torified varieties into the category of S-varieties resp. CC-varieties.
+   In order to show that the above functors define varieties over F1 in the sense of Soulé
+or Connes-Consani, it is necessary to show that the universal property holds, which boils
+down to prove that a certain morphism ϕC : X → V of affine complex varieties is actually
+defined over the integers, where X is an affinely torified variety and V is an arbitrary
+variety. The main idea of the proof is to consider for each irreducible component of X the
+unique open torus Ti in the torification of X that is contained in the irreducible component
+(cf. [26, Corollary 1.4]). Since a split torus satisfies the universal property of an S-variety
+resp. a CC-variety (cf. [36] and [7]), the morphism ϕC |Ti is defined over Z and extends to
+a rational function ψ on X defined over the integers with the locus of poles contained in
+the complement of Ti . But the extension to C of the rational function is ϕC , which has no
+poles. Thus ψ cannot have a pole and is a morphism of schemes.
+                AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                    17
+
+
+   Note that this proof that works for both S-varieties and CC-varieties can also be adopted
+to S∗ -varieties. This yields an embedding S ∗ of the category of affinely torified varieties
+into the category of S∗ -varieties.
+   In [26], we find the construction of a partial functor FCC→S mapping CC-varieties to
+“S-objects”, which, however, do not have to satisfy the universal property of an S-variety.
+In a similar fashion, replacing the complex algebra AX by the complexified scheme XZ ⊗
+C, or conversely replacing the complex scheme XC by the algebra of global sections,
+provide ways to compare the categories of CC-varieties and S∗ -varieties. But there are
+technical differences between the two categories that prevent this correspondence to define
+a functor. Namely, the notions of gluing affine pieces are different and it is not clear
+how to define the grading for an CC-variety. Regarding the other direction, going from
+the complex scheme XC to the algebra of global functions is a loss of information if the
+CC-variety is not affine. All these issues suggest that the reader should consider these
+categories as similar in spirit, but technically different.
+
+2.10. Generalized torified schemes and CC-schemes. Torified schemes are closely con-
+nected to Connes and Consani’s notion of F1 -schemes. In this section, we generalize the
+notion of a torified scheme, which allows the sheaves to have multiplicative torsion and
+which provides an easier setting to compare the category of torified schemes with the cat-
+egory of CC-schemes.
+    A generalized torified scheme is a triple X = ( e
+                                                   X, X, eX ) where Xe is a geometric M0 -
+                                    e
+scheme, X is a scheme, and eX : XZ → X is a morphism of schemes such that for every
+field k the map eX (k) : XeZ (k) → X(k) is a bijection. A morphism of torified schemes is
+a pair of morphisms ϕ e:X e → Ye (morphism of M0 -schemes) and ϕ : X → Y (morphism
+of schemes) such that the diagram
+                                               e
+                                               ϕ
+                                    eZ
+                                    X                  / Ye
+                                                          Z
+
+                                   eX                         eY
+                                              ϕ          
+                                     X                 / Y.
+commutes. We denote the natural inclusion of the category of affinely torified varieties into
+the category of generalized torified schemes by ι. We also have an obvious inclusion
+                 F ′ : {M0 -schemes} −→ {generalized torified schemes}
+constructed in the same fashion as the functor F in section 2.3. `
+   Let X be a scheme together with a torification eX : T = i Gdmi −→ X. Then
+                                  ` di
+T =X  eZ for the M0 -scheme Xe=
+                                     i Gm,M0 . Using this description, the relation between
+(generalized) torified schemes and CC-schemes becomes apparent.
+Theorem 2.2. The functor
+              I : {generalized torified schemes}     −→ {CC-schemes}
+                                       e X, eX )
+                                      (X,                 e
+                                                     7−→ (X(−), X(−), eX )
+is an equivalence of categories.
+                                                                                        eZ (k) =
+Proof. First of all note that the objects of both categories satisfy the condition that X
+X(k) for every fields k. The theorem follows from the facts that every M0 -scheme e       X(−)
+is represented by a geometric M0 -scheme ([8, Prop. 3.16]) and that a natural transforma-
+tion of representable functors is induced by a morphism between the representing objects
+(Yoneda’s lemma).                                                                              
+   This theorem establishes toric varieties, Grassmann and Schubert varieties and split
+reductive groups as CC-schemes. We have an immediate equivalence I ◦ F ′ ≃ F.
+18                         JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+Remark 2.3. If X = ( e    X, X, eX ) is a generalized torified scheme, then X is torified if and
+                                             `
+only if there is an isomorphism X      e ∼= x∈Xe Grkxm,M0 where rkx is the rank of the group
+  ×
+OX,x
+  e   and  if the restriction e X |Gm
+                                    rkx is an immersion for every x ∈ e
+                                                                      X. As a consequence we
+obtain the following result.
+
+Corollary 2.4. Let X = (X,  e X, eX ) be a CC-scheme. If Xe is integral and torsion-free
+and if eX |YeZ is an immersion for every connected component Ye of X,
+                                                                    e then X = XZ is
+torified.
+
+Remark 2.5. The torification of Gr(2, 4) given by a Schubert decomposition is not affine
+(cf. [26, Section 1.3.4]), what makes it unlikely that the corresponding CC-scheme has
+an open cover by open sub-CC-schemes of the form (X,      e X, eX ) such that both X  e and
+X are affine. This is a reason for the flexibility of CC-schemes, and it seems that the
+category of CC-schemes is different to categories that are obtained by gluing affine pieces.
+In particular, cf. Remark 1.2.
+
+2.11. The map of F1 -land. The functors that we described in the previous section are
+illustrated in the commutative diagram in Figure 1 of categories and functors. Note that
+we place the category of schemes on the outside in order to have a better overview of the
+different categories. In Figure 1, all the extensions of scalars from F1 to Z are denoted
+by − ⊗F1 Z, the functor ι is the canonical inclusion of (affinely) torified schemes into
+generalized torified schemes. All the other functors have been defined in the previous
+sections. As we are dealing with categories and functors, the diagram is commutative only
+up to isomorphism. Some of the functors admit adjoints also described in the text, that in
+many cases have been left out of the diagram for the sake of clarity. The dashed arrows
+corresponding to the functors D and A′ represent a work in progress.
+    A few remarks about the commutativity (up to isomorphism) of the diagram. Any path
+that starts at toric varieties and ends up at schemes will always produce the toric variety
+itself, so all these possible paths are equivalent. Commutativity of subdiagrams involving
+S-varieties, CC-varieties was proven in [26], and extends verbatim to S∗ -varieties. The
+commutativity of the triangle involving CC-schemes, generalized schemes with 0 and H-
+schemes (also involving the functor A adjoint of D is explained in Arndt’s work [1]. The
+equivalence (− ⊗F1 Z) ◦ B ≃ (− ⊗F1 Z) ◦ M1 follows immediately from the definitions.
+
+
+2.12. Algebraic groups over F1 . The aim of Connes and Consani’s paper [7] as described
+in section 1.5.3 was to realize Tits’ idea from [40] of giving the Weyl group of a split
+reductive group scheme (cf. [12, Exposé XIX, Def. 2.7]) an interpretation as a “Chevalley
+group over F1 ”. Connes and Consani obtained partial results, namely, that every split
+reductive group scheme G has a model “over F12 ” and that the normalizer N of a maximal
+split torus T of G can be defined as a group object over F12 . However, there is no model
+of G as an algebraic group over F1 or F12 . For a further discussion of possibilities and
+limitation in this context, see [26, section 6.1].
+    In the category of CC-schemes, the same reasons prevent split reductive group schemes
+(except for tori) to have a model as an algebraic group over F1 . However, the second
+author of this paper showed that this category is flexible enough to invent new notions of
+morphisms that yield the desired results. We review the definitions and the main result
+from [27].
+    Let Xe be an M0 -scheme. Recall the definition of the rank rkx of x ∈ X    e from Remark
+                                       e  rk      e                      `            ×
+2.3. We define the sub-M0 -scheme X ֒→ X as the disjoint union SpecM0 OX,x            e  over
+                 e
+all points x ∈ X of minimal rank. A strong morphism between F1 -schemes (Y , Y, eY ) e
+and ( e
+      X, X, eX ) is a pair ( e
+                            ϕ, ϕ), where ϕ  e : Ye rk → X
+                                                        e rk is a morphism of M0 -schemes and
+                                    Schemes                                                            − ⊗F1 Z                            Schemes
+                                                                        − ⊗F1 Z              Λ-schemes
+
+
+
+
+                                                                                                                                                         AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT
+                                                         Generalized schemes with 0                   B                             − ⊗F1 Z
+                                                                                                                 M1
+                                                 D                                           M-schemes            ∼       TV-schemes
+
+
+
+
+F IGURE 1. The map of F1 -land
+                                                                        T−        +0                              M2
+                                       F-schemes           Fh i                                       K
+                                                                                                                                           − ⊗F1 Z
+                                                                  M0 -schemes                Toric varieties               S-varieties
+                                                     ′
+                                                 A
+                                                                  F                            T                 S
+                                 − ⊗F1 Z                                                                              L                        − ⊗F1 Z
+                                              CC-schemes                                                                        CC-varieties
+                                                                                   Affinely torified varieties
+                                                            ∼      I                   ι                         S∗       S∗ -varieties
+
+                                                             Generalized torified schemes                                   − ⊗F1 Z
+
+
+                                    Schemes                                  − ⊗F1 Z                                                      Schemes
+
+                                                                                                                                                         19
+20                              JAVIER LÓPEZ PEÑA AND OLIVER LORSCHEID
+
+
+ϕ : Y → X is a morphism of schemes such that the diagram
+                                                         feZ
+                                          YeZrk                     e rk
+                                                                   /X
+                                                                         Z
+
+                                        eY                               eX
+                                                        f               
+                                              Y                        /X
+commutes.
+                         ×
+   The morphism spec OX,x   → ∗M0 to the terminal object ∗M0 = SpecM0 {0, 1} in the
+category of M0 -schemes induces a morphism
+                            a                               a
+             tXe : X e rk =            ×
+                                 spec OX,x   −→ ∗Xe :=          ∗M0 .
+                                       e rk
+                                     x∈X                                             e rk
+                                                                                   x∈X
+
+Given a morphism ϕ    e : Ye rk → X e rk of M0 -schemes, there is thus a unique morphism
+                                            ϕ. Let X rk denote the image of eX : X
+tϕe : ∗Ye → ∗Xe such that tϕe ◦ tYe = tXe ◦ e                                      e rk → X.
+                                                                                    Z
+A weak morphism between F1 -schemes (Ye , Y, eY ) and (X,  e X, eX ) is a pair ( e
+                                                                                ϕ, ϕ), where
+e : Ye rk → X
+ϕ           e rk is a morphism of M0 -schemes and ϕ : Y → X is a morphism of schemes
+such that the diagram
+                                                   eZ
+                                                   ϕ
+                             YeZrk L                            e rk
+                                                               /X
+                                    LL                            Z   LLLt f
+                                        LL                               LX,Z
+                                                                           LL&
+                                   tYe ,Z L%                     te
+                                                                  ϕ,Z
+                                               (∗Ye )Z                       / (∗ e )Z
+                                          8                                 q 8 X
+                                       qqq                              qqq
+                                    qqq            ϕ                  qq
+                             Y rk                              / X rk
+
+commutes.
+    If X = (X,e X, eX ) is an CC-scheme, then we define the set of F1 -points X (F1 ) as
+                                                               e X, eX ). An algebraic
+the set of strong morphism from (∗M0 , Spec Z, idSpec Z ) to (X,
+group over F1 is a group object in the category whose objects are F1 -schemes and whose
+morphisms are weak morphisms. The base extension functor − ⊗F1 Z from this category
+to the category of schemes is given by sending X = ( e
+                                                     X, X, eX ) to XZ = X. On the other
+hand, the group law of an algebraic group G over F1 induces a group structure on the set
+G(F1 ). We realize Tits’ idea in the following form.
+Theorem 2.6 ([27, Thm. 7.9]). For every split reductive group scheme G with Weyl group
+W , there exists an algebraic group G over F1 such that GZ ≃ G as group schemes and
+G(F1 ) ≃ W as groups.
+
+                                                    R EFERENCES
+ [1] P. Arndt. Comparison of F1 -geometries. Work in progress.
+ [2] J. Borger and B. de Smit. Galois theory and integral models of Λ-rings. Bull. Lond. Math. Soc. 40 (2008),
+     439–446.
+ [3] J. Borger. Λ-rings and the field with one element. arXiv: 0906.3146v1 [math.NT], 2009.
+ [4] J. Bost and A. Connes. Hecke algebras, type III factors and phase transitions with spontaneous symmetry
+     breaking in number theory. Selecta Math. (N.S.), 1 (1995) 411–457.
+ [5] H. Cohn. Projective Geometry over F1 and the Gaussian Binomial Coefficients. arXiv: 0407.7093v1
+     [math.CO], 2009.
+ [6] A. Connes, C. Consani, M. Marcolli. Fun with F1 . To appear on J. Number Thy., 2008.
+ [7] A. Connes, C. Consani. On the notion of geometry over F1 . arXiv: 0809.2926v2 [math.AG], 2008.
+ [8] A. Connes, C. Consani. Schemes over F1 and zeta functions. arXiv:0903.2024v3 [math.AG], 2009.
+ [9] A. Deitmar. Schemes over F1 . Number fields and function fields—two parallel worlds, Progr. Math., vol.
+     239, 2005.
+[10] A. Deitmar. Remarks on zeta functions and K-theory over F1 . Proc. Japan Acad. Ser. A Math. Sci., vol. 82,
+     2006.
+                    AN OVERVIEW OF GEOMETRIES OVER THE FIELD WITH ONE ELEMENT                                        21
+
+
+[11] A. Deitmar. F1 -schemes and toric varieties.. Contributions to Algebra and Geometry Vol. 49, No. 2 (2008),
+     pp. 517-525.
+[12] M. Demazure, A. Grothendieck. Séminaire de Géométrie Algébrique, Schémas en Groupes. Lecture Notes
+     in Mathematics, 153. Springer-Verlag, 1962/64.
+[13] C. Deninger. On the Γ-factors attached to motives. Invent. Math., (104): 245–261, 1991.
+[14] C. Deninger. Local L-factors of motives and regularized determinants. Invent. Math., (107):135–150, 1992.
+[15] C. Deninger. Motivic L-functions and regularized determinants. In Motives (Seattle, WA, 1991), vol. 55 of
+     Proc. Sympos. Pure Math., 707–743, 1994.
+[16] N. Durov. A New Approach to Arakelov Geometry. PhD Thesis, available at arXiv: 0704.2030v1 [math.AG],
+     2007.
+[17] J. Fresán. Le corps à un élément (d’après Durov). Master thesis, available at arXiv: 0908.4059v1 [math.NT],
+     2009.
+[18] W. Fulton. Introduction to toric varieties. Princeton University Press, 1993.
+[19] K. Habiro. Cyclotomic completions of polynomial rings. Publ. RIMS Kyoto Univ., 40 (2004) 1127–1146.
+[20] M. J. Shai Haran. Non-additive geometry. Compositio Math. Vol.143 (2007) 618–688.
+[21] M. Kapranov, A. Smirnov. Cohomology determinants and reciprocity laws: number field case. Unpublished
+     preprint.
+[22] K. Kato. Toric singularities. Amer. J. Math., Vol. 116, No. 5, (1994), 1073–1099.
+[23] N. Kurokawa. Multiple zeta functions: an example. In Zeta functions in geometry (Tokyo, 1990), vol. 21 of
+     Adv. Stud. Pure Math., 219–226, 1992.
+[24] N. Kurokawa, H. Ochiai, M. Wakayama. Absolute derivations and zeta functions. Doc. Math. Extra Volume:
+     Kazuya Kato’s Fiftieth Birthday (2003), 565–584.
+[25] N. Kurokawa. Zeta functions over F1 . Proc. Japan Acad. Ser. A Math. Sci. 81 (2005), no. 10, 180–184.
+[26] J. López Peña, O. Lorscheid. Torified varieties and their geometries over F1 . arXiv:0903.2173v2
+     [math.AG], 2009.
+[27] O. Lorscheid. Algebraic groups over the field with one element. arXiv:0907.3824v1 [math.AG], 2009.
+[28] S. Mac Lane. Categories for the Working Mathematician. Second Edition. Springer-Verlag, 1998.
+[29] V. Maillot. Géométrie d’Arakelov des variétés toriques et fibrés en droites intégrables. Mém. Soc. Math. Fr.
+     (N.S.) No. 80, 2000.
+[30] Y. Manin. Lectures on zeta functions and motives (according to Deninger and Kurokawa). Astrisque No.
+     228 (1995), 4, 121–163.
+[31] Y. Manin. Cyclotomy and analytic geometry over F1 . arXiv:0809.1564v1 [math.AG], 2008.
+[32] M. Marcolli. Cyclotomy and endomotives. arXiv: 0901.3167v1 [math.QA], 2009.
+[33] F. Marty. Relative Zariski open objects. arXiv:0712.3676v3 [math.AG], 2007.
+[34] F. Marty. Smoothness in relative geometry. arXiv:0812.1152v1 [math.AG], 2009.
+[35] T. Oda. Convex Bodies and Algebraic Geometry. Springer-verlag, New York, 1988.
+[36] C. Soulé. Les variétés sur le corps à un élément. Mosc. Math. J. 4 (2004), 217–244.
+[37] C. Soulé. Lectures on algebraic varieties over F1 . In this volume.
+[38] R. Steinberg. A geometric approach to the representations of the full linear group over a Galois field. Trans.
+     Am. Math. Soc. 71 (1951) 274–282.
+[39] R. Street. The formal theory of monads. J. Pure Appl. Alg. 2 (1972), 149–168.
+[40] J. Tits. Sur les analogues algébriques des groupes semi-simples complexes. Colloque d’algèbre supérieure,
+     tenu à Bruxelles du 19 au 22 décembre 1956 (1957), 261–289.
+[41] B. Toën and M. Vaquié. Au-dessous de Spec Z. Journal of K-Theory (2008) 1–64.
+
+    M ATHEMATICS R ESEARCH C ENTRE , Q UEEN M ARY U NIVERSITY OF L ONDON , M ILE E ND ROAD , L ON -
+DON E1 4NS, U NITED K INGDOM
+    E-mail address: jlopez@maths.qmul.ac.uk (J. López Peña)
+
+    M AX -P LANCK I NSTITUT F ÜR M ATHEMATIK , V IVATSGASSE , 7. D-53111, B ONN , G ERMANY
+    E-mail address: oliver@mpim-bonn.mpg.de (O. Lorscheid)
+

@@ -1,0 +1,600 @@
+                                                                         Differentiating by prime numbers
+                                                                                             Jack Jeffries ∗
+
+
+
+
+arXiv:2311.13551v1 [math.HO] 20 Nov 2023
+                                                                                         November 23, 2023
+
+
+                                                                                                   ating by does not vary, and the thing n that we are
+                                                                                                   differentiating does not even have an input! Instead,
+                                           It is likely a fair assumption that you, the reader, we take a little inspiration from elementary number
+                                           are not only familiar with but even quite adept at theory.
+                                           differentiating by x. What about differentiating by
+                                                                                                      Let p be a prime number. By Fermat’s little theo-
+                                           13? That certainly didn’t come up in my calculus
+                                                                                                   rem, for any integer n, we have
+                                           class! From a calculus perspective, this is ridiculous:
+                                           are we supposed to take a limit as 13 changes?
+                                              One notion of differentiating by 13, or any other                       n ≡ np mod p,
+                                           prime number, is the notion of p-derivation dis-
+                                           covered independently by Joyal [Joy85] and Buium
+                                           [Bui96]. p-derivations have been put to use in a range so we can divide the difference n − np by p. The
+                                           of applications in algebra, number theory, and arith- starting point of our journey is that not only can we
+                                           metic geometry. Despite the wide range of sophisti- divide by p here, but we should. The p-derivation on
+                                           cated applications, and the fundamentally counter- Z is the result of this process. Namely:
+                                           intuitive nature of the idea of differentiating by a
+                                           number, p-derivations are elementary to define and
+                                           inviting for exploration.
+                                              In this article, we will introduce p-derivations and Definition 1 For a prime number p, the p-
+                                           give a few basic ways in which they really do act like derivation on Z is defined as the function δp : Z → Z
+                                           derivatives by numbers; our hope is that you will be given by the formula
+                                           inspired and consider adding p-derivations to your
+                                           own toolkit!
+                                                                                                                               n − np
+                                                                                                                      δp (n) =        .
+                                                                                                                                 p
+                                            p-derivations on Z
+                                           First we want to discuss differentiating one number       So, in particular, there is the 2-derivation on Z and
+                                           n, by another, p; i.e., what we will call p-derivations the 13-derivation on Z given respectively by
+                                           on Z. Before we succeed, we need to abandon the
+                                           notion of derivative as a limit as the input varies by
+                                           a small amount: the thing p that we are differenti-                    n − n2                    n − n13
+                                                                                                         δ2 (n) =          and δ13 (n) =            .
+                                              ∗
+                                                                                                                     2                         13
+                                               The author is an assistant professor of mathemat-
+                                           ics at the University of Nebraska. His email address is
+                                           jack.jeffries@unl.edu. His work is supported by NSF CAREER
+                                           Award DMS-2044833.                                               Let’s plug in a few values:
+
+
+                                                                                                        1
+                                                           Since p ≥ 2 and a ≥ 1, we must have ap − a ≥ 1, so p
+                                                           does not divide 1 − pap−a mp−1 . In particular, the p-
+             n      δ2 (n) δ3 (n) δ5 (n)                   derivation decreases the p-adic order of a multiple of
+               ..      ..     ..     ..
+                .       .      .      .                    p by exactly one. This leads to our first comparison
+                                                                               d
+             −4      −10    20     204                     with old-fashioned dx :
+             −3      −6       8     48
+             −2      −3       2      6                     Comparison 1 (Order-decreasing property)
+             −1      −1       0      0
+              0        0      0      0                       • If f ∈ R[x] is a polynomial and x = r is a root
+              1        0      0      0                         of f of multiplicity a > 0, then x = r is a root
+                                                                                   d
+              2      −1     −2     −6                          of the polynomial dx  (f (x)) of multiplicity a − 1.
+              3      −3     −8     −48
+              4      −6     −20 −204                         • If n is an integer and p is a prime factor of n
+              5      −10 −40 −624                              of multiplicity a > 0, then p is a prime factor of
+              6      −15 −70 −1554                             the integer δp (n) of multiplicity a − 1.
+              ..        ..     ..     ..
+               .         .      .      .              In particular, if r is a simple root or p is a simple
+                                                                                                        d
+                                                      factor, then it is no longer a root or factor of dx (f (x))
+   A quick look at this table suggests a few observa- or δp (n) respectively.
+tions, easily verified from the definition:             Let’s check this against our table: the numbers
+   • Numbers are no longer “constants” in the sense   −2,  2, and 6 that were divisible by 2 but not 4 re-
+     of having derivative zero, but at least 0 and 1  sult  in odd numbers when we apply δ2 , whereas
+     are.                                             ±4   returned  even numbers no longer divisible by 4.
+                                                      Note that this order-decreasing property says noth-
+   • These functions are neither additive nor multi- ing about what happens when you apply δ2 to an
+     plicative, e.g.:                                 odd number, and indeed, based on the table we ob-
+                                                      serve that even and odd numbers can result. You can
+                    δp (1) + δp (1) ̸= δp (2),        convince yourself that
+                                                                         (
+                      δp (1)δp (2) ̸= δp (2).                              even if n ≡ 0, 1 mod 4
+                                                               δ2 (n) is
+                                                                           odd if n ≡ 2, 3 mod 4.
+   • δp is an odd function, at least for p ̸= 2.
+
+   • The outputs of δ2 are just the negatives of the       We’ve observed already that these p-derivations on
+     triangular numbers.                                Z  are not additive. This can be a bit unsettling for
+                                                        those of us (like myself) who are usually accustomed
+   We might also note that the outputs are very large to the luxury of additive operators. However, any
+in absolute value, and think that this operation is function satisfying the order-decreasing property of
+simply making a mess of our numbers. However, δp above must not be additive, since an additive func-
+something more informative occurs if we think about tion has to take multiples of p to multiples of p. How-
+largeness of the outputs from the point of view of p, ever, the error term can be made concrete:
+namely, the p-adic order of n—the number of copies
+                                                                                           p    p             p
+of p in its prime factorization. Writing n = pa m with δ (m + n) − (δ (m) + δ (n)) = m + n − (m + n)
+                                                         p              p        p
+gcd(m, p) = 1, if a > 0, we get                                                                     p
+                                                                                           p−1  p
+                                                                                                  
+             pa m − (pa m)p
+                                                                                           X
+δp (pa m) =                  = pa−1 m(1 − pap−a mp−1 ).                               =−        i
+                                                                                                    mi np−i .
+                    p                                                                      i=1
+                                                                                                p
+
+
+                                                       2
+All of the binomial coefficients pi appearing above
+                                    
+                                                                That is, any function satisfying a sum rule and a
+are multiples of p, so this expression is, given a par-         product rule is a mild variation on a p-derivation.
+ticular value of p, a particular polynomial in m and              With the properties of p-derivations we have so far,
+n with integer coefficients; let’s call it Cp (m, n) for        we can recreate analogues of some familiar aspects of
+convenience. This gives us the following “sum rule”             calculus. For example, from the product rule (×) and
+for δp :                                                        a straightforward induction, we obtain a power rule:
+     δp (m + n) = δp (m) + δp (n) + Cp (m, n).        (+)                             a  
+                                                                                a
+                                                                                     X   a i−1
+                                                                           δp (n ) =       p δp (n)i n(a−i)p .
+Products satisfy a rule with a similar flavor:                                       i=1
+                                                                                         i
+
+  δp (mn) = mp δp (n) + np δp (m) + pδp (m)δp (n). (×)          Note that the i = 1 term in the sum above,
+                                                              an(a−1)p δp (n), looks a bit like the power rule for usual
+   The fact that we have rules to break things down derivatives. If we allow ourselves to extend δ to a
+                                                                                                                  p
+into sums and products gives the basis for another map on Q, then we get an analogue of the quotient
+                                    d
+comparison with old-fashioned dx :                            rule:           m  np δ (m) − mp δ (n)
+                                                                                          p            p
+Comparison 2 (Sum and product rules)                                      δp       =                        .
+                                                                               n         n2p + pnp δp (n)
+   • For polynomials f (x), g(x), one can compute
+               d               d                                Of the main cast of characters in a first class on
+     each of dx  (f + g) and dx   (f g) as a fixed polyno-
+                                              d        d
+                                                              derivatives,  perhaps the most conspicuous one miss-
+     mial expression in the inputs f, g, dx     (f ), dx (g), ing at this point is the chain rule. Since there is no
+               d            d         d           d
+     namely dx   (f + g) = dx (f ) + dx (g) and dx   (f g) = way to compose a number with a number, we will
+        d          d
+     f dx (g) + g dx (f ).                                    need a notion of p-derivations for functions to state
+                                                              a sensible analogue of the chain rule.
+   • For integers m, n, one can compute each of
+     δp (m + n) and δp (mn) as a fixed polynomial ex-
+     pression in the inputs m, n, δp (m), δp (n), namely p-derivations for general commu-
+     (+) and (×).
+                                                                tative rings
+   We might pause to ask whether we could have
+hoped for a simpler way to differentiate by 13. If One can define p-derivations for commutative rings
+we want Comparsion 2 to hold, then the following with 1.
+theorem of Buium provides a definitive answer.
+                                                      Definition 2 Let R be a commutative ring with 1
+Theorem 1 (Buium [Bui97]) Any                function and p a prime integer. A p-derivation on R is a
+δ : Z → Z that satisfies                              function δ : R → R such that δ(0) = δ(1) = 0 and
+                                                      δ satisfies the sum rule (+) and the product rule (×)
+   • a sum rule δ(m + n) = S(m, n, δ(m), δ(n)) for
+                                                      above; i.e., for all r, s ∈ R,
+     some polynomial S with integer coefficients
+                                                                                         p−1 p
+   • a product rule δ(mn) = P (m, n, δ(m), δ(n)) for                                     X
+                                                          δp (r + s) = δp (r) + δp (s) −     i
+                                                                                                ri sp−i (+)
+     some polynomial P with integer coefficients                                             p
+                                                                                         i=1
+is of the form
+                                                                and
+                                 e
+                          n − np
+                 δ(n) = ±        + f (n)                              δp (rs) = rp δp (s) + rp δp (s) + pδp (r)δp (s).   (×)
+                             p
+for some prime integer p, positive integer e, and poly-   Evidently, the functions δp we defined on Z above
+nomial f with integer coefficients.                     are p-derivations. In fact, for a fixed p, a simple
+
+
+                                                            3
+induction and the sum rule show that for any p-                                     from R/pR → R/pR is just the Frobenius map, i.e.,
+derivation δ on a ring R and any n in the prime                                     Φ(r) ≡ rp mod pR for all R. Given a p-derivation
+subring (image of Z) of R, δ(n) = δp (n).                                           δ : R → R, the map Φ : R → R given by
+   The other basic example is as follows. Take the ring
+of polynomials in n variables with integer coefficients,                                              Φ(r) = rp + pδ(r)
+R = Z[x1 , . . . , xn ]. For any polynomial f (x1 , . . . , xn ),
+we can consider its pth power f (x1 , . . . , xn )p , or we                         is a lift of Frobenius. Indeed, the congruence con-
+can plug in pth powers of the variables as inputs                                   dition is automatic, and the sum rule and product
+to get f (xp1 , . . . , xpn ). These are different, but they                        rule on δ translate exactly to the conditions that Φ
+agree modulo p as a consequence of the “Freshman’s                                  respects addition and multiplication. Conversely, if p
+Dream”. Namely, in the quotient ring R/pR ∼                   =                     is a nonzerodivisor on R, and Φ is a lift of Frobenius,
+                                                                                                                  p
+Z/pZ[x1 , . . . , xn ],                                                             then the map δ(r) = Φ(r)−r p    is a p-derivation: the
+                                                                                    freshman’s nightmare associated to the lift of Frobe-
+                          p−1  
+                          X    p                                                    nius Φ.
+            p
+   (f + g) = f +      p
+                                       f i g p−i + g p = f p + g p ,                   It is worth noting that not every ring admits a p-
+                          i=1
+                                   i
+                                                                                    derivation. For a quick example, no ring R of charac-
+since each      p
+                  
+                      is a multiple of p, and                                       teristic p admits a p-derivation, since we would have
+                i
+
+                             (f g)p = f p g p                                              0 = δ(0) = δ(p) = δp (p) = 1 − pp−1 = 1
+
+as a consequence of commutativity, so the map                                       in R. Much more subtle obstructions exist, and it is
+f 7→ f p is a ring homomorphism in R/pR, called the                                 an interesting question to determine which rings ad-
+Frobenius map. Thus, in R/pR, taking pth powers                                     mit p-derivations; see [AWZ21] for some recent work
+before doing polynomial operations is just as good as                               on related questions.
+after. So, back in R we can divide the difference by                                  Note that the power rule from before follows for
+p, and we will ! Namely, we can define the function                                 any p-derivation on any ring, since we just used the
+                                                                                    product rule to see it. The order-decreasing property
+                             f (xp1 , . . . , xpn ) − f (x1 , . . . , xn )p         holds in general, too, at least if p is a nonzerodivisor
+ δ(f (x1 , . . . , xn )) =                                                  ,
+                                                    p                               on R—this follows from writing s = pa r with p ∤ r
+                                                                                    and applying the product rule:
+and this function is a p-derivation. Just so we can
+refer to this function later, let’s call this the standard δ(pa r) = pap δ(r) + rp δ(pa ) + pδ(pa )δ(r)
+p-derivation on Z[x1 , . . . , xn ] and denote it by δst,p
+(though this notation is not at all standard).               = pap δ(r) + (pa−1 − pap−1 )rp + p(pa−1 − pap−1 )δ(r)
+   For example,                                              = pa−1 rp + pa (δ(r) − pa(p−1)−1 rp − pa(p−1) δ(r)).
+                            (x2 )3 + 5(x2 ) − (x3 + 5x)2 Let’s wrap up our cliffhanger from the previous sec-
+     δst,2 (x3 + 5x) =
+                                          2           tion. Now that we have p-derivations of polynomials,
+                          = −5x4 − 10x2 .             we have the ingredients needed for a chain rule: given
+                                                      a polynomial f (x) and a number n, we will think
+   As this operator δst,p measures the failure of the of the number f (n) as the composition of the func-
+Freshman’s Dream, one might think of this as a tion f and the number n, and we can try to compare
+Freshman’s Nightmare. In fact, in large generality, δ (f (n)) with δ (f ) and δ (n). Here’s the chain rule:
+                                                       p             st           p
+p-derivations all arise from some freshman’s night-
+mare. Let’s make this precise. Given a ring R, we                                deg(f )
+say that a map Φ : R → R is a lift of Frobenius δp (f (n)) = δst,p (f )(n) +
+                                                                                  X            dj f
+                                                                                         pj−1       j
+                                                                                                      (np )δp (n)j .
+if it is a ring homomorphism and the induced map                                  j=1
+                                                                                              j! dx
+
+
+                                                                                4
+This is a bit more complicated than the original, but
+let’s notice in passing that the j = 1 term in the
+        df
+sum, dx    (np )δp (n), looks pretty close to the classic
+chain rule, besides the pth power on n. The curious
+reader is encouraged1 to prove the formula above.
+   We have collected a decent set of analogues for the
+basics of differential calculus for p-derivations. One
+can ask how far this story goes, and the short an-
+swer is very far. Buium has developed extensive the-
+ories of arithmetic differential equations and arith-
+metic differential geometry, building analogues of the
+classical (nonarithmetic) versions of these respective
+theories with p-derivations playing the role of usual
+derivatives. The reader is encouraged to check out
+[Bui05, Bui17] to learn more about these beautiful Figure 1: The cone of solutions of z 2 − x2 − y 2 = 0.
+theories, though our story now diverges from these. The origin is the unique singular point.
+Instead, we will turn our attention towards using p-
+derivations to give some algebraic results with geo-
+metric flavors.                                           d = dim(X)-many equations without taking roots,
+                                                          and singular otherwise. For example, the point
+                                                          (1, 0, 1) in the cone is nonsingular, and I claim that
+A Jacobian criterion                                      the two equations y = 0, z − 1 = 0 “work” for our
+                                                          definition: with these two equations and the equation
+One natural geometric consideration is whether, and for X, we get
+where, a shape has singularities: points that locally
+fail to look flat, due to some sort of crossing or crin-                y = z − 1 = z 2 − x2 − y 2 = 0.
+kle (or some harder to imagine higher-dimensional
+analogue or a crossing or crinkle). For example, the Substituting in, we get 0 = x2 − 1 = (x − 1)(x + 1),
+double cone cut out by the equation z 2 − x2 − y 2 = 0 and “near (1, 0, 1)”, x+1 is nonzero, so we can divide
+has a singularity at the origin where the two cones out and get x − 1 = 0, so x = 1, y = 0, z = 1. On the
+meet, but any other point on the cone is not a singu- other hand, (0, 0, 0) is singular, and the two equations
+larity, see Figure 1.                                     y = 0, z = 0 don’t “work” for our definition: we have
+   We are going to consider shapes like this that are
+cut out by polynomial equations, though to state the                      y = z = z 2 − x2 − y 2 = 0,
+classical Jacobian criterion, we will consider their so-
+lution sets over the complex numbers.                     so x2 = 0, but we need to take a root to get x = 0.
+   Since it is difficult to envision higher dimensional     The classical Jacobian criterion gives a recipe for
+shapes (and impossible to envision what we’re doing the locus of all singularities of a shape cut out by
+next!), it will be useful to give a somewhat more al- complex polynomials.
+gebraic heuristic definition of singularity. We will
+say that a point x is a nonsingular point in X Theorem 2 (Jacobian criterion) Let X ⊆ Cn be
+if within X one can locally cut out x by exactly the solution set of the system of polynomial equations
+   1 For a hint, consider the lift of Frobenius on Z[x] that sends
+
+x 7→ xp + pδp (n), and use Taylor expansion to rewrite the
+                                                                                          f1 = · · · = fm = 0.
+associated p-derivation in terms of the standard p-derivation
+and derivatives of f .                                                   If the dimension of X is d = n − h, and f1 , . . . , fm
+
+
+                                                                     5
+generate a prime ideal2 in the polynomial ring                           in geometry: this is motivated by Hilbert’s Nullstel-
+C[x1 , . . . , xn ], then the set of singular points is the              lensatz, which says that for a quotient ring of the
+solution set within X of the system of polynomial                        form3
+equations                                                                                    C[x1 , . . . , xn ]
+                                                                                                                 ,
+                                ∂f1                                                         (f1 , . . . , fm )
+                                             ∂f1 
+                                 ∂x1   · · · ∂x n
+                                                                         every maximal ideal is of the form
+    all h × h minors of  ...          ..     ..  = 0.
+                               
+                                           .   . 
+                                 ∂fm
+                                 ∂x1   · · · ∂f
+                                             ∂xn
+                                                m                                       ma = (x1 − a1 , . . . , xn − an )
+
+In particular, if f is irreducible, the set of singular                  for some a = (a1 , . . . , an ) solution to
+points of the solution set f = 0 is the solution set of
+                                                                                          f1 (a) = · · · = fm (a) = 0;
+                      ∂f          ∂f
+                f=        = ··· =     = 0.
+                      ∂x1         ∂xn                   including all prime ideals leads to a better theory for
+                                                        general rings. Then we say that a prime ideal in a
+  For example, for the Whitney umbrella cut out by
+                       2  2                             ring R is nonsingular or regular at a prime ideal q if
+the polynomial f = x − y z, the singular locus is cut
+                                                        q can be generated “locally” by h equations, where
+out by the system
+                                                        h is the codimension of q (how much q cuts down
+              2   2                  2
+            x − y z = 2x = 2yz = y = 0,                 the dimension of R), and “locally” means4 that one
+                                                        can divide by elements outside of q. In the motivat-
+which simplifies to x = y = 0; the z-axis is where the ing geometric situation where X is the solution set of
+shape crosses itself.                                   f1 = · · · = fm = 0 over C, the point a ∈ X is nonsin-
+                                                        gular if and only if R = C[x1 , . . . , xn ]/(f1 , . . . , fm ) is
+                                                        nonsingular at the maximal ideal ma . A prime ideal
+                                                        is singular if it is not nonsingular.
+                                                           Intuitively, when working over Z rather than over
+                                                        C or a field, in addition to the geometric dimensions,
+                                                        there is an arithmetic dimension that corresponds to
+                                                        the prime integers p in Z. To detect singularity, it
+                                                        suffices to include p-derivations as a substitute for
+                                                        derivatives in the p-direction! The following is a spe-
+                                                        cial case of a result independently obtained by Saito
+Figure 2:      The Whitney umbrella of solutions of [Sai22] and Hochster and the author [HJ21].
+x2 − y 2 z = 0. The singular locus consists of the line
+where it crosses itself.                                Theorem 3 (Saito, Hochster-Jeffries) Let
+                                                                Z[x1 , . . . , xn ]
+  The notion of (non)singularity in geometry is gen- R =                            for some prime ideal (f1 , . . . , fm )
+eralized in algebra by the notion of regular ring. For          (f1 , . . . , fm )
+                                                          of Z[x1 , . . . , xn ]. Then the set of singular prime
+starters, prime ideals in algebra play the role of points
+                                                          ideals q of R containing a fixed prime integer p is
+   2 We recall that an ideal I is prime if it is proper and gh ∈ I
+                                                                            3 For a set of elements a , . . . , a in a ring R, we use the
+implies g ∈ I or h ∈ I. Experts will recognize this condition as                                     1           t
+overkill, but something needs to be done to avoid examples like          notation
+(x−y)2 = 0 whose solution set X is the (complex) line {(a, a)},
+                                                                                  (a1 , . . . , at ) := {r1 a1 + · · · + rt at | ri ∈ R}
+which is nonsingular, but ∂f
+                           ∂x
+                               = ∂f
+                                  ∂y
+                                      = 0 for every point in X,
+     2
+or x − x = xyz = 0 whose solution set Y is two-dimensional               for the ideal generated by {a1 , . . . , at }.
+but has a crossing singularity at (0, 0, 1) that is not a solution          4 Precisely, “locally” means that we work in the localization
+
+of the 1 × 1 minors of the Jacobian matrix.                              Rq , and codimension refers to the height of the ideal q.
+
+
+                                                                     6
+exactly the set of prime ideals containing p and          But if q and δq (−n) are in a, then q | δq (−n); a
+                              ∂f1 p          ∂f1 p 
+                                                          singular prime ideal then occurs if and only if this
+                                     · · · ( ∂x
+              
+                δst,p (f1 ) ( ∂x 1
+                                   )            n
+                                                  )       happens. The analysis for p = q = 2 is similar (cf.
+    all h × h       ..              . .       ..  ,     [HJ21]).
+   minors of         .                  .      . 
+                             ∂fm p           ∂fm p           This has a consequence for a familiar object in el-
+               δst,p (fm ) ( ∂x1 ) · · · ( ∂xn )
+                                                          ementary number theory. By some standard      √        results6
+where h = n + 1 − dim(R). In particular, if f is in commutative algebra, the ring Z[ n] is                      a ring of
+                                                                                                        q
+                                                                                                             √
+irreducible, the set of singular prime ideals of R =      algebraic   integers   (for its fraction  field Q( q
+                                                                                                               n)) if and
+Z[x1 ,...,xn ]
+               containing p is exactly the set of primes  only  if it has  no
+                                                                           √   singular   prime   ideals. Thus,  we  con-
+    (f )
+                                                          clude that Z[ q n] is a ring of integers if and only if
+containing p and
+                                                          q ∤ δq (−n). In particular, for q = 2, using our earlier
+                              ∂f           ∂f             observation on when δ2 (n) is odd√        or even, we recover
+                 δst,p (f ) ,      , ... ,     .          the  fact  that  for  n  squarefree,   Z[   n] is a ring of in-
+                              ∂x1          ∂xn
+                                                          tegers if and only if n ̸≡ 3 mod 4.
+Example 1 Let n be a squarefree integer (excluding
+0 and 1),  √ q a prime number, and consider the ring
+R = Z[ q n]. We claim that this admits a singular A Zariski-Nagata theorem for
+prime ideal if and only if δq (−n) is a multiple of q. symbolic powers
+Think5 of R as Z[x]/(xq − n). For a prime number
+p, the singular prime ideals a containing p are those Let’s recall another classical theorem relating alge-
+that contain                                              bra and geometry. To state it, we need the notion of
+                                     d                    symbolic power of a prime ideal. Over a polynomial
+                 p, δst,p (xq − n), (xq − n).             ring over a field, or more generally, over a commuta-
+                                    dx
+                                                          tive Noetherian ring, any ideal can be written as an
+Using the sum rule for δst,p and the defining equation intersection
+for R, we have                                                                    I = q1 ∩ · · · ∩ qt                  (3)
+                            (
+                              δp (−n)          if p ̸= 2  where the qi are primary ideals: ideals with the prop-
+        δst,p (xq − n) =                                  erty that xy ∈ q ⇒ x ∈ q or y n ∈ q for some n. Such
+                              δp (−n) − nxq if p = 2
+                                                          an expression is called a primary decomposition. The
+in R.                                                     existence   of primary decomposition is a famous result
+                            d   q           q−1
+   For p ̸= q, from dx (x − n) = qx , we get that         of Lasker    in the polynomial case and Noether in the
+a must contain x, and from the defining equation, n       Noetherian     case. This can be thought of as a gener-
+as well. But if the integers p, n, δp (n) are in a proper alization   of the Fundamental Theorem of Arithmetic:
+ideal a, since p is a prime number, we must have p | n    in Z,   the primary    ideals are just the ideals generated
+and p | δp (n), since 1 would be a linear combination     by  powers    of primes,   and a prime factorization
+of these numbers otherwise. By the Order Decreas-                                n = pe11 · · · penn
+ing Property, p2 | n, contradicting that n is square-
+free. So, there are no singular prime ideals containing corresponds to writing (n) as an intersection of pri-
+p ̸= q.                                                  mary ideals:
+                          d
+   For p = q ̸= 2 since dx  (xq − n) is a multiple of q,
+using the simplification above, a prime ideal contain-                    (n) = (pe11 ) ∩ · · · ∩ (penn ).
+ing q is singular if and only if it contains               6 Namely, Z[ √
+                                                                        q
+                                                                           n] is a ring of integers if and only if it is inte-
+                                                                  grally closed in its fraction field. Since this ring is an integral
+                         q, δq (−n).                              extension of Z generated by one element as an algebra, it is a
+                                                                  one dimensional Noetherian domain. Such a ring is integrally
+  5 This is where excluding 0 and 1 is necessary.                 closed in its fraction field if and only if it is nonsingular.
+
+
+                                                              7
+There are two important differences with the Funda-              The same characterization is doomed to fail in Z[x]:
+mental Theorem of Arithmetic, though:                         for example, q = (2) is a prime ideal with q(2) = (4);
+                                                              in particular, 2 ∈ / (4). But 2 satisfies the derivative
+  • primary ideals are not powers of prime ideals in          condition corresponding to the right hand side above:
+    general, nor are powers of prime ideals always            taking a1 = 0, we have 2 ∈ (2), and taking a1 = 1,
+    primary, and                                              we have ∂x ∂2
+                                                                            = 0 ∈ (2).
+  • the collection of primary ideals qi appearing in             If you’ve been paying attention so far, you should
+    the decomposition (3) is not unique, but if the           be able to name the missing ingredient. Indeed,
+    decomposition satisfies a simple irredundancy             δst,2 (2) = −1 ∈ / (2), so allowing partial derivatives
+    hypothesis, then the components whose radical             and a 2-derivation is enough to take this element 2
+    does not contain any other component’s radical            that isn’t in q(2) out of q, suggesting a way to charac-
+    are uniquely determined.                                  terize f ∈ q(2) in terms of derivatives (including our
+                                                              “derivative by 2”).
+   In particular, if q is a prime ideal and n > 1, then          In fact, this works in general. The following ana-
+according to the first point above, qn may admit an           logue of the Zariski-Nagata Theorem is a special
+interesting primary decomposition, and as a conse-            case of a result of De Stefani, Grifo, and the author
+quence of the second point, the component with rad-           [DSGJ20].
+ical q is the same in any (irredundant) primary de-
+composition. This is called the nth symbolic power            Theorem 5 (De Stefani-Grifo-Jeffries)
+of q, denoted q(n) .                                          Consider        the      ring    Z[x1 , . . . , xn ] and   let
+   Symbolic powers arise in various contexts in al-           q = (f1 , . . . , fm ) be a prime ideal.              Suppose
+gebra and geometry. For example, they arise nat-              that q contains the prime integer p. Then q(r) is
+urally in interpolation questions, they play a key role       exactly the set of polynomials f ∈ Z[x1 , . . . , xn ] such
+in the proofs of various classical theorems such as           that
+Krull’s Principal Ideal Theorem, and they have en-                   a1 +···+an 
+joyed a resurgence of interest in combinatorics in con-        a0     ∂              f
+                                                              δst,p                       ∈ q for all a0 +a1 +· · ·+an < r.
+nection with the Packing Problem of Conforti and                     ∂xa1 1 · · · ∂xann
+Cornuéjols. The interest reader is recommended to
+read the survey [DDSG+ 18].
+   A classical pair of theorems of Zariski and Nagata         Other applications
+gives a geometric description of the symbolic power of
+an ideal in a polynomial ring over C. The result has          p-derivations have appeared in a range of sophisti-
+various statements; we will give a differential state-        cated applications to number theory and arithmetic
+ment.                                                         geometry. We briefly list a few of these, and encour-
+                                                              age the reader to explore further.
+Theorem 4 (Zariski-Nagata Theorem) Let
+X ⊆ Cn be the solution set of the system of polyno-
+                                                              Effective bounds on rational points and
+mial equations
+                                                              p-jet spaces
+                 f1 = · · · = fm = 0.
+                                                           The motivation for Buium’s original work on p-
+Suppose that f1 , . . . , fm generate a prime ideal q. derivations was to give bound the number of points
+Then q(r) is exactly the set of polynomials on rational points on curves. For a complex curve X
+f ∈ C[x1 , . . . , xn ] such that                          defined over Q, there is a natural map from X to an
+                                                           algebraic group A, the Jacobian of X; the main result
+    ∂ a1 +···+an f                                         of Buium [Bui96] gives an effective bound, depending
+                          ≡ 0 for all a1 + · · · + an < r.
+   ∂xa1 1 · · · ∂xann X                                    only on the genus of X and the smallest prime of a
+
+
+                                                          8
+good reduction for X, on the number of points in X             where GLn (Fq ) is the collection of linear automor-
+that map to torsion elements of A.                             phisms of Fnq , the vector space of n-tuples over Fq ,
+   To establish these results, Buium constructs p-jet          and n! counts the number of permutations of n ele-
+spaces. In differential geometry, the jet of a function        ments. Partially motivated by this phenomenon, and
+f of order k at a point is the data of all of the values       partially motivated by transferring results over finite
+of the derivatives of f up to order k at that point;           fields to other settings, there is a program of invent-
+the jet space of order k of a manifold X is a mani-            ing a notion of algebraic geometry over a “field with
+fold whose points correspond to jets on X. Buium’s             one element”: the mythical field with one element is
+p-jet spaces are analogues of jet spaces obtained by           not literally a field with one element, which would
+replacing usual derivatives with p-derivations. The            contradict the definition of field, but something with
+result mentioned above is then obtained by intersec-           a different structure than a field that admits some
+tion theory on p-jet spaces of curves.                         sort of geometry analogous to what one would ex-
+   As mentioned earlier, Buium has developed an ex-            pect over a field with one element for quantitative or
+tensive theory of arithmetic differential geometry in          various other reasons. On the algebraic side, the field
+analogy with classical differential geometry, for which        with one element can be thought of as a “deeper base
+p-jet spaces form the starting point. We refer the             ring” than Z (though not necessarily itself a ring!).
+reader to [Bui05] to learn more.                                  There are many approaches in the literature to im-
+                                                               plementing the philosophy of the field with one el-
+Relationship with Witt vectors                                 ement. Most relevant for this article is the theory
+                                                               established by Borger [Bor09] as well as the closely re-
+The Witt vectors are a construction in number theory           lated approach of Buium. Roughly speaking, Borger
+that generalizes the relationship between the prime            proposes that a model for the field with one element
+field Fp and the corresponding ring of p-adic integers         should be Z equipped with the collection of all its p-
+Zp . To be precise, there is a functor W from the              derivations δp . In particular, in Borger’s model, GLn
+category of rings to itself, called the functor of (p-         “over the field with one element” is the symmetric
+typical) Witt vectors, that maps Fp to Zp . More               group on n letters, aligning with the numerical coin-
+generally, for any perfect field F of characteristic p,        cidence noted in the previous paragraph.
+W (F ) is a local ring with maximal ideal (p), and
+W (F )/pW (F ) ∼= F ; in this way, one can think of W
+as a generalization of a construction of Zp from Fp .
+   p-derivations have many interesting connections             Unifying cohomology theories
+with Witt vectors; indeed, they first arise in Joyal’s
+work to study Witt vectors. Namely, Joyal shows                Recent work of Bhatt and Scholze [BS22] has em-
+that the forgetful functor from the category of rings          ployed p-derivations to relate various p-adic cohomol-
+with a p-derivation to the category of rings is left           ogy theories (étale, de Rham, crystalline). The key
+adjoint to the Witt vector functor.                            ingredient is the notion of a prism, which is a ring
+                                                               equipped with a p-derivation subject to some condi-
+                                                               tions. We refer the reader to [BS22] to learn more.
+Philosophy of the field with one ele-
+ment
+Various formulas for enumerating basic objects over
+a finite field Fq limit to combinatorially meaningful
+                                                               Acknowledgments
+quantities as q → 1; for example,
+                                                               The author is grateful to Alessandro De Stefani,
+                     |GLn (Fq )|                               Eloı́sa Grifo, Claudia Miller, Steven Sam, and the
+                 lim             = n!,
+                 q→1 |(F×   n
+                        q ) |
+                                                               referee for many helpful comments on this article.
+
+
+                                                           9
+References
+  [AWZ21] Piotr Achinger, Jakub Witaszek, and Maciej
+          Zdanowicz, Global Frobenius liftability I, J. Eur.
+          Math. Soc. (JEMS) 23 (2021), no. 8, 2601–2648.
+          MR4269423
+    [Bor09] James Borger, Lambda-rings and the field with
+            one element, arXiv preprint arXiv:0906.3146
+            (2009).
+     [BS22] Bhargav Bhatt and Peter Scholze, Prisms and
+            prismatic cohomology, Ann. of Math. (2) 196
+            (2022), no. 3, 1135–1275. MR4502597
+    [Bui05] Alexandru Buium, Arithmetic differential equa-
+            tions, Mathematical Surveys and Monographs,
+            vol. 118, American Mathematical Society, Provi-
+            dence, RI, 2005. MR2166202
+    [Bui17]          , Foundations of arithmetic differential
+              geometry, Mathematical Surveys and Mono-
+              graphs, vol. 222, American Mathematical Society,
+              Providence, RI, 2017. MR3643159
+    [Bui96]          , Geometry of p-jets, Duke Math. J. 82
+              (1996), no. 2, 349–367. MR1387233
+    [Bui97]          , Arithmetic analogues of derivations, J.
+              Algebra 198 (1997), no. 1, 290–299. MR1482984
+[DDSG+ 18] Hailong Dao, Alessandro De Stefani, Eloı́sa Grifo,
+           Craig Huneke, and Luis Núñez Betancourt, Sym-
+           bolic powers of ideals, Singularities and folia-
+           tions. geometry, topology and applications, 2018,
+           pp. 387–432. MR3779569
+  [DSGJ20] Alessandro De Stefani, Eloı́sa Grifo, and Jack Jef-
+           fries, A Zariski-Nagata theorem for smooth Z-
+           algebras, J. Reine Angew. Math. 761 (2020), 123–
+           140. MR4080246
+     [HJ21] Melvin Hochster and Jack Jeffries, A jacobian cri-
+            terion for nonsingularity in mixed characteristic,
+            arXiv preprint arXiv:2106.01996 (2021).
+    [Joy85] André Joyal, δ-anneaux et vecteurs de Witt, C.
+            R. Math. Rep. Acad. Sci. Canada 7 (1985), no. 3,
+            177–182. MR789309
+     [Sai22] Takeshi Saito, Frobenius-Witt differentials and
+             regularity, Algebra Number Theory 16 (2022),
+             no. 2, 369–391. MR4412577
+
+
+
+
+                                                                10
+
