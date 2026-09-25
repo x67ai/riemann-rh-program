@@ -596,3 +596,36 @@
 [Fri Sep 25 17:38:02 IST 2026] pre-launch ps (>50% CPU): none
 [Fri Sep 25 17:38:02 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
 [Fri Sep 25 17:38:02 IST 2026] LAUNCH twsumO -mode zeta -t 15202440115920748544 -L 28.35 -threads 8 -out checker-O/out/replayOB_t15202440115920748544_L28.35.json
+{
+ "A0": 16.62196534693396,
+ "ARCH": 0.03087966538505876,
+ "ARCH_H2000_panel1": 0.030879665385058708,
+ "L": 28.35,
+ "P": -0.006593474888001556,
+ "P_hi": -0.006593474888001556,
+ "P_lo": 3.4174808321377846e-19,
+ "W": 0.03747314027306031,
+ "X": 2052336466859,
+ "Z": 0.22199690808403955,
+ "arch_s": 2.079314375,
+ "date": "Fri Sep 25 17:38:03 IST 2026",
+ "l1": 146.95060754424256,
+ "mode": "zeta",
+ "n_prime_powers": 111297,
+ "n_primes_or_nonzero": 75148837837,
+ "n_terms": 75148949134,
+ "pole": 0,
+ "pole_note": "not computed (t \u003e= 1000): Lemma-G bound of the record, below 1e-300",
+ "program": "checker-O/twsumO.go (Job 2 part A, Opus 5)",
+ "setup_s": 0.119858708,
+ "sum_s": 1237.140294166,
+ "t_bits": "0x43ea5f3d57a99358",
+ "t_exact": "15202440115920748544",
+ "threads": 8,
+ "wall_s": 1239.3394905
+}
+[Fri Sep 25 17:58:42 IST 2026] twsumO rc=0, wall 1239.3 s; post-run CPU_Speed_Limit = None
+[Fri Sep 25 17:58:42 IST 2026] 15202440115920748544 L=28.35: W_OB +3.74731402730603125e-02; dW vs Job1 7.17e-15; dW vs replayO 0.00e+00 (bit-identical True); tol 2.39e-09 -> PASS
+[Fri Sep 25 17:58:42 IST 2026] pre-launch ps (>50% CPU): ['86.3 /System/Library/PrivateFrameworks/FileProvider.framework/Support/fileproviderd']
+[Fri Sep 25 17:58:42 IST 2026] pmset -g therm: CPU_Speed_Limit = None | Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded
+[Fri Sep 25 17:58:42 IST 2026] LAUNCH twsumO -mode zeta -t 61609351296641974272 -L 28.35 -threads 8 -out checker-O/out/replayOB_t61609351296641974272_L28.35.json
