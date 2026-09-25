@@ -1,0 +1,48 @@
+zeros recomputed in 12.9 s; max |gamma - writer's gamma| = 0.00e+00
+T = 3552.792, ell = 6.3376, W = 39.186, W*ell/2pi = 39.53
+
+=== (4) Jacobian singular values at zeta's 40 positions (simple marks) ===
+  L =  0.500  count LW/pi =    6.2  #sv > 1e-6*max: 15   #sv > 1e-10*max: 19   smallest rel sv 5.19e-17
+  L =  1.000  count LW/pi =   12.5  #sv > 1e-6*max: 23   #sv > 1e-10*max: 27   smallest rel sv 1.55e-17
+  L =  1.500  count LW/pi =   18.7  #sv > 1e-6*max: 29   #sv > 1e-10*max: 34   smallest rel sv 5.37e-17
+  L =  2.000  count LW/pi =   24.9  #sv > 1e-6*max: 35   #sv > 1e-10*max: 39   smallest rel sv 3.16e-11
+  L =  2.500  count LW/pi =   31.2  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 2.00e-06
+  L =  3.000  count LW/pi =   37.4  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 1.76e-02
+  L =  3.500  count LW/pi =   43.7  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 6.84e-02
+  L =  4.000  count LW/pi =   49.9  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 8.98e-02
+  L =  5.000  count LW/pi =   62.4  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 1.25e-01
+  L =  6.338  count LW/pi =   79.1  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 1.47e-01
+  L =  8.000  count LW/pi =   99.8  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 3.12e-01
+  L = 12.000  count LW/pi =  149.7  #sv > 1e-6*max: 40   #sv > 1e-10*max: 40   smallest rel sv 3.55e-01
+
+=== 26s+7d (N_d = 33, N_d/N = 0.825) ===
+  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 1.269e-13, relative 9.232e-15 (writer 1.238e-10); off-grid max|E| 1.518e-10
+  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 5.286e-13, relative 5.480e-14 (writer 2.085e-09); off-grid max|E| 6.594e-11
+  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 7.546e-09, relative 9.312e-10 (writer 1.287e-08); off-grid max|E| 7.822e-07
+  L =  2.000 (alpha 0.316, count   24.9): best RMS|E| = 2.050e-04, relative 2.859e-05 (writer 5.705e-06); off-grid max|E| 4.001e+00
+  L =  2.500 (alpha 0.394, count   31.2): best RMS|E| = 6.619e-02, relative 1.005e-02 (writer 9.007e-03); off-grid max|E| 4.259e+00
+  L =  3.000 (alpha 0.473, count   37.4): best RMS|E| = 3.853e-01, relative 6.127e-02 (writer 5.034e-02); off-grid max|E| 4.846e+00
+  L =  3.500 (alpha 0.552, count   43.7): best RMS|E| = 4.891e-01, relative 8.128e-02 (writer 7.225e-02); off-grid max|E| 4.811e+00
+  L =  4.000 (alpha 0.631, count   49.9): best RMS|E| = 8.789e-01, relative 1.486e-01 (writer 1.303e-01); off-grid max|E| 2.243e+00
+  L =  5.000 (alpha 0.789, count   62.4): best RMS|E| = 1.162e+00, relative 2.041e-01 (writer 1.749e-01); off-grid max|E| 3.016e+00
+  L =  6.338 (alpha 1.000, count   79.1): best RMS|E| = 1.943e+00, relative 3.503e-01 (writer 3.251e-01); off-grid max|E| 6.079e+00
+  L =  8.000 (alpha 1.262, count   99.8): best RMS|E| = 3.242e+00, relative 5.556e-01 (writer 5.255e-01); off-grid max|E| 8.147e+00
+  L = 12.000 (alpha 1.893, count  149.7): best RMS|E| = 3.576e+00, relative 5.949e-01 (writer 5.728e-01); off-grid max|E| 1.096e+01
+  [writer's grid 0.02 + exclusion 0.1/n] L =  2.000: relative 2.168e-05
+  [writer's grid 0.02 + exclusion 0.1/n] L =  3.000: relative 4.630e-02
+  [writer's grid 0.02 + exclusion 0.1/n] L =  6.338: relative 3.199e-01
+  [29 s]
+
+=== 28s+6d (N_d = 34, N_d/N = 0.850) ===
+  L =  0.500 (alpha 0.079, count    6.2): best RMS|E| = 7.442e-14, relative 5.414e-15 (writer 8.434e-11); off-grid max|E| 2.931e-12
+  L =  1.000 (alpha 0.158, count   12.5): best RMS|E| = 2.823e-13, relative 2.926e-14 (writer 8.344e-10); off-grid max|E| 9.481e-12
+  L =  1.500 (alpha 0.237, count   18.7): best RMS|E| = 3.111e-09, relative 3.839e-10 (writer 5.136e-09); off-grid max|E| 3.908e-07
+  L =  2.000 (alpha 0.316, count   24.9): best RMS|E| = 1.133e-04, relative 1.580e-05 (writer 4.535e-06); off-grid max|E| 5.410e-04
+  L =  2.500 (alpha 0.394, count   31.2): best RMS|E| = 6.313e-02, relative 9.588e-03 (writer 8.730e-03); off-grid max|E| 2.473e-01
+  L =  3.000 (alpha 0.473, count   37.4): best RMS|E| = 3.746e-01, relative 5.957e-02 (writer 4.617e-02); off-grid max|E| 1.110e+00
+  L =  3.500 (alpha 0.552, count   43.7): best RMS|E| = 4.497e-01, relative 7.472e-02 (writer 6.408e-02); off-grid max|E| 7.849e-01
+  L =  4.000 (alpha 0.631, count   49.9): best RMS|E| = 7.079e-01, relative 1.197e-01 (writer 1.049e-01); off-grid max|E| 1.412e+00
+  L =  5.000 (alpha 0.789, count   62.4): best RMS|E| = 1.023e+00, relative 1.797e-01 (writer 1.561e-01); off-grid max|E| 2.327e+00
+  L =  6.338 (alpha 1.000, count   79.1): best RMS|E| = 1.766e+00, relative 3.185e-01 (writer 2.963e-01); off-grid max|E| 4.572e+00
+  L =  8.000 (alpha 1.262, count   99.8): best RMS|E| = 3.033e+00, relative 5.198e-01 (writer 4.832e-01); off-grid max|E| 6.286e+00
+  L = 12.000 (alpha 1.893, count  149.7): best RMS|E| = 3.338e+00, relative 5.553e-01 (writer 5.275e-01); off-grid max|E| 9.664e+00
