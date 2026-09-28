@@ -1,0 +1,56 @@
+Tue Sep 29 01:11:58 IST 2026
+== lake env lean comparator/PrintAxioms/IntegralityGap.lean
+/-
+Copyright (c) 2026 Kunal Tyagi. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+SPDX-License-Identifier: Apache-2.0
+
+This file is an addition to the Zeta23 library and is not part of it. Zeta23 is
+Copyright 2026 Anthropic, PBC, released under the Apache License 2.0, and its
+canonical home is https://github.com/anthropics/zeta-23-lean. This file contains
+no code from that library; it imports it (through Solution.IntegralityGap).
+-/
+/-
+comparator/PrintAxioms/IntegralityGap.lean — quick axiom audit of the IntegralityGap topic WITHOUT the comparator tool:
+  lake build Solution.IntegralityGap && lake env lean comparator/PrintAxioms/IntegralityGap.lean
+Every line must print '<name>' depends on axioms: [propext, Classical.choice, Quot.sound] (or a subset).
+No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-integrality-gap.json)
+is the stronger check: it also verifies that each statement coincides with the trusted one in Challenge/IntegralityGap.lean.
+-/
+import Solution.IntegralityGap
+
+#print axioms trace_sq_grid_rat
+#print axioms gridRowQ_eq
+#print axioms gridRow_eq
+#print axioms gridRow_eq_gridRowQ
+#print axioms fracMark_mass
+#print axioms fracMark_sq
+#print axioms fracMark_Nd
+#print axioms fracMark_row
+#print axioms mi_fails_rational
+#print axioms corner_fails_rational
+#print axioms corner_bound_fails_rational
+#print axioms mi_holds_integer
+#print axioms per_atom_slack
+#print axioms per_atom_slack_fails_rational
+#print axioms per_atom_floor
+#print axioms per_atom_floor_fails_rational
+---- output
+'trace_sq_grid_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gridRowQ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gridRow_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gridRow_eq_gridRowQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fracMark_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fracMark_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fracMark_Nd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'fracMark_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mi_fails_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'corner_fails_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'corner_bound_fails_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mi_holds_integer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'per_atom_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'per_atom_slack_fails_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'per_atom_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'per_atom_floor_fails_rational' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+Tue Sep 29 01:12:02 IST 2026
