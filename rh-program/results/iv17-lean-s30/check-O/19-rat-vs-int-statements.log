@@ -1,0 +1,23 @@
+CHECKER: the rational statements against their integer originals, whitespace-normalized; the substitution map applied to the integer text
+
+== trace_sq_grid vs trace_sq_grid_rat: after the map, IDENTICAL
+  int: theorem trace_sq_grid (n : ℕ) (m : ZMod (2 * n + 1) → ℤ) : ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) * Complex.normSq (dftMark (zetaM (2 * n + 1)) m ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1)))) = ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+  rat: theorem trace_sq_grid_rat (n : ℕ) (m : ZMod (2 * n + 1) → ℚ) : ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) * Complex.normSq (dftMarkQ (zetaM (2 * n + 1)) m ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1)))) = ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+
+== grid_parseval_decoupling vs grid_parseval_decoupling_rat: after the map, IDENTICAL
+  int: theorem grid_parseval_decoupling (n : ℕ) (m : ZMod (2 * n + 1) → ℤ) : ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), Complex.normSq (dftMark (zetaM (2 * n + 1)) m ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1)))) = ((2 * n + 1 : ℕ) : ℝ) ^ 2 * ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+  rat: theorem grid_parseval_decoupling_rat (n : ℕ) (m : ZMod (2 * n + 1) → ℚ) : ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), Complex.normSq (dftMarkQ (zetaM (2 * n + 1)) m ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1)))) = ((2 * n + 1 : ℕ) : ℝ) ^ 2 * ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+
+== flat_band_trace_sq vs flat_band_trace_sq_rat: after the map, DIFFER
+  int: theorem flat_band_trace_sq [IsDomain K] {ζ : K} (hζ : IsPrimitiveRoot ζ M) (m : ZMod M → ℤ) (a : ℤ) : ∑ j1 ∈ Finset.Icc a (a + (M : ℤ) - 1), ∑ j2 ∈ Finset.Icc a (a + (M : ℤ) - 1), dftMark ζ m ((j1 : ZMod M) + (j2 : ZMod M)) * dftMark ζ m (-((j1 : ZMod M) + (j2 : ZMod M))) = (M : K) ^ 2 * ∑ k : ZMod M, (m k : K) ^ 2
+  rat: theorem flat_band_trace_sq_rat {ζ : F} (hζ : IsPrimitiveRoot ζ M) (m : ZMod M → ℚ) (a : ℤ) : ∑ j1 ∈ Finset.Icc a (a + (M : ℤ) - 1), ∑ j2 ∈ Finset.Icc a (a + (M : ℤ) - 1), dftMarkQ ζ m ((j1 : ZMod M) + (j2 : ZMod M)) * dftMarkQ ζ m (-((j1 : ZMod M) + (j2 : ZMod M))) = (M : F) ^ 2 * ∑ k : ZMod M, (m k : F) ^ 2
+
+== gridRow_eq vs gridRowQ_eq: after the map, IDENTICAL
+  int: lemma gridRow_eq (n : ℕ) (m : ZMod (2 * n + 1) → ℤ) : gridRow n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℤ) : ℝ)
+  rat: lemma gridRowQ_eq (n : ℕ) (m : ZMod (2 * n + 1) → ℚ) : gridRowQ n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℚ) : ℝ)
+
+== two_mul_distinct_ge vs mi_holds_integer: after the map, DIFFER
+  int: theorem two_mul_distinct_ge (m : ZMod M → ℤ) (hm : ∀ k, 0 ≤ m k) : 3 * (∑ k : ZMod M, m k) - (∑ k : ZMod M, (m k) ^ 2) ≤ 2 * ((Finset.univ.filter (fun k : ZMod M => m k ≠ 0)).card : ℤ)
+  rat: theorem mi_holds_integer {M : ℕ} [NeZero M] (m : ZMod M → ℤ) (hm : ∀ k, 0 ≤ m k) : 3 * (∑ k : ZMod M, m k) - (∑ k : ZMod M, (m k) ^ 2) ≤ 2 * ((Finset.univ.filter (fun k : ZMod M => m k ≠ 0)).card : ℤ)
+
+Reading of the two DIFFER lines (checker): flat_band_trace_sq_rat is stated over a FIELD F (item 10 typing fact: Rat.cast needs a division ring) where the integer form is over a commutative domain K — the expected and disclosed difference (FIDELITY (v7)); mi_holds_integer binds {M} [NeZero M] explicitly where two_mul_distinct_ge takes them from a section `variable` — the same telescope (the Solution delegation `fun _ _ m hm => ...mi_holds_integer m hm` typechecks and comparator accepted it). Neither is a finding.

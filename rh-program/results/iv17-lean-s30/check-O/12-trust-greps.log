@@ -1,0 +1,83 @@
+Tue Sep 29 01:14:17 IST 2026
+== builder's trust_greps_g8.py over the 6 topic files (comments stripped, 9 words)
+comparator/Challenge/IntegralityGap.lean:58: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:64: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:70: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:76: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:80: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:84: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:89: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:93: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:100: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:109: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:117: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:124: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:128: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:132: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:136: [sorry] sorry
+comparator/Challenge/IntegralityGap.lean:140: [sorry] sorry
+files present: 6; hits outside comments: 16
+exit=1 (1 = hits exist, the script's convention)
+
+== raw grep -nwE, comments INCLUDED, over the 6 files + config (20 words)
+comparator/ChallengeDeps/IntegralityGap.lean:37:noncomputable section
+Zeta23/PairCeiling/GridGap.lean:15:the zoo's mark-4/3 instance (`fracMark`: 48 atoms of mark 4/3 on the 65-site grid; mass 64, Σm² = 256/3, N_d = 48,
+Zeta23/PairCeiling/GridGap.lean:37:ζ.  The instance sits at ε = 0 (budget-tight, the zoo's "F1 = (4/3)N") — the corner theorem `grid_corner_pointwise`
+Zeta23/PairCeiling/GridGap.lean:40:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the five column-data facts of
+Zeta23/PairCeiling/GridGap.lean:41:the instance (`fracMark_mass`, `fracMark_sq`, `fracMark_Nd`, and the two used through them) are kernel-checked
+Zeta23/PairCeiling/GridGap.lean:42:(`decide +kernel`, NumericCert discipline); the transcendental object is `Complex.exp` through `zetaM`, as in
+Zeta23/PairCeiling/GridGap.lean:47:noncomputable section
+Zeta23/PairCeiling/GridGap.lean:99:/-! ## 3. The instance: 48 atoms of mark 4/3 on the 65-site grid (N = 64) -/
+Zeta23/PairCeiling/GridGap.lean:112:theorem fracMark_mass : ∑ k : ZMod 65, fracMark k = 64 := by decide +kernel
+Zeta23/PairCeiling/GridGap.lean:115:theorem fracMark_sq : ∑ k : ZMod 65, (fracMark k) ^ 2 = 256 / 3 := by decide +kernel
+Zeta23/PairCeiling/GridGap.lean:119:    (Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card = 48 := by decide +kernel
+Zeta23/PairCeiling/GridParsevalRat.lean:20:only through the cast `(m k : K)`, which every algebraic proof treats as an opaque ring element.  So the Parseval identity
+Zeta23/PairCeiling/GridParsevalRat.lean:34:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the only transcendental object is
+Zeta23/PairCeiling/GridParsevalRat.lean:39:noncomputable section
+comparator/PrintAxioms/IntegralityGap.lean:12:comparator/PrintAxioms/IntegralityGap.lean — quick axiom audit of the IntegralityGap topic WITHOUT the comparator tool:
+comparator/PrintAxioms/IntegralityGap.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-integrality-gap.json)
+comparator/Solution/IntegralityGap.lean:24:noncomputable section
+comparator/Solution/IntegralityGap.lean:56:/-- **(2) instance data, kernel-checked**: mass `Σ m = 64`. -/
+comparator/Solution/IntegralityGap.lean:60:/-- **(2) instance data, kernel-checked**: `Σ m² = 256/3`. -/
+comparator/Solution/IntegralityGap.lean:64:/-- **(2) instance data, kernel-checked**: `N_d = 48` occupied sites. -/
+comparator/Solution/IntegralityGap.lean:69:/-- **(2) the instance's grid row is exactly the budget at `ε = 0`**: `gridRowQ 32 fracMark = (4/3)·64·(1 + 0)`. -/
+comparator/Challenge/IntegralityGap.lean:26:  (2) `fracMark_mass`, `fracMark_sq`, `fracMark_Nd`, `fracMark_row` — the instance, kernel-checked: 48 atoms of mark 4/3 on the
+comparator/Challenge/IntegralityGap.lean:39:band, no λ' row, no cubic row); nothing off the grid (atoms at arbitrary positions).  The instance sits at ε = 0.
+comparator/Challenge/IntegralityGap.lean:41:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/IntegralityGap.lean:46:noncomputable section
+comparator/Challenge/IntegralityGap.lean:78:/-- **(2) instance data, kernel-checked**: mass `Σ m = 64`. -/
+comparator/Challenge/IntegralityGap.lean:82:/-- **(2) instance data, kernel-checked**: `Σ m² = 256/3`. -/
+comparator/Challenge/IntegralityGap.lean:86:/-- **(2) instance data, kernel-checked**: `N_d = 48` occupied sites. -/
+comparator/Challenge/IntegralityGap.lean:91:/-- **(2) the instance's grid row is exactly the budget at `ε = 0`**: `gridRowQ 32 fracMark = (4/3)·64·(1 + 0)`. -/
+(the 16 challenge lines '  sorry' filtered from the raw listing; count:)
+16
+
+== decide in the whole GridGap/GridParsevalRat (must be 'decide +kernel' only, 3 uses)
+Zeta23/PairCeiling/GridParsevalRat.lean:34:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the only transcendental object is
+Zeta23/PairCeiling/GridGap.lean:40:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the five column-data facts of
+Zeta23/PairCeiling/GridGap.lean:42:(`decide +kernel`, NumericCert discipline); the transcendental object is `Complex.exp` through `zetaM`, as in
+Zeta23/PairCeiling/GridGap.lean:112:theorem fracMark_mass : ∑ k : ZMod 65, fracMark k = 64 := by decide +kernel
+Zeta23/PairCeiling/GridGap.lean:115:theorem fracMark_sq : ∑ k : ZMod 65, (fracMark k) ^ 2 = 256 / 3 := by decide +kernel
+Zeta23/PairCeiling/GridGap.lean:119:    (Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card = 48 := by decide +kernel
+
+== cmp clean-clone overlay vs program tree
+same Zeta23/PairCeiling/GridParsevalRat.lean
+same Zeta23/PairCeiling/GridGap.lean
+same comparator/ChallengeDeps/IntegralityGap.lean
+same comparator/Challenge/IntegralityGap.lean
+same comparator/Solution/IntegralityGap.lean
+same comparator/PrintAxioms/IntegralityGap.lean
+same comparator/config-integrality-gap.json
+GridParseval same as s21
+GridCorner same as s21
+
+== git: are GridParseval/GridCorner program overlays (not upstream v1.0)?
+error: pathspec 'Zeta23/PairCeiling/GridParseval.lean' did not match any file(s) known to git
+error: pathspec 'Zeta23/PairCeiling/GridCorner.lean' did not match any file(s) known to git
+Did you forget to 'git add'?
+?? Zeta23/PairCeiling/GridCorner.lean
+?? Zeta23/PairCeiling/GridGap.lean
+?? Zeta23/PairCeiling/GridParseval.lean
+?? Zeta23/PairCeiling/GridParsevalRat.lean
+?? Zeta23/PairCeiling/GridWitness.lean
+Tue Sep 29 01:14:17 IST 2026

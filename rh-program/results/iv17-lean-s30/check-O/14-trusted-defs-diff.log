@@ -1,0 +1,41 @@
+Tue Sep 29 01:15:10 IST 2026
+Zeta23/PairCeiling/GridParsevalRat.lean:51:variable {K : Type*} [CommRing K] {M : ℕ} [NeZero M]
+Zeta23/PairCeiling/GridParsevalRat.lean:132:variable {F : Type*} [Field F]
+comparator/ChallengeDeps/IntegralityGap.lean:41:variable {K : Type*} [CommRing K] {M : ℕ} [NeZero M]
+Zeta23/PairCeiling/GridParseval.lean:139:variable {K : Type*} [CommRing K] {M : ℕ} [NeZero M]
+Zeta23/PairCeiling/GridCorner.lean:76:variable {M : ℕ} [NeZero M]
+132:variable {F : Type*} [Field F]
+chi        vs Zeta23/PairCeiling/GridParseval.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def chi (ζ : K) (x : ZMod M) : K := ζ ^ x.val
+dftMark    vs Zeta23/PairCeiling/GridParseval.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def dftMark (ζ : K) (m : ZMod M → ℤ) (r : ZMod M) : K :=
+               ∑ k : ZMod M, (m k : K) * chi ζ (r * k)
+zetaM      vs Zeta23/PairCeiling/GridParseval.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def zetaM (M : ℕ) : ℂ := Complex.exp (2 * Real.pi * Complex.I / M)
+gridRow    vs Zeta23/PairCeiling/GridCorner.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def gridRow (n : ℕ) (m : ZMod (2 * n + 1) → ℤ) : ℝ :=
+               ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ),
+                 (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) *
+                   Complex.normSq (dftMark (zetaM (2 * n + 1)) m
+                     ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1))))
+dftMarkQ   vs Zeta23/PairCeiling/GridParsevalRat.lean: raw differs; whitespace-normalized DIFFER
+   trusted : def dftMarkQ {F : Type*} [Field F] (ζ : F) (m : ZMod M → ℚ) (r : ZMod M) : F :=
+               ∑ k : ZMod M, (m k : F) * chi ζ (r * k)
+   original: def dftMarkQ (ζ : F) (m : ZMod M → ℚ) (r : ZMod M) : F :=
+               ∑ k : ZMod M, (m k : F) * chi ζ (r * k)
+gridRowQ   vs Zeta23/PairCeiling/GridParsevalRat.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def gridRowQ (n : ℕ) (m : ZMod (2 * n + 1) → ℚ) : ℝ :=
+               ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ),
+                 (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) *
+                   Complex.normSq (dftMarkQ (zetaM (2 * n + 1)) m
+                     ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1))))
+fracMark   vs Zeta23/PairCeiling/GridGap.lean: raw IDENTICAL; whitespace-normalized IDENTICAL
+   trusted : def fracMark : ZMod 65 → ℚ := fun k => if k.val < 48 then 4 / 3 else 0
+RESULT: FAIL
+Tue Sep 29 01:15:26 IST 2026
+== lake env lean check-O/probe_defeq.lean
+@IntegralityGap.dftMarkQ : {M : ℕ} → [NeZero M] → {F : Type u_1} → [Field F] → F → (ZMod M → ℚ) → ZMod M → F
+@Zeta23.PairCeiling.GridParsevalRat.dftMarkQ : {M : ℕ} →
+  [NeZero M] → {F : Type u_1} → [Field F] → F → (ZMod M → ℚ) → ZMod M → F
+exit=0
+Tue Sep 29 01:15:30 IST 2026

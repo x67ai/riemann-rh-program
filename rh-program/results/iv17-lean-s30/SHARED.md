@@ -52,3 +52,15 @@ Next: FIDELITY.md, BUILD-NOTES.md, lint, hashes.
 names. Label earned (BRIEF §1(6), the "(1) lands" branch), no H-row displayed, no stop line fired, nothing posted anywhere, nothing
 committed. The clone `~/rh-lean-work/checker-clone-s21` holds cmp-identical copies of the six Lean files, the config, README and yaml.
 Next (orchestrator): launch the Opus 5 clean-clone checker per BRIEF §3 → `CHECK-O.md`.
+
+## [checker Opus 5] Tue Sep 29 01:21:27 IST 2026 — CHECK-O landed: FIX-FIRST, prose only (F1, F2); the Lean result CLEAN, the label earned
+Clean clone `~/rh-lean-work/checker-clone-s30b` (`v1.0` = 3635e748…, README overlay; Lean v4.33.0-rc2 / Mathlib 51e6992e, cache only).
+Builds: GridParsevalRat 2081, GridGap 2082, Solution 8702, Challenge 8698 jobs (exactly the 16 deliberate `sorry`s), 0 errors. `#print
+axioms`: 16 × [propext, Classical.choice, Quot.sound]; no sorryAx, no ofReduceBool; the three `decide +kernel` facts carry all three.
+Comparator with nanoda (topic artifacts removed first): **exit 0**, 30.72 s. Identity 16/16 (mine + builder's tool, clone and tree);
+trust greps: the 16 challenge `sorry`s only; trusted defs 7/7 `rfl` to the Zeta23 originals (6/7 byte-identical; `dftMarkQ` binder
+placement, O1). Probes: (MI) follows from the slack alone over ℚ, and the integer (MI) with `per_atom_slack` as its only integrality
+input; row forms over ℤ/ℚ from the topic's statements. formalization-status.md: append-only (26 added, 0 removed). Hashes 28/28 + hashes.txt.
+F1: GridGap.lean 40–42 "five … kernel-checked (decide +kernel)" — three; same slip in the formalization-status addendum (row is Parseval).
+F2: GridGap.lean 93 "Its proof consumes integrality at exactly per_atom_slack" — true in content, not as a dependency; reword.
+CHECK-O.md SHA-256 c2e8c64ed4680edc33c0ab838a07609a9999b87d3215ff00ef05cfba413d49a3. Nothing committed by me; no Prove2Me action.

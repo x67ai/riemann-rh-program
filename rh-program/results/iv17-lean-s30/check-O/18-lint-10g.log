@@ -1,0 +1,13 @@
+Tue Sep 29 01:18:16 IST 2026
+== 10(g) lint: British spellings and banned phrases over the unit's text (BUILD-NOTES, FIDELITY, TYPING-NOTE, SHARED, the 6 Lean files + config, README section, formalization-status addendum)
+results/iv17-lean-s30/FIDELITY.md:45:  POINTWISE (one column). The law form of the negation follows at once (a one-column law), and the integer law form is already
+results/iv17-lean-s30/FIDELITY.md:73:  integer atoms have m ≥ 1, and the fractional relaxation is exactly the removal of that floor. `mi_holds_integer` likewise takes
+results/iv17-lean-s30/BUILD-NOTES.md:105:* `lint-10g.log`: U.S. English throughout; no "clearly / obviously / easy to see / well known".
+lean/comparator/Challenge/IntegralityGap.lean:37:columns — the pointwise failure is stated, the law form is not); nothing about the PAIR CHANNEL (paper Prop. 4.5 is not
+lean/Zeta23/PairCeiling/GridGap.lean:35:of columns) — the pointwise failure of the corner bound implies the failure of its law form, but no law-form negation
+(end of hits)
+README section starts line 433
+(README end)
+(addendum end)
+Tue Sep 29 01:18:16 IST 2026
+(lint hits above are all false positives: 'pointwise'/'likewise' match the -wise pattern; BUILD-NOTES:105 quotes the banned list. CLEAN.)

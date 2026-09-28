@@ -1,0 +1,37 @@
+Tue Sep 29 01:14:55 IST 2026
+== lake env lean check-O/probe_checker.lean
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/iv17-lean-s30/check-O/probe_checker.lean:12:65: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'checker_mi_of_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'checker_mi_integer_via_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'checker_pointwise_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'checker_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridGap.fracMark_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridGap.fracMark_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridGap.fracMark_Nd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridGap.fracMark_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridCorner.attainMark_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridCorner.attainMark_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridParseval.two_mul_distinct_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.GridCorner.grid_corner_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+GridCorner.grid_corner_pointwise : ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℤ),
+  (∀ (k : ZMod (2 * n + 1)), 0 ≤ m k) →
+    ∀ (N : ℤ),
+      ∑ k, m k = N →
+        ∀ (ε : ℝ),
+          GridCorner.gridRow n m ≤ 4 / 3 * ↑N * (1 + ε) →
+            ↑N * (5 / 6 - 2 / 3 * ε) ≤ ↑(#{k | m k ≠ 0}) ∧ ↑N * (2 / 3 - 4 / 3 * ε) ≤ ↑(#{k | m k = 1})
+GridCorner.gridRow : (n : ℕ) → (ZMod (2 * n + 1) → ℤ) → ℝ
+def Zeta23.PairCeiling.GridParseval.dftMark.{u_1} : {K : Type u_1} →
+  [CommRing K] → {M : ℕ} → [NeZero M] → K → (ZMod M → ℤ) → ZMod M → K :=
+fun {K} [CommRing K] {M} [NeZero M] ζ m r => ∑ k, ↑(m k) * GridParseval.chi ζ (r * k)
+def Zeta23.PairCeiling.GridParseval.chi.{u_1} : {K : Type u_1} → [CommRing K] → {M : ℕ} → K → ZMod M → K :=
+fun {K} [CommRing K] {M} ζ x => ζ ^ x.val
+def Zeta23.PairCeiling.GridParseval.zetaM : ℕ → ℂ :=
+fun M => Complex.exp (2 * ↑Real.pi * Complex.I / ↑M)
+exit=0
+Tue Sep 29 01:14:57 IST 2026

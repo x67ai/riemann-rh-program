@@ -1,0 +1,8 @@
+2c2
+< # G8 / IV.17 runner (Session 30; byte-identical to the D5 runner but for this line): run leanprover/comparator on one config from the Lean repository root ~/rh-lean-work/checker-clone-s21.
+---
+> # G8 / IV.17 CHECKER runner (Opus 5, Session 30): the builder's tools/run.sh with only the tree path and this comment line changed.
+10c10
+< cd "$HOME/rh-lean-work/checker-clone-s21" || exit 99
+---
+> cd "$HOME/rh-lean-work/checker-clone-s30b" || exit 99

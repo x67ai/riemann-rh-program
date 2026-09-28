@@ -1,0 +1,38 @@
+Tue Sep 29 01:17:57 IST 2026
+== cd results/d1-m2a/dr8 && python3 validate_yaml_sigma_strong.py
+   Zeta23.W1.cert_of_checkW1_of_diffOn                      Zeta23/W1/Soundness.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn'                     Zeta23/W1/Soundness.lean
+   Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn            Zeta23/W1/Soundness.lean
+   Zeta23.W1.differentiable_fDH                             Zeta23/W1/FDH.lean
+   Zeta23.W1.fDH                                            Zeta23/W1/FDH.lean
+   Zeta23.W1.kappaDH                                        Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero                                      Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero'                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.mpNullDeepT100_exclusion                       Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT10000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT1000_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT100_exclusion                           Zeta23/W1/Ledger.lean
+   Zeta23.W1.rectArgPrinciple_of_local                      Zeta23/W1/ArgPrincipleBridge.lean
+
+RESULT: PASS — errors: 0, undeclared names: 0
+exit=
+== supplementary: every G8 name mentioned in formalization.yaml is declared in the program Lean tree
+declared GridGap.corner_bound_fails_rational
+declared GridGap.corner_fails_rational
+declared GridGap.fracMark
+MISSING GridGap.lean
+declared GridGap.mi_fails_rational
+declared GridGap.mi_holds_integer
+declared GridGap.per_atom_floor
+declared GridGap.per_atom_slack
+declared GridParsevalRat.dftMarkQ
+declared GridParsevalRat.dftVec
+declared GridParsevalRat.flat_band_trace_sq_vec
+declared GridParsevalRat.gridRow_eq_gridRowQ
+declared GridParsevalRat.gridRowQ
+declared GridParsevalRat.gridRowQ_eq
+MISSING GridParsevalRat.lean
+declared GridParsevalRat.sum_dftVec_mul_neg
+declared GridParsevalRat.trace_sq_grid_rat
+Tue Sep 29 01:18:02 IST 2026
+(the two MISSING lines above are my regex catching the FILE names GridGap.lean / GridParsevalRat.lean — not declarations; not a finding)

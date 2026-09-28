@@ -1,0 +1,64 @@
+Tue Sep 29 01:13:52 IST 2026
+== python3 check-O/identity_check_o.py <clone> IntegralityGap comparator/config-integrality-gap.json
+imports: ChallengeDeps ['Mathlib'] | Challenge ['ChallengeDeps.IntegralityGap'] | Solution ['ChallengeDeps.IntegralityGap', 'Zeta23.PairCeiling.GridGap']
+challenge decl kinds: ['OTHER', 'theorem'] count 32
+solution  decl kinds: ['OTHER', 'theorem'] count 32
+trusted   decls: [('OTHER', None), ('def', 'chi'), ('OTHER', None), ('def', 'dftMark'), ('OTHER', None), ('def', 'dftMarkQ'), ('OTHER', None), ('def', 'zetaM'), ('OTHER', None), ('def', 'gridRow'), ('OTHER', None), ('def', 'gridRowQ'), ('OTHER', None), ('def', 'fracMark')]
+config names == challenge theorem names in order: True 16
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/iv17-lean-s30/check-O/identity_check_o.py", line 50, in <module>
+    print(f"{n:32s} {'IDENTICAL' if same else 'DIFFER'}  challenge proof = {pa!r}  solution proof = {pb[:70]!r}")
+TypeError: unsupported format string passed to NoneType.__format__
+exit=1
+
+== python3 tools/statement_identity_g8.py <clone> IntegralityGap <16 names as 16 words>
+trace_sq_grid_rat                             challenge   387 bytes, solution   387 bytes: IDENTICAL
+gridRowQ_eq                                   challenge   130 bytes, solution   130 bytes: IDENTICAL
+gridRow_eq                                    challenge   128 bytes, solution   128 bytes: IDENTICAL
+gridRow_eq_gridRowQ                           challenge   123 bytes, solution   123 bytes: IDENTICAL
+fracMark_mass                                 challenge    54 bytes, solution    54 bytes: IDENTICAL
+fracMark_sq                                   challenge    63 bytes, solution    63 bytes: IDENTICAL
+fracMark_Nd                                   challenge    92 bytes, solution    92 bytes: IDENTICAL
+fracMark_row                                  challenge    66 bytes, solution    66 bytes: IDENTICAL
+mi_fails_rational                             challenge   206 bytes, solution   206 bytes: IDENTICAL
+corner_fails_rational                         challenge   245 bytes, solution   245 bytes: IDENTICAL
+corner_bound_fails_rational                   challenge   260 bytes, solution   260 bytes: IDENTICAL
+mi_holds_integer                              challenge   218 bytes, solution   218 bytes: IDENTICAL
+per_atom_slack                                challenge    55 bytes, solution    55 bytes: IDENTICAL
+per_atom_slack_fails_rational                 challenge    80 bytes, solution    80 bytes: IDENTICAL
+per_atom_floor                                challenge    43 bytes, solution    43 bytes: IDENTICAL
+per_atom_floor_fails_rational                 challenge    68 bytes, solution    68 bytes: IDENTICAL
+RESULT: PASS
+exit=
+Tue Sep 29 01:13:52 IST 2026
+
+#### RERUN Tue Sep 29 01:14:05 IST 2026: the first pass above crashed on MY splitter (a capturing group in re.split); regex fixed to a non-capturing group. Not a finding about the unit.
+== python3 check-O/identity_check_o.py <clone> IntegralityGap comparator/config-integrality-gap.json
+imports: ChallengeDeps ['Mathlib'] | Challenge ['ChallengeDeps.IntegralityGap'] | Solution ['ChallengeDeps.IntegralityGap', 'Zeta23.PairCeiling.GridGap']
+challenge decl kinds: ['theorem'] count 16
+solution  decl kinds: ['theorem'] count 16
+trusted   decls: [('def', 'chi'), ('def', 'dftMark'), ('def', 'dftMarkQ'), ('def', 'zetaM'), ('def', 'gridRow'), ('def', 'gridRowQ'), ('def', 'fracMark')]
+config names == challenge theorem names in order: True 16
+trace_sq_grid_rat                IDENTICAL  challenge proof = 'by sorry'  solution proof = 'fun n m => Zeta23.PairCeiling.GridParsevalRat.trace_sq_grid_rat n m'
+gridRowQ_eq                      IDENTICAL  challenge proof = 'by sorry'  solution proof = 'fun n m => Zeta23.PairCeiling.GridParsevalRat.gridRowQ_eq n m'
+gridRow_eq                       IDENTICAL  challenge proof = 'by sorry'  solution proof = 'fun n m => Zeta23.PairCeiling.GridCorner.gridRow_eq n m'
+gridRow_eq_gridRowQ              IDENTICAL  challenge proof = 'by sorry'  solution proof = 'fun n m => Zeta23.PairCeiling.GridParsevalRat.gridRow_eq_gridRowQ n m'
+fracMark_mass                    IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.fracMark_mass'
+fracMark_sq                      IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.fracMark_sq'
+fracMark_Nd                      IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.fracMark_Nd'
+fracMark_row                     IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.fracMark_row'
+mi_fails_rational                IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.mi_fails_rational'
+corner_fails_rational            IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.corner_fails_rational'
+corner_bound_fails_rational      IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.corner_bound_fails_rational'
+mi_holds_integer                 IDENTICAL  challenge proof = 'by sorry'  solution proof = 'fun _ _ m hm => Zeta23.PairCeiling.GridGap.mi_holds_integer m hm'
+per_atom_slack                   IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.per_atom_slack'
+per_atom_slack_fails_rational    IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.per_atom_slack_fails_rational'
+per_atom_floor                   IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.per_atom_floor'
+per_atom_floor_fails_rational    IDENTICAL  challenge proof = 'by sorry'  solution proof = 'Zeta23.PairCeiling.GridGap.per_atom_floor_fails_rational'
+RESULT: PASS
+exit=0
+== the builder's tool, exit code
+exit=0
+== the builder's tool on the PROGRAM TREE (rh-program/lean)
+RESULT: PASS
+Tue Sep 29 01:14:05 IST 2026
