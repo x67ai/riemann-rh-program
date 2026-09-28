@@ -64,3 +64,10 @@
 - Files: NOTE.md (194 lines), SHARED.md, verify/ (15 scripts, 30+ logs, JSON, .npy certificates), fetched/ (8 arXiv texts). Nothing outside results/e5-kappa-s29/ touched; nothing committed.
 - Final hashes (after this block is written SHARED's hash changes; the reader hashes both files at launch):
   NOTE.md SHA-256 61aa86bd55f264abe142f454aa1bd899ef91a85150bcac6cf755362d0dd312b5
+
+## [Mon Sep 28 22:23:03 IST 2026] READER (Opus 5) — read-O.md landed
+- Launch 21:53 IST; inputs hash-verified (BRIEF 015d6978…, PREDERIVATION dfd54af3…, NOTE 61aa86bd…, BARRIER-ZOO 840f4362…, PRICING-next-unit f7a4006c…). NOTE.md and every other existing file were left unedited; nothing committed.
+- Own scripts under `verify-O/` (each with `_run.log` and `_out.json`): aform_O (closed form (2.1) = definition = reader's u-integral to ≤ 2·10⁻³¹ at τ = 0, 1, 6.31, 30; 23 s), k0_O (κ_K0 = 6.34642725586·10⁻¹⁹ from a(0) by definition; 20 s), cert_O (second-derivative cells; best certificate U = 8, ε = 0.03: CERTIFIED 6.5890·10⁻⁵ at η = 2·10⁻⁵ and 6.6490·10⁻⁵ at η = 0; ε = 0.02, 0.01 reproduced; ε = 0.05 negative at τ = 44.71; 15 s each), primal_O (κ_ub = 0.0009985305 in τ- and u-space to 1.8·10⁻¹⁵; EF check −5.2·10⁻⁴ → −2.0·10⁻⁴ with ptail_O's tail estimate; 34 s), sec6_O. Rung 0 re-run of the writer's scripts (`verify-O/rerun/`): A [0.100000, 0.100001], B certified 0.0997683 (994 s) — identical.
+- Prior art (own pass): Odlyzko 1990 JTNB pp. 122–123 (Poitou's f/cosh(x/2), f ≥ 0, f̂ ≥ 0; Open Problem 2.1) and Miller math/0112196 Lemma 3.1 fetched to `verify-O/fetched-O/` — the nearest objects the writer missed; no printed κ.
+- Verdicts: K0, D′, certificate, Lemma A/primal, closed form, §6, rung 0, prior art UPHELD; 15 amendments (A1 the ε = 0.01 table row 6.5890e-05 → 4.2003e-05; A2 an ε-mixed series; A5 an unconverged U = 8 plain value; A8 U = 16/24 certified runs contradicting "coarser grids fail"; the rest wording, labels, prior art). None moves the bracket [6.589·10⁻⁵, 9.985·10⁻⁴] or C. Group IV: rider on IV.18 (ii); no two blind referees (factor-15 gap, floating point).
+- read-O.md SHA-256 prefix (before this block): c1cfce808e380dc3…

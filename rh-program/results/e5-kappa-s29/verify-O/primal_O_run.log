@@ -7,3 +7,8 @@ element: n = 3000 cells, hx = 0.005, min c = 0.000e+00 (cone: c >= 0 -> True); w
 /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/primal_O.py:35: RuntimeWarning: invalid value encountered in matmul
   f = (np.exp(1j*uu*mid[None, :]) @ c)*hx*np.sinc(u[i:i+2000]*hx/(2*np.pi))/(2*np.pi)
 (U) w(0) = 1.421188e-03; int w over |u| <= 60 = 7.9577463200e-04 (vs what(0) 7.9577471493e-04); int what a = -1.5907548245e-03; B/what(0) = 0.0009985305;  |T - U| = 1.78e-15
+(EF) prime powers <= 1e7: 665134; P(1e6) = 5.2127205730e-07, P(1e7) = 5.2142325494e-07; max w/w(0) on log n in (log 1e6, log 1e7] = 2.91e-08  [20s]
+(EF) Z (200 zeros) = 2.7276949139e-07 (gamma_1 share 2.7277e-07, gamma_2 share 1.139e-16); P + Z = 7.9419274633e-07; B = 7.9460532655e-07; (P+Z)/what(0) = 0.0009980120; relative (P+Z-B)/B = -5.192e-04
+anatomy (share of B > 1%): gamma_1 0.343; prime powers {2: 0.014949508292900466, 3: 0.0804800366977489, 4: 0.35073936608933487, 5: 0.05748517557828068, 7: 0.014110636350018782, 8: 0.01427845969200596, 9: 0.04211401593213002, 13: 0.02738132840809958}; P(log n <= 2)/B = 0.518
+w/w(0) at log 2, 3, 4, 5, 7: [9e-06, 4.1e-05, 0.0003536, 3e-05, 8.1e-06]
+done in 33.8s
