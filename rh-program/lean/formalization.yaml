@@ -206,6 +206,9 @@ status:
     longer displayed anywhere in the Session 25 topics.  From Session 30 (D5, IV.1), also the one of comparator/Challenge/WeilContainmentOne.lean (proved by
     comparator/Solution/WeilContainmentOne.lean) and the twelve of comparator/Challenge/WeilContainment.lean (proved by
     comparator/Solution/WeilContainment.lean) — both topics over Mathlib alone, no Zeta23 module involved, nothing displayed.
+    From Session 30 (G8, IV.17), also the sixteen of comparator/Challenge/IntegralityGap.lean (proved by
+    comparator/Solution/IntegralityGap.lean, which delegates to Zeta23/PairCeiling/GridParsevalRat.lean and GridGap.lean; neither
+    contains a `sorry`); nothing displayed.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -624,6 +627,32 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 30 (2026-09-29), G8 — barrier-zoo IV.17, the fractional-mark integrality barrier, as one Comparator topic
+        `IntegralityGap` (trusted layer comparator/ChallengeDeps/IntegralityGap.lean, Mathlib only: chi, dftMark, dftMarkQ, zetaM,
+        gridRow, gridRowQ, fracMark — character for character the Zeta23/PairCeiling definitions).  Sixteen statements: (1) grid
+        Parseval with RATIONAL marks on the bandwidth-one row, Σ_{j₁,j₂ ∈ [−n,n]} (1/(2n+1))² |c_{j₁+j₂}|² = Σ_k m_k² for every
+        m : ZMod (2n+1) → ℚ (`trace_sq_grid_rat`, `gridRowQ_eq`), the integer row (`gridRow_eq`) and the integer row IS the rational
+        row of the cast marks (`gridRow_eq_gridRowQ`); (2) the zoo's mark-4/3 instance, kernel-checked (`decide +kernel`): 48 atoms
+        of mark 4/3 on the 65-site grid have mass 64, Σm² = 256/3, N_d = 48, grid row = (4/3)·64·(1 + 0); (3) the master inequality
+        3·Σm − Σm² ≤ 2·N_d stated for nonnegative RATIONAL marks on ZMod 65 is FALSE (`mi_fails_rational`; 96 > 256/3), and the 5/6
+        corner is false for fractional marks at ε = 0 (`corner_fails_rational`, `corner_bound_fails_rational`: N_d = 48 < 64·(5/6));
+        (4) the same inequality HOLDS for nonnegative INTEGER marks on every grid (`mi_holds_integer` = GridParseval's
+        two_mul_distinct_ge), and the line where integrality is consumed is the named theorem `per_atom_slack`:
+        ∀ m : ℤ, 0 ≤ (m − 1)(m − 2), false over ℚ at 4/3 (`per_atom_slack_fails_rational`); the mark-1 floor m ≤ m² likewise
+        (`per_atom_floor`, `per_atom_floor_fails_rational`).  NO displayed hypothesis.  Label: "IV.17's master inequality is a
+        Comparator-checked theorem over integer marks and a Comparator-checked FALSEHOOD over rational marks on the same Frobenius
+        row (the mark-4/3 instance kernel-checked), over Mathlib alone, no displayed hypothesis, axioms
+        propext/Classical.choice/Quot.sound, replayed by nanoda" (results/iv17-lean-s30/BUILD-NOTES.md; Comparator run
+        results/iv17-lean-s30/comparator.log).  The pair channel (paper Prop. 4.5) stays unformalized; nothing about laws, the
+        two-sided band, or ζ follows.
+      declaration: "trace_sq_grid_rat, gridRowQ_eq, gridRow_eq, gridRow_eq_gridRowQ, fracMark_mass, fracMark_sq, fracMark_Nd, fracMark_row, mi_fails_rational, corner_fails_rational, corner_bound_fails_rational, mi_holds_integer, per_atom_slack, per_atom_slack_fails_rational, per_atom_floor, per_atom_floor_fails_rational (root, Challenge.IntegralityGap / Solution.IntegralityGap); the sources Zeta23.PairCeiling.GridParsevalRat.dftVec, Zeta23.PairCeiling.GridParsevalRat.sum_dftVec_mul_neg, Zeta23.PairCeiling.GridParsevalRat.flat_band_trace_sq_vec, Zeta23.PairCeiling.GridParsevalRat.dftMarkQ, Zeta23.PairCeiling.GridParsevalRat.trace_sq_grid_rat, Zeta23.PairCeiling.GridParsevalRat.gridRowQ, Zeta23.PairCeiling.GridParsevalRat.gridRowQ_eq, Zeta23.PairCeiling.GridParsevalRat.gridRow_eq_gridRowQ, Zeta23.PairCeiling.GridGap.per_atom_slack, Zeta23.PairCeiling.GridGap.per_atom_floor, Zeta23.PairCeiling.GridGap.fracMark, Zeta23.PairCeiling.GridGap.mi_holds_integer, Zeta23.PairCeiling.GridGap.mi_fails_rational, Zeta23.PairCeiling.GridGap.corner_fails_rational, Zeta23.PairCeiling.GridGap.corner_bound_fails_rational"
+      file: "comparator/Solution/IntegralityGap.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
 
 automation:
   methods:
@@ -880,6 +909,32 @@ fidelity:
     non-summable family is 0 — the identity is unconditional because the summands agree; band-limited data are finite sums);
     ζ, RH, any zero.  Ledger text: results/d5-lean-s30/FIDELITY.md; the attack on the brief's pre-derivation with the six errata
     that shaped these statements: results/d5-lean-s30/PREDERIVATION-ERRATA.md.
+    (v) [Session 30, 2026-09-29; G8, topic IntegralityGap — barrier-zoo IV.17, the fractional-mark integrality barrier.]
+    Where the formal statements differ from the record (zoo IV.17 STATEMENT and EXECUTABLE TEST (1)/(3); theorems.md Lemma 2.2;
+    paper §2.4, §4.2; formalization-queue item 10): (v1) the row is the literal SPEC-1.4 double sum with uniform weights
+    (1/(2n+1))² on the symmetric band {−n, …, n} — the same normalization as GridParseval's `trace_sq_grid` — so "F1" is
+    `gridRow`/`gridRowQ`, a real number; the prose's F1 is the same row.  (v2) "the (N+1)-site grid" at N = 64 is `ZMod 65`
+    (M = 2n + 1 with n = 32); the instance is stated at that one size, not for every N — the zoo's numbers verbatim, no smaller
+    faithful instance was needed (stop line (ii) did not fire).  (v3) the instance sits at ε = 0 (budget-tight, F1 = (4/3)·64
+    exactly, `fracMark_row`), and the corner negation is the ε = 0 case of `grid_corner_pointwise`'s first conclusion with ℚ for
+    ℤ; the record's "N_d = (3/4)N < (5/6)N" is the same fact.  (v4) `mi_fails_rational` negates (MI) in the form
+    3·Σm − Σm² ≤ 2·N_d (the statement of `two_mul_distinct_ge` with ℚ for ℤ, N_d = #{k | m k ≠ 0}), not in the form
+    F1 ≥ 3M − 2N_d; on the grid the two are the same by `gridRowQ_eq`, and `corner_bound_fails_rational` states the row form.
+    (v5) the marks of the negation are nonnegative rationals with no lower bound (the record's atoms have m ≥ 1 in the integer
+    world; the fractional relaxation is exactly the removal of that floor — "every convexified reading"); the integer theorem
+    `mi_holds_integer` likewise takes 0 ≤ m (empty sites are m = 0), as GridParseval does.  (v6) `per_atom_slack` is stated for
+    EVERY integer m, not only m ≥ 1 (the product of two consecutive integers is nonnegative) — stronger than Lemma 2.2(a)'s
+    per-atom line, and the line the proof of `two_mul_distinct_ge` consumes (`nlinarith [(m − 1)(m − 2) ≥ 0]` at 2 ≤ m).
+    (v7) the Parseval algebra is proved once for a general coefficient vector `dftVec : ZMod M → K` over the integer file's
+    `[CommRing K] [IsDomain K]`; rational marks need a `Field` for the cast ℚ → K (item 10's typing fact; TYPING-NOTE.md) —
+    the rational statements are instances of the general one by `rfl`, stronger than the brief's "rational marks".
+    (v8) the `decide +kernel` facts over ℚ print all three standard axioms (propext, Classical.choice, Quot.sound), not the
+    `[propext, Quot.sound]` the brief anticipated; within the permitted set.  NOT covered, and stated nowhere in Lean: LAWS
+    (probability mixtures of columns — the pointwise failure is stated; the law form of the negation, immediate from it, is not);
+    the PAIR CHANNEL (paper Prop. 4.5 = pair-channel.md Prop. 3.1, F1 − S2 = 2μ²ā(2d)² − 4μ(ā(d)² − 1) — paper-certificate grade,
+    item 10); the two-sided band, the λ' row, the cubic row, any budget other than the bandwidth-one grid row; the atom-only class
+    at arbitrary positions (off the grid); Theorem 2.3's law form over ℚ; ζ, RH, any zero.  Ledger text:
+    results/iv17-lean-s30/FIDELITY.md.
 
 review:
   status: "self-assessed"
@@ -1058,6 +1113,18 @@ review:
     the record; the independent clean-clone check (Opus 5, results/d5-lean-s30/CHECK-O.md) is the next job.  These statements carry
     no "modulo H" label at all.
 
+    Comparator run, topic IntegralityGap (results/iv17-lean-s30/comparator.log, 2026-09-29 00:58 IST, 31.09 s, sixteen
+    theorem_names; Session 30 builder Fable 5.1): the same tool chain and shim (comparator v4.33.0, lean4export v4.33.0-rc2, nanoda
+    0.4.17, fake-landrun — NOT sandboxed, as above; tool SHA-256s printed in the log), from the repository root
+    ~/rh-lean-work/checker-clone-s21 with ChallengeDeps.IntegralityGap, the challenge and the solution built by comparator itself
+    (pre-built artifacts removed first, prerun-cleanup.log); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda
+    kernel accepts the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your
+    solution is okay!"; exit code 0.  Statement identity challenge/solution: 16 IDENTICAL on the clone and on the program tree
+    (statement-identity.log); #print axioms on the 16 root names and the 21 Zeta23 sources: [propext, Classical.choice, Quot.sound]
+    (print-axioms.log); trust greps with comments stripped on the six topic files, both roots: the 16 deliberate challenge `sorry`s
+    only (trust-greps.log).  No human has read comparator/Challenge/IntegralityGap.lean against the record; the independent
+    clean-clone check (Opus 5, results/iv17-lean-s30/CHECK-O.md) is the next job.  These statements carry no "modulo H" label.
+
 alignment:
   namespaces:
     - "DBN"
@@ -1069,6 +1136,9 @@ alignment:
     - "Separation"
     - "Zeta23.Separation"
     - "WeilContainment"
+    - "Zeta23.PairCeiling.GridParsevalRat"
+    - "Zeta23.PairCeiling.GridGap"
+    - "IntegralityGap"
   statements:
     - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
       lean: "dbn_ray_le_point2_mp"
@@ -1190,6 +1260,14 @@ alignment:
       lean: "weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff"
       module: "Challenge.WeilContainment / Solution.WeilContainment over ChallengeDeps.WeilContainment (Mathlib only)"
       status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/d5-lean-s30/comparator-run.log, second run); also built at v4.33.1/0df444a in the Prove2Me layout, nothing posted"
+    - source: "Barrier-zoo IV.17 STATEMENT, first sentence, and theorems.md Lemma 2.2(a): the master inequality (MI) over INTEGER marks, and the per-atom slack (m − 1)(m − 2) ≥ 0 — the line where integrality is consumed (IV.17 EXECUTABLE TEST (3)); with the mark-1 floor m ≤ m²"
+      lean: "mi_holds_integer, per_atom_slack, per_atom_floor, gridRow_eq"
+      module: "Challenge.IntegralityGap / Solution.IntegralityGap over ChallengeDeps.IntegralityGap (Mathlib only); sources Zeta23/PairCeiling/GridGap.lean, Zeta23.PairCeiling.GridParseval.two_mul_distinct_ge, Zeta23.PairCeiling.GridCorner.gridRow_eq"
+      status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/iv17-lean-s30/comparator.log)"
+    - source: "Barrier-zoo IV.17 STATEMENT, '(MI) is FALSE for fractional marks, at the baseline itself' (mass N of mark-4/3 atoms on the (N+1)-site grid, N = 64: F1 = 256/3 = (4/3)·64, N_d = 48, 3·64 − 2·48 = 96 > 256/3; N_d = 48 < 64·(5/6)) and EXECUTABLE TEST (1); item 10 — grid Parseval with RATIONAL marks, the kernel-checked instance, the two negations, and the per-atom devices' failure over ℚ"
+      lean: "trace_sq_grid_rat, gridRowQ_eq, gridRow_eq_gridRowQ, fracMark_mass, fracMark_sq, fracMark_Nd, fracMark_row, mi_fails_rational, corner_fails_rational, corner_bound_fails_rational, per_atom_slack_fails_rational, per_atom_floor_fails_rational"
+      module: "Challenge.IntegralityGap / Solution.IntegralityGap over ChallengeDeps.IntegralityGap (Mathlib only); sources Zeta23/PairCeiling/GridParsevalRat.lean, Zeta23/PairCeiling/GridGap.lean"
+      status: "proved (the negations are theorems, not examples; the instance data by decide +kernel), no displayed hypothesis; Comparator PASS with nanoda (results/iv17-lean-s30/comparator.log)"
 
 acknowledgements: >-
   Built on Anthropic's Zeta23 library and on Lean 4, Mathlib, Lake, Comparator, lean4export and nanoda; the two ported

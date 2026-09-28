@@ -430,6 +430,53 @@ place of "analytic continuation", the restated prime term, an arbitrary even g i
 pre-derivation was attacked first; its six errata (`results/d5-lean-s30/PREDERIVATION-ERRATA.md`) added `even`, `tsupport_eq`,
 `cutoff`, `range_eq` and dropped a redundant hypothesis — the statements follow the corrected mathematics, not the brief.
 
+## IntegralityGap (Session 30, 2026-09-29): barrier-zoo IV.17 in Lean — the master inequality holds over ℤ and FAILS over ℚ on the same grid row — `Zeta23/PairCeiling/GridParsevalRat.lean`, `GridGap.lean`, `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/IntegralityGap.lean`, `config-integrality-gap.json`
+
+**What the topic is (G8; brief `results/iv17-lean-s30/BRIEF.md`, typing check `TYPING-NOTE.md`, build record `BUILD-NOTES.md`, ledger
+`FIDELITY.md`).** The fractional-mark integrality barrier of the barrier zoo (IV.17; A4 no-go paper §2.4, §4.2; `theorems.md` Lemma 2.2;
+formalization-queue item 10) as ONE Comparator topic: the master inequality (MI) `3·Σm − Σm² ≤ 2·N_d` — the whole content of the 5/6
+corner — is a theorem over nonnegative INTEGER marks on every grid and a FALSEHOOD over nonnegative RATIONAL marks on the SAME
+bandwidth-one Frobenius row, witnessed by the zoo's instance (48 atoms of mark 4/3 on the 65-site grid: mass 64, Σm² = 256/3, N_d = 48,
+3·64 − 2·48 = 96 > 256/3), with the line where integrality is consumed a named theorem. The integer half was already on disk
+(`GridParseval.two_mul_distinct_ge`, `GridCorner.gridRow_eq`); what this unit adds is grid Parseval with rational marks, the
+kernel-checked instance, the negations, and the packaging:
+
+| file | module | trusted? | content |
+|---|---|---|---|
+| `Zeta23/PairCeiling/GridParsevalRat.lean` | `Zeta23.PairCeiling.GridParsevalRat` | no (source of the proofs) | Parseval and the flat-band collapse for a GENERAL coefficient vector `dftVec : ZMod M → K` over `[CommRing K] [IsDomain K]` (the integer file's proofs word for word); `dftMarkQ` (rational marks, over a `Field` — the cast ℚ → K needs a division ring, item 10's typing fact) and `dftMark` as its `rfl` instances; the ℂ specialization with `map_ratCast` for `map_intCast`; `trace_sq_grid_rat`, `gridRowQ`, `gridRowQ_eq`, `gridRow_eq_gridRowQ` |
+| `Zeta23/PairCeiling/GridGap.lean` | `Zeta23.PairCeiling.GridGap` | no (source of the proofs) | `per_atom_slack : ∀ m : ℤ, 0 ≤ (m − 1)(m − 2)` and `per_atom_floor : ∀ m : ℤ, m ≤ m²` with their failures over ℚ (at 4/3 and 1/2); `fracMark` and its kernel facts (`decide +kernel`: mass 64, Σm² = 256/3, N_d = 48; row = (4/3)·64·(1 + 0)); `mi_holds_integer` (re-export of `two_mul_distinct_ge`); `mi_fails_rational`; `corner_fails_rational`, `corner_bound_fails_rational` |
+| `comparator/ChallengeDeps/IntegralityGap.lean` | `ChallengeDeps.IntegralityGap` | yes — read it | Mathlib only, namespace `IntegralityGap`: `chi`, `dftMark`, `dftMarkQ`, `zetaM`, `gridRow`, `gridRowQ`, `fracMark`, character for character the Zeta23 definitions |
+| `comparator/Challenge/IntegralityGap.lean` | `Challenge.IntegralityGap` | yes — read it | the sixteen statements with `sorry`, and the WHAT IS CLAIMED / NOT paragraph |
+| `comparator/Solution/IntegralityGap.lean` | `Solution.IntegralityGap` | no | the sixteen statements byte-identical, each proved by delegation to the Zeta23 modules (definitional unfolding) |
+| `config-integrality-gap.json`, `PrintAxioms/IntegralityGap.lean` | — | yes / — | comparator configuration (16 names; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick check |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.IntegralityGap
+lake env lean comparator/PrintAxioms/IntegralityGap.lean          # sixteen lines, each [propext, Classical.choice, Quot.sound]
+python3 results/iv17-lean-s30/tools/statement_identity_g8.py . IntegralityGap <the sixteen names>   # IDENTICAL ×16
+python3 results/iv17-lean-s30/tools/trust_greps_g8.py . <the six topic files>                       # the 16 challenge sorrys only
+```
+
+Recorded runs (2026-09-29, `results/iv17-lean-s30/`): `build-gridparsevalrat.log`, `build-gridgap.log` (each module built alone, 0
+errors, 0 warnings), `build-comparator-topic.log` (`lake build Challenge.IntegralityGap Solution.IntegralityGap`: *8703 jobs*, the 16
+deliberate `sorry` warnings of the challenge, 0 warnings from the solution); `print-axioms.log` (16 root names + 21 Zeta23 sources);
+`statement-identity.log` (16 IDENTICAL, tree and mirror); `trust-greps.log`; the Comparator run with nanoda `comparator.log` —
+`Nanoda kernel accepts the solution`, `Lean default kernel accepts the solution`, `Your solution is okay!`, exit 0, 31 s (runner
+`tools/run.sh`; NOT sandboxed, the fake-landrun shim as in every prior record).
+
+**Honest label, verbatim (BRIEF §1(6)): "IV.17's master inequality is a Comparator-checked theorem over integer marks and a
+Comparator-checked FALSEHOOD over rational marks on the same Frobenius row (the mark-4/3 instance kernel-checked), over Mathlib alone,
+no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda".** What it means: the textbook integrality gap
+of IV.17's Reading is a kernel-checked fact on the grid — the same inequality, the same row, integer marks yes, rational marks no — and
+the line where integrality is consumed is `per_atom_slack` (IV.17 EXECUTABLE TEST (3) can now point at a theorem name). What it does
+NOT say (FIDELITY.md §2): nothing about LAWS (the pointwise failure is stated, the law form is not), nothing about the PAIR CHANNEL
+(paper Prop. 4.5 stays unformalized — paper-certificate grade), nothing about the two-sided band or any budget other than the
+bandwidth-one grid row, nothing off the grid, nothing about ζ or RH. The fidelity ledger — the row's normalization, `ZMod 65` for "the
+(N+1)-site grid", the instance at ε = 0, (MI) negated in the `3·Σm − Σm²` form, the general-coefficient Parseval — is
+`results/iv17-lean-s30/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences` row (v)).
+
 ## What these build against, and why it is not here
 
 They extend **Zeta23**, the Lean 4 formalization released as the companion artifact to
