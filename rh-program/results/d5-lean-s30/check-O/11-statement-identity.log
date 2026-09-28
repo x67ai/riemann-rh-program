@@ -1,0 +1,105 @@
+Tue Sep 29 00:29:55 IST 2026
+== checker identity_check_o.py, WeilContainmentOne
+topic WeilContainmentOne: challenge root theorems 1; solution root theorems 1; config names 1
+  weilContainment_identity_one: IDENTICAL (85 chars)
+  config names == challenge names in order: True; extra solution root theorems: []
+  comparator/ChallengeDeps/WeilContainment.lean: imports ['Mathlib']; forbidden ['Zeta23']: none
+  comparator/Challenge/WeilContainmentOne.lean: imports ['ChallengeDeps.WeilContainment']; forbidden ['Zeta23']: none
+  comparator/Solution/WeilContainmentOne.lean: imports ['ChallengeDeps.WeilContainment']; forbidden ['Zeta23', 'Challenge']: none
+  challenge proofs: 1 x ['sorry'] -> all sorry: True
+RESULT: IDENTICAL
+exit=0
+== checker identity_check_o.py, WeilContainment
+topic WeilContainment: challenge root theorems 12; solution root theorems 12; config names 12
+  weilContainment_identity: IDENTICAL (95 chars)
+  weilContainment_cutoff: IDENTICAL (209 chars)
+  weilContainment_tilt_bounds: IDENTICAL (107 chars)
+  weilContainment_tilt_pos: IDENTICAL (27 chars)
+  weilContainment_tilt_inv: IDENTICAL (44 chars)
+  weilContainment_even: IDENTICAL (90 chars)
+  weilContainment_tsupport: IDENTICAL (63 chars)
+  weilContainment_tsupport_eq: IDENTICAL (63 chars)
+  weilContainment_continuous: IDENTICAL (67 chars)
+  weilContainment_exact: IDENTICAL (177 chars)
+  weilContainment_range_eq: IDENTICAL (206 chars)
+  weilContainment_not_contDiff: IDENTICAL (50 chars)
+  config names == challenge names in order: True; extra solution root theorems: []
+  comparator/ChallengeDeps/WeilContainment.lean: imports ['Mathlib']; forbidden ['Zeta23']: none
+  comparator/Challenge/WeilContainment.lean: imports ['ChallengeDeps.WeilContainment']; forbidden ['Zeta23']: none
+  comparator/Solution/WeilContainment.lean: imports ['ChallengeDeps.WeilContainment']; forbidden ['Zeta23', 'Challenge']: none
+  challenge proofs: 12 x ['sorry'] -> all sorry: True
+RESULT: IDENTICAL
+exit=0
+== builder tools/statement_identity_d5.py, WeilContainmentOne
+weilContainment_identity_one                  challenge   126 bytes, solution   126 bytes: IDENTICAL
+    theorem weilContainment_identity_one :
+        ∀ g : ℝ → ℂ, (∀ u, g (-u) = g u) → tiltedPrimeSide 1 g = primeSide (weilTestOf 1 g)
+RESULT: PASS
+exit=0
+== builder tools/statement_identity_d5.py, WeilContainment
+weilContainment_identity weilContainment_cutoff weilContainment_tilt_bounds weilContainment_tilt_pos weilContainment_tilt_inv weilContainment_even weilContainment_tsupport weilContainment_tsupport_eq weilContainment_continuous weilContainment_exact weilContainment_range_eq weilContainment_not_contDiff challenge  none bytes, solution  none bytes: DIFFER
+RESULT: FAIL
+exit=1
+== results/d1-m2a/packaging/statement_identity.py (DBN topic; regression on the clean clone)
+challenge statements: 7; solution statements: 7; config theorem_names: 7
+  dbn_ray_le_point2_arb: IDENTICAL (373 chars, comments stripped, whitespace-normalized)
+  dbn_ray_le_point2_mp: IDENTICAL (370 chars, comments stripped, whitespace-normalized)
+  dbn_ray_le_point2_of_certificates: IDENTICAL (716 chars, comments stripped, whitespace-normalized)
+  dbn_row2AsymARB_checked: IDENTICAL (30 chars, comments stripped, whitespace-normalized)
+  dbn_row2AsymMP_checked: IDENTICAL (29 chars, comments stripped, whitespace-normalized)
+  dbn_row2BarrierARB_checked: IDENTICAL (36 chars, comments stripped, whitespace-normalized)
+  dbn_row2BarrierMP_checked: IDENTICAL (35 chars, comments stripped, whitespace-normalized)
+  config-dbn.json theorem_names = the challenge's 7 names, in order: True
+  comparator/ChallengeDeps/DBN.lean: imports ['Mathlib']; forbidden `Zeta23…`: none
+  comparator/ChallengeDeps/DBN/Instance02.lean: imports ['ChallengeDeps.DBN']; forbidden `Zeta23…`: none
+  comparator/Challenge/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02']; forbidden `Zeta23…`: none
+  comparator/Solution/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02', 'Zeta23.DBN.Instance02']; forbidden `Challenge.DBN…`: none
+  challenge proofs: ['sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry'] -> all sorry: True
+RESULT: IDENTICAL
+exit=0
+Tue Sep 29 00:29:55 IST 2026
+
+== RERUN Tue Sep 29 00:30:03 IST 2026: the section above passed the twelve names as ONE argument (zsh does not word-split an unquoted $N); superseded by this run with an explicit array
+names: 12
+weilContainment_identity                      challenge   138 bytes, solution   138 bytes: IDENTICAL
+    theorem weilContainment_identity :
+        ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) →
+          tiltedPrimeSide a g = primeSide (weilTestOf a g)
+weilContainment_cutoff                        challenge   258 bytes, solution   258 bytes: IDENTICAL
+    theorem weilContainment_cutoff :
+        ∀ (a L : ℝ) (g : ℝ → ℂ), tsupport g ⊆ Set.Icc (-L) L →
+          tiltedPrimeSide a g = ∑ n ∈ Finset.range (⌊Real.exp L⌋₊ + 1),
+            ((ArithmeticFunction.vonMangoldt n : ℝ) : ℂ) * (((n : ℝ) ^ (-a) : ℝ) : ℂ) * g (Real.log n)
+weilContainment_tilt_bounds                   challenge   153 bytes, solution   153 bytes: IDENTICAL
+    theorem weilContainment_tilt_bounds :
+        ∀ (a L u : ℝ), |u| ≤ L →
+          Real.exp (-(|a - 1 / 2| * L)) ≤ tilt a u ∧ tilt a u ≤ Real.exp (|a - 1 / 2| * L)
+weilContainment_tilt_pos                      challenge    60 bytes, solution    60 bytes: IDENTICAL
+    theorem weilContainment_tilt_pos : ∀ (a u : ℝ), 0 < tilt a u
+weilContainment_tilt_inv                      challenge    77 bytes, solution    77 bytes: IDENTICAL
+    theorem weilContainment_tilt_inv : ∀ (a u : ℝ), tilt a u * tilt (1 - a) u = 1
+weilContainment_even                          challenge   123 bytes, solution   123 bytes: IDENTICAL
+    theorem weilContainment_even :
+        ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → ∀ u, weilTestOf a g (-u) = weilTestOf a g u
+weilContainment_tsupport                      challenge   100 bytes, solution   100 bytes: IDENTICAL
+    theorem weilContainment_tsupport :
+        ∀ (a : ℝ) (g : ℝ → ℂ), tsupport (weilTestOf a g) ⊆ tsupport g
+weilContainment_tsupport_eq                   challenge   103 bytes, solution   103 bytes: IDENTICAL
+    theorem weilContainment_tsupport_eq :
+        ∀ (a : ℝ) (g : ℝ → ℂ), tsupport (weilTestOf a g) = tsupport g
+weilContainment_continuous                    challenge   106 bytes, solution   106 bytes: IDENTICAL
+    theorem weilContainment_continuous :
+        ∀ (a : ℝ) (g : ℝ → ℂ), Continuous g → Continuous (weilTestOf a g)
+weilContainment_exact                         challenge   217 bytes, solution   217 bytes: IDENTICAL
+    theorem weilContainment_exact :
+        ∀ (a L : ℝ) (k : ℝ → ℂ), (∀ u, k (-u) = k u) → tsupport k ⊆ Set.Icc (-L) L →
+          ∃ g : ℝ → ℂ, (∀ u, g (-u) = g u) ∧ tsupport g ⊆ Set.Icc (-L) L ∧ primeSide k = tiltedPrimeSide a g
+weilContainment_range_eq                      challenge   255 bytes, solution   255 bytes: IDENTICAL
+    theorem weilContainment_range_eq :
+        ∀ (a L : ℝ),
+          {x : ℂ | ∃ g : ℝ → ℂ, (∀ u, g (-u) = g u) ∧ tsupport g ⊆ Set.Icc (-L) L ∧ x = tiltedPrimeSide a g} =
+          {x : ℂ | ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ tsupport k ⊆ Set.Icc (-L) L ∧ x = primeSide k}
+weilContainment_not_contDiff                  challenge    87 bytes, solution    87 bytes: IDENTICAL
+    theorem weilContainment_not_contDiff : ¬ ContDiff ℝ 2 (weilTestOf 1 (fun _ => (1 : ℂ)))
+RESULT: PASS
+exit=0

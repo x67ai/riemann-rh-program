@@ -1,0 +1,57 @@
+Tue Sep 29 00:30:12 IST 2026
+== builder tools/trust_greps_d5.py on the seven topic files (7)
+comparator/Challenge/WeilContainmentOne.lean:38: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:57: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:64: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:70: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:74: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:78: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:83: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:88: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:93: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:98: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:105: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:113: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:118: [sorry] sorry
+files present: 7; hits outside comments: 13
+exit=1 (exit 1 expected: the script counts every hit, the 13 challenge sorrys included)
+== checker raw grep, code AND comments, nine words + admit, on the 7 files and 2 configs
+comparator/ChallengeDeps/WeilContainment.lean:43:noncomputable section
+comparator/Solution/WeilContainmentOne.lean:23:noncomputable section
+comparator/Challenge/WeilContainment.lean:43:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/WeilContainment.lean:48:noncomputable section
+comparator/Challenge/WeilContainment.lean:57:  sorry
+comparator/Challenge/WeilContainment.lean:64:  sorry
+comparator/Challenge/WeilContainment.lean:70:  sorry
+comparator/Challenge/WeilContainment.lean:74:  sorry
+comparator/Challenge/WeilContainment.lean:78:  sorry
+comparator/Challenge/WeilContainment.lean:83:  sorry
+comparator/Challenge/WeilContainment.lean:88:  sorry
+comparator/Challenge/WeilContainment.lean:93:  sorry
+comparator/Challenge/WeilContainment.lean:98:  sorry
+comparator/Challenge/WeilContainment.lean:105:  sorry
+comparator/Challenge/WeilContainment.lean:113:  sorry
+comparator/Challenge/WeilContainment.lean:118:  sorry
+comparator/Challenge/WeilContainmentOne.lean:26:The `sorry` below is deliberate (this is the challenge side); expect a "declaration uses 'sorry'" warning when building this
+comparator/Challenge/WeilContainmentOne.lean:31:noncomputable section
+comparator/Challenge/WeilContainmentOne.lean:38:  sorry
+comparator/Solution/WeilContainment.lean:26:noncomputable section
+comparator/PrintAxioms/WeilContainment.lean:12:comparator/PrintAxioms/WeilContainment.lean — quick axiom audit of the WeilContainment topic WITHOUT the comparator tool:
+comparator/PrintAxioms/WeilContainment.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-weil-containment.json)
+comparator/PrintAxioms/WeilContainmentOne.lean:12:comparator/PrintAxioms/WeilContainmentOne.lean — quick axiom audit of the WeilContainmentOne topic WITHOUT the comparator tool:
+comparator/PrintAxioms/WeilContainmentOne.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-weil-containment-one.json)
+== imports
+comparator/Challenge/WeilContainmentOne.lean:29:import ChallengeDeps.WeilContainment
+comparator/ChallengeDeps/WeilContainment.lean:39:import Mathlib
+comparator/Challenge/WeilContainment.lean:46:import ChallengeDeps.WeilContainment
+comparator/Solution/WeilContainmentOne.lean:21:import ChallengeDeps.WeilContainment
+comparator/PrintAxioms/WeilContainmentOne.lean:18:import Solution.WeilContainmentOne
+comparator/Solution/WeilContainment.lean:24:import ChallengeDeps.WeilContainment
+comparator/PrintAxioms/WeilContainment.lean:18:import Solution.WeilContainment
+== results/d1-m2a/packaging/trust_greps.py (DBN topic; regression on the clean clone)
+  sorry: comparator/Challenge/DBN.lean:130: sorry
+  sorry: comparator/Challenge/DBN.lean:134: sorry
+permitted (challenge placeholders): 7; other code hits: 0
+RESULT: CLEAN
+exit=0
+Tue Sep 29 00:30:14 IST 2026

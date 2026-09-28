@@ -1,0 +1,93 @@
+=== [check-family] start 2026-09-29 00:28:38 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/checker-clone-s30
+config=comparator/config-weil-containment.json
+{
+  "challenge_module": "Challenge.WeilContainment",
+  "solution_module": "Solution.WeilContainment",
+  "theorem_names": [
+    "weilContainment_identity",
+    "weilContainment_cutoff",
+    "weilContainment_tilt_bounds",
+    "weilContainment_tilt_pos",
+    "weilContainment_tilt_inv",
+    "weilContainment_even",
+    "weilContainment_tsupport",
+    "weilContainment_tsupport_eq",
+    "weilContainment_continuous",
+    "weilContainment_exact",
+    "weilContainment_range_eq",
+    "weilContainment_not_contDiff"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+tool hashes:
+fe1222e25fc301dc51ec3f9964a59ab557ea4f9ae6bb758842d70dbb341a5d08  /Users/jaytyagi/rh-lean-work/tools/comparator/.lake/build/bin/comparator
+de4ffedf1412873c0d196f4c4eb98d3b45af43f37bd6cc07e2517706481a7775  /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+d6c87133b59c2286fed27e2417fb17f9419326c2dde904de9f85d288594948bb  /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+167507c89d8b3c7667ad78b50df7b19f89883751a01efd1457404fa34a994e8b  /Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+heavy procs (>50% cpu) before start:
+ 85.1 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
+--- comparator output follows ---
+Building Challenge.WeilContainment
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.WeilContainment
+⚠ [8698/8698] Built Challenge.WeilContainment (3.1s)
+warning: comparator/Challenge/WeilContainment.lean:54:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:60:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:67:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:73:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:77:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:81:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:86:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:91:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:96:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:102:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:109:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:117:8: declaration uses `sorry`
+Build completed successfully (8698 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.WeilContainment -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind weilContainment_identity weilContainment_cutoff weilContainment_tilt_bounds weilContainment_tilt_pos weilContainment_tilt_inv weilContainment_even weilContainment_tsupport weilContainment_tsupport_eq weilContainment_continuous weilContainment_exact weilContainment_range_eq weilContainment_not_contDiff propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.WeilContainment
+Building Solution.WeilContainment
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.WeilContainment
+✔ [8698/8698] Built Solution.WeilContainment (3.2s)
+Build completed successfully (8698 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.WeilContainment -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind weilContainment_identity weilContainment_cutoff weilContainment_tilt_bounds weilContainment_tilt_pos weilContainment_tilt_inv weilContainment_even weilContainment_tsupport weilContainment_tsupport_eq weilContainment_continuous weilContainment_exact weilContainment_range_eq weilContainment_not_contDiff propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.HsBL4gtc
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.WeilContainment
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       40.02 real        34.31 user        12.34 sys
+          5885804544  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1921781  page reclaims
+                1509  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               32834  voluntary context switches
+              163745  involuntary context switches
+          4151699706  instructions retired
+          1375373431  cycles elapsed
+           136748584  peak memory footprint
+--- comparator exit code: 0 ---
+=== [check-family] end 2026-09-29 00:29:18 IST ===

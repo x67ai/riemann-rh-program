@@ -1,0 +1,12 @@
+Zeta23 literatureRHS lines (raw):
+  - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+      * (k (Real.log n) + k (-Real.log n))
+ChallengeDeps primeSide body (raw):
+  ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+      * (k (Real.log n) + k (-Real.log n))
+Zeta23 term, leading '- ' removed, whitespace-normalized:
+  ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n))
+primeSide body, whitespace-normalized:
+  ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (k (Real.log n) + k (-Real.log n))
+character-for-character (after whitespace normalization): IDENTICAL 105 105
+raw line-by-line (indentation included): [False, True]
