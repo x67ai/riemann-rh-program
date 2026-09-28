@@ -13,3 +13,5 @@ sup a' on [0,1000] (grid) = 0.377896 at tau = 0.560; a'(1000) = 0.000159 vs 1/(2
   CERTIFIED: False  kappa_cert = None  (d' = 2.0046225)  [638.9s]
   certificate shape: s_k = -d (full deficit) on u in [0.000, 6.000] (260 nodes); s_k > 0 at 36 nodes, first few u: [0.69, 0.7, 1.09, 1.1, 1.34, 1.47, 1.63, 1.64, 1.94, 2.09, 2.4, 2.47]; max s = 46.113 at u = 1.100; sum mult*s*hu (net mass of sigma) = -4.1083
 === config 8: U = 8.0, hu = 0.01, Tmax = 1000.0, coarse (0.05, 40.0, 0.5)
+  round  0: rows   2721  d = 2.00037920  kappa_lp = -0.00037920  min psi(fine) = -1.813e+00  violations 1180  [259.9s]
+  round  1: rows   3021  d = 2.00037962  kappa_lp = -0.00037962  min psi(fine) = -9.715e-01  violations 1016  [570.2s]

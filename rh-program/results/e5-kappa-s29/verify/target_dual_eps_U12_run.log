@@ -3,3 +3,27 @@
   round  0: rows   2721  d = 1.98924615  kappa_lp = 0.01075385  min psi(fine) = -1.155e-02  violations 518  [76.1s]
   round  1: rows   3021  d = 1.98924769  kappa_lp = 0.01075231  min psi(fine) = -4.124e-04  violations 145  [139.0s]
   round  2: rows   3166  d = 1.98924772  kappa_lp = 0.01075228  min psi(fine) = -1.627e-03  violations 4  [241.4s]
+  round  3: rows   3170  d = 1.98924815  kappa_lp = 0.01075185  min psi(fine) = -3.910e-04  violations 35  [308.2s]
+  round  4: rows   3205  d = 1.98924776  kappa_lp = 0.01075224  min psi(fine) = -9.179e-08  violations 0  [351.7s]
+  max s_k = 42.7952 (S_max = 1000.0); min s_k = -1.9892 (-d = -1.9892); hu*sum|s| = 35.7383
+  kappa~_lp = 0.010752  ->  kappa >= eps * kappa~ = 1.0752e-05 (uncertified); active taus: [0.0, 0.468, 0.47, 0.472, 0.474, 0.476, 0.478, 0.48, 0.482, 0.484, 0.486, 0.488, 0.96, 0.962, 0.964, 0.966, 0.968, 0.97, 0.972, 0.974, 0.976, 0.978, 0.98, 0.982, 1.42, 1.422, 1.424, 1.426, 1.428, 1.43] (238)
+    NEGATIVE psi at depth 1: min -5.207e-05 near tau = 17.6000
+    verify: eta = 2.0e-05, cells 102582, depth 1, min psi~ -5.207e-05, tail 5.070 vs 0.714 -> ok
+    NEGATIVE psi at depth 1: min -5.156e-05 near tau = 17.6000
+    verify: eta = 1.0e-04, cells 102582, depth 1, min psi~ -5.156e-05, tail 5.070 vs 0.714 -> ok
+    NEGATIVE psi at depth 1: min -4.963e-05 near tau = 17.6000
+    verify: eta = 4.0e-04, cells 102582, depth 1, min psi~ -4.963e-05, tail 5.070 vs 0.714 -> ok
+    NEGATIVE psi at depth 1: min -4.191e-05 near tau = 17.6000
+    verify: eta = 1.6e-03, cells 102582, depth 1, min psi~ -4.191e-05, tail 5.070 vs 0.714 -> ok
+    NEGATIVE psi at depth 1: min -1.104e-05 near tau = 17.6000
+    verify: eta = 6.4e-03, cells 102582, depth 1, min psi~ -1.104e-05, tail 5.070 vs 0.714 -> ok
+  CERTIFIED: False; kappa_cert = None  [357.7s]
+=== eps = 1.0e-04 (relaxation weight 2(1-eps)/eps = 2.000e+04)
+  round  0: rows   2721  d = 1.97935285  kappa_lp = 0.02064715  min psi(fine) = -9.326e-03  violations 489  [35.7s]
+  round  1: rows   3021  d = 1.97935514  kappa_lp = 0.02064486  min psi(fine) = -2.502e-07  violations 130  [67.6s]
+  round  2: rows   3151  d = 1.97935539  kappa_lp = 0.02064461  min psi(fine) = -1.996e-07  violations 32  [97.4s]
+  round  3: rows   3183  d = 1.97935511  kappa_lp = 0.02064489  min psi(fine) = -1.548e-07  violations 15  [161.4s]
+  round  4: rows   3198  d = 1.97935512  kappa_lp = 0.02064488  min psi(fine) = -3.007e-07  violations 14  [216.6s]
+  round  5: rows   3212  d = 1.97935517  kappa_lp = 0.02064483  min psi(fine) = -8.922e-08  violations 0  [288.8s]
+  max s_k = 49.9186 (S_max = 1000.0); min s_k = -1.9794 (-d = -1.9794); hu*sum|s| = 37.8762
+  kappa~_lp = 0.020645  ->  kappa >= eps * kappa~ = 2.0645e-06 (uncertified); active taus: [0.0, 0.458, 0.46, 0.462, 0.464, 0.466, 0.468, 0.47, 0.472, 0.474, 0.476, 0.478, 0.93, 0.932, 0.934, 0.936, 0.938, 0.94, 0.95, 1.4, 1.416, 1.418, 1.42, 1.422, 1.424, 1.426, 1.428, 1.43, 1.432, 1.434] (231)
