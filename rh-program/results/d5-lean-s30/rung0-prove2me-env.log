@@ -1,0 +1,115 @@
+=== rung 0, Prove2Me environment: start 2026-09-28 23:59:21 IST ===
+cwd=/Users/jaytyagi/prove2me_workspace
+toolchain=leanprover/lean4:v4.33.1
+lean=Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+lake=Lake version 5.0.0-src+819816b (Lean version 4.33.1)
+mathlib=0df444a360eaa60ab8c11dca51a86af692955474
+lakefile mathlib pin:   "https://github.com/leanprover-community/mathlib4.git" @
+layout: Definitions: Def_WeilContainment.lean  Theorems: Thm_WeilContainment_continuous.lean Thm_WeilContainment_cutoff.lean Thm_WeilContainment_even.lean Thm_WeilContainment_exact.lean Thm_WeilContainment_identity_one.lean Thm_WeilContainment_identity.lean Thm_WeilContainment_range_eq.lean Thm_WeilContainment_tilt_bounds.lean Thm_WeilContainment_tilt_inv.lean Thm_WeilContainment_tilt_pos.lean Thm_WeilContainment_tsupport_eq.lean Thm_WeilContainment_tsupport.lean 
+generator: results/d5-lean-s30/tools/gen_prove2me_layout.py (statements verbatim from lean/comparator/Challenge/*.lean)
+--- lake build Definitions Theorems ---
+✖ [0/2] Running job computation
+error: Definitions: some modules have bad imports
+error: Theorems: some modules have bad imports
+Some required targets logged failures:
+- job computation
+error: build failed
+        2.26 real         0.36 user         0.58 sys
+           698843136  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               55633  page reclaims
+               11832  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                8178  voluntary context switches
+                9453  involuntary context switches
+          4775670258  instructions retired
+          1718543713  cycles elapsed
+           137043496  peak memory footprint
+--- exit: 1 ---
+=== end 2026-09-28 23:59:23 IST ===
+
+=== rung 0, Prove2Me environment, second attempt (explicit module names — the lean_lib targets have no root module Definitions.lean/Theorems.lean, so 'lake build Definitions Theorems' reports 'bad imports'; the workspace's own smoke test is likewise built by module name): start 2026-09-28 23:59:41 IST ===
+toolchain=leanprover/lean4:v4.33.1
+lean=Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib=0df444a360eaa60ab8c11dca51a86af692955474
+--- lake build Definitions.Def_WeilContainment Theorems.Thm_WeilContainment_continuous Theorems.Thm_WeilContainment_cutoff Theorems.Thm_WeilContainment_even Theorems.Thm_WeilContainment_exact Theorems.Thm_WeilContainment_identity_one Theorems.Thm_WeilContainment_identity Theorems.Thm_WeilContainment_range_eq Theorems.Thm_WeilContainment_tilt_bounds Theorems.Thm_WeilContainment_tilt_inv Theorems.Thm_WeilContainment_tilt_pos Theorems.Thm_WeilContainment_tsupport_eq Theorems.Thm_WeilContainment_tsupport  ---
+error: unknown target `Definitions.Def_WeilContainment Theorems.Thm_WeilContainment_continuous Theorems.Thm_WeilContainment_cutoff Theorems.Thm_WeilContainment_even Theorems.Thm_WeilContainment_exact Theorems.Thm_WeilContainment_identity_one Theorems.Thm_WeilContainment_identity Theorems.Thm_WeilContainment_range_eq Theorems.Thm_WeilContainment_tilt_bounds Theorems.Thm_WeilContainment_tilt_inv Theorems.Thm_WeilContainment_tilt_pos Theorems.Thm_WeilContainment_tsupport_eq Theorems.Thm_WeilContainment_tsupport `
+        0.70 real         0.33 user         0.38 sys
+           698040320  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               67165  page reclaims
+                 144  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  39  voluntary context switches
+                 265  involuntary context switches
+          4170929353  instructions retired
+          1309413087  cycles elapsed
+           136355296  peak memory footprint
+--- exit: 1 ---
+=== end 2026-09-28 23:59:42 IST ===
+
+=== rung 0, Prove2Me environment, third attempt (the second passed the module list as ONE word — a zsh word-splitting slip, 'unknown target'): start 2026-09-28 23:59:54 IST ===
+toolchain=leanprover/lean4:v4.33.1
+lean=Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib=0df444a360eaa60ab8c11dca51a86af692955474
+--- lake build Definitions.Def_WeilContainment Theorems.Thm_WeilContainment_continuous Theorems.Thm_WeilContainment_cutoff Theorems.Thm_WeilContainment_even Theorems.Thm_WeilContainment_exact Theorems.Thm_WeilContainment_identity_one Theorems.Thm_WeilContainment_identity Theorems.Thm_WeilContainment_range_eq Theorems.Thm_WeilContainment_tilt_bounds Theorems.Thm_WeilContainment_tilt_inv Theorems.Thm_WeilContainment_tilt_pos Theorems.Thm_WeilContainment_tsupport_eq Theorems.Thm_WeilContainment_tsupport ---
+✔ [8706/8718] Built Definitions.Def_WeilContainment (22s)
+⚠ [8707/8718] Built Theorems.Thm_WeilContainment_cutoff (9.3s)
+warning: Theorems/Thm_WeilContainment_cutoff.lean:13:8: declaration uses `sorry`
+⚠ [8708/8718] Built Theorems.Thm_WeilContainment_even (9.3s)
+warning: Theorems/Thm_WeilContainment_even.lean:13:8: declaration uses `sorry`
+⚠ [8709/8718] Built Theorems.Thm_WeilContainment_exact (9.3s)
+warning: Theorems/Thm_WeilContainment_exact.lean:14:8: declaration uses `sorry`
+⚠ [8710/8718] Built Theorems.Thm_WeilContainment_identity_one (9.3s)
+warning: Theorems/Thm_WeilContainment_identity_one.lean:13:8: declaration uses `sorry`
+⚠ [8711/8718] Built Theorems.Thm_WeilContainment_identity (9.3s)
+warning: Theorems/Thm_WeilContainment_identity.lean:14:8: declaration uses `sorry`
+⚠ [8712/8718] Built Theorems.Thm_WeilContainment_tilt_bounds (9.3s)
+warning: Theorems/Thm_WeilContainment_tilt_bounds.lean:13:8: declaration uses `sorry`
+⚠ [8713/8718] Built Theorems.Thm_WeilContainment_tilt_inv (9.3s)
+warning: Theorems/Thm_WeilContainment_tilt_inv.lean:13:8: declaration uses `sorry`
+⚠ [8714/8718] Built Theorems.Thm_WeilContainment_tilt_pos (9.3s)
+warning: Theorems/Thm_WeilContainment_tilt_pos.lean:13:8: declaration uses `sorry`
+⚠ [8715/8718] Built Theorems.Thm_WeilContainment_tsupport_eq (9.3s)
+warning: Theorems/Thm_WeilContainment_tsupport_eq.lean:13:8: declaration uses `sorry`
+⚠ [8716/8718] Built Theorems.Thm_WeilContainment_tsupport (9.3s)
+warning: Theorems/Thm_WeilContainment_tsupport.lean:13:8: declaration uses `sorry`
+⚠ [8717/8718] Built Theorems.Thm_WeilContainment_continuous (3.2s)
+warning: Theorems/Thm_WeilContainment_continuous.lean:13:8: declaration uses `sorry`
+⚠ [8718/8718] Built Theorems.Thm_WeilContainment_range_eq (3.2s)
+warning: Theorems/Thm_WeilContainment_range_eq.lean:14:8: declaration uses `sorry`
+Build completed successfully (8718 jobs).
+       37.88 real        35.93 user        63.26 sys
+          5854183424  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5546622  page reclaims
+              241798  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              116666  voluntary context switches
+              480533  involuntary context switches
+         78034172480  instructions retired
+         33129861030  cycles elapsed
+           695084000  peak memory footprint
+--- exit: 0 ---
+=== end 2026-09-29 00:00:32 IST ===

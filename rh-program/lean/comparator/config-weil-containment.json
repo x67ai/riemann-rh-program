@@ -1,0 +1,23 @@
+{
+  "challenge_module": "Challenge.WeilContainment",
+  "solution_module": "Solution.WeilContainment",
+  "theorem_names": [
+    "weilContainment_identity",
+    "weilContainment_cutoff",
+    "weilContainment_tilt_bounds",
+    "weilContainment_tilt_pos",
+    "weilContainment_tilt_inv",
+    "weilContainment_even",
+    "weilContainment_tsupport",
+    "weilContainment_tsupport_eq",
+    "weilContainment_continuous",
+    "weilContainment_exact",
+    "weilContainment_range_eq"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

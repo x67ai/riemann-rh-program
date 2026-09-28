@@ -1,0 +1,48 @@
+=== rung 0, program tree: start 2026-09-28 23:57:46 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/checker-clone-s21
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0-rc2)
+mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+base commit=3635e74 Merge pull request #3 from anthropics/xiprime-pairceiling
+mirror direction: rh-program/lean/comparator -> clone (cp, source of truth is rh-program)
+cmp identical: comparator/ChallengeDeps/WeilContainment.lean
+cmp identical: comparator/Challenge/WeilContainment.lean
+cmp identical: comparator/Challenge/WeilContainmentOne.lean
+--- lake build Challenge.WeilContainmentOne Challenge.WeilContainment ---
+✔ [8697/8699] Built ChallengeDeps.WeilContainment (25s)
+⚠ [8698/8699] Built Challenge.WeilContainmentOne (3.9s)
+warning: comparator/Challenge/WeilContainmentOne.lean:36:8: declaration uses `sorry`
+⚠ [8699/8699] Built Challenge.WeilContainment (3.9s)
+warning: comparator/Challenge/WeilContainment.lean:52:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:58:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:65:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:71:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:75:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:79:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:84:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:89:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:94:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:100:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:107:8: declaration uses `sorry`
+Build completed successfully (8699 jobs).
+       35.23 real         7.48 user        10.72 sys
+          5844942848  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1119375  page reclaims
+              274173  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              146834  voluntary context switches
+              354121  involuntary context switches
+         69453659977  instructions retired
+         26599397493  cycles elapsed
+           354476472  peak memory footprint
+--- exit: 0 ---
+=== end 2026-09-28 23:58:22 IST ===
