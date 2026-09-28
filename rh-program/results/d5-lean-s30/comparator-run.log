@@ -157,3 +157,31 @@ WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.Wei
 ✔ [8698/8698] Built Solution.WeilContainment (3.1s)
 Build completed successfully (8698 jobs).
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.WeilContainment -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind weilContainment_identity weilContainment_cutoff weilContainment_tilt_bounds weilContainment_tilt_pos weilContainment_tilt_inv weilContainment_even weilContainment_tsupport weilContainment_tsupport_eq weilContainment_continuous weilContainment_exact weilContainment_range_eq weilContainment_not_contDiff propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.wna9jXQS
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.WeilContainment
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       42.59 real        35.50 user        13.55 sys
+          5883592704  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2358075  page reclaims
+                4353  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               32835  voluntary context switches
+              168044  involuntary context switches
+          4155373374  instructions retired
+          1339833708  cycles elapsed
+           136928808  peak memory footprint
+--- comparator exit code: 0 ---
+=== [FAMILY-12] end 2026-09-29 00:12:48 IST ===
+runner exit: 0

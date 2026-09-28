@@ -375,6 +375,61 @@ nothing about ζ outside the box; nothing about Λ; no aggregate (isolated boxes
 lie far below the 3·10¹² record: they are format-validation rows in the program's own trust vocabulary, not a verification
 result. No row program (2b: NO-GO), no calibration rows run.
 
+## WeilContainment (Session 30, 2026-09-28/29): barrier-zoo IV.1 in Lean over Mathlib alone — `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/WeilContainment.lean`, `Challenge/Solution/PrintAxioms/WeilContainmentOne.lean`, `config-weil-containment{,-one}.json`
+
+**What the topics are (D5, F3/G4; brief `results/d5-lean-s30/BRIEF.md`, build record `results/d5-lean-s30/BUILD-NOTES.md`, ledger
+`results/d5-lean-s30/FIDELITY.md`).** The C1 containment theorem of the barrier zoo (IV.1; `results/adjudication-C1.json` fatal 2 and its
+mandatory repair: "the full (a,w)-family of prime-computable tilted-EF observables at cutoff X lies inside the classical
+bandwidth-log X Weil-EF data class") as Comparator pairs whose TRUSTED side imports Mathlib only — no Zeta23 module is imported on
+either side, so a reader who trusts Mathlib and the kernel reads `ChallengeDeps/WeilContainment.lean` (63 lines) and the two
+challenge files and nothing else:
+
+| file (under `comparator/`) | module | trusted? | content |
+|---|---|---|---|
+| `ChallengeDeps/WeilContainment.lean` | `ChallengeDeps.WeilContainment` | yes — read it | namespace `WeilContainment`: `tilt a u := exp(−(a − 1/2)·|u|)`; `weilTestOf a g u := (1/2)·g u·tilt a u`; `primeSide k := ∑' n : ℕ, (Λ(n)/√n)·(k(log n) + k(−log n))` — Zeta23's `literatureRHS` prime term CHARACTER FOR CHARACTER (`Zeta23/ExplicitFormula.lean`), re-declared so that the module imports Mathlib only; `tiltedPrimeSide a g := ∑' n : ℕ, Λ(n)·n^{−a}·g(log n)` — C1's master-formula prime side |
+| `Challenge/WeilContainmentOne.lean` | `Challenge.WeilContainmentOne` | yes — read it | rung 1 (10(l)): `weilContainment_identity_one` — for every even g, `tiltedPrimeSide 1 g = primeSide (weilTestOf 1 g)`; `sorry` |
+| `Challenge/WeilContainment.lean` | `Challenge.WeilContainment` | yes — read it | twelve statements, every proof `sorry`: (T1) `weilContainment_identity` (every real a, every even g, no summability hypothesis), `weilContainment_cutoff` (tsupport g ⊆ [−L, L] ⟹ the tsum IS the finite sum over n ≤ ⌊e^L⌋); (T2) `weilContainment_tilt_bounds` (e^{−|a−1/2|L} ≤ tilt a u ≤ e^{|a−1/2|L} on |u| ≤ L), `weilContainment_tilt_pos`; (T3) `weilContainment_tilt_inv` (tilt a · tilt (1−a) = 1), `weilContainment_even`, `weilContainment_tsupport`, `weilContainment_tsupport_eq` (= tsupport g), `weilContainment_continuous`, `weilContainment_exact` (the converse containment, witness g = 2k·tilt (1−a)), `weilContainment_range_eq` (for every real a and L: {tilted data over even band-[−L, L] tests} = {classical prime data over even band-[−L, L] tests}); and `weilContainment_not_contDiff` (¬ ContDiff ℝ 2 (weilTestOf 1 1): the C² class is not preserved by the tilt) |
+| `Solution/WeilContainmentOne.lean`, `Solution/WeilContainment.lean` | `Solution.*` | no (checked by comparator) | the same statements byte-for-byte, proved over Mathlib alone: the term-by-term rpow computation (`tilt a (log n) = n^{1/2−a}`, `(Λ/√n)·n^{1/2−a} = Λ·n^{−a}`, Λ(0) = 0 at n = 0) and `tsum_congr` for (T1); `tsum_eq_sum` for the cutoff; `exp_le_exp` for (T2); support/continuity lemmas, `exp_add` and `linear_combination` for (T3); `not_differentiableAt_abs_zero` through `Complex.reCLM` for the witness |
+| `config-weil-containment-one.json`, `config-weil-containment.json`, `PrintAxioms/WeilContainment{One,}.lean` | — | yes / — | comparator configurations (1 and 12 names; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick checks |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.WeilContainmentOne Solution.WeilContainment
+lake env lean comparator/PrintAxioms/WeilContainmentOne.lean     # [propext, Classical.choice, Quot.sound]
+lake env lean comparator/PrintAxioms/WeilContainment.lean        # twelve lines, each [propext, Classical.choice, Quot.sound]
+python3 results/d5-lean-s30/tools/statement_identity_d5.py . WeilContainment <the twelve names>   # IDENTICAL ×12
+python3 results/d5-lean-s30/tools/trust_greps_d5.py . <the seven topic files>                     # the 13 challenge sorrys only
+```
+
+Recorded runs (2026-09-28/29, `results/d5-lean-s30/`): `rung0-program-tree.log` (challenges: *8699 jobs*, the 1 + 12 deliberate
+`sorry` warnings), rung 1 and the family solutions *Build completed successfully (8698 / 8699 jobs)*, 0 errors, 0 warnings;
+`rung1-print-axioms.log`, `print-axioms.log`; `statement-identity.log` (1 + 12 IDENTICAL); `trust-greps.log`; the Comparator runs with
+nanoda `rung1-comparator.log` and `comparator-run.log` (second run, twelve names) — `Nanoda kernel accepts the solution`, `Lean
+default kernel accepts the solution`, `Your solution is okay!`, exit 0 (runner `tools/run.sh`; NOT sandboxed, the fake-landrun shim
+as in every prior record).
+
+**The second toolchain (rung 0 of the brief, the check build across the toolchain gap).** The same trusted vocabulary and the same
+13 statements were built a second time at Lean **v4.33.1** / Mathlib **0df444a360eaa60ab8c11dca51a86af692955474** — Prove2Me's
+default environment — in the platform's layout at `~/prove2me_workspace` (`Definitions/Def_WeilContainment.lean`, thirteen
+`Theorems/Thm_WeilContainment_<suffix>.lean` stubs ending `by sorry`, thirteen `Solutions/Sol_WeilContainment_<suffix>.lean` with a
+top-level `theorem solution`, generated from the challenge files by `results/d5-lean-s30/tools/gen_prove2me_{layout,solutions}.py`
+so that the statement text is byte-identical in the three places): `rung0-prove2me-env.log` (*8718 jobs*), `prove2me-build.log`
+(*8732 jobs*, 0 errors), `prove2me-print-axioms.log` (`#print axioms solution` ×13 = the three axioms; the platform's three gating
+rules checked). **Nothing was posted to Prove2Me** — no mission, no proposal, no API call; that is the sponsor's decision.
+
+**Honest label, verbatim (BRIEF §1(4)): "IV.1 formalized-in-Lean (prime-side containment; Comparator-checked over Mathlib alone,
+no displayed hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda; built at v4.33.0-rc2/51e6992e and
+v4.33.1/0df444a)".** What it means: the level-a tilted prime data and the classical band-L Weil prime data are the same set of
+numbers, for every real a, through multipliers bounded by e^{±|a−1/2|L}. What it does NOT say (FIDELITY.md §2): nothing about the
+ZERO side of any explicit formula at any level (fatal 1's "cosh ghost" stands), nothing about Zeta23's C² test class `EF_lit` (the
+tilt breaks it — the witness theorem), nothing about the μ-band or any nonlinear function of the band, nothing about ζ or RH. The
+fidelity ledger — `tsum` over all n in place of "n ≤ X" (equal by the theorem `weilContainment_cutoff`), the algebraic inverse in
+place of "analytic continuation", the restated prime term, an arbitrary even g in place of the cos-transform of a window — is
+`results/d5-lean-s30/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences` row (u)). The brief's single-model
+pre-derivation was attacked first; its six errata (`results/d5-lean-s30/PREDERIVATION-ERRATA.md`) added `even`, `tsupport_eq`,
+`cutoff`, `range_eq` and dropped a redundant hypothesis — the statements follow the corrected mathematics, not the brief.
+
 ## What these build against, and why it is not here
 
 They extend **Zeta23**, the Lean 4 formalization released as the companion artifact to

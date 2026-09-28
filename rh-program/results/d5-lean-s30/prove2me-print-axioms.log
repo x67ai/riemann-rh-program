@@ -69,3 +69,38 @@ tilt_pos       stub vs challenge: IDENTICAL
 tsupport       stub vs challenge: IDENTICAL
 tsupport_eq    stub vs challenge: IDENTICAL
 RESULT: PASS
+
+=== SECOND section (13 files): Tue Sep 29 00:13:40 IST 2026 ===
+Solutions.Sol_WeilContainment_continuous: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_cutoff: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_even: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_exact: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_identity_one: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_identity: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_not_contDiff: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_range_eq: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_bounds: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_inv: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_pos: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tsupport_eq: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tsupport: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+--- rules 1-3 ---
+theorem solution count: 13 in       13 files
+no namespace command
+imports: only Definitions.Def_WeilContainment and Mathlib
+sorry hits (raw): 0
+--- statement identity stub = solution = challenge ---
+continuous     stub = solution = challenge: IDENTICAL (72 bytes)
+cutoff         stub = solution = challenge: IDENTICAL (228 bytes)
+even           stub = solution = challenge: IDENTICAL (95 bytes)
+exact          stub = solution = challenge: IDENTICAL (188 bytes)
+identity       stub = solution = challenge: IDENTICAL (106 bytes)
+identity_one   stub = solution = challenge: IDENTICAL (90 bytes)
+not_contDiff   stub = solution = challenge: IDENTICAL (51 bytes)
+range_eq       stub = solution = challenge: IDENTICAL (223 bytes)
+tilt_bounds    stub = solution = challenge: IDENTICAL (118 bytes)
+tilt_inv       stub = solution = challenge: IDENTICAL (45 bytes)
+tilt_pos       stub = solution = challenge: IDENTICAL (28 bytes)
+tsupport       stub = solution = challenge: IDENTICAL (68 bytes)
+tsupport_eq    stub = solution = challenge: IDENTICAL (68 bytes)
+RESULT: PASS

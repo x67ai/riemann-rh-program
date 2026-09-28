@@ -9,7 +9,7 @@
 version: "v0.4"
 
 project:
-  name: "rh-program Lean additions (de Bruijn–Newman M2a, W1 checker, A4 grid theorems, Theorem M2 Lemma G)"
+  name: "rh-program Lean additions (de Bruijn–Newman M2a, W1 checker, A4 grid theorems, Theorem M2 Lemma G, the C1 containment theorem IV.1)"
   description: >-
     The Lean 4 / Mathlib files this program adds on top of the Zeta23 library.  Headline unit: the de Bruijn–Newman
     milestone M2a — the ray form of Λ ≤ 0.2 at Polymath15 Table 1 row 2, "kernel-checked modulo H1, H2 (H2-B, H2-A,
@@ -68,6 +68,25 @@ project:
     H-B‴, on the three standard axioms, replayed by nanoda" — never "Theorem M2 is formalized" (clause 8's ζ instance
     `zeta_in_class_C1` is not stated; the fidelity rows (p)–(r) record where the formal statements differ from the
     note).  Nothing about ζ or RH follows from it.
+    Session 30 item 2, D5 (2026-09-28/29; brief results/d5-lean-s30/BRIEF.md; build record results/d5-lean-s30/BUILD-NOTES.md;
+    ledger results/d5-lean-s30/FIDELITY.md) adds the barrier-zoo item IV.1 — the C1 containment theorem (results/adjudication-C1.json
+    fatal 2 and its mandatory repair) — as two Comparator topics over Mathlib ALONE (the trusted layer
+    comparator/ChallengeDeps/WeilContainment.lean imports Mathlib only; no Zeta23 import on either side): `WeilContainmentOne`
+    (comparator/config-weil-containment-one.json, rung 1: the identity at C1's proven ray a = 1) and `WeilContainment`
+    (comparator/config-weil-containment.json, twelve statements).  With tilt a u = e^{−(a−1/2)|u|}, weilTestOf a g = (1/2)·g·tilt a,
+    primeSide k = Σ'_n (Λ(n)/√n)(k(log n) + k(−log n)) — Zeta23's `literatureRHS` prime term character for character — and
+    tiltedPrimeSide a g = Σ'_n Λ(n)n^{−a}g(log n) (C1's master-formula prime side): (T1) for every real a and every even g,
+    tiltedPrimeSide a g = primeSide (weilTestOf a g), with no summability hypothesis, and the n ≤ X cutoff as a theorem
+    (`weilContainment_cutoff`); (T2) e^{−|a−1/2|L} ≤ tilt a u ≤ e^{|a−1/2|L} on |u| ≤ L, tilt > 0; (T3) weilTestOf a g is even, has
+    EXACTLY the support of g, is continuous when g is, tilt a · tilt (1−a) = 1, the converse containment `weilContainment_exact`, and
+    the record's sentence as one statement, `weilContainment_range_eq`: for every real a and L the set of level-a tilted prime data
+    over even band-[−L, L] tests EQUALS the set of classical Weil-EF prime data over even band-[−L, L] tests; plus the negative
+    witness `weilContainment_not_contDiff` (the tilt does not preserve the C² test class).  NO displayed hypothesis anywhere.
+    Label, binding: "IV.1 formalized-in-Lean (prime-side containment; Comparator-checked over Mathlib alone, no displayed
+    hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda; built at v4.33.0-rc2/51e6992e and
+    v4.33.1/0df444a)" — the second toolchain is Prove2Me's default environment, in which the same statements and proofs build in the
+    platform's layout (~/prove2me_workspace, Definitions/Theorems/Solutions), NOTHING posted.  Nothing about the ZERO side of any
+    explicit formula (fatal 1's ghost), the μ-band, or ζ follows from it; the statements are about prime-side functionals only.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -184,7 +203,9 @@ status:
     (`Separation.HR0`, the one-point check F₁₃(50; 73) ≤ 0 ∧ 5/(2c_B√73 − 13/8) ≤ 50, a displayed real inequality about
     explicitly defined reals) for clause 5, and H-B‴, H-edge, H-R₀ for the assembly; Separation5c takes nothing displayed
     for clause 5 (H-R₀ is the theorem `Zeta23.Separation.F13_50_neg`) and H-B‴, H-edge only for the assembly — H-out is no
-    longer displayed anywhere in the Session 25 topics.
+    longer displayed anywhere in the Session 25 topics.  From Session 30 (D5, IV.1), also the one of comparator/Challenge/WeilContainmentOne.lean (proved by
+    comparator/Solution/WeilContainmentOne.lean) and the twelve of comparator/Challenge/WeilContainment.lean (proved by
+    comparator/Solution/WeilContainment.lean) — both topics over Mathlib alone, no Zeta23 module involved, nothing displayed.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -583,6 +604,26 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 30 (2026-09-28/29), D5 — barrier-zoo IV.1, the C1 containment theorem, over Mathlib alone (trusted layer
+        comparator/ChallengeDeps/WeilContainment.lean: tilt, weilTestOf, primeSide = Zeta23's literatureRHS prime term character
+        for character, tiltedPrimeSide = C1's master-formula prime side).  Rung 1 (`WeilContainmentOne`): the identity at a = 1.
+        The family (`WeilContainment`, twelve statements): (T1) ∀ a : ℝ, ∀ g even, tiltedPrimeSide a g = primeSide (weilTestOf a g),
+        no summability hypothesis; the n ≤ X cutoff as a theorem; (T2) e^{−|a−1/2|L} ≤ tilt a u ≤ e^{|a−1/2|L} on |u| ≤ L, tilt > 0;
+        (T3) evenness, tsupport (weilTestOf a g) = tsupport g, continuity, tilt a · tilt (1−a) = 1, the converse containment with
+        the witness g = 2k·tilt (1−a), and the set equality { tiltedPrimeSide a g | g even on the band } = { primeSide k | k even on
+        the band } for every real a and L; and ¬ ContDiff ℝ 2 (weilTestOf 1 1) (the C² class is not preserved).  NO displayed
+        hypothesis.  Label: "IV.1 formalized-in-Lean (prime-side containment; Comparator-checked over Mathlib alone, no displayed
+        hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda; built at v4.33.0-rc2/51e6992e and
+        v4.33.1/0df444a)" (results/d5-lean-s30/BUILD-NOTES.md; Comparator runs results/d5-lean-s30/rung1-comparator.log and
+        comparator-run.log).  Nothing about the zero side, the μ-band, or ζ follows.
+      declaration: "weilContainment_identity_one (root, Challenge.WeilContainmentOne / Solution.WeilContainmentOne); weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff (root, Challenge.WeilContainment / Solution.WeilContainment)"
+      file: "comparator/Solution/WeilContainment.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
 
 automation:
   methods:
@@ -593,7 +634,8 @@ automation:
       framework: "Claude Code (Workflow/Agent)"
       tool_setup: >-
         Lean v4.33.0-rc2, Lake 5.0.0, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129, on the sponsor's MacBook Pro (Apple
-        M5, 24 GB); one `lake` process at a time.  Every Lean file was written by Claude agents under the sponsor's direction
+        M5, 24 GB); one `lake` process at a time.  The Session 30 topics WeilContainment/WeilContainmentOne were built a second time
+        at Lean v4.33.1 / Mathlib 0df444a360eaa60ab8c11dca51a86af692955474 (Prove2Me's default environment) in the platform layout.  Every Lean file was written by Claude agents under the sponsor's direction
         (the sponsor writes and reads no Lean).  The numerical producers (mpmath ball arithmetic / python-flint Arb) are
         untrusted Python written the same way; their transcripts are emitted into Lean literals by untrusted emitters and
         back-parsed against the JSON by independent scripts (0 mismatches), then kernel-checked.
@@ -817,6 +859,27 @@ fidelity:
     Z asserted in Lean, PROVED (not displayed), and consumed by `F13_50_neg` only; Unit A's `one_div_eighteen_le_Z` and
     (t1)'s "no lower bound on Z in any statement" remain true of the Unit A statements.  Ledger text:
     results/d1-m2a/packaging/FIDELITY.md (r).
+    (u) [Session 30, 2026-09-28/29; D5, topics WeilContainment and WeilContainmentOne — barrier-zoo IV.1, not a DBN or M2 item.]
+    Where the formal statements differ from the record (zoo IV.1 STATEMENT; adjudication-C1.json fatal 2; C1's MASTER FORMULA prime
+    side): (u1) `tsum` over all n : ℕ in place of "Σ_{n ≤ X}" (Λ(0) = Λ(1) = 0; Mathlib's log 0 = 0, √0 = 0), with the n ≤ X form
+    recovered as the theorem `weilContainment_cutoff` (equality with the finite sum over n ≤ ⌊e^L⌋ when tsupport g ⊆ Icc (−L) L) —
+    equal by a theorem of the file, not by convention.  (u2) the algebraic inverse tilt a · tilt (1−a) = 1 in place of the record's
+    "analytic continuation": the converse containment and the set equality `weilContainment_range_eq` hold for every a with no
+    convergence or regularity, STRONGER than the prose.  (u3) `primeSide` restates Zeta23's `literatureRHS` prime term character for
+    character in the Mathlib-only trusted layer (the `Separation.ft` = `paperFT` precedent); no Lean theorem ties the two (none is
+    needed; the checker compares the lines).  (u4) the family is indexed by an arbitrary EVEN g : ℝ → ℂ (`∀ u, g (−u) = g u`) in place
+    of the record's cos-transform of a window w ≥ 0 — a larger family (the cos-transform is even for every w), so the containment is
+    stronger; w ≥ 0 plays no role on the prime side.  (u5) every real a, not only the master formula's a > 1/2; complex a not
+    treated.  (u6) the band is `tsupport g ⊆ Set.Icc (−L) L`, L = log X, exactly Zeta23's `prime_term` hypothesis.  (u7) the brief's
+    redundant `0 ≤ L` in tilt_bounds dropped (implied by |u| ≤ L); tsupport stated as an equality alongside the inclusion.
+    NOT covered, and stated nowhere in Lean: the ZERO side of any explicit formula at any level (fatal 1's cosh ghost — IV.1 is a
+    prime-side statement); Zeta23's C² test class `EF_lit` (the tilt does not preserve ContDiff ℝ 2 — `weilContainment_not_contDiff`
+    is the witness; for g(0) ≠ 0 and a ≠ 1/2 the test is not even C¹ at 0 — so no statement feeds weilTestOf a g into EF_lit, and the
+    classical class here is "even, band-limited, no regularity"; the C² refinement by finite interpolation at ±log n is not
+    formalized); the μ-band and nonlinear functions of the band; the archimedean term; summability as a datum (tsum of a
+    non-summable family is 0 — the identity is unconditional because the summands agree; band-limited data are finite sums);
+    ζ, RH, any zero.  Ledger text: results/d5-lean-s30/FIDELITY.md; the attack on the brief's pre-derivation with the six errata
+    that shaped these statements: results/d5-lean-s30/PREDERIVATION-ERRATA.md.
 
 review:
   status: "self-assessed"
@@ -980,6 +1043,21 @@ review:
     independent clean-clone check (Opus 5, results/c2-m4/CHECK-O-B.md) is the next job.  Label: "modulo H-edge and
     H-B‴" — never "Theorem M2 is formalized".
 
+    Comparator runs, topics WeilContainmentOne and WeilContainment (results/d5-lean-s30/rung1-comparator.log, 2026-09-29 00:03 IST,
+    30.55 s; results/d5-lean-s30/comparator-run.log, SECOND RUN 2026-09-29 00:12 IST, 42.59 s, twelve theorem_names; Session 30
+    builder Fable 5.1): the same tool chain and shim (comparator v4.33.0, lean4export v4.33.0-rc2, nanoda 0.4.17, fake-landrun — NOT
+    sandboxed, as above; tool SHA-256s printed in each log), from the repository root ~/rh-lean-work/checker-clone-s21 with
+    ChallengeDeps.WeilContainment, the challenge and the solution built by comparator itself (pre-built artifacts removed first,
+    prerun-cleanup.log); final lines verbatim in both: "Running nanoda kernel on solution" / "Nanoda kernel accepts the solution" /
+    "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your solution is okay!"; exit code 0.
+    Statement identity challenge/solution: 1 + 12 IDENTICAL (statement-identity.log); #print axioms on all 13 root names:
+    [propext, Classical.choice, Quot.sound] (rung1-print-axioms.log, print-axioms.log); trust greps with comments stripped on the
+    seven topic files: the 13 deliberate challenge `sorry`s only (trust-greps.log).  Second toolchain: the same 13 statements and
+    proofs build at Lean v4.33.1 / Mathlib 0df444a in the Prove2Me layout (prove2me-build.log; #print axioms solution ×13 = the
+    three axioms, prove2me-print-axioms.log); nothing posted.  No human has read comparator/Challenge/WeilContainment.lean against
+    the record; the independent clean-clone check (Opus 5, results/d5-lean-s30/CHECK-O.md) is the next job.  These statements carry
+    no "modulo H" label at all.
+
 alignment:
   namespaces:
     - "DBN"
@@ -990,6 +1068,7 @@ alignment:
     - "Zeta23.PairCeiling"
     - "Separation"
     - "Zeta23.Separation"
+    - "WeilContainment"
   statements:
     - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
       lean: "dbn_ray_le_point2_mp"
@@ -1103,6 +1182,14 @@ alignment:
       lean: "Zeta23.PairCeiling.GridCorner.mark_one_count_ge, grid_corner_pointwise, grid_corner_law, grid_corner_attained"
       module: "Zeta23.PairCeiling.GridCorner"
       status: "proved"
+    - source: "Barrier-zoo IV.1 (the C1 containment theorem; adjudication-C1.json fatal 2 and its mandatory repair), at the proven ray a = 1 — rung 1"
+      lean: "weilContainment_identity_one"
+      module: "Challenge.WeilContainmentOne / Solution.WeilContainmentOne over ChallengeDeps.WeilContainment (Mathlib only)"
+      status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/d5-lean-s30/rung1-comparator.log); also built at v4.33.1/0df444a"
+    - source: "Barrier-zoo IV.1 — the whole (a, g)-family: the identity, the cutoff, the multiplier bounds, the band, the inverse, the converse containment, the set equality, and the C² non-preservation witness"
+      lean: "weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff"
+      module: "Challenge.WeilContainment / Solution.WeilContainment over ChallengeDeps.WeilContainment (Mathlib only)"
+      status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/d5-lean-s30/comparator-run.log, second run); also built at v4.33.1/0df444a in the Prove2Me layout, nothing posted"
 
 acknowledgements: >-
   Built on Anthropic's Zeta23 library and on Lean 4, Mathlib, Lake, Comparator, lean4export and nanoda; the two ported
