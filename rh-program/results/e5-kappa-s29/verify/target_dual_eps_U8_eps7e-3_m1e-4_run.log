@@ -1,3 +1,10 @@
 200 zeros; U = 8.0, hu = 0.01, eps list [0.007]
 === eps = 7.0e-03 (relaxation weight 2(1-eps)/eps = 2.837e+02)
   round  0: rows   2721  d = 1.99502406  kappa_lp = 0.00497594  min psi(fine) = -2.124e-02  violations 430  [167.0s]
+  round  1: rows   3021  d = 1.99502555  kappa_lp = 0.00497445  min psi(fine) = -1.802e-05  violations 80  [302.4s]
+  round  2: rows   3101  d = 1.99502604  kappa_lp = 0.00497396  min psi(fine) = -2.602e-03  violations 62  [419.4s]
+  round  3: rows   3163  d = 1.99502613  kappa_lp = 0.00497387  min psi(fine) = -2.856e-07  violations 8  [557.3s]
+  round  4: rows   3171  d = 1.99502617  kappa_lp = 0.00497383  min psi(fine) = -6.231e-05  violations 1  [637.7s]
+  round  5: rows   3172  d = 1.99502613  kappa_lp = 0.00497387  min psi(fine) = -9.558e-08  violations 0  [741.1s]
+  max s_k = 79.9898 (S_max = 1000.0); min s_k = -1.9950 (-d = -1.9950); hu*sum|s| = 24.2660
+  kappa~_lp = 0.004974  ->  kappa >= eps * kappa~ = 3.4817e-05 (uncertified); active taus: [0.0, 0.698, 0.7, 1.396, 1.398, 1.4, 2.096, 2.098, 2.1, 2.792, 2.794, 2.796, 2.798, 2.8, 3.486, 3.488, 3.49, 3.492, 3.494, 3.496, 4.184, 4.186, 4.188, 4.19, 4.192, 4.194, 4.88, 4.882, 4.884, 4.886] (81)
