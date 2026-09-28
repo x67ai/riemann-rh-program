@@ -57,3 +57,10 @@
 
 ## [Mon Sep 28 21:30:43 IST 2026] Re-patched again: κ_lb = 4.2003·10⁻⁵ (U = 8, hu = 0.01, ε = 10⁻², margin 10⁻⁴, η = 2·10⁻⁵); gap 23.8; C(κ_lb) = 2.30·10⁴; scan continues upward in ε
 - ε = 7·10⁻³ certified 3.4677·10⁻⁵; ε = 10⁻² certified 4.2003·10⁻⁵ (`target_dual_eps_U8_eps1e-2_m1e-4_run.log`, `_out.json`, `target_dual_eps_s_U8_hu0.01_eps0.01.npy`). Certified κ still rising with ε at 10⁻² → launched ε = 2, 3, 5·10⁻² (U = 8, margin 10⁻⁴). NOTE.md re-patched (e5e572b4… → after manual fixes of three stale sentences, hash below at the close).
+
+## [Mon Sep 28 21:51:39 IST 2026] CLOSE — final bracket κ ∈ [6.589·10⁻⁵, 9.985·10⁻⁴] (gap factor 15.2); C(κ_lb) = 1.47·10⁴; all runs finished
+- Final ε-scan (U = 8, hu = 0.01, margin 10⁻⁴, η = 2·10⁻⁵): ε = 2·10⁻²: certified 5.6485·10⁻⁵ (see `target_dual_eps_U8_eps2e-2_m1e-4_run.log`); ε = 3·10⁻²: κ̃ = 0.002216, **certified 6.5890·10⁻⁵** (`target_dual_eps_U8_eps3e-2_m1e-4_run.log`, `_out.json`, certificate `target_dual_eps_s_U8_hu0.01_eps0.03.npy`); ε = 5·10⁻²: LP 7.9·10⁻⁵, NOT certified. `repatch_note.py` applied; three stale sentences fixed by hand. No process running.
+- Stop lines: (i) no, (ii) no, (iii) YES — the certified bound stalls at 6.6·10⁻⁵ < 10⁻³ at the largest grid the slot allowed (U = 8, hu = 0.01; larger U only at coarser hu, whose certificates fail verification); the bracket and gap are the result. (iv) no.
+- Files: NOTE.md (194 lines), SHARED.md, verify/ (15 scripts, 30+ logs, JSON, .npy certificates), fetched/ (8 arXiv texts). Nothing outside results/e5-kappa-s29/ touched; nothing committed.
+- Final hashes (after this block is written SHARED's hash changes; the reader hashes both files at launch):
+  NOTE.md SHA-256 61aa86bd55f264abe142f454aa1bd899ef91a85150bcac6cf755362d0dd312b5
