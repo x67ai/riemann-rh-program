@@ -7,10 +7,9 @@
 # WeilContainment and WeilContainmentOne; IV.17 = topic IntegralityGap) from a fresh clone, on a different OS and CPU, with
 # landrun real, and writes every log to ~/rh-lean-linux/logs/. Nothing is installed with sudo; nothing is posted anywhere.
 #
-# Usage (three commands, from any directory on the Linux machine):
-#   git clone https://github.com/x67ai/riemann-rh-program ~/riemann-rh-program     # your private repo; GitHub login needed once
-#   bash ~/riemann-rh-program/rh-program/scripts/linux-comparator-check.sh
-#   ls ~/rh-lean-linux/logs                                                       # send this folder back, or commit it
+# Usage (from the unpacked package, no GitHub login needed — the package carries the program files and the base library):
+#   bash <package>/scripts/linux-comparator-check.sh
+#   ls ~/rh-lean-linux/logs                                                       # send this folder back
 #
 # Needs on the machine: git, curl, tar, a C compiler and make (Debian/Ubuntu: `sudo apt install build-essential git curl` once),
 # about 12 GB of free disk, 8 GB of RAM, a Linux kernel with Landlock (5.13 or newer; every mainstream distro since 2021).
@@ -19,7 +18,8 @@
 
 set -u
 ROOT="$HOME/rh-lean-linux"; LOGS="$ROOT/logs"; TOOLS="$ROOT/tools"
-PROG="${1:-$HOME/riemann-rh-program/rh-program}"   # the rh-program directory of your clone
+PKG="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # the package root (this script lives in <package>/scripts/)
+PROG="${1:-$PKG}"                                            # a directory holding lean/ (the package root, or an rh-program checkout)
 mkdir -p "$LOGS" "$TOOLS"
 MAIN="$LOGS/00-main.log"; exec > >(tee -a "$MAIN") 2>&1
 echo "=== linux-comparator-check start $(date '+%Y-%m-%d %H:%M:%S %Z') ==="
@@ -45,8 +45,10 @@ command -v go >/dev/null && mark go "ok ($(go version))"
 
 # ---------- 2. the Lean tree: zeta-23-lean at v1.0 + the program's overlay (lean/README.md "Building") ----------
 TREE="$ROOT/zeta-23-lean"
-if [ ! -d "$TREE/.git" ]; then retry 30 git clone -q https://github.com/anthropics/zeta-23-lean "$TREE" || { mark clone FAIL; exit 3; }; fi
-git -C "$TREE" checkout -q 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 && mark clone "ok (v1.0 = $(git -C "$TREE" rev-parse --short HEAD))"
+if [ ! -d "$TREE" ]; then
+  if [ -d "$PKG/zeta-23-lean-v1.0" ]; then mkdir -p "$TREE" && cp -R "$PKG/zeta-23-lean-v1.0/." "$TREE/" && mark clone "ok (from the package: $(head -c 12 "$TREE/VERSION.txt") = tag v1.0)"
+  else retry 30 git clone -q https://github.com/anthropics/zeta-23-lean "$TREE" && git -C "$TREE" checkout -q 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 && mark clone "ok (cloned, v1.0)" || { mark clone FAIL; exit 3; }; fi
+fi
 cp -R "$PROG/lean/Zeta23/." "$TREE/Zeta23/" && cp -R "$PROG/lean/comparator/." "$TREE/comparator/" && cp "$PROG/lean/Zeta23.lean" "$TREE/Zeta23.lean" && mark overlay ok
 cd "$TREE" || exit 3
 echo "toolchain: $(cat lean-toolchain)"; retry 10 lake --version >/dev/null || mark lake FAIL   # elan installs the pinned Lean here
