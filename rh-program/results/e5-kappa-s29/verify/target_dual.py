@@ -27,15 +27,15 @@ A_LIP = float(ap.max()*1.05)
 a_lip = lambda T: A_LIP
 a_tail_min = lambda T: float(a_fn(T))
 out["sup_a_prime"] = float(ap.max()); out["a_lip_used"] = A_LIP
-configs = [dict(U=3.0, hu=0.02, Tmax=200.0, coarse=(0.05, 40.0, 0.1), eta=1e-4),
-           dict(U=4.0, hu=0.01, Tmax=400.0, coarse=(0.05, 40.0, 0.05), eta=1e-4),
-           dict(U=6.0, hu=0.01, Tmax=400.0, coarse=(0.05, 40.0, 0.05), eta=1e-4),
-           dict(U=6.0, hu=0.005, Tmax=400.0, coarse=(0.05, 40.0, 0.05), eta=1e-4)]
+configs = [dict(U=3.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.1), eta=5e-5, margin=2e-5),
+           dict(U=4.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=6.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=8.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5)]
 sel = [int(x) for x in sys.argv[1:]] if len(sys.argv) > 1 else list(range(len(configs)))
 for ci in sel:
     cf = configs[ci]; tc = time.time()
     log(f"=== config {ci}: U = {cf['U']}, hu = {cf['hu']}, Tmax = {cf['Tmax']}, coarse {cf['coarse']}")
-    r = dual_lp(a_fn, U=cf["U"], hu=cf["hu"], Tmax=cf["Tmax"], coarse=cf["coarse"], fine=(0.002, 40.0, 0.02), log=log)
+    r = dual_lp(a_fn, U=cf["U"], hu=cf["hu"], Tmax=cf["Tmax"], coarse=cf["coarse"], fine=(0.002, 40.0, 0.01), margin=cf["margin"], log=log)
     if r is None: continue
     log(f"  kappa_lp = {r['kappa_lp']:.7f}; active taus: {np.round(r['active'][:30], 3).tolist()} ... ({len(r['active'])} total)")
     v = verify_dual(a_fn, a_lip, a_tail_min, r["s"], r["d"], cf["hu"], eta=cf["eta"], c_rep=1.0, T_v=cf["Tmax"], h0=0.01, log=log)

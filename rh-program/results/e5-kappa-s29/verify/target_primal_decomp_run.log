@@ -1,0 +1,9 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/target_primal_decomp.py:38: RuntimeWarning: overflow encountered in cosh
+  def conv_mu0(g): return np.trapezoid(what/np.cosh(np.pi*(g - taus)), taus)
+what(0) = 0.001592, w(0) = 0.002842;  B = kappa_ub * what(0) = 1.590176e-06
+P (sieve to 1e7) = 1.042788e-06 (+ tail bound 4.8e-10);  Z (200 zeros) = 5.455657e-07;  P + Z = 1.588354e-06;  (P+Z)/what(0) = 0.0009980 vs kappa_ub = 0.0009991;  relative discrepancy -1.15e-03
+largest prime-power terms 4 Lambda(n) w(log n)/(n+1), as fraction of B: [(4, '0.351'), (3, '0.080'), (5, '0.057'), (9, '0.042'), (13, '0.027'), (2, '0.015'), (8, '0.014'), (7, '0.014'), (23, '0.009'), (19, '0.006'), (31, '0.005'), (37, '0.002')]
+zero shares 2(what*mu0)(gamma)/B for gamma_1..5: ['3.431e-01', '1.433e-10', '5.177e-16', '2.125e-23', '7.988e-27']
+w(log n)/w(0) for n = 2..13: [(2, '9.0e-06'), (3, '4.1e-05'), (4, '3.5e-04'), (5, '3.0e-05'), (6, '1.3e-04'), (7, '8.1e-06'), (8, '2.6e-05'), (9, '5.4e-05'), (10, '2.5e-05'), (11, '1.0e-06'), (12, '6.4e-06'), (13, '2.1e-05')]
+cumulative P over log n <= U: U=1: 0.015, U=2: 0.517, U=3: 0.611, U=4: 0.637, U=6: 0.650, U=8: 0.654, U=10: 0.655, U=14: 0.656
+done in 27.1s

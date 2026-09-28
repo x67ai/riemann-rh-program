@@ -76,11 +76,11 @@ log(f"instance A bracket: [{kA_lb:.6f}, {kA_ub:.6f}] vs exact 0.1 -> gap {kA_ub-
 out["A_bracket"] = [kA_lb, kA_ub]
 
 # --- instance B: full certification path
-log("instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 200")
-rB = dual_lp(a1, U=3.0, hu=0.01, Tmax=200.0, coarse=(0.05, 40.0, 0.1), fine=(0.002, 40.0, 0.02), log=log)
+log("instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 1000, margin 2e-5")
+rB = dual_lp(a1, U=3.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.1), fine=(0.002, 40.0, 0.01), margin=2e-5, log=log)
 out["B_dual"] = dict(kappa_lp=rB["kappa_lp"], d=rB["d"], rounds=rB["rounds"], rows=rB["n_rows"], seconds=rB["seconds"], active=[float(x) for x in rB["active"][:40]])
 log(f"  active taus (first 40): {np.round(rB['active'][:40], 3).tolist()}")
-vB = verify_dual(a1, lipB, tailB, rB["s"], rB["d"], 0.01, eta=1e-4, c_rep=1.0, T_v=200.0, h0=0.01, log=log)
+vB = verify_dual(a1, lipB, tailB, rB["s"], rB["d"], 0.01, eta=5e-5, c_rep=1.0, T_v=1000.0, h0=0.01, log=log)
 out["B_verify"] = {k: v for k, v in vB.items()}
 log(f"  certified kappa_lb(B) = {vB['kappa_cert']}  (LP value {rB['kappa_lp']:.6f}, repair cost eta = 1e-4)")
 log("instance B primal")

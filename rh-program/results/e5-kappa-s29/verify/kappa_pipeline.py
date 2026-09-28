@@ -37,42 +37,49 @@ def sigmahat_matrix(taus, hu, K):
     return base[:, None]*M
 
 def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02), max_rounds=25, add_per_round=300,
-            viol_tol=1e-6, margin=0.0, S_max=1000.0, log=print):
-    """Cutting-plane LP.  Returns dict with d, s, kappa_lp, rounds, n_rows, active taus, seconds."""
+            viol_tol=1e-6, margin=0.0, S_max=1000.0, reg=1e-6, time_limit=600.0, log=print):
+    """Cutting-plane LP.  Variables: s = s_plus - s_minus with s_plus in [0, S_max], s_minus in [0, d] (so s >= -d), and d >= 0.
+    Objective: d + reg*hu*sum(s_plus + s_minus)  (reg selects the minimal-mass certificate among the optimal ones; it moves
+    d by at most reg*hu*sum|s| ~ 1e-6*O(10)).  Returns dict with d, s, kappa_lp, rounds, n_rows, active taus, seconds."""
     t0 = time.time()
     K = int(round(U/hu))
-    # initial grid
     g1 = np.arange(0, coarse[1], coarse[0]); g2 = np.arange(coarse[1], Tmax + 1e-12, coarse[2])
     taus = np.unique(np.concatenate([g1, g2]))
     f1 = np.arange(0, fine[1], fine[0]); f2 = np.arange(fine[1], Tmax + 1e-12, fine[2])
     fine_taus = np.unique(np.concatenate([f1, f2]))
     a_fine = a_fn(fine_taus)
-    A_fine = sigmahat_matrix(fine_taus, hu, K)
-    nvar = K + 2   # s_0..s_K, d
-    cvec = np.zeros(nvar); cvec[-1] = 1.0
-    # s_k + d >= 0  ->  -s_k - d <= 0
-    A_box = np.zeros((K+1, nvar)); A_box[:, :K+1] = -np.eye(K+1); A_box[:, -1] = -1.0
+    def psi_fine(s):
+        outp = np.empty(len(fine_taus))
+        for i in range(0, len(fine_taus), 20000):
+            outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+        return outp
+    nv = 2*(K+1) + 1   # s_plus (K+1), s_minus (K+1), d
+    cvec = np.concatenate([reg*hu*np.ones(K+1), reg*hu*np.ones(K+1), [1.0]])
+    # s_minus_k - d <= 0
+    A_box = np.zeros((K+1, nv)); A_box[:, K+1:2*(K+1)] = np.eye(K+1); A_box[:, -1] = -1.0
     b_box = np.zeros(K+1)
-    res = None
+    bounds = [(0, S_max)]*(K+1) + [(0, None)]*(K+1) + [(0, None)]
+    res = None; d = None; s = None; psi = None
     for rnd in range(max_rounds):
         A_tau = sigmahat_matrix(taus, hu, K)
-        A_ub = np.vstack([np.hstack([A_tau, np.zeros((len(taus), 1))]), A_box])
+        A_ub = np.vstack([np.hstack([A_tau, -A_tau, np.zeros((len(taus), 1))]), A_box])
         b_ub = np.concatenate([2*np.pi*a_fn(taus) - margin, b_box])
-        res = linprog(cvec, A_ub=A_ub, b_ub=b_ub, bounds=[(None, S_max)]*(K+1) + [(0, None)], method="highs")
+        res = linprog(cvec, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs", options=dict(time_limit=time_limit))
         if res.status != 0:
-            log(f"  LP status {res.status}: {res.message}"); return None
-        s = res.x[:K+1]; d = res.x[-1]
-        psi = 2*np.pi*a_fine - A_fine @ s - margin
+            log(f"  LP status {res.status}: {res.message}")
+            if s is None: return None
+            break
+        s = res.x[:K+1] - res.x[K+1:2*(K+1)]; d = res.x[-1]
+        psi = psi_fine(s)
         viol = np.where(psi < -viol_tol)[0]
         log(f"  round {rnd:2d}: rows {len(taus):6d}  d = {d:.8f}  kappa_lp = {2-d:.8f}  min psi(fine) = {psi.min(): .3e}  violations {len(viol)}  [{time.time()-t0:.1f}s]")
         if len(viol) == 0:
             break
-        # add the worst violations (spread: take local minima among violations)
         order = viol[np.argsort(psi[viol])][:add_per_round]
         taus = np.unique(np.concatenate([taus, fine_taus[order]]))
     slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
     active = taus[slack < 1e-7]
-    log(f"  max s_k = {s.max():.4f} (S_max = {S_max}); min s_k = {s.min():.4f} (= -d?)")
+    log(f"  max s_k = {s.max():.4f} (S_max = {S_max}); min s_k = {s.min():.4f} (-d = {-d:.4f}); hu*sum|s| = {hu*np.abs(s).sum():.4f}")
     return dict(d=float(d), s=s, kappa_lp=float(2 - d), rounds=rnd+1, n_rows=len(taus), active=active,
                 min_psi_fine=float(psi.min()), seconds=time.time() - t0, K=K, hu=hu, U=U, Tmax=Tmax)
 

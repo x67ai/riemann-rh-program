@@ -1,48 +1,48 @@
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: divide by zero encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: overflow encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: invalid value encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: divide by zero encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: overflow encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: invalid value encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:80: RuntimeWarning: divide by zero encountered in matmul
   slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:80: RuntimeWarning: overflow encountered in matmul
   slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:80: RuntimeWarning: invalid value encountered in matmul
   slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:151: RuntimeWarning: divide by zero encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:151: RuntimeWarning: overflow encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:151: RuntimeWarning: invalid value encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: divide by zero encountered in matmul
   Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: overflow encountered in matmul
   Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: invalid value encountered in matmul
   Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:148: RuntimeWarning: divide by zero encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:148: RuntimeWarning: overflow encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:148: RuntimeWarning: invalid value encountered in matmul
   q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:177: RuntimeWarning: divide by zero encountered in matmul
   return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:177: RuntimeWarning: overflow encountered in matmul
   return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:177: RuntimeWarning: invalid value encountered in matmul
   return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:164: RuntimeWarning: divide by zero encountered in matmul
   c0 = c0/np.sqrt(c0 @ c0)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:164: RuntimeWarning: overflow encountered in matmul
   c0 = c0/np.sqrt(c0 @ c0)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:164: RuntimeWarning: invalid value encountered in matmul
   c0 = c0/np.sqrt(c0 @ c0)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: divide by zero encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:166: RuntimeWarning: divide by zero encountered in matmul
   c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: overflow encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:166: RuntimeWarning: overflow encountered in matmul
   c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: invalid value encountered in matmul
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:166: RuntimeWarning: invalid value encountered in matmul
   c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf

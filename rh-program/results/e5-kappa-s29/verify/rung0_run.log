@@ -1,13 +1,11 @@
 instance A: a_0(0) = -0.593723; int|u||sigma_0| = 2.7363; exact kappa_0 = 0.10000000000000009
   primal check, w = B-spline in [-U1,U1]:  tau-space 2 + int what a_0/what(0) = 0.100000 (quad err 6.6e-08);  u-space 2 + int w dsigma_0/int w = 0.100000;  exact 0.1
 instance A dual LP, hu = 0.02, U = 3, Tmax = 60
-  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.338e-07  violations 0  [0.1s]
-  max s_k = 6.5107 (S_max = 1000.0); min s_k = -1.9000 (= -d?)
+  round  0: rows    881  d = 1.90000001  kappa_lp = 0.09999999  min psi(fine) = -1.753e-07  violations 0  [0.3s]
+  max s_k = 1.6586 (S_max = 1000.0); min s_k = -1.9000 (-d = -1.9000); hu*sum|s| = 2.1838
 instance A dual LP, hu = 0.01, U = 3, Tmax = 60
-  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -4.032e-06  violations 21  [0.5s]
-  round  1: rows    902  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.133e-06  violations 23  [0.9s]
-  round  2: rows    925  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -8.094e-07  violations 0  [1.4s]
-  max s_k = 17.7003 (S_max = 1000.0); min s_k = -1.9000 (= -d?)
+  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -1.154e-07  violations 0  [1.3s]
+  max s_k = 3.4863 (S_max = 1000.0); min s_k = -1.9000 (-d = -1.9000); hu*sum|s| = 2.1768
 instance A primal (squares family)
   start 0: R = 0.10000677  (nit 116, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
   start 1: R = 0.10000677  (nit 400, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
@@ -21,13 +19,8 @@ instance A primal (squares family)
   start 2: R = 0.10000144  (nit 2393, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
   start 3: R = 0.10000144  (nit 579, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
   start 4: R = 0.10000144  (nit 865, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
-  primal best 0.10000144  [X = 29.0, hx = 0.05, n = 1160, 1.3s]
+  primal best 0.10000144  [X = 29.0, hx = 0.05, n = 1160, 1.2s]
   X = 29.0: primal value 0.10000144, re-evaluated with 24-point quadrature 0.10000144
 instance A bracket: [0.100000, 0.100001] vs exact 0.1 -> gap 1.44e-06 (0.00% of the answer)
-instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 200
-  round  0: rows   2401  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -4.732e-03  violations 62  [5.9s]
-  round  1: rows   2463  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.152e-03  violations 47  [14.9s]
-  round  2: rows   2510  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.427e-03  violations 98  [20.2s]
-  round  3: rows   2608  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -8.178e-03  violations 92  [25.6s]
-  round  4: rows   2700  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -5.771e-03  violations 71  [28.7s]
-  round  5: rows   2771  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -3.382e-03  violations 40  [37.5s]
+instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 1000, margin 2e-5
+  round  0: rows  10401  d = 1.90018167  kappa_lp = 0.09981833  min psi(fine) = -1.749e-04  violations 33  [64.0s]

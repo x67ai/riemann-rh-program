@@ -18,3 +18,9 @@
 ## [Mon Sep 28 18:56:37 IST 2026] §0 prior-art gate, §1 K0, §2 problem statement written to NOTE.md
 - Sources opened at the page: Suzuki Y-09 pp. 4–5 (Thm 1.4); arXiv full texts downloaded to `results/e5-kappa-s29/fetched/` (1708.04122v2, 1810.08843v2, 2108.09258v2, 2502.05106v1, 2404.08380v2, 2411.05095v1, 2608.24827v2, math/0110009v3), pdftotext, problem statements read at the page (NOTE §0 items 1–8). Verdict: no printed κ, no printed statement of the problem; stop line (iv) does not fire. Nearest objects: Das–Ismoilov–Ramos EP1 (shape), Zhu 2026 λ*(L) (certified-bracket method).
 - Rung 0 first launch (18:38) failed: LP variables s_k unbounded above blew up on the coarse round-0 grid (overflow), primal quotient scale-drifted. Patched `kappa_pipeline.py` (S_max = 1000 on s_k; scale-pinning penalty (‖c‖² − 1)² in the primal; violation tolerance 10⁻⁶ — instance A's certificate is tight everywhere so 10⁻⁷-level grid noise never clears at 10⁻⁹). Relaunched 18:53.
+
+## [Mon Sep 28 19:03:51 IST 2026] §4 primal landed: κ ≤ 0.0009991 (a factor 136 below the Fejér 0.136)
+- `verify/target_primal.py` → `_run.log`, `_out.json` (2.2 s): Fejér T = 11 → 0.135976 ✓; continuous minimum 0.134298 at T* = 10.532. Squares family w = |f|², f̂ ≥ 0 piecewise constant: best 0.0009991 at X ≥ 7.5, hx = 0.01 (f̂ a smooth bump of width 14.39; ŵ supported on |τ| ≤ 14.39, 85.5% of mass below τ₀; w/w(0) = 9·10⁻⁶ at log 2, 4·10⁻⁵ at log 3).
+- `verify/target_primal_decomp.py` → `_run.log`, `_out.json` (27 s): explicit-formula check P + Z = 1.588·10⁻⁶ vs B = 1.590·10⁻⁶ (−0.1%); anatomy: γ₁ 34%, n = 4: 35%, 3: 8%, 5: 6%, 9: 4%, 13: 3%, 2: 1.5%.
+- NOTE §4 written; §3 placeholder inserted (rung 0 instance A closed: [0.10000000, 0.10000144] vs exact 0.1; instances B, C running).
+- Implication for §6 (to be written): C = 4(1 + 0.2415/κ) ≥ 970 even at κ = κ_ub; route (α) is dead as a competitor to the ζ-anchored 4/log t.
