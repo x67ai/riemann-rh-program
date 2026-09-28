@@ -12,3 +12,13 @@ sup a' on [0,1000] (grid) = 0.377896 at tau = 0.560; a'(1000) = 0.000159 vs 1/(2
   certificate shape: s_k = -d (full deficit) on u in [0.000, 3.000] (95 nodes); s_k > 0 at 17 nodes, first few u: [0.66, 0.68, 1.0, 1.02, 1.16, 1.18, 1.46, 1.58, 1.6, 1.78, 2.08, 2.36]; max s = 13.635 at u = 2.660; sum mult*s*hu (net mass of sigma) = -4.1083
 === config 1: U = 4.0, hu = 0.01, Tmax = 1000.0, coarse (0.05, 40.0, 0.05)
   round  0: rows  20001  d = 2.03879063  kappa_lp = -0.03879063  min psi(fine) = -8.156e-03  violations 498  [112.9s]
+  round  1: rows  20301  d = 2.03879350  kappa_lp = -0.03879350  min psi(fine) = -3.393e-03  violations 231  [465.9s]
+  round  2: rows  20532  d = 2.03888494  kappa_lp = -0.03888494  min psi(fine) = -1.037e-04  violations 43  [681.6s]
+  round  3: rows  20575  d = 2.03888496  kappa_lp = -0.03888496  min psi(fine) = -4.125e-08  violations 0  [931.1s]
+  max s_k = 34.8077 (S_max = 1000.0); min s_k = -2.0389 (-d = -2.0389); hu*sum|s| = 7.2798
+  kappa_lp = -0.0388850; active taus: [0.0, 1.358, 1.36, 2.716, 2.718, 4.074, 4.076, 5.434, 5.436, 6.79, 6.792, 8.146, 8.148, 9.498, 9.5, 10.848, 10.85, 12.196, 12.198, 16.23, 16.232, 17.578, 17.58, 18.94, 18.942, 20.344, 20.346, 22.428, 24.178, 25.722] ... (47 total)
+  NEGATIVE psi' found at depth 1: min -2.636e-04
+  verify: L = 30.616 (2pi a' 2.493, sigma 28.123), cells checked 103862, depth 1, min psi' on grid -2.636e-04, tail: 2pi a_min(1000.0) = 5.0699 vs sup|sigmahat| <= 0.5816 -> ok  [0.4s]
+  CERTIFIED: False  kappa_cert = None  (d' = 2.0389350)  [932.9s]
+  certificate shape: s_k = -d (full deficit) on u in [0.000, 4.000] (222 nodes); s_k > 0 at 29 nodes, first few u: [0.68, 0.69, 1.05, 1.06, 1.21, 1.22, 1.54, 1.64, 1.65, 1.82, 1.98, 1.99]; max s = 34.808 at u = 1.050; sum mult*s*hu (net mass of sigma) = -4.1083
+=== config 2: U = 6.0, hu = 0.01, Tmax = 1000.0, coarse (0.05, 40.0, 0.05)

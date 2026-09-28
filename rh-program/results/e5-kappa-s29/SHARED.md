@@ -29,3 +29,9 @@
 - Rung 0 pass 2 (`rung0_run_pass1.log`): A bracket [0.10000000, 0.10000144] (exact 0.1); C window-LP 0.750158 > exact 0.746686 (negative control: window-only LP is not a bound), primal 0.748452. B: LP 0.1 but the crude tail bound needs T_v ≈ 1000 and a uniform LP margin; pass 3 running (Tmax = T_v = 1000, m = 2·10⁻⁵, η = 5·10⁻⁵): κ_lp = 0.0998183, cutting planes converging (~80 s/round).
 - `verify/primal_cone.py` (general cone: piecewise-linear w of support ≤ 8, hats hu = 0.01, ŵ ≥ 0 by cutting planes on one period; Lemma A2 validated on a B-spline to 10⁻⁹): B/ŵ(0) = 0.0018856 stable over 6 rounds, above the squares' 0.000999 — stopped before certification, `[computed, not certified]`, informative only (compact support costs; band-limited squares are the better class).
 - Target dual launched 19:22 in parallel (`verify/target_dual.py`, configs U = 3/4/6/8, hu = 0.02/0.01, Tmax = T_v = 1000, m = 2·10⁻⁵, η = 5·10⁻⁵).
+
+## [Mon Sep 28 19:31:30 IST 2026] Primal refined; dual runs in flight; §6 written
+- `verify/target_primal_fine.py` (2.3 s): hx = 0.005, n = 3000 → κ_ub = 0.00099853 (from 0.0009991; element in `target_primal_fine_best.json`). NOTE §4/§6 numbers updated (C(κ_ub) = 972, t > e^{3052}).
+- Plain dual (`target_dual.py`): U = 3, hu = 0.02: κ_lp = −0.1094 (d = 2.1094; active constraints all beyond γ₁: 17.6, 19.4, 21.3, … 47.8; verification of the negative point moot); U = 4, hu = 0.01: round 0 d = 2.0388 (κ_lp = −0.039). U = 6, 8 (process A) and U = 12, 16, 24 (process B) running.
+- Mixed dual (Theorem D′, `target_dual_mixed.py`, K0's convex combination + grid correction, first 200 zeros): U = 4 running.
+- Rung 0 B: LP converged (κ_lp = 0.0998183); the adaptive certification over the tight region [0, 60] is refining (running since 19:20).
