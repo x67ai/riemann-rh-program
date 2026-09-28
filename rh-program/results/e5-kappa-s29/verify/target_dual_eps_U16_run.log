@@ -10,3 +10,9 @@
     verify: eta = 2.0e-05, cells 395318592, depth 19, min psi~ 2.000e-05, tail 5.070 vs 0.858 -> ok
   CERTIFIED: True; kappa_cert = 1.0814753623994332e-05  [6313.5s]
 === eps = 2.0e-03 (relaxation weight 2(1-eps)/eps = 9.980e+02)
+  round  0: rows   2721  d = 1.99126986  kappa_lp = 0.00873014  min psi(fine) = -8.038e-02  violations 334  [83.8s]
+  round  1: rows   3021  d = 1.99126996  kappa_lp = 0.00873004  min psi(fine) = -1.720e-07  violations 22  [166.5s]
+  round  2: rows   3043  d = 1.99126987  kappa_lp = 0.00873013  min psi(fine) = -4.462e-05  violations 17  [260.7s]
+  round  3: rows   3060  d = 1.99126984  kappa_lp = 0.00873016  min psi(fine) = -9.831e-08  violations 0  [373.2s]
+  max s_k = 45.2943 (S_max = 1000.0); min s_k = -1.9913 (-d = -1.9913); hu*sum|s| = 42.1726
+  kappa~_lp = 0.008730  ->  kappa >= eps * kappa~ = 1.7460e-05 (uncertified); active taus: [0.0, 0.35, 0.4, 0.7, 0.75, 0.8, 1.0, 1.05, 1.1, 1.15, 1.2, 1.3, 1.35, 1.4, 1.45, 1.5, 1.7, 1.75, 1.8, 1.85, 2.05, 2.1, 2.15, 2.2, 2.25, 2.4, 2.45, 2.5, 2.55, 2.6] (165)

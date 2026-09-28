@@ -1,0 +1,73 @@
+instance A: a_0(0) = -0.593723; int|u||sigma_0| = 2.7363; exact kappa_0 = 0.10000000000000009
+  primal check, w = B-spline in [-U1,U1]:  tau-space 2 + int what a_0/what(0) = 0.100000 (quad err 6.6e-08);  u-space 2 + int w dsigma_0/int w = 0.100000;  exact 0.1
+instance A dual LP, hu = 0.02, U = 3, Tmax = 60
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:54: RuntimeWarning: divide by zero encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:54: RuntimeWarning: overflow encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:54: RuntimeWarning: invalid value encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+  round  0: rows    881  d = 1.90000001  kappa_lp = 0.09999999  min psi(fine) = -1.753e-07  violations 0  [0.4s]
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:80: RuntimeWarning: divide by zero encountered in matmul
+  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:80: RuntimeWarning: overflow encountered in matmul
+  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:80: RuntimeWarning: invalid value encountered in matmul
+  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
+  max s_k = 1.6586 (S_max = 1000.0); min s_k = -1.9000 (-d = -1.9000); hu*sum|s| = 2.1838
+instance A dual LP, hu = 0.01, U = 3, Tmax = 60
+  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -1.154e-07  violations 0  [1.6s]
+  max s_k = 3.4863 (S_max = 1000.0); min s_k = -1.9000 (-d = -1.9000); hu*sum|s| = 2.1768
+instance A primal (squares family)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:153: RuntimeWarning: divide by zero encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:153: RuntimeWarning: overflow encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:153: RuntimeWarning: invalid value encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:156: RuntimeWarning: divide by zero encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:156: RuntimeWarning: overflow encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:156: RuntimeWarning: invalid value encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:150: RuntimeWarning: divide by zero encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:150: RuntimeWarning: overflow encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:150: RuntimeWarning: invalid value encountered in matmul
+  q = c @ M @ c; nn = c @ c
+  start 0: R = 0.10000677  (nit 116, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 1: R = 0.10000677  (nit 400, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 2: R = 0.10000677  (nit 555, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 3: R = 0.10000677  (nit 58, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 4: R = 0.10000677  (nit 73, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  primal best 0.10000677  [X = 15.0, hx = 0.05, n = 600, 0.1s]
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:179: RuntimeWarning: divide by zero encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:179: RuntimeWarning: overflow encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:179: RuntimeWarning: invalid value encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+  X = 15.0: primal value 0.10000677, re-evaluated with 24-point quadrature 0.10000677
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:166: RuntimeWarning: divide by zero encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:166: RuntimeWarning: overflow encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:166: RuntimeWarning: invalid value encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:168: RuntimeWarning: divide by zero encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:168: RuntimeWarning: overflow encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/rerun/kappa_pipeline.py:168: RuntimeWarning: invalid value encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+  start 0: R = 0.10000144  (nit 1239, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 1: R = 0.10000144  (nit 2428, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 2: R = 0.10000144  (nit 2393, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 3: R = 0.10000144  (nit 579, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 4: R = 0.10000144  (nit 865, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  primal best 0.10000144  [X = 29.0, hx = 0.05, n = 1160, 1.3s]
+  X = 29.0: primal value 0.10000144, re-evaluated with 24-point quadrature 0.10000144
+instance A bracket: [0.100000, 0.100001] vs exact 0.1 -> gap 1.44e-06 (0.00% of the answer)
+done in 3.4s

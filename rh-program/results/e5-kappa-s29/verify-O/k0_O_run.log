@@ -1,0 +1,11 @@
+gamma_1 = 14.13472514173469379045725;  a(0) by definition = -0.65384668938165404807
+Psi_G(0) = sech(pi gamma_1) = 1.03739761266212e-19;  m = 3.17321362793225e-19;  eps* = 3.17321362793225e-19;  kappa_K0 = 2 eps* = 6.34642725586449e-19
+4 sech(pi gamma_1)/|a(0)| = 6.34642725586449e-19;  float64 trap: 1 - float(eps) == 1.0 -> True
+  G={g1}      eps*    : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = 0.0 at tau = 0.0
+  G={g1}      10 eps* : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = -1.86732e-18 at tau = 0.0
+  G={g1}      eps*/2  : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = 1.0374e-19 at tau = 0.0
+  G=first 30  eps*    : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = 8.31932e-29 at tau = 0.0
+  G=first 30  10 eps* : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = -1.86732e-18 at tau = 0.0
+  G=first 30  eps*/2  : min over [0, 6.31] (0.005 grid) of 2Psi - eps(2Psi - a) = 1.0374e-19 at tau = 0.0
+ratio 2Psi_g1/|a| increasing on [0, 6.30] (0.01 grid): True
+done in 20.0s
