@@ -14,3 +14,7 @@
     verify: eta = 4.0e-04, cells 107814, depth 2, min psi~ -1.511e-05, tail 5.070 vs 0.215 -> ok
     NEGATIVE psi at depth 4: min -1.063e-05 near tau = 11.9763
     verify: eta = 1.6e-03, cells 136952, depth 4, min psi~ -1.063e-05, tail 5.070 vs 0.215 -> ok
+    verify: eta = 6.4e-03, cells 32137386, depth 17, min psi~ 5.487e-05, tail 5.070 vs 0.215 -> ok
+  CERTIFIED: True; kappa_cert = 3.9473976458552385e-06  [827.8s]
+=== eps = 2.0e-03 (relaxation weight 2(1-eps)/eps = 9.980e+02)
+  round  0: rows   2721  d = 1.99165627  kappa_lp = 0.00834373  min psi(fine) = -1.406e-02  violations 355  [75.8s]
