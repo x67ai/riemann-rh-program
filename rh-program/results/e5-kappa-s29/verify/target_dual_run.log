@@ -1,0 +1,14 @@
+sup a' on [0,1000] (grid) = 0.377896 at tau = 0.560; a'(1000) = 0.000159 vs 1/(2 pi 1000) = 0.000159; a' positive on grid: False
+=== config 0: U = 3.0, hu = 0.02, Tmax = 1000.0, coarse (0.05, 40.0, 0.1)
+  round  0: rows  10401  d = 2.10925942  kappa_lp = -0.10925942  min psi(fine) = -1.520e-02  violations 327  [22.3s]
+  round  1: rows  10701  d = 2.10939994  kappa_lp = -0.10939994  min psi(fine) = -1.510e-03  violations 61  [36.2s]
+  round  2: rows  10762  d = 2.10940037  kappa_lp = -0.10940037  min psi(fine) = -1.589e-03  violations 20  [52.7s]
+  round  3: rows  10782  d = 2.10940038  kappa_lp = -0.10940038  min psi(fine) = -9.160e-07  violations 0  [64.7s]
+  max s_k = 13.6352 (S_max = 1000.0); min s_k = -2.1094 (-d = -2.1094); hu*sum|s| = 6.2168
+  kappa_lp = -0.1094004; active taus: [0.0, 1.758, 1.76, 3.518, 3.52, 5.278, 5.28, 7.036, 7.038, 8.794, 8.8, 10.55, 12.302, 12.304, 17.576, 17.578, 19.376, 19.378, 21.322, 24.092, 26.148, 26.15, 28.238, 30.476, 32.6, 35.198, 37.33, 47.75] ... (28 total)
+  NEGATIVE psi' found at depth 2: min -3.947e-07
+  verify: L = 21.372 (2pi a' 2.493, sigma 18.879), cells checked 107952, depth 2, min psi' on grid -3.947e-07, tail: 2pi a_min(1000.0) = 5.0699 vs sup|sigmahat| <= 0.1239 -> ok  [0.2s]
+  CERTIFIED: False  kappa_cert = None  (d' = 2.1094504)  [65.0s]
+  certificate shape: s_k = -d (full deficit) on u in [0.000, 3.000] (95 nodes); s_k > 0 at 17 nodes, first few u: [0.66, 0.68, 1.0, 1.02, 1.16, 1.18, 1.46, 1.58, 1.6, 1.78, 2.08, 2.36]; max s = 13.635 at u = 2.660; sum mult*s*hu (net mass of sigma) = -4.1083
+=== config 1: U = 4.0, hu = 0.01, Tmax = 1000.0, coarse (0.05, 40.0, 0.05)
+  round  0: rows  20001  d = 2.03879063  kappa_lp = -0.03879063  min psi(fine) = -8.156e-03  violations 498  [112.9s]

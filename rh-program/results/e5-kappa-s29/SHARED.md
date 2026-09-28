@@ -24,3 +24,8 @@
 - `verify/target_primal_decomp.py` → `_run.log`, `_out.json` (27 s): explicit-formula check P + Z = 1.588·10⁻⁶ vs B = 1.590·10⁻⁶ (−0.1%); anatomy: γ₁ 34%, n = 4: 35%, 3: 8%, 5: 6%, 9: 4%, 13: 3%, 2: 1.5%.
 - NOTE §4 written; §3 placeholder inserted (rung 0 instance A closed: [0.10000000, 0.10000144] vs exact 0.1; instances B, C running).
 - Implication for §6 (to be written): C = 4(1 + 0.2415/κ) ≥ 970 even at κ = κ_ub; route (α) is dead as a competitor to the ζ-anchored 4/log t.
+
+## [Mon Sep 28 19:22:20 IST 2026] §3 written (A, C final; B pending); general-cone primal LP stopped
+- Rung 0 pass 2 (`rung0_run_pass1.log`): A bracket [0.10000000, 0.10000144] (exact 0.1); C window-LP 0.750158 > exact 0.746686 (negative control: window-only LP is not a bound), primal 0.748452. B: LP 0.1 but the crude tail bound needs T_v ≈ 1000 and a uniform LP margin; pass 3 running (Tmax = T_v = 1000, m = 2·10⁻⁵, η = 5·10⁻⁵): κ_lp = 0.0998183, cutting planes converging (~80 s/round).
+- `verify/primal_cone.py` (general cone: piecewise-linear w of support ≤ 8, hats hu = 0.01, ŵ ≥ 0 by cutting planes on one period; Lemma A2 validated on a B-spline to 10⁻⁹): B/ŵ(0) = 0.0018856 stable over 6 rounds, above the squares' 0.000999 — stopped before certification, `[computed, not certified]`, informative only (compact support costs; band-limited squares are the better class).
+- Target dual launched 19:22 in parallel (`verify/target_dual.py`, configs U = 3/4/6/8, hu = 0.02/0.01, Tmax = T_v = 1000, m = 2·10⁻⁵, η = 5·10⁻⁵).

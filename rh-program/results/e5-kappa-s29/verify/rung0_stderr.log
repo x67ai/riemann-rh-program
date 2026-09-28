@@ -46,3 +46,9 @@
   c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
 /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:166: RuntimeWarning: invalid value encountered in matmul
   c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:88: RuntimeWarning: divide by zero encountered in matmul
+  return sigmahat_matrix(taus, hu, K) @ s
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:88: RuntimeWarning: overflow encountered in matmul
+  return sigmahat_matrix(taus, hu, K) @ s
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:88: RuntimeWarning: invalid value encountered in matmul
+  return sigmahat_matrix(taus, hu, K) @ s

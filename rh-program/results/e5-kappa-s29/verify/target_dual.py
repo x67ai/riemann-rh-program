@@ -30,8 +30,13 @@ out["sup_a_prime"] = float(ap.max()); out["a_lip_used"] = A_LIP
 configs = [dict(U=3.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.1), eta=5e-5, margin=2e-5),
            dict(U=4.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
            dict(U=6.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
-           dict(U=8.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5)]
-sel = [int(x) for x in sys.argv[1:]] if len(sys.argv) > 1 else list(range(len(configs)))
+           dict(U=8.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=12.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=16.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=24.0, hu=0.04, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5)]
+sel = [int(x) for x in sys.argv[1:]] if len(sys.argv) > 1 else list(range(4))
+import os
+OUTNAME = os.environ.get('E5_OUT', 'target_dual_out.json')
 for ci in sel:
     cf = configs[ci]; tc = time.time()
     log(f"=== config {ci}: U = {cf['U']}, hu = {cf['hu']}, Tmax = {cf['Tmax']}, coarse {cf['coarse']}")
@@ -46,8 +51,8 @@ for ci in sel:
     out[f"config{ci}"] = dict(cf=cf, kappa_lp=r["kappa_lp"], d=r["d"], rounds=r["rounds"], rows=r["n_rows"], lp_seconds=r["seconds"],
                              active=[float(x) for x in r["active"]], verify={k: (v[k] if not isinstance(v[k], np.ndarray) else None) for k in v},
                              s=[float(x) for x in s], hole=[float(hole.min()), float(hole.max())] if len(hole) else None)
-    json.dump(out, open("target_dual_out.json", "w"), indent=1)
+    json.dump(out, open(OUTNAME, "w"), indent=1)
     np.save(f"target_dual_s_config{ci}.npy", s)
 out["seconds"] = time.time() - t0
-json.dump(out, open("target_dual_out.json", "w"), indent=1)
+json.dump(out, open(OUTNAME, "w"), indent=1)
 log(f"done in {time.time()-t0:.1f}s")

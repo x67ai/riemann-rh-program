@@ -180,3 +180,85 @@ def fejer_value(a_fn, T):
     from scipy.integrate import quad
     v, e = quad(lambda t: (1 - t/T)*a_fn(np.array([t]))[0], 0, T, limit=400)
     return 2 + 2*v
+
+# ---------------------------------------------------------------- mixed dual (Theorem D', NOTE section 5): K0's convex combination plus a grid correction
+def dual_lp_mixed(a_fn, Psi_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.05), fine=(0.002, 40.0, 0.01), max_rounds=25, add_per_round=300,
+                  viol_tol=1e-6, margin=0.0, S_max=1000.0, reg=1e-6, time_limit=900.0, eps_max=1.0, log=print):
+    """Variables: eps in [0, eps_max], D >= 0, s = s_plus - s_minus (s_plus in [0,S_max], s_minus in [0, D]).
+    Constraints: 2 pi eps a(tau_i) + 4 pi (1-eps) Psi_G(tau_i) - sigmahat(tau_i) >= margin.   Maximize 2 eps - D.
+    Theorem D': for w in the cone, B >= (2 - 2 theta - D) what(0) with theta = 1 - eps, if psi >= 0 everywhere."""
+    t0 = time.time()
+    K = int(round(U/hu))
+    g1 = np.arange(0, coarse[1], coarse[0]); g2 = np.arange(coarse[1], Tmax + 1e-12, coarse[2])
+    taus = np.unique(np.concatenate([g1, g2]))
+    f1 = np.arange(0, fine[1], fine[0]); f2 = np.arange(fine[1], Tmax + 1e-12, fine[2])
+    fine_taus = np.unique(np.concatenate([f1, f2]))
+    a_fine = a_fn(fine_taus); P_fine = Psi_fn(fine_taus)
+    def psi_fine(eps, s):
+        outp = np.empty(len(fine_taus))
+        for i in range(0, len(fine_taus), 20000):
+            outp[i:i+20000] = 2*np.pi*eps*a_fine[i:i+20000] + 4*np.pi*(1-eps)*P_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+        return outp
+    nv = 2*(K+1) + 2   # s_plus, s_minus, eps, D
+    cvec = np.concatenate([reg*hu*np.ones(K+1), reg*hu*np.ones(K+1), [-2.0, 1.0]])   # minimize -(2 eps - D) + reg
+    A_box = np.zeros((K+1, nv)); A_box[:, K+1:2*(K+1)] = np.eye(K+1); A_box[:, -1] = -1.0   # s_minus - D <= 0
+    b_box = np.zeros(K+1)
+    bounds = [(0, S_max)]*(K+1) + [(0, None)]*(K+1) + [(0, eps_max), (0, None)]
+    s = None; eps = None; D = None; psi = None
+    for rnd in range(max_rounds):
+        A_tau = sigmahat_matrix(taus, hu, K); a_t = a_fn(taus); P_t = Psi_fn(taus)
+        # -(2 pi eps a + 4 pi (1-eps) Psi) + sigmahat <= -margin  ->  sigmahat - eps (2 pi a - 4 pi Psi) <= -margin + 4 pi Psi... careful:
+        # psi = 2pi eps a + 4pi Psi - 4pi eps Psi - sigmahat >= margin  <=>  sigmahat + eps(4pi Psi - 2pi a) <= 4pi Psi - margin
+        A_ub = np.vstack([np.hstack([A_tau, -A_tau, (4*np.pi*P_t - 2*np.pi*a_t)[:, None], np.zeros((len(taus), 1))]), A_box])
+        b_ub = np.concatenate([4*np.pi*P_t - margin, b_box])
+        res = linprog(cvec, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs", options=dict(time_limit=time_limit))
+        if res.status != 0:
+            log(f"  LP status {res.status}: {res.message}")
+            if s is None: return None
+            break
+        s = res.x[:K+1] - res.x[K+1:2*(K+1)]; eps = res.x[-2]; D = res.x[-1]
+        psi = psi_fine(eps, s)
+        viol = np.where(psi < -viol_tol)[0]
+        log(f"  round {rnd:2d}: rows {len(taus):6d}  eps = {eps:.6e}  D = {D:.6e}  kappa_lp = 2eps - D = {2*eps - D:.6e}  min psi(fine) = {psi.min(): .3e}  violations {len(viol)}  [{time.time()-t0:.1f}s]")
+        if len(viol) == 0:
+            break
+        order = viol[np.argsort(psi[viol])][:add_per_round]
+        taus = np.unique(np.concatenate([taus, fine_taus[order]]))
+    slack = 2*np.pi*eps*a_fn(taus) + 4*np.pi*(1-eps)*Psi_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
+    active = taus[slack < 1e-7]
+    log(f"  max s_k = {s.max():.4f}; min s_k = {s.min():.4f} (-D = {-D:.4e}); hu*sum|s| = {hu*np.abs(s).sum():.4f}")
+    return dict(eps=float(eps), D=float(D), s=s, kappa_lp=float(2*eps - D), rounds=rnd+1, n_rows=len(taus), active=active,
+                min_psi_fine=float(psi.min()), seconds=time.time() - t0, K=K, hu=hu, U=U, Tmax=Tmax)
+
+def verify_dual_mixed(a_fn, a_lip, a_tail_min, Psi_fn, Psi_lip, s, eps, D, hu, eta, c_rep, T_v, h0=0.01, max_depth=34, log=print):
+    """Certify psi'(tau) = 2 pi eps a + 4 pi (1-eps) Psi_G - sigmahat + 2 eta c/(c^2+tau^2) >= 0 on R (repair sigma' = sigma - eta e^{-c|u|},
+    D' = D + eta).  Tail beyond T_v: 2 pi eps a(T_v) - 4 S0/(hu T_v^2) > 0 (Psi_G >= 0 dropped).  Certified kappa = 2 eps - D - eta."""
+    t0 = time.time()
+    K = len(s) - 1; k = np.arange(K+1); mult = np.where(k == 0, 1.0, 2.0)
+    S0 = float(np.sum(mult*np.abs(s))); S1 = float(np.sum(mult*np.abs(s)*k*hu))
+    L = 2*np.pi*eps*a_lip(T_v) + 4*np.pi*(1-eps)*Psi_lip + hu*((hu/2)*0.55*S0 + S1) + 1.3*eta/c_rep
+    def psi(t):
+        t = np.asarray(t, float)
+        return 2*np.pi*eps*a_fn(t) + 4*np.pi*(1-eps)*Psi_fn(t) - sigmahat_eval(t, s, hu) + 2*eta*c_rep/(c_rep**2 + t**2)
+    edges = np.arange(0.0, T_v + 1e-12, h0)
+    if edges[-1] < T_v: edges = np.append(edges, T_v)
+    lo, hi = edges[:-1], edges[1:]
+    n_checked = 0; depth = 0; min_psi = np.inf; ok = True
+    while len(lo) > 0 and depth < max_depth:
+        vlo, vhi = psi(lo), psi(hi)
+        m = np.minimum(vlo, vhi); min_psi = min(min_psi, float(m.min()))
+        need = m < L*(hi - lo)/2
+        n_checked += len(lo)
+        if np.any(m[need] < 0):
+            ok = False; log(f"  NEGATIVE psi' found at depth {depth}: min {m[need].min():.3e}"); break
+        bad_lo, bad_hi = lo[need], hi[need]
+        mid = (bad_lo + bad_hi)/2
+        lo = np.concatenate([bad_lo, mid]); hi = np.concatenate([mid, bad_hi])
+        depth += 1
+    if len(lo) > 0 and ok:
+        ok = False; log(f"  cells remaining at max depth: {len(lo)} (min psi' {min_psi:.3e})")
+    tail_sup = 4*S0/(hu*T_v**2)
+    tail_ok = 2*np.pi*eps*a_tail_min(T_v) - tail_sup > 0
+    log(f"  verify(mixed): L = {L:.3f}, cells {n_checked}, depth {depth}, min psi' {min_psi:.3e}, tail: 2 pi eps a({T_v}) = {2*np.pi*eps*a_tail_min(T_v):.4e} vs sup|sigmahat| <= {tail_sup:.4e} -> {'ok' if tail_ok else 'FAIL'}  [{time.time()-t0:.1f}s]")
+    return dict(ok=bool(ok and tail_ok), kappa_cert=float(2*eps - D - eta) if (ok and tail_ok) else None, eta=eta, c_rep=c_rep, L=float(L), S0=S0, S1=S1,
+                cells=n_checked, depth=depth, min_psi=float(min_psi), tail_sup=float(tail_sup), T_v=T_v, seconds=time.time() - t0)
