@@ -1,0 +1,63 @@
+Tue Sep 29 00:35:50 IST 2026
+== copy the 27 files listed in hashes.txt from ~/prove2me_workspace
+copied: 27
+== regenerate the layout from the CLEAN clone's comparator/ with the builder's two generators into a scratch dir, then cmp
+wrote Theorems/Thm_WeilContainment_identity_one.lean (from WeilContainmentOne.lean)
+wrote Theorems/Thm_WeilContainment_identity.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_cutoff.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_tilt_bounds.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_tilt_pos.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_tilt_inv.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_even.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_tsupport.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_tsupport_eq.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_continuous.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_exact.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_range_eq.lean (from WeilContainment.lean)
+wrote Theorems/Thm_WeilContainment_not_contDiff.lean (from WeilContainment.lean)
+theorem stubs written: 13
+gen_layout exit=0
+wrote Solutions/Sol_WeilContainment_identity_one.lean (helpers: tilt_even, tilt_of_nonneg, summand_eq, identity)
+wrote Solutions/Sol_WeilContainment_identity.lean (helpers: tilt_even, tilt_of_nonneg, summand_eq, identity)
+wrote Solutions/Sol_WeilContainment_cutoff.lean (helpers: none)
+wrote Solutions/Sol_WeilContainment_tilt_bounds.lean (helpers: none)
+wrote Solutions/Sol_WeilContainment_tilt_pos.lean (helpers: tilt_pos)
+wrote Solutions/Sol_WeilContainment_tilt_inv.lean (helpers: tilt_mul_tilt)
+wrote Solutions/Sol_WeilContainment_even.lean (helpers: tilt_even, weilTestOf_even)
+wrote Solutions/Sol_WeilContainment_tsupport.lean (helpers: tilt_pos, support_weilTestOf, tsupport_weilTestOf)
+wrote Solutions/Sol_WeilContainment_tsupport_eq.lean (helpers: tilt_pos, support_weilTestOf, tsupport_weilTestOf)
+wrote Solutions/Sol_WeilContainment_continuous.lean (helpers: none)
+wrote Solutions/Sol_WeilContainment_exact.lean (helpers: tilt_even, tilt_pos, tilt_of_nonneg, tilt_mul_tilt, summand_eq, identity, exact)
+wrote Solutions/Sol_WeilContainment_range_eq.lean (helpers: tilt_even, tilt_pos, tilt_of_nonneg, tilt_mul_tilt, summand_eq, identity, support_weilTestOf, tsupport_weilTestOf, weilTestOf_even, exact)
+wrote Solutions/Sol_WeilContainment_not_contDiff.lean (helpers: none)
+solution files written: 13
+gen_solutions exit=0
+SAME  Definitions/Def_WeilContainment.lean
+SAME  Solutions/Sol_WeilContainment_continuous.lean
+SAME  Solutions/Sol_WeilContainment_cutoff.lean
+SAME  Solutions/Sol_WeilContainment_even.lean
+SAME  Solutions/Sol_WeilContainment_exact.lean
+SAME  Solutions/Sol_WeilContainment_identity_one.lean
+SAME  Solutions/Sol_WeilContainment_identity.lean
+SAME  Solutions/Sol_WeilContainment_not_contDiff.lean
+SAME  Solutions/Sol_WeilContainment_range_eq.lean
+SAME  Solutions/Sol_WeilContainment_tilt_bounds.lean
+SAME  Solutions/Sol_WeilContainment_tilt_inv.lean
+SAME  Solutions/Sol_WeilContainment_tilt_pos.lean
+SAME  Solutions/Sol_WeilContainment_tsupport_eq.lean
+SAME  Solutions/Sol_WeilContainment_tsupport.lean
+SAME  Theorems/Thm_WeilContainment_continuous.lean
+SAME  Theorems/Thm_WeilContainment_cutoff.lean
+SAME  Theorems/Thm_WeilContainment_even.lean
+SAME  Theorems/Thm_WeilContainment_exact.lean
+SAME  Theorems/Thm_WeilContainment_identity_one.lean
+SAME  Theorems/Thm_WeilContainment_identity.lean
+SAME  Theorems/Thm_WeilContainment_not_contDiff.lean
+SAME  Theorems/Thm_WeilContainment_range_eq.lean
+SAME  Theorems/Thm_WeilContainment_tilt_bounds.lean
+SAME  Theorems/Thm_WeilContainment_tilt_inv.lean
+SAME  Theorems/Thm_WeilContainment_tilt_pos.lean
+SAME  Theorems/Thm_WeilContainment_tsupport_eq.lean
+SAME  Theorems/Thm_WeilContainment_tsupport.lean
+regenerated file count:       27
+Tue Sep 29 00:35:50 IST 2026

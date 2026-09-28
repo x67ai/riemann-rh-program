@@ -1,0 +1,29 @@
+-- CHECKER probe (D5, Session 30): the sentence "for g(0) ≠ 0 and a ≠ 1/2, k_{a,g} = weilTestOf a g is not even C¹ at 0"
+-- (PREDERIVATION-ERRATA E2, FIDELITY (N2), BUILD-NOTES §0) needs "g differentiable at 0": at a = 1 the even function
+-- g(u) = 2·exp(|u|/2) has g(0) = 2 ≠ 0, and weilTestOf 1 g is the constant 1 — C^∞.
+import ChallengeDeps.WeilContainment
+
+open WeilContainment
+
+example : (fun u : ℝ => ((2 : ℂ) * (Real.exp (|u| / 2) : ℂ))) 0 ≠ 0 := by
+  simp
+
+example : ∀ u : ℝ, (fun u : ℝ => ((2 : ℂ) * (Real.exp (|u| / 2) : ℂ))) (-u) = (fun u : ℝ => ((2 : ℂ) * (Real.exp (|u| / 2) : ℂ))) u := by
+  intro u; simp [abs_neg]
+
+theorem checker_E2_counterexample :
+    weilTestOf 1 (fun u : ℝ => ((2 : ℂ) * (Real.exp (|u| / 2) : ℂ))) = fun _ => (1 : ℂ) := by
+  funext u
+  simp only [weilTestOf, tilt]
+  have h : Real.exp (|u| / 2) * Real.exp (-(1 - 1 / 2) * |u|) = 1 := by
+    rw [← Real.exp_add]; ring_nf; simp
+  have h' : ((Real.exp (|u| / 2) : ℂ)) * (Real.exp (-(1 - 1 / 2) * |u|) : ℂ) = 1 := by
+    rw [← Complex.ofReal_mul, h, Complex.ofReal_one]
+  calc (1 / 2 : ℂ) * (2 * (Real.exp (|u| / 2) : ℂ)) * (Real.exp (-(1 - 1 / 2) * |u|) : ℂ)
+      = ((Real.exp (|u| / 2) : ℂ)) * (Real.exp (-(1 - 1 / 2) * |u|) : ℂ) := by ring
+    _ = 1 := h'
+
+example : ContDiff ℝ ⊤ (weilTestOf 1 (fun u : ℝ => ((2 : ℂ) * (Real.exp (|u| / 2) : ℂ)))) := by
+  rw [checker_E2_counterexample]; exact contDiff_const
+
+#print axioms checker_E2_counterexample

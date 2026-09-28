@@ -1,0 +1,31 @@
+continuous       challenge=67 stub=67 solution=67 chars: IDENTICAL
+cutoff           challenge=209 stub=209 solution=209 chars: IDENTICAL
+even             challenge=90 stub=90 solution=0 chars: DIFFER
+exact            challenge=177 stub=177 solution=0 chars: DIFFER
+identity         challenge=95 stub=95 solution=0 chars: DIFFER
+identity_one     challenge=85 stub=85 solution=0 chars: DIFFER
+not_contDiff     challenge=50 stub=50 solution=50 chars: IDENTICAL
+range_eq         challenge=206 stub=206 solution=206 chars: IDENTICAL
+tilt_bounds      challenge=107 stub=107 solution=107 chars: IDENTICAL
+tilt_inv         challenge=44 stub=44 solution=0 chars: DIFFER
+tilt_pos         challenge=27 stub=27 solution=0 chars: DIFFER
+tsupport         challenge=63 stub=63 solution=0 chars: DIFFER
+tsupport_eq      challenge=63 stub=63 solution=0 chars: DIFFER
+Def_WeilContainment body (from `import`) == ChallengeDeps body: True
+RESULT: FAIL
+
+== RERUN Tue Sep 29 00:38:15 IST 2026: the first pass required ':= by' after the statement; nine solutions are term-mode (':= fun …'), so its 'solution=0 … DIFFER' rows are a checker-regex artifact, superseded here (statement = text up to the first ':=')
+continuous       challenge=67 stub=67 solution=67 chars: IDENTICAL
+cutoff           challenge=209 stub=209 solution=209 chars: IDENTICAL
+even             challenge=90 stub=90 solution=90 chars: IDENTICAL
+exact            challenge=177 stub=177 solution=177 chars: IDENTICAL
+identity         challenge=95 stub=95 solution=95 chars: IDENTICAL
+identity_one     challenge=85 stub=85 solution=85 chars: IDENTICAL
+not_contDiff     challenge=50 stub=50 solution=50 chars: IDENTICAL
+range_eq         challenge=206 stub=206 solution=206 chars: IDENTICAL
+tilt_bounds      challenge=107 stub=107 solution=107 chars: IDENTICAL
+tilt_inv         challenge=44 stub=44 solution=44 chars: IDENTICAL
+tilt_pos         challenge=27 stub=27 solution=27 chars: IDENTICAL
+tsupport         challenge=63 stub=63 solution=63 chars: IDENTICAL
+tsupport_eq      challenge=63 stub=63 solution=63 chars: IDENTICAL
+RESULT: PASS
