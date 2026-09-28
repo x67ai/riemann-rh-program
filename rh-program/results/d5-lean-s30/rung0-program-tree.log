@@ -46,3 +46,48 @@ Build completed successfully (8699 jobs).
            354476472  peak memory footprint
 --- exit: 0 ---
 === end 2026-09-28 23:58:22 IST ===
+
+=== rung 0, program tree, SECOND section — after the 12th statement weilContainment_not_contDiff was added to the family challenge: start 2026-09-29 00:11:33 IST ===
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+cmp identical: comparator/ChallengeDeps/WeilContainment.lean
+cmp identical: comparator/Challenge/WeilContainment.lean
+cmp identical: comparator/Challenge/WeilContainmentOne.lean
+cmp identical: comparator/Solution/WeilContainment.lean
+--- lake build Challenge.WeilContainment Solution.WeilContainment ---
+⚠ [8698/8699] Built Challenge.WeilContainment (4.8s)
+warning: comparator/Challenge/WeilContainment.lean:54:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:60:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:67:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:73:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:77:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:81:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:86:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:91:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:96:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:102:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:109:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:117:8: declaration uses `sorry`
+✔ [8699/8699] Built Solution.WeilContainment (4.8s)
+Build completed successfully (8699 jobs).
+        7.46 real         6.22 user         7.42 sys
+          5884952576  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              948366  page reclaims
+               14399  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               74393  voluntary context switches
+              157190  involuntary context switches
+         63433946685  instructions retired
+         23123297048  cycles elapsed
+           351101392  peak memory footprint
+--- exit: 0 ---
+=== end 2026-09-29 00:11:40 IST ===

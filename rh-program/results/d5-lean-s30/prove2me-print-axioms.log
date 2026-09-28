@@ -1,0 +1,71 @@
+=== Prove2Me mirror: #print axioms solution per Sol_ file, and the three platform rules: Tue Sep 29 00:08:17 IST 2026 ===
+toolchain=leanprover/lean4:v4.33.1; mathlib=0df444a360eaa60ab8c11dca51a86af692955474
+Solutions.Sol_WeilContainment_continuous: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_cutoff: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_even: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_exact: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_identity_one: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_identity: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_range_eq: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_bounds: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_inv: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tilt_pos: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tsupport_eq: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Solutions.Sol_WeilContainment_tsupport: 'solution' depends on axioms: [propext, Classical.choice, Quot.sound] 
+--- rule 1: top-level 'theorem solution' in every Sol_ file, no namespace ---
+Solutions/Sol_WeilContainment_exact.lean:1
+Solutions/Sol_WeilContainment_continuous.lean:1
+Solutions/Sol_WeilContainment_even.lean:1
+Solutions/Sol_WeilContainment_cutoff.lean:1
+Solutions/Sol_WeilContainment_identity_one.lean:1
+Solutions/Sol_WeilContainment_tilt_bounds.lean:1
+Solutions/Sol_WeilContainment_identity.lean:1
+Solutions/Sol_WeilContainment_range_eq.lean:1
+Solutions/Sol_WeilContainment_tilt_inv.lean:1
+Solutions/Sol_WeilContainment_tilt_pos.lean:1
+Solutions/Sol_WeilContainment_tsupport.lean:1
+Solutions/Sol_WeilContainment_tsupport_eq.lean:1
+no namespace command in any Sol_ file
+--- rule 2: no Sol_ file imports any Theorems.Thm_ stub ---
+only Definitions.Def_WeilContainment and Mathlib are imported
+--- rule 3: no sorry in any Sol_ file (raw grep) ---
+Solutions/Sol_WeilContainment_continuous.lean:0
+Solutions/Sol_WeilContainment_cutoff.lean:0
+Solutions/Sol_WeilContainment_even.lean:0
+Solutions/Sol_WeilContainment_exact.lean:0
+Solutions/Sol_WeilContainment_identity_one.lean:0
+Solutions/Sol_WeilContainment_identity.lean:0
+Solutions/Sol_WeilContainment_range_eq.lean:0
+Solutions/Sol_WeilContainment_tilt_pos.lean:0
+Solutions/Sol_WeilContainment_tilt_inv.lean:0
+Solutions/Sol_WeilContainment_tilt_bounds.lean:0
+Solutions/Sol_WeilContainment_tsupport_eq.lean:0
+Solutions/Sol_WeilContainment_tsupport.lean:0
+--- statement identity Thm_ (stub, name WeilContainment.<suffix>) vs Sol_ (theorem solution): text between the name and ':= ' ---
+continuous     stub   72 bytes, solution   72 bytes: IDENTICAL
+cutoff         stub  228 bytes, solution  228 bytes: IDENTICAL
+even           stub   95 bytes, solution   95 bytes: IDENTICAL
+exact          stub  188 bytes, solution  188 bytes: IDENTICAL
+identity       stub  106 bytes, solution  106 bytes: IDENTICAL
+identity_one   stub   90 bytes, solution   90 bytes: IDENTICAL
+range_eq       stub  223 bytes, solution  223 bytes: IDENTICAL
+tilt_bounds    stub  118 bytes, solution  118 bytes: IDENTICAL
+tilt_inv       stub   45 bytes, solution   45 bytes: IDENTICAL
+tilt_pos       stub   28 bytes, solution   28 bytes: IDENTICAL
+tsupport       stub   68 bytes, solution   68 bytes: IDENTICAL
+tsupport_eq    stub   68 bytes, solution   68 bytes: IDENTICAL
+RESULT: PASS
+--- statement identity: Thm_ stub statements vs the comparator challenge statements (rh-program/lean) ---
+continuous     stub vs challenge: IDENTICAL
+cutoff         stub vs challenge: IDENTICAL
+even           stub vs challenge: IDENTICAL
+exact          stub vs challenge: IDENTICAL
+identity       stub vs challenge: IDENTICAL
+identity_one   stub vs challenge: IDENTICAL
+range_eq       stub vs challenge: IDENTICAL
+tilt_bounds    stub vs challenge: IDENTICAL
+tilt_inv       stub vs challenge: IDENTICAL
+tilt_pos       stub vs challenge: IDENTICAL
+tsupport       stub vs challenge: IDENTICAL
+tsupport_eq    stub vs challenge: IDENTICAL
+RESULT: PASS

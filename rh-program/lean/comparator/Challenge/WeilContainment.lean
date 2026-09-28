@@ -34,7 +34,9 @@ NO displayed hypothesis anywhere: every statement is concrete, and (T1) holds wi
 term-by-term identity of `tsum`s; with a band-limited test both sums are finite).  What is NOT claimed: nothing about the ZERO
 side of any explicit formula at any level (the record's fatal 1, the in-window "cosh ghost", is untouched); nothing about the
 Zeta23 test class — k_{a,g} is in general not C¹ at u = 0 when a ≠ 1/2 and g(0) ≠ 0, so no statement here feeds k_{a,g} into
-`EF_lit`; nothing about nonlinear functions of the band (the μ-band, IV.4); nothing about ζ or RH.  The classical data class
+`EF_lit` (the witness `weilContainment_not_contDiff`: at a = 1 and g ≡ 1 the test k_{1,1}(u) = (1/2)e^{−|u|/2} is NOT C², so the
+C² class is not preserved by the tilt — the one NEGATIVE statement of the topic, stated so that the ledger's "not covered" is a
+theorem and not a remark); nothing about nonlinear functions of the band (the μ-band, IV.4); nothing about ζ or RH.  The classical data class
 here is "even, band-limited" with no regularity; the refinement into the C² class (by finite interpolation at the points ±log n)
 is not formalized.
 
@@ -108,4 +110,9 @@ theorem weilContainment_range_eq :
     ∀ (a L : ℝ),
       {x : ℂ | ∃ g : ℝ → ℂ, (∀ u, g (-u) = g u) ∧ tsupport g ⊆ Set.Icc (-L) L ∧ x = tiltedPrimeSide a g} =
       {x : ℂ | ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ tsupport k ⊆ Set.Icc (-L) L ∧ x = primeSide k} := by
+  sorry
+
+/-- **The C² class is not preserved** (witness): at a = 1 and g ≡ 1 the test k_{1,1}(u) = (1/2)·e^{−|u|/2} is not C² (it is not
+even differentiable at u = 0). -/
+theorem weilContainment_not_contDiff : ¬ ContDiff ℝ 2 (weilTestOf 1 (fun _ => (1 : ℂ))) := by
   sorry

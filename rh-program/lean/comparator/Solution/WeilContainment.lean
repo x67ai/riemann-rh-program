@@ -11,10 +11,11 @@ no code from that library and does not import it: it imports Mathlib only
 -/
 /-
 comparator/Solution/WeilContainment.lean — the UNTRUSTED comparator solution module for the topic `WeilContainment` (the D5
-unit, barrier-zoo IV.1): the eleven statements of Challenge/WeilContainment.lean, byte-identical, PROVED over Mathlib alone.
+unit, barrier-zoo IV.1): the twelve statements of Challenge/WeilContainment.lean, byte-identical, PROVED over Mathlib alone.
 No Zeta23 import is needed and none is used: every object is defined in the trusted ChallengeDeps.WeilContainment from
 Mathlib, and every proof is elementary (rpow algebra for (T1), monotonicity of exp for (T2), support and continuity lemmas
-and `exp_add` for (T3), `tsum_eq_sum` for the cutoff, and the two containments assembled into the set equality).  The helper
+and `exp_add` for (T3), `tsum_eq_sum` for the cutoff, the two containments assembled into the set equality, and
+`not_differentiableAt_abs_zero` for the negative witness).  The helper
 lemmas live in the namespace `WeilContainment.Proof`; the rung-1 module Solution/WeilContainmentOne.lean carries its own copy
 of the (T1) computation so that each topic is self-contained.  This module never imports the challenge.  Nothing in this file
 is part of the trusted base: comparator re-checks that each theorem below has exactly the statement of its Challenge namesake
@@ -139,7 +140,7 @@ theorem weilContainment_tilt_bounds :
       Real.exp (-(|a - 1 / 2| * L)) ≤ tilt a u ∧ tilt a u ≤ Real.exp (|a - 1 / 2| * L) := by
   intro a L u hu
   unfold tilt
-  have h0 : |-(a - 1 / 2) * |u|| ≤ |a - 1 / 2| * L := by
+  have h0 : abs (-(a - 1 / 2) * |u|) ≤ |a - 1 / 2| * L := by
     rw [abs_mul, abs_neg, abs_abs]
     exact mul_le_mul_of_nonneg_left hu (abs_nonneg _)
   rw [abs_le] at h0
@@ -190,10 +191,43 @@ theorem weilContainment_range_eq :
       {x : ℂ | ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ tsupport k ⊆ Set.Icc (-L) L ∧ x = primeSide k} := by
   intro a L
   ext x
-  simp only [Set.mem_setOf_eq]
   constructor
   · rintro ⟨g, hg, hgs, rfl⟩
     exact ⟨weilTestOf a g, weilTestOf_even a g hg, (tsupport_weilTestOf a g).le.trans hgs, identity a g hg⟩
   · rintro ⟨k, hk, hks, rfl⟩
     obtain ⟨g, hg, hgs, hgk⟩ := exact a L k hk hks
     exact ⟨g, hg, hgs, hgk⟩
+
+/-- **The C² class is not preserved** (witness): at a = 1 and g ≡ 1 the test k_{1,1}(u) = (1/2)·e^{−|u|/2} is not C² (it is not
+even differentiable at u = 0). -/
+theorem weilContainment_not_contDiff : ¬ ContDiff ℝ 2 (weilTestOf 1 (fun _ => (1 : ℂ))) := by
+  intro h
+  have hfun : weilTestOf 1 (fun _ => (1 : ℂ)) =
+      fun u => ((1 / 2 * Real.exp (-(1 / 2) * |u|) : ℝ) : ℂ) := by
+    funext u
+    simp only [weilTestOf, tilt]
+    push_cast
+    ring_nf
+  have hd : DifferentiableAt ℝ (weilTestOf 1 (fun _ => (1 : ℂ))) 0 :=
+    (h.differentiable (by norm_num)).differentiableAt
+  have hre : DifferentiableAt ℝ (Complex.reCLM ∘ weilTestOf 1 (fun _ => (1 : ℂ))) 0 :=
+    Complex.reCLM.differentiableAt.comp 0 hd
+  have hre' : DifferentiableAt ℝ (fun u : ℝ => 1 / 2 * Real.exp (-(1 / 2) * |u|)) 0 := by
+    have : (Complex.reCLM ∘ weilTestOf 1 (fun _ => (1 : ℂ))) =
+        fun u : ℝ => 1 / 2 * Real.exp (-(1 / 2) * |u|) := by
+      rw [hfun]; funext u; simp only [Function.comp, Complex.reCLM_apply, Complex.ofReal_re]
+    rwa [this] at hre
+  have hlog : DifferentiableAt ℝ
+      (fun u : ℝ => -2 * Real.log (2 * (1 / 2 * Real.exp (-(1 / 2) * |u|)))) 0 := by
+    apply DifferentiableAt.const_mul
+    apply DifferentiableAt.log
+    · exact hre'.const_mul 2
+    · have := Real.exp_pos (-(1 / 2) * |(0 : ℝ)|)
+      positivity
+  have habs : (fun u : ℝ => -2 * Real.log (2 * (1 / 2 * Real.exp (-(1 / 2) * |u|)))) =
+      fun u : ℝ => |u| := by
+    funext u
+    rw [show 2 * (1 / 2 * Real.exp (-(1 / 2) * |u|)) = Real.exp (-(1 / 2) * |u|) by ring, Real.log_exp]
+    ring
+  rw [habs] at hlog
+  exact not_differentiableAt_abs_zero hlog

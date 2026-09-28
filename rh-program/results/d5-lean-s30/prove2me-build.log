@@ -1,0 +1,41 @@
+=== Prove2Me-layout mirror, the solutions: start 2026-09-29 00:07:17 IST ===
+cwd=/Users/jaytyagi/prove2me_workspace
+toolchain=leanprover/lean4:v4.33.1
+lean=Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib=0df444a360eaa60ab8c11dca51a86af692955474
+generator: results/d5-lean-s30/tools/gen_prove2me_solutions.py
+modules: Solutions.Sol_WeilContainment_continuous Solutions.Sol_WeilContainment_cutoff Solutions.Sol_WeilContainment_even Solutions.Sol_WeilContainment_exact Solutions.Sol_WeilContainment_identity_one Solutions.Sol_WeilContainment_identity Solutions.Sol_WeilContainment_range_eq Solutions.Sol_WeilContainment_tilt_bounds Solutions.Sol_WeilContainment_tilt_inv Solutions.Sol_WeilContainment_tilt_pos Solutions.Sol_WeilContainment_tsupport_eq Solutions.Sol_WeilContainment_tsupport
+--- lake build (the 12 Sol_ modules by name; 'lake build Solutions' has no root module) ---
+✔ [8707/8718] Built Solutions.Sol_WeilContainment_even (28s)
+✔ [8708/8718] Built Solutions.Sol_WeilContainment_tilt_bounds (28s)
+✔ [8709/8718] Built Solutions.Sol_WeilContainment_tilt_inv (28s)
+✔ [8710/8718] Built Solutions.Sol_WeilContainment_tilt_pos (28s)
+✔ [8711/8718] Built Solutions.Sol_WeilContainment_tsupport_eq (28s)
+✔ [8712/8718] Built Solutions.Sol_WeilContainment_tsupport (28s)
+✔ [8713/8718] Built Solutions.Sol_WeilContainment_exact (28s)
+✔ [8714/8718] Built Solutions.Sol_WeilContainment_identity_one (28s)
+✔ [8715/8718] Built Solutions.Sol_WeilContainment_identity (28s)
+✔ [8716/8718] Built Solutions.Sol_WeilContainment_range_eq (28s)
+✔ [8717/8718] Built Solutions.Sol_WeilContainment_continuous (3.4s)
+✔ [8718/8718] Built Solutions.Sol_WeilContainment_cutoff (3.4s)
+Build completed successfully (8718 jobs).
+       35.41 real        34.02 user        52.53 sys
+          5876334592  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5108958  page reclaims
+              248397  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              128541  voluntary context switches
+             3997103  involuntary context switches
+         76235163051  instructions retired
+         30058144858  cycles elapsed
+           679896056  peak memory footprint
+--- exit: 0 ---
+=== end 2026-09-29 00:07:53 IST ===

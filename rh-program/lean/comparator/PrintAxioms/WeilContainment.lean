@@ -28,3 +28,4 @@ import Solution.WeilContainment
 #print axioms weilContainment_continuous
 #print axioms weilContainment_exact
 #print axioms weilContainment_range_eq
+#print axioms weilContainment_not_contDiff

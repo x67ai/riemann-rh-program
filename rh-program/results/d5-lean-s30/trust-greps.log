@@ -1,0 +1,102 @@
+=== trust greps (tools/trust_greps_d5.py = verify-iii/trust_greps_m4iii.py, byte copy; nine words axiom/native_decide/unsafe/implemented_by/extern/opaque/sorry/admit/ofReduceBool, comments stripped): Tue Sep 29 00:05:27 IST 2026 ===
+(the 00:05 run passed the seven file names as ONE word and saw no file; superseded by this run)
+--- tree /Users/jaytyagi/rh-lean-work/checker-clone-s21 ---
+comparator/Challenge/WeilContainment.lean:55: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:62: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:68: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:72: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:76: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:81: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:86: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:91: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:96: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:103: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:111: [sorry] sorry
+comparator/Challenge/WeilContainmentOne.lean:38: [sorry] sorry
+files present: 7; hits outside comments: 12
+exit: 1
+--- mirror rh-program/lean ---
+comparator/Challenge/WeilContainment.lean:55: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:62: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:68: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:72: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:76: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:81: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:86: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:91: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:96: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:103: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:111: [sorry] sorry
+comparator/Challenge/WeilContainmentOne.lean:38: [sorry] sorry
+files present: 7; hits outside comments: 12
+exit: 1
+--- raw grep (comments included) of every import line in the topic files ---
+comparator/Challenge/WeilContainment.lean:44:import ChallengeDeps.WeilContainment
+comparator/Challenge/WeilContainmentOne.lean:29:import ChallengeDeps.WeilContainment
+comparator/ChallengeDeps/WeilContainment.lean:39:import Mathlib
+comparator/Solution/WeilContainment.lean:23:import ChallengeDeps.WeilContainment
+comparator/PrintAxioms/WeilContainment.lean:18:import Solution.WeilContainment
+comparator/Solution/WeilContainmentOne.lean:21:import ChallengeDeps.WeilContainment
+comparator/PrintAxioms/WeilContainmentOne.lean:18:import Solution.WeilContainmentOne
+--- cmp tree vs mirror ---
+identical: comparator/ChallengeDeps/WeilContainment.lean
+identical: comparator/Challenge/WeilContainment.lean
+identical: comparator/Challenge/WeilContainmentOne.lean
+identical: comparator/Solution/WeilContainment.lean
+identical: comparator/Solution/WeilContainmentOne.lean
+identical: comparator/PrintAxioms/WeilContainment.lean
+identical: comparator/PrintAxioms/WeilContainmentOne.lean
+identical: comparator/config-weil-containment.json
+identical: comparator/config-weil-containment-one.json
+
+=== trust greps, SECOND section (12 family statements): Tue Sep 29 00:12:05 IST 2026 ===
+--- tree ---
+comparator/Challenge/WeilContainment.lean:57: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:64: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:70: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:74: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:78: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:83: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:88: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:93: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:98: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:105: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:113: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:118: [sorry] sorry
+comparator/Challenge/WeilContainmentOne.lean:38: [sorry] sorry
+files present: 7; hits outside comments: 13
+exit: 1
+--- mirror ---
+comparator/Challenge/WeilContainment.lean:57: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:64: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:70: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:74: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:78: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:83: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:88: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:93: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:98: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:105: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:113: [sorry] sorry
+comparator/Challenge/WeilContainment.lean:118: [sorry] sorry
+comparator/Challenge/WeilContainmentOne.lean:38: [sorry] sorry
+files present: 7; hits outside comments: 13
+exit: 1
+--- imports ---
+comparator/ChallengeDeps/WeilContainment.lean:39:import Mathlib
+comparator/Challenge/WeilContainment.lean:46:import ChallengeDeps.WeilContainment
+comparator/Challenge/WeilContainmentOne.lean:29:import ChallengeDeps.WeilContainment
+comparator/Solution/WeilContainmentOne.lean:21:import ChallengeDeps.WeilContainment
+comparator/Solution/WeilContainment.lean:24:import ChallengeDeps.WeilContainment
+comparator/PrintAxioms/WeilContainment.lean:18:import Solution.WeilContainment
+comparator/PrintAxioms/WeilContainmentOne.lean:18:import Solution.WeilContainmentOne
+--- cmp tree vs mirror ---
+identical: comparator/ChallengeDeps/WeilContainment.lean
+identical: comparator/Challenge/WeilContainment.lean
+identical: comparator/Challenge/WeilContainmentOne.lean
+identical: comparator/Solution/WeilContainment.lean
+identical: comparator/Solution/WeilContainmentOne.lean
+identical: comparator/PrintAxioms/WeilContainment.lean
+identical: comparator/PrintAxioms/WeilContainmentOne.lean
+identical: comparator/config-weil-containment.json
+identical: comparator/config-weil-containment-one.json
