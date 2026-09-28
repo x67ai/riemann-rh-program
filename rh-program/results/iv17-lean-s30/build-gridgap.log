@@ -1,0 +1,20 @@
+=== Tue Sep 29 00:53:21 IST 2026 lake build Zeta23.PairCeiling.GridGap (clone /Users/jaytyagi/rh-lean-work/checker-clone-s21; leanprover/lean4:v4.33.0-rc2; mathlib 51e6992efd)
+✖ [2082/2082] Building Zeta23.PairCeiling.GridGap (1.2s)
+trace: .> LEAN_PATH=/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/Cli/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/batteries/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/Qq/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/aesop/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/importGraph/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/plausible/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/packages/mathlib/.lake/build/lib/lean:/Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/build/lib/lean /Users/jaytyagi/.elan/toolchains/leanprover--lean4---v4.33.0-rc2/bin/lean /Users/jaytyagi/rh-lean-work/checker-clone-s21/Zeta23/PairCeiling/GridGap.lean -o /Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/build/lib/lean/Zeta23/PairCeiling/GridGap.olean -i /Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/build/lib/lean/Zeta23/PairCeiling/GridGap.ilean -c /Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/build/ir/Zeta23/PairCeiling/GridGap.c --setup /Users/jaytyagi/rh-lean-work/checker-clone-s21/.lake/build/ir/Zeta23/PairCeiling/GridGap.setup.json --json
+error: Zeta23/PairCeiling/GridGap.lean:63:9: Unknown identifier `le_or_lt`
+error: Zeta23/PairCeiling/GridGap.lean:63:27: Tactic `rcases` failed: `x✝ : ?m.22` is not an inductive datatype
+error: Zeta23/PairCeiling/GridGap.lean:79:9: Unknown identifier `le_or_lt`
+error: Zeta23/PairCeiling/GridGap.lean:79:27: Tactic `rcases` failed: `x✝ : ?m.15` is not an inductive datatype
+error: Lean exited with code 1
+Some required targets logged failures:
+- Zeta23.PairCeiling.GridGap
+error: build failed
+        2.25 real         1.46 user         1.57 sys
+          2257027072  maximum resident set size
+=== end Tue Sep 29 00:53:24 IST 2026
+=== Tue Sep 29 00:53:37 IST 2026 lake build Zeta23.PairCeiling.GridGap, second try (le_or_lt -> omega case split) (clone /Users/jaytyagi/rh-lean-work/checker-clone-s21; leanprover/lean4:v4.33.0-rc2; mathlib 51e6992efd)
+✔ [2082/2082] Built Zeta23.PairCeiling.GridGap (1.3s)
+Build completed successfully (2082 jobs).
+        2.35 real         1.61 user         1.63 sys
+          2298527744  maximum resident set size
+=== end Tue Sep 29 00:53:40 IST 2026

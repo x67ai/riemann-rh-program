@@ -1,0 +1,28 @@
+{
+  "challenge_module": "Challenge.IntegralityGap",
+  "solution_module": "Solution.IntegralityGap",
+  "theorem_names": [
+    "trace_sq_grid_rat",
+    "gridRowQ_eq",
+    "gridRow_eq",
+    "gridRow_eq_gridRowQ",
+    "fracMark_mass",
+    "fracMark_sq",
+    "fracMark_Nd",
+    "fracMark_row",
+    "mi_fails_rational",
+    "corner_fails_rational",
+    "corner_bound_fails_rational",
+    "mi_holds_integer",
+    "per_atom_slack",
+    "per_atom_slack_fails_rational",
+    "per_atom_floor",
+    "per_atom_floor_fails_rational"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

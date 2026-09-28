@@ -1,0 +1,136 @@
+=== Tue Sep 29 00:57:26 IST 2026 statement identity, root = clone /Users/jaytyagi/rh-lean-work/checker-clone-s21
+trace_sq_grid_rat gridRowQ_eq gridRow_eq gridRow_eq_gridRowQ fracMark_mass fracMark_sq fracMark_Nd fracMark_row mi_fails_rational corner_fails_rational corner_bound_fails_rational mi_holds_integer per_atom_slack per_atom_slack_fails_rational per_atom_floor per_atom_floor_fails_rational challenge  none bytes, solution  none bytes: DIFFER
+RESULT: FAIL
+--- exit 1
+=== Tue Sep 29 00:57:26 IST 2026 statement identity, root = program tree rh-program/lean
+trace_sq_grid_rat gridRowQ_eq gridRow_eq gridRow_eq_gridRowQ fracMark_mass fracMark_sq fracMark_Nd fracMark_row mi_fails_rational corner_fails_rational corner_bound_fails_rational mi_holds_integer per_atom_slack per_atom_slack_fails_rational per_atom_floor per_atom_floor_fails_rational challenge  none bytes, solution  none bytes: DIFFER
+RESULT: FAIL
+--- exit 1
+=== end Tue Sep 29 00:57:26 IST 2026
+
+##### SECOND RUN Tue Sep 29 00:57:49 IST 2026: the section above is a zsh word-splitting slip (the names were passed as ONE argument); superseded by this bash run
+=== Tue Sep 29 00:57:49 IST 2026 statement identity, root = clone /Users/jaytyagi/rh-lean-work/checker-clone-s21
+trace_sq_grid_rat                             challenge   387 bytes, solution   387 bytes: IDENTICAL
+    theorem trace_sq_grid_rat :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℚ),
+          ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ),
+              (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) *
+                Complex.normSq (dftMarkQ (zetaM (2 * n + 1)) m
+                  ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1))))
+            = ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+gridRowQ_eq                                   challenge   130 bytes, solution   130 bytes: IDENTICAL
+    theorem gridRowQ_eq :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℚ),
+          gridRowQ n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℚ) : ℝ)
+gridRow_eq                                    challenge   128 bytes, solution   128 bytes: IDENTICAL
+    theorem gridRow_eq :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℤ),
+          gridRow n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℤ) : ℝ)
+gridRow_eq_gridRowQ                           challenge   123 bytes, solution   123 bytes: IDENTICAL
+    theorem gridRow_eq_gridRowQ :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℤ),
+          gridRow n m = gridRowQ n (fun k => (m k : ℚ))
+fracMark_mass                                 challenge    54 bytes, solution    54 bytes: IDENTICAL
+    theorem fracMark_mass : ∑ k : ZMod 65, fracMark k = 64
+fracMark_sq                                   challenge    63 bytes, solution    63 bytes: IDENTICAL
+    theorem fracMark_sq : ∑ k : ZMod 65, (fracMark k) ^ 2 = 256 / 3
+fracMark_Nd                                   challenge    92 bytes, solution    92 bytes: IDENTICAL
+    theorem fracMark_Nd :
+        (Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card = 48
+fracMark_row                                  challenge    66 bytes, solution    66 bytes: IDENTICAL
+    theorem fracMark_row : gridRowQ 32 fracMark = 4 / 3 * 64 * (1 + 0)
+mi_fails_rational                             challenge   206 bytes, solution   206 bytes: IDENTICAL
+    theorem mi_fails_rational :
+        ¬ ∀ (m : ZMod 65 → ℚ), (∀ k, 0 ≤ m k) →
+          3 * (∑ k : ZMod 65, m k) - (∑ k : ZMod 65, (m k) ^ 2)
+            ≤ 2 * ((Finset.univ.filter (fun k : ZMod 65 => m k ≠ 0)).card : ℚ)
+corner_fails_rational                         challenge   245 bytes, solution   245 bytes: IDENTICAL
+    theorem corner_fails_rational :
+        (∀ k, 0 ≤ fracMark k) ∧
+        ∑ k : ZMod 65, fracMark k = 64 ∧
+        gridRowQ 32 fracMark ≤ 4 / 3 * 64 * (1 + 0) ∧
+        ((Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card : ℝ) < 64 * (5 / 6 - 2 / 3 * 0)
+corner_bound_fails_rational                   challenge   260 bytes, solution   260 bytes: IDENTICAL
+    theorem corner_bound_fails_rational :
+        ¬ ∀ (m : ZMod 65 → ℚ), (∀ k, 0 ≤ m k) → ∑ k : ZMod 65, m k = 64 →
+          gridRowQ 32 m ≤ 4 / 3 * 64 * (1 + 0) →
+          (64 : ℝ) * (5 / 6 - 2 / 3 * 0)
+            ≤ ((Finset.univ.filter (fun k : ZMod 65 => m k ≠ 0)).card : ℝ)
+mi_holds_integer                              challenge   218 bytes, solution   218 bytes: IDENTICAL
+    theorem mi_holds_integer :
+        ∀ (M : ℕ) [NeZero M] (m : ZMod M → ℤ), (∀ k, 0 ≤ m k) →
+          3 * (∑ k : ZMod M, m k) - (∑ k : ZMod M, (m k) ^ 2)
+            ≤ 2 * ((Finset.univ.filter (fun k : ZMod M => m k ≠ 0)).card : ℤ)
+per_atom_slack                                challenge    55 bytes, solution    55 bytes: IDENTICAL
+    theorem per_atom_slack : ∀ m : ℤ, 0 ≤ (m - 1) * (m - 2)
+per_atom_slack_fails_rational                 challenge    80 bytes, solution    80 bytes: IDENTICAL
+    theorem per_atom_slack_fails_rational : ¬ ∀ q : ℚ, 0 ≤ q → 0 ≤ (q - 1) * (q - 2)
+per_atom_floor                                challenge    43 bytes, solution    43 bytes: IDENTICAL
+    theorem per_atom_floor : ∀ m : ℤ, m ≤ m ^ 2
+per_atom_floor_fails_rational                 challenge    68 bytes, solution    68 bytes: IDENTICAL
+    theorem per_atom_floor_fails_rational : ¬ ∀ q : ℚ, 0 ≤ q → q ≤ q ^ 2
+RESULT: PASS
+--- exit 0
+=== Tue Sep 29 00:57:49 IST 2026 statement identity, root = program tree rh-program/lean
+trace_sq_grid_rat                             challenge   387 bytes, solution   387 bytes: IDENTICAL
+    theorem trace_sq_grid_rat :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℚ),
+          ∑ j1 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ), ∑ j2 ∈ Finset.Icc (-(n : ℤ)) (n : ℤ),
+              (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1)) *
+                Complex.normSq (dftMarkQ (zetaM (2 * n + 1)) m
+                  ((j1 : ZMod (2 * n + 1)) + (j2 : ZMod (2 * n + 1))))
+            = ∑ k : ZMod (2 * n + 1), (m k : ℝ) ^ 2
+gridRowQ_eq                                   challenge   130 bytes, solution   130 bytes: IDENTICAL
+    theorem gridRowQ_eq :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℚ),
+          gridRowQ n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℚ) : ℝ)
+gridRow_eq                                    challenge   128 bytes, solution   128 bytes: IDENTICAL
+    theorem gridRow_eq :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℤ),
+          gridRow n m = ((∑ k : ZMod (2 * n + 1), (m k) ^ 2 : ℤ) : ℝ)
+gridRow_eq_gridRowQ                           challenge   123 bytes, solution   123 bytes: IDENTICAL
+    theorem gridRow_eq_gridRowQ :
+        ∀ (n : ℕ) (m : ZMod (2 * n + 1) → ℤ),
+          gridRow n m = gridRowQ n (fun k => (m k : ℚ))
+fracMark_mass                                 challenge    54 bytes, solution    54 bytes: IDENTICAL
+    theorem fracMark_mass : ∑ k : ZMod 65, fracMark k = 64
+fracMark_sq                                   challenge    63 bytes, solution    63 bytes: IDENTICAL
+    theorem fracMark_sq : ∑ k : ZMod 65, (fracMark k) ^ 2 = 256 / 3
+fracMark_Nd                                   challenge    92 bytes, solution    92 bytes: IDENTICAL
+    theorem fracMark_Nd :
+        (Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card = 48
+fracMark_row                                  challenge    66 bytes, solution    66 bytes: IDENTICAL
+    theorem fracMark_row : gridRowQ 32 fracMark = 4 / 3 * 64 * (1 + 0)
+mi_fails_rational                             challenge   206 bytes, solution   206 bytes: IDENTICAL
+    theorem mi_fails_rational :
+        ¬ ∀ (m : ZMod 65 → ℚ), (∀ k, 0 ≤ m k) →
+          3 * (∑ k : ZMod 65, m k) - (∑ k : ZMod 65, (m k) ^ 2)
+            ≤ 2 * ((Finset.univ.filter (fun k : ZMod 65 => m k ≠ 0)).card : ℚ)
+corner_fails_rational                         challenge   245 bytes, solution   245 bytes: IDENTICAL
+    theorem corner_fails_rational :
+        (∀ k, 0 ≤ fracMark k) ∧
+        ∑ k : ZMod 65, fracMark k = 64 ∧
+        gridRowQ 32 fracMark ≤ 4 / 3 * 64 * (1 + 0) ∧
+        ((Finset.univ.filter (fun k : ZMod 65 => fracMark k ≠ 0)).card : ℝ) < 64 * (5 / 6 - 2 / 3 * 0)
+corner_bound_fails_rational                   challenge   260 bytes, solution   260 bytes: IDENTICAL
+    theorem corner_bound_fails_rational :
+        ¬ ∀ (m : ZMod 65 → ℚ), (∀ k, 0 ≤ m k) → ∑ k : ZMod 65, m k = 64 →
+          gridRowQ 32 m ≤ 4 / 3 * 64 * (1 + 0) →
+          (64 : ℝ) * (5 / 6 - 2 / 3 * 0)
+            ≤ ((Finset.univ.filter (fun k : ZMod 65 => m k ≠ 0)).card : ℝ)
+mi_holds_integer                              challenge   218 bytes, solution   218 bytes: IDENTICAL
+    theorem mi_holds_integer :
+        ∀ (M : ℕ) [NeZero M] (m : ZMod M → ℤ), (∀ k, 0 ≤ m k) →
+          3 * (∑ k : ZMod M, m k) - (∑ k : ZMod M, (m k) ^ 2)
+            ≤ 2 * ((Finset.univ.filter (fun k : ZMod M => m k ≠ 0)).card : ℤ)
+per_atom_slack                                challenge    55 bytes, solution    55 bytes: IDENTICAL
+    theorem per_atom_slack : ∀ m : ℤ, 0 ≤ (m - 1) * (m - 2)
+per_atom_slack_fails_rational                 challenge    80 bytes, solution    80 bytes: IDENTICAL
+    theorem per_atom_slack_fails_rational : ¬ ∀ q : ℚ, 0 ≤ q → 0 ≤ (q - 1) * (q - 2)
+per_atom_floor                                challenge    43 bytes, solution    43 bytes: IDENTICAL
+    theorem per_atom_floor : ∀ m : ℤ, m ≤ m ^ 2
+per_atom_floor_fails_rational                 challenge    68 bytes, solution    68 bytes: IDENTICAL
+    theorem per_atom_floor_fails_rational : ¬ ∀ q : ℚ, 0 ≤ q → q ≤ q ^ 2
+RESULT: PASS
+--- exit 0
+=== end Tue Sep 29 00:57:49 IST 2026

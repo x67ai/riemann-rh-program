@@ -133,3 +133,29 @@ lake env lean axioms.lean
 A cold build without the Mathlib cache takes hours; with `lake exe cache get` it is a download plus
 this development's own compilation, and against an already built `.lake` tree steps 3 and 4 are a
 no-op plus the axiom check.
+
+## Addendum (dated 2026-09-29, Session 30, G8 — never an edit of the 2026-08-27 record above): the integrality level over ℚ
+
+Two further modules extend the development above, in `rh-program/lean/Zeta23/PairCeiling/`, packaged as the Comparator topic
+`IntegralityGap` (`lean/comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/IntegralityGap.lean`, `config-integrality-gap.json`;
+build record `results/iv17-lean-s30/BUILD-NOTES.md`, ledger `FIDELITY.md`, typing check `TYPING-NOTE.md`):
+
+- `GridParsevalRat.lean` — the grid Parseval identity of `GridParseval.lean` (Theorem 1.2 above) with RATIONAL marks: the Parseval
+  algebra proved once for a general coefficient vector `dftVec` over the same commutative domain, rational marks `dftMarkQ` (over a
+  field) and integer marks `dftMark` as its instances; `trace_sq_grid_rat`, `gridRowQ`, `gridRowQ_eq`, and `gridRow_eq_gridRowQ`
+  (the integer row is the rational row of the cast marks — one and the same row).
+- `GridGap.lean` — the integrality level as a theorem AND a falsehood: `per_atom_slack : ∀ m : ℤ, 0 ≤ (m − 1)(m − 2)` (Lemma 2.2(a)'s
+  per-atom line, the second integrality level of the Remark above; false over ℚ at 4/3, `per_atom_slack_fails_rational`);
+  `per_atom_floor : ∀ m : ℤ, m ≤ m²` (false over ℚ at 1/2); `mi_holds_integer` (= `two_mul_distinct_ge`); the paper's §2.4 instance
+  `fracMark` (48 atoms of mark 4/3 on the 65-site grid; mass 64, Σm² = 256/3, N_d = 48, row = (4/3)·64 — kernel-checked by
+  `decide +kernel`); `mi_fails_rational` — the master inequality stated for nonnegative rational marks on `ZMod 65` is FALSE; and
+  `corner_fails_rational`, `corner_bound_fails_rational` — the 5/6 corner (Theorem 2.3's first conclusion at N = 64, ε = 0) is false
+  for fractional marks on the grid.
+
+Axiom footprint of every new name (`results/iv17-lean-s30/print-axioms.log`): `[propext, Classical.choice, Quot.sound]` — no
+`sorryAx`, no `Lean.ofReduceBool`; the Comparator run with nanoda on the sixteen topic statements passed
+(`results/iv17-lean-s30/comparator.log`). Still NOT formalized: the pair channel (Section 4.3, Prop. 4.5), the law form of the
+negation, anything off the grid; the list in "What is NOT formalized" above is otherwise unchanged. Label, verbatim: "IV.17's master
+inequality is a Comparator-checked theorem over integer marks and a Comparator-checked FALSEHOOD over rational marks on the same
+Frobenius row (the mark-4/3 instance kernel-checked), over Mathlib alone, no displayed hypothesis, axioms
+propext/Classical.choice/Quot.sound, replayed by nanoda".
