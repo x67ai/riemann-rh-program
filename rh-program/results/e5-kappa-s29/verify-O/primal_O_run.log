@@ -1,0 +1,9 @@
+element: n = 3000 cells, hx = 0.005, min c = 0.000e+00 (cone: c >= 0 -> True); writer's kappa_ub = 0.0009985305
+(T) what(0) = 7.9577471493e-04; what support |tau| <= 14.4000; min what at knots 0.00e+00; int what a = -1.5907548245e-03; B/what(0) = 0.0009985305
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/primal_O.py:35: RuntimeWarning: divide by zero encountered in matmul
+  f = (np.exp(1j*uu*mid[None, :]) @ c)*hx*np.sinc(u[i:i+2000]*hx/(2*np.pi))/(2*np.pi)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/primal_O.py:35: RuntimeWarning: overflow encountered in matmul
+  f = (np.exp(1j*uu*mid[None, :]) @ c)*hx*np.sinc(u[i:i+2000]*hx/(2*np.pi))/(2*np.pi)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/primal_O.py:35: RuntimeWarning: invalid value encountered in matmul
+  f = (np.exp(1j*uu*mid[None, :]) @ c)*hx*np.sinc(u[i:i+2000]*hx/(2*np.pi))/(2*np.pi)
+(U) w(0) = 1.421188e-03; int w over |u| <= 60 = 7.9577463200e-04 (vs what(0) 7.9577471493e-04); int what a = -1.5907548245e-03; B/what(0) = 0.0009985305;  |T - U| = 1.78e-15

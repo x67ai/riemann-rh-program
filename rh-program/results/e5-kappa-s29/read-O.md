@@ -1,0 +1,5 @@
+# E5 (F2) — the Opus reader's read of the writer's NOTE (κ, the budget floor of IV.18 rider (ii)) — DRAFT IN PROGRESS
+
+(Reader: Opus 5, Session 29; started Mon Sep 28 21:53 IST 2026. Inputs hashed at launch: BRIEF.md 015d6978…, PREDERIVATION.md dfd54af3…, NOTE.md 61aa86bd…, BARRIER-ZOO.md 840f4362…, PRICING-next-unit.md f7a4006c….)
+
+Status while in progress: (a) K0 recomputed (`verify-O/k0_O_run.log`): 6.34642725586·10⁻¹⁹, matches. (e) closed form (2.1) re-derived by integration by parts and checked three ways to ≤ 2·10⁻³¹ at τ = 0, 1, 6.31, 30 (`verify-O/aform_O_run.log`). (g) rung 0 A re-run: bracket [0.100000, 0.100001] reproduced; B re-run in flight. (h) prior art: Odlyzko 1990 JTNB survey and Miller 2002 fetched to `verify-O/fetched-O/`. Log errors found so far: the §5 table row ε = 0.01 (certified 4.2003e-05 per its log, printed 6.5890e-05); §5 reading (ii) mixes ε = 10⁻⁴ into an ε = 10⁻³ series; U = 16 (hu 0.02) and U = 24 (hu 0.04) certificates exist on disk although the note says the coarser grids fail.

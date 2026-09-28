@@ -1,0 +1,7 @@
+kappa_ub: kappa = 0.0009985305  C = 971.51484  non-vacuous iff l' > pi C = 3052.1039  exact layer delta_alpha at l' = 1e4, 1e5: {10000.0: 0.09872678797075841, 100000.0: 0.00971665737116626}  (linearized C/l': 0.09715, 0.009715)
+kappa_lb_writer: kappa = 6.5889849e-5  C = 14666.245  non-vacuous iff l' > pi C = 46075.367  exact layer delta_alpha at l' = 1e4, 1e5: {10000.0: None, 100000.0: 0.1524208380117974}  (linearized C/l': 1.46662, 0.146662)
+record_0.136: kappa = 0.13597  C = 11.105193  non-vacuous iff l' > pi C = 34.887992  exact layer delta_alpha at l' = 1e4, 1e5: {10000.0: 0.0011105215444060944, 100000.0: 0.0001110519314100292}  (linearized C/l': 0.00111, 0.000111)
+delta = 0.5: int_(|xi| > 7) mu_y = 3.58324e-10;  (4/pi) sin(pi delta) e^(-7 pi) = 3.58324e-10
+delta = 0.1: int_(|xi| > 7) mu_y = 1.10728e-10;  (4/pi) sin(pi delta) e^(-7 pi) = 1.10728e-10
+delta = 0.001: int_(|xi| > 7) mu_y = 1.12571e-12;  (4/pi) sin(pi delta) e^(-7 pi) = 1.12571e-12
+min over t in {28,...,1e5} of a(3t/4) - log(3t/8pi)/2pi = -6.02452e-5 (claim: >= -1e-3)

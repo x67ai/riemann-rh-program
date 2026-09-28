@@ -6,3 +6,13 @@ instance B: dual LP hu = 0.01, U = 3, Tmax = 1000, margin 2e-5
   round  4: rows  10510  d = 1.90018166  kappa_lp = 0.09981834  min psi(fine) = -5.710e-04  violations 21  [426.3s]
   round  5: rows  10531  d = 1.90018164  kappa_lp = 0.09981836  min psi(fine) = -5.466e-05  violations 6  [494.2s]
   round  6: rows  10537  d = 1.90018167  kappa_lp = 0.09981833  min psi(fine) = -1.930e-04  violations 10  [547.5s]
+  round  7: rows  10547  d = 1.90018168  kappa_lp = 0.09981832  min psi(fine) = -5.662e-05  violations 14  [640.3s]
+  round  8: rows  10561  d = 1.90018166  kappa_lp = 0.09981834  min psi(fine) = -4.571e-05  violations 7  [727.6s]
+  round  9: rows  10568  d = 1.90018166  kappa_lp = 0.09981834  min psi(fine) = -1.538e-04  violations 9  [792.0s]
+  round 10: rows  10577  d = 1.90018166  kappa_lp = 0.09981834  min psi(fine) = -6.912e-06  violations 1  [878.5s]
+  round 11: rows  10578  d = 1.90018166  kappa_lp = 0.09981834  min psi(fine) = -4.037e-07  violations 0  [943.3s]
+  max s_k = 2.6160 (S_max = 1000.0); min s_k = -1.9002 (-d = -1.9002); hu*sum|s| = 2.2167
+  verify: L = 5.728 (2pi a' 2.780, sigma 2.948), cells checked 23339486, depth 12, min psi' on grid 1.896e-05, tail: 2pi a_min(1000.0) = 2.8134 vs sup|sigmahat| <= 0.1766 -> ok  [50.9s]
+certified kappa_lb(B) = 0.09976834345890817  (LP 0.0998183)
+instance B bracket: [0.099768, 0.100001] vs known [0.1, 0.1 + delta] -> gap 2.33e-04 (0.23%)
+done in 994.2s

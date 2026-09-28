@@ -46,6 +46,9 @@ def sighat(t):
     for i in range(0, len(t), 4000):
         tt = t[i:i+4000]
         C = np.cos(np.outer(tt, uk)) @ (mult*s)
+        if not np.all(np.isfinite(C)):  # guard against the spurious-BLAS path: recompute without BLAS
+            C = (np.cos(np.outer(tt, uk))*(mult*s)).sum(axis=1)
+        assert np.all(np.isfinite(C))
         out[i:i+4000] = hu*np.sinc(hu*tt/(2*np.pi))**2*C
     return out
 x = np.linspace(0, 12, 1200001); sc2 = np.sinc(x/np.pi)**2
@@ -53,6 +56,9 @@ D1 = 1.01*np.abs(np.gradient(sc2, x)).max(); D2 = 1.01*np.abs(np.gradient(np.gra
 M_a = float(2*mp.zeta(3, mp.mpf(1)/4)/(8*mp.pi))
 M_sig = hu*((hu/2)**2*D2*S0 + 2*(hu/2)*D1*S1 + S2)
 r = 2*(1 - eps)/eps
+_rng = np.random.default_rng(3); _tt = np.concatenate([_rng.uniform(0, 40, 1500), _rng.uniform(40, 1000, 500)])
+_ref = np.array([hu*np.sinc(hu*t/(2*np.pi))**2*float(np.sum(np.cos(t*uk)*(mult*s), dtype=np.longdouble)) for t in _tt])
+log(f'sighat BLAS vs longdouble loop at 2000 points: max diff {np.abs(sighat(_tt) - _ref).max():.2e}')
 log(f"D1 = {D1:.4f}, D2 = {D2:.4f}, M_a = {M_a:.4f}, M_sigma = {M_sig:.3f}, r = {r:.6f}")
 out = dict(npy=os.path.basename(npy), hu=hu, eps=eps, d_eff=d_eff, d_json=d_json, S0=S0, S1=S1, S2=S2, M_sigma=M_sig, M_a=M_a, NZ=NZ, runs={})
 tail = 2*np.pi*float(a_fn(np.array([T_v]))[0]) - 4*S0/(hu*T_v**2)
@@ -67,6 +73,7 @@ for eta in etas:
         vl = vals[np.searchsorted(pts, lo)]; vh = vals[np.searchsorted(pts, hi)]
         Pl = Pv[np.searchsorted(pts, lo)]; Ph = Pv[np.searchsorted(pts, hi)]
         h = hi - lo; m = np.minimum(vl, vh)
+        assert np.all(np.isfinite(m)), 'non-finite psi'
         if m.min() < gmin: gmin = float(m.min()); gmin_at = float(lo[m.argmin()])
         if np.any(m < 0): ok = False; log(f"  eta = {eta:g}: NEGATIVE psi = {m.min():.3e} at tau = {lo[m.argmin()]:.5f}"); break
         M = 2*np.pi*M_a + 2*np.pi*r*np.pi**2*np.exp(np.pi*h)*np.minimum(Pl, Ph) + M_sig + 4*eta

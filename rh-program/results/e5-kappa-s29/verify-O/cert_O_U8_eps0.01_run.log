@@ -1,0 +1,4 @@
+certificate target_dual_eps_s_U8_hu0.01_eps0.01.npy: K = 800, U = 8, hu = 0.01, eps = 0.01; min s = -1.9957797011 -> d_eff = 1.9957797011 (writer's LP d = 1.9957797011); S0 = 4553.8884, S1 = 17173.7649, S2 = 85828.9263
+sighat BLAS vs longdouble loop at 2000 points: max diff 5.33e-15
+  eta = 0: CERTIFIED; cells closed 109888, max depth 5, min psi at cell ends 7.7616e-05 (tau = 27.66), smallest certified lower bound on a cell 5.199e-09; kappa >= eps(2 - d_eff - eta) = 4.220298892748442e-05  [1s]
+  eta = 2e-05: CERTIFIED; cells closed 109803, max depth 5, min psi at cell ends 7.7668e-05 (tau = 27.66), smallest certified lower bound on a cell 1.941e-08; kappa >= eps(2 - d_eff - eta) = 4.200298892748442e-05  [1s]

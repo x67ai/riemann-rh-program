@@ -1,0 +1,14 @@
+certificate target_dual_eps_s_U8_hu0.01_eps0.03.npy: K = 800, U = 8, hu = 0.01, eps = 0.03; min s = -1.9977836719 -> d_eff = 1.9977836719 (writer's LP d = 1.9977836717); S0 = 4300.5587, S1 = 15497.9956, S2 = 74671.3064
+200 zeros from mpmath.zetazero: gamma_1 = 14.134725141735, gamma_200 = 396.381854  [14s]
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/cert_O.py:48: RuntimeWarning: divide by zero encountered in matmul
+  C = np.cos(np.outer(tt, uk)) @ (mult*s)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/cert_O.py:48: RuntimeWarning: overflow encountered in matmul
+  C = np.cos(np.outer(tt, uk)) @ (mult*s)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify-O/cert_O.py:48: RuntimeWarning: invalid value encountered in matmul
+  C = np.cos(np.outer(tt, uk)) @ (mult*s)
+sighat BLAS vs longdouble loop at 2000 points: max diff 5.33e-15
+D1 = 0.5456, D2 = 0.6733, M_a = 5.1458, M_sigma = 747.559, r = 64.666667
+tail beyond T_v = 1000.0: 2 pi a(T_v) - 4 S0/(hu T_v^2) = 3.3497 (ok)
+  eta = 0: CERTIFIED; cells closed 109991, max depth 5, min psi at cell ends 9.6446e-05 (tau = 12.43625), smallest certified lower bound on a cell 1.119e-08; kappa >= eps(2 - d_eff - eta) = 6.648984409903579e-05  [1s]
+  eta = 2e-05: CERTIFIED; cells closed 109895, max depth 5, min psi at cell ends 9.6703e-05 (tau = 12.43625), smallest certified lower bound on a cell 1.708e-07; kappa >= eps(2 - d_eff - eta) = 6.588984409903579e-05  [1s]
+done in 15.5s
