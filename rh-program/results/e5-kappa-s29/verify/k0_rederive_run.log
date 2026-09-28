@@ -1,0 +1,12 @@
+a(0) = -0.653846689382   tau_0 = 6.310033944
+gamma_1 = 14.13472514173469379  (30 zeros loaded; gamma_30 = 101.31785)
+G = first  1 zeros: m = min 2Psi/|a| = 3.1732136e-19 at tau = 0.0; ratio increasing on {a<0}: True; eps* = 3.1732136e-19; min over grid of 2Psi - eps(2Psi - a) = 0.0 (>= 0 required); KAPPA >= 6.3464273e-19
+G = first 10 zeros: m = min 2Psi/|a| = 3.1732136e-19 at tau = 0.0; ratio increasing on {a<0}: True; eps* = 3.1732136e-19; min over grid of 2Psi - eps(2Psi - a) = 2.489e-60 (>= 0 required); KAPPA >= 6.3464273e-19
+G = first 30 zeros: m = min 2Psi/|a| = 3.1732136e-19 at tau = 0.0; ratio increasing on {a<0}: True; eps* = 3.1732136e-19; min over grid of 2Psi - eps(2Psi - a) = 2.489e-60 (>= 0 required); KAPPA >= 6.3464273e-19
+closed form 4 sech(pi gamma_1)/|a(0)| = 6.3464273e-19;  exact 2m/(1+m) with m = 2 sech(pi gamma_1)/|a(0)|: 6.34642725586e-19
+orchestrator's kappa_lb_G1 = 6.34642725583418e-19;  this script's = 6.34642725586449e-19
+control eps* x 10: min over grid = -1.867e-18  -> fails (must FAIL)
+control eps* x 0.5: min over grid = 1.037e-19  -> passes (must PASS)
+floating-point trap: eps = 3.173e-19; (1 - eps) == 1.0 in double: True; 2*(1-eps)*Psi(0) + eps*a(0) in double = 2.407e-35 (spurious sign possible); trap-free form 2Psi(0) - eps(2Psi(0) - a(0)) = 2.407e-35
+sensitivity: d ln(kappa_lb)/d gamma_1 = -3.14159 per unit of gamma_1 (a 1e-6 error in gamma_1 moves kappa_lb by 3e-6 relative)
+done in 19.9s

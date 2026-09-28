@@ -1,0 +1,38 @@
+== (i) closed form vs quadrature
+  tau=   0.000  closed=-0.653846689382  quad=-0.653846689382 (err est 1.3e-10)  mp30=-0.653846689382  |closed-quad|=1.11e-16  |closed-mp|=1.11e-16
+  tau=   0.300  closed=-0.604762009669  quad=-0.604762009669 (err est 3.7e-10)  mp30=-0.604762009669  |closed-quad|=1.11e-16  |closed-mp|=1.11e-16
+  tau=   1.000  closed=-0.363647766502  quad=-0.363647766502 (err est 5.9e-12)  mp30=-0.363647766502  |closed-quad|=1.11e-16  |closed-mp|=1.11e-16
+  tau=   2.000  closed=-0.194162440945  quad=-0.194162440945 (err est 1.5e-08)  mp30=-0.194162440945  |closed-quad|=1.62e-14  |closed-mp|=0.00e+00
+  tau=   3.000  closed=-0.121161779995  quad=-0.121161779995 (err est 6.7e-09)  mp30=-0.121161779995  |closed-quad|=3.41e-15  |closed-mp|=8.33e-17
+  tau=   4.500  closed=-0.054490708943  quad=-0.054490708943 (err est 6.1e-09)  mp30=-0.054490708943  |closed-quad|=3.64e-15  |closed-mp|=9.02e-17
+  tau=   6.000  closed=-0.008092010214  quad=-0.008092010214 (err est 1.6e-08)  mp30=-0.008092010214  |closed-quad|=5.65e-14  |closed-mp|=1.67e-16
+  tau=   6.310  closed=-0.000000863608  quad=-0.000000863615 (err est 1.8e-08)  mp30=-0.000000863608  |closed-quad|=6.83e-12  |closed-mp|=1.72e-18
+  tau=   8.000  closed= 0.038027020156  quad= 0.038027020156 (err est 5.8e-09)  mp30= 0.038027020156  |closed-quad|=7.72e-15  |closed-mp|=1.39e-16
+  tau=  10.000  closed= 0.073693423498  quad= 0.073693423498 (err est 1.5e-12)  mp30= 0.073693423498  |closed-quad|=5.55e-16  |closed-mp|=5.00e-16
+  tau=  14.000  closed= 0.127375974700  quad= 0.127375974700 (err est 2.6e-12)  mp30= 0.127375974700  |closed-quad|=4.16e-16  |closed-mp|=4.44e-16
+  tau=  20.000  closed= 0.184211948373  quad= 0.184211948373 (err est 3.7e-12)  mp30= 0.184211948373  |closed-quad|=2.78e-16  |closed-mp|=2.78e-16
+  tau=  30.000  closed= 0.248780659693  quad= 0.248780659693 (err est 5.0e-12)  mp30= 0.248780659693  |closed-quad|=1.19e-15  |closed-mp|=1.17e-15
+  tau=  60.000  closed= 0.359120586167  quad= 0.359120586167 (err est 7.2e-12)  mp30= 0.359120586167  |closed-quad|=8.33e-16  |closed-mp|=7.77e-16
+  tau= 100.000  closed= 0.440425726197  quad= 0.440425726197 (err est 8.9e-12)  mp30= 0.440425726197  |closed-quad|=3.77e-15  |closed-mp|=3.83e-15
+  tau=1000.000  closed= 0.806896151879  quad= 0.806896151879 (err est 1.6e-11)  mp30= 0.806896151879  |closed-quad|=4.33e-15  |closed-mp|=4.33e-15
+== (ii) record numbers
+  a(0) = -0.653847 (record -0.653847);  A(0) = -0.855010 (record -0.855010)
+  tau_0 = 6.31003 (record 6.310);  I_minus = 2.241523 (record 2.241523);  2 - I_minus = -0.241523
+  Fejer T=  4.0  B/what(0) = 0.580994
+  Fejer T=  8.0  B/what(0) = 0.189051
+  Fejer T= 10.0  B/what(0) = 0.136542
+  Fejer T= 10.5  B/what(0) = 0.134306
+  Fejer T= 11.0  B/what(0) = 0.135976
+  Fejer T= 11.5  B/what(0) = 0.141365
+  Fejer T= 12.0  B/what(0) = 0.150304
+  Fejer T= 14.0  B/what(0) = 0.218660
+  Fejer T= 16.0  B/what(0) = 0.333478
+  Fejer T= 20.0  B/what(0) = 0.679890
+  Fejer T= 30.0  B/what(0) = 2.065697
+  Fejer T= 40.0  B/what(0) = 3.994956
+  Fejer minimum over T: T* = 10.5321, value 0.134298;  at T = 11: 0.135976 (record 0.13597)
+== (iii) u-space form of the archimedean term on the Fejer element (T = 11)
+  u-space: -1.864024   tau-space (2 + int what a - 2): -1.864024   diff -9.53e-11
+== (iv) monotonicity of a on (0, 200] (numerical; proof in NOTE)
+  strictly increasing on the grid: True;  a(200) = 0.550746  vs (1/2pi)log(200/2pi) = 0.550746
+done in 0.1s
