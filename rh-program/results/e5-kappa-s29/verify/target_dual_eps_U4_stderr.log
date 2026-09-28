@@ -1,0 +1,6 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: divide by zero encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: overflow encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:54: RuntimeWarning: invalid value encountered in matmul
+  outp[i:i+20000] = 2*np.pi*a_fine[i:i+20000] - sigmahat_matrix(fine_taus[i:i+20000], hu, K) @ s - margin

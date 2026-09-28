@@ -84,8 +84,10 @@ def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02
                 min_psi_fine=float(psi.min()), seconds=time.time() - t0, K=K, hu=hu, U=U, Tmax=Tmax)
 
 def sigmahat_eval(taus, s, hu):
-    K = len(s) - 1
-    return sigmahat_matrix(taus, hu, K) @ s
+    K = len(s) - 1; taus = np.asarray(taus, float); outp = np.empty(len(taus))
+    for i in range(0, len(taus), 20000):
+        outp[i:i+20000] = sigmahat_matrix(taus[i:i+20000], hu, K) @ s
+    return outp
 
 def verify_dual(a_fn, a_lip, a_tail_min, s, d, hu, eta, c_rep, T_v, h0=0.01, max_depth=32, log=print):
     """Certify psi'(tau) = 2 pi a - sigmahat + 2 eta c/(c^2+tau^2) >= 0 on R.  a_lip(T) = sup_{[0,T]} |a'| (rigorous bound
