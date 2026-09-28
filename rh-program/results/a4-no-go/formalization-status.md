@@ -159,3 +159,5 @@ negation, anything off the grid; the list in "What is NOT formalized" above is o
 inequality is a Comparator-checked theorem over integer marks and a Comparator-checked FALSEHOOD over rational marks on the same
 Frobenius row (the mark-4/3 instance kernel-checked), over Mathlib alone, no displayed hypothesis, axioms
 propext/Classical.choice/Quot.sound, replayed by nanoda".
+
+**[CORRECTION 01:22 IST 2026-09-29, Session 30 — CHECK-O F1 of `results/iv17-lean-s30/CHECK-O.md`.]** In the 2026-09-29 addendum above, "mass 64, Σm² = 256/3, N_d = 48, row = (4/3)·64 — kernel-checked by `decide +kernel`" is to be read: the first three facts are kernel-checked by `decide +kernel`; the row is proved by rational Parseval (`gridRowQ_eq`) plus `fracMark_sq`. The 2026-08-27 record above the addendum is untouched.
