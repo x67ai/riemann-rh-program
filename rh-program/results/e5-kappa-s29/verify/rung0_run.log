@@ -1,36 +1,33 @@
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: divide by zero encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: overflow encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:65: RuntimeWarning: invalid value encountered in matmul
-  psi = 2*np.pi*a_fine - A_fine @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: divide by zero encountered in matmul
-  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: overflow encountered in matmul
-  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:73: RuntimeWarning: invalid value encountered in matmul
-  slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:140: RuntimeWarning: divide by zero encountered in matmul
-  q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:140: RuntimeWarning: overflow encountered in matmul
-  q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:140: RuntimeWarning: invalid value encountered in matmul
-  q = c @ M @ c; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:143: RuntimeWarning: divide by zero encountered in matmul
-  Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:143: RuntimeWarning: overflow encountered in matmul
-  Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:143: RuntimeWarning: invalid value encountered in matmul
-  Mc = M @ c; q = c @ Mc; nn = c @ c
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:165: RuntimeWarning: divide by zero encountered in matmul
-  return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:165: RuntimeWarning: overflow encountered in matmul
-  return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:165: RuntimeWarning: invalid value encountered in matmul
-  return float(2 + (c @ M @ c)/(c @ c))
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: divide by zero encountered in matmul
-  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: overflow encountered in matmul
-  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:154: RuntimeWarning: invalid value encountered in matmul
-  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+instance A: a_0(0) = -0.593723; int|u||sigma_0| = 2.7363; exact kappa_0 = 0.10000000000000009
+  primal check, w = B-spline in [-U1,U1]:  tau-space 2 + int what a_0/what(0) = 0.100000 (quad err 6.6e-08);  u-space 2 + int w dsigma_0/int w = 0.100000;  exact 0.1
+instance A dual LP, hu = 0.02, U = 3, Tmax = 60
+  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.338e-07  violations 0  [0.1s]
+  max s_k = 6.5107 (S_max = 1000.0); min s_k = -1.9000 (= -d?)
+instance A dual LP, hu = 0.01, U = 3, Tmax = 60
+  round  0: rows    881  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -4.032e-06  violations 21  [0.5s]
+  round  1: rows    902  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.133e-06  violations 23  [0.9s]
+  round  2: rows    925  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -8.094e-07  violations 0  [1.4s]
+  max s_k = 17.7003 (S_max = 1000.0); min s_k = -1.9000 (= -d?)
+instance A primal (squares family)
+  start 0: R = 0.10000677  (nit 116, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 1: R = 0.10000677  (nit 400, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 2: R = 0.10000677  (nit 555, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 3: R = 0.10000677  (nit 58, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 4: R = 0.10000677  (nit 73, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  primal best 0.10000677  [X = 15.0, hx = 0.05, n = 600, 0.1s]
+  X = 15.0: primal value 0.10000677, re-evaluated with 24-point quadrature 0.10000677
+  start 0: R = 0.10000144  (nit 1239, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 1: R = 0.10000144  (nit 2428, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 2: R = 0.10000144  (nit 2393, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 3: R = 0.10000144  (nit 579, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  start 4: R = 0.10000144  (nit 865, CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR)
+  primal best 0.10000144  [X = 29.0, hx = 0.05, n = 1160, 1.3s]
+  X = 29.0: primal value 0.10000144, re-evaluated with 24-point quadrature 0.10000144
+instance A bracket: [0.100000, 0.100001] vs exact 0.1 -> gap 1.44e-06 (0.00% of the answer)
+instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 200
+  round  0: rows   2401  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -4.732e-03  violations 62  [5.9s]
+  round  1: rows   2463  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.152e-03  violations 47  [14.9s]
+  round  2: rows   2510  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -7.427e-03  violations 98  [20.2s]
+  round  3: rows   2608  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -8.178e-03  violations 92  [25.6s]
+  round  4: rows   2700  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -5.771e-03  violations 71  [28.7s]
+  round  5: rows   2771  d = 1.90000000  kappa_lp = 0.10000000  min psi(fine) = -3.382e-03  violations 40  [37.5s]

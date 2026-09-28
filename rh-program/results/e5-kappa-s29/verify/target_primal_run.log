@@ -1,0 +1,55 @@
+(i) Fejer: T = 11 -> 0.135976 (record 0.13597); continuous minimum 0.134298 at T* = 10.5321
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: divide by zero encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: overflow encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:144: RuntimeWarning: invalid value encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: divide by zero encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: overflow encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:147: RuntimeWarning: invalid value encountered in matmul
+  Mc = M @ c; q = c @ Mc; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: divide by zero encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: overflow encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:141: RuntimeWarning: invalid value encountered in matmul
+  q = c @ M @ c; nn = c @ c
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: divide by zero encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: overflow encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:170: RuntimeWarning: invalid value encountered in matmul
+  return float(2 + (c @ M @ c)/(c @ c))
+(ii) X =  3.00 hx = 0.02: best R = 0.2880044 (24-pt re-evaluation 0.2880044), n = 300, 0.0s
+(ii) X =  4.00 hx = 0.02: best R = 0.1284466 (24-pt re-evaluation 0.1284466), n = 400, 0.0s
+(ii) X =  5.00 hx = 0.02: best R = 0.0432770 (24-pt re-evaluation 0.0432770), n = 500, 0.0s
+(ii) X =  6.00 hx = 0.02: best R = 0.0080548 (24-pt re-evaluation 0.0080548), n = 600, 0.0s
+(ii) X =  7.00 hx = 0.02: best R = 0.0010354 (24-pt re-evaluation 0.0010354), n = 700, 0.0s
+(ii) X =  8.00 hx = 0.02: best R = 0.0010016 (24-pt re-evaluation 0.0010016), n = 800, 0.0s
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: divide by zero encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: overflow encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:157: RuntimeWarning: invalid value encountered in matmul
+  c0 = c0/np.sqrt(c0 @ c0)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: divide by zero encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: overflow encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/e5-kappa-s29/verify/kappa_pipeline.py:159: RuntimeWarning: invalid value encountered in matmul
+  c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
+(ii) X = 10.00 hx = 0.02: best R = 0.0010016 (24-pt re-evaluation 0.0010016), n = 1000, 0.1s
+(ii) X =  7.50 hx = 0.01: best R = 0.0009991 (24-pt re-evaluation 0.0009991), n = 1500, 0.1s
+(ii) X =  8.00 hx = 0.01: best R = 0.0009991 (24-pt re-evaluation 0.0009991), n = 1600, 0.2s
+(ii) X =  8.50 hx = 0.01: best R = 0.0009991 (24-pt re-evaluation 0.0009991), n = 1700, 0.1s
+BEST certified upper bound kappa_ub = 0.0009991  (X = 7.5, hx = 0.01)
+  fhat: support [0.30, 14.70] (width 14.39); zero cells inside support: 0
+  fhat profile (x, value/max): [(0.01, 0.0), (1.26, 0.158), (2.5, 0.398), (3.75, 0.633), (5.0, 0.828), (6.25, 0.956), (7.5, 1.0), (8.76, 0.955), (10.01, 0.826), (11.26, 0.631), (12.51, 0.396), (13.76, 0.156)]
+  what: support [-15.0, 15.0]; mass fraction on |tau| < tau_0 = 6.31: 0.855; on |tau| < 11: 0.996; what(gamma_1 = 14.13)/what(0) = 0.0000
+  what profile: [(0.0, 1.0), (2.0, 0.91), (4.0, 0.689), (6.0, 0.426), (6.3, 0.388), (8.0, 0.204), (10.0, 0.066), (12.0, 0.01), (14.0, 0.0), (16.0, 0.0), (18.0, 0.0), (20.0, 0.0)]
+  w(u)/w(0) at u = log2, log3, log5, log7, log 11: [1e-05, 4e-05, 3e-05, 1e-05, 0.0]
+  local minima of w on (0, 4): [0.697, 1.125, 1.556, 1.988, 2.421, 2.854, 3.288, 3.722]  (log2 = 0.693, log3 = 1.099, log5 = 1.609, log7 = 1.946)
+done in 2.2s

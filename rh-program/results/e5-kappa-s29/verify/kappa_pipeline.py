@@ -36,8 +36,8 @@ def sigmahat_matrix(taus, hu, K):
     M[:, 0] = 1.0
     return base[:, None]*M
 
-def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02), max_rounds=40, add_per_round=300,
-            viol_tol=1e-9, margin=0.0, log=print):
+def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02), max_rounds=25, add_per_round=300,
+            viol_tol=1e-6, margin=0.0, S_max=1000.0, log=print):
     """Cutting-plane LP.  Returns dict with d, s, kappa_lp, rounds, n_rows, active taus, seconds."""
     t0 = time.time()
     K = int(round(U/hu))
@@ -58,7 +58,7 @@ def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02
         A_tau = sigmahat_matrix(taus, hu, K)
         A_ub = np.vstack([np.hstack([A_tau, np.zeros((len(taus), 1))]), A_box])
         b_ub = np.concatenate([2*np.pi*a_fn(taus) - margin, b_box])
-        res = linprog(cvec, A_ub=A_ub, b_ub=b_ub, bounds=[(None, None)]*(K+1) + [(0, None)], method="highs")
+        res = linprog(cvec, A_ub=A_ub, b_ub=b_ub, bounds=[(None, S_max)]*(K+1) + [(0, None)], method="highs")
         if res.status != 0:
             log(f"  LP status {res.status}: {res.message}"); return None
         s = res.x[:K+1]; d = res.x[-1]
@@ -72,6 +72,7 @@ def dual_lp(a_fn, U, hu, Tmax, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02
         taus = np.unique(np.concatenate([taus, fine_taus[order]]))
     slack = 2*np.pi*a_fn(taus) - sigmahat_matrix(taus, hu, K) @ s - margin
     active = taus[slack < 1e-7]
+    log(f"  max s_k = {s.max():.4f} (S_max = {S_max}); min s_k = {s.min():.4f} (= -d?)")
     return dict(d=float(d), s=s, kappa_lp=float(2 - d), rounds=rnd+1, n_rows=len(taus), active=active,
                 min_psi_fine=float(psi.min()), seconds=time.time() - t0, K=K, hu=hu, U=U, Tmax=Tmax)
 
@@ -139,9 +140,12 @@ def primal_squares(a_fn, X, hx, starts=None, maxiter=3000, log=print, abar=None)
     def R(c):
         q = c @ M @ c; nn = c @ c
         return 2 + q/nn
+    def F(c):
+        q = c @ M @ c; nn = c @ c
+        return 2 + q/nn + (nn - 1)**2
     def grad(c):
         Mc = M @ c; q = c @ Mc; nn = c @ c
-        return 2*(Mc*nn - q*c)/nn**2
+        return 2*(Mc*nn - q*c)/nn**2 + 4*(nn - 1)*c
     if starts is None:
         starts = []
         for frac in (1.0, 0.75, 0.5):      # Fejer-type: indicator of a sub-interval
@@ -150,7 +154,8 @@ def primal_squares(a_fn, X, hx, starts=None, maxiter=3000, log=print, abar=None)
         starts.append(np.exp(-np.linspace(-2, 2, n)**2))                 # gaussian
     best = (np.inf, None)
     for i, c0 in enumerate(starts):
-        res = minimize(R, c0, jac=grad, method="L-BFGS-B", bounds=[(0, None)]*n, options=dict(maxiter=maxiter, ftol=1e-15, gtol=1e-12))
+        c0 = c0/np.sqrt(c0 @ c0)
+        res = minimize(F, c0, jac=grad, method="L-BFGS-B", bounds=[(0, None)]*n, options=dict(maxiter=maxiter, ftol=1e-15, gtol=1e-12))
         c = np.maximum(res.x, 0); val = R(c) if c @ c > 0 else np.inf
         log(f"  start {i}: R = {val:.8f}  (nit {res.nit}, {res.message[:40] if isinstance(res.message,str) else res.message})")
         if val < best[0]: best = (val, c)

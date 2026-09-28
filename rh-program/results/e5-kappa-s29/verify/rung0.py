@@ -77,7 +77,7 @@ out["A_bracket"] = [kA_lb, kA_ub]
 
 # --- instance B: full certification path
 log("instance B (a_0 + growing tail p), dual LP hu = 0.01, U = 3, Tmax = 200")
-rB = dual_lp(a1, U=3.0, hu=0.01, Tmax=200.0, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02), log=log)
+rB = dual_lp(a1, U=3.0, hu=0.01, Tmax=200.0, coarse=(0.05, 40.0, 0.1), fine=(0.002, 40.0, 0.02), log=log)
 out["B_dual"] = dict(kappa_lp=rB["kappa_lp"], d=rB["d"], rounds=rB["rounds"], rows=rB["n_rows"], seconds=rB["seconds"], active=[float(x) for x in rB["active"][:40]])
 log(f"  active taus (first 40): {np.round(rB['active'][:40], 3).tolist()}")
 vB = verify_dual(a1, lipB, tailB, rB["s"], rB["d"], 0.01, eta=1e-4, c_rep=1.0, T_v=200.0, h0=0.01, log=log)
@@ -91,7 +91,7 @@ out["B_bracket"] = [vB["kappa_cert"], exB]
 
 # --- instance C: window-only dual + primal
 log("instance C (Gaussian), dual LP hu = 0.01, U = 6, Tmax = 40 (window)")
-rC = dual_lp(a2, U=6.0, hu=0.01, Tmax=40.0, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.02), log=log)
+rC = dual_lp(a2, U=6.0, hu=0.01, Tmax=40.0, coarse=(0.02, 40.0, 0.5), fine=(0.002, 40.0, 0.02), log=log)
 rCp = primal_squares(a2, X=29.0, hx=0.05, log=log); exC = primal_value_exact(a2, rCp["c"], 0.05)
 kC = 2 - cC*np.sqrt(2*np.pi)
 log(f"instance C bracket: [{rC['kappa_lp']:.6f}, {exC:.6f}] vs exact {kC:.6f} -> gap {exC - rC['kappa_lp']:.2e} ({100*(exC-rC['kappa_lp'])/kC:.2f}%)")
