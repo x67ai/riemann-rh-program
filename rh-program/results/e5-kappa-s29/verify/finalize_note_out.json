@@ -2,15 +2,16 @@
  "best": {
   "U": 8.0,
   "hu": 0.01,
-  "eps": 0.002,
-  "d": 1.9920099592654876,
-  "kt": 0.007990040734512371,
-  "klp": 1.5980081469024743e-05,
-  "kc": 1.5940081469024743e-05,
+  "eps": 0.005,
+  "d": 1.994342821088791,
+  "kt": 0.005657178911208982,
+  "klp": 2.8285894556044912e-05,
+  "kc": 2.818589455604491e-05,
   "eta": 2e-05,
-  "cells": 35549398,
-  "depth": 19,
-  "file": "verify/target_dual_eps_U8_eps2e-3_out.json"
+  "cells": 18480356,
+  "depth": 15,
+  "file": "verify/target_dual_eps_U8_eps5e-3_m1e-4_out.json",
+  "margin": true
  },
  "rows": [
   {
@@ -24,7 +25,8 @@
    "eta": null,
    "cells": null,
    "depth": null,
-   "file": "verify/target_dual_eps_U6_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U6_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 6.0,
@@ -37,7 +39,8 @@
    "eta": 2e-05,
    "cells": 7114596,
    "depth": 17,
-   "file": "verify/target_dual_eps_U6_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U6_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 6.0,
@@ -50,7 +53,8 @@
    "eta": 2e-05,
    "cells": 6933618,
    "depth": 17,
-   "file": "verify/target_dual_eps_U6_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U6_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 6.0,
@@ -63,7 +67,8 @@
    "eta": 2e-05,
    "cells": 7535988,
    "depth": 17,
-   "file": "verify/target_dual_eps_U6_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U6_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 8.0,
@@ -76,7 +81,22 @@
    "eta": null,
    "cells": null,
    "depth": null,
-   "file": "verify/target_dual_eps_U8_eps5e-3_out.json"
+   "file": "verify/target_dual_eps_U8_eps5e-3_out.json",
+   "margin": false
+  },
+  {
+   "U": 8.0,
+   "hu": 0.01,
+   "eps": 0.005,
+   "d": 1.994342821088791,
+   "kt": 0.005657178911208982,
+   "klp": 2.8285894556044912e-05,
+   "kc": 2.818589455604491e-05,
+   "eta": 2e-05,
+   "cells": 18480356,
+   "depth": 15,
+   "file": "verify/target_dual_eps_U8_eps5e-3_m1e-4_out.json",
+   "margin": true
   },
   {
    "U": 8.0,
@@ -89,7 +109,22 @@
    "eta": 0.0064,
    "cells": 7106056,
    "depth": 17,
-   "file": "verify/target_dual_eps_U8_eps3e-3_out.json"
+   "file": "verify/target_dual_eps_U8_eps3e-3_out.json",
+   "margin": false
+  },
+  {
+   "U": 8.0,
+   "hu": 0.01,
+   "eps": 0.003,
+   "d": 1.9932070605726406,
+   "kt": 0.006792939427359368,
+   "klp": 2.0378818282078104e-05,
+   "kc": 2.0318818282078104e-05,
+   "eta": 2e-05,
+   "cells": 18713086,
+   "depth": 16,
+   "file": "verify/target_dual_eps_U8_eps3e-3_m1e-4_out.json",
+   "margin": true
   },
   {
    "U": 8.0,
@@ -102,7 +137,8 @@
    "eta": 2e-05,
    "cells": 35549398,
    "depth": 19,
-   "file": "verify/target_dual_eps_U8_eps2e-3_out.json"
+   "file": "verify/target_dual_eps_U8_eps2e-3_out.json",
+   "margin": false
   },
   {
    "U": 8.0,
@@ -115,7 +151,8 @@
    "eta": 2e-05,
    "cells": 30536462,
    "depth": 17,
-   "file": "verify/target_dual_eps_U8_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U8_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 8.0,
@@ -128,7 +165,8 @@
    "eta": 2e-05,
    "cells": 30328740,
    "depth": 17,
-   "file": "verify/target_dual_eps_U8_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U8_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 8.0,
@@ -141,7 +179,8 @@
    "eta": 2e-05,
    "cells": 27060008,
    "depth": 18,
-   "file": "verify/target_dual_eps_U8_hu0.01_out.json"
+   "file": "verify/target_dual_eps_U8_hu0.01_out.json",
+   "margin": false
   },
   {
    "U": 12.0,
@@ -154,7 +193,22 @@
    "eta": null,
    "cells": null,
    "depth": null,
-   "file": "verify/target_dual_eps_U12_hu0.02_out.json"
+   "file": "verify/target_dual_eps_U12_hu0.02_out.json",
+   "margin": false
+  },
+  {
+   "U": 24.0,
+   "hu": 0.04,
+   "eps": 0.002,
+   "d": 1.9916557840528986,
+   "kt": 0.008344215947101441,
+   "klp": 1.6688431894202883e-05,
+   "kc": 1.3488431894202883e-05,
+   "eta": 0.0016,
+   "cells": 101727474,
+   "depth": 21,
+   "file": "verify/target_dual_eps_U24_hu0.04_out.json",
+   "margin": false
   },
   {
    "U": 24.0,
@@ -167,11 +221,12 @@
    "eta": 0.0064,
    "cells": 32137386,
    "depth": 17,
-   "file": "verify/target_dual_eps_U24_hu0.04_out.json"
+   "file": "verify/target_dual_eps_U24_hu0.04_out.json",
+   "margin": false
   }
  ],
- "KLB": 1.5940081469024743e-05,
+ "KLB": 2.818589455604491e-05,
  "KUB": 0.00099853,
- "GAPF": 62.642716220765514,
- "CLB": 60611.72034806344
+ "GAPF": 35.426585379950254,
+ "CLB": 34279.726040165944
 }
