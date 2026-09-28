@@ -1,0 +1,43 @@
+[1] DH / Epstein
+  kappa = 0.2840790438404122960282918
+  Lambda_DH(2) = 0.19690858829414688113
+  Lambda_DH(3) = -0.31209272851616362172
+  Lambda_DH(4) = -1.4422319646064572661
+  Lambda_DH(6) = 1.9363560766210387863
+  Lambda_DH(12) = -0.7628774719884116758
+  record (finisher_reverify.json) Lambda_DH(12) = -0.762877471988412; match: True
+  DH non-multiplicative: a6 = 1.0  a2*a3 = -0.08070090315 -> every product/quotient of Euler products has multiplicative coefficients; DH's do not
+  Epstein Q=x^2+5y^2: Lambda_Q(6) = 3.58351893845611 (2 log 6 = 3.58351893845611); Lambda_Q(36) = -7.16703787691222 (-4 log 6 = -7.16703787691222)
+[2] chi_4 inside via B = Spec Z[i]
+  #ideals of norm n in Z[i] (= r2(n)/4) == sum_{d|n} chi4(d) for n <= 400: True -> zeta_{Q(i)} = zeta * L(chi4) coefficientwise to 400
+  Lambda_chi4(3) = -1.09861228867 (-log 3 = -1.09861228867 )
+  min over n<=100 of Lambda_{Q(i)}(n) (by norm): -9.1835496158e-41 ; Lambda_{Q(i)}(3) = 0.0 ; Lambda_{Q(i)}(9) = 2.19722457734 = 2 log 3: True
+[3] A9 on A^1/F_q (independent enumeration of monic polynomials of degree <= 2)
+  q=2: host pairwise sum over |m|=1,|n|=2 = 6 = q(q+1) True; target (Gamma_Fr.Gamma_Fr2) = 4; ratio 3/2; diagonal row control N=1,2: [2, 4] vs [2, 4]
+  q=3: host pairwise sum over |m|=1,|n|=2 = 12 = q(q+1) True; target (Gamma_Fr.Gamma_Fr2) = 9; ratio 4/3; diagonal row control N=1,2: [3, 9] vs [3, 9]
+  q=5: host pairwise sum over |m|=1,|n|=2 = 30 = q(q+1) True; target (Gamma_Fr.Gamma_Fr2) = 25; ratio 6/5; diagonal row control N=1,2: [5, 25] vs [5, 25]
+  q=7: host pairwise sum over |m|=1,|n|=2 = 56 = q(q+1) True; target (Gamma_Fr.Gamma_Fr2) = 49; ratio 8/7; diagonal row control N=1,2: [7, 49] vs [7, 49]
+  per-point: host local contribution at each F_q-point = 2 (m=R,n=2R) + (q-1) (m=P,n=P+R) = q+1; target multiplicity q. No weighting by fiber cardinalities (q, q^2) turns (q+1)/q into 1.
+  g=1 model y^2=x^3+x+1 /F_7 affine N_N, N=1..4: [4, 54, 379, 2474] (record: 5, 55, 380, 2475)
+[4] P9j over Z
+  Teichmueller ghost vectors (a^j)_j satisfy a_j = a_pj mod p^(1+ord_p j) (0801.1691 §1.10) for a in [-10,10]: violations = 0
+  functoriality: host ideal I_(m,n) divides a^m b^n - a^n b^m (the host intersection maps into the target's): 5742 cases, violations = 0
+  Lambda-fixed points of toric P^1 in P^1(Q) (q^p = q for p = 2, 3), height <= 30: [Fraction(0, 1), Fraction(1, 1)] + infinity
+  A9 (diagonal row, summed over fibers of c_q, n <= 12) for all q = a/b != 0, 1 of height <= 30: passes for []
+    q = 2: first failing fiber (n's, host sum, target log|det|) = ([3], '1.09861', '1.79176')
+    q = 1/2: first failing fiber (n's, host sum, target log|det|) = ([3], '1.09861', '1.79176')
+    q = -1: first failing fiber (n's, host sum, target log|det|) = ([2, 4, 6, 8], '2.07944', '0.693147')
+    q = -2: first failing fiber (n's, host sum, target log|det|) = ([2], '0.693147', '1.79176')
+    q = 3: first failing fiber (n's, host sum, target log|det|) = ([2], '0.693147', '1.79176')
+[5] rung-1 analog of P9j: target f*(A^1_k) = S x_k A^1_k, S = A^1/F_q, c = f*(a) o unit, a in F_q[x]
+  q=3, a=x, N=1: host diagonal row 3, target (c(Gamma_0).c(Gamma_n-fiber)) = 3 -> equal (a = x: Y = S x_k S, the Weil target)
+  q=3, a=x, N=2: host diagonal row 9, target (c(Gamma_0).c(Gamma_n-fiber)) = 9 -> equal (a = x: Y = S x_k S, the Weil target)
+  q=3, a=x^2, N=1: host diagonal row 3, target (c(Gamma_0).c(Gamma_n-fiber)) = 6 -> MISMATCH
+  q=3, a=x^2, N=2: host diagonal row 9, target (c(Gamma_0).c(Gamma_n-fiber)) = 18 -> MISMATCH
+  q=7, a=x, N=1: host diagonal row 7, target (c(Gamma_0).c(Gamma_n-fiber)) = 7 -> equal (a = x: Y = S x_k S, the Weil target)
+  q=7, a=x, N=2: host diagonal row 49, target (c(Gamma_0).c(Gamma_n-fiber)) = 49 -> equal (a = x: Y = S x_k S, the Weil target)
+  q=7, a=x^2, N=1: host diagonal row 7, target (c(Gamma_0).c(Gamma_n-fiber)) = 14 -> MISMATCH
+  q=7, a=x^2, N=2: host diagonal row 49, target (c(Gamma_0).c(Gamma_n-fiber)) = 98 -> MISMATCH
+  a = x^2: images are graphs of x -> x^(2 q^N): phi_0 = x^2 != id and phi_1 o phi_1 = x^(4q^2) != phi_2 = x^(2q^2): (T2b) fails
+[6] dependency chain
+  every arrow decreases the index: True
