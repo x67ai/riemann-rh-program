@@ -128,11 +128,11 @@ if len(ms) != 1:
 label = ms[0]
 if "no printed κ" not in label or "Odlyzko" not in label:
     sys.exit("block iv18's prior-art label is malformed (must name 'no printed κ' and Odlyzko)")
-D_INS = ' [CORRECTION 2026-09-28, Session 30 — the zoo-s30 reader (Opus 5), at the logs; the bracket and the close of route (α) are unchanged: (1) "C ≥ 972" rounds up C(κ_ub) = 971.51484 (`results/e5-kappa-s29/verify-O/sec6_O_run.log` line 1, with π·C = 3052.1039, the threshold e^{3052}), so the bound reads C ≥ 971.5; (2) "neither above U = 8 at the same ε" does not hold for U = 16, which certifies slightly more than U = 8 at the same ε — 1.0815·10⁻⁵ against 1.0103·10⁻⁵ at ε = 10⁻³ and 1.7420·10⁻⁵ against 1.5940·10⁻⁵ at ε = 2·10⁻³ (`results/e5-kappa-s29/verify/target_dual_eps_U16_run.log` lines 11 and 20, `results/e5-kappa-s29/verify/target_dual_eps_U8_run.log` line 10, `results/e5-kappa-s29/verify/target_dual_eps_U8_eps2e-3_run.log` line 9); U = 16 and U = 24 were run only at ε = 10⁻³ and 2·10⁻³ (line 1 of each log), not at the ε = 3·10⁻² of the lower end; the E5 NOTE carries both phrases as written (line 181; the second, as "none exceeds the U = 8 value at the same ε", also at line 151) `[read at the logs, single-model]`.]'; body.count(D_INS + " Nothing about where ζ's zeros are is touched.") == 1 or sys.exit("block iv18 does not carry the zoo-s30 reader's dated CORRECTION exactly once, directly before the last sentence"); rebuilt = body.replace(D_INS + " Nothing about where ζ's zeros are is touched.", " Nothing about where ζ's zeros are is touched.").replace("that it amends) " + label + ".]**", "that it amends).]**").replace(B_NEW, B_OLD).replace(A_NEW, A_OLD)
+rebuilt = body.replace("that it amends) " + label + ".]**", "that it amends).]**").replace(B_NEW, B_OLD).replace(A_NEW, A_OLD)
 if rebuilt != stripped:
     sys.exit("block iv18 differs from NOTE line 181 by more than the three named insertions and the bullet marker")
-print("NOTE: block iv18 = NOTE line 181 (the '> ' stripped) with the house marker '- ' and exactly four insertions ((a)–(c) the brief's, (d) the zoo-s30 reader's dated correction; allowed):\n"
-      "   (a) %r -> %r\n   (b) %r -> %r\n   (c) before '.]**', the label: %s\n   (d) before the last sentence, the correction: %s" % (A_OLD, A_NEW, B_OLD, B_NEW, label, D_INS))
+print("NOTE: block iv18 = NOTE line 181 (the '> ' stripped) with the house marker '- ' and exactly three insertions (allowed):\n"
+      "   (a) %r -> %r\n   (b) %r -> %r\n   (c) before '.]**', the label: %s" % (A_OLD, A_NEW, B_OLD, B_NEW, label))
 
 # The A8/A13/A14 NEW strings of results/e5-kappa-s29/read-O.md lines 80-86, 105-109, 111-113: NEW present, OLD absent.
 A = {
