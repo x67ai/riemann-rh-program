@@ -33,14 +33,17 @@ configs = [dict(U=3.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.1), eta=5e-5,
            dict(U=8.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
            dict(U=12.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
            dict(U=16.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
-           dict(U=24.0, hu=0.04, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5)]
+           dict(U=24.0, hu=0.04, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), eta=5e-5, margin=2e-5),
+           dict(U=6.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.5), eta=5e-5, margin=2e-5),
+           dict(U=8.0, hu=0.01, Tmax=1000.0, coarse=(0.05, 40.0, 0.5), eta=5e-5, margin=2e-5),
+           dict(U=12.0, hu=0.02, Tmax=1000.0, coarse=(0.05, 40.0, 0.5), eta=5e-5, margin=2e-5)]
 sel = [int(x) for x in sys.argv[1:]] if len(sys.argv) > 1 else list(range(4))
 import os
 OUTNAME = os.environ.get('E5_OUT', 'target_dual_out.json')
 for ci in sel:
     cf = configs[ci]; tc = time.time()
     log(f"=== config {ci}: U = {cf['U']}, hu = {cf['hu']}, Tmax = {cf['Tmax']}, coarse {cf['coarse']}")
-    r = dual_lp(a_fn, U=cf["U"], hu=cf["hu"], Tmax=cf["Tmax"], coarse=cf["coarse"], fine=(0.002, 40.0, 0.01), margin=cf["margin"], log=log)
+    r = dual_lp(a_fn, U=cf["U"], hu=cf["hu"], Tmax=cf["Tmax"], coarse=cf["coarse"], fine=(0.002, 40.0, 0.01), margin=cf["margin"], time_limit=1500.0, log=log)
     if r is None: continue
     log(f"  kappa_lp = {r['kappa_lp']:.7f}; active taus: {np.round(r['active'][:30], 3).tolist()} ... ({len(r['active'])} total)")
     v = verify_dual(a_fn, a_lip, a_tail_min, r["s"], r["d"], cf["hu"], eta=cf["eta"], c_rep=1.0, T_v=cf["Tmax"], h0=0.01, log=log)

@@ -111,9 +111,17 @@ i.e. ∫ŵa = ⟨α, w⟩ with α = c_aδ₀ − fp ρ(|u|)du, ρ(u) := 2e^{2u}/
 
 ---
 
-## §5 Rung 2 — the dual (certified lower bounds)
+## §5 Rung 2 — the dual (certified lower bounds): the plain LP class certifies nothing, the mixed class (K0 + grid) is where a positive bound lives
 
-*(pending the LP runs; written as each configuration lands)*
+**Two certificate classes.** *(Plain, Theorem D.)* σ = Σs_kH_k on [−U, U], φ = d·du + σ ≥ 0, ψ = 2πa − σ̂ ≥ 0, κ ≥ 2 − d. *(Mixed, Theorem D′ — K0's convex combination with a grid correction.)* For ε ∈ [0, 1], D ≥ 0, a finite even signed measure σ_g ≥ −D·du and a finite set G of on-line zero ordinates, put ψ(τ) := 2πε·a(τ) + 4π(1 − ε)Ψ_G(τ) − σ̂_g(τ). **If ψ ≥ 0 on ℝ then κ ≥ 2ε − D.** *Proof.* B = (1 − ε)B + εB ≥ (1 − ε)(2∫ŵΨ_G + P(w)) + ε(2ŵ(0) + ∫ŵa) (K0's step (1.1)); write the two integrals as (1/2π)∫ŵ[4π(1 − ε)Ψ_G + 2πεa] = (1/2π)∫ŵ[ψ + σ̂_g] = (1/2π)∫ŵψ + ∫w dσ_g ≥ 0 − Dŵ(0); with (1 − ε)P(w) ≥ 0 dropped, B ≥ (2ε − D)ŵ(0). ∎ K0 is the point σ_g = 0 (D = 0, κ = 2ε*, ε* = 3.2·10⁻¹⁹); the plain class is the point ε = 1 (D = d − 2·1 + … : with ε = 1 the Ψ_G term vanishes and 2 − D = 2 − d). The mixed LP maximizes 2ε − D over (ε, D, s) — linear, since a(τ_i) and Ψ_G(τ_i) are constants. G = the first 200 zeros (γ₂₀₀ = 396.38) with Ψ_G := 0 beyond — a subset, so the bound is valid (Z ≥ 2∫ŵΨ_G for any finite G, §1(a)).
+
+**Why the mixed class should win, in one sentence.** The plain class must satisfy σ̂ ≤ 2πa at every τ — including near and beyond γ₁, where (by complementary slackness with §4's minimizer, whose ŵ lives on |τ| < 14.4) the true dual has slack that only ζ's zeros can supply: 4π(1 − ε)Ψ_G is ≥ 4π(1 − ε)sech(π·dist(τ, zeros)), which for small ε removes every constraint beyond γ₁ except within ≈ (1/π)log(1/ε) of the midpoints between zeros, at the price of scaling the archimedean side by ε. The plain LP's active constraints at U = 3 (τ = 17.6, 19.4, 21.3, 24.1, 26.1, 28.2, 30.5, 32.6, 35.2, 37.3, 47.8 — all beyond γ₁, between consecutive zeros) show exactly the constraints the mixed class relaxes.
+
+**The plain class, computed (`verify/target_dual.py`, `target_dual_run.log`, `target_dual_out.json`; s-vectors in `target_dual_s_config{0,1}.npy`).** Cutting-plane LP with Tmax = 1000, the coarse grid 0.05 on [0, 40] and 0.05–0.1 beyond, fine grid 0.002/0.01, uniform margin 2·10⁻⁵, regularizer 10⁻⁶: U = 3 (hu = 0.02, 10 401 → 10 701 rows): d = 2.10940, κ_lp = −0.1094; U = 4 (hu = 0.01, 20 001 → 20 532 rows): d = 2.03888, κ_lp = −0.0389. Both certificates are the full deficit s_k = −d on the whole of [0, U] (the hole) plus positive nodes at u = 0.68–0.69, 1.05–1.06, 1.21–1.22, 1.54, 1.64–1.65, 1.82, 1.98–1.99, … — **the LP rediscovers the prime comb** (log 2 = 0.693, log 3 = 1.099, log 5 = 1.609, log 7 = 1.946; 1.21 and 1.54 are not prime logarithms: log 4 = 1.386 is absent, and the LP's own comb is not ζ's), with the net mass of σ equal to −4.108 = 2πa(0) at U = 3 (the τ = 0 constraint is tight). The values sit ABOVE d = 2 — no certificate of any positive κ — and the deficit d − 2 falls by a factor 2.8 from U = 3 to U = 4 (about e^{−U}: the transform of the part of a prime-like comb beyond u = U is of size e^{−U/2}·(sum over zeros), and the LP does better than a truncated comb). At U = 6 and 8 the 20 000-row LPs exceeded the 600 s solver limit and were dropped; the trend d(U) → 2⁺ says the plain class approaches κ = 0 from below and would need U ≫ 8 to certify anything, if it can at all. The active constraints at U = 3 are all beyond γ₁ (τ = 17.6, 19.4, 21.3, 24.1, 26.1, 28.2, 30.5, 32.6, 35.2, 37.3, 47.8, between consecutive zeros); at U = 4 the same pattern. That is the observation behind the mixed class: those constraints are the ones ζ's zeros relax.
+
+**The mixed class at fixed ε, computed.** *(pending: `verify/target_dual_eps.py`, U = 6 and U = 4, ε = 10⁻² … 10⁻⁶ — written as each lands)*
+
+**The certified bracket.** *(pending)*
 
 ---
 

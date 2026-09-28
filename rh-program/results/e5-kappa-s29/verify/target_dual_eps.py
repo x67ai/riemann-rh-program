@@ -56,7 +56,7 @@ for eps in eps_list:
     tc = time.time(); r = 2*(1 - eps)/eps
     a_eps = lambda t, r=r: a_fn(t) + r*Psi_fn(t)
     log(f"=== eps = {eps:.1e} (relaxation weight 2(1-eps)/eps = {r:.3e})")
-    res = dual_lp(a_eps, U=U, hu=hu, Tmax=1000.0, coarse=(0.05, 40.0, 0.05), fine=(0.002, 40.0, 0.01), margin=2e-5, viol_tol=1e-7, time_limit=1500.0, log=log)
+    res = dual_lp(a_eps, U=U, hu=hu, Tmax=1000.0, coarse=(0.05, 40.0, 0.5), fine=(0.002, 40.0, 0.01), margin=2e-5, viol_tol=1e-7, time_limit=1500.0, log=log)
     if res is None: continue
     np.save(f"target_dual_eps_s_U{U:g}_hu{hu:g}_eps{eps:g}.npy", res["s"])
     kt = res["kappa_lp"]; log(f"  kappa~_lp = {kt:.6f}  ->  kappa >= eps * kappa~ = {eps*kt:.4e} (uncertified); active taus: {np.round(res['active'][:30], 3).tolist()} ({len(res['active'])})")
