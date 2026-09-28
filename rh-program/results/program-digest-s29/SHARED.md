@@ -1,0 +1,2 @@
+## Mon Sep 28 22:35:24 IST 2026 — digest writer (Fable 5.1): header + §0 appended to `results/program-digest-s29.md`
+Brief SHA-256 e13dbfb3d46cb2d162e086bd2c809975fbc3e105e9db3182cfd9fc8f4d621ed2 (34 lines) recomputed at open. Every source in the brief's Read list opened at the line this session (hashes in the digest header). §0: the three closures at their files; the board carried forward with one new outside-table defect (A4 header line 5 stale); 10(d): no trigger by the letter; the slot: the F1 writer's token count is missing from LOG line 1797.
