@@ -2,7 +2,7 @@
 
 **Status:** SURVIVES-WITH-REPAIRS (adjudicated 5.5, BINDING, 2026-08-19 — `results/adjudication-A4.json`) — **THIS FILE IS NOW THE MERGED A2+A4 CUBIC-CERTIFICATE DIRECTION** (merge executed 2026-08-19 per the completeness critic; A2 retired-refuted, salvage folded below)
 **Track:** A (advance existing machinery; scoped as instrument/proportion progress, NOT a full-RH route)
-**Last touched:** 2026-08-19 (Session 5 — attempt 6, run wf_3a8bdf77-ffc, the first designer to survive the output ceiling)
+**Last touched:** 2026-09-28 (Session 29 — header brought current at the s29 digest's outside-table item (1); the last substantive touches are the work-log line of 2026-09-10 and the dated notes of 2026-09-03/05 below; previous header text: 2026-08-19 (Session 5 — attempt 6, run wf_3a8bdf77-ffc, the first designer to survive the output ceiling …).
 **Designer confidence (first theorem provable ~2y):** 0.7
 **History:** design attempts 1-5 died on the 64k output-token response ceiling (Session-4 root cause); attempt 6 ran with the 128k ceiling + effort pin + delivery constraint and completed cleanly. Brief included the v5 fold-in (§7.2(e) RS-range, §7.3 cubic-weight certificate) and the A2-refutation caution. Verification ran the duplicate-killer protocol (two independent killers, Session-4 process learning).
 

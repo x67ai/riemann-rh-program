@@ -141,3 +141,5 @@ Brief: `results/f1-spec-s29/BRIEF.md`, SHA-256 c9cb37ffd9dbee2dcf524665a84a9e109
 *(F1 SPEC, writer Fable 5.1, Session 29. Pre-reader copy. U.S. English.)*
 
 <!-- Reader amendments M1–M31 applied by the orchestrator 19:05 IST 2026-09-28 via verify-O/amendments_O.py (results/f1-spec-s29/read-O.md); pre-reader copy SPEC.pre-reader.md. -->
+
+**[PRECISION 23:06 IST 2026-09-28, Session 29 — from the s29 digest's Opus read, M1 (`results/program-digest-s29/ranking-read-O.md`).]** The §3 tally reads "'no' with the ground: 18"; counted by row, §3 has 20 rows — **19 'no'** (18 in the bold form plus P9j, closed on (T1), (T2b), (T4)) **and 1 undecided from disk** (P9l). The slip entered at the F1 reader's amendment M22 and was copied into §4, C3's Instruments row and work log, and STATUS item 2; each carries a dated correction of this date. The table itself is unchanged.
