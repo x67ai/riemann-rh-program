@@ -43,11 +43,11 @@ build and prove at Lean v4.33.1 / Mathlib 0df444a in the Prove2Me layout (`prove
   "cosh ghost") is untouched: IV.1 is a statement about the PRIME side, and so are these theorems.
 * **(N2) The Zeta23 test class.** Zeta23's `EF_lit` quantifies over `ContDiff ℝ 2 k → HasCompactSupport k`. The tilt does not
   preserve `ContDiff ℝ 2` as a class (`weilContainment_not_contDiff` is the witness; in general, for g(0) ≠ 0 and a ≠ 1/2, k_{a,g}
-  is not even C¹ at 0 — the one-sided derivatives differ by (a − 1/2)g(0), and for C1's windows w ≥ 0, w ≢ 0 one has
+  is not even C¹ at 0 [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F1 (Opus 5), re-derived by the orchestrator: this presupposes g differentiable at 0; for C1's family (windows w ≥ 0, w ≢ 0, at every a > 1/2) k_{a,g} is not differentiable at 0 (g ≤ g(0) = ∫w > 0); without differentiability of g the claim fails (g = 2e^{(a−1/2)|u|} gives k ≡ 1, `check-O/probe_E2_counterexample.lean`), and at a < 1/2 it fails for the Fejér window at a = 1/2 − 1/L. The theorem `weilContainment_not_contDiff` is unaffected.] — the one-sided derivatives differ by (a − 1/2)g(0), and for C1's windows w ≥ 0, w ≢ 0 one has
   g(0) = ∫w > 0; the errata E2 corrects the brief's "not C²" to this sharp form, which is FALSE for g vanishing to order ≥ 3 at 0).
   Consequently no statement here feeds `weilTestOf a g` into `EF_lit`, and the classical data class of these theorems is
   "even, band-limited, no regularity". The refinement "every tilted datum equals `primeSide k′` for some C² even k′ on the same band"
-  is true by finite interpolation at the points ±log n, 2 ≤ n ≤ e^L, but is NOT formalized and NOT claimed.
+  is true by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.] at the points ±log n, 2 ≤ n ≤ e^L, but is NOT formalized and NOT claimed.
 * **(N3) The μ-band and every nonlinear function of the band** (IV.4's rider, the s25 sharpening carried by every digest since):
   outside the statements, which are linear in the test.
 * **(N4) The archimedean term** Arch_a(w) of the master formula and the master formula itself (an identity with a zero side): not

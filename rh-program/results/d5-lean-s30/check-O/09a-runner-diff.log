@@ -1,0 +1,9 @@
+2c2
+< # D5 runner (Session 30): run leanprover/comparator on one config from the Lean repository root ~/rh-lean-work/checker-clone-s21.
+---
+> # D5 CHECKER runner (Session 30): the builder tools/run.sh with the clean clone checker-clone-s30 as the tree.
+10c10
+< cd "$HOME/rh-lean-work/checker-clone-s21" || exit 99
+---
+> cd "$HOME/rh-lean-work/checker-clone-s30" || exit 99
+diff exit=1

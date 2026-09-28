@@ -71,7 +71,7 @@ records the change against the brief's list.
 
 * **E2 (precision error in the prose; the CONCLUSION stands).** §0 (i) says "k_{a,g} is not C² at u = 0 for a ≠ 1/2 (|u| has a
   kink)". As a universal statement over g this is FALSE: if g vanishes to order ≥ 3 at 0 (or g ≡ 0) then `g · exp (−c|u|)` is C² at
-  0 for every a. What is true, and sharper: for `g(0) ≠ 0` and `a ≠ 1/2`, `k_{a,g}` is not even C¹ at 0 — the one-sided derivatives at
+  0 for every a. What is true, and sharper: for `g(0) ≠ 0` and `a ≠ 1/2`, `k_{a,g}` is not even C¹ at 0 [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F1 (Opus 5), re-derived by the orchestrator: this presupposes g differentiable at 0; for C1's family (windows w ≥ 0, w ≢ 0, at every a > 1/2) k_{a,g} is not differentiable at 0 (g ≤ g(0) = ∫w > 0); without differentiability of g the claim fails (g = 2e^{(a−1/2)|u|} gives k ≡ 1, `check-O/probe_E2_counterexample.lean`), and at a < 1/2 it fails for the Fejér window at a = 1/2 − 1/L. The theorem `weilContainment_not_contDiff` is unaffected.] — the one-sided derivatives at
   0 are `(1/2)(g'(0) ∓ (a − 1/2) g(0))` and differ by `(a − 1/2) g(0) ≠ 0`. For C1's family `g = ŵ` with a window `w ≥ 0`, `w ≢ 0`,
   one has `g(0) = ∫ w > 0`, so the failure is real for every member of the record's family and at every a ≠ 1/2. The conclusion —
   the Zeta23 test class `ContDiff ℝ 2` is NOT preserved by the tilt as a class, and no statement of this unit feeds `weilTestOf a g`
@@ -90,7 +90,7 @@ records the change against the brief's list.
 
 The record's classical data class is Zeta23's `EF_lit` test class (C², compact support). The containment shipped here lands in the
 class of even band-limited tests WITHOUT regularity. A refinement "every tilted datum is `primeSide k'` for some C² even k' on the
-same band" is true by finite interpolation (the prime functional sees k only at the finitely many points ±log n, 2 ≤ n ≤ e^L) but is
+same band" is true by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.] (the prime functional sees k only at the finitely many points ±log n, 2 ≤ n ≤ e^L) but is
 NOT formalized and NOT claimed; FIDELITY.md lists it under "not covered". No error in §0 here — §0 never claimed it.
 
 ## Summary of what changed against §1's list because of this attack

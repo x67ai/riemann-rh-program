@@ -81,3 +81,24 @@ Label earned (BRIEF §1(4)): "IV.1 formalized-in-Lean (prime-side containment; C
 hypothesis, axioms propext/Classical.choice/Quot.sound, replayed by nanoda; built at v4.33.0-rc2/51e6992e and v4.33.1/0df444a)".
 Stop lines: none fired. Nothing posted to Prove2Me; the key file not read. Not committed (watchdogs / orchestrator).
 NEXT (BRIEF §3): launch the Opus 5 clean-clone CHECKER → `CHECK-O.md`; BUILD-NOTES §5 is its list.
+
+## [checker, Opus 5] Tue Sep 29 00:44:21 IST 2026 — CHECK-O landed: FIX-FIRST (prose only, F1 and F2); the Lean result is CLEAN; the label is earned
+Clean clones, both new: `~/rh-lean-work/checker-clone-s30` (zeta-23-lean v1.0 = 3635e748; Lean 4.33.0-rc2 d8b18978; Mathlib 51e6992e; cache
+unpacked, 0 Mathlib modules compiled) and `~/prove2me-check-s30` (prove2me_workspace cb8d8291, pinned per lean-setup.md; Lean 4.33.1 819816b2;
+Mathlib 0df444a360eaa60ab8c11dca51a86af692955474; cache unpacked). Solutions built (8698 jobs each, 0 warnings); challenges 8699 jobs with exactly
+1 + 12 `sorry` warnings. `#print axioms`: 13 × [propext, Classical.choice, Quot.sound]; no sorryAx, no ofReduceBool. Comparator with nanoda from
+the clean clone, topic artifacts removed first: rung 1 exit 0; family exit 0 twice (nanoda accepts, Lean kernel accepts, "Your solution is okay!").
+Statement identity 1 + 12 IDENTICAL (my own checker and the builder's); trust greps: the 13 challenge `sorry`s only. `primeSide` = Zeta23's
+`literatureRHS` prime term: identical text, AND `literatureRHS k = … - WeilContainment.primeSide k + …` by `rfl` in Lean. Prove2Me layout at
+v4.33.1: 28 modules, 8733 jobs, exit 0; per solution the three platform rules hold, `solution`'s type is Expr-equal to the stub's, axioms the
+standard three; the builder's generators reproduce the 27 files byte for byte. Hashes: 61/61 match; hashes.txt = 3f261181…600f. yaml: PASS.
+FIX-FIRST (text only; no Lean file, statement, proof or label changes; no re-run needed):
+ F1 — "for g(0) ≠ 0 and a ≠ 1/2, k_{a,g} is not even C¹ at 0" (FIDELITY N2, ERRATA E2, BUILD-NOTES §0, yaml line 877) is false without "g
+ differentiable at 0": g = 2e^{|u|/2}, a = 1 gives weilTestOf 1 g ≡ 1 (proved in Lean, check-O/probe_E2_counterexample.lean); and "at every a ≠ 1/2"
+ for C1's family is false for a < 1/2 (Fejér window at a = 1/2 − 1/L). True form: for every a > 1/2 and every window w ≥ 0, w ≢ 0, k is not
+ differentiable at 0 (proof in CHECK-O F1).
+ F2 — "the C² refinement is true by finite interpolation" (FIDELITY N2, ERRATA, yaml line 878) fails at an edge: L = log 2, g = indicator of
+ {±log 2} gives a nonzero tilted datum that no continuous k′ on the band reproduces; true for continuous g (every ŵ).
+SHA-256 CHECK-O.md = 374c9e00c1df219324bb1f7d6a8a543ef175a4307bd13198b44d6ac2c1ddb32e. SHA-256 SHARED.md before this block = 2ce9b97364fb3aefa53a42c13f7a51cd32d7ef9196b4ccc222a33d5a6059bc01.
+Logs: results/d5-lean-s30/check-O/ (01–31). Nothing posted to Prove2Me; the key file not read; nothing committed by me.
+NEXT (orchestrator): apply F1, F2 (CHECK-O §11), revalidate yaml, rehash; then the completion steps of BRIEF "On completion".

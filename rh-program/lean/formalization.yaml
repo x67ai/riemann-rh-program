@@ -874,8 +874,8 @@ fidelity:
     redundant `0 ≤ L` in tilt_bounds dropped (implied by |u| ≤ L); tsupport stated as an equality alongside the inclusion.
     NOT covered, and stated nowhere in Lean: the ZERO side of any explicit formula at any level (fatal 1's cosh ghost — IV.1 is a
     prime-side statement); Zeta23's C² test class `EF_lit` (the tilt does not preserve ContDiff ℝ 2 — `weilContainment_not_contDiff`
-    is the witness; for g(0) ≠ 0 and a ≠ 1/2 the test is not even C¹ at 0 — so no statement feeds weilTestOf a g into EF_lit, and the
-    classical class here is "even, band-limited, no regularity"; the C² refinement by finite interpolation at ±log n is not
+    is the witness; for g(0) ≠ 0 and a ≠ 1/2 the test is not even C¹ at 0 [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F1 (Opus 5), re-derived by the orchestrator: this presupposes g differentiable at 0; for C1's family (windows w ≥ 0, w ≢ 0, at every a > 1/2) k_{a,g} is not differentiable at 0 (g ≤ g(0) = ∫w > 0); without differentiability of g the claim fails (g = 2e^{(a−1/2)|u|} gives k ≡ 1, `check-O/probe_E2_counterexample.lean`), and at a < 1/2 it fails for the Fejér window at a = 1/2 − 1/L. The theorem `weilContainment_not_contDiff` is unaffected.] — so no statement feeds weilTestOf a g into EF_lit, and the
+    classical class here is "even, band-limited, no regularity"; the C² refinement by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.] at ±log n is not
     formalized); the μ-band and nonlinear functions of the band; the archimedean term; summability as a datum (tsum of a
     non-summable family is 0 — the identity is unconditional because the summands agree; band-limited data are finite sums);
     ζ, RH, any zero.  Ledger text: results/d5-lean-s30/FIDELITY.md; the attack on the brief's pre-derivation with the six errata

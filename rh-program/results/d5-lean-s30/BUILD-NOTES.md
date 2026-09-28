@@ -32,7 +32,7 @@ needed for the "same set of numbers" sentence and was missing from the theorem l
 itself, `weilContainment_range_eq`; **E5** the "n ≤ X cutoff is automatic" remark is a theorem — added `weilContainment_cutoff`;
 **E6** the support inclusion is an equality — added `weilContainment_tsupport_eq`; **E4** `0 ≤ L` in `tilt_bounds` is implied by
 |u| ≤ L — dropped; **E2** "k_{a,g} is not C² at 0 for a ≠ 1/2" is false as a universal statement (g vanishing to order ≥ 3 at 0) and
-the true statement is sharper (for g(0) ≠ 0 the test is not even C¹ at 0; C1's windows have g(0) = ∫w > 0) — the ledger uses the
+the true statement is sharper (for g(0) ≠ 0 the test is not even C¹ at 0 [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F1 (Opus 5), re-derived by the orchestrator: this presupposes g differentiable at 0; for C1's family (windows w ≥ 0, w ≢ 0, at every a > 1/2) k_{a,g} is not differentiable at 0 (g ≤ g(0) = ∫w > 0); without differentiability of g the claim fails (g = 2e^{(a−1/2)|u|} gives k ≡ 1, `check-O/probe_E2_counterexample.lean`), and at a < 1/2 it fails for the Fejér window at a = 1/2 − 1/L. The theorem `weilContainment_not_contDiff` is unaffected.]; C1's windows have g(0) = ∫w > 0) — the ledger uses the
 sharp form, and the witness `weilContainment_not_contDiff` was added to the topic (§3); **E3** the cos-transform of w is even for
 every w, no hypothesis on w needed. Stop line (iv) did not fire.
 
@@ -70,7 +70,7 @@ the topic and config names, the trusted definitions (with `Even g` spelled `∀ 
 `weilContainment_tilt_bounds` loses the redundant `0 ≤ L` (E4; a strictly stronger statement of the same content). Added (E1, E5, E6, and
 §3): `weilContainment_even`, `weilContainment_tsupport_eq`, `weilContainment_cutoff`, `weilContainment_range_eq`, `weilContainment_not_contDiff`.
 Not added: a theorem tying `primeSide` to `Zeta23.literatureRHS` (none is needed — the containment is between two Mathlib-defined
-functionals; the character-for-character claim is the checker's `diff` item, FIDELITY (D3)); the C² refinement by finite interpolation
+functionals; the character-for-character claim is the checker's `diff` item, FIDELITY (D3)); the C² refinement by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.]
 (FIDELITY (N2), not attempted). The `Solution` modules import no Zeta23 module (the brief allowed it with a record; none was needed).
 Prove2Me naming: the mirror names each theorem `WeilContainment.<suffix>` so that the platform's module slug
 (`Thm_<theorem_name with dots as underscores>`) is `Thm_WeilContainment_<suffix>`, as the brief's file names ask; the statement TEXT is
@@ -120,7 +120,7 @@ Covered: the prime-side containment of the whole (a, g)-family for every real a 
 explicit constants (`tilt_bounds`, `tilt_pos`), the same band (`tsupport_eq`), evenness and continuity of the classical test, the
 level-(1−a) inverse (`tilt_inv`), the converse containment (`exact`), the exact two-way containment as a set equality (`range_eq`), and the
 C² non-preservation witness (`not_contDiff`). Not covered: the zero side at any level; Zeta23's C² class (the classical class here is
-"even, band-limited, no regularity"; the C² refinement by finite interpolation is not formalized); the μ-band and nonlinear functions of the
+"even, band-limited, no regularity"; the C² refinement by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.] is not formalized); the μ-band and nonlinear functions of the
 band; the archimedean term; summability as a datum; ζ. Differs from the prose: `tsum` over all n for "n ≤ X" (equal by `cutoff`), the
 algebraic inverse for "analytic continuation", the restated prime term, an arbitrary even g for the cos-transform of a window (a larger
 family — stronger), every real a for a > 1/2, the redundant `0 ≤ L` dropped, the Prove2Me theorem names.
