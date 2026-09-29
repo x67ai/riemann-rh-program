@@ -147,13 +147,15 @@ OLD_BRACKET_RIDER = "source `results/watch-lamzouri-2609.02882/V2-DELTA-s34.md`.
 NEW_BRACKET_RIDER = "source `results/watch-lamzouri-2609.02882/V2-DELTA-s34.md`; " + ENTERED + ".]**"
 OLD_QUOTE = "the same Montgomery–Taylor extremal problem (see Remark 3.4)"
 NEW_QUOTE = "the same Montgomery–Taylor extremal problem (see Remark 3.4 below)"   # v2 extraction line 187
+OLD_TAIL = "so the degeneracy recorded here is untouched."
+NEW_TAIL = "so what this entry records (II.1's ceiling, II.4's degeneracy) is untouched."  # reader's P2: II.1 records a ceiling, not a degeneracy
 OLD_LABEL = "single-check — orchestrator's reading"
 NEW_LABEL = "dual-checked (orchestrator Fable 5.1 + Opus 5 reader, Session 34)"  # standing order 7, on the reader's AGREE
 staged_rider = rider_lines[0]
-for s in (OLD_BRACKET_RIDER, OLD_QUOTE, OLD_LABEL):
+for s in (OLD_BRACKET_RIDER, OLD_QUOTE, OLD_LABEL, OLD_TAIL):
     if staged_rider.count(s) != 1:
         sys.exit("the staged rider does not carry %r exactly once; the record has moved" % s)
-base = staged_rider.replace(OLD_BRACKET_RIDER, NEW_BRACKET_RIDER)
+base = staged_rider.replace(OLD_BRACKET_RIDER, NEW_BRACKET_RIDER).replace(OLD_TAIL, NEW_TAIL)
 allowed = set()
 for q in (base, base.replace(OLD_QUOTE, NEW_QUOTE)):
     for lab in (q, q.replace(OLD_LABEL, NEW_LABEL)):
@@ -218,6 +220,8 @@ STATUS_I1 = "- **STATUS.** computationally-verified (DH construction, witness va
 NOTE_HEAD = "- **DATED NOTE (2026-09-03, Session 15; single-check — orchestrator's re-derivation, dual-model verification per standing order 7 owed before external use).** "
 NOTE_II1 = NOTE_HEAD + "Lamzouri, arXiv:2609.02882 (2 Sep 2026), reproves the AF constants without the matrix"
 NOTE_II4 = NOTE_HEAD + "The Hilbert-space form of this degeneracy"
+END_II1 = "- **[RIDER 2026-09-26, Session 28 (E1, M5-U formulation slot, `results/e1-m5u/FORMULATION.md` §2–§4; entered at the Session-29 zoo stream)"
+END_II4 = "- **[RIDER 2026-09-16, Session 22 — from Theorem M2 clause 7 (`results/c2-m2/separation-note.md` §7.2"
 STATUS_II1 = "- **STATUS.** formalized-in-Lean. **BINDS: certificate-class (all scopes).**"
 STATUS_II4 = "- **STATUS.** formalized-in-Lean. **BINDS: certificate-class; the S3 clause binds all full-RH routes.**"
 DUAL_HEAD = "- **[DUAL-MODEL CHECK 2026-09-05, Session 16 — Opus 5 re-derivation (`results/watch-lamzouri-2609.02882/dual-check-O.md`"
@@ -232,7 +236,7 @@ PREV3_FQ10SUB = "10. The fractional-mark integrality theorem (IV.17)"
 NEXT_FQ10SUB = "11. **Theorem M2's Lemma G"
 NEXT2_FQ10SUB = "    - **[PRICED 2026-09-24, Session 24"
 # (STATUS_II1 is also II.3's STATUS line, zoo line 163, so it is a neighbor check only, not a global anchor; STATUS_II4 is checked in place too.)
-for a in (ANCHOR_COUNT, PREV_COUNT, ANCHOR_I1, PREV_I1, PREV2_I1, STATUS_I1, NOTE_II1, NOTE_II4, ANCHOR_IV1, PREV_IV1, PREV2_IV1, PREV3_IV1,
+for a in (ANCHOR_COUNT, PREV_COUNT, ANCHOR_I1, PREV_I1, PREV2_I1, STATUS_I1, NOTE_II1, NOTE_II4, END_II1, END_II4, ANCHOR_IV1, PREV_IV1, PREV2_IV1, PREV3_IV1,
           ANCHOR_FQ10SUB, PREV_FQ10SUB, PREV2_FQ10SUB, PREV3_FQ10SUB, NEXT_FQ10SUB):
     n = sum(1 for ln in lines if ln.startswith(a))
     if n != 1:
@@ -266,7 +270,11 @@ if lines[i - 1] != "" or lines[i - 2] != STATUS_II1:
     sys.exit("II.1's DATED NOTE is not preceded by a blank line and the entry's STATUS line")
 if lines[i + 1] != "" or not lines[i + 2].startswith(DUAL_HEAD):
     sys.exit("II.1's DATED NOTE is not followed by a blank line and the DUAL-MODEL CHECK bullet -- placement not verified")
-lines[i + 1:i + 1] = [blocks["ii1"]]
+e = unique_index(lines, lambda ln: ln.startswith(END_II1), "II.1's last line (the Session-28 E1 RIDER)")
+entry_of(lines, e, "### II.1 ")
+if not (i + 2 < e) or lines[e + 1] != "" or not lines[e + 2].startswith("### II.2 "):
+    sys.exit("II.1's Session-28 E1 RIDER is not the entry's last line after the DATED NOTE, before the blank and '### II.2'")
+lines[e + 1:e + 1] = [blocks["ii1"]]
 
 # 4. II.4: the same rider directly after the DATED NOTE, before the blank and the DUAL-MODEL CHECK bullet.
 i = unique_index(lines, lambda ln: ln.startswith(NOTE_II4), "II.4 DATED NOTE (Hilbert-space form)")
@@ -275,7 +283,11 @@ if lines[i - 1] != "" or lines[i - 2] != STATUS_II4:
     sys.exit("II.4's DATED NOTE is not preceded by a blank line and the entry's STATUS line")
 if lines[i + 1] != "" or not lines[i + 2].startswith(DUAL_HEAD):
     sys.exit("II.4's DATED NOTE is not followed by a blank line and the DUAL-MODEL CHECK bullet -- placement not verified")
-lines[i + 1:i + 1] = [blocks["ii4"]]
+e = unique_index(lines, lambda ln: ln.startswith(END_II4), "II.4's last line (the Session-22 RIDER)")
+entry_of(lines, e, "### II.4 ")
+if e != i + 4 or lines[e - 1] != "" or lines[e + 1] != "" or not lines[e + 2].startswith("### II.5 "):
+    sys.exit("II.4's Session-22 RIDER is not the entry's last line (note, blank, DUAL-MODEL CHECK, blank, RIDER), before the blank and '### II.5'")
+lines[e + 1:e + 1] = [blocks["ii4"]]
 
 # 5. IV.1: the LINUX REPLAY line directly after the entry's last line, the Session-33 Suzuki RIDER (which follows the REFINEMENT anchor), before the blank and '### IV.2'.
 i = unique_index(lines, lambda ln: ln.startswith(ANCHOR_IV1), "IV.1 Session-33 Suzuki RIDER (the entry's last line)")
@@ -363,10 +375,10 @@ if lines[34] != blocks["count"] or lines[33] != "" or not lines[32].startswith(A
     sys.exit("the count paragraph is not at line 35 between the Session-33 paragraph and the '---'")
 if lines[71] != blocks["i1"] or not lines[70].startswith(ANCHOR_I1) or lines[72] != "" or not lines[73].startswith("### I.2 "):
     sys.exit("the I.1 LINUX REPLAY line is not at line 72 directly after the WITNESSES bullet")
-if lines[144] != blocks["ii1"] or not lines[143].startswith(NOTE_II1) or lines[145] != "" or not lines[146].startswith(DUAL_HEAD):
-    sys.exit("the II.1 rider is not at line 145 directly after the II.1 DATED NOTE")
-if lines[178] != blocks["ii4"] or not lines[177].startswith(NOTE_II4) or lines[179] != "" or not lines[180].startswith(DUAL_HEAD):
-    sys.exit("the II.4 rider is not at line 179 directly after the II.4 DATED NOTE")
+if lines[150] != blocks["ii1"] or not lines[149].startswith(END_II1) or lines[151] != "" or not lines[152].startswith("### II.2 ") or not lines[143].startswith(NOTE_II1):
+    sys.exit("the II.1 rider is not at line 151 directly after the entry's last line (the Session-28 E1 RIDER), before '### II.2'")
+if lines[182] != blocks["ii4"] or not lines[181].startswith(END_II4) or lines[183] != "" or not lines[184].startswith("### II.5 ") or not lines[177].startswith(NOTE_II4):
+    sys.exit("the II.4 rider is not at line 183 directly after the entry's last line (the Session-22 RIDER), before '### II.5'")
 if lines[399] != blocks["iv1"] or not lines[398].startswith(ANCHOR_IV1) or lines[400] != "" or not lines[401].startswith("### IV.2 "):
     sys.exit("the IV.1 LINUX REPLAY line is not at line 400 directly after the Session-33 Suzuki RIDER")
 if lines[691] != blocks["fq10"] or not lines[690].startswith(ANCHOR_FQ10SUB) or not lines[692].startswith(NEXT_FQ10SUB) or not lines[698].startswith("*(File discipline"):
@@ -374,5 +386,5 @@ if lines[691] != blocks["fq10"] or not lines[690].startswith(ANCHOR_FQ10SUB) or 
 
 out = dry if dry else ZOO
 out.write_text(new_text, encoding="utf-8")
-print("OK: %s written; +%d lines (692 -> %d); entries 58 (I 8, II 5, III 21, IV 19, V 5); Group IV 19 (no heading added); the six blocks at lines 35, 72, 145, 179, 400, 692; SHA-256 after %s%s"
+print("OK: %s written; +%d lines (692 -> %d); entries 58 (I 8, II 5, III 21, IV 19, V 5); Group IV 19 (no heading added); the six blocks at lines 35, 72, 151, 183, 400, 692; SHA-256 after %s%s"
       % (out, added, len(lines) - 1, hashlib.sha256(new_text.encode("utf-8")).hexdigest(), " [DRY RUN -- BARRIER-ZOO.md untouched]" if dry else ""))
