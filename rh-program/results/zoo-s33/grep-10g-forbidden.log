@@ -1,0 +1,41 @@
+# zoo-s33 — 10(g) lint and forbidden-phrasing grep log — Tue Sep 29 13:25:21 IST 2026
+
+## 1. 10(g) lint, results/zoo-s27/verify/lint_s27.py (032cb057b749c0e6…) on the proposed file
+results/zoo-s33/zoo-entries-proposed.md: 6 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): ['spelling']
+rc=0  (the one candidate 'spelling' is the lint's suffix match on finding 8's "keep their sources' spelling" — not a British spelling)
+
+## 2. The five linted phrases over the SIX inserted lines of the dry run (diff BARRIER-ZOO.md → dryrun-BARRIER-ZOO.md, added lines only) and over scripts/zoo-insert-s33.py
+added lines:        6 (one blank)
+  'clearly'      added lines: 0   script: 1
+  'obviously'    added lines: 0   script: 1
+  'easy to see'  added lines: 0   script: 1
+  'well known'   added lines: 0   script: 1
+  'well-known'   added lines: 0   script: 1
+  (the script's hits are the gate's own list of the phrases, lines 'for bad in ("clearly", ...)': 95 )
+
+## 3. The three forbidden phrasings of the H4 unit (UNIT-BRIEF §1(3)), case-insensitive fixed-string as CHECK-O §9 greps them
+  '(MI) fails'             added lines: 0   proposed file: 2   script: 2   dry run whole: 2   zoo today: 2
+  'IV.17 is formalized'    added lines: 0   proposed file: 1   script: 1   dry run whole: 1   zoo today: 1
+  'pair channel is closed' added lines: 0   proposed file: 1   script: 1   dry run whole: 1   zoo today: 1
+  Where the non-zero counts are:
+    scripts/zoo-insert-s33.py:186:OLD_CLAUSE = "(MI) fails over ℚ through the mark-4/3 atom column of the sub-bullet above and nowhere else on the record.
+    scripts/zoo-insert-s33.py:194:    for forb in ("(mi) fails", "iv.17 is formalized", "pair channel is closed"):
+    results/zoo-s33/zoo-entries-proposed.md:8:3. **Block `fq10` — the staged line, with ONE clause reworded because the staged text carries a forbidden ph
+    results/zoo-s33/zoo-entries-proposed.md:9:   OLD: (MI) fails over ℚ through the mark-4/3 atom column of the sub-bullet above and nowhere else on the r
+  — every hit quotes the staged clause or the rule itself (finding 3's OLD line; the script's OLD_CLAUSE constant and its forbidden-gate list); none is in an inserted line.
+
+## 4. The s32 forbidden sentences over the added lines
+  'IV.1's containment inside `EF_lit`'         0
+  'the tilted test is C²'                      0
+  'I.1 formalized'                             0
+  'DH has no Euler product'                    0
+  'RH-equivalent'                              0
+  'the tilted explicit formula is formalized'  0
+  'kernel-checked on Prove2Me'                 0
+
+## 5. Label occurrences in the added lines (exactly one, in the pair-channel sub-bullet, in straight double quotes)
+1
+
+## 6. U.S. English sweep of the added lines (the lint's regex, candidates judged by hand)
+  candidates: ['four']
+  ('four' in 'four `decide +kernel` power sums' and 'sour'-class words are not British spellings; nothing to change)

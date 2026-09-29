@@ -1,0 +1,12 @@
+# zoo-s33 — label identity check (standing order 7): H4's label pulled programmatically from three files and compared character for character — Tue Sep 29 13:17:59 IST 2026
+
+Source 1: results/h4-pair-lean-s33/BUILD-NOTES.md  SHA-256 b11835027397bc3e7d601c7aa80a76f2744454c4940dd9d30a14ed080f994261  — the paragraph beginning '**Label, verbatim and binding' (lines 16–28, wrapped lines joined with single spaces; the one bold straight-quoted string in it, closed as  nanoda".**)
+Source 2: results/h4-pair-lean-s33/ZOO-LINES-STAGED.md  SHA-256 2401eb9dd5ab90d885620bb7861871d226a8c57c01a480107b69777502f549c8  — line 5, the string after 'Label, as the builder and the checker assign it: "'
+Source 3: results/h4-pair-lean-s33/ORCHESTRATOR-NOTES.md  SHA-256 578993a9f80a4e5fb1fecb5b580dc23b5a9a3a60e6574809800961a6868335d1  — §2, line 32, the string after '**Label earned (after CHECK-O, no displayed hypothesis, verbatim):** "'
+
+BUILD-NOTES       (324 chars): IV.17's pair channel: Prop. 4.5 Comparator-checked for every depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20) kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda
+ZOO-LINES-STAGED  (324 chars): IV.17's pair channel: Prop. 4.5 Comparator-checked for every depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20) kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda
+ORCHESTRATOR §2   (324 chars): IV.17's pair channel: Prop. 4.5 Comparator-checked for every depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20) kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda
+
+RESULT: IDENTICAL — the three strings are equal character for character; the writer proceeds.
+Cross-check (not one of the three): UNIT-BRIEF §1(3), results/h4-pair-typing-s32/UNIT-BRIEF.md line 28, prints the label with one bold span inside ('**the floor F1 ≥ S2's failure**'); with the '**' markup stripped it equals the three strings: True
