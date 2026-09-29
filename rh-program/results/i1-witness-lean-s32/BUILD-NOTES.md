@@ -144,3 +144,11 @@ report). Files under `results/i1-witness-lean-s32/`: `PREDERIVATION-ERRATA.md`, 
 `comparator-run.log`, `yaml-validation.log`, `lint-10g.log`, and `tools/{run.sh, statement_identity_i1.py, trust_greps_i1.py}`. Edits outside
 this folder: `lean/` only (the nine topic files, the yaml, the README). 10(g) lint: U.S. English throughout; the four banned phrases absent
 (`lint-10g.log`).
+
+
+## Corrections after CHECK-O (08:10 IST 2026-09-29, Session 32; orchestrator, each re-derived at the file)
+
+1. **F1 (lines 67, 75 and wherever `lambdaVec_rec` is called "the record's recursion"):** true for arrays with b₁ = 1 only — the solved form drops the b₁ factor; both shipped arrays have b₁ = 1 (`epsteinB_one`, `dhA_one`). FIDELITY (D11) carries the statement; the challenge header's "prime index p" (lines 20–22) overstates — the theorem holds for every p; Lean comments recorded, not edited.
+2. **F2:** "no Dirichlet series, no −F′/F … appears in any file" reads "in any statement"; the phrases occur in comments and docstrings (FIDELITY corrected in place).
+3. **F3:** `lambdaVec b 0 p = 0` comes from the fuel-0 clause, not the `n < 2` branch; `Finset.sum_eq_single` is named in a comment and in ERRATA but used by no solution (both corrected in place).
+4. **F4 (line 82 and README lines 504–505):** the rung-1 build figures at line 82 (`Built ChallengeDeps.I1Witness (2.8s)`, `Built Solution.EpsteinWitnessSix (4.0s)`, 9.43 s real) are the builder's console reading and appear in no log on disk; `build-i1witness.log` covers the I1Witness build only. The clean-clone checker's cold builds (`check-O/`) are the logged record of both builds.

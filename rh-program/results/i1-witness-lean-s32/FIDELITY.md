@@ -13,7 +13,7 @@ of a recursion: `lambdaVec b n p` is defined (ChallengeDeps/I1Witness.lean) by t
 Σ_{d | n, d < n} Λ(d)·b_{n/d}` on a coefficient array b with b₁ = 1, with log n replaced by the exponent vector (e_p(n) = padicValNat p n),
 and `LambdaReal b n = Σ_{p ≤ n prime} lambdaVec b n p · Real.log p`. The identification "`LambdaReal b` is the coefficient sequence of
 −F′/F for F(s) = Σ b_n n^{−s}" is the classical identity (Σ Λ(n) n^{−s})(Σ b_n n^{−s}) = Σ b_n log n · n^{−s} and is NOT formalized; no
-Dirichlet series, no −F′/F, no convergence statement appears in any file. What is formalized is the recursion (as a theorem about the
+Dirichlet series, no −F′/F, no convergence statement appears in any STATEMENT [CORRECTION 08:10 IST 2026-09-29, Session 32 — CHECK-O F2: the phrases do occur in header comments and docstrings, e.g. ChallengeDeps/I1Witness.lean lines 28, 34, 64; the sentence reads "in any statement"]. What is formalized is the recursion (as a theorem about the
 defined object, `lambdaVec_rec`) and its values at the record's witnesses. The label the unit earns (BRIEF §1(4)), verbatim: "I.1's
 witness table kernel-checked — for the Epstein form x² + 5y² (h = 2), Λ_Q(36) = −4 log 2 − 4 log 3 < 0 (and Λ_Q(6) = 2 log 6 off prime
 powers); for Davenport–Heilbronn, Λ_DH(3) = −κ log 3 < 0 and Λ_DH(12) = −κ(1 + κ²) log 12 < 0 with κ > 0 from its closed form — where Λ_f
@@ -48,7 +48,7 @@ Lean-kernel replay, nanoda replay) PASSED on both topics (`rung1-comparator.log`
 ## 2. What is NOT covered — stated nowhere in Lean (each sentence re-derived; the checker will re-derive them again)
 
 * **(F-a) The −F′/F identification.** No theorem, definition or statement in the seven topic files mentions a Dirichlet series, a
-  logarithmic derivative, `ζ_Q`, `F(s)`, or convergence; the phrase "−F′/F" occurs in header comments and docstrings only, as the
+  logarithmic derivative, `ζ_Q`, `F(s)`, or convergence [CORRECTION 08:10 IST 2026-09-29, Session 32 — CHECK-O F2: read "no theorem or statement"; the DEFINITIONS' docstrings and the file headers do name `ζ_Q`, `F(s)` and −F′/F as the record's sentences being restated (ChallengeDeps lines 28, 34, 64)]; the phrase "−F′/F" occurs in header comments and docstrings only, as the
   record's sentence being restated. What connects `LambdaReal epsteinB` to the record's Λ_Q is the classical identity in the first
   paragraph, by hand.
 * **(N2) The Davenport–Heilbronn function itself.** Neither its Dirichlet series, its analytic continuation, its functional equation,
@@ -81,7 +81,7 @@ Lean-kernel replay, nanoda replay) PASSED on both topics (`rung1-comparator.log`
   a reader who trusts the theorem need not trust the fuel.
 * **(D3) e_p(n) is Mathlib's `padicValNat p n`.** `lambdaVec b n p` is defined for every p (also p = 0, 1 and composite p), but
   `LambdaReal` sums only over primes p ≤ n, so the non-prime values are never consumed. `padicValNat p 0 = 0`, but `lambdaVec b 0 p = 0` by
-  definition (n < 2), so b 0 is never consumed either.
+  definition (n < 2) [CORRECTION 08:10 IST 2026-09-29, Session 32 — CHECK-O F3, re-derived at ChallengeDeps line 38: at n = 0 the fuel is 0 and `lambdaVecAux` returns 0 by its fuel-0 clause `| 0, _ => 0`; the `n < 2` branch is never reached], so b 0 is never consumed either.
 * **(D4) r_Q(n) is DEFINED as the count over the box |x|, |y| ≤ n.** `epsteinB n = card {(x, y) ∈ Icc (−n) n × Icc (−n) n : x² + 5y² = n} / 2`.
   The box contains every solution (x² ≤ n and 5y² ≤ n force |x|, |y| ≤ √n ≤ n for n ≥ 1; at n = 0 the box is {(0, 0)}), so this IS
   r_Q(n)/2 for every n — a hand fact; no second definition and no lemma `epsteinB_eq_count` was introduced (BRIEF §0). `epsteinB 0 = 1/2`
@@ -102,6 +102,7 @@ Lean-kernel replay, nanoda replay) PASSED on both topics (`rung1-comparator.log`
   `dh_six` (each with its real value and sign). Every statement of BRIEF §0 (E1), (E2), (D1), (D2) is present with its brief name
   where the brief gave one (`epstein_witness_36`, `kappa_pos`); the others are named here (`epstein_six_coeff`, `epstein_witness_6`,
   `epstein_thirtysix_coeff`, `dh_three_coeff`, `dh_witness_3`, `dh_twelve_coeff`, `dh_witness_12`).
+* **(D11) [added 08:10 IST 2026-09-29, Session 32 — CHECK-O F1, re-derived by the orchestrator] `lambdaVec_rec` is the record's recursion only for arrays with b₁ = 1.** The record's recursion reads b_n log n = Σ_{d | n} Λ(d) b_{n/d} = Λ(n)·b₁ + Σ_{d < n} Λ(d) b_{n/d}; the shipped solved form Λ(n) = b_n e_p(n) − Σ_{d < n} Λ(d) b_{n/d} drops the b₁ factor, so for a general array it is the record's recursion divided through by b₁ only when b₁ = 1. Both shipped arrays have b₁ = 1 as theorems (`epsteinB_one`, `dhA_one`), so every witness value is the record's; no value changes. Sentences calling `lambdaVec_rec` "the record's recursion" for every array (this ledger §1 row 1, §3 (D1)–(D2); BUILD-NOTES lines 67, 75; README line 489; yaml lines 675–676, 1027, 1382; the challenge file's header lines 20–22 — which also says "prime index p" where the theorem holds for every p — and docstring line 44; solution lines 16, 206) read with this qualifier. The Lean comment lines are recorded, not edited (the D5 rule: no Lean edit after the comparator runs).
 * **(D10) `noncomputable section` around `epsteinB`, `LambdaReal`, `kappa`, `dhA`.** The compiler flags the elaborated `Preorder ℤ`
   instance path of `Finset.Icc` as noncomputable; this concerns compiled code only. Kernel evaluation under `decide +kernel` is unaffected
   and is what the proofs use (measured: `typing.log`).

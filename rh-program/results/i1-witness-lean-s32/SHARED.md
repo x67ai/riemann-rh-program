@@ -44,3 +44,14 @@ subject). Next: BUILD-NOTES.md, FIDELITY.md, the yaml rows, the README section, 
 entry, fidelity row (y), four alignment rows); `lean/README.md` (section "I1Witness (Session 32, 2026-09-29)"). Label earned, verbatim BRIEF §1(4).
 Stop lines: none. Fidelity divergences in the brief's sense: none. Edits: under `results/i1-witness-lean-s32/` and `lean/` only; the tree
 `~/rh-lean-work/checker-clone-s21` carries the same nine topic files by `cp`. Nothing committed. Next: the Opus 5 clean-clone CHECKER (BRIEF §3).
+
+## [checker] Tue Sep 29 08:07:44 IST 2026 — CHECK-O landed: FIX-FIRST (prose only; the Lean, the statements, the label and every run are CLEAN)
+`CHECK-O.md` SHA-256 97c40eb11ae2d0c2cbf46e5942db523c3e5527231856ebcd3a486079bff554c1 (288 lines); logs and scripts under `check-O/` (hashes in CHECK-O §10). Clean clone
+`~/rh-lean-work/checker-clone-s32-i1` (v1.0 = 3635e748, overlay, cache; Mathlib 51e6992e never compiled): both `lake build`s 8698 jobs, 0
+errors, 0 warnings; print-axioms 17/17 [propext, Classical.choice, Quot.sound], no sorryAx / ofReduceBool; statement identity 3/3 + 14/14;
+trust greps the 17 challenge sorrys only; comparator with nanoda exit 0 on both configs ("Nanoda kernel accepts the solution", "Lean default
+kernel accepts the solution"); n = 36 decide re-measured 3.43–3.45 s per coefficient. Hand re-derivation: Λ_DH(12) = −2κ(1+κ²) log 2 − κ(1+κ²)
+log 3 = −κ(1+κ²) log 12; Epstein b at the divisors of 36 = 1,0,0,1,2,3,0,0,3, Λ_Q(6) = (2, 2), Λ_Q(36) = (−4, −4); κ > 0. Hashes: 32/33 match,
+SHARED.md stale by construction (hashed before the builder's last block). Items: F1 "the record's recursion" claimed for every array — true
+only for b₁ = 1 (values unaffected; thirteen prose places); F2 "appears in any file" false of comments; F3 (D3) fuel-0 mechanism and a
+phantom `Finset.sum_eq_single`; F4 no on-disk log for the rung-1 build. Nothing committed; no file outside this folder edited.

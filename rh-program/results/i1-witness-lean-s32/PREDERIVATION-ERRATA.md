@@ -94,4 +94,4 @@ costs a few seconds, not minutes.)
 (E1) says the two coefficients at p = 2, 3 give "hence `LambdaReal epsteinB 6 = 2·Real.log 2 + 2·Real.log 3`". `LambdaReal` sums over
 the primes p ≤ 6, which include 5; the step needs `lambdaVec epsteinB 6 5 = 0`, which holds because 5 ∤ 6 (E7's lemma). Likewise (D1)
 needs the p = 2 coefficient at n = 3 to vanish (2 ∤ 3), and (D2) the p = 5, 7, 11 coefficients at n = 12. In Lean each such sum is
-reduced to its two (or one) surviving terms with `Finset.sum_eq_add_of_mem` (or `Finset.sum_eq_single`) and the lemma.
+reduced to its two (or one) surviving terms with `Finset.sum_eq_add_of_mem` (or `Finset.sum_eq_single`) and the lemma. [CORRECTION 08:10 IST 2026-09-29, Session 32 — CHECK-O F3: `Finset.sum_eq_single` is named here and in a Solution/I1Witness.lean comment (line 23) but is used by no solution; `Finset.sum_eq_add_of_mem` is the lemma the proofs use.]

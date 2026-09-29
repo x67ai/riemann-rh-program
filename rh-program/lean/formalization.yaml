@@ -1033,7 +1033,8 @@ fidelity:
     record's number; positivity of the inner radicand is used inside kappa_pos, not shipped separately.  (y5) each real value is stated
     in the record's two forms as conjuncts (−4 log 2 − 4 log 3 and −4 log 6; −κ(1 + κ²)(2 log 2 + log 3) and −κ(1 + κ²) log 12; 2 log 2 +
     2 log 3 and 2 log 6); the other primes' coefficients vanish by lambdaVec_eq_zero_of_not_dvd (PREDERIVATION-ERRATA E7, E13).
-    (y6) additions to the brief's list: the three recursion lemmas, dhA_one, and the optional rows dh_four, dh_six.  NOT covered, and
+    (y6) additions to the brief's list: the three recursion lemmas, dhA_one, and the optional rows dh_four, dh_six.
+    (y7) [CHECK-O F1, Session 32] lambdaVec_rec is the record's recursion only for arrays with b1 = 1 (the solved form drops the b1 factor); both shipped arrays have b1 = 1 as theorems (epsteinB_one, dhA_one), so no value changes; the challenge header's 'prime index p' overstates (the theorem holds for every p).  NOT covered, and
     stated nowhere in Lean: the identification of the recursion's sequence with −F′/F for F(s) = Σ b_n n^{−s} (the classical identity
     (Σ Λ(n) n^{−s})(Σ b_n n^{−s}) = Σ b_n log n · n^{−s} — row (F-a) of the brief; no Dirichlet series appears in any statement); the
     Davenport–Heilbronn function itself (series, continuation, functional equation, off-line zero); anything about Epstein zeta
