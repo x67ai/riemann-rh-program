@@ -1,0 +1,34 @@
+== Tue Sep 29 07:37:48 IST 2026 typing.log — how the trusted object is defined so that the kernel can evaluate it (BRIEF §2 item 2)
+
+Definition (lean/comparator/ChallengeDeps/I1Witness.lean, namespace I1Witness), R any commutative ring:
+  lambdaVecAux (b : ℕ → R) (p : ℕ) : ℕ → ℕ → R           -- FUEL-structural: the first ℕ argument is the fuel
+    | 0, _ => 0
+    | fuel + 1, n => if n < 2 then 0 else b n * (padicValNat p n : R) - ∑ d ∈ n.properDivisors, lambdaVecAux b p fuel d * b (n / d)
+  lambdaVec (b : ℕ → R) (n p : ℕ) : R := lambdaVecAux b p n n     -- fuel := n
+Why fuel and not well-founded recursion: a definition by Nat.strongRecOn / WellFounded.fix is compiled through Acc.rec on an
+opaque accessibility proof and does not reduce under `decide`; structural recursion on the fuel compiles to Nat.rec (brecOn) and the
+kernel unfolds it. Why the fuel n suffices: every recursive call goes to a proper divisor d < n, so the chain n > d > d' > ... has at
+most n steps; the solution proves `lambdaVecAux b p f n = lambdaVecAux b p g n` for all f, g >= n (strong induction on n) and from it
+the record's recursion as a theorem, `lambdaVec_rec : 2 ≤ n → lambdaVec b n p = b n * padicValNat p n − ∑ d ∈ n.properDivisors,
+lambdaVec b d p * b (n / d)` (shipped in the challenge, so the trusted reader sees that the defined object IS the recursion).
+e_p(n) := padicValNat p n (the brief's choice) — measured to reduce in the kernel (below); no replacement needed.
+epsteinB (n : ℕ) : ℚ := (card of the filter x² + 5y² = n over Finset.Icc (−n) n ×ˢ Finset.Icc (−n) n : ℚ) / 2 — inside a
+`noncomputable section` only because the elaborated Preorder ℤ instance path (ConditionallyCompleteLattice...toPreorder) is flagged
+noncomputable by the COMPILER; kernel reduction under `decide +kernel` is unaffected (Finset.Icc on ℤ, ×ˢ, filter, card all reduce).
+Tactic: `decide +kernel` (kernel evaluation of the Decidable instance; proof term `of_decide_eq_true (Eq.refl true)`; NO
+Lean.ofReduceBool, which only `native_decide` introduces).
+
+Measurements (tree ~/rh-lean-work/checker-clone-s21, Lean v4.33.0-rc2, Mathlib 51e6992e; one theorem per file, `set_option profiler
+true`, `profiler.threshold 0`; the "type checking" line of the theorem; wall clock includes about 3.5 s of Mathlib import):
+  padicValNat 2 12 = 2                                            0.57 ms
+  padicValNat 2 36 = 2 ∧ padicValNat 3 36 = 2                      0.56 ms   (negative control ¬(padicValNat 2 36 = 3): decided)
+  epsteinB 1 = 1                                                   ~20 ms
+  epsteinB 6 = 2                                                    19 ms
+  epsteinB 36 = 3                                                  772 ms
+  lambdaVec epsteinB 6 2 = 2 ∧ lambdaVec epsteinB 6 3 = 2           77 ms    (the rung-1 calibration)
+  lambdaVec epsteinB 36 2 = -4                                     3.62 s
+  lambdaVec epsteinB 36 3 = -4                                     3.55 s
+  Nat.Prime 31 (Nat.decidablePrime)                                1.8 ms
+  (Finset.range 37).filter Nat.Prime = {2,3,5,7,11,13,17,19,23,29,31}   18 ms
+Route taken for n = 36: the direct `decide +kernel` on the recursion, one conjunct per `decide`; total well under the ten-minute
+line, so the 10(j) split into nine box-count lemmas is NOT used. Stop line (i) does not fire.
