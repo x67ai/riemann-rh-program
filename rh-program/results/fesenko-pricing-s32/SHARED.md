@@ -15,3 +15,11 @@
 - Tue Sep 29 05:58:22 IST 2026 — PRICING agent: §5 (NO-GO, refutation-shaped; three optional P3 FETCH lines; the V.5 rider text; the DH negative-control instrument priced at ≤ ½ slot) and §6 (honesty note; hashes re-computed and matching) appended. PRICING.md complete. Stop line (ii) fired at §2.8; stop line (i) did not. Handing back to the orchestrator for the Opus read.
 
 - Tue Sep 29 05:59:43 IST 2026 — OPUS READER (Opus 5): started. Stop-line check passed (PRICING.md 320 lines, sha 03311e0e…, has §5; five extraction files present, hashes recomputed and matching verify/extraction-hashes.txt; BARRIER-ZOO.md 678 lines, sha b2036ecb…). Reading BRIEF.md and PRICING.md, then the sources at the page. Deliverable: read-O.md.
+
+- Tue Sep 29 06:10:05 IST 2026 — OPUS READER: §1 (factual check: 4 MATERIAL, 15 MINOR) written to read-O.md. All five sources read at the page (s-15a and u-07a whole; t-04a and t-35b whole); t-47a pp. 1, 15 sampled. Next: §2 inventory, §3 crosswalk, §4 rungs, §5 decision, §6.
+
+- Tue Sep 29 06:11:28 IST 2026 — OPUS READER: §2 (inventory: all rows re-derived; 3 DISAGREE on citation/wording, 7 MISSING rows; 11 OLD/NEW pairs) written.
+
+- Tue Sep 29 06:13:09 IST 2026 — OPUS READER: §3 (beyond-the-zoo list and SPEC crosswalk; 19 OLD/NEW pairs; A10 and A14 CONTRADICTED -> SILENT, tally 0/0/14) written. Correction to the §2 line above: §2 carries 10 pairs and 6 missing rows (plus 4 missing zero sentences), not 11 and 7.
+
+- Tue Sep 29 06:13:54 IST 2026 — OPUS READER: §4 (rung candidates: all five AGREE on decidability, observation, ladder and price; S3 inference added to R-c; 2 OLD/NEW pairs) written.
