@@ -1,0 +1,47 @@
+# Tue Sep 29 07:15:22 IST 2026
+# cwd: /Users/jaytyagi/rh-lean-work/checker-clone-s21
+# cmd: lake env lean "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean"
+# toolchain: leanprover/lean4:v4.33.0-rc2; Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0-rc2)
+# mathlib: 51e6992efd
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:18:4: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:41:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:45:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:51:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:55:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:60:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:65:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:66:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:70:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:74:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:75:8: warning: declaration uses `sorry`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:79:8: error(lean.unknownIdentifier): Unknown constant `Real.pi_gt_d6`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:80:8: error(lean.unknownIdentifier): Unknown constant `Real.pi_lt_d6`
+@Real.exp_bound : ∀ {x : ℝ},
+  |x| ≤ 1 →
+    ∀ {n : ℕ}, 0 < n → |Real.exp x - ∑ m ∈ range n, x ^ m / ↑m.factorial| ≤ |x| ^ n * (↑n.succ / (↑n.factorial * ↑n))
+@Complex.exp_bound' : ∀ {x : ℂ} {n : ℕ},
+  ‖x‖ / ↑n.succ ≤ 1 / 2 → ‖Complex.exp x - ∑ m ∈ range n, x ^ m / ↑m.factorial‖ ≤ ‖x‖ ^ n / ↑n.factorial * 2
+Real.cosh_eq : ∀ (x : ℝ), Real.cosh x = (Real.exp x + Real.exp (-x)) / 2
+Real.cosh_two_mul : ∀ (x : ℝ), Real.cosh (2 * x) = Real.cosh x ^ 2 + Real.sinh x ^ 2
+Real.cosh_sq : ∀ (x : ℝ), Real.cosh x ^ 2 = Real.sinh x ^ 2 + 1
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:86:8: error(lean.unknownIdentifier): Unknown constant `Real.self_le_sinh_iff`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:87:8: error(lean.unknownIdentifier): Unknown constant `Real.abs_sinh`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:88:8: error(lean.unknownIdentifier): Unknown constant `Real.cosh_le_exp_half_sq`
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h4-pair-typing-s32/typing-probe.lean:89:8: error(lean.unknownIdentifier): Unknown constant `Real.one_le_cosh`
+@sum_fiberwise_of_maps_to : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] {s : Finset ι}
+  {t : Finset κ} [inst_1 : DecidableEq κ] {g : ι → κ},
+  (∀ i ∈ s, g i ∈ t) → ∀ (f : ι → M), ∑ j ∈ t, ∑ i ∈ s with g i = j, f i = ∑ i ∈ s, f i
+@sum_involution : ∀ {ι : Type u_1} {M : Type u_2} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M}
+  (g : (a : ι) → a ∈ s → ι),
+  (∀ (a : ι) (ha : a ∈ s), f a + f (g a ha) = 0) →
+    (∀ (a : ι) (ha : a ∈ s), f a ≠ 0 → g a ha ≠ a) →
+      ∀ (g_mem : ∀ (a : ι) (ha : a ∈ s), g a ha ∈ s), (∀ (a : ι) (ha : a ∈ s), g (g a ha) ⋯ = a) → ∑ x ∈ s, f x = 0
+@sum_product : ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid β] (s : Finset γ) (t : Finset α)
+  (f : γ × α → β), ∑ x ∈ s ×ˢ t, f x = ∑ x ∈ s, ∑ y ∈ t, f (x, y)
+Int.card_Icc : ∀ (a b : ℤ), #(Icc a b) = (b + 1 - a).toNat
+# exit code: 1; elapsed: 7.41 s wall; finished Tue Sep 29 07:15:29 IST 2026
