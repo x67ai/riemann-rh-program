@@ -1,0 +1,7 @@
+# Zoo line staged by the V.5 pricing read (06:21 IST 2026-09-29, Session 32) — rides the next zoo stream (SESSION 32 QUEUE item 5)
+
+Beneath V.5's last bullet (anchor: the bullet beginning "**[READ 2026-09-16, Opus 5: the SOURCE line's split description is REPAIRED.]**"), a new bullet (119 words; the reader's text with the orchestrator's Theorem-40 precision — the horizontal factor is a one-dimensional zeta integral of k, not only Γ-factors):
+
+- **[RIDER 2026-09-29, Session 32 (`results/fesenko-pricing-s32/PRICING.md` §2.8, §5; `read-O.md`) — the Fesenko/IUT omission re-grounded.]** The wave-1 omission "Fesenko/IUT two-dimensional adelic analysis (stalled, no credible RH progress …)" (`grossmann-sweep.json` `synthesis.unswept_corners[11]`) now has an internal ground: its one zero-location theorem (s-15a Thm 54, pp. 83–84) consumes Hypothesis (∗), a sign condition on h(e^{−t}), h a function of the zeta integral alone — ζ_E(s)²·c_E^{1−s} times the square of a one-dimensional zeta integral of k (Thm 40 p. 53; p. 70) — with Z({c(n)}) defined for any coefficients (p. 80), bracketed by RH (Thm 54; Lemma 53; p. 85); III.20's test returns it to IV.1; no doubled object carries an intersection pairing; RH imported on rung 1 (p. 81). Dead-end on internal grounds.
+
+Also: the count line of the next zoo stream records "V.5's Fesenko/IUT return CLOSED on internal grounds (Session 32)"; the sweep's `still_unswept` fourth string is read henceforth with this rider; count 58 → 58.
