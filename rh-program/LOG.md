@@ -2018,3 +2018,5 @@ The file is Álvarez López–Kordyukov–Leichtnam, *Analysis on Riemannian fol
 **Hashes (10(i)):** in the two dated lines above; the harvest note and staged files hashed at the commit (`git log`).
 **Open at close:** NOTHING RUNNING. SESSION 35 QUEUE: rank 0 — the watch poll each idle session and **zoo-s35 OWED (five staged lines)**; rank 1 NONE FUNDED (electable by recorded decision); item 3 the regime, bounded by item 5's review clause (a digest owed by 2026-11-01 regardless). Sponsor: nothing to fetch, nothing to run; the Álvarez López watch OPEN.
 **Next session should:** follow the SESSION 35 QUEUE in STATUS — zoo-s35 first if the meter allows.
+
+**14:05 IST 2026-09-29 — SESSION 34 REOPENED after the close (the meter at 21 %): ZOO STREAM zoo-s35 LAUNCHED** (SESSION 35 QUEUE item 1(b); brief `results/zoo-s35/BRIEF.md` f08a250fa34e6645…; writer Fable 5.1 first, then the Opus 5 reader; five staged lines + the count paragraph; 692 → 699 expected). Live entry in STATUS.
