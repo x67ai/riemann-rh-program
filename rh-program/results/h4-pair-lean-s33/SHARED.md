@@ -13,3 +13,29 @@ Cauchy–Schwarz name is `sq_sum_le_card_mul_sum_sq`, Chebyshev.lean 136), E1/E1
 SHA-256 `PREDERIVATION-ERRATA.md` = fb2a0683a8afef858c7f350d5cac26c729cf67dff341db765acb0c8fc99e154d.
 Next: rung 1 — `lean/Zeta23/PairCeiling/PairRow.lean` items 1–4 (W2_eq, sum_W2_mul, pairRow_eq_gridRowQ, sum_W2_cosh), mirrored
 to `~/rh-lean-work/checker-clone-s21`, `lake build Zeta23.PairCeiling.PairRow`, `rung1-print-axioms.log`.
+
+## [builder] Tue Sep 29 11:29:57 IST 2026 — rung 1 landed: `lean/Zeta23/PairCeiling/PairRow.lean` items 1–4 built alone, axioms clean
+`W2`, `pairFormFactor`, `pairRow`, `abar`, `vacancyMark` (the probe's forms; the one deviation: the unused summation binder of `W2`
+is written `_j` so the module builds with 0 warnings — recorded for FIDELITY); `card_band`, `W2_eq`, `sum_W2_mul` (the inner reindex
++ `sum_comm` route, errata E1), `pairRow_eq_gridRowQ`, `sum_sinh_band`, `sum_W2_cosh`. Mirrored by `cp` to
+`~/rh-lean-work/checker-clone-s21/Zeta23/PairCeiling/PairRow.lean`. `lake build Zeta23.PairCeiling.PairRow`: first try 2 errors (an
+extra `ring`, a no-op `beta_reduce`), second try *Built (1.6s), Build completed successfully (2274 jobs)*, 0 errors, 0 warnings.
+`rung1-print-axioms.log` (probe `rung1-axioms.lean`): 6 names × `[propext, Classical.choice, Quot.sound]`. Stop line (i) did not fire
+(`sum_W2_mul`: one build attempt, 33 lines). SHA-256 of the rung-1 `PairRow.lean` (will change when §4–§5 are appended): f5cff1349fc1f2b83129d6f671586c1b81c8542ec0440b91d4cdf35637b8cbfe.
+Next: §4 Prop. 4.5 for every n (`dftMarkQ_vacancy`, `W2_zero`, `abar_zero`, the three sums, `prop45`), §5 the chain (`one_le_abar`,
+`abar_sq_le`, `floor_holds_integer`).
+
+## [builder] Tue Sep 29 11:37:08 IST 2026 — §4–§5 of `PairRow.lean` and the certificate `PairCert.lean` built and TIMED
+`PairRow.lean` (now complete; SHA-256 133f04a2c74e28c87007d9228d2132e40117924c2ca3ba7caa72dc97a1a04722): `intCast_zmod_eq_zero_iff`, `dftMarkQ_vacancy`, `W2_zero`, `abar_zero`, `sum_vacancyMark_sq`,
+`sum_W2_vacancy_sq`, `sum_W2_vacancy_cosh`, `sum_W2_cosh_sq`, **`prop45` for every n, d, μ** (stop line (ii) did NOT fire: general n, 250-line
+budget not approached, no hypothesis), `one_le_abar`, `abar_sq_le` (Cauchy–Schwarz `sq_sum_le_card_mul_sum_sq`, import
+`Mathlib.Algebra.Order.Chebyshev` added), `floor_holds_integer`. Two build rounds of fixes (a decidable-instance rewrite inside an `if`
+replaced by a case split; `Finset.sum_div` is not a name at 51e6992e — the 1/2 is folded out with `mul_sum`; two extra `ring`s after
+`field_simp`), then *Built (1.9s), 2282 jobs, 0 errors, 0 warnings*.
+`PairCert.lean` (SHA-256 9c9691b5c3d2178394308203a9766858a8f7422a963a4154d28f5e1027314c8e): `one_add_sq_half_le_cosh`, `exp_sub_sum_le` (the ℝ transfer of `Complex.exp_bound'` at n = 8, 12 lines —
+stop line (iv) did NOT fire), `cosh_le_poly8`, `sum_pow2/4/6/8` (`decide +kernel`), their ℝ casts, `card_band32`, `sum_poly2`, `sum_poly8`,
+`abar32`, `abar_quarter_ge`, `abar_half_le`, `abar_quarter_ge_L`, `abar_half_le_U`, `cert_numeric` (one `norm_num`), **`floor_fails_anchor`**.
+First try built with one linter nit (fixed). TIMED (`cert-build.log`): `lake build Zeta23.PairCeiling.PairCert` — Built (1.8s), 2.72 s wall
+for the lake call, max RSS 2.57 GB; `lake env lean` of the file alone 2.38 s wall; the four power sums alone: kernel type checking 58 ms.
+Stop line (iii) (ten minutes) is under by a factor of about 200. Next: the Comparator topic `PairChannel` (five files + config), tools, build,
+axioms, identity, greps, cleanup, the run with nanoda.

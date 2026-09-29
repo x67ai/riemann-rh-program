@@ -1,0 +1,74 @@
+== Tue Sep 29 11:36:24 IST 2026 certificate module: /usr/bin/time -l lake build Zeta23.PairCeiling.PairCert in ~/rh-lean-work/checker-clone-s21 (PairRow already built; only PairCert compiles)
+toolchain=leanprover/lean4:v4.33.0-rc2; mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+first attempt 11:35:26 IST: Built Zeta23.PairCeiling.PairCert (1.8s), 0 errors, 1 linter warning (unnecessarySeqFocus at line 199: 'gcongr <;> linarith' on one goal); fixed to two lines; this is the timed rebuild:
+✔ [2296/2296] Built Zeta23.PairCeiling.PairCert (1.8s)
+Build completed successfully (2296 jobs).
+        2.72 real         3.31 user         1.66 sys
+          2571911168  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              280226  page reclaims
+                 144  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  41  voluntary context switches
+               40827  involuntary context switches
+         15854399163  instructions retired
+          5059052005  cycles elapsed
+           187883840  peak memory footprint
+== Tue Sep 29 11:36:27 IST 2026 elaboration + kernel of the file alone: /usr/bin/time -l lake env lean Zeta23/PairCeiling/PairCert.lean (imports loaded from oleans; no olean written)
+        2.38 real         2.93 user         1.08 sys
+          2522382336  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              271157  page reclaims
+                 144  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  40  voluntary context switches
+               26021  involuntary context switches
+          4153382053  instructions retired
+          1315735426  cycles elapsed
+           136715816  peak memory footprint
+exit=0
+== Tue Sep 29 11:36:30 IST 2026 the four power sums alone, decide +kernel, timed per fact: lake env lean of a scratch file
+cumulative profiling times:
+	attribute application 0.0154ms
+	elaboration 0.421ms
+	fix level params 0.0127ms
+	instantiate metavars 0.0233ms
+	let-to-have transformation 0.0185ms
+	overlappingInstancesLinter 0.839ms
+	process pre-definitions 0.159ms
+	share common exprs 0.0599ms
+	tactic execution 0.549ms
+	tacticAnalysis 1.63ms
+	type checking 58.2ms
+	typeclass inference 4.82ms
+        1.43 real         0.81 user         0.65 sys
+          1444446208  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              187413  page reclaims
+                 154  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  40  voluntary context switches
+                 963  involuntary context switches
+          3810178283  instructions retired
+          1250839648  cycles elapsed
