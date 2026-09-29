@@ -87,6 +87,12 @@ project:
     v4.33.1/0df444a)" — the second toolchain is Prove2Me's default environment, in which the same statements and proofs build in the
     platform's layout (~/prove2me_workspace, Definitions/Theorems/Solutions), NOTHING posted.  Nothing about the ZERO side of any
     explicit formula (fatal 1's ghost), the μ-band, or ζ follows from it; the statements are about prime-side functionals only.
+    Session 32, H5 (2026-09-29; brief results/h5-c2-lean-s32/BRIEF.md; build record results/h5-c2-lean-s32/BUILD-NOTES.md; ledger
+    results/h5-c2-lean-s32/FIDELITY.md) adds the D5 ledger's (N2) refinement for CONTINUOUS g as two Comparator topics over the same
+    Mathlib-only trusted layer: `WeilContainmentC2One` (the band L = log 3) and `WeilContainmentC2` (every band) — for every real a
+    and L and every even continuous g supported in [−L, L], some even C² k on the same band has primeSide k = tiltedPrimeSide a g.
+    Label, binding: "IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class for continuous g (prime-side values;
+    the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)".  Nothing about ζ or RH follows.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -206,6 +212,9 @@ status:
     longer displayed anywhere in the Session 25 topics.  From Session 30 (D5, IV.1), also the one of comparator/Challenge/WeilContainmentOne.lean (proved by
     comparator/Solution/WeilContainmentOne.lean) and the twelve of comparator/Challenge/WeilContainment.lean (proved by
     comparator/Solution/WeilContainment.lean) — both topics over Mathlib alone, no Zeta23 module involved, nothing displayed.
+    From Session 32 (H5), also the one of comparator/Challenge/WeilContainmentC2One.lean and the one of
+    comparator/Challenge/WeilContainmentC2.lean (proved by the Solution modules of the same names) — over Mathlib alone, the three
+    hypotheses of the statement (g even, continuous, band-limited) displayed and nothing else.
     From Session 30 (G8, IV.17), also the sixteen of comparator/Challenge/IntegralityGap.lean (proved by
     comparator/Solution/IntegralityGap.lean, which delegates to Zeta23/PairCeiling/GridParsevalRat.lean and GridGap.lean; neither
     contains a `sorry`); nothing displayed.
@@ -628,6 +637,24 @@ status:
         - "Classical.choice"
         - "Quot.sound"
     - description: >-
+        Session 32 (2026-09-29), H5 — the D5 ledger's (N2) refinement for CONTINUOUS g, over Mathlib alone (the same trusted layer
+        comparator/ChallengeDeps/WeilContainment.lean, unchanged: primeSide, tiltedPrimeSide).  Rung 1 (`WeilContainmentC2One`): the
+        band L = log 3.  The family (`WeilContainmentC2`): for every real a and L and every even continuous g with
+        tsupport g ⊆ Icc (−L) L there is an even k with ContDiff ℝ 2 k and tsupport k ⊆ Icc (−L) L such that
+        primeSide k = tiltedPrimeSide a g — prime-side VALUES; the C² witness is an interpolant at ±log n (one Mathlib bump at 0 times a
+        Lagrange interpolant in u²), not the tilted test; zero side untouched; `EF_lit` not stated.  Hypotheses displayed: exactly the
+        three (even, continuous, band); the evenness of g is not used by the proof (results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md E2).
+        Label: "IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class for continuous g (prime-side values; the C²
+        witness is an interpolant at ±log n, not the tilted test; zero side untouched)" (results/h5-c2-lean-s32/BUILD-NOTES.md; Comparator
+        runs results/h5-c2-lean-s32/rung1-comparator.log and comparator-run.log).  Nothing about the zero side, the μ-band, or ζ follows.
+      declaration: "weilContainment_c2_interpolant_log3 (root, Challenge.WeilContainmentC2One / Solution.WeilContainmentC2One); weilContainment_c2_interpolant (root, Challenge.WeilContainmentC2 / Solution.WeilContainmentC2)"
+      file: "comparator/Solution/WeilContainmentC2.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
         Session 30 (2026-09-29), G8 — barrier-zoo IV.17, the fractional-mark integrality barrier, as one Comparator topic
         `IntegralityGap` (trusted layer comparator/ChallengeDeps/IntegralityGap.lean, Mathlib only: chi, dftMark, dftMarkQ, zetaM,
         gridRow, gridRowQ, fracMark — character for character the Zeta23/PairCeiling definitions).  Sixteen statements: (1) grid
@@ -905,7 +932,7 @@ fidelity:
     prime-side statement); Zeta23's C² test class `EF_lit` (the tilt does not preserve ContDiff ℝ 2 — `weilContainment_not_contDiff`
     is the witness; for g(0) ≠ 0 and a ≠ 1/2 the test is not even C¹ at 0 [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F1 (Opus 5), re-derived by the orchestrator: this presupposes g differentiable at 0; for C1's family (windows w ≥ 0, w ≢ 0, at every a > 1/2) k_{a,g} is not differentiable at 0 (g ≤ g(0) = ∫w > 0); without differentiability of g the claim fails (g = 2e^{(a−1/2)|u|} gives k ≡ 1, `check-O/probe_E2_counterexample.lean`), and at a < 1/2 it fails for the Fejér window at a = 1/2 − 1/L. The theorem `weilContainment_not_contDiff` is unaffected.] — so no statement feeds weilTestOf a g into EF_lit, and the
     classical class here is "even, band-limited, no regularity"; the C² refinement by finite interpolation [CORRECTION 00:45 IST 2026-09-29, Session 30 — CHECK-O F2 (Opus 5), re-derived by the orchestrator: true for g continuous (every cos-transform of a window), false at a band edge otherwise — L = log 2, g the indicator of {±log 2}: tiltedPrimeSide = 2^{−a} log 2 while every continuous k′ with tsupport ⊆ [−log 2, log 2] has primeSide k′ = 0. Not claimed anywhere in Lean.] at ±log n is not
-    formalized); the μ-band and nonlinear functions of the band; the archimedean term; summability as a datum (tsum of a
+    formalized) [FORMALIZED 06:42 IST 2026-09-29, Session 32, for g continuous: `weilContainment_c2_interpolant` (and the rung `weilContainment_c2_interpolant_log3`), results/h5-c2-lean-s32/ — row (x) below; the sentence is kept as the Session 30 record]; the μ-band and nonlinear functions of the band; the archimedean term; summability as a datum (tsum of a
     non-summable family is 0 — the identity is unconditional because the summands agree; band-limited data are finite sums);
     ζ, RH, any zero.  Ledger text: results/d5-lean-s30/FIDELITY.md; the attack on the brief's pre-derivation with the six errata
     that shaped these statements: results/d5-lean-s30/PREDERIVATION-ERRATA.md.
@@ -935,6 +962,26 @@ fidelity:
     item 10); the two-sided band, the λ' row, the cubic row, any budget other than the bandwidth-one grid row; the atom-only class
     at arbitrary positions (off the grid); Theorem 2.3's law form over ℚ; ζ, RH, any zero.  Ledger text:
     results/iv17-lean-s30/FIDELITY.md.
+    (x) [Session 32, 2026-09-29; H5, topics WeilContainmentC2 and WeilContainmentC2One — the D5 ledger's (N2) refinement of
+    barrier-zoo IV.1 for continuous g; not a DBN or M2 item.]  Where the formal statement differs from the record (D5 FIDELITY (N2)
+    as corrected by CHECK-O F2: "true for g continuous … at the points ±log n, 2 ≤ n ≤ e^L, but NOT formalized"; the reader's A7):
+    (x1) the witness is NOT the tilted test: k is an interpolant — k(u) = P(u²)·φ(u) with one Mathlib bump φ : ContDiffBump (0 : ℝ),
+    rIn = log (max I), rOut = L, and P the Lagrange interpolant with nodes (log n)², n ∈ I = {2 ≤ n ≤ ⌊e^L⌋ : log n < L}, values
+    (1/2)·n^{1/2−a}·g(log n); when I is empty, k = 0 — the brief's δ-separated family of bumps is not used (PREDERIVATION-ERRATA E3),
+    and the statement is existential (∃ k), so the witness's shape is not part of what is claimed.  (x2) the evenness hypothesis on g
+    is displayed (the record's family is even) but is NOT used by the proof; the theorem holds for every continuous g with
+    tsupport g ⊆ Icc (−L) L (ERRATA E2); no strengthened variant is stated.  (x3) continuity is load-bearing and is used only through
+    "g = 0 on Ici L" (the zero set is closed and contains Ioi L); with a discontinuous g the statement is false at a band edge
+    (CHECK-O F2's counterexample stands: L = log 2, g the indicator of {±log 2}).  (x4) `ContDiff ℝ 2 k` is stated (the class
+    Zeta23's `EF_lit` quantifies over), and the witness is in fact C^∞; nothing weaker or stronger is stated.  (x5) the band is
+    `tsupport k ⊆ Set.Icc (−L) L`, the same set as g's, for every real L (for L < log 2 the interior set is empty and k = 0).
+    (x6) `tsum` on both sides, as in row (u1); both are finite sums for the data at hand (the D5 cutoff is re-proved inside each
+    solution module; no solution imports the D5 solution or the challenge).  NOT covered, and stated nowhere in Lean: the ZERO side of
+    any explicit formula at any level (fatal 1's cosh ghost — the statement is about prime-side VALUES); the tilted test k_{a,g} itself
+    is not C² and is not claimed to be (row (u), `weilContainment_not_contDiff`; D5 (N2) stands); `EF_lit` is not stated and Zeta23 is
+    not imported — no statement feeds anything into `EF_lit`; the μ-band and nonlinear functions of the band; the archimedean term;
+    summability as a datum; the discontinuous case; ζ, RH, any zero.  Ledger text: results/h5-c2-lean-s32/FIDELITY.md; the attack on
+    the brief's pre-derivation: results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md.
 
 review:
   status: "self-assessed"
@@ -1260,6 +1307,14 @@ alignment:
       lean: "weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff"
       module: "Challenge.WeilContainment / Solution.WeilContainment over ChallengeDeps.WeilContainment (Mathlib only)"
       status: "proved, no displayed hypothesis; Comparator PASS with nanoda (results/d5-lean-s30/comparator-run.log, second run); also built at v4.33.1/0df444a in the Prove2Me layout, nothing posted"
+    - source: "D5 FIDELITY (N2) as corrected by CHECK-O F2 — the C² refinement of IV.1's prime-side containment for continuous g, at the band L = log 3 (n = 2 interior, n = 3 at the edge) — rung 1"
+      lean: "weilContainment_c2_interpolant_log3"
+      module: "Challenge.WeilContainmentC2One / Solution.WeilContainmentC2One over ChallengeDeps.WeilContainment (Mathlib only)"
+      status: "proved, hypotheses displayed: even, continuous, band (no other); Comparator PASS with nanoda (results/h5-c2-lean-s32/rung1-comparator.log)"
+    - source: "D5 FIDELITY (N2) as corrected by CHECK-O F2 — the C² refinement for continuous g, every band L: prime-side values; the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched"
+      lean: "weilContainment_c2_interpolant"
+      module: "Challenge.WeilContainmentC2 / Solution.WeilContainmentC2 over ChallengeDeps.WeilContainment (Mathlib only)"
+      status: "proved, hypotheses displayed: even, continuous, band (no other); Comparator PASS with nanoda (results/h5-c2-lean-s32/comparator-run.log)"
     - source: "Barrier-zoo IV.17 STATEMENT, first sentence, and theorems.md Lemma 2.2(a): the master inequality (MI) over INTEGER marks, and the per-atom slack (m − 1)(m − 2) ≥ 0 — the line where integrality is consumed (IV.17 EXECUTABLE TEST (3)); with the mark-1 floor m ≤ m²"
       lean: "mi_holds_integer, per_atom_slack, per_atom_floor, gridRow_eq"
       module: "Challenge.IntegralityGap / Solution.IntegralityGap over ChallengeDeps.IntegralityGap (Mathlib only); sources Zeta23/PairCeiling/GridGap.lean, Zeta23.PairCeiling.GridParseval.two_mul_distinct_ge, Zeta23.PairCeiling.GridCorner.gridRow_eq"

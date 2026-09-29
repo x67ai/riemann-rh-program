@@ -1,0 +1,57 @@
+== Tue Sep 29 06:39:02 IST 2026 trust greps (tools/trust_greps_h5.py = D5's tool, byte-copied; comments stripped) on the program tree
+comparator/ChallengeDeps/WeilContainment.lean comparator/Challenge/WeilContainmentC2One.lean comparator/Solution/WeilContainmentC2One.lean comparator/PrintAxioms/WeilContainmentC2One.lean comparator/Challenge/WeilContainmentC2.lean comparator/Solution/WeilContainmentC2.lean comparator/PrintAxioms/WeilContainmentC2.lean: (absent)
+files present: 0; hits outside comments: 0
+exit=0
+== on the mirror
+comparator/ChallengeDeps/WeilContainment.lean comparator/Challenge/WeilContainmentC2One.lean comparator/Solution/WeilContainmentC2One.lean comparator/PrintAxioms/WeilContainmentC2One.lean comparator/Challenge/WeilContainmentC2.lean comparator/Solution/WeilContainmentC2.lean comparator/PrintAxioms/WeilContainmentC2.lean: (absent)
+files present: 0; hits outside comments: 0
+exit=0
+== imports (code lines) of the eight topic files
+-- comparator/ChallengeDeps/WeilContainment.lean comparator/Challenge/WeilContainmentC2One.lean comparator/Solution/WeilContainmentC2One.lean comparator/PrintAxioms/WeilContainmentC2One.lean comparator/Challenge/WeilContainmentC2.lean comparator/Solution/WeilContainmentC2.lean comparator/PrintAxioms/WeilContainmentC2.lean
+ugrep: warning: comparator/ChallengeDeps/WeilContainment.lean comparator/Challenge/WeilContainmentC2One.lean comparator/Solution/WeilContainmentC2One.lean comparator/PrintAxioms/WeilContainmentC2One.lean comparator/Challenge/WeilContainmentC2.lean comparator/Solution/WeilContainmentC2.lean comparator/PrintAxioms/WeilContainmentC2.lean: No such file or directory
+== mirror = tree (cmp) for the eight topic files and the two configs
+cmp: comparator/ChallengeDeps/WeilContainment.lean comparator/Challenge/WeilContainmentC2One.lean comparator/Solution/WeilContainmentC2One.lean comparator/PrintAxioms/WeilContainmentC2One.lean comparator/Challenge/WeilContainmentC2.lean comparator/Solution/WeilContainmentC2.lean comparator/PrintAxioms/WeilContainmentC2.lean: No such file or directory
+identical comparator/config-weil-containment-c2-one.json
+identical comparator/config-weil-containment-c2.json
+
+== RERUN Tue Sep 29 06:40:37 IST 2026 — the first section above passed the seven file names as ONE argument (zsh does not word-split an unquoted variable; the same slip D5 logged); rerun with an array
+== trust greps on the program tree
+comparator/Challenge/WeilContainmentC2One.lean:46: [sorry] sorry
+comparator/Challenge/WeilContainmentC2.lean:50: [sorry] sorry
+files present: 7; hits outside comments: 2
+exit=1
+== on the mirror
+comparator/Challenge/WeilContainmentC2One.lean:46: [sorry] sorry
+comparator/Challenge/WeilContainmentC2.lean:50: [sorry] sorry
+files present: 7; hits outside comments: 2
+exit=1
+== imports (code lines) of the seven topic files
+-- comparator/ChallengeDeps/WeilContainment.lean
+39:import Mathlib
+-- comparator/Challenge/WeilContainmentC2One.lean
+27:imported; nothing about ζ or RH.  The evenness hypothesis on g is displayed because the record's family is even; the proof does not
+33:import ChallengeDeps.WeilContainment
+-- comparator/Solution/WeilContainmentC2One.lean
+27:import ChallengeDeps.WeilContainment
+-- comparator/PrintAxioms/WeilContainmentC2One.lean
+18:import Solution.WeilContainmentC2One
+-- comparator/Challenge/WeilContainmentC2.lean
+38:import ChallengeDeps.WeilContainment
+-- comparator/Solution/WeilContainmentC2.lean
+27:import ChallengeDeps.WeilContainment
+-- comparator/PrintAxioms/WeilContainmentC2.lean
+18:import Solution.WeilContainmentC2
+== mirror = tree (cmp) for the seven topic files and the two configs
+identical comparator/ChallengeDeps/WeilContainment.lean
+identical comparator/Challenge/WeilContainmentC2One.lean
+identical comparator/Solution/WeilContainmentC2One.lean
+identical comparator/PrintAxioms/WeilContainmentC2One.lean
+identical comparator/Challenge/WeilContainmentC2.lean
+identical comparator/Solution/WeilContainmentC2.lean
+identical comparator/PrintAxioms/WeilContainmentC2.lean
+identical comparator/config-weil-containment-c2-one.json
+identical comparator/config-weil-containment-c2.json
+== ChallengeDeps/WeilContainment.lean unchanged against the D5 record (hashes.txt of results/d5-lean-s30)
+47c9a508ed4d5554d6fd4bfe8c4320dc0edc2a77a72cca5d0814bb854be34b7c  lean/comparator/ChallengeDeps/WeilContainment.lean
+47c9a508ed4d5554d6fd4bfe8c4320dc0edc2a77a72cca5d0814bb854be34b7c  comparator/ChallengeDeps/WeilContainment.lean
+47c9a508ed4d5554d6fd4bfe8c4320dc0edc2a77a72cca5d0814bb854be34b7c  /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/h5-c2-lean-s32/../../lean/comparator/ChallengeDeps/WeilContainment.lean

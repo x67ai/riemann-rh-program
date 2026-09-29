@@ -430,6 +430,49 @@ place of "analytic continuation", the restated prime term, an arbitrary even g i
 pre-derivation was attacked first; its six errata (`results/d5-lean-s30/PREDERIVATION-ERRATA.md`) added `even`, `tsupport_eq`,
 `cutoff`, `range_eq` and dropped a redundant hypothesis — the statements follow the corrected mathematics, not the brief.
 
+## WeilContainmentC2 (Session 32, 2026-09-29): the D5 ledger's (N2) refinement for continuous g — `comparator/{Challenge,Solution,PrintAxioms}/WeilContainmentC2.lean`, `Challenge/Solution/PrintAxioms/WeilContainmentC2One.lean`, `config-weil-containment-c2{,-one}.json`
+
+**What the topics are (H5; brief `results/h5-c2-lean-s32/BRIEF.md`, build record `results/h5-c2-lean-s32/BUILD-NOTES.md`, ledger
+`results/h5-c2-lean-s32/FIDELITY.md`).** The D5 ledger's "not covered" item (N2), as corrected by CHECK-O F2 — "the refinement 'every
+tilted datum equals `primeSide k′` for some C² even k′ on the same band' is true for g continuous … but is NOT formalized" — made a
+theorem, for continuous g, over the SAME Mathlib-only trusted layer (`ChallengeDeps/WeilContainment.lean`, unchanged; `primeSide`,
+`tiltedPrimeSide`). No new trusted definition; no Zeta23 import on either side:
+
+| file (under `comparator/`) | module | trusted? | content |
+|---|---|---|---|
+| `Challenge/WeilContainmentC2One.lean` | `Challenge.WeilContainmentC2One` | yes — read it | rung 1 (10(l)), the band L = log 3 (n = 2 interior, n = 3 at the edge): `weilContainment_c2_interpolant_log3` — for every real a and every g even, continuous, with `tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3)`, `∃ k, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g`; `sorry` |
+| `Challenge/WeilContainmentC2.lean` | `Challenge.WeilContainmentC2` | yes — read it | the family: `weilContainment_c2_interpolant` — for every real a and L and every g even, continuous, with `tsupport g ⊆ Set.Icc (-L) L`, the same conclusion on the band [−L, L]; `sorry` |
+| `Solution/WeilContainmentC2One.lean`, `Solution/WeilContainmentC2.lean` | `Solution.*` | no (checked by comparator) | the same statements byte-for-byte, proved over Mathlib alone (each module self-contained; neither imports the challenge or the D5 solution). Witness: with I = {2 ≤ n ≤ ⌊e^L⌋ : log n < L}, if I = ∅ then k = 0; else k(u) = P(u²)·φ(u), φ one `ContDiffBump (0 : ℝ)` with rIn = log (max I), rOut = L (`one_of_mem_closedBall`, `zero_of_le_dist`, `tsupport_eq`, `ContDiffBump.neg`, `ContDiffBump.contDiff`), P = `Lagrange.interpolate` with nodes (log n)² and values (1/2)·n^{1/2−a}·g(log n) (`eval_interpolate_at_node`; nodes distinct by `pow_left_inj₀` and `Real.log_injOn_pos`); the prime side term by term (the D5 rpow identity on I; Λ(0) = Λ(1) = 0; φ(±log n) = 0 and g(log n) = 0 for log n ≥ L — the zero set of a continuous g is closed and contains (L, ∞)); `tsum_eq_sum`, `Finset.sum_subset`, and the D5 cutoff re-proved locally |
+| `config-weil-containment-c2-one.json`, `config-weil-containment-c2.json`, `PrintAxioms/WeilContainmentC2{One,}.lean` | — | yes / — | comparator configurations (one name each; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick checks |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.WeilContainmentC2One Solution.WeilContainmentC2
+lake env lean comparator/PrintAxioms/WeilContainmentC2One.lean   # [propext, Classical.choice, Quot.sound]
+lake env lean comparator/PrintAxioms/WeilContainmentC2.lean      # [propext, Classical.choice, Quot.sound]
+python3 results/h5-c2-lean-s32/tools/statement_identity_h5.py . WeilContainmentC2One weilContainment_c2_interpolant_log3
+python3 results/h5-c2-lean-s32/tools/statement_identity_h5.py . WeilContainmentC2 weilContainment_c2_interpolant
+python3 results/h5-c2-lean-s32/tools/trust_greps_h5.py . <the seven topic files>   # the 2 challenge sorrys only
+```
+
+Recorded runs (2026-09-29, `results/h5-c2-lean-s32/`): both solutions *Build completed successfully (8698 jobs)*, 0 errors, 0 warnings;
+`rung1-print-axioms.log`, `print-axioms.log`; `statement-identity.log` (1 + 1 IDENTICAL, tree and mirror); `trust-greps.log`; the
+Comparator runs with nanoda `rung1-comparator.log` and `comparator-run.log` — `Nanoda kernel accepts the solution`, `Lean default kernel
+accepts the solution`, `Your solution is okay!`, exit 0 (runner `tools/run.sh`; NOT sandboxed, the fake-landrun shim as in every prior
+macOS record).
+
+**Honest label, verbatim (BRIEF §1(4), the reader's A7): "IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class
+for continuous g (prime-side values; the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)".** What it
+means: for every continuous even band-limited g and every real a, the level-a tilted prime NUMBER of g is the classical prime datum
+of some even C² test on the same band — a member of the class `EF_lit` quantifies over. What it does NOT say (FIDELITY.md §2): the
+tilted test k_{a,g} itself is not C² and is not claimed to be (D5's (N2) and `weilContainment_not_contDiff` stand); nothing about the
+ZERO side of any explicit formula at any level; `EF_lit` is not stated and nothing is fed into it; nothing for discontinuous g (the
+band-edge counterexample of D5 CHECK-O F2 stands); nothing about the μ-band, ζ, or RH. The hypotheses displayed are exactly g even,
+`Continuous g`, `tsupport g ⊆ Set.Icc (-L) L`; the evenness of g is not used by the proof (`results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md`
+E2). The fidelity ledger is `results/h5-c2-lean-s32/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences` row (x)); the D5
+row (u)'s (N2) sentence carries a dated FORMALIZED pointer to it.
+
 ## IntegralityGap (Session 30, 2026-09-29): barrier-zoo IV.17 in Lean — the master inequality holds over ℤ and FAILS over ℚ on the same grid row — `Zeta23/PairCeiling/GridParsevalRat.lean`, `GridGap.lean`, `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/IntegralityGap.lean`, `config-integrality-gap.json`
 
 **What the topic is (G8; brief `results/iv17-lean-s30/BRIEF.md`, typing check `TYPING-NOTE.md`, build record `BUILD-NOTES.md`, ledger

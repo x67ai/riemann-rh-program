@@ -1,0 +1,46 @@
+== Tue Sep 29 06:43:50 IST 2026 row letter uniqueness: occurrences of '(x)' as a row marker and elsewhere in lean/formalization.yaml
+965:    (x) [Session 32, 2026-09-29; H5, topics WeilContainmentC2 and WeilContainmentC2One — the D5 ledger's (N2) refinement of
+count of '(x)' anywhere: 3
+300:    - description: "Lane A soundness: an accepted asymptotic certificate with H2-A and H-TAIL gives g ≠ 0 for N(x) at or beyond some row
+935:    formalized) [FORMALIZED 06:42 IST 2026-09-29, Session 32, for g continuous: `weilContainment_c2_interpolant` (and the rung `weilCont
+
+== python3 results/d1-m2a/dr8/validate_yaml_sigma_strong.py (the D5 validator), from the repository root
+   Zeta23.Separation.wsum_double_plus                       Zeta23/Separation/Assembly2.lean
+   Zeta23.W1.arbDH_zero                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.arbDH_zero'                                    Zeta23/W1/FDH.lean
+   Zeta23.W1.arbNullDeepT100_exclusion                      Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT10000_exclusion                        Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT1000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT100_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.cert_of_checkW1_ap                             Zeta23/W1/ArgPrincipleBridge.lean
+   Zeta23.W1.cert_of_checkW1_fDH                            Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_fDH'                           Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn                      Zeta23/W1/Soundness.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn'                     Zeta23/W1/Soundness.lean
+   Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn            Zeta23/W1/Soundness.lean
+   Zeta23.W1.differentiable_fDH                             Zeta23/W1/FDH.lean
+   Zeta23.W1.fDH                                            Zeta23/W1/FDH.lean
+   Zeta23.W1.kappaDH                                        Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero                                      Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero'                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.mpNullDeepT100_exclusion                       Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT10000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT1000_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT100_exclusion                           Zeta23/W1/Ledger.lean
+   Zeta23.W1.rectArgPrinciple_of_local                      Zeta23/W1/ArgPrincipleBridge.lean
+
+RESULT: PASS — errors: 0, undeclared names: 0
+exit=
+
+== the four new theorem names are declared in the yaml (main_results + alignment)
+weilContainment_c2_interpolant_log3: 3 mentions
+weilContainment_c2_interpolant: 4 mentions
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'main_results'
+
+== RERUN Tue Sep 29 06:44:10 IST 2026 — the parse line above used a wrong key name (the file's top-level keys are listed here); validator exit code recorded without a pipe
+validator exit=0
+yaml parses; top-level keys: ['version', 'project', 'repository', 'sources', 'related_formalizations', 'classification', 'status', 'automation', 'fidelity', 'review', 'alignment', 'acknowledgements']
+description entries mentioning WeilContainmentC2: 1
+alignment rows naming the two theorems: 2

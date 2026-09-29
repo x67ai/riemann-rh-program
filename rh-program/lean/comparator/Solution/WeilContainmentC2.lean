@@ -10,19 +10,19 @@ no code from that library and does not import it: it imports Mathlib only
 (through ChallengeDeps.WeilContainment).
 -/
 /-
-comparator/Solution/WeilContainmentC2One.lean — the UNTRUSTED comparator solution module for the topic `WeilContainmentC2One`
-(rung 1 of the H5 unit, Session 32): the statement of Challenge/WeilContainmentC2One.lean, byte-identical, PROVED over Mathlib
-alone.  The proof is the general one (every band L, namespace `WeilContainmentC2One.Proof`, theorem `interpolant`), instantiated
-at L = log 3.  Construction (results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md E3): with I the interior indices
-{n : 2 ≤ n ≤ ⌊e^L⌋, log n < L}, if I is empty the witness is k = 0; otherwise the witness is k(u) = P(u²)·φ(u), where φ is one
-Mathlib bump `ContDiffBump (0 : ℝ)` with rIn = log (max I) and rOut = L (so φ = 1 at every ±log n, n ∈ I, and φ = 0 wherever
-|u| ≥ L) and P is Mathlib's Lagrange interpolant with nodes (log n)² and values (1/2)·n^{1/2−a}·g(log n), n ∈ I.  k is even
-because u² and φ are; C² because a polynomial, ofReal, u ↦ u² and φ are C^∞; supported in [−L, L] because φ is; and its prime side
-is the tilted one term by term (n ∈ I by the rpow identity Λ/√n · n^{1/2−a} = Λ n^{−a}; n ∉ I by Λ(0) = Λ(1) = 0 or by φ(±log n) = 0
-together with g(log n) = 0 for log n ≥ L, which uses only the continuity of g and its support).  The evenness of g is not used.
-This module never imports the challenge and never imports Solution.WeilContainment (the D5 cutoff is re-proved here, so the topic
-is self-contained).  Nothing in this file is part of the trusted base: comparator re-checks that the theorem below has exactly the
-statement of its Challenge namesake and uses only the permitted axioms.
+comparator/Solution/WeilContainmentC2.lean — the UNTRUSTED comparator solution module for the topic `WeilContainmentC2` (the H5
+unit, Session 32): the statement of Challenge/WeilContainmentC2.lean, byte-identical, PROVED over Mathlib alone, for every band L
+(namespace `WeilContainmentC2.Proof`, theorem `interpolant`; the rung-1 module Solution/WeilContainmentC2One.lean carries its own
+copy of the same proof so that each topic is self-contained).  Construction (results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md E3):
+with I the interior indices {n : 2 ≤ n ≤ ⌊e^L⌋, log n < L}, if I is empty the witness is k = 0; otherwise the witness is
+k(u) = P(u²)·φ(u), where φ is one Mathlib bump `ContDiffBump (0 : ℝ)` with rIn = log (max I) and rOut = L (so φ = 1 at every
+±log n, n ∈ I, and φ = 0 wherever |u| ≥ L) and P is Mathlib's Lagrange interpolant with nodes (log n)² and values
+(1/2)·n^{1/2−a}·g(log n), n ∈ I.  k is even because u² and φ are; C² because a polynomial, ofReal, u ↦ u² and φ are C^∞;
+supported in [−L, L] because φ is; and its prime side is the tilted one term by term (n ∈ I by the rpow identity
+Λ/√n · n^{1/2−a} = Λ n^{−a}; n ∉ I by Λ(0) = Λ(1) = 0 or by φ(±log n) = 0 together with g(log n) = 0 for log n ≥ L, which uses only
+the continuity of g and its support).  The evenness of g is not used.  This module never imports the challenge and never imports
+Solution.WeilContainment (the D5 cutoff is re-proved here).  Nothing in this file is part of the trusted base: comparator re-checks
+that the theorem below has exactly the statement of its Challenge namesake and uses only the permitted axioms.
 -/
 import ChallengeDeps.WeilContainment
 
@@ -30,7 +30,7 @@ noncomputable section
 
 open WeilContainment
 
-namespace WeilContainmentC2One.Proof
+namespace WeilContainmentC2.Proof
 
 /-- a polynomial over ℂ is C^n as a function ℂ → ℂ, for every n. -/
 theorem contDiff_poly_eval {n : WithTop ℕ∞} (p : Polynomial ℂ) :
@@ -235,15 +235,14 @@ theorem interpolant (a L : ℝ) (g : ℝ → ℂ) (hc : Continuous g) (hs : tsup
     · unfold primeSide
       simp
 
-end WeilContainmentC2One.Proof
+end WeilContainmentC2.Proof
 
-open WeilContainmentC2One.Proof
+open WeilContainmentC2.Proof
 
-/-- **the C² interpolant at the band L = log 3**: for every real a and every even continuous g supported in [−log 3, log 3],
-some even C² k on the same band has `primeSide k = tiltedPrimeSide a g`. -/
-theorem weilContainment_c2_interpolant_log3 :
-    ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g →
-      tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) →
-      ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧
-        tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g :=
-  fun a g _ hc hs => interpolant a (Real.log 3) g hc hs
+/-- **the C² interpolant, every band**: for every real a and L and every even continuous g supported in [−L, L], some even C² k
+on the same band has `primeSide k = tiltedPrimeSide a g`. -/
+theorem weilContainment_c2_interpolant :
+    ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L →
+      ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧
+        primeSide k = tiltedPrimeSide a g :=
+  fun a L g _ hc hs => interpolant a L g hc hs

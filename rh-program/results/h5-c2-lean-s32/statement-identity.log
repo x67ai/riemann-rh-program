@@ -1,0 +1,33 @@
+== Tue Sep 29 06:37:47 IST 2026 rung 1 statement identity (tools/statement_identity_h5.py = D5's tool, byte-copied), on the program tree and on the mirror
+weilContainment_c2_interpolant_log3           challenge   319 bytes, solution   319 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant_log3 :
+        ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g →
+          tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧
+            tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit=0
+weilContainment_c2_interpolant_log3           challenge   319 bytes, solution   319 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant_log3 :
+        ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g →
+          tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧
+            tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit=0
+
+== Tue Sep 29 06:39:02 IST 2026 family statement identity, on the program tree and on the mirror
+weilContainment_c2_interpolant                challenge   266 bytes, solution   266 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant :
+        ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧
+            primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit=0
+weilContainment_c2_interpolant                challenge   266 bytes, solution   266 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant :
+        ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧
+            primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit=0
