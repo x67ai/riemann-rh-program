@@ -1,4 +1,4 @@
-beta-shapes-s35 reader numbers_O -- 2026-09-29T16:12:33.593744 -- macOS-27.0-arm64-arm-64bit
+beta-shapes-s35 reader numbers_O -- 2026-09-29T16:18:19.627386 -- macOS-27.0-arm64-arm-64bit
 
 [O1] Lambda(n), psi, theta, Euclid
     2:0.6931 3:1.0986 4:0.6931 5:1.6094 6:0.0000 7:1.9459 8:0.6931 9:1.0986 10:0.0000 11:2.3979 12:0.0000 13:2.5649 14:0.0000 15:0.0000 16:0.6931 17:2.8332 18:0.0000 19:2.9444 20:0.0000 21:0.0000 22:0.0000 23:3.1355 24:0.0000 25:1.6094 26:0.0000 27:1.0986 28:0.0000 29:3.3673 30:0.0000
@@ -113,4 +113,7 @@ beta-shapes-s35 reader numbers_O -- 2026-09-29T16:12:33.593744 -- macOS-27.0-arm
     5 fibers: rank=5; primes covered=303; max support per fiber=82; rank*maxsupp >= #primes: True
     (with finitely many fibers the supports are unbounded as the range grows -> Lemma F(a) forbids; with finite fibers, rank -> infinity)
 
-END 2026-09-29T16:12:43.055171
+[O13] DH witness (carried by the NOTE, recomputed by the reader): Lambda_DH(n) from a_n log n = sum_{d|n} Lambda(d) a_{n/d}
+    kappa = 0.2840790438404 ; Lambda_DH(3) = -0.3120927285 ; Lambda_DH(4) = -1.442231965 ; Lambda_DH(12) = -0.7628774719884
+
+END 2026-09-29T16:18:29.301888

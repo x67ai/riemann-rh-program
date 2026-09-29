@@ -28,3 +28,14 @@
 - Verdict per theorem: T1 PROVED; T2 PROVED; T3 PROVED (Theorem R; no extra hypothesis beyond A5, A7, A9, real-valued A11 and the shape); routes (a)/(b) PROVED only in the injective sub-case with (H-Lef)+(H-inj) / (H-CS)+(H-inj), HEURISTIC otherwise. (D4) candidate object: NO (no rung; the rung would be a base with ≥ 2 residue characteristics). Stop lines: (i) no, (ii) no, (iii) no, (iv) yes ×2 non-load-bearing (Hadamard; Littlewood 1914 — FETCH-LIST-ROUND9, optional).
 - What the reader should attack first: Theorem R (§2.3, seven lines) and its use of A9's finiteness; then §1.3's exhaustiveness (the two predicates); then §2.3.5's claim that route (a)'s Lefschetz identity is an extra hypothesis; then the (D4-fin)/(D4-∞) split and the candidate-object NO.
 - Cost (writer's estimate): ≈ 460k tokens of context consumed in ≈ 40 min (15:25 → 16:03 IST); one background search script, no agents spawned; nothing committed (watchdog).
+
+## [Tue Sep 29 16:22:44 IST 2026] READER (Opus 5) — read-O.md landed
+- SHA-256 of read-O.md: 1614bcbb7d4d55ce98ec77e3a99d5efe5ecf73cf550bfbd4b3d3087a8138dec4 ; NOTE.md unchanged by the reader: 17717f151638618ab6f026d896cc632c955ce6c0c1db6cf4c60ff2a25eb0aff5 (= pre-reader).
+- Overall: AGREES-WITH-CORRECTIONS. Lemma F, T1, T2, T3/Theorem R all PROVED as re-derived; no theorem kills rung 1 (stop line (i) not fired). Theorem R uses A5 + A9 with REAL values and ONE fixed κ (+ Euclid, unique factorization); no Z-valued form, no Hodge index, no Lefschetz; A7 idle in it. Reader's converse: dim_Q G ≤ |char(B)|, so dim_Q G < ∞ ⟺ char(B) finite.
+- E4 AGREED by re-derivation (Milne pp. 9–11: σ is a definition; multiplicativity needs C × C × C composition).
+- 29 OLD/NEW pairs (14 FIX-FIRST F1–F14, 15 recommended M1–M12) in read-O.md §3 and verify-O/amendments.py; verify-O/apply_check.py: every OLD occurs the stated number of times, all apply cleanly. Main FIX-FIRST: "at least two / ≥ 2 residue characteristics" (7 places) is wrong — must be "infinitely many"; A11′ in §3.2 unconditional (false on rung 1); §1.3 Claim needs real diagonal-row values; staged IV.20 KILLS overclaims (D4-fin); x-04 quote "canononical [sic]"; x-17 pp. 4–5.
+- Group-IV: YES — Option A (IV.20) with F12, M4–M7; also insert Option B's IV.10 rider (Z-form of E3 4.1(b)); not the III.20 rider. 10(d) trigger.
+- Candidate object: AGREE NO; ground corrected — the s28 candidate is a PROPOSED target over Z (line 266's own gloss), (D4) is a shape, not a proposal.
+- Novelty: reader's 20 arXiv queries (verify-O/arxiv_O.sh, arxiv_O2.sh; controls PASS) → labels flipped to [novelty: dual-model check 2026-09-29].
+- Numbers: verify-O/numbers_O.py → numbers-O.log, all NOTE §4 numbers reproduced; DH witnesses recomputed (Λ_DH(12) = −0.7628774719884).
+- Cost (reader): ≈ 190k tokens, ≈ 20 min; no agents; nothing committed.

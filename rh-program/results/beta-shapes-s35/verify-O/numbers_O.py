@@ -208,4 +208,14 @@ for trial in range(3):
     maxsupp = max(sum(1 for x in row if x) for row in rows)
     print(f'    {nf} fibers: rank={r}; primes covered={len(primes)}; max support per fiber={maxsupp}; rank*maxsupp >= #primes: {r*maxsupp >= len(primes)}')
 print('    (with finitely many fibers the supports are unbounded as the range grows -> Lemma F(a) forbids; with finite fibers, rank -> infinity)')
+
+print('\n[O13] DH witness (carried by the NOTE, recomputed by the reader): Lambda_DH(n) from a_n log n = sum_{d|n} Lambda(d) a_{n/d}')
+kap = (mp.sqrt(10-2*mp.sqrt(5))-2)/(mp.sqrt(5)-1)
+def a(n): return [0, 1, kap, -kap, -1][n % 5]
+LD = {}
+for n in range(1, 40):
+    if n == 1: LD[1] = mp.mpf(0); continue
+    s = a(n)*mp.log(n) - mp.fsum(LD[d]*a(n//d) for d in range(1, n) if n % d == 0 and d > 1)
+    LD[n] = s  # a(1) = 1
+print('    kappa =', mp.nstr(kap, 13), '; Lambda_DH(3) =', mp.nstr(LD[3], 10), '; Lambda_DH(4) =', mp.nstr(LD[4], 10), '; Lambda_DH(12) =', mp.nstr(LD[12], 13))
 print('\nEND', datetime.datetime.now().isoformat())
