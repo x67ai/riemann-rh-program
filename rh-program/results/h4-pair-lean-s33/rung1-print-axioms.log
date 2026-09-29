@@ -1,0 +1,14 @@
+== Tue Sep 29 11:26:13 IST 2026 rung 1: lake build Zeta23.PairCeiling.PairRow (items 1-4: W2_eq, sum_W2_mul, pairRow_eq_gridRowQ, sum_W2_cosh; helpers card_band, sum_sinh_band) in ~/rh-lean-work/checker-clone-s21
+toolchain=leanprover/lean4:v4.33.0-rc2; mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+first attempt 11:25:28 IST: 2 errors (an extra 'ring' after field_simp had closed W2_eq's goal at line 130; a no-op beta_reduce at line 193), fixed; second attempt:
+Built Zeta23.PairCeiling.PairRow (1.6s); Build completed successfully (2274 jobs); 0 errors, 0 warnings
+rebuild check (no-op expected):
+Build completed successfully (2274 jobs).
+== Tue Sep 29 11:26:14 IST 2026 lake env lean results/h4-pair-lean-s33/rung1-axioms.lean
+'Zeta23.PairCeiling.PairRow.W2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.PairRow.sum_W2_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.PairRow.pairRow_eq_gridRowQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.PairRow.sum_W2_cosh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.PairRow.sum_sinh_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.PairCeiling.PairRow.card_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

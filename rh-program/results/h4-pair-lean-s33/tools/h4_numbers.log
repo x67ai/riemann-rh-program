@@ -1,0 +1,25 @@
+abar(1/4) = 1.10944370003
+abar(1/2) = 1.48140550329
+F1 - S2 closed form = -0.0352002533828
+  2 mu^2 abar(2d)^2 = 0.01097281133 ; 4 mu (abar(d)^2 - 1) = 0.04617306471
+F1 (integer-frequency row) = 63.9697997466172 ; S2 = 64.005 ; F1 - S2 = -0.0352002533828
+F1 (mod-65-reduced row) - S2 = -0.01448171249   (not the paper's row)
+T = 3M - 2N_d = 60.3 ; F1 - T = 3.6698 ; S2 - T = 3.705 = 2(mu-1)(mu-2) = 3.705
+sum_s W2 = 1.0
+(T1) at d: sum_s W2 cosh(beta s) - abar(d)^2 = 7.8886e-31
+(T1) at 2d: sum_s W2 cosh(2 beta s) - abar(2d)^2 = -7.8886e-31
+power sums: {2: 22880, 4: 14492192, 6: 10924353440, 8: 8964042662432}
+coefficients: L = 1 + pi^2 * 22880 / 2129920 = 11/1024
+  U = 1 + pi^2 * 11/256 + pi^4 * 34837/62914560 + pi^6 * 5252093/1546188226560 + pi^8 * 21548179477/886646176638566400
+L(3.141592) = 1.1060210969131874 ; U(3.141593) = 1.4815182152939983
+certified bound 2 mu^2 U^2 - 4 mu (L^2 - 1) = -0.03368205225217053  (exact rational, numerator digits: 133 )
+  margin spent versus the record: 0.0015182011306030321
+max |pi j / 64| = 1.5707965 <= 4.5
+first-order budget: dBound/dL = -8 mu abar(1/4) = -0.443777 ; dBound/dU = 4 mu^2 abar(1/2) = 0.0148141
+  tolerances alone: delta1 < 0.07932 ; delta2 < 2.3761
+  actual: abar(1/4) - L = 0.0034226 ; U - abar(1/2) = 0.000112712
+cosh(pi/4) - 1 - x^2/2 = 0.016184
+poly8(pi/2) - cosh(pi/2) = 0.000893581
+m = 1 : F1 - S2 = 3.46566 >= chain lower bound 3.42631
+m = 2 : F1 - S2 = 15.7096 >= chain lower bound 15.6309
+Cauchy-Schwarz check: abar(1/4)^2 = 1.2308653 <= (1 + abar(1/2))/2 = 1.2407028
