@@ -49,7 +49,7 @@ for aid,label in ids.items():
     if not es: print(f"{aid} {label}: FETCH FAILED"); continue
     e=es[0]; v=re.search(r'v(\d+)$',e['id']); print(f"{aid} {label}: latest {e['id'].split('/')[-1]}  updated {e['updated']}  published {e['published']}")
     time.sleep(3)
-print("\n== searches, submitted since 2026-09-01, newest first (max 30) ==")
+print(f"\n== searches, submitted since {SINCE[:4]}-{SINCE[4:6]}-{SINCE[6:8]}, newest first (max 30) ==")
 for name,q in searches:
     d=fetch({'search_query':f'({q}) AND submittedDate:[{SINCE} TO {TO}]','sortBy':'submittedDate','sortOrder':'descending','max_results':30},'q_'+name)
     es=entries(d)
