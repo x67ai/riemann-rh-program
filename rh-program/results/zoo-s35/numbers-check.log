@@ -1,0 +1,156 @@
+# zoo-s35 — numbers check: every number in the five inserted lines, read from the record file at the line — Tue Sep 29 14:18:14 IST 2026
+
+Sources: results/linux-check-s33/00-main.log (578c3e53…), 99-summary.txt (ff198806…), HARVEST-NOTE.md (f187272a…), the five 04-print-axioms-*.log, 09-landrun-test.log (b9fdcdc0…), 09b-landrun-best-effort-test.log (9686b97f…); results/watch-poll-s34/lamzouri-2609.02882v2.txt (de455968…, 1056 lines); results/watch-lamzouri-2609.02882/V2-DELTA-s34.md (6d5fa6b1…). Every line below is the record's own text (sed -n / grep at the line), not recalled.
+
+## A. The three LINUX REPLAY lines (blocks i1, iv1, fq10)
+### A1. Host and toolchain (in all three lines): 'Ubuntu, kernel 7.0.0-34-generic, x86_64, 12 cores, 37 GB; Lean 4.33.0-rc2 (d8b18978), Mathlib 51e6992e'
+  00-main.log line 2:                      Linux jay-unix 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+  00-main.log line 3:                      host: jay-unix; cores: 12; mem: 37 GB; disk free: 400G
+  00-main.log line 9:                      toolchain: leanprover/lean4:v4.33.0-rc2
+  00-main.log line 10:                     lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+  00-main.log line 11:                     ### cache: ok (mathlib 51e6992efd)
+  99-summary.txt line 5:                   cache: ok (mathlib 51e6992efd)
+  HARVEST-NOTE.md line 3 (host clause):    Linux host (Ubuntu, kernel 7.0.0-34-generic, x86_64, 12 cores, 37 GB; Lean 4.33.0-rc2 (d8b18978)
+  → Ubuntu (line 2 '#34-Ubuntu'), kernel 7.0.0-34-generic (2), x86_64 (2), 12 cores (3), 37 GB (3), Lean 4.33.0-rc2 (9, 10), commit d8b18978… (10), Mathlib 51e6992e (11, 99-summary 5): all as staged.
+
+### A2. Sandbox (in all three lines): 'REAL Landlock sandbox (ABI v8, best-effort mode)'
+  09-landrun-test.log line 1:              [landrun:error] 2026/09/29 13:48:24 Failed to apply sandbox: failed to apply Landlock restrictions: missing kernel Landlock support. Got Landlock ABI v8, wanted {Landlock V9; FS: all; Net: all; Scoped: all}
+  09b-…-test.log line 1:                   --- probe: a sandboxed child tries to write /home/jay-tyagi/rh-lean-linux/logs-s33/landrun-write-probe.txt (should be denied under --ro /):
+  09b-…-test.log line 2:                   /bin/sh: 1: cannot create /home/jay-tyagi/rh-lean-linux/logs-s33/landrun-write-probe.txt: Permission denied
+  99-summary.txt line 16:                  landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+  99-summary.txt line 17:                  landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+  HARVEST-NOTE.md line 18 (sandbox verdict): Every comparator config therefore ran under a real Landlock sandbox at ABI v8, best-effort mode
+  → ABI v8 (09-landrun-test 1: 'Got Landlock ABI v8'; 99-summary 17), best-effort (99-summary 17, '--best-effort'), REAL (09b line 2 'Permission denied'; 99-summary 17): as staged. The strict probe's FAIL (99-summary 16) is the v9-vs-v8 tool-version fact, HARVEST-NOTE line 18.
+
+### A3. PASS, exit 0, nanoda (in all three lines)
+  99-summary.txt line 18:                  comparator config-weil-containment-c2-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+  99-summary.txt line 19:                  comparator config-weil-containment-c2.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+  99-summary.txt line 20:                  comparator config-epstein-witness-six.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+  99-summary.txt line 21:                  comparator config-i1-witness.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+  99-summary.txt line 22:                  comparator config-pair-channel.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+
+### A4. Block iv1 — '1 + 1 names on propext/Classical.choice/Quot.sound, sorryAx 0' (WeilContainmentC2One, WeilContainmentC2); 'name sets identical to the Mac's'
+  99-summary.txt line 7:                   print-axioms WeilContainmentC2One: 1 names on the three standard axioms; sorryAx: 0
+  99-summary.txt line 8:                   print-axioms WeilContainmentC2: 1 names on the three standard axioms; sorryAx: 0
+  04-…-WeilContainmentC2One.log (1 line):  'weilContainment_c2_interpolant_log3' depends on axioms: [propext, Classical.choice, Quot.sound]
+  04-…-WeilContainmentC2.log (1 line):     'weilContainment_c2_interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+  HARVEST-NOTE.md line 9:                  | `WeilContainmentC2One` (H5 rung 1, L = log 3) | 1 name on propext/Classical.choice/Quot.sound; sorryAx 0 | `results/h5-c2-lean-s32/rung1-print-axioms.log`: 1 | IDENTICAL | PASS, exit 0, nanoda 1, fake-landrun warnings 0 |
+  HARVEST-NOTE.md line 10:                 | `WeilContainmentC2` (H5) | 1; sorryAx 0 | `h5-c2-lean-s32/print-axioms.log`: 1 | IDENTICAL | PASS |
+  → 1 + 1 ✓; both on exactly [propext, Classical.choice, Quot.sound] ✓; sorryAx 0 ✓; IDENTICAL ✓; 'Both H5 topics' = the two H5 rows ✓.
+
+### A5. Block i1 — 'EpsteinWitnessSix (rung 1) and I1Witness … 3 + 14 names on the three standard axioms, sorryAx 0'
+  99-summary.txt line 9:                   print-axioms EpsteinWitnessSix: 3 names on the three standard axioms; sorryAx: 0
+  99-summary.txt line 10:                  print-axioms I1Witness: 14 names on the three standard axioms; sorryAx: 0
+  04-…-EpsteinWitnessSix.log line count:   3 lines, 3 on the three standard axioms
+  04-…-I1Witness.log line count:           14 lines, 14 on the three standard axioms
+  HARVEST-NOTE.md line 11:                 | `EpsteinWitnessSix` (I.1 rung 1) | 3; sorryAx 0 | `i1-witness-lean-s32/rung1-print-axioms.log`: 3 | IDENTICAL | PASS |
+  HARVEST-NOTE.md line 12:                 | `I1Witness` (I.1) | 14; sorryAx 0 | `i1-witness-lean-s32/print-axioms.log`: 14 | IDENTICAL | PASS |
+  → 3 + 14 ✓; rung 1 for EpsteinWitnessSix (HARVEST-NOTE 11) ✓; sorryAx 0 ✓; IDENTICAL ✓.
+
+### A6. Block fq10 — 'PairChannel … 8 names on the three standard axioms, sorryAx 0, name set identical … (prop45, floor_holds_integer, floor_fails_anchor among them)'
+  99-summary.txt line 11:                  print-axioms PairChannel: 8 names on the three standard axioms; sorryAx: 0
+  04-…-PairChannel.log line count:         8 lines, 8 on the three standard axioms
+  04-…-PairChannel.log line 5:             'prop45' depends on axioms: [propext, Classical.choice, Quot.sound]
+  04-…-PairChannel.log line 7:             'floor_holds_integer' depends on axioms: [propext, Classical.choice, Quot.sound]
+  04-…-PairChannel.log line 8:             'floor_fails_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+  HARVEST-NOTE.md line 13:                 | `PairChannel` (H4) | 8; sorryAx 0 | `h4-pair-lean-s33/print-axioms.log`: 8 | IDENTICAL | PASS |
+  → 8 ✓; the three named theorems at lines 5, 7, 8 ✓; sorryAx 0 ✓; IDENTICAL ✓.
+
+### A7. Dates and labels: '2026-09-29, Session 34'; 'Label unchanged'
+  HARVEST-NOTE.md line 1:                  # Linux replay s33 — harvest note (14:06 IST 2026-09-29, Session 34, orchestrator)
+  HARVEST-NOTE.md line 21 (labels):        label text unchanged for each ("replayed on Linux under a real Landlock sandbox" is a pointer, not a label change)
+
+## B. The Lamzouri v2 rider (blocks ii1 = ii4)
+### B1. 'v2 of arXiv:2609.02882 (8 Sep 2026); found by the Session 34 watch poll; single-check — orchestrator's reading'
+  v2.txt line 14:                          arXiv:2609.02882v2 [math.NT] 8 Sep 2026
+  V2-DELTA-s34.md line 1:                  # Lamzouri arXiv:2609.02882 — v1 (2 Sep 2026) → v2 (8 Sep 2026): the delta at the statement level (Session 34, 2026-09-29, orchestrator; found by the Session 34 watch poll)
+  V2-DELTA-s34.md line 3 (label):          Label of this note: [novelty: single-check — orchestrator's reading, Fable 5.1]
+
+### B2. 'Proposition 2.1's (2.4)–(2.5), C₀ = 0.67250… and C₁ = 0.83625… unchanged'
+  v2.txt line 267:                         Proposition 2.1. Let λ > 0 be a real number and η ∈ L2 (R) be a real valued even function
+  v2.txt line 272:                         (2.4)                            1⩾2      1−      K(z − s)2 ,
+  v2.txt line 279:                         (2.5)                       ⩾          1−         K(z − s)2 .
+  v2.txt line 133 (Theorem 1.1):           lim inf 0       ⩾ C0 = 0.67250 . . . ,   and   lim inf       ⩾ C1 :=        = 0.83625 . . . .
+  v1.txt line 119 (Theorem 1.1, v1):        lim inf        ⩾ C0 = 0.67250 . . .   and     lim inf       ⩾ C1 :=        = 0.83625 . . . ,
+  v1.txt lines 220, 226 ((2.4), (2.5) in v1): (2.4) 1⩾2 1− K(z − s)2 , / (2.5) ⩾ 1− K(z − s)2 .
+  V2-DELTA-s34.md line 6 (unchanged):      C₀ = 0.67250… and C₁ (distinct zeros) are unchanged from v1
+  → C₀ = 0.67250… (v2 133 = v1 119) ✓; C₁ = 0.83625… (v2 133 = v1 119) ✓; (2.4), (2.5) in both versions ✓.
+
+### B3. 'adds (2.6) #{simple} + #{real} ≥ 3Σ1 − ΣK(z−s)² and the parametric (2.7)'
+  v2.txt line 282:                         In addition, we have
+  v2.txt line 283:                                                  X             X                X             X
+  v2.txt line 284:                         (2.6)                            1+           1⩾3             1−              K(z − s)2 .
+  v2.txt line 285:                                                  z∈Z          z∈Z∩R             z∈Z           z,s∈Z
+  v2.txt line 286:                                                  mz =1
+  v2.txt line 290:                         Finally, if we assume that        z,s∈Z K(z − s)            ⩽A          z∈Z 1, for some 1 ⩽ A < 2, then we
+  v2.txt line 291:                         have
+  v2.txt line 293:                                                              X           5 + 2 2 − 2A X
+  v2.txt line 294:                         (2.7)                                         1⩾        √         1.
+  v2.txt line 295:                                                          z∈Z
+  v2.txt line 296:                                                                             3+2 2     z∈Z
+  v2.txt line 297:                                                      mz =1 or z∈R
+  v1.txt line 235 (v1's (2.6) is a definition): (2.6) fz (u) := η(u)e−2πiuz , gz (u) := , and hz (u) = .
+  v1.txt line 240 (v1's (2.7) is a definition): (2.7) K(z − s) = η (z − s) =
+  → (2.6): Σ_{m_z=1} 1 + Σ_{z∈Z∩R} 1 ≥ 3 Σ_Z 1 − Σ_{z,s} K(z−s)² (lines 283–286) ✓; (2.7): parametric in A, 1 ≤ A < 2, constant (5+2√2−2A)/(3+2√2) (290–297) ✓; new in v2 (v1's (2.6)/(2.7) define f_z, K) ✓.
+
+### B4. 'Theorem 1.1's two new unconditional estimates: N_{s∪0}/N ≥ C₂ = (1+2√2+2C₀)/(3+2√2) = 0.88762… (simple OR on the line) and (N_s + N_0)/2N ≥ C₁'
+  v2.txt line 131:                         Theorem 1.1. We have
+  v2.txt line 135:                         Moreover, we have
+  v2.txt line 136:                                  Ns∪0 (T )                                     Ns (T ) + N0 (T )
+  v2.txt line 137:                           lim inf          ⩾ C2 = 0.88762 . . . and lim inf                      ⩾ C1 = 0.83625 . . . .
+  v2.txt line 138:                            T →∞   N (T )                                T →∞       2N (T )
+  v2.txt line 140:                         Here C0 is defined in (1.1) and C2 := (1+2 2+2C0 )/(3+2 2). Thus, more than 67.25%
+  v2.txt line 141:                         of the non-trivial zeros of the zeta function are simple and on the critical line, and more
+  v2.txt line 142:                         than 88.76% of the zeros are either simple or lie on the critical line (or both). In addition,
+  v2.txt line 143:                         more than 83.62% of the zeros are distinct, and the average of the proportions of simple
+  v2.txt line 144:                         zeros and of zeros on the critical line is at least 83.62%.
+  → C₂ = 0.88762… (137) ✓; C₂ := (1+2√2+2C₀)/(3+2√2) (140) ✓; N_{s∪0}/N (136–137) ✓; (N_s + N_0)/(2N) ≥ C₁ (136–138) ✓; 'either simple or lie on the critical line (or both)' (142) ✓.
+
+### B5. 'Remark 1.2: at most 1 − C₂ < 0.1124 of the zeros are both off the line and multiple, and if either proportion tends to C₀ the other tends to 1'
+  v2.txt line 146:                         Remark 1.2. The two additional estimates express a form of “rigidity” between the
+  v2.txt line 147:                         simplicity and the horizontal location of zeros. The first shows that, asymptotically, the
+  v2.txt line 148:                         proportion of zeros that are simultaneously off the critical line and of multiplicity at least
+  v2.txt line 149:                         two is at most 1 − C2 < 0.1124. The second shows in particular that if either Ns (T )/N (T )
+  v2.txt line 150:                         or N0 (T )/N (T ) tends to the lower bound C0 , then the other must tend to 1. Note that
+  → 1 − C₂ < 0.1124 (149) ✓; 'tends to the lower bound C0, then the other must tend to 1' (149–150) ✓.
+
+### B6. Re-derivation of C₂ from C₀ = 0.672500703679 (the brief's instruction; Python Decimal, 40 digits)
+  C0        = 0.672500703679
+  C1=(C0+1)/2 = 0.8362503518395  → printed 0.83625… ✓
+  C2        = 0.8876200081732130853816088458206254303017  → printed 0.88762… ✓
+  1 − C2    = 0.1123799918267869146183911541793745696983  < 0.1124 ✓
+  (2+C0)/3  = 0.890833567893  (Remark 1.2 comparison, 0.89083…, not in the rider)
+  v2.txt line 95 (C₀'s definition):        (1.1) C0 := − √ cot √ = 0.6725007 . . . ,
+  v2.txt line 166:                         approach yields the slightly smaller unconditional proportion 0.88762 . . ..
+
+### B7. Quotations: 'variants of a second-moment argument'; 'the same Montgomery–Taylor extremal problem (see Remark 3.4 below)'
+  v2.txt line 185:                         information to the estimation of a certain quadratic form over the zeros. In this sense,
+  v2.txt line 186:                         both may be viewed as variants of a second-moment argument, and the optimization leads
+  v2.txt line 187:                         in both cases to the same Montgomery–Taylor extremal problem (see Remark 3.4 below),
+  v2.txt line 188:                         which explains why the same constants appear in the two proofs.
+  v2.txt line 904:                         Remark 3.4. It follows from Corollary 14 of Carneiro, Chandee, Littmann and Milinovich
+  V2-DELTA-s34.md line 9 (the quotation as the note prints it): "both may be viewed as variants of a second-moment argument, and the optimization leads in both cases to the same Montgomery–Taylor extremal problem (see Remark 3.4 below), which explains why the same constants appear"
+  → 'variants of a second-moment argument' at 186 verbatim ✓; the record's parenthesis is '(see Remark 3.4 below)' (187) — the staged '(see Remark 3.4)' drops 'below' inside the quotation: finding 5, fixed in the proposed text, reader adjudicates.
+
+### B8. 'Same data class as v1 (Σ_j α_j, Bessel, integer atoms, the U-range split)' and 'the targets differ … the degeneracy recorded here is untouched'
+  V2-DELTA-s34.md line 14:                 - **The classification stands, and the author now states it himself** (item 4): same two-moment data class {Σ_j α_j = trace, ‖F‖²_HS by Bessel, integer atoms, the U-range accounting} — zoo II.1's dated note (line 141) and II.4's (line 174) remain correct for v2; the II.1 ceiling comparison (0.672500703679 vs 0.681837145932 for that r) is unchanged.
+  V2-DELTA-s34.md line 15:                 - **The new inequalities are more of the same data read off differently**: (2.6)/(2.7) use only the diagonal coefficients α_j, Bessel and the split of Z into real/non-real × simple/multiple. They bound OTHER targets (simple-or-on-line; the average), not the simple-and-on-line count that lemmaR_tight / II.4 is about. II.4's degeneracy (an on-line double and an off-line pair are indistinguishable to the certificate for N_{s∩0}) is untouched — indeed Remark 1.2's coupling is exactly what the certificate can still see when the target is changed. No program constant, ceiling or no-go moves.
+  (Standing order 7: the reader re-derives whether (2.6)–(2.7) use only the diagonal α_j, Bessel and the real/non-real × simple/multiple split — v2 lines 267–300 and the proof that follows.)
+
+### B9. 'Appendix A: a Comparator challenge file for the three main results at github.com/AxiomMath/ZetaZerosV2 (AxiomProver)'
+  v2.txt line 987:                         Appendix A. Formal Certificate by AxiomProver
+  v2.txt line 989:                         AxiomProver, an AI system currently under development by Axiom Math, autonomously
+  v2.txt line 990:                         generated (from natural language) an unconditional formal certificate for Proposition 2.1.
+  v2.txt line 996:                         https://github.com/AxiomMath/ZetaZerosV2
+  v2.txt line 997:                         This repository contains a formal challenge file containing the statements of the three
+  v2.txt line 998:                         main results, which can be mechanically verified using the Comparator tool in Lean.
+
+## C. The count paragraph: 692 → 699 (+7), 58 = 8 + 5 + 21 + 19 + 5, launch hash 07a87152…
+  wc -l BARRIER-ZOO.md:                    692
+  wc -l dryrun-BARRIER-ZOO.md:             699
+  grep -c '^### ' (zoo / dry run):         58 / 58
+  per group (dry run):                     I=8 II=5 III=21 IV=19 V=5 
+  shasum -a 256 BARRIER-ZOO.md:            07a87152e58a04d07cb472e00871682580b516a05a93cd35accecb0b01fe064b
+  diff (added at):                         34a35,36 69a72 141a145 174a179 394a400 685a692 
+
+Verdict: every number in the five lines is what its record says; the number stop line does not fire. One quotation (B7) differs by the word 'below' — fixed in the proposed text as finding 5, for the reader.

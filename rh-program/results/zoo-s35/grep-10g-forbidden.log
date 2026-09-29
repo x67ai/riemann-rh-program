@@ -1,0 +1,33 @@
+# zoo-s35 — 10(g) lint and forbidden-phrasing grep log — Tue Sep 29 14:18:14 IST 2026
+
+## 1. 10(g) lint, results/zoo-s27/verify/lint_s27.py (032cb057b749c0e6…) on the proposed file
+results/zoo-s35/zoo-entries-proposed.md: 7 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): none
+rc=0
+
+## 2. The five linted phrases over the SEVEN added lines of the dry run (diff BARRIER-ZOO.md → dryrun-BARRIER-ZOO.md, added lines only; one is blank) and over scripts/zoo-insert-s35.py
+added lines:        7 (one blank)
+  'clearly'      added lines: 0   script: 1
+  'obviously'    added lines: 0   script: 1
+  'easy to see'  added lines: 0   script: 1
+  'well known'   added lines: 0   script: 1
+  'well-known'   added lines: 0   script: 1
+  (the script's hits are the gate's own list of the phrases, line 97)
+
+## 3. The three forbidden phrasings of the H4 unit (UNIT-BRIEF §1(3)), case-insensitive fixed-string, and the s32 forbidden sentences, over the added lines
+  '(MI) fails'                                  added lines: 0
+  'IV.17 is formalized'                         added lines: 0
+  'pair channel is closed'                      added lines: 0
+  'IV.1's containment inside `EF_lit`'          added lines: 0
+  'the tilted test is C²'                       added lines: 0
+  'DH has no Euler product'                     added lines: 0
+  'RH-equivalent'                               added lines: 0
+  'the tilted explicit formula is formalized'   added lines: 0
+  'kernel-checked on Prove2Me'                  added lines: 0
+  'I.1 formalized'                              added lines: 0
+
+## 4. The phrase the brief requires inside every bold bracket
+  'entered at the Session-34 zoo stream'   added lines: 5 (five bullets; the count paragraph is not a bracket line)   zoo today: 0   dry run whole: 5
+
+## 5. U.S. English spot-grep over the added lines (British forms; 0 expected)
+  -ise/-yse/-our/-re/-ll- forms: 0
+  (judge by hand: 'behaviour'-type words only; 'four', 'hour', 'our' are U.S. too)
