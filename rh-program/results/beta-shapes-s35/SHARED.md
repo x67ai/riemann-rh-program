@@ -13,3 +13,18 @@
 - SHA-256 of NOTE.md at this moment: e9058f1a1a4e1cc58e5cd672b547ae5bb81225680cfd7d000df479a33e15c974
 - Verdicts: T1 PROVED (hypotheses H1.1–H1.3; A9 alone; rung 1 separated by H1.2). T2 PROVED (A8 by 1006.0092 16.5(d) at the page; A7(T2a) by the N!-lemma at the line; A9 by T1; rung 1 separated by H2.1 — p. 25 "f is not an isomorphism of toposes"). T3 PROVED with hypotheses H3.1–H3.4 (Theorem R, no Hodge index/adjunction/Lefschetz/Hadamard); route (a) proved only with the extra hypotheses (H-Lef)+(H-inj) [or (H-Lef_Z)]; route (b) proved only with (H-CS)+(H-inj); both heuristic for general fibers without integrality; rung 1 separated by H3.3(a) (one residue characteristic).
 - Stop line (i) not fired by any theorem; (iv) fired for Hadamard and Littlewood 1914 (non-load-bearing; sources named in §6).
+
+## [Tue Sep 29 15:56:34 IST 2026] Block 3 — §3 landed (Proposition 3.1; A8′, A11′, A13′; the Deninger/CC pages quoted; IV.11–IV.16 by first words; sub-shapes (D4-fin)/(D4-∞); the ladder; the DH re-run; candidate object: NO, missing piece named)
+- SHA-256 of NOTE.md at this moment: 490d3ae5c9e47a687c1b744aac7716dc806a83f34b3fbd6602921ddfe14856f2
+- arXiv batch 1 (12 queries, https, all returned totalResults 0): recorded in verify/arxiv-searches.xml; batch 2 (10 queries incl. positive controls "field with one element", Borger AND lambda-rings) launched at 15:56 → verify/arxiv-searches-2.xml; parsed in the next block.
+
+## [Tue Sep 29 15:58:42 IST 2026] Block 4 — §4 (numbers table, slack ledger: none) and §5 (the close; verdict per theorem; zoo Option A entry text IV.20 / Option B riders; C3 Instruments row, Untried, work-log, frontier; SPEC PRECISION paragraphs A8′, A11′, A13′, A9-κ, row P1) landed
+- SHA-256 of NOTE.md at this moment: 54c8d11b5e79f6ddf84947174ab9f27d5adf6bdd8ee6d84fd0daf999fdbf28a1
+
+## [Tue Sep 29 16:03:23 IST 2026] Block 5 — §6 landed; writer DONE (pre-reader copy)
+- SHA-256 of NOTE.md (final, pre-reader): 17717f151638618ab6f026d896cc632c955ce6c0c1db6cf4c60ff2a25eb0aff5  (108 466 bytes; §0–§6; lint clean: no "clearly / obviously / easy to see / well known" in the writer's text)
+- arXiv batch 2 parsed (§6.1): positive controls PASS ("field with one element" 50; Borger + "lambda-rings" 5 incl. 0906.3146 and Le Bruyn 2016); the two non-control hits (Bambozzi–Ben-Bassat–Kremnizer, analytic F₁-geometry; Lorscheid 1204.3129, on disk, SPEC rows P5/P9d) are not the claim. Verdict NOT FOUND; labels stay single-check for the reader.
+- verify/: numbers_check.py (sections [1]–[11] incl. [7b]) → numbers-check.log (re-run 15:59 IST after the box check was added); arxiv_search.sh, arxiv_search2.sh → arxiv-searches.xml, arxiv-searches-2.xml. sources-txt/: the seven Deninger extractions + u-13-mv-mnt2.txt (grepped for Hadamard/Littlewood, absent).
+- Verdict per theorem: T1 PROVED; T2 PROVED; T3 PROVED (Theorem R; no extra hypothesis beyond A5, A7, A9, real-valued A11 and the shape); routes (a)/(b) PROVED only in the injective sub-case with (H-Lef)+(H-inj) / (H-CS)+(H-inj), HEURISTIC otherwise. (D4) candidate object: NO (no rung; the rung would be a base with ≥ 2 residue characteristics). Stop lines: (i) no, (ii) no, (iii) no, (iv) yes ×2 non-load-bearing (Hadamard; Littlewood 1914 — FETCH-LIST-ROUND9, optional).
+- What the reader should attack first: Theorem R (§2.3, seven lines) and its use of A9's finiteness; then §1.3's exhaustiveness (the two predicates); then §2.3.5's claim that route (a)'s Lefschetz identity is an extra hypothesis; then the (D4-fin)/(D4-∞) split and the candidate-object NO.
+- Cost (writer's estimate): ≈ 460k tokens of context consumed in ≈ 40 min (15:25 → 16:03 IST); one background search script, no agents spawned; nothing committed (watchdog).

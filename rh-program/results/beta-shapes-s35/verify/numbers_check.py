@@ -120,6 +120,37 @@ f = [720,0,0,0,0,0]; g = [0,720,0,0,0,0]
 P("    zero-divisor witness at N = 6, component n = 2: f = 720*e_1 in L_6:", in_lattice(f,6), "(f_2 = 0, so f vanishes on Gamma_2); g = 720*e_2 in L_6:", in_lattice(g,6), "g != 0; f*g coordinatewise =", [x*y for x,y in zip(f,g)])
 P("    general: for ANY f in L_N with f_n = 0, f * (N! e_n) = 0 coordinatewise -- every local equation of Gamma_n is a zero divisor (E3 Theorem 4.1(b)'s pattern, over Z at the line).")
 
+P("\n[7b] T2 (b), the BOX version (Borger's E-typical finite levels) and the Legendre product of moduli")
+import itertools as _it
+def box(b):  # b: dict prime->bound
+    idx=[1]
+    for p,e in b.items():
+        idx=[i*p**k for i in idx for k in range(e+1)]
+    return sorted(idx)
+def in_box_lattice(a, F):  # a: dict index->value
+    for p in PR:
+        if p > max(F): break
+        for j in F:
+            if p*j in F and (a[j]-a[p*j]) % (p**(1+vp(j,p))) != 0: return False
+    return True
+okb=True
+for b in ({2:2,3:1},{2:3,3:2,5:1},{2:1,3:1,5:1,7:1},{2:4},{3:2,7:1}):
+    F=box(b); J=1
+    for p,e in b.items(): J*=p**(1+e)
+    for n in F:
+        a={j:(J if j==n else 0) for j in F}
+        if not in_box_lattice(a,F): okb=False; P("    box FAIL", b, n)
+    # a smaller multiple fails somewhere (J is sharp at the top index): witness that J/p is not enough for some n
+    P(f"    box {b}: F = {F}; J = {J}; J*e_n in L_F for every n: {all(in_box_lattice({j:(J if j==n else 0) for j in F},F) for n in F)}")
+P("    all boxes: J*e_n in L_F:", okb)
+for N in (6,10,12,20,30):
+    prod=1
+    for p in PR:
+        if p>N: break
+        for j in range(1,N//p+1): prod*=p**(1+vp(j,p))
+    P(f"    N={N}: product of the moduli p^(1+v_p(j)) over pj<=N = {prod} ; N! = {math.factorial(N)} ; equal: {prod==math.factorial(N)}")
+P("    hence index(L_N) <= N! = index(span v_d), so L_N = span(v_d) = the image of W(Z) on [1,N]; v_d(j)-v_d(pj) = -d only when d does not divide j and d | pj, and then p^(1+v_p(j)) = p^(v_p(d)) | d:", all(all(((d*(j%d==0) - d*((p*j)%d==0)) % (p**(1+vp(j,p))) == 0) for j in range(1,41) for p in PR if p<=40) for d in range(1,41)))
+
 P("\n[8] Rung 1 (y^2 = x^3 + x + 1 over F_7, E3's a_d = 5, 25, 125, 605): fiber products are q^{N_N}, a single residue characteristic")
 a = {1:5,2:25,3:125,4:605}
 for Nn in range(1,5):
