@@ -7,3 +7,9 @@
 - Tue Sep 29 05:46:02 IST 2026 — PRICING agent: all four English sources read whole from the extractions (t-04a pp. 1–24; s-15a pp. 1–95; t-35b pp. 1–46; u-07a pp. 1–19). No formula in u-07a needed the Russian original; t-47a page 1 only was opened to confirm it is the same paper. Rendering s-15a pp. 63, 69, 74, 75, 79 (theta formula, boundary function h, explicit Dirichlet-series form of the zeta integral and of h, Hypothesis (∗)) to PNG under verify/ for a vision check of the load-bearing formulas before §1 is written.
 
 - Tue Sep 29 05:53:06 IST 2026 — PRICING agent: §1 (the object inventory at the page, four tables plus a summary) appended to PRICING.md. Vision check of s-15a pp. 63, 69, 74, 75, 79 done (PNGs in verify/); transcriptions used in §1. Next: §2 (the "beyond the zoo" list).
+
+- Tue Sep 29 05:55:28 IST 2026 — PRICING agent: §2 appended. **Stop line (ii) FIRED:** §2 closes with "none: every route through these sources to a statement about zero location is inside entry IV.1" (III.21 decides it — the sign condition Z({c(n)}) is defined for arbitrary coefficient sets at s-15a p. 80; III.20 items 1–3 absent). Per the brief, continuing with §3 and §4, then §5 as NO-GO, then §6.
+
+- Tue Sep 29 05:57:00 IST 2026 — PRICING agent: §3 (five candidates priced, all decided at the page, zero slots) and §4 (zoo gate, nine entries, all decided by §1–§2) appended. Next: §5 NO-GO decision with FETCH lines and the V.5 rider text, then §6.
+
+- Tue Sep 29 05:58:22 IST 2026 — PRICING agent: §5 (NO-GO, refutation-shaped; three optional P3 FETCH lines; the V.5 rider text; the DH negative-control instrument priced at ≤ ½ slot) and §6 (honesty note; hashes re-computed and matching) appended. PRICING.md complete. Stop line (ii) fired at §2.8; stop line (i) did not. Handing back to the orchestrator for the Opus read.
