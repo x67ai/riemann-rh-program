@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/3JFQ/f0HyDzDKGqLbDqjk7bLFjk</id>
+  <title>arXiv Query: search_query=&amp;id_list=2609.16360,2609.29898,2609.20367,2609.04908,2609.30306,2609.26787&amp;start=0&amp;max_results=10</title>
+  <updated>2026-09-29T08:22:10Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2609.16360,2609.29898,2609.20367,2609.04908,2609.30306,2609.26787" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>6</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.20367v2</id>
+    <title>The Three Gates: A Rooted-Operator Approach to Weil Positivity</title>
+    <updated>2026-09-20T21:58:32Z</updated>
+    <link href="https://arxiv.org/abs/2609.20367v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.20367v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a localized rooted-operator argument for Weil positivity in the real odd logarithmic channel, retaining the polar rank-one term throughout. Gate I establishes a strict cellular covariance theorem and its midpoint-shell consequence, with rigorous interval-arithmetic bounds on the finite range used below. Gate II combines the Mellin unit-cell decomposition, divisor partial-isometry squares, affine translations, full-form Cauchy--Carleman transport, coherent multi-source shorting, the augmented scalar root, and Schur geometry in the true metric. Gate III uses compression, closure, and the restricted odd Weil criterion. A central point in Gate II is to place the inherited parent response inside the same post-old-core/common-cut primal form in which the arithmetic mismatch and folded scalar debit are charged. If $P^{\rm ex}{k,m}$ is the surviving inherited pivot and $a_m$ the inherited coordinate of the Schur minimizer, then $P^{\rm ex}{k,m}a_m=ω^{\rm ex}_{k,m}$, so the inherited source-coupling contribution is the negative metric energy of that response. The aligned forcing is retained explicitly, and an outward-rounded finite computation together with the analytic tail gives $\mathfrak g^{\rm M+}k=\frac12+\log k-\frac{439}{250\log 2}\sum_m V{k,m}-\frac52 W_k&gt;0$ for $k\ge7$. The simultaneous common-cut theorem keeps the parent-ground and transverse budgets separate before the common infimum, while the fold identity leaves a non-negative remainder. Starting from the rigorously certified endpoint $Y=7$, Schur induction yields positivity at the integer endpoints, zero-extension gives non-negativity at every finite support radius, and closure together with the restricted odd Weil criterion yields the Riemann hypothesis.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-17T13:25:52Z</published>
+    <arxiv:comment>69 pages. v2: audit-driven clarification and verification update; the main theorem and proof architecture of v1 are retained. Y-regularity, the Gate-I midpoint shell, the MASTER splice/common-cut bookkeeping, and the aligned-forcing tail are clarified. Expanded supplementary computational material: https://doi.org/10.5281/zenodo.22864087</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Marco Desogus</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.16360v1</id>
+    <title>Number fields as curves over $\mathbf{F}_1$</title>
+    <updated>2026-09-14T21:25:48Z</updated>
+    <link href="https://arxiv.org/abs/2609.16360v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.16360v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study function fields in one variable over the field with one element $\mathbf{F}_1$. It is proved that the Galois extensions of $\mathbf{Q}$ are isomorphic to the curves over $\mathbf{F}_1$ being understood as the Deitmar schemes. Specifically, one gets explicit formulas linking the genus and the number of cusps of an algebraic curve over the extension $\mathbf{F}_{1^m}$ of order $m\ge 1$ of the field $\mathbf{F}_1$ and the $m$-th roots of unity of the corresponding number field. It follows that elliptic curves with one cusp over $\mathbf{F}_1$ are either the cyclotomic fields or the maximal abelian unramified extensions of the quadratic number fields. Our proof depends on representaion of the Drinfeld modules by the bounded linear operators on a Hilbert space and the crossed product structure of the Cuntz-Krieger algebras.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-14T21:25:48Z</published>
+    <arxiv:comment>10 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Igor V. Nikolaev</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.26787v1</id>
+    <title>A finite arithmetic form of Robin's inequality and its equivalence to the Riemann hypothesis</title>
+    <updated>2026-09-22T17:58:00Z</updated>
+    <link href="https://arxiv.org/abs/2609.26787v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.26787v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robin's inequality reformulates the Riemann hypothesis as a bound on the sum-of-divisors function $σ$. We introduce a finite-truncation version of Robin's inequality determined intrinsically by the arithmetic structure of $n$, \[ \frac{σ(n)}{n} &lt;
+e^γ\sum_{j=0}^{ω(n)} \frac{(\ln\ln\ln n)^j}{j!}, \qquad n&gt;5040, \] where $ω(n)$ denotes the number of distinct prime factors of $n$, and $γ$ is the Euler-Mascheroni constant. The resulting bound is pointwise stronger than Robin's inequality and we prove it unconditionally for integers with $ω(n)\le 6$, primorials, odd integers and square-free integers. We also prove that this inequality is equivalent to Robin's inequality, and hence to the Riemann hypothesis. Consequently, the Riemann hypothesis is equivalent to the truncated inequality holding for all colossally abundant numbers. We further show that if the inequality fails, its minimal counterexample must be a superabundant number, placing any obstruction within a rigid extremal class of integers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-22T17:58:00Z</published>
+    <arxiv:comment>21 pages and 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Challenger Mishra</name>
+    </author>
+    <author>
+      <name>Rahul Sarkar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.30306v1</id>
+    <title>A 120-State Binary Turing Machine Equivalent to the Riemann Hypothesis</title>
+    <updated>2026-09-23T00:00:41Z</updated>
+    <link href="https://arxiv.org/abs/2609.30306v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.30306v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We construct an explicit deterministic one-tape, two-symbol Turing machine with 120 working states whose blank-tape computation halts if and only if the Riemann hypothesis is false. The machine uses the same binary blank-tape model and state-counting convention as the widely cited 744-state Matiyasevich-O'Rear-Aaronson construction. The reduction from 744 to 120 working states removes 624 states, or 83.87%. Subject to independent end-to-end verification, our machine is a new state-count record for the Riemann hypothesis.</summary>
+    <category term="cs.FL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T00:00:41Z</published>
+    <arxiv:primary_category term="cs.FL"/>
+    <author>
+      <name>Joseph M. Shunia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.04908v1</id>
+    <title>Construction of Finite Hilbert--Pólya Matrices from Weil's Explicit Formula</title>
+    <updated>2026-09-04T09:11:10Z</updated>
+    <link href="https://arxiv.org/abs/2609.04908v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.04908v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Starting from the Riemann--$Ξ$ specialization of Weil's explicit formula, we construct finite real-symmetric Prime--Weil matrices $(\mathbf S)$ from pole, archimedean, and finite prime-power data. This construction is a finite-dimensional arithmetic model within the Hilbert--Pólya program, which seeks a self-adjoint spectral realization of the nontrivial zeta-zero parameters. Their off-diagonal entries form a Loewner-type divided-difference matrix with a rank-two displacement identity. We formulate the spectral quotient as a Hermitian definite generalized eigenproblem on the fixed zero-mean contrast space. This realization is invariant under positive affine rescaling, avoids ground-vector normalization and an ill-conditioned oblique projector, and preserves the finite quotient spectrum.
+  For a dimension-matched zero-side matrix built from $N$ distinct positive ordinates $γ_k$, rational interpolation gives the exact contrast-pencil spectrum $\{\pmγ_1,\ldots,\pmγ_N\}$ and positive-parity square spectrum $\{γ_1^2,\ldots,γ_N^2\}$. Since the ordinates are inputs, this is a reconstruction theorem. Assuming RH, the same interpolation vector proves $λ_{\min}(\mathbf S)\to0$. At $N=L=13$, Lemke's ground-state quotient and the contrast pencil agree numerically and reproduce the first three zeta ordinates to the reported precision. The remaining problem is a relative prime-to-zero perturbation theorem with uniform control of the compressed metric. No proof of RH is claimed.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T09:11:10Z</published>
+    <arxiv:comment>69 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Yaoming Shi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.29898v1</id>
+    <title>Infinitely Many Off-Critical-Line Zeros of the Tempered Xi Function: A Disproof of Yang's Conjecture</title>
+    <updated>2026-09-24T14:43:44Z</updated>
+    <link href="https://arxiv.org/abs/2609.29898v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.29898v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Yang introduced a tempered xi function $\widehatξ(s)$ by replacing the hyperbolic cosine in a classical integral representation of the Riemann xi function by a hyperbolic sine, and conjectured that every zero of $\widehatξ$ lies on the critical line $\Re s=1/2$. We disprove this conjecture. After the change of variables $x=e^{2t}$, one has \[ \widehatξ\!\left(\tfrac12+iz\right)=iS(z), \qquad S(z)=\int_0^\infty K(t)\sin(zt)\,dt, \] where $K$ is positive, smooth, and doubly exponentially decaying. Two integrations by parts give $S(y)=K(0)/y+O(y^{-2})$ for real $|y|\to\infty$, with $K(0)&gt;0$; hence $S$ has only finitely many real zeros. On the other hand $S$ is an entire function of order at most one. If it had only finitely many zeros in the complex plane, Hadamard factorization would force $S(z)=P(z)e^{az+b}$, which is incompatible with $S(y)\to0$ as $y\to\pm\infty$. Thus $S$ has infinitely many nonreal zeros, and consequently $\widehatξ$ has infinitely many zeros off the critical line. The proof is unconditional and does not use the Riemann Hypothesis or numerical zero finding. A short numerical illustration is included.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-24T14:43:44Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Aiken Kazin</name>
+    </author>
+    <author>
+      <name>Shirali Kadyrov</name>
+    </author>
+  </entry>
+</feed>

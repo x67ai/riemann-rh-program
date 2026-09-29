@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/lHunX7r9hzI94D+9zF1ix3QXM5I</id>
+  <title>arXiv Query: search_query=(au:Mitkovski OR au:Poltoratski) AND submittedDate:"202609010000 TO 202612312359"&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-09-29T08:20:40Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(au:Mitkovski+OR+au:Poltoratski)+AND+submittedDate:%22202609010000+TO+202612312359%22&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.15155v1</id>
+    <title>Invariant sets of the double Hilbert transform</title>
+    <updated>2026-09-14T07:29:18Z</updated>
+    <link href="https://arxiv.org/abs/2609.15155v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.15155v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present an example that shows that the double Hilbert transform
+  $\H$ can have the characteristic function of an open set of finite measure in $\mathbb{R}
+  \times \mathbb{R}$ as an approximate eigenvector for the eigenvalue $1$. The
+  same holds for the dyadic model of $\H$, the double dyadic shift. We further construct
+  non-diagonal sets whose indicators are fixed by $\H$ -- strips bent along
+  the Boole curve $x=y-1/y$ and, more generally, along level curves of real
+  Herglotz functions with purely singular measures -- and study the class of
+  invariant sets which they generate. At positive density we construct an
+  example built on three families of parallel lines, related to the carry
+  cocycle $\{u\}+\{v\}-\{u+v\}$, and the fans -- alternate sectors of an odd number of concurrent lines -- which are the simplest members of the invariant cones, a class that we describe completely. We then study the classification of the invariant sets whose
+  boundary lies on countably many lines. Its combinatorial half is settled
+  completely: a locally finite arrangement of lines in which no point lies
+  on exactly two lines is a family of parallel lines, a pencil of
+  concurrent lines, or an affine image of the triangular lattice. The
+  classification is further connected, via projective duality, with
+  configurations of Sylvester--Gallai type, and, via a change of
+  variables, with two-valued superpositions of traveling waves.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-14T07:29:18Z</published>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Evgeny Abakumov</name>
+    </author>
+    <author>
+      <name>Komla Domelevo</name>
+    </author>
+    <author>
+      <name>Stefanie Petermichl</name>
+    </author>
+    <author>
+      <name>Alexei Poltoratski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.10846v1</id>
+    <title>A Compact Counterexample to Suárez's Berezin Approximation Question</title>
+    <updated>2026-09-09T21:28:46Z</updated>
+    <link href="https://arxiv.org/abs/2609.10846v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.10846v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $A^2(\mathbb D)$ be the unweighted Bergman space and write $Q_m(S)=T_{B_m(S)}$ for the map induced by the $m$th higher-order Berezin transform. Suárez asked in 2005 whether $Q_m(S)$ converges to $S$ in operator norm for every $S$ in the full Bergman Toeplitz algebra. We answer this question negatively in a strong form: there is a compact operator $S$ such that \[
+  \sup_{m\geq 0}\|Q_m(S)\|=\infty. \] In particular, along a strictly increasing sequence $(m_n)$ one has \[
+  \|Q_{m_n}(S)-S\|\longrightarrow\infty. \]
+  The obstruction is a moving matrix edge. The proof uses a moving family of rank-one test operators, each supported in the $m$th matrix column. Near the corresponding edge, these test operators are sent to weighted Hankel matrices, and the limiting coefficients form an explicit Pascal kernel. We prove a standalone Pascal--Hankel theorem showing that the associated weighted Hankel transformation fails to map $\ell^2$ boundedly into trace class. Finite-section convergence, trace duality, and the Uniform Boundedness Principle then transfer this instability to the exact Bergman maps.</summary>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T21:28:46Z</published>
+    <arxiv:primary_category term="math.FA"/>
+    <author>
+      <name>Mishko Mitkovski</name>
+    </author>
+    <author>
+      <name>Yuyuan Ouyang</name>
+    </author>
+  </entry>
+</feed>

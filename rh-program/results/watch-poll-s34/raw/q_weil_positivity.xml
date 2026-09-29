@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/pT/e2RGjIMg86I7KOBb8B7an8co</id>
+  <title>arXiv Query: search_query=(all:"Weil positivity" OR all:"Weil explicit formula" AND all:positivity) AND submittedDate:"202609010000 TO 202612312359"&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-09-29T08:21:19Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Weil+positivity%22+OR+(all:%22Weil+explicit+formula%22+AND+all:positivity))+AND+submittedDate:%22202609010000+TO+202612312359%22&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.20367v2</id>
+    <title>The Three Gates: A Rooted-Operator Approach to Weil Positivity</title>
+    <updated>2026-09-20T21:58:32Z</updated>
+    <link href="https://arxiv.org/abs/2609.20367v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.20367v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a localized rooted-operator argument for Weil positivity in the real odd logarithmic channel, retaining the polar rank-one term throughout. Gate I establishes a strict cellular covariance theorem and its midpoint-shell consequence, with rigorous interval-arithmetic bounds on the finite range used below. Gate II combines the Mellin unit-cell decomposition, divisor partial-isometry squares, affine translations, full-form Cauchy--Carleman transport, coherent multi-source shorting, the augmented scalar root, and Schur geometry in the true metric. Gate III uses compression, closure, and the restricted odd Weil criterion. A central point in Gate II is to place the inherited parent response inside the same post-old-core/common-cut primal form in which the arithmetic mismatch and folded scalar debit are charged. If $P^{\rm ex}{k,m}$ is the surviving inherited pivot and $a_m$ the inherited coordinate of the Schur minimizer, then $P^{\rm ex}{k,m}a_m=ω^{\rm ex}_{k,m}$, so the inherited source-coupling contribution is the negative metric energy of that response. The aligned forcing is retained explicitly, and an outward-rounded finite computation together with the analytic tail gives $\mathfrak g^{\rm M+}k=\frac12+\log k-\frac{439}{250\log 2}\sum_m V{k,m}-\frac52 W_k&gt;0$ for $k\ge7$. The simultaneous common-cut theorem keeps the parent-ground and transverse budgets separate before the common infimum, while the fold identity leaves a non-negative remainder. Starting from the rigorously certified endpoint $Y=7$, Schur induction yields positivity at the integer endpoints, zero-extension gives non-negativity at every finite support radius, and closure together with the restricted odd Weil criterion yields the Riemann hypothesis.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-17T13:25:52Z</published>
+    <arxiv:comment>69 pages. v2: audit-driven clarification and verification update; the main theorem and proof architecture of v1 are retained. Y-regularity, the Gate-I midpoint shell, the MASTER splice/common-cut bookkeeping, and the aligned-forcing tail are clarified. Expanded supplementary computational material: https://doi.org/10.5281/zenodo.22864087</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Marco Desogus</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.04908v1</id>
+    <title>Construction of Finite Hilbert--Pólya Matrices from Weil's Explicit Formula</title>
+    <updated>2026-09-04T09:11:10Z</updated>
+    <link href="https://arxiv.org/abs/2609.04908v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.04908v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Starting from the Riemann--$Ξ$ specialization of Weil's explicit formula, we construct finite real-symmetric Prime--Weil matrices $(\mathbf S)$ from pole, archimedean, and finite prime-power data. This construction is a finite-dimensional arithmetic model within the Hilbert--Pólya program, which seeks a self-adjoint spectral realization of the nontrivial zeta-zero parameters. Their off-diagonal entries form a Loewner-type divided-difference matrix with a rank-two displacement identity. We formulate the spectral quotient as a Hermitian definite generalized eigenproblem on the fixed zero-mean contrast space. This realization is invariant under positive affine rescaling, avoids ground-vector normalization and an ill-conditioned oblique projector, and preserves the finite quotient spectrum.
+  For a dimension-matched zero-side matrix built from $N$ distinct positive ordinates $γ_k$, rational interpolation gives the exact contrast-pencil spectrum $\{\pmγ_1,\ldots,\pmγ_N\}$ and positive-parity square spectrum $\{γ_1^2,\ldots,γ_N^2\}$. Since the ordinates are inputs, this is a reconstruction theorem. Assuming RH, the same interpolation vector proves $λ_{\min}(\mathbf S)\to0$. At $N=L=13$, Lemke's ground-state quotient and the contrast pencil agree numerically and reproduce the first three zeta ordinates to the reported precision. The remaining problem is a relative prime-to-zero perturbation theorem with uniform control of the compressed metric. No proof of RH is claimed.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T09:11:10Z</published>
+    <arxiv:comment>69 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Yaoming Shi</name>
+    </author>
+  </entry>
+</feed>

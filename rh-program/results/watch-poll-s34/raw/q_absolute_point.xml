@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Zl2V/ZsuLmUkPv4gZQnztbzoc/w</id>
+  <title>arXiv Query: search_query=(all:"absolute point" OR all:"field with one element" OR all:"F_1-geometry") AND submittedDate:"202609010000 TO 202612312359"&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-09-29T08:20:48Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22absolute+point%22+OR+(all:%22field+with+one+element%22+OR+all:%22F_1-geometry%22))+AND+submittedDate:%22202609010000+TO+202612312359%22&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.21626v1</id>
+    <title>One Prompt Does Not Fit All: Self-Meta-Evolve for Personalized Information Extraction</title>
+    <updated>2026-09-18T11:05:41Z</updated>
+    <link href="https://arxiv.org/abs/2609.21626v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.21626v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) are increasingly deployed for enterprise information extraction (IE), where the same document must be reorganized differently for each user. Existing prompt optimization methods, however, rely on a single prompt optimized against a global objective, which is misaligned with the inherent user heterogeneity of real workplaces. We formulate enterprise IE as per-user prompt adaptation under interaction feedback and propose Self-Meta-Evolve, a hierarchical framework that maintains a dedicated prompt for each user and continuously refines it through a dual-loop process: an inner loop that edits structured prompts based on persona-conditioned feedback, and an outer loop that evolves the meta-prompt itself by distilling successful editing patterns. To enable scalable training and evaluation, we release a persona-driven IE benchmark of 292 simulated enterprise users, paired with a reproducible persona-generation pipeline grounded in O*NET occupational taxonomies. On this benchmark, Self-Meta-Evolve achieves a 74.58% success rate, outperforming the strongest prompt-optimization baseline by 13.56 absolute points, and reaches 52.54\% within only two iterations. A double-blind human study with twenty real professionals further confirms that prompts adapted by our framework win against static baselines in 71% of pairwise comparisons.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-18T11:05:41Z</published>
+    <arxiv:comment>16 pages, 4 figures, Findings of AACL-IJCNLP 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Hongliang Li</name>
+    </author>
+    <author>
+      <name>Lu Wang</name>
+    </author>
+    <author>
+      <name>Yong Xu</name>
+    </author>
+    <author>
+      <name>Hanyang Chen</name>
+    </author>
+    <author>
+      <name>Zhitao Hou</name>
+    </author>
+    <author>
+      <name>Xiaoting Qin</name>
+    </author>
+    <author>
+      <name>Song Ge</name>
+    </author>
+    <author>
+      <name>Qingwei Lin</name>
+    </author>
+    <author>
+      <name>Dongmei Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.16360v1</id>
+    <title>Number fields as curves over $\mathbf{F}_1$</title>
+    <updated>2026-09-14T21:25:48Z</updated>
+    <link href="https://arxiv.org/abs/2609.16360v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.16360v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study function fields in one variable over the field with one element $\mathbf{F}_1$. It is proved that the Galois extensions of $\mathbf{Q}$ are isomorphic to the curves over $\mathbf{F}_1$ being understood as the Deitmar schemes. Specifically, one gets explicit formulas linking the genus and the number of cusps of an algebraic curve over the extension $\mathbf{F}_{1^m}$ of order $m\ge 1$ of the field $\mathbf{F}_1$ and the $m$-th roots of unity of the corresponding number field. It follows that elliptic curves with one cusp over $\mathbf{F}_1$ are either the cyclotomic fields or the maximal abelian unramified extensions of the quadratic number fields. Our proof depends on representaion of the Drinfeld modules by the bounded linear operators on a Hilbert space and the crossed product structure of the Cuntz-Krieger algebras.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-14T21:25:48Z</published>
+    <arxiv:comment>10 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Igor V. Nikolaev</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.14726v1</id>
+    <title>CALICO: A Human-Centered, Codebook-Aligned System for Annotation</title>
+    <updated>2026-09-13T18:38:43Z</updated>
+    <link href="https://arxiv.org/abs/2609.14726v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.14726v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models are increasingly used to scale codebook-based annotation in scientific research, but existing workflows provide limited support for translating domain experts' codebooks into reliable, revisable, and auditable prompts. Prompts are often treated as fixed instructions and hidden from annotators, making it difficult for non-technical domain experts to diagnose and correct model behavior when outputs violate codebook guidelines. In this paper, we present CALICO, a human-centered, codebook-aligned annotation workflow that treats prompts as editable, versioned, and optimizable artifacts. CALICO integrates codebook parsing, prompt generation, result inspection, prompt versioning, natural language human feedback, and label-supervised prompt optimization through existing optimizers such as GEPA, MIPROv2, and OPRO, together with our reflection-based optimizer, ReflectAgent. Empirically, we evaluate CALICO on domain-specific AI-companion chatbot conversation codebooks. Across evaluated dimensions, CALICO improves mean held-out performance by +13.0 and +7.4 absolute points for two coders, respectively. A coder-specificity analysis further suggests that optimized prompts capture coder-specific interpretations rather than only generic codebook clarification. CALICO runs as a web application that takes users from raw codebook materials to inspectable, exportable labels; the website, codebase, and live demo are released at https://calico-annotation.github.io/ under the Apache 2.0 License.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-13T18:38:43Z</published>
+    <arxiv:comment>14 pages, 5 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Boqin Yuan</name>
+    </author>
+    <author>
+      <name>Xiaoyi Gu</name>
+    </author>
+    <author>
+      <name>Fiona Li</name>
+    </author>
+    <author>
+      <name>Chang Wan</name>
+    </author>
+    <author>
+      <name>Angel Hsing-Chi Hwang</name>
+    </author>
+    <author>
+      <name>Jieyu Zhao</name>
+    </author>
+  </entry>
+</feed>

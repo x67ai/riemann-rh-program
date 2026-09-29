@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/RTFjf6NLcFoHUbjijMg3jQutaRQ</id>
+  <title>arXiv Query: search_query=(all:"Riemann hypothesis" AND (all:counterexample OR all:disproof OR all:refutation OR all:"is false") ) AND submittedDate:"202609010000 TO 202612312359"&amp;id_list=&amp;start=0&amp;max_results=30</title>
+  <updated>2026-09-29T08:20:44Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Riemann+hypothesis%22+AND+(all:counterexample+OR+(all:disproof+OR+(all:refutation+OR+all:%22is+false%22))))+AND+submittedDate:%22202609010000+TO+202612312359%22&amp;start=0&amp;max_results=30&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.29898v1</id>
+    <title>Infinitely Many Off-Critical-Line Zeros of the Tempered Xi Function: A Disproof of Yang's Conjecture</title>
+    <updated>2026-09-24T14:43:44Z</updated>
+    <link href="https://arxiv.org/abs/2609.29898v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.29898v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Yang introduced a tempered xi function $\widehatξ(s)$ by replacing the hyperbolic cosine in a classical integral representation of the Riemann xi function by a hyperbolic sine, and conjectured that every zero of $\widehatξ$ lies on the critical line $\Re s=1/2$. We disprove this conjecture. After the change of variables $x=e^{2t}$, one has \[ \widehatξ\!\left(\tfrac12+iz\right)=iS(z), \qquad S(z)=\int_0^\infty K(t)\sin(zt)\,dt, \] where $K$ is positive, smooth, and doubly exponentially decaying. Two integrations by parts give $S(y)=K(0)/y+O(y^{-2})$ for real $|y|\to\infty$, with $K(0)&gt;0$; hence $S$ has only finitely many real zeros. On the other hand $S$ is an entire function of order at most one. If it had only finitely many zeros in the complex plane, Hadamard factorization would force $S(z)=P(z)e^{az+b}$, which is incompatible with $S(y)\to0$ as $y\to\pm\infty$. Thus $S$ has infinitely many nonreal zeros, and consequently $\widehatξ$ has infinitely many zeros off the critical line. The proof is unconditional and does not use the Riemann Hypothesis or numerical zero finding. A short numerical illustration is included.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-24T14:43:44Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Aiken Kazin</name>
+    </author>
+    <author>
+      <name>Shirali Kadyrov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.30306v1</id>
+    <title>A 120-State Binary Turing Machine Equivalent to the Riemann Hypothesis</title>
+    <updated>2026-09-23T00:00:41Z</updated>
+    <link href="https://arxiv.org/abs/2609.30306v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.30306v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We construct an explicit deterministic one-tape, two-symbol Turing machine with 120 working states whose blank-tape computation halts if and only if the Riemann hypothesis is false. The machine uses the same binary blank-tape model and state-counting convention as the widely cited 744-state Matiyasevich-O'Rear-Aaronson construction. The reduction from 744 to 120 working states removes 624 states, or 83.87%. Subject to independent end-to-end verification, our machine is a new state-count record for the Riemann hypothesis.</summary>
+    <category term="cs.FL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T00:00:41Z</published>
+    <arxiv:primary_category term="cs.FL"/>
+    <author>
+      <name>Joseph M. Shunia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.26787v1</id>
+    <title>A finite arithmetic form of Robin's inequality and its equivalence to the Riemann hypothesis</title>
+    <updated>2026-09-22T17:58:00Z</updated>
+    <link href="https://arxiv.org/abs/2609.26787v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.26787v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robin's inequality reformulates the Riemann hypothesis as a bound on the sum-of-divisors function $σ$. We introduce a finite-truncation version of Robin's inequality determined intrinsically by the arithmetic structure of $n$, \[ \frac{σ(n)}{n} &lt;
+e^γ\sum_{j=0}^{ω(n)} \frac{(\ln\ln\ln n)^j}{j!}, \qquad n&gt;5040, \] where $ω(n)$ denotes the number of distinct prime factors of $n$, and $γ$ is the Euler-Mascheroni constant. The resulting bound is pointwise stronger than Robin's inequality and we prove it unconditionally for integers with $ω(n)\le 6$, primorials, odd integers and square-free integers. We also prove that this inequality is equivalent to Robin's inequality, and hence to the Riemann hypothesis. Consequently, the Riemann hypothesis is equivalent to the truncated inequality holding for all colossally abundant numbers. We further show that if the inequality fails, its minimal counterexample must be a superabundant number, placing any obstruction within a rigid extremal class of integers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-22T17:58:00Z</published>
+    <arxiv:comment>21 pages and 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Challenger Mishra</name>
+    </author>
+    <author>
+      <name>Rahul Sarkar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.14714v1</id>
+    <title>Prime Plus a Non-Square-Free Integer: An Elementary Approach</title>
+    <updated>2026-09-13T18:16:06Z</updated>
+    <link href="https://arxiv.org/abs/2609.14714v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.14714v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Lee and O'Clarey recently conjectured that every integer $n&gt;24$ can be written as the sum of a prime and a positive integer that is not square-free. They proved this for odd $n$, and for all $n&gt;24$ assuming the generalised Riemann hypothesis for Dirichlet $L$-functions. We prove their conjecture unconditionally for every integer $n&gt;24$ that is not divisible by $997\#$, where $997\#=\prod_{p\leq 997}p$. In particular, any counterexample must be divisible by every prime up to $997$, and hence exceeds $10^{415}$. The proof uses an elementary congruence argument together with finite computation.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-13T18:16:06Z</published>
+    <arxiv:comment>5 Pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Peter J. Campbell</name>
+    </author>
+  </entry>
+</feed>
