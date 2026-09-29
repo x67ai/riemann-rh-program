@@ -85,7 +85,7 @@ is the IV.17 one).
 ## 3. Checks
 
 * `print-axioms.log`: `lake env lean comparator/PrintAxioms/PairChannel.lean` — 8 lines, each `[propext, Classical.choice, Quot.sound]`;
-  `program-axioms.log` (probe `program-axioms.lean`): the 34 names of `PairRow` + `PairCert` — all three axioms, nothing else. No
+  `program-axioms.log` (probe `program-axioms.lean`): 34 of the 44 names of `PairRow` + `PairCert` (the five definitions and `card_band32`, `sum_pow2_real` … `sum_pow8_real` not probed; CHECK-O probed all 44: the three axioms, `vacancyMark` two of them) — nothing else. [CHECK-O F2, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation] No
   `sorryAx`, no `Lean.ofReduceBool`.
 * `statement-identity.log`: `tools/statement_identity_h4.py` (the H5/D5 tool, docstring only changed) on the clone AND on the program
   tree — 8/8 IDENTICAL, RESULT PASS on both (the names passed one per word, bash array); a third section compares the challenge
@@ -97,7 +97,7 @@ is the IV.17 one).
   trusted layer `import Mathlib` only, the challenge imports the trusted layer only, the solution imports the trusted layer and
   `Zeta23.PairCeiling.PairCert`; tree = mirror by `cmp` for the six files + config; the 7 + 5 trusted definitions character for character
   against IntegralityGap and PairRow; the five definitions against the probe's — one difference, `W2`'s `_j`.
-* `prerun-cleanup.log`: the three modules' 25 artifacts under `.lake/build/{ir,lib/lean}` removed so that comparator builds them itself
+* `prerun-cleanup.log`: the three modules' 24 artifacts under `.lake/build/{ir,lib/lean}` removed [CHECK-O F5, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation] so that comparator builds them itself
   (the program modules stay built — the untrusted side either way).
 * **`comparator-run.log`: PASS** — 11:40:58–11:41:45 IST, `46.93 real`, max RSS 5.8 GB; runner `tools/run.sh` (the H5 runner, one comment
   line changed; comparator v4.33.0, lean4export v4.33.0-rc2, nanoda 0.4.17, the fake-landrun shim — NOT sandboxed, as in every prior macOS

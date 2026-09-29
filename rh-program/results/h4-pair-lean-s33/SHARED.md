@@ -70,3 +70,20 @@ Corrections to earlier blocks of this log, measured at the file (BUILD-NOTES car
 (statement and proof), not 33; `exp_sub_sum_le` is 16 lines, not 12; `prop45` is 20 lines and §4 with its eight helpers 153 lines.
 Not done, by the brief: no commit, no push, no edit of any Lean file after the comparator run, nothing outside this folder and
 `lean/` except the status addendum. Stop lines: none fired. Nothing about ζ or RH follows.
+
+## [checker, Opus 5] Tue Sep 29 12:08:39 IST 2026 — CHECK-O written: FIX-FIRST, prose only (F1–F7); mathematics and machine checks CLEAN
+Clean clone `~/rh-lean-work/checker-clone-s33-h4` (v1.0 = 3635e748…; toolchain v4.33.0-rc2; Mathlib 51e6992e; overlay = the 7 unit files
++ GridParseval/GridCorner/GridParsevalRat + IntegralityGap.lean for diff + root Zeta23.lean). Cold builds one at a time: PairRow (2282 jobs,
+0 warnings), PairCert (2296 jobs, 2.68 s real, max RSS 2.57 GB; profiler type checking 125 ms), ChallengeDeps / Challenge (exactly 8
+deliberate sorry warnings) / Solution (0 warnings). #print axioms: 8 topic names + all 44 PairRow/PairCert declarations within
+[propext, Classical.choice, Quot.sound] (vacancyMark: [propext, Quot.sound]); no sorryAx, no ofReduceBool. Statement identity 8/8
+(challenge = solution = probe = brief §0); trusted defs 7/7 + 5/5. Trust greps: the 8 challenge sorrys only. Comparator with nanoda from
+the clone: exit 0, "Nanoda kernel accepts the solution", "Lean default kernel accepts the solution", 43.56 s. Independent numbers:
+ā(1/4) = 1.10944370003, ā(1/2) = 1.48140550329, F1 − S2 = −0.0352002534 (closed form = direct row), S₂/S₄/S₆/S₈ reproduced, L = 1.1060211,
+U = 1.4815182, bound −0.03368205 < 0; (MI) HOLDS at the anchor (T = 60.3, F1 − T = +3.6698). Hashes: 32/32 match. Forbidden phrasings:
+applied nowhere. Findings: F1 stale "Prop. 4.5 stays unformalized" (yaml IV.17 entry + row (v), README IntegralityGap section); F2
+axiom-footprint sentences cover 34 of 44 names ("every new name"); F3 "133-digit numerator" → 132/133; F4 challenge header "−0.0336" →
+−0.03368; F5 "25 artifacts" → 24; F6 FIDELITY §3 ↔ yaml (z) numbering; F7 Solution header "character for character" for dftMarkQ.
+Observation O1 for the orchestrator: pair-channel.md §0 item 1 attributes (MI)'s falsity to the Prop. 4.5 family, which never violates
+(MI) (scan min F1 − T = +1.75). O5: one line of ORCHESTRATOR-NOTES.md was printed by a grep after CHECK-O §1–§10 were written.
+CHECK-O.md SHA-256 8e59f36bf2c2bfbf04c63aa9acf2f84a3518e73792dbbb192cc4340770b247f6. Logs: check-O/. Nothing committed; no Lean file, yaml, README or builder note edited.

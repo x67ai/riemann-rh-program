@@ -179,8 +179,7 @@ Two further modules in `rh-program/lean/Zeta23/PairCeiling/`, packaged as the Co
   for this real mark (Section 4.2's "F1 − S2 = −3.520e-2", the sign kernel-checked): two generic cosh bounds, four integer power sums by
   `decide +kernel`, Mathlib's d6 bracket for π, one `norm_num`; the module builds in 1.8 s.
 
-Axiom footprint of every new name (`results/h4-pair-lean-s33/print-axioms.log`, `program-axioms.log`): `[propext, Classical.choice,
-Quot.sound]` — no `sorryAx`, no `Lean.ofReduceBool`; the Comparator run with nanoda on the eight topic statements passed
+Axiom footprint of every new name (the 8 topic statements, `results/h4-pair-lean-s33/print-axioms.log`; all 44 declarations of `PairRow.lean` and `PairCert.lean`, `results/h4-pair-lean-s33/check-O/print-axioms.log`): `[propext, Classical.choice, Quot.sound]`, except `PairRow.vacancyMark` with `[propext, Quot.sound]` [CHECK-O F2, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation] — no `sorryAx`, no `Lean.ofReduceBool`; the Comparator run with nanoda on the eight topic statements passed
 (`results/h4-pair-lean-s33/comparator-run.log`, exit 0). Label, verbatim: "IV.17's pair channel: Prop. 4.5 Comparator-checked for every
 depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20)
 kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda".
@@ -189,3 +188,5 @@ the theorem is the failure of the floor F1 ≥ S2 for a real mark, nothing more.
 (the pair channel's closure — paper grade), the laws, pairs off the grid; the list in "What is NOT formalized" above is otherwise
 unchanged, with the Session-30 addendum's "Still NOT formalized: the pair channel (Section 4.3, Prop. 4.5)" now to be read as: Prop. 4.5
 and its anchor are Comparator-checked (this addendum); Section 4.3's theorems stay at paper grade.
+
+**Record correction (12:12 IST 2026-09-29, Session 33 — H4 CHECK-O O1, Opus 5; re-derived by the orchestrator, `results/h4-pair-lean-s33/ORCHESTRATOR-NOTES.md` §2).** `pair-channel.md` §0 item 1's headline "(MI) is FALSE for real (fractional) marks — an explicit vacancy-lattice + shallow-pair family violates even F1 ≥ S2" is to be read: the family violates the floor F1 ≥ S2 (Prop. 3.1 = paper Prop. 4.5, now `prop45` and `floor_fails_anchor` in Lean), which for μ < 1 is the STRONGER inequality (S2 − T = 2(μ − 1)(μ − 2) > 0); on that family (MI) never fails (min F1 − T = +1.750 over d ∈ (0, 1], μ ∈ (0, 3], `check-O/mi-family-scan.log`). (MI)'s falsity over fractional marks rests on the mark-4/3 atom column (`mi_fails_rational`, Session 30) and on nothing else on the record. The record file is unchanged.

@@ -224,3 +224,104 @@ yaml line 1018 ((v4) `mi_fails_rational`, the same Session-30 atom fact); every 
 
 Every one of the 32 SHA-256s in `hashes.txt` recomputed with `shasum -a 256`: **32 matched, 0 mismatched**. `hashes.txt` itself
 (`f33f488e…fdd1fe4`) and `BUILD-NOTES.md` (`11d0dca3…6f1955`) equal the values in SHARED.md's final builder block.
+
+## 11. Verdict, findings, observations
+
+(Every OLD: string below occurs exactly once in its file, line breaks read as spaces — checked by script.)
+
+**Verdict: FIX-FIRST — prose only (F1–F7). The eight Lean statements, the proofs, the trusted definitions, the certificate, every
+build and the comparator run are CLEAN; the label of UNIT-BRIEF §1(3) is earned verbatim; no forbidden phrasing is applied anywhere.**
+The two items with content are F1 (two older present-tense ledger sentences that this unit has made false) and F2 (the axiom-footprint
+sentences claim "every new name" / "the 34 program-side names" as if they were the whole of the two files; there are 44, and one of
+them has two axioms, not three). F3–F7 are small accuracy fixes. None of them touches a theorem.
+
+**F1 (ledger; stale present tense).** `lean/formalization.yaml`, the Session-30 IV.17 `main_results` description (the entry whose
+declaration line begins "trace_sq_grid_rat, gridRowQ_eq"), sentence beginning "The pair channel (paper Prop. 4.5) stays
+unformalized": after this unit it is false as a present-tense statement, and it now sits directly above the Session-33 entry that says
+the opposite. The same in row (v)'s NOT-covered list ("NOT covered, and stated nowhere in Lean: … the PAIR CHANNEL (paper Prop. 4.5 …
+— paper-certificate grade, item 10)") and in `lean/README.md`'s IntegralityGap section, sentence beginning "What it does NOT say
+(FIDELITY.md §2)". The status addendum already re-reads the analogous formalization-status line with a dated rider; the yaml and README
+need the same (dated, not a rewrite of history).
+OLD: The pair channel (paper Prop. 4.5) stays unformalized; nothing about laws, the
+NEW: The pair channel (paper Prop. 4.5) is not in this topic [Session 33: Prop. 4.5 and the floor's failure at its anchor are the Comparator topic PairChannel, the next entry; Theorems 4.6–4.9 stay at paper grade]; nothing about laws, the
+OLD: the PAIR CHANNEL (paper Prop. 4.5 = pair-channel.md Prop. 3.1, F1 − S2 = 2μ²ā(2d)² − 4μ(ā(d)² − 1) — paper-certificate grade, item 10);
+NEW: the PAIR CHANNEL (paper Prop. 4.5 = pair-channel.md Prop. 3.1, F1 − S2 = 2μ²ā(2d)² − 4μ(ā(d)² − 1) — not in this topic; [Session 33: Comparator-checked as the topic PairChannel, row (z)]);
+OLD: nothing about the PAIR CHANNEL (paper Prop. 4.5 stays unformalized — paper-certificate grade),
+NEW: nothing about the PAIR CHANNEL (paper Prop. 4.5 is not in this topic — [Session 33: it is the topic PairChannel, section below; Theorems 4.6–4.9 stay at paper grade]),
+
+**F2 (axiom-footprint sentences over-claim coverage).** The builder's `program-axioms.lean` probes 34 names; `PairRow.lean` +
+`PairCert.lean` declare 44 (the five definitions `W2`, `pairFormFactor`, `pairRow`, `abar`, `vacancyMark` and `card_band32`,
+`sum_pow2_real` … `sum_pow8_real` are not probed); the checker's 44-name probe is clean, with `vacancyMark` at `[propext, Quot.sound]`.
+Sentences: `results/a4-no-go/formalization-status.md` addendum, "Axiom footprint of every new name"; `BUILD-NOTES.md` §3, "`program-axioms.log`
+(probe `program-axioms.lean`): the 34 names of `PairRow` + `PairCert`"; `FIDELITY.md` §1, closing paragraph "All eight: no displayed
+hypothesis …", clause "and for the 34 program-side names"; `lean/formalization.yaml` review paragraph "Comparator run, topic
+PairChannel", clause "#print axioms on the 8 root names and the 34 program-side names".
+OLD: Axiom footprint of every new name (`results/h4-pair-lean-s33/print-axioms.log`, `program-axioms.log`): `[propext, Classical.choice, Quot.sound]`
+NEW: Axiom footprint of every new name (the 8 topic statements, `results/h4-pair-lean-s33/print-axioms.log`; all 44 declarations of `PairRow.lean` and `PairCert.lean`, `results/h4-pair-lean-s33/check-O/print-axioms.log`): `[propext, Classical.choice, Quot.sound]`, except `PairRow.vacancyMark` with `[propext, Quot.sound]`
+OLD: the 34 names of `PairRow` + `PairCert` — all three axioms, nothing else.
+NEW: 34 of the 44 names of `PairRow` + `PairCert` (the five definitions and `card_band32`, `sum_pow2_real` … `sum_pow8_real` not probed; CHECK-O probed all 44: the three axioms, `vacancyMark` two of them) — nothing else.
+OLD: and for the 34 program-side names (`program-axioms.log`);
+NEW: and for all 44 program-side declarations of PairRow.lean and PairCert.lean (`program-axioms.log`, 34 names; `check-O/print-axioms.log`, 44 — `vacancyMark` at `[propext, Quot.sound]`);
+OLD: #print axioms on the 8 root names and the 34 program-side names of Zeta23/PairCeiling/PairRow.lean and PairCert.lean: [propext, Classical.choice, Quot.sound]
+NEW: #print axioms on the 8 root names and the 44 program-side declarations of Zeta23/PairCeiling/PairRow.lean and PairCert.lean: [propext, Classical.choice, Quot.sound], vacancyMark [propext, Quot.sound] (program-axioms.log, 34 names; results/h4-pair-lean-s33/check-O/print-axioms.log, all 44)
+
+**F3 (a number).** `FIDELITY.md` (z8), sentence beginning "The Lean proof's route", and `lean/README.md` PairCert row ("a 133-digit
+numerator"), and PREDERIVATION-ERRATA §4 ("whose numerator has 133 digits"): the literal rational of `cert_numeric`, reduced, has a
+132-digit numerator and a 133-digit denominator (`rederive.log`).
+OLD: one `norm_num` on a rational inequality whose numerator has 133 digits
+NEW: one `norm_num` on a rational inequality whose value, reduced, has a 132-digit numerator and a 133-digit denominator
+OLD: (`cert_numeric`, a 133-digit numerator)
+NEW: (`cert_numeric`, a rational with a 133-digit denominator)
+
+**F4 (a number, in a trusted comment).** `comparator/Challenge/PairChannel.lean` header item (4), clause "the certificate's bound
+−0.0336": the certificate's rational is −0.03368205… (UNIT-BRIEF and yaml row (z) say −0.0337); "−0.0336" truncates rather than
+rounds. (PairCert.lean's "the certificate proves F1 − S2 ≤ −0.0336 < 0" is a true weaker statement and needs nothing.) Editing a
+trusted file changes its hash and needs a comparator re-run; if the orchestrator prefers not to touch the trusted file, a one-clause
+note in FIDELITY §2 suffices.
+OLD: (the record's F1 − S2 = −3.520·10⁻²; the certificate's bound −0.0336)
+NEW: (the record's F1 − S2 = −3.520·10⁻²; the certificate's bound −0.03368)
+
+**F5 (a count).** `BUILD-NOTES.md` §3, bullet beginning "`prerun-cleanup.log`: the three modules'": the log lists 24 paths (the
+checker's own cleanup removed 24 as well). (SHARED.md's "25 artifacts removed" is a log line; leave it.)
+OLD: the three modules' 25 artifacts under `.lake/build/{ir,lib/lean}` removed
+NEW: the three modules' 24 artifacts under `.lake/build/{ir,lib/lean}` removed
+
+**F6 (cross-reference).** `FIDELITY.md` §3 heading "Where the formal statements differ from the prose (the yaml row (z), item by
+item)": the yaml row (z) carries (z1)–(z11), without FIDELITY's (z11) "Names", and its (z11) is FIDELITY's (z12).
+OLD: ## 3. Where the formal statements differ from the prose (the yaml row (z), item by item)
+NEW: ## 3. Where the formal statements differ from the prose (mirrored in the yaml row (z) as (z1)–(z11): (z11) "Names" is not carried there, and the yaml's (z11) is (z12) here)
+
+**F7 ("character for character", the IV.17 O1 lesson carried forward).** `comparator/Solution/PairChannel.lean` header, sentence
+beginning "The challenge's `PairChannel.{chi, dftMarkQ, …}` are character for character the Zeta23 definitions": for `dftMarkQ` it is
+not — the trusted `def dftMarkQ {F : Type*} [Field F] (ζ : F) …` vs `GridParsevalRat.lean`'s `def dftMarkQ (ζ : F) …` under a section
+`variable` (read at the line in the clone; IV.17 CHECK-O O1 showed the constants are equal by `rfl`). The trusted header of
+`ChallengeDeps/PairChannel.lean` repeats it transitively ("themselves character for character the … originals"); per the IV.17 O1
+recommendation, do NOT edit the trusted header — FIDELITY §4 already carries the qualifier. The untrusted Solution header can be fixed
+freely:
+OLD: are character for character the
+Zeta23 definitions, so each delegation typechecks by definitional unfolding in the kernel.
+NEW: are character for character the
+Zeta23 definitions (`dftMarkQ` up to where its `Field` binder is written — the same constant, IV.17 CHECK-O O1), so each delegation typechecks by definitional unfolding in the kernel.
+
+**Observations (no fix required of this unit).**
+* **O1 — the record, not the unit.** `pair-channel.md` §0 item 1 reads "(MI) is FALSE for real (fractional) marks — an explicit
+  vacancy-lattice + shallow-pair family violates even F1 >= S2 for every depth d > 0 at small real pair mark (Proposition 3.1 …)". On
+  that family F1 − T = 2(μ − 1)(μ − 2) + [F1 − S2] and the checker's scan finds min F1 − T = +1.750 over d ∈ (0, 1], μ ∈ (0, 3]
+  (`mi-family-scan.log`): the family never violates (MI); and for μ < 1, S2 > T, so F1 ≥ S2 is the STRONGER inequality and "even"
+  reads backwards. (MI)'s falsity over fractional marks is true through the Session-30 atom column (mark 4/3), not through this
+  family. The unit's own files avoid the slip (they say (MI) holds at the anchor); the record sentence is for the orchestrator.
+* **O2 — overlay scope.** This check overlaid the unit's files plus the three-module import closure v1.0 lacks, not the whole mirror
+  (§1). Every Lean file compiled here is `cmp`-identical to `rh-program/lean/`.
+* **O3 — the root.** `rh-program/lean/Zeta23.lean` imports neither `PairRow`, `PairCert` nor `GridParsevalRat`, so `lake build Zeta23`
+  does not build this unit; the README's quick check builds `Solution.PairChannel` by name, which works (§2).
+* **O4 — trusted header, `dftMarkQ`** (see F7): no edit recommended.
+* **O5 — independence.** A `grep` for "0.0336|0.0337" over `results/h4-pair-lean-s33/*.md`, run while collecting F4's sentences AFTER
+  §1–§10 of this file were written, printed one line of ORCHESTRATOR-NOTES.md (its item 6, the certificate's L, U and −0.03368). Every
+  number in §7 had already been computed and written; nothing else of that file was read.
+
+**OVERALL.** Mathematics and machine checks: CLEAN — cold builds on a fresh v1.0 clone (0 errors; exactly the 8 deliberate `sorry`
+warnings), `#print axioms` on all 8 + 44 names within the three standard axioms, statement identity 8/8 (challenge = solution = probe =
+brief §0), trusted definitions 7/7 + 5/5, trust greps clean, comparator exit 0 with "Nanoda kernel accepts the solution", the
+certificate's module 2.68 s (type checking 125 ms), every anchor number reproduced independently, Prop. 4.5 and the chain re-derived by
+hand, (MI) confirmed to HOLD at the anchor (F1 − T = +3.6698). Ledger: FIX-FIRST on F1–F7 (prose; F1 and F2 the ones that matter).
+Nothing about ζ or RH follows from anything here.

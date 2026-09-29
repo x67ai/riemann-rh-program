@@ -32,7 +32,7 @@ the anchor (MI) holds — see §2, first bullet — and `floor_fails_anchor` is 
 
 All eight: no displayed hypothesis beyond the statements' own binders (`n : ℕ`, `d μ x : ℝ`, `g : ℤ → ℝ`, `m : ZMod (2n+1) → ℚ`, `1 ≤ m`,
 the band membership `s ∈ Icc (−2n) (2n)` of `W2_eq`) — exactly the list of UNIT-BRIEF §1(1); axioms `[propext, Classical.choice,
-Quot.sound]` for each (`print-axioms.log`), and for the 34 program-side names (`program-axioms.log`); statement identity
+Quot.sound]` for each (`print-axioms.log`), and for all 44 program-side declarations of PairRow.lean and PairCert.lean (`program-axioms.log`, 34 names; `check-O/print-axioms.log`, 44 — `vacancyMark` at `[propext, Quot.sound]` [CHECK-O F2, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation]); statement identity
 challenge/solution 8/8 and challenge/probe 8/8 (`statement-identity.log`); the Comparator run with nanoda PASS, exit 0
 (`comparator-run.log`).
 
@@ -59,7 +59,7 @@ challenge/solution 8/8 and challenge/probe 8/8 (`statement-identity.log`); the C
   F1 − S2 or of ā.
 * **ζ, RH, any zero, any explicit formula.**
 
-## 3. Where the formal statements differ from the prose (the yaml row (z), item by item)
+## 3. Where the formal statements differ from the prose (mirrored in the yaml row (z) as (z1)–(z11): (z11) "Names" is not carried there, and the yaml's (z11) is (z12) here [CHECK-O F6, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation])
 
 * **(z1) Pairs on grid sites.** `pairFormFactor` takes `pairs : Finset (ZMod (2n+1) × ℝ × ℝ)` — site, real mark, real depth — and the
   pair's phase is the character `chi (zetaM M) ((s : ZMod M) * θ)`; the paper's row has a pair at any real θ_p with phase
@@ -87,8 +87,7 @@ challenge/solution 8/8 and challenge/probe 8/8 (`statement-identity.log`); the C
   with `prop45` (a `rw` away) it is F1 − S2 > 0 for the integer-marked family — not stated as a separate theorem.
 * **(z8) The certificate is a strict inequality, not a value.** `floor_fails_anchor` states `pairRow … < 64 + 2·(1/20)²`; the record's
   F1 − S2 = −3.520·10⁻² is not a Lean statement (§2). The Lean proof's route: `prop45` at (32, 1/4, 1/20), the two generic cosh bounds
-  passed through the flat average symbolically (four integer power sums by `decide +kernel`), Mathlib's `pi_gt_d6`/`pi_lt_d6`, one
-  `norm_num` on a rational inequality whose numerator has 133 digits — the "dyadic certificate" of the label is this kernel-checked
+  passed through the flat average symbolically (four integer power sums by `decide +kernel`), Mathlib's `pi_gt_d6`/`pi_lt_d6`, one `norm_num` on a rational inequality whose value, reduced, has a 132-digit numerator and a 133-digit denominator [CHECK-O F3, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation] — the "dyadic certificate" of the label is this kernel-checked
   rational certificate (the π bracket is the decimal d6 one, not a power-of-two one; PREDERIVATION-ERRATA E7).
 * **(z9) `W2`'s summation binder is written `_j`.** The probe (`typing-probe.lean` line 18) writes `∑ j ∈ …` with `j` unused in the
   constant summand, which the linter flags; the shipped definition writes `∑ _j ∈ …` so the modules build with 0 warnings. The
@@ -108,6 +107,8 @@ challenge/solution 8/8 and challenge/probe 8/8 (`statement-identity.log`); the C
   from IntegralityGap (the brief: "the seven IntegralityGap definitions restated character for character") although no statement of
   this topic mentions them; the statements mention `chi`, `dftMarkQ`, `zetaM`, `gridRowQ` and the five new definitions. Definitions add
   no trust; they are there so that the two IV.17 topics share one vocabulary.
+
+**Dated corrections to Lean-file comments (12:10 IST 2026-09-29, CHECK-O F4 and F7, Opus 5; re-derived by the orchestrator; the Lean files are NOT edited — the Session-32 rule: no edit after a comparator run, comment slips go here).** (F4) `comparator/Challenge/PairChannel.lean` header item (4), clause "the certificate's bound −0.0336": read "−0.03368" (the certificate's rational is −0.03368205…, recomputed by the orchestrator from `abar_quarter_ge_L`/`abar_half_le_U`; "−0.0336" truncates). (F7) `comparator/Solution/PairChannel.lean` header, "are character for character the Zeta23 definitions": for `dftMarkQ` read "up to where its `Field` binder is written — the same constant, IV.17 CHECK-O O1"; §4 above already carries the qualifier.
 
 ## 4. Character-for-character claims for the checker to `diff`
 

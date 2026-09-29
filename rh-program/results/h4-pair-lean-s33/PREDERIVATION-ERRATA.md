@@ -118,7 +118,7 @@ The other names, re-read at the line: `Real.pi_gt_d6` (Pi/Bounds.lean 178), `Rea
 
 The symbolic pass-through Σ_j (1/65) P(πj/64) = 1 + π²S₂/(2·64²·65) + … is linear algebra on the power sums; coefficients in the
 table. The certificate's cells: the two generic lemmas, four `decide +kernel` power sums, the π bracket step (monotonicity of even
-powers in π > 0, `pow_le_pow_left₀`), one `norm_num` on a rational inequality whose numerator has 133 digits (Unit B's
+powers in π > 0, `pow_le_pow_left₀`), one `norm_num` on a rational inequality whose value, reduced, has a 132-digit numerator and a 133-digit denominator [CHECK-O F3, Opus 5, applied 12:10 IST 2026-09-29 by the orchestrator after re-derivation] (Unit B's
 `cert_numeric` did 577 digits). The value −0.033682 < 0 with 0.001518 of the record's 0.0352 spent — the brief's "−0.0337, 0.0015" to
 the digits given.
 **E10 (design).** In Lean the sum bound is proved term by term (`Finset.sum_le_sum` with the generic lemma at c·j, c = π/64 or

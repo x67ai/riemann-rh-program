@@ -14,3 +14,19 @@
 10. **Price:** builder 440k tokens, 41 min, about one slot against 1½ priced (the unit's 2¼ total was 2–2½; the builder's half came in under). The checker follows in this session (meter 16 % at launch).
 
 **Decision:** launch the Opus 5 clean-clone checker now (UNIT-BRIEF §3); adjudicate CHECK-O by re-derivation in §2 below.
+
+## §2 Adjudication of CHECK-O (Opus 5, 8e59f36bf2c2bfbf…, FIX-FIRST prose only F1–F7; written 12:12 IST 2026-09-29)
+
+Every finding re-derived at the file before it was applied (the Session-30 rule), none weighed on testimony:
+- **F1 UPHELD** — `lean/formalization.yaml` (the Session-30 IV.17 entry and row (v)'s NOT-covered list) and `lean/README.md` (the IntegralityGap section) still said "stays unformalized"; my grep found both. Applied as the checker's dated bracketed riders (history kept).
+- **F2 UPHELD** — my count of `theorem|lemma|def` lines: PairRow.lean 23 + PairCert.lean 21 = 44 declarations against the builder's 34-name probe; the checker's 44-name log shows `vacancyMark` at `[propext, Quot.sound]` (a subset; within the label). Four sentences corrected, each tagged.
+- **F3 UPHELD** — recomputed with exact fractions from `abar_quarter_ge_L` / `abar_half_le_U`: the value −0.03368205…, reduced, has a 132-digit numerator and a 133-digit denominator. Three sentences corrected.
+- **F4 UPHELD, entered as a dated FIDELITY note** — the challenge header's "−0.0336" truncates −0.03368; the trusted file is not edited after the comparator run (Session-32 rule).
+- **F5 UPHELD** — `prerun-cleanup.log` lists 24 `.lake` paths (my count); corrected.
+- **F6 UPHELD** — the yaml row (z) carries (z1)–(z11) (my grep), FIDELITY (z1)–(z12); heading corrected.
+- **F7 UPHELD, entered as a dated FIDELITY note** — the Solution header's "character for character" for `dftMarkQ` is the IV.17 O1 qualifier; no Lean edit.
+- **O1 ACCEPTED as a record correction** — `results/a4-no-go/pair-channel.md` §0 item 1's headline "(MI) is FALSE for real (fractional) marks — an explicit vacancy-lattice + shallow-pair family violates even F1 ≥ S2" attributes (MI)'s falsity to the pair family. Re-derived: F1 − T = (F1 − S2) + (S2 − T) with S2 − T = 2(μ − 1)(μ − 2) (the s30 read's M1, my Session-31 computation, and the checker's); for μ < 1 this is positive, so F1 ≥ S2 is the STRONGER inequality and "even" reads backwards; the checker's scan over d ∈ (0, 1], μ ∈ (0, 3] finds min F1 − T = +1.750 — the family never violates (MI). (MI)'s falsity over ℚ is IV.17's mark-4/3 atom column (`mi_fails_rational`, Session 30). The record file is left as written; a dated correction is entered in `results/a4-no-go/formalization-status.md` and in the A4 Instruments ↳ line and the zoo line staged below. (The s31 R5 precision row already carried the value-side correction; this closes the headline-side one.)
+- **O2/O3** noted: the checker overlaid the three-module import closure v1.0 lacks; `Zeta23.lean` does not import the unit (as for IV.17's modules) — the README's build-by-name check is the recipe.
+- **Checker's price:** 231k tokens, 16 min, against ¾ slot priced.
+
+**Label earned (after CHECK-O, no displayed hypothesis, verbatim):** "IV.17's pair channel: Prop. 4.5 Comparator-checked for every depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20) kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda". Forbidden phrasings absent (the checker's grep and mine). The unit is CLOSED at 12:12 IST 2026-09-29.
