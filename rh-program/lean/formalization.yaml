@@ -232,6 +232,9 @@ status:
     From Session 30 (G8, IV.17), also the sixteen of comparator/Challenge/IntegralityGap.lean (proved by
     comparator/Solution/IntegralityGap.lean, which delegates to Zeta23/PairCeiling/GridParsevalRat.lean and GridGap.lean; neither
     contains a `sorry`); nothing displayed.
+    From Session 33 (H4, IV.17's pair channel), also the eight of comparator/Challenge/PairChannel.lean (proved by
+    comparator/Solution/PairChannel.lean, which delegates to Zeta23/PairCeiling/PairRow.lean and PairCert.lean; neither contains a
+    `sorry`); nothing displayed beyond the statements' own binders (n : ℕ, d μ : ℝ, 1 ≤ m, the band membership of W2_eq).
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -716,6 +719,38 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 33 (2026-09-29), H4 — barrier-zoo IV.17's PAIR CHANNEL as one Comparator topic `PairChannel` (trusted layer
+        comparator/ChallengeDeps/PairChannel.lean, Mathlib only: the seven IntegralityGap definitions restated character for character
+        plus W2, pairFormFactor, pairRow, abar, vacancyMark — character for character the Zeta23/PairCeiling/PairRow.lean definitions).
+        The row: the A4 no-go paper §2.3's bandwidth-one Frobenius row Σ_s W2(s)|c_s|² over the UNREDUCED integer frequency s ∈ [−2n, 2n]
+        with the flat-weight autocorrelation W2 and a pair at a grid site contributing 2μ cosh(2πsd/N) at the unreduced s (the shipped
+        reduced rows cannot hold a pair: the pair's factor is not periodic mod 2n+1).  Eight statements: (1) `W2_eq` (the closed form
+        (2n+1 − |s|)/(2n+1)², pair-channel.md line 39), `sum_W2_mul` (the regrouping into the double band sum), `pairRow_eq_gridRowQ`
+        (with no pair the new row IS the shipped rational grid row — the agreement lemma), `sum_W2_cosh` (the generating identity (T1)
+        at imaginary argument: Σ_s W2(s) cosh(2πsx/N) = ā(x)²); (2) `prop45` — Prop. 4.5 of paper §4.2 (= pair-channel.md Prop. 3.1)
+        for EVERY n, EVERY depth d and EVERY real mark μ: on the vacancy lattice plus one pair at the hole,
+        F1 − S2 = 2μ²ā(2d)² − 4μ(ā(d)² − 1) exactly, S2 = 2n + 2μ²; (3) `abar_sq_le` (the log-convexity step ā(d)² ≤ (1 + ā(2d))/2,
+        Cauchy–Schwarz on the flat weights) and `floor_holds_integer` — the integer-mark safety chain: for an INTEGER mark m ≥ 1 the
+        expression of prop45 is > 0 (integrality enters as 1 ≤ m, nowhere else); (4) `floor_fails_anchor` — at n = 32,
+        (d, μ) = (1/4, 1/20): pairRow < 64 + 2·(1/20)², the floor F1 ≥ S2 FAILS for this real mark (the record's F1 − S2 = −3.520·10⁻²),
+        kernel-checked by a dyadic certificate: two generic cosh bounds (1 + x²/2 ≤ cosh x; cosh x ≤ the degree-8 Taylor polynomial for
+        |x| ≤ 9/2, the ℝ transfer of Complex.exp_bound'), passed through the flat average symbolically, four integer power sums by
+        decide +kernel, Mathlib's pi_gt_d6/pi_lt_d6, one norm_num (Zeta23/PairCeiling/PairCert.lean; the module builds in 1.8 s).
+        NO displayed hypothesis beyond the statements' own binders.  Label: "IV.17's pair channel: Prop. 4.5 Comparator-checked for
+        every depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair
+        at (1/4, 1/20) kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard
+        axioms, replayed by nanoda" (results/h4-pair-lean-s33/BUILD-NOTES.md; Comparator run results/h4-pair-lean-s33/comparator-run.log).
+        At this anchor (MI) HOLDS (T = 60.3, F1 − T = +3.67 — a Python fact, not a Lean statement); the statement is the failure of the
+        floor F1 ≥ S2 for a real mark, nothing more; Theorems 4.6–4.9 of the paper stay at paper grade; nothing about laws, general
+        positions, or ζ follows.
+      declaration: "W2_eq, sum_W2_mul, pairRow_eq_gridRowQ, sum_W2_cosh, prop45, abar_sq_le, floor_holds_integer, floor_fails_anchor (root, Challenge.PairChannel / Solution.PairChannel); the sources Zeta23.PairCeiling.PairRow.W2, Zeta23.PairCeiling.PairRow.pairFormFactor, Zeta23.PairCeiling.PairRow.pairRow, Zeta23.PairCeiling.PairRow.abar, Zeta23.PairCeiling.PairRow.vacancyMark, Zeta23.PairCeiling.PairRow.W2_eq, Zeta23.PairCeiling.PairRow.sum_W2_mul, Zeta23.PairCeiling.PairRow.pairRow_eq_gridRowQ, Zeta23.PairCeiling.PairRow.sum_W2_cosh, Zeta23.PairCeiling.PairRow.dftMarkQ_vacancy, Zeta23.PairCeiling.PairRow.prop45, Zeta23.PairCeiling.PairRow.abar_sq_le, Zeta23.PairCeiling.PairRow.floor_holds_integer, Zeta23.PairCeiling.PairCert.one_add_sq_half_le_cosh, Zeta23.PairCeiling.PairCert.cosh_le_poly8, Zeta23.PairCeiling.PairCert.sum_pow2, Zeta23.PairCeiling.PairCert.sum_pow4, Zeta23.PairCeiling.PairCert.sum_pow6, Zeta23.PairCeiling.PairCert.sum_pow8, Zeta23.PairCeiling.PairCert.cert_numeric, Zeta23.PairCeiling.PairCert.floor_fails_anchor"
+      file: "comparator/Solution/PairChannel.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
 
 automation:
   methods:
@@ -1043,6 +1078,33 @@ fidelity:
     list, the Session-24 coefficient-support theorem, the genus identity, ζ_K); zoo 666's axiom-format statement; ζ, RH, any zero.
     Ledger text: results/i1-witness-lean-s32/FIDELITY.md; the attack on the brief's pre-derivation:
     results/i1-witness-lean-s32/PREDERIVATION-ERRATA.md (no error that changes a value).
+    (z) [Session 33, 2026-09-29; H4, topic PairChannel — barrier-zoo IV.17's pair channel: Prop. 4.5, the integer-mark safety chain,
+    the floor's failure at the anchor.]  Where the formal statements differ from the record (paper §2.3, §4.2 Prop. 4.5; pair-channel.md
+    §1–§3 Prop. 3.1, (T1), (T3); the typing note results/h4-pair-typing-s32/TYPING-NOTE.md): (z1) pairs sit on GRID SITES
+    (`pairFormFactor` takes site × real mark × real depth, the pair's phase is the character χ(s·θ)); the paper's row allows any real
+    θ_p and nothing off the grid is defined — Prop. 4.5's pair is at the hole 0, a grid site.  (z2) the flat weights u_j = 1/(2n+1) are
+    substituted INTO the definition `W2` (the paper defines W2 for general u and substitutes afterwards); the closed form
+    (2n+1 − |s|)/(2n+1)² is the theorem `W2_eq`, not a definition.  (z3) every n : ℕ, including n = 0 (where Lean's x/0 = 0 makes every
+    cosh argument 0 and every statement stays true); the record's geometry is n = 32.  (z4) atom marks ℚ (the shipped vocabulary),
+    pair marks ℝ (Prop. 4.5's "REAL mark"), the chain's mark m : ℕ with 1 ≤ m; the identity `prop45` holds for every real μ, not only
+    μ > 0.  (z5) the character is e^{+2πi·/M} where the paper's phase is e^{−2πisθ/N}; under normSq the rows coincide (as GridParseval
+    records for the atom rows).  (z6) the row sums over the literal range s ∈ Icc (−2n) (2n) with `Complex.normSq` for |c_s|².
+    (z7) the paper's intermediate display F1 − S2 ≥ 2m²ā(2d)² − 2m(ā(2d) − 1) > 0 is inside the proof of `floor_holds_integer`, not a
+    named statement; `floor_holds_integer` is about the right side of `prop45` (F1 − S2 > 0 for the integer family follows by one
+    rewrite, not stated separately).  (z8) `floor_fails_anchor` is the STRICT INEQUALITY pairRow < 64 + 2·(1/20)²; the record's value
+    −0.0352 and the certificate's bound −0.0337 (L(3.141592) = 1.10602, U(3.141593) = 1.48152) are not Lean statements — the proof's
+    `cert_numeric` decides the rational inequality 2μ²U² − 4μ(L² − 1) < 0 by norm_num; the "dyadic certificate" is this kernel-checked
+    rational certificate with Mathlib's d6 decimals for π, not a power-of-two bracket.  (z9) `W2`'s unused summation binder is written
+    `_j` (the probe's `j` draws the linter); the elaborated term is the same, and the trusted layer agrees with PairRow.lean character
+    for character; the eight STATEMENTS are the probe's byte for byte.  (z10) the four `decide +kernel` power sums print all three
+    standard axioms (as IV.17's (v8)).  (z11) the trusted layer restates `dftMark`, `gridRow`, `fracMark` from IntegralityGap although
+    no statement of this topic mentions them (the two IV.17 topics share one vocabulary).  NOT covered, and stated nowhere in Lean:
+    (MI) at any anchor — at THIS anchor (MI) HOLDS (T = 3M − 2N_d = 60.3, F1 − T = +3.67; S2 − T = 2(μ−1)(μ−2) = 3.705), a
+    hand/Python fact; the statement is the failure of the FLOOR F1 ≥ S2 for a real mark, nothing more; Theorems 4.6–4.9 of the paper /
+    Theorems A–D of pair-channel.md (the pair channel's closure stays at paper grade); laws and the LP; general positions (pairs off
+    the grid; general harmonics u_j); Prop. 4.1's ledger, (T2), (T4), (T5); the VALUE of F1 − S2 or of ā; ζ, RH, any zero.  Ledger
+    text: results/h4-pair-lean-s33/FIDELITY.md; the attack on the typing note's derivations with the errata (E7: the note's dyadic π
+    bracket does not follow from pi_gt_d6 — unused; E5, E9): results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md.
 
 review:
   status: "self-assessed"
@@ -1233,6 +1295,20 @@ review:
     only (trust-greps.log).  No human has read comparator/Challenge/IntegralityGap.lean against the record; the independent
     clean-clone check (Opus 5, results/iv17-lean-s30/CHECK-O.md) is the next job.  These statements carry no "modulo H" label.
 
+    Comparator run, topic PairChannel (results/h4-pair-lean-s33/comparator-run.log, 2026-09-29 11:41 IST, 46.93 s, eight
+    theorem_names; Session 33 builder Fable 5.1): the same tool chain and shim (comparator v4.33.0, lean4export v4.33.0-rc2, nanoda
+    0.4.17, fake-landrun — NOT sandboxed, as above; tool SHA-256s printed in the log), from the repository root
+    ~/rh-lean-work/checker-clone-s21 with ChallengeDeps.PairChannel, the challenge and the solution built by comparator itself
+    (pre-built artifacts removed first, prerun-cleanup.log); final lines verbatim: "Running nanoda kernel on solution" / "Nanoda
+    kernel accepts the solution" / "Running Lean default kernel on solution." / "Lean default kernel accepts the solution" / "Your
+    solution is okay!"; exit code 0.  Statement identity challenge/solution: 8 IDENTICAL on the clone and on the program tree, and
+    8 IDENTICAL against the typing probe (statement-identity.log); #print axioms on the 8 root names and the 34 program-side names
+    of Zeta23/PairCeiling/PairRow.lean and PairCert.lean: [propext, Classical.choice, Quot.sound] (print-axioms.log,
+    program-axioms.log); trust greps with comments stripped on the six topic files, both roots: the 8 deliberate challenge `sorry`s
+    only (trust-greps.log); the certificate module's build timed at 1.8 s (cert-build.log).  No human has read
+    comparator/Challenge/PairChannel.lean against the record; the independent clean-clone check (Opus 5,
+    results/h4-pair-lean-s33/CHECK-O.md) is the next job.  These statements carry no "modulo H" label.
+
 alignment:
   namespaces:
     - "DBN"
@@ -1247,6 +1323,9 @@ alignment:
     - "Zeta23.PairCeiling.GridParsevalRat"
     - "Zeta23.PairCeiling.GridGap"
     - "IntegralityGap"
+    - "Zeta23.PairCeiling.PairRow"
+    - "Zeta23.PairCeiling.PairCert"
+    - "PairChannel"
   statements:
     - source: "SPEC §1.1 — the target theorem in ray form (Λ ≤ 0.2 without the word Λ), row 2, mpmath-ball leg; the referee's statement"
       lean: "dbn_ray_le_point2_mp"
@@ -1400,6 +1479,14 @@ alignment:
       lean: "trace_sq_grid_rat, gridRowQ_eq, gridRow_eq_gridRowQ, fracMark_mass, fracMark_sq, fracMark_Nd, fracMark_row, mi_fails_rational, corner_fails_rational, corner_bound_fails_rational, per_atom_slack_fails_rational, per_atom_floor_fails_rational"
       module: "Challenge.IntegralityGap / Solution.IntegralityGap over ChallengeDeps.IntegralityGap (Mathlib only); sources Zeta23/PairCeiling/GridParsevalRat.lean, Zeta23/PairCeiling/GridGap.lean"
       status: "proved (the negations are theorems, not examples; the instance data by decide +kernel), no displayed hypothesis; Comparator PASS with nanoda (results/iv17-lean-s30/comparator.log)"
+    - source: "A4 no-go paper §2.3 (the finite-circle row with a pair: c_s gains 2m cosh(2πsd/N) e^{−2πisθ/N}; tr Ĝ² = Σ_s W2(s)|c_s|², W2(s) = Σ_{j∈B, s−j∈B} u_j u_{s−j}, u_j = 1/M) and pair-channel.md §1 (w_s = (65 − |s|)/65²), (T1) (Σ_s w_s q^s = (Σ_j u_j q^j)², at q = e^{β}) — the unreduced row, its weight, the regrouping, the agreement with the shipped grid row on pair-free columns, the generating identity"
+      lean: "W2_eq, sum_W2_mul, pairRow_eq_gridRowQ, sum_W2_cosh"
+      module: "Challenge.PairChannel / Solution.PairChannel over ChallengeDeps.PairChannel (Mathlib only); source Zeta23/PairCeiling/PairRow.lean"
+      status: "proved, no displayed hypothesis (the band membership s ∈ Icc (−2n) (2n) of W2_eq is the lemma's subject); Comparator PASS with nanoda (results/h4-pair-lean-s33/comparator-run.log)"
+    - source: "A4 no-go paper §4.2 Prop. 4.5 = pair-channel.md Prop. 3.1 ('F1(c_μ) − S2(c_μ) = 2μ²ā(2d)² − 4μ(ā(d)² − 1)', every depth, real mark; 'For integer marks the same family is safe … > 0' via (T3) ā(d)² ≤ (1 + ā(2d))/2; 'the numeric check at (d, μ) = (0.25, 0.05) … F1 − S2 = −3.520e-2') — the identity for every n, depth and real mark; the log-convexity step; the integer-mark safety chain; the floor's failure at the anchor, kernel-checked"
+      lean: "prop45, abar_sq_le, floor_holds_integer, floor_fails_anchor"
+      module: "Challenge.PairChannel / Solution.PairChannel over ChallengeDeps.PairChannel (Mathlib only); sources Zeta23/PairCeiling/PairRow.lean, Zeta23/PairCeiling/PairCert.lean"
+      status: "proved (prop45 for general n with no hypothesis; floor_fails_anchor by two generic cosh bounds, four power sums by decide +kernel, pi_gt_d6/pi_lt_d6 and one norm_num — the certificate module builds in 1.8 s), the only hypothesis 1 ≤ m of floor_holds_integer is the chain's subject; Comparator PASS with nanoda (results/h4-pair-lean-s33/comparator-run.log). Says nothing about (MI), which holds at this anchor"
 
 acknowledgements: >-
   Built on Anthropic's Zeta23 library and on Lean 4, Mathlib, Lake, Comparator, lean4export and nanoda; the two ported

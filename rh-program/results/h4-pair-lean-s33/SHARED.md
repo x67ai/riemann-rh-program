@@ -39,3 +39,19 @@ First try built with one linter nit (fixed). TIMED (`cert-build.log`): `lake bui
 for the lake call, max RSS 2.57 GB; `lake env lean` of the file alone 2.38 s wall; the four power sums alone: kernel type checking 58 ms.
 Stop line (iii) (ten minutes) is under by a factor of about 200. Next: the Comparator topic `PairChannel` (five files + config), tools, build,
 axioms, identity, greps, cleanup, the run with nanoda.
+
+## [builder] Tue Sep 29 11:42:15 IST 2026 — the Comparator topic `PairChannel` PASS with nanoda (exit 0); the Lean files are now FROZEN (no edit after the run)
+Files (source of truth `lean/comparator/`, mirrored to the clone by `cp`, `cmp`-identical): `ChallengeDeps/PairChannel.lean` (Mathlib only,
+namespace `PairChannel`: the seven IntegralityGap definitions + the five of PairRow.lean, all character for character — `trust-greps.log`),
+`Challenge/PairChannel.lean` (the eight statements, byte-identical to the probe's — `statement-identity.log`), `Solution/PairChannel.lean`
+(eight one-line delegations to PairRow/PairCert), `PrintAxioms/PairChannel.lean`, `config-pair-channel.json` (8 names, three axioms,
+nanoda). `build-comparator-topic.log`: ChallengeDeps 18 s, Challenge 3.0 s (8 deliberate sorry warnings), Solution 4.0 s with 0 warnings,
+8704 jobs, first try. `print-axioms.log`: 8 × [propext, Classical.choice, Quot.sound]; `program-axioms.log`: the 34 program-side names
+likewise. `statement-identity.log`: 8/8 IDENTICAL on clone and tree; 8/8 IDENTICAL against the probe; config order = challenge order.
+`trust-greps.log`: the 8 challenge sorrys only; imports as designed; tree = mirror ×7; 7/7 and 5/5 definitions character for character; the
+one deviation from the probe is W2's binder `_j`. `prerun-cleanup.log`: 25 artifacts removed. **`comparator-run.log`: 11:40:58–11:41:45
+IST, 46.93 s real, max RSS 5.8 GB; Built ChallengeDeps.PairChannel (5.2s), Challenge.PairChannel (3.0s), Solution.PairChannel (3.0s);
+Nanoda kernel accepts the solution; Lean default kernel accepts the solution; Your solution is okay!; --- comparator exit code: 0 ---.**
+The fake-landrun shim (NOT sandboxed) as in every prior macOS record; the four tool SHA-256s in the log equal COMPARATOR-RUN.md §1's.
+Stop lines (i)–(vi): none fired; no displayed hypothesis beyond the statements' own → the label of §1(3) is earned verbatim.
+Next: BUILD-NOTES.md, FIDELITY.md, the yaml rows, the README section, the formalization-status addendum, validation, lint, hashes.

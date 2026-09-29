@@ -1,0 +1,92 @@
+== Tue Sep 29 11:40:42 IST 2026 KICKSTART 10(j) trust greps, comments stripped, tools/trust_greps_h4.py (the H5 tool; docstring and default list changed); the six topic files passed one per word
+-- on the clone /Users/jaytyagi/rh-lean-work/checker-clone-s21
+comparator/Challenge/PairChannel.lean:55: [sorry] sorry
+comparator/Challenge/PairChannel.lean:62: [sorry] sorry
+comparator/Challenge/PairChannel.lean:67: [sorry] sorry
+comparator/Challenge/PairChannel.lean:73: [sorry] sorry
+comparator/Challenge/PairChannel.lean:79: [sorry] sorry
+comparator/Challenge/PairChannel.lean:83: [sorry] sorry
+comparator/Challenge/PairChannel.lean:88: [sorry] sorry
+comparator/Challenge/PairChannel.lean:94: [sorry] sorry
+files present: 6; hits outside comments: 8
+exit=1
+-- on the program tree rh-program/lean
+comparator/Challenge/PairChannel.lean:55: [sorry] sorry
+comparator/Challenge/PairChannel.lean:62: [sorry] sorry
+comparator/Challenge/PairChannel.lean:67: [sorry] sorry
+comparator/Challenge/PairChannel.lean:73: [sorry] sorry
+comparator/Challenge/PairChannel.lean:79: [sorry] sorry
+comparator/Challenge/PairChannel.lean:83: [sorry] sorry
+comparator/Challenge/PairChannel.lean:88: [sorry] sorry
+comparator/Challenge/PairChannel.lean:94: [sorry] sorry
+files present: 6; hits outside comments: 8
+exit=1
+== raw grep (comments included) for the trust words, both program modules and the four topic files, for the record
+comparator/Challenge/PairChannel.lean:43:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/PairChannel.lean:55:  sorry
+comparator/Challenge/PairChannel.lean:62:  sorry
+comparator/Challenge/PairChannel.lean:67:  sorry
+comparator/Challenge/PairChannel.lean:73:  sorry
+comparator/Challenge/PairChannel.lean:79:  sorry
+comparator/Challenge/PairChannel.lean:83:  sorry
+comparator/Challenge/PairChannel.lean:88:  sorry
+comparator/Challenge/PairChannel.lean:94:  sorry
+Zeta23/PairCeiling/PairCert.lean:30:cells, no per-term enclosure, no `native_decide`, no new axiom.
+Zeta23/PairCeiling/PairRow.lean:41:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the transcendental objects are
+comparator/PrintAxioms/PairChannel.lean:12:comparator/PrintAxioms/PairChannel.lean — quick axiom audit of the PairChannel topic WITHOUT the comparator tool:
+comparator/PrintAxioms/PairChannel.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-pair-channel.json)
+== import lines
+-- Zeta23/PairCeiling/PairRow.lean
+44:import Zeta23.PairCeiling.GridParsevalRat
+45:import Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp
+46:import Mathlib.Algebra.Order.Chebyshev
+-- Zeta23/PairCeiling/PairCert.lean
+36:import Zeta23.PairCeiling.PairRow
+37:import Mathlib.Analysis.Real.Pi.Bounds
+38:import Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp
+-- comparator/ChallengeDeps/PairChannel.lean
+37:import Mathlib
+-- comparator/Challenge/PairChannel.lean
+46:import ChallengeDeps.PairChannel
+-- comparator/Solution/PairChannel.lean
+21:import ChallengeDeps.PairChannel
+22:import Zeta23.PairCeiling.PairCert
+-- comparator/PrintAxioms/PairChannel.lean
+18:import Solution.PairChannel
+== tree = mirror (cmp) for the six Lean files and the config
+identical: Zeta23/PairCeiling/PairRow.lean
+identical: Zeta23/PairCeiling/PairCert.lean
+identical: comparator/ChallengeDeps/PairChannel.lean
+identical: comparator/Challenge/PairChannel.lean
+identical: comparator/Solution/PairChannel.lean
+identical: comparator/PrintAxioms/PairChannel.lean
+identical: comparator/config-pair-channel.json
+== character-for-character: the seven restated IntegralityGap definitions (PairChannel vs IntegralityGap trusted layers), def blocks extracted from 'def <name>' to the blank line after
+chi              IDENTICAL (45 bytes)
+dftMark          IDENTICAL (98 bytes)
+dftMarkQ         IDENTICAL (121 bytes)
+zetaM            IDENTICAL (66 bytes)
+gridRow          IDENTICAL (300 bytes)
+gridRowQ         IDENTICAL (302 bytes)
+fracMark         IDENTICAL (70 bytes)
+RESULT: PASS
+== character-for-character: the five new definitions (PairChannel trusted layer vs Zeta23/PairCeiling/PairRow.lean)
+W2               IDENTICAL (185 bytes)
+pairFormFactor   IDENTICAL (348 bytes)
+pairRow          IDENTICAL (201 bytes)
+abar             IDENTICAL (150 bytes)
+vacancyMark      IDENTICAL (81 bytes)
+RESULT: PASS
+== the five definitions against the probe's (results/h4-pair-typing-s32/typing-probe.lean): expected ONE difference, the unused binder of W2 written _j
+W2               DIFFER
+    --- probe
+    +++ PairRow
+    @@ -1,3 +1,3 @@
+     def W2 (n : ℕ) (s : ℤ) : ℝ :=
+    -  ∑ j ∈ (Finset.Icc (-(n : ℤ)) (n : ℤ)).filter (fun j : ℤ => s - j ∈ Finset.Icc (-(n : ℤ)) (n : ℤ)),
+    +  ∑ _j ∈ (Finset.Icc (-(n : ℤ)) (n : ℤ)).filter (fun j : ℤ => s - j ∈ Finset.Icc (-(n : ℤ)) (n : ℤ)),
+         (1 / (2 * (n : ℝ) + 1)) * (1 / (2 * (n : ℝ) + 1))
+pairFormFactor   IDENTICAL
+pairRow          IDENTICAL
+abar             IDENTICAL
+vacancyMark      IDENTICAL

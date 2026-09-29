@@ -1,0 +1,20 @@
+{
+  "challenge_module": "Challenge.PairChannel",
+  "solution_module": "Solution.PairChannel",
+  "theorem_names": [
+    "W2_eq",
+    "sum_W2_mul",
+    "pairRow_eq_gridRowQ",
+    "sum_W2_cosh",
+    "prop45",
+    "abar_sq_le",
+    "floor_holds_integer",
+    "floor_fails_anchor"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
