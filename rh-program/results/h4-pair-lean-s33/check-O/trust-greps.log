@@ -1,0 +1,56 @@
+== Tue Sep 29 12:01:28 IST 2026 builder tool trust_greps_h4.py on the clean clone, seven files as seven arguments (bash array)
+comparator/Challenge/PairChannel.lean:55: [sorry] sorry
+comparator/Challenge/PairChannel.lean:62: [sorry] sorry
+comparator/Challenge/PairChannel.lean:67: [sorry] sorry
+comparator/Challenge/PairChannel.lean:73: [sorry] sorry
+comparator/Challenge/PairChannel.lean:79: [sorry] sorry
+comparator/Challenge/PairChannel.lean:83: [sorry] sorry
+comparator/Challenge/PairChannel.lean:88: [sorry] sorry
+comparator/Challenge/PairChannel.lean:94: [sorry] sorry
+files present: 7; hits outside comments: 8
+rc=1
+== checker raw grep, comments NOT stripped (word-bounded), per word
+-- axiom:        3 hits
+Zeta23/PairCeiling/PairCert.lean:30:cells, no per-term enclosure, no `native_decide`, no new axiom.
+comparator/PrintAxioms/PairChannel.lean:12:comparator/PrintAxioms/PairChannel.lean — quick axiom audit of the PairChannel topic WITHOUT the comparator tool:
+comparator/PrintAxioms/PairChannel.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-pair-channel.json)
+-- native_decide:        3 hits
+Zeta23/PairCeiling/PairRow.lean:41:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the transcendental objects are
+Zeta23/PairCeiling/PairCert.lean:30:cells, no per-term enclosure, no `native_decide`, no new axiom.
+comparator/PrintAxioms/PairChannel.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-pair-channel.json)
+-- unsafe:        0 hits
+-- implemented_by:        0 hits
+-- extern:        0 hits
+-- opaque:        0 hits
+-- sorry:       10 hits
+Zeta23/PairCeiling/PairRow.lean:41:Trust model: everything is proved from Mathlib with no `sorry` and no `native_decide`; the transcendental objects are
+comparator/Challenge/PairChannel.lean:43:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/PairChannel.lean:55:  sorry
+comparator/Challenge/PairChannel.lean:62:  sorry
+comparator/Challenge/PairChannel.lean:67:  sorry
+comparator/Challenge/PairChannel.lean:73:  sorry
+comparator/Challenge/PairChannel.lean:79:  sorry
+comparator/Challenge/PairChannel.lean:83:  sorry
+comparator/Challenge/PairChannel.lean:88:  sorry
+comparator/Challenge/PairChannel.lean:94:  sorry
+-- admit:        0 hits
+-- ofReduceBool:        1 hits
+comparator/PrintAxioms/PairChannel.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-pair-channel.json)
+== imports
+Zeta23/PairCeiling/PairRow.lean:44:import Zeta23.PairCeiling.GridParsevalRat
+Zeta23/PairCeiling/PairRow.lean:45:import Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp
+Zeta23/PairCeiling/PairRow.lean:46:import Mathlib.Algebra.Order.Chebyshev
+Zeta23/PairCeiling/PairCert.lean:36:import Zeta23.PairCeiling.PairRow
+Zeta23/PairCeiling/PairCert.lean:37:import Mathlib.Analysis.Real.Pi.Bounds
+Zeta23/PairCeiling/PairCert.lean:38:import Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp
+comparator/ChallengeDeps/PairChannel.lean:37:import Mathlib
+comparator/Challenge/PairChannel.lean:46:import ChallengeDeps.PairChannel
+comparator/Solution/PairChannel.lean:21:import ChallengeDeps.PairChannel
+comparator/Solution/PairChannel.lean:22:import Zeta23.PairCeiling.PairCert
+comparator/PrintAxioms/PairChannel.lean:18:import Solution.PairChannel
+== set_option / macro / elab / syntax / partial / @[ attributes / decide +kernel
+Zeta23/PairCeiling/PairCert.lean:25:S₂ = 22880, S₄ = 14492192, S₆ = 10924353440, S₈ = 8964042662432 over j ∈ [−32, 32] (each `decide +kernel`), so that
+Zeta23/PairCeiling/PairCert.lean:114:theorem sum_pow2 : (∑ j ∈ Finset.Icc (-32 : ℤ) 32, j ^ 2) = 22880 := by decide +kernel
+Zeta23/PairCeiling/PairCert.lean:115:theorem sum_pow4 : (∑ j ∈ Finset.Icc (-32 : ℤ) 32, j ^ 4) = 14492192 := by decide +kernel
+Zeta23/PairCeiling/PairCert.lean:116:theorem sum_pow6 : (∑ j ∈ Finset.Icc (-32 : ℤ) 32, j ^ 6) = 10924353440 := by decide +kernel
+Zeta23/PairCeiling/PairCert.lean:117:theorem sum_pow8 : (∑ j ∈ Finset.Icc (-32 : ℤ) 32, j ^ 8) = 8964042662432 := by decide +kernel

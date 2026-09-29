@@ -1,0 +1,45 @@
+== Tue Sep 29 12:04:17 IST 2026 forbidden-phrasing greps over 32 files (comments included; ORCHESTRATOR-NOTES.md excluded, unread by design)
+-- "(MI) fails":        1
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "MI fails":        0
+-- "(MI) FAILS":        1
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "MI) is false":        1
+lean/formalization.yaml:1478:    - source: "Barrier-zoo IV.17 STATEMENT, '(MI) is FALSE for fractional marks, at the baseline itself' (mass N of mark-4/3 atoms on the (N+1)-site grid, N = 64: F1 = 256/3 = (4/3)·64, N_d = 48, 3·64 − 2·48 = 96 > 256/3; N_d = 48 
+-- "(MI) is violated":        0
+-- "IV.17 is formalized":        1
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "IV.17 formalized":        0
+-- "is formalized":       15
+lean/formalization.yaml:37:    (sup_η |ηB̂(η)|² ≤ 87/10) and H-B‴ (∫|B‴| ≤ 64231/100)" — never "clause 4 is formalized".  It is the dress-rehearsal
+lean/formalization.yaml:43:    is formalized'": H-edge is clause 2's lower bound (κ₋ = 148088/100000), H-out is clause 5 DISPLAYED WHOLE (the
+lean/formalization.yaml:58:    implied by t ≥ 21L as a proved corollary" — never "Theorem M2 is formalized".  The M4 (iii) pairs stay on disk, frozen.
+lean/formalization.yaml:68:    H-B‴, on the three standard axioms, replayed by nanoda" — never "Theorem M2 is formalized" (clause 8's ζ instance
+lean/formalization.yaml:469:        modulo H-b₁, H-B‴" — never "clause 4 is formalized" (results/c2-m4/BUILD-NOTES-iii.md; Comparator run
+lean/formalization.yaml:492:        clause-6 assembly is kernel-checked modulo H-edge, H-b₁, H-B‴, H-out" — never "Theorem M2 is formalized"
+lean/formalization.yaml:509:        "clause 4 of Theorem M2 is kernel-checked modulo H-B‴, with b₁ = ‖B′‖₁² proved" — never "clause 4 is formalized"
+lean/formalization.yaml:533:        implied by t ≥ 21L as a proved corollary" — never "Theorem M2 is formalized" (results/c2-m4/BUILD-NOTES-A.md;
+lean/formalization.yaml:554:        Comparator-checked" — never "clause 5 is formalized" (results/c2-m4/BUILD-NOTES-B.md; Comparator run
+lean/formalization.yaml:582:        standard axioms, replayed by nanoda" — never "Theorem M2 is formalized" (results/c2-m4/BUILD-NOTES-B.md; Comparator
+lean/formalization.yaml:610:        — never "Theorem M2 is formalized" (clause 8's ζ instance and the fidelity rows remain) (results/c2-m4/BUILD-NOTES-B.md;
+lean/formalization.yaml:886:    H-b₁ and H-B‴ — label "clause 4 is kernel-checked modulo H-b₁, H-B‴", never "clause 4 is formalized".  (p1) the computed
+lean/formalization.yaml:908:    H-out — label "kernel-checked modulo H-edge, H-b₁, H-B‴, H-out", never "Theorem M2 is formalized".  (q1) clause 5 is
+lean/formalization.yaml:1269:    H-B‴" — never "Theorem M2 is formalized".
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "pair channel is closed":        1
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "pair channel closed":        0
+-- "channel is closed":        1
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is
+-- "closes the pair channel":        0
+-- "pair channel is now closed":        0
+== every line with (MI) near fail/false/violat in the unit files
+lean/formalization.yaml:1018:    ℤ; the record's "N_d = (3/4)N < (5/6)N" is the same fact.  (v4) `mi_fails_rational` negates (MI) in the form
+lean/formalization.yaml:1478:    - source: "Barrier-zoo IV.17 STATEMENT, '(MI) is FALSE for fractional marks, at the baseline itself' (mass N of mark-4/3 atoms on the (N+1)-site grid, N = 64: F1 = 256/3 = (4/3)·64, N_d = 48, 3·64 − 2·48 = 96 > 256/3; N_d = 48 < 64·(5/6)) and EXECUTABLE TEST (1); ite
+results/h4-pair-lean-s33/FIDELITY.md:18:the anchor (MI) holds — see §2, first bullet — and `floor_fails_anchor` is the failure of the floor F1 ≥ S2 for a real mark, nothing more.
+results/h4-pair-lean-s33/FIDELITY.md:45:  §1(3) appear in no file of this unit: no sentence attributes the failure to (MI), the word "formalized" is not applied to IV.17,
+results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md:28:| (MI) at the anchor: T = 3M − 2N_d = 3(64 + 2μ) − 2·66 | T = 60.300, F1 − T = +3.67, S2 − T = 2(μ−1)(μ−2) ≈ 3.705 | T = 60.3, F1 − T = 3.6698, S2 − T = 3.705 — (MI) HOLDS at the anchor; only the floor F1 ≥ S2 fails |
+results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md:136:At the anchor (MI) holds (F1 − T = +3.67 > 0) while the floor F1 ≥ S2 fails (F1 − S2 = −0.0352 < 0); `floor_fails_anchor` is the
+results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md:137:failure of the floor for a real mark and says nothing about (MI). The three forbidden phrasings appear nowhere in this file.
+results/h4-pair-lean-s33/lint-10g.log:20:== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is closed' (no output = absent)
+results/h4-pair-lean-s33/lint-10g.log:22:results/h4-pair-lean-s33/FIDELITY.md:45:  §1(3) appear in no file of this unit: no sentence attributes the failure to (MI), the word "formalized" is not applied to IV.17,

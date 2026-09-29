@@ -1,0 +1,32 @@
+== Tue Sep 29 11:58:51 IST 2026 builder's tool on the clean clone
+W2_eq                                         challenge   153 bytes, solution   153 bytes: IDENTICAL
+sum_W2_mul                                    challenge   264 bytes, solution   264 bytes: IDENTICAL
+pairRow_eq_gridRowQ                           challenge    97 bytes, solution    97 bytes: IDENTICAL
+sum_W2_cosh                                   challenge   176 bytes, solution   176 bytes: IDENTICAL
+prop45                                        challenge   193 bytes, solution   193 bytes: IDENTICAL
+abar_sq_le                                    challenge    76 bytes, solution    76 bytes: IDENTICAL
+floor_holds_integer                           challenge   146 bytes, solution   146 bytes: IDENTICAL
+floor_fails_anchor                            challenge   133 bytes, solution   133 bytes: IDENTICAL
+RESULT: PASS
+rc=0
+W2_eq                  ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+sum_W2_mul             ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+pairRow_eq_gridRowQ    ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+sum_W2_cosh            ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+prop45                 ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+abar_sq_le             ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+floor_holds_integer    ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+floor_fails_anchor     ch==sol bytes:True  ch==probe bytes:True  normalized 3-way:True  ==brief§0 (normalized):True
+trusted chi             vs IntegralityGap: IDENTICAL (45 bytes)
+trusted dftMark         vs IntegralityGap: IDENTICAL (98 bytes)
+trusted dftMarkQ        vs IntegralityGap: IDENTICAL (121 bytes)
+trusted zetaM           vs IntegralityGap: IDENTICAL (66 bytes)
+trusted gridRow         vs IntegralityGap: IDENTICAL (300 bytes)
+trusted gridRowQ        vs IntegralityGap: IDENTICAL (302 bytes)
+trusted fracMark        vs IntegralityGap: IDENTICAL (70 bytes)
+trusted W2              vs PairRow.lean: IDENTICAL (185 bytes); vs probe: DIFFER
+trusted pairFormFactor  vs PairRow.lean: IDENTICAL (348 bytes); vs probe: IDENTICAL
+trusted pairRow         vs PairRow.lean: IDENTICAL (201 bytes); vs probe: IDENTICAL
+trusted abar            vs PairRow.lean: IDENTICAL (150 bytes); vs probe: IDENTICAL
+trusted vacancyMark     vs PairRow.lean: IDENTICAL (81 bytes); vs probe: IDENTICAL
+RESULT: PASS
