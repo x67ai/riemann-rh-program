@@ -1,4 +1,4 @@
-beta-shapes-s35 numbers-check -- 2026-09-29T15:43:57.738255 -- Darwin 27.0.0 arm64 arm
+beta-shapes-s35 numbers-check -- 2026-09-29T15:45:17.557031 -- Darwin 27.0.0 arm64 arm
 mpmath dps = 30
 
 [1] Lambda(n), n = 2..30 (A5's diagonal row over Z), and the divergence of the fiber sum over Delta in T1
@@ -73,8 +73,8 @@ mpmath dps = 30
 
 [7] T2, the non-Cartier step over Z at finite level N: N!*e_n lies in the truncated ghost lattice L_N (congruences 0801.1691 (1.10): a_j = a_{pj} mod p^(1+v_p(j)))
     N = 1..40: N!*e_n in L_N for every n; v_d in L_N; det(v_d) = N! : True
-    zero-divisor witness (N=6, n=2): f = (1,0,0,0,0,0) in ker(w_2)? f in L_6: False ; take f = (0,1,0,0,0,0)? in L_6: False
-    a vector in L_6 vanishing on component 2: f = (6,0,6,0,0,0) in L_6: False ; g = 720*e_2; f*g coordinatewise = [0, 0, 0, 0, 0, 0]
+    zero-divisor witness at N = 6, component n = 2: f = 720*e_1 in L_6: True (f_2 = 0, so f vanishes on Gamma_2); g = 720*e_2 in L_6: True g != 0; f*g coordinatewise = [0, 0, 0, 0, 0, 0]
+    general: for ANY f in L_N with f_n = 0, f * (N! e_n) = 0 coordinatewise -- every local equation of Gamma_n is a zero divisor (E3 Theorem 4.1(b)'s pattern, over Z at the line).
 
 [8] Rung 1 (y^2 = x^3 + x + 1 over F_7, E3's a_d = 5, 25, 125, 605): fiber products are q^{N_N}, a single residue characteristic
     N=1: N_N = sum_(d|N) d a_d = 5; fiber product = 7^5; log(product)/log 7 = 5 = (Delta . Gamma_Fr^N) in Z
@@ -104,4 +104,4 @@ mpmath dps = 30
     p=101: log p = 4.615120517; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 4.61512 and equals log of an integer divisible by 101
     p=1009: log p = 6.91671502; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 6.91672 and equals log of an integer divisible by 1009
 
-END 2026-09-29T15:44:48.084105
+END 2026-09-29T15:46:07.530737

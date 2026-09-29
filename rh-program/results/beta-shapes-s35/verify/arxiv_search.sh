@@ -6,7 +6,7 @@ i=0
 while IFS= read -r q; do
   i=$((i+1))
   echo "=== QUERY $i: $q === $(date)" >> "$OUT"
-  curl -s --max-time 60 "http://export.arxiv.org/api/query?search_query=$q&max_results=10" >> "$OUT" 2>&1 || echo "CURL-FAIL" >> "$OUT"
+  for t in $(seq 1 60); do curl -sL --max-time 60 "https://export.arxiv.org/api/query?search_query=$q&max_results=10" > /tmp/arxiv_q.xml 2>/dev/null && grep -q "totalResults" /tmp/arxiv_q.xml && break; sleep 60; done; cat /tmp/arxiv_q.xml >> "$OUT"
   echo "" >> "$OUT"
   sleep 3
 done <<'Q'

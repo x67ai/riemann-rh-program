@@ -116,9 +116,9 @@ for N in range(1,41):
     for d in range(1,N+1): det *= V[d-1][d-1]   # triangular
     if det != fact: ok=False; P("    det FAIL", N)
 P("    N = 1..40: N!*e_n in L_N for every n; v_d in L_N; det(v_d) = N! :", ok)
-P("    zero-divisor witness (N=6, n=2): f = (1,0,0,0,0,0) in ker(w_2)? f in L_6:", in_lattice([1,0,0,0,0,0],6), "; take f = (0,1,0,0,0,0)? in L_6:", in_lattice([0,1,0,0,0,0],6))
-f = [2,0,2,0,0,0]  # a_1 = a_3 = 2, a_2 = a_6 = 0 ... check
-P("    a vector in L_6 vanishing on component 2: f = (6,0,6,0,0,0) in L_6:", in_lattice([6,0,6,0,0,0],6), "; g = 720*e_2; f*g coordinatewise =", [x*y for x,y in zip([6,0,6,0,0,0],[0,720,0,0,0,0])])
+f = [720,0,0,0,0,0]; g = [0,720,0,0,0,0]
+P("    zero-divisor witness at N = 6, component n = 2: f = 720*e_1 in L_6:", in_lattice(f,6), "(f_2 = 0, so f vanishes on Gamma_2); g = 720*e_2 in L_6:", in_lattice(g,6), "g != 0; f*g coordinatewise =", [x*y for x,y in zip(f,g)])
+P("    general: for ANY f in L_N with f_n = 0, f * (N! e_n) = 0 coordinatewise -- every local equation of Gamma_n is a zero divisor (E3 Theorem 4.1(b)'s pattern, over Z at the line).")
 
 P("\n[8] Rung 1 (y^2 = x^3 + x + 1 over F_7, E3's a_d = 5, 25, 125, 605): fiber products are q^{N_N}, a single residue characteristic")
 a = {1:5,2:25,3:125,4:605}
