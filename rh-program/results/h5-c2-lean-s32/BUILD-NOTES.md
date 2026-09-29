@@ -13,7 +13,7 @@ checked yet: the Opus 5 clean-clone check (`CHECK-O.md`) is the next job. No com
 
 **Nothing about ζ or RH follows from anything below (10(c), first paragraph).** The two theorems are about prime-side VALUES: for every
 continuous even band-limited g and every real a, the number `tiltedPrimeSide a g` is `primeSide k` for some even C² k on the same
-band. The C² witness is an interpolant at ±log n, not the tilted test (which is in general not C¹ — D5's `weilContainment_not_contDiff`
+band. The C² witness is an interpolant at ±log n, not the tilted test (which is in general not C¹ — [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F2 (Opus 5), re-derived by the orchestrator at `Challenge/WeilContainment.lean` line 117: `weilContainment_not_contDiff` proves ¬ContDiff ℝ 2 for the ONE instance a = 1, g ≡ 1 and nothing about C¹; for other g the tilted test can be smooth (g = 2e^{(a−1/2)|u|}·χ with χ a smooth even bump gives `weilTestOf a g = χ`). Read: the tilted test is not in general C², and is not claimed to be.] D5's `weilContainment_not_contDiff`
 stands); the zero side of every explicit formula at every level is untouched; `EF_lit` is not stated and nothing is fed into it.
 
 **Label, verbatim and binding (BRIEF §1(4), the reader's A7), earned — (1)–(3) landed with NO displayed hypothesis beyond the three:**
@@ -55,7 +55,7 @@ closed-set argument for "g = 0 on [L, ∞)"; distinctness of the points and the 
 | `results/d5-lean-s30/FIDELITY.md` | — | (N2): "[FORMALIZED 06:42 IST 2026-09-29, Session 32, for g continuous: …]" appended after "NOT formalized and NOT claimed." |
 
 **Statement decisions, against BRIEF §0–§1.** Both statements are the brief's, character for character (§0 "The statement to ship" and
-"Rung 1"), with the three displayed hypotheses `(∀ u, g (-u) = g u)`, `Continuous g`, `tsupport g ⊆ Set.Icc (-L) L` (rung 1:
+"Rung 1") [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F4: rung 1 writes `∃ k : ℝ → ℂ,` where the brief wrote `∃ k,`; same elaborated type (the checker's probe); the family statement is character for character], with the three displayed hypotheses `(∀ u, g (-u) = g u)`, `Continuous g`, `tsupport g ⊆ Set.Icc (-L) L` (rung 1:
 `Set.Icc (-(Real.log 3)) (Real.log 3)`) and no fourth. Helper lemmas added inside the solution modules only (the list above); none is a
 trusted definition. Not added: a variant without the evenness hypothesis (E2; footprint), a theorem tying `primeSide` to Zeta23 (not
 needed, as in D5). The witness is E3's (FIDELITY (D1)), not the brief's δ-family; the statement is existential, so the choice is
@@ -94,10 +94,10 @@ tool chain is unchanged since the Session 25 records and both topic runs passed.
 
 Covered: the prime-side number of every continuous even band-limited tilted datum is `primeSide` of a C² even function on the same
 band, for every real a and L (`weilContainment_c2_interpolant`), and at L = log 3 (`weilContainment_c2_interpolant_log3`). Not covered:
-the zero side at any level; the tilted test itself is not C² (D5 (N2) stands); `EF_lit` not stated, nothing fed into it; the
+the zero side at any level; the tilted test itself is not C² (D5 (N2) stands) [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F2 (Opus 5), re-derived by the orchestrator at `Challenge/WeilContainment.lean` line 117: `weilContainment_not_contDiff` proves ¬ContDiff ℝ 2 for the ONE instance a = 1, g ≡ 1 and nothing about C¹; for other g the tilted test can be smooth (g = 2e^{(a−1/2)|u|}·χ with χ a smooth even bump gives `weilTestOf a g = χ`). Read: the tilted test is not in general C², and is not claimed to be.]; `EF_lit` not stated, nothing fed into it; the
 discontinuous case (D5 CHECK-O F2's band-edge counterexample stays a counterexample); the μ-band; the archimedean term;
 summability as a datum; ζ, RH. Differs from the prose: the witness is one bump times a Lagrange interpolant (D1); the evenness of g is
-displayed but unused (D2); `ContDiff ℝ 2` stated, C^∞ produced (D3); every real L including the empty-interior bands (D4); `tsum` on
+displayed but unused (D2); `ContDiff ℝ 2` stated, C^∞ produced [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F3: the proof proves ContDiff ℝ 2 directly; nothing smoother is proved] (D3); every real L including the empty-interior bands (D4); `tsum` on
 both sides (D5); the L = log 2 case handled by the empty-interior branch (D6). Fidelity divergences in the brief's sense (a hypothesis
 beyond the three): NONE.
 

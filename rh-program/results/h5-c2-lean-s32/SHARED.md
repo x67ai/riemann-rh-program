@@ -50,3 +50,14 @@ values; the C² witness is an interpolant at ±log n, not the tilted test; zero 
 beyond the three): none. Stop lines: none fired.
 SHA-256: BUILD-NOTES.md 421db9a63aa787663a2f727037ceaaa5c3ce1b961f4d119b56052e069eeba44e; FIDELITY.md bb499197be2d8ce5f3c870ed7439c2d542da6b025ebd90be37bf09bb92c4c4d1; hashes.txt 2deb306d25d5508ab91419eb8832c76bb87b945f82f1de73bac8120e52c4d0d1; PREDERIVATION-ERRATA.md bf31def42315df09f2ee1a03376a48744883a317750d41e3a6951f10399898a7.
 Next: the Opus 5 clean-clone CHECKER (BRIEF §3) — `CHECK-O.md` in this folder; nothing committed by the builder.
+
+## [checker Opus 5] Tue Sep 29 07:00:45 IST 2026 — CHECK-O landed: FIX-FIRST (prose only)
+Clean clone `~/rh-lean-work/checker-clone-s32-h5` (v1.0, 3635e748; overlay of rh-program/lean/; Mathlib 51e6992e from cache). Both
+solutions built (8698 jobs, 0 errors, 0 warnings); `#print axioms` [propext, Classical.choice, Quot.sound] for both names; statement
+identity PASS (family = BRIEF §0 character for character; rung 1 differs only by the ascription `k : ℝ → ℂ`, elaborates identically);
+trust greps: the 2 challenge `sorry`s only; comparator with nanoda exit 0 on both configs ("Nanoda kernel accepts the solution",
+"Lean default kernel accepts the solution"); hashes 29 matched + SHARED pre-close reconstructed = 30/30; yaml validator PASS; label
+verbatim A7. Items: F1 FIDELITY (N3) "do not occur in any of the seven topic files" false (comments); F2 "the tilted test is not C²" as a
+universal and "not C¹ — weilContainment_not_contDiff" (the theorem states ¬C² only) in FIDELITY/BUILD-NOTES/README/yaml (x)/challenge
+comments; F3 FIDELITY (D3) "produces a smooth k and weakens" false at Solution lines 187–193; F4 BUILD-NOTES "character for character"
+for rung 1. Logs: `check-O/`. SHA-256 CHECK-O.md = 74b7cfb8ac04317787e0edff08a4b4b4a9e4e1c5bfb3cc0f4be9046ca2e53a91 (243 lines). Nothing committed.

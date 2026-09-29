@@ -1,0 +1,46 @@
+== Tue Sep 29 06:56:44 IST 2026 recompute every hash in results/h5-c2-lean-s32/hashes.txt (paths relative to rh-program/)
+MATCH     lean/comparator/ChallengeDeps/WeilContainment.lean
+MATCH     lean/comparator/Challenge/WeilContainmentC2One.lean
+MATCH     lean/comparator/Challenge/WeilContainmentC2.lean
+MATCH     lean/comparator/Solution/WeilContainmentC2One.lean
+MATCH     lean/comparator/Solution/WeilContainmentC2.lean
+MATCH     lean/comparator/PrintAxioms/WeilContainmentC2One.lean
+MATCH     lean/comparator/PrintAxioms/WeilContainmentC2.lean
+MATCH     lean/comparator/config-weil-containment-c2-one.json
+MATCH     lean/comparator/config-weil-containment-c2.json
+MATCH     lean/formalization.yaml
+MATCH     lean/README.md
+MATCH     results/d5-lean-s30/FIDELITY.md
+MATCH     results/h5-c2-lean-s32/BRIEF.md
+MATCH     results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md
+MATCH     results/h5-c2-lean-s32/BUILD-NOTES.md
+MATCH     results/h5-c2-lean-s32/FIDELITY.md
+MATCH     results/h5-c2-lean-s32/rung1-print-axioms.log
+MATCH     results/h5-c2-lean-s32/rung1-prerun-cleanup.log
+MATCH     results/h5-c2-lean-s32/rung1-comparator.log
+MATCH     results/h5-c2-lean-s32/print-axioms.log
+MATCH     results/h5-c2-lean-s32/statement-identity.log
+MATCH     results/h5-c2-lean-s32/trust-greps.log
+MATCH     results/h5-c2-lean-s32/prerun-cleanup.log
+MATCH     results/h5-c2-lean-s32/comparator-run.log
+MATCH     results/h5-c2-lean-s32/yaml-validation.log
+MATCH     results/h5-c2-lean-s32/lint-10g.log
+MATCH     results/h5-c2-lean-s32/tools/run.sh
+MATCH     results/h5-c2-lean-s32/tools/statement_identity_h5.py
+MATCH     results/h5-c2-lean-s32/tools/trust_greps_h5.py
+MISMATCH  results/h5-c2-lean-s32/SHARED.md  recorded 12ff22e51fc25f09ef9434eb6e499cf3d4f002286284063cf3d0d09a47f36b9f  now 07b774f3fd15a29ac1eeb1eae629ff524e6ea5d4c3d1dc9896b8e5b77a1b6f36
+matched 29, mismatched 1
+== SHARED.md now (after the builder's closing block; expected to differ from the pre-close hash):
+07b774f3fd15a29ac1eeb1eae629ff524e6ea5d4c3d1dc9896b8e5b77a1b6f36  results/h5-c2-lean-s32/SHARED.md
+== SHARED closing-block hashes
+421db9a63aa787663a2f727037ceaaa5c3ce1b961f4d119b56052e069eeba44e  results/h5-c2-lean-s32/BUILD-NOTES.md
+bb499197be2d8ce5f3c870ed7439c2d542da6b025ebd90be37bf09bb92c4c4d1  results/h5-c2-lean-s32/FIDELITY.md
+2deb306d25d5508ab91419eb8832c76bb87b945f82f1de73bac8120e52c4d0d1  results/h5-c2-lean-s32/hashes.txt
+bf31def42315df09f2ee1a03376a48744883a317750d41e3a6951f10399898a7  results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md
+== the D5 trusted layer against the D5 record
+47c9a508ed4d5554d6fd4bfe8c4320dc0edc2a77a72cca5d0814bb854be34b7c  lean/comparator/ChallengeDeps/WeilContainment.lean
+== clone copies
+47c9a508ed4d5554d6fd4bfe8c4320dc0edc2a77a72cca5d0814bb854be34b7c  /Users/jaytyagi/rh-lean-work/checker-clone-s32-h5/comparator/ChallengeDeps/WeilContainment.lean
+== Tue Sep 29 06:56:56 IST 2026 SHARED.md pre-close reconstruction: the closing block starts at line 41 (line 40 blank); the first 39 lines hash to:
+12ff22e51fc25f09ef9434eb6e499cf3d4f002286284063cf3d0d09a47f36b9f  -
+(recorded 12ff22e51fc25f09ef9434eb6e499cf3d4f002286284063cf3d0d09a47f36b9f — MATCH: the file as it stood before the separator line and the closing block)

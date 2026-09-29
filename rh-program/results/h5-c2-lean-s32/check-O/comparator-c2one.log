@@ -42,3 +42,30 @@ WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.Wei
 ✔ [8698/8698] Built Solution.WeilContainmentC2One (3.3s)
 Build completed successfully (8698 jobs).
 WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.WeilContainmentC2One -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind weilContainment_c2_interpolant_log3 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.shbZzQJk
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_c2_interpolant_log3, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.WeilContainmentC2One
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       67.61 real        60.26 user        13.82 sys
+          5911068672  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2479946  page reclaims
+                2099  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               71402  voluntary context switches
+              170810  involuntary context switches
+          4020348966  instructions retired
+          1315749661  cycles elapsed
+           136568384  peak memory footprint
+--- comparator exit code: 0 ---
+=== [CHECKO-C2ONE] end 2026-09-29 06:55:13 IST ===

@@ -466,7 +466,7 @@ macOS record).
 for continuous g (prime-side values; the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)".** What it
 means: for every continuous even band-limited g and every real a, the level-a tilted prime NUMBER of g is the classical prime datum
 of some even C² test on the same band — a member of the class `EF_lit` quantifies over. What it does NOT say (FIDELITY.md §2): the
-tilted test k_{a,g} itself is not C² and is not claimed to be (D5's (N2) and `weilContainment_not_contDiff` stand); nothing about the
+tilted test k_{a,g} itself is not in general C² and is not claimed to be (D5's (N2) and `weilContainment_not_contDiff` stand; that theorem is the one instance a = 1, g ≡ 1 — CHECK-O F2, Session 32); nothing about the
 ZERO side of any explicit formula at any level; `EF_lit` is not stated and nothing is fed into it; nothing for discontinuous g (the
 band-edge counterexample of D5 CHECK-O F2 stands); nothing about the μ-band, ζ, or RH. The hypotheses displayed are exactly g even,
 `Continuous g`, `tsupport g ⊆ Set.Icc (-L) L`; the evenness of g is not used by the proof (`results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md`

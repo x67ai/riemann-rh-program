@@ -34,14 +34,14 @@ Lean-kernel replay, nanoda replay) PASSED on both topics (`rung1-comparator.log`
   archimedean term. `primeSide` and `tiltedPrimeSide` are the two prime-side functionals of the D5 layer and nothing else; fatal 1's
   in-window "cosh ghost" is untouched. True by inspection of the two challenge files: the only constants they mention beyond Mathlib's
   are `WeilContainment.primeSide` and `WeilContainment.tiltedPrimeSide`.
-* **(N2) The tilted test itself is not C², and is not claimed to be.** D5's (N2) stands: `weilTestOf a g = (1/2)·g·e^{−(a−1/2)|·|}` is
+* **(N2) The tilted test itself is not C², and is not claimed to be.** [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F2 (Opus 5), re-derived by the orchestrator at `Challenge/WeilContainment.lean` line 117: `weilContainment_not_contDiff` proves ¬ContDiff ℝ 2 for the ONE instance a = 1, g ≡ 1 and nothing about C¹; for other g the tilted test can be smooth (g = 2e^{(a−1/2)|u|}·χ with χ a smooth even bump gives `weilTestOf a g = χ`). Read: the tilted test is not in general C², and is not claimed to be.] D5's (N2) stands: `weilTestOf a g = (1/2)·g·e^{−(a−1/2)|·|}` is
   in general not C¹ at 0 (`weilContainment_not_contDiff` at a = 1, g ≡ 1). The witness k of this unit is a DIFFERENT function — an
   interpolant that agrees with the tilted test's prime-side contribution only through the values k(±log n) — and the statement is
   existential, so nothing here says the tilted test lies in the C² class. What changed against D5's ledger is only the sentence
   "NOT formalized": the prime-side NUMBER of every continuous tilted datum is now reached by a member of the class `EF_lit` quantifies
   over.
 * **(N3) `EF_lit` is not stated; nothing is fed into it.** No Zeta23 module is imported on either side; `EF_lit`, `literatureRHS`,
-  `prime_term` do not occur in any of the seven topic files (the D5 layer restates the prime term character for character, D5
+  `prime_term` do not occur in any of the seven topic files [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F1: they DO occur in doc-comments (`EF_lit` at Challenge/WeilContainmentC2.lean lines 23, 28 and Challenge/WeilContainmentC2One.lean line 26; `literatureRHS` at ChallengeDeps/WeilContainment.lean lines 24, 25, 51); with comments stripped, zero occurrences — the mathematical claim stands, the sentence reads "outside comments"; Lean files untouched] (the D5 layer restates the prime term character for character, D5
   FIDELITY (D3)). The D5 ledger's sentence "no statement here feeds `weilTestOf a g` into `EF_lit`" stays true, and so does "no
   statement feeds anything into `EF_lit`" for this unit.
 * **(N4) The discontinuous case.** With `Continuous g` dropped the family statement is FALSE at a band edge: L = log 2 and g the
@@ -69,7 +69,7 @@ Lean-kernel replay, nanoda replay) PASSED on both topics (`rung1-comparator.log`
   because the brief fixes the statement and the record's family (cos-transforms of windows) is even (ERRATA E2). No strengthened
   variant is stated.
 * **(D3) `ContDiff ℝ 2 k` is what is stated; the witness is C^∞.** The class stated is the one `EF_lit` quantifies over (the brief's
-  statement); the proof produces a smooth k and weakens.
+  statement); the proof produces a smooth k and weakens. [CORRECTION 07:02 IST 2026-09-29, Session 32 — CHECK-O F3, re-derived by the orchestrator at Solution/WeilContainmentC2.lean lines 187–193: the proof establishes `ContDiff ℝ 2` DIRECTLY (`φ.contDiff (n := 2)`, `contDiff_poly_eval`, `.mul`); no smoothness is proved and no weakening step occurs. The witness is in fact C^∞ as a function, but the file does not say so.]
 * **(D4) The band is `tsupport k ⊆ Set.Icc (-L) L`, the same set as g's, for every real L.** For L < log 2 (and at L = log 2) the interior
   set is empty and k = 0; for L < 0 the band is empty and both sides are 0. Nothing breaks, nothing is claimed beyond the statement.
 * **(D5) `tsum` on both sides, as in D5's (D1).** The n ≤ X form is a theorem inside the solution (`cutoff`, the D5 proof re-proved
