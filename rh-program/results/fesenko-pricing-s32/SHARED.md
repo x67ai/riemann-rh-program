@@ -13,3 +13,5 @@
 - Tue Sep 29 05:57:00 IST 2026 — PRICING agent: §3 (five candidates priced, all decided at the page, zero slots) and §4 (zoo gate, nine entries, all decided by §1–§2) appended. Next: §5 NO-GO decision with FETCH lines and the V.5 rider text, then §6.
 
 - Tue Sep 29 05:58:22 IST 2026 — PRICING agent: §5 (NO-GO, refutation-shaped; three optional P3 FETCH lines; the V.5 rider text; the DH negative-control instrument priced at ≤ ½ slot) and §6 (honesty note; hashes re-computed and matching) appended. PRICING.md complete. Stop line (ii) fired at §2.8; stop line (i) did not. Handing back to the orchestrator for the Opus read.
+
+- Tue Sep 29 05:59:43 IST 2026 — OPUS READER (Opus 5): started. Stop-line check passed (PRICING.md 320 lines, sha 03311e0e…, has §5; five extraction files present, hashes recomputed and matching verify/extraction-hashes.txt; BARRIER-ZOO.md 678 lines, sha b2036ecb…). Reading BRIEF.md and PRICING.md, then the sources at the page. Deliverable: read-O.md.
