@@ -23,7 +23,7 @@
 
 ## Externals noted, not on any watch (prior-art record only; standing order 5: no action rests on them)
 
-- Desogus, 2609.20367v2 (17 Sep 2026), "The Three Gates: A Rooted-Operator Approach to Weil Positivity" — claims RH via "closure together with the restricted odd Weil criterion" from a certified endpoint Y = 7 and Schur induction. By its own abstract a Weil-positivity certificate argument, i.e. inside the ground the zoo's IV.1 family marks (a proof-side external claim; the program's  screen is disproof-side). No action; if the next digest's §B wants a sentence, this is it.
+- Desogus, 2609.20367v2 (17 Sep 2026), "The Three Gates: A Rooted-Operator Approach to Weil Positivity" — claims RH via "closure together with the restricted odd Weil criterion" from a certified endpoint Y = 7 and Schur induction. By its own abstract a Weil-positivity certificate argument, i.e. inside the ground the zoo's IV.1 family marks (a proof-side external claim; the program's `pointer` screen is disproof-side). No action; if the next digest's §B wants a sentence, this is it.
 - Shi, 2609.04908 (4 Sep 2026), finite Hilbert–Pólya matrices from Weil's explicit formula — "No proof of RH is claimed"; a reconstruction theorem with the ordinates as inputs; III.13's ground.
 - Mishra–Sarkar 2609.26787 (Robin-type finite inequality equivalent to RH) and Shunia 2609.30306 (120-state Turing machine halting iff RH false) — equivalence-level; no bearing on any direction.
 

@@ -1,0 +1,58 @@
+=== linux-comparator-check-s33 start 2026-09-29 13:47:04 IST ===
+Linux jay-unix 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+host: jay-unix; cores: 12; mem: 37 GB; disk free: 400G
+program checkout: /home/jay-tyagi/Downloads/rh-lean-2/pkg/rh-linux-check-s33 @ 
+### elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+### rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+### go: ok (go version go1.27.1 linux/amd64)
+### overlay: ok
+toolchain: leanprover/lean4:v4.33.0-rc2
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+### cache: ok (mathlib 51e6992efd)
+### build Zeta23: ok (584 log lines)
+### print-axioms WeilContainmentC2One: 1 names on the three standard axioms; sorryAx: 0
+### print-axioms WeilContainmentC2: 1 names on the three standard axioms; sorryAx: 0
+### print-axioms EpsteinWitnessSix: 3 names on the three standard axioms; sorryAx: 0
+### print-axioms I1Witness: 14 names on the three standard axioms; sorryAx: 0
+### print-axioms PairChannel: 8 names on the three standard axioms; sorryAx: 0
+### lean4export: ok
+### comparator: ok
+### nanoda: ok
+### landrun: built
+### landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+### landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+tool hashes:
+11265c5e02cbd8cc4767c69a364a1377409eb73ac24dbb9511f3f3229b5e517c  /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator
+8d10cd2596176885cc4f8e9fa771ff271e2d57a28c5676542e01dd8e1d4300d6  /home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+2018338e90c3f7b08107230d2957518840e62694c319621e21ef0468ae34b4e5  /home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+dfef4b5b9817746460df902d86bac387db5dfad1f5546e21603aa30454188045  /home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+### comparator config-weil-containment-c2-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-weil-containment-c2.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-epstein-witness-six.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-i1-witness.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-pair-channel.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+
+=== SUMMARY 2026-09-29 13:53:51 IST ===
+elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+go: ok (go version go1.27.1 linux/amd64)
+overlay: ok
+cache: ok (mathlib 51e6992efd)
+build Zeta23: ok (584 log lines)
+print-axioms WeilContainmentC2One: 1 names on the three standard axioms; sorryAx: 0
+print-axioms WeilContainmentC2: 1 names on the three standard axioms; sorryAx: 0
+print-axioms EpsteinWitnessSix: 3 names on the three standard axioms; sorryAx: 0
+print-axioms I1Witness: 14 names on the three standard axioms; sorryAx: 0
+print-axioms PairChannel: 8 names on the three standard axioms; sorryAx: 0
+lean4export: ok
+comparator: ok
+nanoda: ok
+landrun: built
+landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+comparator config-weil-containment-c2-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-weil-containment-c2.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-epstein-witness-six.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-i1-witness.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-pair-channel.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+Logs: /home/jay-tyagi/rh-lean-linux/logs-s33  (send this folder back, or copy it into rh-program/results/linux-check-s33/ and commit)

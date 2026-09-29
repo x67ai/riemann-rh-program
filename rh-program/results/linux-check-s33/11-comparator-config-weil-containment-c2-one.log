@@ -1,0 +1,59 @@
+=== config-weil-containment-c2-one.json start 2026-09-29 13:48:25 IST ===
+{
+  "challenge_module": "Challenge.WeilContainmentC2One",
+  "solution_module": "Solution.WeilContainmentC2One",
+  "theorem_names": [
+    "weilContainment_c2_interpolant_log3"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+mathlib: 51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LEAN4EXPORT=/home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+COMPARATOR_NANODA=/home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LANDRUN=/home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+Building Challenge.WeilContainmentC2One
+✔ [8697/8698] Built ChallengeDeps.WeilContainment (2.1s)
+⚠ [8698/8698] Built Challenge.WeilContainmentC2One (2.3s)
+warning: comparator/Challenge/WeilContainmentC2One.lean:41:8: declaration uses `sorry`
+Build completed successfully (8698 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_c2_interpolant_log3, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.WeilContainmentC2One
+Building Solution.WeilContainmentC2One
+✔ [8698/8698] Built Solution.WeilContainmentC2One (2.9s)
+Build completed successfully (8698 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_c2_interpolant_log3, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.WeilContainmentC2One
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+	Command being timed: "lake env /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator comparator/config-weil-containment-c2-one.json"
+	User time (seconds): 91.16
+	System time (seconds): 6.09
+	Percent of CPU this job got: 106%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:31.67
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6660236
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 209
+	Minor (reclaiming a frame) page faults: 1284438
+	Voluntary context switches: 261288
+	Involuntary context switches: 1701
+	Swaps: 0
+	File system inputs: 40112
+	File system outputs: 39824
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+--- comparator exit code: 0 ---
+=== end 2026-09-29 13:49:56 IST ===

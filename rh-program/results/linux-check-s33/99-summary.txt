@@ -1,0 +1,22 @@
+elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+go: ok (go version go1.27.1 linux/amd64)
+overlay: ok
+cache: ok (mathlib 51e6992efd)
+build Zeta23: ok (584 log lines)
+print-axioms WeilContainmentC2One: 1 names on the three standard axioms; sorryAx: 0
+print-axioms WeilContainmentC2: 1 names on the three standard axioms; sorryAx: 0
+print-axioms EpsteinWitnessSix: 3 names on the three standard axioms; sorryAx: 0
+print-axioms I1Witness: 14 names on the three standard axioms; sorryAx: 0
+print-axioms PairChannel: 8 names on the three standard axioms; sorryAx: 0
+lean4export: ok
+comparator: ok
+nanoda: ok
+landrun: built
+landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+comparator config-weil-containment-c2-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-weil-containment-c2.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-epstein-witness-six.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-i1-witness.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-pair-channel.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
