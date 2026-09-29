@@ -1,0 +1,22 @@
+== Tue Sep 29 06:45:56 IST 2026 10(g) lint: the four banned phrases (case-insensitive, whole phrase) over every prose and Lean file written or edited by this job; the D5 FIDELITY and the yaml/README are checked on the lines this job added (grep of the added text)
+results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md: 0
+results/h5-c2-lean-s32/BUILD-NOTES.md: 1
+130:statement_identity_h5.py, trust_greps_h5.py}`. 10(g) lint: U.S. English throughout; no "clearly / obviously / easy to see / well known"
+results/h5-c2-lean-s32/FIDELITY.md: 0
+results/h5-c2-lean-s32/SHARED.md: 0
+lean/comparator/Challenge/WeilContainmentC2One.lean: 0
+lean/comparator/Challenge/WeilContainmentC2.lean: 0
+lean/comparator/Solution/WeilContainmentC2One.lean: 0
+lean/comparator/Solution/WeilContainmentC2.lean: 0
+lean/comparator/PrintAxioms/WeilContainmentC2One.lean: 0
+lean/comparator/PrintAxioms/WeilContainmentC2.lean: 0
+-- lean/README.md, the Session 32 section only (lines 433–475)
+0
+-- lean/formalization.yaml, lines mentioning WeilContainmentC2 or Session 32 or row (x)
+0
+-- results/d5-lean-s30/FIDELITY.md, the FORMALIZED bracket
+0
+== British spellings spot check (-ise/-yse/-our/-re/-ll- forms) over the same files
+(no output above = clean)
+== tool run exit 0
+== note Tue Sep 29 06:46:25 IST 2026: the single hit (BUILD-NOTES.md line 130) is the sentence that QUOTES the banned list as the lint's subject, as D5's BUILD-NOTES §6 does; no use of any of the four phrases in prose. Verdict: PASS.

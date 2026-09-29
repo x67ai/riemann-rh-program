@@ -37,3 +37,16 @@ configs; `ChallengeDeps/WeilContainment.lean` SHA-256 47c9a508… = the D5 recor
 (46:8), Built Solution.WeilContainmentC2 (3.3s), `Nanoda kernel accepts the solution`, `Lean default kernel accepts the solution`, `Your
 solution is okay!`, `--- comparator exit code: 0 ---`, 68.13 s wall, max RSS 5.9 GB.
 Next: FIDELITY.md, BUILD-NOTES.md, the yaml rows, the README section, the D5 (N2) correction, hashes.txt.
+
+## [builder] Tue Sep 29 06:46:25 IST 2026 — closing block: every deliverable on disk; label earned; no stop line fired
+Written this stage: `FIDELITY.md`, `BUILD-NOTES.md`, the yaml rows (description paragraph, status sentence, main_results entry, row (x), the
+FORMALIZED pointer inside row (u), two alignment rows; validator PASS, `yaml-validation.log`), the README section "WeilContainmentC2
+(Session 32, 2026-09-29)", the dated FORMALIZED correction appended to `results/d5-lean-s30/FIDELITY.md` (N2) — the only edit outside
+this folder and `lean/` — `lint-10g.log` (PASS), `hashes.txt`.
+Theorems shipped: `weilContainment_c2_interpolant_log3` (topic `WeilContainmentC2One`) and `weilContainment_c2_interpolant` (topic
+`WeilContainmentC2`), each `[propext, Classical.choice, Quot.sound]`; comparator exit 0 with nanoda on both configs.
+Label (verbatim, earned): "IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class for continuous g (prime-side
+values; the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)". Fidelity divergences (a hypothesis
+beyond the three): none. Stop lines: none fired.
+SHA-256: BUILD-NOTES.md 421db9a63aa787663a2f727037ceaaa5c3ce1b961f4d119b56052e069eeba44e; FIDELITY.md bb499197be2d8ce5f3c870ed7439c2d542da6b025ebd90be37bf09bb92c4c4d1; hashes.txt 2deb306d25d5508ab91419eb8832c76bb87b945f82f1de73bac8120e52c4d0d1; PREDERIVATION-ERRATA.md bf31def42315df09f2ee1a03376a48744883a317750d41e3a6951f10399898a7.
+Next: the Opus 5 clean-clone CHECKER (BRIEF §3) — `CHECK-O.md` in this folder; nothing committed by the builder.
