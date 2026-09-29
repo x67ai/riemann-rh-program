@@ -161,3 +161,31 @@ Frobenius row (the mark-4/3 instance kernel-checked), over Mathlib alone, no dis
 propext/Classical.choice/Quot.sound, replayed by nanoda".
 
 **[CORRECTION 01:22 IST 2026-09-29, Session 30 — CHECK-O F1 of `results/iv17-lean-s30/CHECK-O.md`.]** In the 2026-09-29 addendum above, "mass 64, Σm² = 256/3, N_d = 48, row = (4/3)·64 — kernel-checked by `decide +kernel`" is to be read: the first three facts are kernel-checked by `decide +kernel`; the row is proved by rational Parseval (`gridRowQ_eq`) plus `fracMark_sq`. The 2026-08-27 record above the addendum is untouched.
+
+## Addendum (dated 2026-09-29, Session 33, H4 — never an edit of the records above): the pair channel's Prop. 4.5 and the floor's failure at the anchor
+
+Two further modules in `rh-program/lean/Zeta23/PairCeiling/`, packaged as the Comparator topic `PairChannel`
+(`lean/comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/PairChannel.lean`, `config-pair-channel.json`; build record
+`results/h4-pair-lean-s33/BUILD-NOTES.md`, ledger `FIDELITY.md`, the typing note `results/h4-pair-typing-s32/TYPING-NOTE.md`):
+
+- `PairRow.lean` — the paper's §2.3 row with pairs, over the UNREDUCED integer frequency s ∈ [−2n, 2n] (the reduced rows of
+  `GridCorner`/`GridParsevalRat` cannot hold a pair: its factor 2μ cosh(2πsd/N) is not periodic mod 2n+1): `W2` (the flat-weight
+  autocorrelation; `W2_eq` its closed form), `pairFormFactor`, `pairRow`, `abar`, `vacancyMark`; `sum_W2_mul` (the regrouping),
+  `pairRow_eq_gridRowQ` (with no pair the new row IS the shipped rational row — the agreement lemma), `sum_W2_cosh` ((T1) at imaginary
+  argument); **`prop45`** — Prop. 4.5 of Section 4.2 for EVERY n, depth d and REAL mark μ: F1 − S2 = 2μ²ā(2d)² − 4μ(ā(d)² − 1) on the
+  vacancy lattice plus one pair at the hole, S2 = 2n + 2μ²; `abar_sq_le` (the log-convexity step) and **`floor_holds_integer`** — for an
+  INTEGER mark m ≥ 1 that expression is > 0 (integrality enters as 1 ≤ m).
+- `PairCert.lean` — **`floor_fails_anchor`**: at n = 32, (d, μ) = (1/4, 1/20), `pairRow … < 64 + 2·(1/20)²` — the floor F1 ≥ S2 FAILS
+  for this real mark (Section 4.2's "F1 − S2 = −3.520e-2", the sign kernel-checked): two generic cosh bounds, four integer power sums by
+  `decide +kernel`, Mathlib's d6 bracket for π, one `norm_num`; the module builds in 1.8 s.
+
+Axiom footprint of every new name (`results/h4-pair-lean-s33/print-axioms.log`, `program-axioms.log`): `[propext, Classical.choice,
+Quot.sound]` — no `sorryAx`, no `Lean.ofReduceBool`; the Comparator run with nanoda on the eight topic statements passed
+(`results/h4-pair-lean-s33/comparator-run.log`, exit 0). Label, verbatim: "IV.17's pair channel: Prop. 4.5 Comparator-checked for every
+depth and real mark, the integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20)
+kernel-checked by a dyadic certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda".
+What this does NOT change: (MI) is stated nowhere in the topic — at this anchor (MI) HOLDS (T = 60.3, F1 − T = +3.67; a Python fact);
+the theorem is the failure of the floor F1 ≥ S2 for a real mark, nothing more. Still NOT formalized: Section 4.3's Theorems 4.6–4.9
+(the pair channel's closure — paper grade), the laws, pairs off the grid; the list in "What is NOT formalized" above is otherwise
+unchanged, with the Session-30 addendum's "Still NOT formalized: the pair channel (Section 4.3, Prop. 4.5)" now to be read as: Prop. 4.5
+and its anchor are Comparator-checked (this addendum); Section 4.3's theorems stay at paper grade.

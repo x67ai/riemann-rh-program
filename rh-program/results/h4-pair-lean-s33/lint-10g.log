@@ -1,0 +1,25 @@
+== Tue Sep 29 11:49:25 IST 2026 10(g) lint (RERUN after two wording patches — FIDELITY §2 first bullet no longer quotes the forbidden phrase it says is absent; BUILD-NOTES line 20 and the README section no longer put 'closed' next to 'pair channel'; the first run at 11:48:44 IST found the four banned phrases absent everywhere and is superseded by this one): the four banned phrases (case-insensitive, whole phrase) over every prose and Lean file this job wrote; the yaml/README/status on the lines this job added
+results/h4-pair-lean-s33/PREDERIVATION-ERRATA.md: 0
+results/h4-pair-lean-s33/BUILD-NOTES.md: 0
+results/h4-pair-lean-s33/FIDELITY.md: 0
+results/h4-pair-lean-s33/SHARED.md: 0
+results/h4-pair-lean-s33/tools/h4_numbers.py: 0
+lean/Zeta23/PairCeiling/PairRow.lean: 0
+lean/Zeta23/PairCeiling/PairCert.lean: 0
+lean/comparator/ChallengeDeps/PairChannel.lean: 0
+lean/comparator/Challenge/PairChannel.lean: 0
+lean/comparator/Solution/PairChannel.lean: 0
+lean/comparator/PrintAxioms/PairChannel.lean: 0
+-- lean/README.md, the Session 33 section only
+0
+-- lean/formalization.yaml, the added lines (diff against the pre-edit copy)
+0
+-- results/a4-no-go/formalization-status.md, the Session 33 addendum
+0
+== British spellings spot check (-ise/-yse/-our/-re/-ll- forms) over the same files (no output = clean)
+== the three FORBIDDEN phrasings of UNIT-BRIEF §1(3), case-insensitive, over every file this job wrote or edited (yaml/README/status on the added lines): the strings '(MI) fails', 'IV.17 is formalized', 'pair channel is closed' (no output = absent)
+== a looser net: 'formalized' or 'closed' within 40 characters of 'IV.17' or 'pair channel' in the same files (no output = clean)
+results/h4-pair-lean-s33/FIDELITY.md:45:  §1(3) appear in no file of this unit: no sentence attributes the failure to (MI), the word "formalized" is not applied to IV.17,
+results/h4-pair-lean-s33/FIDELITY.md:46:  and the word "closed" is not applied to the pair channel (`lint-10g.log` records the greps, comments included).
+26:unchanged, with the Session-30 addendum's "Still NOT formalized: the pair channel (Section 4.3, Prop. 4.5)" now to be read as: Prop. 4.5
+== Verdict: PASS if every count above is 0 and the three grep sections printed nothing. tool run exit 0

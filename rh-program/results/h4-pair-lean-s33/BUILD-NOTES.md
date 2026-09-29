@@ -17,8 +17,8 @@ configurations of a cyclic grid and the flat average ā of cosh; no zero, no exp
 the "only if everything lands" clause holds:** **"IV.17's pair channel: Prop. 4.5 Comparator-checked for every depth and real mark, the
 integer-mark safety chain a theorem, and the floor F1 ≥ S2's failure for a real-marked pair at (1/4, 1/20) kernel-checked by a dyadic
 certificate — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda".** The refutation-shaped close
-(10(c)) is the "Lands" branch: the pair channel cannot be closed by the floor F1 ≥ S2 for real marks, because at (1/4, 1/20) the floor
-fails (kernel-checked), while for integer marks it holds (theorem). At that anchor (MI) HOLDS (F1 − T = +3.67 — a Python fact, not a
+(10(c)) is the "Lands" branch: the floor F1 ≥ S2 cannot serve as the pair channel's closing inequality for real marks, because at
+(1/4, 1/20) the floor fails (kernel-checked), while for integer marks it holds (theorem). At that anchor (MI) HOLDS (F1 − T = +3.67 — a Python fact, not a
 Lean statement; FIDELITY §2); Theorems 4.6–4.9 stay at paper grade; the three forbidden phrasings appear nowhere (`lint-10g.log`).
 Stop lines (10(m)): none fired — (i) `sum_W2_mul` closed on the first build attempt in 34 lines (statement and proof); (ii) `prop45` for GENERAL n closed with no
 hypothesis (the theorem 20 lines; the whole §4 with its eight helper lemmas and docstrings 153 lines, under the 250-line stop; the

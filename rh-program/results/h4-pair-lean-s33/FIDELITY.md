@@ -42,8 +42,8 @@ challenge/solution 8/8 and challenge/probe 8/8 (`statement-identity.log`); the C
   topic. At the certificate's anchor (MI) HOLDS: M = 64 + 2μ = 64.1, N_d = 66, T = 60.3, F1 = 63.9698, F1 − T = +3.67 > 0, and
   S2 − T = 2(μ − 1)(μ − 2) = 3.705 — these are hand/Python facts (`tools/h4_numbers.log`), NOT Lean statements. `floor_fails_anchor`
   is the failure of the floor F1 ≥ S2 for the real mark μ = 1/20 and says nothing about (MI). The forbidden phrasings of UNIT-BRIEF
-  §1(3) appear in no file of this unit (the phrase "(MI) fails" occurs nowhere; the words "formalized" and "closed" are not applied to
-  IV.17 or to the pair channel; `lint-10g.log` records the grep).
+  §1(3) appear in no file of this unit: no sentence attributes the failure to (MI), the word "formalized" is not applied to IV.17,
+  and the word "closed" is not applied to the pair channel (`lint-10g.log` records the greps, comments included).
 * **Theorems 4.6–4.9 of the paper / Theorems A–D of pair-channel.md** (the single-pair and multi-pair closures, the capacity machinery,
   the 8/9 backstop, the crowding cap): the pair channel's closure stays at paper grade. Nothing about them is stated.
 * **Laws and the LP.** No probability mixture of columns, no expectation, no LP column, no ε-budget appears; every statement is

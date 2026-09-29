@@ -1,0 +1,39 @@
+== Tue Sep 29 11:49:41 IST 2026 row letter uniqueness: occurrences of '(z)' as a row marker in lean/formalization.yaml
+1081:    (z) [Session 33, 2026-09-29; H4, topic PairChannel — barrier-zoo IV.17's pair channel: Prop. 4.5, the integer-mark safety chain,
+count of '    (z) [' markers: 1
+
+== python3 results/d1-m2a/dr8/validate_yaml_sigma_strong.py (the D5/H5 validator), from the repository root rh-program
+   Zeta23.Separation.wsum_double_plus                       Zeta23/Separation/Assembly2.lean
+   Zeta23.W1.arbDH_zero                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.arbDH_zero'                                    Zeta23/W1/FDH.lean
+   Zeta23.W1.arbNullDeepT100_exclusion                      Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT10000_exclusion                        Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT1000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.arbNullT100_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.cert_of_checkW1_ap                             Zeta23/W1/ArgPrincipleBridge.lean
+   Zeta23.W1.cert_of_checkW1_fDH                            Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_fDH'                           Zeta23/W1/FDH.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn                      Zeta23/W1/Soundness.lean
+   Zeta23.W1.cert_of_checkW1_of_diffOn'                     Zeta23/W1/Soundness.lean
+   Zeta23.W1.continuousOn_logDeriv_seg_of_diffOn            Zeta23/W1/Soundness.lean
+   Zeta23.W1.differentiable_fDH                             Zeta23/W1/FDH.lean
+   Zeta23.W1.fDH                                            Zeta23/W1/FDH.lean
+   Zeta23.W1.kappaDH                                        Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero                                      Zeta23/W1/FDH.lean
+   Zeta23.W1.mpDH_zero'                                     Zeta23/W1/FDH.lean
+   Zeta23.W1.mpNullDeepT100_exclusion                       Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT10000_exclusion                         Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT1000_exclusion                          Zeta23/W1/Ledger.lean
+   Zeta23.W1.mpNullT100_exclusion                           Zeta23/W1/Ledger.lean
+   Zeta23.W1.rectArgPrinciple_of_local                      Zeta23/W1/ArgPrincipleBridge.lean
+
+RESULT: PASS — errors: 0, undeclared names: 0
+validator exit=
+
+== the yaml parses (python yaml.safe_load) and the six additions are present
+main_results: 32 ; last file: comparator/Solution/PairChannel.lean
+alignment.namespaces has PairChannel: True ; Zeta23.PairCeiling.PairRow: True
+alignment.statements: 40 ; last lean: prop45, abar_sq_le, floor_holds_integer, floor_fails_anchor
+fidelity row (z) present: True
+review notes mention PairChannel run: True
+status.scope mentions Session 33: True
