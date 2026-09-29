@@ -23,3 +23,7 @@
 - Tue Sep 29 06:13:09 IST 2026 — OPUS READER: §3 (beyond-the-zoo list and SPEC crosswalk; 19 OLD/NEW pairs; A10 and A14 CONTRADICTED -> SILENT, tally 0/0/14) written. Correction to the §2 line above: §2 carries 10 pairs and 6 missing rows (plus 4 missing zero sentences), not 11 and 7.
 
 - Tue Sep 29 06:13:54 IST 2026 — OPUS READER: §4 (rung candidates: all five AGREE on decidability, observation, ladder and price; S3 inference added to R-c; 2 OLD/NEW pairs) written.
+
+- Tue Sep 29 06:15:11 IST 2026 — OPUS READER: §5 (AGREES-WITH-CORRECTIONS; own decision sentence; 8 OLD/NEW pairs incl. the rider, 118 words) written.
+
+- Tue Sep 29 06:15:47 IST 2026 — OPUS READER: §6 written; read-O.md complete. Verdict AGREES-WITH-CORRECTIONS; 39 OLD/NEW pairs (4 MATERIAL, 15 MINOR findings); extraction hashes re-computed and matching. Nothing committed.
