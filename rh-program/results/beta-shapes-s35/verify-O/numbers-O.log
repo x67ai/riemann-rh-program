@@ -1,0 +1,116 @@
+beta-shapes-s35 reader numbers_O -- 2026-09-29T16:12:33.593744 -- macOS-27.0-arm64-arm-64bit
+
+[O1] Lambda(n), psi, theta, Euclid
+    2:0.6931 3:1.0986 4:0.6931 5:1.6094 6:0.0000 7:1.9459 8:0.6931 9:1.0986 10:0.0000 11:2.3979 12:0.0000 13:2.5649 14:0.0000 15:0.0000 16:0.6931 17:2.8332 18:0.0000 19:2.9444 20:0.0000 21:0.0000 22:0.0000 23:3.1355 24:0.0000 25:1.6094 26:0.0000 27:1.0986 28:0.0000 29:3.3673 30:0.0000
+    x=10: psi=7.83201418051 theta=5.34710753072 pi(x)=4
+    x=100: psi=94.0453112294 theta=83.7283903991 pi(x)=25
+    x=1000: psi=996.680912247 theta=956.24526512 pi(x)=168
+    x=10000: psi=10013.3966933 theta=9895.99137916 pi(x)=1229
+    Euclid 30031 = {59: 1, 509: 1}
+
+[O2] first prime with log p > kappa*(2+2g) (route b, d_p=1) and log p > 2 kappa (route a)
+    kappa=1 g=0: bound=2.0 first p=11 log p=2.397895273
+    kappa=1 g=1: bound=4.0 first p=59 log p=4.077537444
+    kappa=1 g=2: bound=6.0 first p=409 log p=6.013715156
+    kappa=1 g=5: bound=12.0 first p=162779 log p=12.00014873
+    route (a) kappa=1: first p with log p > 2 kappa: 11
+    kappa=log2 g=0: bound=1.386294361 first p=5 log p=1.609437912
+    kappa=log2 g=1: bound=2.772588722 first p=17 log p=2.833213344
+    kappa=log2 g=2: bound=4.158883083 first p=67 log p=4.204692619
+    kappa=log2 g=5: bound=8.317766167 first p=4099 log p=8.318498321
+    route (a) kappa=log2: first p with log p > 2 kappa: 5
+
+[O3] route (b) prime powers: least k with d^k + 1 - log p/kappa > 2 g d^(k/2); and the sufficient k-bound
+    p=2 d=2 g=1: first k=2; NOTE bound k > 3.7697 sufficient: True
+    p=2 d=2 g=2: first k=4; NOTE bound k > 5.01845 sufficient: True
+    p=2 d=2 g=5: first k=7; NOTE bound k > 7.09518 sufficient: True
+    p=2 d=3 g=1: first k=2; NOTE bound k > 2.37842 sufficient: True
+    p=2 d=3 g=2: first k=3; NOTE bound k > 3.16629 sufficient: True
+    p=2 d=3 g=5: first k=5; NOTE bound k > 4.47656 sufficient: True
+    p=2 d=4 g=1: first k=1; NOTE bound k > 1.88485 sufficient: True
+    p=2 d=4 g=2: first k=2; NOTE bound k > 2.50923 sufficient: True
+    p=2 d=4 g=5: first k=4; NOTE bound k > 3.54759 sufficient: True
+    p=3 d=2 g=1: first k=3; NOTE bound k > 4.07027 sufficient: True
+    p=3 d=2 g=2: first k=5; NOTE bound k > 5.21696 sufficient: True
+    p=3 d=2 g=5: first k=7; NOTE bound k > 7.19354 sufficient: True
+    p=3 d=3 g=1: first k=2; NOTE bound k > 2.56806 sufficient: True
+    p=3 d=3 g=2: first k=3; NOTE bound k > 3.29154 sufficient: True
+    p=3 d=3 g=5: first k=5; NOTE bound k > 4.53862 sufficient: True
+    p=3 d=4 g=1: first k=2; NOTE bound k > 2.03514 sufficient: True
+    p=3 d=4 g=2: first k=3; NOTE bound k > 2.60848 sufficient: True
+    p=3 d=4 g=5: first k=4; NOTE bound k > 3.59677 sufficient: True
+    p=5 d=2 g=1: first k=3; NOTE bound k > 4.40918 sufficient: True
+    p=5 d=2 g=2: first k=5; NOTE bound k > 5.44906 sufficient: True
+    p=5 d=2 g=5: first k=7; NOTE bound k > 7.31286 sufficient: True
+    p=5 d=3 g=1: first k=2; NOTE bound k > 2.78188 sufficient: True
+    p=5 d=3 g=2: first k=3; NOTE bound k > 3.43797 sufficient: True
+    p=5 d=3 g=5: first k=5; NOTE bound k > 4.6139 sufficient: True
+    p=5 d=4 g=1: first k=2; NOTE bound k > 2.20459 sufficient: True
+    p=5 d=4 g=2: first k=3; NOTE bound k > 2.72453 sufficient: True
+    p=5 d=4 g=5: first k=4; NOTE bound k > 3.65643 sufficient: True
+
+[O4] n = pq: d+1 <= 2 g sqrt(d)  <=>  d <= C_g = (g+sqrt(g^2-1))^2
+    g=0: d+1 <= 0 impossible -> no d at all (genus 0 dies at the first composite)
+    g=1: C_g=1.0 floor=1; at floor: 0.0 ; at floor+1: 0.171573
+    g=2: C_g=13.92820323028 floor=13; at floor: -0.422205 ; at floor+1: 0.0333705
+    g=3: C_g=33.97056274848 floor=33; at floor: -0.467376 ; at floor+1: 0.0142886
+    g=5: C_g=97.98979485566 floor=97; at floor: -0.488578 ; at floor+1: 0.00505063
+    g=10: C_g=397.9974874213 floor=397; at floor: -0.497177 ; at floor+1: 0.00125313
+    reader sharpening: d_p d_q <= C_g for ALL p != q with d_q >= 1 gives d_p <= C_g for EVERY p (not "all but one").
+
+[O5] N <= 10^5 with log N / kappa an integer (tolerance 1e-20 at 30 digits)
+    kappa=1: 0 hits: []
+    kappa=log2: 16 hits: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
+    kappa=log6: 6 hits: [6, 36, 216, 1296, 7776, 46656]
+    kappa=log12: 4 hits: [12, 144, 1728, 20736]
+    dist(e^m, Z), m=1..12: 0.2817 0.3891 0.08554 0.4018 0.4132 0.4288 0.3668 0.04201 0.08393 0.4658 0.1417 0.2086
+
+[O6] Corollary 3.1 lemma: N^b = M^a (a,b>=1) => supp N = supp M; brute force N,M <= 3000, a,b <= 6 via exponent vectors
+    equal-support pairs with N^b = M^a: 18472; differing-support pairs (N,M<400) with N^b = M^a: 0
+
+[O7] ghost lattice L_N on [1,N]: index computed by BFS in the finite quotient; v_d basis; N!*e_n membership
+    N=1: index(L_N)=1  prod moduli=1  N!=1  v_d in L_N: True  det(v_d)=1  N!e_n in L_N: True
+    N=2: index(L_N)=2  prod moduli=2  N!=2  v_d in L_N: True  det(v_d)=2  N!e_n in L_N: True
+    N=3: index(L_N)=6  prod moduli=6  N!=6  v_d in L_N: True  det(v_d)=6  N!e_n in L_N: True
+    N=4: index(L_N)=24  prod moduli=24  N!=24  v_d in L_N: True  det(v_d)=24  N!e_n in L_N: True
+    N=5: index(L_N)=120  prod moduli=120  N!=120  v_d in L_N: True  det(v_d)=120  N!e_n in L_N: True
+    N=6: index(L_N)=720  prod moduli=720  N!=720  v_d in L_N: True  det(v_d)=720  N!e_n in L_N: True
+    N=7: index(L_N)=5040  prod moduli=5040  N!=5040  v_d in L_N: True  det(v_d)=5040  N!e_n in L_N: True
+    N=8: index(L_N)=40320  prod moduli=40320  N!=40320  v_d in L_N: True  det(v_d)=40320  N!e_n in L_N: True
+    N=9..40: N!e_n in L_N, v_d in L_N, prod moduli = N!: all True unless FAIL printed
+    zero-divisor: f in ker w_n, g = N! e_n: (f*g)_j = f_j g_j = 0 for all j since f_n = 0 and g_j = 0 (j != n); g != 0.
+    local version: s*g = s_n * N! * e_n != 0 whenever s_n != 0, so g survives localization at every prime of Gamma_n.
+
+[O7b] box levels F_b and J = prod p^(1+b_p): J e_n in L_F
+    b={2: 2, 3: 1}: |F|=6 J=72: True;  (reader: the smaller J'=prod p^b_p=12 also works: True)
+    b={2: 3, 3: 2, 5: 1}: |F|=24 J=10800: True;  (reader: the smaller J'=prod p^b_p=360 also works: True)
+    b={2: 1, 3: 1, 5: 1, 7: 1}: |F|=16 J=44100: True;  (reader: the smaller J'=prod p^b_p=210 also works: True)
+    b={2: 4}: |F|=5 J=32: True;  (reader: the smaller J'=prod p^b_p=16 also works: True)
+    b={3: 2, 7: 1}: |F|=6 J=1323: True;  (reader: the smaller J'=prod p^b_p=63 also works: True)
+
+[O8] rung 1: y^2 = x^3 + x + 1 over F_7, counted from scratch
+    #E(F_7) = 5 (trace t = 3); N_k = {1: 5, 2: 55, 3: 380, 4: 2475}; closed points of degree d: {1: 5, 2: 25, 3: 125, 4: 605}
+    fiber products q^{N_N}: support {7}; Q-span of the diagonal row = Q (dim 1): Theorem R silent (one residue characteristic).
+    Weil check |N_k - q^k - 1| <= 2 g q^(k/2), g=1: True
+    A8 on rung 1 (Milne Ex. 1.7, C1=C2=S, f of degree d): (Gamma_f)^2 = -(2g-2) d; g=1 -> 0 for Delta and Frobenius; g=2, d=q=7 -> -14 = q(2-2g) = -14
+
+[O9] zeros of zeta with 0 < Im <= 100: 29 ; first: ['14.13472514', '21.02203964', '25.01085758', '30.42487613', '32.93506159']
+
+[O10] psi(x) - x
+    x=100: psi-x=-5.9546888  (psi-x)/sqrt(x)=-0.595469
+    x=1000: psi-x=-3.3190878  (psi-x)/sqrt(x)=-0.104959
+    x=10000: psi-x=13.3966933  (psi-x)/sqrt(x)=0.133967
+    x=100000: psi-x=51.5640257  (psi-x)/sqrt(x)=0.163060
+    x=1000000: psi-x=-413.4025044  (psi-x)/sqrt(x)=-0.413403
+
+[O11] route (a) base-1 coefficient lemma: exp-polynomial uniqueness, randomized
+    min |det(lambda_j^k)| over 200 random distinct nonzero sets: 0.55017 (nonzero => coefficients vanish)
+    consequence: log p/kappa in Z_{<=2}; kappa=1 fails at p=11 (log 11 = 2.397895273 )
+
+[O12] Theorem R illustration: random FINITE fibers on prime powers <= 2000; Q-rank of {log N_D} = rank of exponent matrix
+    5 fibers: rank=5; primes covered=303; max support per fiber=78; rank*maxsupp >= #primes: True
+    60 fibers: rank=60; primes covered=303; max support per fiber=11; rank*maxsupp >= #primes: True
+    5 fibers: rank=5; primes covered=303; max support per fiber=82; rank*maxsupp >= #primes: True
+    (with finitely many fibers the supports are unbounded as the range grows -> Lemma F(a) forbids; with finite fibers, rank -> infinity)
+
+END 2026-09-29T16:12:43.055171
