@@ -1,0 +1,19 @@
+weilContainment_c2_interpolant
+  brief    : ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L → ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧ primeSide k = tiltedPrimeSide a g
+  challenge: ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L → ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧ primeSide k = tiltedPrimeSide a g
+  -> IDENTICAL
+weilContainment_c2_interpolant_log3
+  brief    : ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) → ∃ k, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g
+  challenge: ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) → ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g
+  -> DIFFER
+  first difference at char 115 'g 3) → ∃ k, (∀ u, k (-u) = k u' vs 'g 3) → ∃ k : ℝ → ℂ, (∀ u, k (-'
+
+label (BRIEF §1(4)): IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class for continuous g (prime-side values; the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)
+  results/h5-c2-lean-s32/BUILD-NOTES.md                   exact occurrences 0; after joining wrapped lines 1
+  results/h5-c2-lean-s32/FIDELITY.md                      exact occurrences 0; after joining wrapped lines 1
+  lean/README.md                                          exact occurrences 0; after joining wrapped lines 1
+  lean/formalization.yaml                                 exact occurrences 0; after joining wrapped lines 2
+  results/d5-lean-s30/FIDELITY.md                         exact occurrences 0; after joining wrapped lines 0
+  lean/comparator/Challenge/WeilContainmentC2.lean        exact occurrences 0; after joining wrapped lines 0
+  lean/comparator/Challenge/WeilContainmentC2One.lean     exact occurrences 0; after joining wrapped lines 0
+exit 0

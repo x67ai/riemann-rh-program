@@ -1,0 +1,34 @@
+== Tue Sep 29 06:53:10 IST 2026 d1-m2a statement_identity.py on the clone (DBN topic; regression)
+  comparator/ChallengeDeps/DBN/Instance02.lean: imports ['ChallengeDeps.DBN']; forbidden `Zeta23…`: none
+  comparator/Challenge/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02']; forbidden `Zeta23…`: none
+  comparator/Solution/DBN.lean: imports ['ChallengeDeps.DBN', 'ChallengeDeps.DBN.Instance02', 'Zeta23.DBN.Instance02']; forbidden `Challenge.DBN…`: none
+  challenge proofs: ['sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry', 'sorry'] -> all sorry: True
+RESULT: IDENTICAL
+exit 0
+== H5 tool statement_identity_h5.py
+weilContainment_c2_interpolant_log3           challenge   319 bytes, solution   319 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant_log3 :
+        ∀ (a : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g →
+          tsupport g ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧
+            tsupport k ⊆ Set.Icc (-(Real.log 3)) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit 0
+weilContainment_c2_interpolant                challenge   266 bytes, solution   266 bytes: IDENTICAL
+    theorem weilContainment_c2_interpolant :
+        ∀ (a L : ℝ) (g : ℝ → ℂ), (∀ u, g (-u) = g u) → Continuous g → tsupport g ⊆ Set.Icc (-L) L →
+          ∃ k : ℝ → ℂ, (∀ u, k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧
+            primeSide k = tiltedPrimeSide a g
+RESULT: PASS
+exit 0
+== the clone's topic files = the program tree (cmp)
+identical ChallengeDeps/WeilContainment.lean
+identical Challenge/WeilContainmentC2One.lean
+identical Challenge/WeilContainmentC2.lean
+identical Solution/WeilContainmentC2One.lean
+identical Solution/WeilContainmentC2.lean
+identical PrintAxioms/WeilContainmentC2One.lean
+identical PrintAxioms/WeilContainmentC2.lean
+identical config-weil-containment-c2-one.json
+identical config-weil-containment-c2.json
+== Tue Sep 29 06:53:11 IST 2026

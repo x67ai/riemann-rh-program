@@ -1,0 +1,21 @@
+Tue Sep 29 06:52:38 IST 2026
+WeilContainmentC2.Proof.interpolant : ∀ (a L : ℝ) (g : ℝ → ℂ),
+  Continuous g →
+    tsupport g ⊆ Set.Icc (-L) L →
+      ∃ k, (∀ (u : ℝ), k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧ primeSide k = tiltedPrimeSide a g
+WeilContainmentC2One.Proof.interpolant : ∀ (a L : ℝ) (g : ℝ → ℂ),
+  Continuous g →
+    tsupport g ⊆ Set.Icc (-L) L →
+      ∃ k, (∀ (u : ℝ), k (-u) = k u) ∧ ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-L) L ∧ primeSide k = tiltedPrimeSide a g
+'WeilContainmentC2.Proof.interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WeilContainmentC2One.Proof.interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem weilContainment_c2_interpolant_log3 : ∀ (a : ℝ) (g : ℝ → ℂ),
+  (∀ (u : ℝ), g (-u) = g u) →
+    Continuous g →
+      tsupport g ⊆ Set.Icc (-Real.log 3) (Real.log 3) →
+        ∃ k,
+          (∀ (u : ℝ), k (-u) = k u) ∧
+            ContDiff ℝ 2 k ∧ tsupport k ⊆ Set.Icc (-Real.log 3) (Real.log 3) ∧ primeSide k = tiltedPrimeSide a g :=
+fun a g x hc hs => WeilContainmentC2One.Proof.interpolant a (Real.log 3) g hc hs
+exit 0
+Tue Sep 29 06:52:41 IST 2026

@@ -1,0 +1,46 @@
+== Tue Sep 29 06:53:39 IST 2026 d1-m2a trust_greps.py on the clone (DBN topic; regression)
+  sorry: comparator/Challenge/DBN.lean:130: sorry
+  sorry: comparator/Challenge/DBN.lean:134: sorry
+permitted (challenge placeholders): 7; other code hits: 0
+RESULT: CLEAN
+exit 0
+== H5 trust_greps_h5.py on the clone, 7 files passed as separate arguments
+comparator/Challenge/WeilContainmentC2One.lean:46: [sorry] sorry
+comparator/Challenge/WeilContainmentC2.lean:50: [sorry] sorry
+files present: 7; hits outside comments: 2
+exit 1
+== raw grep (comments INCLUDED) for the nine words, for the record
+comparator/ChallengeDeps/WeilContainment.lean: 0
+comparator/Challenge/WeilContainmentC2One.lean: 2
+comparator/Solution/WeilContainmentC2One.lean: 0
+comparator/PrintAxioms/WeilContainmentC2One.lean: 2
+comparator/Challenge/WeilContainmentC2.lean: 2
+comparator/Solution/WeilContainmentC2.lean: 0
+comparator/PrintAxioms/WeilContainmentC2.lean: 2
+== import lines (code) of the seven files
+-- comparator/ChallengeDeps/WeilContainment.lean
+39:import Mathlib
+-- comparator/Challenge/WeilContainmentC2One.lean
+33:import ChallengeDeps.WeilContainment
+-- comparator/Solution/WeilContainmentC2One.lean
+27:import ChallengeDeps.WeilContainment
+-- comparator/PrintAxioms/WeilContainmentC2One.lean
+18:import Solution.WeilContainmentC2One
+-- comparator/Challenge/WeilContainmentC2.lean
+38:import ChallengeDeps.WeilContainment
+-- comparator/Solution/WeilContainmentC2.lean
+27:import ChallengeDeps.WeilContainment
+-- comparator/PrintAxioms/WeilContainmentC2.lean
+18:import Solution.WeilContainmentC2
+== identifiers EF_lit / literatureRHS / prime_term / Zeta23 in CODE (comments stripped)
+comparator/ChallengeDeps/WeilContainment.lean      literatureRHS  code 0, comments included 3
+comparator/ChallengeDeps/WeilContainment.lean      Zeta23         code 0, comments included 6
+comparator/Challenge/WeilContainmentC2One.lean     EF_lit         code 0, comments included 1
+comparator/Challenge/WeilContainmentC2One.lean     Zeta23         code 0, comments included 4
+comparator/Solution/WeilContainmentC2One.lean      Zeta23         code 0, comments included 2
+comparator/PrintAxioms/WeilContainmentC2One.lean   Zeta23         code 0, comments included 2
+comparator/Challenge/WeilContainmentC2.lean        EF_lit         code 0, comments included 3
+comparator/Challenge/WeilContainmentC2.lean        Zeta23         code 0, comments included 6
+comparator/Solution/WeilContainmentC2.lean         Zeta23         code 0, comments included 2
+comparator/PrintAxioms/WeilContainmentC2.lean      Zeta23         code 0, comments included 2
+== Tue Sep 29 06:53:40 IST 2026
