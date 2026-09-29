@@ -31,3 +31,12 @@
 
 - **Correction (Tue Sep 29 13:26:15 IST 2026):** block 2 above says "modeled on `scripts/zoo-insert-s32.py` `c8c2e2e0…`-class precedent" — the prefix `c8c2e2e0` is not that file's hash and should not have been written; the s32 script's SHA-256 is `98ad02a11919bde717f6e33f649ae7e5b552e374fe22a770127be9f85f533272` (as the proposed file's verification block records). Nothing else in block 2 changes.
 
+
+## Reader (Opus 5) — `results/zoo-s33/zoo-entries-read-O.md` — Tue Sep 29 13:34:56 IST 2026
+
+- Deliverable: `results/zoo-s33/zoo-entries-read-O.md` SHA-256 `439cfb400c755d6b437d740f2e3bef2594363f4390ab447cc8bd3f6afcbbe852`. Read against the proposed file `0bc73fd6…`, the script `3606aec6…` (398 lines, read in full), the dry run `cd347472…`, every record at its line (the H4 files; my own Mathlib grep at 51e6992e; both Suzuki extractions; the s32 digest §D J1 and its read M1/M2/§4 J1; the three prior-read pointers; `ccm-dh-filter.json` `verdict_statement`; III.13 lines 291–297).
+- Verdicts: `count` CLOSES after R2 ("riders" → "a rider"); `iii13` FIX-FIRST → CLOSES after R1 (the test's result re-grounded on M1/M2 as upheld: Corollary 1.6's implication is the one not a reparametrization; it consumes the unproven (1.12) beyond the proved Theorem 1.5; the author's p. 7 sentence concurs as an expectation); `iv1` CLOSES; `fq8` CLOSES (grep re-run: same 4 SingularHomology files, same 3 Mayer–Vietoris files, none under AlgebraicTopology); `fq10` CLOSES (byte-identical to the corrected staged line; label identical in BUILD-NOTES / ZOO-LINES-STAGED / ORCHESTRATOR-NOTES §2, 324 characters; reworded clause keeps the substance, literal gone). Group IV: NO.
+- **Script S1 (must change before running):** `STAGED_HASH` line 48, `2401eb9d…` → `508ed6613751562460347fdb12632df0d737791fb918268c0536084964a65ae8`. As written the script refuses (rc 1): the staged file was corrected at 13:27 IST after the writer's run.
+- Pairs: **2** (R1, R2) + 1 script string (S1). Scratch dry runs: with S1 only, byte-identical to the writer's (`cd347472…`); with R1+R2+S1, rc 0, +6 (686 → 692), 58 (8/5/21/19/5), expected SHA-256 `07a87152e58a04d07cb472e00871682580b516a05a93cd35accecb0b01fe064b`.
+- Record note (not the zoo): `ZOO-LINES-STAGED.md`'s correction is stamped "13:3x IST" (not a machine stamp; the file's mtime is 13:27).
+- Nothing inserted, nothing committed; the proposed file, the script and BARRIER-ZOO.md untouched.
