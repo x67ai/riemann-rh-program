@@ -1,0 +1,29 @@
+--- /home/jay-tyagi/Downloads/rh-lean/rh-linux-check-s30/scripts/linux-comparator-check.sh	2026-09-29 01:45:43.000000000 +0530
++++ /tmp/claude-1000/-home-jay-tyagi-Downloads-rh-lean/85570816-5a59-4525-b0be-185482772367/scratchpad/fixed-scripts/linux-comparator-check.fixed.sh	2026-09-29 05:35:05.636934236 +0530
+@@ -80,6 +80,15 @@
+ export PATH="$TOOLS/landrun:$TOOLS/nanoda_lib/target/release:$PATH"
+ # landrun sanity: REAL sandbox available? (this is the whole point of the Linux run)
+ if "$COMPARATOR_LANDRUN" --rox / -- /bin/true > "$LOGS/09-landrun-test.log" 2>&1; then mark "landrun sandbox" "REAL (Landlock works on this kernel)"; else mark "landrun sandbox" "FAIL — see 09-landrun-test.log (kernel without Landlock?)"; fi
++# landrun as the comparator actually invokes it (comparator Main.lean, buildLandrunArgs: always "--best-effort --ro / --rw /dev -ldd -add-exec ..."):
++LRFLAGS=(--best-effort --ro / --rw /dev -ldd -add-exec)
++PROBE="$LOGS/landrun-write-probe.txt"; rm -f "$PROBE"
++if "$COMPARATOR_LANDRUN" "${LRFLAGS[@]}" -- /bin/true > "$LOGS/09b-landrun-best-effort-test.log" 2>&1; then
++  echo "--- probe: a sandboxed child tries to write $PROBE (should be denied under --ro /):" >> "$LOGS/09b-landrun-best-effort-test.log"
++  if "$COMPARATOR_LANDRUN" "${LRFLAGS[@]}" -- /bin/sh -c "echo x > '$PROBE'" >> "$LOGS/09b-landrun-best-effort-test.log" 2>&1 || [ -e "$PROBE" ]; then
++    rm -f "$PROBE"; mark "landrun sandbox (comparator flags)" "FAIL — landrun ran but did NOT deny a write outside the allowed paths"
++  else mark "landrun sandbox (comparator flags)" "REAL (--best-effort on Landlock $("$COMPARATOR_LANDRUN" --rox / -- /bin/true 2>&1 | grep -o 'ABI v[0-9]*' | head -1); write outside allowed paths denied)"; fi
++else mark "landrun sandbox (comparator flags)" "FAIL — see 09b-landrun-best-effort-test.log"; fi
+ echo "tool hashes:"; sha256sum "$COMPARATOR" "$COMPARATOR_LEAN4EXPORT" "$COMPARATOR_NANODA" "$COMPARATOR_LANDRUN" | tee "$LOGS/10-tool-hashes.txt"
+ 
+ # ---------- 4. the comparator runs (from the repository root; comparator builds Challenge/Solution itself) ----------
+@@ -88,8 +97,8 @@
+ rm -rf .lake/build/lib/lean/Challenge .lake/build/lib/lean/ChallengeDeps .lake/build/lib/lean/Solution .lake/build/ir/Challenge .lake/build/ir/ChallengeDeps .lake/build/ir/Solution 2>/dev/null
+ for CFG in config-weil-containment-one.json config-weil-containment.json config-integrality-gap.json; do
+   L="$LOGS/11-comparator-${CFG%.json}.log"
+-  { echo "=== $CFG start $(date '+%Y-%m-%d %H:%M:%S %Z') ==="; cat "comparator/$CFG"; echo "lean: $(lean --version)"; echo "mathlib: $(git -C .lake/packages/mathlib rev-parse HEAD)"; env | grep '^COMPARATOR_';
+-    /usr/bin/time -v lake env "$COMPARATOR" "comparator/$CFG"; rc=$?; echo "--- comparator exit code: $rc ---"; echo "=== end $(date '+%Y-%m-%d %H:%M:%S %Z') ==="; exit $rc; } > "$L" 2>&1
++  ( echo "=== $CFG start $(date '+%Y-%m-%d %H:%M:%S %Z') ==="; cat "comparator/$CFG"; echo "lean: $(lean --version)"; echo "mathlib: $(git -C .lake/packages/mathlib rev-parse HEAD)"; env | grep '^COMPARATOR_';
++    /usr/bin/time -v lake env "$COMPARATOR" "comparator/$CFG"; rc=$?; echo "--- comparator exit code: $rc ---"; echo "=== end $(date '+%Y-%m-%d %H:%M:%S %Z') ==="; exit $rc ) > "$L" 2>&1
+   rc=$?; if [ $rc -eq 0 ] && grep -q 'Your solution is okay!' "$L"; then mark "comparator $CFG" "PASS (exit 0; nanoda: $(grep -c 'Nanoda kernel accepts' "$L"); fake-landrun warnings: $(grep -c 'NOT REAL LANDRUN' "$L"))"; else mark "comparator $CFG" "FAIL (exit $rc) — see $(basename "$L")"; fi
+ done
+ 

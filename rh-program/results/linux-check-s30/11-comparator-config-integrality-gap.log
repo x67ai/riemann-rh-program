@@ -1,0 +1,89 @@
+=== config-integrality-gap.json start 2026-09-29 05:37:12 IST ===
+{
+  "challenge_module": "Challenge.IntegralityGap",
+  "solution_module": "Solution.IntegralityGap",
+  "theorem_names": [
+    "trace_sq_grid_rat",
+    "gridRowQ_eq",
+    "gridRow_eq",
+    "gridRow_eq_gridRowQ",
+    "fracMark_mass",
+    "fracMark_sq",
+    "fracMark_Nd",
+    "fracMark_row",
+    "mi_fails_rational",
+    "corner_fails_rational",
+    "corner_bound_fails_rational",
+    "mi_holds_integer",
+    "per_atom_slack",
+    "per_atom_slack_fails_rational",
+    "per_atom_floor",
+    "per_atom_floor_fails_rational"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+mathlib: 51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LEAN4EXPORT=/home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+COMPARATOR_NANODA=/home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LANDRUN=/home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+Building Challenge.IntegralityGap
+✔ [8697/8698] Built ChallengeDeps.IntegralityGap (2.1s)
+⚠ [8698/8698] Built Challenge.IntegralityGap (2.3s)
+warning: comparator/Challenge/IntegralityGap.lean:51:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:61:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:67:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:73:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:79:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:83:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:87:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:92:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:96:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:104:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:112:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:120:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:127:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:131:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:135:8: declaration uses `sorry`
+warning: comparator/Challenge/IntegralityGap.lean:139:8: declaration uses `sorry`
+Build completed successfully (8698 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, trace_sq_grid_rat, gridRowQ_eq, gridRow_eq, gridRow_eq_gridRowQ, fracMark_mass, fracMark_sq, fracMark_Nd, fracMark_row, mi_fails_rational, corner_fails_rational, corner_bound_fails_rational, mi_holds_integer, per_atom_slack, per_atom_slack_fails_rational, per_atom_floor, per_atom_floor_fails_rational, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.IntegralityGap
+Building Solution.IntegralityGap
+✔ [8702/8702] Built Solution.IntegralityGap (2.3s)
+Build completed successfully (8702 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, trace_sq_grid_rat, gridRowQ_eq, gridRow_eq, gridRow_eq_gridRowQ, fracMark_mass, fracMark_sq, fracMark_Nd, fracMark_row, mi_fails_rational, corner_fails_rational, corner_bound_fails_rational, mi_holds_integer, per_atom_slack, per_atom_slack_fails_rational, per_atom_floor, per_atom_floor_fails_rational, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.IntegralityGap
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+	Command being timed: "lake env /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator comparator/config-integrality-gap.json"
+	User time (seconds): 35.35
+	System time (seconds): 5.50
+	Percent of CPU this job got: 115%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7201048
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1023728
+	Voluntary context switches: 174477
+	Involuntary context switches: 1129
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 39408
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+--- comparator exit code: 0 ---
+=== end 2026-09-29 05:37:48 IST ===

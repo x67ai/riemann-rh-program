@@ -1,0 +1,147 @@
+=== linux-comparator-check start 2026-09-29 01:55:00 IST ===
+Linux jay-unix 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+host: jay-unix; cores: 12; mem: 37 GB; disk free: 418G
+program checkout: /home/jay-tyagi/Downloads/rh-lean/rh-linux-check-s30 @ 
+info: downloading installer
+### elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+info: downloading installer
+info: profile set to minimal
+info: default host tuple is x86_64-unknown-linux-gnu
+info: syncing channel updates for stable-x86_64-unknown-linux-gnu
+info: latest update on 2026-09-03 for version 1.98.1 (48a229cea 2026-09-01)
+info: downloading 3 components
+info: default toolchain set to stable-x86_64-unknown-linux-gnu
+
+  stable-x86_64-unknown-linux-gnu installed - rustc 1.98.1 (48a229cea 2026-09-01)
+
+
+Rust is installed now. Great!
+
+To get started you may need to restart your current shell.
+This would reload your PATH environment variable to include
+Cargo's bin directory ($HOME/.cargo/bin).
+
+To configure your current shell, you need to source the
+corresponding env file under $HOME/.cargo.
+
+Consider running the right command for your shell (note the leading DOT):
+. "$HOME/.cargo/env" # For sh/ash/dash/pdksh/bash
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+### rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+### go: ok (go version go1.27.1 linux/amd64)
+### clone: ok (from the package: 3635e74826a4 = tag v1.0)
+### overlay: ok
+toolchain: leanprover/lean4:v4.33.0-rc2
+info: downloading https://releases.lean-lang.org/lean4/v4.33.0-rc2/lean-4.33.0-rc2-linux.tar.zst
+info: installing /home/jay-tyagi/.elan/toolchains/leanprover--lean4---v4.33.0-rc2
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+### cache: ok (mathlib 51e6992efd)
+### build Zeta23: ok (971 log lines)
+### print-axioms WeilContainment: 12 names on the three standard axioms; sorryAx: 0
+### print-axioms WeilContainmentOne: 1 names on the three standard axioms; sorryAx: 0
+### print-axioms IntegralityGap: 16 names on the three standard axioms; sorryAx: 0
+### lean4export: ok
+### comparator: ok
+### nanoda: ok
+### landrun: built
+### landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+tool hashes:
+11265c5e02cbd8cc4767c69a364a1377409eb73ac24dbb9511f3f3229b5e517c  /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator
+8d10cd2596176885cc4f8e9fa771ff271e2d57a28c5676542e01dd8e1d4300d6  /home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+2018338e90c3f7b08107230d2957518840e62694c319621e21ef0468ae34b4e5  /home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+dfef4b5b9817746460df902d86bac387db5dfad1f5546e21603aa30454188045  /home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+=== linux-comparator-check start 2026-09-29 05:33:21 IST ===
+Linux jay-unix 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+host: jay-unix; cores: 12; mem: 37 GB; disk free: 400G
+program checkout: /home/jay-tyagi/Downloads/rh-lean/rh-linux-check-s30 @ 
+### elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+### rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+### go: ok (go version go1.27.1 linux/amd64)
+### overlay: ok
+toolchain: leanprover/lean4:v4.33.0-rc2
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+### cache: ok (mathlib 51e6992efd)
+### build Zeta23: ok (584 log lines)
+### print-axioms WeilContainment: 12 names on the three standard axioms; sorryAx: 0
+### print-axioms WeilContainmentOne: 1 names on the three standard axioms; sorryAx: 0
+### print-axioms IntegralityGap: 16 names on the three standard axioms; sorryAx: 0
+### lean4export: ok
+### comparator: ok
+### nanoda: ok
+### landrun: built
+### landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+### landrun sandbox (comparator flags, --best-effort): FAIL — see 09b-landrun-best-effort-test.log
+tool hashes:
+11265c5e02cbd8cc4767c69a364a1377409eb73ac24dbb9511f3f3229b5e517c  /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator
+8d10cd2596176885cc4f8e9fa771ff271e2d57a28c5676542e01dd8e1d4300d6  /home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+2018338e90c3f7b08107230d2957518840e62694c319621e21ef0468ae34b4e5  /home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+dfef4b5b9817746460df902d86bac387db5dfad1f5546e21603aa30454188045  /home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+### comparator config-weil-containment-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+=== linux-comparator-check start 2026-09-29 05:35:15 IST ===
+Linux jay-unix 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+host: jay-unix; cores: 12; mem: 37 GB; disk free: 400G
+program checkout: /home/jay-tyagi/Downloads/rh-lean/rh-linux-check-s30 @ 
+### elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+### rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+### go: ok (go version go1.27.1 linux/amd64)
+### overlay: ok
+toolchain: leanprover/lean4:v4.33.0-rc2
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+### cache: ok (mathlib 51e6992efd)
+### build Zeta23: ok (584 log lines)
+### print-axioms WeilContainment: 12 names on the three standard axioms; sorryAx: 0
+### print-axioms WeilContainmentOne: 1 names on the three standard axioms; sorryAx: 0
+### print-axioms IntegralityGap: 16 names on the three standard axioms; sorryAx: 0
+### lean4export: ok
+### comparator: ok
+### nanoda: ok
+### landrun: built
+### landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+### landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+tool hashes:
+11265c5e02cbd8cc4767c69a364a1377409eb73ac24dbb9511f3f3229b5e517c  /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator
+8d10cd2596176885cc4f8e9fa771ff271e2d57a28c5676542e01dd8e1d4300d6  /home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+2018338e90c3f7b08107230d2957518840e62694c319621e21ef0468ae34b4e5  /home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+dfef4b5b9817746460df902d86bac387db5dfad1f5546e21603aa30454188045  /home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+### comparator config-weil-containment-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-weil-containment.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+### comparator config-integrality-gap.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+
+=== SUMMARY 2026-09-29 05:37:48 IST ===
+elan: ok (elan 4.2.4 (227caca13 2026-08-25))
+rust: ok (cargo 1.98.1 (797e8a9bc 2026-08-05))
+go: ok (go version go1.27.1 linux/amd64)
+overlay: ok
+cache: ok (mathlib 51e6992efd)
+build Zeta23: ok (584 log lines)
+print-axioms WeilContainment: 12 names on the three standard axioms; sorryAx: 0
+print-axioms WeilContainmentOne: 1 names on the three standard axioms; sorryAx: 0
+print-axioms IntegralityGap: 16 names on the three standard axioms; sorryAx: 0
+lean4export: ok
+comparator: ok
+nanoda: ok
+landrun: built
+landrun sandbox: FAIL — see 09-landrun-test.log (kernel without Landlock?)
+landrun sandbox (comparator flags): REAL (--best-effort on Landlock ABI v8; write outside allowed paths denied)
+comparator config-weil-containment-one.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-weil-containment.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+comparator config-integrality-gap.json: PASS (exit 0; nanoda: 1; fake-landrun warnings: 0)
+Logs: /home/jay-tyagi/rh-lean-linux/logs  (send this folder back, or copy it into rh-program/results/linux-check-s30/ and commit)

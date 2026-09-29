@@ -57,6 +57,8 @@ with the trusted `Challenge.DBN` build during its own build. Here the solution f
 independent checker (Job 2, CHECK-O.md: no `import Challenge`, no `native_decide`, trust greps clean), so the un-sandboxed run loses
 nothing the record does not already cover; a referee who wants the sandbox re-runs the same two commands on a Linux host with landrun.
 
+**[NOTE 05:44 IST 2026-09-29, Session 32 — the Linux host arrived.]** The sponsor ran the Session-30 package (`scripts/README-LINUX-CHECK.md`) on Ubuntu (kernel 7.0.0-34-generic, x86_64): the D5 and IV.17 configs (`config-weil-containment-one.json`, `config-weil-containment.json`, `config-integrality-gap.json`) all PASS under a REAL Landlock sandbox — ABI v8 in the comparator's `--best-effort` mode (the pinned landrun build asks for ABI v9 by default, so the package's strict `landrun --rox / -- /bin/true` test fails on that kernel while every comparator step is sandboxed; a write-denial probe and zero `NOT REAL LANDRUN` lines prove it). The DBN and control configs of §3–§4 were NOT in that package and remain un-sandboxed records. `results/linux-check-s30/`; the two CHECK-O addenda of this date.
+
 ## 3. CONTROL run — `comparator/config.json` (the parent's fifteen theorems)
 
 (appended below as it lands; log `results/d1-m2a/packaging/comparator-control-run.log`)

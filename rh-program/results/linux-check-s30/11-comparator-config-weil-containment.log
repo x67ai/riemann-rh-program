@@ -1,0 +1,80 @@
+=== config-weil-containment.json start 2026-09-29 05:36:21 IST ===
+{
+  "challenge_module": "Challenge.WeilContainment",
+  "solution_module": "Solution.WeilContainment",
+  "theorem_names": [
+    "weilContainment_identity",
+    "weilContainment_cutoff",
+    "weilContainment_tilt_bounds",
+    "weilContainment_tilt_pos",
+    "weilContainment_tilt_inv",
+    "weilContainment_even",
+    "weilContainment_tsupport",
+    "weilContainment_tsupport_eq",
+    "weilContainment_continuous",
+    "weilContainment_exact",
+    "weilContainment_range_eq",
+    "weilContainment_not_contDiff"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+lean: Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+mathlib: 51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LEAN4EXPORT=/home/jay-tyagi/rh-lean-linux/tools/lean4export/.lake/build/bin/lean4export
+COMPARATOR_NANODA=/home/jay-tyagi/rh-lean-linux/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LANDRUN=/home/jay-tyagi/rh-lean-linux/tools/landrun/landrun
+Building Challenge.WeilContainment
+⚠ [8698/8698] Built Challenge.WeilContainment (2.3s)
+warning: comparator/Challenge/WeilContainment.lean:54:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:60:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:67:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:73:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:77:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:81:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:86:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:91:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:96:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:102:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:109:8: declaration uses `sorry`
+warning: comparator/Challenge/WeilContainment.lean:117:8: declaration uses `sorry`
+Build completed successfully (8698 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.WeilContainment
+Building Solution.WeilContainment
+✔ [8698/8698] Built Solution.WeilContainment (2.6s)
+Build completed successfully (8698 jobs).
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, weilContainment_identity, weilContainment_cutoff, weilContainment_tilt_bounds, weilContainment_tilt_pos, weilContainment_tilt_inv, weilContainment_even, weilContainment_tsupport, weilContainment_tsupport_eq, weilContainment_continuous, weilContainment_exact, weilContainment_range_eq, weilContainment_not_contDiff, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.WeilContainment
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+	Command being timed: "lake env /home/jay-tyagi/rh-lean-linux/tools/comparator/.lake/build/bin/comparator comparator/config-weil-containment.json"
+	User time (seconds): 51.66
+	System time (seconds): 5.18
+	Percent of CPU this job got: 111%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:51.13
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7240644
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 947344
+	Voluntary context switches: 205911
+	Involuntary context switches: 931
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 26864
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+--- comparator exit code: 0 ---
+=== end 2026-09-29 05:37:12 IST ===
