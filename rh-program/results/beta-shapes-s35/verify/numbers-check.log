@@ -1,0 +1,107 @@
+beta-shapes-s35 numbers-check -- 2026-09-29T15:43:57.738255 -- Darwin 27.0.0 arm64 arm
+mpmath dps = 30
+
+[1] Lambda(n), n = 2..30 (A5's diagonal row over Z), and the divergence of the fiber sum over Delta in T1
+    n : 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+    Lambda(n): 0.6931 1.099 0.6931 1.609 0.0 1.946 0.6931 1.099 0.0 2.398 0.0 2.565 0.0 0.0 0.6931 2.833 0.0 2.944 0.0 0.0 0.0 3.135 0.0 1.609 0.0 1.099 0.0 3.367 0.0
+    psi(10) = 7.83201418051   theta(10) = 5.34710753072   #primes<=10 = 4
+    psi(100) = 94.0453112294   theta(100) = 83.7283903991   #primes<=100 = 25
+    psi(1000) = 996.680912247   theta(1000) = 956.24526512   #primes<=1000 = 168
+    psi(10000) = 10013.3966933   theta(10000) = 9895.99137916   #primes<=10000 = 1229
+    Euclid witness: 2*3*5*7*11*13 + 1 = 30031 = 59*509 : True
+    => sum_{n>=2} Lambda(n) >= theta(x) -> infinity; T1's fiber sum over Delta is not a real number.
+
+[2] T3 injective sub-case, base-1 coefficient bound: log p <= kappa*(2 + 2g) (route (b), d_p = 1) and log p/kappa in {2-h,...,2} (route (a))
+    kappa=1.0 g=0: bound kappa(2+2g)=2.0; first prime with log p > bound: p=11 (log p = 2.3978953)
+    kappa=1.0 g=1: bound kappa(2+2g)=4.0; first prime with log p > bound: p=59 (log p = 4.0775374)
+    kappa=1.0 g=2: bound kappa(2+2g)=6.0; first prime with log p > bound: p=409 (log p = 6.0137152)
+    kappa=1.0 g=5: bound kappa(2+2g)=12.0; first prime with log p > bound: p=162779 (log p = 12.000149)
+    kappa=0.693147 g=0: bound kappa(2+2g)=1.3862944; first prime with log p > bound: p=5 (log p = 1.6094379)
+    kappa=0.693147 g=1: bound kappa(2+2g)=2.7725887; first prime with log p > bound: p=17 (log p = 2.8332133)
+    kappa=0.693147 g=2: bound kappa(2+2g)=4.1588831; first prime with log p > bound: p=67 (log p = 4.2046926)
+    kappa=0.693147 g=5: bound kappa(2+2g)=8.3177662; first prime with log p > bound: p=4099 (log p = 8.3184983)
+    route (a), kappa = 1: log p/kappa <= 2 fails first at p = 11 (log 11 = 2.397895273 > 2); log 7 = 1.945910149 <= 2.
+
+[3] T3 route (b), d_p >= 2: the least k with d^k + 1 - log p/kappa > 2 g d^(k/2)  (Weil's inequality at p^k fails from that k on)
+    p=2 d_p=2 g=1 kappa=1: first violating k = 2   (lhs=4.3068528, rhs=4.0)
+    p=2 d_p=2 g=2 kappa=1: first violating k = 4   (lhs=16.306853, rhs=16.0)
+    p=2 d_p=2 g=5 kappa=1: first violating k = 7   (lhs=128.30685, rhs=113.13708)
+    p=2 d_p=3 g=1 kappa=1: first violating k = 2   (lhs=9.3068528, rhs=6.0)
+    p=2 d_p=3 g=2 kappa=1: first violating k = 3   (lhs=27.306853, rhs=20.78461)
+    p=2 d_p=3 g=5 kappa=1: first violating k = 5   (lhs=243.30685, rhs=155.88457)
+    p=2 d_p=4 g=1 kappa=1: first violating k = 1   (lhs=4.3068528, rhs=4.0)
+    p=2 d_p=4 g=2 kappa=1: first violating k = 2   (lhs=16.306853, rhs=16.0)
+    p=2 d_p=4 g=5 kappa=1: first violating k = 4   (lhs=256.30685, rhs=160.0)
+    p=3 d_p=2 g=1 kappa=1: first violating k = 3   (lhs=7.9013877, rhs=5.6568542)
+    p=3 d_p=2 g=2 kappa=1: first violating k = 5   (lhs=31.901388, rhs=22.627417)
+    p=3 d_p=2 g=5 kappa=1: first violating k = 7   (lhs=127.90139, rhs=113.13708)
+    p=3 d_p=3 g=1 kappa=1: first violating k = 2   (lhs=8.9013877, rhs=6.0)
+    p=3 d_p=3 g=2 kappa=1: first violating k = 3   (lhs=26.901388, rhs=20.78461)
+    p=3 d_p=3 g=5 kappa=1: first violating k = 5   (lhs=242.90139, rhs=155.88457)
+    p=3 d_p=4 g=1 kappa=1: first violating k = 2   (lhs=15.901388, rhs=8.0)
+    p=3 d_p=4 g=2 kappa=1: first violating k = 3   (lhs=63.901388, rhs=32.0)
+    p=3 d_p=4 g=5 kappa=1: first violating k = 4   (lhs=255.90139, rhs=160.0)
+    p=5 d_p=2 g=1 kappa=1: first violating k = 3   (lhs=7.3905621, rhs=5.6568542)
+    p=5 d_p=2 g=2 kappa=1: first violating k = 5   (lhs=31.390562, rhs=22.627417)
+    p=5 d_p=2 g=5 kappa=1: first violating k = 7   (lhs=127.39056, rhs=113.13708)
+    p=5 d_p=3 g=1 kappa=1: first violating k = 2   (lhs=8.3905621, rhs=6.0)
+    p=5 d_p=3 g=2 kappa=1: first violating k = 3   (lhs=26.390562, rhs=20.78461)
+    p=5 d_p=3 g=5 kappa=1: first violating k = 5   (lhs=242.39056, rhs=155.88457)
+    p=5 d_p=4 g=1 kappa=1: first violating k = 2   (lhs=15.390562, rhs=8.0)
+    p=5 d_p=4 g=2 kappa=1: first violating k = 3   (lhs=63.390562, rhs=32.0)
+    p=5 d_p=4 g=5 kappa=1: first violating k = 4   (lhs=255.39056, rhs=160.0)
+    analytic form: d^(k/2) > 2g + (log p/kappa - 1)/d^(k/2) -- k > 2 log(2g+1)/log d suffices once log p/kappa <= 1 + d^(k/2)... (see NOTE 2.3.4)
+
+[4] T3 route (b), the composite-index bound: Lambda(pq) = 0 gives d_{pq} + 1 <= 2 g sqrt(d_{pq}), i.e. d_{pq} <= (g + sqrt(g^2-1))^2
+    g=1: d_pq <= 1.0  (floor 1); check: for d = floor: d+1 - 2g sqrt(d) = 0.0 <= 0 ; for d = floor+1: 0.171573
+    g=2: d_pq <= 13.92820323  (floor 13); check: for d = floor: d+1 - 2g sqrt(d) = -0.422205 <= 0 ; for d = floor+1: 0.0333705
+    g=3: d_pq <= 33.97056275  (floor 33); check: for d = floor: d+1 - 2g sqrt(d) = -0.467376 <= 0 ; for d = floor+1: 0.0142886
+    g=5: d_pq <= 97.98979486  (floor 97); check: for d = floor: d+1 - 2g sqrt(d) = -0.488578 <= 0 ; for d = floor+1: 0.00505063
+    g=10: d_pq <= 397.9974874  (floor 397); check: for d = floor: d+1 - 2g sqrt(d) = -0.497177 <= 0 ; for d = floor+1: 0.00125313
+    g = 1 forces d_2 = d_3 = 1 (d_6 <= 1).
+
+[5] Theorem R witness: which integers N <= 10^5 satisfy log N in kappa*Z (|log N/kappa - round| < 1e-12)?
+    kappa = 1: 0 hits; first ten: []
+    kappa = log 2: 16 hits; first ten: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+    kappa = log 6: 6 hits; first ten: [6, 36, 216, 1296, 7776, 46656]
+    kappa = log 12: 4 hits; first ten: [12, 144, 1728, 20736]
+    kappa = 1: distance of e^m to the nearest integer, m = 1..12: 0.2817 0.3891 0.08554 0.4018 0.4132 0.4288 0.3668 0.04201 0.08393 0.4658 0.1417 0.2086
+    (the two-fiber unique-factorization argument of Theorem R needs no transcendence; this row is illustration only)
+
+[6] Theorem R, the proportionality lemma: N^b = M^a (a,b >= 1) forces equal prime support -- brute force over N,M <= 3000, a,b <= 6
+    cases with N^b = M^a: 18233; support mismatches: 0
+
+[7] T2, the non-Cartier step over Z at finite level N: N!*e_n lies in the truncated ghost lattice L_N (congruences 0801.1691 (1.10): a_j = a_{pj} mod p^(1+v_p(j)))
+    N = 1..40: N!*e_n in L_N for every n; v_d in L_N; det(v_d) = N! : True
+    zero-divisor witness (N=6, n=2): f = (1,0,0,0,0,0) in ker(w_2)? f in L_6: False ; take f = (0,1,0,0,0,0)? in L_6: False
+    a vector in L_6 vanishing on component 2: f = (6,0,6,0,0,0) in L_6: False ; g = 720*e_2; f*g coordinatewise = [0, 0, 0, 0, 0, 0]
+
+[8] Rung 1 (y^2 = x^3 + x + 1 over F_7, E3's a_d = 5, 25, 125, 605): fiber products are q^{N_N}, a single residue characteristic
+    N=1: N_N = sum_(d|N) d a_d = 5; fiber product = 7^5; log(product)/log 7 = 5 = (Delta . Gamma_Fr^N) in Z
+    N=2: N_N = sum_(d|N) d a_d = 55; fiber product = 7^55; log(product)/log 7 = 55 = (Delta . Gamma_Fr^N) in Z
+    N=3: N_N = sum_(d|N) d a_d = 380; fiber product = 7^380; log(product)/log 7 = 380 = (Delta . Gamma_Fr^N) in Z
+    N=4: N_N = sum_(d|N) d a_d = 2475; fiber product = 7^2475; log(product)/log 7 = 2475 = (Delta . Gamma_Fr^N) in Z
+    single residue characteristic 7: the support of every fiber product is {7} -- Theorem R's proportionality holds, no contradiction (rung 1 passes).
+
+[9] The finite-h Lefschetz reading of the explicit formula: zeros of zeta with 0 < Im rho <= 100 (mpmath.zetazero)
+    count = 29; first five imaginary parts: ['14.13472514', '21.02203964', '25.01085758', '30.42487613', '32.93506159']; all Re = 1/2 to 1e-25: True
+    (a finite Lefschetz identity with h eigencharacters n^rho would need h >= 2* 29 already below T = 100; Hadamard's theorem (infinitely many) is [recalled, unverified] and not load-bearing)
+
+[10] Chebyshev windows (route (b), non-injective, illustration): psi(x) - x and (psi(x)-x)/sqrt(x)
+    x=10^2: psi-x = -5.9546888; (psi-x)/sqrt(x) = -0.595469
+    x=10^3: psi-x = -3.3190878; (psi-x)/sqrt(x) = -0.104959
+    x=10^4: psi-x = 13.396693; (psi-x)/sqrt(x) = 0.133967
+    x=10^5: psi-x = 51.564026; (psi-x)/sqrt(x) = 0.16306
+    x=10^6: psi-x = -413.4025; (psi-x)/sqrt(x) = -0.413403
+    Littlewood 1914 (psi(x)-x = Omega_pm(sqrt(x) log log log x)) is [recalled, unverified]: not on disk, not load-bearing.
+
+[11] Lemma F (finite fibers): a fiber with product N has at most log_2 N prime powers; the fiber of c(Gamma_p) contains p, so N_p >= p, (Delta . c(Gamma_p)) = log N_p / kappa >= log p / kappa
+    p=2: log p = 0.6931471806; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 0.693147 and equals log of an integer divisible by 2
+    p=3: log p = 1.098612289; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 1.09861 and equals log of an integer divisible by 3
+    p=5: log p = 1.609437912; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 1.60944 and equals log of an integer divisible by 5
+    p=7: log p = 1.945910149; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 1.94591 and equals log of an integer divisible by 7
+    p=11: log p = 2.397895273; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 2.3979 and equals log of an integer divisible by 11
+    p=101: log p = 4.615120517; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 4.61512 and equals log of an integer divisible by 101
+    p=1009: log p = 6.91671502; with kappa=1 the target's diagonal-row value at c(Gamma_p) is >= 6.91672 and equals log of an integer divisible by 1009
+
+END 2026-09-29T15:44:48.084105
