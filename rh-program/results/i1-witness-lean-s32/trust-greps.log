@@ -1,0 +1,91 @@
+== Tue Sep 29 07:45:02 IST 2026 trust greps (comments stripped), tree, all seven topic files
+comparator/Challenge/EpsteinWitnessSix.lean:39: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:43: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:50: [sorry] sorry
+comparator/Challenge/I1Witness.lean:48: [sorry] sorry
+comparator/Challenge/I1Witness.lean:52: [sorry] sorry
+comparator/Challenge/I1Witness.lean:57: [sorry] sorry
+comparator/Challenge/I1Witness.lean:61: [sorry] sorry
+comparator/Challenge/I1Witness.lean:67: [sorry] sorry
+comparator/Challenge/I1Witness.lean:74: [sorry] sorry
+comparator/Challenge/I1Witness.lean:78: [sorry] sorry
+comparator/Challenge/I1Witness.lean:82: [sorry] sorry
+comparator/Challenge/I1Witness.lean:86: [sorry] sorry
+comparator/Challenge/I1Witness.lean:90: [sorry] sorry
+comparator/Challenge/I1Witness.lean:95: [sorry] sorry
+comparator/Challenge/I1Witness.lean:102: [sorry] sorry
+comparator/Challenge/I1Witness.lean:108: [sorry] sorry
+comparator/Challenge/I1Witness.lean:114: [sorry] sorry
+files present: 7; hits outside comments: 17
+exit=1
+== Tue Sep 29 07:45:02 IST 2026 trust greps, mirror
+comparator/Challenge/EpsteinWitnessSix.lean:39: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:43: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:50: [sorry] sorry
+comparator/Challenge/I1Witness.lean:48: [sorry] sorry
+comparator/Challenge/I1Witness.lean:52: [sorry] sorry
+comparator/Challenge/I1Witness.lean:57: [sorry] sorry
+comparator/Challenge/I1Witness.lean:61: [sorry] sorry
+comparator/Challenge/I1Witness.lean:67: [sorry] sorry
+comparator/Challenge/I1Witness.lean:74: [sorry] sorry
+comparator/Challenge/I1Witness.lean:78: [sorry] sorry
+comparator/Challenge/I1Witness.lean:82: [sorry] sorry
+comparator/Challenge/I1Witness.lean:86: [sorry] sorry
+comparator/Challenge/I1Witness.lean:90: [sorry] sorry
+comparator/Challenge/I1Witness.lean:95: [sorry] sorry
+comparator/Challenge/I1Witness.lean:102: [sorry] sorry
+comparator/Challenge/I1Witness.lean:108: [sorry] sorry
+comparator/Challenge/I1Witness.lean:114: [sorry] sorry
+files present: 7; hits outside comments: 17
+exit=1
+== imports
+comparator/Solution/EpsteinWitnessSix.lean:23:import ChallengeDeps.I1Witness
+comparator/ChallengeDeps/I1Witness.lean:39:import Mathlib
+comparator/Challenge/EpsteinWitnessSix.lean:31:import ChallengeDeps.I1Witness
+comparator/PrintAxioms/EpsteinWitnessSix.lean:18:import Solution.EpsteinWitnessSix
+comparator/PrintAxioms/I1Witness.lean:18:import Solution.I1Witness
+comparator/Challenge/I1Witness.lean:38:import ChallengeDeps.I1Witness
+comparator/Solution/I1Witness.lean:26:imports the challenge and never imports Solution.EpsteinWitnessSix (each topic is self-contained).
+comparator/Solution/I1Witness.lean:28:import ChallengeDeps.I1Witness
+== decide forms used (native_decide must be absent)
+comparator/Solution/EpsteinWitnessSix.lean:15:Mathlib alone.  The two coefficients and the normalization are decided in the kernel (`decide 
+comparator/Solution/EpsteinWitnessSix.lean:107:theorem coeff_two : lambdaVec epsteinB 6 2 = 2 := by decide +kernel
+comparator/Solution/EpsteinWitnessSix.lean:108:theorem coeff_three : lambdaVec epsteinB 6 3 = 2 := by decide +kernel
+comparator/Solution/EpsteinWitnessSix.lean:116:  decide +kernel
+comparator/Solution/I1Witness.lean:17:(E) The two Epstein coefficients at 36 and the normalization are decided in the kernel (`decide +kerne
+comparator/Solution/I1Witness.lean:21:symbolically through the (R) recursion over the proper divisors (`Nat.properDivisors 12 = {1, 2, 3, 4,
+comparator/Solution/I1Witness.lean:111:theorem e36_two : lambdaVec epsteinB 36 2 = -4 := by decide +kernel
+comparator/Solution/I1Witness.lean:112:theorem e36_three : lambdaVec epsteinB 36 3 = -4 := by decide +kernel
+comparator/Solution/I1Witness.lean:137:  rw [rec' dhA 2 2 (by norm_num), show Nat.properDivisors 2 = {1} by decide]
+comparator/Solution/I1Witness.lean:141:  rw [rec' dhA 3 3 (by norm_num), show Nat.properDivisors 3 = {1} by decide]
+comparator/Solution/I1Witness.lean:145:  rw [rec' dhA 2 4 (by norm_num), show Nat.properDivisors 4 = {1, 2} by decide]
+comparator/Solution/I1Witness.lean:146:  rw [Finset.sum_insert (by decide), Finset.sum_singleton]
+comparator/Solution/I1Witness.lean:147:  simp only [one', d2, show padicValNat 2 4 = 2 by decide +kernel]
+comparator/Solution/I1Witness.lean:151:  rw [rec' dhA 2 6 (by norm_num), show Nat.properDivisors 6 = {1, 2, 3} by decide]
+comparator/Solution/I1Witness.lean:152:  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_singleton]
+comparator/Solution/I1Witness.lean:153:  simp only [one', d2, not_dvd' dhA 2 3 (by decide), show padicValNat 2 6 = 1 by decide +kernel]
+comparator/Solution/I1Witness.lean:157:  rw [rec' dhA 3 6 (by norm_num), show Nat.properDivisors 6 = {1, 2, 3} by decide]
+comparator/Solution/I1Witness.lean:158:  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_singleton]
+comparator/Solution/I1Witness.lean:159:  simp only [one', d3, not_dvd' dhA 3 2 (by decide), show padicValNat 3 6 = 1 by decide +kernel]
+comparator/Solution/I1Witness.lean:163:  rw [rec' dhA 2 12 (by norm_num), show Nat.properDivisors 12 = {1, 2, 3, 4, 6} by decide]
+comparator/Solution/I1Witness.lean:164:  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+comparator/Solution/I1Witness.lean:165:    Finset.sum_insert (by decide), Finset.sum_singleton]
+comparator/Solution/I1Witness.lean:166:  simp only [one', d2, d4, d6_two, not_dvd' dhA 2 3 (by decide), show padicValNat 2 12 = 2 by decide 
+comparator/Solution/I1Witness.lean:170:  rw [rec' dhA 3 12 (by norm_num), show Nat.properDivisors 12 = {1, 2, 3, 4, 6} by decide]
+comparator/Solution/I1Witness.lean:171:  rw [Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+comparator/Solution/I1Witness.lean:172:    Finset.sum_insert (by decide), Finset.sum_singleton]
+comparator/Solution/I1Witness.lean:173:  simp only [one', d3, d6_three, not_dvd' dhA 3 2 (by decide), not_dvd' dhA 3 4 (by decide),
+comparator/Solution/I1Witness.lean:174:    show padicValNat 3 12 = 1 by decide +kernel]
+comparator/Solution/I1Witness.lean:223:  decide +kernel
+comparator/Solution/I1Witness.lean:260:      not_dvd' dhA 2 3 (by decide)]
+comparator/Solution/I1Witness.lean:290:      not_dvd' dhA 3 4 (by decide)]
+== tree = mirror (cmp)
+same: comparator/ChallengeDeps/I1Witness.lean
+same: comparator/Challenge/EpsteinWitnessSix.lean
+same: comparator/Solution/EpsteinWitnessSix.lean
+same: comparator/PrintAxioms/EpsteinWitnessSix.lean
+same: comparator/Challenge/I1Witness.lean
+same: comparator/Solution/I1Witness.lean
+same: comparator/PrintAxioms/I1Witness.lean
+same: comparator/config-epstein-witness-six.json
+same: comparator/config-i1-witness.json

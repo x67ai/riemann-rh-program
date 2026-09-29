@@ -93,6 +93,17 @@ project:
     and L and every even continuous g supported in [−L, L], some even C² k on the same band has primeSide k = tiltedPrimeSide a g.
     Label, binding: "IV.1 formalized-in-Lean — prime-side containment into Zeta23's C² test class for continuous g (prime-side values;
     the C² witness is an interpolant at ±log n, not the tilted test; zero side untouched)".  Nothing about ζ or RH follows.
+    Session 32, H3 item 6 (2026-09-29; brief results/i1-witness-lean-s32/BRIEF.md; build record BUILD-NOTES.md; ledger FIDELITY.md)
+    adds barrier-zoo I.1's one-line witnesses as kernel-checked VALUES of the von Mangoldt recursion, as two Comparator topics over a
+    new Mathlib-only trusted layer comparator/ChallengeDeps/I1Witness.lean (`lambdaVec` — the recursion with log n replaced by the
+    exponent vector, fuel-structural so that the kernel evaluates it; `LambdaReal`; `epsteinB` = r_Q(n)/2 for x² + 5y² as a box count;
+    `kappa`; `dhA`): `EpsteinWitnessSix` (rung 1: Λ_Q(6) = 2 log 2 + 2 log 3 > 0) and `I1Witness` (the recursion as a theorem;
+    Λ_Q(36) = −4 log 2 − 4 log 3 < 0; κ > 0; Λ_DH(3) = −κ log 3 < 0; Λ_DH(12) = −κ(1 + κ²)(2 log 2 + log 3) < 0; Λ_DH(4) < 0; Λ_DH(6) > 0).
+    Label, binding: "I.1's witness table kernel-checked — for the Epstein form x² + 5y² (h = 2), Λ_Q(36) = −4 log 2 − 4 log 3 < 0 (and
+    Λ_Q(6) = 2 log 6 off prime powers); for Davenport–Heilbronn, Λ_DH(3) = −κ log 3 < 0 and Λ_DH(12) = −κ(1 + κ²) log 12 < 0 with κ > 0
+    from its closed form — where Λ_f is the von Mangoldt recursion's coefficient sequence on the array with b₁ = 1; over Mathlib alone,
+    the three standard axioms, replayed by nanoda; the identification of that sequence with −F′/F as Dirichlet series is not
+    formalized".  Never "I.1 formalized"; nothing about ζ or RH follows.
   authors:
     - "Kunal Tyagi (sponsor; directs the program, writes no Lean)"
     - "Claude (Anthropic) — every Lean file, under the sponsor's direction"
@@ -215,6 +226,9 @@ status:
     From Session 32 (H5), also the one of comparator/Challenge/WeilContainmentC2One.lean and the one of
     comparator/Challenge/WeilContainmentC2.lean (proved by the Solution modules of the same names) — over Mathlib alone, the three
     hypotheses of the statement (g even, continuous, band-limited) displayed and nothing else.
+    From Session 32 (H3 item 6, I.1), also the three of comparator/Challenge/EpsteinWitnessSix.lean and the fourteen of
+    comparator/Challenge/I1Witness.lean (proved by the Solution modules of the same names) — over Mathlib alone, no Zeta23 module
+    involved, nothing displayed (the recursion lemmas' `2 ≤ n` and `¬ p ∣ n` are their subjects).
     From Session 30 (G8, IV.17), also the sixteen of comparator/Challenge/IntegralityGap.lean (proved by
     comparator/Solution/IntegralityGap.lean, which delegates to Zeta23/PairCeiling/GridParsevalRat.lean and GridGap.lean; neither
     contains a `sorry`); nothing displayed.
@@ -655,6 +669,28 @@ status:
         - "Classical.choice"
         - "Quot.sound"
     - description: >-
+        Session 32 (2026-09-29), H3 item 6 — barrier-zoo I.1's one-line witnesses as kernel-checked VALUES, over Mathlib alone (trusted
+        layer comparator/ChallengeDeps/I1Witness.lean: lambdaVecAux, lambdaVec, LambdaReal, epsteinB, kappa, dhA).  Rung 1
+        (`EpsteinWitnessSix`): epsteinB 1 = 1; lambdaVec epsteinB 6 2 = 2 ∧ lambdaVec epsteinB 6 3 = 2; LambdaReal (epsteinB cast to ℝ) 6 =
+        2 log 2 + 2 log 3 = 2 log 6 > 0.  The unit (`I1Witness`, fourteen statements): the record's recursion as a theorem about the
+        fuel-defined object (lambdaVec_rec, for every commutative ring; lambdaVec_one; lambdaVec_eq_zero_of_not_dvd); Epstein x² + 5y²:
+        lambdaVec epsteinB 36 2 = −4 ∧ lambdaVec epsteinB 36 3 = −4 ∧ every other prime's coefficient 0, LambdaReal (…) 36 = −4 log 2 −
+        4 log 3 = −4 log 6 < 0; Davenport–Heilbronn: 0 < kappa, dhA 1 = 1, lambdaVec dhA 3 3 = −κ, LambdaReal dhA 3 = −κ log 3 < 0,
+        lambdaVec dhA 12 2 = −κ(1 + κ²)·2 ∧ lambdaVec dhA 12 3 = −κ(1 + κ²), LambdaReal dhA 12 = −κ(1 + κ²)(2 log 2 + log 3) = −κ(1 + κ²) log 12
+        < 0, LambdaReal dhA 4 = −(2 + κ²) log 2 < 0, LambdaReal dhA 6 = (1 + κ²) log 6 > 0.  The Epstein coefficients are decided in the
+        kernel (`decide +kernel`; about 3.6 s per coefficient at n = 36), the DH coefficients are polynomial identities in κ closed by
+        `ring`.  Nothing displayed.  Label: "I.1's witness table kernel-checked — … the identification of that sequence with −F′/F as
+        Dirichlet series is not formalized" (results/i1-witness-lean-s32/BUILD-NOTES.md; Comparator runs
+        results/i1-witness-lean-s32/rung1-comparator.log and comparator-run.log).  Nothing about the Euler product of either function
+        as a theorem, nothing about any zero, nothing about ζ or RH follows.
+      declaration: "epsteinB_one, epstein_six_coeff, epstein_witness_6 (root, Challenge.EpsteinWitnessSix / Solution.EpsteinWitnessSix); lambdaVec_rec, lambdaVec_one, lambdaVec_eq_zero_of_not_dvd, epsteinB_one, epstein_thirtysix_coeff, epstein_witness_36, kappa_pos, dhA_one, dh_three_coeff, dh_witness_3, dh_twelve_coeff, dh_witness_12, dh_four, dh_six (root, Challenge.I1Witness / Solution.I1Witness)"
+      file: "comparator/Solution/I1Witness.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+    - description: >-
         Session 30 (2026-09-29), G8 — barrier-zoo IV.17, the fractional-mark integrality barrier, as one Comparator topic
         `IntegralityGap` (trusted layer comparator/ChallengeDeps/IntegralityGap.lean, Mathlib only: chi, dftMark, dftMarkQ, zetaM,
         gridRow, gridRowQ, fracMark — character for character the Zeta23/PairCeiling definitions).  Sixteen statements: (1) grid
@@ -982,6 +1018,30 @@ fidelity:
     not imported — no statement feeds anything into `EF_lit`; the μ-band and nonlinear functions of the band; the archimedean term;
     summability as a datum; the discontinuous case; ζ, RH, any zero.  Ledger text: results/h5-c2-lean-s32/FIDELITY.md; the attack on
     the brief's pre-derivation: results/h5-c2-lean-s32/PREDERIVATION-ERRATA.md.
+    (y) [Session 32, 2026-09-29; H3 item 6, topics I1Witness and EpsteinWitnessSix — barrier-zoo I.1's one-line witnesses as
+    kernel-checked values; not a DBN or M2 item.]  Where the formal statement differs from the record (m0-axiom-note.md §6.1–§6.2;
+    n1_epstein_witness.json; zoo I.1 and line 666): (y1) TWO objects for the record's Λ_f(n): `lambdaVec b n p` is the coefficient of
+    log p (the recursion solved with log n replaced by the exponent vector e_p(n) = padicValNat p n, so that the arithmetic is ring
+    arithmetic the kernel decides) and `LambdaReal b n = Σ_{p ≤ n prime} lambdaVec b n p · Real.log p` is the real number; the
+    identification is the definition of LambdaReal, not a theorem.  (y2) the recursion is defined with a FUEL (lambdaVecAux, fuel := n),
+    and the record's recursion is recovered as the theorem lambdaVec_rec (2 ≤ n → lambdaVec b n p = b n · padicValNat p n − Σ_{d ∈
+    properDivisors n} lambdaVec b d p · b (n / d)), with lambdaVec_one; a reader who trusts the theorem need not trust the fuel.
+    (y3) r_Q(n) is DEFINED as the count of (x, y) with x² + 5y² = n over the box |x|, |y| ≤ n (which contains every solution — a hand
+    fact; no second definition), halved, over ℚ, and cast to ℝ inside LambdaReal (the commutation of lambdaVec with the cast is proved in
+    the solution); epsteinB 0 = 1/2 and lambdaVec b n p at non-prime p are never consumed.  (y4) dhA : ℕ → ℝ by n % 5 (dhA 0 = 0,
+    consistent with a₅ = 0); kappa uses Mathlib's Real.sqrt (0 on negative arguments) — both radicands are positive, so kappa is the
+    record's number; positivity of the inner radicand is used inside kappa_pos, not shipped separately.  (y5) each real value is stated
+    in the record's two forms as conjuncts (−4 log 2 − 4 log 3 and −4 log 6; −κ(1 + κ²)(2 log 2 + log 3) and −κ(1 + κ²) log 12; 2 log 2 +
+    2 log 3 and 2 log 6); the other primes' coefficients vanish by lambdaVec_eq_zero_of_not_dvd (PREDERIVATION-ERRATA E7, E13).
+    (y6) additions to the brief's list: the three recursion lemmas, dhA_one, and the optional rows dh_four, dh_six.  NOT covered, and
+    stated nowhere in Lean: the identification of the recursion's sequence with −F′/F for F(s) = Σ b_n n^{−s} (the classical identity
+    (Σ Λ(n) n^{−s})(Σ b_n n^{−s}) = Σ b_n log n · n^{−s} — row (F-a) of the brief; no Dirichlet series appears in any statement); the
+    Davenport–Heilbronn function itself (series, continuation, functional equation, off-line zero); anything about Epstein zeta
+    functions beyond the coefficient array (h = 2, D = −20 are labels in comments); the "no Euler product" / "Λ ≥ 0 fails" READING (the
+    zoo's; the theorems are values); every decimal value (comments only); the rest of the record's tables (Λ_Q(54), Λ_Q(84), the support
+    list, the Session-24 coefficient-support theorem, the genus identity, ζ_K); zoo 666's axiom-format statement; ζ, RH, any zero.
+    Ledger text: results/i1-witness-lean-s32/FIDELITY.md; the attack on the brief's pre-derivation:
+    results/i1-witness-lean-s32/PREDERIVATION-ERRATA.md (no error that changes a value).
 
 review:
   status: "self-assessed"
@@ -1315,6 +1375,22 @@ alignment:
       lean: "weilContainment_c2_interpolant"
       module: "Challenge.WeilContainmentC2 / Solution.WeilContainmentC2 over ChallengeDeps.WeilContainment (Mathlib only)"
       status: "proved, hypotheses displayed: even, continuous, band (no other); Comparator PASS with nanoda (results/h5-c2-lean-s32/comparator-run.log)"
+    - source: "Barrier-zoo I.1 / m0-axiom-note.md §6.2 (Epstein, x² + 5y²): b₁ = 1 and Λ_Q(6) = 2·log 2 + 2·log 3 = 2·log 6 (support off prime powers; n1_epstein_witness.json witness_i) — rung 1"
+      lean: "epsteinB_one, epstein_six_coeff, epstein_witness_6"
+      module: "Challenge.EpsteinWitnessSix / Solution.EpsteinWitnessSix over ChallengeDeps.I1Witness (Mathlib only)"
+      status: "proved (the coefficients by decide +kernel, 77 ms), no displayed hypothesis; Comparator PASS with nanoda (results/i1-witness-lean-s32/rung1-comparator.log)"
+    - source: "m0-axiom-note.md §6.1 'Closed forms below follow from the von Mangoldt recursion a_n log n = Σ_{d|n} Λ_DH(d) a_{n/d}' — the recursion itself, as a theorem about the trusted fuel-defined object, for every commutative ring"
+      lean: "lambdaVec_rec, lambdaVec_one, lambdaVec_eq_zero_of_not_dvd"
+      module: "Challenge.I1Witness / Solution.I1Witness over ChallengeDeps.I1Witness (Mathlib only)"
+      status: "proved (strong induction on n through the fuel), hypotheses 2 ≤ n and ¬ p ∣ n are the lemmas' subjects; Comparator PASS with nanoda (results/i1-witness-lean-s32/comparator-run.log)"
+    - source: "Barrier-zoo I.1 / zoo line 666 / m0-axiom-note.md §6.2: Λ_Q(36) = −4·log 2 − 4·log 3 = −4·log 6 < 0 for x² + 5y² (n1_epstein_witness.json witness_ii)"
+      lean: "epsteinB_one, epstein_thirtysix_coeff, epstein_witness_36"
+      module: "Challenge.I1Witness / Solution.I1Witness over ChallengeDeps.I1Witness (Mathlib only)"
+      status: "proved (the two coefficients by decide +kernel, about 3.6 s each; the other primes by lambdaVec_eq_zero_of_not_dvd), no displayed hypothesis; Comparator PASS with nanoda (results/i1-witness-lean-s32/comparator-run.log)"
+    - source: "Barrier-zoo I.1 STATEMENT ('Λ_DH(12) = −0.7629 < 0 — the one-line witness') and m0-axiom-note.md §6.1 table: κ > 0 from its closed form; Λ_DH(3) = −κ·log 3 < 0 (cheapest witness); Λ_DH(12) = −κ(1 + κ²)·log 12 < 0; Λ_DH(4) = −(2 + κ²)·log 2 < 0; Λ_DH(6) = (1 + κ²)·log 6 > 0"
+      lean: "kappa_pos, dhA_one, dh_three_coeff, dh_witness_3, dh_twelve_coeff, dh_witness_12, dh_four, dh_six"
+      module: "Challenge.I1Witness / Solution.I1Witness over ChallengeDeps.I1Witness (Mathlib only)"
+      status: "proved (polynomial identities in κ through the recursion over Nat.properDivisors, closed by ring; signs from kappa_pos and Real.log_pos), no displayed hypothesis; Comparator PASS with nanoda (results/i1-witness-lean-s32/comparator-run.log)"
     - source: "Barrier-zoo IV.17 STATEMENT, first sentence, and theorems.md Lemma 2.2(a): the master inequality (MI) over INTEGER marks, and the per-atom slack (m − 1)(m − 2) ≥ 0 — the line where integrality is consumed (IV.17 EXECUTABLE TEST (3)); with the mark-1 floor m ≤ m²"
       lean: "mi_holds_integer, per_atom_slack, per_atom_floor, gridRow_eq"
       module: "Challenge.IntegralityGap / Solution.IntegralityGap over ChallengeDeps.IntegralityGap (Mathlib only); sources Zeta23/PairCeiling/GridGap.lean, Zeta23.PairCeiling.GridParseval.two_mul_distinct_ge, Zeta23.PairCeiling.GridCorner.gridRow_eq"

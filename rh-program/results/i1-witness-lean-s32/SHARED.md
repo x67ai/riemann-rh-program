@@ -22,3 +22,25 @@ deliberate challenge sorrys only; imports Mathlib / ChallengeDeps.I1Witness / So
 removed. `rung1-comparator.log`: comparator with nanoda, `Built ChallengeDeps.I1Witness (2.9s)`, `Built Challenge.EpsteinWitnessSix` with its
 3 sorry warnings, `Built Solution.EpsteinWitnessSix (3.2s)`, `Nanoda kernel accepts the solution`, `Lean default kernel accepts the solution`,
 `Your solution is okay!`, exit 0, 30.45 s real. Kernel time of the n = 6 decide: 77 ms (typing.log). Next: the unit `I1Witness`.
+
+## [builder] Tue Sep 29 07:46:24 IST 2026 — the unit (topic `I1Witness`, fourteen statements) is a complete Comparator pair: PASS
+Files: `Challenge/I1Witness.lean` (14 statements, `sorry`: the recursion lemmas `lambdaVec_rec`, `lambdaVec_one`, `lambdaVec_eq_zero_of_not_dvd`;
+Epstein `epsteinB_one`, `epstein_thirtysix_coeff`, `epstein_witness_36`; DH `kappa_pos`, `dhA_one`, `dh_three_coeff`, `dh_witness_3`,
+`dh_twelve_coeff`, `dh_witness_12`, `dh_four`, `dh_six`), `Solution/I1Witness.lean`, `PrintAxioms/I1Witness.lean`, `config-i1-witness.json`;
+mirrored by `cp`, cmp-identical (`trust-greps.log`). `lake build Solution.I1Witness`: first try, *Build completed successfully (8698 jobs)*,
+0 errors, 0 warnings, `Built Solution.I1Witness (10s)` (`build-i1witness.log`). `print-axioms.log`: 14 lines, each [propext, Classical.choice,
+Quot.sound]. `statement-identity.log`: 14 IDENTICAL on the tree and 14 on the mirror. `trust-greps.log`: the 3 + 14 deliberate challenge sorrys
+only, over all seven topic files; imports Mathlib / ChallengeDeps.I1Witness / Solution.* only (one grep hit on the word "imports" is inside the
+solution's header comment). `prerun-cleanup.log`: 32 artifacts removed. `comparator-run.log`: comparator with nanoda, `Built
+ChallengeDeps.I1Witness (2.9s)`, `Built Challenge.I1Witness (2.0s)` with its 14 sorry warnings, `Built Solution.I1Witness (10s)`, `Nanoda kernel
+accepts the solution`, `Lean default kernel accepts the solution`, `Your solution is okay!`, exit 0, 48.15 s real, max RSS 7.1 GB.
+Stop lines: none fired. Displayed hypotheses beyond the record: none (the recursion lemmas carry `2 ≤ n` and `¬ p ∣ n`, which are their
+subject). Next: BUILD-NOTES.md, FIDELITY.md, the yaml rows, the README section, hashes.txt, the 10(g) lint.
+
+## [builder] Tue Sep 29 07:53:06 IST 2026 — deliverables 5 landed; the builder's job is complete
+`BUILD-NOTES.md` (SHA-256 ad100bc5658a69c3cc4463017ec187e8afac382faa1443f6b76057f3cbb3722c), `FIDELITY.md` (203d2de9861d78e3a18102444820de03eed11e8284ab85430ff45c585bf79c90), `hashes.txt` (0d145c4cfc01d58e2fa795254218a171d6a9531e3ea9cd4cc9ad542be4eeb4d3; 33 files), `PREDERIVATION-ERRATA.md` (6aea75b50fa424484808fd84f6b9b35004fca0d9aefadcca203dcfd86708c22c),
+`typing.log`, `lint-10g.log` (0 hits of the four banned phrases in every file written; British-spelling spot check clean), `yaml-validation.log`
+(validator PASS, errors 0, undeclared names 0; row (y) once); `lean/formalization.yaml` (description paragraph, status.scope sentence, main_results
+entry, fidelity row (y), four alignment rows); `lean/README.md` (section "I1Witness (Session 32, 2026-09-29)"). Label earned, verbatim BRIEF §1(4).
+Stop lines: none. Fidelity divergences in the brief's sense: none. Edits: under `results/i1-witness-lean-s32/` and `lean/` only; the tree
+`~/rh-lean-work/checker-clone-s21` carries the same nine topic files by `cp`. Nothing committed. Next: the Opus 5 clean-clone CHECKER (BRIEF §3).

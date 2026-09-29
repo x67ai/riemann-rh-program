@@ -473,6 +473,53 @@ band-edge counterexample of D5 CHECK-O F2 stands); nothing about the μ-band, ζ
 E2). The fidelity ledger is `results/h5-c2-lean-s32/FIDELITY.md`, mirrored in `formalization.yaml` (`fidelity.divergences` row (x)); the D5
 row (u)'s (N2) sentence carries a dated FORMALIZED pointer to it.
 
+## I1Witness (Session 32, 2026-09-29): barrier-zoo I.1's one-line witnesses as kernel-checked values of the von Mangoldt recursion — `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/I1Witness.lean`, `Challenge/Solution/PrintAxioms/EpsteinWitnessSix.lean`, `config-i1-witness.json`, `config-epstein-witness-six.json`
+
+**What the topics are (H3 item 6; brief `results/i1-witness-lean-s32/BRIEF.md`, typing record `typing.log`, build record
+`BUILD-NOTES.md`, ledger `FIDELITY.md`).** The exact witnesses of zoo I.1 and of formalization-queue item 6 (BARRIER-ZOO.md line 666:
+"the witness arithmetic is kernel-checkable") — Epstein Λ_Q(6) = 2 log 6 and Λ_Q(36) = −4 log 6 for x² + 5y², Davenport–Heilbronn
+Λ_DH(3), Λ_DH(4), Λ_DH(6), Λ_DH(12) — as VALUES of the von Mangoldt recursion on the coefficient arrays, over a Mathlib-only trusted
+layer. The recursion is solved with log n replaced by the exponent vector (`lambdaVec b n p` = the coefficient of log p), so that the
+Epstein values are ring arithmetic on ℚ the kernel decides, and the DH values are polynomial identities in κ closed by `ring`:
+
+| file (under `comparator/`) | module | trusted? | content |
+|---|---|---|---|
+| `ChallengeDeps/I1Witness.lean` | `ChallengeDeps.I1Witness` | yes — read it | Mathlib only, namespace `I1Witness`: `lambdaVecAux` (the recursion with a fuel), `lambdaVec b n p := lambdaVecAux b p n n`, `LambdaReal b n := Σ_{p ≤ n prime} lambdaVec b n p · Real.log p`, `epsteinB n := (card of {(x, y) ∈ Icc (−n) n × Icc (−n) n : x² + 5y² = n} : ℚ) / 2`, `kappa := (√(10 − 2√5) − 2)/(√5 − 1)`, `dhA n := (1, κ, −κ, −1, 0)` at n % 5 = 1, 2, 3, 4, 0 |
+| `Challenge/EpsteinWitnessSix.lean` | `Challenge.EpsteinWitnessSix` | yes — read it | rung 1 (10(l)): `epsteinB_one`, `epstein_six_coeff` (2 and 2 at p = 2, 3), `epstein_witness_6` (= 2 log 2 + 2 log 3 = 2 log 6 > 0); `sorry` |
+| `Challenge/I1Witness.lean` | `Challenge.I1Witness` | yes — read it | fourteen statements: the recursion lemmas `lambdaVec_rec` (for every commutative ring: `2 ≤ n → lambdaVec b n p = b n * padicValNat p n − ∑ d ∈ n.properDivisors, lambdaVec b d p * b (n / d)`), `lambdaVec_one`, `lambdaVec_eq_zero_of_not_dvd`; Epstein `epsteinB_one`, `epstein_thirtysix_coeff` (−4, −4, and 0 at every other prime), `epstein_witness_36` (= −4 log 2 − 4 log 3 = −4 log 6 < 0); DH `kappa_pos`, `dhA_one`, `dh_three_coeff`, `dh_witness_3` (= −κ log 3 < 0), `dh_twelve_coeff` (−κ(1 + κ²)·2 and −κ(1 + κ²)), `dh_witness_12` (= −κ(1 + κ²)(2 log 2 + log 3) = −κ(1 + κ²) log 12 < 0), `dh_four` (= −(2 + κ²) log 2 < 0), `dh_six` (= (1 + κ²) log 6 > 0); `sorry` |
+| `Solution/EpsteinWitnessSix.lean`, `Solution/I1Witness.lean` | `Solution.*` | no (checked by comparator) | the same statements byte-identical, proved over Mathlib alone (each module self-contained): the fuel is shown irrelevant once ≥ n (strong induction), which gives the recursion; the Epstein coefficients by `decide +kernel` (77 ms at n = 6, about 3.6 s per coefficient at n = 36 — `typing.log`); the other primes by `lambdaVec_eq_zero_of_not_dvd` (a prime dividing 2^a·3^b is 2 or 3); the DH coefficients through the recursion over `Nat.properDivisors` (decided) and `ring`; `kappa_pos` by `Real.lt_sqrt`, `Real.sqrt_lt'` |
+| `config-epstein-witness-six.json`, `config-i1-witness.json`, `PrintAxioms/EpsteinWitnessSix.lean`, `PrintAxioms/I1Witness.lean` | — | yes / — | comparator configurations (3 and 14 names; `propext`, `Quot.sound`, `Classical.choice`; `enable_nanoda: true`) and the quick checks |
+
+**Quick check (no extra tooling), from the repository root:**
+
+```sh
+lake build Solution.EpsteinWitnessSix Solution.I1Witness
+lake env lean comparator/PrintAxioms/EpsteinWitnessSix.lean   # 3 lines, each [propext, Classical.choice, Quot.sound]
+lake env lean comparator/PrintAxioms/I1Witness.lean           # 14 lines, each [propext, Classical.choice, Quot.sound]
+python3 results/i1-witness-lean-s32/tools/statement_identity_i1.py . EpsteinWitnessSix epsteinB_one epstein_six_coeff epstein_witness_6
+python3 results/i1-witness-lean-s32/tools/statement_identity_i1.py . I1Witness <the fourteen names>
+python3 results/i1-witness-lean-s32/tools/trust_greps_i1.py . <the seven topic files>   # the 3 + 14 challenge sorrys only
+```
+
+Recorded runs (2026-09-29, `results/i1-witness-lean-s32/`): both solutions *Build completed successfully (8698 jobs)*, 0 errors, 0
+warnings, first try (`build-i1witness.log`); `rung1-print-axioms.log`, `print-axioms.log`; `rung1-statement-identity.log`,
+`statement-identity.log` (3 + 14 IDENTICAL, tree and mirror); `rung1-trust-greps.log`, `trust-greps.log`; the Comparator runs with
+nanoda `rung1-comparator.log` (30 s) and `comparator-run.log` (48 s) — `Nanoda kernel accepts the solution`, `Lean default kernel
+accepts the solution`, `Your solution is okay!`, exit 0 (runner `tools/run.sh`; NOT sandboxed, the fake-landrun shim as in every prior
+macOS record).
+
+**Honest label, verbatim (BRIEF §1(4)): "I.1's witness table kernel-checked — for the Epstein form x² + 5y² (h = 2), Λ_Q(36) = −4 log 2
+− 4 log 3 < 0 (and Λ_Q(6) = 2 log 6 off prime powers); for Davenport–Heilbronn, Λ_DH(3) = −κ log 3 < 0 and Λ_DH(12) = −κ(1 + κ²) log 12 < 0
+with κ > 0 from its closed form — where Λ_f is the von Mangoldt recursion's coefficient sequence on the array with b₁ = 1; over Mathlib
+alone, the three standard axioms, replayed by nanoda; the identification of that sequence with −F′/F as Dirichlet series is not
+formalized".** What it means: the one-line witnesses I.1's executable test points at ("consumes Λ(n) ≥ 0; Λ_DH(12) < 0") are now
+kernel-checked values, not computations. What it does NOT say (FIDELITY.md §2): the identification of the recursion's sequence with −F′/F
+is the classical identity, by hand; nothing about the Euler product of either function as a theorem (the witness is a value; "no Euler
+product" is the zoo's reading); nothing about the analytic continuation, functional equation or off-line zero of the Davenport–Heilbronn
+function, nothing about the zeros of any Epstein zeta function; no decimal value is stated; nothing about ζ or RH. No displayed
+hypothesis (the recursion lemmas' `2 ≤ n` and `¬ p ∣ n` are their subjects). The fidelity ledger is `results/i1-witness-lean-s32/FIDELITY.md`,
+mirrored in `formalization.yaml` (`fidelity.divergences` row (y)).
+
 ## IntegralityGap (Session 30, 2026-09-29): barrier-zoo IV.17 in Lean — the master inequality holds over ℤ and FAILS over ℚ on the same grid row — `Zeta23/PairCeiling/GridParsevalRat.lean`, `GridGap.lean`, `comparator/{ChallengeDeps,Challenge,Solution,PrintAxioms}/IntegralityGap.lean`, `config-integrality-gap.json`
 
 **What the topic is (G8; brief `results/iv17-lean-s30/BRIEF.md`, typing check `TYPING-NOTE.md`, build record `BUILD-NOTES.md`, ledger
