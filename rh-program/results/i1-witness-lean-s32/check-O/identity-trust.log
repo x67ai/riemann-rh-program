@@ -1,0 +1,96 @@
+== Tue Sep 29 08:00:45 IST 2026 statement identity (builder tool, run by the checker on the CLEAN CLONE /Users/jaytyagi/rh-lean-work/checker-clone-s32-i1)
+epsteinB_one                                  challenge    37 bytes, solution    37 bytes: IDENTICAL
+    theorem epsteinB_one : epsteinB 1 = 1
+epstein_six_coeff                             challenge    83 bytes, solution    83 bytes: IDENTICAL
+    theorem epstein_six_coeff : lambdaVec epsteinB 6 2 = 2 ∧ lambdaVec epsteinB 6 3 = 2
+epstein_witness_6                             challenge   225 bytes, solution   225 bytes: IDENTICAL
+    theorem epstein_witness_6 :
+        LambdaReal (fun n => (epsteinB n : ℝ)) 6 = 2 * Real.log 2 + 2 * Real.log 3 ∧
+          LambdaReal (fun n => (epsteinB n : ℝ)) 6 = 2 * Real.log 6 ∧
+          0 < LambdaReal (fun n => (epsteinB n : ℝ)) 6
+RESULT: PASS
+exit=0
+lambdaVec_rec                                 challenge   193 bytes, solution   193 bytes: IDENTICAL
+    theorem lambdaVec_rec {R : Type*} [CommRing R] (b : ℕ → R) (p n : ℕ) (hn : 2 ≤ n) :
+        lambdaVec b n p = b n * (padicValNat p n : R)
+          - ∑ d ∈ n.properDivisors, lambdaVec b d p * b (n / d)
+lambdaVec_one                                 challenge    88 bytes, solution    88 bytes: IDENTICAL
+    theorem lambdaVec_one {R : Type*} [CommRing R] (b : ℕ → R) (p : ℕ) : lambdaVec b 1 p = 0
+lambdaVec_eq_zero_of_not_dvd                  challenge   123 bytes, solution   123 bytes: IDENTICAL
+    theorem lambdaVec_eq_zero_of_not_dvd {R : Type*} [CommRing R] (b : ℕ → R) (p n : ℕ) (h : ¬ p ∣ n) :
+        lambdaVec b n p = 0
+epsteinB_one                                  challenge    37 bytes, solution    37 bytes: IDENTICAL
+    theorem epsteinB_one : epsteinB 1 = 1
+epstein_thirtysix_coeff                       challenge   164 bytes, solution   164 bytes: IDENTICAL
+    theorem epstein_thirtysix_coeff :
+        lambdaVec epsteinB 36 2 = -4 ∧ lambdaVec epsteinB 36 3 = -4 ∧
+          ∀ p, p.Prime → p ≠ 2 → p ≠ 3 → lambdaVec epsteinB 36 p = 0
+epstein_witness_36                            challenge   231 bytes, solution   231 bytes: IDENTICAL
+    theorem epstein_witness_36 :
+        LambdaReal (fun n => (epsteinB n : ℝ)) 36 = -4 * Real.log 2 - 4 * Real.log 3 ∧
+          LambdaReal (fun n => (epsteinB n : ℝ)) 36 = -4 * Real.log 6 ∧
+          LambdaReal (fun n => (epsteinB n : ℝ)) 36 < 0
+kappa_pos                                     challenge    29 bytes, solution    29 bytes: IDENTICAL
+    theorem kappa_pos : 0 < kappa
+dhA_one                                       challenge    27 bytes, solution    27 bytes: IDENTICAL
+    theorem dhA_one : dhA 1 = 1
+dh_three_coeff                                challenge    51 bytes, solution    51 bytes: IDENTICAL
+    theorem dh_three_coeff : lambdaVec dhA 3 3 = -kappa
+dh_witness_3                                  challenge    84 bytes, solution    84 bytes: IDENTICAL
+    theorem dh_witness_3 : LambdaReal dhA 3 = -kappa * Real.log 3 ∧ LambdaReal dhA 3 < 0
+dh_twelve_coeff                               challenge   127 bytes, solution   127 bytes: IDENTICAL
+    theorem dh_twelve_coeff :
+        lambdaVec dhA 12 2 = -kappa * (1 + kappa ^ 2) * 2 ∧ lambdaVec dhA 12 3 = -kappa * (1 + kappa ^ 2)
+dh_witness_12                                 challenge   201 bytes, solution   201 bytes: IDENTICAL
+    theorem dh_witness_12 :
+        LambdaReal dhA 12 = -kappa * (1 + kappa ^ 2) * (2 * Real.log 2 + Real.log 3) ∧
+          LambdaReal dhA 12 = -kappa * (1 + kappa ^ 2) * Real.log 12 ∧
+          LambdaReal dhA 12 < 0
+dh_four                                       challenge   138 bytes, solution   138 bytes: IDENTICAL
+    theorem dh_four :
+        lambdaVec dhA 4 2 = -(2 + kappa ^ 2) ∧ LambdaReal dhA 4 = -(2 + kappa ^ 2) * Real.log 2 ∧
+          LambdaReal dhA 4 < 0
+dh_six                                        challenge   169 bytes, solution   169 bytes: IDENTICAL
+    theorem dh_six :
+        lambdaVec dhA 6 2 = 1 + kappa ^ 2 ∧ lambdaVec dhA 6 3 = 1 + kappa ^ 2 ∧
+          LambdaReal dhA 6 = (1 + kappa ^ 2) * Real.log 6 ∧ 0 < LambdaReal dhA 6
+RESULT: PASS
+exit=0
+== Tue Sep 29 08:00:45 IST 2026 trust greps (builder tool, comments stripped) on the clean clone, seven .lean files as separate arguments
+comparator/Challenge/EpsteinWitnessSix.lean:39: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:43: [sorry] sorry
+comparator/Challenge/EpsteinWitnessSix.lean:50: [sorry] sorry
+comparator/Challenge/I1Witness.lean:48: [sorry] sorry
+comparator/Challenge/I1Witness.lean:52: [sorry] sorry
+comparator/Challenge/I1Witness.lean:57: [sorry] sorry
+comparator/Challenge/I1Witness.lean:61: [sorry] sorry
+comparator/Challenge/I1Witness.lean:67: [sorry] sorry
+comparator/Challenge/I1Witness.lean:74: [sorry] sorry
+comparator/Challenge/I1Witness.lean:78: [sorry] sorry
+comparator/Challenge/I1Witness.lean:82: [sorry] sorry
+comparator/Challenge/I1Witness.lean:86: [sorry] sorry
+comparator/Challenge/I1Witness.lean:90: [sorry] sorry
+comparator/Challenge/I1Witness.lean:95: [sorry] sorry
+comparator/Challenge/I1Witness.lean:102: [sorry] sorry
+comparator/Challenge/I1Witness.lean:108: [sorry] sorry
+comparator/Challenge/I1Witness.lean:114: [sorry] sorry
+files present: 7; hits outside comments: 17
+exit=1
+== Tue Sep 29 08:00:45 IST 2026 clone vs rh-program/lean/ (cmp) for the nine topic files
+IDENTICAL comparator/ChallengeDeps/I1Witness.lean
+IDENTICAL comparator/Challenge/EpsteinWitnessSix.lean
+IDENTICAL comparator/Challenge/I1Witness.lean
+IDENTICAL comparator/Solution/EpsteinWitnessSix.lean
+IDENTICAL comparator/Solution/I1Witness.lean
+IDENTICAL comparator/PrintAxioms/EpsteinWitnessSix.lean
+IDENTICAL comparator/PrintAxioms/I1Witness.lean
+IDENTICAL comparator/config-epstein-witness-six.json
+IDENTICAL comparator/config-i1-witness.json
+== Tue Sep 29 08:00:45 IST 2026 topic files in the clone that are NOT in v1.0 (git status of comparator/ for these names)
+?? comparator/Challenge/EpsteinWitnessSix.lean
+?? comparator/Challenge/I1Witness.lean
+?? comparator/ChallengeDeps/I1Witness.lean
+?? comparator/PrintAxioms/EpsteinWitnessSix.lean
+?? comparator/PrintAxioms/I1Witness.lean
+?? comparator/Solution/EpsteinWitnessSix.lean
+?? comparator/Solution/I1Witness.lean

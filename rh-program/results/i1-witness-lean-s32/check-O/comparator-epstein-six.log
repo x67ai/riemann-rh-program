@@ -1,0 +1,75 @@
+=== [CHECK-O-EpsteinWitnessSix] start 2026-09-29 08:01:13 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/checker-clone-s32-i1
+config=comparator/config-epstein-witness-six.json
+{
+  "challenge_module": "Challenge.EpsteinWitnessSix",
+  "solution_module": "Solution.EpsteinWitnessSix",
+  "theorem_names": [
+    "epsteinB_one",
+    "epstein_six_coeff",
+    "epstein_witness_6"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+tool hashes:
+fe1222e25fc301dc51ec3f9964a59ab557ea4f9ae6bb758842d70dbb341a5d08  /Users/jaytyagi/rh-lean-work/tools/comparator/.lake/build/bin/comparator
+de4ffedf1412873c0d196f4c4eb98d3b45af43f37bd6cc07e2517706481a7775  /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+d6c87133b59c2286fed27e2417fb17f9419326c2dde904de9f85d288594948bb  /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+167507c89d8b3c7667ad78b50df7b19f89883751a01efd1457404fa34a994e8b  /Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.EpsteinWitnessSix
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.EpsteinWitnessSix
+✔ [8697/8698] Built ChallengeDeps.I1Witness (2.9s)
+⚠ [8698/8698] Built Challenge.EpsteinWitnessSix (2.0s)
+warning: comparator/Challenge/EpsteinWitnessSix.lean:38:8: declaration uses `sorry`
+warning: comparator/Challenge/EpsteinWitnessSix.lean:42:8: declaration uses `sorry`
+warning: comparator/Challenge/EpsteinWitnessSix.lean:46:8: declaration uses `sorry`
+Build completed successfully (8698 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.EpsteinWitnessSix -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind epsteinB_one epstein_six_coeff epstein_witness_6 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, epsteinB_one, epstein_six_coeff, epstein_witness_6, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.EpsteinWitnessSix
+Building Solution.EpsteinWitnessSix
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.EpsteinWitnessSix
+✔ [8698/8698] Built Solution.EpsteinWitnessSix (3.2s)
+Build completed successfully (8698 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.EpsteinWitnessSix -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind epsteinB_one epstein_six_coeff epstein_witness_6 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.ig7d7xwV
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, epsteinB_one, epstein_six_coeff, epstein_witness_6, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.EpsteinWitnessSix
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       30.42 real        23.18 user        13.76 sys
+          5957009408  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2310969  page reclaims
+                1036  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               17816  voluntary context switches
+              167259  involuntary context switches
+          4157749482  instructions retired
+          1330727761  cycles elapsed
+           136830504  peak memory footprint
+--- comparator exit code: 0 ---
+=== [CHECK-O-EpsteinWitnessSix] end 2026-09-29 08:01:44 IST ===

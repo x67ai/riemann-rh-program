@@ -1,0 +1,67 @@
+== Tue Sep 29 08:00:19 IST 2026 single-theorem kernel probe (clean clone)
+parsing took 0.0778ms
+parsing took 0.000542ms
+overlappingInstancesLinter took 0.014ms
+tacticAnalysis took 0.086ms
+linting took 10.4ms
+attribute application took 0.00567ms
+typeclass inference of OfNat took 0.151ms
+typeclass inference of OfNat took 0.0275ms
+typeclass inference of CommRing took 0.0227ms
+typeclass inference of OfNat took 0.0671ms
+typeclass inference of OfNat took 0.0311ms
+typeclass inference of Neg took 0.0188ms
+typeclass inference of OfNat took 0.024ms
+instantiate metavars took 0.00333ms
+instantiate metavars took 0.000292ms
+let-to-have transformation took 0.0055ms
+attribute application took 0.000958ms
+attribute application took 0.000416ms
+elaboration took 0.742ms
+typeclass inference of Decidable took 0.112ms
+typeclass inference of Decidable took 0.00404ms
+type checking took 3.43s
+tactic execution of Lean.Parser.Tactic.decide took 0.228ms
+tactic execution of Lean.Parser.Tactic.tacticSeq1Indented took 0.0113ms
+tactic execution of Lean.Parser.Tactic.tacticSeq took 0.014ms
+instantiate metavars took 0.00283ms
+instantiate metavars took 0.000167ms
+instantiate metavars took 0.000125ms
+instantiate metavars took 0.000209ms
+instantiate metavars took 8.4e-05ms
+share common exprs took 0.0113ms
+fix level params took 0.00538ms
+let-to-have transformation took 0.00271ms
+attribute application took 0.00213ms
+attribute application took 0.000541ms
+process pre-definitions took 0.0675ms
+elaboration took 0.194ms
+type checking took 0.0572ms
+overlappingInstancesLinter took 0.587ms
+tacticAnalysis took 0.531ms
+linting took 1.48ms
+elaboration took 0.0109ms
+overlappingInstancesLinter took 0.0106ms
+tacticAnalysis took 0.0765ms
+linting took 9.05ms
+module linting took 0.00075ms
+cumulative profiling times:
+	attribute application 0.00908ms
+	elaboration 0.955ms
+	fix level params 0.00525ms
+	instantiate metavars 0.00633ms
+	let-to-have transformation 0.00792ms
+	linting 28.7ms
+	module linting 0.000542ms
+	overlappingInstancesLinter 0.985ms
+	parsing 0.0865ms
+	process pre-definitions 0.0673ms
+	share common exprs 0.0111ms
+	tactic execution 0.252ms
+	tacticAnalysis 2.43ms
+	type checking 3.43s
+	typeclass inference 0.457ms
+real 7.04
+user 5.08
+sys 1.98
+exit=0

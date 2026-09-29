@@ -1,0 +1,67 @@
+== Tue Sep 29 07:58:46 IST 2026 overclaim and trust greps (checker; bash array, seven topic files; the zsh one-argument slip of the first attempt is not kept)
+--- pattern: I\.1 (is )?formali[sz]ed
+--- pattern: no Euler product
+lean/comparator/Challenge/I1Witness.lean:31:NOT formalized.  NOT claimed: anything about the Euler product of either function (the witness is a value; "DH has no Euler product"
+--- pattern: Euler product
+lean/comparator/Challenge/EpsteinWitnessSix.lean:25:is NOT formalized.  Nothing is said about the Euler product, the zeros, the functional equation or the analytic continuation of
+lean/comparator/Challenge/I1Witness.lean:31:NOT formalized.  NOT claimed: anything about the Euler product of either function (the witness is a value; "DH has no Euler product"
+--- pattern: ζ
+lean/comparator/ChallengeDeps/I1Witness.lean:28:  epsteinB n         := r_Q(n)/2 for Q = x² + 5y² (D = −20, h = 2), the record's normalization "F(s) = ζ_Q(s)/2, b_n = r_Q(n)/2,
+lean/comparator/ChallengeDeps/I1Witness.lean:64:the box `|x|, |y| ≤ n` (which contains every solution). The record's normalization `F(s) = ζ_Q(s)/2`, `b₁ = 1`. -/
+lean/comparator/Challenge/EpsteinWitnessSix.lean:26:any Epstein zeta function; nothing about ζ or RH.  The value 6 = 2·3 is not a prime power; the reading "support off prime powers"
+lean/comparator/Challenge/I1Witness.lean:33:function; anything about the zeros of any Epstein zeta function; anything about ζ or RH.  Nothing here is an attack on RH; it is a
+--- pattern: \bRH\b
+lean/comparator/Challenge/EpsteinWitnessSix.lean:26:any Epstein zeta function; nothing about ζ or RH.  The value 6 = 2·3 is not a prime power; the reading "support off prime powers"
+lean/comparator/Challenge/I1Witness.lean:33:function; anything about the zeros of any Epstein zeta function; anything about ζ or RH.  Nothing here is an attack on RH; it is a
+--- pattern: −F′/F
+lean/comparator/ChallengeDeps/I1Witness.lean:34:What is NOT defined here: no Dirichlet series, no −F′/F, no analytic continuation, no functional equation, no zero of anything.
+lean/comparator/ChallengeDeps/I1Witness.lean:35:The identification "LambdaReal b is the coefficient sequence of −F′/F for F(s) = Σ b_n n^{−s}" is the classical identity
+lean/comparator/Challenge/EpsteinWitnessSix.lean:24:(ChallengeDeps.I1Witness); its identification with the coefficients of −F′/F for F(s) = Σ b_n n^{−s} is the classical identity and
+lean/comparator/Challenge/I1Witness.lean:30:(ChallengeDeps.I1Witness); its identification with the coefficients of −F′/F for F(s) = Σ b_n n^{−s} is the classical identity and is
+--- pattern: Dirichlet
+lean/comparator/ChallengeDeps/I1Witness.lean:34:What is NOT defined here: no Dirichlet series, no −F′/F, no analytic continuation, no functional equation, no zero of anything.
+--- pattern: native_decide
+lean/comparator/PrintAxioms/EpsteinWitnessSix.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-epstein-witness-six.json)
+lean/comparator/PrintAxioms/I1Witness.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-i1-witness.json) is the
+--- pattern: ofReduceBool
+lean/comparator/PrintAxioms/EpsteinWitnessSix.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-epstein-witness-six.json)
+lean/comparator/PrintAxioms/I1Witness.lean:15:No sorryAx, no Lean.ofReduceBool (= no native_decide), no other axiom.  The comparator run (config-i1-witness.json) is the
+--- pattern: \bsorry\b
+lean/comparator/Challenge/EpsteinWitnessSix.lean:29:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this module.
+lean/comparator/Challenge/EpsteinWitnessSix.lean:39:  sorry
+lean/comparator/Challenge/EpsteinWitnessSix.lean:43:  sorry
+lean/comparator/Challenge/EpsteinWitnessSix.lean:50:  sorry
+lean/comparator/Challenge/I1Witness.lean:36:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this module.
+lean/comparator/Challenge/I1Witness.lean:48:  sorry
+lean/comparator/Challenge/I1Witness.lean:52:  sorry
+lean/comparator/Challenge/I1Witness.lean:57:  sorry
+lean/comparator/Challenge/I1Witness.lean:61:  sorry
+lean/comparator/Challenge/I1Witness.lean:67:  sorry
+lean/comparator/Challenge/I1Witness.lean:74:  sorry
+lean/comparator/Challenge/I1Witness.lean:78:  sorry
+lean/comparator/Challenge/I1Witness.lean:82:  sorry
+lean/comparator/Challenge/I1Witness.lean:86:  sorry
+lean/comparator/Challenge/I1Witness.lean:90:  sorry
+lean/comparator/Challenge/I1Witness.lean:95:  sorry
+lean/comparator/Challenge/I1Witness.lean:102:  sorry
+lean/comparator/Challenge/I1Witness.lean:108:  sorry
+lean/comparator/Challenge/I1Witness.lean:114:  sorry
+--- pattern: ^import
+lean/comparator/ChallengeDeps/I1Witness.lean:39:import Mathlib
+lean/comparator/Challenge/EpsteinWitnessSix.lean:31:import ChallengeDeps.I1Witness
+lean/comparator/Challenge/I1Witness.lean:38:import ChallengeDeps.I1Witness
+lean/comparator/Solution/EpsteinWitnessSix.lean:23:import ChallengeDeps.I1Witness
+lean/comparator/Solution/I1Witness.lean:26:imports the challenge and never imports Solution.EpsteinWitnessSix (each topic is self-contained).
+lean/comparator/Solution/I1Witness.lean:28:import ChallengeDeps.I1Witness
+lean/comparator/PrintAxioms/EpsteinWitnessSix.lean:18:import Solution.EpsteinWitnessSix
+lean/comparator/PrintAxioms/I1Witness.lean:18:import Solution.I1Witness
+--- pattern: ^axiom|[^a-zA-Z_]axiom 
+lean/comparator/PrintAxioms/EpsteinWitnessSix.lean:12:comparator/PrintAxioms/EpsteinWitnessSix.lean — quick axiom audit of the EpsteinWitnessSix topic WITHOUT the comparator tool:
+lean/comparator/PrintAxioms/I1Witness.lean:12:comparator/PrintAxioms/I1Witness.lean — quick axiom audit of the I1Witness topic WITHOUT the comparator tool:
+--- pattern: opaque
+--- pattern: implemented_by
+--- pattern: extern
+--- pattern: set_option
+--- pattern: unsafe
+--- pattern: partial def
+--- pattern: ^macro|^elab|^syntax
