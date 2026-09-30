@@ -87,3 +87,47 @@ sha256 after  f1045aec865e4acf26e3b0d7496dde37b0004794733197189947cbbe9e4bfbae
 243	header 5 bars / row 5 bars	| Chebyshev-type auxiliary integers F_x = Π_k(⌊x/k⌋!)^{c_k} (Lemma Z4; class C
 244	header 5 bars / row 5 bars	| ↳ [PROVENANCE 2026-10-01, Session 38 — wave-2 digest §D, applied insertion-o
 ```
+
+## 4. C2 Untried — five §F.3 entries, UT-1 … UT-5 (2026-10-01 04:51:46 IST)
+
+File `directions/C2-rigidity-conservation.md`, Untried section, after its last bullet (old line 169, now 176: the wave-1 "Krein–Langer transport
+as a theorem (lemma L2)" bullet). Entries UT-1 … UT-5 (digest lines 404–421); each "Target:" names C2 (UT-3's names C2 and B2 — quoted in both).
+Each bullet: the dated tag "[2026-10-01, Session 38 — wave-2 digest, `results/novel-wave-s37/insights-digest.md` §F.3]", then the digest entry
+verbatim with its UT number (list marker dropped, wrapped lines joined with one space; checked by script: the joined text occurs exactly once in
+the file), then a bracketed note marked "not digest text": the digest lines, the §F.3 preface "the fit reasons are this digest's reading of the
+cited lines, not new claims", the seed-folder key; UT-3 adds the two-file note; UT-4 adds the pointer to wave-1's "Extremal characterization
+of ξ" bullet (line 175 here) and the digest's §F.3 closing line verbatim ("… UT-4 is the concrete instance of the first."). Dry run
+byte-identical (`cmp`). Numbers are final.
+
+```
+sha256 before e793244b858b8d29c03e7e6bbc8d2708d6d1bcea70cc8b352733b256b0c2d4a7
+sha256 after  98d789784d1514f393aca0ecabadb2b8bb01d8d4eae773f10c1d7c085eb6597b
+inserted after line 176 (- **[2026-09-30, Session 37 — wave-1 digest, `resu)
+177	UT-1 (digest 404–407)	**UT-1 Discrete Beurling systems with Riemann's FE and finitely many e
+178	UT-2 (digest 408–410)	**UT-2 Can (G′) be dropped for dN ≥ 0?** (read-O R4(2); fe/NOTE.md §5(
+179	UT-3 (digest 411–414)	**UT-3 Classify the signed solutions with the gap** (fe/NOTE.md:247–25
+180	UT-4 (digest 415–419)	**UT-4 The Fejér defect as a positive form, transported to the zeros**
+181	UT-5 (digest 420–421)	**UT-5 Double pole at s = 1 with Riemann's Γ-factor** (fe/NOTE.md §8(f
+```
+
+## 5. B2 Untried — seven §F.3 entries: UT-3, UT-6, UT-7, UT-8, UT-9, UT-10, UT-13 (2026-10-01 04:52:09 IST)
+
+File `directions/B2-refutation-program.md`, Untried section, after its last bullet (old line 131, now 137: "M5 restated distributionally or
+demoted to a remark"). Order = the digest's order. Each "Target:" names B2 (UT-3's names C2 and B2; the C2 copy is §4's line 179). Same bullet
+shape as §4. Added notes (marked "not digest text"): UT-3 the two-file note; UT-6 "ranked unit U5b is the digest's §F.2 item 6 (digest lines
+396–399)"; UT-10 "ranked unit U5a is the digest's §F.2 item 4 (digest lines 383–387)" — the two one-line entries point into §F.2 and carry no
+fit reason of their own, so the note says where the content is; UT-13 "`conj-O-s38` is `results/conj-O-s38/`". Dry run byte-identical (`cmp`).
+Numbers are final.
+
+```
+sha256 before c9fd84e83cb153c1b423e3e28d9c5512e011c4e90c42db9867c5dac7cc549aa8
+sha256 after  9263eab6c31d85fcc9fad126fe1fdabf83ca2d532df6f46e8bae051502720de1
+inserted after line 137 (- **M5 restated distributionally or demoted to a r)
+138	UT-3 (digest 411–414)	**UT-3 Classify the signed solutions with the gap** (fe/NOTE.md:247–25
+139	UT-6 (digest 422–422)	**UT-6 Gap G1 under RH** = ranked unit U5b (§F.2 item 6). Target: B2. 
+140	UT-7 (digest 423–424)	**UT-7 Gap G2 — moments of the Bernoulli chaos Σ_d μ_η(d)T_d(x/d)** (f
+141	UT-8 (digest 425–428)	**UT-8 Conjecture R's unconditional form as a zero detector** (fr/NOTE
+142	UT-9 (digest 429–432)	**UT-9 Conjecture U off the surgery class** (fr/NOTE.md:480–482; fr re
+143	UT-10 (digest 433–433)	**UT-10 The A3 lemma** = ranked unit U5a (§F.2 item 4). Target: B2. [B
+144	UT-13 (digest 442–443)	**UT-13 Prior art for Prop. 5.1** (a Franel-type exact mean square for
+```

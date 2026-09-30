@@ -105,3 +105,9 @@ Agent: consolidation agent, Opus 5.5 (default effort). Brief: `DIGEST-BRIEF.md` 
 - B2: digest §D rows 241–245 → `directions/B2-refutation-program.md` lines 123–127, ↳ PROVENANCE 128; SHA-256 041d3410… → c9fd84e8….
 - C3: digest §D rows 251–253 → `directions/C3-geometric-substrate.md` lines 241–243, ↳ PROVENANCE 244; SHA-256 03f3a544… → f1045aec….
 - Every new row: header 5 bars / row 5 bars. Record: `digest-APPLIED.md` §2–§3. Next: §F.3 UT-1…UT-13 into the Untried sections.
+
+## 2026-10-01 04:52 IST block 11 — digest applier: C2 and B2 Untried entries applied
+
+- C2 Untried: UT-1…UT-5 (digest 404–421) → `directions/C2-rigidity-conservation.md` lines 177–181; SHA-256 e793244b… → 98d78978….
+- B2 Untried: UT-3, UT-6, UT-7, UT-8, UT-9, UT-10, UT-13 → `directions/B2-refutation-program.md` lines 138–144; SHA-256 c9fd84e8… → 9263eab6….
+- UT-3 names C2 and B2 in its "Target:", so it is quoted in both. Record: `digest-APPLIED.md` §4–§5. Next: C3 Untried (UT-11, UT-12).
