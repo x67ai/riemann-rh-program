@@ -32,3 +32,18 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
   states RH "will require more than just the multiplicative structure"; Olofsson Prop. 3.1 + Conj. 1.2 (Beurling's
   problem: |N(x) − [x]| small ⟹ primes); Lagarias 1999: Delone systems inside Z classified; the non-integer Delone case
   is Lagarias's open question (Olofsson lines 656–669). None states FE-rigidity for Beurling systems (so far).
+
+## 2026-09-30 block 3 — NOTE §2 (gate), §3 (Prop. R + Lemma G), §4 (Theorem T + T1–T3) written
+
+- Gate verdict (NOTE §2): not settled in print in anything read. Closest printed results: Hamburger's second theorem as stated by
+  Burnol 1106.4749 line 160 (f ORDINARY, dual frequencies ≥ 1 ⟹ f = cζ) and Burnol Thm 2 (f, g general: only an equivalence);
+  Hilberdink–Lapidus 2006 lines 125–128 call the Beurling-FE question "difficult" and leave it open. Web searches (2026-09-30):
+  "Beurling … functional equation must be Riemann zeta", "Lagarias Delone", "Bochner Chandrasekharan On Riemann's functional
+  equation", "generalized primes Hamburger", "positive measure equal to its Fourier transform … Dirac comb" — no statement found.
+  Also fetched: Perelli 1605.02354 (converse-theorem survey; Hecke groups G(λ), λ > 2 ⟹ infinite-dimensional solution spaces).
+- THEOREM T (positive Hamburger): dN ≥ 0 on [1,∞), Riemann FE with poles only at 0,1, growth (G') ⟹ dN = ρΣδ_n.
+  Corollaries: Beurling discrete ⟹ rational primes; no continuous Beurling system has the FE; general Dirichlet series with
+  a_k ≥ 0, λ_k ≥ 1 ⟹ multiple of ζ. Proof = Fejér kernel (1−|x|)₊ + periodicity; Lemma G proves Gaussians determine even
+  tempered distributions (no Hermite-density citation needed).
+- NEXT: verify/ scripts (theta relation, Fejér identity, conductor identity, controls, least-squares experiment); §5 attack log;
+  §6 second proof in the u.d. case (Lev–Olevskii + Hilberdink pigeonhole + Hamburger); relaxations; controls; close.

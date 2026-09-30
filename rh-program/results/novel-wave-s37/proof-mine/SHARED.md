@@ -33,3 +33,9 @@ R8 Laumon/Weil II (B): first object = a function to P^1 (Prop 4.3.2.1), then the
 conclusion of Cor 4.3.1.1 only (labeled). R9 Kedlaya (B): complete p-adic proof in print (abstract, at the page) = R8 transcribed;
 Dwork = rationality only (V passes; not a proof of RH). R10 Davenport-Hasse/Weil 1949 (C, special curves): Gauss sums |g|^2 = 5 computed.
 Bookkeeping: an append had landed after the §3/§4 placeholders; the placeholders were removed and §3/§4 will be appended at the end.
+
+## 2026-09-30 block 4 — table rows R11–R14 written (table complete)
+R11: modular/automorphic methods CONSUME RH for curves (Milne pp. 45-49 at the page: Hasse-Weil continuation for CM/modular curves over Q;
+Ramanujan deduced from Weil); CM over F_q is class D. R12 CCM: Weil restated (A), Prop 6.2 = Weil's criterion. R13 Hrushovski: for curves
+Weil's positivity (Ex. 11.4, p. 114), else consumes Deligne; e = -5 vs 4.472. R14: named-not-read list (Manin 1956, Igusa, Quigley, Roquette,
+Kani, Weil II 1980, Stark, Stohr-Voloch). No proof found that V passes. Next: §3 (Z-analogs on the record), §4 (partition theorem, close).

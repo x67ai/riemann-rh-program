@@ -73,7 +73,7 @@ PROPOSITION R. For ρ ≥ 0 the following are equivalent:
      and (G') s(s − 1)ξ_F(s) = O(exp e^{ε|t|}) in every vertical strip, for every ε > 0 (finite order is a special case);
  (B) ρ + 2ψ(1/x) = √x·(ρ + 2ψ(x)) for all x > 0;
  (C) μ is a tempered distribution and μ̂ = μ.
-Moreover under (A)–(C): N(x) = O(x), F converges absolutely for Re s > 1, and ρ = lim N(x)/x.
+Moreover under (A)–(C): N(x) = O(x) and F converges absolutely for Re s > 1.
 
 Proof. (A)⟹(B). Fix c > max(A, 1). Mellin inversion: ψ(x) = (1/4πi)∫_{(c)} ξ_F(s)x^{−s/2} ds (Fubini; ξ_F decays like e^{−π|t|/4}
 on Re s = c by Stirling). On Re s = 1 − c the FE gives the same decay. H(s) := s(s−1)ξ_F(s) is entire, of growth (G') in the strip
@@ -84,11 +84,11 @@ by s ↦ 1 − s and the FE, is x^{−1/2}ψ(1/x). Hence ψ(x) = ρ/(2√x) − 
 (B)⟹(A). Riemann's computation: for Re s > max(A,1), ξ_F(s) = ∫₀^∞ ψ(x)x^{s/2−1}dx; split at 1 and use (B) on (0, 1):
 ξ_F(s) = −ρ/s − ρ/(1 − s) + ∫₁^∞ ψ(x)(x^{s/2} + x^{(1−s)/2}) dx/x. ψ(x) ≤ e^{−π(x−1)}ψ(1) for x ≥ 1 (all t ≥ 1), so the integral is
 entire, of order ≤ 1, symmetric under s ↦ 1 − s. All of (A) follows ((G') from order ≤ 1).
-(B)⟹ N(x) = O(x): e^{−π}N(X) ≤ ψ(1/X²) = X^{−1}(ρ + 2ψ(X²))·... precisely, (B) at x = 1/X² gives 2ψ(1/X²) = X(ρ + 2ψ(X²)) − ρ ≤ X(ρ + 2ψ(1)),
-and N(X) ≤ e^{π}ψ(1/X²). So μ has linear growth, is tempered, and F converges absolutely for Re s > 1.
+(B)⟹ N(x) = O(x): for t ≤ X, e^{−πt²/X²} ≥ e^{−π}, so N(X) ≤ e^{π}ψ(1/X²); (B) at x = X² gives 2ψ(1/X²) = X(ρ + 2ψ(X²)) − ρ
+≤ X(ρ + 2ψ(1)) for X ≥ 1. So N(X) ≤ ½e^{π}(ρ + 2ψ(1))X: μ has linear growth, is tempered, F converges absolutely for Re s > 1.
 (B)⟹(C). ⟨μ, g_x⟩ = ρ + 2ψ(x) and ⟨μ̂, g_x⟩ := ⟨μ, ĝ_x⟩ = x^{−1/2}(ρ + 2ψ(1/x)); (B) says these agree for all x > 0. T := μ̂ − μ is an
 even tempered distribution annihilating every g_x; Lemma G gives T = 0.  (C)⟹(B): pair μ̂ = μ with g_x.
-ρ = density: ⟨μ, g_x⟩ ~ x^{−1/2}ρ as x → 0 (from (B)) and Karamata, or directly §4 below (μ̂({0}) = ρ is the mean of μ). ∎
+(That ρ is the density lim N(x)/x follows from (B) by Karamata [recalled, not used]; in §4 it comes out a posteriori.) ∎
 
 LEMMA G. An even T ∈ S'(R) with ⟨T, g_x⟩ = 0 for all x > 0 is zero.
 Proof. y ↦ g_y is C^∞ from (0, ∞) to S with ∂_y^k g_y = (−πt²)^k g_y, so ⟨T, t^{2k}g_y⟩ = 0 for all k ≥ 0, y > 0. Fix y. The map
@@ -96,3 +96,32 @@ a ↦ g_y(· − a) is holomorphic from C to S, so u(a) := ⟨T, g_y(· − a)�
 polynomial of the parity of j: zero for odd j (odd test function, T even) and for even j (even polynomial). So T ∗ g_y ≡ 0 for every y;
 since y^{1/2}g_y ∗ φ → φ in S as y → ∞, ⟨T, φ⟩ = lim ⟨T ∗ y^{1/2}g_y, φ⟩ = 0 (g_y even). ∎
 (The equivalence (A)⟺(B) is Hamburger/Bochner/KM58/Hilberdink–Lapidus Thm 3.2, §2(a); it is re-proved here only to fix hypotheses.)
+
+## 4. THEOREM T — the positive Hamburger theorem (rigidity of Spec Z among Beurling systems) — (P)
+
+THEOREM T. Let dN ≥ 0 be a Borel measure on [1, ∞) of polynomial growth, F(s) = ∫x^{−s}dN(x), and suppose (A) of Proposition R
+holds for some ρ ≥ 0 (Riemann's FE, poles of ξ_F only at 0 and 1 and simple, growth (G')). Then dN = ρ·Σ_{n≥1} δ_n, i.e. F = ρζ.
+COROLLARY T1 (Beurling, discrete). A Beurling prime system P whose ζ_P satisfies Riemann's FE in the sense (A) is the set of rational
+primes, each once. COROLLARY T2 (Beurling, continuous/mixed). No Beurling system with dΠ ≥ 0 not purely atomic on the rational primes
+satisfies (A); in particular no continuous Beurling system does. COROLLARY T3 (general Dirichlet series). Σ a_k λ_k^{−s} with a_k ≥ 0,
+λ_k ≥ 1, satisfying (A), equals (Σ_{λ_k = 1} a_k)·ζ(s).
+
+Proof. Step 0. By Proposition R, μ := ρδ₀ + dN + dN^∨ is tempered, μ̂ = μ, and N(x) = O(x), so ∫ t^{−2} dN(t) < ∞.
+Step 1 (the Fejér identity). φ(x) := (1 − |x|)₊, φ̂(ξ) = (sin πξ/πξ)² =: S(ξ) ≥ 0, S(ξ) = 0 ⟺ ξ ∈ Z∖{0}. Let η ∈ C_c^∞ be even, η ≥ 0,
+∫η = 1, supp η ⊂ [−1, 1], η_ε(x) = ε^{−1}η(x/ε), φ_ε := φ ∗ η_ε ∈ C_c^∞ (0 < ε < 1). Then φ̂_ε(ξ) = S(ξ)η̂(εξ) with |η̂| ≤ 1, η̂(0) = 1, and
+μ̂ = μ gives ⟨μ, φ_ε⟩ = ⟨μ, φ̂_ε⟩. Left side: φ_ε(0) → 1; for t ≥ 1, φ_ε(t) = ∫φ(t − y)η_ε(y)dy is nonzero only if t − y < 1 with |y| ≤ ε,
+i.e. t < 1 + ε, and then φ(t − y) ≤ 1 − (t − y) ≤ y ≤ ε; so 0 ≤ ∫φ_ε dN ≤ ε·N(2) → 0 and ⟨μ, φ_ε⟩ → ρ. Right side:
+⟨μ, φ̂_ε⟩ = ρ + 2∫ S(t)η̂(εt) dN(t) → ρ + 2∫ S dN by dominated convergence (|Sη̂(ε·)| ≤ min(1, (πt)^{−2}) ∈ L¹(dN)). Hence
+      ∫_{[1,∞)} (sin πt / πt)² dN(t) = 0.                                                          (F)
+As dN ≥ 0 and the integrand is continuous, ≥ 0, and vanishes on [1, ∞) exactly at N, dN is carried by N: dN = Σ_{n≥1} a_n δ_n, a_n ≥ 0.
+Step 2 (periodicity). μ = Σ_{n∈Z} a_n δ_n with a₀ = ρ, a_{−n} = a_n = O(|n|). For ψ ∈ S: ⟨μ̂, ψ(· + 1)⟩ = ⟨μ, e^{2πiξ}ψ̂(ξ)⟩ = Σ a_n e^{2πin}ψ̂(n)
+= ⟨μ̂, ψ⟩, so μ̂ is 1-periodic; μ = μ̂ is 1-periodic, a_{n+1} = a_n for all n, a_n = a₀ = ρ. So dN = ρΣ_{n≥1}δ_n and F = ρζ. ∎(T)
+T1: dN({1}) = 1 (the empty product; every p_j > 1) forces ρ = 1: each n ≥ 1 is a generalized integer exactly once, no other number is.
+Induction on x (the p_j are locally finite): c(x) = #{j : p_j = x} + #{factorizations of x into ≥ 2 generalized primes, all < x};
+by the induction hypothesis the second term is #{factorizations of x into ≥ 2 rational primes} = 0 for x prime, 1 for x composite,
+0 for x ∉ N; c(x) = 1_N(x) then gives #{j : p_j = x} = 1 exactly for x a rational prime. ∎(T1)  T2: T and dN({1}) = 1 give dN = Σ_{n≥1}δ_n,
+so ∫x^{−s}dΠ = log F(s) = log ζ(s) and, by uniqueness of Laplace–Stieltjes transforms, dΠ = Σ_p Σ_k k^{−1}δ_{p^k}: purely atomic on prime
+powers (directly: dN ≥ δ₁ + dΠ, so any non-atomic part of dΠ would survive into dN). ∎  T3: apply T to dN = Σ a_k δ_{λ_k}. ∎
+Where each hypothesis enters: POSITIVITY (dN ≥ 0) only in "(F) ⟹ dN carried by N"; the GAP (dN carried by [1, ∞)) only in
+"⟨μ, φ_ε⟩ → ρ"; EXACTNESS of the FE (poles only at 0, 1) only in Step 0 (no residual term in μ̂ − μ). The Euler product is used only
+for dN({1}) = 1 and to recover P from 𝒩_P; Λ ≥ 0 only through its consequence dN ≥ 0. `[novelty: single-check]` (see §5(g)).

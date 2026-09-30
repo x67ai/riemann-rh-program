@@ -98,7 +98,8 @@ numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scr
 | R2 | Haglund Appendix zero 20.62534600592171760132974 + 2.697151842339519632505712 i | k = 1 at r = 1e−3 and 1e−8 (R = 0.5, ρ = 0.01, m = 24, K = 12; E = 8.7e−26 / 5.5e−36 vs min over pieces of the lower modulus 8.1e−8 / 8.2e−13) |
 | R3 | control square 17 + i + [−¼, ¼]² (no zero in Haglund's list) | k = 0 (sum/2π ∈ [−1.3e−5, 1.3e−5]; R = 1.5, ρ = 0.6, m = 48, K = 24) |
 
-The ladder exercised every component: Stirling with shift (small |w|), Euler–Maclaurin at low height, h by the lower series
+R2's model zero (non-rigorous Newton on the model, 220 bits): 20.62534600592171760132995 + 2.697151842339519632505936 i —
+Haglund's 25-digit Appendix value agrees to ≈ 2e−22. The ladder exercised every component: Stirling with shift (small |w|), Euler–Maclaurin at low height, h by the lower series
 (n ≤ 6) and by integration by parts (n = 7), the tail bound, the Taylor model and the boundary walk (both outcomes k = 1 and k = 0).
 
 ## D. N = 27 details (`cert27.py` → `logs/cert27.log`, 56 s incl. H2\* and X4)

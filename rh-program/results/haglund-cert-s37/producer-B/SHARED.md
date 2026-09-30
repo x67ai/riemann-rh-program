@@ -21,6 +21,8 @@
 - R2 CERTIFIED: Ξ₁ around Haglund's Appendix zero 20.62534600592171760132974 + 2.697151842339519632505712 i: winding k = 1 at
   r = 1e−3 and at r = 1e−8 (32 pieces each, every piece's enclosure excludes 0; E = 8.7e−26 resp. 5.5e−36 vs min|F| 8.1e−8 resp. 8.2e−13).
   Model zero (non-rigorous) 20.62534600592171685 + 2.69715184233951977 i: Haglund's value good to ~7e−16.
+  [CORRECTED 23:37: that estimate was computed at 53-bit precision (bug in `newton_on_model`, since fixed); at 220 bits the
+  estimate is 20.62534600592171760132995 + 2.697151842339519632505936 i, so Haglund's 25-digit value is good to ≈ 2e−22.]
 - R3 CERTIFIED control: square 17 + i, r = 1/4 (no zero of Ξ₁ by Haglund's list): winding k = 0 (sum/2π ∈ ±1.3e−5).
 - Kernel h used: lower series for n ≤ 7 (small X), integration by parts for n = 7 on some inputs; both routes exercised.
 
@@ -39,7 +41,7 @@
 - Next: refined tiny square around the Newton-refined zero; cross-checks (mpmath reference for Ξ; h by both routes at
   X = 784π; literal sum (13) at N = 27 at the H1/H4 points at ~4600 bits, if affordable); then CERT.md.
 
-## 2026-09-30 23:11 — H2* (refined square) and cross-check launch
+## 2026-09-30 23:08 — H2* (refined square) and cross-check launch
 - H2* CERTIFIED (in `cert27.py`, same log): second model centred at the Newton zero z* of the first model (ρ = 0.001, m = 40,
   E = 2.1e−1145): winding k = 1 on z* + [−r, r]² for r = 1e−30, 1e−40, 1e−45, 1e−48, so
   z₀ = 3143.220682421536585287281295989417800119257644961983569 + 0.3152587993782148453822863730092717652956513976685290909 i ± 1e−48
@@ -50,7 +52,7 @@
   too wide (overlap trivially true). Script fixed (relbits = prec − 40); X2 will be re-run. X3 (literal sum (13) at 4400 bits):
   first point Ξ₂₇(3144.8946) literal = −1.760194631277516e−1070 ± 1.8e−1171, identical to the tail route.
 
-## 2026-09-30 23:26 — cross-checks (run 1), selftest, optional H5
+## 2026-09-30 23:18 — cross-checks (run 1), selftest, optional H5
 - X3 (run 1, `logs/crosscheck-run1-X2invalid.log`, 670 s): the LITERAL sum (13) Σ_{n≤27} Φ_n at 4400 bits (no ζ, no E–M, no (12);
   Φ_n by B3/B4 with Γ by B1) equals the tail route at all four H1/H4 points to 16 digits, boxes overlap, same strict signs:
   3144.8946 → −1.760194631277516e−1070, 3144.8947 → +1.068716492261707e−1070, 3145.5998 → +1.129756942916642e−1070,
@@ -65,7 +67,7 @@
   So the ordering invariant fails for ξ₂₄ (non-real zero in Q with real part < 2508.285 < 2510.2026 < a real zero).
 - Cross-check run 2 launched (fixed X2; X1 and X3 repeated) → `logs/crosscheck.log`.
 
-## 2026-09-30 23:33 — cross-check X2 redone; run 2 stopped
+## 2026-09-30 23:20 — cross-check X2 redone; run 2 stopped
 - X2 at 1400 bits was STILL uninformative after the tolerance fix (radius ≈ 1e−968 vs value 6e−1074). Cause: the lower-series
   recurrence u_k = u_{k−1}·X/(w+k) rotates the rectangular complex box ~5000 times and the wrapping inflation (plus the ≈1e135
   cancellation) exceeds what 1400 bits absorb. Re-run at 4400 bits (`python3 crosscheck.py X1 X2` → `logs/crosscheck-X1X2.log`,
@@ -79,7 +81,7 @@
 - X3 run 2 (`logs/crosscheck-X3.log`, 664 s): identical to run 1 at all four points (literal = tail to 16 digits, overlap, same sign).
 - cert27.py re-run (56 s) adds X4: Ξ₂₇(z₂₂) ∈ 2.57878203163e−1085 + 1.7049877229e−1084 i at the brief's 22-digit point (brief: 2.58e−1085 + 1.70e−1084 i).
 - CERT.md final: 170 lines. Theorem H: H1, H2 (k = 1, r = 1e−3 … 3.7e−11), H3, H4 certified; H2* (z₀ to ±1e−48); optional H5 certified.
-- SHA-256 (shasum -a 256):
+- SHA-256 (shasum -a 256) — SUPERSEDED by the next block (ladder re-run with the final library; CERT.md edited):
 ```
 b6cd08293de237296e829934e65ec97d39d9c724c897677087494512defda8d9  CERT.md
 ba7fa801a0c3e199afc2f5eb1fac5c09df4d04a954dece64449e577d96f3d7a6  logs/cert_h5.log
@@ -94,6 +96,30 @@ f973648d4bdf7554ab2bf17c6689c62f34679bd46ed14cfce52dfa8f51abf250  cert27.py
 01bcc1cc0ced434b4d0d469b2124aa05f589543ffaf67cde1d9611160cf38b82  crosscheck.py
 56836f9e893f55b491796d257b1221e206478e7251f35b310dcad06057f92d82  ivc.py
 6359bd71f111d971f0d0793d930c7b0b11287ca1360d9828c46935263da46596  ladder.py
+88f27b60b5c854bc65cb766e89b9ef31c595a2b317a577d44e7955079e40e5a5  selftest.py
+2d6f06265d9b56b6fa6c25b74c1ef259d44205da3b022d6c3e57638434302683  specfun.py
+5a831eace8447f5424128930f5aca9d42b8bef5d24dfdc21c16084bb068837df  winding.py
+faa873aa32e874db2f4888353b731e781264eefd22d56b7aa643252f940d5274  xin.py
+3fcd947afe8bb6eea43f584d863612ce02056e61460949f1f9c510df0d6efdcb  lit/html2txt.py
+```
+
+## 2026-09-30 23:37 — final hashes (supersede the previous block)
+- ladder.py re-run with the final library (enclosures and winding numbers identical; the R2 model-zero estimate now at 220 bits;
+  R3 no longer prints a meaningless extrapolated 'model zero'); CERT.md §C gained that estimate. CERT.md: 171 lines.
+```
+c4a8ca6bc2d02b6f2e428d91b7cd05044272fd2d7546d37976dd1cd1648d87a3  CERT.md
+ba7fa801a0c3e199afc2f5eb1fac5c09df4d04a954dece64449e577d96f3d7a6  logs/cert_h5.log
+33f5350d6b2be31bc12f1cb8f5cb540b799f524db4a95501c781fcde51bbbf4f  logs/cert27.log
+e7cee476cbfde23f9e47e47f0605e0deb571e7ae9e3894afd101edc4d3bba1ae  logs/crosscheck-run1-X2invalid.log
+26fcdcc6df28f1e91f5b6559ff7a78ab9ff2428de9f9655c14aeae67b909a2d1  logs/crosscheck-X1X2.log
+c01d148cae240d50e80b22210130f075489879ba69feaad83c287799bf0ea195  logs/crosscheck-X3.log
+ee71d58d24b062ae448a59918bb9cf086350a6c28df41fa4a39822f117a7c8a1  logs/ladder.log
+d88370f390a5f2d652b87605297a2617791f84921ceef4152809385bc67c122e  logs/selftest.log
+3945713223b4d8e90fc78f4a2029b0667530536ece9be77711058ae471afe29d  cert_h5.py
+f973648d4bdf7554ab2bf17c6689c62f34679bd46ed14cfce52dfa8f51abf250  cert27.py
+01bcc1cc0ced434b4d0d469b2124aa05f589543ffaf67cde1d9611160cf38b82  crosscheck.py
+56836f9e893f55b491796d257b1221e206478e7251f35b310dcad06057f92d82  ivc.py
+2a0704ab03bd79c771333bad6b4ff3bc75db0a2f99209e1dbde076053d35b4af  ladder.py
 88f27b60b5c854bc65cb766e89b9ef31c595a2b317a577d44e7955079e40e5a5  selftest.py
 2d6f06265d9b56b6fa6c25b74c1ef259d44205da3b022d6c3e57638434302683  specfun.py
 5a831eace8447f5424128930f5aca9d42b8bef5d24dfdc21c16084bb068837df  winding.py

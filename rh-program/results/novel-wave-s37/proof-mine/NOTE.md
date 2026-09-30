@@ -169,3 +169,35 @@ proof uses the curve's EQUATION (its solutions as a subset of F_q² on which the
 of P¹ and its twists, R6's object in explicit form); V has no equation, and its α is not a product of Gauss sums: α ∈ R, α² = 13.09 ≠ 5.*
 NUMBER (L7): over F₅, |g(χ)|² = 5.000000000000 for the characters of order 2 and 4; the Jacobi sums are ±1 ± 2i, all of norm 5.
 CONTROL: E₀'s Frobenius 2 + i is a unit multiple of a Jacobi sum of F₅ (L7: True); V's α is not of absolute value √5 in its real embedding.
+
+**R11. Modular / automorphic methods and CM — checked; no independent proof found in the sources read.** Source: Milne pp. 45–49 at the
+page. (a) Weil, Deuring, Eichler–Shimura proved the HASSE–WEIL conjecture (continuation of the global zeta function over a number field)
+for CM and modular curves "by expressing their zeta functions in terms of Hecke L-functions" / "by identifying their zeta functions with the
+Mellin transforms of modular forms" — statements about Q, not RH over F_q. (b) The Ramanujan conjecture is DEDUCED from the Weil
+conjectures through Eichler–Shimura/Verdier (Deligne's interview, Milne p. 45; Rankin's theorem and Langlands' remark, Milne p. 47:
+Rankin's idea "could be used to prove a generalized Ramanujan conjecture provided one knew enough about the poles of a certain family of
+Dirichlet series"). So modular methods CONSUME RH for curves. (c) For a CM curve over F_q the Frobenius is an element of the CM field with
+ππ̄ = q — that is R1/R2's input (End(E) ⊗ Q imaginary quadratic), class D; E₀ is such a curve (Q[π₀] = Q(i)). Standing order V.5:
+"none found" is not "none exists"; no verdict rests on it.
+
+**R12. Connes–Consani–Marcolli 2007, the Weil proof on the adèle class space (a translation) — class A.** Source: arXiv math/0703392v1
+(= `fetched/y-07`), read at the page: §2.3 pp. 9–11 (Weil positivity "(2.35) Tr(Z ⋆ Z′) > 0 … proved using the Riemann–Roch formula on C to
+show that one can achieve effectivity"; for g = 1 "Z ⋆ Z′ = d′(Z)Δ, with Tr(Z ⋆ Z′) = 2d′(Z) ≥ 0"), the dictionary p. 12 ("Riemann–Roch ↔
+Index theorem"; "Frobenius correspondence ↔ Z(f) = ∫_{C_K} f(g)Z_g d*g"; "Parts of the dictionary sketched below are very tentative"),
+Prop 6.2 p. 29 (RH for all Hecke L-functions of K ⟺ the trace-pairing positivity (6.10)). What it proves: for curves, Weil's proof restated;
+for number fields, Weil's criterion restated. LINE and NUMBER: R3's (V has no global field K, so no C_K; the positivity it would need is
+def(Γ_π − 2Δ) ≥ 0, and V gives −2). CONTROL: R3's.
+
+**R13. Hrushovski 2004/2022, the elementary theory of the Frobenius automorphisms — class A for curves (consumes RH elsewhere).** Source:
+arXiv math/0406514v2, read at the page: p. 3 ("The fundamental fact is Weil's Riemann Hypothesis for curves, entering via the Lang–Weil
+estimates"; Theorem 1.1, the twisted Lang–Weil estimate); p. 10 ("§11.4 for a proof for curves: indeed Weil's proof, using positivity in the
+intersection product on a surface, works in our case too. For general varieties … we use the cohomological representation and Deligne's
+theorem"); Example 11.4 p. 114 (S · Φ_q = q deg_cor(S) + deg_cor(S^t) + e with |e| ≤ ((2g)(2 deg_cor(S) deg_cor(S^t) − |S · S^t|))^{1/2} q^{1/2},
+via Weil's bilinear form β). What it proves for curves: Weil's inequality for correspondences S ⊂ C × C^{φ_q}, by Weil's positivity — no new
+separating input. NUMBER (L8): S = Δ gives |e| ≤ 2g√q = 4.472; V has e = −5. CONTROL: e = −4.
+
+**R14. Named but not read (no row verdict; `[recalled, unverified]`).** Manin 1956 (elementary proof of Hasse's theorem; recalled to use
+E's group law over its function field — class D if so); Igusa 1949, Quigley 1953, Roquette 1953, Kani 1984 (class-A variants, named by Milne
+pp. 12–13); Deligne 1980 Weil II itself (class B, represented by R8 at the page); Stark's g = 2 refinement (named by Bombieri p. 234–235,
+class C); Stöhr–Voloch-type Frobenius-order bounds (recalled, class C). Fetching any of them is a bounded task; none is expected to open
+a fifth class, but that expectation is a guess, labeled as one.
