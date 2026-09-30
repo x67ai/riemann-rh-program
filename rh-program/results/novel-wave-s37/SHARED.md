@@ -92,3 +92,16 @@ Agent: consolidation agent, Opus 5.5 (default effort). Brief: `DIGEST-BRIEF.md` 
 - For the orchestrator: fe/NOTE.md residuals at lines 221 (duplicated clause), 223 (Theorem C tag still single-check), 322 (successor (3)
   OLD text, F1′ only partly applied); tournament NOTE line 75 (T24 G-line) not annotated; III.20 clarifying clause (consolidator's reading,
   single-check) for the zoo stream to decide.
+
+## 2026-10-01 04:49 IST block 9 — digest applier (KICKSTART 10(k)/10(m)): C2 Instruments rows applied
+
+- Applier of `insights-digest.md` (SHA-256 e86f642a…c981, verified) to the direction files, insertion-only, no git. Record:
+  `digest-APPLIED.md` (this folder), §0 before-hashes + §1. Pristine copies in the applier's scratchpad.
+- C2: digest §D rows 230–235 → `directions/C2-rigidity-conservation.md` lines 159–164, ↳ PROVENANCE row 165 (all 4 cells = header);
+  SHA-256 2d2e7d15… → e793244b…. Next: B2 and C3 Instruments, then §F.3 UT-1…UT-13 into the Untried sections.
+
+## 2026-10-01 04:50 IST block 10 — digest applier: B2 and C3 Instruments rows applied (all 14 §D rows in)
+
+- B2: digest §D rows 241–245 → `directions/B2-refutation-program.md` lines 123–127, ↳ PROVENANCE 128; SHA-256 041d3410… → c9fd84e8….
+- C3: digest §D rows 251–253 → `directions/C3-geometric-substrate.md` lines 241–243, ↳ PROVENANCE 244; SHA-256 03f3a544… → f1045aec….
+- Every new row: header 5 bars / row 5 bars. Record: `digest-APPLIED.md` §2–§3. Next: §F.3 UT-1…UT-13 into the Untried sections.
