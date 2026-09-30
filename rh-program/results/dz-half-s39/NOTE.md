@@ -201,7 +201,26 @@ never degenerates on DZ's grid** (Lemma 2.2's constant 2^{−11}c_* is far from 
 
 ## §4. Finite rung: simulation of the construction to 10⁸, five seeds, with controls
 
-(pending)
+**4.1 Method** [computed; code in `verify/`, logs in `verify/logs/`, per-run data in `verify/data/`].
+- *The construction, exactly.* `dzgen.py` draws every cell of Γ with its own Bernoulli(p_k) for the units n ≤ 22 (p_k by
+  8-point Gauss–Legendre; max p_k = 0.4506, the cell (1, 1.5]). Above, a Poisson process with intensity f, each point
+  rounded up to its grid point: its law differs from the exact Bernoulli selection by at most Σ_k p_k² ≤ 2⁻²² in total
+  variation, over the whole range. f_C is the printed (17.44) (k = 1, 2 active below 10⁸; k = 3 needs log v ≥ 64); every
+  proposal checks f ≤ envelope ((1 + c)f_R with c = 0.8366, i.e. (17.45)); the largest ratio met was < 1.
+- *The density.* log ρ = Σ_{p≤X} −log(1 − 1/p) − Ein(log X) − 2Σ_k ∫_{log X}^∞ a_k(t)cos(γ_k t)dt + S_tail, from
+  log ρ = log r_T + ∫₁^∞ v^{−1}(dΠ_P − f dv) and ∫₁^X f_R/v = Ein(log X), with r_T = Π_k|G(4^k(1 − ρ_k))|² for f_C
+  (a_k(t) = g(e^{t/4^k})4^{−k}e^{−t/4^k}; residue identity log|G(4(1 − ρ₁))|² = −2∫₀^∞a₁cos(γ₁t)dt checked, §4.5).
+  S_tail — the g-primes above X, which move ρ but not N(x ≤ X) — is sampled as N(1/(2X log X), 1/(X log X)): at X = 10⁸ its
+  sd is 2.3·10⁻⁵, i.e. an uncertainty of ρ·x·2.3·10⁻⁵ in ρx, comparable to (x/log x)^{1/2} only at x ≈ X. This is the
+  dependence of E(x) on primes beyond x, sampled in law rather than ignored.
+- *The counting.* `dzcount.c` enumerates every g-integer ≤ 10⁸ (DFS over non-decreasing prime indices; up to 4.7·10⁸ per run)
+  into the bins (e_i, e_{i+1}], e = 2^j(1 + i/1024); N(e) = 1 + cumulative count is exact at every edge (control: rational
+  primes give N(e) = ⌊e⌋ at all 27 125 edges ≤ 10⁸, `logs/ctl_primes_exact.log`). E is sampled at the edges only (1024 per dyadic block).
+- *Estimators* (`analyze.py`, as the frontier's `fit.py`): per block j, A_j = max|E|, the running sup M_j, the dyadic mean
+  square MS_j; slopes on windows [10^a, 10⁸], a = 3, …, 6: "sup" (log M vs log x), "supL" (log(M·(log x)^{1/2})), "ms"
+  (½ slope of log MS), "msL" (½ slope of log(MS·log x)). The L-versions test the one-scale prediction |E| ≍ (x/log x)^{1/2}.
+
+(§4 continues)
 
 ## §5. Prior-art gate: is BDR fn. 4 settled after BDR?
 

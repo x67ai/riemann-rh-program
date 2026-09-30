@@ -47,3 +47,20 @@ Z1/Z2 passed by controls (RH-blind); Z3 = Weil's criterion.
 ## Block 4 — 06:30 IST 2026-10-01 — §7 (Clifford + Theorem K), §8 Instruments, §9 Untried, §10 waste line, §11 riders written
 verify/r1_clifford.log: class-summed Clifford N_1 <= h at g = 2 catches 0/199 (q=5), 1/675 (q=7), 2/2935 (q=11); none of the 111.
 Theorem K stated (NOTE §7). Zoo riders on IV.1 and I.9 proposed in BLOCK form (NOT inserted). Remaining: §0 close, final hashes.
+
+## Block 5 — 05:26 IST 2026-10-01 — CLOSE: K (NOTE §0, §7 Theorem K). Deliverables and hashes (SHA-256 prefixes)
+3ad9a31e775ccece NOTE.md (39419 bytes; §0 close, §1–§11)
+fd2c76adbe07895f verify/r1_clifford.py
+077a8075f43730d3 verify/r1_enumerate.py
+921cb4b6bf1f33f3 verify/r1_fejer_V.py
+c4ff9e490d501f87 verify/r1_genuine.py
+f6c31e555368be70 verify/r1_lp_check.py
+77c0ab49f6ec1eff verify/r1_lp.py
+423a1671667eb9cd verify/r1_transport.py
+420054944442ac26 verify/r1_V_detail.py
+dc78919b6a1009d2 verify/z_forms.py
+8686d2486b82cda3 verify/z3_weil_fejer.py
+Logs: every verify/*.py has its .log; data: verify/r1_zeta_data.json (all zeta data), r1_genuine.json, r1_lp_summary.json,
+r1_transport_summary.json. Sources: sources/fetch_sources.log (5 items with SHA-256 prefixes + text layers).
+Stop lines: 1 not fired; 2 fired (Oesterle/Serre; HP19 dual); 3 fired on Z1, Z2 (F_{2.9,2}, DH, Epstein pass). No git commands;
+no file outside results/fejer-form-s39/ edited. Compute: one process at a time, longest run < 2 min.

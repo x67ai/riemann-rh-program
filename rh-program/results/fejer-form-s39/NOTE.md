@@ -33,7 +33,7 @@ Stop lines of the brief: line 1 did NOT fire (the genuine region never contains 
 is a known Oesterlé/Serre bound; the transport adds no inequality); line 3 FIRED on Z1 and Z2 (RH-false controls pass).
 Consequences: UT-4 CLOSED (K); wave-1's "Extremal characterization of ξ" answered at its first rung (C2 Untried line 168: the
 extremal inequality exists on rung 1 and is IV.1). Instruments rows §8; Untried §9; waste line §10; zoo riders proposed §11.
-Deliverables: `verify/` (r1_enumerate, r1_genuine, r1_lp, r1_lp_check, r1_V_detail, r1_transport, r1_clifford, z_forms,
+Deliverables: `verify/` (r1_enumerate, r1_genuine, r1_lp, r1_lp_check, r1_V_detail, r1_fejer_V, r1_transport, r1_clifford, z_forms,
 z3_weil_fejer — each .py with its .log), `sources/` (Howe–Lauter 1202.6308, Hallouin–Perret 1409.2357, Aubry–Haloui–Lachaud
 1201.4967, Hallouin–Moustrou–Perret 2506.05212, Odlyzko zeros1; text layers; `fetch_sources.log` with SHA-256 prefixes).
 
@@ -50,9 +50,10 @@ b_d = (1/d)Σ_{e|d} μ(d/e)N_e ∈ Z_{≥0}; h = L(1) ≥ 1. Write α_j = √q e
 pair, and for V (q, t) = (5, 5) it is θ_V = i·log φ (φ the golden ratio; cos θ_V = √5/2, proof-mine §1). Normalized power
 sums p_n := s_n q^{−n/2} = Σ_j 2cos(nθ_j) (real for every datum, genuine or not); p_0 := 2g.
 Positions side (P). A_n := #effective divisors of degree n = coefficient of u^n in Z; Θ_n := (q − 1)A_n + h for n ≥ 0 and
-Θ_n := h for n < 0 (on a curve, Θ_n = Σ_{deg c = n} q^{ℓ(c)} over the h classes of degree n). The FE of Z is equivalent to
-Θ_n = q^{n−g+1}Θ_{2g−2−n} for all n ∈ Z (class-summed Riemann–Roch; proof: expand (q − 1)Z(u) + hΣ_{n<0}u^n and apply the FE
-termwise — checked on every datum below, §4). This is the "discrete self-dual measure on q^Z" of the brief.
+Θ_n := h for n < 0 (on a curve, Θ_n = Σ_{deg c = n} q^{ℓ(c)} over the h classes of degree n). The FE of Z implies
+(R) Θ_n = q^{n−g+1}Θ_{2g−2−n} for all n ∈ Z (class-summed Riemann–Roch; printed for virtual zeta functions as AHL Lemma 3.4
+(10), §5; the cases n < 0 and n > 2g − 2 — the only ones §4 uses — are proved in §4 by partial fractions; (R) is checked
+exactly on every datum, §4). This is the "discrete self-dual measure on q^Z" of the brief.
 Controls (zoo I.9; brief). V: t = 5 over F₅ (RH-false, real off-line pair). E₀: y² = x³ + 2x over F₅, t = 4. V₂ and the 111
 genus-2 data over F₅ with non-real off-line roots (proof-mine verify/twin_g2.log; o_twin.log). They are RH-FALSE: a separating
 inequality must be VIOLATED by them. (The brief's parenthesis "E₀ and all 111 genus-2 / genus-1 data satisfy" is read as
@@ -91,8 +92,11 @@ THEOREM W (rung-1 Weil completeness). Fix q and M ≥ 1.
 Every functional affine in (g, N_1, …, N_M) that vanishes at P¹ (g = 0, N_n = q^n + 1) is an I_c; and I_c = 0 at genus 0.
 (ii) (the Weil region.) For a datum of genus g let T_M(Z) := [p_{|a−b|}]_{a,b=0..M}, p_0 = 2g. Then
       λ_min(T_M(Z)) = 2·min{ I_c(Z) : f_c ≥ 0 on R, deg f_c ≤ M, c_0 = 1 },
-so Z is separated from the RH-true data by an affine count inequality of degree ≤ M iff T_M(Z) is not PSD, and every such
-separating inequality is Σ_j f(θ_j) ≥ 0 with f ≥ 0 on the circle — a Weil test, multiplier 1 (IV.1's form, on rung 1).
+so Z is separated from the Weil region W_{g,M} := {p : T_M(p) ⪰ 0, p_0 = 2g} — by Carathéodory–Toeplitz the convex hull of
+the count vectors of ALL real-angle configurations of genus g, so it contains every RH-true datum — by an affine count
+inequality of degree ≤ M iff T_M(Z) is not PSD, and every such separating inequality is Σ_j f(θ_j) ≥ 0 with f ≥ 0 on the
+circle — a Weil test, multiplier 1 (IV.1's form, on rung 1). (Separating Z only from the finitely many RH-true INTEGER data
+is a larger class — class (B) below — whose extra members use integrality.)
 (iii) (validity on genuine curves.) If f_c ≥ 0 on R then I_c ≥ 0 on every genuine curve (Weil's RH makes every θ_j real),
 with I_c = 0 at genus 0 and I_c > 0 at genus g ≥ 1 unless every θ_j is a zero of f_c.
 Proof. (i) s_n = Σ_i α_i^n = q^{n/2}Σ_j 2cos(nθ_j), so Σ_j f_c(θ_j) = g c_0 + Σ_n c_n p_n with p_n = q^{−n/2}(q^n + 1 − N_n).
@@ -113,6 +117,11 @@ THE COMPUTATION (`verify/r1_lp.{py,log}`, `verify/r1_V_detail.{py,log}`; M = 8; 
   finite set) catches all, and its optimum is NEVER a Weil test (min f on the circle < 0 in all 2 + 199 + 4 + 675 + 10 cases):
   class B consumes the discrete spectrum, i.e. RH plus integrality of the traces — a refinement of the Weil test, not a new
   generator (its validity proof is RH + t ∈ Z; §5).
+- One-sidedness, quantified (r1_lp.log). Class (A+) (Oesterlé's sign condition c_n ≥ 0 for n ≥ 2) catches every g = 1 datum
+  (V only through c_1 < 0) but only 155/199 (q = 5), 526/675 (q = 7), 2314/2935 (q = 11) at g = 2; the untwisted Fejér kernels
+  K_M (all c_n ≥ 0, the upper-bound class) catch t = −5 but NOT V at any M ≤ 8, and 150/199, 510/675, 2270/2935 at g = 2; the
+  twisted K_M(θ + π) catch V (at odd M, an even number of terms) and 149/199, 505/675, 2229/2935. This is digest B4's one-sided
+  caveat as a count: V's off-line pair is real positive, so only tests with a negative low coefficient see it.
 - V in closed form: θ_V = iy, e^y = φ, T_M(V) = uvᵀ + vuᵀ (u_k = φ^{−k}, v_k = φ^k), λ_min = (M + 1) − |u||v| =
   −0.2361, −1, −2.7082, −6, −11.889, −22, −38.957, −67 (M = 1..8); LP(A) reproduces half of each to 10⁻⁷.
 - The best inequality at M = 1 is f = 1 − cos θ = 2sin²(θ/2), i.e. I(Z) = g − (q + 1 − N_1)/(2√q) ≥ 0 ⟺ N_1 ≥ q + 1 − 2g√q:
@@ -158,7 +167,7 @@ Z_V = 1 + u·Z_{P¹}, since 1 − 5u + 5u² = (1 − u)(1 − 5u) + u), h = 1, D
 WHERE V SITS. At g = 1, free positivity (h ≥ 1) is w ≥ 1 − √q/2 and RH is w ≥ 0; the gap between them is
 1 ≤ h < (√q − 1)² = 1.528 at q = 5 — exactly one integer, h = 1, which is V (w(V) = 1 − √5/2 = −0.11803, the extreme point of
 the free region). At q = 7 the gap is h ∈ {1, 2} (t = 7, 6); at q = 11, h ∈ {1..5} (t = 11..7) — the RH-false data of §2's
-lower side, exactly. The upper side (t = −5, −7, −6, −11..−7) is h > (√q + 1)².
+lower side, exactly. The upper side (q = 5: t = −5; q = 7: t = −6, −7; q = 11: t = −7..−11) is h > (√q + 1)².
 The RH form (e) at genus 2 (C): it catches every genus-1 RH-false datum but only 5 of 199 (q = 5), 47 of 675 (q = 7), 416 of 2935
 (q = 11) genus-2 ones — one Weil test (a single f_±) is weak; §3's Toeplitz family catches all.
 READING. The Fejér defect of M1a, carried to rung 1 exactly, splits in two: its POSITIONS form D_k is positive for free and
