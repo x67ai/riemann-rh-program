@@ -1,0 +1,10 @@
+x^2+y^2 (h=1, Euler product) : first negative Lambda: []  count<=400: 0
+x^2+5y^2 (h=2) : first negative Lambda: [(36, -7.167037876912219), (54, -7.977968093128549), (84, -17.723267195373253)]  count<=400: 8
+   Lambda(36)/log 36 = -1.9999999999999998
+virtual curve: N_1..N_6 = [1, 11, 76, 451, 2501, 13376]  b_1..b_6 = [1, 5, 25, 110, 500, 2215]
+   all N_n >= 1 and all b_d >= 0 integers for d <= 60: True True
+   alpha = 3.618033988749895  > sqrt 5 = 2.23606797749979  ; zero at sigma = log alpha/log 5 = 0.7989937178327201  and 0.2010062821672799
+   FE residual |L(1/(5u)) - L(u)/(5u^2)| = 2.7755575615628914e-16
+F_{2.9,2}: Lambda(q^2)/log q = 1 - a^2 + 2q = -3.41  (a > 2 sqrt q = 2.8284: True)
+F_{5,5}: Lambda(q^2)/log q = 1 - a^2 + 2q = -14  (a > 2 sqrt q = 4.4721: True)
+F_{3,2}: Lambda(q^2)/log q = 1 - a^2 + 2q = -4  (a > 2 sqrt q = 2.8284: True)
