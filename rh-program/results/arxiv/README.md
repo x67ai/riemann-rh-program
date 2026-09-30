@@ -134,6 +134,11 @@ must not undo them.
   specific rather than a vague "AI-assisted": a reader who wants to know what the tool did is told,
   on page 1, without having to infer it. It also matches what arXiv and most journals require —
   a generative system cannot be an author, a human takes responsibility, and the use is declared.
+  **Dated note (2026-10-01, Session 38).** The two POSTED papers carry the later wording of the
+  2026-08-30 second pass ("working under the author's direction; the author set the objectives,
+  made the technical and editorial decisions, and is responsible for the content"); the Haglund
+  counterexample paper uses that same wording, so that the author's public papers agree. The
+  paragraph above records the 2026-08-27 original; the later wording is the current standard.
 * **The repository is public and is to stay public** (verified 2026-08-27: HTTP 200,
   `private: false`). Both outgoing papers cite it by URL in a "Data and code availability"
   statement, with a commit pin and the note that the fetched PDF corpus is deliberately not

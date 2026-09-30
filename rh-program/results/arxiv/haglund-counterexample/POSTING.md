@@ -22,4 +22,4 @@ Haglund (2009) conjectured that the partial sums Ξ_N of Riemann's series for th
 - Do not post the internal folders (`results/haglund-cert-s37/`, `results/novel-wave-s36/staircase/`) separately; they are public in the repository and cited from the paper by path.
 
 ## The tag
-The git tag `haglund-cert-2026-10` marks the exact repository state the paper was prepared against; it is printed in the paper's data-availability statement. [Created at the end of Session 38 — see LOG.md; if this line has not been updated, check `git tag -l 'haglund-*'` before posting.]
+The git tag `haglund-cert-2026-10` marks the exact repository state the paper was prepared against; it is printed in the paper's data-availability statement. Created in Session 38 on the commit that holds the referee-revised package (LOG.md, 2026-10-01); `git tag -l 'haglund-*'` shows it. **Before posting, decide the history question in LOG.md's Session-38 sponsor note (third-party literature untracked at this commit but still present in earlier commits).**

@@ -40,9 +40,9 @@ $\Xi$ approximants}
 \texttt{hello.jay.tyagi@gmail.com}. \emph{Use of AI.} The mathematics in this
 paper --- the derivations, the computations, the verification suite, and the
 text --- was produced by Claude (Anthropic) working under the author's
-direction inside a structured research program; the author set the program's
-objectives, adjudicated its decisions, and is responsible for the content.
-Claude is a tool and is not an author. The complete working record is public:
+direction; the author set the objectives, made the technical and editorial
+decisions, and is responsible for the content. Claude is a tool and is not an
+author. The complete working record is public:
 \url{https://github.com/x67ai/riemann-rh-program}.}}
 \date{October 1, 2026}
 
@@ -66,10 +66,10 @@ is enclosed in a square of half-width $10^{-48}$. The same violation occurs at
 $N = 24$ for the companion approximants $\xi_N = \Xi_N + c_N$. The failure has a
 mechanism: on the critical line $\Xi_N < \Xi < \xi_N$, so the real zeros of
 $\Xi_N$ lie in positive lobes of $\Xi$ that rise above a positive level, and a
-shallow lobe followed by a deeper one near the height $4(N+1)^2$, where the
-approximant departs from $\Xi$, leaves a non-real zero below real zeros. Two
-statements in Haglund's paper are corrected: the number of real zeros of
-$\Xi_N$ is odd, so his table entry $32$ at $N = 4$ is inconsistent (a numerical
+low lobe followed by a higher one near the height $4(N+1)^2$, where the
+approximant departs from $\Xi$, can leave a non-real zero below real zeros. Two
+statements in Haglund's paper are corrected: the number of positive real zeros of
+$\Xi_N$, counted with multiplicity, is odd, so his table entry $32$ at $N = 4$ is inconsistent (a numerical
 census finds $31$), and the $1/x^2$ coefficient of $\Xi_N$ on the real axis is
 negative for every $N$. The result refutes a sufficient condition for the
 Riemann hypothesis and says nothing about the Riemann hypothesis itself: the
@@ -142,7 +142,8 @@ error bounds'' \cite[p.~3]{Hag}. The paper was published as \cite{HagJ}.
 second real zero $x_2 \in (3145.5998,\ 3145.5999)$.
 \item[(b)] $\Xi_{27}$ has exactly one zero $z_0$, which is simple, in the open
 square of half-width $3.7\cdot 10^{-11}$ about
-$c = 3143.2206824215 + 0.3152587994\,i$. More precisely,
+$c = 3143.2206824215 + 0.3152587994\,i$ (here $w + [-r, r]^2$ is the closed square
+$\{w + a + bi : |a|, |b| \le r\}$). More precisely (certificate B),
 $z_0 \in z^* + [-10^{-48}, 10^{-48}]^2$ with
 \begin{align*}
 \re z^* &= 3143.220682421536585287281295989417800119\ldots,\\
@@ -179,9 +180,9 @@ difference $\Xi - \Xi_{27}$ is of the same size as $\Xi$ itself
 rigorously far above this height: Platt and Trudgian prove that ``all zeroes
 $\beta + i\gamma$ of the Riemann zeta-function with $0 < \gamma \le 3\cdot 10^{12}$
 have $\beta = 1/2$'' \cite{PT}. Nor does the paper decide Conjecture~\ref{conj:H}
-for $N \le 26$: the scan that located the violation at $N = 27$
+for any $N \ne 27$: the scan that located the violation at $N = 27$
 (Section~\ref{sec:departure}) is numerical, covers a window near one height for
-each $N$, and is not a proof that smaller $N$ satisfy the conjecture.
+each $N$, and is not a proof that any other $N$ satisfies the conjecture.
 
 \subsection{The mechanism, and two corrections to Haglund's paper}\label{sec:mech}
 
@@ -194,11 +195,12 @@ sit below $\Xi$ by a positive amount: for every $N \ge 1$ and real $t$,
 zeros of $\Xi_N$ lie in the \emph{positive lobes} of $\Xi$ (the intervals between
 consecutive zeros on which $\Xi > 0$): an even number in each positive lobe
 $(\gamma_j, \gamma_{j+1})$ and an odd number in the central lobe $(0, \gamma_1)$,
-where $0 < \gamma_1 < \gamma_2 < \cdots$ are the positive zeros of $\Xi$. A
+where $0 < \gamma_1 < \gamma_2 < \cdots$ are the positive real zeros of $\Xi$. A
 positive lobe carries real zeros of $\Xi_N$ only if $\Xi$ rises above the level $Q_N$ there. Near the height $4(N+1)^2$ the
 level $Q_N$ becomes comparable to the size of $\Xi$, and the heights of
 consecutive lobes fluctuate; a lobe that stays below the level, followed by a
-lobe that rises above it, leaves a pair of non-real zeros below real zeros. At
+lobe that rises above it, is expected to leave a pair of non-real zeros below real
+zeros (it does in both cases computed below). At
 $N = 27$ the positive lobe of $\Xi$ over $(3142.98, 3143.57)$ reaches only
 $0.411$ of the level $Q_{27}$ and the next one, over $(3144.49, 3146.28)$,
 reaches $1.325$ of it: the pair $z_0, \bar z_0$ sits over the first, and the real
@@ -233,8 +235,8 @@ c_N = \sum_{n > N}(4\pi n^2 - 1)e^{-\pi n^2} > 0
 and the same ordering property fails for it at $N = 24$
 (Theorem~\ref{thm:xi24}). Neither family is real-rooted: no member of the
 family
-$\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $0 \le w_n \le 1$ and
-$w \not\equiv 1$, or with $w$ finitely supported, has all its zeros on the
+$\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $w \not\equiv 0$ and either
+$0 \le w_n \le 1$, $w \not\equiv 1$, or $w$ finitely supported, has all its zeros on the
 critical line; it has finitely many zeros there and infinitely many off it
 (Theorem~\ref{thm:A}), and the same holds for every $\Xi_N$. With polynomially bounded weights, having all zeros on
 the line forces $w \equiv 1$ (Theorem~\ref{thm:B}). This is why a conjecture
@@ -251,7 +253,7 @@ its weak form, for $N \le 10$. Ahn's thesis \cite{Ahn}, written under Haglund's
 supervision, computes zeros of the component functions of the approximants
 (incomplete gamma functions, hyperbolic gamma functions, and small linear
 combinations of the $\Phi_n$) and restates the check: ``Computations indicate
-this weaker form of Conjecture 1.6 is true at least for $N \le 10$''
+this weaker form of Conjecture 1.6 [sic: his Conjecture 1.5] is true at least for $N \le 10$''
 \cite[pp.~10--11]{Ahn}; it tests no $\Xi_N$ beyond $N = 10$. Haglund's Conjecture~4
 concerns the zeros of the pencil $\Xi_k + t\Phi_{k+1}$, $0 \le t \le 1$
 \cite[p.~11]{Hag}; its first case $k = 1$ is the subject of a 2026 preprint of
@@ -261,13 +263,13 @@ no refutation of it, in the literature we could reach; a null search is not a
 proof of absence. Lagarias and Montague study a related Fourier-integral family
 whose members have only finitely many zeros on the critical line; they ask
 whether monotone increase of the imaginary parts of the zeros in the first
-quadrant would be a sufficient condition for all zeros to be on the line, and
-point to Haglund's paper as a related situation ``involving the $\xi$-function,
+quadrant would be a sufficient condition for the zeros of its derivative $\xi$ to
+lie on the critical line, and point to Haglund's paper as a related situation ``involving the $\xi$-function,
 where such a monotonicity implies the RH'' \cite[p.~24]{LM}. Truncations that keep
 all but finitely many zeros \emph{on} the line are known in another setting: Ki
 proved that for $y \ge 1$ all but finitely many complex zeros of any partial sum
-of the Chowla--Selberg formula are simple and on the line, and observed that the
-Riemann hypothesis would follow if the words ``but finitely many'' could be
+of the Chowla--Selberg formula are simple and on the line \cite[Corollary~1]{KiP}, and
+observed, restating it, that the Riemann hypothesis would follow if the words ``but finitely many'' could be
 removed for infinitely many $N$ in the case $z = i$ \cite[p.~198]{Ki}. The
 approximants here are the opposite case (Theorem~\ref{thm:A}). Finally,
 Liu, Matiyasevich, Oesterl\'e and Zaharescu prove, for a different family of
@@ -292,7 +294,7 @@ $N = 24$.
 Let $\psi(x) = \sum_{n \ge 1} e^{-\pi n^2 x}$. Splitting
 $\int_0^\infty \psi(x)x^{s/2-1}\,dx$ at $x = 1$ and using
 $\psi(1/x) = \sqrt{x}\,\psi(x) + (\sqrt{x}-1)/2$ gives Riemann's identity
-\cite{Rie, Edw}, valid for all $s \in \Cx$:
+\cite{Rie, Edw}, valid for all $s \in \Cx \setminus \{0, 1\}$:
 \begin{equation}\label{eq:riemann}
 \Lambda(s) := \pi^{-s/2}\Gamma(s/2)\zeta(s) = -\frac1s - \frac{1}{1-s}
 + \sum_{n \ge 1} g_n(s),
@@ -303,7 +305,8 @@ g_n(s) = \frac{\Gamma(s/2, X)}{X^{s/2}} + \frac{\Gamma((1-s)/2, X)}{X^{(1-s)/2}}
 \qquad X = \pi n^2 .
 \]
 Hence $\xi(s) = \tfrac12 s(s-1)\Lambda(s) = \tfrac12 + \tfrac12 s(s-1)\sum_{n\ge1}
-g_n(s)$. For weights $w\colon \N \to \R$ put
+g_n(s)$. For weights $w\colon \N \to \R$ with $|w_n| \le Cn^A$ for some constants $C, A$
+(so that the series converges absolutely and locally uniformly) put
 \begin{equation}\label{eq:xiw}
 \xi_w(s) := \tfrac12 + \tfrac12 s(s-1)\sum_{n \ge 1} w_n\, g_n(s),
 \end{equation}
@@ -360,7 +363,8 @@ weights $0 \le w_n \le 1$,
 P_w(t) = \tfrac12\bigl(\tfrac14 + t^2\bigr)\sum_{n \ge 1}(1 - w_n)\,g_n(\tfrac12 + it)
 \ \ge\ 0,
 \]
-with equality for all $t$ only if $w \equiv 1$. In particular
+and $P_w(t) > 0$ for every real $t$ unless
+$w \equiv 1$. In particular
 $\xi_1(\tfrac12+it) > \xi_2(\tfrac12+it) > \cdots > \Xi(t)$ for every real $t$.
 \end{theorem}
 
@@ -459,17 +463,19 @@ $\tphi_n'(0) = -(8X^3 - 30X^2 + 15X)e^{-X}$, and each summand
 $8X^3 - 30X^2 + 15X$ is positive for $n \ge 2$.
 \end{proof}
 
-Since the full kernel $\sum_{n \ge 1}\tphi_n$ is even,
+Since the full kernel $\sum_{n \ge 1}\tphi_n$ is even (Haglund states it
+\cite[p.~2]{Hag}; with $K(u) = e^{u/2}\psi(e^{2u})$ the theta relation gives
+$K(u) - K(-u) = -\sinh(u/2)$, so $K'' - K/4$ is even),
 $\sum_{n\ge1}\tphi_n'(0) = 0$, and the limit is also the sum over $n \le N$ of
 the coefficients of $1/t^2$ in the individual $\Phi_n$, namely
-$-2\tphi_n'(0)$; this is how Haglund computes it. Evaluated at $40$ digits the
-limits are $-0.078997$,
-$-1.6530\cdot10^{-7}$, $-2.7831\cdot10^{-16}$, $-5.7375\cdot10^{-28}$ and
-$-1.7062\cdot10^{-42}$ for $N = 1, \ldots, 5$. Haglund lists the coefficients of
+$-2\tphi_n'(0)$; this is how Haglund computes it. The limits are $-0.0789975$,
+$-1.65306\cdot10^{-7}$, $-2.78345\cdot10^{-16}$, $-5.73947\cdot10^{-28}$ and
+$-1.70746\cdot10^{-42}$ for $N = 1, \ldots, 5$ (at $t = 8000$, $t^2\Xi_N(t)$ agrees with
+them to a relative $10^{-3}$). Haglund lists the coefficients of
 $1/x^2$ in $\Phi_1$ and $\Phi_2$ as $-.01974938206$ and $.01974934121$
 \cite[(52), p.~10]{Hag}; his values are one quarter of ours (at $N = 1$,
-$-.01974938206$ against $-0.078997$), a constant factor that comes from the
-argument $z/2$ in \eqref{eq:XiN} and does not affect signs. He concludes that
+$-.01974938206$ against $-0.078997$), because his (51) applies his (50) at $x$ although
+\eqref{eq:XiN} evaluates $G$ at $x/2$; the factor does not affect signs. He concludes that
 the coefficient of $1/x^2$ in $\Xi_N(x)$ ``is
 positive for $k \ge 3$ and negative for $1 \le k < 3$'' \cite[p.~10]{Hag}.
 Proposition~\ref{prop:tail} shows that it is negative for every $N$: the
@@ -480,7 +486,7 @@ the pencil $t\Phi_1 + \Phi_2$ is unaffected: it needs only that the coefficient
 of $\Phi_2$ is positive and that of $\Xi_2$ negative, and both are.
 
 \begin{corollary}[real zeros of $\Xi_N$]\label{cor:odd}
-Let $N \ge 1$ and let $0 < \gamma_1 < \gamma_2 < \cdots$ be the positive zeros of
+Let $N \ge 1$ and let $0 < \gamma_1 < \gamma_2 < \cdots$ be the positive real zeros of
 $\Xi$. Every real zero of $\Xi_N$ in $(0, \infty)$ lies in a positive lobe of
 $\Xi$. Counted with multiplicity, each positive lobe $(\gamma_j, \gamma_{j+1})$
 contains an even number of them and the central lobe $(0, \gamma_1)$ an odd
@@ -578,8 +584,8 @@ $\psi_w(x) = \sum_n w_n e^{-\pi n^2 x}$. Differentiating at $x = 1$ gives
 $K_w'(0) = \alpha/2$, and $C_w = 0$ gives $\alpha = -\tfrac12$: $\psi_w$
 satisfies Riemann's theta relation exactly. Then
 $\delta := \psi_w - \psi = \sum_n(w_n - 1)e^{-\pi n^2 x}$ satisfies
-$\delta(1/x) = \sqrt{x}\,\delta(x)$ and decays super-exponentially at $0$ and at
-$\infty$, so its Mellin transform $\pi^{-s/2}\Gamma(s/2)\sum_n(w_n - 1)n^{-s}$ is
+$\delta(1/x) = \sqrt{x}\,\delta(x)$ and decays faster than every power of $x$ at $0$ and at
+$\infty$ (exponentially at $\infty$, and like $x^{-1/2}\delta(1/x)$ at $0$), so its Mellin transform $\pi^{-s/2}\Gamma(s/2)\sum_n(w_n - 1)n^{-s}$ is
 entire, symmetric under $s \mapsto 1 - s$, and bounded in vertical strips. By
 Hamburger's theorem \cite{Ham} the Dirichlet series
 $f(s) = \sum_n(w_n - 1)n^{-s}$ is a constant multiple of $\zeta$; since $f$ is
@@ -592,9 +598,12 @@ $\sigma > 1$, $P(s)F(s)$ is entire of finite order for some polynomial $P$, and
 $\xi_F(1-s) = \xi_F(s)$ with $\xi_F(s) := \pi^{-s/2}\Gamma(s/2)F(s)$, then
 $F = C\zeta$; here $F = f$ is entire of finite order. For polynomially bounded
 $w$, Burnol's extension \cite[pp.~2--3, Corollaire~2]{Bur} needs convergence only
-for $\re s$ large. Some such hypothesis is needed: with absolute convergence only
-in \emph{some} half-plane, Knopp exhibits infinitely many linearly independent
-solutions of the functional equation (as reported in \cite[p.~4]{Nak}).
+for $\re s$ large, together with finitely many poles, $f(s) = O(e^{\exp\epsilon|s|})$ in
+vertical strips, and, for $g(s) = \chi(s)f(1-s)$, $g(s) = O(|s|^N y^{-s})$ with
+$y > \tfrac12$ and $g(\sigma) = c + O(\sigma^{-k})$ for every $k$; here
+$g = f = (w_1 - 1) + O(2^{-\sigma})$, so all of these hold. (Hamburger's theorem needs
+more than the functional equation: see \cite[p.~4]{Nak} for Knopp's solutions when
+(H1) is weakened.)
 
 \begin{proposition}[windowed real-rootedness is a height filtration]\label{prop:F}
 Let $F_N$ be entire with $F_N(1-s) = F_N(s)$ and $F_N(\bar s) =
@@ -610,6 +619,7 @@ zeros of $\xi$ in $R_T$ are simple, $F_N$ is real-rooted on $R_T$ for all large
 $N$ if and only if the Riemann hypothesis holds on $R_T$.
 \end{proposition}
 
+\begin{remark}
 For $F_N = \xi_N$ one has
 $\sup_{R_T}|\xi_N - \xi| \le \tfrac12(T^2 + 4)\max_{-1 \le \sigma \le 2}
 \sum_{n > N}g_n(\sigma) \approx T^2 e^{-\pi(N+1)^2}/(\pi(N+1)^2)$, which is below
@@ -620,11 +630,13 @@ $\re s \ge \pi(N+1)^2$, and using $s \mapsto 1 - s$ on the left. So in any
 induction ``members real-rooted up to $T_N$ implies real-rooted up to
 $T_{N+1}$'', the only content is the Riemann hypothesis on the new window
 $T_N < |\im s| \le T_{N+1}$; what the family proves by itself
-(Theorem~\ref{thm:polya}: real zeros are never lost as $N$ grows) is the easy
+(Theorem~\ref{thm:polya}: the set where $\xi_N(\tfrac12+it) < 0$ grows with $N$,
+so a lobe that carries real zeros keeps carrying them) is the easy
 half. This is the frame in which Conjecture~\ref{conj:H} lives: it asks for an
 ordering property to carry the induction, and Theorem~\ref{thm:main} shows that
 the ordering property fails near the height at which the approximant leaves the
 window.
+\end{remark}
 
 \section{Departure height and the lobe scan}
 \label{sec:departure}
@@ -655,13 +667,13 @@ Theorem~\ref{thm:sandwich}, apart from the central lobe the real zeros of
 $\Xi_N$ come in pairs from the positive lobes of $\Xi$ whose height exceeds the
 smooth level $Q_N$, and by
 Corollary~\ref{cor:lobe} those of $\xi_N$ come from the negative lobes deeper
-than $P_N$. A lobe that fails the level, followed by a lobe that passes it,
-leaves a pair of non-real zeros over the first lobe with real zeros above it,
-which violates the ordering. Lobe heights decrease on average by a factor
+than $P_N$. A lobe that fails the level, followed by a lobe that passes it, is expected to
+leave (and in both cases below does leave) a pair of non-real zeros over the first
+lobe with real zeros above it, which violates the ordering. Lobe heights decrease on average by a factor
 $e^{-\pi^2/\log(t/2\pi)}$ per step between lobes of the same sign, but fluctuate
 by comparable factors, so such an inversion is to be expected near the
 departure height for some $N$. We scanned the windows
-$[4(N+1)^2 - 40,\ 4(N+1)^2 + 90]$ for $N = 6, \ldots, 29$ (and $N = 30$), counting
+$[4(N+1)^2 - 40,\ 4(N+1)^2 + 90]$ for $N = 6, \ldots, 30$, counting
 zeros in every window and comparing each lobe's height with the level. The only
 violations are at $N = 24$ for $\xi_N$ and at $N = 27$ for $\Xi_N$. The closest
 other approach for Haglund's family is at $N = 21$, where a lobe beyond the first
@@ -707,7 +719,9 @@ the remainder bounded by Lemma~\ref{lem:T}; near $z_0$ all these terms are about
 $10^{-1066}$ or smaller ($\Phi_{28} \approx \Xi \approx 1.49\cdot10^{-1066}$,
 $\Phi_{29} \approx 3\cdot10^{-1144}$), so route T has no catastrophic
 cancellation and is sharp on ball inputs at $256$ bits. Route T uses Riemann's
-series $\Xi = \sum_{n\ge1}\Phi_n$ \cite[(12), p.~3]{Hag}; route L does not.
+series
+$\Xi = \sum_{n\ge1}\Phi_n$ \cite[(12), p.~3]{Hag}, which also follows from \eqref{eq:riemann}
+and Lemma~\ref{lem:relation}; route L does not.
 
 \begin{lemma}\label{lem:B}
 For $w \in \Cx$, $a > 0$, $b \in \R$:
@@ -742,7 +756,9 @@ $\bigl|\sum_{n > M}\Phi_n(z)\bigr| \le \sum_{n>M}U_n \le 2U_{M+1}$.
 \begin{proof}
 In \eqref{eq:XiN}, $|\im(z/2)| \le Y/2$, and Lemmas~\ref{lem:B}
 and~\ref{lem:Gam} (with $\beta = \tfrac94 + Y/2$ and $\tfrac54 + Y/2$, both
-$\ge 1$) give $|\Phi_n| \le U_n$. For $n \ge 1$,
+$\ge 1$) give $|\Phi_n| \le U_n$
+(since $\Gamma(\beta,a)/a^\beta = \int_1^\infty x^{\beta-1}e^{-ax}\,dx$ increases with
+$\beta$, $|\im(z/2)|$ may be replaced by $Y/2$). For $n > M$,
 $U_{n+1}/U_n \le e^{-3\pi}\cdot 16 < 1.3\cdot10^{-3}$, since the ratio of the
 polynomial factors is at most $((n+1)/n)^4 \le 16$ and the ratio of the
 denominators is below $1$; so $\sum_{n>M}U_n \le 2U_{M+1}$.
@@ -767,7 +783,8 @@ route T, the intermediate value theorem and the argument principle.
 Certificate B uses mpmath's real intervals with outward rounding, complex
 numbers as rectangular boxes built on them, and exact rational Bernoulli
 numbers; every truncation adds a disk whose radius is a proved bound, each
-targeting $2^{-190}$ at a working precision of $200$ bits. It writes
+targeting $2^{-190}$ relative to the size of the truncated quantity ($|\zeta| \approx 1$,
+and $e^{-X}$ for $h$), at a working precision of $200$ bits. It writes
 $\Phi_n = 2X^2[h(\tfrac s2 + 2) + h(\tfrac{1-s}2 + 2)] - 3X[h(\tfrac s2 + 1) +
 h(\tfrac{1-s}2 + 1)]$ with $h(w) = X^{-w}\Gamma(w, X) = \int_1^\infty
 e^{-Xu}u^{w-1}\,du$, as in the proof of Lemma~\ref{lem:relation}, and evaluates
@@ -798,7 +815,7 @@ $\Xi_{27} \approx 10^{-1070}$ with about $50$ digits to spare. As a second
 rigorous route for the real zeros, certificate B also evaluates the literal sum
 \eqref{eq:XiN} at $4400$ bits, with $\Phi_1, \ldots, \Phi_{27}$ from the lower
 incomplete gamma series (remainder $\le e^{-X}X^K/|(w)_K|$ once
-$\re w + K \ge X + 1$), integration by parts where it converges, and Stirling's
+$\re w + K \ge X + 1$), integration by parts where its remainder bound is small, and Stirling's
 series: no $\zeta$, no Euler--Maclaurin summation, and no use of Riemann's
 series.
 
@@ -817,7 +834,8 @@ A boundary piece is accepted when the model's box enclosure plus $[-E,E]^2$
 excludes $0$ and the ratio of the end values has positive real part; the change
 of argument along it is then the principal value of that ratio's argument. At
 $N = 27$: $R = 0.1$, $M_R = 2.09255\cdot10^{-1065}$, $\rho = 0.002$, $m = 24$,
-$K = 12$, giving $E = 3.51\cdot10^{-1106}$ for $r \le 10^{-5}$ and
+$K = 12$, giving, with $r' = \sqrt2\,r$ for a square of half-width $r$ about $c$,
+$E = 3.51\cdot10^{-1106}$ for $r \le 10^{-5}$ and
 $1.36\cdot10^{-1087}$ at $r = 10^{-3}$; the constant coefficient $D_0$ agrees
 with a direct enclosure of $\Xi_{27}(c)$. For the $10^{-48}$ enclosure a
 second model is built at the center
@@ -880,7 +898,7 @@ B & $c$ & $10^{-10}$, $5\cdot10^{-11}$, $4\cdot10^{-11}$ & $32$, $32$, $33$ & $1
 B & $c$ & $3.7\cdot10^{-11}$ & $36$ & $1$ \\
 B & $c$ & $3.5\cdot10^{-11}$ & $33$ & $0$ \\
 B & $c + 0.01$ & $10^{-3}$ & $32$ & $0$ \\
-B & $z^*$ & $10^{-30}$, $10^{-40}$, $10^{-45}$, $10^{-48}$ & & $1$ \\
+B & $z^*$ & $10^{-30}$, $10^{-40}$, $10^{-45}$, $10^{-48}$ & -- & $1$ \\
 \bottomrule
 \end{tabular}
 \caption{Certified winding numbers $k$ of $\Xi_{27}$ along the boundaries of
@@ -897,7 +915,7 @@ and $c + 0.01$ are zero-free controls.}
 
 \begin{table}[ht]
 \centering\small
-\begin{tabular}{p{0.30\textwidth}p{0.30\textwidth}p{0.30\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}}
 \toprule
 test & certificate A & certificate B \\
 \midrule
@@ -925,10 +943,11 @@ squares.}
 
 \paragraph{Cross-checks.} In certificate A, routes L and T overlap at all $18$
 points compared (the center, the reference zero, the corners and midpoints of
-the squares of half-width $10^{-3}$, the corners of the square of half-width
+the square of half-width $10^{-3}$, the corners of the square of half-width
 $4\cdot10^{-11}$, and the four points of Table~\ref{tab:real}), with
 $|L - T| \le 6.43\cdot10^{-1137}$ at $256$ bits, and
-$|L - T| \le 1.18\cdot10^{-1288}$ at $1024$ bits at the fourteen contour points. In certificate B the literal and
+$|L - T| \le 1.18\cdot10^{-1288}$ at $1024$ bits at the
+fourteen points other than those of Table~\ref{tab:real}. In certificate B the literal and
 tail routes overlap at the four points of Table~\ref{tab:real}, its enclosures of
 $\Xi$ contain mpmath's ordinary $400$-bit values, and its two methods for $h$ at
 $X = 784\pi$ overlap. The two certificates agree with each other to every digit
@@ -958,7 +977,7 @@ with multiplicity, so $z_0$ is simple. Certificate A independently finds winding
 number $1$ at half-width $4\cdot10^{-11}$. The square
 $z^* + [-10^{-48}, 10^{-48}]^2$ lies inside the first square, since
 $z^* - c = 3.66\ldots\cdot10^{-11} - 2.18\ldots\cdot10^{-11}\,i$; winding number
-$1$ there locates the same zero $z_0$.
+$1$ there (certificate B) locates the same zero $z_0$.
 
 (c) From (b), $\im z_0 \ge 0.3152587994 - 3.7\cdot10^{-11} > 0.3152$ and
 $\re z_0 \le 3143.2206824215 + 3.7\cdot10^{-11} < 3143.2207 < 3144.8946 < x_1$.
@@ -1006,8 +1025,9 @@ digits)
 \]
 and in certificate B $+2.813175361644763\cdot10^{-854}$,
 $-1.65267129214774\cdot10^{-854}$, $-3.232811395053649\cdot10^{-854}$ and
-$+6.141840615423139\cdot10^{-855}$ at the same four points. Certificate A finds
-winding number $1$ along the $s$-plane squares of half-width $10^{-3}$
+$+6.141840615423139\cdot10^{-855}$ at the same four points. Certificate A finds (in the $s$-plane; the
+symmetry $\xi_{24}(\tfrac12 + i\bar z) = \overline{\xi_{24}(\tfrac12 + iz)}$ carries its squares to
+those of (b)) winding number $1$ along the $s$-plane squares of half-width $10^{-3}$
 ($151$ pieces) and $10^{-10}$ ($174$ pieces) about
 $0.8159896243 + 2508.2839748053\,i$, and $0$ for a control square shifted by
 $2.5\cdot10^{-3}\,i$; certificate B finds winding number $1$ for
@@ -1041,11 +1061,16 @@ by an independent reader, and the corrections found there are incorporated.
 the two certificates, from the independent evaluations that checked them, or
 from the floating-point records behind Sections~\ref{sec:positivity}
 and~\ref{sec:departure}. All are version-controlled and available in the
-repository \url{https://github.com/x67ai/riemann-rh-program}; paths below are
-relative to \texttt{rh-program/} in that repository. The certificate is also
+repository \url{https://github.com/x67ai/riemann-rh-program}, at the tag
+\texttt{haglund-cert-2026-10}, which is the state this paper was prepared against;
+paths below are relative to \texttt{rh-program/} in that repository (in the path
+names, \texttt{s36}/\texttt{s37} are the program's session numbers,
+\texttt{producer-A}/\texttt{producer-B} the two certificates, and
+\texttt{rerun-F}/\texttt{verify-F} the independent re-runs). The certificate is also
 available as a self-contained archive,
-\texttt{haglund-counterexample-certificate.zip}, with SHA-256
-\texttt{a450b39977ef00c24c0a36de596c7e50}\allowbreak\texttt{c1236a415c8f73864c2d2b07831692e5}, which contains both certificates,
+\texttt{haglund-counterexample-certificate.zip}, deposited with this paper on
+Zenodo, with SHA-256
+\texttt{375193a0f63afe23be73d40a9159044d}\allowbreak\texttt{28221223e450f1d0bf43d3f1af4f4efa}, which contains both certificates,
 the independent re-runs, the third evaluation, and a README with the exact
 commands and expected outputs. On one core of an Apple M4, certificate A runs in
 about $72$ seconds (Python~3.9.6, python-flint~0.6.0) and certificate B in about
@@ -1077,9 +1102,10 @@ and the $50$-digit zeros).
 \path{results/novel-wave-s36/staircase/lit/PRIOR-ART.md}) behind the
 prior-work paragraph.
 \end{itemize}
-One exception: the working corpus of fetched literature is not redistributed,
-for copyright reasons, and nothing here depends on it; every external claim is
-cited to its published source.
+The third-party texts consulted (Haglund's paper, Ahn's thesis and the cited
+articles) are not redistributed at the tagged state, for copyright reasons, and
+nothing here depends on them; every external claim is cited to its published
+source.
 
 \begin{thebibliography}{99}
 
@@ -1123,6 +1149,11 @@ Funktionalgleichung der $\zeta$-Funktion (erste Mitteilung)}, Math. Z.
 \bibitem[Joh17]{Arb} F. Johansson, \emph{Arb: efficient arbitrary-precision
 midpoint-radius interval arithmetic}, IEEE Trans. Comput. \textbf{66} (2017),
 no.~8, 1281--1292, DOI 10.1109/TC.2017.2690633.
+
+\bibitem[Ki05]{KiP} H. Ki, \emph{All but finitely many non-trivial zeros of the
+approximations of the Epstein zeta function are simple and on the critical line},
+Proc. London Math. Soc. (3) \textbf{90} (2005), no.~2, 321--344,
+DOI 10.1112/S0024611504015060.
 
 \bibitem[Ki06]{Ki} H. Ki, \emph{Zeros of the constant term in the
 Chowla--Selberg formula}, Acta Arith. \textbf{124} (2006), no.~3, 197--204.

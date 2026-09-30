@@ -131,3 +131,7 @@ matched the archived log line for line except for timing figures.
     shasum -a 256 -c SHA256SUMS
 
 run from this directory, checks every file against the list.
+
+**Erratum (2026-10-01, referee ruling 5).** `producer-A/CERT.md` line 103 cites Haglund's appendix as "App. p. 15"; in the
+arXiv text (arXiv:0910.5228v1) the page-15 footer precedes the heading "7 Appendix", which opens p. 16 — the paper cites p. 16.
+The CERT is hashed and is not edited.
