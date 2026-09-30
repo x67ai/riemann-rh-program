@@ -121,7 +121,7 @@ The ladder exercised every component: Stirling with shift (small |w|), Euler–M
 - H2\*: second model at z* (ρ = 0.001, m = 40): E = 2.09e−1145; k = 1 for r = 1e−30, 1e−40, 1e−45, 1e−48 (at 1e−48 the lower
   modulus 5.9e−1114 still exceeds the point-enclosure radii ≈ 1e−1120 by 10⁶). Location: z₀ ∈ z* + [−1e−48, 1e−48]².
 
-## E. Cross-checks (not load-bearing; `crosscheck.py` → `logs/crosscheck.log`, `selftest.py` → `logs/selftest.log`)
+## E. Cross-checks (not load-bearing; `crosscheck.py X1 X2` / `X3` → `logs/crosscheck-X1X2.log` / `-X3.log`; `selftest.py`)
 
 - **X3 — a second rigorous route for H1/H4.** The literal sum (13), Σ_{n≤27} Φ_n, at 4400 bits: Φ₁…Φ₂₇ via B4 (and B3 where it
   converges), Γ via B1; no ζ, no Euler–Maclaurin, no identity (12). The terms are ≈ 1e−9 and cancel over ≈ 1061 digits:
@@ -137,7 +137,8 @@ The ladder exercised every component: Stirling with shift (small |w|), Euler–M
   −1.14913915363e−1070) to all 12 digits given. X4 (`cert27.py`): at the brief's 22-digit point z₂₂ the enclosure is
   Ξ₂₇(z₂₂) ∈ @X4@ (brief: 2.58e−1085 + 1.70e−1084 i).
 - **X1.** The Ξ boxes (Stirling + E–M) contain mpmath's ordinary 400-bit ζ·Γ values at the four points and at c.
-- **X2.** h at X = 784π (the four arguments of Φ₂₈(c)): B3 at 200 bits vs B4 at 1400 bits (lower sum cancels by ≈ 1e135).
+- **X2.** h at X = 784π (the four arguments of Φ₂₈(c)): B3 at 200 bits (relative radius 2.8e−57) and B4 at 4400 bits (≈ 1e−106,
+  the Stirling bound) overlap for all four. (At 1400 bits B4's box was useless: ~5000 box rotations in u_k = u_{k−1}X/(w+k) wrap.)
 - **Ladder-level identity checks.** Tail route = literal (13) at N = 1, 2 (16 digits), and for the seed chain tail = defining sum
   at N = 1, 2 (`cert_h5.py` (L)): identity (12) and Riemann's formula behave as used.
 - **selftest.py** PASSED: exact Bernoulli numbers vs mpmath, `clog_gen` 0 violations on 15000 samples, and Γ, ζ, h, Ξ, Φ_n
@@ -154,3 +155,16 @@ winding number 1 of z ↦ ξ₂₄(½+iz) on c5 + [−r, r]², c5 = 2508.2839748
 (model R = 0.1, ρ = 0.002, m = 24, K = 12; M_R = 4.07e−849; at r = 10⁻³: min lower modulus 1.16e−852 vs E = 2.6e−871); control
 c5 + 0.01: k = 0. Model zero s = 0.184010375695657531105913643468 + 2508.28397480532415320152284309 i (mirror of NOTE §4's ρ₂₄).
 Hence ξ₂₄ has a non-real zero in Q (z-variable) with real part < 2508.285 < 2510.2026 < a real zero: the ordering invariant fails.
+
+## F. Reproduction, run times, versions
+
+`cd producer-B && python3 selftest.py && python3 ladder.py && python3 cert27.py && python3 cert_h5.py && python3 crosscheck.py X1 X2
+&& python3 crosscheck.py X3` (one process at a time; Apple M4 (Mac16,10), macOS 27.0.1, single core). Times: selftest 2 s, ladder 118 s,
+cert27 ≈ 60 s, cert_h5 17 s, crosscheck X1X2 16 s, X3 ≈ 670 s. Python 3.9.6; mpmath 1.3.0, backend `python` (no gmpy);
+no Arb, no python-flint, no other numerical library. Working precision 200 bits (4400 bits in X2/X3); every truncation bound
+targets 2^{−190}. Logs: `logs/selftest.log`, `ladder.log`, `cert27.log`, `cert_h5.log`, `crosscheck-X1X2.log`, `crosscheck-X3.log`
+(`crosscheck-run1-X2invalid.log` kept for the record: same X3 values; its X2 used 1400 bits and is void, see SHARED.md).
+
+What is NOT proved here (scope): correctness of mpmath's primitive interval operations (trusted as the brief allows); Haglund's
+identity (12) and Riemann's formula are cited (on disk) and checked numerically, not re-derived; the ladder's R3 "no zero" is by
+Haglund's list, and our own k = 0 there is the certified statement.

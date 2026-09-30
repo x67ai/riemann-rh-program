@@ -57,3 +57,24 @@ Deliverables: `insights-digest.md` (the wave's insights digest, §A–§G) and `
 
 ## 2026-09-30 23:15 (clock read) — digest reflowed (multi-line items only, width 158; word sequence verified identical): 319 -> 298 lines
 - Next: Deliverable 2 — read BARRIER-ZOO.md 1-60, IV.20 entry + riders, theoremR-lean-s36 UNIT-BRIEF §1(3), CHECK-O §11 + header.
+
+## 2026-09-30 23:20 (clock read) — ZOO-LINES-STAGED.md created: header, zoo state (711 lines, 59 entries, SHA-256 90d0ad6a...), insertion map
+- Decisions: (i) IV.21 new entry; (ii) rider on IV.9; (iii) new Group-I entry I.9; (iv) T6 rider on III.15; (v) bullet under IV.20 (I.1 line-73 precedent); plus cross-reference rows and an entry-count paragraph. Final count 61.
+
+## 2026-09-30 23:21 (clock read) — block (i) IV.21: heading + STATEMENT appended
+
+## 2026-09-30 23:21 (clock read) — block (i) IV.21 complete (KILLS, TEST, SOURCE, STATUS)
+
+## 2026-09-30 23:22 (clock read) — block (ii) rider on IV.9 appended
+
+## 2026-09-30 23:23 (clock read) — block (iii) I.9 appended
+
+## 2026-09-30 23:24 (clock read) — blocks (iv) T6 rider on III.15 and (v) IV.20 bullet appended
+
+## 2026-09-30 23:24 (clock read) — blocks X (cross-reference rows) and C (entry-count paragraph) appended; ZOO-LINES-STAGED.md complete
+
+## 2026-09-30 23:26 (clock read) — DONE
+- insights-digest.md: 298 lines, §A-§G; Haglund row sharpened (what is rigorous after Producer A, what is owed); §G label fix (recall errors are not (iii)).
+- ZOO-LINES-STAGED.md: 101 lines; blocks (i) IV.21, (ii) IV.9 rider, (iii) I.9, (iv) III.15 rider (T6), (v) IV.20 bullet, X rows, C count paragraph; final count 61 (I 9, II 5, III 21, IV 21, V 5); 711 -> 736 lines if entered as staged.
+- Checks: label of (v) identical to UNIT-BRIEF §1(3) (script); no forbidden phrasing; CHECK-O hash e7d5e881... recomputed = recorded; table pipe counts OK; digest reflow word-sequence identical.
+- Not done here (by instruction): no edit to BARRIER-ZOO.md or directions/*.md; no git. Producer-B CERT.md (23:07) not read.

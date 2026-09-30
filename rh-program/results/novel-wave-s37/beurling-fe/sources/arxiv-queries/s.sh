@@ -1,7 +1,7 @@
 #!/bin/bash
-# usage: s.sh "<query words>" <name>   -- arxiv.org HTML search (export API down 2026-09-30); saves html, prints id + title
-q=$(echo "$1" | sed 's/ /+/g')
-for i in $(seq 1 5); do curl -s -m 60 "https://arxiv.org/search/?query=$q&searchtype=all&abstracts=show&order=-announced_date_first&size=50" -o "$2.html" && [ -s "$2.html" ] && break; sleep 30; done
+# usage: s.sh "<query>" <name>  -- arxiv.org HTML search (export API timing out 2026-09-30); saves html, prints id | title
+q=$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote_plus(sys.argv[1]))' "$1")
+for i in $(seq 1 4); do curl -s -m 50 "https://arxiv.org/search/?query=$q&searchtype=all&abstracts=show&order=-announced_date_first&size=50" -o "$2.html" && [ -s "$2.html" ] && break; sleep 20; done
 python3 - "$2.html" << 'PY'
 import re,sys,html
 t=open(sys.argv[1],encoding='utf-8',errors='ignore').read()

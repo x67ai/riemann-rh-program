@@ -64,3 +64,13 @@
   Model zero s = 0.184010375695657531105913643468 + 2508.28397480532415320152284309 i (mirror of NOTE's 0.8159896243043424688941 + …).
   So the ordering invariant fails for ξ₂₄ (non-real zero in Q with real part < 2508.285 < 2510.2026 < a real zero).
 - Cross-check run 2 launched (fixed X2; X1 and X3 repeated) → `logs/crosscheck.log`.
+
+## 2026-09-30 23:33 — cross-check X2 redone; run 2 stopped
+- X2 at 1400 bits was STILL uninformative after the tolerance fix (radius ≈ 1e−968 vs value 6e−1074). Cause: the lower-series
+  recurrence u_k = u_{k−1}·X/(w+k) rotates the rectangular complex box ~5000 times and the wrapping inflation (plus the ≈1e135
+  cancellation) exceeds what 1400 bits absorb. Re-run at 4400 bits (`python3 crosscheck.py X1 X2` → `logs/crosscheck-X1X2.log`,
+  16 s): the two proved expansions of h at X = 784π OVERLAP at all four arguments of Φ₂₈(c); relative radii: integration by parts
+  2.8e−57, lower series ≈ 1e−106 (limited by the Stirling bound 2.9e−106, as expected). X1 again PASSED.
+- Run 2 (full script) was stopped during X3 (it repeated run 1's X3 exactly). NOTE: my first `pkill -f "python3 crosscheck.py"`
+  did not match (the process shows as `Python crosscheck.py`), so run 2 overlapped the 16-s X1/X2 job; killed by PID afterwards.
+- X3 relaunched alone (`python3 crosscheck.py X3` → `logs/crosscheck-X3.log`, ≈ 11 min).
