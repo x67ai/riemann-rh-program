@@ -359,3 +359,8 @@ At α = 0.9 the candidates α/2 and 1/(4 − 2α) differ by 0.005 and cannot be 
 α − ½ = 0.10, 0.25, 0.40; the contour bound 1/(4 − 2α) = 0.357, 0.400, 0.455 is far above at α = 0.6, 0.75. So G1 (T(y) ≪ y^{α/2+ε}) is
 strongly supported at α = 0.6 (0.12 vs α/2 = 0.30); at α = 0.75, 0.9 the top window [10⁷, 2·10⁸] drifts up (0.298, 0.451), still
 ≤ α/2 within the noise of a 1.3-decade window. Its proof is the open analytic step (§4.4).
+(iv) *BDR's own deleted set is of Theorem-C type.* The Broucke–Vindas selection has π_S(x) − F(x) = O(1) (BDR, z-02 lines 1117–1118:
+"the counting function of the sequence p_j is at most 1 apart from F"), and the transfer measure dE moves each excess q_j^{α−1} ≤ 1 to the
+next prime, so ∫₁^x u^{α−1}dE(u) = O(1) as well: c = 1, θ = 0. Hence BDR's unpadded Section-5 systems satisfy β ≥ α/2 unconditionally,
+and their hyperbola exponent 2α/(α + 2) sits between this lower bound and ½. (Their low-discrepancy random selection has tiny
+fluctuation — each P_j is random only inside an interval of F-mass 1 — so it behaves like the greedy set of §6.3, not like T_α.)
