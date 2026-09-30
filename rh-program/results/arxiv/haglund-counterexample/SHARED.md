@@ -12,7 +12,7 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   No install needed; build with `export PATH="$HOME/texlive/2026/bin/universal-darwin:$PATH"`.
 - Next: read the template, then the source files named in the brief.
 
-## 2026-10-01 00:14 IST — template, footnote, sources located
+## 2026-10-01 ~00:10 IST — template, footnote, sources located
 
 - Template read (`a4-no-go/main.tex`: article 11pt, 1in margins, amsthm, booktabs, hyperref
   hidelinks, hand-written `thebibliography` with [AF26]-style keys, "Provenance, data and code"
@@ -31,7 +31,7 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   `NOTE.md` §0-§4, §6, §7, §10 (F1, F2, F4, F5 are already applied in the NOTE text; F3 is the
   added paragraph under Proposition E).
 
-## 2026-10-01 00:22 IST — both certificates read; hashes checked
+## 2026-10-01 ~00:12 IST — both certificates read; hashes checked
 
 - Read `producer-A/CERT.md` (all 194 lines) and `producer-B/CERT.md` (all 171 lines).
 - CERT hashes on disk match the NOTE: A `b1ecfe0a...513f`, B `c4a8ca6b...87a3`.
@@ -45,7 +45,7 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   zero). Not a defect in the result; a provenance wrinkle. Handling: the archive ships the file as
   it is, and the certificate README says so explicitly. Flagged for the referee brief.
 
-## 2026-10-01 00:32 IST — Haglund text, prior art, two citations read at the page
+## 2026-10-01 ~00:15 IST — Haglund text, prior art, two citations read at the page
 
 - Haglund arXiv:0910.5228v1 text on disk read: (1), (2)-(3), (6)-(14) pp. 1-3; "monotonic zeros"
   definition, Conjecture 1, Proposition 1 and proof pp. 3-4; Remark 1 and the table p. 4; (50)-(52)
@@ -68,7 +68,7 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   published August 22, 2026, v1.0.0, preprint. Description quoted in the paper: "The result covers
   only the first interpolation." Condition of the brief met: it is cited.
 
-## 2026-10-01 00:48 IST — main.tex: front matter, Section 1, Section 2 on disk
+## 2026-10-01 ~00:24 IST — main.tex: front matter, Section 1, Section 2 on disk
 
 - `main.tex` so far: preamble (template class and packages), title, author with the README
   footnote, date October 1, 2026, abstract; Section 1 (Haglund's objects and exact quotes of the
@@ -80,7 +80,7 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   with a proof re-typed from PRIOR-ART §0's derivation, the constants c_1..c_5 from the NOTE).
 - Next: Section 3 (Theorems D, D', lobe law, odd count, tail coefficient).
 
-## 2026-10-01 01:08 IST — Sections 3, 4, 5 on disk
+## 2026-10-01 ~00:32 IST — Sections 3, 4, 5 on disk
 
 - Section 3: Theorem 3.1 (NOTE Theorem D) with proof; Corollary 3.2 (lobe law); Theorem 3.3
   (NOTE Theorem D', F1 applied: +0.291 and +0.0395) with proof; Proposition 3.4 (tail) with the
@@ -95,3 +95,20 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
 - Section 5: departure law (NOTE §3 departure lobes N = 1..7), lobe-scan tally (NOTE §4.1), the
   N = 27 lobes (0.411 / 1.325), labeled as floating-point and not part of the proof.
 - Test build of the partial file: no TeX errors; overfull boxes fixed in displays.
+
+## 2026-10-01 00:36 IST — timestamps corrected; Sections 6, 7, provenance, bibliography; archive copied
+
+- Correction: the headers of the four previous blocks carried estimated times, two of them later
+  than the real clock. They are now marked "~" and set from file modification times; from here
+  on every header is read from `date`.
+- `main.tex` complete: Section 6 (certificate A with Lemmas 6.1-6.3 re-typed from A's CERT §3;
+  certificate B's bounds from B's CERT §B; Tables 1-3; cross-checks; the verify-F values; proof of
+  Theorem 1.1), Section 7 (xi_24, both certificates' numbers), Provenance with the data and code
+  availability statement (zip hash still a placeholder, filled after zipping), bibliography of 17
+  entries (every entry's data read on disk or at the page: Crossref for Platt-Trudgian and Arb).
+- Full build: no errors, no overfull boxes; 16 pages (target was 8-12; the proofs of Theorems
+  D, D', A, B, the certificate lemmas and three tables account for the length).
+- `certificate/` created by copying producer-A/, producer-B/, rerun-F/ (from haglund-cert-s37),
+  verify-F/ (from the staircase folder), NOVELTY-F.md: 49 files, 3.6 MB.
+- Next: reproduce both certificates in a scratch copy (not in certificate/, because B's scripts
+  overwrite their own logs), then README.md, SHA256SUMS, the zip and its hash.
