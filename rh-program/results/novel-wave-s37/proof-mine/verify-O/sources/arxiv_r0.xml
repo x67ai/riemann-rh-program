@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/OfneLIHTBMxL+Vt876u/E3vWKw8</id>
+  <title>arXiv Query: search_query=abs:lcm AND abs:"lower bound" AND abs:primes&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-30T19:57:31Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:lcm+AND+(abs:%22lower+bound%22+AND+abs:primes)&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2106.06782v4</id>
+    <title>On the Least Common Multiple of Polynomial Sequences at Prime Arguments</title>
+    <updated>2021-11-28T06:25:30Z</updated>
+    <link href="https://arxiv.org/abs/2106.06782v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2106.06782v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Cilleruelo conjectured that if $f\in\mathbb{Z}[x]$ is an irreducible polynomial of degree $d\ge 2$ then, $\log \operatorname{lcm} \{f(n)\mid n&lt;x\} \sim (d-1)x\log x.$ In this article, we investigate the analogue of prime arguments, namely, $\operatorname{lcm} \{f(p)\mid p&lt;x\}$ where $p$ denotes a prime and obtain non-trivial lower bounds on it. Further, we also show some results regarding the greatest prime divisor of $f(p).$</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-06-12T14:22:17Z</published>
+    <arxiv:comment>10 pages, 1 table; to appear in Int. J. Number Theory</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>International Journal of Number Theory (2021)</arxiv:journal_ref>
+    <author>
+      <name>Ayan Nath</name>
+    </author>
+    <author>
+      <name>Abhishek Jha</name>
+    </author>
+    <arxiv:doi>10.1142/S1793042122500622</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1142/S1793042122500622" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1805.02945v1</id>
+    <title>The number of solutions of the Erdős-Straus Equation and sums of $k$ unit fractions</title>
+    <updated>2018-05-08T11:07:51Z</updated>
+    <link href="https://arxiv.org/abs/1805.02945v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1805.02945v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove new upper bounds for the number of representations of an arbitrary rational number as a sum of three unit fractions. In particular, for fixed $m$ there are at most $\mathcal{O}_ε(n^{3/5+ε})$ solutions of $\frac{m}{n}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$. This improves upon a result of Browning and Elsholtz (2011) and extends a result of Elsholtz and Tao (2013) who proved this when $m=4$ and $n$ is a prime. Moreover there exists an algorithm finding all solutions in expected running time $\mathcal{O}_ε\left(n^ε\left(\frac{n^3}{m^2}\right)^{1/5}\right)$, for any $ε&gt;0$. We also improve a bound on the maximum number of representations of a rational number as a sum of $k$ unit fractions. Furthermore, we also improve lower bounds. In particular we prove that for given $m\in \mathbb{N}$ in every reduced residue class $e \bmod f$ there exist infinitely many primes $p$ such that the number of solutions of the equation $\frac{m}{p}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$ is $\gg_{f,m} \exp\left(\left(\frac{5\log 2}{12 \mathrm{lcm}(m,f)}+o_{f,m}(1)\right)\frac{\log p}{\log \log p}\right)$. Previously the best known lower bound of this type was of order $(\log p)^{0.549}$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-05-08T11:07:51Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Stefan Planitzer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1211.4468v1</id>
+    <title>New Lower Bounds for the Least Common Multiples of Arithmetic Progressions</title>
+    <updated>2012-11-19T15:45:03Z</updated>
+    <link href="https://arxiv.org/abs/1211.4468v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1211.4468v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For relatively prime positive integers $u_0$ and $r$ and for $0\le k\le n$, define $u_k:=u_0+kr$. Let $L_n:={\rm lcm}(u_0, u_1, ..., u_n)$ and let $a, l\ge 2$ be any integers. In this paper, we show that, for integers $α\geq a$ and $r\geq \max(a, l-1)$ and $n\geq lαr$, we have $$L_n\geq u_0r^{(l-1)α+a-l}(r+1)^n.$$ Particularly, letting $l=3$ yields an improvement to the best previous lower bound on $L_n$ obtained by Hong and Kominers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-11-19T15:45:03Z</published>
+    <arxiv:comment>4 pages. To appear in Chinese Annals of Mathematics (Series B)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Chin. Ann. Math. 34B (2013), 861-864</arxiv:journal_ref>
+    <author>
+      <name>Rongjun Wu</name>
+    </author>
+    <author>
+      <name>Qianrong Tan</name>
+    </author>
+    <author>
+      <name>Shaofang Hong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1101.0142v2</id>
+    <title>Asymptotic Improvements of Lower Bounds for the Least Common Multiples of Arithmetic Progressions</title>
+    <updated>2014-07-01T20:17:29Z</updated>
+    <link href="https://arxiv.org/abs/1101.0142v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1101.0142v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For relatively prime positive integers $u_0$ and $r$, we consider the least common multiple $L_n:=\mathrm{lcm}(u_0,u_1,\ldots, u_n)$ of the finite arithmetic progression $\{u_k:=u_0+kr\}_{k=0}^n$. We derive new lower bounds on $L_n$ which improve upon those obtained previously when either $u_0$ or $n$ is large. When $r$ is prime, our best bound is sharp up to a factor of $n+1$ for $u_0$ properly chosen, and is also nearly sharp as $n\to\infty$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-12-30T19:35:09Z</published>
+    <arxiv:comment>10 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Daniel M. Kane</name>
+    </author>
+    <author>
+      <name>Scott D. Kominers</name>
+    </author>
+    <arxiv:doi>10.4153/CMB-2014-017-0</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4153/CMB-2014-017-0" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0811.4769v3</id>
+    <title>Further Improvements of Lower Bounds for the Least Common Multiples of Arithmetic Progressions</title>
+    <updated>2009-06-16T05:03:49Z</updated>
+    <link href="https://arxiv.org/abs/0811.4769v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0811.4769v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  For relatively prime positive integers u_0 and r, we consider the arithmetic progression {u_k := u_0+k*r} (0 &lt;= k &lt;= n). Define L_n := lcm{u_0,u_1,...,u_n} and let a &gt;= 2 be any integer. In this paper, we show that, for integers alpha,r &gt;= a and n &gt;= 2*alpha*r, we have L_n &gt;= u_0*r^{alpha+a-2}*(r+1)^n. In particular, letting a = 2 yields an improvement to the best previous lower bound on L_n (obtained by Hong and Yang) for all but three choices of alpha,r &gt;= 2.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-11-28T19:26:42Z</published>
+    <arxiv:comment>5 pages; v3: improved results and updated references</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Shaofang Hong</name>
+    </author>
+    <author>
+      <name>Scott D. Kominers</name>
+    </author>
+  </entry>
+</feed>

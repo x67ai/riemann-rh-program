@@ -98,3 +98,26 @@ Dated blocks, appended after each batch. Newest at the bottom.
 - Reader Opus 5.5, independent of the orchestrator's read. Files: `read-O.md` (built section by section), own
   re-run scripts and logs in `verify-O/`. Nothing else in the seed folder is touched.
 - Read so far: NOTE.md whole, charter §M1b, SHARED blocks 0–7. Next: §1 re-derivations into read-O.md.
+
+## 2026-10-01 — block O-1: reader §1 (re-derivations) landed in read-O.md
+
+- K (Prop 3.2): AGREES; FIX-FIRST F1 on wording — the analyticity claim is not "false unconditionally" (it holds under RH);
+  it is equivalent to a quasi-RH (no zero with Re ρ > 1 − β₀/2), hence not assertable unconditionally.
+- Theorem B: stands. FIX-FIRST F2: μ_R ≠ μ_w * μ_η as Dirichlet convolution; use T_d (k coprime to d); then
+  κ_p = Π_{q∈B∖p}(1 − w_q/q)Π_{q∉B}(1 − ε_q/q) → ρ_P and the proof goes through. Lower bound is a.s. (from an in-probability
+  anti-concentration per x); the 0–1 law is not needed.
+- Theorem A: AGREES-WITH-CORRECTIONS (F3: dyadic Borel–Cantelli for the centered prime sum needs a grid of mesh x^{1−α/2}).
+  Textbook tools named; none on disk (MV I, Titchmarsh absent) → UNVERIFIED at the page, hypotheses checked.
+- Cor A′: AGREES (BDR Lemma 5.1 read at the page; I(β) = ζ_P(β)).
+- Theorem C: AGREES-WITH-CORRECTIONS (F4: for c ∉ ℤ the j = 1 term makes s = α a branch point → β ≥ α; content is c ∈ ℤ).
+- Cor 2.2, Props 2.1, 2.3, 5.1: ✓ (5.1 re-derived independently).
+- Next: §2 simulation audit + own re-run in verify-O/.
+
+## 2026-10-01 — block O-2: reader §2 (simulation audit + independent re-run) landed
+
+- Audit: T_α is pure deletion (no additions simulated); exact R-free counts; ρ tails re-checked with mpmath (≤ 5e-8);
+  ± = seed s.e. only. F5: NOTE 6.4 omits the [1e7, 1e10] window where α = .75 gives 0.450 ± 0.009 (8σ above α/2, 0.7σ from
+  1/(3−α)); "within 1.6σ in every window" / "1/(3−α) excluded in every window" are false as written.
+- Own re-run (verify-O/thin_O.py, numpy, PCG64, quad tail; X = 1e8, 8 seeds): [1e4,1e8] slopes 0.308±0.008 (α=.6),
+  0.378±0.012 (α=.75), 0.465±0.016 (α=.9) (BS estimator) — agree with α/2. Controls ✓; Prop 5.1 checked numerically (1.02299
+  vs 1.022977). Local 2-decade slopes swing ±0.1–0.15 → realistic systematic ±0.03–0.05. Next: §3 prior art.

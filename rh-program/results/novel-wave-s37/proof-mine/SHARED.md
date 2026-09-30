@@ -75,3 +75,24 @@ Reader Opus 5.5 started the dual-model read (independent of the orchestrator's r
 (Bombieri and Deligne formulas from rendered page images in `verify-O/`). Positivity step at the page: R1–R4, R6–R9, R12, R13; R10 route at
 the page, its positivity step recalled; R11 is a negative row, not a proof; R5, R14 unread. Citation slips found: Hrushovski passages are on
 printed pp. 4, 11, 115 (NOTE says 3, 10, 114); Deligne Thm (3.2) is on p. 284 (range 283–287 still covers it). Next: §2 re-derivations.
+
+## 2026-10-01 block R-O2 — Opus reader (read-O.md §2–§3 landed)
+§2: the four violations re-derived by hand — A (inertia (2,2) vs (1,3); def −2), B (13.090 > 11.180, 1.910 < 2.236; Rankin passes 2k = 2,
+fails 2k = 4), C (Thm 1 is an UPPER bound, one-sided; twist 41 vs (5) "< 41" and (7) "<= 40" at Q = 25), D (deg(pi − 2) = −1, trace −2): all
+CONFIRMED. §3: independent scripts `verify-O/o_{lines,fields,twin,z4}.py` + logs reproduce every NOTE number (V, E0 brute force over
+F_25 and F_625, V2 693 > 625, box count 111, Chebyshev kappa 1.105550 = LP optimum on div(30)). LP: min kappa on div(2310) = 1.0699.
+
+## 2026-10-01 block R-O3 — Opus reader (read-O.md §4 landed)
+Record check: the zoo, the tournament and directions/ have NO entry on the Gelfond–Schnirelman / integer-Chebyshev object (29 hits, all
+Gelfond–Schneider or Chebyshev-strength inputs; T24 kills only the upper-bound sieve form) — class C's integer-polynomial object is NOT dead
+on the record; stop condition not fired. Pritsker 1307.5361 read at pp. 1–4: Prop 1.3 (fixed weight: B(w) < 1, via Littlewood), Problem 1.4
+(sup B open). arXiv since 2013 (14 sequential queries): nothing new. NEW SOURCE at the page: Diamond, Bull. AMS 1982 §9 pp. 578–579 —
+finite-support Chebyshev weights reach limsup|psi/x − 1| < eps for every eps (existence via PNT; Rosser, Erdős–Kalmár, Diamond–Erdős).
+So Lemma Z4 kills fixed supports only; the sequence form is settled at PNT strength. T24 flag: NOTE is right (Bombieri p. 239).
+
+## 2026-10-01 block R-O4 — Opus reader (read-O.md §5–§6 landed)
+FIX-FIRST (4, none numerical): F1 Hrushovski pages 3/10/114 → 4/11/115; F2 "12 proofs read at the page" → 10 with the positivity step at
+the page (7 independent), R10 partly recalled, R11 negative; F3 Theorem P is a partition by INEQUALITY — in R3, R8, R9, R12, R13 the first
+object V lacks is a class-C object (function field / function to P^1); F4 Lemma Z4's nearest objects are Pritsker Prop 1.3 (p. 4) and
+Diamond BAMS 1982 §9 (at the page), and Z4 kills FIXED supports only — sequences reach PNT strength. Minor m1–m8 (Deligne p. 284/285 split,
+T24 replacement wording keeps the tower, "first" V2 unordered, Landau's oscillation theorem for Z1, Hrushovski's abs(S·S^t) typo for g >= 2).

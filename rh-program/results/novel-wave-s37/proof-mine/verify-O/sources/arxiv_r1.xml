@@ -1,0 +1,943 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/qmZAAlRKhWIyEMW7I6pbk3wzWIg</id>
+  <title>arXiv Query: search_query=abs:"Chebyshev's method"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-30T19:57:35Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Chebyshev's+method%22&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>51</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.33824v1</id>
+    <title>Accelerated Consensus and Decentralized Optimization over Slowly Varying Networks</title>
+    <updated>2026-09-27T18:21:13Z</updated>
+    <link href="https://arxiv.org/abs/2609.33824v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.33824v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study average consensus over slowly time-varying networks and its application to decentralized optimization. We introduce WAVE, a windowed Chebyshev method that limits the accumulated effect of network variation by restarting the recurrence after finite windows. If $χ$ bounds the network condition number and successive communication operators satisfy $\|L_{k+1}-L_k\|\leqβ$, WAVE reaches $ε$-consensus in $O((\sqrtχ+\min\lbraceβχ^2,χ\rbrace)\ln(e/ε))$ communication rounds. This rate matches the fixed-network $\sqrtχ$ dependence when $β=O(χ^{-3/2})$ and smoothly interpolates across the full range of network variation. For piecewise-constant networks where each change is detected when it occurs and consecutive changes are at least $τ$ rounds apart, WAVE reaches $ε$-consensus in $O((\sqrtχ+χ/τ)\ln(e/ε))$ communication rounds. Finally, we use WAVE as the consensus step in an accelerated decentralized optimization method for $α$-smooth convex local objectives with a $μ$-strongly convex average. For sufficiently slow network variation, every agent obtains an $ε$-solution to the global optimization problem after $\widetilde O(\sqrt{α/μ}\,\sqrtχ)$ communication rounds, matching the fixed-network dependence.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-27T18:21:13Z</published>
+    <arxiv:comment>38 pages</arxiv:comment>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Darina Dvinskikh</name>
+    </author>
+    <author>
+      <name>Anton Novitskii</name>
+    </author>
+    <author>
+      <name>Demyan Yarmoshik</name>
+    </author>
+    <author>
+      <name>Alexander Rogozin</name>
+    </author>
+    <author>
+      <name>Vladislav Matyukhin</name>
+    </author>
+    <author>
+      <name>Alexander Gasnikov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.02884v1</id>
+    <title>Chebyshev's method applied to polynomials with rotational symmetry</title>
+    <updated>2026-09-02T17:58:49Z</updated>
+    <link href="https://arxiv.org/abs/2609.02884v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.02884v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the dynamics of Chebyshev's method applied to the polynomial family $p_n(z)=z(z^n-1)$ for $n&gt;1$. The resulting map is denoted by $C_n$. It is proved that the immediate basins corresponding to the non-zero roots are unbounded and simply connected. We also show that the Julia set of $C_n$ is connected. It is proved that the immediate basin of the root at the origin exhibits a different behavior: it is unbounded for $n\leq 16$ and bounded for $n\geq 17$. We establish that $C_n$ is convergent whenever $n\leq 16$ or $n$ is odd. Finally, we determine the symmetry group of $C_n$ and prove that it coincides with the symmetry group of the polynomial $p_n$, thereby confirming, for this family, a conjecture proposed by Nayak and Pal.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-02T17:58:49Z</published>
+    <arxiv:comment>30 Pages</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Pooja Phogat</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.07497v1</id>
+    <title>Explicit stabilized implementation of singly diagonally implicit Runge-Kutta methods</title>
+    <updated>2026-07-08T14:57:16Z</updated>
+    <link href="https://arxiv.org/abs/2607.07497v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.07497v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Implicit methods are a natural approach for the integration of stiff differential equations, to avoid time-step restrictions faced by standard explicit integrators. Explicit stabilised integrators are an alternative to implicit methods, which can be particularly efficient in high-dimensional applications with diffusive terms. Towards the best of both worlds, we introduce a new explicit stabilised implementation of a class of diagonally implicit Runge-Kutta methods. This allows us to implement high-order singly-diagonally-implicit Runge-Kutta methods for advection-diffusion-reaction PDEs with a provable computational cost analogous to that of standard explicit stabilised methods. The main ingredient is to recast the implicit Runge-Kutta update as the steady state of a modified auxiliary system, which is then computed using a partitioned Runge-Kutta-Chebyshev method inspired by optimisation techniques.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-08T14:57:16Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Ibrahim Almuslimani</name>
+    </author>
+    <author>
+      <name>Gilles Vilmart</name>
+    </author>
+    <author>
+      <name>Konstantinos Zygalakis</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.20079v1</id>
+    <title>Chebyshev's method applied to polynomials with two distinct roots</title>
+    <updated>2025-12-23T06:26:19Z</updated>
+    <link href="https://arxiv.org/abs/2512.20079v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.20079v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Julia set of the Chebyshev's method applied to polynomials with exactly two distinct roots is shown to be connected, and its Fatou set is proved to be the union of attracting basins corresponding to the two roots. Further, if the two roots have the same multiplicity then the common boundary of the two immediate basins is proved to be a connected subset of the Julia set.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-23T06:26:19Z</published>
+    <arxiv:comment>17 pages</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Pooja Phogat</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.06631v1</id>
+    <title>B-spline periodization of Fourier pseudo-spectral method for non-periodic problems</title>
+    <updated>2025-12-07T02:35:32Z</updated>
+    <link href="https://arxiv.org/abs/2512.06631v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.06631v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Spectral methods are renowned for their high accuracy and efficiency in solving partial differential equations. The Fourier pseudo-spectral method is limited to periodic domains and suffers from Gibbs oscillations in non-periodic problems. The Chebyshev method mitigates this issue but requires edge-clustered grids, which does not match the characteristics of many physical problems. To overcome these restrictions, we propose a B-spline-periodized Fourier (BSPF) method that extends to non-periodic problems while retaining spectral-like accuracy and efficiency. The method combines a B-spline approximation with a Fourier-based residual correction. The B-spline component enforces the smooth matching of boundary values and derivatives, while the periodic residual is efficiently treated by Fourier differentiation/integration. This construction preserves spectral convergence within the domain and algebraic convergence at the boundaries. Numerical tests on differentiation and integration confirm the accuracy of the BSPF method superior to Chebyshev and finite-difference schemes for interior-oscillatory data. Analytical mapping further extends BSPF to non-uniform meshes, which enables selective grid refinement in regions of sharp variation. Applications of the BSPF method to the one-dimensional Burgers' equation and two-dimensional shallow water equations demonstrate accurate resolution of sharp gradients and nonlinear wave propagation, proving it as a flexible and efficient framework for solving non-periodic PDEs with high-order accuracy.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-07T02:35:32Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Dongan Li</name>
+    </author>
+    <author>
+      <name>Mou Lin</name>
+    </author>
+    <author>
+      <name>Shunxiang Cao</name>
+    </author>
+    <author>
+      <name>Shengli Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.03149v1</id>
+    <title>A high-order regularized delta-Chebyshev method for computing spectral densities</title>
+    <updated>2025-12-02T19:00:08Z</updated>
+    <link href="https://arxiv.org/abs/2512.03149v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.03149v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a numerical method for computing spectral densities, and apply it to the evaluation of the local density of states (LDOS) of sparse Hamiltonians derived from tight-binding models. The approach, which we call the high-order delta-Chebyshev method, can be viewed as a variant of the popular regularized Chebyshev kernel polynomial method (KPM), but it uses a high-order accurate approximation of the $δ$-function to achieve rapid convergence to the thermodynamic limit for smooth spectral densities. The costly computational steps are identical to those for KPM, with high-order accuracy achieved by an inexpensive post-processing procedure. We apply the algorithm to tight-binding models of graphene and twisted bilayer graphene, demonstrating high-order convergence to the LDOS at non-singular points.</summary>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.dis-nn" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.str-el" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-02T19:00:08Z</published>
+    <arxiv:primary_category term="physics.comp-ph"/>
+    <author>
+      <name>Jinjing Yi</name>
+    </author>
+    <author>
+      <name>Daniel Massatt</name>
+    </author>
+    <author>
+      <name>Andrew Horning</name>
+    </author>
+    <author>
+      <name>Mitchell Luskin</name>
+    </author>
+    <author>
+      <name>J. H. Pixley</name>
+    </author>
+    <author>
+      <name>Jason Kaye</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.16120v1</id>
+    <title>Spectral Chebyshev Approximation of Cosmic Expansion in $f(R)$ Gravity</title>
+    <updated>2025-10-17T18:06:15Z</updated>
+    <link href="https://arxiv.org/abs/2510.16120v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.16120v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a numerical framework to study the cosmological background evolution in $f(R)$ gravity by employing a \textit{spectral Chebyshev collocation approach}. Unlike standard integration methods such as Runge--Kutta that often encounter stiffness and accuracy issues, this formulation expands the normalized Hubble function $E(z) = H(z)/H_0$ as a finite Chebyshev series. The modified Friedmann equation is then enforced at selected Chebyshev--Gauss--Lobatto points, converting the original nonlinear differential equation into a system of algebraic relations for the series coefficients. This transformation yields exponentially convergent and numerically stable solutions over the entire redshift domain, $0&lt;z&lt;z_{max}$, eliminating the need for adaptive step-size control. We apply the method to two widely studied $f(R)$ models, Hu--Sawicki and Starobinsky, and perform a combined analysis using cosmic chronometer $H(z)$ data and the Union~3.0 supernova compilation. The reconstructed expansion histories match observations to within $2σ$ over $0 &lt; z &lt; 2$, producing best-fit parameters of approximately $(Ω_{m0}, H_0, Λ_{\mathrm{eff}}) \simeq (0.29, 68, 1.2\text{--}2.5\,H_0^2)$. These results indicates that both models reproduce the observed late-time acceleration while permitting small geometric corrections to $Λ$CDM. Overall, the spectral Chebyshev method provides a precise and computationally efficient framework for probing modified-gravity cosmologies in the precision-data era.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-17T18:06:15Z</published>
+    <arxiv:comment>30 pages, flowcharts explaining the method, and a detailed appendix</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Akshay Rana</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.17161v1</id>
+    <title>Massive scalar field perturbations of 4D de Sitter Einstein-Gauss-Bonnet black holes</title>
+    <updated>2025-05-22T15:13:00Z</updated>
+    <link href="https://arxiv.org/abs/2505.17161v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.17161v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the propagation of massive scalar fields in the background of four-dimensional Einstein-Gauss-Bonnet black holes with de Sitter (dS) asymptotics. Our study focuses on the various branches of quasinormal modes present in this background, employing the pseudospectral Chebyshev method and the third-order Wentzel-Kramers-Brillouin approximation. We identify that the introduction of the Gauss-Bonnet coupling constant $α$ gives rise to three branches of modes: the perturbative (in $α$) Schwarzschild branch, the perturbative (in $α$) dS branch, and a non-perturbative (in $α$) dS branch. Our results show that the propagation of a massive scalar field is stable in this background. Furthermore, the Gauss-Bonnet coupling constant induces significant deviations in the Schwarzschild branch and smaller deviations in the perturbative dS branch compared to the corresponding branches in the Schwarzschild-dS limit. Additionally, the non-perturbative dS branch of modes, absent when $α=0$, emerges as a novel feature of the Einstein-Gauss-Bonnet framework.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-22T15:13:00Z</published>
+    <arxiv:comment>version accepted for publication in PRD</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Ramón Bécar</name>
+    </author>
+    <author>
+      <name>P. A. González</name>
+    </author>
+    <author>
+      <name>Eleftherios Papantonopoulos</name>
+    </author>
+    <author>
+      <name>Yerko Vásquez</name>
+    </author>
+    <arxiv:doi>10.1103/y33s-2hd1</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/y33s-2hd1" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.11290v2</id>
+    <title>Chebyshev's method for exponential maps</title>
+    <updated>2026-08-20T13:14:05Z</updated>
+    <link href="https://arxiv.org/abs/2411.11290v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.11290v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is proved that the Chebyshev's method applied to an entire function $f$ is a rational map if and only if $f(z) = p(z) e^{q(z)}$, for some polynomials $p$ and $q$. These are referred to as rational Chebyshev maps, and their fixed points are discussed in this article. It is seen that $\infty$ is a parabolic fixed point with multiplicity one bigger than the degree of $q$. Considering $q(z)=p(z)^n+c$, where $p$ is a linear polynomial, $n \in \mathbb{N}$ and $c$ is a non-zero constant, we show that the Chebyshev's method applied to $ pe^q$ is affine conjugate to that applied to $z e^{z^n}$. We denote this by $C_n$. All the finite extraneous fixed points of $C_n$ are shown to be repelling. The Julia set $\mathcal{J}(C_n)$ of $C_n$ is found to be preserved under rotations of order $n$ about the origin. For each $n$, the immediate basin of $0$ is proved to be simply connected. For all $n \leq 16$, we prove that $\mathcal{J}(C_n)$ is connected. For $n$ even, the non-existence of Herman ring and Siegel disk of $C_n$ is proved. Under some additional hypothesis, the same is also proved for odd $n$. The Newton's method applied to $ze^{z^n}$ is found to be conjugate to a polynomial, and its dynamics is also completely determined.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-18T05:22:24Z</published>
+    <arxiv:comment>28 pages, 10 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Subhasis Ghora</name>
+    </author>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Soumen Pal</name>
+    </author>
+    <author>
+      <name>Pooja Phogat</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.15020v1</id>
+    <title>Iterative Methods via Locally Evolving Set Process</title>
+    <updated>2024-10-19T07:28:11Z</updated>
+    <link href="https://arxiv.org/abs/2410.15020v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.15020v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given the damping factor $α$ and precision tolerance $ε$, \citet{andersen2006local} introduced Approximate Personalized PageRank (APPR), the \textit{de facto local method} for approximating the PPR vector, with runtime bounded by $Θ(1/(αε))$ independent of the graph size. Recently, \citet{fountoulakis2022open} asked whether faster local algorithms could be developed using $\tilde{O}(1/(\sqrtαε))$ operations. By noticing that APPR is a local variant of Gauss-Seidel, this paper explores the question of \textit{whether standard iterative solvers can be effectively localized}. We propose to use the \textit{locally evolving set process}, a novel framework to characterize the algorithm locality, and demonstrate that many standard solvers can be effectively localized. Let $\overline{\operatorname{vol}}{ (S_t)}$ and $\overlineγ_{t}$ be the running average of volume and the residual ratio of active nodes $\textstyle S_{t}$ during the process. We show $\overline{\operatorname{vol}}{ (S_t)}/\overlineγ_{t} \leq 1/ε$ and prove APPR admits a new runtime bound $\tilde{O}(\overline{\operatorname{vol}}(S_t)/(α\overlineγ_{t}))$ mirroring the actual performance. Furthermore, when the geometric mean of residual reduction is $Θ(\sqrtα)$, then there exists $c \in (0,2)$ such that the local Chebyshev method has runtime $\tilde{O}(\overline{\operatorname{vol}}(S_{t})/(\sqrtα(2-c)))$ without the monotonicity assumption. Numerical results confirm the efficiency of this novel framework and show up to a hundredfold speedup over corresponding standard solvers on real-world graphs.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-19T07:28:11Z</published>
+    <arxiv:comment>58 pages, 15 figures, NeurIPS 2024</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Baojian Zhou</name>
+    </author>
+    <author>
+      <name>Yifan Sun</name>
+    </author>
+    <author>
+      <name>Reza Babanezhad Harikandeh</name>
+    </author>
+    <author>
+      <name>Xingzhi Guo</name>
+    </author>
+    <author>
+      <name>Deqing Yang</name>
+    </author>
+    <author>
+      <name>Yanghua Xiao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.02788v2</id>
+    <title>Generalized Gouy Rotation of Electron Vortex beams in uniform magnetic fields</title>
+    <updated>2025-06-12T03:53:24Z</updated>
+    <link href="https://arxiv.org/abs/2407.02788v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.02788v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The intrinsic rotation of electron vortex beams, governed by their phase structure, has been experimentally observed in magnetic fields by breaking the beam's cylindrical symmetry. However, conventional Landau states, which predict three fixed angular frequencies, cannot fully account for the existing experimental observations. To address this limitation, we introduce and derive the generalized Gouy rotation angle, which links the Gouy phase of an extended Landau state -- featuring a periodically oscillating beam width -- to the experimentally observed angular variation. In particular, this framework predicts a broader spectrum of angular frequencies and captures the reversal of rotation direction observed in electron vortex beams with negative topological charge. Calculations based on experimental parameters show good agreement with previously published data and are further validated here by numerical simulations using the Chebyshev method. Our results are, in principle, applicable to any system involving electron vortex beams in uniform magnetic fields, and provide a foundation for exploring vortex electrons in Glaser and other nonuniform magnetic fields.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.acc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.optics" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-03T03:29:56Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Qi Meng</name>
+    </author>
+    <author>
+      <name>Xuan Liu</name>
+    </author>
+    <author>
+      <name>Wei Ma</name>
+    </author>
+    <author>
+      <name>Zhen Yang</name>
+    </author>
+    <author>
+      <name>Liang Lu</name>
+    </author>
+    <author>
+      <name>Alexander J. Silenko</name>
+    </author>
+    <author>
+      <name>Pengming Zhang</name>
+    </author>
+    <author>
+      <name>Liping Zou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.04228v1</id>
+    <title>Early-time resonances in the three-dimensional wall-bounded axisymmetric Euler and related equations</title>
+    <updated>2024-06-06T16:28:56Z</updated>
+    <link href="https://arxiv.org/abs/2406.04228v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.04228v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the complex-time analytic structure of solutions of the 3D-axisymmetric, wall-bounded, incompressible Euler equations, by starting with the initial data proposed in Luo and Hou (2014), to study a possible finite-time singularity. We use our pseudospectral Fourier-Chebyshev method, with quadruple-precision arithmetic, to compute the time-Taylor series coefficients of the flow fields, up to a high order. We show that the resulting approximations display early-time resonances; the initial spatial location of these structures is different from that for the tygers, which we have obtained in Kolluru et al. (2022). We then perform asymptotic analysis of the Taylor-series coefficients, by using generalised ratio methods, to extract the location and nature of the convergence-limiting singularities and demonstrate that these singularities are distributed around the origin, in the complex-t2 plane, along two curves that resemble the shape of an eye. We obtain similar results for the 1D wall-approximation (of the full 3D-axisymmetric Euler equation) called the 1D HL model, for which we use Fourier-pseudospectral methods to compute the time-Taylor series coefficients of the flow fields. Our work examines the link between tygers, in Galerkin-truncated pseudospectral studies, and early-time resonances, in truncated time-Taylor expansions of solutions of PDEs, such as those we consider.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="nlin.SI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-06T16:28:56Z</published>
+    <arxiv:comment>17 pages, 11 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <author>
+      <name>Sai Swetha Venkata Kolluru</name>
+    </author>
+    <author>
+      <name>Rahul Pandit</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2403.11306v3</id>
+    <title>Massive Scalar Field Perturbations of Black Holes Immersed in Chaplygin-Like Dark Fluid</title>
+    <updated>2024-06-04T20:28:10Z</updated>
+    <link href="https://arxiv.org/abs/2403.11306v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2403.11306v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider massive scalar field perturbations in the background of black holes immersed in Chaplygin-like dark fluid (CDF), and we analyze the photon sphere modes, the de Sitter modes as well as the near extremal modes and discuss their dominance, by using the pseudospectral Chebyshev method and the third order Wentzel-Kramers-Brillouin approximation. We also discuss the impact of the parameter representing the intensity of the CDF on the families of quasinormal modes. Mainly, we find that the propagation of a massive scalar field is stable in this background, and it is characterized by quasinormal frequencies with a smaller oscillation frequency and a longer decay time compared to the propagation of the same massive scalar field within the Schwarzschild-de Sitter background.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-03-17T19:01:07Z</published>
+    <arxiv:comment>Version accepted for publication in JCAP</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Ramón Bécar</name>
+    </author>
+    <author>
+      <name>P. A. González</name>
+    </author>
+    <author>
+      <name>Eleftherios Papantonopoulos</name>
+    </author>
+    <author>
+      <name>Yerko Vásquez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2402.07137v1</id>
+    <title>Julia sets of rational maps with rotational symmetries</title>
+    <updated>2024-02-11T09:35:26Z</updated>
+    <link href="https://arxiv.org/abs/2402.07137v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2402.07137v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>By a symmetry of the Julia set of a polynomial, also referred as polynomial Julia set, we mean an Euclidean isometry preserving the Julia set. Each such symmetry is in fact a rotation about the centroid of the polynomial. In this article, a survey of the symmetries of polynomial Julia sets is made. Then the Euclidean isometries preserving the Julia set of rational maps are considered. A rotation preserving the Julia set of a rational map is called a rotational symmetry of its Julia set. A sufficient condition is provided for a rational map to have rotational symmetries whenever the rational map has an exceptional point. Two classes of rational maps are provided whose Julia sets have rotational symmetries of finite orders. Using this, it is proved that $ z\mapsto μz$ where $μ^{m+n}=1$ is a rotational symmetry of the McMullen map $ z^m+\fracλ{z^n}$ for all $m,n$ with $m\geq 2$ and $λ\in \mathbb{C}\setminus \{0\}$. Assuming that a normalized polynomial has a simple root at the origin, it is shown that the groups of the rotational symmetries of the polynmial coincide with that of its Newton's method and Chebyshev's method.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-02-11T09:35:26Z</published>
+    <arxiv:comment>29 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Soumen Pal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.07562v1</id>
+    <title>On dynamics of the Chebyshev's method for quartic polynomials</title>
+    <updated>2023-09-14T09:45:14Z</updated>
+    <link href="https://arxiv.org/abs/2309.07562v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.07562v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $p$ be a normalized (monic and centered) quartic polynomial with non-trivial symmetry groups. It is already known that if $p$ is unicritical, with only two distinct roots with the same multiplicity or having a root at the origin then the Julia set of its Chebyshev's method $C_p$ is connected and symmetry groups of $p$ and $C_p$ coincide~[Nayak, T., and Pal, S., Symmetry and dynamics of Chebyshev's method, \cite{Sym-and-dyn}]. Every other quartic polynomial is shown to be of the form $p_a (z)=(z^2 -1)(z^2-a)$ where $a \in \mathbb{C}\setminus \{-1,0,1\}$. Some dynamical aspects of the Chebyshev's method $C_a$ of $p_a$ are investigated in this article for all real $a$. It is proved that all the extraneous fixed points of $C _a$ are repelling which gives that there is no invariant Siegel disk for $C_a$. It is also shown that there is no Herman ring in the Fatou set of $C_a$. For positive $a$, it is proved that at least two immediate basins of $C_a$ corresponding to the roots of $p_a$ are unbounded and simply connected. For negative $a$, it is however proved that all the four immediate basins of $C_a$ corresponding to the roots of $p_a$ are unbounded and those corresponding to $\pm i\sqrt{|a|}$ are simply connected.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-14T09:45:14Z</published>
+    <arxiv:comment>26 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Soumen Pal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2304.00663v1</id>
+    <title>Massive scalar field perturbations in Weyl black holes</title>
+    <updated>2023-04-03T00:30:02Z</updated>
+    <link href="https://arxiv.org/abs/2304.00663v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2304.00663v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work we consider the propagation of massive scalar fields in the background of Weyl black holes and we mainly study the effect of the scalar field mass in the spectrum of the quasinormal frequencies (QNFs) via the Wentzel-Kramers-Brillouin (WKB) method, and the pseudospectral Chebyshev method. The spectrum of QNFs is described by two families of modes, one of them is the photon sphere and the other one is the de Sitter. Essentially we show, via the WKB method, that the photon sphere modes exhibit an anomalous behaviour of the decay rate of the QNFs, that is, the longest-lived modes are the ones with higher angular number, as well as, there is a critical value of the scalar field mass, beyond which the anomalous behaviour is inverted. Also, we analyze the effect of the scalar field mass on each family of modes, and on their dominance, and we give an estimate value of the scalar field mass where the interchange in the dominance family occurs.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-04-03T00:30:02Z</published>
+    <arxiv:comment>19 pages, and 12 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Ramón Bécar</name>
+    </author>
+    <author>
+      <name>P. A. González</name>
+    </author>
+    <author>
+      <name>Felipe Moncada</name>
+    </author>
+    <author>
+      <name>Yerko Vásquez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.16267v1</id>
+    <title>Second order stabilized two-step Runge-Kutta methods</title>
+    <updated>2023-03-28T19:27:13Z</updated>
+    <link href="https://arxiv.org/abs/2303.16267v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.16267v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Stabilized methods (also called Chebyshev methods) are explicit methods with extended stability domains along the negative real axis. These methods are intended for large mildly stiff problems, originating mainly from parabolic PDEs. In this paper we present explicit two-step Runge-Kutta methods, which have an increased stability interval in comparison with one-step methods (up to 2.5 times). Also, we perform some numerical experiments to confirm the accuracy and stability of this methods.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-28T19:27:13Z</published>
+    <arxiv:comment>13 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Andrew Moisa</name>
+    </author>
+    <author>
+      <name>Boris Faleichik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2212.09209v3</id>
+    <title>CDIO-CT collaborative strategy for solving complex STEM problems in system modeling and simulation: an illustration of solving the period of mathematical pendulum</title>
+    <updated>2026-02-09T11:50:15Z</updated>
+    <link href="https://arxiv.org/abs/2212.09209v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2212.09209v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The problem-project-oriented STEM education plays a significant role in training students' ability of innovation. Although the conceive-design-implement-operate (CDIO) approach and the computational thinking (CT) are hot topics in recent decade, there are still two deficiencies: the CDIO approach and CT are discussed separately and a general framework of coping with complex STEM problems in system modeling and simulation is missing. In this paper, a collaborative strategy based on the CDIO and CT is proposed for solving complex STEM problems in system modeling and simulation with a general framework, in which the CDIO is about ``how to do", CT is about ``how to think", and the project means ``what to do". As an illustration, the problem of solving the period of mathematical pendulum (MP) is discussed in detail. The most challenging task involved in the problem is to compute the complete elliptic integral of the first kind (CEI-1). In the philosophy of STEM education, all problems have more than one solutions. For computing the CEI-1, four methods are discussed with a top-down strategy, which includes the infinite series method, arithmetic-geometric mean (AGM) method, Gauss-Chebyshev method and Gauss-Legendre method. The algorithms involved can be utilized for R &amp; D projects of interest and be reused according to the requirements encountered. The general framework for solving complex STEM problem in system modeling and simulation is worth recommending to the college students and instructors.</summary>
+    <category term="physics.ed-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-12-19T01:44:03Z</published>
+    <arxiv:comment>27 pages, 12 figures, 11 tables</arxiv:comment>
+    <arxiv:primary_category term="physics.ed-ph"/>
+    <arxiv:journal_ref>Computer Applications in Engineering Education, 2023(11): e22698</arxiv:journal_ref>
+    <author>
+      <name>Hong-Yan Zhang</name>
+    </author>
+    <author>
+      <name>Yu Zhou</name>
+    </author>
+    <author>
+      <name>Yu-Tao Li</name>
+    </author>
+    <author>
+      <name>Fu-Yun Li</name>
+    </author>
+    <author>
+      <name>Yong-Hui Jiang</name>
+    </author>
+    <arxiv:doi>10.1002/cae.22698</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1002/cae.22698" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2212.05694v5</id>
+    <title>Open Source Implementations of Numerical Algorithms for Computing the Complete Elliptic Integral of the First Kind</title>
+    <updated>2024-08-12T10:53:39Z</updated>
+    <link href="https://arxiv.org/abs/2212.05694v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2212.05694v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The complete elliptic integral of the first kind (CEI-1) plays a significant role in mathematics, physics and engineering. There is no simple formula for its computation, thus numerical algorithms are essential for coping with the practical problems involved. The commercial implementations for the numerical solutions, such as the functions \lstinline|ellipticK| and \lstinline|EllipticK| provided by MATLAB and Mathematica respectively, are based on $\mathcal{K}_{\mathrm{cs}}(m)$ instead of the usual form $K(k)$ such that $\mathcal{K}_{\mathrm{cs}}(k^2) =K(k)$ and $m=k^2$. It is necessary to develop open source implementations for the computation of the CEI-1 in order to avoid potential risks of using commercial software and possible limitations due to the unknown factors. In this paper, the infinite series method, arithmetic-geometric mean (AGM) method, Gauss-Chebyshev method and Gauss-Legendre methods are discussed in details with a top-down strategy. The four key algorithms for computing CEI-1 are designed, verified, validated and tested, which can be utilized in R\&amp; D and be reused properly. Numerical results show that our open source implementations based on $K(k)$ are equivalent to the commercial implementation based on $\mathcal{K}_{\mathrm{cs}}(m)$. The general algorithms for computing orthogonal polynomials developed are significant byproducts in the sense of STEM education and scientific computation.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-12-12T04:14:25Z</published>
+    <arxiv:comment>22 pages, 11 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <arxiv:journal_ref>Results in Applied Mathematics, 2024, 23(8):e100479</arxiv:journal_ref>
+    <author>
+      <name>Hong-Yan Zhang</name>
+    </author>
+    <author>
+      <name>Wen-Juan Jiang</name>
+    </author>
+    <arxiv:doi>10.1016/j.rinam.2024.100479</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.rinam.2024.100479" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2209.13271v3</id>
+    <title>The Curse of Unrolling: Rate of Differentiating Through Optimization</title>
+    <updated>2023-08-25T16:24:33Z</updated>
+    <link href="https://arxiv.org/abs/2209.13271v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.13271v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Computing the Jacobian of the solution of an optimization problem is a central problem in machine learning, with applications in hyperparameter optimization, meta-learning, optimization as a layer, and dataset distillation, to name a few. Unrolled differentiation is a popular heuristic that approximates the solution using an iterative solver and differentiates it through the computational path. This work provides a non-asymptotic convergence-rate analysis of this approach on quadratic objectives for gradient descent and the Chebyshev method. We show that to ensure convergence of the Jacobian, we can either 1) choose a large learning rate leading to a fast asymptotic convergence but accept that the algorithm may have an arbitrarily long burn-in phase or 2) choose a smaller learning rate leading to an immediate but slower convergence. We refer to this phenomenon as the curse of unrolling. Finally, we discuss open problems relative to this approach, such as deriving a practical update rule for the optimal unrolling strategy and making novel connections with the field of Sobolev orthogonal polynomials.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-27T09:27:29Z</published>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Damien Scieur</name>
+    </author>
+    <author>
+      <name>Quentin Bertrand</name>
+    </author>
+    <author>
+      <name>Gauthier Gidel</name>
+    </author>
+    <author>
+      <name>Fabian Pedregosa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2208.11322v2</id>
+    <title>Symmetry and dynamics of Chebyshev's method</title>
+    <updated>2023-08-12T18:03:07Z</updated>
+    <link href="https://arxiv.org/abs/2208.11322v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2208.11322v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The set of all holomorphic Euclidean isometries preserving the Julia set of a rational map $R$ is denoted by $ΣR$. It is shown in this article that if a root-finding method $F$ satisfies the Scaling theorem, i.e., for a polynomial $p$, $F_p$ is affine conjugate to $F_{λp \circ T}$ for every nonzero complex number $λ$ and every affine map $T$, then for a centered polynomial $p$ of order at least two (which is not a monomial), $Σp\subseteq ΣF_p$. As the Chebyshev's method satisfies the Scaling theorem, we have $Σp \subseteq Σ{C_p}$, where $p$ is a centered polynomial. The rest part of this article is devoted to explore the situations where the equality holds and in the process, the dynamics of $C_p$ is found. We show that the Julia set $\mathcal{J}(C_p)$ of $ C_p$ can never be a line. If a centered polynomial $p$ is (a) unicritical, (b) having exactly two roots with the same multiplicity, (c) cubic and $Σp$ is non-trivial or (d) quartic, $0$ is a root of $p$ and $Σp $ is non-trivial then it is proved that $Σp = ΣC_p$. It is found in all these cases that the Fatou set $\mathcal{F}(C_p)$ is the union of all the attracting basins of $C_p$ corresponding to the roots of $p$ and $\mathcal{J}(C_p)$ is connected. It is observed that $\mathcal{J}(C_p)$ is locally connected in all these cases.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-08-24T06:27:05Z</published>
+    <arxiv:comment>28 pages, 11 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Soumen Pal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2206.09901v2</id>
+    <title>Only Tails Matter: Average-Case Universality and Robustness in the Convex Regime</title>
+    <updated>2022-06-22T14:41:33Z</updated>
+    <link href="https://arxiv.org/abs/2206.09901v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2206.09901v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The recently developed average-case analysis of optimization methods allows a more fine-grained and representative convergence analysis than usual worst-case results. In exchange, this analysis requires a more precise hypothesis over the data generating process, namely assuming knowledge of the expected spectral distribution (ESD) of the random matrix associated with the problem. This work shows that the concentration of eigenvalues near the edges of the ESD determines a problem's asymptotic average complexity. This a priori information on this concentration is a more grounded assumption than complete knowledge of the ESD. This approximate concentration is effectively a middle ground between the coarseness of the worst-case scenario convergence and the restrictive previous average-case analysis. We also introduce the Generalized Chebyshev method, asymptotically optimal under a hypothesis on this concentration and globally optimal when the ESD follows a Beta distribution. We compare its performance to classical optimization algorithms, such as gradient descent or Nesterov's scheme, and we show that, in the average-case context, Nesterov's method is universally nearly optimal asymptotically.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-06-20T17:16:52Z</published>
+    <arxiv:comment>To be published in ICML 2022</arxiv:comment>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Leonardo Cunha</name>
+    </author>
+    <author>
+      <name>Gauthier Gidel</name>
+    </author>
+    <author>
+      <name>Fabian Pedregosa</name>
+    </author>
+    <author>
+      <name>Damien Scieur</name>
+    </author>
+    <author>
+      <name>Courtney Paquette</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2205.06079v2</id>
+    <title>Quasinormal modes of massive scalar fields in four-dimensional wormholes: anomalous decay rate</title>
+    <updated>2022-07-25T15:48:03Z</updated>
+    <link href="https://arxiv.org/abs/2205.06079v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2205.06079v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work we consider a Generalized Bronnikov-Ellis wormhole and the tideless Morris-Thorne wormhole and we study the propagation of massive scalar fields. We calculate the quasinormal frequencies using the WKB method and the pseudospectal Chebyshev method and we show the presence of an anomalous decay rate for the quasinormal modes in the Generalized Bronnikov-Ellis wormhole. However, such anomalous behaviour is avoided for the fundamental mode in the Morris-Thorne wormhole background.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-05-12T13:24:34Z</published>
+    <arxiv:comment>Version accepted for publication in PRD</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>P. A. González</name>
+    </author>
+    <author>
+      <name>Eleftherios Papantonopoulos</name>
+    </author>
+    <author>
+      <name>Ángel Rincón</name>
+    </author>
+    <author>
+      <name>Yerko Vásquez</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.106.024050</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.106.024050" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2203.05094v1</id>
+    <title>Mathematical modelling of transport phenomena in compressible multicomponent flows</title>
+    <updated>2022-03-10T00:17:12Z</updated>
+    <link href="https://arxiv.org/abs/2203.05094v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2203.05094v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The present article proposes a diffuse interface model for compressible multicomponent flows with transport phenomena of mass, momentum and energy (i.e., mass diffusion, viscous dissipation and heat conduction). The model is reduced from the seven-equation Baer-Nuziato type model with asymptotic analysis in the limit of instantaneous mechanical relaxations. The main difference between the present model and the Kapila's five-equation model consists in that different time scales for pressure and velocity relaxations are assumed, the former being much smaller than the latter. Thanks to this assumption, the velocity disequilibrium is retained to model the mass diffusion process. Aided by the diffusion laws, the final model still formally consists of five equations. The proposed model satisfy two desirable properties : (1) it respects the laws of thermodynamics, (2) it is free of the spurious oscillation problem in the vicinity of the diffused interface zone. The mass diffusion, viscous dissipation and heat conduction processes contribute parabolic partial differential equations that are solved with the Chebyshev method of local iterations. Numerical results show that the proposed model maintains pressure, velocity and temperature equilibrium near the diffused interface. Convergence tests demonstrate that the numerical methods achieve second order in space and time. The proposed model and numerical methods are applied to simulate the laser-driven RM instability problem in inertial confinement fusion, good agreement with experimental results are observed.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-03-10T00:17:12Z</published>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Chao Zhang</name>
+    </author>
+    <author>
+      <name>Lifeng Wang</name>
+    </author>
+    <arxiv:doi>10.1016/j.jcp.2022.111628</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jcp.2022.111628" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2201.11055v1</id>
+    <title>The Julia sets of Chebyshev's method with small degrees</title>
+    <updated>2022-01-26T16:55:39Z</updated>
+    <link href="https://arxiv.org/abs/2201.11055v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2201.11055v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a polynomial $p$, the degree of its Chebyshev's method $C_p$ is determined. If $p$ is cubic then the degree of $C_p$ is found to be $4,6$ or $7$ and we investigate the dynamics of $C_p$ in these cases. If a cubic polynomial $p$ is unicritical or non-generic then, it is proved that the Julia set of $C_p$ is connected. The family of all rational maps arising as the Chebyshev's method applied to a cubic polynomial which is non-unicritical and generic is parametrized by the multiplier of one of its extraneous fixed points. Denoting a member of this family with an extraneous fixed point with multiplier $λ$ by $C_λ$, we have shown that the Julia set of $C_λ$ is connected whenever $λ\in [-1,1]$.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-01-26T16:55:39Z</published>
+    <arxiv:comment>27 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Tarakanta Nayak</name>
+    </author>
+    <author>
+      <name>Soumen Pal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2201.10206v2</id>
+    <title>A fully adaptive explicit stabilized integrator for advection-diffusion-reaction problems</title>
+    <updated>2022-10-19T15:01:56Z</updated>
+    <link href="https://arxiv.org/abs/2201.10206v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2201.10206v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A novel second order family of explicit stabilized Runge-Kutta-Chebyshev methods for advection-diffusion-reaction equations is introduced. The new methods outperform existing schemes for relatively high Peclet number due to their favorable stability properties and explicitly available coefficients. The construction of the new schemes is based on stabilization using second kind Chebyshev polynomials first used in the construction of the stochastic integrator SK-ROCK. An adaptive algorithm to implement the new scheme is proposed. This algorithm is able to automatically select the suitable step size, number of stages, and damping parameter at each integration step. Numerical experiments that illustrate the efficiency of the new algorithm are presented.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-01-25T09:53:34Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Ibrahim Almuslimani</name>
+    </author>
+    <arxiv:doi>10.1007/s10543-023-00945-3</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10543-023-00945-3" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2112.04793v2</id>
+    <title>Quasinormal modes for a non-minimally coupled scalar field in a five-dimensional Einstein-power-Maxwell background</title>
+    <updated>2022-10-31T19:40:57Z</updated>
+    <link href="https://arxiv.org/abs/2112.04793v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2112.04793v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the propagation of massless scalar fields non-minimally coupled to gravity in the background of five-dimensional Einstein-power-Maxwell black holes, and using the WKB and the pseudospectral Chebyshev methods we obtain the quasinormal frequencies (QNFs), which allow us to show the existence of stable and unstable QNFs depending on the power $k$ of the nonlinear electrodynamics, the $ξ$ parameter, which controls the strength of the non-minimal coupling, and on the size of the black hole.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-12-09T09:28:13Z</published>
+    <arxiv:comment>Accepted for publication in EPJ Plus</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Angel Rincon</name>
+    </author>
+    <author>
+      <name>P. A. Gonzalez</name>
+    </author>
+    <author>
+      <name>Grigoris Panotopoulos</name>
+    </author>
+    <author>
+      <name>Joel Saavedra</name>
+    </author>
+    <author>
+      <name>Yerko Vasquez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2110.00537v1</id>
+    <title>Robust iteration methods for complex systems with an indefinite matrix term</title>
+    <updated>2021-10-01T17:04:28Z</updated>
+    <link href="https://arxiv.org/abs/2110.00537v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2110.00537v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Complex valued systems with an indefinite matrix term arise in important applications such as for certain time-harmonic partial differential equations such as the Maxwell's equation and for the Helmholtz equation. Complex systems with symmetric positive definite matrices can be solved readily by rewriting the complex matrix system in two-by-two block matrix form with real matrices which can be efficiently solved by iteration using the preconditioned square block (PRESB) preconditioning method and preferably accelerated by the Chebyshev method. The appearances of an indefinite matrix term causes however some difficulties. To handle this we propose different forms of matrix splitting methods, with or without any parameters involved. A matrix spectral analyses is presented followed by extensive numerical comparisons of various forms of the methods.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-10-01T17:04:28Z</published>
+    <arxiv:comment>13 pages, submitted</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Owe Axelsson</name>
+    </author>
+    <author>
+      <name>Maeddeh Pourbagher</name>
+    </author>
+    <author>
+      <name>Davod Khojasteh Salkuyeh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.09545v4</id>
+    <title>Acceleration Methods</title>
+    <updated>2024-09-24T20:19:22Z</updated>
+    <link href="https://arxiv.org/abs/2101.09545v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.09545v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This monograph covers some recent advances in a range of acceleration techniques frequently used in convex optimization. We first use quadratic optimization problems to introduce two key families of methods, namely momentum and nested optimization schemes. They coincide in the quadratic case to form the Chebyshev method. We discuss momentum methods in detail, starting with the seminal work of Nesterov and structure convergence proofs using a few master templates, such as that for optimized gradient methods, which provide the key benefit of showing how momentum methods optimize convergence guarantees. We further cover proximal acceleration, at the heart of the Catalyst and Accelerated Hybrid Proximal Extragradient frameworks, using similar algorithmic patterns. Common acceleration techniques rely directly on the knowledge of some of the regularity parameters in the problem at hand. We conclude by discussing restart schemes, a set of simple techniques for reaching nearly optimal convergence rates while adapting to unobserved regularity parameters.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-01-23T17:58:25Z</published>
+    <arxiv:comment>Published in Foundation and Trends in Optimization (see https://www.nowpublishers.com/article/Details/OPT-036)</arxiv:comment>
+    <arxiv:primary_category term="math.OC"/>
+    <arxiv:journal_ref>Foundations and Trends in Optimization: Vol. 5: No. 1-2, pp 1-245 (2021)</arxiv:journal_ref>
+    <author>
+      <name>Alexandre d'Aspremont</name>
+    </author>
+    <author>
+      <name>Damien Scieur</name>
+    </author>
+    <author>
+      <name>Adrien Taylor</name>
+    </author>
+    <arxiv:doi>10.1561/2400000036</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1561/2400000036" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.07088v2</id>
+    <title>A fast spectral method for electrostatics in doubly-periodic slit channels</title>
+    <updated>2021-06-03T22:43:01Z</updated>
+    <link href="https://arxiv.org/abs/2101.07088v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.07088v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We develop a fast method for computing the electrostatic energy and forces for a collection of charges in doubly-periodic slabs with jumps in the dielectric permittivity at the slab boundaries. Our method achieves spectral accuracy by using Ewald splitting to replace the original Poisson equation for nearly-singular sources with a smooth far-field Poisson equation, combined with a localized near-field correction. Unlike existing spectral Ewald methods, which make use of the Fourier transform in the aperiodic direction, we recast the problem as a two-point boundary value problem in the aperiodic direction for each transverse Fourier mode, for which exact analytic boundary conditions are available. We solve each of these boundary value problems using a fast, well-conditioned Chebyshev method. In the presence of dielectric jumps, combining Ewald splitting with the classical method of images results in smoothed charge distributions which overlap the dielectric boundaries themselves. We show how to preserve spectral accuracy in this case through the use of a harmonic correction which involves solving a simple Laplace equation with smooth boundary data. We implement our method on Graphical Processing Units, and combine our doubly-periodic Poisson solver with Brownian Dynamics to study the equilibrium structure of double layers in binary electrolytes confined by dielectric boundaries. Consistent with prior studies, we find strong charge depletion near the interfaces due to repulsive interactions with image charges, which points to the need for incorporating polarization effects in understanding confined electrolytes, both theoretically and computationally.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-01-18T14:26:31Z</published>
+    <arxiv:comment>60 pages, 7 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Ondrej Maxian</name>
+    </author>
+    <author>
+      <name>Raul P. Peláez</name>
+    </author>
+    <author>
+      <name>Leslie Greengard</name>
+    </author>
+    <author>
+      <name>Aleksandar Donev</name>
+    </author>
+    <arxiv:doi>10.1063/5.0044677</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/5.0044677" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2007.06226v5</id>
+    <title>AMITE: A Novel Polynomial Expansion for Analyzing Neural Network Nonlinearities</title>
+    <updated>2021-11-24T03:41:31Z</updated>
+    <link href="https://arxiv.org/abs/2007.06226v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2007.06226v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Polynomial expansions are important in the analysis of neural network nonlinearities. They have been applied thereto addressing well-known difficulties in verification, explainability, and security. Existing approaches span classical Taylor and Chebyshev methods, asymptotics, and many numerical approaches. We find that while these individually have useful properties such as exact error formulas, adjustable domain, and robustness to undefined derivatives, there are no approaches that provide a consistent method yielding an expansion with all these properties. To address this, we develop an analytically modified integral transform expansion (AMITE), a novel expansion via integral transforms modified using derived criteria for convergence. We show the general expansion and then demonstrate application for two popular activation functions, hyperbolic tangent and rectified linear units. Compared with existing expansions (i.e., Chebyshev, Taylor, and numerical) employed to this end, AMITE is the first to provide six previously mutually exclusive desired expansion properties such as exact formulas for the coefficients and exact expansion errors (Table II). We demonstrate the effectiveness of AMITE in two case studies. First, a multivariate polynomial form is efficiently extracted from a single hidden layer black-box Multi-Layer Perceptron (MLP) to facilitate equivalence testing from noisy stimulus-response pairs. Second, a variety of Feed-Forward Neural Network (FFNN) architectures having between 3 and 7 layers are range bounded using Taylor models improved by the AMITE polynomials and error formulas. AMITE presents a new dimension of expansion methods suitable for analysis/approximation of nonlinearities in neural networks, opening new directions and opportunities for the theoretical analysis and systematic testing of neural networks.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-07-13T07:58:47Z</published>
+    <arxiv:comment>13 pages, 2 tables, 9 figures, LaTeX; minor grammar updates, equation numbering, and exposition clarification updates</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Mauro J. Sanchirico</name>
+    </author>
+    <author>
+      <name>Xun Jiao</name>
+    </author>
+    <author>
+      <name>C. Nataraj</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2005.13350v4</id>
+    <title>Stabilized leapfrog based local time-stepping method for the wave equation</title>
+    <updated>2022-04-04T11:35:19Z</updated>
+    <link href="https://arxiv.org/abs/2005.13350v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2005.13350v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Local time-stepping methods permit to overcome the severe stability constraint on explicit methods caused by local mesh refinement without sacrificing explicitness. In \cite{DiazGrote09}, a leapfrog based explicit local time-stepping (LF-LTS) method was proposed for the time integration of second-order wave equations. Recently, optimal convergence rates were proved for a conforming FEM discretization, albeit under a CFL stability condition where the global time-step, $Δt$, depends on the smallest elements in the mesh \cite{grote_sauter_1}. In general one cannot improve upon that stability constraint, as the LF-LTS method may become unstable at certain discrete values of $Δt$. To remove those critical values of $Δt$, we apply a slight modification (as in recent work on LF-Chebyshev methods \cite{CarHocStu19}) to the original LF-LTS method which nonetheless preserves its desirable properties: it is fully explicit, second-order accurate, satisfies a three-term (leapfrog like) recurrence relation, and conserves the energy. The new stabilized LF-LTS method also yields optimal convergence rates for a standard conforming FE discretization, yet under a CFL condition where $Δt$ no longer depends on the mesh size inside the locally refined region.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-05-27T13:28:55Z</published>
+    <arxiv:comment>In this new version of our paper we have corrected the proof of Lemma A.1 in the appendix. The stabilization parameter nu now has to obey the condition nu&lt;= 1/2 instead of nu &lt;= 1. In practice, however, nu is chosen much smaller, e.g., nu = 0.05 for the stabilized LF-LTS method; hence, the smaller upper bound on the admissible values for nu has no bearing in practice</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Marcus J. Grote</name>
+    </author>
+    <author>
+      <name>Simon Michel</name>
+    </author>
+    <author>
+      <name>Stefan Sauter</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.12244v1</id>
+    <title>Dynamo action in sliding plates of anisotropic electrical conductivity</title>
+    <updated>2020-04-25T22:31:39Z</updated>
+    <link href="https://arxiv.org/abs/2004.12244v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.12244v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>With materials of anisotropic electrical conductivity, it is possible to generate a dynamo with a simple velocity field, of the type precluded by Cowling's theorems with isotropic materials. Following a previous study by Ruderman and Ruzmaikin [1] who considered the dynamo effect induced by a uniform shear flow, we determine the conditions for the dynamo threshold when a solid plate is sliding over another one, both with anisotropic electrical conductivity. We obtain numerical solutions for a general class of anisotropy and obtain the conditions for the lowest magnetic Reynolds number, using a collocation Chebyshev method. In a particular geometry of anisotropy and wavenumber, we also derive an analytical solution, where the eigenvectors are just combinations of four exponential functions. An explicit analytical expression is obtained for the critical magnetic Reynold number. Above the critical magnetic Reynold number, we have also derived an analytical expression for the growth rate showing that this is a 'very fast' dynamo, extrapolating on the 'slow' and 'fast' terminology introduced by Vainshtein and Zeldovich [2].</summary>
+    <category term="physics.geo-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-25T22:31:39Z</published>
+    <arxiv:comment>14 pages, 9 figures, 4 appendices</arxiv:comment>
+    <arxiv:primary_category term="physics.geo-ph"/>
+    <arxiv:journal_ref>Phys. Rev. E 101, 033107, 2020</arxiv:journal_ref>
+    <author>
+      <name>Thierry Alboussiere</name>
+    </author>
+    <author>
+      <name>Kamel Drif</name>
+    </author>
+    <author>
+      <name>Franck Plunian</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevE.101.033107</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevE.101.033107" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1911.01404v1</id>
+    <title>Nonstationary iterative processes</title>
+    <updated>2019-11-04T18:49:17Z</updated>
+    <link href="https://arxiv.org/abs/1911.01404v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1911.01404v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we present iterative methods of high efficiency by the criteria of J. F. Traub and A. M. Ostrowski.
+  We define {\it s-nonstationary iterative processes} and prove that, for any one-point iterative process without memory, such as, for example, Newton's, Halley's, Chebyshev's methods, there exists an s-nonstationary process of the same order, but of higher efficiency.
+  We supply constructions of these methods, obtain their properties and, for some of them, also their geometric interpretation. The algorithms we present can be transformed into computer programs in straight-forward manner. The methods are demonstrated by numerical examples.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-11-04T18:49:17Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>Luba Sapir</name>
+    </author>
+    <author>
+      <name>Tamara Kogan</name>
+    </author>
+    <author>
+      <name>Ariel Sapir</name>
+    </author>
+    <author>
+      <name>Amir Sapir</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1910.10385v1</id>
+    <title>Adaptive Padé-Chebyshev Type Approximation to Piecewise Smooth Functions</title>
+    <updated>2019-10-23T06:55:47Z</updated>
+    <link href="https://arxiv.org/abs/1910.10385v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1910.10385v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The aim of this article is to study the role of piecewise implementation of Padé-Chebyshev type approximation in minimising Gibbs phenomena in approximating piecewise smooth functions. A piecewise Padé-Chebyshev type (PiPCT) algorithm is proposed and an $L^1$-error estimate for at most continuous functions is obtained using a decay property of the Chebyshev coefficients. An advantage of the PiPCT approximation is that we do not need to have an {\it a prior} knowledge of the positions and the types of singularities present in the function. Further, an adaptive piecewise Padé-Chebyshev type (APiPCT) algorithm is proposed in order to get the essential accuracy with a relatively lower computational cost. Numerical experiments are performed to validate the algorithms. The numerical results are also found to be well in agreement with the theoretical results. Comparison results of the PiPCT approximation with the singular Padé-Chebyshev and the robust Padé-Chebyshev methods are also presented.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-10-23T06:55:47Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <author>
+      <name>S. Akansha</name>
+    </author>
+    <author>
+      <name>S. Baskar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1905.00238v1</id>
+    <title>Fast Calculation of Credit Exposures for Barrier and Bermudan options using Chebyshev interpolation</title>
+    <updated>2019-05-01T09:52:42Z</updated>
+    <link href="https://arxiv.org/abs/1905.00238v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1905.00238v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a new method to calculate the credit exposure of Bermudan, discretely monitored barrier and European options. Core of the approach is the application of the dynamic Chebyshev method of Glau et al. (2019). The dynamic Chebyshev method delivers a closed form approximation of the option prices along the paths together with the options' delta and gamma. Key advantage is the polynomial structure of the approximation, which allows us a highly efficient evaluation of the credit exposures, even for a large number of simulated paths. The approach is highly flexible in the model choice, payoff profiles and asset classes. We compute the exposure profiles for Bermudan and barrier options in three different equity models and compare them to the profiles of European options. The analysis reveals potential shortcomings of common simplifications in the exposure calculation. The proposed method is sufficiently simple and efficient to avoid such risk-bearing simplifications.</summary>
+    <category term="q-fin.CP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-fin.RM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-05-01T09:52:42Z</published>
+    <arxiv:primary_category term="q-fin.CP"/>
+    <author>
+      <name>Kathrin Glau</name>
+    </author>
+    <author>
+      <name>Ricardo Pachon</name>
+    </author>
+    <author>
+      <name>Christian Pötz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1808.09462v4</id>
+    <title>Optimal bounds on the positivity of a matrix from a few moments</title>
+    <updated>2020-04-16T07:53:07Z</updated>
+    <link href="https://arxiv.org/abs/1808.09462v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1808.09462v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In many contexts one encounters Hermitian operators $M$ on a Hilbert space whose dimension is so large that it is impossible to write down all matrix entries in an orthonormal basis. How does one determine whether such $M$ is positive semidefinite? Here we approach this problem by deriving asymptotically optimal bounds to the distance to the positive semidefinite cone in Schatten $p$-norm for all integer $p\in[1,\infty)$, assuming that we know the moments $\mathbf{tr}(M^k)$ up to a certain order $k=1,\ldots, m$. We then provide three methods to compute these bounds and relaxations thereof: the sos polynomial method (a semidefinite program), the Handelman method (a linear program relaxation), and the Chebyshev method (a relaxation not involving any optimization). We investigate the analytical and numerical performance of these methods and present a number of example computations, partly motivated by applications to tensor networks and to the theory of free spectrahedra.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-08-28T18:00:24Z</published>
+    <arxiv:comment>2 Mathematica files are attached. v2: some typos corrected. v3: very close to published version</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <arxiv:journal_ref>Comm. Math. Phys. 375 (1), 105-126 (2020)</arxiv:journal_ref>
+    <author>
+      <name>Gemma de las Cuevas</name>
+    </author>
+    <author>
+      <name>Tobias Fritz</name>
+    </author>
+    <author>
+      <name>Tim Netzer</name>
+    </author>
+    <arxiv:doi>10.1007/s00220-020-03720-5</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00220-020-03720-5" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1802.01631v1</id>
+    <title>A Discrete Spherical Harmonics Method for Radiative Transfer Analysis in Inhomogeneous Polarized Planar Atmosphere</title>
+    <updated>2018-02-05T20:11:29Z</updated>
+    <link href="https://arxiv.org/abs/1802.01631v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1802.01631v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A discrete spherical harmonics method is developed for the radiative transfer problem in inhomogeneous polarized planar atmosphere illuminated at the top by a collimated sunlight while the bottom reflects the radiation. The method expands both the Stokes vector and the phase matrix in a finite series of generalized spherical functions and the resulting vector radiative transfer equation is expressed in a set of polar directions. Hence, the polarized characteristics of the radiance within the atmosphere at any polar direction and azimuthal angle can be determined without linearization and/or interpolations. The spatial dependent of the problem is solved using the spectral Chebyshev method. The emergent and transmitted radiative intensity and the degree of polarization are predicted for both Rayleigh and Mie scattering. The discrete spherical harmonics method predictions using 36 streams are found in good agreement with benchmark literature results. The maximum deviation between the proposed method and literature results and for absolue value of the polar directions greater than 0.1 is less than 0.5% and 0.9% for the Rayleigh and Mie scattering, respectively. These deviations for directions close to zero are about 3% and 10 % for Rayleigh and Mie scattering, respectively.</summary>
+    <category term="astro-ph.IM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-02-05T20:11:29Z</published>
+    <arxiv:comment>26 pages, 3 figures, 2 tables</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.IM"/>
+    <author>
+      <name>Romuald Tapimo</name>
+    </author>
+    <author>
+      <name>Hervé Thierry Tagne Kamdem</name>
+    </author>
+    <author>
+      <name>David Yemele</name>
+    </author>
+    <arxiv:doi>10.1007/s10509-018-3266-5</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10509-018-3266-5" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.08145v5</id>
+    <title>Optimal explicit stabilized integrator of weak order one for stiff and ergodic stochastic differential equations</title>
+    <updated>2018-06-26T20:25:11Z</updated>
+    <link href="https://arxiv.org/abs/1708.08145v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.08145v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A new explicit stabilized scheme of weak order one for stiff and ergodic stochastic differential equations (SDEs) is introduced. In the absence of noise, the new method coincides with the classical deterministic stabilized scheme (or Chebyshev method) for diffusion dominated advection-diffusion problems and it inherits its optimal stability domain size that grows quadratically with the number of internal stages of the method. For mean-square stable stiff stochastic problems, the scheme has an optimal extended mean-square stability domain that grows at the same quadratic rate as the deterministic stability domain size in contrast to known existing methods for stiff SDEs [A. Abdulle and T. Li. Commun. Math. Sci., 6(4), 2008, A. Abdulle, G. Vilmart, and K. C. Zygalakis, SIAM J. Sci. Comput., 35(4), 2013]. Combined with postprocessing techniques, the new methods achieve a convergence rate of order two for sampling the invariant measure of a class of ergodic SDEs, achieving a stabilized version of the non-Markovian scheme introduced in [B. Leimkuhler, C. Matthews, and M. V. Tretyakov, Proc. R. Soc. A, 470, 2014].</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-27T21:50:50Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <arxiv:journal_ref>SIAM/ASA J. Uncertain. Quantif. 6 (2018), no. 2, 937-964</arxiv:journal_ref>
+    <author>
+      <name>Assyr Abdulle</name>
+    </author>
+    <author>
+      <name>Ibrahim Almuslimani</name>
+    </author>
+    <author>
+      <name>Gilles Vilmart</name>
+    </author>
+    <arxiv:doi>10.1137/17M1145859</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1137/17M1145859" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1507.01226v1</id>
+    <title>Chebyshev matrix product state approach for time evolution</title>
+    <updated>2015-07-05T15:01:58Z</updated>
+    <link href="https://arxiv.org/abs/1507.01226v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1507.01226v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present and test a new algorithm for time-evolving quantum many-body systems initially proposed by Holzner et al. [Phys. Rev. B 83, 195115 (2011)]. The approach is based on merging the matrix product state (MPS) formalism with the method of expanding the time-evolution operator in Chebyshev polynomials. We calculate time-dependent observables of a system of hardcore bosons quenched under the Bose-Hubbard Hamiltonian on a one-dimensional lattice. We compare the new algorithm to more standard methods using the MPS architecture. We find that the Chebyshev method gives numerically exact results for small times. However, the reachable times are smaller than the ones obtained with the other state-of-the-art methods. We further extend the new method using a spectral-decomposition-based projective scheme that utilizes an effective bandwidth significantly smaller than the full bandwidth, leading to longer evolution times than the non-projective method and more efficient information storage, data compression, and less computational effort.</summary>
+    <category term="cond-mat.str-el" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.quant-gas" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-07-05T15:01:58Z</published>
+    <arxiv:comment>14 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.str-el"/>
+    <arxiv:journal_ref>Phys. Rev. B 92, 115130 (2015)</arxiv:journal_ref>
+    <author>
+      <name>Jad C. Halimeh</name>
+    </author>
+    <author>
+      <name>Fabian Kolley</name>
+    </author>
+    <author>
+      <name>Ian P. McCulloch</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevB.92.115130</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevB.92.115130" title="doi"/>
+  </entry>
+</feed>

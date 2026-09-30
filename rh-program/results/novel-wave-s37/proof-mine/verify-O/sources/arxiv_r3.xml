@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/CObDhRdJWw8EoHQifA3KEgr1qCQ</id>
+  <title>arXiv Query: search_query=abs:"Nair" AND abs:"lcm"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-30T19:57:44Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Nair%22+AND+abs:%22lcm%22&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2012.05828v1</id>
+    <title>Effective estimates for the least common multiple of some integer sequences</title>
+    <updated>2020-12-10T16:57:33Z</updated>
+    <link href="https://arxiv.org/abs/2012.05828v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.05828v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This thesis is devoted to studying estimates of the least common multiple of some integer sequences. Our study focuses on effective bounding of the $\mathrm{lcm}$ of some class of quadratic sequences, as well as arithmetic progressions and strong divisibility sequences. First, we have used methods of commutative algebra and complex analysis to establish new nontrivial lower bounds for the $\mathrm{lcm}$ of some quadratic sequences. Next, a more profound study of the arithmetic properties of strong divisibility sequences allowed us to obtain three interesting identities involving the $\mathrm{lcm}$ of these sequences, which generalizes some previous identities of Farhi (2009) and Nair (1982); as consequences, we have deduced a precise estimates for the $\mathrm{lcm}$ of generalized Fibonacci sequence (the so-called Lucas sequences). We have also developed a method that provides an effective version to the asymptotic result of Bateman (2002) concerning the $\mathrm{lcm}$ of an arithmetic progression. Finally, we found that the latter method can be adapted to estimate the $\mathrm{lcm}$ of the sequence $(n^2+1)_n$, which allowed us in particular to improve the lower bounds of Farhi (2005) and Oon (2013). The thesis also includes a general presentation of some literature results.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-10T16:57:33Z</published>
+    <arxiv:comment>108 pages, PhD Thesis, in French, French title: Estimations du plus petit commun multiple de certaines suites d'entiers, defended on December 02th, 2020</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>PhD Thesis, Université de Bejaia, Algeria, 2020</arxiv:journal_ref>
+    <author>
+      <name>Sid Ali Bousla</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1308.6458v2</id>
+    <title>Uniform lower bound for the least common multiple of a polynomial sequence</title>
+    <updated>2013-10-09T14:28:51Z</updated>
+    <link href="https://arxiv.org/abs/1308.6458v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1308.6458v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $n$ be a positive integer and $f(x)$ be a polynomial with nonnegative integer coefficients. We prove that ${\rm lcm}_{\lceil n/2\rceil \le i\le n} \{f(i)\}\ge 2^n$ except that $f(x)=x$ and $n=1, 2, 3, 4, 6$ and that $f(x)=x^s$ with $s\ge 2$ being an integer and $n=1$, where $\lceil n/2\rceil$ denotes the smallest integer which is not less than $n/2$. This improves and extends the lower bounds obtained by Nair in 1982, Farhi in 2007 and Oon in 2013.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-08-29T13:23:07Z</published>
+    <arxiv:comment>6 pages. To appear in Comptes Rendus Mathematique</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Comptes Rendus Mathematique 351 (2013), 781-785</arxiv:journal_ref>
+    <author>
+      <name>Shaofang Hong</name>
+    </author>
+    <author>
+      <name>Yuanyuan Luo</name>
+    </author>
+    <author>
+      <name>Guoyou Qian</name>
+    </author>
+    <author>
+      <name>Chunlin Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0907.3401v1</id>
+    <title>Nair's and Farhi's identities involving the least common multiple of binomial coefficients are equivalent</title>
+    <updated>2009-07-20T15:03:16Z</updated>
+    <link href="https://arxiv.org/abs/0907.3401v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0907.3401v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  In 1982, Nair proved the identity: ${\rm lcm}({k \choose 1}, 2{k \choose 2}, &gt;..., k{k \choose k}) ={\rm lcm}(1, 2, ..., k), \forall k\in \mathbb{N}.$ Recently, Farhi proved a new identity: ${\rm lcm}({k \choose 0}, {k \choose 1}, &gt;..., {k \choose k}) =\frac{{\rm lcm}(1, 2, ..., k+1)}{k+1}, \forall k\in \mathbb{N}.$ In this note, we show that Nair's and Farhi's identities are equivalent.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-07-20T15:03:16Z</published>
+    <arxiv:comment>3 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Shaofang Hong</name>
+    </author>
+  </entry>
+</feed>

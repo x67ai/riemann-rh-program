@@ -165,3 +165,9 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   remark on Haglund's (51); Riemann 1859 page range from secondary reference lists.
 - Resume point: blind referee on `main.pdf` with `REFEREE-BRIEF.md`; then the orchestrator's read.
   Nothing was posted; nothing outside this folder was modified; no git was run.
+
+### 2026-10-01 01:23 IST — REFEREE: REFEREE-REPORT.md §1 landed
+First read of main.pdf done before opening any source. 26 first-read findings (R1-R26): no FATAL, no MAJOR so far; all MINOR/TYPO. Hand re-derivation of (2), (3), Lemma 2.1, Thms 3.1/3.3, Prop 3.4, Thm 4.1-4.2, Lemmas 6.1-6.3, E of the Taylor model: all correct. Next: §2 brief items 1-8 against sources.
+
+### 2026-10-01 01:30 IST — REFEREE: REFEREE-REPORT.md §2 items 1-2 landed
+Item 1 (Thm 1.1, §6 vs both CERTs): all numbers match; recomputed c_N, 2U_32, B tail, E values, z*-c, |Phi_28|, |Xi|; hashes of both CERT.md and the zip verified. Findings F1.1-F1.8 (MINOR/TYPO). R11 withdrawn. Item 2 (Thm 7.1): numbers match; F2.1 (A proves the s-plane mirror square; state the symmetry).
