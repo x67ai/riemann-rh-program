@@ -66,6 +66,14 @@ for d in "${dirs[@]}"; do
   na=$(LC_ALL=C grep -c '[^ -~]' "$tex" | head -1); na=${na:-0}
   [ "${na:-0}" -eq 0 ] && ok "pure ASCII source" "" || note "non-ASCII lines" "${na} (UTF-8 is accepted; verify they render)"
 
+  # 9. sponsor rule (04:33 IST 2026-10-01, Session 39): no sentence stating whether the result is, is not,
+  #    or bears on a proof or disproof of RH, and no internal project information (paths, session labels,
+  #    tags, working-record files, process narration). Both FAIL.
+  verd=$(grep -n -iE 'says nothing about the Riemann|nothing about the Riemann hypothesis|not a proof of the Riemann|does not prove the Riemann|progress on the Riemann|bear(s|ing)? on the Riemann|the Riemann hypothesis itself|no claim is made|we stress|we emphasi[sz]e|it should be stressed|is not a statement about' "$tex" | wc -l | tr -d ' ')
+  [ "${verd:-0}" -eq 0 ] && ok "no RH-verdict sentences" "" || bad "no RH-verdict sentences" "$verd line(s) - sponsor rule, Session 39"
+  intl=$(grep -n -E 'Session [0-9]|orchestrator|SHARED\.md|NOTE\.md|read-F|verify-F|rerun-F|producer-[AB]|results/|at the tag|\\path\{' "$tex" | wc -l | tr -d ' ')
+  [ "${intl:-0}" -eq 0 ] && ok "no internal project references" "" || bad "no internal project references" "$intl line(s) - paths, session labels, tags, working files"
+
   # 8. the stray build products that should not be in the submission tarball
   extra=$(ls "$d" | grep -vE '^(main\.(tex|pdf|bbl)|refs\.bib|README.*)$' | tr '\n' ' ')
   [ -z "$extra" ] && ok "no stray files" "" || note "not for the tarball" "$extra"

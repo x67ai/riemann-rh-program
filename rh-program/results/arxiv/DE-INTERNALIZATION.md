@@ -279,3 +279,10 @@ more conventional look is wanted. **Sponsor's call, not the program's.**
    returns a number you can justify line by line.
 2. Read the first two pages aloud. Nothing in them refers to a document the reader cannot open.
 3. `bash results/arxiv/check-submittable.sh` still prints ALL CHECKS PASSED.
+
+## Rule added 2026-10-01 (Session 39, sponsor) — two further classes are always cut
+
+1. **RH-verdict sentences.** Any sentence saying whether the result is, is not, or bears on a proof or disproof of the Riemann hypothesis ("refutes a sufficient condition … and says nothing about the Riemann hypothesis itself", "does not prove", "progress on"), and any scope disclaimer or "we stress" sentence about the paper's own standing. The sponsor: "the reader is a mathematician and will naturally understand this … that conclusion naturally follows from the contents." A genuine mathematical limitation is stated once, as mathematics.
+2. **Internal project information.** Directory paths, session labels, git tags, working-record files (`SHARED.md`, `NOTE.md`, `read-F.md`, `NOVELTY-F.md`), process narration ("written independently by …, neither with access to the other", "re-derived line by line by an independent reader, and the corrections found there are incorporated"), copyright/redistribution sentences about the working corpus — in the paper and in the archive deposited with it. The data statement names the deposited archive, its SHA-256 and the repository URL.
+
+Applied to the Haglund counterexample paper the same day; `check-submittable.sh` check 9 now fails on both classes.
