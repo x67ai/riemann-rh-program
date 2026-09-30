@@ -50,7 +50,128 @@ ensure that p_k ≤ 1/2"), so §2 applies to DMV's random system as soon as dΠ_
 
 ## §2. The theorem and its proof
 
-(pending)
+**2.0 Setting.** Γ = {1 = v₀ < v₁ < …} any increasing sequence → ∞ with v₁ > 1; X_k independent Bernoulli(p_k); P = {v_k : X_k = 1};
+N(x) = number of g-integers ≤ x (formal products, with multiplicity). Hypotheses:
+- (H0) p_k = ∫_{v_{k−1}}^{v_k} f(v) dv ∈ (0, 1] with f ≥ 0 measurable on [1, ∞).
+- (H1) c_*/log v ≤ f(v) ≤ C_*/log v for v ≥ v_* (the constants of §1.2 for f_R, f_C).
+- (H2) m(x) := max{p_k : (v_{k−1}, v_k] ∩ (x/2, x] ≠ ∅} → 0 and max{v_k − v_{k−1} : v_k ≤ 2x} ≤ 1 for large x
+  (on DZ's Γ: m(x) ≤ 2^{1−⌊x/2⌋} and the mesh is ≤ ½).
+- (H3) almost surely N(x)/x → ρ ∈ (0, ∞) (for P_R, P_B: DZ 17.11(i), 17.14(i), which hold a.s., §1.3).
+Write E(x) := N(x) − ρx and s_x := (x/log x)^{1/2}.
+
+**Theorem 1 (the one-scale lower bound)** [proved here]. Under (H0)–(H3), almost surely
+  lim sup_{x→∞} |N(x) − ρx| / (x/log x)^{1/2} > 0.
+In particular, almost surely N(x) − ρx ≠ O(x^τ) for every τ < ½.
+
+**Corollary 2 (BDR fn. 4)** [proved here, given DZ's (i)–(iv) quoted in §1.3]. For almost every realization of the
+Diamond–Zhang construction of Theorem 17.14, the system P_B satisfies N_B(x) − k₂x = Ω((x/log x)^{1/2}) and
+N_B(x) − k₂x = O(x^{1/2}exp{c(log x)^{2/3}}); hence β(P_B) = ½, and with 17.14(iv) (ψ_B − x ≠ O(x^{1−δ}) for every δ > 0)
+α(P_B) = 1: **P_B is a [1, ½]-system, so β₀ = ½ for almost every realization.** The same holds after any finite change of
+the g-primes (Remark 17.12's normalization; Lemma 2.5). For Theorem 17.11's P_R: β(P_R) = ½ and α(P_R) = ½ a.s.
+(Corollary 2.6), so Zhang's system is a [½, ½]-system — the value BDR l. 123–124 say "could not be determined".
+
+*Scope, stated exactly.* The statement is about the random construction (every realization off a null set). It says
+nothing about a particular subsequence of Γ that satisfies DZ's (17.46) but lies in the exceptional null set; whether
+every such subsequence has β ≥ ½ is Conjecture U at α = 1 restricted to DZ's class (Untried, §6).
+
+**2.1 Notation for one scale.** Fix x ≥ 4. B = B_x := {k : v_k ∈ (x/2, x]} (finite); G = G_x := σ(X_k : k ∉ B).
+N^c(y) := number of g-integers ≤ y built from P ∖ (x/2, x] (G-measurable). n₀(y) := number of g-integers ≤ y built from
+the g-primes in (1, 2); N₀ := n₀(2−) − 1, the number of g-integers in (1, 2) (finite a.s.; on DZ's Γ, N₀ ∈ {0, 1}).
+a_k := −log(1 − 1/v_k); μ := Σ_{k∈B} p_k a_k; S := Σ_{k∈B} X_k a_k; D := S − μ. ρ^c := lim_{y→∞} N^c(y)/y.
+κ := ρ^c e^{μ}; c_k := n₀(x/v_k) − κ x a_k (k ∈ B).
+
+**Lemma 2.1 (the one-scale identity; all the dependence across (x/2, x] in one factor)** [proved here]. For x ≥ 4, a.s.:
+(a) N(x) = N^c(x) + Σ_{k∈B} X_k n₀(x/v_k);  (b) ρ^c exists, is G-measurable, and ρ = ρ^c e^{S};
+(c) E(x) = Y + L + R with Y := N^c(x) + Σ_{k∈B} p_k n₀(x/v_k) − κx (G-measurable), L := Σ_{k∈B}(X_k − p_k)c_k,
+R := −κx(e^{D} − 1 − D).
+*Proof.* (a) Two block primes q, q′ ∈ (x/2, x] have qq′ > x²/4 ≥ x, so a g-integer m ≤ x contains at most one block prime,
+with multiplicity one (q² > x). If it contains q then m = qm′ with m′ ≤ x/q < 2, and m′ is built from g-primes < 2 ≤ x/2,
+none in the block; m′ is counted by n₀(x/q). Otherwise m is counted by N^c(x). (b) For any g-prime q of a system Q,
+the g-integers of Q are the q^j·m, j ≥ 0, m a g-integer of Q ∖ {q}; so N_{Q∖{q}}(y) = N_Q(y) − N_Q(y/q), and N_Q(y) ∼ ρ_Q y
+implies N_{Q∖{q}}(y) ∼ ρ_Q(1 − 1/q)y. Removing the finitely many block primes one at a time from P (where (H3) holds):
+ρ^c = ρ Π_{k∈B}(1 − 1/v_k)^{X_k} = ρe^{−S}. ρ^c = lim N^c(y)/y is a function of (X_k)_{k∉B}. (c) E(x) = N^c(x) +
+Σ X_k n₀(x/v_k) − ρ^c x e^{S}, and e^{S} = e^{μ}(1 + D + (e^{D} − 1 − D)), with D = Σ_{k∈B}(X_k − p_k)a_k. Hence
+ρ^c x e^{S} = κx + κxΣ_{k∈B}(X_k − p_k)a_k − R; substitute X_k n₀ = p_k n₀ + (X_k − p_k)n₀ and collect. ∎
+
+*Remark (what "the dependence across (x/2, x]" is).* Conditionally on G the block variables are independent; they are coupled
+in E(x) only through the random density, ρ = ρ^c e^{S}, a smooth function of the single linear statistic S. The
+frontier's Theorem B has the same structure (its κ_p, repaired in read-O F2, is the G-measurable part of this factor);
+here the coupling is kept exact and paid for by R, which is quadratic in D (Lemma 2.3).
+
+**Lemma 2.2 (the conditional variance is ≍ x/log x)** [proved here]. Assume (H1), (H2). Let σ² := Var(L | G) =
+Σ_{k∈B} p_k(1 − p_k)c_k². There is a G-measurable x₁ < ∞ such that for x ≥ x₁
+  σ² ≥ c_* κ² x / (2^{11}(N₀ + 1)² log x).
+*Proof.* Put φ(y) := n₀(y) − κy on [1, 2). n₀ is constant on at most N₀ + 1 intervals of [1, 2), and on each φ is linear
+with slope −κ, so {y : |φ(y)| < θ} meets each in an interval of length ≤ 2θ/κ. With θ := κ/(4(N₀ + 1)) the exceptional set
+has measure ≤ ½; its complement J ⊂ [1, 2) has |J| ≥ ½ and at most 2(N₀ + 1) components. For v ≥ 2,
+0 ≤ −log(1 − 1/v) − 1/v ≤ 1/v², so |c_k − φ(x/v_k)| ≤ κx/v_k² ≤ 4κ/x ≤ θ/2 once x ≥ 32(N₀ + 1); then |c_k| ≥ θ/2 whenever
+x/v_k ∈ J. With J_x := {v ∈ (x/2, x] : x/v ∈ J} (≤ 2(N₀ + 1) intervals) and m(x) ≤ ½:
+  σ² ≥ (θ²/8) Σ_{k∈B, x/v_k∈J} p_k ≥ (θ²/8)(∫_{J_x} f − (4N₀ + 6)m(x)),
+since only cells straddling an endpoint of J_x are miscounted. By (H1) and v = x/y, dv = x dy/y²:
+∫_{J_x} f ≥ (c_*/log x)·x∫_J dy/y² ≥ c_* x/(8 log x). For x large (G-measurably) the m(x) term is below half of this, so
+σ² ≥ θ² c_* x/(128 log x) = c_* κ² x/(2^{11}(N₀+1)² log x). ∎
+
+**Lemma 2.3 (the coupling remainder is negligible)** [proved here]. Assume (H1), (H2). For x ≥ x₂ (deterministic),
+E[D² | G] = Σ_{k∈B} p_k(1 − p_k)a_k² ≤ 5C_*/(x log x), and for every u > 0,
+  P(|R| > u | G) ≤ E[D² | G]·(1 + eκx/(2u)).
+*Proof.* a_k ≤ 1/v_k + 1/v_k² ≤ (2/x)(1 + 2/x) on B, and Σ_{k∈B} p_k ≤ ∫_{x/2−1}^{x} f ≤ C_* x/log x for large x, which gives the
+first bound. On {|D| ≤ 1}, |e^{D} − 1 − D| ≤ (e/2)D², so {|R| > u} ⊂ {|D| > 1} ∪ {D² > 2u/(eκx)}; apply Chebyshev to both. ∎
+
+**Proof of Theorem 1.** Fix λ > 0. By Lemma 2.1, {|E(x)| ≤ λs_x} ⊂ {|Y + L| ≤ 2λs_x} ∪ {|R| > λs_x}. Given G, L is a sum of
+independent centered terms ξ_k = (X_k − p_k)c_k with |ξ_k| ≤ M := N₀ + 1 + 3κ and Σ E|ξ_k|³ ≤ Mσ². The Berry–Esseen
+inequality for non-identically distributed summands [recalled, unverified: Esseen 1945, any absolute constant C₀] gives
+sup_t |P(L ≤ t | G) − Φ(t/σ)| ≤ C₀M/σ, so for every G-measurable Y
+  P(|Y + L| ≤ 2λs_x | G) ≤ 4λs_x/(σ√(2π)) + 2C₀M/σ.
+Insert Lemma 2.2 (σ ≥ √c_* κ s_x/(2^{5.5}(N₀+1))) and Lemma 2.3 (u = λs_x): for x ≥ max(x₁, x₂),
+  P(|E(x)| ≤ λs_x | G) ≤ Φ_x := min{1, Kλ(N₀ + 1)/κ + ε_x},  K := 2^{7.5}/√(2πc_*),
+  ε_x := 2^{6.5}C₀(N₀ + 1 + 3κ)(N₀ + 1)/(√c_* κ s_x) + (5C_*/(x log x))(1 + eκ√(x log x)/(2λ));
+for x < max(x₁, x₂) put Φ_x := 1. Now κ = κ_x = ρ e^{μ−S}, with 0 ≤ μ ≤ 5C_*/log x and E S = μ, so κ_x → ρ in probability;
+N₀ does not depend on x ≥ 4; x₁ < ∞ a.s. Hence Φ_x → min{1, Kλ(N₀ + 1)/ρ} in probability, and by bounded convergence
+  lim sup_{x→∞} P(|E(x)| ≤ λs_x) ≤ lim E Φ_x = h(λ) := E min{1, Kλ(N₀ + 1)/ρ}.
+Since ρ > 0 and N₀ < ∞ a.s., h(λ) → 0 as λ ↓ 0. Finally, with A_{x₀} := {|E(n)| ≤ λs_n for all integers n ≥ x₀},
+P(A_{x₀}) ≤ inf_{n≥x₀} P(|E(n)| ≤ λs_n) ≤ lim sup_n P(|E(n)| ≤ λs_n) ≤ h(λ), so P(lim sup_n |E(n)|/s_n < λ) ≤
+P(∪_{x₀} A_{x₀}) ≤ h(λ). Letting λ ↓ 0: P(lim sup |E|/s_x = 0) = 0. As x^τ = o(s_x) for τ < ½, the last claim follows. ∎
+
+*Remarks on the proof.* (i) No 0–1 law is needed (Theorem B used Kolmogorov's; here the anti-concentration bound h(λ) → 0
+does the work). (ii) The only inputs from DZ are the construction and (H3); the variance comes from the block alone.
+(iii) The constant K is wasteful; §3 computes σ² exactly.
+
+**Proposition 2.4 (second, independent proof of β ≥ ½: ζ_B is unbounded at s = ½)** [proved here]. For P_B (and P_R with
+ζ_C replaced by s/(s − 1)), almost surely lim sup_{σ→½+} |ζ_B(σ)| = +∞; hence ζ_B has no analytic continuation to any
+neighborhood of s = ½, and N_B(x) − k₂x ≠ O(x^τ) for every τ < ½.
+*Proof.* (1) Landau step: if E(x) = O(x^τ), τ < ½, then ζ_B(s) = s∫₁^∞ N_B(x)x^{−s−1}dx = k₂s/(s − 1) + s∫₁^∞ E(x)x^{−s−1}dx
+continues analytically to σ > τ, s ≠ 1, and is bounded on [½, ½ + δ]. (2) On real σ ∈ (½, 1), DZ's representation (§1.3)
+gives ζ_B(σ) = ζ_C(σ)exp{−F₁(σ) + F₂(σ)}, with −F₁(σ) = Σ_p Σ_{j≥2} p^{−jσ}/j ≥ 0. (3) |ζ_C(σ)| ≥ c₀ > 0 on [½, 1): by
+(17.39), ζ_C = (s/(s − 1))Π_k |G(4^k(σ − ρ_k))|² on the real axis, and for z = 4^k(σ − ρ_k), Re z = 1 − 4^k(1 − σ) ≥ 1 − 4^k/2,
+|z| ≥ 4^k e^{4^k}, so by (17.22) |G(z) − 1| ≤ (|e^{−z}| + |e^{−2z}|)/|z| ≤ (e^{−4^k/2−1} + e^{−2})/4^k ≤ 0.19·4^{−k}; the product is
+≥ Π_k(1 − 0.19·4^{−k})² > 0 and |σ/(σ − 1)| ≥ 1 [computed from the printed definitions]. (4) F₂(σ) = W(σ) + Δ(σ), with
+W(σ) := Σ_k (X_k − p_k)v_k^{−σ} and Δ(σ) := Σ_k ∫_{v_{k−1}}^{v_k}(v_k^{−σ} − v^{−σ})f(v)dv, |Δ(σ)| ≤ Σ_k p_k σ v_{k−1}^{−σ−1}
+(mesh ≤ 1) — bounded on [½, 1). W converges a.s. for σ > ½ (independent centered terms, Σ p_k v_k^{−2σ} < ∞). Its variance
+V(σ) = Σ p_k(1 − p_k)v_k^{−2σ} ≥ (1/8)∫_{v_*}^∞ f(v)v^{−2σ}dv → ∞ as σ → ½+ (by (H1), since v_k ≤ 2v on each late cell and
+p_k ≤ ½); the summands are bounded by 1, so Lindeberg's CLT gives W(σ)/V(σ)^{1/2} ⇒ N(0, 1) as σ → ½+. Hence for all M,
+δ: P(sup_{(½,½+δ)} W > M) ≥ lim_{σ→½+} P(W(σ) > M) = ½, so P(lim sup_{σ→½+} W(σ) = +∞) ≥ ½. Changing finitely many X_k moves
+W by a bounded amount uniformly on (½, 1), so this is a tail event: its probability is 1 (Kolmogorov). (5) On that event,
+|ζ_B(σ)| ≥ c₀ e^{W(σ) − sup|Δ|} is unbounded as σ → ½+, contradicting (1). ∎
+*What the two proofs share and what they do not.* Both use only the block/tail randomness of the selection; Prop. 2.4 needs
+DZ's continuation to σ > ½ and gives β ≥ ½ only; Theorem 1 is elementary and quantitative (Ω((x/log x)^{1/2})). The
+prime squares push the same way: −F₁(σ) ≥ ½Σ_p p^{−2σ} → +∞ (a (2σ − 1)^{−1/2}-type branch point, §4.4's deterministic
+control); for P_B it is not needed.
+
+**Lemma 2.5 (finite changes)** [proved here]. Let P′ differ from P by adding or removing finitely many g-primes, with
+densities ρ, ρ′ > 0. For every τ > 0, E = O(x^τ) ⟺ E′ = O(x^τ); and E = o(s_x) ⟺ E′ = o(s_x).
+*Proof.* One prime q at a time: if P′ = P ∖ {q} then N_P(x) = Σ_{j≥0} N_{P′}(x/q^j), ρ = ρ′/(1 − 1/q), hence
+E(x) = Σ_{j≥0} E′(x/q^j) and E′(x) = E(x) − E(x/q) (with |E(y)| ≤ 1 + ρy for y < 1). Both maps preserve O(x^τ), τ > 0, and
+o(s_x), since Σ_j (x/q^j)^τ ≪ x^τ and Σ_{j: x/q^j ≥ 2} s_{x/q^j} ≪ s_x. ∎
+
+**Corollary 2.6 (the primes of P_R)** [proved here]. Under (H0)–(H2), a.s. ψ_P(x) − x ≠ O(x^τ) for every τ < ½. With
+17.11(iv) (π_R(x) = li(x) + O(x^{1/2}), whence ψ_R(x) = x + O(x^{1/2}log x)), α(P_R) = ½ a.s.
+*Proof.* Same one-scale argument, simpler: ψ_P(x) = ψ^c(x) + Σ_{k∈B} X_k log v_k exactly (block primes have no power ≤ x);
+the block part is linear, with conditional variance Σ_{k∈B} p_k(1 − p_k)log² v_k ≍ x log x by (H1), so Berry–Esseen gives
+P(|ψ_P(x) − x| ≤ λ(x log x)^{1/2} | G) ≤ K′λ + o(1), and the end of the proof of Theorem 1 applies. ∎
+
+**Proof of Corollary 2.** (H0)–(H2) hold for f_C and f_R on DZ's grid (§1.1–1.2); (H3) and the O-bound are DZ's (i).
+Theorem 1 gives the Ω-bound, so β(P_B) = ½ with BDR's definition (l. 97–101); 17.14(iv) gives α = 1; Lemma 2.5 carries
+all of it through Remark 17.12's finite changes; Corollary 2.6 gives α(P_R) = ½. ∎
 
 ## §3. The variance, computed two ways
 

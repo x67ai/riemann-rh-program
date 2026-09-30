@@ -43,3 +43,89 @@ the infeasibility certificate on disk (or for all q)' … Why first: both outcom
 program's first Q-side control with {Euler product, Λ ≥ 0, exact FE} (B5, B6); the refutation branch extends B1 to every
 conductor (then {Euler product, Λ ≥ 0, exact Riemann FE at any conductor} has one model)."
 QC answered this for u.d. systems (U_q) and, given Q4, for discrete ones (D); this unit owns the residue, QC §2.6(c).
+
+## 1. Meyer's finite-values theorem at the page, and Theorem D made unconditional
+
+### 1.1 What Meyer prints (Q: `fetched-r9/r9-05-meyer-1970-LNM117.ocr.txt`, scan page 25 = printed p. 25, OCR lines 677–709)
+§4.2 (lines 680–707), in the UNIT-MASS case: "Supposons, en effet, qu'il existe une mesure, à valeurs complexes, μ telle que
+a) sup_x ∫_x^{x+1} d|μ|(t) < +∞, b) μ̂ = Σ_{λ∈Λ} δ(x − λ)." Then (OCR 690–704, repaired): Λ is closed with every point isolated;
+with φ ∈ C^∞_c real, φ(0) = 1, and ψ the rapidly decreasing function whose FT is φ, "grâce à a), la suite des normes (ou
+variations totales) des mesures dμ_n = [OCR: "ny(n7lx)au(x)"] est une suite bornée"; μ̂_n(t) = Σ_λ φ(n(t − λ)) → 1_Λ(t) (the normalization that
+gives this is dμ_n = n^{−1}ψ(n^{−1}x)dμ(x)); "Il existe
+donc une mesure ν portée par le compactifié de Bohr de R dont la transformée de Fourier vaut 1 sur Λ et 0 ailleurs (ν est la
+limite vague des μ_n). D'après une conséquence du théorème de Paul Cohen due à P.H. Rosenthal, ([7] th. 1.6 p. 22) Λ est à un
+ensemble fini près, la réunion de k parties de R de la forme α_jZ + β_j (1 ≤ j ≤ k)." ([7] = Rosenthal, Thèse, Memoirs AMS; OCR
+line 1928.) Page 26, line 713: "On retrouve donc la formule de Poisson habituelle."
+So the primary proves the unit-mass case, with a finite exceptional set; QC's secondary quote Q4 (Kurasov–Sarnak: "If aλ take values
+in a finite set … then µ is a generalized Dirac comb") is the finitely-valued extension. It is proved here (Lemma M, M1).
+
+### 1.2 LEMMA M (finitely many values) — (P, on top of Meyer p. 25)
+Let μ be a complex Radon measure on R with ‖μ‖_TB := sup_x |μ|([x, x+1]) < ∞ whose Fourier transform μ̂ (tempered) is a Radon
+measure. Put a(t) := μ̂({t}) and suppose a(R) ⊂ V ∪ {0}, V ⊂ C∖{0} finite. Then for each v ∈ V the level set Λ_v := {a = v} is,
+up to a finite set, a finite union of arithmetic progressions α_jZ + β_j.
+ Proof. (1) Meyer's step, with μ̂ a general measure: μ_n := n^{−1}ψ(x/n)μ has ‖μ_n‖ ≤ C(ψ)‖μ‖_TB (Riemann sums of |ψ| on the grid
+ Z/n), and μ̂_n(t) = ∫φ(n(t − λ))dμ̂(λ) → μ̂({t}) = a(t) for every t (dominated convergence on [t − R, t + R], supp φ ⊂ [−R, R]).
+ (2) Push μ_n to the Bohr compactification bR (dual group R_d); a weak-* cluster point ν ∈ M(bR) has ν̂(t) = lim μ̂_n(t) = a(t),
+ because each character is continuous on bR and the sequence μ̂_n(t) converges. So a ∈ B(R_d), the Fourier–Stieltjes algebra.
+ (3) LAGRANGE. B(R_d) is an algebra under pointwise product (ν̂₁ν̂₂ = (ν₁∗ν₂)^). For v ∈ V put
+      P_v(z) := (z/v)·Π_{w∈V∖{v}}(z − w)/(v − w),  so P_v(0) = 0, P_v(v) = 1, P_v(w) = 0 (w ∈ V∖{v}).
+ P_v has no constant term, so P_v(a) = Σ_{k≥1}c_k a^k ∈ B(R_d), and P_v(a) = 1_{Λ_v} pointwise: an idempotent, 1_{Λ_v} = ν̂_v.
+ (4) Λ_v is closed and discrete: |μ̂|(K) ≥ min_{w∈V}|w|·#(Λ_v ∩ K) for compact K. Meyer's last sentence applies verbatim to Λ_v
+ (its two inputs are exactly: a measure on bR with FT 1_Λ, and Λ closed with isolated points). ∎
+ UPSTREAM (10(n)): Meyer 1970 p. 25 (unit masses, purely atomic μ̂); the Lagrange step is the standard reduction of finitely
+ valued Fourier–Stieltjes transforms to idempotents; Kurasov–Sarnak's quote (u-20b 43–44) states the result. `[single-check]`
+
+### 1.3 COROLLARY M1 (no exceptional points when μ is purely atomic) — (P)
+If in addition μ is purely atomic, then μ̂ = Σ_{j≤J} κ_j δ_{β_j+α_jZ} exactly (finite, κ_j ∈ C): no finite correction survives.
+ Proof. By Lemma M and inclusion–exclusion (a finite intersection of progressions is a progression, one point, or empty),
+ μ̂ = C + e with C a finite combination of progression combs and e = Σ_{t∈E} e_tδ_t, E finite. Invert: FT(δ_{β+αZ}) is pure point
+ (Poisson), FT(δ_t) is the function e^{−2πitx} (absolutely continuous). μ is purely atomic, so the a.c. density Σ_t e_t e^{−2πitx}
+ vanishes identically, and by independence of characters every e_t = 0. ∎
+ Sanity check (the three level sets of a Poisson pair π_a, a² ∉ Q: masses 1 + 1/a at 0, 1 on aZ∖0, 1/a on Z/a∖0): the corrections
+ at 0 are (1 + 1/a) − 1 − 1/a = 0, as M1 requires.
+
+### 1.4 THEOREM D, now unconditional — (P)
+Every DISCRETE Beurling system (multiset of reals > 1, integer multiplicities) whose Λ_F satisfies (A) at some conductor q > 0 is
+the set of rational primes, and q = 1.
+ Proof. QC §2.7 with its only unproved input Q4 replaced: μ_q is purely atomic, positive and self-dual, hence translation bounded
+ (QC Lemma TB); its masses lie in {1, ρ_q} (QC Cor. E3). Lemma M + M1 give μ_q = μ̂_q = Σ_j κ_jδ_{β_j+α_jZ}, a generalized Dirac comb
+ with CONSTANT weights — a special case of the form Σ_j g_jσ_j used in QC §2.7 step (1). Steps (2)–(6) of QC §2.7 (finite group of
+ radical classes, periodic coefficients per class, Saias–Weingartner Thm 1, Lemma S–W′, Theorem L′, BFE Theorem T) are unchanged. ∎
+ STATUS. QC §2.6(b)'s conditional clause and QC §5's "T given one printed theorem on disk only second-hand" are discharged.
+
+## 2. Route (i), finitely many lattices: THEOREM G1 — finite generalized Dirac combs with ANY weights are rigid (P)
+
+THEOREM G1. Let dN = exp*(dΠ), dΠ ≥ 0 (weights allowed), satisfy (A) at some q > 0, and suppose μ_q is a finite generalized Dirac
+comb, μ_q = Σ_{j≤J} g_jσ_j with σ_j = Σ_{n∈Z}δ_{y_j+α_jn} and g_j trigonometric polynomials (the masses may take infinitely many
+values). Then q = 1 and F = ζ.
+ Proof. Step 0. μ_q is pure point, so dN = Σ_{x∈𝒩}c(x)δ_x with c > 0 on 𝒩 := supp dN; 𝒩 ∋ 1 is a multiplicative monoid (exp*(tΠ),
+ t > 0, all have the same atoms, and dN∗dN = exp*(2Π) has an atom at xy of mass ≥ c(x)c(y)). 𝒩 is infinite (F has a pole).
+ Step 1 (finitely many radical classes). 𝒩/√q ⊂ ∪_j(y_j + α_jZ). QC §2.4 Step 2 verbatim (an infinite A ⊂ 𝒩 in one coset; for
+ x ∈ 𝒩, xA ⊂ 𝒩 puts two points xa, xa′ in one coset) gives x ∈ (α_i/α_j)Q: the classes [x] ∈ R_{>0}/Q_{>0}, x ∈ 𝒩, form a finite
+ submonoid of a group, hence a finite group Γ; fix representatives β_γ (β_γ^{|Γ|} ∈ Q).
+ Step 2 (merge). Group the lattices by commensurability; in a group take α with every α_jZ ⊂ αZ. Each y_j + α_jZ lies in one coset
+ of αZ, where its weight n ↦ g_j(y_j + αn)·1[n ≡ n_j mod α_j/α] is a trigonometric polynomial in n. Summing, μ_q = Σ_C W_Cδ_C over
+ finitely many cosets C = y_C + α_CZ, W_C(n) = Σ_θ b_{C,θ}e^{2πiθn} (finite; θ mod 1), cosets of one refined lattice disjoint, cosets
+ from different groups meeting in ≤ 1 point. Hence μ_q({y_C + α_Cn}) = W_C(n) for all but finitely many n.
+ Call C RATIONAL if √q·y_C and √q·α_C lie in one set β_γQ. A non-rational C meets each set ±β_γQ/√q in at most one point (two
+ points force both √qα_C and √qy_C into that set), so it carries ≤ 2|Γ| + 1 points of supp μ_q: W_C(n) = 0 for all but finitely
+ many n, hence W_C ≡ 0 (Bohr–Parseval: the mean of |W_C|² over [N, N + M] tends to Σ_θ|b_{C,θ}|²). Drop them.
+ Step 3 (irrational frequencies cancel — the Fourier side). Split μ_q = ω_R + ω_I, ω_I := Σ_{C rational}Σ_{θ∉Q}b_{C,θ}e^{2πiθn}δ_C.
+ Poisson: FT(Σ_n e^{2πiθn}δ_{y+αn}) is carried by the coset (θ + Z)/α. For θ ∈ Q that coset lies in the set α^{−1}Q; for θ ∉ Q it
+ meets every set βQ in at most one point ((θ+m)/α, (θ+m′)/α ∈ βQ with m ≠ m′ force θ ∈ Q). Now μ̂_q = μ_q is carried by
+ {0} ∪ ∪_γ(±β_γQ/√q), and ω̂_R by finitely many sets α_C^{−1}Q; so ω̂_I = μ̂_q − ω̂_R is carried by the intersection of a finite
+ union of sets βQ with finitely many irrational cosets — a FINITE set E. Then ω_I is absolutely continuous (density
+ Σ_{t∈E}e_te^{2πitx}) and pure point at once: ω_I = 0. So μ_q = ω_R: every surviving weight is PERIODIC along its coset.
+ Step 4 (periodic coefficients per class). Rational cosets of class γ lie in β_γD^{−1}Z/√q for one D ∈ N, and cosets of different
+ classes meet only at 0; so c(β_γn/D) = a_γ(n) with a_γ periodic, and F(s) = Σ_{γ∈Γ}(β_γ/D)^{−s}G_γ(s), G_γ = Σ_{n≥1}a_γ(n)n^{−s}.
+ This is exactly the output of QC §2.7 step (3); its steps (4)–(6) (Saias–Weingartner Thm 1, Lemma S–W′ with F ≠ 0 on Re s > 1,
+ the pole at 1 making the character trivial, Theorem L′, BFE Theorem T) give F = ζ and q = 1. ∎
+COROLLARY G1′ (finitely many mass values). A purely atomic Beurling system (weights allowed) with (A) at some q whose atom masses
+take finitely many distinct values is ζ. (Lemma M + M1 make μ_q a finite generalized Dirac comb with constant weights; G1.)
+WHERE THE HYPOTHESES ENTER. Positivity of Π: the monoid (Step 0/1) and F ≠ 0 on Re s > 1 (QC step 5). Self-duality: Step 3 (the
+only place the FT is used) and, through L′, the FE. Finiteness of the comb: Step 1 (finitely many cosets) and Step 2 (finitely many
+frequencies). Integrality of masses: nowhere. `[novelty: single-check]`
+CONTROLS (the theorem must fail exactly where the hypotheses fail; `verify/v2_controls_G1.{py,log}`): F_{5,5} = π_{1/5} + (5/2)π_1 is a
+positive finite comb with (A) at q = 25 — Steps 0–4 go through (𝒩 = N is a monoid, one class, periodic weights) and it is excluded
+only at QC step (6)/L′, i.e. by Π(25) = −7 < 0; Davenport–Heilbronn (q = 5, complex periodic weights) and read-O R1 (signed, q = 1)
+fail Step 0 (no positive measure, no monoid) — G1 says nothing about them, as it must not.

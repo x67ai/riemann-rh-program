@@ -67,3 +67,19 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   family certificate). All logs on disk. No construction; no new control claimed. Nothing load-bearing is recalled.
 
 (Timestamps of the batch headers corrected at 03:04 IST to the real clock; the first draft carried estimated times.)
+
+## 2026-10-01 05:09 IST — read-O (Opus reader) batch 1: independent re-run landed (`verify-O/`, nothing shared with `verify/`)
+- NOTE.md read whole at SHA-256 445cfe96dcb7d4ca4a7887cbbc0c2ea3dd033a8cdf4c3932123bfd63115fb54f (51 747 bytes, 446 lines).
+- o1_identity_E_exact.{py,log}: the measure identity (E) checked EXACTLY (sympy, Q(√2, √3, √6)) at SIX triangle widths
+  L = ℓ/√q (ℓ = 1, 1/2, 2, 3/2, 3, 7/3; Prop. E is ℓ = 1 only), 8 self-dual examples (3 new: q = 3, q = 6, radical q = 2) ×
+  5 sieves (incl. a signed non-admissible w with an atom at 5/2): 240 exact checks, 0 nonzero differences. Left side by the
+  Fourier-series closed form Σ_{n≥1}S(ne) = {e}(1−{e})/(2e²) (not v2's Poisson form). ℓ = 1 values equal v2's to the digit.
+- o2_ud_family_exact.{py,log}: family re-derived by sympy.solve of the FE; Π on the q-part by Newton power sums (q = p^k), a closed
+  multinomial formula (q = 6); EXACT Sturm certificates over Q (norm A² − rB² for surd coefficients): q = 2, 3, 5 Π(p²) = (1−p)/2;
+  q = 4, 9, 25, 6 and the radical family covered with 0 failures (witnesses coincide with v2/v4: Π(2⁵,2⁴,2³), Π(3⁴,3³), Π(5⁴,5³),
+  Π(108, 36, 18, 9), Π(2^{4/2}, 2^{3/2}, 2^{5/2})). F_{5,5}: Π(5^n) = 6, −7, 17, −87/2, 626/5, −2249/6.
+- o3_rung1_from_definitions.{py,log}: b_d by successive Euler factorization (no Möbius), N_n two ways (agree): every set of the
+  NOTE §3 table reproduced (RH −4..4; F1 −5..6; F2 = F3 −6..6; Q1 ≤ 1; Q2 ≤ 5; Q3 ≤ 4; Q4 none; first Q4 failures as tabled).
+- Meyer LNM 117 p. 25 read as a page image (pdftoppm −r 150): unit-mass case, Bohr compactification + Rosenthal [7] Th. 1.6 p. 22.
+- Prior art found ON DISK that the NOTE does not cite for U_q/L′: Hilberdink 2012 (BFE sources p3-22c2) §4 — Prop. 4.2 (S–W ⟹
+  N̂ = Qζ, the U_q Step 4 argument), Thms 4.3–4.4 (Landau + power sums ⟹ local factors zero-free on Re s > 0), Thm C.

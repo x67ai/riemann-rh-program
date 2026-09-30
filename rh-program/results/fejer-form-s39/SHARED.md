@@ -14,3 +14,24 @@ eb5f3bb932f2827d results/novel-wave-s37/proof-mine/NOTE.md (§0, §1, R6, §3, �
 Plan: (1) exact enumeration of zeta data q = 5, 7, 11, g <= 2; genuine curves by brute force; (2) LP / Toeplitz
 separation, expressed as a form in the Frobenius angles; (3) the disguise audit (IV.1); (4) the Fejér transport on q^Z;
 (5) the Z-forms on zeta and the RH-false controls; (6) prior art at the page; (7) close T / K / G.
+
+## Block 1 — 05:20 IST 2026-10-01 — census and separation computed
+verify/r1_enumerate.log: zeta data q=5,7,11, g<=2 (counts in NOTE §2); 111 non-real-x genus-2 data at q=5 reproduced.
+verify/r1_genuine.log: genuine L at q=5 (g=1: t=-4..4; g=2: 115 pairs from 60 000 squarefree models), q=7 (192 pairs), q=11 (g=1).
+verify/r1_lp.log: every RH-true datum has Toeplitz T_M PSD (worst eigenvalue -6e-15); EVERY RH-false datum (3825 of them)
+leaves the Weil region by M <= 3; the Weil LP class (A) catches all; class (B) (nonnegative only at genuine angles) catches
+all but its optimum is never a Weil test (uses the discrete spectrum: RH + integrality).
+verify/r1_V_detail.log: closed forms lambda_min(T_M(V)) = (M+1) - |u||v| match to 1e-10; LP(A) at M=1 is f = 1 - cos(theta)
+(Weil's lower bound N_1 >= q+1-2g sqrt q); (1/2) x^T T_1(V) x = m^2 + 5mn + 5n^2 (proof-mine's norm form, -1 at (2,-1)).
+Sources fetched (sources/fetch_sources.log): Howe-Lauter 1202.6308 (p. 2: explicit formulae = best bound from Weil RH + b_d >= 0),
+Hallouin-Perret 1409.2357 (Gram of Frobenius graphs = normalized Toeplitz; p. 2: "same numerical upper bound ... Oesterle";
+"We were not been able to understand this experimental observation"), Aubry-Haloui-Lachaud 1201.4967 (class-number bounds).
+
+## Block 2 — 05:40 IST 2026-10-01 — Theorem W (§3) and Theorem F (§4) written; prior art at the page
+verify/r1_lp_check.log: 890 class-(B) separations re-checked without BLAS; 0 are Weil tests (max min f = -0.1276).
+verify/r1_transport.log: (R) on all 4591 data; D_k = h(q^{g-1+k}-1) > 0 on all 3825 RH-false data (V-blind); product formula ok;
+class-number window catches all genus-1 RH-false data, 5/199, 47/675, 416/2935 at genus 2.
+Printed (at the page): AHL 1201.4967 Lemma 3.4 = (R) + D_k formula; AHL p. 1 = the class-number window; HPM 2506.05212 p. 4:
+the Hodge-index Gram SDP "is closely related to the dual of the optimization problem solved by Oesterle, as shown in [HP19]"
+(HP19 = Trans. AMS 372 (2019) 5409-5451, not fetched; HP 2014 p. 2 had called it an unexplained "experimental observation").
+Rung-1 verdict so far: K on both transports (zeros form = Weil test with multiplier 1; positions form = V-blind). Next: Z side.
