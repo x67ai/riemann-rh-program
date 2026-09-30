@@ -25,8 +25,7 @@ finite-dimensional ℚ-span, because the logarithms of the primes are ℚ-indepe
 topic and are not named by the label (UNIT-BRIEF §0: SCOPED). The forbidden phrasings of §1(3) appear in no file of this unit (`lint-10g.log`).
 
 Stop lines (10(m)): none fired — (i) no statement of the brief is false or differs from what the NOTE proves (PREDERIVATION-ERRATA §1; one
-erratum, E1, is against a SKETCH, not a statement); (ii) item 1 closed in 54 lines with its two valuation helpers (lines 103–156 of
-`LogPrimes.lean`; no Mathlib lemma exists at the pin, the grep is recorded); (iii) no statement needed a displayed hypothesis; (iv) item 7's
+erratum, E1, is against a SKETCH, not a statement); (ii) item 1 closed in 54 lines with its two valuation helpers (lines 104–157 of the shipped `LogPrimes.lean`, 103–156 of the rung-1 file; no Mathlib lemma exists at the pin, the grep is recorded); (iii) no statement needed a displayed hypothesis; (iv) item 7's
 algebra closed in 62 lines, statement included, at the first elaboration; (v) packaging reached at about 400k tokens, under the ≈ 600k line (the
 comparator PASS at 17:37:55 IST).
 
@@ -115,7 +114,7 @@ Theorem R on the abstract pair (T3 at B = Spec Z), and the two scoped real-algeb
 the existence or non-existence of a target Y; the general-base Theorem R; Lemma F(a)'s second clause as a topic statement (it is the program
 lemma `fiber_sum_eq_log`) and Lemma F(c); the κ-scaling of the converse; the rung-1 side; the geometric reading of items 7–8; T1, T2, Prop.
 2.2.1, Cor. 3.1–3.2, routes (a)/(b); ζ, its zeros, RH. Differs from the prose (r1–r11): the abstract pair; the indexing m, n ≥ 2; A5 built in;
-A9 as an unconditional `HasSum` with one κ; κ's sign unused; Lemma F(b) on φ(p^a) without φ(1) = 1; "infinite-dimensional" as
+A9 as an unconditional `HasSum` with one κ; κ's sign unused; Lemma F(b) on φ(p^a) without φ(1) = 1 but with `hmul` over all of ℕ, index 0 included (CHECK-O F1); "infinite-dimensional" as
 `¬ Module.Finite`; Mathlib's totalizations; names; the program-side `_hpos`/`_hκ`; no trusted definition layer. **Fidelity divergences in the
 brief's sense (a hypothesis beyond the statements' own): NONE.** Whether each proof uses each displayed hypothesis: FIDELITY §1, last paragraph
 (`hκ` of item 6 is NOT used — the brief's question).

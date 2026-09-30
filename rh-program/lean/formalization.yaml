@@ -1141,7 +1141,7 @@ fidelity:
     abstract pair, two scoped real-algebra statements.]  Where the formal statements differ from the record (NOTE.md §1.1, §2.0 Lemma F,
     §2.3 H3.3(b), Theorem R, T3; read-O.md §2.5): (aa1) the abstract pair — `cls : ℕ → ι` stands for n ↦ c(Γ_n) and `v : ι → ℝ` for the
     diagonal row D ↦ (Δ · D)_Y, both arbitrary; A7's graph structure is dropped (the NOTE: "The proof reads only the fibers of c on
-    components"), and Lemma F(b) keeps only multiplicativity, without φ(1) = 1.  (aa2) fibers and span over m, n ≥ 2 (Γ_1 the diagonal,
+    components"), and Lemma F(b) keeps only multiplicativity, without φ(1) = 1 but over all of ℕ (index 0 included — a demand the NOTE's φ on ℕ≥1 does not carry; the statement implies the NOTE's Lemma F(b) through WithZero E, results/theoremR-lean-s36/CHECK-O.md §7(5)).  (aa2) fibers and span over m, n ≥ 2 (Γ_1 the diagonal,
     excluded as in the NOTE's fiber sum; ℕ's 0 excluded); A5 built in as Mathlib's `ArithmeticFunction.vonMangoldt`; A9 as an
     unconditional `HasSum` with ONE real κ.  (aa3) κ: no sign needed by Lemma F; `theoremR` displays the SPEC's κ > 0 and its proof does
     NOT use it (program side `theoremR_of_A9`; κ = 0 contradicts A9 at n = 2, κ < 0 is satisfiable and the conclusion holds —

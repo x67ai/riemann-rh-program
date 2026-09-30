@@ -83,7 +83,7 @@ side, so no binder of the eight trusted statements is unused there.
   and read-O's sentence "Theorem R is exactly as strong as A9's one normalization".
 * **(r5) κ.** Any real κ in `lemmaF_*` (no sign needed); `theoremR` displays the SPEC's κ > 0 and does not use it (§1).
 * **(r6) Lemma F(b)'s form.** Stated on φ(p^a), a ≥ 1, with `hmul` for all a, b and without φ(1) = 1 (A7's φ_1 = id is not assumed — a
-  weaker hypothesis); by `hmul`, φ(p^a) = φ(p)^a for a ≥ 1, so the statement is the NOTE's "pairwise distinct".
+  weaker hypothesis at 1) — but `hmul` is demanded at the index 0 too (φ 0 = φ 0 · φ b = φ a · φ 0), where the NOTE's φ on ℕ≥1 is not defined and which a nontrivial φ into a group cannot meet; the statement still implies the NOTE's Lemma F(b) for every φ multiplicative on the positive integers, through `WithZero E` with 0 ↦ 0 (CHECK-O §7(5), kernel-checked in `check-O/lemmaF-b-positive.lean`); by `hmul`, φ(p^a) = φ(p)^a for a ≥ 1, so the statement is the NOTE's "pairwise distinct".
 * **(r7) "Infinite-dimensional" as `¬ Module.Finite ℚ ↥(span …)`**; for a ℚ-vector space, finite = finitely generated = finite-dimensional
   (the probe's docstring for item 2 says "not finitely generated"; the same statement). The rank bound as `Module.rank ℚ ↥(span …) ≤ (S.card
   : Cardinal)`.

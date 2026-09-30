@@ -37,7 +37,7 @@ L(D) = log N_D is not a challenge statement (it is proved on the program side as
 
 **(5) `lemmaF_infinite_order`.** True. `hk : 1 ≤ k`, `hp`, `hmul`, `hA9` are needed; `ha : 1 ≤ a` is removable (E3). Faithful to Lemma F(b):
 by `hmul`, φ(p^a) = φ(p)^a for a ≥ 1, so the statement says the powers φ_p, φ_p², … are pairwise distinct; the Lean form is phrased on
-φ(p^a) and needs neither φ(p^a) = φ(p)^a nor φ(1) = 1 (A7's φ_1 = id is not used — a weaker hypothesis, so a stronger theorem).
+φ(p^a) and needs neither φ(p^a) = φ(p)^a nor φ(1) = 1 (A7's φ_1 = id is not used — weaker there; but `hmul` ranges over all a, b : ℕ, the index 0 included, which the NOTE's φ on ℕ≥1 does not supply — stronger there; the statement implies the NOTE's Lemma F(b) through `WithZero E`, CHECK-O §7(5)).
 
 **(6) `theoremR`.** True, and a faithful rendering of NOTE T3 = Theorem R at B = Spec Z (char(Spec Z) = all primes, Euclid inside). The
 abstractions, none of which adds a hypothesis: (a) c on components is an arbitrary map `cls : ℕ → ι` (A7's graph structure is dropped —
@@ -55,8 +55,7 @@ number is 0, so the bound is (1 − 2)(1 + 1/2) = −3/2, while x = 1, L = 1 sat
 `hg`.
 
 **(8) `theoremS`.** True. `hκ` is needed in the form κ ≠ 0: at κ = 0 Lean's `Real.log p / 0 = 0`, and d ≡ 1, g = 1 satisfy h1 ((2)² ≤ 4)
-and h2 ((2)² ≤ 4) at every prime, so the conclusion `False` fails. (For κ < 0 the hypotheses are also contradictory, by h1 alone at a large
-prime — not needed.) `hg` is removable (E5). First violating primes for a few (κ, g): `[N3]` (κ = 1, g = 1: bound 9, first prime 8111).
+and h2 ((2)² ≤ 4) at every prime, so the conclusion `False` fails. (For κ < 0 the hypotheses are also contradictory at every large prime — by h1 alone when g > 0; when g = 0, h1 is met by d p = log p/κ − 1 and it is h2 that fails — not needed.) `hg` is removable (E5). First violating primes for a few (κ, g): `[N3]` (κ = 1, g = 1: bound 9, first prime 8111).
 
 ## §2 ERRATA against the brief's sketches and hints (none against a statement)
 
