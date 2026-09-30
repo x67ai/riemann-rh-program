@@ -80,3 +80,15 @@ Agent: consolidation agent, Opus 5.5 (default effort). Brief: `DIGEST-BRIEF.md` 
   Theorems A/A′/B/C; Conjectures O, U with BDR's conjecture quoted at the page via read-O §3; clause (d) sharpened). Block (v) I.2 rider —
   Cor. 2.2 / Prop. 2.3 (decision: rider, with the IV.23 alternative stated). Two reference fixes made in block (i) (I.7 line 123; Nakamura).
 - Next: blocks (iii) I.9 rider, (iv) III.20 rider, (iv′) V.4 pointer, (vi) cross-reference rows, C count paragraph, checks.
+
+## 2026-10-01 04:15 IST block 8 — CLOSE: both deliverables complete; nothing running
+
+- `ZOO-LINES-STAGED.md` (30 417 B, SHA-256 93e7e394…): zoo state; insertion map (8 rows, bottom-up; → 63 entries, I: 10; 64 if block (v)
+  becomes IV.23); blocks (i) NEW I.10 rigidity at conductor 1, (ii) I.2 rider (α, β) frontier, (v) I.2 rider thresholds/obstructions,
+  (iii) I.9 rider one-sided caveat + V₂ + E₀ + F_{5,5} wording, (iv) III.20 rider Theorem P + class C (+ T24 record correction; decision:
+  NOT Group V), (iv′) V.4 pointer, (vi) five cross-reference rows, C the count paragraph; checks (zoo unchanged fa0d7293…; anchors re-read;
+  53 + 23 quotations verified mechanically, one slip fixed).
+- `insights-digest.md` (65 106 B, SHA-256 e86f642a…): §A–§G complete; §A.1 names the read-O sections used (all).
+- For the orchestrator: fe/NOTE.md residuals at lines 221 (duplicated clause), 223 (Theorem C tag still single-check), 322 (successor (3)
+  OLD text, F1′ only partly applied); tournament NOTE line 75 (T24 G-line) not annotated; III.20 clarifying clause (consolidator's reading,
+  single-check) for the zoo stream to decide.

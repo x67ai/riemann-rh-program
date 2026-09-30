@@ -101,3 +101,16 @@ integer-polynomial object is ALIVE on the record, so nothing here is a barrier. 
 ## Block C — the entry-count paragraph (insert per the map, row 8, after line 39 with one blank line before it)
 
 **Entry count (dated, Session 38, <ENTRY-DATE>).** I.10 (rigidity at conductor 1 — Theorem T, the positive Hamburger theorem: a positive measure on [1, ∞) whose completed transform satisfies Riemann's exact functional equation with poles only at 0 and 1 is ρΣδ_n, so the rational primes are the only Beurling system with Riemann's FE at conductor 1; with Theorem T′ (two systems) and Theorem C (conductor ≥ 1, equality only for ζ); novel wave 2, seed M1a `beurling-fe`, writer Opus 5.5, Session 37; readers Fable 5.1 `read-F.md` AGREES and Opus 5.5 `read-O.md` AGREES-WITH-CORRECTIONS, Session 38) makes **63 entries** — I: 10, II: 5, III: 21, IV: 22, V: 5 (recounted from this file's `###` headings at insertion: 10 + 5 + 21 + 22 + 5 = 63; Group I 9 → 10, the new entry placed after I.9). The other lines entered at this stream (two I.2 riders — the (α, β) frontier, and the threshold and obstruction propositions; the I.9 rider — the one-sided caveat and V₂; the III.20 rider — Theorem P and class C, with the T24 record correction; the V.4 pointer; five cross-reference rows, "novel wave s37" ×4 and "tournament s36 row T24"; this paragraph; 745 → <N> lines, SHA-256 at launch fa0d7293…, `results/zoo-s38/`) are riders, a pointer, rows and a note and move no count.
+
+---
+
+## Checks run at staging (2026-10-01, before handing over)
+
+- `BARRIER-ZOO.md` re-read at the end of staging: 745 lines, SHA-256 fa0d729377df6a53… — unchanged since the read at 02:00 (fa0d7293…); the anchors of
+  the insertion map (lines 39, 84, 142, 387, 662, 715) re-checked by line.
+- 53 quotations in this file and in the digest checked mechanically against their source files (whitespace, emphasis and quote marks
+  normalized): 53 found; one slip corrected before the check passed (read-O M1a's "… three bodies unverified, §3)" had lost ", §3").
+  A second batch of 23 digest-only quotations: 23 found. Script: the consolidation agent's scratchpad (not a deliverable).
+- Every table row has its column count (4 pipes for the cross-reference rows).
+- Not done here, by the brief: numbering, insertion, the tournament NOTE annotation for T24, and the three residual prose items in
+  `beurling-fe/NOTE.md` (lines 221, 223, 322 — digest §E.1).

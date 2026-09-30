@@ -218,9 +218,9 @@ transform decays only like ξ^{−2}, sees every n_k with weight ≍ n_k^{−2}.
     Prop. R holds verbatim for measures carried by [r, ∞) (use ψ(x) ≤ e^{−πr²(x−1)}ψ(1)), so μ_q = ρ_qδ₀ + dN_q + dN_q^∨ is self-dual,
     ρ_q ≥ 0 (a residue of a positive Dirichlet integral). Pair with φ_r = φ(·/r) exactly as in Step 1 (φ_r = 0 on |x| ≥ r, where dN_q
     lives; φ̂_r(ξ) = rS(rξ); rt = u/q for t = u/√q): this is (C_q). If q < 1 then r > 1, the left side is ≤ 0 and the right ≥ 0, so
-    ρ_q = 0 and dN is carried by qN; then μ_q is carried by the lattice √qZ, so μ̂_q = μ_q is 1/√q-periodic, so μ_q is 1/√q-periodic and
+    ρ_q = 0 and dN is carried by qN; then μ_q is carried by the lattice √qZ, so μ̂_q = μ_q is 1/√q-periodic and
     the atom of dN_q at t = 1/√q (the image of dN({1}) > 0) has the mass of the atom at 0, which is ρ_q = 0 — contradicting dN({1}) > 0. q = 1 is T. If q > 1 and ρ_q = 0,
-    (C_q) again carries dN by qN, which misses the atom at 1 (1 ∉ qN for q > 1); so ρ_q > 0. ∎  `[novelty: single-check]` (an LP corollary; the analog
+    (C_q) again carries dN by qN, which misses the atom at 1 (1 ∉ qN for q > 1); so ρ_q > 0. ∎  `[novelty: dual-checked (read-O §1, Session 38)]` (an LP corollary; the analog
     of "degree-1 conductor ≥ 1, equality only for ζ" in the Selberg class, Kaczorowski–Perelli `[recalled, via zoo I.7; not load]`
     — there with Euler product and Ramanujan, here with positivity only).
     C: (C_q) holds on genuine solutions — ζ(s)(1 + q^{1/2−s}), q = 2, 4, 9, and F_{5,5} (q = 25): 0.70711 / 1.5 / 2.66667 / 8.8 on both
@@ -319,7 +319,8 @@ WHAT THIS MEANS FOR THE PROGRAM (read against §0(d)–(f) of the charter).
    GENERALIZED INTEGERS, not in the zeros. Transporting it to the zero side is not done here and is not claimed.
 SUCCESSOR QUESTIONS (ranked). (1) Q_cond: a Beurling system (dΠ ≥ 0) with Riemann's FE at conductor q > 1 — construct or refute;
 this is the Q-side location of the virtual-curve twin (§9(iii)). (2) Discrete Beurling systems with FE and finitely many extra poles
-(§8(d)). (3) The signed (complex-coefficient) general-frequency Hamburger problem with frequencies ≥ 1 (§8(e)).
+(§8(d)). (3) The signed solutions with gap (§8(e), populated and RH-false by read-O R1): is every one a finite combination of twisted and
+dilated Poisson combs (§12)?
 Charter stop condition: met in the form "the question is settled" — by proof, not by a printed theorem and not by an example.
 
 ## 11. Addendum — first moves on Q_cond (recorded for the successor unit; nothing here is load-bearing)

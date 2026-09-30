@@ -21,6 +21,10 @@ wave falsifies a theorem; no read-F/read-O pair contradicts the other on a theor
 
 ### A.1 M1a `beurling-fe` — is Spec Z rigid among Beurling systems with Riemann's FE? Close T, UPHELD (read-F:4 "AGREES"; read-O:7 "AGREES-WITH-CORRECTIONS … no FIX-FIRST against any theorem").
 
+read-O sections used (the brief's amendment): ALL — the verdict line (read-O:7–12), §1 re-derivations, §2 numerics (o1–o6), §3 prior-art
+table (15 rows), §4 FIX-FIRST F1/F1′, §5 MINOR m1–m8, §6 R1–R4; the file was complete at 01:59 and was re-read before §F, unchanged
+(SHA-256 3a1cbe68…).
+
 Three most useful findings.
 1. **Theorem T (positive Hamburger)**, fe/NOTE.md:106–111 (proof 113–133, close 288–296): dN ≥ 0 carried by [1, ∞), polynomial growth,
    π^{−s/2}Γ(s/2)∫x^{−s}dN with Riemann's FE, poles only at 0, 1 (simple), growth (G′) ⟹ dN = ρΣ_{n≥1}δ_n. T1: the rational primes are the
