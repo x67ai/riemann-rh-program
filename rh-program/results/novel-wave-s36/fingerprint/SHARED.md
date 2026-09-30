@@ -209,3 +209,39 @@ probe at length 1003 is clean), then u4b_primes.py, then u5c_announce.py.
   it did show independently of the Lanczos: the periodogram of the zero displacements d_k = γ_k − t_k (t_k: N0(t_k) =
   k − 1/2) has its top lines at 0.693, 1.098, 1.610, 1.946, 1.387, 2.398, 2.566, 2.197 = log 2, 3, 5, 7, 4, 11, 13, 9.
   Rerun with a Gauss–Legendre tail on v ∈ [0, 40] and K = 8000 queued (run_queue4.sh).
+
+## 2026-09-30 19:09 — Unit 5g: how the failure announces itself (verify/u5c_announce.py → run_queue3.out, u5c_announce.json)
+
+ζ + off-line quadruple (T ± iδ) compared with ζ + the on-line DOUBLE zero at T (the configuration it collapses to), and
+with ζ + the on-line split pair T ± δ. T = 85.6993 (DH's height), δ = 0.30852: first negative α at n = 100 (DH itself:
+148 — higher zero density). |α(off)/α(double) − 1| vs |α(split)/α(double) − 1|: n = 1: 3.238e-7 / 3.238e-7; n = 10:
+3.546e-6 / 3.546e-6; n = 40: 1.104e-4 / 1.104e-4; n = 60: 1.449e-3 / 1.424e-3; n = 80: 6.96e-3 / 6.10e-3; n = 98:
+0.205 / 0.062; n = 99: 0.79 / 0.15; n = 100: 12.2 / 0.25 (flip); n ≥ 120: equal again (4.7e-2 / 4.7e-2). T = 40,
+δ = 0.1: flip at 38; equal to 3 digits at n ≤ 20; 7.6e-2 / 4.9e-2 at n = 36. **Reading:** below the resolution index
+the fingerprint responds to an off-line pair exactly as to an on-line pair split by ±δ with the δ² response of opposite
+sign (equal magnitudes to ≤ 1e-3 relative until ~20 indices before the flip); an O(1) distinction appears only ~3
+indices before the flip. No early warning — the IV.9 "deceptive" regime, measured.
+
+## 2026-09-30 19:10 — Unit 7: primes in the fingerprint (verify/u4b_primes.py; logs run1_broken, run2_n999, final)
+
+Smooth-ζ model zeros t_k (N0(t_k) = k − 1/2), 8000 zeros + Gauss–Legendre tail on v ∈ [0, 40]; Lanczos+reorth accuracy on
+ζ's own zeros vs Arb: 6.6e-8 (n ≤ 300), 4.4e-7 (n ≤ 600), 8.9e-2 beyond (float64 degradation) → analysis on n ≤ 600.
+r_n = α_n(ζ)/α_n(model) − 1, rms 0.037. Periodogram vs t_n: 0.695 (log 2, 139× median), 1.106 (log 3, 64×), 1.403
+(log 4, 19×), 1.634 (log 5, weak), log 7 2.5× (absent), plus 0.407 ≈ log(3/2) (≈ 18×) — a combination tone absent from
+the displacement spectrum (which shows log 2, 3, 5, 7, 4, 11, 17, 9). Transfer: ≈ 1% of displacement line power for
+ω ≤ 1.6, ≈ 10× lower at log 7: low-pass (window of a few zero spacings) + nonlinear mixing. No arithmetic beyond the
+explicit formula.
+
+## 2026-09-30 19:14 — CLOSE: NOTE.md final (33 kB). Verdict (K) for the seed's mechanism (task (d)).
+
+- Z = Theorem D (NOTE §6, proved): multiplying/dividing by a symmetrized local factor g_{a,q} acts on every fingerprint as
+  an infinite Uvarov transformation (add/subtract the factor's zero lattice); positivity preserved for every input when
+  |a| ≤ 2√q, destroyed for every input when |a| > 2√q; ζ's Euler factors are a = −(p+1), (√p − 1)² > 0 on the wrong
+  side; the coordinates diverge along the Euler product. Computed failures at index 1 for p = 2, 3, 7, 10⁹+7, both
+  directions. Core is output-based: ξg_p, ξ/g_p are RH-false, so no transformation of any form can do the step.
+- Survivors (instrument grade): certified tables (α_1..α_999 > 0; Verblunsky n ≤ 999); Proposition S (the two seed
+  families are one object; checked to 1e-50); conjecture W (α_n ≈ W(qn/2π)²/16n²); Proposition M (Hermite–Krein count;
+  DH map: 5 motifs ↔ 5 off-line zeros); visibility table; announcement study (no early warning); primes only via the
+  explicit formula (low-pass + mixing); PSLQ null; no shape law.
+- Next step (NOTE §11): use N3 as the certified off-line-pair counter for N1/N2 approximants; secondary: prove W.
+- No processes left running. Nothing committed (charter).

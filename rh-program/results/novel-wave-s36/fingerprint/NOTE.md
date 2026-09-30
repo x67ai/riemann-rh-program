@@ -10,8 +10,8 @@ two independent computations, as stated at the line. `[recalled, unverified]` ma
 fingerprint (Hankel / S- and J-fraction / Verblunsky data) as an infinite *Uvarov* transformation — the addition of
 the fixed point-mass lattice of the factor's zeros — and never as a Christoffel or Geronimus transformation. Theorem D
 (§6, proved) classifies the local multipliers g_{a,q}(s) = a/√q + q^{s−1/2} + q^{1/2−s} (ζ(1 + aq^{−s} + q^{1−2s})
-completed): positivity of the fingerprint is preserved for EVERY input iff |a| ≤ 2√q (the Hasse–Ramanujan bound), and
-destroyed for EVERY input iff |a| > 2√q. The symmetrized Euler factor of ζ at p is the case a = −(p+1), and
+completed): positivity of the fingerprint is preserved for EVERY input when |a| ≤ 2√q (the Hasse–Ramanujan bound;
+a ≠ −2√q, where g(1/2) = 0), and destroyed for EVERY input when |a| > 2√q. The symmetrized Euler factor of ζ at p is the case a = −(p+1), and
 p + 1 − 2√p = (√p − 1)² > 0: Euler factors sit strictly on the destroying side, for every p. No prime-by-prime
 positivity induction exists in these coordinates; in addition the coordinates themselves diverge along the Euler
 product (§6(v)). Computed: removing (symmetrized) the factor at p = 2, 3, 7 makes α_1 < 0; at p = 10⁹+7, b_1² < 0.
@@ -26,18 +26,20 @@ What survives, as instruments and theorems (not as a route to RH):
    the Szegő–Geronimus transform of the S-fraction of the SHIFTED zero measure Σ|ρ|^{−2}δ_{|ρ|^{−2}} (expansion at
    s = 1 instead of s = 1/2).
 3. **Asymptotic law (conjecture W, derived by WKB/Abel inversion from the zero density; §4):**
-   α_n = W(qn/2π)²/(16 n²)·(1 + ε_n), W = Lambert W, q the analytic conductor; ε_n oscillates (|ε_n| ≲ 4%) and does
-   not drift: ζ (n ≤ 999), χ₄, DH, F_{2,2}, three curves over F_q. Circle side: 1 − |α_n| ≈ W(n/2π)²/(32 n²).
+   α_n = W(qn/2π)²/(16 n²)·(1 + ε_n), W = Lambert W, q the analytic conductor; ε_n oscillates (|ε_n| ≲ 7% for
+   n ≥ 50; 37% at n = 10) and does not drift: ζ (n ≤ 999), χ₄, DH, F_{2,2}, three curves over F_q. Circle side: 1 − |α_n| ≈ W(n/2π)²/(32 n²).
    Exact sum rule Σ_n α_n = s_1 (proved).
-4. **Counting theorem (Proposition M, proved; §5):** the number of negative b_n² equals twice the number of off-line
-   zero pairs resolved; DH's fingerprint shows exactly five "−+−" motifs up to n = 599, one per off-line zero with
+4. **Counting theorem (Proposition M, proved; §5):** the Hankel form has exactly as many negative squares as there are
+   off-line zero pairs resolved; generically each shows as two consecutive negative b_n²; DH's fingerprint shows exactly five "−+−" motifs up to n = 599, one per off-line zero with
    t ≤ 241, each at the S-index where the WKB height t_n = 1/(2√α_n) first exceeds that zero's height.
 5. **Visibility (zoo IV.9; §5):** the fingerprint flags an off-line zero at height T at S-index ≈ n_WKB(T) + lag
    (n_WKB ≈ πN(T) + O(T); lag 7–64, logarithmic in 1/δ; injections T = 30..300, δ = 0.3..0.001; DH: n = 148 for
    T = 85.7) at ≈ 6 digits per index; Li's λ_n need n ~ T²/δ (≈ 3×10⁵ for DH's zero) — and on F_{3,2} Li is still
    positive for n ≤ 151 while |α_2| > 1 on the circle.
-6. **Primes (§7):** the prime side enters only through the zero fluctuations (explicit formula), at relative size
-   ≲ 4% at n ≤ 999; [PENDING-PRIMES].
+6. **Primes (§7):** the prime side enters only through the zero fluctuations (explicit formula): the residual of α_n
+   against a smooth-density model (rms 3.7%) shows lines at log 2, log 3, log 4, log 5 through a low-pass transfer
+   (log 7 filtered out at t ≤ 360) plus a nonlinear combination tone at log(3/2). No arithmetic beyond the explicit
+   formula; no closed form or integer relation (PSLQ, §8); no monotonicity or convexity law (§4).
 
 Disguise audit (IV.1): the fingerprint positivity IS Weil positivity with multiplier 1, restricted to the flag
 V_n = span{(s − 1/2)^{−(2j+1)} : j < n} (real side) or to Laguerre-type functions (circle side, Bombieri–Lagarias
@@ -148,7 +150,8 @@ oscillating, no drift. χ₄ (q = 4): ratios 0.970–1.035 (n = 50..590); DH (q 
 (L = (1 + 5T²)², double zeros) gives 3.21888 = 2 log 5 — multiplicity only rescales masses and drops out.
 Circle: ε_n/(W(n/2π)²/32n²) = 1.035, 0.972, 1.008, 1.003, 0.989 at n = 100, 400, 800, 998, 999.
 **Sum rule (proved):** tr J² = 2Σα_n = Σ_{±γ} γ^{−2} ⇒ Σ_n α_n = s_1; partial sum n ≤ 999 plus WKB tail = 0.0230982 vs
-s_1 = 0.0231050. **Status:** WKB for Jacobi matrices is a theorem in the forward direction under regularity of b_n;
+s_1 = 0.0231050. **Status:** WKB eigenvalue asymptotics for Jacobi matrices are a theorem in the forward direction
+under regularity hypotheses on b_n [recalled, unverified];
 here it is used backward without an a priori regularity proof, so the law is a conjecture; its leading term carries no
 arithmetic beyond the density (conductor) — the "new invariant" hoped for in the seed is the Riemann–von Mangoldt
 density in Jacobi coordinates.
@@ -161,11 +164,12 @@ eigenvalues for every n, and exactly J for n large. Proof: ∫P²dν = ∫P²dν
 term is a real quadratic form of rank ≤ 2 and signature ≤ (1, 1), so the negative index is ≤ J; by Runge (supp ν_+ ⊂
 [0, y_1] has connected complement and 1/w* ∉ supp) polynomials exist that are small on supp ν_+ and realize each
 pair's negative direction, so the index reaches J; by Cauchy interlacing the index is non-decreasing in n and moves
-by at most one per step. Hence D_n = det H_n changes sign exactly J times; each change at k gives b_k² < 0 and
-b_{k+1}² < 0 (b_k² = D_{k+1}D_{k−1}/D_k²), so **#{n: b_n² < 0} = 2J**, and when the shifted family det(c_{i+j+1})
-flips at the same k the S-fraction shows the motif α_{2k} < 0 < α_{2k+1} > … , α_{2k+2} < 0 ("−+−"). This is the
-entire-function form of Hermite's theorem (signature of the Newton-sum Hankel form counts real roots) and is
-Krein's count in the Hamburger setting [recalled, unverified attribution]; Grommer's criterion is J = 0.
+by at most one per step. Hence D_n = det H_n changes sign exactly J times (assuming no D_n = 0); a change between k and k+1 gives b_k² < 0
+and b_{k+1}² < 0 (b_k² = D_{k+1}D_{k−1}/D_k²), so generically (non-adjacent flips) **#{n: b_n² < 0} = 2J**; when the
+shifted family det(c_{i+j+1}) flips at the same k the S-fraction shows the motif α_{2k} < 0, α_{2k+1} > 0,
+α_{2k+2} < 0 ("−+−"). This is the
+entire-function form of Hermite's theorem (signature of the Newton-sum Hankel form counts real roots) [recalled] and
+is Krein's count in the Hamburger setting [recalled, unverified attribution]; Grommer's criterion is J = 0.
 **Toys (verify/u1_toys.py):** complex pair at depth r (r real atoms with larger |y|): first failure at J-index r+1 or
 r+2, matching Heine's subset formula to 1e-40.
 **DH (tables/dh_real_P16000_S600.json; verify/u5b_dh_offline.py).** α_1..α_147 certified positive; negative S-indices
@@ -190,11 +194,19 @@ where t_n first exceeds the k-th height: t_142..t_147 = 84.3, 87.8, 88.8, 90.4, 
 
 Law: n_fail ≈ n_WKB(T) + lag, lag = 7..28 at δ = 0.3 and growing by ≈ 5 (T = 100) to ≈ 36 (T = 300) indices per decade
 of 1/δ — logarithmic in δ: a displacement of 10⁻³ is flagged only 14 indices after one of 0.3 at T = 100. The index is
-cheap; the price is precision (≈ 6 digits per index: 1430 digits consumed at n = 519). Li's criterion needs λ_n < 0, i.e. |z_ρ|^n ≳ (n/2)log n with
+cheap; the price is precision (≈ 6 digits per index: 1430 digits consumed at n = 519).
+**How a failure announces itself (verify/u5c_announce.py).** Compare ζ + {T ± iδ} with ζ + the on-line double zero at
+T and with ζ + the on-line split pair T ± δ. At T = 85.6993, δ = 0.30852 (flip at n = 100):
+|α(off)/α(double) − 1| vs |α(split)/α(double) − 1| = 3.2e-7 / 3.2e-7 (n = 1), 1.10e-4 / 1.10e-4 (40), 1.45e-3 / 1.42e-3
+(60), 6.96e-3 / 6.10e-3 (80), 0.21 / 0.06 (98), 12.2 / 0.25 (100), equal again after (4.7e-2 at n = 120). Below its
+resolution index an off-line pair is indistinguishable from an on-line pair split by ±δ (the δ² response enters with
+the opposite sign, which neighboring real zeros can mimic); an O(1) signal appears ~3 indices before the flip. There is
+no early warning: the IV.9 "deceptive" regime, measured. Li's criterion needs λ_n < 0, i.e. |z_ρ|^n ≳ (n/2)log n with
 |z_ρ| − 1 ≈ δ/T²: n ~ (T²/δ) log(T²/δ) ≈ 3×10⁵ for DH's first zero. Computed (tables/dh_circle_P16000_S600.json):
 DH's λ_1..λ_601 are ALL certified positive, while its Verblunsky coefficients have |α_n| > 1 exactly at
-{147, 149, 216, 218, 350, 352, 371, 373, 538, 540} — the real-side motifs shifted by one, as Proposition S predicts. Cost: fingerprint index πN(T) at ≈ 6 digits/index (≈ 19 N(T) digits); Li index T²/δ at
-≈ 0.03 digits/index (binomial cancellation). Both are far costlier than direct zero location (Odlyzko–Schönhage
+{147, 149, 216, 218, 350, 352, 371, 373, 538, 540} — the real-side motifs shifted by one, as Proposition S predicts.
+Cost: fingerprint index ≈ πN(T) at ≈ 6 digits/index (≈ 19 N(T) digits); Li index T²/δ at ≈ 0.03 digits/index
+(binomial cancellation). Both are far costlier than direct zero location (Odlyzko–Schönhage
 [recalled]); neither is a practical detector beyond small T, but the fingerprint wins over Li by a factor ~T/(δ log T)
 in index.
 
@@ -239,7 +251,22 @@ data and is invisible to H¹ positivity. For Q this is an analogy, not a theorem
 
 ## §7 How the primes enter
 
-[PENDING-PRIMES]
+The α_n are functions of the zero set only, so primes can enter only through the zeros' fluctuations (explicit
+formula: S(t) ≈ −(1/π)Σ_p p^{−1/2} sin(t log p) + …). Test (verify/u4b_primes.py, .log; runs 1–2 logged as broken/partial):
+a "smooth-ζ" model with zeros t_k at N0(t_k) = k − 1/2 (N0 = θ/π + 1; t_1 = 14.518, t_2 = 20.654, …), 8000 zeros +
+Gauss–Legendre tail, α_n(model) by Lanczos with full reorthogonalization (accuracy checked on ζ's own zeros against the
+Arb table: 6.6e-8 for n ≤ 300, 4.4e-7 for n ≤ 600; unusable beyond 600 in float64). Residual r_n = α_n(ζ)/α_n(model) − 1
+(rms 0.037 on n ∈ [50, 600]), periodogram against the WKB height t_n, compared with the periodogram of the zero
+displacements d_k = γ_k − t_k over the same t-range:
+- displacements: lines at 0.693, 1.099, 1.609, 1.947, 1.386, 2.396, 2.834, 2.197 = log 2, 3, 5, 7, 4, 11, 17, 9 (the
+  explicit formula, as expected);
+- fingerprint residual: top peaks 0.695 (log 2; 139× the median power), 1.106 (log 3; 64×), 1.403 (log 4; 19×), 1.634
+  (log 5; weak), log 7: 2.5× (not detected); and a peak at 0.407 ≈ log(3/2) = 0.405 (≈ 18× median) that is ABSENT from
+  the displacement spectrum.
+Reading: the fingerprint carries the explicit formula's prime lines through a low-pass transfer — line power ≈ 1% of the
+displacement lines for ω ≤ 1.6, dropping ≈ 10× by ω = log 7 at these heights (t_n ≈ 60–360; α_n averages the zeros over a
+window of a few spacings around t_n) — and, being a nonlinear functional of the zeros, it mixes them (log 3 − log 2).
+No prime structure appears that is not already in the zeros; the fingerprint is not an arithmetic coordinate system.
 
 ## §8 Integer relations and closed forms
 
@@ -288,7 +315,26 @@ S4: fails (no generator). V.5: no conclusion here rests on absence of literature
 
 ## §11 Next step
 
-[PENDING-NEXT]
+**Why the Euler-factor route cannot be repaired by changing the transformation.** Theorem D's core does not depend on
+the form of the operation: ξ·g_p and ξ/g_p have zeros or poles off the line, so NO operation whatsoever that maps ξ's
+data to theirs can preserve positivity. Any prime-by-prime induction therefore needs intermediate objects that are
+RH-true at every finite stage and are NOT ζ with finitely many Euler factors changed. Theorem D(ii) identifies the
+one-prime objects that qualify: a/√q + 2cos(t log q) with |a| ≤ 2√q — in the variable z = q^{−it} this is
+a/√q + z + 1/z, a one-variable Lee–Yang polynomial exactly when |a| ≤ 2√q. ζ's own factor is
+p^{−1/2}((√p + 1/√p) − z − 1/z), with zeros at |z| = p^{±1/2}: it misses the Lee–Yang class by the AM–GM gap
+(√p − 1)². This is the precise single-prime obstruction for seed N1 (products of one-prime Lee–Yang factors cannot carry
+ζ's local factors; the coupling between primes has to do it).
+
+**Single most promising next step:** make N3 the wave's common, certified diagnostic instead of a route. Proposition M
+counts off-line pairs exactly, flags a pair at height T by index ≈ n_WKB(T) + O(log 1/δ), and runs from Taylor data at
+s = 1/2 alone (≈ 6 digits per index). Apply it to the RH-true approximation schemes of N1 (Lee–Yang approximants on the
+Bohr torus) and N2 (staircase chains): for each approximant compute α_1..α_n in Arb, locate motifs, and measure
+coefficientwise convergence to ζ's table (tables/zeta_real_P24000_S1000.json). A scheme whose members stay motif-free
+while converging coefficientwise yields certified height-by-height statements; a member with a motif is a certified
+counterexample to that scheme's conjecture, with its height read off from t_n. Probability that this yields RH: ≈ 0
+from this seed alone; value: a precise, cheap, falsifiable instrument for the seeds that do carry a generator.
+Secondary (mathematics, not RH): prove conjecture W and the low-pass transfer of §7 (a Tauberian/semiclassical theorem
+for compact Jacobi operators with log-regularly-varying spectra).
 
 ## §12 Files
 

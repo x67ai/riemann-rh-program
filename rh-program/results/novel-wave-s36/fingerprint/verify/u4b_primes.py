@@ -89,17 +89,18 @@ say('truncation check (K = %d zeros + tail) vs Arb: max rel err n<=300: %.2e, n<
     % (K, trunc[:300].max(), trunc[:600].max(), trunc.max()))
 r = al_arb / al_model[:999] - 1
 tn = 1 / (2 * np.sqrt(al_model[:999]))
-say('r_n = al(zeta)/al(model) - 1: rms over n in [50,999] = %.4f; first values n=1..8: %s' % (np.sqrt(np.mean(r[49:] ** 2)), np.round(r[:8], 4)))
+say('r_n = al(zeta)/al(model) - 1: rms over n in [50,600] = %.4f; first values n=1..8: %s' % (np.sqrt(np.mean(r[49:600] ** 2)), np.round(r[:8], 4)))
 
 def periodogram(x, tvals, omegas):
     x = x - x.mean()
     return np.array([abs(np.sum(x * np.exp(1j * w * tvals))) ** 2 for w in omegas]) / len(x)
 
 omegas = np.linspace(0.2, 3.0, 2801)
-sel = (n >= 60)
+NUSE = 600   # Lanczos model accurate to <= 4.4e-7 for n <= 600 (run 2: 8.9e-2 beyond, float64 degradation)
+sel = (n >= 60) & (n <= NUSE)
 P_r = periodogram(r[sel], tn[sel], omegas)
 d = g[:K] - tk[:K]
-selz = (tk[:K] > 40) & (tk[:K] < tn[-1])
+selz = (tk[:K] > 40) & (tk[:K] < tn[NUSE - 1])
 P_d = periodogram(d[selz], tk[:K][selz], omegas)
 def peaks(P, om, top=8):
     idx = [i for i in range(1, len(P) - 1) if P[i] > P[i - 1] and P[i] >= P[i + 1]]
