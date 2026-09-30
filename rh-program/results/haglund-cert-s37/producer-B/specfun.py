@@ -111,7 +111,7 @@ def h_ibp(w, X, relbits, Kmax=1500):
     return None
 
 
-def h_lower(w, X, relbits, Kmax=4000):
+def h_lower(w, X, relbits, Kmax=40000):
     """h(w) = X^{-w} Gamma(w) - e^{-X} sum_{k<K} X^k/(w)_{k+1} - rho,   |rho| <= e^{-X} X^K/|(w)_K|
        valid when Re w + K >= X + 1 and w not in {0,-1,...} (proof: CERT.md B4)."""
     main = cexp(lngamma(w) - w * iv.log(X))              # X^{-w} Gamma(w)
