@@ -1,0 +1,18 @@
+(A) R=[2] s=0.2 Nmax=60000 A=30000: class-sum max rel err=2.26e-31; diagonal=1.732286443316 corrected=1.732286443316 (rel 6.26e-30) sketch=2.30372786
+(A) R=[2, 3] s=(0.3 + 7.5j) Nmax=60000 A=10000: class-sum max rel err=5.53e-31; diagonal=1.7428229989237 corrected=1.7428229989237 (rel 1.7e-30) sketch=2.717149857
+(A) R=[2, 3, 5] s=0.35 Nmax=90000 A=3000: class-sum max rel err=9.21e-31; diagonal=1.782247233966 corrected=1.782247233966 (rel 1.55e-30) sketch=2.979126863
+(A) R=[3, 7, 11] s=(0.1 - 3.0j) Nmax=231000 A=1000: class-sum max rel err=5.39e-31; diagonal=4.2777119292939 corrected=4.2777119292939 (rel 1.84e-31) sketch=4.792337734
+(A) R=[2, 5, 13] s=0.45 Nmax=130000 A=1000: class-sum max rel err=5.33e-31; diagonal=4.477969472291 corrected=4.477969472291 (rel 0.0) sketch=6.924696148
+(B) R=[2]: max rel err of c(a/b), b | Q INCLUDING b = 1, a <= 4: 1.36e-30;  c(1/1) = (2.698767344e-32 - 0.07957747155j) vs rho/(2 pi i) = (0.0 - 0.07957747155j);  Parseval all b: 0.0833333333333 = rho 2^|R|/12 = 0.0833333333333;  without b = 1: 0.0625
+(B) R=[2, 3]: max rel err of c(a/b), b | Q INCLUDING b = 1, a <= 4: 5.34e-30;  c(1/1) = (5.397534687e-32 - 0.0530516477j) vs rho/(2 pi i) = (0.0 - 0.0530516477j);  Parseval all b: 0.111111111111 = rho 2^|R|/12 = 0.111111111111;  without b = 1: 0.101851851852
+(B) R=[3, 5]: max rel err of c(a/b), b | Q INCLUDING b = 1, a <= 4: 1.02e-29;  c(1/1) = (2.159013875e-31 - 0.08488263632j) vs rho/(2 pi i) = (0.0 - 0.08488263632j);  Parseval all b: 0.177777777778 = rho 2^|R|/12 = 0.177777777778;  without b = 1: 0.154074074074
+(B) R=[2, 3, 5]: max rel err of c(a/b), b | Q INCLUDING b = 1, a <= 4: 2.16e-29;  c(1/1) = (2.159013875e-31 - 0.04244131816j) vs rho/(2 pi i) = (0.0 - 0.04244131816j);  Parseval all b: 0.177777777778 = rho 2^|R|/12 = 0.177777777778;  without b = 1: 0.171851851852
+(C) R=[2]: (1/Q) int E^2 = 1/12  rho 2^|R|/12 = 1/12  equal=True
+(C) R=[3]: (1/Q) int E^2 = 1/9  rho 2^|R|/12 = 1/9  equal=True
+(C) R=[2, 3]: (1/Q) int E^2 = 1/9  rho 2^|R|/12 = 1/9  equal=True
+(C) R=[2, 3, 5]: (1/Q) int E^2 = 8/45  rho 2^|R|/12 = 8/45  equal=True
+(C) R=[3, 5, 7]: (1/Q) int E^2 = 32/105  rho 2^|R|/12 = 32/105  equal=True
+(C) R=[2, 3, 5, 7]: (1/Q) int E^2 = 32/105  rho 2^|R|/12 = 32/105  equal=True
+(C) R=[2, 3, 5, 7, 11]: (1/Q) int E^2 = 128/231  rho 2^|R|/12 = 128/231  equal=True
+(C) R=[5, 7, 11, 13]: (1/Q) int E^2 = 768/1001  rho 2^|R|/12 = 768/1001  equal=True
+python3 euler_O.py  63.80s user 0.22s system 99% cpu 1:04.04 total

@@ -90,7 +90,7 @@ def main():
     for name in acc:
         ed, mx, mn, s2, ct = acc[name]
         with open(f"{out}_{name}.csv", "w") as fh:
-            fh.write(f"# thin_O alpha={alpha} X={X} Y={Y} seed={seed} rho={rho:.12f} nR(X)={dX.size} nR(Y)={nY}\n")
+            fh.write(f"# thin_O alpha={alpha} X={X} Y={Y} seed={seed} rho={rho!r} nR(X)={dX.size} nR(Y)={nY}\n")
             for j in range(ed.size - 1):
                 if ct[j] > 0:
                     fh.write(f"{ed[j]},{min(ed[j+1]-1, X)},{mx[j]:.6f},{mn[j]:.6f},{s2[j]:.9e},{ct[j]}\n")

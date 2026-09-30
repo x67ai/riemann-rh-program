@@ -45,3 +45,19 @@ this stream (the orchestrator inserts); git is not run.
   5 optional pairs O1 (heading back to Session 37), O2 ("is staged as block (iv′)"), O3 ("for the stream to decide") — none applied.
 - Blocks generated mechanically from the staged file by a scratch generator (copy + exactly the pairs, each asserted to occur once):
   count, i2b, i2alpha, i2thresh, i9, i10, iii20, v4, xref. 38 003 B. Next: the insertion script, then the dry run.
+
+## 2026-10-01 block 2 — `scripts/zoo-insert-s39.py` written (24 491 B) and the dry run
+
+- Modeled on `scripts/zoo-insert-s37.py`: idempotence markers first; full SHA-256 gates on the zoo (fa0d7293…), the staged file
+  (93e7e394…), the digest (e86f642a…) and the M1a NOTE (c3e46d12…, the L1 evidence); every block re-derived from the staged
+  sections (found by heading text) with H1 H2 L1 D1 E1 C1–C5, optional O1–O3 accepted whole; `i2b` checked for shape, date and its
+  digest quotation (whitespace-normalized); L1 checked at NOTE lines 340/342; 19 anchors unique as line heads, neighbors verified;
+  insertion bottom-up; afterwards every original line in order (line 80 equal once the bracket is removed), +20, 63 headings
+  10/5/21/22/5, Group I order 1–10, Group IV order unchanged, every cited entry exists, each inserted line once and at its position.
+- DRY RUN: `python3 scripts/zoo-insert-s39.py --input <scratch copy> --out results/zoo-s39/dryrun-BARRIER-ZOO.md` → exit 0;
+  765 lines; SHA-256 0ef537237c5412af951be43641c660d69ac8fcf02f049053fd850d78d6dc8a26 (the value `--in-place` will print if the
+  proposed file is used unchanged). `BARRIER-ZOO.md` re-hashed after: fa0d7293… (untouched).
+- Tests: T1 on the dry-run output → STOP (idempotence, "### I.10 "); T2 `--out` = input → STOP; T3 `--out BARRIER-ZOO.md` → STOP;
+  T4 a copy with O1+O2+O3 and the literal fill "2026-10-01 (Session 39)" → OK, reports both (8586e1bd…); T5 one extra space in a row →
+  STOP ("block xref is not staged Block (vi) verbatim"); T6 no `--out` → the system temp file, same hash 0ef53723….
+- Next: `numbers-check.log`, the diff hunk summary, then the two owed annotations.

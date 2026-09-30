@@ -1,0 +1,72 @@
+# numbers-check.log — zoo stream zoo-s39 (generated 2026-10-01 05:00 by the writer's checker; BARRIER-ZOO.md read only)
+
+## §A Heading tallies by regex (before = BARRIER-ZOO.md, after = dryrun-BARRIER-ZOO.md)
+BARRIER-ZOO.md                           ### I.=9  ### II.=5  ### III.=21  ### IV.=22  ### V.=5  total=62  all '### '=62
+results/zoo-s39/dryrun-BARRIER-ZOO.md    ### I.=10  ### II.=5  ### III.=21  ### IV.=22  ### V.=5  total=63  all '### '=63
+Group I in file order (after): I.1, I.2, I.3, I.4, I.5, I.6, I.7, I.8, I.9, I.10
+
+## §B Line counts and the diff
+BARRIER-ZOO.md                           lines=745  bytes=424480  SHA-256=fa0d729377df6a53566d19cf80bc0ad9bbdd22648135135467de75d3601f393e  ends-with-one-newline=True
+results/zoo-s39/dryrun-BARRIER-ZOO.md    lines=765  bytes=449318  SHA-256=0ef537237c5412af951be43641c660d69ac8fcf02f049053fd850d78d6dc8a26  ends-with-one-newline=True
+diff -U0 hunks: 7  (+ lines 21, - lines 1)
+  @@ -40,0 +41,2 @@
+  @@ -80 +82 @@
+  @@ -84,0 +87,2 @@
+  @@ -142,0 +147,9 @@
+  @@ -387,0 +401 @@
+  @@ -662,0 +677 @@
+  @@ -715,0 +731,5 @@
+The single '-' line is input line 80 (I.2 STATEMENT), replaced by its bracketed form: see §E i2b.
+
+## §C Every zoo entry cited inside the new text exists
+  I.2     in input: True  in result: True
+  I.7     in input: True  in result: True
+  I.9     in input: True  in result: True
+  I.10    in input: False in result: True
+  III.4   in input: True  in result: True
+  III.14  in input: True  in result: True
+  III.20  in input: True  in result: True
+  IV.10   in input: True  in result: True
+  IV.20   in input: True  in result: True
+  IV.21   in input: True  in result: True
+  V.4     in input: True  in result: True
+  sub-clause refs: ['III.20(A)']; III.20 STATEMENT carries '**(A)**': True
+  'zoo line N' citations in the new text: 0
+
+## §D Quotations at their cited lines (whitespace/markup-normalized; window = exactly the cited lines)
+Only results/novel-wave-s37/beurling-fe/NOTE.md changed since staging (5efef3f5… → c3e46d12…); every other source is byte-identical
+to the staging's block-0 prefixes, so the staging's 53-quotation check stands for them; a 10-quotation sample is re-checked below.
+(a) the 19 quotations of blocks (i)/(iii) from the M1a NOTE, at the STAGED line numbers:
+  OK   beurling-fe/NOTE.md 106-107 'Let dN ≥ 0 be a Borel measure on [1, ∞) of polynomial growth' 
+  OK   beurling-fe/NOTE.md 106-107 'Then dN = ρ·Σ_{n≥1} δ_n, i.e. F = ρζ.' 
+  OK   beurling-fe/NOTE.md 77-77 's(s − 1)ξ_F(s) = O(exp e^{ε|t|}) in every vertical strip, fo' 
+  OK   beurling-fe/NOTE.md 108-112 "A Beurling prime system P whose ζ_P satisfies Riemann's FE i" 
+  OK   beurling-fe/NOTE.md 108-112 'no continuous Beurling system satisfies (A)' 
+  OK   beurling-fe/NOTE.md 108-112 'equals (Σ_{λ_k = 1} a_k)·ζ(s)' 
+  MISS beurling-fe/NOTE.md 339-341 'dN₁ = dN₂ = ρΣ_{n≥1}δ_n' -> found near 339
+  OK   beurling-fe/NOTE.md 215-216 'q ≥ 1; q = 1 iff F = ρζ' 
+  OK   beurling-fe/NOTE.md 120-120 '∫_{[1,∞)} (sin πt / πt)² dN(t) = 0' 
+  OK   beurling-fe/NOTE.md 130-133 'POSITIVITY (dN ≥ 0) twice' 
+  OK   beurling-fe/NOTE.md 130-133 'The Euler product is used only for dN({1}) = 1 and to recove' 
+  OK   beurling-fe/NOTE.md 306-308 'has exactly ONE model, ζ' 
+  OK   beurling-fe/NOTE.md 306-308 'has exactly the models ρζ, ρ ≥ 0' 
+  OK   beurling-fe/NOTE.md 251-253 'a zero at s₀ = 1.32691215092364 + 33.2635142708346i' 
+  OK   beurling-fe/NOTE.md 231-232 'This is where a rung-Z twin could live' 
+  OK   beurling-fe/NOTE.md 309-310 'no control exists inside the class' 
+  OK   beurling-fe/NOTE.md 200-201 'Gaussian test functions on a bounded x-range are exponential' 
+  OK   beurling-fe/NOTE.md 279-281 'the SAME numbers as the virtual curve, because 1 + 5u + 5u² ' 
+  OK   beurling-fe/NOTE.md 271-274 'Its Q-side analog is therefore not conductor 1 (where T forb' 
+  → 18 OK; the MISS is T′ (staged 339–341), found at 340–342 — pair L1. Re-check at the corrected lines:
+  OK   beurling-fe/NOTE.md 340-342 'dN₁ = dN₂ = ρΣ_{n≥1}δ_n'
+(b) sample from the unchanged M1b / M2 NOTEs (lines as cited in blocks (ii), (v), (iii), (iv)):
+  OK   beurling-frontier/NOTE.md 215-216 'almost surely N_P(x) − ρ_P x ≠ O(x^τ) for every τ < α/2' 
+  OK   beurling-frontier/NOTE.md 203-204 'For every α ∈ (½, 1) and every β ∈ (1/(3 − α), ½) there is a' 
+  OK   beurling-frontier/NOTE.md 454-455 'Every DISCRETE Beurling [α, β]-system satisfies α ≤ max{½, 2' 
+  OK   beurling-frontier/NOTE.md 86-88 'Then (a) the existence of a valid threshold implies RH; (b) ' 
+  OK   beurling-frontier/NOTE.md 99-102 'an obstruction theorem over all Beurling systems is at least' 
+  OK   beurling-frontier/NOTE.md 268-271 'the system (ℙ \\ R) ∪ A satisfies β ≥ α_R/2' 
+  OK   proof-mine/NOTE.md 329-330 'test two-sided and positivity mechanisms on V; test one-side' 
+  MISS proof-mine/NOTE.md 277-278 '(iii) Hence no input of any class is a function of the zeta ' -> found near 273
+  OK   proof-mine/NOTE.md 327-329 "violates Bombieri's one-sided Theorem 1 by itself, with no t" 
+  OK   proof-mine/NOTE.md 307-311 'by Z1 + Landau its RH-strength form is exactly one-sided RH' 
+(c) block i2b's quotation of the digest §E, E.2(e) (digest lines 296–297): OK
