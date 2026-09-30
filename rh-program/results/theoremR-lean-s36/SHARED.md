@@ -103,3 +103,26 @@ PREDERIVATION-ERRATA.md final SHA-256 d0431cb5213a8d51d31deb1d67d5c030d144538d1c
 UNIT-BRIEF §1(3) is earned verbatim; no stop line fired. For the orchestrator: ERRATUM **E1** against the brief's item-6 parenthetical (κ < 0 is not
 contradictory; the proof needs no hypothesis on κ); the removable displayed hypotheses E2–E5 (kept verbatim; removals kernel-checked program-side);
 item 7's bound is attained (E7). Nothing committed. Nothing about ζ's zeros or RH follows.
+
+## [checker CHECK-O, Opus 5.5] Wed Sep 30 18:20:47 IST 2026 — clean-clone check complete: **FIX-FIRST, prose only (F1–F3); every Lean and machine check CLEAN**
+Clean clone `~/rh-lean-work/checker-clone-s36-residue` (NEW; `anthropics/zeta-23-lean` v1.0, HEAD 3635e74; Lean v4.33.0-rc2; Mathlib 51e6992e from
+`lake exe cache get`, never compiled); overlay = the seven unit files only, each `cmp`-identical to `rh-program/lean/`. Cold builds, one `lake` at a
+time (17:50:40–17:51:36 IST): LogPrimes 8697 jobs 9.36 s, Pair 8698 jobs 5.65 s, GenusBound 8697 jobs 9.95 s, Solution.ResidueRank 8700 jobs 5.54 s
+(0 warnings each), Challenge.ResidueRank 8697 jobs 5.64 s (exactly the 8 deliberate `sorry` warnings). `#print axioms`: the 8 topic names and all 27
+program declarations = [propext, Classical.choice, Quot.sound]; a `sorryAx` negative control on the challenge fires. Statement identity (own
+script): challenge = solution = probe 8/8 byte for byte, 3536-byte tail identical, the brief's §0 text (items 4–6 in their literal `∀ n,` /
+`∀ a b,` form) elaborating to the challenge's exact terms. Trust greps (own scan, 28 words, comments classified): the 8 challenge `sorry`s only;
+the solution imports Pair + GenusBound, never the challenge. **Comparator with nanoda from the clean clone (17:56:19–17:56:57 IST): exit 0,
+"Nanoda kernel accepts the solution", "Lean default kernel accepts the solution", "Your solution is okay!", 37.53 s, 5.85 GB; tool hashes = COMPARATOR-RUN.md §1;
+NOT sandboxed (macOS shim).** Mathematics: all eight statements true and faithful; statement 6 a faithful rendering of NOTE T3 (Theorem R at B = Spec Z)
+on the abstract pair, not vacuous (cls = id, v = Λ/κ, kernel-checked at κ = ±1), hκ unused (E1 confirmed; κ = 0 contradictory at n = 2,
+kernel-checked); item 7 re-derived by hand, g = 0 included, bound attained at x = r² (exact); E1–E10 and the necessity counterexamples confirmed
+(four counterexamples kernel-checked, `check-O/witnesses.lean`). Label of §1(3): earned verbatim (BUILD-NOTES, FIDELITY, yaml, README); forbidden
+phrasings 0 in every unit file, the yaml and the README. Hashes: 33/33 OK; yaml validation PASS. **Findings (prose, OLD/NEW in CHECK-O §11): F1** —
+FIDELITY (r6), yaml (aa1), PREDERIVATION-ERRATA §1(5), BUILD-NOTES §4 call statement 5's hypothesis "weaker" than A7; `hmul : ∀ a b : ℕ` is also
+demanded at the index 0, which the NOTE's φ on ℕ≥1 does not supply; the statement still implies the NOTE's Lemma F(b) through WithZero E
+(kernel-checked, `check-O/lemmaF-b-positive.lean`, three axioms). **F2** — BUILD-NOTES "lines 103–156" is the rung-1 numbering; 104–157 in the
+shipped LogPrimes.lean. **F3** — PREDERIVATION-ERRATA §1(8)'s aside "by h1 alone" (κ < 0) fails at g = 0, where h2 is needed. Observations O1–O6
+(CHECK-O §11). No Lean file, yaml, README or builder file edited; nothing committed. SHA-256: CHECK-O.md
+e7d5e881ee025610abb005009812863b9a2e13870b5c380b6af49a3fa8535f59; check-O/hashes-checker.txt 5f44572a535cbd41f9836550d3d5d2617b3ea41610cc5097a30bf074ed0fc16f.
+Nothing about ζ's zeros or RH follows.

@@ -35,8 +35,12 @@ def fetch(url, out):
 def main():
     tag, q = sys.argv[1], sys.argv[2]
     mx = int(sys.argv[3]) if len(sys.argv) > 3 else 50
-    url = ("https://export.arxiv.org/api/query?search_query=" + urllib.parse.quote(q, safe=":()")
-           + f"&start=0&max_results={mx}")
+    if q.startswith("ID_LIST:"):
+        url = ("https://export.arxiv.org/api/query?id_list=" + q[len("ID_LIST:"):]
+               + f"&start=0&max_results={mx}")
+    else:
+        url = ("https://export.arxiv.org/api/query?search_query=" + urllib.parse.quote(q, safe=":()")
+               + f"&start=0&max_results={mx}")
     out = os.path.join(LIT, "api", tag + ".xml")
     ok = fetch(url, out)
     time.sleep(3.5)

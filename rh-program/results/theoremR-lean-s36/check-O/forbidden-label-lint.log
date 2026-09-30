@@ -1,6 +1,7 @@
-Wed Sep 30 18:02:34 IST 2026
+Wed Sep 30 18:19:24 IST 2026
+(re-run after the script was changed to print neither the forbidden phrasings nor the banned words; the first run's log repeated them as search strings and was replaced)
 label (from the brief): Theorem R's arithmetic core Comparator-checked: the logarithms of the primes are ℚ-linearly independent, a family of positive integers N_p with p | N_p has logarithms spanning an infinite-dimensional ℚ-space, the converse rank bound, Lemma F, and Theorem R on the abstract pair (von Mangoldt weights, real fiber sums, one κ) — over Mathlib alone, no displayed hypothesis, the three standard axioms, replayed by nanoda
-forbidden phrasings (from the brief): ['IV.20 is formalized', 'no target exists'] + the clause: anything connecting the topic to RH or to the zeros.
+forbidden phrasings read from the brief: 2 quoted strings (NOT printed, so that no log repeats them) + the RH/zeros clause
 == lean/Zeta23/ResidueRank/LogPrimes.lean: label verbatim ×0; forbidden 0; 10(g) banned 0; British 0
    neg l.31: WHAT IS NOT HERE.  Nothing about the pair's geometry (the SPEC's A6–A8), no target Y, nothing about ζ or its zeros.
    READ l.87: | zero => exact absurd rfl hn
@@ -40,7 +41,7 @@ forbidden phrasings (from the brief): ['IV.20 is formalized', 'no target exists'
    neg l.99: everywhere, the brief's forbidden phrasings 0 everywhere — read from the brief, not quoted —, British forms 0, five RH/zeros lines without an
    READ l.100: on-line negation reviewed by hand: disclaimers and the Lean case name `zero`; PASS), `hashes.txt` (SHA-256 2badc8cfa545c73b9973a611bb7f4cfe1501a539444568fba50c6554053b8073; 33 files).
    READ l.105: item 7's bound is attained (E7). Nothing committed. Nothing about ζ's zeros or RH follows.
-== results/theoremR-lean-s36/UNIT-BRIEF.md: label verbatim ×1; forbidden [('IV.20 is formalized', 29), ('no target exists', 29)]; 10(g) banned [('clearly', 3), ('obviously', 3), ('easy to see', 3), ('well known', 3)]; British 0
+== results/theoremR-lean-s36/UNIT-BRIEF.md: label verbatim ×1; forbidden [('forbidden#1', 29), ('forbidden#2', 29)]; 10(g) banned [('banned#1', 3), ('banned#2', 3), ('banned#3', 3), ('banned#4', 3)]; British 0
    neg l.3: **Written Session 36, 2026-09-30 (orchestrator Fable 5.1).** The reader's Group-IV YES on `results/beta-shapes-s35/NOTE.md` (Theorem R, staged as zoo IV.20) fired KICKSTART 10(d); this unit is the fir
    neg l.26: **(0) Toolchain and files.** The program tree: a working copy under `~/rh-lean-work/` at Lean v4.33.0-rc2 / Mathlib 51e6992e (use `~/rh-lean-work/checker-clone-s33-h4` as the build tree, or a fresh co
    neg l.29: **(3) Label**, only if everything lands with no displayed hypothesis, verbatim: "Theorem R's arithmetic core Comparator-checked: the logarithms of the primes are ℚ-linearly independent, a family of po
@@ -89,4 +90,3 @@ forbidden phrasings (from the brief): ['IV.20 is formalized', 'no target exists'
 == results/theoremR-lean-s36/yaml-validation.log: label verbatim ×0; forbidden 0; 10(g) banned 0; British 0
 
 TOTALS: forbidden-phrasing hits 2; 10(g) banned hits 4; British-spelling hits 30
-rc=0

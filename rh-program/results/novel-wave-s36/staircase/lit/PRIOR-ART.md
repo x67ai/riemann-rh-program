@@ -101,3 +101,62 @@ of Ξ_2(z), as the program never finished even after running for over two days";
 method no longer converged." Heights: no zero of any Ξ_N above Re z ≈ 102 is listed; the table's heights are those of
 the largest real zero. Side observation: the largest real zero of Ξ_N is close to 4(N+1)² (16, 36, 64, 100, 144, 196,
 256, 324, 400, 484 vs the table) — this pattern is ours, not stated by Haglund.
+
+## 3. Related theorems (task 3)
+
+### 3(b) H. Ki — Chowla–Selberg constant term, and truncations of the Chowla–Selberg formula
+**Ki, "Zeros of the constant term in the Chowla–Selberg formula", Acta Arith. 124 (2006) 197–204,
+DOI 10.4064/aa124-3-1** (IMPAN open copy on disk: `ki-AA-124-2006-chowla-selberg.pdf/.txt`). Setting (p. 197):
+C(z; s) = ζ(2s)y^s + √π (Γ(s − 1/2)/Γ(s)) ζ(2s − 1)y^{1−s}, the constant term of E_0(z; s), z = x + iy.
+PROVED: "Theorem. For any y ≥ 1 all complex zeros of C(z; s) are simple and lie on Re(s) = 1/2." (p. 198). Prior
+art it records (p. 198): "Hejhal [5, Proposition 5.3] used the Maass–Selberg formula to prove that, for any y ≥ 1,
+all complex zeros of C(z; s) are on Re(s) = 1/2" ([5] = Hejhal, J. Anal. Math. 55 (1990) 59–95). Method (p. 198):
+"we apply a variant of Hermite–Biehler theorem"; in z-form (p. 199) "F(z) = (z + i/2)Ξ(2z − i/2)Y^{iz} +
+(z − i/2)Ξ(2z + i/2)Y^{−iz}", with f(s) = (s − 1)ξ(2s)Y^s + sξ(2 − 2s)Y^{1−s} (p. 198). For 0 < Y < 1 (Remark,
+p. 203): "on Re(s) = 1/2 the assertion of our theorem may not be valid. But it is known (see [6, Theorem 2]) that
+for any δ > 0 all but finitely many zeros of f(s) in {s : |Re(s) − 1/2| < δ} are simple and lie on Re(s) = 1/2."
+**Secondary statement of Ki's Proc. LMS theorem (read here, p. 198, verbatim):** "It should be noted that the author
+[6, Corollary 1] has shown that for any y ≥ 1 and any N = 1, 2, 3, . . ., all but finitely many complex zeros of any
+N th partial sum in the Chowla–Selberg formula are simple and on Re(s) = 1/2. Since E_0(i; s) = 2ζ(s)L(s, χ_{−4}),
+the Riemann hypothesis would follow if, for infinitely many N, one was somehow able to remove the "but finitely
+many" clause in this corollary in the (very special) case where z = i."
+
+**Ki, "All but finitely many non-trivial zeros of the approximations of the Epstein zeta function are simple and on
+the critical line", Proc. London Math. Soc. (3) 90 (2005) 321–344, DOI 10.1112/S0024611504015060; corrigendum
+Proc. LMS 94 (2007) 543–544, DOI 10.1112/plms/pdl019.** Paywalled; primary text not read. Statements available on
+disk only through Ki's own later papers: the Acta Arith. quote above, and **Ki, "On the nontrivial zeros of modified
+Epstein zeta functions", C. R. Acad. Sci. Paris Ser. I 342 (2006) 79–81, DOI 10.1016/j.crma.2005.11.015** (Numdam
+copy: `ki-CRAS-342-2006-modified-epstein.pdf/.txt`; page renders `img/ki-cras-p-2.png`, `-3.png`), p. 80: "In [2],
+the author investigated the distribution of zeros of truncations of the Epstein zeta function using the
+Chowla–Selberg formula. In particular, the author showed that for any positive integer N, all but finitely many
+nontrivial zeros of [the Chowla–Selberg formula with the Bessel sum cut at n ≤ N] are simple and on the line
+Re(s) = 1/2 if √Δ/(2a) ⩾ 1." (Q = au² + buv + cv², Δ = 4ac − b².) The C. R. note itself PROVES (p. 81): "Theorem 1.1.
+Let δ > 0. Then all but finitely many zeros of Z(s; y, α, β, L_1, . . . , L_n) in {s ∈ ℂ: |Re(s) − 1/2| < δ} are simple
+and on Re(s) = 1/2." and "Corollary 1.2. All but finitely many nontrivial zeros of Z(s; y, α, β, L_1, . . . , L_n) are
+simple and on Re(s) = 1/2, provided that y ⩾ 1.", where Z = α(s)ζ(2s) + α(1−s)√π(Γ(s−1/2)/Γ(s))ζ(2s−1)y^{1−2s} +
+y^{−s}β(s)Σ a_k L_k(s) with real polynomials α, β, deg α ≥ deg β + 1 (p. 80). The case that would matter for RH is
+excluded: "Corollary 1.4 cannot say anything about the function Z_{u²+v²,1,1}(s) because α(s) = 1 and β(s) = 1 do not
+satisfy assumption (ii) above." (p. 81; Z_{u²+v²} = 4ζ(s)L(s, χ_{−4})).
+Relevance: the closest proved analog of our question. For truncations of the Chowla–Selberg expansion (a Bessel-K
+tail, not an incomplete-gamma tail) Ki proves "all but finitely many zeros on the line", never "all zeros"; the
+exceptional finite set is exactly the obstruction he names.
+
+### 3(c) J. C. Lagarias — differenced ξ and de Branges structure
+**Lagarias, "Zero spacing distributions for differenced L-functions", Acta Arith. 120 (2005) 159–184, DOI
+10.4064/aa120-2-4, arXiv:math/0601653** (IMPAN copy on disk: `lagarias-AA-120-2005-differenced.pdf/.txt`).
+Definitions (p. 163): "A_h(s) := ½(ξ(s + h) + ξ(s − h)), B_h(s) := −(1/2i)(ξ(s + h) − ξ(s − h))". PROVED: "Lemma 2.1.
+(1) If h ≥ 1/2, then (2.3) |ξ(h + s)| > |ξ(h + 1 − s)| for ℜ(s) > 1/2. (2) Assuming the Riemann hypothesis, the
+inequality (2.3) holds for each h > 0." (p. 164; proof factor by factor in the Hadamard product, pp. 164–165).
+"Lemma 2.2. Let E(s) be an entire function that satisfies (2.6) |E(s)| > |E(1 − s)| when ℜ(s) > 1/2. ... Then A(s) and
+B(s) have all their zeros lying on the critical line ℜ(s) = 1/2, and these zeros interlace." (p. 165; due to de
+Branges). "Theorem 2.1. (1) For |h| ≥ 1/2 and any 0 ≤ θ < 2π, the entire functions A_{h,θ}(s) and B_{h,θ}(s) have all
+their zeros on the critical line ℜ(s) = 1/2. These zeros are all simple zeros, and they interlace. (2) Assuming the
+Riemann hypothesis, for 0 < |h| < 1/2 ... [the same]" (p. 168). De Branges form: "Lemma 6.1. (i) For h ≥ 1/2 the
+function (6.6) E_h(z) := ξ(1/2 + h − iz) is a de Branges structure function, i.e. |E_h(z̄)| < |E_h(z)| when ℑ(z) > 0.
+(ii) If the Riemann hypothesis holds, then for all h ≠ 0 the function E_h(z) is a de Branges structure function."
+(p. 179; the bar is lost in the text layer). History (p. 162): "Xian-Jin Li informs me that the results in §2 and §5
+were known to de Branges in the late 1980's"; and "Recently Haseo Ki [14] obtained results analogous to those in §2
+for averagings of the meromorphic function ζ̂(s) = π^{−s/2}Γ(s/2)ζ(s) = 2ξ(s)/s(s − 1), e.g. for h ≥ 1/2 all zeros of
+Ã_h(s) = ½(ζ̂(s + h) + ζ̂(s − h)) lie on the critical line." ([14] = Ki, "On a theorem of Levinson", J. Number Theory
+107 (2004) 287–297.) Relevance: the unconditional Hermite–Biehler range is h ≥ 1/2 because the zero-free half-plane
+ℜs > 1 is what makes ξ(s + h) an HB function; this is the standard template for "E + E^#" real-rootedness.

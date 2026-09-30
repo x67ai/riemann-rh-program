@@ -187,8 +187,9 @@ question the brief asks first; the answer is below, then the three-sentence summ
   non-prime-powers contributing Λ = 0 in both; the NOTE's "D = c(Γ_1) = Δ included when some c(Γ_n), n ≠ 1, equals it" is automatic
   (fibers are indexed by m ≥ 2, whatever their image). H3.3 (Euclid; unique factorization) is not assumed — it is proved inside
   (statements 1–2 and `Infinite Nat.Primes`). H3.4's negation is the conclusion: G = ℚ-span{(Δ · c(Γ_n))_Y : n ≥ 2} = span ℚ (range
-  (n : {n // 2 ≤ n}) ↦ v (cls n)), and ¬ `Module.Finite` is dim_ℚ G = ∞. So the Lean statement is T3 in the form "H3.1 ∧ H3.2 ⟹ dim G = ∞",
-  i.e. (D3) is empty at B = Spec Z.
+  (n : {n // 2 ≤ n}) ↦ v (cls n)), and ¬ `Module.Finite` is dim_ℚ G = ∞. So the Lean statement is T3 in the form "H3.1 ∧ H3.2 ⟹ dim G = ∞"
+  — the arithmetic content of "(D3) is empty at B = Spec Z"; the passage from a triple (β, Y, c) to the abstract pair (cls, v) is the
+  NOTE's reading and is not in Lean (FIDELITY §2).
 * *What is dropped, and why that is sound.* A6, A8, A10, A13, A7's graph structure (c(Γ_n) = Γ_{φ_n} and φ_{mn} = φ_m ∘ φ_n), and A11
   beyond "the diagonal row is real" are absent: `cls` is an arbitrary map and `v` an arbitrary real function. The NOTE's converse
   paragraph says exactly this is admissible — "The proof reads only the fibers of c on components: A7's graph structure is not used (it
@@ -342,3 +343,87 @@ of `rh-program/lean`, the whole `lean/formalization.yaml` and `lean/README.md`, 
 * `validate_yaml_sigma_strong.py` re-run from `rh-program` on `formalization.yaml` `2aad986e…`: schemas identical upstream, **VALIDATION
   errors: 0, undeclared names: 0, RESULT: PASS**. (A first attempt wrapped the call in GNU `timeout`, which macOS lacks — five "command
   not found", nothing run; logged.)
+* This checker's own files: `check-O/hashes-checker.txt` (SHA-256 of every file under `check-O/`, written last); this file's hash is in
+  the checker's SHARED.md block. `check-O/self-lint.log`: the same lint run over this checker's files — forbidden phrasings 0, banned
+  phrases 0 (the lint script stores the banned phrases reversed and prints neither list, so no log repeats them).
+
+## 11. Verdict, findings, observations
+
+(Every OLD: string below occurs exactly once in its file, line breaks read as spaces — checked by `check-O/old_strings_check.py`,
+`old-strings-check.log`.)
+
+**Verdict: FIX-FIRST — prose only (F1–F3). The eight Lean statements, the proofs, every cold build on the fresh v1.0 clone, the axioms,
+statement identity, the trust greps and the comparator run with nanoda are CLEAN; the label of UNIT-BRIEF §1(3) is earned verbatim; no
+forbidden phrasing appears anywhere.** None of the three findings touches a theorem, a trusted file or the label; F1 is the one with
+content (a fidelity sentence that states the direction of a hypothesis change incompletely); F2 and F3 are one-clause accuracy fixes.
+The orchestrator may apply them without a new comparator run (no Lean file changes).
+
+**Statement 6 (`theoremR`) in three sentences.** Under the brief's abstraction — c on components as an arbitrary map `cls`, the diagonal
+row as an arbitrary real function `v`, A5 as von Mangoldt weights, A9 as one unconditional `HasSum` per fiber over m ≥ 2 with ONE κ —
+`theoremR` states exactly NOTE T3's conclusion dim_ℚ G = ∞ at B = Spec Z from H3.1–H3.2, with H3.3 (Euclid, unique factorization)
+proved inside rather than assumed; it drops A6–A8, A7's graph structure and the rest of A11, which the NOTE's converse paragraph and
+read-O §2.5 say Theorem R does not use, so it is if anything more general than T3. Its hypotheses are satisfiable (cls = id, v = Λ/κ, any
+κ ≠ 0; kernel-checked at κ = 1 and κ = −1), so it is not vacuous; κ = 0 makes them contradictory at n = 2, and the displayed κ > 0 is
+unused by the proof (E1 confirmed), while the one κ is essential (with κ depending on the fiber, v ≡ 1 would pass). It is the
+B = Spec Z instance only — not the general-base Theorem R ("if dim_Q G < ∞ then char(B) is finite") — which FIDELITY §2 records correctly.
+
+**F1 (fidelity ledger: statement 5's `hmul` at the index 0).** FIDELITY (r6), yaml (aa1), PREDERIVATION-ERRATA §1(5) and one clause of
+BUILD-NOTES §4 describe the Lean hypothesis of Lemma F(b) as weaker than A7 (no φ(1) = 1). It is weaker at 1 but STRONGER at 0: `hmul :
+∀ a b : ℕ, …` also demands φ 0 = φ 0 · φ b = φ a · φ 0, which the NOTE's φ on M = ℕ≥1 does not supply and which a nontrivial φ into a group
+cannot meet (kernel-checked example). The theorem is unaffected in substance: it implies Lemma F(b) for any φ multiplicative on the
+positive integers, through `WithZero E` (kernel-checked, `check-O/lemmaF-b-positive.lean`, three axioms). No Lean file changes.
+OLD: weaker hypothesis); by `hmul`, φ(p^a) = φ(p)^a for a ≥ 1, so the statement is the NOTE's "pairwise distinct".
+NEW: weaker hypothesis at 1) — but `hmul` is demanded at the index 0 too (φ 0 = φ 0 · φ b = φ a · φ 0), where the NOTE's φ on ℕ≥1 is not defined and which a nontrivial φ into a group cannot meet; the statement still implies the NOTE's Lemma F(b) for every φ multiplicative on the positive integers, through `WithZero E` with 0 ↦ 0 (CHECK-O §7(5), kernel-checked in `check-O/lemmaF-b-positive.lean`); by `hmul`, φ(p^a) = φ(p)^a for a ≥ 1, so the statement is the NOTE's "pairwise distinct".
+OLD: and Lemma F(b) keeps only multiplicativity, without φ(1) = 1.
+NEW: and Lemma F(b) keeps only multiplicativity, without φ(1) = 1 but over all of ℕ (index 0 included — a demand the NOTE's φ on ℕ≥1 does not carry; the statement implies the NOTE's Lemma F(b) through WithZero E, results/theoremR-lean-s36/CHECK-O.md §7(5)).
+OLD: φ(p^a) and needs neither φ(p^a) = φ(p)^a nor φ(1) = 1 (A7's φ_1 = id is not used — a weaker hypothesis, so a stronger theorem).
+NEW: φ(p^a) and needs neither φ(p^a) = φ(p)^a nor φ(1) = 1 (A7's φ_1 = id is not used — weaker there; but `hmul` ranges over all a, b : ℕ, the index 0 included, which the NOTE's φ on ℕ≥1 does not supply — stronger there; the statement implies the NOTE's Lemma F(b) through `WithZero E`, CHECK-O §7(5)).
+OLD: Lemma F(b) on φ(p^a) without φ(1) = 1;
+NEW: Lemma F(b) on φ(p^a) without φ(1) = 1 but with `hmul` over all of ℕ, index 0 included (CHECK-O F1);
+
+**F2 (a stale line reference).** BUILD-NOTES "Stop lines" paragraph: item 1 and its two valuation helpers are lines 104–157 of the
+shipped `LogPrimes.lean`; "103–156" is the rung-1 file's numbering (SHARED.md 17:27:58, rung-1 hash 9a76d131…). (SHARED.md's own
+"lines 103–156" is a dated log line about the rung-1 file; leave it.)
+OLD: (lines 103–156 of `LogPrimes.lean`;
+NEW: (lines 104–157 of the shipped `LogPrimes.lean`, 103–156 of the rung-1 file;
+
+**F3 (an aside, one clause).** PREDERIVATION-ERRATA §1(8): for κ < 0 and g = 0, h1 alone is satisfiable (d p = log p/κ − 1) and h2 is
+what fails; "by h1 alone" holds for g > 0 only (§7(8)). Carries no load ("not needed").
+OLD: (For κ < 0 the hypotheses are also contradictory, by h1 alone at a large prime — not needed.)
+NEW: (For κ < 0 the hypotheses are also contradictory at every large prime — by h1 alone when g > 0; when g = 0, h1 is met by d p = log p/κ − 1 and it is h2 that fails — not needed.)
+
+**Observations (no fix required of this unit).**
+* **O1 — docstrings of items 7–8.** The probe's docstrings (bound character for character) name the source of the inequalities: "the two
+  Castelnuovo–Severi inequalities at `p` and `p²`", "Theorem S". A name, not a claim; the challenge header's SCOPED paragraph and its NOT
+  list ("the geometric reading of (7)–(8)") govern. If the orchestrator wants the trusted text free of the geometric name, that is a
+  probe change and a new comparator run — not recommended for this unit.
+* **O2 — what "Lemma F" covers.** The label's "Lemma F" is the brief's items 4–5: F(a)'s finiteness clause and F(b). F(a)'s second clause
+  (L(D) = log N_D) is kernel-checked only as the program lemma `fiber_sum_eq_log` inside the Solution's proof of `theoremR` (so the
+  comparator's kernel replay covered it as a dependency, but it is not a compared statement), and F(c) is not stated; FIDELITY §2 says
+  both. A zoo or STATUS line that wants precision can write "Lemma F (a: finiteness; b)".
+* **O3 — two paraphrases in quotation marks** in PREDERIVATION-ERRATA ("delegate if Mathlib has it" for the brief's "the solution
+  delegates to it"; "verified numerically in pre_check.py [P1]" for "Verified numerically in `results/d4-infty-s36/prederivation/
+  pre_check.py` [P1]"). Harmless.
+* **O4 — sandbox.** The comparator runs (builder's and this one) are NOT sandboxed (macOS; fake-landrun shim), as in every prior macOS
+  record; the solution was read in full here and imports no trusted-side module. A Linux re-run under Landlock (COMPARATOR-RUN.md §2's
+  Session-32 note) would add the sandbox.
+* **O5 — independence.** Read before the checks: the brief, BUILD-NOTES, SHARED.md, hashes.txt, the builder's `tools/run.sh` and
+  `tools/prerun-cleanup.sh` (to adapt them, two lines each), and the builder's `program-axioms.lean` (to compare name lists). Read only
+  after this file's §1–§6 were written: FIDELITY.md, PREDERIVATION-ERRATA.md, the yaml rows and the README section. Never run or read:
+  `tools/statement_identity_s36.py`, `tools/trust_greps_s36.py`, `tools/errata_numbers.py` and its log, `tools/lint_10g.py`. Every script
+  and probe under `check-O/` is this checker's own.
+* **O6 — this checker's own slips, all repaired and logged:** a relative log path (the first build log landed in the clone's root; moved);
+  a substring bug in the identity script's [C] (`statement-identity-run1-buggy.log`); a probe artifact of `def`-elaboration in the brief
+  comparison (`brief-elab-diff.log`; the theorem-form re-check is clean); quote mis-pairing in the first quote check
+  (`quote-check-run1-mispaired.log`); GNU `timeout` absent on macOS (yaml validation re-run without it); two tactic steps in the witness
+  probes needed a second and third run (logged in `witnesses.log` / `lemmaF-b-positive.log` headers).
+
+**OVERALL.** Mathematics and machine checks: CLEAN — a fresh v1.0 clone (HEAD 3635e74), Mathlib 51e6992e from the cache, the seven unit
+files overlaid and nothing else; cold builds one at a time (8697 / 8698 / 8697 / 8700 / 8697 jobs; 0 warnings except the challenge's 8
+deliberate `sorry`s); `#print axioms` on the 8 topic names and all 27 program declarations = `[propext, Classical.choice, Quot.sound]`,
+with a `sorryAx` negative control; statement identity 8/8 (challenge = solution = probe, the brief's §0 text elaborating to the same
+terms); trust greps clean; the comparator with nanoda exit 0 ("Nanoda kernel accepts the solution", "Your solution is okay!", 37.5 s);
+every statement read against the NOTE and found true and faithful, statement 6 a faithful rendering of T3 at B = Spec Z and not
+vacuous; item 7's bound re-derived by hand, attained, g = 0 included; E1–E10 and the necessity counterexamples confirmed (the four
+counterexamples and three non-vacuity witnesses kernel-checked); 33/33 hashes; yaml validation PASS. Ledger: FIX-FIRST on F1–F3 (prose).
+Nothing about ζ's zeros or RH follows from anything here.

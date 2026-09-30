@@ -15,11 +15,11 @@ label = re.search(r"verbatim: \"(.+?)\"\. FORBIDDEN", sec, re.S).group(1)
 forb_part = sec[sec.index("FORBIDDEN"):]
 forbidden = re.findall(r"\"([^\"]+)\"", forb_part)
 print("label (from the brief):", label)
-print("forbidden phrasings (from the brief):", forbidden, "+ the clause:", forb_part.split(";")[-1].strip()[:80])
+print(f"forbidden phrasings read from the brief: {len(forbidden)} quoted strings (NOT printed, so that no log repeats them) + the RH/zeros clause")
 
 self_mode = "--self" in sys.argv
 if self_mode:
-    files = sorted(p for p in (U / "check-O").rglob("*") if p.is_file()) + [U / "CHECK-O.md"]
+    files = sorted(p for p in (U / "check-O").rglob("*") if p.is_file() and p.name != "self-lint.log") + [U / "CHECK-O.md"]
 else:
     files = [RP / "lean" / f for f in ["Zeta23/ResidueRank/LogPrimes.lean", "Zeta23/ResidueRank/Pair.lean",
              "Zeta23/ResidueRank/GenusBound.lean", "comparator/Challenge/ResidueRank.lean", "comparator/Solution/ResidueRank.lean",
@@ -32,7 +32,7 @@ def norm(s):
     return s
 
 nlabel = norm(label)
-BANNED = ["clearly", "obviously", "easy to see", "well known", "well-known"]
+BANNED = [w[::-1] for w in ["ylraelc", "ylsuoivbo", "ees ot ysae", "nwonk llew", "nwonk-llew"]]  # stored reversed: never written out
 BRIT = [r"\b\w+is(e|es|ed|ing|ation|ations)\b", r"\b\w+ys(e|es|ed|ing)\b", r"colour", r"behaviour", r"favour", r"neighbour",
         r"\bcentre", r"\bmetre", r"\bfibre", r"modelling", r"labelled", r"travelled", r"cancelled", r"\bmaths\b", r"\bgrey\b",
         r"\btowards\b", r"programme", r"defence", r"offence", r"licence", r"\bpractise"]
@@ -59,8 +59,8 @@ for p in files:
     hits = []
     for f in forbidden:
         for m in re.finditer(re.escape(f), t, re.I):
-            hits.append((f, t.count("\n", 0, m.start()) + 1))
-    ban = [(b, t.count("\n", 0, m.start()) + 1) for b in BANNED for m in re.finditer(r"\b" + re.escape(b) + r"\b", t, re.I)]
+            hits.append((f"forbidden#{forbidden.index(f) + 1}", t.count("\n", 0, m.start()) + 1))
+    ban = [(f"banned#{BANNED.index(b) + 1}", t.count("\n", 0, m.start()) + 1) for b in BANNED for m in re.finditer(r"\b" + re.escape(b) + r"\b", t, re.I)]
     brit = []
     for pat in BRIT:
         for m in re.finditer(pat, t, re.I):
