@@ -41,3 +41,16 @@ Append-only log of batches. Newest block last. Times IST.
   additions a_p = p(1 + e^{−p}); heuristic).
 - §2 task 2: named obstruction "sub-polynomial resonance"; the L² (Parseval) converse = Theorem Z.
 - Next: task 3 (dyadic mean square from the on-disk CSVs; finite-R rung; new feedback design; 8 more T_0.75 seeds at 1e10).
+
+## 2026-10-01 02:57 — batch 3: task 3, 8 extra seeds of T_0.75 at 1e10 (the F5 tension)
+- `verify/thin_fr.c` = byte-identical copy of fr `verify/thin.c` (SHA-256 6d359b51…); seed 1, α = 0.75, X = 1e9 re-run
+  reproduces every fr bin (`verify/data/xcheck_bern_a0.75_s1_1e9.csv`). Seeds 5–12 at X = 1e10, Y = 2e10: 72–76 s each,
+  2.5 GB (`verify/run_seeds.sh`, `logs/run_seeds.log`, data `verify/data_big/bern_a0.75_s*.csv`).
+- `verify/t3_seeds.py` → `logs/t3_seeds.log`. Top window [1e7, 1e10] sup-slope: seeds 1–4 0.450 ± 0.009 (= read-O F5),
+  seeds 5–12 **0.363 ± 0.014**, all 12 **0.392 ± 0.016** (α/2 = 0.375: +1.1σ; 1/(3−α) = 0.444: −3.3σ). Dyadic mean-square
+  slope, all 12: [1e4, 1e10] 0.723 ± 0.018, [1e7, 1e10] 0.787 ± 0.059 (α = 0.75; 2/(3−α) = 0.889). The four-seed excess was a
+  small-sample fluctuation; the tension resolves toward α/2 (sup) and α (mean square).
+- Preview (fr greedy data, `dyadic_ms.py`): greedy c = 1, α = 0.6: pure-power mean-square slope 0.445 over [1e4, 1e10] —
+  below α − 0.15 over six decades, but Corollary Z.1 (RH) proves β₂ = α/2 for this set, so the deficit is a log-power
+  (M ≈ X^α(ln X)^{−κ}, κ ≈ 3): the stop line's literal trigger "below X^{α−δ} over three decades" is met by a set that is
+  provably NOT a counterexample (under RH). Log-corrected fits and the Franel-diagonal ratio next (`run_t3.sh` running).

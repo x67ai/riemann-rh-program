@@ -1,6 +1,6 @@
 # NOTE — unit `qcond-s38`: a Beurling system with Riemann's exact FE at conductor q > 1 — construct or refute (Q_cond)
 
-Session 38, 2026-10-01. Writer: Opus 5.5 (unit agent). Built section by section as results landed; the close is §5.
+Session 38, 2026-10-01. Writer: Opus 5.5 (unit agent). Status: COMPLETE — CLOSE T (stated classes) + G (§5). Built in order.
 Conventions (as in the parent NOTE `novel-wave-s37/beurling-fe/NOTE.md`, cited below as "BFE"): every load-bearing claim is
 (P) proved here, (C) computed in `verify/` with its log, or (Q) quoted from a file on disk at the line. `[recalled, unverified]`
 marks statements that carry no load. Novelty: `[novelty: single-check]`.
@@ -12,9 +12,24 @@ Setting (BFE §8(b)). dN ≥ 0 on [1, ∞) with polynomial growth, F(s) = ∫x^{
 exponential), so dN({1}) = 1. Theorem C (BFE): q ≥ 1, q = 1 only for ζ, and at q > 1 the identity (C_q) holds.
 **Q_cond.** Is there a Beurling system (discrete, continuous or mixed; weights allowed) with Riemann's exact FE at some q > 1?
 
-Digest ranking of this unit: see §0.1 (filled at the close; the digest `novel-wave-s37/insights-digest.md` was not on disk at start).
+### 0.1 The digest's ranking of this unit (Q: `novel-wave-s37/insights-digest.md`, SHA-256 e86f642a…; absent at this unit's
+start, on disk by 02:23 IST, read before the close)
+§F.2 ranks this unit FIRST of the candidate next units — line 352: "1. **U2 — Q_cond** (`results/qcond-s38/BRIEF.md`, LAUNCHED)";
+lines 355–357: "Why first: both outcomes are theorems; the construction branch gives the program's first Q-side control with {Euler
+product, Λ ≥ 0, exact FE} (B5, B6); the refutation branch extends B1 to every conductor (then {Euler product, Λ ≥ 0, exact Riemann FE
+at any conductor} has one model)". §F.1(a) (335): Theorem T above threshold, "Follow-ups: Q_cond (U2)". §B: B1 (130–135) moves the
+question to q > 1; B5 (150–156) "the only drop not yet paid WITH Λ ≥ 0 and a discrete system is conductor q > 1 (Q_cond …)"; B6
+(158–164) the rung-1 twin's Q-side location is q > 1. The consolidator's five notes (358–362) are answered: (i) the q = 4 example —
+§1.2 (agrees, ρ_q = 3); (ii) read-O o5's q = 5 solution — §1.2(b); (iii) read-O R4(4), ρ₁ ≠ ρ₂ at conductor q — §1.6; (iv) theta
+values on a bounded range are not a test — every self-duality check here uses the Fejér pairing with an explicit ξ^{−2} tail bound
+(v1) or is exact via Poisson (v2 Part A); (v) rung 1 — §3 (reproduced: t ∈ {−5, …, 6}, RH-false t = ±5).
 
-Headline: see §5 (filled at the close).
+HEADLINE. Q_cond is REFUTED on the uniformly discrete class at every conductor (Theorem U_q, unconditional), for every system of the
+form ζ·(finite Dirichlet polynomial) (Theorem L′), for every purely continuous system (Corollary E2), and — given Meyer's finite-values
+theorem, on disk only second-hand — for every discrete Beurling system (Theorem D). What replaces the Fejér gap argument of BFE Theorem
+T is a Landau (Pringsheim) obstruction on the finitely generated "q-part" of the frequencies, where the pole of ζ is invisible. Q_cond
+stays open only for weighted/mixed systems with clustering integers and infinitely many distinct multiplicities. Close: T (for the
+stated classes) + G (that residue). Rung 1 (§3) shows the obstruction is exactly the F_q condition with the pole term removed.
 
 ## 1. Task 1 — positive self-dual measures with an atom at 0 and a gap (−r, r)
 
@@ -96,6 +111,35 @@ COROLLARY 3 (small mass at 0 forces a lattice). If every non-zero atom of μ ∈
 REMARK. Everything in §1.4 uses only μ ≥ 0 and μ̂ = μ; the multiplicative (Euler) structure enters from §2 on. `[novelty:
 single-check]` for the corollaries as stated for 𝓜_r; Lemma B is the standard "Fourier–Bohr coefficient = atom of μ̂" fact, proved
 here to fix hypotheses.
+
+### 1.5 Addendum to §1.3 (sources found while writing §2; [here])
+(Q8) Baake–Spindeler–Strungaru, J. Fourier Anal. Appl. 29 (2023) [here `arxiv-2104.06812-…txt`]: Thm 4.3 (664–673) an α-periodic
+     eigenmeasure of F exists iff α = √n, and then μ = Σ_j c_j δ_{j/√n} ∗ δ_{√nZ} with c an eigenvector of the unitary n-point DFT
+     (this is exactly the structure met in §2.4 Step 3: μ_q is √q-periodic, q ∈ N, c a DFT eigenvector); Thm 6.3 (1030–1040) all
+     eigenmeasures with u.d. support; Thm 7.5 / Cor. 7.6 (1198–1235) eigenmeasures with locally finite, non-u.d. support and large
+     gaps at 0 — complex and NOT translation bounded, hence (TB) never positive; §8 Outlook (lines after 1236): "the
+     characterisation of all doubly sparse measures, an important open problem ... is equivalent to the characterisation of all
+     doubly sparse eigenmeasures."
+(Q4′) A second printed pointer to Meyer's finite-values theorem: Lev–Olevskii 2015 (`arxiv-1312.6884-…txt` 63–68): "A more general
+     situation, when the atoms take finitely many different values, was considered in [17, p. 25] [Meyer, LNM 117], [6], [11]."
+TASK-1 VERDICT. THEOREM (printed): the u.d. members of 𝓜_r are generalized Dirac combs on one lattice (Q1, Q8 Thm 6.3), the
+periodic ones are DFT-eigenvector combs (Q8 Thm 4.3), and — via Meyer (Q4, Q4′) — so are the members with locally finite support
+and finitely many masses. PROVED HERE: §1.4 (masses ≤ ρ, window bound, small-ρ lattice). OPEN (in print, Q8 §8): the
+classification of self-dual measures with locally finite support; for POSITIVE ones with a gap no non-lattice-type example is
+known (the Kurasov–Sarnak and BSS non-u.d. examples are not translation bounded, hence not positive self-dual).
+
+### 1.6 The two-system version at conductor q (read-O R4(4), digest note (iii)) — (P)
+Setting: dN₁, dN₂ ≥ 0 on [1, ∞), Λ_i(s) := (q/π)^{s/2}Γ(s/2)∫x^{−s}dN_i, Λ₁(s) = Λ₂(1 − s), poles of Λ₁ only at 0, 1 (simple), (G′).
+As in BFE T′ (§12) with the scaling of Theorem C: μ₁ := ρ₂δ₀ + ν₁ + ν₁^∨ and μ₂ := ρ₁δ₀ + ν₂ + ν₂^∨ (ν_i = dN_i scaled by q^{−1/2},
+ρ_i = Res_{s=1}Λ_i) satisfy μ̂₁ = μ₂, μ̂₂ = μ₁. Fejér pairing with φ_r both ways (r = q^{−1/2}):
+      ρ₁ − rρ₂ = 2r∫S(rt)dν₁(t) ≥ 0,   ρ₂ − rρ₁ = 2r∫S(rt)dν₂(t) ≥ 0,   hence  q^{−1/2} ≤ ρ₁/ρ₂ ≤ q^{1/2}
+(strictly, if both dN_i have an atom at 1). ANSWER. (a) For positive measures ρ₁ ≠ ρ₂ IS possible at every q > 1, and the band is
+sharp: ν₁ = δ_{aN}, ν₂ = a^{−1}δ_{N/a} (a ∈ [r, 1/r]; Poisson) gives ρ₂ = 1, ρ₁ = 1/a, i.e. F₁ = (√q a)^{−s}ζ(s),
+F₂ = a^{−1}(√q/a)^{−s}ζ(s); a = r and a = 1/r attain the two ends. (b) For two BEURLING systems (atoms at 1 on both sides) with 𝒩₁ ∪ 𝒩₂
+uniformly discrete it is not possible, because there is no solution at all: μ₁ + μ₂ is self-dual, so §2.4 Steps 1–3 apply to its support and
+make both c_i q-periodic (μ₂ = μ̂₁ and μ₁ = μ̂₂ are √q-periodic); S–W gives F_i = ζ·D_i; the Landau argument of Theorem L′, applied
+to each F_i separately, makes D₁ and D₂ zero-free on Re s > 0; the FE D₂(1 − s) = q^{s−½}D₁(s) then makes D₁ zero-free everywhere, so
+D₁ ≡ 1 (atom at 1), D₂ = √q·q^{−s}, and F₂ = √q q^{−s}ζ(s) has no atom at 1 unless q = 1. Outside the u.d. class: open, as Q_cond.
 
 ## 2. Task 2 — the Euler-side constraints, made rigorous, and what they decide
 
@@ -225,6 +269,13 @@ VERDICT for these q: within the u.d. class, INFEASIBLE, by certificate (and for 
 brief's truncated problem is not finite-dimensional (positions of the generalized integers are free), and §2.6 records how far
 the structure theory goes instead.
 
+RADICAL (TWO-CLASS, NON-u.d.) CHECK OF THEOREM L′ (C: `verify/v4_radical_family.{py,log}`). q = 2, D = 1 + a·2^{−s/2} + √2·2^{−s}
+(frequencies 1 ↔ 2 paired, √2 self-paired; FE checked to 3e−41 at a = 0.7), integers N ∪ √2·N, dN ≥ 0 ⟺ a ≥ 0: certified
+infeasible for every a ≥ 0 (u²-coefficient 1 + √2 − a²/2 < 0 beyond 2.2074; the rest covered by witnesses at 2^{4/2}, 2^{3/2},
+2^{5/2}; no failed piece). Its Beurling neighbour ζ(s)(1 + b·2^{−s/2}) (the primes with 2 replaced by √2 when b = 1) is Beurling
+exactly for 0 ≤ b ≤ 1, while the FE at conductor √2 needs b = 2^{1/4} > 1, where the first negative mass is Π(8) = 1/3 − 2^{3/2}/6
+= −0.138 (the parent unit's q = √2 failure; v4 prints the minimum over 2^{k/2}, k ≤ 12, which is −1/2 at 2⁶).
+
 ### 2.6 Beyond the uniformly discrete class — what is proved, what is conditional, what is open
 (a) EVERY solution of Q_cond (any weights, any mix): ρ_q ≥ 1 (E1); every atom mass c(x) ≤ ρ_q (§1.4 Cor. 1); continuous prime mass
     thin, ∫u^{−1}dΠ_c ≤ log ρ_q (E2), so the atomic prime part carries ∫u^{−1}dΠ_a = ∞; generalized integers NOT uniformly discrete
@@ -238,7 +289,8 @@ the structure theory goes instead.
     radical classes, like N ∪ √2·N): on each class the masses are a finitely-valued trigonometric sum along one lattice, hence
     periodic (orbit-closure argument), so F = Σ_ψ P̃_ψ(s)L_ψ(s) with P̃_ψ FINITE Dirichlet polynomials whose frequencies lie in the
     finite group of radical classes times Q.
-    NAMED OPEN STEP (S–W′): Saias–Weingartner Thm 2 (at least two primitive characters with non-zero Dirichlet-polynomial weights
+    [UPDATE: S–W′ is PROVED in §2.7 by checking the printed proof step by step; Theorem D there closes the discrete case given Q4.]
+    THE STEP (S–W′): Saias–Weingartner Thm 2 (at least two primitive characters with non-zero Dirichlet-polynomial weights
     ⟹ zeros in Re s > 1; [here] `arxiv-0807.0783-…txt` 79–84) is proved for ORDINARY Dirichlet polynomials (their proof factors the
     weights over primes p ≤ y, lines 511–530). If it holds for weights with radical frequencies (the same factorization over p^{1/M}
     is available), then ψ is unique and trivial, F = ζ·P̃, and Theorem L′ closes every discrete case at every conductor.
@@ -248,3 +300,147 @@ the structure theory goes instead.
     decomposition F = Σ_ψ P̃_ψL_ψ with at least two primitive characters (the trivial one, for the pole, and a non-trivial one; with
     the trivial one alone Theorem L′ applies). No such object is known; none was constructed (the rung-1 calibration, §3, says why
     the function-field twin has no counterpart of this kind).
+
+### 2.7 The discrete case, conditional only on Meyer's theorem — THEOREM D (P given Q4)
+LEMMA S–W′ (Saias–Weingartner Thm 2 with radical weights). Let ψ₁, …, ψ_n (n ≥ 2) be distinct primitive characters and P̃₁, …, P̃_n
+non-zero finite sums Σ_κ c_κκ^{−s} with κ in the group generated by p₁^{1/M}, …, p_L^{1/M} (finitely many primes, M ∈ N). Then
+F = Σ_jP̃_jL_{ψ_j} has zeros in 1 < Re s < 1 + η (≫ T of them up to height T, η = η(F) > 0).
+ Proof. S–W §4 ([here] `arxiv-0807.0783-…txt` 508–621) verbatim with the variables z_l := p_l^{−s/M} in place of p_l^{−s}, after
+ multiplying F by a monomial Π_l p_l^{a_l s/M} (no zero changes) so that all exponents are ≥ 0. The inputs, checked at the line:
+ (i) F_j = h_j(z₁, …, z_L)·Π_{p>p_L}(1 − χ_j(p)p^{−s})^{−1} with h_j a non-zero rational function without poles in the open unit
+ polydisk (weights are polynomials in z; the local factors (1 − χ_j(p_l)z_l^M)^{−1} are singular only on |z_l| = 1); (ii) Lemma 2
+ (417–505) for arbitrary non-zero rational h_j — its general case only fixes the L phases so that h_j is finite and non-zero for
+ 1 ≤ σ ≤ 2 and then uses the tail p > p_L, which is untouched; (iii) the Weyl step (591–600) needs the joint equidistribution of
+ (p_l^{it/M})_{l≤L} and (p^{it})_{p_L<p≤p_M}: true, since {M^{−1}log p_l} ∪ {log p} is Q-linearly independent; (iv) Rouché (617–621), unchanged. ∎
+ `[single-check: an extension of a printed proof, read step by step]`
+LEMMA Q (finitely valued quasi-periodic sequences are periodic). If W(n) = Σ_k b_k e^{2πiβ_k n} (finite sum) takes values in a finite
+set V for all but finitely many n ∈ Z, then W is periodic and W(Z) ⊂ V.
+ Proof. The closure T of {nβ mod 1} in the torus is a compact monothetic group; its identity component T₀ has finite index m and
+ T/T₀ is generated by β, so mβ ∈ T₀ and {kmβ : k ≥ k₀} is dense in T₀ (one-sided orbits in compact groups are dense in the orbit
+ closure). P(x) := Σ_k b_k e^{2πix_k} is continuous, takes values in V on a dense subset of each coset iβ + T₀, hence (V finite,
+ T₀ connected) is constant there; so W(n) = P(nβ) depends only on n mod m. ∎
+THEOREM D. Assume Meyer's theorem (Q4). A discrete Beurling system (multiset P of reals > 1, integer multiplicities) whose Λ_F
+satisfies (A) at some conductor q > 0 is the rational primes, and q = 1.
+ Proof. (1) E3: unit masses off 0; masses ∈ {1, ρ_q}; support locally finite; |μ̂_q| = μ_q translation bounded (TB). By Q4, μ_q = Σ_j
+ g_jσ_j, finitely many trigonometrically weighted combs on lattice cosets. (2) §2.6(b): the classes [x] (x ∈ 𝒩) form a finite group
+ Γ ⊂ R_{>0}/Q_{>0}. (3) Group the combs by commensurability of their lattices and merge each group over one refined lattice αZ; on a
+ coset y + αZ the merged weight W(n) is of Lemma-Q form, and incommensurable groups meet it in finitely many points, so W(n) =
+ μ_q({y + αn}) ∈ {0, 1, ρ_q} for all but finitely many n: W is periodic (Lemma Q). A coset with y/α ∉ Q meets each class at most
+ once, so it carries ≤ |Γ| + 1 points of supp μ_q, W is eventually 0, hence W ≡ 0. The other cosets lie inside single classes, and
+ cosets in one class have commensurable lattices. So μ_q = ρ_qδ₀ + Σ_{γ∈Γ}κ_γ, κ_γ a periodic {0,1}-comb inside class γ, and
+ F(s) = Σ_γ β_γ^{−s}G_γ(s) with β_γ in class γ (β_γ^{|Γ|} ∈ Q) and G_γ ∈ H_{M′} (periodic coefficients). (4) S–W Thm 1 on each G_γ:
+ F = Σ_ψ P̃_ψL_ψ, P̃_ψ = Σ_γβ_γ^{−s}P_{γ,ψ} (radical weights). (5) F ≠ 0 on Re s > 1 (§2.4 Step 4), so by S–W′ only one ψ has
+ P̃_ψ ≢ 0; the pole at s = 1 makes it trivial: F = ζ·P̃. (6) Theorem L′: q = 1, P̃ ≡ 1; BFE Theorem T: the rational primes. ∎
+STATUS. Theorem D is (P) GIVEN Q4; Q4 is printed (Meyer 1970, LNM 117) but on disk only as quoted by Kurasov–Sarnak (u-20b 43–44)
+and pointed to by Lev–Olevskii 2015 (63–68). Unconditionally, D holds for every discrete system whose integers are u.d. (U_q).
+
+## 3. Task 3 — rung 1 first: the exact dictionary with genus 1 over F₅ (C: `verify/v3_rung1_dictionary.{py,log}`)
+
+Rung 1 (BFE §9). Over F_q a Beurling system is b_d ∈ Z_{≥0}; genus g means Z(u) = Π_d(1 − u^d)^{−b_d} = L(u)/((1 − u)(1 − qu)), L of
+degree 2g with L(1/(qu)) = q^{−g}u^{−2g}L(u); "conductor" q^{2g−2}, minimal and rigid at g = 0 (Liouville ↔ BFE Theorem T). At
+q = 5, g = 1: L = 1 − tu + 5u² = (1 − αu)(1 − βu), N_n = 5^n + 1 − (α^n + β^n). The Q-side twin of a genus-1 datum is its
+transplant F_t := ζ(s)·L(5^{−s}) at conductor 25 — a member of the u.d. class of Theorem U_q (integers ⊂ N).
+DICTIONARY (Q-side constraint of §1–§2 ↦ its image on rung 1):
+ D1. dN ≥ 0 ↦ A_n ≥ 0 (effective divisors); Π ≥ 0 (Beurling) ↦ b_d ≥ 0 (F1).
+ D2. Self-duality μ̂_q = μ_q (additive Fourier on R, the archimedean place) ↦ the FE of Z (Riemann–Roch); frequencies q^d are
+     integral by construction, so the Fejér/Bohr facts of §1.4 and Prop. E (§2.1), which live on the additive group R, have NO
+     rung-1 image: over F_q, A_n grows like q^n and no "mass ≤ ρ" bound exists.
+ D3. Theorem T (gap ⟹ integers ⟹ ζ) ↦ genus-0 rigidity (L entire of degree 0 by Liouville).
+ D4. THEOREM L′ (Landau on the finitely generated "q-part" G of the frequencies) ↦ Pringsheim for log Z: over F_q the radius of
+     log Z is 1/q, attained at the POLE u = 1/q of the base zeta, which lives in the SAME local variable u as the zeros of L; so
+     Landau only says L ≠ 0 on |u| < 1/q, i.e. |α|, |β| ≤ 5 (F3) — harmless. Over Q, on G the pole of ζ at s = 1 is invisible
+     (ζ contributes only its local factors at p | q, singular on Re s = 0, i.e. |p^{−s}| = 1), so Landau's abscissa is ≤ 0 and D
+     must be zero-free on Re s > 0 — impossible with the FE. EXACT IMAGE: the Q-side q-part positivity for F_t is
+         log[L(u)/(1 − u)] ≥ 0 coefficientwise ⟺ α^n + β^n ≤ 1 for all n                              (Q4)
+     i.e. the rung-1 condition N_n ≥ 0 (F2) with the pole term 5^n (the factor 1/(1 − 5u)) REMOVED.
+ D5. The linear Q-side constraints of the brief's LP: dN ≥ 0 for F_t (Q1: c(n) = 1, 1 − t, 6 − t by v₅(n) = 0, 1, ≥ 2; t ≤ 1);
+     E1 ρ_q ≥ 1 (Q2: ρ_q = 5L(1/5) = 6 − t; t ≤ 5); Prop. E at the prime 2 of weight 1 (Q3: (5 − t)/2 ≥ (2/5)S(1/25); t ≤ 4).
+TABLE (v3; ✓ = satisfied, ✗ = violated; F1/F2 checked for d, n ≤ 60; Q4 gives the first n with α^n + β^n > 1):
+ t  | RH  | F1 b_d ≥ 0 | F2 N_n ≥ 0 | F3 |α| ≤ 5 | Q1 dN ≥ 0 | Q2 ρ ≥ 1 | Q3 Prop.E p=2 | Q4 q-part Π ≥ 0 | min b_d
+ −5 |  ✗  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 2)     |   0
+ −4 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 2)     |   5
+ −3 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 3)     |   9
+ −2 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 3)     |   8
+ −1 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 3)     |   7
+  0 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 4)     |   6
+  1 |  ✓  |     ✓      |     ✓      |     ✓      |     ✓     |    ✓     |      ✓        |   ✗ (n = 4)     |   5
+  2 |  ✓  |     ✓      |     ✓      |     ✓      |     ✗     |    ✓     |      ✓        |   ✗ (n = 1)     |   4
+  3 |  ✓  |     ✓      |     ✓      |     ✓      |     ✗     |    ✓     |      ✓        |   ✗ (n = 1)     |   3
+  4 |  ✓  |     ✓      |     ✓      |     ✓      |     ✗     |    ✓     |      ✓        |   ✗ (n = 1)     |   2
+  5 |  ✗  |     ✓      |     ✓      |     ✓      |     ✗     |    ✓     |      ✗        |   ✗ (n = 1)     |   1
+  6 |  ✗  |     ✓ (Z≡1)|     ✓      |     ✓      |     ✗     |    ✗     |      ✗        |   ✗ (n = 1)     |   0
+ Outside {−5..6}: F1 fails for every |t| ≤ 12 (v3); F2 and F3 admit exactly {−6..6}; Q1 admits all t ≤ 1 (down to −12),
+ Q2 all t ≤ 5, Q3 all t ≤ 4; Q4 admits NO t in {−12..12}. F_{5,5} = F_{−5} (Π(25) = −7, as in §2.5); the virtual curve is t = 5.
+READING (the calibration the brief asked for).
+ (a) On rung 1 positivity does NOT force RH: F1 admits t = −5, 5 (RH-false) and 6 (the empty system) — reproduced (BFE §9).
+ (b) The LINEAR Q-side constraints (Q1–Q3: the brief's LP ingredients) are weak on the rung where the answer is known: they admit
+     RH-false data (t = −5, and every t ≤ −5 down to −12 for Q1–Q3) and data that are not Beurling on either side. An LP built
+     from them could not have decided Q_cond; this is why §2 decides the u.d. class through the NON-linear multiplicative
+     obstruction Q4 = Theorem L′ instead.
+ (c) Q4 is exactly F2 minus the pole term, and it admits nothing: over F₅ the pole of the base zeta shares the local variable u
+     with the zeros of L and absorbs them (the "q^d/d closed points of degree d" of BFE §9(iii)); over Q the conductor's local
+     variables p^{−s} (p | q) do not carry the pole of ζ, so nothing absorbs the zeros of D. This is the precise sense in which
+     the virtual-curve twin has NO counterpart in the u.d. (and, given Q4, the discrete) class over Q.
+
+## 4. Attack log — on this unit's own theorems
+(a) U_q, hypothesis by hypothesis. Uniform discreteness enters once (Lev–Olevskii, Step 1). The monoid property of 𝒩 (no cancellation
+    in exp*(dΠ), dΠ ≥ 0) enters in Step 2. Self-duality enters in Step 3 (periodicity) and, through the FE, in L′(5). Π ≥ 0 enters twice:
+    zero-freeness on Re s > 1 (Step 4, feeding Saias–Weingartner) and positivity on the finitely generated monoid G (L′(3)–(4)). Weights
+    are allowed throughout; integrality of multiplicities is never used. (G′) enters only through Prop. R (as in BFE).
+(b) Saias–Weingartner Thm 4 is used with σ₁ = 1: it asserts ≍ T zeros in 1 < Re s < 1 + η for large T, which contradicts F = e^{convergent}
+    on Re s > 1. Their F_a is Σ_{n≥1}a_n n^{−s} with a q-periodic, exactly our F after Step 3. ✓
+(c) L′: D is only assumed finite. Its frequencies need not be integers, rational or even algebraic; the finiteness of S (primes on which
+    ζ and D interact) comes from Γ_D ∩ Q being finitely generated. The pole of F at s = 1 is not used in L′ (D is entire); it is used in
+    U_q Step 4 and D Step (5) to make ψ trivial. ✓
+(d) E2: the only input is the 2×2 minor of the positive-definite function (E′) at {0, 1}; the continuous part of w contributes no atom
+    because σ has countably many atoms. At q = 1 it reproduces BFE T2's "no continuous part". ✓
+(e) Theorem D: its only non-proved input is Q4 (secondary quote). Lemma S–W′ is an extension of a printed proof, read step by step
+    (§2.7); Lemma Q is elementary. If Q4 were misquoted (e.g. if Meyer's theorem needs u.d. support), Theorem D would shrink to U_q.
+(f) Where a solution of Q_cond can still hide (the complement of what is proved, sharpened): a Beurling system with (1) clustering
+    generalized integers (not u.d.), (2) atom masses c(x) ≤ ρ_q taking infinitely many values — i.e. WEIGHTED primes (Π-masses not of
+    the form 1/k at p^k) or a mixed system with a thin continuous part (∫u^{−1}dΠ_c ≤ log ρ_q), (3) ρ_q ≥ 1, (4) not of the form
+    ζ·(finite multiplier), (5) all the Fejér identities of §2.1. No such object is known; the rung-1 mechanism (§3(c)) does not
+    produce one, since it needs the pole of the base zeta in the conductor's local variables.
+(g) Numerics carry no load: v1 (examples), v2 Part A (identity (E), exact), v2 Part B and v4 (interval certificates that re-decide
+    special cases of L′/U_q), v3 (rung-1 table). The ξ^{−2} lesson (BFE §7) is respected: no theta value on a bounded range is used as
+    evidence; the one Gaussian check in v1 is accompanied by the Fejér pairing with an explicit tail bound.
+(h) Prior art (standing order 7). Nearest objects: Hamburger's theorem (ordinary series, conductor 1; BFE sources, Nakamura Thm D);
+    the degree-1 classification in the Selberg class, where a degree-1 function with a pole is ζ `[recalled, unverified: Kaczorowski–
+    Perelli; not load]` — U_q replaces Ramanujan and a rational-prime Euler product by Π ≥ 0 and u.d.; Saias–Weingartner (periodic
+    coefficients, Q-side); Lagarias 1999 (Delone Beurling integers, title/abstract only); Hilberdink–Lapidus (3.5) (open in print).
+    No statement of U_q, L′, E2 or D was found in the sources read here or in BFE §2/read-O §3. `[novelty: single-check]`
+
+## 5. CLOSE — T (for a stated class, at every conductor) + G (the named residue)
+
+T (unconditional, proved here; `[novelty: single-check]`):
+ • THEOREM U_q (§2.4). A Beurling system (dN = exp*(dΠ), dΠ ≥ 0, weights allowed) whose generalized integers are uniformly discrete
+   and whose Λ_F(s) = (q/π)^{s/2}Γ(s/2)F(s) satisfies Riemann's exact FE (poles only at 0, 1, simple; (G′)) has q = 1 and is ζ.
+ • THEOREM L′ (§2.3). No Beurling system of the form ζ·D, D a non-constant finite generalized Dirichlet polynomial (any real
+   frequencies), has Riemann's exact FE at any conductor. This covers every printed positive-coefficient solution (ζ(s)(1 + q^{½−s}),
+   F_{5,5}, the cone 𝒦_r with finitely many atoms, the radical families).
+ • COROLLARY E2 (§2.2). At every conductor, the continuous part of the prime measure satisfies ∫u^{−1}dΠ_c ≤ log ρ_q; no purely
+   continuous Beurling system has Riemann's exact FE at any conductor. With E1 (ρ_q ≥ 1), E3 (discrete systems are free) and §1.4.
+ • WHAT REPLACES THE FEJÉR GAP ARGUMENT. At q > 1 the gap (−q^{−1/2}, q^{−1/2}) no longer pins the integers (𝓜_r is large, §1.2);
+   instead, in the u.d. class, Lev–Olevskii + the monoid pigeonhole + Saias–Weingartner reduce F to ζ·D, and the LANDAU OBSTRUCTION
+   kills D: positivity of Π on the finitely generated monoid of D's frequencies, where the pole of ζ is invisible, forces D to be
+   zero-free on Re s > 0, and the FE reflects that to all of C.
+T given one printed theorem on disk only second-hand:
+ • THEOREM D (§2.7). Given Meyer's finite-values theorem (Q4: Kurasov–Sarnak's statement, u-20b 43–44; Lev–Olevskii's pointer,
+   1312.6884 63–68), every DISCRETE Beurling system with Riemann's exact FE at any conductor is ζ. Inputs: Lemma S–W′ (Saias–Weingartner
+   Thm 2 with radical weights, checked against their proof line by line) and Lemma Q.
+G (named residue — Q_cond is OPEN exactly here): Beurling systems with clustering (non-u.d.) generalized integers whose atom masses take
+infinitely many values (weighted primes, or mixed systems with a thin continuous part); and the primary of Q4 (Meyer, LNM 117, p. 25),
+whose reading would make D unconditional. No construction was found; no new Group-I control is claimed.
+STOP LINE (brief). Not "a printed theorem settles Q_cond" (none found); not "a verified system" (none); the certificate clause is met in
+the strong form available: inside the u.d. class EVERY q is excluded by Theorem U_q, and the reduced finite problem is independently
+certified infeasible at q = 2, 3, 4, 5, 6, 9, 25 (B = 4, 9, 32, 25, 108, 81, 625; v2) — the theorem those certificates prove is U_q.
+RUNG 1 (§3). On F₅, g = 1 positivity admits RH-false t = ±5; the linear Q-side constraints (the brief's LP) admit them too; the Landau
+obstruction is F2 with the pole term removed and admits no t — the exact reason the virtual-curve twin has no counterpart in the u.d.
+(and, given Q4, the discrete) class over Q.
+WHAT IT MEANS FOR THE PROGRAM. Digest B1 now holds at EVERY conductor inside the u.d. class — {Euler product, Λ ≥ 0, exact Riemann FE
+at any conductor, u.d. integers} has exactly one model, ζ — and, given Q4, for all discrete systems. Digest B5's "only unpaid price"
+(conductor q > 1 with Λ ≥ 0 and a DISCRETE system) is thereby paid in the negative (given Q4): the Q-side twin of the virtual curve, if
+it exists, is a weighted or mixed Beurling system with clustering integers and infinitely many distinct multiplicities.
+SUCCESSOR QUESTIONS (ranked). (1) Read Meyer 1970 (LNM 117, p. 25) or Córdoba 1989 at the page, to make Theorem D unconditional
+(fetch item). (2) Weighted discrete systems: does Q4-type structure hold for positive self-dual measures with unit-bounded but
+infinitely-valued masses (c ≤ ρ_q)? — the one analytic gap left in Q_cond. (3) A dual read of U_q, L′, E2, D (standing order 7).

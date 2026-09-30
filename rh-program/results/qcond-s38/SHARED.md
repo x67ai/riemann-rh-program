@@ -41,3 +41,27 @@ Append-only, dated blocks. Writer: Opus 5.5 (unit agent). Outputs only under `re
   N_n ≥ 0 and |α| ≤ 5 ⟺ t ∈ {−6..6}; Q-transplant ζ(s)L(5^{-s}): dN ≥ 0 ⟺ t ≤ 1, ρ ≥ 1 ⟺ t ≤ 5, Euler–Fejér at p = 2 ⟺ t ≤ 4,
   q-part positivity (= F2 with the pole factor 1/(1−5u) removed) ⟺ NO t. Matches Theorem L′.
 - NOTE §2.5 written. Next: §2.6 (beyond u.d.), §3 (dictionary), §4 (attack log), §5 close.
+
+## 2026-10-01 04:20 IST — batch 4 (beyond u.d.; conditional discrete theorem) landed
+- New sources [here]: arxiv-2104.06812 (Baake–Spindeler–Strungaru 2023: periodic and u.d. Fourier eigenmeasures classified;
+  general classification open, §8), arxiv-2605.23884 (Mazáč–Richard–Strungaru 2026, context), arxiv-2403.08659 (Lawton–Tsikh,
+  context). No primary of Meyer's 1970 finite-values theorem found; two printed secondary statements on disk (KS 43–44, LO15 63–68).
+- NOTE §1.5 (moved after §1.4): Q8 (BSS) + task-1 verdict. §2.6 (beyond u.d.). §2.7: Lemma S–W′ (S–W Thm 2 with radical-frequency
+  weights; proof checked step by step at lines 417–621 of the S–W text), Lemma Q (finitely valued quasi-periodic ⟹ periodic),
+  THEOREM D: given Meyer's theorem (Q4), every DISCRETE Beurling system with Riemann's FE at any conductor is ζ.
+- Remaining open: weighted/mixed systems with infinitely many distinct atom masses (Meyer not applicable); the primary of Q4.
+- Next: §3 rung-1 dictionary (verify/v3), §4 attack log, §5 close; re-check the digest.
+
+## 2026-10-01 04:55 IST — CLOSE: T (stated classes, every conductor) + G (named residue)
+- Digest landed during the unit (insights-digest.md, SHA-256 e86f642a…): §F.2 ranks this unit FIRST (line 352); quoted in NOTE §0.1,
+  and its five consolidator's notes are answered (§1.2, §1.2(b), §1.6 = read-O R4(4), v1/v2 Fejér/exact checks, §3).
+- T (unconditional): Theorem U_q (u.d. generalized integers ⟹ q = 1 and ζ; weights allowed); Theorem L′ (ζ·finite generalized
+  Dirichlet polynomial never reaches q ≠ 1 inside the Beurling class); Cor. E2 (∫u^{-1}dΠ_c ≤ log ρ_q; no continuous solution);
+  E1, E3, §1.4 Cor. 1–3; §1.6 (two-system version at conductor q: ratio band q^{-1/2} ≤ ρ₁/ρ₂ ≤ q^{1/2} sharp for measures; no
+  Beurling pair in the u.d. class).
+- T given Q4 (Meyer's finite-values theorem, on disk only via Kurasov–Sarnak 43–44 and Lev–Olevskii 2015 63–68): Theorem D — every
+  discrete Beurling system with Riemann's FE at any conductor is ζ (via Lemma S–W′, checked against the S–W proof lines 417–621).
+- G: open exactly for weighted/mixed systems with clustering integers and infinitely many distinct masses; fetch item: Meyer, LNM 117,
+  p. 25 (or Córdoba 1989) to make Theorem D unconditional.
+- verify/: v1 (examples), v2 (identity (E) exact; u.d. family certificates q = 2,3,4,5,6,9,25), v3 (rung-1 table), v4 (radical
+  family certificate). All logs on disk. No construction; no new control claimed. Nothing load-bearing is recalled.

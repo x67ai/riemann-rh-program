@@ -1,0 +1,138 @@
+[2026-10-01 02:55:09] start run_t3
+[2026-10-01 02:55:09] ./thin2 finite 1e8 2 3 5 7 11 13 > finite_2-13_1e8.csv
+real 0.24
+user 0.24
+sys 0.00
+[2026-10-01 02:55:09] ./thin2 finite 1e8 3 5 7 11 13 17 19 > finite_3-19_1e8.csv
+real 0.17
+user 0.16
+sys 0.00
+[2026-10-01 02:55:09] ./thin_fr greedy 0.75 1e10 2e10 2 > greedy_a0.75_c2.csv
+real 83.56
+user 83.34
+sys 0.20
+[2026-10-01 02:56:33] dumpR greedy 0.60 1e10 1 (greedy_a0.60_c1)
+dumped 78624 R-primes <= 10000000000
+real 24.54
+user 24.49
+sys 0.04
+real 0.01
+user 0.00
+sys 0.00
+[2026-10-01 02:56:57] dumpR greedy 0.75 1e10 1 (greedy_a0.75_c1)
+dumped 1952292 R-primes <= 10000000000
+real 24.79
+user 24.70
+sys 0.07
+real 0.20
+user 0.20
+sys 0.00
+[2026-10-01 02:57:22] dumpR greedy 0.60 1e10 2 (greedy_a0.60_c2)
+dumped 157246 R-primes <= 10000000000
+real 24.59
+user 24.54
+sys 0.05
+real 0.07
+user 0.07
+sys 0.00
+[2026-10-01 02:57:47] dumpR greedy 0.75 1e10 2 (greedy_a0.75_c2)
+dumped 3904582 R-primes <= 10000000000
+real 24.85
+user 24.75
+sys 0.08
+real 1.34
+user 1.34
+sys 0.00
+[2026-10-01 02:58:13] dumpR bern 0.75 1e10 1 (bern_a0.75_s1)
+dumped 1952670 R-primes <= 10000000000
+real 24.84
+user 24.75
+sys 0.08
+real 0.21
+user 0.21
+sys 0.00
+[2026-10-01 02:58:38] dumpR bern 0.60 1e10 1 (bern_a0.60_s1)
+dumped 78268 R-primes <= 10000000000
+real 24.70
+user 24.65
+sys 0.04
+real 0.01
+user 0.01
+sys 0.00
+[2026-10-01 02:59:03] dumpR bern 0.75 1e10 2 (bern_a0.75_s2)
+dumped 1952433 R-primes <= 10000000000
+real 24.79
+user 24.71
+sys 0.06
+real 0.18
+user 0.18
+sys 0.00
+[2026-10-01 02:59:28] dumpR bern 0.60 1e10 2 (bern_a0.60_s2)
+dumped 79202 R-primes <= 10000000000
+real 24.69
+user 24.63
+sys 0.05
+real 0.01
+user 0.01
+sys 0.00
+[2026-10-01 02:59:53] dumpR bern 0.75 1e10 3 (bern_a0.75_s3)
+dumped 1953926 R-primes <= 10000000000
+real 24.79
+user 24.72
+sys 0.06
+real 0.10
+user 0.10
+sys 0.00
+[2026-10-01 03:00:18] dumpR bern 0.60 1e10 3 (bern_a0.60_s3)
+dumped 78244 R-primes <= 10000000000
+real 24.71
+user 24.66
+sys 0.04
+real 0.01
+user 0.01
+sys 0.00
+[2026-10-01 03:00:43] dumpR bern 0.75 1e10 4 (bern_a0.75_s4)
+dumped 1949472 R-primes <= 10000000000
+real 24.83
+user 24.76
+sys 0.06
+real 0.16
+user 0.15
+sys 0.00
+[2026-10-01 03:01:08] dumpR bern 0.60 1e10 4 (bern_a0.60_s4)
+dumped 78279 R-primes <= 10000000000
+real 24.75
+user 24.69
+sys 0.05
+real 0.00
+user 0.00
+sys 0.00
+[2026-10-01 03:01:32] env RDUMP=rdump/feedback_a0.60_c1_K0.5_1e9.bin ./thin2 feedback 0.60 1e9 4e9 0.5 1 > feedback_a0.60_c1_K0.5_1e9.csv
+real 12.17
+user 12.14
+sys 0.02
+[2026-10-01 03:01:44] env RDUMP=rdump/feedback_a0.60_c1_K2_1e9.bin ./thin2 feedback 0.60 1e9 4e9 2 1 > feedback_a0.60_c1_K2_1e9.csv
+real 12.31
+user 12.28
+sys 0.02
+[2026-10-01 03:01:57] env RDUMP=rdump/feedback_a0.60_c1_K8_1e9.bin ./thin2 feedback 0.60 1e9 4e9 8 1 > feedback_a0.60_c1_K8_1e9.csv
+real 12.37
+user 12.34
+sys 0.02
+[2026-10-01 03:02:09] env RDUMP=rdump/feedback_a0.60_c2_K0.5_1e9.bin ./thin2 feedback 0.60 1e9 4e9 0.5 2 > feedback_a0.60_c2_K0.5_1e9.csv
+real 12.35
+user 12.32
+sys 0.02
+[2026-10-01 03:02:22] env RDUMP=rdump/feedback_a0.60_c2_K2_1e9.bin ./thin2 feedback 0.60 1e9 4e9 2 2 > feedback_a0.60_c2_K2_1e9.csv
+real 12.38
+user 12.34
+sys 0.02
+[2026-10-01 03:02:34] env RDUMP=rdump/feedback_a0.60_c2_K8_1e9.bin ./thin2 feedback 0.60 1e9 4e9 8 2 > feedback_a0.60_c2_K8_1e9.csv
+real 12.46
+user 12.43
+sys 0.02
+[2026-10-01 03:02:46] env RDUMP=rdump/feedback_a0.75_c1_K0.5_1e9.bin ./thin2 feedback 0.75 1e9 4e9 0.5 1 > feedback_a0.75_c1_K0.5_1e9.csv
+real 12.62
+user 12.59
+sys 0.03
+[2026-10-01 03:02:59] env RDUMP=rdump/feedback_a0.75_c1_K2_1e9.bin ./thin2 feedback 0.75 1e9 4e9 2 1 > feedback_a0.75_c1_K2_1e9.csv

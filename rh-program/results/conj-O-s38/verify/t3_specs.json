@@ -1,0 +1,231 @@
+[
+ {
+  "name": "rung1 finite {2..13}",
+  "csv": "data/finite_2-13_1e8.csv",
+  "alpha": null
+ },
+ {
+  "name": "rung1 finite {3..19}",
+  "csv": "data/finite_3-19_1e8.csv",
+  "alpha": null
+ },
+ {
+  "name": "T_0.60 X=1e10 s1-4",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/bern_a0.60.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "bern_a0.600_s1": "rn/bern_a0.60_s1.csv",
+   "bern_a0.600_s2": "rn/bern_a0.60_s2.csv",
+   "bern_a0.600_s3": "rn/bern_a0.60_s3.csv",
+   "bern_a0.600_s4": "rn/bern_a0.60_s4.csv"
+  }
+ },
+ {
+  "name": "T_0.75 X=1e10 s1-4",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/bern_a0.75.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "bern_a0.750_s1": "rn/bern_a0.75_s1.csv",
+   "bern_a0.750_s2": "rn/bern_a0.75_s2.csv",
+   "bern_a0.750_s3": "rn/bern_a0.75_s3.csv",
+   "bern_a0.750_s4": "rn/bern_a0.75_s4.csv"
+  },
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s10",
+  "csv": "data_big/bern_a0.75_s10.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s11",
+  "csv": "data_big/bern_a0.75_s11.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s12",
+  "csv": "data_big/bern_a0.75_s12.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s5",
+  "csv": "data_big/bern_a0.75_s5.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s6",
+  "csv": "data_big/bern_a0.75_s6.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s7",
+  "csv": "data_big/bern_a0.75_s7.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s8",
+  "csv": "data_big/bern_a0.75_s8.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.75 X=1e10 bern_a0.75_s9",
+  "csv": "data_big/bern_a0.75_s9.csv",
+  "alpha": 0.75,
+  "group": "T_0.75 X=1e10 s1-12"
+ },
+ {
+  "name": "T_0.90 X=1e10 s1-4",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/bern_a0.90.csv",
+  "alpha": 0.9
+ },
+ {
+  "name": "T_0.60 X=1e9 s1-8",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data/bern_a0.60.csv",
+  "alpha": 0.6
+ },
+ {
+  "name": "T_0.75 X=1e9 s1-8",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data/bern_a0.75.csv",
+  "alpha": 0.75
+ },
+ {
+  "name": "greedy c=1 a=0.60",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/greedy_a0.60.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "greedy_a0.600_s0": "rn/greedy_a0.60_c1.csv"
+  }
+ },
+ {
+  "name": "greedy c=1 a=0.75",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/greedy_a0.75.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "greedy_a0.750_s0": "rn/greedy_a0.75_c1.csv"
+  }
+ },
+ {
+  "name": "greedy c=1 a=0.90",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/greedy_a0.90.csv",
+  "alpha": 0.9
+ },
+ {
+  "name": "greedy c=2 a=0.60",
+  "csv": "../../novel-wave-s37/beurling-frontier/verify/data_big/greedy_a0.60_c2.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "greedy_a0.600_s0_c2": "rn/greedy_a0.60_c2.csv"
+  }
+ },
+ {
+  "name": "greedy c=2 a=0.75",
+  "csv": "data_big/greedy_a0.75_c2.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "greedy_a0.750_s0_c2": "rn/greedy_a0.75_c2.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=1 K=0.5 X=1e9",
+  "csv": "data/feedback_a0.60_c1_K0.5_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K0.5_c1": "rn/feedback_a0.60_c1_K0.5_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=1 K=2 X=1e9",
+  "csv": "data/feedback_a0.60_c1_K2_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K2_c1": "rn/feedback_a0.60_c1_K2_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=1 K=8 X=1e9",
+  "csv": "data/feedback_a0.60_c1_K8_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K8_c1": "rn/feedback_a0.60_c1_K8_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=2 K=0.5 X=1e9",
+  "csv": "data/feedback_a0.60_c2_K0.5_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K0.5_c2": "rn/feedback_a0.60_c2_K0.5_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=2 K=2 X=1e9",
+  "csv": "data/feedback_a0.60_c2_K2_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K2_c2": "rn/feedback_a0.60_c2_K2_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.60 c=2 K=8 X=1e9",
+  "csv": "data/feedback_a0.60_c2_K8_1e9.csv",
+  "alpha": 0.6,
+  "rnums": {
+   "feedback_a0.600_K8_c2": "rn/feedback_a0.60_c2_K8_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=1 K=0.5 X=1e9",
+  "csv": "data/feedback_a0.75_c1_K0.5_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K0.5_c1": "rn/feedback_a0.75_c1_K0.5_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=1 K=2 X=1e9",
+  "csv": "data/feedback_a0.75_c1_K2_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K2_c1": "rn/feedback_a0.75_c1_K2_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=1 K=8 X=1e9",
+  "csv": "data/feedback_a0.75_c1_K8_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K8_c1": "rn/feedback_a0.75_c1_K8_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=2 K=0.5 X=1e9",
+  "csv": "data/feedback_a0.75_c2_K0.5_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K0.5_c2": "rn/feedback_a0.75_c2_K0.5_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=2 K=2 X=1e9",
+  "csv": "data/feedback_a0.75_c2_K2_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K2_c2": "rn/feedback_a0.75_c2_K2_1e9.csv"
+  }
+ },
+ {
+  "name": "feedback a=0.75 c=2 K=8 X=1e9",
+  "csv": "data/feedback_a0.75_c2_K8_1e9.csv",
+  "alpha": 0.75,
+  "rnums": {
+   "feedback_a0.750_K8_c2": "rn/feedback_a0.75_c2_K8_1e9.csv"
+  }
+ }
+]

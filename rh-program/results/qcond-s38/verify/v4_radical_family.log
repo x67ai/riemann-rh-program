@@ -1,0 +1,9 @@
+FE check D(1-s) = 2^{s-1/2} D(s) at a = 0.7, s = 0.3+2.1i: 3.2469e-41
+coefficient u^2 = -a**2/2 + 1 + sqrt(2) < 0 for a > 2.2073682 (decreasing in a >= 0)
+[0, 2.20737] covered: 7 pieces, failures 0
+   a in [0.0, 0.55184206]: negative coefficient u^4 (freq 2^(4/2))
+   a in [0.55184206, 1.9314472]: negative coefficient u^3 (freq 2^(3/2))
+   a in [1.9314472, 2.2073682]: negative coefficient u^5 (freq 2^(5/2))
+zeta(1 + b 2^(-s/2)), b = 1/2: Pi(2^(k/2)) k=1..12 min = 0.0000; first negative k = None
+zeta(1 + b 2^(-s/2)), b = 1: Pi(2^(k/2)) k=1..12 min = 0.0833; first negative k = None
+zeta(1 + b 2^(-s/2)), b = 2**(1/4): Pi(2^(k/2)) k=1..12 min = -0.5000; first negative k = 6
