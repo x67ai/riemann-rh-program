@@ -132,7 +132,8 @@ int main(int argc, char **argv) {
         for (int j = 0; j <= K; j++) { double hi = pow(10.0, (double)(j + 1) / BPD); if (hi > X) hi = X; psiR_at[j] /= pow(hi, alpha) / alpha; }
         double tail = -cmult * E1((1.0 - alpha) * log((double)Y));
         double rho = exp(logrho + tail);
-        char run[64]; snprintf(run, sizeof run, "%s_a%.3f_s%llu%s", mode, alpha, (unsigned long long)seed, cmult != 1.0 ? (cmult == 2.0 ? "_c2" : "_cX") : "");
+        char run[64]; if (cmult != 1.0) snprintf(run, sizeof run, "%s_a%.3f_s%llu_c%g", mode, alpha, (unsigned long long)seed, cmult);
+        else snprintf(run, sizeof run, "%s_a%.3f_s%llu", mode, alpha, (unsigned long long)seed);
         printf("# run=%s alpha=%.4f X=%llu Y=%llu nR(Y)=%llu nR(X)=%llu logrho_Y=%.12f tail=%.12f rho=%.12f\n", run, alpha,
                (unsigned long long)X, (unsigned long long)Y, (unsigned long long)nR, (unsigned long long)nRX, logrho, tail, rho);
         fflush(stdout);
