@@ -130,3 +130,40 @@ moments has an n-th convolution root with the same property for every n, so φ =
 is divisible by every n, hence there is none. ✓ So the tilted Riemann kernel Φ(u)e^{εu} is never infinitely divisible, whatever
 the truth of RH" (`tn/read-F.md` §1). "The zoo gains exactly two things from this seed: the control 'virtual curve over F₅' … and
 the T6 lemma" (`tn/read-F.md` §3). Deep-dive probability estimates, as the writer gave them: DD1 "< 0.5%", DD2 "< 0.5%", DD3 "< 0.3%".
+
+## §B Cross-seed structure — what the four closes have in common (propositions with pointers; each is the sources' statement)
+
+B1 (the density is archimedean). ξ's zero density "is purely archimedean: (1/2π)·log(t/2π)", while inner prime channels "add zero
+   density ⟨d, log p⟩/2π ≥ |d|·log 2/2π at every height, with error at most |d|" (`ly/NOTE.md` §0; Theorem 1, Corollary 2);
+   a prime part of weight W "can only 'switch on' above height 2π·e^W" (Proposition 4). The reader's sharpening (`ly/read-F.md`
+   §3(a)): "the primes must enter with ZERO net winding — as a phase arg ζ(½+it) = πS(t) that is a boundary value of log of an
+   OUTER function on Re s > ½ … 'Primes in the outer part' is therefore not a design choice but a restatement of RH; the design
+   problem is to find a positivity generator that FORCES outerness." Same fact from N4: "ξ's zeros are collective: archimedean
+   density plus a bounded prime correction; no prime owns one" (`tn/NOTE.md` §4(a)); from N2: the C2 Euler factor acts "only in
+   the Γ-dominated region Re s ≳ σ_c(t), where the zeros are already off the line" (`st/NOTE.md` §10 item 4).
+B2 (one single-prime obstruction, two coordinate systems). Lee–Yang coordinates: the local factor "1 + (a/√q)z + z², Lee–Yang
+   exactly when a ≤ 2√q" (`ly/NOTE.md` §5), the conductor-q² family "crossing the RH boundary at b = 2√q" (§6 (2)). Fingerprint
+   coordinates: positivity preserved for every input iff |a| ≤ 2√q, destroyed for every input when |a| > 2√q (`fp/NOTE.md` §6,
+   Theorem D(ii)–(iii)); ζ's factor "misses the Lee–Yang class by the AM–GM gap (√p − 1)². This is the precise single-prime
+   obstruction for seed N1" (`fp/NOTE.md` §11). The reader: "ONE single-prime obstruction seen in two coordinate systems"
+   (`fp/read-F.md` §3(a)). Both sides of the boundary are dead: "Anything built prime by prime either carries zeros periodically
+   at every height (T2, T5, T16; N1 Theorem K …) or carries them at Re s ∈ {0, 1} (T3; N3 Theorem D)" (`tn/NOTE.md` §4(a)).
+B3 (approximation staircases are height filtrations). N2 Proposition F: the induction step's "missing lemma is literally 'no zero
+   of ξ off the line with T_N < γ ≤ T_{N+1}'" (`st/NOTE.md` §2). The same shape elsewhere: N1's receding threshold 2π·e^W
+   (Proposition 4); N3's index–height dictionary t_n ≈ 2n/W(qn/2π), failure at n_WKB(T) + lag (`fp/NOTE.md` §4, §5); N4 T29 "DEAD —
+   filtration; axiom-blind" (`tn/NOTE.md` §3).
+B4 (no early warning). "There is no early warning: the IV.9 'deceptive' regime, measured" (`fp/NOTE.md` §5); the staircase
+   controls break "exactly when the member's window first covers the limit's off-line zero (visibility), and nothing earlier"
+   (`st/NOTE.md` §5); the Krein–Langer kernel sees an off-line zero "only within ≈ 10 units of height at 60–90 digits"
+   (`tn/NOTE.md` §2.2); the exact squeeze only at "X ≳ |ρ|^{1/δ}" (§2.3).
+B5 (approximants of an RH-true function are not RH-true). ξ₂₄ and Haglund's Ξ₂₇ have in-strip off-line zeros "at heights where the
+   limit has none … false positives of the same shape as the controls' true off-line zeros" (`st/NOTE.md` §9); N1's analytic
+   archimedean models A(s) + χ(s)A(1−s) acquire off-line zeros "exactly when min_I φ′ < 0" (`ly/NOTE.md` §3).
+B6 (what survives the controls is a re-dress). The fingerprint is "Weil positivity with multiplier 1" (`fp/NOTE.md` §0); "Every
+   EQUIV row, stripped of its failed generator, is Weil/Li/Lagarias positivity with multiplier 1" (`tn/NOTE.md` §4); the
+   Taylor–Lagarias chain's HB invariant "IS the zero-free region" (`st/NOTE.md` §9); the Hamburger acceptance test "collapses to
+   Hilbert–Pólya plus a converse theorem" (`ly/NOTE.md` §6 (4)).
+B7 (the Euler product enters as an axiom filter, never as a generator). N1 passes zoo I.1 "at the axiom level" but is "blind to ζ's
+   zeros" (`ly/NOTE.md` §5); N2's generator "holds verbatim for the RH-false positive Euler product F_{2.9,2}" (`st/NOTE.md` §0 Z₄);
+   N3: "S1: no Euler-product input is consumed" (`fp/NOTE.md` §9); N4: Λ ≥ 0 separates the three controls over Q, but the virtual
+   curve has "Euler product, Λ ≥ 0, FE and rationality and violates RH" (`tn/NOTE.md` §4 (4)).

@@ -33,3 +33,7 @@ Deliverables: `insights-digest.md` (the wave's insights digest, §A–§G) and `
 - Read tournament read-F.md, NOTE.md (§0, §1 T6/T15 rows, §2, §3, §4), SHARED.md (all block headers + blocks 1-3, 10-14).
 - §G notes (N4): predecessor agent died emitting > 128k output in one response (block 3); replacement rebuilt from SHARED;
   tally correction (block 10). Next: haglund-cert-s37 BRIEF + producer-A CERT, then s37 charter §0, then §B.
+
+## 2026-09-30 23:47 — CERT, BRIEF, s37 charter §0 read; §B written (B1-B7)
+- producer-A CERT: H1-H4 rigorous (Arb), H2 winding k = 1 at r = 4e-11, H5 (xi_24) done; CERT.md hash b1ecfe0a... (producer-A SHARED).
+- NOTE: a producer-B CERT.md appeared on disk at 23:07 during this run; NOT read (not an input); flagged in §D and in the report.

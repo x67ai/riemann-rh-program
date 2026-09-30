@@ -85,3 +85,52 @@ def point(x, y='0'):
 
 def fmt(F, n=15):
     return F.nstr(n)
+
+
+# ---- optional H5: the seed chain xi_N(s) = 1/2 + (1/2) s (s-1) sum_{n<=N} g_n(s)  (staircase NOTE section 1) ----
+def g_n(n, z, relbits):
+    """g_n(s) = X^{-s/2} Gamma(s/2, X) + X^{-(1-s)/2} Gamma((1-s)/2, X) = h(s/2) + h((1-s)/2),  X = pi n^2."""
+    s = s_of(z)
+    X = iv.pi * n * n
+    half = R('0.5')
+    out = C(0)
+    for w in (s * half, (1 - s) * half):
+        h, meth = h_enclose(w, X, relbits)
+        STATS['methods'][(n, 'g-' + meth)] = STATS['methods'].get((n, 'g-' + meth), 0) + 1
+        out = out + h
+    return out
+
+
+def seed_tail_bound(M, z):
+    """|sum_{n>M} (1/2) s(s-1) g_n(s)| <= 4 |s(s-1)| e^{-X0}/X0, X0 = pi (M+1)^2, if X0 >= max(2 beta, 12), M+1 >= 2
+    (|h(w)| <= e^{-X}/(X - beta) <= 2 e^{-X}/X; consecutive terms have ratio (n/(n+1))^2 e^{-pi(2n+1)} < 1/2)."""
+    s = s_of(z)
+    half = R('0.5')
+    beta = max(max(hi(w.re) - 1, 0) for w in (s * half, (1 - s) * half))
+    X0 = iv.pi * (M + 1) ** 2
+    if not (M + 1 >= 2 and lo(X0) >= max(2 * beta, 12)):
+        raise ValueError('seed_tail_bound hypotheses fail')
+    return hi(4 * R((s * (s - 1)).absup()) * iv.exp(-X0) / X0)
+
+
+def xiN_seed_tail(N, z, relbits):
+    """xi_N(s) = xi(s) - (1/2) s (s-1) sum_{n>N} g_n(s)   [Riemann: xi = 1/2 + (1/2) s(s-1) sum_{n>=1} g_n; NOTE section 1]."""
+    s = s_of(z)
+    M = N + 3
+    while seed_tail_bound(M, z) > mp.mpf('1e-80'):
+        M += 1
+    STATS['M'] = M
+    pref = s * (s - 1) * R('0.5')
+    F = Xi(z, relbits)
+    for n in range(N + 1, M + 1):
+        F = F - pref * g_n(n, z, relbits)
+    return F.widen(seed_tail_bound(M, z))
+
+
+def xiN_seed_lit(N, z, relbits):
+    """the defining finite sum 1/2 + (1/2) s(s-1) sum_{n<=N} g_n(s) (for low-N cross-checks only)."""
+    s = s_of(z)
+    S = C(0)
+    for n in range(1, N + 1):
+        S = S + g_n(n, z, relbits)
+    return S * (s * (s - 1) * R('0.5')) + R('0.5')
