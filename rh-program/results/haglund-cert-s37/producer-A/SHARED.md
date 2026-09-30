@@ -19,3 +19,9 @@
   1516 pieces, total ΔArg = 6.28318530717959 ± 3.5e-15, winding = 1 (certified).
 - R3: zero-free controls, same code: (a) centre shifted +0.5, r = 0.1 -> winding 0; (b) centre shifted +3e-10, r = 1e-10
   (zero 2e-10 outside) -> winding 0.
+
+## 2026-09-30 23:00 — stage 2: H1 CERTIFIED by both routes (+ H4) (`h1.py` -> `h1.log`, 10.4 s)
+- Ξ₂₇(3144.8946) ∈ −1.76019463127752e-1070 ± 5.0e-1138 (T, 256 bits) ± 3.2e-1435 (L, 4800 bits) ± 6.0e-1915 (L, 6400 bits);
+  Ξ₂₇(3144.8947) ∈ +1.06871649226171e-1070 (same radii). Certified sign change -> real zero in (3144.8946, 3144.8947).
+- H4: Ξ₂₇(3145.5998) ∈ +1.12975694291664e-1070, Ξ₂₇(3145.5999) ∈ −1.14913915362778e-1070 -> real zero in (3145.5998, 3145.5999).
+- L/T overlap at all four endpoints, |L − T| ≤ 5.1e-1138. Values agree with the orchestrator's reference (BRIEF §2).
