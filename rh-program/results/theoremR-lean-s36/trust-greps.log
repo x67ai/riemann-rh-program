@@ -1,0 +1,57 @@
+== Wed Sep 30 17:36:53 IST 2026 KICKSTART 10(j) trust greps, comments stripped, tools/trust_greps_s36.py (the H4/H5 tool; docstring and default list changed); the six Lean files (three program modules, three topic files) passed one per word
+-- on the build tree /Users/jaytyagi/rh-lean-work/checker-clone-s33-h4
+comparator/Challenge/ResidueRank.lean:53: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:61: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:69: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:78: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:88: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:99: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:107: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:114: [sorry] sorry
+files present: 6; hits outside comments: 8
+exit=1
+-- on the program tree rh-program/lean
+comparator/Challenge/ResidueRank.lean:53: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:61: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:69: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:78: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:88: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:99: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:107: [sorry] sorry
+comparator/Challenge/ResidueRank.lean:114: [sorry] sorry
+files present: 6; hits outside comments: 8
+exit=1
+== raw grep (comments included) for the nine trust words, the six Lean files and the config, program tree, for the record
+comparator/Challenge/ResidueRank.lean:43:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/ResidueRank.lean:53:  sorry
+comparator/Challenge/ResidueRank.lean:61:  sorry
+comparator/Challenge/ResidueRank.lean:69:  sorry
+comparator/Challenge/ResidueRank.lean:78:  sorry
+comparator/Challenge/ResidueRank.lean:88:  sorry
+comparator/Challenge/ResidueRank.lean:99:  sorry
+comparator/Challenge/ResidueRank.lean:107:  sorry
+comparator/Challenge/ResidueRank.lean:114:  sorry
+comparator/PrintAxioms/ResidueRank.lean:12:comparator/PrintAxioms/ResidueRank.lean — quick axiom audit of the ResidueRank topic WITHOUT the comparator tool:
+comparator/PrintAxioms/ResidueRank.lean:15:No sorryAx, no Lean.ofReduceBool, no other axiom.  The comparator run (config-residue-rank.json) is the stronger check: it also
+raw-grep exit=0 (1 = no line)
+== imports (program tree)
+Zeta23/ResidueRank/LogPrimes.lean: import Mathlib 
+Zeta23/ResidueRank/Pair.lean: import Zeta23.ResidueRank.LogPrimes 
+Zeta23/ResidueRank/GenusBound.lean: import Mathlib 
+comparator/Challenge/ResidueRank.lean: import Mathlib 
+comparator/Solution/ResidueRank.lean: import Zeta23.ResidueRank.Pair import Zeta23.ResidueRank.GenusBound 
+comparator/PrintAxioms/ResidueRank.lean: import Solution.ResidueRank 
+== no import of the challenge anywhere but PrintAxioms-free; the solution imports:
+22:import Zeta23.ResidueRank.Pair
+23:import Zeta23.ResidueRank.GenusBound
+import-Challenge grep exit=1 (1 = none)
+== set_option / attribute lines in the six files (none expected beyond none)
+exit=1 (1 = none)
+== mirror: build tree vs program tree, cmp, the six Lean files + the config
+IDENTICAL Zeta23/ResidueRank/LogPrimes.lean 1d5f4e28a9612ec0
+IDENTICAL Zeta23/ResidueRank/Pair.lean 4fc07998bf03dd0c
+IDENTICAL Zeta23/ResidueRank/GenusBound.lean d24145eb8a19cb08
+IDENTICAL comparator/Challenge/ResidueRank.lean 65e76f2e7b871e2a
+IDENTICAL comparator/Solution/ResidueRank.lean ff32e5c2cd607436
+IDENTICAL comparator/PrintAxioms/ResidueRank.lean cf0e05c33cc767fd
+IDENTICAL comparator/config-residue-rank.json fd170488ce283603

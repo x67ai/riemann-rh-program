@@ -1,0 +1,111 @@
+== Wed Sep 30 17:36:41 IST 2026 statement identity, tools/statement_identity_s36.py (the H4/H5 extraction; sections A–D); roots: the build tree and the program tree rh-program/lean; the eight names one per word
+[A] challenge vs solution under /Users/jaytyagi/rh-lean-work/checker-clone-s33-h4
+log_primes_linearIndependent     challenge   109 bytes, solution   109 bytes: IDENTICAL
+    theorem log_primes_linearIndependent :
+        LinearIndependent ℚ (fun p : Nat.Primes => Real.log ((p : ℕ) : ℝ))
+span_log_not_finite              challenge   223 bytes, solution   223 bytes: IDENTICAL
+    theorem span_log_not_finite (N : Nat.Primes → ℕ) (hpos : ∀ p, 0 < N p)
+        (hdvd : ∀ p : Nat.Primes, (p : ℕ) ∣ N p) :
+        ¬ Module.Finite ℚ
+          (Submodule.span ℚ (Set.range fun p : Nat.Primes => Real.log ((N p : ℕ) : ℝ)))
+rank_span_log_le                 challenge   244 bytes, solution   244 bytes: IDENTICAL
+    theorem rank_span_log_le {ι : Type} (S : Finset ℕ) (N : ι → ℕ) (hpos : ∀ i, 0 < N i)
+        (hsupp : ∀ i p, p.Prime → p ∣ N i → p ∈ S) :
+        Module.rank ℚ (Submodule.span ℚ (Set.range fun i => Real.log ((N i : ℕ) : ℝ)))
+          ≤ (S.card : Cardinal)
+lemmaF_finite_fiber              challenge   300 bytes, solution   300 bytes: IDENTICAL
+    theorem lemmaF_finite_fiber {ι : Type} (cls : ℕ → ι) (v : ι → ℝ) (κ : ℝ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ cls m = cls n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (cls n)))
+        (n : ℕ) (hn : 2 ≤ n) :
+        {m : ℕ | IsPrimePow m ∧ cls m = cls n}.Finite
+lemmaF_infinite_order            challenge   371 bytes, solution   371 bytes: IDENTICAL
+    theorem lemmaF_infinite_order {E : Type} [Monoid E] (φ : ℕ → E)
+        (hmul : ∀ a b : ℕ, φ (a * b) = φ a * φ b) (v : E → ℝ) (κ : ℝ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ φ m = φ n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (φ n)))
+        (p : ℕ) (hp : p.Prime) (a k : ℕ) (ha : 1 ≤ a) (hk : 1 ≤ k) :
+        φ (p ^ a) ≠ φ (p ^ (a + k))
+theoremR                         challenge   330 bytes, solution   330 bytes: IDENTICAL
+    theorem theoremR {ι : Type} (cls : ℕ → ι) (v : ι → ℝ) (κ : ℝ) (hκ : 0 < κ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ cls m = cls n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (cls n))) :
+        ¬ Module.Finite ℚ
+          (Submodule.span ℚ (Set.range fun n : {n : ℕ // 2 ≤ n} => v (cls (n : ℕ))))
+theoremS_bound                   challenge   203 bytes, solution   203 bytes: IDENTICAL
+    theorem theoremS_bound (g x L : ℝ) (hg : 0 ≤ g)
+        (h1 : (1 + x - L) ^ 2 ≤ 4 * g ^ 2 * x)
+        (h2 : (1 + x ^ 2 - L) ^ 2 ≤ 4 * g ^ 2 * x ^ 2) :
+        L ≤ (1 + 2 * g) * (1 + (1 + Real.sqrt (1 + 8 * g)) / 2)
+theoremS                         challenge   256 bytes, solution   256 bytes: IDENTICAL
+    theorem theoremS (κ g : ℝ) (hκ : 0 < κ) (hg : 0 ≤ g) (d : ℕ → ℝ)
+        (h1 : ∀ p : ℕ, p.Prime → (1 + d p - Real.log (p : ℝ) / κ) ^ 2 ≤ 4 * g ^ 2 * d p)
+        (h2 : ∀ p : ℕ, p.Prime →
+          (1 + d p ^ 2 - Real.log (p : ℝ) / κ) ^ 2 ≤ 4 * g ^ 2 * d p ^ 2) : False
+[A] challenge vs solution under /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/lean
+log_primes_linearIndependent     challenge   109 bytes, solution   109 bytes: IDENTICAL
+    theorem log_primes_linearIndependent :
+        LinearIndependent ℚ (fun p : Nat.Primes => Real.log ((p : ℕ) : ℝ))
+span_log_not_finite              challenge   223 bytes, solution   223 bytes: IDENTICAL
+    theorem span_log_not_finite (N : Nat.Primes → ℕ) (hpos : ∀ p, 0 < N p)
+        (hdvd : ∀ p : Nat.Primes, (p : ℕ) ∣ N p) :
+        ¬ Module.Finite ℚ
+          (Submodule.span ℚ (Set.range fun p : Nat.Primes => Real.log ((N p : ℕ) : ℝ)))
+rank_span_log_le                 challenge   244 bytes, solution   244 bytes: IDENTICAL
+    theorem rank_span_log_le {ι : Type} (S : Finset ℕ) (N : ι → ℕ) (hpos : ∀ i, 0 < N i)
+        (hsupp : ∀ i p, p.Prime → p ∣ N i → p ∈ S) :
+        Module.rank ℚ (Submodule.span ℚ (Set.range fun i => Real.log ((N i : ℕ) : ℝ)))
+          ≤ (S.card : Cardinal)
+lemmaF_finite_fiber              challenge   300 bytes, solution   300 bytes: IDENTICAL
+    theorem lemmaF_finite_fiber {ι : Type} (cls : ℕ → ι) (v : ι → ℝ) (κ : ℝ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ cls m = cls n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (cls n)))
+        (n : ℕ) (hn : 2 ≤ n) :
+        {m : ℕ | IsPrimePow m ∧ cls m = cls n}.Finite
+lemmaF_infinite_order            challenge   371 bytes, solution   371 bytes: IDENTICAL
+    theorem lemmaF_infinite_order {E : Type} [Monoid E] (φ : ℕ → E)
+        (hmul : ∀ a b : ℕ, φ (a * b) = φ a * φ b) (v : E → ℝ) (κ : ℝ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ φ m = φ n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (φ n)))
+        (p : ℕ) (hp : p.Prime) (a k : ℕ) (ha : 1 ≤ a) (hk : 1 ≤ k) :
+        φ (p ^ a) ≠ φ (p ^ (a + k))
+theoremR                         challenge   330 bytes, solution   330 bytes: IDENTICAL
+    theorem theoremR {ι : Type} (cls : ℕ → ι) (v : ι → ℝ) (κ : ℝ) (hκ : 0 < κ)
+        (hA9 : ∀ n : ℕ, 2 ≤ n →
+          HasSum (fun m : {m : ℕ // 2 ≤ m ∧ cls m = cls n} => ArithmeticFunction.vonMangoldt (m : ℕ))
+            (κ * v (cls n))) :
+        ¬ Module.Finite ℚ
+          (Submodule.span ℚ (Set.range fun n : {n : ℕ // 2 ≤ n} => v (cls (n : ℕ))))
+theoremS_bound                   challenge   203 bytes, solution   203 bytes: IDENTICAL
+    theorem theoremS_bound (g x L : ℝ) (hg : 0 ≤ g)
+        (h1 : (1 + x - L) ^ 2 ≤ 4 * g ^ 2 * x)
+        (h2 : (1 + x ^ 2 - L) ^ 2 ≤ 4 * g ^ 2 * x ^ 2) :
+        L ≤ (1 + 2 * g) * (1 + (1 + Real.sqrt (1 + 8 * g)) / 2)
+theoremS                         challenge   256 bytes, solution   256 bytes: IDENTICAL
+    theorem theoremS (κ g : ℝ) (hκ : 0 < κ) (hg : 0 ≤ g) (d : ℕ → ℝ)
+        (h1 : ∀ p : ℕ, p.Prime → (1 + d p - Real.log (p : ℝ) / κ) ^ 2 ≤ 4 * g ^ 2 * d p)
+        (h2 : ∀ p : ℕ, p.Prime →
+          (1 + d p ^ 2 - Real.log (p : ℝ) / κ) ^ 2 ≤ 4 * g ^ 2 * d p ^ 2) : False
+[B] challenge (/Users/jaytyagi/rh-lean-work/checker-clone-s33-h4/comparator/Challenge/ResidueRank.lean) vs probe (/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/theoremR-lean-s36/typing-probe.lean)
+log_primes_linearIndependent     challenge   109 bytes, probe   109 bytes: IDENTICAL
+span_log_not_finite              challenge   223 bytes, probe   223 bytes: IDENTICAL
+rank_span_log_le                 challenge   244 bytes, probe   244 bytes: IDENTICAL
+lemmaF_finite_fiber              challenge   300 bytes, probe   300 bytes: IDENTICAL
+lemmaF_infinite_order            challenge   371 bytes, probe   371 bytes: IDENTICAL
+theoremR                         challenge   330 bytes, probe   330 bytes: IDENTICAL
+theoremS_bound                   challenge   203 bytes, probe   203 bytes: IDENTICAL
+theoremS                         challenge   256 bytes, probe   256 bytes: IDENTICAL
+[C] config theorem_names order vs challenge order
+config:    ['ResidueRank.log_primes_linearIndependent', 'ResidueRank.span_log_not_finite', 'ResidueRank.rank_span_log_le', 'ResidueRank.lemmaF_finite_fiber', 'ResidueRank.lemmaF_infinite_order', 'ResidueRank.theoremR', 'ResidueRank.theoremS_bound', 'ResidueRank.theoremS']
+challenge: ['log_primes_linearIndependent', 'span_log_not_finite', 'rank_span_log_le', 'lemmaF_finite_fiber', 'lemmaF_infinite_order', 'theoremR', 'theoremS_bound', 'theoremS']
+ORDER PASS
+    permitted_axioms: ['propext', 'Quot.sound', 'Classical.choice']  enable_nanoda: True  modules: Challenge.ResidueRank Solution.ResidueRank
+[D] whole text from `import Mathlib` to the end: challenge vs probe
+challenge tail 3536 bytes, probe tail 3536 bytes: IDENTICAL
+RESULT: PASS
+exit=0

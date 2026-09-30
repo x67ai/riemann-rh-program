@@ -1,0 +1,20 @@
+{
+  "challenge_module": "Challenge.ResidueRank",
+  "solution_module": "Solution.ResidueRank",
+  "theorem_names": [
+    "ResidueRank.log_primes_linearIndependent",
+    "ResidueRank.span_log_not_finite",
+    "ResidueRank.rank_span_log_le",
+    "ResidueRank.lemmaF_finite_fiber",
+    "ResidueRank.lemmaF_infinite_order",
+    "ResidueRank.theoremR",
+    "ResidueRank.theoremS_bound",
+    "ResidueRank.theoremS"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

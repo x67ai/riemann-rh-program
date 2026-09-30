@@ -1,0 +1,28 @@
+== Wed Sep 30 17:32:56 IST 2026 /usr/bin/time -l lake build Zeta23.ResidueRank.LogPrimes in /Users/jaytyagi/rh-lean-work/checker-clone-s33-h4
+✔ [8697/8697] Built Zeta23.ResidueRank.LogPrimes (3.2s)
+Build completed successfully (8697 jobs).
+        6.05 real         4.39 user         4.26 sys
+          5878202368  maximum resident set size
+           320725384  peak memory footprint
+exit=
+== Wed Sep 30 17:33:02 IST 2026 /usr/bin/time -l lake build Zeta23.ResidueRank.Pair in /Users/jaytyagi/rh-lean-work/checker-clone-s33-h4
+✔ [8698/8698] Built Zeta23.ResidueRank.Pair (3.1s)
+Build completed successfully (8698 jobs).
+        5.09 real         4.15 user         4.14 sys
+          5872795648  maximum resident set size
+           318005640  peak memory footprint
+exit=
+== Wed Sep 30 17:33:07 IST 2026 /usr/bin/time -l lake build Zeta23.ResidueRank.GenusBound in /Users/jaytyagi/rh-lean-work/checker-clone-s33-h4
+✔ [8697/8697] Built Zeta23.ResidueRank.GenusBound (7.3s)
+Build completed successfully (8697 jobs).
+        9.39 real         8.33 user         4.19 sys
+          5904596992  maximum resident set size
+           321315280  peak memory footprint
+exit=
+== Wed Sep 30 17:33:26 IST 2026 note: the three empty exit= lines above are a zsh artifact (PIPESTATUS is bash-only); re-check under bash, one lake at a time (no-op builds, cached; Lake replays stored warnings, none):
+Build completed successfully (8697 jobs).
+exit=0 (Zeta23.ResidueRank.LogPrimes)
+Build completed successfully (8698 jobs).
+exit=0 (Zeta23.ResidueRank.Pair)
+Build completed successfully (8697 jobs).
+exit=0 (Zeta23.ResidueRank.GenusBound)

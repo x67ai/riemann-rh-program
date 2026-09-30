@@ -109,3 +109,12 @@ prime — not needed.) `hg` is removable (E5). First violating primes for a few 
 3. `Zeta23/ResidueRank/GenusBound.lean` (items 7–8): item 7 on E7's route (`nlinarith` with the hint terms), item 8 from item 7 and
    `Nat.exists_infinite_primes` at a prime above exp(κ · bound).
 4. The topic, the checks, the comparator run with nanoda; then BUILD-NOTES, FIDELITY, the yaml rows, the README section, hashes.
+
+## §4 Addendum after the build (Wed Sep 30 17:35:08 IST 2026) — the removable hypotheses, kernel-checked on the program side
+
+Every "removable" claim of §2 is now a Lean theorem on the program side (NOT a statement of the Comparator topic, which ships the
+probe's eight statements verbatim): E1 — `Zeta23.ResidueRank.theoremR_of_A9` (Theorem R with no hypothesis on κ; `theoremR` is its
+corollary with the binder `_hκ`); E2 — `lemmaF_finite_fiber_all` (no `2 ≤ n`); E3 — `lemmaF_infinite_order_all` (no `1 ≤ a`);
+E4 — `rank_span_log_le_of_supp` (no positivity; an N i = 0 contributes Real.log 0 = 0 — shorter than the §2 argument, which stays
+true); E5 — `theoremS_abs` (no `0 ≤ g`). All with the three standard axioms (`program-axioms.log`). The necessity claims of §1
+(item 2's `hpos`/`hdvd`, item 7's `hg`, item 8's `hκ`) are hand counterexamples, not Lean statements.
