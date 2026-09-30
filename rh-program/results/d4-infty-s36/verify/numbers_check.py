@@ -392,11 +392,16 @@ def report(G, d, kap, Nm):
     c = C_THETA
     Cb = math.log(2*kap*d/((d - 1)*c))
     Call = max(Cb, Cobs)
-    Hs = [kap*d**(N+1)/(d-1) - c - (N/2)*(N*math.log(d) + Cb) - kap*N for N in range(Nm + 1, 2001)]
-    tgt = [kap*(1 + d**N) - kap*N/2 - kap*d**(N/2 + 1)/(d - 1) - (N/4)*((N/2)*math.log(d) + Call) for N in range(Nm + 1, 2001)]
-    print(f'  tail: C = log(2 kappa d/((d-1)c)) = {Cb:.4f}; H(N) >= 0 for all Nmax < N <= 2000: {min(Hs) >= 0} (min {min(Hs):.3e}); '
-          f'targets > 0 there: {min(tgt) > 0}; e^C d^N > N/(2c) there: {all(math.exp(Cb)*d**N > N/(2*c) for N in range(Nm+1, 2001))}')
-    tail = sum((N*math.log(d) + Call)/kap * d**(-N/2) for N in range(Nm + 1, 4001))
+    # H(N) = kappa d^(N+1)/(d-1) - c - (N/2)(N log d + C) - kappa N >= 0, compared in log space (no overflow), N up to 5000
+    ld = math.log(d)
+    Hok = all(math.log(kap/(d - 1)) + (N + 1)*ld > math.log(c + (N/2)*(N*ld + Cb) + kap*N) for N in range(Nm + 1, 5001))
+    Hmin_rel = min(1 - math.exp(math.log(c + (N/2)*(N*ld + Cb) + kap*N) - (math.log(kap/(d - 1)) + (N + 1)*ld)) for N in range(Nm + 1, 5001))
+    # block targets for N > Nm: kappa(1+d^N) - kappa N/2 - kappa d^(N/2+1)/(d-1) - (N/4)((N/2) log d + C) > 0, as a ratio to kappa d^N
+    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
+    ec_ok = all(Cb + N*ld > math.log(N/(2*c)) for N in range(Nm + 1, 5001))
+    print(f'  tail: C = log(2 kappa d/((d-1)c)) = {Cb:.4f}; H(N) >= 0 for all Nmax < N <= 5000: {Hok} (min of 1 - poly/exp term = {Hmin_rel:.4f}; '
+          f'H/d^N is increasing beyond); block targets > 0 there: {tgt_ok}; e^C d^N > N/(2c) there: {ec_ok}')
+    tail = math.fsum((N*ld + Call)/kap * math.exp(-N*ld/2) for N in range(Nm + 1, 6001))
     S2 = 2*sum(abs(e_[N]) for N in range(1, Nm + 1))
     twog_rig = S2 + tail
     print(f'  sum_(N<={Nm}) 2|e_N| = {S2:.6f}; tail bound sum_(N>{Nm}) (N log d + C)/kappa d^(-N/2) = {tail:.3e} (C = {Call:.4f}); 2g_rig = {twog_rig:.6f} (g = {twog_rig/2:.6f})')

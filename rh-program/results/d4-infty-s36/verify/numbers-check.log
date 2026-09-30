@@ -158,10 +158,10 @@
   Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.9163
   Theorem R: primes used = 2063421 (each once, consecutive), nonempty blocks = 24 of 24 (their w_N have disjoint prime supports ⇒ Q-independent)
 Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 434, in <module>
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 439, in <module>
     report(G, d, kap, Nm)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 395, in report
-    Hs = [kap*d**(N+1)/(d-1) - c - (N/2)*(N*math.log(d) + Cb) - kap*N for N in range(Nm + 1, 2001)]
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 395, in <listcomp>
-    Hs = [kap*d**(N+1)/(d-1) - c - (N/2)*(N*math.log(d) + Cb) - kap*N for N in range(Nm + 1, 2001)]
-OverflowError: int too large to convert to float
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 400, in report
+    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 400, in <genexpr>
+    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
+OverflowError: (34, 'Result too large')
