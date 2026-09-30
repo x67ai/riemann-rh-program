@@ -79,3 +79,19 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   organization); Section 2 (Riemann's identity, the family xi_w, Lemma 2.1 relating Phi_n and g_n
   with a proof re-typed from PRIOR-ART §0's derivation, the constants c_1..c_5 from the NOTE).
 - Next: Section 3 (Theorems D, D', lobe law, odd count, tail coefficient).
+
+## 2026-10-01 01:08 IST — Sections 3, 4, 5 on disk
+
+- Section 3: Theorem 3.1 (NOTE Theorem D) with proof; Corollary 3.2 (lobe law); Theorem 3.3
+  (NOTE Theorem D', F1 applied: +0.291 and +0.0395) with proof; Proposition 3.4 (tail) with the
+  NOTE's five values; the p. 10 erratum; Corollary 3.5 (odd count, F5 applied: Xi_N(0) >=
+  0.4971 - c_1 > 0) and the table erratum (31, largest 103.3679880094135, numerical census).
+- Section 4: Theorem 4.1 (NOTE Theorem A, F2 applied: written with phi~_n = 2 x NOTE's phi_n, so
+  the u -> -infinity coefficient carries -2*pi(2k+3)(-pi)^k/k!, i.e. twice the NOTE's; this is the
+  F2-corrected statement in consistent notation - flagged for the referee); Theorem 4.2 (NOTE
+  Theorem B) with the Hamburger/Nakamura/Burnol citations and the Knopp caveat as reported by
+  Nakamura; Proposition 4.3 (NOTE Proposition F) in one statement plus one paragraph, with F3's
+  two-regime argument for hypothesis (ii) summarized.
+- Section 5: departure law (NOTE §3 departure lobes N = 1..7), lobe-scan tally (NOTE §4.1), the
+  N = 27 lobes (0.411 / 1.325), labeled as floating-point and not part of the proof.
+- Test build of the partial file: no TeX errors; overfull boxes fixed in displays.
