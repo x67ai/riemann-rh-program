@@ -99,3 +99,21 @@ Append-only log of batches. Newest block last. Times IST.
 - `verify-O/thin_O.py` (own numpy sieve + PCG64 RNG + scipy E1 tail; tested vs brute force at 1e6, `logs/test_thin_O.log`):
   T_0.75 seed 1001 at X = 1e9 (Y = 4e9) in 17 s (`logs/thin_O_1e9.log`). Because it is this fast, 8 new seeds (1002–1009) at
   X = 1e10, Y = 2e10 run sequentially via `run_O_1e10.sh` (≈ 2 min each, one heavy process) → `data/bern_O_a0.75_s*_1e10_*.csv`.
+
+## 2026-10-01 05:40 — reader O, batch 2: independent re-runs done; prior art read at the page
+- 8 new seeds (1002–1009) of T_0.75 at X = 1e10 with own numpy code + PCG64 (≈ 2 min each, `logs/run_O_1e10.log`). Reader's
+  own code with the WRITER's hash reproduces writer seed 5 at 1e10 bin for bin (nR, ρ, E(X) identical; bins to print precision;
+  `logs/xhash_compare.log`) — the writer's data are exact.
+- `seeds_O.py` reproduces every §3.3 number from the CSVs. New 8 seeds: top-window [1e7,1e10] sup-slope 0.399 ± 0.011
+  (writer 12: 0.392 ± 0.016; pooled 20: 0.395 ± 0.010), but top-window MEAN-SQUARE slope 0.860 ± 0.039 (writer 12: 0.787 ± 0.059;
+  pooled 20: 0.816 ± 0.039 — 1.7σ above α = 0.75, 1.9σ below 2/(3−α) = 0.889). Full window [1e4,1e10] ms: 0.754 ± 0.022 (≈ α).
+  So "resolves toward α (mean square)" is not supported in the top window (F3). fr seeds 1–4 = top 4 of 12 (p = 1/495) is a
+  post-selection effect (they prompted the question); fresh samples regress, as the NOTE says.
+- `greedy_O.py`, `feedback_O.py`: §3.4–3.5 numbers reproduced (κ 3.00/2.80/2.32/5.92; corr runs 0.043 → … 0.441). F4: "provably
+  log-powers" → the log-power form is a fit; what is proved is β₂ ≥ α/2.
+- `stirling_O.py`: |χ|(t/2π)^{σ−½} = 1 + O(t^{−2}) by two routes (ζ(s)/ζ(1−s) and the Γ closed form), 18 digits agree.
+- Prior art at the page: Hilberdink 2005 pp. 335–337 (images: Cor 2(a),(b), Rem B(i),(ii), Carlson needs (3.1), device uses
+  φ_P = −ζ′_P/ζ_P); MV-II p. 427 Thm G.16 (G.26)–(G.28) (image) ✓; BH 2024 ll. 60–100, 197–215; BDR ll. 1160–1232 (their §5 already
+  has log ζ_S(s) = log ζ(s+1−α) + O(√log|t|) on Re s ≥ α/2 + ε under RH — the analytic input of Cor Z.1 for c = 1, used there for
+  upper bounds); Hilberdink 2010 + 2025 erratum (mean-value Ω for ζ_P, flawed proof). Reader arXiv sweep (10 queries,
+  `verify-O/arxiv/`): nothing on Theorem Z / Lemma G.

@@ -1,4 +1,4 @@
-# read-F — the orchestrator's read at the line of `results/qcond-s38/NOTE.md` (Fable 5.1, Session 39, 2026-10-01, 05:10 IST)
+# read-F — the orchestrator's read at the line of `results/qcond-s38/NOTE.md` (Fable 5.1, Session 39, 2026-10-01, 04:47 IST — stamp corrected from the git clock)
 
 NOTE read: SHA-256 445cfe96dcb7d4ca… (446 lines), whole. The Opus reader's `read-O.md` runs in parallel (dual-model, standing orders 7, 11(c)); pairs below are applied only after both reads are reconciled.
 

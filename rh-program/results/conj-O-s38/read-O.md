@@ -131,3 +131,31 @@ a^k = p^j, which would merge coefficients — worth one clause, m9). Near-cancel
 unless an integer lies in (x/a_p, x/p] (probability ≈ x e^{−p}/p): only p ≲ log x act, so E_sys(x) = (log x)^{O(1)} is the expected
 size — the reader's heuristic agrees with the NOTE's "β ≈ 0", and α_sys = Θ (ψ changes by O(Σ_p log(1 + e^{−p}))) ✓, so it does not
 bear on U ✓. The recommendation (a separation hypothesis in O's A-clause) is right.
+
+**1.8 NOTE §2 (resonance) — AGREES as a named obstruction.** Kronecker: sup_t|Π_{p∈R,p≤Y}(1 − p^{−σ−it})| = Π(1 + p^{−σ}) ✓
+(Q-independence of log p). Dirichlet's pigeonhole bound for simultaneous alignment ✓ (an upper bound on the height needed; the
+converse "only π_R(p) ≲ log T/log q primes can be aligned" is heuristic, correctly labelled in the o(1)). Σ_{p∈R,π_R(p)≤K}p^{−σ} ≈
+K^{1−σ/α_R} ⇒ exp((log T)^{1−σ/α_R+o(1)}) = T^{o(1)} ✓ (heuristic). (b) the converse needs |ζ_P| ≫ |t|^{1+δ} or Bohr mean square
+≫ T^{2+δ} ✓ (from Z1/Plancherel); under RH that is |D_R| ≫ |t|^{½+σ+δ} on σ < ½ — far above T^{o(1)} ✓. (c)–(d) are interpretive;
+the "L² form = Theorem Z" reading is accurate (Z5 is a Parseval/Carlson converse on log D_R). Nothing here is claimed as a theorem.
+
+**1.9 NOTE §3 (computations) — claims checked against the data with the reader's own code (details §2).**
+- 3.1 exactness ✓: on [n, n+1) E(n+u) = e_c − ρ(u − ½), ∫₀¹ = e_c² + ρ²/12 ✓; the writer's C code (thin_fr.c `emit_bins`) accumulates
+  exactly Σ(N(n) − ρ(n + ½))² ✓. Window convention (six bins of 20/decade aligned at 10⁴) ✓.
+- 3.2 rung 1 ✓ (reader: exact rationals, §2.2). 3.3: every number in the paragraph is reproduced by `verify-O/seeds_O.py` from the
+  CSVs (0.723 ± 0.018, 0.787 ± 0.059, 0.392 ± 0.016, 0.450 ± 0.009, 0.363 ± 0.014, 0.674 ± 0.029, 0.783 ± 0.030) ✓; the writer's
+  data are exact (reader's independent code with the writer's hash reproduces seed 5 at 10¹⁰ bin for bin, §2.3). The verdict
+  sentence needs a correction (**F3**, §5): see §2.4.
+- 3.4 ✓ (`verify-O/greedy_O.py`): ms-slopes 0.445/0.433, 0.577/0.594, 0.497/0.522, 0.676/0.467; sup 0.238, 0.308, 0.278, 0.354;
+  κ vs M_diag 3.00 ± 0.15, 2.80 ± 0.15, 2.32 ± 0.24, 5.92 ± 0.31 — all as printed (top-three-decade slopes differ in the third decimal:
+  0.439/0.599/0.538/0.440 vs 0.447/0.598/0.527/0.442, a window-edge convention). Relative to X^α (exponent fixed at α) the c = 2, α = 0.6
+  deficit is κ₀ = 1.40 ± 0.24 (c = 1: 3.00, 2.80) — the "same form and size" holds only relative to M_diag. "Theorem C in mean-square
+  form, one line" ✓ (the Mellin integral converges absolutely on σ > β₂, so ζ_P would be analytic across α/k_c on the real segment;
+  coincidence points as in fr Theorem C). **F4** (§5): "provably log-powers" overstates — what is proved is β₂ ≥ α/2 (c = 1
+  unconditionally, c = 2 under RH), i.e. the pure-power deficit cannot persist; the log-power form with κ ≈ 2.3–3 is a fit
+  (the writer's own `t3_kappa.py` docstring: "over one data range both fit").
+- 3.5 ✓ (`verify-O/feedback_O.py`): corr α = 0.75 K = 2: ms-slope [10⁴, 10⁹] 0.458, M/M_diag 0.737, 0.198, 0.076, 0.035 (1.6·10⁸),
+  0.043 (last window); continued to 10¹⁰: 0.736, 0.194, 0.068, 0.024, 0.077, 0.441 and ms-slope [10⁷, 10¹⁰] 1.226 — as printed.
+  Headers: ρ(10⁹ run) − ρ(10¹⁰ run) = 7.56·10⁻⁸ ✓ ("7.6·10⁻⁸"), D(10⁹) = −70.0, D(10¹⁰) = 3140.5 ✓ ("≈ 3·10³"). The identity
+  E = e + ρx∫_x^∞(D(u) − D(x))u^{−2}du + O(1 + D²/x) re-derived: ρ/ρ̂ = exp(−∫_x^∞dD/u + O(1/x)), ∫_x^∞dD/u = ∫_x^∞(D(u) − D(x))u^{−2}du
+  by parts ✓; D = Ku^{α/2} gives ρKx^{α/2}(α/2)/(1 − α/2) ✓; "deleting q changes E(y) by −E(y/q)" ✓ (fr Thm B step (2)).

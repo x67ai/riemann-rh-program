@@ -3,7 +3,7 @@
    N(n) = sum_{k<=n} a(k) tracks T(n) = rho*(n-1)+1 (a(k) = #representations of k by g-primes).
    Output: log-binned stats of E(x)=N(x)-rho*x-(1-rho) and of psi_P(x)-x; optional dumps
    (a_n uint16 = final multiplicity of the g-integer n; g-prime list (n,m) uint32 pairs) into DUMPDIR.
-   Usage: pseudoN rho X label [dumpdir]            Build: cc -O2 -o pseudoN pseudoN.c -lm */
+   Usage: pseudoN rho X label [dumpdir|-] [delta]  (target rho(n-1)+1+delta)            Build: cc -O2 -o pseudoN pseudoN.c -lm */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -18,7 +18,7 @@ static PW hpop(void){ PW r=hp[0]; hp[0]=hp[--hn]; long i=0; for(;;){long l=2*i+1
 int main(int argc, char **argv){
   if(argc<4){fprintf(stderr,"usage\n");return 1;}
   double rho=atof(argv[1]); uint64_t X=(uint64_t)atof(argv[2]); const char *lab=argv[3];
-  const char *dd = argc>4? argv[4]:NULL;
+  const char *dd = (argc>4 && argv[4][0]!='-')? argv[4]:NULL; double off = argc>5? atof(argv[5]):0.0;  /* target offset delta */
   uint16_t *a=calloc(X+1,sizeof(uint16_t)); if(!a){fprintf(stderr,"oom\n");return 1;}
   a[1]=1;
   FILE *fe=NULL,*fg=NULL; char fn[4096];
@@ -32,7 +32,7 @@ int main(int argc, char **argv){
   if(fe){ uint16_t a1=1; fwrite(&a1,2,1,fe);}  /* a_1 = 1 */
   for(uint64_t n=2;n<=X;n++){
     uint32_t A=a[n]; if(A>maxa)maxa=A;
-    long double T=(long double)rho*(n-1)+1.0L;
+    long double T=(long double)rho*(n-1)+1.0L+off;
     long double need=T-(N+A); long m = (need>0)? (long)floorl(need+0.5L):0;
     if(m>0){
       if(m>maxm)maxm=m; ngp++; nmult+=m;
