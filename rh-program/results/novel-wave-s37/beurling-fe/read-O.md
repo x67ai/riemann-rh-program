@@ -4,7 +4,12 @@ Reader: Opus 5.5 (second model of the dual-model check; standing orders 5, 7, 11
 Independent of the orchestrator's parallel read (its folder `verify-F/` was not opened).
 Scripts and logs of this read: `verify-O/`. Conventions as in NOTE: ✓ = re-derived at the line; GAP = stated with the fix.
 
-VERDICT LINE: (pending — written when §1–§4 land)
+VERDICT LINE: AGREES-WITH-CORRECTIONS on CLOSE T. Theorem T, T1–T3, Prop. R, Lemma G, Prop. U, Lemma TB and Theorem C re-derived
+at the line and correct (no FIX-FIRST against any theorem). One record-level FIX-FIRST: NOTE §8(e)'s verdict "open" is false — the
+reader exhibits a signed, RH-false, conductor-1 solution with every frequency > 1 (F1, §6 R1). Eight MINOR pairs (§5). Novelty: T in
+its Dirichlet-series/Beurling form is NOT in print in any source read (NEW, dual-checked; three bodies unverified, §3); its measure
+core is a routine adaptation of Cohn–Elkies 2003 p. 695 plus Siegel's periodicity (Bochner–Chandrasekharan 1956 p. 336) — not
+"KNOWN", but not deep. Reader adds R2: the two-system version (Hilberdink–Lapidus (3.5) with Riemann's Γ-factors) also holds.
 
 ## §1. Re-derivations at the line (NOTE §3, §4, §6, §7, §8(a)(b), §9)
 
@@ -110,7 +115,7 @@ AMS archive), meyer-2016-pnas.md (Firecrawl), zbmath/ (API records), jstor-19696
 | # | source | where read | what it proves | relation to T |
 |---|---|---|---|---|
 | 1 | Hamburger 1921–22, standard form | Nakamura 2008.02570 Thm D (sources, lines 170–177); Steuding course notes §3.3 Thm 3.8 (corpus p3-29a; proof ends "the residues at in and i(n+1) are equal. Thus, a(n) = a(n+1)"); Burnol 1106.4749 lines 140–160 (second theorem); Titchmarsh §2.13 not in the corpus (only cited) | ORDINARY Dirichlet series, complex coefficients, P(s)F(s) entire of finite order, Riemann FE ⟹ F = Cζ; second theorem: f ordinary, g = χf(1−s) general with frequencies ≥ 1 ⟹ cζ | INCOMPARABLE: Hamburger needs integer frequencies on one side and no positivity; T takes general frequencies on BOTH sides (f = g) and needs a_k ≥ 0. T's Step 2 (periodicity ⟹ equal coefficients) is Hamburger/Siegel's classical device (see #4) |
-| 2 | Kahane–Mandelbrojt 1958, ASENS 75, 57–80 | sources/kahane-mandelbrojt…txt: intro 41–75; Thm 1 306; Prop. 7 958–1010; Thm 4 + Cor. 1025–1043; Thm 5 + Cor. 1047–1063 | complex coefficients: FE ⟺ Poisson-type formula (Thm 1); every closed interval of length D(spectrum) meets the support (Prop. 7); spectral gaps ≤ Δ(support), Δ(λ)Δ(μ) ≥ 1 (Thm 4, Cor.); EQUALITY only for Dirac combs up to dilation/translation (Thm 5); even case Δ = 1: ζ, (2^s−1)ζ, (2^{1−s}−1)ζ (Cor.) | INCOMPARABLE. KM's rigidity is the equality case of a DENSITY inequality. On T's μ it yields only Δ(supp μ) ≥ 1 (the gap (0,1) in the spectrum), an inequality; T's identification needs the positivity-based gap pairing. KM58 does not contain T, nor T3 |
+| 2 | Kahane–Mandelbrojt 1958, ASENS 75, 57–80 | sources/kahane-mandelbrojt…txt: intro 41–75; Thm 1 306; Prop. 7 958–1010; Thm 4 + Cor. 1025–1043; Thm 5 + Cor. 1047–1063; p. 74–75 also read as page images (the OCR garbles the symbols): Thm 4 "sur tout intervalle fermé de longueur Δ.{ν}, il y a au moins un point du spectre", Cor. "μ_{n+1} − μ_n ≤ Δ.(λ). En particulier, Δ.(λ)Δ.(μ) ≥ 1", Thm 5 "Δ.(λ)Δ.(μ) > 1, sauf si …" | complex coefficients: FE ⟺ Poisson-type formula (Thm 1); every closed interval of length D(spectrum) meets the support (Prop. 7); spectral gaps ≤ Δ(support), Δ(λ)Δ(μ) ≥ 1 (Thm 4, Cor.); EQUALITY only for Dirac combs up to dilation/translation (Thm 5); even case Δ = 1: ζ, (2^s−1)ζ, (2^{1−s}−1)ζ (Cor.) | INCOMPARABLE. KM's rigidity is the equality case of a DENSITY inequality. On T's μ it yields only Δ(supp μ) ≥ 1 (the gap (0,1) in the spectrum), an inequality; T's identification needs the positivity-based gap pairing. KM58 does not contain T, nor T3 |
 | 3 | Chandrasekharan–Mandelbrojt, Bull. AMS 65 (1959) 358–362 | sources/cm-1959-bams.txt p. 358–359 (Thms 1–3, Lemma 2) | complex a_n, b_n: h_λh_μ = 1 and δ odd ⟹ λ_n, μ_n arithmetic progressions (Thm 1); via CM57 Thm 1 (quoted p. 359): D_μ < ∞ ⟹ λ_{n+1} − λ_n ≤ D_μ, D_λD_μ ≥ 1, h_λh_μ ≤ 1 | INCOMPARABLE: needs the uniform-gap product = 1 (so uniform discreteness); T needs no separation. On the u.d. class it would give T only if h = 1 were known — it is not |
 | 4 | Bochner–Chandrasekharan, Ann. Math. 63 (1956) 336–360 | p. 336 ONLY (JSTOR public preview, read in the browser 2026-10-01); body UNVERIFIED (login wall); subject per CM59 p. 358 (read): upper bounds for the number of linearly independent solutions, uniqueness "in certain cases" | p. 336: Hamburger's theorem incl. his case g(1−s) = Σb_nλ_n^{−1+s}; Siegel's proof: FE ⟹ modular relation (1.2) ⟹ (1.3), whose periodicity gives a_k = a_{k+1} | not contained as far as read; body UNVERIFIED. T's Step 2 = Siegel's periodicity step printed here |
 | 5 | Chandrasekharan–Narasimhan, Ann. Math. 74 (1961) 1–23 | p. 1 only (JSTOR preview, browser); body UNVERIFIED | FE (Hecke type) ⟺ arithmetical (Voronoi–Riesz) identities | INCOMPARABLE (equivalences, no rigidity) |
@@ -132,3 +137,100 @@ Status: NEW, now dual-checked, with three bodies UNVERIFIED (Bochner–Chandrase
 1957, Córdoba 1988/89 primary). (ii) The MEASURE CORE is a routine adaptation of printed methods — Cohn–Elkies p. 695 (the pairing,
 same function) plus Siegel's periodicity (BC56 p. 336; Steuding Thm 3.8) — but the uniqueness statement itself was not found in print.
 Label it "folklore-grade method, statement unprinted (as read)". It is NOT "KNOWN (cite page)".
+Reader's own arXiv searches (sources/arxiv-queries/reader-q-*.html, one request at a time): "Riemann functional equation general
+Dirichlet series positive coefficients" (1 irrelevant hit), "positive measure equal to its Fourier transform Dirac comb" (0), "Beurling
+generalized primes functional equation" (1 irrelevant), "Hamburger theorem converse zeta general Dirichlet series" (0), "Fourier
+quasicrystal positive self-dual spectral gap" (0), "Hamburger's theorem" (17: only Nakamura 2008.02570 and Burnol 1106.4749 relevant,
+both read), "Beurling zeta functional equation" (4: only Hilberdink–Lapidus math/0410270 relevant, read). No new prior art.
+
+## §4. FIX-FIRST items (OLD/NEW pairs; not applied to NOTE.md)
+
+No error was found that makes Theorem T, T1–T3, Prop. R, Lemma G, Prop. U, Lemma TB or Theorem C false as stated.
+One RECORD-LEVEL item must be fixed before the NOTE is filed (a recorded verdict is false; T is unaffected):
+
+F1 — NOTE §8(e), lines 240–241 (verdict "open" is wrong; verified in verify-O/o3, o4, o4b).
+OLD:
+    cannot escape (D(s) = D(1−s) maps frequency m to 1/m, so frequencies ≥ 1 force D constant — (P), one line). VERDICT: open;
+    a non-ζ signed solution would need a self-dual signed crystalline measure with a spectral gap (−1, 1) — not attempted.
+NEW:
+    cannot escape (D(s) = D(1−s) maps frequency m to 1/m, so frequencies ≥ 1 force D constant — (P), one line). VERDICT: SETTLED —
+    signed solutions exist and can be RH-false (reader, read-O §6 R1): μ_s = Σ_{n∈Z}χ₅(n)δ_{n/√5} − (√5δ_{√5Z} + δ_{Z/√5})
+    + (√5δ_{(√5/2)Z} + 2δ_{(2/√5)Z}) is self-dual and equals δ₀ on (−1, 1); its F(s) = 5^{s/2}L(s,χ₅) + D(s)ζ(s), D(s) = −5^{s/2}
+    − 5^{(1−s)/2} + √5(√5/2)^{−s} + 2(√5/2)^{s}, has real coefficients, every frequency ≥ √5/2 > 1, Riemann's FE with simple poles
+    at 0, 1 only (residue 1), finite order, and a zero at s = 1.32691 + 33.26351i (verify-O/o3, o4). So a_k ≥ 0 in T3 cannot be dropped.
+F1′ — NOTE §10, SUCCESSOR QUESTIONS, item (3) (same cause).
+OLD:
+    (3) The signed (complex-coefficient) general-frequency Hamburger problem with frequencies ≥ 1 (§8(e)).
+NEW:
+    (3) Classify the signed solutions with frequencies ≥ 1 (§8(e): they exist and can be RH-false, read-O R1): is every one a finite
+    combination of twisted (χ even, real, primitive) and dilated Poisson combs, as in R1?
+
+## §5. MINOR pairs (prose / hypotheses made explicit; T unaffected)
+
+m1 — §4 line 126 (where positivity enters).
+OLD: Where each hypothesis enters: POSITIVITY (dN ≥ 0) only in "(F) ⟹ dN carried by N"; the GAP (dN carried by [1, ∞)) only in
+NEW: Where each hypothesis enters: POSITIVITY (dN ≥ 0) twice — in Prop. R's linear-growth bound (Step 0; it puts S in L¹(dN) for the
+     dominated convergence of Step 1) and in "(F) ⟹ dN carried by N"; it cannot be dropped (read-O R1). The GAP (dN carried by [1, ∞)) only in
+m2 — §4 line 106 (T2 needs a half-plane of convergence; Diamond–Zhang's definition, t-50 lines 592–593, has no growth condition).
+OLD: COROLLARY T2 (Beurling, continuous/mixed). If dN = exp*(dΠ) with dΠ ≥ 0 satisfies (A), then
+NEW: COROLLARY T2 (Beurling, continuous/mixed). If dN = exp*(dΠ) with dΠ ≥ 0 and ∫x^{−σ}dΠ(x) < ∞ for some σ (⟺ N has polynomial
+     growth) satisfies (A), then
+m3 — §10 item 1, lines 292–293 (the second axiom set has a one-parameter family of models).
+OLD: ... has exactly ONE model, ζ — and even {dN ≥ 0 on [1,∞), exact FE} does.
+NEW: ... has exactly ONE model, ζ — and {dN ≥ 0 on [1,∞), polynomial growth, exact FE} has exactly the models ρζ, ρ ≥ 0 (one up to scale).
+m4 — §7 line 187 (the v2 grid has 42 log-spaced points, none equal to 1).
+OLD: relation over 41 points x ∈ [½, 2] (x ≠ 1),
+NEW: relation over 42 log-spaced points x ∈ [½, 2] (none equals 1),
+m5 — §2 GATE VERDICT line 62 (update after the second read).
+OLD: statement of it. Not read (paywalled/not found): Bochner–Chandrasekharan 1956, Chandrasekharan–Mandelbrojt 1957/59, Lagarias 1999 body.
+NEW: statement of it. Second reader (read-O §3) read: Chandrasekharan–Mandelbrojt 1959 (Bull. AMS, whole), Bochner–Chandrasekharan 1956
+     p. 336 and Chandrasekharan–Narasimhan 1961 p. 1 (JSTOR previews), Cohn–Elkies 2003, Cohn–Kumar 2007, Lev–Olevskii 2015, Meyer 2016,
+     Kolountzakis 2016, Radchenko–Viazovska 2019 — none contains T. Still unread: BC56 beyond p. 336, CM57, Córdoba 1988/89, Lagarias 1999 body.
+m6 — §5(g) lines 154–155 (the recalled Cohn–Elkies remark is now verified at the page).
+OLD: … bound with the Fejér function `[recalled, unverified: Cohn–Elkies 2003 remark that the 1-D bound is sharp]`; it is very probably folklore there.
+NEW: … bound with the Fejér function (Cohn–Elkies 2003, Ann. Math. 157, p. 695: "(1 − |x|)χ[−1,1](x) … a sharp bound", proved for
+     periodic packings; the uniqueness statement for positive self-dual measures is not printed there — read-O §3 row 12). The core is
+     a routine adaptation of that pairing plus Siegel's periodicity step (Bochner–Chandrasekharan 1956, p. 336).
+m7 — §10 item 2, lines 299–300 (add the price realized by R1).
+OLD: … or — possibly — conductor q > 1 (Q_cond, open; F_{5,5} misses only Λ ≥ 0).
+NEW: … or — possibly — conductor q > 1 (Q_cond, open; F_{5,5} misses only Λ ≥ 0). Without positivity there is a third price, already
+     paid at conductor 1 with the gap intact: signed coefficients (read-O R1, a zero at 1.32691 + 33.26351i).
+m8 — novelty tags, §4 line 128 and §10 line 285 (the orchestrator's call after its own read).
+OLD: `[novelty: single-check]`
+NEW: `[novelty: dual-checked (read-O §3): not in print as read; measure core = routine adaptation of Cohn–Elkies p. 695 + Siegel]`
+
+## §6. What the reader adds
+
+R1 — POSITIVITY IS INDISPENSABLE, and without it RH fails at conductor 1 with the gap intact (P + C; verify-O/o3, o4, o4b).
+  Construction. χ₅ = Legendre symbol mod 5 (even, real, primitive, τ(χ₅) = +√5). Twisted Poisson: FT(Σ_{n∈Z}χ₅(n)δ_{n/√5}) = itself.
+  Dilated pairs δ_{αZ} + α^{−1}δ_{Z/α} are self-dual. In (0,1) the twisted comb has atoms +1 at 1/√5, −1 at 2/√5; the pair α = √5
+  (weight −√5) puts −1 at both; the pair α = √5/2 (weight +√5) puts +2 at 2/√5 and nothing else in (0,1). Sum: μ_s = δ₀ + ν, ν carried
+  by |x| ≥ √5/2 > 1, μ̂_s = μ_s, ν signed (masses +√5, −2, +2 at 1.1180, 1.3416, 1.7889, …).
+  Verified: theta relation to 5.5e−40; Fejér identity holds BY CANCELLATION (Σ_{t>0}m(t)S(t) = 0 in closed form; T(√5) = (√5 − 11/5)/2,
+  T(1/√5) = (√5−1)/2, T(√5/2) = 3/√5 − 13/10, T(2/√5) = (√5/2 − 1)/2, twisted part 1/√5); ξ_F(s) = ξ_F(1−s) to 1e−41; Res_{s=1}F = 1.
+  RH-false: F has the zero s₀ = 1.32691215092364 + 33.2635142708346i (|F| = 5e−41) inside its half-plane of absolute convergence, and
+  ξ_F has the mirror zero 1 − s̄₀; in [−1,2]×[0.5,40] the argument principle counts 5 zeros, the critical line carries 3 (t = 19.1868,
+  25.6164, 36.5260). The family is infinite-dimensional: for any even real primitive χ mod q (root number +1), the finitely many atoms
+  n/√q < 1 are removed triangularly by the pairs α = √q/n (largest n first; pair α only touches multiples of n/√q).
+  Consequences: (a) T3's a_k ≥ 0 cannot be dropped; (b) NOTE §8(e) is settled (FIX-FIRST F1); (c) a new RH-false CONTROL for the
+  record: Riemann's exact Γ-factor, conductor 1, simple poles at 0, 1 only, finite order, real coefficients, every frequency > 1 —
+  but no Euler product and dN signed. It isolates positivity (not the FE, not the gap) as the input that rigidifies.
+
+R2 — THE TWO-SYSTEM VERSION (Hilberdink–Lapidus (3.5) with Riemann's Γ-factors on both sides), proof at the line (P).
+  Claim. dN₁, dN₂ ≥ 0 on [1,∞), polynomial growth, ξ₁(s) = ξ₂(1−s), poles of ξ₁ only at 0, 1 (simple), (G′) for ξ₁ ⟹ dN₁ = dN₂ = ρΣ_{n≥1}δ_n.
+  Proof. With ρ_i = Res_{s=1}ξ_i, the FE gives Res_{s=0}ξ₁ = −ρ₂, and the contour shift of Prop. R gives
+  ρ₁ + 2ψ₂(1/x) = √x(ρ₂ + 2ψ₁(x)); linear growth of both N_i follows as in Prop. R. For μ₁ := ρ₂δ₀ + dN₁ + dN₁^∨, μ₂ := ρ₁δ₀ + dN₂ + dN₂^∨
+  this is ⟨μ̂₂, g_x⟩ = ⟨μ₁, g_x⟩, so μ̂₂ = μ₁ (Lemma G) and μ̂₁ = μ₂ (evenness). Fejér pairing (mollified as in Step 1) both ways:
+  ρ₂ = ρ₁ + 2∫S dN₂ and ρ₁ = ρ₂ + 2∫S dN₁. Adding, ∫S dN₁ + ∫S dN₂ = 0, so both vanish (positivity), ρ₁ = ρ₂ = ρ and both measures
+  live on N. Then μ₂ = μ̂₁ is 1-periodic and carried by Z, so μ₂ = ρδ_Z, and μ₁ = μ̂₂ = ρδ_Z. ∎
+  So two DIFFERENT Beurling systems cannot be Riemann-FE partners either; this is the positive answer to Hamburger's "f and g both
+  general" problem (Burnol Thm 2, lines 172–200, gives only an equivalence there, with complex coefficients).
+
+R3 — Accounting (sharpens NOTE §4 lines 126–128). (G′) enters once (PL in Prop. R). Positivity enters twice (linear growth; the
+  vanishing step). The gap enters once (⟨μ, φ_ε⟩ → ρ). ρ ≥ 0 is automatic. Step 2 is Siegel's periodicity device (BC56 p. 336),
+  Step 1 is the Cohn–Elkies 1-D pairing (p. 695): the proof is short because both halves are classical; the combination is what is new.
+
+R4 — Next questions (ranked). (1) Q_cond (the NOTE's). (2) Can (G′) be dropped for dN ≥ 0? (F is bounded on Re s ≥ c > 1 and the FE
+  controls Re s ≤ 1 − c; the whole difficulty is the strip.) (3) Classify the signed solutions with gap (R1 family: is every one a
+  finite combination of twisted and dilated Poisson combs?). (4) The two-system version at conductor q (R2 + Theorem C): does
+  ρ₁ ≠ ρ₂ become possible for q > 1?

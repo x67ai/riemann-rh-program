@@ -103,3 +103,32 @@ Deliverables: `NOTE.md` (the unit), `verify/` (scripts + logs), `sources/` (text
   poles at 0, 1, all frequencies ≥ √5/2 > 1 — and RH-FALSE (zero at 1.32691 + 33.26351i). NOTE §8(e)'s "open" is answered.
 - o5: (C_q) exact on ζ(1+5^{1/2−s}) + L(s,χ₅), q = 5.
 - Next: §3 prior-art gate.
+
+## 2026-10-01 OPUS READER block 3 — §3 prior-art gate landed (15 rows)
+
+- Read at the page: Hamburger (Nakamura Thm D, Steuding Thm 3.8, Burnol); KM58 Prop. 7, Thms 4–5 (density-equality rigidity, complex
+  coefficients); Chandrasekharan–Mandelbrojt 1959 Bull. AMS (fetched from the AMS archive: Thm 1 needs h_λh_μ = 1); Bochner–
+  Chandrasekharan 1956 p. 336 and Chandrasekharan–Narasimhan 1961 p. 1 (JSTOR public previews, browser; bodies UNVERIFIED);
+  Hilberdink–Lapidus (3.5) with two systems; Lagarias 1999 title/abstract (body paywalled); Córdoba via Lev–Olevskii p. 2 (primary
+  UNVERIFIED); Lev–Olevskii 2015/2016; Meyer PNAS 2016 (Firecrawl); Kolountzakis 2016; Cohn–Elkies 2003 (Thm 3.1, the 1-D example
+  (1−|x|)χ with transform sinc², p. 695); Cohn–Kumar 2007 Prop. 9.6; Radchenko–Viazovska 2019; O–U, Gonçalves, Favorov, K–S.
+- Verdict: T (Dirichlet-series/Beurling form) and T1–T3 NOT in print as read → NEW (dual-checked; 3 bodies unverified). Measure core =
+  routine adaptation of Cohn–Elkies p. 695 + Siegel's periodicity (BC56 p. 336), statement not found in print → not "KNOWN".
+- Next: §4 FIX-FIRST pairs, §5 minor pairs, §6 reader additions (R1 signed RH-false counterexample; R2 two-system version).
+
+## 2026-10-01 OPUS READER block 4 — §4 FIX-FIRST landed
+
+- No FIX-FIRST against Theorem T, T1–T3, Prop. R, Lemma G, Prop. U, Lemma TB, Theorem C. One record-level FIX-FIRST (F1 + F1′):
+  NOTE §8(e)'s verdict "open" is false — explicit signed, RH-false, conductor-1 solution with every frequency > 1 (verify-O/o3, o4, o4b);
+  successor question (3) reworded accordingly. Also verify-O/o6 confirms NOTE §5(h) near-miss Fejér sums (2.049e−3, 6.066e−2,
+  8.897e−2) and §9's F₅ scan (t ∈ {−5,…,6}; virtual curve N, b values) exactly.
+
+## 2026-10-01 OPUS READER block 5 — §5, §6 and the verdict landed; read-O.md complete
+
+- VERDICT: AGREES-WITH-CORRECTIONS on CLOSE T (no FIX-FIRST against any theorem; one record-level FIX-FIRST F1/F1′ on §8(e) and
+  successor (3); MINOR m1–m8: positivity used twice, T2's growth hypothesis, ρζ family, 42 grid points, gate update, Cohn–Elkies
+  p. 695 verified, the third "price" (signed coefficients), novelty tags).
+- Reader additions: R1 signed RH-false conductor-1 solution with gap (F(s) = 5^{s/2}L(s,χ₅) + D(s)ζ(s); zero 1.32691 + 33.26351i);
+  R2 two-system theorem (ξ₁(s) = ξ₂(1−s), both dN_i ≥ 0 on [1,∞) ⟹ both = ρΣδ_n); R3 hypothesis accounting; R4 next questions.
+- Files: read-O.md; verify-O/o1–o6 (.py + .log). Nothing else in the seed folder was touched except new files under sources/
+  (fetched texts listed in read-O §3).
