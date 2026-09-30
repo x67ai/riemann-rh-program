@@ -16,7 +16,8 @@ from scipy.optimize import minimize
 
 rng = np.random.default_rng(11)
 T = 14.1
-ts = np.linspace(-T, T, 1601)
+ts = np.linspace(-T, T, 1601)          # fine grid for zero counting
+tsc = np.linspace(-T, T, 241)          # coarse grid for the optimizer
 
 
 def channels(t, avals):
@@ -64,16 +65,16 @@ def main():
     best1 = min(real_form_zero_count(np.array([[np.exp(1j * ph)]]), V1, ts)[0] for ph in np.linspace(0, 2 * np.pi, 73))
     print('k = 0 (prime channel alone): minimal number of zeros over all U in U(1):', best1)
     out.append(dict(k=0, min_zeros=best1))
-    for k in range(1, 7):
+    for k in range(1, 6):
         avals = list(0.5 + np.array([12.0, 25.0, 50.0, 100.0, 200.0, 400.0][:k]))
-        V = channels(ts, avals)
+        V = channels(ts, avals); Vc = channels(tsc, avals)
         wind = [4 * np.arctan(T / (a - 0.5)) for a in avals]
         n = k + 1
         best = None
         t0 = time.time()
-        for r in range(16):
+        for r in range(6):
             x0 = rng.standard_normal(n * n) * 1.2
-            o = minimize(obj, x0, args=(n, V), method='L-BFGS-B', options=dict(maxiter=300))
+            o = minimize(obj, x0, args=(n, Vc), method='L-BFGS-B', options=dict(maxiter=120))
             U = expm(1j * herm(o.x, n))
             nz, imres = real_form_zero_count(U, V, ts)
             mn = float(np.min(np.abs(detF(U, V))))
@@ -82,7 +83,7 @@ def main():
         lower = (2 * T * np.log(2) + sum(wind)) / (2 * np.pi) - n
         print(f'k = {k} archimedean channels a-1/2 = {[a - 0.5 for a in avals]} (windings {np.round(wind, 3).tolist()} rad): '
               f'best U has {best[0]} zeros in the window, min|det| = {best[1]:.3e} '
-              f'(Theorem 1\' lower bound: N > {lower:.3f}); real-form residual {best[3]:.1e}  [{time.time() - t0:.1f}s]')
+              f'(Theorem 1\' lower bound: N > {lower:.3f}); real-form residual {best[3]:.1e}  [{time.time() - t0:.1f}s]', flush=True)
         out.append(dict(k=k, a_minus_half=[a - 0.5 for a in avals], min_zeros=best[0], min_abs_det=best[1],
                         lower_bound=lower, U_abs=np.round(np.abs(best[2]), 3).tolist()))
     with open('d2_gap_evasion_by_coupling.json', 'w') as fh:

@@ -4,3 +4,7 @@ lambda certified digits at n = 1, 100, 500, N: [4813, 4790, 4719, 4702]
 lambda_n not certified positive at: []
 Levinson(P) 3.5s
 Schur(P) 30.7s
+Levinson(P2) 72.3s
+verified digits of alpha_n at n = 0, 100, 200, ...: [(0, 4814), (100, 4390), (200, 3880), (300, 3335), (400, 2766), (500, 2180)]
+indices with |alpha_n| >= 1 or < 5 verified digits: []
+saved tables/chi4_circle_P16000_S600.json  total 148.3s

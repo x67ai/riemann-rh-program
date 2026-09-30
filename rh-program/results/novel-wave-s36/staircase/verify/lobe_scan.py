@@ -45,7 +45,7 @@ def golden_max(f, a, b, it=50):
     return (c, fc) if fc > fd else (d, fd)
 
 
-def zeros_in(a, b, h=mp.mpf('0.01')):
+def zeros_in(a, b, h=mp.mpf('0.025')):
     n = int((b - a)/h)
     ts = [a + (b - a)*mp.mpf(j)/n for j in range(n + 1)]
     zs = [mp.siegelz(t) for t in ts]

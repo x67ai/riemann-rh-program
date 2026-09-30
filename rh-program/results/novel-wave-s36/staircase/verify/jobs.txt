@@ -1,5 +1,13 @@
-lobe_scan.py 6 30
-census.py DH 6 200
+lobe_scan.py 9 11
+lobe_scan.py 12 14
+lobe_scan.py 15 17
+lobe_scan.py 18 20
+lobe_scan.py 21 23
+lobe_scan.py 24 26
+lobe_scan.py 27 29
+lobe_scan.py 30 30
+verify_violation.py zeta 8 329.6 331.9 332.0 334.0 1.0
+verify_violation.py haglund 7 259.5 261.2 261.3 263.6 1.0
 census.py DH 8 200
 census.py DH 9 200
 census.py DH 11 200
@@ -19,9 +27,9 @@ natural_split.py
 taylor_chain.py
 census.py smooth 1 200
 census.py smooth 2 200
-census.py chi4 3 200
-census.py chi4 7 200
 census.py chi4 11 200
 census.py zeta 6 230
 rigor_xi1.py R1 R4
-rigor_xi1.py R2
+rigor_xi1.py R2 0 10
+rigor_xi1.py R2 10 20
+rigor_xi1.py R2 20 30

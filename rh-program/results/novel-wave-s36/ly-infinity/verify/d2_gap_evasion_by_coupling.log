@@ -1,0 +1,8 @@
+window (-14.1, 14.1); prime channel 2^{-it} winds 19.5468 rad
+k = 0 (prime channel alone): minimal number of zeros over all U in U(1): 3
+k = 1 archimedean channels a-1/2 = [np.float64(12.0)] (windings [3.463] rad): best U has 3 zeros in the window, min|det| = 1.643e-03 (Theorem 1' lower bound: N > 1.662); real-form residual 9.8e-16  [0.2s]
+k = 2 archimedean channels a-1/2 = [np.float64(12.0), np.float64(25.0)] (windings [3.463, 2.054] rad): best U has 3 zeros in the window, min|det| = 9.153e-03 (Theorem 1' lower bound: N > 0.989); real-form residual 2.1e-15  [1.6s]
+k = 3 archimedean channels a-1/2 = [np.float64(12.0), np.float64(25.0), np.float64(50.0)] (windings [3.463, 2.054, 1.099] rad): best U has 3 zeros in the window, min|det| = 1.536e-02 (Theorem 1' lower bound: N > 0.164); real-form residual 1.8e-15  [3.6s]
+k = 4 archimedean channels a-1/2 = [np.float64(12.0), np.float64(25.0), np.float64(50.0), np.float64(100.0)] (windings [3.463, 2.054, 1.099, 0.56] rad): best U has 3 zeros in the window, min|det| = 1.789e-02 (Theorem 1' lower bound: N > -0.747); real-form residual 1.2e-15  [7.3s]
+k = 5 archimedean channels a-1/2 = [np.float64(12.0), np.float64(25.0), np.float64(50.0), np.float64(100.0), np.float64(200.0)] (windings [3.463, 2.054, 1.099, 0.56, 0.282] rad): best U has 3 zeros in the window, min|det| = 8.730e-02 (Theorem 1' lower bound: N > -1.702); real-form residual 2.0e-15  [12.4s]
+elapsed 25.1 s

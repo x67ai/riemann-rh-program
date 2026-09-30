@@ -1,1 +1,14 @@
 === chi4 circle 16000 600 20000
+FUNC chi4 SIDE circle P 16000 SIZE 600 P2 20000
+inputs 41.4s; lambda_1 = [0.07778398996179296443107903 +/- 3.09e-27]
+lambda_n not certified positive at: []
+verified digits of alpha_n at n = 0, 100, 200, ...: [(0, 4814), (100, 4390), (200, 3880), (300, 3335), (400, 2766), (500, 2180)]
+indices with |alpha_n| >= 1 or < 5 verified digits: []
+saved tables/chi4_circle_P16000_S600.json  total 148.3s
+=== dh circle 24000 1000 30000
+FUNC dh SIDE circle P 24000 SIZE 1000 P2 30000
+inputs 344.6s; lambda_1 = [0.09763614680951967118154897 +/- 4.40e-27]
+lambda_n not certified positive at: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+Traceback (most recent call last):
+ValueError: leading term in denominator is not nonzero
+=== CONTROLS3 DONE

@@ -88,5 +88,24 @@ for name, A, Efull in (('zeta', A_zeta, st.Chain('zeta').E_full), ('DH', A_dh, D
         print(name, 'zeros of A in right half:', rec['zeros_in_[0.5,90]x[0.5,200]'], 'lowest:', rec['lowest_zeros_of_A_right_half'][:3],
               f'({time.time()-t00:.0f}s)'); sys.stdout.flush()
     out[name] = rec
+# (5) HB margin of the natural split of the MEMBERS xi_N = A_N + A_N(1-s), A_N = 1/4 + (1/2)s(s-1) sum_{n<=N} X^{-s/2}Gamma(s/2,X)
+out['members'] = {}
+for N in (1, 2, 3, 5):
+    AN = lambda s, N=N: A_zeta(s, nmax=N + 1)
+    worst, arg, negcount, tot = None, None, 0, 0
+    for i in range(1, 11):
+        sig = mp.mpf(1)/2 + mp.mpf(i)/4
+        for j in range(0, 399):
+            t = 1 + mp.mpf(j)/2
+            s = mp.mpc(sig, t)
+            r = abs(AN(s))/abs(AN(1 - s)) - 1
+            tot += 1
+            if r < 0:
+                negcount += 1
+            if worst is None or r < worst:
+                worst, arg = r, s
+    out['members'][N] = {'HB_margin_min_grid[0.75..3]x[1..200]': mp.nstr(worst, 6), 'argmin': mp.nstr(arg, 8),
+                         'fraction_negative': mp.nstr(mp.mpf(negcount)/tot, 4)}
+    print('member N =', N, out['members'][N], f'({time.time()-t00:.0f}s)'); sys.stdout.flush()
 json.dump(out, open('natural_split.json', 'w'), indent=1)
 print('saved natural_split.json')

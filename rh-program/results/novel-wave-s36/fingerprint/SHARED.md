@@ -146,3 +146,21 @@ smooth density θ′/π plus the boundary term −f(T)S(T). Against the Arb Tayl
   precision cost of ≈ 6 digits per index. For DH's first zero: n = 148 at ~900 digits lost. Li's criterion needs
   n ~ T²/δ (≈ 3×10⁵ for this zero; Voros's exponential-asymptotic analysis) — the Jacobi fingerprint sees the same
   zero ~2000 times earlier in index. Injection study (δ → 0 dependence) next.
+
+## 2026-09-30 18:52 (clock read) — Unit 5c: counting theorem, conductor law, Theorem D identities; TIMESTAMP CORRECTION
+
+- **Timestamp correction:** the blocks headed 19:15, 19:45 and 20:20 were ESTIMATED, not read from the clock; they
+  were written between ≈ 18:15 and 18:45. From this block on, times are read with `date`.
+- **Hermite–Krein count (NOTE §5; proof: Cauchy interlacing + Runge):** with J off-line quadruples resolved, the Hankel
+  form (c_{i+j}) has exactly J negative squares; each sign flip of D_n = det(c_{i+j}) produces TWO consecutive negative
+  b_k² and (when the shifted family det(c_{i+j+1}) flips at the same k) a "−+−" S-motif. Data: DH negative J-indices
+  {74,75, 109,110, 176,177, 186,187, 270,271} = 5 pairs ↔ 5 off-line zeros ↔ 5 S-motifs; F_{3,2}: J pairs (2,3),
+  (5,6), (13,14), (20,21), … one per lattice zero of 1 + 3·2^{−s} + 2^{1−2s}. The fingerprint is an off-line-zero
+  COUNTER, not only a positivity test.
+- **Conductor/density form of the law:** α_n ≈ W(q n/2π)²/(16 n²) with q the analytic conductor (zero density
+  (1/2π) log(q t/2π)): χ₄ (q = 4) ratio A_n/W = 0.97–1.035 on n = 50..590; DH (q = 5, off the motifs) 0.95–1.02;
+  F_{2,2} (extra lattice density log 2/π ⇒ q_eff = 4) 0.998 at n = 590. The leading law sees only the density.
+- **Theorem D identities (verify/u6_theoremD_checks.py):** s_m(ξ·g_p) − s_m(ξ) = Σ_{k∈Z} (2πk/log p + i/2)^{−2m}
+  to 1e-37..1e-43 for p = 2, 3, 7, 10⁹+7, m = 1..6; c_0(ξ g_p) = s_1(ξ) − (log p)²/(4 sinh²(log p/4)):
+  −3.937097 (p = 2), −3.877815 (3), −3.675740 (7), +0.009524 (10⁹+7). The k = 0 node sits at y = −4 (zeros of g_p
+  at s = 0, 1) with mass −4 and dominates every moment: s_m − s_m(ξ) ≈ (−4)^m.

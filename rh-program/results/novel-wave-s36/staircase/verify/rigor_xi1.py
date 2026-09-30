@@ -238,9 +238,10 @@ def run_R1(rep):
                  'lower_bound': mp.nstr(low, 10), 'certified_positive_t_ge_30': bool(low > 0)}
 
 
-def run_R2R3(rep, t00):
+def run_R2R3(rep, t00, ta=0, tb=30):
     half = mp.mpf(1)/2
-    todo = [(mp.mpf(j)/10, mp.mpf(j + 1)/10) for j in range(300)][::-1]
+    na = int(ta*10); nb = int(tb*10)
+    todo = [(mp.mpf(j)/10, mp.mpf(j + 1)/10) for j in range(na, nb)][::-1]
     undecided = []
     nev = 0
     while todo:
@@ -290,6 +291,9 @@ def run_R4(rep, t00):
 if __name__ == '__main__':
     t00 = time.time()
     which = sys.argv[1:] or ['R1', 'R2', 'R4']
+    rng = None
+    if 'R2' in which and len(which) >= 3 and which[0] == 'R2':
+        rng = (int(which[1]), int(which[2]))
     rep = {'which': which}
     mp.mp.dps = 50
     sys.path.insert(0, '.')
@@ -312,7 +316,10 @@ if __name__ == '__main__':
     if 'R4' in which:
         run_R4(rep, t00)
     if 'R2' in which:
-        run_R2R3(rep, t00)
+        if rng:
+            run_R2R3(rep, t00, rng[0], rng[1])
+        else:
+            run_R2R3(rep, t00)
     rep['elapsed_s'] = round(time.time() - t00)
     json.dump(rep, open('rigor_xi1_' + '_'.join(which) + '.json', 'w'), indent=1)
     print('saved', rep['elapsed_s'], 's')
