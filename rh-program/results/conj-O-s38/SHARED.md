@@ -79,3 +79,12 @@ Append-only log of batches. Newest block last. Times IST.
 - NOTE §0 (digest ranking quoted: U1 ranked 2nd in §F.2), §4 close written. **Close: G (Lemma G) with T-parts (Theorem Z, Cor Z.1,
   Prop 1.3, Remark 1.3′, Theorem C in mean-square form, corrected Prop 1.1); task 2 named obstruction; task 3 N; K none.**
 - Stop line: task 1 closed (G). The task-3 trigger fired only in pure-power slope on sets covered by theorems (flagged).
+
+## 2026-10-01 04:56 — reader O, batch 0: start (Opus reader of conj-O-s38)
+- NOTE.md read whole: 41,290 B, 340 lines, SHA-256 c1050e62fd1892ff67c01354bd7abe2e0f3f03e517361caec3faeb02f32188e4.
+  Also read: BRIEF, SHARED blocks 0–5, verify/ (scripts + logs), fr NOTE §§4–7, fr read-O, fr read-F. Not read (independence):
+  the orchestrator's `read-F.md` of this unit (appeared 04:50).
+- Deliverables: `read-O.md` (built section by section), `verify-O/` (own code only; nothing imported from `verify/`).
+- Plan: §1 re-derivations (Prop 1.1 both forms, Parseval, Prop 1.3, Rem 1.3′, Theorem Z + Lemmas Z.a/Z.b, Cor Z.1, Lemma G/G′,
+  Prop 1.6, §1.7, §2, §3 claims); §2 re-runs (Euler identity by raw class grouping, rung 1 exact, 12-seed stats from the CSVs,
+  one new numpy seed T_0.75 at 1e9 with own RNG); §3 prior art at the page; Stirling spot check.

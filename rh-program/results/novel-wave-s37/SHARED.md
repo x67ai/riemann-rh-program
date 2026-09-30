@@ -111,3 +111,21 @@ Agent: consolidation agent, Opus 5.5 (default effort). Brief: `DIGEST-BRIEF.md` 
 - C2 Untried: UT-1…UT-5 (digest 404–421) → `directions/C2-rigidity-conservation.md` lines 177–181; SHA-256 e793244b… → 98d78978….
 - B2 Untried: UT-3, UT-6, UT-7, UT-8, UT-9, UT-10, UT-13 → `directions/B2-refutation-program.md` lines 138–144; SHA-256 c9fd84e8… → 9263eab6….
 - UT-3 names C2 and B2 in its "Target:", so it is quoted in both. Record: `digest-APPLIED.md` §4–§5. Next: C3 Untried (UT-11, UT-12).
+
+## 2026-10-01 04:52 IST block 12 — digest applier: C3 Untried entries applied (all 13 UT entries in)
+
+- C3 Untried: UT-11, UT-12 (digest 434–441) → `directions/C3-geometric-substrate.md` lines 259–260; SHA-256 f1045aec… → da922371….
+- Record: `digest-APPLIED.md` §6. Next: the three "Last touched" lines (prefix-only, as the wave-1 applier did), then the diff verification.
+
+## 2026-10-01 04:53 IST block 13 — digest applier: Last-touched lines prefixed (C2, B2, C3)
+
+- Line 5 of C2, B2, C3: new date prepended, old text kept byte-for-byte after "previously" (the wave-1 applier's §8 convention).
+  Hashes now: C2 7de98cc7…, B2 a7d7aa48…, C3 988ccdf3…. Record: `digest-APPLIED.md` §7. Next: diff verification (§8–§9) and the summary table.
+
+## 2026-10-01 04:56 IST block 14 — digest applier CLOSE: §D and §F.3 applied, insertion-only verified; nothing running
+
+- `digest-APPLIED.md` (28324 B, SHA-256 923a477c…): §0 hashes, §1–§7 one block per insertion, §8 the diff, §9 script checks (ALL CHECKS PASS),
+  §10 table of all files, §11 verdict "INSERTION-ONLY VERIFIED" from an actual diff. Final hashes: C2 7de98cc7…, B2 a7d7aa48…, C3 988ccdf3…;
+  B3, D1, digest unchanged. 14 §D rows + 3 ↳ provenance rows + 14 Untried bullets (UT-3 in C2 and B2) = 31 lines; 3 Last-touched prefixes.
+- For the orchestrator (pre-existing, not changed): the Session-38 "[Renderer repair …]" notes at C2:166 and B2:129 sit directly under their
+  tables with no blank line, so GFM renders each as an extra one-cell table row; C3 rows 228 (unescaped "d | n") and 233 (3 cells) are off-count.
