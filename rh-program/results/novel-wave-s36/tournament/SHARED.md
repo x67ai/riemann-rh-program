@@ -40,3 +40,28 @@ Agent: Opus 5.5 (subagent), 2026-09-30. Charter: `results/novel-wave-s36/WAVE-CH
 ## 2026-09-30 block 8 — batch 6 (T26–T30) appended
 
 - T26 Lorentzian: DEAD (III.16). T27 Krein–Langer Pick rigidity on Re s > 1: EQUIV (Weil multiplier 1; IV.8(b) for counting), carried to deep dive 2. T28 one-sided majorants: DEAD (Haselgrove, Odlyzko–te Riele, Montgomery). T29 GORZ hierarchy: DEAD. T30 derivative descent: EQUIV per level.
+
+## 2026-09-30 block 9 — batch 7 (T31–T35) appended; table complete (35 rows)
+
+- T31 Λ² squares: DEAD (III.4). T32 modular bootstrap: DEAD (I.1 Ep). T33 Lagarias–Suzuki modulus continuity: DEAD (I.1 Ep). T34 det₂: EQUIV. T35 Beurling–Deny Weil symbol: EQUIV (J_p ≥ 0 from Λ ≥ 0 but infinite mass).
+- Tally: 35 rows; DEAD 24, EQUIV 11, OPEN 0 at brief time.
+- Deep dives chosen (the three whose brief-time verdict leaves a computable question): DD1 Λ-positivity of Epstein zetas (decides whether the positive-Λ + FE axiom set used by T6/T10/T18/T35 has a computed RH-false member); DD2 Krein–Langer Pick instrument (T27) on DH vs ζ, χ₄; DD3 Landau squeeze D_k (T22) on ζ vs F_{2.9,2}.
+
+## 2026-09-30 block 10 — DD1 computed (`verify/dd1_lambda_sign.{py,log}`, `verify/dd1_rung1_virtual.{py,log}`)
+
+- Tally correction to block 9: DEAD 26, EQUIV 9, OPEN 0 (35 rows).
+- Λ_F(n) ≥ 0 test, n ≤ 2·10^5 (recursion a(n)log n = Σ_{d|n}Λ(d)a(n/d)): Euler-product controls x²+y², x²+xy+2y², ζ_{Q(√−5)}: 0 negatives, off-prime-power |Λ|/log n ≤ 4e-14. Epstein h=2 (x²+5y²): first negative n = 36, Λ(36) = −2 log 36 (hand-verified: 6 log 6 − (3 log 4 + 4 log 6 + 3 log 9) = −4 log 6); 2604 negatives. x²+6y²: 3279; x²+xy+6y² (h=3): 6101; x²+14y² (h=4): 2508. DH: first negative n = 3; F_{2.9,2}: negatives exactly at 4^k.
+- So the axiom set 𝒫 = {FE + Λ ≥ 0 at every n} excludes all three computed RH-false controls (DH, F, Ep).
+- Rung 1: Z(u) = (1 − 5u + 5u²)/((1−u)(1−5u)) over F_5 has FE, N_N = 1 + 5^N − L_N ≥ 1 integral (1, 11, 76, 451, …), closed-point counts b_d nonnegative integers for d ≤ 40 (1, 5, 25, 110, 500, …), zeros at σ = 0.79899 / 0.20101: an RH-false "virtual curve" with Euler product, Λ ≥ 0, FE, rationality. The rung-1 analog of 𝒫 does NOT imply RH.
+- Next: DD2 (Krein–Langer Pick kernel on DH vs ζ).
+
+## 2026-09-30 block 11 — DD2 computed (`verify/dd2_pick_kernel.{py,log}`, `verify/dd2_visibility.{py,log}`)
+
+- Carathéodory/Pick kernel K(s,w) = (F(s) + conj F(w))/(s + w̄ − 1), F = ξ′/ξ, n points on |s − (1.5 + iT)| = r (inside Re s > 1). DH at T = 85.699 (its zero's height): exactly one negative eigenvalue, −0.051 (n = 12), −0.102 (n = 24), −0.153 (n = 36) vs max 38–115. ζ at the same four centers, n ≤ 36: no eigenvalue below −1e-55·max (dps 70). Krein–Langer count (one negative square per off-line pair) confirmed.
+- Visibility law (dps 90, n = 24): log10(−min/max) for height offset D = 0, 1, 2.5, 5, 7.5, 10: r = 0.3: −2.9, −4.7, −10.6, −24.4, −40.5, −58.3; r = 0.45: −1.9, −3.6, −8.8, −20.9, −35.2, −51.2. About 6–7 digits (r = 0.3) or 5–6 digits (r = 0.45) per unit of height offset, slightly super-linear; at DH's zero density ≈ 0.67/unit this is ≈ 10 digits per intervening on-line zero.
+- Verdict: EQUIV stands; as an instrument the negative square is global in principle (Krein–Langer) but exponentially local in practice (IV.9): a disk sees an off-line zero only within ≈ 10 units of height at 60–90 digits, so scanning to height H costs ≥ H/10 disks — no gain over direct verification.
+
+## 2026-09-30 block 12 — DD3 computed (`verify/dd3_landau_squeeze.{py,log}`, X = 10^7, 6.6 s)
+
+- D_1^X(σ) = ∫_1^X (ψ_F(x) − x·[pole])² x^{−σ−1}dx; growth per decade of log10 D (last decade 10^6→10^7): ζ: σ=0.9 0.045, σ=1.0 0.014 (constant: log growth, abscissa 1), σ ≥ 1.3 → 0. F_{2.9,2}: σ=1.0 0.664 (theory 2Θ_F − σ = 0.648), 1.3 0.349 (0.348), 1.5 0.143 (0.148), 1.7 0.025 → 0: abscissa 1.648 read correctly from X = 10^4. DH: σ=1.0 0.22 → 0.35 → 0.52 (theory 0.617), σ=1.3 0.10 (0.317), σ=1.5 0.012 (0.117): not yet asymptotic — the off-line term (amplitude x^{0.8085}/85.7) dominates only for X ≳ 85.7^{1/0.3085} ≈ 10^{6.3} (IV.9 visibility: X ≳ |ρ|^{1/δ}).
+- Rung 1: Σ_N (N_N − 1 − q^N)^{2k} q^{−Ns} is rational with nonnegative coefficients for the RH-false virtual curve (5,5) too; positivity + rationality + FE give only "abscissa = largest pole". Deligne's real input is the weight bound from the Lefschetz-pencil family (monodromy + induction), absent for a single virtual curve and absent over Z.

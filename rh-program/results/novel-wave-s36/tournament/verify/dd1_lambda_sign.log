@@ -1,0 +1,33 @@
+== x^2+y^2 (h=1, control: 4 zeta L(chi_-4)): N=200000  time 0.0s
+   #n with Lambda(n) < 0: 0;  first ones: []
+   max |Lambda(n)/log n| off prime powers = 1e-14;  on prime powers min = 0
+== x^2+xy+2y^2 (h=1, control: disc -7): N=200000  time 0.0s
+   #n with Lambda(n) < 0: 0;  first ones: []
+   max |Lambda(n)/log n| off prime powers = 4.23e-14;  on prime powers min = 0
+== x^2+5y^2 (h=2, disc -20): N=200000  time 0.0s
+   #n with Lambda(n) < 0: 2604;  first ones: [(36, -2.0), (54, -2.0), (84, -4.0), (126, -8.0), (189, -4.0), (196, -2.0), (276, -4.0), (294, -8.0)]
+   most negative Lambda(n)/log n = -704 at n = 121716
+   max |Lambda(n)/log n| off prime powers = 704;  on prime powers min = 0
+== x^2+6y^2 (h=2, disc -24): N=200000  time 0.0s
+   #n with Lambda(n) < 0: 3279;  first ones: [(36, -0.5), (60, -2.0), (90, -2.0), (100, -2.0), (132, -2.0), (150, -4.0), (198, -2.0), (220, -4.0)]
+   most negative Lambda(n)/log n = -352 at n = 181500
+   max |Lambda(n)/log n| off prime powers = 352;  on prime powers min = 0
+== x^2+xy+6y^2 (h=3, disc -23): N=200000  time 0.1s
+   #n with Lambda(n) < 0: 6101;  first ones: [(48, -2.0), (72, -4.0), (96, -2.0), (108, -4.0), (144, -4.0), (156, -2.0), (162, -2.0), (208, -2.0)]
+   most negative Lambda(n)/log n = -416 at n = 146016
+   max |Lambda(n)/log n| off prime powers = 456;  on prime powers min = -1.206e-15
+== x^2+14y^2 (h=4, disc -56): N=200000  time 0.0s
+   #n with Lambda(n) < 0: 2508;  first ones: [(196, -0.5), (252, -2.0), (270, -2.0), (324, -2.0), (420, -2.0), (450, -4.0), (540, -4.0), (700, -2.0)]
+   most negative Lambda(n)/log n = -32 at n = 83070
+   max |Lambda(n)/log n| off prime powers = 96;  on prime powers min = 0
+== zeta_K, K=Q(sqrt-5) (Euler product control): N=200000  time 0.1s
+   #n with Lambda(n) < 0: 0;  first ones: []
+   max |Lambda(n)/log n| off prime powers = 2.84e-14;  on prime powers min = 0
+== Davenport-Heilbronn (kappa=0.2840790438): N=200000  time 0.1s
+   #n with Lambda(n) < 0: 33986;  first ones: [(3, -0.284079), (4, -1.04035), (9, -1.04035), (12, -0.307004), (13, -0.284079), (14, -1.080701), (19, -1.0), (23, -0.284079)]
+   most negative Lambda(n)/log n = -51.7561 at n = 167076
+   max |Lambda(n)/log n| off prime powers = 51.8;  on prime powers min = -1.04035
+== F_{2.9,2}: N=200000  time 0.1s
+   #n with Lambda(n) < 0: 8;  first ones: [(4, -1.705), (16, -2.612025), (64, -5.307687), (256, -12.257374), (1024, -30.446568), (4096, -79.155639), (16384, -212.175978), (65536, -581.230263)]
+   most negative Lambda(n)/log n = -581.23 at n = 65536
+   max |Lambda(n)/log n| off prime powers = 4.9e-12;  on prime powers min = -581.23
