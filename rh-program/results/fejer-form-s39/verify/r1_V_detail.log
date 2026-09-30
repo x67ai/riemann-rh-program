@@ -1,0 +1,25 @@
+cos(theta_V) = cosh(log phi) = 1.118033988749895 ; sqrt5/2 = 1.118033988749895
+M=1  lambda_min(T_M(V)) = -0.2360679775 (closed -0.2360679775)   LP(A) min f(theta_V) = -0.1180339887 (closed -0.1180339887)  c = [-0.5]
+M=2  lambda_min(T_M(V)) = -1.0000000000 (closed -1.0000000000)   LP(A) min f(theta_V) = -0.5000000000 (closed -0.5000000000)  c = [-0.0, -0.5]
+M=3  lambda_min(T_M(V)) = -2.7082039325 (closed -2.7082039325)   LP(A) min f(theta_V) = -1.3541019822 (closed -1.3541019662)  c = [0.2385, -0.2821, -0.4564]
+M=4  lambda_min(T_M(V)) = -6.0000000000 (closed -6.0000000000)   LP(A) min f(theta_V) = -3.0000000437 (closed -3.0000000000)  c = [0.3727, -0.0833, -0.3727, -0.4167]
+M=5  lambda_min(T_M(V)) = -11.8885438200 (closed -11.8885438200)   LP(A) min f(theta_V) = -5.9442719855 (closed -5.9442719100)  c = [0.4551, 0.0596, -0.2279, -0.4008, -0.386]
+M=6  lambda_min(T_M(V)) = -22.0000000000 (closed -22.0000000000)   LP(A) min f(theta_V) = -11.0000002667 (closed -11.0000000000)  c = [0.5083, 0.1591, -0.1017, -0.2955, -0.4066, -0.3636]
+M=7  lambda_min(T_M(V)) = -38.9574275275 (closed -38.9574275275)   LP(A) min f(theta_V) = -19.4787147321 (closed -19.4787137637)  c = [0.5434, 0.2281, -0.0046, -0.1871, -0.3277, -0.4046, -0.3475]
+M=8  lambda_min(T_M(V)) = -67.0000000000 (closed -67.0000000000)   LP(A) min f(theta_V) = -33.5000012312 (closed -33.5000000000)  c = [0.5674, 0.2762, 0.0669, -0.0971, -0.2338, -0.3433, -0.4005, -0.3358]
+Lucas check p_n(V) = 5^{-n/2} s_n: [2.236067977, 3.0, 4.472135955, 7.0, 11.180339887] s_n from L: [5, 15, 50, 175, 625]
+V: I_{1-cos}(Z) = -0.1180339887   Weil lower bound q+1-2g sqrt q = 1.527864 vs N_1 = 1
+E0: I_{1-cos}(Z) = +0.1055728090   Weil lower bound q+1-2g sqrt q = 1.527864 vs N_1 = 2
+P1: I_{1-cos}(Z) = +0.0000000000   Weil lower bound q+1-2g sqrt q = 6.000000 vs N_1 = 6
+(m,n)=(1,0): (1/2) x^T T_1(V) x = +1.000000 ; m^2 + 5mn + 5n^2 = 1
+(m,n)=(2,-1): (1/2) x^T T_1(V) x = -1.000000 ; m^2 + 5mn + 5n^2 = -1
+(m,n)=(1,-1): (1/2) x^T T_1(V) x = +1.000000 ; m^2 + 5mn + 5n^2 = 1
+class B, M=1: min f(theta_V) = -0.250000 ; min of f on the real circle = -0.118034 (NOT >= 0 on the circle: uses the discrete genuine spectrum)
+class B, M=2: min f(theta_V) = -1.500000 ; min of f on the real circle = -0.666667 (NOT >= 0 on the circle: uses the discrete genuine spectrum)
+class B, M=8: min f(theta_V) = -120.957428 ; min of f on the real circle = -15.000000 (NOT >= 0 on the circle: uses the discrete genuine spectrum)
+V2: M=1 lambda_min = +3.552786  eigvec = [-0.7071, 0.7071]
+V2: M=2 lambda_min = -0.293171  eigvec = [-0.6996, 0.1457, -0.6996]
+V2: M=3 lambda_min = -0.416270  eigvec = [-0.5598, -0.432, -0.432, -0.5598]
+V2: M=4 lambda_min = -1.173097  eigvec = [-0.692, 0.1453, 0.0, -0.1453, 0.692]
+V2 Fejer untwisted K_M, M=1..8: [np.float64(2.2236), np.float64(0.8981), np.float64(-0.1447), np.float64(0.1816), np.float64(0.9238), np.float64(0.662), np.float64(-0.2539), np.float64(-0.2696)]
+V2 Fejer twisted   K_M(.+pi):    [np.float64(1.7764), np.float64(0.3019), np.float64(-0.0553), np.float64(0.6824), np.float64(0.6495), np.float64(-0.166), np.float64(-0.0581), np.float64(0.7226)]

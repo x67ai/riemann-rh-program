@@ -1,0 +1,91 @@
+o1 (read-O, qcond-s38): the measure identity (E) of NOTE §2.1, checked EXACTLY (symbolic, no floating point),
+sanity: T(3/2) = 1/18 (Poisson closed form of v2 gives 1/18);  T(1) = 0 ; T(1/2) = 1/2
+== zeta (q=1): FE residual (60 digits, 2 points) = 0; rho_q = 1
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 0
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 0
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 0
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 0
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 3/25
+== zeta(1+3^{1/2-s}) (q=3) [new]: FE residual (60 digits, 2 points) = 0; rho_q = 1 + sqrt(3)
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 2*sqrt(3)/3
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): sqrt(3)/2
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 2*sqrt(3)/3
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 12*sqrt(3)/25
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 3/25 + 214*sqrt(3)/245
+== zeta(1+2^{1/2-s}) (q=2): FE residual (60 digits, 2 points) = 0; rho_q = 1 + sqrt(2)
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): sqrt(2)/2
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): sqrt(2)/2
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 4*sqrt(2)/9
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 32*sqrt(2)/75
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 3/25 + 25313*sqrt(2)/44100
+== zeta(1+2^{1-2s}) (q=4): FE residual (60 digits, 2 points) = 0; rho_q = 3
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 3/2
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 1
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 4/3
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 64/75
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 32369/14700
+== zeta(1+9^{1/2-s}) (q=9): FE residual (60 digits, 2 points) = 0; rho_q = 4
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 8/3
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 3/2
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 2
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 39/50
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 2153/525
+== F55 (q=25): FE residual (60 digits, 2 points) = 2.81E-191; rho_q = 11
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 44/5
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 5
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 20/3
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 29/9
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 49141/3675
+== zeta(1+2^-s+(sqrt6/2)3^-s+sqrt6 6^-s) (q=6) [new]: FE residual (60 digits, 2 points) = 2.19E-193; rho_q = 2 + 3*sqrt(6)/2
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 1/2 + 7*sqrt(6)/6
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 1/2 + 3*sqrt(6)/4
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 4/9 + sqrt(6)
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 32/75 + 14*sqrt(6)/25
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 6121/8820 + 691*sqrt(6)/420
+== zeta(1+2^{-s/2}+sqrt2 2^-s) (q=2, radical) [new]: FE residual (60 digits, 2 points) = 0; rho_q = sqrt(2) + 2
+   w=d1                                               LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 1
+   w=d1-d2                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): -1/2 + sqrt(2)
+   w=d1-d3                                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): -2/3 + 10*sqrt(2)/9
+   w=(d1-d2)(d1-d3)(d1-d5)                            LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): -3/5 + 221*sqrt(2)/225
+   w=signed d1-2d3+d7/2+3d(5/2) [not admissible; (E) needs none] LHS-RHS over ell=['1', '1/2', '2', '3/2', '3', '7/3']: ['0', '0', '0', '0', '0', '0']
+      LHS at ell=1 (Prop. E left side): 2131/1050 - 5587*sqrt(2)/11025
+TOTAL exact checks: 240; nonzero differences: 0

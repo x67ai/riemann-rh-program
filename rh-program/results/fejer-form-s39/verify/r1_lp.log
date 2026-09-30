@@ -1,0 +1,12 @@
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/fejer-form-s39/verify/r1_lp.py:31: RuntimeWarning: divide by zero encountered in matmul
+  c = res.x; fmin = 1 + 2 * float(np.min(c @ COSF[:m])) if res.status == 0 else None
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/fejer-form-s39/verify/r1_lp.py:31: RuntimeWarning: overflow encountered in matmul
+  c = res.x; fmin = 1 + 2 * float(np.min(c @ COSF[:m])) if res.status == 0 else None
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/fejer-form-s39/verify/r1_lp.py:31: RuntimeWarning: invalid value encountered in matmul
+  c = res.x; fmin = 1 + 2 * float(np.min(c @ COSF[:m])) if res.status == 0 else None
+g1_q5 {"n_false": 2, "n_gen": 9, "worst_lambda_RHtrue": -3.1061320927081913e-15, "Mstar": {"1": 2}, "caught": {"A": 2, "A+": 2, "B": 2, "fejer": 1, "twisted": 1}, "B_is_weil": 0, "B_not_weil": 2}
+g2_q5 {"n_false": 199, "n_gen": 115, "worst_lambda_RHtrue": -6.212264185416383e-15, "Mstar": {"3": 86, "2": 113}, "caught": {"A": 199, "A+": 155, "B": 199, "fejer": 150, "twisted": 149}, "B_is_weil": 0, "B_not_weil": 199}
+g1_q7 {"n_false": 4, "n_gen": 11, "worst_lambda_RHtrue": -1.923222200240501e-15, "Mstar": {"1": 4}, "caught": {"A": 4, "A+": 4, "B": 4, "fejer": 2, "twisted": 2}, "B_is_weil": 0, "B_not_weil": 4}
+g2_q7 {"n_false": 675, "n_gen": 192, "worst_lambda_RHtrue": -3.933099112081877e-15, "Mstar": {"2": 471, "3": 192, "1": 12}, "caught": {"A": 675, "A+": 526, "B": 675, "fejer": 510, "twisted": 505}, "B_is_weil": 0, "B_not_weil": 675}
+g1_q11 {"n_false": 10, "n_gen": 13, "worst_lambda_RHtrue": -2.3502054577801774e-15, "Mstar": {"1": 10}, "caught": {"A": 10, "A+": 10, "B": 10, "fejer": 5, "twisted": 5}, "B_is_weil": 0, "B_not_weil": 10}
+g2_q11 {"n_false": 2935, "n_gen": null, "worst_lambda_RHtrue": -4.700410915560355e-15, "Mstar": {"2": 2359, "3": 392, "1": 184}, "caught": {"A": 2935, "A+": 2314, "B": 0, "fejer": 2270, "twisted": 2229}, "B_is_weil": 0, "B_not_weil": 0}

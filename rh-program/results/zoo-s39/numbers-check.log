@@ -70,3 +70,57 @@ to the staging's block-0 prefixes, so the staging's 53-quotation check stands fo
   OK   proof-mine/NOTE.md 327-329 "violates Bombieri's one-sided Theorem 1 by itself, with no t" 
   OK   proof-mine/NOTE.md 307-311 'by Z1 + Landau its RH-strength form is exactly one-sided RH' 
 (c) block i2b's quotation of the digest §E, E.2(e) (digest lines 296–297): OK
+  → the sample MISS above is the checker's pairing, not the text: block (iv) cites Theorem P as "NOTE lines 266–277" (the first
+    quotation, at 275–276, is inside it) and "(lines 277–278)" belongs to the second quotation. Re-checked on those windows:
+  OK   proof-mine/NOTE.md 266-277 '(iii) Hence no input of any class is a function of the zeta ' 
+  OK   proof-mine/NOTE.md 277-278 "follows from V's existence alone"
+
+## §E Byte identity: every inserted line, with its named pairs reversed (NEW → OLD, each exactly once), equals its staged line
+  count    line 1 ← staged 103  pairs C1,C2,C3,C4,C5         IDENTICAL  (7 changed spans, 1299 → 1375 bytes)
+  i2alpha  line 1 ← staged  55  pairs D1,E1                  IDENTICAL  (3 changed spans, 4196 → 4194 bytes)
+  i2thresh line 1 ← staged  66  pairs D1,E1                  IDENTICAL  (3 changed spans, 2374 → 2372 bytes)
+  i9       line 1 ← staged  72  pairs D1,E1                  IDENTICAL  (3 changed spans, 3348 → 3346 bytes)
+  i10      line 1 ← staged  43  pairs H1,H2                  IDENTICAL  (4 changed spans, 367 → 365 bytes)
+  i10      line 3 ← staged  45  pairs L1                     IDENTICAL  (2 changed spans, 3149 → 3149 bytes)
+  i10      line 4 ← staged  46  pairs —                      IDENTICAL  (0 changed spans, 896 → 896 bytes)
+  i10      line 5 ← staged  47  pairs —                      IDENTICAL  (0 changed spans, 786 → 786 bytes)
+  i10      line 6 ← staged  48  pairs —                      IDENTICAL  (0 changed spans, 487 → 487 bytes)
+  i10      line 7 ← staged  49  pairs —                      IDENTICAL  (0 changed spans, 1358 → 1358 bytes)
+  iii20    line 1 ← staged  81  pairs D1,E1                  IDENTICAL  (3 changed spans, 4114 → 4112 bytes)
+  v4       line 1 ← staged  87  pairs D1p                    IDENTICAL  (2 changed spans, 629 → 627 bytes)
+  xref     line 1 ← staged  93  pairs —                      IDENTICAL  (0 changed spans, 274 → 274 bytes)
+  xref     line 2 ← staged  94  pairs —                      IDENTICAL  (0 changed spans, 322 → 322 bytes)
+  xref     line 3 ← staged  95  pairs —                      IDENTICAL  (0 changed spans, 203 → 203 bytes)
+  xref     line 4 ← staged  96  pairs —                      IDENTICAL  (0 changed spans, 291 → 291 bytes)
+  xref     line 5 ← staged  97  pairs —                      IDENTICAL  (0 changed spans, 247 → 247 bytes)
+  i10 line 2 is the blank line between heading and bullets: True
+  i2b: result line 82 = input line 80 with ' ' + the bracket after the clause-(b) anchor: True; removing it restores line 80 byte for byte: True
+  ALL BLOCK LINES IDENTICAL TO THEIR SOURCES APART FROM THE SANCTIONED PAIRS: True
+
+## §F Lint (10(g)) and spelling (U.S. English) on the nine blocks
+  clearly      0
+  obviously    0
+  easy to see  0
+  well known   0
+  well-known   0
+  trivially    0
+  British spellings found: none
+
+## §G Hashes (SHA-256, full)
+  fa0d729377df6a53566d19cf80bc0ad9bbdd22648135135467de75d3601f393e  BARRIER-ZOO.md
+  0ef537237c5412af951be43641c660d69ac8fcf02f049053fd850d78d6dc8a26  results/zoo-s39/dryrun-BARRIER-ZOO.md
+  4c77336f1da77c49e83d43b34ddf9008faec9bef9f8e528c187cbe9535fbc1ca  results/zoo-s39/zoo-entries-proposed.md
+  c94b421f987059bd7227f987f25a32027fd6a778c48557d8f5c2334cd01b5d60  scripts/zoo-insert-s39.py
+  93e7e394b2dd4406b57772d6e5a33adf775674f289fe1c6fcfcc117075261f6c  results/novel-wave-s37/ZOO-LINES-STAGED.md
+  e86f642a47cf4bdedad83efd61cd307b34fa55b87e60501faca2a9b3b0c6c981  results/novel-wave-s37/insights-digest.md
+  c3e46d120337c8c30c54a6688a160de9359a3ff36f6aaeb812575bb6650989d4  results/novel-wave-s37/beurling-fe/NOTE.md
+  ef140f79674419f5fdba9effac80d15c34a7886b650a2f81758d3857f1c54d32  results/novel-wave-s37/beurling-frontier/NOTE.md
+  eb5f3bb932f2827d5f1cdc1058865e4db68ff146f0744276eb4db2e138ac5868  results/novel-wave-s37/proof-mine/NOTE.md
+
+## §H Final state (after the proposed file gained its closing sections and the two annotations landed)
+  dry run re-run with the final proposed file: byte-identical to dryrun-BARRIER-ZOO.md (SHA-256 0ef537237c5412af…)
+  fa0d729377df6a53566d19cf80bc0ad9bbdd22648135135467de75d3601f393e  BARRIER-ZOO.md
+  afcd1b17d0c6550ff93f51cc4495ce2cd2df2402a78fff1d62b5beaa2213611d  results/zoo-s39/zoo-entries-proposed.md
+  c94b421f987059bd7227f987f25a32027fd6a778c48557d8f5c2334cd01b5d60  scripts/zoo-insert-s39.py
+  c3d5a286440755d44d56ae4e49daf7a6b9be4107632e90249c691853f99bb2e2  results/novel-wave-s36/tournament/NOTE.md
+  a1b7f1a4d9871d3877b06d07708678e6a34bf43e4ca73d914abc74b707a0e0a8  results/novel-wave-s37/WAVE-CHARTER.md

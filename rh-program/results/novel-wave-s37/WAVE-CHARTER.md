@@ -15,7 +15,7 @@ Wave 1 closed N1 K, N2 K, N3 K, N4 N, all upheld at the line in Session 37. What
      FE, nonnegative integer point counts N_n and closed-point counts b_d (checked to d = 60), an Euler product with STANDARD local factors, class number 1,
      Riemann–Roch-consistent divisor counts A_n = (5ⁿ − 1)/4 — and zeros at Re s = 0.79899. So no "zeta-level" axiom set implies RH on rung 1.
  (f) Over Q the record's RH-false worlds all fail an axiom: Davenport–Heilbronn and Epstein (h > 1) have no Euler product and Λ < 0 somewhere;
-     F_{a,q} has Λ(q²) < 0; Beurling systems (zoo I.2) have Euler product and Λ ≥ 0 but no FE and integer error exponent β ≥ ½.
+     F_{a,q} has Λ(q²) < 0; Beurling systems (zoo I.2) have Euler product and Λ ≥ 0 but no FE and integer error exponent β ≥ ½. [CORRECTION 2026-10-01, Session 39 (insertion-only; the sentence stands as history) — the wave-2 digest, `results/novel-wave-s37/insights-digest.md` §E, E.2(e): "integer error exponent β ≥ ½" "is imprecise: {α > ½, β < ½} is populated under RH (BDR Thm 1.3) and, non-constructively, unconditionally (Prop. 2.1)" — Prop. 2.1 of `results/novel-wave-s37/beurling-frontier/NOTE.md`.]
 The orchestrator's reading (Session 37; single-check, to be attacked): RH needs the MULTIPLICATIVE structure (Euler product, Λ ≥ 0) and the ADDITIVE
 structure of N (equally spaced integers; Poisson summation; the FE) together. Beurling systems are exactly "multiplicative structure with the additive
 structure relaxed", and the integer error exponent β (N_B(x) = ρx + O(x^β)) measures how additive a system is: N has β = 0 and an exact FE.

@@ -88,3 +88,14 @@ Append-only log of batches. Newest block last. Times IST.
 - Plan: §1 re-derivations (Prop 1.1 both forms, Parseval, Prop 1.3, Rem 1.3′, Theorem Z + Lemmas Z.a/Z.b, Cor Z.1, Lemma G/G′,
   Prop 1.6, §1.7, §2, §3 claims); §2 re-runs (Euler identity by raw class grouping, rung 1 exact, 12-seed stats from the CSVs,
   one new numpy seed T_0.75 at 1e9 with own RNG); §3 prior art at the page; Stirling spot check.
+
+## 2026-10-01 05:08 — reader O, batch 1: §1.1–1.7 re-derived; euler_O + thin_O 1e9 done; 1e10 batch running
+- `verify-O/euler_O.py` → `logs/euler_O.log` (64 s): class sums by RAW (n, m) grouping = a^{s−1}b^{−s}μ(b)ρ/Π(1−1/p) to 1e-30
+  (5 sets, real and complex s); corrected diagonal = brute to ≤ 6e-30; sketch off 12–55%. **F1: Prop 1.1(a) must include b = 1**
+  (c(a/1) = ρ/(2πia) ≠ 0; Parseval without b = 1 is short by ρ²/12); the writer's check skipped b = 1. Parseval exact on 8 sets.
+- Re-derived ✓: Prop 1.3, Theorem Z (Lemmas Z.a, Z.b, Z1–Z5), Cor Z.1, (G′), Prop 1.6(i)–(iii), §1.7. F2: Lemma G is, for each R
+  under RH, equivalent to O₂(R) (vacuous if O holds) — a reformulation, to be labelled so. Minor: Rem 1.3′ shows α/3 is a barrier
+  for growth-only input at α = ½, not that α/4 is the limit; Theorem B's mean-square form (a.s.) needs a 3-line Fubini/0–1 addition.
+- `verify-O/thin_O.py` (own numpy sieve + PCG64 RNG + scipy E1 tail; tested vs brute force at 1e6, `logs/test_thin_O.log`):
+  T_0.75 seed 1001 at X = 1e9 (Y = 4e9) in 17 s (`logs/thin_O_1e9.log`). Because it is this fast, 8 new seeds (1002–1009) at
+  X = 1e10, Y = 2e10 run sequentially via `run_O_1e10.sh` (≈ 2 min each, one heavy process) → `data/bern_O_a0.75_s*_1e10_*.csv`.
