@@ -7,7 +7,7 @@ For each N and each chain (seed xi_N: negative lobes vs P_N; Haglund Xi_N: posit
 Reads lobe_scan_*.json."""
 import json, glob, math
 rows = {}
-for fn in sorted(glob.glob('lobe_scan_*.json')):
+for fn in sorted(glob.glob('lobe_scan_*.json') + glob.glob('lobe_scan2_*.json')):
     if fn == 'lobe_scan_6_30.json':
         continue
     d = json.load(open(fn))
