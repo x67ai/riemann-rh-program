@@ -196,3 +196,11 @@ user 12.33
 sys 0.02
 [2026-10-01 03:12:03] run_t3b all done
 [2026-10-01 03:12:40] env RDUMP=rdump/feedback_a0.75_c1_K2_corr_1e10.bin ./thin2 feedback 0.75 1e10 2e10 2 1 corr > feedback_a0.75_c1_K2_corr_1e10.csv
+real 80.64
+user 80.40
+sys 0.22
+[2026-10-01 03:14:01] env RDUMP=rdump/feedback_a0.75_c1_K0.5_corr_1e10.bin ./thin2 feedback 0.75 1e10 2e10 0.5 1 corr > feedback_a0.75_c1_K0.5_corr_1e10.csv
+real 80.37
+user 80.13
+sys 0.22
+[2026-10-01 03:15:22] run_t3c all done

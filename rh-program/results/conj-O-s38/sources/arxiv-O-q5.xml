@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Vnln3u/7OsaZxpylzxxle/nyAww</id>
+  <title>arXiv Query: search_query=all:"reduced residues" AND all:variance&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-30T21:51:30Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22reduced+residues%22+AND+all:variance&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>9</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.25123v1</id>
+    <title>Inference-Time Alignment of Diffusion Models via Trust-Region Iterative Twisted Sequential Monte Carlo</title>
+    <updated>2026-05-24T15:08:52Z</updated>
+    <link href="https://arxiv.org/abs/2605.25123v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.25123v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study inference-time alignment for diffusion-based generative models, aiming to steer a base model toward high-reward outputs without updating its weights. Recent Sequential Monte Carlo (SMC)-based steering methods approximate reward-tilted target distributions in a principled way, but their proposals remain largely tied to the base sampler. Since reward information is mainly used after propagation through particle reweighting and resampling, these methods can require large particle budgets and suffer from weight degeneracy and high-variance estimates. One way to reduce variance and improve particle efficiency is to iteratively learn twisting functions that provide look-ahead guidance, as in twisted SMC. However, existing learnable twisting methods are developed mainly for classical sequential inference and can be unstable when applied to diffusion-based alignment with high-dimensional state spaces and terminal, noisy, or black-box rewards. We propose Trust-Region Iterative Twisted Sequential Monte Carlo (TRI-TSMC), a trust-region framework for learning twisting functions in SMC-based inference-time alignment. Each iteration computes an exact KL-constrained update in path space, which admits a closed-form solution by tempered importance reweighting, and projects this target back to the parameterized twisted family by weighted maximum likelihood. Theoretically, we formalize the value-function interpretation of the optimal twisting function and show that it yields a zero-variance sampler. We prove that the trust-region update follows an escort path toward the target distribution, that the weighted maximum-likelihood update is a forward-KL projection, and that the path reduces residual importance-weight variance. Empirically, TRI-TSMC improves primary alignment objectives on discrete diffusion text generation and text-to-image generation under matched inference-time budgets.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-24T15:08:52Z</published>
+    <arxiv:comment>34 pages, 6 figures, and 7 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Weixin Wang</name>
+    </author>
+    <author>
+      <name>Yu Yang</name>
+    </author>
+    <author>
+      <name>Wei Deng</name>
+    </author>
+    <author>
+      <name>Pan Xu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.19607v1</id>
+    <title>Inference with weights: Residualization produces short, valid intervals for varying estimands and varying resampling processes</title>
+    <updated>2025-07-25T18:22:53Z</updated>
+    <link href="https://arxiv.org/abs/2507.19607v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.19607v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Weighting procedures are used in observational causal inference to adjust for covariate imbalance within the sample. Common practice for inference is to estimate robust standard errors from a weighted regression of outcome on treatment. However, it is well known that weighting can inflate variance estimates, sometimes significantly, leading to standard errors and confidence intervals that are overly conservative. We instead examine and recommend the use of robust standard errors from a weighted regression that additionally includes the balancing covariates and their interactions with treatment. We show that these standard errors are more precise and asymptotically correct for weights that achieve exact balance under multiple common resampling frameworks, including design-based and model-based inference, as well as superpopulation sampling with a finite sample correction. Gains to precision can be quite significant when the balancing weights adjust for prognostic covariates. For procedures that balance only approximately or in expectation, such as inverse propensity weighting or approximate balancing weights, our proposed method improves precision by reducing residuals through augmentation with the parametric model. We demonstrate our approach through simulation and re-analysis of multiple empirical studies.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-25T18:22:53Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Erin Hartman</name>
+    </author>
+    <author>
+      <name>Chad Hazlett</name>
+    </author>
+    <author>
+      <name>Arisa Sadeghpour</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.20206v4</id>
+    <title>SetPINNs: Set-based Physics-informed Neural Networks</title>
+    <updated>2025-05-23T08:33:22Z</updated>
+    <link href="https://arxiv.org/abs/2409.20206v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.20206v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Physics-Informed Neural Networks (PINNs) solve partial differential equations using deep learning. However, conventional PINNs perform pointwise predictions that neglect dependencies within a domain, which may result in suboptimal solutions. We introduce SetPINNs, a framework that effectively captures local dependencies. With a finite element-inspired sampling scheme, we partition the domain into sets to model local dependencies while simultaneously enforcing physical laws. We provide a rigorous theoretical analysis showing that SetPINNs yield unbiased, lower-variance estimates of residual energy and its gradients, ensuring improved domain coverage and reduced residual error. Extensive experiments on synthetic and real-world tasks show improved accuracy, efficiency, and robustness.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-30T11:41:58Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Mayank Nagda</name>
+    </author>
+    <author>
+      <name>Phil Ostheimer</name>
+    </author>
+    <author>
+      <name>Thomas Specht</name>
+    </author>
+    <author>
+      <name>Frank Rhein</name>
+    </author>
+    <author>
+      <name>Fabian Jirasek</name>
+    </author>
+    <author>
+      <name>Stephan Mandt</name>
+    </author>
+    <author>
+      <name>Marius Kloft</name>
+    </author>
+    <author>
+      <name>Sophie Fellenz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.27814v1</id>
+    <title>Pricing and Semi-static Hedging of Green Pay-as-produced Power Purchase Agreements</title>
+    <updated>2026-07-30T07:53:46Z</updated>
+    <link href="https://arxiv.org/abs/2607.27814v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.27814v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Pay-as-produced power purchase agreements (PPAs) expose buyers and sellers to the joint risk of power prices and renewable production. This paper develops a theoretical framework for hedging this exposure using a semi-static strategy: liquid futures hedge traded price risk dynamically, while a fixed portfolio of renewable-linked claims targets residual volume and covariance risk. The pricing and hedging decomposition is model-free, whereas the empirical implementation for German wind and solar generation uses a calibrated stochastic model. Conditional on a valuation measure, the fair strike is a production-weighted expected spot price. We show that it decomposes exactly into the baseload forward level, a deterministic production-profile correction, and a stochastic price-volume covariance correction, where the covariance term measures the pricing effect of renewable cannibalisation. The static hedge is selected through a finite-dimensional variance projection onto claims linked to renewable volume, delivery-period average prices, and price-volume covariance. We estimate a Lévy-driven bivariate MCARMA state-space model with state-dependent price spikes using hourly German data for 2023-2024 and apply it to monthly PPAs over the January-December 2025 delivery horizon. The results distinguish deterministic profile risk from stochastic covariance risk and show how sparse static overlays reduce residual exposures that fixed-volume futures cannot hedge. The selected portfolios also indicate which claim types are most effective for hedging residual renewable shape risk.</summary>
+    <category term="q-fin.MF" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-fin.RM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T07:53:46Z</published>
+    <arxiv:primary_category term="q-fin.MF"/>
+    <author>
+      <name>Konstantinos Chatziandreou</name>
+    </author>
+    <author>
+      <name>Sven Karbach</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2006.08628v2</id>
+    <title>Peeling off foregrounds with the constrained moment ILC method to unveil primordial CMB $B$-modes</title>
+    <updated>2021-03-02T19:28:38Z</updated>
+    <link href="https://arxiv.org/abs/2006.08628v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2006.08628v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Galactic foregrounds are the main obstacle to observations of the cosmic microwave background (CMB) $B$-mode polarization. In addition to obscuring the inflationary $B$-mode signal by several orders of magnitude, Galactic foregrounds have non-trivial spectral signatures that are partially unknown and distorted by averaging effects along the line-of-sight, within the pixel/beam window, and by various analysis choices (e.g., spherical harmonic transforms and filters). Statistical moment expansion methods provide a powerful tool for modeling the effective Galactic foreground emission resulting from these averaging effects in CMB observations, while blind component separation treatments can handle unknown foregrounds. In this work, we combine these two approaches to develop a new semi-blind component separation method at the intersection of parametric and blind methods, called constrained moment ILC (cMILC). This method adds several constraints to the standard ILC method to de-project the main statistical moments of the Galactic foreground emission. Applications to maps are performed in needlet space and when compared to the NILC method, this helps significantly reducing residual foreground contamination (bias, variance, and skewness) in the reconstructed CMB $B$-mode map, power spectrum, and tensor-to-scalar ratio. We consider sky-simulations for experimental settings similar to those of LiteBIRD and PICO, illustrating which trade-offs between residual foreground biases and degradation of the constraint on $r$ can be expected within the new cMILC framework. We also outline several directions that require more work in preparation for the coming analysis challenges.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-06-15T18:00:02Z</published>
+    <arxiv:comment>21 pages, 11 figures, added appendix, updated to match version accepted by MNRAS</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Mathieu Remazeilles</name>
+    </author>
+    <author>
+      <name>Aditya Rotti</name>
+    </author>
+    <author>
+      <name>Jens Chluba</name>
+    </author>
+    <arxiv:doi>10.1093/mnras/stab648</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1093/mnras/stab648" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.04470v1</id>
+    <title>CRAFT: Counterfactual-to-Interactive Reinforcement Fine-Tuning for Driving Policies</title>
+    <updated>2026-05-06T03:49:01Z</updated>
+    <link href="https://arxiv.org/abs/2605.04470v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.04470v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Open-loop imitation learning has advanced modern autonomous driving policy architectures, but closed-loop deployment remains vulnerable to policy-induced distribution shift. Existing post-training paradigms exhibit fundamental trade-offs: closed-loop RL fine-tuning provides grounded feedback from executed actions but is constrained by the sparsity of informative events, whereas counterfactual fine-tuning provides dense supervision over candidate futures but inherits bias from imperfect future estimates. We introduce Counterfactual-to-Interactive Reinforcement Fine-Tuning (CRAFT), an on-policy framework that formulates closed-loop post-training as proxy-residual optimization. CRAFT uses group-normalized counterfactual advantages as a dense proxy for real closed-loop advantages and aligns this proxy with the closed-loop world through grounded residual correction from interaction-critical events. To stabilize adaptation, CRAFT regularizes the online policy toward an EMA teacher via asymmetric KL self-distillation. Theoretically, CRAFT decomposes the real closed-loop policy gradient into proxy and residual terms under the same visited-state distribution, reducing residual variance with an aligned proxy while mitigating proxy bias through grounded residual approximation. Empirically, CRAFT achieves the strongest closed-loop gains on Bench2Drive across hierarchical planning, vision-language-action, and vocabulary-scoring architectures. Ablations, scaling behavior, stability analyses, and transfer results further validate the complementary roles of dense counterfactual proxy and grounded residual correction. Project page: https://currychen77.github.io/CRAFT.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-06T03:49:01Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Keyu Chen</name>
+    </author>
+    <author>
+      <name>Nanfei Ye</name>
+    </author>
+    <author>
+      <name>Yida Wang</name>
+    </author>
+    <author>
+      <name>Wenchao Sun</name>
+    </author>
+    <author>
+      <name>Danqi Zhao</name>
+    </author>
+    <author>
+      <name>Hao Cheng</name>
+    </author>
+    <author>
+      <name>Sifa Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.07469v2</id>
+    <title>Deep Needlet: A CNN based full sky component separation method in Needlet space</title>
+    <updated>2025-08-25T11:45:06Z</updated>
+    <link href="https://arxiv.org/abs/2501.07469v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.07469v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>One of the key steps in Cosmic Microwave Background (CMB) data analysis is component separation to recover the CMB signal from multi-frequency observations contaminated by foreground emissions. Needlet Internal Linear Combination (NILC) is one of the successful methods that applies the minimum variance estimation technique to a set of needlet-filtered frequency maps to recover CMB. In this work, we develop a deep convolutional neural network (CNN) model to recover CMB temperature map from needlet-filtered frequency maps over the full sky. The network operates on a multi-resolution representation of spherical data, capturing localised features in both pixel and harmonic space, and is designed to preserve the rotational invariance of the CMB signal.
+  The network model is trained on realistic simulations at Planck frequencies, which include CMB temperature maps generated using cosmological parameters sampled within a 2$σ$ standard deviation around the Planck best-fit values. We demonstrate the network performance for simulations that exhibit different foreground complexities. The recovered CMB temperature map closely follows the true signal with some residual leakage near the Galactic plane. The TT power spectrum is accurately reconstructed up to multipoles of approximately $\ell\sim 1100$. A minor residual systematics remain at smaller scales. Compared to the NILC method, the network shows reduced residual foreground contamination in the recovered CMB map.
+  Once validated on the simulations, the network is applied to Planck PR3 intensity data. The resulting CMB map is consistent with the CMB maps from the Planck legacy products, including those produced using the NILC and SMICA pipelines. This work demonstrates a powerful component separation method to clean spherical signal data from multi-resolution wavelet-filtered maps.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.GA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-13T16:35:55Z</published>
+    <arxiv:comment>21 pages, 11 figures, 2 tables, published in JCAP</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Debabrata Adak</name>
+    </author>
+    <arxiv:doi>10.1088/1475-7516/2025/08/058</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1475-7516/2025/08/058" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.05320v3</id>
+    <title>Screening-Off Information and Conditional Risk in Portfolio Choice</title>
+    <updated>2026-09-09T16:48:50Z</updated>
+    <link href="https://arxiv.org/abs/2607.05320v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.05320v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Conditional portfolio models estimate risk relative to a chosen information set, yet rarely test whether that information removes common cross-asset dependence. When it does not, systematic risk may be treated as idiosyncratic, distorting portfolios and attainable efficient frontiers. We formulate this prior problem as screening-off for portfolio choice. A hierarchy separates causal, distributional and second-moment requirements, while an exact covariance decomposition distinguishes represented systematic response, omitted response risk and residual cross-asset dependence. The two representation errors have different financial implications: omitted response necessarily overstates attainable mean--variance opportunities, whereas incomplete screening can distort them in either direction. Exact finite perturbation identities and non-asymptotic bounds map both errors into changes in constrained portfolio weights and frontier potential. Controlled experiments verify the mechanisms under static, heavy-tailed, dynamic and nonlinear designs. Frozen out-of-sample market tests combine a broad universe of observable economic and financial drivers with 150 U.S. equities and 17 hedge-fund strategy indices. Compact selected representations materially reduce residual dependence in both panels; in equities, residual-aware covariance estimation improves materially on the uncorrected diagonal-residual restriction while remaining competitive with established covariance regularizers. The framework provides a falsifiable information criterion for conditional risk and a direct map from representation failure to portfolio instability.</summary>
+    <category term="q-fin.PM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-06T16:59:25Z</published>
+    <arxiv:comment>28 Pages, 6 Figures, 3 Tables. Under peer-revision in a quantitative finance journal</arxiv:comment>
+    <arxiv:primary_category term="q-fin.PM"/>
+    <author>
+      <name>Alejandro Rodriguez Dominguez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.23250v2</id>
+    <title>Libra: Taming Attention Workload Skew in Long-Context LLM Training with Bounded Sequence Pool</title>
+    <updated>2026-09-17T09:57:14Z</updated>
+    <link href="https://arxiv.org/abs/2607.23250v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.23250v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-context LLM training suffers from a load-balancing problem that sequence packing does not solve. Packing samples into fixed-token sequences balances memory and linear-cost operators, but the dominant attention cost scales with the sum of squared sequence lengths. Thus, equally sized packed sequences drawn from a long-tailed corpus can carry substantially different attention workloads, creating data-parallel stragglers and pipeline bubbles. Existing approaches either balance at the granularity of sequences or microbatches, where an outlier can dominate an assignment, or disaggregate attention over a global worker pool whose communication domain grows with the data-parallel (DP) degree.
+  We present Libra, which operationalizes the law of large numbers (LLN) as a scaling principle for load balancing: the attention-balancing pool need not grow with the DP degree. Libra groups packed sequences and their CP groups into fixed-size sequence pools. As DP scales out, Libra adds pools rather than enlarging each one, bounding every attention exchange. Variance-Reduced Sequence Placement makes this effective for finite, long-tailed workloads by co-locating sequences with complementary attention workloads to reduce residual inter-pool skew. Within each pool, Tiled Attention Pooling dispatches sequence-head SH-Tiles across GPUs, while a pipelined runtime overlaps tile exchange with attention.
+  Libra exposes a drop-in context-parallel attention operator and a pluggable data sampler, requiring no changes to model layers, optimizers, or pipeline schedules. On three production Qwen3 models (8B, 30B, 235B) and 256K- and 1M-token production workloads, Libra improves end-to-end training throughput over the strongest evaluated baseline (WLB-LLM) by 44% on average and up to 68% at 256 GPUs. Libra has run for hundreds of thousands of GPU-hours in production on jobs spanning 32K to 1M tokens.</summary>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-25T15:21:25Z</published>
+    <arxiv:comment>15 pages, 15 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.DC"/>
+    <author>
+      <name>Yan Wang</name>
+    </author>
+    <author>
+      <name>Xiulong Yuan</name>
+    </author>
+    <author>
+      <name>Kaiming Yang</name>
+    </author>
+    <author>
+      <name>Jiaxuan Peng</name>
+    </author>
+    <author>
+      <name>Pengju Lu</name>
+    </author>
+    <author>
+      <name>Mingzhen Li</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhang</name>
+    </author>
+    <author>
+      <name>Chang Si</name>
+    </author>
+    <author>
+      <name>Zhixiang Ruan</name>
+    </author>
+    <author>
+      <name>Hongqing Chen</name>
+    </author>
+    <author>
+      <name>Linlang Jiang</name>
+    </author>
+    <author>
+      <name>Siyu Wang</name>
+    </author>
+    <author>
+      <name>Langshi Chen</name>
+    </author>
+    <author>
+      <name>Rui Men</name>
+    </author>
+    <author>
+      <name>Man Yuan</name>
+    </author>
+    <author>
+      <name>Guangming Tan</name>
+    </author>
+    <author>
+      <name>Yong Li</name>
+    </author>
+    <author>
+      <name>Weile Jia</name>
+    </author>
+    <author>
+      <name>Jingren Zhou</name>
+    </author>
+  </entry>
+</feed>

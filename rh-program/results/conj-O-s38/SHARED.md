@@ -54,3 +54,17 @@ Append-only log of batches. Newest block last. Times IST.
   below α − 0.15 over six decades, but Corollary Z.1 (RH) proves β₂ = α/2 for this set, so the deficit is a log-power
   (M ≈ X^α(ln X)^{−κ}, κ ≈ 3): the stop line's literal trigger "below X^{α−δ} over three decades" is met by a set that is
   provably NOT a counterexample (under RH). Log-corrected fits and the Franel-diagonal ratio next (`run_t3.sh` running).
+
+## 2026-10-01 03:25 — batch 4: task 3 done (rungs 1–3 + the new design)
+- Rung 1 (`t3_rung1.py`): finite R = {2..13}, {3..19} reproduce ρ2^|R|/12 (period mean square 7e-14, 7e-12; dyadic windows → 2e-5).
+- Rung 2 (`t3_analysis.py`, `t3_ratio.py`, `t3_kappa.py`; R-numbers enumerated exactly by `rnums.c`, every R-set regenerated
+  matches the fr headers' nR(X)): T_α mean-square slopes sit between X^α/ln X and X^α; M/M_diag flat, 5–70 (random R exceeds the
+  truncated Franel diagonal several-fold).
+- Rung 3: greedy c = 1, 2 at α = 0.6, 0.75 have pure-power slopes 0.13–0.31 below α over ≥ 3 decades and M/M_diag falling with
+  κ ≈ 2.3–3 (5.9 for c = 2, α = 0.75, transient). The stop line's literal trigger is met by sets where β₂ ≥ α/2 is a THEOREM
+  (c = 1 unconditionally: fr Theorem C in mean-square form, one line; c = 2 under RH: Cor Z.1) ⇒ log-power, not a counterexample.
+- New design: online error-feedback deletion (`thin2.c` mode feedback; plain + `corr`; a first `corr` build had the correction sign
+  reversed — kept as `*_corrplus_*`, labelled, unused). No run beats greedy durably; `corr` α = 0.75 fell to M/M_diag = 0.024 at
+  1.6e8 but turns up (0.44 at 2.5e9, slope 1.23 on [1e7,1e10]); its 1e9 "success" was an artefact of freezing D beyond X.
+  Mechanism (proved identity): E(x) = e(x) + ρx∫_x^∞(D(u) − D(x))u^{−2}du + O(1 + D²/x); deleting q changes E(y) by −E(y/q).
+- Task 3 close: N (no structured counterexample; tension resolved; calibration lesson for the stop line).

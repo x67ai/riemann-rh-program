@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/o9WFDgS4CODv4pLe6hildmfZ+F8</id>
+  <title>arXiv Query: search_query=all:Beurling AND all:Carlson&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-30T21:51:26Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:Beurling+AND+all:Carlson&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2209.01689v3</id>
+    <title>The Carlson-type zero-density theorem for the Beurling zeta function</title>
+    <updated>2024-11-12T17:11:51Z</updated>
+    <link href="https://arxiv.org/abs/2209.01689v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.01689v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In a previous paper we proved a Carlson type density theorem for zeroes in the critical strip for Beurling zeta functions satisfying Axiom A of Knopfmacher. There we needed to invoke two additonal conditions, the integrality of the norm (Condition B) and an "average Ramanujan Condition" for the arithmetical function counting the number of different Beurling integers of the same norm (Condition G).
+  Here we implement a new approach of Pintz, using the classic zero detecting sums coupled with Halász' method, but otherwise arguing in an elementary way avoiding e.g. large sieve type inequalities. This way we give a new proof of a Carlson type density estimate--with explicit constants--avoiding any use of the two additional conditions, needed earlier.
+  Therefore it is seen that the validity of a Carlson-type density estimate does not depend on any extra assumption--neither on the functional equation, present for the Selberg class, nor on growth estimates of coefficients say of the "average Ramanujan type"-but is a general property, presenting itself whenever the analytic continuation is guaranteed by Axiom A.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-04T20:29:55Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Szilárd Gy. Révész</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.12746v1</id>
+    <title>New zero-density estimates for the Beurling $ζ$ function</title>
+    <updated>2024-07-17T17:08:37Z</updated>
+    <link href="https://arxiv.org/abs/2407.12746v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.12746v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In two previous papers the second author proved some Carlson type density theorems for zeroes in the critical strip for Beurling zeta functions satisfying Axiom A of Knopfmacher. In the first of these invoking two additonal conditions were needed, while in the second an explicit, fully general result was obtained. Subsequently, Frederik Broucke and Gregory Debruyne obtained, via a different method, a general Carlson type density theorem with an even better exponent, and recently Frederik Broucke improved this further, getting $N(σ,T) \le T^{a(1-σ)}$ with any $a&gt;\dfrac{4}{1-θ}$. Broucke employed a new mean value estimate of the Beurling zeta function, while he did not use the method of Halász and Montgomery.
+  Here we elaborate a new approach of the first author, using the classical zero detecting sums coupled with a kernel function technique and Halász' method, but otherwise arguing in an elementary way avoiding e.g. mean value estimates for Dirichlet polynomials. We will make essential use of the additional assumptions that the Beurling system of integers consists of natural numbers, and that the system satisfies the Ramanujan condition, too. This way we give a new variant of the Carlson type density estimate with similar strength as Turán's 1954 result for the Riemann $ζ$ function, coming close even to the Density Hypothesis for $σ$ close to 1.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-17T17:08:37Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Szilárd Gy. Révész</name>
+    </author>
+    <author>
+      <name>János Pintz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2204.11603v1</id>
+    <title>The Malliavin-Rubel theorem on small entire functions of exponential type with given zeros: 60 years later</title>
+    <updated>2022-04-20T11:16:23Z</updated>
+    <link href="https://arxiv.org/abs/2204.11603v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2204.11603v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $Z$ and $W$ are distributions of points on the complex plane $\mathbb C$. The following problem goes back to the studies of F. Carlson, T. Carleman, L. Schwartz, A. F. Leont'ev, B. Ya. Levin, J.-P. Kahane and others. For which $Z$ and $W$ for an entire function $g\neq 0$ of exponential type vanishing on $W$, there is an entire function $f\neq 0$ of exponential type vanishing on $Z$ such that $|f|\leq |g|$ on the imaginary axis? The classical Malliavin-Rubel theorem of the early 1960s completely solves this problem for "positive" $Z$ and $W$ lying only on the positive semiaxis. A number of generalizations of this criterion were established by us in the late 1980s for "complex" $Z\subset\mathbb C$ and $W\subset\mathbb C$ separated by angles from the imaginary axis, with some advances in the 2020s. In this paper, tougher problems are solved in a more general subharmonic framework for distributions of masses on $\mathbb C$. All the previously mentioned results can be obtained from the main results of the paper in a much stronger form even in the initial formulation for distributions of points $Z$ and $W$ and entire functions $f$ and $g$ of exponential type. Some of the results of the article are closely related to the famous Beurling-Malliavin theorems on the radius of completeness and the multiplier.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-04-20T11:16:23Z</published>
+    <arxiv:comment>49 pages, in Russian</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>B. N. Khabibullin</name>
+    </author>
+  </entry>
+</feed>
