@@ -76,3 +76,15 @@ both roots exactly the 8 challenge `sorry`s, nothing in the three program module
 `prerun-cleanup.log` (`tools/prerun-cleanup.sh`): the 16 artifacts of `Challenge/ResidueRank` and `Solution/ResidueRank` under `.lake/build/{lib/lean,ir}` removed,
 0 remaining; the program modules stay built. Comparator run launched with `tools/run.sh` (the H4 runner; only the comment line and the `cd` target
 `~/rh-lean-work/checker-clone-s33-h4` differ — `diff` shown in the session) → `comparator-run.log`.
+
+## [builder] Wed Sep 30 17:38:25 IST 2026 — deliverable 4 landed: **the comparator run PASSES** (`comparator-run.log`)
+17:37:22–17:37:55 IST, `32.26 real`, max RSS 5.85 GB; runner `tools/run.sh` from `~/rh-lean-work/checker-clone-s33-h4`; comparator v4.33.0, lean4export
+v4.33.0-rc2, nanoda 0.4.17, the fake-landrun shim — NOT sandboxed, as in every macOS record (COMPARATOR-RUN.md §2); the four tool SHA-256s printed in the log
+equal COMPARATOR-RUN.md §1's (fe1222e2…, de4ffedf…, d6c87133…, 167507c8…). Steps: `Building Challenge.ResidueRank` → *Built (2.0s)* with the 8 deliberate
+`sorry` warnings, 8697 jobs; the export of the 8 names (+ the comparator's primitives) from the challenge; `Building Solution.ResidueRank` → *Built (3.0s)*,
+0 warnings, 8700 jobs; the same export from the solution; then verbatim: `Running nanoda kernel on solution` / `Nanoda kernel accepts the solution` /
+`Running Lean default kernel on solution.` / `Lean default kernel accepts the solution` / `Your solution is okay!`; `--- comparator exit code: 0 ---`. What the run
+established: each solution statement coincides constant for constant with its challenge namesake (the constants are Mathlib's — there is no trusted
+definition layer); the proofs use no axiom outside the three; nanoda re-checked the solution export and Lean's kernel replayed it. SHA-256
+`comparator-run.log` = ea685bae7d4e4415d7a72fd25e1ec24f4c8beed7deca9a31c1002ed9bf835602.
+Next: BUILD-NOTES.md, FIDELITY.md, the yaml rows, the README section, the lint, hashes.txt.

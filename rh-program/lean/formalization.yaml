@@ -235,6 +235,10 @@ status:
     From Session 33 (H4, IV.17's pair channel), also the eight of comparator/Challenge/PairChannel.lean (proved by
     comparator/Solution/PairChannel.lean, which delegates to Zeta23/PairCeiling/PairRow.lean and PairCert.lean; neither contains a
     `sorry`); nothing displayed beyond the statements' own binders (n : ℕ, d μ : ℝ, 1 ≤ m, the band membership of W2_eq).
+    From Session 36 (theoremR-lean-s36, Theorem R's arithmetic core), also the eight of comparator/Challenge/ResidueRank.lean
+    (proved by comparator/Solution/ResidueRank.lean, which delegates to Zeta23/ResidueRank/LogPrimes.lean, Pair.lean and
+    GenusBound.lean; none of the three contains a `sorry`) — over Mathlib alone, no ChallengeDeps module, nothing displayed
+    beyond the statements' own binders.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -751,6 +755,34 @@ status:
         - "propext"
         - "Classical.choice"
         - "Quot.sound"
+    - description: >-
+        Session 36 (2026-09-30), theoremR-lean-s36 — THEOREM R's ARITHMETIC CORE as one Comparator topic `ResidueRank` (namespace
+        ResidueRank; no ChallengeDeps module — every constant the statements mention is Mathlib's).  Record: results/beta-shapes-s35/NOTE.md
+        §2.0 (Lemma F), §2.3 (H3.3(b), Theorem R, T3), read-O.md §2.5 (the reader's converse).  Eight statements: (1)
+        `log_primes_linearIndependent` — the logarithms of the rational primes are ℚ-linearly independent (over ℤ first by Mathlib's
+        LinearIndependent.iff_fractionRing, then an integer relation makes Π p^{m_p} = 1 and the q-adic valuation gives m_q = 0; no Mathlib
+        lemma states it at 51e6992e); (2) `span_log_not_finite` — if p ∣ N p and N p > 0 for every prime p, the ℚ-span of {log N p} is not
+        finite-dimensional; (3) `rank_span_log_le` — logarithms of positive integers whose prime factors lie in a finite S span a ℚ-space of
+        rank ≤ #S; (4) `lemmaF_finite_fiber` — Lemma F(a) on the abstract pair (cls : ℕ → ι, v : ι → ℝ, the weights von Mangoldt's Λ,
+        every fiber sum over {m ≥ 2 : cls m = cls n}, n ≥ 2, a HasSum with value κ · v(cls n), one real κ): each fiber holds finitely many
+        prime powers; (5) `lemmaF_infinite_order` — Lemma F(b): for φ multiplicative into a monoid, φ(p^a) ≠ φ(p^(a+k)), a, k ≥ 1;
+        (6) `theoremR` — Theorem R on the abstract pair (NOTE T3, i.e. Theorem R at B = Spec Z): the ℚ-span of the diagonal row
+        {v(cls n) : n ≥ 2} is not finite-dimensional (the displayed κ > 0 is the SPEC's and is not used by the proof); (7)
+        `theoremS_bound`, (8) `theoremS` — two real-algebra statements, SCOPED (their geometric reading belongs to the Session-36 unit
+        results/d4-infty-s36/, under read, and is not claimed).  NO displayed hypothesis beyond the statements' own binders.  Label:
+        "Theorem R's arithmetic core Comparator-checked: the logarithms of the primes are ℚ-linearly independent, a family of positive
+        integers N_p with p | N_p has logarithms spanning an infinite-dimensional ℚ-space, the converse rank bound, Lemma F, and Theorem R on
+        the abstract pair (von Mangoldt weights, real fiber sums, one κ) — over Mathlib alone, no displayed hypothesis, the three standard
+        axioms, replayed by nanoda" (results/theoremR-lean-s36/BUILD-NOTES.md; Comparator run results/theoremR-lean-s36/comparator-run.log).
+        Barrier hardening: nothing about ζ's zeros or RH follows (Theorem R is RH-blind); the SPEC's geometric clauses A6–A8, the
+        existence or non-existence of a target, and the general-base Theorem R are not stated.
+      declaration: "ResidueRank.log_primes_linearIndependent, ResidueRank.span_log_not_finite, ResidueRank.rank_span_log_le, ResidueRank.lemmaF_finite_fiber, ResidueRank.lemmaF_infinite_order, ResidueRank.theoremR, ResidueRank.theoremS_bound, ResidueRank.theoremS (Challenge.ResidueRank / Solution.ResidueRank); the sources Zeta23.ResidueRank.log_primes_linearIndependent, Zeta23.ResidueRank.span_log_not_finite, Zeta23.ResidueRank.rank_span_log_le, Zeta23.ResidueRank.lemmaF_finite_fiber, Zeta23.ResidueRank.fiber_sum_eq_log, Zeta23.ResidueRank.lemmaF_infinite_order, Zeta23.ResidueRank.theoremR_of_A9, Zeta23.ResidueRank.theoremR, Zeta23.ResidueRank.theoremS_bound, Zeta23.ResidueRank.theoremS"
+      file: "comparator/Solution/ResidueRank.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
 
 automation:
   methods:
@@ -758,6 +790,7 @@ automation:
       models:
         - "Claude Fable 5.1"
         - "Claude Opus 5"
+        - "Claude Opus 5.5"
       framework: "Claude Code (Workflow/Agent)"
       tool_setup: >-
         Lean v4.33.0-rc2, Lake 5.0.0, Mathlib 51e6992efd06126df61a496bebf8f49482a4e129, on the sponsor's MacBook Pro (Apple
