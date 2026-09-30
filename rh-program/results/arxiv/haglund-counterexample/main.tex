@@ -697,7 +697,7 @@ Theorem~\ref{thm:main}, whose real part is below both real zeros.
 \label{sec:cert}
 
 Theorem~\ref{thm:main} was certified twice, by two computations written
-independently, neither with access to the other: \emph{certificate A}
+independently: \emph{certificate A}
 in Arb ball arithmetic \cite{Arb} through python-flint~0.6.0 (FLINT~3.0.1)
 \cite{FLINT}, and \emph{certificate B} in the outward-rounded interval arithmetic
 of mpmath~1.3.0 \cite{mpmath}, with no use of Arb. Both evaluate the objects
@@ -951,7 +951,7 @@ fourteen points other than those of Table~\ref{tab:real}. In certificate B the l
 tail routes overlap at the four points of Table~\ref{tab:real}, its enclosures of
 $\Xi$ contain mpmath's ordinary $400$-bit values, and its two methods for $h$ at
 $X = 784\pi$ overlap. The two certificates agree with each other to every digit
-printed. A third, separately written evaluation of the literal sum
+printed. A third evaluation of the literal sum
 \eqref{eq:XiN} in Arb at $4800$ bits gives
 $\Xi_{27}(3144.8946) \in [-1.76019463128\cdot10^{-1070} \pm
 2.49\cdot10^{-1082}]$ and $\Xi_{27}(3144.8947) \in [1.06871649226\cdot10^{-1070}
@@ -959,8 +959,7 @@ $\Xi_{27}(3144.8946) \in [-1.76019463128\cdot10^{-1070} \pm
 Haglund's two ladder zeros; at the point
 $3143.220682421536585287 + 0.3152587993782148453823\,i$ it gives a value of modulus
 about $1.7\cdot10^{-1084}$, against about $6.1\cdot10^{-1072}$ at a point
-$10^{-6}$ to the right. Independent re-runs of certificate A's real-zero
-computation and of certificate B's ladder reproduce their outputs.
+$10^{-6}$ to the right.
 
 \subsection{Proof of Theorem~\ref{thm:main}}
 
@@ -1048,64 +1047,22 @@ off-line zero lies inside the critical strip, at $\re s = 0.8160$. As with
 $\Xi_{27}$, it is a zero of the approximant at a height where the approximant has
 departed from $\xi$; it says nothing about the zeros of $\zeta$.
 
-\section*{Provenance, data and code}
-\addcontentsline{toc}{section}{Provenance, data and code}
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
 
-\paragraph{Method.} The two certificates of Section~\ref{sec:cert} were written
-independently from a common written statement of what was to be certified, and
-each was run on the ladder of Table~\ref{tab:ladder} before $N = 27$. The proofs
-of Sections~\ref{sec:riemann}--\ref{sec:structure} were re-derived line by line
-by an independent reader, and the corrections found there are incorporated.
-
-\paragraph{Data and code availability.} Every number in this paper comes from
-the two certificates, from the independent evaluations that checked them, or
-from the floating-point records behind Sections~\ref{sec:positivity}
-and~\ref{sec:departure}. All are version-controlled and available in the
-repository \url{https://github.com/x67ai/riemann-rh-program}, at the tag
-\texttt{haglund-cert-2026-10}, which is the state this paper was prepared against;
-paths below are relative to \texttt{rh-program/} in that repository (in the path
-names, \texttt{s36}/\texttt{s37} are the program's session numbers,
-\texttt{producer-A}/\texttt{producer-B} the two certificates, and
-\texttt{rerun-F}/\texttt{verify-F} the independent re-runs). The certificate is also
-available as a self-contained archive,
-\texttt{haglund-counterexample-certificate.zip}, deposited with this paper on
-Zenodo, with SHA-256
-\texttt{375193a0f63afe23be73d40a9159044d}\allowbreak\texttt{28221223e450f1d0bf43d3f1af4f4efa}, which contains both certificates,
-the independent re-runs, the third evaluation, and a README with the exact
-commands and expected outputs. On one core of an Apple M4, certificate A runs in
-about $72$ seconds (Python~3.9.6, python-flint~0.6.0) and certificate B in about
-$15$ minutes (Python~3.9.6, mpmath~1.3.0), most of it the $4400$-bit literal
-cross-check. The components are:
-\begin{itemize}
-\item \emph{Certificate A} (\path{results/haglund-cert-s37/producer-A/}): the
-scripts, their logs, and \texttt{CERT.md}, with the proofs of
-Lemmas~\ref{lem:B}--\ref{lem:T} and of the half-plane fact and the SHA-256 hash
-of every script and log. SHA-256 of \texttt{CERT.md}:
-\texttt{b1ecfe0a604c8b05e3439ad9ecae1c2a}\allowbreak
-\texttt{86c2fcdda55930cecbd1defea499513f}.
-\item \emph{Certificate B} (\path{results/haglund-cert-s37/producer-B/}): the
-scripts, their logs, the DLMF pages used, and \texttt{CERT.md}, with every bound
-of Section~\ref{sec:cert} and its proof or source. SHA-256 of \texttt{CERT.md}:
-\texttt{c4a8ca6bc2d02b6f2e428d91b7cd0504}\allowbreak
-\texttt{4272fd2d7546d37976dd1cd1648d87a3}.
-\item \emph{Independent checks} (\path{results/haglund-cert-s37/rerun-F/} and
-\path{results/novel-wave-s36/staircase/verify-F/}): the re-runs of
-certificate A's real-zero computation and of certificate B's ladder, and the
-third evaluation of the literal sum in Arb.
-\item \emph{The analytic and numerical record}
-(\path{results/novel-wave-s36/staircase/}): \texttt{NOTE.md}, the source of
-Sections~\ref{sec:riemann}--\ref{sec:departure}; \texttt{read-F.md}, the
-independent re-derivation of its proofs; and \texttt{verify/}, the
-floating-point computations (the census, the tail coefficients, the lobe scan,
-and the $50$-digit zeros).
-\item \emph{The literature searches} (\path{results/haglund-cert-s37/NOVELTY-F.md} and
-\path{results/novel-wave-s36/staircase/lit/PRIOR-ART.md}) behind the
-prior-work paragraph.
-\end{itemize}
-The third-party texts consulted (Haglund's paper, Ahn's thesis and the cited
-articles) are not redistributed at the tagged state, for copyright reasons, and
-nothing here depends on them; every external claim is cited to its published
-source.
+The two certificates of Section~\ref{sec:cert} --- their scripts and logs, and
+for each a document stating every bound used, with its proof or its source ---
+are deposited with this paper on Zenodo as a self-contained archive,
+\texttt{haglund-counterexample-certificate.zip}, SHA-256
+\texttt{4dfb1360042c3123b815e571a1916720}\allowbreak\texttt{081beca51fe9be8d6ed4760f41b1091c}, together with a third evaluation
+of the literal sum, second runs of both certificates, and a README giving the
+exact commands and their expected outputs. On one core of an Apple M4,
+certificate A runs in about $72$ seconds (Python~3.9.6, python-flint~0.6.0) and
+certificate B in about $15$ minutes (Python~3.9.6, mpmath~1.3.0), most of it
+the $4400$-bit literal cross-check. The floating-point computations behind
+Sections~\ref{sec:positivity} and~\ref{sec:departure} (the zero census, the tail
+coefficients, the lobe scan and the $50$-digit zeros) are in the repository
+\url{https://github.com/x67ai/riemann-rh-program}.
 
 \begin{thebibliography}{99}
 

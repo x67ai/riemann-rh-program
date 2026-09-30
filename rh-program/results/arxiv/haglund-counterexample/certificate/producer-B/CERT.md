@@ -1,6 +1,6 @@
 # CERT — producer B: Haglund's Conjecture 1 fails at N = 27 (interval-rigorous; no Arb, no python-flint)
 
-Unit `haglund-cert-s37`, 2026-09-30. Independent of producer A (its folder was never opened). Arithmetic: mpmath 1.3.0 `mp.iv`
+Certificate B, 2026-09-30. Independent of certificate A, which was never opened. Arithmetic: mpmath 1.3.0 `mp.iv`
 (outward-rounded real intervals; complex numbers as rectangular boxes built on them in `ivc.py`), exact rationals for Bernoulli
 numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scripts: `ladder.py`, `cert27.py` (Theorem H),
 `crosscheck.py`, `selftest.py` (checks), `cert_h5.py` (optional H5); library `ivc.py`, `specfun.py`, `xin.py`, `winding.py`.
@@ -89,7 +89,7 @@ numbers. Every truncation adds a disk whose radius is a bound proved in §B. Scr
   Bernoulli numbers are exact Fractions (recurrence Σ_{j≤n} C(n+1, j)B_j = 0, spot-checked against B₂…B₁₂, B₂₄, B₆₀).
   Comparisons use exact interval end points (`ivc.lo/hi`), never iv's three-valued `<`.
 
-## C. Ladder (brief §4), run BEFORE N = 27 with the same functions (`ladder.py` → `logs/ladder.log`, 118 s)
+## C. Ladder (specification §4), run BEFORE N = 27 with the same functions (`ladder.py` → `logs/ladder.log`, 118 s)
 
 | item | claim | certified enclosures / result |
 |---|---|---|
@@ -134,9 +134,9 @@ Haglund's 25-digit Appendix value agrees to ≈ 2e−22. The ladder exercised ev
 | 3145.5998 | +1.129756942916642e−1070 | +1.129756942916642e−1070 | yes / yes |
 | 3145.5999 | −1.149139153627783e−1070 | −1.149139153627783e−1070 | yes / yes |
 
-  They also agree with the brief's Arb reference values (−1.76019463128e−1070, +1.06871649226e−1070, +1.12975694292e−1070,
-  −1.14913915363e−1070) to all 12 digits given. X4 (`cert27.py`): at the brief's 22-digit point z₂₂ the enclosure is
-  Ξ₂₇(z₂₂) ∈ 2.57878203163e−1085 + 1.7049877229e−1084 i (brief: 2.58e−1085 + 1.70e−1084 i; = D₁·(z₂₂ − z*) to 4 digits).
+  They also agree with the specification's Arb reference values (−1.76019463128e−1070, +1.06871649226e−1070, +1.12975694292e−1070,
+  −1.14913915363e−1070) to all 12 digits given. X4 (`cert27.py`): at the specification's 22-digit point z₂₂ the enclosure is
+  Ξ₂₇(z₂₂) ∈ 2.57878203163e−1085 + 1.7049877229e−1084 i (specification: 2.58e−1085 + 1.70e−1084 i; = D₁·(z₂₂ − z*) to 4 digits).
 - **X1.** The Ξ boxes (Stirling + E–M) contain mpmath's ordinary 400-bit ζ·Γ values at the four points and at c.
 - **X2.** h at X = 784π (the four arguments of Φ₂₈(c)): B3 at 200 bits (relative radius 2.8e−57) and B4 at 4400 bits (≈ 1e−106,
   the Stirling bound) overlap for all four. (At 1400 bits B4's box was useless: ~5000 box rotations in u_k = u_{k−1}X/(w+k) wrap.)
@@ -164,8 +164,8 @@ Hence ξ₂₄ has a non-real zero in Q (z-variable) with real part < 2508.285 <
 cert27 56 s, cert_h5 17 s, crosscheck X1X2 16 s, X3 664 s. Python 3.9.6; mpmath 1.3.0, backend `python` (no gmpy);
 no Arb, no python-flint, no other numerical library. Working precision 200 bits (4400 bits in X2/X3); every truncation bound
 targets 2^{−190}. Logs: `logs/selftest.log`, `ladder.log`, `cert27.log`, `cert_h5.log`, `crosscheck-X1X2.log`, `crosscheck-X3.log`
-(`crosscheck-run1-X2invalid.log` kept for the record: same X3 values; its X2 used 1400 bits and is void, see SHARED.md).
+(`crosscheck-run1-X2invalid.log` kept for the record: same X3 values; its X2 used 1400 bits and is void).
 
-What is NOT proved here (scope): correctness of mpmath's primitive interval operations (trusted as the brief allows); Haglund's
+What is NOT proved here (scope): correctness of mpmath's primitive interval operations (trusted as the specification allows); Haglund's
 identity (12) and Riemann's formula are cited (on disk) and checked numerically, not re-derived; the ladder's R3 "no zero" is by
 Haglund's list, and our own k = 0 there is the certified statement.

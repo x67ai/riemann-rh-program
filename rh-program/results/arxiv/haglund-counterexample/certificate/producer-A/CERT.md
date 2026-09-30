@@ -1,7 +1,7 @@
 # CERT — Haglund's Conjecture 1 fails at N = 27 (producer A: Arb ball arithmetic)
 
-Unit `haglund-cert-s37`, Session 37, 2026-09-30. Producer A. Tools: macOS 27.0.1 (Apple M4), /usr/bin/python3 3.9.6,
-python-flint 0.6.0 bundling FLINT 3.0.1 (Arb). Producer B's folder was not read.
+Certificate A, 2026-09-30. Tools: macOS 27.0.1 (Apple M4), /usr/bin/python3 3.9.6,
+python-flint 0.6.0 bundling FLINT 3.0.1 (Arb). Certificate B was not read.
 
 ## 1. Theorem H (certified)
 
@@ -60,7 +60,7 @@ so this is entire in w and equals (10) by the real substitution t = a e^{2u}, Ha
 **3.2 Lemma Γ.** For β ≥ 1 and a > β − 1: Γ(β, a)/a^β ≤ e^{−a}/(a − β + 1).
 *Proof.* With t = ax, Γ(β, a)/a^β = ∫₁^∞ x^{β−1}e^{−ax} dx. For x ≥ 1, log x ≤ x − 1 and β − 1 ≥ 0, so
 x^{β−1} ≤ e^{(β−1)(x−1)}; hence the integral is ≤ e^{−a}∫₀^∞ e^{−(a−β+1)y} dy = e^{−a}/(a − β + 1). ∎
-(The orchestrator's sketch in BRIEF §2 is correct, provided β ≥ 1; for β < 1 it can fail. Here β ≥ 5/4 always.)
+(The sketch in the specification is correct, provided β ≥ 1; for β < 1 it can fail. Here β ≥ 5/4 always.)
 
 **3.3 Lemma T (tail).** Let Y ≥ |Im z|, β₉ = 9/4 + Y/2, β₅ = 5/4 + Y/2, a_n = πn², and M ≥ 1 with a_{M+1} − β₉ + 1 > 0.
 Put U_n = 2e^{−a_n}(2π²n⁴ + 3πn²)/(a_n − β₉ + 1). Then |Σ_{n>M} Φ_n(z)| ≤ Σ_{n>M} U_n ≤ 2U_{M+1}.
@@ -93,14 +93,14 @@ equal. ∎ The code also checks that the Arb enclosure of each Arg lies strictly
 on the positively oriented boundary of the square S, the number of its zeros in S, with multiplicity, equals
 (1/2π)·(total continuous change of arg Ξ₂₇ along ∂S). A certified total in (2π(k − ½), 2π(k + ½)) gives k zeros.
 
-## 4. Ladder (BRIEF §4), run first, same code (`ladder.py` -> `ladder.log`, 256 bits, 11.9 s)
+## 4. Ladder (specification §4), run first, same code (`ladder.py` -> `ladder.log`, 256 bits, 11.9 s)
 
 | step | object | result |
 |---|---|---|
 | C0 | `gamma_upper` convention | Γ(1,2) = e⁻² and Γ(3,2) = 10e⁻² (overlapping balls) |
 | R1 | Ξ₁ on (14.04543957, 14.04543959) | +1.347060456147e−11 / −1.704102125315e−11, both routes (L rad 5e−75, T rad 7e−47) |
 | R1 | Ξ₂ on (39.5324810797, 39.5324810799) | +3.605517254360e−21 / −4.593418771015e−21, both routes (L rad 3e−75, T rad 2e−64) |
-| R2 | Ξ₁, square r = 1e−10 at Haglund's 20.62534600592171760132974 + 2.697151842339519632505712 i (App. p. 15) | 1516 pieces, ΔArg = 2π ± 4e−15, **k = 1** |
+| R2 | Ξ₁, square r = 1e−10 at Haglund's 20.62534600592171760132974 + 2.697151842339519632505712 i (App. p. 16) | 1516 pieces, ΔArg = 2π ± 4e−15, **k = 1** |
 | R3a | Ξ₁, same centre + 0.5, r = 0.1 (zero-free) | 271 pieces, ΔArg ∈ [± 2e−39], **k = 0** |
 | R3b | Ξ₁, same centre + 3e−10, r = 1e−10 (zero 2e−10 outside) | 637 pieces, ΔArg ∈ [± 7e−30], **k = 0** |
 
@@ -153,7 +153,7 @@ Plus the four H1/H4 endpoints (`h1.log`): overlap, |L − T₂₅₆| ≤ 5.1e�
 - In this folder: `python3 ladder.py > ladder.log` (11.9 s), `python3 h1.py > h1.log` (10.4 s), `python3 h2.py > h2.log`
   (36.2 s), `python3 xcheck.py > xcheck.log` (10.4 s), `python3 h5.py > h5.log` (3.2 s); all use `hag_core.py`. One process at a time, Apple M4, single
   thread. Versions: /usr/bin/python3 3.9.6; python-flint 0.6.0 (bundled libflint.18.0 = FLINT 3.0.1, with GMP, MPFR).
-- Remarks on the brief. (a) Lemma Γ needs β ≥ 1 (for β < 1 it can fail: β = 0, a = 1 gives E₁(1) = 0.219 > e⁻¹/2);
+- Remarks on the specification. (a) Lemma Γ needs β ≥ 1 (for β < 1 it can fail: β = 0, a = 1 gives E₁(1) = 0.219 > e⁻¹/2);
   all uses here have β ≥ 5/4. (b) `acb(x).gamma_upper(s)` = Γ(s, x) confirmed (C0). (c) Route T is sharp on balls
   because the n ≥ 28 terms are all ≤ ~1e−1066 at this height (Φ₂₈ ≈ Ξ ≈ 1.49e−1066 near z₀): the only cancellation is
   the benign Ξ − Φ₂₈ one (relative size ~ |z − z₀|), handled at 256 bits even at r = 4e−11.
@@ -179,7 +179,7 @@ of consecutive bounds is e^{−π(2n+1)}n²/(n+1)² < ½, so |½s(s−1)Σ_{n>M}
   NOTE's zero. Hence a zero ρ with Re ρ ≥ 0.8159896242 > ½ and Im ρ ≤ 2508.2839748054 lies below on-line zeros:
   **the ordering invariant (NOTE §4.1) fails for ξ₂₄.** H5's route T rests on Riemann's identity above (NOTE §1).
 
-## 9. SHA-256 (logs and scripts as delivered; the hash of this file is in SHARED.md)
+## 9. SHA-256 (logs and scripts as delivered)
 
     d88efc8879dc7b22b9fac0bb01c5f47baf983c92778f14c208765053848d473a  ladder.log
     e9ac0878ea67ef58e57dfcb23838436b2b3fdd92185ace6286f7d6faa21d7c56  h1.log

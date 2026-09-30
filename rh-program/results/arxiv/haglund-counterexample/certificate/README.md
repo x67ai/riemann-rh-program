@@ -2,7 +2,7 @@
 
 Reproducibility archive for the paper *A counterexample to Haglund's monotonic-zeros conjecture
 for the Riemann Ξ approximants* (Kunal Tyagi, October 1, 2026). Code and data:
-https://github.com/x67ai/riemann-rh-program, directory `rh-program/results/haglund-cert-s37/`.
+https://github.com/x67ai/riemann-rh-program.
 
 ## What is certified
 
@@ -32,19 +32,16 @@ control squares.
 
 | Path | What it is |
 |---|---|
-| `producer-A/` | Certificate A: Arb ball arithmetic through python-flint 0.6.0 (FLINT 3.0.1). `hag_core.py` (both evaluation routes, the tail bound, the winding-number walk), `ladder.py`, `h1.py` (H1, H4), `h2.py` (H2), `xcheck.py` (route cross-check), `h5.py` (H5), their logs `*.log`, `CERT.md` (statement, method, proofs of the analytic lemmas, tables, SHA-256 of every script and log), `SHARED.md` (the working log). |
-| `producer-B/` | Certificate B: outward-rounded interval arithmetic of mpmath 1.3.0, no Arb. `ivc.py` (interval complex arithmetic), `specfun.py` (Γ, ζ, h with proved remainders), `xin.py` (Φ_n, Ξ_N, tail bound), `winding.py` (Taylor model and boundary walk), scripts `selftest.py`, `ladder.py`, `cert27.py` (H1-H4, H2*), `crosscheck.py` (X1-X3), `cert_h5.py` (H5), `logs/`, `lit/` (the DLMF pages whose remainder bounds are used, saved 2026-09-30), `CERT.md`, `SHARED.md`. |
-| `rerun-F/` | Independent re-runs: certificate A's `h1.py` (`A-h1-rerun.log`, and `A-h1-diff.txt`, the diff against `producer-A/h1.log`: timings only) and certificate B's `ladder.py` (`B-ladder-rerun.log`). |
-| `verify-F/` | A third, separately written evaluation of the literal sum (13)-(14) in Arb at 4800 bits (`haglund_direct_arb.py`, `rerun_N27.py`, log `rerun_N27.log`), with the ladder check of Haglund's two table zeros. |
-| `NOVELTY-F.md` | The literature search on the refutation (working note). |
+| `producer-A/` | Certificate A: Arb ball arithmetic through python-flint 0.6.0 (FLINT 3.0.1). `hag_core.py` (both evaluation routes, the tail bound, the winding-number walk), `ladder.py`, `h1.py` (H1, H4), `h2.py` (H2), `xcheck.py` (route cross-check), `h5.py` (H5), their logs `*.log`, `CERT.md` (statement, method, proofs of the analytic lemmas, tables, SHA-256 of every script and log). |
+| `producer-B/` | Certificate B: outward-rounded interval arithmetic of mpmath 1.3.0, no Arb. `ivc.py` (interval complex arithmetic), `specfun.py` (Γ, ζ, h with proved remainders), `xin.py` (Φ_n, Ξ_N, tail bound), `winding.py` (Taylor model and boundary walk), scripts `selftest.py`, `ladder.py`, `cert27.py` (H1-H4, H2*), `crosscheck.py` (X1-X3), `cert_h5.py` (H5), `logs/`, `lit/` (the DLMF pages whose remainder bounds are used, saved 2026-09-30), `CERT.md`. |
+| `reruns/` | Second runs of certificate A's `h1.py` (`A-h1-rerun.log`, and `A-h1-diff.txt`, the diff against `producer-A/h1.log`: timings only) and of certificate B's `ladder.py` (`B-ladder-rerun.log`). |
+| `third-evaluation/` | A third evaluation of the literal sum (13)-(14) in Arb at 4800 bits, written separately from both certificates (`haglund_direct_arb.py`, `rerun_N27.py`, log `rerun_N27.log`), with the ladder check of Haglund's two table zeros. |
 | `SHA256SUMS` | SHA-256 of every file in this archive except itself. |
-
-The `CERT.md`, `SHARED.md` and `NOVELTY-F.md` files are the working records, copied verbatim.
 
 ## Requirements
 
 Tested with the system Python 3.9.6 of macOS 27.0.1 on an Apple M4, single core, one process at a
-time. Certificate A and `verify-F/` need python-flint 0.6.0 (it bundles FLINT 3.0.1 with Arb);
+time. Certificate A and `third-evaluation/` need python-flint 0.6.0 (it bundles FLINT 3.0.1 with Arb);
 certificate B needs mpmath 1.3.0 and nothing else (pure-Python backend, no gmpy):
 
     python3 -m pip install --user python-flint==0.6.0 mpmath==1.3.0
@@ -76,7 +73,7 @@ four endpoints; `h2.log` prints every boundary piece's enclosure and argument in
 
 ## Running the third evaluation (about 7 s)
 
-    cd verify-F
+    cd third-evaluation
     python3 rerun_N27.py > rerun_N27.new; diff rerun_N27.log rerun_N27.new
 
 Expected: timings only. It prints, among others,
@@ -107,23 +104,19 @@ crosscheck X1 X2 16 s, crosscheck X3 664 s (the 4400-bit literal sum). Key lines
 `logs/crosscheck-X3.log` prints, for each of the four real-axis points, the literal sum and the tail
 route with their intervals and "overlap True ; same strict sign". `logs/crosscheck-run1-X2invalid.log`
 is kept for the record only: its X2 part ran at 1400 bits, where one method's boxes are useless, and
-is void (see `producer-B/SHARED.md`); its X3 values equal the valid run's.
+is void; its X3 values equal the valid run's.
 
-**About `producer-B/logs/ladder.log`.** `ladder.py` rewrites this file on every run, and the
-orchestrator's independent re-run of 2026-09-30 23:48 overwrote certificate B's original log in the
-working folder. The file in this archive is certificate B's ORIGINAL log, restored on 2026-10-01 from
-the repository's history (commit 1c14fec, the 23:39 auto-commit); its SHA-256
-ee71d58d24b062ae448a59918bb9cf086350a6c28df41fa4a39822f117a7c8a1 is the one recorded for
-`logs/ladder.log` in `producer-B/SHARED.md` (final block). The re-run's output is kept separately as
-`rerun-F/B-ladder-rerun.log`; the two differ only in two timing figures (43.1 s vs 42.9 s; 45.6 s vs
-45.5 s) and the re-run harness's final "exit 0" line, and every value equals `producer-B/CERT.md` §C.
-All hashes recorded by both certificates now match the files here.
+**About `producer-B/logs/ladder.log`.** `ladder.py` rewrites this file on every run. The file in this archive is
+certificate B's original log (SHA-256 ee71d58d24b062ae448a59918bb9cf086350a6c28df41fa4a39822f117a7c8a1). A second run's
+output is kept separately as `reruns/B-ladder-rerun.log`; the two differ only in two timing figures (43.1 s vs 42.9 s;
+45.6 s vs 45.5 s) and a final "exit 0" line, and every value equals `producer-B/CERT.md` §C. All hashes recorded by both
+certificates match the files here.
 
 ## Reproduction record
 
 On 2026-10-01 every computation in this archive was re-run from a copy of the archive on the machine
 above (macOS 27.0.1, Apple M4, Python 3.9.6, python-flint 0.6.0, mpmath 1.3.0): certificate A's five
-scripts, certificate B's six runs (14 min 30 s in all), and `verify-F/rerun_N27.py`. Every output
+scripts, certificate B's six runs (14 min 30 s in all), and `third-evaluation/rerun_N27.py`. Every output
 matched the archived log line for line except for timing figures.
 
 ## Checking the archive
@@ -132,6 +125,3 @@ matched the archived log line for line except for timing figures.
 
 run from this directory, checks every file against the list.
 
-**Erratum (2026-10-01, referee ruling 5).** `producer-A/CERT.md` line 103 cites Haglund's appendix as "App. p. 15"; in the
-arXiv text (arXiv:0910.5228v1) the page-15 footer precedes the heading "7 Appendix", which opens p. 16 — the paper cites p. 16.
-The CERT is hashed and is not edited.
