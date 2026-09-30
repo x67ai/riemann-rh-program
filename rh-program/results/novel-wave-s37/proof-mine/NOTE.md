@@ -159,9 +159,10 @@ Fourier transform (a sheaf on the dual line: a FAMILY of twists by L_ψ(tx)) and
 irréductibles de tout Q̄_ℓ-faisceau lisse ι-réel sur une courbe … sont ι-purs" (Deligne's Rankin argument, Weil II (1.5.1)).
 LINE: (4.3.2.1)'s function, then the Fourier family. *Lemma R8. The proof uses a nonconstant function C → P¹ (to push Q_ℓ to a lisse sheaf
 on U ⊂ A¹) and the Fourier-transform family over the dual line, made pure by Rankin squaring over its base; V has neither a function nor a
-sheaf, so it has no family.* NUMBER (L6): for g = 1, H¹_c(A, j_!F) ⊇ H¹(E) (F the Kummer sheaf of y² = f(x), w = 0), and (4.3.1.1) gives
-|α| ≤ q^{1/2} = 2.236; V has α = 3.618 (formal weights 1.598 and 0.402 against 1). No intermediate inequality of Laumon's chain is exhibited
-on V: the row's number is the conclusion of (4.3.1.1), honestly labeled so. CONTROL: |α₀| = 2.236 (equality), weights 1, 1.
+sheaf, so it has no family.* NUMBER (L6): Thm (4.1.3) at (X, U, F) = (C, C, Q_ℓ), w = 0, asserts H¹(C) ι-pure of weight 1, i.e.
+|α| = q^{1/2} = 2.236; V has α = 3.618 (formal weights 1.598 and 0.402 against 1). (Cor (4.3.1.1) is stated for F unramified at ∞, so it is
+not applied here to the Kummer sheaf of y² = f(x), which is ramified at ∞ when deg f = 3.) No intermediate inequality of Laumon's chain is
+exhibited on V: the row's number is the conclusion of (4.1.3), honestly labeled so. CONTROL: |α₀| = 2.236, weights 1, 1.
 
 **R9. Kedlaya 2006, p-adic Weil II (rigid cohomology); Dwork 1960 checked — class B.** Source: Kedlaya, Compositio 142, arXiv
 math/0210149v3, read at the page: abstract ("a transcription into rigid (p-adic) cohomology of Laumon's proof of Deligne's 'Weil II'
@@ -176,7 +177,8 @@ proof of RH and does not separate V (a proof V passes would have to be reported 
 p. 23 (at the page: Weil "obtained an expression in terms of Gauss sums for the number of solutions … Using a relation, due to Davenport and
 Hasse (1935), between Gauss sums in a finite field and in its extensions"; the zeta function of a diagonal equation is explicit). Weil 1949
 itself NOT obtained (BAMS behind a bot wall). Chain: N = Σ over characters χ_i of F_q^× of products of Jacobi sums J(χ₁, …); the reciprocal
-roots are ± products of Gauss sums over q; RH ⟸ |g(χ)|² = q (Parseval on the additive group F_q). LINE: the first step. *Lemma R10. The
+roots are ± products of Gauss sums over q (this root-level form `[recalled, unverified]`; Milne p. 23 states the Gauss-sum expression of
+the counts); RH ⟸ |g(χ)|² = q (Parseval on the additive group F_q). LINE: the first step. *Lemma R10. The
 proof uses the curve's EQUATION (its solutions as a subset of F_q² on which the characters of F_q^× and F_q act — the μ_m-Kummer cover
 of P¹ and its twists, R6's object in explicit form); V has no equation, and its α is not a product of Gauss sums: α ∈ R, α² = 13.09 ≠ 5.*
 NUMBER (L7): over F₅, |g(χ)|² = 5.000000000000 for the characters of order 2 and 4; the Jacobi sums are ±1 ± 2i, all of norm 5.

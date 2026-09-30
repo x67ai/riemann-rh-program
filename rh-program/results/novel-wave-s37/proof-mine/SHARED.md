@@ -63,3 +63,9 @@ Milne page numbers verified against the running headers of the text layer: the a
 51 (Rankin, Langlands' remark), 58-59 (Hasse-Weil history: Weil, Deuring, Eichler-Shimura) — NOTE R11 and §3 corrected (block 4 above
 said "pp. 45-49": superseded). Pritsker source renamed to sources/pritsker-gelfond-schnirelman-arXiv1307.5361.{pdf,txt} (the arXiv v1 date is
 2013; no journal year is claimed).
+
+## 2026-09-30 block 8 — two self-corrections on re-read (final)
+R8: the number now cites Laumon Thm (4.1.3) at (C, C, Q_l) directly; Cor (4.3.1.1) requires F unramified at infinity and is NOT applied to
+the Kummer sheaf of y^2 = f(x) (ramified at infinity for deg f = 3) — the earlier sentence was wrong and is replaced. R10: the root-level
+"products of Gauss sums" form is labeled [recalled, unverified] (Milne p. 23 gives the Gauss-sum expression of the counts only).
+Unit closed T; final report returned to the orchestrator.

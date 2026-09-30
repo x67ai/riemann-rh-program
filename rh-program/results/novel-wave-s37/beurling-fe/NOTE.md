@@ -234,3 +234,30 @@ transform decays only like ξ^{−2}, sees every n_k with weight ≍ n_k^{−2}.
     cannot escape (D(s) = D(1−s) maps frequency m to 1/m, so frequencies ≥ 1 force D constant — (P), one line). VERDICT: open;
     a non-ζ signed solution would need a self-dual signed crystalline measure with a spectral gap (−1, 1) — not attempted.
 (f) DOUBLE POLE AT s = 1 (N(x) ~ Ax log x) with Riemann's Γ-factor: R contains c₁ + c₂ log|t|; (F_R) applies. Not pursued.
+
+## 9. Controls (mandatory; outputs printed in `verify/v3_continuous_sketch_and_controls.log`)
+
+CONTROL 1 — the virtual curve over F₅ (rung 1). A Beurling system over F_q is b_d ∈ Z_{≥0} (closed points of degree d),
+Z(u) = Π_d (1 − u^d)^{−b_d}; frequencies are q^d, integral BY CONSTRUCTION.
+(i) The analog of T holds at genus 0, trivially and without positivity (P): if Z is meromorphic on C with only simple poles at 1 and
+    1/q and Z(1/(qu)) = qu²Z(u) (the P¹ equation), then L(u) := (1 − u)(1 − qu)Z(u) is entire with L(1/(qu)) = L(u), so
+    L(u) → L(0) = 1 as u → ∞; Liouville gives L ≡ 1 and Z = 1/((1 − u)(1 − qu)). (Hamburger ↔ this Liouville step; T's Step 1,
+    which manufactures integrality, has no work to do over F_q.)
+(ii) It FAILS at genus g ≥ 1: Z(1/(qu)) = q^{1−g}u^{2−2g}Z(u) leaves L of degree 2g with g free coefficients, and b_d ≥ 0 cuts out a
+    region containing RH-false points. C: over F₅, g = 1, L = 1 − tu + 5u²: b_d ≥ 0 for all d ≤ 60 exactly for t ∈ {−5, …, 6};
+    Hasse |t| ≤ 2√5 holds for t ∈ {−4, …, 4}; RH-FALSE admissible: t = ±5 (t = 6 is the empty system Z ≡ 1). The virtual curve is
+    t = 5: N₁..N₆ = 1, 11, 76, 451, 2501, 13376; b₁..b₆ = 1, 5, 25, 110, 500, 2215; min_{d≤60} b_d = 1; FE residual 8e−32; zeros at
+    Re s = 0.79899, 0.20101.
+(iii) Dictionary. The completed function-field zeta has ζ_C(1 − s) = q^{(2g−2)(s−½)}ζ_C(s): "conductor" q^{2g−2}, minimal (q^{−2}) exactly
+    at g = 0, where it is rigid — the analog of Theorem C (minimal conductor 1, attained only by ζ). The virtual curve sits ONE STEP
+    above the minimum. Its Q-side analog is therefore not conductor 1 (where T forbids any twin) but conductor q > 1: Q_cond (§8(b)).
+    WHY the rigidity fails there and not over Q at conductor 1: over F_q the free data is the L-polynomial, and positivity (b_d ≥ 0)
+    is cheap because ~q^d/d closed points of each degree absorb a bounded change of N_n under Möbius inversion; over Q, T shows that
+    positivity + the archimedean gap (0, 1) leave no free data at all at conductor 1.
+CONTROL 2 — F_{5,5} = ζ(s)(1 + 5·5^{−s} + 5^{1−2s}). Nonnegative integer coefficients; FE at conductor 25 (theta relation to 1e−60, v1);
+    identity (C_q) holds (8.8 = 8.8, v1); zeros of the factor at σ = 0.79899, 0.20101 (v3) — the SAME numbers as the virtual curve,
+    because 1 + 5u + 5u² is the L-polynomial of the admissible t = −5 genus-1 datum over F₅. Over F₅ that datum has b_d ≥ 0; over Q
+    the same polynomial sits on the single prime 5, where ζ's own Λ-mass is 1/k at 5^k, and Λ_F(5^k)/log 5 = 6, −14, 51, −174, 626, −2249
+    (v3): Λ(25) < 0. T does not apply (q = 25 ≠ 1). LESSON: at conductor > 1, positive coefficients + exact FE do NOT imply RH;
+    only Λ ≥ 0 removes F_{5,5} from the Beurling class — the one-prime obstruction of N3 (the Hasse margin at a single prime),
+    seen from the Beurling side. Q_cond asks precisely whether Λ ≥ 0 can coexist with an exact FE at q > 1.

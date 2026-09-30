@@ -19,3 +19,8 @@
 
 - `zoo-entries-proposed.md`: title, purpose, findings 1 (no stop line; cited entries; no source conflict beyond the renumbering), 2 (placement, +34, 711 → 745, result positions), 3 (the sanctioned edits exact, incl. the `<ENTRY-DATE>` decision, the token span, C0–C4, `<HASH>`), 4 (byte identity), 5 (optional pairs P1 slot on the N2 row, P2 producer-B path in the IV.9 rider head, P3 "IV.20 as staged" → "IV.20"), 6 (observations a–g), 7 (lint), 8 (script); the verification block. Block sections next, then the builder fills them.
 - Checked on the way: the F1–F3 NEW strings of CHECK-O §11 are all applied (F1's yaml pair in `lean/formalization.yaml` line 1144, a file block (v) does not name); the SPEC carries A9⁺, A8″, A13″ since its PRECISION of 23:09 IST (line 151); the WAVE-CHARTER quotation in I.9 is verbatim; the CERT's Theorem H figures in the IV.9 rider match `producer-A/CERT.md` §1 and §8.
+
+## [2026-10-01 00:05 IST] Proposed file complete — blocks filled by the builder
+
+- `zoo-entries-proposed.md` (51 340 B): findings, verification, `---`, eight block sections (count with C0–C4 printed in full; i9; iii15; iv9 with the token; iv20; iv21; iv22; xref) and "Nothing else". `build_blocks.py --write` filled the markers from the sources; block hashes (first 16): count e8a2e054…, i9 a0680013…, iii15 19f7b700…, iv9 093666ba…, iv20 6f366c67…, iv21 6e94cbf5…, iv22 ae4446bd…, xref 84713133….
+- Next: `scripts/zoo-insert-s37.py` (re-derives every block from the sources independently of the builder), then the dry run on a scratch copy, then `verify/numbers_check.py` → `numbers-check.log`, then gate tests.
