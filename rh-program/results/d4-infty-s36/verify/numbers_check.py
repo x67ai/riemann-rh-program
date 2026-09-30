@@ -397,7 +397,7 @@ def report(G, d, kap, Nm):
     Hok = all(math.log(kap/(d - 1)) + (N + 1)*ld > math.log(c + (N/2)*(N*ld + Cb) + kap*N) for N in range(Nm + 1, 5001))
     Hmin_rel = min(1 - math.exp(math.log(c + (N/2)*(N*ld + Cb) + kap*N) - (math.log(kap/(d - 1)) + (N + 1)*ld)) for N in range(Nm + 1, 5001))
     # block targets for N > Nm: kappa(1+d^N) - kappa N/2 - kappa d^(N/2+1)/(d-1) - (N/4)((N/2) log d + C) > 0, as a ratio to kappa d^N
-    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
+    tgt_ok = all(1 + math.exp(-N*ld) - N*math.exp(-N*ld)/2 - math.exp((1 - N/2)*ld)/(d - 1) - (N/4)*((N/2)*ld + Call)*math.exp(-N*ld)/kap > 0 for N in range(Nm + 1, 5001))
     ec_ok = all(Cb + N*ld > math.log(N/(2*c)) for N in range(Nm + 1, 5001))
     print(f'  tail: C = log(2 kappa d/((d-1)c)) = {Cb:.4f}; H(N) >= 0 for all Nmax < N <= 5000: {Hok} (min of 1 - poly/exp term = {Hmin_rel:.4f}; '
           f'H/d^N is increasing beyond); block targets > 0 there: {tgt_ok}; e^C d^N > N/(2c) there: {ec_ok}')
@@ -424,7 +424,28 @@ def report(G, d, kap, Nm):
             Bab = twog_rig*d**a_ if a_ == b_ else d**min(a_, b_)*eps_[abs(a_ - b_)]
             Q[2 + a_, 2 + b_] = (d**b_ + d**a_ - Bab)*sa*sb
     evq = np.linalg.eigvalsh(Q)
-    print(f'    intersection form on span(C1,C2,gamma_0..gamma_{Nm}) at 2g_rig: #pos = {int((evq > 1e-9).sum())}, #neg = {int((evq < -1e-9).sum())}, #zero = {int((abs(evq) <= 1e-9).sum())}  (index one, rank {M+2})')
+    # high-precision re-check (the scaled matrix has entries up to d^(Nm/2); double precision can mislabel a small eigenvalue)
+    mp.mp.dps = 60
+    Qm = mp.matrix(M + 2, M + 2)
+    # build in mpmath from the same formulas (not from the float matrix)
+    for i_ in range(M + 2):
+        for j_ in range(M + 2): Qm[i_, j_] = mp.mpf(0)
+    Qm[0, 1] = Qm[1, 0] = mp.mpf(1)
+    epsm = {N: 1 + mp.mpf(d)**N - mp.mpf(math.fsum(G.w[e] for e in sp.divisors(N)))/mp.mpf(kap) for N in range(1, Nm + 1)}
+    for a_ in range(M):
+        sa = mp.mpf(d)**(-mp.mpf(a_)/2)
+        Qm[0, 2 + a_] = Qm[2 + a_, 0] = sa
+        Qm[1, 2 + a_] = Qm[2 + a_, 1] = mp.mpf(d)**a_ * sa
+        for b_ in range(M):
+            sb = mp.mpf(d)**(-mp.mpf(b_)/2)
+            Bab = mp.mpf(twog_rig)*mp.mpf(d)**a_ if a_ == b_ else mp.mpf(d)**min(a_, b_)*epsm[abs(a_ - b_)]
+            Qm[2 + a_, 2 + b_] = (mp.mpf(d)**b_ + mp.mpf(d)**a_ - Bab)*sa*sb
+    evm = mp.eigsy(Qm, eigvals_only=True)
+    evl = [evm[i_] for i_ in range(M + 2)]
+    npos = sum(1 for v in evl if v > 0); nneg = sum(1 for v in evl if v < 0); nzero = sum(1 for v in evl if v == 0)
+    print(f'    intersection form on span(C1,C2,gamma_0..gamma_{Nm}) at 2g_rig (mpmath, 60 digits): #pos = {npos}, #neg = {nneg}, #zero = {nzero}; '
+          f'smallest |eigenvalue| = {mp.nstr(min(abs(v) for v in evl), 5)}  (index one, nondegenerate: rank {M + 2 - nzero}); double-precision count was {int((evq > 1e-9).sum())}/{int((evq < -1e-9).sum())}/{int((abs(evq) <= 1e-9).sum())}')
+    mp.mp.dps = 30
     print(f'    A9 at N = 1, 2, 3: Delta.gamma_N = d^N + 1 - eps_N = {[round(d**N + 1 - eps_[N], 6) for N in (1,2,3)]} = L_N/kappa = {[round(L[N]/kap, 6) for N in (1,2,3)]}')
     # Prop N(b) fails for the regrading: mass of the target-graded measure at d vs Lambda at d
     print(f'    Prop N(b) negative check: target-graded mass at x = d = {d}: L_1 = {L[1]:.6f} vs Lambda({d}) = {math.log(d):.6f} (the measure identity fails, as it must off the degree clause)')

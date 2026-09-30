@@ -1,0 +1,68 @@
+Wed Sep 30 17:55:49 IST 2026
+==== Zeta23/ResidueRank/LogPrimes.lean  (246 lines)
+  CODE    noncomputable  l.45: noncomputable def logP (p : Nat.Primes) : ℝ := Real.log ((p : ℕ) : ℝ)
+  CODE    noncomputable  l.49: noncomputable def expVec (n : ℕ) : Nat.Primes →₀ ℚ :=
+  imports: ['import Mathlib']
+  declaration keywords in code: {'def': 2, 'theorem': 14}
+==== Zeta23/ResidueRank/Pair.lean  (221 lines)
+  imports: ['import Zeta23.ResidueRank.LogPrimes']
+  declaration keywords in code: {'theorem': 8}
+==== Zeta23/ResidueRank/GenusBound.lean  (132 lines)
+  imports: ['import Mathlib']
+  declaration keywords in code: {'theorem': 3}
+==== comparator/Challenge/ResidueRank.lean  (116 lines)
+  COMMENT sorry          l.43: The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+  CODE    sorry          l.53: sorry
+  CODE    sorry          l.61: sorry
+  CODE    sorry          l.69: sorry
+  CODE    sorry          l.78: sorry
+  CODE    sorry          l.88: sorry
+  CODE    sorry          l.99: sorry
+  CODE    sorry          l.107: sorry
+  CODE    sorry          l.114: sorry
+  COMMENT Challenge      l.12: comparator/Challenge/ResidueRank.lean — CHALLENGE for the Session-36 unit theoremR-lean-s36: THEOREM R's ARITHMETIC CORE as ONE
+  imports: ['import Mathlib']
+  declaration keywords in code: {'theorem': 8}
+==== comparator/Solution/ResidueRank.lean  (93 lines)
+  COMMENT Challenge      l.14: core; unit brief rh-program/results/theoremR-lean-s36/UNIT-BRIEF.md): the eight statements of Challenge/ResidueRank.lean,
+  COMMENT Challenge      l.19: part of the trusted base: comparator re-checks that each theorem below has exactly the statement of its Challenge namesake and uses
+  imports: ['import Zeta23.ResidueRank.Pair', 'import Zeta23.ResidueRank.GenusBound']
+  declaration keywords in code: {'theorem': 8}
+==== comparator/PrintAxioms/ResidueRank.lean  (27 lines)
+  COMMENT axiom          l.12: comparator/PrintAxioms/ResidueRank.lean — quick axiom audit of the ResidueRank topic WITHOUT the comparator tool:
+  COMMENT axiom          l.15: No sorryAx, no Lean.ofReduceBool, no other axiom.  The comparator run (config-residue-rank.json) is the stronger check: it also
+  COMMENT Challenge      l.16: verifies that each statement coincides with the trusted one in Challenge/ResidueRank.lean.
+  COMMENT sorryAx        l.15: No sorryAx, no Lean.ofReduceBool, no other axiom.  The comparator run (config-residue-rank.json) is the stronger check: it also
+  imports: ['import Solution.ResidueRank']
+  declaration keywords in code: {}
+==== comparator/config-residue-rank.json  (20 lines)
+  CODE    Challenge      l.2: "challenge_module": "Challenge.ResidueRank",
+
+==== SUMMARY of hits IN CODE
+  Zeta23/ResidueRank/LogPrimes.lean: [('noncomputable', 45), ('noncomputable', 49)]
+  comparator/Challenge/ResidueRank.lean: [('sorry', 53), ('sorry', 61), ('sorry', 69), ('sorry', 78), ('sorry', 88), ('sorry', 99), ('sorry', 107), ('sorry', 114)]
+  comparator/config-residue-rank.json: [('Challenge', 2)]
+  hits in code other than the challenge's `sorry`s and LogPrimes' two `noncomputable def`s: [('comparator/config-residue-rank.json', 'Challenge', 2)]
+  challenge `sorry` in code: 8
+RESULT SEE ABOVE
+rc=0
+
+==== raw word-bounded grep, comments INCLUDED (grep -n -w), the seven brief words
+-- axiom: 2 hits
+comparator/PrintAxioms/ResidueRank.lean:12:comparator/PrintAxioms/ResidueRank.lean — quick axiom audit of the ResidueRank topic WITHOUT the comparator tool:
+comparator/PrintAxioms/ResidueRank.lean:15:No sorryAx, no Lean.ofReduceBool, no other axiom.  The comparator run (config-residue-rank.json) is the stronger check: it also
+-- native_decide: 0 hits
+-- unsafe: 0 hits
+-- implemented_by: 0 hits
+-- extern: 0 hits
+-- opaque: 0 hits
+-- sorry: 9 hits
+comparator/Challenge/ResidueRank.lean:43:The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'" warnings when building this
+comparator/Challenge/ResidueRank.lean:53:  sorry
+comparator/Challenge/ResidueRank.lean:61:  sorry
+comparator/Challenge/ResidueRank.lean:69:  sorry
+comparator/Challenge/ResidueRank.lean:78:  sorry
+comparator/Challenge/ResidueRank.lean:88:  sorry
+comparator/Challenge/ResidueRank.lean:99:  sorry
+comparator/Challenge/ResidueRank.lean:107:  sorry
+comparator/Challenge/ResidueRank.lean:114:  sorry

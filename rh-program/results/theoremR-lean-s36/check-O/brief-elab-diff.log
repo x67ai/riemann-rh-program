@@ -1,0 +1,349 @@
+=== Wed Sep 30 17:54:48 IST 2026 lake env lean <check-O>/brief-elab-diff.lean
+==== ResidueRank.lemmaF_infinite_order
+binder 0: names E / E; infos Lean.BinderInfo.implicit / Lean.BinderInfo.implicit; types alpha-equal: true
+binder 1: names inst._@._stdin.1692594164._hygCtx._hyg.6 / inst._@.Challenge.ResidueRank.4238858398._hygCtx._hyg.3; infos Lean.BinderInfo.instImplicit / Lean.BinderInfo.instImplicit; types alpha-equal: true
+binder 2: names φ / φ; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 3: names hmul / hmul; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 4: names v / v; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 5: names κ / κ; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 6: names hA9 / hA9; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 7: names p / p; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 8: names hp / hp; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 9: names a / a; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 10: names k / k; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 11: names ha / ha; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 12: names hk / hk; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+conclusion alpha-equal: true
+==== ResidueRank.theoremR
+binder 0: names ι / ι; infos Lean.BinderInfo.implicit / Lean.BinderInfo.implicit; types alpha-equal: true
+binder 1: names cls / cls; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 2: names v / v; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 3: names κ / κ; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 4: names hκ / hκ; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+binder 5: names hA9 / hA9; infos Lean.BinderInfo.default / Lean.BinderInfo.default; types alpha-equal: true
+conclusion alpha-equal: false
+  brief pp.all: Not
+  (@Module.Finite.{0, 0} Rat
+    (@Subtype.{1} Real fun (x : Real) =>
+      @Membership.mem.{0, 0} Real
+        (@Submodule.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+          (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+            (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+              (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+                (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike)))))
+        (@SetLike.instMembership.{0, 0}
+          (@Submodule.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+            (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+              (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+                (@SeminormedCommRing.toSeminormedRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+                (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                  brief6._proof_1 (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike)))))
+          Real
+          (@Submodule.setLike.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+            (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+              (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+                (@SeminormedCommRing.toSeminormedRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+                (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                  brief6._proof_1 (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))))
+        (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+          (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+            (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+              (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+                (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+          (@Set.range.{0, 1} Real
+            (@Subtype.{1} Nat fun (n : Nat) =>
+              @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+            fun
+              (n :
+                @Subtype.{1} Nat fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+            @#3
+              (@#4
+                (@Subtype.val.{1} Nat
+                  (fun (n : Nat) =>
+                    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                  n))))
+        x)
+    Rat.semiring
+    (@Submodule.addCommMonoid.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+      (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+        (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+          (@SeminormedCommRing.toSeminormedRing.{0} Real
+            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+          (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+            (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+      (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+        (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+          (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+            (@SeminormedCommRing.toSeminormedRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+            (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+              (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+        (@Set.range.{0, 1} Real
+          (@Subtype.{1} Nat fun (n : Nat) =>
+            @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+          fun
+            (n :
+              @Subtype.{1} Nat fun (n : Nat) =>
+                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+          @#3
+            (@#4
+              (@Subtype.val.{1} Nat
+                (fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                n)))))
+    (@Submodule.module.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+      (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+        (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+          (@SeminormedCommRing.toSeminormedRing.{0} Real
+            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+          (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+            (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+      (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+        (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+          (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+            (@SeminormedCommRing.toSeminormedRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+            (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField) brief6._proof_1
+              (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+        (@Set.range.{0, 1} Real
+          (@Subtype.{1} Nat fun (n : Nat) =>
+            @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+          fun
+            (n :
+              @Subtype.{1} Nat fun (n : Nat) =>
+                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+          @#3
+            (@#4
+              (@Subtype.val.{1} Nat
+                (fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                n))))))
+  chal  pp.all: Not
+  (@Module.Finite.{0, 0} Rat
+    (@Subtype.{1} Real fun (x : Real) =>
+      @Membership.mem.{0, 0} Real
+        (@Submodule.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+          (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+            (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+              (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                (@FloorSemiring.instCharZero.{0} Real
+                  (@Ring.toSemiring.{0} Real
+                    (@DivisionRing.toRing.{0} Real
+                      (@NormedDivisionRing.toDivisionRing.{0} Real
+                        (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                  Real.partialOrder
+                  (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+                (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike)))))
+        (@SetLike.instMembership.{0, 0}
+          (@Submodule.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+            (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+              (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+                (@SeminormedCommRing.toSeminormedRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+                (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                  (@FloorSemiring.instCharZero.{0} Real
+                    (@Ring.toSemiring.{0} Real
+                      (@DivisionRing.toRing.{0} Real
+                        (@NormedDivisionRing.toDivisionRing.{0} Real
+                          (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                    Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+                  (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike)))))
+          Real
+          (@Submodule.setLike.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+            (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+              (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+                (@SeminormedCommRing.toSeminormedRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+                (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                  (@FloorSemiring.instCharZero.{0} Real
+                    (@Ring.toSemiring.{0} Real
+                      (@DivisionRing.toRing.{0} Real
+                        (@NormedDivisionRing.toDivisionRing.{0} Real
+                          (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                    Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+                  (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))))
+        (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+          (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+            (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+              (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+                (@FloorSemiring.instCharZero.{0} Real
+                  (@Ring.toSemiring.{0} Real
+                    (@DivisionRing.toRing.{0} Real
+                      (@NormedDivisionRing.toDivisionRing.{0} Real
+                        (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                  Real.partialOrder
+                  (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+                (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+          (@Set.range.{0, 1} Real
+            (@Subtype.{1} Nat fun (n : Nat) =>
+              @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+            fun
+              (n :
+                @Subtype.{1} Nat fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+            @#3
+              (@#4
+                (@Subtype.val.{1} Nat
+                  (fun (n : Nat) =>
+                    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                  n))))
+        x)
+    Rat.semiring
+    (@Submodule.addCommMonoid.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+      (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+        (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+          (@SeminormedCommRing.toSeminormedRing.{0} Real
+            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+          (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+            (@FloorSemiring.instCharZero.{0} Real
+              (@Ring.toSemiring.{0} Real
+                (@DivisionRing.toRing.{0} Real
+                  (@NormedDivisionRing.toDivisionRing.{0} Real
+                    (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+              Real.partialOrder (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+            (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+      (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+        (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+          (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+            (@SeminormedCommRing.toSeminormedRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+            (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+              (@FloorSemiring.instCharZero.{0} Real
+                (@Ring.toSemiring.{0} Real
+                  (@DivisionRing.toRing.{0} Real
+                    (@NormedDivisionRing.toDivisionRing.{0} Real
+                      (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                Real.partialOrder
+                (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+              (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+        (@Set.range.{0, 1} Real
+          (@Subtype.{1} Nat fun (n : Nat) =>
+            @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+          fun
+            (n :
+              @Subtype.{1} Nat fun (n : Nat) =>
+                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+          @#3
+            (@#4
+              (@Subtype.val.{1} Nat
+                (fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                n)))))
+    (@Submodule.module.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+      (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+        (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+          (@SeminormedCommRing.toSeminormedRing.{0} Real
+            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+          (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+            (@FloorSemiring.instCharZero.{0} Real
+              (@Ring.toSemiring.{0} Real
+                (@DivisionRing.toRing.{0} Real
+                  (@NormedDivisionRing.toDivisionRing.{0} Real
+                    (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+              Real.partialOrder (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+            (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+      (@Submodule.span.{0, 0} Rat Real Rat.semiring Real.instAddCommMonoid
+        (@NormedSpace.toModule.{0, 0} Rat Real Rat.instNormedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))
+          (@NormedAlgebra.toNormedSpace.{0, 0} Rat Real Rat.instNormedField
+            (@SeminormedCommRing.toSeminormedRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))
+            (@normedAlgebraRat.{0} Real (@NormedField.toNormedDivisionRing.{0} Real Real.normedField)
+              (@FloorSemiring.instCharZero.{0} Real
+                (@Ring.toSemiring.{0} Real
+                  (@DivisionRing.toRing.{0} Real
+                    (@NormedDivisionRing.toDivisionRing.{0} Real
+                      (@NormedField.toNormedDivisionRing.{0} Real Real.normedField))))
+                Real.partialOrder
+                (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing))
+              (@RCLike.toNormedAlgebra.{0} Real Real.instRCLike))))
+        (@Set.range.{0, 1} Real
+          (@Subtype.{1} Nat fun (n : Nat) =>
+            @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+          fun
+            (n :
+              @Subtype.{1} Nat fun (n : Nat) =>
+                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n) =>
+          @#3
+            (@#4
+              (@Subtype.val.{1} Nat
+                (fun (n : Nat) =>
+                  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+                n))))))
+rc=

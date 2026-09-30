@@ -1,0 +1,98 @@
+Wed Sep 30 17:53:13 IST 2026
+chal_clone: /Users/jaytyagi/rh-lean-work/checker-clone-s36-residue/comparator/Challenge/ResidueRank.lean  sha256=65e76f2e7b871e2a812332649155eb34c6440cc0776d3ad746853de0f4c3a33a  bytes=7426
+sol_clone: /Users/jaytyagi/rh-lean-work/checker-clone-s36-residue/comparator/Solution/ResidueRank.lean  sha256=ff32e5c2cd607436608986c092769926c301621bd7a98a286a1e6d3716dd960c  bytes=5493
+chal_rp: /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/lean/comparator/Challenge/ResidueRank.lean  sha256=65e76f2e7b871e2a812332649155eb34c6440cc0776d3ad746853de0f4c3a33a  bytes=7426
+sol_rp: /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/lean/comparator/Solution/ResidueRank.lean  sha256=ff32e5c2cd607436608986c092769926c301621bd7a98a286a1e6d3716dd960c  bytes=5493
+probe: /Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/theoremR-lean-s36/typing-probe.lean  sha256=881e024a9184e9e4aab0976e42a31f1d8f8f5f01b3cec10c773a00f236601a81  bytes=3767
+PASS [order] chal_clone: theorem names in file order = ['log_primes_linearIndependent', 'span_log_not_finite', 'rank_span_log_le', 'lemmaF_finite_fiber', 'lemmaF_infinite_order', 'theoremR', 'theoremS_bound', 'theoremS']
+PASS [order] sol_clone: theorem names in file order = ['log_primes_linearIndependent', 'span_log_not_finite', 'rank_span_log_le', 'lemmaF_finite_fiber', 'lemmaF_infinite_order', 'theoremR', 'theoremS_bound', 'theoremS']
+PASS [order] probe: theorem names in file order = ['log_primes_linearIndependent', 'span_log_not_finite', 'rank_span_log_le', 'lemmaF_finite_fiber', 'lemmaF_infinite_order', 'theoremR', 'theoremS_bound', 'theoremS']
+
+[A]/[B] per-statement byte identity (docstring + statement)
+PASS log_primes_linearIndependent: extracted from challenge (201 bytes)
+PASS [A] log_primes_linearIndependent: challenge == solution (clean clone)
+PASS [A] log_primes_linearIndependent: challenge == solution (rh-program/lean) == clone
+PASS [B] log_primes_linearIndependent: challenge == typing probe
+PASS span_log_not_finite: extracted from challenge (386 bytes)
+PASS [A] span_log_not_finite: challenge == solution (clean clone)
+PASS [A] span_log_not_finite: challenge == solution (rh-program/lean) == clone
+PASS [B] span_log_not_finite: challenge == typing probe
+PASS rank_span_log_le: extracted from challenge (394 bytes)
+PASS [A] rank_span_log_le: challenge == solution (clean clone)
+PASS [A] rank_span_log_le: challenge == solution (rh-program/lean) == clone
+PASS [B] rank_span_log_le: challenge == typing probe
+PASS lemmaF_finite_fiber: extracted from challenge (404 bytes)
+PASS [A] lemmaF_finite_fiber: challenge == solution (clean clone)
+PASS [A] lemmaF_finite_fiber: challenge == solution (rh-program/lean) == clone
+PASS [B] lemmaF_finite_fiber: challenge == typing probe
+PASS lemmaF_infinite_order: extracted from challenge (477 bytes)
+PASS [A] lemmaF_infinite_order: challenge == solution (clean clone)
+PASS [A] lemmaF_infinite_order: challenge == solution (rh-program/lean) == clone
+PASS [B] lemmaF_infinite_order: challenge == typing probe
+PASS theoremR: extracted from challenge (552 bytes)
+PASS [A] theoremR: challenge == solution (clean clone)
+PASS [A] theoremR: challenge == solution (rh-program/lean) == clone
+PASS [B] theoremR: challenge == typing probe
+PASS theoremS_bound: extracted from challenge (352 bytes)
+PASS [A] theoremS_bound: challenge == solution (clean clone)
+PASS [A] theoremS_bound: challenge == solution (rh-program/lean) == clone
+PASS [B] theoremS_bound: challenge == typing probe
+PASS theoremS: extracted from challenge (342 bytes)
+PASS [A] theoremS: challenge == solution (clean clone)
+PASS [A] theoremS: challenge == solution (rh-program/lean) == clone
+PASS [B] theoremS: challenge == typing probe
+
+[C] tail identity from 'import Mathlib' to EOF
+FAIL [C] challenge[3699:] == probe[231:] (3536 bytes)
+FAIL [C] exactly one import line in the challenge code
+
+[D] against UNIT-BRIEF.md §0 (whitespace-normalized)
+PASS [D] brief §0 has 8 numbered items
+PASS [D] item 1 log_primes_linearIndependent: brief's backticked statement == challenge statement
+PASS [D] item 2 span_log_not_finite: brief's backticked statement == challenge statement
+PASS [D] item 3 rank_span_log_le: brief's backticked statement == challenge statement
+  in   item 4 lemmaF_finite_fiber: `lemmaF_finite_fiber`
+  in   item 4 lemmaF_finite_fiber: `cls : ℕ → ι`
+  in   item 4 lemmaF_finite_fiber: `v : ι → ℝ`
+  in   item 4 lemmaF_finite_fiber: `κ : ℝ`
+  DIFF item 4 lemmaF_finite_fiber: `hA9 : ∀ n, 2 ≤ n → HasSum (fun m : {m : ℕ // 2 ≤ m ∧ cls m = cls n} => ArithmeticFunction.vonMangoldt (m : ℕ)) (κ * v (cls n))`
+         (not verbatim in the statement; read by eye in CHECK-O §4)
+  in   item 4 lemmaF_finite_fiber: `{m : ℕ | IsPrimePow m ∧ cls m = cls n}.Finite`
+  in   item 4 lemmaF_finite_fiber: `2 ≤ n`
+  in   item 5 lemmaF_infinite_order: `lemmaF_infinite_order`
+  in   item 5 lemmaF_infinite_order: `φ : ℕ → E`
+  DIFF item 5 lemmaF_infinite_order: `hmul : ∀ a b, φ (a * b) = φ a * φ b`
+         (not verbatim in the statement; read by eye in CHECK-O §4)
+  in   item 5 lemmaF_infinite_order: `hA9`
+  DIFF item 5 lemmaF_infinite_order: `cls := φ`
+         (not verbatim in the statement; read by eye in CHECK-O §4)
+  in   item 5 lemmaF_infinite_order: `φ (p ^ a) ≠ φ (p ^ (a + k))`
+  in   item 5 lemmaF_infinite_order: `p`
+  in   item 5 lemmaF_infinite_order: `1 ≤ a`
+  in   item 5 lemmaF_infinite_order: `1 ≤ k`
+  in   item 6 theoremR: `theoremR`
+  in   item 6 theoremR: `hκ : 0 < κ`
+  in   item 6 theoremR: `hA9`
+  in   item 6 theoremR: `¬ Module.Finite ℚ (Submodule.span ℚ (Set.range fun n : {n : ℕ // 2 ≤ n} => v (cls (n : ℕ))))`
+  in   item 6 theoremR: `hκ`
+PASS [D] item 7 theoremS_bound: brief's backticked statement == challenge statement
+PASS [D] item 8 theoremS: brief's backticked statement == challenge statement
+
+[E] config
+PASS [E] theorem_names = ResidueRank.<challenge order>
+PASS [E] permitted_axioms = ['propext', 'Quot.sound', 'Classical.choice']
+PASS [E] enable_nanoda true
+PASS [E] modules
+PASS [E] keys ['challenge_module', 'enable_nanoda', 'permitted_axioms', 'solution_module', 'theorem_names']
+
+[F] clone == rh-program/lean
+PASS [F] Zeta23/ResidueRank/LogPrimes.lean
+PASS [F] Zeta23/ResidueRank/Pair.lean
+PASS [F] Zeta23/ResidueRank/GenusBound.lean
+PASS [F] comparator/Challenge/ResidueRank.lean
+PASS [F] comparator/Solution/ResidueRank.lean
+PASS [F] comparator/PrintAxioms/ResidueRank.lean
+PASS [F] comparator/config-residue-rank.json
+
+RESULT FAIL
+rc=1

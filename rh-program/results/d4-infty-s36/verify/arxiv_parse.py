@@ -1,7 +1,7 @@
 # Parse arxiv-searches.xml (raw export-API responses) into arxiv-parsed.txt: query, time, totalResults, ids and titles.
 import re, os
 d = os.path.dirname(os.path.abspath(__file__))
-raw = open(os.path.join(d, 'arxiv-searches.xml'), encoding='utf-8', errors='replace').read()
+raw = ''.join(open(os.path.join(d, f), encoding='utf-8', errors='replace').read() for f in ('arxiv-searches.xml', 'arxiv-searches-2.xml') if os.path.exists(os.path.join(d, f)))
 blocks = re.split(r'^=== QUERY ', raw, flags=re.M)[1:]
 out = []
 for b in blocks:

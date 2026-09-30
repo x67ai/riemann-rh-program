@@ -1,0 +1,23 @@
+== overlay Wed Sep 30 17:48:17 IST 2026
+OK Zeta23/ResidueRank/LogPrimes.lean 1d5f4e28a9612ec0d0dc5849ddf7ba907de166dbaea159fbd9f8252f152f050d
+OK Zeta23/ResidueRank/Pair.lean 4fc07998bf03dd0c20150b82d7b9a79fd35170609cbd561a5d817aeac32c87e0
+OK Zeta23/ResidueRank/GenusBound.lean d24145eb8a19cb08ac87bc32bff5cde64d4635d685501908161f80f08c1df7d6
+OK comparator/Challenge/ResidueRank.lean 65e76f2e7b871e2a812332649155eb34c6440cc0776d3ad746853de0f4c3a33a
+OK comparator/Solution/ResidueRank.lean ff32e5c2cd607436608986c092769926c301621bd7a98a286a1e6d3716dd960c
+OK comparator/PrintAxioms/ResidueRank.lean cf0e05c33cc767fda93f98b50696678d9ca0dd3cff8dc5fbdfb4ff975fa68a9d
+OK comparator/config-residue-rank.json fd170488ce2836037a7fd5eee28576d955bd72a8aa8c7856e27479e6c9b6bf1b
+== git status --short
+?? Zeta23/ResidueRank/
+?? comparator/Challenge/ResidueRank.lean
+?? comparator/PrintAxioms/ResidueRank.lean
+?? comparator/Solution/ResidueRank.lean
+?? comparator/config-residue-rank.json
+== imports of the seven files
+Zeta23/ResidueRank/GenusBound.lean:32:import Mathlib
+Zeta23/ResidueRank/LogPrimes.lean:35:import Mathlib
+Zeta23/ResidueRank/Pair.lean:40:import Zeta23.ResidueRank.LogPrimes
+comparator/Challenge/ResidueRank.lean:46:import Mathlib
+comparator/Solution/ResidueRank.lean:22:import Zeta23.ResidueRank.Pair
+comparator/Solution/ResidueRank.lean:23:import Zeta23.ResidueRank.GenusBound
+comparator/PrintAxioms/ResidueRank.lean:18:import Solution.ResidueRank
+rc=0

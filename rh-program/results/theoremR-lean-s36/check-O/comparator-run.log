@@ -1,0 +1,84 @@
+=== [ResidueRank-CHECK-O] start 2026-09-30 17:56:19 IST ===
+cwd=/Users/jaytyagi/rh-lean-work/checker-clone-s36-residue
+config=comparator/config-residue-rank.json
+{
+  "challenge_module": "Challenge.ResidueRank",
+  "solution_module": "Solution.ResidueRank",
+  "theorem_names": [
+    "ResidueRank.log_primes_linearIndependent",
+    "ResidueRank.span_log_not_finite",
+    "ResidueRank.rank_span_log_le",
+    "ResidueRank.lemmaF_finite_fiber",
+    "ResidueRank.lemmaF_infinite_order",
+    "ResidueRank.theoremR",
+    "ResidueRank.theoremS_bound",
+    "ResidueRank.theoremS"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+toolchain=leanprover/lean4:v4.33.0-rc2
+lean=/Users/jaytyagi/.elan/bin/lean Lean (version 4.33.0-rc2, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+lake=/Users/jaytyagi/.elan/bin/lake
+mathlib=51e6992efd06126df61a496bebf8f49482a4e129
+COMPARATOR_LANDRUN=/Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+COMPARATOR_NANODA=/Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+COMPARATOR_LEAN4EXPORT=/Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+nanoda on PATH: /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+tool hashes:
+fe1222e25fc301dc51ec3f9964a59ab557ea4f9ae6bb758842d70dbb341a5d08  /Users/jaytyagi/rh-lean-work/tools/comparator/.lake/build/bin/comparator
+de4ffedf1412873c0d196f4c4eb98d3b45af43f37bd6cc07e2517706481a7775  /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export
+d6c87133b59c2286fed27e2417fb17f9419326c2dde904de9f85d288594948bb  /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin
+167507c89d8b3c7667ad78b50df7b19f89883751a01efd1457404fa34a994e8b  /Users/jaytyagi/rh-lean-work/tools/comparator/scripts/fake-landrun.sh
+heavy procs (>50% cpu) before start:
+--- comparator output follows ---
+Building Challenge.ResidueRank
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Challenge.ResidueRank
+⚠ [8697/8697] Built Challenge.ResidueRank (5.3s)
+warning: comparator/Challenge/ResidueRank.lean:51:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:57:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:65:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:72:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:81:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:93:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:103:8: declaration uses `sorry`
+warning: comparator/Challenge/ResidueRank.lean:110:8: declaration uses `sorry`
+Build completed successfully (8697 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Challenge.ResidueRank -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind ResidueRank.log_primes_linearIndependent ResidueRank.span_log_not_finite ResidueRank.rank_span_log_le ResidueRank.lemmaF_finite_fiber ResidueRank.lemmaF_infinite_order ResidueRank.theoremR ResidueRank.theoremS_bound ResidueRank.theoremS propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, ResidueRank.log_primes_linearIndependent, ResidueRank.span_log_not_finite, ResidueRank.rank_span_log_le, ResidueRank.lemmaF_finite_fiber, ResidueRank.lemmaF_infinite_order, ResidueRank.theoremR, ResidueRank.theoremS_bound, ResidueRank.theoremS, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge.ResidueRank
+Building Solution.ResidueRank
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Solution.ResidueRank
+✔ [8700/8700] Built Solution.ResidueRank (3.3s)
+Build completed successfully (8700 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/lean4export/.lake/build/bin/lean4export Solution.ResidueRank -- Nat String String.mk Char Quot Quot.mk Quot.lift Quot.ind ResidueRank.log_primes_linearIndependent ResidueRank.span_log_not_finite ResidueRank.rank_span_log_le ResidueRank.lemmaF_finite_fiber ResidueRank.lemmaF_infinite_order ResidueRank.theoremR ResidueRank.theoremS_bound ResidueRank.theoremS propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec /Users/jaytyagi/rh-lean-work/tools/nanoda_lib/target/release/nanoda_bin /var/folders/5_/znvkm_md1dl9wgx33243ytqh0000gn/T/tmp.2UN8Q0xz
+Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, ResidueRank.log_primes_linearIndependent, ResidueRank.span_log_not_finite, ResidueRank.rank_span_log_le, ResidueRank.lemmaF_finite_fiber, ResidueRank.lemmaF_infinite_order, ResidueRank.theoremR, ResidueRank.theoremS_bound, ResidueRank.theoremS, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution.ResidueRank
+Running nanoda kernel on solution
+Nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       37.53 real        27.87 user        14.44 sys
+          5847810048  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1875765  page reclaims
+               21001  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              111807  voluntary context switches
+              211061  involuntary context switches
+          4298271746  instructions retired
+          1408829226  cycles elapsed
+           136765064  peak memory footprint
+--- comparator exit code: 0 ---
+=== [ResidueRank-CHECK-O] end 2026-09-30 17:56:57 IST ===

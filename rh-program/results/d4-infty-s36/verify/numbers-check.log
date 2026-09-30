@@ -125,7 +125,7 @@
 ====================================================================================================
 [8] Proposition B: greedy regradings of the rational primes (consecutive blocks S_N, deg l = N on S_N, phi_n = F^{deg n}, d(F^a) = d^a)
 ====================================================================================================
-  sieve stopped at 5234491373 after 245443941 primes (7.2 s)
+  sieve stopped at 5234491373 after 245443941 primes (7.4 s)
   sieve sanity: pi(10^7) from sympy = 664579 (the streamed primes agree with sympy on the first segment: checked below)
   streamed pi(10^7) = 664579
 
@@ -157,11 +157,177 @@
   24    985511     16777903     33549821   16772873.039166   16777209.345101   +7.654899  +1.868872e-03   16772880.694   7.654899   8.664271
   Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.9163
   Theorem R: primes used = 2063421 (each once, consecutive), nonempty blocks = 24 of 24 (their w_N have disjoint prime supports ⇒ Q-independent)
-Traceback (most recent call last):
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 439, in <module>
-    report(G, d, kap, Nm)
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 400, in report
-    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
-  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 400, in <genexpr>
-    tgt_ok = all(1 + d**(-float(N)) - N/(2*d**float(N)) - d**(1 - N/2)/(d - 1) - (N/4)*((N/2)*ld + Call)/(kap*d**float(N)) > 0 for N in range(Nm + 1, 5001))
-OverflowError: (34, 'Result too large')
+  tail: C = log(2 kappa d/((d-1)c)) = 2.8560; H(N) >= 0 for all Nmax < N <= 5000: True (min of 1 - poly/exp term = 1.0000; H/d^N is increasing beyond); block targets > 0 there: True; e^C d^N > N/(2c) there: True
+  sum_(N<=24) 2|e_N| = 3.484773; tail bound sum_(N>24) (N log d + C)/kappa d^(-N/2) = 1.288e-02 (C = 2.8560); 2g_rig = 3.497656 (g = 1.748828)
+    2g = 3.497656: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min +2.623442, max 5.261812
+    2g = 2.000000: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min +1.125786, max 3.764155
+    2g = 0.874214: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min -0.000000, max 2.638369
+    smallest 2g making the finite section PSD = -lambda_min(T(0)) = 0.874214
+    intersection form on span(C1,C2,gamma_0..gamma_24) at 2g_rig (mpmath, 60 digits): #pos = 1, #neg = 26, #zero = 0; smallest |eigenvalue| = 8.7321e-8  (index one, nondegenerate: rank 27); double-precision count was 1/26/0
+    A9 at N = 1, 2, 3: Delta.gamma_N = d^N + 1 - eps_N = [3.401197, 5.347108, 8.364042] = L_N/kappa = [3.401197, 5.347108, 8.364042]
+    Prop N(b) negative check: target-graded mass at x = d = 2: L_1 = 3.401197 vs Lambda(2) = 0.693147 (the measure identity fails, as it must off the degree clause)
+    regraded zeta: Weil ratio |1+d^N - L_N/kappa|/d^(N/2) (the index theorem, bounded) vs the Beurling count sum_{e|N} e#S_e of prod_l(1-T^{deg l})^{-1}:
+      N= 1: L_N/kappa = 3.401197e+00, |eps_N|/d^(N/2) = 2.837e-01;  Beurling count = 3.000000e+00, |1+d^N - count|/d^(N/2) = 0.000e+00
+      N= 2: L_N/kappa = 5.347108e+00, |eps_N|/d^(N/2) = 1.736e-01;  Beurling count = 5.000000e+00, |1+d^N - count|/d^(N/2) = 0.000e+00
+      N= 4: L_N/kappa = 1.762755e+01, |eps_N|/d^(N/2) = 1.569e-01;  Beurling count = 2.100000e+01, |1+d^N - count|/d^(N/2) = 1.000e+00
+      N= 8: L_N/kappa = 2.600630e+02, |eps_N|/d^(N/2) = 1.914e-01;  Beurling count = 3.490000e+02, |1+d^N - count|/d^(N/2) = 5.750e+00
+      N=12: L_N/kappa = 4.093870e+03, |eps_N|/d^(N/2) = 4.890e-02;  Beurling count = 5.643000e+03, |1+d^N - count|/d^(N/2) = 2.416e+01
+      N=16: L_N/kappa = 6.553808e+04, |eps_N|/d^(N/2) = 4.226e-03;  Beurling count = 9.138900e+04, |1+d^N - count|/d^(N/2) = 1.010e+02
+      N=24: L_N/kappa = 1.677721e+07, |eps_N|/d^(N/2) = 1.869e-03;  Beurling count = 2.365824e+07, |1+d^N - count|/d^(N/2) = 1.680e+03
+
+  --- d = 2, kappa = 0.693147, N = 1..24 ---
+   N  #S_N        first         last          w_N              L_N          eps_N      e_N=eps_N d^(-N/2)   target_w   |kappa eps_N|  (1/2)log P_N
+   1         2            2            3          1.791759          1.791759   +0.415037  +2.934758e-01          2.079   0.287682   0.804719
+   2         1            5            5          1.609438          3.401197   +0.093109  +4.655470e-02          1.674   0.064539   0.972955
+   3         2            7           11          4.343805          6.135565   +0.148251  +5.241463e-02          4.447   0.102760   1.282475
+   4         3           13           19          8.342602         11.743799   +0.057279  +1.431983e-02          8.382   0.039703   1.567747
+   5         6           23           43         21.022467         22.814227   +0.086028  +1.520777e-02         21.082   0.059630   1.925074
+   6         9           47           83         37.554971         45.299974   -0.354048  -4.425598e-02         37.310   0.245407   2.209420
+   7        18           89          179         87.608494         89.400253   +0.022698  +2.006207e-03         87.624   0.015733   2.599249
+   8        30          181          353        166.916287        178.660086   -0.752020  -4.700123e-02        166.395   0.521260   2.933234
+   9        56          359          709        350.395054        356.530619   -1.364956  -6.032311e-02        349.449   0.946116   3.281928
+  10        99          719         1429        687.765931        712.189596   -2.472398  -7.726245e-02        686.052   1.713736   3.632365
+  11       186         1433         2837       1421.409239       1423.200998   -4.245023  -9.380263e-02       1418.467   2.942425   3.975251
+  12       334         2843         5659       2783.782852       2837.425428   +3.460406  +5.406884e-02       2786.181   2.398571   4.321384
+  13       629         5669        11393       5677.742854       5679.534613   -0.836421  -9.241237e-03       5677.163   0.579763   4.670377
+  14      1159        11399        22691      11266.276514      11357.286205   -0.100486  -7.850498e-04      11266.207   0.069652   5.014862
+  15      2179        22697        45433      22690.521401      22717.679433   -5.683459  -3.139697e-02      22686.582   3.939474   5.361997
+  16      4074        45439        90823      45248.785656      45427.445741   -0.950691  -3.713638e-03      45248.127   0.658969   5.708334
+  17      7699        90833       181927      90848.844606      90850.636366   +3.237453  +8.942286e-03      90851.089   2.244032   6.055691
+  18     14513       181931       363257     181314.708506     181710.403534   -7.698056  -1.503527e-02     181309.373   5.335886   6.401433
+  19     27559       363269       726923     363411.485051     363413.276811   -5.532248  -7.640410e-03     363407.650   3.834662   6.748288
+  20     52313       726941      1453457     726100.467139     726820.999336   -4.051357  -3.956403e-03     726097.659   2.808186   7.094728
+  21     99741      1453469      2907427    1453545.421753    1453639.165812   -5.015759  -3.463552e-03    1453541.945   3.476659   7.441390
+  22    190342      2907451      5814821    2905844.213286    2907269.023722   +2.396946  +1.170384e-03    2905845.875   1.661437   7.787961
+  23    364326      5814827     11628509    5814544.801959    5814546.593718   -8.535775  -2.947121e-03    5814538.885   5.916548   8.134485
+  24    698139     11628517     23257951   11626078.013798   11629082.355513   -2.444388  -5.967744e-04   11626076.319   1.694321   8.481079
+  Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.9163
+  Theorem R: primes used = 1463419 (each once, consecutive), nonempty blocks = 24 of 24 (their w_N have disjoint prime supports ⇒ Q-independent)
+  tail: C = log(2 kappa d/((d-1)c)) = 2.4895; H(N) >= 0 for all Nmax < N <= 5000: True (min of 1 - poly/exp term = 1.0000; H/d^N is increasing beyond); block targets > 0 there: True; e^C d^N > N/(2c) there: True
+  sum_(N<=24) 2|e_N| = 1.779165; tail bound sum_(N>24) (N log d + C)/kappa d^(-N/2) = 1.828e-02 (C = 2.4895); 2g_rig = 1.797440 (g = 0.898720)
+    2g = 1.797440: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min +1.087487, max 2.806486
+    2g = 2.000000: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min +1.290047, max 3.009046
+    2g = 0.709953: Toeplitz (e_|a-b|)_(a,b<=24) eigenvalues min +0.000000, max 1.718999
+    smallest 2g making the finite section PSD = -lambda_min(T(0)) = 0.709953
+    intersection form on span(C1,C2,gamma_0..gamma_24) at 2g_rig (mpmath, 60 digits): #pos = 1, #neg = 26, #zero = 0; smallest |eigenvalue| = 6.6306e-8  (index one, nondegenerate: rank 27); double-precision count was 1/26/0
+    A9 at N = 1, 2, 3: Delta.gamma_N = d^N + 1 - eps_N = [2.584963, 4.906891, 8.851749] = L_N/kappa = [2.584963, 4.906891, 8.851749]
+    Prop N(b) negative check: target-graded mass at x = d = 2: L_1 = 1.791759 vs Lambda(2) = 0.693147 (the measure identity fails, as it must off the degree clause)
+    regraded zeta: Weil ratio |1+d^N - L_N/kappa|/d^(N/2) (the index theorem, bounded) vs the Beurling count sum_{e|N} e#S_e of prod_l(1-T^{deg l})^{-1}:
+      N= 1: L_N/kappa = 2.584963e+00, |eps_N|/d^(N/2) = 2.935e-01;  Beurling count = 2.000000e+00, |1+d^N - count|/d^(N/2) = 7.071e-01
+      N= 2: L_N/kappa = 4.906891e+00, |eps_N|/d^(N/2) = 4.655e-02;  Beurling count = 4.000000e+00, |1+d^N - count|/d^(N/2) = 5.000e-01
+      N= 4: L_N/kappa = 1.694272e+01, |eps_N|/d^(N/2) = 1.432e-02;  Beurling count = 1.600000e+01, |1+d^N - count|/d^(N/2) = 2.500e-01
+      N= 8: L_N/kappa = 2.577520e+02, |eps_N|/d^(N/2) = 4.700e-02;  Beurling count = 2.560000e+02, |1+d^N - count|/d^(N/2) = 6.250e-02
+      N=12: L_N/kappa = 4.093540e+03, |eps_N|/d^(N/2) = 5.407e-02;  Beurling count = 4.084000e+03, |1+d^N - count|/d^(N/2) = 2.031e-01
+      N=16: L_N/kappa = 6.553795e+04, |eps_N|/d^(N/2) = 3.714e-03;  Beurling count = 6.544000e+04, |1+d^N - count|/d^(N/2) = 3.789e-01
+      N=24: L_N/kappa = 1.677722e+07, |eps_N|/d^(N/2) = 5.968e-04;  Beurling count = 1.675966e+07, |1+d^N - count|/d^(N/2) = 4.286e+00
+
+  --- d = 3, kappa = 1.000000, N = 1..20 ---
+   N  #S_N        first         last          w_N              L_N          eps_N      e_N=eps_N d^(-N/2)   target_w   |kappa eps_N|  (1/2)log P_N
+   1         3            2            5          3.401197          3.401197   +0.598803  +3.457189e-01          4.000   0.598803   0.972955
+   2         3            7           13          6.908755         10.309952   -0.309952  -1.033174e-01          6.599   0.309952   1.282475
+   3         7           17           41         23.038920         26.440117   +1.559883  +3.001996e-01         24.599   1.559883   1.880600
+   4        17           43          113         73.720933         84.030885   -2.030885  -2.256539e-01         71.690   2.030885   2.363694
+   5        44          127          373        239.830282        243.231479   +0.768521  +4.930062e-02        240.599   0.768521   2.968768
+   6       107          379         1087        699.676764        733.025636   -3.025636  -1.120606e-01        696.651   3.025636   3.495588
+   7       286         1091         3319       2183.952560       2187.353758   +0.646242  +1.381882e-02       2184.599   0.646242   4.054312
+   8       742         3323         9803       6481.480875       6565.511760   -3.511760  -4.335507e-02       6477.969   3.511760   4.595222
+   9      1999         9811        29567      19657.184940      19683.625057   +0.374943  +2.672510e-03      19657.560   0.374943   5.147241
+  10      5378        29569        88651      58794.410999      59044.551234   +5.448766  +2.242291e-02      58799.860   5.448766   5.696265
+  11     14723        88657       266003     177144.139387     177147.540584   +0.459416  +1.091539e-03     177144.599   0.459416   6.245643
+  12     40411       266009       796801     530633.924486     531440.671055   +1.328945  +1.822970e-03     530635.253   1.328945   6.794188
+  13    112039       796813      2392009    1594321.039506    1594324.440703   -0.440703  -3.490260e-04    1594320.599   0.440703   7.343822
+  14    311875      2392021      7173149    4780778.663198    4782972.925710   -2.925710  -1.337773e-03    4780775.737   2.925710   7.892928
+  15    873417      7173157     21524969   14348637.234463   14348903.504862   +4.495138  +1.186680e-03   14348641.730   4.495138   8.442362
+  16   2455630     21524977     64568303   43040148.056859   43046713.568620   +8.431380  +1.285076e-03   43040156.488   8.431380   8.991617
+  17   6933303     64568333    193713137  129140152.749247  129140156.150444   +7.849556  +6.907397e-04  129140160.599   7.849556   9.540944
+  18  19640093    193713139    581130157  387400090.323703  387420480.534280   +9.465720  +4.809084e-04  387400099.789   9.465720  10.090243
+  19  55814013    581130163   1743404233 1162261465.767370 1162261469.168567   -1.168567  -3.427692e-05 1162261464.599   1.168567  10.639553
+  20 159046553   1743404269   5230165267 3486725285.332039 3486784403.604205   -1.604205  -2.716735e-05 3486725283.728   1.604205  11.188854
+  Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.8473
+  Theorem R: primes used = 245250643 (each once, consecutive), nonempty blocks = 20 of 20 (their w_N have disjoint prime supports ⇒ Q-independent)
+  tail: C = log(2 kappa d/((d-1)c)) = 2.5683; H(N) >= 0 for all Nmax < N <= 5000: True (min of 1 - poly/exp term = 1.0000; H/d^N is increasing beyond); block targets > 0 there: True; e^C d^N > N/(2c) there: True
+  sum_(N<=20) 2|e_N| = 2.453653; tail bound sum_(N>20) (N log d + C)/kappa d^(-N/2) = 6.278e-04 (C = 2.5683); 2g_rig = 2.454281 (g = 1.227140)
+    2g = 2.454281: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min +0.325723, max 3.287858
+    2g = 2.000000: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min -0.128558, max 2.833577
+    2g = 2.128558: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min +0.000000, max 2.962135
+    smallest 2g making the finite section PSD = -lambda_min(T(0)) = 2.128558
+    intersection form on span(C1,C2,gamma_0..gamma_20) at 2g_rig (mpmath, 60 digits): #pos = 1, #neg = 22, #zero = 0; smallest |eigenvalue| = 5.2335e-10  (index one, nondegenerate: rank 23); double-precision count was 1/21/1
+    A9 at N = 1, 2, 3: Delta.gamma_N = d^N + 1 - eps_N = [3.401197, 10.309952, 26.440117] = L_N/kappa = [3.401197, 10.309952, 26.440117]
+    Prop N(b) negative check: target-graded mass at x = d = 3: L_1 = 3.401197 vs Lambda(3) = 1.098612 (the measure identity fails, as it must off the degree clause)
+    regraded zeta: Weil ratio |1+d^N - L_N/kappa|/d^(N/2) (the index theorem, bounded) vs the Beurling count sum_{e|N} e#S_e of prod_l(1-T^{deg l})^{-1}:
+      N= 1: L_N/kappa = 3.401197e+00, |eps_N|/d^(N/2) = 3.457e-01;  Beurling count = 3.000000e+00, |1+d^N - count|/d^(N/2) = 5.774e-01
+      N= 2: L_N/kappa = 1.030995e+01, |eps_N|/d^(N/2) = 1.033e-01;  Beurling count = 9.000000e+00, |1+d^N - count|/d^(N/2) = 3.333e-01
+      N= 4: L_N/kappa = 8.403088e+01, |eps_N|/d^(N/2) = 2.257e-01;  Beurling count = 7.700000e+01, |1+d^N - count|/d^(N/2) = 5.556e-01
+      N= 8: L_N/kappa = 6.565512e+03, |eps_N|/d^(N/2) = 4.336e-02;  Beurling count = 6.013000e+03, |1+d^N - count|/d^(N/2) = 6.778e+00
+      N=12: L_N/kappa = 5.314407e+05, |eps_N|/d^(N/2) = 1.823e-03;  Beurling count = 4.856720e+05, |1+d^N - count|/d^(N/2) = 6.278e+01
+      N=16: L_N/kappa = 4.304671e+07, |eps_N|/d^(N/2) = 1.285e-03;  Beurling count = 3.929609e+07, |1+d^N - count|/d^(N/2) = 5.717e+02
+      N=20: L_N/kappa = 3.486784e+09, |eps_N|/d^(N/2) = 2.717e-05;  Beurling count = 3.180985e+09, |1+d^N - count|/d^(N/2) = 5.179e+03
+
+  --- d = 3, kappa = 0.500000, N = 1..20 ---
+   N  #S_N        first         last          w_N              L_N          eps_N      e_N=eps_N d^(-N/2)   target_w   |kappa eps_N|  (1/2)log P_N
+   1         2            2            3          1.791759          1.791759   +0.416481  +2.404555e-01          2.000   0.208241   0.804719
+   2         2            5            7          3.555348          5.347108   -0.694215  -2.314050e-01          3.208   0.347108   0.972955
+   3         4           11           19         10.740497         12.532256   +2.935487  +5.649348e-01         12.208   1.467744   1.567747
+   4        10           23           61         37.031318         42.378426   -2.756851  -3.063168e-01         35.653   1.378426   2.055437
+   5        25           67          191        119.605385        121.397144   +1.205711  +7.734642e-02        120.208   0.602856   2.631345
+   6        60          193          563        352.052219        368.139824   -6.279648  -2.325795e-01        348.912   3.139824   3.166640
+   7       157          569         1657       1092.076218       1093.867977   +0.264046  +5.646180e-03       1092.208   0.132023   3.708189
+   8       402         1663         4951       3235.253352       3277.631778   +6.736444  +8.316598e-02       3238.622   3.368222   4.254278
+   9      1075         4957        14827       9829.323112       9841.855368   +0.289264  +2.061810e-03       9829.468   0.144632   4.802237
+  10      2871        14831        44269      29400.956551      29525.909044   -1.818087  -7.481840e-03      29400.048   0.909044   5.349020
+  11      7811        44273       133069      88572.626825      88574.418584   -0.837169  -1.989052e-03      88572.208   0.418584   5.899312
+  12     21331       133073       398581     265315.131163     265720.302305   +1.395389  +1.914114e-03     265315.829   0.697695   6.447846
+  13     58888       398591      1195759     797166.506252     797168.298012  -12.596024  -9.975744e-03     797160.208   6.298012   6.997146
+  14    163323      1195771      3588401    2390380.916313    2391478.339638  +13.320724  +6.090866e-03    2390387.577   6.660362   7.546609
+  15    455950      3588407     10763183    7174324.808758    7174456.946400   -5.892799  -1.555651e-03    7174321.862   2.946400   8.095821
+  16   1278384     10763209     32285543   21520090.611008   21523368.242786  -14.485572  -2.207830e-03   21520083.368   7.242786   8.645065
+  17   3600676     32285563     96860809   64570071.481823   64570073.273583  +17.452835  +1.535802e-03   64570080.208   8.726417   9.194393
+  18  10177781     96860821    290570359  193700055.493253  193710252.956188  -15.912376  -8.084325e-04  193700047.537   7.956188   9.743678
+  19  28868119    290570381    871710907  581130736.487875  581130738.279635   -8.559270  -2.510642e-04  581130732.208   4.279635  10.292984
+  20  82120246    871710929   2615078251 1743362639.056131 1743392201.996493   -1.992986  -3.375139e-05 1743362638.060   0.996493  10.842280
+  Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.5108
+  Theorem R: primes used = 126757117 (each once, consecutive), nonempty blocks = 20 of 20 (their w_N have disjoint prime supports ⇒ Q-independent)
+  tail: C = log(2 kappa d/((d-1)c)) = 1.8751; H(N) >= 0 for all Nmax < N <= 5000: True (min of 1 - poly/exp term = 1.0000; H/d^N is increasing beyond); block targets > 0 there: True; e^C d^N > N/(2c) there: True
+  sum_(N<=20) 2|e_N| = 3.555512; tail bound sum_(N>20) (N log d + C)/kappa d^(-N/2) = 1.224e-03 (C = 1.8751); 2g_rig = 3.556736 (g = 1.778368)
+    2g = 3.556736: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min +0.682188, max 4.715329
+    2g = 2.000000: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min -0.874548, max 3.158593
+    2g = 2.874548: Toeplitz (e_|a-b|)_(a,b<=20) eigenvalues min -0.000000, max 4.033141
+    smallest 2g making the finite section PSD = -lambda_min(T(0)) = 2.874548
+    intersection form on span(C1,C2,gamma_0..gamma_20) at 2g_rig (mpmath, 60 digits): #pos = 1, #neg = 22, #zero = 0; smallest |eigenvalue| = 7.0943e-10  (index one, nondegenerate: rank 23); double-precision count was 1/21/1
+    A9 at N = 1, 2, 3: Delta.gamma_N = d^N + 1 - eps_N = [3.583519, 10.694215, 25.064513] = L_N/kappa = [3.583519, 10.694215, 25.064513]
+    Prop N(b) negative check: target-graded mass at x = d = 3: L_1 = 1.791759 vs Lambda(3) = 1.098612 (the measure identity fails, as it must off the degree clause)
+    regraded zeta: Weil ratio |1+d^N - L_N/kappa|/d^(N/2) (the index theorem, bounded) vs the Beurling count sum_{e|N} e#S_e of prod_l(1-T^{deg l})^{-1}:
+      N= 1: L_N/kappa = 3.583519e+00, |eps_N|/d^(N/2) = 2.405e-01;  Beurling count = 2.000000e+00, |1+d^N - count|/d^(N/2) = 1.155e+00
+      N= 2: L_N/kappa = 1.069422e+01, |eps_N|/d^(N/2) = 2.314e-01;  Beurling count = 6.000000e+00, |1+d^N - count|/d^(N/2) = 1.333e+00
+      N= 4: L_N/kappa = 8.475685e+01, |eps_N|/d^(N/2) = 3.063e-01;  Beurling count = 4.600000e+01, |1+d^N - count|/d^(N/2) = 4.000e+00
+      N= 8: L_N/kappa = 6.555264e+03, |eps_N|/d^(N/2) = 8.317e-02;  Beurling count = 3.262000e+03, |1+d^N - count|/d^(N/2) = 4.074e+01
+      N=12: L_N/kappa = 5.314406e+05, |eps_N|/d^(N/2) = 1.914e-03;  Beurling count = 2.563900e+05, |1+d^N - count|/d^(N/2) = 3.773e+02
+      N=16: L_N/kappa = 4.304674e+07, |eps_N|/d^(N/2) = 2.208e-03;  Beurling count = 2.045741e+07, |1+d^N - count|/d^(N/2) = 3.443e+03
+      N=20: L_N/kappa = 3.486784e+09, |eps_N|/d^(N/2) = 3.375e-05;  Beurling count = 1.642434e+09, |1+d^N - count|/d^(N/2) = 3.123e+04
+
+====================================================================================================
+[9] Proposition C: w(u) = 2cosh(u/2) - e^{-|u|/2} tau(e^{|u|}) with tau = sum Lambda(n)/kappa delta_n + archimedean;
+    (9a) explicit formula against a Gaussian (x-18 p. 5 (2)); (9b) the smeared diagonal's defect counts zeros; (9c) CC (13) = x-18 (2)
+====================================================================================================
+  computed 313 zeros up to height 560.241 with mpmath.zetazero (28.5 s); first three ['14.1347251417', '21.0220396388', '25.0108575801']
+  u0=2.0: zero side sum_gamma phi^(gamma) = -0.0024357804246735;  pole+arch-prime side (kappa=1) = -0.00243578042480045;  difference 1.27e-13
+      kappa=0.9: the same side = -0.192873800352; mismatch with the zero side 0.190438 (= (1/kappa - 1) x prime part 0.190438)
+      kappa=1.1: the same side = 0.15337714497; mismatch with the zero side -0.155813 (= (1/kappa - 1) x prime part -0.155813)
+  u0=3.0: zero side sum_gamma phi^(gamma) = -1.66104575990112e-5;  pole+arch-prime side (kappa=1) = -1.66104575989823e-5;  difference -2.9e-17
+      kappa=0.9: the same side = -0.314472495703; mismatch with the zero side 0.314456 (= (1/kappa - 1) x prime part 0.314456)
+      kappa=1.1: the same side = 0.257265477471; mismatch with the zero side -0.257282 (= (1/kappa - 1) x prime part -0.257282)
+  u0=4.0: zero side sum_gamma phi^(gamma) = 0.00243431338471478;  pole+arch-prime side (kappa=1) = 0.00243431338471478;  difference 7.0e-18
+      kappa=0.9: the same side = -0.515815911907; mismatch with the zero side 0.51825 (= (1/kappa - 1) x prime part 0.51825)
+      kappa=1.1: the same side = 0.426457224987; mismatch with the zero side -0.424023 (= (1/kappa - 1) x prime part -0.424023)
+  (9b) def(Delta_eps) = sum over zeros of |F_eps^(gamma)|^2 = 2 sum_{gamma>0} exp(-eps^2 gamma^2) for the unit-mass Gaussian F_eps (Haran p. 258 (ii) form):
+    eps= 1.00: def(Delta_eps) = 3.413012863e-87;  2N(1/eps) =    0;  ratio = -;  (zeros used up to 560: tail exp(-(eps*560)^2) = 1.78e-136195)
+    eps= 0.50: def(Delta_eps) = 4.064966567e-22;  2N(1/eps) =    0;  ratio = -;  (zeros used up to 560: tail exp(-(eps*560)^2) = 2.05e-34049)
+    eps= 0.20: def(Delta_eps) = 0.0006766145539;  2N(1/eps) =    0;  ratio = -;  (zeros used up to 560: tail exp(-(eps*560)^2) = 1.62e-5448)
+    eps= 0.10: def(Delta_eps) = 0.2993960225;  2N(1/eps) =    0;  ratio = -;  (zeros used up to 560: tail exp(-(eps*560)^2) = 1.13e-1362)
+    eps= 0.05: def(Delta_eps) =  2.746120401;  2N(1/eps) =    2;  ratio = 1.37306;  (zeros used up to 560: tail exp(-(eps*560)^2) = 3.26e-341)
+    eps= 0.02: def(Delta_eps) =  17.15858468;  2N(1/eps) =   20;  ratio = 0.857929;  (zeros used up to 560: tail exp(-(eps*560)^2) = 3.33e-55)
+    eps= 0.01: def(Delta_eps) =  52.11939136;  2N(1/eps) =   58;  ratio = 0.89861;  (zeros used up to 560: tail exp(-(eps*560)^2) = 2.4e-14)
+    rung-1 comparison: on S x_k S the same expression is def(Delta) = 2g exactly (Haran p. 258 (ii) with f = delta at p^0: 2 - (2 - #zeros)).
+  (9c) CC 1805.10501 (13) archimedean density u^2/(u^2-1) at u = e^t equals x-18 (2)'s (1-e^{-2t})^{-1}: True
+
+TOTAL RUN TIME 39.1 s
