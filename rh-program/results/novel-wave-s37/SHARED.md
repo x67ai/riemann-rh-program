@@ -47,3 +47,36 @@ Agent: consolidation agent, Opus 5.5 (default effort). Brief: `DIGEST-BRIEF.md` 
   (gap G1); Prop. 5.1 finite-R exact mean square.
 - → C3 (3 rows): V vs the four inequalities (E₀ control); V₂; Lemma Z4 constants (LP minima one producer).
 - No D1 row (nothing interval-certified). Next: §E errata.
+
+## 2026-10-01 03:10 IST block 4 — §E errata written (E.1 M1a, E.2 M1b, E.3 M2, E.4 wave-1 record)
+
+- Every read-F / read-O pair listed with its status. Residuals found for the orchestrator: fe/NOTE.md:322 still carries the OLD successor
+  (3) (F1′ only partially applied; §12 has the new content); fe/NOTE.md:223 Theorem C's tag still `[novelty: single-check]` against line
+  299; fe/NOTE.md:221 duplicated clause from P1's edit. The one read-F/read-O disagreement (M1a §8(e)) is a recorded verdict; read-O
+  re-derives it. T24's tournament line 75 not yet annotated. Wave-1 wording: F_{5,5} is the twin of V's quadratic twist (t = −5).
+- Next: §F survivor filter, ranking U1–U5 against the two launched briefs, Untried list; then §G.
+
+## 2026-10-01 03:30 IST block 5 — §F written (filter, ranking, Untried)
+
+- F.1: above threshold — Theorem T (+T1–T3, T′, C); M1b Theorems A, A′, B, C; Conjecture U; Theorem P; new controls R1 and V₂.
+  Session-38 budget → their follow-ups (the two launched units). No Group-IV barrier, no Lean statement from this wave.
+- F.2 ranking: 1 U2 Q_cond (launched), 2 U1 Conjecture O (launched), 3 U4 class C RE-SCOPED to U-C1/U-C2 (the brief's form is pre-empted
+  at Pritsker p. 4), 4 U5a DZ 17.14 lemma, 5 U3 Lean (T's discrete core + (F_R) as the stability clause — consolidator's reading of the
+  phrase), 6 U5b G1. Each with contract clause, price, stop line. Consolidator's check recorded: the qcond brief's q = 4 measure
+  Σδ_{n/2} + 2Σδ_{2n} is self-dual (Poisson), image of ζ(s)(1 + 4^{1/2−s}), ρ_q = 3.
+- F.3 Untried: UT-1 … UT-13 with S1–S5 fit, first rung, target file. Next: §G waste line, then ZOO-LINES-STAGED.md.
+
+## 2026-10-01 03:40 IST block 6 — §G written; insights-digest.md complete (§A–§G)
+
+- §G: spent on the wrong thing = M1b's three fundamental-lemma structured runs (label (i)); caught before spending = M2's pre-empted
+  class-C unit; found nothing, correctly = M1a least squares, M1b add/delete surgery, M2 Dwork row; (ii) re-queued = walled sources.
+- Next: `ZOO-LINES-STAGED.md` — zoo state, insertion map, blocks (i)–(vi) (+ the count paragraph), then checks.
+
+## 2026-10-01 03:55 IST block 7 — ZOO-LINES-STAGED.md: header, map, blocks (i), (ii), (v) written
+
+- Zoo state recorded (745 lines, fa0d7293…, 62 entries). Insertion map bottom-up (8 rows; count → 63, I: 10; alternative 64 if (v) is
+  made IV.23). Block (i) NEW I.10 "Rigidity at conductor 1" (T, T1–T3, T′, C; what is used and what is not; sharpness; Q_cond successor;
+  CALIBRATION beside I.7). Block (ii) I.2 rider — the (α, β) frontier (clause (b) corrected: populated unconditionally, non-constructively;
+  Theorems A/A′/B/C; Conjectures O, U with BDR's conjecture quoted at the page via read-O §3; clause (d) sharpened). Block (v) I.2 rider —
+  Cor. 2.2 / Prop. 2.3 (decision: rider, with the IV.23 alternative stated). Two reference fixes made in block (i) (I.7 line 123; Nakamura).
+- Next: blocks (iii) I.9 rider, (iv) III.20 rider, (iv′) V.4 pointer, (vi) cross-reference rows, C count paragraph, checks.
