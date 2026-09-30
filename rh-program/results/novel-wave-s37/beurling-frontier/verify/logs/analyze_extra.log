@@ -27,12 +27,42 @@
    bern_a0.900_s8               sup-slope[1e5,x]=0.3755  supL3-slope=0.4695  drift=+1.14  RMS_top=2041  sqrt(rho Q/12)=752.1  ratio=2.71
 == data/greedy_a0.60  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
    greedy_a0.600_s0             sup-slope[1e5,x]=0.2340  supL3-slope=0.3280  drift=-0.04  RMS_top=21.48  sqrt(rho Q/12)=69.2  ratio=0.31
+== data/greedy_a0.60_c2  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
+   greedy_a0.600_s0_c2          sup-slope[1e5,x]=0.2722  supL3-slope=0.3662  drift=-0.05  RMS_top=38.75  sqrt(rho Q/12)=53.59  ratio=0.72
+== data/greedy_a0.60_c6  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
+   greedy_a0.600_s0_c6          sup-slope[1e5,x]=0.5110  supL3-slope=0.6050  drift=-50.21  RMS_top=1.362e+04  sqrt(rho Q/12)=42.1  ratio=323.56
 == data/greedy_a0.75  a=0.75  (candidates a/2=0.3750, a/3=0.2500, a-1/2=0.2500)
    greedy_a0.750_s0             sup-slope[1e5,x]=0.3093  supL3-slope=0.4033  drift=-0.08  RMS_top=42.87  sqrt(rho Q/12)=250.2  ratio=0.17
+== data/greedy_a0.75_c2  a=0.75  (candidates a/2=0.3750, a/3=0.2500, a-1/2=0.2500)
+   greedy_a0.750_s0_c2          sup-slope[1e5,x]=0.3291  supL3-slope=0.4231  drift=+0.77  RMS_top=188.1  sqrt(rho Q/12)=186.5  ratio=1.01
+== data/greedy_a0.75_c6  a=0.75  (candidates a/2=0.3750, a/3=0.2500, a-1/2=0.2500)
+   greedy_a0.750_s0_c6          sup-slope[1e5,x]=0.7614  supL3-slope=0.8555  drift=+68.89  RMS_top=2.449e+05  sqrt(rho Q/12)=141.6  ratio=1728.78
 == data/greedy_a0.90  a=0.90  (candidates a/2=0.4500, a/3=0.3000, a-1/2=0.4000)
    greedy_a0.900_s0             sup-slope[1e5,x]=0.3954  supL3-slope=0.4894  drift=-0.39  RMS_top=130.2  sqrt(rho Q/12)=741.6  ratio=0.18
+== data/greedy_a0.90_c2  a=0.90  (candidates a/2=0.4500, a/3=0.3000, a-1/2=0.4000)
+   greedy_a0.900_s0_c2          sup-slope[1e5,x]=0.4700  supL3-slope=0.5640  drift=-42.79  RMS_top=5.65e+04  sqrt(rho Q/12)=518.5  ratio=108.96
 == data_big/bern_a0.60  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
    bern_a0.600_s1               sup-slope[1e5,x]=0.3171  supL3-slope=0.4054  drift=+0.64  RMS_top=211.1  sqrt(rho Q/12)=123.5  ratio=1.71
    bern_a0.600_s2               sup-slope[1e5,x]=0.2769  supL3-slope=0.3652  drift=-0.27  RMS_top=171.4  sqrt(rho Q/12)=127.5  ratio=1.34
    bern_a0.600_s3               sup-slope[1e5,x]=0.3132  supL3-slope=0.4015  drift=-0.37  RMS_top=198.2  sqrt(rho Q/12)=131.8  ratio=1.50
    bern_a0.600_s4               sup-slope[1e5,x]=0.3030  supL3-slope=0.3914  drift=+1.11  RMS_top=277.6  sqrt(rho Q/12)=147.1  ratio=1.89
+== data_big/bern_a0.75  a=0.75  (candidates a/2=0.3750, a/3=0.2500, a-1/2=0.2500)
+   bern_a0.750_s1               sup-slope[1e5,x]=0.3653  supL3-slope=0.4536  drift=-0.00  RMS_top=882.8  sqrt(rho Q/12)=608.9  ratio=1.45
+   bern_a0.750_s2               sup-slope[1e5,x]=0.3786  supL3-slope=0.4669  drift=+0.53  RMS_top=1420  sqrt(rho Q/12)=612.3  ratio=2.32
+   bern_a0.750_s3               sup-slope[1e5,x]=0.3744  supL3-slope=0.4628  drift=-2.91  RMS_top=2753  sqrt(rho Q/12)=1051  ratio=2.62
+   bern_a0.750_s4               sup-slope[1e5,x]=0.3642  supL3-slope=0.4525  drift=+1.47  RMS_top=1719  sqrt(rho Q/12)=700  ratio=2.46
+== data_big/bern_a0.90  a=0.90  (candidates a/2=0.4500, a/3=0.3000, a-1/2=0.4000)
+   bern_a0.900_s1               sup-slope[1e5,x]=0.4854  supL3-slope=0.5738  drift=-2.75  RMS_top=4230  sqrt(rho Q/12)=2118  ratio=2.00
+   bern_a0.900_s2               sup-slope[1e5,x]=0.4733  supL3-slope=0.5616  drift=+0.14  RMS_top=3554  sqrt(rho Q/12)=2138  ratio=1.66
+   bern_a0.900_s3               sup-slope[1e5,x]=0.4651  supL3-slope=0.5534  drift=+0.99  RMS_top=5304  sqrt(rho Q/12)=2112  ratio=2.51
+   bern_a0.900_s4               sup-slope[1e5,x]=0.3946  supL3-slope=0.4830  drift=+0.66  RMS_top=2213  sqrt(rho Q/12)=1975  ratio=1.12
+== data_big/greedy_a0.60  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
+   greedy_a0.600_s0             sup-slope[1e5,x]=0.2367  supL3-slope=0.3251  drift=-0.02  RMS_top=34.44  sqrt(rho Q/12)=138.1  ratio=0.25
+== data_big/greedy_a0.60_c2  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
+   greedy_a0.600_s0_c2          sup-slope[1e5,x]=0.2816  supL3-slope=0.3699  drift=-0.04  RMS_top=69.62  sqrt(rho Q/12)=106.9  ratio=0.65
+== data_big/greedy_a0.60_c6  a=0.60  (candidates a/2=0.3000, a/3=0.2000, a-1/2=0.1000)
+   greedy_a0.600_s0_c6          sup-slope[1e5,x]=0.4220  supL3-slope=0.5103  drift=-7.39  RMS_top=1.079e+04  sqrt(rho Q/12)=83.99  ratio=128.49
+== data_big/greedy_a0.75  a=0.75  (candidates a/2=0.3750, a/3=0.2500, a-1/2=0.2500)
+   greedy_a0.750_s0             sup-slope[1e5,x]=0.3069  supL3-slope=0.3952  drift=-0.09  RMS_top=85.7  sqrt(rho Q/12)=593.4  ratio=0.14
+== data_big/greedy_a0.90  a=0.90  (candidates a/2=0.4500, a/3=0.3000, a-1/2=0.4000)
+   greedy_a0.900_s0             sup-slope[1e5,x]=0.3988  supL3-slope=0.4871  drift=-0.47  RMS_top=324  sqrt(rho Q/12)=2090  ratio=0.16

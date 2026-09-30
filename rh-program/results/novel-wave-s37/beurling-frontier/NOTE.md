@@ -124,7 +124,7 @@ Re s₀ = Re ρ − (1 − α) > α/2, and N_P(x) − ρ_P x ≠ O(x^{σ}) for e
 *Proof.* If N_P(x) − ρ_P x = O(x^σ), then ζ_P(s) − ρ_P s/(s − 1) = s∫₁^∞(N_P(x) − ρ_P x)x^{−s−1}dx (exact for Re s > 1) is analytic in
 Re s > σ (Mellin transform of an O(x^σ) function), contradicting the pole at s₀ when σ < Re s₀. ∎
 So the pre-derivation's "h ... converges a.s. and is analytic for Re s > β₀/2" is **false unconditionally**: it holds iff ζ(s + 1 − β₀)
-has no zeros in Re s > β₀/2 that are not cancelled, i.e. (up to the coincidence clause) iff ζ has no zero with Re ρ > 1 − β₀/2.
+has no zeros in Re s > β₀/2 that are not canceled, i.e. (up to the coincidence clause) iff ζ has no zero with Re ρ > 1 − β₀/2.
 The **fluctuating part X** of h is a.s. analytic in Re s > α/2 exactly as claimed (Lemma 4.1); the **mean part** is not.
 Consequently "β = β₀/2" is not an unconditional statement: it implies a quasi-Riemann hypothesis at level 1 − β₀/2. This is
 the same obstruction that makes BDR assume RH (§1.4(ii)). **Verdict on the unconditional claim: K.**
@@ -160,7 +160,7 @@ compact subsets of Re s > α/2 and is analytic there; (b) for each δ > 0, sup{|
 O((log T)^{1−2δ/α} + (log T)^{1/2}) = o(log T); (c) Q_R is bounded on Re s ≥ α/2 + δ.
 *Proof.* (0) Small primes: S(y) := Σ_{p≤y}(ε_p + w_p)p^{−α/2−δ} has mean ≍ y^{α/2−δ}/log y and variance ≤ its mean; Chebyshev and
 Borel–Cantelli along y = 2^j (monotone in y) give S(y) ≪ y^{α/2−δ} a.s. (1) Blocks: B_k = ℙ ∩ (2^k, 2^{k+1}], Y_k(s) = Σ_{p∈B_k} η_p p^{−s}.
-For fixed σ ≥ α/2 + δ and t, Re Y_k and Im Y_k are sums of independent centred terms bounded by M_k = 2^{−kσ} with variance
+For fixed σ ≥ α/2 + δ and t, Re Y_k and Im Y_k are sums of independent centered terms bounded by M_k = 2^{−kσ} with variance
 ≤ V_k := Σ_{p∈B_k} p^{α−1−2σ} ≤ 2^{−2kδ}. Bernstein: P(|Re Y_k| ≥ 2√(V_k L) + 2M_k L) ≤ 2e^{−L}. (2) Nets: for T = 2^j take the
 grid of mesh 2^{−(j+k)} in (σ, t) ∈ [α/2 + δ, 2] × [−T, T] (≤ 2^{3(j+k)+3} points) and L = 4(j + k)log 2; since |∂Y_k| ≤
 Σ_{p∈B_k}(ε_p + w_p)p^{−α/2} log p ≤ (k+1)2^{k(1−α/2)}, off-grid values move by ≤ 2(k+1)2^{−j−kα/2} (summable in k). The failure
@@ -184,7 +184,7 @@ So a.s. P is an [α, β]-system with α/2 ≤ β ≤ 1/(3 − α) < ½ (lower bo
 Th. 13.18, 13.23); ψ(x) = x + O(x^{½+ε}) (the RH form quoted at z-02 lines 26–27, in the ψ-normalization). Recalled standard tools
 [recalled, unverified]: |χ(σ + it)| ≍ |t|^{½−σ} in ζ(s) = χ(s)ζ(1 − s) (Stirling); the truncated Perron formula
 Σ_{n≤x}a_n = (1/2πi)∫_{κ−iT}^{κ+iT}F(s)x^s ds/s + O(x^κ Σ_n |a_n| n^{−κ} min(1, 1/(T|log(x/n)|))); Bernstein's inequality; Phragmén–Lindelöf.
-(i) Primes. ψ_P = ψ − ψ_R and ψ_R(x) = Σ_{p≤x} ε_p log p + O(√x log x). The centred part Σ_{p≤x} η_p log p has variance ≍ x^α log x;
+(i) Primes. ψ_P = ψ − ψ_R and ψ_R(x) = Σ_{p≤x} ε_p log p + O(√x log x). The centered part Σ_{p≤x} η_p log p has variance ≍ x^α log x;
 Bernstein plus Borel–Cantelli along x = 2^j (monotone pieces between) give O(x^{α/2+ε}) a.s. The mean: Σ_{p≤x} p^{α−1}log p =
 ∫_{2−}^x u^{α−1}dθ(u) = x^α/α + O(x^{α−½+ε}) by partial summation from θ(u) = u + O(u^{½+ε}). As α/2, α − ½ < ½ < α, α(P) = α.
 (ii) Integers. a_n ∈ {0, 1} is supported on ℕ, so with κ = 1 + 1/log x and 2 ≤ T ≤ x the Perron error is O(x log x/T + 1).
@@ -260,10 +260,13 @@ where α_R := lim sup log π_R(x)/log x — for **any** R, random or structured.
 
 **5.2 Relative-obstruction conjecture (task 4's question, answered in conjectural form).**
 *Conjecture O.* For every set R of primes with Σ_{p∈R}1/p < ∞ and every set A of added generalized primes, the system
-(ℙ \ R) ∪ A satisfies β ≥ α_R/2. [Status: proved for Bernoulli R (Theorem B); exact over a period for finite R (5.1); tested on a
-deterministic minimal-discrepancy R in §6.3.] Consequence under RH: for systems obtained by surgery on ℙ, α > ½ forces α_R = α
-(the deleted set must carry the deviation, by BDR's Landau argument for pure additions, z-02 lines 1072–1090), hence
-**β ≥ α/2 > ¼: under RH and Conjecture O, ¼ is an exact threshold for the surgery class.** This does not contradict Prop. 2.3,
+(ℙ \ R) ∪ A satisfies β ≥ α_R/2 (α_R := lim sup log π_R(x)/log x). [Status: **proved** for Bernoulli R (Theorem B) and for
+regular R of density c·p^{α_R−1} with c/2 ∉ ℤ (Theorem C, §5.5); exact over a period for finite R (Prop. 5.1); **numerically supported**
+for the structured c = 2 set, where Theorem C gives only α/3 but the measured exponent climbs to α/2 (§6.3); open in general.]
+Consequence under RH: if a surgery system has β < α, the deleted set must carry the deviation, α_R ≥ α (BDR's Landau argument for
+additions, z-02 lines 1072–1090, applied to A), hence **β ≥ α/2 > ¼: under RH and Conjecture O, every surgery system with β ≤ ¼ satisfies
+the Riemann hypothesis for the system**, and ¼ would be the exact threshold of the surgery class if random thinning attains α/2
+(gaps G1, G2; the data say it does). This does not contradict Prop. 2.3,
 because the bound is relative (α_R = 0 for ℙ itself). Additions should not help [heuristic]: the dilates E_{R-free}(x/a), a ∈ ⟨A⟩, have no common
 rational frequencies for generic real a, so their mean squares add rather than cancel.
 
@@ -283,28 +286,6 @@ Over ℝ the virtual curve is not even an [α, β]-system (N(x)/x oscillates log
 archimedean input is "the norms have a density" — and Theorems A/B show that density plus β < ½ still admits α > ½ (under RH for ζ).
 The input that separates real curves from the virtual one is Castelnuovo/Hodge-index positivity on C × C, whose ℚ-analogue is Weil's
 positivity of the explicit-formula quadratic form — RH-equivalent. So the archimedean input a threshold theorem would need is RH itself.
-
-## §6. Simulation (task 3) — evidence, not theorems
-
-**6.1 Design** [computed: `verify/thin.c`, `verify/thin_aux.c`, driver `verify/run_all.sh`, log `verify/logs/run_all.log`,
-data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verify/data/fit_summary.json`].
-- **Systems.** (i) T_α (Bernoulli thinning, w_p = p^{α−1}) for α = 0.60, 0.75, 0.90; seeds 1–8; the decision for prime p is a
-  64-bit hash of (p, seed, α), so a run is reproducible from its command line. (ii) *Greedy* (structured) deletion: delete p iff
-  #R∩[2, p) < F(p) := Σ_{q≤p}q^{α−1} — the deterministic set with |π_R(x) − F(x)| < 1, the most regular deletion with the same
-  weights (task 4's "structured surgery"). (iii) Controls with the same code: *none* (ℙ itself; β = 0 expected); *Cramér* (2 prime,
-  n ≥ 3 prime with probability 1/log n, Beurling integers counted with multiplicity by an exact multiplicative DP; a full random
-  discretization, β = ½ expected); the *mean system* Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2 − α) (deterministic; tests gap G1).
-- **Exactness.** N_P(n) is an exact integer count for every n ≤ X = 10⁹ (a bitset sieve of R-free integers; deleted primes up to
-  Y = 4·10⁹ enter ρ_P). ρ_P = Π_{p∈R,p≤Y}(1 − 1/p)·exp(−E₁((1 − α)log Y)) (mean tail ∫_Y^∞u^{α−2}du/log u); the tail's random part
-  has standard deviation ≈ (Y^{α−2}/((2−α)log Y))^{1/2}, i.e. ≲ 4% of the signal x^{α/2} at x = X and negligible for x ≤ X/10.
-  For Cramér, log ρ = ½ − γ − log log 3 + D + A + G₂ with D = lim[Σ_{3≤n≤M}1/(n log n) − log log M + log log 3], A = Σ_{n≥3}(1_P(n) −
-  1/log n)/n, G₂ = Σ_{q∈P}(−log(1 − 1/q) − 1/q), summed to Y = 2·10⁹ (derivation: log ζ_P(s) + log(s − 1) → log ρ as s ↓ 1 with
-  ∫₃^∞u^{−s}du/log u = E₁((s − 1)log 3) = −γ − log((s − 1)log 3) + o(1)).
-- **Cross-checks.** `verify/check_small.py` re-derives R, ρ_P and N_P(10⁵) from the same hash in Python: identical (nR(10⁶) = 607,
-  ρ_P = 0.180739782781, E(10⁵) = 2.021722). The Cramér DP matches a brute-force multiset count (N(2000) = 3097).
-- **Statistics.** Log-bins of 20 per decade; per bin the exact sup of |N_P(x) − ρx| over real x and the RMS at half-integers.
-  Exponents = least-squares slopes of log(running sup) and log(RMS) against log x over windows [10^k, 10⁹], k = 4, 5, 6, 7;
-  error bars = standard error over seeds (8 for T_α); the spread between windows is reported as a systematic.
 
 **5.5 Theorem C (the prime-power branch points of a structured deletion — unconditional)** [proved here; novelty: single-check].
 Let 0 < α < 1, c > 0, w_p = min(1, c·p^{α−1}), F(x) = Σ_{p≤x}w_p, and let R be any set of primes with π_R(x) − F(x) = O(x^θ),
@@ -333,6 +314,29 @@ non-negative coefficients and abscissa α_R/2, singular there by Landau's theore
 Theorem B holds for every c. (iii) Theorem C gives lower bounds only: the continuation of exp(−H) has no growth control, so no
 Perron upper bound is available for structured deletions. Whether structured deletions *attain* max(α/k_c, α − ½) is the question
 tested numerically in §6.3.
+
+## §6. Simulation (task 3) — evidence, not theorems
+
+**6.1 Design** [computed: `verify/thin.c`, `verify/thin_aux.c`, driver `verify/run_all.sh`, log `verify/logs/run_all.log`,
+data `verify/data/*.csv`, fits `verify/fit.py` → `verify/logs/fit.log`, `verify/data/fit_summary.json`].
+- **Systems.** (i) T_α (Bernoulli thinning, w_p = p^{α−1}) for α = 0.60, 0.75, 0.90; seeds 1–8; the decision for prime p is a
+  64-bit hash of (p, seed, α), so a run is reproducible from its command line. (ii) *Greedy* (structured) deletion: delete p iff
+  #R∩[2, p) < F(p) := Σ_{q≤p}q^{α−1} — the deterministic set with |π_R(x) − F(x)| < 1, the most regular deletion with the same
+  weights (task 4's "structured surgery"). (iii) Controls with the same code: *none* (ℙ itself; β = 0 expected); *Cramér* (2 prime,
+  n ≥ 3 prime with probability 1/log n, Beurling integers counted with multiplicity by an exact multiplicative DP; a full random
+  discretization, β = ½ expected); the *mean system* Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) − y/ζ(2 − α) (deterministic; tests gap G1).
+- **Exactness.** N_P(n) is an exact integer count for every n ≤ X = 10⁹ (a bitset sieve of R-free integers; deleted primes up to
+  Y = 4·10⁹ enter ρ_P). ρ_P = Π_{p∈R,p≤Y}(1 − 1/p)·exp(−E₁((1 − α)log Y)) (mean tail ∫_Y^∞u^{α−2}du/log u); the tail's random part
+  has standard deviation ≈ (Y^{α−2}/((2−α)log Y))^{1/2}, i.e. ≲ 4% of the signal x^{α/2} at x = X and negligible for x ≤ X/10.
+  For Cramér, log ρ = ½ − γ − log log 3 + D + A + G₂ with D = lim[Σ_{3≤n≤M}1/(n log n) − log log M + log log 3], A = Σ_{n≥3}(1_P(n) −
+  1/log n)/n, G₂ = Σ_{q∈P}(−log(1 − 1/q) − 1/q), summed to Y = 2·10⁹ (derivation: log ζ_P(s) + log(s − 1) → log ρ as s ↓ 1 with
+  ∫₃^∞u^{−s}du/log u = E₁((s − 1)log 3) = −γ − log((s − 1)log 3) + o(1)).
+- **Cross-checks.** `verify/check_small.py` re-derives R, ρ_P and N_P(10⁵) from the same hash in Python: identical (nR(10⁶) = 607,
+  ρ_P = 0.180739782781, E(10⁵) = 2.021722; log `verify/logs/check_small.log`). The Cramér DP matches a brute-force multiset count
+  (N(2000) = 3097; `verify/check_cramer_small.py`, log `verify/logs/check_cramer_small.log`).
+- **Statistics.** Log-bins of 20 per decade; per bin the exact sup of |N_P(x) − ρx| over real x and the RMS at half-integers.
+  Exponents = least-squares slopes of log(running sup) and log(RMS) against log x over windows [10^k, 10⁹], k = 4, 5, 6, 7;
+  error bars = standard error over seeds (8 for T_α); the spread between windows is reported as a systematic.
 
 **6.2 Results at X = 10⁹: random thinning and controls** [computed; `verify/logs/fit.log`]. Slopes of log sup_{y≤x}|E(y)| over
 [10⁴, 10⁹] (mean ± s.e. over seeds; in brackets the range over the four windows [10^k, 10⁹], k = 4..7):
@@ -364,3 +368,94 @@ strongly supported at α = 0.6 (0.12 vs α/2 = 0.30); at α = 0.75, 0.9 the top 
 next prime, so ∫₁^x u^{α−1}dE(u) = O(1) as well: c = 1, θ = 0. Hence BDR's unpadded Section-5 systems satisfy β ≥ α/2 unconditionally,
 and their hyperbola exponent 2α/(α + 2) sits between this lower bound and ½. (Their low-discrepancy random selection has tiny
 fluctuation — each P_j is random only inside an interval of F-mass 1 — so it behaves like the greedy set of §6.3, not like T_α.)
+
+**6.3 Structured (greedy) deletion — can structure beat α/2? (task 4)** [computed; `verify/logs/fit.log`, `fit_big.log`,
+`analyze_extra.log`]. One deterministic run per design; slopes over [10⁴, X] and [10⁶, X]:
+
+| design | X | sup-slope [10⁴,X] | [10⁶,X] | sup|E| at X | RMS_top / √(ρQ/12) | Thm C lower bound | α/2 |
+|---|---|---|---|---|---|---|---|
+| greedy c=1, α=0.60 | 10¹⁰ | 0.238 | 0.233 | 176 | 0.31 (X=10⁹) | 0.30 | 0.30 |
+| greedy c=1, α=0.75 | 10¹⁰ | 0.308 | 0.303 | 433 | 0.17 (X=10⁹) | 0.375 | 0.375 |
+| greedy c=1, α=0.90 | 10¹⁰ | 0.395 | 0.398 | 1298 | 0.18 (X=10⁹) | 0.45 | 0.45 |
+| greedy c=2, α=0.60 | 10¹⁰ | 0.278 | 0.294 ([10⁷,X]: 0.299) | 356 | — | 0.20 | 0.30 |
+| greedy c=2, α=0.75 | 10⁹ | 0.373 | 0.300 | 539 | — | 0.25 | 0.375 |
+
+Findings. (1) Structure lowers the *constant* a lot: the RMS is 0.17–0.31 of the diagonal-variance value √(ρQ/12) that the random
+runs reach (×0.75–4.4), and sup|E| at 10¹⁰ is 3–10× smaller than for T_α. (2) The c = 1 slopes sit ≈ 0.06 below α/2 and are stable
+from 10⁹ to 10¹⁰; Theorem C proves β ≥ α/2 for these sets, so the deficit must be a log-power: the slopes of
+log(M(x)·ln x) over [10⁴, 10¹⁰] are 0.302 / 0.373 / 0.459 against α/2 = 0.300 / 0.375 / 0.450 (`verify/logs/greedy_logpower.log`);
+with (ln x)^{3/2} they overshoot by 0.03–0.04. Empirically E_greedy ≈ x^{α/2}/log x.
+(3) **Canceling the α/2 branch point (c = 2) does not lower the exponent**: at α = 0.6 the slope *rises* to 0.278 → 0.299 as the window moves up to [10⁷, 10¹⁰] (Theorem C
+alone would allow 0.20; with a (ln x) factor it overshoots to 0.34, so this error is closer to a pure x^{α/2}); the denser deleted set has relatively more composite R-numbers, and the error moves *toward* the random
+value α/2. So the α/2 barrier of surgery is not the branch point but the arithmetic fluctuation of the sieve by R — present for
+structured R too, with a log-power discount. (4) Designs with c·p^{α−1} ≥ 1 on a long initial range (c = 6 at α = 0.6, 0.75; c = 2 at
+α = 0.9) delete *all* primes up to y = c^{1/(1−α)} = 88, 1296, 1024; at X ≤ 10¹⁰ they are in the fundamental-lemma regime
+(Φ(x, y) = ρx(1 + O(u^{−u})), u = log x/log y ≈ 3–4.6), and their huge errors (sup|E| = 1.6·10⁴ … 2.8·10⁵ at 10⁹) are that transient,
+not an exponent: **these three runs are uninformative and excluded** (listed in the log for completeness).
+
+**6.4 Extension to X = 10¹⁰ (random thinning, seeds 1–4)** [computed; `verify/logs/fit_big.log`, `verify/logs/run_big.log`]:
+T_0.60: 0.299 ± 0.010 ([10⁶, 10¹⁰]: 0.309 ± 0.016); T_0.75: 0.357 ± 0.011 (0.389 ± 0.013); T_0.90: 0.456 ± 0.015 (0.452 ± 0.026).
+Against α/2 = 0.300 / 0.375 / 0.450: agreement within 1.6σ in every window; 1/(3 − α) = 0.417 / 0.444 / 0.476 is excluded at
+α = 0.6, 0.75 by > 4σ in every window (6.8σ and 4.2σ in the least favorable one, [10⁶, 10¹⁰]). Peak memory 2.5 GB; every run is reproducible from `verify/run_all.sh`, `run_big.sh`, `run_c2.sh`.
+(5) *Size of the Theorem-C branch term* [computed: `verify/branch_constant.py`, log `verify/logs/branch_constant.log`; K₀ from the
+continuation formula with H(σ) = σ∫D(u)u^{−σ−1}du evaluated on the greedy set to 2·10⁸, P₀ = Σ_{m≥2}μ(m)log ζ(m)/m = −0.315718
+(= Mertens' constant − γ, a check)]: B(x) = −0.206·x^{0.30}(ln x)^{−3/2}, −0.496·x^{0.375}(ln x)^{−3/2}, −1.270·x^{0.45}(ln x)^{−3/2} for
+α = 0.6, 0.75, 0.9. At x = 10¹⁰ this is −1.9, −25, −364: about 1%, 6%, 28% of the observed sup|E| (176, 433, 1298), negative as
+the observed median drift (−0.04, −0.08, −0.39), and largest in relative terms at α = 0.9, where the drift is most negative.
+So for structured deletions the proved branch term is a real but subleading systematic component; the bulk is the
+log-discounted fluctuation ≈ x^{α/2}/log x.
+
+## §7. Answers, the sharpest conjecture, and the close
+
+**7.1 The five tasks.**
+(1) *Prior art.* The region {α > ½, β < ½} is populated in print **conditionally on RH** (BDR Thm 1.3: ½ < α < 2/3, 2α/(α+2) ≤ β < ½),
+and unconditionally but non-constructively by the dichotomy "RH false ⇒ (P, N) is [Θ, 0]" (Prop. 2.1). "Only under RH" in BDR means:
+the deleted primes are actual primes, so ζ's zeros enter the deleted system's zeta (their ζ_S, 1/ζ_S ≪ |t|^ε needs RH), and α is sharp
+only under RH. Any valid threshold β* is ≤ 2/5 and implies RH (Cor. 2.2); any obstruction β ≥ f(α) > 0 over all systems implies
+"no Θ in (½, a)" (Prop. 2.3).
+(2) *Pre-derivation.* Density of log G: correct. Zero at ρ₀ (α ≥ β₀ > ½): correct, unconditionally. "h analytic for Re s > β₀/2":
+**false unconditionally** — true for the fluctuation, false for the mean, which carries ζ's zeros shifted by β₀ − 1; the claimed bound
+β ≈ β₀/2 implies a quasi-RH at level 1 − β₀/2 (Prop. 3.2). **Unconditional clause: K.** Under RH: the truncated-Perron route (growth of
+ζ on Re s = β₀/2 + ε, a.s. o(log t) growth of the random series) works and gives β ≤ 1/(3 − β₀) (Theorem A), which already enlarges
+BDR's region (Cor. A′); the matching bound β ≤ β₀/2 needs two named steps, G1 (mean-system error) and G2 (chaos moments).
+Theorem B: β ≥ β₀/2 for random surgery, unconditionally ("nothing below ¼ by this method" is a theorem).
+(3) *Simulation.* Exact counts to 10⁹ (8 seeds) and 10¹⁰ (4 seeds): exponents 0.299 ± 0.010, 0.357 ± 0.011, 0.456 ± 0.015 at β₀ = 0.6, 0.75,
+0.9 — the prediction β₀/2 holds at all three; controls give 0.000 (ℙ) and 0.497 ± 0.006 (Cramér). The stop condition "simulation
+contradicts the prediction at all three β₀" is not met.
+(4) *Frontier.* Structured surgery does not beat β₀/2 in the exponent: the greedy c = 1 set has β ≥ α/2 (Theorem C) and data
+E ≈ x^{α/2}/log x; canceling the α/2 branch point (c = 2) leaves the exponent at α/2 (0.278 → 0.299 at α = 0.6). Relative obstruction
+β ≥ α_R/2: proved for random and for regular c/2 ∉ ℤ deletions; Conjecture O in general. Finite surgery cannot move zeros off Re s = 0
+(5.3); periodic N − cx forces a finite surgery (Hilberdink 2012). Rung 1 (virtual curve): perfect regularity + FE + RH false, so no
+threshold theorem can be formal; the separating input is Weil-type positivity, i.e. RH-strength (5.4).
+
+**7.2 The sharpest conjecture the data support (task 5).**
+*Conjecture R (random surgery; RH).* For every α ∈ (½, 1), T_α is a.s. an [α, α/2]-system; with padding, [α, β]-systems exist for all
+½ < α < 1 and α/2 ≤ β < ½ (proved here: 1/(3 − α) < β < ½; in print: ½ < α < 2/3, 2α/(α+2) ≤ β < ½). Unconditional form: a.s.
+β(T_α) = max(α/2, Θ + α − 1).
+*Conjecture O (relative square-root law).* Every surgery (ℙ \ R) ∪ A has β ≥ α_R/2. Under RH it follows that within surgery on the
+rational primes β ≤ ¼ forces RH for the system, and with Conjecture R the constant ¼ is sharp.
+*Conjecture U (square-root law, the theorem-shaped extrapolation)* [novelty: single-check]. **Every Beurling [α, β]-system satisfies
+α ≤ max{½, 2β}.** Status: (a) it implies RH — (P, N) is a [Θ, 0]-system; (b) it is exactly the surgery evidence (Theorems B, C;
+§6.3) extended to all systems; (c) every known construction obeys it (BDR Thm 1.1 has β ≥ ½; BDR Thm 1.3 has 2α/(α+2) ≥ α/2;
+Cor. A′ has 1/(3−α) ≥ α/2), and in the limit α → 1 it predicts β₀ = ½ for the DMV–Zhang [1, β₀]-system, the value BDR call
+"most likely" (z-02 p. 3, footnote 4, line 165); (d) it **contradicts** BDR's populating conjecture (z-02 p. 2, lines 84–85: "for all α, β with
+max{α, β} ≥ 1/2, there must exist a corresponding [α, β]-system") in the corner {β < ½, α > 2β}. Conjecture U is the answer
+to the brief's framing: a Beurling-type theorem containing RH would not be a fixed threshold β* but the line α = 2β, with RH its
+β = 0 endpoint; the random surgery sits on the line, structured surgery sits on it up to a log, and nothing known lies beyond it.
+The corner {β < α/2} is exactly where a counterexample to U — or a non-surgery construction confirming BDR's conjecture — must live.
+
+**7.3 Close: T** (with **K** on the pre-derivation's unconditional clause).
+- **T** — Theorem A / Cor. A′ (RH): [α, β]-systems for all ½ < α < 1, 1/(3 − α) < β < ½ — a strict enlargement of BDR's region III and
+  its α-range; Theorem B (unconditional): random surgery has β ≥ α/2; Theorem C (unconditional): regular deletions of density c·p^{α−1}
+  have β ≥ max(α/k_c, α − ½); Props. 2.1–2.3, 5.1, 5.3.
+- **K** — "h analytic for Re s > β₀/2" and "β = β₀/2" as unconditional claims (Prop. 3.2).
+- **G (named, for Conjecture R under RH)** — G1: Σ_{n≤y}Π_{p|n}(1 − p^{α−1}) = y/ζ(2 − α) + O(y^{α/2+ε}) under RH (data: ≈ y^{α−½});
+  G2: moment bounds for the Bernoulli chaos Σ_d μ_η(d)T(x/d).
+- **N-part** — the region β < ½, α > ½ is populated in print under RH (BDR); the construction itself (random deletion of primes with
+  density p^{α−1}) is BDR's.
+*Nearest published objects:* T_α ↔ BDR §5's P_S (Broucke–Vindas selection from u^{α−1}dπ(u)); greedy deletion ↔ the same with
+deterministic selection (BDR's selection is Theorem-C type, remark (iv)); Conjecture O ↔ Hilberdink's wall max{α, β} ≥ ½ rescaled to
+the deleted set. Prop. 5.1 is a Franel-integral computation and may well be classical [novelty: single-check, low confidence].
+*Next units:* prove G1 (functional equation of ζ(s)/ζ(s + 1 − α)); prove Conjecture O for all regular R (short-interval variance of
+sifted sets); attack Conjecture U off the surgery class — a non-surgery RH-false system with β < α/2 would refute it (number-field
+ideal systems, BDR Remark 5.3(3), are the first place to look).

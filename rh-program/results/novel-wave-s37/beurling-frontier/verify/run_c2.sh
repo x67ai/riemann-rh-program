@@ -1,5 +1,5 @@
 #!/bin/bash
-# Structured surgery with the leading prime-square branch point cancelled (greedy, w_p = min(1, c p^(alpha-1)), c = 2, 6).
+# Structured surgery with the leading prime-square branch point canceled (greedy, w_p = min(1, c p^(alpha-1)), c = 2, 6).
 # Waits for run_big.sh; swaps in the rebuilt binary thin.new first. Sequential, idempotent.
 set -u
 D="$(cd "$(dirname "$0")" && pwd)"

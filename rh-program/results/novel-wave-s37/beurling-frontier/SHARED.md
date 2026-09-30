@@ -70,3 +70,13 @@ Dated blocks, appended after each batch. Newest at the bottom.
   unconditionally. c = 1 ⇒ β ≥ α/2 (so the low greedy slopes are the (log x)^{−3/2} approach); c = 2 ⇒ only β ≥ max(α/3, α − ½).
 - Queued `verify/run_c2.sh` (after run_big): greedy c = 2 at α = .6/.75/.9 and c = 6 at α = .6/.75 (X = 1e9), plus c = 2, 6 at
   α = .6, X = 1e10 → decides whether structured surgery beats α/2. Log `verify/logs/run_c2.log`.
+
+## 2026-10-01 — block 6: all simulations done (no process running)
+
+- X = 1e10 (T_α, 4 seeds): 0.299±0.010 / 0.357±0.011 / 0.456±0.015 ≈ α/2; 1/(3−α) excluded at α = .6, .75 (> 4σ every window).
+- Structured greedy c = 1 at 1e10: raw slopes 0.238 / 0.308 / 0.395; log(M·ln x) slopes 0.302 / 0.373 / 0.459 = α/2 — E ≈ x^{α/2}/log x;
+  RMS only 0.17–0.31 of the diagonal-variance value (random: 0.75–4.4×). Theorem-C branch term computed: 1% / 6% / 28% of sup|E| at 1e10.
+- **c = 2 (α/2 branch point canceled) at α = .6, X = 1e10: slope 0.278 → 0.299 (top window) — NOT α/3 = 0.20.** Structure buys a
+  log factor, not an exponent. Conjecture O (β ≥ α_R/2 for all surgery) stands. c = 6 (α = .6, .75) and c = 2 at α = .9 delete all
+  primes ≤ 88/1296/1024 → fundamental-lemma transient (u = log x/log y ≈ 3–4.6) dominates; excluded as uninformative.
+- NOTE §§5.2, 5.5, 6.2–6.4 updated. Remaining: NOTE §7 (answers, conjecture, close) and the report.

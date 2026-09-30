@@ -1,0 +1,289 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\emergencystretch}{3em}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\renewcommand{\theconjecture}{\arabic{conjecture}}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Cx}{\mathbf{C}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\XiH}{\Xi_N}
+\newcommand{\tphi}{\widetilde{\varphi}}
+
+\title{A counterexample to Haglund's monotonic-zeros conjecture for the Riemann
+$\Xi$ approximants}
+\author{Kunal Tyagi\thanks{%
+\texttt{hello.jay.tyagi@gmail.com}. \emph{Use of AI.} The mathematics in this
+paper --- the derivations, the computations, the verification suite, and the
+text --- was produced by Claude (Anthropic) working under the author's
+direction inside a structured research program; the author set the program's
+objectives, adjudicated its decisions, and is responsible for the content.
+Claude is a tool and is not an author. The complete working record is public:
+\url{https://github.com/x67ai/riemann-rh-program}.}}
+\date{October 1, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Haglund introduced the partial sums $\Xi_N(z) = \sum_{n \le N} \Phi_n(z)$ of
+Riemann's expansion of the $\Xi$-function in incomplete gamma functions, and
+conjectured that for every $N$ the zeros of $\Xi_N$ in the closed first quadrant,
+listed by increasing real part, have nondecreasing imaginary parts. The
+conjecture implies the Riemann hypothesis, and Haglund reported computations
+indicating that a weaker form of it holds for $N \le 10$. We show that the
+conjecture is false for $N = 27$: $\Xi_{27}$ has a real zero in
+$(3144.8946, 3144.8947)$ and a non-real zero
+$z_0 = 3143.2206824215\ldots + 0.3152587993\ldots\, i$ in the first quadrant,
+whose real part is smaller. The weak form fails as well. Both facts are
+certified twice, independently, in rigorous interval arithmetic --- once with Arb
+ball arithmetic, once with outward-rounded interval arithmetic and proved
+truncation bounds --- and $z_0$ is enclosed in a square of half-width
+$10^{-48}$. The same violation occurs at $N = 24$ for the companion
+approximants $\xi_N = \Xi_N + c_N$. The failure has a mechanism: on the critical
+line $\Xi_N < \Xi < \xi_N$, so the real zeros of $\Xi_N$ lie in those positive
+lobes of $\Xi$ that rise above a positive level, and a shallow lobe followed by
+a deeper one near the height $4(N+1)^2$, where the approximant departs from
+$\Xi$, leaves a non-real zero below real zeros. Two statements in Haglund's paper
+are corrected: the number of real zeros of $\Xi_N$ is odd, so his table entry
+$32$ at $N = 4$ is inconsistent (a numerical census finds $31$), and the
+$1/x^2$ coefficient of $\Xi_N$ on the real axis is negative for every $N$. The
+result refutes a sufficient condition for the Riemann hypothesis and says
+nothing about the Riemann hypothesis itself: the non-real zero belongs to the
+approximant, at a height where the approximant no longer tracks $\Xi$, and the
+Riemann hypothesis has been verified far beyond that height.
+\end{abstract}
+
+%% SECTION 1
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Haglund's approximants and his conjecture}
+
+Write $s = \tfrac12 + iz$ and let
+\begin{equation}\label{eq:Xi}
+\Xi(z) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s) = \xi(s),
+\end{equation}
+Riemann's $\Xi$-function, which is even, entire, and real on the real axis; the
+Riemann hypothesis is the statement that all its zeros are real. Let
+$\Q = \{z : \re z \ge 0,\ \im z \ge 0\}$ be the closed first quadrant. Haglund
+\cite{Hag} starts from Riemann's representation
+$\Xi(z) = \int_0^\infty \cos(zt)\varphi(t)\,dt$ with
+$\varphi = \sum_{n \ge 1}\varphi_n$,
+$\varphi_n(t) = \exp(-n^2\pi e^{2t})(8\pi^2 n^4 e^{4.5t} - 12\pi n^2 e^{2.5t})$,
+and asks what happens when $\varphi$ is replaced by the finite sum
+$\sum_{n \le N}\varphi_n$. With the ``hyperbolic gamma function''
+\begin{equation}\label{eq:G}
+G(z;a,b) = 4\int_0^\infty \cos(2zu)\,e^{2bu - a e^{2u}}\,du
+= \frac{\Gamma(b+iz,a)}{a^{b+iz}} + \frac{\Gamma(b-iz,a)}{a^{b-iz}}
+\qquad (a > 0,\ b \in \R),
+\end{equation}
+where $\Gamma(w,a) = \int_a^\infty e^{-t}t^{w-1}\,dt$ is the upper incomplete gamma
+function, this gives Riemann's series
+$\Xi(z) = \sum_{n \ge 1}\Phi_n(z)$ and Haglund's \emph{$\Xi$-approximates}
+\begin{equation}\label{eq:XiN}
+\Xi_N(z) := \sum_{n=1}^{N}\Phi_n(z), \qquad
+\Phi_n(z) := 2\pi^2 n^4\, G\bigl(\tfrac{z}{2}; n^2\pi, \tfrac94\bigr)
+- 3\pi n^2\, G\bigl(\tfrac{z}{2}; n^2\pi, \tfrac54\bigr)
+\end{equation}
+(\cite[(1)--(3), (6), (10)--(14), pp.~1--3]{Hag}; page and equation numbers refer
+to the arXiv version). Each $\Xi_N$ is even, entire, and real on the real axis.
+Haglund defines: ``We say that a given function $F(z)$ has monotonic zeros in a
+region $D$ of the complex plane if, when we list the zeros of $F$ in $D$ by
+increasing real part, the imaginary parts of the zeros are monotone
+nondecreasing'', with the side assumption ``(We assume $F$ has at most one zero
+on the intersection of any vertical line with $D$.)'' \cite[p.~3]{Hag}. He then
+states:
+
+\begin{conjecture}[Haglund {\cite[p.~3]{Hag}}]\label{conj:H}
+``For $N \in \N$, $\Xi_N(z)$ has monotonic zeros in $\Q$.''
+\end{conjecture}
+
+His Proposition~1 reads ``Conjecture 1 implies the Riemann Hypothesis''
+\cite[pp.~3--4]{Hag}; the proof is a Hurwitz-type argument, using that
+$\Xi_N \to \Xi$ uniformly on compacta and that $\Xi$ has infinitely many real
+zeros. His Remark~1 records a weak form: ``A weaker form of Conjecture 1, which
+still implies RH, is that there are no non-real zeros of $\Xi_N(z)$ in $\Q$ whose
+real part is less than the largest real zero of $\Xi_N(z)$'', and reports that
+``Computations along these lines indicate this weaker form of Conjecture 1 is
+true at least for $N \le 10$'' \cite[p.~4]{Hag}, the computations being
+floating-point ones for which ``no attempt has been made to establish rigorous
+error bounds'' \cite[p.~3]{Hag}. The paper was published as \cite{HagJ}.
+
+\subsection{The result}
+
+\begin{theorem}\label{thm:main}
+\begin{enumerate}
+\item[(a)] $\Xi_{27}$ has a real zero $x_1 \in (3144.8946,\ 3144.8947)$, and a
+second real zero $x_2 \in (3145.5998,\ 3145.5999)$.
+\item[(b)] $\Xi_{27}$ has exactly one zero $z_0$, which is simple, in the open
+square of half-width $3.7\cdot 10^{-11}$ about
+$c = 3143.2206824215 + 0.3152587994\,i$. More precisely,
+$z_0 \in z^* + [-10^{-48}, 10^{-48}]^2$ with
+\[
+z^* = 3143.220682421536585287281295989417800119\ldots
++ 0.315258799378214845382286373009271765\ldots\, i,
+\]
+where the full explicit center $z^*$ is given in Section~\ref{sec:cert}.
+\item[(c)] Consequently $z_0 \in \Q$ is non-real, with $\im z_0 > 0.3152$ and
+$\re z_0 < 3143.2207 < x_1$. Listed by increasing real part, the zeros of
+$\Xi_{27}$ in $\Q$ do not have nondecreasing imaginary parts: Conjecture~\ref{conj:H}
+is false for $N = 27$. Since $z_0$ is a non-real zero in $\Q$ whose real part is
+less than the real zero $x_1$, and hence less than the largest real zero, the
+weak form of Remark~1 is false for $N = 27$ as well.
+\end{enumerate}
+\end{theorem}
+
+The pair $(z_0, x_1)$ violates the conjecture under every enumeration of the
+zeros by increasing real part, so Haglund's side assumption (at most one zero on
+each vertical line) plays no role. Statements (a) and (b) are established by two
+independent computer-assisted proofs in rigorous interval arithmetic, described
+in Section~\ref{sec:cert}: one in Arb ball arithmetic \cite{Arb, FLINT}, one in
+outward-rounded interval arithmetic \cite{mpmath} with every truncation bounded
+by a proved remainder estimate. Each was first run on a ladder of known cases
+(two zeros from Haglund's table and a non-real zero of $\Xi_1$ from his
+appendix).
+
+\subsection{Scope}
+
+Theorem~\ref{thm:main} refutes a sufficient condition for the Riemann hypothesis.
+It says nothing about the Riemann hypothesis, and nothing about the zeros of
+$\zeta$. The non-real zero $z_0$ is a zero of the approximant $\Xi_{27}$, not of
+$\Xi$, and it lies at a height where $\Xi_{27}$ no longer tracks $\Xi$: there the
+difference $\Xi - \Xi_{27}$ is of the same size as $\Xi$ itself
+(Section~\ref{sec:departure}). The Riemann hypothesis has been verified
+rigorously far above this height: Platt and Trudgian prove that ``all zeroes
+$\beta + i\gamma$ of the Riemann zeta-function with $0 < \gamma \le 3\cdot 10^{12}$
+have $\beta = 1/2$'' \cite{PT}. Nor does the paper decide Conjecture~\ref{conj:H}
+for $N \le 26$: the scan that located the violation at $N = 27$
+(Section~\ref{sec:departure}) is numerical, covers a window near one height for
+each $N$, and is not a proof that smaller $N$ satisfy the conjecture.
+
+\subsection{The mechanism, and two corrections to Haglund's paper}
+
+The failure is not an accident of $N = 27$. On the critical line the approximants
+sit below $\Xi$ by a positive amount: for every $N \ge 1$ and real $t$,
+\[
+\Xi_N(t) = \Xi(t) - Q_N(t), \qquad Q_N(t) > 0
+\]
+(Theorem~\ref{thm:sandwich}). Hence $\Xi_N < 0$ wherever $\Xi \le 0$, and the real
+zeros of $\Xi_N$ lie in the \emph{positive lobes} of $\Xi$ (the intervals between
+consecutive zeros on which $\Xi > 0$): an even number in each positive lobe
+$(\gamma_j, \gamma_{j+1})$ and an odd number in the central lobe $(0, \gamma_1)$,
+where $0 < \gamma_1 < \gamma_2 < \cdots$ are the positive zeros of $\Xi$. A positive lobe carries real zeros of $\Xi_N$
+only if $\Xi$ rises above the level $Q_N$ there. Near the height $4(N+1)^2$ the
+level $Q_N$ becomes comparable to the size of $\Xi$, and the heights of
+consecutive lobes fluctuate; a lobe that stays below the level, followed by a
+lobe that rises above it, leaves a pair of non-real zeros below real zeros. At
+$N = 27$ the positive lobe $(3142.97945673,\ 3143.56749918)$ of $\Xi$ reaches
+only $0.411$ of the level $Q_{27}$, and the next positive lobe
+$(3144.49048815,\ 3146.28352838)$ reaches $1.325$ of it. The first lobe carries
+no real zero of $\Xi_{27}$, and the pair $z_0, \bar z_0$ sits over it; the second
+lobe carries the real zeros $x_1, x_2$ of Theorem~\ref{thm:main}. Section~\ref{sec:departure}
+gives the lobe figures, which are floating-point computations, not part of the
+proof.
+
+The same sandwich corrects two statements in \cite{Hag}.
+\begin{enumerate}
+\item[(i)] The number of real zeros of $\Xi_N$ on $(0,\infty)$, counted with
+multiplicity, is odd for every $N$ (Corollary~\ref{cor:odd}). Haglund's table
+\cite[p.~4]{Hag} lists $1, 7, 15, 32, 53, 79, 113, 155, 207, 263$ real zeros for
+$N = 1, \ldots, 10$; the entry $32$ at $N = 4$ is inconsistent with this, and a
+numerical census of $\Xi_4$ finds $31$, the largest being
+$103.3679880094135$, which is Haglund's printed value.
+\item[(ii)] On the real axis $x^2\Xi_N(x)$ tends to a negative limit for every
+$N \ge 1$ (Proposition~\ref{prop:tail}), whereas \cite[p.~10]{Hag} states
+``Thus the coefficient of $1/x^2$ in $\Xi_N(x)$ is positive for $k \ge 3$ and
+negative for $1 \le k < 3$'' (his $k$ is $N$).
+\end{enumerate}
+
+\subsection{The companion approximants, and why an ordering property}
+
+Haglund's $\Xi_N$ differs by a constant from the more obvious truncation of
+Riemann's formula,
+\[
+\xi_N(s) := \tfrac12 + \tfrac12 s(s-1)\sum_{n \le N} g_n(s), \qquad
+\Xi_N(z) = \xi_N(\tfrac12 + iz) - c_N, \qquad
+c_N = \sum_{n > N}(4\pi n^2 - 1)e^{-\pi n^2} > 0
+\]
+(Section~\ref{sec:riemann}). On the critical line $\xi_N$ lies \emph{above} $\Xi$
+(Theorem~\ref{thm:polya}), so its real zeros lie in the negative lobes of $\Xi$,
+and the same ordering property fails for it at $N = 24$
+(Theorem~\ref{thm:xi24}). Neither family can satisfy the Riemann hypothesis
+literally: no member of the family
+$\xi_w = \tfrac12 + \tfrac12 s(s-1)\sum_n w_n g_n$ with $0 \le w_n \le 1$ and
+$w \not\equiv 1$, or with $w$ finitely supported, has all its zeros on the
+critical line; it has finitely many zeros there and infinitely many off it
+(Theorem~\ref{thm:A}). With polynomially bounded weights, having all zeros on
+the line forces $w \equiv 1$ (Theorem~\ref{thm:B}). This is why a conjecture
+about approximants of this kind has to be an ordering statement such as
+Conjecture~\ref{conj:H}, and not real-rootedness; and any approach through
+real-rootedness in a window that grows with $N$ is a height filtration of the
+Riemann hypothesis, with nothing to prove beyond the Riemann hypothesis on the
+new window (Proposition~\ref{prop:F}).
+
+\subsection{Prior work}
+
+Haglund's conjecture was stated in 2009 \cite{Hag, HagJ} and checked by him, in
+its weak form, for $N \le 10$. Ahn's thesis \cite{Ahn}, written under Haglund's
+supervision, computes zeros of the component functions of the approximants
+(incomplete gamma functions, hyperbolic gamma functions, and small linear
+combinations of the $\Phi_n$) and restates the check: ``Computations indicate
+this weaker form of Conjecture 1.6 is true at least for $N \le 10$''
+\cite[p.~10]{Ahn}; it tests no $\Xi_N$ beyond $N = 10$. Haglund's Conjecture~4
+concerns the zeros of the pencil $\Xi_k + t\Phi_{k+1}$, $0 \le t \le 1$
+\cite[p.~11]{Hag}; its first case $k = 1$ is the subject of a 2026 preprint of
+Baccaro \cite{Bac}, whose record states that ``The result covers only the first
+interpolation.'' We found no test of Conjecture~\ref{conj:H} beyond $N = 10$, and
+no refutation of it, in the literature we could reach; a null search is not a
+proof of absence. Lagarias and Montague study a related Fourier-integral family
+whose members have only finitely many zeros on the critical line, and point to
+Haglund's paper for ``a possibly related situation involving the $\xi$-function,
+where such a monotonicity implies the RH'' \cite[p.~24]{LM}. Truncations that keep
+all but finitely many zeros \emph{on} the line are known in another setting: Ki
+proved that for $y \ge 1$ all but finitely many complex zeros of any partial sum
+of the Chowla--Selberg formula are simple and on the line, and observed that the
+Riemann hypothesis would follow if the words ``but finitely many'' could be
+removed for infinitely many $N$ in the case $z = i$ \cite[p.~198]{Ki}. The
+approximants here are the opposite case (Theorem~\ref{thm:A}). Finally,
+Liu, Matiyasevich, Oesterl\'e and Zaharescu prove, for a different family of
+approximants to $\xi$ built from truncated Euler products, that ``The Bounded
+Riemann Hypothesis is equivalent to the Riemann Hypothesis plus the Simplicity
+Conjecture'' \cite[Theorem~1.7]{LMOZ}; Proposition~\ref{prop:F} is the analogue
+for the approximants of this paper.
+
+\subsection{Organization}
+
+Section~\ref{sec:riemann} recalls Riemann's identity and relates the two
+families. Section~\ref{sec:positivity} proves the positivity and sandwich
+theorems and the two corrections. Section~\ref{sec:structure} gives the
+structural theorems. Section~\ref{sec:departure} describes the departure height
+and the lobe scan. Section~\ref{sec:cert} is the certificate for
+Theorem~\ref{thm:main}, and Section~\ref{sec:xi24} the companion violation at
+$N = 24$.
+
+%% SECTION 2

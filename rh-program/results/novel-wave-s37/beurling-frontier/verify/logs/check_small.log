@@ -1,0 +1,5 @@
+# thin.c bern 0.6 1e5 1e6 1 (header + last bin):
+# run=bern_a0.600_s1 alpha=0.6000 X=100000 Y=1000000 nR(Y)=607 nR(X)=195 logrho_Y=-1.710075192986 tail=-0.000621753354 rho=0.180739782781
+bern_a0.600_s1,100000,100000,2.021722,1.840982,3.730121e+00,1,1.10091624
+# check_small.py (independent Python recount with the same hash):
+nR(Y)= 607 rho=0.180739782781 N(X)= 18076 E(X)=2.021722 max|E+| up to X=12.732138
