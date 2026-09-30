@@ -28,28 +28,14 @@ def say(*a):
     print(s, flush=True); logf.write(s + '\n'); logf.flush()
 
 # ---------------- zeros ----------------
-zfile = os.path.join(tabdir, 'zeta_zeros_arb_%d.txt' % (N0 + 1))
-if os.path.exists(zfile):
-    g = [mp.mpf(l.split()[1]) for l in open(zfile)]
-    say('loaded', len(g), 'zeros')
-else:
-    t0 = time.time()
-    ctx.prec = 140
-    zs = []
-    chunk = 10000
-    n = 1
-    while n <= N0 + 1:
-        k = min(chunk, N0 + 1 - n + 1)
-        zz = acb.zeta_zeros(n, k)
-        zs.extend(zz)
-        n += k
-        say('  zeros to', n - 1, '%.1fs' % (time.time() - t0))
-    with open(zfile, 'w') as fh:
-        for i, z in enumerate(zs, 1):
-            fh.write('%d %s %d\n' % (i, z.imag.str(34, radius=False), int(z.imag.rel_accuracy_bits())))
-    g = [mp.mpf(z.imag.str(34, radius=False)) for z in zs]
-    say('Arb zeros:', len(g), 'in %.1fs; gamma_1 =' % (time.time() - t0), g[0], ' gamma_N0 =', g[N0 - 1])
-
+zfile = os.path.join(tabdir, 'zeta_zeros_arb.txt')   # written by u3a_zeros_chunk.py (resumable)
+g = []
+with open(zfile) as fh:
+    for line in fh:
+        g.append(mp.mpf(line.split()[1]))
+        if len(g) >= N0 + 1:
+            break
+say('loaded', len(g), 'Arb zeros; gamma_1 =', g[0], ' gamma_N0 =', g[N0 - 1])
 mp.mp.dps = 34
 # spot check vs mpmath.zetazero (independent code)
 spot = {}

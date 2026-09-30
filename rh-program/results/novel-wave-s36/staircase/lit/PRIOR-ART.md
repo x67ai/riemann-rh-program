@@ -160,3 +160,43 @@ for averagings of the meromorphic function ζ̂(s) = π^{−s/2}Γ(s/2)ζ(s) = 2
 Ã_h(s) = ½(ζ̂(s + h) + ζ̂(s − h)) lie on the critical line." ([14] = Ki, "On a theorem of Levinson", J. Number Theory
 107 (2004) 287–297.) Relevance: the unconditional Hermite–Biehler range is h ≥ 1/2 because the zero-free half-plane
 ℜs > 1 is what makes ξ(s + h) an HB function; this is the standard template for "E + E^#" real-rootedness.
+
+### 3(a) Lagarias–Suzuki — constant term of the Eisenstein series
+**J. C. Lagarias, M. Suzuki, "The Riemann hypothesis for certain integrals of Eisenstein series", arXiv:math/0412039v4
+(3 Nov 2005); J. Number Theory 118 (2006) 98–122** (on disk: `lagarias-suzuki-math0412039.pdf/.txt`; pages = arXiv v4).
+ζ*(s) := π^{−s/2}Γ(s/2)ζ(s) (eq. (11), p. 2). PROVED: "Theorem 3. For each y ≥ 1 the constant term of the Eisenstein
+series a_0(y, s) := ζ*(2s)y^s + ζ*(2 − 2s)y^{1−s} (22) is a meromorphic function that satisfies the modified Riemann
+hypothesis. There is a critical value y* := 4πe^{−γ} = 7.055507+ (23) such that the following hold: (1) All zeros of
+a_0(y, s) lie on the critical line for 1 ≤ y ≤ y*. (2) For y > y* there are exactly two zeros off the critical line.
+These are real simple zeros ρ_y, 1 − ρ_y with 1/2 < ρ_y < 1." (p. 5). "Theorem 2. For each fixed T ≥ 1, the
+meromorphic function I(T, s) = −ζ*(2s)T^{s−1}/(s − 1) + ζ*(2 − 2s)T^{−s}/s (20) has all its zeros in the critical line"
+and "The hypothesis T ≥ 1 cannot be relaxed" (p. 4). For y < 1 (p. 5): "Hejhal [12, p. 89] noted that for 0 < y < 1 the
+function a_0(y, s) has complex zeros off the critical line, with arbitrarily large real part." Tool (Theorem 4, p. 7,
+after Pólya 1926 "Hilfssatz II", footnote p. 7): for F entire of genus ≤ 1, real, F(s) = ±F(1 − s), zeros in
+|ℜ(s) − 1/2| < a, "Then for any real c ≥ a, |F(s + c)/F(s − c)| > 1 if ℜ(s) > 1/2". Relevance: the y ≥ 1 threshold
+is the same phenomenon as h ≥ 1/2 in 3(c): an HB inequality needs a shift past the zero-free region.
+
+### 3(d) P. R. Taylor (1945) — secondary statements only
+**P. R. Taylor, "On the Riemann zeta function", Quart. J. Math. os-16 (1945) 1–21, DOI 10.1093/qmath/os-16.1.1**
+(paywalled, not read). Two independent secondary statements on disk agree, and neither matches the task's form
+"ξ(s+1/2) + ξ(s−1/2)": Lagarias–Suzuki p. 6: "In the early 1940's P. R. Taylor, a student of E. C. Titchmarsh, proved a
+result similar in form to Theorem 3 for y = 1. His work was published posthumously [21]. He showed that
+ζ*(s + 1/2) − ζ*(s − 1/2) has all its zeros on the critical line." Nakamura–Pańkowski, arXiv:1212.5890v4, p. 4 (on disk):
+"Taylor [41] showed that ζ*(s + 1/2) − ζ*(s − 1/2), ζ*(s) := π^{−s/2}Γ(s/2)ζ(s) has all its zeros on the critical line
+ℜ(s) = 1/2." So Taylor's function uses the meromorphic ζ* (not ξ) and a MINUS sign. The ξ-form A_{1/2}(s) =
+½(ξ(s+½) + ξ(s−½)) is instead covered by Lagarias's Theorem 2.1 (h = 1/2), 3(c).
+
+### 3(e) Pólya's Ξ* (1926) — secondary statements only
+**G. Pólya, "Bemerkung über die Integraldarstellung der Riemannschen ξ-Funktion", Acta Math. 48 (1926) 305–317,
+DOI 10.1007/BF02565336** (Springer paywall; not read). Secondary, **G. Gasper, arXiv:0801.2996v1** (on disk), p. 2:
+"In a 1926 paper Pólya [18] observed that Φ(u) ∼ 8π² cosh(9u/2) e^{−2π cosh(2u)} as u → ±∞ (1.3) and ... considered the
+problem of determining whether or not the entire function Ξ*(z) = 16π² ∫_0^∞ cosh(9u/2) e^{−2π cosh(2u)} cos(zu) du (1.4)
+has only real zeros. ... Pólya was able to prove that Ξ*(z) has only real zeros by using ... a difference equation in z
+for the modified Bessel function of the third kind", via "Ξ*(z) = 4π²[K_{iz/2−9/4}(2π) + K_{iz/2+9/4}(2π)] (1.6)" and
+"Lemma. If −∞ < c < ∞ and G(z) is an entire function of genus 0 or 1 that assumes real values for real z, has only real
+zeros and has at least one real zero, then the function G(z − ic) + G(z + ic) also has only real zeros." Haglund's own
+account (p. 2, his eq. (4)) uses "exp(−π cosh(2t))(8π² cosh(4.5t) − 12π cosh(2.5t))" and in (5) "exp(−n²π cosh(2t))";
+Gasper's e^{−2π cosh(2u)} is the form consistent with Φ's asymptotics (e^{−πe^{2u}} ~ e^{−2π cosh 2u}), so Haglund's
+factor looks like a slip. Y. Shi, arXiv:1706.08868 (math.GM, a claimed RH proof; on disk) p. 3 gives both Pólya kernels
+"Φ_P(t) = 4π² cosh(9t/2) exp(−2π cosh(2t))" and "Φ_P2(t) = (4π² cosh(9t/2) − 6π cosh(5t/2)) exp(−2π cosh(2t))" and says
+"Pólya proved that ∫ Φ_P(t) exp(izt)dt and ∫ Φ_P2(t) exp(izt)dt have only real zeros" [secondary, low-reliability source].

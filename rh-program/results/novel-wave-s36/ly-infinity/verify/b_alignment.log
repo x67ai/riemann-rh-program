@@ -13,3 +13,21 @@
   arch-euler(X=1000)     n_model=  39 (zeta   39)  mean|d|/delta=0.0201 median=0.0168  frac<0.1=1.000 frac<0.25=1.000
   arch-sqfree(X=1000)    n_model=  39 (zeta   39)  mean|d|/delta=0.0593 median=0.0554  frac<0.1=0.846 frac<0.25=1.000
   [12.5 s]
+
+=== S=[2, 3, 5, 7, 11] P=2310 W=log P=7.7450 T*=14514.16 window +-76.2 delta=0.8113 zeta zeros in window=187 (missed pairs recovered 0; edge phase error of linearization 0.100 rad)
+  gram                   n_model= 188 (zeta  187)  mean|d|/delta=0.2110 median=0.1998  frac<0.1=0.294 frac<0.25=0.604
+  LY-seed(S)             n_model= 188 (zeta  187)  mean|d|/delta=0.2818 median=0.2706  frac<0.1=0.182 frac<0.25=0.481
+  LY-aligned(S)          n_model= 188 (zeta  187)  mean|d|/delta=0.1683 median=0.1384  frac<0.1=0.358 frac<0.25=0.781
+  arch-anti(S)           n_model= 188 (zeta  187)  mean|d|/delta=0.2812 median=0.2688  frac<0.1=0.150 frac<0.25=0.455
+  arch-euler(S)          n_model= 188 (zeta  187)  mean|d|/delta=0.1134 median=0.1061  frac<0.1=0.476 frac<0.25=0.936
+  arch-sqfree(S)         n_model= 188 (zeta  187)  mean|d|/delta=0.1678 median=0.1377  frac<0.1=0.358 frac<0.25=0.770
+  arch-anti(X=100)       n_model= 192 (zeta  187)  mean|d|/delta=0.3375 median=0.3190  frac<0.1=0.144 frac<0.25=0.374
+  arch-euler(X=100)      n_model= 187 (zeta  187)  mean|d|/delta=0.0495 median=0.0404  frac<0.1=0.872 frac<0.25=1.000
+  arch-sqfree(X=100)     n_model= 188 (zeta  187)  mean|d|/delta=0.1124 median=0.1057  frac<0.1=0.476 frac<0.25=0.952
+  arch-anti(X=1000)      n_model= 216 (zeta  187)  mean|d|/delta=0.3587 median=0.3673  frac<0.1=0.123 frac<0.25=0.326
+  arch-euler(X=1000)     n_model= 188 (zeta  187)  mean|d|/delta=0.0385 median=0.0347  frac<0.1=0.973 frac<0.25=1.000
+  arch-sqfree(X=1000)    n_model= 188 (zeta  187)  mean|d|/delta=0.0905 median=0.0813  frac<0.1=0.561 frac<0.25=0.984
+  arch-anti(X=10000)     n_model= 234 (zeta  187)  mean|d|/delta=0.3774 median=0.4113  frac<0.1=0.086 frac<0.25=0.230
+  arch-euler(X=10000)    n_model= 187 (zeta  187)  mean|d|/delta=0.0241 median=0.0208  frac<0.1=1.000 frac<0.25=1.000
+  arch-sqfree(X=10000)   n_model= 196 (zeta  187)  mean|d|/delta=0.0596 median=0.0498  frac<0.1=0.802 frac<0.25=1.000
+  [295.2 s]

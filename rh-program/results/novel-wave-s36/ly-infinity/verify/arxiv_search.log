@@ -68,3 +68,37 @@ totalResults=0
 [retry 3] HTTP Error 429: Unknown Error
 [retry 4] HTTP Error 429: Unknown Error
 [retry 5] HTTP Error 429: Unknown Error
+[retry 6] HTTP Error 429: Unknown Error
+QUERY all:"Riemann hypothesis" AND all:"stable polynomials"
+URL https://export.arxiv.org/api/query?search_query=all:%22Riemann+hypothesis%22+AND+all:%22stable+polynomials%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+QUERY all:"Fourier quasicrystals" AND all:infinite
+URL https://export.arxiv.org/api/query?search_query=all:%22Fourier+quasicrystals%22+AND+all:infinite&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=1
+2307.13498v2 | 2023-07-25 | Gap distributions of Fourier quasicrystals via Lee-Yang polynomials | Lior Alon, Cynthia Vinzant
+
+QUERY abs:"Hamburger" AND abs:"Riemann zeta"
+URL https://export.arxiv.org/api/query?search_query=abs:%22Hamburger%22+AND+abs:%22Riemann+zeta%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=1
+1106.4749v2 | 2011-06-23 | Deux extensions de Théorèmes de Hamburger | Jean-François Burnol
+
+QUERY all:"quantum graph" AND all:"Riemann zeta" AND all:zeros
+URL https://export.arxiv.org/api/query?search_query=all:%22quantum+graph%22+AND+all:%22Riemann+zeta%22+AND+all:zeros&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=2
+1307.6055v2 | 2013-07-23 | Quantum graphs whose spectra mimic the zeros of the Riemann zeta function | Jack Kuipers, Quirin Hummel, Klaus Richter
+0912.3183v5 | 2009-12-16 | The Berry-Keating operator on $L^2(\rz_>,\ud x)$ and on compact quantum graphs with general self-adjoint realizations | Sebastian Endres, Frank Steiner
+
+QUERY all:"Dirichlet series" AND all:"only real zeros"
+URL https://export.arxiv.org/api/query?search_query=all:%22Dirichlet+series%22+AND+all:%22only+real+zeros%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=2
+2411.07190v1 | 2024-11-11 | Application of Meyer's theorem on quasicrystals to exponential polynomials and Dirichlet series | Sergii Favorov
+2311.02728v1 | 2023-11-05 | Generalized Fourier quasicrystals, almost periodic sets, and zeros of Dirichlet series | Serhii Favorov
+
+QUERY all:"partial Euler product" AND all:zeros AND all:"critical line"
+URL https://export.arxiv.org/api/query?search_query=all:%22partial+Euler+product%22+AND+all:zeros+AND+all:%22critical+line%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=2
+1609.05324v1 | 2016-09-17 | Truncated Product Representations for $L$-Functions in the Hyperelliptic Ensemble | J. C. Andrade, S. M. Gonek, J. P. Keating
+2307.05958v2 | 2023-07-12 | Chebyshev's bias for Fermat curves of prime degree | Yoshiaki Okumura
+
+DONE

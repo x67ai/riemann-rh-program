@@ -32,14 +32,6 @@ al_10: zeros 4.849141438755e-04  arb 4.849141438763e-04  rel 1.54e-12
 al_20: zeros 2.066104546128e-04  arb 2.066104546131e-04  rel 1.88e-12
 al_50: zeros 1.879198418827e-04  arb 6.817814885484e-05  rel 1.76e+00
 al_100: zeros 1.034672437419e-04  arb 2.683990998053e-05  rel 2.85e+00
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:196: RuntimeWarning: overflow encountered in square
-  wtl = wq * tt * np.array([float(dtheta(mp.mpf(x)) / mp.pi) for x in tt]) / (0.25 + tt ** 2)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:184: RuntimeWarning: invalid value encountered in sqrt
-  rho = np.sqrt(1 - abs(a) ** 2)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:185: RuntimeWarning: invalid value encountered in divide
-  ph, phs = (z * ph - np.conj(a) * phs) / rho, (phs - a * z * ph) / rho
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:182: RuntimeWarning: invalid value encountered in scalar divide
-  a = np.conj(np.sum(W * z * ph) / np.sum(W * phs))
 alpha_0: zeros 9.991957503278e-01  arb 9.991968067209e-01  |diff| 1.06e-06  (1-|alpha| = 8.032e-04)
 alpha_1: zeros -9.988674681669e-01  arb -9.988664119479e-01  |diff| 1.06e-06  (1-|alpha| = 1.134e-03)
 alpha_2: zeros 9.993841059874e-01  arb 9.993846794038e-01  |diff| 5.73e-07  (1-|alpha| = 6.153e-04)

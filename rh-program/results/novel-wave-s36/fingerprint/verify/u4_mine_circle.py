@@ -76,11 +76,15 @@ for n in range(1, 150):
     # Route A index n (b_n, a_n^2 in Simon: b_1..; a_1..) vs Route B: diag 2 - 2 aJ[n-1], offdiag^2 4 b2J[n-1]
     bB = 2 - 2 * mp.mpf(aJ[n - 1].str(50, radius=False))
     aB = 4 * mp.mpf(b2J[n - 1].str(50, radius=False))
-    bA = Bn[n - 1]; aA = An2[n]  # try the natural alignment; report both relative diffs
+    bA = Bn[n - 1]; aA = An2[n - 1]  # Simon: a_{n}^2 is the formula at index n-1 (alpha_{-1} = -1)
     diffB.append(abs(bA - bB) / abs(bB)); diffA.append(abs(aA - aB) / abs(aB))
 say('Szego-Geronimus check (n = 1..149): max rel diff diagonal = %s, off-diagonal^2 = %s'
     % (mp.nstr(max(diffB), 3), mp.nstr(max(diffA), 3)))
 say('   first 3 diag A/B:', [(mp.nstr(Bn[n - 1], 12), mp.nstr(2 - 2 * mp.mpf(aJ[n - 1].str(40, radius=False)), 12)) for n in (1, 2, 3)])
-say('   first 3 offd^2 A/B:', [(mp.nstr(An2[n], 12), mp.nstr(4 * mp.mpf(b2J[n - 1].str(40, radius=False)), 12)) for n in (1, 2, 3)])
+json.dump({'n': len(alt), 'P_bits': P, 'al_shifted': [{'v': x.str(60, radius=False), 'dig': fc.digits(x)} for x in alt]},
+          open(os.path.join(tabdir, 'zeta_shifted_real_P%d_S%d.json' % (P, Ms)), 'w'))
+say('   first 3 offd^2 A/B:', [(mp.nstr(An2[n - 1], 12), mp.nstr(4 * mp.mpf(b2J[n - 1].str(40, radius=False)), 12)) for n in (1, 2, 3)])
+json.dump({'n': len(alt), 'P_bits': P, 'al_shifted': [{'v': x.str(60, radius=False), 'dig': fc.digits(x)} for x in alt]},
+          open(os.path.join(tabdir, 'zeta_shifted_real_P%d_S%d.json' % (P, Ms)), 'w'))
 json.dump({'szego_max_rel_diag': mp.nstr(max(diffB), 3), 'szego_max_rel_offd': mp.nstr(max(diffA), 3),
            'sign_pattern_ok': sgn_ok}, open(os.path.join(here, 'u4_mine_circle.json'), 'w'), indent=1)

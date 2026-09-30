@@ -32,7 +32,7 @@ if __name__ == '__main__':
     out = {'source': sys.argv[1], 'checks': []}
     offs = rep['offline_zeros'][:howmany]
     C, w, E = make_member(chain_name, N)
-    for (re_, im_) in offs:
+    for idx, (re_, im_) in enumerate(offs):
         mp.mp.dps = 80
         z = mp.mpc(re_, im_)
         if chain_name == 'smooth':
@@ -45,7 +45,8 @@ if __name__ == '__main__':
         d = abs(z2 - z)
         mp.mp.dps = 40
         # radius: a tenth of the distance to the nearest other reported zero, capped at 0.2
-        others = [mp.mpc(a, b) for (a, b) in rep['offline_zeros'] if mp.mpc(a, b) != z]
+        # exclude the zero itself BY INDEX (a value comparison fails across precisions -- bug fixed 2026-09-30)
+        others = [mp.mpc(a, b) for j, (a, b) in enumerate(rep['offline_zeros']) if j != idx]
         others += [mp.mpc(mp.mpf(1)/2, mp.mpf(t)) for t in rep['real_zeros']]
         dist = min([abs(z - o) for o in others] + [mp.mpf(1)])
         r = min(mp.mpf('0.2'), dist/4)
