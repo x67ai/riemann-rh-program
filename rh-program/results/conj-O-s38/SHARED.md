@@ -68,3 +68,14 @@ Append-only log of batches. Newest block last. Times IST.
   1.6e8 but turns up (0.44 at 2.5e9, slope 1.23 on [1e7,1e10]); its 1e9 "success" was an artefact of freezing D beyond X.
   Mechanism (proved identity): E(x) = e(x) + ρx∫_x^∞(D(u) − D(x))u^{−2}du + O(1 + D²/x); deleting q changes E(y) by −E(y/q).
 - Task 3 close: N (no structured counterexample; tension resolved; calibration lesson for the stop line).
+
+## 2026-10-01 03:35 — batch 5: close
+- Prior art (arXiv, 1 request at a time, 3 s spacing; `sources/arxiv-O-q*.xml`): nearest published object for the square-root
+  law is Avdeeva 2015 (arXiv 1512.00149, fetched to `sources/avdeeva-2015-1512.00149v1.*`), Theorem 1 p. 3: SHIFT-AVERAGED variance
+  of B-free counts in intervals of length N ∼ C·N^α for regular B-semigroups (constant carries Γ(2−α)ζ(2−α) = the reflected
+  diagonal at σ = α/2). No Ω-result for the single interval [0, x] found. Theorem Z's device = Hilberdink 2005 (w-18a p. 336) and
+  its Remark B(ii) (finitely-many-zeros hypothesis) — here on ζ_P/ζ.
+- rdump/*.bin (194 MB, regenerable R-prime lists) deleted; rn/*.csv kept. Drivers made robust to the missing dumps.
+- NOTE §0 (digest ranking quoted: U1 ranked 2nd in §F.2), §4 close written. **Close: G (Lemma G) with T-parts (Theorem Z, Cor Z.1,
+  Prop 1.3, Remark 1.3′, Theorem C in mean-square form, corrected Prop 1.1); task 2 named obstruction; task 3 N; K none.**
+- Stop line: task 1 closed (G). The task-3 trigger fired only in pure-power slope on sets covered by theorems (flagged).

@@ -2,7 +2,7 @@
 
 Session 38, 2026-10-01. Agent: Opus. Brief: `BRIEF.md`. Status labels as in the frontier NOTE: **[proved here]**,
 **[computed]** (script + log under `verify/`), **[quoted]** (source on disk, file:line), **[recalled, unverified]**
-(never load-bearing), **[heuristic]**, **[novelty: single-check]**. Paths `fr/` = `results/novel-wave-s37/beurling-frontier/`.
+(load-bearing only where §4 lists it: Stirling's formula for |χ|), **[heuristic]**, **[novelty: single-check]**. Paths `fr/` = `results/novel-wave-s37/beurling-frontier/`.
 
 Notation (the brief's). R ⊂ ℙ with Σ_{p∈R}1/p < ∞; α_R := lim sup log π_R(x)/log x; P = ℙ ∖ R; N_P(x) = #{n ≤ x : (n, p) = 1
 ∀p ∈ R}; ρ = ρ_R = Π_{p∈R}(1 − 1/p); E(x) = E_R(x) = N_P(x) − ρx = −Σ_{m∈⟨R⟩}μ(m){x/m} (⟨R⟩ = squarefree products of
@@ -12,7 +12,23 @@ for σ > α_R), ζ_P = ζ·D_R, P_R(s) := Σ_{p∈R}p^{−s} (the prime zeta fun
 
 ## §0. Summary (written at the close) and the digest's ranking of this unit
 
-(placeholder — filled at the close, §4)
+*The digest's ranking* (`results/novel-wave-s37/insights-digest.md`, on disk from 02:17, §F.2, ll. 359–369): this unit is ranked
+**2nd** — "2. **U1 — Conjecture O by the Franel/Landau mean-square route, with a structured-R counterexample hunt** … LAUNCHED …
+Why second: its proof branch is RELATIVE — by Prop. 2.3 it cannot bear on ζ, whose own α_R is 0 — so only its refutation branch
+touches the line α = 2β that contains RH; still the cheapest theorem-grade unit on the table", with consolidator's notes (i) the
+refutation corner is read-O A8 (integer c ≥ 2, α < ¾), (ii) task 1's gap "is the classical Carlson obstruction", (iii) the α = 0.75
+tension "is decided by the dyadic mean square, not by more sup-slopes".
+*Summary.* **Close G with T-parts.** (1) The reflected identity holds after a correction (coprimality factor (1 − p^{2σ−2}); §1.1)
+but is formal: F = ζ(1−s)D_R(s) converges nowhere and E only controls its weighted mean; pushed through a quantitative Carlson
+argument it gives β₂ ≥ α_R/4 for every R (RH, α_R < ½; Prop. 1.3), and no growth-only mean-value lemma can reach α_R/2 (Remark 1.3′: such a lemma fails on (α/3, α/2)).
+(2) The repair is Hilberdink's: take logarithms. **Theorem Z (RH): if the prime zeta function of R continues past α_R/2 off the real
+axis, then β₂(R) ≥ α_R/2.** Every regular deletion qualifies, for every c (Corollary Z.1): the A8 corner is closed as a refutation
+corner (consolidator's note (i) answered). (3) The exact missing lemma for general R is Lemma G (§1.6); a counterexample must have
+π_R irregular at scale x^{α_R/2} and ζ_P/ζ with infinitely many zeros or poles of real part > α_R/2 − ε, for every ε. (4) Resonance: a named
+obstruction (sub-polynomial large values); its L² form is Theorem Z. (5) Data: rung 1 exact; the α = 0.75 tension was a four-seed
+fluctuation (12 seeds: top-window sup-slope 0.392 ± 0.016, mean-square slope 0.787 ± 0.059; note (iii) answered); greedy sets fall
+below X^{α−δ} in pure-power slope but are provably log-powers (κ ≈ 2.3–3), and a new feedback design fails for a proved reason.
+Consolidator's note (ii) is sharpened: the Carlson obstruction is real for growth-only inputs and disappears after the logarithm.
 
 ## §1. Task 1 — the reflected second moment: the identity, what it proves, and the exact missing lemma
 
@@ -42,7 +58,7 @@ the additive form Σ|c|² = (ρ²/12)Π_{p∈R}2p/(p−1) = ∞ for infinite R �
 formal in every form. Carlson's theorem (quoted in Hilberdink 2005, fr `sources/w-18a…txt` p. 336: a Dirichlet series
 analytic *of order 0* in a half-plane has Bohr mean square = its diagonal there) needs a Dirichlet series convergent in some
 right half-plane; F is not one, and D_R alone is. (ii) *The rigorous identity is weighted.* For β₂ < σ < 1 the Mellin
-transform ∫_0^∞E(x)x^{−s−1}dx equals ζ_P(s)/s (E(x) = −ρx on (0, 1)), so Plancherel [recalled, unverified: Fourier–Plancherel
+transform ∫_0^∞E(x)x^{−s−1}dx equals ζ_P(s)/s (E(x) = −ρx on (0, 1)), so Plancherel [standard: Fourier–Plancherel
 under x = e^u] gives ∫_0^∞E(x)²x^{−2σ−1}dx = (1/2π)∫|ζ_P(σ+it)|²|σ+it|^{−2}dt = (1/2π)∫|F(σ+it)|²|χ(σ+it)|²|σ+it|^{−2}dt, and
 |χ(σ+it)| = (|t|/2π)^{½−σ}(1 + O(1/|t|)) [recalled, unverified; spot-checked to 10⁻⁶ at t = 50…5000, same log]. So the only
 mean value of F that E controls is ∫|F(σ+it)|²|t|^{−1−2σ}dt: E = O(x^τ) permits ∫_T^{2T}|F(σ+it)|²dt ≍ T^{1+2σ} on τ < σ < ½,
@@ -72,8 +88,9 @@ for all N. But Q_R(N) := #⟨R⟩ ∩ [1, N] ≥ π_R(N) ≥ N^{α_R−ε} infin
 *Remark 1.3′ (the brief's missing lemma is false as posed).* The route supplies exactly: a Dirichlet series (D_R, coefficients of
 modulus 1 on a set of counting exponent α_R) continued with finite order past α_R/2, with Bohr mean square ≪ T^{2σ}. The function
 f(s) = η(2s) = (1 − 2^{1−2s})ζ(2s) (coefficients ±1 on the squares: counting exponent ½) is entire, of finite order, and on
-1/6 ≤ σ < ¼ has ∫_T^{2T}|f(σ+it)|²dt ≪ T^{2−4σ} ≤ T^{1+2σ} [recalled, unverified: |χ(2s)|² ≍ t^{1−4σ} and the mean value of |ζ|²
-on Re s > ½], while its diagonal Σ n^{−4σ} diverges for σ ≤ ¼ = ½·½. So "finite order + mean square T^{2σ} ⟹ convergent diagonal"
+1/6 < σ < ¼ has ∫_T^{2T}|f(σ+it)|²dt ≪ T^{2−4σ+ε} ≤ T^{1+2σ} (under RH: f(s) = (1 − 2^{1−2s})χ(2s)ζ(1 − 2s), |χ(2s)| ≍ t^{½−2σ}
+(Stirling) and |ζ(1 − 2s)| ≪ t^ε on Re(1 − 2s) > ½ (the quoted RH bound); unconditionally from the mean value of |ζ|² on
+Re s > ½ [recalled]), while its diagonal Σ n^{−4σ} diverges for σ ≤ ¼ = ½·½. So "finite order + mean square T^{2σ} ⟹ convergent diagonal"
 fails on (α/3, α/2); no mean-value theorem driven by growth alone closes the gap. What Carlson needs is ORDER ZERO (bounded mean
 square), which E = O(x^τ) does not supply for D_R or F. The arithmetic input that does supply it is the Euler product: §1.4.
 
@@ -84,7 +101,7 @@ with |P_R(s)| ≤ C_η|t|^A on {σ ≥ τ₀ + η, |t| > T₀} for each η > 0. 
 (1/X)∫_X^{2X}E(x)²dx ≥ X^{α_R−ε} for infinitely many dyadic X. *Contrapositive (the relative form of Hilberdink's Cor. 2(b)):*
 if β₂(R) < α_R/2, then for every τ₀ < α_R/2 the function log(ζ_P/ζ) = −Σ_k P_R(ks)/k has singularities (zeros or poles of
 ζ_P/ζ) in {σ > τ₀} at arbitrarily large heights, or is of infinite order there.
-Two standard lemmas, proved so that nothing load-bearing is recalled:
+Two standard lemmas, proved here so that the only recalled input left is Stirling's formula for |χ| (§4):
 *Lemma Z.a (Borel–Carathéodory).* If g is analytic on |z − z₀| ≤ ρ₁ and Re g ≤ M on |z − z₀| = ρ₁, then |g(z)| ≤
 2rM/(ρ₁ − r) + ((ρ₁ + r)/(ρ₁ − r))|g(z₀)| for |z − z₀| ≤ r < ρ₁. *Proof.* h = g − g(z₀) has h(z₀) = 0 and Re h ≤ M′ :=
 M + |g(z₀)| (M′ ≥ 0 as Re h has mean 0 on the circle); φ = h/(2M′ − h) is analytic with |φ| ≤ 1 (|h| ≤ |2M′ − h| ⟺ Re h ≤ M′)
@@ -146,8 +163,9 @@ branch points in every half-plane σ > τ₀, τ₀ < α_R/2.
 *Proposition 1.6 (anatomy)* [proved here; (i) unconditional, (ii)–(iii) under RH]. Let β₂(R) < α_R/2. Then (i) P_R continues along paths to σ > β₂ with only isolated
 logarithmic branch points, located at the zeros/poles of ζ_P/ζ and their images ρ′/m (m ≥ 1); in particular P_R has NO natural
 boundary in σ > β₂ — so every R whose P_R has a natural boundary on a line σ = σ_b ≥ α_R/2 satisfies O; (ii) by Theorem Z, for every
-τ₀ < α_R/2 there are infinitely many such branch points in σ > τ₀ (or P_R has infinite order there): ζ_P has infinitely many zeros
-with real parts in (τ₀, ½) (or, if α_R ≥ ½, fails to vanish at infinitely many critical zeros of ζ); (iii) no decomposition as in
+τ₀ < α_R/2 there are infinitely many such branch points in σ > τ₀ (or P_R has infinite order there): ζ_P/ζ has infinitely many
+zeros or poles with real part > τ₀ — zeros of ζ_P off the critical line (real part in (τ₀, α_R]), or critical zeros of ζ at which
+ζ_P vanishes to a different order; (iii) no decomposition as in
 Lemma G exists — the prime count of R is irregular at the scale x^{α_R/2}, as for random R, which Theorem B excludes almost surely.
 *Proof.* (i) P_R(s) = −Σ_{m≥1}μ(m)m^{−1}L(ms) (Möbius inversion of L = −Σ_k P_R(ks)/k), and L = log D_R continues along any path
 avoiding the zeros/poles of the meromorphic D_R, which are isolated; for s in a compact K ⊂ {σ > β₂} only finitely many pairs
@@ -172,7 +190,11 @@ growth, quantified. Prop. 1.1(a) ↔ Franel's integral (fr Prop. 5.1) and, for i
 stationary form, with the constant carrying Γ(2 − α)ζ(2 − α), i.e. the reflected diagonal of 1.1(b) at σ = α/2 (single-check).
 Difference: Conjecture O concerns the single interval [0, x] (no average over shifts), where no such theorem is known;
 arXiv search (4 queries, `sources/arxiv-O-q*.xml`) found no Ω-result for that case. (b) ↔ none found beyond Avdeeva's
-constant. Corollary Z.1 ↔ fr Theorem C (same class).
+constant. Corollary Z.1 ↔ fr Theorem C (same class). Lemma G ↔ Hilberdink's Remark B(ii) (w-18a p. 336: "if … ζ_P(s) has
+finitely many zeros here, then ζ_P(s) and φ_P(s) have zero order in this range") — the same finiteness-of-zeros hypothesis, placed
+on ζ_P/ζ instead of ζ_P. New definitions: β₂(R) ↔ the mean-square (Ω₂) exponent, standard; M_diag(X) ↔ fr Prop. 5.1 truncated at
+b ≤ X (Avdeeva's constant is its stationary analogue); the feedback deletion ↔ BDR's Broucke–Vindas selection (a deterministic
+low-discrepancy choice, fr §6.3(iv)) with the selection rule replaced by error feedback — difference: it steers N_P, not π_R.
 
 ## §2. Task 2 — the resonance (large-values) route: a named obstruction; the Parseval form is Theorem Z
 
@@ -207,7 +229,8 @@ on [n, n + 1) E is linear of slope −ρ, so ∫_n^{n+1}E² = (N(n) − ρ(n + �
 fr `verify/data*/`. New runs use `verify/thin_fr.c` (byte-identical to fr `verify/thin.c`, SHA-256 6d359b51…; re-run of seed 1,
 α = 0.75, X = 10⁹ reproduces every fr bin exactly — `verify/data/xcheck_bern_a0.75_s1_1e9.csv`) and `verify/thin2.c` (the same
 counting core plus the modes `finite`, `feedback`, `dumpR`). `verify/rnums.c` enumerates the squarefree R-numbers b ≤ X by
-depth-first search and gives Q_R(X) = #⟨R⟩ ∩ [1, X] and W(X) = Σ_{b≤X}Π_{p|b}(p+1)/(p−1), hence the truncated Franel diagonal
+depth-first search and gives Q_R(X) = #⟨R⟩ ∩ [1, X] and W(X) = Σ_{b≤X}Π_{p|b}(p+1)/(p−1), hence the truncated Franel diagonal (outputs `verify/rn/*.csv`; the
+intermediate R-prime lists, 194 MB, were deleted and are regenerable with `thin2 dumpR` or `RDUMP=…`)
 M_diag(X) := ρ²W(X)/12 (= fr Prop. 5.1's value when R is finite and X ≥ Π_{p∈R}p). Fits (`verify/t3_analysis.py`): pure-power
 slopes of log M over [10^k, X_max] (k = 4…7) and the top three decades; a log-corrected fit log M = a + b log X − κ log ln X; and the
 intercept of the local two-decade slopes regressed on 1/ln X. Why these: a finite window cannot separate X^{α−δ} from
@@ -225,9 +248,10 @@ dyadic −3.9·10⁻³, −6.9·10⁻⁴ at X = 5·10⁶, 4·10⁷ (Q/X = 0.97, 
 Mean-square slopes over [10⁴, 10¹⁰] (mean ± s.e. over seeds; in brackets [10⁷, 10¹⁰]): T_0.60 (4 seeds) 0.606 ± 0.034 [0.642 ± 0.067];
 T_0.75 (12 seeds: fr 1–4 + new 5–12) 0.723 ± 0.018 [0.787 ± 0.059]; T_0.90 (4) 0.923 ± 0.044 [0.910 ± 0.079]. Against (a) α = 0.60,
 0.75, 0.90 (the diagonal); (b) the local exponent of Q_R(X) = #⟨R⟩ ∩ [1, X], computed exactly by `rnums`: 0.602 ± 0.001, 0.750 ± 0.000
-(and of W: 0.601, 0.750); (c) the one-scale value X^α/ln X of Theorem B: slope 0.534, 0.684, 0.834 on the same window. The data sit
-between (c) and (a), consistent with M ≍ X^α(ln X)^{−κ}, 0 ≤ κ ≤ 1. M/M_diag has no trend (log-power index κ = −2.9 … +0.3, errors
-1.2–2.0 per seed; pure-power −0.01 … +0.18 ± 0.09 per decade) and sits at 5–70: for random R the mean square EXCEEDS the truncated
+(and of W: 0.601, 0.750); (c) the one-scale value X^α/ln X of Theorem B: slope 0.534, 0.684, 0.834 on the same window. On [10⁴, 10¹⁰] the data
+sit between (c) and (a); on [10⁶, 10¹⁰] slightly above α (0.674 ± 0.029, 0.783 ± 0.030): M ≍ X^α(ln X)^{O(1)}. M/M_diag shows no
+decline (log-power index κ = −2.9 … +0.3, errors 1.2–2.0 per seed; on X ≥ 10⁶ mildly growing, pure-power +0.09 ± 0.02 per decade
+across the eight seeds) and sits at 5–70: for random R the mean square EXCEEDS the truncated
 Franel diagonal several-fold — the incomplete periods of the R-numbers near X (Theorem B's one-scale block) carry most of it.
 *The tension (read-O F5).* Top window [10⁷, 10¹⁰], T_0.75, running-sup slope (fr fit.py convention): seeds 1–4 0.450 ± 0.009 (the
 fr value, reproduced); the eight new seeds 0.363 ± 0.014; all twelve **0.392 ± 0.016** — 1.1σ above α/2 = 0.375 and 3.3σ below
@@ -244,7 +268,7 @@ vs 0.313–0.429). **The four-seed excess was a small-sample fluctuation; the te
 | greedy c=2, α=0.75 (new run) | 10¹⁰ | 0.676 / 0.467 / 0.442 | 0.354 | 0.805 | 9.7 → 0.92 | 5.9 ± 0.3 |
 (κ: fit of log(M/M_diag) = a − κ log ln X; Q_R slope for c = 2 exceeds α by the (ln X)^{c−1} factor; c = 2, α = 0.75 deletes every
 prime ≤ 13, and its early windows carry that fundamental-lemma transient — ratio 9.7 at 6·10⁵ — cf. fr §6.3(4).)
-*Reading.* Every greedy set has pure-power mean-square slope below α by 0.13–0.31 over ≥ 3 decades and a ratio M/M_diag falling
+*Reading.* Every greedy set has pure-power mean-square slope below α by 0.07–0.31 over ≥ 3 decades and a ratio M/M_diag falling
 like X^{−0.13…−0.33} — **the stop line's literal trigger ("dyadic mean square below X^{α_R−δ} over three decades") is met.** It is
 met, however, by sets for which β₂ ≥ α/2 is a theorem: for c = 1 UNCONDITIONALLY — fr Theorem C holds in mean-square form, because
 β₂ < α/2 would make ζ_P(s) = ρs/(s−1) + s∫_1^∞E(x)x^{−s−1}dx analytic on σ > β₂ (Prop. 1.3(i)), across the branch point s = α/2
@@ -252,7 +276,7 @@ met, however, by sets for which β₂ ≥ α/2 is a theorem: for c = 1 UNCONDITI
 to the diagonal (the c = 1 sets are an unconditional calibration: a pure-power fit over six decades undershoots a proved exponent
 by 0.16), and the c = 2 decline has the same form and size as the c = 1 one. For c = 2, α = 0.75 the top-window slope 0.442 is even
 below the UNCONDITIONAL mean-square bound 2α/3 = 0.5 from Theorem C (branch point at α/3, c/3 ∉ ℤ): a finite window undershoots a
-proved exponent by ≥ 0.06 there. **No structured set is a counterexample; the trigger, as phrased, cannot tell one from a log-power.**
+proved lower bound for the exponent by 0.06 there. **No structured set is a counterexample; the trigger, as phrased, cannot tell one from a log-power.**
 
 **3.5 A new design built to defeat the diagonal: online error-feedback deletion** [computed: `verify/thin2.c` mode `feedback`,
 drivers `verify/run_t3.sh`, `run_t3b.sh`, `run_t3c.sh`; logs `logs/t3_kappa.log`, `logs/t3_feedback.log`, `logs/run_t3.log`].
@@ -278,6 +302,39 @@ controller moves D(10¹⁰) − D(10⁹) ≈ 3·10³ and ρ by 7.6·10⁻⁸, i.
 *Mechanism of the failure.* An online design sees e, but E also contains ρx∫_x^∞(D(u) − D(x))u^{−2}du, fixed by its own FUTURE
 decisions; any lasting control has to go through D, and D enters every scale. Beating the diagonal needs D irregular at scale
 x^{α/2} (else Theorem Z applies) and anti-correlated with the integer error at all later scales — by Prop. 1.6, infinitely many
-zeros of ζ_P with real parts in (τ₀, ½) for every τ₀ < α_R/2. No design here produces that.
+zeros or poles of ζ_P/ζ with real part > τ₀, for every τ₀ < α_R/2. No design here produces that.
 **Close of task 3: N** — no structured R below X^{α−δ} beyond the log-power calibration of §3.4 (the one sub-calibration run is an
 artefact of a frozen future); the α = 0.75 tension resolved (§3.3); rung 1 reproduced exactly (§3.2).
+
+## §4. Close
+
+**Close: G — the exact missing lemma is Lemma G (§1.6) — with T-parts; task 2 a named obstruction; task 3 N.**
+- **T-parts** [proved here; novelty: single-check]: Theorem Z (RH): O in mean-square form (β₂ ≥ α_R/2) for every R whose prime
+  zeta P_R continues with finite order to {σ > τ₀, |t| > T₀}, τ₀ < α_R/2. Corollary Z.1 (RH): every regular deletion, every c —
+  including c = 2 and every c/k_c ∈ ℤ pattern, the case the brief lists as open — so **read-O's corner A8 is closed as a refutation
+  corner** (U ⇒ RH, so RH-conditional is the strength that matters). Prop. 1.3 (RH, α_R < ½): β₂ ≥ α_R/4 for EVERY R — the limit of
+  the reflected Carlson route. Remark 1.3′: the brief's gap lemma ("mean value for a function known only as analytic of finite
+  order in a strip") is false as posed (η(2s)). §3.4: fr Theorem C holds in mean-square form (unconditional, one line). Prop. 1.1:
+  the class-sum identity, with the brief's Euler product corrected by the coprimality factor (1 − p^{2σ−2}).
+- **G**: Lemma G — if β₂(R) < α_R/2 then P_R continues (finite order) past α_R/2 off the real axis; equivalently (RH) ζ_P/ζ has only
+  finitely many zeros and poles in some σ > τ₀, τ₀ < α_R/2. RH + Lemma G ⟹ Conjecture O for all pure deletions. Anatomy (Prop. 1.6):
+  a counterexample needs π_R irregular at scale x^{α_R/2} and ζ_P/ζ with infinitely many zeros or poles of real part > τ₀ for
+  every τ₀ < α_R/2 (off-line zeros of ζ_P, or critical zeros where its order differs from ζ's); P_R can have no natural boundary in σ > β₂, so any R with a natural boundary at σ ≥ α_R/2 satisfies O unconditionally.
+- **Additions**: covered under a separation hypothesis (§1.7); the A-clause "any A" is probably false as stated (near-cancelling
+  additions; heuristic) and should be amended.
+- **Task 2**: named obstruction "sub-polynomial resonance" (§2); the working converse is the L² one on log D_R (= Theorem Z).
+- **Task 3 (N)**: rung 1 exact; random R at the diagonal exponent; the α = 0.75 tension resolved by 12 seeds (top-window
+  sup-slope 0.392 ± 0.016; the fr four seeds are the four highest); greedy sets below X^{α−δ} in pure-power slope but provably not
+  counterexamples (log-power κ ≈ 2.3–3, calibrated by the c = 1 sets where β₂ ≥ α/2 is unconditional); the new feedback design fails
+  for a proved reason (its error contains its own future discrepancy).
+- **K**: none. **Stop line**: task 1 closed (G); the task-3 trigger was met only in pure-power slope, by sets covered by theorems — the
+  trigger as phrased cannot separate a counterexample from a log-power and should be restated with the κ-calibration (§3.4).
+*Recalled inputs.* Load-bearing and recalled: Stirling's |χ(σ+it)| = (|t|/2π)^{½−σ}(1 + O(1/|t|)) (Prop. 1.3, Theorem Z step Z3;
+spot-checked to 10⁻⁶, `logs/t1_classsums.log`); standard analysis used without citation: Plancherel on L¹ ∩ L², maximum modulus,
+Schwarz's lemma, Mellin inversion of Γ. Quoted at the line: MV (G.27) (Theorem G.16, MV-II draft p. 427); RH bounds for ζ, 1/ζ (BDR
+z-02 ll. 1203–1205); Carlson's theorem as used by Hilberdink (w-18a p. 336); Avdeeva Thm 1. Proved here: Borel–Carathéodory
+(Lemma Z.a), the Phragmén–Lindelöf instance (Lemma Z.b). Not load-bearing: Bohr–Jessen (§2(d)), the unconditional form of Remark 1.3′
+(it holds under RH from the quoted inputs), the near-cancelling additions (§1.7).
+*Next units.* (a) Lemma G for one irregular deterministic class (e.g. hash-defined R: prove a natural boundary of P_R at α/2 —
+Prop. 1.6(i) then gives O for it); (b) Theorem Z without RH (quasi-polynomial bounds for 1/ζ on good ordinates); (c) restate the
+task-3 stop line with the κ-calibration, and Conjecture O's A-clause with a separation hypothesis; (d) the dual read of Theorem Z.
