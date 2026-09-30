@@ -85,3 +85,9 @@ Method: real zeros by sign changes (step 0.02, relative-tolerance bracketing); t
 - **(R4) CERTIFIED: exactly one zero of ξ₁ in the square of half-width 1e−8 about 5.165902026924569091939 + 22.91546577056082331413 i** (rigorous winding number = 1.0 over 164 boundary pieces, every piece's enclosure excluding 0, so each arg increment is a principal value). An off-line zero of the first C1 member, certified — the computer-assisted replacement for the seed's "(d) prove real-rootedness of the smallest members" (false, Theorem A).
 - (R2)/(R3) — exactly two zeros of ξ₁ on the line with 0 < t ≤ 30 — queued in three chunks.
 - Lobe scan N = 18, 19: no violation (seed first-fail r = 0.033 / 0.218; Haglund r = 0.697 / 0.474).
+
+## 2026-09-30 19:42 IST — unit 12: CANDIDATE VIOLATION of the ordering invariant for C1 at N = 24 (lobe scan)
+
+- lobe_scan N = 24 (window [2460, 2590]): seed ξ₂₄ — first failing negative lobe (2507.87103958, 2508.7660461), depth/P_24 = 0.59536; the NEXT negative lobe (2509.65299744, 2511.66018979) passes with depth/P_24 = 1.1297. By the lobe law (Theorem D) ξ₂₄ then has two real zeros in (2509.65, 2511.66) and an off-line pair from the failing lobe below them — a violation of the ordering invariant ("monotonic zeros") for the C1 member ξ₂₄. Haglund's Ξ₂₄: no violation at this N (first failing positive lobe (2507.15, 2507.87), r = 0.271; last pass (2504.77, 2506.31), r = 8.17).
+- Status: PREDICTED by the lobe law only. Direct verification queued first: verify_violation.py zeta 24 2507.5 2509.2 2509.6 2511.7 (argument-principle count in [−½, 1½] × [2507.5, 2509.2] at 30 and 45 digits; off-line zero located to 22 digits and re-counted on a circle; real zeros in the passing lobe).
+- Also: lobe scan N = 20–23 no violation; near-misses at N = 20 (seed r_fail = 0.922, preceding pass 1.233) and N = 21 (a pass at 1.0151; Haglund r_fail = 0.815).
