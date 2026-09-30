@@ -11,6 +11,14 @@ Source: J. Haglund, "Some conjectures on the zeros of approximates to the Rieman
 gamma functions", arXiv:0910.5228v1 [math.NT], 27 Oct 2009 (dated October 16, 2009), 23 pp.; published
 Cent. Eur. J. Math. 9 (2011) 302–318, DOI 10.2478/s11533-010-0095-3 (online 29 Dec 2010; Crossref).
 On disk: `haglund-0910.5228.pdf`, `haglund-0910.5228.txt`; page renders `img/haglund-p-08.png`, `-09.png`.
+Page numbers below are arXiv v1 pages. The published version is open access at De Gruyter; its full text (page
+markers 302–318 included) is in `haglund-CEJM-2011-degruyter-fulltext.md` (Firecrawl scrape; the Springer copy is
+paywalled). It has the same content, renumbered: Conjecture 2.1 and Proposition 2.2 on p. 304, proof pp. 304–305,
+Remark 2.3 and the N ≤ 10 table p. 305, Conjecture 3.1 p. 306, Conjecture 3.2 p. 307, Section 4 pp. 308–309, the
+Φ_1, Φ_2, Φ_3 expansions p. 310, Conjecture 5.1 p. 311, notes on computations p. 312, appendix from p. 313. Two
+differences found: the Hejhal sentence becomes "then the resulting function asymptotically has 100% of its zeros on
+the real line (but, for N > 1, infinitely many zeros off the line)" (p. 303), and Section 6 gains a Cauchy–Riemann
+heuristic for why zeros sit at local maxima of the "M-curve" (eqs. (18)–(20), p. 311).
 
 **(a) Definition.** Variable z, with s = 1/2 + iz: "Ξ(z) = ½(.5 + iz)(−.5 + iz)π^{−(.5+iz)/2}Γ(½(.5 + iz))ζ(.5 + iz)"
 (eq. (1), p. 1), so Ξ(z) = ξ(1/2 + iz) and "RH says that all the zeros of Ξ are real" (p. 1). Riemann's

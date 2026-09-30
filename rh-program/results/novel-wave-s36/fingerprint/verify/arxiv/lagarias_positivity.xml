@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/xu15lYVRsHnh05hPv6CfqVI6zUo</id>
+  <title>arXiv Query: search_query=au:Lagarias AND abs:"positivity" AND abs:xi&amp;id_list=&amp;start=0&amp;max_results=25</title>
+  <updated>2026-09-30T12:40:08Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=au:Lagarias+AND+(abs:%22positivity%22+AND+abs:xi)&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/math/0104176v5</id>
+    <title>On a two-variable zeta function for number fields</title>
+    <updated>2002-07-07T20:17:06Z</updated>
+    <link href="https://arxiv.org/abs/math/0104176v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0104176v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  This paper studies a zeta function of two complex variables (w, s) attached to an algebraic number field K, introduced by van der Geer and Schoof, which is based on an analogue of the Riemann-Roch theorem for number fields using Arakelov divisors. We mainly consider the case of the rational field Q, where for w = 1 one recovers the Riemann zeta function with the factors at infinity added. The analogue of the Riemann xi-function analytically continues to an entire function of two complex variables, and satisfies a functional equation holding w fixed and sending s to w-s. For real w the "critical line" is therefore Re(s) = w/2. For fixed nonnegative real w the zeros are confined to a vertical strip in s and have the same asymptotics as zeta zeros.
+ For negative real w the function is positive real on the critical line, so has no zeros there. This phenomonon is associated to a positive convolution semigroup of infinitely divisible probability distributions, and the Khintchine canonical measure of this family is explicitly determined.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2001-04-18T15:31:05Z</published>
+    <arxiv:comment>53 pages Latex, one figure; Version 3 revised introduction, new section 9 added, various small changes in text, revised abstract. Version 4 adds to appendix Riemann-Roch theorem for number fields, formula for two-variable zeta function for general number fields, and corrects misprints. Version 5 corrects sign in definition of xi_Q(w,s), corrects signs throughout paper, changing some theorem statements. Proof of Theorem 7.4 revised</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Ann. Inst. Fourier 53, no. 1 (2003), 1--68.</arxiv:journal_ref>
+    <author>
+      <name>Jeffrey C. Lagarias</name>
+    </author>
+    <author>
+      <name>Eric Rains</name>
+    </author>
+  </entry>
+</feed>

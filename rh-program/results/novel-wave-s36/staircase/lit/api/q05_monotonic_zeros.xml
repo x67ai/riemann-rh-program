@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/kf2FvNgjkwMHeSb9UKlln1Jt6zc</id>
+  <title>arXiv Query: search_query=abs:"monotonic zeros"&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-09-30T12:39:51Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22monotonic+zeros%22&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.10491v1</id>
+    <title>Zero-couplings of infinite measures with cyclically monotone support and multivariate regular variation</title>
+    <updated>2026-05-11T12:49:39Z</updated>
+    <link href="https://arxiv.org/abs/2605.10491v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.10491v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study cyclically monotone transport plans between measures in $\mathrm{M}_0(\mathbb{R}^d)$, the class of Borel measures on $\mathbb{R}^d \setminus \{0\}$ that are finite on sets bounded away from the origin but may have infinite total mass. We avoid moment assumptions and allow the transport cost to be infinite. This framework naturally arises for exponent measures in multivariate regular variation and includes other examples such as Lévy measures.
+  We introduce the notion of a zero-coupling and establish existence of cyclically monotone zero-couplings for arbitrary pairs of measures in $\mathrm{M}_0(\mathbb{R}^d)$. Under a Hausdorff-dimension condition on the first measure and when at least one of the two measures has infinite mass, we prove uniqueness of the cyclically monotone zero-coupling, yielding an analogue of the Brenier--McCann theorem in this infinite-measure setting. We further derive a representation of such couplings through gradients of closed convex functions and identify conditions under which the zero-coupling is proper in the sense that the second measure is equal to the restriction to the punctured space of the push-forward of the first measure by a cyclically monotone transport map.
+  Finally, we apply these results to regularly varying probability measures. We show that a cyclically monotone coupling between two such distributions admits a tail limit that coincides with the unique proper cyclically monotone zero-coupling between the corresponding exponent measures.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-11T12:49:39Z</published>
+    <arxiv:comment>This paper supersedes arXiv:1811.12061 "Tails of optimal transport plans for regularly varying probability measures" by Cees de Valk and Johan Segers</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Alexandre Reber</name>
+    </author>
+    <author>
+      <name>Anne Sabourin</name>
+    </author>
+    <author>
+      <name>Johan Segers</name>
+    </author>
+    <author>
+      <name>Cees de Valk</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.02690v1</id>
+    <title>Monotone Near-Zero-Sum Games: A Generalization of Convex-Concave Minimax</title>
+    <updated>2025-12-02T12:21:38Z</updated>
+    <link href="https://arxiv.org/abs/2512.02690v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.02690v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Zero-sum and non-zero-sum (aka general-sum) games are relevant in a wide range of applications. While general non-zero-sum games are computationally hard, researchers focus on the special class of monotone games for gradient-based algorithms. However, there is a substantial gap between the gradient complexity of monotone zero-sum and monotone general-sum games. Moreover, in many practical scenarios of games the zero-sum assumption needs to be relaxed. To address these issues, we define a new intermediate class of monotone near-zero-sum games that contains monotone zero-sum games as a special case. Then, we present a novel algorithm that transforms the near-zero-sum games into a sequence of zero-sum subproblems, improving the gradient-based complexity for the class. Finally, we demonstrate the applicability of this new class to model practical scenarios of games motivated from the literature.</summary>
+    <category term="cs.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-02T12:21:38Z</published>
+    <arxiv:primary_category term="cs.GT"/>
+    <author>
+      <name>Ruichen Luo</name>
+    </author>
+    <author>
+      <name>Sebastian U. Stich</name>
+    </author>
+    <author>
+      <name>Krishnendu Chatterjee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.22217v1</id>
+    <title>Monotonic, Minimum-Settling-Time PI Tuning for First-Order-Plus-Dead-Time Plants: A Tangency Characterization</title>
+    <updated>2026-06-20T20:34:54Z</updated>
+    <link href="https://arxiv.org/abs/2606.22217v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.22217v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper studies PI tuning of a first-order-plus-dead-time (FOTD) plant for the fastest strictly monotone (zero-overshoot) setpoint step response, with monotonicity imposed on the plant output only. The minimizer is shown to be neither the pole-zero cancellation design nor the multiple real dominant pole (MRDP) design. It is a non-cancellation point at which the closed loop carries a slow real mode of small residue together with a faster underdamped complex pair, with the controller zero placed near the dominant real pole. The analytical centerpiece is a single tangency identity, tan(omega tau_star + alpha) = (a - b)/omega, which states that the monotonicity boundary is the locus where the secondary complex mode just fails to drive the output slope below zero. From this identity the design reduces to nested scalar conditions, realized at three levels of fidelity: an explicit closed-form rule, an exact response-based reduction, and a simulation-free transcendental system whose only non-elementary step is a fourth-order polynomial root. Relative to the critically damped Lambert-W cancellation rule the design reduces the 2% settling time by 14 to 52 percent and lowers the load integrated absolute error by 5 to 38 percent. We report the full cost: for delay-dominated plants (T/L &lt;= 0.55) the control stays one-pulse, so the design is itself admissible in Huba's sense and merely faster, but for larger lag ratios the control becomes two-pulse, and across the range the maximum sensitivity rises from 1.39 to between 1.44 and 1.62. The contribution is positioned not as a uniformly better tuning but as the exact characterization of a specific, well-defined operating point, with an honest multi-metric comparison against established rules.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-20T20:34:54Z</published>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Senol Gulgonul</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.02868v2</id>
+    <title>Closed-Form PI and PID Tuning of All-Pole Plants up to Third Order for Monotonic Minimum-Settling Step Responses</title>
+    <updated>2026-06-11T16:51:11Z</updated>
+    <link href="https://arxiv.org/abs/2606.02868v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.02868v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A unified, closed-form analytical PI/PID tuning method is presented for all-pole plants up to third order that yields a strictly monotonic (zero-overshoot) step response with minimum settling time. The design target is the binomial closed loop p^n/(s+p)^n, which is monotonic with robustness depending only on the order n. Because a fixed PI/PID cannot assign the closed-loop poles and the controller zeros independently, realizing this target exactly requires the controller zeros to be cancelled, which forces the controller numerator to divide the plant denominator. It follows that an exact, real-gained solution exists for any stable plant precisely up to second order with a PI controller and third order with a PID controller; beyond that the residual binomial factor acquires a complex pair of damping sqrt(3)/2, which a generic plant does not contain. Explicit gains are derived for first-order plants (PI), second-order plants with real and complex poles (PI and PID), and third-order plants with three real poles or one real pole plus a complex pair (PID). The freedom of the coincident designs is shown to be bounded: a quadratic nonnegativity condition gives the exact window of the design pole for strict monotonicity, which collapses at the pole-ratio-2 changeover for real poles and is nonempty for damping ratios above approximately 0.443 for complex poles. Monotonicity guarantees Mt = 1, hence Ms &lt;= 2, phase margin &gt;= 60 degrees, and gain margin &gt;= 6 dB, tightening to universal constants for the binomial family. Load-disturbance attenuation obeys IAEd = 1/Ki, making the cost of cancellation explicit, and comparisons with SIMC, the CHR zero-overshoot rule, and deadbeat-fitted explicit formulas quantify the trade: at matched maximum sensitivity the proposed design settles faster than SIMC on the third-order example, with markedly lower controller gains and peak control effort.</summary>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-01T20:31:52Z</published>
+    <arxiv:comment>v2: extended with monotonicity windows, third-order boundary theorem in final form, and comparisons; subsumes arXiv:2604.21294</arxiv:comment>
+    <arxiv:primary_category term="eess.SY"/>
+    <author>
+      <name>Senol Gulgonul</name>
+    </author>
+  </entry>
+</feed>

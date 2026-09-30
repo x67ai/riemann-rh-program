@@ -23,6 +23,9 @@ tmp_out = Path(tempfile.gettempdir()).resolve() / "zoo-insert-s36-out.md"
 allok &= show("T1 default --out = temp scratch file", True, rc, msg)
 allok &= (sha(ZOO) == ZH); print("      zoo unchanged:", sha(ZOO) == ZH, "| temp output == dry run:", tmp_out.exists() and sha(tmp_out) == DH)
 allok &= tmp_out.exists() and sha(tmp_out) == DH
+if tmp_out.name == "zoo-insert-s36-out.md" and tmp_out.parent == Path(tempfile.gettempdir()).resolve():
+    tmp_out.unlink()   # the one scratch file T1 created in the system temp directory
+    print("      T1's scratch output removed from the system temp directory")
 # T2 idempotence: the dry run as input.
 rc, msg = run("--input", DRY, "--out", SP / "t2.md"); allok &= show("T2 second run on the inserted file", False, rc, msg)
 # T3 hash gate: one byte changed.

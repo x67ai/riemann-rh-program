@@ -3,3 +3,8 @@ inputs 68.8s; lambda_1 = [0.02309570896612103381431025 +/- 2.10e-27]
 lambda certified digits at n = 1, 100, 500, N: [7222, 7178, 7046, 6891]
 lambda_n not certified positive at: []
 Levinson(P) 12.5s
+Schur(P) 100.5s
+Levinson(P2) 123.4s
+verified digits of alpha_n at n = 0, 100, 200, ...: [(0, 7223), (100, 6757), (200, 6216), (300, 5643), (400, 5047), (500, 4436), (600, 3810), (700, 3174), (800, 2528)]
+indices with |alpha_n| >= 1 or < 5 verified digits: []
+saved tables/zeta_circle_P24000_S1000.json  total 306.4s

@@ -20,11 +20,14 @@ def fetch(url, out):
     for attempt in range(1, 21):
         r = subprocess.run(["curl", "-sS", "--max-time", "90", "-A",
                             "rh-program-literature-read/1.0 (mailto:none)",
-                            "-o", out, url], capture_output=True, text=True)
+                            "-w", "%{http_code}", "-o", out, url], capture_output=True, text=True)
+        code = r.stdout.strip()
         ok = r.returncode == 0 and os.path.exists(out) and b"<feed" in open(out, "rb").read(4000)
         if ok:
             return True
-        sys.stderr.write(f"attempt {attempt} failed: rc={r.returncode} {r.stderr.strip()[:200]}\n")
+        sys.stderr.write(f"attempt {attempt} failed: rc={r.returncode} http={code} {r.stderr.strip()[:200]}\n")
+        if code.startswith("4") and code != "429":
+            return False  # our own malformed query: do not hammer the server
         time.sleep(60)
     return False
 
@@ -32,7 +35,7 @@ def fetch(url, out):
 def main():
     tag, q = sys.argv[1], sys.argv[2]
     mx = int(sys.argv[3]) if len(sys.argv) > 3 else 50
-    url = ("https://export.arxiv.org/api/query?search_query=" + urllib.parse.quote(q, safe=":()\"")
+    url = ("https://export.arxiv.org/api/query?search_query=" + urllib.parse.quote(q, safe=":()")
            + f"&start=0&max_results={mx}")
     out = os.path.join(LIT, "api", tag + ".xml")
     ok = fetch(url, out)

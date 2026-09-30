@@ -1,11 +1,11 @@
-# zoo-s36 — numbers check (writer, Opus 5.5): counts, hashes, byte identity, record numbers — Wed Sep 30 18:07:45 IST 2026
+# zoo-s36 — numbers check (writer, Opus 5.5): counts, hashes, byte identity, record numbers — Wed Sep 30 18:09:34 IST 2026
 
 Generator: results/zoo-s36/verify/numbers_check.py (read-only). Every figure below is computed from the file named at run time.
 
 ## 0. Hashes at run time
   8e66cdc0de6f13f598191b5fd10c4a2e7220ef6d1af7397dd8f4157a25bdfae8  BARRIER-ZOO.md
-  b419aab16c067e32d1164b4581b4cdc1c1a930a3f8102b6b796caf3a135772cf  results/zoo-s36/dryrun-BARRIER-ZOO.md
-  f13ffc08de876694143fa82e792a85ded54915f8435d157db49ff1b4ccafc302  results/zoo-s36/zoo-entries-proposed.md
+  fb6ca94b49f86642ac5b5fe57b341af3479bcd725211bcbb1cb575da512d6b47  results/zoo-s36/dryrun-BARRIER-ZOO.md
+  263d41d3497fca3b1d6da8343f444cd4debd6e135da7024a235c137b3852fddf  results/zoo-s36/zoo-entries-proposed.md
   f7c58c8f00737166992ce474fbf4db3f40bede75450f0a52b498ed0990b00bfc  results/zoo-s36/BRIEF.md
   7bc144a45de43952350ce2765bf41d460980c6ae58b9021f96378c655a387141  scripts/zoo-insert-s36.py
   bc6e241120f5af37bd55c015bed107254f11205d4c09b363b1a662172df87001  results/beta-shapes-s35/ZOO-LINES-STAGED.md
@@ -20,7 +20,7 @@ Generator: results/zoo-s36/verify/numbers_check.py (read-only). Every figure bel
 ## A. Heading tally (regex, re.M) and line counts, before (BARRIER-ZOO.md) and after (the dry run)
   before ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 19 | ^### V\. 5 | ^### (all) 58 | lines (\n count) 699 | bytes 388861 | ends with one \n: True
   ✓ before: 8/5/21/19/5 = 58 headings, 699 lines
-  after  ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 20 | ^### V\. 5 | ^### (all) 59 | lines (\n count) 711 | bytes 396235 | ends with one \n: True
+  after  ^### I\. 8 | ^### II\. 5 | ^### III\. 21 | ^### IV\. 20 | ^### V\. 5 | ^### (all) 59 | lines (\n count) 711 | bytes 396237 | ends with one \n: True
   ✓ after: 8/5/21/20/5 = 59 headings, 711 lines (+12)
   Group IV in file order, before: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19]
   Group IV in file order, after:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 16, 17, 19, 20]
@@ -137,7 +137,7 @@ Generator: results/zoo-s36/verify/numbers_check.py (read-only). Every figure bel
   ✓ zoo line 489 uses 'NOTE' 7 times for results/e3-borger-rung1/NOTE.md — FF2's ground
   ✓ zoo line 488 cites Borger at p. 5 in two papers (0801.1691, 0906.3146) — FF6's ground
   ✓ zoo line 7 status vocabulary lacks 'program-derived'; no entry uses it — FF3's ground
-  top-level RIDER heads: 40; dated Session 28 or later: 9; heads not of the dated shape: [455]
+  top-level RIDER heads: 40; dated Session 28 or later: 9; heads not of the dated shape: none
   ✓ every top-level RIDER dated Session 28 or later carries '… zoo stream' in its head — FF2's second ground
   ✓ 37 zoo lines carry 'entered at the Session-N zoo stream'
 
@@ -146,12 +146,7 @@ Generator: results/zoo-s36/verify/numbers_check.py (read-only). Every figure bel
   ✓ block iv10: none of the five linted phrases 
   ✓ block iv20: none of the five linted phrases 
   ✓ block xref: none of the five linted phrases 
-  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'clearly' occurs 1 time(s) outside/inside blocks (see above for blocks)
-  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'obviously' occurs 1 time(s) outside/inside blocks (see above for blocks)
-  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'easy to see' occurs 1 time(s) outside/inside blocks (see above for blocks)
-  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'well known' occurs 1 time(s) outside/inside blocks (see above for blocks)
-  lint_s27.py: LINT NOTE results/zoo-s36/zoo-entries-proposed.md whole file: 'well-known' occurs 1 time(s) outside/inside blocks (see above for blocks)
-  lint_s27.py: results/zoo-s36/zoo-entries-proposed.md: 5 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): ['spelling']
+  lint_s27.py: results/zoo-s36/zoo-entries-proposed.md: 5 block(s) checked; British-spelling candidates (judge by hand; quotations keep their source): none
   ✓ lint_s27.py exit 0 on the proposed file (no linted phrase in any block)
   scripts/zoo-insert-s36.py: the five phrases occur only on line(s) [62] (the lint tuple itself)
   ✓ scripts/zoo-insert-s36.py carries the linted phrases on exactly one line, its lint tuple
