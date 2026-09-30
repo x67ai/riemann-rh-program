@@ -141,3 +141,27 @@ Dated blocks, newest last. Writer: Opus 5.5 (default effort), on `WRITER-BRIEF.m
   1.18e-1288 at 1024 bits at the 14 contour points; the CERT gives no 1024-bit figure for the four
   real-axis points); Section 7 now says which N = 24 routes rest on the theta relation (A's literal
   route L does not). Availability list shortened (file lists live in the certificate README).
+
+## 2026-10-01 00:52 IST — DONE: package complete, checker passes
+
+- Certificate B reproduction finished (14 min 30 s): all six logs (selftest, ladder, cert27, cert_h5,
+  crosscheck X1X2, X3) identical to the archive apart from timing figures (normalized diff: 0 lines).
+  So all three computations reproduce from the archive on this machine, 2026-10-01.
+- `certificate/`: byte-identical copies of producer-A/, producer-B/, rerun-F/, verify-F/ (from the
+  staircase folder), NOVELTY-F.md (checked with diff -r), plus README.md (certified statements,
+  contents, requirements, exact commands, expected lines, the ladder.log note, the reproduction record)
+  and SHA256SUMS (50 entries; `shasum -a 256 -c SHA256SUMS` all OK).
+- `haglund-counterexample-certificate.zip` (58 entries, 530,801 bytes), SHA-256
+  7717ab87d89156e93639364358000e2ebbb36497d2d7962b839d54e3d4ad1fc0 (in
+  `haglund-counterexample-certificate.zip.sha256` and printed in the paper's availability statement).
+  If anything inside `certificate/` changes, re-zip, re-hash, and update main.tex line with the hash.
+- `main.tex`/`main.pdf`: 16 pages; `check-submittable.sh` ALL CHECKS PASSED (no errors, no undefined
+  refs, no overfull > 20 pt, U.S. English, pure ASCII). SHA-256 main.tex 2447217970386fed...,
+  main.pdf 949125a490ab7593... (rebuilds change the PDF hash; the tex is the source).
+- `abstract.txt` (1845-character abstract), `REFEREE-BRIEF.md` (39 lines), `lit/` (pages read for the
+  citations: Platt-Trudgian abs page, Crossref records, Zenodo record via Firecrawl, the index page).
+- Open for the orchestrator/referee (also in REFEREE-BRIEF.md): footnote wording (README vs posted
+  papers); 16 pp vs 8-12 target; no git tag pin; B's ladder.log hash wrinkle; the writer's factor-4
+  remark on Haglund's (51); Riemann 1859 page range from secondary reference lists.
+- Resume point: blind referee on `main.pdf` with `REFEREE-BRIEF.md`; then the orchestrator's read.
+  Nothing was posted; nothing outside this folder was modified; no git was run.

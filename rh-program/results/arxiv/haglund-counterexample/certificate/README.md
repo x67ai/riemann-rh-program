@@ -115,3 +115,16 @@ archive is the output of the independent re-run of 2026-09-30 23:48 (it equals
 SHA-256 differs from the one recorded for `logs/ladder.log` in `producer-B/SHARED.md` (final block).
 Every value in it equals the values in `producer-B/CERT.md` §C. All other hashes recorded by both
 certificates match the files here.
+
+## Reproduction record
+
+On 2026-10-01 every computation in this archive was re-run from a copy of the archive on the machine
+above (macOS 27.0.1, Apple M4, Python 3.9.6, python-flint 0.6.0, mpmath 1.3.0): certificate A's five
+scripts, certificate B's six runs (14 min 30 s in all), and `verify-F/rerun_N27.py`. Every output
+matched the archived log line for line except for timing figures.
+
+## Checking the archive
+
+    shasum -a 256 -c SHA256SUMS
+
+run from this directory, checks every file against the list.
