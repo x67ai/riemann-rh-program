@@ -1,0 +1,21 @@
+Wed Sep 30 17:19:48 IST 2026
+[N1] item 7
+  r^2 - r - 2g = 0
+  at x = r^2, L = 1 + r^2 + 2gr: 4g^2x - (1+x-L)^2 = 0 ; 4g^2x^2 - (1+x^2-L)^2 = 0
+  (1+2g)(1+r) - (1 + r^2 + 2gr) = 0
+  factorization used: s^4 - s^2 - 2g s^2 - 2g s = s*(s + 1)*(-2*g + s**2 - s)
+  g = 0: solutions of x = x^2: [0, 1] -> L in {1, 2}; bound at g = 0: 2
+  random search: 143489 feasible (g, x, L) found, 0 with x < 0, 0 above the bound
+[N2] item 6: kappa < 0 satisfiable
+  kappa = -1.0: cls = id, v(n) = Lambda(n)/kappa; max over 2 <= n <= 2000 of |fiber sum - kappa v(n)| = 0.0e+00
+  kappa = -0.5: cls = id, v(n) = Lambda(n)/kappa; max over 2 <= n <= 2000 of |fiber sum - kappa v(n)| = 0.0e+00
+  kappa = 0: hA9 at n = 2 would give a nonnegative sum containing Lambda(2) = log 2 = 0.693147 equal to 0 -- contradictory
+[N3] item 8: first prime violating log p / kappa <= (1+2g)(1+r_g)
+  kappa = 1.000000, g = 0.0: bound B = 2.000000, exp(kappa B) = 7.389, first violating prime 11
+  kappa = 1.000000, g = 1.0: bound B = 9.000000, exp(kappa B) = 8103.084, first violating prime 8111
+  kappa = 1.000000, g = 2.0: bound B = 17.807764, exp(kappa B) = 54176839.742, first violating prime 54176849
+  kappa = 0.693147, g = 1.0: bound B = 9.000000, exp(kappa B) = 512.000, first violating prime 521
+  kappa = 0.500000, g = 5.0: bound B = 51.717183, exp(kappa B) = 169919673403.938, first violating prime 169919673431
+[N4] items 2, 3: N = 0 gives log 0 = 0 in Mathlib; N == 0 on all primes makes the span {0} (finite) -- item 2 needs hpos;
+     item 3 with some N i = 0: hsupp would put every prime in the finite S -- impossible, so hpos is implied there.
+python3 errata_numbers.py  1.03s user 0.04s system 92% cpu 1.159 total
