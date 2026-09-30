@@ -45,7 +45,7 @@ for g in [0.0, 0.25, 0.5, 1.0, 1.5, 2.0, 5.0, 10.0, 50.0]:
     rng = np.random.default_rng(1)
     X = rng.uniform(0, 3*r*r + 3, 2_000_000); Lr = rng.uniform(0, closed*1.2 + 3, 2_000_000)
     feas = ((1 + X - Lr)**2 <= 4*g*g*X + 1e-12) & ((1 + X*X - Lr)**2 <= 4*g*g*X*X + 1e-12)
-    sup_rand = Lr[feas].max() if feas.any() else float('nan')
+    sup_rand = Lr[feas].max() if feas.any() else float('nan')  # nan at g = 0: the feasible set has measure zero there
     print(f'  g={g:6.2f}  r_g={r:9.6f}  r_g^2-r_g-2g={r*r-r-2*g:+.1e}  closed (1+2g)(1+r_g)={closed:12.6f}  grid sup={sup_grid:12.6f} at x={xarg:10.5f} (r_g^2={r*r:10.5f})  random sup={sup_rand:12.6f}')
 g0 = 0.0
 print('  g = 0 case: both inequalities are equalities, L = 1+x = 1+x^2, x in {0,1}, L in {1,2}; feasible_interval(0,1) =', feasible_interval(0.0, 1.0))
@@ -75,15 +75,24 @@ def h_K(g, k, al, be, yy):
     if k + 4*A < 0: return None
     return math.sqrt(2*g) * (math.sqrt(k) + math.sqrt(k + 4*A)) / 2
 def sup_L_K(g, k, al, be, xmax=400.0, n=400001):
+    def val(xx):
+        h1 = h_K(g, k, al, be, xx); h2 = h_K(g, k, al, be, xx*xx)
+        if h1 is None or h2 is None: return None
+        lo = max(1 + xx - h1, 1 + xx*xx - h2); hi = min(1 + xx + h1, 1 + xx*xx + h2)
+        return hi if hi >= lo else None
     best = -1e18; bx = None
     for xx in np.linspace(-xmax, xmax, n):
-        h1 = h_K(g, k, al, be, xx); h2 = h_K(g, k, al, be, xx*xx)
-        if h1 is None or h2 is None: continue
-        lo = max(1 + xx - h1, 1 + xx*xx - h2); hi = min(1 + xx + h1, 1 + xx*xx + h2)
-        if hi >= lo and hi > best: best, bx = hi, xx
+        v = val(xx)
+        if v is not None and v > best: best, bx = v, xx
+    step = 2*xmax/(n - 1)
+    for _ in range(3):                      # local refinement around the grid maximizer
+        for xx in np.linspace(bx - step, bx + step, 20001):
+            v = val(xx)
+            if v is not None and v > best: best, bx = v, xx
+        step /= 1000
     return best, bx
 for (g, k, al, be, label) in [(1.0, 0.0, 2.0, 0.0, 'product case K = delta_B(C1+C2), g=1: k=0, alpha=2g, beta=0 (must equal [1]: 9)'),
-                              (2.0, 0.0, 4.0, 0.0, 'product case g=2 (must equal [1]: 5*4.37228... = 21.86)'),
+                              (2.0, 0.0, 4.0, 0.0, 'product case g=2 (must equal [1]: 17.807764)'),
                               (1.0, 0.5, 3.0, 0.2, 'non-product K, g=1, def(K)=0.5, alpha=3, beta=0.2'),
                               (1.0, 5.0, 10.0, 3.0, 'non-product K, g=1, def(K)=5, alpha=10, beta=3'),
                               (0.3, 2.0, -1.0, 4.0, 'non-product K with alpha<0 (y bounded by feasibility)')]:

@@ -88,3 +88,18 @@ established: each solution statement coincides constant for constant with its ch
 definition layer); the proofs use no axiom outside the three; nanoda re-checked the solution export and Lean's kernel replayed it. SHA-256
 `comparator-run.log` = ea685bae7d4e4415d7a72fd25e1ec24f4c8beed7deca9a31c1002ed9bf835602.
 Next: BUILD-NOTES.md, FIDELITY.md, the yaml rows, the README section, the lint, hashes.txt.
+
+## [builder] Wed Sep 30 17:45:14 IST 2026 — deliverable 5 landed; the BUILDER's work is complete (hand-off to the orchestrator, then the clean-clone CHECKER)
+`BUILD-NOTES.md` (SHA-256 f882e480d764c2f554d042f6903fe28b9e2cef0f15d7d8544e579c99af56ab25), `FIDELITY.md` (b25f4f45c9df01145ff83921ccc55c4ea9690451c155c2c7ff7732ce100df3c2; covered: the eight statements; NOT covered: A6–A8 and A7's graphs, the target Y, the
+general-base Theorem R, Lemma F(a)'s second clause as a topic statement and Lemma F(c), the rung-1 side, the geometric reading of items 7–8, ζ, RH;
+fidelity divergences in the brief's sense: NONE; **item 6's `hκ` is NOT used by the proof**), `lean/formalization.yaml` (status.scope sentence,
+main_results entry, automation model "Claude Opus 5.5", fidelity row (aa), review.notes paragraph, two namespaces, three alignment rows;
+`yaml-validation.log`: the D5/H5/H4 validator — VALIDATION errors 0, undeclared names 0, RESULT PASS), `lean/README.md` section "ResidueRank (Session
+36, 2026-09-30)" (its quick-check commands re-run as written: RESULT PASS, 8 hits), `lint-10g.log` (`tools/lint_10g.py`: the four banned phrases 0
+everywhere, the brief's forbidden phrasings 0 everywhere — read from the brief, not quoted —, British forms 0, five RH/zeros lines without an
+on-line negation reviewed by hand: disclaimers and the Lean case name `zero`; PASS), `hashes.txt` (SHA-256 2badc8cfa545c73b9973a611bb7f4cfe1501a539444568fba50c6554053b8073; 33 files).
+PREDERIVATION-ERRATA.md final SHA-256 d0431cb5213a8d51d31deb1d67d5c030d144538d1c47a56642a062adb97383a0 (after its §4 addendum).
+**Outcome.** All eight statements PROVED; the Comparator run with nanoda PASSES; every name at `[propext, Classical.choice, Quot.sound]`; the label of
+UNIT-BRIEF §1(3) is earned verbatim; no stop line fired. For the orchestrator: ERRATUM **E1** against the brief's item-6 parenthetical (κ < 0 is not
+contradictory; the proof needs no hypothesis on κ); the removable displayed hypotheses E2–E5 (kept verbatim; removals kernel-checked program-side);
+item 7's bound is attained (E7). Nothing committed. Nothing about ζ's zeros or RH follows.

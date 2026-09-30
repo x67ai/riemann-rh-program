@@ -1,0 +1,167 @@
+
+====================================================================================================
+[1] Theorem S(a): sup{L : (1+x-L)^2 <= 4g^2 x and (1+x^2-L)^2 <= 4g^2 x^2} against (1+2g)(1+r_g)
+====================================================================================================
+  g=  0.00  r_g= 1.000000  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=    2.000000  grid sup=    2.000000 at x=   1.00000 (r_g^2=   1.00000)  random sup=         nan
+  g=  0.25  r_g= 1.366025  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=    3.549038  grid sup=    3.549038 at x=   1.86603 (r_g^2=   1.86603)  random sup=    3.546096
+  g=  0.50  r_g= 1.618034  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=    5.236068  grid sup=    5.236068 at x=   2.61803 (r_g^2=   2.61803)  random sup=    5.215974
+  g=  1.00  r_g= 2.000000  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=    9.000000  grid sup=    9.000000 at x=   4.00000 (r_g^2=   4.00000)  random sup=    8.986728
+  g=  1.50  r_g= 2.302776  r_g^2-r_g-2g=+8.9e-16  closed (1+2g)(1+r_g)=   13.211103  grid sup=   13.211103 at x=   5.30278 (r_g^2=   5.30278)  random sup=   13.164427
+  g=  2.00  r_g= 2.561553  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=   17.807764  grid sup=   17.807764 at x=   6.56155 (r_g^2=   6.56155)  random sup=   17.800827
+  g=  5.00  r_g= 3.701562  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=   51.717183  grid sup=   51.717183 at x=  13.70156 (r_g^2=  13.70156)  random sup=   51.654773
+  g= 10.00  r_g= 5.000000  r_g^2-r_g-2g=+0.0e+00  closed (1+2g)(1+r_g)=  126.000000  grid sup=  126.000000 at x=  25.00000 (r_g^2=  25.00000)  random sup=  125.768057
+  g= 50.00  r_g=10.512492  r_g^2-r_g-2g=+1.4e-14  closed (1+2g)(1+r_g)= 1162.761712  grid sup= 1162.760175 at x= 110.51223 (r_g^2= 110.51249)  random sup= 1161.415747
+  g = 0 case: both inequalities are equalities, L = 1+x = 1+x^2, x in {0,1}, L in {1,2}; feasible_interval(0,1) = (2.0, 2.0)
+  kappa = 1 prime thresholds: the smallest prime p with log p > (1+2g)(1+r_g) contradicts Theorem S at p
+    g= 0.00: bound B=2.000000, e^B=7.389056e+00, first contradicting prime p=11 (log p=2.397895)
+    g= 0.25: bound B=3.549038, e^B=3.477985e+01, first contradicting prime p=37 (log p=3.610918)
+    g= 0.50: bound B=5.236068, e^B=1.879297e+02, first contradicting prime p=191 (log p=5.252273)
+    g= 1.00: bound B=9.000000, e^B=8.103084e+03, first contradicting prime p=8111 (log p=9.000976)
+    g= 2.00: bound B=17.807764, e^B=5.417684e+07, first contradicting prime p=54176849 (log p=17.807764)
+    g= 5.00: bound B=51.717183, e^B=2.887270e+22, first contradicting prime p=28872695409700902010883 (log p=51.717183)
+    kappa=0.693147, g=1: log p <= 6.238325; first contradicting prime 521
+    kappa=0.500000, g=1: log p <= 4.500000; first contradicting prime 97
+
+====================================================================================================
+[2] Theorem S(b): canonical-class form. B(K,Gamma) = A(y) - D with A(y) = (d1(K)+2) y + d2(K) - delta_B (sympy identity);
+    |1+y-L| <= sqrt(2g) (sqrt(k) + sqrt(k + 4A(y)))/2 at y = x and x^2 gives a finite sup L0
+====================================================================================================
+  B(K,Gamma) - [ (d1K+2) y + d2K - deltaB - D ] simplifies to: 0
+  product case K = delta_B(C1+C2), g=1: k=0, alpha=2g, beta=0 (must equal [1]: 9): sup L0 = 9.000000 at x = 4.0000; kappa=1 prime threshold e^L0 = 8.1031e+03
+  product case g=2 (must equal [1]: 17.807764): sup L0 = 17.807764 at x = 6.5616; kappa=1 prime threshold e^L0 = 5.4177e+07
+  non-product K, g=1, def(K)=0.5, alpha=3, beta=0.2: sup L0 = 11.719003 at x = 4.7950; kappa=1 prime threshold e^L0 = 1.2288e+05
+  non-product K, g=1, def(K)=5, alpha=10, beta=3: sup L0 = 22.806741 at x = 7.5758; kappa=1 prime threshold e^L0 = 8.0323e+09
+  non-product K with alpha<0 (y bounded by feasibility): sup L0 = 4.861825 at x = 2.1188; kappa=1 prime threshold e^L0 = 1.2926e+02
+
+====================================================================================================
+[3] Degree clause d(phi_n) = n: first n >= 2 violating (1 + n - Lambda(n)/kappa)^2 <= 4 g^2 n
+====================================================================================================
+  kappa=1.000000 g=  1.0: first violating n = 4 (Lambda=0.6931); first violating n = 2^k at k = 2
+  kappa=1.000000 g=  2.0: first violating n = 14 (Lambda=0.0000); first violating n = 2^k at k = 4
+  kappa=1.000000 g=  5.0: first violating n = 98 (Lambda=0.0000); first violating n = 2^k at k = 7
+  kappa=1.000000 g= 10.0: first violating n = 398 (Lambda=0.0000); first violating n = 2^k at k = 9
+  kappa=0.693147 g=  1.0: first violating n = 6 (Lambda=0.0000); first violating n = 2^k at k = 3
+  kappa=0.693147 g=  2.0: first violating n = 14 (Lambda=0.0000); first violating n = 2^k at k = 5
+  kappa=0.693147 g=  5.0: first violating n = 98 (Lambda=0.0000); first violating n = 2^k at k = 7
+  kappa=0.693147 g= 10.0: first violating n = 398 (Lambda=0.0000); first violating n = 2^k at k = 9
+  kappa=0.500000 g=  1.0: first violating n = 6 (Lambda=0.0000); first violating n = 2^k at k = 3
+  kappa=0.500000 g=  2.0: first violating n = 14 (Lambda=0.0000); first violating n = 2^k at k = 5
+  kappa=0.500000 g=  5.0: first violating n = 98 (Lambda=0.0000); first violating n = 2^k at k = 7
+  kappa=0.500000 g= 10.0: first violating n = 398 (Lambda=0.0000); first violating n = 2^k at k = 9
+  threshold g*(n) = |1+n-Lambda(n)|/(2 sqrt n) at kappa = 1 (the clause kills every g < g*(n)):
+    n=       2  Lambda=0.693147  g*=0.815596
+    n=       3  Lambda=1.098612  g*=0.837558
+    n=       4  Lambda=0.693147  g*=1.076713
+    n=       5  Lambda=1.609438  g*=0.981760
+    n=       6  Lambda=0.000000  g*=1.428869
+    n=      10  Lambda=0.000000  g*=1.739253
+    n=      30  Lambda=0.000000  g*=2.829900
+    n=     210  Lambda=0.000000  g*=7.280192
+    n=    2310  Lambda=0.000000  g*=24.041633
+    n=   30030  Lambda=0.000000  g*=86.648716
+    n=    1024  Lambda=0.693147  g*=16.004795
+    n= 1048576  Lambda=0.693147  g*=512.000150
+  number ring K = Q(i): the weight of the norm fiber W(n) = sum_{N(a)=n} Lambda_K(a) <= [K:Q] log n = 2 log n:
+    max_{2<=n<=5000} W(n)/log n = 2.000000 at n = 4993 (<= 2 = [K:Q])
+
+====================================================================================================
+[4] The (c-K) Gram model: degree clause, A9, injective c, index one on span(C1,C2,Delta,Gamma_n), (H-adj) false; K_Y cannot join
+====================================================================================================
+  g=1, n=2..40: Schur complement 2g - sum eps_n^2/D_n = 1.500000 (= 2 - sum_n 2^-n > 0); min eigenvalue of the normalized Gram = 5.000e-01
+  inertia of the intersection form on (C1,C2,Delta,Gamma_2..Gamma_40): #pos=1, #neg=41, #zero=0
+  A9 check (Delta.Gamma_n = Lambda(n)/kappa): True ; C1^2, C2^2, C1.C2 = 0.0 0.0 1.0 ; d1(Gamma)=Gamma.C1, d2(Gamma)=Gamma.C2 for n=6: 1.0 6.0
+  self-intersections Gamma_n^2 = 2n - D_n (product adjunction would give n(2-2g) = 0): ['-1.729e+01', '-6.134e+01', '-2.888e+02', '-6.069e+02', '-3.124e+03', '-4.677e+03']
+  adding a canonical class K with adjunction K.Gamma_n = delta_B - Gamma_n^2 (delta_B = 2g-2 = 0): the 2x2 minor
+  def(K) def(Gamma_n) - B(K,Gamma_n)^2 for sample (d1K, d2K, def K); negative from n0 on ⇒ K is not in any index-one space:
+    d1K=0.0, d2K=0.0, def(K)=1: first n with a negative minor = 2; negative for all n >= 2 up to 40: True
+    d1K=1.0, d2K=-2.0, def(K)=100: first n with a negative minor = 4; negative for all n >= 4 up to 40: True
+    d1K=5.0, d2K=5.0, def(K)=1e+06: first n with a negative minor = 13; negative for all n >= 13 up to 40: True
+
+====================================================================================================
+[5] Rung 1 (the positive control): closed points by degree; (H-inj2) at a closed point needs it to be the ONLY prime-power
+    divisor of degree N and of degree 2N; Weil |1+q^N-N_N| <= 2g q^{N/2}; Theorem S fires nowhere
+====================================================================================================
+  y^2=x^3+x+1 / F_7 (g=1): N_1..N_4 = [5, 55, 380, 2475]; closed points of degree 1..8 = [5, 25, 125, 605, 3354, 19435, 117420, 720225]
+    min_N<=40 #closed points of degree N = 5 (>= 2 ⇒ every fiber over Fr^N holds >= 2 prime-power divisors ⇒ (H-inj2) fails at EVERY closed point)
+    Weil: max_N<=40 |1+q^N-N_N|/(2 q^(N/2)) = 0.999844 (<= g = 1)
+  genus-2 curve y^2 = f(x), f coefficients [1, 0, 0, 0, 0, 1] over F_3: N_1=4, N_2=10; |alpha_i| = [1.73205081 1.73205081 1.73205081 1.73205081] (sqrt 3 = 1.732050808)
+    closed points of degree 1..8 = [4, 3, 8, 27, 48, 116, 312, 765]; min over N<=30 = 3
+    closed points at which (H-inj2) holds (N <= 15): degrees []  (empty ⇒ Theorem S has no prime to act on)
+    Weil: max_N<=30 |1+q^N-N_N|/(2 q^(N/2)) = 2.000000 (<= g = 2)
+  the norm-fiber form of Theorem S on rung 1 is Weil's inequality (1+q^N-N_N)^2 <= 4 g^2 q^N: holds for both curves (above).
+
+====================================================================================================
+[6] Proposition A toy: 0/1 sequences e(k) obeying sum_j c_j e(k+j) = 0 with c from P(x) = (x-1)(x-d_p)prod(x-chi_i)
+====================================================================================================
+  d_p=2, chi=3: r=3, 0/1 solutions (of 2^r=8 initial states) = 2; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 840: True; preperiod <= 2^r: True
+  d_p=2, chi=-1: r=3, 0/1 solutions (of 2^r=8 initial states) = 4; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 2, [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]), (1, 2, [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 840: True; preperiod <= 2^r: True
+  d_p=2, chi=1+sqrt2: r=3, 0/1 solutions (of 2^r=8 initial states) = 2; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 840: True; preperiod <= 2^r: True
+  d_p=2, chi=i: r=3, 0/1 solutions (of 2^r=8 initial states) = 2; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 840: True; preperiod <= 2^r: True
+  d_p=3, chi=-1, chi=omega (cube root of 1): r=4, 0/1 solutions (of 2^r=16 initial states) = 4; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 2, [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]), (1, 2, [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 720720: True; preperiod <= 2^r: True
+  d_p=1 (double base 1), chi=-1: r=3, 0/1 solutions (of 2^r=8 initial states) = 4; (start index of periodicity, period, first 12 terms) = [(1, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), (1, 2, [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]), (1, 2, [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]), (1, 1, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])]; all periods divide lcm(1..2^r) = 840: True; preperiod <= 2^r: True
+  base-1 coefficient bound: in a_k = 1 + d_p^k - sum_i chi_i(p)^k the coefficient of 1^k is 1 + [d_p=1] - #{i: chi_i(p)=1} <= 2;
+  a constant (or periodic) sequence a_k = log N/kappa >= log p/kappa therefore forces log p <= 2 kappa: first failing primes
+    kappa=1.000000: first prime with log p > 2 kappa: 11
+    kappa=0.693147: first prime with log p > 2 kappa: 5
+    kappa=0.500000: first prime with log p > 2 kappa: 3
+    kappa=2.000000: first prime with log p > 2 kappa: 59
+
+====================================================================================================
+[7] Chebyshev lower bound theta(x) >= c x (re-derived: psi(2n) >= n log 4 - log(2n+1); psi - theta <= (log x)^2 sqrt(x)/(2 log 2))
+====================================================================================================
+  numeric: inf_{2<=x<100000969} theta(x)/x = 0.231049 (approached as x -> 3-); theta(10^8) = 99987730.018
+  the same infimum restricted to x >= 100: 0.843069; x >= 10^4: 0.982287
+  analytic: x=1e+06: lower bound/x = 0.555450 (increasing for x > e^4, so >= this value beyond)
+  analytic: x=1e+07: lower bound/x = 0.633884 (increasing for x > e^4, so >= this value beyond)
+  analytic: x=1e+08: lower bound/x = 0.668670 (increasing for x > e^4, so >= this value beyond)
+  analytic: x=1e+09: lower bound/x = 0.683351 (increasing for x > e^4, so >= this value beyond)
+  analytic: x=1e+12: lower bound/x = 0.692596 (increasing for x > e^4, so >= this value beyond)
+  sanity of the central-binomial step: n, log C(2n,n), psi(2n), n log 4 - log(2n+1):
+    n=10: 12.1268 <= 19.2657; lower 10.8184 <= 12.1268
+    n=100: 135.7532 <= 206.1459; lower 133.3261 <= 135.7532
+    n=1000: 1382.2680 <= 1994.4516; lower 1378.6930 <= 1382.2680
+  => theta(x) >= 0.23 x for every x >= 2 (numeric inf 0.2310 on [2,1e8], analytic >= 0.669 beyond 1e8); used in Lemma B.1
+
+====================================================================================================
+[8] Proposition B: greedy regradings of the rational primes (consecutive blocks S_N, deg l = N on S_N, phi_n = F^{deg n}, d(F^a) = d^a)
+====================================================================================================
+  sieve stopped at 5234491373 after 245443941 primes (7.2 s)
+  sieve sanity: pi(10^7) from sympy = 664579 (the streamed primes agree with sympy on the first segment: checked below)
+  streamed pi(10^7) = 664579
+
+  --- d = 2, kappa = 1.000000, N = 1..24 ---
+   N  #S_N        first         last          w_N              L_N          eps_N      e_N=eps_N d^(-N/2)   target_w   |kappa eps_N|  (1/2)log P_N
+   1         3            2            5          3.401197          3.401197   -0.401197  -2.836894e-01          3.000   0.401197   0.804719
+   2         1            7            7          1.945910          5.347108   -0.347108  -1.735538e-01          1.599   0.347108   0.972955
+   3         2           11           13          4.962845          8.364042   +0.635958  +2.248451e-01          5.599   0.635958   1.416607
+   4         4           17           29         12.280442         17.627550   -0.627550  -1.568875e-01         11.653   0.627550   1.683648
+   5         8           31           61         30.528528         33.929726   -0.929726  -1.643538e-01         29.599   0.929726   2.055437
+   6        12           67          113         53.950882         64.260834   +0.739166  +9.239576e-02         54.690   0.739166   2.422094
+   7        24          127          251        125.049156        128.450353   +0.549647  +4.858239e-02        125.599   0.549647   2.774538
+   8        41          257          499        242.435484        260.063034   -3.063034  -1.914396e-01        239.372   3.063034   3.106303
+   9        76          503         1019        502.454785        510.818827   +2.181173  +9.639516e-02        504.636   2.181173   3.464269
+  10       135         1021         2017        985.648127       1021.523763   +3.476237  +1.086324e-01        989.124   3.476237   3.807156
+  11       256         2027         4079       2048.115972       2051.517170   -2.517170  -5.562212e-02       2045.599   2.517170   4.156804
+  12       462         4091         8161       4017.329174       4093.870451   +3.129549  +4.889921e-02       4020.459   3.129549   4.503928
+  13       872         8167        16349       8188.173052       8191.574250   +1.425750  +1.575246e-02       8189.599   1.425750   4.851328
+  14      1612        16361        32707      16256.971579      16387.367842   -2.367842  -1.849877e-02      16254.604   2.367842   5.197672
+  15      3037        32713        65543      32734.286126      32773.178696   -4.178696  -2.308425e-02      32730.107   4.178696   5.545231
+  16      5690        65551       130841      65278.018765      65538.081799   -1.081799  -4.225776e-03      65276.937   1.081799   5.890869
+  17     10773       130843       262237     131064.465289     131067.866486   +5.133514  +1.417946e-02     131069.599   5.133514   6.238532
+  18     20341       262253       523763     261575.353264     262142.068883   +2.931117  +5.724839e-03     261578.284   2.931117   6.584405
+  19     38684       523771      1048661     524280.531430     524283.932627   +5.067373  +6.998386e-03     524285.599   5.067373   6.931522
+  20     73531      1048681      2096431    1047545.364089    1048579.168294   -2.168294  -2.117475e-03    1047543.196   2.168294   7.277873
+  21    140366      2096449      4194023    2097016.648357    2097150.061554   +2.938446  +2.029097e-03    2097019.587   2.938446   7.624595
+  22    268168      4194103      8387471    4192250.539797    4194304.002877   +0.997123  +4.868767e-04    4192251.537   0.997123   7.971125
+  23    513812      8387473     16777853    8388611.750815    8388615.152012   -6.152012  -2.124087e-03    8388605.599   6.152012   8.317785
+  24    985511     16777903     33549821   16772873.039166   16777209.345101   +7.654899  +1.868872e-03   16772880.694   7.654899   8.664271
+  Lemma B.1: all block targets >= 0: True; |kappa eps_N| <= (1/2) log P_N for all N: True; max_N (log P_N - N log d) = 0.9163
+  Theorem R: primes used = 2063421 (each once, consecutive), nonempty blocks = 24 of 24 (their w_N have disjoint prime supports ⇒ Q-independent)
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 434, in <module>
+    report(G, d, kap, Nm)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 395, in report
+    Hs = [kap*d**(N+1)/(d-1) - c - (N/2)*(N*math.log(d) + Cb) - kap*N for N in range(Nm + 1, 2001)]
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/d4-infty-s36/verify/numbers_check.py", line 395, in <listcomp>
+    Hs = [kap*d**(N+1)/(d-1) - c - (N/2)*(N*math.log(d) + Cb) - kap*N for N in range(Nm + 1, 2001)]
+OverflowError: int too large to convert to float
