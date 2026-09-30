@@ -241,6 +241,25 @@ if __name__ == '__main__':
             rep['n_seeds'] = nseeds
         print(f'[{tag}] located {len(off)} off-line zeros from the branch band  ({time.time()-t0:.0f}s)'); sys.stdout.flush()
         if len(off) < n_off/2:
+            # near-line band (in-strip off-line zeros are not on the branch): grid minima of |E| on
+            # Re s in {0.6, 0.75, 0.9, 1.05, 1.25, 1.5}, t step 0.25, then secant
+            band = {}
+            sigs = [mp.mpf(x) for x in ('0.6', '0.75', '0.9', '1.05', '1.25', '1.5')]
+            nt = int(T/mp.mpf('0.25'))
+            for i, sg in enumerate(sigs):
+                for j in range(1, nt + 1):
+                    z = mp.mpc(sg, mp.mpf(j)/4)
+                    band[(i, j)] = (z, abs(E(z)))
+            for (i, j), (z, v) in band.items():
+                nb = [band.get((i + a, j + b)) for a in (-1, 0, 1) for b in (-1, 0, 1) if (a, b) != (0, 0)]
+                nb = [x for x in nb if x is not None]
+                if len(nb) >= 3 and all(v <= x[1] for x in nb):
+                    r, it, ok = st.secant_complex(E, z, z + mp.mpc('0.02', '0.02'))
+                    if ok and r.real > mp.mpf('0.5') + mp.mpf('1e-12') and 0 < r.imag <= T and all(abs(r - q) > mp.mpf('1e-10') for q in off):
+                        off.append(r)
+            off.sort(key=lambda z: z.imag)
+            print(f'[{tag}] near-line band: now {len(off)} off-line zeros  ({time.time()-t0:.0f}s)'); sys.stdout.flush()
+        if len(off) < n_off/2:
             # quadtree over the whole half-box, avoiding a thin strip at the line
             print(f'[{tag}] missing {n_off/2 - len(off)}; running quadtree on [0.5+1e-3, smax] x [0, T]'); sys.stdout.flush()
             q = quadtree(E, mp.mpf('0.501'), smax, mp.mpf('0.05'), T)
