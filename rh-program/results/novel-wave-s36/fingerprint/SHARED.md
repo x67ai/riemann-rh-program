@@ -72,3 +72,59 @@ toys) → U2 ζ tables by Arb (moments at 1/2; Li at 1) → U3 zeros cross-check
 - **Information content:** the site n corresponds (WKB turning point) to height t_n ≈ 2n/L_n; α_n for n ≤ 999 encode
   the zeros up to t ≈ 533 (≈ 293 zeros): about π coefficients per zero.
 - Running now: ζ circle side (λ_n, Verblunsky) N = 1000 at 24 000/30 000 bits → tables/zeta_circle_P24000_S1000.json.
+
+## 2026-09-30 19:15 — Unit 2b: ζ circle side + the Szegő identity (u2_prod.py circle; u4_mine_circle.py)
+
+- **ζ circle side, N = 1000 (tables/zeta_circle_P24000_S1000.json):** λ_1..λ_1001 certified positive (Arb balls,
+  ≥ 6891 certified digits); Verblunsky α_0..α_999 of σ = Σ_ρ |ρ|^{−2}δ_{1−1/ρ} by Levinson at 24 000 and 30 000 bits
+  and by the Schur algorithm (independent) — verified digits (min agreement) 7223 at n = 0, 2528 at n = 800;
+  all |α_n| < 1. λ_1..λ_5 = 0.02309570896612103, 0.09234573522804667, 0.2076389205543248, 0.3687904794922416,
+  0.5755427144611775; λ_1000 = 2326.053161686466. α_0..α_5 = 0.9991968067208526, −0.9988664119479066,
+  0.9993846794038305, −0.9994634913667254, 0.9996375132820949, −0.9996647738964953.
+- **Sign law (all n ≤ 999):** α_n = (−1)^n |α_n| (σ lives on the arc |θ| ≤ 2 arctan(1/(2·14.13)) ≈ 0.0707 around z = 1).
+- **Circle asymptotic law:** ε_n := 1 − |α_n| ≈ W(n/2π)²/(32 n²); ratio ε_n/pred at n = 100, 400, 800, 998, 999:
+  1.035, 0.972, 1.008, 1.003, 0.989 (oscillating, as on the real side).
+- **Proposition S (Szegő identity; proof = Szegő's mapping theorem + push-forward computation, NOTE §2):** the
+  Verblunsky data of σ ARE the Jacobi data (Geronimus relations) of μ_Sz = Σ_{γ>0} 4v δ_v, v = 1/(2|ρ|²), i.e. of the
+  SHIFTED real problem F̃(w) = Σ_{γ>0} 1/(1/4 + γ² − w) (log ξ expanded at s = 1 in w = s(1−s)). Checked: Route A
+  (α_n → Geronimus) vs Route B (log ξ(1+u) ∘ u(w), u = (√(1−4w) − 1)/2 → S-fraction, Arb) agree to 3.6e-53
+  (diagonal) and 4.8e-50 (off-diagonal) for n = 1..149 (limited by the 60-digit table strings). So the seed's two
+  families (i) and (ii) are ONE object at two expansion points (s = 1/2 vs s = 1), not two.
+- Intrinsic conditioning is the same on both sides (≈ 6 digits per index), as Proposition S predicts.
+- **Prior art (first sweep, verify/u7_arxiv.py, verify/arxiv/summary.json):** Zhang arXiv:1510.03420 (genus-0 entire
+  function has only positive zeros ⟺ Hausdorff moment condition on power sums; applied to RH) — Grommer-type
+  criterion is on arXiv; Voros arXiv:1403.4558, 1602.03292, 1703.02844, 2204.01036 (superzeta functions = our power
+  sums; Keiper–Li asymptotic criterion; DH analogs "selectively react to zeros off the critical line");
+  Suzuki arXiv:2206.03682 (screw function; an analog of Weil positivity / Li's criterion); Romik arXiv:1902.06330;
+  Johansson arXiv:1309.2877 (Arb; Keiper–Li record computations); Farmer arXiv:2008.07206 (criteria for useful RH
+  equivalences). No hit for Jacobi/Verblunsky/Schur parameters of ζ's zero measure (single check; V.5: not evidence).
+
+## 2026-09-30 19:45 — Unit 3 (zeros route, independent) + Unit 5a (controls, first batch)
+
+**U3 (verify/u3_zeros.py, u3a_zeros_chunk.py; run_u3.out; u3_zeros_N30000.json):** 30 001 zeros by Arb
+(acb.zeta_zeros, certified on the line, 138 bits; tables/zeta_zeros_arb.txt); mpmath.zetazero (independent code)
+agrees to 2e-34..4e-31 at n = 1..10⁴. Tail beyond T = 25755.53 (N(T) = 30000 exactly; S(T) = −0.39795) by the
+smooth density θ′/π plus the boundary term −f(T)S(T). Against the Arb Taylor route:
+- s_1: 1.7e-12 rel (predicted ≤ 2.6e-11); s_2: 3.2e-18; s_3: 1.9e-24; s_4: 1.2e-30; s_5..s_12: 2–4e-34 (zeros' 34 digits).
+- λ_n: |diff| = 3.95e-14·n² exactly for n = 1..1000 (tail-model residual ∝ n²; λ_1000 agrees to 4e-8).
+- S-fraction α_n by Lanczos with full reorthogonalization on ±1/γ + discretized tail: rel diff 5e-13..2.7e-11 for
+  n = 1..400 (real side) and the same for the SHIFTED problem (circle side via Proposition S).
+- Two lessons recorded: (i) the plain discretized Stieltjes procedure is UNSTABLE for these compact Jacobi operators
+  (O(1) errors by n = 50) — Lanczos+reorth is needed; (ii) the tail is not optional: without it the sin toy's α_n
+  are off by 1.4e-3 at n = 100 and 7e-3 at n = 400 with 30 000 zeros (sensitivity ~ n/N), with it 4e-8.
+- Bugs caught and fixed in-run (logged): zeros parsed at 15 digits (mp.dps set late); a missing Jacobian e^v in the
+  shifted tail weight (gave 1e-3 errors); 53-bit constants in the function-field script.
+
+**U5a controls (verify/run_controls.sh → run_controls.out; u5_function_field.py → .log/.json):**
+- Curves over F_q (exact, RH-true): y² = x³+x+1/F₅ (c1 = −3), y² = x⁵+x+1/F₅ (L = (1+5T²)², supersingular square),
+  y² = x⁵+2x+3/F₇ (c1 = −1, c2 = 7): α_1..α_299 ALL certified positive. The w-side S-fraction does NOT terminate
+  (periodic zeros); WKB with constant density: 4n√α_n → 2·(distinct-zero density)·π = 2g log q: observed 3.06–3.41
+  (pred 3.22), 3.21888 (pred 2 log 5 = 3.21888, double zeros count once: multiplicity only rescales weights),
+  7.61–8.18 (pred 7.78). "Fake curves" with Hasse broken (c1 = 5, 6, 9 over F₅): α_1 < 0 (index 1).
+- L(s, χ₄) (RH-true): α_1..α_599 certified positive (16 000 bits). ✓
+- F_{2,2} = ζ(s)(1 + 2·2^{−s} + 2^{1−2s}) (Hasse-bounded local factor, |a| < 2√2, RH-true): α_1..α_599 certified
+  positive. ✓
+- F_{a,q} RH-false (a > 2√q): (3,2), (2.9,2): first negative α at S-index 3 (J-index 2); (4.5,5): S-index 4 (J 2).
+- Euler factor removed, symmetrized, ξ(s)(1 − p^{−s})(1 − p^{s−1}) (= F_{−(p+1),p}): p = 2, 3, 7: α_1 < 0 (index 1);
+  p = 10⁹+7: α_2 < 0 (J-index 1). Positivity dies at the first index — see task (d).
+- Running: DH real side (16 000 bits, M = 600).

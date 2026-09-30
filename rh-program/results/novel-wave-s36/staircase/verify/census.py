@@ -37,6 +37,15 @@ def make_member(chain_name, N, extra=None):
     elif chain_name == 'chi4':
         C = st.Chain('chi4')
         w = st.w_trunc(N)
+    elif chain_name == 'haglund':      # Haglund's Xi_N = xi_N - c_N (arXiv:0910.5228, (13)-(14))
+        C = st.Chain('zeta')
+        w = st.w_trunc(N)
+        cNh = st.c_N(N)
+
+        def E(s):
+            s = mp.mpc(s)
+            return st.E_auto(C, s, w, N) - cNh
+        return C, w, E
     else:
         raise ValueError(chain_name)
     kmax_direct = N if chain_name != 'smooth' else 10**6
@@ -191,7 +200,7 @@ if __name__ == '__main__':
     rep['suspicious_same_sign_minima'] = [mp.nstr(x, 10) for x in susp]
     print(f'[{tag}] real zeros: {len(zs)}; suspicious minima: {len(susp)}  ({time.time()-t0:.0f}s)'); sys.stdout.flush()
     # (2) branch curve & smax
-    if C.kind == 'zeta':
+    if C.kind == 'zeta' and chain_name != 'haglund':
         cN = st.c_N(N) if chain_name == 'zeta' else mp.fsum((4*mp.pi*n*n - 1)*mp.exp(-mp.pi*n*n)
                                                               for n in range(2, 400) if w(n) == 0)
     elif C.kind == 'Faq':

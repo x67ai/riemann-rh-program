@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/BZsH2wlgl7uIiFtb8fPTgBcmCJ0</id>
+  <title>arXiv Query: search_query=abs:Caratheodory AND abs:"Riemann hypothesis"&amp;id_list=&amp;start=0&amp;max_results=25</title>
+  <updated>2026-09-30T13:04:02Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Caratheodory+AND+abs:%22Riemann+hypothesis%22&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2511.22755v1</id>
+    <title>Zeta Spectral Triples</title>
+    <updated>2025-11-27T21:01:11Z</updated>
+    <link href="https://arxiv.org/abs/2511.22755v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.22755v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose and investigate a strategy toward a proof of the Riemann Hypothesis based on a spectral realization of its non-trivial zeros. Our approach constructs self-adjoint operators obtained as rank-one perturbations of the spectral triple associated with the scaling operator on the interval $[λ^{-1}, λ]$. The construction only involves the Euler products over the primes $p \leq x = λ^2$ and produces self-adjoint operators whose spectra coincide, with striking numerical accuracy, with the lowest non-trivial zeros of $ζ(1/2 + i s)$, even for small values of $x$.
+  The theoretical foundation rests on the framework introduced in "Spectral triples and zeta-cycles" (Enseign. Math. 69 (2023), no. 1-2, 93-148), together with the extension in "Quadratic Forms, Real Zeros and Echoes of the Spectral Action" (Commun. Math. Phys. (2025)) of the classical Caratheodory-Fejer theorem for Toeplitz matrices, which guarantees the necessary self-adjointness.
+  Numerical experiments show that the spectra of the operators converge towards the zeros of $ζ(1/2 + i s)$ as the parameters $N, λ\to \infty$. A rigorous proof of this convergence would establish the Riemann Hypothesis. We further compute the regularized determinants of these operators and discuss the analytic role they play in controlling and potentially proving the above result by showing that, suitably normalized, they converge towards the Riemann $Ξ$ function.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-27T21:01:11Z</published>
+    <arxiv:comment>34 pages, 4 Figures, to appear in EMS series Lectures Notes in Mathematics Title : Applications of Noncommutative Geometry to Gauge Theories, Field Theories, and Quantum Space-Time</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Alain Connes</name>
+    </author>
+    <author>
+      <name>Caterina Consani</name>
+    </author>
+    <author>
+      <name>Henri Moscovici</name>
+    </author>
+  </entry>
+</feed>

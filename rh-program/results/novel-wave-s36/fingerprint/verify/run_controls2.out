@@ -1,0 +1,20 @@
+=== eul:2 circle 3000 60 4000
+FUNC eul:2 SIDE circle P 3000 SIZE 60 P2 4000
+inputs 0.1s; lambda_1 = nan
+lambda_n not certified positive at: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Traceback (most recent call last):
+ValueError: leading term in denominator is not nonzero
+=== faq:3:2 circle 4000 150 5400
+FUNC faq:3:2 SIDE circle P 4000 SIZE 150 P2 5400
+inputs 0.3s; lambda_1 = [0.1386202390594452520505156 +/- 1.49e-27]
+lambda_n not certified positive at: []
+verified digits of alpha_n at n = 0, 100, 200, ...: [(0, 1203), (100, 782)]
+indices with |alpha_n| >= 1 or < 5 verified digits: [2, 4, 9, 11, 24, 26, 38, 40, 48, 50]
+saved tables/faq-3-2_circle_P4000_S150.json  total 1.1s
+=== chi4 circle 16000 600 20000
+FUNC chi4 SIDE circle P 16000 SIZE 600 P2 20000
+inputs 31.1s; lambda_1 = nan
+lambda_n not certified positive at: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Traceback (most recent call last):
+ValueError: leading term in denominator is not nonzero
+=== dh circle 24000 1000 30000

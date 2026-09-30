@@ -29,6 +29,7 @@ def say(*a):
 
 # ---------------- zeros ----------------
 zfile = os.path.join(tabdir, 'zeta_zeros_arb.txt')   # written by u3a_zeros_chunk.py (resumable)
+mp.mp.dps = 34   # BEFORE parsing the 34-digit zeros (a first run parsed them at 15 digits)
 g = []
 with open(zfile) as fh:
     for line in fh:
@@ -67,7 +68,7 @@ def load_real(tag):
     return json.load(open(os.path.join(tabdir, tag)))
 realtab = None
 for cand in sorted(os.listdir(tabdir)):
-    if cand.startswith('zeta_real_P') and cand.endswith('.json'):
+    if cand == 'zeta_real_P24000_S1000.json':
         realtab = cand
 R = load_real(realtab)
 say('comparing with', realtab)
@@ -87,7 +88,7 @@ out['power_sums'] = ps
 # (2) Li coefficients
 circtab = None
 for cand in sorted(os.listdir(tabdir)):
-    if cand.startswith('zeta_circle_P') and cand.endswith('.json'):
+    if cand == 'zeta_circle_P24000_S1000.json':
         circtab = cand
 if circtab:
     C = json.load(open(os.path.join(tabdir, circtab)))
@@ -111,23 +112,34 @@ if circtab:
 
 # (3) S-fraction via Stieltjes procedure on the symmetric measure (float64), toy first
 def stieltjes_sym(u, wt, nmax):
-    """Symmetric discrete measure: atoms +-u (u > 0) with weights wt/2 each.  Returns b_n^2, n = 1..nmax
-    (zero diagonal), via the discretized Stieltjes procedure with renormalization (float64)."""
+    """Symmetric discrete measure: atoms +-u with weights wt/2 each.  Returns b_n^2 (n = 1..nmax) of its
+    zero-diagonal Jacobi matrix = the S-fraction al_n of the push-forward y = u^2.  Lanczos on diag(x) with
+    start vector sqrt(W) and FULL reorthogonalization (twice) -- backward stable.  (The plain discretized
+    Stieltjes procedure is UNSTABLE here: forward recurrence at the isolated top atoms excites the growing
+    solution; a first run showed errors O(1) by n = 50.)"""
     x = np.concatenate([u, -u]); W = np.concatenate([wt, wt]) / 2
-    p_prev = np.zeros_like(x); p = np.ones_like(x)
-    nrm = np.sqrt(np.sum(W * p * p)); p = p / nrm
-    b_prev = 0.0
-    out = []
-    for n in range(nmax):
-        q = x * p - b_prev * p_prev
-        # diagonal a_n = sum W x p^2 = 0 by symmetry; enforce
-        b = np.sqrt(np.sum(W * q * q))
+    Wp = np.clip(W, 0, None)          # the tiny boundary correction can be negative: fold it into its neighbor
+    neg = W < 0
+    if neg.any():
+        # move negative boundary mass onto the nearest positive tail node (it is ~1e-10 of the tail mass)
+        Wp = W.copy(); Wp[neg] = 0.0
+        for j in np.where(neg)[0]:
+            k = np.argmin(np.abs(x[~neg] - x[j]))
+            idx = np.where(~neg)[0][k]
+            Wp[idx] += W[j]
+    Q = np.zeros((len(x), nmax + 1))
+    Q[:, 0] = np.sqrt(Wp) / np.sqrt(Wp.sum())
+    out = []; bprev = 0.0
+    for k in range(nmax):
+        v = x * Q[:, k] - (bprev * Q[:, k - 1] if k > 0 else 0.0)
+        for _ in range(2):
+            v -= Q[:, :k + 1] @ (Q[:, :k + 1].T @ v)
+        b = np.linalg.norm(v)
         out.append(b * b)
-        p_prev, p = p, q / b
-        b_prev = b
+        Q[:, k + 1] = v / b; bprev = b
     return np.array(out)
 
-def tail_nodes(Tt, dens, nq=120):
+def tail_nodes(Tt, dens, nq=60):
     """Discretize the continuous tail t in (Tt, inf) with density dens(t) (counting measure density),
     weight per zero t^-2, location u = 1/t.  Variable v = log(t/Tt) in (0, inf): Gauss-Laguerre after
     factoring e^{-v}:  t^-2 dens(t) dt = Tt^-1 e^{-v} dens(Tt e^v) dv."""
@@ -137,7 +149,7 @@ def tail_nodes(Tt, dens, nq=120):
     return 1.0 / t, wt
 
 # sin toy: zeros gamma_k = pi k, k <= K; tail density 1/pi; S(T) exact (T = pi (K + 1/2): N(T) = K, smooth N0 = T/pi = K + 1/2)
-K = 100000
+K = 30000
 gk = np.pi * np.arange(1, K + 1)
 Tt = np.pi * (K + 0.5)
 uT, wT = tail_nodes(Tt, lambda t: 1.0 / np.pi)
@@ -170,42 +182,28 @@ for n in (1, 2, 5, 10, 20, 50, 100, 150, 200, 300, 400):
         say('al_%d: zeros %.12e  arb %.12e  rel %.2e' % (n, b2z[n - 1], ref, abs(b2z[n - 1] - ref) / ref))
 out['sfrac_cmp'] = cmp_
 
-# (4) Verblunsky from atoms (Szego recursion), float64 complex
-def verblunsky_atoms(z, wt, nmax):
-    """Szego recursion evaluated on atoms z (|z| = 1) with weights wt; Simon convention.
-    Keeps phi_n(z_j) and phi_n^*(z_j) (orthonormal versions)."""
-    W = wt / wt.sum()
-    ph = np.ones_like(z); phs = np.ones_like(z)
-    al = []
-    for n in range(nmax):
-        # alpha_n = conj( <z phi_n, 1> / <phi_n^*, 1> )  with <f,1> = sum W f
-        a = np.conj(np.sum(W * z * ph) / np.sum(W * phs))
-        al.append(a)
-        rho = np.sqrt(1 - abs(a) ** 2)
-        ph, phs = (z * ph - np.conj(a) * phs) / rho, (phs - a * z * ph) / rho
-    return np.array(al)
-
-if circtab:
-    rho = 0.5 + 1j * gz
-    zr = 1 - 1 / rho
-    wr = 1 / np.abs(rho) ** 2
-    # tail: rho = 1/2 + it, t > T, density theta'/pi, weight 1/|rho|^2 ~ t^-2
-    tq, wq = np.polynomial.laguerre.laggauss(160)
+# (4) circle side, via Szego-Geronimus (verified in u4_mine_circle to 1e-50): the Verblunsky data of sigma are
+# the Jacobi data of the SHIFTED measure nu~ = sum |rho|^-2 delta_{|rho|^-2}; cross-check its S-fraction
+# (Arb route, tables/zeta_shifted_real_P12000_S420.json) by Lanczos on the zeros + tail.
+shf = os.path.join(tabdir, 'zeta_shifted_real_P12000_S420.json')
+if os.path.exists(shf):
+    S = json.load(open(shf))
+    ut = 1.0 / np.sqrt(0.25 + gz ** 2)
+    tq, wq = np.polynomial.laguerre.laggauss(60)
     tt = Tf * np.exp(tq)
-    zt = 1 - 1 / (0.5 + 1j * tt)
-    wtl = wq * tt * np.array([float(dtheta(mp.mpf(x)) / mp.pi) for x in tt]) / (0.25 + tt ** 2)
-    zb = 1 - 1 / (0.5 + 1j * Tf); wb = -float(ST) / (0.25 + Tf ** 2)
-    Z = np.concatenate([zr, np.conj(zr), zt, np.conj(zt), [zb, np.conj(zb)]])
-    Wt = np.concatenate([wr, wr, wtl, wtl, [wb, wb]])
-    aV = verblunsky_atoms(Z, Wt, 400)
+    # Gauss-Laguerre in v = log(t/T): dens(t) dt/(1/4+t^2) = e^{-v} [e^{v} dens(t) t/(1/4+t^2)] dv, e^{v} = t/T
+    # (a first run omitted the factor e^{v} = t/T and was off by ~1e-3 -- the tail share)
+    wtl = wq * (tt / Tf) * tt * np.array([float(dtheta(mp.mpf(float(x))) / mp.pi) for x in tt]) / (0.25 + tt ** 2)
+    uu = np.concatenate([ut, 1.0 / np.sqrt(0.25 + tt ** 2), [1.0 / np.sqrt(0.25 + Tf ** 2)]])
+    ww = np.concatenate([1.0 / (0.25 + gz ** 2), wtl, [-float(ST) / (0.25 + Tf ** 2)]])
+    b2s = stieltjes_sym(uu, ww, 400)
     cv = []
-    for n in (0, 1, 2, 5, 10, 20, 50, 100, 200, 300, 399):
-        if n < len(C['alpha']):
-            ref = float(mp.mpf(C['alpha'][n]['v']))
-            cv.append({'n': n, 'zeros_szego': '%.15e' % aV[n].real, 'imag': '%.1e' % aV[n].imag, 'arb': '%.15e' % ref,
-                       'abs_diff': '%.2e' % abs(aV[n].real - ref), '1-|alpha|_arb': '%.6e' % (1 - abs(ref))})
-            say('alpha_%d: zeros %.12e  arb %.12e  |diff| %.2e  (1-|alpha| = %.3e)' % (n, aV[n].real, ref, abs(aV[n].real - ref), 1 - abs(ref)))
-    out['verblunsky_cmp'] = cv
+    for n in (1, 2, 5, 10, 20, 50, 100, 150, 200, 300, 400):
+        if n <= len(S['al_shifted']):
+            ref = float(mp.mpf(S['al_shifted'][n - 1]['v']))
+            cv.append({'n': n, 'zeros_lanczos': '%.15e' % b2s[n - 1], 'arb': '%.15e' % ref, 'rel_diff': '%.2e' % (abs(b2s[n - 1] - ref) / ref)})
+            say('al~_%d (shifted): zeros %.12e  arb %.12e  rel %.2e' % (n, b2s[n - 1], ref, abs(b2s[n - 1] - ref) / ref))
+    out['shifted_sfrac_cmp'] = cv
 
 with open(os.path.join(here, 'u3_zeros_N%d.json' % N0), 'w') as fh:
     json.dump(out, fh, indent=1)

@@ -1,20 +1,20 @@
-loaded 30001 Arb zeros; gamma_1 = 14.1347251417347  gamma_N0 = 25755.3482745615
-|mpmath.zetazero - Arb| at n=1,2,10,100,1000,10000: {1: '8.41e-16', 2: '1.02e-15', 10: '1.73e-15', 100: '1.25e-14', 1000: '5.6e-14', 10000: '2.91e-14'}
-T = 25755.530645010228909  S(T) = -0.3979549189
-comparing with zeta_real_P4000_S150.json
+loaded 30001 Arb zeros; gamma_1 = 14.13472514173469379045725198356247  gamma_N0 = 25755.34827456150955145818713695468
+|mpmath.zetazero - Arb| at n=1,2,10,100,1000,10000: {1: '1.93e-34', 2: '2.7e-33', 10: '4.62e-33', 100: '2.16e-32', 1000: '1.97e-31', 10000: '3.94e-31'}
+T = 25755.530645010228967  S(T) = -0.3979549189
+comparing with zeta_real_P24000_S1000.json
 s_1 rel diff 1.71e-12 (predicted ~2.57e-11; tail share 0.00249)
-s_2 rel diff 2.08e-16 (predicted ~2.41e-17; tail share 7.23e-10)
-s_3 rel diff 3.41e-16 (predicted ~9.37e-24; tail share 1.66e-16)
-s_4 rel diff 4.68e-16 (predicted ~3.07e-30; tail share 3.86e-23)
-s_5 rel diff 5.91e-16 (predicted ~9.55e-37; tail share 9.3e-30)
-s_6 rel diff 7.12e-16 (predicted ~2.92e-43; tail share 2.32e-36)
-s_7 rel diff 8.32e-16 (predicted ~8.83e-50; tail share 5.93e-43)
-s_8 rel diff 9.51e-16 (predicted ~2.67e-56; tail share 1.55e-49)
-s_9 rel diff 1.07e-15 (predicted ~8.04e-63; tail share 4.12e-56)
-s_10 rel diff 1.19e-15 (predicted ~2.42e-69; tail share 1.11e-62)
-s_11 rel diff 1.31e-15 (predicted ~7.29e-76; tail share 3.02e-69)
-s_12 rel diff 1.43e-15 (predicted ~2.2e-82; tail share 8.31e-76)
-comparing with zeta_circle_P3000_S100.json
+s_2 rel diff 3.2e-18 (predicted ~2.41e-17; tail share 7.23e-10)
+s_3 rel diff 1.87e-24 (predicted ~9.37e-24; tail share 1.66e-16)
+s_4 rel diff 1.21e-30 (predicted ~3.07e-30; tail share 3.86e-23)
+s_5 rel diff 2.18e-34 (predicted ~9.55e-37; tail share 9.3e-30)
+s_6 rel diff 2.37e-34 (predicted ~2.92e-43; tail share 2.32e-36)
+s_7 rel diff 2.54e-34 (predicted ~8.83e-50; tail share 5.93e-43)
+s_8 rel diff 2.91e-34 (predicted ~2.67e-56; tail share 1.55e-49)
+s_9 rel diff 3.31e-34 (predicted ~8.04e-63; tail share 4.12e-56)
+s_10 rel diff 3.87e-34 (predicted ~2.42e-69; tail share 1.11e-62)
+s_11 rel diff 4.16e-34 (predicted ~7.29e-76; tail share 3.02e-69)
+s_12 rel diff 4.52e-34 (predicted ~2.2e-82; tail share 8.31e-76)
+comparing with zeta_circle_P24000_S1000.json
 lambda_1: zeros+tail 0.0230957089660815  arb 0.023095708966121  diff 3.95e-14  (tail 5.7584e-5)
 lambda_2: zeros+tail 0.0923457352278887  arb 0.0923457352280467  diff 1.58e-13  (tail 0.00023034)
 lambda_3: zeros+tail 0.207638920553969  arb 0.207638920554325  diff 3.55e-13  (tail 0.00051826)
@@ -23,28 +23,37 @@ lambda_10: zeros+tail 2.27933936318921  arb 2.27933936319316  diff 3.95e-12  (ta
 lambda_20: zeros+tail 8.76927687207742  arb 8.76927687209322  diff 1.58e-11  (tail 0.023034)
 lambda_50: zeros+tail 43.5310964882753  arb 43.531096488374  diff 9.87e-11  (tail 0.14396)
 lambda_100: zeros+tail 118.603775376396  arb 118.603775376791  diff 3.95e-10  (tail 0.57584)
-sin toy (K=1e5 zeros + tail): max rel err of al_n for n<=50: 5.47e+02, n<=200: 9.38e+03, n<=400: 5.63e+04
-sin toy WITHOUT tail: rel err at n = 10, 100, 400: 4.66e-05 1.35e+02 9.04e+01
+lambda_200: zeros+tail 306.655764849765  arb 306.655764851345  diff 1.58e-9  (tail 2.3034)
+lambda_500: zeros+tail 991.900092982372  arb 991.900092992245  diff 9.87e-9  (tail 14.396)
+lambda_1000: zeros+tail 2326.05316164698  arb 2326.05316168647  diff 3.95e-8  (tail 57.582)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:136: RuntimeWarning: divide by zero encountered in matmul
+  v -= Q[:, :k + 1] @ (Q[:, :k + 1].T @ v)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:136: RuntimeWarning: overflow encountered in matmul
+  v -= Q[:, :k + 1] @ (Q[:, :k + 1].T @ v)
+/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:136: RuntimeWarning: invalid value encountered in matmul
+  v -= Q[:, :k + 1] @ (Q[:, :k + 1].T @ v)
+sin toy (K=1e5 zeros + tail): max rel err of al_n for n<=50: 1.16e-08, n<=200: 4.13e-08, n<=400: 4.45e-08
+sin toy WITHOUT tail: rel err at n = 10, 100, 400: 1.55e-04 1.42e-03 7.39e-03
 al_1: zeros 1.608855674600e-03  arb 1.608855674597e-03  rel 1.71e-12
 al_2: zeros 2.269644461873e-03  arb 2.269644461876e-03  rel 1.21e-12
 al_5: zeros 7.250560116437e-04  arb 7.250560116427e-04  rel 1.39e-12
 al_10: zeros 4.849141438755e-04  arb 4.849141438763e-04  rel 1.54e-12
-al_20: zeros 2.066104546128e-04  arb 2.066104546131e-04  rel 1.88e-12
-al_50: zeros 1.879198418827e-04  arb 6.817814885484e-05  rel 1.76e+00
-al_100: zeros 1.034672437419e-04  arb 2.683990998053e-05  rel 2.85e+00
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:196: RuntimeWarning: overflow encountered in square
-  wtl = wq * tt * np.array([float(dtheta(mp.mpf(x)) / mp.pi) for x in tt]) / (0.25 + tt ** 2)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:184: RuntimeWarning: invalid value encountered in sqrt
-  rho = np.sqrt(1 - abs(a) ** 2)
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:185: RuntimeWarning: invalid value encountered in divide
-  ph, phs = (z * ph - np.conj(a) * phs) / rho, (phs - a * z * ph) / rho
-/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/fingerprint/verify/u3_zeros.py:182: RuntimeWarning: invalid value encountered in scalar divide
-  a = np.conj(np.sum(W * z * ph) / np.sum(W * phs))
-alpha_0: zeros 9.991957503278e-01  arb 9.991968067209e-01  |diff| 1.06e-06  (1-|alpha| = 8.032e-04)
-alpha_1: zeros -9.988674681669e-01  arb -9.988664119479e-01  |diff| 1.06e-06  (1-|alpha| = 1.134e-03)
-alpha_2: zeros 9.993841059874e-01  arb 9.993846794038e-01  |diff| 5.73e-07  (1-|alpha| = 6.153e-04)
-alpha_5: zeros nan  arb -9.996647738965e-01  |diff| nan  (1-|alpha| = 3.352e-04)
-alpha_10: zeros nan  arb 9.998094170466e-01  |diff| nan  (1-|alpha| = 1.906e-04)
-alpha_20: zeros nan  arb 9.999031433540e-01  |diff| nan  (1-|alpha| = 9.686e-05)
-alpha_50: zeros nan  arb 9.999695141533e-01  |diff| nan  (1-|alpha| = 3.049e-05)
+al_20: zeros 2.066104546128e-04  arb 2.066104546131e-04  rel 1.90e-12
+al_50: zeros 6.817814885466e-05  arb 6.817814885484e-05  rel 2.71e-12
+al_100: zeros 2.683990998045e-05  arb 2.683990998053e-05  rel 2.73e-12
+al_150: zeros 1.494648228015e-05  arb 1.494648228016e-05  rel 5.38e-13
+al_200: zeros 1.062864415950e-05  arb 1.062864415945e-05  rel 4.69e-12
+al_300: zeros 5.853178394431e-06  arb 5.853178394378e-06  rel 9.14e-12
+al_400: zeros 3.550396466191e-06  arb 3.550396466285e-06  rel 2.65e-11
+al~_1 (shifted): zeros 1.606386558298e-03  arb 1.606386558295e-03  rel 1.71e-12
+al~_2 (shifted): zeros 2.266265613879e-03  arb 2.266265613882e-03  rel 1.21e-12
+al~_5 (shifted): zeros 7.247789585577e-04  arb 7.247789585567e-04  rel 1.39e-12
+al~_10 (shifted): zeros 4.848424392651e-04  arb 4.848424392658e-04  rel 1.54e-12
+al~_20 (shifted): zeros 2.065845369491e-04  arb 2.065845369495e-04  rel 1.90e-12
+al~_50 (shifted): zeros 6.818778932569e-05  arb 6.818778932588e-05  rel 2.71e-12
+al~_100 (shifted): zeros 2.683958708543e-05  arb 2.683958708551e-05  rel 2.74e-12
+al~_150 (shifted): zeros 1.494640361908e-05  arb 1.494640361908e-05  rel 5.37e-13
+al~_200 (shifted): zeros 1.062837600197e-05  arb 1.062837600192e-05  rel 4.69e-12
+al~_300 (shifted): zeros 5.852981142543e-06  arb 5.852981142490e-06  rel 9.14e-12
+al~_400 (shifted): zeros 3.550433537722e-06  arb 3.550433537816e-06  rel 2.65e-11
 saved u3_zeros_N30000.json

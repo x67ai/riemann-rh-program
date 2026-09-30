@@ -1,0 +1,14 @@
+sanity (0.5 + 14.1j) value (9.10748443633e-5 + 0.0j) enclosure width [1.5697689503225242716615526199137882756162716496217970709480156206e-32, 1.5697689503225242716615526199137882756162716496217970709480156206e-32] contains: True
+Traceback (most recent call last):
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/staircase/verify/rigor_xi1.py", line 290, in <module>
+    enc = xi1_iv(iv.mpc(s0.real, s0.imag))
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/staircase/verify/rigor_xi1.py", line 152, in xi1_iv
+    return xi_iv(s) - R1_iv(s)
+  File "/Users/jaytyagi/Library/Mobile Documents/com~apple~CloudDocs/Documents/Work/2026/Math/riemann/rh-program/results/novel-wave-s36/staircase/verify/rigor_xi1.py", line 145, in R1_iv
+    bnd += h_bound(s/2, X) + h_bound((1 - s)/2, X)
+  File "<string>", line 25, in __add__
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/ctx_mp_python.py", line 671, in convert
+    return ctx._convert_fallback(x, strings)
+  File "/Users/jaytyagi/Library/Python/3.9/lib/python/site-packages/mpmath/ctx_mp.py", line 633, in _convert_fallback
+    raise ValueError("can only create mpf from zero-width interval")
+ValueError: can only create mpf from zero-width interval

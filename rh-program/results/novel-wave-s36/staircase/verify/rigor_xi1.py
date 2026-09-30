@@ -47,8 +47,18 @@ def cabs_upper(z):
     return iv.sqrt(iv.mpf(ru)**2 + iv.mpf(iu)**2).b
 
 
+def up(x):
+    """an mp.mpf upper bound for a real interval / number x (outward: inflated by 1e-45 relative)."""
+    try:
+        v = mp.mpf(x.b)
+    except AttributeError:
+        v = mp.mpf(x)
+    return v + abs(v)*mp.mpf(10)**(-45)
+
+
 def disc(r):
-    rr = iv.mpf([-r, r])
+    R = up(r)
+    rr = iv.mpf([-R, R])
     return iv.mpc(rr, rr)
 
 
@@ -125,7 +135,7 @@ def h_iv(a, X, K):
 
 def h_bound(a, X):
     b = max(mp.mpf(a.real.b) - 1, 0)
-    return (iv.exp(-X) / (X - b)).b
+    return up(iv.exp(-X) / (X - b))
 
 
 def xi_iv(s):

@@ -1,0 +1,89 @@
+# NOTE — seed N2 `staircase`: real-rootedness chains to ξ built from Riemann's incomplete-gamma series
+
+Agent: Opus 5.5 (seed N2 of the Session-36 novel-approach wave). Charter: `../WAVE-CHARTER.md`. Working log: `SHARED.md`. Scripts and logs: `verify/`. Prior art on disk: `lit/`. DRAFT — sections marked [pending] are being filled from runs in progress.
+
+## §0 Verdict
+
+**Close: (K) KILLED** — for the chains C1 (truncations N ≤ ∞ of Riemann's series), C2 (the prime/S-smooth chain) and every weighting of the same series: no member other than ξ itself is real-rooted, so no Hurwitz argument can run through real-rooted members; the only surviving reading (real-rootedness in a window that grows with N) is equivalent to RH plus simplicity of the zeros, and the one positivity generator present in the chain (Pólya's criterion) holds verbatim for the RH-false positive Euler product F_{2.9,2} [control results: §5, pending]. Z, the proved statement: **Theorems A and B** below (A fully proved; B proved modulo Hamburger's 1921 theorem, cited), plus the computed off-line zeros of ξ₁–ξ₅ (§3). Four side results are theorems with complete proofs (A, D, E, and the lobe law), recorded because they are new to the record [novelty: single-check, §7 pending].
+
+## §1 Objects, and the identity (verified)
+
+For all s ∈ ℂ (Riemann 1859; verified here to 1e−61 at 60 digits and 1e−91 at 90 digits at nine complex points, `verify/c1_identity.log`):
+
+  Λ(s) := π^{−s/2}Γ(s/2)ζ(s) = −1/s − 1/(1−s) + Σ_{n≥1} g_n(s),  g_n(s) = X^{−s/2}Γ(s/2, X) + X^{−(1−s)/2}Γ((1−s)/2, X), X = πn².
+
+Derivation (re-done): split ∫₀^∞ψ(x)x^{s/2−1}dx at x = 1 and use ψ(1/x) = √x ψ(x) + (√x − 1)/2. The seed's formula is correct. Entire normalization: ξ(s) = ½s(s−1)Λ(s) = ½ + ½s(s−1)Σ_n g_n(s).
+
+**Chain members.** For weights w: ℕ → ℝ, ξ_w(s) := ½ + ½s(s−1)Σ_n w_n g_n(s). C1: w = 1_{[1,N]} (ξ_N). C2: w = indicator of the S-smooth integers, S a finite set of primes. Smooth cutoffs: w_n = φ(n/N). Every ξ_w satisfies ξ_w(1−s) = ξ_w(s), ξ_w(s̄) = conj ξ_w(s), so ξ_w(½+it) is real; ξ_w → ξ locally uniformly as w → 1 pointwise with |w| ≤ 1 (|g_n(s)| ≤ g_n(Re s)).
+
+Evaluation (`verify/stair.py`, validated in `test_stair.log`): E_w = E_full − (tail), no cancellation near the line; cross-checked against the direct truncated sum at 160 digits (agreement 1e−41). The same class evaluates the controls (F_{a,q}, Davenport–Heilbronn, L(s, χ₄)); each control's full theta split matches its independently computed L-function to ≤ 1.4e−49.
+
+## §2 Theorems
+
+Notation: s = ½ + it on the line; Ξ(t) = ξ(½+it); P_w(t) := ξ_w(½+it) − Ξ(t).
+
+**Theorem D (Pólya positivity; the chain decreases to Ξ).** For every n ≥ 1 and real t, g_n(½+it) > 0. Consequently, for weights 0 ≤ w_n ≤ 1,
+  P_w(t) = ½(¼+t²) Σ_n (1 − w_n) g_n(½+it) ≥ 0,
+with equality for all t only if w ≡ 1; in particular ξ₁(½+it) > ξ₂(½+it) > … > Ξ(t) for every real t.
+*Proof.* With x = e^{2u}, g_n(½+it) = ∫₁^∞ e^{−Xx} 2x^{1/4}cos((t/2)log x) dx/x = 4∫₀^∞ k(u)cos(tu) du, k(u) = exp(u/2 − Xe^{2u}). With y = Xe^{2u} ≥ X ≥ π: k′ = k(½ − 2y) < 0 and k″ = k(4y² − 6y + ¼) > 0 (the larger root of 4y² − 6y + ¼ is (3 + 2√2)/4 = 1.457… < π). So k is positive, strictly decreasing, strictly convex on [0, ∞) and → 0. For t ≠ 0, ∫₀^∞ k cos(tu) du = t^{−1}∫₀^∞(−k′(u)) sin(tu) du; −k′ is positive and strictly decreasing, so the half-period pieces of the sine integral alternate in sign with strictly decreasing sizes and the first is positive: the integral is > 0 (Pólya's criterion). At t = 0 the integral is ∫k > 0. The formula for P_w is Riemann's identity minus the chain member, with ½s(s−1) = −½(¼+t²). ∎
+
+**Corollary D1 (lobe law).** Every zero of ξ_w on the line (0 ≤ w ≤ 1, w ≢ 1) lies in an open negative lobe of Ξ (an interval between consecutive zeros of Ξ on which Ξ < 0), and each negative lobe contains an even number of them, counted with multiplicity. (At the ends of a lobe ξ_w = P_w > 0; on positive lobes ξ_w ≥ Ξ > 0.) The real-zero count of every C1 member is even — observed: 2, 6, 16, 32, 52, 80 for N = 1…6.
+
+**Theorem A (no member is real-rooted).** Let w ≢ 0, and either (i) 0 ≤ w_n ≤ 1 with some w_m < 1 (covers C1 for every N, C2 for every finite S, every smooth cutoff with 0 ≤ φ ≤ 1), or (ii) w finitely supported with arbitrary real values. Then ξ_w has only finitely many zeros on Re s = ½ and infinitely many zeros off it.
+*Proof.* (a) Order ≤ 1 and super-exponential growth: |g_n(s)| ≤ g_n(Re s) (since |Γ(a, X)| ≤ Γ(Re a, X)), so |ξ_w(s)| ≤ ½ + ½|s|²Σ_n|w_n|g_n(Re s) = exp(O(|s|log|s|)). On the real axis, with n₀ the least n with w_n ≠ 0, ξ_w(σ) ~ ½σ² w_{n₀}(πn₀²)^{−σ/2}Γ(σ/2) as σ → +∞ (Γ(σ/2, X)/Γ(σ/2) → 1 and the other terms are smaller by (n₀/n)^σ), so log|ξ_w(σ)| ≥ (σ/2)log σ (1 − o(1)): ξ_w is not e^{a+bs}P(s), hence (Hadamard) it has infinitely many zeros. (b) Finitely many on the line. Case (i): by Theorem D, ξ_w(½+it) ≥ Ξ(t) + (1 − w_m)·½(¼+t²)g_m(½+it). From γ(a, X) = X^a e^{−X}Σ_k X^k/(a)_{k+1} and |(a)_{k+1}| ≥ (|t|/2)^{k+1} on the line, ½(¼+t²)g_m(½+it) → (4πm² − 1)e^{−πm²} > 0 as |t| → ∞ (the Γ(a)-parts are O(|t|^{7/4}e^{−π|t|/4})), and Ξ(t) → 0; so liminf ξ_w(½+it) ≥ (1 − w_m)(4πm² − 1)e^{−πm²} > 0. Case (ii): integrating by parts twice in the cosine representation,
+  ξ_w(½+it) = C_w + 2∫₀^∞ Φ_w(u)cos(tu) du,  Φ_w = K_w″ − K_w/4,  K_w(u) = e^{u/2}Σ_n w_n e^{−πn²e^{2u}},  C_w = ½ + 2K_w′(0),
+and 2∫₀^∞Φ_w cos(tu)du has the asymptotic expansion Σ_{j≥0} 2(−1)^{j+1}Φ_w^{(2j+1)}(0) t^{−2j−2}. If every coefficient of ξ_w(½+it) ~ C_w + Σ a_j t^{−2j−2} vanished, the odd part of the real-analytic function Φ_w would have zero Taylor series at 0, so Φ_w would be even; but Φ_w(u) = Σ_n w_n φ_n(u), φ_n(u) = (2π²n⁴e^{9u/2} − 3πn²e^{5u/2})exp(−πn²e^{2u}), whose expansion as u → −∞ has coefficient of e^{(5/2+2k)u} equal to −π(2k+3)(−π)^k/k! · Σ_n w_n n^{2k+2}, while Φ_w(u) = Φ_w(−u) decays double-exponentially as u → −∞. So Σ_n w_n n^{2k+2} = 0 for all k ≥ 0, and (Vandermonde, finitely many n) w ≡ 0 — excluded. Hence some coefficient is nonzero, and ξ_w(½+it) has constant sign for |t| large. ∎
+For C1 the leading coefficient is the constant c_N = ½ + Σ_{n≤N}(1 − 4πn²)e^{−πn²} = Σ_{n>N}(4πn² − 1)e^{−πn²} (the two forms agree by 4ψ′(1) + ψ(1) = −½): c₁ = 1.7180566258547875025e−4, c₂ = 5.891258854396012012e−11, c₃ = 2.9589851955455663928e−20, c₄ = 2.4342009049056017e−32, c₅ = 3.443519624082649e−47 (`c1_identity.log`); ξ_N(½+it)/c_N at t = 1000 is 0.9995, 0.9972, 0.9907, 0.9769, 0.9527 (N = 1…5).
+
+**Theorem B (the only real-rooted member is ξ).** Let |w_n| ≤ Cn^A, w ≢ 0. If every zero of ξ_w lies on Re s = ½, then w ≡ 1.
+*Proof.* Real-rooted + infinitely many zeros (part (a) above, which holds for polynomially bounded w) forces infinitely many real zeros, so every coefficient of the expansion in (b) vanishes (the expansion holds for such w: Φ_w is real-analytic on ℝ and all its derivatives decay double-exponentially on [0, ∞)). Then Φ_w is even; D(u) := K_w(u) − K_w(−u) is odd with D″ = D/4, so D = 2α sinh(u/2), i.e. ψ_w(1/x) = √x ψ_w(x) − α(√x − 1) for ψ_w(x) = Σ w_n e^{−πn²x}; differentiating at x = 1 gives K_w′(0) = α/2, and C_w = 0 gives α = −½: ψ_w satisfies Riemann's theta relation exactly. Then δ := ψ_w − ψ = Σ(w_n − 1)e^{−πn²x} satisfies δ(1/x) = √x δ(x), decays super-exponentially at 0 and ∞, and its Mellin transform π^{−s/2}Γ(s/2)Σ(w_n − 1)n^{−s} is entire, symmetric under s ↦ 1 − s, and bounded in vertical strips. By Hamburger's theorem the Dirichlet series Σ(w_n − 1)n^{−s} is a constant multiple of ζ; it is entire, so the constant is 0 and w ≡ 1. ∎ (The Hamburger step is cited — statement to be read at the page, §7 [pending]; everything else is proved above.)
+
+**Proposition E (the windowed chain is a height filtration of RH).** Let W_N := sup{T : every zero of ξ_N with |Im s| < T lies on the line}. (a) If W_N → ∞ then RH holds (Hurwitz: ξ_N → ξ locally uniformly and zeros of ξ are limits of zeros of ξ_N). (b) If RH holds and every zero of ξ is simple, then W_N → ∞ (on a compact rectangle ξ_N has, for N large, exactly one zero near each zero of ξ and no others; a single zero near the line must lie on it, by the symmetry s ↦ 1 − s̄). (c) If RH holds and Ξ has a zero of order k ≥ 3, or a double zero at which Ξ has a local minimum, then W_N stays below that zero's height for every N: near it ξ_N = Ξ + P_N with P_N > 0 (Theorem D), and c(t − γ)^k + P_N has at most two real roots, so the other roots are an off-line cluster. So "real-rootedness in a window growing with N" is RH plus a non-degeneracy condition on the zeros — it contributes no mechanism of its own.
+
+## §3 Complete zero census (C1), box 0 < Im s ≤ 200
+
+Method (`verify/census.py`): real zeros by sign changes of ξ_N(½+it) (step 0.02; relative-tolerance bracketing); total count Z_tot in [1 − smax, smax] × [0, 200] by the argument principle (right edge and right half of the top edge, the left half by E(1 − s̄) = conj E(s); E > 0 on the real segment, minimum 0.4971); off-line zeros located by secant from minima of |E| near the predicted branch |Γ-part| = c_N; **complete** = (number found) = (Z_tot − Z_line)/2. Exclusion to the right: count in [smax, 3·smax] × [0.05, 200] = 0 (|count| < 1e−28). Every reported zero re-verified independently (`reverify_*.json`): re-solved by the DIRECT sum at 80 digits (agreement 1.3e−21 … 4.5e−20) and counted = 1.0 by the argument principle on a circle of radius 0.2 (different formula, precision and contour).
+
+| N | Z_tot | real | off-line pairs | lowest off-line zero of ξ_N (Re s ≥ ½) | min(Re s − ½) off-line |
+|---|---|---|---|---|---|
+| 1 | 96 | 2 | 47 | 5.1659020269245690919394 + 22.9154657705608233141275 i | 4.666 |
+| 2 | 94 | 6 | 44 | 1.9619867133651674130971 + 41.1895478429846621352719 i | 1.462 |
+| 3 | 92 | 16 | 38 | 1.7245655200467828219436 + 70.0975474994341156992384 i | 1.225 |
+| 4 | 90 | 32 | 29 | 2.0965636295525277733592 + 107.8802626577714556080693 i | 1.597 |
+| 5 | 84 | 52 | 16 | 1.3940521892253497270926 + 150.1654942505646873446111 i | 0.894 |
+| 6 | [pending] | | | | |
+| ≥ 7 | 79 | 79 | 0 | none below 200 [Rouché certificate, pending] | — |
+
+Real zeros of ξ₁: t = 14.16594968814390…, 19.56393886304655… (only these two, t > 0). **Every off-line zero found lies outside the critical strip** (Re s ≥ 1.39): the zeros leave the line at a discrete step onto a branch Re s ≈ σ_c(t) where the Γ-part balances c_N (σ_c(200) ≈ 80 for N = 1). Lobe law check (`lobes_T320.log`): counting two zeros in each negative lobe of Ξ deep enough, independently of the census, predicts 2, 6, 16, 32, 52, 80, 116, 150 real zeros for N = 1…8 — equal to the census for N = 1–6. Departure lobe (first negative lobe of Ξ without zeros of ξ_N; depth/P_N there): (25.01, 30.42) 0.0070; (40.92, 43.33) 0.20; (69.55, 72.07) 0.32; (107.17, 111.03) 0.24; (150.05, 150.93) 0.12; (202.49, 204.19) 0.27; (265.56, 266.61) 0.020 for N = 1…7 — **departure height ≈ 4(N+1)² + 6…10**, as predicted by balancing e^{−πt/4} (size of Ξ) against e^{−π(N+1)²} (size of P_N).
+
+## §4 Invariant hunt [partly pending]
+
+1. **Ordering invariant** (zeros in Re s ≥ ½, Im s > 0 listed by height have nondecreasing Re s − ½; real zeros first): holds for N = 1–5 in the census box, 0 violations (`monotone_check.py`). Implies RH (an off-line zero of ξ at height γ₀ persists in ξ_N for N large, below the real zeros ξ_N inherits from ξ above γ₀).
+2. **Monotonicity of the chain on the line** (Theorem D): proved; it pushes zeros OFF the line (P_N > 0 removes the shallow negative lobes), so it cannot generate real-rootedness.
+3. **Hermite–Biehler for the natural split** ξ = A + A♯, A(s) = ¼ + ½s(s−1)Σ_n X^{−s/2}Γ(s/2, X): [pending: natural_split.py]. Analysis: on the line A(½+it) = −iψ(1)t + ½Ξ(t) + O(1/t) (ψ(1) = Σe^{−πn²}), so arg A = −π/2 + O(Ξ/t) does not wind; the infinitesimal HB margin 4|A|²φ′(t) changes sign with Ξ′.
+4. **Interlacing of consecutive members**: by Theorem D, ξ_{N+1} = ξ_N − ½(¼+t²)g_{N+1} with g_{N+1} > 0: every real zero of ξ_N moves toward the interior of its negative lobe and new pairs appear only when a lobe's depth exceeds P_{N+1}: consecutive members are "nested" (their negative sets increase with N), not interlacing.
+5. **Taylor–Lagarias chain C3b** F_h = Ξ(s+h) + Ξ(s−h): Hermite–Biehler at level h ⟺ every zero has Re ρ ≤ ½ + h (pairing computation: for a zero pair β, 1 − β at the same height, the product of the four distance ratios exceeds 1 on Re s > ½ iff d² + h² + (σ − β)(σ − 1 + β) > 0, which holds for all σ > ½ iff h ≥ β − ½) — the HB invariant of this chain IS the zero-free region. Real-rootedness vs HB on DH: [pending: taylor_chain.py].
+
+## §5 Controls [pending]
+
+## §6 Rigorous (interval arithmetic) [pending]
+
+## §7 Prior art [pending — lit/PRIOR-ART.md]
+
+## §8 Sharpest surviving conjecture [pending]
+
+## §9 Audits
+
+- Disguise (zoo IV.1): the chain's positivity generator is Pólya's cosine-transform criterion applied to each g_n — a theorem in its own right, not Weil positivity; but it acts in the wrong direction (it removes zeros from the line) and carries no arithmetic.
+- Visibility (IV.9): an off-line zero of the limit at height γ₀ enters ξ_N only when the departure height exceeds γ₀, i.e. N + 1 ≳ √(γ₀/4) (ζ normalization; √(5γ₀)/2 for the conductor-5 DH chain: N ≳ 9.4 at γ₀ = 85.7). Below that the member coincides with the limit to relative e^{−π(N+1)²} in the window and no windowed invariant can see the defect.
+- S1–S5: S1 fails (the chain consumes the theta relation and, for the monotone structure, positivity of coefficients — both held by F_{a,q}); S2 holds trivially (a single zero is visible once in the window); S4: the generator (Pólya) is real but anti-aligned.
+
+## §10 ERRATA against the seed
+
+1. "Haglund, 2011, proved N = 1 and conjectured all N [real-rooted]" — the N = 1 member is not real-rooted (two real zeros, then an off-line zero at 5.16590202692456909 + 22.91546577056082331i; Theorem A for every N). What Haglund proved and conjectured: §7 [pending].
+2. The F_{a,q} control: with a = q + 1 the factor splits as (1 + q^{−s})(1 + q^{1−s}) and the off-line zeros sit exactly on Re s = 0, 1 (a = 3, q = 2 gives Re s = 1.000); a must lie strictly between 2√q and q + 1 for zeros inside the strip; used here: a = 2.9, q = 2, zeros at Re s = 0.8238766801660445817, t = (2j+1)·4.5323601418271938096.
+3. C2's multiplicative index set does not act where the zeros are: in the tracking window a C2 member equals Ξ + P with P > 0 of size e^{−πm²}, m the least excluded integer — the same as the C1 member N = m − 1; the Euler factor (1 − 2^{−s})^{−1} appears only in the Γ-dominated region Re s ≳ σ_c(t), where the zeros are already off the line [census confirmation pending].
+
+## §11 Files
+
+`SHARED.md`; `verify/`: c1_identity.py/.log; stair.py; test_stair.py/.log; explore_line.py/.log; census.py, census_*.{json,log}; reverify.py, reverify_*.{json,log}; monotone_check.py; lobes.py, lobes_T320.{json,log}; rouche_N7.py; taylor_chain.py; natural_split.py; rigor_xi1.py; queue_*.sh/.log. `lit/`: PRIOR-ART.md and sources.

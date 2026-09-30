@@ -1,0 +1,9 @@
+FUNC eul:2 SIDE real P 3000 SIZE 60 P2 4000
+series 0.1s; Lambda(1/2) = [0.06031086360044313790411120 +/- 2.67e-27]
+FE check (odd coefficients contain 0): True
+s_1..s_3: ['[-3.937096567655836290139479 +/- 1.45e-25]', '[16.00034870380039059675051 +/- 4.43e-24]', '[-63.99999641542747868634482 +/- 4.26e-24]']
+S-fraction 59 coeffs in 0.0s
+certified digits: [(1, 900)]
+first S-index with al_n not certified positive: 1  sign string head: -+++++-+-+++++++-+-+++++++++++-+-+++++++++-+-++++++++++++++
+first J-index with b_n^2 not certified positive: 1
+saved tables/eul-2_real_P3000_S60.json  total 0.1s

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/YpFC2PKXrO8LDYWjBNdwMltAxOs</id>
+  <title>arXiv Query: search_query=ti:Hamburger AND ti:theorem&amp;id_list=&amp;start=0&amp;max_results=60</title>
+  <updated>2026-09-30T12:59:09Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:Hamburger+AND+ti:theorem&amp;start=0&amp;max_results=60&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1503.06856v4</id>
+    <title>The hamburger theorem</title>
+    <updated>2018-12-16T22:32:41Z</updated>
+    <link href="https://arxiv.org/abs/1503.06856v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1503.06856v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We generalize the ham sandwich theorem to $d+1$ measures in $\mathbb{R}^d$ as follows. Let $μ_1,μ_2, \dots, μ_{d+1}$ be absolutely continuous finite Borel measures on $\mathbb{R}^d$. Let $ω_i=μ_i(\mathbb{R}^d)$ for $i\in [d+1]$, $ω=\min\{ω_i; i\in [d+1]\}$ and assume that $\sum_{j=1}^{d+1} ω_j=1$. Assume that $ω_i \le 1/d$ for every $i\in[d+1]$. Then there exists a hyperplane $h$ such that each open halfspace $H$ defined by $h$ satisfies $μ_i(H) \le (\sum_{j=1}^{d+1} μ_j(H))/d$ for every $i \in [d+1]$ and $\sum_{j=1}^{d+1} μ_j(H) \ge \min(1/2, 1-dω) \ge 1/(d+1)$. As a consequence we obtain that every $(d+1)$-colored set of $nd$ points in $\mathbb{R}^d$ such that no color is used for more than $n$ points can be partitioned into $n$ disjoint rainbow $(d-1)$-dimensional simplices.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-03-23T21:57:59Z</published>
+    <arxiv:comment>11 pages, 2 figures; a new proof of Theorem 8, extended concluding remarks</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>Computational Geometry: Theory and Applications 68 (2018), 167-173</arxiv:journal_ref>
+    <author>
+      <name>Mikio Kano</name>
+    </author>
+    <author>
+      <name>Jan Kynčl</name>
+    </author>
+    <arxiv:doi>10.1016/j.comgeo.2017.06.012</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.comgeo.2017.06.012" title="doi"/>
+  </entry>
+</feed>

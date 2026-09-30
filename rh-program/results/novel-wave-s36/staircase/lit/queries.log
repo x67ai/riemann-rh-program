@@ -67,3 +67,18 @@
 2026-09-30T18:26:20	q42_au_alzergani	https://export.arxiv.org/api/query?search_query=au:Alzergani&start=0&max_results=60	totalResults=1	returned=1
 2026-09-30T18:26:24	q43_lagarias_debranges_dirichlet	https://export.arxiv.org/api/query?search_query=au:Lagarias%20AND%20abs:%22de%20Branges%22&start=0&max_results=60	totalResults=1	returned=1
 2026-09-30T18:26:28	q44_EulerProduct_theta_zeros	https://export.arxiv.org/api/query?search_query=abs:%22Euler%20product%22%20AND%20abs:%22theta%20function%22%20AND%20abs:zeros%20AND%20abs:%22critical%20line%22&start=0&max_results=60	totalResults=0	returned=0
+2026-09-30T18:28:57	q45_hamburgers_theorem	https://export.arxiv.org/api/query?search_query=abs:%22Hamburger%27s%20theorem%22&start=0&max_results=60	totalResults=2	returned=2
+2026-09-30T18:29:02	q46_hamburger_theorem_zeta	https://export.arxiv.org/api/query?search_query=abs:Hamburger%20AND%20abs:theorem%20AND%20abs:zeta%20AND%20abs:%22functional%20equation%22&start=0&max_results=60	totalResults=2	returned=2
+2026-09-30T18:29:06	q47_hamburger_dirichlet_series	https://export.arxiv.org/api/query?search_query=abs:Hamburger%20AND%20abs:%22Dirichlet%20series%22&start=0&max_results=60	totalResults=2	returned=2
+2026-09-30T18:29:12	q48_ti_hamburger	https://export.arxiv.org/api/query?search_query=ti:Hamburger%20AND%20ti:theorem&start=0&max_results=60	totalResults=1	returned=1
+2026-09-30T18:29:16	q49_riemann_functional_eq_dirichlet_series	https://export.arxiv.org/api/query?search_query=abs:%22Riemann%27s%20functional%20equation%22%20AND%20abs:%22Dirichlet%20series%22&start=0&max_results=60	totalResults=2	returned=2
+2026-09-30T18:31:13	q50_ids_iurato	https://export.arxiv.org/api/query?id_list=1410.6450&start=0&max_results=5	totalResults=1	returned=1
+2026-09-30T18:36:41	firecrawl	https://link.springer.com/article/10.2478/s11533-010-0095-3	(Haglund, Springer: paywall page + abstract; saved api/fc_springer_haglund.md)
+2026-09-30T18:36:41	firecrawl	https://www.degruyterbrill.com/document/doi/10.2478/s11533-010-0095-3/html	(Haglund CEJM full text, open access; saved haglund-CEJM-2011-degruyter-fulltext.md)
+2026-09-30T18:36:41	firecrawl	https://link.springer.com/content/pdf/10.1007/BF02565336.pdf	(Polya 1926: paywall page only; saved api/fc_polya1926.md)
+2026-09-30T18:36:41	download	https://arxiv.org/pdf/0910.5228	(PDF saved in lit/)
+2026-09-30T18:36:41	download	https://www.impan.pl/shop/publication/transaction/download/product/83883?download.pdf (Ki AA 124)	(PDF saved in lit/)
+2026-09-30T18:36:41	download	http://www.numdam.org/item/10.1016/j.crma.2005.11.015.pdf (Ki CRAS 342)	(PDF saved in lit/)
+2026-09-30T18:36:41	download	https://www.impan.pl/shop/publication/transaction/download/product/83243?download.pdf (Lagarias AA 120)	(PDF saved in lit/)
+2026-09-30T18:36:41	download	https://arxiv.org/pdf/{math/0412039,1212.5890,0801.2996,1106.4348,1205.2773,2004.14465,2406.08608,2406.00786,1502.06844,1706.08868,2311.18816,2311.07657,2311.07641,1106.4749,2008.02570}	(PDF saved in lit/)
+2026-09-30T18:36:41	note	arXiv API returned HTTP 429 (rate limit) repeatedly between about 18:10 and 18:23; aq.py retried once a minute; every query in this log eventually completed (totalResults recorded)

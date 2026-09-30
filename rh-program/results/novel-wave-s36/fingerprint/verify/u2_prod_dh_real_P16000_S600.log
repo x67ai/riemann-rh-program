@@ -1,0 +1,9 @@
+FUNC dh SIDE real P 16000 SIZE 600 P2 21333
+series 108.7s; Lambda(1/2) = [1.433192168775008441662638 +/- 1.79e-25]
+FE check (odd coefficients contain 0): True
+s_1..s_3: ['[0.09806957695333636694018683 +/- 3.25e-27]', '[0.001748504939203854391032979 +/- 2.04e-28]', '[5.969029037881501360271839e-5 +/- 5.00e-31]']
+S-fraction 599 coeffs in 14.9s
+certified digits: [(1, 4810), (100, 4392), (200, 3886), (300, 3345), (400, 2780), (500, 2198)]
+first S-index with al_n not certified positive: 148  sign string head: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+first J-index with b_n^2 not certified positive: 74
+saved tables/dh_real_P16000_S600.json  total 123.6s

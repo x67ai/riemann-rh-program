@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/OjrQLWAWlP87IW6VjCQE0jsN120</id>
+  <title>arXiv Query: search_query=abs:"Riemann's functional equation" AND abs:"Dirichlet series"&amp;id_list=&amp;start=0&amp;max_results=60</title>
+  <updated>2026-09-30T12:59:13Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22Riemann's+functional+equation%22+AND+abs:%22Dirichlet+series%22&amp;start=0&amp;max_results=60&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2008.02570v4</id>
+    <title>Dirichlet series with periodic coefficients, Riemann's functional equation and real zeros of Dirichlet $L$-functions</title>
+    <updated>2021-09-10T10:28:55Z</updated>
+    <link href="https://arxiv.org/abs/2008.02570v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2008.02570v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we give Dirichlet series with periodic coefficients that have Riemann's functional equation and real zeros of Dirichlet $L$-functions. The details are as follows. Let $L(s,χ)$ be the Dirichlet $L$-function and $G(χ)$ be the Gauss sum associate with a primitive Dirichlet character $χ$ (${\rm{mod}} \,\, q$). Put $f (s,χ) := q^s L(s,χ) + i^{-κ(χ)} G(χ) L(s,\overlineχ)$, where $\overlineχ$ is the complex conjugate of $χ$ and $κ(χ) :=(1-χ(-1))/2$. Then we prove that $f (s,χ)$ satisfies Riemann's functional equation appearing in Hamburger's theorem if $χ$ is even. In addition, we show that $f (σ,χ) \ne 0$ all $σ\ge 1$. Moreover, we prove that $f(σ,χ) \ne 0$ for all $1/2 \le σ&lt; 1$ if and only if $L(σ,χ) \ne 0$ for all $1/2 \le σ&lt; 1$. When $χ$ is real, all zeros of $f(s,χ)$ with $\Re (s) &gt;0$ are on the line $σ=1/2$ if and only if GRH for $L(s,χ)$ is true. However, $f (s,χ)$ has infinitely many zeros off the critical line $σ=1/2$ if $χ$ is non-real.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-08-06T11:02:38Z</published>
+    <arxiv:comment>7 pages. The title and structure are changed. Some sentence are added and deleted. Two remarks are added in Section 3</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Takashi Nakamura</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.20758v2</id>
+    <title>Zeros of the Dirichlet series of even zeta values</title>
+    <updated>2026-08-22T12:26:29Z</updated>
+    <link href="https://arxiv.org/abs/2607.20758v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.20758v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give a complete unconditional description of the zero set of the Dirichlet series $\mathbf{D}(s) = \sum_{n \ge 1} ζ(2n)n^{-s}$, which continues meromorphically to $\mathbb{C}$ with a single simple pole at $s = 1$. The series possesses neither an Euler product nor a self-dual functional equation, and descriptions with this level of completeness are exceedingly rare for such series. The key input is an exact functional equation of Hecke type, obtained from the Lipschitz summation formula, which expresses $\mathbf{D}$ in the left half-plane as a gamma factor times a dual series over the complex logarithms of the perfect squares; Riemann's functional equation appears as a single column of the dual series. The zeros fall into four families. The half-plane $σ\ge σ_0 = 1.5001\ldots$ is zero-free, and $\mathbf{D}$ has a unique real zero $ρ_0 = 0.2004\ldots$. The zeros in the critical strip are perturbed $a$-points of $ζ$ for values of $a$ near $-(ζ(2)-1)$, and their counting function obeys a Riemann--von Mangoldt law. The remaining zeros form two complex-conjugate strings that recede into the left half-plane along explicit rays, are eventually simple, and satisfy an asymptotic with geometrically decaying error. The string geometry is governed by interference between the two smallest frequencies of the dual series, $2\log 2$ contributed by the entire part of $\mathbf{D}$ and $\pm 2πi$ contributed by $ζ$. No hypothesis of Riemann type is assumed at any point.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-22T22:19:52Z</published>
+    <arxiv:comment>v2: Conjecture 4.3 of v1 is now Proposition 4.3, proved following an observation of Qiping Zhou; two references added. No other result is affected. 26 pages, 4 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>William D. Banks</name>
+    </author>
+  </entry>
+</feed>

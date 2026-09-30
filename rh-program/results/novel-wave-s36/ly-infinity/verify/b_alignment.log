@@ -31,3 +31,22 @@
   arch-euler(X=10000)    n_model= 187 (zeta  187)  mean|d|/delta=0.0241 median=0.0208  frac<0.1=1.000 frac<0.25=1.000
   arch-sqfree(X=10000)   n_model= 196 (zeta  187)  mean|d|/delta=0.0596 median=0.0498  frac<0.1=0.802 frac<0.25=1.000
   [295.2 s]
+
+=== S=[2, 3, 5, 7, 11, 13] P=30030 W=log P=10.3100 T*=188684.05 window +-150.0 delta=0.6094 zeta zeros in window=493 (missed pairs recovered 0; edge phase error of linearization 0.030 rad)
+  gram                   n_model= 492 (zeta  493)  mean|d|/delta=0.2299 median=0.2085  frac<0.1=0.235 frac<0.25=0.562
+  LY-seed(S)             n_model= 492 (zeta  493)  mean|d|/delta=0.2723 median=0.2535  frac<0.1=0.209 frac<0.25=0.495
+  LY-aligned(S)          n_model= 492 (zeta  493)  mean|d|/delta=0.1834 median=0.1679  frac<0.1=0.314 frac<0.25=0.708
+  arch-anti(S)           n_model= 492 (zeta  493)  mean|d|/delta=0.2721 median=0.2524  frac<0.1=0.207 frac<0.25=0.495
+  arch-euler(S)          n_model= 493 (zeta  493)  mean|d|/delta=0.1349 median=0.1164  frac<0.1=0.440 frac<0.25=0.878
+  arch-sqfree(S)         n_model= 492 (zeta  493)  mean|d|/delta=0.1834 median=0.1662  frac<0.1=0.323 frac<0.25=0.706
+  arch-anti(X=100)       n_model= 491 (zeta  493)  mean|d|/delta=0.3214 median=0.2933  frac<0.1=0.146 frac<0.25=0.416
+  arch-euler(X=100)      n_model= 493 (zeta  493)  mean|d|/delta=0.0828 median=0.0698  frac<0.1=0.657 frac<0.25=0.990
+  arch-sqfree(X=100)     n_model= 493 (zeta  493)  mean|d|/delta=0.1466 median=0.1271  frac<0.1=0.404 frac<0.25=0.811
+  arch-anti(X=1000)      n_model= 504 (zeta  493)  mean|d|/delta=0.3632 median=0.3479  frac<0.1=0.132 frac<0.25=0.333
+  arch-euler(X=1000)     n_model= 493 (zeta  493)  mean|d|/delta=0.0514 median=0.0423  frac<0.1=0.897 frac<0.25=1.000
+  arch-sqfree(X=1000)    n_model= 493 (zeta  493)  mean|d|/delta=0.1099 median=0.0944  frac<0.1=0.535 frac<0.25=0.927
+  arch-anti(X=10000)     n_model= 554 (zeta  493)  mean|d|/delta=0.3744 median=0.3760  frac<0.1=0.089 frac<0.25=0.280
+  arch-euler(X=10000)    n_model= 493 (zeta  493)  mean|d|/delta=0.0368 median=0.0296  frac<0.1=0.974 frac<0.25=1.000
+  arch-sqfree(X=10000)   n_model= 494 (zeta  493)  mean|d|/delta=0.0863 median=0.0723  frac<0.1=0.649 frac<0.25=0.976
+  [391.7 s]
+[stopped by the agent after the third height (T*=188684) to respect the ~10-minute single-run limit; the fourth configuration S=[2..17], T*~3.2e6, was not completed]

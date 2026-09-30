@@ -1,0 +1,9 @@
+FUNC chi4 SIDE real P 16000 SIZE 600 P2 21333
+series 54.9s; Lambda(1/2) = [0.9807136140577135040713719 +/- 4.93e-26]
+FE check (odd coefficients contain 0): True
+s_1..s_3: ['[0.07801482494482244230384114 +/- 1.70e-27]', '[0.0009288457848396034096221390 +/- 4.64e-29]', '[2.216961577424753414438000e-5 +/- 2.03e-30]']
+S-fraction 599 coeffs in 14.8s
+certified digits: [(1, 4810), (100, 4386), (200, 3876), (300, 3331), (400, 2762), (500, 2176)]
+first S-index with al_n not certified positive: None  sign string head: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+first J-index with b_n^2 not certified positive: None
+saved tables/chi4_real_P16000_S600.json  total 69.7s
