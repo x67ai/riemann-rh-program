@@ -254,7 +254,7 @@ check("0801.1691 p. 5" in zl[487] and "0906.3146 p. 5" in zl[487], "zoo line 488
 vocab = zl[6]
 check(vocab.startswith("**Status vocabulary**") and "program-derived" not in tz and "`program-adjudicated`" in vocab, "zoo line 7 status vocabulary lacks 'program-derived'; no entry uses it — FF3's ground")
 riders = [(k + 1, ln) for k, ln in enumerate(zl) if ln.startswith("- **[RIDER ")]
-parsed = [(k, ln, re.match(r"- \*\*\[RIDER (?:B )?\d{4}-\d\d-\d\d, Session (\d+)", ln)) for k, ln in riders]
+parsed = [(k, ln, re.match(r"- \*\*\[RIDER (?:[A-Z0-9]+ )?\d{4}-\d\d-\d\d, Session (\d+)", ln)) for k, ln in riders]
 unparsed = [k for k, _, mm in parsed if not mm]
 late = [(k, ln) for k, ln, mm in parsed if mm and int(mm.group(1)) >= 28]
 print("  top-level RIDER heads: %d; dated Session 28 or later: %d; heads not of the dated shape: %s" % (len(riders), len(late), unparsed or "none"))

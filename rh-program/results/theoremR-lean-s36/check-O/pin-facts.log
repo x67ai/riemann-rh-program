@@ -19,3 +19,14 @@ Mathlib/NumberTheory/NumberField/Units/Regulator.lean
 Mathlib/NumberTheory/NumberField/CanonicalEmbedding/NormLeOne.lean
 -- any statement 'LinearIndependent ℚ' with 'log' on one line:
 (end)
+-- (appended Wed Sep 30 18:08:01 IST 2026) broader grep for the E8 names
+Mathlib/NumberTheory/PrimeCounting.lean:80:  count_nth_of_infinite infinite_setOfPred_prime _
+Mathlib/NumberTheory/PrimeCounting.lean:84:  nth_prime_zero_eq_two ▸ (nth_strictMono infinite_setOfPred_prime).add_le_nat n 0
+Mathlib/NumberTheory/PrimeCounting.lean:87:  Nat.surjective_count_of_infinite_setOfPred infinite_setOfPred_prime
+Mathlib/NumberTheory/PrimeCounting.lean:106:  nth_mem_of_infinite infinite_setOfPred_prime _
+Mathlib/Data/Nat/PrimeFin.lean:27:theorem infinite_setOfPred_prime : { p | Prime p }.Infinite :=
+Mathlib/Data/Nat/PrimeFin.lean:30:@[deprecated (since := "2026-07-09")] alias infinite_setOf_prime := infinite_setOfPred_prime
+Mathlib/FieldTheory/PrimitiveElement.lean:91:  obtain ⟨c, hc⟩ := Infinite.exists_notMem_finset s'
+Mathlib/Data/Fintype/EquivFin.lean:450:theorem exists_notMem_finset [Infinite α] (s : Finset α) : ∃ x, x ∉ s :=
+Mathlib/Data/Fintype/EquivFin.lean:455:  ⟨let ⟨x, _hx⟩ := exists_notMem_finset (∅ : Finset α)
+Mathlib/Data/Fintype/EquivFin.lean:456:    let ⟨y, hy⟩ := exists_notMem_finset ({x} : Finset α)

@@ -49,3 +49,26 @@ toys) → U2 ζ tables by Arb (moments at 1/2; Li at 1) → U3 zeros cross-check
   1.0000019 > 1 → Toeplitz positivity fails at index 5, while λ_1..λ_10 are all positive (Li blind at n ≤ 10). ✓
 - Pattern: circle Verblunsky coefficients alternate in sign with |α_n| close to 1 (the measure σ lives on a
   small arc around z = 1).
+
+## 2026-09-30 18:40 — Unit 2: ζ real-side table (certified) + first mining (verify/u2_prod.py, u2b_conditioning.py, u4_mine_real.py)
+
+- **Conditioning measured (u2b):** intrinsic precision loss ≈ 4.7–6.6 decimal digits per index on BOTH sides (real
+  S-fraction and circle Verblunsky), growing slowly with n. Ball arithmetic is tight on the real side (certified ≈
+  actual − 10 digits) but blows up on the circle side (Levinson/Schur dependency) → circle side is run in midpoint
+  arithmetic at two precisions + two algorithms (Levinson vs Schur), verified digits = agreement.
+- **ζ real side, P = 24 000 bits, M = 1000 (tables/zeta_real_P24000_S1000.json):** s_1..s_1000 and the S-fraction
+  α_1..α_999 of F(w) = Σ_{γ>0} 1/(γ² − w), ALL CERTIFIED POSITIVE (ball arithmetic; ≥ 1192 certified digits at
+  n = 999, 7216 at n = 1). Hence det(s_{i+j+1})_{n×n} > 0 for n ≤ 500 and det(s_{i+j+2}) > 0 for n ≤ 499 (Grommer
+  data, certified). FE check: all odd Taylor coefficients of log ξ at 1/2 contain 0. ξ(1/2) = 0.4971207781883141099….
+  s_1 = 0.023104993115418970789, s_2 = 3.7172599285269686165e-5, s_3 = 1.441739314009732797e-7.
+  α_1..α_10 = 0.0016088556745971, 0.0022696444618758, 0.0012309447733972, 0.0010732871255927, 0.00072505601164270,
+  0.00067059821555097, 0.00054658061766807, 0.00056250296730745, 0.00051079519107545, 0.00048491414387630.
+- **Asymptotic law (WKB/Abel inversion of the zero density, NOTE §3):** α_n ≈ W(n/2π)²/(16 n²), W = Lambert W.
+  Test A_n := 4n√α_n vs L_n = W(n/2π): n = 100: 2.0723 vs 2.0496; 500: 3.2529 vs 3.2104; 999: 3.7557 vs 3.7477.
+  Residual A_n − L_n: mean +0.0076, std 0.042 on n ∈ [500, 999] — the law holds to ≈ ±2% with OSCILLATING
+  (not drifting) residuals — candidate imprint of S(t) (zero fluctuations) → to be tested for log p lines.
+- **Exact sum rule** Σ_n α_n = s_1 (tr J_s² for the zero-diagonal Jacobi matrix with spectrum {±1/γ}): partial sum
+  n ≤ 999 plus WKB tail = 0.0230982 vs s_1 = 0.0231050 (tail is approximate) ✓.
+- **Information content:** the site n corresponds (WKB turning point) to height t_n ≈ 2n/L_n; α_n for n ≤ 999 encode
+  the zeros up to t ≈ 533 (≈ 293 zeros): about π coefficients per zero.
+- Running now: ζ circle side (λ_n, Verblunsky) N = 1000 at 24 000/30 000 bits → tables/zeta_circle_P24000_S1000.json.
