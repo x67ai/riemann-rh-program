@@ -19,3 +19,18 @@ Dated blocks, appended after every unit of work. Agent: Opus 5.5 (seed N2). Char
 - `stair.py`: general theta-chain class (ζ; F_{a,q}; Davenport–Heilbronn; L(s, χ₄)); members E_w = full − tail (cancellation-free) and the direct truncated sum. Tail vs direct (160 digits) agree to 1e−41 at dps 40 for N = 1, 2, 3, 6 at six complex points up to t = 190.7. Each control's FULL theta split (all k) matches its independently computed completed function to ≤ 1.4e−49 (ζ, χ₄, DH via Hurwitz ζ as in `ccm-dh-test/dh.py`, F_{a,q} for three (a, q)) — the normalizations and modular relations are right. Chain members satisfy E(1−s) = E(s) and are real on the line to 1e−40.
 - F_{a,q} control verified: zeros of q^s + a + q^{1−s} at s = ½ ± arccosh(a/2√q)/ln q + iπ(2j+1)/ln q are zeros of the completed function (|E| ~ 1e−42). **Correction to the charter's control recipe:** a = q + 1 factors as (1 + q^{−s})(1 + q^{1−s}) and puts the zeros exactly on Re s = 1 and 0 (a = 3, q = 2 gives Re s = 1.000); use a strictly between 2√q and q + 1 for zeros inside the strip — main control here a = 2.9, q = 2: zeros at Re s = 0.82387668016604458, t = 4.5323601418271938 (2j+1).
 - Critical line, C1 members ξ_N (step 0.05, t ≤ 230; zeta has 96 zeros there): number of real zeros = 2, 6, 16, 32, 52, 80, 96, 96 for N = 1 … 8; last real zero at t = 19.564, 37.495, 66.883, 104.682, 147.326, 201.057 for N = 1 … 6 — against the predicted departure height 4(N+1)² = 16, 36, 64, 100, 144, 196. ξ_N(½+it)/c_N at t = 1000 is 0.9995, 0.9972, 0.9907, 0.9769, 0.9527, 0.9150, 0.8626, 0.7960 for N = 1 … 8 (→ 1, as predicted). The root positions in that log are grid-accurate only (mpmath findroot accepts any point where |f| < 1e−30, and |Ξ| ~ 1e−70 there); a relative-tolerance bracketing refiner replaces it for all reported coordinates.
+
+## 2026-09-30 19:05 IST — unit 3: complete zero census of ξ_N, N = 1–4, box 0 < Im s ≤ 200 (verify/census.py, census_zeta_N*_T200.{log,json})
+
+Method: real zeros by sign changes (step 0.02, relative-tolerance bracketing); total count Z_tot in [1−smax, smax] × [0, 200] by the argument principle (right edge + right half of top edge, using E(1−s̄) = conj E(s) and E > 0 on the real segment — bottom minimum 0.4971); off-line zeros located by secant from minima of |E| on a band around the predicted branch |Γ-part| = c_N; completeness = the number found equals (Z_tot − Z_line)/2.
+
+| N | Z_tot | real | off-line pairs | complete | lowest off-line zero (22 digits) |
+|---|---|---|---|---|---|
+| 1 | 96 | 2 | 47 | yes | 5.165902026924569091939 + 22.91546577056082331413 i |
+| 2 | 94 | 6 | 44 | yes | 1.961986713365167413097 + 41.18954784298466213527 i |
+| 3 | 92 | 16 | 38 | yes | 1.724565520046782821944 + 70.09754749943411569924 i |
+| 4 | 90 | 32 | 29 | yes | 2.096563629552527773359 + 107.8802626577714556081 i |
+
+- Every off-line zero found lies OUTSIDE the critical strip (min Re s − ½ = 4.666, 1.462, 1.225, 1.597): at the discrete steps N → N+1 the zeros leave the line far out onto a branch Re s ≈ σ_c(t) (at t = 200 the N = 1 branch is at Re s ≈ 80).
+- Ordering invariant (zeros in Re s ≥ ½, Im s > 0 listed by height have nondecreasing Re s − ½; real zeros first): holds for N = 1–4, 0 violations (verify/monotone_check.py).
+- **Theorem D (proof in NOTE):** on the line ξ_N(½+it) = Ξ(t) + P_N(t), P_N(t) = ½(¼+t²) Σ_{n>N} g_n(½+it) > 0, because g_n(½+it) = 4∫₀^∞ k_n(u) cos(tu) du with k_n(u) = exp(−πn²e^{2u} + u/2) positive, decreasing and convex on [0, ∞) (4y² − 6y + ¼ > 0 for y ≥ πn² > 1.457) — Pólya's criterion. So the chain DECREASES pointwise on the line to Ξ, and every real zero of ξ_N sits, in pairs, inside a negative lobe of Ξ (real-zero counts 2, 6, 16, 32, 52, 80 are all even).

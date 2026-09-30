@@ -1,0 +1,55 @@
+== Check 1: random det(I - Z U) in prime variables; |disc| <= |d|, max gap <= 2 pi |d|/W
+primes=[2] rep=0 W=0.6931 zeros(0,400)=44 worst|disc|=0.993 <= 1  max_gap=9.0647 <= 9.0647  OK
+primes=[2] rep=1 W=0.6931 zeros(0,400)=44 worst|disc|=0.993 <= 1  max_gap=9.0647 <= 9.0647  OK
+primes=[2] rep=2 W=0.6931 zeros(0,400)=44 worst|disc|=0.993 <= 1  max_gap=9.0647 <= 9.0647  OK
+primes=[2, 3] rep=0 W=1.7918 zeros(0,400)=114 worst|disc|=1.144 <= 2  max_gap=4.9301 <= 7.0134  OK
+primes=[2, 3] rep=1 W=1.7918 zeros(0,400)=114 worst|disc|=1.144 <= 2  max_gap=4.4144 <= 7.0134  OK
+primes=[2, 3] rep=2 W=1.7918 zeros(0,400)=114 worst|disc|=1.144 <= 2  max_gap=4.9511 <= 7.0134  OK
+primes=[2, 3, 5] rep=0 W=3.4012 zeros(0,400)=217 worst|disc|=1.624 <= 3  max_gap=3.3829 <= 5.5420  OK
+primes=[2, 3, 5] rep=1 W=3.4012 zeros(0,400)=217 worst|disc|=1.376 <= 3  max_gap=2.8525 <= 5.5420  OK
+primes=[2, 3, 5] rep=2 W=3.4012 zeros(0,400)=216 worst|disc|=1.624 <= 3  max_gap=3.8350 <= 5.5420  OK
+primes=[2, 2, 3] rep=0 W=2.4849 zeros(0,400)=158 worst|disc|=1.034 <= 3  max_gap=3.0608 <= 7.5856  OK
+primes=[2, 2, 3] rep=1 W=2.4849 zeros(0,400)=159 worst|disc|=1.186 <= 3  max_gap=4.0594 <= 7.5856  OK
+primes=[2, 2, 3] rep=2 W=2.4849 zeros(0,400)=158 worst|disc|=1.605 <= 3  max_gap=4.1612 <= 7.5856  OK
+primes=[2, 3, 5, 7] rep=0 W=5.3471 zeros(0,400)=340 worst|disc|=1.659 <= 4  max_gap=2.3202 <= 4.7002  OK
+primes=[2, 3, 5, 7] rep=1 W=5.3471 zeros(0,400)=340 worst|disc|=1.659 <= 4  max_gap=2.2647 <= 4.7002  OK
+primes=[2, 3, 5, 7] rep=2 W=5.3471 zeros(0,400)=340 worst|disc|=1.659 <= 4  max_gap=2.4446 <= 4.7002  OK
+primes=[2, 2, 2, 5] rep=0 W=3.6889 zeros(0,400)=235 worst|disc|=1.413 <= 4  max_gap=2.8106 <= 6.8131  OK
+primes=[2, 2, 2, 5] rep=1 W=3.6889 zeros(0,400)=235 worst|disc|=1.413 <= 4  max_gap=2.9125 <= 6.8131  OK
+primes=[2, 2, 2, 5] rep=2 W=3.6889 zeros(0,400)=235 worst|disc|=1.555 <= 4  max_gap=2.4442 <= 6.8131  OK
+primes=[3, 5, 7, 11, 13] rep=0 W=9.6168 zeros(0,400)=611 worst|disc|=1.775 <= 5  max_gap=1.4903 <= 3.2668  OK
+primes=[3, 5, 7, 11, 13] rep=1 W=9.6168 zeros(0,400)=613 worst|disc|=1.592 <= 5  max_gap=1.3481 <= 3.2668  OK
+primes=[3, 5, 7, 11, 13] rep=2 W=9.6168 zeros(0,400)=612 worst|disc|=1.675 <= 5  max_gap=1.5093 <= 3.2668  OK
+primes=[2, 3, 5, 7, 11, 13] rep=0 W=10.3100 zeros(0,400)=656 worst|disc|=1.923 <= 6  max_gap=1.4353 <= 3.6566  OK
+primes=[2, 3, 5, 7, 11, 13] rep=1 W=10.3100 zeros(0,400)=656 worst|disc|=1.768 <= 6  max_gap=1.5371 <= 3.6566  OK
+primes=[2, 3, 5, 7, 11, 13] rep=2 W=10.3100 zeros(0,400)=656 worst|disc|=1.696 <= 6  max_gap=1.3769 <= 3.6566  OK
+primes=[2, 2, 3, 3, 5, 7] rep=0 W=7.1389 zeros(0,400)=455 worst|disc|=1.864 <= 6  max_gap=1.9074 <= 5.2808  OK
+primes=[2, 2, 3, 3, 5, 7] rep=1 W=7.1389 zeros(0,400)=454 worst|disc|=1.864 <= 6  max_gap=1.8265 <= 5.2808  OK
+primes=[2, 2, 3, 3, 5, 7] rep=2 W=7.1389 zeros(0,400)=455 worst|disc|=1.774 <= 6  max_gap=1.5884 <= 5.2808  OK
+primes=[29, 31, 37] rep=0 W=10.4122 zeros(0,400)=663 worst|disc|=1.343 <= 3  max_gap=1.0199 <= 1.8103  OK
+primes=[29, 31, 37] rep=1 W=10.4122 zeros(0,400)=663 worst|disc|=1.343 <= 3  max_gap=1.0727 <= 1.8103  OK
+primes=[29, 31, 37] rep=2 W=10.4122 zeros(0,400)=663 worst|disc|=1.029 <= 3  max_gap=0.7736 <= 1.8103  OK
+primes=[2, 3, 5, 7, 11, 13, 17, 19] rep=0 W=16.0876 zeros(0,400)=1024 worst|disc|=1.869 <= 8  max_gap=0.8806 <= 3.1245  OK
+primes=[2, 3, 5, 7, 11, 13, 17, 19] rep=1 W=16.0876 zeros(0,400)=1022 worst|disc|=3.131 <= 8  max_gap=1.0166 <= 3.1245  OK
+primes=[2, 3, 5, 7, 11, 13, 17, 19] rep=2 W=16.0876 zeros(0,400)=1025 worst|disc|=1.681 <= 8  max_gap=0.8918 <= 3.1245  OK
+ALL CHECKS PASS
+
+== Check 2: product-type (seed and aligned) Lee-Yang combinations
+S=[2, 3, 5, 7] kind=seed     sign=+1 W=log P=5.3471 zeros=340 expected~340.4 worst|disc|=1.659 (<= 4) max_gap=2.3544 (<= 4.7002)
+S=[2, 3, 5, 7] kind=seed     sign=-1 W=log P=5.3471 zeros=341 expected~340.4 worst|disc|=1.553 (<= 4) max_gap=1.7263 (<= 4.7002)
+S=[2, 3, 5, 7] kind=aligned  sign=+1 W=log P=5.3471 zeros=340 expected~340.4 worst|disc|=1.553 (<= 4) max_gap=2.3352 (<= 4.7002)
+S=[2, 3, 5, 7] kind=aligned  sign=-1 W=log P=5.3471 zeros=341 expected~340.4 worst|disc|=1.553 (<= 4) max_gap=1.7391 (<= 4.7002)
+S=[2, 3, 5, 7, 11, 13] kind=seed     sign=+1 W=log P=10.3100 zeros=656 expected~656.4 worst|disc|=1.359 (<= 6) max_gap=1.1909 (<= 3.6566)
+S=[2, 3, 5, 7, 11, 13] kind=seed     sign=-1 W=log P=10.3100 zeros=657 expected~656.4 worst|disc|=1.359 (<= 6) max_gap=0.9989 (<= 3.6566)
+S=[2, 3, 5, 7, 11, 13] kind=aligned  sign=+1 W=log P=10.3100 zeros=656 expected~656.4 worst|disc|=1.768 (<= 6) max_gap=1.1258 (<= 3.6566)
+S=[2, 3, 5, 7, 11, 13] kind=aligned  sign=-1 W=log P=10.3100 zeros=657 expected~656.4 worst|disc|=1.359 (<= 6) max_gap=0.9857 (<= 3.6566)
+
+== Check 3: Xi versus the bound
+gamma_1 = 14.1347251417347  gamma_2 = 21.0220396387716
+Xi zero-free interval (-gamma_1, gamma_1) length = 28.2694502835
+max gap allowed for ANY nonconstant prime-variable LY restriction: 2 pi/log 2 = 9.06472028365
+interval length 28.2: every nonconstant restriction has N > |d|*2.110962 >= 2.110962 zeros, i.e. N >= 3
+interval length 28.26944928: every nonconstant restriction has N > |d|*2.1186235 >= 2.1186235 zeros, i.e. N >= 3
+p(z_2) = 1 + z_2: zeros in (-gamma_1, gamma_1): ['-13.5971', '-4.53236', '4.53236', '13.5971']
+p(z_2) = 1 - z_2: zeros in (-gamma_1, gamma_1): ['-9.06472', '0.0', '9.06472']
+elapsed 8.9 s

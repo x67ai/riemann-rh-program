@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/fd0bJUEal8Fyams2dLTNtGAInkU</id>
+  <title>arXiv Query: search_query=abs:Polya AND abs:"Riemann xi" AND abs:zeros&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-09-30T12:47:10Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:Polya+AND+(abs:%22Riemann+xi%22+AND+abs:zeros)&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/0903.4321v2</id>
+    <title>Eigenvalue Density, Li's Positivity, and the Critical Strip</title>
+    <updated>2009-04-22T19:28:11Z</updated>
+    <link href="https://arxiv.org/abs/0903.4321v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0903.4321v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We rewrite the zero-counting formula within the critical strip of the Riemann zeta function as a cumulative density distribution; this subsequently allows us to formally derive an integral expression for the Li coefficients associated with the Riemann xi-function which, in particular, indicate that their positivity criterion is obeyed, whereby entailing the criticality of the non-trivial zeros. We conjecture the validity of this and related expressions without the need for the Riemann Hypothesis and also offer a physical interpretation of the result and discuss the Hilbert-Polya approach.</summary>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-03-25T12:42:09Z</published>
+    <arxiv:comment>LaTeX, 18 pages; subtleties in convergence and branch cut added</arxiv:comment>
+    <arxiv:primary_category term="math-ph"/>
+    <author>
+      <name>Yang-Hui He</name>
+    </author>
+    <author>
+      <name>Vishnu Jejjala</name>
+    </author>
+    <author>
+      <name>Djordje Minic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1004.1172v1</id>
+    <title>On the Physics of the Riemann Zeros</title>
+    <updated>2010-04-07T20:02:25Z</updated>
+    <link href="https://arxiv.org/abs/1004.1172v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1004.1172v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We discuss a formal derivation of an integral expression for the Li coefficients associated with the Riemann xi-function which, in particular, indicates that their positivity criterion is obeyed, whereby entailing the criticality of the non-trivial zeros. We conjecture the validity of this and related expressions without the need for the Riemann Hypothesis and discuss a physical interpretation of this result within the Hilbert-Polya approach.  In this context we also outline a relation between string theory and the Riemann Hypothesis.</summary>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-04-07T20:02:25Z</published>
+    <arxiv:comment>8 pages, LaTeX, Quantum Theory and Symmetries 6 conference proceedings</arxiv:comment>
+    <arxiv:primary_category term="hep-th"/>
+    <author>
+      <name>Yang-Hui He</name>
+    </author>
+    <author>
+      <name>Vishnu Jejjala</name>
+    </author>
+    <author>
+      <name>Djordje Minic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.02653v25</id>
+    <title>On Hilbert's 8th Problem</title>
+    <updated>2026-09-19T16:54:02Z</updated>
+    <link href="https://arxiv.org/abs/1708.02653v25" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.02653v25" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This note takes the probabilistic half of the Riemann Xi story on its own terms. Every object in the subject is a first passage time: Riemann's kernel is the law of the logarithm of a sum of two hitting times of a three dimensional Bessel process, Polya's approximation is the first passage of a Brownian motion with drift, and the reciprocal Xi function, under the Riemann hypothesis, is the Laplace transform of an infinite convolution of exponentials whose rates are the squared zeros. That reciprocal is written as $F_α(s)=ξ(α)/ξ(α+\sqrt s)$, and complete monotonicity, unconditional for $α\ge1$, is conjectured to persist to the critical basepoint $α=1/2$. Kent's eigenvalue expansion says which laws can arise this way, namely those whose Thorin measure is a Dirichlet spectrum with unit atoms, and Krein's inverse spectral theory turns the hypothesis into the existence of a string. The passage from Riemann to Polya is a flow, not a jump: the Cauchy semigroup on Thorin measures, each step an Esscher tilt followed by a Brownian subordination along a curvature family of hyperbolic Bessel processes, with the arithmetic surviving as Fourier modes damped like $e^{-2πk\varepsilon}$. The arithmetic lives in the atoms and nowhere else. Approximations rank by what they keep: Polya keeps neither atoms nor tempering and is off by a factor of three, a fitted Bessel dimension reaches one per cent, and a few atoms with an erfc tempering stay better than one part in a thousand across four decades. And the flow runs backwards: the Thorin measure of the reciprocal is evaluated from a prime sieve with no reference to any zero, and nonnegative deconvolution of it returns the first ten zero ordinates with unit masses, nine of them to four decimals and one to three. All identities are verified with mpmath, and the scripts are included.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-07T12:53:52Z</published>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Nicholas G. Polson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.16795v1</id>
+    <title>An explicit uniform cubic wedge for consecutive Toeplitz minors of the Riemann xi coefficients</title>
+    <updated>2026-07-18T12:23:13Z</updated>
+    <link href="https://arxiv.org/abs/2607.16795v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.16795v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let (a_k) be the positive coefficient sequence of the normalized Riemann xi-function, and let D_{r,k} denote its consecutive Toeplitz minors. The Riemann Hypothesis is equivalent to (a_k) being a Polya frequency sequence of infinite order, and hence to nonnegativity of all Toeplitz minors. We prove that D_{r,k} &gt; 0 for every r &gt;= 2 and k &gt;= 10^18 r^3. This gives an explicit cubic tail scale uniform in r, in contrast with Katkova's fixed-order asymptotic positivity. The proof does not use numerically verified zeros of the Riemann zeta-function. It combines a certified complex saddle-point analysis of the moment transform, an exact q-Pascal dilation semigroup controlling every degree simultaneously, and a weighted Banach-algebra majorant for the nonlinear remainder, closed by an inertia-preservation argument. All analytic constants are certified with directed rounding in Arb ball arithmetic, and all algebraic identities are verified in exact rational arithmetic. The ancillary files reproduce every certificate. The result concerns only the tail regime k much larger than r^3 and makes no progress on the Riemann Hypothesis, which concerns the complementary region.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-18T12:23:13Z</published>
+    <arxiv:comment>15 pages; ancillary files provide reproducible Arb ball-arithmetic certificates, exact-arithmetic verification code, and 36 automated tests</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Wojciech Michalowski</name>
+    </author>
+  </entry>
+</feed>

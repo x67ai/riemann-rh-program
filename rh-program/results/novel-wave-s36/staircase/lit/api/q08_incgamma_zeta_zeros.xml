@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Ol77zGcxNetgQd7nPD8ic49GjzI</id>
+  <title>arXiv Query: search_query=abs:"incomplete gamma" AND abs:zeta AND abs:zeros&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-09-30T12:46:41Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22incomplete+gamma%22+AND+(abs:zeta+AND+abs:zeros)&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1711.08610v2</id>
+    <title>Some identities involving the Cesàro average of Goldbach numbers</title>
+    <updated>2018-02-19T09:35:31Z</updated>
+    <link href="https://arxiv.org/abs/1711.08610v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1711.08610v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $Λ\left(n\right)$ be the von Mangoldt function and $r_{G}\left(n\right) := \sum_{m_1 + m_2=n} Λ\left(m_1 \right) Λ\left(m_2 \right)$ be the counting function for the numbers that can be written as sum of two primes (that we will call "Goldbach numbers", for brevity) and let $\widetilde{S }\left(z\right) := \sum_{n\geq1} Λ\left(n\right) e^{-nz}$, with $z\in\mathbb{C}$, $\mathrm{Re}\left(z\right)&gt;0$. In this paper we will prove the identity $$\widetilde{S}\left(z\right) = \frac{e^{-2z}}{z}-\sum_ρz^{-ρ} Γ\left(ρ\right) + \sum_ρ \left(z^{-ρ} γ\left(ρ,2z\right) - \frac{2^ρe^{-z}}ρ \right) + G\left(z\right)$$ where $γ\left(ρ,2z\right)$ is the lower incomplete Gamma function, $ρ=β+iγ$ runs over the non-trivial zeros of the Riemann Zeta function and $G\left(z\right)$ is a sum of (explicitly calculate) elementary function and complex Exponential integrals. In addition we will prove that \begin{align*} \sum_{n\leq N} r_G \left(n\right) \left(N-n\right) = &amp; \frac{N^{3}}{6} - 2\sum_ρ\frac{\left(N-2\right)^{ρ+2}}{ρ\left(ρ+ 1\right)\left(ρ+2\right)} + &amp; \sum_{ρ_1} \sum_{ρ_2} \frac{Γ\left(ρ_{1}\right) Γ\left(ρ_{2}\right)} {Γ\left(ρ_{1} + ρ_{2}+ 2\right)} N^{ρ_1 + ρ_2+1} + F\left(N\right) \end{align*} where $N&gt;4$ is a natural number and $F\left(N\right)$ is a sum of (explicitly calculate) elementary functions, dilogarithms and sums over non-trivial zeros of the Riemann Zeta function involving the incomplete Beta function.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-11-23T08:28:22Z</published>
+    <arxiv:comment>Submitted. Added some comments</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Marco Cantarini</name>
+    </author>
+  </entry>
+</feed>

@@ -1,4 +1,66 @@
-[retry 1] HTTP Error 400: Bad Request
-[retry 2] HTTP Error 400: Bad Request
-[retry 3] HTTP Error 400: Bad Request
-[retry 4] HTTP Error 400: Bad Request
+[retry 1] HTTP Error 429: Unknown Error
+QUERY all:"Lee-Yang" AND all:zeta
+URL https://export.arxiv.org/api/query?search_query=all:%22Lee-Yang%22+AND+all:zeta&start=0&max_results=20&sortBy=relevance&sortOrder=descending
+totalResults=4
+0008198v1 | 2000-08-25 | Lee-Yang edge singularity in the three-dimensional Gross-Neveu model at finite temperature | A. C. Petkou, G. Siopsis
+1410.1214v3 | 2014-10-05 | Will a physicist prove the Riemann Hypothesis? | Marek Wolf
+2304.02200v6 | 2023-04-05 | Zeta-polynomials, superpolynomials, DAHA and plane curve singularities | Ivan Cherednik
+1511.02291v7 | 2015-11-07 | An Invariant Between Hyperbolic Surfaces and Lattice Spin Models | William Chuang
+QUERY all:"Fourier quasicrystal" AND (all:zeta OR all:Riemann)
+URL https://export.arxiv.org/api/query?search_query=all:%22Fourier+quasicrystal%22+AND+%28all:zeta+OR+all:Riemann%29&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+QUERY ti:"finite Euler products"
+URL https://export.arxiv.org/api/query?search_query=ti:%22finite+Euler+products%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=2
+0704.3448v1 | 2007-04-26 | Finite Euler products and the Riemann Hypothesis | S. M. Gonek
+1204.4043v1 | 2012-04-18 | Behaviors of multivariable finite Euler products in probabilistic view | Takahiro Aoyama, Takashi Nakamura
+
+QUERY all:"crystalline measure" AND all:zeta
+URL https://export.arxiv.org/api/query?search_query=all:%22crystalline+measure%22+AND+all:zeta&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+QUERY all:Hamburger AND all:"functional equation" AND (all:zeta OR all:Dirichlet)
+URL https://export.arxiv.org/api/query?search_query=all:Hamburger+AND+all:%22functional+equation%22+AND+%28all:zeta+OR+all:Dirichlet%29&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=4
+1712.05169v12 | 2017-12-14 | Zeros and the functional equation of the quadrilateral zeta function | Takashi Nakamura
+1910.09837v4 | 2019-10-22 | Functional equation and zeros on the critical line of the quadrilateral zeta function | Takashi Nakamura
+1106.4749v2 | 2011-06-23 | Deux extensions de Théorèmes de Hamburger | Jean-François Burnol
+2008.02570v4 | 2020-08-06 | Dirichlet series with periodic coefficients, Riemann's functional equation and real zeros of Dirichlet $L$-functions | Takashi Nakamura
+
+QUERY all:"Lee-Yang polynomial"
+URL https://export.arxiv.org/api/query?search_query=all:%22Lee-Yang+polynomial%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=6
+2303.03201v3 | 2023-03-06 | Every real-rooted exponential polynomial is the restriction of a Lee-Yang polynomial | Lior Alon, Alex Cohen, Cynthia Vinzant
+0811.1327v1 | 2008-11-09 | Characterization of Lee-Yang polynomials | David Ruelle
+2507.16029v3 | 2025-07-21 | Periodic Hypersurfaces and Lee-Yang Polynomials | Lior Alon, Mario Kummer
+2307.13498v2 | 2023-07-25 | Gap distributions of Fourier quasicrystals via Lee-Yang polynomials | Lior Alon, Cynthia Vinzant
+1911.00043v2 | 2019-10-31 | Radius of convergence in lattice QCD at finite $μ_B$ with rooted staggered fermions | Matteo Giordano, Kornel Kapas, Sandor D. Katz, Daniel Nogradi, Attila Pasztor
+2407.11184v1 | 2024-07-15 | Higher Dimensional Fourier Quasicrystals from Lee-Yang Varieties | Lior Alon, Mario Kummer, Pavel Kurasov, Cynthia Vinzant
+
+QUERY all:"stable polynomial" AND all:"Dirichlet series"
+URL https://export.arxiv.org/api/query?search_query=all:%22stable+polynomial%22+AND+all:%22Dirichlet+series%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+QUERY all:"Fourier quasicrystal" AND all:"almost periodic"
+URL https://export.arxiv.org/api/query?search_query=all:%22Fourier+quasicrystal%22+AND+all:%22almost+periodic%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=9
+2211.16856v2 | 2022-11-30 | Almost periodic distributions and crystalline measures | Sergii Favorov
+2605.23884v1 | 2026-05-22 | On almost periodicity in crystalline measures | Jan Mazáč, Christoph Richard, Nicolae Strungaru
+2308.07585v1 | 2023-08-15 | Generalized Fourier quasicrystals and almost periodic sets | Sergii Favorov
+2407.11184v1 | 2024-07-15 | Higher Dimensional Fourier Quasicrystals from Lee-Yang Varieties | Lior Alon, Mario Kummer, Pavel Kurasov, Cynthia Vinzant
+2311.02728v1 | 2023-11-05 | Generalized Fourier quasicrystals, almost periodic sets, and zeros of Dirichlet series | Serhii Favorov
+2107.10611v1 | 2021-07-22 | Bohr Almost Periodic Sets of Toral Type | Wayne M. Lawton
+1701.06211v1 | 2017-01-22 | Large Fourier Quasicrystals and Wiener's Theorem | Sergey Favorov
+2106.07073v3 | 2021-06-13 | Temperate distributions with locally finite support and spectrum on Euclidean spaces | Serhii Favorov
+2203.06733v1 | 2022-03-13 | Fourier quasicrystals and distributions on Euclidean spaces with spectrum of bounded density | Sergii Favorov
+
+QUERY all:"real zeros" AND all:"Dirichlet polynomial" AND all:"functional equation"
+URL https://export.arxiv.org/api/query?search_query=all:%22real+zeros%22+AND+all:%22Dirichlet+polynomial%22+AND+all:%22functional+equation%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+QUERY all:"Euler product" AND all:"Hermite-Biehler"
+URL https://export.arxiv.org/api/query?search_query=all:%22Euler+product%22+AND+all:%22Hermite-Biehler%22&start=0&max_results=25&sortBy=relevance&sortOrder=descending
+totalResults=0
+
+[retry 1] HTTP Error 429: Unknown Error

@@ -91,13 +91,16 @@ def total_count(E, smax, T, dmax=0.5):
 
 
 def branch_curve(C, w, N, T, cN, t_lo):
-    """sigma_c(t): |Gamma-part| = cN on Re s > 1/2, for t in [t_lo, T] (None where Gamma-part > cN at the line)."""
+    """sigma_c(t): |Gamma-part| = level on Re s > 1/2, for t in [t_lo, T] (None where Gamma-part > level at the line).
+    cN is a constant level (even-type chains: the limit c_N of E_N on the line) or a callable level(s)
+    (odd-type chains: |K_N|/|s|^2, K_N = lim t^2 E_N(1/2+it))."""
     out = []
     t = t_lo
     while t <= T:
         def L(sig):
             s = mp.mpc(sig, t)
-            return mp.log(abs(gamma_part(C, s, w, N))) - mp.log(cN)
+            lev = cN(s) if callable(cN) else cN
+            return mp.log(abs(gamma_part(C, s, w, N))) - mp.log(lev)
         if L(mp.mpf(1)/2) > 0:
             out.append((t, None))
         else:
@@ -191,8 +194,14 @@ if __name__ == '__main__':
     if C.kind == 'zeta':
         cN = st.c_N(N) if chain_name == 'zeta' else mp.fsum((4*mp.pi*n*n - 1)*mp.exp(-mp.pi*n*n)
                                                               for n in range(2, 400) if w(n) == 0)
+    elif C.kind == 'Faq':
+        cN = mp.fsum(C.coeff(k)*(4*mp.pi*k*k/C.Q - 1)*mp.exp(-mp.pi*k*k/C.Q) for k in range(N + 1, N + 80))
     else:
-        cN = None
+        tbig = mp.mpf(3000)
+        KN = tbig**2 * E(mp.mpc(mp.mpf(1)/2, tbig)).real
+        rep['K_N_estimate'] = mp.nstr(KN, 12)
+        cN = (lambda s, KN=KN: abs(KN)/abs(s*(1 - s)))
+    rep['level_constant'] = mp.nstr(cN, 15) if not callable(cN) else 'K_N/|s(1-s)|'
     curve = []
     smax = smax_arg
     if cN is not None:

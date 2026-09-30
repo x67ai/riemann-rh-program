@@ -5,7 +5,7 @@ retrying once a minute on network failure (up to 30 tries).  Saves every raw
 Atom response under ../sources/arxiv-queries/ and prints id | date | title | authors.
 Usage: python3 arxiv_search.py "<search_query>" [max_results]
 """
-import sys, time, os, re, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+import sys, time, os, re, urllib.request, urllib.parse, urllib.error, xml.etree.ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'sources', 'arxiv-queries')
@@ -14,12 +14,18 @@ NS = {'a': 'http://www.w3.org/2005/Atom'}
 
 
 def fetch(q, n):
-    url = ('https://export.arxiv.org/api/query?search_query=' + urllib.parse.quote(q, safe=':()"')
+    # arXiv wants spaces as '+', quotes as %22, parentheses as %28/%29
+    url = ('https://export.arxiv.org/api/query?search_query=' + urllib.parse.quote_plus(q, safe=':')
            + f'&start=0&max_results={n}&sortBy=relevance&sortOrder=descending')
     for attempt in range(30):
         try:
             with urllib.request.urlopen(url, timeout=60) as r:
                 return r.read().decode('utf-8'), url
+        except urllib.error.HTTPError as e:
+            if 400 <= e.code < 500 and e.code != 429:
+                raise SystemExit(f'HTTP {e.code} for {url} (query malformed, not a network failure)')
+            print(f'[retry {attempt+1}] {e}', file=sys.stderr)
+            time.sleep(60)
         except Exception as e:  # network failure: wait a minute and retry
             print(f'[retry {attempt+1}] {e}', file=sys.stderr)
             time.sleep(60)
