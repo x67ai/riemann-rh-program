@@ -109,12 +109,15 @@ route with their intervals and "overlap True ; same strict sign". `logs/crossche
 is kept for the record only: its X2 part ran at 1400 bits, where one method's boxes are useless, and
 is void (see `producer-B/SHARED.md`); its X3 values equal the valid run's.
 
-**About `producer-B/logs/ladder.log`.** `ladder.py` rewrites this file on every run. The file in the
-archive is the output of the independent re-run of 2026-09-30 23:48 (it equals
-`rerun-F/B-ladder-rerun.log` except for a final "exit 0" line added by the re-run harness), so its
-SHA-256 differs from the one recorded for `logs/ladder.log` in `producer-B/SHARED.md` (final block).
-Every value in it equals the values in `producer-B/CERT.md` §C. All other hashes recorded by both
-certificates match the files here.
+**About `producer-B/logs/ladder.log`.** `ladder.py` rewrites this file on every run, and the
+orchestrator's independent re-run of 2026-09-30 23:48 overwrote certificate B's original log in the
+working folder. The file in this archive is certificate B's ORIGINAL log, restored on 2026-10-01 from
+the repository's history (commit 1c14fec, the 23:39 auto-commit); its SHA-256
+ee71d58d24b062ae448a59918bb9cf086350a6c28df41fa4a39822f117a7c8a1 is the one recorded for
+`logs/ladder.log` in `producer-B/SHARED.md` (final block). The re-run's output is kept separately as
+`rerun-F/B-ladder-rerun.log`; the two differ only in two timing figures (43.1 s vs 42.9 s; 45.6 s vs
+45.5 s) and the re-run harness's final "exit 0" line, and every value equals `producer-B/CERT.md` §C.
+All hashes recorded by both certificates now match the files here.
 
 ## Reproduction record
 
