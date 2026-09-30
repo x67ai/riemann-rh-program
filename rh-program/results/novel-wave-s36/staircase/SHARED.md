@@ -138,3 +138,9 @@ Method: real zeros by sign changes (step 0.02, relative-tolerance bracketing); t
 ## 2026-09-30 22:01 IST — unit 21: Haglund's table entry N = 4 corrected (verify/census_haglund_N4_T200.json)
 
 - Complete census of Haglund's Ξ₄ in 0 < Im s ≤ 200: 89 zeros, **31 real** (largest 103.3679880094135 — his printed "103.3679880094"), 29 off-line pairs, complete, ordering holds; lowest off-line 1.857085470024450648892 + 105.8450089727982409976 i. His table (p. 4) prints 32 real zeros: the count is 31, odd as Theorem D′ requires (one real zero in the central lobe, pairs in positive lobes). Erratum confirmed.
+
+## 2026-09-30 22:12 IST — unit 22: Taylor–Lagarias chain; runner stopped; resume point
+
+- Taylor–Lagarias chain F_h = X(s+h) + X(s−h) (verify/taylor_chain.{json}, run_taylor_chain.log), box [−½, 3/2] × [80.3, 91.7]: ζ — real-rooted in the window for every h ∈ {0 … 1}, grid HB margin ≈ 0.156h; DH — one off-line pair for h ≤ 0.28, all real for h ≥ 0.30 (grid HB margins −0.709 at h = 0.1, −0.779 at 0.2, +0.113 at 0.30 (the grid misses the thin failure region near Re s = ½ + (δ − h) = 0.5085), +0.183 at 0.5). Real-rootedness threshold h* ∈ (0.28, 0.30] vs the HB/zero-free-region threshold δ = 0.3085: marginally weaker, same content.
+- **Runner stopped at 22:12 IST** (no process of this seed is left running). Unrun jobs, in order, are in verify/jobs.txt: dense Haglund scan N = 31–39 (lobe_scan2.py, 3 chunks), Haglund census N = 1–3, 5, 6, DH N = 8, 11, rigor R1 R4 (already certified interactively; the re-run only writes rigor_xi1_R1_R4.json) and rigor R2 in three chunks (exact real-zero count of ξ₁ on (0, 30]). To resume: `cd verify && nohup ./runner.sh &` (it pops jobs.txt one at a time; outputs run_<job>.log plus each script's JSON).
+- NOTE.md is final for this session (verdict K; Z₁–Z₄).
